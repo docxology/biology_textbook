@@ -12,7 +12,7 @@ Work here uses the same patterns as active template projects: thin orchestrators
 
 Introductory biology textbook content is driven by **`manuscript/config.yaml`**: unit ordering, chapter files, front matter, appendices (labs and question banks), and render metadata. Nine domain subpackages under `src/biology/` implement quantitative models. Mermaid diagrams are generated via `src/mermaid/`; use `scripts/generate_diagrams.py --strict-png` for publication gates so `.mmd` fallbacks are rejected. Matplotlib figures are defined in **`src/visualization/plots.py`** and registered in `ALL_FIGURE_GENERATORS`.
 
-Canonical chapter counts and filenames are **only** in `config.yaml` (currently Unit 0 plus Units I–X, **38 core chapter files**, 38 paper-based labs, and 38 question banks of 30 questions each). All 38 chapters carry:
+Canonical chapter counts and filenames are **only** in `config.yaml` (currently Unit 0 plus Units I–X, **39 core chapter files**, 39 paper-based labs, and 39 question banks of 30 questions each). All 39 chapters carry:
 
 - `\label{sec:unit_X_<stem>}` immediately after the H1 title (for `\cref{}` cross-referencing)
 - A `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites
@@ -157,8 +157,8 @@ biology_textbook/
 │   ├── config.yaml            # single source of truth for order and units
 │   ├── front_matter.md, preface.md, preamble.md, glossary.md, references.bib
 │   ├── unit_0/ … unit_X/
-│   ├── labs/                  # 38 labs across 11 unit_*/ subdirs
-│   └── questions/             # 38 question banks across 11 unit_*/ subdirs
+│   ├── labs/                  # 39 labs across 11 unit_*/ subdirs
+│   └── questions/             # 39 question banks across 11 unit_*/ subdirs
 ├── docs/                      # architecture, pipeline, testing, API, accessibility, pedagogy
 └── output/                    # generated (disposable)
 ```

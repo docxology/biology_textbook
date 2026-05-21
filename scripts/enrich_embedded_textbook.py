@@ -1353,7 +1353,7 @@ def write_audit_matrix(records: list[ChapterRecord], dry_run: bool) -> int:
             "",
             "## Review Defaults",
             "",
-            "- Preserve 38 chapters, 38 labs, and 38 question banks.",
+            "- Preserve 39 chapters, 39 labs, and 39 question banks.",
             "- Add embedded improvements only; do not add new renderable chapter surfaces.",
             "- Cite or qualify recent and numeric claims.",
             "- Keep required labs paper-based; optional material extensions stay clearly optional.",

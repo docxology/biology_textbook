@@ -30,7 +30,7 @@ def _manuscript_markdown_files() -> list[Path]:
 
 
 def test_every_chapter_has_section_label() -> None:
-    """All 38 chapter files must declare ``\\label{sec:unit_…_…}``."""
+    """All 39 chapter files must declare ``\\label{sec:unit_…_…}``."""
     missing: list[Path] = []
     for unit_dir in sorted(MANUSCRIPT.glob("unit_*")):
         for ch in sorted(unit_dir.glob("*.md")):

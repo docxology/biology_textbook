@@ -2,7 +2,7 @@
 
 ## Role
 
-Paper-based laboratory activities that accompany the textbook, one lab per chapter. **38 labs** total, organised into 11 unit subdirectories (`unit_0/` through `unit_X/`). Labs are rendered as an appendix after the core chapters when `appendices.include_labs: true` in `manuscript/config.yaml`.
+Paper-based laboratory activities that accompany the textbook, one lab per chapter. **39 labs** total, organised into 11 unit subdirectories (`unit_0/` through `unit_X/`). Labs are rendered as an appendix after the core chapters when `appendices.include_labs: true` in `manuscript/config.yaml`.
 
 ## File Names and Mapping
 

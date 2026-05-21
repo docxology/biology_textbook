@@ -178,16 +178,17 @@ def test_toc_exposes_canonical_chapter_labels_by_number() -> None:
     assert book_toc.chapters_by_number[2].title == "Water — The Molecule of Life"
     assert book_toc.chapters_by_number[2].section_label == "sec:unit_I_water_and_life"
     assert book_toc.chapters_by_companion_number["0.1"].section_label == "sec:unit_0_systems_science"
-    assert set(book_toc.chapters_by_companion_number).issuperset({"0.1", "0.2", "0.3"})
-    assert "0.4" not in book_toc.chapters_by_companion_number
+    assert book_toc.chapters_by_companion_number["0.4"].section_label == "sec:unit_0_history_philosophy_biology"
+    assert set(book_toc.chapters_by_companion_number).issuperset({"0.1", "0.2", "0.3", "0.4"})
 
 
 def test_unit_zero_display_numbers_do_not_shift_main_chapters() -> None:
     book_toc = load_toc(PROJECT)
-    display_numbers = {chapter.chapter_id: chapter.companion_number for chapter in book_toc.chapters}
+    display_numbers = {chapter.chapter_id: chapter.display_number for chapter in book_toc.chapters}
     assert display_numbers["unit_0_systems_science"] == "0.1"
     assert display_numbers["unit_0_complex_adaptive_systems"] == "0.2"
     assert display_numbers["unit_0_active_inference"] == "0.3"
+    assert display_numbers["unit_0_history_philosophy_biology"] == "0.4"
     assert display_numbers["unit_I_atoms_molecules"] == "1"
 
 

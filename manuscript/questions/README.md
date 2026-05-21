@@ -1,6 +1,6 @@
 # Question Banks
 
-This directory contains **38 comprehensive question banks** — one per textbook chapter (including the three Unit 0 orientation chapters) — with **30 questions each**, ordered from simplest recall to most sophisticated synthesis and evaluation.
+This directory contains **39 comprehensive question banks** — one per textbook chapter (including the four Unit 0 orientation chapters) — with **30 questions each**, ordered from simplest recall to most sophisticated synthesis and evaluation.
 
 ## File Naming Convention
 

@@ -40,7 +40,7 @@ SOLUTION`` block directly following it is left alone.
 Scaffolding vs. hand-curated answers
 ------------------------------------
 
-Real, pedagogically-rich answers for all 1140 questions (38 banks × 30)
+Real, pedagogically-rich answers for all 1170 questions (39 banks × 30)
 exceed a single editing session. This script inserts a **scaffold** for
 every question that does not yet have one, annotated with the topic
 cluster the answer should cover. The scaffold tells an instructor (or a

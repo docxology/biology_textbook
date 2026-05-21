@@ -11,7 +11,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit 0 {.unnumbered}
 
-### Systems Science and the Logic of Emergence {.unnumbered}
+### — Systems Science and the Logic of Emergence {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_0_systems_science}.
 - **Lab:** \cref{sec:lab_unit_0_systems_science}.
@@ -24,7 +24,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** A system is not just a list of parts; the interactions are part of the explanation.
 - **Transfer task:** Apply the same feedback map to a cell, organism, and ecosystem, then name what changes at each scale.
 
-### Complex Adaptive Systems {.unnumbered}
+### — Complex Adaptive Systems {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_0_complex_adaptive_systems}.
 - **Lab:** \cref{sec:lab_unit_0_complex_adaptive_systems}.
@@ -37,7 +37,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Emergence is not mysterious; it is a reproducible consequence of interactions plus constraints.
 - **Transfer task:** Compare flocking, immune activation, and microbial biofilms as adaptive systems.
 
-### Active Inference and the Free Energy Principle {.unnumbered}
+### — Active Inference and the Free Energy Principle {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_0_active_inference}.
 - **Lab:** \cref{sec:lab_unit_0_active_inference}.
@@ -50,10 +50,23 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Active inference is not passive prediction; action changes the sensory data that arrive next.
 - **Transfer task:** Map prediction-error reasoning onto chemotaxis, thermoregulation, and attention.
 
+### — History and Philosophy of Biology {.unnumbered}
+
+- **Chapter:** \cref{sec:unit_0_history_philosophy_biology}.
+- **Lab:** \cref{sec:lab_unit_0_history_philosophy_biology}.
+- **Question bank:** \cref{sec:q_unit_0_history_philosophy_biology}.
+- **Big idea:** Biology is a changing evidence practice: its concepts of life, function, species, inheritance, and self are revised by new observations, instruments, models, and social values.
+- **Core concepts:** biological explanation, historical evidence, function, species concepts, values in science.
+- **Framework alignment:** Vision & Change: Systems, Structure and function; AP Biology: Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
+- **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
+- **Model/data skill:** Concept-map and evidence-matrix comparisons among historical claims, mechanisms, and model assumptions. Classify source excerpts as observation, experiment, model, mechanism, or value-laden inference.
+- **Misconception probe:** History is not a list of dates; it explains why current biological concepts are powerful, limited, and revisable.
+- **Transfer task:** Transfer source-analysis reasoning to modern debates about species, genetics, microbiomes, and biomedical ethics.
+
 
 ## Unit I {.unnumbered}
 
-### Atoms, Molecules, and Chemical Bonds {.unnumbered}
+### — Atoms, Molecules, and Chemical Bonds {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_I_atoms_molecules}.
 - **Lab:** \cref{sec:lab_unit_I_atoms_molecules}.
@@ -66,7 +79,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Weak interactions are not unimportant; many weak interactions together dominate structure and specificity.
 - **Transfer task:** Use atomic reasoning to explain a medical tracer, enzyme cofactor, or membrane-solubility problem.
 
-### Water — The Molecule of Life {.unnumbered}
+### — Water — The Molecule of Life {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_I_water_and_life}.
 - **Lab:** \cref{sec:lab_unit_I_water_and_life}.
@@ -79,7 +92,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Water is not an inert background; it is an active participant in structure and reaction chemistry.
 - **Transfer task:** Transfer water-property reasoning to blood buffering, plant transport, or protein folding.
 
-### Biological Macromolecules {.unnumbered}
+### — Biological Macromolecules {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_I_macromolecules}.
 - **Lab:** \cref{sec:lab_unit_I_macromolecules}.
@@ -92,7 +105,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Structure is not decoration; small chemical changes can redirect function and recognition.
 - **Transfer task:** Explain how a mutation, lipid substitution, or glycosylation change propagates to phenotype.
 
-### Enzymes and the Kinetics of Catalysis {.unnumbered}
+### — Enzymes and the Kinetics of Catalysis {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_I_enzymes_and_kinetics}.
 - **Lab:** \cref{sec:lab_unit_I_enzymes_and_kinetics}.
@@ -108,7 +121,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit II {.unnumbered}
 
-### Cell Theory and Cell Types {.unnumbered}
+### — Cell Theory and Cell Types {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_II_cell_theory}.
 - **Lab:** \cref{sec:lab_unit_II_cell_theory}.
@@ -121,7 +134,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Cells are not just small bags of fluid; boundaries and internal organization create function.
 - **Transfer task:** Transfer scale reasoning to eggs, neurons, root hairs, and microbial colonies.
 
-### Cell Structure and Organelles {.unnumbered}
+### — Cell Structure and Organelles {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_II_cell_structure}.
 - **Lab:** \cref{sec:lab_unit_II_cell_structure}.
@@ -134,7 +147,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Organelles are dynamic process hubs, not static textbook icons.
 - **Transfer task:** Apply compartment logic to secretion, apoptosis, infection, or cell division.
 
-### Membrane Structure and Transport {.unnumbered}
+### — Membrane Structure and Transport {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_II_membrane_transport}.
 - **Lab:** \cref{sec:lab_unit_II_membrane_transport}.
@@ -147,7 +160,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Equilibrium does not mean equal concentration; charge and permeability matter.
 - **Transfer task:** Transfer gradient logic to neurons, kidneys, roots, and mitochondrial membranes.
 
-### Cell Signalling and Communication {.unnumbered}
+### — Cell Signalling and Communication {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_II_cell_signaling}.
 - **Lab:** \cref{sec:lab_unit_II_cell_signaling}.
@@ -163,7 +176,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit III {.unnumbered}
 
-### Bioenergetics and Cellular Respiration {.unnumbered}
+### — Bioenergetics and Cellular Respiration {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_III_bioenergetics_and_respiration}.
 - **Lab:** \cref{sec:lab_unit_III_bioenergetics_and_respiration}.
@@ -176,7 +189,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** ATP is not stored energy in a vague sense; it is a coupling currency with defined reaction chemistry.
 - **Transfer task:** Transfer energy accounting to exercise, fermentation, hypoxia, and mitochondrial disease.
 
-### Photosynthesis {.unnumbered}
+### — Photosynthesis {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_III_photosynthesis}.
 - **Lab:** \cref{sec:lab_unit_III_photosynthesis}.
@@ -189,7 +202,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Plants do not eat sunlight; they use light energy to reduce carbon using electrons and enzymes.
 - **Transfer task:** Transfer photosynthetic constraints to crops, algae, climate, or ecosystem productivity.
 
-### Metabolic Integration and Regulation {.unnumbered}
+### — Metabolic Integration and Regulation {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_III_metabolic_integration}.
 - **Lab:** \cref{sec:lab_unit_III_metabolic_integration}.
@@ -205,7 +218,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit IV {.unnumbered}
 
-### DNA Replication and the Cell Cycle {.unnumbered}
+### — DNA Replication and the Cell Cycle {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
 - **Lab:** \cref{sec:lab_unit_IV_dna_replication_and_cell_cycle}.
@@ -218,7 +231,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** High fidelity is not automatic; it is built from multiple partially redundant safeguards.
 - **Transfer task:** Transfer replication logic to cancer, aging, viral replication, or antibiotic targets.
 
-### Gene Expression — Transcription and Translation {.unnumbered}
+### — Gene Expression — Transcription and Translation {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IV_gene_expression}.
 - **Lab:** \cref{sec:lab_unit_IV_gene_expression}.
@@ -231,7 +244,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** A gene is not simply a protein recipe; context controls when, where, and how much product appears.
 - **Transfer task:** Apply expression logic to mutations, biotechnology, development, and disease diagnostics.
 
-### Mutations, CRISPR, and Genomics {.unnumbered}
+### — Mutations, CRISPR, and Genomics {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IV_mutations_and_genomics}.
 - **Lab:** \cref{sec:lab_unit_IV_mutations_and_genomics}.
@@ -244,7 +257,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Not every mutation is harmful, and not every harmful mutation changes a protein sequence.
 - **Transfer task:** Transfer variant reasoning to cancer genomics, ancestry, gene therapy, or microbial evolution.
 
-### Epigenetics and Gene Regulation {.unnumbered}
+### — Epigenetics and Gene Regulation {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IV_epigenetics_and_gene_regulation}.
 - **Lab:** \cref{sec:lab_unit_IV_epigenetics_and_gene_regulation}.
@@ -260,7 +273,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit V {.unnumbered}
 
-### Mendelian Genetics and Heredity {.unnumbered}
+### — Mendelian Genetics and Heredity {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_V_mendelian_genetics}.
 - **Lab:** \cref{sec:lab_unit_V_mendelian_genetics}.
@@ -273,7 +286,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Dominant does not mean common, stronger, or better.
 - **Transfer task:** Transfer inheritance reasoning to counseling, breeding, model organisms, and risk prediction.
 
-### Chromosomal Inheritance and Linkage {.unnumbered}
+### — Chromosomal Inheritance and Linkage {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_V_chromosomal_inheritance}.
 - **Lab:** \cref{sec:lab_unit_V_chromosomal_inheritance}.
@@ -286,7 +299,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Independent assortment applies to unlinked loci, not to every pair of genes.
 - **Transfer task:** Transfer linkage reasoning to disease mapping, breeding, and genome assemblies.
 
-### Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
+### — Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_V_population_genetics}.
 - **Lab:** \cref{sec:lab_unit_V_population_genetics}.
@@ -302,7 +315,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit VI {.unnumbered}
 
-### Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
+### — Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VI_evolution_and_selection}.
 - **Lab:** \cref{sec:lab_unit_VI_evolution_and_selection}.
@@ -315,7 +328,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Evolution is not goal-directed progress; it is local change in populations under constraints.
 - **Transfer task:** Transfer selection reasoning to antibiotics, pesticide resistance, cancer, or climate adaptation.
 
-### Genetic Drift, Gene Flow, and Speciation {.unnumbered}
+### — Genetic Drift, Gene Flow, and Speciation {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VI_genetic_drift_and_speciation}.
 - **Lab:** \cref{sec:lab_unit_VI_genetic_drift_and_speciation}.
@@ -328,7 +341,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Random does not mean patternless; stochastic processes have predictable distributions.
 - **Transfer task:** Apply drift reasoning to endangered populations, founder effects, and island radiations.
 
-### Phylogenetics and the Tree of Life {.unnumbered}
+### — Phylogenetics and the Tree of Life {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VI_phylogenetics}.
 - **Lab:** \cref{sec:lab_unit_VI_phylogenetics}.
@@ -344,7 +357,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit VII {.unnumbered}
 
-### Bacteria, Archaea, and Viruses {.unnumbered}
+### — Bacteria, Archaea, and Viruses {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VII_bacteria_archaea_viruses}.
 - **Lab:** \cref{sec:lab_unit_VII_bacteria_archaea_viruses}.
@@ -357,7 +370,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Viruses are not simply tiny bacteria; they use fundamentally different replication logic.
 - **Transfer task:** Apply microbial diversity reasoning to antibiotics, biotechnology, ecology, and outbreaks.
 
-### Microbial Ecology and the Microbiome {.unnumbered}
+### — Microbial Ecology and the Microbiome {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VII_microbial_ecology}.
 - **Lab:** \cref{sec:lab_unit_VII_microbial_ecology}.
@@ -370,7 +383,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** A microbiome is not automatically beneficial; context determines the effect.
 - **Transfer task:** Transfer microbial ecology to soils, oceans, digestion, disease, and climate feedbacks.
 
-### Infectious Disease and Immunity {.unnumbered}
+### — Infectious Disease and Immunity {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VII_infectious_disease}.
 - **Lab:** \cref{sec:lab_unit_VII_infectious_disease}.
@@ -386,7 +399,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit VIII {.unnumbered}
 
-### Plant Structure, Water Relations, and Transport {.unnumbered}
+### — Plant Structure, Water Relations, and Transport {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VIII_plant_structure_and_water}.
 - **Lab:** \cref{sec:lab_unit_VIII_plant_structure_and_water}.
@@ -399,7 +412,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Water does not move because plants pull with intention; it follows potential gradients and cohesion.
 - **Transfer task:** Transfer plant-water reasoning to drought, irrigation, forest physiology, and crop breeding.
 
-### Plant Reproduction and Development {.unnumbered}
+### — Plant Reproduction and Development {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VIII_plant_reproduction}.
 - **Lab:** \cref{sec:lab_unit_VIII_plant_reproduction}.
@@ -412,7 +425,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Pollen, spores, seeds, and gametes are not interchangeable terms.
 - **Transfer task:** Transfer reproductive reasoning to agriculture, pollination ecology, and plant evolution.
 
-### Plant Responses to the Environment {.unnumbered}
+### — Plant Responses to the Environment {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VIII_plant_responses}.
 - **Lab:** \cref{sec:lab_unit_VIII_plant_responses}.
@@ -428,7 +441,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit IX {.unnumbered}
 
-### Circulation, Respiration, and Homeostasis {.unnumbered}
+### — Circulation, Respiration, and Homeostasis {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IX_circulation_respiration_homeostasis}.
 - **Lab:** \cref{sec:lab_unit_IX_circulation_respiration_homeostasis}.
@@ -441,7 +454,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Homeostasis is dynamic regulation, not an unchanging internal state.
 - **Transfer task:** Transfer homeostatic reasoning to exercise, altitude, hemorrhage, fever, and shock.
 
-### Nervous System and Neural Signalling {.unnumbered}
+### — Nervous System and Neural Signalling {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IX_nervous_system}.
 - **Lab:** \cref{sec:lab_unit_IX_nervous_system}.
@@ -454,7 +467,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** The brain is not only neurons; glia and circuit context are essential to function.
 - **Transfer task:** Transfer circuit reasoning to reflexes, sensory systems, learning, and disease.
 
-### Action Potentials and Synaptic Transmission {.unnumbered}
+### — Action Potentials and Synaptic Transmission {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IX_action_potential_synapses}.
 - **Lab:** \cref{sec:lab_unit_IX_action_potential_synapses}.
@@ -467,7 +480,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** An action potential is not electricity flowing like a wire; it is regenerated ion-channel dynamics.
 - **Transfer task:** Transfer excitability reasoning to anesthesia, toxins, epilepsy, and neuromuscular disease.
 
-### Endocrine and Immune Systems {.unnumbered}
+### — Endocrine and Immune Systems {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IX_endocrine_and_immune}.
 - **Lab:** \cref{sec:lab_unit_IX_endocrine_and_immune}.
@@ -483,7 +496,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit X {.unnumbered}
 
-### Population Ecology and Growth Models {.unnumbered}
+### — Population Ecology and Growth Models {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_X_population_ecology}.
 - **Lab:** \cref{sec:lab_unit_X_population_ecology}.
@@ -496,7 +509,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Carrying capacity is not a fixed magic number; it changes with resources, interactions, and disturbance.
 - **Transfer task:** Transfer population models to fisheries, invasive species, epidemiology, and endangered species.
 
-### Community Ecology and Species Interactions {.unnumbered}
+### — Community Ecology and Species Interactions {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_X_community_ecology}.
 - **Lab:** \cref{sec:lab_unit_X_community_ecology}.
@@ -509,7 +522,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** A species interaction is not permanently good or bad; the sign can change with context.
 - **Transfer task:** Transfer interaction reasoning to restoration, disease ecology, agriculture, and invasion biology.
 
-### Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
+### — Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_X_ecosystem_ecology}.
 - **Lab:** \cref{sec:lab_unit_X_ecosystem_ecology}.
@@ -522,7 +535,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Energy flows through ecosystems, but matter cycles; confusing the two breaks many explanations.
 - **Transfer task:** Transfer ecosystem reasoning to eutrophication, carbon budgets, agriculture, and climate feedback.
 
-### Biomes and Conservation Biology {.unnumbered}
+### — Biomes and Conservation Biology {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_X_biomes_and_conservation}.
 - **Lab:** \cref{sec:lab_unit_X_biomes_and_conservation}.

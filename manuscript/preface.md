@@ -2,7 +2,7 @@
 
 ## A Textbook Built With Code {.unnumbered}
 
-Welcome to *Introduction to Biology: A Generative Approach* — an open-source textbook covering introductory biology across **\nameref{sec:unit_0_unit_intro}**, the thematic sequence from **\nameref{sec:unit_I_unit_intro}** through **\nameref{sec:unit_X_unit_intro}**, and **38 core chapters**, plus optional **laboratories** and **question banks** in the appendices. Where this text uses quantitative models, the corresponding computations are implemented as tested Python modules.
+Welcome to *Introduction to Biology: A Generative Approach* — an open-source textbook covering introductory biology across **\nameref{sec:unit_0_unit_intro}**, the thematic sequence from **\nameref{sec:unit_I_unit_intro}** through **\nameref{sec:unit_X_unit_intro}**, and **39 core chapters**, plus optional **laboratories** and **question banks** in the appendices. Where this text uses quantitative models, the corresponding computations are implemented as tested Python modules.
 
 Whether we examine Michaelis–Menten enzyme kinetics, Lotka–Volterra predator–prey dynamics, or Hodgkin–Huxley action potentials, the underlying mathematical model exists as a working module in the accompanying codebase. Many figures are generated programmatically. Process diagrams are expressed using Mermaid where it improves clarity. For instructors and independent learners, this supports inspection, extension, and reproducible re-generation of results.
 
@@ -121,7 +121,7 @@ semantic references resolved from the canonical manuscript labels.
 <!-- preface-scope-start -->
 | Instructional block | Core chapters |
 | ---- | ------------- |
-| **\nameref{sec:unit_0_unit_intro}** | \nameref{sec:unit_0_systems_science}; \nameref{sec:unit_0_complex_adaptive_systems}; \nameref{sec:unit_0_active_inference} |
+| **\nameref{sec:unit_0_unit_intro}** | \nameref{sec:unit_0_systems_science}; \nameref{sec:unit_0_complex_adaptive_systems}; \nameref{sec:unit_0_active_inference}; \nameref{sec:unit_0_history_philosophy_biology} |
 | **\nameref{sec:unit_I_unit_intro}** | \nameref{sec:unit_I_atoms_molecules}; \nameref{sec:unit_I_water_and_life}; \nameref{sec:unit_I_macromolecules}; \nameref{sec:unit_I_enzymes_and_kinetics} |
 | **\nameref{sec:unit_II_unit_intro}** | \nameref{sec:unit_II_cell_theory}; \nameref{sec:unit_II_cell_structure}; \nameref{sec:unit_II_membrane_transport}; \nameref{sec:unit_II_cell_signaling} |
 | **\nameref{sec:unit_III_unit_intro}** | \nameref{sec:unit_III_bioenergetics_and_respiration}; \nameref{sec:unit_III_photosynthesis}; \nameref{sec:unit_III_metabolic_integration} |

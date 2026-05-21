@@ -128,6 +128,8 @@ units:
         title: "Complex Adaptive Systems"
       - file: active_inference.md
         title: "Active Inference and the Free Energy Principle"
+      - file: history_philosophy_biology.md
+        title: "History and Philosophy of Biology"
 
   - id: unit_I
     title: "Chemistry of Life"
@@ -300,6 +302,7 @@ appendices:
         - file: lab_systems_science.md
         - file: lab_complex_adaptive_systems.md
         - file: lab_active_inference.md
+        - file: lab_history_philosophy_biology.md
     - unit: unit_I
       files:
         - file: lab_atoms_molecules.md
@@ -362,6 +365,7 @@ appendices:
         - file: questions_systems_science.md
         - file: questions_complex_adaptive_systems.md
         - file: questions_active_inference.md
+        - file: questions_history_philosophy_biology.md
     - unit: unit_I
       files:
         - file: questions_atoms_molecules.md

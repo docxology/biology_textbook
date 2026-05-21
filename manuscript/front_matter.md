@@ -77,7 +77,7 @@ cellular, organismal, evolutionary, and ecological scales. The entries below
 are generated from `manuscript/config.yaml` so navigation stays aligned with
 the rendered table of contents.
 
-- **\nameref{sec:unit_0_unit_intro}:** \nameref{sec:unit_0_systems_science}; \nameref{sec:unit_0_complex_adaptive_systems}; \nameref{sec:unit_0_active_inference}.
+- **\nameref{sec:unit_0_unit_intro}:** \nameref{sec:unit_0_systems_science}; \nameref{sec:unit_0_complex_adaptive_systems}; \nameref{sec:unit_0_active_inference}; \nameref{sec:unit_0_history_philosophy_biology}.
 - **\nameref{sec:unit_I_unit_intro}:** \nameref{sec:unit_I_atoms_molecules}; \nameref{sec:unit_I_water_and_life}; \nameref{sec:unit_I_macromolecules}; \nameref{sec:unit_I_enzymes_and_kinetics}.
 - **\nameref{sec:unit_II_unit_intro}:** \nameref{sec:unit_II_cell_theory}; \nameref{sec:unit_II_cell_structure}; \nameref{sec:unit_II_membrane_transport}; \nameref{sec:unit_II_cell_signaling}.
 - **\nameref{sec:unit_III_unit_intro}:** \nameref{sec:unit_III_bioenergetics_and_respiration}; \nameref{sec:unit_III_photosynthesis}; \nameref{sec:unit_III_metabolic_integration}.
@@ -153,7 +153,7 @@ below shows primary dependency paths and integrative threads.
 
 ```mermaid
 graph TD
-    U0["Unit 0 — Systems Science and the Biology of Complexity<br/>feedback, emergence,<br/>active inference, systems"]
+    U0["Unit 0 — Systems Science and the Biology of Complexity<br/>feedback, emergence,<br/>active inference, history"]
     I["Unit I — Chemistry of Life<br/>atoms, bonds, water,<br/>macromolecules, enzymes"]
     II["Unit II — The Cell<br/>organelles, membranes,<br/>signalling, transport"]
     III["Unit III — Energy and Metabolism<br/>respiration, photosynthesis,<br/>ATP, chemiosmosis"]
@@ -234,6 +234,7 @@ script to refresh this grid.
 | \nameref{sec:unit_0_unit_intro} | 0.1 | \nameref{sec:unit_0_systems_science} | Level 2/3 | 35 min | 50 min |
 | \nameref{sec:unit_0_unit_intro} | 0.2 | \nameref{sec:unit_0_complex_adaptive_systems} | Level 2/3 | 35 min | 50 min |
 | \nameref{sec:unit_0_unit_intro} | 0.3 | \nameref{sec:unit_0_active_inference} | Level 3/3 | 45 min | 75 min |
+| \nameref{sec:unit_0_unit_intro} | 0.4 | \nameref{sec:unit_0_history_philosophy_biology} | Level 2/3 | 55 min | 75 min |
 | \nameref{sec:unit_I_unit_intro} | 1 | \nameref{sec:unit_I_atoms_molecules} | Level 1/3 | 40 min | 50 min |
 | \nameref{sec:unit_I_unit_intro} | 2 | \nameref{sec:unit_I_water_and_life} | Level 1/3 | 40 min | 50 min |
 | \nameref{sec:unit_I_unit_intro} | 3 | \nameref{sec:unit_I_macromolecules} | Level 2/3 | 55 min | 75 min |
@@ -269,7 +270,7 @@ script to refresh this grid.
 | \nameref{sec:unit_X_unit_intro} | 33 | \nameref{sec:unit_X_community_ecology} | Level 2/3 | 80 min | 100 min |
 | \nameref{sec:unit_X_unit_intro} | 34 | \nameref{sec:unit_X_ecosystem_ecology} | Level 2/3 | 65 min | 75 min |
 | \nameref{sec:unit_X_unit_intro} | 35 | \nameref{sec:unit_X_biomes_and_conservation} | Level 2/3 | 70 min | 75 min |
-| | | **Totals** | | **2150 min (35 h)** | **2975 min (49 h)** |
+| | | **Totals** | | **2205 min (36 h)** | **3050 min (50 h)** |
 <!-- course-planning-grid-end -->
 
 \newpage

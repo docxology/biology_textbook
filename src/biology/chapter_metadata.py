@@ -70,6 +70,15 @@ CHAPTERS: list[ChapterMeta] = [
     ChapterMeta(
         "unit_0_active_inference", 0, "0", 3, 45, 75, ("unit_0_systems_science", "unit_0_complex_adaptive_systems")
     ),
+    ChapterMeta(
+        "unit_0_history_philosophy_biology",
+        0,
+        "0",
+        2,
+        55,
+        75,
+        ("unit_0_systems_science", "unit_0_complex_adaptive_systems", "unit_0_active_inference"),
+    ),
     # Unit I — Chemistry of Life
     ChapterMeta("unit_I_atoms_molecules", 1, "I", 1, 40, 50),
     ChapterMeta("unit_I_water_and_life", 2, "I", 1, 40, 50, ("unit_I_atoms_molecules",)),

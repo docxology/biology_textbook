@@ -25,7 +25,7 @@
 
 The biology textbook project integrates:
 
-- Manuscript content organised in **`manuscript/config.yaml`** (Unit 0, Units I – X, **38 chapters**, **38 labs**, **38 question banks**)
+- Manuscript content organised in **`manuscript/config.yaml`** (Unit 0, Units I – X, **39 chapters**, **39 labs**, **39 question banks**)
 - **Quantitative models** in `src/biology/*` (9 domain subpackages) plus two manuscript utilities — `src/biology/chapter_metadata.py` (per-chapter difficulty/time/prereq records) and `src/biology/crossref_validator.py` (enforces `\label`/`\cref` consistency)
 - **Figures** (`src/visualization/plots.py`, 18 generators; **`src/visualization/cvd.py`** for colour-vision–friendly defaults tied to `config.yaml` → `accessibility.color_blindness_safe`) and **diagrams** (`src/mermaid/`, 24 diagrams, optional `mmdc`)
 - **Tests:** run `uv run pytest tests/ --cov=src --cov-fail-under=90` from the project directory for current count and coverage; invariant-style modules include build invariants, bibliography closure, crossref validator, chapter metadata, **accessibility** (alt proximity, quality, labs/questions)

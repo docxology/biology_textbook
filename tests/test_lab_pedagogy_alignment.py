@@ -23,7 +23,7 @@ from biology.toc import load_toc  # noqa: E402
 
 def test_every_lab_maps_to_measurable_outcomes_and_chapter_los() -> None:
     toc = load_toc(PROJECT)
-    assert len(toc.labs) == 38
+    assert len(toc.labs) == 39
     for lab in toc.labs:
         alignment = parse_lab_alignment(lab.path)
         chapter_los = set(chapter_learning_objectives(lab.chapter.path))

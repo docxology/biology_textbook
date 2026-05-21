@@ -130,9 +130,9 @@ def test_suggest_id_slugifies() -> None:
 
 
 def test_config_chapter_count_matches_preface() -> None:
-    """Sanity check — config enumerates 38 chapters (3 Unit 0 + 35 main).
+    """Sanity check — config enumerates 39 chapters (4 Unit 0 + 35 main).
 
-    The preface states "38 core chapters" — this test guards against silent
+    The preface states "39 core chapters" — this test guards against silent
     drift between the YAML manifest and the stated count.
     """
     import yaml
@@ -140,4 +140,4 @@ def test_config_chapter_count_matches_preface() -> None:
         (Path(__file__).resolve().parent.parent / "manuscript" / "config.yaml").read_text()
     )
     total = sum(len(u.get("chapters", [])) for u in cfg["units"])
-    assert total == 38, f"Expected 38 chapters, found {total}"
+    assert total == 39, f"Expected 39 chapters, found {total}"

@@ -1,6 +1,6 @@
 # Laboratory Activities
 
-This directory contains **38 paper-based laboratory activities** — one per textbook chapter (including the three Unit 0 orientation chapters) — designed for individual or small-group work (~4 students) without requiring wet-lab access or specialised equipment. The required path uses printed datasets, image/card packets, decision matrices, graphing tasks, control logic, uncertainty analysis, and reproducibility checks. Wet-lab, microscope, culture, reagent, specimen, heating, or dissection variants belong only in clearly marked optional extensions.
+This directory contains **39 paper-based laboratory activities** — one per textbook chapter (including the four Unit 0 orientation chapters) — designed for individual or small-group work (~4 students) without requiring wet-lab access or specialised equipment. The required path uses printed datasets, image/card packets, decision matrices, graphing tasks, control logic, uncertainty analysis, and reproducibility checks. Wet-lab, microscope, culture, reagent, specimen, heating, or dissection variants belong only in clearly marked optional extensions.
 
 ## Lab File Naming Convention
 
@@ -15,7 +15,7 @@ labs/
 ├── README.md                       ← this file
 ├── AGENTS.md                       ← authoring conventions (agent-facing)
 ├── unit_0/, unit_I/, … unit_X/    ← 11 unit subdirectories
-│   └── lab_{chapter}.md           ← one lab per chapter (38 total)
+│   └── lab_{chapter}.md           ← one lab per chapter (39 total)
 ```
 
 ## Standard Lab Structure

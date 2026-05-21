@@ -1,6 +1,6 @@
 # Biology Textbook — *Introduction to Biology: A Generative Approach*
 
-Manuscript-driven introductory biology (38 chapters across Units 0-X, 38 paper-based labs, 38 question banks of 30 questions each) with tested Python models (kinetics, population genetics, neural signalling, ecology, and related topics). Registered diagrams use Mermaid through `src/mermaid/`; publication builds use PNG output. Figures use matplotlib from `src/visualization/plots.py`.
+Manuscript-driven introductory biology (39 chapters across Units 0-X, 39 paper-based labs, 39 question banks of 30 questions each) with tested Python models (kinetics, population genetics, neural signalling, ecology, and related topics). Registered diagrams use Mermaid through `src/mermaid/`; publication builds use PNG output. Figures use matplotlib from `src/visualization/plots.py`.
 
 ## Source and citation
 
@@ -52,7 +52,7 @@ uv run python scripts/03_render_pdf.py --project biology_textbook
 
 ## Manuscript structure
 
-Authoritative ordering: **`manuscript/config.yaml`**. It defines Unit 0 (systems / complexity prelude), Units I – X (**38** core chapter files across unit directories), front matter, and optional appendices (`labs/`, `questions/`). Chapter numbers are assigned at render time; filenames are descriptive slugs.
+Authoritative ordering: **`manuscript/config.yaml`**. It defines Unit 0 (systems / complexity prelude), Units I – X (**39** core chapter files across unit directories), front matter, and optional appendices (`labs/`, `questions/`). Chapter numbers are assigned at render time; filenames are descriptive slugs.
 
 Supporting files in `manuscript/`: `preamble.md` (LaTeX geometry, body size, and `cleveref` — keep in sync with `config.yaml` layout/typography), `references.bib` (134 entries, fully closed), `glossary.md` (220 terms with `{#gl:…}` anchors), `front_matter.md` (includes auto-generated Course Planning Grid), `preface.md`.
 

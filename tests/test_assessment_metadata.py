@@ -30,7 +30,7 @@ def test_all_question_bank_items_have_assessment_metadata() -> None:
         assert len(bank.items) == 30, question.path
         assert [item.number for item in bank.items] == list(range(1, 31))
         item_count += len(bank.items)
-    assert item_count == 1140
+    assert item_count == 1170
 
 
 def test_each_chapter_learning_objective_is_assessed() -> None:

@@ -99,6 +99,18 @@ CURRICULUM: tuple[CurriculumRecord, ...] = (
         "biology.physiology.physiology.homeostasis_response",
     ),
     _r(
+        "unit_0_history_philosophy_biology",
+        "Biology is a changing evidence practice: its concepts of life, function, species, inheritance, and self are revised by new observations, instruments, models, and social values.",
+        ("biological explanation", "historical evidence", "function", "species concepts", "values in science"),
+        "Concept-map and evidence-matrix comparisons among historical claims, mechanisms, and model assumptions.",
+        "Classify source excerpts as observation, experiment, model, mechanism, or value-laden inference.",
+        "Analyse historical source cards and build an evidence map for a disputed biological claim.",
+        "History is not a list of dates; it explains why current biological concepts are powerful, limited, and revisable.",
+        "Given a biological claim, identify the practice that produced it, the evidence standard it used, and one philosophical assumption it carries.",
+        "Transfer source-analysis reasoning to modern debates about species, genetics, microbiomes, and biomedical ethics.",
+        "biology.toc.load_toc",
+    ),
+    _r(
         "unit_I_atoms_molecules",
         "Atomic structure constrains the bonds, charges, and geometries that make biological molecules possible.",
         ("valence", "electronegativity", "formal charge", "isotopes"),

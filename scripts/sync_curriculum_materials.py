@@ -400,7 +400,7 @@ def build_appendix(
             current_unit = meta.unit
             lines.extend(["", f"## Unit {current_unit} {{.unnumbered}}", ""])
         chapter = chapters_by_id[record.chapter_id]
-        heading = chapter.title
+        heading = f"{chapter.display_number} — {chapter.title}"
         lines.extend(
             [
                 f"### {heading} {{.unnumbered}}",
@@ -463,7 +463,7 @@ def build_instructor_appendix(
             current_unit = meta.unit
             lines.extend(["", f"### Unit {current_unit} {{.unnumbered}}", ""])
         chapter = chapters_by_id[record.chapter_id]
-        heading = chapter.title
+        heading = f"{chapter.display_number} — {chapter.title}"
         lines.extend(
             [
                 f"#### {heading} {{.unnumbered}}",
@@ -596,7 +596,7 @@ def sync_suggested_reading_paths(book_toc: Any, *, dry_run: bool) -> bool:
 def build_textbook_concept_map(book_toc: Any) -> str:
     """Return the generated front-matter concept map block."""
     summaries = {
-        "unit_0": "feedback, emergence,<br/>active inference, systems",
+        "unit_0": "feedback, emergence,<br/>active inference, history",
         "unit_I": "atoms, bonds, water,<br/>macromolecules, enzymes",
         "unit_II": "organelles, membranes,<br/>signalling, transport",
         "unit_III": "respiration, photosynthesis,<br/>ATP, chemiosmosis",
