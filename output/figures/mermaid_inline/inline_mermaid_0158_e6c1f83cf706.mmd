@@ -1,0 +1,16 @@
+flowchart TD
+    subgraph Neural_Circuits ["Neural Circuit Types"]
+        Conv["CONVERGENCE<br/>Multiple presynaptic neurons<br/>→ single postsynaptic neuron<br/>Example: motor neuron receives<br/>thousands of inputs"]
+        Div["DIVERGENCE<br/>Single neuron<br/>→ many postsynaptic targets<br/>Example: sensory neuron<br/>activates multiple pathways"]
+        FB["FEEDBACK (Recurrent)<br/>Output feeds back to<br/>input neuron (excitatory<br/>or inhibitory)<br/>Example: Renshaw cells<br/>inhibit motor neurons"]
+        FF["FEEDFORWARD INHIBITION<br/>Excitatory input simultaneously<br/>excites target AND recruits<br/>inhibitory interneuron<br/>Example: cortical circuits"]
+    end
+
+    subgraph Integration ["Synaptic Integration"]
+        TS["TEMPORAL SUMMATION<br/>Rapid successive EPSPs<br/>from same synapse<br/>accumulate if interval < tau_m"]
+        SS["SPATIAL SUMMATION<br/>Simultaneous EPSPs from<br/>different synapses sum<br/>at axon hillock"]
+        TS --> AH["Axon Hillock<br/>Sum of all EPSPs and IPSPs<br/>Threshold = -55 mV"]
+        SS --> AH
+        AH --> |"Net > threshold"| AP["ACTION POTENTIAL<br/>All-or-none<br/>Propagates along axon"]
+        AH --> |"Net < threshold"| No["No AP<br/>Signal decays"]
+    end

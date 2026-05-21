@@ -1,0 +1,18 @@
+graph TD
+    subgraph "Metapopulation Architecture"
+        SourceA["<b>Source Patch A</b><br/>λ > 1<br/>High quality habitat<br/>Net Emigration"]
+        SourceB["<b>Source Patch B</b><br/>λ > 1<br/>High quality habitat<br/>Net Emigration"]
+        SinkC["<b>Sink Patch C</b><br/>λ < 1<br/>Poor quality habitat<br/>Net Immigration"]
+        SinkD["<b>Sink Patch D</b><br/>λ < 1<br/>Ecological Trap?<br/>Net Immigration"]
+        
+        SourceA -->|"Colonisation<br/>(Rescue Effect)"| SinkC
+        SourceB -->|"Colonisation"| SinkD
+        SourceA <-->|"Gene Flow"| SourceB
+        SinkC -.->|"Occasional<br/>Extinction"| Ext["[Empty Patch]"]
+        Ext -->|"Recolonisation<br/>from Source"| SinkC
+    end
+
+    style SourceA fill:#d1e7dd,stroke:#0f5132
+    style SourceB fill:#d1e7dd,stroke:#0f5132
+    style SinkC fill:#f8d7da,stroke:#842029
+    style SinkD fill:#f8d7da,stroke:#842029

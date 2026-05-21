@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>047_unit_intro</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered" id="unit-x-ecology-introduction">Unit X —
+Ecology: Introduction</h1>
+<h2 class="unnumbered" id="why-this-unit-matters">Why This Unit
+Matters</h2>
+<p>In 1966, ecologist Robert Paine removed most sea stars (<em>Pisaster
+ochraceus</em>) from a stretch of rocky intertidal shore in Washington
+State and waited. Within 18 months, the mussel population exploded,
+crowding out barnacles, limpets, chitons, and anemones. What had been a
+15-species community collapsed to a near-monoculture of <em>Mytilus
+californianus</em>. The sea star was a <strong>keystone
+species</strong>: a species whose removal from the community caused a
+change in biodiversity disproportionate to its own abundance. Paine’s
+experiment created the concept and the measurement — the ratio of effect
+to biomass — and it changed how biologists think about the architecture
+of ecosystems (Paine, 1966, <em>American Naturalist</em>).</p>
+<p>Ecology is the study of how organisms interact with each other and
+with their physical environment. It operates across scales spanning six
+orders of magnitude: from the foraging decision of a single aphid on a
+single leaf, to the population dynamics of wolves in Yellowstone, to the
+cycling of carbon through the entire Earth system. Its models — the
+logistic growth equation, the Lotka-Volterra predator-prey system, the
+species-area relationship — are among the most mathematically tractable
+in biology, yet they govern phenomena as urgent as climate change, mass
+extinction, and pandemic emergence.</p>
+<p>The 21st century has made ecology a discipline under crisis and
+urgent relevance. The current mass extinction event — the sixth in
+Earth’s history — is driven by habitat loss, overexploitation, invasive
+species, pollution, and climate change. Biodiversity is losing the
+equivalent of tens of thousands of species per year. Understanding
+population dynamics, community structure, and ecosystem function is no
+longer merely academic: it is an existential scientific priority for the
+conservation of life on Earth. This unit will give you the quantitative
+tools to understand why, and to participate in the solutions.</p>
+<hr />
+<h2 class="unnumbered" id="landmark-discoveries">Landmark
+Discoveries</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 7%" />
+<col style="width: 29%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th>Discoverer(s)</th>
+<th>Year</th>
+<th>Journal / Source</th>
+<th>Discovery</th>
+<th>Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alfred Lotka &amp; Vito Volterra</td>
+<td>1925–1926</td>
+<td><em>Elements of Physical Biology</em>; <em>Mem. Accad.
+Lincei</em></td>
+<td>Lotka-Volterra predator-prey ODEs</td>
+<td>First quantitative model of species interactions; linked ecology to
+mathematics</td>
+</tr>
+<tr>
+<td>Eugene Odum</td>
+<td>1953</td>
+<td><em>Fundamentals of Ecology</em></td>
+<td>Ecosystem as unit of ecology with energy flow</td>
+<td>Introduced energy-flow and trophic-level thinking into mainstream
+ecology</td>
+</tr>
+<tr>
+<td>Robert Paine</td>
+<td>1966</td>
+<td><em>American Naturalist</em></td>
+<td>Keystone species concept (sea star experiment)</td>
+<td>Showed top-down regulation; single species can structure entire
+communities</td>
+</tr>
+<tr>
+<td>Robert MacArthur &amp; E.O. Wilson</td>
+<td>1967</td>
+<td><em>The Theory of Island Biogeography</em></td>
+<td>Island biogeography: <span class="math inline">\(S =
+cA^z\)</span></td>
+<td>Connected species richness to area and isolation; foundational for
+conservation</td>
+</tr>
+<tr>
+<td>Paul Ehrlich &amp; Peter Raven</td>
+<td>1964</td>
+<td><em>Evolution</em></td>
+<td>Coevolution between plants and butterflies</td>
+<td>Launched chemical ecology and co-evolutionary theory</td>
+</tr>
+<tr>
+<td>Intergovernmental Science-Policy Platform on Biodiversity
+(IPBES)</td>
+<td>2019</td>
+<td>IPBES Global Assessment</td>
+<td>1 million species threatened with extinction</td>
+<td>Quantified the biodiversity crisis; policy-science interface</td>
+</tr>
+<tr>
+<td>Ripple et al.</td>
+<td>2014</td>
+<td><em>Science</em></td>
+<td>Trophic cascades from large predators</td>
+<td>Wolves reintroduced to Yellowstone reshaped rivers via trophic
+cascade</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="key-concepts-and-connections">Key Concepts
+and Connections</h2>
+<pre class="mermaid"><code>graph TD
+    POP[&quot;👥 Population Ecology&lt;br/&gt;(N(t); r; K; logistic growth;&lt;br/&gt;age structure; life tables)&quot;] --&gt; GROW[&quot;📈 Growth Models&lt;br/&gt;(exponential: dN/dt = rN;&lt;br/&gt;logistic: dN/dt = rN(1−N/K))&quot;]
+    POP --&gt; DEMO[&quot;📋 Demography&lt;br/&gt;(survivorship curves;&lt;br/&gt;reproductive value; λ)&quot;]
+
+    COMM[&quot;🌐 Community Ecology&lt;br/&gt;(species interactions;&lt;br/&gt;diversity indices)&quot;] --&gt; INTER[&quot;⚔️ Species Interactions&lt;br/&gt;(predation, competition,&lt;br/&gt;mutualism, parasitism)&quot;]
+    INTER --&gt; LV[&quot;🐺🐰 Lotka-Volterra&lt;br/&gt;(dN/dt = αN − βNP;&lt;br/&gt;dP/dt = δNP − γP)&quot;]
+    INTER --&gt; COEV[&quot;🦋 Coevolution&lt;br/&gt;(arms races;&lt;br/&gt;plant-herbivore; host-parasite)&quot;]
+
+    COMM --&gt; DIV[&quot;🌈 Biodiversity&lt;br/&gt;(H&#39; = −Σpᵢ ln pᵢ;&lt;br/&gt;species richness; evenness)&quot;]
+    DIV --&gt; IBT[&quot;🏝️ Island Biogeography&lt;br/&gt;(S = cAᶻ;&lt;br/&gt;z ≈ 0.25–0.30)&quot;]
+
+    ECO[&quot;🌍 Ecosystem Ecology&lt;br/&gt;(energy flow; nutrient cycling;&lt;br/&gt;trophic levels)&quot;] --&gt; PROD[&quot;🌱 Primary Production&lt;br/&gt;(GPP, NPP;&lt;br/&gt;biomass pyramids)&quot;]
+    ECO --&gt; NUTRIENT[&quot;♻️ Nutrient Cycles&lt;br/&gt;(carbon, nitrogen, phosphorus;&lt;br/&gt;microbial decomposers)&quot;]
+    ECO --&gt; CLIMATE[&quot;🌡️ Climate &amp; Biomes&lt;br/&gt;(Whittaker classification;&lt;br/&gt;MAP × MAT → biome)&quot;]
+
+    POP --&gt; COMM
+    COMM --&gt; ECO
+
+    CONS[&quot;🛡️ Conservation Biology&lt;br/&gt;(MVPs; corridor design;&lt;br/&gt;extinction debt; rewilding)&quot;] --&gt; IBT
+    CONS --&gt; DIV
+
+    style POP fill:#27ae60,color:#fff
+    style COMM fill:#2980b9,color:#fff
+    style ECO fill:#e67e22,color:#fff
+    style CONS fill:#e74c3c,color:#fff</code></pre>
+<!-- alt: Graph showing unit X concept map — Ecology. Green = population; blue = community; orange = ecosystem; red = conservation. -->
+<p><em>Unit X concept map — Ecology. Green = population; blue =
+community; orange = ecosystem; red = conservation.</em></p>
+<hr />
+<h2 class="unnumbered" id="current-evidence-thread">Current Evidence
+Thread</h2>
+<p>Read this unit as a chain of ecological evidence rather than a list
+of topics: population, community, ecosystem, and conservation claims are
+each backed by a characteristic kind of measurement — field sampling and
+mark-recapture, manipulative and observational experiments, remote
+sensing and flux networks, dynamical and statistical models, and
+long-term monitoring programs. Ecology and conservation decisions
+increasingly combine field data, remote sensing, community knowledge,
+model uncertainty, and explicit values. As you move through the
+chapters, keep a two-column note: <strong>claim</strong> on the left,
+<strong>evidence that would change my confidence</strong> on the right.
+By the end of the unit, each major idea should be tied to a measurement,
+model, citation, or paper-based lab decision.</p>
+<h2 class="unnumbered" id="chapter-roadmap">Chapter Roadmap</h2>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 11%" />
+<col style="width: 28%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Title</th>
+<th>Core Question</th>
+<th>Key Equation / Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>32</strong></td>
+<td>Population Ecology</td>
+<td>How do populations grow, and what factors regulate population
+size?</td>
+<td>Logistic: <span class="math inline">\(dN/dt = rN(1-N/K)\)</span>;
+life tables; <span class="math inline">\(\lambda = e^r\)</span></td>
+</tr>
+<tr>
+<td><strong>33</strong></td>
+<td>Community Ecology</td>
+<td>How do species interactions structure biological communities?</td>
+<td>Lotka-Volterra: <span class="math inline">\(dN/dt = \alpha N - \beta
+NP\)</span>; Shannon <span class="math inline">\(H&#39;\)</span></td>
+</tr>
+<tr>
+<td><strong>34</strong></td>
+<td>Ecosystem Ecology</td>
+<td>How does energy flow and how do nutrients cycle through
+ecosystems?</td>
+<td>Trophic efficiency ~10%; <span class="math inline">\(NEP = GPP -
+R_{total}\)</span>; biogeochemical cycle models</td>
+</tr>
+<tr>
+<td><strong>35</strong></td>
+<td>Biomes and Conservation Biology</td>
+<td>What determines global patterns of biodiversity, and how do we
+protect them?</td>
+<td>Species-area: <span class="math inline">\(S = cA^z\)</span>; minimum
+viable population (MVP); extinction rate models</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="connections-across-the-textbook">Connections
+Across the Textbook</h2>
+<ul>
+<li><strong>Population models</strong> (logistic growth, age structure)
+use the same differential equation framework as Unit VII (SIR
+epidemiological models) — ecology and epidemiology are mathematically
+unified.</li>
+<li><strong>Species diversity indices</strong> (Shannon <span
+class="math inline">\(H&#39;\)</span>, Simpson <span
+class="math inline">\(D\)</span>) are computed using tools from Unit VII
+(microbial communities) and help evaluate ecosystem health.</li>
+<li><strong>Nutrient cycling</strong> (nitrogen, carbon, phosphorus)
+directly ties to Unit III (carbon fixation by photosynthesis) and Unit
+VII (microbial decomposers, nitrogen fixation by bacteria).</li>
+<li><strong>Climate change impacts</strong> on biomes connect to Unit
+VIII (plant responses to drought, CO₂ enrichment) and Unit VI (evolution
+of species under selection by climate).</li>
+<li><strong>Conservation biology</strong> uses evolutionary genetics
+(Unit VI: effective population size, genetic rescue) and macroecology
+(island biogeography, keystone species).</li>
+</ul>
+<blockquote>
+<p><strong>Key vocabulary introduced here:</strong> intrinsic rate of
+increase (<span class="math inline">\(r\)</span>), carrying capacity
+(<span class="math inline">\(K\)</span>), logistic growth, density
+dependence, keystone species, trophic cascade, competitive exclusion,
+fundamental vs. realised niche, coevolution, mutualism, parasitism,
+primary productivity (GPP, NPP), trophic efficiency, biogeochemical
+cycle, biome, species-area relationship, island biogeography, minimum
+viable population (MVP), extinction debt.</p>
+</blockquote>
+<h2 class="unnumbered" id="computational-toolbox-unit-x">Computational
+Toolbox — Unit X</h2>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.ecology <span class="im">import</span> logistic_growth, lotka_volterra</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Logistic growth: white-tailed deer reintroduction (r = 0.35/yr, K = 500, N0 = 10)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>lg <span class="op">=</span> logistic_growth(N0<span class="op">=</span><span class="fl">10.0</span>, r<span class="op">=</span><span class="fl">0.35</span>, K<span class="op">=</span><span class="fl">500.0</span>, t_end<span class="op">=</span><span class="fl">30.0</span>, steps<span class="op">=</span><span class="dv">300</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;N(0) ≈ </span><span class="sc">{</span>lg<span class="sc">.</span>populations[<span class="dv">0</span>]<span class="sc">:.0f}</span><span class="ss">; N(t_end) ≈ </span><span class="sc">{</span>lg<span class="sc">.</span>populations[<span class="op">-</span><span class="dv">1</span>]<span class="sc">:.0f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Lotka-Volterra predator-prey (same ODEs used in community ecology)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>lv <span class="op">=</span> lotka_volterra(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="fl">100.0</span>, <span class="fl">10.0</span>, <span class="fl">0.5</span>, <span class="fl">0.02</span>, <span class="fl">0.01</span>, <span class="fl">0.2</span>, t_end<span class="op">=</span><span class="fl">80.0</span>, steps<span class="op">=</span><span class="dv">800</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Prey range: </span><span class="sc">{</span><span class="bu">min</span>(lv.prey)<span class="sc">:.1f}</span><span class="ss">–</span><span class="sc">{</span><span class="bu">max</span>(lv.prey)<span class="sc">:.1f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Predator range: </span><span class="sc">{</span><span class="bu">min</span>(lv.predator)<span class="sc">:.1f}</span><span class="ss">–</span><span class="sc">{</span><span class="bu">max</span>(lv.predator)<span class="sc">:.1f}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<blockquote>
+<p><strong>Try it yourself:</strong> Increase <code>beta</code>
+(predation) and watch oscillation amplitude widen in
+<code>plot_lotka_volterra</code> output from
+<code>scripts/generate_figures.py</code>.</p>
+</blockquote>
+<hr />
+<p><em>Source note: ecology helpers support logistic and Allee growth,
+predator-prey cycles, species-area curves, biodiversity indices, and
+biome data.</em> <em>Figures: <code>src/visualization/</code>
+(Lotka-Volterra cycles, logistic growth curves);
+<code>src/mermaid/biology_diagrams.py</code> (food web diagrams,
+nutrient cycle diagrams).</em></p>
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>082_lab_circulation_respiration_homeostasis</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered"
+id="lab-28-circulation-respiration-and-homeostasis">Lab 28 —
+Circulation, Respiration, and Homeostasis</h1>
+<p></p>
+<h2 class="unnumbered" id="learning-objectives">Learning Objectives</h2>
+<p><em>This activity accompanies of the textbook — review that chapter
+before attempting the exercises below.</em></p>
+<ul>
+<li>Analyze resting and post-exercise heart rate and blood pressure
+datasets and apply the Frank-Starling law</li>
+<li>Calculate cardiac output and stroke volume from anonymized case data
+using CO = HR × SV</li>
+<li>Apply Fick’s principle to estimate oxygen consumption from heart
+rate data</li>
+<li>Analyse spirometry data to determine tidal volume, IRV, ERV, and
+FVC</li>
+</ul>
+<!-- lab-alignment-start -->
+<h3 class="unnumbered" id="alignment-and-rubric-map">Alignment and
+Rubric Map</h3>
+<ul>
+<li><strong>Outcome 1 (LO1):</strong> Interpret the supplied evidence or
+model output for Circulation, Respiration, and Homeostasis.</li>
+<li><strong>Outcome 2 (LO2):</strong> Identify controls and comparison
+groups that make the claim testable.</li>
+<li><strong>Outcome 3 (LO3):</strong> Quantify uncertainty, boundary
+conditions, or alternative explanations before concluding.</li>
+<li><strong>Outcome 4 (LO4):</strong> Transfer the mechanism to a new
+biological case or public-facing decision.</li>
+<li><strong>Chapter LO coverage:</strong> LO1, LO2, LO3, LO4</li>
+<li><strong>Rubric dimensions:</strong> evidence; controls; uncertainty;
+mechanism; transfer. <!-- lab-alignment-end --> ## Background
+{.unnumbered}</li>
+</ul>
+<p>The cardiovascular system delivers oxygen and removes CO₂ at a rate
+matched to tissue demand. Cardiac output (CO) = stroke volume (SV) ×
+heart rate (HR). The Frank-Starling law states that greater ventricular
+filling (preload) stretches sarcomeres to a more optimal myosin–actin
+overlap, increasing stroke volume. Spirometry measures lung volumes:
+tidal volume (TV ~500 mL), inspiratory reserve (IRV ~3,000 mL),
+expiratory reserve (ERV ~1,200 mL), and FVC = (TV + IRV + ERV) for
+healthy adults.</p>
+<h2 class="unnumbered" id="paper-based-materials">Paper-Based
+Materials</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calculator</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Graph paper or spreadsheet template</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Cardiovascular response dataset with rest, exercise, recovery, and
+heart-failure cases</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Spirometry dataset printout (3 subjects: normal, asthmatic,
+COPD)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Altitude acclimatization case card with PaO2, ventilation,
+hematocrit, and symptom data</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Digestive-renal balance cards: meal composition, water intake,
+plasma osmolality, urea, and urine concentration</td>
+<td>1 set</td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered" id="paper-based-investigation">Paper-Based
+Investigation</h2>
+<p><strong>Part A — Cardiovascular Measurements</strong></p>
+<ol type="1">
+<li>Use the cardiovascular response dataset to compare resting HR,
+estimated stroke volume, and recovery time across cases.</li>
+<li>Plot HR at rest, 0, 1, 2, 5, and 10 minutes post-exercise for the
+printed subjects. Identify the baseline control and the slowest recovery
+profile.</li>
+<li>Calculate CO = HR × SV at rest and immediately post-exercise. Check
+whether the data are consistent with the Frank-Starling mechanism and
+autonomic regulation.</li>
+</ol>
+<p><strong>Part B — Spirometry Analysis</strong></p>
+<ol start="4" type="1">
+<li>Use the printed spirometry dataset to calculate TV, FVC, FEV1, and
+FEV1/FVC where available.</li>
+<li>Compare FVC and FEV1/FVC ratios for normal, asthmatic, and COPD
+subjects.</li>
+<li>Use the altitude case card to connect PaO2 changes to ventilation,
+erythropoietin, hematocrit, and acclimatization.</li>
+</ol>
+<p><strong>Part C — Digestive-Renal Homeostasis</strong></p>
+<ol start="7" type="1">
+<li>Use the digestive-renal cards to trace how a high-protein salty meal
+changes gut absorption, hepatic urea production, plasma osmolality, ADH
+release, and urine concentration.</li>
+<li>Compare a freshwater fish, a desert mammal, and a bird/reptile
+excretory strategy. Identify whether ammonia, urea, or uric acid is the
+dominant nitrogen-waste solution and what water trade-off that solution
+implies.</li>
+</ol>
+<h2 class="unnumbered" id="data-recording">Data Recording</h2>
+<table>
+<thead>
+<tr>
+<th>Time (min)</th>
+<th>HR (bpm)</th>
+<th>Estimated SV (mL)</th>
+<th>CO (L/min)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rest</td>
+<td></td>
+<td>70</td>
+<td></td>
+</tr>
+<tr>
+<td>0 (immediately post-exercise)</td>
+<td></td>
+<td>90</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Spirometry (from dataset):</p>
+<table>
+<thead>
+<tr>
+<th>Subject</th>
+<th>FVC (L)</th>
+<th>FEV₁ (L)</th>
+<th>FEV₁/FVC (%)</th>
+<th>Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal</td>
+<td>4.8</td>
+<td>4.3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Asthmatic</td>
+<td>4.6</td>
+<td>2.8</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>COPD</td>
+<td>3.1</td>
+<td>1.5</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Reproducibility check: sampling interval used for recovery graph =
+<strong><em>; rule for classifying obstructive pattern =
+</em></strong></p>
+<!-- lab-evidence-checklist-start -->
+<h2 class="unnumbered"
+id="evidence-and-reproducibility-checklist">Evidence and Reproducibility
+Checklist</h2>
+<ul>
+<li><strong>Primary evidence goal:</strong> Model circulation,
+respiration, and feedback compensation.</li>
+<li><strong>Data skill to practice:</strong> Interpret physiological
+data from pressure, flow, saturation, or set-point changes.</li>
+<li><strong>BioSkills emphasis:</strong> Modeling and simulation,
+Quantitative reasoning, Science and society.</li>
+<li><strong>Control logic:</strong> identify at least one positive
+control, one negative control, or one baseline comparison before
+interpreting results.</li>
+<li><strong>Measurement discipline:</strong> record units, uncertainty,
+sample size, and any discarded observation with a reason.</li>
+<li><strong>Mechanistic link:</strong> connect one result directly to
+the parent chapter’s big idea before writing the conclusion.</li>
+<li><strong>Reproducibility check:</strong> state one procedural detail
+that another group would need in order to reproduce the result.
+<!-- lab-evidence-checklist-end --></li>
+</ul>
+<h2 class="unnumbered" id="paper-based-evidence-upgrade">Paper-Based
+Evidence Upgrade</h2>
+<p>Before answering the analysis questions, annotate the paper dataset
+for <strong>Circulation, Respiration, and Homeostasis</strong> with a
+reproducibility pass:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Evidence check</th>
+<th>Student action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control logic</td>
+<td>Mark the comparison that functions as the baseline, negative
+control, or reference case.</td>
+</tr>
+<tr>
+<td>Uncertainty</td>
+<td>Circle the row, card, diagram feature, or model assumption most
+likely to change the conclusion.</td>
+</tr>
+<tr>
+<td>Model comparison</td>
+<td>State whether a simpler rule, null model, or alternative mechanism
+could explain the same pattern.</td>
+</tr>
+<tr>
+<td>Decision threshold</td>
+<td>Write the minimum evidence that would make you revise the
+interpretation.</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>Record the exact scoring rule another group would need to reproduce
+your classification.</td>
+</tr>
+</tbody>
+</table>
+<p>Focus note: in this lab, tie every cardiorespiratory claim to a flow
+or gas-exchange measurement and the control loop it implies: state which
+baseline, perturbation, and recovery values you used, and whether the
+apparent regulation could instead reflect reserve capacity or the
+resolution limit of the recording. Keep required work paper-based; any
+material-handling or equipment version belongs only in an optional
+extension.</p>
+<h2 class="unnumbered" id="analysis-questions">Analysis Questions</h2>
+<ol type="1">
+<li>Why did HR increase during exercise, and why did it remain elevated
+for several minutes post-exercise? Name the autonomic branch primarily
+responsible for the exercise-induced HR increase.</li>
+<li>A reduced FEV₁/FVC ratio below the age-dependent lower limit of
+normal supports an obstructive pattern; a fixed 70% cutoff is a
+screening shortcut, not a comprehensive diagnostic boundary. The
+asthmatic shows reduced FEV₁ but relatively preserved FVC. Explain the
+structural difference in the airways that causes obstructive vs
+restrictive spirometry patterns.</li>
+<li>Calculate the difference in cardiac output between rest and peak
+exercise in your data. Using Fick’s principle (VO₂ = CO × (CaO₂ −
+CvO₂)), estimate oxygen consumption if the arterio-venous O₂ difference
+increases from 50 mL/L at rest to 150 mL/L during maximal exercise.</li>
+<li>A patient with congestive heart failure has chronically elevated
+ventricular end-diastolic pressure. Explain how this shifts the
+Frank-Starling curve and contributes to pulmonary oedema (connect to
+Starling capillary forces).</li>
+<li>At high altitude (3,500 m), PaO₂ drops from 100 to ~60 mmHg.
+Identify three physiological acclimatisation responses (acute and
+chronic) and for each, specify the sensing mechanism and the effector
+system involved.</li>
+<li>A dehydrated student eats a salty, high-protein meal. Predict the
+direction of change for plasma osmolality, ADH, urea production, and
+urine concentration. Which measurements would distinguish “not enough
+water intake” from impaired kidney concentrating ability?</li>
+</ol>
+<h2 class="unnumbered" id="safety-and-ethics-notes">Safety and Ethics
+Notes</h2>
+<p>No exercise testing, blood pressure measurement, or spirometry is
+required. Optional demonstrations involving human participants require
+consent, screening, single-use mouthpiece filters where relevant, and
+immediate stopping for dizziness, chest pain, or discomfort.</p>
+<h2 class="unnumbered" id="debrief-and-reflection">Debrief and
+Reflection</h2>
+<p>After you finish the practical work, spend 5–10 minutes in your small
+group comparing results and discussing the following prompts. Each
+member should contribute at least one observation before moving to the
+next prompt:</p>
+<ol type="1">
+<li><strong>What did your measurements show</strong> — compare the
+group’s results to the textbook’s predictions. Where they diverge,
+suggest at least one mechanistic explanation before concluding
+“experimental error.”</li>
+<li><strong>What would change the outcome</strong> — propose one
+modification to the procedure that would sharpen the measurement or
+extend the result to a new biological context, and predict what you
+would observe.</li>
+<li><strong>One-sentence headline</strong> — each student composes a
+single sentence summarising the lab’s take-home message, suitable for a
+tweet. Compare sentences across groups; good headlines are short,
+quantitative, and mechanistic.</li>
+<li><strong>Connection back to the textbook</strong> — identify one
+section of that your data either confirmed or complicated. Cite the
+specific passage.</li>
+</ol>
+<h2 class="unnumbered" id="further-reading-lab">Further Reading
+(Lab)</h2>
+<ul>
+<li>Revisit the parent chapter for the theoretical foundations on which
+this lab is built.</li>
+<li>Look up any <strong>bolded glossary term</strong> introduced in the
+textbook chapter (each has a <code>#gl:term-slug</code> link in the
+text) — its master definition is in
+<code>manuscript/glossary.md</code>.</li>
+<li>Explore the appended <code>src/</code> module that implements the
+corresponding quantitative model (when applicable) — referenced in the
+parent chapter’s “Bridge to Computation” subsection.</li>
+</ul>
+<p><em>Module footer: parent chapter
+<code>\cref{sec:unit_IX_circulation_respiration_homeostasis}</code>; all
+numerical quantities in this lab use SI units — see Appendix D of the
+textbook for unit conversions and biological-scale reference
+values.</em></p>
+</body>
+</html>

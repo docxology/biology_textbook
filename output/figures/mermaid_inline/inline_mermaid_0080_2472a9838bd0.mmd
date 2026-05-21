@@ -1,0 +1,15 @@
+flowchart TD
+    HAT["HAT<br/>Histone Acetyltransferase<br/>(e.g. CBP/p300, GCN5)"] --> Ac["H3K27ac / H3K9ac<br/>ACTIVE<br/>euchromatin; promoters; enhancers"]
+    HDAC["HDAC<br/>Histone Deacetylase<br/>(e.g. HDAC1-3, SIRT1)"] -.->|removes acetyl| Ac
+
+    HMT_act["H3K4 methyltransferase<br/>(MLL1, SET1)"] --> Me_act["H3K4me3<br/>ACTIVE PROMOTERS<br/>read by PHD domains"]
+    HMT_rep["H3K27 methyltransferase<br/>PRC2 (EZH2)"] --> Me_rep["H3K27me3<br/>REPRESSIVE<br/>Polycomb target genes"]
+    HMT_het["H3K9 methyltransferase<br/>(G9a, SUV39H1)"] --> Me_het["H3K9me3<br/>HETEROCHROMATIN<br/>centromeres; transposons"]
+
+    Kinase["Aurora B / CDK1"] --> Phos["H3S10ph<br/>MITOSIS marker<br/>also: DNA damage signalling H2AX-Ser139"]
+    Ub["RNF2 (PRC1)"] --> UbH2A["H2AK119ub<br/>Polycomb silencing layer 2"]
+
+    style Ac fill:#27ae60,color:#fff
+    style Me_act fill:#2980b9,color:#fff
+    style Me_rep fill:#8e44ad,color:#fff
+    style Me_het fill:#7f8c8d,color:#fff

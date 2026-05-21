@@ -1,0 +1,12 @@
+[2026-05-19 12:53:57,796] [INFO] ✓ Stage 1 completed successfully (0.1s)
+[2026-05-19 12:53:57,796] [INFO] 
+[2026-05-19 12:53:57,796] [INFO] [2/8] Environment Setup (25% complete)
+[2026-05-19 12:53:57,796] [INFO]   Elapsed: 0s | ETA: 0s
+[2026-05-19 12:53:57,796] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-05-19 12:54:05,603] [INFO] ✓ Stage 2 completed successfully (7.8s)
+[2026-05-19 12:54:05,604] [INFO] 
+[2026-05-19 12:54:05,604] [INFO] [3/8] Project Tests (37% complete)
+[2026-05-19 12:54:05,604] [INFO]   Elapsed: 7s | ETA: 13s
+[2026-05-19 12:54:05,604] [INFO] ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-05-19 12:54:26,935] [ERROR] ❌ [STAGE_FAILED] ✗ Stage 3 failed
+[2026-05-19 12:54:26,935] [ERROR] ❌ [PIPELINE_STAGE_FAILED] Pipeline failed at stage 3: Project Tests — Check stage logs for details

@@ -1,0 +1,12 @@
+stateDiagram-v2
+    state "G1 (growth)" as st0
+    state "S phase (DNA synthesis)" as st1
+    state "G2 (preparation)" as st2
+    state "Mitosis" as st3
+    state "Cytokinesis" as st4
+    [*] --> st0
+    st0 --> st1 : G1 checkpoint
+    st1 --> st2 : DNA replication complete
+    st2 --> st3 : G2/M checkpoint
+    st3 --> st4 : spindle checkpoint
+    st4 --> st0 : division complete

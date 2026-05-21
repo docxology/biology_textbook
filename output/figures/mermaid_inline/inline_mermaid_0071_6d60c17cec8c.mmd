@@ -1,0 +1,23 @@
+flowchart TD
+    A[DNA Damage Detected] --> B{Damage Type?}
+    B -->|Double-Strand Break| C[MRN Complex Recruits ATM]
+    B -->|Replication Stress / ssDNA| D[RPA Coats ssDNA and ATRIP Recruits ATR]
+    C --> E[ATM Phosphorylates H2AX to gamma-H2AX Foci]
+    C --> F[ATM Activates Chk2]
+    D --> G[ATR Activates Chk1]
+    F --> H[Chk2 Phosphorylates p53 at Ser20]
+    G --> H
+    E --> I[Recruits MDC1 BRCA1 53BP1 to Damage Site]
+    H --> J{p53 Stabilized and MDM2 Interaction Blocked}
+    J --> K[Mild Damage: p21 Induction and Cell Cycle Arrest]
+    J --> L[Severe Damage: BAX PUMA NOXA and Apoptosis]
+    J --> M[Persistent Damage: p16/RB and Senescence]
+    K --> N[DNA Repair Occurs]
+    N --> O{Repair Successful?}
+    O -->|Yes| P[Cell Cycle Resumes]
+    O -->|No| L
+
+    style A fill:#d9534f,color:#fff
+    style P fill:#5cb85c,color:#fff
+    style L fill:#d9534f,color:#fff
+    style M fill:#f0ad4e,color:#000

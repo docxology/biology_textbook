@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>130_appendix_math_review</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered"
+id="appendix-c-mathematical-review-for-biology">Appendix C —
+Mathematical Review for Biology</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Appendix C</strong> · Level 1/3 · 45 min read ·
+Prerequisites: none · Use as reference</p>
+</blockquote>
+<p>This appendix collects the mathematics a reader needs to work through
+the quantitative chapters of this textbook. It is not a course in
+mathematics — it is a compact reference for the specific tools used in
+the chapters. Each section is self-contained; dip in as needed.</p>
+<hr />
+<h2 class="unnumbered" id="c.1-logarithms-and-the-natural-log">C.1
+Logarithms and the Natural Log</h2>
+<h3 class="unnumbered" id="definition">Definition</h3>
+<p><span class="math display">\[ \log_b(x) = y \iff b^y =
+x  \label{eq:appendices_appendix_math_review_item_1}\]</span></p>
+<p>Biology uses two bases heavily:</p>
+<ul>
+<li><strong>Base 10</strong> (<span
+class="math inline">\(\log_{10}\)</span>) — pH, sound intensity,
+earthquake magnitude, powers-of-ten units (nM, μM, mM).</li>
+<li><strong>Base <span class="math inline">\(e\)</span></strong> (<span
+class="math inline">\(\ln\)</span>, natural log) — most first-order
+kinetics (exponential growth, decay, enzyme kinetics), where <span
+class="math inline">\(e \approx 2.71828\)</span>.</li>
+</ul>
+<p>Conversion: <span class="math inline">\(\log_{10}(x) = \ln(x) /
+\ln(10) \approx \ln(x) / 2.303\)</span>.</p>
+<h3 class="unnumbered" id="key-identities">Key identities</h3>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr>
+<th>Identity</th>
+<th>Biological application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(\log(ab) = \log a + \log b\)</span></td>
+<td>Combining probabilities across linked loci</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\log(a/b) = \log a - \log
+b\)</span></td>
+<td>Henderson-Hasselbalch <span class="math inline">\(\text{pH} =
+\text{p}K_a + \log([\text{A}^-]/[\text{HA}])\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(\log(a^n) = n \log a\)</span></td>
+<td>Hill equation — slope in log-log plot</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\log_b(b^x) = x\)</span></td>
+<td>Inverting exponential growth: <span class="math inline">\(t =
+\ln(N/N_0)/r\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="worked-example-doubling-time">Worked example
+— doubling time</h3>
+<p>A bacterial culture grows at <span class="math inline">\(r =
+0.5\)</span> h<span class="math inline">\(^{-1}\)</span>. When does the
+population double?</p>
+<p><span class="math display">\[ N(t) = N_0 e^{rt} = 2 N_0 \implies
+e^{rt} = 2 \implies t = \frac{\ln 2}{r} = \frac{0.693}{0.5} \approx 1.39
+\text{
+h}  \label{eq:appendices_appendix_math_review_item_2}\]</span></p>
+<p>The <strong>“ln 2 trick”</strong> recurs throughout biology:
+half-life <span class="math inline">\(t_{1/2} = \ln 2 / k\)</span>
+(decay); doubling time <span class="math inline">\(t_d = \ln 2 /
+r\)</span> (growth). Memorise <span class="math inline">\(\ln 2 \approx
+0.693\)</span>.</p>
+<hr />
+<h2 class="unnumbered" id="c.2-differential-and-integral-calculus">C.2
+Differential and Integral Calculus</h2>
+<p>Biology rarely requires advanced calculus, but the reader must be
+comfortable with:</p>
+<h3 class="unnumbered" id="derivatives-as-rates">Derivatives as
+rates</h3>
+<p><span class="math display">\[ \frac{dN}{dt} = \text{rate of change of
+} N \text{ over
+time}  \label{eq:appendices_appendix_math_review_item_3}\]</span></p>
+<p>In population ecology, <span class="math inline">\(dN/dt &gt;
+0\)</span> means the population is growing; <span
+class="math inline">\(dN/dt = 0\)</span> is equilibrium; <span
+class="math inline">\(dN/dt &lt; 0\)</span> is decline. In enzyme
+kinetics, <span class="math inline">\(d[P]/dt\)</span> = reaction
+velocity <span class="math inline">\(v\)</span>.</p>
+<h3 class="unnumbered" id="integration-as-accumulation">Integration as
+accumulation</h3>
+<p><span class="math display">\[ \int_0^T \frac{dN}{dt} dt = N(T) -
+N(0)  \label{eq:appendices_appendix_math_review_item_4}\]</span></p>
+<p>The integral sums up infinitesimal contributions. Examples:</p>
+<ul>
+<li>Total drug dose delivered by an infusion: <span
+class="math inline">\(\text{Dose} = \int_0^T (\text{infusion rate})
+dt\)</span>.</li>
+<li>Net photosynthesis over a day: <span
+class="math inline">\(\int_0^{24\text{h}} P(t) dt\)</span>.</li>
+</ul>
+<h3 class="unnumbered"
+id="first-order-ode-exponential-growth-and-decay">First-order ODE:
+exponential growth and decay</h3>
+<p><span class="math display">\[ \frac{dN}{dt} = kN \implies N(t) = N_0
+e^{kt}  \label{eq:appendices_appendix_math_review_item_5}\]</span></p>
+<ul>
+<li><span class="math inline">\(k &gt; 0\)</span>: growth with doubling
+time <span class="math inline">\(t_d = \ln 2 / k\)</span>.</li>
+<li><span class="math inline">\(k &lt; 0\)</span>: decay with half-life
+<span class="math inline">\(t_{1/2} = \ln 2 / |k|\)</span>.</li>
+</ul>
+<h3 class="unnumbered" id="logistic-growth-nonlinear">Logistic growth
+(nonlinear)</h3>
+<p><span class="math display">\[ \frac{dN}{dt} = rN\left(1 -
+\frac{N}{K}\right)  \label{eq:appendices_appendix_math_review_item_6}\]</span></p>
+<p>The closed-form solution is:</p>
+<p><span class="math display">\[ N(t) = \frac{K}{1 +
+\left(\frac{K-N_0}{N_0}\right)
+e^{-rt}}  \label{eq:appendices_appendix_math_review_item_7}\]</span></p>
+<p>Inflection (maximum rate) at <span class="math inline">\(N =
+K/2\)</span>, giving the sigmoid shape.</p>
+<hr />
+<h2 class="unnumbered" id="c.3-basic-probability">C.3 Basic
+Probability</h2>
+<h3 class="unnumbered" id="independent-events">Independent events</h3>
+<p><span class="math inline">\(P(A \cap B) = P(A) \cdot P(B)\)</span>
+when events are independent. Example: the probability that both parents
+transmit the recessive allele at a locus (<span class="math inline">\(Aa
+\times Aa\)</span>) is <span class="math inline">\((1/2)(1/2) =
+1/4\)</span>.</p>
+<h3 class="unnumbered"
+id="conditional-probability-and-bayes-theorem">Conditional probability
+and Bayes’ theorem</h3>
+<p><span class="math display">\[ P(A \mid B) = \frac{P(A \cap
+B)}{P(B)}  \label{eq:appendices_appendix_math_review_item_8}\]</span></p>
+<p>Bayes’ theorem — central to and to medical testing:</p>
+<p><span class="math display">\[ P(\text{disease} \mid +) = \frac{P(+
+\mid \text{disease}) \cdot
+P(\text{disease})}{P(+)}  \label{eq:appendices_appendix_math_review_item_9}\]</span></p>
+<p>A highly sensitive test can still have a low positive predictive
+value if the disease is rare — a counterintuitive result with major
+clinical consequences.</p>
+<h3 class="unnumbered" id="binomial-distribution">Binomial
+distribution</h3>
+<p>Number of successes in <span class="math inline">\(n\)</span>
+independent trials, each with probability <span
+class="math inline">\(p\)</span>:</p>
+<p><span class="math display">\[ P(k \text{ successes}) = \binom{n}{k}
+p^k
+(1-p)^{n-k}  \label{eq:appendices_appendix_math_review_item_10}\]</span></p>
+<p>Used for Punnett-square ratios, mark-recapture statistics, and
+Hardy-Weinberg proportion testing.</p>
+<h3 class="unnumbered" id="poisson-distribution">Poisson
+distribution</h3>
+<p>For rare events at mean rate λ per interval:</p>
+<p><span class="math display">\[ P(k) = \frac{\lambda^k
+e^{-\lambda}}{k!}  \label{eq:appendices_appendix_math_review_item_11}\]</span></p>
+<p>Used for spontaneous mutation counts per locus, bacterial cell counts
+in Petri dishes (when plates are not overgrown), rare-disease
+incidence.</p>
+<hr />
+<h2 class="unnumbered" id="c.4-dimensional-analysis">C.4 Dimensional
+Analysis</h2>
+<p>Every physical quantity carries <strong>units</strong>. Units must
+balance on both sides of every equation — if they don’t, the equation is
+wrong.</p>
+<h3 class="unnumbered" id="example-diffusion-distance">Example —
+diffusion distance</h3>
+<p>Fick’s rule for mean diffusion distance:</p>
+<p><span class="math display">\[ x =
+\sqrt{2Dt}  \label{eq:appendices_appendix_math_review_item_12}\]</span></p>
+<p>Check units: <span class="math inline">\(D\)</span> has units of m²
+s⁻¹; <span class="math inline">\(t\)</span> has units of s; so <span
+class="math inline">\(\sqrt{2Dt}\)</span> has units of <span
+class="math inline">\(\sqrt{\text{m}^2} = \text{m}\)</span>. ✓</p>
+<p>If a student wrote <span class="math inline">\(x = Dt\)</span>, units
+would be m² s⁻¹ · s = m² — dimensionally wrong.</p>
+<h3 class="unnumbered" id="standard-si-units-used-in-this-book">Standard
+SI units used in this book</h3>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Symbol</th>
+<th>SI unit</th>
+<th>Typical biological magnitude</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Length</td>
+<td><span class="math inline">\(l\)</span></td>
+<td>m</td>
+<td>cell: 10 μm; neuron: 1 m</td>
+</tr>
+<tr>
+<td>Mass</td>
+<td><span class="math inline">\(m\)</span></td>
+<td>kg</td>
+<td>ribosome: 3 × 10⁻²¹ kg; cell: 10⁻¹² kg</td>
+</tr>
+<tr>
+<td>Time</td>
+<td><span class="math inline">\(t\)</span></td>
+<td>s</td>
+<td>AP: 1 ms; cell cycle: 24 h</td>
+</tr>
+<tr>
+<td>Amount</td>
+<td><span class="math inline">\(n\)</span></td>
+<td>mol</td>
+<td>ATP in a cell: 10⁻¹⁵ mol</td>
+</tr>
+<tr>
+<td>Concentration</td>
+<td><span class="math inline">\([X]\)</span></td>
+<td>mol L⁻¹ = M</td>
+<td>cytoplasmic ATP: 5 × 10⁻³ M</td>
+</tr>
+<tr>
+<td>Energy</td>
+<td><span class="math inline">\(E\)</span></td>
+<td>J</td>
+<td>ATP hydrolysis: 5 × 10⁻²⁰ J per molecule, ≈30.5 kJ mol⁻¹</td>
+</tr>
+<tr>
+<td>Force</td>
+<td><span class="math inline">\(F\)</span></td>
+<td>N</td>
+<td>myosin step force: 5 × 10⁻¹² N = 5 pN</td>
+</tr>
+<tr>
+<td>Electric potential</td>
+<td><span class="math inline">\(V\)</span></td>
+<td>V</td>
+<td>resting membrane: −0.07 V = −70 mV</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="non-si-units-common-in-biology">Non-SI units
+common in biology</h3>
+<table>
+<thead>
+<tr>
+<th>Unit</th>
+<th>SI equivalent</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mmHg (Torr)</td>
+<td>133.322 Pa</td>
+<td>blood pressure, gas partial pressures</td>
+</tr>
+<tr>
+<td>cal</td>
+<td>4.184 J</td>
+<td>nutrition (“Calorie” = kcal)</td>
+</tr>
+<tr>
+<td>pH unit</td>
+<td><span class="math inline">\(-\log_{10}[\text{H}^+]\)</span> in
+M</td>
+<td>acidity</td>
+</tr>
+<tr>
+<td>Da (dalton)</td>
+<td>1.661 × 10⁻²⁷ kg</td>
+<td>molecular mass</td>
+</tr>
+<tr>
+<td>Kelvin (K)</td>
+<td>°C + 273.15</td>
+<td>thermodynamics requires K, not °C</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="c.5-linear-algebra-miniature">C.5 Linear
+Algebra Miniature</h2>
+<p>Primarily trace knowledge is required for this book, but the two
+ideas below recur.</p>
+<h3 class="unnumbered" id="matrices-as-transitions">Matrices as
+transitions</h3>
+<p>Allele-frequency change under migration between two populations is a
+2 × 2 matrix multiplication. Markov transition matrices describe
+stochastic gene expression (lac operon), state transitions in ion
+channels, and Wright-Fisher drift.</p>
+<h3 class="unnumbered" id="eigenvalues-and-equilibrium">Eigenvalues and
+equilibrium</h3>
+<p>The dominant eigenvalue <span
+class="math inline">\(\lambda_1\)</span> of a Leslie matrix equals the
+long-term finite rate of increase. Eigenvectors give the stable age
+distribution. This is the formal underpinning of ’s demographic
+analysis.</p>
+<hr />
+<h2 class="unnumbered" id="c.6-common-pitfalls-in-biological-math">C.6
+Common Pitfalls in Biological Math</h2>
+<ol type="1">
+<li><strong>Confusing concentration and amount.</strong> 1 nM is a
+concentration; 1 nmol is an amount. A picomole of hormone in 5 L of
+blood is 0.2 pM.</li>
+<li><strong>Units of rate constants.</strong> First-order: s⁻¹.
+Second-order: M⁻¹ s⁻¹. Third-order: M⁻² s⁻¹. Dimensional analysis
+typically exposes an order-of-magnitude error.</li>
+<li><strong>Exponents and prefixes.</strong> Milli- (10⁻³), micro-
+(10⁻⁶), nano- (10⁻⁹), pico- (10⁻¹²), femto- (10⁻¹⁵), atto- (10⁻¹⁸).
+Shifting by three orders of magnitude is common in biology; single
+errors are catastrophic.</li>
+<li><strong>Logarithmic vs linear differences.</strong> A tenfold change
+in [H⁺] is a one-pH-unit change. “Twice the acidity” means <span
+class="math inline">\(0.3\)</span> pH unit down, not <span
+class="math inline">\(2\)</span> pH units.</li>
+<li><strong>Error propagation.</strong> Small errors in input variables
+compound through multi-step calculations. The textbook flags this at
+thermodynamics, kinetics, and evolutionary rate estimation in
+particular.</li>
+</ol>
+<hr />
+<h2 class="unnumbered" id="further-reading-and-source-notes">Further
+Reading and Source Notes</h2>
+<ul>
+<li>Keener, J. &amp; Sneyd, J. (2009). <em>Mathematical Physiology</em>
+(2nd ed.). Springer. — comprehensive biological math.</li>
+<li>Otto, S. P. &amp; Day, T. (2007). <em>A Biologist’s Guide to
+Mathematical Modeling in Ecology and Evolution</em>. Princeton. —
+accessible entry point.</li>
+<li>Strogatz, S. H. (2018). <em>Nonlinear Dynamics and Chaos</em> (2nd
+ed.). Westview. — the bifurcation and limit-cycle literature.</li>
+</ul>
+<p><em>Module: reference only (no code)</em></p>
+</body>
+</html>

@@ -1,0 +1,13 @@
+flowchart TD
+    A["E1 conformation<br/>Intracellular-facing<br/>High Na+ affinity"] -->|"3 Na+ bind<br/>from cytoplasm"| B["E1·3Na+"]
+    B -->|"ATP phosphorylates<br/>Asp376 (E1-P)"| C["E1-P·3Na+<br/>Occluded state"]
+    C -->|"Conformational change<br/>to E2-P"| D["E2-P<br/>Extracellular-facing<br/>Low Na+ affinity"]
+    D -->|"3 Na+ released<br/>to extracellular"| E["E2-P<br/>High K+ affinity"]
+    E -->|"2 K+ bind<br/>from extracellular"| F["E2-P·2K+"]
+    F -->|"Dephosphorylation<br/>(E2 → E1)"| G["E1·2K+<br/>Occluded state"]
+    G -->|"2 K+ released<br/>to cytoplasm"| A
+
+    style A fill:#e6f3ff
+    style D fill:#ffe6e6
+    style C fill:#fff3e6
+    style G fill:#fff3e6

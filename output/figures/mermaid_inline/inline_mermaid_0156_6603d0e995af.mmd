@@ -1,0 +1,20 @@
+flowchart LR
+    Core["Core: 37 °C"]
+    A1["Artery: 37 °C"]
+    A2["Artery: 30 °C<br/>(after heat loss<br/>to vena comitans)"]
+    A3["Artery: 22 °C<br/>at distal limb"]
+    V3["Vein: 18 °C<br/>at distal limb"]
+    V2["Vein: 28 °C<br/>(after rewarming<br/>from artery)"]
+    V1["Vein: 35 °C<br/>(re-entering core)"]
+    Skin["Cold environment:<br/>0 °C"]
+
+    Core --> A1
+    A1 -->|"heat to V"| V1
+    A1 --> A2
+    A2 -->|"heat to V"| V2
+    A2 --> A3
+    A3 -->|"some heat<br/>radiated to skin"| Skin
+    A3 --> V3
+    V3 -->|"warmed<br/>by adjacent A"| V2
+    V2 --> V1
+    V1 --> Core

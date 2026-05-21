@@ -1,0 +1,41 @@
+flowchart TD
+    subgraph Atmosphere ["Atmosphere (78% N₂)"]
+        N2["N₂<br/>(triple bond, inert)"]
+    end
+
+    subgraph Biological ["Biological N Transformations"]
+        NH3["NH₃/NH₄⁺<br/>(ammonium)"]
+        NO2["NO₂⁻<br/>(nitrite)"]
+        NO3["NO₃⁻<br/>(nitrate)"]
+        ORG["Organic N<br/>(amino acids, proteins)"]
+        N2O["N₂O<br/>(nitrous oxide<br/>~273× CO₂ warming<br/>GWP100, IPCC AR6)"]
+    end
+
+    subgraph Anthropogenic ["Human Inputs"]
+        HB["Haber-Bosch<br/>~130 Tg N/yr<br/>400-500°C, 150-300 atm"]
+        FERT["Fertiliser Application<br/>(only 30-50% uptake)"]
+    end
+
+    subgraph Consequences ["Environmental Consequences"]
+        EUTR["Eutrophication<br/>→ Algal Blooms<br/>→ Hypoxic Dead Zones"]
+        OZONE["Stratospheric<br/>Ozone Depletion"]
+    end
+
+    N2 -->|"N₂ fixation<br/>(nitrogenase)<br/>Rhizobium, Azotobacter"| NH3
+    N2 -->|"Haber-Bosch"| HB
+    HB --> FERT
+    FERT --> NH3
+    NH3 -->|"Assimilation<br/>(GS/GOGAT)"| ORG
+    ORG -->|"Ammonification<br/>(decomposers)"| NH3
+    NH3 -->|"Nitrification<br/>(Nitrosomonas)"| NO2
+    NO2 -->|"Nitrification<br/>(Nitrobacter)"| NO3
+    NO3 -->|"Plant uptake"| ORG
+    NO3 -->|"Denitrification<br/>(Pseudomonas)"| N2O
+    N2O --> N2
+    NO3 -->|"Leaching/Runoff"| EUTR
+    N2O -->|"Radiative forcing"| OZONE
+
+    style N2 fill:#4a90d9,color:#fff
+    style HB fill:#d9534f,color:#fff
+    style EUTR fill:#f0ad4e,color:#000
+    style N2O fill:#f0ad4e,color:#000

@@ -1,0 +1,28 @@
+flowchart TD
+    A{Disturbance Type?} -->|"Bare substrate<br/>(no soil)"| B["Primary Succession<br/>(centuries)"]
+    A -->|"Soil intact<br/>(seed bank present)"| C["Secondary Succession<br/>(decades)"]
+
+    B --> D["Pioneer Community<br/>Lichens, cyanobacteria, mosses<br/>Weathering begins"]
+    C --> E["Pioneer Community<br/>Annual weeds, grasses<br/>Seed bank germinates"]
+
+    D --> F{Mechanism?}
+    E --> F
+
+    F -->|"Facilitation<br/>(Connell-Slatyer)"| G["Early species improve<br/>conditions for later species<br/>(N-fixation, soil building)"]
+    F -->|"Tolerance"| H["Later species establish<br/>independently; outcompete<br/>pioneers via shade tolerance"]
+    F -->|"Inhibition"| I["Pioneers resist replacement;<br/>succession only when<br/>pioneers die or are removed"]
+
+    G --> J["Intermediate Community<br/>Shrubs, shade-intolerant trees<br/>Increasing soil depth"]
+    H --> J
+    I --> J
+
+    J --> K["Late-Successional Community<br/>Shade-tolerant canopy species<br/>Complex vertical structure<br/>High biomass, low NPP/biomass"]
+
+    K --> L{Disturbance?}
+    L -->|"Fire, storm,<br/>human clearing"| C
+    L -->|"Stable"| M["Dynamic Equilibrium<br/>(not a fixed 'climax')"]
+
+    style D fill:#f0ad4e,color:#000
+    style E fill:#f0ad4e,color:#000
+    style K fill:#5cb85c,color:#fff
+    style M fill:#4a90d9,color:#fff

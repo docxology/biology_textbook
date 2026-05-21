@@ -1,0 +1,13 @@
+flowchart TD
+    Pop["Population variation"]
+    Her["Heritable trait differences"]
+    Env["Environmental filter"]
+    Fit["Differential fitness"]
+    Next["Allele frequencies shift"]
+    Adap["Adaptation over generations"]
+    Pop -->|genetic basis| Her
+    Her -->|phenotypes exposed| Env
+    Env -->|selection| Fit
+    Fit -->|non-random reproduction| Next
+    Next -->|repeated cycles| Adap
+    Adap -->|new population| Pop

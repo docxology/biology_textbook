@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant POP as Endangered Population
+    participant SEQ as Whole-Genome Sequencing
+    participant ANAL as Genomic Analysis
+    participant MGMT as Management Decision
+
+    POP->>SEQ: Sample 30-50 individuals
+    SEQ->>ANAL: Align reads, call variants
+
+    ANAL->>ANAL: Calculate ROH (inbreeding)
+    ANAL->>ANAL: Estimate Ne (effective population)
+    ANAL->>ANAL: Identify deleterious mutations
+    ANAL->>ANAL: Map adaptive variation
+    ANAL->>ANAL: Assess population structure
+
+    ANAL->>MGMT: High inbreeding? → Genetic rescue
+    ANAL->>MGMT: Low adaptive variation? → Assisted gene flow
+    ANAL->>MGMT: Distinct populations? → Separate management units
+    ANAL->>MGMT: High genetic load? → Careful translocation
+
+    MGMT->>POP: Implement management strategy
+    Note over MGMT,POP: Monitor genomic response<br/>over 5-10 generations

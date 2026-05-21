@@ -1,0 +1,22 @@
+flowchart TD
+    T["Membrane Transport"]
+    P["Passive transport"]
+    A["Energy-coupled transport"]
+    S["Simple Diffusion"]
+    F["Facilitated Diffusion"]
+    OS["Osmosis"]
+    PP["Primary active pumps"]
+    SP["Secondary cotransport"]
+    Bulk["Vesicular transport"]
+    Grad["Down electrochemical gradient"]
+    ATP["ATP or ion-gradient energy"]
+    T --> P
+    T --> A
+    P --> S
+    P --> F
+    P --> OS
+    A --> PP
+    A --> SP
+    A --> Bulk
+    P -->|driving force| Grad
+    A -->|driving force| ATP

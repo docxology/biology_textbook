@@ -1,0 +1,33 @@
+flowchart TB
+    subgraph "Cell Wall Synthesis Inhibitors"
+        A1["Beta-lactams<br/>(penicillins, cephalosporins,<br/>carbapenems)"] --> T1["Bind PBPs<br/>(transpeptidases)<br/>Inhibit cross-linking"]
+        A2["Vancomycin"] --> T2["Binds D-Ala-D-Ala<br/>terminus of<br/>peptidoglycan precursor"]
+        A3["Fosfomycin"] --> T3["Inhibits MurA<br/>(first step in PG<br/>synthesis)"]
+        A4["Bacitracin"] --> T4["Blocks bactoprenol<br/>(C55) recycling"]
+    end
+
+    subgraph "Protein Synthesis Inhibitors"
+        B1["Aminoglycosides<br/>(gentamicin)"] --> T5["30S subunit:<br/>mRNA misreading"]
+        B2["Tetracyclines"] --> T6["30S subunit:<br/>block A-site<br/>tRNA binding"]
+        B3["Macrolides<br/>(erythromycin)"] --> T7["50S subunit:<br/>block translocation"]
+        B4["Chloramphenicol"] --> T8["50S subunit:<br/>inhibit peptidyl<br/>transferase"]
+        B5["Linezolid<br/>(oxazolidinone)"] --> T9["50S subunit:<br/>block initiation<br/>complex formation"]
+    end
+
+    subgraph "DNA/RNA Inhibitors"
+        C1["Fluoroquinolones<br/>(ciprofloxacin)"] --> T10["Inhibit DNA gyrase<br/>and Topo IV<br/>induce DSBs"]
+        C2["Rifampin"] --> T11["Binds RNA Pol<br/>beta subunit<br/>blocks transcription"]
+    end
+
+    subgraph "Membrane Disruptors"
+        D1["Polymyxins<br/>(colistin)"] --> T12["Disrupt outer<br/>membrane via<br/>LPS binding"]
+    end
+
+    subgraph "Resistance Mechanisms"
+        R1["Enzymatic destruction:<br/>beta-lactamase, ESBL,<br/>carbapenemase (KPC, NDM)"]
+        R2["Target modification:<br/>PBP2a (MRSA, mecA gene)"]
+        R3["Efflux pumps:<br/>AcrAB-TolC, MexAB-OprM"]
+        R4["Reduced permeability:<br/>porin mutations/loss"]
+        R5["Ribosomal methylation:<br/>erm genes (MLSB resistance)"]
+        R6["Enzymatic modification:<br/>aminoglycoside acetyl-,<br/>phospho-, nucleotidyl-<br/>transferases"]
+    end

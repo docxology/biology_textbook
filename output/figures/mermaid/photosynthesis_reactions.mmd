@@ -1,0 +1,21 @@
+flowchart LR
+    Sun["Sunlight"]
+    LR["Light reactions"]
+    H2O["H₂O (oxidised)"]
+    ATP_N["ATP + NADPH"]
+    O2["O₂ (released)"]
+    Cal["Calvin-Benson cycle"]
+    CO2["CO₂ (fixed by RuBisCO)"]
+    G3P["G3P sugar precursor"]
+    RuBP["RuBP regenerated"]
+    Glu["Sucrose/starch synthesis"]
+    Sun -->|absorbed by chlorophyll| LR
+    H2O -->|electron donor| LR
+    LR --> ATP_N
+    LR -->|byproduct| O2
+    ATP_N -->|powers| Cal
+    CO2 -->|reactant| Cal
+    Cal -->|carbon export| G3P
+    Cal -->|regeneration| RuBP
+    RuBP -->|CO2 acceptor| Cal
+    G3P -->|biosynthesis| Glu

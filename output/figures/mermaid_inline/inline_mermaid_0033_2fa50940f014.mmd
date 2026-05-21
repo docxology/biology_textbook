@@ -1,0 +1,34 @@
+classDiagram
+    class Prokaryote {
+        +No nuclear envelope
+        +70S ribosomes
+        +Circular chromosome
+        +Binary fission
+    }
+    class Bacteria {
+        +Peptidoglycan cell wall
+        +Ester-linked membrane lipids
+        +Bacterial RNA polymerase
+        +Sigma factor regulation
+        +Flagellar motor (H+ driven)
+    }
+    class Archaea {
+        +Pseudopeptidoglycan or S-layer
+        +Ether-linked isoprenoid lipids
+        +Eukaryote-like RNA polymerase
+        +Histone-like proteins
+        +Flagellar motor (ATP driven)
+    }
+    class Eukaryote {
+        +Nuclear envelope with pores
+        +80S ribosomes
+        +Linear chromosomes
+        +Mitosis / meiosis
+        +Membrane-bound organelles
+        +Endosymbiotic mitochondria
+    }
+
+    Prokaryote <|-- Bacteria
+    Prokaryote <|-- Archaea
+    Archaea ..> Eukaryote : Closer phylogenetic<br/>relationship
+    Bacteria ..> Eukaryote : Endosymbiosis<br/>(mitochondria, chloroplasts)

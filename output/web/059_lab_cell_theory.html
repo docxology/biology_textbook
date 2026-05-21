@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>059_lab_cell_theory</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered" id="lab-5-cell-theory-and-cell-types">Lab 5 —
+Cell Theory and Cell Types</h1>
+<p></p>
+<h2 class="unnumbered" id="learning-objectives">Learning Objectives</h2>
+<p><em>This activity accompanies of the textbook — review that chapter
+before attempting the exercises below.</em></p>
+<ul>
+<li>Interpret micrograph packets of prokaryotic and eukaryotic
+cells</li>
+<li>Apply cell theory to evaluate cases from printed microscopy
+evidence</li>
+<li>Measure cell dimensions using scale bars and reference data</li>
+<li>Compare structural features of prokaryotic and plant/animal
+eukaryotic cells</li>
+</ul>
+<!-- lab-alignment-start -->
+<h3 class="unnumbered" id="alignment-and-rubric-map">Alignment and
+Rubric Map</h3>
+<ul>
+<li><strong>Outcome 1 (LO1):</strong> Interpret the supplied evidence or
+model output for Cell Theory and Cell Types.</li>
+<li><strong>Outcome 2 (LO2):</strong> Identify controls and comparison
+groups that make the claim testable.</li>
+<li><strong>Outcome 3 (LO3):</strong> Quantify uncertainty, boundary
+conditions, or alternative explanations before concluding.</li>
+<li><strong>Outcome 4 (LO4):</strong> Transfer the mechanism to a new
+biological case or public-facing decision.</li>
+<li><strong>Chapter LO coverage:</strong> LO1, LO2, LO3, LO4</li>
+<li><strong>Rubric dimensions:</strong> evidence; controls; uncertainty;
+mechanism; transfer. <!-- lab-alignment-end --> ## Pre-Lab (to complete
+before class) {.unnumbered}</li>
+</ul>
+<ol type="1">
+<li>Define in one sentence each: <strong>resolution</strong>,
+<strong>magnification</strong>, <strong>field of view (FOV)</strong>.
+Note which depends on optics and which on apertures.</li>
+<li>Compute the FOV diameter at 400× if the FOV at 40× is 4.5 mm.
+(Answer: 4.5 mm × 40/400 = 0.45 mm = 450 µm.)</li>
+<li>Look up Robert Hooke (1665) and Antoni van Leeuwenhoek (1673). In
+2–3 sentences, explain who saw what first and why both contributed to
+cell theory.</li>
+<li>Predict: at 400× total magnification, how many <em>Bacillus
+subtilis</em> cells (2 µm long) would fit end-to-end across the diameter
+of the FOV? (Answer: 450 µm / 2 µm ≈ 225 cells.)</li>
+</ol>
+<h2 class="unnumbered" id="background">Background</h2>
+<p>Cell theory, formalised by Schleiden, Schwann, and Virchow
+(1838–1855), states that: (1) most living things are composed of cells;
+(2) the cell is the basic unit of life; and (3) most cells arise from
+pre-existing cells. Two fundamental cell types exist:
+<strong>prokaryotes</strong> (Bacteria, Archaea — no nucleus, typically
+0.5–5 µm) and <strong>eukaryotes</strong> (Eukarya — membrane-bounded
+nucleus, 10–100 µm). Light microscopy can resolve features above ~200
+nm, allowing clear visualisation of cell walls, chloroplasts, and the
+nucleus, though the electron microscope is needed for ribosomes and
+membranes.</p>
+<h2 class="unnumbered" id="paper-based-materials">Paper-Based
+Materials</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Micrograph packet: <em>Bacillus</em>, onion epidermis, leaf
+mesophyll, epithelial cell</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Scale-bar worksheet</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Cell-feature evidence cards</td>
+<td>1 set</td>
+</tr>
+<tr>
+<td>Historical cell-theory source cards</td>
+<td>1 set</td>
+</tr>
+<tr>
+<td>Ruler (mm)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Calculator</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered" id="paper-based-investigation">Paper-Based
+Investigation</h2>
+<ol type="1">
+<li><strong>Prokaryote micrograph:</strong> Inspect the
+<em>Bacillus</em> image. Sketch cells; note shape, arrangement, and size
+relative to the scale bar.</li>
+<li><strong>Plant epidermis micrograph:</strong> Inspect the onion
+image. Identify cell wall, nucleus where visible, and vacuole
+evidence.</li>
+<li><strong>Leaf mesophyll micrograph:</strong> Inspect the
+chloroplast-rich plant-cell image. Identify chloroplasts and explain why
+this cell type differs from onion epidermis.</li>
+<li><strong>Animal epithelial micrograph:</strong> Inspect the
+epithelial-cell image. Identify nucleus, plasma membrane boundary, and
+lack of cell wall.</li>
+<li>For each case, record estimated cell diameter, presence/absence of
+nucleus, cell wall, chloroplasts, and large vacuole. Flag any feature
+that cannot be resolved from the image.</li>
+</ol>
+<h3 class="unnumbered" id="part-d-microbial-diversity-image-packet">Part
+D — Microbial Diversity Image Packet</h3>
+<ol start="6" type="1">
+<li>Use the printed microbial-diversity packet to compare chain-forming
+cocci and rod-shaped cells. Sketch both and identify the evidence for
+prokaryotic organisation.</li>
+<li>Estimate cells per field of view from the annotated image grid, then
+calculate how the estimate would change under a 1:10 dilution. State one
+counting assumption that affects reproducibility.</li>
+</ol>
+<h3 class="unnumbered" id="part-e-scale-bar-arithmetic">Part E — Scale
+Bar Arithmetic</h3>
+<ol start="8" type="1">
+<li><p>The instructor will distribute a printed micrograph of a
+eukaryotic cell with a labelled scale bar of 10 µm. Measure the longest
+cell diameter with a ruler (mm); convert to true µm using the scale-bar
+ratio. This is the core arithmetic for every published micrograph:
+<em>true size = (measured distance ÷ scale bar length) × scale bar
+value</em>.</p></li>
+<li><p>Using the same formula, estimate the total surface area of a
+spherical epithelial-cell image (diameter ≈ 60 µm): <span
+class="math inline">\(A = 4\pi r^2 = 4\pi(30)^2 \approx 1.13 \times
+10^4\)</span> µm². Compare with a spherical <em>Bacillus</em> (diameter
+2 µm, <span class="math inline">\(A \approx 12.6\)</span> µm²). Note the
+~1000× difference — which cell has a larger surface-to-volume ratio, and
+why is that biologically important?</p></li>
+</ol>
+<h2 class="unnumbered" id="data-recording">Data Recording</h2>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 22%" />
+<col style="width: 25%" />
+<col style="width: 8%" />
+<col style="width: 10%" />
+<col style="width: 14%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr>
+<th>Case</th>
+<th>Cell type (Pro/Euk)</th>
+<th>Approx. diameter (µm)</th>
+<th>Nucleus</th>
+<th>Cell wall</th>
+<th>Chloroplasts</th>
+<th>Vacuole</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bacillus</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Onion</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Leaf mesophyll</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Epithelial image</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Sketch each cell type in the boxes below:</p>
+<p><code>[Sketch boxes — label most visible structures]</code></p>
+<!-- lab-evidence-checklist-start -->
+<h2 class="unnumbered"
+id="evidence-and-reproducibility-checklist">Evidence and Reproducibility
+Checklist</h2>
+<ul>
+<li><strong>Primary evidence goal:</strong> Compare cell types and
+quantify surface-area limits.</li>
+<li><strong>Data skill to practice:</strong> Infer cellular constraints
+from measurements, micrographs, and scale bars.</li>
+<li><strong>BioSkills emphasis:</strong> Modeling and simulation,
+Process of science.</li>
+<li><strong>Control logic:</strong> identify at least one positive
+control, one negative control, or one baseline comparison before
+interpreting results.</li>
+<li><strong>Measurement discipline:</strong> record units, uncertainty,
+sample size, and any discarded observation with a reason.</li>
+<li><strong>Mechanistic link:</strong> connect one result directly to
+the parent chapter’s big idea before writing the conclusion.</li>
+<li><strong>Reproducibility check:</strong> state one procedural detail
+that another group would need in order to reproduce the result.
+<!-- lab-evidence-checklist-end --></li>
+</ul>
+<h2 class="unnumbered" id="paper-based-evidence-upgrade">Paper-Based
+Evidence Upgrade</h2>
+<p>Before answering the analysis questions, annotate the paper dataset
+for <strong>Cell Theory and Cell Types</strong> with a reproducibility
+pass:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Evidence check</th>
+<th>Student action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control logic</td>
+<td>Mark the comparison that functions as the baseline, negative
+control, or reference case.</td>
+</tr>
+<tr>
+<td>Uncertainty</td>
+<td>Circle the row, card, diagram feature, or model assumption most
+likely to change the conclusion.</td>
+</tr>
+<tr>
+<td>Model comparison</td>
+<td>State whether a simpler rule, null model, or alternative mechanism
+could explain the same pattern.</td>
+</tr>
+<tr>
+<td>Decision threshold</td>
+<td>Write the minimum evidence that would make you revise the
+interpretation.</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>Record the exact scoring rule another group would need to reproduce
+your classification.</td>
+</tr>
+</tbody>
+</table>
+<p>Focus note: when you assign a cell to a type, write down the
+operational definition you used and whether it is a discrete category or
+a position on a continuum; treat a single-cell or spatial atlas, a
+lineage trace, or a minimal-cell construct as the evidence that would
+change your call. Keep required work paper-based; any material-handling
+or equipment version belongs only in an optional extension.</p>
+<h2 class="unnumbered" id="analysis-questions">Analysis Questions</h2>
+<ol type="1">
+<li>How does the size of <em>Bacillus</em> compare to the onion
+epidermal cell? Express as a ratio. What structural feature allows
+eukaryotic cells to be so much larger (hint: internal
+compartmentalisation)?</li>
+<li>The onion image packet includes a starch-localisation annotation.
+What molecule was detected? Which organelle does this implicate, and why
+is this unexpected in onion cells that are not green?</li>
+<li>Both onion and leaf mesophyll cells are plant cells, but mesophyll
+cells have abundant chloroplasts and onion epidermal cells typically do
+not. Explain using cell theory and differential gene expression.</li>
+<li>A printed pond-water image shows cells with a nucleus but without a
+cell wall. Is this organism a plant, animal, or fungus? What additional
+image feature or molecular marker would narrow the identification?</li>
+<li>Devise a paper-based study using time-series image cards to test
+whether temperature affects the rate of cytoplasmic streaming. Identify
+your independent, dependent, and controlled variables.</li>
+</ol>
+<h2 class="unnumbered" id="extension-analysis-questions">Extension
+Analysis Questions</h2>
+<ol start="6" type="1">
+<li>Hooke’s 1665 <em>Micrographia</em> described “cells” in cork — but
+what he saw were primarily the <strong>walls</strong> of dead plant
+cells, not living matter. Why does this still count as the founding
+observation of cell theory? How does it illustrate the difference
+between <strong>observing</strong> a cell and
+<strong>understanding</strong> it?</li>
+<li>Mitochondria and chloroplasts have their own DNA, 70S ribosomes
+(like bacteria, not the 80S eukaryotic ribosomes in cytoplasm), and
+divide independently. Connect these facts to the <strong>endosymbiotic
+theory</strong> (Margulis, 1967) — why is maternal inheritance of
+mitochondrial DNA in humans a direct prediction of this theory?</li>
+<li>A single mammalian cell contains about 10⁷ proteins. Given a cell
+volume of 1000 µm³, compute the approximate bulk protein concentration
+(mass/volume). Discuss why “macromolecular crowding” (~30% by volume)
+changes effective reaction kinetics relative to dilute test-tube
+conditions.</li>
+</ol>
+<h2 class="unnumbered" id="optional-microscopy-extension">Optional
+Microscopy Extension</h2>
+<p>Prepared slides or classroom microscopy may be used as an optional
+extension. Do not collect human cells or prepare wet mounts for the
+required activity; the micrograph packet supplies most evidence needed
+for the lab.</p>
+<h2 class="unnumbered" id="safety-and-ethics-notes">Safety and Ethics
+Notes</h2>
+<p>Paper-based lab — no swabs, stains, wet mounts, cultures, glass
+slides, or microscopes are required. Optional microscopy work requires
+instructor supervision and standard glassware precautions.</p>
+<h2 class="unnumbered" id="debrief-and-reflection">Debrief and
+Reflection</h2>
+<p>After you finish the practical work, spend 5–10 minutes in your small
+group comparing results and discussing the following prompts. Each
+member should contribute at least one observation before moving to the
+next prompt:</p>
+<ol type="1">
+<li><strong>What did your measurements show</strong> — compare the
+group’s results to the textbook’s predictions. Where they diverge,
+suggest at least one mechanistic explanation before concluding
+“experimental error.”</li>
+<li><strong>What would change the outcome</strong> — propose one
+modification to the procedure that would sharpen the measurement or
+extend the result to a new biological context, and predict what you
+would observe.</li>
+<li><strong>One-sentence headline</strong> — each student composes a
+single sentence summarising the lab’s take-home message, suitable for a
+tweet. Compare sentences across groups; good headlines are short,
+quantitative, and mechanistic.</li>
+<li><strong>Connection back to the textbook</strong> — identify one
+section of that your data either confirmed or complicated. Cite the
+specific passage.</li>
+</ol>
+<h2 class="unnumbered" id="further-reading-lab">Further Reading
+(Lab)</h2>
+<ul>
+<li>Revisit the parent chapter for the theoretical foundations on which
+this lab is built.</li>
+<li>Look up any <strong>bolded glossary term</strong> introduced in the
+textbook chapter (each has a <code>#gl:term-slug</code> link in the
+text) — its master definition is in
+<code>manuscript/glossary.md</code>.</li>
+<li>Explore the appended <code>src/</code> module that implements the
+corresponding quantitative model (when applicable) — referenced in the
+parent chapter’s “Bridge to Computation” subsection.</li>
+</ul>
+<p><em>Module footer: parent chapter
+<code>\cref{sec:unit_II_cell_theory}</code>; all numerical quantities in
+this lab use SI units — see Appendix D of the textbook for unit
+conversions and biological-scale reference values.</em></p>
+</body>
+</html>

@@ -1,0 +1,19 @@
+flowchart TD
+    Chol["Cholesterol<br/>(plasma LDL or<br/>de novo synthesis)"]
+    StAR["StAR protein<br/>transports cholesterol<br/>to inner mitochondrial<br/>membrane (rate-limiting)"]
+    Preg["Pregnenolone<br/>(C21 backbone)"]
+    Prog["Progesterone"]
+    OHProg["17α-OH-progesterone"]
+    DOC["11-deoxycortisol"]
+    Cort["CORTISOL<br/>(zona fasciculata)"]
+    Aldo["ALDOSTERONE<br/>(zona glomerulosa)"]
+    Andr["DHEA / androstenedione<br/>(zona reticularis)"]
+
+    Chol --> StAR
+    StAR -->|"CYP11A1<br/>(side-chain cleavage)<br/>cholesterol → pregnenolone"| Preg
+    Preg -->|"3β-HSD"| Prog
+    Preg -->|"17α-hydroxylase<br/>(CYP17A1)"| OHProg
+    Prog -->|"21-hydroxylase<br/>(CYP21A2) → DOC<br/>→ aldo synthase"| Aldo
+    OHProg -->|"21-hydroxylase<br/>(CYP21A2)"| DOC
+    DOC -->|"11β-hydroxylase<br/>(CYP11B1)"| Cort
+    OHProg -->|"17,20-lyase<br/>(CYP17A1)"| Andr

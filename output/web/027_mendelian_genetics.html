@@ -1,0 +1,2632 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>027_mendelian_genetics</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="mendelian-genetics-and-heredity">Mendelian Genetics and
+Heredity</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 16</strong> · Level 2/3 · 65 min read · 100 min lecture ·
+Prerequisites: </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Describe Mendel ’s experimental system and explain why <em>Pisum
+sativum</em> was ideal for genetic analysis.</li>
+<li>State Mendel’s laws of segregation and <a
+href="#gl:independent-assortment"><strong>independent
+assortment</strong></a> and explain their mechanistic basis in <a
+href="#gl:meiosis"><strong>meiosis</strong></a>.</li>
+<li>Solve monohybrid, dihybrid, and trihybrid cross problems using
+Punnett squares and probability.</li>
+<li>Describe extensions to Mendelian genetics: incomplete dominance,
+codominance, multiple <a href="#gl:allele"><strong>allele</strong></a>s,
+pleiotropy, epistasis, polygenic inheritance, genomic imprinting, and
+maternal effect.</li>
+<li>Explain penetrance, expressivity, and phenocopy with disease
+examples.</li>
+<li>Apply the chi-squared test for goodness of fit to evaluate Mendelian
+ratios.</li>
+<li>Construct and interpret pedigrees for autosomal <a
+href="#gl:dominant"><strong>dominant</strong></a>, autosomal recessive,
+X-linked recessive, X-linked dominant, and mitochondrial inheritance
+patterns.</li>
+<li>Solve multi-step genetics problems involving probability rules
+(product rule, sum rule, conditional probability).</li>
+<li>Connect Mendelian segregation to chromosome behavior at meiosis and
+explain the molecular basis of human autosomal-dominant and
+autosomal-recessive disorders.</li>
+<li>Outline how genome-wide association studies (GWAS) extend Mendelian
+thinking to polygenic traits in human populations.</li>
+</ol>
+<!-- alt: Two-by-two Punnett square labelled with Aa times Aa showing four offspring: one AA homozygous dominant, two Aa heterozygous, one aa homozygous recessive. -->
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Inheritance patterns arise from
+chromosome behaviour, probability, and genotype-to-phenotype
+mapping.</li>
+<li><strong>Core concepts:</strong> segregation, independent assortment,
+pedigrees, epistasis.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change:
+Information flow, exchange, and storage, Evolution; AP Biology:
+Information Storage and Transmission, Evolution; NGSS-style topics:
+Inheritance and Variation of Traits, Natural Selection and
+Evolution.</li>
+<li><strong>Model or quantitative lens:</strong> Punnett, binomial,
+pedigree, and chi-square calculations.</li>
+<li><strong>Data skill:</strong> Use family or cross data to infer
+genotype probabilities.</li>
+<li><strong>Practice cadence:</strong> Statistical Tests and Data
+Analysis, Representing and Describing Data.</li>
+<li><strong>Common misconception to repair:</strong> Dominant does not
+mean common, stronger, or better.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Transfer inheritance reasoning to
+counseling, breeding, model organisms, and risk prediction.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.genetics.genetics.chi_squared_test</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette — The Forgotten Friar and the Laws of
+Inheritance</strong></p>
+<p>Gregor Mendel spent eight years (1856–1863) growing and
+cross-pollinating nearly 28,000 pea plants in the garden of St. Thomas’s
+Abbey in Brno, recording data with statistical rigour unprecedented in
+biology at the time. He presented his findings to the Brno Natural
+History Society in 1865, and published them in the society’s journal in
+1866. The audience of 40 scientists was politely unenthusiastic. For 35
+years, his paper languished in obscurity — unread, uncited,
+misunderstood. Then in 1900, three botanists working independently —
+Hugo de Vries, Carl Correns, and Erich von Tschermak — each rediscovered
+the same ratios Mendel had documented and, searching the literature,
+found his paper. Overnight, an unknown friar’s meticulous garden
+statistics became the foundation of modern genetics. Mendel rarely knew
+he had founded a science.</p>
+</blockquote>
+<h2 id="mendels-experiments-historical-context">Mendel’s Experiments:
+Historical Context</h2>
+<p>Gregor Johann Mendel (1822-1884), an Augustinian friar and
+physics-trained scientist, conducted breeding experiments on garden peas
+(<em>Pisum sativum</em>) from 1856 to 1863 in the monastery garden at
+Brno (now Czech Republic). His 1866 paper, “Versuche uber
+Pflanzen-Hybriden” (Experiments on Plant Hybrids), was largely ignored
+until 1900 when it was independently “rediscovered” by de Vries,
+Correns, and von Tschermak.</p>
+<p><strong>Why peas were ideal:</strong></p>
+<table>
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr>
+<th>Advantage</th>
+<th>Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Distinct, discontinuous traits</td>
+<td>7 characters with clear dominant/recessive forms (no blending)</td>
+</tr>
+<tr>
+<td>True-breeding lines available</td>
+<td>Commercially available pure varieties; years of inbreeding</td>
+</tr>
+<tr>
+<td>Short generation time</td>
+<td>~3 months seed to seed</td>
+</tr>
+<tr>
+<td>Self-compatible flowers</td>
+<td>Could self-fertilize (controlled crosses possible by
+emasculation)</td>
+</tr>
+<tr>
+<td>Large number of offspring</td>
+<td>Each pod contains ~7 seeds; massive sample sizes</td>
+</tr>
+<tr>
+<td>Easy to cross-pollinate</td>
+<td>Large flowers with accessible reproductive parts</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mendel’s seven characters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th>Dominant</th>
+<th>Recessive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed shape</td>
+<td>Round</td>
+<td>Wrinkled</td>
+</tr>
+<tr>
+<td>Seed color</td>
+<td>Yellow</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>Flower color</td>
+<td>Purple</td>
+<td>White</td>
+</tr>
+<tr>
+<td>Flower position</td>
+<td>Axial</td>
+<td>Terminal</td>
+</tr>
+<tr>
+<td>Pod shape</td>
+<td>Inflated</td>
+<td>Constricted</td>
+</tr>
+<tr>
+<td>Pod color</td>
+<td>Green</td>
+<td>Yellow</td>
+</tr>
+<tr>
+<td>Stem length</td>
+<td>Tall</td>
+<td>Short</td>
+</tr>
+</tbody>
+</table>
+<p>Mendel’s genius was <strong>quantitative</strong>: he counted
+offspring in each class and applied <strong>binomial
+probability</strong> reasoning – the first application of statistics to
+biology. He analyzed ~28,000 pea plants over 8 years.</p>
+<hr />
+<h2 id="mendels-laws">Mendel’s Laws</h2>
+<h3 id="law-of-segregation-mendels-first-law">Law of Segregation
+(Mendel’s First Law)</h3>
+<p><strong>Statement</strong>: Each organism possesses two alleles for
+each <a href="#gl:gene"><strong>gene</strong></a>. These alleles
+<strong>segregate</strong> (separate) during <a
+href="#gl:gamete"><strong>gamete</strong></a> formation, such that each
+gamete receives exactly one allele. Upon fertilization, the diploid
+state is restored.</p>
+<p><strong>Molecular basis</strong>: Separation of homologous <a
+href="#gl:chromosome"><strong>chromosomes</strong></a> during <strong><a
+href="#gl:anaphase">anaphase I of meiosis</a></strong>. The two alleles
+of a gene reside on homologous chromosomes; when homologs are pulled to
+opposite poles, each gamete receives one allele.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;Diploid Parent: Yy (heterozygous)&quot;] --&gt; B[&quot;DNA Replication in S Phase&quot;]
+    B --&gt; C[&quot;Each Homolog Now Has Sister Chromatids&quot;]
+    C --&gt; D[&quot;Meiosis I: Homologs Pair at Metaphase I&quot;]
+    D --&gt; E[&quot;Anaphase I: Homologs Segregate&quot;]
+    E --&gt; F[&quot;Cell 1: YY (sisters still joined)&quot;]
+    E --&gt; G[&quot;Cell 2: yy (sisters still joined)&quot;]
+    F --&gt; H[&quot;Meiosis II: Sisters Separate&quot;]
+    G --&gt; I[&quot;Meiosis II: Sisters Separate&quot;]
+    H --&gt; J[&quot;Gamete: Y&quot;]
+    H --&gt; K[&quot;Gamete: Y&quot;]
+    I --&gt; L[&quot;Gamete: y&quot;]
+    I --&gt; M[&quot;Gamete: y&quot;]
+
+    style A fill:#4a90d9,color:#fff
+    style J fill:#5cb85c,color:#fff
+    style K fill:#5cb85c,color:#fff
+    style L fill:#f0ad4e,color:#000
+    style M fill:#f0ad4e,color:#000</code></pre>
+<!-- alt: Flowchart showing molecular basis of the Law of Segregation. A heterozygous (Yy) individual produces equal proportions of Y and y gametes because homologous chromosomes separate at anaphase I of meiosis. -->
+<p><em>Molecular basis of the Law of Segregation. A <a
+href="#gl:heterozygous"><strong>heterozygous</strong></a> (Yy)
+individual produces equal proportions of Y and y gametes because
+homologous chromosomes separate at anaphase I of meiosis.</em></p>
+<h3
+id="the-molecular-basis-of-mendels-laws-from-bivalents-to-binomials">The
+Molecular Basis of Mendel’s Laws: From Bivalents to Binomials</h3>
+<p>Mendel formulated his laws in 1866 without any knowledge of
+chromosomes, meiosis, or DNA. He treated alleles as abstract “factors” —
+discrete particles that combined and segregated according to
+mathematical rules. The chromosomal interpretation came nearly four
+decades later, when Walter and Theodor Boveri independently noticed that
+chromosomes in meiosis behaved exactly the way Mendel’s factors had to
+behave for his laws to hold:</p>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mendel’s abstract law</th>
+<th>Chromosomal mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Each individual has two factors per trait</td>
+<td>Diploid cells have two homologs per chromosome</td>
+</tr>
+<tr>
+<td>Factors separate equally into gametes</td>
+<td>Homologs disjoin at anaphase I; each gamete inherits one</td>
+</tr>
+<tr>
+<td>Factors at different loci assort independently</td>
+<td>Non-homologous bivalents orient independently at metaphase I</td>
+</tr>
+<tr>
+<td>Factors are particulate, not blended</td>
+<td>Chromosomes maintain integrity across generations (apart from
+crossing over)</td>
+</tr>
+</tbody>
+</table>
+<p>The synthesis of Mendel’s laws with the chromosome theory of
+inheritance — completed by Thomas Hunt Morgan’s <em>Drosophila</em> work
+between 1910 and 1915 — is one of the central convergences in biology.
+Every Punnett square is, at heart, a model of homologous-chromosome
+behavior in meiosis (). The 3:1 ratio is not a numerical coincidence; it
+is the inevitable algebraic shadow of two homologs segregating
+independently into haploid gametes that then unite at fertilization.
+When meiosis fails — non-disjunction, translocation, or imprinting
+errors — Mendelian ratios fail predictably with it.</p>
+<h3 id="law-of-independent-assortment-mendels-second-law">Law of
+Independent Assortment (Mendel’s Second Law)</h3>
+<p><strong>Statement</strong>: Alleles at different gene loci are
+distributed to gametes <strong>independently</strong> of one another –
+the inheritance of one gene does not affect the inheritance of
+another.</p>
+<p><strong>Molecular basis</strong>: Random orientation of
+non-homologous bivalents at <strong>metaphase I</strong>. Each bivalent
+can orient with either homolog facing either pole, and this orientation
+is independent of the other bivalents.</p>
+<p><strong>Important exception</strong>: This law applies only to genes
+on <strong>different chromosomes</strong> (or very far apart on the same
+chromosome, &gt;50 cM). Genes on the same chromosome that are close
+together exhibit <strong><a href="#gl:linkage">linkage</a></strong> and
+violate independent assortment (see <em>Chromosomal Inheritance and
+Linkage</em>).</p>
+<p><strong>Concept Check 16.1</strong></p>
+<blockquote>
+<ol type="1">
+<li>If the law of segregation is based on meiosis I, what specific
+cellular event during meiosis II is relevant?</li>
+<li>A student claims that Mendel’s laws prove genes are on chromosomes.
+Is this historically accurate? When was this connection
+established?</li>
+<li>If two genes are 5 cM apart on the same chromosome, do they assort
+independently? Explain.</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="monohybrid-crosses">Monohybrid Crosses</h2>
+<h3 id="the-standard-monohybrid-cross">The Standard Monohybrid
+Cross</h3>
+<p><strong>Worked example – seed color:</strong></p>
+<p><span class="math display">\[\begin{equation}
+P: \quad YY \text{ (yellow)} \times yy \text{ (green)}
+\label{eq:unit_V_mendelian_p_cross}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+F_1: \quad Yy \text{ (most yellow -- Y is dominant)}
+\label{eq:unit_V_mendelian_f1}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+F_1 \times F_1: \quad Yy \times Yy
+\label{eq:unit_V_mendelian_f1_self}
+\end{equation}\]</span></p>
+<p><strong>Punnett square:</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Y</strong></th>
+<th><strong>y</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Y</strong></td>
+<td>YY</td>
+<td>Yy</td>
+</tr>
+<tr>
+<td><strong>y</strong></td>
+<td>Yy</td>
+<td>yy</td>
+</tr>
+</tbody>
+</table>
+<p><strong>F<span class="math inline">\(_2\)</span> genotype
+ratio</strong>: <span class="math inline">\(\frac{1}{4}\)</span> YY :
+<span class="math inline">\(\frac{2}{4}\)</span> Yy : <span
+class="math inline">\(\frac{1}{4}\)</span> yy =
+<strong>1:2:1</strong></p>
+<p><strong>F<span class="math inline">\(_2\)</span> <a
+href="#gl:phenotype"><strong>phenotype</strong></a> ratio</strong>:
+<span class="math inline">\(\frac{3}{4}\)</span> yellow : <span
+class="math inline">\(\frac{1}{4}\)</span> green = <strong>3:1</strong>,
+the canonical heterozygote-cross outcome visualised in , where the 3:1
+phenotype ratio falls out directly from the underlying 1:2:1 genotype
+ratio.</p>
+<h3 id="the-testcross">The Testcross</h3>
+<p>To determine whether an individual showing the dominant phenotype is
+homozygous (YY) or heterozygous (Yy), cross it with a <strong>homozygous
+recessive</strong> (yy):</p>
+<ul>
+<li>If <strong>YY x yy</strong>: the offspring are Yy (yellow) – no
+recessive offspring</li>
+<li>If <strong>Yy x yy</strong>: <span
+class="math inline">\(\frac{1}{2}\)</span> Yy (yellow) : <span
+class="math inline">\(\frac{1}{2}\)</span> yy (green) – 1:1 ratio
+reveals heterozygosity</li>
+</ul>
+<h3 id="probability-rules">Probability Rules</h3>
+<p><strong>Product rule (AND)</strong>: The probability of two
+independent events both occurring = product of individual
+probabilities.</p>
+<p><span class="math display">\[\begin{equation}
+P(A \text{ and } B) = P(A) \times P(B)
+\label{eq:unit_V_mendelian_product_rule}
+\end{equation}\]</span></p>
+<p><strong>Sum rule (OR)</strong>: The probability of either of two
+mutually exclusive events occurring = sum of individual
+probabilities.</p>
+<p><span class="math display">\[\begin{equation}
+P(A \text{ or } B) = P(A) + P(B)
+\label{eq:unit_V_mendelian_sum_rule}
+\end{equation}\]</span></p>
+<h2
+id="worked-example-16.1-two-heterozygous-parents-yy-x-yy.-what-is-the-probability-that">Worked
+Example: 16.1: Two heterozygous parents (Yy x Yy). What is the
+probability that:</h2>
+<ol type="a">
+<li>The first child is yy?</li>
+</ol>
+<p><span class="math display">\[P(yy) = \frac{1}{4} \tag{16.1}
+\label{eq:unit_V_mendelian_genetics_item_1}\]</span></p>
+<ol start="2" type="a">
+<li>The first two children are both yy?</li>
+</ol>
+<p><span class="math display">\[P = \frac{1}{4} \times \frac{1}{4} =
+\frac{1}{16} \quad \text{(product rule; independent events)} \tag{16.2}
+\label{eq:unit_V_mendelian_genetics_item_2}\]</span></p>
+<ol start="3" type="a">
+<li>Among three children, exactly one is yy?</li>
+</ol>
+<p><span class="math display">\[P =
+\binom{3}{1}\left(\frac{1}{4}\right)^1\left(\frac{3}{4}\right)^2 = 3
+\times \frac{1}{4} \times \frac{9}{16} = \frac{27}{64} \approx 0.422
+\tag{16.3} \label{eq:unit_V_mendelian_genetics_item_3}\]</span></p>
+<hr />
+<h2 id="dihybrid-and-trihybrid-crosses">Dihybrid and Trihybrid
+Crosses</h2>
+<h3 id="the-dihybrid-cross">The Dihybrid Cross</h3>
+<p>Two independently assorting genes: seed color (Y/y) and seed shape (R
+= round, r = wrinkled):</p>
+<p><span class="math display">\[P: \quad YYRR \times yyrr \tag{16.4}
+\label{eq:unit_V_mendelian_genetics_item_4}\]</span></p>
+<p><span class="math display">\[F_1: \quad YyRr \text{ (yellow, round)}
+\tag{16.5} \label{eq:unit_V_mendelian_genetics_item_5}\]</span></p>
+<p><span class="math display">\[F_1 \times F_1: \quad YyRr \times YyRr
+\tag{16.6} \label{eq:unit_V_mendelian_genetics_item_6}\]</span></p>
+<p>Each parent produces 4 gamete types in equal frequency: YR, Yr, yR,
+yr.</p>
+<p><strong>F<span class="math inline">\(_2\)</span> phenotype
+ratio</strong>: 9 Y_R_ : 3 Y_rr : 3 yyR_ : 1 yyrr =
+<strong>9:3:3:1</strong></p>
+<p>This ratio is the product of two independent 3:1 ratios:</p>
+<p><span class="math display">\[\begin{equation}
+\left(\frac{3}{4}Y\_ + \frac{1}{4}yy\right) \times \left(\frac{3}{4}R\_
++ \frac{1}{4}rr\right) = \frac{9}{16} + \frac{3}{16} + \frac{3}{16} +
+\frac{1}{16}
+\label{eq:unit_V_mendelian_9331}
+\end{equation}\]</span></p>
+<h3 id="the-forked-line-branch-diagram-method">The Forked-Line (Branch
+Diagram) Method</h3>
+<p>For a trihybrid cross (AaBbCc x AaBbCc), the Punnett square would
+require 64 cells. Instead, use the forked-line method:</p>
+<p><span class="math display">\[\text{A locus:} \quad \tfrac{3}{4}A\_
+\text{ and } \tfrac{1}{4}aa \tag{16.7}
+\label{eq:unit_V_mendelian_genetics_item_7}\]</span> <span
+class="math display">\[\text{B locus:} \quad \tfrac{3}{4}B\_ \text{ and
+} \tfrac{1}{4}bb \tag{16.8}
+\label{eq:unit_V_mendelian_genetics_item_8}\]</span> <span
+class="math display">\[\text{C locus:} \quad \tfrac{3}{4}C\_ \text{ and
+} \tfrac{1}{4}cc \tag{16.9}
+\label{eq:unit_V_mendelian_genetics_item_9}\]</span></p>
+<p>Probability of A_B_C_ = <span class="math inline">\(\frac{3}{4}
+\times \frac{3}{4} \times \frac{3}{4} = \frac{27}{64}\)</span></p>
+<p>Total number of phenotypic classes = <span class="math inline">\(2^3
+= 8\)</span></p>
+<p>Number of genotypic classes = <span class="math inline">\(3^3 =
+27\)</span></p>
+<h2 id="worked-example-trihybrid-cross-probabilities">Worked Example:
+Trihybrid Cross Probabilities</h2>
+<p>In a trihybrid cross AaBbCc x AaBbCc, what fraction of offspring will
+be:</p>
+<ol type="a">
+<li>AaBbCc (triple heterozygous)?</li>
+</ol>
+<p><span class="math display">\[P = \frac{2}{4} \times \frac{2}{4}
+\times \frac{2}{4} = \frac{8}{64} = \frac{1}{8} \tag{16.10}
+\label{eq:unit_V_mendelian_genetics_item_10}\]</span></p>
+<ol start="2" type="a">
+<li>Homozygous for most three loci (AA BB CC or aa bb cc etc.)?</li>
+</ol>
+<p>Each locus has probability <span
+class="math inline">\(\frac{1}{4}\)</span> + <span
+class="math inline">\(\frac{1}{4}\)</span> = <span
+class="math inline">\(\frac{1}{2}\)</span> of being homozygous (either
+AA or aa).</p>
+<p><span class="math display">\[P(\text{homozygous at most 3}) =
+\frac{1}{2} \times \frac{1}{2} \times \frac{1}{2} = \frac{1}{8}
+\tag{16.11} \label{eq:unit_V_mendelian_genetics_item_11}\]</span></p>
+<hr />
+<h2 id="extensions-to-mendelian-genetics">Extensions to Mendelian
+Genetics</h2>
+<h3 id="incomplete-dominance">Incomplete Dominance</h3>
+<p>Neither allele is completely dominant; the heterozygote displays an
+<strong>intermediate</strong> phenotype:</p>
+<ul>
+<li><strong>Snapdragon flower color</strong>: <span
+class="math inline">\(C^R C^R\)</span> (red) x <span
+class="math inline">\(C^W C^W\)</span> (white) → <span
+class="math inline">\(C^R C^W\)</span> (pink)</li>
+<li>F<span class="math inline">\(_2\)</span>: 1 red : 2 pink : 1 white
+(<strong>1:2:1 phenotype ratio = genotype ratio</strong>)</li>
+</ul>
+<p>Molecular basis: In many cases, gene dosage explains the intermediate
+phenotype. One copy of <span class="math inline">\(C^R\)</span> produces
+half the amount of red pigment compared to two copies.</p>
+<h3 id="codominance">Codominance</h3>
+<p>Both alleles are <strong>fully and simultaneously expressed</strong>
+in the heterozygote:</p>
+<ul>
+<li><strong>ABO blood groups</strong>: <span class="math inline">\(I^A
+I^A\)</span> or <span class="math inline">\(I^A i\)</span> (type A)
+vs. <span class="math inline">\(I^B I^B\)</span> or <span
+class="math inline">\(I^B i\)</span> (type B) vs. <span
+class="math inline">\(I^A I^B\)</span> (type AB – both A and B antigens
+present on red blood cell surface)</li>
+<li>Molecular basis: <span class="math inline">\(I^A\)</span> encodes
+N-acetylgalactosaminyltransferase (adds GalNAc to H antigen); <span
+class="math inline">\(I^B\)</span> encodes galactosyltransferase (adds
+Gal); both <a href="#gl:enzyme"><strong>enzyme</strong></a>s are
+functional in heterozygotes; <span class="math inline">\(i\)</span>
+encodes a nonfunctional enzyme</li>
+</ul>
+<h3 id="multiple-alleles">Multiple Alleles</h3>
+<p>A gene can have more than two alleles in a population (though any
+individual still carries at most two):</p>
+<p><strong>ABO blood group system</strong> (three alleles: <span
+class="math inline">\(I^A\)</span>, <span
+class="math inline">\(I^B\)</span>, <span
+class="math inline">\(i\)</span>):</p>
+<p><strong>Rabbit coat color</strong> (4 alleles at the <em>C</em>
+locus): <span class="math inline">\(c^+\)</span> (full color) &gt; <span
+class="math inline">\(c^{ch}\)</span> (chinchilla) &gt; <span
+class="math inline">\(c^h\)</span> (Himalayan) &gt; <span
+class="math inline">\(c\)</span> (albino). Dominance hierarchy gives 10
+possible genotypes and 5 phenotypic classes.</p>
+<blockquote>
+<p><strong>Clinical Connection: Rh Disease of the Newborn</strong> The
+Rh blood group system involves the RhD <a
+href="#gl:protein"><strong>protein</strong></a>. Rh-negative mothers
+(RhD-/RhD-) carrying an Rh-positive fetus can become sensitized during
+delivery when fetal RhD+ red blood cells enter maternal circulation.
+Maternal IgG anti-RhD antibodies cross the placenta in subsequent
+pregnancies, destroying fetal RhD+ erythrocytes (hemolytic disease of
+the fetus and newborn, HDFN). Prevention: <strong>anti-RhD
+immunoglobulin (RhoGAM)</strong> administered at 28 weeks and within 72
+hours of delivery clears fetal RhD+ cells before maternal sensitization
+occurs.</p>
+</blockquote>
+<h3 id="pleiotropy">Pleiotropy</h3>
+<p>A single gene affects <strong>multiple phenotypic
+traits</strong>:</p>
+<p><strong>Sickle cell disease (HbS)</strong>: A single <a
+href="#gl:nucleotide"><strong>nucleotide</strong></a> change (GAG to
+GTG, Glu6Val) in the beta-globin gene (<em>HBB</em>) produces sickle
+hemoglobin. Under low oxygen tension, HbS polymerizes, deforming red
+blood cells into rigid sickle shapes. This single <a
+href="#gl:mutation"><strong>mutation</strong></a> causes:</p>
+<ul>
+<li>Vaso-occlusive crises (pain)</li>
+<li>Hemolytic anemia (shortened RBC lifespan: ~17 days vs. ~120
+days)</li>
+<li>Splenic sequestration and autosplenectomy</li>
+<li>Stroke (large vessel occlusion)</li>
+<li>Acute chest syndrome</li>
+<li>Avascular necrosis of bones</li>
+<li>Renal papillary necrosis</li>
+<li>Retinopathy</li>
+</ul>
+<p><strong>Phenylketonuria (PKU)</strong>: Phenylalanine hydroxylase
+(PAH) deficiency leads to phenylalanine accumulation, causing
+intellectual disability, fair skin/hair (reduced melanin from
+phenylalanine competition with tyrosine), musty body odor, and eczema.
+Newborn screening and phenylalanine-restricted diet prevent neurological
+damage.</p>
+<p><strong>Marfan syndrome</strong>: Mutations in <em>FBN1</em>
+(fibrillin-1) affect connective tissue throughout the body: tall
+stature, arachnodactyly, lens subluxation, mitral valve prolapse, and
+aortic root dilation (risk of aortic dissection).</p>
+<h3 id="epistasis-when-one-gene-masks-another">Epistasis: When One Gene
+Masks Another</h3>
+<p><strong>Epistasis</strong> describes the interaction between two or
+more genes in which the phenotype produced by one gene depends on the
+genotype at a second locus. The 9:3:3:1 dihybrid ratio applies primarily
+when two independently assorting genes act independently on the
+phenotype. When the genes interact — when one gene’s protein product
+feeds the substrate that another gene’s product modifies, or when one
+gene controls whether another gene’s product is even visible — the
+dihybrid F<span class="math inline">\(_2\)</span> ratio is
+<strong>modified</strong> in characteristic ways. Each modified ratio is
+a genetic signature of a specific kind of biochemical interaction.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;Standard Dihybrid F2: 9:3:3:1&quot;] --&gt; B{Type of Epistasis?}
+    B --&gt;|&quot;Recessive epistasis (aa masks B locus)&quot;| C[&quot;9 A_B_ : 3 A_bb : 4 aa__ — 9:3:4&quot;]
+    B --&gt;|&quot;Dominant epistasis (A_ masks B locus)&quot;| D[&quot;12 A___ : 3 aaB_ : 1 aabb — 12:3:1&quot;]
+    B --&gt;|&quot;Duplicate recessive (both genes needed)&quot;| E[&quot;9 A_B_ : 7 others — 9:7&quot;]
+    B --&gt;|&quot;Duplicate dominant (either gene sufficient)&quot;| F[&quot;15 colored : 1 aabb — 15:1&quot;]
+    B --&gt;|&quot;Dominant + recessive interaction&quot;| G[&quot;13 : 3&quot;]
+
+    style A fill:#4a90d9,color:#fff</code></pre>
+<!-- alt: Flowchart showing modified dihybrid ratios produced by different types of epistasis. Each ratio is a modification of the standard 9:3:3:1 ratio. -->
+<p><em>Modified dihybrid ratios produced by different types of
+epistasis. Each ratio is a modification of the standard 9:3:3:1
+ratio.</em></p>
+<h4 id="recessive-epistasis-934-labrador-coat-color">Recessive Epistasis
+(9:3:4) — Labrador coat color</h4>
+<p>Recessive epistasis occurs when <strong>homozygosity at one locus
+masks the phenotype produced by a second locus</strong>. The Labrador
+retriever coat color illustrates the principle through a two-step
+pigment pathway:</p>
+<ul>
+<li><strong>B locus</strong> (Brown): determines whether eumelanin is
+black (<span class="math inline">\(B\)</span>) or brown/chocolate (<span
+class="math inline">\(b\)</span>).</li>
+<li><strong>E locus</strong> (Extension): determines whether eumelanin
+is <strong>deposited at most</strong> in the hair shaft. <span
+class="math inline">\(E\)</span> alleles deposit pigment; <span
+class="math inline">\(ee\)</span> homozygotes block deposition entirely,
+producing yellow coats regardless of B genotype.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Genotype</th>
+<th>Pigment chemistry</th>
+<th>Coat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B_E_</td>
+<td>Black eumelanin deposited</td>
+<td>Black</td>
+</tr>
+<tr>
+<td>bbE_</td>
+<td>Brown eumelanin deposited</td>
+<td>Chocolate</td>
+</tr>
+<tr>
+<td>B_ee</td>
+<td>Black eumelanin made but <strong>not deposited</strong></td>
+<td>Yellow</td>
+</tr>
+<tr>
+<td>bbee</td>
+<td>Brown eumelanin made but <strong>not deposited</strong></td>
+<td>Yellow</td>
+</tr>
+</tbody>
+</table>
+<p>Because <span class="math inline">\(ee\)</span> is
+<strong>epistatic</strong> to the B locus, the standard 9:3:3:1
+collapses into <strong>9 black : 3 chocolate : 4 yellow</strong> in an
+F<span class="math inline">\(_2\)</span> from BbEe × BbEe.</p>
+<h4 id="worked-example-16.3a-recessive-epistasis">Worked Example 16.3a:
+Recessive epistasis</h4>
+<p>In a cross BbEe × BbEe, what is the probability of a chocolate
+Labrador puppy?</p>
+<p><span class="math display">\[P(\text{chocolate}) = P(bb) \times
+P(E\_) = \tfrac{1}{4} \times \tfrac{3}{4} = \tfrac{3}{16}
+\label{eq:unit_V_mendelian_genetics_item_12}\]</span></p>
+<h4 id="dominant-epistasis-1231-squash-fruit-color">Dominant Epistasis
+(12:3:1) — Squash fruit color</h4>
+<p>Dominant epistasis occurs when <strong>the dominant allele at one
+locus masks expression at a second locus</strong>. White-fruited summer
+squash (<em>Cucurbita pepo</em>) is a classic case. Allele <span
+class="math inline">\(W\)</span> produces white fruit and is
+<strong>dominant</strong> to <span class="math inline">\(w\)</span>
+(colored fruit). At a second locus, <span
+class="math inline">\(Y\)</span> produces yellow and <span
+class="math inline">\(y\)</span> produces green pigment — but primarily
+when <span class="math inline">\(ww\)</span> allows pigment to
+develop.</p>
+<table>
+<thead>
+<tr>
+<th>Genotype</th>
+<th>Phenotype</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W_Y_</td>
+<td>White</td>
+</tr>
+<tr>
+<td>W_yy</td>
+<td>White</td>
+</tr>
+<tr>
+<td>wwY_</td>
+<td>Yellow</td>
+</tr>
+<tr>
+<td>wwyy</td>
+<td>Green</td>
+</tr>
+</tbody>
+</table>
+<p>The F<span class="math inline">\(_2\)</span> from WwYy × WwYy yields
+<strong>12 white : 3 yellow : 1 green</strong>, written 12:3:1. Dominant
+<span class="math inline">\(W\)</span> shuts down the entire pathway
+downstream of the Y locus.</p>
+<h4
+id="duplicate-recessive-epistasis-97-sweet-pea-flower-color">Duplicate
+Recessive Epistasis (9:7) — Sweet pea flower color</h4>
+<p>Sweet pea (<em>Lathyrus odoratus</em>) flower color requires the
+<strong>complementary action</strong> of two unlinked genes, both
+encoding biosynthetic enzymes in the anthocyanin pathway. Bateson and
+Punnett (1905) crossed two pure-breeding white strains and obtained
+purple F<span class="math inline">\(_1\)</span> offspring — an
+unexpected result that reflected complementation between the recessive
+defects in the two parental lines. The F<span
+class="math inline">\(_2\)</span> ratio is <strong>9 purple : 7
+white</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Genotype</th>
+<th>Both enzymes functional?</th>
+<th>Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C_P_</td>
+<td>Yes — full pathway active</td>
+<td>Purple</td>
+</tr>
+<tr>
+<td>C_pp</td>
+<td>No — pathway blocked at second step</td>
+<td>White</td>
+</tr>
+<tr>
+<td>ccP_</td>
+<td>No — pathway blocked at first step</td>
+<td>White</td>
+</tr>
+<tr>
+<td>ccpp</td>
+<td>No — pathway blocked at both steps</td>
+<td>White</td>
+</tr>
+</tbody>
+</table>
+<p>Either single-locus block (cc or pp) produces white; primarily
+doubly-dominant individuals build pigment. This <strong>9:7
+ratio</strong> is a hallmark of <strong>complementary gene
+action</strong> in linear biosynthetic pathways.</p>
+<h4
+id="duplicate-dominant-epistasis-151-shepherds-purse-seed-shape">Duplicate
+Dominant Epistasis (15:1) — Shepherd’s purse seed shape</h4>
+<p>When <strong>either dominant allele alone is sufficient</strong> to
+produce the phenotype, primarily the double-recessive shows the
+alternative trait. F<span class="math inline">\(_2\)</span> ratio:
+<strong>15 phenotype A : 1 phenotype B</strong>. Shepherd’s purse
+seed-capsule shape is the classic example: triangular (<span
+class="math inline">\(A\_\)</span> or <span
+class="math inline">\(B\_\)</span>) versus narrow (<span
+class="math inline">\(aabb\)</span>).</p>
+<h4 id="combinatorics-summary">Combinatorics summary</h4>
+<table>
+<colgroup>
+<col style="width: 51%" />
+<col style="width: 26%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Modified F<span class="math inline">\(_2\)</span> ratio</th>
+<th>Mechanism</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9:3:4</td>
+<td>Recessive epistasis</td>
+<td>Labrador coat color (B/E)</td>
+</tr>
+<tr>
+<td>12:3:1</td>
+<td>Dominant epistasis</td>
+<td>White squash fruit (W/Y)</td>
+</tr>
+<tr>
+<td>9:7</td>
+<td>Duplicate recessive (complementation)</td>
+<td>Sweet pea flower color</td>
+</tr>
+<tr>
+<td>15:1</td>
+<td>Duplicate dominant</td>
+<td>Shepherd’s purse capsules</td>
+</tr>
+<tr>
+<td>13:3</td>
+<td>Dominant + recessive interaction</td>
+<td>White Leghorn × white Wyandotte chickens</td>
+</tr>
+</tbody>
+</table>
+<p>In every case the ratio sums to 16, betraying its origin in 9:3:3:1 —
+epistasis is <strong>typically a regrouping of the same dihybrid
+classes</strong>, rarely the introduction of new ones.</p>
+<h4 id="epistasis-in-mouse-coat-color-agouti-albino">Epistasis in mouse
+coat color: agouti × albino</h4>
+<p>A second worked example consolidates the recessive-epistasis logic.
+In the laboratory mouse, the <strong>A locus</strong> (agouti)
+determines whether hairs have a yellow band (A_) or are uniformly black
+(aa). At the <strong>C locus</strong>, the C allele is required to
+deposit any pigment — cc homozygotes are albino regardless of the A
+genotype. A cross of AaCc × AaCc produces F<span
+class="math inline">\(_2\)</span> offspring in a <strong>9 agouti : 3
+black : 4 albino</strong> ratio, with the albino class combining both
+A_cc and aacc genotypes (because pigment deposition fails in either
+case).</p>
+<p>The <strong>9:3:4 signature ratio</strong> therefore appears
+whenever:</p>
+<ol type="1">
+<li>A gene at one locus produces a substrate or precursor.</li>
+<li>A gene at a second locus deposits, modifies, or expresses the
+product of the first.</li>
+<li>Homozygosity for the loss-of-function allele at the second locus
+completely blocks phenotypic expression.</li>
+</ol>
+<p>This logic underlies the genetic basis of many recessive epistatic
+systems: <strong>Bombay phenotype</strong> at the H locus (cc-equivalent
+for ABO blood groups), <strong>albinism in mammals</strong> masking
+coat-pattern loci, and <strong>white-flower mutants</strong> in many
+ornamental plants.</p>
+<h4
+id="worked-example-16.3b-duplicate-dominant-ratio-in-shepherds-purse">Worked
+Example 16.3b: Duplicate dominant ratio in shepherd’s purse</h4>
+<p>In a cross of two heterozygous shepherd’s purse plants (AaBb × AaBb),
+what fraction of F<span class="math inline">\(_2\)</span> offspring are
+predicted to have <strong>narrow</strong> seed capsules (the alternative
+phenotype)?</p>
+<p>Narrow capsules require the double-recessive genotype aabb. Each
+locus contributes <span class="math inline">\(\tfrac{1}{4}\)</span>
+probability of double-recessive at that locus:</p>
+<p><span class="math display">\[P(\text{narrow}) = P(aa) \times P(bb) =
+\tfrac{1}{4} \times \tfrac{1}{4} = \tfrac{1}{16}
+\label{eq:unit_V_mendelian_genetics_item_13}\]</span></p>
+<p>The remaining <span class="math inline">\(\tfrac{15}{16}\)</span> of
+offspring have triangular capsules. The 15:1 ratio is the genetic
+signature of <strong>functional redundancy</strong> — when either gene
+alone is sufficient, primarily the simultaneous loss of both produces
+the alternative phenotype. The same logic explains why
+<strong>paralogous gene families</strong> often show 15:1-like behavior
+in knockout studies: knocking out either paralog alone produces no
+phenotype, but the double knockout reveals the shared function.</p>
+<h3 id="polygenic-inheritance">Polygenic Inheritance</h3>
+<p><strong>Multiple genes</strong> contribute additively to a single
+continuous (quantitative) trait:</p>
+<ul>
+<li><strong>Human skin color</strong>: At least 7 genes contribute
+(SLC24A5, SLC45A2, TYR, TYRP1, OCA2, KITLG, MC1R and others). Each gene
+has alleles that contribute incrementally to melanin production. The
+result is a <strong>continuous distribution</strong> (approximately
+normal/Gaussian) rather than discrete classes.</li>
+<li><strong>Human height</strong>: ~700 GWAS loci identified; each has a
+small effect (1-2 mm per allele). Environmental factors (nutrition,
+health) also contribute significantly. Heritability ~0.8 in
+well-nourished populations.</li>
+</ul>
+<p>The number of phenotypic classes for n contributing loci (each with
+two alleles, additive effects) = <span class="math inline">\(2n +
+1\)</span>.</p>
+<h3 id="penetrance-and-expressivity">Penetrance and Expressivity</h3>
+<p>Mendelian ratios assume that every individual carrying a given
+genotype displays the expected phenotype, and displays it identically.
+In reality, the genotype–phenotype map is leaky on <strong>two distinct
+axes</strong> — <em>whether</em> the phenotype appears at most
+(penetrance) and <em>how strongly</em> it appears when it does
+(expressivity).</p>
+<ul>
+<li><strong>Penetrance</strong> is the <strong>proportion of individuals
+with a given genotype who actually display the expected
+phenotype</strong>. A trait with 100% penetrance is <strong>completely
+penetrant</strong>; a trait with less than 100% is <strong>incompletely
+penetrant</strong>.</li>
+<li><strong>Expressivity</strong> is the <strong>degree or severity of
+phenotype expression</strong> among individuals who <em>are</em>
+penetrant. Variable expressivity means the same genotype produces a
+range of phenotypic intensities.</li>
+<li><strong>Phenocopy</strong> is an <strong>environmentally induced
+phenotype that mimics a genetic condition</strong> without the
+underlying genotype. Phenocopies can confound pedigree analysis if not
+recognized.</li>
+</ul>
+<h4 id="disease-examples">Disease examples</h4>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 34%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th>Phenomenon</th>
+<th>Disorder</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reduced penetrance</td>
+<td><strong>BRCA1/BRCA2</strong> breast/ovarian cancer</td>
+<td>~70–80% lifetime breast cancer risk in BRCA1 carriers; some carriers
+rarely develop disease</td>
+</tr>
+<tr>
+<td>Reduced penetrance</td>
+<td><strong>Familial hypercholesterolemia</strong> (LDLR mutations)</td>
+<td>Variable age of onset for cardiovascular disease; modified by diet
+and other genes</td>
+</tr>
+<tr>
+<td>Reduced penetrance</td>
+<td><strong>Retinoblastoma (RB1)</strong></td>
+<td>~90% penetrance; some heterozygous carriers escape because the
+second hit (loss of the wild-type allele) does not occur in retinal
+precursor cells</td>
+</tr>
+<tr>
+<td>Variable expressivity</td>
+<td><strong>Neurofibromatosis type 1 (NF1)</strong></td>
+<td><em>NF1</em> tumor suppressor (encodes neurofibromin, a Ras-GAP);
+same mutation produces café-au-lait macules in some individuals, severe
+plexiform neurofibromas, optic gliomas, and skeletal dysplasia in
+others. Loss-of-heterozygosity (second hit) at <em>NF1</em> in Schwann
+cell lineages produces the variable tumor burden</td>
+</tr>
+<tr>
+<td>Variable expressivity</td>
+<td><strong>Polydactyly</strong> (e.g., <em>GLI3</em> mutations, Greig
+cephalopolysyndactyly)</td>
+<td>Affected family members carrying the identical mutation may show one
+extra digit on one hand, two extra digits on both hands and feet, or
+post-axial duplication varying side-to-side. Limb-bud stochastic
+patterning during weeks 4–7 produces this variability</td>
+</tr>
+<tr>
+<td>Variable expressivity</td>
+<td><strong>Marfan syndrome (FBN1)</strong></td>
+<td>Aortic root size varies dramatically among affected family members
+carrying the same mutation</td>
+</tr>
+<tr>
+<td>Variable expressivity</td>
+<td><strong>Huntington’s disease</strong></td>
+<td>Age of onset varies inversely with CAG repeat length but also among
+individuals with identical repeat counts (modifier loci)</td>
+</tr>
+<tr>
+<td>Phenocopy</td>
+<td><strong>Thalidomide-induced phocomelia</strong></td>
+<td>Limb shortening from drug exposure (1958–1962) mimicked the rare
+genetic condition</td>
+</tr>
+<tr>
+<td>Phenocopy</td>
+<td><strong>Congenital rubella syndrome</strong></td>
+<td>Maternal rubella infection causes deafness and cataracts that
+resemble genetic syndromes</td>
+</tr>
+</tbody>
+</table>
+<p>The biological causes of incomplete penetrance and variable
+expressivity include <strong>modifier genes</strong> (other loci that
+influence how the primary mutation manifests), <strong>stochastic
+developmental events</strong> (random fluctuations during
+embryogenesis), <strong>environmental triggers</strong> (diet,
+infection, smoking), <strong>epigenetic state</strong> (methylation
+patterns inherited or established during development), and — for
+X-linked traits in females — <strong>random X-inactivation
+patterns</strong> ().</p>
+<p>For genetic counseling, incomplete penetrance complicates risk
+prediction: a “negative” family member is not certainly mutation-free,
+and a “positive” family history is not a assurance of disease.
+Penetrance estimates are typically reported as age-specific cumulative
+risks (e.g., “80% by age 70 for BRCA1”) rather than single numbers.</p>
+<h3 id="genomic-imprinting">Genomic Imprinting</h3>
+<p>Some genes are expressed in a
+<strong>parent-of-origin-specific</strong> manner due to differential
+DNA methylation established during gametogenesis:</p>
+<p><strong>Prader-Willi syndrome vs. Angelman syndrome</strong>
+(chromosome 15q11-13): - <strong>Prader-Willi syndrome</strong>:
+Deletion/loss of the <strong>paternal</strong> 15q11-13 region (or
+maternal uniparental disomy). Genes in this region are normally
+expressed primarily from the paternal chromosome. Features: hypotonia in
+infancy, hyperphagia and obesity, intellectual disability, short
+stature. - <strong>Angelman syndrome</strong>: Deletion/loss of the
+<strong>maternal</strong> 15q11-13 region (specifically the
+<em>UBE3A</em> gene, which is maternally expressed in <a
+href="#gl:neuron"><strong>neuron</strong></a>s). Features: severe
+intellectual disability, seizures, ataxic gait, happy demeanor with
+frequent laughter.</p>
+<p>Same chromosomal region, but different disease depending on which
+parent’s copy is affected – a clear demonstration that the <a
+href="#gl:genome"><strong>genome</strong></a> “remembers” parental
+origin.</p>
+<h3 id="maternal-effect-genes">Maternal Effect Genes</h3>
+<p>The <strong>mother’s genotype</strong> (not the offspring’s)
+determines the offspring’s phenotype:</p>
+<ul>
+<li><strong>Bicoid in <em>Drosophila</em></strong>: The bicoid mRNA is
+deposited into the oocyte by the mother. It localizes to the anterior
+end and is translated after fertilization, producing a <a
+href="#gl:transcription"><strong>transcription</strong></a> factor
+gradient that specifies anterior structures (head, thorax). A mother
+homozygous for a <em>bicoid</em> mutation produces embryos lacking
+anterior structures – regardless of the embryo’s own genotype.</li>
+</ul>
+<p><strong>Concept Check 16.2</strong></p>
+<blockquote>
+<ol type="1">
+<li>Distinguish between codominance and incomplete dominance at the
+molecular level.</li>
+<li>Two yellow Labradors are mated. Can they produce chocolate puppies?
+Explain.</li>
+<li>If a trait is 70% penetrant, what fraction of heterozygous carriers
+will NOT show the phenotype?</li>
+<li>A mother with Prader-Willi syndrome (paternal deletion) has a child.
+Can the child inherit Prader-Willi? Angelman? Explain.</li>
+<li>Distinguish reduced penetrance from variable expressivity. Give one
+disease example of each.</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="human-genetic-disorders-mechanism-meets-mendel">Human Genetic
+Disorders: Mechanism Meets Mendel</h2>
+<p>Human genetics has historically been the inverse of Mendel’s pea
+garden — instead of designing crosses, clinicians infer genotypes from
+pedigrees and clinical features. The core inheritance patterns
+(autosomal dominant, autosomal recessive, X-linked, mitochondrial)
+follow directly from Mendelian principles applied to specific
+chromosomal architecture. The molecular mechanisms behind individual
+disorders, however, illustrate the rich biology that makes Mendel’s
+abstract “factors” into proteins, enzymes, and regulatory RNAs.</p>
+<h3
+id="autosomal-dominant-disorders-huntingtons-disease-and-cag-repeat-expansion">Autosomal
+Dominant Disorders: Huntington’s Disease and CAG Repeat Expansion</h3>
+<p><strong>Huntington’s disease (HD)</strong> is an adult-onset
+neurodegenerative disorder caused by mutations in the <em>HTT</em> gene
+on chromosome 4p16.3. It is <strong>autosomal dominant</strong> with
+nearly complete penetrance by age 65 — a rare example of a fully
+penetrant late-onset disorder. The clinical features include progressive
+chorea (involuntary writhing movements), psychiatric symptoms
+(depression, irritability, psychosis), and cognitive decline (executive
+dysfunction, dementia). Median survival from symptom onset is
+approximately 15–20 years.</p>
+<p><strong>Molecular mechanism</strong>: The <em>HTT</em> gene contains
+a polymorphic CAG trinucleotide repeat in its first exon, encoding a
+polyglutamine (polyQ) tract in the huntingtin protein. The number of CAG
+repeats determines disease status:</p>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr>
+<th>CAG repeats</th>
+<th>Disease status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≤ 26</td>
+<td>Normal — no risk; stable inheritance</td>
+</tr>
+<tr>
+<td>27–35</td>
+<td>Intermediate — usually unaffected, but unstable in transmission and
+may expand into the affected range in offspring (especially through
+paternal transmission)</td>
+</tr>
+<tr>
+<td>36–39</td>
+<td>Reduced penetrance — disease may or may not develop in a normal
+lifespan</td>
+</tr>
+<tr>
+<td>≥ 40</td>
+<td>Fully penetrant — disease will develop if individual lives long
+enough</td>
+</tr>
+</tbody>
+</table>
+<p>The expanded polyQ tract causes the huntingtin protein to misfold and
+aggregate, forming intranuclear inclusions in neurons (especially in the
+striatum). The precise pathogenic mechanism remains debated — gain of
+toxic function, loss of normal function, and disruption of axonal
+transport most contribute.</p>
+<p><strong>Anticipation</strong>: Disease severity worsens and age of
+onset decreases across generations because the CAG repeat is
+<strong>unstable during meiosis</strong>, especially during
+spermatogenesis. A father with 42 repeats may transmit 50 repeats to his
+son; that son’s children may inherit 60 or more. <strong>Juvenile-onset
+HD</strong> (onset before age 20) almost typically reflects paternal
+transmission of severely expanded alleles (&gt;60 repeats). This
+phenomenon — anticipation — is also observed in fragile X syndrome,
+myotonic dystrophy, and several spinocerebellar ataxias, most of which
+are <strong>trinucleotide repeat expansion disorders</strong>.</p>
+<p><strong>Inverse correlation</strong>: Within the affected range, age
+of onset correlates inversely with repeat number, but with substantial
+variance attributable to modifier genes (e.g., <em>FAN1</em>,
+<em>MSH3</em>) that influence somatic repeat instability. This explains
+why two siblings with the same CAG count can have onset ages differing
+by a decade or more.</p>
+<p><strong>Genetic counseling</strong>: Because HD is autosomal
+dominant, each child of an affected parent has a 50% risk. Predictive
+testing in unaffected adults raises difficult ethical questions — there
+is no preventive therapy, and testing carries psychological consequences
+(depression, suicidality) that mandate pre-test and post-test genetic
+counseling. Many at-risk individuals choose not to be tested.</p>
+<h3
+id="autosomal-recessive-disorders-pku-and-the-logic-of-newborn-screening">Autosomal
+Recessive Disorders: PKU and the Logic of Newborn Screening</h3>
+<p><strong>Phenylketonuria (PKU)</strong> is an autosomal recessive
+disorder caused by mutations in the <em>PAH</em> gene on chromosome
+12q23.2 encoding <strong>phenylalanine hydroxylase</strong>, the liver
+enzyme that converts phenylalanine to tyrosine. PKU illustrates how a
+single biochemical defect cascades into multiple phenotypes (pleiotropy)
+and how early detection plus dietary intervention can prevent the most
+devastating manifestations.</p>
+<p><strong>Biochemistry</strong>: PAH is a tetrameric enzyme requiring
+tetrahydrobiopterin (BH4) as cofactor. In its absence, phenylalanine
+accumulates to toxic concentrations (&gt;20 mg/dL versus normal &lt;2
+mg/dL) while tyrosine — the precursor of dopamine, melanin, and thyroid
+hormone — becomes deficient. The metabolic consequences include:</p>
+<ul>
+<li><strong>Phenylalanine accumulation</strong> in blood and brain,
+where excess phenylalanine competes with other large neutral amino acids
+(tyrosine, tryptophan, leucine) for the L-type amino acid transporter
+(LAT1) at the blood-brain barrier. Brain tyrosine and tryptophan
+deficiency disrupts catecholamine and serotonin synthesis.</li>
+<li><strong>Phenylketones</strong>: when phenylalanine is in excess,
+alternative metabolic pathways produce phenylpyruvate, phenyllactate,
+and phenylacetate — the “ketones” detectable in urine that gave the
+disease its name.</li>
+<li><strong>Tyrosine deficiency</strong> reduces melanin synthesis
+(causing fair skin, blond hair, and blue eyes — distinctive features in
+untreated patients) and may contribute to neurological symptoms.</li>
+</ul>
+<p><strong>Clinical features (untreated)</strong>: severe intellectual
+disability (IQ typically &lt;50 by age 1), seizures (in ~25% of
+untreated patients), microcephaly, motor abnormalities, eczema,
+characteristic musty body odor (from phenylacetate excretion), and
+reduced melanin pigmentation. Untreated PKU was a leading cause of
+intellectual disability before comprehensive newborn screening.</p>
+<p><strong>Newborn screening</strong>: Robert Guthrie developed the
+<strong>Guthrie test</strong> in 1962 — a bacterial inhibition assay
+using <em>Bacillus subtilis</em> requiring phenylalanine. A heel-prick
+blood spot from a 24–72-hour-old newborn is dried on filter paper and
+screened en masse. Modern programs use tandem mass spectrometry to
+measure dozens of metabolites simultaneously. Newborn screening for PKU
+was the first widespread genetic screening program and remains the
+prototype for population screening programs worldwide.</p>
+<p><strong>Treatment</strong>: A <strong>phenylalanine-restricted
+diet</strong> initiated within the first weeks of life prevents
+intellectual disability almost entirely. Patients consume specially
+formulated medical foods low in phenylalanine but supplemented with
+tyrosine. Treatment is lifelong — relaxation of dietary restrictions in
+adolescence or adulthood causes neuropsychiatric symptoms (depression,
+anxiety, executive dysfunction) and, in pregnant women with PKU,
+<strong>maternal PKU syndrome</strong> (intellectual disability,
+microcephaly, congenital heart disease in the fetus, even when the fetus
+is heterozygous). New therapies include sapropterin (synthetic BH4,
+useful for ~30% of patients with residual PAH activity) and pegvaliase
+(PEGylated phenylalanine ammonia lyase enzyme replacement, approved
+2018).</p>
+<p><strong>Population genetics</strong>: PKU disease frequency is
+~1/10,000–15,000 in northern European populations, giving a carrier
+frequency of ~1/55–60. PKU is more common in Ireland (~1/4,500), Turkey
+(~1/3,000–6,500), and parts of China (~1/15,000–17,000), with
+population-specific allele spectra that allow targeted carrier
+screening.</p>
+<h3 id="other-key-autosomal-disorders">Other key autosomal
+disorders</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 32%" />
+<col style="width: 15%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th>Disorder</th>
+<th>Inheritance</th>
+<th>Gene</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cystic fibrosis</strong></td>
+<td>AR</td>
+<td><em>CFTR</em></td>
+<td>Chloride channel defect; thick mucus; ΔF508 most common</td>
+</tr>
+<tr>
+<td><strong>Sickle cell disease</strong></td>
+<td>AR</td>
+<td><em>HBB</em></td>
+<td>Glu6Val in β-globin; sickle hemoglobin polymerization</td>
+</tr>
+<tr>
+<td><strong>Tay-Sachs disease</strong></td>
+<td>AR</td>
+<td><em>HEXA</em></td>
+<td>β-hexosaminidase A deficiency; GM2 ganglioside accumulation; founder
+effect in Ashkenazi Jews</td>
+</tr>
+<tr>
+<td><strong>Achondroplasia</strong></td>
+<td>AD</td>
+<td><em>FGFR3</em></td>
+<td>Constitutively active FGFR3; chondrocyte proliferation defect; ~80%
+de novo mutations</td>
+</tr>
+<tr>
+<td><strong>Marfan syndrome</strong></td>
+<td>AD</td>
+<td><em>FBN1</em></td>
+<td>Fibrillin-1 connective tissue defect</td>
+</tr>
+<tr>
+<td><strong>Familial hypercholesterolemia</strong></td>
+<td>AD</td>
+<td><em>LDLR</em></td>
+<td>Defective LDL receptor; extreme hypercholesterolemia</td>
+</tr>
+<tr>
+<td><strong>Hereditary nonpolyposis colon cancer (Lynch)</strong></td>
+<td>AD</td>
+<td><em>MLH1, MSH2, MSH6, PMS2</em></td>
+<td>DNA mismatch repair defects</td>
+</tr>
+</tbody>
+</table>
+<h4
+id="cftr-mutation-classes-a-paradigm-for-genotypephenotype-maps">CFTR
+mutation classes — a paradigm for genotype–phenotype maps</h4>
+<p>The 2,000+ identified <em>CFTR</em> variants are grouped into
+<strong>six classes</strong> by their effect on protein production and
+function — a classification that now drives <strong>mutation-specific
+therapy</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 23%" />
+<col style="width: 29%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Class</th>
+<th>Defect</th>
+<th>Examples</th>
+<th>Therapy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I</td>
+<td>No protein synthesis (premature stop codons)</td>
+<td>W1282X, G542X</td>
+<td>Read-through agents (ataluren — limited efficacy)</td>
+</tr>
+<tr>
+<td>II</td>
+<td>Misfolding / proteasomal degradation</td>
+<td><strong>ΔF508</strong> (~70% of CF alleles in Northern
+Europeans)</td>
+<td>Correctors (lumacaftor, tezacaftor, elexacaftor)</td>
+</tr>
+<tr>
+<td>III</td>
+<td>Channel does not open (“gating defect”)</td>
+<td>G551D</td>
+<td>Potentiators (ivacaftor)</td>
+</tr>
+<tr>
+<td>IV</td>
+<td>Reduced channel conductance</td>
+<td>R117H</td>
+<td>Potentiators</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Reduced protein levels (splicing defects)</td>
+<td>3849+10kb C→T</td>
+<td>Mixed</td>
+</tr>
+<tr>
+<td>VI</td>
+<td>Reduced channel stability at cell surface</td>
+<td>rescued ΔF508</td>
+<td>Stabilizers</td>
+</tr>
+</tbody>
+</table>
+<p>The combination therapy <strong>elexacaftor/tezacaftor/ivacaftor
+(Trikafta)</strong>, approved 2019, is effective for ~90% of CF patients
+(those carrying at least one ΔF508) and has dramatically improved life
+expectancy — a paradigm for translating mendelian genetics into
+precision medicine.</p>
+<h3
+id="achondroplasia-and-marfan-as-autosomal-dominant-models">Achondroplasia
+and Marfan as Autosomal Dominant Models</h3>
+<p><strong>Achondroplasia</strong> is the most common form of dwarfism
+(~1/25,000 births), caused by gain-of-function mutations in
+<em>FGFR3</em> (fibroblast growth factor receptor 3). The vast majority
+(~98%) of cases involve a single recurrent mutation:
+<strong>G380R</strong> in the transmembrane domain. The mutation
+produces a constitutively active receptor that inhibits chondrocyte
+proliferation and endochondral ossification, shortening long bones while
+sparing membranous bones (skull vault, vertebrae). Approximately
+<strong>80% of cases are de novo mutations</strong> arising in the
+paternal germline, and risk increases with paternal age — illustrating
+that autosomal dominant disease can persist in populations even when
+affected individuals have reduced reproductive fitness, because new
+mutations replenish the disease allele each generation. Homozygous
+achondroplasia (two affected parents — ~1 in 4 pregnancies if both are
+heterozygous) is lethal in infancy due to severe rib cage
+abnormalities.</p>
+<p><strong>Marfan syndrome</strong> illustrates how a single
+connective-tissue gene, <em>FBN1</em> (fibrillin-1), produces
+pleiotropic effects across organ systems. Fibrillin-1 forms microfibrils
+that scaffold elastic fibers and sequester latent TGF-β. Mutations cause
+both <strong>structural failure</strong> (loose connective tissue → tall
+stature, long limbs, lens dislocation, joint hypermobility) and
+<strong>dysregulated TGF-β signaling</strong> (aortic root dilation →
+dissection risk). Variable expressivity is dramatic: aortic root sizes
+among affected family members carrying the same mutation can vary by
+2–3-fold, depending on modifier genes and environment. Modern management
+includes annual echocardiography, β-blockers or losartan to slow aortic
+dilation, and elective aortic root replacement when diameter exceeds ~5
+cm — extending life expectancy from a historical median of ~32 years to
+nearly normal.</p>
+<blockquote>
+<p><strong>Clinical Connection: Why Are Some AR Diseases
+Common?</strong> Cystic fibrosis carrier frequency of ~1/25 in Northern
+Europeans far exceeds what mutation-selection balance alone predicts.
+Hypothesized heterozygote advantage against historical pathogens —
+possibly <strong>typhoid fever</strong> (CFTR is a receptor for
+<em>Salmonella typhi</em>) or <strong>cholera</strong> (heterozygotes
+may have reduced fluid secretion in cholera infection) — could explain
+the elevated frequency. Sickle cell heterozygosity confers strong
+protection against severe <em>Plasmodium falciparum</em> malaria, and
+Tay-Sachs heterozygotes may have had protection against tuberculosis in
+pre-industrial European cities. These hypotheses remain debated, but
+they illustrate how Mendelian disease alleles can be maintained by
+ancient selective pressures we no longer experience.</p>
+</blockquote>
+<h3
+id="x-linked-disorders-the-molecular-basis-of-male-susceptibility">X-linked
+disorders: the molecular basis of male susceptibility</h3>
+<p>Males are hemizygous for X-linked genes (one X, one Y), so a single
+recessive allele on the X chromosome produces the full phenotype in a
+male. Females, with two X chromosomes, must be homozygous (or display
+unfavorable random X-inactivation patterns) to be fully affected. This
+asymmetry — recognized first by Morgan’s <em>white</em>-eyed
+<em>Drosophila</em> — produces the diagnostic pedigree pattern of
+“skipping generations through carrier mothers” that distinguishes
+X-linked recessive inheritance.</p>
+<h4 id="hemophilia-a-f8-and-factor-viii">Hemophilia A — F8 and Factor
+VIII</h4>
+<p><strong>Hemophilia A</strong> (~1 in 5,000 male births) is caused by
+mutations in the <em>F8</em> gene at Xq28 encoding <strong>coagulation
+factor VIII</strong>, a 2,332-amino-acid plasma glycoprotein that forms
+a tenase complex with activated factor IXa to activate factor X in the
+intrinsic coagulation pathway. The clinical phenotype is dose-dependent
+on residual factor VIII activity:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 44%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr>
+<th>Severity</th>
+<th>Factor VIII activity</th>
+<th>Bleeding pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Severe</td>
+<td>&lt; 1%</td>
+<td>Spontaneous joint and muscle hemorrhage; treated
+prophylactically</td>
+</tr>
+<tr>
+<td>Moderate</td>
+<td>1–5%</td>
+<td>Bleeding after minor trauma</td>
+</tr>
+<tr>
+<td>Mild</td>
+<td>6–40%</td>
+<td>Bleeding primarily after surgery or major trauma</td>
+</tr>
+</tbody>
+</table>
+<p>The most common mutation in severe hemophilia A is the <strong>intron
+22 inversion</strong>, which disrupts the <em>F8</em> gene and accounts
+for ~45% of severe cases. The gene is unusually large (186 kb, 26
+exons), and its 32-kb intron 22 contains the <em>F8A1</em> gene with two
+homologous repeats elsewhere on Xq28; non-allelic homologous
+recombination during male meiosis produces the inversion. Modern
+treatment uses <strong>recombinant factor VIII concentrates</strong>
+(Kogenate, Advate) for replacement therapy, <strong>emicizumab</strong>
+(a bispecific antibody mimicking factor VIIIa), and increasingly
+<strong>gene therapy</strong>: in 2022 the FDA approved Hemgenix
+(etranacogene dezaparvovec) for hemophilia B, with similar AAV-based
+gene therapies for hemophilia A in advanced trials.</p>
+<p>The Romanov royal family tragedy is the most famous historical case:
+Queen Victoria was a carrier (likely de novo mutation), and through her
+descendants the allele entered the Russian, Spanish, and German royal
+families. The hemophilia of Tsarevich Alexei contributed to the
+political collapse of the Romanov dynasty.</p>
+<h4 id="color-blindness-opn1lw-and-opn1mw">Color blindness — OPN1LW and
+OPN1MW</h4>
+<p><strong>Red-green color blindness</strong> affects ~8% of males and
+~0.5% of females of European ancestry. The disorder reflects defects in
+two tandem opsin genes on Xq28:</p>
+<ul>
+<li><strong><em>OPN1LW</em></strong> (long-wavelength opsin) — sensitive
+to red light (~560 nm peak)</li>
+<li><strong><em>OPN1MW</em></strong> (medium-wavelength opsin) —
+sensitive to green light (~530 nm peak)</li>
+</ul>
+<p>The two genes are &gt;96% identical and lie head-to-tail in a tandem
+array (1–6 copies of <em>OPN1MW</em> per X chromosome) at Xq28. The high
+sequence similarity makes them prone to <strong>unequal crossing
+over</strong> during female meiosis, producing chromosomes with deleted,
+duplicated, or hybrid (chimeric) opsin genes:</p>
+<ul>
+<li><strong>Protan defects</strong> (red-blindness): loss or alteration
+of <em>OPN1LW</em></li>
+<li><strong>Deutan defects</strong> (green-blindness): loss or
+alteration of <em>OPN1MW</em></li>
+</ul>
+<p>Hybrid genes — formed when the upstream portion of one opsin fuses
+with the downstream portion of the other — produce shifted spectral
+sensitivities (anomalous trichromacy). The unique vulnerability of this
+gene cluster to misalignment during recombination explains why color
+blindness is far more common than other X-linked traits despite no
+obvious selective advantage.</p>
+<h4 id="duchenne-muscular-dystrophy-dmd-and-dystrophin">Duchenne
+muscular dystrophy — DMD and dystrophin</h4>
+<p><strong>Duchenne muscular dystrophy (DMD)</strong> affects ~1 in
+3,500 male births and is caused by mutations in the
+<strong><em>DMD</em></strong> gene at Xp21.2 encoding
+<strong>dystrophin</strong> — at 2.4 megabases the largest known human
+gene (79 exons), accounting for ~0.1% of the entire genome. Dystrophin
+links the actin cytoskeleton inside muscle fibers to the
+dystrophin-glycoprotein complex spanning the sarcolemma, transmitting
+force during contraction and protecting the membrane from mechanical
+stress.</p>
+<p>The genotype–phenotype rule for <em>DMD</em> mutations is the
+<strong>reading-frame rule</strong>: deletions that disrupt the reading
+frame produce no functional dystrophin and cause
+<strong>Duchenne</strong> (severe, wheelchair by age 12,
+cardiac/respiratory failure by ~25 years), whereas in-frame deletions
+produce truncated but partially functional dystrophin and cause
+<strong>Becker muscular dystrophy</strong> (milder, much later onset,
+normal lifespan possible). This rule has therapeutic consequences:
+<strong>exon-skipping antisense oligonucleotides</strong> mask specific
+exons during splicing to convert an out-of-frame Duchenne mutation into
+an in-frame Becker-like protein. <strong>Eteplirsen</strong>
+(FDA-approved 2016) skips exon 51 and is applicable to ~13% of DMD
+patients; <strong>golodirsen</strong> (exon 53) and
+<strong>viltolarsen</strong> (exon 53) treat additional subgroups.
+CRISPR-mediated exon excision is in clinical trials.</p>
+<p>The very large size of <em>DMD</em> makes it the most mutation-prone
+gene in the human genome, with ~1/3 of cases representing de novo
+mutations rather than inheritance from a carrier mother — a fact that
+affects recurrence-risk counseling for affected families.</p>
+<h4
+id="female-carriers-random-x-inactivation-and-manifesting-carriers">Female
+carriers — random X-inactivation and “manifesting carriers”</h4>
+<p>Female carriers of X-linked recessive disorders are typically
+clinically normal, but ~10–20% of <em>DMD</em> female carriers show
+muscle weakness, cramping, or even cardiomyopathy. The reason is
+<strong>skewed X-inactivation</strong>: by chance, the X chromosome
+carrying the wild-type allele is preferentially inactivated in many of
+her muscle cells, leaving the mutant X expressed. The clinical severity
+depends on the proportion of cells with skewed X-inactivation patterns.
+Similar manifesting-carrier phenotypes occur in hemophilia A (~10% of
+carriers have prolonged bleeding) and ornithine transcarbamylase
+deficiency (urea cycle disorder; manifesting carriers may experience
+hyperammonemic crises).</p>
+<h4
+id="carrier-frequency-vs.-affected-male-frequency-a-population-genetic-asymmetry">Carrier
+frequency vs. affected-male frequency: a population-genetic
+asymmetry</h4>
+<p>A diagnostic feature of X-linked recessive inheritance is that
+<strong>carrier frequency in females greatly exceeds affected-female
+frequency</strong>, even though both sexes draw from the same X-linked
+allele frequency <span class="math inline">\(q\)</span>. The arithmetic
+follows directly from hemizygosity in males and Hardy-Weinberg
+expectations in females ():</p>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 33%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>Formula</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Affected males</td>
+<td><span class="math inline">\(q\)</span></td>
+<td>Hemizygous: one mutant allele suffices</td>
+</tr>
+<tr>
+<td>Affected females</td>
+<td><span class="math inline">\(q^2\)</span></td>
+<td>Homozygous: both X alleles must be mutant</td>
+</tr>
+<tr>
+<td>Carrier females (heterozygous)</td>
+<td><span class="math inline">\(2pq \approx 2q\)</span> for small <span
+class="math inline">\(q\)</span></td>
+<td>Heterozygous and asymptomatic with random X-inactivation</td>
+</tr>
+</tbody>
+</table>
+<p>Worked numbers for the three X-linked recessive disorders above
+(Northern European frequencies):</p>
+<ul>
+<li><strong>Hemophilia A</strong>: affected-male frequency <span
+class="math inline">\(\approx 1/5{,}000\)</span>, so <span
+class="math inline">\(q \approx 2 \times 10^{-4}\)</span>.
+Carrier-female frequency <span class="math inline">\(2pq \approx 4
+\times 10^{-4}\)</span> (~1 in 2,500 women). Affected-female frequency
+<span class="math inline">\(q^2 \approx 4 \times 10^{-8}\)</span> (~1 in
+25 million) — meaning carriers outnumber affected females by
+~10,000-fold.</li>
+<li><strong>Duchenne muscular dystrophy</strong>: affected-male
+frequency <span class="math inline">\(\approx 1/3{,}500\)</span>, <span
+class="math inline">\(q \approx 2.9 \times 10^{-4}\)</span>.
+Carrier-female frequency <span class="math inline">\(\approx
+1/1{,}750\)</span> women.</li>
+<li><strong>Red-green color blindness</strong> (high allele frequency):
+affected-male frequency <span class="math inline">\(\approx
+0.08\)</span>, so <span class="math inline">\(q \approx 0.08\)</span>.
+Carrier-female frequency <span class="math inline">\(2pq \approx
+0.147\)</span>, and affected-female frequency <span
+class="math inline">\(q^2 \approx 0.0064\)</span> — recovering the
+empirical ~0.5–1% color-blind female frequency.</li>
+</ul>
+<p>Two consequences follow. First, <strong>most pathogenic X-linked
+alleles in the population reside in unaffected female carriers</strong>,
+who are invisible to phenotypic screening. Second, when a new
+disease-causing X-linked mutation arises (frequently de novo, especially
+for <em>DMD</em>), it persists for many generations through carrier
+mothers before reaching another affected male — producing the
+characteristic “skipping generations through unaffected females” pattern
+in pedigrees. Genetic counseling for X-linked disorders therefore
+prioritizes <strong>carrier testing of female relatives of affected
+males</strong>, even when those women appear clinically normal.</p>
+<p><strong>Concept Check 16.5</strong></p>
+<blockquote>
+<ol type="1">
+<li>NF1 shows highly variable expressivity within a single family
+carrying the same mutation. Identify three biological reasons why
+identical genotypes can produce dramatically different phenotypes.</li>
+<li>In a population where 1 in 4,000 males is affected with hemophilia
+A, what fraction of women are carriers? What is the probability that a
+randomly chosen woman is a carrier?</li>
+<li>A man’s brother has Duchenne muscular dystrophy (X-linked
+recessive). The brother’s mother is confirmed by molecular testing to be
+a non-carrier (the affected brother arose from a de novo mutation).
+Should the man worry that his own future sons could inherit the disease
+through him? Explain.</li>
+<li>Compare the dihybrid F<span class="math inline">\(_2\)</span> ratio
+expected when (a) two genes act independently in separate biosynthetic
+pathways and (b) two genes encode sequential enzymes in the same pathway
+where both are required for product formation. Which produces 9:3:3:1,
+which produces 9:7, and why?</li>
+<li>A researcher studying Huntington’s disease finds that two siblings
+carry identical <em>HTT</em> CAG repeat lengths (45 each) but have onset
+ages differing by 12 years. What is this discrepancy a manifestation of,
+and what general lesson does it teach about the genotype-phenotype
+map?</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="gwas-mendel-meets-the-genome">GWAS: Mendel Meets the Genome</h2>
+<p>Mendel studied traits with simple, dichotomous inheritance — round
+vs. wrinkled, yellow vs. green. Most human traits and diseases, however,
+are <strong>polygenic</strong> (influenced by many loci) and
+<strong>multifactorial</strong> (influenced by both genes and
+environment). Height, body mass index, blood pressure, type 2 diabetes,
+schizophrenia, and most common diseases do not segregate as Mendelian
+traits in pedigrees — they are <strong>complex traits</strong>. The
+modern tool for dissecting their genetic architecture is the
+<strong>genome-wide association study (GWAS)</strong>.</p>
+<h3 id="how-gwas-works">How GWAS works</h3>
+<p>GWAS scans the genome for <strong>statistical association</strong>
+between genetic variants — typically common single-nucleotide
+polymorphisms (<a href="#gl:snp"><strong>SNP</strong></a>s with minor
+allele frequency ≥ 1%) — and a phenotype, comparing thousands of cases
+to thousands of controls. The basic design is a <strong>case-control
+association test</strong>: at each SNP, compare the allele frequency in
+cases versus controls and ask whether the difference exceeds chance
+expectation.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;Recruit cohort: cases (disease) + controls (no disease)&quot;] --&gt; B[&quot;Genotype 500,000–10 million SNPs per individual via SNP array&quot;]
+    B --&gt; C[&quot;Quality control: filter low-call-rate SNPs/individuals; check Hardy-Weinberg in controls; check ancestry&quot;]
+    C --&gt; D[&quot;Impute additional genotypes from reference panels (1000 Genomes, TOPMed)&quot;]
+    D --&gt; E[&quot;Logistic regression at each SNP: case vs control, adjusting for ancestry PCs, age, sex&quot;]
+    E --&gt; F[&quot;Genome-wide significance threshold: p &lt; 5×10⁻⁸ (Bonferroni for ~10⁶ independent tests)&quot;]
+    F --&gt; G[&quot;Replicate top hits in independent cohorts&quot;]
+    G --&gt; H[&quot;Manhattan plot: -log10(p) vs chromosome position&quot;]
+    H --&gt; I[&quot;Fine-mapping &amp; functional follow-up: which gene? which mechanism?&quot;]
+
+    style A fill:#4a90d9,color:#fff
+    style F fill:#d9534f,color:#fff
+    style I fill:#5cb85c,color:#fff</code></pre>
+<!-- alt: Flowchart showing GWAS workflow, from cohort recruitment through genome-wide significance testing to functional follow-up. The genome-wide significance threshold of p < 5×10⁻⁸ corresponds to a Bonferroni correction for ~10⁶ independent common variants tested across the genome. -->
+<p><em>The GWAS workflow, from cohort recruitment through genome-wide
+significance testing to functional follow-up. The genome-wide
+significance threshold of p &lt; 5×10⁻⁸ corresponds to a Bonferroni
+correction for ~10⁶ independent common variants tested across the
+genome.</em></p>
+<h3 id="what-gwas-has-revealed">What GWAS has revealed</h3>
+<p>Since the first successful GWAS (age-related macular degeneration,
+2005), tens of thousands of genome-wide significant associations have
+been catalogued. Several lessons have emerged:</p>
+<ol type="1">
+<li><strong>Most common diseases are highly polygenic.</strong>
+Schizophrenia: &gt;270 loci. Type 2 diabetes: &gt;400 loci. Height:
+&gt;12,000 contributing variants. The “one-gene, one-disease” Mendelian
+model rarely applies to common conditions.</li>
+<li><strong>Effect sizes are small.</strong> Individual common variants
+typically increase disease risk by 1.05–1.3-fold (odds ratios of
+1.05–1.3). The largest common-variant effects are typically in immune
+disorders (HLA region, OR up to 5–10 for specific autoimmune
+conditions).</li>
+<li><strong>Most GWAS hits are non-coding.</strong> Approximately 90% of
+GWAS-associated variants lie outside protein-coding regions, in
+regulatory elements (enhancers, promoters, 3′ UTRs). They alter gene
+<strong>expression</strong> rather than protein sequence — connecting
+GWAS to the regulatory biology of .</li>
+<li><strong>Pleiotropy is the rule, not the exception.</strong> Many
+GWAS loci affect multiple traits. A locus near <em>FTO</em> influences
+both BMI and diabetes risk. A locus near <em>TCF7L2</em> affects type 2
+diabetes, fasting glucose, and bone mineral density.</li>
+<li><strong>“Missing heritability”</strong> persists — common GWAS
+variants typically explain 5–25% of trait heritability, far less than
+twin studies suggest is genetic. The gap reflects rare variants
+(insufficient power), structural variation (poorly captured by SNP
+arrays), gene-environment interactions, and non-additive effects
+(epistasis, dominance).</li>
+</ol>
+<h3 id="polygenic-risk-scores-prs">Polygenic risk scores (PRS)</h3>
+<p>GWAS results can be combined into a <strong>polygenic risk
+score</strong> — a weighted sum of risk alleles across many SNPs:</p>
+<p><span class="math display">\[\text{PRS}_i = \sum_{j=1}^{M} \beta_j
+\cdot g_{ij} \label{eq:unit_V_mendelian_genetics_item_14}\]</span></p>
+<p>where <span class="math inline">\(g_{ij}\)</span> is the count of
+risk alleles (0, 1, or 2) at SNP <span class="math inline">\(j\)</span>
+in individual <span class="math inline">\(i\)</span>, and <span
+class="math inline">\(\beta_j\)</span> is the GWAS effect estimate. PRS
+provides individual-level risk predictions that, for some diseases,
+equal or exceed the predictive power of family history. PRS is becoming
+clinically useful in cardiovascular disease, breast cancer, and prostate
+cancer screening, though equity concerns remain because most GWAS were
+conducted in European-ancestry populations and PRS performance degrades
+when transferred to other ancestries.</p>
+<h3 id="gwas-as-the-modern-face-of-mendels-program">GWAS as the modern
+face of Mendel’s program</h3>
+<p>Mendel’s deepest contribution was not the laws themselves but the
+<strong>method</strong>: count phenotypes, treat heredity as a
+probabilistic system, and test genetic hypotheses against quantitative
+ratios. GWAS is Mendel’s program rescaled to millions of loci and
+billions of genotype calls — every Manhattan plot is a vast,
+statistically corrected dihybrid cross conducted across the entire
+genome.</p>
+<blockquote>
+<p><strong>Clinical Connection: When GWAS Becomes Drug
+Discovery</strong> GWAS hits sometimes identify proteins that become
+drug targets. The discovery that <em>PCSK9</em> loss-of-function
+variants confer protection against cardiovascular disease (low LDL
+cholesterol, no apparent harm) led directly to the development of
+monoclonal antibodies (evolocumab, alirocumab) and small interfering
+RNAs (inclisiran) inhibiting PCSK9 — now major cholesterol-lowering
+therapies. Similarly, <em>HMGCR</em> variants supported statins as a
+drug class. Genetics-informed drugs are roughly twice as likely to
+succeed in clinical trials as drugs developed without genetic
+support.</p>
+</blockquote>
+<h3 id="the-manhattan-plot-and-genome-wide-significance">The Manhattan
+Plot and Genome-Wide Significance</h3>
+<p>The standard visual display of GWAS results is the <strong>Manhattan
+plot</strong> — a scatter of <span
+class="math inline">\(-\log_{10}(p)\)</span> values plotted against
+genomic position. The horizontal axis traverses chromosomes 1 through 22
+(and X) in order; each point is a single SNP. Strong associations form
+vertical “skyscrapers” of co-associated SNPs in the same locus (because
+nearby SNPs are in linkage disequilibrium), giving the plot its
+skyline-like appearance.</p>
+<p>The genome-wide significance threshold is conventionally set at <span
+class="math inline">\(p &lt; 5 \times 10^{-8}\)</span> — the line drawn
+horizontally across most Manhattan plots. This threshold derives from a
+<strong>Bonferroni correction</strong> for multiple testing:</p>
+<p><span class="math display">\[p_{\text{threshold}} =
+\frac{\alpha}{\text{number of independent tests}} = \frac{0.05}{10^6} =
+5 \times 10^{-8}
+\label{eq:unit_V_mendelian_genetics_item_15}\]</span></p>
+<p>The denominator of <span class="math inline">\(\sim 10^6\)</span>
+reflects the number of approximately independent common variants in the
+human genome (after accounting for linkage disequilibrium between
+adjacent SNPs). A “suggestive” threshold of <span
+class="math inline">\(p &lt; 10^{-5}\)</span> is sometimes reported for
+hits that warrant follow-up but do not meet genome-wide significance.
+Replication in an independent cohort is the gold standard for confirming
+a true association.</p>
+<h3 id="polygenic-risk-scores-detailed-example">Polygenic Risk Scores:
+Detailed Example</h3>
+<p>Consider type 2 diabetes (T2D), one of the most extensively
+GWAS-studied complex diseases. Over 400 independent loci have been
+identified, each with small individual effects (odds ratios typically
+1.05–1.20). A polygenic risk score combines these signals into an
+individual-level prediction:</p>
+<p><span class="math display">\[\begin{equation}
+\text{PRS}_i = \sum_{j=1}^{M} \beta_j \cdot g_{ij}
+\label{eq:unit_V_mendelian_prs}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(g_{ij}\)</span> is the dosage of
+the risk allele (0, 1, or 2) at SNP <span
+class="math inline">\(j\)</span> for individual <span
+class="math inline">\(i\)</span>, <span
+class="math inline">\(\beta_j\)</span> is the GWAS-derived effect size
+for that SNP (usually log-odds ratio for case-control studies), and
+<span class="math inline">\(M\)</span> is the number of SNPs included
+(often hundreds of thousands when modern PRS methods like LDpred or
+PRS-CS are used).</p>
+<p><strong>Clinical performance</strong>: Modern PRS for T2D can
+identify individuals in the top percentile of genetic risk who have
+~3–5× the population baseline lifetime risk of developing the disease —
+comparable in predictive power to having a single first-degree relative
+with the disease, but available decades before clinical onset and
+therefore actionable through lifestyle modification.</p>
+<p><strong>Equity caveat</strong>: Most large GWAS to date have been
+conducted in European-ancestry populations. PRS performance degrades
+substantially when applied to other ancestries, with predictive accuracy
+50–75% lower in African-ancestry individuals. Closing this “PRS
+performance gap” requires diverse GWAS cohorts and cross-ancestry
+methods — an active area of research and a matter of healthcare
+equity.</p>
+<h3 id="clinical-interpretation-and-governance-checkpoint">Clinical
+Interpretation and Governance Checkpoint</h3>
+<p>A PRS should be treated as a calibrated, ancestry- and
+context-dependent risk model, not as a diagnosis. A responsible report
+states the discovery cohort, target population, calibration method,
+confidence interval, and action threshold; checks whether the risk
+strata were validated in the patient’s ancestry and care setting; and
+interprets the score alongside family history, monogenic testing when
+indicated, and modifiable clinical risk factors. Current PRS accuracy is
+several-fold higher in European-ancestry cohorts than in other cohorts,
+so premature deployment can widen health gaps if diverse validation does
+not keep pace .</p>
+<p>Governance is part of the biological interpretation. Consent should
+specify secondary use, data retention, reidentification risk, and which
+relatives might be indirectly implicated. In the United States, GINA
+addresses health-insurance and employment discrimination, but it does
+not extend to life, disability, or long-term-care insurance . A
+genetic-counseling workflow therefore separates what the score estimates
+from what clinicians, insurers, employers, families, or law-enforcement
+agencies are permitted to do with it.</p>
+<p><strong>Concept Check 16.3</strong></p>
+<blockquote>
+<ol type="1">
+<li>Why is the genome-wide significance threshold <span
+class="math inline">\(p &lt; 5 \times 10^{-8}\)</span> and not the
+conventional <span class="math inline">\(p &lt; 0.05\)</span>?</li>
+<li>A father with 42 CAG repeats has Huntington’s disease. His daughter
+inherits the affected allele. What can you predict about her CAG count
+and age of onset?</li>
+<li>PKU is treatable with diet, yet newborn screening remains
+comprehensive in many countries. Why is comprehensive screening
+preferred over targeted screening of high-risk families?</li>
+<li>Most GWAS hits lie outside protein-coding regions. What does this
+tell us about the genetic architecture of common diseases?</li>
+<li>A patient’s PRS for coronary artery disease places her in the top 1%
+of the population. Her standard cholesterol panel is normal at age 30.
+How should this affect her clinical management, and what are the
+limitations of acting on PRS alone?</li>
+<li>Why does PRS performance degrade when applied across ancestries?
+What practical and ethical issues does this raise for clinical
+deployment?</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="the-chi-squared-chi2-test">The Chi-Squared (<span
+class="math inline">\(\chi^2\)</span>) Test</h2>
+<p>The <span class="math inline">\(\chi^2\)</span> test for goodness of
+fit evaluates whether observed offspring ratios deviate significantly
+from expected Mendelian ratios.</p>
+<h3 id="formula-and-procedure">Formula and Procedure</h3>
+<p><span class="math display">\[\begin{equation}
+\chi^2 = \sum_{i=1}^{k} \frac{(O_i - E_i)^2}{E_i}
+\label{eq:unit_V_mendelian_chi_squared}
+\end{equation}\]</span></p>
+<p>Where: - <span class="math inline">\(O_i\)</span> = observed count in
+category <span class="math inline">\(i\)</span> - <span
+class="math inline">\(E_i\)</span> = expected count in category <span
+class="math inline">\(i\)</span> (based on the hypothesis) - <span
+class="math inline">\(k\)</span> = number of categories</p>
+<p><strong>Degrees of freedom (df)</strong> = <span
+class="math inline">\(k - 1\)</span></p>
+<p><strong>Decision rule</strong>: Compare calculated <span
+class="math inline">\(\chi^2\)</span> to critical value from the
+chi-squared distribution at significance level <span
+class="math inline">\(\alpha = 0.05\)</span>. If <span
+class="math inline">\(\chi^2_{calc} &gt; \chi^2_{crit}\)</span>,
+<strong>reject</strong> the null hypothesis (the data do not fit the
+expected ratio).</p>
+<p><strong>Critical values:</strong></p>
+<table>
+<thead>
+<tr>
+<th>df</th>
+<th><span class="math inline">\(\alpha = 0.05\)</span></th>
+<th><span class="math inline">\(\alpha = 0.01\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3.841</td>
+<td>6.635</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5.991</td>
+<td>9.210</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7.815</td>
+<td>11.345</td>
+</tr>
+<tr>
+<td>4</td>
+<td>9.488</td>
+<td>13.277</td>
+</tr>
+</tbody>
+</table>
+<h3 id="worked-example">Worked Example</h3>
+<p><strong>Problem</strong>: F<span class="math inline">\(_2\)</span>
+from a monohybrid cross, 100 offspring observed: 68 dominant, 32
+recessive. Expected ratio: 3:1 (H<span
+class="math inline">\(_0\)</span>: the trait follows simple Mendelian
+inheritance).</p>
+<p><strong>Step 1</strong>: Calculate expected values. - Expected
+dominant = <span class="math inline">\(100 \times \frac{3}{4} =
+75\)</span> - Expected recessive = <span class="math inline">\(100
+\times \frac{1}{4} = 25\)</span></p>
+<p><strong>Step 2</strong>: Calculate <span
+class="math inline">\(\chi^2\)</span>.</p>
+<p><span class="math display">\[\chi^2 = \frac{(68-75)^2}{75} +
+\frac{(32-25)^2}{25} = \frac{49}{75} + \frac{49}{25} = 0.653 + 1.960 =
+2.613 \tag{16.12}
+\label{eq:unit_V_mendelian_genetics_item_16}\]</span></p>
+<p><strong>Step 3</strong>: Determine df = 2 - 1 = 1.</p>
+<p><strong>Step 4</strong>: Compare to critical value. <span
+class="math inline">\(\chi^2_{crit}(df=1, \alpha=0.05) =
+3.841\)</span>.</p>
+<p>Since <span class="math inline">\(2.613 &lt; 3.841\)</span>, we
+<strong>fail to reject</strong> H<span
+class="math inline">\(_0\)</span>. The observed data are consistent with
+a 3:1 Mendelian ratio (<span class="math inline">\(p \approx
+0.106\)</span>).</p>
+<h3 id="worked-example-dihybrid-chi-squared-test">Worked Example:
+Dihybrid Chi-Squared Test</h3>
+<p><strong>Problem</strong>: A dihybrid cross produces: 315 round
+yellow, 108 round green, 101 wrinkled yellow, 32 wrinkled green (total =
+556). Test the 9:3:3:1 hypothesis.</p>
+<p><strong>Expected values</strong>: <span
+class="math inline">\(\frac{9}{16} \times 556 = 312.75\)</span>; <span
+class="math inline">\(\frac{3}{16} \times 556 = 104.25\)</span>; <span
+class="math inline">\(\frac{3}{16} \times 556 = 104.25\)</span>; <span
+class="math inline">\(\frac{1}{16} \times 556 = 34.75\)</span></p>
+<p><span class="math display">\[\chi^2 = \frac{(315-312.75)^2}{312.75} +
+\frac{(108-104.25)^2}{104.25} + \frac{(101-104.25)^2}{104.25} +
+\frac{(32-34.75)^2}{34.75} \tag{16.13}
+\label{eq:unit_V_mendelian_genetics_item_17}\]</span></p>
+<p><span class="math display">\[= 0.016 + 0.135 + 0.101 + 0.218 = 0.470
+\tag{16.14} \label{eq:unit_V_mendelian_genetics_item_18}\]</span></p>
+<p>df = 4 - 1 = 3. <span class="math inline">\(\chi^2_{crit}(df=3,
+\alpha=0.05) = 7.815\)</span>.</p>
+<p>Since <span class="math inline">\(0.470 &lt; 7.815\)</span>, we fail
+to reject H<span class="math inline">\(_0\)</span>. The data are
+consistent with a 9:3:3:1 ratio (<span class="math inline">\(p &gt;
+0.90\)</span>). These are, in fact, Mendel’s actual data for seed shape
+and color.</p>
+<blockquote>
+<p><strong>Clinical Connection: Using Chi-Squared in Genetic
+Counseling</strong> In clinical genetics, the chi-squared test (or exact
+binomial tests for small families) helps evaluate whether a family’s
+disease pattern is consistent with a specific inheritance model. For
+example, if a rare disease appears in 5 of 20 siblings (25%), a
+chi-squared test could evaluate whether this is consistent with
+autosomal recessive inheritance (expected 25% affected). However, for
+small family sizes, exact probability calculations are preferred.</p>
+</blockquote>
+<hr />
+<h2 id="pedigree-analysis">Pedigree Analysis</h2>
+<h3 id="pedigree-symbols-and-conventions">Pedigree Symbols and
+Conventions</h3>
+<ul>
+<li><strong>Squares</strong>: males; <strong>Circles</strong>:
+females</li>
+<li><strong>Filled symbols</strong>: affected individuals</li>
+<li><strong>Half-filled</strong>: carrier (when known)</li>
+<li><strong>Horizontal line</strong>: mating pair</li>
+<li><strong>Vertical line</strong>: parent-offspring connection</li>
+<li><strong>Double horizontal line</strong>: consanguineous mating
+(mating between relatives)</li>
+<li><strong>Roman numerals</strong>: generations (I, II, III…)</li>
+<li><strong>Arabic numerals</strong>: individuals within a generation
+(1, 2, 3…)</li>
+</ul>
+<h3 id="inheritance-pattern-recognition">Inheritance Pattern
+Recognition</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Q as Question
+    participant A as Analysis
+    participant R as Result
+
+    Q-&gt;&gt;A: Is the trait present in every generation?
+    A-&gt;&gt;A: If YES: likely dominant
+    A-&gt;&gt;A: If NO (skips generations): likely recessive
+
+    Q-&gt;&gt;A: Are males and females equally affected?
+    A-&gt;&gt;A: If YES: likely autosomal
+    A-&gt;&gt;A: If males &gt;&gt; females: likely X-linked recessive
+
+    Q-&gt;&gt;A: Can an affected father have affected sons?
+    A-&gt;&gt;A: If YES: NOT X-linked (autosomal)
+    A-&gt;&gt;A: If NO: consistent with X-linked
+
+    Q-&gt;&gt;A: Are all children of affected mothers affected?
+    A-&gt;&gt;A: If YES: consider mitochondrial inheritance
+
+    A-&gt;&gt;R: Dominant vs Recessive
+    A-&gt;&gt;R: Autosomal vs X-linked vs Mitochondrial</code></pre>
+<!-- alt: Sequence diagram showing decision flowchart for pedigree analysis. Systematic questions about affected individuals across generations distinguish inheritance patterns. -->
+<p><em>Decision flowchart for pedigree analysis. Systematic questions
+about affected individuals across generations distinguish inheritance
+patterns.</em></p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Key Diagnostic Clues</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Autosomal dominant</strong></td>
+<td>Affected in every generation; unaffected parents produce primarily
+unaffected children; males and females equally affected; affected
+individuals have at least one affected parent</td>
+</tr>
+<tr>
+<td><strong>Autosomal recessive</strong></td>
+<td>Often skips generations; affected children from unaffected (carrier)
+parents; consanguinity increases risk; males and females equally
+affected</td>
+</tr>
+<tr>
+<td><strong>X-linked recessive</strong></td>
+<td>Males affected far more than females; carrier mothers pass to ~50%
+of sons; affected fathers cannot pass to sons (but most daughters are
+carriers); no male-to-male transmission</td>
+</tr>
+<tr>
+<td><strong>X-linked dominant</strong></td>
+<td>Both sexes affected but more females than males; affected father
+passes the allele to daughters but not sons; affected heterozygous
+mother passes to ~50% of sons and ~50% of daughters</td>
+</tr>
+<tr>
+<td><strong>Mitochondrial</strong></td>
+<td>Most children of an affected mother are affected; affected father
+does NOT transmit; maternal inheritance primarily</td>
+</tr>
+<tr>
+<td><strong>Y-linked</strong></td>
+<td>Primarily males affected; most sons of affected father are
+affected</td>
+</tr>
+</tbody>
+</table>
+<h3 id="worked-pedigree-problem">Worked Pedigree Problem</h3>
+<p><strong>Problem</strong>: A pedigree shows: - Generation I:
+Unaffected father, unaffected mother - Generation II: 3 unaffected
+daughters, 2 affected sons, 1 unaffected son - One affected son
+(Generation II) marries an unaffected woman - Generation III: 2
+unaffected sons, 1 unaffected daughter</p>
+<p><strong>Analysis</strong>: 1. Trait skips Generation I (unaffected
+parents have affected children) – suggests <strong>recessive</strong> 2.
+Primarily males affected – suggests <strong>X-linked</strong> 3.
+Affected father (Gen II) has unaffected sons (Gen III) – consistent with
+X-linked (father gives Y to sons) 4. Most daughters of affected father
+are unaffected – but they are obligate carriers (<span
+class="math inline">\(X^AX^a\)</span>) if the mother is <span
+class="math inline">\(X^AX^A\)</span> or <span
+class="math inline">\(X^AY\)</span> – wait, the mother is female so
+<span class="math inline">\(X^AX^A\)</span> or <span
+class="math inline">\(X^AX^a\)</span></p>
+<p><strong>Conclusion</strong>: <strong>X-linked recessive</strong>
+inheritance. Mother in Gen I is a carrier (<span
+class="math inline">\(X^HX^h\)</span>); Father in Gen I is unaffected
+(<span class="math inline">\(X^HY\)</span>).</p>
+<p>Probability that Gen III daughter (from affected father <span
+class="math inline">\(X^hY\)</span> x unaffected mother <span
+class="math inline">\(X^HX^H\)</span>) is a carrier:</p>
+<p>Most daughters of an affected father receive his <span
+class="math inline">\(X^h\)</span>: probability = <strong>1 (100%
+carriers)</strong>.</p>
+<h2
+id="worked-example-16.4-conditional-probability-in-pedigrees.">Worked
+Example: 16.4: Conditional probability in pedigrees.</h2>
+<p>A couple seeks genetic counseling. The woman’s brother has cystic
+fibrosis (CF, autosomal recessive, <span class="math inline">\(q =
+0.02\)</span> in the general population). The man has no family
+history.</p>
+<ol type="a">
+<li>What is the probability the woman is a carrier?</li>
+</ol>
+<p>Her parents must both be carriers (Cc x Cc). Among unaffected
+siblings, the probability of being a carrier:</p>
+<p><span class="math display">\[P(\text{Cc} | \text{unaffected}) =
+\frac{P(\text{Cc})}{P(\text{unaffected})} = \frac{2/4}{3/4} =
+\frac{2}{3} \tag{16.15}
+\label{eq:unit_V_mendelian_genetics_item_19}\]</span></p>
+<ol start="2" type="a">
+<li>What is the probability the man is a carrier?</li>
+</ol>
+<p>Using Hardy-Weinberg: carrier frequency = <span
+class="math inline">\(2pq \approx 2(0.98)(0.02) \approx
+\frac{1}{25}\)</span></p>
+<ol start="3" type="a">
+<li>What is the probability their first child will have CF?</li>
+</ol>
+<p><span class="math display">\[P = P(\text{mom carrier}) \times
+P(\text{dad carrier}) \times P(\text{child cc} | \text{both carriers}) =
+\frac{2}{3} \times \frac{1}{25} \times \frac{1}{4} = \frac{2}{300} =
+\frac{1}{150} \tag{16.16}
+\label{eq:unit_V_mendelian_genetics_item_20}\]</span></p>
+<p><strong>Concept Check 16.4</strong></p>
+<blockquote>
+<ol type="1">
+<li>An affected father and carrier mother have children. For an X-linked
+recessive trait, what fraction of daughters will be affected? What
+fraction of sons?</li>
+<li>Why does consanguinity increase the risk of autosomal recessive
+disorders?</li>
+<li>Can mitochondrial inheritance be distinguished from autosomal
+dominant maternal inheritance in a single pedigree? What additional
+information would help?</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="worked-example-complex-multi-locus-genetics">Worked Example:
+Complex Multi-Locus Genetics</h2>
+<p><strong>Problem</strong>: In mice, coat color is controlled by two
+independently assorting loci. At the A locus: A (agouti) is dominant to
+a (non-agouti/black). At the C locus: C (colored) is dominant to c
+(albino, epistatic – no pigment regardless of A genotype). This is
+recessive epistasis.</p>
+<ol type="a">
+<li>Cross AaCc x AaCc. Predict the F<span
+class="math inline">\(_2\)</span> phenotype ratio.</li>
+</ol>
+<p>Using branching: - A locus: <span
+class="math inline">\(\frac{3}{4}\)</span> A_ (agouti pattern) : <span
+class="math inline">\(\frac{1}{4}\)</span> aa (black pattern) - C locus:
+<span class="math inline">\(\frac{3}{4}\)</span> C_ (colored) : <span
+class="math inline">\(\frac{1}{4}\)</span> cc (albino)</p>
+<table>
+<thead>
+<tr>
+<th>Genotype</th>
+<th>Phenotype</th>
+<th>Fraction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A_C_</td>
+<td>Agouti</td>
+<td><span class="math inline">\(\frac{9}{16}\)</span></td>
+</tr>
+<tr>
+<td>aaC_</td>
+<td>Black</td>
+<td><span class="math inline">\(\frac{3}{16}\)</span></td>
+</tr>
+<tr>
+<td>A_cc</td>
+<td>Albino</td>
+<td><span class="math inline">\(\frac{3}{16}\)</span></td>
+</tr>
+<tr>
+<td>aacc</td>
+<td>Albino</td>
+<td><span class="math inline">\(\frac{1}{16}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Phenotype ratio: 9 agouti : 3 black : 4 albino
+(9:3:4)</strong></p>
+<ol start="2" type="a">
+<li>Among the albino offspring, what fraction are heterozygous at both
+loci (AaCc)?</li>
+</ol>
+<p>Wait – albino mice are cc, so they must be __cc. Among A_cc offspring
+(fraction <span class="math inline">\(\frac{3}{16}\)</span>), the Aa
+fraction = <span class="math inline">\(\frac{2}{3}\)</span> of A_. And
+most are cc (no Cc among albinos).</p>
+<p>The question asks for AaCc, but cc individuals cannot be Cc.
+Therefore the answer is <strong>0</strong> – no albino offspring can be
+AaCc.</p>
+<p>If the question intended Aacc: Among most albino mice (<span
+class="math inline">\(\frac{4}{16}\)</span>), the fraction that is Aacc
+= <span class="math inline">\(\frac{2/16}{4/16} =
+\frac{1}{2}\)</span>.</p>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>Mendelian ratios are enumerated exactly by
+<code>punnett_square</code>:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.genetics <span class="im">import</span> punnett_square</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> punnett_square(<span class="st">&quot;Aa&quot;</span>, <span class="st">&quot;Aa&quot;</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(r.genotype_ratios, r.phenotype_ratios)</span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> Pedigree risk counselling
+translates identical probability trees into prior odds for carrier
+screening (CF, SMA, Ashkenazi panels) before any DNA test is
+ordered.</p>
+</blockquote>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Mendelian Genetics and Heredity</strong>, frontier
+biology belongs inside the evidence logic of the chapter. Classical
+genetics remains essential, but modern interpretation adds penetrance,
+polygenicity, structural variation, ancestry-aware inference, and
+uncertainty in risk prediction. The core reading question is this:
+Mendelian patterns are starting models that must be qualified by
+penetrance, linkage, environment, and sampling.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>A good genetics answer separates the Mendelian transmission model
+from the evidence needed to use it in a population, family, or clinical
+setting.</p>
+<p><strong>Source practice:</strong> For inheritance and population
+claims, separate the model assumptions from sampling, ancestry
+representation, penetrance, linkage, and environment.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Mendel’s experiments</strong>: Garden peas, quantitative
+analysis of 7 characters, statistical reasoning – the first application
+of statistics to biology.</li>
+<li><strong>Law of Segregation</strong>: Two alleles separate at meiosis
+I (anaphase I); each gamete gets one allele.</li>
+<li><strong>Law of Independent Assortment</strong>: Genes on different
+chromosomes orient independently at metaphase I; exceptions for linked
+genes.</li>
+<li><strong>Molecular basis of Mendel’s laws</strong>: Sutton-Boveri
+chromosome theory unifies abstract “factors” with homolog behavior at
+meiosis; every Punnett square is a model of meiotic chromosome
+dynamics.</li>
+<li><strong>Monohybrid F<span
+class="math inline">\(_2\)</span></strong>: 3:1 phenotype ratio; 1:2:1
+genotype ratio. Testcross confirms genotype.</li>
+<li><strong>Dihybrid F<span class="math inline">\(_2\)</span></strong>:
+9:3:3:1 phenotype ratio (product of two independent 3:1 ratios).</li>
+<li><strong>Non-Mendelian inheritance</strong>: Incomplete dominance
+(1:2:1 phenotype), codominance (both alleles expressed), multiple
+alleles (ABO), pleiotropy (sickle cell), polygenic traits (continuous
+distribution), epistasis (modified dihybrid ratios — 9:3:4, 12:3:1, 9:7,
+15:1, 13:3), genomic imprinting (parent-of-origin expression), maternal
+effect (mother’s genotype determines offspring phenotype).</li>
+<li><strong>Penetrance and expressivity</strong>: Reduced penetrance
+(BRCA1, retinoblastoma) and variable expressivity (NF1, Marfan) explain
+why identical genotypes produce divergent clinical outcomes.</li>
+<li><strong>Human genetic disorders</strong>: Huntington’s disease (CAG
+repeat expansion, autosomal dominant, anticipation); PKU (autosomal
+recessive, screened almost universally at birth, dietary therapy); CF,
+sickle cell, Tay-Sachs as paradigm autosomal recessive disorders
+maintained at elevated frequencies by likely heterozygote
+advantage.</li>
+<li><strong>GWAS</strong>: Genome-wide association studies extend
+Mendel’s logic to millions of common variants, revealing that complex
+traits are highly polygenic, that most causal variants are non-coding,
+and that polygenic risk scores can predict disease risk at the
+individual level.</li>
+<li><strong>Chi-squared test</strong>: <span
+class="math inline">\(\chi^2 = \sum \frac{(O-E)^2}{E}\)</span>; df =
+k-1; compare to critical value at <span class="math inline">\(\alpha =
+0.05\)</span>.</li>
+<li><strong>Pedigree analysis</strong>: Autosomal dominant (every
+generation, equal sex ratio), autosomal recessive (skips generations,
+consanguinity), X-linked recessive (males &gt;&gt; females, no
+male-to-male), mitochondrial (maternal primarily).</li>
+<li><strong>Connections:</strong> See for linkage and sex chromosomes,
+for allele frequencies in populations, and Unit IV for the molecular
+basis of alleles.</li>
+</ul>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li>Explain why Mendel’s laws were not widely recognized for 34 years
+after their publication. What developments in cell biology (1900) made
+them comprehensible?</li>
+<li>Perform a trihybrid cross AaBbCc x AaBbCc. What fraction of
+offspring will show most three dominant phenotypes? What fraction will
+be heterozygous at most three loci?</li>
+<li>A snapdragon cross between two pink flowers (<span
+class="math inline">\(C^RC^W\)</span> x <span
+class="math inline">\(C^RC^W\)</span>) produces 240 offspring. How many
+of each color would you expect? Perform a chi-squared test if the
+observed counts are 55 red, 128 pink, 57 white.</li>
+<li>In the ABO blood group system, a type A mother and type B father
+have a type O child. What are the parents’ genotypes? What is the
+probability their next child will be type AB?</li>
+<li>Describe three examples of pleiotropy and explain how one gene can
+affect multiple organ systems.</li>
+<li>A Labrador cross produces 48 black, 16 chocolate, and 20 yellow
+puppies. Perform a chi-squared test for a 9:3:4 ratio.</li>
+<li>Explain the molecular basis of Prader-Willi and Angelman syndromes.
+Why do deletions of the same chromosomal region cause different
+diseases?</li>
+<li>A woman whose father had hemophilia A marries an unaffected man.
+What is the probability their first son will be affected? Their first
+daughter?</li>
+<li>Using the Hardy-Weinberg equation, calculate the carrier frequency
+for phenylketonuria (PKU) if the disease frequency is 1/10,000.</li>
+<li>Explain why the chi-squared test can rarely prove that a hypothesis
+is correct – primarily fail to reject it.</li>
+<li>For a dominant disorder with 80% penetrance, how does risk to
+offspring of an affected × unaffected cross change compared with
+complete penetrance?</li>
+<li>Explain why mitochondrial pedigrees show
+<strong>most-maternal</strong> transmission yet may still include
+unaffected mothers.</li>
+<li>A man with 38 CAG repeats in <em>HTT</em> fathers two children.
+Predict the inheritance, repeat-count distribution, and clinical
+phenotypes of his offspring. What does this illustrate about
+anticipation?</li>
+<li>Explain why comprehensive newborn screening for PKU has been more
+cost-effective than family-history-based screening.</li>
+<li>A GWAS for type 2 diabetes identifies a SNP with odds ratio 1.15
+(<span class="math inline">\(p = 2 \times 10^{-12}\)</span>). Why is
+this a “successful” finding even though the odds ratio is small?</li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Mendel (1866). Versuche {"u}ber Pflanzenhybriden. <em>Verhandlungen
+des naturforschenden Vereines in Br{"u}nn</em>, 4.</li>
+<li>Bateson (1909). <em>Mendel’s Principles of Heredity</em>. Cambridge
+University Press.</li>
+<li>Morgan (1910). Sex limited inheritance in Drosophila.
+<em>Science</em>, 32.</li>
+<li>Sturtevant (1913). The linear arrangement of six sex-linked factors
+in Drosophila, as shown by their mode of association. <em>Journal of
+Experimental Zoology</em>, 14.</li>
+<li>Punnett (1907). <em>Mendelism</em>. Macmillan.</li>
+<li>Griffiths et al. (latest ed.). <em>Introduction to Genetic
+Analysis</em> (Mendelian inheritance chapters). W. H. Freeman.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<ol type="1">
+<li><strong>Allele</strong> – alternative form of a gene at a given
+locus</li>
+<li><strong>Dominant</strong> – allele whose phenotype is expressed in
+heterozygotes</li>
+<li><strong>Recessive</strong> – allele whose phenotype is masked in
+heterozygotes</li>
+<li><strong>Homozygous</strong> – two identical alleles at a locus (AA
+or aa)</li>
+<li><strong>Heterozygous</strong> – two different alleles at a locus
+(Aa)</li>
+<li><strong>Genotype</strong> – the genetic constitution of an organism
+at specified loci</li>
+<li><strong>Phenotype</strong> – the observable characteristics
+resulting from genotype and environment</li>
+<li><strong>Testcross</strong> – cross of an individual with dominant
+phenotype to a homozygous recessive</li>
+<li><strong>Incomplete dominance</strong> – heterozygote phenotype
+intermediate between two homozygotes</li>
+<li><strong>Codominance</strong> – both alleles fully expressed in the
+heterozygote</li>
+<li><strong>Epistasis</strong> – interaction where one gene masks the
+expression of another gene</li>
+<li><strong>Pleiotropy</strong> – one gene influencing multiple
+phenotypic traits</li>
+<li><strong>Polygenic inheritance</strong> – multiple genes contributing
+additively to a continuous trait</li>
+<li><strong>Penetrance</strong> – proportion of individuals with a
+genotype who express the expected phenotype</li>
+<li><strong>Expressivity</strong> – degree of phenotype expression among
+penetrant individuals</li>
+<li><strong>Phenocopy</strong> – environmentally induced phenotype
+mimicking a genetic condition</li>
+<li><strong>Anticipation</strong> – earlier onset and increased severity
+across generations, characteristic of trinucleotide repeat expansion
+disorders</li>
+<li><strong>Genomic imprinting</strong> – parent-of-origin-specific gene
+expression via epigenetic marks</li>
+<li><strong>Chi-squared test</strong> – statistical test comparing
+observed to expected frequencies</li>
+<li><strong>Pedigree</strong> – diagram of family phenotypes across
+generations used to determine inheritance patterns</li>
+<li><strong>Consanguinity</strong> – mating between related individuals;
+increases homozygosity</li>
+<li><strong>GWAS</strong> – genome-wide association study; statistical
+scan of common variants for trait associations across the genome</li>
+<li><strong>Polygenic risk score (PRS)</strong> – weighted sum of risk
+alleles producing an individual-level genetic risk estimate</li>
+<li><strong>Trinucleotide repeat expansion</strong> – mutation class in
+which an unstable triplet repeat expands across generations, causing
+diseases such as Huntington’s, fragile X, and myotonic dystrophy</li>
+</ol>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Mendelian Genetics and Heredity</strong> should leave a
+reproducible trail from a biological claim to the code, figure, diagram,
+or paper-based activity that can test it. Use the surfaces below to
+inspect the chapter’s assumptions, rerun the relevant model, or compare
+the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/genetics/genetics.py</code>
+(<code>punnett_square</code>, <code>hardy_weinberg</code>,
+<code>chi_squared_test</code>)</td>
+<td>Reproduce inheritance ratios, equilibrium expectations, and
+goodness-of-fit tests.</td>
+</tr>
+<tr>
+<td><code>src/visualization/plots.py</code>
+(<code>plot_punnett_square</code>)</td>
+<td>Check genotype and phenotype tables visually.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>mendelian_cross_diagram</code>)</td>
+<td>Link segregation logic to diagrammed crosses.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> state genotype notation,
+dominance model, sample size, and statistical expectation before
+interpreting a ratio. <strong>Cross-reference:</strong> compare with and
+.</p>
+</body>
+</html>

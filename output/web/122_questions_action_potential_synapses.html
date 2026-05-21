@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>122_questions_action_potential_synapses</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered"
+id="questions-ch-30-action-potentials-and-synaptic-transmission">Questions
+— Ch 30: Action Potentials and Synaptic Transmission</h1>
+<p></p>
+<!-- question-coverage-start -->
+<h2 class="unnumbered" id="instructor-use-and-coverage-notes">Instructor
+Use and Coverage Notes</h2>
+<ul>
+<li><strong>Coverage target:</strong> Predict how changing an ion
+gradient or channel conductance alters excitability.</li>
+<li><strong>Model/data emphasis:</strong> Nernst/Goldman,
+Hodgkin-Huxley, and synaptic-current reasoning.</li>
+<li><strong>Assessment alignment:</strong> Visual Representations,
+Statistical Tests and Data Analysis, Argumentation.</li>
+<li><strong>Misconception probe:</strong> An action potential is not
+electricity flowing like a wire; it is regenerated ion-channel
+dynamics.</li>
+<li><strong>Transfer product:</strong> Transfer excitability reasoning
+to anesthesia, toxins, epilepsy, and neuromuscular disease.</li>
+<li><strong>Grading focus:</strong> award full credit for mechanism,
+evidence, boundary conditions, and units when a calculation is
+required.</li>
+<li><strong>Suggested use:</strong> draw one recall item, one
+application item, and one synthesis item when building a short quiz from
+this bank. <!-- question-coverage-end --></li>
+</ul>
+<h2 class="unnumbered"
+id="questions-110-recall-and-comprehension">Questions 1–10: Recall and
+Comprehension</h2>
+<p><em>This activity accompanies of the textbook — review that chapter
+before attempting the exercises below.</em></p>
+<!-- assess: LO=LO1; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
+<ol type="1">
+<li>Define an action potential. What are the threshold, peak, and
+undershoot voltages?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q1, Recall).** An **action potential (AP)** is a rapid, all-or-nothing, self-propagating depolarisation-repolarisation of the neuronal membrane produced by the sequential opening of voltage-gated Na⁺ and K⁺ channels — the electrical signal of the nervous system. The canonical mammalian AP has four quantitative landmarks: **resting potential ≈ −70 mV** (set by K⁺ leak channels and Na⁺/K⁺-ATPase, matching the K⁺ Nernst potential); **threshold ≈ −55 mV** (voltage at which enough Nav1.x channels open that inward Na⁺ current overtakes outward K⁺ current, committing the membrane to firing); **peak ≈ +30 to +40 mV** (approaches but never reaches E_Na ≈ +60 mV, because Na⁺ channels begin inactivating before full equilibration); **undershoot (afterhyperpolarization, AHP) ≈ −80 to −90 mV** (voltage-gated K⁺ channels close slowly, briefly driving V_m past rest toward E_K ≈ −90 mV — the refractory period). Total duration ~1–2 ms in axons; propagation velocity 1 m/s (unmyelinated) to 120 m/s (myelinated, saltatory conduction). The **Hodgkin–Huxley model** (Nobel 1963) quantitatively reproduces every feature from four ODEs in m, h, n gating variables. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO2; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
+<ol start="2" type="1">
+<li>What are voltage-gated Na⁺ channels? Describe their three states
+(closed, open, inactivated).</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q2, Recall).** Voltage-gated Na⁺ channels (Nav1.1–1.9, encoded by SCN1A–SCN11A) are membrane proteins whose pore opens in response to depolarisation and carries the inward Na⁺ current of the action-potential upstroke; they are concentrated at nodes of Ranvier (~1,000/µm² vs ~25/µm² under myelin). They cycle through three states: **closed** (at rest near −70 mV, activation/m gates shut but ready to open); **open** (depolarisation past threshold opens the m gates within ~0.5 ms, Na⁺ rushes in, V rises toward E_Na); **inactivated** (the h "ball-and-chain" gate occludes the pore from inside ~1 ms after opening, so the channel cannot reopen regardless of stimulus until repolarisation resets it — the basis of the absolute refractory period and unidirectional propagation). See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO3; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
+<ol start="3" type="1">
+<li>What is the absolute refractory period? What is the relative
+refractory period?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q3, Recall).** The **absolute refractory period** (~1–2 ms after the spike peak) is the interval when essentially all Na⁺ channels are in the inactivated state (h ≈ 0); no stimulus, however strong, can trigger a second action potential, which guarantees unidirectional propagation and caps maximum firing rate (~500–1000 Hz). The **relative refractory period** (~5–10 ms following the absolute period) is when Na⁺ channels are recovering from inactivation while K⁺ channels remain open and the membrane is hyperpolarised below rest (afterhyperpolarisation); a second spike is possible but requires a stronger-than-normal stimulus and has reduced amplitude. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO4; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
+<ol start="4" type="1">
+<li>What is a compound action potential (CAP)? How does it differ from a
+single-neuron AP?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q4, Recall).** A single-neuron action potential is the all-or-none ~100 mV spike of one axon, described by the Hodgkin–Huxley equations from the squid giant axon. A **compound action potential (CAP)** is the extracellularly recorded summed electrical signal of a whole nerve containing many axons with different diameters and conduction velocities. It differs from a single AP in being a graded, multi-peaked waveform: its amplitude grows with stimulus strength (recruiting more fibres, not "bigger" spikes), and it spreads out into separate humps with distance because fast (large, myelinated A) and slow (small, unmyelinated C) fibres progressively desynchronise. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO5; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
+<ol start="5" type="1">
+<li>Define a synapse. Name the pre- and postsynaptic components.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q5, Recall).** A synapse is the specialised junction at which one neuron communicates with a target cell. At a chemical synapse the **presynaptic** component is the axon terminal, containing neurotransmitter-filled vesicles, voltage-gated Ca²⁺ channels, and the active-zone release machinery (SNARE proteins, synaptotagmin-1). These are separated by the ~20 nm **synaptic cleft** from the **postsynaptic** component — the membrane bearing neurotransmitter receptors (ionotropic and metabotropic) clustered at the postsynaptic density. Transmission is unidirectional (presynaptic → postsynaptic), modifiable, and has a 0.5–2 ms synaptic delay; electrical synapses (gap junctions) instead couple cytoplasms directly and are bidirectional. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO6; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+<ol start="6" type="1">
+<li>What is a neurotransmitter vesicle? How is it released
+(Ca²⁺-dependent exocytosis)?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q6, Recall).** A neurotransmitter (synaptic) vesicle is a ~40 nm membrane-bound organelle in the presynaptic terminal that stores a quantum of neurotransmitter (~5,000–10,000 molecules). Release is Ca²⁺-dependent exocytosis: an arriving action potential opens voltage-gated Ca²⁺ channels; local Ca²⁺ rises to ~100 µM in a nanodomain and binds the C2 domains of synaptotagmin-1 (4–5 ions, giving steep ~4th-power cooperativity); synaptotagmin displaces the complexin clamp, the SNARE complex (synaptobrevin + syntaxin + SNAP-25) zippers fully, and the vesicle fuses with the plasma membrane, releasing transmitter into the cleft in <1 ms. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO7; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+<ol start="7" type="1">
+<li>What is an EPSP? What is an IPSP? How do they differ in ionic
+mechanism?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q7, Recall).** An **EPSP** (excitatory postsynaptic potential) is a transient depolarisation that moves the membrane toward threshold, produced when an excitatory transmitter (e.g., glutamate) opens cation channels (AMPA/NMDA, Na⁺/K⁺, some Ca²⁺) so net inward current depolarises the cell. An **IPSP** (inhibitory postsynaptic potential) is a hyperpolarising or shunting event that moves the membrane away from threshold, produced when an inhibitory transmitter (GABA, glycine) opens Cl⁻ channels (GABA_A, Cl⁻ influx) or K⁺ channels (GABA_B-activated K⁺ efflux). They differ in ionic mechanism: cation influx (depolarising) for EPSPs vs anion influx / K⁺ efflux (hyperpolarising/shunting) for IPSPs. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO8; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+<ol start="8" type="1">
+<li>Define temporal and spatial summation of postsynaptic
+potentials.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q8, Recall).** Postsynaptic potentials are graded and decremental, so a single EPSP rarely reaches threshold; the neuron sums inputs at the axon hillock. **Temporal summation** is the addition of successive EPSPs from the *same* synapse arriving within a few membrane time constants of each other, so the second begins before the first has decayed and the depolarisations add. **Spatial summation** is the addition of EPSPs (and IPSPs) from *different* synapses active at the same time on the dendrites/soma. If the net depolarisation at the axon hillock exceeds threshold (~−55 mV), an all-or-none action potential is fired; IPSPs subtract from this sum. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO1; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+<ol start="9" type="1">
+<li>What is a neuromuscular junction? What neurotransmitter is released
+there?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q9, Recall).** The neuromuscular junction (NMJ) is the chemical synapse between a motor neuron's axon terminal and a skeletal muscle fibre's motor end-plate. The neurotransmitter released there is **acetylcholine (ACh)**: an action potential opens presynaptic Ca²⁺ channels, ACh-containing vesicles fuse and release ACh, which binds muscle-type nicotinic ACh receptors (α1₂β1δε pentamers) opening Na⁺/K⁺ channels to generate the end-plate potential. The NMJ has a high quantal content and resting release probability ~0.1–0.4, giving a large safety factor; ACh is then cleared by acetylcholinesterase. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO2; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+<ol start="10" type="1">
+<li>What is long-term potentiation (LTP)? In which brain region was it
+first described?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q10, Recall).** Long-term potentiation (LTP) is an activity-dependent, long-lasting (hours to days) increase in synaptic efficacy following high-frequency stimulation — a leading cellular model of learning and memory. It was first described in the **hippocampus**, at the perforant-path inputs to the dentate gyrus (Bliss and Lømo, 1973), and is classically studied at the Schaffer-collateral → CA1 synapse. NMDA-receptor-dependent Ca²⁺ influx activates CaMKII, which phosphorylates and inserts AMPA receptors (early LTP); late LTP additionally requires CREB-driven gene expression and structural spine changes. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<h2 class="unnumbered"
+id="questions-1120-application-and-analysis">Questions 11–20:
+Application and Analysis</h2>
+<!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
+<ol start="11" type="1">
+<li>Using the Nernst equation (E = (RT/zF) ln([ion]_out/[ion]_in)),
+calculate the equilibrium potential for K⁺ given [K⁺]_out = 5 mM and
+[K⁺]_in = 150 mM at 37°C. Then calculate E_Na with [Na⁺]_out = 145 mM
+and [Na⁺]_in = 15 mM. Which equilibrium potential is closest to the
+resting membrane potential?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q11, Application).** At body temperature 310 K, $RT/F = (8.314 \times 310)/96485 = 0.0267$ V = 26.7 mV; using base-10 log, $(RT/F)\ln 10 = 26.7 \times 2.303 = 61.5$ mV. For a monovalent cation ($z = +1$): $E = 61.5 \log_{10}([X]_{out}/[X]_{in})$ mV. **E_K**: $61.5 \times \log_{10}(5/150) = 61.5 \times \log_{10}(0.0333) = 61.5 \times (-1.477) = \mathbf{-90.8\ \mathrm{mV}}$. **E_Na**: $61.5 \times \log_{10}(145/15) = 61.5 \times \log_{10}(9.667) = 61.5 \times 0.985 = \mathbf{+60.6\ \mathrm{mV}}$. Resting membrane potential ≈ **−70 mV** — much closer to **E_K (−91 mV)** than E_Na (+61 mV), indicating that K⁺ permeability dominates at rest (P_K : P_Na : P_Cl ≈ 1 : 0.04 : 0.45). Why not exactly E_K? Because of small but non-zero Na⁺ leak, and the electrogenic Na⁺/K⁺ pump (see Goldman-Hodgkin-Katz). **Clinical significance**: hyperkalaemia (e.g., [K⁺]_out = 8 mM raises E_K to −80 mV) *depolarises* the resting potential — at rest the membrane is closer to threshold, but sustained depolarisation inactivates Nav channels → **muscle weakness, cardiac conduction block, asystole** (EKG peaked T waves → widened QRS → sine wave → flatline). This is why hyperkalaemia is a medical emergency. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO4; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
+<ol start="12" type="1">
+<li>Tetrodotoxin (TTX, from pufferfish) blocks voltage-gated Na⁺
+channels. Tetraethylammonium (TEA) blocks voltage-gated K⁺ channels.
+Predict the effects on the action potential waveform when: (a) TTX alone
+is applied; (b) TEA alone; (c) both together.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q12, Application).** Initiating condition: a depolarising stimulus normally triggers the Na⁺-driven upstroke and K⁺-driven repolarisation. (a) **TTX alone** blocks voltage-gated Na⁺ channels, removing the inward Na⁺ current: the action potential is abolished entirely (no upstroke, no spike) — only passive subthreshold depolarisation remains. (b) **TEA alone** blocks voltage-gated K⁺ channels, removing the delayed-rectifier outward current: the upstroke is normal but repolarisation is markedly slowed and incomplete, so the AP is greatly **prolonged/broadened** with a reduced or absent afterhyperpolarisation (and enhanced transmitter release). (c) **Both together**: with Na⁺ entry blocked there is still no regenerative upstroke, so no action potential occurs; TEA's effect on repolarisation is moot — the membrane only shows a slow passive response, demonstrating the AP requires the regenerative Na⁺ conductance. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO5; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
+<ol start="13" type="1">
+<li>Quantal analysis of neurotransmitter release: at the neuromuscular
+junction, each synaptic vesicle contains ~10,000 ACh molecules (one
+“quantum”). The miniature end-plate potential (mEPP) = 0.4 mV. A normal
+EPSP = 40 mV. Estimate the quantal content (m = EPSP/mEPP). What
+parameter does the quantal content depend on (n = number of release
+sites, p = release probability)?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q13, Application).** Quantal model: EPP = n·p·q, where q (quantal size) is the postsynaptic response to one vesicle (the mEPP) and quantal content m = number of quanta released per stimulus ≈ EPP/mEPP. Substituting the stated values: m = 40 mV ÷ 0.4 mV = **100 quanta per stimulus**. (This linear estimate assumes responses sum approximately linearly and is reasonable when the EPP is not strongly attenuated by nonlinear summation.) Quantal content depends on m = n × p, where n is the number of release-ready vesicles/release sites and p is the per-vesicle release probability (each ~0.1–0.4 at physiological Ca²⁺ at the NMJ). Thus m can fall if either n drops (Lambert–Eaton, vesicle depletion) or p drops (low extracellular Ca²⁺, high Mg²⁺) — a quantitatively interpretable, biologically plausible result. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO6; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
+<ol start="14" type="1">
+<li>NMDA receptors are both ligand-gated (glutamate) AND voltage-gated
+(Mg²⁺ block removed at depolarised potentials). Explain: (a) why NMDA
+receptors function as “coincidence detectors” (both presynaptic
+glutamate and postsynaptic depolarisation are required); (b) why this
+property is considered the molecular basis for Hebbian learning
+(“neurons that fire together, wire together”); (c) the Ca²⁺ signal that
+enters via NMDA receptors and triggers LTP.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q14, Application).** Initiating condition: glutamate is released and binds NMDA receptors, but at resting potential the pore is blocked by extracellular Mg²⁺. (a) **Coincidence detection**: the channel conducts only when glutamate is bound (presynaptic activity) AND the postsynaptic cell is sufficiently depolarised to expel the voltage-dependent Mg²⁺ block — so both pre- and postsynaptic activity must occur together. (b) This implements **Hebb's postulate** ("neurons that fire together wire together"): the synapse is strengthened precisely when presynaptic firing coincides with postsynaptic depolarisation, the molecular basis of associative/Hebbian learning. (c) When both conditions are met the relieved NMDA channel admits a large **Ca²⁺ influx** into the spine; this Ca²⁺ activates CaMKII (autophosphorylated at T286), which phosphorylates and inserts AMPA receptors, inducing LTP. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO7; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
+<ol start="15" type="1">
+<li>Myasthenia gravis (MG) is an autoimmune disease where antibodies
+target nicotinic ACh receptors at the NMJ. Predict: (a) whether the EPSP
+amplitude at the NMJ is increased or decreased; (b) the clinical
+manifestation (fatigable muscle weakness); (c) why acetylcholinesterase
+inhibitors (pyridostigmine) temporarily improve symptoms.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q15, Application).** Initiating condition: autoantibodies bind and crosslink/internalise muscle nicotinic ACh receptors at the NMJ, reducing functional receptor number. (a) With fewer receptors, the same quantal ACh release produces a smaller end-plate potential — **EPSP/end-plate-potential amplitude is decreased**, sometimes failing to reach the muscle fibre's threshold so transmission fails at some junctions. (b) Clinically this gives **fatigable muscle weakness**: with repetitive activity presynaptic ACh release normally declines (rundown), and because the safety factor is already eroded, more junctions fail as activity continues — weakness worsens with use and improves with rest (ocular, bulbar, limb muscles). (c) Acetylcholinesterase inhibitors (pyridostigmine) block ACh breakdown in the cleft, so each released quantum acts longer and on more of the remaining receptors, raising the end-plate potential above threshold and temporarily improving strength. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO8; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+<ol start="16" type="1">
+<li>GABAergic inhibition: GABA_A receptors are Cl⁻ channels. In adult
+neurons E_Cl ≈ −70 mV (inhibitory). In neonatal neurons E_Cl ≈ −40 mV
+(excitatory because resting potential is ~−55 mV). Explain: (a) why GABA
+is excitatory in neonatal neurons; (b) the developmental switch
+(upregulation of KCC2 Cl⁻ transporter); (c) why this has implications
+for neonatal seizure treatment.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q16, Application).** Initiating condition: GABA_A receptors are Cl⁻ channels, so their effect depends on E_Cl relative to resting potential and threshold. (a) In **neonatal neurons** intracellular [Cl⁻] is high (E_Cl ≈ −40 mV), which is *above* the resting potential (~−55 mV); opening GABA_A channels lets Cl⁻ flow *out*, depolarising the cell toward −40 mV — so GABA is **excitatory** early in development. (b) The **developmental switch** is driven by upregulation of the neuronal K⁺/Cl⁻ cotransporter **KCC2**, which extrudes Cl⁻ and lowers intracellular [Cl⁻], shifting E_Cl to ≈ −70 mV; now GABA_A opening hyperpolarises/shunts the cell — GABA becomes inhibitory in adults (with the early NKCC1 importer dominating before the switch). (c) Clinically this means classic GABA_A potentiators (benzodiazepines, phenobarbital) can be ineffective or paradoxically excitatory for **neonatal seizures**; strategies that lower intracellular Cl⁻ (e.g., NKCC1 inhibition with bumetanide as an adjunct) are being explored. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO1; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+<ol start="17" type="1">
+<li>Short-term plasticity: paired-pulse facilitation (PPF) occurs when
+the second of two closely-spaced stimuli evokes a larger EPSP. Explain
+the residual calcium hypothesis: Ca²⁺ from the first stimulus remains
+and adds to Ca²⁺ from the second stimulus, producing greater vesicle
+release. Predict: would PPF be increased or decreased by a Ca²⁺ chelator
+(BAPTA)?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q17, Application).** Initiating condition: paired-pulse facilitation occurs when two stimuli arrive within tens–hundreds of ms and the second EPSP is larger. Changed component: Ca²⁺ entering on the first action potential is not fully cleared (pumped/buffered) before the second spike. Intermediate mechanism: this **residual Ca²⁺** sums with the Ca²⁺ influx from the second action potential; because release probability rises super-linearly (~4th power) with presynaptic Ca²⁺, the elevated total Ca²⁺ raises p and more vesicles fuse. Observable outcome: the second EPSP is larger (facilitation), most prominent at low-p synapses (e.g., parallel-fibre → Purkinje, p ≈ 0.05). Prediction: a fast Ca²⁺ chelator such as **BAPTA** mops up the residual Ca²⁺ before the second spike, so PPF is **decreased/abolished** — directly testing and supporting the residual-calcium hypothesis. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+<ol start="18" type="1">
+<li>Excitotoxicity: excessive glutamate release (e.g., during stroke)
+causes neuronal death via NMDA receptor overactivation → excessive Ca²⁺
+influx → mitochondrial dysfunction → ROS production → cell death.
+Explain: (a) why NMDA-blocking drugs (memantine, at low doses) are
+neuroprotective in clinical trials; (b) why high-dose NMDA block causes
+psychotic symptoms (dissociative anaesthetics — ketamine); (c) what the
+narrow therapeutic window implies for stroke intervention.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q18, Application).** Initiating condition: excess synaptic glutamate (stroke/ischaemia) overactivates NMDA receptors, causing pathological Ca²⁺ overload, mitochondrial failure, ROS, and neuronal death. (a) **Memantine at low (therapeutic) doses** is a low-affinity, fast-off, voltage-dependent open-channel blocker: it preferentially blocks the tonically over-activated NMDA channels in pathological conditions while leaving brief, phasic, physiological NMDA signalling largely intact — so it dampens excitotoxic Ca²⁺ entry without abolishing normal synaptic transmission, giving modest neuroprotection. (b) **High-dose, high-affinity NMDA block** (ketamine, PCP) also blocks physiological NMDA signalling needed for normal cortical/thalamic processing, producing dissociative anaesthesia and psychotomimetic (psychotic-like) symptoms. (c) The **narrow therapeutic window** — enough block to stop excitotoxicity but not so much as to impair normal NMDA function — plus a short post-stroke time window, explains why broad NMDA antagonists have largely failed as acute stroke neuroprotectants; the conclusion would change only with agents that selectively target the excitotoxic (extrasynaptic) pool. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO3; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+<ol start="19" type="1">
+<li>Synaptic vesicle recycling occurs via three modes: kiss-and-run
+(transient fusion pore, rapid), full collapse/clathrin-mediated
+endocytosis (5–20 s), and bulk endocytosis (during intense stimulation).
+Explain: (a) how each mode is suited to different firing rates; (b) what
+happens when recycling capacity is exceeded (synaptic depression); (c)
+the role of dynamin GTPase in clathrin-mediated endocytosis.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q19, Application).** Initiating condition: vesicle fusion adds membrane and depletes the releasable pool, so terminals must retrieve membrane and refill vesicles. (a) **Kiss-and-run** (transient fusion pore, then resealing) is fast and conserves the vesicle, suited to low/moderate firing where rapid local reuse keeps up with demand; **full-collapse / clathrin-mediated endocytosis** (~5–20 s) cleanly recovers vesicle components at moderate sustained rates; **bulk endocytosis** internalises large membrane infoldings during intense, high-frequency activity when single-vesicle retrieval cannot match the membrane added. (b) When firing outpaces recycling, the readily releasable pool is not replenished and the synapse shows **short-term depression** (declining EPSP amplitude) until activity slows and pools refill. (c) **Dynamin** is a GTPase that assembles a collar around the neck of the budding clathrin-coated pit and, on GTP hydrolysis, mediates fission to pinch off the recycled vesicle; without dynamin function endocytosis stalls and vesicles cannot be retrieved. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO4; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+<ol start="20" type="1">
+<li>Long-term depression (LTD) at cerebellar parallel fibre-Purkinje
+cell synapses is triggered by climbing fibre co-activation → Ca²⁺ + PKC
+→ AMPAR internalisation. Explain: (a) how LTD differs from LTP
+mechanistically (removal vs insertion of receptors); (b) the role of LTD
+in motor learning (error correction signals from climbing fibres); (c)
+how cerebellar LTD produces adaptation in the vestibulo-ocular
+reflex.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q20, Application).** Initiating condition: at cerebellar parallel-fibre → Purkinje-cell synapses, coincident parallel-fibre input with climbing-fibre activation produces a large Ca²⁺ signal plus PKC activation. (a) **LTD vs LTP mechanism**: low/specific Ca²⁺ patterns here drive AMPA-receptor *internalisation* (phosphatase- and PKC-dependent endocytosis), weakening the synapse — the mirror image of LTP, where larger NMDA-mediated Ca²⁺ drives CaMKII-dependent AMPA-receptor *insertion* and strengthening; the direction is set by the amplitude/pattern of postsynaptic Ca²⁺ (BCM-style sliding threshold). (b) In **motor learning**, the climbing fibre carries an "error" or teaching signal; pairing it with the parallel-fibre inputs active during a faulty movement depresses exactly those synapses, so the Purkinje cell's output is corrected on subsequent attempts. (c) For the **vestibulo-ocular reflex**, retinal-slip errors relayed by climbing fibres induce parallel-fibre LTD in the flocculus, re-tuning the gain so eye movements again precisely cancel head movements — cerebellar LTD as the substrate of VOR adaptation. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<h2 class="unnumbered"
+id="questions-2130-synthesis-and-evaluation">Questions 21–30: Synthesis
+and Evaluation</h2>
+<!-- assess: LO=LO5; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
+<ol start="21" type="1">
+<li>Evaluate the Hodgkin-Huxley (HH) model of the action potential
+(1952, Nobel Prize): using voltage-clamp data, they described Na⁺ and K⁺
+conductances as m³h and n⁴ gating variables. Assess: (a) the key insight
+(ion-specific conductances with distinct kinetics); (b) the predictive
+power of the model (propagation velocity, frequency coding); (c) the
+limitations (no molecular detail, does not account for ion channel
+diversity, subthreshold oscillations).</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q21, Synthesis).** Empirical evidence: Hodgkin and Huxley used voltage-clamp recordings from the squid giant axon to measure time- and voltage-dependent Na⁺ and K⁺ conductances and fit them with empirical gating variables (Na⁺ as m³h, K⁺ as n⁴). Separating evidence from judgement: (a) the key insight, strongly supported, is that excitability arises from independent, ion-specific, voltage- and time-dependent conductances with distinct kinetics — not a mysterious "membrane breakdown." (b) Its predictive power is remarkable and well validated: from the fitted equations the model correctly predicts AP shape, threshold, refractory period, propagation velocity, and frequency coding without further tuning. (c) Limitations/boundary conditions: the m³h/n⁴ exponents are phenomenological, not molecular (no explicit channel structure), and the original model omits the diversity of channel subtypes, Ca²⁺ currents, subthreshold oscillations, and dendritic nonlinearities. What would change the evaluation: evidence that the gating formalism fails to capture a class of excitable behaviour without ad hoc extension. So: a triumphantly predictive but admittedly empirical, extensible framework — not the final molecular word. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO6; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
+<ol start="22" type="1">
+<li>Design an experiment to determine whether a specific synapse
+exhibits Hebbian LTP, anti-Hebbian LTP, or homeostatic plasticity.
+Describe: the stimulation protocols (high-frequency → Hebbian,
+low-frequency → homeostatic), the electrophysiological measurements
+(field EPSP slope), and the pharmacological tools (NMDA antagonist,
+AMPAR antagonist) needed to distinguish these forms.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q22, Synthesis).** Hypothesis: a given synapse expresses Hebbian LTP (input- and NMDA-dependent strengthening), anti-Hebbian/LTD (weakening), or homeostatic scaling (activity-set global gain), distinguishable by induction pattern and pharmacology. Design: record field EPSP slope (or whole-cell EPSC) at the test pathway with a separate independent control pathway. Changed factor = stimulation protocol: high-frequency/tetanic or theta-burst pairing to probe Hebbian LTP; low-frequency (1 Hz) stimulation to probe LTD; chronic activity blockade (TTX) or elevation to probe homeostatic scaling (measured as a multiplicative change in mEPSC amplitude across all synapses, not input-specific). Controls/replication: unstimulated control pathway must be unchanged (input-specificity), multiple slices/animals, interleaved conditions. Pharmacology to distinguish forms: an NMDA antagonist (APV) should block Hebbian LTP and NMDA-dependent LTD but not homeostatic scaling; an AMPA antagonist (CNQX) abolishes the synaptic response itself (a measurement control); homeostatic scaling persists under activity blockade. Decision rule: input-specific, NMDA-dependent potentiation = Hebbian LTP; input-specific NMDA-dependent depression = LTD; global, NMDA-independent, multiplicative change = homeostatic. Falsifying result: a "Hebbian LTP" that survives complete NMDA blockade and is not input-specific. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO7; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
+<ol start="23" type="1">
+<li>Evaluate the “synaptic tagging and capture” hypothesis (Frey and
+Morris, 1997): early LTP is protein synthesis-independent (lasts ~1–2
+h), while late LTP requires new protein synthesis. A weak stimulus sets
+a “tag” at activated synapses; the tag captures plasticity-related
+proteins (PRPs) synthesised in response to a strong stimulus at another
+input. Evaluate: (a) the evidence for this model; (b) how it explains
+input-specificity of LTP; (c) implications for memory
+consolidation.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q23, Synthesis).** Empirical claim: early LTP is protein-synthesis-independent (~1–2 h) whereas late LTP requires new protein synthesis (CREB-dependent gene expression and structural change). (a) Evidence for synaptic tagging and capture (Frey & Morris, 1997): a weak tetanus that alone gives only decaying early LTP can be converted to persistent late LTP if a strong tetanus is delivered to a *separate* input on the same neuron shortly before/after — the strong input supplies diffusible plasticity-related proteins (PRPs) that are "captured" by a transient local tag set at the weakly stimulated synapse; protein-synthesis inhibitors block this rescue. (b) It explains **input-specificity with shared resources**: the tag is local and short-lived, so only recently activated synapses capture the cell-wide PRP pool, keeping potentiation specific to active inputs while allowing associative interactions across inputs. (c) Implications for **memory consolidation**: behavioural tagging predicts that a weak experience can be consolidated into long-term memory if a salient (PRP-inducing) event occurs nearby in time — a cellular basis for how arousal/novelty stabilises otherwise transient memories. The judgement is well supported but conditional: it depends on tag identity (still incompletely defined) and on the temporal window — evidence that capture occurs without any local tag would weaken the model. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO8; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
+<ol start="24" type="1">
+<li>Evaluate the role of astrocytic gliotransmission (release of
+glutamate, D-serine, ATP from astrocytes) in modulating synaptic
+plasticity. What evidence supports the “tripartite synapse” model, and
+what criticisms have been raised about the specificity of astrocytic
+Ca²⁺ signals and the difficulty of distinguishing neuronal from glial
+glutamate release?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q24, Synthesis).** Empirical evidence for the **tripartite synapse**: astrocytes ensheath synapses, show synaptically evoked Ca²⁺ elevations, supply the NMDA co-agonist D-serine, and can release glutamate/ATP that modulate transmission and plasticity; astrocytic Ca²⁺ also drives neurovascular coupling (synaptic glutamate → astrocyte Ca²⁺ → vasoactive arachidonic-acid metabolites onto arterioles), tying glial signalling to the BOLD signal. Separating evidence from judgement: the data establish that astrocytes can influence synapses, but the *physiological significance and specificity* are contested — IP3R2-knockout mice that lack astrocytic Ca²⁺ transients show largely normal synaptic plasticity in several studies, astrocytic Ca²⁺ signals are slow and spatially broad rather than synapse-specific, and it is technically hard to prove that detected glutamate is glial rather than neuronal. What would change the conclusion: cell-type-specific tools that selectively and reversibly silence only astrocytic release and reproducibly abolish a defined form of plasticity. So: gliotransmission is real and modulatory in some contexts but not established as a universal, synapse-specific controller of plasticity. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO1; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+<ol start="25" type="1">
+<li>Channelopathies: mutations in ion channels cause neurological
+diseases. Evaluate three examples: (a) SCN1A (Nav1.1) mutations → Dravet
+syndrome (severe childhood epilepsy); (b) KCNQ2/3 mutations → benign
+familial neonatal seizures; (c) CACNA1A mutations → familial hemiplegic
+migraine. For each, describe the channel, the mutation’s effect on
+neuronal excitability, and the therapeutic approach.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q25, Synthesis).** Channelopathies alter neuronal excitability through specific channel defects. (a) **SCN1A (Nav1.1) — Dravet syndrome**: loss-of-function in Nav1.1, which is enriched in inhibitory GABAergic interneurons, reduces interneuron firing → net disinhibition and severe early-childhood epilepsy; Na⁺-channel blockers (lamotrigine, carbamazepine) can paradoxically worsen it, so valproate/clobazam, stiripentol, and fenfluramine are used. (b) **KCNQ2/3 — benign familial neonatal seizures**: loss-of-function in the Kv7 (M-current) channels that normally restrain repetitive firing → hyperexcitability and neonatal seizures that usually remit; M-current openers (e.g., retigabine/ezogabine concept) and standard antiepileptics are options. (c) **CACNA1A — familial hemiplegic migraine**: gain-of-function in the Cav2.1 (P/Q-type) Ca²⁺ channel enhances glutamate release, lowering the threshold for cortical spreading depression → migraine with hemiplegic aura; prophylaxis (e.g., verapamil, acetazolamide, standard migraine preventives) is used. Causal chain in each: mutated channel → altered ionic current → shifted excitatory/inhibitory balance → the observed clinical syndrome, guiding mechanism-specific therapy. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO2; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+<ol start="26" type="1">
+<li>Evaluate the dopamine hypothesis of schizophrenia: (a) traditional
+version (excess D₂ receptor signalling in mesolimbic pathway); (b)
+revised version (hypo-dopaminergia in prefrontal cortex,
+hyper-dopaminergia in striatum); (c) the glutamate hypothesis (NMDA
+receptor hypofunction). How do these hypotheses explain the positive
+symptoms (hallucinations, delusions) and negative symptoms (flat affect,
+cognitive deficits) of schizophrenia?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q26, Synthesis).** Empirical evidence: D2-antagonist antipsychotic potency correlates with D2 affinity, amphetamine (dopamine-releasing) exacerbates psychosis, and PET shows elevated striatal dopamine synthesis in schizophrenia; NMDA antagonists (ketamine, PCP) reproduce positive *and* negative/cognitive symptoms. Separating evidence from judgement: (a) the **traditional** hypothesis (excess mesolimbic D2 signalling) explains positive symptoms (hallucinations, delusions) and the efficacy of D2 blockers, but not negative/cognitive symptoms. (b) The **revised** hypothesis (striatal hyper-dopaminergia plus prefrontal hypo-dopaminergia) accounts for positive symptoms (striatal excess) and negative/cognitive deficits (cortical D1 hypofunction impairing working memory). (c) The **glutamate** hypothesis (NMDA-receptor hypofunction, especially on inhibitory interneurons) provides an upstream cause that can produce downstream dopamine dysregulation and explains the full symptom spectrum including cognitive deficits. The conclusion is conditional, not settled: no single transmitter abnormality is necessary and sufficient, and what would change it is mechanistically targeted treatments (e.g., effective non-D2 agents) demonstrating which node is causal. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO3; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+<ol start="27" type="1">
+<li>Spike-timing-dependent plasticity (STDP): if the presynaptic neuron
+fires before the postsynaptic neuron (within ~20 ms), the synapse is
+strengthened (LTP). If after, the synapse is weakened (LTD). Evaluate:
+(a) the molecular mechanism (STDP timing depends on NMDA receptor/Ca²⁺
+dynamics); (b) the computational significance (STDP allows precise
+temporal learning of sequences); (c) how STDP differs in inhibitory vs
+excitatory synapses.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q27, Synthesis).** Initiating condition: STDP makes synaptic change depend on the millisecond order of pre- and postsynaptic spikes. (a) **Mechanism**: if the presynaptic spike precedes the postsynaptic spike (within ~20 ms), glutamate is bound when the back-propagating action potential depolarises the spine and relieves NMDA Mg²⁺ block, producing a large coincident Ca²⁺ transient that activates CaMKII → LTP; if the order is reversed, only a small/delayed Ca²⁺ signal occurs, preferentially activating phosphatases (PP1/calcineurin) → LTD — the sign is set by NMDA-receptor-controlled Ca²⁺ amplitude/timing (BCM-like). (b) **Computational significance**: because potentiation requires "cause before effect," STDP lets networks learn temporal order and predictive sequences, sharpen input timing, and self-stabilise — a biologically grounded learning rule for sequence and causal learning. (c) **Excitatory vs inhibitory**: excitatory synapses follow the classic asymmetric pre-before-post → LTP window; many inhibitory (GABAergic) synapses show different, often symmetric or sign-inverted timing rules and rely on Ca²⁺ sources/signalling distinct from postsynaptic NMDA receptors, so inhibitory STDP tunes E/I balance rather than feedforward drive. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO4; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
+<ol start="28" type="1">
+<li>Evaluate the molecular mechanism of presynaptic neurotransmitter
+release: Ca²⁺ entry → synaptotagmin-1 (Ca²⁺ sensor) → conformational
+change → interaction with SNARE complex → fusion pore opening →
+transmitter release. Specifically: why is synaptotagmin-1 the timing
+sensor (low Ca²⁺ affinity, fast kinetics, ~200 µs from Ca²⁺ binding to
+fusion), and what does the ~4th power Ca²⁺ dependence of release tell us
+about the number of Ca²⁺ ions needed to trigger a single vesicle fusion
+event?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q28, Synthesis).** Empirical mechanism: Ca²⁺ entering through nearby voltage-gated channels binds synaptotagmin-1's C2A/C2B domains, which then displaces the complexin clamp and drives full SNARE-complex (synaptobrevin–syntaxin–SNAP-25) zippering, opening the fusion pore and releasing transmitter; NSF/α-SNAP later disassemble SNAREs for reuse. Separating evidence from judgement: synaptotagmin-1 is identified as the *fast timing* sensor because it has relatively **low Ca²⁺ affinity** (so it responds only to the brief, high Ca²⁺ nanodomain right at the channel mouth, not to bulk Ca²⁺) and **fast binding/unbinding kinetics** (release follows Ca²⁺ entry in ~200 µs), which is exactly what is needed to lock release to the action potential. The steep, approximately **4th-power** dependence of release rate on [Ca²⁺] indicates that roughly four (cooperatively bound) Ca²⁺ ions must bind synaptotagmin to trigger a single vesicle fusion event — explaining why small Ca²⁺ changes produce large, switch-like changes in release. The conclusion is well supported but conditional on synaptotagmin-1 as the dominant sensor; some synapses use other synaptotagmin isoforms with different Ca²⁺ affinities, which would shift the quantitative relationship. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO5; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
+<ol start="29" type="1">
+<li>Evaluate the clinical utility of transcranial magnetic stimulation
+(TMS) for modulating neural circuits non-invasively. How does TMS induce
+action potentials in cortical neurons, what stimulation patterns produce
+LTP-like (theta-burst) vs LTD-like (continuous low-frequency) effects,
+and what is the evidence for therapeutic efficacy in treatment-resistant
+depression?</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q29, Synthesis).** Empirical basis: TMS uses a rapidly changing magnetic field to induce an electric field in cortex strong enough to depolarise axons/neurons and evoke action potentials non-invasively (measurable as motor-evoked potentials when over motor cortex). Separating evidence from judgement: stimulation pattern shapes the after-effect — **intermittent theta-burst** and high-frequency (≥5–10 Hz) repetitive TMS produce **LTP-like** lasting increases in cortical excitability, whereas **continuous theta-burst** and low-frequency (~1 Hz) rTMS produce **LTD-like** decreases, plausibly engaging NMDA/Ca²⁺-dependent plasticity analogous to LTP/LTD. Therapeutic efficacy is supported but conditional: randomised trials and meta-analyses show prefrontal rTMS produces a real but moderate antidepressant effect in treatment-resistant depression (FDA-cleared, with newer accelerated/theta-burst protocols), yet response is heterogeneous, effect sizes are modest, and durability/optimal targeting are unsettled. What would change the conclusion: large rigorously sham-controlled trials showing the benefit is non-specific or not durable. So: a mechanistically grounded, clinically useful but not universally curative intervention. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+<!-- assess: LO=LO6; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
+<ol start="30" type="1">
+<li>Critically evaluate the concept of the “synaptome” — the catalogue
+of synapse types and their molecular composition across the brain. Using
+proteomics of isolated synaptosomes, researchers have identified
+&gt;1,000 proteins at excitatory synapses. Evaluate: (a) what the
+molecular diversity of synapses implies for circuit function; (b)
+whether the synaptome concept is more informative than the connectome
+for understanding brain computation; (c) how synaptome-level mutations
+(SHANK3, PSD-95) cause neurodevelopmental disorders.</li>
+</ol>
+<!-- SOLUTION
+**Answer (Q30, Synthesis).** Empirical basis: synaptosome proteomics identifies >1,000 proteins at excitatory postsynaptic densities (e.g., PSD-95, SHANK, glutamate receptors, scaffolds), and synaptome mapping shows that synapse molecular composition varies systematically across brain regions and cell types. Separating evidence from judgement: (a) this molecular diversity implies that "a synapse" is not uniform — different molecular types confer different plasticity rules, kinetics, and Ca²⁺ handling, so circuit computation depends on *which* synapse types connect which neurons, not merely on wiring. (b) Whether the synaptome is "more informative than the connectome" is a conditional claim, not settled: the connectome specifies the wiring graph while the synaptome specifies the weights/plasticity at each edge — they are complementary, and computation arguably requires both; claiming superiority overstates current evidence. (c) Synaptome-level mutations cause neurodevelopmental disorders by disrupting postsynaptic organisation: SHANK3 (a master PSD scaffold) loss causes Phelan–McDermid syndrome/autism, and PSD-95 (DLG4) disruption impairs receptor anchoring and plasticity, linking single scaffold proteins to circuit-level dysfunction. The conclusion would change if synaptome diversity proved not to map onto functional/behavioural differences. See \cref{sec:unit_IX_action_potential_synapses}.
+SOLUTION -->
+</body>
+</html>

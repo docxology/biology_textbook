@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant Light as Excess light
+    participant Lumen as Lumen pH ↓ (~5)
+    participant PsbS as PsbS<br/>(2 Glu protonated)
+    participant VDE as Violaxanthin<br/>de-epoxidase
+    participant V as Violaxanthin
+    participant Z as Zeaxanthin
+    participant Antenna as LHCII antenna
+    participant Heat as Heat dissipation
+
+    Light->>Lumen: H⁺ pumping > ATP synthase
+    Lumen->>PsbS: Glu residues protonate
+    Lumen->>VDE: VDE activated by low pH
+    VDE->>V: 2-step de-epoxidation
+    V->>Z: + 2 ascorbate
+    Z-->>Antenna: Z replaces V at quenching site
+    PsbS-->>Antenna: Conformational change
+    Antenna->>Heat: ¹Chl* → heat (qE quenching)
+
+    Note over Z,Heat: ~50% of absorbed photons<br/>can be safely dissipated

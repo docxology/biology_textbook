@@ -1,0 +1,37 @@
+{
+  "cell_biology": {
+    "nernst_potentials": 4,
+    "organelles": 12
+  },
+  "genetics": {
+    "codons": 64
+  },
+  "evolution": {
+    "generations": 50,
+    "final_p": 0.998339614455732
+  },
+  "ecology": {
+    "biomes": 6,
+    "shannon_index": 1.0579054247036734
+  },
+  "biochemistry": {
+    "net_atp": 2,
+    "dG_kJ": -117.0
+  },
+  "physiology": {
+    "organ_systems": 10
+  },
+  "microbiology": {
+    "reference_organisms": 6
+  },
+  "botany": {
+    "pathways": 3
+  },
+  "neuroscience": {
+    "hh_peak_mV": 47.77796147776183,
+    "hh_fired": true
+  },
+  "chapters_injected": 134,
+  "figure_registry": "output/figures/figure_registry.json",
+  "visual_manifest": "output/figures/visual_manifest.json"
+}

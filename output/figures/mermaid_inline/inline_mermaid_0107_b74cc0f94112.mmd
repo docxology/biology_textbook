@@ -1,0 +1,13 @@
+stateDiagram-v2
+    state "Small Population (N=20)" as Small {
+        [*] --> Gen0_S: p = 0.5
+        Gen0_S --> Gen50_S: High variance
+        Gen50_S --> Gen100_S: Allele likely fixed or lost
+        Gen100_S --> [*]: p = 0.0 or 1.0
+    }
+    state "Large Population (N=5000)" as Large {
+        [*] --> Gen0_L: p = 0.5
+        Gen0_L --> Gen50_L: Low variance
+        Gen50_L --> Gen100_L: p still near 0.5
+        Gen100_L --> [*]: p ≈ 0.5
+    }

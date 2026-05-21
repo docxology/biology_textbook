@@ -1,0 +1,2277 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>020_metabolic_integration</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="metabolic-integration-and-regulation">Metabolic Integration and
+Regulation</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 11</strong> · Level 3/3 · 60 min read · 100 min lecture ·
+Prerequisites: , </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you should be able to:</p>
+<ol type="1">
+<li>Trace how the cell coordinates catabolic and anabolic pathways
+through shared cofactors and <a
+href="#gl:allosteric"><strong>allosteric</strong></a> cross-regulation,
+and predict the metabolic state from cofactor and signal-molecule
+ratios.</li>
+<li>Describe AMPK and mTORC1 as opposing energy-sensing hubs and explain
+how they toggle the metabolic state of the cell, including the molecular
+basis of mTOR’s role as a nutrient sensor (Rag GTPases, Ragulator).</li>
+<li>Describe the metabolic states of fed, post-absorptive, fasting, and
+starvation, including hormonal control and the timeline of fuel
+switching.</li>
+<li>Explain insulin signalling in detail: the PI3K/Akt/mTOR pathway, <a
+href="#gl:glut4"><strong>GLUT4</strong></a> translocation mechanism, and
+glycogen synthesis.</li>
+<li>Explain glucagon signalling: cAMP/PKA activation of glycogenolysis,
+gluconeogenesis, and the phosphorylase kinase cascade.</li>
+<li>Distinguish allosteric from transcriptional metabolic regulation
+given an <a href="#gl:enzyme"><strong>enzyme</strong></a>-activity
+time-course, using gluconeogenesis bypass-enzyme control as the worked
+case.</li>
+<li>Compare ATP yield and regulation of glucose versus fatty-acid
+oxidation, and calculate the net ATP yield from palmitoyl-CoA.</li>
+<li>Explain ketone body metabolism and its role during starvation.</li>
+<li>Describe AMPK structure (two catalytic + two regulatory subunits)
+and activation mechanisms (LKB1 vs CaMKKβ).</li>
+<li>Trace flux control through the glucose-fatty-acid (Randle) cycle
+under fed versus fasted conditions, and predict the resulting
+respiratory quotient.</li>
+<li>Define substrate (futile) cycles and explain their control
+advantages.</li>
+<li>Explain obesity, metabolic syndrome, and insulin resistance at the
+molecular level, including visceral fat as an endocrine organ.</li>
+<li>Apply metabolic control analysis (MCA): flux control coefficients
+<span class="math inline">\(C_i^J\)</span> and the summation
+theorem.</li>
+<li>Calculate the adenylate energy charge from concentrations and
+predict the resulting AMPK activation state.</li>
+<li>Describe modern metabolomics: NMR vs mass spectrometry approaches
+and identification challenges.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Metabolism is a regulated network that
+reallocates flux across tissues, time, and nutrient states.</li>
+<li><strong>Core concepts:</strong> flux, energy charge, hormonal
+control, fed/fasted states.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change: Pathways
+and transformations of energy and matter, Systems; AP Biology:
+Energetics, Systems Interactions; NGSS-style topics: Matter and Energy
+in Organisms and Ecosystems.</li>
+<li><strong>Model or quantitative lens:</strong> Energy charge, control
+points, and pathway-flux comparisons.</li>
+<li><strong>Data skill:</strong> Use pathway evidence to infer which
+metabolic state or tissue is active.</li>
+<li><strong>Practice cadence:</strong> Representing and Describing Data,
+Statistical Tests and Data Analysis.</li>
+<li><strong>Common misconception to repair:</strong> A pathway is not a
+one-way assembly line; reversibility and regulation define the real
+route.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Apply metabolic network reasoning to
+diabetes, fasting, exercise, or cancer metabolism.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.biochemistry.biochemistry.reaction_free_energy</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette: The Brain on Ketones — Surviving
+Starvation</strong></p>
+<p>The human brain is extraordinarily metabolically demanding: it
+consumes roughly 20% of the body’s resting energy budget despite
+constituting about 2% of body mass. Under normal conditions, it runs
+almost exclusively on glucose. But glucose stores — maintained as liver
+glycogen — last only about 12–24 hours of fasting. So how does the brain
+survive during prolonged starvation?</p>
+<p>The liver activates a metabolic programme: free fatty acids released
+from adipose tissue are not completely oxidised within the liver itself.
+Instead, the liver packages their acetyl-CoA units into <strong>ketone
+bodies</strong> (acetoacetate and β-hydroxybutyrate) and exports them to
+the bloodstream. After 1–2 days of fasting, the brain begins importing
+ketones; after 3–5 days, it derives up to 75% of its energy from ketone
+bodies. Circulating ketone concentrations rise from ~0.1 mM (fed state)
+to 6–8 mM (prolonged starvation). This elegant metabolic switch —
+coordinated by insulin falling and glucagon rising — is one of the
+clearest examples of metabolic integration studied in this chapter.</p>
+<p><em>Primary source: Owen, O. E. et al. (1967). Brain metabolism
+during fasting. Journal of Clinical Investigation, 46(10),
+1589–1595.</em></p>
+</blockquote>
+<hr />
+<h2 id="pathways-are-not-isolated">Pathways Are Not Isolated</h2>
+<p><a href="#gl:glycolysis"><strong>Glycolysis</strong></a>, the TCA
+cycle, beta-oxidation, and biosynthetic pathways do not operate
+independently. They share intermediates, co-factors (NAD<span
+class="math inline">\(^+\)</span>/NADH, NADP<span
+class="math inline">\(^+\)</span>/NADPH, CoA), and are subject to
+<strong>allosteric cross-regulation</strong>. Integration of these
+pathways defines the <strong>metabolic state</strong> of the cell.</p>
+<p>The two fundamental modes: - <strong>Catabolism</strong> — break down
+nutrients → ATP + reduced cofactors (NADH, FADH<span
+class="math inline">\(_2\)</span>) - <strong>Anabolism</strong> — use
+ATP + reduced cofactors (chiefly NADPH) → biosynthesis of
+macromolecules</p>
+<p>These modes are reciprocally regulated because of shared cofactors
+and master regulatory kinases. The metabolic state is encoded in:</p>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 36%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>Signal molecule</th>
+<th>Fed state (high energy)</th>
+<th>Fasted state (low energy)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AMP/ATP ratio</td>
+<td>Low</td>
+<td>High</td>
+</tr>
+<tr>
+<td>NADH/NAD<span class="math inline">\(^+\)</span> ratio</td>
+<td>High</td>
+<td>Low (in <a href="#gl:cytoplasm"><strong>cytoplasm</strong></a>)</td>
+</tr>
+<tr>
+<td>Acetyl-CoA</td>
+<td>High</td>
+<td>Low (cytoplasmic)</td>
+</tr>
+<tr>
+<td>Citrate</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Malonyl-CoA</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Insulin/Glucagon ratio</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    subgraph FED [&quot;FED STATE (Absorptive)&quot;]
+        direction TB
+        F1[&quot;High blood glucose&quot;] --&gt; F2[&quot;Insulin secretion ↑&quot;]
+        F2 --&gt; F3[&quot;Glycolysis ↑&quot;]
+        F2 --&gt; F4[&quot;Glycogen synthesis ↑&quot;]
+        F2 --&gt; F5[&quot;Lipogenesis ↑&quot;]
+        F2 --&gt; F6[&quot;Protein synthesis ↑&quot;]
+        F2 --&gt; F7[&quot;GLUT4 translocation&quot;]
+        F2 --&gt; F8[&quot;mTORC1 ON&quot;]
+        F2 --&gt; F9[&quot;AMPK OFF&quot;]
+    end
+
+    subgraph FASTED [&quot;FASTED STATE (Post-absorptive)&quot;]
+        direction TB
+        FA1[&quot;Low blood glucose&quot;] --&gt; FA2[&quot;Glucagon secretion ↑&quot;]
+        FA2 --&gt; FA3[&quot;Glycogenolysis ↑&quot;]
+        FA2 --&gt; FA4[&quot;Gluconeogenesis ↑&quot;]
+        FA2 --&gt; FA5[&quot;β-oxidation ↑&quot;]
+        FA2 --&gt; FA6[&quot;Lipolysis ↑&quot;]
+        FA2 --&gt; FA7[&quot;AMPK ON&quot;]
+        FA2 --&gt; FA8[&quot;mTORC1 OFF&quot;]
+        FA2 --&gt; FA9[&quot;Autophagy ↑&quot;]
+    end
+
+    subgraph STARVED [&quot;STARVATION (&gt;72 h)&quot;]
+        direction TB
+        S1[&quot;Very low glucose&quot;] --&gt; S2[&quot;Ketogenesis ↑↑&quot;]
+        S2 --&gt; S3[&quot;Brain uses ketones&lt;br/&gt;(60% of fuel)&quot;]
+        S1 --&gt; S4[&quot;Muscle protein&lt;br/&gt;catabolism ↓&lt;br/&gt;(protein sparing)&quot;]
+        S1 --&gt; S5[&quot;Gluconeogenesis&lt;br/&gt;from glycerol + AAs&quot;]
+    end
+
+    FED --&gt;|&quot;4-6 h after meal&quot;| FASTED
+    FASTED --&gt;|&quot;&gt;72 h&quot;| STARVED
+
+    style FED fill:#e6ffe6
+    style FASTED fill:#fff3e6
+    style STARVED fill:#ffe6e6</code></pre>
+<!-- alt: Flowchart showing metabolic states from fed to starvation, showing the hormonal switches and metabolic pathway changes at each stage. Insulin dominates the fed state; glucagon dominates fasting; ketogenesis sustains the brain during starvation. -->
+<p><em>Metabolic states from fed to starvation, showing the hormonal
+switches and metabolic pathway changes at each stage. Insulin dominates
+the fed state; glucagon dominates fasting; ketogenesis sustains the
+brain during starvation.</em></p>
+<h3 id="fasting-physiology-fuel-switch-timeline">Fasting Physiology:
+Fuel Switch Timeline</h3>
+<p>The body switches fuels in a programmed sequence as fasting
+progresses. The transitions are coordinated by falling insulin and
+rising glucagon (and later cortisol):</p>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 26%" />
+<col style="width: 22%" />
+<col style="width: 17%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr>
+<th>Time post-meal</th>
+<th>Predominant fuel</th>
+<th>Liver process</th>
+<th>Brain fuel</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–4 h (absorptive)</td>
+<td>Dietary glucose</td>
+<td>Glycogenesis, lipogenesis</td>
+<td>Glucose</td>
+<td>Insulin high, glucagon low</td>
+</tr>
+<tr>
+<td>4–12 h (post-absorptive)</td>
+<td>Liver glycogen</td>
+<td>Glycogenolysis</td>
+<td>Glucose</td>
+<td>Glucagon rises</td>
+</tr>
+<tr>
+<td>12–24 h (early fasting)</td>
+<td>Liver glycogen → muscle FA</td>
+<td>Glycogen depleting; gluconeogenesis ramping</td>
+<td>Glucose (mostly from GNG)</td>
+<td>Liver glycogen mostly depleted by ~24 h</td>
+</tr>
+<tr>
+<td>1–3 days</td>
+<td>Muscle FA + early ketones</td>
+<td>Gluconeogenesis (lactate, alanine, glycerol); ketogenesis
+starting</td>
+<td>Glucose 75%, ketones 25%</td>
+<td>Cortisol rises; protein catabolism increases</td>
+</tr>
+<tr>
+<td>3–7 days</td>
+<td>Ketones</td>
+<td>Maximal ketogenesis</td>
+<td>Glucose 25%, ketones 75%</td>
+<td>Brain adapts; muscle protein sparing</td>
+</tr>
+<tr>
+<td>&gt; 1–2 weeks</td>
+<td>Ketones (sustained)</td>
+<td>Ketogenesis at steady state</td>
+<td>Ketones 65–75%, glucose 25–35%</td>
+<td>Resting metabolic rate falls ~20%</td>
+</tr>
+<tr>
+<td>&gt; 30+ days (starvation)</td>
+<td>Body protein (terminal)</td>
+<td>Gluconeogenesis from muscle protein dominates</td>
+<td>Glucose 50%, ketones 50%</td>
+<td>Death imminent when ~50% of protein lost</td>
+</tr>
+</tbody>
+</table>
+<p>This fuel-switching timeline is one of the most elegant examples of
+metabolic integration. It is also clinically relevant: bariatric
+surgery, ketogenic diets, and prolonged fasting interventions most
+exploit (or perturb) this same switch.</p>
+<blockquote>
+<p><strong>Concept Check 1:</strong> Why is it essential that glycolysis
+and gluconeogenesis are reciprocally regulated and rarely fully active
+simultaneously? What would happen if both ran at maximum rate?</p>
+</blockquote>
+<hr />
+<h2 id="insulin-signalling-the-pi3kaktmtor-pathway">Insulin Signalling:
+The PI3K/Akt/mTOR Pathway</h2>
+<p>Insulin is the master anabolic <a
+href="#gl:hormone"><strong>hormone</strong></a>, secreted by pancreatic
+beta-cells in response to elevated blood glucose. Its signalling cascade
+is one of the most important in metabolic regulation:</p>
+<p><span class="math display">\[\text{Insulin} \to \text{IR (RTK)} \to
+\text{IRS-1/2} \to \text{PI3K} \to \text{PIP}_3 \to \text{PDK1 + mTORC2}
+\to \text{Akt (Thr308 + Ser473)} \tag{11.1}\]</span></p>
+<pre class="mermaid"><code>flowchart TD
+    INS[&quot;Insulin&quot;] --&gt; IR[&quot;Insulin receptor&lt;br/&gt;(α₂β₂ tyrosine kinase)&quot;]
+    IR --&gt;|&quot;trans-autophosphorylation&quot;| IRS[&quot;IRS-1/2&lt;br/&gt;(Tyr phosphorylated)&quot;]
+    IRS --&gt; PI3K[&quot;PI3K (p85/p110)&quot;]
+    PI3K --&gt;|&quot;PIP₂ → PIP₃&quot;| PIP3[&quot;PIP₃ (membrane)&quot;]
+    PIP3 --&gt; PDK1[&quot;PDK1&quot;]
+    PIP3 --&gt; MT2[&quot;mTORC2&quot;]
+    PDK1 --&gt;|&quot;phospho-Thr308&quot;| AKT[&quot;Akt&quot;]
+    MT2 --&gt;|&quot;phospho-Ser473&quot;| AKT
+
+    AKT --&gt; AS160[&quot;AS160-P → Rab10 ON&quot;]
+    AS160 --&gt; GLUT4[&quot;GLUT4 vesicle exocytosis&quot;]
+
+    AKT --&gt; GSK3[&quot;GSK3-P (inhibited)&quot;]
+    GSK3 --&gt; GS[&quot;Glycogen synthase active&quot;]
+
+    AKT --&gt; FOXO[&quot;FoxO1-P → cytoplasm&quot;]
+    FOXO --&gt; GNG[&quot;PEPCK, G6Pase OFF&quot;]
+
+    AKT --&gt; TSC[&quot;TSC2-P (inhibited)&quot;]
+    TSC --&gt; RHEB[&quot;Rheb-GTP ↑&quot;]
+    RHEB --&gt; MT1[&quot;mTORC1 ON&quot;]
+    MT1 --&gt; PROT[&quot;Protein synthesis&quot;]
+    MT1 --&gt; LIPO[&quot;Lipogenesis&quot;]
+
+    AKT --&gt; BAD[&quot;BAD-P → 14-3-3&quot;]
+    BAD --&gt; SURV[&quot;Anti-apoptosis&quot;]
+
+    style INS fill:#e6ffe6
+    style GLUT4 fill:#cce5ff
+    style PROT fill:#cce5ff</code></pre>
+<!-- alt: Flowchart for Insulin Signalling: The PI3K/Akt/mTOR Pathway: Insulin, Insulin receptor (α₂β₂ tyrosine kinase), IRS-1/2 (Tyr phosphorylated), and PI3K (p85/p110) form the diagram's primary path or branches. -->
+<p><em>Flowchart for Insulin Signalling: The PI3K/Akt/mTOR Pathway:
+Insulin, Insulin receptor (α₂β₂ tyrosine kinase), IRS-1/2 (Tyr
+phosphorylated), and PI3K (p85/p110) form the diagram’s primary path or
+branches.</em></p>
+<p><em>Insulin signalling cascade from receptor to downstream metabolic
+and growth effects (Mermaid).</em> Akt is the central node, integrating
+PDK1 (Thr308) and mTORC2 (Ser473) phosphorylations to drive glucose
+uptake, glycogen synthesis, lipogenesis, and protein synthesis.</p>
+<p><strong>Downstream Akt targets:</strong></p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 30%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr>
+<th>Target</th>
+<th>Akt effect</th>
+<th>Metabolic outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AS160 (TBC1D4)</td>
+<td>Phosphorylation → Rab-GAP inactivated</td>
+<td><strong>GLUT4 vesicle exocytosis</strong> → glucose uptake</td>
+</tr>
+<tr>
+<td>GSK3 (glycogen synthase kinase 3)</td>
+<td>Phosphorylation → inhibited</td>
+<td><strong>Glycogen synthase active</strong> → glycogen synthesis</td>
+</tr>
+<tr>
+<td>FoxO1</td>
+<td>Phosphorylation → nuclear exclusion</td>
+<td><strong>PEPCK and G6Pase <a
+href="#gl:gene"><strong>gene</strong></a>s OFF</strong> →
+gluconeogenesis inhibited</td>
+</tr>
+<tr>
+<td>TSC2</td>
+<td>Phosphorylation → inhibited</td>
+<td><strong>mTORC1 activated</strong> → <a
+href="#gl:protein"><strong>protein</strong></a> synthesis,
+lipogenesis</td>
+</tr>
+<tr>
+<td>BAD</td>
+<td>Phosphorylation → binds 14-3-3</td>
+<td><strong>Anti-apoptotic</strong> → cell survival</td>
+</tr>
+<tr>
+<td>PDE3B</td>
+<td>Phosphorylation → activated</td>
+<td><strong>cAMP degradation</strong> → opposes glucagon</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GLUT4 translocation mechanism (in detail):</strong></p>
+<ol type="1">
+<li><strong>Basal state.</strong> GLUT4 is sequestered in specialised
+intracellular vesicles (GSVs, GLUT4 storage vesicles) ~95% of the time,
+with about 5% at the plasma membrane. The vesicles are tethered by the
+inhibitory Rab-GAP <strong>AS160 (TBC1D4)</strong>, which keeps Rab10 in
+its GDP-bound (inactive) state.</li>
+<li><strong>Insulin signal.</strong> Akt phosphorylates AS160 on
+multiple sites (Thr642 most important), inhibiting its GAP
+activity.</li>
+<li><strong>Rab10 activation.</strong> With AS160 off, Rab10 accumulates
+in the GTP-bound active state, promoting vesicle docking at the plasma
+membrane.</li>
+<li><strong>SNARE-mediated fusion.</strong> Synaptobrevin-2 (VAMP2) on
+GSVs engages plasma-membrane syntaxin-4 + SNAP-23, driving membrane
+fusion.</li>
+<li><strong>GLUT4 exposure.</strong> GLUT4 appears at the cell surface,
+increasing glucose uptake 10–20-fold.</li>
+<li><strong>Endocytosis on signal termination.</strong> When insulin
+signal ends, GLUT4 is endocytosed back to GSVs via clathrin-coated pits
+and a slow constitutive recycling pathway.</li>
+</ol>
+<p>In type 2 diabetes, this cascade is disrupted at multiple levels (see
+clinical box below) so that GLUT4 translocation is impaired even at high
+circulating insulin.</p>
+<blockquote>
+<p><strong>Clinical Connection: Insulin Resistance and Type 2
+Diabetes</strong> In type 2 diabetes, insulin signalling is impaired at
+multiple levels: 1. <strong>IRS-1 serine phosphorylation</strong> (by
+JNK, PKC-theta, IKK-beta) prevents tyrosine phosphorylation by the <a
+href="#gl:insulin-receptor"><strong>insulin receptor</strong></a> 2.
+<strong>Ceramide accumulation</strong> activates PP2A, which
+dephosphorylates Akt 3. <strong>DAG accumulation</strong> activates
+PKC-epsilon (liver) and PKC-theta (muscle), which phosphorylate IRS-1 on
+inhibitory serine residues 4. <strong>ER stress</strong> (from lipid
+overload) activates JNK → IRS-1 Ser307 phosphorylation The net result:
+GLUT4 translocation is impaired, glycogen synthesis is reduced, and
+gluconeogenesis is not suppressed. Metformin (first-line therapy) works
+partly through AMPK activation and partly through inhibition of
+mitochondrial Complex I. see for RTK signalling.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 2:</strong> Thiazolidinediones (e.g.,
+rosiglitazone) activate PPAR-gamma in adipose tissue, increasing
+adipocyte differentiation and lipid storage. Explain how increasing fat
+storage in adipose tissue could paradoxically improve insulin
+sensitivity in muscle and liver.</p>
+</blockquote>
+<hr />
+<h2 id="glucagon-signalling-camppka-pathway">Glucagon Signalling:
+cAMP/PKA Pathway</h2>
+<p>Glucagon is secreted by pancreatic alpha-cells when blood glucose
+falls. It acts primarily on the <strong>liver</strong> (hepatocytes
+express glucagon receptors; muscle does not):</p>
+<p><strong>Glucagon → Glucagon receptor (GPCR) → G<span
+class="math inline">\(_s\)</span> → Adenylyl cyclase → cAMP →
+PKA</strong></p>
+<pre class="mermaid"><code>flowchart TD
+    GLU[&quot;Glucagon (or epinephrine via β-AR)&quot;] --&gt; GR[&quot;Glucagon receptor / β-AR (GPCR)&quot;]
+    GR --&gt; GS[&quot;Gαs&quot;]
+    GS --&gt; AC[&quot;Adenylyl cyclase&quot;]
+    AC --&gt; CAMP[&quot;↑ cAMP&quot;]
+    CAMP --&gt; PKA[&quot;PKA (R₂C₂ → 2C active)&quot;]
+
+    PKA --&gt;|&quot;phospho-PhK&quot;| PHK[&quot;Phosphorylase kinase active&quot;]
+    PHK --&gt;|&quot;phospho-Ser14&quot;| GP[&quot;Glycogen phosphorylase a&quot;]
+    GP --&gt; GLYR[&quot;Glycogenolysis&quot;]
+
+    PKA --&gt;|&quot;phospho-Ser-GS&quot;| GSI[&quot;Glycogen synthase b (inactive)&quot;]
+    PKA --&gt;|&quot;phospho PFK-2&quot;| PFK2[&quot;FBPase-2 dominant&lt;br/&gt;↓ F2,6BP&quot;]
+    PFK2 --&gt; PFK1[&quot;PFK-1 OFF&lt;br/&gt;FBPase-1 ON&quot;]
+
+    PKA --&gt;|&quot;phospho-PK&quot;| PYK[&quot;Pyruvate kinase OFF&quot;]
+    PKA --&gt;|&quot;phospho-CREB&quot;| CREB[&quot;CREB-P at PEPCK, G6Pase promoters&quot;]
+    CREB --&gt; GNG[&quot;Gluconeogenesis transcription&quot;]
+
+    style GLU fill:#ffe6e6
+    style GLYR fill:#e6ffe6
+    style GNG fill:#e6ffe6</code></pre>
+<!-- alt: Flowchart for Glucagon Signalling: cAMP/PKA Pathway: Glucagon (or epinephrine via β-AR), Glucagon receptor / β-AR (GPCR), Gαs, and Adenylyl cyclase form the diagram's primary path or branches. -->
+<p><em>Flowchart for Glucagon Signalling: cAMP/PKA Pathway: Glucagon (or
+epinephrine via β-AR), Glucagon receptor / β-AR (GPCR), Gαs, and
+Adenylyl cyclase form the diagram’s primary path or branches.</em></p>
+<p><em>Glucagon (or epinephrine) signalling cascade in the liver
+(Mermaid).</em> The cAMP/PKA cascade simultaneously activates
+glycogenolysis (via phosphorylase kinase) and gluconeogenesis (via CREB
+transcription) while suppressing glycolysis (via PFK-2/pyruvate kinase
+phosphorylation).</p>
+<h3 id="the-phosphorylase-kinase-cascade-a-signal-amplifier">The
+Phosphorylase Kinase Cascade — A Signal Amplifier</h3>
+<p>The chain glucagon → GPCR → cAMP → PKA → <strong>phosphorylase
+kinase</strong> (PhK) → glycogen phosphorylase is one of biology’s most
+elegant amplification cascades. Each step amplifies the signal:</p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 85%" />
+</colgroup>
+<thead>
+<tr>
+<th>Step</th>
+<th>Numerical amplification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 glucagon → 1 receptor (1:1)</td>
+<td>1×</td>
+</tr>
+<tr>
+<td>1 receptor → ~100 Gα<span class="math inline">\(_s\)</span>
+activated (during signal)</td>
+<td>~100×</td>
+</tr>
+<tr>
+<td>1 adenylyl cyclase → ~100 cAMP/sec</td>
+<td>~100×</td>
+</tr>
+<tr>
+<td>4 cAMP → 1 PKA holoenzyme dissociation (releases 2 catalytic
+subunits)</td>
+<td>gating</td>
+</tr>
+<tr>
+<td>1 PKA → ~100 phosphorylase kinase</td>
+<td>~100×</td>
+</tr>
+<tr>
+<td>1 PhK → ~100 phosphorylase b → a</td>
+<td>~100×</td>
+</tr>
+<tr>
+<td>1 phosphorylase a → ~100 glucose-1-P/sec</td>
+<td>~100×</td>
+</tr>
+<tr>
+<td><strong>End-to-end amplification</strong></td>
+<td><strong>~10<span class="math inline">\(^7\)</span>–10<span
+class="math inline">\(^8\)</span></strong></td>
+</tr>
+</tbody>
+</table>
+<p>A single glucagon binding event releases a burst of ~10<span
+class="math inline">\(^7\)</span> glucose-1-phosphate molecules within
+seconds. This is how a signal at femtomolar hormone concentrations
+produces a millimolar metabolite response.</p>
+<p><strong>PKA targets in the liver:</strong></p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 30%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr>
+<th>Target</th>
+<th>PKA effect</th>
+<th>Metabolic outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phosphorylase kinase</td>
+<td>Activated</td>
+<td>Glycogen phosphorylase activated →
+<strong>glycogenolysis</strong></td>
+</tr>
+<tr>
+<td>Glycogen synthase</td>
+<td>Inhibited (phosphorylated)</td>
+<td>Glycogen synthesis OFF</td>
+</tr>
+<tr>
+<td>PFK-2/FBPase-2</td>
+<td>FBPase-2 activated → F2,6BP destroyed</td>
+<td><strong>Glycolysis inhibited</strong></td>
+</tr>
+<tr>
+<td>Pyruvate kinase</td>
+<td>Inhibited (phosphorylated)</td>
+<td>Glycolysis slowed</td>
+</tr>
+<tr>
+<td>CREB</td>
+<td>Activated</td>
+<td><strong>PEPCK and G6Pase gene <a
+href="#gl:transcription"><strong>transcription</strong></a></strong> →
+gluconeogenesis</td>
+</tr>
+<tr>
+<td>IP3R</td>
+<td>Sensitised</td>
+<td>Ca<span class="math inline">\(^{2+}\)</span> release from ER</td>
+</tr>
+<tr>
+<td>HSL (adipose, via β-AR)</td>
+<td>Activated</td>
+<td>Lipolysis (in adipose; not liver)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="gluconeogenesis">Gluconeogenesis</h2>
+<p>Gluconeogenesis synthesises glucose from non-carbohydrate precursors
+(lactate, glycerol, glucogenic amino acids). It occurs primarily in the
+<strong>liver</strong> and to a lesser extent in the <strong>kidney
+cortex</strong>.</p>
+<p>Gluconeogenesis is NOT simply the reverse of glycolysis. Three
+irreversible glycolytic steps require <strong>bypass
+enzymes</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 51%" />
+<col style="width: 34%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr>
+<th>Glycolytic step (irreversible)</th>
+<th>Gluconeogenic bypass</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pyruvate kinase (PEP → Pyruvate)</td>
+<td><strong>Pyruvate carboxylase</strong> (Pyruvate → OAA; biotin, ATP)
++ <strong>PEPCK</strong> (OAA → PEP; GTP)</td>
+<td>Mitochondria + cytoplasm</td>
+</tr>
+<tr>
+<td>PFK-1 (F6P → F1,6BP)</td>
+<td><strong>Fructose-1,6-bisphosphatase (FBPase-1)</strong></td>
+<td>Cytoplasm</td>
+</tr>
+<tr>
+<td>Hexokinase (Glucose → G6P)</td>
+<td><strong>Glucose-6-phosphatase (G6Pase)</strong></td>
+<td>ER membrane (liver, kidney primarily)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cost:</strong> 6 ATP equivalents per glucose synthesised (4
+ATP + 2 GTP).</p>
+<p><strong>Regulation of gluconeogenesis:</strong> -
+<strong>Allosteric:</strong> Pyruvate carboxylase activated by
+acetyl-CoA; FBPase-1 inhibited by AMP and F2,6BP -
+<strong>Hormonal:</strong> Glucagon (via CREB) induces PEPCK and G6Pase
+genes; insulin (via FoxO1) represses them - <strong>Reciprocal with
+glycolysis:</strong> F2,6BP activates PFK-1 (glycolysis) and inhibits
+FBPase-1 (gluconeogenesis), ensuring they do not run simultaneously</p>
+<blockquote>
+<p><strong>Concept Check 3:</strong> Ethanol metabolism in the liver
+generates excess NADH (from alcohol dehydrogenase and aldehyde
+dehydrogenase). Predict the effect of heavy alcohol consumption on
+gluconeogenesis and the risk of hypoglycaemia.</p>
+</blockquote>
+<hr />
+<h2 id="glycogen-metabolism">Glycogen Metabolism</h2>
+<h3 id="glycogen-structure">Glycogen Structure</h3>
+<p>Glycogen is a branched polymer of glucose units: - <strong>Alpha-1,4
+linkages:</strong> linear chains (~8–12 glucose units between branch
+points) - <strong>Alpha-1,6 linkages:</strong> branch points (~every
+8–12 residues) - <strong>Glycogenin:</strong> self-glucosylating primer
+protein at the core</p>
+<p>Liver glycogen (~100 g): blood glucose <a
+href="#gl:buffer"><strong>buffer</strong></a>. Muscle glycogen (~400 g):
+local fuel for contraction (rarely exported as glucose because muscle
+lacks G6Pase).</p>
+<h3 id="key-enzymes">Key Enzymes</h3>
+<p><strong>Glycogen phosphorylase:</strong> Cleaves alpha-1,4 linkages
+from non-reducing ends, releasing glucose-1-phosphate. Regulated by: -
+<strong>Allosteric activation:</strong> AMP (muscle); glucose (liver,
+inhibitory) - <strong>Covalent modification:</strong> Phosphorylase
+kinase phosphorylates Ser14 → active <strong>a</strong> form -
+<strong>Hormonal cascade:</strong> Glucagon/epinephrine → cAMP → PKA →
+phosphorylase kinase → phosphorylase a</p>
+<p><strong>Glycogen synthase:</strong> Adds UDP-glucose to non-reducing
+ends (alpha-1,4 linkages). Active when dephosphorylated (GSK3
+phosphorylates → inactive; insulin inhibits GSK3 → GS active).</p>
+<p><strong>Branching enzyme:</strong> Transfers ~7-residue segments to
+create alpha-1,6 branches. Increases solubility and number of
+non-reducing ends (more rapid mobilisation).</p>
+<p><strong>Debranching enzyme:</strong> Bifunctional: transferase
+activity moves 3 residues from branch, then alpha-1,6-glucosidase
+cleaves the branch point, releasing free glucose.</p>
+<blockquote>
+<p><strong>Clinical Connection: Glycogen Storage Diseases</strong> |
+Type | Enzyme deficiency | Features | | —- | —————– | ——– | | I (von
+Gierke) | Glucose-6-phosphatase | Severe hypoglycaemia, hepatomegaly,
+lactic acidosis | | II (Pompe) | Lysosomal alpha-glucosidase |
+Cardiac/skeletal myopathy; treated by ERT | | V (McArdle) | Muscle
+glycogen phosphorylase | Exercise intolerance; “second wind” phenomenon
+| | VII (Tarui) | Muscle PFK | Exercise intolerance, haemolytic anaemia
+|</p>
+</blockquote>
+<hr />
+<h2 id="fatty-acid-oxidation-beta-oxidation">Fatty Acid Oxidation
+(Beta-Oxidation)</h2>
+<p>Beta-oxidation occurs in the <strong>mitochondrial matrix</strong>
+and degrades fatty acyl-CoA by removing 2-carbon units (acetyl-CoA) per
+cycle.</p>
+<h3 id="activation-and-transport">Activation and Transport</h3>
+<ol type="1">
+<li><strong>Activation:</strong> Fatty acid + CoA + ATP → Acyl-CoA + AMP
++ PP<span class="math inline">\(_i\)</span> (acyl-CoA synthetase; outer
+mitochondrial membrane; costs 2 ATP equivalents)</li>
+<li><strong>Carnitine shuttle:</strong> Acyl-CoA cannot cross the IMM.
+Instead:
+<ul>
+<li><strong>CPT-1</strong> (outer face of IMM): acyl-CoA + carnitine →
+acylcarnitine + CoA</li>
+<li><strong>Translocase (CACT):</strong> acylcarnitine crosses IMM</li>
+<li><strong>CPT-2</strong> (inner face of IMM): acylcarnitine + CoA →
+acyl-CoA + carnitine</li>
+</ul></li>
+</ol>
+<p><strong>CPT-1 is the rate-limiting step</strong> of beta-oxidation.
+<strong>Malonyl-CoA</strong> (the first committed intermediate of fatty
+acid synthesis) <strong>allosterically inhibits CPT-1</strong>, ensuring
+that fatty acid synthesis and oxidation do not occur simultaneously.</p>
+<h3 id="beta-oxidation-steps-each-cycle">Beta-Oxidation Steps (Each
+Cycle)</h3>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 24%" />
+<col style="width: 32%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>Step</th>
+<th>Enzyme</th>
+<th>Reaction</th>
+<th>Product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Acyl-CoA dehydrogenase</td>
+<td>Acyl-CoA → trans-enoyl-CoA</td>
+<td><strong>FADH<span class="math inline">\(_2\)</span></strong></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Enoyl-CoA hydratase</td>
+<td>trans-enoyl-CoA + H<span class="math inline">\(_2\)</span>O →
+L-3-hydroxyacyl-CoA</td>
+<td>–</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3-Hydroxyacyl-CoA DH</td>
+<td>L-3-hydroxyacyl-CoA → 3-ketoacyl-CoA</td>
+<td><strong>NADH</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Thiolase</td>
+<td>3-ketoacyl-CoA + CoA → acyl-CoA(n-2) + acetyl-CoA</td>
+<td><strong>Acetyl-CoA</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Each cycle: removes 2 carbons as acetyl-CoA, produces 1 FADH<span
+class="math inline">\(_2\)</span> + 1 NADH.</p>
+<h3 id="atp-yield-from-palmitoyl-coa-c160">ATP Yield from Palmitoyl-CoA
+(C16:0)</h3>
+<p>Summing the products of complete fatty-acid oxidation makes the “fat
+is energy-dense” claim quantitative. Palmitoyl-CoA (16 carbons)
+undergoes 7 cycles of beta-oxidation:</p>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 22%" />
+<col style="width: 33%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Product</th>
+<th>Quantity</th>
+<th>ATP per unit</th>
+<th>Total ATP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acetyl-CoA (via TCA)</td>
+<td>8</td>
+<td>10 (3 NADH x 2.5 + 1 FADH<span class="math inline">\(_2\)</span> x
+1.5 + 1 GTP)</td>
+<td>80</td>
+</tr>
+<tr>
+<td>FADH<span class="math inline">\(_2\)</span> (beta-oxidation)</td>
+<td>7</td>
+<td>1.5</td>
+<td>10.5</td>
+</tr>
+<tr>
+<td>NADH (beta-oxidation)</td>
+<td>7</td>
+<td>2.5</td>
+<td>17.5</td>
+</tr>
+<tr>
+<td>Activation cost</td>
+<td></td>
+<td>-2</td>
+<td>-2</td>
+</tr>
+<tr>
+<td><strong>Net total</strong></td>
+<td></td>
+<td></td>
+<td><strong>106</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Some textbooks report 108 ATP (using older P/O ratios) or 129 ATP
+(including palmitate rather than palmitoyl-CoA, and using maximal P/O
+ratios). The exact number depends on assumed H<span
+class="math inline">\(^+\)</span>/ATP stoichiometry and shuttle costs.
+The key insight: fatty acids are energy-dense (~9 kcal/g vs. 4 kcal/g
+for carbohydrates) because they are highly reduced.</p>
+<blockquote>
+<p><strong>Clinical Connection: MCAD Deficiency</strong> Medium-chain
+acyl-CoA dehydrogenase (MCAD) deficiency is the most common inherited
+disorder of fatty acid oxidation (~1:10,000 births). During fasting,
+patients cannot oxidise medium-chain fatty acids, leading to hypoketotic
+hypoglycaemia (low ketones because acetyl-CoA production is impaired,
+low glucose because gluconeogenesis lacks acetyl-CoA stimulation of
+pyruvate carboxylase). Fatal Reye-like episodes can occur. Management:
+avoid prolonged fasting; ensure regular carbohydrate intake.</p>
+</blockquote>
+<hr />
+<h2 id="fatty-acid-synthesis">Fatty Acid Synthesis</h2>
+<p>Fatty acid synthesis occurs in the <strong>cytoplasm</strong> and
+uses fundamentally different chemistry from beta-oxidation:</p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 34%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Beta-oxidation</th>
+<th>Fatty acid synthesis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Location</td>
+<td>Mitochondrial matrix</td>
+<td>Cytoplasm</td>
+</tr>
+<tr>
+<td>Carrier</td>
+<td>CoA</td>
+<td>ACP (acyl carrier protein)</td>
+</tr>
+<tr>
+<td>Reducing agent</td>
+<td>FAD, NAD<span class="math inline">\(^+\)</span> (oxidised)</td>
+<td>NADPH (reduced)</td>
+</tr>
+<tr>
+<td>2C unit</td>
+<td>Acetyl-CoA (removed)</td>
+<td>Malonyl-CoA (added)</td>
+</tr>
+<tr>
+<td>Key enzyme</td>
+<td>Multiple separate enzymes</td>
+<td><strong>FAS</strong> (fatty acid synthase, one large multifunctional
+enzyme in animals)</td>
+</tr>
+<tr>
+<td>Regulation</td>
+<td>Inhibited by malonyl-CoA</td>
+<td>Activated by citrate; inhibited by palmitoyl-CoA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Acetyl-CoA carboxylase (ACC)</strong> catalyses the committed
+step: acetyl-CoA + CO<span class="math inline">\(_2\)</span> + ATP →
+malonyl-CoA. This is the key regulatory enzyme: - <strong>Activated
+by:</strong> citrate (allosteric), insulin (dephosphorylation) -
+<strong>Inhibited by:</strong> palmitoyl-CoA (product inhibition), AMPK
+phosphorylation (energy depletion), glucagon (via PKA)</p>
+<hr />
+<h2 id="ketone-body-metabolism">Ketone Body Metabolism</h2>
+<p>During prolonged fasting (&gt;24–48 h), the liver converts excess
+acetyl-CoA from fatty acid oxidation into <strong>ketone
+bodies</strong>: acetoacetate, beta-hydroxybutyrate, and acetone.</p>
+<p><strong>Synthesis (liver mitochondria):</strong> 1. 2 Acetyl-CoA →
+Acetoacetyl-CoA (thiolase) 2. Acetoacetyl-CoA + Acetyl-CoA → HMG-CoA
+(HMG-CoA synthase) 3. HMG-CoA → Acetoacetate + Acetyl-CoA (HMG-CoA
+lyase) 4. Acetoacetate → beta-Hydroxybutyrate (beta-hydroxybutyrate DH;
+uses NADH) 5. Acetoacetate → Acetone (non-enzymatic decarboxylation;
+exhaled)</p>
+<p><strong>Utilisation (brain, heart, muscle):</strong>
+Beta-hydroxybutyrate → acetoacetate → acetoacetyl-CoA (via succinyl-CoA
+transferase, also called thiophorase) → 2 acetyl-CoA → TCA cycle.</p>
+<p><strong>Key points:</strong> - The liver <strong>cannot use</strong>
+ketone bodies (lacks thiophorase) - The brain normally uses primarily
+glucose but during starvation adapts to derive <strong>~60–70%</strong>
+of its energy from ketone bodies, sparing muscle protein - This
+protein-sparing effect is essential for survival during prolonged
+fasting - Diabetic ketoacidosis (DKA): uncontrolled type 1 diabetes →
+absent insulin → massive lipolysis → excessive ketone body production →
+metabolic acidosis (<a href="#gl:ph"><strong>pH</strong></a> &lt;7.3),
+dehydration, potentially fatal</p>
+<blockquote>
+<p><strong>Concept Check 4:</strong> Why can the liver produce ketone
+bodies but not use them? What is the physiological advantage of this
+arrangement?</p>
+</blockquote>
+<hr />
+<h2 id="ampk-the-cellular-energy-gauge">AMPK — The Cellular Energy
+Gauge</h2>
+<p><strong>AMPK</strong> (AMP-activated protein kinase) is a
+heterotrimer with <strong>two catalytic α-subunits</strong> (α1 and α2
+isoforms), <strong>two regulatory β-subunits</strong> (β1, β2), and the
+<strong>γ-subunit</strong> that binds adenine nucleotides — though the
+assembled holoenzyme is α<span class="math inline">\(_1\)</span>β<span
+class="math inline">\(_1\)</span>γ<span
+class="math inline">\(_1\)</span>. (The classic textbook description is
+that AMPK is “two catalytic + two regulatory subunits” referring to the
+assembly’s binary modules: the catalytic α/β pair and the regulatory β/γ
+pair.) The γ-subunit contains four CBS (cystathionine β-synthase)
+domains, of which three bind adenine nucleotides — AMP, ADP, and ATP —
+competitively. This competitive binding lets the γ-subunit
+<em>integrate</em> the entire adenylate pool, not just one ratio.</p>
+<pre class="mermaid"><code>graph TD
+    A[&quot;Energy Stress&lt;br/&gt;(exercise, hypoxia,&lt;br/&gt;starvation, ischaemia)&quot;] --&gt; B[&quot;↑ AMP/ATP ratio&lt;br/&gt;↑ ADP/ATP ratio&quot;]
+    B --&gt; C[&quot;AMP/ADP bind&lt;br/&gt;AMPK γ-subunit&lt;br/&gt;(CBS domains)&quot;]
+    C --&gt; D[&quot;Thr172 phosphorylation&lt;br/&gt;by LKB1 or CaMKKβ&quot;]
+    D --&gt; E[&quot;AMPK ACTIVE&quot;]
+
+    E --&gt; F[&quot;ACC1/ACC2 phosphorylated&lt;br/&gt;→ ↓ malonyl-CoA&lt;br/&gt;→ CPT-1 released&lt;br/&gt;→ β-OXIDATION ↑&quot;]
+    E --&gt; G[&quot;PFK-2 phosphorylated&lt;br/&gt;→ ↑ F2,6BP&lt;br/&gt;→ GLYCOLYSIS ↑&quot;]
+    E --&gt; H[&quot;TSC2 + Raptor&lt;br/&gt;phosphorylated&lt;br/&gt;→ mTORC1 OFF&lt;br/&gt;→ Protein synthesis ↓&quot;]
+    E --&gt; I[&quot;ULK1 phosphorylated&lt;br/&gt;→ AUTOPHAGY ↑&quot;]
+    E --&gt; J[&quot;HDAC5 phosphorylated&lt;br/&gt;→ PGC-1α genes&lt;br/&gt;→ MITOCHONDRIAL&lt;br/&gt;BIOGENESIS ↑&quot;]
+
+    K[&quot;Energy Abundance&lt;br/&gt;(fed state)&quot;] --&gt; L[&quot;↓ AMP/ATP ratio&quot;]
+    L --&gt; M[&quot;ATP displaces AMP&lt;br/&gt;on γ-subunit&quot;]
+    M --&gt; N[&quot;AMPK INACTIVE&quot;]
+    N --&gt; O[&quot;mTORC1 ON&lt;br/&gt;→ Protein synthesis ↑&lt;br/&gt;→ Lipogenesis ↑&lt;br/&gt;→ Autophagy OFF&quot;]
+
+    style E fill:#ffe6e6
+    style N fill:#e6ffe6</code></pre>
+<!-- alt: Graph showing AMPK as the cellular energy sensor. Low energy activates AMPK, which simultaneously promotes catabolic pathways and inhibits anabolic pathways. High energy inactivates AMPK, allowing mTORC1-driven anabolism. -->
+<p><em>AMPK as the cellular energy sensor. Low energy activates AMPK,
+which simultaneously promotes catabolic pathways and inhibits anabolic
+pathways. High energy inactivates AMPK, allowing mTORC1-driven
+anabolism.</em></p>
+<h3 id="ampk-activation-lkb1-vs-camkkβ">AMPK Activation: LKB1 vs
+CaMKKβ</h3>
+<p>AMPK is activated when its catalytic α-subunit is phosphorylated at
+<strong>Thr172</strong>. Two upstream kinases phosphorylate this site
+under different physiological conditions:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 11%" />
+<col style="width: 30%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Upstream kinase</th>
+<th>Trigger</th>
+<th>Tissue distribution</th>
+<th>Pathological connection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LKB1</strong> (STK11)</td>
+<td>Energy stress (high AMP); allosterically primed by AMP binding to
+AMPK γ</td>
+<td>Ubiquitous; constitutively active</td>
+<td>Loss-of-function = Peutz-Jeghers syndrome, predisposes to
+gastrointestinal cancers</td>
+</tr>
+<tr>
+<td><strong>CaMKKβ</strong></td>
+<td>Elevated cytosolic Ca<span class="math inline">\(^{2+}\)</span>
+(independent of AMP)</td>
+<td>Brain, muscle, T cells, endothelium</td>
+<td>Important in T-cell activation, osmotic stress</td>
+</tr>
+<tr>
+<td><strong>TAK1</strong></td>
+<td>Inflammatory cytokines (TGF-β, TNF-α)</td>
+<td>Limited</td>
+<td>Crosstalk between inflammation and metabolism</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LKB1 is the dominant kinase under classical energy
+stress</strong> (exercise, hypoxia, starvation): AMP binding to AMPK γ
+promotes LKB1 docking and Thr172 phosphorylation, while simultaneously
+protecting Thr172 from dephosphorylation by PP2A and PP2C. AMP is
+therefore not simply an “activator” but an <em>allosteric primer</em>
+that shifts the AMPK steady state from dephosphorylated to
+phosphorylated.</p>
+<p><strong>CaMKKβ provides a Ca<span
+class="math inline">\(^{2+}\)</span>-coupled activation route</strong> —
+for example, in muscle contraction (where Ca<span
+class="math inline">\(^{2+}\)</span> release accompanies ATP demand) or
+in T-cell activation following T-cell receptor engagement. This route
+runs <strong>in parallel</strong> to the AMP/LKB1 pathway and lets cells
+anticipate energy demand from Ca<span
+class="math inline">\(^{2+}\)</span> signals before AMP rises.</p>
+<h3 id="energy-charge">Energy Charge</h3>
+<p>The <strong>energy charge (EC)</strong> of the adenylate system was
+introduced by Atkinson as a single scalar that captures the fractional
+saturation of the adenylate pool with high-energy phosphate:</p>
+<p><span class="math display">\[\begin{equation}
+\text{E.C.} = \frac{[\text{ATP}] +
+\tfrac{1}{2}[\text{ADP}]}{[\text{ATP}] + [\text{ADP}] + [\text{AMP}]}
+\label{eq:unit_III_energy_charge}
+\end{equation}\]</span></p>
+<p>The numerator counts each phosphoanhydride bond (ATP has two
+phosphoanhydrides, ADP has one), while the denominator counts the total
+adenylate pool. So E.C. = 1.0 means most adenylates are ATP; E.C. = 0
+means most are AMP.</p>
+<p>Most cells maintain EC approximately 0.85–0.95 . AMPK is highly
+sensitive in the range EC = 0.70–0.85 — precisely the window where
+rising AMP signals impending energy crisis.</p>
+<h2 id="worked-example-energy-charge">Worked Example: Energy Charge</h2>
+<p><em>Problem:</em> A resting skeletal-muscle biopsy gives adenylate
+pools of [ATP] = 5.0 µmol/g, [ADP] = 0.6 µmol/g, and [AMP] = 0.05
+µmol/g. Calculate the energy charge and predict whether AMPK is
+active.</p>
+<p><em>Solution:</em></p>
+<p><strong>Step 1 — State the relation and why ADP is
+half-weighted.</strong> The energy charge measures the fractional
+saturation of the adenylate pool with transferable phosphoanhydride
+bonds:</p>
+<p><span class="math display">\[EC = \frac{[\text{ATP}] +
+\tfrac{1}{2}[\text{ADP}]}{[\text{ATP}] + [\text{ADP}] +
+[\text{AMP}]}\]</span></p>
+<p>ATP carries two high-energy phosphoanhydride bonds and ADP carries
+one, so on a per-adenylate basis ADP holds exactly half the transferable
+phosphate of ATP — hence the <span
+class="math inline">\(\tfrac{1}{2}\)</span> weighting. The denominator
+is the conserved total adenylate pool ([ATP]+[ADP]+[AMP]), so <span
+class="math inline">\(EC = 1\)</span> when every adenylate is ATP and
+<span class="math inline">\(EC = 0\)</span> when every adenylate is
+AMP.</p>
+<p><strong>Step 2 — Substitute the measured µmol/g values.</strong></p>
+<p><span class="math display">\[EC = \frac{5.0 + \tfrac{1}{2}(0.6)}{5.0
++ 0.6 + 0.05}\]</span></p>
+<p>Numerator: <span class="math inline">\(5.0 + 0.5 \times 0.6 = 5.0 +
+0.30 = 5.30\)</span>. Denominator: <span class="math inline">\(5.0 + 0.6
++ 0.05 = 5.65\)</span>. The shared µmol/g units cancel, so the ratio is
+dimensionless.</p>
+<p><strong>Step 3 — Compute and interpret against the AMPK
+threshold.</strong></p>
+<p><span class="math display">\[EC = \frac{5.30}{5.65} = 0.938
+\tag{11.3}\]</span></p>
+<p>At <span class="math inline">\(EC = 0.938\)</span> the pool sits in
+the normal resting band of 0.85–0.95 and well above the AMPK-activation
+window of 0.70–0.85. Predict: AMPK is largely inactive and the cell is
+in an energy-replete state favouring anabolism. A fall toward <span
+class="math inline">\(EC \approx 0.80\)</span> (rising AMP) would move
+the pool into the AMPK-sensitive window and switch the cell toward
+catabolism.</p>
+<blockquote>
+<p><strong>Clinical Connection: Metformin and AMPK</strong> Metformin,
+the most widely prescribed diabetes drug, activates AMPK indirectly by
+inhibiting mitochondrial Complex I, which raises the AMP/ATP ratio. AMPK
+activation: - Increases glucose uptake in muscle - Inhibits hepatic
+gluconeogenesis (via CREB coactivator CRTC2 phosphorylation) - Reduces
+lipogenesis - May have anti-cancer effects (mTORC1 inhibition) Metformin
+is also being investigated as an anti-ageing compound (TAME trial). see
+for Complex I.</p>
+</blockquote>
+<hr />
+<h2 id="worked-example-flux-control-coefficient">Worked Example: Flux
+Control Coefficient</h2>
+<p><em>Problem:</em> In an isolated hepatocyte preparation, a small
+activator raises PFK-1 activity by 20% and the measured glycolytic flux
+rises by 5%. A separate manipulation raises the pyruvate-transporter
+activity by 30% and flux rises by 3%. Calculate each flux control
+coefficient and determine which step exerts more control over glycolytic
+flux.</p>
+<p><em>Solution:</em></p>
+<p><strong>Step 1 — State the operational form of the flux control
+coefficient.</strong> For a small fractional change in enzyme activity,
+<span class="math inline">\(C_i^J = \dfrac{\partial \ln J}{\partial \ln
+e_i}\)</span> is approximated by the ratio of fractional changes:</p>
+<p><span class="math display">\[C_i^J \approx \frac{\Delta J / J}{\Delta
+e_i / e_i} \tag{11.9}\]</span></p>
+<p><strong>Step 2 — Substitute for PFK-1.</strong> Here <span
+class="math inline">\(\Delta e/e = 0.20\)</span> and <span
+class="math inline">\(\Delta J/J = 0.05\)</span>:</p>
+<p><span class="math display">\[C_{\text{PFK-1}}^{J} = \frac{0.05}{0.20}
+= 0.25 \tag{11.10}\]</span></p>
+<p><strong>Step 3 — Substitute for the pyruvate transporter.</strong>
+Here <span class="math inline">\(\Delta e/e = 0.30\)</span> and <span
+class="math inline">\(\Delta J/J = 0.03\)</span>:</p>
+<p><span class="math display">\[C_{\text{transporter}}^{J} =
+\frac{0.03}{0.30} = 0.10\]</span></p>
+<p><strong>Step 4 — Interpret against the summation theorem.</strong>
+Both coefficients fall in the <span class="math inline">\(C_i^J \approx
+0.1\)</span>–<span class="math inline">\(0.3\)</span> band reported for
+glycolytic enzymes. PFK-1 (<span class="math inline">\(C^J =
+0.25\)</span>) exerts more than twice the flux control of the pyruvate
+transporter (<span class="math inline">\(C^J = 0.10\)</span>), so PFK-1
+is the more rate-controlling step here — yet because requires <span
+class="math inline">\(\sum_i C_i^J = 1\)</span>, these two steps
+together account for primarily <span class="math inline">\(0.25 + 0.10 =
+0.35\)</span> of total control. The remaining <span
+class="math inline">\(0.65\)</span> is distributed across other enzymes:
+no single enzyme is <em>the</em> rate-limiting step, which is why an
+activator targeting PFK-1 alone produces primarily a fractional, not
+proportional, increase in flux.</p>
+<hr />
+<h2 id="mtorc1-the-growth-integrator-and-nutrient-sensor">mTORC1 — The
+Growth Integrator and Nutrient Sensor</h2>
+<p><strong>mTORC1</strong> (mechanistic Target of Rapamycin Complex 1)
+integrates amino acid, glucose, oxygen, and growth factor signals:</p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 58%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr>
+<th>Input</th>
+<th>Sensing mechanism</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Amino acids (Leu, Arg)</td>
+<td>Rag GTPases (Sestrin2 senses Leu; CASTOR1 senses Arg) recruit mTORC1
+to lysosomal surface</td>
+<td>mTORC1 ON</td>
+</tr>
+<tr>
+<td>Insulin/IGF-1</td>
+<td>PI3K → Akt → phosphorylates TSC2 → Rheb-GTP accumulates</td>
+<td>mTORC1 ON</td>
+</tr>
+<tr>
+<td>Glucose</td>
+<td>Low glucose → AMPK → TSC2/Raptor phosphorylation</td>
+<td>mTORC1 OFF</td>
+</tr>
+<tr>
+<td>Oxygen</td>
+<td>Hypoxia → REDD1 → TSC1/2 activation</td>
+<td>mTORC1 OFF</td>
+</tr>
+</tbody>
+</table>
+<h3 id="amino-acid-sensing-the-ragulator-complex-and-lysosome">Amino
+Acid Sensing: The Ragulator Complex and Lysosome</h3>
+<p>mTORC1 primarily senses amino acid sufficiency by being
+<strong>physically positioned</strong> on the lysosomal surface. The
+structure responsible is a multi-protein scaffold called the
+<strong>Ragulator complex</strong> (LAMTOR1–5) that anchors mTORC1 to
+the cytoplasmic face of the lysosomal membrane. The amino acid sensing
+cascade works as follows:</p>
+<ol type="1">
+<li><strong>Specific amino acid sensors</strong> detect intracellular
+concentrations:
+<ul>
+<li><strong>Sestrin2</strong> binds and is inhibited by
+<strong>leucine</strong> — when Leu is high, Sestrin2 is displaced and
+stops inhibiting GATOR2.</li>
+<li><strong>CASTOR1</strong> binds and is inhibited by
+<strong>arginine</strong> — same logic.</li>
+<li><strong>SAMTOR</strong> senses S-adenosylmethionine (a proxy for
+methionine).</li>
+<li><strong>SLC38A9</strong> senses lysosomal arginine and signals from
+the lysosomal membrane.</li>
+</ul></li>
+<li><strong>GATOR1/2 GAP/GEF complex.</strong> GATOR1 is a GAP for the
+Rag GTPases (turning them off); GATOR2 inhibits GATOR1. When sensors
+release inhibition of GATOR2, GATOR1 is suppressed, allowing the Rag
+GTPases to enter their active conformation.</li>
+<li><strong>Active Rag GTPases</strong> (RagA/B-GTP + RagC/D-GDP) bind
+Raptor (a subunit of mTORC1) and recruit mTORC1 to the lysosomal
+surface.</li>
+<li><strong>At the lysosome</strong>, mTORC1 encounters Rheb-GTP —
+provided that growth factor signalling has activated it via Akt → TSC2
+inhibition → Rheb-GTP accumulation.</li>
+<li><strong>Rheb-GTP fully activates mTORC1</strong> kinase activity.
+Both signals (amino acids → Rag → lysosomal positioning <em>and</em>
+growth factors → Rheb-GTP) must converge.</li>
+</ol>
+<p>This dual-input gating is why mTORC1 is sometimes described as a
+<strong>coincidence detector</strong>: it primarily signals “build” when
+both raw materials (amino acids) and external commands (insulin/IGF-1)
+are present.</p>
+<h3 id="rapamycin-mechanism-of-action">Rapamycin: Mechanism of
+Action</h3>
+<p><strong>Rapamycin</strong> is a macrolide originally isolated from
+<em>Streptomyces hygroscopicus</em> on Easter Island (Rapa Nui). It
+binds to the immunophilin <strong>FKBP12</strong> in the cytoplasm; the
+FKBP12-rapamycin complex then binds to the FRB domain of mTOR within
+mTORC1, allosterically inhibiting kinase activity <em>primarily in the
+mTORC1 complex</em> (mTORC2 is largely unaffected on short timescales).
+This inhibition: - Suppresses cap-dependent translation (4E-BP1
+phosphorylation) - Suppresses ribosome biogenesis (S6K1 phosphorylation)
+- Activates autophagy - Extends lifespan in yeast, worms, flies, and
+mice (~10–15% extension at low doses)</p>
+<p>Rapamycin and analogues (rapalogues: everolimus, temsirolimus) are
+clinically approved as immunosuppressants (transplant rejection
+prevention) and anticancer agents (renal cell carcinoma, certain breast
+cancers). The TAME trial and large-scale rapamycin/metformin studies are
+testing rapalogues as longevity interventions in humans.</p>
+<p><strong>AMPK and mTORC1 reciprocal inhibition</strong> creates a
+<strong>bistable metabolic switch:</strong> energy-rich → mTORC1 on,
+AMPK off → anabolism; energy-depleted → AMPK on, mTORC1 off → catabolism
++ autophagy.</p>
+<hr />
+<h2 id="the-randle-cycle-glucose-fatty-acid-cycle">The Randle Cycle
+(Glucose-Fatty Acid Cycle)</h2>
+<p>Proposed by Randle et al. (1963, <em>The Lancet</em>), the Randle
+cycle describes <strong>reciprocal inhibition</strong> between glucose
+and fatty acid oxidation in heart and skeletal muscle:</p>
+<p><strong>When fatty acids are high → glucose utilisation is
+suppressed:</strong> 1. Beta-oxidation → elevated acetyl-CoA →
+<strong>PDH kinase (PDK) activated</strong> → PDH
+phosphorylated/inactivated → less pyruvate oxidation 2. Beta-oxidation →
+elevated citrate (exported to cytoplasm) → <strong>PFK-1 allosterically
+inhibited</strong> → glycolysis slows 3. Elevated intracellular acyl-CoA
+→ PKC-theta (in muscle) → serine phosphorylation of
+<strong>IRS-1</strong> → impaired insulin signalling → reduced GLUT4
+translocation</p>
+<p><strong>When glucose is high → fatty acid oxidation is
+suppressed:</strong> 1. Insulin → ACC activated → malonyl-CoA synthesis
+increases → <strong>CPT-1 inhibited</strong> → beta-oxidation blocked 2.
+Elevated NADH from glycolysis → inhibits beta-oxidation
+dehydrogenases</p>
+<h3 id="metabolic-flexibility">Metabolic Flexibility</h3>
+<p><strong>Metabolic flexibility</strong> = the ability to switch
+between glucose and fat oxidation in response to fuel availability.
+Assessed by the respiratory quotient (RQ):</p>
+<p><span class="math display">\[RQ = \frac{\text{CO}_2 \text{
+produced}}{\text{O}_2 \text{ consumed}} \tag{11.4}\]</span></p>
+<ul>
+<li>RQ = 1.0: pure glucose oxidation</li>
+<li>RQ = 0.7: pure fat oxidation</li>
+<li>Healthy individuals: RQ ~0.95 post-meal → ~0.75 fasting (rapid
+switching)</li>
+<li>Obese/T2D individuals: RQ remains ~0.85 in fasting → “metabolic
+inflexibility”</li>
+</ul>
+<hr />
+<h2 id="hormonal-coordination-at-the-whole-organism-level">Hormonal
+Coordination at the Whole-Organism Level</h2>
+<pre class="mermaid"><code>graph TD
+    subgraph Hormones
+        INS[&quot;Insulin&lt;br/&gt;(β-cells, fed)&quot;]
+        GLU[&quot;Glucagon&lt;br/&gt;(α-cells, fasted)&quot;]
+        EPI[&quot;Epinephrine&lt;br/&gt;(adrenal, stress)&quot;]
+        CORT[&quot;Cortisol&lt;br/&gt;(adrenal, chronic stress)&quot;]
+    end
+
+    subgraph Liver
+        L1[&quot;Glycogen synthesis ↑ / Glycogenolysis ↑&quot;]
+        L2[&quot;Lipogenesis ↑ / Gluconeogenesis ↑&quot;]
+        L3[&quot;Ketogenesis ↑&quot;]
+    end
+
+    subgraph Muscle
+        M1[&quot;Glucose uptake (GLUT4) ↑&quot;]
+        M2[&quot;Glycogenolysis ↑&quot;]
+        M3[&quot;Protein synthesis ↑ / catabolism ↑&quot;]
+    end
+
+    subgraph Adipose
+        A1[&quot;Lipogenesis ↑&quot;]
+        A2[&quot;Lipolysis ↑&quot;]
+    end
+
+    subgraph Brain
+        B1[&quot;Glucose (primary fuel)&quot;]
+        B2[&quot;Ketones (starvation)&quot;]
+    end
+
+    INS --&gt;|&quot;↑ GS, ↑ GK&quot;| L1
+    INS --&gt;|&quot;↑ GLUT4&quot;| M1
+    INS --&gt;|&quot;↑ LPL, ↓ HSL&quot;| A1
+    INS --&gt;|&quot;↑ mTORC1&quot;| M3
+
+    GLU --&gt;|&quot;↑ Phosphorylase&quot;| L1
+    GLU --&gt;|&quot;↑ PEPCK&quot;| L2
+    GLU --&gt;|&quot;↑ HMG-CoA synthase&quot;| L3
+    GLU --&gt;|&quot;↑ HSL&quot;| A2
+
+    EPI --&gt;|&quot;↑ Phosphorylase&quot;| L1
+    EPI --&gt;|&quot;↑ Phosphorylase&quot;| M2
+    EPI --&gt;|&quot;β₃-AR → ↑ HSL&quot;| A2
+
+    CORT --&gt;|&quot;↑ PEPCK&quot;| L2
+    CORT --&gt;|&quot;↑ Proteolysis&quot;| M3
+    CORT --&gt;|&quot;↑ Lipolysis&quot;| A2
+
+    style INS fill:#e6ffe6
+    style GLU fill:#ffe6e6
+    style EPI fill:#fff3e6
+    style CORT fill:#e6f3ff</code></pre>
+<!-- alt: Graph showing hormonal coordination of metabolism across organs. Insulin (green) drives anabolic responses; glucagon (red) and cortisol (blue) drive catabolic responses. Each organ has distinct metabolic roles and receptor expression patterns. -->
+<p><em>Hormonal coordination of metabolism across organs. Insulin
+(green) drives anabolic responses; glucagon (red) and <a
+href="#gl:cortisol"><strong>cortisol</strong></a> (blue) drive catabolic
+responses. Each organ has distinct metabolic roles and receptor
+expression patterns.</em></p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 24%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Hormone</th>
+<th>Stimulus</th>
+<th>Liver</th>
+<th>Muscle</th>
+<th>Adipose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insulin</td>
+<td>High glucose</td>
+<td>Glycogen synthesis; lipogenesis; gluconeogenesis OFF</td>
+<td>GLUT4; glycogen synthesis; protein synthesis</td>
+<td>GLUT4; lipogenesis; lipolysis OFF</td>
+</tr>
+<tr>
+<td>Glucagon</td>
+<td>Low glucose</td>
+<td>Glycogenolysis; gluconeogenesis ON; ketogenesis</td>
+<td>Minimal (no glucagon receptor)</td>
+<td>Lipolysis (via FFA release)</td>
+</tr>
+<tr>
+<td>Epinephrine</td>
+<td>Stress/exercise</td>
+<td>Glycogenolysis; gluconeogenesis</td>
+<td>Glycogenolysis; glucose uptake</td>
+<td>Lipolysis (beta<span class="math inline">\(_3\)</span>-AR → cAMP →
+PKA → HSL)</td>
+</tr>
+<tr>
+<td>Cortisol</td>
+<td>Chronic stress</td>
+<td>Gluconeogenesis (PEPCK gene induction)</td>
+<td>Protein catabolism → AAs for GNG</td>
+<td>Lipolysis (central redistribution)</td>
+</tr>
+<tr>
+<td>Leptin</td>
+<td>Adiposity signal</td>
+<td>Central: inhibits NPY/AgRP → appetite suppression</td>
+<td>FA oxidation (via AMPK)</td>
+<td>Lipogenesis suppressed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="substrate-futile-cycles">Substrate (Futile) Cycles</h2>
+<p>A <strong>substrate cycle</strong> involves two opposing metabolic
+reactions operating simultaneously:</p>
+<p><span class="math display">\[\text{Fructose-6-P} + \text{ATP}
+\xrightarrow{\text{PFK-1}} \text{Fructose-1,6-BP} + \text{ADP}
+\tag{11.5}\]</span></p>
+<p><span class="math display">\[\text{Fructose-1,6-BP} +
+\text{H}_2\text{O} \xrightarrow{\text{FBPase-1}} \text{Fructose-6-P} +
+\text{P}_i \tag{11.6}\]</span></p>
+<p>Net reaction: ATP → ADP + P<span class="math inline">\(_i\)</span>
+(energy dissipated as heat)</p>
+<p><strong>Why substrate cycles are useful (Newsholme hypothesis,
+1984):</strong></p>
+<p><span class="math display">\[\text{Amplification factor} =
+\frac{v_{\text{PFK}} + v_{\text{FBPase}}}{v_{\text{PFK}} -
+v_{\text{FBPase}}} \tag{11.7}\]</span></p>
+<p>When both enzymes run at 50 U/min each and net flux is 1 U/min, a 10%
+change in PFK produces a 500% change in net flux — <strong>metabolic
+rheostat</strong> behaviour. Substrate cycles provide ultrasensitive
+flux control at the cost of ATP.</p>
+<p><strong>Thermogenic substrate cycles:</strong> - <strong>Brown
+adipose tissue (BAT):</strong> UCP1 short-circuits the ETC proton
+gradient → heat (non-shivering thermogenesis) - <strong>Sarcolipin/SERCA
+cycle</strong> in skeletal muscle: sarcolipin uncouples SERCA Ca<span
+class="math inline">\(^{2+}\)</span> pumping from Ca<span
+class="math inline">\(^{2+}\)</span> retention, dissipating ATP as heat
+- <strong>Insect flight muscle:</strong> glycolytic futile cycles
+generate heat rapidly to reach flight temperature (~40 degrees C)</p>
+<hr />
+<h2 id="obesity-and-metabolic-syndrome">Obesity and Metabolic
+Syndrome</h2>
+<p>Metabolic syndrome is a cluster of conditions (central obesity,
+insulin resistance, dyslipidaemia, hypertension, hyperglycaemia) that
+dramatically increase cardiovascular disease risk.</p>
+<h3 id="visceral-fat-as-an-endocrine-organ">Visceral Fat as an Endocrine
+Organ</h3>
+<p>The shift in our understanding of adipose tissue — from “passive
+triglyceride storage depot” to “active endocrine organ” — is one of the
+most consequential paradigm changes in metabolism research of the last
+30 years. <strong>Visceral adipose tissue (VAT)</strong>, the fat depot
+surrounding intra-abdominal organs, behaves very differently from
+subcutaneous adipose tissue (SAT):</p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 46%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>Property</th>
+<th>Subcutaneous adipose (SAT)</th>
+<th>Visceral adipose (VAT)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adipocyte size</td>
+<td>Smaller, more uniform</td>
+<td>Hypertrophic, heterogeneous</td>
+</tr>
+<tr>
+<td>Lipolysis sensitivity to catecholamines</td>
+<td>Modest</td>
+<td>High (β<span class="math inline">\(_3\)</span>-AR-driven)</td>
+</tr>
+<tr>
+<td>Insulin sensitivity</td>
+<td>High</td>
+<td>Low</td>
+</tr>
+<tr>
+<td>Drainage</td>
+<td>Systemic circulation</td>
+<td><strong>Hepatic portal vein</strong> (direct to liver)</td>
+</tr>
+<tr>
+<td>Macrophage infiltration</td>
+<td>Low (fed state)</td>
+<td>High (M1-skewed)</td>
+</tr>
+<tr>
+<td>Adipokine output</td>
+<td>Adiponectin &gt; leptin</td>
+<td>Leptin &gt; adiponectin; ↑ TNF-α, IL-6, RBP4, MCP-1</td>
+</tr>
+<tr>
+<td>Cardiovascular disease risk</td>
+<td>Modest</td>
+<td>High</td>
+</tr>
+</tbody>
+</table>
+<p>The portal-vein drainage means that VAT lipolytic products (FFAs,
+glycerol) and pro-inflammatory cytokines (TNF-α, IL-6) hit the liver at
+much higher concentrations than they do peripheral tissues — driving
+hepatic insulin resistance, NAFLD, and a chronic low-grade systemic
+inflammatory state.</p>
+<p><strong>Key adipokines:</strong></p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 57%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th>Adipokine</th>
+<th>Direction in obesity</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Leptin</strong></td>
+<td>↑ (proportional to fat mass)</td>
+<td>Hypothalamic POMC/AgRP signaling — appetite suppression; resistance
+develops with chronic elevation</td>
+</tr>
+<tr>
+<td><strong>Adiponectin</strong></td>
+<td>↓ in obesity</td>
+<td>Insulin-sensitizing; AMPK activator; anti-inflammatory</td>
+</tr>
+<tr>
+<td><strong>TNF-α</strong></td>
+<td>↑ (from infiltrating macrophages)</td>
+<td>IRS-1 Ser phosphorylation via JNK/IKK-β</td>
+</tr>
+<tr>
+<td><strong>IL-6</strong></td>
+<td>↑</td>
+<td>Hepatic CRP induction; insulin resistance in liver</td>
+</tr>
+<tr>
+<td><strong>MCP-1</strong></td>
+<td>↑</td>
+<td>Recruits more macrophages → vicious cycle</td>
+</tr>
+<tr>
+<td><strong>RBP4</strong></td>
+<td>↑</td>
+<td>Promotes hepatic gluconeogenesis</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Molecular mechanisms of insulin resistance in
+obesity:</strong> 1. <strong>Lipid overflow:</strong> Adipose tissue
+capacity exceeded → ectopic lipid deposition in liver (NAFLD) and muscle
+2. <strong>DAG accumulation</strong> → PKC-epsilon (liver) / PKC-theta
+(muscle) → IRS-1 Ser phosphorylation 3. <strong>Ceramide
+accumulation</strong> → PP2A activation → Akt dephosphorylation 4.
+<strong>Adipose inflammation:</strong> Hypertrophic adipocytes secrete
+TNF-alpha, IL-6, MCP-1 → macrophage infiltration → chronic low-grade
+inflammation → JNK/IKK-beta activation → IRS-1 serine phosphorylation 5.
+<strong>ER stress:</strong> Lipid overload overwhelms ER folding
+capacity → UPR → JNK → IRS-1 serine phosphorylation 6.
+<strong>Mitochondrial dysfunction:</strong> Incomplete fatty acid
+oxidation → ROS → oxidative stress → insulin resistance</p>
+<blockquote>
+<p><strong>Clinical Connection: GLP-1 Receptor Agonists</strong>
+Glucagon-like peptide-1 (GLP-1) receptor agonists (semaglutide,
+liraglutide, tirzepatide) have revolutionised treatment of both type 2
+diabetes and obesity. They: - Enhance glucose-dependent insulin
+secretion - Suppress glucagon secretion - Slow gastric emptying
+(satiety) - Act on hypothalamic appetite centres (weight loss of 15–20%)
+- Reduce cardiovascular events and NAFLD progression Tirzepatide is a
+dual GIP/GLP-1 receptor agonist achieving even greater weight loss
+(~22.5% in trials).</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 5:</strong> Explain why <a
+href="#gl:aerobic"><strong>aerobic</strong></a> exercise improves
+insulin sensitivity even without weight loss. Consider the effects of
+exercise on AMPK, GLUT4, mitochondrial biogenesis, and intramyocellular
+lipid turnover.</p>
+</blockquote>
+<hr />
+<h2 id="metabolic-control-analysis">Metabolic Control Analysis</h2>
+<p><strong>Metabolic control analysis (MCA)</strong> provides a
+quantitative framework for understanding how control of metabolic flux
+is distributed among pathway enzymes .</p>
+<p><strong>Flux control coefficient (<span
+class="math inline">\(C_i^J\)</span>):</strong> The fractional change in
+pathway flux (<span class="math inline">\(J\)</span>) caused by a
+fractional change in enzyme activity (<span
+class="math inline">\(e_i\)</span>), with most other variables held
+constant:</p>
+<p><span class="math display">\[C_i^J = \frac{e_i}{J} \cdot
+\frac{\partial J}{\partial e_i} = \frac{\partial \ln J}{\partial \ln
+e_i} \tag{11.8}\]</span></p>
+<p>Each <span class="math inline">\(C_i^J\)</span> ranges from 0 (this
+enzyme has no control over flux) to ~1 (this enzyme has near-total
+control). Negative values are possible for enzymes that produce
+inhibitors of the pathway.</p>
+<p><strong>Summation theorem:</strong> The combined flux control
+coefficients in a pathway sum to 1:</p>
+<p><span class="math display">\[\begin{equation}
+\sum_i C_i^J = 1
+\label{eq:unit_III_mca_summation}
+\end{equation}\]</span></p>
+<p>This means control is <strong>shared</strong> among most enzymes, not
+concentrated at a single “rate-limiting step.” In practice, one or a few
+enzymes may have larger <span class="math inline">\(C_i^J\)</span>
+values, but the concept of a single rate-limiting step is an
+oversimplification.</p>
+<p>For example, in glycolysis under physiological conditions, the flux
+control coefficients for hexokinase, PFK-1, pyruvate kinase, and the
+pyruvate transporter are most in the range <span
+class="math inline">\(C_i^J \approx 0.1\)</span>–<span
+class="math inline">\(0.3\)</span> — no single enzyme dominates, and the
+precise distribution shifts with cellular state. This is why drug
+therapies that target a single glycolytic enzyme often have surprisingly
+modest effects on overall flux: the pathway redistributes control.</p>
+<h3 id="metabolomics-measuring-the-metabolic-state">Metabolomics:
+Measuring the Metabolic State</h3>
+<p><strong>Metabolomics</strong> is the systematic measurement of
+small-molecule metabolites — the experimental complement to MCA, since
+you cannot compute flux control coefficients without measuring
+concentrations and fluxes.</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 22%" />
+<col style="width: 20%" />
+<col style="width: 18%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Sensitivity</th>
+<th>Resolution</th>
+<th>Strengths</th>
+<th>Weaknesses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NMR</strong> (<span class="math inline">\(^1\)</span>H,
+<span class="math inline">\(^{13}\)</span>C, <span
+class="math inline">\(^{31}\)</span>P)</td>
+<td>µM–mM (~10<span class="math inline">\(^4\)</span> molecules)</td>
+<td>Quantitative; structure-resolving</td>
+<td>Non-destructive; absolute quantification; detects isomers</td>
+<td>Lower sensitivity than MS; needs ~mg sample; chemical-shift overlap
+in complex mixtures</td>
+</tr>
+<tr>
+<td><strong>LC-MS</strong> (HILIC + reversed phase)</td>
+<td>nM–µM (~10<span class="math inline">\(^7\)</span> molecules)</td>
+<td>High sensitivity</td>
+<td>Targeted and untargeted; broad metabolite coverage</td>
+<td>Ionization bias (different molecules ionize differently); matrix
+effects; needs MS<span class="math inline">\(^2\)</span> for confident
+ID</td>
+</tr>
+<tr>
+<td><strong>GC-MS</strong></td>
+<td>nM (with derivatisation)</td>
+<td>Very reproducible spectra</td>
+<td>Mature databases (NIST, GMD); quantitative</td>
+<td>Requires volatile derivatives; not most metabolites compatible</td>
+</tr>
+<tr>
+<td><strong>CE-MS</strong></td>
+<td>nM</td>
+<td>Polar/charged metabolites</td>
+<td>Excellent for phosphometabolites, amines</td>
+<td>Low robustness; less mature databases</td>
+</tr>
+<tr>
+<td><strong>Imaging MS (DESI/MALDI-MSI)</strong></td>
+<td>µM</td>
+<td>Spatially resolved</td>
+<td>Tissue-level metabolic mapping</td>
+<td>Lower mass accuracy than LC-MS; no separation step</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key challenges:</strong></p>
+<ol type="1">
+<li><strong>Identification.</strong> A typical untargeted LC-MS run
+detects 5,000–30,000 features but about 10–20% can be confidently
+identified. The remaining “dark metabolome” comprises mass spectra with
+no database match — a major bottleneck.</li>
+<li><strong>Compartmentation.</strong> Metabolomics typically
+homogenises tissue, losing information about which metabolites were in
+mitochondria vs cytoplasm vs lysosome. Subcellular metabolomics
+(genetically encoded sensors, organelle isolation) is an emerging
+frontier.</li>
+<li><strong>Flux ≠ concentration.</strong> A high concentration of an
+intermediate may reflect either high flux through that step <em>or</em>
+a downstream block. Stable-isotope tracing (<span
+class="math inline">\(^{13}\)</span>C-glucose, <span
+class="math inline">\(^{15}\)</span>N-glutamine) is required to measure
+fluxes, not concentrations.</li>
+</ol>
+<p>These data feed directly into MCA models: combining flux measurements
+(from <span class="math inline">\(^{13}\)</span>C tracing) with
+elasticity coefficients (from in vitro enzyme kinetics) gives an
+empirical <span class="math inline">\(C_i^J\)</span> for each enzyme,
+validating or revising textbook claims about which step is
+“rate-limiting.”</p>
+<blockquote>
+<p><strong>Concept Check 6:</strong> A drug increases hexokinase
+activity by 50% in muscle. From fasting biopsies, the flux control
+coefficient <span class="math inline">\(C_{HK}^J\)</span> for hexokinase
+in glycolysis was estimated at 0.2. Use to predict the maximum
+fractional change in glycolytic flux. Why is the prediction an upper
+bound, not a precise value?</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 7:</strong> A patient with chronic alcohol
+consumption shows elevated NADH/NAD<span
+class="math inline">\(^+\)</span> ratio in cytoplasm and impaired
+gluconeogenesis. Using , predict whether the energy charge is preserved
+or depressed, and explain why fasting hypoglycaemia is a clinical
+risk.</p>
+</blockquote>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>Drug effects on pathway enzymes are often framed like competitive
+inhibitors shifting apparent <span class="math inline">\(K_m\)</span>.
+The biochemistry module exposes both curves numerically:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.biochemistry <span class="im">import</span> michaelis_menten, competitive_inhibition</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>base <span class="op">=</span> michaelis_menten(<span class="fl">4.0</span>, Vmax<span class="op">=</span><span class="fl">100.0</span>, Km<span class="op">=</span><span class="fl">5.0</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>blocked <span class="op">=</span> competitive_inhibition(<span class="fl">4.0</span>, <span class="fl">100.0</span>, <span class="fl">5.0</span>, inhibitor_conc<span class="op">=</span><span class="fl">5.0</span>, Ki<span class="op">=</span><span class="fl">2.5</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">round</span>(base.reaction_rate, <span class="dv">2</span>), <span class="bu">round</span>(blocked.reaction_rate, <span class="dv">2</span>))</span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> Metformin, SGLT2
+inhibitors, and GLP-1 agonists reshape the same integrative network
+(hepatic glucose output, peripheral uptake, renal glucose loss) that
+insulin and glucagon command — illustrating multi-node control rather
+than a single “rate-limiting” hormone.</p>
+</blockquote>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Metabolic Integration and Regulation</strong>, frontier
+biology belongs inside the evidence logic of the chapter. Metabolism is
+now studied as a regulated network constrained by energy, redox balance,
+compartmentation, and environment. The core reading question is this:
+metabolic integration depends on compartmentation, hormone state,
+nutrient availability, and time scale.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>A strong metabolic explanation names the flux, the limiting step, the
+sensor, and the condition under which the pathway changes direction or
+priority.</p>
+<p><strong>Source practice:</strong> For metabolic claims, keep the
+organism, compartment, energetic state, and measurement method visible;
+a pathway map is not enough without flux or concentration evidence.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>AMPK</strong> (heterotrimer of two catalytic α + two
+regulatory β/γ modules) is activated by elevated AMP/ATP and ADP/ATP
+through Thr172 phosphorylation by <strong>LKB1</strong> (energy stress)
+or <strong>CaMKKβ</strong> (Ca<span
+class="math inline">\(^{2+}\)</span>); it promotes catabolism
+(β-oxidation, glycolysis) and inhibits mTORC1 and anabolism; activates
+autophagy (via ULK1) and mitochondrial biogenesis (via PGC-1α).</li>
+<li><strong>mTORC1</strong> (activated by insulin + amino acids +
+oxygen) is positioned at the lysosome by Rag GTPases bound to the
+<strong>Ragulator complex</strong>; full activation requires both amino
+acid–driven lysosomal recruitment <em>and</em> growth factor–driven
+Rheb-GTP. <strong>Rapamycin</strong> (FKBP12 complex) inhibits
+mTORC1.</li>
+<li><strong>Energy charge</strong> captures the fractional saturation of
+the adenylate pool with high-energy phosphate; cells maintain E.C. ≈
+0.85–0.95.</li>
+<li><strong>Insulin</strong> (PI3K/Akt/mTOR pathway) drives GLUT4
+translocation, glycogen synthesis, lipogenesis, and suppresses
+gluconeogenesis. The phosphorylase kinase / GLUT4-vesicle / 14-3-3-BAD
+effectors are characteristic Akt outputs.</li>
+<li><strong>Glucagon</strong> (cAMP/PKA cascade) drives glycogenolysis
+(via phosphorylase kinase), gluconeogenesis (via CREB transcription),
+and ketogenesis. The hormonal cascade amplifies the signal ~10<span
+class="math inline">\(^7\)</span>-fold from femtomolar hormone to
+millimolar metabolite.</li>
+<li><strong>Gluconeogenesis</strong> uses four bypass enzymes (pyruvate
+carboxylase, PEPCK, FBPase-1, G6Pase) and costs 6 ATP equivalents per
+glucose.</li>
+<li><strong>Beta-oxidation</strong> yields ~106 ATP per palmitoyl-CoA;
+CPT-1 is rate-limiting and inhibited by malonyl-CoA.</li>
+<li><strong>Ketone bodies</strong> (acetoacetate, β-hydroxybutyrate)
+sustain the brain during starvation; liver produces but cannot use them.
+Fasting fuel switching follows a programmed timeline from glycogen →
+fatty acids → ketones over hours-to-weeks.</li>
+<li><strong>Randle cycle:</strong> fatty acid–glucose reciprocal
+inhibition; disrupted in type 2 diabetes.</li>
+<li><strong>Substrate cycles</strong> enable ultrasensitive flux control
+and thermogenesis; amplification factor = (v<span
+class="math inline">\(_1\)</span> + v<span
+class="math inline">\(_2\)</span>)/(v<span
+class="math inline">\(_1\)</span> - v<span
+class="math inline">\(_2\)</span>).</li>
+<li><strong>Metabolic flexibility</strong> (RQ switching) is impaired in
+obesity/T2D due to lipid intermediate accumulation and insulin
+resistance.</li>
+<li><strong>Metabolic control analysis</strong> () shows that flux
+control is distributed, not concentrated at a single rate-limiting
+step.</li>
+<li><strong>Metabolomics</strong> (NMR + LC-MS) provides the empirical
+basis for MCA, with <span class="math inline">\(^{13}\)</span>C tracing
+distinguishing flux from concentration.</li>
+<li><strong>Visceral adipose</strong> is a metabolically active
+endocrine organ whose portal-vein drainage drives hepatic insulin
+resistance, NAFLD, and chronic systemic inflammation.</li>
+<li><strong>Connections:</strong> See for <a
+href="#gl:signal-transduction"><strong>signal transduction</strong></a>
+to mTOR, Unit IX for endocrine first messengers, and for enzyme-level
+kinetics.</li>
+</ul>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li><p>A patient presents with an inherited loss-of-function <a
+href="#gl:mutation"><strong>mutation</strong></a> in LKB1 (the primary
+AMPK upstream kinase). Predict four metabolic consequences in skeletal
+muscle during fasting.</p></li>
+<li><p>Derive the energy charge equation (). If [ATP] = 3.5 mM, [ADP] =
+0.8 mM, [AMP] = 0.2 mM, calculate EC. Is AMPK likely to be
+active?</p></li>
+<li><p>Describe the insulin signalling cascade from receptor binding to
+GLUT4 translocation, including the role of AS160, Rab10, and the SNARE
+complex. At which steps does insulin resistance develop in type 2
+diabetes?</p></li>
+<li><p>Compare gluconeogenesis with glycolysis. Identify the three
+bypass reactions and explain why they are necessary.</p></li>
+<li><p>Calculate the ATP yield from complete oxidation of palmitoyl-CoA
+(C16:0) to CO<span class="math inline">\(_2\)</span> and H<span
+class="math inline">\(_2\)</span>O, showing most sources of
+ATP.</p></li>
+<li><p>Explain ketone body synthesis and utilisation. Why can the brain
+use ketone bodies but the liver cannot? Sketch the fuel-switching
+timeline from fed to 30-day fast.</p></li>
+<li><p>The Randle cycle operates in heart muscle. In a patient with type
+2 diabetes and chronically elevated plasma FFA: predict changes in
+cardiac PDH activity, cardiac efficiency, and susceptibility to
+ischaemia.</p></li>
+<li><p>Compare the amplification advantages of the PFK-1/FBPase-1
+substrate cycle in liver with UCP1-mediated thermogenesis in brown
+adipose tissue.</p></li>
+<li><p>Explain how metformin improves glycaemic control. Describe its
+effects on Complex I, AMPK, and hepatic gluconeogenesis.</p></li>
+<li><p>Describe three molecular mechanisms by which obesity causes
+insulin resistance. For each, identify the lipid species involved and
+the downstream kinase that phosphorylates IRS-1.</p></li>
+<li><p>Using the <a
+href="#gl:competitive-inhibition"><strong>competitive
+inhibition</strong></a> example in the bridge, explain why simply
+raising substrate concentration can overcome some drug interactions but
+not others (hint: <span class="math inline">\(K_m^{app}\)</span>
+vs. <span class="math inline">\(V_\mathrm{max}\)</span>).</p></li>
+<li><p>Estimate energy charge for [ATP]=2 mM, [ADP]=1.5 mM, [AMP]=0.5
+mM. Is AMPK more likely active than at EC ≈ 0.9?</p></li>
+<li><p>Describe how mTORC1 is recruited to the lysosomal surface by
+amino acid availability. What is the role of Sestrin2, GATOR1/2, and the
+Rag GTPases? Why is mTORC1 a “coincidence detector” rather than a
+single-input sensor?</p></li>
+<li><p>Sketch the phosphorylase kinase amplification cascade and
+estimate the end-to-end signal gain from a single glucagon binding event
+to released glucose-1-phosphate. Why is this amplification
+physiologically necessary?</p></li>
+<li><p>Compare the contributions of subcutaneous and visceral adipose
+tissue to whole-body insulin resistance in obesity. Why does visceral
+fat have a disproportionate effect on hepatic outcomes?</p></li>
+<li><p>Compare NMR and LC-MS as metabolomics platforms. Which is
+preferable for (a) absolute quantification of glucose in serum, (b)
+discovery of unknown lipid species in muscle biopsies, (c)
+compartment-resolved metabolomics in subcellular fractions?</p></li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Atkinson (1968). The regulation of enzyme activity in metabolism.
+<em>Biochemical Journal</em>, 108 .</li>
+<li>Mitchell (1961). Coupling of phosphorylation to electron and
+hydrogen transfer by a chemi-osmotic type of mechanism. <em>Nature</em>,
+191 .</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AMPK</strong></td>
+<td>AMP-activated protein kinase; principal energy-sensing kinase;
+activated by elevated AMP/ATP via LKB1 or by Ca<span
+class="math inline">\(^{2+}\)</span> via CaMKKβ</td>
+</tr>
+<tr>
+<td><strong>mTORC1</strong></td>
+<td>Mechanistic target of rapamycin complex 1; growth-promoting kinase;
+activated by insulin, amino acids, and growth factors at the lysosomal
+surface</td>
+</tr>
+<tr>
+<td><strong>Ragulator</strong></td>
+<td>Lysosomal scaffold (LAMTOR1–5) that anchors Rag GTPases and recruits
+mTORC1 in response to amino acid availability</td>
+</tr>
+<tr>
+<td><strong>Energy charge (EC)</strong></td>
+<td>([ATP] + 1/2[ADP]) / ([ATP]+[ADP]+[AMP]); normal EC approximately
+0.85–0.95</td>
+</tr>
+<tr>
+<td><strong>Insulin</strong></td>
+<td>Anabolic hormone from beta-cells; PI3K/Akt/mTOR pathway; drives
+glucose uptake, glycogen synthesis, lipogenesis</td>
+</tr>
+<tr>
+<td><strong>Glucagon</strong></td>
+<td>Catabolic hormone from alpha-cells; cAMP/PKA; drives glycogenolysis,
+gluconeogenesis, ketogenesis</td>
+</tr>
+<tr>
+<td><strong>Gluconeogenesis</strong></td>
+<td>Synthesis of glucose from non-carbohydrate precursors; liver and
+kidney; costs 6 ATP</td>
+</tr>
+<tr>
+<td><strong>CPT-1</strong></td>
+<td>Carnitine palmitoyl transferase-1; rate-limiting for mitochondrial
+fatty acid import; inhibited by malonyl-CoA</td>
+</tr>
+<tr>
+<td><strong>Ketone bodies</strong></td>
+<td>Acetoacetate, beta-hydroxybutyrate, acetone; liver-produced; brain
+fuel during starvation</td>
+</tr>
+<tr>
+<td><strong>Phosphorylase kinase</strong></td>
+<td>Multi-subunit kinase activated by PKA; phosphorylates glycogen
+phosphorylase to active “a” form</td>
+</tr>
+<tr>
+<td><strong>Randle cycle</strong></td>
+<td>Reciprocal inhibition of glucose and fatty acid oxidation in heart
+and muscle</td>
+</tr>
+<tr>
+<td><strong>Substrate cycle</strong></td>
+<td>Two opposing reactions running simultaneously; amplifies flux
+control; generates heat</td>
+</tr>
+<tr>
+<td><strong>Metabolic flexibility</strong></td>
+<td>Ability to switch between glucose and fat oxidation; impaired in
+obesity and T2D</td>
+</tr>
+<tr>
+<td><strong>SIRT1</strong></td>
+<td>NAD<span class="math inline">\(^+\)</span>-dependent deacetylase;
+caloric restriction sensor; activates PGC-1alpha</td>
+</tr>
+<tr>
+<td><strong>Metabolic syndrome</strong></td>
+<td>Cluster of central obesity, insulin resistance, dyslipidaemia,
+hypertension, hyperglycaemia</td>
+</tr>
+<tr>
+<td><strong>Visceral adipose tissue</strong></td>
+<td>Fat depot draining via portal vein to liver; endocrine organ
+secreting TNF-α, IL-6, RBP4</td>
+</tr>
+<tr>
+<td><strong>Adipokines</strong></td>
+<td>Hormones secreted by adipose tissue (leptin, adiponectin, resistin,
+RBP4); regulate appetite and insulin sensitivity</td>
+</tr>
+<tr>
+<td><strong>Warburg effect</strong></td>
+<td>Aerobic glycolysis in cancer cells; rapid ATP + biosynthetic
+precursors</td>
+</tr>
+<tr>
+<td><strong>Metabolic control analysis</strong></td>
+<td>Quantitative framework for flux control distribution; summation
+theorem: sum of <span class="math inline">\(C_i^J\)</span> = 1</td>
+</tr>
+<tr>
+<td><strong>Metabolomics</strong></td>
+<td>Systematic measurement of small-molecule metabolites; NMR and LC-MS
+as principal platforms</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Metabolic Integration and Regulation</strong> should leave a
+reproducible trail from a biological claim to the code, figure, diagram,
+or paper-based activity that can test it. Use the surfaces below to
+inspect the chapter’s assumptions, rerun the relevant model, or compare
+the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/biochemistry/biochemistry.py</code>
+(<code>glycolysis_summary</code>, <code>atp_free_energy</code>,
+<code>reaction_free_energy</code>)</td>
+<td>Connect pathway summaries to energy and redox constraints.</td>
+</tr>
+<tr>
+<td><code>src/biology/physiology/physiology.py</code>
+(<code>homeostasis_response</code>)</td>
+<td>Compare cellular flux regulation with organism-level
+homeostasis.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>glycolysis_pathway_diagram</code>,
+<code>hormone_signaling_diagram</code>)</td>
+<td>Link metabolic pathways to endocrine control.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> state fed/fasted status,
+tissue, compartment, and time scale before predicting pathway priority.
+<strong>Cross-reference:</strong> use , , and .</p>
+</body>
+</html>

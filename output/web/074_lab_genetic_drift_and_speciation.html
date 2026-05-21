@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>074_lab_genetic_drift_and_speciation</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered"
+id="lab-20-genetic-drift-gene-flow-and-speciation">Lab 20 — Genetic
+Drift, Gene Flow, and Speciation</h1>
+<p></p>
+<p><em>This activity accompanies of the textbook — review that chapter
+before attempting the exercises below.</em></p>
+<h2 class="unnumbered" id="learning-objectives">Learning Objectives</h2>
+<ul>
+<li>Design and evaluate a founder effect simulation to measure genetic
+drift</li>
+<li>Formulate testable hypotheses about how population size affects
+genetic diversity</li>
+<li>Identify independent, dependent, and controlled variables in
+population genetics experiments</li>
+<li>Analyze experimental data using allele frequency calculations and
+Fst statistics</li>
+<li>Write a brief scientific report with hypothesis, methods, results,
+and conclusion</li>
+</ul>
+<!-- lab-alignment-start -->
+<h3 class="unnumbered" id="alignment-and-rubric-map">Alignment and
+Rubric Map</h3>
+<ul>
+<li><strong>Outcome 1 (LO1):</strong> Interpret the supplied evidence or
+model output for Genetic Drift, Gene Flow, and Speciation.</li>
+<li><strong>Outcome 2 (LO2):</strong> Identify controls and comparison
+groups that make the claim testable.</li>
+<li><strong>Outcome 3 (LO3):</strong> Quantify uncertainty, boundary
+conditions, or alternative explanations before concluding.</li>
+<li><strong>Outcome 4 (LO4):</strong> Transfer the mechanism to a new
+biological case or public-facing decision.</li>
+<li><strong>Chapter LO coverage:</strong> LO1, LO2, LO3, LO4</li>
+<li><strong>Rubric dimensions:</strong> evidence; controls; uncertainty;
+mechanism; transfer. <!-- lab-alignment-end --> ## Pre-Lab Inquiry
+Questions {.unnumbered}</li>
+</ul>
+<p><em>Complete these questions before coming to lab. Use your textbook
+and additional research to inform your hypotheses.</em></p>
+<ol type="1">
+<li><p><strong>Hypothesis Formation</strong>: Based on your
+understanding of genetic drift, predict how the allele frequency in a
+small founding population (e.g., 6 individuals) would compare to the
+source population (100 individuals). Write a clear, testable
+hypothesis.</p></li>
+<li><p><strong>Experimental Design</strong>: What is the independent
+variable in a genetic drift simulation? What is the dependent variable?
+List at least 5 variables that should be controlled to ensure valid
+results.</p></li>
+<li><p><strong>Scientific Context</strong>: The Fixation Index (Fst)
+quantifies genetic differentiation between populations. Why is this
+measure important in evolutionary biology? How does it relate to gene
+flow and speciation?</p></li>
+<li><p><strong>Quantitative Reasoning</strong>: If two populations have
+allele frequencies of 0.8 and 0.2 for the same gene, what would their
+Fst be? Show your calculation.</p></li>
+<li><p><strong>Real-World Application</strong>: The founder effect is
+thought to have played a role in the high prevalence of certain genetic
+disorders in isolated populations (e.g., Tay-Sachs in Ashkenazi Jews).
+How does the founder effect explain this pattern? What are the
+implications for genetic counseling?</p></li>
+</ol>
+<h2 class="unnumbered" id="background">Background</h2>
+<p>Even without natural selection, populations evolve through random
+genetic drift, gene flow, and mutation. The <strong>founder
+effect</strong> (a special case of bottleneck) occurs when a small
+number of individuals colonise a new area, carrying primarily a subset
+of the original gene pool’s variation. <strong>Speciation</strong> — the
+formation of new species — occurs when reproductive isolation evolves
+between populations, typically after geographic (allopatric) or
+ecological (sympatric) separation. The Fixation Index <strong>Fst = (H_T
+− H_S) / H_T</strong> quantifies genetic differentiation between
+populations (0 = no differentiation; 1 = complete differentiation).</p>
+<h2 class="unnumbered" id="paper-based-materials">Paper-Based
+Materials</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100 beads (50 red, 50 blue — representing two alleles) in a bag</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Second bag for “new island”</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Speciation case study cards (allopatric: Hawaiian honeycreepers;
+sympatric: cichlid fish in Lake Victoria)</td>
+<td>1 set</td>
+</tr>
+<tr>
+<td>Galapagos mockingbird morphological data (printed: beak length, body
+mass per island)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Calculator</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Graph paper</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Calculator or optional Python REPL with this project installed</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Population genetics worksheet</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered" id="paper-based-investigation">Paper-Based
+Investigation</h2>
+<h3 class="unnumbered" id="part-1-founder-effect-simulation">Part 1:
+Founder Effect Simulation</h3>
+<ol type="1">
+<li><p><strong>Formulate Your Hypothesis</strong>: Based on your pre-lab
+research, write a hypothesis about how the size of a founding population
+affects the rate of genetic drift.</p></li>
+<li><p><strong>Identify Variables</strong>:</p>
+<ul>
+<li>Independent variable: Founder population size (6 vs 20
+individuals)</li>
+<li>Dependent variable: Change in allele frequency from source
+population</li>
+<li>Controlled variables: Source population allele frequency, number of
+generations, etc.</li>
+</ul></li>
+<li><p><strong>Set Up Controls</strong>: Why is it important to start
+with a known source population allele frequency? What other controls
+could you include in a genetic drift simulation?</p></li>
+<li><p><strong>Data Collection</strong>:</p>
+<ul>
+<li>Start: 100 beads at p = 0.5. Draw 6 beads randomly (founder
+population) — do not replace.</li>
+<li>Record allele frequencies in the founder group; use these to
+repopulate to 100 (multiply founder frequencies × 100).</li>
+<li>Repeat sampling: draw 20 from the new population to simulate a
+moderate founding event.</li>
+<li>Compare p values: original, 6-founder, 20-founder.</li>
+<li>Perform at least 3 replicates for each founder size.</li>
+</ul></li>
+</ol>
+<h3 class="unnumbered"
+id="part-2-computational-biology-exercise---population-genetics-analysis-with-python">Part
+2: Computational Biology Exercise - Population Genetics Analysis with
+Python</h3>
+<p><em>Optional computational check: run this self-contained Python
+snippet from the project root. It uses tested <code>src/biology</code>
+modules and requires no external notebook or CSV file.</em></p>
+<p>Run deterministic drift simulations by fixing the random seed.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.evolution <span class="im">import</span> isolation_index, simulate_drift</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>small <span class="op">=</span> simulate_drift(p<span class="op">=</span><span class="fl">0.5</span>, N<span class="op">=</span><span class="dv">20</span>, generations<span class="op">=</span><span class="dv">10</span>, rng_seed<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>large <span class="op">=</span> simulate_drift(p<span class="op">=</span><span class="fl">0.5</span>, N<span class="op">=</span><span class="dv">500</span>, generations<span class="op">=</span><span class="dv">10</span>, rng_seed<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;small-population final p:&quot;</span>, <span class="bu">round</span>(small[<span class="op">-</span><span class="dv">1</span>], <span class="dv">3</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;large-population final p:&quot;</span>, <span class="bu">round</span>(large[<span class="op">-</span><span class="dv">1</span>], <span class="dv">3</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;isolation example:&quot;</span>, <span class="bu">round</span>(isolation_index(gene_flow_rate<span class="op">=</span><span class="fl">0.01</span>, mutation_rate<span class="op">=</span><span class="fl">0.001</span>), <span class="dv">3</span>))</span></code></pre></div>
+<h3 class="unnumbered"
+id="part-3-morphological-divergence-analysis">Part 3: Morphological
+Divergence Analysis</h3>
+<ol start="5" type="1">
+<li><p><strong>Design an Alternative Investigation</strong>: Instead of
+just analyzing provided morphological data, design a paper-based
+comparison to test how geographic isolation affects trait divergence in
+a natural population. What hypothesis would you test? Which archived
+measurements, sample sizes, and map distances would you need?</p></li>
+<li><p><strong>Hypothesis</strong>: Predict the relationship between
+geographic distance and morphological divergence. Would you expect a
+linear relationship, or something else? Why?</p></li>
+</ol>
+<h2 class="unnumbered" id="data-recording">Data Recording</h2>
+<table>
+<thead>
+<tr>
+<th>Founding event</th>
+<th>Sample size</th>
+<th>p (red allele)</th>
+<th>q (blue allele)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Original</td>
+<td>100</td>
+<td>0.5</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>6-founder</td>
+<td>6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>20-founder</td>
+<td>20</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Mockingbird data summary (fill from provided table):</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 30%" />
+<col style="width: 27%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr>
+<th>Island</th>
+<th>Mean beak length (mm)</th>
+<th>Mean body mass (g)</th>
+<th>Distinct from others?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Santa Cruz</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Genovesa</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Española</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Fernandina</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Fst calculation: H_T = <strong><em>; H_S = </em></strong>; Fst = ___;
+Interpretation:</p>
+<!-- lab-evidence-checklist-start -->
+<h2 class="unnumbered"
+id="evidence-and-reproducibility-checklist">Evidence and Reproducibility
+Checklist</h2>
+<ul>
+<li><strong>Primary evidence goal:</strong> Model drift and speciation
+scenarios with repeated trials.</li>
+<li><strong>Data skill to practice:</strong> Distinguish stochastic from
+directional change in allele-frequency data.</li>
+<li><strong>BioSkills emphasis:</strong> Modeling and simulation,
+Quantitative reasoning, Communication and collaboration.</li>
+<li><strong>Control logic:</strong> identify at least one positive
+control, one negative control, or one baseline comparison before
+interpreting results.</li>
+<li><strong>Measurement discipline:</strong> record units, uncertainty,
+sample size, and any discarded observation with a reason.</li>
+<li><strong>Mechanistic link:</strong> connect one result directly to
+the parent chapter’s big idea before writing the conclusion.</li>
+<li><strong>Reproducibility check:</strong> state one procedural detail
+that another group would need in order to reproduce the result.
+<!-- lab-evidence-checklist-end --></li>
+</ul>
+<h2 class="unnumbered" id="paper-based-evidence-upgrade">Paper-Based
+Evidence Upgrade</h2>
+<p>Before answering the analysis questions, annotate the paper dataset
+for <strong>Genetic Drift, Gene Flow, and Speciation</strong> with a
+reproducibility pass:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Evidence check</th>
+<th>Student action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control logic</td>
+<td>Mark the comparison that functions as the baseline, negative
+control, or reference case.</td>
+</tr>
+<tr>
+<td>Uncertainty</td>
+<td>Circle the row, card, diagram feature, or model assumption most
+likely to change the conclusion.</td>
+</tr>
+<tr>
+<td>Model comparison</td>
+<td>State whether a simpler rule, null model, or alternative mechanism
+could explain the same pattern.</td>
+</tr>
+<tr>
+<td>Decision threshold</td>
+<td>Write the minimum evidence that would make you revise the
+interpretation.</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>Record the exact scoring rule another group would need to reproduce
+your classification.</td>
+</tr>
+</tbody>
+</table>
+<p>Focus note: in this founder-event and <span
+class="math inline">\(F_{ST}\)</span> lab, distinguish allele-frequency
+change caused by sampling in small colonising groups (drift) from
+differentiation maintained by restricted gene flow, and state which
+reproductive-isolation barrier each cichlid or mockingbird comparison
+would require before calling the populations distinct species. Keep
+required work paper-based; any material-handling or equipment version
+belongs only in an optional extension.</p>
+<h2 class="unnumbered" id="analysis-questions">Analysis Questions</h2>
+<ol type="1">
+<li><p>How did the allele frequencies in the 6-founder event compare to
+the original population? What does this demonstrate about why small
+colonising populations often show low genetic diversity compared to
+mainland populations?</p></li>
+<li><p>The mockingbird populations on different Galapagos islands show
+morphological divergence. What mechanism prevented gene flow between
+islands, and what type of speciation does this represent? What
+reproductive isolation mechanisms would need to evolve for them to
+become separate species?</p></li>
+<li><p>Fst = 0 indicates populations are identical (freely exchanging
+genes). Fst = 1 indicates complete isolation. How would you interpret
+Fst = 0.15 — is there gene flow? Use your calculated Fst to describe the
+degree of isolation between cichlid populations A, B, and C.</p></li>
+<li><p>Lake Victoria cichlids underwent adaptive radiation in ~15,000
+years, producing &gt;500 species. What does this rapid speciation
+suggest about the speed at which reproductive isolation can evolve? What
+kind of speciation (allopatric, parapatric, or sympatric) is most
+consistent with this pattern?</p></li>
+<li><p>Ring species (like Larus gulls circling the Arctic) demonstrate
+speciation in action: adjacent populations can interbreed, but the two
+ends of the ring cannot. Explain what this demonstrates about the
+continuity of the speciation process and why ring species challenge a
+strict definition of “species.”</p></li>
+</ol>
+<h2 class="unnumbered" id="extension-analysis-questions">Extension
+Analysis Questions</h2>
+<ol start="6" type="1">
+<li><p><strong>Statistical Analysis</strong>: If you performed three
+replicates of the founder effect simulation, how would you analyze the
+variation in allele frequency change? What statistical test would you
+use to determine if differences between founder sizes are
+significant?</p></li>
+<li><p><strong>Experimental Error Analysis</strong>: What are three
+potential sources of error in the bead simulation? How could you modify
+the procedure to reduce each source of error?</p></li>
+<li><p><strong>Experimental Design</strong>: If you wanted to test
+whether two populations are diverging due to genetic drift or natural
+selection, how would you design the experiment? What data would you
+collect? How would you analyze it?</p></li>
+</ol>
+<h2 class="unnumbered" id="group-project-extension-multi-session">Group
+Project Extension (Multi-Session)</h2>
+<p><strong>Design a Study of Human Population
+Differentiation</strong></p>
+<p>This project will span 2-3 lab sessions:</p>
+<p><strong>Session 1</strong>: Research Question and Hypothesis - How
+does geographic distance affect genetic differentiation in human
+populations? - Formulate a hypothesis about the relationship between
+distance and Fst - Design a study using publicly available genetic data
+(e.g., 1000 Genomes Project)</p>
+<p><strong>Session 2</strong>: Data Collection and Analysis - Download
+genetic data for multiple populations - Calculate Fst between population
+pairs - Plot Fst against geographic distance</p>
+<p><strong>Session 3</strong>: Data Interpretation and Presentation -
+Analyze the correlation between distance and genetic differentiation -
+Discuss the implications for understanding human migration history -
+Create a scientific poster or presentation</p>
+<h2 class="unnumbered"
+id="real-world-problem-solving-conservation-genetics">Real-World Problem
+Solving: Conservation Genetics</h2>
+<p><strong>Case Study: Genetic Rescue of Endangered
+Populations</strong></p>
+<ol type="1">
+<li><p><strong>Research Task</strong>: Investigate the Florida panther
+bottleneck. How did genetic drift and inbreeding depression affect the
+population? What was the outcome of the genetic rescue program?</p></li>
+<li><p><strong>Ethical Consideration</strong>: Should we introduce
+individuals from other populations to increase genetic diversity in
+endangered species? What are the potential benefits and risks (e.g.,
+outbreeding depression)?</p></li>
+<li><p><strong>Policy Proposal</strong>: Design a policy for managing
+genetic diversity in small, isolated populations. Consider: when to
+intervene, how to select individuals for translocation, and how to
+monitor success.</p></li>
+</ol>
+<h2 class="unnumbered" id="safety-and-ethics-notes">Safety and Ethics
+Notes</h2>
+<p>Bead simulation: ensure beads are not ingested. Discussions of
+speciation based on genetic data should be careful not to conflate
+genetic population differences with outdated racial taxonomic thinking.
+Consider the ethical implications of conservation genetics.</p>
+<h2 class="unnumbered" id="debrief-and-reflection">Debrief and
+Reflection</h2>
+<p>After you finish the practical work, spend 5–10 minutes in your small
+group comparing results and discussing the following prompts. Each
+member should contribute at least one observation before moving to the
+next prompt:</p>
+<ol type="1">
+<li><p><strong>What did your measurements show</strong> — compare the
+group’s results to the textbook’s predictions. Where they diverge,
+suggest at least one mechanistic explanation before concluding
+“experimental error.”</p></li>
+<li><p><strong>What would change the outcome</strong> — propose one
+modification to the procedure that would sharpen the measurement or
+extend the result to a new biological context, and predict what you
+would observe.</p></li>
+<li><p><strong>One-sentence headline</strong> — each student composes a
+single sentence summarising the lab’s take-home message, suitable for a
+tweet. Compare sentences across groups; good headlines are short,
+quantitative, and mechanistic.</p></li>
+<li><p><strong>Connection back to the textbook</strong> — identify one
+section of that your data either confirmed or complicated. Cite the
+specific passage.</p></li>
+<li><p><strong>Experimental Design Reflection</strong>: What was the
+strongest aspect of your experimental design? What would you change if
+you could repeat the experiment?</p></li>
+</ol>
+<h2 class="unnumbered" id="further-reading-lab">Further Reading
+(Lab)</h2>
+<ul>
+<li>Revisit the parent chapter for the theoretical foundations on which
+this lab is built.</li>
+<li>Look up any <strong>bolded glossary term</strong> introduced in the
+textbook chapter (each has a <code>#gl:term-slug</code> link in the
+text) — its master definition is in
+<code>manuscript/glossary.md</code>.</li>
+<li>Explore the Python code in
+<code>src/biology/evolution/evolution.py</code> for population genetics
+calculations.</li>
+<li>Use the self-contained Part 2 snippet as the computational template;
+it runs against tested project modules without external notebooks or CSV
+files.</li>
+</ul>
+</body>
+</html>

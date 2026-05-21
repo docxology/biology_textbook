@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>087_lab_community_ecology</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered"
+id="lab-33-community-ecology-and-species-interactions">Lab 33 —
+Community Ecology and Species Interactions</h1>
+<p></p>
+<h2 class="unnumbered" id="learning-objectives">Learning Objectives</h2>
+<p><em>This activity accompanies of the textbook — review that chapter
+before attempting the exercises below.</em></p>
+<ul>
+<li>Interpret a paper-based competition dataset between two species
+using Lotka-Volterra predictions</li>
+<li>Analyse food web data to determine trophic levels and calculate
+energy transfer efficiency</li>
+<li>Evaluate keystone predator effects using a removal/addition case
+study</li>
+<li>Apply successional theory to interpret vegetation data from
+different chronosequences</li>
+</ul>
+<!-- lab-alignment-start -->
+<h3 class="unnumbered" id="alignment-and-rubric-map">Alignment and
+Rubric Map</h3>
+<ul>
+<li><strong>Outcome 1 (LO1):</strong> Interpret the supplied evidence or
+model output for Community Ecology and Species Interactions.</li>
+<li><strong>Outcome 2 (LO2):</strong> Identify controls and comparison
+groups that make the claim testable.</li>
+<li><strong>Outcome 3 (LO3):</strong> Quantify uncertainty, boundary
+conditions, or alternative explanations before concluding.</li>
+<li><strong>Outcome 4 (LO4):</strong> Transfer the mechanism to a new
+biological case or public-facing decision.</li>
+<li><strong>Chapter LO coverage:</strong> LO1, LO2, LO3, LO4</li>
+<li><strong>Rubric dimensions:</strong> evidence; controls; uncertainty;
+mechanism; transfer. <!-- lab-alignment-end --> ## Background
+{.unnumbered}</li>
+</ul>
+<p>Community ecology studies how species interact (competition,
+predation, mutualism, commensalism, parasitism) and how those
+interactions shape community composition. The Lotka-Volterra competition
+model predicts stable coexistence primarily when intraspecific
+competition &gt; interspecific competition for both species (Gause’s
+principle: competitive exclusion eliminates one species if niches
+overlap completely). Energy flows through trophic levels with ~10%
+efficiency: about 10% of energy at level N reaches level N+1 (ecological
+pyramid).</p>
+<h2 class="unnumbered" id="paper-based-materials">Paper-Based
+Materials</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lotka-Volterra outcome table (4 cases: stable coexistence, species 1
+wins, species 2 wins, unstable equilibrium)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Food web diagram: temperate forest ecosystem (15 species, 3 trophic
+levels)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Species competition dataset (N1 and N2 over 14 days in mono- and
+mixed treatments)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Successional chronosequence and remote-sensing cards (bare substrate
+-&gt; pioneer -&gt; scrub -&gt; forest)</td>
+<td>1 set</td>
+</tr>
+<tr>
+<td>Ecosystem-service decision matrix for pollination, carbon storage,
+flood buffering, and recreation</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Calculator</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered" id="paper-based-investigation">Paper-Based
+Investigation</h2>
+<p><strong>Part A — Competition Simulation/Analysis</strong></p>
+<ol type="1">
+<li>Using the competition dataset, plot N1 and N2 over time in mixed
+treatment on one graph.</li>
+<li>Predict the competitive outcome from the Lotka-Volterra equilibrium
+conditions (α₁₂ and α₂₁ values provided).</li>
+<li>Compare the mixed-treatment trajectory with both monoculture
+baselines. Identify whether interspecific competition is stronger,
+weaker, or similar to intraspecific competition for each species.</li>
+</ol>
+<p><strong>Part B — Food Web Analysis</strong></p>
+<ol start="4" type="1">
+<li>From the food web diagram: identify most producers, primary
+consumers, secondary consumers, and apex predators. List most possible
+food chains containing 4 links.</li>
+<li>If a producer level has 10,000 kJ available, calculate the energy at
+each trophic level assuming 10% efficiency. Calculate how many humans
+(apex predators) can be supported vs if they ate at the primary consumer
+level.</li>
+</ol>
+<p><strong>Part C — Keystone Predator Analysis</strong></p>
+<ol start="6" type="1">
+<li>Read the starfish removal experiment data (Paine, 1966, summarised):
+count species richness before and after sea star (<em>Pisaster</em>)
+removal from an intertidal zone. Explain how removing one species
+reduced diversity.</li>
+</ol>
+<p><strong>Part D — Succession Mapping</strong></p>
+<ol start="7" type="1">
+<li>For each chronosequence or remote-sensing card: record dominant
+vegetation type, estimated time since disturbance, key abiotic factors,
+and one ecosystem service expected to change during succession.</li>
+</ol>
+<h2 class="unnumbered" id="data-recording">Data Recording</h2>
+<p>Species competition (from dataset):</p>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>N₁ (monoculture)</th>
+<th>N₁ (mixed)</th>
+<th>N₂ (monoculture)</th>
+<th>N₂ (mixed)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Food web energy pyramid:</p>
+<table>
+<thead>
+<tr>
+<th>Trophic level</th>
+<th>Energy (kJ)</th>
+<th># Humans supported</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Producers</td>
+<td>10,000</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Primary consumers</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Secondary consumers</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Apex predators</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Species richness before sea star removal: <strong><em>; After:
+</em></strong></p>
+<p>Ecosystem-service tradeoff most improved by succession: <strong><em>;
+tradeoff most reduced by disturbance: </em></strong></p>
+<!-- lab-evidence-checklist-start -->
+<h2 class="unnumbered"
+id="evidence-and-reproducibility-checklist">Evidence and Reproducibility
+Checklist</h2>
+<ul>
+<li><strong>Primary evidence goal:</strong> Compare species-interaction
+outcomes under changing conditions.</li>
+<li><strong>Data skill to practice:</strong> Interpret abundance,
+interaction, or disturbance data from communities.</li>
+<li><strong>BioSkills emphasis:</strong> Modeling and simulation,
+Science and society, Communication and collaboration.</li>
+<li><strong>Control logic:</strong> identify at least one positive
+control, one negative control, or one baseline comparison before
+interpreting results.</li>
+<li><strong>Measurement discipline:</strong> record units, uncertainty,
+sample size, and any discarded observation with a reason.</li>
+<li><strong>Mechanistic link:</strong> connect one result directly to
+the parent chapter’s big idea before writing the conclusion.</li>
+<li><strong>Reproducibility check:</strong> state one procedural detail
+that another group would need in order to reproduce the result.
+<!-- lab-evidence-checklist-end --></li>
+</ul>
+<h2 class="unnumbered" id="paper-based-evidence-upgrade">Paper-Based
+Evidence Upgrade</h2>
+<p>Before answering the analysis questions, annotate the paper dataset
+for <strong>Community Ecology and Species Interactions</strong> with a
+reproducibility pass:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Evidence check</th>
+<th>Student action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control logic</td>
+<td>Mark the comparison that functions as the baseline, negative
+control, or reference case.</td>
+</tr>
+<tr>
+<td>Uncertainty</td>
+<td>Circle the row, card, diagram feature, or model assumption most
+likely to change the conclusion.</td>
+</tr>
+<tr>
+<td>Model comparison</td>
+<td>State whether a simpler rule, null model, or alternative mechanism
+could explain the same pattern.</td>
+</tr>
+<tr>
+<td>Decision threshold</td>
+<td>Write the minimum evidence that would make you revise the
+interpretation.</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>Record the exact scoring rule another group would need to reproduce
+your classification.</td>
+</tr>
+</tbody>
+</table>
+<p>Focus note: for this community-interaction lab, label every link in
+the printed network by interaction type (competition, predation,
+mutualism) and by whether it was observed directly or inferred from
+co-occurrence, and state how the sampling effort and disturbance history
+could bias which interactions appear. Keep required work paper-based;
+any material-handling or equipment version belongs only in an optional
+extension.</p>
+<h2 class="unnumbered" id="analysis-questions">Analysis Questions</h2>
+<ol type="1">
+<li>In the Lotka-Volterra framework, stable coexistence requires α₁₂
+&lt; K₁/K₂ and α₂₁ &lt; K₂/K₁. What do these inequalities mean
+biologically in terms of intra- vs interspecific competition
+strength?</li>
+<li>The pyramid of energy shows that far more humans can be supported by
+eating at lower trophic levels. Calculate the maximum number of humans
+at each trophic level from your energy data. What are three reasons why
+human food systems often involve higher trophic level consumption?</li>
+<li>When <em>Pisaster</em> (sea star) was removed, mussel populations
+exploded and crowded out other species, reducing diversity. Define
+keystone species and explain why removing an apex predator can reduce
+community diversity (trophic cascade).</li>
+<li>Primary succession begins on bare rock (no soil) while secondary
+succession follows disturbance on existing soil. Explain how pioneer
+species (lichens, mosses) facilitate succession on bare rock — which
+physical and chemical properties of soil do they create? Name Connell
+and Slatyer’s facilitation model.</li>
+<li>A student claims “climax forests are the most stable and should
+generally be our conservation goal.” Critique this statement using the
+concept of intermediate disturbance hypothesis (Connell 1978) and give
+an example of an ecosystem that requires periodic disturbance to
+maintain high diversity.</li>
+</ol>
+<h2 class="unnumbered" id="safety-and-ethics-notes">Safety and Ethics
+Notes</h2>
+<p>No live organisms or ecological specimens are required. Optional
+living-culture demonstrations should be instructor managed, disposed of
+without release to waterways, and treated as enrichment rather than
+required evidence.</p>
+<h2 class="unnumbered" id="debrief-and-reflection">Debrief and
+Reflection</h2>
+<p>After you finish the practical work, spend 5–10 minutes in your small
+group comparing results and discussing the following prompts. Each
+member should contribute at least one observation before moving to the
+next prompt:</p>
+<ol type="1">
+<li><strong>What did your measurements show</strong> — compare the
+group’s results to the textbook’s predictions. Where they diverge,
+suggest at least one mechanistic explanation before concluding
+“experimental error.”</li>
+<li><strong>What would change the outcome</strong> — propose one
+modification to the procedure that would sharpen the measurement or
+extend the result to a new biological context, and predict what you
+would observe.</li>
+<li><strong>One-sentence headline</strong> — each student composes a
+single sentence summarising the lab’s take-home message, suitable for a
+tweet. Compare sentences across groups; good headlines are short,
+quantitative, and mechanistic.</li>
+<li><strong>Connection back to the textbook</strong> — identify one
+section of that your data either confirmed or complicated. Cite the
+specific passage.</li>
+</ol>
+<h2 class="unnumbered" id="further-reading-lab">Further Reading
+(Lab)</h2>
+<ul>
+<li>Revisit the parent chapter for the theoretical foundations on which
+this lab is built.</li>
+<li>Look up any <strong>bolded glossary term</strong> introduced in the
+textbook chapter (each has a <code>#gl:term-slug</code> link in the
+text) — its master definition is in
+<code>manuscript/glossary.md</code>.</li>
+<li>Explore the appended <code>src/</code> module that implements the
+corresponding quantitative model (when applicable) — referenced in the
+parent chapter’s “Bridge to Computation” subsection.</li>
+</ul>
+<p><em>Module footer: parent chapter
+<code>\cref{sec:unit_X_community_ecology}</code>; all numerical
+quantities in this lab use SI units — see Appendix D of the textbook for
+unit conversions and biological-scale reference values.</em></p>
+</body>
+</html>

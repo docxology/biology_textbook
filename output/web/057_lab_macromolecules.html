@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>057_lab_macromolecules</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered" id="lab-3-biological-macromolecules">Lab 3 —
+Biological Macromolecules</h1>
+<p></p>
+<h2 class="unnumbered" id="learning-objectives">Learning Objectives</h2>
+<p><em>This activity accompanies of the textbook — review that chapter
+before attempting the exercises below.</em></p>
+<ul>
+<li>Apply simulated colorimetric-test evidence to identify
+carbohydrates, proteins, and lipids</li>
+<li>Distinguish reducing sugars from non-reducing sugars using
+structural logic</li>
+<li>Identify proteins and lipids from reaction cards, labels, and model
+results</li>
+<li>Interpret qualitative colour evidence with controls, uncertainty,
+and reproducibility checks</li>
+</ul>
+<!-- lab-alignment-start -->
+<h3 class="unnumbered" id="alignment-and-rubric-map">Alignment and
+Rubric Map</h3>
+<ul>
+<li><strong>Outcome 1 (LO1):</strong> Interpret the supplied evidence or
+model output for Biological Macromolecules.</li>
+<li><strong>Outcome 2 (LO2):</strong> Identify controls and comparison
+groups that make the claim testable.</li>
+<li><strong>Outcome 3 (LO3):</strong> Quantify uncertainty, boundary
+conditions, or alternative explanations before concluding.</li>
+<li><strong>Outcome 4 (LO4):</strong> Transfer the mechanism to a new
+biological case or public-facing decision.</li>
+<li><strong>Chapter LO coverage:</strong> LO1, LO2, LO3, LO4</li>
+<li><strong>Rubric dimensions:</strong> evidence; controls; uncertainty;
+mechanism; transfer. <!-- lab-alignment-end --> ## Pre-Lab (to complete
+before class) {.unnumbered}</li>
+</ul>
+<ol type="1">
+<li>For each of the four macromolecule classes, write one sentence that
+names its monomer, its primary covalent bond, and one biological
+function.</li>
+<li>classic reducing-sugar assay detects <strong>aldehyde</strong>
+groups on reducing sugars. Which of glucose, fructose, sucrose, and
+starch have a free aldehyde? For those without, explain why (look up
+hemiketal and glycosidic bonds).</li>
+<li>Compute the energy density of pure triglyceride (37 kJ g⁻¹) vs pure
+starch (17 kJ g⁻¹) vs pure protein (17 kJ g⁻¹). Why do organisms store
+long-term energy as fat rather than glycogen?</li>
+<li>Predict which of the following will yield a positive classic
+peptide-bond assay test at room temperature: a single amino acid
+(glycine), a dipeptide, albumin. Justify in one sentence (classic
+peptide-bond assay requires ≥2 peptide bonds → at least
+tripeptide).</li>
+</ol>
+<h2 class="unnumbered" id="background">Background</h2>
+<p>Macromolecules — carbohydrates, lipids, proteins, and nucleic acids —
+form the molecular architecture of cells. Each class has distinctive
+chemical groups that produce diagnostic patterns in classic colorimetric
+tests. Reducing sugars (glucose, fructose, maltose) donate electrons to
+Cu²⁺ in classic reducing-sugar assay, producing a colour change from
+blue to yellow/orange/red; sucrose (non-reducing) does not react unless
+hydrolysed. The classic peptide-bond assay reaction turns purple in the
+presence of peptide bonds (≥2). classic lipid-partition assay, an
+oil-soluble dye, partitions into lipids and stains them red-orange.</p>
+<p>In this lab you will interpret a blinded paper dataset for five
+unknown samples (A–E), compare it with positive and negative controls,
+and identify the macromolecules present in each. The chemistry is
+treated as evidence to reason from, not as a required wet procedure.</p>
+<h2 class="unnumbered" id="paper-based-materials">Paper-Based
+Materials</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Blinded macromolecule reaction dataset for samples A–E</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Molecular-structure cards: glucose, fructose, sucrose, starch,
+albumin, triglyceride</td>
+<td>1 set</td>
+</tr>
+<tr>
+<td>Positive-control and negative-control cards</td>
+<td>1 set</td>
+</tr>
+<tr>
+<td>Hydrolysis time-course graph packet</td>
+<td>1</td>
+</tr>
+<tr>
+<td>AI protein-model evidence packet: confidence map, predicted
+interface, ligand-contact table, and validation notes</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Decision-matrix worksheet</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Calculator and graph paper</td>
+<td>1 each</td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered" id="paper-based-investigation">Paper-Based
+Investigation</h2>
+<ol type="1">
+<li>Read the blinded dataset for samples A–E. For each simulated test,
+mark whether the result is positive, negative, weak positive, or
+ambiguous.</li>
+<li>Use the control cards to verify that each test behaved as expected
+before interpreting unknowns.</li>
+<li>Build a decision matrix: reducing sugar evidence, peptide-bond
+evidence, lipid-partition evidence, and structural clue evidence.</li>
+<li>Assign a macromolecule profile to each unknown and rate your
+confidence as high, medium, or low.</li>
+<li>Identify one result that would need replication or an additional
+test before a confident claim.</li>
+</ol>
+<h3 class="unnumbered" id="part-d-enzyme-hydrolysis-data">Part D —
+Enzyme Hydrolysis Data</h3>
+<ol start="6" type="1">
+<li>Interpret the provided starch-hydrolysis time course for active
+amylase, denatured enzyme, and no-enzyme controls.</li>
+<li>Estimate a crude hydrolysis rate (mg starch per minute) from the
+graph and explain why the denatured-enzyme line functions as a negative
+control.</li>
+<li>Decide whether the evidence supports enzyme specificity, temperature
+sensitivity, or both.</li>
+</ol>
+<h3 class="unnumbered" id="part-e-sucrose-hydrolysis-model">Part E —
+Sucrose Hydrolysis Model</h3>
+<ol start="9" type="1">
+<li>Compare the structural cards for untreated sucrose and hydrolysed
+sucrose.</li>
+<li>Predict the simulated Benedict pattern before and after hydrolysis,
+then check it against the provided model result. Explain why cleavage
+into glucose and fructose changes the reducing-sugar evidence.</li>
+</ol>
+<h3 class="unnumbered" id="part-f-ai-structure-evidence-check">Part F —
+AI Structure Evidence Check</h3>
+<ol start="11" type="1">
+<li>Read the AI protein-model packet for a hypothetical enzyme-substrate
+interaction. Mark each predicted contact as high, medium, or low
+confidence using the confidence map and interface notes.</li>
+<li>Decide which claim is justified: “this residue is worth mutating,”
+“this ligand probably binds,” or “this interaction is established.”
+Explain why the last claim requires independent assay evidence.</li>
+<li>Propose a paper-based validation plan: one conservation comparison,
+one predicted-disruptive mutation, one binding or kinetic readout, and
+one result that would make you reject the predicted interface.</li>
+</ol>
+<h2 class="unnumbered" id="data-recording">Data Recording</h2>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 23%" />
+<col style="width: 18%" />
+<col style="width: 20%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Sample</th>
+<th>Reducing-sugar evidence</th>
+<th>Peptide-bond evidence</th>
+<th>Lipid-partition evidence</th>
+<th>Macromolecule(s) present</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>D</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>E</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(+) Glucose</td>
+<td></td>
+<td>—</td>
+<td>—</td>
+<td>Reducing sugar</td>
+</tr>
+<tr>
+<td>(+) Albumin</td>
+<td>—</td>
+<td></td>
+<td>—</td>
+<td>Protein</td>
+</tr>
+<tr>
+<td>(−) Water</td>
+<td></td>
+<td></td>
+<td></td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>AI model evidence: highest-confidence contact = _______;
+lowest-confidence region = _______; validation assay proposed = _______;
+claim justified now = _______</p>
+<!-- lab-evidence-checklist-start -->
+<h2 class="unnumbered"
+id="evidence-and-reproducibility-checklist">Evidence and Reproducibility
+Checklist</h2>
+<ul>
+<li><strong>Primary evidence goal:</strong> Use chemical tests and
+structural clues to identify biological macromolecules.</li>
+<li><strong>Data skill to practice:</strong> Classify molecules from
+structural evidence rather than names alone.</li>
+<li><strong>BioSkills emphasis:</strong> Quantitative reasoning,
+Interdisciplinary nature of science.</li>
+<li><strong>Control logic:</strong> identify at least one positive
+control, one negative control, or one baseline comparison before
+interpreting results.</li>
+<li><strong>Measurement discipline:</strong> record units, uncertainty,
+sample size, and any discarded observation with a reason.</li>
+<li><strong>Mechanistic link:</strong> connect one result directly to
+the parent chapter’s big idea before writing the conclusion.</li>
+<li><strong>Reproducibility check:</strong> state one procedural detail
+that another group would need in order to reproduce the result.
+<!-- lab-evidence-checklist-end --></li>
+</ul>
+<h2 class="unnumbered" id="paper-based-evidence-upgrade">Paper-Based
+Evidence Upgrade</h2>
+<p>Before answering the analysis questions, annotate the paper dataset
+for <strong>Biological Macromolecules</strong> with a reproducibility
+pass:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Evidence check</th>
+<th>Student action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control logic</td>
+<td>Mark the comparison that functions as the baseline, negative
+control, or reference case.</td>
+</tr>
+<tr>
+<td>Uncertainty</td>
+<td>Circle the row, card, diagram feature, or model assumption most
+likely to change the conclusion.</td>
+</tr>
+<tr>
+<td>Model comparison</td>
+<td>State whether a simpler rule, null model, or alternative mechanism
+could explain the same pattern.</td>
+</tr>
+<tr>
+<td>Decision threshold</td>
+<td>Write the minimum evidence that would make you revise the
+interpretation.</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>Record the exact scoring rule another group would need to reproduce
+your classification.</td>
+</tr>
+</tbody>
+</table>
+<p>Focus note: each colour-change assay (reducing-sugar, peptide-bond,
+and the lipid grease-spot test) is a separate qualitative detector with
+its own false positives – record the positive and negative reference
+samples and the minimum colour shift you will accept before scoring a
+macromolecule class as present. Keep required work paper-based; any
+material-handling or equipment version belongs only in an optional
+extension.</p>
+<h2 class="unnumbered" id="analysis-questions">Analysis Questions</h2>
+<ol type="1">
+<li>Which samples tested positive for reducing sugars? Were any positive
+for sucrose (hint: sucrose does NOT turn classic reducing-sugar assay
+red without hydrolysis)? How would you distinguish glucose from sucrose
+using primarily classic reducing-sugar assay test?</li>
+<li>A sample of milk tested positive for both classic reducing-sugar
+assay (weakly) and classic peptide-bond assay (strongly) and showed a
+grease spot. Name the three macromolecule classes present in milk.</li>
+<li>Why does classic reducing-sugar assay require heating to detect
+reducing sugars, while classic peptide-bond assay works at room
+temperature? What does this reveal about the reaction mechanisms?</li>
+<li>Dietary fibre (cellulose) is a polysaccharide. Predict whether it
+would give a positive classic reducing-sugar assay test. Explain in
+terms of glycosidic bond type (α vs β linkage) and digestibility.</li>
+<li>A patient has phenylketonuria (PKU) — inability to metabolise
+phenylalanine. Which macromolecule class and which specific monomer is
+relevant? How does dietary management (low-phenylalanine diet) relate to
+the biochemistry of this lab?</li>
+<li>An AlphaFold-derived packet predicts a ligand contact in a
+low-confidence loop. What additional evidence would move the claim from
+“hypothesis” to “supported mechanism”? Name at least one sequence,
+structural, and biochemical check.</li>
+</ol>
+<h2 class="unnumbered" id="extension-analysis-questions">Extension
+Analysis Questions</h2>
+<ol start="7" type="1">
+<li>Galactosaemia patients cannot metabolise galactose (a component of
+lactose). Using your understanding of glycosidic bonds, explain why such
+a patient must avoid milk but can safely consume glucose or fructose
+sweetened foods.</li>
+<li>The Keto diet shifts metabolism to fat oxidation. Predict which
+macromolecule category would dominate your test results on a piece of
+bacon vs a slice of bread. Discuss why each is energy-dense but in
+biochemically different ways (immediate vs sustained release).</li>
+<li>Protein-losing enteropathy causes albumin leakage into the gut.
+Given classic peptide-bond assay’s sensitivity (~0.1 mg/mL), would you
+expect a positive classic peptide-bond assay reaction on a faecal sample
+from such a patient? Why might faecal protein quantification via classic
+peptide-bond assay be unreliable (hint: digestive proteolysis)?</li>
+</ol>
+<h2 class="unnumbered" id="optional-wet-lab-extension">Optional Wet-Lab
+Extension</h2>
+<p>An instructor may run classic Benedict, classic peptide-bond assay,
+Sudan, iodine, or hydrolysis demonstrations in a properly equipped
+laboratory. These are optional demonstrations primarily; the required
+activity is the paper dataset and decision matrix.</p>
+<h2 class="unnumbered" id="safety-and-ethics-notes">Safety and Ethics
+Notes</h2>
+<p>Paper-based lab — no reagents, heating, saliva sampling, or unknown
+foods are required. Optional wet demonstrations require instructor
+supervision, approved chemical handling, and appropriate waste
+disposal.</p>
+<h2 class="unnumbered" id="debrief-and-reflection">Debrief and
+Reflection</h2>
+<p>After you finish the practical work, spend 5–10 minutes in your small
+group comparing results and discussing the following prompts. Each
+member should contribute at least one observation before moving to the
+next prompt:</p>
+<ol type="1">
+<li><strong>What did your measurements show</strong> — compare the
+group’s results to the textbook’s predictions. Where they diverge,
+suggest at least one mechanistic explanation before concluding
+“experimental error.”</li>
+<li><strong>What would change the outcome</strong> — propose one
+modification to the procedure that would sharpen the measurement or
+extend the result to a new biological context, and predict what you
+would observe.</li>
+<li><strong>One-sentence headline</strong> — each student composes a
+single sentence summarising the lab’s take-home message, suitable for a
+tweet. Compare sentences across groups; good headlines are short,
+quantitative, and mechanistic.</li>
+<li><strong>Connection back to the textbook</strong> — identify one
+section of that your data either confirmed or complicated. Cite the
+specific passage.</li>
+</ol>
+<h2 class="unnumbered" id="further-reading-lab">Further Reading
+(Lab)</h2>
+<ul>
+<li>Revisit the parent chapter for the theoretical foundations on which
+this lab is built.</li>
+<li>Look up any <strong>bolded glossary term</strong> introduced in the
+textbook chapter (each has a <code>#gl:term-slug</code> link in the
+text) — its master definition is in
+<code>manuscript/glossary.md</code>.</li>
+<li>Explore the appended <code>src/</code> module that implements the
+corresponding quantitative model (when applicable) — referenced in the
+parent chapter’s “Bridge to Computation” subsection.</li>
+</ul>
+<p><em>Module footer: parent chapter
+<code>\cref{sec:unit_I_macromolecules}</code>; all numerical quantities
+in this lab use SI units — see Appendix D of the textbook for unit
+conversions and biological-scale reference values.</em></p>
+</body>
+</html>

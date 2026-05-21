@@ -1,0 +1,8 @@
+version: 1
+checked_as_of: '2026-05-20'
+policy:
+  valid_scientific_absolute: Auditable definition, named technical term, quantitative
+    boundary condition, or deliberately qualified scientific statement.
+  needs_qualifier: Should be revised; audit fails if the same advisory still appears.
+  copyedit_artifact: Should be repaired; audit fails if the same advisory still appears.
+absolute_language: []

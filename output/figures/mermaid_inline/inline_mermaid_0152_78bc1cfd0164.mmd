@@ -1,0 +1,12 @@
+flowchart TD
+    SA["SA Node (Sinoatrial)<br/>Natural pacemaker<br/>Intrinsic rate: 70-80 bpm<br/>Located: right atrium wall"] --> Atria["Atrial Depolarisation<br/>P wave on ECG<br/>Atrial contraction"]
+    Atria --> AV["AV Node (Atrioventricular)<br/>Delay: ~0.1 s<br/>Intrinsic rate: 40-60 bpm<br/>PR interval on ECG"]
+    AV --> His["Bundle of His<br/>Penetrates fibrous skeleton<br/>Only electrical connection<br/>between atria and ventricles"]
+    His --> BB["Bundle Branches<br/>Left and Right<br/>Down interventricular septum"]
+    BB --> Purk["Purkinje Fibres<br/>Rapid conduction (2-4 m/s)<br/>Distribute impulse to<br/>ventricular myocardium"]
+    Purk --> Vent["Ventricular Depolarisation<br/>QRS complex on ECG<br/>Ventricular contraction (systole)"]
+    Vent --> Repol["Ventricular Repolarisation<br/>T wave on ECG<br/>Ventricular relaxation (diastole)"]
+
+    style SA fill:#ffcccc
+    style AV fill:#ffffcc
+    style Purk fill:#ccffcc

@@ -1,0 +1,18 @@
+flowchart TD
+    A[Origin of Replication Fires] --> B[MCM Helicase Unwinds dsDNA]
+    B --> C[Topoisomerase Relieves Supercoiling Ahead]
+    B --> D[SSB/RPA Stabilizes ssDNA]
+    D --> E[Primase Synthesizes RNA Primer]
+    E --> F{Leading vs Lagging Strand}
+    F -->|Leading| G["DNA Pol epsilon Synthesizes Continuously 5' to 3'"]
+    F -->|Lagging| H["Primase Lays Multiple Primers"]
+    H --> I["DNA Pol delta Extends Each Primer as Okazaki Fragment"]
+    I --> J["RNase H + FEN1 Remove RNA Primers"]
+    J --> K["DNA Pol delta Fills Gaps"]
+    K --> L["DNA Ligase I Seals Nicks"]
+    G --> M[Daughter Strand Complete]
+    L --> M
+
+    style A fill:#4a90d9,color:#fff
+    style F fill:#f0ad4e,color:#000
+    style M fill:#5cb85c,color:#fff

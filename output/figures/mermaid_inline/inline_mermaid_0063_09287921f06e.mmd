@@ -1,0 +1,31 @@
+flowchart TD
+    INS["Insulin"] --> IR["Insulin receptor<br/>(α₂β₂ tyrosine kinase)"]
+    IR -->|"trans-autophosphorylation"| IRS["IRS-1/2<br/>(Tyr phosphorylated)"]
+    IRS --> PI3K["PI3K (p85/p110)"]
+    PI3K -->|"PIP₂ → PIP₃"| PIP3["PIP₃ (membrane)"]
+    PIP3 --> PDK1["PDK1"]
+    PIP3 --> MT2["mTORC2"]
+    PDK1 -->|"phospho-Thr308"| AKT["Akt"]
+    MT2 -->|"phospho-Ser473"| AKT
+
+    AKT --> AS160["AS160-P → Rab10 ON"]
+    AS160 --> GLUT4["GLUT4 vesicle exocytosis"]
+
+    AKT --> GSK3["GSK3-P (inhibited)"]
+    GSK3 --> GS["Glycogen synthase active"]
+
+    AKT --> FOXO["FoxO1-P → cytoplasm"]
+    FOXO --> GNG["PEPCK, G6Pase OFF"]
+
+    AKT --> TSC["TSC2-P (inhibited)"]
+    TSC --> RHEB["Rheb-GTP ↑"]
+    RHEB --> MT1["mTORC1 ON"]
+    MT1 --> PROT["Protein synthesis"]
+    MT1 --> LIPO["Lipogenesis"]
+
+    AKT --> BAD["BAD-P → 14-3-3"]
+    BAD --> SURV["Anti-apoptosis"]
+
+    style INS fill:#e6ffe6
+    style GLUT4 fill:#cce5ff
+    style PROT fill:#cce5ff

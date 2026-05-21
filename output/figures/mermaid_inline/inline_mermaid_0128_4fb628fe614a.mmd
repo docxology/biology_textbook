@@ -1,0 +1,20 @@
+flowchart LR
+    A["Pathogen<br/>Exposure"] --> B{"Barrier<br/>Intact?"}
+    B -->|"Yes"| C["No infection<br/>(most encounters)"]
+    B -->|"No"| D["Colonization<br/>(adherence to<br/>host surface)"]
+    D --> E{"Immune<br/>Response<br/>Effective?"}
+    E -->|"Yes"| F["Clearance<br/>(no disease)"]
+    E -->|"Partial"| G["Latent Infection<br/>(M. tuberculosis,<br/>HSV, VZV)"]
+    E -->|"No"| H["Active Infection<br/>(tissue invasion,<br/>multiplication)"]
+    H --> I{"Virulence<br/>Factors +<br/>Host Status?"}
+    I -->|"Mild"| J["Localized Disease<br/>(wound infection,<br/>pharyngitis)"]
+    I -->|"Severe"| K["Systemic Disease<br/>(sepsis, meningitis,<br/>dissemination)"]
+    G -->|"Reactivation<br/>(immunosuppression)"| H
+    J --> L["Resolution<br/>(immune clearance<br/>+ memory)"]
+    K --> M["Recovery<br/>or Death"]
+
+    style C fill:#90EE90
+    style F fill:#90EE90
+    style L fill:#90EE90
+    style K fill:#FFB6C1
+    style M fill:#FFB6C1

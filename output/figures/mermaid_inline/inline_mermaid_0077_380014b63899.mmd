@@ -1,0 +1,31 @@
+flowchart TD
+    A[Genomic DNA Extracted] --> B{Sequencing Platform?}
+    B -->|Short-Read| C["Illumina Sequencing-by-Synthesis"]
+    B -->|Long-Read| D["Oxford Nanopore / PacBio"]
+
+    C --> E["Fragment DNA (300-500 bp)"]
+    E --> F["Ligate Adapters; Bridge Amplification on Flow Cell"]
+    F --> G["Sequencing-by-Synthesis: Fluorescent Reversible Terminators"]
+    G --> H["Read Length: 150-300 bp Paired-End"]
+    H --> I["Output: ~600 Gb per Run (NovaSeq)"]
+
+    D --> J["Nanopore: DNA Passes Through Protein Pore"]
+    J --> K["Current Changes Identify Each Base in Real Time"]
+    K --> L["Read Length: >100 kb (Record: >4 Mb)"]
+
+    D --> M["PacBio HiFi: Circular Consensus Sequencing"]
+    M --> N["Polymerase Reads Circular Template Multiple Times"]
+    N --> O["Read Length: 10-25 kb; Accuracy: >99.9%"]
+
+    I --> P{Assembly Strategy?}
+    L --> P
+    O --> P
+    P -->|"Known Species"| Q["Reference-Guided Mapping (BWA, Minimap2)"]
+    P -->|"New Species"| R["De Novo Assembly (hifiasm, Shasta)"]
+    Q --> S["Variant Calling (GATK, DeepVariant)"]
+    R --> T["Contig Assembly --> Scaffolding --> Gap Filling"]
+
+    style A fill:#4a90d9,color:#fff
+    style I fill:#5cb85c,color:#fff
+    style L fill:#5cb85c,color:#fff
+    style O fill:#5cb85c,color:#fff

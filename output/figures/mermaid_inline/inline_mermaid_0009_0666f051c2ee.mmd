@@ -1,0 +1,7 @@
+flowchart LR
+    A["Initialise N agents<br/>with random states"] --> B["For each agent:<br/>sense local neighbourhood"]
+    B --> C["Apply local rules<br/>to update internal state<br/>and action"]
+    C --> D["Update environment<br/>(pheromones, chemicals,<br/>physical positions)"]
+    D --> E{"Stop?<br/>(time / convergence)"}
+    E -->|No| B
+    E -->|Yes| F["Measure global<br/>emergent properties"]

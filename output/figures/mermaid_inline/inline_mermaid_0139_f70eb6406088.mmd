@@ -1,0 +1,9 @@
+flowchart LR
+    Soil[Soil solution] --> RH[Root hair]
+    RH -->|apoplast| CW1[Cortical cell walls]
+    RH -->|symplast| Cyto1[Cortical cytoplasm]
+    CW1 -->|blocked by Casparian strip| EndoBlock[STOP: cannot bypass]
+    EndoBlock -->|forced into symplast| Endo[Endodermal cytoplasm]
+    Cyto1 -->|plasmodesmata| Endo
+    Endo -->|aquaporins/transporters| PCyl[Pericycle/stele]
+    PCyl --> Xylem[Xylem conduit]

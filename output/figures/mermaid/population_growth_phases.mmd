@@ -1,0 +1,10 @@
+stateDiagram-v2
+    state "Lag" as st0
+    state "Exponential" as st1
+    state "Decelerating" as st2
+    state "Stationary" as st3
+    [*] --> st0
+    st0 --> st1 : population establishes
+    st1 --> st2 : N approaches K/2
+    st2 --> st3 : N near K
+    st3 --> st2 : resource pulse

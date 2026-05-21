@@ -1,0 +1,21 @@
+graph TD
+    MEND["🫛 Mendel's Laws<br/>(Segregation +<br/>Independent Assortment)"] --> MONO["📊 Monohybrid Cross<br/>(3:1 phenotypic ratio;<br/>Punnett square)"]
+    MEND --> DI["📊 Dihybrid Cross<br/>(9:3:3:1;<br/>two unlinked genes)"]
+
+    CHROM["🧵 Chromosomal Theory<br/>(genes on chromosomes;<br/>Morgan 1910)"] --> LINK["🔗 Genetic Linkage<br/>(recombination frequency;<br/>Morgan map units = cM)"]
+    LINK --> MAP["🗺️ Genetic Maps<br/>(Sturtevant 1913;<br/>θ = RF / 50)"]
+
+    MEND --> NONM["⚡ Non-Mendelian Inheritance<br/>(incomplete dominance,<br/>codominance, epistasis,<br/>polygenic traits)"]
+
+    CHROM --> MEI["🔀 Meiosis<br/>(crossing-over;<br/>independent assortment;<br/>gamete diversity)"]
+    MEI --> SEX["♂♀ Sex-Linked Traits<br/>(X-linked recessive;<br/>Lyon hypothesis)"]
+
+    POP["👥 Population Genetics<br/>(Hardy-Weinberg:<br/>p² + 2pq + q² = 1)"] --> DRIFT["🌊 Genetic Drift<br/>(Unit VI →)"]
+    POP --> GWAS["🔬 GWAS<br/>(genome-wide association;<br/>linkage disequilibrium)"]
+
+    MEND --> POP
+
+    style MEND fill:#27ae60,color:#fff
+    style CHROM fill:#2980b9,color:#fff
+    style POP fill:#8e44ad,color:#fff
+    style MEI fill:#e74c3c,color:#fff

@@ -1,0 +1,12 @@
+flowchart LR
+    A["Sequence, ligand, or complex question"] --> B["Prediction source"]
+    B --> C["AFDB model or AlphaFold 3 hypothesis"]
+    C --> D["Confidence checks: pLDDT, PAE, interface score"]
+    D --> E["Biochemical context: cofactors, PTMs, membrane, pH"]
+    E --> F["Experimental validation"]
+    F --> G["Structure-function claim"]
+
+    D --> H["Low-confidence region"]
+    H --> I["Treat as flexible or unresolved until tested"]
+    F --> J["Mutagenesis, binding, kinetics, cryo-EM, X-ray, NMR"]
+    J --> G

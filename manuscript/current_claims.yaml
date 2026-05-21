@@ -1,0 +1,457 @@
+# Fast-moving claims that require source-date review before publication.
+claims:
+  - claim_id: casgevy-endpoints-2026
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "the regulatory endpoint is freedom from severe vaso-occlusive crises"
+    claim_text: "Casgevy uses different regulatory endpoints for SCD and transfusion-dependent beta-thalassaemia."
+    topic: genome-editing therapy
+    source_tier: official_primary
+    citekey: fda2026casgevy
+    url: https://www.fda.gov/media/174615/download?attachment
+    url_or_citekey: fda2026casgevy
+    evidence_date: 2026-01-01
+    checked_as_of: 2026-05-20
+    refresh_trigger: "FDA label, EMA EPAR, or pivotal-trial endpoint update."
+  - claim_id: casgevy-long-followup-2026
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "Longitudinal monitoring follows these patients for **15 years**"
+    claim_text: "Casgevy patients are tracked with long-term safety monitoring because edited stem-cell products carry theoretical clonal-expansion and genotoxicity risks."
+    topic: genome-editing therapy
+    source_tier: official_primary
+    citekey: fda2026casgevy
+    url: https://www.fda.gov/media/174615/download?attachment
+    url_or_citekey: fda2026casgevy
+    evidence_date: 2026-01-01
+    checked_as_of: 2026-05-20
+    refresh_trigger: "FDA label, long-term follow-up guidance, or postmarketing safety update."
+  - claim_id: prime-editing-hbf-2025
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "A 2025 *Blood* study used prime-editing guide RNAs"
+    claim_text: "Prime-editing studies can rewrite fetal-haemoglobin regulatory promoters but remain early translational evidence rather than approved therapy."
+    topic: genome-editing therapy
+    source_tier: scholarly_primary
+    citekey: chalumeau2025primeediting
+    url: https://doi.org/10.1182/blood.2024027657
+    url_or_citekey: chalumeau2025primeediting
+    evidence_date: 2025-01-01
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New prime-editing clinical trial, FDA/EMA application, or haematopoietic stem-cell editing outcome update."
+  - claim_id: crispr-diagnostics-collateral-cleavage
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "SHERLOCK and DETECTR exploit collateral nuclease activity"
+    claim_text: "CRISPR diagnostic assays use collateral nuclease activity to turn sequence recognition into reporter signals, but deployment still depends on assay validation."
+    topic: CRISPR diagnostics
+    source_tier: scholarly_primary
+    citekey: gootenberg2017sherlock
+    url: https://doi.org/10.1126/science.aam9321
+    url_or_citekey: gootenberg2017sherlock
+    evidence_date: 2017-04-28
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New CRISPR diagnostic authorization, benchmark, or variant-coverage study."
+  - claim_id: mtdna-ddcbe-translation-boundary
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "DddA-derived cytosine base editors (DdCBEs) solve part of the problem"
+    claim_text: "DddA-derived mitochondrial base editors are a major mtDNA-editing tool advance, not a general approved therapy."
+    topic: mitochondrial DNA editing
+    source_tier: scholarly_primary
+    citekey: mok2020mitochondrialbaseediting
+    url: https://doi.org/10.1038/s41586-020-2477-4
+    url_or_citekey: mok2020mitochondrialbaseediting
+    evidence_date: 2020-07-08
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New mtDNA editor class, in vivo delivery study, clinical-trial filing, or safety/off-target review."
+  - claim_id: human-pangenome-2023-reference
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "it is a path through an explicitly represented set of alternatives"
+    claim_text: "The Human Pangenome Reference Consortium reframes genome references as diversity-aware graph resources rather than a single linear genome."
+    topic: pangenomics
+    source_tier: scholarly_primary
+    citekey: humanpangenome2023
+    url: https://www.nature.com/articles/s41586-023-05896-x
+    url_or_citekey: humanpangenome2023
+    evidence_date: 2023-05-10
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New HPRC reference release, Nature/GRCh update, or graph-reference tooling change."
+  - claim_id: human-pangenome-47-94-2023
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "47 diverse individuals and 94 phased haplotypes"
+    claim_text: "The draft human pangenome reference was built from 47 diverse individuals and 94 phased haplotypes."
+    topic: pangenomics
+    source_tier: scholarly_primary
+    citekey: humanpangenome2023
+    url: https://www.nature.com/articles/s41586-023-05896-x
+    url_or_citekey: humanpangenome2023
+    evidence_date: 2023-05-10
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New HPRC release, additional haplotype sampling, or clinical graph-reference adoption update."
+  - claim_id: alphafold3-hypothesis-generator
+    file: manuscript/unit_I/macromolecules.md
+    source_path: manuscript/unit_I/macromolecules.md
+    anchor_text: "AlphaFold 3 extends the classroom question"
+    claim_text: "AlphaFold 3 supports biomolecular interaction hypotheses but requires experimental validation for biological claims."
+    topic: AI biomolecular modeling
+    source_tier: scholarly_primary
+    citekey: abramson2024alphafold3
+    url: https://www.nature.com/articles/s41586-024-07487-w
+    url_or_citekey: abramson2024alphafold3
+    evidence_date: 2024-05-08
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New AlphaFold release, benchmark, or interaction-model database update."
+  - claim_id: alphafold-complex-db-2026
+    file: manuscript/unit_I/macromolecules.md
+    source_path: manuscript/unit_I/macromolecules.md
+    anchor_text: "2026 EMBL-EBI/Google DeepMind/NVIDIA/SNU update began adding predicted protein complexes"
+    claim_text: "The AlphaFold Protein Structure Database began adding predicted complexes in 2026, starting with high-confidence homodimers."
+    topic: AI biomolecular modeling
+    source_tier: official_summary
+    citekey: emblebi2026alphafoldcomplexes
+    url: https://www.ebi.ac.uk/about/news/technology-and-innovation/alphafold-database-protein-complexes/
+    url_or_citekey: emblebi2026alphafoldcomplexes
+    evidence_date: 2026-05-20
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New AlphaFold DB complex release, database schema update, or validation benchmark."
+  - claim_id: tazemetostat-epigenetic-therapy-2020
+    file: manuscript/unit_IV/epigenetics_and_gene_regulation.md
+    source_path: manuscript/unit_IV/epigenetics_and_gene_regulation.md
+    anchor_text: "tazemetostat became the first epigenetic-pathway-defined targeted therapy"
+    claim_text: "Tazemetostat is used as a source-governed example of an FDA-approved epigenetic-pathway-targeted cancer therapy."
+    topic: epigenetic therapy
+    source_tier: official_primary
+    citekey: fda2020tazverik
+    url: https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/211723s000lbl.pdf
+    url_or_citekey: fda2020tazverik
+    evidence_date: 2020-01-23
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New FDA label, withdrawal, indication update, or epigenetic therapy approval."
+  - claim_id: single-cell-spatial-atlas-boundary-2024
+    file: manuscript/unit_II/cell_theory.md
+    source_path: manuscript/unit_II/cell_theory.md
+    anchor_text: "Single-cell atlases are most useful when they clarify the sampled tissue"
+    claim_text: "Single-cell and spatial atlas claims should be framed as evidence about cell states and neighbourhoods that still require validation."
+    topic: single-cell and spatial biology
+    source_tier: scholarly_primary
+    citekey: pan2024singlecellatlas
+    url: https://doi.org/10.1186/s13059-024-03246-2
+    url_or_citekey: pan2024singlecellatlas
+    evidence_date: 2024-04-26
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New Human Cell Atlas release, spatial atlas benchmark, or disease-tissue validation update."
+  - claim_id: bci-speech-neuroprosthesis-2023
+    file: manuscript/unit_IX/nervous_system.md
+    source_path: manuscript/unit_IX/nervous_system.md
+    anchor_text: "2023 intracortical speech neuroprostheses decoded attempted speech"
+    claim_text: "Speech neuroprosthesis demonstrations support decodable intention signals in experimental settings, not general mind-reading claims."
+    topic: BCI and neural prosthetics
+    source_tier: scholarly_primary
+    citekey: willett2023speechneuroprosthesis
+    url: https://doi.org/10.1038/s41586-023-06377-x
+    url_or_citekey: willett2023speechneuroprosthesis
+    evidence_date: 2023-08-23
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New neural-prosthesis trial, clinical-device approval, long-term implant study, or privacy/safety guidance."
+  - claim_id: cart-product-roster-2026
+    file: manuscript/unit_IX/endocrine_and_immune.md
+    source_path: manuscript/unit_IX/endocrine_and_immune.md
+    anchor_text: "current FDA product pages and labels"
+    claim_text: "CAR-T product rosters and approved-use language are current-source claims that should be checked against FDA pages before publication."
+    topic: immunotherapy
+    source_tier: official_primary
+    citekey: fda2026cellulargeneproducts
+    url: https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/approved-cellular-and-gene-therapy-products
+    url_or_citekey: fda2026cellulargeneproducts
+    evidence_date: 2026-05-20
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New FDA cellular/gene therapy product approval, label update, or safety communication."
+  - claim_id: cart-boxed-warning-2024
+    file: manuscript/unit_IX/endocrine_and_immune.md
+    source_path: manuscript/unit_IX/endocrine_and_immune.md
+    anchor_text: "FDA required boxed-warning language for T-cell malignancies"
+    claim_text: "FDA required boxed warning language for T-cell malignancies after BCMA-directed or CD19-directed autologous CAR-T products."
+    topic: immunotherapy
+    source_tier: official_primary
+    citekey: fda2024cartwarning
+    url: https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-requires-boxed-warning-t-cell-malignancies-following-treatment-bcma-directed-or-cd19-directed
+    url_or_citekey: fda2024cartwarning
+    evidence_date: 2024-04-18
+    checked_as_of: 2026-05-20
+    refresh_trigger: "FDA CAR-T boxed-warning update, REMS change, or long-term follow-up safety signal."
+  - claim_id: checkpoint-indications-2026
+    file: manuscript/unit_IX/endocrine_and_immune.md
+    source_path: manuscript/unit_IX/endocrine_and_immune.md
+    anchor_text: "checkpoint indications change by tumour type"
+    claim_text: "Checkpoint inhibitor indications and examples are current clinical claims that change by tumour type, biomarker, and line of therapy."
+    topic: immunotherapy
+    source_tier: official_summary
+    citekey: nci2026checkpointinhibitors
+    url: https://www.cancer.gov/about-cancer/treatment/types/immunotherapy/checkpoint-inhibitors
+    url_or_citekey: nci2026checkpointinhibitors
+    evidence_date: 2026-05-20
+    checked_as_of: 2026-05-20
+    refresh_trigger: "NCI page update, FDA label update, NCCN/ASCO guidance change, or new biomarker-specific indication."
+  - claim_id: phage-therapy-adjunct-2022
+    file: manuscript/unit_VII/bacteria_archaea_viruses.md
+    source_path: manuscript/unit_VII/bacteria_archaea_viruses.md
+    anchor_text: "**Phage therapy** is re-emerging as a clinical adjunct"
+    claim_text: "Phage therapy should be framed as an adjunct for selected multidrug-resistant infections, with engineering, cocktail design, and resistance monitoring."
+    topic: phage therapy
+    source_tier: scholarly_primary
+    citekey: doub2022phagepseudomonas
+    url: https://doi.org/10.1038/s41467-022-31837-9
+    url_or_citekey: doub2022phagepseudomonas
+    evidence_date: 2022-07-19
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New randomized phage-therapy trial, compassionate-use series, FDA guidance, or resistance/safety update."
+  - claim_id: who-bppl-2024-amr-triage
+    file: manuscript/unit_VII/bacteria_archaea_viruses.md
+    source_path: manuscript/unit_VII/bacteria_archaea_viruses.md
+    anchor_text: "WHO 2024 Bacterial Priority Pathogens List"
+    claim_text: "WHO BPPL 2024 prioritizes pathogen-resistance pairs by burden, trend, transmissibility, treatability, and pipeline scarcity."
+    topic: antimicrobial resistance
+    source_tier: official_primary
+    citekey: who2024bppl
+    url: https://www.who.int/publications/i/item/9789240093461
+    url_or_citekey: who2024bppl
+    evidence_date: 2024-05-17
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New WHO BPPL, GLASS, or CDC AR threat update."
+  - claim_id: oneill-amr-warning-scenario
+    file: manuscript/labs/unit_VII/lab_infectious_disease.md
+    source_path: manuscript/labs/unit_VII/lab_infectious_disease.md
+    anchor_text: "historical warning scenario, not a current burden count"
+    claim_text: "The O'Neill 10-million-deaths-by-2050 AMR figure is treated as a warning scenario rather than a current burden estimate."
+    topic: antimicrobial resistance
+    source_tier: scholarly_review
+    citekey: oneill2016amr
+    url: https://amr-review.org/sites/default/files/160525_Final%20paper_with%20cover.pdf
+    url_or_citekey: oneill2016amr
+    evidence_date: 2016-05-19
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New Lancet/WHO global AMR burden estimate or policy-forecast revision."
+  - claim_id: candida-auris-colonization-control-2026
+    file: manuscript/unit_VII/infectious_disease.md
+    source_path: manuscript/unit_VII/infectious_disease.md
+    anchor_text: "can colonise patients without symptoms"
+    claim_text: "CDC guidance frames Candida auris as a healthcare-transmissible yeast that may colonise asymptomatic patients and requires infection-control source governance."
+    topic: fungal antimicrobial resistance
+    source_tier: official_primary
+    citekey: cdc2026candidaauris
+    url: https://www.cdc.gov/candida-auris/hcp/clinical-overview/index.html
+    url_or_citekey: cdc2026candidaauris
+    evidence_date: 2026-02-26
+    checked_as_of: 2026-05-20
+    refresh_trigger: "CDC C. auris clinical overview update, outbreak guidance, resistance report, or diagnostic recommendation."
+  - claim_id: candida-auris-echinocandin-treatment-2024
+    file: manuscript/unit_VII/infectious_disease.md
+    source_path: manuscript/unit_VII/infectious_disease.md
+    anchor_text: "echinocandins remain typical initial adult therapy"
+    claim_text: "Echinocandins remain typical initial adult therapy for clinical Candida auris infection, while resistance trends require refreshing."
+    topic: fungal antimicrobial resistance
+    source_tier: official_primary
+    citekey: cdc2024candidaauristreatment
+    url: https://www.cdc.gov/candida-auris/hcp/clinical-care/index.html
+    url_or_citekey: cdc2024candidaauristreatment
+    evidence_date: 2024-04-24
+    checked_as_of: 2026-05-20
+    refresh_trigger: "CDC clinical-care update, echinocandin-resistance report, or antifungal guideline revision."
+  - claim_id: tb-2025-burden-2024
+    file: manuscript/unit_VII/infectious_disease.md
+    source_path: manuscript/unit_VII/infectious_disease.md
+    anchor_text: "estimated 10.7 million people fell ill with TB in 2024"
+    claim_text: "WHO's 2025 TB report estimates 10.7 million people developed TB in 2024."
+    topic: tuberculosis
+    source_tier: official_primary
+    citekey: who2025tb
+    url: https://www.who.int/publications/i/item/9789240114708
+    url_or_citekey: who2025tb
+    evidence_date: 2025-10-01
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New WHO Global tuberculosis report, treatment guideline, or surveillance revision."
+  - claim_id: tb-bpalm-guidance-2025
+    file: manuscript/unit_VII/infectious_disease.md
+    source_path: manuscript/unit_VII/infectious_disease.md
+    anchor_text: "shorter most-oral regimens for eligible patients"
+    claim_text: "WHO 2025 TB guidance prioritises shorter most-oral regimens for eligible MDR/RR-TB patients while preserving individualized regimens for exclusions."
+    topic: tuberculosis
+    source_tier: official_primary
+    citekey: who2025tb
+    url: https://www.who.int/publications/i/item/9789240114708
+    url_or_citekey: who2025tb
+    evidence_date: 2025-10-01
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New WHO drug-resistant TB guideline, regimen eligibility change, or resistance/toxicity update."
+  - claim_id: malaria-2025-burden-2024
+    file: manuscript/unit_VII/infectious_disease.md
+    source_path: manuscript/unit_VII/infectious_disease.md
+    anchor_text: "estimated 282 million cases and 610,000 deaths in 2024"
+    claim_text: "WHO's 2025 malaria reporting estimates 282 million cases and 610,000 deaths in 2024."
+    topic: malaria
+    source_tier: official_primary
+    citekey: who2025malaria
+    url: https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025
+    url_or_citekey: who2025malaria
+    evidence_date: 2025-12-01
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New WHO World malaria report, country-surveillance revision, or burden estimate update."
+  - claim_id: malaria-r21-second-vaccine
+    file: manuscript/unit_VII/infectious_disease.md
+    source_path: manuscript/unit_VII/infectious_disease.md
+    anchor_text: "R21/Matrix-M is now the second WHO-recommended malaria vaccine"
+    claim_text: "R21/Matrix-M is framed as a second WHO-recommended malaria vaccine and as an addition to, not replacement for, malaria control."
+    topic: malaria
+    source_tier: official_primary
+    citekey: who2025malaria
+    url: https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025
+    url_or_citekey: who2025malaria
+    evidence_date: 2025-12-01
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New WHO malaria vaccine recommendation, efficacy update, safety signal, or implementation guidance."
+  - claim_id: malaria-spatial-emanators-2025
+    file: manuscript/unit_VII/infectious_disease.md
+    source_path: manuscript/unit_VII/infectious_disease.md
+    anchor_text: "2025 conditional recommendation for indoor **spatial emanators**"
+    claim_text: "WHO issued a conditional recommendation for indoor spatial emanators as an added malaria vector-control tool in areas with ongoing transmission."
+    topic: malaria
+    source_tier: official_primary
+    citekey: who2025spatialemanators
+    url: https://www.who.int/news/item/13-08-2025-who-recommends-spatial-emanators-for-malaria-vector-control-and-prequalifies-first-two-products
+    url_or_citekey: who2025spatialemanators
+    evidence_date: 2025-08-13
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New WHO vector-control recommendation, prequalification update, resistance data, or field-trial evidence."
+  - claim_id: photosynthesis-co2-scenario-range
+    file: manuscript/labs/unit_III/lab_photosynthesis.md
+    source_path: manuscript/labs/unit_III/lab_photosynthesis.md
+    anchor_text: "Very high-emissions scenarios can push atmospheric CO₂"
+    claim_text: "CO2 near 800-1000 ppm by 2100 is framed as a very high-emissions scenario range, not a central projection."
+    topic: climate scenario
+    source_tier: official_primary
+    citekey: ipcc2021ar6wg1
+    url: https://www.ipcc.ch/report/ar6/wg1/
+    url_or_citekey: ipcc2021ar6wg1
+    evidence_date: 2021-08-09
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New IPCC scenario assessment or CMIP concentration update."
+  - claim_id: iucn-red-list-2025-1
+    file: manuscript/unit_X/biomes_and_conservation.md
+    source_path: manuscript/unit_X/biomes_and_conservation.md
+    anchor_text: "Version 2025-1 listed 169,420 assessed species"
+    claim_text: "IUCN 2025-1 counts are a tracked assessed-species subset and should not be treated as a census of all biodiversity."
+    topic: conservation status
+    source_tier: official_summary
+    citekey: iucn2025redlist
+    url: https://www.iucnredlist.org/resources/summary-statistics
+    url_or_citekey: iucn2025redlist
+    evidence_date: 2025-01-01
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New IUCN Red List version or summary-statistics table."
+  - claim_id: cites-appendices-live-2026
+    file: manuscript/unit_X/biomes_and_conservation.md
+    source_path: manuscript/unit_X/biomes_and_conservation.md
+    anchor_text: "Parties and listed taxa change as appendices are amended"
+    claim_text: "CITES parties and listed taxa are live treaty-governance data that must be refreshed from the appendices."
+    topic: conservation status
+    source_tier: official_primary
+    citekey: cites2026appendices
+    url: https://cites.org/eng/app/index.php
+    url_or_citekey: cites2026appendices
+    evidence_date: 2026-05-20
+    checked_as_of: 2026-05-20
+    refresh_trigger: "CITES appendices amendment, Conference of the Parties update, or party-list update."
+  - claim_id: kunming-montreal-30x30-2022
+    file: manuscript/unit_X/biomes_and_conservation.md
+    source_path: manuscript/unit_X/biomes_and_conservation.md
+    anchor_text: "protect 30% of land and 30% of ocean by 2030"
+    claim_text: "The Kunming-Montreal Global Biodiversity Framework includes a 30x30 protection target for land and ocean by 2030."
+    topic: conservation status
+    source_tier: official_primary
+    citekey: cbd2022kunmingmontreal
+    url: https://www.cbd.int/gbf
+    url_or_citekey: cbd2022kunmingmontreal
+    evidence_date: 2022-12-19
+    checked_as_of: 2026-05-20
+    refresh_trigger: "CBD framework update, national target reporting update, or protected-area accounting revision."
+  - claim_id: wwf-living-planet-index-2024
+    file: manuscript/unit_X/biomes_and_conservation.md
+    source_path: manuscript/unit_X/biomes_and_conservation.md
+    anchor_text: "73% average decline since 1970 in the Living Planet Index"
+    claim_text: "The WWF Living Planet Index reports a 73% average decline in monitored vertebrate population sizes since 1970, which is a population-index trend rather than an animal census."
+    topic: biodiversity metrics
+    source_tier: official_summary
+    citekey: wwf2024livingplanet
+    url: https://livingplanet.panda.org/
+    url_or_citekey: wwf2024livingplanet
+    evidence_date: 2024-10-10
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New Living Planet Report, Living Planet Database update, or methods revision."
+  - claim_id: ipbes-million-threatened-2019
+    file: manuscript/unit_X/biomes_and_conservation.md
+    source_path: manuscript/unit_X/biomes_and_conservation.md
+    anchor_text: "~1,000,000 in the IPBES synthesis"
+    claim_text: "The IPBES Global Assessment's million-species figure is a synthesis estimate, not a directly enumerated extinction-risk ledger."
+    topic: biodiversity metrics
+    source_tier: official_summary
+    citekey: ipbes2019global
+    url: https://ipbes.net/global-assessment
+    url_or_citekey: ipbes2019global
+    evidence_date: 2019-05-06
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New IPBES global assessment, thematic assessment, or IUCN methods/count update."
+  - claim_id: un-wpp-2024-population-peak
+    file: manuscript/unit_X/population_ecology.md
+    source_path: manuscript/unit_X/population_ecology.md
+    anchor_text: "about 10.3 billion in the mid-2080s"
+    claim_text: "UN WPP 2024 projects a world-population peak near 10.3 billion in the mid-2080s and about 10.2 billion by 2100."
+    topic: population projection
+    source_tier: official_summary
+    citekey: un2024population
+    url: https://www.un.org/en/UN-projects-world-population-to-peak-within-this-century
+    url_or_citekey: un2024population
+    evidence_date: 2024-07-11
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New UN World Population Prospects revision or regional fertility revision."
+  - claim_id: fao-sofi-2025-nutrition
+    file: manuscript/unit_IX/circulation_respiration_homeostasis.md
+    source_path: manuscript/unit_IX/circulation_respiration_homeostasis.md
+    anchor_text: "malnutrition weakens immune barriers"
+    claim_text: "Nutrition is treated as an organismal systems variable affecting immune barriers, wound repair, growth, and reproduction."
+    topic: nutrition and physiology
+    source_tier: official_primary
+    citekey: fao2025sofi
+    url: https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en
+    url_or_citekey: fao2025sofi
+    evidence_date: 2025-07-28
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New SOFI report, nutrition burden update, or food-security methods revision."
+  - claim_id: prs-transferability-disparities-2019
+    file: manuscript/unit_V/mendelian_genetics.md
+    source_path: manuscript/unit_V/mendelian_genetics.md
+    anchor_text: "Current PRS accuracy is several-fold higher in European-ancestry cohorts"
+    claim_text: "Clinical PRS interpretation should be framed as ancestry- and context-dependent because present accuracy differs across ancestry cohorts."
+    topic: polygenic risk scores
+    source_tier: scholarly_primary
+    citekey: martin2019prsdisparities
+    url: https://doi.org/10.1038/s41588-019-0379-x
+    url_or_citekey: martin2019prsdisparities
+    evidence_date: 2019-03-29
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New cross-ancestry PRS benchmark, clinical guidance, FDA/NIH policy, or large multi-ancestry GWAS update."
+  - claim_id: synthetic-apomixis-rice-frequency-2022
+    file: manuscript/unit_VIII/plant_reproduction.md
+    source_path: manuscript/unit_VIII/plant_reproduction.md
+    anchor_text: "many lines with >80% clonal seeds and selected lines above 95%"
+    claim_text: "High-frequency synthetic apomixis in rice is treated as promising breeding evidence that still requires field, containment, and stability validation."
+    topic: synthetic apomixis
+    source_tier: scholarly_primary
+    citekey: vernet2022highfrequencyapomixis
+    url: https://doi.org/10.1038/s41467-022-35679-3
+    url_or_citekey: vernet2022highfrequencyapomixis
+    evidence_date: 2022-12-27
+    checked_as_of: 2026-05-20
+    refresh_trigger: "New rice/maize/sorghum synthetic-apomixis field trial, seed-setting benchmark, containment study, or stability report."

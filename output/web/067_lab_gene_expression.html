@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>067_lab_gene_expression</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered"
+id="lab-13-gene-expression-transcription-and-translation">Lab 13 — Gene
+Expression — Transcription and Translation</h1>
+<p></p>
+<h2 class="unnumbered" id="learning-objectives">Learning Objectives</h2>
+<p><em>This activity accompanies of the textbook — review that chapter
+before attempting the exercises below.</em></p>
+<ul>
+<li>Transcribe and translate a provided DNA template sequence manually
+to produce an amino acid sequence</li>
+<li>Identify the effect of point mutations (silent, missense, nonsense)
+on the final protein</li>
+<li>Analyse a polysome electron micrograph to determine relative
+transcription and translation rates</li>
+<li>Interpret a Northern blot and a Western blot to determine gene
+expression changes</li>
+</ul>
+<!-- lab-alignment-start -->
+<h3 class="unnumbered" id="alignment-and-rubric-map">Alignment and
+Rubric Map</h3>
+<ul>
+<li><strong>Outcome 1 (LO1):</strong> Interpret the supplied evidence or
+model output for Gene Expression — Transcription and Translation.</li>
+<li><strong>Outcome 2 (LO2):</strong> Identify controls and comparison
+groups that make the claim testable.</li>
+<li><strong>Outcome 3 (LO3):</strong> Quantify uncertainty, boundary
+conditions, or alternative explanations before concluding.</li>
+<li><strong>Outcome 4 (LO4):</strong> Transfer the mechanism to a new
+biological case or public-facing decision.</li>
+<li><strong>Chapter LO coverage:</strong> LO1, LO2, LO3, LO4</li>
+<li><strong>Rubric dimensions:</strong> evidence; controls; uncertainty;
+mechanism; transfer. <!-- lab-alignment-end --> ## Background
+{.unnumbered}</li>
+</ul>
+<p>Gene expression flows from DNA → mRNA (transcription, in the nucleus)
+→ protein (translation, by ribosomes in the cytoplasm). The genetic code
+is triplet (3 nucleotides = 1 codon), non-overlapping, comprehensive,
+and degenerate (multiple codons = one amino acid). A
+<strong>polysome</strong> (polyribosome) consists of multiple ribosomes
+simultaneously translating the same mRNA; the number of ribosomes per
+mRNA is proportional to protein production demand and mRNA length.</p>
+<p>In this lab you will perform manual transcription/translation using
+codon tables, predict the effect of mutations, and interpret blot data
+to determine whether gene expression changes are occurring at the
+transcriptional or translational level.</p>
+<h2 class="unnumbered" id="paper-based-materials">Paper-Based
+Materials</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNA template sequence cards (instructor-provided: 3 sequences —
+original, missense mutant, nonsense mutant)</td>
+<td>1 set</td>
+</tr>
+<tr>
+<td>mRNA codon table (standard genetic code)</td>
+<td>1 per student</td>
+</tr>
+<tr>
+<td>Polysome TEM image (printed)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Northern blot image (printed, 2 lanes: untreated vs treated
+sample)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Western blot image (printed, 2 lanes: untreated vs treated
+sample)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Ruler</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Coloured pens</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered" id="paper-based-investigation">Paper-Based
+Investigation</h2>
+<p><strong>Part A — Transcription and Translation
+Simulation</strong></p>
+<ol type="1">
+<li>Using Cards A (original), B (missense), C (nonsense): Transcribe
+each DNA template to mRNA (3’→5’ template → 5’→3’ mRNA), then translate
+using the codon table to produce an amino acid sequence.</li>
+<li>For Cards B and C, identify: which codon was changed, what type of
+mutation (silent/missense/nonsense/frameshift), and what effect on the
+final protein.</li>
+</ol>
+<p><strong>Part B — Polysome Analysis</strong></p>
+<ol start="3" type="1">
+<li>Examine the polysome TEM image. Count the number of ribosomes on the
+longest visible mRNA strand. Measure the approximate length of the mRNA
+strand (mm). Calculate ribosome density (ribosomes per mm of mRNA).</li>
+</ol>
+<p><strong>Part C — Blot Interpretation</strong></p>
+<ol start="4" type="1">
+<li>The Northern blot shows mRNA levels (bands). The Western blot shows
+protein levels (bands). Compare band intensities between untreated (lane
+1) and treated (lane 2) samples. Complete the interpretation table.</li>
+</ol>
+<h2 class="unnumbered" id="data-recording">Data Recording</h2>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Card</th>
+<th>Mutation type</th>
+<th>Mutated codon</th>
+<th>Amino acid change</th>
+<th>Effect on protein</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>Normal</td>
+</tr>
+<tr>
+<td>B</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>mRNA length: ________ mm; Ribosomes counted: ________; Ribosome
+density: ________ per mm</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 52%" />
+<col style="width: 17%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Sample</th>
+<th>Northern band (strong/weak/absent)</th>
+<th>Western band</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Untreated</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Treated</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- lab-evidence-checklist-start -->
+<h2 class="unnumbered"
+id="evidence-and-reproducibility-checklist">Evidence and Reproducibility
+Checklist</h2>
+<ul>
+<li><strong>Primary evidence goal:</strong> Trace expression from DNA
+template to protein or regulatory RNA.</li>
+<li><strong>Data skill to practice:</strong> Convert DNA/RNA sequence
+data into predicted molecular products.</li>
+<li><strong>BioSkills emphasis:</strong> Process of science, Science and
+society, Quantitative reasoning.</li>
+<li><strong>Control logic:</strong> identify at least one positive
+control, one negative control, or one baseline comparison before
+interpreting results.</li>
+<li><strong>Measurement discipline:</strong> record units, uncertainty,
+sample size, and any discarded observation with a reason.</li>
+<li><strong>Mechanistic link:</strong> connect one result directly to
+the parent chapter’s big idea before writing the conclusion.</li>
+<li><strong>Reproducibility check:</strong> state one procedural detail
+that another group would need in order to reproduce the result.
+<!-- lab-evidence-checklist-end --></li>
+</ul>
+<h2 class="unnumbered" id="paper-based-evidence-upgrade">Paper-Based
+Evidence Upgrade</h2>
+<p>Before answering the analysis questions, annotate the paper dataset
+for <strong>Gene Expression — Transcription and Translation</strong>
+with a reproducibility pass:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Evidence check</th>
+<th>Student action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control logic</td>
+<td>Mark the comparison that functions as the baseline, negative
+control, or reference case.</td>
+</tr>
+<tr>
+<td>Uncertainty</td>
+<td>Circle the row, card, diagram feature, or model assumption most
+likely to change the conclusion.</td>
+</tr>
+<tr>
+<td>Model comparison</td>
+<td>State whether a simpler rule, null model, or alternative mechanism
+could explain the same pattern.</td>
+</tr>
+<tr>
+<td>Decision threshold</td>
+<td>Write the minimum evidence that would make you revise the
+interpretation.</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>Record the exact scoring rule another group would need to reproduce
+your classification.</td>
+</tr>
+</tbody>
+</table>
+<p>Focus note: When reading transcription, splicing, or translation
+datasets, keep the regulatory steps separate and ask which step the
+evidence actually measures, since mRNA level, isoform choice, and
+protein output can move independently. Keep required work paper-based;
+any material-handling or equipment version belongs only in an optional
+extension.</p>
+<h2 class="unnumbered" id="analysis-questions">Analysis Questions</h2>
+<ol type="1">
+<li>Card B (missense mutation): the amino acid sequence changed but the
+protein was still functional. Explain how this is possible using the
+concept of functionally conservative amino acid substitutions (e.g., Leu
+→ Ile).</li>
+<li>Card C introduced a premature stop codon. How does the cell detect
+and degrade mRNAs with premature stop codons? Name this quality-control
+pathway.</li>
+<li>If Northern blot shows no change in mRNA level, but Western blot
+shows dramatically reduced protein, at what level is gene expression
+being regulated? Name two possible regulatory mechanisms.</li>
+<li>A gene has 8 ribosomes per mRNA; a second gene’s mRNA has 40
+ribosomes present. Which gene is being translated more actively? What
+are two reasons a cell might load one mRNA with more ribosomes than
+another?</li>
+<li>The antibiotic streptomycin causes misreading of the A-site codon by
+destabilising the decoding centre of the 30S ribosomal subunit. Predict
+the effect on translation fidelity and which kingdom of organisms would
+be most affected (hint: consider that streptomycin targets 30S vs 60S
+subunits).</li>
+</ol>
+<h2 class="unnumbered" id="safety-and-ethics-notes">Safety and Ethics
+Notes</h2>
+<p>No chemical hazards in this simulation/analysis lab. Handle TEM
+prints with care. If using online databases for real sequence data,
+comply with institutional access agreements.</p>
+<h2 class="unnumbered" id="debrief-and-reflection">Debrief and
+Reflection</h2>
+<p>After you finish the practical work, spend 5–10 minutes in your small
+group comparing results and discussing the following prompts. Each
+member should contribute at least one observation before moving to the
+next prompt:</p>
+<ol type="1">
+<li><strong>What did your measurements show</strong> — compare the
+group’s results to the textbook’s predictions. Where they diverge,
+suggest at least one mechanistic explanation before concluding
+“experimental error.”</li>
+<li><strong>What would change the outcome</strong> — propose one
+modification to the procedure that would sharpen the measurement or
+extend the result to a new biological context, and predict what you
+would observe.</li>
+<li><strong>One-sentence headline</strong> — each student composes a
+single sentence summarising the lab’s take-home message, suitable for a
+tweet. Compare sentences across groups; good headlines are short,
+quantitative, and mechanistic.</li>
+<li><strong>Connection back to the textbook</strong> — identify one
+section of that your data either confirmed or complicated. Cite the
+specific passage.</li>
+</ol>
+<h2 class="unnumbered" id="further-reading-lab">Further Reading
+(Lab)</h2>
+<ul>
+<li>Revisit the parent chapter for the theoretical foundations on which
+this lab is built.</li>
+<li>Look up any <strong>bolded glossary term</strong> introduced in the
+textbook chapter (each has a <code>#gl:term-slug</code> link in the
+text) — its master definition is in
+<code>manuscript/glossary.md</code>.</li>
+<li>Explore the appended <code>src/</code> module that implements the
+corresponding quantitative model (when applicable) — referenced in the
+parent chapter’s “Bridge to Computation” subsection.</li>
+</ul>
+<p><em>Module footer: parent chapter
+<code>\cref{sec:unit_IV_gene_expression}</code>; all numerical
+quantities in this lab use SI units — see Appendix D of the textbook for
+unit conversions and biological-scale reference values.</em></p>
+</body>
+</html>

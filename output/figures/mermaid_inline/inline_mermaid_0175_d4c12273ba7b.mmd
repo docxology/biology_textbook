@@ -1,0 +1,12 @@
+graph TD
+    subgraph "Survivorship Curve Types (log scale)"
+        A["<b>Type I — Late Loss</b><br/>Low juvenile mortality<br/>Most die in old age<br/>e.g., Humans, elephants,<br/>large mammals"]
+        B["<b>Type II — Constant Loss</b><br/>Equal probability of death<br/>at every age<br/>e.g., Songbirds, rodents,<br/>some reptiles, hydra"]
+        C["<b>Type III — Early Loss</b><br/>Massive juvenile mortality<br/>Survivors live long<br/>e.g., Oysters, oak trees,<br/>marine fish, sea turtles"]
+    end
+    A --> D["Convex curve on log plot"]
+    B --> E["Straight line on log plot"]
+    C --> F["Concave curve on log plot"]
+    D --> G["Strategy: High parental<br/>investment, few offspring,<br/>K-selected traits"]
+    E --> H["Strategy: Intermediate;<br/>constant hazard rate"]
+    F --> I["Strategy: Many offspring,<br/>minimal parental care,<br/>r-selected traits"]

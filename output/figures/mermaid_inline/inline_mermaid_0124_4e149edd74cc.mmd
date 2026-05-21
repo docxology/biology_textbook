@@ -1,0 +1,33 @@
+flowchart LR
+    subgraph "Sample Collection"
+        A["Environmental sample<br/>(soil, water, gut, skin)"]
+    end
+
+    subgraph "DNA-Based Approaches"
+        A --> B["Total DNA extraction<br/>(bead beating + column purification)"]
+        B --> C["16S rRNA amplicon<br/>sequencing"]
+        B --> D["Shotgun metagenomics"]
+        C --> E["PCR amplify V3-V4<br/>regions with universal<br/>primers (515F/806R)"]
+        E --> F["Illumina MiSeq<br/>sequencing"]
+        F --> G["ASV/OTU clustering<br/>(DADA2, QIIME2)"]
+        G --> H["Taxonomic assignment<br/>(SILVA, Greengenes2)"]
+        D --> I["Fragment all DNA<br/>(no PCR bias)"]
+        I --> J["Illumina HiSeq/NovaSeq<br/>or Nanopore"]
+        J --> K["Assembly + binning<br/>(MetaSPAdes, MEGAHIT)"]
+        K --> L["MAGs<br/>(metagenome-assembled<br/>genomes)"]
+    end
+
+    subgraph "RNA/Protein/Metabolite Approaches"
+        A --> M["Total RNA extraction"]
+        M --> N["Metatranscriptomics<br/>(active gene expression)"]
+        A --> O["Protein extraction"]
+        O --> P["Metaproteomics<br/>(expressed proteins)"]
+        A --> Q["Metabolite extraction"]
+        Q --> R["Metabolomics<br/>(LC-MS/MS, NMR)"]
+    end
+
+    H --> S["Community composition<br/>(who is there?)"]
+    L --> T["Functional potential<br/>(what could they do?)"]
+    N --> U["Active functions<br/>(what are they doing?)"]
+    P --> V["Protein-level activity"]
+    R --> W["Chemical communication<br/>and outputs"]

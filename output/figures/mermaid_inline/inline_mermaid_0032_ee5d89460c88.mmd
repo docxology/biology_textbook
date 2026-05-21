@@ -1,0 +1,24 @@
+flowchart TD
+    A["Microscopy Techniques"] --> B["Light Microscopy<br/>Resolution ~200 nm"]
+    A --> C["Electron Microscopy<br/>Resolution ~0.1 nm"]
+    A --> D["Super-Resolution<br/>Resolution ~20 nm"]
+
+    B --> B1["Bright-field<br/>Stained specimens"]
+    B --> B2["Phase-contrast<br/>Live cells, unstained"]
+    B --> B3["DIC / Nomarski<br/>3D-like contrast"]
+    B --> B4["Fluorescence<br/>GFP, immunofluorescence"]
+    B --> B5["Confocal<br/>Optical sectioning"]
+    B --> B6["TIRF<br/>Surface events only"]
+
+    C --> C1["TEM<br/>Thin sections, 2D"]
+    C --> C2["SEM<br/>Surface topography, 3D"]
+    C --> C3["Cryo-EM<br/>Near-native state<br/>Nobel Prize 2017"]
+
+    D --> D1["STED<br/>Stimulated emission depletion"]
+    D --> D2["STORM<br/>Stochastic optical<br/>reconstruction"]
+    D --> D3["PALM<br/>Photoactivated<br/>localisation"]
+
+    style A fill:#f9f9f9
+    style B fill:#e6f3ff
+    style C fill:#ffe6e6
+    style D fill:#e6ffe6

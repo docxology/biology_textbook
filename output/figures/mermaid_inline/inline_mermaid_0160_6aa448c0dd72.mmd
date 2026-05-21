@@ -1,0 +1,30 @@
+stateDiagram-v2
+    [*] --> Closed: At rest (V = -70 mV)
+
+    state "Na+ Channel States" as NaCh {
+        Closed --> Open: Depolarisation above threshold\nm gates open (tau ~0.5 ms)\n3 activation gates (m³)
+        Open --> Inactivated: h gate closes (tau ~5 ms)\nBall-and-chain mechanism\nChannel blocked from inside
+        Inactivated --> Closed: Repolarisation to rest\nh gate reopens (tau ~10 ms)\nm gates close
+    }
+
+    note right of Open
+        Na+ rushes IN
+        V rises toward +50 mV
+        Duration: ~0.5 ms
+        UPSTROKE of AP
+    end note
+
+    note right of Inactivated
+        Cannot reopen regardless
+        of stimulus strength
+        ABSOLUTE refractory period
+        Ensures unidirectional
+        propagation
+    end note
+
+    note right of Closed
+        Ready to fire again
+        All gates reset
+        Channel can be
+        activated by new stimulus
+    end note

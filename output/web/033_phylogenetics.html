@@ -1,0 +1,2302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>033_phylogenetics</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="phylogenetics-and-the-tree-of-life">Phylogenetics and the Tree
+of Life</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 21</strong> · Level 3/3 · 60 min read · 100 min lecture ·
+Prerequisites: </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you should be able to:</p>
+<ol type="1">
+<li>Explain what phylogenetics reveals about evolutionary relationships,
+ancestral states, divergence timing, and biogeographic origins.</li>
+<li>Read and interpret phylogenetic trees, distinguishing between
+clades, paraphyletic groups, polyphyletic groups, and key character
+types (synapomorphy, symplesiomorphy, homoplasy).</li>
+<li>Compare phylogenetic reconstruction methods: distance-based (UPGMA,
+Neighbor-Joining), maximum parsimony, maximum likelihood, and Bayesian
+inference.</li>
+<li>Apply <a href="#gl:molecular-clock"><strong>molecular
+clock</strong></a> calculations to estimate divergence times and
+evaluate the assumptions and limitations of clock models.</li>
+<li>Describe the three-domain tree of life, including endosymbiotic
+origins of <a href="#gl:organelle"><strong>organelle</strong></a>s and
+the significance of Asgard <a
+href="#gl:archaea"><strong>archaea</strong></a>.</li>
+<li>Outline human phylogeny, including fossil hominin diversity and
+archaic introgression events.</li>
+<li>Calculate a Jukes-Cantor corrected distance from observed sequence
+divergence and estimate a divergence time, explaining why the correction
+is needed and why mitochondrial estimates differ from nuclear
+calibrations.</li>
+<li>Explain how long-read sequencing (PacBio HiFi, Oxford Nanopore)
+resolves deep-divergence and polyploid phylogenies that short reads
+cannot, using the animal tree of life and ancient-DNA examples.</li>
+<li>Evaluate a phylogenetic claim by identifying the dataset, model, and
+null hypothesis needed to distinguish shared ancestry from convergence
+and to assess sampling and calibration uncertainty.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Phylogenies are evidence-based hypotheses
+about ancestry, not ladders of progress.</li>
+<li><strong>Core concepts:</strong> homology, tree topology, parsimony,
+molecular clocks.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change:
+Evolution, Systems; AP Biology: Evolution, Systems Interactions;
+NGSS-style topics: Natural Selection and Evolution, Interdependent
+Relationships in Ecosystems.</li>
+<li><strong>Model or quantitative lens:</strong> Tree-distance,
+parsimony, and molecular-clock calculations.</li>
+<li><strong>Data skill:</strong> Read trees correctly and map traits or
+sequences onto branches.</li>
+<li><strong>Practice cadence:</strong> Visual Representations,
+Statistical Tests and Data Analysis, Argumentation.</li>
+<li><strong>Common misconception to repair:</strong> Living species are
+cousins, not ancestors of one another.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Transfer tree thinking to pathogens,
+conservation units, gene families, and development.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.genetics.genetics.jukes_cantor_distance</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette — The Tree That Changed
+Everything</strong></p>
+<p>In the 1970s, Carl Woese was alone in his University of Illinois
+laboratory, painstakingly sequencing ribosomal RNA by subjecting it to
+nuclease digestion and then separating fragments on two-dimensional
+electrophoresis gels — an agonisingly laborious technique that took
+months per organism. When he sequenced methanogens (thought to be
+unusual bacteria), the rRNA pattern was unlike any bacterium. It was
+unlike any <a href="#gl:eukaryote"><strong>eukaryote</strong></a> too.
+Woese concluded they formed a third domain of life — the Archaea. His
+1977 <em>PNAS</em> paper was widely dismissed for nearly a decade: a
+microbiologist claiming to overturn a century of classification with RNA
+fingerprints? Yet the phylogenetic evidence was incontrovertible, and by
+the 1990s the three-domain tree had rearranged most of biology. The
+lesson: molecular sequence data can reveal evolutionary relationships
+invisible to morphology, and great paradigm shifts are often dismissed
+before they are accepted.</p>
+</blockquote>
+<h2 id="what-phylogenetics-tells-us">What Phylogenetics Tells Us</h2>
+<p><strong>Phylogenetics</strong> is the study of evolutionary
+relationships among organisms, inferred from heritable characters (DNA
+sequences, <a href="#gl:protein"><strong>protein</strong></a> sequences,
+morphological traits, behavioral traits). A phylogenetic analysis
+produces a tree (or network) that represents the historical pattern of
+descent from common ancestors.</p>
+<p>Phylogenetics addresses four fundamental questions:</p>
+<ol type="1">
+<li><strong>Evolutionary relationships</strong>: Which organisms are
+most closely related? This is the foundation of modern biological
+classification – taxonomy based on shared ancestry rather than
+superficial similarity.</li>
+<li><strong>Ancestral character states</strong>: What did the ancestors
+look like? By mapping traits onto phylogenies, we can reconstruct the
+sequence in which characters evolved (e.g., when did flight originate in
+insects?).</li>
+<li><strong>Timing of diversification</strong>: When did lineages
+diverge? Molecular clocks calibrated with fossil data allow estimation
+of divergence dates even when the fossil record is incomplete.</li>
+<li><strong>Biogeographic origins</strong>: Where did lineages originate
+and how did they disperse? Phylogeography combines phylogenetics with
+geographic data to trace the spatial history of lineages.</li>
+</ol>
+<h3 id="applications-beyond-systematics">Applications Beyond
+Systematics</h3>
+<p>Phylogenetics has become indispensable across biology and
+medicine:</p>
+<ul>
+<li><strong>Drug discovery</strong>: Phylogenetic analysis identifies
+which organisms are likely to produce useful bioactive compounds. If a
+species in one clade produces a valuable compound, closely related
+species in the same clade are promising candidates for novel
+variants.</li>
+<li><strong>Epidemiology</strong>: Genomic phylogenetics tracks pathogen
+spread in real time (SARS-CoV-2, HIV, Ebola). Phylogenetic clustering
+reveals transmission chains, identifies superspreader events, and dates
+outbreak origins.</li>
+<li><strong>Conservation</strong>: <strong>Phylogenetic diversity
+(PD)</strong> metrics identify lineages that represent the greatest
+amount of unique evolutionary history. Losing a phylogenetically
+isolated species (e.g., the tuatara, sole survivor of order
+Rhynchocephalia) eliminates more evolutionary history than losing one
+species from a large, diverse clade.</li>
+</ul>
+<blockquote>
+<p><strong>Concept Check 1:</strong> Why might a conservation strategy
+based on phylogenetic diversity differ from one based simply on species
+counts? Give an example of a species with high phylogenetic
+distinctiveness.</p>
+</blockquote>
+<h3 id="phylogenetic-diversity-and-the-edge-framework">Phylogenetic
+Diversity and the EDGE Framework</h3>
+<p><strong>Phylogenetic diversity (PD)</strong>, formalized by Daniel
+Faith (1992), is the <strong>total branch length</strong> of the
+phylogeny subtending a given set of species. A clade of 100 species that
+diverged 5 Ma has lower PD than a clade of 30 species spanning 200 Ma,
+because PD measures evolutionary history rather than species count
+alone. The <strong>EDGE (Evolutionarily Distinct and Globally
+Endangered)</strong> initiative of the Zoological Society of London uses
+PD-based metrics to prioritize conservation:</p>
+<p><span class="math display">\[\begin{equation}
+\text{EDGE score} = \log(1 + \text{ED}) + \text{GE} \cdot \log(2)
+\label{eq:unit_VI_edge_score}
+\end{equation}\]</span></p>
+<p>where <strong>ED</strong> (evolutionary distinctness) is each
+species’ share of the phylogeny it sits in, weighted by branch length,
+and <strong>GE</strong> (global endangerment) is the IUCN Red List
+category as a numerical score (Least Concern = 0, Critically Endangered
+= 4). Top EDGE species are both phylogenetically isolated and at high
+extinction risk — their loss would erase irreplaceable amounts of
+evolutionary history.</p>
+<p><strong>EDGE flagship examples</strong>:</p>
+<ul>
+<li><strong>Tuatara</strong> (<em>Sphenodon punctatus</em>) — sole
+extant member of order Rhynchocephalia, sister group to most squamates
+(lizards and snakes). The tuatara’s lineage diverged ~250 Ma, making it
+one of the most phylogenetically distinct vertebrates alive. Restricted
+to ~30 small islands off New Zealand.</li>
+<li><strong>Pygmy hippopotamus</strong> (<em>Choeropsis
+liberiensis</em>) — sole survivor of one of two extant hippo lineages,
+with deep evolutionary history.</li>
+<li><strong>Aye-aye</strong> (<em>Daubentonia madagascariensis</em>) —
+sole member of the family Daubentoniidae, an evolutionarily distinct
+lemur lineage on Madagascar.</li>
+<li><strong>Yangtze giant softshell turtle</strong> (<em>Rafetus
+swinhoei</em>) — fewer than four known living individuals; an entire
+evolutionary line nearly extinct.</li>
+</ul>
+<p>The EDGE approach contrasts sharply with species-count-based
+conservation. A reserve protecting 100 closely related warbler species
+preserves much less evolutionary history than a reserve protecting 30
+phylogenetically diverse tetrapods — a counterintuitive but biologically
+meaningful prioritization rule.</p>
+<hr />
+<h2 id="tree-terminology-and-reading-phylogenies">Tree Terminology and
+Reading Phylogenies</h2>
+<pre class="mermaid"><code>graph TD
+    R[&quot;Root (MRCA of all taxa)&quot;] --&gt; N1[&quot;Internal Node (divergence event)&quot;]
+    R --&gt; OG[&quot;Outgroup&quot;]
+    N1 --&gt; N2[&quot;Internal Node&quot;]
+    N1 --&gt; C[&quot;Taxon C&quot;]
+    N2 --&gt; A[&quot;Taxon A&quot;]
+    N2 --&gt; B[&quot;Taxon B&quot;]
+
+    style R fill:#e8d5b7,stroke:#8B7355
+    style N1 fill:#d4e6f1,stroke:#5B9BD5
+    style N2 fill:#d4e6f1,stroke:#5B9BD5
+    style A fill:#d5f5e3,stroke:#2ECC71
+    style B fill:#d5f5e3,stroke:#2ECC71
+    style C fill:#d5f5e3,stroke:#2ECC71
+    style OG fill:#fadbd8,stroke:#E74C3C
+
+    linkStyle 0 stroke:#333,stroke-width:2px
+    linkStyle 1 stroke:#333,stroke-width:2px
+    linkStyle 2 stroke:#333,stroke-width:2px
+    linkStyle 3 stroke:#333,stroke-width:2px
+    linkStyle 4 stroke:#333,stroke-width:2px</code></pre>
+<!-- alt: Flowchart for tree terminology and reading phylogenies: root (MRCA of sampled taxa), internal node (divergence event), outgroup, and branch labels define how to read relatedness. -->
+<p><em>Flowchart for tree terminology and reading phylogenies: root
+(MRCA of sampled taxa), internal node (divergence event), outgroup, and
+branch labels define how to read relatedness.</em></p>
+<p><strong>Key: A and B are sister taxa. The clade (A, B, C) is
+monophyletic. The outgroup roots the tree.</strong></p>
+<h3 id="fundamental-tree-components">Fundamental Tree Components</h3>
+<p><strong>Root</strong>: The node representing the most recent common
+ancestor (MRCA) of the sampled taxa in the tree. An
+<strong>outgroup</strong> – a taxon known to be outside the group of
+interest (the ingroup) – is used to determine the position of the root
+on an unrooted tree.</p>
+<p><strong>Internal nodes</strong>: Each internal node represents a
+divergence event – a <a
+href="#gl:speciation"><strong>speciation</strong></a> event where an
+ancestral lineage split into two daughter lineages. Nodes are
+hypothetical ancestors; they are not observed directly but inferred from
+the data.</p>
+<p><strong>Branches</strong>: The lines connecting nodes. In a
+<strong>cladogram</strong>, branch lengths have no meaning (primarily
+topology matters). In a <strong>phylogram</strong>, branch lengths
+represent the amount of evolutionary change (e.g., substitutions per
+site). In a <strong>chronogram</strong> (ultrametric tree), branch
+lengths represent time.</p>
+<p><strong>Tips (leaves)</strong>: The terminal nodes, representing
+observed taxa – either extant species or fossil specimens.</p>
+<p><strong>Clade (monophyletic group)</strong>: An ancestor and its
+descendant lineage. Clades are the preferred units in modern
+phylogenetic classification because they preserve common ancestry. The
+clade Mammalia includes the descendants of the MRCA of mammals – bats,
+whales, humans, and monotremes alike.</p>
+<p><strong>Sister groups</strong>: Two clades that share an immediate
+common ancestor. In the diagram above, Taxon A and Taxon B are sister
+taxa; their clade is sister to Taxon C.</p>
+<p><strong>Polytomy</strong>: An unresolved node where three or more
+lineages diverge simultaneously. A “hard” polytomy reflects genuine
+simultaneous speciation (rare); a “soft” polytomy reflects insufficient
+data to resolve the branching order (common).</p>
+<h3 id="paraphyletic-and-polyphyletic-groups">Paraphyletic and
+Polyphyletic Groups</h3>
+<p><strong>Paraphyletic group</strong>: An ancestor and SOME (but not
+most) of its descendants. The traditional “Reptilia” (turtles, lizards,
+snakes, crocodilians) is paraphyletic because it excludes birds, which
+are nested within the reptile clade. Modern systematics recognizes that
+crocodilians are more closely related to birds than to lizards – a fact
+that the traditional grouping obscures.</p>
+<p><strong>Polyphyletic group</strong>: A group whose members do NOT
+share a most recent common ancestor exclusive to that group.
+“Warm-blooded animals” (birds + mammals) is polyphyletic because
+endothermy evolved independently in each lineage. Polyphyletic groups
+reflect convergent evolution, not shared ancestry.</p>
+<h3 id="character-types">Character Types</h3>
+<p><strong>Synapomorphy</strong>: A shared derived character that
+defines a clade. The amniotic egg is a synapomorphy of Amniota
+(reptiles, birds, and mammals). Synapomorphies are the characters most
+informative for identifying clades.</p>
+<p><strong>Symplesiomorphy</strong>: A shared ancestral character
+inherited from a deeper ancestor. The vertebral column is shared by most
+vertebrates but does not diagnose any particular clade within
+vertebrates – it is a symplesiomorphy for any subgroup of
+vertebrates.</p>
+<p><strong>Autapomorphy</strong>: A unique derived character found in a
+single taxon. Feathers are an autapomorphy of Aves (or more precisely,
+of Maniraptora within the dinosaur phylogeny, though some non-avian
+maniraptorans also had feathers).</p>
+<p><strong>Homoplasy</strong>: A character state that appears similar in
+two or more taxa but was NOT inherited from their common ancestor.
+Homoplasy arises through <strong>convergent evolution</strong>
+(independent evolution of similar features – e.g., wings in bats and
+birds) or <strong>reversal</strong> (return to an ancestral state).
+Homoplasy confounds phylogenetic analysis because it falsely suggests
+shared ancestry.</p>
+<h3 id="rooting-trees">Rooting Trees</h3>
+<p>An <strong>unrooted tree</strong> shows the relationships among taxa
+but does not indicate the direction of evolutionary time. To root a tree
+(and thereby determine which character states are ancestral versus
+derived), one of two approaches is used:</p>
+<ul>
+<li><strong>Outgroup rooting</strong>: Include a taxon known to be
+outside the group of interest. The root is placed on the branch
+connecting the outgroup to the ingroup. This is the most common method.
+For example, when constructing a phylogeny of mammals, a reptile (e.g.,
+a crocodilian) serves as the outgroup.</li>
+<li><strong>Midpoint rooting</strong>: Place the root at the midpoint of
+the longest path between any two taxa. This assumes approximately equal
+rates of evolution across lineages – an assumption that is often
+violated.</li>
+</ul>
+<h3 id="reading-trees-correctly">Reading Trees Correctly</h3>
+<p>A critical skill is reading phylogenetic trees by
+<strong>topology</strong> (branching pattern) rather than by the visual
+arrangement of tips. Trees can be rotated around any internal node
+without changing the evolutionary relationships they depict. The common
+error of reading relationships from left to right along the tips
+(treating one end as “primitive” and the other as “advanced”) is
+incorrect. Evolution does not proceed along a ladder from simple to
+complex; every living species is equally evolved — each has been
+evolving for the same amount of time since the last comprehensive common
+ancestor.</p>
+<h4 id="common-tree-thinking-misconceptions">Common tree-thinking
+misconceptions</h4>
+<p>Decades of cognitive-science research on student tree-reading reveal
+a recurring set of errors. Recognizing these misconceptions is the
+foundation of phylogenetic literacy:</p>
+<table>
+<colgroup>
+<col style="width: 57%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th>Misconception</th>
+<th>Correction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ladder thinking</strong>: Trees show a progression from
+“primitive” tips on one side to “advanced” tips on the other.</td>
+<td>Trees can be rotated around any node; tip order has no biological
+meaning. Every tip is equally distant from the root in time.</td>
+</tr>
+<tr>
+<td><strong>Reading along the tips</strong>: Adjacent tips are
+necessarily more closely related than non-adjacent tips.</td>
+<td>Adjacency on the page does not imply evolutionary closeness. Look at
+the <strong>branching topology</strong> — count the nodes shared on the
+path back to the MRCA.</td>
+</tr>
+<tr>
+<td><strong>“More evolved”</strong>: Some tips (“higher” organisms) are
+more evolved than others.</td>
+<td>Most living species have been evolving for the same time. There is
+no “scala naturae”. A bacterium’s lineage is as long as a human’s.</td>
+</tr>
+<tr>
+<td><strong>The root is the oldest extant species</strong>: The root
+represents an existing ancestor whose features can be observed
+today.</td>
+<td>The root is a hypothetical reconstructed ancestor, not a living
+species. Living species are at the tips, not the root.</td>
+</tr>
+<tr>
+<td><strong>A polytomy means simultaneous origin</strong>: Three
+branches emerging from a single node mean three lineages arose at the
+same instant.</td>
+<td>Most polytomies are “soft” — they reflect insufficient data to
+resolve close branching events, not actual simultaneous origin. Hard
+polytomies (true simultaneous divergence) are rare.</td>
+</tr>
+<tr>
+<td><strong>Branch length typically means time</strong>: Most trees show
+time on a horizontal axis.</td>
+<td>Primarily <strong>chronograms</strong> (ultrametric trees) show
+time. <strong>Cladograms</strong> show primarily topology.
+<strong>Phylograms</strong> show evolutionary change (substitutions).
+Typically check the scale bar.</td>
+</tr>
+<tr>
+<td><strong>Convergent traits = relatedness</strong>: Similar traits
+(wings in bats and birds, dorsal fins in dolphins and sharks) imply
+close relationship.</td>
+<td>Convergent traits are <strong>homoplasy</strong> — they reflect
+similar selection pressures, not shared ancestry. Use synapomorphies,
+not overall similarity, to define clades.</td>
+</tr>
+<tr>
+<td><strong>Cousins versus ancestors</strong>: Living species can be
+ancestors of other living species.</td>
+<td>Living species are sister taxa to each other, rarely
+ancestor–descendant. The MRCA of two living species is a hypothetical
+extinct ancestor, even if one species is “older” or “less changed.”</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tips-for-reading-phylogenetic-trees">Tips for reading
+phylogenetic trees</h4>
+<ol type="1">
+<li><strong>Identify the root</strong> — it represents the most recent
+common ancestor of the sampled taxa shown. Check the scale bar and any
+axis labels.</li>
+<li><strong>Trace lineages back to the MRCA</strong> — don’t read across
+tips horizontally. Find where two taxa share their nearest common
+ancestor by going <strong>down</strong> to the node where their lineages
+converge.</li>
+<li><strong>Look at the branching pattern, not the layout</strong> — the
+same topology can be displayed in many visually distinct ways
+(rectangular, slanted, radial, circular).</li>
+<li><strong>Distinguish character types</strong> — mapped traits should
+be inferred from synapomorphies (shared derived characters), not from
+overall similarity.</li>
+<li><strong>Note the scale</strong> — a chronogram with branch lengths
+in millions of years tells a different story from a phylogram with
+branch lengths in substitutions/site.</li>
+</ol>
+<blockquote>
+<p><strong>Concept Check 2:</strong> Consider the traditional
+classification “Reptilia” that includes turtles, lizards, snakes, and
+crocodilians but excludes birds. Is this group monophyletic,
+paraphyletic, or polyphyletic? Explain your reasoning based on the
+phylogenetic position of birds relative to crocodilians.</p>
+</blockquote>
+<hr />
+<h2 id="phylogenetic-reconstruction-methods">Phylogenetic Reconstruction
+Methods</h2>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;Phylogenetic Methods&quot;] --&gt; B[&quot;Distance-Based&quot;]
+    A --&gt; C[&quot;Character-Based&quot;]
+    B --&gt; B1[&quot;UPGMA&quot;]
+    B --&gt; B2[&quot;Neighbor-Joining&quot;]
+    C --&gt; C1[&quot;Maximum Parsimony&quot;]
+    C --&gt; C2[&quot;Maximum Likelihood&quot;]
+    C --&gt; C3[&quot;Bayesian Inference&quot;]
+    B1 --&gt; B1a[&quot;Assumes molecular clock&quot;]
+    B1 --&gt; B1b[&quot;Ultrametric tree&quot;]
+    B2 --&gt; B2a[&quot;No clock assumption&quot;]
+    B2 --&gt; B2b[&quot;Fast, corrected distances&quot;]
+    C1 --&gt; C1a[&quot;Minimize total changes&quot;]
+    C1 --&gt; C1b[&quot;NP-hard for large datasets&quot;]
+    C1 --&gt; C1c[&quot;Long-branch attraction artifact&quot;]
+    C2 --&gt; C2a[&quot;P(data | tree, model)&quot;]
+    C2 --&gt; C2b[&quot;Model-based: GTR+G+I&quot;]
+    C2 --&gt; C2c[&quot;RAxML, IQ-TREE&quot;]
+    C3 --&gt; C3a[&quot;Posterior probability via MCMC&quot;]
+    C3 --&gt; C3b[&quot;MrBayes, BEAST&quot;]
+    C3 --&gt; C3c[&quot;Complex model support&quot;]</code></pre>
+<!-- alt: Flowchart for Phylogenetic Reconstruction Methods: Phylogenetic Methods, Distance-Based, Character-Based, and UPGMA form the diagram's primary path or branches. -->
+<p><em>Flowchart for Phylogenetic Reconstruction Methods: Phylogenetic
+Methods, Distance-Based, Character-Based, and UPGMA form the diagram’s
+primary path or branches.</em></p>
+<h3 id="distance-methods">Distance Methods</h3>
+<p><strong>UPGMA (Unweighted Pair Group Method with Arithmetic
+Mean)</strong>: The simplest clustering algorithm. It assumes a strict
+molecular clock (equal rates of evolution across most lineages) and
+produces an ultrametric tree where most tips are equidistant from the
+root. UPGMA works by iteratively joining the two most similar sequences
+and recalculating distances.</p>
+<p><strong>Limitation</strong>: If the molecular clock assumption is
+violated (and it usually is), UPGMA produces incorrect topologies. It is
+not recommended for most phylogenetic analyses but remains useful for
+constructing guide trees in sequence alignment.</p>
+<p><strong>Neighbor-Joining (NJ)</strong>: Developed by , NJ does NOT
+assume a molecular clock. It works by star decomposition: starting with
+an unresolved star tree, it iteratively identifies the pair of taxa
+whose joining minimizes the total branch length. NJ is fast (<span
+class="math inline">\(O(n^3)\)</span> time complexity), produces
+additive trees with unequal branch lengths, and provides a good starting
+tree for more sophisticated analyses. It is appropriate for large
+datasets where ML or Bayesian methods would be computationally
+prohibitive.</p>
+<h3
+id="worked-example-one-upgma-clustering-step-from-a-distance-matrix">Worked
+Example: One UPGMA Clustering Step from a Distance Matrix</h3>
+<p><strong>Problem:</strong> Four taxa (A, B, C, D) have the symmetric
+pairwise distance matrix below (substitutions/site). Perform the first
+UPGMA clustering step: identify the closest pair, place their common
+node, and recompute the reduced distance matrix.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>—</td>
+<td>0.10</td>
+<td>0.40</td>
+<td>0.42</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>0.10</td>
+<td>—</td>
+<td>0.38</td>
+<td>0.40</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>0.40</td>
+<td>0.38</td>
+<td>—</td>
+<td>0.12</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>0.42</td>
+<td>0.40</td>
+<td>0.12</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Solution:</strong></p>
+<ol type="1">
+<li><p><strong>Identify the smallest off-diagonal distance.</strong>
+Scanning the matrix, the minimum is <span class="math inline">\(d_{AB} =
+0.10\)</span> substitutions/site. Join A and B into cluster <span
+class="math inline">\((AB)\)</span>.</p></li>
+<li><p><strong>Place the internal node.</strong> UPGMA builds an
+ultrametric tree, so the node <span class="math inline">\(U\)</span>
+joining A and B sits at half the pair distance; the branch length from
+each of A and B up to <span class="math inline">\(U\)</span> is</p>
+<p><span class="math display">\[\begin{equation}
+h_U = \frac{d_{AB}}{2} = \frac{0.10}{2} = 0.05 \text{
+substitutions/site}
+\label{eq:phylogenetics_8}
+\end{equation}\]</span></p></li>
+<li><p><strong>Recompute distances from the new cluster</strong> as the
+size-weighted arithmetic mean over member pairs (here <span
+class="math inline">\(|A| = |B| = 1\)</span>):</p>
+<p><span class="math display">\[\begin{equation}
+d_{(AB),C} = \frac{d_{AC} + d_{BC}}{2} = \frac{0.40 + 0.38}{2} = 0.39,
+\qquad
+d_{(AB),D} = \frac{d_{AD} + d_{BD}}{2} = \frac{0.42 + 0.40}{2} = 0.41
+\label{eq:phylogenetics_9}
+\end{equation}\]</span></p>
+<p>The distance <span class="math inline">\(d_{CD} = 0.12\)</span> is
+unchanged.</p></li>
+</ol>
+<p><strong>Interpretation:</strong> A and B cluster first at node height
+0.05 substitutions/site; in the reduced matrix the smallest remaining
+distance is <span class="math inline">\(d_{CD} = 0.12\)</span>, so the
+next step joins C and D, yielding the tree <span
+class="math inline">\(((A,B),(C,D))\)</span> — exactly what an
+equal-rate (clock-like) dataset should produce.</p>
+<h3 id="maximum-parsimony">Maximum Parsimony</h3>
+<p><strong>Maximum parsimony</strong> selects the tree (or trees)
+requiring the fewest total character-state changes. This is an
+application of Occam’s razor – the simplest explanation is
+preferred.</p>
+<p><strong>Procedure</strong>: For each possible tree topology, map
+character changes onto branches to find the minimum number of steps. The
+tree requiring the fewest total steps across most characters is the most
+parsimonious.</p>
+<p><strong>Strengths</strong>: Intuitive; does not require an explicit
+model of evolution; works well when evolutionary rates are low and
+homoplasy is rare.</p>
+<p><strong>Limitations</strong>: - <strong>Computationally
+NP-hard</strong>: The number of possible tree topologies grows
+super-exponentially with the number of taxa. For <span
+class="math inline">\(n\)</span> taxa, the number of unrooted
+bifurcating trees is <span class="math inline">\((2n-5)!! =
+(2n-5)(2n-7)(2n-9)\cdots(3)(1)\)</span>. For 10 taxa: 2,027,025 trees.
+For 20 taxa: <span class="math inline">\(&gt; 10^{21}\)</span> trees.
+Heuristic search algorithms are required. - <strong>Long-branch
+attraction (LBA)</strong>: When two distantly related lineages evolve
+rapidly, they accumulate homoplasies (convergent substitutions) that
+parsimony interprets as synapomorphies, incorrectly grouping them
+together. LBA is a systematic error – adding more data makes it worse,
+not better.</p>
+<h3
+id="worked-example-computing-a-parsimony-score-for-a-small-character-matrix">Worked
+Example: Computing a Parsimony Score for a Small Character Matrix</h3>
+<p><strong>Problem:</strong> Four taxa (A, B, C, D) are scored for four
+binary morphological characters (state 0 or 1). Using the fixed rooted
+tree <span class="math inline">\(((A,B),(C,D))\)</span>, compute the
+total parsimony score (minimum number of character-state changes).</p>
+<table>
+<thead>
+<tr>
+<th>Taxon</th>
+<th>Char 1</th>
+<th>Char 2</th>
+<th>Char 3</th>
+<th>Char 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Solution:</strong></p>
+<p>Apply the Fitch bottom-up algorithm to each character independently.
+At each internal node take the intersection of its two children’s state
+sets; if the intersection is empty, take the union and add one step.
+Internal nodes: <span class="math inline">\(X\)</span> = ancestor of
+<span class="math inline">\((A,B)\)</span>, <span
+class="math inline">\(Y\)</span> = ancestor of <span
+class="math inline">\((C,D)\)</span>, <span
+class="math inline">\(R\)</span> = root.</p>
+<ol type="1">
+<li><p><strong>Char 1</strong> (<span class="math inline">\(A{=}0,
+B{=}0, C{=}1, D{=}1\)</span>): <span class="math inline">\(X =
+\{0\}\cap\{0\}=\{0\}\)</span> (0 steps); <span class="math inline">\(Y =
+\{1\}\cap\{1\}=\{1\}\)</span> (0 steps); <span class="math inline">\(R =
+\{0\}\cap\{1\}=\varnothing \Rightarrow \{0,1\}\)</span> (<strong>1
+step</strong>). Subtotal = 1.</p></li>
+<li><p><strong>Char 2</strong> (<span class="math inline">\(A{=}0,
+B{=}1, C{=}1, D{=}1\)</span>): <span class="math inline">\(X =
+\{0\}\cap\{1\}=\varnothing \Rightarrow \{0,1\}\)</span> (<strong>1
+step</strong>); <span class="math inline">\(Y =
+\{1\}\cap\{1\}=\{1\}\)</span> (0 steps); <span class="math inline">\(R =
+\{0,1\}\cap\{1\}=\{1\}\)</span> (0 steps). Subtotal = 1.</p></li>
+<li><p><strong>Char 3</strong> (<span class="math inline">\(A{=}1,
+B{=}1, C{=}0, D{=}0\)</span>): <span
+class="math inline">\(X=\{1\}\)</span> (0 steps); <span
+class="math inline">\(Y=\{0\}\)</span> (0 steps); <span
+class="math inline">\(R=\{1\}\cap\{0\}=\varnothing\Rightarrow\{0,1\}\)</span>
+(<strong>1 step</strong>). Subtotal = 1.</p></li>
+<li><p><strong>Char 4</strong> (<span class="math inline">\(A{=}0,
+B{=}1, C{=}1, D{=}1\)</span>): same pattern as Char 2 → <strong>1
+step</strong>. Subtotal = 1.</p></li>
+<li><p><strong>Total parsimony score:</strong></p>
+<p><span class="math display">\[\begin{equation}
+S = 1 + 1 + 1 + 1 = 4 \text{ steps}
+\label{eq:phylogenetics_10}
+\end{equation}\]</span></p></li>
+</ol>
+<p><strong>Interpretation:</strong> The tree <span
+class="math inline">\(((A,B),(C,D))\)</span> requires 4 changes; the two
+alternative unrooted topologies <span
+class="math inline">\(((A,C),(B,D))\)</span> and <span
+class="math inline">\(((A,D),(B,C))\)</span> each require 7, so <span
+class="math inline">\(((A,B),(C,D))\)</span> is the most-parsimonious
+tree — Characters 1 and 3 are the parsimony-informative synapomorphies
+that group <span class="math inline">\((A,B)\)</span> apart from <span
+class="math inline">\((C,D)\)</span>.</p>
+<h3 id="maximum-likelihood-ml">Maximum Likelihood (ML)</h3>
+<p>Maximum likelihood selects the tree that maximizes the probability of
+the observed data given the tree topology, branch lengths, and an
+explicit model of sequence evolution:</p>
+<p><span class="math display">\[\begin{equation}
+L(\text{tree}, \theta) = \prod_{i=1}^{L} P(\text{site}_i \mid
+\text{tree}, \theta)
+\label{eq:phylogenetics_1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(L\)</span> is the alignment length
+and θ represents the parameters of the substitution model.</p>
+<p><strong>Substitution models</strong> describe the probability of one
+<a href="#gl:nucleotide"><strong>nucleotide</strong></a> changing to
+another over a given evolutionary time:</p>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 42%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Model</th>
+<th>Description</th>
+<th>Parameters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>JC69</strong> (Jukes-Cantor, 1969)</td>
+<td>Most substitutions equally likely; equal base frequencies</td>
+<td>0 free parameters</td>
+</tr>
+<tr>
+<td><strong>K2P</strong> (Kimura 2-parameter, 1980)</td>
+<td>Transitions <span class="math inline">\(\neq\)</span> transversions;
+equal base frequencies</td>
+<td>1 (Ti/Tv ratio)</td>
+</tr>
+<tr>
+<td><strong>HKY85</strong> (Hasegawa-Kishino-Yano)</td>
+<td>Ti <span class="math inline">\(\neq\)</span> Tv + unequal base
+frequencies</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>GTR</strong> (General Time Reversible)</td>
+<td>Most 6 substitution types have independent rates + unequal base
+frequencies</td>
+<td>9</td>
+</tr>
+<tr>
+<td><strong>GTR+Γ+I</strong></td>
+<td>GTR + gamma-distributed rate variation across sites + proportion of
+invariant sites</td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Model selection</strong> uses information criteria:
+<strong>AIC</strong> <span class="math inline">\(= 2k - 2\ln L\)</span>
+(where <span class="math inline">\(k\)</span> = number of parameters) or
+<strong>BIC</strong> <span class="math inline">\(= k\ln n - 2\ln
+L\)</span> (where <span class="math inline">\(n\)</span> = sample size).
+The model with the lowest AIC or BIC provides the best balance of fit
+and complexity. Tools: ModelFinder (implemented in IQ-TREE),
+jModelTest2.</p>
+<p><strong>Software</strong>: RAxML (Randomized Axelerated Maximum
+Likelihood), IQ-TREE (fast ML with ultrafast bootstrap UFBoot2),
+FastTree (approximate ML for very large alignments).</p>
+<h3 id="bayesian-inference">Bayesian Inference</h3>
+<p>Bayesian phylogenetics uses Bayes’ theorem to estimate the posterior
+probability of trees:</p>
+<p><span class="math display">\[\begin{equation}
+P(\text{tree} \mid \text{data}) = \frac{P(\text{data} \mid \text{tree})
+\cdot P(\text{tree})}{P(\text{data})}
+\label{eq:phylogenetics_2}
+\end{equation}\]</span></p>
+<p>Since <span class="math inline">\(P(\text{data})\)</span> – the
+marginal likelihood – is computationally intractable (it requires
+summing over most possible trees), Bayesian inference uses
+<strong>Markov Chain Monte Carlo (MCMC)</strong> to sample trees from
+the posterior distribution. The Metropolis-Hastings algorithm proposes
+modifications to the current tree, accepts changes that improve the
+likelihood, and occasionally accepts changes that decrease it (allowing
+escape from local optima).</p>
+<p><strong>Output</strong>: A set of posterior trees summarized as a
+majority-rule consensus tree. Each node receives a <strong>posterior
+probability (PP)</strong> – the proportion of sampled trees containing
+that node. PP <span class="math inline">\(\geq 0.95\)</span> is
+considered statistically significant support.</p>
+<p><strong>Software</strong>: MrBayes (standard Bayesian phylogenetics),
+BEAST/BEAST2 (specialized for time-calibrated chronograms, molecular
+clock models, and phylogeography).</p>
+<h4 id="bayesian-phylogenetics-in-practice">Bayesian phylogenetics in
+practice</h4>
+<p>A typical Bayesian phylogenetic workflow consists of the following
+steps. <strong>(1) Specify priors</strong>: a tree prior (often a Yule
+pure-birth or birth–death process for species trees, or a coalescent
+prior for population-genetic data), a clock-rate prior (e.g., a
+lognormal distribution centered at a calibrated rate), and
+substitution-model parameter priors. <strong>(2) Run two or more
+independent MCMC chains</strong> for <span
+class="math inline">\(10^7\)</span>–<span
+class="math inline">\(10^9\)</span> generations, sampling the tree
+topology, branch lengths, and model parameters at intervals (typically
+every 1,000 generations). <strong>(3) Diagnose convergence</strong>:
+discard the first 10–25% of samples as “burn-in”, then verify that
+independent chains have reached the same stationary distribution by
+inspecting Effective Sample Size (ESS &gt; 200 for most parameters),
+Potential Scale Reduction Factor (PSRF ≈ 1.0), and visual trace plots in
+Tracer. <strong>(4) Summarize</strong>: produce a maximum clade
+credibility (MCC) tree, with each node labeled by its posterior
+probability and (for chronograms) its 95% highest posterior density
+(HPD) age interval.</p>
+<p><strong>Comparison with bootstrap support.</strong> A widely cited
+rule of thumb is that <strong>posterior probability ≥ 0.95 is
+approximately equivalent to bootstrap support ≥ 70%</strong>, but the
+two measures are not interchangeable. Posterior probabilities tend to be
+higher than bootstrap values for the same node — sometimes considerably
+so when the substitution model is misspecified. The interpretation
+differs as well: a 95% posterior probability means “given the model and
+data, there is a 95% probability that this clade is correct”; a 70%
+bootstrap value means “70% of pseudoreplicate datasets recover this
+clade”. Modern best practice is to report both measures, and to treat
+single nodes with PP &lt; 0.95 or bootstrap &lt; 70 as
+<strong>unresolved</strong>.</p>
+<h4 id="strict-clock-vs.-relaxed-clock-when-to-use-each">Strict clock
+vs. relaxed clock: when to use each</h4>
+<p>Bayesian phylogenetic dating uses one of two molecular-clock
+frameworks. A <strong>strict clock</strong> assumes a single
+substitution rate across the entire tree; this is appropriate for
+<strong>closely related taxa</strong> (within-species or recent
+congeners), where the assumption is testable and often defensible —
+e.g., dating SARS-CoV-2 lineages within a single pandemic, or dating
+Native American mtDNA lineages relative to the Bering Strait crossing. A
+<strong>relaxed clock</strong> allows substitution rates to vary across
+branches, drawn from a prior distribution (uncorrelated lognormal,
+exponential, or autocorrelated random walk). Relaxed clocks are
+appropriate for <strong>divergent taxa with rate heterogeneity</strong>
+— for example, mammalian phylogenies where rodents evolve 5–10× faster
+than cetaceans, or insect phylogenies where holometabolous lineages have
+generation-time-correlated rate shifts. The choice of clock is
+<strong>testable</strong>: a likelihood-ratio test or Bayes-factor
+comparison between strict and relaxed clock models, evaluated under the
+same data and tree prior, indicates which is supported. In practice,
+modern phylogeneticists routinely default to relaxed clocks and
+primarily revert to strict clocks when relaxed-clock parameter estimates
+indicate near-uniform rates.</p>
+<h3 id="bootstrap-analysis">Bootstrap Analysis</h3>
+<p><strong>Non-parametric bootstrap</strong> assesses branch support by
+resampling:</p>
+<ol type="1">
+<li>Create pseudoreplicates by randomly sampling alignment columns with
+replacement (same length as original alignment).</li>
+<li>Reconstruct a tree from each pseudoreplicate (typically 100–1,000
+replicates).</li>
+<li>The <strong>bootstrap value</strong> for each branch is the
+percentage of pseudoreplicate trees containing that branch.</li>
+</ol>
+<p><strong>Interpretation</strong>: Bootstrap <span
+class="math inline">\(\geq 70\)</span>% is generally considered moderate
+to strong support. Bootstrap values are conservative estimates – a true
+clade may receive bootstrap support below 70% if the supporting signal
+is concentrated in a few alignment positions that are not always
+sampled.</p>
+<p><strong>Bootstrap vs. Bayesian PP</strong>: Bayesian posterior
+probabilities tend to be higher than bootstrap values for the same node.
+A common rule of thumb treats bootstrap support of at least 70% and
+posterior probability of at least 0.95 as broadly comparable thresholds,
+not interchangeable measures. However, PP can be inflated by model
+misspecification — when the substitution model fails to capture features
+of the data, posterior probabilities become falsely confident.
+<strong>Both metrics should be reported</strong> for each node, and
+discordance (high PP, low bootstrap, or vice versa) is itself diagnostic
+of either signal heterogeneity or model violation. Modern best practice
+typically reports nodes as well-supported primarily when
+<strong>both</strong> bootstrap <span class="math inline">\(\geq
+70\%\)</span> <strong>and</strong> PP <span class="math inline">\(\geq
+0.95\)</span> are achieved.</p>
+<p><strong>MCMC convergence diagnostics</strong>: A Bayesian phylogeny
+depends strongly on the convergence of the MCMC chains that produced it;
+high posterior probabilities are misleading when chains have not mixed
+across tree space. Standard diagnostics include:</p>
+<ol type="1">
+<li><strong>Effective sample size (ESS)</strong>: For each parameter
+(tree length, individual branch lengths, model parameters), the number
+of independent samples after autocorrelation correction. ESS values
+<span class="math inline">\(\geq 200\)</span> are typically required for
+confident inference.</li>
+<li><strong>Multiple independent runs</strong>: The same analysis run
+from different random starting points should converge to
+indistinguishable posterior distributions. Discrepancies signal that the
+chains are stuck in local optima.</li>
+<li><strong>Trace plots</strong>: Visual inspection of parameter values
+across MCMC iterations should show a stationary “fuzzy caterpillar”
+pattern, not directional trends or sticking at single values.</li>
+<li><strong>Burn-in removal</strong>: The first 10–25% of MCMC
+iterations are typically discarded as the chain finds the high-posterior
+region of parameter space.</li>
+</ol>
+<p>Tools like <strong>Tracer</strong> (BEAST suite) automate these
+checks, and submitting trees without convergence verification is now
+considered methodologically inadequate in published phylogenomics.</p>
+<h3 id="gene-tree-versus-species-tree-discordance">Gene Tree versus
+Species Tree Discordance</h3>
+<p>A central insight of modern phylogenomics is that <strong>gene trees
+frequently disagree with species trees</strong>, even when the
+underlying biological process is straightforward speciation. The two
+main biological causes:</p>
+<h4 id="incomplete-lineage-sorting-ils">Incomplete lineage sorting
+(ILS)</h4>
+<p>When two speciation events occur in rapid succession, ancestral
+polymorphism may not have time to sort completely between the daughter
+lineages. Some loci will retain the ancestral relationship while others
+will track the species tree — producing a mosaic of gene trees that
+disagree with each other and with the true species history. ILS is most
+severe when:</p>
+<ul>
+<li><strong>Effective population size of the ancestor is large</strong>
+(<span class="math inline">\(4N_e\)</span> ~ time between
+speciations)</li>
+<li><strong>Speciation events are temporally close</strong> (the
+“anomaly zone” of phylogenetics)</li>
+<li><strong>Recombination is high</strong> so that adjacent loci have
+independent histories</li>
+</ul>
+<p>The classic case is the human–chimpanzee–gorilla trichotomy: ~30% of
+human nuclear loci show <strong>gene trees grouping human with gorilla,
+or chimp with gorilla</strong>, rather than the species-tree topology of
+(human, chimp) sister to gorilla. The discordance reflects ILS during
+the rapid succession of human–chimp–gorilla speciation events ~6–8
+Ma.</p>
+<p><strong>Coalescent-based methods</strong> (ASTRAL, MP-EST, *BEAST)
+explicitly model gene-tree discordance under the multi-species
+coalescent and infer the <strong>species tree</strong> as the topology
+that maximizes likelihood across many gene trees. Concatenation methods
+(which simply combine most loci into one alignment) can be
+<strong>statistically inconsistent</strong> under high ILS — they
+sometimes converge to the wrong tree as more data are added.</p>
+<h4 id="horizontal-gene-transfer-hgt">Horizontal gene transfer
+(HGT)</h4>
+<p>In prokaryotes, gene-tree discordance often reflects
+<strong>horizontal acquisition</strong> rather than incomplete sorting.
+A gene tree that places a thermophilic bacterium within the archaea may
+indicate that the bacterium acquired the gene from an archaeal source
+through HGT, rather than the species tree placing it incorrectly.
+Detecting HGT requires:</p>
+<ol type="1">
+<li><strong>Phylogenetic incongruence</strong>: gene tree topology
+contradicts the consensus species tree.</li>
+<li><strong>Atypical sequence features</strong>: GC content, codon usage
+bias, or dinucleotide signature differing from the host genome.</li>
+<li><strong>Patchy phylogenetic distribution</strong>: gene present in
+distantly related organisms while absent from close relatives.</li>
+</ol>
+<p>Tools like <strong>DistAL</strong> and reconciliation methods
+(Notung, Ranger-DTL) systematically identify HGT events by comparing
+gene trees with reference species trees.</p>
+<blockquote>
+<p><strong>Real-World Connection: COVID-19 Phylogenetics</strong></p>
+<p>The SARS-CoV-2 pandemic demonstrated the power of real-time
+phylogenetics. Within weeks of the first <a
+href="#gl:genome"><strong>genome</strong></a> sequence being shared
+(January 2020), phylogenetic analysis confirmed the virus’s origin in
+the betacoronavirus clade related to bat coronaviruses. Platforms like
+Nextstrain (nextstrain.org) provided continuously updated phylogenetic
+trees from millions of viral genomes deposited in GISAID. Bayesian
+time-calibrated analyses (BEAST) dated the most recent common ancestor
+to approximately November 2019. Phylogenetic tracking identified the
+emergence and global spread of Variants of Concern (Alpha, Delta,
+Omicron), revealing that each arose from a single geographic origin and
+spread globally through human travel. Genomic epidemiology became a
+standard public health tool, guiding variant surveillance, <a
+href="#gl:vaccine"><strong>vaccine</strong></a> updating, and travel
+policy. The pandemic validated decades of investment in phylogenetic
+methodology and demonstrated that evolutionary biology has direct,
+immediate public health applications.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 3:</strong> Why is long-branch attraction a
+problem specifically for maximum parsimony but less so for maximum
+likelihood? (Hint: consider whether each method uses an explicit model
+of substitution rates.)</p>
+</blockquote>
+<hr />
+<h2 id="molecular-clocks">Molecular Clocks</h2>
+<h3 id="the-molecular-clock-hypothesis">The Molecular Clock
+Hypothesis</h3>
+<p> observed that the number of amino acid differences between
+homologous proteins from different species is roughly proportional to
+the time since those species diverged. This <strong>molecular
+clock</strong> hypothesis – that neutral substitutions accumulate at an
+approximately constant rate – allows divergence times to be estimated
+from sequence data.</p>
+<p>The theoretical basis comes from Kimura’s <a
+href="#gl:neutral-theory"><strong>neutral theory</strong></a> (1968):
+the rate of neutral substitution equals the neutral <a
+href="#gl:mutation"><strong>mutation</strong></a> rate, μ, regardless of
+population size. For strictly neutral mutations:</p>
+<p><span class="math display">\[\begin{equation}
+k = \mu
+\label{eq:phylogenetics_3}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is the substitution rate
+per site per generation.</p>
+<h3 id="clock-calculations">Clock Calculations</h3>
+<p><strong>Jukes-Cantor correction</strong>: Observed sequence
+divergence underestimates true divergence because of multiple
+substitutions at the same site (saturation). The JC69 correction
+accounts for this:</p>
+<p><span class="math display">\[\begin{equation}
+d_{JC} = -\frac{3}{4} \ln\left(1 - \frac{4}{3}p\right)
+\label{eq:phylogenetics_4}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(p\)</span> is the observed
+proportion of differing sites.</p>
+<p><strong>Divergence time estimation</strong>:</p>
+<p><span class="math display">\[\begin{equation}
+t = \frac{d_{JC}}{2\mu}
+\label{eq:phylogenetics_5}
+\end{equation}\]</span></p>
+<p>The factor of 2 accounts for substitutions accumulating independently
+in both lineages since their divergence from a common ancestor.</p>
+<h3
+id="worked-example-estimating-divergence-time-using-jukes-cantor">Worked
+Example: Estimating Divergence Time using Jukes-Cantor</h3>
+<p><strong>Problem:</strong> Human and chimpanzee mitochondrial
+<em>cytochrome b</em> sequences differ by approximately 1.5% (<span
+class="math inline">\(p = 0.015\)</span>). Assume a mitochondrial
+substitution rate of <span class="math inline">\(\mu \approx 2 \times
+10^{-8}\)</span> substitutions per site per year. 1. Calculate the
+Jukes-Cantor distance (<span class="math inline">\(d_{JC}\)</span>). 2.
+Estimate the divergence time (<span class="math inline">\(t\)</span>)
+between the two lineages.</p>
+<p><strong>Solution:</strong></p>
+<ol type="1">
+<li><p><strong>Calculate the Jukes-Cantor distance:</strong> Using the
+Jukes-Cantor correction formula to account for multiple substitutions at
+the same site: <span class="math display">\[\begin{equation}
+d_{JC} = -\frac{3}{4} \ln\left(1 - \frac{4}{3}(0.015)\right) \approx
+0.01511 \text{ substitutions/site}
+\label{eq:phylogenetics_6}
+\end{equation}\]</span></p></li>
+<li><p><strong>Estimate the divergence time:</strong> Apply the
+divergence time estimation formula, remembering the factor of 2 (since
+mutations accumulate along both lineages branching from the MRCA): <span
+class="math display">\[\begin{equation}
+t = \frac{d_{JC}}{2\mu} = \frac{0.01511}{2 \times 2 \times 10^{-8}}
+\approx 3.78 \times 10^5 \text{ years}
+\label{eq:phylogenetics_7}
+\end{equation}\]</span></p></li>
+</ol>
+<p><em>Note:</em> This estimate of about 378,000 years for mtDNA is much
+lower than the accepted species divergence time of about 6–7 Mya. This
+occurs because mitochondrial <a
+href="#gl:gene"><strong>gene</strong></a>s evolve significantly faster
+than the genome-wide average, and substituting a long-term nuclear
+calibration rate yields an artificially recent divergence for rapidly
+evolving loci.</p>
+<h3 id="rate-calibration">Rate Calibration</h3>
+<p>Molecular clocks must be calibrated against independent time
+estimates:</p>
+<ul>
+<li><strong>Fossil record</strong>: Fossils provide <strong>minimum age
+constraints</strong> – a fossil establishes that a lineage existed by
+that time, but the actual divergence must be older. The oldest known
+fossil of a clade provides a minimum bound on the clade’s age.</li>
+<li><strong>Biogeographic events</strong>: The formation of the Isthmus
+of Panama (about 3 Mya), the separation of Australia from Antarctica
+(about 45 Mya), or the formation of volcanic islands (known radiometric
+ages) provide calibration points.</li>
+</ul>
+<h3 id="strict-vs.-relaxed-clocks">Strict vs. Relaxed Clocks</h3>
+<p><strong>Strict molecular clock</strong>: Assumes a constant
+substitution rate across most lineages. This assumption is often
+violated because substitution rates vary with generation time
+(shorter-generation organisms evolve faster per unit time), metabolic
+rate, DNA repair efficiency, and population size (through the interplay
+of drift and selection).</p>
+<p><strong>Relaxed molecular clock</strong>: Allows the rate to vary
+among lineages while still estimating divergence times. Two main
+approaches: - <strong>Autocorrelated rates</strong>: Closely related
+lineages have similar rates (rates evolve gradually along the tree).
+Implemented in BEAST. - <strong>Uncorrelated rates</strong>: Each branch
+draws its rate independently from a statistical distribution (e.g.,
+lognormal). Implemented in BEAST2.</p>
+<h3 id="limitations">Limitations</h3>
+<ul>
+<li><strong>Rate heterogeneity</strong>: Substitution rates can vary
+dramatically among lineages. Rodents evolve approximately 5–10 times
+faster than cetaceans at synonymous sites.</li>
+<li><strong>Generation time effect</strong>: Species with shorter
+generation times accumulate more mutations per unit time because there
+are more DNA replication events per year.</li>
+<li><strong>Saturation</strong>: At very large divergence times,
+multiple substitutions at the same site erase the phylogenetic signal.
+Slowly evolving genes (18S rRNA, about 1–2 <span
+class="math inline">\(\times 10^{-9}\)</span> substitutions per site per
+year) are needed for deep divergences.</li>
+</ul>
+<h3 id="tip-dating-and-bayesian-skyline-plots">Tip Dating and Bayesian
+Skyline Plots</h3>
+<p>Modern molecular clock analyses go beyond simple point estimates of
+divergence times:</p>
+<ul>
+<li><strong>Tip dating</strong>: When sequences are sampled at different
+calendar dates (e.g., viral genomes collected over the course of an
+epidemic), the sampling dates themselves provide calibration points.
+BEAST software uses tip dates to estimate substitution rates directly
+from serially sampled data — no fossil calibration needed. This approach
+was critical for dating the SARS-CoV-2 origin, HIV emergence, and
+influenza evolution.</li>
+<li><strong>Bayesian Skyline Plots</strong>: These reconstruct changes
+in effective population size (<span class="math inline">\(N_e\)</span>)
+through time from a single population sample. By analyzing the
+distribution of coalescence times in a gene genealogy, skyline plots
+reveal historical population expansions, bottlenecks, and declines.
+Applied to human mtDNA, skyline analyses confirm the Out-of-Africa
+expansion approximately 60–70 kya.</li>
+</ul>
+<h3 id="a-timeline-of-major-events-in-lifes-phylogeny">A timeline of
+major events in life’s phylogeny</h3>
+<p>Phylogenetic methods, when calibrated against the geological record,
+reconstruct a deep-time timeline of life on Earth. The major events span
+four billion years:</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 60%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th>Era</th>
+<th>Approximate date</th>
+<th>Event</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hadean–Eoarchean</td>
+<td>~4.5–4.0 Ga</td>
+<td>Earth forms (~4.54 Ga); oceans condense (~4.4 Ga); abiogenesis
+events (debated dates)</td>
+</tr>
+<tr>
+<td>Eoarchean</td>
+<td>~3.8–3.5 Ga</td>
+<td>Earliest evidence of life (graphite isotope signatures from
+Greenland; stromatolites in Australia)</td>
+</tr>
+<tr>
+<td>LUCA</td>
+<td>~3.8 Ga</td>
+<td>Last Comprehensive Common Ancestor — root of the tree of life.
+Inferred from comprehensive molecular machinery (rRNA, ribosomal
+proteins, ATP synthase, key tRNAs). LUCA was likely an anaerobic,
+hyperthermophilic prokaryote dependent on H₂/CO₂ chemistry near
+hydrothermal vents.</td>
+</tr>
+<tr>
+<td>Mesoarchean–Paleoproterozoic</td>
+<td>~3.0–2.4 Ga</td>
+<td>Cyanobacteria evolve oxygenic photosynthesis; <strong>Great
+Oxidation Event</strong> (~2.4 Ga) transforms atmosphere from anoxic to
+oxic</td>
+</tr>
+<tr>
+<td>Paleoproterozoic</td>
+<td>~2.0 Ga</td>
+<td>LECA (Last Eukaryotic Common Ancestor) — already possessed a
+nucleus, mitochondria (from α-proteobacterial endosymbiont),
+endomembrane system, cytoskeleton, and meiotic sexual reproduction. The
+mitochondrial endosymbiosis is dated to ~2.0–1.5 Ga.</td>
+</tr>
+<tr>
+<td>Mesoproterozoic</td>
+<td>~1.6–1.0 Ga</td>
+<td>Plastid endosymbiosis (cyanobacterium → primary plastid in
+archaeplastid ancestor); diversification of eukaryotic supergroups</td>
+</tr>
+<tr>
+<td>Neoproterozoic</td>
+<td>~1.0 Ga – 540 Ma</td>
+<td>Snowball Earth events; first multicellular eukaryotes;
+<strong>Ediacaran biota</strong> (~575–540 Ma) — soft-bodied
+multicellular organisms, mostly enigmatic in affinity</td>
+</tr>
+<tr>
+<td>Cambrian</td>
+<td>~540–485 Ma</td>
+<td><strong>Cambrian explosion</strong>: most modern animal phyla appear
+in the fossil record within ~25 million years. Evolution of mineralized
+skeletons, predator-prey ecosystems, complex sensory systems</td>
+</tr>
+<tr>
+<td>Ordovician</td>
+<td>~485–445 Ma</td>
+<td>Diversification of marine invertebrates; first land plants
+(bryophytes); <strong>end-Ordovician extinction</strong> (~445 Ma): ~85%
+of marine species lost</td>
+</tr>
+<tr>
+<td>Silurian–Devonian</td>
+<td>~445–360 Ma</td>
+<td>Vascular plants colonize land; jawed fish (Gnathostomata) diversify;
+<strong>first tetrapods</strong> (~375 Ma; <em>Tiktaalik</em>);
+<strong>late Devonian extinction</strong></td>
+</tr>
+<tr>
+<td>Carboniferous</td>
+<td>~360–299 Ma</td>
+<td>Coal-forest ecosystems; first amniotes (reptilian-line ancestors);
+insects undergo first major radiation</td>
+</tr>
+<tr>
+<td>Permian</td>
+<td>~299–252 Ma</td>
+<td>Synapsids (mammal ancestors) dominate; <strong>end-Permian
+extinction (Great Dying, ~252 Ma)</strong>: ~96% of marine species lost
+— the largest extinction event in life’s history</td>
+</tr>
+<tr>
+<td>Triassic–Jurassic</td>
+<td>~252–145 Ma</td>
+<td>Dinosaurs diversify; first mammals (~225 Ma) and first birds (Late
+Jurassic); <strong>end-Triassic extinction</strong> (~201 Ma)</td>
+</tr>
+<tr>
+<td>Cretaceous</td>
+<td>~145–66 Ma</td>
+<td>Flowering plants (angiosperms) emerge and diversify; mammals remain
+small but radiate quietly; <strong>K-Pg extinction</strong> (~66 Ma):
+asteroid impact + Deccan Traps volcanism eliminate non-avian
+dinosaurs</td>
+</tr>
+<tr>
+<td>Cenozoic</td>
+<td>~66 Ma – present</td>
+<td>Mammalian and bird radiations fill ecological niches; primates
+evolve; <em>Homo sapiens</em> appears (~300 ka);
+<strong>Holocene/Anthropocene extinction</strong> ongoing</td>
+</tr>
+</tbody>
+</table>
+<p>The central insight from this timeline: life persists across
+cataclysms but is reshuffled. The five mass extinctions did not erase
+the tree of life but pruned it dramatically — and
+<strong>post-extinction radiations</strong> repeatedly produce explosive
+diversification as surviving lineages occupy emptied ecological space
+(mammals after the K-Pg, modern teleost fish after the Permian,
+etc.).</p>
+<h3 id="ancestral-sequence-reconstruction-asr">Ancestral Sequence
+Reconstruction (ASR)</h3>
+<p>One of the most striking applications of phylogenetic methods is
+<strong>ancestral sequence reconstruction</strong> — inferring the DNA
+or protein sequences of extinct ancestors from their living descendants.
+Given a tree and a substitution model, ASR uses <strong>maximum
+likelihood</strong> or <strong>Bayesian</strong> methods to estimate the
+most probable ancestral state at each internal node and at each
+site.</p>
+<h4 id="how-asr-works">How ASR works</h4>
+<p>For each site in a multiple sequence alignment, ASR computes:</p>
+<p><span class="math display">\[P(\text{ancestor} = X \mid \text{tip
+data, tree, model}) \label{eq:unit_VI_phylogenetics_item_1}\]</span></p>
+<p>using the <strong>Felsenstein pruning algorithm</strong> (which
+efficiently sums over most possible ancestral states at internal nodes).
+Marginal reconstructions estimate the most probable state at each node
+independently; joint reconstructions estimate the most probable combined
+ancestral states across the whole tree. Confidence is reported as the
+posterior probability for each reconstructed residue — high-confidence
+sites have a single dominant residue (&gt;95% probability), while
+low-confidence sites have several plausible alternatives.</p>
+<h4 id="lazarus-proteins-resurrecting-extinct-enzymes">“Lazarus
+proteins”: resurrecting extinct enzymes</h4>
+<p>Once an ancestral sequence is reconstructed, it can be
+<strong>synthesized</strong> as a real protein in the laboratory — a
+“Lazarus protein” brought back from extinction. This approach has
+revolutionized our understanding of how protein function evolves:</p>
+<ul>
+<li><strong>Ancestral steroid receptors</strong> (Joe Thornton’s lab,
+since the early 2000s): The mineralocorticoid and glucocorticoid
+receptors split ~450 Mya. Resurrection of the ancestral receptor showed
+it was a glucocorticoid-like receptor; specificity for cortisol versus
+aldosterone evolved later through a small number of historical
+substitutions. The reconstruction made testable predictions about which
+substitutions enabled the functional shift — confirmed experimentally by
+mutagenesis on the modern proteins.</li>
+<li><strong>Ancestral elongation factors</strong> (Akanuma et al. 2013,
+Gaucher et al. 2008): Ancestral bacterial EF-Tu proteins reconstructed
+from extant sequences proved highly thermostable, with melting
+temperatures of 60–73°C. The thermostability profile across nodes traces
+planetary cooling — providing <strong>biological thermometers</strong>
+that measure the temperature history of Earth.</li>
+<li><strong>Ancestral β-lactamases</strong>: Reconstructed enzymes from
+before the antibiotic era reveal “promiscuous” ancestral activity — the
+ancestral enzymes catalyzed multiple reactions efficiently. Modern
+descendants are more specialized but less catalytically robust. This
+pattern of ancestral promiscuity → descendant specialization is
+widespread in enzyme evolution.</li>
+<li><strong>Ancestral rhodopsins</strong> illuminate the spectral
+history of vision: by reconstructing visual pigments at deep nodes in
+the vertebrate tree, researchers have inferred the wavelengths of light
+that ancestral fish, amphibians, and reptiles could detect — and found
+that color vision was repeatedly lost and re-evolved across many
+lineages.</li>
+</ul>
+<h4 id="practical-applications-of-asr">Practical applications of
+ASR</h4>
+<p>ASR is more than a historical exercise — it is now a
+<strong>protein-engineering platform</strong>. Resurrected ancestral
+proteins are routinely <strong>more thermostable</strong> and
+<strong>more catalytically robust</strong> than their modern descendants
+— a pattern repeatedly observed across ancestral β-lactamases, EF-Tu
+elongation factors, alcohol dehydrogenases, and rhodopsins. The
+hypothesised explanation is that ancestral proteins evolved under
+broader environmental tolerances (early Earth was warmer; ancestral
+metabolisms more flexible), and that <strong>modern descendants are
+specialised but brittle</strong> — selection has pruned away robustness
+in favor of niche-specific performance. The applied consequence:
+industrial enzyme engineering increasingly uses ASR to <strong>prospect
+for thermostable scaffolds</strong>, then optimises the resurrected
+protein for specific substrate specificity. Ancestral <em>Bacillus</em>
+α-amylases have been engineered into industrial laundry-detergent
+enzymes that retain function at 60–80 °C; ancestral <em>Pseudomonas</em>
+esterases have been used as starting points for plastic-degrading
+enzymes (PETase variants); and pharmaceutical biotechnology uses ASR to
+design more thermostable vaccine antigens (e.g.,</p>
+<p>The 16S rRNA gene is ideal for deep phylogenetics because it is
+present in all cellular organisms, contains both highly conserved
+regions (for universal primer design) and variable regions (for
+discriminating taxa), and is long enough (about 1,550 bp) for robust
+phylogenetic inference.</p>
+<h3 id="domain-bacteria">Domain Bacteria</h3>
+<p>Bacteria are the most metabolically diverse domain of life. Major
+phyla include:</p>
+<ul>
+<li><strong>Proteobacteria</strong>: The largest and most diverse
+bacterial phylum.
+<ul>
+<li>Alpha-proteobacteria: includes <em>Rickettsia</em> (obligate
+intracellular pathogen) and the SAR11 clade (most abundant organisms in
+the ocean). The ancestor of <strong>mitochondria</strong> was an
+alpha-proteobacterium.</li>
+<li>Gamma-proteobacteria: includes <em>Escherichia coli</em>,
+<em>Pseudomonas</em>, <em>Salmonella</em>, <em>Vibrio
+cholerae</em>.</li>
+<li>Epsilon-proteobacteria: includes <em>Helicobacter pylori</em>
+(causes gastric ulcers and gastric cancer).</li>
+</ul></li>
+<li><strong>Firmicutes</strong>: Gram-positive, low-GC content. Includes
+<em>Bacillus</em> (anthrax), <em>Clostridium</em> (tetanus, botulism),
+<em>Staphylococcus</em>, <em>Lactobacillus</em> (probiotic fermenters),
+<em>Streptococcus</em>.</li>
+<li><strong>Bacteroidetes</strong>: <a
+href="#gl:dominant"><strong>Dominant</strong></a> gut anaerobes;
+critical for polysaccharide digestion. <em>Bacteroides</em> species
+compose 30–40% of human fecal bacteria.</li>
+<li><strong>Actinobacteria</strong>: Gram-positive, high-GC content.
+<em>Streptomyces</em> produces over two-thirds of clinically used
+antibiotics. <em>Mycobacterium tuberculosis</em> causes
+tuberculosis.</li>
+<li><strong>Cyanobacteria</strong>: Oxygenic photosynthesizers that
+produced Earth’s oxygen atmosphere (Great Oxidation Event, about 2.4
+Ga). The ancestor of <strong><a
+href="#gl:chloroplast">chloroplast</a>s</strong> was a
+cyanobacterium.</li>
+<li><strong>Spirochetes</strong>: Helical morphology. <em>Treponema
+pallidum</em> (syphilis), <em>Borrelia burgdorferi</em> (Lyme
+disease).</li>
+<li><strong>Chlamydiae</strong>: Obligate intracellular <a
+href="#gl:parasite"><strong>parasite</strong></a>s with a unique
+biphasic developmental cycle.</li>
+</ul>
+<h3 id="domain-archaea">Domain Archaea</h3>
+<p>Archaea were originally found primarily in extreme environments, but
+culture-independent methods (metagenomics) have revealed that they are
+ubiquitous – in soils, oceans, and the human gut.</p>
+<ul>
+<li><strong>Euryarchaeota</strong>: The most diverse archaeal phylum.
+<ul>
+<li>Methanogens (<em>Methanobacterium</em>, <em>Methanosarcina</em>):
+produce methane as a metabolic byproduct; dominant in <a
+href="#gl:anaerobic"><strong>anaerobic</strong></a> environments
+(wetlands, ruminant guts, landfills).</li>
+<li>Extreme halophiles (<em>Halobacterium</em>): thrive in
+salt-saturated environments; use bacteriorhodopsin for light-driven
+proton pumping.</li>
+<li>Thermoacidophiles (<em>Thermoplasma</em>): grow at <a
+href="#gl:ph"><strong>pH</strong></a> 1–2 and temperatures up to 60
+degrees C.</li>
+</ul></li>
+<li><strong>Crenarchaeota</strong>: Many are hyperthermophiles.
+<em>Sulfolobus</em> grows at 80 degrees C and pH 2–3.
+<em>Thermoproteus</em> is an anaerobic sulfur-reducing
+hyperthermophile.</li>
+<li><strong>TACK superphylum</strong>: Thaumarchaeota (ammonia-oxidizing
+archaea – major players in the nitrogen cycle), Aigarchaeota,
+Crenarchaeota, and Korarchaeota.</li>
+<li><strong>Asgard archaea</strong>: The most significant discovery in
+archaeal biology in decades. Named after Norse mythology:
+<ul>
+<li><strong>Lokiarchaeota</strong>: Discovered via metagenome-assembled
+genomes from Loki’s Castle hydrothermal vent, Arctic Mid-Ocean Ridge.
+Contains <strong>eukaryotic signature proteins</strong> including
+homologs of <a href="#gl:actin"><strong>actin</strong></a>, tubulin-like
+GTPases, ESCRT membrane remodeling complex, and Arp2/3 complex
+regulators.</li>
+<li><strong>Thorarchaeota</strong>, <strong>Odinarchaeota</strong>,
+<strong>Heimdallarchaeota</strong>: Additional Asgard lineages with
+progressively more eukaryotic-like features.</li>
+<li>The Asgard archaea are the <strong>closest known living relatives of
+eukaryotes</strong>, supporting the “two-domain” tree (Eocyte
+hypothesis) in which eukaryotes arose from within Archaea rather than as
+a separate domain.</li>
+</ul></li>
+</ul>
+<h3 id="domain-eukarya">Domain Eukarya</h3>
+<p>The <strong>Last Eukaryotic Common Ancestor (LECA)</strong> already
+possessed a nucleus, mitochondria, endomembrane system, <a
+href="#gl:cytoskeleton"><strong>cytoskeleton</strong></a>, and sexual
+reproduction. Modern eukaryotic diversity is organized into several
+supergroups:</p>
+<ul>
+<li><strong>Amorphea</strong>:
+<ul>
+<li><strong>Amoebozoa</strong>: Amoebas, slime molds
+(<em>Dictyostelium</em>), <em>Entamoeba histolytica</em> (amoebic
+dysentery).</li>
+<li><strong>Opisthokonta</strong>: Fungi + Metazoa (animals) +
+choanoflagellates (closest unicellular relatives of animals). This
+grouping – placing fungi as the sister group of animals rather than
+plants – was one of the great surprises of molecular phylogenetics.</li>
+</ul></li>
+<li><strong>Diaphoretickes</strong>:
+<ul>
+<li><strong>SAR clade</strong>: Stramenopiles (diatoms, brown algae,
+oomycetes) + Alveolata (<em>Plasmodium</em>, dinoflagellates, ciliates)
++ Rhizaria (foraminifera, radiolarians).</li>
+<li><strong>Archaeplastida</strong>: Glaucophyta + Rhodophyta (red
+algae) + Chloroplastida (green algae + land plants). This clade acquired
+plastids through <strong>primary <a
+href="#gl:endosymbiosis"><strong>endosymbiosis</strong></a></strong>
+with a cyanobacterium.</li>
+</ul></li>
+<li><strong>Excavata</strong> (debated monophyly): Deep-branching
+protists including <em>Giardia</em> (intestinal parasite),
+<em>Trichomonas</em> (STI pathogen), <em>Trypanosoma</em> (sleeping
+sickness, Chagas disease), and <em>Euglena</em>.</li>
+</ul>
+<h3 id="endosymbiotic-theory">Endosymbiotic Theory</h3>
+<p>Lynn Margulis (1967, then writing as Lynn Sagan) proposed that
+mitochondria and chloroplasts originated as free-living bacteria
+engulfed by ancestral eukaryotic cells. Decades of molecular evidence
+have confirmed this theory:</p>
+<p><strong>Primary endosymbiosis</strong>: -
+<strong>Mitochondria</strong>: Descended from an alpha-proteobacterium.
+Evidence: mitochondria have their own circular DNA, replicate by binary
+fission, have double membranes (inner membrane = bacterial membrane),
+use bacterial-type <a href="#gl:ribosome"><strong>ribosome</strong></a>s
+(70S), and their gene sequences cluster with alpha-proteobacteria in
+phylogenetic analyses. - <strong>Chloroplasts</strong>: Descended from a
+cyanobacterium. Evidence: chloroplasts have circular DNA, 70S ribosomes,
+double membranes, and gene sequences grouping with cyanobacteria.
+Thylakoid membranes resemble cyanobacterial internal membranes.</p>
+<p><strong>Secondary endosymbiosis</strong>: A eukaryotic cell engulfs a
+photosynthetic eukaryote (which already has a primary plastid). This
+explains the three or four membranes surrounding plastids in groups such
+as euglenids (two extra membranes from the engulfed cell), diatoms,
+dinoflagellates, and cryptophytes. Some secondary plastids even retain a
+vestigial nucleus (nucleomorph) from the engulfed alga.</p>
+<h3 id="horizontal-gene-transfer-and-the-web-of-life">Horizontal Gene
+Transfer and the Web of Life</h3>
+<p><strong>Horizontal gene transfer (HGT)</strong> – the transfer of
+genetic material between organisms outside of parent-to-offspring
+transmission – is widespread in prokaryotes and fundamentally challenges
+the tree metaphor for representing life’s history.</p>
+<p>Mechanisms of HGT: - <strong>Transformation</strong>: Uptake of free
+environmental DNA through competence proteins. -
+<strong>Transduction</strong>: Bacteriophage-mediated DNA transfer. -
+<strong>Conjugation</strong>: Direct cell-to-cell transfer via pili; the
+primary route for antibiotic resistance <a
+href="#gl:plasmid"><strong>plasmid</strong></a> transfer.</p>
+<p>An estimated 20–30% of genes in a typical prokaryotic genome have
+been acquired by HGT. In <em>E. coli</em> MG1655, identified
+approximately 755 genes (about 18% of the genome) acquired by HGT,
+identifiable by atypical GC content, <a
+href="#gl:codon"><strong>codon</strong></a> usage, and phylogenetic
+incongruence.</p>
+<p>The prevalence of HGT means that prokaryotic evolution is better
+represented by a <strong>network</strong> or <strong>web</strong> of
+life rather than a strictly bifurcating tree. For eukaryotes, vertical
+inheritance dominates the nuclear genome, but organellar genomes and
+some nuclear genes (acquired by endosymbiotic gene transfer, EGT) record
+the history of endosymbiosis.</p>
+<pre class="mermaid"><code>classDiagram
+    class Bacteria {
+        Proteobacteria
+        Firmicutes
+        Actinobacteria
+        Cyanobacteria
+        Bacteroidetes
+        Spirochetes
+    }
+    class Archaea {
+        Euryarchaeota
+        Crenarchaeota
+        TACK superphylum
+        Asgard archaea
+    }
+    class Eukarya {
+        Amorphea (Amoebozoa + Opisthokonta)
+        Diaphoretickes (SAR + Archaeplastida)
+        Excavata
+    }
+    class Endosymbiosis {
+        Mitochondria from alpha-Proteobacteria
+        Chloroplasts from Cyanobacteria
+        Secondary plastids from algal endosymbionts
+    }
+
+    Bacteria &lt;|-- Endosymbiosis : alpha-Proteobacteria --&gt; Mitochondria
+    Bacteria &lt;|-- Endosymbiosis : Cyanobacteria --&gt; Chloroplasts
+    Archaea &lt;|-- Eukarya : Asgard archaea closest relatives
+    Endosymbiosis &lt;|-- Eukarya : Organellar origins</code></pre>
+<!-- alt: Diagram showing three domains of life with endosymbiotic organelle origins: mitochondria from alpha-Proteobacteria, chloroplasts from Cyanobacteria, and the Asgard-archaea root of Eukarya. -->
+<p><em>The three domains of life with endosymbiotic organelle origins:
+mitochondria from alpha-Proteobacteria, chloroplasts from Cyanobacteria,
+and the Asgard-archaea root of Eukarya.</em></p>
+<blockquote>
+<p><strong>Real-World Connection: Antibiotic Resistance and
+HGT</strong></p>
+<p>The spread of antibiotic resistance among pathogenic bacteria is
+fundamentally a problem of horizontal gene transfer. Resistance genes –
+encoding <a href="#gl:enzyme"><strong>enzyme</strong></a>s that degrade
+antibiotics (beta-lactamases), modify antibiotics (aminoglycoside
+acetyltransferases), or pump them out of the cell (efflux pumps) – are
+frequently carried on mobile genetic elements: plasmids, transposons,
+and integrons. A single conjugation event can transfer multi-drug
+resistance from a harmless gut bacterium to a pathogenic strain. The
+NDM-1 (New Delhi metallo-beta-lactamase) gene, first identified in 2008,
+has spread globally within years via plasmid-mediated HGT, conferring
+resistance to nearly most beta-lactam antibiotics including carbapenems
+– the “last resort” drugs. Understanding HGT is essential for combating
+the antibiotic resistance crisis.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 5:</strong> Explain why the discovery of Asgard
+archaea (particularly Lokiarchaeota) supports a two-domain rather than
+three-domain tree of life. What eukaryotic signature proteins were found
+in Lokiarchaeota genomes?</p>
+</blockquote>
+<hr />
+<h2 id="human-phylogeny">Human Phylogeny</h2>
+<h3 id="great-apes-and-molecular-phylogeny">Great Apes and Molecular
+Phylogeny</h3>
+<p>Humans belong to the superfamily <strong>Hominoidea</strong> (great
+apes and lesser apes). Molecular phylogenetics has resolved the
+relationships within this group with high confidence:</p>
+<ul>
+<li><strong>Gibbons</strong> (family Hylobatidae): lesser apes; diverged
+from the great ape lineage approximately 18–20 Mya.</li>
+<li><strong>Orangutans</strong> (<em>Pongo</em>): diverged approximately
+14 Mya. Two species: Bornean (<em>P. pygmaeus</em>) and Sumatran (<em>P.
+abelii</em>), plus the recently described Tapanuli orangutan (<em>P.
+tapanuliensis</em>).</li>
+<li><strong>Gorillas</strong> (<em>Gorilla</em>): diverged approximately
+9–10 Mya. Two species: western (<em>G. gorilla</em>) and eastern (<em>G.
+beringei</em>).</li>
+<li><strong>Chimpanzees and bonobos</strong> (<em>Pan</em>): Our closest
+living relatives. Humans and chimpanzees share approximately 98.7% DNA
+sequence identity across alignable regions. Divergence approximately 6–7
+Mya.</li>
+<li><strong>Humans</strong> (<em>Homo sapiens</em>): The primarily
+surviving species of genus <em>Homo</em>.</li>
+</ul>
+<p>The molecular phylogeny contradicts earlier morphology-based
+classifications that grouped orangutans, gorillas, and chimpanzees as
+“great apes” separate from humans. DNA data unambiguously place humans
+within the great apes, as the sister taxon of <em>Pan</em>.</p>
+<h3 id="fossil-hominins">Fossil Hominins</h3>
+<p>The human fossil record is one of the richest and most intensively
+studied:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 45%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Species</th>
+<th>Approximate dates</th>
+<th>Key features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Sahelanthropus tchadensis</em></td>
+<td>about 7 Mya</td>
+<td>Oldest possible hominin; anterior foramen magnum suggests
+bipedality</td>
+</tr>
+<tr>
+<td><em>Ardipithecus ramidus</em></td>
+<td>about 4.4 Mya</td>
+<td>Partial skeleton (“Ardi”); woodland bipedality with grasping
+feet</td>
+</tr>
+<tr>
+<td><em>Australopithecus afarensis</em></td>
+<td>about 3.9–2.9 Mya</td>
+<td>“Lucy” (AL 288-1); bipedal with small brain (about 430 cc); Laetoli
+footprints</td>
+</tr>
+<tr>
+<td><em>Australopithecus africanus</em></td>
+<td>about 3.3–2.1 Mya</td>
+<td>South African “gracile” australopith; Taung child</td>
+</tr>
+<tr>
+<td><em>Homo habilis</em></td>
+<td>about 2.4–1.4 Mya</td>
+<td>First stone tools (Oldowan industry); brain about 600–700 cc</td>
+</tr>
+<tr>
+<td><em>Homo ergaster/erectus</em></td>
+<td>about 1.8 Mya–110 kya</td>
+<td>First hominin to leave Africa; Acheulean hand axes; brain about
+900–1100 cc; controlled use of fire</td>
+</tr>
+<tr>
+<td><em>Homo heidelbergensis</em></td>
+<td>about 700–200 kya</td>
+<td>Common ancestor of Neanderthals and modern humans; brain about 1200
+cc</td>
+</tr>
+<tr>
+<td><em>Homo neanderthalensis</em></td>
+<td>about 400–40 kya</td>
+<td>Adapted to cold European/Western Asian environments; brain about
+1500 cc; burial of dead, use of pigments</td>
+</tr>
+<tr>
+<td><em>Homo sapiens</em></td>
+<td>about 300 kya–present</td>
+<td>Anatomically modern; fully symbolic culture; originated in
+Africa</td>
+</tr>
+</tbody>
+</table>
+<h3 id="out-of-africa">Out of Africa</h3>
+<p>The <strong>Out of Africa</strong> hypothesis, supported by both
+genetic and fossil evidence, proposes that anatomically modern <em>Homo
+sapiens</em> evolved in Africa and subsequently dispersed to populate
+the rest of the world, largely replacing (but partially admixing with)
+archaic hominin populations:</p>
+<ul>
+<li><strong>Mitochondrial Eve</strong>: Coalescence analysis of mtDNA
+places the most recent common ancestor of living human mitochondrial
+lineages in Africa approximately 150–200 kya.</li>
+<li><strong>Y-chromosomal Adam</strong>: The most recent common ancestor
+of living human Y <a
+href="#gl:chromosome"><strong>chromosome</strong></a>s dates to
+approximately 200–340 kya.</li>
+<li><strong>Multiple dispersal events</strong>: Genetic evidence
+suggests at least two major dispersal waves – an early dispersal to
+Australia/Oceania (about 65 kya) and a later dispersal populating Europe
+and Asia (about 45–50 kya).</li>
+</ul>
+<h3 id="archaic-introgression">Archaic Introgression</h3>
+<p>One of the most remarkable discoveries of the genomic era is that
+modern humans carry DNA from extinct hominin species, acquired through
+interbreeding:</p>
+<ul>
+<li><strong>Neanderthal admixture</strong>: Non-African modern human
+populations carry approximately 1–4% Neanderthal-derived DNA.
+Interbreeding occurred approximately 50,000–60,000 years ago in the
+Middle East. Neanderthal <a
+href="#gl:allele"><strong>allele</strong></a>s contribute to traits
+including skin pigmentation, hair texture, immune function, and
+susceptibility to certain diseases.</li>
+<li><strong>Denisovan admixture</strong>: Melanesian and Australian
+Aboriginal populations carry approximately 4–6% Denisovan-derived DNA.
+The Denisovans are known primarily from a few fragmentary fossils from
+Denisova Cave, Siberia, and a mandible from Tibet, but their genomic
+legacy is substantial.</li>
+<li><strong>Adaptive introgression</strong>: Some introgressed alleles
+have been maintained by <a href="#gl:natural-selection"><strong>natural
+selection</strong></a> because they conferred adaptive advantages:
+<ul>
+<li><strong>EPAS1</strong>: A Denisovan-derived allele of this <a
+href="#gl:transcription"><strong>transcription</strong></a> factor helps
+Tibetans adapt to high-altitude hypoxia by blunting the erythropoietic
+response to low oxygen, preventing polycythemia.</li>
+<li><strong>HLA alleles</strong>: Neanderthal and Denisovan-derived HLA
+variants increased immune diversity in modern human populations
+expanding into new pathogen environments.</li>
+<li><strong>BNC2</strong>: A Neanderthal-derived skin pigmentation gene
+at high frequency in European populations.</li>
+</ul></li>
+<li><strong>Ghost lineage introgression</strong>: Analysis of West
+African genomes (Yoruba, Mende) reveals approximately 2–19% of their
+ancestry from an unknown archaic hominin that diverged from the modern
+human lineage approximately 625 kya – a “ghost” population for which no
+fossils have been identified.</li>
+</ul>
+<blockquote>
+<p><strong>Concept Check 6:</strong> Explain why “Mitochondrial Eve”
+does not mean there was a single woman alive at that time. What does the
+coalescence of mitochondrial lineages actually tell us?</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 7:</strong> A phylogenomic analysis of 1,000
+mammalian loci finds that 70% of gene trees support topology A, 20%
+support topology B, and 10% support topology C, where A places mouse
+with rat (sister taxa), B groups mouse with primates, and C groups rat
+with primates. Is this pattern consistent with incomplete lineage
+sorting, horizontal gene transfer, or model misspecification? Which
+species-tree-inference method would be most appropriate here?</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 8:</strong> A researcher reconstructs an
+ancestral steroid receptor by maximum likelihood from 50 modern
+sequences. The reconstructed ancestral residue at one critical position
+has posterior probability 0.55 (versus 0.40 for the second-most-likely
+residue). What does this low confidence imply about the resurrected
+protein, and how should it influence the experimental design? (Consider:
+should both candidate ancestors be synthesized?)</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 9:</strong> A SARS-CoV-2 lineage emerges in
+late 2021 with a novel constellation of mutations not directly descended
+from any of the previously detected variants. The Bayesian
+time-calibrated tree dates the most recent common ancestor of this
+lineage to early 2020. What scenarios could explain this temporal
+mismatch — sustained cryptic transmission, evolution in an
+immunocompromised host, or zoonotic re-emergence? What additional data
+would discriminate among these hypotheses?</p>
+</blockquote>
+<blockquote>
+<p><strong>Clinical Connection — Genomic epidemiology.</strong>
+Phylogenetic trees built from pathogen genomes are now routine
+public-health infrastructure. For HIV, each new clinical isolate is
+placed on a national phylogeny to identify transmission clusters and
+guide focused intervention. For hospital-acquired infections (MRSA,
+<em>C. difficile</em>), whole-genome sequencing plus phylogenetic
+analysis distinguishes ward-level outbreaks from sporadic community
+acquisitions — a 2013 Cambridge study traced 15 distinct <em>C.
+difficile</em> lineages in a single hospital, revealing that about 35 %
+of cases were nosocomial. For SARS-CoV-2, the real-time GISAID phylogeny
+guided variant-specific vaccine updates.</p>
+</blockquote>
+<blockquote>
+<p><strong>Clinical Connection — Identifying zoonotic spillover
+sources.</strong> When Ebola, SARS-CoV, MERS, or H5N1 emerge, the first
+question is: where did it come from? Phylogenetic analysis places the
+human isolate within the tree of known animal reservoirs, identifying
+the ancestor branch. SARS-CoV-2’s closest known relatives are
+horseshoe-bat (<em>Rhinolophus</em>) coronaviruses from Yunnan, China,
+sharing ~96 % sequence identity — a divergence time estimated by
+molecular clock at 40–70 years. These analyses direct surveillance
+(which wild populations to screen) and inform policy on wildlife-market
+regulation.</p>
+</blockquote>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>Strict-clock time from fractional divergence (per site) is:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.evolution <span class="im">import</span> molecular_clock_divergence_time</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>years <span class="op">=</span> molecular_clock_divergence_time(<span class="fl">1e-9</span>, <span class="fl">0.02</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(years)</span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> Pathogen phylogenomics
+during outbreaks uses the same clock logic with externally calibrated
+rates (serial sampling) rather than fossils.</p>
+</blockquote>
+<hr />
+<h3
+id="long-read-sequencing-and-deep-divergence-phylogenetics">Long-Read
+Sequencing and Deep-Divergence Phylogenetics</h3>
+<p>The accuracy of any phylogenetic tree is bounded by the fidelity of
+its underlying sequence data — and for billion-year divergences the
+short-read Illumina platform (150–300 bp fragments) has been the
+bottleneck. Short reads mis-assemble through repetitive regions,
+collapse paralogs, and cannot span structural variants.
+<strong>Long-read platforms</strong> — <strong>PacBio HiFi</strong>
+(HIFI: 15–25 kb reads at 99.9 % accuracy via circular consensus
+sequencing) and <strong>Oxford Nanopore Ultra-long reads</strong> (100
+kb – 2 Mb reads at 97–99 % raw accuracy, 99.9 % after polishing) — have
+transformed the field since 2020.</p>
+<p>Three phylogenetic problems that long reads solved: <strong>(1) The
+animal tree of life.</strong> Sponges vs. ctenophores as the
+earliest-branching animal clade — a 10-year controversy — was
+re-adjudicated with 1178 long-read-assembled orthologs (Redmond &amp;
+McLysaght, <em>Nat. Commun.</em> 2021); the analysis supported
+<strong>ctenophores-first</strong>, implying convergent evolution of the
+nervous system (or its loss in sponges). <strong>(2) Polyploid plant
+genomes.</strong> The hexaploid wheat genome (5 × the human genome size)
+was resolvable primarily with HiFi + Hi-C scaffolding (<em>Nature</em>
+2023), enabling the first accurate subgenome-level phylogeny of grass
+evolution. <strong>(3) Ancient DNA phylogenetics.</strong> PacBio HiFi
+on Pleistocene-age samples now reaches &lt; 50 000-year mammoths and
+permafrost wolves; Nanopore ultra-long sequencing on sediment-trapped
+eDNA (eDNA-seq) reconstructs environments without individual organisms —
+extending phylogenetics to ecosystems rather than single species.</p>
+<p><strong>Practical workflow for a 2025 phylogenomic study</strong>:
+HiFi sequencing to 30× coverage (~$3000 per vertebrate-scale genome,
+2024 prices) → assembly with hifiasm → BUSCO completeness check →
+orthologue identification with OrthoFinder → multiple sequence alignment
+with MAFFT-einsi → species-tree inference with ASTRAL under the
+multi-species coalescent → dating with MCMCTree against molecular-clock
+calibrations from the fossil record. The bottleneck has shifted from
+sequence generation to <strong>taxonomic sampling</strong> — we have the
+tools, we need the specimens.</p>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Phylogenetics and the Tree of Life</strong>, frontier
+biology belongs inside the evidence logic of the chapter. Evolutionary
+claims are strongest when they combine mechanism, comparative evidence,
+population process, and explicit uncertainty. The core reading question
+is this: phylogenetic confidence depends on sampling, model choice,
+homology, conflict among loci, and calibration.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>Distinguish adaptation from drift, phylogenetic signal from
+convergence, and historical explanation from a testable prediction about
+present-day data.</p>
+<p><strong>Source practice:</strong> For evolutionary claims, prefer
+evidence that compares alternatives such as selection, drift, gene flow,
+constraint, convergence, and shared ancestry.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Phylogenetics</strong> reconstructs evolutionary
+relationships from molecular and morphological data, enabling
+classification, divergence dating, biogeographic reconstruction, and
+applications in medicine, conservation, and drug discovery.</li>
+<li><strong>Tree terminology</strong>: Root (MRCA), nodes (divergence
+events), branches (lineages), tips (observed taxa), clades (monophyletic
+groups). Paraphyletic and polyphyletic groups are invalid in modern
+systematics. Synapomorphies define clades; symplesiomorphies and
+homoplasies do not.</li>
+<li><strong>Reconstruction methods</strong>: UPGMA (assumes clock; not
+recommended), Neighbor-Joining (fast, no clock), Maximum Parsimony
+(fewest changes; vulnerable to long-branch attraction), Maximum
+Likelihood (model-based; GTR+Γ+I; RAxML, IQ-TREE), Bayesian Inference
+(MCMC sampling; posterior probabilities; MrBayes, BEAST).</li>
+<li><strong>Molecular clocks</strong>: <span
+class="math inline">\(d_{JC} = -\frac{3}{4}\ln(1 -
+\frac{4}{3}p)\)</span>; <span class="math inline">\(t =
+d/(2\mu)\)</span>; calibrated from fossils and biogeographic events;
+strict vs. relaxed clocks accommodate rate variation.</li>
+<li><strong>Three domains</strong>: Bacteria (metabolically diverse;
+source of mitochondria and chloroplasts), Archaea (Asgard archaea
+closest to eukaryotes), Eukarya (Amorphea, Diaphoretickes, Excavata).
+Endosymbiosis produced mitochondria (alpha-proteobacterium) and
+chloroplasts (cyanobacterium).</li>
+<li><strong>HGT</strong> is pervasive in prokaryotes (20–30% of genes);
+the tree of life is more accurately a web for prokaryotes. HGT drives
+antibiotic resistance spread.</li>
+<li><strong>Human phylogeny</strong>: Diverged from chimpanzees about
+6–7 Mya; fossil record spans <em>Sahelanthropus</em> to <em>Homo
+sapiens</em>; Out-of-Africa dispersal; archaic introgression from
+Neanderthals (1–4% in non-Africans) and Denisovans (4–6% in
+Melanesians); adaptive introgression (EPAS1, HLA alleles).</li>
+<li><strong>Connections:</strong> See for HGT vs. vertical signal, for
+variant interpretation, and for phylogenetic diversity in triage.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phylogenetics</strong></td>
+<td>The study of evolutionary relationships among organisms, inferred
+from heritable characters</td>
+</tr>
+<tr>
+<td><strong>Clade</strong></td>
+<td>A monophyletic group: an ancestor and its complete descendant
+lineage</td>
+</tr>
+<tr>
+<td><strong>Synapomorphy</strong></td>
+<td>A shared derived character that defines a clade</td>
+</tr>
+<tr>
+<td><strong>Symplesiomorphy</strong></td>
+<td>A shared ancestral character inherited from a more distant ancestor;
+uninformative for grouping</td>
+</tr>
+<tr>
+<td><strong>Homoplasy</strong></td>
+<td>Similarity not due to shared ancestry; arises from convergent
+evolution or reversal</td>
+</tr>
+<tr>
+<td><strong>Outgroup</strong></td>
+<td>A taxon known to fall outside the ingroup; used to root phylogenetic
+trees</td>
+</tr>
+<tr>
+<td><strong>Maximum parsimony</strong></td>
+<td>Phylogenetic method selecting the tree requiring the fewest total
+character-state changes</td>
+</tr>
+<tr>
+<td><strong>Maximum likelihood</strong></td>
+<td>Method selecting the tree maximizing <span
+class="math inline">\(P(\text{data} \mid \text{tree,
+model})\)</span></td>
+</tr>
+<tr>
+<td><strong>Bayesian inference</strong></td>
+<td>Method estimating the posterior probability of trees using MCMC
+sampling</td>
+</tr>
+<tr>
+<td><strong>Posterior probability</strong></td>
+<td><span class="math inline">\(P(\text{tree} \mid
+\text{data})\)</span>; Bayesian branch support; <span
+class="math inline">\(\geq 0.95\)</span> is significant</td>
+</tr>
+<tr>
+<td><strong>Bootstrap</strong></td>
+<td>Resampling technique for assessing branch support; <span
+class="math inline">\(\geq 70\)</span>% indicates moderate-strong
+support</td>
+</tr>
+<tr>
+<td><strong>Molecular clock</strong></td>
+<td>Hypothesis that neutral substitutions accumulate at approximately
+constant rate, enabling divergence time estimation</td>
+</tr>
+<tr>
+<td><strong>Substitution model</strong></td>
+<td>Mathematical description of nucleotide or amino acid replacement
+probabilities (e.g., JC69, GTR+Γ+I)</td>
+</tr>
+<tr>
+<td><strong>Horizontal gene transfer</strong></td>
+<td>Transfer of genetic material between organisms outside
+parent-offspring inheritance</td>
+</tr>
+<tr>
+<td><strong>Endosymbiosis</strong></td>
+<td>Origin of organelles (mitochondria, chloroplasts) from free-living
+bacteria engulfed by ancestral eukaryotes</td>
+</tr>
+<tr>
+<td><strong>Asgard archaea</strong></td>
+<td>Archaeal superphylum (Lokiarchaeota, Thorarchaeota, etc.) that are
+the closest known relatives of eukaryotes</td>
+</tr>
+<tr>
+<td><strong>Phylogenetic diversity (PD)</strong></td>
+<td>Total branch length of a phylogeny containing a set of species; used
+in conservation prioritization</td>
+</tr>
+<tr>
+<td><strong>LECA</strong></td>
+<td>Last Eukaryotic Common Ancestor; possessed nucleus, mitochondria,
+endomembrane system</td>
+</tr>
+<tr>
+<td><strong>Introgression</strong></td>
+<td>Incorporation of alleles from one species into another through
+hybridization and backcrossing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li><p>Define monophyletic, paraphyletic, and polyphyletic groups. For
+each, provide an example from vertebrate taxonomy and explain why
+primarily monophyletic groups are valid in modern systematics.</p></li>
+<li><p>Reconstruct a parsimony analysis for four taxa (A, B, C, D) given
+the following binary characters: Character 1: A=1, B=1, C=0, D=0;
+Character 2: A=1, B=0, C=1, D=0; Character 3: A=1, B=1, C=1, D=0. Which
+tree requires the fewest steps? Is there homoplasy?</p></li>
+<li><p>A researcher obtains a 600 bp alignment of the COI gene from two
+beetle species, finding 42 differences. (a) Calculate the observed
+divergence (<span class="math inline">\(p\)</span>). (b) Apply the
+Jukes-Cantor correction. (c) Using a COI substitution rate of <span
+class="math inline">\(2.3 \times 10^{-2}\)</span> per site per million
+years, estimate the divergence time.</p></li>
+<li><p>Compare maximum likelihood and Bayesian inference as phylogenetic
+methods. What are the advantages and disadvantages of each? When would
+you choose one over the other?</p></li>
+<li><p>Explain why the GTR+Γ+I substitution model is preferred over
+simpler models (JC69, K2P) for most real phylogenetic datasets. What
+biological realities does each additional parameter capture?</p></li>
+<li><p>Describe the evidence supporting the endosymbiotic origin of
+mitochondria from alpha-proteobacteria. List at least four independent
+lines of evidence.</p></li>
+<li><p>Explain how Asgard archaea challenge the three-domain tree of
+life. What specific eukaryotic features have been found in Asgard
+genomes, and what does this imply about the origin of
+eukaryotes?</p></li>
+<li><p>The SARS-CoV-2 pandemic relied heavily on phylogenetic analysis.
+Describe how Bayesian time-calibrated phylogenetics (BEAST) was used to
+(a) date the origin of the pandemic, (b) track the emergence of Variants
+of Concern, and (c) reconstruct transmission chains. How is a molecular
+clock calibrated for a virus with no fossil record?</p></li>
+<li><p>Modern non-African humans carry approximately 1–4% Neanderthal
+DNA. Explain the process by which this DNA was acquired and describe one
+example of adaptive introgression. Why is Neanderthal DNA being
+gradually purged from functionally important genomic regions?</p></li>
+<li><p>A conservation biologist must choose between protecting Species X
+(one of 50 species in a diverse, recently radiated clade) and Species Y
+(the sole surviving member of an ancient lineage). Using the concept of
+phylogenetic diversity, argue for which species should receive priority
+and explain the logic behind the EDGE conservation framework.</p></li>
+<li><p>Why does uncorrected <span
+class="math inline">\(p\)</span>-distance <strong>underestimate</strong>
+deep divergences, and when is Jukes–Cantor inadequate compared with
+GTR+Γ?</p></li>
+<li><p>Name one scenario where a <strong>network</strong> rather than a
+bifurcating tree better represents genome evolution. ## Further Reading
+and Source Notes</p></li>
+</ol>
+<ul>
+<li>Saitou &amp; Nei (1987). The neighbor-joining method: a new method
+for reconstructing phylogenetic trees. <em>Molecular Biology and
+Evolution</em>, 4.</li>
+<li>Felsenstein (1985). Confidence limits on phylogenies: An approach
+using the bootstrap. <em>Evolution</em>, 39.</li>
+<li>Zuckerkandl &amp; Pauling (1965). Evolutionary divergence and
+convergence in proteins. <em>Evolving Genes and Proteins</em>.</li>
+<li>Lawrence &amp; Ochman (1998). Molecular archaeology of the
+{Escherichia coli} genome. <em>Proceedings of the National Academy of
+Sciences</em>, 95.</li>
+<li>Woese &amp; Fox (1977). Phylogenetic structure of the prokaryotic
+domain: The primary kingdoms. <em>Proceedings of the National Academy of
+Sciences</em>, 74.</li>
+</ul>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Phylogenetics and the Tree of Life</strong> should leave a
+reproducible trail from a biological claim to the code, figure, diagram,
+or paper-based activity that can test it. Use the surfaces below to
+inspect the chapter’s assumptions, rerun the relevant model, or compare
+the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/evolution/evolution.py</code>
+(<code>molecular_clock_divergence_time</code>)</td>
+<td>Translate genetic distance and rate assumptions into divergence-time
+estimates.</td>
+</tr>
+<tr>
+<td><code>src/biology/genetics/genetics.py</code>
+(<code>hamming_distance</code>, <code>jukes_cantor_distance</code>)</td>
+<td>Compare raw and corrected sequence distances.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>phylogenetic_tree_diagram</code>)</td>
+<td>Keep topology, branch length, and interpretation visually
+distinct.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> state alignment quality,
+homology assumption, substitution model, sampling, and calibration
+before treating a tree as history. <strong>Cross-reference:</strong> use
+and .</p>
+</body>
+</html>

@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>045_action_potential_synapses</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="action-potentials-and-synaptic-transmission">Action Potentials
+and Synaptic Transmission</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 30</strong> · Level 3/3 · 55 min read · 100 min lecture ·
+Prerequisites: </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Write and explain the Hodgkin-Huxley equations for the <a
+href="#gl:action-potential"><strong>action potential</strong></a>.</li>
+<li>Explain the kinetics of Na<span class="math inline">\(^+\)</span>
+activation (m), inactivation (h), and K<span
+class="math inline">\(^+\)</span> activation (n) gating variables.</li>
+<li>Describe the absolute and relative refractory periods in terms of
+channel states.</li>
+<li>Explain myelination, <a
+href="#gl:saltatory-conduction"><strong>saltatory
+conduction</strong></a>, and how axon diameter affects velocity.</li>
+<li>Describe the molecular machinery of chemical synaptic transmission
+including SNARE <a href="#gl:protein"><strong>protein</strong></a>s and
+Ca<span class="math inline">\(^{2+}\)</span> triggering.</li>
+<li>Compare major neurotransmitter systems and their receptor
+pharmacology.</li>
+<li>Describe long-term potentiation (LTP) and long-term depression (LTD)
+and their roles in learning and memory.</li>
+<li>Explain the mechanisms of action of major neuroactive drugs.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Electrical excitability and synaptic
+transmission convert ion gradients into rapid communication.</li>
+<li><strong>Core concepts:</strong> action potentials, ion channels,
+synapses, plasticity.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change: Structure
+and function, Systems; AP Biology: Systems Interactions, Energetics;
+NGSS-style topics: Structure and Function.</li>
+<li><strong>Model or quantitative lens:</strong> Nernst/Goldman,
+Hodgkin-Huxley, and synaptic-current reasoning.</li>
+<li><strong>Data skill:</strong> Interpret voltage traces, conductance
+changes, and synaptic perturbations.</li>
+<li><strong>Practice cadence:</strong> Visual Representations,
+Statistical Tests and Data Analysis, Argumentation.</li>
+<li><strong>Common misconception to repair:</strong> An action potential
+is not electricity flowing like a wire; it is regenerated ion-channel
+dynamics.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Transfer excitability reasoning to
+anesthesia, toxins, epilepsy, and neuromuscular disease.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.neuroscience.neuroscience.action_potential_hh</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette — The Squid That Explained the
+Brain</strong></p>
+<p>The squid <em>Loligo</em> possesses a giant axon up to 1 mm in
+diameter — large enough for researchers to insert a glass micropipette
+electrode into the interior. In 1939, Alan Hodgkin and Andrew Huxley
+exploited this remarkable anatomy to make the first intracellular
+recordings of an action potential. By 1952, using voltage-clamp
+apparatus of their own construction, they had measured the time courses
+of sodium and potassium conductances across the membrane with stunning
+precision and fitted them to a set of differential equations now known
+as the Hodgkin-Huxley model. The equations predicted the shape,
+amplitude, threshold, refractory period, and propagation velocity of
+action potentials — most from first principles of ionic movement. The
+1963 Nobel Prize in Physiology or Medicine rewarded what remains one of
+the most quantitatively rigorous pieces of biological science ever
+accomplished. Every antiepileptic, local anaesthetic, cardiac
+antiarrhythmic, and membrane biophysics textbook stems ultimately from
+that one peculiarly large squid axon.</p>
+</blockquote>
+<h2 id="the-hodgkin-huxley-model">The Hodgkin-Huxley Model</h2>
+<!-- alt: Bar chart of Nernst equilibrium potential in millivolts for physiological K+, Na+, Ca2+, and Cl- gradients, with positive and negative potentials distinguished by colour and a zero reference line. -->
+<p>Alan Hodgkin and Andrew Huxley recorded action potentials from the
+<strong>squid giant axon</strong> (diameter ~0.5 mm) using voltage clamp
+(Hodgkin &amp; Huxley, 1952, <em>J Physiol</em> – Nobel Prize 1963).
+Each ionic current is driven by the difference between <span
+class="math inline">\(V\)</span> and that ion’s Nernst equilibrium
+potential, the gradient-dependent values of which are plotted in . They
+described membrane current as:</p>
+<p><span class="math display">\[\begin{equation}
+C_m \frac{dV}{dt} = -I_{Na} - I_K - I_L + I_{ext}
+\label{eq:action_potential_synapses_1}
+\end{equation}\]</span></p>
+<p>where: - <span class="math inline">\(C_m\)</span> = membrane
+capacitance about 1 uF/cm<span class="math inline">\(^2\)</span> - <span
+class="math inline">\(I_{Na} = \bar{g}_{Na} m^3 h (V - E_{Na})\)</span>;
+<span class="math inline">\(\bar{g}_{Na}\)</span> = 120 mS/cm<span
+class="math inline">\(^2\)</span>; <span
+class="math inline">\(E_{Na}\)</span> = +50 mV - <span
+class="math inline">\(I_K = \bar{g}_K n^4 (V - E_K)\)</span>; <span
+class="math inline">\(\bar{g}_K\)</span> = 36 mS/cm<span
+class="math inline">\(^2\)</span>; <span
+class="math inline">\(E_K\)</span> = <span
+class="math inline">\(-77\)</span> mV - <span class="math inline">\(I_L
+= g_L (V - E_L)\)</span>; <span class="math inline">\(g_L\)</span> = 0.3
+mS/cm<span class="math inline">\(^2\)</span>; <span
+class="math inline">\(E_L\)</span> = <span
+class="math inline">\(-54.4\)</span> mV</p>
+<h3 id="gating-variables">Gating Variables</h3>
+<p>Each gating variable (<span class="math inline">\(m\)</span>, <span
+class="math inline">\(h\)</span>, <span
+class="math inline">\(n\)</span>) evolves according to first-order
+Markov kinetics:</p>
+<p><span class="math display">\[\begin{equation}
+\frac{dx}{dt} = \alpha_x(V)(1-x) - \beta_x(V)x
+\label{eq:action_potential_synapses_2}
+\end{equation}\]</span></p>
+<p>At steady state: <span class="math inline">\(x_\infty(V) = \alpha_x /
+(\alpha_x + \beta_x)\)</span>; time constant: <span
+class="math inline">\(\tau_x(V) = 1/(\alpha_x + \beta_x)\)</span></p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Closed: At rest (V = -70 mV)
+
+    state &quot;Na+ Channel States&quot; as NaCh {
+        Closed --&gt; Open: Depolarisation above threshold&lt;br/&gt;m gates open (tau ~0.5 ms)&lt;br/&gt;3 activation gates (m³)
+        Open --&gt; Inactivated: h gate closes (tau ~5 ms)&lt;br/&gt;Ball-and-chain mechanism&lt;br/&gt;Channel blocked from inside
+        Inactivated --&gt; Closed: Repolarisation to rest&lt;br/&gt;h gate reopens (tau ~10 ms)&lt;br/&gt;m gates close
+    }
+
+    note right of Open
+        Na+ rushes IN
+        V rises toward +50 mV
+        Duration: ~0.5 ms
+        UPSTROKE of AP
+    end note
+
+    note right of Inactivated
+        Cannot reopen regardless
+        of stimulus strength
+        ABSOLUTE refractory period
+        Ensures unidirectional
+        propagation
+    end note
+
+    note right of Closed
+        Ready to fire again
+        All gates reset
+        Channel can be
+        activated by new stimulus
+    end note</code></pre>
+<!-- alt: State diagram showing voltage-gated Na^+ channel states. The channel transitions through three states: Closed (resting, ready to open), Open (conducting Na^+, brief ~0.5 ms), and Inactivated (blocked by the inactivation gate, cannot reopen until repolarisation restores the resting state). The inactivated state underlies the absolute refractory period. -->
+<p><em>Voltage-gated Na<span class="math inline">\(^+\)</span> channel
+states. The channel transitions through three states: Closed (resting,
+ready to open), Open (conducting Na<span
+class="math inline">\(^+\)</span>, brief ~0.5 ms), and Inactivated
+(blocked by the inactivation gate, cannot reopen until repolarisation
+restores the resting state). The inactivated state underlies the
+absolute refractory period.</em></p>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 30%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gating variable</th>
+<th><span class="math inline">\(\alpha(V)\)</span></th>
+<th><span class="math inline">\(\beta(V)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m (Na<span class="math inline">\(^+\)</span> activation)</td>
+<td><span class="math inline">\(0.1(V+40) / [1 -
+\exp(-(V+40)/10)]\)</span></td>
+<td><span class="math inline">\(4 \exp(-(V+65)/18)\)</span></td>
+</tr>
+<tr>
+<td>h (Na<span class="math inline">\(^+\)</span> inactivation)</td>
+<td><span class="math inline">\(0.07 \exp(-(V+65)/20)\)</span></td>
+<td><span class="math inline">\(1 / [1 + \exp(-(V+35)/10)]\)</span></td>
+</tr>
+<tr>
+<td>n (K<span class="math inline">\(^+\)</span> activation)</td>
+<td><span class="math inline">\(0.01(V+55) / [1 -
+\exp(-(V+55)/10)]\)</span></td>
+<td><span class="math inline">\(0.125 \exp(-(V+65)/80)\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="biophysical-interpretation-of-the-action-potential">Biophysical
+Interpretation of the Action Potential</h3>
+<ul>
+<li><strong>Threshold</strong> (~<span
+class="math inline">\(-55\)</span> mV): Point where inward Na<span
+class="math inline">\(^+\)</span> current exceeds outward K<span
+class="math inline">\(^+\)</span> leak. Positive feedback begins (more
+<a href="#gl:depolarisation"><strong>depolarisation</strong></a> opens
+more Na<span class="math inline">\(^+\)</span> channels).</li>
+<li><strong>Upstroke (depolarisation):</strong> Rapid m-gate opening
+(<span class="math inline">\(\tau_m \approx 0.5\)</span> ms). Na<span
+class="math inline">\(^+\)</span> rushes in. Membrane potential
+approaches E<span class="math inline">\(_{Na}\)</span> (+50 mV) but
+typically peaks at +30 to +40 mV.</li>
+<li><strong>Repolarisation:</strong> h-gate closes (Na<span
+class="math inline">\(^+\)</span> inactivation, <span
+class="math inline">\(\tau_h \approx 5\)</span> ms) AND n-gate opens
+(K<span class="math inline">\(^+\)</span> delayed rectifier, <span
+class="math inline">\(\tau_n \approx 5\)</span> ms). Na<span
+class="math inline">\(^+\)</span> influx stops; K<span
+class="math inline">\(^+\)</span> efflux drives membrane back toward
+E<span class="math inline">\(_K\)</span>.</li>
+<li><strong>Afterhyperpolarisation (undershoot):</strong> n-gate slow to
+close. K<span class="math inline">\(^+\)</span> efflux continues
+briefly, hyperpolarising membrane below <a
+href="#gl:resting-potential"><strong>resting potential</strong></a>
+(~<span class="math inline">\(-80\)</span> mV). This is the relative
+refractory period.</li>
+</ul>
+<h3 id="channel-pharmacology">Channel Pharmacology</h3>
+<p><strong>Tetrodotoxin (TTX):</strong> Puffer fish toxin. Blocks Nav
+channels from the extracellular side by occluding the selectivity filter
+pore. Blocks most AP generation. LD<span
+class="math inline">\(_{50}\)</span> in mice: ~10 ug/kg. Used
+extensively as a research tool to study Na<span
+class="math inline">\(^+\)</span>-dependent processes.</p>
+<p><strong>4-Aminopyridine (4-AP):</strong> Blocks Kv (voltage-gated
+K<span class="math inline">\(^+\)</span>) channels. Prolongs AP
+duration, enhances neurotransmitter release. Used clinically as
+dalfampridine (Ampyra) for multiple sclerosis to improve conduction in
+demyelinated axons.</p>
+<p><strong>Nav channel subtypes:</strong> Nav1.1-Nav1.9 encoded by
+SCN1A-SCN11A <a href="#gl:gene"><strong>gene</strong></a>s. Different
+subtypes have distinct tissue distributions, voltage sensitivities, and
+pharmacological profiles: - Nav1.7 (SCN9A): Pain perception.
+Loss-of-function: congenital insensitivity to pain. Gain-of-function:
+erythromelalgia (burning pain). - Nav1.5 (SCN5A): Cardiac muscle. <a
+href="#gl:mutation"><strong>Mutation</strong></a>s cause Long QT
+syndrome, Brugada syndrome.</p>
+<p><strong>Concept Check:</strong> TTX blocks Na<span
+class="math inline">\(^+\)</span> channels and abolishes action
+potentials. Local anaesthetics (lidocaine) also block Na<span
+class="math inline">\(^+\)</span> channels. Why does lidocaine
+preferentially block pain fibres rather than motor fibres? (Hint:
+consider use-dependence and fibre diameter.)</p>
+<hr />
+<h2 id="refractory-periods">Refractory Periods</h2>
+<p><strong>Absolute refractory period</strong> (~1-2 ms after spike
+peak): Na<span class="math inline">\(^+\)</span> channels are in the
+inactivated state (h about 0). They cannot be re-opened regardless of
+stimulus strength. This supports: - Unidirectional AP propagation (the
+region just behind the AP cannot be re-excited) - Maximum firing rate
+(~500-1000 Hz)</p>
+<p><strong>Relative refractory period</strong> (~5-10 ms following
+absolute): Na<span class="math inline">\(^+\)</span> channels are
+recovering from inactivation (h recovering), but K<span
+class="math inline">\(^+\)</span> channels remain open. The membrane is
+more negative than resting potential (afterhyperpolarisation). A
+stronger-than-normal stimulus is needed to trigger a second spike. APs
+generated during this period have reduced amplitude.</p>
+<blockquote>
+<p><strong>Clinical Connection:</strong> The cardiac refractory period
+is much longer than in <a href="#gl:neuron"><strong>neuron</strong></a>s
+(~200-300 ms vs ~2 ms) because cardiac AP duration is prolonged by
+L-type Ca<span class="math inline">\(^{2+}\)</span> channels (plateau
+phase). This prevents tetanic contraction of the heart (which would be
+fatal – the heart must relax to fill). The “vulnerable period” near the
+end of the T wave (relative refractory period of ventricles) is when a
+premature stimulus can trigger ventricular fibrillation.</p>
+</blockquote>
+<p><strong>Concept Check:</strong> During the falling phase of the
+action potential the m, h, and n gates are most changing at once. Which
+single Hodgkin-Huxley gating variable is the <em>direct</em> cause of
+repolarisation, and why does Na<span class="math inline">\(^+\)</span>
+inactivation (h) alone fail to repolarise the membrane without it?
+(Hint: compare what each conductance does to the driving force toward
+<span class="math inline">\(E_K\)</span> versus <span
+class="math inline">\(E_{Na}\)</span>.)</p>
+<hr />
+<h2 id="myelination-and-conduction-velocity">Myelination and Conduction
+Velocity</h2>
+<h3 id="unmyelinated-conduction">Unmyelinated Conduction</h3>
+<p>In continuous conduction, the AP generates local circuits along the
+axon membrane:</p>
+<p><span class="math display">\[\begin{equation}
+\theta \propto \sqrt{a/r_i}
+\label{eq:action_potential_synapses_3}
+\end{equation}\]</span></p>
+<p>where a = axon radius and <span class="math inline">\(r_i\)</span> =
+axial resistance per unit length. Increasing diameter reduces axial
+resistance, increasing velocity. Squid giant axon (500 um diameter)
+achieves ~25 m/s by brute-force gigantism.</p>
+<h3 id="myelinated-axons-saltatory-conduction">Myelinated Axons –
+Saltatory Conduction</h3>
+<p>Myelin dramatically increases the <strong>space constant</strong>
+(λ):</p>
+<p><span class="math display">\[\begin{equation}
+\lambda = \sqrt{r_m / r_i}
+\label{eq:action_potential_synapses_4}
+\end{equation}\]</span></p>
+<p>Myelin increases <span class="math inline">\(r_m\)</span> (membrane
+resistance, preventing current leak) and reduces <span
+class="math inline">\(C_m\)</span> (membrane capacitance, reducing
+charge needed to change voltage). The result: depolarisation spreads
+much further without decay.</p>
+<p>APs can primarily arise at <strong>nodes of Ranvier</strong> (1-2 um
+gaps between myelin segments, every ~1 mm). Nodes have concentrated
+voltage-gated Na<span class="math inline">\(^+\)</span> channels
+(~1,000/um<span class="math inline">\(^2\)</span> at nodes vs
+~25/um<span class="math inline">\(^2\)</span> under myelin).</p>
+<p><strong>Saltatory conduction:</strong> The AP appears to “jump”
+between nodes. In myelinated axons, velocity scales linearly with
+diameter (<span class="math inline">\(\theta \propto d\)</span>), rather
+than as the square root:</p>
+<table>
+<thead>
+<tr>
+<th>Fibre type</th>
+<th>Diameter (um)</th>
+<th>Velocity (m/s)</th>
+<th>Myelinated?</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A-alpha (Ia)</td>
+<td>12-20</td>
+<td>70-120</td>
+<td>Yes</td>
+<td>Muscle spindle afferents</td>
+</tr>
+<tr>
+<td>A-beta</td>
+<td>6-12</td>
+<td>30-70</td>
+<td>Yes</td>
+<td>Touch, pressure</td>
+</tr>
+<tr>
+<td>A-delta</td>
+<td>1-5</td>
+<td>5-30</td>
+<td>Thinly</td>
+<td>Sharp pain, temperature</td>
+</tr>
+<tr>
+<td>B</td>
+<td>1-3</td>
+<td>3-15</td>
+<td>Yes</td>
+<td>Preganglionic autonomic</td>
+</tr>
+<tr>
+<td>C</td>
+<td>0.2-1.5</td>
+<td>0.5-2</td>
+<td>No</td>
+<td>Slow pain, itch, postganglionic autonomic</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="worked-example-myelination-gain-saltatory-vs-continuous-conduction">Worked
+Example: Myelination Gain — Saltatory vs Continuous Conduction</h3>
+<p>Suppose two unmyelinated axons of equal small diameter (<span
+class="math inline">\(d = 1\;\mu\)</span>m) carry the same action
+potential. Continuous conduction velocity scales as <span
+class="math inline">\(\theta_\text{unmyel} \propto \sqrt{d}\)</span>.
+From empirical data, an unmyelinated 1 μm axon conducts at ~0.5 m/s.</p>
+<p>Now myelinate one axon with internodes ~1 mm apart and 100 wraps of
+myelin. Myelin increases membrane resistance (<span
+class="math inline">\(r_m\)</span>) ~100-fold and reduces capacitance
+(<span class="math inline">\(C_m\)</span>) ~50-fold:</p>
+<ul>
+<li>Length constant <span class="math inline">\(\lambda = \sqrt{r_m /
+r_i}\)</span> increases ~10-fold</li>
+<li>Time constant at the node <span class="math inline">\(\tau_m = r_m
+C_m\)</span> — although both increase, the <em>time to reach
+threshold</em> at the next node depends primarily on the rapid charging
+of node membrane (which has low capacitance) by the spreading
+depolarisation</li>
+<li>Effective conduction velocity in myelinated fibre: <span
+class="math inline">\(\theta_\text{myel} \propto d\)</span> (linear, not
+square root)</li>
+</ul>
+<p>For the same 1 μm fibre with myelination, conduction approaches ~6
+m/s (&gt;10× faster). For larger myelinated fibres (10–20 μm A-α), the
+gain is even more striking:</p>
+<table>
+<thead>
+<tr>
+<th>Fibre</th>
+<th>Diameter</th>
+<th>Conduction velocity</th>
+<th>Myelinated?</th>
+<th>Velocity gain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C fibre</td>
+<td>1 μm</td>
+<td>0.5 m/s</td>
+<td>No</td>
+<td>(baseline)</td>
+</tr>
+<tr>
+<td>A-δ</td>
+<td>1–5 μm</td>
+<td>5–30 m/s</td>
+<td>Thinly</td>
+<td>~10–60×</td>
+</tr>
+<tr>
+<td>A-α (Ia)</td>
+<td>12–20 μm</td>
+<td>70–120 m/s</td>
+<td>Yes (heavily)</td>
+<td>~150–250×</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The fundamental insight:</strong> Saltatory conduction
+provides the <strong>same speed at ~50× lower diameter</strong> compared
+to brute-force gigantism (squid giant axon, 500 μm). The vertebrate
+solution to fast conduction — myelinate small axons rather than grow
+giant ones — is enormously more space-efficient and energetically
+cheaper. The ~<span class="math inline">\(10^{12}\)</span> axons in the
+human white matter would not fit in the cranium without myelin.</p>
+<p>The <strong>energetic cost</strong> of action potentials is also
+dramatically reduced: in unmyelinated axons, Na<span
+class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase must continuously pump out
+Na<span class="math inline">\(^+\)</span> along the entire length. In
+myelinated axons, AP-associated ion fluxes occur primarily at nodes
+(~0.1% of axon surface), reducing the metabolic cost of spike
+propagation by a similar factor.</p>
+<h3 id="multiple-sclerosis">Multiple Sclerosis</h3>
+<p><strong>Multiple sclerosis (MS):</strong> Autoimmune demyelination of
+CNS white matter. T cells recognise myelin basic protein (MBP) and
+proteolipid protein (PLP) as autoantigens. Inflammatory attack destroys
+oligodendrocyte myelin sheaths.</p>
+<p>Consequences: Slowed or blocked conduction in demyelinated segments.
+Symptoms depend on lesion location: optic neuritis (visual loss),
+weakness, sensory loss, fatigue, cognitive impairment.
+Relapsing-remitting course in ~85% of patients.</p>
+<p>Treatment: Disease-modifying therapies (interferons, natalizumab,
+ocrelizumab) reduce relapse frequency. 4-aminopyridine (blocks exposed
+K<span class="math inline">\(^+\)</span> channels in demyelinated
+segments) improves conduction.</p>
+<p><strong>Concept Check:</strong> A 1 μm unmyelinated axon conducts at
+~0.5 m/s, yet a 1 μm myelinated axon conducts at ~6 m/s while a 20 μm
+unmyelinated axon would need a far larger diameter to match it. Using
+the velocity scalings <span class="math inline">\(\theta \propto
+\sqrt{d}\)</span> (unmyelinated) versus <span
+class="math inline">\(\theta \propto d\)</span> (myelinated), explain
+why myelination — not gigantism — is the space- and energy-efficient
+solution, and predict what happens to conduction when a node of Ranvier
+is demyelinated. (Hint: think about what myelin does to <span
+class="math inline">\(r_m\)</span>, <span
+class="math inline">\(C_m\)</span>, and the length constant λ.)</p>
+<hr />
+<h2 id="chemical-synaptic-transmission">Chemical Synaptic
+Transmission</h2>
+<h3 id="synapse-types">Synapse Types</h3>
+<p><strong>Electrical synapses</strong> (gap junctions):
+Connexin/innexin hemichannels directly connect <a
+href="#gl:cytoplasm"><strong>cytoplasm</strong></a>s. Bidirectional,
+nearly instantaneous (&lt;0.1 ms). Found in: cardiac pacemaker cells
+(connexin 43), retinal processing (rod-cone coupling), hippocampal
+interneuron synchronisation. Connexin 26/30 mutations cause hereditary
+deafness.</p>
+<p><strong>Chemical synapses:</strong> Unidirectional. Modifiable
+(plasticity). Synaptic delay: 0.5-2 ms. The <a
+href="#gl:dominant"><strong>dominant</strong></a> synapse type in the
+CNS.</p>
+<h3 id="presynaptic-machinery">Presynaptic Machinery</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant AP as Action Potential
+    participant VGCC as Ca2+ Channels (Cav2.1/2.2)
+    participant Ca as Ca2+ ions
+    participant Syt as Synaptotagmin-1 (Ca2+ sensor)
+    participant SNARE as SNARE Complex&lt;br/&gt;(Synaptobrevin + Syntaxin + SNAP-25)
+    participant Cpx as Complexin (fusion clamp)
+    participant Ves as Synaptic Vesicle
+    participant Cleft as Synaptic Cleft (20 nm)
+    participant Rec as Postsynaptic Receptors
+
+    AP-&gt;&gt;VGCC: Depolarisation opens&lt;br/&gt;voltage-gated Ca2+ channels
+    VGCC-&gt;&gt;Ca: Ca2+ influx&lt;br/&gt;[Ca2+] rises to 100 uM&lt;br/&gt;in nanodomain near channel
+    Note over Ca: Only ~10-25 nm from&lt;br/&gt;docked vesicle
+    Ca-&gt;&gt;Syt: Ca2+ binds C2A and C2B&lt;br/&gt;domains of synaptotagmin-1&lt;br/&gt;(4-5 Ca2+ ions)
+    Syt-&gt;&gt;Cpx: Displaces complexin clamp&lt;br/&gt;from partially zippered SNARE
+    Cpx-&gt;&gt;SNARE: SNARE complex completes&lt;br/&gt;zippering (N→C terminal)
+    SNARE-&gt;&gt;Ves: Vesicle membrane pulled&lt;br/&gt;into fusion with plasma membrane
+    Ves-&gt;&gt;Cleft: NT released in &lt;1 ms&lt;br/&gt;(~5000 molecules per vesicle)
+    Cleft-&gt;&gt;Rec: NT diffuses 20 nm&lt;br/&gt;Binds postsynaptic receptors
+    Note over Cleft: Cleared by:&lt;br/&gt;1. Reuptake transporters&lt;br/&gt;2. Enzymatic degradation&lt;br/&gt;3. Diffusion</code></pre>
+<!-- alt: Sequence diagram showing molecular machinery of synaptic vesicle fusion. Depolarisation opens Ca^2+ channels. Ca^2+ binds synaptotagmin-1, which displaces the complexin fusion clamp and triggers full SNARE complex zippering, forcing the vesicle membrane to fuse with the plasma membrane and release neurotransmitter into the cleft. -->
+<p><em>Molecular machinery of synaptic vesicle fusion. Depolarisation
+opens Ca<span class="math inline">\(^{2+}\)</span> channels. Ca<span
+class="math inline">\(^{2+}\)</span> binds <a
+href="#gl:synaptotagmin"><strong>synaptotagmin</strong></a>-1, which
+displaces the complexin fusion clamp and triggers full <a
+href="#gl:snare-complex"><strong>SNARE complex</strong></a> zippering,
+forcing the vesicle membrane to fuse with the plasma membrane and
+release neurotransmitter into the cleft.</em></p>
+<p><strong>Key proteins:</strong> - <strong>SNARE complex:</strong> The
+minimal fusion machinery. <strong>Synaptobrevin</strong> (v-SNARE, on
+vesicle membrane) + <strong>syntaxin</strong> + <strong>SNAP-25</strong>
+(both t-SNAREs, on plasma membrane). The four α-helices zipper together
+N-to-C terminally, pulling membranes into contact. -
+<strong>Synaptotagmin-1:</strong> Ca<span
+class="math inline">\(^{2+}\)</span> sensor. Its C2A and C2B domains
+bind 4-5 Ca<span class="math inline">\(^{2+}\)</span> ions, triggering
+membrane insertion and SNARE complex activation. Cooperativity of
+Ca<span class="math inline">\(^{2+}\)</span> binding gives the steep
+Ca<span class="math inline">\(^{2+}\)</span>-release relationship (~4th
+power). - <strong>Munc18 / Munc13:</strong> Priming factors that prepare
+SNARE complexes for fast fusion - <strong>RIM:</strong> Active zone
+scaffold protein. Positions vesicles within nanometres of Ca<span
+class="math inline">\(^{2+}\)</span> channels. -
+<strong>Complexin:</strong> “Fusion clamp.” Binds partially zippered
+SNARE complex and prevents spontaneous fusion. Ca<span
+class="math inline">\(^{2+}\)</span>/synaptotagmin displaces complexin
+to trigger release. - <strong>NSF + alpha-SNAP:</strong> After fusion,
+these AAA<span class="math inline">\(^+\)</span> ATPases disassemble
+SNARE complexes for recycling.</p>
+<p><strong>Quantal release (Katz, Nobel 1970):</strong> Neurotransmitter
+is released in discrete packets (quanta), each corresponding to the
+contents of one vesicle. The end-plate potential (EPP) at the NMJ = n
+<span class="math inline">\(\times\)</span> p <span
+class="math inline">\(\times\)</span> q, where n = number of
+release-ready vesicles, p = release probability per vesicle, q = quantal
+size (postsynaptic response to one vesicle).</p>
+<p>Miniature EPPs (mEPPs) represent spontaneous release of single
+vesicles and have a constant amplitude (~0.5 mV at the NMJ). The evoked
+EPP is an integer multiple of the mEPP amplitude.</p>
+<h3 id="synaptic-vesicle-pools">Synaptic Vesicle Pools</h3>
+<p>A presynaptic terminal does <strong>not</strong> treat most its
+vesicles equivalently. Decades of imaging, electrophysiology, and FM dye
+experiments establish three functionally distinct pools that differ in
+their release-readiness, location, and mobilisation kinetics:</p>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 43%" />
+<col style="width: 10%" />
+<col style="width: 21%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pool</th>
+<th>Approximate size per active zone</th>
+<th>Location</th>
+<th>Release kinetics</th>
+<th>Replenishment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Readily releasable pool (RRP)</strong></td>
+<td>~10–20 vesicles (CNS); ~50–100 (NMJ)</td>
+<td>Docked at active zone; primed</td>
+<td>Released within ~1 ms of Ca<span
+class="math inline">\(^{2+}\)</span> entry; depleted within first few
+APs of a high-frequency train</td>
+<td>Refilled from recycling pool over 1–10 s</td>
+</tr>
+<tr>
+<td><strong>Recycling pool</strong></td>
+<td>~100–200 vesicles</td>
+<td>Near active zone; fused with PM during sustained activity then
+reformed locally</td>
+<td>Sustains release during moderate-frequency activity</td>
+<td>Cycle time ~30–60 s</td>
+</tr>
+<tr>
+<td><strong>Reserve pool</strong></td>
+<td>~300–500+ vesicles</td>
+<td>Tethered to actin/synapsin in the cytoplasm</td>
+<td>Mobilised primarily during intense or prolonged activity (typically
+when synapsin is phosphorylated by CaMKII/PKA)</td>
+<td>Slow refilling (minutes) from synthesis and endocytosis</td>
+</tr>
+</tbody>
+</table>
+<p>The three-pool model elegantly explains the kinetics of synaptic
+transmission during different activity patterns. <strong>Brief,
+low-frequency stimulation</strong> uses primarily the RRP and the system
+rapidly returns to baseline. <strong>Sustained moderate
+activity</strong> engages the recycling pool. <strong>Tetanic
+stimulation</strong> mobilises the reserve pool by phosphorylation of
+synapsin (which normally clamps reserve vesicles to the actin
+cytoskeleton), releasing them to refill the active zone.</p>
+<h3 id="short-term-plasticity-facilitation-and-depression">Short-term
+plasticity — facilitation and depression</h3>
+<p>Synaptic strength is dynamic across milliseconds-to-seconds, even
+before any LTP/LTD is induced. Two opposing short-term phenomena
+dominate:</p>
+<p><strong>Synaptic facilitation</strong> (paired-pulse facilitation;
+tens to hundreds of ms): If two APs arrive in close succession, the
+second EPSC/IPSC is <em>larger</em> than the first. Mechanism: residual
+presynaptic Ca<span class="math inline">\(^{2+}\)</span> from the first
+AP has not yet been pumped out or buffered; when the second AP triggers
+Ca<span class="math inline">\(^{2+}\)</span> entry, the residual Ca<span
+class="math inline">\(^{2+}\)</span> adds to the new flux,
+super-linearly increasing release probability <span
+class="math inline">\(p\)</span>. Facilitation is most prominent at
+synapses with low initial <span class="math inline">\(p\)</span> (e.g.,
+parallel-fibre to Purkinje cell synapses; ~<span class="math inline">\(p
+\approx 0.05\)</span>); high-<span class="math inline">\(p\)</span>
+synapses have less room for further increase.</p>
+<p><strong>Synaptic depression</strong> (paired-pulse depression; tens
+of ms to seconds): If two APs arrive in close succession at a high-<span
+class="math inline">\(p\)</span> synapse, the second EPSC is
+<em>smaller</em> than the first. Mechanism: the RRP is partially
+depleted by the first AP and has not had time to refill. Depression is
+most prominent at synapses with high initial <span
+class="math inline">\(p\)</span> (e.g., calyx of Held auditory synapses;
+<span class="math inline">\(p \approx 0.4\)</span>).</p>
+<p>Whether a given synapse facilitates or depresses depends on its
+starting release probability, vesicle pool dynamics, and Ca<span
+class="math inline">\(^{2+}\)</span> handling. Some synapses transition:
+facilitate at low frequency, then depress as frequency rises and pools
+deplete.</p>
+<h3 id="tsodyks-markram-model">Tsodyks-Markram model</h3>
+<p>The classical phenomenological model of short-term plasticity
+(Tsodyks &amp; Markram, 1997) treats each synapse as having two state
+variables:</p>
+<ul>
+<li><strong><span class="math inline">\(x\)</span></strong>: the
+fraction of available (un-depleted) resources (vesicles in the RRP),
+with <span class="math inline">\(0 \le x \le 1\)</span></li>
+<li><strong><span class="math inline">\(u\)</span></strong>: the
+utilisation parameter (effective release probability), influenced by
+residual Ca<span class="math inline">\(^{2+}\)</span></li>
+</ul>
+<p>After each spike, <span class="math inline">\(x \to x \cdot (1 -
+u)\)</span> (resources depleted) and <span class="math inline">\(u \to u
++ U \cdot (1 - u)\)</span> (release probability incremented by Ca<span
+class="math inline">\(^{2+}\)</span> accumulation). Between spikes, both
+variables relax back to baseline with time constants <span
+class="math inline">\(\tau_d\)</span> (recovery, ~500 ms–2 s) and <span
+class="math inline">\(\tau_f\)</span> (facilitation, ~100–500 ms):</p>
+<p><span class="math display">\[\frac{dx}{dt} = \frac{1 - x}{\tau_d};
+\qquad \frac{du}{dt} = -\frac{u - U}{\tau_f}
+\label{eq:unit_IX_action_potential_synapses_item_1}\]</span></p>
+<p>The post-spike EPSC amplitude is proportional to <span
+class="math inline">\(u \cdot x\)</span>. This single model captures the
+full repertoire of facilitating, depressing, and mixed synapses — by
+varying the parameters <span class="math inline">\(U\)</span>, <span
+class="math inline">\(\tau_d\)</span>, <span
+class="math inline">\(\tau_f\)</span> — and is the standard building
+block for biologically realistic spiking neural network simulations.</p>
+<blockquote>
+<p><strong>Clinical Connection:</strong> Lambert-Eaton myasthenic
+syndrome (LEMS) is an autoimmune disorder targeting presynaptic P/Q-type
+Ca<span class="math inline">\(^{2+}\)</span> channels at the NMJ,
+dramatically reducing initial release probability. The hallmark on
+bedside testing is <strong>post-tetanic facilitation</strong> — strength
+briefly improves after sustained voluntary contraction, reflecting
+accumulated Ca<span class="math inline">\(^{2+}\)</span> partially
+compensating for reduced channel number. Treatment with
+<strong>3,4-diaminopyridine</strong> (a K<span
+class="math inline">\(^+\)</span> channel blocker that prolongs
+presynaptic AP duration → more Ca<span
+class="math inline">\(^{2+}\)</span> entry per spike) increases initial
+<span class="math inline">\(p\)</span> and restores neuromuscular
+transmission.</p>
+</blockquote>
+<h3 id="postsynaptic-receptors">Postsynaptic Receptors</h3>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 14%" />
+<col style="width: 30%" />
+<col style="width: 10%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Receptor class</th>
+<th>Example</th>
+<th>Ion selectivity</th>
+<th>Speed</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ionotropic</strong></td>
+<td>AMPA (GluA1-4)</td>
+<td>Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span> (some Ca<span
+class="math inline">\(^{2+}\)</span>)</td>
+<td>Fast (ms)</td>
+<td>Ligand-gated ion channel</td>
+</tr>
+<tr>
+<td>Ionotropic</td>
+<td>NMDA (GluN1/2A-D)</td>
+<td>Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>/Ca<span
+class="math inline">\(^{2+}\)</span></td>
+<td>Slower (10s of ms)</td>
+<td>Voltage + ligand gated; Mg<span class="math inline">\(^{2+}\)</span>
+block</td>
+</tr>
+<tr>
+<td>Ionotropic</td>
+<td>GABA<span class="math inline">\(_A\)</span></td>
+<td>Cl<span class="math inline">\(^-\)</span></td>
+<td>Fast (ms)</td>
+<td>Ligand-gated anion channel</td>
+</tr>
+<tr>
+<td>Ionotropic</td>
+<td>nAChR</td>
+<td>Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span></td>
+<td>Fast (ms)</td>
+<td>Pentameric cation channel</td>
+</tr>
+<tr>
+<td><strong>Metabotropic</strong></td>
+<td>mGluR1-8</td>
+<td>N/A</td>
+<td>Slow (100s ms-min)</td>
+<td>GPCR to G<span class="math inline">\(_q\)</span>/G<span
+class="math inline">\(_i\)</span> to IP<span
+class="math inline">\(_3\)</span>/cAMP</td>
+</tr>
+<tr>
+<td>Metabotropic</td>
+<td>GABA<span class="math inline">\(_B\)</span></td>
+<td>K<span class="math inline">\(^+\)</span> (indirect)</td>
+<td>Slow</td>
+<td>G<span class="math inline">\(_i\)</span> to K<span
+class="math inline">\(^+\)</span> channel activation</td>
+</tr>
+<tr>
+<td>Metabotropic</td>
+<td>D1/D2</td>
+<td>N/A</td>
+<td>Slow</td>
+<td>G<span class="math inline">\(_s\)</span>/G<span
+class="math inline">\(_i\)</span> to cAMP</td>
+</tr>
+<tr>
+<td>Metabotropic</td>
+<td>5-HT<span class="math inline">\(_{1A-7}\)</span></td>
+<td>N/A</td>
+<td>Slow</td>
+<td>Various G protein coupling</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NMDA receptor – “coincidence detector”:</strong> The NMDA
+receptor requires BOTH glutamate binding AND postsynaptic depolarisation
+(to relieve Mg<span class="math inline">\(^{2+}\)</span> block) to
+conduct. This makes it a detector of coincident pre- and postsynaptic
+activity – exactly the condition Hebb proposed should strengthen
+synapses. Ca<span class="math inline">\(^{2+}\)</span> entry through
+NMDA receptors triggers LTP.</p>
+<p><strong>Concept Check:</strong> At a synapse with <span
+class="math inline">\(n = 10\)</span> release-ready vesicles, release
+probability <span class="math inline">\(p = 0.2\)</span>, and quantal
+size <span class="math inline">\(q = 0.5\)</span> mV, a single
+presynaptic spike must drive the postsynaptic membrane from <span
+class="math inline">\(-70\)</span> mV to a <span
+class="math inline">\(-55\)</span> mV threshold. Using the <span
+class="math inline">\(n \cdot p \cdot q\)</span> model, decide whether
+one spike reaches threshold and explain why a drug that raises <span
+class="math inline">\(p\)</span> (e.g., an aminopyridine prolonging the
+presynaptic AP) can convert a sub-threshold synapse to a supra-threshold
+one without adding any new vesicles. (Hint: compute the expected EPSP
+amplitude and compare it to the 15 mV gap.)</p>
+<hr />
+<h2 id="neurotransmitter-systems">Neurotransmitter Systems</h2>
+<h3 id="glutamate-excitatory">Glutamate (Excitatory)</h3>
+<p>The major excitatory neurotransmitter in the CNS (~90% of excitatory
+synapses).</p>
+<p><strong>Receptors:</strong> - <strong>AMPA</strong> (GluA1-4): Fast
+Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span> current. Ca<span
+class="math inline">\(^{2+}\)</span>-permeable if lacking GluA2 (GluA2
+RNA editing of Q/R site prevents Ca<span
+class="math inline">\(^{2+}\)</span> permeability in most adult
+neurons). - <strong>NMDA</strong> (GluN1/GluN2A-D): Coincidence
+detector. Requires glutamate + glycine/D-serine co-agonist +
+depolarisation to relieve Mg<span class="math inline">\(^{2+}\)</span>
+block. High Ca<span class="math inline">\(^{2+}\)</span> permeability.
+Critical for LTP. - <strong>Kainate</strong> (GluK1-5): Similar to AMPA;
+modulatory roles at some synapses. - <strong>mGluR</strong> (mGluR1-8):
+Metabotropic. Group I (mGluR1/5): G<span
+class="math inline">\(_q\)</span>-coupled, excitatory. Group II/III:
+G<span class="math inline">\(_i\)</span>-coupled, inhibitory
+(presynaptic autoreceptors).</p>
+<p><strong><a href="#gl:excitotoxicity">Excitotoxicity</a>:</strong>
+Excessive glutamate release (e.g., during stroke/ischaemia)
+overactivates NMDA receptors. Massive Ca<span
+class="math inline">\(^{2+}\)</span> influx activates calpains,
+endonucleases, and nitric oxide synthase, leading to neuronal death.
+This is a major mechanism of ischaemic brain damage.</p>
+<h3 id="gaba-inhibitory">GABA (Inhibitory)</h3>
+<p>The major inhibitory neurotransmitter (~30% of CNS synapses).
+Synthesised from glutamate by glutamic acid decarboxylase
+(GAD65/GAD67).</p>
+<p><strong>Receptors:</strong> - <strong>GABA<span
+class="math inline">\(_A\)</span></strong> (ionotropic): Cl<span
+class="math inline">\(^-\)</span> channel. Pentameric (typically <span
+class="math inline">\(\alpha_1\beta_2\gamma_2\)</span>). Binding sites
+for: GABA (agonist), benzodiazepines (positive <a
+href="#gl:allosteric"><strong>allosteric</strong></a> modulators at α/γ
+interface), barbiturates, neurosteroids, ethanol, anaesthetics
+(propofol, isoflurane). - <strong>GABA<span
+class="math inline">\(_B\)</span></strong> (metabotropic): G<span
+class="math inline">\(_i\)</span>-coupled GPCR. Activates K<span
+class="math inline">\(^+\)</span> channels (postsynaptic
+hyperpolarisation) and inhibits Ca<span
+class="math inline">\(^{2+}\)</span> channels (presynaptic, reduces NT
+release). Baclofen is a GABA<span class="math inline">\(_B\)</span>
+agonist (used for spasticity).</p>
+<h3 id="acetylcholine-ach">Acetylcholine (ACh)</h3>
+<p><strong>Receptors:</strong> - <strong>Nicotinic (nAChR):</strong>
+Ionotropic pentamer. Muscle type (<span
+class="math inline">\(\alpha_1^2\beta_1\delta\epsilon\)</span>) at NMJ.
+Neuronal types (<span class="math inline">\(\alpha_4\beta_2\)</span>,
+<span class="math inline">\(\alpha_7\)</span>) in CNS. Na<span
+class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span> channels. - <strong>Muscarinic (mAChR,
+M1-M5):</strong> GPCRs. M1/M3/M5: G<span
+class="math inline">\(_q\)</span> (excitatory). M2/M4: G<span
+class="math inline">\(_i\)</span> (inhibitory, e.g., vagal slowing of
+heart rate).</p>
+<p><strong>CNS cholinergic system:</strong> Basal forebrain (nucleus
+basalis of Meynert) projects to cortex. Critical for attention and
+memory. Degeneration in Alzheimer’s disease.</p>
+<h3 id="dopamine">Dopamine</h3>
+<p><strong>Receptors:</strong> D1-D5 (most GPCRs). D1-like (D1, D5):
+G<span class="math inline">\(_s\)</span>, increase cAMP. D2-like (D2,
+D3, D4): G<span class="math inline">\(_i\)</span>, decrease cAMP.</p>
+<p><strong>Major pathways:</strong> - <strong>Nigrostriatal</strong>
+(SNc to striatum): Motor control. Loss causes Parkinson’s disease. -
+<strong>Mesolimbic</strong> (VTA to nucleus accumbens): Reward
+prediction error, motivation. Hyperactivity linked to positive symptoms
+of schizophrenia. - <strong>Mesocortical</strong> (VTA to prefrontal
+cortex): Working memory, executive function. Hypoactivity linked to
+negative symptoms of schizophrenia and ADHD. -
+<strong>Tuberoinfundibular</strong> (hypothalamus to pituitary):
+Inhibits prolactin release.</p>
+<h3 id="serotonin-5-ht">Serotonin (5-HT)</h3>
+<p>Synthesised from tryptophan by tryptophan hydroxylase (TPH2 in CNS).
+Raphe nuclei in brainstem project widely. 14 receptor subtypes
+(5-HT<span class="math inline">\(_1\)</span>A through 5-HT<span
+class="math inline">\(_7\)</span>).</p>
+<p><strong>Functions:</strong> Mood regulation, sleep/wake cycle,
+appetite, pain modulation. ~90% of body’s serotonin is in
+enterochromaffin cells of the GI tract.</p>
+<h3 id="norepinephrine-ne">Norepinephrine (NE)</h3>
+<p>Synthesised from dopamine by dopamine β-hydroxylase (DBH). Locus
+coeruleus (brainstem) projects to entire cortex. Functions: arousal,
+attention, vigilance, stress response.</p>
+<p><strong>Receptors:</strong> <span
+class="math inline">\(\alpha_1\)</span> (G<span
+class="math inline">\(_q\)</span>), <span
+class="math inline">\(\alpha_2\)</span> (G<span
+class="math inline">\(_i\)</span>, presynaptic autoreceptor), <span
+class="math inline">\(\beta_1\)</span> (G<span
+class="math inline">\(_s\)</span>, heart), <span
+class="math inline">\(\beta_2\)</span> (G<span
+class="math inline">\(_s\)</span>, bronchial smooth muscle, blood
+vessels).</p>
+<hr />
+<h2
+id="ai-and-computational-neuroscience-modeling-the-brain-with-data-and-algorithms">AI
+and Computational Neuroscience: Modeling the Brain with Data and
+Algorithms</h2>
+<pre class="mermaid"><code>flowchart TD
+    subgraph &quot;Computational Neuroscience&quot;
+        A[&quot;Hodgkin-Huxley Equations (1952)&quot;] --&gt; B[&quot;Cable Theory (1960s)&quot;]
+        B --&gt; C[&quot;Integrate-and-Fire Models (1907, 1960s)&quot;]
+        C --&gt; D[&quot;FitzHugh-Nagumo (1960s)&quot;]
+        D --&gt; E[&quot;Hindmarsh-Rose (1980s)&quot;]
+        E --&gt; F[&quot;Izhikevich Model (2003)&quot;]
+        F --&gt; G[&quot;Neural Mass Models (1990s)&quot;]
+    end
+
+    subgraph &quot;Machine Learning &amp; AI&quot;
+        H[&quot;Perceptron (1957)&quot;] --&gt; I[&quot;Backpropagation (1986)&quot;]
+        I --&gt; J[&quot;Support Vector Machines (1995)&quot;]
+        J --&gt; K[&quot;Deep Learning (2006)&quot;]
+        K --&gt; L[&quot;Convolutional Neural Networks (2012)&quot;]
+        L --&gt; M[&quot;Transformers (2017)&quot;]
+        M --&gt; N[&quot;Spiking Neural Networks (2000s)&quot;]
+    end
+
+    subgraph &quot;Convergence&quot;
+        G --&gt; O[&quot;Biophysically Detailed Models&quot;]
+        N --&gt; O
+        O --&gt; P[&quot;Neuromorphic Computing&quot;]
+        P --&gt; Q[&quot;Brain-Computer Interfaces&quot;]
+        Q --&gt; R[&quot;Neural Decoding &amp; Encoding&quot;]
+        R --&gt; S[&quot;AI for Drug Discovery&quot;]
+    end
+
+    style A fill:#4a90d9,color:#fff
+    style H fill:#4a90d9,color:#fff
+    style G fill:#5cb85c,color:#fff
+    style N fill:#5cb85c,color:#fff
+    style P fill:#f0ad4e,color:#000
+    style Q fill:#f0ad4e,color:#000
+    style R fill:#f0ad4e,color:#000
+    style S fill:#f0ad4e,color:#000</code></pre>
+<!-- alt: Flowchart showing convergence of computational neuroscience and AI. Early neural models (Hodgkin-Huxley, integrate-and-fire) inspired artificial neurons, while modern deep learning architectures are now used to model brain function and analyze neural data. -->
+<p><em>The convergence of computational neuroscience and AI. Early
+neural models (Hodgkin-Huxley, integrate-and-fire) inspired artificial
+neurons, while modern deep learning architectures are now used to model
+brain function and analyze neural data.</em></p>
+<h3 id="computational-neuroscience-models">Computational Neuroscience
+Models</h3>
+<p><strong>Biophysical models</strong>:</p>
+<ul>
+<li><p><strong>Hodgkin-Huxley model</strong> (1952): A set of nonlinear
+differential equations that describe how action potentials in neurons
+are initiated and propagated. It remains one of the most important
+mathematical models in neuroscience.</p></li>
+<li><p><strong>FitzHugh-Nagumo model</strong> (1961): A simplified
+two-variable model that captures the essential dynamics of the
+Hodgkin-Huxley model while being more mathematically tractable.</p></li>
+<li><p><strong>Izhikevich model</strong> (2003): A hybrid model that
+combines the biological plausibility of Hodgkin-Huxley with the
+computational efficiency of integrate-and-fire models.</p></li>
+</ul>
+<p><strong>Large-scale brain models</strong>:</p>
+<ul>
+<li><strong>Blue Brain Project</strong> (EPFL): Aims to create a digital
+reconstruction of the rodent brain and ultimately the human brain using
+detailed biophysical models.</li>
+<li><strong>Human Brain Project</strong> (EU): A €1 billion initiative
+to simulate the entire human brain using supercomputers.</li>
+<li><strong>Spaun</strong> (University of Waterloo): A large-scale
+functional brain model that can perform multiple cognitive tasks.</li>
+</ul>
+<h3 id="machine-learning-for-neural-data-analysis">Machine Learning for
+Neural Data Analysis</h3>
+<p>Modern neuroscience generates massive datasets (e.g., calcium
+imaging, EEG, fMRI, intracranial recordings). Machine learning is
+essential for extracting meaningful information:</p>
+<ul>
+<li><p><strong>Spike sorting</strong>: Unsupervised learning algorithms
+(e.g., PCA + clustering, deep learning) to separate the activity of
+individual neurons from extracellular recordings.</p></li>
+<li><p><strong>Calcium imaging analysis</strong>: Deconvolution
+algorithms (e.g., OASIS, CaImAn) to extract spike trains from
+fluorescence signals.</p></li>
+<li><p><strong>Neural decoding</strong>: Supervised learning to predict
+behavior or perception from neural activity (e.g., BMI control, speech
+decoding).</p></li>
+<li><p><strong>fMRI pattern analysis</strong>: Multivariate pattern
+analysis (MVPA) and deep learning to identify mental states from brain
+activity patterns.</p></li>
+<li><p><strong>Connectomics</strong>: Computer vision and graph neural
+networks to map neural connectivity from electron microscopy
+data.</p></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch.nn <span class="im">as</span> nn</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> butter, filtfilt</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Simple neural decoder for BMI control</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NeuralDecoder(nn.Module):</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;A simple LSTM-based decoder for predicting movement from neural spikes.&quot;&quot;&quot;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, input_dim, hidden_dim, output_dim, num_layers<span class="op">=</span><span class="dv">2</span>):</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.lstm <span class="op">=</span> nn.LSTM(input_dim, hidden_dim, num_layers, batch_first<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc <span class="op">=</span> nn.Linear(hidden_dim, output_dim)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># x shape: (batch, seq_len, input_dim)</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        lstm_out, _ <span class="op">=</span> <span class="va">self</span>.lstm(x)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Take the last time step output</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        out <span class="op">=</span> <span class="va">self</span>.fc(lstm_out[:, <span class="op">-</span><span class="dv">1</span>, :])</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> out</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Spike sorting with PCA + clustering</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> spike_sorting(waveforms):</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Simple spike sorting using PCA and k-means.&quot;&quot;&quot;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Perform PCA</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    pca_result <span class="op">=</span> pca.fit_transform(waveforms)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cluster</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> sklearn.cluster <span class="im">import</span> KMeans</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    kmeans <span class="op">=</span> KMeans(n_clusters<span class="op">=</span><span class="dv">4</span>, random_state<span class="op">=</span><span class="dv">0</span>).fit(pca_result)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> kmeans.labels_</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Calcium imaging deconvolution</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> oasis_deconvolution(fluor_signal, dt<span class="op">=</span><span class="fl">0.1</span>, lambda_<span class="op">=</span><span class="dv">10</span>):</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;OASIS algorithm for spike inference from calcium imaging.&quot;&quot;&quot;</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> oasis <span class="im">import</span> oasisAR1N</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert to AR1N model</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> oasisAR1N(fluor_signal, dt<span class="op">=</span>dt, lambda_<span class="op">=</span>lambda_, g<span class="op">=</span><span class="fl">0.95</span>)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result[<span class="st">&quot;spikes&quot;</span>]  <span class="co"># Estimated spike times</span></span></code></pre></div>
+<h3 id="ai-for-drug-discovery-in-neurology">AI for Drug Discovery in
+Neurology</h3>
+<p>Traditional drug discovery takes 10-15 years and billions of dollars.
+AI is accelerating the process:</p>
+<ul>
+<li><p><strong>Target identification</strong>: Machine learning models
+analyze genomic, transcriptomic, and proteomic data to identify
+promising drug targets.</p></li>
+<li><p><strong>Compound screening</strong>: Deep learning models predict
+the activity of millions of compounds against specific targets, enabling
+virtual screening.</p></li>
+<li><p><strong>De novo drug design</strong>: Generative models (GANs,
+VAEs, transformers) can design novel molecules with desired
+properties.</p></li>
+<li><p><strong>Clinical trial optimization</strong>: AI helps identify
+suitable patient populations, predict outcomes, and optimize trial
+design.</p></li>
+</ul>
+<p><strong>Case study</strong>: Insilico Medicine used AI to identify a
+novel target for idiopathic pulmonary fibrosis, design a novel molecule,
+and complete preclinical experiments in under 18 months (vs. typical 4-6
+years).</p>
+<h3 id="brain-computer-interfaces-bcis">Brain-Computer Interfaces
+(BCIs)</h3>
+<p>BCIs translate neural activity into commands for external devices,
+offering hope for paralysis, locked-in syndrome, and other neurological
+conditions:</p>
+<ul>
+<li><p><strong>Signal acquisition</strong>: Microelectrode arrays (Utah
+array, Blackrock), ECoG, EEG, or optical imaging.</p></li>
+<li><p><strong>Signal processing</strong>: Filtering, spike detection,
+feature extraction.</p></li>
+<li><p><strong>Decoding algorithms</strong>: Linear models (Kalman
+filter, Wiener filter), neural networks, and reinforcement learning to
+map neural signals to actions.</p></li>
+<li><p><strong>Applications</strong>:</p>
+<ul>
+<li><strong>Communication</strong>: Typing at 20+ words per minute using
+imagined handwriting.</li>
+<li><strong>Mobility</strong>: Controlling robotic limbs or
+exoskeletons.</li>
+<li><strong>Sensory restoration</strong>: Cortical visual prostheses for
+the blind.</li>
+</ul></li>
+</ul>
+<p><strong>Neuralink</strong> and other companies are developing
+high-bandwidth, minimally invasive BCIs with thousands of channels,
+aiming to treat paralysis and eventually enhance human cognition.</p>
+<h3 id="ethical-considerations">Ethical Considerations</h3>
+<p>As AI becomes more integrated with neuroscience, important ethical
+questions arise:</p>
+<ul>
+<li><strong>Privacy</strong>: Neural data is the ultimate private
+information. How do we protect brain data from misuse?</li>
+<li><strong>Agency and responsibility</strong>: If a BCI-controlled
+prosthetic acts unintentionally, who is responsible?</li>
+<li><strong>Cognitive enhancement</strong>: Should AI-assisted cognitive
+enhancement be allowed? What are the societal implications?</li>
+<li><strong>Dual-use</strong>: The same technology that helps paralyzed
+patients could be used for military applications or surveillance.</li>
+<li><strong>Bias in AI</strong>: If training data lacks diversity, AI
+systems may perform poorly for underrepresented groups, exacerbating
+health disparities.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Simple neural encoding model</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NeuralEncoder(nn.Module):</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;A simple model that predicts neural response to visual stimuli.&quot;&quot;&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, stimulus_dim, hidden_dim, neural_dim):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.conv <span class="op">=</span> nn.Conv2d(stimulus_dim, <span class="dv">64</span>, kernel_size<span class="op">=</span><span class="dv">7</span>, stride<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.fc <span class="op">=</span> nn.Linear(<span class="dv">64</span> <span class="op">*</span> <span class="dv">7</span> <span class="op">*</span> <span class="dv">7</span>, hidden_dim)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.output <span class="op">=</span> nn.Linear(hidden_dim, neural_dim)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, stimulus):</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> torch.relu(<span class="va">self</span>.conv(stimulus))</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x.view(x.size(<span class="dv">0</span>), <span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> torch.relu(<span class="va">self</span>.fc(x))</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.output(x)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Reinforcement learning for adaptive BCIs</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> gym</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> stable_baselines3 <span class="im">import</span> PPO</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a custom environment for BCI control</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BCIEnv(gym.Env):</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.observation_space <span class="op">=</span> gym.spaces.Box(low<span class="op">=-</span><span class="dv">1</span>, high<span class="op">=</span><span class="dv">1</span>, shape<span class="op">=</span>(<span class="dv">100</span>,))</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.action_space <span class="op">=</span> gym.spaces.Box(low<span class="op">=-</span><span class="dv">1</span>, high<span class="op">=</span><span class="dv">1</span>, shape<span class="op">=</span>(<span class="dv">2</span>,))</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> step(<span class="va">self</span>, action):</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Simplified: reward based on how close action is to target</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        reward <span class="op">=</span> <span class="op">-</span>np.<span class="bu">sum</span>((action <span class="op">-</span> <span class="va">self</span>.target) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.steps <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        done <span class="op">=</span> <span class="va">self</span>.steps <span class="op">&gt;=</span> <span class="dv">200</span> <span class="kw">or</span> reward <span class="op">&lt;</span> <span class="op">-</span><span class="dv">10</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._get_observation(), reward, done, {}</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> reset(<span class="va">self</span>):</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.steps <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.target <span class="op">=</span> np.random.randn(<span class="dv">2</span>)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._get_observation()</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _get_observation(<span class="va">self</span>):</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Simulated neural data</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.random.randn(<span class="dv">100</span>)</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Train a policy</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>env <span class="op">=</span> BCIEnv()</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> PPO(<span class="st">&quot;MlpPolicy&quot;</span>, env).learn(total_timesteps<span class="op">=</span><span class="dv">10000</span>)</span></code></pre></div>
+<p><strong>Concept Check 6.1</strong></p>
+<blockquote>
+<ol type="1">
+<li>What is the difference between Hodgkin-Huxley and Izhikevich models?
+When would you use each?</li>
+<li>How can machine learning be used to analyze calcium imaging
+data?</li>
+<li>What are some ethical concerns with brain-computer interfaces?</li>
+<li>How might AI accelerate drug discovery for neurological
+disorders?</li>
+</ol>
+</blockquote>
+<hr />
+<h3 id="neuropeptides">Neuropeptides</h3>
+<p><strong>Characteristics:</strong> Larger molecules (3-40 amino
+acids); synthesised in soma (not terminals); stored in large dense-core
+vesicles; released by higher-frequency stimulation; diffuse farther
+(volume transmission); slower, longer-lasting effects.</p>
+<p><strong>Examples:</strong> - <strong>Substance P:</strong> Pain
+transmission (dorsal horn); co-released with glutamate from nociceptors
+- <strong>Enkephalins / endorphins:</strong> Endogenous opioids; bind mu
+(μ), delta (δ), kappa (κ) opioid receptors; inhibit pain pathways -
+<strong>NPY:</strong> Appetite stimulation; anxiolysis; one of the most
+abundant peptides in the brain - <strong>Orexin/hypocretin:</strong>
+Wakefulness promotion; loss causes narcolepsy type 1</p>
+<hr />
+<h2 id="synaptic-plasticity-and-memory">Synaptic Plasticity and
+Memory</h2>
+<h3 id="long-term-potentiation-ltp">Long-Term Potentiation (LTP)</h3>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Induction [&quot;LTP Induction (Schaffer Collateral → CA1)&quot;]
+        HFS[&quot;High-frequency stimulation&lt;br/&gt;(100 Hz, 1 s)&quot;] --&gt; AMPA1[&quot;AMPA receptor activation&lt;br/&gt;Large EPSP&lt;br/&gt;Postsynaptic depolarisation&quot;]
+        AMPA1 --&gt; MgBlock[&quot;Mg2+ expelled from&lt;br/&gt;NMDA receptor channel&quot;]
+        MgBlock --&gt; NMDA1[&quot;NMDA receptor opens&lt;br/&gt;(glutamate already bound)&quot;]
+        NMDA1 --&gt; CaInflux[&quot;Ca2+ floods into&lt;br/&gt;postsynaptic spine&quot;]
+    end
+
+    subgraph Early [&quot;Early LTP (minutes to hours)&quot;]
+        CaInflux --&gt; CaMKII[&quot;CaMKII autophosphorylation&lt;br/&gt;(T286: becomes Ca2+-independent)&quot;]
+        CaMKII --&gt; AMPAphos[&quot;AMPA receptor phosphorylation&lt;br/&gt;Ser831 → increased conductance&quot;]
+        CaMKII --&gt; AMPAinsert[&quot;AMPA receptor insertion&lt;br/&gt;from recycling endosomes&lt;br/&gt;(Exocytosis to synapse)&quot;]
+        AMPAphos --&gt; Enhanced[&quot;ENHANCED SYNAPTIC STRENGTH&quot;]
+        AMPAinsert --&gt; Enhanced
+    end
+
+    subgraph Late [&quot;Late LTP (hours to days)&quot;]
+        CaInflux --&gt; PKA[&quot;PKA activation&lt;br/&gt;(via Ca2+/calmodulin/AC)&quot;]
+        PKA --&gt; CREB[&quot;CREB phosphorylation&lt;br/&gt;(transcription factor)&quot;]
+        CREB --&gt; Genes[&quot;Gene expression:&lt;br/&gt;Arc, BDNF, c-Fos,&lt;br/&gt;Homer1a&quot;]
+        Genes --&gt; Structural[&quot;STRUCTURAL CHANGES:&lt;br/&gt;New spine formation&lt;br/&gt;Spine enlargement&lt;br/&gt;Synapse stabilisation&quot;]
+    end
+
+    subgraph Recycling [&quot;Neurotransmitter Recycling&quot;]
+        NT[&quot;Released NT in cleft&quot;] --&gt; Reuptake[&quot;Reuptake transporters&lt;br/&gt;(DAT, SERT, NET, EAAT)&quot;]
+        NT --&gt; Enzyme[&quot;Enzymatic degradation&lt;br/&gt;(AChE for ACh;&lt;br/&gt;MAO/COMT for monoamines)&quot;]
+        NT --&gt; Diff[&quot;Diffusion away&lt;br/&gt;from synaptic cleft&quot;]
+        Reuptake --&gt; Repackage[&quot;Repackaged into&lt;br/&gt;vesicles by VMAT/VAChT&quot;]
+    end</code></pre>
+<!-- alt: Flowchart showing molecular mechanisms of LTP and neurotransmitter recycling. LTP induction requires NMDA receptor opening (coincidence detection) and Ca^2+ influx. Early LTP involves CaMKII-mediated AMPA receptor modification. Late LTP requires gene expression (CREB) and structural synaptic changes. Neurotransmitters are cleared by reuptake, enzymatic degradation, or diffusion. -->
+<p><em>Molecular mechanisms of LTP and neurotransmitter recycling. LTP
+induction requires NMDA receptor opening (coincidence detection) and
+Ca<span class="math inline">\(^{2+}\)</span> influx. Early LTP involves
+CaMKII-mediated AMPA receptor modification. Late LTP requires gene
+expression (CREB) and structural synaptic changes. Neurotransmitters are
+cleared by reuptake, enzymatic degradation, or diffusion.</em></p>
+<p><strong>LTP at Schaffer collateral to CA1 synapse
+(hippocampus):</strong></p>
+<ol type="1">
+<li>High-frequency stimulation (100 Hz, 1 s) produces large EPSPs via
+AMPA receptors</li>
+<li>Sufficient depolarisation removes Mg<span
+class="math inline">\(^{2+}\)</span> block from NMDA receptors</li>
+<li>Ca<span class="math inline">\(^{2+}\)</span> floods into the
+postsynaptic spine via NMDA receptors</li>
+<li>Ca<span class="math inline">\(^{2+}\)</span> activates
+<strong>CaMKII</strong> (calcium/calmodulin-dependent protein kinase
+II):
+<ul>
+<li>Autophosphorylation at T286 makes CaMKII constitutively active
+(Ca<span class="math inline">\(^{2+}\)</span>-independent)</li>
+<li>Phosphorylates AMPA receptors at Ser831, increasing single-channel
+conductance</li>
+</ul></li>
+<li>AMPA receptor trafficking: New AMPA receptors inserted into the
+synapse from recycling endosomes</li>
+<li><strong>Silent synapses:</strong> Some synapses have NMDA receptors
+but no AMPA receptors. LTP “unmasks” these by inserting AMPA receptors,
+converting them to functional synapses.</li>
+<li><strong>Late LTP</strong> (&gt;3 h): Requires new gene expression.
+Ca<span class="math inline">\(^{2+}\)</span> activates PKA, which
+phosphorylates CREB. CREB-mediated <a
+href="#gl:transcription"><strong>transcription</strong></a> produces
+Arc, BDNF, c-Fos. Structural changes include dendritic spine enlargement
+and formation of new spines.</li>
+</ol>
+<h3 id="long-term-depression-ltd">Long-Term Depression (LTD)</h3>
+<p>Low-frequency stimulation (1 Hz, 15 min) produces modest Ca<span
+class="math inline">\(^{2+}\)</span> entry via NMDA receptors: - Lower
+Ca<span class="math inline">\(^{2+}\)</span> levels preferentially
+activate protein phosphatases (PP1, calcineurin/PP2B) rather than CaMKII
+- Phosphatases dephosphorylate AMPA receptors - AMPA receptors are
+endocytosed (clathrin-mediated) from the synapse - Synaptic strength
+decreases</p>
+<p><strong>Bidirectional plasticity:</strong> The same synapse can
+undergo LTP or LTD depending on the pattern of Ca<span
+class="math inline">\(^{2+}\)</span> entry. This is captured by the
+<strong>BCM (Bienenstock-Cooper-Munro) rule:</strong> there exists a
+modification threshold (<span class="math inline">\(\theta_M\)</span>) –
+activity above <span class="math inline">\(\theta_M\)</span> causes LTP,
+below causes LTD. The threshold itself slides based on recent
+postsynaptic activity (metaplasticity).</p>
+<blockquote>
+<p><strong>Concept Check 2:</strong> A neuroscientist finds that
+pharmacologically blocking the NMDA receptor abolishes LTP at
+hippocampal Schaffer-collateral → CA1 synapses but does not abolish LTP
+at mossy-fibre → CA3 synapses. Propose a mechanism that explains why
+these two forms of LTP differ. Given that the CA3 form is presynaptic
+(cAMP-PKA-dependent), which pharmacological manipulation would
+selectively block it without affecting NMDA-receptor-dependent LTP?</p>
+</blockquote>
+<hr />
+<h2 id="drug-mechanisms">Drug Mechanisms</h2>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 39%" />
+<col style="width: 21%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr>
+<th>Drug</th>
+<th>Molecular Target</th>
+<th>Mechanism</th>
+<th>Clinical Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cocaine</strong></td>
+<td>DAT (dopamine transporter)</td>
+<td>Blocks DA reuptake; DA accumulates in synapse</td>
+<td>Abuse potential; local anaesthetic (Na<span
+class="math inline">\(^+\)</span> channel block)</td>
+</tr>
+<tr>
+<td><strong>Amphetamine</strong></td>
+<td>DAT, VMAT</td>
+<td>Reverses DAT (DA efflux); releases vesicular DA</td>
+<td>ADHD; narcolepsy; abuse</td>
+</tr>
+<tr>
+<td><strong>SSRIs</strong> (fluoxetine, sertraline)</td>
+<td>SERT (serotonin transporter)</td>
+<td>Block 5-HT reuptake</td>
+<td>Depression; anxiety; OCD</td>
+</tr>
+<tr>
+<td><strong>SNRIs</strong> (venlafaxine, duloxetine)</td>
+<td>SERT + NET</td>
+<td>Block both 5-HT and NE reuptake</td>
+<td>Depression; neuropathic pain; generalised anxiety disorder</td>
+</tr>
+<tr>
+<td><strong>Morphine/heroin</strong></td>
+<td>μ-opioid receptor</td>
+<td>Agonist; inhibits GABA interneurons (disinhibition of DA) in
+VTA</td>
+<td>Pain; abuse</td>
+</tr>
+<tr>
+<td><strong>Naloxone</strong></td>
+<td>μ-opioid receptor</td>
+<td>Antagonist; reverses opioid effects</td>
+<td>Opioid overdose reversal</td>
+</tr>
+<tr>
+<td><strong>Buprenorphine</strong></td>
+<td>μ-opioid receptor</td>
+<td>Partial agonist; ceiling effect; long half-life</td>
+<td>Opioid use disorder (maintenance treatment)</td>
+</tr>
+<tr>
+<td><strong>Benzodiazepines</strong> (diazepam)</td>
+<td>GABA<span class="math inline">\(_A\)</span> (α/γ interface)</td>
+<td>Positive allosteric modulator; increases Cl<span
+class="math inline">\(^-\)</span> channel open
+<strong>frequency</strong></td>
+<td>Anxiety; seizures; insomnia</td>
+</tr>
+<tr>
+<td><strong>Barbiturates</strong> (phenobarbital)</td>
+<td>GABA<span class="math inline">\(_A\)</span> (transmembrane
+domain)</td>
+<td>Positive allosteric modulator; increases Cl<span
+class="math inline">\(^-\)</span> channel open
+<strong>duration</strong>; direct activation at high doses</td>
+<td>Seizures; anaesthesia; narrow therapeutic index</td>
+</tr>
+<tr>
+<td><strong>Ketamine</strong></td>
+<td>NMDA receptor</td>
+<td>Non-competitive antagonist (open-channel block)</td>
+<td>Anaesthesia; rapid-acting antidepressant (sub-anaesthetic dose)</td>
+</tr>
+<tr>
+<td><strong>Ethanol</strong></td>
+<td>GABA<span class="math inline">\(_A\)</span> + NMDA</td>
+<td>Potentiates GABA<span class="math inline">\(_A\)</span> (increased
+Cl<span class="math inline">\(^-\)</span> conductance); inhibits
+NMDA</td>
+<td>Recreational; anxiolytic</td>
+</tr>
+<tr>
+<td><strong>Caffeine</strong></td>
+<td>Adenosine A<span class="math inline">\(_1\)</span>/A<span
+class="math inline">\(_{2A}\)</span> receptors</td>
+<td>Competitive antagonist; blocks adenosine’s sleep-promoting
+effect</td>
+<td>Wakefulness; headache treatment</td>
+</tr>
+<tr>
+<td><strong>L-DOPA</strong></td>
+<td>AADC (aromatic amino acid decarboxylase)</td>
+<td>Dopamine precursor; crosses BBB; converted to DA in brain</td>
+<td>Parkinson’s disease</td>
+</tr>
+<tr>
+<td><strong>Levodopa + carbidopa</strong></td>
+<td>AADC (peripheral inhibition by carbidopa)</td>
+<td>Prevents peripheral conversion; maximises CNS L-DOPA delivery</td>
+<td>Parkinson’s disease</td>
+</tr>
+<tr>
+<td><strong>Haloperidol</strong></td>
+<td>D2 receptor</td>
+<td>Competitive D2 antagonist</td>
+<td>First-generation antipsychotic (schizophrenia); risk of tardive
+dyskinesia</td>
+</tr>
+<tr>
+<td><strong>Clozapine</strong></td>
+<td>D4, 5-HT<span class="math inline">\(_{2A}\)</span>, H1, M1, <span
+class="math inline">\(\alpha_1\)</span></td>
+<td>“Atypical” antipsychotic — low D2 affinity, high 5-HT<span
+class="math inline">\(_{2A}\)</span> block</td>
+<td>Treatment-resistant schizophrenia; risk of agranulocytosis requires
+WBC monitoring</td>
+</tr>
+<tr>
+<td><strong>Curare (d-tubocurarine)</strong></td>
+<td>Muscle nAChR</td>
+<td>Competitive antagonist; blocks NMJ transmission</td>
+<td>Muscle relaxant (anaesthesia)</td>
+</tr>
+<tr>
+<td><strong>Botulinum toxin</strong></td>
+<td>SNARE (SNAP-25)</td>
+<td>Cleaves SNAP-25; blocks vesicle fusion</td>
+<td>Focal dystonia; cosmetic (Botox); therapeutic spasticity</td>
+</tr>
+<tr>
+<td><strong>Gabapentin; pregabalin</strong></td>
+<td>Ca-channel <span class="math inline">\(\alpha_2\delta\)</span>
+subunit</td>
+<td>Reduces dorsal-horn neurotransmitter release</td>
+<td>Neuropathic pain; epilepsy; fibromyalgia; anxiety</td>
+</tr>
+<tr>
+<td><strong>Levetiracetam</strong></td>
+<td>SV2A (synaptic vesicle glycoprotein)</td>
+<td>Binds SV2A; reduces Ca<span
+class="math inline">\(^{2+}\)</span>-evoked vesicle release</td>
+<td>Broad-spectrum antiepileptic; minimal drug interactions</td>
+</tr>
+<tr>
+<td><strong>Lithium</strong></td>
+<td>IMPase, GSK-3β, and others</td>
+<td>Inhibits inositol monophosphatase (depletes PI signalling
+substrate); inhibits GSK-3β (neuroprotection)</td>
+<td>Bipolar disorder (mood stabiliser); narrow therapeutic index
+(Li<span class="math inline">\(^+\)</span> 0.6–1.2 mEq/L)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Clinical Connection:</strong> The opioid epidemic has killed
+over 500,000 Americans since 1999. Understanding the molecular
+pharmacology is essential: opioids activate mu receptors on GABAergic
+interneurons in the VTA, removing tonic inhibition of dopamine neurons.
+The resulting dopamine surge in the nucleus accumbens produces euphoria
+and reinforcement. Tolerance develops as mu receptors are desensitised
+and downregulated. Withdrawal occurs because the compensatory
+upregulation of cAMP signalling is unmasked when the drug is removed.
+Naloxone (Narcan) competitively displaces opioids from mu receptors and
+can reverse respiratory depression within minutes.</p>
+</blockquote>
+<hr />
+<h2 id="worked-example">Worked Example</h2>
+<p><strong>Problem:</strong> You voltage-clamp a frog neuromuscular
+junction and record spontaneous miniature end-plate currents (mEPCs).
+From 500 events, the mean mEPC amplitude is <span
+class="math inline">\(q = 1.2\)</span> nA (quantal size). You then
+stimulate the motor nerve with single pulses and measure evoked
+EPCs.</p>
+<p>Over 200 evoked trials: - 8 trials produce no response (failures) -
+72 trials produce a single quantal event (~1.2 nA) - 68 trials produce
+two quantal events (~2.4 nA) - 36 trials produce three quantal events
+(~3.6 nA) - 12 trials produce four quantal events (~4.8 nA) - 4 trials
+produce five quantal events (~6.0 nA)</p>
+<p><strong>(a)</strong> Calculate the mean quantal content <span
+class="math inline">\(\bar{m}\)</span> = mean number of quanta released
+per stimulus.</p>
+<p><span class="math display">\[\begin{equation}
+\bar{m} = \frac{0(8) + 1(72) + 2(68) + 3(36) + 4(12) + 5(4)}{200} =
+\frac{0 + 72 + 136 + 108 + 48 + 20}{200} = \frac{384}{200} = 1.92
+\label{eq:action_potential_synapses_5}
+\end{equation}\]</span></p>
+<p><strong>(b)</strong> Use the Poisson approximation to estimate the
+number of failures expected if <span
+class="math inline">\(\bar{m}\)</span> = 1.92:</p>
+<p>For a Poisson process, the fraction of failures <span
+class="math inline">\(P(0) = e^{-\bar{m}} = e^{-1.92} =
+0.146\)</span></p>
+<p>Expected failures = <span class="math inline">\(0.146 \times 200 =
+29.3\)</span>. Observed failures = 8. <strong>The discrepancy</strong>
+suggests the release is <strong>not</strong> strictly Poisson — there
+may be heterogeneity in vesicle release probabilities across active
+zones, or the preparation has an unusually low failure rate due to high
+quantal content.</p>
+<p><strong>(c)</strong> Use the method of failures to give an
+alternative estimate of <span
+class="math inline">\(\bar{m}\)</span>:</p>
+<p><span class="math display">\[\begin{equation}
+\bar{m} = \ln\left(\frac{N}{n_0}\right) = \ln\left(\frac{200}{8}\right)
+= \ln(25) = 3.22
+\label{eq:action_potential_synapses_6}
+\end{equation}\]</span></p>
+<p>The discrepancy between the two estimates (1.92 by direct count vs
+3.22 by method of failures) indicates that the <strong>binomial
+model</strong> (with heterogeneous release probabilities) fits better
+than the simple Poisson. This is a classic result: real synapses have
+multiple active zones with heterogeneous <span
+class="math inline">\(p\)</span> values, violating the simple Poisson
+assumption (Zucker 1973; Bhumbra &amp; Bhatt 2022).</p>
+<p><strong>(d)</strong> Given <span class="math inline">\(\bar{m} =
+1.92\)</span> and the number of release-ready vesicles <span
+class="math inline">\(n = 10\)</span> (estimated by high-osmotic sucrose
+stimulation), estimate the mean release probability <span
+class="math inline">\(\bar{p}\)</span>:</p>
+<p><span class="math display">\[\begin{equation}
+\bar{p} = \frac{\bar{m}}{n} = \frac{1.92}{10} = 0.192
+\label{eq:action_potential_synapses_7}
+\end{equation}\]</span></p>
+<p>This is a typical resting release probability for a vertebrate
+neuromuscular junction (0.1–0.4 at physiological Ca<span
+class="math inline">\(^{2+}\)</span>). The <span class="math inline">\(n
+\cdot p \cdot q\)</span> synaptic model predicts that drugs which
+increase <span class="math inline">\(p\)</span> (e.g., by prolonging the
+AP and increasing Ca<span class="math inline">\(^{2+}\)</span> influx,
+such as aminopyridines) will linearly increase <span
+class="math inline">\(\bar{m}\)</span> and thus EPP amplitude — a
+pharmacological basis for treatments in Lambert-Eaton myasthenic
+syndrome.</p>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Action Potentials and Synaptic Transmission</strong>,
+frontier biology belongs inside the evidence logic of the chapter.
+Physiology now blends mechanism with allostasis, immune-endocrine-neural
+coupling, wearable data, and individualized risk without reducing bodies
+to simple machines. The core reading question is this: synaptic claims
+require ion-channel timing, driving force, transmitter release, receptor
+dynamics, and plasticity.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>Interpret physiological data by separating baseline variation,
+perturbation response, compensation, and the threshold where
+compensation becomes pathology.</p>
+<p><strong>Source practice:</strong> For physiology claims, cite the
+measurement context and distinguish baseline variation, compensation,
+pathophysiology, and treatment evidence.</p>
+<h2 id="key-terms">Key Terms</h2>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hodgkin-Huxley model</strong></td>
+<td>Mathematical description of AP using gating variables m, h, n for
+Na<span class="math inline">\(^+\)</span> and K<span
+class="math inline">\(^+\)</span> conductances</td>
+</tr>
+<tr>
+<td><strong>Threshold</strong></td>
+<td>Membrane potential (~<span class="math inline">\(-55\)</span> mV) at
+which inward Na<span class="math inline">\(^+\)</span> current exceeds
+outward K<span class="math inline">\(^+\)</span> current</td>
+</tr>
+<tr>
+<td><strong>Absolute refractory period</strong></td>
+<td>~1-2 ms when Na<span class="math inline">\(^+\)</span> channels are
+inactivated; no AP possible regardless of stimulus</td>
+</tr>
+<tr>
+<td><strong>Relative refractory period</strong></td>
+<td>~5-10 ms when Na<span class="math inline">\(^+\)</span> channels
+recovering; stronger stimulus needed for AP</td>
+</tr>
+<tr>
+<td><strong>Saltatory conduction</strong></td>
+<td>AP jumps between nodes of Ranvier in myelinated axons</td>
+</tr>
+<tr>
+<td><strong>SNARE complex</strong></td>
+<td>Synaptobrevin + syntaxin + SNAP-25: core vesicle fusion
+machinery</td>
+</tr>
+<tr>
+<td><strong>Synaptotagmin</strong></td>
+<td>Ca<span class="math inline">\(^{2+}\)</span> sensor that triggers
+vesicle fusion; C2 domains bind 4-5 Ca<span
+class="math inline">\(^{2+}\)</span> ions</td>
+</tr>
+<tr>
+<td><strong>Quantal release</strong></td>
+<td>Neurotransmitter released in discrete vesicle-sized packets (Katz,
+1950s)</td>
+</tr>
+<tr>
+<td><strong>NMDA receptor</strong></td>
+<td>Coincidence detector: requires glutamate + depolarisation; Ca<span
+class="math inline">\(^{2+}\)</span> permeable</td>
+</tr>
+<tr>
+<td><strong>CaMKII</strong></td>
+<td>Calcium/calmodulin kinase II; autophosphorylation at T286; key LTP
+effector</td>
+</tr>
+<tr>
+<td><strong>LTP</strong></td>
+<td>Long-term potentiation: persistent increase in synaptic
+strength</td>
+</tr>
+<tr>
+<td><strong>LTD</strong></td>
+<td>Long-term depression: persistent decrease in synaptic strength</td>
+</tr>
+<tr>
+<td><strong>Excitotoxicity</strong></td>
+<td>Neuronal death from excessive glutamate/Ca<span
+class="math inline">\(^{2+}\)</span> (stroke, epilepsy)</td>
+</tr>
+<tr>
+<td><strong>Tetrodotoxin (TTX)</strong></td>
+<td>Puffer fish toxin blocking Nav channels</td>
+</tr>
+<tr>
+<td><strong>BCM rule</strong></td>
+<td>Sliding modification threshold determining LTP vs LTD</td>
+</tr>
+<tr>
+<td><strong>Silent synapse</strong></td>
+<td>Synapse with NMDA but no AMPA receptors; “unmasked” during LTP</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li><p>Using the Hodgkin-Huxley equations, explain why the peak of the
+action potential does not reach E<span
+class="math inline">\(_{Na}\)</span> (+50 mV) but instead peaks at
+approximately +30 to +40 mV. Which gating variable is
+responsible?</p></li>
+<li><p>Explain the molecular basis of the absolute refractory period.
+Why is this essential for unidirectional AP propagation?</p></li>
+<li><p>Compare saltatory conduction in myelinated axons with continuous
+conduction in unmyelinated axons. Why does velocity scale as <span
+class="math inline">\(\sqrt{d}\)</span> in unmyelinated axons but as
+<span class="math inline">\(d\)</span> in myelinated axons?</p></li>
+<li><p>Describe the roles of the five key presynaptic proteins:
+synaptobrevin, syntaxin, SNAP-25, synaptotagmin-1, and complexin. What
+happens if each is eliminated?</p></li>
+<li><p>The NMDA receptor is often called the “Hebbian synapse detector.”
+Explain this concept, linking the receptor’s biophysical properties to
+Hebb’s postulate and to LTP induction.</p></li>
+<li><p>A patient presents with progressive muscle weakness. Antibodies
+against the nicotinic ACh receptor are detected. Name the disease,
+explain the pathophysiology, and describe two treatment strategies based
+on cholinergic pharmacology.</p></li>
+<li><p>Compare the mechanisms of cocaine and amphetamine at dopaminergic
+synapses. Both increase synaptic dopamine, but by different mechanisms.
+Why might their clinical effects and addiction profiles differ?</p></li>
+<li><p>Explain why benzodiazepines are safer in overdose than
+barbiturates, despite both acting on GABA<span
+class="math inline">\(_A\)</span> receptors. (Hint: consider the
+difference between increasing channel open <strong>frequency</strong> vs
+open <strong>duration</strong>, and the concept of ceiling
+effect.)</p></li>
+<li><p>Design a hypothetical drug that could enhance memory formation by
+targeting the LTP pathway. Identify the molecular target, predict the
+therapeutic effect, and discuss potential side effects (excitotoxicity
+risk).</p></li>
+<li><p>Why does multiple sclerosis cause such diverse neurological
+symptoms? Explain the relationship between lesion location in white
+matter tracts and the specific symptoms produced.</p></li>
+<li><p>At a synapse, you observe mEPP amplitude of 0.5 mV and mean EPP
+amplitude of 4.5 mV (low-Ca<span class="math inline">\(^{2+}\)</span>
+conditions to allow quantal resolution). (a) Estimate the mean quantal
+content <span class="math inline">\(\bar{m}\)</span>. (b) Use the
+Poisson failure method to calculate the expected probability of a
+failure. (c) If you increase extracellular Ca<span
+class="math inline">\(^{2+}\)</span> from 1 mM to 2 mM, predict whether
+<span class="math inline">\(\bar{m}\)</span> will increase linearly,
+quadratically, or via a 4th-power relationship (based on synaptotagmin
+cooperativity), and explain the molecular basis.</p></li>
+<li><p>Clozapine is described as an “atypical” antipsychotic with lower
+risk of tardive dyskinesia compared to haloperidol, despite both
+treating positive symptoms of schizophrenia. Using the drug table,
+explain: (a) their differing receptor binding profiles; (b) why high D2
+occupancy causes tardive dyskinesia; (c) why clozapine’s unique receptor
+profile (including 5-HT<span class="math inline">\(_{2A}\)</span>
+blockade) may explain its superior efficacy in treatment-resistant
+schizophrenia.</p></li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Frey &amp; Morris (1997). Synaptic tagging and long-term
+potentiation. <em>Nature</em>, 385.</li>
+<li>Hodgkin &amp; Huxley (1952). A quantitative description of membrane
+current and its application to conduction and excitation in nerve.
+<em>Journal of Physiology</em>, 117.</li>
+<li>Katz (1969). <em>The Release of Neural Transmitter Substances</em>.
+Liverpool University Press.</li>
+<li>Bliss &amp; Lømo (1973). Long-lasting potentiation of synaptic
+transmission in the dentate area of the anaesthetized rabbit.
+<em>Journal of Physiology</em>, 232.</li>
+<li>Kandel et al. (latest ed.). <em>Principles of Neural Science</em>
+(action potential and synaptic transmission chapters). McGraw-Hill.</li>
+<li>Neher &amp; Sakmann (1976). Single-channel currents recorded from
+membrane of denervated frog muscle fibres. <em>Nature</em>, 260.</li>
+</ul>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>Driving-force synaptic current in pA follows <span
+class="math inline">\(I = g\,(V_m - E_\mathrm{rev})\)</span>:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.neuroscience <span class="im">import</span> synaptic_current</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>exc <span class="op">=</span> synaptic_current(<span class="fl">0.0</span>, <span class="op">-</span><span class="fl">65.0</span>, <span class="fl">12.0</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>inh <span class="op">=</span> synaptic_current(<span class="op">-</span><span class="fl">70.0</span>, <span class="op">-</span><span class="fl">65.0</span>, <span class="fl">20.0</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">round</span>(exc.peak_current_pA, <span class="dv">2</span>), <span class="bu">round</span>(inh.peak_current_pA, <span class="dv">2</span>))</span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> Benzodiazepines increase
+GABA<span class="math inline">\(_A\)</span> <strong>frequency</strong>
+without changing <span class="math inline">\(E_\mathrm{rev}\)</span>;
+barbiturates prolong open time — both shift inhibitory current but with
+different overdose ceilings.</p>
+</blockquote>
+<hr />
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Hodgkin-Huxley:</strong> <span class="math inline">\(I_{Na}
+= \bar{g}_{Na} m^3 h (V - E_{Na})\)</span>, <span
+class="math inline">\(I_K = \bar{g}_K n^4 (V - E_K)\)</span>. Gating
+variables obey first-order kinetics. m (fast activation), h (slow
+inactivation), n (slow activation).</li>
+<li><strong>Refractory periods:</strong> Absolute (Na<span
+class="math inline">\(^+\)</span> inactivated, h about 0, 1-2 ms):
+cannot fire. Relative (K<span class="math inline">\(^+\)</span> channels
+open, membrane hyperpolarised, 5-10 ms): stronger stimulus needed.</li>
+<li><strong>Na<span class="math inline">\(^+\)</span> channel
+states:</strong> Closed (ready) to Open (conducting, ~0.5 ms) to
+Inactivated (blocked from inside, cannot reopen). TTX and local
+anaesthetics block the pore.</li>
+<li><strong>Myelination:</strong> Saltatory conduction between nodes of
+Ranvier. Velocity proportional to diameter (linear). A-alpha fibres:
+70-120 m/s; C fibres: 0.5-2 m/s. MS: autoimmune demyelination.</li>
+<li><strong>Chemical synapse:</strong> AP opens Cav2.1/2.2 channels.
+Ca<span class="math inline">\(^{2+}\)</span> binds synaptotagmin-1.
+Complexin displaced. SNARE complex zippers. Vesicle fuses. NT released
+in &lt;1 ms. Quantal release (Katz).</li>
+<li><strong>Neurotransmitters:</strong> Glutamate (AMPA/NMDA/mGluR,
+excitatory); GABA (GABA<span class="math inline">\(_A\)</span>/GABA<span
+class="math inline">\(_B\)</span>, inhibitory); ACh
+(nicotinic/muscarinic); DA (D1-D5, reward/motor); 5-HT (mood/sleep); NE
+(arousal); neuropeptides (volume transmission, pain, reward).</li>
+<li><strong>LTP:</strong> NMDA-Ca<span
+class="math inline">\(^{2+}\)</span>-CaMKII-AMPA pathway. Early:
+phosphorylation and insertion of AMPA receptors. Late: CREB-dependent
+gene expression, structural spine changes. LTD: opposite; phosphatases
+remove AMPA receptors.</li>
+<li><strong>Drug mechanisms:</strong> Cocaine (DAT block), morphine (mu
+agonist), SSRIs (SERT block), benzodiazepines (GABA<span
+class="math inline">\(_A\)</span> PAM), ketamine (NMDA block), botulinum
+toxin (SNAP-25 cleavage).</li>
+<li><strong>Connections:</strong> See for resting potential and
+integration, for synaptic pathogens and toxins, and for ion
+channels.</li>
+</ul>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Action Potentials and Synaptic Transmission</strong> should
+leave a reproducible trail from a biological claim to the code, figure,
+diagram, or paper-based activity that can test it. Use the surfaces
+below to inspect the chapter’s assumptions, rerun the relevant model, or
+compare the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/neuroscience/neuroscience.py</code>
+(<code>action_potential_hh</code>, <code>synaptic_current</code>,
+<code>cable_voltage_attenuation</code>)</td>
+<td>Reproduce spike timing, postsynaptic currents, and passive
+spread.</td>
+</tr>
+<tr>
+<td><code>src/biology/cell/cell_biology.py</code>
+(<code>nernst_potential</code>, <code>goldman_equation</code>)</td>
+<td>Check ion gradients and membrane-voltage assumptions.</td>
+</tr>
+<tr>
+<td><code>src/visualization/plots.py</code>
+(<code>plot_action_potential</code>,
+<code>plot_nernst_potentials</code>)</td>
+<td>Compare calculated voltages with plotted signals.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> list ion concentrations,
+conductances, reversal potentials, synaptic delay, and receptor type
+before interpreting excitability. <strong>Cross-reference:</strong>
+connect with and .</p>
+</body>
+</html>

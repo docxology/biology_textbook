@@ -1,0 +1,47 @@
+graph TB
+    subgraph "Metabolic Functions"
+        A["Dietary fiber<br/>(resistant starch,<br/>inulin, pectin)"] --> B["Bacterial<br/>fermentation"]
+        B --> C["Butyrate<br/>(C4)"]
+        B --> D["Propionate<br/>(C3)"]
+        B --> E["Acetate<br/>(C2)"]
+    end
+
+    subgraph "Butyrate Effects"
+        C --> F["Primary fuel for<br/>colonocytes (70% energy)"]
+        C --> G["HDAC inhibitor<br/>(epigenetic<br/>anti-inflammatory)"]
+        C --> H["Strengthens tight<br/>junctions (barrier)"]
+        C --> I["Induces Treg<br/>differentiation"]
+    end
+
+    subgraph "Propionate Effects"
+        D --> J["Liver gluconeogenesis<br/>regulation"]
+        D --> K["GPR41/GPR43 on<br/>enteroendocrine cells"]
+        K --> L["GLP-1 and PYY<br/>secretion (satiety)"]
+    end
+
+    subgraph "Acetate Effects"
+        E --> M["Peripheral tissue<br/>fuel (muscle, brain)"]
+        E --> N["GPR43 on adipocytes<br/>(lipolysis inhibition)"]
+    end
+
+    subgraph "Immune Functions"
+        O["Microbial colonization"] --> P["Peyer's patch<br/>development"]
+        O --> Q["IgA production<br/>(SIgA)"]
+        O --> R["Th17/Treg balance"]
+        S["Clostridium clusters<br/>IV and XIVa"] --> T["Colonic Treg<br/>induction"]
+    end
+
+    subgraph "Neuroactive Functions"
+        U["Tryptophan<br/>metabolism"] --> V["Serotonin pathway<br/>(enterochromaffin cells)"]
+        U --> W["Kynurenine pathway<br/>(immune modulation)"]
+        X["Gut bacteria"] --> Y["GABA production<br/>(Bacteroides, Lactobacillus)"]
+        Z["SCFAs cross BBB"] --> AA["Microglial<br/>maturation"]
+    end
+
+    subgraph "Other Metabolic"
+        BB["Primary bile acids<br/>(liver)"] --> CC["Bacterial<br/>deconjugation<br/>and 7-alpha-<br/>dehydroxylation"]
+        CC --> DD["Secondary bile acids<br/>(DCA, LCA)"]
+        DD --> EE["TGR5 receptor<br/>(GLP-1 release)"]
+        DD --> FF["FXR receptor<br/>(lipid metabolism)"]
+        GG["Vitamin synthesis"] --> HH["B12, K2, folate,<br/>biotin, riboflavin"]
+    end

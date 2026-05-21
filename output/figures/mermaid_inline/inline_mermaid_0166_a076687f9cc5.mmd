@@ -1,0 +1,31 @@
+flowchart TD
+    Ins["Insulin"]
+    IR["Insulin receptor (IR)<br/>α2β2 RTK"]
+    AutoP["Trans-autophosphorylation<br/>Y1158/Y1162/Y1163"]
+    IRS["IRS-1/IRS-2<br/>scaffold protein"]
+    PI3K["PI3K<br/>(p85/p110)"]
+    PIP3["PIP2 → PIP3"]
+    PDK1["PDK1 + mTORC2<br/>dock on PIP3"]
+    Akt["Akt / PKB<br/>(phosphorylated T308 + S473)"]
+
+    Ins --> IR
+    IR --> AutoP
+    AutoP --> IRS
+    IRS --> PI3K
+    PI3K --> PIP3
+    PIP3 --> PDK1
+    PDK1 --> Akt
+
+    Akt --> AS160["AS160<br/>phosphorylated"]
+    AS160 --> GLUT4["GLUT4 vesicle<br/>translocation to PM"]
+    GLUT4 --> GU["↑ glucose uptake<br/>(muscle, adipose)"]
+
+    Akt --> GSK3["GSK3β inhibited"]
+    GSK3 --> GS["Glycogen synthase active"]
+    GS --> Glyco["↑ glycogen synthesis<br/>(liver, muscle)"]
+
+    Akt --> mTOR["mTORC1 active"]
+    mTOR --> Protein["↑ protein synthesis<br/>(S6K1, 4E-BP1)"]
+
+    Akt --> FoxO["FoxO1 phosphorylated<br/>→ nuclear export"]
+    FoxO --> Gluc["↓ gluconeogenic gene<br/>transcription<br/>(PEPCK, G6Pase)"]

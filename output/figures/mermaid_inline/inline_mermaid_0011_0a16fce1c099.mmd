@@ -1,0 +1,19 @@
+graph TD
+    subgraph "External world (η)"
+        Eta["Environmental dynamics"]
+    end
+    subgraph "Markov blanket"
+        S["Sensory states (s)"]
+        A["Active states (a)"]
+    end
+    subgraph "Agent (internal μ)"
+        Mu["Beliefs / generative model"]
+    end
+
+    Eta -->|generates| S
+    S --> Mu
+    Mu --> A
+    A -->|acts on| Eta
+
+    style Mu fill:#3498db,color:#fff
+    style Eta fill:#e74c3c,color:#fff

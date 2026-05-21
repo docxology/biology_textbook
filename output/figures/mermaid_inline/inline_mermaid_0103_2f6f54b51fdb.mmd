@@ -1,0 +1,25 @@
+graph TD
+    VAR["🎲 Genetic Variation<br/>(mutation, recombination,<br/>gene flow sources)"] --> SEL["🏆 Natural Selection<br/>(Δq = spq²/W̄;<br/>directional, stabilising,<br/>balancing)"]
+    VAR --> DRIFT["🌊 Genetic Drift<br/>(σ²(Δp) = pq/2Nₑ;<br/>bottleneck, founder effect)"]
+    VAR --> FLOW["💨 Gene Flow<br/>(p₁' = (1−m)p₁ + mp₂;<br/>homogenises populations)"]
+
+    SEL --> ADAP["🦎 Adaptation<br/>(molecular, morphological,<br/>behavioural)"]
+    DRIFT --> NEUT["⚛️ Neutral Evolution<br/>(molecular clock;<br/>t = d/2μ)"]
+
+    SEL --> SPEC["🌿 Speciation<br/>(allopatric, sympatric,<br/>parapatric)"]
+    DRIFT --> SPEC
+    FLOW --> SPEC
+
+    SPEC --> MACRO["🦕 Macroevolution<br/>(fossils, mass extinction,<br/>adaptive radiation)"]
+
+    SEL --> PHYL["🌳 Phylogenetics<br/>(maximum likelihood,<br/>Bayesian; bootstrap support)"]
+    NEUT --> PHYL
+    PHYL --> TREE["🌐 Tree of Life<br/>(Three domains:<br/>Bacteria, Archaea, Eukarya)"]
+
+    CLOCK["🕐 Molecular Clock<br/>(Jukes-Cantor: d_JC;<br/>t = d/2μ)"] --> PHYL
+    NEUT --> CLOCK
+
+    style SEL fill:#e74c3c,color:#fff
+    style DRIFT fill:#3498db,color:#fff
+    style PHYL fill:#27ae60,color:#fff
+    style CLOCK fill:#f39c12,color:#fff

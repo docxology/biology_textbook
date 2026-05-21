@@ -1,0 +1,16 @@
+flowchart LR
+    subgraph Paternal ["PATERNAL Chromosome 11p15"]
+        pDMR["ICR/DMR<br/>(methylated CpGs)<br/>Blocks CTCF binding"] --> pIGF2["IGF2 EXPRESSED<br/>(growth factor)"]
+        pDMR -.->|methylation blocks| pENH["Enhancer<br/>→ contacts IGF2"]
+        pH19["H19 SILENCED<br/>(DMR methylation)"]
+    end
+    subgraph Maternal ["MATERNAL Chromosome 11p15"]
+        mDMR["ICR/DMR<br/>(unmethylated)<br/>CTCF binding site"] --> mBlock["CTCF INSULATOR<br/>blocks enhancer-IGF2 contact"]
+        mENH["Enhancer<br/>→ contacts H19"] --> mH19["H19 EXPRESSED<br/>(lncRNA; reservoir of miR-675)"]
+        mIGF2["IGF2 SILENCED<br/>(enhancer blocked by CTCF)"]
+    end
+
+    style pIGF2 fill:#e74c3c,color:#fff
+    style mH19 fill:#27ae60,color:#fff
+    style pH19 fill:#7f8c8d,color:#fff
+    style mIGF2 fill:#7f8c8d,color:#fff

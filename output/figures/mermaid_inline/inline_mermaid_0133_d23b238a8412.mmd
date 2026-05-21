@@ -1,0 +1,13 @@
+flowchart TD
+    A["Patient with confirmed TB"] --> B{"Rifampicin resistance or MDR-TB?"}
+    B -->|"No"| C["Drug-susceptible regimen with adherence support"]
+    B -->|"Yes"| D["Baseline susceptibility testing"]
+    D --> E{"Fluoroquinolone susceptible?"}
+    E -->|"Yes, eligible"| F["Consider 6-month BPaLM: bedaquiline, pretomanid, linezolid, moxifloxacin"]
+    E -->|"No or moxifloxacin unsuitable"| G["Consider BPaL without moxifloxacin if otherwise eligible"]
+    D --> H{"Exclusion or high-risk feature?"}
+    H -->|"Pregnancy, age limits, toxicity, extrapulmonary disease, poor response"| I["Individualized longer regimen and specialist review"]
+    H -->|"None"| F
+    F --> J["Monitor adverse events, culture response, adherence"]
+    G --> J
+    I --> J

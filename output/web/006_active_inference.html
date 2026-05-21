@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>006_active_inference</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="active-inference-and-the-free-energy-principle">Active Inference
+and the Free Energy Principle</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Unit 0</strong> · Level 3/3 · 45 min read · 75 min lecture ·
+Prerequisites: , </p>
+</blockquote>
+<hr />
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, students will be able to:</p>
+<ol type="1">
+<li>Explain what the free energy principle states and why it is relevant
+to biology.</li>
+<li>Describe the Bayesian brain hypothesis and how prediction-error
+minimisation drives perception.</li>
+<li>Distinguish between perceptual inference (changing beliefs to match
+sensory input) and active inference (acting to fulfil predictions).</li>
+<li>Connect active inference to <a
+href="#gl:homeostasis"><strong>homeostasis</strong></a>, allostasis ,
+and interoception.</li>
+<li>Define a Markov blanket and identify its four state-classes
+(internal, external, sensory, active) in a biological system.</li>
+<li>Apply expected free energy to explain how an organism balances
+goal-directed reward and information-gathering.</li>
+<li>Describe canonical predictive-processing microcircuits in the cortex
+and how they implement hierarchical inference.</li>
+<li>Identify connections between active inference and other frameworks
+in the textbook (metabolism, neural signalling, evolution, immunology,
+computational psychiatry).</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Living systems reduce uncertainty by
+acting on the world as well as by updating internal models.</li>
+<li><strong>Core concepts:</strong> prediction error, Bayesian updating,
+policy selection, homeostasis.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change: Systems,
+Structure and function; AP Biology: Systems Interactions; NGSS-style
+topics: Structure and Function, Interdependent Relationships in
+Ecosystems.</li>
+<li><strong>Model or quantitative lens:</strong> Bayesian belief
+updating and expected-free-energy-style policy comparison.</li>
+<li><strong>Data skill:</strong> Read a small probability table and
+update a prediction after new evidence.</li>
+<li><strong>Practice cadence:</strong> Questions and Methods,
+Representing and Describing Data, Argumentation.</li>
+<li><strong>Common misconception to repair:</strong> Active inference is
+not passive prediction; action changes the sensory data that arrive
+next.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Map prediction-error reasoning onto
+chemotaxis, thermoregulation, and attention.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.physiology.physiology.homeostasis_response</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<h2
+id="opening-vignette-helmholtz-and-the-unconscious-inference">Opening
+Vignette: Helmholtz and the Unconscious Inference</h2>
+<p>In 1867, Hermann von Helmholtz proposed that perception is not
+passive recording but <strong>unconscious inference</strong>: the brain
+interprets noisy sensory signals by combining them with prior knowledge
+about the world. When you perceive a flat photograph as
+three-dimensional, your brain is making an inference — filling in depth
+from shadow, texture, and perspective cues that it has learned through a
+lifetime of experience.</p>
+<p>For over a century, Helmholtz’s insight remained a philosophical
+curiosity. Then, in the early 2000s, neuroscientist Karl Friston
+formulated the <strong>free energy principle (FEP)</strong> — a
+mathematical framework that makes Helmholtz’s intuition precise. The FEP
+proposes that most living systems, from single cells to entire
+organisms, can be understood as systems that minimise
+<strong>variational free energy</strong>: a tractable upper bound on the
+surprise (negative log-probability) of their sensory observations . The
+bacterium swimming up a glucose gradient and the neuroscientist
+modelling the brain are, under this framework, performing the same
+fundamental operation — inference under uncertainty.</p>
+<p>The free energy principle does not merely explain perception. By
+extending inference to <em>action</em> — organisms act to make their
+predictions come true — it provides a unified account of sensation,
+movement, homeostasis, development, and even evolution . This chapter
+introduces this powerful framework and shows how it connects to every
+major theme in this textbook.</p>
+<hr />
+<h2 id="the-problem-of-life">The Problem of Life</h2>
+<p>Most living organisms face a fundamental challenge: they must
+maintain their internal organisation in the face of a ceaselessly
+changing and uncertain environment. To survive, an organism must:</p>
+<ul>
+<li><strong>Model</strong> its environment — build and update an
+internal representation of what is out there.</li>
+<li><strong>Sense</strong> — gather information that reduces uncertainty
+about environmental states.</li>
+<li><strong>Act</strong> — change the environment or its own internal
+state to remain within viable bounds.</li>
+</ul>
+<p>This three-part loop — <em>model → sense → act</em> — is the core of
+what the <strong>free energy principle (FEP)</strong> formalises.</p>
+<pre class="mermaid"><code>graph LR
+    subgraph Environment
+        E[&quot;Environmental States (z)&quot;]
+        Gen[&quot;Generative Process&quot;]
+    end
+    subgraph Agent
+        M[&quot;Internal Model / Beliefs&quot;]
+        Act[&quot;Action Selection&quot;]
+    end
+
+    E --&gt;|&quot;Sensory signals (o)&quot;| M
+    M --&gt;|&quot;Predictions&quot;| Act
+    Act --&gt;|&quot;Actions (a)&quot;| Gen
+    Gen --&gt; E
+
+    style E fill:#e74c3c,color:#fff
+    style M fill:#3498db,color:#fff
+    style Act fill:#2ecc71,color:#fff</code></pre>
+<!-- alt: Graph showing agent–environment loop under active inference. -->
+<p><em>Agent–environment loop under active inference.</em></p>
+<hr />
+<h2 id="markov-blankets-the-mathematical-skin-of-an-agent">Markov
+Blankets: The Mathematical Skin of an Agent</h2>
+<p>Before formalising free energy, we need a way to make rigorous the
+boundary between an agent and its environment. The <strong>Markov
+blanket</strong> provides exactly this.</p>
+<h3 id="definition">Definition</h3>
+<p>For a set of random variables, the Markov blanket of a node is the
+minimal set of nodes that, once conditioned on, render the node
+statistically independent of every other variable in the network. For an
+agent that persists in time, this generalises to a partition of states
+into four disjoint classes:</p>
+<ul>
+<li><strong>External states</strong> η — the world outside the
+agent.</li>
+<li><strong>Sensory states</strong> <span
+class="math inline">\(s\)</span> — variables through which the world
+influences the agent (photoreceptor activations, mechanoreceptor strain,
+chemosensor occupancy).</li>
+<li><strong>Active states</strong> <span
+class="math inline">\(a\)</span> — variables through which the agent
+influences the world (motor neuron output, secretory activity, ciliary
+beating).</li>
+<li><strong>Internal states</strong> μ — everything inside the agent
+(gene expression, membrane potentials, synaptic weights).</li>
+</ul>
+<p>The blanket itself is the union <span class="math inline">\(b = s
+\cup a\)</span>. The defining property is that internal states are
+conditionally independent of external states given the blanket:</p>
+<p><span class="math display">\[\begin{equation}
+P(\mu, \eta \mid s, a) = P(\mu \mid s, a)\,P(\eta \mid s, a)
+\label{eq:unit_0_markov_blanket}
+\end{equation}\]</span></p>
+<p>The internal states “see” the world primarily through <span
+class="math inline">\(s\)</span> and “touch” it primarily through <span
+class="math inline">\(a\)</span>.</p>
+<h3 id="why-markov-blankets-matter">Why Markov Blankets Matter</h3>
+<p>Markov blankets give a principled definition of an agent: anything
+that maintains a recognisable boundary in state space <em>has</em> a
+Markov blanket, almost by definition. The same partition applies to a
+bacterium (cell membrane), a neuron (axonal/dendritic membrane), an
+organism (skin and sensorimotor apparatus), and a colony (collective
+foraging interface). Because the partition is recursive — the blanket of
+a blanket is a blanket — it naturally accommodates hierarchical
+biological organisation. Here a <em>generative model</em> is the
+organism’s internal probabilistic model that predicts its sensory inputs
+from hypothesised hidden causes in the environment.</p>
+<pre class="mermaid"><code>graph TD
+    subgraph &quot;External world (η)&quot;
+        Eta[&quot;Environmental dynamics&quot;]
+    end
+    subgraph &quot;Markov blanket&quot;
+        S[&quot;Sensory states (s)&quot;]
+        A[&quot;Active states (a)&quot;]
+    end
+    subgraph &quot;Agent (internal μ)&quot;
+        Mu[&quot;Beliefs / generative model&quot;]
+    end
+
+    Eta --&gt;|generates| S
+    S --&gt; Mu
+    Mu --&gt; A
+    A --&gt;|acts on| Eta
+
+    style Mu fill:#3498db,color:#fff
+    style Eta fill:#e74c3c,color:#fff</code></pre>
+<!-- alt: Graph showing markov-blanket partition: internal states couple to external states primarily through sensory and active states. -->
+<p><em>Markov-blanket partition: internal states couple to external
+states primarily through sensory and active states.</em></p>
+<blockquote>
+<p><strong>Concept Check 1:</strong> Identify sensory states, active
+states, internal states, and external states for (a) an <em>E. coli</em>
+cell performing chemotaxis, (b) a single hepatocyte, and (c) a foraging
+honeybee. Which states would be hardest to assign in each case, and
+why?</p>
+</blockquote>
+<hr />
+<h2 id="the-free-energy-principle">The Free Energy Principle</h2>
+<p>The free energy principle, developed principally by Karl Friston
+(UCL), proposes that most living systems can be characterised as systems
+that <strong>minimise their free energy</strong> — a quantity that
+measures the mismatch between an agent’s internal model and the sensory
+data it receives.</p>
+<p>Formally, variational free energy <span
+class="math inline">\(F\)</span> provides an upper bound on
+<strong>surprisal</strong> (the log-probability of sensory observations
+under a model):</p>
+<p><span class="math display">\[\begin{equation}
+F = \underbrace{D_{KL}\bigl[ Q(\mathbf{z}) \,\|\, P(\mathbf{z} \mid
+\mathbf{o}) \bigr]}_{\text{complexity (posterior mismatch)}} -
+\underbrace{\ln P(\mathbf{o})}_{\text{surprise (negative log-evidence)}}
+\label{eq:unit_0_free_energy}
+\end{equation}\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(Q(\mathbf{z})\)</span> is the agent’s
+approximate posterior belief over hidden causes <span
+class="math inline">\(\mathbf{z}\)</span>.</li>
+<li><span class="math inline">\(P(\mathbf{z}|\mathbf{o})\)</span> is the
+true posterior.</li>
+<li><span class="math inline">\(D_{KL}\)</span> is the Kullback–Leibler
+divergence.</li>
+<li><span class="math inline">\(P(\mathbf{o})\)</span> is the
+probability of observations <span
+class="math inline">\(\mathbf{o}\)</span> under the generative
+model.</li>
+</ul>
+<p>Because the true posterior is generally intractable, agents minimise
+<span class="math inline">\(F\)</span> as a proxy for maximising their
+<strong>evidence</strong> (model fit to sensory data).</p>
+<p>Equivalently, free energy decomposes as:</p>
+<p><span class="math display">\[\begin{equation}
+F = \underbrace{\mathbb{E}_{Q}\bigl[ \ln Q(\mathbf{z}) - \ln
+P(\mathbf{z}) \bigr]}_{\text{complexity (prior mismatch)}} -
+\underbrace{\mathbb{E}_{Q}\bigl[ \ln P(\mathbf{o} \mid \mathbf{z})
+\bigr]}_{\text{expected log-likelihood (accuracy)}}
+\label{eq:unit_0_free_energy_decomp}
+\end{equation}\]</span></p>
+<p>The first term penalises beliefs that deviate from priors; the second
+rewards beliefs that predict observations well. Minimising <span
+class="math inline">\(F\)</span> balances prior expectations against
+sensory evidence — exactly the logic of Bayesian inference.</p>
+<blockquote>
+<p><strong>Concept Check 2:</strong> An organism’s ecological <a
+href="#gl:niche"><strong>niche</strong></a> can be described as the set
+of states its generative model treats as probable. Why does a penguin
+housed in a tropical aquarium experience persistent free energy, even
+when fed and safe? Describe two distinct strategies the penguin might
+use to minimise it and explain why behavioural change (return to cold
+water) is usually faster than belief update.</p>
+</blockquote>
+<hr />
+<h2 id="the-bayesian-brain">The Bayesian Brain</h2>
+<p>The <strong>Bayesian brain hypothesis</strong> (Helmholtz 1867;
+Friston 2005; Clark 2013) proposes that the brain is fundamentally a
+<strong>prediction machine</strong>: it maintains a hierarchical
+generative model of the world and continuously uses that model to
+predict incoming sensory signals.</p>
+<h3 id="hierarchical-predictive-coding">Hierarchical Predictive
+Coding</h3>
+<p>In the predictive processing framework, the brain generates
+<strong>top-down predictions</strong> from higher cortical areas toward
+lower sensory areas. Lower areas compute the <strong>prediction
+error</strong> — the difference between what was predicted and what was
+received:</p>
+<p><span class="math display">\[\begin{equation}
+\varepsilon = \mathbf{o} - \hat{\mathbf{o}}
+\label{eq:unit_0_prediction_error}
+\end{equation}\]</span></p>
+<p>Prediction errors propagate upward, driving updates to the generative
+model. When predictions are accurate, prediction errors approach zero
+and neural activity is minimised — an energetically efficient coding
+strategy.</p>
+<h3 id="the-canonical-microcircuit">The Canonical Microcircuit</h3>
+<p>Anatomical and physiological evidence suggests the cortex implements
+predictive coding through a <strong>canonical microcircuit</strong>
+repeated across cortical areas. The simplified picture:</p>
+<ul>
+<li><strong>Superficial pyramidal neurons</strong> (layers II/III) send
+forward signals that empirically encode prediction errors, projecting to
+higher cortical areas.</li>
+<li><strong>Deep pyramidal neurons</strong> (layers V/VI) send backward
+signals that empirically encode predictions, projecting to lower
+areas.</li>
+<li><strong>Inhibitory interneurons</strong> modulate the <em>gain</em>
+of error units, implementing the precision weighting described in the
+earlier predictive-processing discussion.</li>
+</ul>
+<p>In the laminar reading of predictive coding, each cortical area is a
+small inference engine: it receives ascending prediction errors from
+below, compares them with descending predictions from above, and outputs
+both an updated internal state (forward) and a refined prediction
+(backward). The same architecture helps interpret visual cortical
+hierarchies (V1→V2→V4→IT), auditory streams, and somatosensory pathways,
+suggesting predictive coding is a broad candidate principle for cortical
+computation rather than a settled one-size-fits-most algorithm.</p>
+<h3 id="precision-and-attention">Precision and Attention</h3>
+<p>Each prediction error can be weighted by <strong>precision</strong>
+(inverse variance): high precision means “trust this channel.”
+Mathematically, a precision-weighted prediction error is</p>
+<p><span class="math display">\[\begin{equation}
+\xi = \pi \cdot (\mathbf{o} - \hat{\mathbf{o}})
+\label{eq:unit_0_precision}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\pi = 1/\sigma^2\)</span> is the
+precision. <strong>Attention</strong> — from spatial orienting to
+feature selection — can be read as <strong>optimising precision</strong>
+over sensory hierarchies: amplify unexpected but reliable signals,
+attenuate predictable ones. <strong>Sensory attenuation</strong> during
+self-generated movement (you tickle yourself less than others tickle
+you) follows because the motor command predicts somatic input,
+down-weighting proprioceptive precision so the tickle does not register
+as surprising. Disorders that mis-estimate precision (autism-spectrum
+hypotheses; schizophrenia-spectrum <strong>aberrant salience</strong>)
+reinterpret noise as meaningful structure or vice versa, producing false
+inference at the perceptual or interoceptive level.</p>
+<h3 id="worked-example-bayesian-updating-and-prediction-error">Worked
+Example: Bayesian Updating and Prediction Error</h3>
+<p><strong>Problem:</strong> A foraging bird maintains a prior belief
+about the spatial location <span class="math inline">\(x\)</span> of a
+food source, modeled as a Gaussian distribution with mean <span
+class="math inline">\(\mu_{prior} = 10 \text{ m}\)</span> and variance
+<span class="math inline">\(\sigma^2_{prior} = 4\)</span>. The bird
+receives a noisy sensory observation indicating food at <span
+class="math inline">\(o = 16 \text{ m}\)</span>, with a sensory variance
+<span class="math inline">\(\sigma^2_{obs} = 12\)</span>. Calculate the
+prediction error and the new updated (posterior) belief about the food’s
+location.</p>
+<p><strong>Solution:</strong></p>
+<ol type="1">
+<li><p><strong>Calculate the prediction error:</strong></p>
+<p>The generative model’s prediction is the mean of the prior (<span
+class="math inline">\(\hat{o} = 10\)</span>). <span
+class="math display">\[ \varepsilon = o - \hat{o} = 16 - 10 = 6 \text{
+m}  \label{eq:unit_0_active_inference_item_1}\]</span></p></li>
+<li><p><strong>Calculate the optimal updating weight (Kalman
+gain):</strong></p>
+<p>In Bayesian inference with Gaussians, the weight given to the sensory
+evidence depends on the relative precision (inverse variance) of the
+prior vs the observation. <span class="math display">\[ K =
+\frac{\sigma^2_{prior}}{\sigma^2_{prior} + \sigma^2_{obs}} = \frac{4}{4
++ 12} = \frac{4}{16} =
+0.25  \label{eq:unit_0_active_inference_item_2}\]</span></p></li>
+<li><p><strong>Calculate the posterior mean:</strong></p>
+<p>The new belief (<span class="math inline">\(\mu_{post}\)</span>) is
+the old belief plus the prediction error scaled by the optimal weight:
+<span class="math display">\[ \mu_{post} = \mu_{prior} + K \cdot
+\varepsilon  \label{eq:unit_0_active_inference_item_3}\]</span></p>
+<p><span class="math display">\[ \mu_{post} = 10 + 0.25 \cdot 6 = 10 +
+1.5 = 11.5 \text{
+m}  \label{eq:unit_0_active_inference_item_4}\]</span></p></li>
+</ol>
+<p>Due to the high uncertainty of the sensory observation compared to
+the prior (<span class="math inline">\(\sigma^2_{obs} = 12\)</span> vs
+<span class="math inline">\(\sigma^2_{prior} = 4\)</span>), the bird
+primarily slightly adjusts its internal model (moving beliefs from 10 to
+11.5) despite a large prediction error of 6. This formalises how sensory
+evidence shifts the generative model under the Free Energy
+Principle.</p>
+<pre class="mermaid"><code>graph TD
+    Prior[&quot;Prior Beliefs\n(internal model)&quot;] --&gt;|&quot;Predictions (top-down)&quot;| Sensor[&quot;Sensory Input&quot;]
+    Sensor --&gt;|&quot;Prediction errors (bottom-up)&quot;| Prior
+    Prior --&gt; Action[&quot;Actions\nMinimise prediction error\nthrough behaviour&quot;]
+    Action --&gt; Sensor</code></pre>
+<!-- alt: Graph showing predictive processing: top-down predictions, bottom-up errors, and action. -->
+<p><em>Predictive processing: top-down predictions, bottom-up errors,
+and action.</em></p>
+<blockquote>
+<p><strong>Concept Check 3:</strong> Repeat the worked example with
+<span class="math inline">\(\sigma^2_{prior} = 12\)</span> and <span
+class="math inline">\(\sigma^2_{obs} = 4\)</span> (i.e. a vague prior
+and a precise observation). Compute the new Kalman gain and the
+posterior mean for the same prior mean (10) and observation (16). What
+does the comparison reveal about how priors and likelihoods compete?</p>
+</blockquote>
+<hr />
+<h2 id="active-inference">Active Inference</h2>
+<p><strong>Active inference</strong> extends predictive coding from
+perception to <strong>action</strong>. An organism can reduce prediction
+error in two ways:</p>
+<ol type="1">
+<li><strong>Perceptual inference</strong> — update internal beliefs to
+match incoming sensory data (classic Bayesian inference).</li>
+<li><strong>Active inference</strong> — act on the world to make sensory
+data match the predictions generated by the generative model.</li>
+</ol>
+<p>Under the FEP, behaviour is the fulfilment of prior expectations. An
+organism with a prior that its body temperature will remain at 37 °C
+will <em>act</em> to make that prediction true when it is falsified by
+cold exposure (seek warmth, shiver, vasoconstrict).</p>
+<p>This reframes homeostasis: not as the passive correction of
+deviations, but as the <strong>active fulfilment of generative model
+predictions about body state</strong>.</p>
+<h3 id="homoeostasis-vs.-allostasis">Homoeostasis vs. Allostasis</h3>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 22%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Core idea</th>
+<th>Active inference framing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Homeostasis</strong></td>
+<td>Maintain a fixed set point</td>
+<td>Precise prior over a target internal state</td>
+</tr>
+<tr>
+<td><strong>Allostasis</strong></td>
+<td>Proactively adjust the set point in anticipation of need</td>
+<td>Updating prior expectations based on context</td>
+</tr>
+</tbody>
+</table>
+<p>Allostasis — popularised by — is naturally captured by active
+inference: the generative model changes its predictions (set points)
+before the perturbation arrives, explaining why the heart rate rises
+before exercise begins.</p>
+<pre class="mermaid"><code>graph TD
+    subgraph Homeostasis
+        H1[&quot;Fixed Set Point&quot;] --&gt; H2[&quot;Error Detection&quot;]
+        H2 --&gt; H3[&quot;Reactive Correction&quot;]
+        H3 -.-&gt;|&quot;Lagged response&quot;| H1
+    end
+
+    subgraph Allostasis
+        A1[&quot;Context / Prior Experience&quot;] --&gt; A2{&quot;Generative Model&quot;}
+        A2 --&gt;|&quot;Predictive adjustment&quot;| A3[&quot;Dynamic Set Point&quot;]
+        A3 --&gt; A4[&quot;Proactive Action&quot;]
+        A4 -.-&gt;|&quot;Minimises future error&quot;| A2
+    end
+
+    style H3 fill:#e74c3c,color:#fff
+    style A4 fill:#2ecc71,color:#fff</code></pre>
+<!-- alt: Graph showing reactive homeostasis versus predictive allostasis. -->
+<p><em>Reactive homeostasis versus predictive allostasis.</em></p>
+<h3 id="worked-example-free-energy-minimisation-via-action">Worked
+Example — Free Energy Minimisation via Action</h3>
+<p>Consider an organism whose generative model encodes a prior on body
+temperature <span class="math inline">\(T\)</span>:</p>
+<p><span class="math display">\[\begin{equation}
+P(T) = \mathcal{N}(37, 0.5^2) \qquad \text{(prior: body temperature
+should be 37 °C, tight precision)}
+\label{eq:unit_0_temp_prior}
+\end{equation}\]</span></p>
+<p>Its interoceptive sensor is noisy, <span class="math inline">\(P(o
+\mid T) = \mathcal{N}(T, 1.0^2)\)</span>. Suppose the sensor reports
+<span class="math inline">\(o = 34\)</span> °C (cold). The posterior
+belief about <span class="math inline">\(T\)</span> is a Gaussian with
+mean:</p>
+<p><span class="math display">\[\begin{equation}
+\mu_{\mathrm{post}} = \frac{\sigma^2_o \cdot 37 +
+\sigma^2_{\mathrm{prior}} \cdot 34}{\sigma^2_o +
+\sigma^2_{\mathrm{prior}}}
+= \frac{1.0 \cdot 37 + 0.25 \cdot 34}{1.0 + 0.25}
+= 36.4 \; \mathrm{°C}
+\label{eq:unit_0_temp_posterior}
+\end{equation}\]</span></p>
+<p>The variational free energy associated with this observation is
+approximately <span class="math inline">\(F_{\mathrm{before}} \approx
+4.5\)</span> nats (dominated by the log-likelihood of <span
+class="math inline">\(o = 34\)</span> under the prior). The agent has
+two ways to reduce it:</p>
+<ol type="1">
+<li><strong>Perceptual inference (passive)</strong> — accept <span
+class="math inline">\(\mu_{\mathrm{post}} = 36.4\)</span> °C as its new
+belief. <span class="math inline">\(F\)</span> drops to ~2.1 nats.</li>
+<li><strong>Active inference</strong> — act to change the world so that
+future <span class="math inline">\(o\)</span> matches the 37 °C prior.
+Shiver, vasoconstrict, seek warmth. After one minute of shivering the
+sensor reads 36.5 °C; after five minutes, 37.0 °C. <span
+class="math inline">\(F\)</span> approaches 0.</li>
+</ol>
+<p><strong>Key insight:</strong> acting reduces free energy <em>more
+completely</em> than updating beliefs, because the prior is tight — the
+organism would rather change the world than its expectations. This is
+the formal expression of what Helmholtz intuited in 1867 and what the
+FEP quantifies today: <em>organisms do not merely represent the world;
+they re-shape it to match their models.</em></p>
+<h3 id="expected-free-energy-and-policy-selection">Expected Free Energy
+and Policy Selection</h3>
+<p>Selecting an action requires not only minimising current free energy
+but also predicting the consequences of future actions. <strong>Expected
+free energy</strong> <span class="math inline">\(G\)</span> for a policy
+π (sequence of actions) is</p>
+<p><span class="math display">\[\begin{equation}
+G(\pi) = \underbrace{\mathbb{E}_{Q(o, z \mid \pi)}\!\bigl[\ln Q(z \mid
+\pi) - \ln Q(z \mid o, \pi)\bigr]}_{\text{epistemic value}} -
+\underbrace{\mathbb{E}_{Q(o \mid \pi)}\!\bigl[\ln P(o \mid
+C)\bigr]}_{\text{instrumental value}}
+\label{eq:unit_0_expected_free_energy}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(C\)</span> encodes the agent’s
+preferences (which observations are valuable). The two terms decompose
+action selection into:</p>
+<ul>
+<li><strong>Epistemic (information) value</strong> — the expected
+reduction in uncertainty about latent causes; high for exploratory or
+“curious” policies.</li>
+<li><strong>Instrumental (pragmatic) value</strong> — the expected
+log-probability of preferred outcomes; high for goal-directed
+policies.</li>
+</ul>
+<p>Policies are selected with probability <span
+class="math inline">\(Q(\pi) \propto e^{-G(\pi)}\)</span>: the agent
+prefers policies with low expected free energy. Crucially, when no
+information remains to be gained, the agent reduces to a
+reward-maximiser; when no extrinsic reward differs across policies, the
+agent reduces to a pure information-seeker (curiosity). This single
+equation thereby unifies reinforcement learning, optimal experimental
+design, and exploration–exploitation trade-offs that previously occupied
+separate literatures.</p>
+<blockquote>
+<p><strong>Concept Check 4:</strong> A rat in a novel maze runs in
+apparently random directions even when food is reliably available in one
+corner. Decompose this behaviour into epistemic and instrumental value.
+What would change if the rat had explored the maze for an hour
+first?</p>
+</blockquote>
+<h3
+id="epistemic-vs.-instrumental-value-worked-numerical-example">Epistemic
+vs. Instrumental Value (worked numerical example)</h3>
+<p>Suppose an agent considers two policies, <span
+class="math inline">\(\pi_A\)</span> and <span
+class="math inline">\(\pi_B\)</span>, with epistemic values 1.0 and 3.0
+nats and instrumental values 4.0 and 2.5 nats respectively. Then</p>
+<p><span class="math display">\[G(\pi_A) = -(1.0 + 4.0) = -5.0, \qquad
+G(\pi_B) = -(3.0 + 2.5) = -5.5
+\label{eq:unit_0_active_inference_item_5}\]</span></p>
+<p>Both are roughly comparable, but <span
+class="math inline">\(\pi_B\)</span> has slightly lower expected free
+energy because its higher information gain compensates for somewhat
+lower expected reward. Under softmax selection <span
+class="math inline">\(Q(\pi_B)/Q(\pi_A) = e^{0.5} \approx 1.65\)</span>
+— the agent is about 1.65× more likely to choose the more informative
+policy. Reducing temperature (sharpening the softmax) makes the choice
+nearly deterministic; raising temperature flattens it. This single
+mechanism can reproduce explore-exploit phenomena across species and
+contexts.</p>
+<hr />
+<h2 id="embodied-active-inference">Embodied Active Inference</h2>
+<p>Active inference is inherently <strong>embodied</strong> and
+<strong>enactive</strong> — it requires a body that can act. The agent’s
+generative model must represent:</p>
+<ul>
+<li><strong>Exteroceptive states</strong> — sensory information about
+the external environment.</li>
+<li><strong>Interoceptive states</strong> — sensory information about
+the internal body (viscera, blood chemistry, proprioception).</li>
+<li><strong>Action affordances</strong> — possible actions the agent can
+take, and their predicted sensory consequences.</li>
+</ul>
+<p>The body is not merely the carrier of the brain; the brain’s
+generative model is shaped by bodily form, evolutionary history, and
+developmental experience. This <strong>4E cognition</strong> framework —
+embodied, embedded, enacted, extended — is directly implied by active
+inference.</p>
+<blockquote>
+<p><strong>Concept Check 5:</strong> A patient with a pacemaker
+experiences “phantom palpitations” — strong sensations of irregular
+heart rhythm that the device rhythm itself rarely produces. Within the
+active-inference framework, why might long-standing tight priors about
+heart rhythm <em>create</em> a prediction error when the rhythm is in
+fact perfectly regular? What strategies — pharmacological, cognitive, or
+behavioural — would widen those priors?</p>
+</blockquote>
+<hr />
+<h2 id="active-inference-and-evolution">Active Inference and
+Evolution</h2>
+<p>The free energy principle provides a formal bridge between
+individual-level adaptive behaviour and evolutionary dynamics:</p>
+<ul>
+<li><a href="#gl:natural-selection"><strong>Natural
+selection</strong></a> filters for organisms whose generative models
+minimise free energy (are accurate predictors of their ecological
+niche).</li>
+<li>The <strong>ecological niche</strong> is itself the set of
+environmental states that the organism’s generative model implicitly
+expects.</li>
+<li><strong>Niche construction</strong> — organisms actively shape their
+environments to match their generative models — is a direct prediction
+of active inference applied to evolutionary time scales.</li>
+</ul>
+<p>The evolutionary emergence of increasingly sophisticated generative
+models (from chemotaxis in bacteria to abstract planning in primates)
+can be framed as the phylogenetic history of free energy
+minimisation.</p>
+<h3 id="free-energy-minimisation-beyond-brains">Free Energy Minimisation
+Beyond Brains</h3>
+<p>The FEP was developed in neuroscience but is not limited to it.
+Recent work extends active inference to:</p>
+<ul>
+<li><strong>Single cells.</strong> A bacterium running E. coli
+chemotaxis can be cast as an active-inference agent whose generative
+model encodes a prior over “high glucose,” whose sensors read receptor
+occupancy, and whose actions are tumble probability and run length.
+Berg-and-Purcell information bounds reappear as bounds on free energy
+minimisation.</li>
+<li><strong>Immune system.</strong> B-cell affinity maturation can be
+read as Bayesian inference over antigen “causes,” with somatic
+hypermutation as a proposal distribution and selection as a posterior
+update. Memory cells embody high-precision priors against
+re-infection.</li>
+<li><strong>Development.</strong> Morphogen gradients pattern tissues by
+reducing free energy of cell-fate “predictions”; experimentally induced
+perturbations are absorbed when the developmental model can re-infer
+position from remaining cues.</li>
+<li><strong>Evolution.</strong> Natural selection itself can be framed
+as gradient descent on a long-timescale free energy functional, with the
+species’ generative model encoded in its genome and the niche acting as
+the sensory environment. This is the most ambitious and the most
+contested of the FEP’s extensions.</li>
+</ul>
+<p>The unifying claim is that <strong>any system that resists dispersion
+— that maintains its Markov blanket against thermodynamic noise —
+<em>behaves as if</em> it minimises free energy</strong>. The “as-if” is
+important: the FEP is a description of what self-organising systems
+necessarily do at large enough timescales, not a claim that any
+particular molecule “computes” free energy.</p>
+<hr />
+<h2
+id="computational-psychiatry-when-inference-goes-wrong">Computational
+Psychiatry: When Inference Goes Wrong</h2>
+<p>If the brain is a prediction machine, many psychiatric conditions
+admit a generative-model interpretation. The framework is provisional
+but increasingly testable.</p>
+<h3 id="anxiety-and-interoceptive-hyper-precision">Anxiety and
+Interoceptive Hyper-precision</h3>
+<p>If priors over “safe body state” are too tight (high precision),
+ordinary interoceptive fluctuations (a normal heartbeat, gut
+peristalsis) generate large prediction errors that the system
+experiences as alarming. Therapeutic interventions that improve
+interoceptive accuracy (mindfulness training, graded exposure,
+beta-blocker pharmacology) can be re-interpreted as recalibrating prior
+precisions and likelihood widths. Classical exposure therapy reads
+naturally as deliberate prediction-error minimisation: the patient
+repeatedly experiences a feared stimulus without consequence, and
+Bayesian belief updating attenuates the conditioned association.</p>
+<h3 id="depression-and-the-dark-room-problem">Depression and the
+Dark-Room Problem</h3>
+<p>Depression has been modelled as an over-precise prior on negative
+outcomes combined with under-weighted reward signals — the agent’s
+generative model “knows” that nothing it does will help, so policies
+with high epistemic or instrumental value are systematically discounted.
+Predictive-processing accounts of anhedonia explain reduced exploratory
+behaviour as a rational response to a prior of hopelessness. The
+“dark-room problem” — why don’t agents simply hide in a dark room to
+minimise sensory surprise? — is solved by noting that prolonged darkness
+<em>itself</em> generates surprise relative to the organism’s evolved
+generative model, which expects some level of stimulation.</p>
+<h3 id="schizophrenia-and-aberrant-salience">Schizophrenia and Aberrant
+Salience</h3>
+<p>Schizophrenia-spectrum hypotheses suggest a <em>failure</em> of
+precision regulation: prediction errors that ought to be down-weighted
+(because they are noise) are instead amplified, while reliable signals
+are attenuated. This produces “aberrant salience,” in which random noise
+feels meaningful and structured signals feel hollow. Some accounts link
+this directly to dopaminergic precision modulation in striatal circuits;
+clozapine and other antipsychotics may, on this reading, restore
+appropriate precision weighting. Hallucinations, on this view, are not
+failures of perception but failures of inference — top-down predictions
+overruling weak sensory evidence.</p>
+<h3 id="autism-spectrum-predictive-differences">Autism-Spectrum
+Predictive Differences</h3>
+<p>A complementary account proposes that autism involves
+<em>reduced</em> precision on top-down priors (or <em>increased</em>
+precision on bottom-up sensory signals), so the world is experienced in
+raw sensory detail without the smoothing influence of predictions. This
+may explain hypersensitivity, attention to fine detail, and difficulty
+with rapidly changing social cues — most of which require high-prior
+precision to integrate noisy data into coherent interpretations.</p>
+<blockquote>
+<p><strong>Connection (clinical) — limitations.</strong> These accounts
+are conceptually attractive but the empirical evidence for any specific
+computational reading is still developing. They should be read as
+<em>hypotheses</em> that organise current research rather than
+diagnostic frameworks. Patients deserve evidence-based treatments, and
+the FEP is a complement to — not a replacement for — careful clinical
+psychiatry.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 6:</strong> A patient describes a constant
+feeling that “something is about to go wrong” despite no objective
+threat. Describe how this could arise from (a) over-precise priors on
+negative outcomes, (b) under-precise interoceptive likelihoods, or (c)
+hyperactive dopaminergic precision. What experimental measurement might
+distinguish the three?</p>
+</blockquote>
+<hr />
+<h2 id="applications-beyond-neuroscience">Applications Beyond
+Neuroscience</h2>
+<p>The active-inference framework has been applied — with varying
+degrees of empirical support — well beyond brain science.</p>
+<h3 id="immunology">Immunology</h3>
+<p>The adaptive immune system can be framed as a multi-agent
+active-inference system. Each B-cell embodies a hypothesis (its receptor
+specificity); the population of B-cells maintains a distribution over
+possible antigens; somatic hypermutation generates new hypotheses;
+clonal selection performs Bayesian update; and memory cells are
+high-precision priors that minimise future free energy of re-infection.
+The thymic deletion of self-reactive T-cells corresponds to clipping the
+prior to exclude hypotheses that would generate persistent self-reactive
+prediction errors.</p>
+<h3 id="developmental-biology">Developmental Biology</h3>
+<p>Embryonic development can be modelled as a hierarchical inference:
+each cell receives morphogen “observations,” combines them with priors
+encoded in its genome and current state, and performs an active update
+(differentiation, migration, division). Robustness to perturbation is
+then explained as <em>Bayesian inference over a redundant generative
+model</em>: removing one cue still leaves enough information to infer
+position.</p>
+<h3 id="evolutionary-active-inference">Evolutionary Active
+Inference</h3>
+<p>If natural selection filters for free-energy-minimising organisms,
+the long-time evolutionary dynamics can themselves be cast as inference
+over a “species-level” generative model encoded in the genome and
+implemented through development. Niche construction (beavers building
+dams, plants oxygenating the atmosphere) becomes the evolutionary
+analogue of action: organisms reshape the world to match their inherited
+expectations.</p>
+<h3 id="ecology-and-collective-behaviour">Ecology and Collective
+Behaviour</h3>
+<p>Schooling fish, foraging ants, and coordinated bacteria can be
+analysed as collective active-inference systems whose Markov blankets
+are larger than any individual organism. The mathematical formalism
+predicts when collective behaviour will outperform individual behaviour:
+when individual sensory data are noisy and the environment is partially
+observable, a collective Bayesian posterior is sharper than any
+individual’s.</p>
+<hr />
+<h2 id="connections-to-other-units">Connections to Other Units</h2>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Active inference connection</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Unit III — Metabolism</strong></td>
+<td>ATP production and allostasis maintain the energetic constraints
+required for inference</td>
+</tr>
+<tr>
+<td><strong>Unit VIII — Botany</strong></td>
+<td>Stomatal regulation and tropisms can be modelled as active inference
+by plant systems</td>
+</tr>
+<tr>
+<td><strong>Unit IX — Neuroscience</strong></td>
+<td>Predictive coding instantiates active inference at the neural
+circuit level</td>
+</tr>
+<tr>
+<td><strong>Unit X — Ecology</strong></td>
+<td>Niche construction and habitat selection as ecosystem-level active
+inference</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="interoceptive-active-inference-and-psychiatry-conceptual">Interoceptive
+active inference and psychiatry (conceptual)</h3>
+<p><strong>Interoception</strong> — the sense of the visceral body —
+supplies observations about heart rate, gut distension, inflammation,
+and temperature. If priors over “safe body state” are too tight,
+ordinary fluctuations may generate persistent prediction-error signals
+experienced as <strong>anxiety</strong>; if priors are too loose,
+allostatic forecasting may fail. This is not a replacement for clinical
+diagnosis but a <strong>generative</strong> framing that links behaviour
+(avoidance, reassurance seeking, substance use) to error-minimisation
+strategies. Therapies that improve interoceptive accuracy (certain
+mindfulness protocols, graded exposure, interoceptive training) can be
+understood as recalibrating precisions and priors — though the
+neuroscience is still being mapped experimentally.</p>
+<hr />
+<h2 id="the-free-energy-principle-in-context">The Free Energy Principle
+in Context</h2>
+<p>The FEP is a <strong>theoretical framework</strong>, not a claim
+about specific neural mechanisms. It provides a unifying mathematical
+language, but multiple neural implementations are consistent with it. It
+should be understood alongside:</p>
+<ul>
+<li><strong>Reinforcement learning</strong> (reward-maximising agents).
+Active inference subsumes RL in the limit where epistemic value is zero
+(no information-seeking).</li>
+<li><strong>Optimal control theory</strong> (minimum-cost action
+selection). Active inference subsumes OC in the limit where the
+generative model perfectly captures dynamics.</li>
+<li><strong>Information-theoretic accounts</strong> of neural coding.
+Predictive coding implements rate-distortion-optimal sensory
+compression.</li>
+<li><strong>Cybernetics</strong> (Wiener; Ashby). Cybernetic homeostasis
+is the special case of active inference with a fixed prior and reactive
+correction.</li>
+</ul>
+<p>The FEP is most powerful as a <strong>design principle</strong>:
+living systems <em>behave as if</em> they are minimising free energy,
+just as the lens <em>behaves as if</em> it minimises the time of light
+travel (Fermat’s principle). Whether neurons “really” compute KL
+divergences or just behave as if they do is a separate empirical
+question.</p>
+<blockquote>
+<p><strong>Concept Check 7:</strong> Reinforcement learning maximises
+expected reward; optimal control minimises expected cost; active
+inference minimises expected free energy. State a biological prediction
+that would distinguish active inference from pure RL — i.e. a behaviour
+that an RL agent would not produce but an active-inference agent
+would.</p>
+</blockquote>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Active Inference and the Free Energy Principle</strong>,
+frontier biology belongs inside the evidence logic of the chapter.
+Systems models are useful when they expose assumptions, uncertainty, and
+failure modes rather than merely producing elegant diagrams. The core
+reading question is this: active-inference explanations must connect
+hidden states, sensory evidence, action, and measurable prediction
+error.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>Treat every model as a claim about mechanism: define the system
+boundary, identify the observable that would falsify the model, and
+report the uncertainty that would change a decision.</p>
+<p><strong>Source practice:</strong> Use model-validation sources when
+available, and state which observation would falsify the model rather
+than treating a diagram as proof.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>The free energy principle proposes that living systems minimise
+variational free energy — a measure of the gap between their generative
+model and sensory evidence.</li>
+<li>Markov blankets formalise the boundary between an agent and its
+environment, partitioning most states into internal, sensory, active,
+and external classes.</li>
+<li>The Bayesian brain maintains hierarchical generative models that
+generate top-down predictions; prediction errors drive belief updating;
+the canonical microcircuit implements this in cortical layers.</li>
+<li>Active inference distinguishes perceptual inference (update beliefs)
+from active inference (act to fulfil predictions).</li>
+<li>Homeostasis and allostasis are naturally captured as prior-driven
+active fulfilment of body-state predictions.</li>
+<li>Expected free energy unifies exploration (epistemic value) and
+exploitation (instrumental value) in a single functional, recovering
+reinforcement learning and optimal experimental design as special
+cases.</li>
+<li>Active inference connects to evolution (niche construction),
+metabolism (energetic constraints on inference), neuroscience
+(predictive coding circuits), immunology, development, and computational
+psychiatry.</li>
+<li><strong>Precision</strong> weights prediction errors;
+<strong>attention</strong> and <strong>sensory attenuation</strong> are
+interpretable as precision control; <strong>interoception</strong> links
+body state to psychiatric phenomenology at a systems level.</li>
+<li>Computational psychiatry offers FEP-grounded provisional accounts of
+anxiety, depression, schizophrenia, and autism — useful as research
+frameworks while clinical practice continues to rely on evidence-based
+treatment.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<p><strong>free energy</strong> · <strong>variational free
+energy</strong> · <strong>expected free energy</strong> · <strong>Markov
+blanket</strong> · <strong>generative model</strong> · <strong>prior
+belief</strong> · <strong>prediction error</strong> · <strong>predictive
+coding</strong> · <strong>canonical microcircuit</strong> ·
+<strong>Bayesian brain</strong> · <strong>active inference</strong> ·
+<strong>homeostasis</strong> · <strong>allostasis</strong> ·
+<strong>interoception</strong> · <strong>niche construction</strong> ·
+<strong>4E cognition</strong> · <strong>precision</strong> ·
+<strong>sensory attenuation</strong> · <strong>aberrant
+salience</strong> · <strong>epistemic value</strong> ·
+<strong>instrumental value</strong> · <strong>policy
+selection</strong></p>
+<hr />
+<h2 id="discussion-questions">Discussion Questions</h2>
+<ol type="1">
+<li><p>Explain the difference between <strong>perceptual
+inference</strong> and <strong>active inference</strong> using a
+concrete physiological example (e.g., cardiovascular regulation during
+exercise, or immune response to infection). Why does the distinction
+matter clinically?</p></li>
+<li><p>A patient with <strong>interoceptive dysregulation</strong> has a
+poorly calibrated internal model of body states — they cannot accurately
+predict or infer their own visceral sensations. Using active inference,
+explain how this might manifest as anxiety, depression, or eating
+disorders. What therapeutic interventions might improve interoceptive
+precision?</p></li>
+<li><p>The bacterium <em>E. coli</em> performs chemotaxis — swimming
+toward attractants, tumbling to reorient — guided by a two-component
+receptor-kinase system. Can this behaviour be described in active
+inference terms? What would the “generative model,” “prediction error,”
+and “action” be for <em>E. coli</em>? Identify its Markov blanket
+explicitly.</p></li>
+<li><p>Consider the <strong>allostatic</strong> adjustment of blood
+pressure in anticipation of orthostatic challenge (standing up). Compare
+this to the homeostatic model where blood pressure is corrected
+<em>after</em> it drops. Which better fits the empirical timeline of
+cardiovascular adjustment? How does this support an active inference
+account of autonomic regulation?</p></li>
+<li><p>The free energy principle has been compared to Helmholtz’s
+observation that perception is “unconscious inference.” Is this analogy
+illuminating or misleading? What does the FEP add beyond classical
+Bayesian perception theories ? What does it risk conflating?</p></li>
+<li><p>In one paragraph, explain why down-regulating somatosensory
+precision during a self-generated movement might prevent you from
+tickling yourself. How could a failure of this mechanism feel
+subjectively?</p></li>
+<li><p>Propose an experiment (behavioural or neuroimaging) that would
+test whether anxious individuals assign <strong>too much</strong>
+precision to interoceptive prediction errors compared with controls.
+What would falsify your hypothesis?</p></li>
+<li><p>The expected free energy functional contains both an epistemic
+(information-gain) term and an instrumental (reward) term. Construct a
+hypothetical scenario in which a pure reinforcement-learning agent and a
+pure active-inference agent would behave differently, and explain which
+behaviour seems more biologically realistic.</p></li>
+</ol>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li><p>Define the four state classes of a Markov blanket (η, <span
+class="math inline">\(s\)</span>, <span
+class="math inline">\(a\)</span>, μ) and state the
+conditional-independence property they enforce. Why does this partition
+make the boundary between an organism and its environment mathematically
+precise rather than merely intuitive?</p></li>
+<li><p>Explain in your own words why minimising variational free energy
+<span class="math inline">\(F\)</span> is a tractable proxy for
+maximising model evidence, given that the true posterior <span
+class="math inline">\(P(\mathbf{z}\mid\mathbf{o})\)</span> is generally
+intractable. Which term of <span class="math inline">\(F\)</span>
+penalises over-complex beliefs, and which rewards accurate
+ones?</p></li>
+<li><p>Distinguish perceptual inference from active inference using the
+chapter’s body-temperature worked example. The agent’s free energy falls
+from ~4.5 nats to ~2.1 nats by belief update but approaches 0 by
+shivering. Explain why action reduces free energy <em>more
+completely</em> when the temperature prior is tight.</p></li>
+<li><p>Apply the Markov-blanket partition to <em>E. coli</em>
+chemotaxis: assign concrete molecular identities to the sensory, active,
+internal, and external states, and identify which assignment is least
+clear-cut and why.</p></li>
+<li><p>Using the expected-free-energy functional <span
+class="math inline">\(G(\pi)\)</span>, analyse the worked policy
+comparison (<span class="math inline">\(\pi_A\)</span>: epistemic 1.0,
+instrumental 4.0; <span class="math inline">\(\pi_B\)</span>: epistemic
+3.0, instrumental 2.5). Recompute <span class="math inline">\(G\)</span>
+for each, justify why <span class="math inline">\(\pi_B\)</span> is
+selected slightly more often, and predict how lowering the softmax
+temperature changes the choice.</p></li>
+<li><p>The chapter reframes homeostasis and allostasis in
+active-inference terms. Compare the two as claims about prior precision
+and set-point dynamics, and explain why allostasis predicts heart rate
+rising <em>before</em> exercise begins whereas a purely homeostatic
+model does not.</p></li>
+<li><p>Computational psychiatry interprets anxiety, depression,
+schizophrenia, and autism as different failures of precision regulation.
+Analyse how “over-precise priors on negative outcomes” versus “aberrant
+salience from amplified noise prediction errors” would produce different
+observable behaviours, and propose one measurement that could
+distinguish them.</p></li>
+<li><p>Evaluate the claim that natural selection itself can be cast as
+gradient descent on a long-timescale free-energy functional. What does
+the “as-if” qualifier protect against, and what evidence would make this
+extension more (or less) defensible than the neuroscience
+applications?</p></li>
+<li><p>Critically assess the FEP as a unifying framework that subsumes
+reinforcement learning and optimal control as limiting cases. Construct
+a biological prediction that an active-inference agent would make but a
+pure reward-maximiser would not, and explain why the difference is
+empirically meaningful.</p></li>
+<li><p>Synthesis: the chapter argues that the current frontier is
+<em>identifiability</em> — very different generative models can fit the
+same behaviour. Design a research strategy (combining out-of-sample
+prediction, parameter recovery, and a falsifiable neural or behavioural
+observable) that would let a sceptic decide whether an active-inference
+model genuinely explains a given dataset rather than merely
+curve-fitting it.</p></li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Friston, K. (2010). The free-energy principle: A unified brain
+theory? <em>Nature Reviews Neuroscience</em>, 11(2), 127–138.</li>
+<li>Friston, K., FitzGerald, T., Rigoli, F., Schwartenbeck, P., &amp;
+Pezzulo, G. (2017). Active inference: A process theory . <em>Neural
+Computation</em>, 29(1), 1–49.</li>
+<li>Sterling, P., &amp; Laughlin, S. (2015). <em>Principles of Neural
+Design</em> . MIT Press.</li>
+<li>Sterling, P., &amp; Eyer, J. (1988). Allostasis: A new paradigm to
+explain arousal pathology .</li>
+<li>Clark, A. (2016). <em>Surfing Uncertainty: Prediction, Action, and
+the Embodied Mind</em>. Oxford University Press.</li>
+<li>Parr, T., Pezzulo, G., &amp; Friston, K. J. (2022). <em>Active
+Inference: The Free Energy Principle in Mind, Brain, and Behavior</em>.
+MIT Press.</li>
+</ul>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Active Inference and the Free Energy Principle</strong>
+should leave a reproducible trail from a biological claim to the code,
+figure, diagram, or paper-based activity that can test it. Use the
+surfaces below to inspect the chapter’s assumptions, rerun the relevant
+model, or compare the manuscript explanation with companion labs and
+figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/neuroscience/neuroscience.py</code>
+(<code>action_potential_hh</code>,
+<code>hebbian_weight_update</code>)</td>
+<td>Connect prediction, update, and plasticity to measurable neural
+variables.</td>
+</tr>
+<tr>
+<td><code>src/biology/physiology/physiology.py</code>
+(<code>homeostasis_response</code>)</td>
+<td>Compare allostatic regulation with error-correcting control.</td>
+</tr>
+<tr>
+<td><code>src/biology/cell/cell_biology.py</code>
+(<code>receptor_occupancy</code>,
+<code>signal_amplification</code>)</td>
+<td>Make sensing and gain explicit rather than metaphorical.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>nervous_system_reflex_diagram</code>,
+<code>hormone_signaling_diagram</code>)</td>
+<td>Contrast reflex arcs, endocrine loops, and inference-style control
+diagrams.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> name the hidden state,
+observation, action, and error term before treating a biological
+feedback loop as active inference. <strong>Cross-reference:</strong>
+compare with , , and .</p>
+</body>
+</html>

@@ -1,0 +1,3496 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>025_epigenetics_and_gene_regulation</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="epigenetics-and-gene-regulation">Epigenetics and Gene
+Regulation</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 15</strong> · Level 3/3 · 50 min read · 75 min lecture ·
+Prerequisites: </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Define <a href="#gl:epigenetics"><strong>epigenetics</strong></a>
+and distinguish epigenetic modifications from DNA sequence changes.</li>
+<li>Describe <a href="#gl:nucleosome"><strong>nucleosome</strong></a>
+structure and the levels of <a
+href="#gl:chromatin"><strong>chromatin</strong></a> compaction from the
+11-nm fibre to the metaphase <a
+href="#gl:chromosome"><strong>chromosome</strong></a>.</li>
+<li>Explain the major classes of <a
+href="#gl:histone"><strong>histone</strong></a> modifications
+(acetylation, methylation, phosphorylation, ubiquitination, sumoylation)
+and how they are written, erased, and read.</li>
+<li>Describe the mechanism and function of DNA methylation, including <a
+href="#gl:cpg-island"><strong>CpG island</strong></a>s, the DNMT1/3A/3B
+<a href="#gl:enzyme"><strong>enzyme</strong></a>s, TET-mediated
+demethylation, and the role of methylation in <a
+href="#gl:gene"><strong>gene</strong></a> silencing.</li>
+<li>Distinguish Polycomb (PRC1/PRC2) and Trithorax (MLL/COMPASS) systems
+and explain how they maintain repressive and activating states.</li>
+<li>Compare ATP-dependent chromatin remodelling families (SWI/SNF, ISWI,
+CHD/NuRD, INO80) and their distinct mechanisms.</li>
+<li>Explain X-chromosome inactivation (Lyonisation) and the role of the
+XIST lncRNA, escape genes, and skewing.</li>
+<li>Describe genomic imprinting using IGF2/H19 and Prader–Willi/Angelman
+as paradigms.</li>
+<li>Explain how 3D genome organisation — TADs, loops, compartments, and
+biomolecular condensates — shapes transcription.</li>
+<li>Explain microRNA (miRNA ) biogenesis and the mechanism of
+RISC-mediated post-transcriptional silencing.</li>
+<li>Model the maintenance of DNA methylation and Polycomb marks across
+cell divisions quantitatively, and predict the consequences of
+perturbing each layer.</li>
+<li>Evaluate evidence for transgenerational epigenetic inheritance in
+humans, the mechanism of mitotic and meiotic transmission of epigenetic
+marks, and the clinical implications of epigenetic dysregulation in
+cancer and neurodevelopmental disease.</li>
+</ol>
+<!-- alt: Heatmap with CpG locus index on rows and sample index on columns. Colour encodes beta methylation fraction from low to high, with a lower-methylation band across the middle loci. -->
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Cells create stable yet reversible
+expression states through chromatin, DNA marks, and regulatory
+circuits.</li>
+<li><strong>Core concepts:</strong> chromatin, methylation, histone
+modification, enhancers.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change:
+Information flow, exchange, and storage, Structure and function; AP
+Biology: Information Storage and Transmission, Systems Interactions;
+NGSS-style topics: Inheritance and Variation of Traits, Structure and
+Function.</li>
+<li><strong>Model or quantitative lens:</strong> Regulatory-state and
+expression-ratio reasoning.</li>
+<li><strong>Data skill:</strong> Interpret chromatin or expression
+evidence from simple regulatory datasets.</li>
+<li><strong>Practice cadence:</strong> Concept Explanation, Questions
+and Methods, Argumentation.</li>
+<li><strong>Common misconception to repair:</strong> Epigenetic does not
+mean independent of DNA sequence or permanently inherited.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Apply regulation logic to
+differentiation, imprinting, cancer, or environmental responses.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.genetics.genetics.cpg_methylation_remaining</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette — The Landscape That Changed
+Genetics</strong></p>
+<p>In 1942, the developmental biologist Conrad Waddington drew a diagram
+that would define a science. He sketched a marble rolling down a
+hillscape of ridges and valleys — each valley representing a stable cell
+fate, each ridge a threshold that once crossed was difficult to reverse.
+He called this the <strong>epigenetic landscape</strong>: the topology
+of developmental possibilities. Waddington coined “epigenetics” from the
+Greek <em>epi-</em> (above) to describe the heritable changes in gene
+expression that occurred <em>above</em> or <em>beyond</em> the DNA
+sequence — changes that could not be explained by Mendelian genetics
+alone. He had no idea of the molecular mechanisms. That understanding
+would come forty years later.</p>
+<p>In 1961, Mary Lyon noticed something peculiar in female mice <a
+href="#gl:heterozygous"><strong>heterozygous</strong></a> for
+coat-colour <a href="#gl:mutation"><strong>mutation</strong></a>s: their
+fur was a mosaic, not intermediate. She proposed that in every cell of a
+female mammal, one of the two X chromosomes is randomly and permanently
+silenced — a hypothesis proven so thoroughly that it was renamed
+Lyonisation. The silenced X does not have a different DNA sequence. It
+has a different <em>chemistry</em>: dense methylation, hypoacetylated
+histones, and a long non-coding RNA called XIST that coats the entire
+chromosome. This was the first clear demonstration that a whole
+chromosome could be heritably silenced without changing a single base
+pair. Epigenetics had found its molecular identity.</p>
+<p>Three more revolutions followed. In 2000, Strahl and Allis proposed
+that distinct combinations of histone modifications — a “histone code” —
+encode regulatory information beyond the DNA sequence itself, predicting
+an entire pharmacology of writers, erasers, and readers that has now
+produced FDA-approved drugs. In the 2000s,
+chromosome-conformation-capture (Hi-C) revealed that the genome is
+folded into stereotyped contact domains (TADs) where enhancers find
+their cognate promoters, and that disrupting these domains can mis-wire
+developmental control. And in the 2010s, biomolecular condensates and
+phase separation reframed the nucleus as a collection of liquid-like
+assemblies that concentrate transcriptional machinery at
+super-enhancers. These insights together turned epigenetics from a
+metaphor into a quantitative, druggable discipline.</p>
+</blockquote>
+<h2 id="chromatin-structure-and-nucleosome-organisation">Chromatin
+Structure and Nucleosome Organisation</h2>
+<h3 id="the-nucleosome-fundamental-unit">The Nucleosome: Fundamental
+Unit</h3>
+<p>Eukaryotic DNA is not naked; it is complexed with <a
+href="#gl:protein"><strong>protein</strong></a>s to form
+<strong>chromatin</strong>. The fundamental repeating unit is the
+<strong>nucleosome</strong>:</p>
+<ul>
+<li><strong>Histone octamer:</strong> 2 copies each of H2A, H2B, H3, H4
+— forming a spool-like protein disk</li>
+<li><strong>DNA wrapping:</strong> ~147 bp of DNA wound 1.65 times
+around the histone octamer in a left-handed superhelix</li>
+<li><strong>Linker DNA:</strong> 10–80 bp connecting adjacent
+nucleosomes; associated with histone H1</li>
+<li><strong>Bead-on-a-string:</strong> nucleosomes connected by linker
+DNA form an 11-nm fibre — the first level of compaction</li>
+</ul>
+<p><strong>Core histone structure:</strong> Each core histone has: - A
+<strong>globular domain</strong> forming the nucleosome disc surface
+through the <strong>histone fold</strong> motif (three α-helices linked
+by two short loops; pairs of histones form four-helix bundles: H3–H4 and
+H2A–H2B) - An unstructured <strong>N-terminal tail</strong> extending
+beyond the disc (4–35 residues depending on histone) — this is where
+most post-translational modifications occur - A short <strong>C-terminal
+tail</strong> (especially prominent on H2A and H2B) that also accepts
+modifications including ubiquitination</p>
+<p><strong>Histone variants:</strong> In addition to canonical
+H2A/H2B/H3/H4, mammalian cells express variant histones that confer
+specialised properties on chromatin where they are deposited:</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 46%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Variant</th>
+<th>Replaces</th>
+<th>Deposition machinery</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3.3</td>
+<td>H3</td>
+<td>HIRA (gene bodies); ATRX/DAXX (heterochromatin)</td>
+<td>Replication-independent; marks transcribed/active regions</td>
+</tr>
+<tr>
+<td>CENP-A (CenH3)</td>
+<td>H3</td>
+<td>HJURP</td>
+<td>Centromere identity; foundation for kinetochore assembly</td>
+</tr>
+<tr>
+<td>H2A.Z</td>
+<td>H2A</td>
+<td>SRCAP, INO80/SWR1</td>
+<td>Promoter-proximal; poises genes for activation; insulates from
+heterochromatin</td>
+</tr>
+<tr>
+<td>H2A.X</td>
+<td>H2A</td>
+<td>RAD51 / S139ph at DSBs</td>
+<td>DNA-damage signalling (γH2AX); foci visible by
+immunofluorescence</td>
+</tr>
+<tr>
+<td>macroH2A</td>
+<td>H2A</td>
+<td>ATRX-dependent</td>
+<td>Inactive X enrichment; gene silencing</td>
+</tr>
+<tr>
+<td>H2A.B (Bbd)</td>
+<td>H2A</td>
+<td>unclear</td>
+<td>Active transcription; testis enriched</td>
+</tr>
+</tbody>
+</table>
+<h3 id="higher-order-chromatin-compaction">Higher-Order Chromatin
+Compaction</h3>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 18%" />
+<col style="width: 16%" />
+<col style="width: 35%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Level</th>
+<th>Structure</th>
+<th>Diameter</th>
+<th>Compaction factor</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Naked DNA (B-form helix)</td>
+<td>2 nm</td>
+<td>1×</td>
+<td>Watson–Crick base-pairing</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Nucleosome fibre (“beads on a string”)</td>
+<td>11 nm</td>
+<td>~6×</td>
+<td>Histone octamer wrapping</td>
+</tr>
+<tr>
+<td>2</td>
+<td>30-nm fibre (disputed <em>in vivo</em>)</td>
+<td>30 nm</td>
+<td>~40×</td>
+<td>Nucleosome–nucleosome compaction</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Chromatin loops / TADs</td>
+<td>300 nm</td>
+<td>~1,000×</td>
+<td>CTCF + cohesin-defined loops; TADs</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A/B compartments</td>
+<td>—</td>
+<td>variable</td>
+<td>Active (A) vs. repressive (B) genomic neighbourhoods</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Chromatid (mitotic chromosome)</td>
+<td>700 nm</td>
+<td>~10,000×</td>
+<td>SMC condensin-mediated compaction</td>
+</tr>
+</tbody>
+</table>
+<h3 id="topologically-associating-domains-tads">Topologically
+Associating Domains (TADs)</h3>
+<p>Chromatin organises into DNA loops of 100 kb–1 Mb delineated by
+<strong>CTCF</strong> (insulator protein) binding sites and
+<strong>cohesin</strong> ring complexes. Within TADs, enhancers
+preferentially contact <a
+href="#gl:promoter"><strong>promoter</strong></a>s of the same TAD. TAD
+boundaries are largely conserved across cell types and species. The
+dominant model for TAD formation is <strong>loop extrusion</strong>:
+cohesin loads on chromatin and reels DNA through its ring lumen
+ATP-dependently until it stalls at convergently oriented CTCF binding
+sites, leaving behind a chromatin loop. Quantitatively, mammalian
+genomes contain ~3,000–10,000 TADs (~1 Mb median), and knockdown of CTCF
+or cohesin (RAD21, NIPBL) blurs or abolishes most boundaries within
+hours.</p>
+<p><span class="math display">\[\begin{equation}P_{\text{contact}}(s)
+\propto s^{-\alpha}, \quad \alpha \approx 1.0\text{–}1.2 \text{ for
+fractal globule (interphase)}
+\tag{15.1}\label{eq:hic_scaling}\end{equation}\]</span></p>
+<p><strong>Hi-C methodology in detail.</strong> Hi-C is a
+chromosome-conformation-capture variant that measures contact frequency
+between every pair of genomic loci genome-wide. The protocol:</p>
+<ol type="1">
+<li><strong>Cross-link</strong> chromatin with formaldehyde (1 % for 10
+min), preserving protein-mediated DNA contacts.</li>
+<li><strong>Restriction digest</strong> with a 4-cutter (DpnII, MboI) or
+6-cutter (HindIII), creating sticky-ended fragments still tethered by
+cross-linked proteins.</li>
+<li><strong>Fill-in with biotinylated nucleotides</strong> to mark
+cleaved ends, then <strong>proximity ligate</strong> at low DNA
+concentration so that intermolecular ligations are improbable —
+primarily fragments held together by cross-linked proteins (i.e.,
+physically proximal <em>in vivo</em>) ligate.</li>
+<li><strong>Streptavidin pulldown</strong> enriches biotinylated
+junction reads, paired-end Illumina sequencing identifies which genomic
+loci were joined.</li>
+<li><strong>Heatmap normalisation</strong> (ICE, KR-balanced) yields a
+contact matrix; diagonal-rich blocks are TADs; off-diagonal stripes
+identify loop anchors at convergent CTCF.</li>
+</ol>
+<p>Derivative methods refine the assay: <strong>Micro-C</strong> uses
+MNase digestion to nucleosome resolution; <strong>Capture-Hi-C</strong>
+enriches for promoter-anchored contacts (4DN consortium); <strong>HiChIP
+/ PLAC-seq</strong> combines ChIP for an active mark (H3K27ac) with
+proximity ligation; <strong>ChIA-PET</strong> uses paired-end tagging on
+antibody-immunoprecipitated chromatin; <strong>Hi-C 3.0 /
+Pore-C</strong> uses long-read multi-way contact mapping.</p>
+<p>Disruption of TAD boundaries (e.g., by large deletions, inversions,
+or single-nucleotide CTCF site disruptions) can cause misregulation of
+developmental genes — a mechanism termed <strong>enhancer
+hijacking</strong>. Lupiáñez et al. (2015) showed that microdeletions
+removing TAD boundaries near <em>EPHA4</em> fuse adjacent regulatory
+landscapes, mis-targeting limb enhancers to <em>PAX3</em> or
+<em>WNT6</em> and producing congenital limb malformations
+(brachydactyly, syndactyly).</p>
+<p><strong>Loop extrusion — the dynamic model.</strong> Single-molecule
+imaging and live-cell Hi-C now support a kinetic loop-extrusion model
+with quantitative parameters: - Cohesin (SMC1/SMC3 + RAD21/SCC1 +
+STAG1/STAG2) is loaded onto chromatin by <strong>NIPBL/MAU2</strong>
+(the loader complex). - It extrudes DNA into a growing loop at ~0.5–2
+kb/s, consuming ATP at the SMC ATPase head. - <strong>WAPL</strong>
+unloads cohesin (residence time ~20 min unloaded by WAPL, vs. &gt; 1 h
+for the <strong>cohesin-STAG2</strong> “stalled” form at CTCF anchors).
+- CTCF binds asymmetrically (a 19-bp consensus with a defined
+orientation): convergent CTCF pairs trap extruding cohesin, generating
+loops with measured loop sizes ~100 kb to 2 Mb. - Acute auxin-induced
+degron depletion of RAD21 dissolves most loops within ~15 min;
+restoration takes ~30–60 min — confirming that TADs and loops are
+dynamic, not static structures.</p>
+<h3 id="ab-compartments">A/B Compartments</h3>
+<p>At the megabase scale, the genome partitions into two interaction
+“compartments”:</p>
+<ul>
+<li><strong>A compartment</strong> — gene-rich, active (H3K4me3,
+H3K27ac, accessible chromatin), positioned toward the nuclear
+interior</li>
+<li><strong>B compartment</strong> — gene-poor, repressed (H3K9me3,
+lamina-associated), positioned at the nuclear periphery</li>
+</ul>
+<p>Compartment switching during cell-fate transitions correlates with
+replication timing changes (early-replicating ↔︎ late-replicating) and
+with large-scale gene expression remodelling. Hi-C (and its derivatives
+Micro-C, Capture-Hi-C, ChIA-PET) measures these contacts
+genome-wide.</p>
+<blockquote>
+<p><strong>Concept Check 1:</strong> A patient harbours a balanced
+inversion that breaks a CTCF site at the boundary of a TAD containing
+the <em>SHH</em> limb enhancer (ZRS, ~1 Mb upstream of <em>SHH</em>).
+Predict the developmental phenotype if the inversion places ZRS into a
+TAD containing an unrelated proto-oncogene. What
+chromosome-conformation-capture experiment would confirm enhancer
+hijacking?</p>
+</blockquote>
+<hr />
+<h2 id="histone-modifications-the-histone-code">Histone Modifications —
+The Histone Code</h2>
+<p>Histone tails are subject to a large number of post-translational
+modifications (PTMs). The <strong><a href="#gl:histone-code">histone
+code</a> hypothesis</strong> proposes that specific combinations of
+marks specify distinct chromatin states and downstream outcomes.</p>
+<pre class="mermaid"><code>flowchart TD
+    HAT[&quot;HAT\nHistone Acetyltransferase\n(e.g. CBP/p300, GCN5)&quot;] --&gt; Ac[&quot;H3K27ac / H3K9ac\nACTIVE\neuchromatin; promoters; enhancers&quot;]
+    HDAC[&quot;HDAC\nHistone Deacetylase\n(e.g. HDAC1-3, SIRT1)&quot;] -.-&gt;|removes acetyl| Ac
+
+    HMT_act[&quot;H3K4 methyltransferase\n(MLL1, SET1)&quot;] --&gt; Me_act[&quot;H3K4me3\nACTIVE PROMOTERS\nread by PHD domains&quot;]
+    HMT_rep[&quot;H3K27 methyltransferase\nPRC2 (EZH2)&quot;] --&gt; Me_rep[&quot;H3K27me3\nREPRESSIVE\nPolycomb target genes&quot;]
+    HMT_het[&quot;H3K9 methyltransferase\n(G9a, SUV39H1)&quot;] --&gt; Me_het[&quot;H3K9me3\nHETEROCHROMATIN\ncentromeres; transposons&quot;]
+
+    Kinase[&quot;Aurora B / CDK1&quot;] --&gt; Phos[&quot;H3S10ph\nMITOSIS marker\nalso: DNA damage signalling H2AX-Ser139&quot;]
+    Ub[&quot;RNF2 (PRC1)&quot;] --&gt; UbH2A[&quot;H2AK119ub\nPolycomb silencing layer 2&quot;]
+
+    style Ac fill:#27ae60,color:#fff
+    style Me_act fill:#2980b9,color:#fff
+    style Me_rep fill:#8e44ad,color:#fff
+    style Me_het fill:#7f8c8d,color:#fff</code></pre>
+<!-- alt: Flowchart showing histone modification writers and the states they produce. Green = active marks; blue = active promoters; purple = Polycomb repression; grey = constitutive heterochromatin. -->
+<p><em>Histone modification writers and the states they produce. Green =
+active marks; blue = active promoters; purple = Polycomb repression;
+grey = constitutive <a
+href="#gl:heterochromatin"><strong>heterochromatin</strong></a>.</em></p>
+<h3 id="the-histone-code-a-comprehensive-reference-table">The Histone
+Code: A Comprehensive Reference Table</h3>
+<p>The histone-code reference table below systematically catalogs &gt;
+25 modifications recurrently studied in mammalian chromatin biology,
+paired with the <strong>writer enzyme</strong>, <strong>eraser
+enzyme</strong>, <strong>reader domain</strong> that recognises the
+mark, the <strong>histone position</strong> (nucleosome face, exposed
+N-terminal tail, C-terminal tail), the typical <strong>genomic
+location</strong>, and the <strong>functional effect</strong>
+(activation, repression, or context-dependent). This is the chromatin
+biologist’s periodic table — the working vocabulary of writers, readers,
+and erasers that defines every targeted therapy in clinical
+epigenetics.</p>
+<p><strong>Active methylation marks</strong></p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 39%" />
+<col style="width: 31%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mark</th>
+<th>Writer / eraser</th>
+<th>Main readers</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3K4me1</td>
+<td>MLL3/4 writes; LSD1 erases</td>
+<td>BAF45c PHD, CHD7</td>
+<td>Poised or active enhancers</td>
+</tr>
+<tr>
+<td>H3K4me2</td>
+<td>MLL1/2 and SET1 write; LSD1 erases</td>
+<td>CHD1, BPTF PHD</td>
+<td>Active promoters and 5-prime gene bodies</td>
+</tr>
+<tr>
+<td>H3K4me3</td>
+<td>MLL/SET1 COMPASS writes; KDM5 removes</td>
+<td>TAF3 PHD, ING1, BPTF</td>
+<td>Active promoters; recruits TFIID</td>
+</tr>
+<tr>
+<td>H3K36me1/2</td>
+<td>NSD and ASH1L write; KDM2 removes</td>
+<td>LEDGF PWWP, MRG15</td>
+<td>Gene bodies and active enhancers</td>
+</tr>
+<tr>
+<td>H3K36me3</td>
+<td>SETD2 writes; KDM2/KDM4 remove</td>
+<td>DNMT3 PWWP, MRG15, LEDGF</td>
+<td>Transcribed gene bodies; suppresses cryptic initiation and recruits
+MMR</td>
+</tr>
+<tr>
+<td>H3K79me2/3</td>
+<td>DOT1L writes</td>
+<td>53BP1 Tudor, AF9, ENL</td>
+<td>Active gene bodies; important in MLL-fusion leukaemia</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Active acetylation and ubiquitination marks</strong></p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 39%" />
+<col style="width: 31%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mark</th>
+<th>Writer / eraser</th>
+<th>Main readers</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3K9ac</td>
+<td>GCN5/PCAF/p300 write; HDAC1-3 and SIRT1/6 erase</td>
+<td>BRD4, TAF1</td>
+<td>Active promoters; loosens histone-DNA contacts</td>
+</tr>
+<tr>
+<td>H3K14ac</td>
+<td>GCN5/PCAF write; HDAC1-3 erase</td>
+<td>Bromodomains</td>
+<td>Active promoters; cooperates with H3K4me3</td>
+</tr>
+<tr>
+<td>H3K18ac and H3K23ac</td>
+<td>p300/CBP write; HDACs erase</td>
+<td>Bromodomains</td>
+<td>Promoters and enhancers; active transcription</td>
+</tr>
+<tr>
+<td>H3K27ac</td>
+<td>p300/CBP write; HDAC1-3 erase</td>
+<td>BRD4, YEATS</td>
+<td>Active enhancers and super-enhancers</td>
+</tr>
+<tr>
+<td>H3K56ac</td>
+<td>p300/CBP write; HDAC1/SIRT1/SIRT6 erase</td>
+<td>no dominant reader</td>
+<td>Newly synthesised H3; chromatin assembly</td>
+</tr>
+<tr>
+<td>H4K5ac, H4K8ac, H4K12ac</td>
+<td>HAT1/p300/CBP write; HDACs erase</td>
+<td>Bromodomains</td>
+<td>Replication-coupled H4 deposition</td>
+</tr>
+<tr>
+<td>H4K16ac</td>
+<td>MOF writes; SIRT1/2 erase</td>
+<td>context-dependent</td>
+<td>Disrupts 30-nm fibre compaction; active gene bodies</td>
+</tr>
+<tr>
+<td>H2BK120ub</td>
+<td>RNF20/40 writes; USP22 erases</td>
+<td>crosstalk readers</td>
+<td>Required for H3K4me3 and H3K79me deposition</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Repressive methylation and Polycomb marks</strong></p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 39%" />
+<col style="width: 31%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mark</th>
+<th>Writer / eraser</th>
+<th>Main readers</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3K9me1</td>
+<td>G9a/GLP/SETDB1 write; KDM3 removes</td>
+<td>weak / context-dependent</td>
+<td>Active gene bodies; cooperates with elongation marks</td>
+</tr>
+<tr>
+<td>H3K9me2</td>
+<td>G9a/GLP write; KDM3/LSD1 remove</td>
+<td>HP1, CDYL</td>
+<td>Facultative heterochromatin and silenced euchromatin</td>
+</tr>
+<tr>
+<td>H3K9me3</td>
+<td>SUV39H and SETDB1 write; KDM4 removes</td>
+<td>HP1 alpha/beta/gamma, CBX1/3/5</td>
+<td>Constitutive heterochromatin; centromeres; transposons</td>
+</tr>
+<tr>
+<td>H3K27me1/2</td>
+<td>EZH2 writes; UTX/JMJD3 remove</td>
+<td>EED for me2/3 contexts</td>
+<td>Active gene bodies at low level; me2 prevents inappropriate enhancer
+activation</td>
+</tr>
+<tr>
+<td>H3K27me3</td>
+<td>EZH2/PRC2 writes; UTX/JMJD3 remove</td>
+<td>EED and CBX-PRC1</td>
+<td>Polycomb domains; developmental-gene repression</td>
+</tr>
+<tr>
+<td>H4K20me3</td>
+<td>SUV4-20H writes; PHF8 erases</td>
+<td>53BP1 Tudor</td>
+<td>Pericentric heterochromatin and DNA-damage response</td>
+</tr>
+<tr>
+<td>H2AK119ub</td>
+<td>RNF2/RING1B writes; BAP1 removes</td>
+<td>JARID2-associated PRC2.2</td>
+<td>Stable Polycomb silencing layer</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dynamic damage, cell-cycle, and metabolic marks</strong></p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 39%" />
+<col style="width: 31%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mark</th>
+<th>Writer / eraser</th>
+<th>Main readers</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3S10ph</td>
+<td>Aurora B/MSK write; PP1/PP2A erase</td>
+<td>14-3-3 proteins</td>
+<td>Mitosis and immediate-early gene activation</td>
+</tr>
+<tr>
+<td>H3T3ph</td>
+<td>Haspin writes; PP1 erases</td>
+<td>Survivin/CPC</td>
+<td>Inner-centromere recruitment during mitosis</td>
+</tr>
+<tr>
+<td>H2A.X-S139ph (gamma-H2AX)</td>
+<td>ATM/ATR/DNA-PK write; PP2A/WIP1 erase</td>
+<td>MDC1 BRCT</td>
+<td>Double-strand-break signalling foci</td>
+</tr>
+<tr>
+<td>H3T6ph</td>
+<td>PRK1 writes; PP1 erases</td>
+<td>context-dependent</td>
+<td>Androgen-receptor targets; H3K4 demethylation crosstalk</td>
+</tr>
+<tr>
+<td>H4K12su and H2BK34su</td>
+<td>PIAS/MMS21 write; SENP erases</td>
+<td>SIM-containing readers</td>
+<td>Polycomb and DNA-damage coordination</td>
+</tr>
+<tr>
+<td>H2A/H4 ADP-ribosylation</td>
+<td>PARP1/2 write; PARG/ARH3 erase</td>
+<td>Macrodomain proteins</td>
+<td>Chromatin relaxation for DNA repair</td>
+</tr>
+<tr>
+<td>H3K18la</td>
+<td>p300 writes; HDAC1-3 erase</td>
+<td>YEATS domains</td>
+<td>Lactate-linked macrophage polarisation</td>
+</tr>
+<tr>
+<td>H3K9bhb</td>
+<td>p300 writes; HDAC1-3 erase</td>
+<td>YEATS domains</td>
+<td>Ketosis and fasting response</td>
+</tr>
+<tr>
+<td>H3K9cr, H3K9su, H3K4but</td>
+<td>p300 or metabolic enzymes write; HDAC/sirtuin systems erase</td>
+<td>YEATS-family readers</td>
+<td>Metabolism-linked activation in enhancers, promoters, and
+gametogenesis</td>
+</tr>
+</tbody>
+</table>
+<p>The bottom rows reflect a major recent expansion of the histone code:
+short-chain acyl-CoAs derived from intermediary metabolism (lactate,
+β-hydroxybutyrate, crotonyl-CoA, succinyl-CoA, butyryl-CoA) are
+deposited by the same KAT/HAT enzymes (especially p300) that write
+acetyl marks, directly coupling <strong>metabolic state</strong> to
+chromatin state. The lactyl mark, in particular, has become the
+molecular signature of the Warburg-effect–polarised tumour-associated
+macrophage.</p>
+<h3 id="histone-acetylation">Histone Acetylation</h3>
+<p><strong>Writers:</strong> Histone acetyltransferases (HATs) —
+CBP/p300, GCN5/PCAF, TIP60, MOF. <strong>Erasers:</strong> Histone
+deacetylases (HDACs) — 18 human HDACs in four classes (Class
+I/II/III/IV, where Class III = NAD⁺-dependent sirtuins SIRT1–7).
+<strong>Readers:</strong> Bromodomains (e.g., BRD4, TFIID subunit TAF1,
+BAF180 of PBAF, BPTF). YEATS domains (AF9, ENL) read both acetyl and
+longer acyl marks.</p>
+<p><strong>Mechanism:</strong> Acetylation of lysine ε-amino groups by
+transfer from acetyl-CoA. Neutralises the positive charge on lysine,
+<strong>weakening histone–DNA electrostatic interactions</strong>,
+loosening chromatin and facilitating <a
+href="#gl:transcription"><strong>transcription</strong></a> factor
+binding.</p>
+<p><span class="math display">\[\begin{equation}\text{Lys-NH}_3^+ +
+\text{acetyl-CoA} \xrightarrow{\text{HAT}} \text{Lys-NH-COCH}_3 +
+\text{CoA-SH} + \text{H}^+
+\tag{15.2}\label{eq:hat}\end{equation}\]</span></p>
+<p><strong>Key active marks:</strong> - <strong>H3K27ac:</strong> Marks
+active enhancers (distinguishes active from poised enhancers, which
+carry H3K27me3) - <strong>H3K9ac, H3K14ac, H4K16ac:</strong> Found at
+active promoters and transcribed gene bodies</p>
+<blockquote>
+<p><strong>Clinical Connection — HDAC inhibitors (full clinical
+profile):</strong> Histone deacetylase inhibitors (HDACi) are
+FDA-approved anticancer drugs. - <strong>Vorinostat (SAHA)</strong> —
+FDA approved 2006 for cutaneous T-cell lymphoma (CTCL). Hydroxamate
+pan-HDACi. Median time to response ~2 months; objective response ~30 %.
+- <strong>Romidepsin (Istodax)</strong> — FDA approved 2009 for CTCL and
+2011 for peripheral T-cell lymphoma. Cyclic depsipeptide; class-I
+selective. Distinct dose-limiting toxicities (GI, fatigue,
+thrombocytopenia). - <strong>Panobinostat (Farydak)</strong> — FDA
+approved 2015 for relapsed/refractory multiple myeloma in combination
+with bortezomib + dexamethasone. Pan-HDACi; superior CD138+ plasma-cell
+apoptosis when combined with proteasome inhibitor. - <strong>Belinostat
+(Beleodaq)</strong> — FDA 2014 for PTCL. - <strong>Tucidinostat
+(Chidamide)</strong> — China-approved 2014 for PTCL; first benzamide
+HDACi.</p>
+<p>Mechanism in cancer: re-activation of silenced tumour-suppressor
+genes (p21, gelsolin, RhoB, BCL6); accumulation of acetylation on
+non-histone targets (HSP90 chaperone client release, p53 stabilisation,
+NF-κB inhibition). Combination with <strong>DNMT inhibitors</strong> is
+being explored to reverse layered silencing, a theme developed later in
+the cancer-epigenetics discussion.</p>
+</blockquote>
+<h3 id="histone-methylation">Histone Methylation</h3>
+<p><strong>Writers:</strong> Histone methyltransferases (HMTs) — most
+contain SET domains (except DOT1L, which has a 7β-strand
+methyltransferase fold derived from class V methyltransferases).
+<strong>Erasers:</strong> Histone demethylases — KDM1/LSD1
+(FAD-dependent; works on me1 and me2 primarily; cannot demethylate me3
+because it requires a free lysine ε-amino lone pair); KDM2–7
+(Jumonji-domain, Fe(II)/αKG-dependent; can remove me3 by
+hydroxymethyl-amine intermediate that decomposes to formaldehyde and
+demethylated lysine). <strong>Readers:</strong> Chromodomains (HP1 reads
+H3K9me3; CBX2/4/6/7/8 of PRC1 read H3K27me3); PHD fingers (TAF3, BPTF,
+ING proteins read H3K4me3); Tudor domains (53BP1 reads H4K20me2; SMN
+reads symmetrical R-methylation); MBT domains; WD40 (EED reads
+H3K27me3); PWWP domains (read H3K36me3).</p>
+<p>Unlike acetylation (typically activating), <strong>methylation is
+context-dependent</strong>: the same modification on different residues
+has opposite effects.</p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 26%" />
+<col style="width: 21%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mark</th>
+<th>Enzyme</th>
+<th>State</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3K4me1</td>
+<td>MLL3/4</td>
+<td>Active</td>
+<td>Enhancer elements (poised or active)</td>
+</tr>
+<tr>
+<td>H3K4me3</td>
+<td>MLL1/SET1</td>
+<td>Active</td>
+<td>Active promoters; read by TAF3 PHD</td>
+</tr>
+<tr>
+<td>H3K36me3</td>
+<td>SETD2</td>
+<td>Active</td>
+<td>Transcribed gene bodies; prevents cryptic initiation</td>
+</tr>
+<tr>
+<td>H3K27me3</td>
+<td>EZH2 (PRC2)</td>
+<td>Repressive</td>
+<td>Polycomb targets; poised/silent developmental genes</td>
+</tr>
+<tr>
+<td>H3K9me3</td>
+<td>SUV39H1/H2</td>
+<td>Repressive</td>
+<td>Constitutive heterochromatin; <a
+href="#gl:centromere"><strong>centromere</strong></a>s; transposons</td>
+</tr>
+<tr>
+<td>H4K20me3</td>
+<td>SUV4-20H</td>
+<td>Repressive</td>
+<td>Pericentric heterochromatin; DNA damage response</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Bivalent domains:</strong> In embryonic stem cells, many
+developmental gene promoters carry <strong>both H3K4me3 and
+H3K27me3</strong> simultaneously — a “bivalent” state. These genes are
+poised for either rapid activation (upon H3K27me3 removal by KDM6A/UTX)
+or repression (upon H3K4me3 removal) during differentiation. About 2,500
+promoters are bivalent in human ES cells; most resolve to monovalent
+during lineage commitment.</p>
+<h3 id="phosphorylation-and-ubiquitination">Phosphorylation and
+Ubiquitination</h3>
+<p><strong>H3S10ph (H3 Ser10 phosphorylation):</strong> - Writer: Aurora
+B kinase (<a href="#gl:mitosis"><strong>mitosis</strong></a>), MSK1/2
+(mitogenic signalling) - Function: Chromosome condensation during
+mitosis; gene activation by 14-3-3 reader binding</p>
+<p><strong>H2AX-S139ph (γH2AX):</strong> - Writer: ATM/ATR kinases at
+double-strand breaks - Function: Marks DSB sites; recruits MDC1 and DNA
+repair machinery; visible as bright immunofluorescence foci at break
+sites</p>
+<p><strong>H2AK119ub (H2A monoubiquitination):</strong> - Writer:
+RNF2/RING1B (part of PRC1 complex) - Function: Represses transcription
+elongation; part of Polycomb silencing; read by Polycomb-like
+proteins</p>
+<blockquote>
+<p><strong>Concept Check 2:</strong> A cancer-associated EZH2
+gain-of-function mutation leads to <a
+href="#gl:genome"><strong>genome</strong></a>-wide hypermethylation of
+H3K27 and silencing of tumour-suppressor genes. To what extent would an
+HDAC inhibitor (which increases histone acetylation) be expected to
+re-activate these silenced loci? Explain by reference to the
+dependencies between acetylation, methylation, and DNA methylation
+described above — and argue for a rational combination therapy.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 3:</strong> Predict the genome-wide consequence
+of a homozygous knockout of <strong>SETD2</strong> (the H3K36me3 writer)
+in an embryonic stem cell. Consider effects on (i) cryptic intragenic
+transcription, (ii) DNA mismatch repair recruitment, and (iii)
+DNMT3B-mediated gene-body methylation. Which of these phenotypes most
+directly explains why <em>SETD2</em> loss-of-function is the most
+frequent driver mutation in clear-cell renal cell carcinoma after
+VHL?</p>
+</blockquote>
+<hr />
+<h2 id="polycomb-and-trithorax-cellular-memory-systems">Polycomb and
+Trithorax — Cellular Memory Systems</h2>
+<p>The <strong>Polycomb (PcG)</strong> and <strong>Trithorax
+(TrxG)</strong> group proteins were discovered in <em>Drosophila</em> as
+gene families whose loss-of-function alleles cause homeotic
+transformations of body segments. They constitute the cell’s principal
+<strong>cellular memory systems</strong>: once a developmental gene is
+set ON or OFF in a progenitor, PcG/TrxG complexes propagate that state
+through most subsequent mitotic divisions of the lineage.</p>
+<h3 id="polycomb-repressive-complexes-structural-detail">Polycomb
+Repressive Complexes — Structural Detail</h3>
+<pre class="mermaid"><code>flowchart LR
+    PRC2[&quot;PRC2 core\nEZH2 (catalytic)\nEED (H3K27me3 reader)\nSUZ12 (scaffold)\nRBBP4/7 (histone chaperone)&quot;] --&gt;|writes| K27me3[&quot;H3K27me3&quot;]
+    K27me3 --&gt;|read by EED| PRC2
+    K27me3 --&gt;|read by CBX| PRC1[&quot;PRC1 canonical\nCBX2/4/6/7/8 (chromodomain)\nRING1A/B (E3 Ub ligase)\nBMI1/MEL18\nPHC1/2/3&quot;]
+    PRC1 --&gt;|writes| K119ub[&quot;H2AK119ub&quot;]
+    K119ub --&gt;|read by JARID2| PRC2_recruit[&quot;PRC2 recruitment\nfor spreading&quot;]
+    PRC2_recruit --&gt; PRC2
+
+    Variant_PRC1[&quot;Variant PRC1\nRING1A/B + RYBP/YAF2\nKDM2B (recruits via CpG islands)&quot;] --&gt; K119ub
+
+    style K27me3 fill:#8e44ad,color:#fff
+    style K119ub fill:#9b59b6,color:#fff
+    style PRC2 fill:#34495e,color:#fff
+    style PRC1 fill:#34495e,color:#fff</code></pre>
+<!-- alt: Flowchart showing polycomb silencing operates as a feedback-amplified two-mark system: PRC2 writes H3K27me3, which recruits more PRC2 (positive feedback) and recruits canonical PRC1 (via CBX) which writes H2AK119ub. Variant PRC1 acts upstream at unmethylated CpG islands and seeds H2AK119ub which itself recruits PRC2. The mutual reinforcement explains how Polycomb domains span hundreds of kilobases and persist through cell divisions. -->
+<p><em>Polycomb silencing operates as a feedback-amplified two-mark
+system: PRC2 writes H3K27me3, which recruits more PRC2 (positive
+feedback) and recruits canonical PRC1 (via CBX) which writes H2AK119ub.
+Variant PRC1 acts upstream at unmethylated CpG islands and seeds
+H2AK119ub which itself recruits PRC2. The mutual reinforcement explains
+how Polycomb domains span hundreds of kilobases and persist through cell
+divisions.</em></p>
+<p><strong>PRC1 — comprehensive subunit inventory:</strong> - Catalytic
+core: <strong>RING1A</strong> (RNF1) or <strong>RING1B</strong> (RNF2)
+E3 ubiquitin ligase + a PCGF partner (PCGF1, PCGF2/MEL18, PCGF3,
+PCGF4/BMI1, PCGF5, PCGF6). - <strong>Canonical PRC1 (cPRC1):</strong>
+RING1A/B + PCGF2/4 (MEL18/BMI1) + a <strong>CBX</strong> (CBX2/4/6/7/8)
+chromobox subunit + PHC1/2/3 + SCMH1/L2. The CBX chromodomain reads
+H3K27me3, anchoring cPRC1 onto Polycomb-marked chromatin. PHC SAM-domain
+polymerisation drives <strong>chromatin compaction in cis</strong>
+(head-to-tail oligomerisation creates a phase-separated Polycomb body).
+- <strong>Variant PRC1 (vPRC1):</strong> RING1A/B + PCGF1/3/5/6 + RYBP
+(or YAF2) instead of CBX. Recruited to <strong>unmethylated CpG
+islands</strong> via KDM2B (PCGF1 complex, “ncPRC1.1”) or via E2F6
+(PCGF6). Deposits H2AK119ub <em>upstream</em> of H3K27me3 — a key
+insight: vPRC1 acts first, then PRC2.2 reads H2AK119ub via JARID2.</p>
+<p><strong>PRC2 — comprehensive subunit inventory:</strong> - Catalytic
+core: <strong>EZH2</strong> (or paralog <strong>EZH1</strong>;
+SET-domain methyltransferase). EZH2 is faster but EZH1 is dominant in
+non-dividing cells. - <strong>EED</strong> binds H3K27me3 product →
+allosteric activation of EZH2 (the <strong>read-write feedback</strong>
+that generates broad Polycomb domains). - <strong>SUZ12</strong>
+scaffold links the SET-domain catalytic core to the DNA/RNA-recognition
+modules. - <strong>RBBP4/7</strong> histone chaperone presents the H3
+tail substrate. - <strong>Accessory subunits define context-dependent
+variants:</strong> - <strong>PRC2.1:</strong> PCL1/2/3 (PHF1, MTF2,
+PHF19) + EPOP or PALI1. The PHF Tudor domains read H3K36me3, restricting
+PRC2.1 from active gene bodies. - <strong>PRC2.2:</strong> AEBP2 +
+JARID2. JARID2 reads H2AK119ub deposited by variant PRC1 and stimulates
+PRC2 activity (closing the recruitment loop). - <strong>Reaction
+kinetics:</strong> H3K27 → H3K27me1 (k₁ ≈ 0.05 s⁻¹) → H3K27me2 (k₂ ≈
+0.02 s⁻¹) → H3K27me3 (k₃ ≈ 0.005 s⁻¹), with each step ~3-fold slower;
+EED-allosteric stimulation increases k₃ by ~6-fold on neighbouring
+nucleosomes carrying me3. - <strong>Recruitment hierarchy:</strong>
+unmethylated CpG islands (via PRC2.2/JARID2 reading H2AK119ub from
+variant PRC1, <em>or</em> via PRC2.1/PCL with KDM2B); broad gene-body
+recognition by EED reading existing me3; lncRNA recruitment (HOTAIR,
+XIST repA, KCNQ1OT1, ANRIL).</p>
+<p><strong>Mechanism of Polycomb–Trithorax antagonism:</strong> PRC2.1
+cannot act on H3K36-methylated chromatin (PCL Tudor reads H3K36me3
+antagonistically — the CPL paradox). Conversely, <strong>ASH1L</strong>
+(the Trithorax-group H3K36 methyltransferase) deposits H3K36me2 at
+active gene bodies, blocking PRC2 spreading. The cell uses this as a
+positive/negative selection: H3K36me-active = Polycomb-restricted;
+H3K36me-absent = Polycomb-permissive.</p>
+<h3 id="trithorax-group-trxg-antagonising-polycomb">Trithorax Group
+(TrxG) — Antagonising Polycomb</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 33%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>TrxG complex</th>
+<th>Activity</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MLL/COMPASS family (MLL1–4, SET1A/B)</td>
+<td>H3K4 methyltransferase</td>
+<td>Marks active and poised promoters/enhancers</td>
+</tr>
+<tr>
+<td>ASH1L</td>
+<td>H3K36 methyltransferase</td>
+<td>Antagonises Polycomb spread into active genes</td>
+</tr>
+<tr>
+<td>KDM6A/UTX, KDM6B/JMJD3</td>
+<td>H3K27me3 demethylases</td>
+<td>Remove Polycomb marks during differentiation</td>
+</tr>
+<tr>
+<td>SWI/SNF (BAF)</td>
+<td>ATP-dependent remodelling</td>
+<td>Evicts PRC1/2; opens chromatin</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The COMPASS family — six MLL/SET1 complexes in
+mammals:</strong> - <strong>MLL1/KMT2A</strong> (mixed-lineage leukaemia
+1) — large promoter H3K4me3 deposition; MLL1-AF4/AF9/ENL fusions cause
+infant acute lymphoblastic or acute myeloid leukaemia. -
+<strong>MLL2/KMT2B</strong> — closely related to MLL1; redundant at most
+loci; selective at others. - <strong>MLL3/KMT2C</strong> and
+<strong>MLL4/KMT2D</strong> — write enhancer H3K4me1 (poised and active
+enhancers); KMT2D is among the most frequently mutated
+chromatin-regulator genes in cancer (~10 % of B-cell lymphoma and
+bladder cancer). - <strong>SET1A/KMT2F</strong> and
+<strong>SET1B/KMT2G</strong> — write the bulk of promoter H3K4me3 in
+adult tissues; SET1A loss-of-function in MDS and CHIP.</p>
+<p>Most six complexes share a <strong>WRAD module</strong>
+(WDR5–RbBP5–ASH2L–DPY30) that allosterically activates the SET-domain
+catalytic subunit by ~600-fold. This makes WRAD a tractable allosteric
+drug target — small-molecule WDR5–MLL interface inhibitors (OICR-9429)
+are in early-phase trials for MLL-rearranged leukaemia.</p>
+<p><strong>The Polycomb–Trithorax balance</strong> is maintained
+dynamically. Differentiation cues that activate gene expression
+typically deploy three concurrent steps: (i) UTX/JMJD3 removes H3K27me3,
+(ii) MLL/COMPASS deposits H3K4me3, and (iii) BAF complexes evict
+residual PRC1. Conversely, lineage repression deposits PRC1/PRC2 marks
+at the relevant promoter.</p>
+<p><strong>Clinical translation — EZH2 inhibitors:</strong> -
+<strong>Tazemetostat (Tazverik)</strong> is a small-molecule SET-domain
+inhibitor of EZH2, FDA-approved (2020) for <strong>epithelioid
+sarcoma</strong> (which loses INI1/SMARCB1 — a SWI/SNF subunit — and
+becomes hyper-dependent on EZH2 silencing) and <strong>EZH2-mutant
+follicular lymphoma</strong>. Mechanism: SAM-competitive small molecule
+occupies the EZH2 SET-domain pocket. Approved dose 800 mg BID PO. Median
+PFS in INI1-loss epithelioid sarcoma trial: 5.5 months vs 1.9 placebo;
+ORR 15 %. - <strong>Valemetostat</strong> (EZH1 + EZH2 dual inhibitor)
+was approved in 2022 in Japan for adult T-cell leukaemia/lymphoma (ATL);
+ORR 48 %. - <strong>Ivosidenib + tazemetostat</strong> combinations in
+IDH-mutant glioma are in trial, exploiting the IDH-mutant tumour’s
+dependence on Polycomb-driven differentiation block.</p>
+<p>The mechanism is paradigmatic of <strong>synthetic lethality</strong>
+in chromatin: tumours with SWI/SNF loss become dependent on Polycomb
+silencing of cell-cycle inhibitors, so EZH2 inhibition selectively
+re-activates suppressors primarily in the cancer cells.</p>
+<blockquote>
+<p><strong>Worked Example 1 — Polycomb Spreading Model with Read-Write
+Feedback</strong></p>
+<p><strong>Setup:</strong> A naive promoter has 2 nucleosomes carrying
+H3K27me3 (call this “seed”), recruiting PRC2 with EED-driven allosteric
+activation. PRC2 deposits H3K27me3 on the next nucleosome with rate
+constant <em>k</em> per generation. Each cell division dilutes existing
+H3K27me3 by half (passive demethylation through nucleosome turnover,
+since newly deposited histones at the replication fork are
+unmethylated). The gene body comprises 50 nucleosomes.</p>
+<p><strong>Question:</strong> Derive the steady-state H3K27me3 density
+along the gene body for <em>k</em> = 1, 2, and 5 marks per generation.
+What is the minimum <em>k</em> needed for the silencing mark to spread
+fully (≥ 90 % of nucleosomes methylated)?</p>
+<p><strong>Solution:</strong> Let <span
+class="math inline">\(m_n\)</span> be the average number of
+H3K27me3-marked nucleosomes at generation <span
+class="math inline">\(n\)</span>, with <span class="math inline">\(m_0 =
+2\)</span> (seed). Each generation: - Half of existing marks are
+passively diluted: <span
+class="math inline">\(m_{\text{post-replication}} = m_n / 2\)</span>. -
+PRC2 deposits <em>k</em> new marks at neighbouring nucleosomes
+(read-write spreading): <span class="math inline">\(m_{n+1} = m_n / 2 +
+k\)</span>.</p>
+<p>Steady-state when <span class="math inline">\(m_{\infty} = m_{\infty}
+/ 2 + k\)</span>, so <span class="math inline">\(m_{\infty} =
+2k\)</span> marked nucleosomes.</p>
+<table>
+<thead>
+<tr>
+<th><em>k</em> (marks/gen)</th>
+<th>Steady-state <span class="math inline">\(m_\infty\)</span></th>
+<th>Gene-body coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>4 % (silencing fails)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>4</td>
+<td>8 %</td>
+</tr>
+<tr>
+<td>5</td>
+<td>10</td>
+<td>20 %</td>
+</tr>
+<tr>
+<td>25</td>
+<td>50</td>
+<td>100 % (saturated)</td>
+</tr>
+<tr>
+<td>45</td>
+<td>90</td>
+<td>100 % (rapid saturation)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Insight:</strong> For full coverage of a 50-nucleosome gene
+body (≥ 45 marks at steady state), <em>k</em> must exceed ~22 marks per
+generation — i.e., PRC2 must deposit &gt; 11× the seed quantity each
+cell cycle. This is achievable primarily with the <strong>EED–allosteric
+read-write loop</strong>: each existing H3K27me3 catalytically recruits
+more PRC2 to neighbouring nucleosomes, creating positive feedback.
+Without this loop (e.g., in EED-mutant cells), Polycomb domains collapse
+over a few divisions. This is why <strong>EED-binding small molecules
+(EED226, MAK683)</strong> are emerging as alternative EZH2-pathway
+inhibitors that disrupt the feedback loop selectively.</p>
+</blockquote>
+<hr />
+<h2 id="dna-methylation">DNA Methylation</h2>
+<h3 id="cpg-methylation-mechanism">CpG Methylation Mechanism</h3>
+<p>In mammals, DNA methylation occurs almost exclusively on cytosine in
+the context <strong>5′-CpG-3′</strong> dinucleotides (the “p” denotes
+the phosphodiester bond between C and G). The methylated form is <a
+href="#gl:5-methylcytosine"><strong>5-methylcytosine (5mC)</strong></a>,
+often called the “fifth base.”</p>
+<p><span class="math display">\[\begin{equation}\text{Cytosine} +
+\text{S-adenosylmethionine} \xrightarrow{\text{DNMT}}
+\text{5-methylcytosine} + \text{S-adenosylhomocysteine}
+\tag{15.3}\label{eq:DNMT}\end{equation}\]</span></p>
+<h3 id="the-dna-methylation-machinery-in-depth">The DNA Methylation
+Machinery — In Depth</h3>
+<p><strong>Maintenance methyltransferase — DNMT1:</strong> the workhorse
+enzyme that ensures heritability of CpG methylation across cell
+divisions. - DNMT1 has a two-domain architecture: an N-terminal
+regulatory domain (containing CXXC, BAH1/2, and replication-foci
+targeting RFTS subdomains) and a C-terminal catalytic domain. -
+<strong>Substrate specificity:</strong> preferentially methylates
+<strong>hemi-methylated CpGs</strong> — sites where the parental strand
+carries 5mC but the newly synthesised daughter strand is unmodified.
+Affinity for hemi-methylated CpGs is ~10–40-fold higher than for
+unmethylated CpGs. - <strong>Recruitment — the UHRF1–DNMT1
+axis:</strong> the protein <strong>UHRF1</strong> (“ubiquitin-like with
+PHD and RING finger domains 1”) is the molecular bridge that targets
+DNMT1 to replicating heterochromatin. UHRF1 has <strong>five
+domains</strong>: UBL (ubiquitin-like), TTD (Tudor — reads H3K9me2/3),
+PHD (reads unmethylated H3R2), SRA (reads hemi-methylated CpG via
+base-flipping), and RING (E3 ubiquitin ligase). The dual recognition of
+(a) hemi-methylated CpG (via SRA) AND (b) H3K9me2/3 (via TTD) ensures
+that DNMT1 propagates methylation primarily at chromatin states already
+marked for repression. - <strong>The mechanism cycle (per CpG):</strong>
+1. UHRF1 SRA domain flips the 5mC out of the helix, exposing the
+unmethylated daughter cytosine. 2. UHRF1 RING ubiquitinates H3K18 (H3
+tail) — creating a docking site for DNMT1’s RFTS domain. 3. DNMT1 RFTS
+binds H3K18ub; DNMT1 catalytic domain transfers a methyl group from SAM
+to the daughter cytosine. 4. SAH (S-adenosyl-homocysteine) released;
+UHRF1 dissociates; cycle repeats. - <strong>Quantitative
+parameters:</strong> maintenance efficiency per CpG ε ≈ 0.95 in healthy
+cells. Each replication fork carries ~50 CpGs/s of unmethylated daughter
+DNA into the lumen — DNMT1 must fix them within minutes before chromatin
+reassembly. - <strong>Loss-of-function:</strong> mouse Dnmt1-knockout
+embryos die at E9.5 with genome-wide demethylation, ectopic gene
+expression, and replication-fork instability. Conditional knockouts in
+tissue-specific contexts produce lineage-specific failures
+(haematopoietic stem-cell exhaustion; intestinal epithelial
+collapse).</p>
+<p><strong>De novo methyltransferases — DNMT3A, DNMT3B:</strong> - Both
+have an N-terminal regulatory PWWP domain (reads H3K36me3) and an ADD
+domain (reads unmethylated H3K4 = H3K4me0). PWWP recognition couples
+<em>de novo</em> methylation deposition to gene-body H3K36me3-marked
+regions; ADD ensures methylation deposition is excluded from
+H3K4me3-marked active promoters (a fundamental safeguard against
+silencing active genes). - Establish <em>new</em> methylation patterns
+during germline development, gametogenesis, and early embryogenesis. -
+Both require <strong>DNMT3L</strong> (catalytically inactive; missing
+the SET-like motif required for SAM binding) as a regulatory partner
+that stimulates activity ~15-fold and itself reads H3K4me0 — coupling
+methylation deposition to <em>absence</em> of active marks. - DNMT3A:
+predominant in oocyte, embryonic stem cells, haematopoietic stem cells;
+loss-of-function mutations are frequent in <strong>clonal
+haematopoiesis</strong> (~5 % of healthy individuals over age 70) and
+AML (~20 % of cytogenetically normal AML); also Tatton-Brown–Rahman
+syndrome (germline DNMT3A loss with overgrowth). - DNMT3B: predominant
+in B cells, embryonic stem cells; loss-of-function causes <strong>ICF
+syndrome</strong> (immunodeficiency, centromeric instability, facial
+anomalies) due to demethylation of pericentromeric satellites.</p>
+<p><strong>Demethylation — TET family enzymes — the active demethylation
+pathway:</strong> - TET1, TET2, TET3 are
+Fe(II)/α-ketoglutarate-dependent dioxygenases (each ~2,000 amino acids)
+with conserved C-terminal catalytic domains. They sequentially
+oxidise:</p>
+<p><span class="math display">\[\begin{equation}5\text{mC}
+\xrightarrow{\text{TET}} 5\text{hmC} \xrightarrow{\text{TET}} 5\text{fC}
+\xrightarrow{\text{TET}} 5\text{caC} \xrightarrow{\text{TDG/BER}}
+\text{C} \tag{15.4}\label{eq:tet_oxidation}\end{equation}\]</span></p>
+<ul>
+<li><strong>Reaction details:</strong> TET enzymes consume O₂ and αKG,
+producing CO₂ and succinate. Each oxidation step transfers an oxygen
+atom from O₂ to the methyl carbon of cytosine.</li>
+<li><strong>Active demethylation by base excision repair:</strong>
+5-formylcytosine (5fC) and 5-carboxylcytosine (5caC) are recognised and
+excised by <strong>thymine DNA glycosylase (TDG)</strong>, which has a
+100-fold preference for 5fC/5caC over 5mC. TDG cleaves the N-glycosidic
+bond, leaving an abasic (AP) site. <strong>APE1</strong> then makes a
+single-nucleotide cut; <strong>DNA Pol β</strong> fills the gap with
+unmodified cytosine; <strong>DNA ligase III + XRCC1</strong> seal the
+nick. This is the canonical BER pathway adapted for methyl-cytosine
+erasure.</li>
+<li><strong>5hmC is itself a stable mark with distinct biology, not
+merely an intermediate.</strong> Different cell types have dramatically
+different 5hmC/5mC ratios — embryonic stem cells ~0.1 %, neurons ~0.7 %
+(Purkinje cells reach ~40 % of modified cytosines as 5hmC),
+cardiomyocytes ~0.5 %, tumour cells often &lt; 0.05 % (a <strong>5hmC
+depletion signature</strong> now used in liquid-biopsy diagnostics on
+platforms such as EpiCheck and GRAIL Galleri).</li>
+<li><strong>Tissue-specific TET expression:</strong> TET1 in stem cells
+(regulates pluripotency); TET2 in haematopoietic cells (clonal
+haematopoiesis); TET3 in zygote and neurons (post-fertilisation paternal
+demethylation; neural plasticity).</li>
+<li><strong>Clinical relevance:</strong> TET2 is the most frequently
+mutated epigenetic-writer gene in haematopoietic cancers —
+loss-of-function TET2 mutations are present in ~15 % of AML, 50 % of
+CMML, and define <strong>clonal haematopoiesis of indeterminate
+potential (CHIP)</strong> (~10 % of people over age 70). The
+oncometabolite <strong>2-hydroxyglutarate</strong> (produced by mutant
+IDH1/2) competitively inhibits TET (and other αKG-dependent
+dioxygenases), causing genome-wide hypermethylation in IDH-mutant
+gliomas and AML (the <strong>CIMP</strong> phenotype).</li>
+</ul>
+<p><strong>Methodological caveat:</strong> Bisulphite sequencing (the
+traditional 5mC gold standard) <strong>cannot distinguish 5mC from
+5hmC</strong> because both resist bisulphite-induced deamination. Modern
+methods that resolve oxidation states:</p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 28%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr>
+<th>Method</th>
+<th>Signal</th>
+<th>Resolution</th>
+<th>Distinguishes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bisulphite-seq (BS-seq)</td>
+<td>C→T primarily at unmethylated</td>
+<td>Single-base</td>
+<td>5mC + 5hmC vs C</td>
+</tr>
+<tr>
+<td>oxBS-seq</td>
+<td>Chemical oxidation of 5hmC → 5fC, then BS</td>
+<td>Single-base</td>
+<td>5mC alone</td>
+</tr>
+<tr>
+<td>TAB-seq</td>
+<td>Tet-assisted bisulphite (β-glucosylates 5hmC, then TET-oxidises
+5mC)</td>
+<td>Single-base</td>
+<td>5hmC alone</td>
+</tr>
+<tr>
+<td>ACE-seq</td>
+<td>APOBEC chemical sequencing</td>
+<td>Single-base</td>
+<td>5hmC enzymatically</td>
+</tr>
+<tr>
+<td>CMS-seq</td>
+<td>Cytosine 5-methylenesulfonate</td>
+<td>Single-base</td>
+<td>5fC alone</td>
+</tr>
+<tr>
+<td>caMAB-seq</td>
+<td>Carboxymethylated-cytosine antibody</td>
+<td>~250-bp</td>
+<td>5caC alone</td>
+</tr>
+<tr>
+<td>EM-seq</td>
+<td>Enzymatic methyl-seq (no bisulphite damage)</td>
+<td>Single-base</td>
+<td>5mC + 5hmC vs C</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Clinical liquid-biopsy translation:</strong> GRAIL’s Galleri
+test analyses cell-free DNA methylation patterns at &gt; 100,000 CpG
+sites; multi-cancer early detection (MCED) sensitivity ~67 % for stage
+I–IV combined; tissue-of-origin localisation accuracy ~93 %. The
+technology exploits that each tissue has a distinct methylation pattern,
+and tumours shed cfDNA with their tissue-specific signature.</p>
+<h3 id="cpg-islands-and-gene-regulation">CpG Islands and Gene
+Regulation</h3>
+<p><strong>CpG islands (CGIs):</strong> ~28,000 regions in the human
+genome (~500 bp–2 kb) with: - Observed/expected CpG ratio &gt; 0.6 - CG
+content &gt; 55% - Located near ~70% of mammalian gene promoters</p>
+<p><strong>Normally unmethylated</strong> in somatic cells. Methylation
+at CGI promoters is strongly associated with <strong>stable
+transcriptional silencing</strong>; the illustrative methylation heatmap
+in should be read as a beta-value pattern across loci and samples, not
+as patient or cell-line evidence. In empirical data, silencing operates
+by: 1. Steric blockade of TF binding (e.g., methylation at Sp1 sites) 2.
+Recruitment of methyl-CpG binding proteins (MBD family: MBD1, MBD2,
+MBD3, MBD4; MeCP2; Kaiso) 3. MBD-associated <strong>NuRD
+complex</strong> (MBD2/3-CHD4-HDAC1/2) → deacetylation → chromatin
+compaction</p>
+<p><strong>CpG depletion in the rest of the genome:</strong> Methylated
+CpGs are mutation hotspots (5mC → T deamination produces a C→T
+transition). Over evolutionary time, most CpGs outside islands have been
+lost — explaining the genome-wide CpG suppression. CpG islands have
+escaped depletion because methylation is normally absent and the
+deamination → mutation pressure is removed.</p>
+<h3 id="quantitative-maintenance-through-replication">Quantitative
+Maintenance Through Replication</h3>
+<p>Let <span class="math inline">\(f_n\)</span> be the fraction of CpGs
+methylated after <span class="math inline">\(n\)</span> divisions in the
+absence of <em>de novo</em> methylation:</p>
+<p><span class="math display">\[\begin{equation}f_n = f_0 \times
+\left(\frac{1-\epsilon}{2}\right)^n + f_0 \times \frac{1+\epsilon}{2}
+\tag{15.5}\label{eq:methyl_decay}\end{equation}\]</span></p>
+<p>where ε is the maintenance efficiency of DNMT1 (typically ~0.95 —
+i.e. each hemimethylated CpG is restored 95 % of the time at the
+replication fork). Even high maintenance efficiency therefore produces
+measurable <strong>stochastic demethylation</strong> over many
+divisions, which is why constitutively silenced genes also have backup
+repressive marks (H3K27me3, H3K9me3, H2AK119ub).</p>
+<blockquote>
+<p><strong>Worked Example 2 — DNMT1 efficiency and the kinetics of
+clonal demethylation</strong></p>
+<p><strong>Setup:</strong> A research group treats a cancer cell line
+with a DNMT1 small-molecule inhibitor that reduces ε from 0.95 to 0.50
+(50 % maintenance per CpG per division). The cells divide every 24 h.
+The cancer cell line carries an aberrantly hypermethylated <em>MLH1</em>
+promoter at <em>f₀</em> = 0.95 (95 % CpG methylation).</p>
+<p><strong>Question:</strong> How many days until methylation drops
+below the <em>f</em> = 0.30 threshold typically required for
+re-expression?</p>
+<p><strong>Solution:</strong> Using , <span class="math inline">\(f_n =
+f_0 \times \left(\frac{1-\epsilon}{2}\right)^n + f_0 \times
+\frac{1+\epsilon}{2}\)</span> — but at ε = 0.5 the steady-state floor is
+<span class="math inline">\(f_0 \cdot (1+0.5)/2 = 0.75 \cdot f_0 =
+0.71\)</span> for <em>f₀</em> = 0.95. The floor exceeds the 0.30
+threshold, so methylation will not drop below 0.30 with ε = 0.5 alone.
+To re-express MLH1, you need either complete DNMT1 inhibition (ε → 0) or
+active demethylation (TET upregulation). With ε = 0:</p>
+<p><span class="math inline">\(f_n = f_0 / 2^n\)</span></p>
+<table>
+<thead>
+<tr>
+<th>Generation <em>n</em></th>
+<th><span class="math inline">\(f_n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0.95</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0.475</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0.238</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0.119</td>
+</tr>
+</tbody>
+</table>
+<p>Threshold crossed between generation 1 and 2 — i.e., <strong>2 cell
+divisions ≈ 48 h</strong> after starting full DNMT1 inhibition. This
+kinetic is exactly why clinical responses to azacitidine/decitabine in
+MDS take ~4–6 cycles (~3–4 months) of continuous suppression to
+manifest: maintaining ε near zero is necessary but insufficient — the
+cell must also divide several times to dilute the existing mark.</p>
+</blockquote>
+<blockquote>
+<p><strong>Clinical Connection:</strong> In cancer, two genome-wide
+patterns are consistently found: 1. <strong>Global
+hypomethylation</strong>: Repetitive elements (LINE-1, SINE) become
+unmethylated → chromosomal instability, reactivation of transposons,
+mis-regulated lineage genes. 2. <strong>Focal CGI
+hypermethylation</strong>: Tumour-suppressor gene promoters (BRCA1,
+MLH1, VHL, CDKN2A/p16, MGMT, DAPK) become methylated → silencing.</p>
+<p><strong>DNMT inhibitors</strong> (azacitidine, decitabine) are
+nucleoside analogs incorporated into DNA; trapped DNMT1 forms a covalent
+adduct, causing passive demethylation. Approved for myelodysplastic
+syndrome (MDS) and AML. Combination with <strong>HDAC
+inhibitors</strong> is actively trialled. <strong>Liquid
+biopsies</strong> (e.g., GRAIL Galleri, Guardant Reveal) score hundreds
+of methylation features in cell-free DNA to detect early-stage cancer
+with tissue-of-origin localisation.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 4:</strong> A patient is treated with
+decitabine for high-risk MDS. After 4 cycles, the bone-marrow blast
+count is unchanged. Bisulphite sequencing of blast DNA shows the
+targeted <em>p15/CDKN2B</em> CGI is now 30 % methylated (from 90 % at
+baseline), but transcript levels remain undetectable. Propose three
+independent mechanisms that could explain transcriptional silencing
+despite DNMT1 inhibition, and design a bench experiment to distinguish
+them.</p>
+</blockquote>
+<hr />
+<h2 id="genomic-imprinting-mechanisms-and-reciprocal-phenotypes">Genomic
+Imprinting — Mechanisms and Reciprocal Phenotypes</h2>
+<p><strong>Genomic imprinting</strong> is a form of epigenetic
+regulation in which genes are expressed from a single parental <a
+href="#gl:allele"><strong>allele</strong></a> in a
+parent-of-origin-specific manner. ~150 genes are imprinted in humans,
+organised into ~30 imprinted clusters each controlled by an
+<strong>imprint control region (ICR)</strong> that is differentially
+methylated on the two parental chromosomes.</p>
+<h3 id="imprint-control-regions-icrs-the-master-switch">Imprint Control
+Regions (ICRs) — The Master Switch</h3>
+<p>ICRs are <strong>differentially methylated regions (DMRs)</strong>
+that are: 1. Established in the germline in a sex-specific pattern
+(paternal ICRs in spermatogenesis; maternal ICRs in oogenesis). 2.
+Maintained throughout somatic lineages — they escape post-fertilisation
+reprogramming via specialised protective mechanisms (e.g.,
+<strong>ZFP445</strong> + <strong>TRIM28/KAP1</strong> +
+<strong>DPPA3</strong> = the ICR-protection triad in early embryos). 3.
+Read by sequence-specific factors (e.g., <strong>CTCF</strong> at
+unmethylated maternal IGF2/H19 ICR; methyl-binding proteins at
+methylated paternal ICRs).</p>
+<p><strong>The CTCF insulator model — the canonical mechanism at
+IGF2/H19:</strong> CTCF binds CCCTC consensus motifs in the unmethylated
+ICR. CTCF blocks the enhancer–promoter looping interaction by recruiting
+cohesin to form a chromatin loop “barrier.” When the ICR is methylated,
+CTCF cannot bind (its zinc fingers fail to recognise methylated CpGs),
+so the enhancer is free to loop over and contact the <em>IGF2</em>
+promoter.</p>
+<h3
+id="the-igf2h19-locus-insulator-based-imprinting-detailed-mechanism">The
+IGF2/H19 Locus — Insulator-based Imprinting (Detailed Mechanism)</h3>
+<p>The canonical example is the <strong>IGF2/H19 locus</strong> on
+chromosome 11p15:</p>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Paternal [&quot;PATERNAL Chromosome 11p15&quot;]
+        pDMR[&quot;ICR/DMR\n(methylated CpGs)\nBlocks CTCF binding&quot;] --&gt; pIGF2[&quot;IGF2 EXPRESSED\n(growth factor)&quot;]
+        pDMR -.-&gt;|methylation blocks| pENH[&quot;Enhancer\n→ contacts IGF2&quot;]
+        pH19[&quot;H19 SILENCED\n(DMR methylation)&quot;]
+    end
+    subgraph Maternal [&quot;MATERNAL Chromosome 11p15&quot;]
+        mDMR[&quot;ICR/DMR\n(unmethylated)\nCTCF binding site&quot;] --&gt; mBlock[&quot;CTCF INSULATOR\nblocks enhancer-IGF2 contact&quot;]
+        mENH[&quot;Enhancer\n→ contacts H19&quot;] --&gt; mH19[&quot;H19 EXPRESSED\n(lncRNA; reservoir of miR-675)&quot;]
+        mIGF2[&quot;IGF2 SILENCED\n(enhancer blocked by CTCF)&quot;]
+    end
+
+    style pIGF2 fill:#e74c3c,color:#fff
+    style mH19 fill:#27ae60,color:#fff
+    style pH19 fill:#7f8c8d,color:#fff
+    style mIGF2 fill:#7f8c8d,color:#fff</code></pre>
+<!-- alt: Flowchart showing imprinting at the IGF2/H19 locus. Paternal allele (top): DMR is methylated, CTCF cannot bind; enhancer contacts IGF2 → IGF2 expressed, H19 silent. Maternal allele (bottom): DMR unmethylated, CTCF binds and insulates enhancer from IGF2; enhancer contacts H19 → H19 expressed, IGF2 silent. -->
+<p><em>Imprinting at the IGF2/H19 locus. Paternal allele (top): DMR is
+methylated, CTCF cannot bind; enhancer contacts IGF2 → IGF2 expressed,
+H19 silent. Maternal allele (bottom): DMR unmethylated, CTCF binds and
+insulates enhancer from IGF2; enhancer contacts H19 → H19 expressed,
+IGF2 silent.</em></p>
+<p><strong>Functional consequences of the locus:</strong> -
+<strong>IGF2</strong> (insulin-like growth factor 2): paternally
+expressed; potent fetal growth factor (signals through IGF1R / IGF2R).
+Drives placental and fetal growth. - <strong>H19</strong>: maternally
+expressed; a 2.3-kb spliced lncRNA; reservoir of miR-675 (which targets
+<em>IGF1R</em>, creating a feedback loop). In some tissues H19 itself
+acts as a tumour suppressor by inhibiting IGF1R signalling.</p>
+<h3
+id="the-15q11q13-locus-praderwilli-angelman-comprehensive-mechanism">The
+15q11–q13 Locus — Prader–Willi / Angelman (Comprehensive Mechanism)</h3>
+<p>A different mechanism operates at the <strong>15q11–q13</strong>
+imprinted cluster:</p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 53%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gene</th>
+<th>Imprint pattern</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>SNRPN, NDN, MAGEL2</em></td>
+<td>Paternally expressed</td>
+<td>Maternal copies silenced by methylation at the SNRPN ICR</td>
+</tr>
+<tr>
+<td><em>UBE3A</em></td>
+<td>Maternally expressed (in neurons)</td>
+<td>Paternal <em>UBE3A</em> silenced by an antisense lncRNA
+<em>UBE3A-ATS</em> expressed primarily from the paternal allele</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mechanism details:</strong> - The <strong>SNURF-SNRPN
+ICR</strong> sits ~30 kb upstream of <em>SNRPN</em> and is methylated on
+the maternal allele (silencing maternal <em>SNRPN, NDN, MAGEL2</em>) and
+unmethylated on the paternal allele (where these genes are expressed). -
+The unmethylated paternal ICR drives transcription of a long
+polycistronic transcript that extends ~600 kb to produce <em>SNRPN,
+SNORD-cluster snoRNAs</em> (SNORD115, SNORD116), and <em>UBE3A-ATS</em>
+(the antisense to <em>UBE3A</em>). - <em>UBE3A-ATS</em> transcription on
+the paternal allele suppresses paternal <em>UBE3A</em> expression —
+<em>primarily in neurons</em>. This is the most surprising aspect of the
+locus: the imprint is <strong>brain-specific</strong>.</p>
+<p><strong>Phenotypes — the parental-conflict reciprocal:</strong> -
+<strong>Prader–Willi syndrome</strong>: Loss of
+<strong>paternal</strong> 15q11–q13 expression — by paternal deletion
+(~70%), maternal uniparental disomy (~25%), or imprinting centre defect
+(~3%). Phenotype: neonatal hypotonia, hyperphagia and obesity,
+intellectual disability, hypogonadism, growth-hormone deficiency. The
+hypothalamic phenotype (especially the SNORD116 loss) drives the
+food-intake dysregulation. - <strong>Angelman syndrome</strong>: Loss of
+<strong>maternal</strong> <em>UBE3A</em> expression in the same region —
+by maternal deletion (~70%), paternal uniparental disomy (~5%),
+imprinting centre defect (~5%), or <em>UBE3A</em> point mutation (~10%).
+Phenotype: severe intellectual disability, seizures, ataxic gait, “happy
+puppet” demeanour, absence of speech. UBE3A is an E3 ubiquitin ligase
+critical for synaptic plasticity; loss in neurons disrupts
+excitatory/inhibitory balance.</p>
+<p><strong>Therapeutic angle — antisense oligonucleotide
+reactivation:</strong> Activation of the silenced paternal
+<em>UBE3A</em> by antisense oligonucleotides targeting
+<em>UBE3A-ATS</em> is in clinical trials for Angelman syndrome
+(Ionis/Biogen ION-582/GTX-102, Phase 1/2 trials underway 2024). The
+strategy: deplete the antisense lncRNA → de-repress paternal
+<em>UBE3A</em> → restore neuronal UBE3A protein. Intrathecal delivery is
+required because UBE3A imprinting is brain-specific.</p>
+<h3
+id="beckwithwiedemann-and-silverrussell-reciprocal-disorders">Beckwith–Wiedemann
+and Silver–Russell — Reciprocal Disorders</h3>
+<p>The IGF2/H19 ICR also produces two reciprocal phenotypes — a textbook
+illustration of <strong>dosage and parental conflict</strong>:</p>
+<ul>
+<li><strong>Beckwith–Wiedemann syndrome (BWS):</strong> biallelic IGF2
+expression (loss of maternal imprint, <strong>hypermethylation</strong>
+of the maternal ICR at H19) → maternal allele now expresses IGF2 like
+the paternal → fetal overgrowth, macrosomia (birth weight &gt; 4 kg),
+macroglossia, omphalocele, hypoglycaemia, hemihyperplasia, and a 7.5 %
+risk of childhood embryonal tumours (Wilms tumour, hepatoblastoma,
+neuroblastoma, rhabdomyosarcoma). Diagnosis: methylation analysis of the
+H19 DMR shows hypermethylation; some cases also have paternal UPD of
+11p15 (~20 %).</li>
+<li><strong>Silver–Russell syndrome (SRS):</strong> biallelic H19
+expression / no IGF2 (loss of paternal imprint,
+<strong>hypomethylation</strong> of the paternal ICR) → paternal allele
+now silent like the maternal → severe intrauterine growth restriction
+(IUGR), postnatal short stature, body asymmetry, characteristic
+triangular face, fifth-finger clinodactyly. Diagnosis: hypomethylation
+of the H19 DMR (~50 %) or maternal UPD of chromosome 7 (~10 %).</li>
+</ul>
+<p>This “mirror image” pair illustrates the <strong>parental-conflict
+(kinship)</strong> theory: paternally-expressed growth factors maximise
+embryonic growth (paternal genes care less about maternal resources,
+since the same father may not father subsequent siblings);
+maternally-expressed antagonists restrain growth (the mother distributes
+resources across multiple offspring).</p>
+<blockquote>
+<p><strong>Concept Check 5:</strong> A child is born with severe IUGR,
+characteristic facial features, and asymmetric limbs. Methylation
+analysis shows that both the paternal and maternal copies of the 11p15.5
+ICR are <em>hypomethylated</em>. Predict the likely diagnosis. Explain
+why hypermethylation versus hypomethylation at the <em>same</em> ICR
+produces <em>opposite</em> phenotypes (BWS vs SRS).</p>
+</blockquote>
+<hr />
+<h2 id="x-chromosome-inactivation-lyonisation-in-depth">X-Chromosome
+Inactivation (Lyonisation) — In Depth</h2>
+<p>In female placental mammals, dosage compensation for ~900 X-linked
+genes is achieved by transcriptionally silencing one of the two X
+chromosomes in every somatic cell.</p>
+<p><strong>Key features:</strong> - <strong>Random choice:</strong>
+Either the maternal or paternal X can be inactivated in each cell
+(choice is random in each blastomere nucleus). Imprinted paternal
+X-inactivation occurs in mouse extra-embryonic lineages but not in
+humans. - <strong>Clonal maintenance:</strong> Once established (~day
+4.5 in human embryo), the inactive state is mitotically heritable in
+most daughter cells — the same X is silenced in every descendant. -
+<strong>Barr body:</strong> The inactive X (Xi) forms a dense
+heterochromatic body (Barr body) visible by interphase cytology. -
+<strong>Incomplete:</strong> ~15–25% of X-linked genes
+<strong>escape</strong> inactivation. Most escapees lie in the
+<strong>pseudoautosomal regions (PAR1, PAR2)</strong> that recombine
+with the Y; others (e.g., <em>KDM6A</em>, <em>KDM5C</em>,
+<em>DDX3X</em>, <em>ZFX</em>) escape across the X. Escape genes
+contribute to female-biased autoimmune disease and to Turner syndrome
+haploinsufficiency phenotypes.</p>
+<p><strong>Molecular mechanism — a hierarchical cascade (timing and
+milestones):</strong></p>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 11%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>Time after initiation</th>
+<th>Event</th>
+<th>Molecular outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 min</td>
+<td>Choice made; Xist transcription up-regulated on future Xi</td>
+<td>Allele-specific Xist transcription begins</td>
+</tr>
+<tr>
+<td>0–60 min</td>
+<td>Xist RNA spreads in cis</td>
+<td>Coats 165 Mb Xi; entry sites at LINE-1-rich domains</td>
+</tr>
+<tr>
+<td>1–6 h</td>
+<td>Repeat A recruits SPEN/SHARP</td>
+<td>SPEN recruits HDAC3 → genome-wide deacetylation</td>
+</tr>
+<tr>
+<td>1–6 h</td>
+<td>Repeat B/C/D recruits PRC2</td>
+<td>EZH2 deposits H3K27me3 on Xi</td>
+</tr>
+<tr>
+<td>6–24 h</td>
+<td>Repeat E recruits PTBP1, MATR3</td>
+<td>Nuclear matrix tethering of Xi</td>
+</tr>
+<tr>
+<td>6–24 h</td>
+<td>PRC1 recruited downstream</td>
+<td>RING1B writes H2AK119ub</td>
+</tr>
+<tr>
+<td>1–7 days</td>
+<td>DNMT3A/3B methylate CpG-island promoters</td>
+<td>Stable maintenance of silencing</td>
+</tr>
+<tr>
+<td>2–14 days</td>
+<td>Histone variants accumulate</td>
+<td>macroH2A and H2A.Z reinforce heterochromatin</td>
+</tr>
+<tr>
+<td>7–21 days</td>
+<td>LBR anchors Xi to nuclear lamina</td>
+<td>Xi enters B compartment (nuclear periphery)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>XIST regulation by TSIX:</strong> The antisense lncRNA
+<em>TSIX</em> (transcribed across XIST in the opposite direction) keeps
+XIST repressed on the future active X (Xa). The mutual exclusion of
+XIST/TSIX between alleles enforces monoallelic XIST expression.
+<em>TSIX</em> itself is regulated by <em>XITE</em> (X-inactivation
+intergenic transcription element) and by chromatin-state asymmetries
+between the two alleles in early embryogenesis.</p>
+<p><strong>Reactivation in iPSC reprogramming:</strong> When somatic
+female cells are reprogrammed to induced pluripotent stem cells (iPSCs),
+the inactive X reactivates — XIST is silenced, H3K27me3 is lost, DNA
+methylation is removed, and both alleles express X-linked genes again.
+This is a unique window for studying XCI dynamics. iPSCs derived from
+female patients with X-linked disease may have variable X-inactivation
+patterns after differentiation, complicating disease modelling.</p>
+<p><strong>Clinical implications — X-linked diseases in heterozygous
+females:</strong></p>
+<p><span class="math display">\[\begin{equation}\text{P(affected)}
+\approx \int_0^1 g(x) \cdot \mathbf{1}[x \le x_{\text{threshold}}] \, dx
+\tag{15.6}\label{eq:xci_skew}\end{equation}\]</span></p>
+<p>where <span class="math inline">\(g(x)\)</span> is the distribution
+of X-inactivation skewing across cells. <strong>Skewed
+X-inactivation</strong> (where one allele is silenced in &gt;75 % of
+cells) explains why heterozygous female carriers of X-linked diseases
+(Duchenne muscular dystrophy, Rett syndrome, X-linked
+agammaglobulinaemia) show variable severity. Skewing arises when: -
+Random inactivation by chance produces an extreme distribution -
+Cell-autonomous selection eliminates clones with the active mutant
+allele (e.g., immunodeficiencies) - A <em>XIST</em> or <em>XIC</em>
+mutation biases choice - Skewing is age-dependent: fraction of women
+with &gt; 75 % skewing rises from ~5 % at birth to ~25 % by age 60
+(clonal drift in haematopoiesis).</p>
+<p><strong>Lyon’s evidence</strong> : Female mice heterozygous for
+coat-colour mutations show patchy (mosaic) coat colour — a direct
+consequence of random X-inactivation producing patches of cells
+expressing one allele or the other. The same mosaicism is seen in human
+female carriers of X-linked albinism, X-linked anhidrotic ectodermal
+dysplasia (Christ–Siemens–Touraine, with patchy sweat glands), and
+X-linked retinoschisis (patchy retinal involvement).</p>
+<blockquote>
+<p><strong>Worked Example 3 — Predicting penetrance from XCI
+skewing</strong></p>
+<p><strong>Setup:</strong> A female patient is heterozygous for a
+Duchenne muscular dystrophy (DMD) deletion. Muscle weakness is observed
+in cells where the wild-type (active) allele is on the inactivated X.
+Assume that DMD muscle fibres are syncytial (myofibres pool many
+nuclei); a fibre is dystrophic if &gt; 50 % of its nuclei express the
+deleted allele.</p>
+<p><strong>Question:</strong> If XCI is unbiased (mean skewing = 0.5,
+standard deviation σ_skew = 0.05 across mononuclear cells), what
+fraction of myofibres will be dystrophic? What if the patient has
+clonal-skewing where σ_skew = 0.20?</p>
+<p><strong>Solution:</strong> A fibre is dystrophic if more than half
+its nuclei have the wild-type allele inactivated. With <em>N</em> = 20
+nuclei per fibre and a per-nucleus probability <em>x</em> of expressing
+the deleted allele (= probability wild-type X is inactivated), the fibre
+is dystrophic when more than <em>N</em>/2 nuclei out of <em>N</em>
+express the deleted allele.</p>
+<p>For unbiased XCI, <em>x</em> per nucleus ≈ 0.5, σ_x = 0.05. Per
+fibre, the average fraction of mutant-expressing nuclei ≈ 0.5 ± 0.05/√20
+≈ 0.5 ± 0.011. Almost no fibres exceed 50 % (by about σ_fibre × 1 ≈ 1
+%).</p>
+<p>For clonal-skewing σ_skew = 0.20 across mononuclear precursors, mean
+per-fibre fraction is 0.5 but with much wider variance: σ_fibre ≈
+0.20/√20 ≈ 0.045. Now ~25 % of fibres exceed 50 % mutant expression and
+become dystrophic.</p>
+<p><strong>Insight:</strong> Manifesting Duchenne muscular dystrophy in
+heterozygous female carriers (~10 % show muscle weakness) is largely
+explained by <strong>age-acquired XCI skewing</strong> in haematopoietic
+and myogenic precursors. Treatment strategies: skewing-modulating ASOs
+to redirect XCI; or AAV-DMD gene therapy (rebalancing dystrophin
+expression).</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 6:</strong> A 4-year-old girl is diagnosed with
+severe Rett syndrome. Sequencing reveals a heterozygous loss-of-function
+mutation in <em>MECP2</em>. XCI analysis shows 95 % skewing toward
+inactivation of the <em>wild-type</em> allele. Explain (i) why this
+skewing pattern produces severe disease, (ii) why some Rett patients
+with the same mutation are mildly affected, and (iii) whether modulating
+XCI skewing therapeutically could be a treatment strategy.</p>
+</blockquote>
+<hr />
+<h2 id="chromatin-remodelling-complexes-mechanism-in-detail">Chromatin
+Remodelling Complexes — Mechanism in Detail</h2>
+<p>In addition to covalent modifications, chromatin structure is
+actively remodelled by ATP-dependent complexes that slide, eject, or
+restructure nucleosomes. Most four families share a conserved
+<strong>Snf2-family ATPase</strong> (SF2 helicase superfamily) but
+couple ATP hydrolysis to distinct nucleosome operations.</p>
+<h3 id="the-four-major-remodeller-families">The Four Major Remodeller
+Families</h3>
+<pre class="mermaid"><code>flowchart TB
+    ATP[&quot;ATP hydrolysis on SF2-family ATPase&quot;] --&gt; M[&quot;DNA-translocation through nucleosome&quot;]
+    M --&gt; S[&quot;Sliding\n(nucleosome moves along DNA)&quot;]
+    M --&gt; E[&quot;Ejection\n(complete histone removal)&quot;]
+    M --&gt; X[&quot;Exchange\n(canonical histone ↔ variant)&quot;]
+    M --&gt; A[&quot;Spacing\n(equal inter-nucleosome distance)&quot;]
+
+    SWI[&quot;SWI/SNF (BAF/PBAF)\nBRG1 or BRM ATPase\n+ ARID1A/B, ARID2,\nSMARCB1/INI1, BAF180&quot;] --&gt; S
+    SWI --&gt; E
+    ISWI[&quot;ISWI family\nSNF2H, SNF2L ATPase\n+ NURF, CHRAC, ACF, RSF&quot;] --&gt; A
+    ISWI --&gt; S
+    CHD[&quot;CHD/NuRD family\nCHD1/2/3/4 ATPase\n+ MBD3, MTA1/2/3, HDAC1/2&quot;] --&gt; S
+    CHD --&gt; E
+    INO[&quot;INO80 / SWR1\nINO80 or SRCAP ATPase&quot;] --&gt; X
+    INO --&gt; S
+
+    style SWI fill:#e74c3c,color:#fff
+    style ISWI fill:#27ae60,color:#fff
+    style CHD fill:#9b59b6,color:#fff
+    style INO fill:#3498db,color:#fff</code></pre>
+<!-- alt: Flowchart showing four ATP-dependent remodelling families, each with a distinct nucleosome operation. SWI/SNF: large bursts of sliding and ejection that expose regulatory DNA. ISWI: short, regular spacing for nucleosome arrays. CHD/NuRD: repressive sliding with HDAC coupling. INO80/SWR1: histone variant exchange (H2A.Z ↔ H2A) at promoters and DNA damage sites. -->
+<p><em>Four ATP-dependent remodelling families, each with a distinct
+nucleosome operation. SWI/SNF: large bursts of sliding and ejection that
+expose regulatory DNA. ISWI: short, regular spacing for nucleosome
+arrays. CHD/NuRD: repressive sliding with HDAC coupling. INO80/SWR1:
+histone variant exchange (H2A.Z ↔︎ H2A) at promoters and DNA damage
+sites.</em></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 32%" />
+<col style="width: 11%" />
+<col style="width: 16%" />
+<col style="width: 15%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr>
+<th>Family</th>
+<th>Prototype complex</th>
+<th>ATPase</th>
+<th>Mechanism</th>
+<th>Function</th>
+<th>Disease</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SWI/SNF</td>
+<td>BAF, PBAF (mammals); SWI/SNF (yeast); BAP, PBAP
+(<em>Drosophila</em>)</td>
+<td>BRG1 (SMARCA4) or BRM (SMARCA2)</td>
+<td>Large-scale sliding and ejection</td>
+<td>Activate transcription; prepare enhancers; required for stem cell
+self-renewal</td>
+<td>ARID1A mutated in ~10% cancers; SMARCB1/INI1 lost in malignant
+rhabdoid tumour; SMARCA4 in lung cancer</td>
+</tr>
+<tr>
+<td>ISWI</td>
+<td>NURF, CHRAC, ACF, RSF, NoRC</td>
+<td>SNF2H (SMARCA5), SNF2L (SMARCA1)</td>
+<td>Nucleosome spacing — generates regular arrays</td>
+<td>Chromatin assembly post-replication; heterochromatin maintenance;
+transcriptional repression</td>
+<td>Williams syndrome (BAZ1B/WSTF deletion)</td>
+</tr>
+<tr>
+<td>CHD / NuRD</td>
+<td>NuRD (CHD3/4 + MBD3 + MTA1/2/3 + HDAC1/2 + RBBP4/7)</td>
+<td>CHD1, CHD3 (Mi-2α), CHD4 (Mi-2β)</td>
+<td>Nucleosome sliding coupled to histone deacetylation</td>
+<td>Gene repression; lineage commitment; Polycomb-related silencing</td>
+<td>CHD7 in CHARGE syndrome; CHD8 in autism</td>
+</tr>
+<tr>
+<td>INO80 / SWR1</td>
+<td>INO80, SWR1 (yeast); SRCAP (mammals)</td>
+<td>INO80, SRCAP</td>
+<td>Histone variant exchange (H2A.Z ↔︎ canonical H2A; H2A.X ↔︎ H2A)</td>
+<td>Promoter-proximal H2A.Z deposition; DSB repair (γH2AX exchange);
+centromere identity</td>
+<td>Floating-Harbor syndrome (SRCAP mutations)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mechanism in detail — the “wave” model of DNA
+translocation:</strong> Most remodellers translocate DNA through the
+nucleosome by alternately gripping minor groove with two RecA-like
+ATPase lobes. Each ATP cycle introduces a 1-bp DNA bulge that propagates
+around the histone surface, effectively pulling DNA into the nucleosome
+from one side and ejecting it from the other. The size of the ATP-driven
+movement varies (1–10 bp per cycle) and explains the family-specific
+outcomes (single-nucleosome repositioning vs. processive slides
+vs. ejection). Substrate recognition differs: - <strong>SWI/SNF</strong>
+binds at SHL-2 (superhelical location -2 from the dyad), gripping
+nucleosomal DNA ~20 bp from the histone–DNA boundary. -
+<strong>ISWI</strong> binds the linker DNA flanking the nucleosome and
+uses an autoinhibitory AutoN domain that is released by H4-tail
+acetylation. - <strong>CHD/NuRD</strong> binds via a tandem chromodomain
+that reads H3K9me3 (CHD3) or H3K4me0 (CHD4), targeting the complex to
+silenced chromatin. - <strong>INO80</strong> binds the H2A.Z-H2B dimer
+for selective exchange.</p>
+<h3 id="swisnf-specifically-the-cancer-most-mutated-remodeller">SWI/SNF
+Specifically — The Cancer-Most-Mutated Remodeller</h3>
+<p>The mammalian BAF complex contains 12–15 subunits, including ATPase
+BRG1 or BRM, ARID1A/B (DNA-binding), and SMARCB1/INI1. Its assembly is
+highly cell-type-specific (npBAF in neural progenitors → nBAF in
+post-mitotic neurons, with subunit swap at <em>MIR9</em> induction;
+esBAF in embryonic stem cells). BAF: - <strong>Evicts PRC1/PRC2 from
+enhancers within minutes</strong> (this is the basis for the
+synthetic-lethal sensitivity of SWI/SNF-mutant tumours to EZH2
+inhibitors). - Generates nucleosome-depleted regions (NDRs) at enhancers
+and promoters - Recruits transcription factors (e.g., pioneer TFs FOXA1,
+GATA4) by exposing their motifs - Specific complexes: -
+<strong>canonical BAF (cBAF):</strong> contains ARID1A or ARID1B and
+DPF1/2/3 - <strong>polybromo BAF (PBAF):</strong> contains BAF180/PBRM1,
+ARID2, and BRD7 — required for IFN response and differentiation -
+<strong>non-canonical BAF (ncBAF/GBAF):</strong> contains BRD9,
+GLTSCR1/L, and BRG1 — found in synovial sarcoma (where SS18-SSX fusions
+hijack ncBAF)</p>
+<h3 id="targeted-epigenome-editing-with-dcas9-fusions">Targeted
+Epigenome Editing with dCas9 Fusions</h3>
+<p>The CRISPR toolkit has expanded far beyond DNA cutting. A
+catalytically dead <strong>dCas9</strong> (D10A + H840A) retains its
+ability to be guided to a specific DNA sequence by a sgRNA but no longer
+cleaves — turning it into a programmable DNA-binding scaffold. Fusing
+dCas9 to an epigenetic enzyme creates a targeted “writer” or “eraser” of
+chromatin state :</p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 19%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr>
+<th>Fusion</th>
+<th>Function</th>
+<th>Experimental / clinical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dCas9–DNMT3A</td>
+<td>Programmable DNA methylation</td>
+<td><strong>CRISPRoff</strong> (heritable silencing without cutting
+DNA)</td>
+</tr>
+<tr>
+<td>dCas9–TET1</td>
+<td>Programmable DNA demethylation</td>
+<td>Rescue of fragile-X <em>FMR1</em> silencing; reactivation of tumour
+suppressors</td>
+</tr>
+<tr>
+<td>dCas9–p300</td>
+<td>Programmable H3K27 acetylation</td>
+<td>Programmable enhancer activation</td>
+</tr>
+<tr>
+<td>dCas9–KRAB</td>
+<td>Recruits KAP1 → SETDB1 → H3K9me3</td>
+<td><strong>CRISPRi</strong> — stable repression of any gene</td>
+</tr>
+<tr>
+<td>dCas9–LSD1</td>
+<td>H3K4me1/2 demethylation</td>
+<td>Enhancer decommissioning</td>
+</tr>
+<tr>
+<td>dCas9–VPR (VP64-p65-Rta)</td>
+<td>Transcriptional activation</td>
+<td><strong>CRISPRa</strong> — ~10-to-1000-fold induction</td>
+</tr>
+<tr>
+<td>dCas9–PRC1 (RING1B–PCGF4)</td>
+<td>H2AK119ub deposition</td>
+<td>Polycomb-style silencing</td>
+</tr>
+</tbody>
+</table>
+<p>The clinical promise is substantial: a dCas9–DNMT3A targeting the
+<em>HBG1/2</em> promoter re-activates fetal haemoglobin in adult
+β-thalassaemia patients without permanent genome modification.
+CRISPRoff-induced silencing of <em>PCSK9</em> in liver cells is being
+pursued for hypercholesterolaemia. The key limitation is off-target <a
+href="#gl:epigenome"><strong>epigenome</strong></a> editing — bystander
+methylation at sequence-similar loci — which the field now addresses
+with paired-sgRNA and split-dCas9 designs.</p>
+<blockquote>
+<p>[!NOTE] Unlike Cas9-mediated gene editing, epigenome editing is
+<strong>reversible</strong>: the perturbation fades unless it is
+self-reinforcing through mitotic heritability of DNA methylation. This
+makes it attractive as a research tool (transient perturbation) and a
+therapy (tunable, removable), but means durable clinical effects require
+either continuous dCas9 expression or recruitment of self-propagating
+chromatin states (e.g., H3K27me3 spreading by PRC2).</p>
+</blockquote>
+<blockquote>
+<p><strong>Clinical Connection:</strong> <strong>SWI/SNF subunits are
+mutated in ~20% of human cancers</strong>, the highest mutation
+frequency of any single chromatin regulator. ARID1A (~10%), SMARCA4/BRG1
+(~5%), SMARCB1/INI1 (childhood rhabdoid tumours, near-almost universally
+biallelic loss), PBRM1 (~40% of clear-cell renal cell carcinoma). Many
+SWI/SNF-mutant tumours become <strong>synthetically lethal with
+EZH2</strong> (PRC2) inhibition because they over-rely on Polycomb
+repression of cell-cycle inhibitors when SWI/SNF cannot evict
+PRC1/2.</p>
+</blockquote>
+<hr />
+<h2
+id="three-dimensional-genome-organisation-and-phase-separation">Three-Dimensional
+Genome Organisation and Phase Separation</h2>
+<h3 id="tads-loops-and-compartments-spatial-layers">TADs, Loops, and
+Compartments — Spatial Layers</h3>
+<p>The genome is folded across multiple length scales, and each scale
+contributes to gene regulation:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 25%" />
+<col style="width: 30%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Length scale</th>
+<th>Structural unit</th>
+<th>Marker / detection</th>
+<th>Functional role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 kb–100 kb</td>
+<td>Promoter–enhancer loops</td>
+<td>ChIA-PET, HiChIP, Capture-Hi-C</td>
+<td>Direct enhancer–TSS contact for activation</td>
+</tr>
+<tr>
+<td>100 kb–1 Mb</td>
+<td>TADs</td>
+<td>Hi-C insulation score; CTCF/cohesin ChIP</td>
+<td>Constrains enhancer search to local genes</td>
+</tr>
+<tr>
+<td>1 Mb–100 Mb</td>
+<td>A/B compartments</td>
+<td>Hi-C eigenvector</td>
+<td>Active vs. repressed neighbourhoods</td>
+</tr>
+<tr>
+<td>Chromosome</td>
+<td>Chromosome territories</td>
+<td>DNA FISH</td>
+<td>Each chromosome occupies a distinct nuclear domain</td>
+</tr>
+<tr>
+<td>Nuclear scale</td>
+<td>LADs, NADs, speckles</td>
+<td>DamID, TSA-seq</td>
+<td>Nuclear lamina, nucleolus, nuclear speckle proximity</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LADs (Lamina-Associated Domains):</strong> ~1,300 genomic
+regions (median ~1 Mb) attached to the nuclear lamina via lamin B
+receptor, marked by H3K9me2/me3, gene-poor and transcriptionally
+repressive. Lamina detachment correlates with gene activation during
+differentiation.</p>
+<h3 id="biomolecular-condensates-and-phase-separation">Biomolecular
+Condensates and Phase Separation</h3>
+<p>Chromatin is not a static polymer; many regulatory proteins undergo
+<strong>liquid–liquid phase separation</strong> (LLPS) or form
+<strong>condensates</strong> with elevated local concentration.
+Intrinsically disordered regions (IDRs) on transcription factors (e.g.,
+<strong>BRD4</strong>, <strong>Mediator</strong> subunits, <strong>RNA
+Pol II</strong> CTD-associated factors) promote clustering at
+<strong>super-enhancers</strong> — unusually large clusters of enhancers
+densely occupied by Mediator, co-activators, and active histone marks
+(<strong>H3K27ac</strong>). The resulting <strong>transcriptional
+condensate</strong> concentrates the phosphorylation machinery that
+releases promoter-proximal paused Pol II, explaining why some loci fire
+at very high rates (oncogenes such as <em>MYC</em> in selected
+cancers).</p>
+<p><strong>Quantitative criteria for LLPS in cells:</strong> - IDR-rich
+proteins above a saturation concentration <span
+class="math inline">\(c_{\text{sat}}\)</span> - Multivalent interactions
+(low-affinity, high-valency) between IDRs, with <span
+class="math inline">\(K_d \sim 1\)</span>–<span
+class="math inline">\(100\)</span> μM - Round, dynamic droplets that
+fuse and undergo FRAP recovery on the seconds-to-minutes timescale -
+Disassembly upon 1,6-hexanediol (a hallmark, though imperfect, test)</p>
+<p><strong>Examples in chromatin biology:</strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 40%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Condensate</th>
+<th>Constituents</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heterochromatin foci</td>
+<td>HP1α, H3K9me3</td>
+<td>Concentrates H3K9 methyltransferases; phase-separated repressive
+compartment</td>
+</tr>
+<tr>
+<td>Nucleolus</td>
+<td>NPM1, fibrillarin, Pol I, rRNA</td>
+<td>Ribosome biogenesis; multiphase (FC/DFC/GC sub-compartments)</td>
+</tr>
+<tr>
+<td>Nuclear speckles</td>
+<td>SRSF, SON, MALAT1</td>
+<td>Storage and assembly of splicing factors</td>
+</tr>
+<tr>
+<td>Cajal bodies</td>
+<td>Coilin, snRNPs</td>
+<td>snRNP and telomerase RNP biogenesis</td>
+</tr>
+<tr>
+<td>PML bodies</td>
+<td>PML, SUMO, p53</td>
+<td>DNA damage response; senescence; viral defence</td>
+</tr>
+<tr>
+<td>Super-enhancer condensates</td>
+<td>BRD4, Mediator, Pol II CTD</td>
+<td>Robust transcription of cell-identity genes</td>
+</tr>
+<tr>
+<td>Polycomb bodies</td>
+<td>CBX2 (PRC1) phase-separated</td>
+<td>Polycomb domain compaction in <em>cis</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conceptual link to TADs:</strong> Condensates operate
+<em>within</em> TADs and at promoter–enhancer loops; disrupting CTCF
+boundaries can move an oncogenic enhancer adjacent to a silent
+proto-oncogene (<strong>enhancer hijacking</strong>), a
+structural-variant mechanism increasingly catalogued in paediatric
+tumours.</p>
+<pre class="mermaid"><code>flowchart LR
+    SE[&quot;Super-enhancer cluster\n(H3K27ac high)&quot;] --&gt; C[&quot;Biomolecular condensate\n(BRD4, Mediator, CDK7/9)&quot;]
+    C --&gt; P[&quot;Promoter-proximal Pol II\nrelease from pausing&quot;]
+    P --&gt; Tx[&quot;Robust transcription\n(e.g. MYC, lineage TF)&quot;]
+    BET[&quot;BET inhibitor (JQ1)&quot;] -.-&gt;|displaces BRD4| C
+    CDK8[&quot;CDK8 phosphorylates Mediator&quot;] -.-&gt;|dissolves condensate| C
+    style SE fill:#2ecc71,color:#fff
+    style C fill:#3498db,color:#fff
+    style BET fill:#e74c3c,color:#fff
+    style CDK8 fill:#f39c12,color:#fff</code></pre>
+<!-- alt: Flowchart showing super-enhancer–associated condensate bridging enhancers to paused Pol II; BET inhibitors weaken acetyl-lysine engagement of BRD4 and dissolve the condensate; CDK8-mediated phosphorylation of Mediator disrupts condensate integrity. -->
+<p><em>Super-enhancer–associated condensate bridging enhancers to paused
+Pol II; BET inhibitors weaken acetyl-lysine engagement of BRD4 and
+dissolve the condensate; CDK8-mediated phosphorylation of Mediator
+disrupts condensate integrity.</em></p>
+<p><strong>Clinical angle — drugging condensates:</strong> - <strong>BET
+bromodomain inhibitors</strong> (e.g., JQ1, OTX015, birabresib,
+molibresib, mivebresib) displace BRD4 from acetylated chromatin,
+collapsing condensate-associated transcription at <em>MYC</em> and other
+dependency genes. - <strong>CDK7 inhibitors</strong> (THZ1, SY-5609) and
+<strong>CDK9 inhibitors</strong> target the kinases concentrated in
+transcription condensates. - <strong>EZH2 inhibitors</strong>
+(tazemetostat) shrink PRC2-mediated repressive domains. - <strong>Tumour
+cells with super-enhancer-driven oncogenes (MYCN-amplified
+neuroblastoma, MLL-rearranged leukaemia, <em>TAL1</em>-driven T-cell
+acute lymphoblastic leukaemia) can be highly sensitive</strong> to BET
+inhibition, but response depends on enhancer wiring, compensatory
+transcription factors, and therapeutic window rather than on
+super-enhancer status alone.</p>
+<blockquote>
+<p><strong>Worked Example 4 — Polymer Statistics in Hi-C:</strong></p>
+<p><strong>Setup:</strong> A human gene at chromosome 7p15 harbours an
+enhancer 700 kb upstream. We model intra-chromosomal contact probability
+with the fractal-globule scaling , <span class="math inline">\(P(s)
+\propto s^{-\alpha}\)</span>, with α = 1.1.</p>
+<p><strong>Question:</strong> Estimate the probability of physical
+contact between enhancer and promoter (s = 700,000 bp). Compare to (a)
+within-TAD contact at s = 50 kb and (b) trans-chromosomal contact
+(genome-wide Hi-C average ≈ 10⁻⁶).</p>
+<p><strong>Solution:</strong> Setting <em>P</em>(50 kb) ≈ 1 (within-TAD
+baseline), the relative <em>P</em>(700 kb) = (700/50)⁻¹·¹ = 14⁻¹·¹ ≈
+0.063. The enhancer–promoter contact probability is ~6 % of the
+within-TAD baseline.</p>
+<p>Compare to trans-chromosomal: 6 × 10⁻² (intra-TAD-distant) versus 1 ×
+10⁻⁶ (trans) = a <strong>~60,000-fold preference</strong> for
+intra-chromosomal contacts even at long distances.</p>
+<p><strong>Insight:</strong> CTCF/cohesin loop extrusion concentrates
+this 60,000-fold enrichment of intra-TAD contacts onto specific
+enhancer–promoter pairs, raising effective contact probability another
+10–100×. This is why disrupting a single CTCF anchor (~20 bp deletion)
+can completely abolish enhancer–promoter looping and silence the target
+gene — even though the enhancer DNA is unchanged.</p>
+</blockquote>
+<hr />
+<h2 id="non-coding-rnas-in-gene-regulation">Non-Coding RNAs in Gene
+Regulation</h2>
+<h3 id="micrornas-mirnas">MicroRNAs (miRNAs)</h3>
+<p>miRNAs are ~22 nt single-stranded RNAs that direct
+post-transcriptional silencing. Over 2,000 annotated human miRNAs
+collectively regulate ~60% of protein-coding genes .</p>
+<pre class="mermaid"><code>flowchart TD
+    Gene[&quot;miRNA gene (RNA Pol II)&quot;] --&gt; primiRNA[&quot;pri-miRNA\n(capped, polyadenylated)&quot;]
+    primiRNA --&gt; Drosha[&quot;DROSHA/DGCR8\n(Nuclear RNase III)\ncleaves to ~65 nt hairpin&quot;]
+    Drosha --&gt; premiRNA[&quot;pre-miRNA hairpin\nexported by Exportin-5/RanGTP&quot;]
+    premiRNA --&gt; Dicer[&quot;DICER/TRBP\n(Cytoplasmic RNase III)\ncleaves to ~22 bp duplex&quot;]
+    Dicer --&gt; Duplex[&quot;miRNA:miRNA* duplex&quot;]
+    Duplex --&gt; RISC[&quot;AGO2/RISC loading\n(guide strand retained;\npassenger strand* degraded)&quot;]
+    RISC --&gt; mRNA[&quot;Target mRNA\n(3&#39;UTR complementarity)&quot;]
+    mRNA --&gt;|&quot;Perfect match\n(siRNA-like)&quot;| Cleavage[&quot;mRNA CLEAVAGE\n(slicer activity of AGO2)&quot;]
+    mRNA --&gt;|&quot;Imperfect match\n(miRNA typical)&quot;| Repression[&quot;Translational repression +\nmRNA deadenylation/decay&quot;]
+
+    style RISC fill:#8e44ad,color:#fff
+    style Cleavage fill:#e74c3c,color:#fff
+    style Repression fill:#e67e22,color:#fff</code></pre>
+<!-- alt: Flowchart showing miRNA biogenesis and RISC-mediated silencing. Drosha in the nucleus produces pre-miRNA; DICER in the cytoplasm generates the duplex; AGO2 incorporates the guide strand into RISC; partial 3′ UTR complementarity leads to translational repression and mRNA decay. -->
+<p><em>miRNA biogenesis and RISC-mediated silencing. Drosha in the
+nucleus produces pre-miRNA; DICER in the <a
+href="#gl:cytoplasm"><strong>cytoplasm</strong></a> generates the
+duplex; AGO2 incorporates the guide strand into RISC; partial 3′ UTR
+complementarity leads to translational repression and mRNA
+decay.</em></p>
+<p><strong>Key oncogenic miRNA examples:</strong> -
+<strong>miR-21</strong> (oncomiR): Overexpressed in most cancers;
+targets PTEN, PDCD4, RECK (tumour suppressors) -
+<strong>miR-155</strong> (oncomiR): Overexpressed in B-cell lymphomas;
+targets SHIP1 (AKT suppressor) - <strong>miR-34a</strong> (tumour
+suppressor miR): Downstream of p53; targets CDK6, BCL2, SNAIL;
+methylated/silenced in many cancers</p>
+<h3 id="long-non-coding-rnas-lncrnas">Long Non-Coding RNAs
+(lncRNAs)</h3>
+<p>lncRNAs are &gt;200 nt functional RNA transcripts with no
+protein-coding potential. &gt;100,000 annotated in the human genome.
+Mechanisms of action are diverse:</p>
+<ul>
+<li><strong>XIST:</strong> Coats the inactive X chromosome; recruits
+PRC2 to spread H3K27me3, as described in the X-inactivation
+section.</li>
+<li><strong>HOTAIR:</strong> Transcribed from HOXC; binds PRC2 to direct
+H3K27me3 deposition at HOXD and other loci</li>
+<li><strong>MALAT1:</strong> Nuclear speckle-associated; regulates
+alternative splicing; highly expressed in cancer</li>
+<li><strong>H19:</strong> Reservoir for miR-675; tumour suppressor
+function; imprinted, as described in the genomic-imprinting
+section.</li>
+<li><strong>NEAT1:</strong> Paraspeckle scaffold; regulates gene
+expression by nuclear retention of specific mRNAs</li>
+</ul>
+<h3 id="small-interfering-rnas-sirnas-and-pirnas">Small Interfering RNAs
+(siRNAs) and piRNAs</h3>
+<p><strong>siRNAs:</strong> 21–23 nt, perfect complementarity to target;
+processed by DICER from long double-stranded RNA (dsRNA). In plants and
+nematodes, siRNA pathways mediate transposon silencing and antiviral
+immunity. In mammals, dsRNA triggers interferon responses rather than
+siRNA pathways in somatic cells; siRNA silencing is more prominent in
+germ cells and stem cells.</p>
+<p><strong>piRNAs (PIWI-interacting RNAs):</strong> 26–31 nt;
+DICER-independent (processed by “ping-pong” amplification cycle
+involving PIWI clade Argonautes: PIWIL1/MILI, PIWIL4/MIWI2). Essential
+for silencing transposable elements in the germline. Loss of piRNA
+pathway in <em>Drosophila</em> or mice causes transposon derepression
+and infertility.</p>
+<hr />
+<h2 id="epigenetic-reprogramming-and-inheritance">Epigenetic
+Reprogramming and Inheritance</h2>
+<h3
+id="mitotic-heritability-of-epigenetic-marks-detailed-mechanism">Mitotic
+Heritability of Epigenetic Marks — Detailed Mechanism</h3>
+<p>For an epigenetic mark to be “heritable,” it must survive DNA
+replication and cell division. Different marks have different
+mechanisms:</p>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 48%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mark</th>
+<th>Mitotic heritability mechanism</th>
+<th>Half-life through divisions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5mC at CpGs</td>
+<td>DNMT1/UHRF1 maintenance at replication fork</td>
+<td>High (&gt;10 divisions, ~95% efficiency)</td>
+</tr>
+<tr>
+<td>H3K27me3</td>
+<td>Read-write feedback (PRC2 EED reads, EZH2 writes); inherited on
+parental nucleosomes which are randomly distributed to both daughter
+strands</td>
+<td>Medium; restored within 1–2 divisions</td>
+</tr>
+<tr>
+<td>H3K9me3</td>
+<td>Suv39H1/H2 reads HP1 → recruits more Suv39H; DNMT3A coupling</td>
+<td>High at constitutive heterochromatin</td>
+</tr>
+<tr>
+<td>H3K4me3</td>
+<td>Inherited via parental nucleosomes; rapidly re-established by
+transcription</td>
+<td>Medium</td>
+</tr>
+<tr>
+<td>H3K27ac</td>
+<td>Diluted by half each division; restored by transcription factor
+activity</td>
+<td>Low; not stably heritable</td>
+</tr>
+<tr>
+<td>H2AK119ub</td>
+<td>Inherited via parental nucleosomes; restored by PRC1</td>
+<td>Medium</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key conceptual point — parental nucleosome
+recycling:</strong> During DNA replication, parental nucleosomes are
+split between the two daughter strands. The histone chaperones
+<strong>MCM2</strong> (binds H3-H4 dimers via its H3-H4 binding domain),
+<strong>ASF1</strong> (general H3-H4 chaperone), and
+<strong>FACT</strong> (Spt16-SSRP1, helps recycle H2A-H2B during
+transcription and replication) mediate this recycling. The current
+model:</p>
+<ol type="1">
+<li><strong>Parental nucleosome split:</strong> As the replisome opens,
+parental histones are transiently released from DNA.</li>
+<li><strong>Asymmetric recycling:</strong> H3-H4 tetramers
+preferentially deposit on the <strong>leading strand</strong> (via
+Polε/MCM2 interaction) or <strong>lagging strand</strong> (via
+Polα/MCM2-7 helicase-associated MCM2). Recent work shows this is biased
+toward the leading strand in proliferating cells (~60:40), explaining
+strand-asymmetric mark inheritance.</li>
+<li><strong>CAF-1 deposits new H3.1-H4:</strong> The chromatin assembly
+factor CAF-1 (CHAF1A/B + RBBP4) is recruited by PCNA at the replication
+fork. CAF-1 deposits <strong>new</strong> H3.1-H4 tetramers (synthesized
+from S-phase histone gene bursts).</li>
+<li><strong>Newly synthesised histones are deposited
+UNMODIFIED.</strong> Daughter chromatin starts at half-density of any
+given mark.</li>
+<li><strong>Restoration to full density depends on the read-write
+feedback loop</strong> — the existing parental marks recruit the writer
+enzyme, which copies the mark onto neighbouring new histones.</li>
+</ol>
+<p><strong>PRC2 propagation through replication.</strong> EED reads
+H3K27me3 on a parental nucleosome → allosterically activates EZH2 → EZH2
+deposits H3K27me3 on a neighbouring (newly assembled) nucleosome.
+Quantitative imaging shows that PRC2 activity at recently replicated
+chromatin is ~3-fold higher than at established chromatin — explaining
+how the mark “fills in” the daughter strand within ~6 hours of fork
+passage.</p>
+<p><strong>DNMT1/UHRF1 mechanism in detail at the fork.</strong> UHRF1
+is loaded onto the replication fork by PCNA. UHRF1 SRA binds
+hemi-methylated CpG (the parental strand carries 5mC; the daughter
+strand has unmodified C). The UHRF1 RING domain ubiquitinates H3K18 —
+creating a docking site for DNMT1’s RFTS domain. DNMT1 transfers a
+methyl group from SAM to the daughter cytosine. This coupled mechanism
+ensures methylation is restored within seconds of fork passage at active
+replication.</p>
+<h3 id="germline-reprogramming">Germline Reprogramming</h3>
+<p>Somatic epigenetic marks must be erased and re-established in each
+generation to prevent transmission of acquired somatic states:</p>
+<ol type="1">
+<li><strong>Post-fertilisation reprogramming:</strong> After
+fertilisation, the paternal genome undergoes rapid active demethylation
+(TET3-mediated 5mC oxidation) within hours. The maternal genome is
+demethylated more slowly (replication-dependent passive demethylation).
+Both reach a methylation minimum at the blastocyst stage.</li>
+<li><strong>Primordial germ cell (PGC) reprogramming:</strong> PGCs
+migrate to the gonads (~E7.5–E10.5 in mouse; ~weeks 3–5 in human). They
+erase CpG methylation genome-wide (including imprint control regions) —
+the most complete demethylation in the mammalian life cycle.</li>
+<li><strong>Re-establishment:</strong> DNMT3A/3B with DNMT3L
+re-methylate the genome in a sex-specific pattern during gametogenesis
+(prospermatogonia in males; oocyte growth in females). Imprinted loci
+are methylated in a sex-specific order: paternal imprints in
+spermatogonia (before meiosis); maternal imprints in growing oocytes
+(after meiosis I arrest, prior to ovulation).</li>
+</ol>
+<h3
+id="evidence-for-transgenerational-epigenetic-inheritance-in-humans">Evidence
+for Transgenerational Epigenetic Inheritance in Humans</h3>
+<p>The Dutch Hunger Winter (Hongerwinter, 1944–1945) provides the most
+studied human evidence. Dutch civilians subjected to severe famine
+(500–1,000 kcal/day) during WWII German occupation showed:</p>
+<ul>
+<li><strong>F1 offspring</strong> (exposed in utero): Increased rates of
+obesity, diabetes, schizophrenia, and CVD in adult life — consistent
+with developmental programming via altered methylation.</li>
+<li><strong>F2 offspring</strong> (children of F1): Increased rates of
+obesity and metabolic syndrome — suggesting transmission across one
+germline generation.</li>
+<li><strong>Mechanism:</strong> Reduced methylation at IGF2
+differentially methylated regions (DMRs) persists for decades in blood
+cells of F1 individuals, detectable compared to unexposed siblings.</li>
+</ul>
+<p><strong>Other lines of evidence:</strong> - Överkalix cohort
+(Sweden): Paternal grandfather’s food supply during slow-growth period
+correlates with grandsons’ diabetes mortality. - <em>Agouti</em> viable
+yellow (<span class="math inline">\(A^{vy}\)</span>) mouse model:
+Maternal methyl-donor diet (folate, B12, methionine, choline) during
+pregnancy shifts coat-colour distribution by altering methylation of an
+upstream IAP retrotransposon. - piRNA-mediated transposon silencing:
+piRNAs in sperm carry information about active transposons across
+generations.</p>
+<blockquote>
+<p>[!NOTE] The evidence for true transgenerational epigenetic
+inheritance in humans (affecting F2 and beyond without continued
+environmental exposure) is suggestive but not yet definitive.
+Confounding by shared post-natal environment and direct exposure of the
+F1 germline (the F2 was a primordial germ cell in the F0 grandmother
+during the F1 in utero exposure) remains difficult to exclude.
+Mechanistically, piRNA-mediated transposon silencing and small-RNA
+transmission in sperm provide plausible vehicles, but a clean causal
+chain in humans has not been established.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 7:</strong> Imagine a dCas9 fusion protein is
+targeted to the <em>BRCA1</em> promoter in a breast-cancer cell line,
+carrying a DNMT3A catalytic domain. Over several cell divisions, the
+promoter becomes hypermethylated and transcription drops. Once dCas9 is
+withdrawn, does the methylation persist, relax over mitoses, or become
+heritable between cells? Explain in terms of DNMT1 maintenance
+methylation, passive demethylation during S-phase, and the absence of
+active demethylation by TET enzymes under these conditions.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 8:</strong> A scientist treats cells with the
+DNMT inhibitor decitabine for 48 hours, then washes it out. Predicting
+that DNMT1 will resume normal activity after washout, will the
+demethylation persist, partially recover, or fully recover over the
+subsequent 10 cell generations? Sketch a quantitative model assuming ε
+returns to 0.95 instantaneously after washout and starting <em>f₀</em> =
+0.10 (10 % methylated post-decitabine).</p>
+</blockquote>
+<hr />
+<h2
+id="cancer-epigenetics-and-clinical-translation-comprehensive">Cancer
+Epigenetics and Clinical Translation — Comprehensive</h2>
+<p>Cancer cells display <strong>systemic epigenetic
+dysregulation</strong>: typically global DNA hypomethylation (especially
+of repetitive elements), focal hypermethylation of tumour-suppressor CGI
+promoters, broad H3K27me3/H3K9me3 redistribution, and aberrant chromatin
+remodelling complex composition. The therapeutic implication is that,
+unlike genetic mutations, epigenetic states are
+<strong>reversible</strong> — and several drug classes now target each
+layer.</p>
+<h3 id="the-cancer-epigenome-two-concurrent-patterns">The Cancer
+Epigenome — Two Concurrent Patterns</h3>
+<p><strong>Pattern 1: Global hypomethylation.</strong> Repetitive
+elements (LINE-1, SINE, IAP, satellite repeats), normally heavily
+methylated, lose methylation in nearly most cancers. Consequences: -
+<strong>Chromosomal instability:</strong> demethylation of
+pericentromeric satellite-2 sequences disrupts heterochromatin, leading
+to chromosome bridges, lagging chromosomes, and aneuploidy. -
+<strong>LINE-1 reactivation:</strong> transposition of L1 elements can
+disrupt tumour-suppressor genes (e.g., L1 insertion in <em>APC</em>
+contributes to colorectal cancer). - <strong>Mis-regulated lineage
+genes:</strong> demethylation of normally repressed germline genes
+(e.g., MAGE, NY-ESO-1) creates <strong>cancer-testis antigens</strong>
+that can be exploited for immunotherapy (e.g., NY-ESO-1 TCR-T cells). -
+<strong>Mechanism:</strong> likely loss of DNMT1 maintenance (UHRF1
+dysregulation) and/or genome-wide TET2-mediated demethylation in
+CHIP-derived clones.</p>
+<p><strong>Pattern 2: Focal CGI hypermethylation.</strong>
+Tumour-suppressor gene promoters become hypermethylated, silencing them.
+Examples and clinical relevance:</p>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 29%" />
+<col style="width: 36%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gene</th>
+<th>Hypermethylated in</th>
+<th>Functional consequence</th>
+<th>Therapeutic angle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>MLH1</em></td>
+<td>CIMP-high colorectal cancer</td>
+<td>Microsatellite instability</td>
+<td>Pembrolizumab in MSI-high tumours</td>
+</tr>
+<tr>
+<td><em>BRCA1</em></td>
+<td>Triple-negative breast cancer</td>
+<td>Homologous-recombination deficiency</td>
+<td>PARP inhibitors</td>
+</tr>
+<tr>
+<td><em>VHL</em></td>
+<td>Renal cell carcinoma</td>
+<td>HIF stabilisation</td>
+<td>HIF-2α inhibitors (belzutifan)</td>
+</tr>
+<tr>
+<td><em>CDKN2A/p16</em></td>
+<td>Many cancers</td>
+<td>RB1 pathway loss → unrestrained G1/S</td>
+<td>CDK4/6 inhibitors</td>
+</tr>
+<tr>
+<td><em>MGMT</em></td>
+<td>Glioblastoma</td>
+<td>DNA repair loss</td>
+<td>Temozolomide (sensitivity)</td>
+</tr>
+<tr>
+<td><em>DAPK</em></td>
+<td>Lung, head/neck cancer</td>
+<td>Apoptosis loss</td>
+<td>Combination with TRAIL agonists (clinical trials)</td>
+</tr>
+</tbody>
+</table>
+<p>The two patterns can coexist — a single tumour can have global
+hypomethylation of repeats AND focal hypermethylation of tumour
+suppressors. The mechanism appears to be partial: CGI-targeted DNMT3A/B
+activity becomes mis-localised to actively transcribed regions, while
+genome-wide DNMT1 maintenance fails at heterochromatin.</p>
+<h3
+id="approved-and-investigational-epigenetic-drugs-comprehensive-table">Approved
+and Investigational Epigenetic Drugs — Comprehensive Table</h3>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+<col style="width: 30%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Class</th>
+<th>Examples</th>
+<th>Targets</th>
+<th>Approved Indications</th>
+<th>Clinical-trial highlights</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DNMT inhibitors</strong></td>
+<td>Azacitidine (Vidaza), decitabine (Dacogen); oral
+cedazuridine/decitabine (Inqovi)</td>
+<td>DNMT1 (covalent trap)</td>
+<td>MDS, AML (low-intensity), CMML</td>
+<td>Aza + venetoclax: ORR 70 % in elderly AML (VIALE-A);
+decitabine-cedazuridine in CMML</td>
+</tr>
+<tr>
+<td><strong>HDAC inhibitors</strong></td>
+<td>Vorinostat (SAHA), romidepsin, panobinostat, belinostat,
+tucidinostat</td>
+<td>Pan-HDAC or class-selective</td>
+<td>CTCL, PTCL, multiple myeloma (panobinostat)</td>
+<td>Romidepsin ORR 34 % in PTCL; panobinostat-bortezomib-dex in MM</td>
+</tr>
+<tr>
+<td><strong>EZH2 / PRC2 inhibitors</strong></td>
+<td>Tazemetostat, valemetostat</td>
+<td>EZH2 SET domain (and EZH1)</td>
+<td>Epithelioid sarcoma (INI1-loss); EZH2-mut follicular lymphoma; ATL
+(valemetostat)</td>
+<td>Tazemetostat: median PFS 5.5 mo in INI1-loss ES</td>
+</tr>
+<tr>
+<td><strong>IDH1/IDH2 inhibitors</strong></td>
+<td>Ivosidenib (IDH1), enasidenib (IDH2), vorasidenib</td>
+<td>Mutant IDH neomorphic activity (2-HG)</td>
+<td>IDH-mut AML; IDH-mut grade-2 glioma (vorasidenib, 2024)</td>
+<td>Vorasidenib INDIGO trial: median PFS 27 vs 11 mo</td>
+</tr>
+<tr>
+<td><strong>BET inhibitors</strong></td>
+<td>OTX015 (birabresib), molibresib, mivebresib, BMS-986158</td>
+<td>BRD2/3/4 bromodomains</td>
+<td>Investigational: NUT carcinoma, MYC-driven tumours</td>
+<td>NUT-carcinoma ORR ~35 %; pancreatic cancer combination trials</td>
+</tr>
+<tr>
+<td><strong>LSD1 inhibitors</strong></td>
+<td>Tranylcypromine, iadademstat, bomedemstat</td>
+<td>KDM1A/LSD1 demethylase</td>
+<td>Investigational: AML, SCLC, MPN</td>
+<td>Iadademstat + azacitidine in AML; bomedemstat in essential
+thrombocythaemia</td>
+</tr>
+<tr>
+<td><strong>Menin–MLL inhibitors</strong></td>
+<td>Revumenib (FDA 2024)</td>
+<td>Menin–MLL/KMT2A interface</td>
+<td>Approved KMT2A-rearranged AML</td>
+<td>Revumenib AUGMENT-101 trial: ORR 53 %, CR 23 %</td>
+</tr>
+<tr>
+<td><strong>PROTAC bromodomain degraders</strong></td>
+<td>ARV-771, dBET6, ARV-825</td>
+<td>BRD4 (degradation)</td>
+<td>Investigational</td>
+<td>Targets most three BET family members; deeper BRD4 depletion than
+inhibition</td>
+</tr>
+<tr>
+<td><strong>DOT1L inhibitors</strong></td>
+<td>Pinometostat (EPZ-5676)</td>
+<td>H3K79 methyltransferase</td>
+<td>Investigational MLL-rearranged AML</td>
+<td>Phase 2 ORR ~10 % monotherapy; combination strategies in trial</td>
+</tr>
+<tr>
+<td><strong>CDK7/9 inhibitors</strong></td>
+<td>THZ1, SY-5609 (CDK7); AZD4573 (CDK9)</td>
+<td>Transcription-cycle CDKs</td>
+<td>Investigational</td>
+<td>Disrupts super-enhancer-driven oncogene transcription</td>
+</tr>
+<tr>
+<td><strong>Combination DNMTi + HDACi or DNMTi +
+venetoclax</strong></td>
+<td>Aza + venetoclax (FDA 2018)</td>
+<td>DNMT1 + BCL2</td>
+<td>Standard-of-care AML in unfit patients</td>
+<td>Aza-venetoclax: median OS 14.7 mo vs 9.6 mo aza alone</td>
+</tr>
+</tbody>
+</table>
+<h3 id="clinical-trial-vignettes-three-paradigm-therapies">Clinical
+Trial Vignettes — Three Paradigm Therapies</h3>
+<p><strong>(1) Tazemetostat for INI1-loss epithelioid sarcoma.</strong>
+In 2020, tazemetostat became the first epigenetic-pathway-defined
+targeted therapy. INI1/SMARCB1-loss epithelioid sarcoma has no
+chemotherapy or surgical option in metastatic setting; the agent
+reactivates SWI/SNF-suppressed targets via EZH2 inhibition. Pivotal
+trial (NCT02601950): 62 patients enrolled, ORR 15 %, median time to
+response 3.6 mo, median PFS 5.5 mo. The slow response kinetics reflect
+epigenetic reprogramming requiring multiple cell divisions. FDA approval
+(Jan 2020) was a landmark for synthetic-lethal epigenetic therapy .</p>
+<p><strong>(2) Vorasidenib for IDH1-mutant grade-2 glioma.</strong> In
+2024, vorasidenib became the first targeted therapy approved for grade-2
+glioma. IDH1-R132H mutation produces oncometabolite 2-HG, which inhibits
+TET demethylases → CIMP+ phenotype → genome-wide hypermethylation →
+differentiation block. Vorasidenib is a brain-penetrant mutant-IDH1
+inhibitor. INDIGO trial (NCT04164901): 331 patients with grade-2 IDH-mut
+glioma post-surgery, median PFS 27.7 mo (vorasidenib) vs 11.1 mo
+(placebo); 85 % reduction in time-to-next-intervention. The trial
+demonstrated that depleting 2-HG is sufficient to restore demethylation
+and slow tumour growth without cytotoxicity.</p>
+<p><strong>(3) Revumenib for KMT2A-rearranged AML.</strong> In 2024,
+revumenib became the first menin–MLL inhibitor approved by FDA.
+KMT2A-rearranged (ex-MLL-rearranged) AML accounts for ~10 % of
+paediatric AML and ~5 % of adult AML; menin is required for
+MLL-fusion-driven HOXA9 expression. AUGMENT-101 trial (NCT04065399): ORR
+53 % in relapsed/refractory KMT2Ar AML, CR 23 %, median DoR 6.4 mo. The
+drug demonstrated that targeting protein–protein interaction (menin-MLL)
+within an aberrant chromatin complex is therapeutically viable.</p>
+<h3 id="a-checklist-for-interpreting-cancer-epigenomes">A Checklist for
+Interpreting Cancer Epigenomes</h3>
+<p>When you encounter a tumour <strong>multi-omics</strong> report,
+integrate:</p>
+<ol type="1">
+<li><strong>DNA methylation</strong> — focal CGI hypermethylation (TSG
+silencing) vs. global hypomethylation (genomic instability); CIMP (CpG
+island methylator phenotype) as a class.</li>
+<li><strong>Histone marks</strong> — <strong>H3K27me3</strong> (PRC2
+silencing), <strong>H3K4me3</strong> (promoter activity),
+<strong>H3K27ac</strong> (active enhancers), <strong>H3K36me3</strong>
+(transcribed gene bodies; loss in renal cell carcinoma with SETD2
+mutation).</li>
+<li><strong>Chromatin accessibility</strong> (ATAC-seq) —
+nucleosome-depleted regions at enhancers; super-enhancers identified by
+Mediator/H3K27ac density.</li>
+<li><strong>3D genome</strong> (Hi-C) — TAD boundary loss,
+<strong>enhancer hijacking</strong>.</li>
+<li><strong>Histone mutations (oncohistones)</strong> — H3K27M
+(paediatric DIPG), H3G34R/V (paediatric high-grade glioma), H3K36M
+(chondroblastoma): these are <em>gain-of-function</em> mutants that act
+as PRC2 / SETD2 inhibitors in trans, producing genome-wide chromatin
+redistribution despite occurring in about 5–10 % of nucleosomes.</li>
+<li><strong>Chromatin-remodeller mutations</strong> — ARID1A, SMARCA4,
+SMARCB1, PBRM1 (SWI/SNF); KMT2C/D, EZH2 (PRC2).</li>
+<li><strong>RNA</strong> — fusion oncoproteins that recruit aberrant
+chromatin complexes (<strong>MLL</strong> fusions to AF4/AF9/ENL,
+<strong>SS18–SSX</strong> in synovial sarcoma, <strong>BRD4–NUT</strong>
+in NUT carcinoma).</li>
+</ol>
+<p>This checklist mirrors how clinicians and trialists rationalise
+<strong>DNMT + HDAC</strong> combinations, <strong>EZH2</strong>
+monotherapy in defined molecular subtypes, and emerging <strong>BET +
+BCL2</strong> regimens in haematological malignancies.</p>
+<blockquote>
+<p><strong>Worked Example 5 — CpG Island Methylation and Transcriptional
+Silencing</strong></p>
+<p><strong>Problem:</strong> A molecular biologist treats cancer cells
+with 5-azacytidine (azacitidine), a DNMT inhibitor. They observe
+re-expression of the tumour suppressor gene <em>CDKN2B</em> (p15).
+Before treatment, bisulfite sequencing showed 90% CpG methylation at the
+<em>CDKN2B</em> promoter CGI. The drug is incorporated into DNA during
+replication and forms a covalent adduct with DNMT1, preventing
+maintenance methylation.</p>
+<p><strong>(a)</strong> After 3 cell divisions with the drug present,
+what methylation level would you predict at the CGI if no de novo
+methylation occurs?</p>
+<p><strong>(b)</strong> Why do HDAC inhibitors (e.g., vorinostat) often
+synergise with DNMT inhibitors in cancer treatment?</p>
+<p><strong>Solution:</strong></p>
+<p><strong>(a)</strong> Maintenance methylation requires DNMT1 to copy
+hemi-methylated CpGs after replication. With DNMT1 blocked, after each
+division sister strands receive no methylation:</p>
+<p><span class="math display">\[\begin{equation}f_n = f_0 \times
+\left(\frac{1}{2}\right)^n
+\tag{15.7}\label{eq:f_n}\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}f_3 = 0.90 \times
+\left(\frac{1}{2}\right)^3 = 0.90 \times 0.125 = 0.1125 \approx 11\%
+\tag{15.8}\label{eq:f_3}\end{equation}\]</span></p>
+<p>After 3 divisions: ~11% methylation (down from 90%). Since ~50%
+methylation is the threshold for silencing at most CGIs, <em>CDKN2B</em>
+should be significantly re-expressed.</p>
+<p><strong>(b)</strong> Two distinct repressive layers maintain
+CGI-silenced genes: 1. <strong>CpG methylation</strong> → methyl-CpG
+binding proteins (MBD2) recruit HDAC → deacetylated histones 2.
+<strong>Deacetylated histones</strong> → compact chromatin,
+transcription factor exclusion</p>
+<p>DNMT inhibition removes layer 1 but may not immediately open
+chromatin if deacetylated histones persist. HDAC inhibitors (remove
+layer 2) accumulate acetylation independently of methylation.
+<strong>Together</strong>, both layers are removed simultaneously →
+synergistic re-activation of silenced tumour suppressors.</p>
+</blockquote>
+<blockquote>
+<p><strong>Worked Example 6 — IDH1 Mutation and the Methylator
+Phenotype</strong></p>
+<p><strong>Problem:</strong> A glioma tumour carries the IDH1-R132H
+mutation. The mutant enzyme converts α-ketoglutarate (αKG) to
+2-hydroxyglutarate (2-HG), which competitively inhibits αKG-dependent
+dioxygenases including TET demethylases, KDM Jumonji-domain
+demethylases, and prolyl hydroxylases. Predict three genome-wide
+chromatin consequences of IDH1-R132H, and explain why vorasidenib is
+therapeutic.</p>
+<p><strong>Solution:</strong> 1. <strong>Global hypermethylation of CpG
+islands</strong> (CIMP+): TET inhibition prevents demethylation →
+progressive CpG accumulation. 2. <strong>H3K27me3 and H3K9me3
+accumulation</strong>: Jumonji KDM6A/B and KDM4 inhibition prevents
+demethylation of repressive marks → genome-wide silencing of
+differentiation genes (the “differentiation block” of IDH-mut AML and
+glioma). 3. <strong>HIF-1α stabilisation</strong>: prolyl hydroxylase
+inhibition stabilises HIF-1α → pseudohypoxia → angiogenesis, glycolysis
+upregulation.</p>
+<p>Vorasidenib (FDA 2024 for IDH1-mut grade-2 glioma) crosses the
+blood–brain barrier and inhibits mutant IDH1, depleting 2-HG and
+partially reversing TET/KDM/PHD inhibition — restoring demethylation and
+re-engaging differentiation. Median progression-free survival doubled
+(27 vs. 11 months) in the INDIGO trial.</p>
+</blockquote>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>Promoter CpG islands are GC-rich; summarising composition links
+chromatin biology to sequence statistics:</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.genetics <span class="im">import</span> gc_content</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>cgi_like <span class="op">=</span> <span class="st">&quot;CGCGCGCGCGATATATAT&quot;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">round</span>(gc_content(cgi_like), <span class="dv">3</span>))</span></code></pre></div>
+<p>Methylation decay through cell divisions is a one-line
+simulation:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> methylation_decay(f0: <span class="bu">float</span>, generations: <span class="bu">int</span>, eps: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.95</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">float</span>]:</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Predict CpG methylation fraction over `generations` divisions</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">    given maintenance efficiency `eps`.</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    f_{n+1} = (eps + (1 - eps) / 2) * f_n  (per-CpG approximation)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    factor <span class="op">=</span> eps <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> eps) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [f0 <span class="op">*</span> factor <span class="op">**</span> n <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(generations <span class="op">+</span> <span class="dv">1</span>)]</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>([<span class="bu">round</span>(v, <span class="dv">3</span>) <span class="cf">for</span> v <span class="kw">in</span> methylation_decay(<span class="fl">0.90</span>, <span class="dv">5</span>, eps<span class="op">=</span><span class="fl">0.0</span>)])  <span class="co"># DNMT1-null</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># [0.9, 0.45, 0.225, 0.113, 0.056, 0.028]</span></span></code></pre></div>
+<p>Setting ε = 0 simulates a DNMT1-null (or azacitidine-trapped) cell —
+the fraction halves each generation.</p>
+<p>A Polycomb-spreading simulator with the EED–allosteric read-write
+feedback:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> polycomb_spread(seeds: <span class="bu">int</span>, generations: <span class="bu">int</span>, k: <span class="bu">float</span>, n_nucleosomes: <span class="bu">int</span> <span class="op">=</span> <span class="dv">50</span>) <span class="op">-&gt;</span> <span class="bu">list</span>[<span class="bu">float</span>]:</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Simulate H3K27me3 occupancy over generations.</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">    seeds: initial number of H3K27me3-marked nucleosomes</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">    k: marks deposited per generation per existing mark (read-write coupling)</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">    n_nucleosomes: total nucleosomes available</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    history <span class="op">=</span> [seeds]</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> seeds</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(generations):</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        m <span class="op">=</span> m <span class="op">/</span> <span class="dv">2</span> <span class="op">+</span> k          <span class="co"># passive halving + spreading</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        m <span class="op">=</span> <span class="bu">min</span>(m, n_nucleosomes)  <span class="co"># saturation</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        history.append(m)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> history</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(polycomb_spread(seeds<span class="op">=</span><span class="dv">2</span>, generations<span class="op">=</span><span class="dv">5</span>, k<span class="op">=</span><span class="dv">10</span>))</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># [2, 11.0, 16.5, 18.25, 19.125, 19.5625]  → reaches ~20 marked nucleosomes</span></span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> Azacitidine/decitabine and
+HDAC inhibitors are approved where malignant clones depend on silenced
+differentiation programmes — therapies that <strong>reverse layers of
+repression</strong> rather than mutating oncogenes. Newer entries
+(tazemetostat for EZH2; menin–MLL inhibitors for KMT2A-rearranged AML;
+vorasidenib for IDH-mut glioma) extend the same logic to writers,
+readers, and metabolic upstream regulators.</p>
+</blockquote>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Epigenetics and Gene Regulation</strong>, frontier
+biology belongs inside the evidence logic of the chapter. Molecular
+genetics now spans single-reference sequences, telomere-to-telomere
+assemblies, pangenome graphs, long-read sequencing, CRISPR medicines,
+and ethical deployment. The core reading question is this: epigenetic
+claims require causal perturbation, cell-type specificity, timing, and
+inheritance controls.</p>
+<p><strong>Single-cell and spatial genomics boundary:</strong>
+Single-cell RNA-seq, single-cell ATAC-seq, immune profiling, and spatial
+transcriptomics now let students ask which cell type and tissue
+neighbourhood carries a regulatory claim rather than averaging the whole
+organ. The Human Cell Atlas framed the goal as a reference map of human
+cell types, states, locations, and lineages ; newer multi-omic atlas
+work integrates single-cell modalities with spatial transcriptomics
+across many tissues . The evidence boundary is essential: a cluster
+marker or spatial neighbourhood is a hypothesis about cell identity and
+interaction unless validated by perturbation, orthogonal markers,
+sampling design, and disease-relevant tissue context.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>When a genomic claim depends on a reference, ask whether short reads,
+structural variants, ancestry representation, phasing, or clinical
+validation could change the interpretation .</p>
+<p><strong>Source practice:</strong> For genomics and editing claims,
+distinguish discovery from clinical actionability, and cite reference
+resources, regulatory records, or primary editing studies close to the
+claim .</p>
+<h3 id="current-evidence-map-epigenetic-causality-ladder">Current
+Evidence Map: Epigenetic Causality Ladder</h3>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;Chromatin mark observed&quot;] --&gt; B[&quot;Cell-type context&quot;]
+    B --&gt; C[&quot;Perturb writer or eraser&quot;]
+    C --&gt; D[&quot;Expression change&quot;]
+    D --&gt; E[&quot;Phenotype or cell state&quot;]
+    E --&gt; F[&quot;Rescue or orthogonal assay&quot;]
+    F --&gt; G[&quot;Causal epigenetic claim&quot;]</code></pre>
+<!-- alt: Flowchart showing an epigenetic mark is not automatically a cause; causal claims need perturbation, timing, cell-type specificity, expression readout, and rescue or orthogonal evidence. -->
+<p><em>An epigenetic mark is not automatically a cause; causal claims
+need perturbation, timing, cell-type specificity, expression readout,
+and rescue or orthogonal evidence.</em></p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Chromatin</strong> is organised around the nucleosome (147
+bp DNA + histone octamer H2A/H2B/H3/H4). Histone variants (H3.3, CENP-A,
+H2A.Z, H2A.X, macroH2A) define specialised chromatin states.
+Higher-order compaction creates TADs (CTCF/cohesin) and A/B
+compartments.</li>
+<li><strong>Histone acetylation</strong> (HATs; activating, e.g.,
+H3K27ac, H3K9ac, H4K16ac) and <strong>deacetylation</strong> (HDACs;
+repressive) regulate accessibility. Newer acyl marks (lactylation,
+β-hydroxybutyrylation, crotonylation, butyrylation) couple chromatin to
+metabolism.</li>
+<li><strong>Histone methylation</strong> has context-dependent effects.
+H3K4me3 = active promoters; H3K36me3 = gene bodies; H3K27me3 = Polycomb
+(PRC2) silencing; H3K9me3 = constitutive heterochromatin (HP1); H4K20me3
+= pericentric heterochromatin. Bivalent domains (H3K4me3 + H3K27me3)
+mark poised developmental genes in ES cells.</li>
+<li><strong>Polycomb / Trithorax cellular memory:</strong> PRC2 (EZH2)
+writes H3K27me3 → recruits PRC1 (RING1B → H2AK119ub). MLL/COMPASS writes
+H3K4me3; UTX/JMJD3 erase H3K27me3; SWI/SNF evicts PRC1/2 — together
+antagonising Polycomb at active genes.</li>
+<li><strong>DNA methylation</strong> at CpG islands (DNMT3A/3B <em>de
+novo</em>; DNMT1+UHRF1 maintenance) causes stable gene silencing.
+<strong>TET enzymes</strong> oxidise 5mC → 5hmC → 5fC → 5caC for active
+demethylation; 5hmC is itself a stable mark. IDH1/2 mutations produce
+2-HG, blocking TET and creating the CIMP phenotype.</li>
+<li><strong>Genomic imprinting:</strong> ~150 genes from ~30
+ICR-controlled clusters expressed monoallelically by parent of origin.
+IGF2/H19 (CTCF-insulator), 15q11–q13 (Prader–Willi/Angelman), 11p15
+BWS/SRS exemplify mechanisms and reciprocal phenotypes.</li>
+<li><strong>X-chromosome inactivation:</strong> XIST lncRNA
+(cis-coating) → SPEN-HDAC3 + PRC2 → H3K27me3 + DNMT3 → CGI methylation;
+~15–25 % escape genes (mostly PAR). Skewed XCI explains variable
+X-linked disease in heterozygous females. iPSC reprogramming reactivates
+Xi.</li>
+<li><strong>Chromatin remodellers:</strong> SWI/SNF (BAF/PBAF —
+slide+eject; mutated in ~20 % cancers), ISWI (spacing), CHD/NuRD
+(repressive sliding + HDAC), INO80/SWR1 (H2A.Z exchange).</li>
+<li><strong>3D genome:</strong> TADs by loop extrusion (CTCF + cohesin);
+A/B compartments; LADs at the lamina; phase-separated condensates at
+super-enhancers (BRD4, Mediator, Pol II CTD); CDK8 dissolves condensates
+by phosphorylating Mediator.</li>
+<li><strong>miRNA / lncRNA / piRNA:</strong> DROSHA → DICER → RISC for
+miRNA; lncRNAs (XIST, HOTAIR, MALAT1, NEAT1) scaffold complexes; piRNAs
+silence transposons in germline.</li>
+<li><strong>Mitotic / germline reprogramming:</strong> Maintenance via
+DNMT1+UHRF1 (H3K18ub-coupled) and read-write feedback for histone marks.
+CAF-1 deposits new histones at the fork. Two waves of epigenetic erasure
+(post-fertilisation; PGC). Imprints protected from PGC erasure and
+re-set sex-specifically during gametogenesis.</li>
+<li><strong>Cancer epigenetics &amp; clinical translation:</strong>
+Approved drugs target each layer — DNMTi, HDACi, EZH2i, IDH-mut
+inhibitors, BET inhibitors, menin–MLL inhibitors, oncohistone H3K27M
+biology, condensate-targeting agents.</li>
+<li><strong>Connections:</strong> See for transcriptional output, for
+CRISPR-based epigenome editing, Unit V for imprinting and pedigree
+patterns, and Unit IX for nuclear receptor chromatin targeting.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Epigenetics</strong></td>
+<td>Heritable changes in gene expression that do not alter the DNA
+sequence</td>
+</tr>
+<tr>
+<td><strong>Nucleosome</strong></td>
+<td>147 bp DNA + histone octamer (H2A, H2B, H3, H4 × 2); fundamental
+chromatin unit</td>
+</tr>
+<tr>
+<td><strong>Histone variant</strong></td>
+<td>Non-canonical histone (H3.3, CENP-A, H2A.Z, H2A.X, macroH2A)
+deposited at specialised loci</td>
+</tr>
+<tr>
+<td><strong>Histone code</strong></td>
+<td>Combinatorial histone modifications specify chromatin states and
+downstream regulatory outcomes</td>
+</tr>
+<tr>
+<td><strong>HAT / HDAC</strong></td>
+<td>Histone acetyltransferase (writer) / deacetylase (eraser); regulate
+H3K9/H3K14/H3K27/H4K16 acetylation</td>
+</tr>
+<tr>
+<td><strong>H3K27me3</strong></td>
+<td>PRC2/EZH2-deposited Polycomb repressive mark</td>
+</tr>
+<tr>
+<td><strong>H3K4me3</strong></td>
+<td>MLL/SET1-deposited active promoter mark</td>
+</tr>
+<tr>
+<td><strong>H3K9me3</strong></td>
+<td>SUV39H/SETDB1-deposited constitutive heterochromatin mark; HP1
+reader</td>
+</tr>
+<tr>
+<td><strong>H3K36me3</strong></td>
+<td>SETD2-deposited transcribed gene body mark</td>
+</tr>
+<tr>
+<td><strong>PRC1 / PRC2</strong></td>
+<td>Polycomb complexes; PRC2 writes H3K27me3 (EZH2), PRC1 writes
+H2AK119ub (RING1B)</td>
+</tr>
+<tr>
+<td><strong>Trithorax (TrxG)</strong></td>
+<td>MLL/COMPASS, KDM6A/B, BAF — antagonise Polycomb</td>
+</tr>
+<tr>
+<td><strong>CpG island</strong></td>
+<td>~500 bp–2 kb region of high CpG density; methylation at promoter
+CGIs silences genes</td>
+</tr>
+<tr>
+<td><strong>DNMT1</strong></td>
+<td>Maintenance DNA methyltransferase; copies hemimethylated CpGs at
+replication fork (UHRF1-recruited)</td>
+</tr>
+<tr>
+<td><strong>DNMT3A/3B</strong></td>
+<td>De novo methyltransferases; require DNMT3L cofactor</td>
+</tr>
+<tr>
+<td><strong>UHRF1</strong></td>
+<td>Hemi-methyl-CpG reader (SRA); H3K9me reader (TTD); recruits DNMT1 to
+fork</td>
+</tr>
+<tr>
+<td><strong>TET enzymes</strong></td>
+<td>Fe(II)/αKG-dependent dioxygenases; oxidise 5mC → 5hmC → 5fC → 5caC
+for active demethylation</td>
+</tr>
+<tr>
+<td><strong>5-methylcytosine</strong></td>
+<td>The “fifth base”; methylated cytosine at CpG dinucleotides</td>
+</tr>
+<tr>
+<td><strong>5hmC</strong></td>
+<td>5-hydroxymethylcytosine; TET oxidation product; stable mark in
+neurons</td>
+</tr>
+<tr>
+<td><strong>Genomic imprinting</strong></td>
+<td>Parent-of-origin-specific monoallelic gene expression; ~150 human
+genes</td>
+</tr>
+<tr>
+<td><strong>ICR / DMR</strong></td>
+<td>Imprint control region / differentially methylated region</td>
+</tr>
+<tr>
+<td><strong>XIST</strong></td>
+<td>X-inactive specific transcript; 17 kb lncRNA; coats inactive X
+chromosome in cis</td>
+</tr>
+<tr>
+<td><strong>Skewed XCI</strong></td>
+<td>Non-50/50 X-inactivation distribution; explains variable X-linked
+disease in females</td>
+</tr>
+<tr>
+<td><strong>miRNA</strong></td>
+<td>~22 nt RNA; DROSHA → DICER pathway; AGO2/RISC → translational
+repression/mRNA decay</td>
+</tr>
+<tr>
+<td><strong>piRNA</strong></td>
+<td>26–31 nt germline RNA; PIWI pathway; silences transposable
+elements</td>
+</tr>
+<tr>
+<td><strong>TAD</strong></td>
+<td>Topologically Associating Domain; chromatin loop defined by
+CTCF/cohesin; enhancer-promoter contacts</td>
+</tr>
+<tr>
+<td><strong>A/B compartment</strong></td>
+<td>Megabase-scale active vs. repressed chromatin neighbourhoods</td>
+</tr>
+<tr>
+<td><strong>LAD</strong></td>
+<td>Lamina-Associated Domain; gene-poor regions tethered to nuclear
+periphery</td>
+</tr>
+<tr>
+<td><strong>LLPS / condensate</strong></td>
+<td>Liquid-liquid phase separation; concentrates IDR-containing
+regulators at hubs</td>
+</tr>
+<tr>
+<td><strong>Super-enhancer</strong></td>
+<td>Large enhancer cluster with dense Mediator/BRD4/H3K27ac; drives high
+transcriptional output</td>
+</tr>
+<tr>
+<td><strong>Bivalent domain</strong></td>
+<td>Simultaneous H3K4me3 + H3K27me3 at developmental gene promoters in
+ES cells</td>
+</tr>
+<tr>
+<td><strong>SWI/SNF (BAF)</strong></td>
+<td>ATP-dependent remodeller; mutated in ~20 % cancers (ARID1A, SMARCB1,
+PBRM1)</td>
+</tr>
+<tr>
+<td><strong>ISWI / CHD/NuRD / INO80</strong></td>
+<td>Other remodeller families: spacing / repressive sliding+HDAC / H2A.Z
+exchange</td>
+</tr>
+<tr>
+<td><strong>CAF-1</strong></td>
+<td>Chromatin assembly factor 1; deposits new H3.1-H4 at replication
+fork via PCNA</td>
+</tr>
+<tr>
+<td><strong>Azacitidine / decitabine</strong></td>
+<td>DNMT inhibitors; trap DNMT1; approved for MDS/AML</td>
+</tr>
+<tr>
+<td><strong>Vorinostat (SAHA)</strong></td>
+<td>HDAC inhibitor; approved CTCL; synergises with DNMT-i</td>
+</tr>
+<tr>
+<td><strong>Tazemetostat</strong></td>
+<td>EZH2 inhibitor; FDA-approved for SMARCB1-loss epithelioid sarcoma
+and EZH2-mut FL</td>
+</tr>
+<tr>
+<td><strong>BET inhibitor</strong></td>
+<td>Blocks bromodomain–acetyl-lysine engagement (e.g., BRD4); collapses
+oncogenic transcriptional condensates</td>
+</tr>
+<tr>
+<td><strong>Vorasidenib</strong></td>
+<td>Mutant-IDH1 inhibitor; FDA-approved 2024 for grade-2 glioma;
+depletes 2-HG, restores TET activity</td>
+</tr>
+<tr>
+<td><strong>Revumenib</strong></td>
+<td>Menin–MLL inhibitor; FDA-approved 2024 for KMT2A-rearranged AML</td>
+</tr>
+<tr>
+<td><strong>Oncohistone</strong></td>
+<td>Recurrent gain-of-function histone mutation (H3K27M, H3G34R/V,
+H3K36M) acting in trans</td>
+</tr>
+<tr>
+<td><strong>CIMP</strong></td>
+<td>CpG-island methylator phenotype; cluster of hypermethylated CGIs
+(IDH-mut glioma, MLH1-silent CRC)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="discussion-questions">Discussion Questions</h2>
+<p>These open-ended questions require integration across multiple
+sections and connection to clinical or experimental practice. Suitable
+for graduate-style discussion or take-home essay.</p>
+<ol type="1">
+<li><p><strong>Cellular memory under perturbation.</strong> PRC2
+(H3K27me3) is regularly described as a “cellular memory” system.
+Experimentally, how would you distinguish whether Polycomb memory at a
+developmental gene is maintained by (a) the read-write feedback loop
+alone, (b) the parental nucleosome inheritance mechanism, or (c) DNA
+methylation acting downstream? Propose two CRISPR-based perturbations
+that would discriminate between these mechanisms.</p></li>
+<li><p><strong>Aging and the epigenetic clock.</strong> Steve Horvath’s
+epigenetic clock predicts chronological age from CpG methylation
+patterns at ~353 sites with median error of 3.6 years. Why should DNA
+methylation drift with age? Propose three biological mechanisms
+(mitotic-error, oxidative-stress, lineage-replacement). What therapeutic
+implications would follow if epigenetic age could be reversed (e.g., via
+Yamanaka factors, partial reprogramming)?</p></li>
+<li><p><strong>The “junk DNA” reckoning and 80 % functional ENCODE
+claim.</strong> ENCODE (2012) claimed ≥ 80 % of the human genome has
+biochemical activity (chromatin accessibility, TF binding, histone
+marks, RNA transcription). Critics argue most of these activities are
+“noise” — neutral binding to GC-rich sequences. Take a position: design
+an experiment that would distinguish biologically functional enhancer
+activity from “spurious” biochemical activity at a candidate non-coding
+region.</p></li>
+<li><p><strong>Synthetic biology with phase separation.</strong>
+Engineering programmable transcription factors with IDR-mediated
+condensate formation could provide programmable control over
+transcription rate. Propose three design principles — and three failure
+modes — for an engineered IDR–dCas9 fusion that would create a tunable
+super-enhancer-like condensate.</p></li>
+<li><p><strong>Trans-generational epigenetic inheritance: real or
+artefact?</strong> Critique the human evidence (Dutch Hunger Winter,
+Överkalix, Holocaust trauma cohorts). What four experimental designs
+would conclusively demonstrate transgenerational inheritance through
+sperm/oocyte (rather than direct exposure of F1 germline)? Why is this
+question particularly difficult in mammals compared to <em>C.
+elegans</em> or <em>Arabidopsis</em>?</p></li>
+<li><p><strong>Clinical sequencing and the epigenome.</strong> A
+70-year-old woman has DNMT3A R882H clonal-haematopoiesis (CHIP) detected
+on routine whole-exome sequencing. She has no AML and no cytopenia. As
+her physician, what counselling would you provide regarding: (i) AML
+risk, (ii) cardiovascular risk (CHIP elevates CHD risk independent of
+AML), (iii) lifestyle modifications, (iv) whether prophylactic treatment
+should be considered, and (v) what monitoring frequency you would
+recommend?</p></li>
+</ol>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li>A gene has 95% CpG methylation at its promoter CGI. A researcher
+applies 5-azacytidine for 5 cell divisions with no de novo methylation.
+Using the formula <span class="math inline">\(f_n = f_0 / 2^n\)</span>,
+what methylation level remains? If the transcription threshold is 30%,
+at which division does the gene first become potentially active?</li>
+<li>Explain why H3K27me3 is a <strong>repressive</strong> mark while
+H3K4me3 is an <strong>activating</strong> mark, even though both involve
+lysine methylation on histone H3. Include the relevant enzymes (HMT and
+KDM) and reader proteins for each.</li>
+<li>Draw and annotate the IGF2/H19 imprinting mechanism. Explain why a
+maternal deletion at the ICR/DMR causes Beckwith-Wiedemann syndrome
+(biallelic IGF2 expression), while a paternal deletion causes
+Silver-Russell syndrome (biallelic IGF2 silencing).</li>
+<li>A female patient presents with Rett syndrome. Genetic testing shows
+a missense mutation in <em>MECP2</em> (methyl-CpG binding protein 2) on
+one X chromosome. Explain why Rett syndrome shows variable severity
+between affected females, using the concept of X-chromosome inactivation
+skewing.</li>
+<li>A cancer biopsy shows the following ChIP-seq results at a
+tumour-suppressor gene promoter: H3K27me3 high, H3K4me3 absent, H3K27ac
+absent, and 85% CpG methylation. A second tumour from the same patient
+shows H3K27me3 low, H3K27ac present, H3K4me3 high, and 5% methylation —
+with the tumour-suppressor gene transcribed. Propose two mechanisms by
+which the epigenetic state could have switched, and describe the
+specific enzymes involved.</li>
+<li>Compare piRNAs and miRNAs in terms of: (a) size, (b) biogenesis
+pathway (DICER-dependent vs. independent), (c) primary biological
+function in mammals, and (d) what happens when the pathway is disrupted
+genetically.</li>
+<li>A developmental biologist shows that a <em>Drosophila</em> gene is
+in a “bivalent domain” in neural stem cells (H3K4me3 + H3K27me3). After
+neural differentiation, H3K27me3 is removed by KDM6A. What molecular
+events would you expect at this gene promoter? What histone remodelling
+complex would facilitate nucleosome repositioning for full
+activation?</li>
+<li>The Dutch Hunger Winter cohort shows that caloric restriction in
+pregnant women led to measurable methylation differences at the IGF2 DMR
+in their children, persisting for 60 years. Critically evaluate this as
+evidence for transgenerational epigenetic inheritance, noting the key
+confounders and what additional data would conclusively demonstrate
+germline transmission.</li>
+<li>A clinical trial combines azacitidine (DNMT inhibitor) with
+vorinostat (HDAC inhibitor) for treating a myeloid cancer. Using your
+knowledge of the two repressive layers at silenced CGI promoters,
+predict which order of drug administration would be more effective.
+Support your reasoning with the molecular mechanism.</li>
+<li>CRISPR-dCas9 (catalytically dead Cas9) fused to DNMT3A can write DNA
+methylation at specific genomic loci. Design an experiment using this
+tool to test whether the methylation at the <em>BRCA1</em> promoter in a
+cancer cell line is the <strong>cause</strong> of silencing (not merely
+a consequence). Describe the expected result if methylation is causal
+vs. if there is an upstream histone modification driving silencing.</li>
+<li>Explain how a <strong>BET bromodomain inhibitor</strong> might
+reduce <em>MYC</em> transcription without mutating the <em>MYC</em>
+locus. How would you test whether the drug acts via loss of BRD4 at
+super-enhancers rather than a global transcription shutdown?</li>
+<li>A paediatric tumour harbours a <strong>CTCF</strong> site deletion
+that fuses two <strong>TADs</strong>. Propose how this structural
+variant could activate an oncogene — and one experiment (Hi-C, CRISPR
+excision rescue, or luciferase reporter) to support enhancer
+hijacking.</li>
+<li>A patient with myelodysplastic syndrome has a TET2 loss-of-function
+mutation. Predict the genome-wide methylation phenotype, and explain why
+this patient might respond to azacitidine <em>better</em> than a
+TET2-wild-type patient.</li>
+<li>A diffuse intrinsic pontine glioma harbours an H3K27M oncohistone.
+Explain why ~10 % of nucleosomes carrying this mutation can produce a
+genome-wide H3K27me3 reduction (gain-of-function effect on PRC2 in
+trans). What is the rationale for EZH2 inhibitors in this setting?</li>
+<li>Quantitatively compare the half-lives of H3K27ac and 5mC marks
+across cell divisions. Why does this difference imply that long-term
+cellular memory is encoded primarily in DNA methylation and Polycomb
+marks, not acetylation?</li>
+<li>A glioma is diagnosed with IDH1-R132H mutation. Plasma 2-HG is 200
+µM (vs. &lt; 10 µM in healthy individuals). The patient is treated with
+vorasidenib (mutant-IDH1 inhibitor). After 3 months, plasma 2-HG drops
+to 12 µM. Predict the time-course of DNA methylation reversal at CIMP+
+loci. Why does clinical response (radiographic improvement) typically
+lag 6–12 months behind 2-HG normalisation?</li>
+<li>A laboratory generates a mouse with a homozygous deletion of the
+<em>Cbx7</em> gene (encoding a PRC1 chromobox subunit). Predict the
+haematopoietic phenotype. Would you expect the phenotype to be more or
+less severe than a <em>Bmi1</em> (PCGF4) homozygous deletion? Justify
+your answer in terms of redundancy among canonical-PRC1 paralogs.</li>
+<li>A 35-year-old woman is found to have CHIP with a <em>DNMT3A</em>
+R882H mutation at 15 % VAF. Three years later she develops AML.
+Sequencing of the AML shows the same DNMT3A R882H plus a new
+<em>FLT3-ITD</em> mutation. Discuss the implications: (i) why is DNMT3A
+loss often a CHIP-precursor mutation rather than the AML-driver itself?
+(ii) How does R882H differ from a complete loss-of-function? (iii) What
+treatment would target both the epigenetic and signalling layers?</li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Strahl &amp; Allis (2000). The language of covalent histone
+modifications. <em>Nature</em>, 403.</li>
+<li>Lyon (1961). Gene action in the X-chromosome of the mouse (<em>Mus
+musculus L.</em>). <em>Nature</em>, 190.</li>
+<li>Fire et al. (1998). Potent and specific genetic interference by
+double-stranded RNA in <em>Caenorhabditis elegans</em>. <em>Nature</em>,
+391.</li>
+<li>Doudna &amp; Charpentier (2014). The new frontier of genome
+engineering with CRISPR-Cas9. <em>Science</em>, 346.<em>Figures:
+<code>src/visualization/plots.py</code> —
+<code>plot_methylation_heatmap()</code></em></li>
+</ul>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Epigenetics and Gene Regulation</strong> should leave a
+reproducible trail from a biological claim to the code, figure, diagram,
+or paper-based activity that can test it. Use the surfaces below to
+inspect the chapter’s assumptions, rerun the relevant model, or compare
+the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/genetics/genetics.py</code>
+(<code>cpg_methylation_remaining</code>,
+<code>histone_modification_state</code>)</td>
+<td>Convert methylation maintenance and histone-mark claims into
+explicit state checks.</td>
+</tr>
+<tr>
+<td><code>src/visualization/plots.py</code>
+(<code>plot_methylation_heatmap</code>)</td>
+<td>Inspect whether heatmap interpretation depends on color alone or
+includes labels.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>mirna_biogenesis_diagram</code>,
+<code>x_inactivation_diagram</code>)</td>
+<td>Compare RNA-mediated and chromatin-mediated regulation.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> require cell type,
+developmental time, perturbation evidence, and inheritance control
+before calling a mark causal. <strong>Cross-reference:</strong> use , ,
+and .</p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant CPG as Medullary Respiratory<br/>Centre (DRG/VRG)
+    participant PN as Phrenic Nerve<br/>(C3-C5)
+    participant Dia as Diaphragm
+    participant Alv as Alveoli
+    participant Cap as Pulmonary Capillary
+
+    CPG->>PN: Rhythmic impulses<br/>(12-20 breaths/min)
+    PN->>Dia: Motor stimulation
+    Dia->>Alv: Contraction expands thorax<br/>Air flows in (inspiration)
+    Note over Alv: Alveolar gas:<br/>PO2 = 100 mmHg<br/>PCO2 = 40 mmHg
+    Note over Cap: Venous blood:<br/>PO2 = 40 mmHg<br/>PCO2 = 46 mmHg
+    Alv->>Cap: O2 diffuses DOWN gradient<br/>(Fick's law)
+    Cap->>Alv: CO2 diffuses DOWN gradient
+    Note over Cap: Arterial blood:<br/>PO2 = 100 mmHg<br/>PCO2 = 40 mmHg<br/>Equilibrium in 0.3 s
+    CPG->>CPG: Chemoreceptor feedback:<br/>Central: H+ in CSF (from CO2)<br/>Peripheral: PO2, PCO2, pH

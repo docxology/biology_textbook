@@ -1,0 +1,19 @@
+flowchart LR
+    LIGHT["Light"] --> PSI["PS I"]
+    PSI --> FD["Ferredoxin (red)"]
+    FD --> FTR["Fd-Thioredoxin Reductase"]
+    FTR --> TRX["Trx-(SH)₂"]
+    TRX --> GAPDH["GAPDH (active)"]
+    TRX --> FBPASE["FBPase (active)"]
+    TRX --> SBPASE["SBPase (active)"]
+    TRX --> PRK["PRK (active)"]
+    TRX --> RCA["RuBisCO activase (active)"]
+    TRX --> CP12["CP12 (released)"]
+
+    DARK["Dark"] --> O2OX["O₂ oxidises Trx"]
+    O2OX --> TRXOX["Trx-(S-S)"]
+    TRXOX --> INACTIVE["Calvin cycle enzymes<br/>inactivated by re-oxidation"]
+
+    style LIGHT fill:#fffacd
+    style DARK fill:#2c3e50,color:#fff
+    style INACTIVE fill:#ffe6e6

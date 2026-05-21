@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>023_gene_expression</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="gene-expression-transcription-and-translation">Gene Expression —
+Transcription and Translation</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 13</strong> · Level 2/3 · 60 min read · 100 min lecture ·
+Prerequisites: </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Describe the mechanism of <a
+href="#gl:transcription"><strong>transcription</strong></a> in
+prokaryotes and <a href="#gl:eukaryote"><strong>eukaryote</strong></a>s,
+including <a href="#gl:promoter"><strong>promoter</strong></a>
+recognition and elongation.</li>
+<li>Compare prokaryotic and eukaryotic RNA polymerases in terms of
+subunit composition, promoter elements, and regulation.</li>
+<li>Explain RNA processing in eukaryotes: 5’ capping, splicing
+(spliceosome mechanism), and 3’ polyadenylation.</li>
+<li>Describe alternative splicing and its role in proteome diversity,
+including the mechanism of nonsense-mediated decay.</li>
+<li><strong>Predict</strong> the polypeptide produced from a given mRNA
+sequence, applying the genetic code and wobble pairing, including the
+effect of a single-base insertion on the reading frame.</li>
+<li>Describe post-translational modifications and the
+ubiquitin-proteasome degradation pathway.</li>
+<li><strong>Distinguish</strong> transcriptional from
+post-transcriptional <a href="#gl:gene"><strong>gene</strong></a>
+regulation (miRNA, siRNA, lncRNA, circRNA) given Northern-blot versus
+Western-blot data.</li>
+<li>Describe epigenetic regulation: DNA methylation, <a
+href="#gl:histone-code"><strong>histone code</strong></a>, and their
+roles in development and disease.</li>
+<li><strong>Predict</strong> lac- and trp-<a
+href="#gl:operon"><strong>operon</strong></a> transcriptional output
+given specified inducer, repressor, and corepressor states.</li>
+<li>Describe the role of Hox genes and homeodomain transcription factors
+in development.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Gene expression translates sequence
+information into regulated RNA and protein products.</li>
+<li><strong>Core concepts:</strong> transcription, translation, codons,
+RNA processing.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change:
+Information flow, exchange, and storage, Structure and function; AP
+Biology: Information Storage and Transmission, Systems Interactions;
+NGSS-style topics: Inheritance and Variation of Traits, Structure and
+Function.</li>
+<li><strong>Model or quantitative lens:</strong> Reading-frame, codon,
+and expression-output calculations.</li>
+<li><strong>Data skill:</strong> Convert DNA/RNA sequence data into
+predicted molecular products.</li>
+<li><strong>Practice cadence:</strong> Concept Explanation, Questions
+and Methods, Argumentation.</li>
+<li><strong>Common misconception to repair:</strong> A gene is not
+simply a protein recipe; context controls when, where, and how much
+product appears.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Apply expression logic to mutations,
+biotechnology, development, and disease diagnostics.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.genetics.genetics.translate_mrna</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette — Solving the Problem of the
+Messenger</strong></p>
+<p>In 1961, Francis Crick and colleagues knew that information flowed
+from DNA to <a href="#gl:protein"><strong>protein</strong></a>, but the
+molecular intermediary was a mystery. Working with Sydney Brenner and
+François Jacob at Cambridge, Matthew Meselson performed a deceptively
+simple experiment: he mixed radioactively labelled <a
+href="#gl:ribosome"><strong>ribosome</strong></a>s from bacteria
+infected with T4 phage with unlabelled ribosomes, then centrifuged the
+extract through a density gradient. The new viral proteins appeared on
+<em>old</em> unlabelled ribosomes — proving that ribosomes are
+non-specific “machines,” and that the specificity must come from a
+short-lived “messenger” molecule. Brenner named it messenger RNA. Within
+a decade, the entire transcription and translation apparatus — RNA
+polymerase, transfer RNA, <a
+href="#gl:codon"><strong>codon</strong></a>s, the genetic code — had
+been decoded. This vignette illustrates how a single elegant experiment
+can overturn received wisdom and open an entire research programme.</p>
+</blockquote>
+<h2 id="transcription">Transcription</h2>
+<h3 id="overview-the-central-dogma">Overview: The Central Dogma</h3>
+<p>Transcription produces RNA from a DNA template. The <strong>central
+dogma</strong> describes the flow of genetic information:</p>
+<p><span class="math display">\[\begin{equation}\text{DNA}
+\xrightarrow{\text{transcription}} \text{RNA}
+\xrightarrow{\text{translation}} \text{Protein}
+\tag{13.1}\label{eq:central_dogma}\end{equation}\]</span></p>
+<p>Additional information flows include: <strong>reverse
+transcription</strong> (RNA to DNA; retroviruses, telomerase),
+<strong>RNA replication</strong> (RNA-dependent RNA polymerases in RNA
+viruses), and <strong>direct translation regulation</strong>
+(riboswitches, IREs).</p>
+<h3 id="prokaryotic-transcription">Prokaryotic Transcription</h3>
+<p><strong>RNA polymerase (RNAP)</strong> in <em>E. coli</em>: core <a
+href="#gl:enzyme"><strong>enzyme</strong></a> (<span
+class="math inline">\(\alpha_2\beta\beta&#39;\omega\)</span>) + sigma
+(σ) factor:</p>
+<ul>
+<li>The σ factor recognizes the <strong>promoter</strong> – specifically
+two conserved hexameric sequences:
+<ul>
+<li><strong>-10 box</strong> (Pribnow box): consensus TATAAT (named
+after David Pribnow)</li>
+<li><strong>-35 box</strong>: consensus TTGACA</li>
+</ul></li>
+<li>Promoter strength correlates with similarity to consensus; strong
+promoters (e.g., rRNA genes) match closely at both positions</li>
+<li>The <span class="math inline">\(\sigma^{70}\)</span> factor is the
+“housekeeping” sigma; alternative sigma factors direct RNAP to
+stress-response promoters (e.g., <span
+class="math inline">\(\sigma^{32}\)</span> for heat shock, <span
+class="math inline">\(\sigma^{54}\)</span> for nitrogen starvation)</li>
+</ul>
+<p><strong>Transcription cycle</strong>: 1. <strong>Closed
+complex</strong>: RNAP + σ binds promoter DNA (double-stranded) 2.
+<strong>Open complex</strong>: ~15 bp around the -10 region melt
+(AT-rich, easier to denature); transcription bubble forms 3.
+<strong>Initiation</strong>: RNAP synthesizes short abortive transcripts
+(2-12 nt); σ factor released after ~10 nt (“promoter escape”) 4.
+<strong>Elongation</strong>: RNAP moves along template 3’ to 5’,
+synthesizing RNA 5’ to 3’ at ~40-80 nt/s; transcription bubble is ~12-14
+bp; ~8 bp RNA-DNA hybrid within the bubble 5.
+<strong>Termination</strong>: two mechanisms</p>
+<p><strong>Termination mechanisms</strong>: - <strong>Rho-independent
+(intrinsic)</strong>: GC-rich inverted repeat in nascent RNA forms a
+stem-loop hairpin followed by a run of ~6-8 U residues (weak rU-dA base
+pairs) – hairpin destabilizes RNAP-RNA contact, U-tract promotes
+dissociation - <strong>Rho-dependent</strong>: Rho protein (hexameric
+helicase) loads onto rut (Rho utilization) sites on the nascent RNA,
+translocates 5’ to 3’ along the RNA (powered by ATP hydrolysis), catches
+up when RNAP pauses, and unwinds the RNA-DNA hybrid to release the
+transcript</p>
+<h3 id="eukaryotic-transcription">Eukaryotic Transcription</h3>
+<p><strong>Three nuclear RNA polymerases:</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 23%" />
+<col style="width: 26%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>Feature</th>
+<th>RNA Pol I</th>
+<th>RNA Pol II</th>
+<th>RNA Pol III</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Products</strong></td>
+<td>45S pre-rRNA (18S, 5.8S, 28S rRNA)</td>
+<td>Most mRNA; most snRNA, miRNA</td>
+<td>tRNA, 5S rRNA, U6 snRNA, 7SL RNA</td>
+</tr>
+<tr>
+<td><strong>Location</strong></td>
+<td>Nucleolus</td>
+<td>Nucleoplasm</td>
+<td>Nucleoplasm</td>
+</tr>
+<tr>
+<td><strong>Number of subunits</strong></td>
+<td>14</td>
+<td>12</td>
+<td>17</td>
+</tr>
+<tr>
+<td><strong>Sensitivity to alpha-amanitin</strong></td>
+<td>Resistant</td>
+<td>Very sensitive (1 ug/mL)</td>
+<td>Moderately sensitive (10 ug/mL)</td>
+</tr>
+<tr>
+<td><strong>Promoter elements</strong></td>
+<td>UCE + core (recognized by UBF + SL1)</td>
+<td>TATA box, Inr, DPE, BRE, <a href="#gl:cpg-island"><strong>CpG
+island</strong></a>s</td>
+<td>Internal (type I, II) or upstream (type III)</td>
+</tr>
+</tbody>
+</table>
+<p>The table is primarily the entry point. In eukaryotes,
+transcriptional output depends on promoter architecture,
+enhancer-promoter looping, chromatin accessibility, Mediator, pause
+release, and RNA processing. RNA Pol II is especially regulated because
+its C-terminal domain is phosphorylated in different patterns during
+initiation, elongation, splicing, 3’-end formation, and termination. A
+strong gene-expression claim therefore asks which polymerase is
+involved, which regulatory DNA element is active, which chromatin state
+permits access, and whether nascent-RNA, chromatin, or perturbation
+evidence supports the proposed mechanism.</p>
+<h3 id="eukaryotic-promoter-elements">Eukaryotic Promoter Elements</h3>
+<p>The RNA Pol II <strong>core promoter</strong> can contain several
+elements (not most are present in every promoter):</p>
+<ul>
+<li><strong>TATA box</strong> (~25-30 bp upstream of TSS; consensus
+TATAAAA): Bound by TBP (TATA-binding protein), a subunit of TFIID.
+Present in ~10-20% of human gene promoters; associated with
+tissue-specific, highly regulated genes.</li>
+<li><strong>Initiator element (Inr)</strong>: Overlaps the TSS;
+consensus PyPyAN(T/A)PyPy; recognized by TAF1/TAF2 subunits of
+TFIID</li>
+<li><strong>Downstream promoter element (DPE)</strong>: Located ~+28-33
+relative to TSS; works with Inr in TATA-less promoters; recognized by
+TAF6/TAF9</li>
+<li><strong>BRE (TFIIB recognition element)</strong>: Immediately
+upstream or downstream of TATA box; directly contacts TFIIB</li>
+<li><strong>CpG islands</strong>: Regions of &gt;200 bp with &gt;50% GC
+content and observed/expected CpG ratio &gt;0.6; found at ~70% of human
+gene promoters; typically unmethylated in active genes</li>
+</ul>
+<h3 id="the-pre-initiation-complex-pic-assembly">The Pre-Initiation
+Complex (PIC) Assembly</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant DNA as Promoter DNA
+    participant TFIID as TFIID (TBP + TAFs)
+    participant TFIIA as TFIIA
+    participant TFIIB as TFIIB
+    participant PolII as RNA Pol II + TFIIF
+    participant TFIIE as TFIIE
+    participant TFIIH as TFIIH
+    participant Med as Mediator Complex
+
+    DNA-&gt;&gt;TFIID: TBP binds TATA box (saddle-shaped, bends DNA ~80 degrees)
+    TFIID-&gt;&gt;TFIIA: TFIIA stabilizes TBP-DNA complex
+    TFIID-&gt;&gt;TFIIB: TFIIB bridges TBP and Pol II; determines TSS
+    TFIIB-&gt;&gt;PolII: Pol II recruited with TFIIF (prevents nonspecific DNA binding)
+    PolII-&gt;&gt;TFIIE: TFIIE recruited; stimulates TFIIH kinase/helicase
+    TFIIE-&gt;&gt;TFIIH: TFIIH XPB helicase melts ~11 bp at TSS (open complex)
+    TFIIH-&gt;&gt;TFIIH: TFIIH CDK7 kinase phosphorylates Pol II CTD at Ser5
+    Note over PolII: CTD phosphorylation triggers promoter escape
+    Med-&gt;&gt;PolII: Mediator bridges enhancer-bound activators to PIC
+    Note over Med: Mediator complex: ~30 subunits, 1.4 MDa</code></pre>
+<!-- alt: Sequence diagram showing assembly of the eukaryotic pre-initiation complex (PIC) at a TATA-containing promoter. TFIID binding initiates an ordered assembly cascade culminating in Pol II CTD phosphorylation and promoter escape. -->
+<p><em>Assembly of the eukaryotic pre-initiation complex (PIC) at a
+TATA-containing promoter. TFIID binding initiates an ordered assembly
+cascade culminating in Pol II CTD phosphorylation and promoter
+escape.</em></p>
+<table>
+<colgroup>
+<col style="width: 51%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr>
+<th>CTD Modification</th>
+<th>Kinase</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ser5-P</td>
+<td>TFIIH (CDK7)</td>
+<td>Recruits capping enzyme</td>
+</tr>
+<tr>
+<td>Ser2-P</td>
+<td>P-TEFb (CDK9)</td>
+<td>Recruits splicing factors, polyadenylation machinery</td>
+</tr>
+<tr>
+<td>Ser7-P</td>
+<td>CDK7</td>
+<td>snRNA gene-specific processing</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Clinical Connection: Transcription-Targeted Cancer
+Therapy</strong> Several cancers are “transcription-addicted” –
+dependent on super-enhancers driving oncogene expression. CDK7
+inhibitors (THZ1) and CDK9 inhibitors collapse super-enhancer-driven
+transcription programs. BET bromodomain inhibitors (JQ1, OTX015)
+displace BRD4 from acetylated <a
+href="#gl:histone"><strong>histone</strong></a>s at enhancers,
+suppressing MYC and other oncogene transcription. These represent a new
+class of epigenetic cancer therapeutics.</p>
+</blockquote>
+<hr />
+<h2 id="rna-processing-in-eukaryotes">RNA Processing in Eukaryotes</h2>
+<pre class="mermaid"><code>flowchart LR
+    A[&quot;Pre-mRNA Transcription Begins&quot;] --&gt; B[&quot;5&#39; Capping (m7G cap added at ~20-30 nt)&quot;]
+    B --&gt; C[&quot;Intron Recognition by U1 snRNP at 5&#39; Splice Site&quot;]
+    C --&gt; D[&quot;Spliceosome Assembly (U1, U2, U4/U6, U5)&quot;]
+    D --&gt; E[&quot;First Transesterification: Branch Point A Attacks 5&#39; SS&quot;]
+    E --&gt; F[&quot;Second Transesterification: Exon Ligation + Lariat Release&quot;]
+    F --&gt; G[&quot;3&#39; Cleavage at AAUAAA Signal by CPSF/CstF&quot;]
+    G --&gt; H[&quot;Poly-A Polymerase Adds ~200-250 A Residues&quot;]
+    H --&gt; I[&quot;PABP Binds Poly-A Tail&quot;]
+    I --&gt; J[&quot;Quality Control: EJC Marks Splice Junctions&quot;]
+    J --&gt; K{Passes NMD Surveillance?}
+    K --&gt;|Yes| L[&quot;Nuclear Export via NXF1/NXT1 Through NPC&quot;]
+    K --&gt;|No, PTC detected| M[&quot;Nonsense-Mediated Decay: mRNA Degraded&quot;]
+    L --&gt; N[&quot;Mature mRNA in Cytoplasm Ready for Translation&quot;]
+
+    style A fill:#4a90d9,color:#fff
+    style N fill:#5cb85c,color:#fff
+    style M fill:#d9534f,color:#fff</code></pre>
+<!-- alt: Flowchart showing eukaryotic mRNA processing pipeline. Pre-mRNA undergoes co-transcriptional capping, splicing, and polyadenylation before export. Transcripts with premature termination codons (PTCs) are eliminated by nonsense-mediated decay (NMD). -->
+<p><em>Eukaryotic mRNA processing pipeline. Pre-mRNA undergoes
+co-transcriptional capping, splicing, and polyadenylation before export.
+Transcripts with premature termination codons (PTCs) are eliminated by
+nonsense-mediated decay (NMD).</em></p>
+<h3 id="capping">5’ Capping</h3>
+<p>The 5’ end of pre-mRNA receives a <strong>7-methylguanosine
+cap</strong> (m<span class="math inline">\(^7\)</span>G) added
+co-transcriptionally when the transcript is 20-30 nt long. The capping
+reaction involves three enzymatic steps:</p>
+<ol type="1">
+<li><strong>RNA triphosphatase</strong> removes the terminal phosphate
+from the 5’ end</li>
+<li><strong>Guanylyltransferase</strong> adds GMP in a 5’-5’
+triphosphate <a href="#gl:linkage"><strong>linkage</strong></a> (unusual
+reverse orientation)</li>
+<li><strong>Methyltransferase</strong> adds a methyl group to the N-7
+position of guanine (using SAM as donor)</li>
+</ol>
+<p>Cap functions: - Protects from 5’ to 3’ exonuclease degradation
+(Xrn1) - Required for ribosome binding: eIF4E (eukaryotic initiation
+factor 4E) specifically recognizes the m<span
+class="math inline">\(^7\)</span>G cap - Signals nuclear export via the
+cap-binding complex (CBC: CBP20/CBP80) - Enhances splicing of the first
+<a href="#gl:intron"><strong>intron</strong></a></p>
+<h3 id="polyadenylation">3’ Polyadenylation</h3>
+<p>The 3’ end is processed by cleavage and polyadenylation:</p>
+<ol type="1">
+<li><strong>CPSF</strong> (cleavage and polyadenylation specificity
+factor) recognizes the <strong>AAUAAA</strong> hexamer (the
+polyadenylation signal, present in ~90% of human mRNAs)</li>
+<li><strong>CstF</strong> (cleavage stimulation factor) binds a
+downstream GU-rich or U-rich element</li>
+<li>Cleavage occurs 10-30 nt downstream of AAUAAA</li>
+<li><strong>Poly(A) polymerase (PAP)</strong> adds ~200-250 adenine
+residues (not templated)</li>
+</ol>
+<p>Poly(A) tail functions: - Protects from 3’ to 5’ exonuclease
+degradation (exosome) - Bound by <strong>PABP</strong> (poly(A)-binding
+protein), which interacts with eIF4G to circularize the mRNA
+(closed-loop model), enhancing translation efficiency - Progressive
+shortening (<strong>deadenylation</strong> by CCR4-NOT complex) is the
+first and rate-limiting step in most mRNA degradation pathways</p>
+<h3 id="pre-mrna-splicing-the-spliceosome">Pre-mRNA Splicing: The
+Spliceosome</h3>
+<p>Introns are removed from pre-mRNA by the
+<strong>spliceosome</strong>, one of the cell’s most complex molecular
+machines:</p>
+<ul>
+<li><strong>Composition</strong>: 5 snRNPs (U1, U2, U4, U5, U6) +
+~100-300 protein subunits; total mass 3-5 MDa</li>
+<li><strong>snRNPs</strong>: Each contains one snRNA (except U4/U6,
+which share) + ~7 Sm proteins + snRNP-specific proteins</li>
+</ul>
+<p><strong>Consensus splice site sequences</strong>: - 5’ splice site
+(donor): GU (almost invariant) - 3’ splice site (acceptor): AG (almost
+invariant) - Branch point: YNYURAY (Y = pyrimidine, R = purine, N =
+any); the conserved <strong>A</strong> (adenosine) is the branch point
+nucleophile - Polypyrimidine tract: ~15-20 pyrimidines between branch
+point and 3’ SS</p>
+<p><strong>The splicing mechanism (two transesterification
+reactions)</strong>:</p>
+<ol type="1">
+<li><strong>First transesterification</strong>: The 2’-OH of the branch
+point adenosine attacks the phosphodiester bond at the 5’ splice site
+(GU). This produces:
+<ul>
+<li>A free 5’ <a href="#gl:exon"><strong>exon</strong></a> with a
+3’-OH</li>
+<li>A lariat intermediate: the intron circularized via a 2’-5’
+phosphodiester bond at the branch point A</li>
+</ul></li>
+<li><strong>Second transesterification</strong>: The 3’-OH of the free
+5’ exon attacks the phosphodiester bond at the 3’ splice site (AG). This
+produces:
+<ul>
+<li>Ligated exons (5’ exon joined to 3’ exon)</li>
+<li>Released lariat intron (debranched and degraded)</li>
+</ul></li>
+</ol>
+<p><strong>Spliceosome assembly cycle</strong>: 1. <strong>E
+complex</strong>: U1 snRNP base-pairs with 5’ SS; U2AF65 binds
+polypyrimidine tract; U2AF35 contacts 3’ SS AG; SF1/BBP binds branch
+point 2. <strong>A complex</strong>: U2 snRNP replaces SF1 at branch
+point (ATP-dependent); branch point A bulges out 3. <strong>B
+complex</strong>: U4/U6.U5 tri-snRNP joins; massive rearrangement 4.
+<strong>B* complex</strong>: U1 and U4 released; U6 replaces U1 at 5’
+SS; U6-U2 interaction positions catalytic metal ions 5. <strong>C
+complex</strong>: First transesterification occurs 6. <strong>C*
+complex</strong>: Second transesterification; exons ligated; lariat
+released 7. <strong>Post-spliceosomal complex</strong>: snRNPs recycled;
+EJC (exon junction complex) deposited ~20-24 nt upstream of each
+exon-exon junction</p>
+<blockquote>
+<p><strong>Clinical Connection: Spinal Muscular Atrophy and
+Splice-Modifying Therapy</strong> Spinal muscular atrophy (SMA) is
+caused by loss of the <em>SMN1</em> gene. The paralog <em>SMN2</em> has
+a C-to-T transition in exon 7 that weakens an exonic splicing enhancer,
+causing ~90% exon 7 skipping and production of a truncated, unstable
+protein. <strong>Nusinersen (Spinraza)</strong> is an antisense
+oligonucleotide (ASO) that binds an intronic splicing silencer (ISS-N1)
+in <em>SMN2</em> intron 7, promoting exon 7 inclusion and full-length
+SMN protein production. Approved by FDA in 2016, it was one of the first
+splice-modifying therapies. <strong>Risdiplam (Evrysdi)</strong>, an
+oral small molecule that stabilizes U1 snRNP binding at the
+<em>SMN2</em> exon 7 5’ SS, was approved in 2020.</p>
+</blockquote>
+<h3 id="alternative-splicing">Alternative Splicing</h3>
+<p>Alternative splicing generates multiple protein isoforms from a
+single gene. An estimated &gt;95% of human multi-exon genes undergo
+alternative splicing.</p>
+<p><strong>Types of alternative splicing</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 44%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cassette exon (exon skipping)</td>
+<td>An exon is included or excluded</td>
+<td>Fibronectin: EDA and EDB exons (tissue-specific)</td>
+</tr>
+<tr>
+<td>Alternative 5’ splice site</td>
+<td>Two different 5’ SS compete</td>
+<td>SV40 T/t antigen</td>
+</tr>
+<tr>
+<td>Alternative 3’ splice site</td>
+<td>Two different 3’ SS compete</td>
+<td>Adenovirus E1A</td>
+</tr>
+<tr>
+<td>Intron retention</td>
+<td>An intron is retained in the mature mRNA</td>
+<td>Common in plants; increasingly recognized in mammals</td>
+</tr>
+<tr>
+<td>Mutually exclusive exons</td>
+<td>One of two (or more) exons is included, rarely both</td>
+<td>alpha-tropomyosin; DSCAM</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DSCAM in <em>Drosophila</em></strong>: The Down syndrome cell
+adhesion molecule gene contains 4 clusters of alternatively spliced
+exons: 12 alternatives for exon 4, 48 for exon 6, 33 for exon 9, and 2
+for exon 17. Combinatorially: <span class="math inline">\(12 \times 48
+\times 33 \times 2 = 38,016\)</span> possible mRNA isoforms – more than
+twice the total number of genes in the <em>Drosophila</em> <a
+href="#gl:genome"><strong>genome</strong></a>. DSCAM diversity is
+essential for neuronal self-recognition and axon guidance.</p>
+<p><strong>Quantitative scope in humans.</strong> Genome-wide RNA-seq
+studies show that <strong>~95 % of human multi-exon genes undergo
+alternative splicing</strong>, with 92 % producing more than one isoform
+per gene at detectable levels (Wang et al. 2008; Pan et al. 2008).
+Average number of detected isoforms per multi-exon gene: 4–7
+(cell-type-dependent). Approximately 60 % of alternative-splicing events
+are tissue-specifically regulated. Estimates of the number of distinct
+splicing events: - ~150,000 cassette-exon events - ~60,000 alternative
+5′/3′ splice sites - ~25,000 mutually exclusive exon events - ~30,000
+retained-intron events (especially in plants and brain)</p>
+<p><strong>Disease-causing splice site mutations — clinical
+examples:</strong> - <strong><em>BRCA1</em> IVS5+1G&gt;A:</strong>
+disrupts the consensus 5′ splice site (GT &gt; AT), causing exon 5
+skipping and frameshift; pathogenic for hereditary breast/ovarian
+cancer. - <strong><em>DMD</em> exon 51 deletion:</strong> removes a
+frame-essential exon, causing Duchenne muscular dystrophy. Antisense
+oligonucleotide therapies (eteplirsen, casimersen) restore the reading
+frame by inducing exon 51 skipping. - <strong><em>MAPT</em>
+IVS10+16C&gt;T:</strong> disrupts the regulatory cis-element controlling
+tau exon 10 inclusion, causing fronto-temporal dementia with
+parkinsonism (FTDP-17). Different intronic mutations in <em>MAPT</em>
+alter the 4R/3R tau ratio. - <strong><em>SMN2</em> C840T:</strong>
+weakens an exonic splicing enhancer in <em>SMN2</em> exon 7, causing
+exon 7 skipping in 90 % of <em>SMN2</em> transcripts and producing
+truncated, unstable SMN protein. This is the basis of spinal muscular
+atrophy when <em>SMN1</em> is also lost; nusinersen (an antisense
+oligonucleotide) restores exon 7 inclusion. - <strong><em>LMNA</em>
+c.1824C&gt;T (Hutchinson–Gilford progeria):</strong> activates a cryptic
+splice donor in exon 11, producing the truncated lamin-A “progerin” that
+accumulates at the nuclear envelope, driving accelerated ageing.</p>
+<p>Approximately <strong>15–20 % of disease-causing point
+mutations</strong> disrupt splicing — either at canonical splice sites
+(5′ GT, 3′ AG, branch point), in regulatory elements (ESE, ESS, ISE,
+ISS), or by creating cryptic splice sites. This is much higher than was
+estimated in the 1990s, when primarily canonical splice-site mutations
+were recognised.</p>
+<p><strong>Regulatory elements controlling alternative
+splicing</strong>: - <strong>Exonic splicing enhancers (ESEs)</strong>:
+bound by SR proteins (serine/arginine-rich); promote exon inclusion -
+<strong>Exonic splicing silencers (ESSs)</strong>: bound by hnRNP
+proteins; promote exon skipping - <strong>Intronic splicing enhancers
+(ISEs)</strong> and <strong>intronic splicing silencers (ISSs)</strong>:
+analogous elements in introns</p>
+<h3 id="nonsense-mediated-decay-nmd">Nonsense-Mediated Decay (NMD)</h3>
+<p>NMD is an mRNA surveillance pathway that degrades transcripts
+containing <strong>premature termination codons (PTCs)</strong>. This
+protects the cell from producing truncated, potentially <a
+href="#gl:dominant"><strong>dominant</strong></a>-negative proteins.</p>
+<p><strong>Mechanism</strong>: During the first (“pioneer”) round of
+translation, the ribosome encounters each exon junction complex (EJC).
+If translation terminates &gt;50-55 nt upstream of an EJC, the ribosome
+cannot displace the EJC. The interaction of release factors (eRF1/eRF3)
+with UPF1, followed by UPF1 interaction with the downstream EJC-bound
+UPF2/UPF3, triggers UPF1 phosphorylation, mRNA decapping, deadenylation,
+and degradation.</p>
+<p>NMD degrades ~5-10% of the human transcriptome, including many
+alternatively spliced isoforms with PTCs (regulated unproductive
+splicing and translation, or RUST).</p>
+<p><strong>Concept Check 12.1</strong></p>
+<blockquote>
+<ol type="1">
+<li>Why is the 5’ cap structure a 5’-5’ triphosphate linkage rather than
+the usual 3’-5’? What advantage does this provide?</li>
+<li>A <a href="#gl:mutation"><strong>mutation</strong></a> changes the
+branch point A to G in a critical intron. Predict the consequence for
+splicing.</li>
+<li>Explain how nusinersen promotes exon 7 inclusion in SMN2
+pre-mRNA.</li>
+<li>Why does NMD require translation (and therefore nuclear
+export)?</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="translation">Translation</h2>
+<h3 id="the-genetic-code">The Genetic Code</h3>
+<p>The genetic code maps 64 codons (<span class="math inline">\(4^3 =
+64\)</span>) to 20 amino acids plus stop signals:</p>
+<table>
+<colgroup>
+<col style="width: 43%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Degenerate (redundant)</strong></td>
+<td>Amino acids are encoded by 1-6 synonymous codons; Leu, Ser, Arg each
+have 6 codons; Met and Trp each have 1</td>
+</tr>
+<tr>
+<td><strong>Unambiguous</strong></td>
+<td>Each codon specifies exactly one amino acid (or stop)</td>
+</tr>
+<tr>
+<td><strong>Commaless and non-overlapping</strong></td>
+<td>Read in consecutive, non-overlapping triplets from a fixed start
+point</td>
+</tr>
+<tr>
+<td><strong>Nearly comprehensive</strong></td>
+<td>Exceptions in mitochondria (<em>Mycoplasma</em>: UGA = Trp;
+<em>Tetrahymena</em>: UAA/UAG = Gln; mammalian mitochondria: AGA/AGG =
+Stop)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Start codon</strong>: AUG (methionine) in eukaryotes; AUG
+(formylmethionine) in prokaryotes. Rarely, GUG or UUG serve as
+alternative start codons in prokaryotes.</p>
+<p><strong>Stop codons</strong>: UAA (ochre), UAG (amber), UGA
+(opal/umber).</p>
+<p><strong>Wobble base pairing</strong> : The third codon position
+(“wobble position”) pairs with the first <a
+href="#gl:anticodon"><strong>anticodon</strong></a> position with
+relaxed stringency:</p>
+<table>
+<thead>
+<tr>
+<th>Anticodon first position</th>
+<th>Pairs with codon third position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U</td>
+<td>A, G</td>
+</tr>
+<tr>
+<td>C</td>
+<td>G primarily</td>
+</tr>
+<tr>
+<td>A</td>
+<td>U primarily</td>
+</tr>
+<tr>
+<td>G</td>
+<td>C, U</td>
+</tr>
+<tr>
+<td>I (inosine)</td>
+<td>A, C, U</td>
+</tr>
+</tbody>
+</table>
+<p>Wobble explains how 45 tRNAs (in humans) can decode 61 sense codons.
+<strong>Suppressor tRNAs</strong> are mutant tRNAs that can read stop
+codons as amino acids, “suppressing” nonsense mutations.</p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Initiation
+
+    state Initiation {
+        [*] --&gt; SmallSubunit: 40S binds eIF1, eIF1A, eIF3, eIF5
+        SmallSubunit --&gt; TernaryComplex: Met-tRNAi + eIF2-GTP = ternary complex
+        TernaryComplex --&gt; FortyThreeSPIC: 43S pre-initiation complex formed
+        FortyThreeSPIC --&gt; mRNABinding: eIF4F (eIF4E + eIF4G + eIF4A) recruits mRNA via cap
+        mRNABinding --&gt; Scanning: 43S scans 5&#39; to 3&#39; for AUG in Kozak context
+        Scanning --&gt; StartCodon: AUG recognized; eIF2 GTP hydrolysis; eIF5B joins 60S
+        StartCodon --&gt; EightyS: 80S initiation complex; Met-tRNAi in P site
+    }
+
+    EightyS --&gt; Elongation
+
+    state Elongation {
+        [*] --&gt; Decoding: aa-tRNA in eEF1A-GTP enters A site
+        Decoding --&gt; Proofreading: GTP hydrolysis; kinetic proofreading
+        Proofreading --&gt; PeptideBond: Peptidyl transferase (28S rRNA) forms bond
+        PeptideBond --&gt; Translocation: eEF2-GTP translocates ribosome 3 codons
+        Translocation --&gt; Decoding: tRNAs shift A to P to E; cycle repeats
+    }
+
+    Elongation --&gt; Termination: Stop codon in A site
+
+    state Termination {
+        [*] --&gt; ReleaseFactors: eRF1 recognizes stop codon (mimics tRNA shape)
+        ReleaseFactors --&gt; Hydrolysis: eRF3-GTP; peptidyl-tRNA hydrolysis
+        Hydrolysis --&gt; Recycling: ABCE1 splits 80S; subunits recycled
+    }
+
+    Termination --&gt; [*]</code></pre>
+<!-- alt: State diagram showing ribosomal translation cycle in eukaryotes. Initiation involves cap-dependent scanning to the start codon. Elongation cycles through decoding, peptide bond formation, and translocation. Termination occurs when a stop codon is recognized by eRF1. -->
+<p><em>The ribosomal translation cycle in eukaryotes. Initiation
+involves cap-dependent scanning to the start codon. Elongation cycles
+through decoding, <a href="#gl:peptide-bond"><strong>peptide
+bond</strong></a> formation, and translocation. Termination occurs when
+a stop codon is recognized by eRF1.</em></p>
+<h3 id="ribosome-structure">Ribosome Structure</h3>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 41%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Prokaryotic (70S)</th>
+<th>Eukaryotic (80S)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Small subunit</td>
+<td>30S (16S rRNA + ~21 proteins)</td>
+<td>40S (18S rRNA + ~33 proteins)</td>
+</tr>
+<tr>
+<td>Large subunit</td>
+<td>50S (23S + 5S rRNA + ~31 proteins)</td>
+<td>60S (28S + 5.8S + 5S rRNA + ~49 proteins)</td>
+</tr>
+<tr>
+<td>Sedimentation coefficient</td>
+<td>70S</td>
+<td>80S</td>
+</tr>
+<tr>
+<td>Peptidyl transferase center</td>
+<td>23S rRNA</td>
+<td>28S rRNA</td>
+</tr>
+<tr>
+<td>mRNA binding</td>
+<td>Shine-Dalgarno sequence</td>
+<td>5’ cap scanning</td>
+</tr>
+</tbody>
+</table>
+<p>The ribosome has three tRNA-binding sites: - <strong>A site
+(aminoacyl)</strong>: accepts incoming aminoacyl-tRNA - <strong>P site
+(peptidyl)</strong>: holds the tRNA carrying the growing polypeptide
+chain - <strong>E site (exit)</strong>: depleted (deacylated) tRNA exits
+here</p>
+<p><strong>Critical insight</strong>: The peptidyl transferase center
+(PTC) is composed entirely of rRNA – no protein comes within 18 A of the
+active site. This demonstrates that the ribosome is a
+<strong>ribozyme</strong> (Nobel Prize 2009: Ramakrishnan, Steitz,
+Yonath). This supports the <strong>RNA world hypothesis</strong>: RNA
+catalyzed protein synthesis before proteins existed.</p>
+<h3 id="translation-initiation-elongation-and-termination">Translation
+Initiation, Elongation, and Termination</h3>
+<p><strong>Prokaryotic initiation</strong>: The <strong>Shine-Dalgarno
+sequence</strong> (AGGAGG, ~5-10 nt upstream of AUG) base-pairs with the
+anti-SD sequence at the 3’ end of 16S rRNA, positioning the AUG in the P
+site. IF1 blocks the A site; IF2-GTP escorts fMet-tRNA<span
+class="math inline">\(_f^{Met}\)</span> to the P site; IF3 prevents
+premature 50S joining. After start codon recognition, IF2 hydrolyzes
+GTP, most IFs dissociate, and 50S joins.</p>
+<p><strong>Eukaryotic initiation</strong> (cap-dependent scanning
+model): 1. <strong>eIF4F complex</strong> (eIF4E + eIF4G + eIF4A
+helicase) binds the m<span class="math inline">\(^7\)</span>G cap 2.
+eIF4G bridges to eIF3 on the 40S subunit and to PABP on the poly(A) tail
+(circularization) 3. <strong>43S pre-initiation complex</strong> (40S +
+eIF1 + eIF1A + eIF3 + eIF5 + ternary complex [eIF2-GTP-Met-tRNA<span
+class="math inline">\(_i^{Met}\)</span>]) loads onto the mRNA near the
+cap 4. The 43S complex <strong>scans</strong> 5’ to 3’ (powered by eIF4A
+helicase activity) until it finds the first AUG in a favorable
+<strong>Kozak context</strong> (RCCAUGG, R = purine; -3 and +4 positions
+most critical) 5. Start codon recognition: eIF2 hydrolyzes GTP;
+eIF5B-GTP promotes 60S joining; most eIFs released 6. <strong>80S
+initiation complex</strong> formed with Met-tRNA<span
+class="math inline">\(_i^{Met}\)</span> in P site</p>
+<p><strong>Elongation cycle</strong> (~5-10 amino acids/s in eukaryotes;
+~15-20 aa/s in prokaryotes): 1. <strong>Decoding</strong>:
+aminoacyl-tRNA delivered to A site as part of a ternary complex with
+eEF1A (EF-Tu in prokaryotes) and GTP. Correct codon-anticodon match
+triggers conformational change; GTP hydrolysis releases eEF1A 2.
+<strong>Peptide bond formation</strong>: Peptidyl transferase (28S rRNA
+catalytic activity) transfers the growing peptide from the P-site tRNA
+to the A-site amino acid. The reaction is spontaneous (<span
+class="math inline">\(\Delta G &lt; 0\)</span>) – the aminoacyl ester
+bond is high-energy 3. <strong>Translocation</strong>: eEF2-GTP (EF-G in
+prokaryotes) promotes translocation; ribosome moves 3 nt (one codon)
+along mRNA; tRNAs shift: A to P, P to E; E-site tRNA dissociates</p>
+<p><strong>Termination</strong>: When a stop codon enters the A site: -
+<strong>eRF1</strong> (class I release factor) recognizes most three
+stop codons (in eukaryotes) – its shape mimics tRNA -
+<strong>eRF3-GTP</strong> (class II release factor) stimulates eRF1
+activity - Water molecule attacks the peptidyl-tRNA ester bond,
+releasing the completed polypeptide - <strong>ABCE1</strong> (ribosome
+recycling factor) splits the 80S ribosome into subunits for re-use</p>
+<blockquote>
+<p><strong>Clinical Connection: Antibiotics Targeting the
+Ribosome</strong> The structural differences between prokaryotic 70S and
+eukaryotic 80S ribosomes make the bacterial ribosome an excellent drug
+target:</p>
+<table>
+<thead>
+<tr>
+<th>Antibiotic</th>
+<th>Target</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tetracycline</td>
+<td>30S A site</td>
+<td>Blocks aminoacyl-tRNA binding</td>
+</tr>
+<tr>
+<td>Streptomycin</td>
+<td>30S decoding center</td>
+<td>Causes misreading of mRNA</td>
+</tr>
+<tr>
+<td>Chloramphenicol</td>
+<td>50S PTC</td>
+<td>Inhibits peptide bond formation</td>
+</tr>
+<tr>
+<td>Erythromycin</td>
+<td>50S exit tunnel</td>
+<td>Blocks peptide exit</td>
+</tr>
+<tr>
+<td>Linezolid</td>
+<td>50S A site</td>
+<td>Prevents fMet-tRNA binding</td>
+</tr>
+</tbody>
+</table>
+<p>These antibiotics are selectively toxic because they do not bind
+eukaryotic ribosomes efficiently. However, mitochondrial ribosomes
+resemble prokaryotic ribosomes, explaining side effects like ototoxicity
+(aminoglycosides) in patients with mitochondrial rRNA mutations.</p>
+</blockquote>
+<h3 id="ires-elements-cap-independent-translation-initiation">IRES
+Elements — Cap-Independent Translation Initiation</h3>
+<p>While most eukaryotic translation initiates at the 5′ cap
+(eIF4F-mediated scanning), some mRNAs can be translated even when
+cap-dependent translation is shut down. They use <strong>internal
+ribosome entry sites (IRES)</strong> — RNA structural elements that
+directly recruit the 40S ribosomal subunit without scanning from the
+cap.</p>
+<p><strong>IRES classes (4 main types in eukaryotic and viral
+mRNAs):</strong></p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 14%" />
+<col style="width: 56%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Class</th>
+<th>Example</th>
+<th>Initiation factors required</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type I</td>
+<td>Picornaviruses (poliovirus, coxsackievirus)</td>
+<td>Most canonical eIFs except eIF4E</td>
+<td>Internal AUG; PCBP2/3 binding</td>
+</tr>
+<tr>
+<td>Type II</td>
+<td>Picornaviruses (encephalomyocarditis virus, EMCV)</td>
+<td>eIF1A, eIF2, eIF3, eIF4A, eIF4G; <strong>no eIF4E</strong></td>
+<td>Direct 40S placement at AUG; cleaved eIF4G is sufficient</td>
+</tr>
+<tr>
+<td>Type III</td>
+<td>Hepatitis C virus (HCV)</td>
+<td>Primarily eIF2, eIF3 (and 40S) — minimal</td>
+<td>Direct binding of 40S to a multi-domain RNA structure (domains II,
+III, IV); IIIc binds 40S like a TBP-equivalent for ribosomes</td>
+</tr>
+<tr>
+<td>Type IV</td>
+<td>Cricket paralysis virus (CrPV); intergenic IRES</td>
+<td>None — no initiator Met-tRNA needed</td>
+<td>Pseudoknot mimics tRNA in P site; translation starts at non-AUG
+codon</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hepatitis C IRES — structural mechanism in detail.</strong>
+HCV IRES is one of the most structurally characterised. The IRES adopts
+a defined three-domain RNA fold: - <strong>Domain II</strong> binds the
+40S subunit at the head, positioning the mRNA channel - <strong>Domain
+III</strong> (with sub-domains IIIa, IIIb, IIIc, IIId, IIIe, IIIf)
+directly contacts ribosomal proteins; IIIabc binds eIF3 - <strong>Domain
+IV</strong> contains the AUG start codon, positioned directly in the P
+site - This bypass of cap recognition and scanning means HCV translation
+continues even when cellular cap-dependent translation is
+suppressed.</p>
+<p><strong>Cellular IRES elements</strong> drive translation of
+stress-response mRNAs when cap-dependent translation is inhibited (e.g.,
+during apoptosis when eIF4G is cleaved by caspase-3, or during heat
+shock when eIF2α is phosphorylated). Examples: <strong>c-Myc, p53, VEGF,
+BiP/HSPA5, XIAP, DAP5, BCL2.</strong> Stress-induced translation of
+pro-apoptotic <em>p53</em> via its IRES is one of the host’s defences
+against viral infection.</p>
+<p><strong>Therapeutic relevance:</strong> - <strong>eIF4A
+inhibitors</strong> (silvestrol, zotatifin) preferentially affect
+cap-dependent translation of mRNAs with structured 5′ UTRs — bypassed by
+some IRESes. In trial for AML and CTCL. - <strong>Eltrombopag</strong>
+(FDA-approved for thrombocytopenia) destabilises HCV-IRES–40S contacts
+as an off-target mechanism.</p>
+<h3 id="ribosome-profiling-a-window-into-translation-dynamics">Ribosome
+Profiling — A Window Into Translation Dynamics</h3>
+<p><strong>Ribosome profiling (Ribo-seq)</strong> is a technique that
+captures and sequences the ~28-nt mRNA fragments protected by
+translating ribosomes. Each “ribosome footprint” identifies (a) which
+mRNA is being translated, (b) which codon is in the A-site at the moment
+of capture, and (c) the relative density of ribosomes along the message
+— quantifying <strong>translation efficiency</strong> at codon
+resolution.</p>
+<p><strong>Key insights from ribosome profiling:</strong></p>
+<ol type="1">
+<li><strong>Translation efficiency varies across mRNAs by &gt;
+100-fold.</strong> Some mRNAs have many more ribosomes loaded per unit
+of mRNA than others. This is regulated by 5′ UTR features (length,
+structure, upstream ORFs), codon usage in the ORF, and 3′ UTR
+sequences.</li>
+<li><strong>Ribosome stalling on rare codons.</strong> Codons recognised
+by low-abundance tRNAs (e.g., CGA-Arg, CGG-Arg in mammals) cause
+ribosome pausing detectable as elevated read density. Stalling can
+trigger:
+<ul>
+<li><strong>Co-translational protein folding signals</strong> —
+programmed pauses allow N-terminal protein domains to fold before
+C-terminal segments emerge.</li>
+<li><strong>Programmed -1 frameshifts</strong> (e.g., HIV gag-pol,
+SARS-CoV-2 ORF1ab/RDR-RP).</li>
+<li><strong>Ribosome quality control (RQC):</strong> stalled ribosomes
+are split by Pelota–Hbs1L; the nascent peptide is ubiquitinated by
+NEMF–LTN1 and degraded.</li>
+</ul></li>
+<li><strong>Upstream open reading frames (uORFs) regulate ~50 % of
+mammalian mRNAs.</strong> A short ORF in the 5′ UTR is translated first;
+the scanning ribosome must reinitiate downstream. uORF translation
+typically suppresses main-ORF translation. Stress-induced
+phosphorylation of eIF2α (the integrated stress response) increases
+scanning past inhibitory uORFs, paradoxically enhancing translation of
+stress-response mRNAs (e.g., <em>ATF4, CHOP, GADD34</em>) that have
+inhibitory uORFs in their 5′ UTRs.</li>
+<li><strong>Codon-level translation kinetics.</strong> Each codon’s
+average dwell time can be estimated from ribosome density.
+Codon-optimised mRNAs (e.g., synthetic mRNA vaccines, insulin) have
+shorter average dwell times and higher translation efficiency.</li>
+<li><strong>Out-of-frame translation.</strong> Ribo-seq has uncovered
+hidden ORFs (smORFs, 10–100 codons) in regions previously annotated as
+non-coding — many of which encode functional micropeptides (e.g., MOTS-c
+from mitochondrial 12S rRNA; HOXB-AS3 micropeptide).</li>
+</ol>
+<h3
+id="nonsense-mediated-decay-nmd-mechanism-in-mechanistic-detail">Nonsense-Mediated
+Decay (NMD) — Mechanism in Mechanistic Detail</h3>
+<p>NMD destroys mRNAs containing premature termination codons (PTCs),
+preventing the production of truncated proteins that would often act as
+dominant-negative or gain-of-function pathogens. The key recognition
+principle is the <strong>EJC-distal PTC</strong> rule: a stop codon is
+“premature” if the ribosome encounters it more than ~50 nt upstream of
+the last exon-exon junction.</p>
+<p><strong>Key molecular components:</strong></p>
+<table>
+<colgroup>
+<col style="width: 69%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Component</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>EJC (exon junction complex)</strong></td>
+<td>Deposited 20–24 nt upstream of every exon-exon junction during
+splicing; contains EIF4A3, MAGOH, Y14/RBM8A, MLN51 (CASC3)</td>
+</tr>
+<tr>
+<td><strong>UPF1 (RENT1)</strong></td>
+<td>RNA helicase + ATPase; central NMD effector; binds the 3′ UTR after
+stop codon</td>
+</tr>
+<tr>
+<td><strong>UPF2 (RENT2)</strong></td>
+<td>Bridges UPF1 to UPF3</td>
+</tr>
+<tr>
+<td><strong>UPF3A/UPF3B</strong></td>
+<td>EJC component; bridges EJC to UPF1/2</td>
+</tr>
+<tr>
+<td><strong>SMG1</strong></td>
+<td>PIKK-family kinase; phosphorylates UPF1</td>
+</tr>
+<tr>
+<td><strong>SMG5/6/7</strong></td>
+<td>Recruit decapping (SMG7) and endonuclease cleavage (SMG6)
+machinery</td>
+</tr>
+<tr>
+<td><strong>eRF1, eRF3</strong></td>
+<td>Translation termination factors; eRF3 interacts with UPF1 at
+PTC</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mechanism, step-by-step:</strong></p>
+<ol type="1">
+<li><strong>mRNA enters first-round translation</strong> (the “pioneer
+round”), still bound by CBP80/20 cap-binding complex (not yet the
+cytoplasmic eIF4F).</li>
+<li><strong>Ribosome translates from cap to first stop codon.</strong>
+Each EJC encountered by the elongating ribosome is dislodged. EJCs
+deposited downstream of the actual stop codon (in the 3′ UTR) are NOT
+dislodged.</li>
+<li><strong>Stop codon recognition.</strong> eRF1 + eRF3-GTP enter the A
+site; eRF3 hydrolyses GTP; nascent peptide is released by hydrolysis of
+the peptidyl-tRNA ester bond.</li>
+<li><strong>UPF1 recruitment.</strong> eRF3 (after release-factor
+function) recruits UPF1 to the terminating ribosome.</li>
+<li><strong>EJC-distal proximity check.</strong> UPF1 scans the 3′ UTR;
+if it encounters an EJC within ~50 nt downstream, EJC-bound UPF2/UPF3B
+contact UPF1, activating NMD.</li>
+<li><strong>SMG1 phosphorylation of UPF1</strong> at numerous Ser/Thr-Q
+sites — generates the “phospho-UPF1” signal.</li>
+<li><strong>Decay execution:</strong>
+<ul>
+<li><strong>SMG6 endonuclease</strong> cleaves the mRNA near the PTC,
+exposing both fragments to exonucleases (XRN1 from 5′; exosome from
+3′).</li>
+<li><strong>SMG5–SMG7</strong> recruits CCR4–NOT (deadenylation) and
+DCP1/2 (decapping) for canonical mRNA decay.</li>
+</ul></li>
+<li><strong>Ribosome recycling and UPF1 dephosphorylation</strong> by
+PP2A complete the cycle.</li>
+</ol>
+<p><strong>Clinical NMD exploitation — three therapeutic
+strategies:</strong></p>
+<ol type="1">
+<li><strong>Read-through compounds</strong> (e.g.,
+<strong>ataluren/Translarna</strong>) promote ribosomal mis-decoding at
+PTCs (especially UGA), allowing partial production of full-length
+protein. Approved in EU for nonsense-mutation Duchenne muscular
+dystrophy (cmDMD).</li>
+<li><strong>NMD inhibition</strong> (e.g., NMDI-1, SMG1 inhibitors in
+development) prolongs the half-life of PTC-containing mRNAs, increasing
+the substrate pool for read-through compounds.</li>
+<li><strong>Antisense oligonucleotides for exon skipping</strong> (e.g.,
+eteplirsen for DMD, nusinersen for SMA): exclude the PTC-containing
+exon, restoring the reading frame.</li>
+</ol>
+<p>NMD also has homeostatic functions beyond pathogen detection: it
+degrades a large fraction of physiological alternatively-spliced
+isoforms that contain PTCs (regulated unproductive splicing and
+translation, RUST), particularly in neurons and during development. NMD
+perturbation in flies and mice produces brain phenotypes consistent with
+this regulatory role.</p>
+<h3 id="translation-fidelity-mechanism-and-error-rate">Translation
+Fidelity — Mechanism and Error Rate</h3>
+<p>Translation fidelity is achieved through multiple kinetic
+checkpoints, each contributing to the overall error rate of
+approximately <strong>1 in 10⁴ to 10⁵ amino acids</strong>
+misincorporated:</p>
+<ol type="1">
+<li><strong>Aminoacyl-tRNA charging fidelity</strong> by aminoacyl-tRNA
+synthetases (aaRS): each aaRS has high specificity for its cognate amino
+acid (10⁻³–10⁻⁴ error in pre-transfer step). Many aaRSs (e.g., IleRS,
+LeuRS, ValRS, AlaRS, PheRS, ProRS, ThrRS, MetRS) have
+<strong>post-transfer editing domains</strong> that hydrolyse mischarged
+tRNAs (e.g., Val-tRNA^Ile is edited by IleRS’s editing domain, achieving
+10⁻⁵–10⁻⁶ overall error). The “double-sieve” mechanism: synthetic site
+selects amino acids that fit <em>or are smaller than</em> the cognate;
+editing site rejects amino acids smaller than the cognate.</li>
+<li><strong>Initial codon-anticodon recognition</strong> (in the 30S/40S
+A site): Watson-Crick pairing at codon positions 1 and 2 (the wobble at
+position 3 is intentionally relaxed); A-form helix geometry sensing by
+16S rRNA (in bacteria: A1492, A1493, G530 — the “monitor bases”).
+Initial selection error rate ~10⁻³.</li>
+<li><strong>EF-Tu / eEF1A conformational proofreading</strong> (kinetic
+proofreading via GTP hydrolysis): EF-Tu (in bacteria) or eEF1A (in
+eukaryotes) brings aa-tRNA to the A site; correct codon-anticodon
+pairing accelerates GTP hydrolysis. Incorrect pairings have time to
+dissociate before GTP is hydrolysed (an irreversible step). After GTP
+hydrolysis, a second selection step (“accommodation”) allows further
+discrimination. This adds ~10⁻³ to ~10⁻⁴ improvement.</li>
+<li><strong>Peptidyl transferase activity-coupled fidelity</strong>: the
+rate of peptide bond formation depends on whether the tRNA is correctly
+accommodated; incorrect tRNAs have slower peptide-bond chemistry,
+providing another opportunity for dissociation.</li>
+<li><strong>Quality control after translation</strong>: misfolded
+proteins are degraded by the proteasome; ribosomes stalling on damaged
+mRNAs trigger ribosome-associated quality control (RQC) via Pelota-Hbs1L
+splitting and NEMF-LTN1-mediated nascent-peptide ubiquitination.</li>
+</ol>
+<p><span class="math display">\[\begin{equation}\text{Overall
+translation error} \approx 10^{-3} \times 10^{-3} \times
+\text{(post-transfer editing)} \approx 10^{-4}\text{ to }10^{-5}
+\tag{13.4}\label{eq:translation_fidelity}\end{equation}\]</span></p>
+<p>For a typical ~500-amino acid protein, this error rate predicts ~5 %
+of nascent polypeptides contain at least one misincorporation. Most are
+tolerated; a few drive cellular dysfunction in aging or disease
+(statin-induced muscle damage from low-fidelity translation; age-related
+aggregation diseases). Sub-cohort of mistranslated proteins are degraded
+by the proteasome before causing problems.</p>
+<p><strong>Clinical translation:</strong> Aminoglycosides (gentamicin,
+paromomycin) bind 16S rRNA monitor bases, distorting the
+codon-recognition geometry and increasing translation error rate
+(~100-fold). This explains both their bactericidal mechanism
+(catastrophic protein synthesis errors) and their toxicities (cochlear
+hair-cell apoptosis from mitochondrial mistranslation, especially in
+patients with the A1555G 12S rRNA variant).</p>
+<p><strong>Concept Check 12.2</strong></p>
+<blockquote>
+<ol type="1">
+<li>Compare the roles of the Shine-Dalgarno sequence (prokaryotes) and
+Kozak sequence (eukaryotes) in translation initiation.</li>
+<li>Why is the ribosome considered a ribozyme? What evidence supports
+this?</li>
+<li>A patient has a mitochondrial 12S rRNA mutation (A1555G). Why might
+aminoglycoside antibiotics cause deafness in this patient?</li>
+<li>Explain the wobble hypothesis and why fewer tRNAs than sense codons
+are needed.</li>
+</ol>
+</blockquote>
+<hr />
+<h2
+id="post-translational-modifications-and-protein-degradation">Post-Translational
+Modifications and Protein Degradation</h2>
+<h3 id="post-translational-modifications-ptms">Post-Translational
+Modifications (PTMs)</h3>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 18%" />
+<col style="width: 34%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Modification</th>
+<th>Enzymes</th>
+<th>Target Residues</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phosphorylation</strong></td>
+<td>Kinases / Phosphatases</td>
+<td>Ser, Thr, Tyr</td>
+<td><a href="#gl:signal-transduction"><strong>Signal
+transduction</strong></a>; activation/inactivation; ~30% of proteins are
+phosphorylated</td>
+</tr>
+<tr>
+<td><strong>Glycosylation</strong></td>
+<td>Glycosyltransferases</td>
+<td>Asn (N-linked), Ser/Thr (O-linked)</td>
+<td>Protein folding, stability, cell-cell recognition; starts in ER,
+completed in Golgi</td>
+</tr>
+<tr>
+<td><strong>Ubiquitination</strong></td>
+<td>E1/E2/E3 ligase cascade</td>
+<td>Lys (isopeptide bond)</td>
+<td>Mono-Ub: <a href="#gl:endocytosis"><strong>endocytosis</strong></a>,
+histone regulation; Poly-Ub (K48-linked): proteasomal degradation;
+K63-linked: signaling</td>
+</tr>
+<tr>
+<td><strong>Acetylation</strong></td>
+<td>HATs / HDACs</td>
+<td>Lys (histones and non-histone proteins)</td>
+<td><a href="#gl:chromatin"><strong>Chromatin</strong></a> opening
+(histones); p53 activation; metabolic regulation</td>
+</tr>
+<tr>
+<td><strong>Methylation</strong></td>
+<td>Methyltransferases / Demethylases</td>
+<td>Lys, Arg (histones)</td>
+<td>Histone code: H3K4me3 = active; H3K27me3 = repressed; H3K9me3 = <a
+href="#gl:heterochromatin"><strong>heterochromatin</strong></a></td>
+</tr>
+<tr>
+<td><strong>SUMOylation</strong></td>
+<td>E1/E2/E3 SUMO ligases</td>
+<td>Lys</td>
+<td>Nuclear transport, transcription regulation, DNA repair; antagonizes
+ubiquitination at same Lys</td>
+</tr>
+<tr>
+<td><strong>Proteolytic cleavage</strong></td>
+<td>Proteases</td>
+<td>Specific peptide bonds</td>
+<td>Signal peptide removal; proinsulin to insulin; <a
+href="#gl:caspase"><strong>caspase</strong></a>-mediated <a
+href="#gl:apoptosis"><strong>apoptosis</strong></a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-ubiquitin-proteasome-system">The Ubiquitin-Proteasome
+System</h3>
+<p>The ubiquitin-proteasome system (UPS) is the primary mechanism for
+targeted protein degradation:</p>
+<ol type="1">
+<li><strong>E1 (ubiquitin-activating enzyme)</strong>: Activates
+ubiquitin (76-aa protein) in an ATP-dependent reaction; forms E1~Ub
+thioester bond; humans use 2 main E1 enzymes</li>
+<li><strong>E2 (ubiquitin-conjugating enzyme)</strong>: Accepts Ub from
+E1; ~40 E2 enzymes provide some specificity</li>
+<li><strong>E3 (ubiquitin ligase)</strong>: Provides substrate
+specificity; ~600 E3 ligases in humans. Two major families:
+<ul>
+<li><strong>RING E3s</strong>: Transfer Ub directly from E2 to substrate
+(e.g., APC/C, SCF complex, MDM2)</li>
+<li><strong>HECT E3s</strong>: Accept Ub from E2, then transfer to
+substrate</li>
+</ul></li>
+<li>Poly-ubiquitination (K48-linked chains of at least 4 Ub) marks the
+substrate for degradation by the <strong>26S proteasome</strong></li>
+<li><strong>26S proteasome</strong> (2.5 MDa): 20S catalytic core
+(barrel-shaped; contains chymotrypsin-like, trypsin-like, and
+caspase-like proteases) capped by 19S regulatory particles (recognize
+poly-Ub, unfold substrate, feed into 20S core)</li>
+<li>Deubiquitinating enzymes (DUBs, ~100 in humans) recycle ubiquitin
+before substrate enters the 20S core</li>
+</ol>
+<blockquote>
+<p><strong>Clinical Connection: Proteasome Inhibitors in Cancer</strong>
+<strong>Bortezomib (Velcade)</strong> is a proteasome inhibitor approved
+for multiple myeloma and mantle cell lymphoma. By blocking proteasomal
+degradation, it causes accumulation of pro-apoptotic proteins and
+misfolded proteins (ER stress), triggering cell death preferentially in
+cancer cells with high protein synthesis rates.</p>
+</blockquote>
+<hr />
+<h2 id="gene-regulation">Gene Regulation</h2>
+<h3 id="prokaryotic-gene-regulation-the-lac-operon">Prokaryotic Gene
+Regulation: The Lac Operon</h3>
+<p>The <em>E. coli</em> lac operon (Jacob and Monod, 1961; Nobel Prize
+1965) was the founding model of gene regulation:</p>
+<p><strong>Components</strong>: <em>lacZ</em> (beta-galactosidase),
+<em>lacY</em> (permease), <em>lacA</em> (transacetylase), preceded by
+the promoter (P), operator (O), and regulated by <em>lacI</em>
+(repressor gene, constitutively expressed from its own promoter).</p>
+<p><strong>Negative control</strong>: Lac repressor protein (tetramer,
+encoded by <em>lacI</em>) binds the operator sequences (O1 primary, O2
+and O3 auxiliary – DNA looping between O1 and O3 increases repression
+50-fold). When lactose is present, its isomer
+<strong>allolactose</strong> (the true inducer) binds the repressor,
+causing a conformational change that reduces DNA-binding affinity by
+~1000-fold. Repressor released; RNAP can transcribe.</p>
+<p><strong>Positive control (catabolite repression)</strong>: CAP
+(catabolite activator protein, also called CRP) + cAMP binds the CAP
+site upstream of the lac promoter, bending DNA ~90 degrees and directly
+contacting the alpha-CTD of RNAP to activate transcription ~50-fold.
+When glucose is present, the phosphotransferase system (PTS) keeps
+adenylyl cyclase inactive; [cAMP] is low; CAP cannot bind; lac operon
+expression is reduced even if lactose is present.</p>
+<p><strong>Operon logic</strong>: The lac operon is fully ON primarily
+when lactose is present AND glucose is absent (high cAMP, CAP active,
+repressor released). This makes biological sense: the cell uses glucose
+(more efficient) before lactose.</p>
+<h3 id="the-trp-operon-repressible-system">The Trp Operon (Repressible
+System)</h3>
+<p>The <em>E. coli</em> trp operon encodes five enzymes for tryptophan
+biosynthesis:</p>
+<ul>
+<li><strong>Repression</strong>: When tryptophan is abundant, Trp acts
+as a <strong>co-repressor</strong> – it binds the TrpR aporepressor,
+activating it to bind the operator and block transcription</li>
+<li><strong>Attenuation</strong>: A leader peptide (trpL) containing two
+consecutive Trp codons (UGG UGG) is located upstream of the structural
+genes. When Trp-tRNA is abundant, the ribosome translates the leader
+rapidly, allowing formation of a terminator hairpin (3-4 stem loop) in
+the mRNA, causing premature termination. When Trp-tRNA is scarce, the
+ribosome stalls at the UGG codons, allowing an anti-terminator hairpin
+(2-3 stem loop) to form instead, permitting read-through
+transcription</li>
+</ul>
+<p>This provides fine-tuning: repression gives ~70-fold regulation;
+attenuation adds another ~8-fold; combined ~600-fold.</p>
+<blockquote>
+<p><strong>Concept Check:</strong> Glucose is absent and lactose is
+present while a <em>lacI</em>⁻⁻ strain also carries a non-functional
+<em>crp</em> gene — predict whether the lac operon is transcribed and
+justify using both the repressor and CAP–cAMP states.</p>
+</blockquote>
+<h3 id="eukaryotic-gene-regulation-multiple-levels">Eukaryotic Gene
+Regulation: Multiple Levels</h3>
+<p><strong>Chromatin level</strong>: - <strong>SWI/SNF
+complexes</strong> (BAF/PBAF in mammals): ATP-dependent chromatin
+remodelers that slide, eject, or restructure <a
+href="#gl:nucleosome"><strong>nucleosome</strong></a>s to expose or
+occlude regulatory sequences - <strong>HATs</strong> (histone
+acetyltransferases, e.g., p300/CBP, PCAF): acetylate histone tails
+(primarily H3K9, H3K14, H3K27, H4K16), neutralizing positive charge,
+weakening histone-DNA interaction, and recruiting bromodomain-containing
+factors – associated with active transcription - <strong>HDACs</strong>
+(histone deacetylases): remove acetyl groups – associated with gene
+silencing; HDAC inhibitors (vorinostat, romidepsin) are approved for
+T-cell lymphoma</p>
+<p><strong>Transcription factor combinatorics</strong>: The human genome
+encodes ~1,500-2,000 transcription factors. Gene expression is
+controlled by the combinatorial binding of multiple TFs at enhancers,
+which together produce richer logic than any single TF in isolation.
+Three canonical principles:</p>
+<ol type="1">
+<li><strong>Synergy:</strong> Two TFs bound at adjacent sites produce
+more than the sum of their individual effects. Cooperative DNA binding
+(when one TF stabilises the binding of the next via direct
+protein–protein contact or by inducing DNA bending) and synergistic
+activation (when each TF independently recruits a different
+co-activator) both contribute. The interferon-β enhanceosome shows ~10×
+synergy: each individual TF drives about 5-fold transcription, but
+together they drive &gt; 1000-fold induction.</li>
+<li><strong>Quenching:</strong> A repressor TF bound near an activator
+can inhibit the activator without displacing it (e.g., via histone
+deacetylation recruitment, or by sequestering coactivators in a
+non-productive complex). Examples: GAL80 quenches GAL4 in yeast; BCL6
+quenches NF-κB in germinal-centre B cells.</li>
+<li><strong>Enhanceosome:</strong> A specific stereochemical assembly
+where the TF binding sites are positioned such that most eight (or more)
+factors must bind simultaneously and cooperatively to activate
+transcription. Spacing between binding sites is critical (loss of even
+one base-pair spacing destroys cooperative assembly). The IFN-β
+enhanceosome (3.7 kb upstream): NF-κB (p50/p65), IRF3, IRF7, ATF2/c-Jun,
+plus the architectural protein HMGA1 wraps the entire 55-bp regulatory
+region into a defined 3D conformation that primarily forms during viral
+infection.</li>
+</ol>
+<p><strong>Super-enhancers — the high-output regulatory class.</strong>
+First operationally defined by Whyte and Young (2013), super-enhancers
+are unusually large regulatory regions (median ~10 kb, often &gt;50 kb)
+characterised by: - <strong>H3K27ac density:</strong> at least 10-fold
+higher than typical enhancers, often spanning multiple H3K27ac peaks -
+<strong>BRD4 occupancy:</strong> the BET-family reader concentrates
+here, as do Mediator and lineage-defining TFs - <strong>MED1/MED12
+enrichment:</strong> super-enhancers are constructed largely from
+Mediator-bound elements - <strong>Transcriptional output:</strong>
+drives high-output expression of cell-identity genes (e.g., <em>MYC</em>
+in cancer cell lines, lineage-defining TFs like <em>SOX2</em> in ES
+cells, <em>PU.1</em> in haematopoietic cells) - <strong>Phase
+separation:</strong> super-enhancer condensates concentrate Pol II,
+BRD4, Mediator, CDK7/9 — see for detailed mechanism -
+<strong>Identification:</strong> ROSE (Rank Ordering of Super-Enhancers)
+algorithm — rank H3K27ac signal across most enhancers; the inflection
+point distinguishes super-enhancers (top ~3 % of enhancers, accounting
+for ~30 % of H3K27ac signal) from typical enhancers -
+<strong>Therapeutic implication:</strong> BET inhibitors (JQ1, OTX015,
+molibresib, mivebresib) preferentially collapse super-enhancer-driven
+transcription, providing tumour selectivity. CDK7 (THZ1, SY-5609) and
+CDK9 (AZD4573) inhibitors disrupt the condensate phosphorylation
+machinery.</p>
+<p>The combination of synergy + enhanceosome organisation +
+super-enhancer condensates explains why a few hundred lineage-defining
+genes can be expressed at very high levels in each cell type, while the
+rest of the genome is largely inactive.</p>
+<h3 id="rna-based-regulation">RNA-Based Regulation</h3>
+<p><strong><a href="#gl:microrna">microRNA (miRNA)</a></strong>: - ~22
+nt single-stranded RNAs; ~2,000 in the human genome; regulate ~60% of
+protein-coding genes - Biogenesis: pri-miRNA (transcribed by Pol II) →
+Drosha/DGCR8 cleave in nucleus to pre-miRNA (hairpin) → Exportin-5
+exports → <strong>Dicer</strong> cleaves to ~22 nt duplex → one strand
+loaded into <strong>RISC</strong> (RNA-induced silencing complex,
+containing Argonaute protein) - Mechanism: miRNA guides RISC to
+complementary sites (typically in the 3’ UTR; seed sequence = positions
+2-8); partial complementarity → translational repression + mRNA
+deadenylation and decay; perfect complementarity → mRNA cleavage (rare
+in animals)</p>
+<p><strong>The miRNA pathway in mechanistic detail
+(mammalian):</strong></p>
+<ol type="1">
+<li><strong>DICER processing:</strong> DICER (PAZ + DUF + RNase IIIa +
+RNase IIIb domains) measures ~22 nt from the pre-miRNA terminus and
+cleaves to produce a ~22-nt duplex with 2-nt 3′ overhangs. DICER’s PAZ
+domain binds the 3′ overhang of the pre-miRNA hairpin; the dsRBD anchors
+the substrate; the two RNase III domains cleave both strands in a single
+catalytic event.</li>
+<li><strong>RISC loading complex (RLC):</strong> TRBP + DICER + AGO2
+form the RLC. The thermodynamic asymmetry rule determines which strand
+becomes the <strong>guide</strong> vs. the <strong>passenger</strong>:
+the strand whose 5′ end is in a less-stable base-paired region is
+preferentially loaded as the guide. The passenger strand is
+degraded.</li>
+<li><strong>AGO2 conformational dynamics:</strong> AGO2 has four domains
+(N, PAZ, MID, PIWI). The MID domain anchors the guide’s 5′ phosphate via
+a 5′-anchored binding pocket. The PAZ domain holds the 3′ end (when not
+engaged with target). The PIWI domain has the slicer (RNase H-like)
+active site that cleaves perfectly complementary targets.</li>
+<li><strong>Target search and seed-pairing:</strong> The guide miRNA’s
+positions 2–8 (the <strong>seed sequence</strong>) must base-pair with
+the mRNA target — this is the primary recognition determinant. AGO2
+conformationally remodels to “extrude” positions 2–8 in an A-form
+helix-ready geometry for rapid scanning.</li>
+<li><strong>mRNA repression by deadenylation–decapping–decay:</strong>
+<ul>
+<li><strong>CCR4–NOT complex</strong> is recruited to the targeted mRNA
+via TNRC6/GW182 family proteins bound to AGO2.</li>
+<li><strong>CCR4 (CNOT6/CNOT6L) and POP2 (CNOT7/CNOT8)</strong>
+deadenylases progressively remove the poly-A tail (deadenylation is the
+rate-limiting step).</li>
+<li><strong>DCP2 (decapping)</strong> removes the 5′ cap, exposing the
+mRNA to <strong>XRN1</strong> 5′-to-3′ exonuclease degradation.</li>
+<li>In parallel, the cytoplasmic <strong>EXOSOME</strong> complex
+degrades from the 3′ end.</li>
+</ul></li>
+<li><strong>Translational repression in parallel:</strong> GW182 also
+disrupts eIF4F–PABP interaction, preventing closed-loop translation
+initiation. eIF4A helicase activity is reduced. Repression and decay are
+coupled but partially separable.</li>
+</ol>
+<p><strong>Seed sequence rules — quantitative target
+prediction:</strong></p>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 21%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr>
+<th>Seed type</th>
+<th>Definition</th>
+<th>Approximate target affinity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6-mer</td>
+<td>Perfect 6-bp seed (positions 2–7)</td>
+<td>Weak (10–20 % repression)</td>
+</tr>
+<tr>
+<td>7-mer-A1</td>
+<td>Seed + 3′ UTR adenosine at position 1</td>
+<td>Moderate (~30 %)</td>
+</tr>
+<tr>
+<td>7-mer-m8</td>
+<td>Seed + complementary base at position 8</td>
+<td>Moderate (~30 %)</td>
+</tr>
+<tr>
+<td>8-mer</td>
+<td>7-mer-A1 + 7-mer-m8 combined</td>
+<td>Strong (~50 %)</td>
+</tr>
+<tr>
+<td>3′ supplementary</td>
+<td>Seed + 3′ end pairing (positions 13–16)</td>
+<td>Modest extra contribution</td>
+</tr>
+<tr>
+<td>Centred site</td>
+<td>11-bp pairing centred on positions 4–14</td>
+<td>Moderate; alternative class</td>
+</tr>
+</tbody>
+</table>
+<p>Because each miRNA can have hundreds to thousands of targets
+(TargetScan, miRanda, DIANA-microT predictions), miRNAs typically tune
+target levels by 20–60 % rather than completely silencing them — they
+are “regulatory thermostats” rather than on/off switches.</p>
+<p><strong>siRNA (small interfering RNA)</strong>: - 21 nt; derived from
+long dsRNA (exogenous: viral, experimental; endogenous: transposons) -
+Biogenesis: Dicer cleaves dsRNA; one strand loaded into RISC -
+Mechanism: perfect complementarity to target → Argonaute-2 (Ago2)
+cleaves mRNA (“slicer” activity) - <strong>RNAi therapeutics</strong>:
+Patisiran (Onpattro) – first FDA-approved siRNA drug (2018), targets TTR
+mRNA for transthyretin amyloidosis; inclisiran (Leqvio) – targets PCSK9
+mRNA for hypercholesterolemia (2021)</p>
+<p><strong>Long non-coding RNA (lncRNA)</strong>: - &gt;200 nt;
+&gt;16,000 lncRNA genes in the human genome (likely more) - Functions:
+<strong>XIST</strong> (X-inactivation), <strong>HOTAIR</strong>
+(recruits PRC2 to silence HOXD cluster in trans),
+<strong>MALAT1</strong> (nuclear speckle organization, splicing
+regulation), <strong>NEAT1</strong> (paraspeckle formation)</p>
+<p><strong>Circular RNA (circRNA)</strong>: - Covalently closed RNA
+circles formed by “back-splicing” (a downstream 5’ SS joins to an
+upstream 3’ SS) - Functions: miRNA sponges (ciRS-7/CDR1as sponges miR-7,
+containing &gt;70 miR-7 binding sites), protein scaffolds, translated
+into peptides in some cases</p>
+<blockquote>
+<p><strong>Concept Check:</strong> A circRNA bearing 70 miR-7 binding
+sites is over-expressed in a cell — predict the direction of change in
+the protein output of a miR-7 target mRNA and explain the
+post-transcriptional mechanism.</p>
+</blockquote>
+<h3 id="epigenetic-regulation">Epigenetic Regulation</h3>
+<p><strong>DNA methylation</strong>: - Addition of a methyl group to the
+5-position of cytosine (5mC) in CpG dinucleotides - Catalyzed by
+<strong>DNA methyltransferases</strong>: DNMT1 (maintenance
+methyltransferase; copies methylation pattern after replication),
+DNMT3A/3B (de novo methyltransferases) - <strong>CpG islands</strong> at
+gene promoters: usually unmethylated in active genes; methylation
+recruits MeCP2 and MBD proteins, which recruit HDACs and chromatin
+compactors, leading to stable gene silencing - Aberrant methylation in
+cancer: global hypomethylation (genome instability) + focal
+hypermethylation of tumor suppressor promoters (e.g., RB1, p16/CDKN2A,
+BRCA1, MLH1)</p>
+<p><strong>The histone code</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Modification</th>
+<th>Location</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H3K4me3</td>
+<td>Promoters</td>
+<td>Active transcription</td>
+</tr>
+<tr>
+<td>H3K36me3</td>
+<td>Gene bodies</td>
+<td>Active elongation</td>
+</tr>
+<tr>
+<td>H3K27ac</td>
+<td>Enhancers</td>
+<td>Active enhancer</td>
+</tr>
+<tr>
+<td>H3K27me3</td>
+<td>Promoters/enhancers</td>
+<td>Polycomb-mediated silencing</td>
+</tr>
+<tr>
+<td>H3K9me3</td>
+<td>Heterochromatin</td>
+<td>Constitutive silencing (HP1 binding)</td>
+</tr>
+<tr>
+<td>H4K20me3</td>
+<td>Heterochromatin</td>
+<td>Repression</td>
+</tr>
+<tr>
+<td>H3K4me1</td>
+<td>Enhancers</td>
+<td>Poised enhancer (primed but not active)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="gene-regulation-in-development-hox-genes">Gene Regulation in
+Development: Hox Genes</h3>
+<p><strong>Hox genes</strong> encode homeodomain transcription factors
+that specify positional identity along the anterior-posterior body
+axis:</p>
+<ul>
+<li><strong>Homeodomain</strong>: ~60 amino acid DNA-binding domain
+(helix-turn-helix motif) recognizing AT-rich sequences</li>
+<li><strong>Colinearity</strong>: The order of Hox genes on the <a
+href="#gl:chromosome"><strong>chromosome</strong></a> corresponds to
+their expression domains along the body axis (spatial colinearity) and
+the timing of their activation (temporal colinearity)</li>
+<li><strong>Conservation</strong>: Hox gene clusters are ancient and
+highly conserved from <em>Drosophila</em> (2 clusters: ANT-C and BX-C, 8
+genes total) to mammals (4 clusters: HOXA-HOXD, 39 genes total)</li>
+<li><strong>Mutations</strong>: Loss-of-function Hox mutations cause
+<strong>homeotic transformations</strong> (one body segment takes on the
+identity of another). In <em>Drosophila</em>: <em>Antennapedia</em>
+gain-of-function transforms antennae into legs; <em>bithorax</em>
+loss-of-function transforms halteres into wings (creating a four-winged
+fly)</li>
+</ul>
+<blockquote>
+<p><strong>Concept Check:</strong> A posterior <em>Hox</em> gene is
+ectopically expressed in an anterior segment — predict the homeotic
+transformation that results and justify it from the spatial-colinearity
+rule.</p>
+</blockquote>
+<p><strong>Concept Check 12.3</strong></p>
+<blockquote>
+<ol type="1">
+<li>Explain the dual regulation of the lac operon (negative + positive
+control). Under what conditions is the operon fully active?</li>
+<li>How does the trp operon attenuation mechanism sense tryptophan
+levels?</li>
+<li>Compare the functions of miRNA and siRNA. Why is RNAi a powerful
+research tool?</li>
+<li>What is the histone code? Give two examples of activating marks and
+two of repressive marks.</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="worked-example-reading-frame-and-protein-prediction">Worked
+Example: Reading Frame and Protein Prediction</h2>
+<p><strong>Problem</strong>: The following mRNA sequence is expressed in
+a eukaryotic cell:</p>
+<p>5’-AUGUUCAAGGACUAUUGCCCGUAGACUU-3’</p>
+<ol type="a">
+<li>Translate this sequence.</li>
+</ol>
+<p><strong>Solution</strong>: Reading in triplets from AUG:</p>
+<p><span
+class="math display">\[\begin{equation}\text{AUG-UUC-AAG-GAC-UAU-UGC-CCG-UAG-ACU-U}
+\tag{13.2}\label{eq:reading_frame}\end{equation}\]</span></p>
+<table>
+<thead>
+<tr>
+<th>Codon</th>
+<th>Amino Acid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUG</td>
+<td>Met</td>
+</tr>
+<tr>
+<td>UUC</td>
+<td>Phe</td>
+</tr>
+<tr>
+<td>AAG</td>
+<td>Lys</td>
+</tr>
+<tr>
+<td>GAC</td>
+<td>Asp</td>
+</tr>
+<tr>
+<td>UAU</td>
+<td>Tyr</td>
+</tr>
+<tr>
+<td>UGC</td>
+<td>Cys</td>
+</tr>
+<tr>
+<td>CCG</td>
+<td>Pro</td>
+</tr>
+<tr>
+<td>UAG</td>
+<td>Stop (amber)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Protein</strong>: Met-Phe-Lys-Asp-Tyr-Cys-Pro (7 amino
+acids)</p>
+<ol start="2" type="a">
+<li>If a single G is inserted after the first codon
+(AUG<strong>G</strong>UUC…), what happens?</li>
+</ol>
+<p><strong>Solution</strong>: Frameshift mutation. New reading
+frame:</p>
+<p><span
+class="math display">\[\begin{equation}\text{AUG-GUU-CAA-GGA-CUA-UUG-CCC-GUA-GAC-UU}
+\tag{13.3}\label{eq:frameshift}\end{equation}\]</span></p>
+<p>Met-Val-Gln-Gly-Leu-Leu-Pro-Val-Asp… (completely different protein,
+no stop codon in this segment)</p>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>The same genetic code table used in the text is callable from
+<code>biology.genetics</code>:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.genetics <span class="im">import</span> transcribe_dna_to_mrna, translate_mrna</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mrna <span class="op">=</span> transcribe_dna_to_mrna(<span class="st">&quot;TACGGCTTGTTC&quot;</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot; &quot;</span>.join(translate_mrna(mrna)[:<span class="dv">6</span>]))</span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> NMD and cap-dependent
+scanning are therapeutic pressure points: nonsense mutations in tumour
+suppressors can be targeted with read-through compounds, while eIF4A
+inhibitors attempt to collapse translation of highly structured
+oncogenic mRNAs.</p>
+</blockquote>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Gene Expression — Transcription and Translation</strong>,
+frontier biology belongs inside the evidence logic of the chapter.
+Molecular genetics now spans single-reference sequences,
+telomere-to-telomere assemblies, pangenome graphs, long-read sequencing,
+CRISPR medicines, and ethical deployment. The core reading question is
+this: expression claims should separate transcription, RNA processing,
+translation, localization, degradation, and feedback.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>When a genomic claim depends on a reference, ask whether short reads,
+structural variants, ancestry representation, phasing, or clinical
+validation could change the interpretation .</p>
+<p><strong>Source practice:</strong> For genomics and editing claims,
+distinguish discovery from clinical actionability, and cite reference
+resources, regulatory records, or primary editing studies close to the
+claim .</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Transcription</strong>: RNAP reads the template strand 3’ to
+5’ to produce RNA 5’ to 3’. Prokaryotes use a single RNAP with sigma
+factors; eukaryotes use three RNA Polymerases plus general transcription
+factors and Mediator.</li>
+<li><strong>Promoter elements</strong>: TATA box (TBP binding), Inr,
+DPE, BRE, CpG islands; enhancers act over long distances via DNA
+looping.</li>
+<li><strong>mRNA processing</strong>: 5’ m<span
+class="math inline">\(^7\)</span>G cap (eIF4E recognition, stability),
+spliceosome-mediated intron removal (two transesterification reactions
+via lariat intermediate), 3’ poly(A) tail (PABP, stability,
+translation).</li>
+<li><strong>Alternative splicing</strong>: &gt;95% of human multi-exon
+genes; generates proteome diversity; regulated by SR proteins and
+hnRNPs; NMD degrades transcripts with premature stop codons.</li>
+<li><strong>Translation</strong>: cap-dependent scanning (eukaryotes) or
+Shine-Dalgarno (prokaryotes); A/P/E sites; elongation cycle; genetic
+code (64 codons, wobble pairing, nearly comprehensive); ribosome is a
+ribozyme.</li>
+<li><strong>Post-translational modifications</strong>: phosphorylation,
+glycosylation, ubiquitination, acetylation, methylation, SUMOylation;
+ubiquitin-proteasome system for targeted degradation.</li>
+<li><strong>Gene regulation</strong>: prokaryotic operons (lac:
+inducible; trp: repressible with attenuation); eukaryotic: chromatin
+remodeling, histone code, DNA methylation, transcription factor
+combinatorics, miRNA/siRNA/lncRNA.</li>
+<li><strong><a href="#gl:epigenetics">Epigenetics</a></strong>:
+heritable changes in gene expression without DNA sequence change; DNA
+methylation (CpG islands), histone modifications; dysregulated in
+cancer.</li>
+<li><strong>Development</strong>: Hox genes specify positional identity;
+homeodomain TFs; colinearity of gene order and expression domain.</li>
+<li><strong>Connections:</strong> See for chromatin and RNAi, Unit VI
+for how expression variation fuels evolution, and for signal-driven
+transcription factors.</li>
+</ul>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li>Compare the promoter recognition mechanisms in prokaryotes (sigma
+factor) and eukaryotes (GTF assembly). Why do eukaryotes require so many
+additional factors?</li>
+<li>Describe the three enzymatic steps of 5’ capping. Why is the cap
+essential for translation?</li>
+<li>Explain the two transesterification reactions in splicing. What is
+the lariat intermediate and why does it form?</li>
+<li>How does DSCAM alternative splicing generate 38,016 isoforms from a
+single gene? What biological function does this diversity serve?</li>
+<li>Explain the NMD pathway. Why is it important to destroy mRNAs with
+premature stop codons?</li>
+<li>Compare the mechanisms of eukaryotic and prokaryotic translation
+initiation. What is the Kozak sequence?</li>
+<li>Describe the ubiquitin-proteasome pathway (E1/E2/E3 cascade). Why
+does the human genome encode ~600 E3 ligases but 2 main E1 enzymes?</li>
+<li>Compare the lac operon (inducible) and trp operon (repressible). How
+does attenuation fine-tune trp operon expression?</li>
+<li>Describe three classes of non-coding RNAs and their roles in gene
+regulation.</li>
+<li>What is the histone code? How do writers, readers, and erasers of
+histone marks coordinate gene regulation?</li>
+<li>Insert a single-base frameshift in a toy 30 nt mRNA after the start
+codon and rerun <code>translate_mrna</code> in Python. At what point do
+stop codons typically appear compared with in-frame controls?</li>
+<li>Compare how a <strong>uORF</strong> upstream of a main AUG might
+tune translation initiation without changing DNA sequence.</li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Crick (1958). On protein synthesis. <em>Symposia of the Society for
+Experimental Biology</em>, 12.</li>
+<li>Crick (1966). The genetic code — yesterday, today and tomorrow.
+<em>Cold Spring Harbor Symposia on Quantitative Biology</em>, 31.</li>
+<li>Jacob &amp; Monod (1961). Genetic regulatory mechanisms in the
+synthesis of proteins. <em>Journal of Molecular Biology</em>, 3.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<ol type="1">
+<li><strong>Central dogma</strong> – the flow of genetic information:
+DNA to RNA to protein</li>
+<li><strong>Sigma factor</strong> – prokaryotic RNAP subunit that
+recognizes promoter sequences</li>
+<li><strong>General transcription factors (GTFs)</strong> – proteins
+(TFIIA-H) required for basal Pol II transcription</li>
+<li><strong>Mediator complex</strong> – coactivator bridging
+enhancer-bound TFs to basal machinery</li>
+<li><strong>5’ cap (m7G)</strong> – modified guanosine protecting mRNA
+5’ end; recognized by eIF4E</li>
+<li><strong>Spliceosome</strong> – large RNP complex (U1, U2, U4, U5, U6
+snRNPs) that removes introns</li>
+<li><strong>Branch point</strong> – intronic adenosine whose 2’-OH
+attacks the 5’ splice site in the first transesterification</li>
+<li><strong>Alternative splicing</strong> – generation of multiple mRNA
+isoforms from one gene by differential exon inclusion</li>
+<li><strong>Nonsense-mediated decay (NMD)</strong> – mRNA surveillance
+destroying transcripts with premature stop codons</li>
+<li><strong>Wobble base pairing</strong> – relaxed pairing rules at
+codon position 3/anticodon position 1</li>
+<li><strong>Kozak sequence</strong> – consensus context around
+eukaryotic AUG start codon (RCCAUGG)</li>
+<li><strong>Peptidyl transferase</strong> – ribosomal RNA-based
+catalytic activity forming peptide bonds</li>
+<li><strong>Ubiquitin-proteasome system</strong> – pathway for targeted
+protein degradation via polyubiquitination</li>
+<li><strong>miRNA</strong> – ~22 nt non-coding RNA guiding RISC to
+target mRNAs for translational repression</li>
+<li><strong>Epigenetics</strong> – heritable changes in gene expression
+without alterations to DNA sequence</li>
+<li><strong>CpG island</strong> – GC-rich genomic region; methylation
+status controls gene activity</li>
+<li><strong>Histone code</strong> – combinatorial histone modifications
+that regulate chromatin state and gene expression</li>
+<li><strong>Homeodomain</strong> – 60-aa DNA-binding domain in Hox
+transcription factors specifying positional identity</li>
+<li><strong>Operon</strong> – cluster of co-transcribed prokaryotic
+genes under shared regulatory control</li>
+</ol>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Gene Expression — Transcription and Translation</strong>
+should leave a reproducible trail from a biological claim to the code,
+figure, diagram, or paper-based activity that can test it. Use the
+surfaces below to inspect the chapter’s assumptions, rerun the relevant
+model, or compare the manuscript explanation with companion labs and
+figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/genetics/genetics.py</code>
+(<code>transcribe_dna_to_mrna</code>, <code>translate_mrna</code>,
+<code>gc_content</code>)</td>
+<td>Reproduce transcription, translation, codon lookup, and
+sequence-composition checks.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>transcription_translation_diagram</code>,
+<code>mirna_biogenesis_diagram</code>)</td>
+<td>Connect coding flow with RNA regulation.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> specify template strand,
+reading frame, RNA-processing assumptions, and regulatory layer before
+interpreting expression. <strong>Cross-reference:</strong> use and .</p>
+</body>
+</html>

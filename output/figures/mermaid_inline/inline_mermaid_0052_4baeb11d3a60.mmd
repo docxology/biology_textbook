@@ -1,0 +1,18 @@
+flowchart LR
+    OAA["Oxaloacetate (4C)"]
+    Citrate["Citrate (6C)"]
+    Isocitrate["Isocitrate (6C)"]
+    alphaKG["α-Ketoglutarate (5C)"]
+    SuccCoA["Succinyl-CoA (4C)"]
+    Succ["Succinate (4C)"]
+    Fum["Fumarate (4C)"]
+    Mal["Malate (4C)"]
+
+    OAA -->|"Step 1: Citrate synthase<br/>Acetyl-CoA + H₂O<br/>ΔG°' = −32.2"| Citrate
+    Citrate -->|"Step 2: Aconitase<br/>(via cis-aconitate)<br/>ΔG°' = +6.3"| Isocitrate
+    Isocitrate -->|"Step 3: Isocitrate DH<br/>NAD⁺→NADH + CO₂<br/>ΔG°' = −20.9<br/>REGULATED"| alphaKG
+    alphaKG -->|"Step 4: α-KG DH complex<br/>NAD⁺→NADH + CO₂<br/>ΔG°' = −33.5<br/>REGULATED"| SuccCoA
+    SuccCoA -->|"Step 5: Succinyl-CoA synthetase<br/>GDP→GTP (or ADP→ATP)<br/>ΔG°' = −2.9"| Succ
+    Succ -->|"Step 6: Succinate DH (Complex II)<br/>FAD→FADH₂<br/>ΔG°' = 0"| Fum
+    Fum -->|"Step 7: Fumarase<br/>H₂O added<br/>ΔG°' = −3.8"| Mal
+    Mal -->|"Step 8: Malate DH<br/>NAD⁺→NADH<br/>ΔG°' = +29.7"| OAA

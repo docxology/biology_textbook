@@ -1,0 +1,39 @@
+flowchart TD
+    subgraph FED ["FED STATE (Absorptive)"]
+        direction TB
+        F1["High blood glucose"] --> F2["Insulin secretion ↑"]
+        F2 --> F3["Glycolysis ↑"]
+        F2 --> F4["Glycogen synthesis ↑"]
+        F2 --> F5["Lipogenesis ↑"]
+        F2 --> F6["Protein synthesis ↑"]
+        F2 --> F7["GLUT4 translocation"]
+        F2 --> F8["mTORC1 ON"]
+        F2 --> F9["AMPK OFF"]
+    end
+
+    subgraph FASTED ["FASTED STATE (Post-absorptive)"]
+        direction TB
+        FA1["Low blood glucose"] --> FA2["Glucagon secretion ↑"]
+        FA2 --> FA3["Glycogenolysis ↑"]
+        FA2 --> FA4["Gluconeogenesis ↑"]
+        FA2 --> FA5["β-oxidation ↑"]
+        FA2 --> FA6["Lipolysis ↑"]
+        FA2 --> FA7["AMPK ON"]
+        FA2 --> FA8["mTORC1 OFF"]
+        FA2 --> FA9["Autophagy ↑"]
+    end
+
+    subgraph STARVED ["STARVATION (>72 h)"]
+        direction TB
+        S1["Very low glucose"] --> S2["Ketogenesis ↑↑"]
+        S2 --> S3["Brain uses ketones<br/>(60% of fuel)"]
+        S1 --> S4["Muscle protein<br/>catabolism ↓<br/>(protein sparing)"]
+        S1 --> S5["Gluconeogenesis<br/>from glycerol + AAs"]
+    end
+
+    FED -->|"4-6 h after meal"| FASTED
+    FASTED -->|">72 h"| STARVED
+
+    style FED fill:#e6ffe6
+    style FASTED fill:#fff3e6
+    style STARVED fill:#ffe6e6

@@ -1,0 +1,24 @@
+flowchart TD
+    A["Design 20-nt Guide Sequence Complementary to Target"] --> B["Synthesize sgRNA (crRNA + tracrRNA Fused)"]
+    B --> C["Deliver Cas9 + sgRNA to Cell (Plasmid, RNP, or mRNA + LNP)"]
+    C --> D["Cas9-sgRNA Complex Scans Genome for PAM (5'-NGG-3')"]
+    D --> E["PAM Found: Local DNA Unwinding"]
+    E --> F{Guide-Target Complementarity?}
+    F -->|"No Match"| D
+    F -->|"20-nt Match (R-loop Formation)"| G["RuvC Cleaves Non-target Strand; HNH Cleaves Target Strand"]
+    G --> H["Double-Strand Break 3 bp Upstream of PAM"]
+    H --> I{Repair Pathway?}
+    I -->|"No Donor Template"| J["NHEJ: Error-Prone Repair"]
+    J --> K["Indels at Cut Site --> Gene Knockout"]
+    I -->|"Donor Template Provided (ssODN or Plasmid)"| L["HDR: Homology-Directed Repair"]
+    L --> M["Precise Gene Correction or Insertion"]
+    I -->|"Base Editor (no DSB)"| N["Catalytically Dead Cas9 (dCas9) + Deaminase"]
+    N --> O["C-to-T or A-to-G Conversion Without DSB"]
+    I -->|"Prime Editor (no DSB)"| P["Cas9 Nickase + Reverse Transcriptase + pegRNA"]
+    P --> Q["Search-and-Replace: Any Small Edit Without DSB"]
+
+    style A fill:#4a90d9,color:#fff
+    style K fill:#f0ad4e,color:#000
+    style M fill:#5cb85c,color:#fff
+    style O fill:#5cb85c,color:#fff
+    style Q fill:#5cb85c,color:#fff

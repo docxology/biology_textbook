@@ -1,0 +1,22 @@
+flowchart TD
+    A["Epinephrine binds<br/>β₂-adrenergic receptor"] --> B["Receptor conformational<br/>change"]
+    B --> C["Gαs exchanges GDP→GTP<br/>Gαs-GTP dissociates<br/>from Gβγ"]
+    C --> D["Gαs-GTP activates<br/>Adenylyl Cyclase (AC)"]
+    D --> E["AC converts ATP→cAMP<br/>(~1000 cAMP per AC per second)"]
+    E --> F["cAMP binds regulatory<br/>subunits of PKA<br/>(2 cAMP per R subunit)"]
+    F --> G["PKA catalytic subunits<br/>released (active)"]
+    G --> H["PKA phosphorylates<br/>multiple targets"]
+
+    H --> I["Phosphorylase kinase<br/>→ Glycogen phosphorylase<br/>→ GLYCOGENOLYSIS"]
+    H --> J["CREB transcription factor<br/>→ CRE gene expression"]
+    H --> K["L-type Ca²⁺ channels<br/>→ enhanced Ca²⁺ entry<br/>(cardiac muscle)"]
+
+    L["Signal Termination"] --> M["Gαs GTPase activity<br/>(intrinsic; t₁/₂ ~1 min)"]
+    L --> N["PDE hydrolyses<br/>cAMP→5'-AMP"]
+    L --> O["Phosphatases (PP1, PP2A)<br/>remove phosphoryl groups"]
+    L --> P["GRK phosphorylates receptor<br/>→ β-arrestin binding<br/>→ receptor internalisation"]
+
+    style A fill:#e6f3ff
+    style E fill:#fff3e6
+    style G fill:#ffe6e6
+    style L fill:#e6ffe6

@@ -1,0 +1,13 @@
+graph TD
+    subgraph "Species Interactions Matrix"
+        MUT["<b>Mutualism (+/+)</b><br/>Both benefit<br/>Mycorrhizae, fig-wasp,<br/>cleaner fish, coral-zooxanthellae"]
+        COM["<b>Commensalism (+/0)</b><br/>One benefits, other unaffected<br/>Cattle egret + cattle,<br/>barnacles on whale"]
+        PAR["<b>Parasitism (+/−)</b><br/>Parasite benefits, host harmed<br/>Tapeworm, mistletoe,<br/>Toxoplasma, malaria"]
+        PRE["<b>Predation (+/−)</b><br/>Predator benefits, prey killed<br/>Wolf-moose, owl-mouse,<br/>spider-fly"]
+        COMP["<b>Competition (−/−)</b><br/>Both harmed<br/>Warblers in same tree,<br/>plants competing for light"]
+        AME["<b>Amensalism (0/−)</b><br/>One unaffected, other harmed<br/>Black walnut juglone,<br/>elephant trampling"]
+    end
+    MUT --> OBL["Obligate vs.<br/>Facultative"]
+    PAR --> COEV["Coevolutionary<br/>Arms Race"]
+    PRE --> COEV
+    COMP --> CE["Competitive<br/>Exclusion or<br/>Coexistence"]

@@ -1,0 +1,24 @@
+sequenceDiagram
+    participant L as Ligand (EGF)
+    participant R as EGFR (RTK)
+    participant A as Adaptor (Grb2/SOS)
+    participant RAS as RAS GTPase
+    participant RAF as RAF (MAPKKK)
+    participant MEK as MEK (MAPKK)
+    participant ERK as ERK (MAPK)
+    participant TF as Transcription Factors
+
+    L->>R: EGF binds extracellular domain
+    R->>R: Receptor dimerisation + trans-autophosphorylation
+    R->>A: pTyr binds Grb2 SH2 domain, Grb2 recruits SOS (GEF)
+    A->>RAS: SOS catalyses GDP→GTP exchange on RAS
+    Note over RAS: RAS-GTP = active (molecular switch ON)
+    RAS->>RAF: RAS-GTP recruits RAF to membrane → RAF activation
+    RAF->>MEK: RAF phosphorylates MEK (Ser218/Ser222)
+    MEK->>ERK: MEK phosphorylates ERK (Thr/Tyr dual phosphorylation)
+    ERK->>TF: ERK translocates to nucleus
+    TF->>TF: Phosphorylates Elk-1, Myc, Fos → gene expression
+    Note over TF: Cell proliferation, differentiation, survival
+
+    Note over RAS: SIGNAL OFF: GAPs (NF1) accelerate RAS GTPase → RAS-GDP
+    Note over ERK: SIGNAL OFF: MKPs (DUSP) dephosphorylate ERK

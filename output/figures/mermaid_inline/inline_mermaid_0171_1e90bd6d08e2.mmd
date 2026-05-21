@@ -1,0 +1,17 @@
+flowchart LR
+    PAMPs["PAMPs / DAMPs"]
+    PAMPs --> TLR["TLRs<br/>(membrane-bound)"]
+    PAMPs --> NLR["NLRs<br/>(cytosolic)"]
+    PAMPs --> RLR["RLRs<br/>(cytosolic, viral RNA)"]
+    PAMPs --> cGAS["cGAS<br/>(cytosolic DNA)"]
+
+    TLR -->|"MyD88<br/>(most TLRs)"| NFkB["NF-κB activation"]
+    TLR -->|"TRIF<br/>(TLR3, TLR4)"| IRF["IRF3 / IRF7"]
+    NLR -->|"NOD1/2 → RIPK2"| NFkB
+    NLR -->|"NLRP3 → ASC<br/>→ caspase-1"| Inflam["Inflammasome:<br/>IL-1β, IL-18, pyroptosis"]
+    RLR -->|"MAVS"| IRF
+    cGAS -->|"2'3'-cGAMP<br/>→ STING → TBK1"| IRF
+
+    NFkB --> Cyto["Pro-inflammatory<br/>cytokines: TNF, IL-6,<br/>chemokines"]
+    IRF --> IFN["Type I interferons<br/>(IFN-α/β):<br/>antiviral state"]
+    Inflam --> Damage["Tissue damage,<br/>lytic death"]

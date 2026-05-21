@@ -1,0 +1,32 @@
+stateDiagram-v2
+    [*] --> Initiation
+
+    state Initiation {
+        [*] --> SmallSubunit: 40S binds eIF1, eIF1A, eIF3, eIF5
+        SmallSubunit --> TernaryComplex: Met-tRNAi + eIF2-GTP = ternary complex
+        TernaryComplex --> FortyThreeSPIC: 43S pre-initiation complex formed
+        FortyThreeSPIC --> mRNABinding: eIF4F (eIF4E + eIF4G + eIF4A) recruits mRNA via cap
+        mRNABinding --> Scanning: 43S scans 5' to 3' for AUG in Kozak context
+        Scanning --> StartCodon: AUG recognized, eIF2 GTP hydrolysis, eIF5B joins 60S
+        StartCodon --> EightyS: 80S initiation complex, Met-tRNAi in P site
+    }
+
+    EightyS --> Elongation
+
+    state Elongation {
+        [*] --> Decoding: aa-tRNA in eEF1A-GTP enters A site
+        Decoding --> Proofreading: GTP hydrolysis, kinetic proofreading
+        Proofreading --> PeptideBond: Peptidyl transferase (28S rRNA) forms bond
+        PeptideBond --> Translocation: eEF2-GTP translocates ribosome 3 codons
+        Translocation --> Decoding: tRNAs shift A to P to E, cycle repeats
+    }
+
+    Elongation --> Termination: Stop codon in A site
+
+    state Termination {
+        [*] --> ReleaseFactors: eRF1 recognizes stop codon (mimics tRNA shape)
+        ReleaseFactors --> Hydrolysis: eRF3-GTP, peptidyl-tRNA hydrolysis
+        Hydrolysis --> Recycling: ABCE1 splits 80S, subunits recycled
+    }
+
+    Termination --> [*]

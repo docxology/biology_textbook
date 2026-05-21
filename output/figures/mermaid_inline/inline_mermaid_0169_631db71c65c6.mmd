@@ -1,0 +1,19 @@
+graph TD
+    subgraph Innate ["Innate Immune System"]
+        B1["Physical Barriers<br/>Skin, mucous membranes,<br/>cilia, stomach acid,<br/>lysozyme, defensins"]
+        B2["Complement System<br/>30+ plasma proteins<br/>Classical, lectin, alternative<br/>pathways → MAC + opsonisation"]
+        B3["Phagocytes<br/>Neutrophils (first responders)<br/>Macrophages (tissue resident)<br/>Dendritic cells (APCs)"]
+        B4["NK Cells<br/>Kill virus-infected cells<br/>Missing-self recognition<br/>(KIR checks for MHC I)"]
+        B5["Inflammation<br/>Histamine, prostaglandins<br/>Vasodilation, permeability up<br/>Neutrophil recruitment"]
+        B6["Interferons<br/>Type I (IFN-α/β): antiviral<br/>Induce ISG expression<br/>in neighbouring cells"]
+        B7["Fever<br/>PGE2 raises hypothalamic<br/>set point<br/>Enhances immune function"]
+    end
+
+    Pathogen["Pathogen Entry"] --> B1
+    B1 --> |"Breach"| B5
+    B5 --> B3
+    Pathogen --> B2
+    B2 --> B3
+    Pathogen --> B4
+    Pathogen --> B6
+    B3 --> |"Antigen presentation<br/>to adaptive immunity"| Adaptive["Adaptive Immune<br/>Response (7-10 days)"]

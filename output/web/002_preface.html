@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>002_preface</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered" id="preface">Preface</h1>
+<h2 class="unnumbered" id="a-textbook-built-with-code">A Textbook Built
+With Code</h2>
+<p>Welcome to <em>Introduction to Biology: A Generative Approach</em> —
+an open-source textbook covering introductory biology across
+<strong>Unit 0</strong> (systems science and complexity), <strong>ten
+thematic units (I–X)</strong>, and <strong>38 core chapters</strong>,
+plus optional <strong>laboratories</strong> and <strong>question
+banks</strong> in the appendices. Where this text uses quantitative
+models, the corresponding computations are implemented as tested Python
+modules.</p>
+<p>Whether we examine Michaelis–Menten enzyme kinetics, Lotka–Volterra
+predator–prey dynamics, or Hodgkin–Huxley action potentials, the
+underlying mathematical model exists as a working module in the
+accompanying codebase. Many figures are generated programmatically.
+Process diagrams are expressed using Mermaid where it improves clarity.
+For instructors and independent learners, this supports inspection,
+extension, and reproducible re-generation of results.</p>
+<p>The philosophy is: <strong>understand biology by computing
+biology</strong>.</p>
+<p><strong>How to read this book digitally:</strong> The reference build
+is a compact <strong>PDF</strong> with LaTeX typesetting. Not all screen
+readers handle mathematical notation the same way in PDF; the same
+sources also produce <strong>HTML</strong> for some workflows. The <a
+href="https://github.com/docxology/biology_textbook">biology textbook
+source repository</a> contains the manuscript, figures, tests, and code;
+the <a href="https://doi.org/10.5281/zenodo.20286478">Zenodo archival
+DOI record</a> identifies a fixed edition snapshot. If you need larger
+type or margins, a <strong>reader</strong> typography profile is
+documented (paired edits to <code>manuscript/config.yaml</code> and
+<code>manuscript/preamble.md</code> — see
+<code>docs/accessibility.md</code> in the project tree). The book does
+not re-express every formula in natural language; where precision
+matters, work through the worked examples and the linked
+<code>src/biology</code> modules.</p>
+<p><strong>Accessible formats:</strong> The compact PDF is optimized for
+print density, not for every reader. For screen-reader review,
+HTML/MathJax workflows usually preserve reading order and mathematical
+navigation better than a dense PDF. Figures and Mermaid diagrams include
+alt text plus captions, and the large-type reader profile increases
+margins, font size, and line spacing without changing chapter order or
+cross-reference IDs.</p>
+<hr />
+<h2 class="unnumbered" id="five-big-ideas-in-biology">Five Big Ideas in
+Biology</h2>
+<p>Biology is a vast and diverse science, but five core concepts unify
+its every subdiscipline. These ideas — drawn from the AAAS <em>Vision
+and Change in Undergraduate Biology Education</em> — are introduced here
+as orienting themes that recur across the units that follow.</p>
+<h3 class="unnumbered"
+id="evolution-the-unifying-theory-of-life">Evolution: the unifying
+theory of life</h3>
+<p><em>"Nothing in biology makes sense except in the light of
+evolution."</em> — Theodosius </p>
+<p>Evolution by natural selection explains the origin of species, the
+genetic code being nearly comprehensive, the homology between a human
+arm and a bat wing, and why influenza vaccines must be redesigned every
+year. Units VI (Evolution), V (Genetics), and IV (Molecular Genetics)
+develop this idea from population genetics algorithms to phylogenetic
+tree reconstruction.</p>
+<h3 class="unnumbered"
+id="structure-and-function-are-inseparable">Structure and function are
+inseparable</h3>
+<p>A phospholipid bilayer is 7 nm thick and amphipathic — and those two
+structural facts explain every property of biological membranes (Units I
+and II). The α-helix of haemoglobin’s subunits explains its
+cooperativity and the Bohr effect (Units I and IX). The T-shaped
+architecture of the mitochondrial ATP synthase explains rotary catalysis
+(Unit III). In biology, whenever you ask <em>how</em>, the answer is
+typically embedded in <em>shape</em>.</p>
+<h3 class="unnumbered"
+id="information-storage-transfer-expression">Information — storage,
+transfer, expression</h3>
+<p>DNA is not merely a chemical; it is a <strong>code</strong>. An
+alphabet of four nucleotides encodes a programme of 20 amino acids,
+creating an effectively unlimited diversity of proteins. Unit IV
+(Molecular Genetics) examines the molecular machinery that reads this
+code — from DNA helicases to ribosomes — and how errors in the code
+drive disease and evolution. Unit V (Classical Genetics) examines how
+the code is transmitted between generations. Unit VII (Microbiology)
+shows how viruses inject their own code into host cells.</p>
+<h3 class="unnumbered"
+id="emergent-properties-the-whole-exceeds-the-parts">Emergent
+properties: the whole exceeds the parts</h3>
+<p>A single neuron can fire or remain silent. A brain can think. A
+single predator can collapse an entire intertidal community (Unit X). A
+slight imbalance in NAD⁺/NADH ratio shunts metabolism from aerobic to
+anaerobic (Unit III). Emergence — complex behaviour arising from simple
+rules — is everywhere in biology, and understanding it requires systems
+thinking: tracking flows, feedback loops, and nonlinear dynamics, not
+just cataloguing parts.</p>
+<h3 class="unnumbered" id="cells-the-universal-unit-of-life">Cells: the
+universal unit of life</h3>
+<p>Every living organism is composed of one or more cells, sharing a
+common molecular toolkit: phospholipid membranes, DNA, ribosomes, ATP.
+Unit II examines the cell as a physical and computational system. Units
+VII–IX extend this to specialised cells: bacteria, plant cells, neurons,
+immune cells. Understanding the cell is not a module to be completed —
+it is a perspective to carry through every subsequent chapter.</p>
+<hr />
+<h2 class="unnumbered" id="how-science-actually-works">How Science
+Actually Works</h2>
+<p>This textbook presents science not as a collection of established
+facts but as a dynamic, self-correcting process of inquiry.
+Understanding how scientific knowledge is generated, tested, and revised
+is as important as knowing what is currently accepted.</p>
+<p><strong>The hypothetico-deductive method.</strong> A hypothesis is a
+testable, falsifiable prediction. Barry Marshall and Robin Warren’s
+hypothesis that bacteria cause peptic ulcers (not stress) was so
+contrary to medical consensus that Marshall famously drank a
+<em>Helicobacter pylori</em> culture to demonstrate the relationship .
+Their Nobel Prize-winning work illustrates how a single decisive
+experiment can overturn decades of received wisdom.</p>
+<p><strong>Models and computation as scientific tools.</strong> Modern
+biology is inseparable from mathematical modelling. The Michaelis-Menten
+equation (1913) is a model. The Hardy-Weinberg principle is a model. The
+Hodgkin-Huxley equations (1952) were Nobel Prize-winning models. A model
+is not a simplification that sacrifices truth; it is a commitment to
+precision — stating <em>exactly</em> what you are and are not claiming.
+The Python modules in this textbook implement these models so that you
+can inspect their assumptions, vary their parameters, and see where they
+break.</p>
+<p><strong>Primary literature vs. textbook synthesis.</strong> This
+textbook cites primary papers at point of use. When you see "(Author et
+al., Year, <em>Journal</em>)" inline, that citation points to the
+experiment or calculation that established the claim. Science
+journalism, textbooks, and Wikipedia involve more layers of
+interpretation. Primary papers are the ultimate authority — and learning
+to read them is a core competency this textbook aims to develop.</p>
+<p><strong>Revision is not failure.</strong> Every chapter in this book
+contains examples of ideas revised or overturned: the flat earth was
+replaced by a spherical one; Lamarckian inheritance was replaced by
+Darwinian selection; the DNA double helix replaced protein as the
+genetic material; the "lock-and-key" enzyme model was replaced by
+"induced fit". A willingness to revise beliefs on evidence is not
+weakness — it is the engine of scientific progress.</p>
+<hr />
+<h2 class="unnumbered" id="how-to-use-the-unit-introductions">How to Use
+the Unit Introductions</h2>
+<p>Each unit begins with a <code>unit_intro.md</code> page
+containing:</p>
+<ul>
+<li><strong>A narrative hook</strong> explaining why this area of
+biology matters and what surprises it holds</li>
+<li><strong>A landmark discoveries table</strong> citing the experiments
+that established the field</li>
+<li><strong>A concept map</strong> (Mermaid diagram) showing how the
+chapters connect to each other and to other units</li>
+<li><strong>A chapter roadmap</strong> mapping each chapter to its core
+question and key equation</li>
+</ul>
+<p>Use these pages as <strong>advance organisers</strong> — read them
+before starting the unit and return to them when you feel you have lost
+the conceptual thread. The best moment to understand how a jigsaw piece
+fits is before you lose sight of the box.</p>
+<hr />
+<h2 class="unnumbered" id="scope-and-organisation">Scope and
+Organisation</h2>
+<p>The textbook proceeds from atoms to ecosystems, following the
+standard introductory course arc:</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 22%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr>
+<th>Unit</th>
+<th>Title</th>
+<th>Core Chapters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td>Systems Science and the Biology of Complexity</td>
+<td>Emergence, complex adaptive systems, active inference</td>
+</tr>
+<tr>
+<td><strong>I</strong></td>
+<td>Chemistry of Life</td>
+<td>Atoms &amp; bonds, water, macromolecules, enzymes</td>
+</tr>
+<tr>
+<td><strong>II</strong></td>
+<td>The Cell</td>
+<td>Cell theory, organelles, membranes, signalling</td>
+</tr>
+<tr>
+<td><strong>III</strong></td>
+<td>Energy and Metabolism</td>
+<td>Respiration, photosynthesis, metabolic integration</td>
+</tr>
+<tr>
+<td><strong>IV</strong></td>
+<td>Molecular Genetics</td>
+<td>DNA replication, gene expression, CRISPR and genomics</td>
+</tr>
+<tr>
+<td><strong>V</strong></td>
+<td>Classical Genetics and Heredity</td>
+<td>Mendelian genetics, chromosomal inheritance, population
+genetics</td>
+</tr>
+<tr>
+<td><strong>VI</strong></td>
+<td>Evolution</td>
+<td>Natural selection, genetic drift, speciation, phylogenetics</td>
+</tr>
+<tr>
+<td><strong>VII</strong></td>
+<td>Microbiology</td>
+<td>Bacteria, archaea, viruses, microbiome, infectious disease</td>
+</tr>
+<tr>
+<td><strong>VIII</strong></td>
+<td>Botany — Plant Biology</td>
+<td>Plant structure, reproduction, environmental responses</td>
+</tr>
+<tr>
+<td><strong>IX</strong></td>
+<td>Zoology and Systems Physiology</td>
+<td>Circulation, respiration, nervous system, endocrinology</td>
+</tr>
+<tr>
+<td><strong>X</strong></td>
+<td>Ecology</td>
+<td>Population, community, ecosystem, biomes, conservation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="reading-paths-by-goal">Reading paths by
+goal</h2>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 37%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr>
+<th>Goal</th>
+<th>Where to start</th>
+<th>How to use the code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Exam / course survey</strong></td>
+<td>Unit intros + chapter summaries + the companion question bank that
+follows each chapter</td>
+<td>Answer odd-numbered questions first; check module footers for
+<code>biology.*</code> imports.</td>
+</tr>
+<tr>
+<td><strong>Wet-lab or clinical bridge</strong></td>
+<td>Units II, IV, VII, IX</td>
+<td>Read boxed clinical / systems notes; pair with labs in the same
+unit.</td>
+</tr>
+<tr>
+<td><strong>Modelling / CS</strong></td>
+<td>Unit 0, then any unit’s “Bridge to computation”</td>
+<td>Run examples with <code>uv run python</code> from the project root;
+regenerate figures with <code>scripts/generate_figures.py</code>.</td>
+</tr>
+<tr>
+<td><strong>Ecology / field biology</strong></td>
+<td>Units VI, X (+ Unit III photosynthesis)</td>
+<td>Focus on <code>ecology.py</code> functions cited in chapter footers;
+work Lotka–Volterra and logistic examples by hand then in Python.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="how-to-use-this-book">How to Use This
+Book</h2>
+<p>Each chapter is designed for introductory biology learners and can be
+read in two modes:</p>
+<ol type="1">
+<li><strong>Concept-first</strong>: Read the narrative, work the
+examples, and do the questions.</li>
+<li><strong>Model-first</strong>: Run the companion modules and treat
+the text as interpretation of model behavior.</li>
+</ol>
+<p><strong>For each concept, the integrated approach is:</strong></p>
+<ol type="1">
+<li><strong>Conceptual narrative</strong> — the biological story and
+mechanism in plain language with precise vocabulary.</li>
+<li><strong>Quantitative framework</strong> — equations, derivations,
+and worked numerical examples.</li>
+<li><strong>Primary citations</strong> — key papers (author, year,
+journal) supporting mechanisms; citations are included where used.</li>
+<li><strong>Python source</strong> — model code in the project’s biology
+modules (importable and runnable).</li>
+<li><strong>Figures</strong> — generated by
+<code>src/visualization/plots.py</code>
+(<code>ALL_FIGURE_GENERATORS</code>) and
+<code>src/mermaid/biology_diagrams.py</code>.</li>
+<li><strong>Clinical connections</strong> — boxed examples connecting
+molecular mechanisms to human disease, therapy, and public health.</li>
+<li><strong>Review and discussion questions</strong> — a 30-item
+companion question bank per chapter, plus end-of-chapter review
+questions, from calculation to synthesis (Unit 0 uses discussion
+prompts; other units mix numeric and conceptual items).</li>
+</ol>
+<hr />
+<h2 class="unnumbered" id="computational-infrastructure">Computational
+Infrastructure</h2>
+<p>The project’s biology code is organized by domain:</p>
+<pre class="text"><code>src/biology/
+├── biochemistry/    — Enzyme kinetics, macromolecule analysis
+├── cell/            — Membrane biophysics, signalling, organelles
+├── genetics/        — Mendelian ratios, Hardy-Weinberg, linkage mapping
+├── physiology/      — Homeostasis, haemoglobin, cardiac models
+├── ecology/         — Population dynamics, community models
+├── evolution/       — Drift simulation, fitness landscapes
+├── microbiology/    — Growth curves, MIC, viral cycles
+├── botany/          — Water potential, transpiration, photosynthesis pathways
+└── neuroscience/    — Action potentials, synapse models</code></pre>
+<p><strong>Diagram generation:</strong></p>
+<pre class="text"><code>src/mermaid/biology_diagrams.py  — diagram factories registered in ALL_BIOLOGY_DIAGRAMS
+src/visualization/plots.py    — matplotlib figure generators (ALL_FIGURE_GENERATORS)</code></pre>
+<p>Most code conforms to the project’s <strong>no-mocks policy</strong>:
+tests use real computations.</p>
+<hr />
+<h2 class="unnumbered" id="pedagogical-standards">Pedagogical
+Standards</h2>
+<p><strong>What this book assumes:</strong> basic chemistry (atomic
+structure, covalent bonds, pH), basic algebra, and optional access to
+Python. No prior biology is required.</p>
+<p><strong>Mathematical notation</strong> is standard across most
+chapters:</p>
+<ul>
+<li>Concentrations in mol/L (M) or mmol/L (mM) as context requires</li>
+<li>Reaction rates in M·s⁻¹ or μmol·min⁻¹·mg protein⁻¹</li>
+<li>Genetic distances in centimorgans (cM)</li>
+<li>Most physiological parameters indexed to standard conditions (37 °C,
+pH 7.4, sea level) unless stated</li>
+</ul>
+<p><strong>Primary citations</strong> follow the format Author (year),
+<em>Journal</em>, and are embedded inline. They are selective: landmark
+results and a small number of current references where they materially
+clarify the consensus.</p>
+<hr />
+<h2 class="unnumbered" id="open-science-commitment">Open Science
+Commitment</h2>
+<p>This book is released under the Creative Commons Attribution 4.0
+International Licence (CC BY 4.0): you may freely use, adapt, and
+redistribute it with attribution. Most accompanying source code is
+released under the Apache-2.0 Licence.</p>
+<p>The entire textbook — source markdown files, Python modules, figure
+scripts, and the build pipeline — is publicly available. The intent is
+for this resource to be a living, improvable document rather than a
+static product. Pull requests are welcome.</p>
+<hr />
+<h2 class="unnumbered" id="acknowledgements">Acknowledgements</h2>
+<p>This textbook was developed as part of the Research Project Template
+infrastructure for open, reproducible science education. Gratitude to
+the open-source communities behind <a
+href="https://pandoc.org/">Pandoc</a>, <a
+href="https://www.latex-project.org/">LaTeX</a>, <a
+href="https://mermaid.js.org/">Mermaid</a>, and <a
+href="https://matplotlib.org/">matplotlib</a>.</p>
+<hr />
+<p><em>Author:</em> <strong>Daniel Ari Friedman</strong>, Active
+Inference Institute <em>ORCID:</em> <a
+href="https://orcid.org/0000-0001-6232-9096">0000-0001-6232-9096</a>
+<em>Edition 1.0, 2026</em> <em>Licence: CC BY 4.0 (content) · Apache-2.0
+(code)</em></p>
+</body>
+</html>

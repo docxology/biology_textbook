@@ -1,0 +1,19 @@
+flowchart TD
+    P1["Parent 1: Aa"]
+    P2["Parent 2: Aa"]
+    G1A["Gamete A"]
+    G1a["Gamete a"]
+    G2A["Gamete A"]
+    G2a["Gamete a"]
+    AA["AA (25%)<br/>Dominant"]
+    Aa1["Aa (25%)<br/>Dominant"]
+    Aa2["Aa (25%)<br/>Dominant"]
+    aa["aa (25%)<br/>Recessive"]
+    P1 -->|meiosis| G1A
+    P1 -->|meiosis| G1a
+    P2 -->|meiosis| G2A
+    P2 -->|meiosis| G2a
+    G1A -->|+G2A| AA
+    G1A -->|+G2a| Aa1
+    G1a -->|+G2A| Aa2
+    G1a -->|+G2a| aa

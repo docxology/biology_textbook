@@ -1,0 +1,16 @@
+flowchart TD
+    A["Design 2,000-2,500 nt mRNA Sequence Encoding Viral Antigen (e.g., SARS-CoV-2 Spike) with 5' Cap and 3' Poly-A Tail"] --> B["In Vitro Transcription (IVT) from DNA Template Using T7 RNA Polymerase"]
+    B --> C["Cap-1 Capping and Poly-A Tailing"]
+    C --> D["Purification (DNase Treatment, HPLC) and Formulation into Lipid Nanoparticles (LNPs)"]
+    D --> E["Intramuscular Injection"]
+    E --> F["LNP Fuses with Muscle Cell Membrane; mRNA Released into Cytoplasm"]
+    F --> G["Host Ribosome Translates mRNA into Antigen Protein"]
+    G --> H["Antigen Processed and Presented on MHC II to Helper T Cells"]
+    H --> I["B Cells Activated; Differentiate into Plasma Cells"]
+    I --> J["Secrete Neutralizing Antibodies Against Antigen"]
+    G --> K["Antigen Degraded by Proteasome; Peptides Presented on MHC I"]
+    K --> L["Cytotoxic T Cells Activated; Kill Infected Cells"]
+    J --> M["Immune Memory Established"]
+    L --> M
+    style A fill:#4a90d9,color:#fff
+    style M fill:#5cb85c,color:#fff

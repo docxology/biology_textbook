@@ -1,0 +1,3142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>037_infectious_disease</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="infectious-disease-and-immunity">Infectious Disease and
+Immunity</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 24</strong> · Level 2/3 · 60 min read · 75 min lecture ·
+Prerequisites: </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you should be able to:</p>
+<ol type="1">
+<li>Apply Koch’s postulates and molecular Koch’s postulates to evaluate
+evidence for microbial causation of disease, and identify their
+limitations.</li>
+<li>Describe <a href="#gl:virulence"><strong>virulence</strong></a>
+factors (adhesins, toxins, invasion machinery, immune evasion
+strategies) used by major bacterial, viral, and eukaryotic
+pathogens.</li>
+<li>Explain innate immune defenses including physical barriers, pattern
+recognition receptors (TLRs, NLRs, RIG-I, cGAS-STING), the three
+complement pathways and their convergence at C3, and cellular effectors
+(neutrophils with NETosis, macrophages, NK cells with missing-self
+recognition).</li>
+<li>Describe adaptive immunity including V(D)J <a
+href="#gl:recombination"><strong>recombination</strong></a>, MHC
+restriction, T helper cell subsets, cytotoxic T cell killing mechanisms,
+B cell activation, affinity maturation, and antibody class
+switching.</li>
+<li>Compare the eight major <a
+href="#gl:vaccine"><strong>vaccine</strong></a> platforms (live
+attenuated, inactivated, subunit, virus-like-particle, toxoid,
+conjugate, mRNA, viral vector) and apply the <a
+href="#gl:herd-immunity"><strong>herd immunity</strong></a> equation
+<span class="math inline">\(p_c = 1 - 1/R_0\)</span> to compute
+thresholds for measles, polio, and COVID-19 variants.</li>
+<li>Describe antigenic variation in influenza (drift vs shift) and HIV
+(reverse-transcriptase quasi-species clouds), and connect this to
+vaccine reformulation and pandemic risk.</li>
+<li>Catalogue the principal antibiotic-resistance mechanisms
+(β-lactamases including ESBLs and carbapenemases, efflux pumps, target
+modification including PBP2a in MRSA and 23S rRNA methylation in
+MLS-resistant streptococci, reduced permeability, bypass pathways) and
+link each to specific drug classes.</li>
+<li>Describe the epidemiology and pathogenesis of major infectious
+diseases including tuberculosis, malaria, HIV/AIDS, and influenza, and
+explain the One Health framework.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Disease dynamics emerge from host
+susceptibility, pathogen traits, transmission networks, and
+immunity.</li>
+<li><strong>Core concepts:</strong> transmission, R0, immunity,
+vaccination.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change:
+Evolution, Systems, Structure and function; AP Biology: Evolution,
+Systems Interactions; NGSS-style topics: Structure and Function,
+Interdependent Relationships in Ecosystems.</li>
+<li><strong>Model or quantitative lens:</strong> R0, herd-immunity
+threshold, and SIR trajectory calculations.</li>
+<li><strong>Data skill:</strong> Interpret outbreak curves and
+intervention effects.</li>
+<li><strong>Practice cadence:</strong> Questions and Methods,
+Representing and Describing Data, Argumentation.</li>
+<li><strong>Common misconception to repair:</strong> R0 is not a fixed
+property of a pathogen alone; it depends on host behaviour and
+environment.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Transfer disease-dynamic reasoning
+to vaccination, antimicrobial resistance, and public-health policy.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.microbiology.microbiology.sir_model</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette — The Pandemic That Shaped Modern
+Immunology</strong></p>
+<p>The 1918 influenza pandemic infected an estimated 500 million people
+— one-third of the world’s population — and killed between 50 and 100
+million, more than World War I. Most victims were healthy young adults,
+a terrifying reversal of the usual mortality pattern, caused by a
+cytokine storm in which a vigorous immune response became
+catastrophically self-destructive. The pandemic revealed in gruesome
+detail the cost of a misdirected immune response and the urgency of
+understanding host-pathogen dynamics. From its ashes grew modern
+epidemiology, the concept of herd immunity, and the influenza
+surveillance networks that today sequence viral <a
+href="#gl:genome"><strong>genome</strong></a>s in near-real time. When
+SARS-CoV-2 emerged in 2019, it was 1918’s lessons — social distancing,
+masking, rapid vaccine development — that shaped the global response.
+Infectious disease is not a relic of the past; it is the central
+selective pressure on immune system evolution.</p>
+</blockquote>
+<h2 id="host-pathogen-relationships">Host-Pathogen Relationships</h2>
+<h3 id="kochs-postulates">Koch’s Postulates</h3>
+<p>In 1884, Robert Koch formalized criteria for establishing that a
+specific microorganism causes a specific disease. These four postulates
+remain foundational in infectious disease:</p>
+<ol type="1">
+<li>The microorganism must be found in most cases of the disease but not
+in healthy individuals</li>
+<li>The microorganism must be isolated from the diseased host and grown
+in pure culture</li>
+<li>The cultured microorganism must cause the same disease when
+inoculated into a healthy, susceptible host</li>
+<li>The same microorganism must be re-isolated from the experimentally
+infected host</li>
+</ol>
+<p><strong>Limitations of Koch’s postulates</strong> have become
+apparent with advancing knowledge:</p>
+<ul>
+<li><strong>Asymptomatic carriers</strong>: <em>Salmonella typhi</em>
+(Typhoid Mary), <em>Neisseria meningitidis</em> – healthy carriers
+exist, violating postulate 1</li>
+<li><strong>Unculturable organisms</strong>: Viruses (until cell
+culture), <em>Treponema pallidum</em>, <em>Mycobacterium leprae</em> –
+cannot fulfill postulate 2</li>
+<li><strong>Ethical constraints</strong>: Human experimentation with
+lethal pathogens is prohibited</li>
+<li><strong>Polymicrobial disease</strong>: Periodontal disease,
+bacterial vaginosis – caused by community shifts, not single
+organisms</li>
+<li><strong>Host factors</strong>: <em>Mycobacterium tuberculosis</em>
+causes disease in about 5-10% of infected individuals (the rest maintain
+latent infection)</li>
+</ul>
+<h3 id="molecular-kochs-postulates">Molecular Koch’s Postulates</h3>
+<p>In 1988, Stanley Falkow proposed a molecular framework for
+identifying virulence determinants:</p>
+<ol type="1">
+<li>The virulence <a href="#gl:gene"><strong>gene</strong></a> (or its
+product) should be found in pathogenic strains but not in non-pathogenic
+relatives</li>
+<li>Inactivation of the gene (by <a
+href="#gl:mutation"><strong>mutation</strong></a> or deletion) should
+reduce virulence in an appropriate model</li>
+<li>Complementation (restoration of the gene) should restore
+virulence</li>
+</ol>
+<p>This framework has been essential for identifying virulence factors
+through targeted gene knockouts and complementation studies in model
+organisms.</p>
+<h3 id="the-infection-continuum">The Infection Continuum</h3>
+<pre class="mermaid"><code>flowchart LR
+    A[&quot;Pathogen\nExposure&quot;] --&gt; B{&quot;Barrier\nIntact?&quot;}
+    B --&gt;|&quot;Yes&quot;| C[&quot;No infection\n(most encounters)&quot;]
+    B --&gt;|&quot;No&quot;| D[&quot;Colonization\n(adherence to\nhost surface)&quot;]
+    D --&gt; E{&quot;Immune\nResponse\nEffective?&quot;}
+    E --&gt;|&quot;Yes&quot;| F[&quot;Clearance\n(no disease)&quot;]
+    E --&gt;|&quot;Partial&quot;| G[&quot;Latent Infection\n(M. tuberculosis,\nHSV, VZV)&quot;]
+    E --&gt;|&quot;No&quot;| H[&quot;Active Infection\n(tissue invasion,\nmultiplication)&quot;]
+    H --&gt; I{&quot;Virulence\nFactors +\nHost Status?&quot;}
+    I --&gt;|&quot;Mild&quot;| J[&quot;Localized Disease\n(wound infection,\npharyngitis)&quot;]
+    I --&gt;|&quot;Severe&quot;| K[&quot;Systemic Disease\n(sepsis, meningitis,\ndissemination)&quot;]
+    G --&gt;|&quot;Reactivation\n(immunosuppression)&quot;| H
+    J --&gt; L[&quot;Resolution\n(immune clearance\n+ memory)&quot;]
+    K --&gt; M[&quot;Recovery\nor Death&quot;]
+
+    style C fill:#90EE90
+    style F fill:#90EE90
+    style L fill:#90EE90
+    style K fill:#FFB6C1
+    style M fill:#FFB6C1</code></pre>
+<!-- alt: Flowchart showing decision-tree of pathogen exposure outcomes from initial encounter through clearance, latency, or systemic disease. -->
+<p><em>Decision-tree of pathogen exposure outcomes from initial
+encounter through clearance, latency, or systemic disease.</em></p>
+<p>Not every exposure leads to colonization, not every colonization
+leads to infection, and not every infection leads to disease. The
+outcome depends on pathogen virulence, inoculum size, route of entry,
+and host immune status.</p>
+<h3 id="virulence-factors">Virulence Factors</h3>
+<p>Pathogens deploy specific molecular tools to adhere to host tissues,
+invade cells, obtain nutrients, and evade immune defenses:</p>
+<p><strong>Adhesins</strong> mediate initial attachment to host
+surfaces:</p>
+<ul>
+<li><strong>Type IV pili</strong> (<em>Neisseria gonorrhoeae</em>,
+<em>N. meningitidis</em>): Retractile pili that mediate attachment to
+epithelial surfaces and facilitate twitching motility</li>
+<li><strong>FimH</strong> (<em>E. coli</em>): Type 1 fimbrial adhesin
+that binds mannose residues on uroepithelial cells, enabling urinary
+tract infection</li>
+<li><strong>Fibronectin-binding <a
+href="#gl:protein"><strong>protein</strong></a>s</strong>
+(<em>Staphylococcus aureus</em>): Mediate attachment to extracellular
+matrix, enabling wound infections and endocarditis</li>
+</ul>
+<p><strong>Invasion factors</strong>:</p>
+<ul>
+<li><strong>Type III secretion system (T3SS)</strong>: <em>Salmonella
+enterica</em> SPI-1 (Salmonella Pathogenicity Island 1) encodes a
+molecular syringe that injects effector proteins (SopE, SipA) directly
+into host epithelial cells, triggering <a
+href="#gl:actin"><strong>actin</strong></a> <a
+href="#gl:cytoskeleton"><strong>cytoskeleton</strong></a> rearrangement
+and bacterial internalization via membrane ruffling</li>
+<li><strong>Internalins</strong> (<em>Listeria monocytogenes</em>): InlA
+binds E-cadherin, InlB binds Met receptor; trigger receptor-mediated <a
+href="#gl:endocytosis"><strong>endocytosis</strong></a>; once
+internalized, Listeria escapes the phagosome (listeriolysin O) and
+propels itself through the <a
+href="#gl:cytoplasm"><strong>cytoplasm</strong></a> using actin
+polymerization (ActA recruits host Arp2/3 complex)</li>
+</ul>
+<p><strong>Capsules</strong>: Polysaccharide capsules (<em>Streptococcus
+pneumoniae</em>, <em>Neisseria meningitidis</em>, <em>Haemophilus
+influenzae</em> type b) inhibit phagocytosis by preventing complement
+C3b deposition and obscuring surface antigens. The pneumococcal capsule
+has &gt;90 serotypes, forming the basis for conjugate vaccine design
+(PCV13, PCV20).</p>
+<h3 id="toxins">Toxins</h3>
+<p><strong>Exotoxins</strong> are secreted proteins with specific
+mechanisms of action. Many have the A-B structure: the B (binding)
+subunit binds a host cell receptor, and the A (active) subunit enters
+the cell to exert its toxic effect:</p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 14%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th>Toxin</th>
+<th>Organism</th>
+<th>B-Subunit Target</th>
+<th>A-Subunit Activity</th>
+<th>Clinical Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cholera toxin</td>
+<td><em>V. cholerae</em></td>
+<td>GM1 ganglioside</td>
+<td>ADP-ribosylates Gsα -&gt; constitutive adenylyl cyclase activation
+-&gt; cAMP <span class="math inline">\(\uparrow\)</span></td>
+<td>Cl<span class="math inline">\(^-\)</span>/H<span
+class="math inline">\(_2\)</span>O secretion -&gt; watery diarrhea (up
+to 20 L/day)</td>
+</tr>
+<tr>
+<td>Diphtheria toxin</td>
+<td><em>C. diphtheriae</em></td>
+<td>HB-EGF receptor</td>
+<td>ADP-ribosylates EF-2 -&gt; halts protein synthesis</td>
+<td>Pseudomembrane in throat; myocarditis</td>
+</tr>
+<tr>
+<td>Tetanospasmin</td>
+<td><em>C. tetani</em></td>
+<td>Gangliosides (retrograde transport)</td>
+<td>Zinc metalloprotease cleaves VAMP/synaptobrevin</td>
+<td>Blocks inhibitory neurotransmitter release (glycine, GABA) -&gt;
+spastic paralysis</td>
+</tr>
+<tr>
+<td>Botulinum toxin</td>
+<td><em>C. botulinum</em></td>
+<td>Gangliosides (peripheral nerve)</td>
+<td>Zinc metalloprotease cleaves SNARE proteins (SNAP-25, syntaxin)</td>
+<td>Blocks ACh release at NMJ -&gt; flaccid paralysis</td>
+</tr>
+<tr>
+<td>Shiga toxin</td>
+<td><em>Shigella</em>, STEC <em>E. coli</em></td>
+<td>Gb3 (globotriaosylceramide)</td>
+<td>N-glycosidase cleaves 28S rRNA</td>
+<td>Halts protein synthesis; HUS (hemolytic uremic syndrome)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Endotoxin (LPS)</strong>: Unlike exotoxins, endotoxin is not
+secreted but released upon bacterial lysis. Lipid A activates TLR4 on
+macrophages, triggering release of TNF-α, IL-1β, and IL-6. At high
+concentrations (Gram-negative bacteremia), this causes fever,
+hypotension, disseminated intravascular coagulation (DIC), multi-organ
+failure, and septic shock.</p>
+<p><strong>Immune evasion strategies</strong>:</p>
+<ul>
+<li><strong>Protein A</strong> (<em>S. aureus</em>): Binds the Fc region
+of IgG in the “wrong” orientation, preventing opsonization and ADCC</li>
+<li><strong>IgA protease</strong> (<em>N. gonorrhoeae</em>, <em>H.
+influenzae</em>): Cleaves secretory IgA at mucosal surfaces</li>
+<li><strong>Antigenic variation</strong>: <em>Trypanosoma brucei</em>
+expresses variant surface glycoprotein (VSG) from a library of &gt;1,000
+<em>vsg</em> genes, switching expression before the host mounts an
+effective antibody response</li>
+<li><strong>Phagosome arrest</strong>: <em>M. tuberculosis</em> inhibits
+phagosome-lysosome fusion via LAM (lipoarabinomannan)</li>
+</ul>
+<blockquote>
+<p><strong>Concept Check 1:</strong> <em>Vibrio cholerae</em> produces
+cholera toxin that causes massive fluid secretion, yet the bacterium
+rarely invades beyond the intestinal epithelium. Explain why this
+non-invasive strategy is advantageous for the pathogen’s transmission,
+and predict what would happen to cholera epidemiology if the toxin were
+eliminated by gene deletion.</p>
+</blockquote>
+<hr />
+<h2 id="innate-immunity">Innate Immunity</h2>
+<h3 id="physical-and-chemical-barriers">Physical and Chemical
+Barriers</h3>
+<p>The first line of defense prevents pathogen entry into sterile body
+compartments:</p>
+<p>A barrier is not just a wall; it is an active ecological and
+immunological interface. Skin acidity, mucus flow, antimicrobial
+peptides, secretory IgA, iron sequestration, and resident microbiota
+most create selection pressures that pathogens must evade. Barrier
+failure can therefore come from physical breach, altered chemistry,
+disrupted microbial competition, or medical devices that bypass normal
+surfaces.</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 25%" />
+<col style="width: 54%" />
+</colgroup>
+<thead>
+<tr>
+<th>Barrier</th>
+<th>Mechanism</th>
+<th>Pathogens That Breach It</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Skin</strong></td>
+<td>Intact keratin layer; low <a href="#gl:ph"><strong>pH</strong></a>
+(~5.5); fatty acids; defensins; commensal <a
+href="#gl:microbiota"><strong>microbiota</strong></a></td>
+<td>Burns, wounds, catheter insertion bypass skin</td>
+</tr>
+<tr>
+<td><strong>Mucociliary escalator</strong></td>
+<td>Respiratory mucus traps particles; cilia beat at 12-15 Hz,
+propelling mucus upward</td>
+<td><em>P. aeruginosa</em> <a
+href="#gl:biofilm"><strong>biofilm</strong></a> in CF; influenza HA
+cleaves sialic acid in mucus</td>
+</tr>
+<tr>
+<td><strong>Gastric acid</strong></td>
+<td>pH 1.5-3.5; pepsin activation</td>
+<td><em>H. pylori</em>: urease produces NH<span
+class="math inline">\(_3\)</span> to neutralize local pH</td>
+</tr>
+<tr>
+<td><strong>Lysozyme</strong></td>
+<td>Muramidase: cleaves NAG-NAM bonds in peptidoglycan</td>
+<td>Present in tears, saliva, nasal secretions, breast milk</td>
+</tr>
+<tr>
+<td><strong>Lactoferrin</strong></td>
+<td>Iron sequestration (bacteriostatic)</td>
+<td>Found at mucosal surfaces; deprives bacteria of essential iron</td>
+</tr>
+<tr>
+<td><strong>Defensins</strong></td>
+<td>Antimicrobial peptides (AMPs); form pores in microbial
+membranes</td>
+<td>Produced by epithelial cells and neutrophils; α-defensins (Paneth
+cells), β-defensins (skin, respiratory)</td>
+</tr>
+<tr>
+<td><strong>Resident microbiota</strong></td>
+<td>Colonization resistance (nutrient competition, bacteriocins, bile
+acid metabolism)</td>
+<td><em>C. difficile</em> exploits antibiotic-disrupted microbiota</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pattern-recognition-receptors-prrs">Pattern Recognition
+Receptors (PRRs)</h3>
+<p>The innate immune system detects conserved microbial structures –
+<strong>pathogen-associated molecular patterns (PAMPs)</strong> –
+through germline-encoded PRRs. This system provides immediate
+recognition without prior exposure:</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 16%" />
+<col style="width: 27%" />
+<col style="width: 32%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>PRR</th>
+<th>Location</th>
+<th>PAMP Recognized</th>
+<th>Signaling Pathway</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TLR4</strong></td>
+<td>Plasma membrane</td>
+<td>LPS (lipid A)</td>
+<td>MyD88 -&gt; NF-κB; TRIF -&gt; IRF3</td>
+<td>Pro-inflammatory cytokines + type I IFN</td>
+</tr>
+<tr>
+<td><strong>TLR2</strong></td>
+<td>Plasma membrane</td>
+<td>Peptidoglycan, lipoteichoic acid, zymosan</td>
+<td>MyD88 -&gt; NF-κB</td>
+<td>Pro-inflammatory cytokines</td>
+</tr>
+<tr>
+<td><strong>TLR3</strong></td>
+<td>Endosome</td>
+<td>dsRNA</td>
+<td>TRIF -&gt; IRF3</td>
+<td>IFN-β (antiviral state)</td>
+</tr>
+<tr>
+<td><strong>TLR7/8</strong></td>
+<td>Endosome</td>
+<td>ssRNA</td>
+<td>MyD88 -&gt; NF-κB + IRF7</td>
+<td>Type I IFN + cytokines</td>
+</tr>
+<tr>
+<td><strong>TLR9</strong></td>
+<td>Endosome</td>
+<td>Unmethylated CpG DNA</td>
+<td>MyD88 -&gt; NF-κB</td>
+<td>Type I IFN + cytokines</td>
+</tr>
+<tr>
+<td><strong>RIG-I / MDA5</strong></td>
+<td>Cytoplasm</td>
+<td>Viral RNA (5’-ppp, long dsRNA)</td>
+<td>MAVS -&gt; IRF3</td>
+<td>IFN-β</td>
+</tr>
+<tr>
+<td><strong>NLRP3</strong></td>
+<td>Cytoplasm</td>
+<td>DAMPs (ATP, uric acid, cholesterol crystals)</td>
+<td>ASC -&gt; <a href="#gl:caspase"><strong>Caspase</strong></a>-1</td>
+<td>IL-1β, IL-18, gasdermin D -&gt; pyroptosis</td>
+</tr>
+<tr>
+<td><strong>cGAS-STING</strong></td>
+<td>Cytoplasm-ER</td>
+<td>Cytoplasmic dsDNA</td>
+<td>cGAMP -&gt; STING -&gt; IRF3</td>
+<td>IFN-β; critical for DNA virus detection</td>
+</tr>
+</tbody>
+</table>
+<p>Key signaling outcomes of PRR activation:</p>
+<ul>
+<li><strong>NF-κB pathway</strong>: <a
+href="#gl:transcription"><strong>Transcription</strong></a> of
+pro-inflammatory cytokines (IL-1β, IL-6, TNF-α, IL-8/CXCL8) and
+chemokines</li>
+<li><strong>IRF3/7 pathway</strong>: Type I interferons (IFN-α/β) -&gt;
+JAK-STAT signaling -&gt; interferon-stimulated genes (ISGs: OAS/RNase L,
+Mx proteins, PKR) -&gt; antiviral state in neighboring cells</li>
+</ul>
+<h3 id="the-complement-system-three-pathways-one-cascade">The Complement
+System: Three Pathways, One Cascade</h3>
+<p>The complement system is a cascade of ~ 30 plasma proteins that
+opsonize pathogens, recruit inflammation, and lyse Gram-negative
+bacteria. Three pathways converge on a common effector cascade through
+the central enzyme <strong>C3 convertase</strong>, which hydrolyses C3
+into C3a (anaphylatoxin) and C3b (opsonin).</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph &quot;Three pathways of activation&quot;
+        CL[&quot;CLASSICAL\nIgG/IgM bound to antigen\n→ C1q-C1r-C1s\n→ C1s cleaves C4 + C2&quot;]
+        LE[&quot;LECTIN\nMBL or ficolins bind\nmannose / GlcNAc on pathogens\n→ MASP1/MASP2\n→ cleaves C4 + C2&quot;]
+        AL[&quot;ALTERNATIVE\nSpontaneous C3 hydrolysis\n(&#39;C3 tickover&#39;) on any surface\nlacking inhibitors\n→ Factor B + Factor D&quot;]
+    end
+
+    CL --&gt; C3conv1[&quot;C3 convertase\nC4b2a (classical/lectin)&quot;]
+    LE --&gt; C3conv1
+    AL --&gt; C3conv2[&quot;C3 convertase\nC3bBb (alternative)&quot;]
+
+    C3conv1 --&gt; C3split[&quot;C3 → C3a + C3b&quot;]
+    C3conv2 --&gt; C3split
+
+    C3split --&gt; C3a[&quot;C3a\n(anaphylatoxin)\nrecruits neutrophils&quot;]
+    C3split --&gt; C3b[&quot;C3b\n(opsonin)\nphagocyte CR1&quot;]
+
+    C3b --&gt;|&quot;+ existing C3 convertase&quot;| C5conv[&quot;C5 convertase\n(C4b2a3b or C3bBb3b)&quot;]
+    C5conv --&gt; C5[&quot;C5 → C5a + C5b&quot;]
+    C5 --&gt; C5a[&quot;C5a\n(anaphylatoxin,\nstrongest chemoattractant)&quot;]
+    C5 --&gt; MAC[&quot;C5b + C6 + C7 + C8 + C9_n\n→ MEMBRANE ATTACK COMPLEX\n10-nm pore → osmotic lysis&quot;]</code></pre>
+<!-- alt: Flowchart showing three pathways of complement activation (classical, lectin, alternative) converge at the C3 convertase, producing C3b (opsonin) and C3a (anaphylatoxin); a second cleavage at C5 generates C5a and the C5b–C9 membrane-attack complex. -->
+<p><em>Three pathways of complement activation (classical, lectin,
+alternative) converge at the C3 convertase, producing C3b (opsonin) and
+C3a (anaphylatoxin); a second cleavage at C5 generates C5a and the
+C5b–C9 membrane-attack complex.</em></p>
+<ul>
+<li><strong>C3a</strong> — a 9-kDa anaphylatoxin: binds C3aR on mast
+cells (degranulation, histamine), endothelial cells (vasodilation,
+vascular permeability), and granulocytes (recruitment).</li>
+<li><strong>C3b</strong> — a 175-kDa opsonin: covalently binds pathogen
+surface; recognized by complement receptor 1 (CR1, CD35) on phagocytes,
+dramatically enhancing phagocytosis.</li>
+</ul>
+<p>A second cleavage step generates:</p>
+<ul>
+<li><strong>C5a</strong> — the strongest neutrophil chemoattractant in
+plasma (effective at picomolar concentrations); binds C5aR1.</li>
+<li><strong>C5b</strong> — initiates the <strong>membrane attack complex
+(MAC)</strong>: C5b + C6 + C7 + C8 + (10–18 copies of) C9 polymerise
+into a 10-nm transmembrane pore that lyses the target cell osmotically.
+The MAC is most effective against Gram-negative bacteria (which lack the
+thick peptidoglycan barrier of Gram-positives); <em>Neisseria
+meningitidis</em> and <em>N. gonorrhoeae</em> are particularly
+MAC-susceptible — terminal-complement deficiencies (C5–C9) cause
+recurrent neisserial infections almost exclusively.</li>
+</ul>
+<p><strong>Complement regulation.</strong> Self cells avoid complement
+attack via membrane-bound and soluble regulators:</p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 21%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Regulator</th>
+<th>Action</th>
+<th>Defect → disease</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CD46 (MCP, membrane cofactor protein)</strong></td>
+<td>Cofactor for Factor I cleavage of C3b/C4b</td>
+<td>Atypical haemolytic uraemic syndrome (aHUS)</td>
+</tr>
+<tr>
+<td><strong>CD55 (DAF, decay-accelerating factor)</strong></td>
+<td>Accelerates decay of C3 and C5 convertases</td>
+<td>Paroxysmal nocturnal haemoglobinuria (PNH; CD55+CD59 GPI loss)</td>
+</tr>
+<tr>
+<td><strong>CD59 (protectin)</strong></td>
+<td>Blocks C9 polymerization (MAC)</td>
+<td>PNH (haemolysis)</td>
+</tr>
+<tr>
+<td><strong>Factor H</strong></td>
+<td>Inhibits alternative pathway on self surfaces</td>
+<td>aHUS; age-related macular degeneration (AMD)</td>
+</tr>
+<tr>
+<td><strong>C1 inhibitor</strong></td>
+<td>Blocks C1r/C1s and MASPs</td>
+<td>Hereditary angioedema (HAE)</td>
+</tr>
+</tbody>
+</table>
+<p><em>Neisseria meningitidis</em> and <em>N. gonorrhoeae</em> have
+evolved a remarkable trick — they bind host Factor H to their surface
+using <strong>factor H–binding protein (fHbp)</strong>, mimicking self
+and inactivating alternative-pathway amplification. fHbp is now a target
+antigen in two licensed meningococcal-B vaccines (Bexsero,
+Trumenba).</p>
+<h3 id="phagocytosis-and-cellular-effectors">Phagocytosis and Cellular
+Effectors</h3>
+<h4 id="neutrophil-killing-oxidative-burst-and-netosis">Neutrophil
+Killing: Oxidative Burst and NETosis</h4>
+<p><strong>Neutrophils</strong> are the most abundant circulating
+leukocytes (50–70 % of blood leukocytes) and the first cells to arrive
+at sites of infection (within minutes of chemokine signal). Their
+lifespan is extraordinarily short — ~ 6–8 hours in circulation, ~ 1–4
+days at tissue sites — reflecting a cell programmed for rapid microbial
+killing followed by apoptosis to limit collateral tissue damage.</p>
+<p><strong>Oxidative burst (respiratory burst).</strong> Upon phagosome
+formation, the <strong>NADPH oxidase complex (NOX2)</strong> assembles
+at the phagosome membrane:</p>
+<p><span class="math display">\[ 2\text{O}_2 + \text{NADPH}
+\xrightarrow{\text{NOX2}} 2\text{O}_2^- + \text{NADP}^+ +
+\text{H}^+  \label{eq:unit_VII_infectious_disease_item_1}\]</span></p>
+<p>Superoxide (<span class="math inline">\(O_2^-\)</span>) is rapidly
+converted to hydrogen peroxide (<span
+class="math inline">\(H_2O_2\)</span>) by superoxide dismutase.
+<strong>Myeloperoxidase (MPO)</strong> — abundant in neutrophil
+azurophilic granules — then catalyses the most potent step of microbial
+killing:</p>
+<p><span class="math display">\[ \text{H}_2\text{O}_2 + \text{Cl}^-
+\xrightarrow{\text{MPO}} \text{HOCl} +
+\text{OH}^-  \label{eq:unit_VII_infectious_disease_item_2}\]</span></p>
+<p><strong>HOCl (hypochlorous acid, household-bleach chemistry)</strong>
+is one of the most potent oxidants in biology — it chlorinates microbial
+proteins, lipids, and DNA, killing many phagocytosed microbes within
+minutes. The phagosome is also acidified (pH ~ 4.5) and accumulates
+antimicrobial peptides (defensins, BPI, lactoferrin). Survival is
+uncommon for non-adapted microbes but biologically important pathogens
+such as <em>M. tuberculosis</em>, <em>Salmonella</em>, and
+<em>Leishmania</em> persist by blocking phagosome maturation, resisting
+reactive species, or escaping the vacuole.</p>
+<p><strong>NETosis.</strong> Discovered in 2004 (Brinkmann <em>et
+al.</em>, <em>Science</em>), NETosis is a programmed neutrophil death
+pathway in which the cell releases its decondensed <a
+href="#gl:chromatin"><strong>chromatin</strong></a> — decorated with
+citrullinated <a href="#gl:histone"><strong>histone</strong></a>s,
+neutrophil elastase, MPO, defensins, and granule contents — to form
+<strong>neutrophil extracellular traps (NETs)</strong> that physically
+capture and chemically kill extracellular bacteria, fungi, and large
+parasites. The molecular pathway:</p>
+<ol type="1">
+<li>Activation by PAMPs / immune complexes / cytokines triggers ROS
+production by NOX2.</li>
+<li><strong>PAD4 (peptidylarginine deiminase 4)</strong> citrullinates
+histone H3 (Arg → citrulline), neutralizing positive charge and
+decompacting chromatin.</li>
+<li>Nuclear membrane breaks down; chromatin enters cytoplasm; granule
+contents bind to chromatin.</li>
+<li>Plasma membrane lyses, releasing the NET into the extracellular
+space (cell death).</li>
+</ol>
+<p>NETs are evolutionarily ancient (zebrafish neutrophils,
+<em>Drosophila</em> haemocytes, even sea-anemone amoebocytes form
+similar traps). Pathological NETosis is now implicated in
+<strong>immunothrombosis</strong> in severe COVID-19 (NETs trap
+platelets and trigger coagulation, contributing to microvascular clots),
+in autoimmune diseases (citrullinated histones drive ACPA antibodies in
+rheumatoid arthritis; anti-NET antibodies in lupus), and in chronic
+wound failure.</p>
+<p><strong>Macrophages</strong> are tissue-resident phagocytes with
+diverse functions:</p>
+<ul>
+<li>Tissue-specific names: Kupffer cells (liver), alveolar macrophages
+(lung), microglia (brain), osteoclasts (bone), Langerhans cells (skin –
+actually dendritic cells)</li>
+<li><strong>M1 polarization</strong> (IFN-γ + LPS): Pro-inflammatory;
+produces iNOS -&gt; nitric oxide (NO); secretes TNF-α, IL-12; activates
+Th1 responses against intracellular pathogens</li>
+<li><strong>M2 polarization</strong> (IL-4, IL-13): Anti-inflammatory;
+produces arginase; secretes IL-10, TGF-β; promotes wound healing, tissue
+repair, and fibrosis</li>
+</ul>
+<h4 id="nk-cells-missing-self-and-induced-self-recognition">NK Cells:
+Missing-Self and Induced-Self Recognition</h4>
+<p><strong>Natural killer (NK) cells</strong> are innate lymphocytes (~
+5–15 % of blood lymphocytes) that kill virus-infected and transformed
+cells without prior sensitization. They are the innate immune system’s
+solution to a fundamental problem: how to detect cells that are
+<em>abnormal</em> from the inside, when no conserved pathogen pattern is
+present on the cell surface.</p>
+<p>NK-cell killing is governed by an <strong>integration of inhibitory
+and activating receptor signals</strong> — the “balance hypothesis.” A
+cell is killed when activating signals exceed inhibitory signals.</p>
+<p><strong>Missing-self hypothesis (Ljunggren and Karre, 1990).</strong>
+Healthy cells display abundant MHC class I on their surface, presenting
+peptides for surveillance by CD8<span class="math inline">\(^+\)</span>
+T cells. NK cells carry <strong>inhibitory KIRs (killer
+immunoglobulin-like receptors; KIR2DL, KIR3DL)</strong> that recognise
+self MHC-I. Engagement delivers an <strong>inhibitory signal</strong>
+through ITIMs (immunoreceptor tyrosine-based inhibitory motifs),
+suppressing the NK-cell killing programme. Many viruses (CMV, HIV, KSHV)
+and tumours <strong>downregulate MHC class I</strong> to avoid CD8<span
+class="math inline">\(^+\)</span> T cell detection — but this loss
+removes the inhibitory signal to NK cells, unmasking the cell for
+NK-mediated killing. The strategy has trade-offs: CMV has evolved decoy
+MHC-I-like proteins (UL18) that bind inhibitory NK receptors to mimic
+self.</p>
+<p><strong>Induced-self via NKG2D.</strong> A complementary mechanism
+detects cellular stress. <strong>NKG2D</strong> is an activating
+receptor on NK cells (and on subsets of CD8<span
+class="math inline">\(^+\)</span> T cells, γδ T cells, NKT cells) that
+recognises <strong>stress-induced ligands</strong>: <strong>MICA,
+MICB</strong> (MHC class I chain-related), <strong>ULBP1–6</strong>
+(UL16-binding proteins). These ligands are <strong>absent on healthy
+cells</strong> but induced by:</p>
+<ul>
+<li>DNA damage (ATR/ATM pathway) — common in transformed cells.</li>
+<li>Viral infection.</li>
+<li>Heat shock response.</li>
+<li>Oxidative stress.</li>
+</ul>
+<p>NKG2D ligands are MHC-I-like in fold but lack peptide-binding groove
+and β2-microglobulin association. Their induction provides a “danger
+signal” that bypasses normal MHC-I inhibition. NKG2D engagement signals
+through DAP10/DAP12 adaptors to activate cytotoxicity. Many cancers shed
+soluble MICA/MICB into circulation as a decoy that downmodulates surface
+NKG2D — an immune escape mechanism now targeted by anti-MICA-shedding
+antibodies in cancer immunotherapy.</p>
+<p><strong>NK-cell killing mechanisms</strong> (shared with CTLs):</p>
+<ul>
+<li><strong>Perforin/granzyme</strong> — perforin polymerizes in target
+membrane (similar to MAC); granzymes (especially granzyme B) enter and
+cleave caspase-3/7 → <a
+href="#gl:apoptosis"><strong>apoptosis</strong></a>.</li>
+<li><strong>Death receptor ligands</strong> — FasL, TRAIL on NK cell
+engage Fas, DR4/DR5 on target → DISC → caspase-8 → apoptosis.</li>
+<li><strong>Antibody-dependent cellular cytotoxicity (ADCC)</strong>: NK
+cell <strong>CD16 (FcγRIII)</strong> binds IgG bound to target cell
+surface → directed degranulation. ADCC is the principal mechanism by
+which anti-tumor antibodies (rituximab, trastuzumab) kill cancer cells,
+and a substantial fraction of vaccine-induced antiviral protection.</li>
+</ul>
+<h3 id="inflammation">Inflammation</h3>
+<p>The cardinal signs of inflammation (rubor, calor, tumor, dolor –
+redness, heat, swelling, pain) result from vascular changes triggered by
+innate immune activation:</p>
+<ul>
+<li><strong>Mast cell degranulation</strong>: Histamine, tryptase,
+leukotrienes -&gt; vasodilation + increased vascular permeability</li>
+<li><strong>Cytokine cascade</strong>: IL-1β (fever, endothelial
+activation); TNF-α (fever, hypotension, acute-phase response); IL-6
+(hepatic acute-phase proteins: CRP, fibrinogen, complement, ferritin);
+IL-8/CXCL8 (neutrophil chemotaxis)</li>
+<li><strong>Acute-phase response</strong>: Liver produces C-reactive
+protein (CRP), which binds phosphocholine on bacterial surfaces and
+activates complement</li>
+</ul>
+<blockquote>
+<p><strong>Clinical Connection: Sepsis and Cytokine Storm</strong>
+Sepsis is defined as life-threatening organ dysfunction caused by a
+dysregulated host response to infection (Sepsis-3 criteria, 2016). It
+affects approximately 49 million people and causes 11 million deaths
+annually worldwide (WHO). In sepsis, the normally protective
+inflammatory response becomes pathologically amplified: massive cytokine
+release (TNF-α, IL-1β, IL-6) causes widespread endothelial dysfunction,
+capillary leak, coagulopathy (DIC), and multi-organ failure. The SOFA
+(Sequential Organ Failure Assessment) score quantifies organ
+dysfunction. Cytokine storm – a related phenomenon – was observed in
+severe COVID-19 (IL-6 pathway hyperactivation; treated with tocilizumab,
+an IL-6 receptor antagonist) and in cytokine release syndrome (CRS)
+following CAR-T cell therapy.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 2:</strong> A child with chronic granulomatous
+disease (CGD) has a mutation in the gp91phox subunit of NADPH oxidase.
+Predict which types of infections this child will be susceptible to, and
+explain why catalase-positive bacteria (<em>S. aureus</em>,
+<em>Aspergillus</em>) are particularly dangerous in CGD while
+catalase-negative bacteria (<em>Streptococcus</em>) are not.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 2b:</strong> A patient with paroxysmal
+nocturnal haemoglobinuria (PNH) has a somatic mutation in <em>PIGA</em>
+causing loss of GPI-anchored proteins on red blood cells, including CD55
+and CD59. Explain (a) why these red cells are constantly haemolysed by
+their own complement system, (b) why the disease is paroxysmal (worse at
+night/with sleep), and (c) why eculizumab (anti-C5 monoclonal antibody)
+is curative. Which complement step does eculizumab block, and what
+infectious-disease vaccination is mandatory before starting it?</p>
+</blockquote>
+<hr />
+<h2 id="adaptive-immunity-overview">Adaptive Immunity Overview</h2>
+<p>The adaptive immune system provides antigen-specific responses with
+immunological memory. Its defining features include:</p>
+<ul>
+<li><strong>Specificity</strong>: Each lymphocyte clone bears a unique
+antigen receptor (TCR or BCR) generated by somatic recombination</li>
+<li><strong>Diversity</strong>: <span
+class="math inline">\(&gt;10^{12}\)</span> possible TCR specificities;
+<span class="math inline">\(&gt;10^8\)</span> BCR specificities</li>
+<li><strong>Clonal selection</strong>: Antigen selects and expands
+primarily those lymphocyte clones with matching receptors</li>
+<li><strong>Memory</strong>: Long-lived memory cells mount faster,
+stronger secondary responses upon re-encounter</li>
+<li><strong>Self-tolerance</strong>: Autoreactive clones are eliminated
+(central tolerance) or suppressed (peripheral tolerance)</li>
+</ul>
+<h3 id="mhc-molecules">MHC Molecules</h3>
+<p>Major histocompatibility complex (MHC) molecules present peptide
+fragments to T cells, providing the context for antigen recognition:</p>
+<p><strong>MHC class I</strong> (HLA-A, HLA-B, HLA-C in humans):</p>
+<ul>
+<li>Expressed on <strong>most nucleated cells</strong></li>
+<li>Present <strong>endogenous peptides</strong> (from cytoplasmic
+proteins): proteasome -&gt; peptide fragments -&gt; TAP transporter
+-&gt; ER -&gt; peptide loading onto MHC-I -&gt; cell surface</li>
+<li>Recognized by <strong>CD8<span class="math inline">\(^+\)</span> T
+cells</strong> (cytotoxic T lymphocytes)</li>
+<li>Presents viral antigens and tumor antigens from within the cell</li>
+</ul>
+<p><strong>MHC class II</strong> (HLA-DR, HLA-DP, HLA-DQ):</p>
+<ul>
+<li>Expressed on <strong>professional antigen-presenting cells
+(APCs)</strong>: dendritic cells, macrophages, B cells</li>
+<li>Present <strong>exogenous peptides</strong> (from phagocytosed
+material): endosomal/lysosomal degradation -&gt; CLIP removal by HLA-DM
+-&gt; peptide loading onto MHC-II -&gt; cell surface</li>
+<li>Recognized by <strong>CD4<span class="math inline">\(^+\)</span> T
+cells</strong> (helper T cells)</li>
+</ul>
+<p>MHC genes are the most polymorphic in the human genome (~20,000 HLA
+<a href="#gl:allele"><strong>allele</strong></a>s in the population),
+ensuring that no pathogen peptide can escape presentation in most
+individuals – a population-level defense strategy.</p>
+<h3 id="t-cell-activation-and-differentiation">T Cell Activation and
+Differentiation</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant DC as Dendritic Cell (APC)
+    participant Th as Naive CD4+ T Cell
+    participant Tc as Naive CD8+ T Cell
+    participant B as B Cell
+
+    Note over DC: Captures pathogen at infection site
+    Note over DC: Migrates to draining lymph node
+    Note over DC: Processes antigen onto MHC-II and MHC-I
+
+    DC-&gt;&gt;Th: Signal 1: TCR binds peptide:MHC-II
+    DC-&gt;&gt;Th: Signal 2: B7 (CD80/86) binds CD28
+    DC-&gt;&gt;Th: Signal 3: Cytokine context
+    Note over Th: Without Signal 2 → ANERGY
+
+    alt IL-12 environment
+        Th-&gt;&gt;Th: Th1 differentiation (T-bet)
+        Note over Th: IFN-γ, TNF-α
+        Note over Th: Macrophage activation
+    else IL-4 environment
+        Th-&gt;&gt;Th: Th2 differentiation (GATA3)
+        Note over Th: IL-4, IL-5, IL-13
+        Note over Th: IgE class switch, eosinophils
+    else IL-6 + TGF-β environment
+        Th-&gt;&gt;Th: Th17 differentiation (RORγt)
+        Note over Th: IL-17, IL-22
+        Note over Th: Neutrophil recruitment
+    else TGF-β alone
+        Th-&gt;&gt;Th: Treg differentiation (Foxp3)
+        Note over Th: IL-10, TGF-β
+        Note over Th: Immune suppression
+    end
+
+    DC-&gt;&gt;Tc: Signal 1: TCR binds peptide:MHC-I
+    DC-&gt;&gt;Tc: Signal 2: Co-stimulation
+    Th-&gt;&gt;Tc: IL-2 (T cell growth factor)
+    Note over Tc: CTL activation
+    Note over Tc: Perforin + Granzyme B
+    Note over Tc: Kill virus-infected cells
+
+    Th-&gt;&gt;B: CD40L binds CD40
+    Th-&gt;&gt;B: IL-21 (Tfh cells)
+    Note over B: Germinal center reaction
+    Note over B: Somatic hypermutation
+    Note over B: Affinity maturation
+    Note over B: Class switch recombination
+    B-&gt;&gt;B: Plasma cells + Memory B cells</code></pre>
+<!-- alt: Sequence diagram showing three-signal T cell activation by dendritic cells, with cytokine-context-driven differentiation into Th1/Th2/Th17/Treg/Tfh subsets and downstream activation of cytotoxic CD8^+ T cells and antibody-producing B cells. -->
+<p><em>Three-signal T cell activation by dendritic cells, with
+cytokine-context-driven differentiation into Th1/Th2/Th17/Treg/Tfh
+subsets and downstream activation of cytotoxic CD8<span
+class="math inline">\(^+\)</span> T cells and antibody-producing B
+cells.</em></p>
+<ul>
+<li><strong>Signal 1</strong>: TCR recognition of peptide:MHC complex
+(specificity signal)</li>
+<li><strong>Signal 2</strong>: Co-stimulatory signal – CD28 on T cell
+binds B7 molecules (CD80/CD86) on APC. Without this signal, the T cell
+becomes <strong>anergic</strong> (functionally unresponsive) – a
+mechanism of peripheral tolerance</li>
+<li><strong>Signal 3</strong>: Cytokine environment determines effector
+subset differentiation</li>
+</ul>
+<p><strong>T helper cell subsets</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 21%" />
+<col style="width: 30%" />
+<col style="width: 21%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Subset</th>
+<th>Inducing Cytokines</th>
+<th>Master Transcription Factor</th>
+<th>Signature Cytokines</th>
+<th>Primary Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Th1</td>
+<td>IL-12, IFN-γ</td>
+<td>T-bet</td>
+<td>IFN-γ, TNF-α</td>
+<td>Macrophage activation; intracellular pathogens</td>
+</tr>
+<tr>
+<td>Th2</td>
+<td>IL-4</td>
+<td>GATA3</td>
+<td>IL-4, IL-5, IL-13</td>
+<td>B cell IgE switching; eosinophils; helminths; allergy</td>
+</tr>
+<tr>
+<td>Th17</td>
+<td>IL-6 + TGF-β + IL-23</td>
+<td>RORγt</td>
+<td>IL-17, IL-22</td>
+<td>Neutrophil recruitment; mucosal defense; fungi</td>
+</tr>
+<tr>
+<td>Treg</td>
+<td>TGF-β</td>
+<td>Foxp3</td>
+<td>IL-10, TGF-β</td>
+<td>Suppress excessive inflammation; maintain tolerance</td>
+</tr>
+<tr>
+<td>Tfh</td>
+<td>IL-6, IL-21</td>
+<td>Bcl6</td>
+<td>IL-21, CXCL13</td>
+<td>B cell help in germinal centers</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cytotoxic T lymphocytes (CTLs, CD8<span
+class="math inline">\(^+\)</span>)</strong> recognize viral or tumor
+antigens on MHC-I and kill target cells through:</p>
+<ul>
+<li><strong>Perforin/granzyme pathway</strong>: Perforin polymerizes in
+the target membrane, forming pores; granzyme B enters and activates
+caspase-3/7 -&gt; apoptosis</li>
+<li><strong>Fas-FasL pathway</strong>: CTL-expressed FasL binds Fas
+(CD95) on target -&gt; DISC formation -&gt; caspase-8 -&gt;
+apoptosis</li>
+<li><strong>Serial killing</strong>: A single CTL can kill 2-25 target
+cells sequentially via directed degranulation at the immunological
+synapse</li>
+<li><strong>Exhaustion</strong>: In chronic infections (HBV, HCV, HIV),
+persistent antigen exposure leads to upregulation of inhibitory
+receptors (PD-1, TIM-3, LAG-3) and progressive loss of effector function
+– the basis for PD-1/PD-L1 checkpoint inhibitor therapy in cancer</li>
+</ul>
+<blockquote>
+<p><strong>Concept Check 3:</strong> Explain why a patient with a
+CD4<span class="math inline">\(^+\)</span> T cell count below 200
+cells/μL (as in AIDS) is susceptible to opportunistic infections that
+healthy individuals easily control. Specifically, describe which arm of
+the immune response is most compromised and why both cellular and
+humoral immunity are affected despite B cells and CD8<span
+class="math inline">\(^+\)</span> T cells being present.</p>
+</blockquote>
+<hr />
+<h2 id="b-cells-and-antibodies">B Cells and Antibodies</h2>
+<h3 id="b-cell-activation">B Cell Activation</h3>
+<p>B cell activation pathways differ depending on the nature of the
+antigen:</p>
+<p><strong>T-dependent antigens</strong> (protein antigens): BCR binds
+and internalizes antigen -&gt; processes and presents peptides on MHC-II
+-&gt; recognized by cognate Tfh cell -&gt; CD40L-CD40 interaction +
+IL-21 -&gt; B cell activation, proliferation, and entry into the
+germinal center reaction. This pathway produces high-affinity
+antibodies, class-switched isotypes, and long-lived memory.</p>
+<p><strong>T-independent antigens</strong> (repetitive polysaccharides,
+LPS): Cross-link multiple BCRs on the B cell surface -&gt; activation
+without T cell help. Produces primarily IgM; limited affinity
+maturation; poor memory response. This is why polysaccharide vaccines
+(pneumococcal, meningococcal) are poorly immunogenic in children under 2
+years (immature T-independent response) and why <strong>conjugate
+vaccines</strong> were developed.</p>
+<h3 id="germinal-center-reaction">Germinal Center Reaction</h3>
+<p>The germinal center (GC) in secondary lymphoid organs is the site of
+antibody optimization:</p>
+<ol type="1">
+<li><strong>Clonal expansion</strong>: Activated B cells (centroblasts)
+proliferate rapidly in the dark zone</li>
+<li><strong>Somatic hypermutation (SHM)</strong>: Activation-induced
+cytidine deaminase (AID) introduces point mutations in the variable (V)
+regions of immunoglobulin genes at a rate of ~<span
+class="math inline">\(10^{-3}\)</span> per base pair per division – one
+million-fold higher than the normal mutation rate. AID deaminates
+cytidine to uridine in DNA, which is then processed by base excision
+repair or mismatch repair to generate diverse mutations.</li>
+<li><strong>Affinity maturation</strong>: Mutant B cells (centrocytes)
+migrate to the light zone, where they compete for antigen displayed on
+follicular dendritic cells (FDCs). Primarily B cells with improved BCR
+affinity receive survival signals; the rest undergo apoptosis. This
+Darwinian selection process progressively increases antibody affinity
+over successive rounds.</li>
+<li><strong>Class switch recombination (CSR)</strong>: AID also
+introduces double-strand breaks in switch (S) regions upstream of
+constant region genes, enabling recombination that changes the antibody
+class from IgM to IgG, IgA, or IgE while preserving antigen specificity.
+Cytokine signals determine which class is selected: IL-4 -&gt; IgE;
+IFN-γ -&gt; IgG1; TGF-β -&gt; IgA.</li>
+</ol>
+<p>The GC reaction produces two critical outputs: <strong>long-lived
+plasma cells</strong> (migrate to bone marrow; secrete high-affinity
+antibody for years to decades) and <strong>memory B cells</strong>
+(reside in secondary lymphoid organs; rapidly reactivate upon antigen
+re-encounter).</p>
+<h3 id="antibody-structure-and-function">Antibody Structure and
+Function</h3>
+<p>An antibody molecule consists of two identical heavy (H) chains and
+two identical light (L) chains, each containing variable (V) and
+constant (C) domains:</p>
+<ul>
+<li><strong>Fab region</strong> (fragment antigen-binding): Contains the
+variable domains (VH + VL) that form the antigen-binding site
+(paratope). The three complementarity-determining regions (CDR1, CDR2,
+CDR3) within each variable domain make direct contact with antigen.</li>
+<li><strong>Fc region</strong> (fragment crystallizable): The constant
+domains that determine antibody class and mediate effector functions
+(complement activation, Fc receptor binding on phagocytes and NK cells,
+placental transfer).</li>
+<li><strong>Hinge region</strong>: Provides flexibility between Fab and
+Fc, allowing bivalent binding to spatially separated epitopes.</li>
+</ul>
+<h3 id="antibody-classes">Antibody Classes</h3>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 25%" />
+<col style="width: 22%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr>
+<th>Isotype</th>
+<th>Structure</th>
+<th>Location</th>
+<th>Key Functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IgM</strong></td>
+<td>Pentamer (10 binding sites)</td>
+<td>Blood (primary response)</td>
+<td>First antibody produced; efficient complement activation via
+classical pathway; low affinity compensated by high avidity</td>
+</tr>
+<tr>
+<td><strong>IgG</strong></td>
+<td>Monomer (4 subclasses)</td>
+<td>Blood, extravascular; <strong>crosses placenta</strong> via
+FcRn</td>
+<td>Most abundant serum antibody; opsonization; ADCC (via CD16 on NK
+cells); complement; neonatal passive immunity</td>
+</tr>
+<tr>
+<td><strong>IgA</strong></td>
+<td>Dimer (secretory IgA with secretory component)</td>
+<td>Mucosal surfaces: saliva, tears, breast milk, intestinal lumen</td>
+<td>Most produced antibody class (&gt;3 g/day); neutralization at
+mucosal surfaces; immune exclusion</td>
+</tr>
+<tr>
+<td><strong>IgE</strong></td>
+<td>Monomer</td>
+<td>Bound to mast cells and basophils via high-affinity FcεRI</td>
+<td>Very low serum concentration; cross-linking by allergen -&gt; mast
+cell degranulation -&gt; immediate hypersensitivity; anti-helminth
+defense (eosinophil ADCC)</td>
+</tr>
+<tr>
+<td><strong>IgD</strong></td>
+<td>Monomer</td>
+<td>Naive B cell surface (co-expressed with IgM)</td>
+<td>BCR signaling; poorly understood effector function</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Immunological memory</strong> – the basis of vaccination –
+results from the persistence of long-lived plasma cells and memory B
+cells. Upon re-exposure, the secondary response is:</p>
+<ul>
+<li><strong>Faster</strong>: Days instead of 1-2 weeks</li>
+<li><strong>Stronger</strong>: 10-100 fold higher antibody titers</li>
+<li><strong>Higher affinity</strong>: Memory B cells express somatically
+hypermutated, affinity-matured BCRs</li>
+<li><strong>Class-switched</strong>: Predominantly IgG (or IgA at
+mucosal surfaces)</li>
+</ul>
+<blockquote>
+<p><strong>Concept Check 4:</strong> Conjugate vaccines (e.g., PCV13)
+link bacterial polysaccharide antigens to protein carriers (e.g.,
+CRM197, a nontoxic diphtheria toxoid). Explain the immunological
+rationale: why does conjugation convert a T-independent antigen into a
+T-dependent antigen, and why is this critical for vaccinating
+infants?</p>
+</blockquote>
+<hr />
+<h2 id="vaccines-and-immunological-memory">Vaccines and Immunological
+Memory</h2>
+<h3 id="vaccine-platforms-eight-strategies-for-inducing-memory">Vaccine
+Platforms: Eight Strategies for Inducing Memory</h3>
+<p>Vaccines exploit the same memory mechanisms that protect us after
+natural infection, but without the disease. The eight major platform
+classes — each with distinct strengths, limitations, and clinical
+exemplars — represent a 200-year-progressive enrichment of strategies
+for safely tricking the immune system into making memory.</p>
+<pre class="mermaid"><code>flowchart TB
+    subgraph &quot;Vaccine Types and Immune Mechanisms&quot;
+        A[&quot;Live Attenuated\n(MMR, varicella,\nyellow fever, OPV)&quot;] --&gt; M1[&quot;Replicates in host\n→ prolonged antigen\npresentation&quot;]
+        M1 --&gt; R1[&quot;Strong T + B cell\nmemory; often\nsingle dose sufficient&quot;]
+
+        B[&quot;Inactivated/Killed\n(IPV, influenza IIV,\nhepatitis A)&quot;] --&gt; M2[&quot;No replication;\nwhole killed pathogen\n+ adjuvant&quot;]
+        M2 --&gt; R2[&quot;Humoral &gt; cellular;\nmultiple doses needed;\nsafe in immunocompromised&quot;]
+
+        C[&quot;Subunit/Recombinant\n(HBsAg, HPV VLP,\nacellular pertussis)&quot;] --&gt; M3[&quot;Purified antigen\nor VLP + adjuvant&quot;]
+        M3 --&gt; R3[&quot;Very safe; specific\nimmunity; adjuvant\nrequired&quot;]
+
+        D[&quot;Toxoid\n(tetanus, diphtheria)&quot;] --&gt; M4[&quot;Chemically inactivated\ntoxin (formalin)&quot;]
+        M4 --&gt; R4[&quot;Anti-toxin antibodies;\nneutralizes toxin,\nnot the bacterium&quot;]
+
+        E[&quot;Conjugate\n(Hib, PCV13, PCV20,\nmeningococcal)&quot;] --&gt; M5[&quot;Polysaccharide\ncovalently linked\nto protein carrier&quot;]
+        M5 --&gt; R5[&quot;Converts T-independent\n→ T-dependent response;\nenables infant vaccination&quot;]
+
+        F[&quot;mRNA\n(BNT162b2, mRNA-1273)&quot;] --&gt; M6[&quot;LNP-encapsulated\nmRNA → host cell\ntranslates antigen&quot;]
+        M6 --&gt; R6[&quot;Strong Ab + T cell\nresponse; no integration;\nrapid manufacturing\n(48 hrs for sequence)&quot;]
+
+        G[&quot;Viral Vector\n(ChAdOx1, Ad26,\nrVSV-ZEBOV)&quot;] --&gt; M7[&quot;Non-replicating\nadenovirus or VSV\ndelivers antigen gene&quot;]
+        M7 --&gt; R7[&quot;Strong immunogenicity;\npre-existing vector\nimmunity can reduce\nefficacy&quot;]
+    end</code></pre>
+<!-- alt: Flowchart showing eight vaccine platforms, the immune mechanism each engages, and characteristic clinical responses. -->
+<p><em>Eight vaccine platforms, the immune mechanism each engages, and
+characteristic clinical responses.</em></p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 24%" />
+<col style="width: 18%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Examples</th>
+<th>Antigen form</th>
+<th>Strengths</th>
+<th>Limitations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Live attenuated</strong></td>
+<td>MMR, varicella (Varivax), yellow fever 17D, oral polio (OPV), BCG,
+rotavirus</td>
+<td>Weakened replicating organism</td>
+<td>Strong T + B memory; often a single dose; mucosal immunity
+(OPV)</td>
+<td>Reversion to virulence (rare; OPV → cVDPV); contraindicated in
+immunocompromised and pregnancy</td>
+</tr>
+<tr>
+<td><strong>Inactivated / killed</strong></td>
+<td>IPV (Salk), inactivated influenza (IIV), hepatitis A (Havrix),
+rabies, whole-cell pertussis (legacy)</td>
+<td>Chemically/heat-killed whole organism</td>
+<td>Safe in immunocompromised; stable</td>
+<td>Weaker than live; requires adjuvant + multiple doses</td>
+</tr>
+<tr>
+<td><strong>Subunit / recombinant protein</strong></td>
+<td>Hepatitis B (HBsAg in yeast), acellular pertussis (aP), zoster
+(Shingrix gE + AS01)</td>
+<td>Purified protein antigen + adjuvant</td>
+<td>Very safe; no infectious risk</td>
+<td>Less immunogenic; adjuvant essential</td>
+</tr>
+<tr>
+<td><strong>Virus-like particles (VLPs)</strong></td>
+<td>HPV (Gardasil, Cervarix), HBV (also classified as subunit)</td>
+<td>Self-assembled capsid proteins (no genome)</td>
+<td>Particulate, highly immunogenic; structurally identical to
+virus</td>
+<td>Difficult to engineer for some viruses</td>
+</tr>
+<tr>
+<td><strong>Toxoid</strong></td>
+<td>Tetanus (TT), diphtheria (DT, Tdap), botulism toxoid</td>
+<td>Formalin-inactivated toxin</td>
+<td>Anti-toxin antibodies neutralise the <em>toxin</em>, not the
+bacterium</td>
+<td>No antibacterial protection; periodic boosters needed</td>
+</tr>
+<tr>
+<td><strong>Conjugate</strong></td>
+<td>Hib, PCV13, PCV20 (pneumococcal), meningococcal ACWY (Menactra)</td>
+<td>Bacterial polysaccharide covalently linked to a protein carrier
+(CRM197, TT)</td>
+<td>Converts T-independent → T-dependent response; enables infant
+immunisation; affinity-matured response</td>
+<td>Carrier-specific T cells diverted; serotype replacement after PCV
+introduction</td>
+</tr>
+<tr>
+<td><strong>mRNA</strong></td>
+<td>BNT162b2 (Pfizer-BioNTech), mRNA-1273 (Moderna), mRNA-1345 (RSV,
+2024); flu mRNA-1010 (trial)</td>
+<td>LNP-encapsulated nucleoside-modified mRNA encoding the antigen</td>
+<td>Rapid design (48 hr from sequence); strong T + B response; no genome
+integration</td>
+<td>Cold-chain dependent; rare myocarditis; waning antibody titres</td>
+</tr>
+<tr>
+<td><strong>Viral vector</strong></td>
+<td>rVSV-ZEBOV (Ebola), ChAdOx1 (AstraZeneca COVID), Ad26.COV2.S
+(J&amp;J), gene-therapy AAV vectors</td>
+<td>Non-replicating recombinant virus carrying antigen gene</td>
+<td>Strong durable response; mucosal IgA achievable</td>
+<td>Pre-existing vector immunity (Ad5 in adult populations) reduces
+efficacy; rare thrombosis (ChAdOx1)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>mRNA vaccines</strong> are the newest platform and
+represented a paradigm shift during the COVID-19 pandemic:</p>
+<ul>
+<li>The spike protein sequence of SARS-CoV-2 was published on January
+11, 2020; Moderna had designed its mRNA-1273 vaccine candidate within 48
+hours.</li>
+<li>The mRNA is modified (N1-methylpseudouridine replaces uridine,
+Karikó and Weissman discovery, Nobel Prize 2023) to reduce TLR7/8
+recognition, block 2’-5’-OAS / RNase L degradation, and increase
+translational efficiency 10–100×.</li>
+<li>Lipid nanoparticle (LNP) encapsulation protects the mRNA from
+extracellular nucleases and facilitates cellular uptake; the
+four-component LNP (ionisable lipid, phospholipid, cholesterol,
+PEG-lipid) self-assembles into ~ 80-nm particles.</li>
+<li>Upon injection, host cells (predominantly muscle and dendritic cells
+at the injection site) translate the mRNA into spike protein, which is
+presented on MHC-I (activating CD8<span
+class="math inline">\(^+\)</span> CTLs) and secreted/surface-displayed
+(activating B cells and CD4<span class="math inline">\(^+\)</span> T
+cells).</li>
+<li>No integration into host DNA occurs — mRNA is degraded within hours
+to days.</li>
+<li>Spike is locked in the prefusion conformation by two proline
+substitutions (<strong>2P mutation</strong>) that preserve neutralising
+epitopes.</li>
+</ul>
+<p>The platform is now extending to <strong>influenza</strong>
+(mRNA-1010), <strong>RSV</strong> (mRNA-1345, FDA-approved 2024),
+<strong>CMV</strong>, and <strong>personalised cancer neoantigen
+vaccines</strong> (Moderna mRNA-4157 in Phase III for melanoma).</p>
+<h3
+id="antigenic-variation-how-pathogens-outpace-antibody-responses">Antigenic
+Variation: How Pathogens Outpace Antibody Responses</h3>
+<p>The single greatest challenge for vaccine development against many
+viruses is that the immune target itself <strong>evolves under the
+selection pressure of the population’s own immune response</strong>. Two
+paradigmatic examples illustrate the strategies and the resulting
+public-health consequences.</p>
+<p><strong>Influenza A: drift and shift.</strong> Influenza A is a Class
+V segmented (-)ssRNA virus with 8 genome segments. Its surface
+glycoproteins <strong>hemagglutinin (HA, 18 subtypes)</strong> and
+<strong>neuraminidase (NA, 11 subtypes)</strong> are the primary targets
+of neutralising antibodies. Influenza A undergoes two distinct
+mechanisms of antigenic change:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Feature</th>
+<th><strong>Antigenic drift</strong></th>
+<th><strong>Antigenic shift</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mechanism</td>
+<td>Point mutations in HA (and NA) accumulating during replication</td>
+<td><strong>Reassortment</strong> of whole genome segments during
+co-infection of one cell by two influenza A strains (often in pigs as
+the “mixing vessel”)</td>
+</tr>
+<tr>
+<td>Rate</td>
+<td>Continuous; ~ 0.5–1 % per year on HA1</td>
+<td>Episodic; rare events</td>
+</tr>
+<tr>
+<td>Consequence</td>
+<td>Antigenic mismatch with prior immunity → <strong>seasonal
+epidemics</strong></td>
+<td>Novel HA subtype unseen by population → <strong>pandemic
+potential</strong></td>
+</tr>
+<tr>
+<td>Vaccine response</td>
+<td>Annual reformulation (WHO twice-yearly recommendation)</td>
+<td>Requires entirely new pandemic vaccine</td>
+</tr>
+<tr>
+<td>Why influenza A primarily?</td>
+<td>Influenza B drifts but does not reassort with animal reservoirs at
+meaningful frequency; influenza A has a wide animal host range</td>
+<td>Influenza A naturally infects birds, swine, humans, and other
+mammals — sustaining a reservoir of segments for reassortment</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Pandemic history:</strong> - <strong>1918 H1N1</strong>
+(“Spanish flu”) — 50–100 million deaths. - <strong>1957 H2N2</strong>
+(“Asian flu”) — 1–2 million deaths; H2 from avian source reassorted with
+circulating H1N1. - <strong>1968 H3N2</strong> (“Hong Kong flu”) — 1
+million deaths; H3 from avian source. - <strong>2009 H1N1</strong>
+(pandemic) — ~ 284,000 deaths; quadruple reassortant (avian + human +
+two swine lineages); milder than predicted because of partial
+cross-immunity from related H1N1 strains. - <strong>H5N1 highly
+pathogenic avian influenza (HPAI)</strong> — ongoing outbreaks in dairy
+cattle and poultry (2024–26); ~ 60 % case-fatality rate in the rare
+human cases; intense surveillance for adaptation to mammalian
+transmission.</p>
+<p><strong>HIV reverse transcriptase: the quasi-species cloud.</strong>
+HIV uses an entirely different mechanism — extreme intra-host evolution.
+Reverse transcriptase has an <strong>error rate of ~ 3 × 10⁻⁵ per base
+per replication cycle</strong>, and HIV makes ~ <span
+class="math inline">\(10^{10}\)</span> virions per day in an untreated
+patient. With a 9.7-kb genome, this produces <strong>every single point
+mutation in the viral genome multiple times every day</strong> and a
+substantial fraction of possible double mutations. The resulting
+population — a cloud of related sequences around a consensus — is termed
+a <strong>quasi-species</strong>.</p>
+<p>Consequences:</p>
+<ol type="1">
+<li><strong>Drug resistance is essentially preformed</strong>: any
+single-target monotherapy fails within weeks because resistant variants
+pre-exist in the quasi-species cloud. This is why HIV treatment requires
+<strong>combination ART</strong> (≥ 3 drugs from ≥ 2 classes); the
+simultaneous probability of a virion carrying mutations conferring
+resistance to most drugs is astronomically low.</li>
+<li><strong>Antibody escape is continuous</strong>: the env gene
+(gp120/gp41) evolves rapidly under neutralising-antibody pressure, with
+the variable loops V1/V2/V3 changing every few weeks within an
+individual.</li>
+<li><strong>Vaccine difficulty</strong>: a vaccine that elicits
+primarily narrowly-specific antibodies will fail. Successful HIV vaccine
+candidates aim for <strong>broadly neutralising antibodies
+(bNAbs)</strong> that target conserved sites (CD4-binding site, fusion
+peptide) — but these require unusual germline B cells and prolonged
+affinity maturation, which most vaccinees do not develop.</li>
+</ol>
+<p>The HIV quasi-species lesson — that within-host evolution can
+generate resistance faster than therapy can clear the virus — has now
+been applied to influenza, hepatitis C, and SARS-CoV-2 (the
+32-spike-mutation Omicron emergence almost certainly arose from chronic
+infection of an immunocompromised host, where prolonged replication
+permitted accumulation of escape mutations).</p>
+<h3 id="herd-immunity">Herd Immunity</h3>
+<p>When a sufficient proportion of a population is immune, the
+pathogen’s transmission is interrupted even for non-immune individuals.
+The <strong>herd-immunity threshold</strong> is given by:</p>
+<p><span class="math display">\[\begin{equation}
+p_c = 1 - \frac{1}{R_0}
+\label{eq:unit_VII_herd_immunity}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(p_c\)</span> is the critical
+fraction of the population that must be immune and <span
+class="math inline">\(R_0\)</span> is the <strong>basic reproduction
+number</strong> (the expected number of secondary cases from one primary
+case in a fully susceptible population). The intuition: each case must
+produce on average less than one secondary case for the epidemic to die
+out; immunity removes a fraction of the contacts an infectious person
+makes, so the <strong>effective reproduction number</strong> is <span
+class="math inline">\(R_e = R_0 (1 - p)\)</span>. Solving for <span
+class="math inline">\(R_e = 1\)</span> gives <span
+class="math inline">\(p = 1 - 1/R_0\)</span>.</p>
+<h3
+id="worked-example-calculating-herd-immunity-threshold-three-pathogens">Worked
+Example: Calculating Herd Immunity Threshold (Three Pathogens)</h3>
+<p><strong>Problem:</strong> Compute the herd immunity threshold from
+for measles (<span class="math inline">\(R_0 = 15\)</span>), polio
+(<span class="math inline">\(R_0 = 5\)</span>), and original-strain
+SARS-CoV-2 (<span class="math inline">\(R_0 = 2.5\)</span>), and discuss
+the implications for vaccination policy.</p>
+<p><strong>Solution:</strong></p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 6%" />
+<col style="width: 18%" />
+<col style="width: 30%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pathogen</th>
+<th><span class="math inline">\(R_0\)</span></th>
+<th><span class="math inline">\(p_c = 1 - 1/R_0\)</span></th>
+<th>Realistic vaccine efficacy <span
+class="math inline">\(E\)</span></th>
+<th>Required coverage <span class="math inline">\(p_v = p_c /
+E\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Measles</strong></td>
+<td>15</td>
+<td><span class="math inline">\(1 - 1/15 = 0.933\)</span> → <strong>93.3
+%</strong></td>
+<td>0.97 (MMR two-dose)</td>
+<td><span class="math inline">\(0.933 / 0.97 = 0.962\)</span> →
+<strong>96.2 %</strong></td>
+</tr>
+<tr>
+<td><strong>Polio</strong></td>
+<td>5</td>
+<td><span class="math inline">\(1 - 1/5 = 0.800\)</span> → <strong>80
+%</strong></td>
+<td>0.99 (IPV three-dose)</td>
+<td><span class="math inline">\(0.800 / 0.99 = 0.808\)</span> →
+<strong>80.8 %</strong></td>
+</tr>
+<tr>
+<td><strong>COVID-19 (original)</strong></td>
+<td>2.5</td>
+<td><span class="math inline">\(1 - 1/2.5 = 0.600\)</span> → <strong>60
+%</strong></td>
+<td>0.95 (BNT162b2 against original)</td>
+<td><span class="math inline">\(0.600 / 0.95 = 0.632\)</span> →
+<strong>63.2 %</strong></td>
+</tr>
+<tr>
+<td><strong>COVID-19 (Omicron)</strong></td>
+<td>10</td>
+<td><span class="math inline">\(1 - 1/10 = 0.900\)</span> → <strong>90
+%</strong></td>
+<td>0.50 (vs symptomatic infection)</td>
+<td><span class="math inline">\(0.900 / 0.50 = 1.80\)</span> →
+<strong>unattainable</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretation:</strong></p>
+<ol type="1">
+<li><strong>Measles is the textbook case for high-coverage
+vaccination.</strong> Even with the excellent MMR vaccine (<span
+class="math inline">\(E \approx 97 \%\)</span>), &gt; 96 % of the
+population must be vaccinated. A drop from 96 % to 92 % (e.g., due to
+vaccine hesitancy) reduces immunity below threshold and allows outbreaks
+— exactly what has happened in the 2018–2019 US/EU measles
+resurgences.</li>
+<li><strong>Polio’s lower <span
+class="math inline">\(R_0\)</span></strong> makes it much more
+tractable: 80 % coverage with IPV is sufficient. This is why polio is on
+the verge of global eradication while measles is not.</li>
+<li><strong>COVID-19 Omicron</strong> illustrates the
+<strong>vaccine-coverage impossibility</strong> result: when efficacy
+against transmission is moderate (~ 50 %) and <span
+class="math inline">\(R_0\)</span> is high (~ 10 due to immune escape
+and inherent transmissibility), the formula <span
+class="math inline">\(p_v = p_c / E\)</span> exceeds 100 %, meaning
+<strong>herd immunity by vaccination alone is unattainable</strong>.
+Public-health strategy must rely on a combination of vaccination
+(reducing severity), non-pharmaceutical interventions (reducing <span
+class="math inline">\(R_0\)</span> below the achievable coverage), and
+accepting endemicity.</li>
+</ol>
+<p>The herd-immunity equation also explains why <strong>small reductions
+in vaccine coverage produce disproportionate disease resurgences for
+high-<span class="math inline">\(R_0\)</span> pathogens</strong>: at
+<span class="math inline">\(R_0 = 15\)</span>, a 1-percentage-point drop
+in immune coverage raises the effective reproduction number <span
+class="math inline">\(R_e\)</span> by about <span
+class="math inline">\(R_0 \times 0.01 = 0.15\)</span>. This
+non-linearity is why measles outbreaks dominate vaccine-hesitancy
+clusters.</p>
+<h3 id="r_0-comparison-why-pathogens-differ">R<span
+class="math inline">\(_0\)</span> Comparison: Why Pathogens Differ</h3>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 51%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pathogen</th>
+<th><span class="math inline">\(R_0\)</span></th>
+<th>Herd-immunity threshold</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Measles</strong></td>
+<td>12–18</td>
+<td>92–94 %</td>
+<td>Most contagious common pathogen</td>
+</tr>
+<tr>
+<td><strong>Mumps</strong></td>
+<td>4–7</td>
+<td>75–86 %</td>
+<td>MMR-vaccine-preventable</td>
+</tr>
+<tr>
+<td><strong>Pertussis</strong></td>
+<td>12–17</td>
+<td>92–94 %</td>
+<td>Resurgent due to waning aP-vaccine immunity</td>
+</tr>
+<tr>
+<td><strong>Diphtheria</strong></td>
+<td>6–7</td>
+<td>83–86 %</td>
+<td>Toxin-driven; toxoid-vaccinable</td>
+</tr>
+<tr>
+<td><strong>Polio</strong></td>
+<td>4–7</td>
+<td>75–86 %</td>
+<td>Near eradication</td>
+</tr>
+<tr>
+<td><strong>Smallpox</strong></td>
+<td>5–7</td>
+<td>80–86 %</td>
+<td>Eradicated 1980</td>
+</tr>
+<tr>
+<td><strong>Rubella</strong></td>
+<td>6–7</td>
+<td>83–86 %</td>
+<td>MMR-vaccine-preventable</td>
+</tr>
+<tr>
+<td><strong>HIV</strong></td>
+<td>2–5</td>
+<td>50–80 %</td>
+<td>Sexual / parenteral transmission</td>
+</tr>
+<tr>
+<td><strong>Influenza (seasonal)</strong></td>
+<td>1.3–2</td>
+<td>23–50 %</td>
+<td>Annual drift; vaccine reformulated yearly</td>
+</tr>
+<tr>
+<td><strong>Influenza (1918)</strong></td>
+<td>2–3</td>
+<td>50–67 %</td>
+<td>Pandemic</td>
+</tr>
+<tr>
+<td><strong>SARS-CoV-2 (original)</strong></td>
+<td>2.5–3</td>
+<td>60–67 %</td>
+<td>Wuhan strain</td>
+</tr>
+<tr>
+<td><strong>SARS-CoV-2 (Delta)</strong></td>
+<td>5–8</td>
+<td>80–88 %</td>
+<td>L452R + T478K spike</td>
+</tr>
+<tr>
+<td><strong>SARS-CoV-2 (Omicron, BA.5)</strong></td>
+<td>8–15</td>
+<td>88–93 %</td>
+<td>Immune escape pushes effective threshold higher</td>
+</tr>
+<tr>
+<td><strong>Mpox (clade IIb, 2022)</strong></td>
+<td>1.0–1.5</td>
+<td>0–33 %</td>
+<td>Sustained MSM transmission; vaccine + behaviour change
+controlled</td>
+</tr>
+</tbody>
+</table>
+<h3 id="adjuvants">Adjuvants</h3>
+<p>Adjuvants amplify the innate immune response to vaccine antigens,
+improving adaptive immunity:</p>
+<ul>
+<li><strong>Aluminum salts (Alum)</strong>: Oldest adjuvant (since
+1926); activates NLRP3 inflammasome; depot effect (slow antigen
+release); used in most childhood vaccines</li>
+<li><strong>AS04</strong> (Alum + monophosphoryl lipid A): TLR4 agonist;
+used in Cervarix (HPV vaccine)</li>
+<li><strong>MF59</strong>: Oil-in-water squalene emulsion; enhances
+antigen uptake by APCs; used in some influenza vaccines</li>
+<li><strong>CpG oligodeoxynucleotides</strong>: TLR9 agonist; used in
+Heplisav-B (hepatitis B vaccine)</li>
+<li><strong>Matrix-M</strong> (saponin-based): Used in Novavax COVID-19
+vaccine; potent Th1 and CTL response</li>
+<li><strong>AS01</strong> (liposomal MPL + QS-21): Used in Shingrix
+(zoster) and RTS,S (malaria); strong Th1 response</li>
+</ul>
+<blockquote>
+<p><strong>Clinical Connection: SARS-CoV-2 and the COVID-19
+Pandemic</strong> SARS-CoV-2 enters cells via its spike protein binding
+ACE2, with TMPRSS2 protease facilitating membrane fusion. Variants of
+concern (Alpha, Delta, Omicron) accumulated mutations in the spike
+protein’s receptor-binding domain (RBD) that increased transmissibility
+and/or enabled immune evasion. Omicron-lineage viruses substantially
+escaped neutralising antibodies from both vaccination and prior
+infection, while population immunity and viral evolution shifted
+severe-disease risk compared with early pandemic waves. mRNA vaccine
+development demonstrated the power of platform technology – Moderna
+designed its vaccine sequence within 48 hours of the viral genome
+publication, though regulatory approval required 11 months of clinical
+trials. Long COVID is now defined operationally as a chronic condition
+present at least 3 months after SARS-CoV-2 infection; prevalence
+estimates vary by cohort, variant era, vaccination status, and case
+definition. Mechanistic studies now emphasise persistent immune
+activation, T-cell exhaustion signatures, metabolic dysregulation,
+possible viral-antigen persistence, autoimmunity, <a
+href="#gl:microbiome"><strong>microbiome</strong></a> disruption,
+dysautonomia, and endothelial dysfunction rather than a single cause
+.</p>
+</blockquote>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;SARS-CoV-2 infection&quot;] --&gt; B[&quot;Acute tissue injury and immune activation&quot;]
+    B --&gt; C[&quot;Persistent antigen or viral reservoir hypothesis&quot;]
+    B --&gt; D[&quot;Immune dysregulation and autoimmunity&quot;]
+    B --&gt; E[&quot;Endothelial and microvascular injury&quot;]
+    B --&gt; F[&quot;Mitochondrial and metabolic stress&quot;]
+    C --&gt; G[&quot;T-cell exhaustion signatures&quot;]
+    D --&gt; H[&quot;Autoantibodies and inflammatory cytokines&quot;]
+    E --&gt; I[&quot;Dysautonomia, hypoperfusion, clotting abnormalities&quot;]
+    F --&gt; J[&quot;Fatigue and post-exertional symptom worsening&quot;]
+    G --&gt; K[&quot;Long COVID phenotype&quot;]
+    H --&gt; K
+    I --&gt; K
+    J --&gt; K</code></pre>
+<!-- alt: Flowchart showing long COVID mechanism network. Current evidence supports overlapping immune, vascular, neuroautonomic, metabolic, and possible persistence mechanisms; the diagram should be read as a differential-mechanism map, not a single-cause pathway . -->
+<p><em>Long COVID mechanism network. Current evidence supports
+overlapping immune, vascular, neuroautonomic, metabolic, and possible
+persistence mechanisms; the diagram should be read as a
+differential-mechanism map, not a single-cause pathway .</em></p>
+<blockquote>
+<p><strong>Concept Check 5:</strong> Calculate the effective
+reproduction number (<span class="math inline">\(R_e\)</span>) for
+measles (<span class="math inline">\(R_0 = 15\)</span>) in a community
+where 80% of the population is immune. Is an epidemic possible? How many
+additional percentage points of immunity are needed to prevent sustained
+transmission?</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 5b:</strong> A new COVID-19 vaccine candidate
+has 60 % efficacy against transmission. The Omicron sublineage
+circulating has <span class="math inline">\(R_0 = 10\)</span>. Apply to
+determine whether achievable vaccine coverage can suppress transmission.
+If not, what additional public-health measures (and at what magnitude of
+<span class="math inline">\(R_0\)</span> reduction) would make the
+situation tractable with this vaccine?</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 6:</strong> Influenza A viruses can undergo
+antigenic shift through genomic reassortment, but SARS-CoV-2 (a
+non-segmented RNA virus) cannot. Despite this, SARS-CoV-2 has generated
+numerous variants of concern. Explain the mechanism by which SARS-CoV-2
+generates antigenic diversity and why its approach, while different from
+influenza, has still enabled significant immune evasion.</p>
+</blockquote>
+<hr />
+<h2
+id="antibiotic-resistance-a-comprehensive-mechanism-catalogue">Antibiotic
+Resistance: A Comprehensive Mechanism Catalogue</h2>
+<p>Antibiotic resistance can be classified into five mechanistic
+categories. Most clinically important multi-drug-resistant pathogens
+combine multiple mechanisms; an isolate may simultaneously hydrolyse
+β-lactams, modify aminoglycosides, methylate ribosomal RNA, and pump out
+fluoroquinolones.</p>
+<h3 id="mechanism-1-enzymatic-inactivation">Mechanism 1: Enzymatic
+Inactivation</h3>
+<p>Direct destruction of the drug by hydrolysis or modification.</p>
+<p><strong>β-lactamases</strong> are the most clinically important and
+most diverse resistance enzymes. They hydrolyse the β-lactam ring (with
+the active-site serine — a tetrahedral covalent intermediate — or via a
+metallo-zinc mechanism) before the drug reaches its PBP target. The
+Ambler classification:</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 17%" />
+<col style="width: 16%" />
+<col style="width: 38%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>Class</th>
+<th>Mechanism</th>
+<th>Spectrum</th>
+<th>Inhibitor sensitivity</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Class A</strong> (serine)</td>
+<td>Active-site serine (Ser70)</td>
+<td>Penicillins; ESBL extends to 3GC</td>
+<td>Inhibited by clavulanate, sulbactam, tazobactam, avibactam</td>
+<td>TEM-1, SHV-1 (penicillinases); CTX-M (the dominant ESBL globally);
+KPC (carbapenemase)</td>
+</tr>
+<tr>
+<td><strong>Class B</strong> (metallo-β-lactamase, MBL)</td>
+<td>Zn<span class="math inline">\(^{2+}\)</span> active site; hydroxide
+nucleophile</td>
+<td>Penicillins, cephalosporins, and carbapenems; monobactams such as
+aztreonam are structurally spared by the MBL but can be hydrolysed by
+co-produced ESBLs</td>
+<td>Inhibited by EDTA in vitro; <strong>not inhibited by clinical
+inhibitors</strong>; aztreonam-avibactam combinations</td>
+<td><strong>NDM-1</strong> (New Delhi metallo-β-lactamase, 2008
+emergence; global spread); <strong>VIM</strong>,
+<strong>IMP</strong></td>
+</tr>
+<tr>
+<td><strong>Class C</strong> (AmpC)</td>
+<td>Active-site serine</td>
+<td>Cephalosporins (including 3GC); poorly inhibited by clavulanate</td>
+<td>Cefepime, carbapenems retain activity</td>
+<td>Chromosomal AmpC inducible in <em>Enterobacter</em>,
+<em>Serratia</em>, <em>Citrobacter</em>, <em>Pseudomonas</em>;
+plasmid-borne (CMY)</td>
+</tr>
+<tr>
+<td><strong>Class D</strong> (oxacillinase, OXA)</td>
+<td>Active-site serine</td>
+<td>Variable (penicillins → carbapenems for OXA-48)</td>
+<td>Variable inhibitor susceptibility</td>
+<td>OXA-48 (Klebsiella, Mediterranean); OXA-23 (Acinetobacter
+pan-resistance)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other inactivating enzymes:</strong></p>
+<ul>
+<li><strong>Aminoglycoside-modifying enzymes (AMEs)</strong> — three
+families: acetyltransferases (AAC), phosphotransferases (APH),
+nucleotidyltransferases (ANT). Modify amino or hydroxyl groups on the
+drug, abolishing ribosome binding. Plasmid-encoded; &gt; 50 enzyme
+variants known.</li>
+<li><strong>Chloramphenicol acetyltransferase (CAT)</strong> —
+acetylates the drug.</li>
+<li><strong>Macrolide esterases / phosphotransferases</strong> (Ere,
+Mph) — less common than ribosomal methylation.</li>
+<li><strong>β-glucuronidases</strong> that activate the cancer drug
+irinotecan into its toxic form (gut bacteria; relevant for
+drug-drug-microbiome interactions).</li>
+</ul>
+<h3 id="mechanism-2-target-modification">Mechanism 2: Target
+Modification</h3>
+<p>Altering the drug target so the antibiotic no longer binds.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 24%" />
+<col style="width: 26%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr>
+<th>Antibiotic</th>
+<th>Original target</th>
+<th>Modified target</th>
+<th>Resistance mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>β-lactams</strong></td>
+<td>PBP2 (transpeptidase)</td>
+<td><strong>PBP2a</strong> in MRSA (encoded by <em>mecA</em>)</td>
+<td>Low-affinity transpeptidase that performs cross-linking even when
+normal PBPs are inhibited; SCC<em>mec</em> cassette mobile element</td>
+</tr>
+<tr>
+<td><strong>Vancomycin</strong></td>
+<td>D-Ala-D-Ala terminus of Lipid II</td>
+<td><strong>D-Ala-D-Lac</strong> (VanA, VanB) or
+<strong>D-Ala-D-Ser</strong> (VanC)</td>
+<td>One H-bond replaced by an oxygen lone pair; ≥ 1000-fold loss of
+vancomycin affinity</td>
+</tr>
+<tr>
+<td><strong>Macrolides, lincosamides, streptogramin B (MLS<span
+class="math inline">\(_B\)</span>)</strong></td>
+<td>23S rRNA peptidyl-transferase center</td>
+<td><strong>Methylated A2058 of 23S rRNA</strong> by Erm methylase</td>
+<td>Single methyl group blocks most three drug classes —
+cross-resistance</td>
+</tr>
+<tr>
+<td><strong>Aminoglycosides (high-level)</strong></td>
+<td>16S rRNA A-site</td>
+<td><strong>16S rRNA methylation</strong> by ArmA, RmtB, RmtC, RmtD</td>
+<td>Plasmid-borne; confers pan-aminoglycoside resistance</td>
+</tr>
+<tr>
+<td><strong>Linezolid</strong></td>
+<td>23S rRNA, U2504</td>
+<td><strong>G2576T or T2500A 23S rRNA mutation</strong>; <strong>cfr
+methylase</strong> (methylates A2503)</td>
+<td>Cfr also confers cross-resistance to phenicols, lincosamides,
+streptogramins, oxazolidinones (PhLOPS<span
+class="math inline">\(_A\)</span>)</td>
+</tr>
+<tr>
+<td><strong>Fluoroquinolones</strong></td>
+<td>DNA gyrase (GyrA, GyrB), topoisomerase IV (ParC, ParE)</td>
+<td><strong>Mutations in QRDR (quinolone-resistance-determining
+region)</strong>: GyrA Ser83, Asp87</td>
+<td>Stepwise mutations: each step adds resistance; <em>qnr</em> genes
+encode gyrase-protecting proteins (low-level)</td>
+</tr>
+<tr>
+<td><strong>Rifampin</strong></td>
+<td>RNA polymerase β subunit (RpoB)</td>
+<td><strong>RpoB mutations</strong>, especially Ser531Leu,
+His526Tyr</td>
+<td>Single mutations confer high-level resistance</td>
+</tr>
+<tr>
+<td><strong>Trimethoprim</strong></td>
+<td>DHFR (dihydrofolate reductase)</td>
+<td>Acquired <em>dfr</em> genes encoding drug-resistant DHFR;
+chromosomal mutations</td>
+<td>Bypass through alternative DHFR</td>
+</tr>
+<tr>
+<td><strong>Sulfonamides</strong></td>
+<td>DHPS (dihydropteroate synthase)</td>
+<td>Acquired <em>sul</em> genes; chromosomal mutations</td>
+<td>Bypass through alternative DHPS</td>
+</tr>
+<tr>
+<td><strong>Colistin (polymyxin)</strong></td>
+<td>LPS lipid A</td>
+<td><strong>mcr-1 phosphoethanolamine transferase</strong>
+(plasmid-borne, 2015 discovery, China); chromosomal <em>pmrAB /
+phoPQ</em> mutations</td>
+<td>Modifies lipid A phosphates → reduced affinity for cationic
+colistin</td>
+</tr>
+</tbody>
+</table>
+<p><strong>MRSA mechanism in detail.</strong> <em>S. aureus</em>
+resistant to methicillin and most earlier β-lactams carries the
+<strong>mecA gene</strong> on a mobile genetic element —
+<strong>SCC<em>mec</em></strong> (staphylococcal cassette chromosome
+mec). <em>mecA</em> encodes <strong>PBP2a</strong>, an alternative
+transpeptidase whose β-lactam-binding pocket has rearranged to
+drastically lower affinity. The K<span class="math inline">\(_i\)</span>
+for ceftriaxone increases from ~ 0.05 μM (PBP2) to ~ 50 μM (PBP2a). When
+normal PBPs are acylated by β-lactam, PBP2a can still cross-link cell
+wall, allowing growth. Newer <strong>5th-generation
+cephalosporins</strong> (ceftaroline, ceftobiprole) were specifically
+engineered with side chains that bind PBP2a and are now used clinically
+against MRSA.</p>
+<h3 id="mechanism-3-efflux-pumps">Mechanism 3: Efflux Pumps</h3>
+<p>Active export of antibiotics out of the cell, often accomplishing
+<strong>multi-drug resistance</strong> through a single pump system.</p>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 27%" />
+<col style="width: 29%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pump family</th>
+<th>Energy source</th>
+<th>Drugs effluxed</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RND (Resistance-Nodulation-Division)</strong></td>
+<td>Proton motive force</td>
+<td>β-lactams, fluoroquinolones, tetracyclines, chloramphenicol,
+macrolides</td>
+<td><strong>AcrAB-TolC</strong> (<em>E. coli</em>);
+<strong>MexAB-OprM</strong>, <strong>MexCD-OprJ</strong>,
+<strong>MexEF-OprN</strong>, <strong>MexXY-OprM</strong> (<em>P.
+aeruginosa</em>); <strong>AdeABC</strong> (<em>Acinetobacter</em>)</td>
+</tr>
+<tr>
+<td><strong>MFS (Major Facilitator Superfamily)</strong></td>
+<td>PMF</td>
+<td>Tetracyclines (TetA, TetB), macrolides (Mef), fluoroquinolones</td>
+<td>TetA, TetB; MdfA</td>
+</tr>
+<tr>
+<td><strong>MATE</strong></td>
+<td>PMF / Na<span class="math inline">\(^+\)</span> gradient</td>
+<td>Fluoroquinolones, aminoglycosides</td>
+<td>NorM (<em>V. parahaemolyticus</em>)</td>
+</tr>
+<tr>
+<td><strong>SMR (Small Multidrug Resistance)</strong></td>
+<td>PMF</td>
+<td>QACs, lipophilic cations</td>
+<td>EmrE</td>
+</tr>
+<tr>
+<td><strong>ABC (ATP-Binding Cassette)</strong></td>
+<td>ATP</td>
+<td>Macrolides, ketolides</td>
+<td>LmrA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>RND tripartite pumps</strong> in Gram-negatives are
+particularly devastating because they span the entire cell envelope: an
+inner-membrane efflux transporter (e.g., AcrB) coupled via a periplasmic
+adaptor (AcrA) to an outer-membrane channel (TolC). The pump exports
+drugs straight from the cytoplasm or inner membrane into the
+extracellular space, bypassing the periplasm. <em>P. aeruginosa</em>
+MexAB-OprM is the textbook example: constitutive expression confers
+intrinsic resistance to multiple drug classes; mutations in regulators
+(e.g., <em>nfxB</em>, <em>mexR</em>) cause overexpression and clinical
+failure.</p>
+<h3 id="mechanism-4-reduced-permeability">Mechanism 4: Reduced
+Permeability</h3>
+<p>Decreasing drug uptake by altering cell-envelope permeability.</p>
+<ul>
+<li><strong>Porin loss</strong> in Gram-negatives: deletions or
+down-regulation of OmpF, OmpC, OprD — particularly important for
+hydrophilic β-lactams and carbapenems. <strong>OprD loss in <em>P.
+aeruginosa</em></strong> confers imipenem resistance.</li>
+<li><strong>LPS modification</strong> in Gram-negatives: reduces
+hydrophobic-drug entry.</li>
+<li><strong>Mycobacterial cell wall</strong>: the mycolic-acid layer is
+intrinsically impermeable; <em>M. tuberculosis</em> is naturally
+resistant to most antibiotics.</li>
+</ul>
+<h3 id="mechanism-5-bypass-target-overproduction">Mechanism 5: Bypass /
+Target Overproduction</h3>
+<p>Producing more target or alternative target to dilute drug
+action.</p>
+<ul>
+<li><strong>Trimethoprim resistance via</strong> <em>dfr</em> genes that
+encode a drug-insensitive DHFR (target replacement).</li>
+<li><strong>Sulfonamide resistance via</strong> <em>sul</em> genes that
+encode a drug-insensitive DHPS.</li>
+<li><strong>Methotrexate resistance</strong> in cancer cells via DHFR
+overexpression — same principle in eukaryotes.</li>
+</ul>
+<h3
+id="resistance-in-action-a-pan-resistant-klebsiella-pneumoniae">Resistance
+in Action: A Pan-Resistant <em>Klebsiella pneumoniae</em></h3>
+<p>A clinical isolate from a 2019 outbreak in a Greek ICU was reported
+with the following resistance profile:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 39%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mechanism</th>
+<th>Genetic determinant</th>
+<th>Drug class affected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NDM-1</strong> (Class B MBL)</td>
+<td><em>bla</em><span class="math inline">\(_\text{NDM-1}\)</span> on
+plasmid</td>
+<td>Penicillins, cephalosporins, and carbapenems; aztreonam is spared by
+MBL chemistry but vulnerable to co-produced ESBLs</td>
+</tr>
+<tr>
+<td><strong>CTX-M-15</strong> ESBL (Class A)</td>
+<td><em>bla</em><span
+class="math inline">\(_\text{CTX-M-15}\)</span></td>
+<td>Cephalosporins (residual)</td>
+</tr>
+<tr>
+<td><strong>OXA-48</strong> (Class D)</td>
+<td><em>bla</em><span class="math inline">\(_\text{OXA-48}\)</span></td>
+<td>Carbapenems (residual)</td>
+</tr>
+<tr>
+<td><strong>mcr-1</strong></td>
+<td><em>mcr-1</em></td>
+<td>Colistin</td>
+</tr>
+<tr>
+<td><strong>Aac(6’)-Ib-cr</strong></td>
+<td>Plasmid</td>
+<td>Aminoglycosides + ciprofloxacin</td>
+</tr>
+<tr>
+<td><strong>rmtB</strong></td>
+<td>Plasmid</td>
+<td>Pan-aminoglycoside</td>
+</tr>
+<tr>
+<td><strong>AcrAB-TolC overexpression</strong></td>
+<td><em>ramA</em> mutation</td>
+<td>Multiple</td>
+</tr>
+<tr>
+<td><strong>GyrA Ser83Leu</strong></td>
+<td>Chromosome</td>
+<td>Fluoroquinolones</td>
+</tr>
+<tr>
+<td><strong>OmpK35 loss</strong></td>
+<td>Chromosome</td>
+<td>Reduced β-lactam entry</td>
+</tr>
+</tbody>
+</table>
+<p>Such isolates may have no reliable standard single-agent option, so
+treatment depends on isolate-specific susceptibility testing, source
+control, and expert consultation. Options can include cefiderocol,
+ceftazidime-avibactam plus aztreonam for some MBL-producing isolates,
+aminoglycoside or fosfomycin combinations when active, and
+investigational phage therapy. The case illustrates that resistance is
+<strong>modular and additive</strong>: each mechanism arrives
+independently, often on plasmids, and accumulates over time. This is why
+antibiotic stewardship, infection control, diagnostics, and new drug
+development must operate together.</p>
+<blockquote>
+<p><strong>Concept Check 6b:</strong> A <em>K. pneumoniae</em> isolate
+is resistant to the tested β-lactams including carbapenems (KPC-2
+carbapenemase), tigecycline (RamA-dependent AcrAB overexpression), and
+ciprofloxacin (GyrA + ParC mutations). The lab reports it as susceptible
+to colistin and ceftazidime-avibactam. Explain (a) why
+ceftazidime-avibactam works against KPC-2 specifically while ceftazidime
+alone would not, (b) why the same combination would fail against an
+NDM-producer, and (c) how ESBL-restricted versus carbapenemase-positive
+resistance is distinguished by the meropenem-EDTA versus
+meropenem-boronic-acid double-disk synergy test.</p>
+</blockquote>
+<hr />
+<h2 id="epidemiology-of-infectious-disease">Epidemiology of Infectious
+Disease</h2>
+<h3 id="key-epidemiological-metrics">Key Epidemiological Metrics</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 34%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Definition</th>
+<th>Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(R_0\)</span> (basic reproduction
+number)</td>
+<td>Mean secondary cases per primary case in fully susceptible
+population</td>
+<td>Determines epidemic potential; <span class="math inline">\(R_0 &gt;
+1\)</span> = epidemic growth</td>
+</tr>
+<tr>
+<td><span class="math inline">\(R_e\)</span> (effective reproduction
+number)</td>
+<td><span class="math inline">\(R_0 \times (1 - \text{fraction
+immune})\)</span>; real-time transmission</td>
+<td>Guides intervention: goal is <span class="math inline">\(R_e &lt;
+1\)</span></td>
+</tr>
+<tr>
+<td>CFR (case fatality rate)</td>
+<td>Deaths / confirmed cases</td>
+<td>Overestimates true mortality (denominator misses mild cases)</td>
+</tr>
+<tr>
+<td>IFR (infection fatality rate)</td>
+<td>Deaths / most infections (including asymptomatic)</td>
+<td>More accurate; requires seroprevalence data</td>
+</tr>
+<tr>
+<td>Incubation period</td>
+<td>Time from infection to symptom onset</td>
+<td>Determines quarantine duration</td>
+</tr>
+<tr>
+<td>Serial interval</td>
+<td>Time between symptom onset in successive cases</td>
+<td>Determines epidemic speed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="worked-example-estimating-r0-from-an-epidemic-curve">Worked
+Example: Estimating R0 from an Epidemic Curve</h3>
+<p><strong>Problem:</strong> Early in an outbreak, confirmed cases
+double every <span class="math inline">\(T_d = 3.0\)</span> days. The
+mean serial interval (time between symptom onset in successive cases) is
+<span class="math inline">\(T_s = 5.0\)</span> days. Estimate the basic
+reproduction number <span class="math inline">\(R_0\)</span>, then the
+herd-immunity threshold.</p>
+<p><strong>Solution:</strong></p>
+<ol type="1">
+<li><strong>Exponential growth rate <span
+class="math inline">\(r\)</span> from the doubling time.</strong> Early
+case counts grow as <span class="math inline">\(N(t) = N_0\,2^{t/T_d} =
+N_0\,e^{rt}\)</span>, so equating exponents gives <span
+class="math inline">\(r = \ln 2 / T_d\)</span>:</li>
+</ol>
+<p><span class="math display">\[ r = \frac{\ln 2}{T_d} =
+\frac{0.6931}{3.0} = 0.2310 \text{ day}^{-1}
+\label{eq:unit_VII_infectious_disease_item_3}\]</span></p>
+<ol start="2" type="1">
+<li><strong>Convert growth rate to <span
+class="math inline">\(R_0\)</span>.</strong> For a fixed
+(delta-distributed) serial interval, the renewal equation gives <span
+class="math inline">\(R_0 = e^{r T_s}\)</span>:</li>
+</ol>
+<p><span class="math display">\[ R_0 = e^{r T_s} = e^{0.2310 \times 5.0}
+= e^{1.155} = 3.17
+\label{eq:unit_VII_infectious_disease_item_4}\]</span></p>
+<p>(The simpler linear approximation <span class="math inline">\(R_0
+\approx 1 + r T_s = 1 + 0.2310 \times 5.0 = 2.16\)</span> is a lower
+bound that ignores serial-interval dispersion.)</p>
+<ol start="3" type="1">
+<li><strong>Herd-immunity threshold.</strong> Substituting <span
+class="math inline">\(R_0 = 3.17\)</span> into the herd-immunity
+relation <span class="math inline">\(p_c = 1 - 1/R_0\)</span> from
+:</li>
+</ol>
+<p><span class="math display">\[ p_c = 1 - \frac{1}{3.17} = 0.685
+\;\rightarrow\; 68.5\,\%
+\label{eq:unit_VII_infectious_disease_item_5}\]</span></p>
+<p><strong>Interpretation:</strong> A 3-day doubling time with a 5-day
+serial interval implies <span class="math inline">\(R_0 \approx
+3.2\)</span>, so roughly 69 % of the population must be immune to halt
+sustained transmission — a value consistent with an early
+pandemic-respiratory pathogen, and one that grows sharply if the
+doubling time shortens.</p>
+<h3 id="major-infectious-diseases">Major Infectious Diseases</h3>
+<p><strong>Tuberculosis</strong> (<em>Mycobacterium
+tuberculosis</em>):</p>
+<ul>
+<li>Global burden: an estimated 10.7 million people fell ill with TB in
+2024 and 1.23 million died, including 150,000 people with HIV . TB
+remains the leading cause of death from a single infectious agent and a
+major contributor to AMR-associated mortality.</li>
+<li>Transmission: Airborne droplet nuclei (1-5 μm); can remain suspended
+for hours</li>
+<li>Pathogenesis: Inhaled bacilli are phagocytosed by alveolar
+macrophages but arrest phagosome maturation (LAM inhibits PI3K -&gt;
+blocks Ca<span class="math inline">\(^{2+}\)</span>/calmodulin -&gt;
+prevents phagolysosomal fusion); survive within macrophages at pH 6.4
+instead of lethal pH 4.5</li>
+<li><strong>Granuloma</strong>: Hallmark of TB pathology – organized
+aggregate of infected macrophages, epithelioid cells, multinucleated
+giant cells, and T cells; hypoxic caseous necrotic center; both contains
+and protects the bacilli</li>
+<li>Latent TB: 90-95% of infected individuals contain the infection as
+LTBI (latent TB infection); 5-10% lifetime risk of reactivation,
+increased by HIV, immunosuppression, malnutrition</li>
+<li>Treatment: standard drug-susceptible pulmonary TB is treated with a
+multi-drug rifamycin-based regimen, classically 6 months of isoniazid +
+rifampicin + pyrazinamide + ethambutol followed by continuation therapy;
+adherence support matters because metabolically slow bacilli and
+granuloma drug penetration make undertreatment risky.</li>
+<li><strong>MDR/RR-TB</strong> (multidrug-resistant or
+rifampicin-resistant TB), <strong>pre-XDR-TB</strong> (MDR/RR-TB with
+fluoroquinolone resistance), and <strong>XDR-TB</strong> (MDR/RR-TB plus
+resistance to a fluoroquinolone and at least one additional Group A drug
+such as bedaquiline or linezolid) remain major AMR threats. WHO’s
+consolidated 2025 treatment guidance now prioritises shorter most-oral
+regimens for eligible patients, including 6-month BPaLM/BPaL-based
+options, while reserving longer individualized regimens for resistance,
+toxicity, pregnancy/age limits, extrapulmonary disease, or poor early
+response .</li>
+</ul>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;Patient with confirmed TB&quot;] --&gt; B{&quot;Rifampicin resistance or MDR-TB?&quot;}
+    B --&gt;|&quot;No&quot;| C[&quot;Drug-susceptible regimen with adherence support&quot;]
+    B --&gt;|&quot;Yes&quot;| D[&quot;Baseline susceptibility testing&quot;]
+    D --&gt; E{&quot;Fluoroquinolone susceptible?&quot;}
+    E --&gt;|&quot;Yes, eligible&quot;| F[&quot;Consider 6-month BPaLM: bedaquiline, pretomanid, linezolid, moxifloxacin&quot;]
+    E --&gt;|&quot;No or moxifloxacin unsuitable&quot;| G[&quot;Consider BPaL without moxifloxacin if otherwise eligible&quot;]
+    D --&gt; H{&quot;Exclusion or high-risk feature?&quot;}
+    H --&gt;|&quot;Pregnancy, age limits, toxicity, extrapulmonary disease, poor response&quot;| I[&quot;Individualized longer regimen and specialist review&quot;]
+    H --&gt;|&quot;None&quot;| F
+    F --&gt; J[&quot;Monitor adverse events, culture response, adherence&quot;]
+    G --&gt; J
+    I --&gt; J</code></pre>
+<!-- alt: Flowchart showing TB regimen decision schematic. WHO's shorter BPaLM/BPaL options are eligibility-dependent tools for MDR/RR-TB, not a comprehensive replacement for susceptibility testing, toxicity monitoring, or individualized care . -->
+<p><em>TB regimen decision schematic. WHO’s shorter BPaLM/BPaL options
+are eligibility-dependent tools for MDR/RR-TB, not a comprehensive
+replacement for susceptibility testing, toxicity monitoring, or
+individualized care .</em></p>
+<ul>
+<li>Global burden: an estimated 282 million cases and 610,000 deaths in
+2024 across 80 countries . The WHO African Region still accounts for the
+overwhelming majority of cases and deaths, with young children carrying
+the greatest mortality burden.</li>
+<li>Species: <em>P. falciparum</em> (most lethal; 99% of deaths), <em>P.
+vivax</em> (most widespread; hypnozoites cause relapse), <em>P.
+malariae</em>, <em>P. ovale</em>, <em>P. knowlesi</em> (zoonotic, from
+macaques)</li>
+<li>Transmission: Female <em>Anopheles</em> mosquito vector; sporozoites
+injected during blood meal</li>
+<li>Life cycle: Sporozoites -&gt; liver (hepatocyte invasion,
+asymptomatic) -&gt; merozoites -&gt; erythrocyte invasion (clinical
+disease: cyclic fever every 48-72 hours synchronized with schizogony)
+-&gt; some become gametocytes (taken up by mosquito)</li>
+<li>Immune evasion: <em>P. falciparum</em> erythrocyte membrane protein
+1 (PfEMP1) expressed on infected RBC surface mediates cytoadherence
+(sticking to endothelium, avoiding splenic clearance) and rosetting; ~60
+<em>var</em> genes enable antigenic variation</li>
+<li>Vaccine: RTS,S/AS01E (Mosquirix): first approved malaria vaccine
+(2021); targets circumsporozoite protein; protection is partial and
+wanes without booster dosing. R21/Matrix-M is now the second
+WHO-recommended malaria vaccine; both are best understood as additions
+to bed nets, chemoprevention, diagnosis, and vector control rather than
+replacements .</li>
+<li>Treatment: Artemisinin-based combination therapy (ACT); artemisinin
+resistance emerging in Southeast Asia (K13 propeller mutations)</li>
+<li>Vector control frontier: WHO issued a 2025 conditional
+recommendation for indoor <strong>spatial emanators</strong> (also
+called spatial repellents) as an additional tool in areas with ongoing
+transmission, used alongside insecticide-treated nets rather than
+replacing them. These devices release active ingredients such as
+transfluthrin into indoor air to repel, disorient, or kill mosquitoes,
+with evidence strongest for added indoor protection and remaining gaps
+for standalone use, outdoor protection, humanitarian settings, and
+resistance management .</li>
+</ul>
+<pre class="mermaid"><code>flowchart LR
+    A[&quot;Malaria prevention decision&quot;] --&gt; B[&quot;Long-lasting insecticide-treated nets&quot;]
+    A --&gt; C[&quot;Indoor residual spraying&quot;]
+    A --&gt; D[&quot;Spatial emanators&quot;]
+    A --&gt; E[&quot;Vaccination and chemoprevention&quot;]
+    B --&gt; F[&quot;Night-time sleeping protection&quot;]
+    C --&gt; G[&quot;Wall-resting mosquito mortality&quot;]
+    D --&gt; H[&quot;Indoor airspace protection during household activity&quot;]
+    E --&gt; I[&quot;Reduced infection or severe disease risk&quot;]
+    F --&gt; J[&quot;Layered local control package&quot;]
+    G --&gt; J
+    H --&gt; J
+    I --&gt; J</code></pre>
+<!-- alt: Flowchart showing malaria vector-control comparison. Spatial emanators add an indoor airspace tool to nets and spraying, but local programmes still need entomological surveillance, insecticide-resistance monitoring, and equity-aware deployment. -->
+<p><em>Malaria vector-control comparison. Spatial emanators add an
+indoor airspace tool to nets and spraying, but local programmes still
+need entomological surveillance, insecticide-resistance monitoring, and
+equity-aware deployment.</em></p>
+<p><strong>HIV/AIDS</strong>:</p>
+<ul>
+<li>Global burden: an estimated 40.8 million people were living with HIV
+at the end of 2024, with about 1.3 million new infections in 2024 and
+AIDS-related deaths far below their early-2000s peak but still above
+global targets .</li>
+<li>Pathogenesis: Progressive depletion of CD4<span
+class="math inline">\(^+\)</span> T cells; AIDS defined as CD4 count
+&lt;200 cells/μL or AIDS-defining illness</li>
+<li><strong>ART</strong> (antiretroviral therapy): Combination of 3+
+drugs from different classes; suppresses viral load to undetectable
+(&lt;50 copies/mL); near-normal life expectancy if initiated early; does
+not cure (latent proviral reservoir in resting CD4<span
+class="math inline">\(^+\)</span> memory T cells persists for
+decades)</li>
+<li><strong>PrEP</strong> (pre-exposure prophylaxis): Oral TDF/FTC or
+TAF/FTC remains highly effective when taken as prescribed; long-acting
+injectable cabotegravir and twice-yearly lenacapavir add
+adherence-sparing options. FDA approved lenacapavir PrEP in 2025, and
+CDC guidance reports trial efficacy of 100% in a cisgender-female trial
+and 96% in a primarily male trial over 52 weeks .</li>
+<li><strong>U=U</strong> (Undetectable = Untransmittable): Individuals
+with sustained undetectable viral load on ART cannot sexually transmit
+HIV (PARTNER study, HPTN 052)</li>
+</ul>
+<p><strong>Influenza</strong>:</p>
+<ul>
+<li>RNA virus (Orthomyxoviridae); 8 segmented (-)ssRNA genome
+segments</li>
+<li>Surface glycoproteins: hemagglutinin (HA, 18 subtypes) and
+neuraminidase (NA, 11 subtypes); nomenclature: H1N1, H3N2, etc.</li>
+<li>See “Antigenic Variation” section above for full discussion of drift
+and shift.</li>
+</ul>
+<h3 id="one-health-and-emerging-pathogens">One Health and Emerging
+Pathogens</h3>
+<p>The <strong>One Health</strong> framework recognizes the
+interconnection of human, animal, and environmental health:</p>
+<ul>
+<li>Over 70% of emerging infectious diseases are
+<strong>zoonotic</strong> (originating from animal reservoirs).</li>
+<li>Drivers of emergence: deforestation and habitat destruction
+(increasing human-wildlife contact), wildlife trade (live animal
+markets), climate change (expanding vector ranges), intensive animal
+agriculture (influenza reassortment, AMR selection).</li>
+<li>Examples: SARS-CoV-2 (probable bat origin via intermediate host),
+Ebola (bat reservoir), avian influenza H5N1 (poultry), Nipah
+(bat-to-pig-to-human), Lyme disease (deer-tick-mouse cycle expanding
+with climate change), mpox (rodent reservoirs in West/Central
+Africa).</li>
+<li>AMR as a One Health issue: antibiotic exposure in people, food
+animals, aquaculture, and shared environments selects for resistance
+genes that can move through water, soil, food chains, plasmids, and
+mobile genetic elements. Stewardship therefore has to cover prescribing,
+veterinary practice, sanitation, surveillance, and access to effective
+treatment .</li>
+<li>Fungal disease also belongs in the AMR frame: the WHO fungal
+priority pathogens list highlights <em>Candida auris</em>,
+<em>Aspergillus fumigatus</em>, <em>Cryptococcus neoformans</em>, and
+other fungi where limited diagnostics, few drug classes,
+immunocompromised hosts, and agricultural azole exposure make resistance
+a One Health problem rather than a hospital-confined issue . CDC
+guidance treats <em>Candida auris</em> as a healthcare-transmissible
+yeast that is often multidrug-resistant, can colonise patients without
+symptoms, persists on surfaces, requires sequencing or mass spectrometry
+for reliable identification, and should be treated primarily when
+causing clinical infection; echinocandins remain typical initial adult
+therapy, but echinocandin-resistant and pan-resistant reports are
+increasing . Mechanistically, the warning is that AMR phenotypes are
+assembled from enzymes, target changes, efflux, permeability shifts,
+biofilms, tolerance states, and mobile genetic elements; the same
+resistance label can hide different treatment constraints.</li>
+</ul>
+<p><strong>Spillover risk factors.</strong> Modern surveillance and
+modelling have identified several quantifiable predictors of zoonotic
+spillover risk:</p>
+<ol type="1">
+<li><strong>Phylogenetic distance</strong> — viruses from primates spill
+more easily than viruses from rodents than from invertebrates.</li>
+<li><strong>Receptor compatibility</strong> — ACE2 in bats, civets, and
+humans is similar enough to permit SARS-CoV-2 cross-species
+transmission; H5N1 sialic-acid receptor preference shifts (α-2,3 →
+α-2,6) signal mammalian adaptation.</li>
+<li><strong>Population density at the human-animal interface</strong> —
+wet markets, intensive agriculture, deforestation edges.</li>
+<li><strong>Reservoir host species richness</strong> — Bat species
+richness correlates with the number of zoonotic viruses; rodents are
+similarly important but underrecognised.</li>
+<li><strong>Anthropogenic disruption</strong> — deforestation, climate
+change, urbanisation increase contact rates.</li>
+</ol>
+<p><strong>The PREDICT and Global Virome Project</strong> approaches
+systematically sample wildlife to catalog viral diversity and identify
+high-risk lineages <strong>before</strong> spillover. By 2026,
+sequencing &gt; 200,000 viral genomes from &gt; 30,000 animals across
+&gt; 30 countries has identified ~ 10,000 candidate zoonotic viruses, of
+which ~ 1700 share key receptor-binding features with known human
+pathogens — a sobering reservoir.</p>
+<blockquote>
+<p><strong>Clinical Connection: Antibiotic Stewardship and Real-Time
+Resistance Surveillance</strong> The WHO has declared antimicrobial
+resistance one of the top 10 global public health threats. An estimated
+1.27 million deaths were directly attributable to bacterial AMR in 2019
+. The O’Neill review’s 10-million-deaths-per-year scenario is a policy
+warning about uncontrolled resistance, not an inevitable destiny .
+Genomic surveillance networks such as the CDC AR Lab Network and WHO
+GLASS now track carbapenemases, <em>mcr</em> genes, and emerging
+plasmids across hospitals and regions. The lesson from SARS-CoV-2 —
+pathogen genomes can be sequenced and interpreted at population scale —
+is being adapted to bacterial AMR, where slower growth and horizontal
+gene transfer make the analysis more complicated.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 7:</strong> Trace a potential pandemic pathway
+from deforestation in Southeast Asia. Identify (a) the ecological
+factors that elevate spillover risk, (b) the molecular features
+(receptor compatibility, reassortment potential) that determine human
+transmissibility, (c) the early-warning indicators that PREDICT-style
+surveillance would detect, and (d) the One Health interventions that
+could reduce future risk.</p>
+</blockquote>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>Early outbreak growth is often sketched with discrete exponential
+models:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.ecology <span class="im">import</span> exponential_growth</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>series <span class="op">=</span> exponential_growth(N0<span class="op">=</span><span class="fl">20.0</span>, r<span class="op">=</span><span class="fl">0.3</span>, t_end<span class="op">=</span><span class="fl">12.0</span>, steps<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">round</span>(series.populations[<span class="op">-</span><span class="dv">1</span>], <span class="dv">2</span>))</span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> <span
+class="math inline">\(R_e\)</span> reductions from vaccines behave like
+lowering effective <span class="math inline">\(r\)</span> in these
+caricatures; heterogeneity in contact networks breaks the homogeneous
+assumption.</p>
+</blockquote>
+<hr />
+<h3
+id="mrna-vaccine-platforms-from-lab-curiosity-to-global-deployment">mRNA
+Vaccine Platforms: From Lab Curiosity to Global Deployment</h3>
+<p>Messenger RNA vaccines — once a neglected technology because of
+mRNA’s instability and strong innate-immune activation — became the <a
+href="#gl:dominant"><strong>dominant</strong></a> pandemic response
+platform between 2020 and 2023. <strong>BNT162b2 (Pfizer–BioNTech) and
+mRNA-1273 (Moderna)</strong> demonstrated ≥ 94 % efficacy against
+symptomatic COVID-19 in phase III trials (&gt; 40 000 participants each)
+within <strong>11 months from pathogen identification</strong> — an
+unprecedented pace driven entirely by the modularity of the platform:
+once a lipid-nanoparticle delivery system and a nucleoside-modified mRNA
+scaffold are validated, swapping the antigen-coding sequence is a matter
+of days.</p>
+<p>Three molecular innovations make mRNA vaccines work. <strong>(1)
+Nucleoside modification</strong> — substituting uridines with
+<strong>pseudouridine (Ψ) or 1-methyl-pseudouridine (m1Ψ)</strong>
+(Karikó &amp; Weissman, Nobel Prize 2023) reduces TLR7/8 activation and
+blocks 2’-5’-oligoadenylate synthetase / RNase L degradation, so <a
+href="#gl:translation"><strong>translation</strong></a> is 10–100× more
+efficient and innate-immune activation is manageable. <strong>(2) Lipid
+nanoparticle (LNP) delivery</strong> — a four-component formulation
+(ionisable lipid ALC-0315 or SM-102, phospholipid DSPC, cholesterol,
+PEG-lipid) self-assembles into ~80 nm particles that endocytose into
+dendritic cells; at endosomal pH ~5 the ionisable lipid becomes
+cationic, fusing with the endosome and releasing mRNA into the
+cytoplasm. <strong>(3) Antigen design</strong> — the SARS-CoV-2 spike is
+locked in the prefusion conformation by two proline substitutions
+(<strong>2P mutation</strong>) that preserve neutralising epitopes.
+Manufacturing uses <em>in vitro</em> transcription from linear DNA
+templates (T7 polymerase), capping with CleanCap analogue, and
+microfluidic LNP assembly — a single ~20 000 L bioreactor run can
+produce &gt; 1 billion doses. Remaining challenges: cold-chain
+dependence (though ARCT-154 self-amplifying mRNA vaccines stable at 2–8
+°C are in trials), rare myocarditis risk in young males (~1–10 per 100
+000 doses, typically mild and self-limiting), and waning antibody titres
+(6-month boosting needed). The platform is now extending to influenza
+(mRNA-1010), RSV (mRNA-1345, approved 2024), and personalised cancer
+neoantigen vaccines (mRNA-4157, phase III for melanoma).</p>
+<h3
+id="cgassting-innate-cytosolic-dna-sensing-and-anti-tumour-immunity">cGAS–STING:
+Innate Cytosolic DNA Sensing and Anti-Tumour Immunity</h3>
+<p><strong>Cyclic GMP–AMP synthase (cGAS)</strong> is a cytosolic DNA
+sensor identified in 2013 (Chen lab) that binds double-stranded DNA
+non-sequence-specifically and, upon DNA engagement, synthesises the
+second messenger <strong>2’3’-cyclic GMP–AMP (2’3’-cGAMP)</strong> from
+ATP and GTP. 2’3’-cGAMP binds the ER-resident adaptor <strong>STING
+(Stimulator of Interferon Genes)</strong>, driving TBK1 phosphorylation
+of IRF3 and thus <strong>Type I interferon (IFN-α/β)</strong>
+transcription. Evolutionarily, the pathway detects pathogen-derived or
+mis-localised self-DNA — cytosolic DNA is otherwise absent in healthy
+cells.</p>
+<p>Three rapid-fire translational applications: <strong>(1) Cancer
+immunotherapy</strong> — dying tumour cells release DNA that, once
+dendritic cells endocytose it, activates cGAS–STING, priming CD8⁺ T-cell
+responses. STING agonists (ADU-S100, MK-1454, diABZI) are in &gt; 30
+oncology clinical trials; <strong>radiation therapy</strong> is an
+accidental STING activator (sub-lethal DNA damage → micronuclei →
+cytosolic DNA). <strong>(2) Autoimmunity</strong> — gain-of-function
+STING mutations cause <strong>SAVI (STING-associated
+vasculopathy)</strong>, a paediatric interferonopathy with pulmonary
+fibrosis and skin ulcerations; chronic cGAS–STING activation also
+contributes to <strong>age-related inflammation</strong> as
+mitochondrial and cytosolic DNA accumulate. <strong>(3) Anti-viral
+defence</strong> — SARS-CoV-2 ORF9b, HSV-1 ICP27, and HIV-1 capsid most
+suppress cGAS–STING, demonstrating its evolutionary importance as a
+front-line sensor. The pathway is now a canonical example of how
+fundamental discovery (2013) can translate to phase III oncology trials
+in under a decade.</p>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Infectious Disease and Immunity</strong>, frontier
+biology belongs inside the evidence logic of the chapter. Microbiology
+and infectious disease now require One Health reasoning across people,
+animals, environments, genomics, and antimicrobial stewardship. The core
+reading question is this: infectious-disease reasoning should connect
+pathogen biology, transmission, immunity, diagnostics, interventions,
+and equity.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>For AMR and pathogen claims, name the organism-resistance pair, the
+selection pressure, the transmission route, and the surveillance
+evidence that would change triage .</p>
+<p><strong>Source practice:</strong> For pathogen, AMR, and intervention
+claims, tie statements to organism-resistance pairs, surveillance
+evidence, official guidance, and trial/regulatory status .</p>
+<h3
+id="current-evidence-map-intervention-choice-across-pathogens">Current
+Evidence Map: Intervention Choice Across Pathogens</h3>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;Pathogen and setting&quot;] --&gt; B[&quot;Transmission route&quot;]
+    B --&gt; C[&quot;Diagnostic evidence&quot;]
+    C --&gt; D[&quot;Resistance or immune status&quot;]
+    D --&gt; E[&quot;Drug, vaccine, or vector tool&quot;]
+    E --&gt; F[&quot;Adherence and equity&quot;]
+    F --&gt; G[&quot;Surveillance feedback&quot;]</code></pre>
+<!-- alt: Flowchart showing TB regimens, malaria spatial emanators, lenacapavir PrEP, Candida auris control, and Long COVID mechanisms require matching intervention to evidence and setting . -->
+<p><em>TB regimens, malaria spatial emanators, lenacapavir PrEP, Candida
+auris control, and Long COVID mechanisms require matching intervention
+to evidence and setting .</em></p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Koch’s postulates</strong> remain foundational for
+establishing disease causation but have important limitations
+(asymptomatic carriers, unculturable organisms, polymicrobial disease).
+Molecular Koch’s postulates extend the framework to virulence
+genes.</li>
+<li><strong>Virulence factors</strong> include adhesins (pili, FimH),
+invasion machinery (T3SS), toxins (A-B exotoxins: cholera, diphtheria,
+tetanus, botulinum; endotoxin/LPS), capsules, and immune evasion
+strategies (protein A, antigenic variation, phagosome arrest).</li>
+<li><strong><a href="#gl:innate-immunity">Innate immunity</a></strong>
+provides immediate, non-specific defense: barriers (skin, mucus, acid,
+lysozyme, defensins), PRRs (TLRs, NLRs, RIG-I, cGAS-STING) → NF-κB +
+IRF3 → cytokines + type I IFN; <strong>complement</strong> with three
+pathways (classical via C1q, lectin via MBL/MASPs, alternative via
+spontaneous C3 tickover) converging at C3 convertase, then C5 cleavage
+and MAC formation; cellular effectors (neutrophils with MPO/HOCl
+oxidative burst and NETosis, macrophages M1/M2, NK cells with
+missing-self via inhibitory KIRs and induced-self via NKG2D).</li>
+<li><strong>Adaptive immunity</strong>: V(D)J recombination generates
+diverse TCRs and BCRs; MHC-I presents endogenous peptides to CD8<span
+class="math inline">\(^+\)</span> CTLs; MHC-II presents exogenous
+peptides to CD4<span class="math inline">\(^+\)</span> T helpers (Th1,
+Th2, Th17, Treg, Tfh); B cells undergo germinal center reactions (SHM,
+affinity maturation, CSR) producing high-affinity class-switched
+antibodies and long-lived memory.</li>
+<li><strong>Vaccines</strong> exploit immunological memory: eight
+platforms (live attenuated, inactivated, subunit, VLP, toxoid,
+conjugate, mRNA, viral vector) span the spectrum from MMR (single-dose
+lifetime immunity) to mRNA (rapid platform with 48-hour design cycle).
+Herd-immunity threshold <span class="math inline">\(p_c = 1 -
+1/R_0\)</span> () — measles requires &gt; 93 %, polio ~ 80 %, original
+COVID-19 ~ 60 %, but Omicron-era <span class="math inline">\(R_0 \sim
+10\)</span> combined with imperfect vaccine efficacy can exceed
+achievable coverage.</li>
+<li><strong>Antigenic variation</strong> in influenza occurs via gradual
+drift (HA point mutations → seasonal epidemics) and abrupt shift
+(segment reassortment in animal reservoirs → pandemics: 1918, 1957,
+1968, 2009). HIV reverse transcriptase (3 × 10⁻⁵ errors/bp/cycle)
+generates a quasi-species cloud that defeats monotherapy and complicates
+vaccine development.</li>
+<li><strong>Antibiotic resistance</strong> falls into five categories:
+enzymatic inactivation (β-lactamases — Class A/B/C/D Ambler; AMEs; CAT;
+ESBLs and carbapenemases KPC/NDM/OXA-48); target modification (PBP2a in
+MRSA; D-Ala-D-Lac in VRE; 23S methylation in MLS; gyrase QRDR
+mutations); efflux (RND tripartite pumps AcrAB-TolC, MexAB-OprM,
+AdeABC); reduced permeability (porin loss); and bypass / target
+overproduction (Dfr, Sul). Pan-resistant ESKAPE isolates combine
+multiple mechanisms simultaneously.</li>
+<li><strong>Major infectious diseases</strong>: TB (granuloma, phagosome
+arrest, MDR/XDR crisis), malaria (erythrocyte invasion, PfEMP1 antigenic
+variation, artemisinin resistance), HIV (CD4 depletion, latent
+reservoir, ART, PrEP, U=U), influenza (antigenic drift/shift, pandemic
+potential).</li>
+<li><strong>One Health and emerging pathogens</strong>: &gt; 70 % of
+emerging infections are zoonotic; deforestation, climate change,
+wildlife trade, and agricultural antibiotic use drive emergence and AMR.
+PREDICT-style surveillance now catalogs &gt; 10 000 candidate zoonotic
+viruses for early-warning monitoring.</li>
+<li><strong>Connections:</strong> See for pathogen biology, for
+microbiome colonisation resistance, and for demographic models.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Koch’s postulates</strong></td>
+<td>Four criteria for establishing that a specific microorganism causes
+a specific disease</td>
+</tr>
+<tr>
+<td><strong>Virulence factor</strong></td>
+<td>Microbial product or strategy that contributes to pathogenicity
+(adhesins, toxins, capsules, immune evasion)</td>
+</tr>
+<tr>
+<td><strong>Exotoxin</strong></td>
+<td>Secreted bacterial protein toxin; often A-B structure (cholera,
+diphtheria, tetanus, botulinum)</td>
+</tr>
+<tr>
+<td><strong>Endotoxin (LPS)</strong></td>
+<td>Gram-negative outer membrane component released upon lysis;
+activates TLR4; causes fever, septic shock</td>
+</tr>
+<tr>
+<td><strong>PAMP</strong></td>
+<td>Pathogen-Associated Molecular Pattern – conserved microbial
+structure detected by host PRRs</td>
+</tr>
+<tr>
+<td><strong><a href="#gl:toll-like-receptor">Toll-like receptor
+(TLR)</a></strong></td>
+<td>Membrane-bound PRR that recognizes PAMPs and initiates innate immune
+signaling</td>
+</tr>
+<tr>
+<td><strong>Inflammasome</strong></td>
+<td>Intracellular multiprotein complex (NLRP3-ASC-caspase-1) that
+processes IL-1β and IL-18 and triggers pyroptosis</td>
+</tr>
+<tr>
+<td><strong>Complement</strong></td>
+<td>Plasma protein cascade with three pathways (classical via
+C1q-antibody, lectin via MBL-carbohydrate, alternative via spontaneous
+C3 hydrolysis) converging at the C3 convertase</td>
+</tr>
+<tr>
+<td><strong>C3 convertase</strong></td>
+<td>Central enzyme of complement (C4b2a or C3bBb) that cleaves C3 into
+C3a (anaphylatoxin) and C3b (opsonin)</td>
+</tr>
+<tr>
+<td><strong>MAC</strong></td>
+<td>Membrane attack complex (C5b-C9<span
+class="math inline">\(_n\)</span>); 10-nm pore that osmotically lyses
+Gram-negative bacteria</td>
+</tr>
+<tr>
+<td><strong>Factor H</strong></td>
+<td>Soluble alternative-pathway regulator that binds C3b on self
+surfaces; co-opted by <em>Neisseria</em> to evade complement</td>
+</tr>
+<tr>
+<td><strong>NETosis</strong></td>
+<td>Programmed neutrophil death pathway in which decondensed chromatin
+is extruded as antimicrobial extracellular traps; PAD4-dependent</td>
+</tr>
+<tr>
+<td><strong>Missing-self hypothesis</strong></td>
+<td>Ljunggren-Karre model: NK cells kill cells lacking inhibitory MHC-I
+signals</td>
+</tr>
+<tr>
+<td><strong>NKG2D</strong></td>
+<td>Activating NK-cell receptor recognising stress-induced ligands
+(MICA/B, ULBPs); the “induced-self” sensor</td>
+</tr>
+<tr>
+<td><strong>MHC class I</strong></td>
+<td>Presents endogenous peptides to CD8<span
+class="math inline">\(^+\)</span> CTLs; expressed on most nucleated
+cells</td>
+</tr>
+<tr>
+<td><strong>MHC class II</strong></td>
+<td>Presents exogenous peptides to CD4<span
+class="math inline">\(^+\)</span> T helpers; expressed on professional
+APCs</td>
+</tr>
+<tr>
+<td><strong>Clonal selection</strong></td>
+<td>Antigen selects and expands primarily the specific lymphocyte clone
+with matching receptor</td>
+</tr>
+<tr>
+<td><strong>Affinity maturation</strong></td>
+<td>Progressive improvement of antibody affinity through somatic
+hypermutation and selection in germinal centers</td>
+</tr>
+<tr>
+<td><strong>Class switch recombination</strong></td>
+<td>AID-mediated change of antibody constant region (IgM -&gt; IgG, IgA,
+or IgE) preserving antigen specificity</td>
+</tr>
+<tr>
+<td><strong>Herd immunity threshold</strong></td>
+<td><span class="math inline">\(p_c = 1 - 1/R_0\)</span>; fraction of
+population that must be immune to prevent sustained transmission</td>
+</tr>
+<tr>
+<td><strong><span class="math inline">\(R_0\)</span></strong></td>
+<td>Basic reproduction number; mean secondary infections per primary
+case in fully susceptible population</td>
+</tr>
+<tr>
+<td><strong>Antigenic drift</strong></td>
+<td>Gradual mutation of surface antigens (influenza HA/NA) producing
+seasonal variants</td>
+</tr>
+<tr>
+<td><strong>Antigenic shift</strong></td>
+<td>Reassortment of genome segments between different influenza strains
+producing novel pandemic subtypes</td>
+</tr>
+<tr>
+<td><strong>Quasi-species</strong></td>
+<td>The mutant cloud generated by an error-prone polymerase (HIV reverse
+transcriptase, RNA-virus RdRp) — the substrate of within-host
+evolution</td>
+</tr>
+<tr>
+<td><strong>VLP (virus-like particle)</strong></td>
+<td>Self-assembled viral capsid lacking genome; basis of HPV (Gardasil)
+and HBV vaccines</td>
+</tr>
+<tr>
+<td><strong>mRNA vaccine</strong></td>
+<td>LNP-encapsulated, nucleoside-modified mRNA that the host translates
+into antigen; e.g., BNT162b2, mRNA-1273</td>
+</tr>
+<tr>
+<td><strong>β-lactamase</strong></td>
+<td>Enzyme that hydrolyses β-lactam antibiotics; Ambler classes A/C/D
+(serine) and B (metallo); ESBLs, KPC, NDM, OXA</td>
+</tr>
+<tr>
+<td><strong>PBP2a</strong></td>
+<td>Alternative penicillin-binding protein in MRSA, encoded by
+<em>mecA</em>; low β-lactam affinity</td>
+</tr>
+<tr>
+<td><strong>AcrAB-TolC, MexAB-OprM</strong></td>
+<td>Tripartite RND-family efflux pumps spanning the entire Gram-negative
+cell envelope; major multi-drug resistance mechanism</td>
+</tr>
+<tr>
+<td><strong>mcr-1</strong></td>
+<td>Plasmid-borne phosphoethanolamine transferase; first transferable
+colistin resistance gene (China, 2015)</td>
+</tr>
+<tr>
+<td><strong>ART</strong></td>
+<td>Antiretroviral therapy; combination drug regimen that suppresses HIV
+viral load to undetectable levels</td>
+</tr>
+<tr>
+<td><strong>One Health</strong></td>
+<td>Framework recognizing the interconnection of human, animal, and
+environmental health in infectious disease and AMR</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li><p>Apply Koch’s postulates to <em>Helicobacter pylori</em> and
+peptic ulcer disease. Barry Marshall famously fulfilled these postulates
+by self-experimentation in 1984. Identify which postulate was most
+difficult to satisfy and explain why the medical establishment was
+initially skeptical.</p></li>
+<li><p>Compare the mechanisms of action of cholera toxin and diphtheria
+toxin. Both use A-B structure and ADP-ribosylation, but they target
+different host proteins. Explain how the same enzymatic mechanism
+(ADP-ribosylation) produces completely different clinical
+outcomes.</p></li>
+<li><p>A patient with terminal complement component deficiency (C5-C9)
+presents with recurrent <em>Neisseria meningitidis</em> infections.
+Explain why this specific pathogen is problematic in MAC deficiency
+while most other bacterial infections are handled normally. What does
+this tell you about the relative importance of opsonization versus MAC
+lysis for different pathogens?</p></li>
+<li><p>Describe the molecular events of T cell activation, including
+most three signals. Explain why Signal 2 (co-stimulation) is critical
+for preventing autoimmunity, and predict what would happen if a
+pharmaceutical agent blocked B7-CD28 interaction globally.</p></li>
+<li><p>A mother’s IgG antibodies cross the placenta and protect the
+newborn for the first 3-6 months of life. Explain why this passive
+immunity wanes and why active vaccination is necessary starting at 2
+months. Which antibody class is most important in breast milk, and how
+does it protect the infant’s mucosal surfaces?</p></li>
+<li><p><strong>Herd immunity calculation.</strong> Calculate from the
+herd immunity threshold for a novel respiratory pathogen with <span
+class="math inline">\(R_0 = 8\)</span>. If a vaccine with 90% efficacy
+is available, what percentage of the population must be vaccinated to
+achieve herd immunity? Show your work using the formula <span
+class="math inline">\(p_v = p_c / E\)</span>.</p></li>
+<li><p>Explain why tuberculosis treatment requires 6-9 months of
+multi-drug therapy while most bacterial infections are treated with 7-14
+days of a single antibiotic. Include the concepts of metabolically
+dormant persisters, granuloma pharmacokinetics, and the rationale for
+combination therapy.</p></li>
+<li><p><strong>Drift vs shift.</strong> Compare antigenic drift and
+antigenic shift in influenza. Explain why antigenic shift can produce
+pandemics while antigenic drift produces seasonal epidemics. Why is
+influenza A (but not influenza B) capable of antigenic shift, and what
+role do animal reservoirs play? How does the HIV quasi-species cloud
+differ mechanistically from influenza, and why does each strategy defeat
+conventional vaccine design?</p></li>
+<li><p>The mRNA COVID-19 vaccines (BNT162b2, mRNA-1273) demonstrated
+~95% efficacy in clinical trials but this declined over time and with
+new variants. Explain: (a) the immunological mechanism of mRNA vaccines,
+(b) why booster doses are needed (waning immunity vs. antigenic
+evolution), and (c) how the N1-methylpseudouridine modification improves
+mRNA vaccine performance.</p></li>
+<li><p>Using the One Health framework, explain how deforestation in
+Southeast Asia could lead to a novel pandemic. Trace the pathway from
+habitat destruction to zoonotic spillover, identifying the ecological,
+virological, and epidemiological factors at each step.</p></li>
+<li><p>Derive the herd immunity threshold <span
+class="math inline">\(p_c = 1 - 1/R_0\)</span> from the next-generation
+intuition and relate to Question 6.</p></li>
+<li><p>Explain <strong>antigenic sin</strong> and how it might bias
+booster responses after sequential variant exposure.</p></li>
+<li><p><strong>Resistance mechanism integration.</strong> A clinical
+microbiology lab reports a <em>Klebsiella pneumoniae</em> isolate with
+MICs: meropenem ≥ 16 (R), ceftazidime-avibactam 1 (S), cefepime 8 (R),
+ciprofloxacin ≥ 4 (R), gentamicin ≥ 16 (R), tigecycline 0.5 (S),
+colistin 0.5 (S). Sequencing reveals: KPC-2 carbapenemase,
+AAC(6’)-Ib-cr, GyrA Ser83Leu, ParC Ser80Ile, RamA overexpression. (a)
+Which mechanism is responsible for each resistance phenotype? (b) Why
+does ceftazidime-avibactam still work? (c) Predict whether this strain
+would respond to imipenem-relebactam and meropenem-vaborbactam, and
+justify.</p></li>
+<li><p><strong>Vaccine platform comparison.</strong> A new pathogen
+emerges with seasonal transmission and mild illness in adults, severe in
+infants, no available therapy. Compare the trade-offs for a (a)
+live-attenuated, (b) inactivated, (c) subunit-VLP, (d) mRNA, and (e)
+viral-vector vaccine platform decision, given a 9-month timeline to
+first dose.</p></li>
+<li><p><strong>Innate immunity integration.</strong> A patient with AIDS
+(CD4 &lt; 50) develops disseminated <em>Mycobacterium avium complex</em>
+infection. Explain why both adaptive and innate arms of immunity have
+failed despite intact NK cells, neutrophils, complement, and antibodies.
+What is the role of granuloma formation, and why is IFN-γ
+critical?</p></li>
+</ol>
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Janeway, Travers, Walport &amp; Shlomchik (latest ed.).
+<em>Janeway’s Immunobiology</em>. Garland Science.</li>
+<li>Medzhitov &amp; Janeway (2000). Innate immunity. <em>New England
+Journal of Medicine</em>, 343.</li>
+<li>Plotkin (2010). Correlates of protection induced by vaccination.
+<em>Clinical and Vaccine Immunology</em>, 17.</li>
+<li>Anderson &amp; May (1991). <em>Infectious Diseases of Humans:
+Dynamics and Control</em>. Oxford University Press.</li>
+<li>Kermack &amp; McKendrick (1927). A contribution to the mathematical
+theory of epidemics. <em>Proceedings of the Royal Society A</em>,
+115.</li>
+<li>Davies, Spagnolo &amp; Walsh (2010). Origins and evolution of
+antibiotic resistance. <em>Microbiology and Molecular Biology
+Reviews</em>, 74.</li>
+<li>WHO (latest). <em>Global Antimicrobial Resistance and Use
+Surveillance System (GLASS) Report</em>. World Health Organization.</li>
+</ul>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Infectious Disease and Immunity</strong> should leave a
+reproducible trail from a biological claim to the code, figure, diagram,
+or paper-based activity that can test it. Use the surfaces below to
+inspect the chapter’s assumptions, rerun the relevant model, or compare
+the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/microbiology/microbiology.py</code>
+(<code>basic_reproduction_number</code>, <code>sir_model</code>,
+<code>mic_fold_dilution</code>)</td>
+<td>Reproduce transmission and antimicrobial-resistance
+calculations.</td>
+</tr>
+<tr>
+<td><code>src/biology/ecology/ecology.py</code>
+(<code>exponential_growth</code>)</td>
+<td>Compare early outbreak growth with ecological growth models.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>immune_response_diagram</code>,
+<code>viral_replication_cycle_diagram</code>)</td>
+<td>Connect pathogen life cycle to host response.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> identify pathogen, host
+population, transmission route, diagnostic window, intervention, and
+surveillance source before comparing disease claims.
+<strong>Cross-reference:</strong> connect with , , and .</p>
+</body>
+</html>

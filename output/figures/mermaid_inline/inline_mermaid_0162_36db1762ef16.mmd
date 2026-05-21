@@ -1,0 +1,36 @@
+flowchart TD
+    subgraph "Computational Neuroscience"
+        A["Hodgkin-Huxley Equations (1952)"] --> B["Cable Theory (1960s)"]
+        B --> C["Integrate-and-Fire Models (1907, 1960s)"]
+        C --> D["FitzHugh-Nagumo (1960s)"]
+        D --> E["Hindmarsh-Rose (1980s)"]
+        E --> F["Izhikevich Model (2003)"]
+        F --> G["Neural Mass Models (1990s)"]
+    end
+
+    subgraph "Machine Learning & AI"
+        H["Perceptron (1957)"] --> I["Backpropagation (1986)"]
+        I --> J["Support Vector Machines (1995)"]
+        J --> K["Deep Learning (2006)"]
+        K --> L["Convolutional Neural Networks (2012)"]
+        L --> M["Transformers (2017)"]
+        M --> N["Spiking Neural Networks (2000s)"]
+    end
+
+    subgraph "Convergence"
+        G --> O["Biophysically Detailed Models"]
+        N --> O
+        O --> P["Neuromorphic Computing"]
+        P --> Q["Brain-Computer Interfaces"]
+        Q --> R["Neural Decoding & Encoding"]
+        R --> S["AI for Drug Discovery"]
+    end
+
+    style A fill:#4a90d9,color:#fff
+    style H fill:#4a90d9,color:#fff
+    style G fill:#5cb85c,color:#fff
+    style N fill:#5cb85c,color:#fff
+    style P fill:#f0ad4e,color:#000
+    style Q fill:#f0ad4e,color:#000
+    style R fill:#f0ad4e,color:#000
+    style S fill:#f0ad4e,color:#000

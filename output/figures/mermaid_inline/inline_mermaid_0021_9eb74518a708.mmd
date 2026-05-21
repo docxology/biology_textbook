@@ -1,0 +1,66 @@
+classDiagram
+    class Macromolecule {
+        <<abstract>>
+        +String type
+        +String monomer
+        +String bond_type
+    }
+
+    class Carbohydrate {
+        +Monomer: Monosaccharide
+        +Bond: Glycosidic
+        +Roles: Energy storage, Structure
+        +Examples: Starch, Cellulose, Glycogen
+    }
+
+    class Lipid {
+        +Monomer: Fatty acids / Isoprene
+        +Bond: Ester (+ noncovalent assembly)
+        +Roles: Membranes, Energy, Signalling
+        +Examples: Phospholipids, Sterols, Waxes
+    }
+
+    class Protein {
+        +Monomer: Amino acid
+        +Bond: Peptide
+        +Roles: Catalysis, Structure, Transport
+        +Examples: Enzymes, Collagen, Antibodies
+    }
+
+    class NucleicAcid {
+        +Monomer: Nucleotide
+        +Bond: Phosphodiester
+        +Roles: Information, Catalysis
+        +Examples: DNA, mRNA, tRNA, Ribozymes
+    }
+
+    Macromolecule <|-- Carbohydrate
+    Macromolecule <|-- Lipid
+    Macromolecule <|-- Protein
+    Macromolecule <|-- NucleicAcid
+
+    class Monosaccharide {
+        +Formula: CnH2nOn
+        +Types: Triose, Pentose, Hexose
+    }
+
+    class AminoAcid {
+        +Core: NH2-CHR-COOH
+        +Types: 20 canonical
+        +Chirality: L-configuration
+    }
+
+    class Nucleotide {
+        +Components: Base + Sugar + Phosphate
+        +Bases: A, G, C, T/U
+    }
+
+    class FattyAcid {
+        +Chain: 12-24 carbons
+        +Types: Saturated, Unsaturated
+    }
+
+    Carbohydrate --> Monosaccharide : composed of
+    Protein --> AminoAcid : composed of
+    NucleicAcid --> Nucleotide : composed of
+    Lipid --> FattyAcid : contains

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>078_lab_infectious_disease</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered" id="lab-24-infectious-disease-and-immunity">Lab
+24 — Infectious Disease and Immunity</h1>
+<p></p>
+<p><em>This activity accompanies of the textbook — review that chapter
+before attempting the exercises below.</em></p>
+<h2 class="unnumbered" id="learning-objectives">Learning Objectives</h2>
+<ul>
+<li>Design and evaluate an epidemic investigation dataset to determine
+transmission dynamics</li>
+<li>Formulate testable hypotheses about how immunity affects disease
+spread</li>
+<li>Identify independent, dependent, and controlled variables in
+epidemiological studies</li>
+<li>Analyze experimental data using epidemic curves and herd immunity
+calculations</li>
+<li>Write a brief scientific report with hypothesis, methods, results,
+and conclusion</li>
+</ul>
+<!-- lab-alignment-start -->
+<h3 class="unnumbered" id="alignment-and-rubric-map">Alignment and
+Rubric Map</h3>
+<ul>
+<li><strong>Outcome 1 (LO1):</strong> Interpret the supplied evidence or
+model output for Infectious Disease and Immunity.</li>
+<li><strong>Outcome 2 (LO2):</strong> Identify controls and comparison
+groups that make the claim testable.</li>
+<li><strong>Outcome 3 (LO3):</strong> Quantify uncertainty, boundary
+conditions, or alternative explanations before concluding.</li>
+<li><strong>Outcome 4 (LO4):</strong> Transfer the mechanism to a new
+biological case or public-facing decision.</li>
+<li><strong>Chapter LO coverage:</strong> LO1, LO2, LO3, LO4</li>
+<li><strong>Rubric dimensions:</strong> evidence; controls; uncertainty;
+mechanism; transfer. <!-- lab-alignment-end --> ## Pre-Lab Inquiry
+Questions {.unnumbered}</li>
+</ul>
+<p><em>Complete these questions before coming to lab. Use your textbook
+and additional research to inform your hypotheses.</em></p>
+<ol type="1">
+<li><p><strong>Hypothesis Formation</strong>: Based on your
+understanding of epidemic curves, predict what shape the curve would
+take for a point-source exposure (e.g., contaminated food) versus
+person-to-person transmission (e.g., influenza). Write a clear, testable
+hypothesis.</p></li>
+<li><p><strong>Experimental Design</strong>: What is the independent
+variable in an epidemic investigation? What is the dependent variable?
+List at least 5 variables that should be controlled to ensure valid
+results.</p></li>
+<li><p><strong>Scientific Context</strong>: The basic reproduction
+number (R₀) is a key metric in epidemiology. Why is R₀ important for
+understanding disease spread? How does it relate to the concept of herd
+immunity?</p></li>
+<li><p><strong>Quantitative Reasoning</strong>: If a disease has an R₀
+of 5, what fraction of the population needs to be immune to achieve herd
+immunity? Show your calculation using the formula p_c = 1 -
+(1/R₀).</p></li>
+<li><p><strong>Real-World Application</strong>: Antibiotic resistance is
+a major public health concern. How does the overuse of antibiotics in
+medicine and agriculture contribute to the evolution of resistant
+bacteria? What policies could help address this issue?</p></li>
+</ol>
+<h2 class="unnumbered" id="background">Background</h2>
+<p>Epidemiology uses epidemic curves (cases vs time), attack rates,
+secondary attack rates, and reproductive numbers (R₀) to characterise
+outbreaks. R₀ is the average number of secondary cases generated by one
+infected individual in a fully susceptible population; herd immunity is
+achieved when the fraction vaccinated exceeds the threshold <strong>p_c
+= 1 − (1/R₀)</strong>. Antimicrobial susceptibility datasets often
+report disc-diffusion zones of inhibition from Kirby-Bauer assays —
+larger zone = more susceptible pathogen — but this lab interprets
+printed data primarily.</p>
+<h2 class="unnumbered" id="paper-based-materials">Paper-Based
+Materials</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Epidemic curve dataset (printed: hypothetical norovirus outbreak,
+72-hour window, 150 cases)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Disc diffusion data (printed: zones of inhibition for 5 antibiotics
+against 2 bacterial strains)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Printed disc-diffusion plate images with blinded replicate
+labels</td>
+<td>1 set</td>
+</tr>
+<tr>
+<td>AMR mechanism cards (enzyme, target modification, efflux,
+permeability)</td>
+<td>1 set</td>
+</tr>
+<tr>
+<td>TB regimen decision cards: drug-susceptible, MDR/RR-TB,
+fluoroquinolone-resistant, toxicity-risk, and adherence-support
+scenarios</td>
+<td>1 set</td>
+</tr>
+<tr>
+<td>HIV PrEP comparison card: oral PrEP, cabotegravir, and twice-yearly
+lenacapavir attributes</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Malaria vector-control comparison card: bed nets, indoor residual
+spraying, spatial emanators, vaccine, and chemoprevention</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Calculator</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Ruler (mm)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Herd immunity R₀ worksheet</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Calculator or optional Python REPL with this project installed</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Epidemic simulation worksheet</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered" id="paper-based-investigation">Paper-Based
+Investigation</h2>
+<h3 class="unnumbered" id="part-1-epidemic-curve-analysis">Part 1:
+Epidemic Curve Analysis</h3>
+<ol type="1">
+<li><p><strong>Formulate Your Hypothesis</strong>: Based on your pre-lab
+research, write a hypothesis about the transmission dynamics of the
+norovirus outbreak.</p></li>
+<li><p><strong>Identify Variables</strong>:</p>
+<ul>
+<li>Independent variable: Time (hours since exposure)</li>
+<li>Dependent variable: Number of new cases</li>
+<li>Controlled variables: Population size, exposure source, reporting
+methods, etc.</li>
+</ul></li>
+<li><p><strong>Set Up Controls</strong>: Why is it important to have
+accurate case reporting? What other controls could you include in an
+epidemic investigation to ensure valid conclusions?</p></li>
+<li><p><strong>Data Collection</strong>:</p>
+<ul>
+<li>Plot the epidemic curve (cases per 2-hour interval).</li>
+<li>Identify the single peak (suggesting point-source exposure) or
+multiple waves (suggesting person-to-person spread).</li>
+<li>Calculate: (a) attack rate = (cases / total exposed) × 100%; (b)
+approximate incubation period from the peak; (c) R₀ from the growth rate
+during exponential phase using the provided formula.</li>
+<li>Compare two blinded disc-diffusion image replicates, measure zone
+diameters from the printed scale, and classify each antibiotic as
+susceptible, intermediate, or resistant using the provided breakpoint
+table.</li>
+</ul></li>
+</ol>
+<h3 class="unnumbered"
+id="part-2-computational-biology-exercise---epidemic-modeling-with-python">Part
+2: Computational Biology Exercise - Epidemic Modeling with Python</h3>
+<p><em>Optional computational check: run this self-contained Python
+snippet from the project root. It uses tested <code>src/biology</code>
+modules and requires no external notebook or CSV file.</em></p>
+<p>Model outbreak curves with the tested SIR implementation.</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.microbiology <span class="im">import</span> sir_model</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>baseline <span class="op">=</span> sir_model(population<span class="op">=</span><span class="dv">10_000</span>, initial_infected<span class="op">=</span><span class="dv">10</span>, beta_per_day<span class="op">=</span><span class="fl">0.35</span>, gamma_per_day<span class="op">=</span><span class="fl">0.1</span>, days<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>distancing <span class="op">=</span> sir_model(population<span class="op">=</span><span class="dv">10_000</span>, initial_infected<span class="op">=</span><span class="dv">10</span>, beta_per_day<span class="op">=</span><span class="fl">0.18</span>, gamma_per_day<span class="op">=</span><span class="fl">0.1</span>, days<span class="op">=</span><span class="dv">30</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;baseline R0:&quot;</span>, baseline.r0, <span class="st">&quot;peak infected:&quot;</span>, <span class="bu">round</span>(<span class="bu">max</span>(baseline.infected)))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;distancing R0:&quot;</span>, distancing.r0, <span class="st">&quot;peak infected:&quot;</span>, <span class="bu">round</span>(<span class="bu">max</span>(distancing.infected)))</span></code></pre></div>
+<h3 class="unnumbered" id="part-3-herd-immunity-calculation">Part 3:
+Herd Immunity Calculation</h3>
+<ol start="5" type="1">
+<li><p><strong>Design an Alternative Experiment</strong>: Instead of
+just calculating herd immunity thresholds, design an experiment to test
+how different vaccination rates affect disease spread in a simulated
+population. What hypothesis would you test? How would you model
+transmission?</p></li>
+<li><p><strong>Hypothesis</strong>: Predict the relationship between
+vaccination coverage and peak epidemic size. Would you expect a linear
+relationship, or something else? Why?</p></li>
+</ol>
+<h3 class="unnumbered"
+id="part-4-current-intervention-decision-matrices">Part 4: Current
+Intervention Decision Matrices</h3>
+<ol start="7" type="1">
+<li>Use the TB decision cards to classify each case as standard
+drug-susceptible therapy, BPaLM/BPaL eligibility review, or
+individualized specialist regimen. Record the evidence that makes you
+confident or uncertain.</li>
+<li>Use the HIV PrEP comparison card to match patient scenarios to a
+plausible PrEP option. Separate biological efficacy, adherence
+feasibility, contraindications, testing needs, and access
+constraints.</li>
+<li>Use the malaria vector-control card to design a layered prevention
+package for a household with night-time exposure, daytime indoor
+exposure, and insecticide-resistance concerns. Explain why no single
+tool replaces surveillance.</li>
+</ol>
+<h2 class="unnumbered" id="data-recording">Data Recording</h2>
+<p>Epidemic curve: peak at hour <strong><em>; attack rate:
+</em></strong>%; estimated incubation: ___ h; R₀ ≈ ___</p>
+<table>
+<thead>
+<tr>
+<th>Antibiotic</th>
+<th>Zone (mm)</th>
+<th>Interpretation (S/I/R)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ampicillin</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Kanamycin</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Tetracycline</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Chloramphenicol</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Replicate zone agreement within ±2 mm? _______; AMR mechanism card
+selected: _______ TB regimen path selected: _______; PrEP option
+justified: _______; malaria control package: _______</p>
+<table>
+<thead>
+<tr>
+<th>Disease</th>
+<th>R₀</th>
+<th>Herd immunity threshold (p_c)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Measles</td>
+<td>15</td>
+<td></td>
+</tr>
+<tr>
+<td>Influenza</td>
+<td>2.5</td>
+<td></td>
+</tr>
+<tr>
+<td>COVID-19</td>
+<td>2.9</td>
+<td></td>
+</tr>
+<tr>
+<td>Mumps</td>
+<td>5</td>
+<td></td>
+</tr>
+<tr>
+<td>Polio</td>
+<td>6</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- lab-evidence-checklist-start -->
+<h2 class="unnumbered"
+id="evidence-and-reproducibility-checklist">Evidence and Reproducibility
+Checklist</h2>
+<ul>
+<li><strong>Primary evidence goal:</strong> Model transmission and
+compare prevention strategies.</li>
+<li><strong>Data skill to practice:</strong> Interpret outbreak curves
+and intervention effects.</li>
+<li><strong>BioSkills emphasis:</strong> Science and society, Process of
+science, Modeling and simulation.</li>
+<li><strong>Control logic:</strong> identify at least one positive
+control, one negative control, or one baseline comparison before
+interpreting results.</li>
+<li><strong>Measurement discipline:</strong> record units, uncertainty,
+sample size, and any discarded observation with a reason.</li>
+<li><strong>Mechanistic link:</strong> connect one result directly to
+the parent chapter’s big idea before writing the conclusion.</li>
+<li><strong>Reproducibility check:</strong> state one procedural detail
+that another group would need in order to reproduce the result.
+<!-- lab-evidence-checklist-end --></li>
+</ul>
+<h2 class="unnumbered" id="paper-based-evidence-upgrade">Paper-Based
+Evidence Upgrade</h2>
+<p>Before answering the analysis questions, annotate the paper dataset
+for <strong>Infectious Disease and Immunity</strong> with a
+reproducibility pass:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Evidence check</th>
+<th>Student action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control logic</td>
+<td>Mark the comparison that functions as the baseline, negative
+control, or reference case.</td>
+</tr>
+<tr>
+<td>Uncertainty</td>
+<td>Circle the row, card, diagram feature, or model assumption most
+likely to change the conclusion.</td>
+</tr>
+<tr>
+<td>Model comparison</td>
+<td>State whether a simpler rule, null model, or alternative mechanism
+could explain the same pattern.</td>
+</tr>
+<tr>
+<td>Decision threshold</td>
+<td>Write the minimum evidence that would make you revise the
+interpretation.</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>Record the exact scoring rule another group would need to reproduce
+your classification.</td>
+</tr>
+</tbody>
+</table>
+<p>Focus note: in this lab, trace every outbreak conclusion back to its
+evidence chain (case definition, transmission parameter, and the
+diagnostic or surveillance signal it rests on), and name the alternative
+epidemic explanation you ruled out before reporting an <span
+class="math inline">\(R_0\)</span> or attack rate. Keep required work
+paper-based; any material-handling or equipment version belongs only in
+an optional extension.</p>
+<h2 class="unnumbered" id="analysis-questions">Analysis Questions</h2>
+<ol type="1">
+<li><p>If the epidemic curve shows a single sharp peak within a window
+shorter than the incubation period, what type of source does this
+suggest? How would a propagated (person-to-person) epidemic curve look
+different?</p></li>
+<li><p><em>E. coli</em> showed resistance to ampicillin but
+susceptibility to kanamycin. Explain the likely molecular mechanism of
+ampicillin resistance (naming the specific enzyme) and why one
+β-lactamase can create cross-resistance to several related β-lactams
+while still leaving some β-lactam/β-lactamase-inhibitor combinations,
+carbapenems, or non-β-lactam drugs active depending on the enzyme and
+permeability context.</p></li>
+<li><p>Measles has an R₀ of ~15, requiring ~93% vaccination for herd
+immunity. Your calculation shows that even high measles vaccination
+coverage is needed. What happens to herd immunity when 5% of a
+vaccinated population declines vaccination? Relate this to observed
+measles outbreaks in Europe (2019).</p></li>
+<li><p>An immunocompromised patient (CD4 T cell count &lt; 200/µL, HIV+
+AIDS) contracts measles despite prior vaccination. Explain: (a) why the
+vaccine may be insufficient; (b) which branch of adaptive immunity
+(humoral or cellular) is most deficient; (c) what specific viral
+clearance mechanism is impaired.</p></li>
+<li><p>The O’Neill Review’s 10-million-deaths-per-year by 2050 AMR
+estimate is a historical warning scenario, not a current burden count .
+Describe three specific mechanisms by which bacteria acquire resistance
+genes, and evaluate two distinct policy interventions that would slow
+the spread of AMR at a population level.</p></li>
+<li><p>A malaria programme already distributes insecticide-treated nets,
+but household surveys show substantial indoor activity before bedtime.
+Use the vector-control matrix to decide whether spatial emanators could
+be an added tool, and state two evidence gaps that would still require
+local monitoring.</p></li>
+</ol>
+<h2 class="unnumbered" id="extension-analysis-questions">Extension
+Analysis Questions</h2>
+<ol start="7" type="1">
+<li><p><strong>Statistical Analysis</strong>: If the printed dataset
+includes three replicate disc-diffusion images, how would you analyze
+the variation in zone diameters? What statistical test would you use to
+determine if differences between antibiotics are significant?</p></li>
+<li><p><strong>Experimental Error Analysis</strong>: What are three
+potential sources of error in epidemic curve analysis? How could you
+modify the procedure to reduce each source of error?</p></li>
+<li><p><strong>Experimental Design</strong>: If you wanted to test the
+effectiveness of different public health interventions (e.g.,
+vaccination, social distancing) in controlling an outbreak, how would
+you design the experiment? What data would you collect? How would you
+analyze it?</p></li>
+</ol>
+<h2 class="unnumbered" id="group-project-extension-multi-session">Group
+Project Extension (Multi-Session)</h2>
+<p><strong>Design an Epidemiological Study of Vaccine
+Hesitancy</strong></p>
+<p>This project will span 2-3 lab sessions:</p>
+<p><strong>Session 1</strong>: Research Question and Hypothesis - How
+does vaccine hesitancy affect disease outbreak size? - Formulate a
+hypothesis about the relationship between vaccine coverage and outbreak
+probability - Design a study using simulation or real outbreak data</p>
+<p><strong>Session 2</strong>: Data Collection and Analysis - Collect
+data on vaccine coverage and outbreak sizes from public health records -
+Analyze the correlation between coverage and outbreak size - Model the
+impact of increasing vaccine hesitancy on outbreak risk</p>
+<p><strong>Session 3</strong>: Data Interpretation and Presentation -
+Calculate the critical vaccination threshold for different diseases -
+Discuss the public health implications of declining vaccine coverage -
+Create a scientific poster or presentation</p>
+<h2 class="unnumbered"
+id="real-world-problem-solving-epidemic-ethics">Real-World Problem
+Solving: Epidemic Ethics</h2>
+<p><strong>Case Study: Quarantine and Civil Liberties</strong></p>
+<ol type="1">
+<li><p><strong>Research Task</strong>: Investigate the legal and ethical
+basis for quarantine during infectious disease outbreaks. What are the
+key principles that balance public health needs with individual
+rights?</p></li>
+<li><p><strong>Ethical Consideration</strong>: Should governments have
+the power to enforce quarantine on individuals who refuse vaccination?
+What are the potential benefits and risks of such policies?</p></li>
+<li><p><strong>Policy Proposal</strong>: Design a policy for
+implementing quarantine measures during an outbreak that respects civil
+liberties while protecting public health. Consider: due process,
+compensation for lost income, and transparent decision-making.</p></li>
+</ol>
+<h2 class="unnumbered" id="safety-and-ethics-notes">Safety and Ethics
+Notes</h2>
+<p>Default lab work uses printed outbreak datasets, susceptibility
+images, and AMR mechanism cards primarily. No bacterial cultures, agar
+plates, or antibiotic discs are required. Optional wet susceptibility
+demonstrations must use approved BSL-1 organisms under instructor
+supervision and local disposal rules. Discuss epidemic data without
+stigmatising affected groups. When discussing antibiotics, emphasize
+following current prescriber instructions, avoiding unnecessary
+antibiotic starts, using diagnostics when available, and protecting
+access to effective treatment.</p>
+<h2 class="unnumbered" id="debrief-and-reflection">Debrief and
+Reflection</h2>
+<p>After you finish the practical work, spend 5–10 minutes in your small
+group comparing results and discussing the following prompts. Each
+member should contribute at least one observation before moving to the
+next prompt:</p>
+<ol type="1">
+<li><p><strong>What did your measurements show</strong> — compare the
+group’s results to the textbook’s predictions. Where they diverge,
+suggest at least one mechanistic explanation before concluding
+“experimental error.”</p></li>
+<li><p><strong>What would change the outcome</strong> — propose one
+modification to the procedure that would sharpen the measurement or
+extend the result to a new biological context, and predict what you
+would observe.</p></li>
+<li><p><strong>One-sentence headline</strong> — each student composes a
+single sentence summarising the lab’s take-home message, suitable for a
+tweet. Compare sentences across groups; good headlines are short,
+quantitative, and mechanistic.</p></li>
+<li><p><strong>Connection back to the textbook</strong> — identify one
+section of that your data either confirmed or complicated. Cite the
+specific passage.</p></li>
+<li><p><strong>Experimental Design Reflection</strong>: What was the
+strongest aspect of your experimental design? What would you change if
+you could repeat the experiment?</p></li>
+</ol>
+<h2 class="unnumbered" id="further-reading-lab">Further Reading
+(Lab)</h2>
+<ul>
+<li>Revisit the parent chapter for the theoretical foundations on which
+this lab is built.</li>
+<li>Look up any <strong>bolded glossary term</strong> introduced in the
+textbook chapter (each has a <code>#gl:term-slug</code> link in the
+text) — its master definition is in
+<code>manuscript/glossary.md</code>.</li>
+<li>Explore the Python code in
+<code>src/biology/microbiology/microbiology.py</code> for
+epidemiological calculations.</li>
+<li>Use the self-contained Part 2 snippet as the computational template;
+it runs against tested project modules without external notebooks or CSV
+files.</li>
+</ul>
+</body>
+</html>

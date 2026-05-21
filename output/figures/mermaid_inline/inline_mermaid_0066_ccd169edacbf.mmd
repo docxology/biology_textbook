@@ -1,0 +1,52 @@
+graph TD
+    subgraph Hormones
+        INS["Insulin<br/>(β-cells, fed)"]
+        GLU["Glucagon<br/>(α-cells, fasted)"]
+        EPI["Epinephrine<br/>(adrenal, stress)"]
+        CORT["Cortisol<br/>(adrenal, chronic stress)"]
+    end
+
+    subgraph Liver
+        L1["Glycogen synthesis ↑ / Glycogenolysis ↑"]
+        L2["Lipogenesis ↑ / Gluconeogenesis ↑"]
+        L3["Ketogenesis ↑"]
+    end
+
+    subgraph Muscle
+        M1["Glucose uptake (GLUT4) ↑"]
+        M2["Glycogenolysis ↑"]
+        M3["Protein synthesis ↑ / catabolism ↑"]
+    end
+
+    subgraph Adipose
+        A1["Lipogenesis ↑"]
+        A2["Lipolysis ↑"]
+    end
+
+    subgraph Brain
+        B1["Glucose (primary fuel)"]
+        B2["Ketones (starvation)"]
+    end
+
+    INS -->|"↑ GS, ↑ GK"| L1
+    INS -->|"↑ GLUT4"| M1
+    INS -->|"↑ LPL, ↓ HSL"| A1
+    INS -->|"↑ mTORC1"| M3
+
+    GLU -->|"↑ Phosphorylase"| L1
+    GLU -->|"↑ PEPCK"| L2
+    GLU -->|"↑ HMG-CoA synthase"| L3
+    GLU -->|"↑ HSL"| A2
+
+    EPI -->|"↑ Phosphorylase"| L1
+    EPI -->|"↑ Phosphorylase"| M2
+    EPI -->|"β₃-AR → ↑ HSL"| A2
+
+    CORT -->|"↑ PEPCK"| L2
+    CORT -->|"↑ Proteolysis"| M3
+    CORT -->|"↑ Lipolysis"| A2
+
+    style INS fill:#e6ffe6
+    style GLU fill:#ffe6e6
+    style EPI fill:#fff3e6
+    style CORT fill:#e6f3ff

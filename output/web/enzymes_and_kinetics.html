@@ -1,0 +1,2365 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>enzymes_and_kinetics</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<h1 id="enzymes-and-the-kinetics-of-catalysis">Enzymes and the Kinetics
+of Catalysis</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 4</strong> · Level 3/3 · 60 min read · 75 min lecture ·
+Prerequisites: </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Describe how <a href="#gl:enzyme"><strong>enzyme</strong></a>s lower
+activation energy without changing the <a
+href="#gl:thermodynamics"><strong>thermodynamics</strong></a> of a
+reaction.</li>
+<li>Derive and interpret the Michaelis-Menten equation () and its
+kinetic parameters using the steady-state assumption.</li>
+<li>Explain competitive, uncompetitive, mixed, and irreversible
+inhibition with mathematical descriptions and clinical examples.</li>
+<li>Describe <a href="#gl:allosteric"><strong>allosteric</strong></a>
+regulation and cooperativity using the Hill equation, with ATCase as a
+model system.</li>
+<li>Explain how <a href="#gl:ph"><strong>pH</strong></a>, temperature,
+and cofactors modulate enzyme activity.</li>
+<li>Classify enzymes using the EC numbering system, including the
+seventh class (translocases).</li>
+<li>Describe modern applications of enzymes in medicine and
+industry.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Enzymes accelerate reactions by
+stabilizing transition states without changing thermodynamic
+endpoints.</li>
+<li><strong>Core concepts:</strong> activation energy, Michaelis-Menten
+kinetics, inhibition, allostery.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change: Structure
+and function, Pathways and transformations of energy and matter; AP
+Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and
+Energy in Organisms and Ecosystems, Structure and Function.</li>
+<li><strong>Model or quantitative lens:</strong> Michaelis-Menten,
+Lineweaver-Burk, and inhibition-pattern calculations.</li>
+<li><strong>Data skill:</strong> Fit or interpret enzyme-rate data and
+identify which parameter changed.</li>
+<li><strong>Practice cadence:</strong> Concept Explanation, Statistical
+Tests and Data Analysis, Argumentation.</li>
+<li><strong>Common misconception to repair:</strong> A catalyst changes
+rate, not the equilibrium constant or the sign of delta G.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Apply enzyme-kinetic reasoning to
+drug dosing, metabolic control, or diagnostic assays.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.biochemistry.biochemistry.michaelis_menten</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette: The Enzyme That Beats Geological
+Time</strong></p>
+<p>Without the enzyme OMP decarboxylase, the spontaneous decarboxylation
+of orotidine 5′-monophosphate (OMP) would take approximately <strong>78
+million years</strong> at body temperature — longer than the entire
+duration of dinosaur dominance of land vertebrates. OMP decarboxylase
+accomplishes the same reaction in 25 milliseconds. That is a rate
+enhancement of approximately <span
+class="math inline">\(10^{23}\)</span>-fold — the largest known for any
+enzyme (Radzicka &amp; Wolfenden, 1995, <em>Science</em>).</p>
+<p>The mechanism is not conventional. OMP decarboxylase uses no metal
+ions, no cofactors, and performs general acid-base catalysis primarily
+through electrostatic destabilization of the substrate’s ground state
+rather than direct stabilisation of the transition state. Understanding
+how it achieves such a feat challenged enzymologists for decades and
+continues to inform the design of enzyme inhibitors as antifungal and
+antiprotozoal drugs. OMP decarboxylase is the essential enzyme in the
+pyrimidine biosynthesis pathway — block it, and pathogens cannot make
+the <a href="#gl:nucleotide"><strong>nucleotide</strong></a>s they need
+to replicate.</p>
+<p><em>Primary source: Radzicka, A. &amp; Wolfenden, R. (1995). A
+proficient enzyme. Science, 267(5194), 90–93.</em></p>
+</blockquote>
+<hr />
+<p>A <strong>catalyst</strong> accelerates a chemical reaction without
+being consumed and without altering the reaction equilibrium.
+<strong>Enzymes</strong> are biological catalysts — almost typically <a
+href="#gl:protein"><strong>protein</strong></a>s (a few are ribozymes;
+see ) — that accelerate reaction rates by factors of <span
+class="math inline">\(10^6\)</span>–<span
+class="math inline">\(10^{23}\)</span> compared with uncatalysed
+reaction rates.</p>
+<p>The free energy change of a reaction (<span
+class="math inline">\(\Delta G\)</span>) dictates whether a reaction is
+thermodynamically spontaneous (<span class="math inline">\(\Delta G &lt;
+0\)</span>) or non-spontaneous (<span class="math inline">\(\Delta G
+&gt; 0\)</span>). Enzymes do <strong>not</strong> alter <span
+class="math inline">\(\Delta G\)</span> — they alter the
+<strong>kinetics</strong> by providing an alternative mechanism with a
+<strong>lower activation energy</strong> (<span
+class="math inline">\(\Delta G^{\ddagger}\)</span>).</p>
+<p><strong>Remarkable rate enhancements:</strong></p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 32%" />
+<col style="width: 31%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Enzyme</th>
+<th>Uncatalysed <span class="math inline">\(t_{1/2}\)</span></th>
+<th>Catalysed <span class="math inline">\(t_{1/2}\)</span></th>
+<th>Rate Enhancement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OMP decarboxylase</td>
+<td>78 million years</td>
+<td>25 ms</td>
+<td><span class="math inline">\(10^{23}\)</span></td>
+</tr>
+<tr>
+<td>Staphylococcal nuclease</td>
+<td>130,000 years</td>
+<td>~1 ms</td>
+<td><span class="math inline">\(10^{17}\)</span></td>
+</tr>
+<tr>
+<td>Alkaline phosphatase</td>
+<td>7 years</td>
+<td>~1 ms</td>
+<td><span class="math inline">\(10^{11}\)</span></td>
+</tr>
+<tr>
+<td>Carbonic anhydrase</td>
+<td>5 seconds</td>
+<td>~1 μs</td>
+<td><span class="math inline">\(10^7\)</span></td>
+</tr>
+<tr>
+<td>Chorismate mutase</td>
+<td>7.4 hours</td>
+<td>~1 ms</td>
+<td><span class="math inline">\(10^7\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>OMP decarboxylase achieves the largest known rate enhancement:
+without this enzyme, the spontaneous decarboxylation of orotidine
+5’-monophosphate would take 78 million years — longer than the age of
+the dinosaurs.</p>
+<h3 id="transition-state-theory">Transition State Theory</h3>
+<p>Every reaction proceeds through a <strong>transition state</strong>
+(TS) — a transient, high-energy configuration that cannot be isolated.
+The <strong>activation energy</strong> (<span
+class="math inline">\(E_a\)</span> or <span class="math inline">\(\Delta
+G^{\ddagger}\)</span>) is the energy required to reach this state from
+the ground state:</p>
+<p><span class="math display">\[\text{Rate} = A \cdot e^{-\Delta
+G^{\ddagger}/RT} \tag{4.1}
+\label{eq:unit_I_enzymes_and_kinetics_item_1}\]</span></p>
+<p>where <span class="math inline">\(A\)</span> is the pre-exponential
+factor. Lowering <span class="math inline">\(\Delta
+G^{\ddagger}\)</span> by just 17 kJ/mol increases the rate by <span
+class="math inline">\(e^7 \approx 1{,}000\)</span>-fold. Lowering it by
+34 kJ/mol gives a million-fold increase.</p>
+<p><strong>How enzymes lower <span class="math inline">\(\Delta
+G^{\ddagger}\)</span>:</strong></p>
+<ol type="1">
+<li><strong>Proximity and orientation:</strong> Substrates are brought
+together in optimal geometry at the active site, with the entropic cost
+already paid during binding. Effective concentration of reactants in the
+active site can exceed <span class="math inline">\(10^8\)</span> M.</li>
+<li><strong>Transition state stabilisation:</strong> The enzyme active
+site binds the transition state <em>more tightly</em> than either
+substrate or product (complementarity to TS, not substrate). This is the
+single most important mechanism.</li>
+<li><strong>General acid-base catalysis:</strong> Amino acid side chains
+(His, Asp, Glu, Lys) donate/accept protons simultaneously with bond
+breaking/forming, stabilising developing charges in the TS.</li>
+<li><strong>Covalent catalysis:</strong> Transient covalent
+enzyme-substrate intermediates (Ser proteases, Cys proteases, Lys in
+Schiff base enzymes). The covalent intermediate provides a lower-energy
+pathway.</li>
+<li><strong>Metal ion catalysis:</strong> Metal ions (Zn<span
+class="math inline">\(^{2+}\)</span>, Mg<span
+class="math inline">\(^{2+}\)</span>, Fe<span
+class="math inline">\(^{2+/3+}\)</span>) stabilise negative charges, act
+as Lewis acids, or enable redox chemistry.</li>
+<li><strong>Electrostatic catalysis:</strong> The active site creates a
+microenvironment with a lower effective dielectric constant, enhancing
+electrostatic interactions.</li>
+<li><strong>Desolvation:</strong> Stripping water from substrate and
+active-site residues increases their reactivity (e.g., a “naked”
+carboxylate is a much stronger base than a hydrated one).</li>
+</ol>
+<blockquote>
+<p><strong>Concept Check 1:</strong> Transition state analogues —
+molecules that mimic the transition state geometry — are potent enzyme
+inhibitors. Why are they typically much tighter binders than the
+substrate itself? (Hint: Consider what the active site is optimised to
+bind.)</p>
+</blockquote>
+<pre class="mermaid"><code>graph TD
+    subgraph MODELS[&quot;Enzyme-Substrate Binding Models&quot;]
+        LK[&quot;Lock-and-Key&lt;br/&gt;\citep{fischer1894}&quot;]
+        IF[&quot;Induced Fit&lt;br/&gt;\citep{koshland1958}&quot;]
+        CS[&quot;Conformational Selection&lt;br/&gt;(Modern View)&quot;]
+    end
+
+    LK --&gt; LK1[&quot;Rigid active site&lt;br/&gt;perfectly complementary&lt;br/&gt;to substrate&quot;]
+    LK --&gt; LK2[&quot;Problem: Cannot explain&lt;br/&gt;TS stabilisation or&lt;br/&gt;allosteric regulation&quot;]
+
+    IF --&gt; IF1[&quot;Substrate binding induces&lt;br/&gt;conformational change&lt;br/&gt;in enzyme&quot;]
+    IF --&gt; IF2[&quot;Active site moulds&lt;br/&gt;around substrate&lt;br/&gt;Improved complementarity to TS&quot;]
+
+    CS --&gt; CS1[&quot;Enzyme exists as&lt;br/&gt;ensemble of conformations&lt;br/&gt;in dynamic equilibrium&quot;]
+    CS --&gt; CS2[&quot;Substrate selects and&lt;br/&gt;stabilises the optimal&lt;br/&gt;pre-existing conformation&quot;]
+    CS --&gt; CS3[&quot;Supported by NMR&lt;br/&gt;and single-molecule&lt;br/&gt;experiments&quot;]
+
+    LK1 -.-&gt;|&quot;Too simple&quot;| IF
+    IF2 -.-&gt;|&quot;Extended by&quot;| CS
+
+    style LK fill:#e74c3c,color:#fff
+    style IF fill:#e67e22,color:#fff
+    style CS fill:#2ecc71,color:#fff</code></pre>
+<!-- alt: Graph showing models of enzyme-substrate binding. Evolution of enzyme-substrate binding models. The lock-and-key model (1894) proposed rigid complementarity. The induced-fit model (1958) introduced conformational change upon binding. The modern conformational selection model recognises that enzymes sample multiple conformations, and substrates select the most complementary one. -->
+<p><em>Models of enzyme–substrate binding. Evolution of enzyme-substrate
+binding models. The lock-and-key model (1894) proposed rigid
+complementarity. The induced-fit model (1958) introduced conformational
+change upon binding. The modern conformational selection model
+recognises that enzymes sample multiple conformations, and substrates
+select the most complementary one.</em></p>
+<h3 id="active-site-architecture">Active Site Architecture</h3>
+<p>The <strong>active site</strong> occupies only 1–10% of the enzyme’s
+total surface but accounts for most catalytic power. Key features:</p>
+<ul>
+<li><strong>Specific geometry</strong> complementary to the transition
+state (more so than to the substrate)</li>
+<li><strong>Hydrophobic microenvironment</strong> that enhances
+nucleophilicity and acid/base strength</li>
+<li><strong>Flexibility:</strong> conformational changes upon substrate
+binding (induced fit model)</li>
+<li><strong>Conserved residues:</strong> catalytic residues are highly
+conserved across species, even when surrounding sequences diverge</li>
+</ul>
+<p>The <strong>lock-and-key model</strong> viewed the active site as
+rigid. The <strong>induced-fit model</strong> recognised that substrate
+binding induces conformational changes that improve active-site
+complementarity — validated by crystallographic structures. The modern
+<strong>conformational selection model</strong> proposes that the enzyme
+pre-exists in an ensemble of conformations, and the substrate selects
+the optimal one, shifting the equilibrium.</p>
+<p><strong>Case study — Hexokinase:</strong> X-ray crystallography
+reveals that hexokinase undergoes a dramatic conformational change upon
+glucose binding: two lobes of the enzyme close around the substrate like
+a jaw, excluding water from the active site. This prevents the wasteful
+hydrolysis of ATP (which would occur if water could access the
+γ-phosphate).</p>
+<hr />
+<h2 id="enzyme-classification-ec-numbers">Enzyme Classification (EC
+Numbers)</h2>
+<p>The International Union of Biochemistry and Molecular Biology (IUBMB)
+classifies enzymes into <strong>seven classes</strong> by reaction type,
+each with a four-digit EC (Enzyme Commission) number:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 9%" />
+<col style="width: 31%" />
+<col style="width: 17%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>EC Class</th>
+<th>Name</th>
+<th>Reaction Type</th>
+<th>Example</th>
+<th>EC Number</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Oxidoreductases</td>
+<td>Redox reactions</td>
+<td>Lactate dehydrogenase</td>
+<td>EC 1.1.1.27</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Transferases</td>
+<td>Group transfer</td>
+<td>Hexokinase (phosphoryl)</td>
+<td>EC 2.7.1.1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Hydrolases</td>
+<td>Hydrolysis</td>
+<td>Trypsin</td>
+<td>EC 3.4.21.4</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Lyases</td>
+<td>Non-hydrolytic bond cleavage / addition to double bonds</td>
+<td>Fumarase</td>
+<td>EC 4.2.1.2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Isomerases</td>
+<td>Isomerisation</td>
+<td>Phosphoglucose isomerase</td>
+<td>EC 5.3.1.9</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Ligases</td>
+<td>Bond formation coupled to ATP/GTP hydrolysis</td>
+<td><a href="#gl:dna-ligase"><strong>DNA ligase</strong></a></td>
+<td>EC 6.5.1.1</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Translocases</strong></td>
+<td>Movement of ions/molecules across membranes</td>
+<td>Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase</td>
+<td>EC 7.2.2.6</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>seventh class (translocases)</strong> was added in 2018,
+recognising the catalytic nature of active transport. Enzyme names
+follow the pattern: <strong>Substrate(s) + reaction type +
+“-ase”</strong> (e.g., pyruvate kinase, lactate dehydrogenase).</p>
+<blockquote>
+<p><strong>Concept Check 2:</strong> The Na<span
+class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase pumps 3 Na<span
+class="math inline">\(^+\)</span> out and 2 K<span
+class="math inline">\(^+\)</span> in per ATP hydrolysed. It was
+traditionally classified as an ATPase (EC 3.6). Why was reclassification
+to translocase (EC 7) considered more appropriate?</p>
+</blockquote>
+<hr />
+<h2 id="the-michaelis-menten-equation">The Michaelis-Menten
+Equation</h2>
+<h3 id="detailed-derivation">Detailed Derivation</h3>
+<p>In 1913, Leonor Michaelis and Maud Menten proposed a kinetic
+framework for enzyme-catalysed reactions. The basic mechanism:</p>
+<p><span class="math display">\[\text{E} + \text{S}
+\underset{k_{-1}}{\overset{k_1}{\rightleftharpoons}} \text{ES}
+\overset{k_2}{\rightarrow} \text{E} + \text{P} \tag{4.2}
+\label{eq:unit_I_enzymes_and_kinetics_item_2}\]</span></p>
+<p><strong>Step 1: Write rate equations.</strong></p>
+<p>The rate of ES formation: <span
+class="math inline">\(\frac{d[\text{ES}]}{dt} = k_1[\text{E}][\text{S}]
+- k_{-1}[\text{ES}] - k_2[\text{ES}]\)</span></p>
+<p><strong>Step 2: Apply the steady-state assumption</strong> (<span
+class="math inline">\(d[\text{ES}]/dt = 0\)</span>).</p>
+<p>This assumes that after an initial transient, [ES] reaches a constant
+level because the rate of ES formation equals the rate of ES
+breakdown:</p>
+<p><span class="math display">\[k_1[\text{E}][\text{S}] = (k_{-1} +
+k_2)[\text{ES}] \tag{4.3}
+\label{eq:unit_I_enzymes_and_kinetics_item_3}\]</span></p>
+<p><strong>Step 3: Define the Michaelis constant.</strong></p>
+<p><span class="math display">\[K_m = \frac{k_{-1} + k_2}{k_1} \tag{4.4}
+\label{eq:unit_I_enzymes_and_kinetics_item_4}\]</span></p>
+<p><strong>Step 4: Express [E] in terms of measurable
+quantities.</strong></p>
+<p>Total enzyme: <span class="math inline">\([\text{E}]_T = [\text{E}] +
+[\text{ES}]\)</span>, so <span class="math inline">\([\text{E}] =
+[\text{E}]_T - [\text{ES}]\)</span></p>
+<p>Substituting: <span class="math inline">\(([\text{E}]_T -
+[\text{ES}])[\text{S}] = K_m[\text{ES}]\)</span></p>
+<p><span class="math display">\[[\text{ES}] =
+\frac{[\text{E}]_T[\text{S}]}{K_m + [\text{S}]} \tag{4.5}
+\label{eq:unit_I_enzymes_and_kinetics_item_5}\]</span></p>
+<p><strong>Step 5: Calculate the initial velocity.</strong></p>
+<p><span class="math display">\[v_0 = k_2[\text{ES}] =
+\frac{k_2[\text{E}]_T[\text{S}]}{K_m + [\text{S}]} \tag{4.6}
+\label{eq:unit_I_enzymes_and_kinetics_item_6}\]</span></p>
+<p>Since <span class="math inline">\(V_{max} = k_2[\text{E}]_T\)</span>
+(maximum rate when most enzyme is saturated):</p>
+<p><span class="math display">\[\boxed{v_0 =
+\frac{V_{max}[\text{S}]}{K_m + [\text{S}]}} \tag{4.7}
+\label{eq:unit_I_enzymes_and_kinetics_item_7}\]</span></p>
+<p>This is the <strong>Michaelis-Menten equation</strong> — a
+rectangular hyperbola (); plotting <span
+class="math inline">\(v_0\)</span> against <span
+class="math inline">\([\text{S}]\)</span> traces the saturating curve
+shown in , where the velocity rises steeply at low substrate and
+asymptotically approaches <span
+class="math inline">\(V_{max}\)</span>.</p>
+<h3 id="interpretation-of-kinetic-parameters">Interpretation of Kinetic
+Parameters</h3>
+<p><strong><span class="math inline">\(K_m\)</span></strong>
+approximates the substrate affinity of the enzyme. When [S] = <span
+class="math inline">\(K_m\)</span>, <span class="math inline">\(v =
+V_{max}/2\)</span>. A <strong>low <span
+class="math inline">\(K_m\)</span></strong> means high affinity
+(half-saturation at low [S]).</p>
+<p>Special cases: - When <span class="math inline">\(k_2 \ll
+k_{-1}\)</span>: <span class="math inline">\(K_m \approx K_d =
+k_{-1}/k_1\)</span> (true dissociation constant) - When <span
+class="math inline">\(k_2 \gg k_{-1}\)</span>: <span
+class="math inline">\(K_m \approx k_2/k_1\)</span> (the enzyme is so
+fast that ES rarely dissociates back to E + S)</p>
+<p><strong><span class="math inline">\(V_{max}\)</span> and <span
+class="math inline">\(k_{cat}\)</span>:</strong> <span
+class="math inline">\(V_{max} = k_{cat} \times [\text{E}]_T\)</span>.
+The <strong>catalytic constant</strong> <span
+class="math inline">\(k_{cat}\)</span> (also called the turnover number)
+is the number of substrate molecules converted to product per enzyme
+molecule per second when fully saturated.</p>
+<p><strong>Catalytic efficiency:</strong> <span
+class="math inline">\(k_{cat}/K_m\)</span> (units: M<span
+class="math inline">\(^{-1}\)</span> s<span
+class="math inline">\(^{-1}\)</span>). This is the gold standard for
+comparing enzyme power. The diffusion limit sets the maximum possible
+<span class="math inline">\(k_{cat}/K_m \approx 10^8\)</span>–<span
+class="math inline">\(10^9\)</span> M<span
+class="math inline">\(^{-1}\)</span> s<span
+class="math inline">\(^{-1}\)</span> (kinetically “perfect”
+enzymes).</p>
+<p><strong>Reference kinetic constants:</strong></p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 24%" />
+<col style="width: 38%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr>
+<th>Enzyme</th>
+<th>Substrate</th>
+<th><span class="math inline">\(K_m\)</span> (mM)</th>
+<th><span class="math inline">\(k_{cat}\)</span> (s<span
+class="math inline">\(^{-1}\)</span>)</th>
+<th><span class="math inline">\(k_{cat}/K_m\)</span> (M<span
+class="math inline">\(^{-1}\)</span>s<span
+class="math inline">\(^{-1}\)</span>)</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Carbonic anhydrase</td>
+<td>CO<span class="math inline">\(_2\)</span></td>
+<td>12</td>
+<td><span class="math inline">\(10^6\)</span></td>
+<td><span class="math inline">\(8.3 \times 10^7\)</span></td>
+<td>Near-perfect</td>
+</tr>
+<tr>
+<td>Fumarase</td>
+<td>Fumarate</td>
+<td>0.005</td>
+<td>800</td>
+<td><span class="math inline">\(1.6 \times 10^8\)</span></td>
+<td>Near-perfect</td>
+</tr>
+<tr>
+<td>Acetylcholinesterase</td>
+<td>Acetylcholine</td>
+<td>0.095</td>
+<td><span class="math inline">\(1.4 \times 10^4\)</span></td>
+<td><span class="math inline">\(1.5 \times 10^8\)</span></td>
+<td>Near-perfect</td>
+</tr>
+<tr>
+<td>Catalase</td>
+<td>H<span class="math inline">\(_2\)</span>O<span
+class="math inline">\(_2\)</span></td>
+<td>25</td>
+<td><span class="math inline">\(4 \times 10^7\)</span></td>
+<td><span class="math inline">\(1.6 \times 10^9\)</span></td>
+<td>Diffusion-limited</td>
+</tr>
+<tr>
+<td>Lactate dehydrogenase</td>
+<td>Pyruvate</td>
+<td>0.047</td>
+<td>800</td>
+<td><span class="math inline">\(1.7 \times 10^7\)</span></td>
+<td>Highly efficient</td>
+</tr>
+<tr>
+<td>Hexokinase</td>
+<td>Glucose</td>
+<td>0.15</td>
+<td>650</td>
+<td><span class="math inline">\(4.3 \times 10^6\)</span></td>
+<td>Efficient</td>
+</tr>
+<tr>
+<td>Alcohol dehydrogenase</td>
+<td>Ethanol</td>
+<td>1.0</td>
+<td>73</td>
+<td><span class="math inline">\(7.3 \times 10^4\)</span></td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Lysozyme</td>
+<td>Hexasaccharide</td>
+<td>0.006</td>
+<td>0.5</td>
+<td><span class="math inline">\(8.3 \times 10^4\)</span></td>
+<td>Moderate</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Concept Check 3:</strong> Catalase converts H<span
+class="math inline">\(_2\)</span>O<span
+class="math inline">\(_2\)</span> to H<span
+class="math inline">\(_2\)</span>O and O<span
+class="math inline">\(_2\)</span> with a <span
+class="math inline">\(k_{cat}\)</span> of <span class="math inline">\(4
+\times 10^7\)</span> s<span class="math inline">\(^{-1}\)</span>. How
+many molecules of H<span class="math inline">\(_2\)</span>O<span
+class="math inline">\(_2\)</span> does a single catalase molecule
+destroy per millisecond? Why is such extreme speed necessary in the
+cell?</p>
+</blockquote>
+<h3 id="lineweaver-burk-analysis">Lineweaver-Burk Analysis</h3>
+<!-- alt: Rectangular-hyperbola plot of enzyme initial velocity (y-axis) against substrate concentration (x-axis), showing V_max asymptote, half-maximal velocity at K_m, and shifted curves for competitive (higher apparent K_m, same V_max) and non-competitive (same K_m, lower V_max) inhibition. -->
+<p>Inverting the Michaelis-Menten equation:</p>
+<p><span class="math display">\[\frac{1}{v_0} = \frac{K_m}{V_{max}}
+\cdot \frac{1}{[\text{S}]} + \frac{1}{V_{max}} \tag{4.8}
+\label{eq:unit_I_enzymes_and_kinetics_item_8}\]</span></p>
+<p>The <strong>double-reciprocal (Lineweaver-Burk) plot</strong> of
+<span class="math inline">\(1/v\)</span> vs. <span
+class="math inline">\(1/[\text{S}]\)</span> is linear: - Slope = <span
+class="math inline">\(K_m/V_{max}\)</span> - <span
+class="math inline">\(x\)</span>-intercept = <span
+class="math inline">\(-1/K_m\)</span> - <span
+class="math inline">\(y\)</span>-intercept = <span
+class="math inline">\(1/V_{max}\)</span></p>
+<p><strong>Worked example — Determining <span
+class="math inline">\(K_m\)</span> and <span
+class="math inline">\(V_{max}\)</span>:</strong></p>
+<p>An enzyme is assayed at five substrate concentrations:</p>
+<table>
+<thead>
+<tr>
+<th>[S] (mM)</th>
+<th><span class="math inline">\(v_0\)</span> (μmol/min)</th>
+<th>1/[S] (mM<span class="math inline">\(^{-1}\)</span>)</th>
+<th><span class="math inline">\(1/v_0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5</td>
+<td>1.67</td>
+<td>2.0</td>
+<td>0.60</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>2.50</td>
+<td>1.0</td>
+<td>0.40</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td>3.33</td>
+<td>0.5</td>
+<td>0.30</td>
+</tr>
+<tr>
+<td>4.0</td>
+<td>4.00</td>
+<td>0.25</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>10.0</td>
+<td>4.55</td>
+<td>0.10</td>
+<td>0.22</td>
+</tr>
+</tbody>
+</table>
+<p>From the Lineweaver-Burk plot: - <span
+class="math inline">\(y\)</span>-intercept = 0.20, so <span
+class="math inline">\(V_{max} = 1/0.20 = 5.0\)</span> μmol/min - Slope =
+<span class="math inline">\((0.60 - 0.20)/(2.0 - 0) = 0.20\)</span>, and
+slope <span class="math inline">\(= K_m/V_{max}\)</span>, so <span
+class="math inline">\(K_m = 0.20 \times 5.0 = 1.0\)</span> mM</p>
+<p><strong>Limitations of the Lineweaver-Burk plot:</strong> It distorts
+experimental error at low [S] (high 1/[S]), giving those points
+excessive weight. Modern software uses nonlinear regression to fit the
+Michaelis-Menten equation directly, which is statistically superior.</p>
+<hr />
+<h2 id="enzyme-inhibition">Enzyme Inhibition</h2>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; FreeEnzyme: E exists in&lt;br/&gt;solution
+
+    FreeEnzyme --&gt; ES: S binds&lt;br/&gt;(active site)
+    ES --&gt; FreeEnzyme: S dissociates
+    ES --&gt; EP: Catalysis&lt;br/&gt;(k_cat)
+    EP --&gt; FreeEnzyme: P released
+
+    FreeEnzyme --&gt; EI_comp: Competitive&lt;br/&gt;inhibitor binds&lt;br/&gt;(active site)
+    EI_comp --&gt; FreeEnzyme: I dissociates&lt;br/&gt;(reversible)
+
+    ES --&gt; ESI_uncomp: Uncompetitive&lt;br/&gt;inhibitor binds&lt;br/&gt;(only to ES)
+    ESI_uncomp --&gt; ES: I dissociates
+
+    FreeEnzyme --&gt; EI_mixed: Mixed inhibitor&lt;br/&gt;binds (allosteric site)
+    EI_mixed --&gt; FreeEnzyme: I dissociates
+    ES --&gt; ESI_mixed: Mixed inhibitor&lt;br/&gt;also binds ES
+    ESI_mixed --&gt; ES: I dissociates
+
+    FreeEnzyme --&gt; EI_irrev: Irreversible&lt;br/&gt;inhibitor binds&lt;br/&gt;(covalent)
+
+    note right of EI_comp: Km↑, Vmax unchanged&lt;br/&gt;Overcome by high [S]
+    note right of ESI_uncomp: Km↓, Vmax↓&lt;br/&gt;(proportional)
+    note right of EI_mixed: Km changed, Vmax↓
+    note right of EI_irrev: Permanent inactivation&lt;br/&gt;Cannot be overcome</code></pre>
+<!-- alt: State diagram for Enzyme Inhibition showing transitions among E exists in solution, S binds (active site), S dissociates, and Catalysis (k_cat). -->
+<p><em>State diagram for Enzyme Inhibition showing transitions among E
+exists in solution, S binds (active site), S dissociates, and Catalysis
+(k_cat).</em></p>
+<h3 id="competitive-inhibition">Competitive Inhibition</h3>
+<p>A <strong>competitive inhibitor</strong> (I) resembles the substrate
+structurally and competes for the same active site. Binding of I and S
+are mutually exclusive:</p>
+<p><span class="math display">\[E + I \rightleftharpoons EI \quad (K_i =
+[\text{E}][\text{I}]/[\text{EI}]) \tag{4.9}
+\label{eq:unit_I_enzymes_and_kinetics_item_9}\]</span></p>
+<p>The apparent <span class="math inline">\(K_m\)</span> increases (less
+substrate affinity at fixed [I]) while <span
+class="math inline">\(V_{max}\)</span> is unchanged (inhibition overcome
+by high [S]):</p>
+<p><span class="math display">\[v_0 =
+\frac{V_{max}[\text{S}]}{K_m\left(1 + \frac{[\text{I}]}{K_i}\right) +
+[\text{S}]} \tag{4.10}
+\label{eq:unit_I_enzymes_and_kinetics_item_10}\]</span></p>
+<p>Defining <span class="math inline">\(\alpha = 1 +
+[\text{I}]/K_i\)</span>:</p>
+<p><span class="math display">\[v_0 = \frac{V_{max}[\text{S}]}{\alpha
+K_m + [\text{S}]} \tag{4.11}
+\label{eq:unit_I_enzymes_and_kinetics_item_11}\]</span></p>
+<p>On a Lineweaver-Burk plot: same <span
+class="math inline">\(y\)</span>-intercept (<span
+class="math inline">\(1/V_{max}\)</span>), different slopes. Lines
+intersect on the <span class="math inline">\(y\)</span>-axis.</p>
+<p><strong>Clinical examples of <a
+href="#gl:competitive-inhibition"><strong>competitive
+inhibition</strong></a>:</strong></p>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 38%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr>
+<th>Inhibitor</th>
+<th>Target Enzyme</th>
+<th>Clinical Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Methotrexate</td>
+<td>Dihydrofolate reductase</td>
+<td>Cancer chemotherapy</td>
+</tr>
+<tr>
+<td>Statins (atorvastatin)</td>
+<td>HMG-CoA reductase</td>
+<td>Cholesterol-lowering</td>
+</tr>
+<tr>
+<td>Sulfonamide antibiotics</td>
+<td>Dihydropteroate synthase</td>
+<td>Bacterial infection</td>
+</tr>
+<tr>
+<td>Allopurinol</td>
+<td>Xanthine oxidase</td>
+<td>Gout</td>
+</tr>
+<tr>
+<td>Ethanol</td>
+<td>Alcohol dehydrogenase</td>
+<td>Methanol/ethylene glycol poisoning</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Clinical Connection: Statins and Cardiovascular
+Disease</strong></p>
+<p>Statins (e.g., atorvastatin, rosuvastatin) are competitive inhibitors
+of HMG-CoA reductase, the rate-limiting enzyme in cholesterol
+biosynthesis. By mimicking the structure of HMG-CoA, statins bind the
+active site with <span class="math inline">\(K_i\)</span> values in the
+low nanomolar range (much lower than the <span
+class="math inline">\(K_m\)</span> for HMG-CoA, ~4 μM). This reduces
+hepatic cholesterol synthesis, upregulates LDL receptors, and lowers
+circulating LDL cholesterol by 30–50%. Statins are among the most widely
+prescribed drugs worldwide, with robust evidence for reducing
+cardiovascular events and mortality.</p>
+</blockquote>
+<h3 id="uncompetitive-inhibition">Uncompetitive Inhibition</h3>
+<p>An <strong>uncompetitive inhibitor</strong> binds primarily to the ES
+complex, not free enzyme:</p>
+<p><span class="math display">\[v_0 = \frac{V_{max}[\text{S}]}{K_m +
+\alpha&#39;[\text{S}]} \tag{4.12}
+\label{eq:unit_I_enzymes_and_kinetics_item_12}\]</span></p>
+<p>where <span class="math inline">\(\alpha&#39; = 1 +
+[\text{I}]/K_i&#39;\)</span>. Both <span
+class="math inline">\(K_m\)</span> and <span
+class="math inline">\(V_{max}\)</span> are decreased proportionally —
+the ratio <span class="math inline">\(V_{max}/K_m\)</span> (= <span
+class="math inline">\(k_{cat}/K_m\)</span>) is unchanged. On a
+Lineweaver-Burk plot: <strong>parallel lines</strong> (both slope and
+intercepts change equally).</p>
+<p>Uncompetitive inhibition is rare in single-substrate reactions but
+important in two-substrate reactions and in multi-enzyme pathways.
+<strong>Lithium</strong> is an uncompetitive inhibitor of inositol
+monophosphatase, which may contribute to its therapeutic effect in
+bipolar disorder.</p>
+<h3 id="mixed-noncompetitive-inhibition">Mixed (Noncompetitive)
+Inhibition</h3>
+<p>A <strong>mixed inhibitor</strong> binds to both free enzyme (E) and
+the ES complex, at a site other than the active site:</p>
+<p><span class="math display">\[v_0 = \frac{V_{max}[\text{S}]}{\alpha
+K_m + \alpha&#39;[\text{S}]} \tag{4.13}
+\label{eq:unit_I_enzymes_and_kinetics_item_13}\]</span></p>
+<p>where <span class="math inline">\(\alpha = 1 +
+[\text{I}]/K_i\)</span> and <span class="math inline">\(\alpha&#39; = 1
++ [\text{I}]/K_i&#39;\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(\alpha = \alpha&#39;\)</span> (<span
+class="math inline">\(K_i = K_i&#39;\)</span>): <strong>pure
+noncompetitive</strong> inhibition. <span
+class="math inline">\(K_m\)</span> unchanged, <span
+class="math inline">\(V_{max}\)</span> decreased.</li>
+<li>If <span class="math inline">\(\alpha \neq \alpha&#39;\)</span>:
+<strong>mixed</strong> inhibition. Both <span
+class="math inline">\(K_m\)</span> and <span
+class="math inline">\(V_{max}\)</span> change.</li>
+</ul>
+<p>On a Lineweaver-Burk plot: lines intersect to the left of the <span
+class="math inline">\(y\)</span>-axis (not on it).</p>
+<p><strong>Pure noncompetitive inhibitor:</strong> Heavy metal ions
+(Hg<span class="math inline">\(^{2+}\)</span>, Pb<span
+class="math inline">\(^{2+}\)</span>) that bind cysteine residues
+distant from the active site.</p>
+<h3 id="irreversible-inhibition">Irreversible Inhibition</h3>
+<p><strong>Irreversible inhibitors</strong> form covalent bonds with
+enzyme residues, permanently inactivating the enzyme. The enzyme must be
+replaced by new protein synthesis.</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 13%" />
+<col style="width: 20%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>Inhibitor</th>
+<th>Target</th>
+<th>Mechanism</th>
+<th>Clinical Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aspirin (acetylsalicylate)</td>
+<td>COX-1 and COX-2</td>
+<td>Acetylates Ser530</td>
+<td>Anti-inflammatory, antiplatelet</td>
+</tr>
+<tr>
+<td>Penicillin / amoxicillin</td>
+<td>Transpeptidase (DD-peptidase)</td>
+<td>Acylates active-site Ser</td>
+<td>Antibiotic</td>
+</tr>
+<tr>
+<td>DIPF / sarin</td>
+<td>Acetylcholinesterase</td>
+<td>Phosphorylates active-site Ser</td>
+<td>Nerve agent (sarin)</td>
+</tr>
+<tr>
+<td>Omeprazole (Prilosec)</td>
+<td>H<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase</td>
+<td>Disulfide bond with Cys813</td>
+<td>Proton pump inhibitor (acid reflux)</td>
+</tr>
+<tr>
+<td>Clopidogrel (Plavix)</td>
+<td>P2Y12 receptor</td>
+<td>Disulfide bond</td>
+<td>Antiplatelet</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Clinical Connection: Aspirin — The Oldest Irreversible Enzyme
+Inhibitor</strong></p>
+<p>Aspirin (acetylsalicylic acid) irreversibly acetylates Ser530 in
+cyclooxygenase (COX), preventing the conversion of arachidonic acid to
+prostaglandins and thromboxane A<span class="math inline">\(_2\)</span>.
+Because platelets lack a nucleus and cannot synthesise new protein, a
+single dose of aspirin inhibits platelet COX-1 for the entire platelet
+lifespan (~10 days). This is why low-dose aspirin (75–100 mg/day) is an
+effective antiplatelet agent for preventing heart attacks and strokes,
+despite its short plasma half-life of ~20 minutes.</p>
+</blockquote>
+<blockquote>
+<p><strong>Clinical Connection: Penicillin and Bacterial Cell Wall
+Synthesis</strong></p>
+<p>Penicillin and related β-lactam antibiotics are irreversible
+inhibitors of bacterial transpeptidase (also called penicillin-binding
+protein, PBP), the enzyme that cross-links peptidoglycan strands in the
+bacterial cell wall. The β-lactam ring of penicillin mimics the
+D-Ala–D-Ala terminus of the peptidoglycan substrate, forming a stable
+acyl-enzyme intermediate. Without cross-linking, the cell wall loses
+integrity and the bacterium lyses due to osmotic stress. Resistance
+arises when bacteria produce β-lactamases that hydrolyse the β-lactam
+ring.</p>
+</blockquote>
+<h3 id="lineweaver-burk-patterns-summary">Lineweaver-Burk Patterns
+Summary</h3>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 20%" />
+<col style="width: 29%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Inhibition Type</th>
+<th>Apparent <span class="math inline">\(K_m\)</span></th>
+<th>Apparent <span class="math inline">\(V_{max}\)</span></th>
+<th>L-B Plot Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Competitive</td>
+<td>Increases (<span class="math inline">\(\alpha K_m\)</span>)</td>
+<td>Unchanged</td>
+<td>Same <span class="math inline">\(y\)</span>-intercept</td>
+</tr>
+<tr>
+<td>Uncompetitive</td>
+<td>Decreases (<span
+class="math inline">\(K_m/\alpha&#39;\)</span>)</td>
+<td>Decreases (<span
+class="math inline">\(V_{max}/\alpha&#39;\)</span>)</td>
+<td>Parallel lines</td>
+</tr>
+<tr>
+<td>Pure noncompetitive</td>
+<td>Unchanged</td>
+<td>Decreases (<span class="math inline">\(V_{max}/\alpha\)</span>)</td>
+<td>Same <span class="math inline">\(x\)</span>-intercept</td>
+</tr>
+<tr>
+<td>Mixed</td>
+<td>Changes</td>
+<td>Decreases</td>
+<td>Intersect left of <span class="math inline">\(y\)</span>-axis</td>
+</tr>
+<tr>
+<td>Irreversible</td>
+<td>N/A</td>
+<td>Decreases (less <span
+class="math inline">\([\text{E}]_T\)</span>)</td>
+<td>Same <span class="math inline">\(K_m\)</span>, lower <span
+class="math inline">\(V_{max}\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Concept Check 4:</strong> An enzyme is studied in the
+presence and absence of an inhibitor. In the Lineweaver-Burk plot, the
+two lines are parallel. What type of inhibition is this? Does the
+inhibitor bind the free enzyme, the ES complex, or both?</p>
+</blockquote>
+<hr />
+<h2 id="multi-substrate-kinetics-bi-bi-mechanisms">Multi-substrate
+Kinetics: Bi-Bi Mechanisms</h2>
+<p>The single-substrate Michaelis-Menten framework is a useful
+approximation, but most enzymes use <em>two</em> substrates (or one
+substrate plus a cofactor). Reactions of the form</p>
+<p><span class="math display">\[\text{A} + \text{B} \rightleftharpoons
+\text{P} + \text{Q}
+\label{eq:unit_I_enzymes_and_kinetics_item_14}\]</span></p>
+<p>are known as <strong>Bi-Bi reactions</strong>. Cleland (1963)
+classified them into three principal mechanisms based on the order in
+which substrates bind and products release.</p>
+<h3 id="sequential-ternary-complex-mechanisms">Sequential (Ternary
+Complex) Mechanisms</h3>
+<p>Both substrates must be bound to the enzyme <em>simultaneously</em>
+before any product is released. The enzyme thus passes through a ternary
+EAB complex.</p>
+<ul>
+<li><strong>Ordered Bi-Bi:</strong> A binds before B; Q releases before
+P. Example: NAD<span class="math inline">\(^+\)</span>-dependent
+dehydrogenases such as lactate dehydrogenase, where NAD<span
+class="math inline">\(^+\)</span> binds first and NADH leaves last.</li>
+<li><strong>Random Bi-Bi:</strong> A and B can bind in either order;
+products can leave in either order. Example: creatine kinase.</li>
+</ul>
+<p>The general rate equation for a sequential Bi-Bi reaction (assuming
+rapid equilibrium and saturating second substrate) reduces to:</p>
+<p><span class="math display">\[\begin{equation}
+v_0 = \frac{V_{\max}\,[\text{A}]\,[\text{B}]}{K_{ia}K_b + K_b[\text{A}]
++ K_a[\text{B}] + [\text{A}][\text{B}]}
+\label{eq:unit_I_bibi_sequential}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(K_a\)</span> and <span
+class="math inline">\(K_b\)</span> are Michaelis constants for A and B,
+and <span class="math inline">\(K_{ia}\)</span> is the dissociation
+constant of A from the binary EA complex. <strong>Diagnostic
+Lineweaver-Burk pattern:</strong> plotting <span
+class="math inline">\(1/v_0\)</span> vs. <span
+class="math inline">\(1/[\text{A}]\)</span> at several fixed [B] gives a
+family of lines that <strong>intersect to the left of the
+y-axis</strong> (sequential signature).</p>
+<h3 id="ping-pong-double-displacement-mechanism">Ping-Pong
+(Double-Displacement) Mechanism</h3>
+<p>The first substrate A binds, transfers a chemical group to the
+enzyme, and the first product P is released, leaving the enzyme in a
+covalently modified form (E<em>). Then B binds to E</em>, accepts the
+group, and Q is released. <strong>At no time does the enzyme contain
+both substrates simultaneously.</strong> Examples: aminotransferases
+(PLP carries the amino group between substrates), serine proteases
+(substrate A acylates the active-site Ser; substrate B = water
+deacylates), and many kinases that proceed via a phospho-enzyme
+intermediate.</p>
+<p>The rate equation:</p>
+<p><span class="math display">\[\begin{equation}
+v_0 = \frac{V_{\max}\,[\text{A}]\,[\text{B}]}{K_b[\text{A}] +
+K_a[\text{B}] + [\text{A}][\text{B}]}
+\label{eq:unit_I_bibi_pingpong}
+\end{equation}\]</span></p>
+<p>Notice the absent <span class="math inline">\(K_{ia}K_b\)</span> term
+in the denominator. <strong>Diagnostic Lineweaver-Burk pattern:</strong>
+the family of lines is <strong>parallel</strong> — a clean kinetic
+signature distinguishing ping-pong from sequential mechanisms.</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 65%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Sequential (Random or Ordered)</th>
+<th>Ping-Pong</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ternary complex EAB?</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Covalent enzyme intermediate E*?</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Lineweaver-Burk pattern (vary A, fixed B)</td>
+<td>Intersecting lines</td>
+<td>Parallel lines</td>
+</tr>
+<tr>
+<td>Examples</td>
+<td>LDH, hexokinase, CK</td>
+<td>AspAT, chymotrypsin, GS</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Concept Check 5:</strong> A biochemist measures the rate of
+an enzyme reaction at varying [A] for several fixed [B] values, and
+obtains a family of parallel lines on a Lineweaver-Burk plot. Identify
+the mechanism and predict whether a covalent enzyme intermediate
+exists.</p>
+</blockquote>
+<hr />
+<h2 id="allosteric-regulation-and-cooperativity">Allosteric Regulation
+and Cooperativity</h2>
+<p>Allosteric enzymes are not governed by simple <a
+href="#gl:michaelis-menten-kinetics"><strong>Michaelis-Menten
+kinetics</strong></a>. They have: - Multiple subunits, typically with
+identical active sites - Regulatory sites distinct from active sites -
+Cooperative (sigmoidal) substrate binding - Modulation by effector
+molecules (activators or inhibitors)</p>
+<h3 id="the-hill-equation">The Hill Equation</h3>
+<p>For an enzyme with <span class="math inline">\(n\)</span> equivalent
+cooperative subunits, the fraction of active sites occupied (θ) follows
+the <strong>Hill equation</strong>:</p>
+<p><span class="math display">\[\theta = \frac{[\text{S}]^n}{K_{0.5}^n +
+[\text{S}]^n} \tag{4.14}
+\label{eq:unit_I_enzymes_and_kinetics_item_15}\]</span></p>
+<p>where <strong><span class="math inline">\(n\)</span></strong> is the
+Hill coefficient: - <span class="math inline">\(n = 1\)</span>: no
+cooperativity (hyperbolic, Michaelis-Menten) - <span
+class="math inline">\(n &gt; 1\)</span>: positive cooperativity
+(sigmoidal; binding one substrate increases affinity for subsequent
+substrates) - <span class="math inline">\(n &lt; 1\)</span>: negative
+cooperativity (binding decreases affinity)</p>
+<p><strong>Linearised Hill equation:</strong></p>
+<p><span class="math display">\[\log\frac{\theta}{1 - \theta} =
+n\log[\text{S}] - n\log K_{0.5} \tag{4.15}
+\label{eq:unit_I_enzymes_and_kinetics_item_16}\]</span></p>
+<p>A plot of <span
+class="math inline">\(\log[\theta/(1-\theta)]\)</span> vs. <span
+class="math inline">\(\log[\text{S}]\)</span> (the <strong>Hill
+plot</strong>) gives a straight line with slope <span
+class="math inline">\(n\)</span> and <span
+class="math inline">\(x\)</span>-intercept at <span
+class="math inline">\(\log K_{0.5}\)</span>.</p>
+<p>Haemoglobin (see ) has <span class="math inline">\(n \approx
+2.8\)</span> (not 4, because cooperativity is imperfect). Sigmoidal
+kinetics give allosteric enzymes <strong>switch-like</strong> behaviour
+— small changes in [S] near <span class="math inline">\(K_{0.5}\)</span>
+cause large changes in activity.</p>
+<p><strong>Worked example:</strong> For an allosteric enzyme with <span
+class="math inline">\(K_{0.5}\)</span> = 5 mM and <span
+class="math inline">\(n\)</span> = 3:</p>
+<p>At [S] = 4 mM: <span class="math inline">\(\theta = \frac{4^3}{5^3 +
+4^3} = \frac{64}{125 + 64} = \frac{64}{189} = 0.339\)</span> (33.9%)</p>
+<p>At [S] = 6 mM: <span class="math inline">\(\theta = \frac{6^3}{5^3 +
+6^3} = \frac{216}{125 + 216} = \frac{216}{341} = 0.634\)</span>
+(63.4%)</p>
+<p>A 50% increase in [S] (from 4 to 6 mM) nearly doubles the fractional
+saturation. This is the “switch-like” sensitivity of cooperative
+systems.</p>
+<h3 id="concerted-mwc-and-sequential-models">Concerted (MWC) and
+Sequential Models</h3>
+<p>Two models describe the molecular mechanism of cooperativity:</p>
+<p><strong>Monod-Wyman-Changeux (MWC) Concerted Model:</strong> - Most
+subunits exist in either the T-state (tense, low affinity) or R-state
+(relaxed, high affinity) - Most subunits transition simultaneously
+(concerted) - Substrate preferentially binds R-state, shifting T<span
+class="math inline">\(\rightleftharpoons\)</span>R equilibrium toward R
+- Activators stabilise R; inhibitors stabilise T</p>
+<p><strong>Koshland-Nemethy-Filmer (KNF) Sequential Model:</strong> -
+Each subunit can independently switch between T and R - Substrate
+binding to one subunit induces conformational changes that propagate to
+adjacent subunits - Explains negative cooperativity (which MWC
+cannot)</p>
+<p>In reality, most allosteric systems show features of both models.</p>
+<h3
+id="aspartate-transcarbamoylase-atcase-a-model-allosteric-enzyme">Aspartate
+Transcarbamoylase (ATCase) — A Model Allosteric Enzyme</h3>
+<pre class="mermaid"><code>flowchart TD
+    subgraph ATCASE[&quot;ATCase: Allosteric Regulation&quot;]
+        E[&quot;ATCase&lt;br/&gt;(6 catalytic + 6 regulatory subunits)&lt;br/&gt;c₆r₆&quot;]
+
+        E --&gt; T[&quot;T-state&lt;br/&gt;(Low affinity for&lt;br/&gt;aspartate + carbamoyl-P)&quot;]
+        E --&gt; R[&quot;R-state&lt;br/&gt;(High affinity for&lt;br/&gt;aspartate + carbamoyl-P)&quot;]
+
+        T --&gt;|&quot;Substrate binding&lt;br/&gt;shifts equilibrium&quot;| R
+
+        CTP[&quot;CTP&lt;br/&gt;(End product)&quot;] --&gt;|&quot;Binds regulatory subunit&lt;br/&gt;Stabilises T-state&lt;br/&gt;FEEDBACK INHIBITION&quot;| T
+
+        ATP[&quot;ATP&lt;br/&gt;(Purine signal)&quot;] --&gt;|&quot;Binds regulatory subunit&lt;br/&gt;Stabilises R-state&lt;br/&gt;ACTIVATION&quot;| R
+
+        R --&gt; PRODUCT[&quot;N-carbamoylaspartate&lt;br/&gt;→ → → → CTP&quot;]
+    end
+
+    style E fill:#34495e,color:#fff
+    style T fill:#e74c3c,color:#fff
+    style R fill:#2ecc71,color:#fff
+    style CTP fill:#e67e22,color:#fff
+    style ATP fill:#3498db,color:#fff
+    style PRODUCT fill:#9b59b6,color:#fff</code></pre>
+<!-- alt: Flowchart showing aTCase allostery (CTP and ATP). Allosteric regulation of ATCase. CTP (the end product of the pyrimidine pathway) is a feedback inhibitor that stabilises the T-state. ATP (a purine nucleotide) is an activator that stabilises the R-state, coordinating purine and pyrimidine synthesis. -->
+<p><em>ATCase allostery (CTP and ATP). Allosteric regulation of ATCase.
+CTP (the end product of the pyrimidine pathway) is a feedback inhibitor
+that stabilises the T-state. ATP (a purine nucleotide) is an activator
+that stabilises the R-state, coordinating purine and pyrimidine
+synthesis.</em></p>
+<p>ATCase (catalyses the first committed step of pyrimidine
+biosynthesis) is the textbook allosteric enzyme: -
+<strong>Structure:</strong> 6 catalytic subunits (c<span
+class="math inline">\(_3\)</span>)<span
+class="math inline">\(_2\)</span> + 6 regulatory subunits (r<span
+class="math inline">\(_2\)</span>)<span
+class="math inline">\(_3\)</span> = c<span
+class="math inline">\(_6\)</span>r<span
+class="math inline">\(_6\)</span> (~310 kDa) -
+<strong>Inhibited</strong> by CTP (end-product of the pathway —
+<strong>feedback inhibition</strong>) - <strong>Activated</strong> by
+ATP (signals adequate purine availability -&gt; coordinate pyrimidine
+synthesis) - Hill coefficient <span class="math inline">\(n \approx
+2.5\)</span> for N-carbamoylaspartate synthesis - T-&gt;R transition
+involves a 12-angstrom expansion and 10-degree rotation of catalytic
+trimers</p>
+<p>This allows the cell to precisely match nucleotide biosynthesis to
+demand. When CTP is abundant, ATCase is inhibited; when ATP is abundant
+(indicating nucleotide precursors are available), ATCase is
+activated.</p>
+<h3 id="why-cooperativity-improves-pathway-control">Why Cooperativity
+Improves Pathway Control</h3>
+<p>A first-glance question: why has evolution invested in elaborate
+allosteric machinery when simple Michaelis-Menten enzymes could in
+principle perform every metabolic task? The answer lies in the
+<em>control properties</em> of cooperative enzymes.</p>
+<p>Compare a hyperbolic enzyme (Hill coefficient <span
+class="math inline">\(n = 1\)</span>) and a sigmoidal enzyme (<span
+class="math inline">\(n = 4\)</span>) in the small region around <span
+class="math inline">\(K_{0.5}\)</span>. For a 2-fold increase in [S]
+near <span class="math inline">\(K_{0.5}\)</span>:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 36%" />
+<col style="width: 34%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th>Enzyme</th>
+<th>θ at <span class="math inline">\([S] = 0.5\,K_{0.5}\)</span></th>
+<th>θ at <span class="math inline">\([S] = 2\,K_{0.5}\)</span></th>
+<th>Sensitivity (ratio)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Michaelis-Menten (<span class="math inline">\(n=1\)</span>)</td>
+<td>0.33</td>
+<td>0.67</td>
+<td>2.0<span class="math inline">\(\times\)</span></td>
+</tr>
+<tr>
+<td>Cooperative (<span class="math inline">\(n=2\)</span>)</td>
+<td>0.20</td>
+<td>0.80</td>
+<td>4.0<span class="math inline">\(\times\)</span></td>
+</tr>
+<tr>
+<td>Cooperative (<span class="math inline">\(n=4\)</span>)</td>
+<td>0.059</td>
+<td>0.941</td>
+<td>16<span class="math inline">\(\times\)</span></td>
+</tr>
+<tr>
+<td>Cooperative (<span class="math inline">\(n=8\)</span>)</td>
+<td>0.0039</td>
+<td>0.9961</td>
+<td>256<span class="math inline">\(\times\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>An 8-fold increase in Hill coefficient (from n=1 to n=8) gives a
+128-fold increase in switching sensitivity around <span
+class="math inline">\(K_{0.5}\)</span> — each doubling of n roughly
+squares the sensitivity ratio. This <strong>ultrasensitivity</strong>
+confers three regulatory advantages:</p>
+<ol type="1">
+<li><strong>Steeper response to small signal changes.</strong>
+Glycolysis can be ramped up rapidly during exercise without requiring
+10-fold changes in metabolite concentrations.</li>
+<li><strong>Sharper response thresholds.</strong> Below <span
+class="math inline">\(K_{0.5}\)</span> the pathway is nearly off; above
+<span class="math inline">\(K_{0.5}\)</span> nearly fully on. Enables
+clear “decision-making” at metabolic branch points.</li>
+<li><strong>Insulation from noise.</strong> Random fluctuations in [S]
+within the low-saturation regime cause much smaller activity changes
+than under MM kinetics. Stability and switch-like behaviour
+coexist.</li>
+</ol>
+<p>The same logic explains why haemoglobin’s <span
+class="math inline">\(n \approx 2.8\)</span> delivers ~25% of bound
+O<span class="math inline">\(_2\)</span> between arterial (pO<span
+class="math inline">\(_2\)</span> 100 mmHg) and venous (40 mmHg) blood,
+whereas hyperbolic myoglobin would deliver about 10% of the same change.
+Cooperativity is biology’s tunable amplifier.</p>
+<blockquote>
+<p><strong>Concept Check 6:</strong> Phosphofructokinase-1 (PFK-1) is an
+allosteric enzyme in <a
+href="#gl:glycolysis"><strong>glycolysis</strong></a> that is activated
+by AMP and inhibited by ATP and citrate. Why does this regulatory
+pattern make metabolic sense? (Consider the energy charge of the
+cell.)</p>
+</blockquote>
+<hr />
+<h2 id="environmental-factors-affecting-enzyme-activity">Environmental
+Factors Affecting Enzyme Activity</h2>
+<h3 id="temperature">Temperature</h3>
+<p>Enzyme activity generally increases with temperature (<span
+class="math inline">\(\uparrow\)</span> kinetic energy -&gt; <span
+class="math inline">\(\uparrow\)</span> collision frequency -&gt; <span
+class="math inline">\(\uparrow\)</span> rate) according to the Arrhenius
+equation:</p>
+<p><span class="math display">\[k = A \cdot e^{-E_a/RT} \tag{4.16}
+\label{eq:unit_I_enzymes_and_kinetics_item_17}\]</span></p>
+<p>A 10 degrees C rise approximately doubles reaction rate (<span
+class="math inline">\(Q_{10} \approx 2\)</span>). However, <strong>above
+the optimal temperature</strong>, denaturation of the protein occurs
+(tertiary and quaternary structure disrupts), sharply reducing activity.
+The optimal temperature for most human enzymes: ~37 degrees C.</p>
+<p><strong><span class="math inline">\(Q_{10}\)</span>
+calculation:</strong></p>
+<p><span class="math display">\[Q_{10} =
+\left(\frac{k_2}{k_1}\right)^{10/(T_2 - T_1)} \tag{4.17}
+\label{eq:unit_I_enzymes_and_kinetics_item_18}\]</span></p>
+<p>For most enzyme reactions, <span
+class="math inline">\(Q_{10}\)</span> = 1.5–3.0. The <span
+class="math inline">\(Q_{10}\)</span> rule breaks down near the
+denaturation temperature.</p>
+<p><strong>Extremophile enzymes (extremozymes):</strong> - <em>Thermus
+aquaticus</em> (hot springs, 75 degrees C) Taq polymerase: thermostable
+DNA polymerase, the workhorse of PCR (optimal 72 degrees C). Taq
+achieves thermostability through increased salt bridges, compact
+hydrophobic core, and proline substitutions. - <em>Pyrococcus
+furiosus</em> (deep-sea vent, 100 degrees C) Pfu polymerase: even more
+thermostable and has 3’-&gt;5’ proofreading activity (higher fidelity
+than Taq). - <em>Psychrobacter</em> (Antarctic, –20 degrees C) enzymes:
+more flexible (more Gly, fewer Pro, fewer salt bridges), lower
+activation energy, active at sub-zero temperatures but rapidly denature
+at 37 degrees C.</p>
+<h3 id="ph">pH</h3>
+<p>Enzyme catalysis depends on the ionisation state of key active-site
+residues. Activity-pH curves are typically bell-shaped:</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 18%" />
+<col style="width: 22%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>Enzyme</th>
+<th>Location</th>
+<th>Optimum pH</th>
+<th>Key Catalytic Residue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pepsin</td>
+<td>Stomach</td>
+<td>1.5–2.5</td>
+<td>Asp (must be protonated)</td>
+</tr>
+<tr>
+<td>Salivary amylase</td>
+<td>Mouth</td>
+<td>6.7–7.0</td>
+<td>Glu (acid/base catalyst)</td>
+</tr>
+<tr>
+<td>Trypsin</td>
+<td>Intestine</td>
+<td>7.5–8.5</td>
+<td>His57 (must be deprotonated)</td>
+</tr>
+<tr>
+<td>Alkaline phosphatase</td>
+<td>Intestine/bone</td>
+<td>8–10</td>
+<td>Ser (phosphorylated intermediate)</td>
+</tr>
+<tr>
+<td>Arginase</td>
+<td>Liver</td>
+<td>9.5–10.0</td>
+<td>Mn<span class="math inline">\(^{2+}\)</span> (binuclear metal
+centre)</td>
+</tr>
+</tbody>
+</table>
+<p>The bell-shaped curve reflects the requirement for specific
+protonation states: the ascending limb corresponds to deprotonation of
+one essential residue; the descending limb to deprotonation of
+another.</p>
+<h3 id="cofactors-and-coenzymes">Cofactors and Coenzymes</h3>
+<p>Many enzymes require non-protein cofactors for activity. The enzyme
+without its cofactor is the <strong>apoenzyme</strong>; the complete,
+active enzyme is the <strong>holoenzyme</strong>.</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>Type</th>
+<th>Examples</th>
+<th>Function</th>
+<th>Dietary Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Metal ions</strong></td>
+<td>Zn<span class="math inline">\(^{2+}\)</span> (carboxypeptidase)</td>
+<td>Lewis acid catalysis</td>
+<td>Red meat, shellfish</td>
+</tr>
+<tr>
+<td></td>
+<td>Mg<span class="math inline">\(^{2+}\)</span> (kinases)</td>
+<td>Stabilise ATP phosphate</td>
+<td>Green vegetables</td>
+</tr>
+<tr>
+<td></td>
+<td>Fe<span class="math inline">\(^{2+/3+}\)</span> (cytochromes)</td>
+<td>Electron transfer</td>
+<td>Red meat, lentils</td>
+</tr>
+<tr>
+<td></td>
+<td>Cu<span class="math inline">\(^{2+}\)</span> (cytochrome c
+oxidase)</td>
+<td>O<span class="math inline">\(_2\)</span> reduction</td>
+<td>Liver, nuts</td>
+</tr>
+<tr>
+<td></td>
+<td>Mn<span class="math inline">\(^{2+}\)</span> (SOD, arginase)</td>
+<td>Redox, hydrolysis</td>
+<td>Whole grains</td>
+</tr>
+<tr>
+<td></td>
+<td>Mo (xanthine oxidase)</td>
+<td>Oxygen atom transfer</td>
+<td>Legumes</td>
+</tr>
+<tr>
+<td></td>
+<td>Se (glutathione peroxidase)</td>
+<td>Peroxide reduction</td>
+<td>Brazil nuts</td>
+</tr>
+<tr>
+<td><strong>Coenzymes</strong></td>
+<td>NAD<span class="math inline">\(^+\)</span>/NADH (from niacin,
+B3)</td>
+<td>Hydride transfer</td>
+<td>Meat, fish</td>
+</tr>
+<tr>
+<td></td>
+<td>FAD/FADH<span class="math inline">\(_2\)</span> (from riboflavin,
+B2)</td>
+<td>Hydride transfer</td>
+<td>Dairy, eggs</td>
+</tr>
+<tr>
+<td></td>
+<td>Coenzyme A (from pantothenate, B5)</td>
+<td>Acyl group transfer</td>
+<td>Widespread</td>
+</tr>
+<tr>
+<td></td>
+<td>Pyridoxal phosphate (from pyridoxine, B6)</td>
+<td>Amino group transfer</td>
+<td>Poultry, fish</td>
+</tr>
+<tr>
+<td></td>
+<td>Thiamine pyrophosphate (from thiamine, B1)</td>
+<td>Decarboxylation</td>
+<td>Whole grains</td>
+</tr>
+<tr>
+<td></td>
+<td>Biotin (B7)</td>
+<td>Carboxylation</td>
+<td>Eggs, nuts</td>
+</tr>
+<tr>
+<td></td>
+<td>Tetrahydrofolate (from folate, B9)</td>
+<td>One-carbon transfer</td>
+<td>Leafy greens</td>
+</tr>
+<tr>
+<td></td>
+<td>5’-deoxyadenosylcobalamin (from B12)</td>
+<td>Rearrangements</td>
+<td>Animal products</td>
+</tr>
+<tr>
+<td><strong>Prosthetic groups</strong></td>
+<td>Haem (contains Fe)</td>
+<td>O<span class="math inline">\(_2\)</span> binding, electron
+transfer</td>
+<td>Synthesised endogenously</td>
+</tr>
+<tr>
+<td></td>
+<td>Lipoic acid</td>
+<td>Acyl group transfer</td>
+<td>Synthesised endogenously</td>
+</tr>
+</tbody>
+</table>
+<p>Most water-soluble vitamins (B vitamins) function as coenzyme
+precursors. This is why vitamin deficiencies cause enzyme dysfunction
+and disease:</p>
+<table>
+<colgroup>
+<col style="width: 44%" />
+<col style="width: 39%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>Vitamin Deficiency</th>
+<th>Coenzyme Affected</th>
+<th>Disease</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1 (Thiamine)</td>
+<td>TPP</td>
+<td>Beriberi, Wernicke-Korsakoff syndrome</td>
+</tr>
+<tr>
+<td>B2 (Riboflavin)</td>
+<td>FAD</td>
+<td>Ariboflavinosis (angular stomatitis)</td>
+</tr>
+<tr>
+<td>B3 (Niacin)</td>
+<td>NAD<span class="math inline">\(^+\)</span></td>
+<td>Pellagra (dermatitis, diarrhoea, dementia)</td>
+</tr>
+<tr>
+<td>B6 (Pyridoxine)</td>
+<td>PLP</td>
+<td>Peripheral neuropathy</td>
+</tr>
+<tr>
+<td>B9 (Folate)</td>
+<td>THF</td>
+<td>Megaloblastic anaemia, neural tube defects</td>
+</tr>
+<tr>
+<td>B12 (Cobalamin)</td>
+<td>AdoCbl, MeCbl</td>
+<td>Pernicious anaemia, neurodegeneration</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Clinical Connection: ACE Inhibitors and Zinc-Dependent
+Catalysis</strong></p>
+<p>Angiotensin-converting enzyme (ACE) is a zinc metalloprotease that
+converts angiotensin I to angiotensin II (a potent vasoconstrictor) and
+degrades bradykinin (a vasodilator). <strong>ACE inhibitors</strong>
+(enalapril, lisinopril, ramipril) chelate the active-site Zn<span
+class="math inline">\(^{2+}\)</span>, preventing catalysis. By blocking
+angiotensin II production and bradykinin degradation, ACE inhibitors
+reduce blood pressure and are first-line therapy for hypertension and
+heart failure. The side effect of dry cough (in ~10% of patients) is
+caused by bradykinin accumulation in the airways.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 7:</strong> Most water-soluble vitamins serve
+as coenzyme precursors. Explain why these vitamins must be obtained from
+the diet (unlike fat-soluble vitamins, which can be stored). What does
+this imply about the recommended frequency of intake?</p>
+</blockquote>
+<hr />
+<h2 id="industrial-and-biotechnological-enzymes">Industrial and
+Biotechnological Enzymes</h2>
+<p>Enzymes have transformed medicine and industry:</p>
+<p>Modern enzyme biotechnology couples classical kinetics with
+structure-guided design, directed evolution, high-throughput screening,
+and increasingly AI-predicted interaction models. AlphaFold-class tools
+can nominate an active-site geometry or protein-complex interface, but
+an engineered-enzyme claim still needs measured <span
+class="math inline">\(k_{cat}\)</span>, <span
+class="math inline">\(K_M\)</span>, specificity, stability, expression
+yield, and performance under application conditions; a plausible
+structure is a hypothesis until kinetics and controls support it .</p>
+<h3 id="crispr-cas9-as-a-nuclease-enzyme">CRISPR-Cas9 as a Nuclease
+Enzyme</h3>
+<p>The Cas9 protein from <em>Streptococcus pyogenes</em> is an
+RNA-guided endonuclease: - <strong>Classification:</strong> EC 3.1
+(nuclease / hydrolase) - <strong>Mechanism:</strong> The guide RNA
+(gRNA) forms a 20-nt complementary complex with the target DNA. Cas9
+unwinds the DNA and cleaves both strands using two nuclease domains:
+RuvC cuts the non-target strand; HNH cuts the target strand -
+<strong>Specificity:</strong> PAM (protospacer adjacent motif,
+5’-NGG-3’) is required adjacent to the target sequence -
+<strong>Applications:</strong> <a
+href="#gl:gene"><strong>Gene</strong></a> editing, gene therapy (sickle
+cell disease, β-thalassaemia), diagnostics (SHERLOCK, DETECTR) -
+<strong>Nobel Prize 2020:</strong> Jennifer Doudna and Emmanuelle
+Charpentier</p>
+<h3 id="industrial-applications">Industrial Applications</h3>
+<table>
+<thead>
+<tr>
+<th>Enzyme</th>
+<th>Industry</th>
+<th>Application</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lipases</td>
+<td>Biodiesel, detergents</td>
+<td>Transesterification, stain removal</td>
+</tr>
+<tr>
+<td>Cellulases</td>
+<td>Biofuel</td>
+<td>Cellulosic ethanol production</td>
+</tr>
+<tr>
+<td>Amylases</td>
+<td>Food, brewing</td>
+<td>Starch liquefaction, brewing</td>
+</tr>
+<tr>
+<td>Proteases</td>
+<td>Detergents, leather</td>
+<td>Protein stain removal, dehairing</td>
+</tr>
+<tr>
+<td>Lactase</td>
+<td>Dairy</td>
+<td>Lactose-free milk production</td>
+</tr>
+<tr>
+<td>DNA polymerase (Taq)</td>
+<td>Molecular biology</td>
+<td>PCR amplification</td>
+</tr>
+<tr>
+<td>Restriction enzymes</td>
+<td>Biotechnology</td>
+<td>Molecular cloning</td>
+</tr>
+<tr>
+<td>Glucose isomerase</td>
+<td>Food</td>
+<td>High-fructose corn syrup</td>
+</tr>
+</tbody>
+</table>
+<h3 id="enzyme-engineering-approaches">Enzyme Engineering
+Approaches</h3>
+<ul>
+<li><strong>Directed evolution:</strong> Random mutagenesis +
+screening/selection for improved properties. Frances Arnold received the
+<strong>2018 Nobel Prize in Chemistry</strong> for this approach.</li>
+<li><strong>Rational design:</strong> Structure-guided <a
+href="#gl:mutation"><strong>mutation</strong></a> of specific residues
+based on mechanistic understanding.</li>
+<li><strong>Immobilised enzymes:</strong> Enzymes attached to solid
+supports for continuous-flow industrial processes. Advantages:
+reusability, stability, easy product separation.</li>
+</ul>
+<h3 id="quantitative-metrics-for-engineered-enzymes">Quantitative
+Metrics for Engineered Enzymes</h3>
+<p>When evaluating an engineered or evolved variant, several
+quantitative figures of merit are routinely compared against the
+wild-type enzyme:</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 30%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Definition</th>
+<th>What it tells you</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fold-improvement in <span
+class="math inline">\(k_{cat}\)</span></td>
+<td><span class="math inline">\(k_{cat}^{\text{var}} /
+k_{cat}^{\text{WT}}\)</span></td>
+<td>Speed-up at saturating [S]</td>
+</tr>
+<tr>
+<td>Fold-improvement in <span
+class="math inline">\(k_{cat}/K_m\)</span></td>
+<td><span class="math inline">\((k_{cat}/K_m)^{\text{var}} /
+(k_{cat}/K_m)^{\text{WT}}\)</span></td>
+<td>Catalytic efficiency at low [S] (closer to <em>in vivo</em>)</td>
+</tr>
+<tr>
+<td>Substrate scope</td>
+<td># of new substrates accepted</td>
+<td>Breadth of activity</td>
+</tr>
+<tr>
+<td>Enantioselectivity (E-value)</td>
+<td><span class="math inline">\(\ln[(1 - c)(1 - ee_S)] / \ln[(1 - c)(1 +
+ee_S)]\)</span></td>
+<td>Discrimination between enantiomers</td>
+</tr>
+<tr>
+<td>Thermal stability (<span class="math inline">\(T_{50}\)</span>,
+<span class="math inline">\(T_m\)</span>)</td>
+<td>Temp at half-activity / unfolding midpoint</td>
+<td>Process robustness</td>
+</tr>
+<tr>
+<td>Half-life under operating conditions</td>
+<td>Time to lose 50% activity</td>
+<td>Industrial economics</td>
+</tr>
+<tr>
+<td>Specific activity</td>
+<td>μmol/min/mg</td>
+<td>Practical productivity</td>
+</tr>
+<tr>
+<td>Total turnover number (TTN)</td>
+<td>Total substrate molecules per enzyme before death</td>
+<td>Catalyst longevity</td>
+</tr>
+</tbody>
+</table>
+<p>A successful directed evolution campaign will track several of these
+metrics simultaneously across many rounds; the best-known successes
+(e.g., engineered transaminases for sitagliptin manufacture) achieved
+25,000-fold rate improvements and &gt;10<span
+class="math inline">\(^6\)</span> TTN over ~10 evolutionary rounds.</p>
+<hr />
+<h2 id="worked-examples">Worked Examples</h2>
+<p><strong>Problem 1:</strong> An enzyme obeys Michaelis-Menten kinetics
+with <span class="math inline">\(K_m\)</span> = 2.0 mM and <span
+class="math inline">\(V_{max}\)</span> = 100 μmol/min. Calculate <span
+class="math inline">\(v_0\)</span> at [S] = 0.5 mM, 2.0 mM, 10 mM, and
+200 mM.</p>
+<p><em>Solution:</em></p>
+<p><span class="math display">\[v_0 = \frac{100 \times [\text{S}]}{2.0 +
+[\text{S}]} \tag{4.18}
+\label{eq:unit_I_enzymes_and_kinetics_item_19}\]</span></p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 46%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr>
+<th>[S] (mM)</th>
+<th><span class="math inline">\(v_0\)</span> (μmol/min)</th>
+<th>% of <span class="math inline">\(V_{max}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5</td>
+<td><span class="math inline">\(100 \times 0.5 / 2.5 =
+20.0\)</span></td>
+<td>20%</td>
+</tr>
+<tr>
+<td>2.0</td>
+<td><span class="math inline">\(100 \times 2.0 / 4.0 =
+50.0\)</span></td>
+<td>50% (by definition, [S] = <span
+class="math inline">\(K_m\)</span>)</td>
+</tr>
+<tr>
+<td>10.0</td>
+<td><span class="math inline">\(100 \times 10 / 12 = 83.3\)</span></td>
+<td>83.3%</td>
+</tr>
+<tr>
+<td>200.0</td>
+<td><span class="math inline">\(100 \times 200 / 202 =
+99.0\)</span></td>
+<td>99.0% (near saturation)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Problem 2:</strong> In the presence of a competitive
+inhibitor at [I] = 5 mM and <span class="math inline">\(K_i\)</span> =
+2.5 mM, what is the new apparent <span
+class="math inline">\(K_m\)</span>? At what [S] will <span
+class="math inline">\(v_0\)</span> = <span
+class="math inline">\(V_{max}/2\)</span>?</p>
+<p><em>Solution:</em> <span class="math display">\[\alpha = 1 +
+\frac{[\text{I}]}{K_i} = 1 + \frac{5.0}{2.5} = 3.0 \tag{4.19}
+\label{eq:unit_I_enzymes_and_kinetics_item_20}\]</span></p>
+<p><span class="math display">\[K_m^{app} = \alpha K_m = 3.0 \times 2.0
+= 6.0 \; \text{mM} \tag{4.20}
+\label{eq:unit_I_enzymes_and_kinetics_item_21}\]</span></p>
+<p><span class="math inline">\(v_0 = V_{max}/2\)</span> when [S] = <span
+class="math inline">\(K_m^{app}\)</span> = 6.0 mM. The inhibitor triples
+the substrate concentration needed for half-maximal velocity.</p>
+<p><strong>Problem 3:</strong> The Hill coefficient for haemoglobin is
+2.8, and <span class="math inline">\(K_{0.5}\)</span> for O<span
+class="math inline">\(_2\)</span> is 26 mmHg. Calculate the fractional
+saturation at: (a) pO<span class="math inline">\(_2\)</span> = 40 mmHg
+(venous blood) (b) pO<span class="math inline">\(_2\)</span> = 100 mmHg
+(arterial blood)</p>
+<p><em>Solution:</em> <span class="math display">\[\theta =
+\frac{[\text{S}]^n}{K_{0.5}^n + [\text{S}]^n} \tag{4.21}
+\label{eq:unit_I_enzymes_and_kinetics_item_22}\]</span></p>
+<ol type="a">
+<li><span class="math inline">\(\theta = \frac{40^{2.8}}{26^{2.8} +
+40^{2.8}} = \frac{40^{2.8}}{26^{2.8} + 40^{2.8}}\)</span></li>
+</ol>
+<p><span class="math inline">\(40^{2.8} = e^{2.8 \ln 40} = e^{2.8 \times
+3.689} = e^{10.33} = 30{,}600\)</span></p>
+<p><span class="math inline">\(26^{2.8} = e^{2.8 \ln 26} = e^{2.8 \times
+3.258} = e^{9.12} = 9{,}160\)</span></p>
+<p><span class="math inline">\(\theta = \frac{30{,}600}{9{,}160 +
+30{,}600} = \frac{30{,}600}{39{,}760} = 0.770\)</span> (77.0%)</p>
+<ol start="2" type="a">
+<li><span class="math inline">\(100^{2.8} = e^{2.8 \times 4.605} =
+e^{12.89} = 396{,}000\)</span></li>
+</ol>
+<p><span class="math inline">\(\theta = \frac{396{,}000}{9{,}160 +
+396{,}000} = 0.977\)</span> (97.7%)</p>
+<p>The difference: haemoglobin loads O<span
+class="math inline">\(_2\)</span> to 97.7% in the lungs and unloads to
+77.0% in tissues, delivering ~20% of its O<span
+class="math inline">\(_2\)</span> per circuit. During exercise (venous
+pO<span class="math inline">\(_2\)</span> drops to ~20 mmHg), delivery
+increases substantially due to the steep part of the sigmoidal
+curve.</p>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>The Michaelis–Menten hyperbola is implemented directly on
+concentrations in µM:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.biochemistry <span class="im">import</span> michaelis_menten</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>res <span class="op">=</span> michaelis_menten(<span class="fl">5.0</span>, Vmax<span class="op">=</span><span class="fl">120.0</span>, Km<span class="op">=</span><span class="fl">10.0</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res.reaction_rate, res.efficiency)  <span class="co"># v and v/Vmax</span></span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> Many drugs are
+mechanism-based inhibitors that shrink effective <span
+class="math inline">\(V_\mathrm{max}\)</span> or raise apparent <span
+class="math inline">\(K_m\)</span>; statins compete at HMG-CoA
+reductase’s active site, illustrating competitive themes at a clinically
+relevant scale.</p>
+</blockquote>
+<hr />
+<h2 id="bridge-to-systems-from-enzyme-kinetics-to-metabolic-flux">Bridge
+to Systems: From Enzyme Kinetics to Metabolic Flux</h2>
+<p>A single enzyme’s <span class="math inline">\(K_m\)</span>, <span
+class="math inline">\(V_{\max}\)</span>, and Hill coefficient become
+inputs to a higher-level question: what is the <strong>flux</strong>
+(<span class="math inline">\(J\)</span>, in mol L<span
+class="math inline">\(^{-1}\)</span> s<span
+class="math inline">\(^{-1}\)</span>) through a metabolic pathway, and
+which enzyme limits it? This question is the bridge from this chapter to
+Unit III (bioenergetics and respiration).</p>
+<h3 id="pathway-flux-is-set-by-multiple-enzymes-not-one">Pathway Flux is
+Set by Multiple Enzymes, Not One</h3>
+<p>The classical idea that a single “rate-limiting step” governs a
+pathway has been replaced by <strong>metabolic control analysis</strong>
+(MCA), developed in the 1970s by Heinrich, Rapoport, Kacser, and Burns.
+MCA assigns each enzyme <span class="math inline">\(i\)</span> a
+<strong>flux control coefficient</strong>:</p>
+<p><span class="math display">\[\begin{equation}
+C_i^J = \frac{\partial \ln J}{\partial \ln [E_i]}
+\label{eq:unit_I_flux_control_coefficient}
+\end{equation}\]</span></p>
+<p>This is the fractional change in steady-state flux when the activity
+of enzyme <span class="math inline">\(i\)</span> is changed by a small
+fraction. The <strong>summation theorem</strong> states that for any
+pathway:</p>
+<p><span class="math display">\[\begin{equation}
+\sum_i C_i^J = 1
+\label{eq:unit_I_summation_theorem}
+\end{equation}\]</span></p>
+<p>Three lessons follow:</p>
+<ol type="1">
+<li><strong>Control is distributed.</strong> No single enzyme has <span
+class="math inline">\(C_i^J = 1\)</span>; instead, glycolytic flux in
+muscle is controlled by hexokinase (<span class="math inline">\(C^J
+\approx 0.3\)</span>), PFK-1 (<span class="math inline">\(C^J \approx
+0.3\)</span>), pyruvate kinase (<span class="math inline">\(C^J \approx
+0.2\)</span>), and others.</li>
+<li><strong>Targeting the “rate-limiting” enzyme often
+disappoints.</strong> Doubling PFK-1 primarily doubles flux if <span
+class="math inline">\(C^J = 1\)</span>, which is rarely true. This is
+why metabolic engineering campaigns to improve product yields often
+increase one enzyme tenfold for a 1.5-fold flux gain.</li>
+<li><strong>Allosteric regulation tunes the control
+distribution.</strong> When ATP is high, AMP is low, and ATCase or PFK-1
+sit in their T-state, <span class="math inline">\(C^J\)</span> for those
+enzymes rises toward 1; the cell concentrates control where it can
+respond quickly to demand changes.</li>
+</ol>
+<h3 id="enzyme-saturation-modes-determine-pathway-behaviour">Enzyme
+Saturation Modes Determine Pathway Behaviour</h3>
+<p>The local <span class="math inline">\([\text{S}] / K_m\)</span> ratio
+for each enzyme determines whether it operates near saturation or far
+below. Glycolytic enzymes typically operate at <span
+class="math inline">\([\text{S}] \approx K_m\)</span> (around
+half-saturation), where the response to small <span
+class="math inline">\([\text{S}]\)</span> changes is approximately
+linear and control coefficients are large. Enzymes whose substrates are
+at <span class="math inline">\(\gg K_m\)</span> (saturated) have <span
+class="math inline">\(C^J \approx 0\)</span> and exert no flux control.
+Designing a pathway thus means choosing <span
+class="math inline">\(K_m\)</span> values matched to physiological
+metabolite concentrations — a constraint visible in the convergent
+evolution of glycolytic enzymes across most kingdoms of life.</p>
+<h3 id="branching-points-and-connectivity">Branching Points and
+Connectivity</h3>
+<p>When a metabolite sits at a branch point (e.g., glucose-6-phosphate,
+fed into glycolysis or the pentose phosphate pathway), the control
+coefficient for one branch can exceed 1, balanced by a <em>negative</em>
+control coefficient on the other branch. Allosteric regulation at branch
+points (NADPH-mediated inhibition of glucose-6-phosphate dehydrogenase;
+citrate inhibition of PFK-1) allows the cell to apportion flux based on
+demand.</p>
+<p>Unit III revisits these concepts at the level of full pathways
+(glycolysis, TCA cycle, electron transport) and shows how
+phosphorylation cascades, <a
+href="#gl:hormone"><strong>hormone</strong></a>-driven changes in enzyme
+abundance, and substrate cycles allow flux to vary 100-fold between rest
+and exercise.</p>
+<blockquote>
+<p><strong>Concept Check 8:</strong> Insulin treatment of a hepatocyte
+reduces gluconeogenic flux by ~10<span
+class="math inline">\(\times\)</span> within minutes, primarily by
+phosphorylating PFK-2/FBPase-2 to raise [fructose-2,6-bisphosphate].
+Without invoking transcription, explain how this allosteric activator
+achieves a 10<span class="math inline">\(\times\)</span> flux reduction
+while individual enzyme abundances remain unchanged. Use the language of
+<span class="math inline">\(C^J\)</span> and <span
+class="math inline">\(K_m\)</span>.</p>
+</blockquote>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Enzymes and the Kinetics of Catalysis</strong>, frontier
+biology belongs inside the evidence logic of the chapter.
+Chemistry-of-life claims now connect classical bonding and
+thermodynamics with AI-guided structure prediction and experimental
+validation. The core reading question is this: enzyme claims should
+separate binding, catalysis, regulation, transport limits, and
+measurement conditions.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>Use AI biomolecular models as hypothesis generators: compare
+confidence, conservation, solvent exposure, and assay evidence before
+turning a predicted contact into a biological claim .</p>
+<p><strong>Source practice:</strong> For structure and interaction
+claims, cite experimental structures when available and treat AlphaFold
+3 or AFDB complex predictions as hypotheses to validate with confidence
+metrics, conservation, mutagenesis, binding, or cryo-EM/X-ray/NMR
+evidence .</p>
+<h3 id="current-evidence-map-enzyme-engineering-evidence-chain">Current
+Evidence Map: Enzyme Engineering Evidence Chain</h3>
+<pre class="mermaid"><code>flowchart LR
+    A[&quot;Catalytic problem&quot;] --&gt; B[&quot;Structure or model&quot;]
+    B --&gt; C[&quot;Residue hypothesis&quot;]
+    C --&gt; D[&quot;Variant library&quot;]
+    D --&gt; E[&quot;Kinetic screen&quot;]
+    E --&gt; F[&quot;Specificity and stability&quot;]
+    F --&gt; G[&quot;Application decision&quot;]</code></pre>
+<!-- alt: Flowchart showing enzyme-engineering claims need rate, specificity, stability, and context; a better active-site story is not enough without quantitative kinetics. -->
+<p><em>Enzyme-engineering claims need rate, specificity, stability, and
+context; a better active-site story is not enough without quantitative
+kinetics.</em></p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Enzymes are protein catalysts that lower the activation energy <span
+class="math inline">\(\Delta G^{\ddagger}\)</span> without altering
+equilibrium.</li>
+<li>Rate enhancement mechanisms include proximity/orientation,
+transition state stabilisation, acid-base catalysis, covalent catalysis,
+and metal ion catalysis.</li>
+<li>The Michaelis-Menten equation: <span class="math inline">\(v_0 =
+V_{max}[\text{S}] / (K_m + [\text{S}])\)</span>; <span
+class="math inline">\(K_m\)</span> approximates substrate affinity;
+<span class="math inline">\(k_{cat}\)</span> = turnover number; <span
+class="math inline">\(k_{cat}/K_m\)</span> = catalytic efficiency.</li>
+<li>Enzyme inhibition: competitive (increases apparent <span
+class="math inline">\(K_m\)</span>), uncompetitive (decreases both <span
+class="math inline">\(K_m\)</span> and <span
+class="math inline">\(V_{max}\)</span>), mixed/noncompetitive (<span
+class="math inline">\(V_{max}\)</span> decreases), irreversible
+(covalent inactivation). Each has a characteristic Lineweaver-Burk
+pattern.</li>
+<li>Allosteric enzymes exhibit sigmoidal kinetics (Hill equation); key
+for metabolic feedback control. ATCase is the paradigm for allosteric
+regulation.</li>
+<li>pH, temperature, and cofactor availability most modulate enzyme
+activity. Vitamin deficiencies impair coenzyme-dependent enzymes.</li>
+<li>Enzymes are classified into seven EC classes (the seventh,
+translocases, added in 2018).</li>
+<li>Modern enzyme applications include CRISPR-Cas9 gene editing,
+industrial biocatalysis, and directed evolution.</li>
+<li><strong>Connections:</strong> See Unit III (pathway-level flux and
+regulated enzymes), Unit IV (polymerases and repair enzymes), and Unit
+VII (antibiotic targets in bacterial metabolism).</li>
+</ul>
+<h2 id="key-terms">Key Terms</h2>
+<ul>
+<li><strong>Activation energy (<span class="math inline">\(\Delta
+G^{\ddagger}\)</span>):</strong> Energy barrier between reactants and
+transition state</li>
+<li><strong>Active site:</strong> Region of enzyme that binds substrate
+and catalyses reaction</li>
+<li><strong>Transition state:</strong> Highest-energy intermediate along
+the reaction coordinate</li>
+<li><strong>Michaelis constant (<span
+class="math inline">\(K_m\)</span>):</strong> Substrate concentration at
+half-maximal velocity</li>
+<li><strong>Turnover number (<span
+class="math inline">\(k_{cat}\)</span>):</strong> Maximum substrate
+molecules converted per enzyme per second</li>
+<li><strong>Catalytic efficiency (<span
+class="math inline">\(k_{cat}/K_m\)</span>):</strong> Overall measure of
+enzyme performance</li>
+<li><strong>Competitive inhibition:</strong> Inhibitor competes with
+substrate for active site; overcome by high [S]</li>
+<li><strong>Uncompetitive inhibition:</strong> Inhibitor binds primarily
+the ES complex</li>
+<li><strong>Mixed inhibition:</strong> Inhibitor binds both E and ES at
+an allosteric site</li>
+<li><strong>Irreversible inhibition:</strong> Covalent modification
+permanently inactivates the enzyme</li>
+<li><strong>Allosteric regulation:</strong> Modulation by effector
+binding at a site other than the active site</li>
+<li><strong>Hill coefficient (<span
+class="math inline">\(n\)</span>):</strong> Measure of cooperativity;
+<span class="math inline">\(n &gt; 1\)</span> = positive
+cooperativity</li>
+<li><strong>Feedback inhibition:</strong> End product inhibits an early
+enzyme in its biosynthetic pathway</li>
+<li><strong>Coenzyme:</strong> Organic cofactor, often derived from a
+water-soluble vitamin</li>
+<li><strong>Prosthetic group:</strong> Tightly bound cofactor (e.g.,
+haem, FAD)</li>
+<li><strong>Holoenzyme:</strong> Complete enzyme with most cofactors
+bound</li>
+<li><strong>Apoenzyme:</strong> Enzyme protein without its cofactor</li>
+<li><strong>EC number:</strong> Four-digit enzyme classification number
+assigned by IUBMB</li>
+<li><strong>Transition state analogue:</strong> Inhibitor that mimics
+the transition state geometry</li>
+<li><strong>Directed evolution:</strong> Laboratory technique for
+engineering improved enzymes</li>
+</ul>
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li>Explain, using transition state theory, why an enzyme that binds the
+transition state <span class="math inline">\(10^6\)</span>-fold more
+tightly than the substrate achieves a rate enhancement of approximately
+<span class="math inline">\(10^6\)</span>-fold.</li>
+<li>Derive the Michaelis-Menten equation starting from the steady-state
+assumption. State clearly most assumptions made.</li>
+<li>An enzyme has <span class="math inline">\(K_m\)</span> = 0.2 mM and
+<span class="math inline">\(V_{max}\)</span> = 50 μmol/min. A
+competitive inhibitor (<span class="math inline">\(K_i\)</span> = 0.1
+mM) is added at 0.5 mM. Calculate the apparent <span
+class="math inline">\(K_m\)</span> and the rate at [S] = 0.2 mM with and
+without inhibitor.</li>
+<li>On a Lineweaver-Burk plot, two lines obtained with and without an
+inhibitor are parallel. Identify the type of inhibition and explain what
+molecular event is occurring.</li>
+<li>The Hill coefficient for phosphofructokinase-1 is approximately 3.8.
+What does this tell you about the enzyme’s response to changes in
+substrate concentration near <span
+class="math inline">\(K_{0.5}\)</span>?</li>
+<li>Explain how aspirin’s mechanism of action (irreversible COX
+inhibition) accounts for both its anti-inflammatory properties and its
+use as an antiplatelet drug.</li>
+<li>Why do statins lower blood cholesterol more effectively than simply
+reducing dietary cholesterol intake? Consider the relative contributions
+of endogenous synthesis and dietary absorption.</li>
+<li>A food scientist wants to use an immobilised enzyme in a
+continuous-flow reactor. What are three advantages of enzyme
+immobilisation over using the free enzyme in solution?</li>
+<li>CRISPR-Cas9 requires a PAM sequence (5’-NGG-3’) adjacent to its
+target. Explain why this requirement exists and how it affects the
+enzyme’s specificity. How does this relate to the concept of substrate
+recognition?</li>
+<li>Pellagra (deficiency of niacin/vitamin B3) causes the “three Ds”:
+dermatitis, diarrhoea, and dementia. Given that niacin is the precursor
+to NAD<span class="math inline">\(^+\)</span>, explain why this
+deficiency has such widespread systemic effects.</li>
+<li>Using <code>michaelis_menten</code>, compute <span
+class="math inline">\(v\)</span> at <span class="math inline">\([S] =
+K_m/2\)</span>, <span class="math inline">\(K_m\)</span>, and <span
+class="math inline">\(2K_m\)</span> for the same <span
+class="math inline">\(V_\mathrm{max}\)</span>. Verify numerically that
+<span class="math inline">\(v\)</span> is <strong>not</strong> linear in
+<span class="math inline">\([S]\)</span> even when <span
+class="math inline">\([S] \ll K_m\)</span> is often approximated as
+linear.</li>
+<li>Explain why <span class="math inline">\(k_\mathrm{cat}/K_m\)</span>
+is a useful upper-bound metric for substrate discrimination under
+cellular subsaturating conditions, and give one evolutionary scenario
+where <a href="#gl:natural-selection"><strong>natural
+selection</strong></a> would increase this ratio.</li>
+<li>A two-substrate enzyme is studied at varying [A] for several fixed
+[B]. The Lineweaver-Burk plot reveals <strong>intersecting</strong>
+lines that meet to the <strong>left of the y-axis</strong>. Use and to
+argue whether the mechanism is sequential or ping-pong.</li>
+<li>Compare the switching sensitivity (fold-change in θ for a 2<span
+class="math inline">\(\times\)</span> change in [S] near <span
+class="math inline">\(K_{0.5}\)</span>) of cooperative enzymes with
+<span class="math inline">\(n=1, 2, 4, 8\)</span>. Why do regulatory
+(rate-controlling) enzymes typically have <span class="math inline">\(n
+&gt; 2\)</span> while housekeeping enzymes are usually hyperbolic?</li>
+<li>A directed-evolution campaign improves a transaminase’s <span
+class="math inline">\(k_{cat}/K_m\)</span> by 100<span
+class="math inline">\(\times\)</span> over six rounds of
+mutation/selection. Discuss two metrics besides <span
+class="math inline">\(k_{cat}/K_m\)</span> that the campaign should
+monitor in parallel, and explain why <span
+class="math inline">\(k_{cat}/K_m\)</span> alone is not sufficient to
+declare success for an industrial process.</li>
+<li>Using , argue why doubling the abundance of a single “rate-limiting”
+glycolytic enzyme rarely doubles glycolytic flux. Suggest one cellular
+scenario where the flux control coefficient <span
+class="math inline">\(C^J\)</span> for PFK-1 would approach 1.</li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Fischer (1894). Einfluss der Configuration auf die Wirkung der
+Enzyme. <em>Berichte der deutschen chemischen Gesellschaft</em>,
+27.</li>
+<li>Koshland (1958). Application of a Theory of Enzyme Specificity to
+Protein Synthesis. <em>Proceedings of the National Academy of
+Sciences</em>, 44.</li>
+</ul>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Enzymes and the Kinetics of Catalysis</strong> should leave a
+reproducible trail from a biological claim to the code, figure, diagram,
+or paper-based activity that can test it. Use the surfaces below to
+inspect the chapter’s assumptions, rerun the relevant model, or compare
+the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/biochemistry/biochemistry.py</code>
+(<code>michaelis_menten</code>, <code>competitive_inhibition</code>,
+<code>enzyme_rate_curve</code>)</td>
+<td>Reproduce saturation curves, inhibition shifts, and parameter
+interpretation.</td>
+</tr>
+<tr>
+<td><code>src/visualization/plots.py</code>
+(<code>plot_michaelis_menten</code>)</td>
+<td>Check that graph shape, axes, and units match the kinetic
+equation.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>enzyme_kinetics_diagram</code>)</td>
+<td>Keep mechanism, substrate binding, and regulation visually
+aligned.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> report substrate range,
+enzyme amount, temperature, pH, and rate units before comparing kinetic
+parameters. <strong>Cross-reference:</strong> connect kinetics to and
+.</p>
+</body>
+</html>

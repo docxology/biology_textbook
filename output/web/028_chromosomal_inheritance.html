@@ -1,0 +1,2620 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>028_chromosomal_inheritance</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="chromosomal-inheritance-and-linkage">Chromosomal Inheritance and
+Linkage</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 17</strong> · Level 2/3 · 60 min read · 75 min lecture ·
+Prerequisites: </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Explain the <a href="#gl:chromosome"><strong>chromosome</strong></a>
+theory of heredity and its experimental support from Sutton, Boveri, and
+Morgan.</li>
+<li>Describe chromosome architecture (centromere, telomere,
+heterochromatin/euchromatin) and connect it to chromosome behavior at
+meiosis.</li>
+<li>Compare meiosis and mitosis at the level of cellular events, ploidy,
+recombination, and outcomes.</li>
+<li>Describe the sex determination systems used across different
+organisms.</li>
+<li>Explain the molecular mechanism of X-inactivation, including the
+role of XIST RNA, and outline broader dosage-compensation
+strategies.</li>
+<li>Describe X-linked inheritance patterns and calculate expected
+offspring ratios for X-linked traits.</li>
+<li>Explain meiotic non-disjunction (meiosis I vs. meiosis II),
+aneuploidy outcomes, and the maternal age effect.</li>
+<li>Define genetic <a href="#gl:linkage"><strong>linkage</strong></a>
+and <a href="#gl:recombination"><strong>recombination</strong></a>;
+calculate map distance from cross data.</li>
+<li>Perform three-point test cross analysis to determine <a
+href="#gl:gene"><strong>gene</strong></a> order and map distances.</li>
+<li>Classify chromosomal rearrangements (translocations, inversions,
+deletions, duplications) and their clinical consequences, including the
+Philadelphia chromosome, DiGeorge, and Cri-du-chat syndromes.</li>
+<li>Connect chromosome behavior to genomic imprinting and uniparental
+disomy (cross-link to ).</li>
+<li>Calculate inbreeding coefficients and predict their effect on
+offspring homozygosity and fitness.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Genes travel on chromosomes, so linkage,
+recombination, and chromosome structure shape inheritance.</li>
+<li><strong>Core concepts:</strong> linkage, recombination, sex linkage,
+chromosomal rearrangements.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change:
+Information flow, exchange, and storage, Evolution; AP Biology:
+Information Storage and Transmission, Evolution; NGSS-style topics:
+Inheritance and Variation of Traits, Natural Selection and
+Evolution.</li>
+<li><strong>Model or quantitative lens:</strong> Recombination frequency
+and three-point mapping.</li>
+<li><strong>Data skill:</strong> Infer gene order or chromosomal
+mechanism from offspring counts.</li>
+<li><strong>Practice cadence:</strong> Statistical Tests and Data
+Analysis, Representing and Describing Data.</li>
+<li><strong>Common misconception to repair:</strong> Independent
+assortment applies to unlinked loci, not to every pair of genes.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Transfer linkage reasoning to
+disease mapping, breeding, and genome assemblies.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.genetics.genetics.infer_three_point_order</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette — A Fly’s White Eye Opens the Chromosome
+Era</strong></p>
+<p>In 1910, Thomas Hunt Morgan was cultivating thousands of
+<em>Drosophila melanogaster</em> in a “fly room” at Columbia University
+when he noticed a single male with white eyes among thousands of
+red-eyed flies. When he crossed this mutant with normal red-eyed females
+and counted the offspring across two generations, a striking pattern
+emerged: white eyes appeared almost exclusively in male offspring.
+Morgan immediately recognized that the white-eye trait was linked to the
+X chromosome — the first gene mapped to a specific chromosome in any
+organism. The discovery of sex-linkage validated the chromosome theory
+of heredity (which Mendel’s work alone could not prove), won Morgan the
+1933 Nobel Prize, and launched the entire field of chromosome mapping.
+The humble fruit fly, with its four chromosome pairs, short generation
+time, and thousands of offspring, remains one of the most productive
+research organisms in genetics to this day.</p>
+</blockquote>
+<h2 id="the-chromosome-theory-of-heredity">The Chromosome Theory of
+Heredity</h2>
+<p>In 1902, Walter Sutton (studying grasshopper <em>Brachystola
+magna</em>) and Theodor Boveri (studying sea urchin embryos)
+independently proposed that chromosomes are the physical carriers of
+Mendel’s “factors” (genes):</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Mendel’s Observation</th>
+<th>Chromosomal Parallel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Genes exist in pairs in somatic cells</td>
+<td>Chromosomes exist in homologous pairs (diploid)</td>
+</tr>
+<tr>
+<td><a href="#gl:allele"><strong>Allele</strong></a>s segregate during
+<a href="#gl:gamete"><strong>gamete</strong></a> formation</td>
+<td>Homologous chromosomes separate at <a
+href="#gl:meiosis"><strong>meiosis</strong></a> I</td>
+</tr>
+<tr>
+<td>Different genes assort independently</td>
+<td>Non-homologous chromosomes orient independently at metaphase I</td>
+</tr>
+<tr>
+<td>Gametes carry one allele per gene</td>
+<td>Gametes are haploid (one chromosome from each pair)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Morgan’s confirmation (1910-1915)</strong>: Thomas Hunt
+Morgan’s experiments with <em>Drosophila melanogaster</em> provided the
+definitive proof. His discovery of <strong>white-eyed males</strong>
+(X-linked recessive) demonstrated that a specific gene (white,
+<em>w</em>) segregated with the X chromosome, proving that genes reside
+on chromosomes. Morgan received the Nobel Prize in Physiology or
+Medicine in 1933.</p>
+<hr />
+<h2 id="chromosome-architecture-the-hardware-of-heredity">Chromosome
+Architecture: The Hardware of Heredity</h2>
+<p>A eukaryotic chromosome is far more than a passive package of DNA —
+it is a structurally organized object whose every architectural feature
+has a functional role in transmission, expression, and protection of the
+genetic material. Understanding chromosome behavior requires
+understanding chromosome <strong>anatomy</strong>: the metaphase
+chromosome in shows how the centromere, telomeres, and heterochromatic
+and euchromatic domains discussed below are arranged along the sister
+chromatids.</p>
+<h3 id="centromeres">Centromeres</h3>
+<p>The <strong>centromere</strong> is the chromosomal region where
+sister chromatids are held together after DNA replication and where the
+<strong>kinetochore</strong> assembles to attach to spindle microtubules
+during cell division. Centromeres position chromosomes correctly at
+metaphase and are essential for the orderly disjunction of chromatids at
+anaphase.</p>
+<ul>
+<li><strong>Position-based classification</strong>: Metacentric
+(centromere central — chromosome 1), submetacentric (slightly off-center
+— chromosome 6), acrocentric (near one end — chromosome 21), telocentric
+(terminal — present in some species but not in normal humans).</li>
+<li><strong>Sequence composition</strong>: Human centromeres contain
+<strong>alpha-satellite DNA</strong> — tandem repeats of a 171-bp
+monomer organized into higher-order arrays spanning 0.3–5 Mb. The DNA
+sequence is rapidly evolving, but centromere identity is
+<strong>epigenetically defined</strong> by the histone variant
+<strong>CENP-A</strong>, which replaces canonical H3 in centromeric
+nucleosomes and recruits the kinetochore.</li>
+<li><strong>Robertsonian translocations</strong> involve fusion of two
+acrocentric chromosomes through their centromeres — a phenomenon that
+depends on the unique architecture of acrocentric short arms and is
+revisited in the structural-rearrangements discussion.</li>
+</ul>
+<h3 id="telomeres">Telomeres</h3>
+<p>The ends of linear eukaryotic chromosomes pose a structural problem:
+the cell must distinguish a true chromosome end from a double-strand
+break (which would otherwise trigger DNA damage signaling).
+<strong>Telomeres</strong> solve this with specialized terminal
+structures.</p>
+<ul>
+<li><strong>Sequence</strong>: Human telomeres consist of tandem repeats
+of <strong>TTAGGG</strong> (5–15 kb at birth), bound by the
+<strong>shelterin complex</strong> (TRF1, TRF2, POT1, TIN2, TPP1, RAP1)
+that masks the chromosome end and inhibits inappropriate repair
+responses.</li>
+<li><strong>The end-replication problem</strong>: DNA polymerase cannot
+fully replicate the lagging strand, so chromosomes shorten by 50–200 bp
+per division. Without compensation, cells become senescent after ~50
+divisions (the <strong>Hayflick limit</strong>).</li>
+<li><strong>Telomerase</strong>: A specialized reverse transcriptase
+(catalytic subunit TERT, RNA template TERC) extends telomeres in stem
+cells, germ cells, and ~85% of cancers — making telomerase a cancer
+therapeutic target.</li>
+<li><strong>Clinical relevance</strong>: <strong>Dyskeratosis
+congenita</strong> results from telomerase mutations and causes
+premature aging, bone marrow failure, and cancer. <strong>Werner
+syndrome</strong> (helicase mutations) accelerates telomere
+shortening.</li>
+</ul>
+<h3 id="euchromatin-and-heterochromatin">Euchromatin and
+Heterochromatin</h3>
+<p>Chromatin is not uniform — it exists in two functionally and
+structurally distinct states.</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 32%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Euchromatin</th>
+<th>Heterochromatin</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compaction</td>
+<td>Open, accessible</td>
+<td>Densely packed</td>
+</tr>
+<tr>
+<td>Histone marks</td>
+<td>H3K4me3, H3K27ac, H3K36me3</td>
+<td>H3K9me3, H3K27me3, H4K20me3</td>
+</tr>
+<tr>
+<td>Replication timing</td>
+<td>Early S phase</td>
+<td>Late S phase</td>
+</tr>
+<tr>
+<td>GC content</td>
+<td>Higher</td>
+<td>Lower</td>
+</tr>
+<tr>
+<td>Recombination</td>
+<td>Frequent</td>
+<td>Suppressed</td>
+</tr>
+<tr>
+<td>Transcription</td>
+<td>Active genes</td>
+<td>Silenced/repetitive</td>
+</tr>
+<tr>
+<td>Examples</td>
+<td>Most gene-rich regions</td>
+<td>Centromeres, telomeres, inactive X (Barr body)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Constitutive heterochromatin</strong> is permanent and
+structural — centromeric and pericentric regions, telomeres, the Y
+chromosome long-arm heterochromatin, and tandemly repeated satellite
+DNAs. Constitutive heterochromatin maintains chromosome architecture and
+silences transposable elements.</li>
+<li><strong>Facultative heterochromatin</strong> is
+<strong>inducible</strong> — formed in specific cell types or
+developmental states. The classic example is the <strong>inactive X
+chromosome (Barr body)</strong> in female mammals, formed <em>de
+novo</em> in early embryos through XIST-mediated silencing as developed
+in the X-inactivation section.</li>
+<li><strong>Position-effect variegation (PEV)</strong>: When a gene is
+relocated by translocation or transposition into a heterochromatic
+region, it can be silenced — but with stochastic, mosaic patterns that
+depend on heterochromatin spreading. Classic <em>Drosophila</em> PEV
+experiments (the <em>white^m4</em> allele) revealed how heterochromatin
+propagates and provided the first hints of histone-based silencing.</li>
+</ul>
+<!-- alt: Diagram of a metaphase chromosome showing two sister chromatids joined at a constricted centromere, with TTAGGG telomere caps at each end, dense heterochromatin around the centromere, and lighter euchromatic gene-rich regions along the arms. -->
+<hr />
+<h2 id="meiosis-vs.-mitosis-two-cell-division-programs">Meiosis
+vs. Mitosis: Two Cell-Division Programs</h2>
+<p>The chromosomal theory of inheritance rests on a single comparative
+observation — that <strong>meiosis differs systematically from
+mitosis</strong> in ways that exactly produce Mendelian segregation. The
+two programs share machinery (spindle, cohesin, kinetochores) but
+diverge in chromosome behavior.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Mitosis</th>
+<th>Meiosis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Number of divisions</strong></td>
+<td>One (M phase)</td>
+<td>Two (Meiosis I, Meiosis II)</td>
+</tr>
+<tr>
+<td><strong>DNA replication</strong></td>
+<td>Once before division</td>
+<td>Once before Meiosis I; none between MI and MII</td>
+</tr>
+<tr>
+<td><strong>Daughter cells per parent</strong></td>
+<td>2</td>
+<td>4</td>
+</tr>
+<tr>
+<td><strong>Ploidy change</strong></td>
+<td>Diploid → diploid (2n → 2n)</td>
+<td>Diploid → haploid (2n → n)</td>
+</tr>
+<tr>
+<td><strong>Homolog pairing</strong></td>
+<td>None</td>
+<td>Synapsis with synaptonemal complex at prophase I</td>
+</tr>
+<tr>
+<td><strong>Crossing over (recombination)</strong></td>
+<td>None (rare exceptions)</td>
+<td>Required at prophase I; ~1.5–3 crossovers per bivalent in
+humans</td>
+</tr>
+<tr>
+<td><strong>Anaphase I event</strong></td>
+<td>N/A</td>
+<td>Homologs disjoin (sisters remain joined)</td>
+</tr>
+<tr>
+<td><strong>Anaphase II event</strong></td>
+<td>Sisters disjoin</td>
+<td>Sisters disjoin</td>
+</tr>
+<tr>
+<td><strong>Genetic outcome</strong></td>
+<td>Identical genetic copies</td>
+<td>Genetically unique haploid gametes</td>
+</tr>
+<tr>
+<td><strong>Cohesin protection</strong></td>
+<td>None at centromere; cleaved at anaphase</td>
+<td><strong>Shugoshin</strong> protects centromeric cohesin until
+anaphase II</td>
+</tr>
+<tr>
+<td><strong>Cellular function</strong></td>
+<td>Growth, repair, asexual reproduction</td>
+<td>Sexual reproduction; gamete formation</td>
+</tr>
+<tr>
+<td><strong>Failure consequences</strong></td>
+<td>Tumor formation, aneuploid somatic cells</td>
+<td>Aneuploid gametes (Down syndrome, miscarriage)</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Mitosis
+        M1[&quot;G2: 2n diploid&lt;br/&gt;(replicated, 4C DNA)&quot;] --&gt; M2[&quot;Prometaphase: chromosomes attach to spindle&quot;]
+        M2 --&gt; M3[&quot;Metaphase: chromosomes line up&quot;]
+        M3 --&gt; M4[&quot;Anaphase: SISTERS separate&quot;]
+        M4 --&gt; M5[&quot;Two diploid daughters, each 2n&quot;]
+    end
+    subgraph &quot;Meiosis I (Reductional)&quot;
+        I1[&quot;G2: 2n diploid&lt;br/&gt;(replicated, 4C DNA)&quot;] --&gt; I2[&quot;Prophase I: synapsis, crossing over&quot;]
+        I2 --&gt; I3[&quot;Metaphase I: bivalents align&quot;]
+        I3 --&gt; I4[&quot;Anaphase I: HOMOLOGS separate&lt;br/&gt;(sisters stay joined)&quot;]
+        I4 --&gt; I5[&quot;Two haploid cells, each 1n with sister chromatids&quot;]
+    end
+    subgraph &quot;Meiosis II (Equational)&quot;
+        II1[&quot;Metaphase II: chromosomes align&quot;] --&gt; II2[&quot;Anaphase II: SISTERS separate&quot;]
+        II2 --&gt; II3[&quot;Four haploid gametes, each 1n&quot;]
+    end
+    M5 -.- I5
+    I5 --&gt; II1</code></pre>
+<!-- alt: Flowchart showing mitosis vs. meiosis: a single division producing two diploid copies versus a two-division program producing four haploid, recombined gametes. The defining event of meiosis is anaphase I, when homologs (not sisters) separate. -->
+<p><em>Mitosis vs. meiosis: a single division producing two diploid
+copies versus a two-division program producing four haploid, recombined
+gametes. The defining event of meiosis is anaphase I, when homologs (not
+sisters) separate.</em></p>
+<p>The combination of (1) homolog pairing in prophase I, (2) crossing
+over, (3) random orientation of bivalents at metaphase I, and (4)
+reductional division at anaphase I produces gametes that are
+<strong>genetically unique</strong> and that satisfy Mendel’s laws. Each
+of these four events can fail — and each failure has a recognizable
+disease signature.</p>
+<h3 id="molecular-details-of-meiotic-recombination">Molecular details of
+meiotic recombination</h3>
+<p>The orderly behavior of bivalents at metaphase I depends on
+<strong>physical connections</strong> (chiasmata) created by reciprocal
+recombination during prophase I. The molecular events that generate
+these chiasmata are conserved across eukaryotes and are essential —
+failure of recombination is a leading cause of meiotic non-disjunction
+in human oogenesis.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;Leptotene: chromosomes condense; SPO11 introduces ~250 programmed double-strand breaks (DSBs)&quot;] --&gt; B[&quot;Zygotene: synaptonemal complex forms; homologs pair (synapsis)&quot;]
+    B --&gt; C[&quot;DSBs resected by MRN complex (MRE11/RAD50/NBS1) producing 3&#39; single-stranded overhangs&quot;]
+    C --&gt; D[&quot;RAD51 and DMC1 coat ssDNA, catalyze homology search and strand invasion into homolog&quot;]
+    D --&gt; E[&quot;D-loop intermediate forms; DNA synthesis from invading strand using homolog as template&quot;]
+    E --&gt; F{Resolution pathway}
+    F --&gt;|&quot;~10% — class I crossovers (MSH4/MSH5, MLH1/MLH3)&quot;| G[&quot;Crossover (chiasma) — reciprocal exchange between homologs&quot;]
+    F --&gt;|&quot;~90% — synthesis-dependent strand annealing&quot;| H[&quot;Non-crossover (gene conversion only)&quot;]
+    G --&gt; I[&quot;Diakinesis: chiasmata visible as physical links between homologs&quot;]
+    H --&gt; I
+    I --&gt; J[&quot;Metaphase I: bivalents align; chiasmata resist anaphase pulling forces&quot;]
+    J --&gt; K[&quot;Anaphase I: cohesin cleaved on chromosome arms; homologs separate&quot;]
+
+    style A fill:#4a90d9,color:#fff
+    style G fill:#5cb85c,color:#fff
+    style K fill:#d9534f,color:#fff</code></pre>
+<!-- alt: Flowchart showing molecular events of meiotic recombination from SPO11 DSB induction through RAD51/DMC1-mediated strand invasion to chiasma formation. Approximately 10% of programmed double-strand breaks resolve as crossovers; the remainder become non-crossover gene conversions. -->
+<p><em>Molecular events of meiotic recombination from SPO11 DSB
+induction through RAD51/DMC1-mediated strand invasion to chiasma
+formation. Approximately 10% of programmed double-strand breaks resolve
+as crossovers; the remainder become non-crossover gene
+conversions.</em></p>
+<p><strong>Key molecular players:</strong></p>
+<ul>
+<li><strong>SPO11</strong> is a topoisomerase-VI-like enzyme that
+creates <strong>programmed double-strand breaks</strong> by covalent
+attachment to 5′ ends of DNA. In humans, ~250 DSBs are generated per
+meiosis (~10× the number of crossovers — most DSBs are repaired without
+crossover). SPO11 binding sites are determined by
+<strong>PRDM9</strong>, which trimethylates H3K4 at specific DNA motifs
+to mark recombination hotspots. <em>Spo11</em> knockout mice are sterile
+because no chiasmata form, leading to bivalent disjunction failure and
+aneuploid gametes.</li>
+<li><strong>MRE11–RAD50–NBS1 (MRN complex)</strong> binds the DSB and
+resects the 5′ ends, exposing 3′ single-stranded overhangs ~1–2 kb
+long.</li>
+<li><strong>RAD51 and DMC1</strong> are RecA-family recombinases that
+polymerize on the single-stranded DNA, forming a nucleoprotein filament
+that searches for homology in the homologous chromosome and catalyzes
+strand invasion. DMC1 is meiosis-specific and is essential for
+inter-homolog (rather than inter-sister) recombination.</li>
+<li><strong>MSH4–MSH5</strong> and <strong>MLH1–MLH3</strong> are
+required for the major crossover pathway (class I); their mutations
+reduce crossover frequency and increase non-disjunction.
+<strong>MUS81–EME1</strong> mediates a minor (~10%) class II crossover
+pathway.</li>
+<li><strong>Synaptonemal complex</strong>: A protein scaffold (SYCP1,
+SYCP2, SYCP3) that physically holds homologs together along their entire
+length during pachytene. The complex provides the platform on which
+crossovers form and assures proper pairing.</li>
+</ul>
+<p>The molecular specifics matter because <strong>mutations in many of
+these genes cause human infertility, recurrent pregnancy loss, and
+elevated aneuploidy risk</strong>: <em>SYCP3</em> mutations are
+associated with azoospermia and pregnancy loss; <em>MSH4</em> mutations
+with primary ovarian insufficiency; <em>DMC1</em> mutations with
+sterility; and reduced <em>PRDM9</em> function correlates with
+diminished ovarian reserve. Meiotic recombination is far from a passive
+structural process — it is an actively regulated DNA-damage event
+without which sexual reproduction fails.</p>
+<hr />
+<h2 id="sex-chromosomes-and-sex-determination">Sex Chromosomes and Sex
+Determination</h2>
+<pre class="mermaid"><code>flowchart TD
+    A[Sex Determination Systems] --&gt; B[&quot;XX/XY System (Mammals)&quot;]
+    A --&gt; C[&quot;ZW/ZZ System (Birds, Reptiles, Butterflies)&quot;]
+    A --&gt; D[&quot;XX/XO System (Grasshoppers, some insects)&quot;]
+    A --&gt; E[&quot;Haplodiploidy (Hymenoptera: bees, ants, wasps)&quot;]
+    A --&gt; F[&quot;Environmental (Temperature-dependent: reptiles)&quot;]
+
+    B --&gt; B1[&quot;XX = Female; XY = Male&quot;]
+    B1 --&gt; B2[&quot;SRY Gene on Y Chromosome&quot;]
+    B2 --&gt; B3[&quot;SRY Encodes TDF --&gt; SOX9 Activation&quot;]
+    B3 --&gt; B4[&quot;Sertoli Cell Differentiation --&gt; Testes&quot;]
+    B1 --&gt; B5[&quot;Without SRY: Default Ovary Development&quot;]
+
+    C --&gt; C1[&quot;ZZ = Male; ZW = Female&quot;]
+    C1 --&gt; C2[&quot;DMRT1 on Z: Dosage-dependent Male Determination&quot;]
+
+    D --&gt; D1[&quot;XX = Female; XO = Male (no Y chromosome)&quot;]
+
+    E --&gt; E1[&quot;Diploid (2n) = Female; Haploid (n) = Male&quot;]
+    E1 --&gt; E2[&quot;Males Develop from Unfertilized Eggs&quot;]
+
+    F --&gt; F1[&quot;Incubation Temperature Determines Sex&quot;]
+    F1 --&gt; F2[&quot;e.g., Alligators: &lt;30C = Female, &gt;34C = Male&quot;]
+
+    style A fill:#4a90d9,color:#fff
+    style B2 fill:#5cb85c,color:#fff</code></pre>
+<!-- alt: Flowchart showing sex determination systems across organisms. The XX/XY system is used by mammals, with the SRY gene on the Y chromosome being the master switch. Other organisms use ZW, XO, haplodiploidy, or temperature-dependent systems. -->
+<p><em>Sex determination systems across organisms. The XX/XY system is
+used by mammals, with the SRY gene on the Y chromosome being the master
+switch. Other organisms use ZW, XO, haplodiploidy, or
+temperature-dependent systems.</em></p>
+<h3 id="mammalian-sex-determination-xxxy">Mammalian Sex Determination
+(XX/XY)</h3>
+<p><strong>The Y chromosome and SRY</strong>: - Human Y chromosome: ~57
+Mb; carries ~78 <a
+href="#gl:protein"><strong>protein</strong></a>-coding genes (compared
+to ~900 on the X) - <strong>SRY</strong> (sex-determining region Y):
+Located at Yp11.31; encodes <strong>TDF</strong> (testis-determining
+factor), a <a
+href="#gl:transcription"><strong>transcription</strong></a> factor with
+an HMG-box DNA-binding domain - SRY activates <strong>SOX9</strong>,
+which drives Sertoli cell differentiation in the bipotential gonad -
+Sertoli cells produce <strong>anti-Mullerian <a
+href="#gl:hormone"><strong>hormone</strong></a> (AMH)</strong>, causing
+regression of Mullerian ducts - Leydig cells produce
+<strong>testosterone</strong>, driving Wolffian duct development
+(epididymis, vas deferens, seminal vesicles) and external male
+genitalia</p>
+<p><strong>Pseudoautosomal regions (PARs)</strong>: -
+<strong>PAR1</strong> (2.6 Mb at Xp/Yp tips): contains ~24 genes;
+mandatory crossover during male meiosis ensures proper X-Y segregation -
+<strong>PAR2</strong> (320 kb at Xq/Yq tips): smaller; crossover not
+required - Genes in PARs escape X-inactivation (expressed from both X
+chromosomes in females) - <strong>SHOX gene</strong> (in PAR1): Short
+stature homeobox; haploinsufficiency causes short stature in Turner
+syndrome; extra copies cause tall stature in sex chromosome
+polysomies</p>
+<p><strong>Evidence for SRY as the master switch</strong>: - XX males
+(de la Chapelle syndrome): ~1/20,000; caused by translocation of SRY to
+the X chromosome - XY females (Swyer syndrome): SRY <a
+href="#gl:mutation"><strong>mutation</strong></a>s lead to female <a
+href="#gl:phenotype"><strong>phenotype</strong></a> with streak gonads
+despite 46,XY karyotype</p>
+<h3 id="non-mammalian-sex-determination">Non-Mammalian Sex
+Determination</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 25%" />
+<col style="width: 13%" />
+<col style="width: 18%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th>System</th>
+<th>Organisms</th>
+<th>Male</th>
+<th>Female</th>
+<th>Key Gene</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ZW/ZZ</td>
+<td>Birds, snakes, butterflies</td>
+<td>ZZ</td>
+<td>ZW</td>
+<td>DMRT1 (Z-linked; dosage determines sex)</td>
+</tr>
+<tr>
+<td>XX/XO</td>
+<td>Grasshoppers, some nematodes</td>
+<td>XO</td>
+<td>XX</td>
+<td>X:autosome ratio (C. elegans)</td>
+</tr>
+<tr>
+<td>Haplodiploidy</td>
+<td>Hymenoptera (bees, ants, wasps)</td>
+<td>Haploid (n)</td>
+<td><a href="#gl:diploid"><strong>Diploid (2n)</strong></a></td>
+<td>CSD locus (complementary sex determiner)</td>
+</tr>
+<tr>
+<td>Temperature-dependent</td>
+<td>Crocodilians, some turtles</td>
+<td>Temperature-dependent</td>
+<td>Temperature-dependent</td>
+<td>Aromatase (converts testosterone to estradiol)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="x-inactivation-and-dosage-compensation">X-Inactivation and
+Dosage Compensation</h2>
+<h3 id="lyon-hypothesis-and-x-inactivation">Lyon Hypothesis and
+X-Inactivation</h3>
+<p>Mary proposed that in each female somatic cell, one of the two X
+chromosomes is randomly inactivated early in embryonic development (~day
+5.5 in mouse, ~day 12-16 in human). This inactivation is:</p>
+<ul>
+<li><strong>Random</strong>: Either the maternal or paternal X can be
+inactivated in any given cell</li>
+<li><strong>Clonal</strong>: Once established, most daughter cells
+maintain the same inactive X</li>
+<li><strong>Result</strong>: Adult females are <strong>genetic
+mosaics</strong> – a patchwork of cells expressing the maternal X and
+cells expressing the paternal X</li>
+</ul>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;Early Embryo: Both X Chromosomes Active&quot;] --&gt; B[&quot;~Day 12-16: Random X-Inactivation Initiated&quot;]
+    B --&gt; C[&quot;XIST RNA Transcribed from Future Inactive X (Xi)&quot;]
+    C --&gt; D[&quot;XIST RNA Coats Xi in cis (Spreads Along Chromosome)&quot;]
+    D --&gt; E[&quot;XIST Recruits PRC2 (Polycomb Repressive Complex 2)&quot;]
+    E --&gt; F[&quot;PRC2 Trimethylates H3K27 (H3K27me3 = Repressive Mark)&quot;]
+    F --&gt; G[&quot;SMCHD1 Compacts Xi Further&quot;]
+    G --&gt; H[&quot;DNA Methylation at CpG Islands Locks Silencing&quot;]
+    H --&gt; I[&quot;Xi Condenses into Barr Body (Visible at Nuclear Periphery)&quot;]
+    I --&gt; J[&quot;Stable Silencing Maintained Through All Subsequent Divisions&quot;]
+    J --&gt; K[&quot;~15% of X-linked Genes Escape Inactivation&quot;]
+    K --&gt; L[&quot;Escapees Include PAR Genes and Some Others&quot;]
+
+    style A fill:#4a90d9,color:#fff
+    style I fill:#5cb85c,color:#fff</code></pre>
+<!-- alt: Flowchart showing molecular mechanism of X-inactivation. XIST RNA coats the future inactive X chromosome, recruiting Polycomb complexes that establish repressive histone marks and DNA methylation, ultimately condensing the chromosome into a Barr body. -->
+<p><em>The molecular mechanism of X-inactivation. XIST RNA coats the
+future inactive X chromosome, recruiting Polycomb complexes that
+establish repressive <a href="#gl:histone"><strong>histone</strong></a>
+marks and DNA methylation, ultimately condensing the chromosome into a
+Barr body.</em></p>
+<h3 id="molecular-mechanism">Molecular Mechanism</h3>
+<ol type="1">
+<li><strong>XIST</strong> (X-inactive specific transcript): A 17 kb
+lncRNA transcribed primarily from the X that will be inactivated</li>
+<li>XIST RNA <strong>coats</strong> the Xi chromosome <em>in cis</em> –
+spreading outward from the X-inactivation center (XIC) at Xq13</li>
+<li>XIST recruits <strong>PRC2</strong> (Polycomb repressive complex 2),
+which catalyzes histone H3K27 trimethylation</li>
+<li>Additional silencing factors: <strong>SMCHD1</strong> (structural
+maintenance of chromosomes flexible hinge domain-containing 1) further
+compacts <a href="#gl:chromatin"><strong>chromatin</strong></a></li>
+<li><strong>DNA methylation</strong> at <a
+href="#gl:cpg-island"><strong>CpG island</strong></a>s provides stable,
+long-term silencing</li>
+<li>The silenced X is visible as a <strong>Barr body</strong> at the
+nuclear periphery (sex chromatin test)</li>
+</ol>
+<p><strong>Escape from X-inactivation</strong>: ~15% of X-linked genes
+“escape” inactivation and are expressed from both the active and
+inactive X. These include genes in the pseudoautosomal regions and some
+genes with Y-chromosome homologs. Escape genes explain some phenotypic
+features of X-chromosome aneuploidy.</p>
+<p><strong>Barr body count</strong> = number of X chromosomes minus 1: -
+46,XX: 1 Barr body - 47,XXX: 2 Barr bodies - 45,X (Turner): 0 Barr
+bodies - 47,XXY (Klinefelter): 1 Barr body</p>
+<h3
+id="dosage-compensation-across-species-and-beyond-sex-chromosomes">Dosage
+Compensation Across Species and Beyond Sex Chromosomes</h3>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 37%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th>Organism</th>
+<th>Mechanism</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Mammals</strong></td>
+<td>X-inactivation (XIST)</td>
+<td>One X silenced in XX females; equal dosage with XY males</td>
+</tr>
+<tr>
+<td><strong>Drosophila</strong></td>
+<td>X upregulation in males (MSL/roX RNA complex)</td>
+<td>Male single X transcribed ~2x; equals female XX</td>
+</tr>
+<tr>
+<td><strong>C. elegans</strong></td>
+<td>X downregulation in XX hermaphrodites (DCC complex)</td>
+<td>Each X transcribed ~0.5x; equals male XO single X</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Dosage compensation beyond X-inactivation</strong>: The
+principle that gene dosage must be balanced applies far more broadly
+than the sex chromosomes. Several other mechanisms address dosage
+imbalances:</p>
+<ul>
+<li><strong>Autosomal dosage sensitivity</strong>: Most genes tolerate
+small dosage changes (1.5x or 2x) without phenotype, but
+<strong>dosage-sensitive genes</strong> — typically transcription
+factors, signaling components, and members of multi-protein complexes —
+produce phenotypes when copy number changes. The <strong>Williams
+syndrome</strong> deletion (7q11.23) and its reciprocal duplication
+produce opposite cognitive-behavioral phenotypes precisely because of
+dosage sensitivity in the <em>GTF2I</em> gene region.</li>
+<li><strong>Gene balance hypothesis</strong>: Genes whose products
+participate in stoichiometric complexes (e.g., ribosomal proteins,
+transcription complexes, RNA polymerases) cannot tolerate copy-number
+changes because subunit imbalance disrupts complex assembly. This
+explains why most autosomal monosomies are lethal even when the
+underlying gene mutations would not be.</li>
+<li><strong>Compensatory feedback at promoters</strong>: In
+<em>Drosophila</em> and yeast, deletion of one allele of a
+dosage-sensitive gene often triggers transcriptional upregulation of the
+remaining allele, partially restoring protein levels
+(cis-compensation).</li>
+<li><strong>microRNA buffering</strong>: Individual miRNAs can buffer
+the expression of dozens of target genes against perturbation. The
+miR-17~92 cluster, for example, buffers cell-cycle gene dosage during
+proliferation.</li>
+<li><strong>Polycomb-mediated maintenance of dosage</strong>: Active and
+inactive states established at gene clusters (Hox genes, the imprinted
+regions of chromosome 15) are maintained through cell division by
+Polycomb (silencing) and Trithorax (activation) complexes, ensuring
+stable gene dosage in each tissue.</li>
+</ul>
+<p>The core insight is that <strong>gene dosage is itself a regulated
+variable</strong>, defended by multiple parallel mechanisms.
+X-inactivation is the most spectacular example because an entire
+chromosome is silenced, but it is one strategy among many.</p>
+<blockquote>
+<p><strong>Clinical Connection: Calico Cats and X-Inactivation</strong>
+The calico coat pattern in cats is a visible demonstration of
+X-inactivation. The <em>O</em> gene (orange) is X-linked: <span
+class="math inline">\(X^O\)</span> produces orange pigment; <span
+class="math inline">\(X^o\)</span> produces black pigment. <a
+href="#gl:heterozygous"><strong>Heterozygous</strong></a> females (<span
+class="math inline">\(X^OX^o\)</span>) are mosaics – patches of orange
+(cells with <span class="math inline">\(X^o\)</span> inactivated) and
+black (cells with <span class="math inline">\(X^O\)</span> inactivated).
+White patches come from a separate autosomal spotting gene. Nearly most
+calico cats are female; rare calico males are usually 47,XXY
+(Klinefelter).</p>
+</blockquote>
+<hr />
+<h2 id="x-linked-inheritance">X-Linked Inheritance</h2>
+<h3 id="x-linked-recessive-inheritance">X-Linked Recessive
+Inheritance</h3>
+<p>For X-linked recessive traits, males are affected more frequently
+because they are hemizygous (a single X):</p>
+<ul>
+<li><strong>Affected males</strong>: <span
+class="math inline">\(X^aY\)</span> – one copy of the recessive allele
+is sufficient</li>
+<li><strong>Affected females</strong>: <span
+class="math inline">\(X^aX^a\)</span> – must be homozygous (very rare;
+requires carrier mother AND affected father)</li>
+<li><strong>Carrier females</strong>: <span
+class="math inline">\(X^AX^a\)</span> – phenotypically normal (usually);
+can show mosaic expression due to random X-inactivation</li>
+</ul>
+<p><strong>Key X-linked recessive conditions:</strong></p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 11%" />
+<col style="width: 19%" />
+<col style="width: 21%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Gene</th>
+<th>Location</th>
+<th>Frequency</th>
+<th>Key Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hemophilia A</strong></td>
+<td><em>F8</em> (Factor VIII)</td>
+<td>Xq28</td>
+<td>1/5,000 males</td>
+<td>Prolonged bleeding; joint hemorrhages; treated with recombinant
+Factor VIII</td>
+</tr>
+<tr>
+<td><strong>Hemophilia B</strong></td>
+<td><em>F9</em> (Factor IX)</td>
+<td>Xq27.1</td>
+<td>1/30,000 males</td>
+<td>Similar to hemophilia A; “Christmas disease”</td>
+</tr>
+<tr>
+<td><strong>Duchenne muscular dystrophy</strong></td>
+<td><em>DMD</em> (dystrophin)</td>
+<td>Xp21.2</td>
+<td>1/3,500 males</td>
+<td>Largest human gene (2.4 Mb); progressive muscle wasting; frameshift
+mutations cause complete dystrophin loss; onset age 2-5; wheelchair by
+age 12; cardiac/respiratory failure</td>
+</tr>
+<tr>
+<td><strong>Becker muscular dystrophy</strong></td>
+<td><em>DMD</em> (dystrophin)</td>
+<td>Xp21.2</td>
+<td>1/18,000 males</td>
+<td>In-frame deletions; partially functional dystrophin; milder
+course</td>
+</tr>
+<tr>
+<td><strong>Red-green color blindness</strong></td>
+<td><em>OPN1LW/OPN1MW</em></td>
+<td>Xq28</td>
+<td>8% of males, 0.5% of females</td>
+<td>Deutan (green) or protan (red) deficiency; unequal crossing over
+between tandem opsin genes</td>
+</tr>
+<tr>
+<td><strong>G6PD deficiency</strong></td>
+<td><em>G6PD</em></td>
+<td>Xq28</td>
+<td>~400 million affected worldwide</td>
+<td>Hemolytic anemia triggered by oxidative stress (fava beans, certain
+drugs); heterozygote advantage against malaria</td>
+</tr>
+</tbody>
+</table>
+<h2 id="worked-example-x-linked-recessive-inheritance">Worked Example:
+X-Linked Recessive Inheritance</h2>
+<p>A carrier woman (<span class="math inline">\(X^HX^h\)</span> for
+hemophilia) marries an unaffected man (<span
+class="math inline">\(X^HY\)</span>):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><span class="math inline">\(X^H\)</span></th>
+<th><span class="math inline">\(Y\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(X^H\)</span></td>
+<td><span class="math inline">\(X^HX^H\)</span> (normal female)</td>
+<td><span class="math inline">\(X^HY\)</span> (normal male)</td>
+</tr>
+<tr>
+<td><span class="math inline">\(X^h\)</span></td>
+<td><span class="math inline">\(X^HX^h\)</span> (carrier female)</td>
+<td><span class="math inline">\(X^hY\)</span> (affected male)</td>
+</tr>
+</tbody>
+</table>
+<p>Results: <span class="math inline">\(\frac{1}{4}\)</span> normal
+daughters, <span class="math inline">\(\frac{1}{4}\)</span> carrier
+daughters, <span class="math inline">\(\frac{1}{4}\)</span> normal sons,
+<span class="math inline">\(\frac{1}{4}\)</span> affected sons.</p>
+<p>Among sons primarily: <span
+class="math inline">\(\frac{1}{2}\)</span> affected. Among daughters
+primarily: <span class="math inline">\(\frac{1}{2}\)</span>
+carriers.</p>
+<blockquote>
+<p><strong>Clinical Connection: Duchenne Muscular Dystrophy and <a
+href="#gl:exon"><strong>Exon</strong></a> Skipping</strong> The
+<em>DMD</em> gene (2.4 Mb, 79 exons) is a frequent target of deletions.
+Out-of-frame deletions cause Duchenne (no dystrophin); in-frame
+deletions cause Becker (partial dystrophin). <strong>Exon-skipping
+therapy</strong> uses antisense oligonucleotides (ASOs) to mask specific
+exons during splicing, converting an out-of-frame deletion to an
+in-frame deletion (Duchenne to Becker phenotype).
+<strong>Eteplirsen</strong> (FDA-approved 2016) targets exon 51;
+applicable to ~13% of DMD patients. Newer ASOs target other exons.</p>
+</blockquote>
+<p><strong>Concept Check 17.5</strong></p>
+<blockquote>
+<ol type="1">
+<li>A pedigree shows an affected trait that appears primarily in males,
+is rarely transmitted father-to-son, and reaches grandsons through
+phenotypically normal daughters of affected men: explain why these three
+features together identify X-linked recessive inheritance, and state
+which single observation would instead force an autosomal-recessive
+interpretation.</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="linkage-and-recombination">Linkage and Recombination</h2>
+<h3 id="morgans-experiments">Morgan’s Experiments</h3>
+<p>Thomas Hunt Morgan (1910-1915) discovered that some genes do NOT
+assort independently – they are <strong>linked</strong> on the same
+chromosome.</p>
+<p>In a testcross for body color (b: black recessive) and wing type (vg:
+vestigial recessive) in <em>Drosophila</em>:</p>
+<p><strong>Expected (if unlinked)</strong>: 1:1:1:1 ratio of four
+phenotype classes <strong>Observed</strong>: Excess <strong>parental
+types</strong> (gray-normal, black-vestigial) and deficiency of
+<strong>recombinant types</strong> (gray-vestigial, black-normal)</p>
+<p>This means b and vg are on the same chromosome, and <strong>crossing
+over</strong> during meiosis generates recombinants at a frequency
+proportional to the physical distance between the genes.</p>
+<h3 id="map-distance-and-recombination-frequency">Map Distance and
+Recombination Frequency</h3>
+<p><strong>Recombination frequency (RF)</strong>:</p>
+<p><span class="math display">\[\begin{equation}
+RF = \frac{\text{number of recombinant offspring}}{\text{total
+offspring}} \times 100\%
+\label{eq:unit_V_chromosomal_rf_definition}
+\end{equation}\]</span></p>
+<p><strong>Map distance</strong> in centimorgans (cM): 1 cM = 1%
+recombination frequency.</p>
+<ul>
+<li>RF &lt; 50%: genes are <strong>linked</strong> (on the same
+chromosome)</li>
+<li>RF = 50%: genes are <strong>unlinked</strong> (on different
+chromosomes OR so far apart on the same chromosome that at least one
+crossover typically occurs between them)</li>
+<li>RF can rarely exceed 50% because a single crossover between two loci
+produces 50% recombinant and 50% parental gametes (two chromatids
+involved out of four)</li>
+</ul>
+<h3 id="three-point-test-cross">Three-Point Test Cross</h3>
+<p>The three-point test cross determines the order of three linked genes
+and the distances between them simultaneously. It is more efficient than
+three separate two-point crosses and reveals
+<strong>interference</strong>.</p>
+<h2
+id="worked-example-17.2-in-drosophila-three-linked-genes-on-chromosome-2">Worked
+Example: 17.2: In <em>Drosophila</em>, three linked genes on chromosome
+2:</h2>
+<ul>
+<li>dp (dumpy wings): recessive</li>
+<li>b (black body): recessive</li>
+<li>cn (cinnabar eyes): recessive</li>
+</ul>
+<p>A triply heterozygous female (dp+ b+ cn+ / dp b cn) is testcrossed to
+a triply homozygous recessive male (dp b cn / dp b cn). The offspring
+are:</p>
+<table>
+<thead>
+<tr>
+<th>Phenotype class</th>
+<th>Count</th>
+<th>Classification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dp+ b+ cn+</td>
+<td>350</td>
+<td>Parental</td>
+</tr>
+<tr>
+<td>dp b cn</td>
+<td>345</td>
+<td>Parental</td>
+</tr>
+<tr>
+<td>dp+ b cn</td>
+<td>62</td>
+<td>Single crossover (region II)</td>
+</tr>
+<tr>
+<td>dp b+ cn+</td>
+<td>58</td>
+<td>Single crossover (region II)</td>
+</tr>
+<tr>
+<td>dp+ b+ cn</td>
+<td>40</td>
+<td>Single crossover (region I)</td>
+</tr>
+<tr>
+<td>dp b cn+</td>
+<td>38</td>
+<td>Single crossover (region I)</td>
+</tr>
+<tr>
+<td>dp+ b cn+</td>
+<td>5</td>
+<td>Double crossover</td>
+</tr>
+<tr>
+<td>dp b+ cn</td>
+<td>2</td>
+<td>Double crossover</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>900</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 1: Determine gene order.</strong> Compare the parental
+classes (most frequent) to the double crossover classes (least
+frequent). The gene that switches position in the double crossover class
+is the <strong>middle gene</strong>.</p>
+<ul>
+<li>Parental: dp+ b+ cn+; dp b cn</li>
+<li>Double crossover: dp+ b cn+; dp b+ cn</li>
+</ul>
+<p>The b gene has switched relative to dp and cn. Therefore, the gene
+order is: <strong>dp – b – cn</strong> (b is in the middle).</p>
+<p><strong>Step 2: Calculate map distances.</strong></p>
+<p><span class="math display">\[\text{Distance dp-b} = \frac{40 + 38 + 5
++ 2}{900} \times 100 = \frac{85}{900} \times 100 = 9.4 \text{ cM}
+\tag{17.1}\]</span></p>
+<p><span class="math display">\[\text{Distance b-cn} = \frac{62 + 58 + 5
++ 2}{900} \times 100 = \frac{127}{900} \times 100 = 14.1 \text{ cM}
+\tag{17.2}\]</span></p>
+<p><span class="math display">\[\text{Total map distance dp-cn} = 9.4 +
+14.1 = 23.5 \text{ cM} \tag{17.3}\]</span></p>
+<p><strong>Step 3: Calculate interference.</strong></p>
+<p><span class="math display">\[\text{Expected double crossovers} =
+0.094 \times 0.141 \times 900 = 11.9 \tag{17.4}\]</span></p>
+<p><span class="math display">\[\text{Observed double crossovers} = 5 +
+2 = 7 \tag{17.5}\]</span></p>
+<p><span class="math display">\[\text{Coefficient of coincidence (CoC)}
+= \frac{\text{observed}}{\text{expected}} = \frac{7}{11.9} = 0.59
+\tag{17.6}\]</span></p>
+<p><span class="math display">\[\text{Interference (I)} = 1 - \text{CoC}
+= 1 - 0.59 = 0.41 \tag{17.7}\]</span></p>
+<p>An interference of 0.41 means that 41% of expected double crossovers
+did not occur – a crossover in one region partially suppresses
+crossovers in the adjacent region (<strong>positive
+interference</strong>).</p>
+<h3 id="mapping-functions">Mapping Functions</h3>
+<p>Simple RF underestimates true genetic distance because multiple
+crossovers between distant loci are undetectable (double crossovers
+restore parental configuration).</p>
+<p><strong>Haldane mapping function</strong> (1919, assumes no chromatid
+interference):</p>
+<p><span class="math display">\[\begin{equation}
+m = -\frac{1}{2}\ln(1 - 2\theta) \quad \text{(morgans)}
+\label{eq:unit_V_chromosomal_haldane}
+\end{equation}\]</span></p>
+<p>where θ = observed RF. As <span class="math inline">\(\theta \to
+0.5\)</span>, <span class="math inline">\(m \to \infty\)</span>.</p>
+<p><strong>Kosambi mapping function</strong> (1944, accounts for
+positive chromatid interference):</p>
+<p><span class="math display">\[\begin{equation}
+m = \frac{1}{4}\ln\left(\frac{1 + 2\theta}{1 - 2\theta}\right)
+\label{eq:unit_V_chromosomal_kosambi}
+\end{equation}\]</span></p>
+<p>Kosambi’s function better fits empirical data for moderate
+distances.</p>
+<h3 id="lod-score-analysis">LOD Score Analysis</h3>
+<p><strong>LOD (logarithm of odds) score</strong>: Statistical method
+for testing linkage in human pedigrees (where controlled crosses are
+ethically unfeasible).</p>
+<p><span class="math display">\[\begin{equation}
+LOD = \log_{10}\frac{L(\theta)}{L(\theta = 0.5)}
+\label{eq:unit_V_chromosomal_lod}
+\end{equation}\]</span></p>
+<p>Where <span class="math inline">\(L(\theta)\)</span> is the
+likelihood of the data given recombination fraction θ, and <span
+class="math inline">\(L(0.5)\)</span> is the likelihood under no
+linkage.</p>
+<ul>
+<li><strong>LOD &gt;= 3</strong>: Evidence for linkage (θ value
+estimates map distance)</li>
+<li><strong>LOD &lt;= -2</strong>: Evidence against linkage</li>
+<li><strong>-2 &lt; LOD &lt; 3</strong>: Inconclusive</li>
+</ul>
+<h3
+id="recombination-hotspots-and-sex-differences-in-map-length">Recombination
+Hotspots and Sex Differences in Map Length</h3>
+<p>Recombination is <strong>not distributed uniformly</strong> across
+the genome — it concentrates in narrow <strong>hotspots</strong> of ~1–2
+kb separated by larger cold regions, and the total map length differs
+sharply between male and female meiosis.</p>
+<ul>
+<li><strong>PRDM9 and hotspots</strong>: In humans and mice, the
+zinc-finger histone methyltransferase <strong>PRDM9</strong> binds
+specific DNA motifs and trimethylates H3K4 and H3K36 at the binding
+site, recruiting the meiotic double-strand break machinery (SPO11).
+Crossovers preferentially form at these PRDM9-marked sites. PRDM9 is
+itself rapidly evolving — its zinc-finger array changes between
+populations and species, and <em>Prdm9</em> knockout mice are sterile
+due to meiotic defects. <strong>PRDM9 is one of very few genes
+implicated in mammalian speciation through hybrid
+sterility.</strong></li>
+<li><strong>Hotspot rates</strong>: Within hotspots, recombination rates
+can reach 10–100× the genome-wide average. The <strong>HLA
+region</strong> on chromosome 6 contains some of the most active
+hotspots, contributing to the immense allelic diversity of MHC
+genes.</li>
+<li><strong>Cold regions</strong>: Centromeric and pericentric
+heterochromatin is recombination-suppressed, both because of structural
+constraints and because crossovers near centromeres can disrupt
+segregation. Recombination is also reduced near telomeres (in some
+species) and in regions of strong purifying selection.</li>
+<li><strong>Sex differences in map length</strong>: The female human
+genetic map is roughly <strong>1.5–1.8× longer</strong> than the male
+map (~4,400 cM in females vs. ~2,700 cM in males). This reflects more
+crossovers per meiosis in oogenesis (~70 per cell) than spermatogenesis
+(~50 per cell), and dramatic regional differences — recombination is
+enriched at telomeres in male meiosis (where obligate crossovers occur
+to ensure disjunction) and more uniformly distributed in female
+meiosis.</li>
+<li><strong>Consequences</strong>: Sex-specific maps must be used in
+linkage analysis when transmissions go through one sex predominantly.
+Large family genetic studies routinely report male, female, and
+sex-averaged maps separately.</li>
+</ul>
+<h4 id="why-do-females-have-more-crossovers">Why do females have more
+crossovers?</h4>
+<p>The pronounced sex difference in recombination rate has several
+proposed explanations, and most empirical studies suggest more than one
+is operating simultaneously:</p>
+<ol type="1">
+<li><strong>Oocyte time available</strong>: Female meiosis includes a
+prolonged pachytene during which homolog pairing and crossover
+designation occur. Spermatogenesis is faster and may impose stricter
+checkpoints that limit crossover-pathway entry.</li>
+<li><strong>Telomeric vs. interstitial recombination</strong>: Male
+meiosis enriches crossovers at telomeres because the <strong>obligate
+crossover</strong> rule (every bivalent must have at least one chiasma
+to segregate properly) is satisfied near chromosome ends, where pairing
+can complete in less time. Female meiosis has the time to distribute
+crossovers more uniformly, including in interstitial regions distant
+from telomeres.</li>
+<li><strong>Selection for accuracy in oogenesis</strong>: Because errors
+during the long oocyte arrest are catastrophic, female meiosis may have
+evolved higher recombination rates to ensure <strong>at least one
+chiasma per bivalent</strong>. Achiasmate bivalents segregate randomly,
+producing aneuploid gametes — the female reproductive system tolerates
+this poorly because each oocyte represents irreplaceable
+investment.</li>
+<li><strong>Sexually antagonistic selection on chromosome
+conformation</strong>: Some authors propose that male and female
+germlines have different optima for genome stability, with selection
+acting in opposite directions on regulators of recombination.</li>
+</ol>
+<h4 id="haldanes-rule-and-recombination">Haldane’s rule and
+recombination</h4>
+<p>Haldane’s classic 1922 observation extends beyond sex-determination
+biology to recombination patterns: in many species the
+<strong>homogametic sex</strong> (XX females in mammals; ZZ males in
+birds) shows higher recombination rates than the heterogametic sex. In
+<em>Drosophila</em>, the asymmetry is extreme — males have <strong>no
+meiotic recombination at most</strong>, while females have normal
+crossover-mediated recombination. In humans, the pattern is muted but
+present, with females having ~1.6× the male map length. The
+<strong>achiasmate male meiosis</strong> of <em>Drosophila</em> and
+several other dipterans is supported by alternative bivalent-tethering
+mechanisms (the <em>Mnm</em> complex) that maintain homolog pairing
+without crossovers. The mammalian intermediate pattern reflects partial
+achiasmatism — males still recombine, but with reduced rate and biased
+localization to telomeres. Why these sex differences evolved remains an
+open question and is one of the most robust empirical generalizations in
+the genetics of meiosis.</p>
+<p><strong>Concept Check 17.1</strong></p>
+<blockquote>
+<ol type="1">
+<li>In a three-point cross, why are double crossover classes typically
+the least frequent?</li>
+<li>If genes A and B have RF = 45%, are they linked? Explain.</li>
+<li>What does positive interference tell you about the biology of
+crossing over?</li>
+<li>PRDM9 binds specific DNA motifs to direct recombination hotspots.
+What does its rapid evolution suggest about hotspot evolution between
+human populations?</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="chromosomal-abnormalities">Chromosomal Abnormalities</h2>
+<pre class="mermaid"><code>flowchart TD
+    A[Chromosomal Abnormalities] --&gt; B[Numerical]
+    A --&gt; C[Structural]
+
+    B --&gt; D[&quot;Aneuploidy: Gain/Loss of Individual Chromosomes&quot;]
+    B --&gt; E[&quot;Polyploidy: Extra Complete Chromosome Sets&quot;]
+
+    D --&gt; F[&quot;Monosomy (2n-1): Usually Lethal; Exception: Turner 45,X&quot;]
+    D --&gt; G[&quot;Trisomy (2n+1): Extra Chromosome&quot;]
+    G --&gt; G1[&quot;Trisomy 21: Down Syndrome (1/700)&quot;]
+    G --&gt; G2[&quot;Trisomy 18: Edwards Syndrome (1/5,000)&quot;]
+    G --&gt; G3[&quot;Trisomy 13: Patau Syndrome (1/10,000)&quot;]
+    G --&gt; G4[&quot;47,XXY: Klinefelter (1/600 males)&quot;]
+    G --&gt; G5[&quot;47,XXX: Triple X (1/1,000 females)&quot;]
+
+    E --&gt; H[&quot;Triploid (3n): Spontaneous Abortion&quot;]
+    E --&gt; I[&quot;Tetraploid (4n): Rare; Some Plants Normal&quot;]
+
+    C --&gt; J[&quot;Deletion: Loss of Chromosomal Segment&quot;]
+    C --&gt; K[&quot;Duplication: Extra Copy of Segment&quot;]
+    C --&gt; L[&quot;Inversion: Segment Reversed&quot;]
+    C --&gt; M[&quot;Translocation: Segment Moves to Different Chromosome&quot;]
+
+    J --&gt; J1[&quot;Cri-du-Chat: del(5p); 1/20,000-50,000&quot;]
+    J --&gt; J2[&quot;DiGeorge: del(22q11.2); 1/4,000&quot;]
+    M --&gt; M1[&quot;Reciprocal: Exchange Between Two Chromosomes&quot;]
+    M --&gt; M2[&quot;Robertsonian: Fusion of Acrocentric Long Arms&quot;]
+    M1 --&gt; M3[&quot;Philadelphia t(9;22): BCR-ABL --&gt; CML&quot;]
+
+    style A fill:#4a90d9,color:#fff</code></pre>
+<!-- alt: Flowchart showing classification of chromosomal abnormalities. Numerical abnormalities include aneuploidy and polyploidy; structural abnormalities include deletions, duplications, inversions, and translocations. -->
+<p><em>Classification of chromosomal abnormalities. Numerical
+abnormalities include aneuploidy and polyploidy; structural
+abnormalities include deletions, duplications, inversions, and
+translocations.</em></p>
+<h3
+id="aneuploidy-non-disjunction-in-meiosis-i-vs.-meiosis-ii">Aneuploidy:
+Non-Disjunction in Meiosis I vs. Meiosis II</h3>
+<p><strong>Non-disjunction</strong> is the failure of chromosomes to
+separate properly during cell division and is the principal source of
+human aneuploidy . It can occur in either meiosis I or meiosis II, and
+the two failure modes have <strong>distinguishable genetic
+signatures</strong>.</p>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;Normal Meiosis (Reference)&quot;] --&gt; A1[&quot;MI: Homologs separate correctly&quot;]
+    A1 --&gt; A2[&quot;MII: Sisters separate correctly&quot;]
+    A2 --&gt; A3[&quot;Four normal haploid gametes&quot;]
+
+    B[&quot;Meiosis I Non-Disjunction&quot;] --&gt; B1[&quot;MI: BOTH homologs go to same pole&quot;]
+    B1 --&gt; B2[&quot;MII: Sisters separate normally&quot;]
+    B2 --&gt; B3[&quot;2 gametes n+1 (both homologs)&lt;br/&gt;2 gametes n-1 (no homolog)&quot;]
+    B3 --&gt; B4[&quot;Trisomic offspring inherit BOTH&lt;br/&gt;maternal AND paternal homolog&lt;br/&gt;(heterozygous at centromere)&quot;]
+
+    C[&quot;Meiosis II Non-Disjunction&quot;] --&gt; C1[&quot;MI: Homologs separate normally&quot;]
+    C1 --&gt; C2[&quot;MII: Sisters of ONE chromatid pair fail to separate&quot;]
+    C2 --&gt; C3[&quot;1 gamete n+1 (two sister copies)&lt;br/&gt;1 gamete n-1&lt;br/&gt;2 normal gametes&quot;]
+    C3 --&gt; C4[&quot;Trisomic offspring inherit two IDENTICAL copies&lt;br/&gt;of one parental homolog&lt;br/&gt;(homozygous at centromere)&quot;]
+
+    style A fill:#4a90d9,color:#fff
+    style B fill:#f0ad4e,color:#000
+    style C fill:#d9534f,color:#fff</code></pre>
+<!-- alt: Flowchart showing two distinct molecular failure modes of meiotic non-disjunction. MI errors produce trisomic gametes carrying both parental homologs; MII errors produce trisomic gametes carrying two sister copies of a single homolog. Centromere-region marker analysis distinguishes the two — clinically important because they have different mechanisms and risk factors. -->
+<p><em>Two distinct molecular failure modes of meiotic non-disjunction.
+MI errors produce trisomic gametes carrying both parental homologs; MII
+errors produce trisomic gametes carrying two sister copies of a single
+homolog. Centromere-region marker analysis distinguishes the two —
+clinically important because they have different mechanisms and risk
+factors.</em></p>
+<p>This MI/MII distinction is clinically important because: -
+<strong>~75% of trisomy 21 cases originate in maternal meiosis
+I</strong> (the cohesin-decay mechanism described below). - Paternal
+trisomy 21 (~5–10% of cases) is typically meiosis II in origin. -
+Trisomy 18 has a higher proportion of MII errors than trisomy 21,
+suggesting different mechanistic pressures.</p>
+<p><strong>Risk factors for non-disjunction</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 29%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Effect</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Maternal age (&gt;35)</strong></td>
+<td>Strong, exponential increase in non-disjunction risk</td>
+<td>Cohesin decay during prolonged dictyate arrest</td>
+</tr>
+<tr>
+<td><strong>Achiasmate bivalents</strong></td>
+<td>Strong increase</td>
+<td>A bivalent without a chiasma cannot stay paired through MI;
+mis-segregates</td>
+</tr>
+<tr>
+<td><strong>Telomeric crossovers primarily</strong></td>
+<td>Increased</td>
+<td>Distal-biased chiasmata are unstable; inadequate to retain bivalent
+integrity</td>
+</tr>
+<tr>
+<td><strong>Smoking</strong></td>
+<td>Modest increase</td>
+<td>Oxidative damage to oocyte DNA and proteins</td>
+</tr>
+<tr>
+<td><strong>Folate deficiency</strong></td>
+<td>Modest increase</td>
+<td>Impaired methylation may affect centromeric heterochromatin</td>
+</tr>
+<tr>
+<td><strong>Ovarian endometriosis</strong></td>
+<td>Modest increase</td>
+<td>Inflammatory effects on oocyte quality</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Autosomal trisomies:</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 19%" />
+<col style="width: 31%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Karyotype</th>
+<th>Key Features</th>
+<th>Live Birth Frequency</th>
+<th>Survival</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Down syndrome</strong></td>
+<td>47,+21</td>
+<td>Intellectual disability (IQ 25-75); congenital heart defects
+(40-50%); increased Alzheimer risk (APP gene on chr 21); characteristic
+facies</td>
+<td>1/700</td>
+<td>Most survive to adulthood (median ~60 years)</td>
+</tr>
+<tr>
+<td><strong>Edwards syndrome</strong></td>
+<td>47,+18</td>
+<td>Severe; clenched fists with overlapping fingers; rocker-bottom feet;
+cardiac defects</td>
+<td>1/5,000</td>
+<td>~5-10% survive to 1 year</td>
+</tr>
+<tr>
+<td><strong>Patau syndrome</strong></td>
+<td>47,+13</td>
+<td>Holoprosencephaly; polydactyly; cleft lip/palate; cardiac
+defects</td>
+<td>1/10,000</td>
+<td>~5-10% survive to 1 year</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sex chromosome aneuploidies:</strong></p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 22%" />
+<col style="width: 22%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Karyotype</th>
+<th>Barr Bodies</th>
+<th>Key Features</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Turner syndrome</strong></td>
+<td>45,X</td>
+<td>0</td>
+<td>Female; short stature (SHOX haploinsufficiency); webbed neck;
+coarctation of aorta; streak gonads; infertility</td>
+<td>1/2,500 females</td>
+</tr>
+<tr>
+<td><strong>Klinefelter syndrome</strong></td>
+<td>47,XXY</td>
+<td>1</td>
+<td>Male; tall; gynecomastia; small testes; reduced fertility; learning
+difficulties</td>
+<td>1/600 males</td>
+</tr>
+<tr>
+<td><strong>Triple-X</strong></td>
+<td>47,XXX</td>
+<td>2</td>
+<td>Female; usually tall; mild learning difficulties; fertile</td>
+<td>1/1,000 females</td>
+</tr>
+<tr>
+<td><strong>Jacobs syndrome</strong></td>
+<td>47,XYY</td>
+<td>0</td>
+<td>Male; tall; usually normal phenotype and fertility</td>
+<td>1/1,000 males</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maternal age effect</strong>: Non-disjunction risk for
+chromosome 21 increases exponentially with maternal age:</p>
+<table>
+<thead>
+<tr>
+<th>Maternal Age</th>
+<th>Risk of Trisomy 21</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20</td>
+<td>~1/1,500</td>
+</tr>
+<tr>
+<td>25</td>
+<td>~1/1,250</td>
+</tr>
+<tr>
+<td>30</td>
+<td>~1/900</td>
+</tr>
+<tr>
+<td>35</td>
+<td>~1/270</td>
+</tr>
+<tr>
+<td>40</td>
+<td>~1/100</td>
+</tr>
+<tr>
+<td>45</td>
+<td>~1/50</td>
+</tr>
+<tr>
+<td>49</td>
+<td>~1/12</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart LR
+    A[&quot;Fetal life: oocytes enter MI prophase&quot;] --&gt; B[&quot;Birth: ~2 million primordial follicles arrested in dictyate stage&quot;]
+    B --&gt; C[&quot;Dictyate arrest of decades&lt;br/&gt;(20–50 years per oocyte)&quot;]
+    C --&gt; D[&quot;Cohesin gradually degrades — particularly at centromeres and chiasma sites&quot;]
+    D --&gt; E[&quot;Sister chromatid cohesion weakens&quot;]
+    D --&gt; F[&quot;Bivalent integrity weakens&quot;]
+    E --&gt; G[&quot;MII non-disjunction risk rises&quot;]
+    F --&gt; H[&quot;MI non-disjunction risk rises&quot;]
+    G --&gt; I[&quot;Aneuploid gamete frequency increases&lt;br/&gt;exponentially with maternal age&quot;]
+    H --&gt; I
+
+    style A fill:#4a90d9,color:#fff
+    style I fill:#d9534f,color:#fff</code></pre>
+<!-- alt: Flowchart showing cohesin-decay model of the maternal age effect. Female oocytes enter MI prophase before birth and remain arrested for decades. Loss of cohesin during this prolonged arrest weakens chromosome cohesion, producing exponentially rising non-disjunction risk with maternal age. -->
+<p><em>The cohesin-decay model of the maternal age effect. Female
+oocytes enter MI prophase before birth and remain arrested for decades.
+Loss of cohesin during this prolonged arrest weakens chromosome
+cohesion, producing exponentially rising non-disjunction risk with
+maternal age.</em></p>
+<h4 id="quantitative-model-of-the-maternal-age-curve">Quantitative model
+of the maternal age curve</h4>
+<p>The empirical risk of trisomy 21 with maternal age is well fit by an
+exponential function:</p>
+<p><span class="math display">\[\begin{equation}
+P(\text{T21} \mid \text{age } a) \approx P_0 \, e^{k(a - a_0)}
+\label{eq:unit_V_maternal_age_risk}
+\end{equation}\]</span></p>
+<p>with <span class="math inline">\(P_0 \approx 6.7 \times
+10^{-4}\)</span> at age <span class="math inline">\(a_0 = 20\)</span>
+and <span class="math inline">\(k \approx 0.18\)</span> per year for
+ages 30–45. This corresponds to a <strong>doubling of risk every ~4
+years</strong> in the late 30s and early 40s. Between ages 45 and 49,
+the curve rises even more steeply as the oocyte pool nears exhaustion.
+Because the underlying mechanism — cohesin decay during dictyate arrest
+— accumulates throughout reproductive life, the exponential form
+reflects compounding error rates per oocyte rather than a sudden
+threshold. Reproductive endocrinology uses this curve to set screening
+recommendations; many countries trigger non-invasive prenatal testing
+offers automatically at maternal ages above 35.</p>
+<p>Approximately 90% of trisomy 21 conceptions and 99% of trisomy 18
+conceptions arise in maternal meiosis; paternal contributions are minor.
+The asymmetry reflects the fundamental difference between oogenesis
+(limited oocyte pool, decades-long arrest, gradual cohesin decay) and
+spermatogenesis (continuous stem-cell division, no arrest, robust
+quality control through germ-cell apoptosis).</p>
+<h3
+id="structural-chromosomal-rearrangements-detailed-survey">Structural
+Chromosomal Rearrangements: Detailed Survey</h3>
+<p>Beyond losses and gains of whole chromosomes, <strong>structural
+rearrangements</strong> cause a wide range of human disease. Each
+rearrangement type has characteristic mechanisms and clinical
+signatures.</p>
+<h4 id="translocations">Translocations</h4>
+<p>A <strong>translocation</strong> is an exchange of chromosomal
+material between non-homologous chromosomes. Two major classes
+exist.</p>
+<p><strong>Reciprocal translocations</strong> exchange segments between
+two non-homologous chromosomes. Carriers of <em>balanced</em> reciprocal
+translocations usually retain full genetic dosage — just rearranged —
+and are typically phenotypically normal. However, their gametes face
+severe segregation problems at meiosis I: the four chromosomes involved
+must form a quadrivalent at metaphase I, and <strong>alternate
+segregation</strong> produces balanced gametes (~50% of meioses).
+<strong>Adjacent-1 and adjacent-2 segregation</strong> produces
+unbalanced gametes, leading to recurrent miscarriage (10–25% per
+pregnancy) and a 1–10% risk of an unbalanced live-born child.</p>
+<p><strong>The Philadelphia Chromosome — A Cancer Paradigm</strong>:</p>
+<p>The <strong>t(9;22)(q34;q11.2)</strong> reciprocal translocation
+fuses the <strong>BCR</strong> gene (chromosome 22) to the
+<strong>ABL1</strong> gene (chromosome 9), creating the
+<strong>BCR-ABL1</strong> fusion gene on the derivative chromosome 22
+(the Philadelphia chromosome, <a
+href="#gl:ph"><strong>pH</strong></a>).</p>
+<ul>
+<li><strong>BCR-ABL1</strong> encodes a constitutively active tyrosine
+kinase (210 kDa in CML; 190 kDa in Philadelphia-positive acute
+lymphoblastic leukaemia)</li>
+<li>Activates RAS/MAPK, PI3K/AKT, and JAK/STAT signaling – driving
+uncontrolled proliferation</li>
+<li><strong>Imatinib (Gleevec)</strong>: ATP-competitive inhibitor of
+BCR-ABL1 tyrosine kinase domain
+<ul>
+<li>CML 5-year survival: ~30% (pre-imatinib) to &gt;90%
+(post-imatinib)</li>
+<li>Resistance mutations (e.g., T315I “gatekeeper” mutation)
+necessitated second-generation (dasatinib, nilotinib) and
+third-generation (ponatinib) inhibitors</li>
+<li><strong>Asciminib</strong>: First <a
+href="#gl:allosteric"><strong>allosteric</strong></a> BCR-ABL1 inhibitor
+(binds myristoyl pocket, not ATP site); approved 2021</li>
+</ul></li>
+</ul>
+<p>The Philadelphia chromosome story is one of the great triumphs of
+molecular targeted therapy: a structural rearrangement → a fusion
+oncogene → a kinase domain → a small-molecule drug → a chronic disease
+that is no longer fatal for most patients.</p>
+<p><strong>Robertsonian translocations</strong> fuse two acrocentric
+chromosomes (chromosomes 13, 14, 15, 21, 22 in humans) at their
+centromeres, producing one large derivative chromosome and losing the
+small short arms. Carriers have 45 chromosomes but a normal genome
+content (the lost short arms contain primarily ribosomal RNA gene
+clusters, present in multiple copies elsewhere). The clinical
+consequence appears in offspring: a Robertsonian carrier can produce
+gametes with two copies of one chromosome, leading to trisomic
+offspring. <strong>Robertsonian translocation t(14;21) is the cause of
+approximately 4% of Down syndrome cases</strong>, with a recurrence risk
+of 10–15% (much higher than the population rate of ~1/700) — making
+karyotype analysis essential for genetic counseling of recurrent Down
+syndrome families.</p>
+<h4
+id="worked-example-17.3-robertsonian-translocation-segregation">Worked
+Example 17.3: Robertsonian translocation segregation</h4>
+<p>A phenotypically normal woman has a Robertsonian translocation
+rob(14;21), giving her a karyotype 45,XX,rob(14;21). At meiosis, the
+trivalent formed by chromosome 14, chromosome 21, and the rob(14;21)
+derivative can segregate in <strong>six</strong> different ways,
+producing six possible gamete types — three balanced and three
+unbalanced:</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 27%" />
+<col style="width: 50%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gamete</th>
+<th>Chromosomes carried</th>
+<th>After fertilization with normal sperm</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal alternate</td>
+<td>normal 14 + normal 21</td>
+<td>46,XX or 46,XY</td>
+<td>Karyotypically normal</td>
+</tr>
+<tr>
+<td>Translocation alternate</td>
+<td>rob(14;21) primarily</td>
+<td>45,XX,rob(14;21)</td>
+<td>Phenotypically normal carrier</td>
+</tr>
+<tr>
+<td>Adjacent — extra 14</td>
+<td>rob(14;21) + normal 14</td>
+<td>46,+14,rob — trisomy 14 equivalent</td>
+<td>Embryonic lethal (early miscarriage)</td>
+</tr>
+<tr>
+<td>Adjacent — missing 14</td>
+<td>normal 21 primarily</td>
+<td>45,–14 — monosomy 14</td>
+<td>Embryonic lethal</td>
+</tr>
+<tr>
+<td>Adjacent — extra 21</td>
+<td>rob(14;21) + normal 21</td>
+<td>46,+21,rob — <strong>translocation Down syndrome</strong></td>
+<td>Live-born child with Down syndrome</td>
+</tr>
+<tr>
+<td>Adjacent — missing 21</td>
+<td>normal 14 primarily</td>
+<td>45,–21 — monosomy 21</td>
+<td>Embryonic lethal</td>
+</tr>
+</tbody>
+</table>
+<p>The empirical recurrence risk of Down syndrome from a maternal
+rob(14;21) carrier is <strong>10–15%</strong> — far below the
+theoretical 1/3 viable expectation because most monosomic and trisomy-14
+conceptuses miscarry early, and because adjacent segregation patterns
+are not equally likely. <strong>For a paternal carrier</strong> the
+recurrence risk is much lower (~1–2%), because sperm with unbalanced
+chromosome content are largely incapable of fertilization (sperm
+selection effects). This sex difference in recurrence — same
+translocation, 10× different risk depending on the parent of origin — is
+one of the most clinically important consequences of male versus female
+meiotic biology and dramatically affects genetic counseling.</p>
+<h4 id="inversions">Inversions</h4>
+<p>An <strong>inversion</strong> is a chromosomal segment that has been
+reversed end-to-end. Two types exist based on whether the centromere is
+included.</p>
+<ul>
+<li><strong>Pericentric inversions</strong> include the centromere; the
+inverted segment spans both arms.</li>
+<li><strong>Paracentric inversions</strong> are confined to one arm; the
+centromere is outside the inverted region.</li>
+</ul>
+<p>Like balanced reciprocal translocations, inversion carriers are
+typically phenotypically normal. The clinical problem arises in meiosis:
+to pair correctly with the non-inverted homolog, the inverted segment
+must form an <strong>inversion loop</strong>. Crossovers within the loop
+produce unbalanced gametes:</p>
+<ul>
+<li><strong>Pericentric inversions</strong>: Crossovers inside the loop
+generate gametes with duplications and deficiencies (and corresponding
+live-born offspring with congenital abnormalities). Recurrence risk
+depends on inversion size and crossover frequency, ranging from 1% to
+15%.</li>
+<li><strong>Paracentric inversions</strong>: Crossovers inside the loop
+generate dicentric and acentric chromosomes that are typically lost
+during meiosis or early embryonic development; consequently, paracentric
+inversion carriers have higher rates of miscarriage but lower rates of
+liveborn unbalanced offspring than pericentric inversion carriers.</li>
+<li><strong>Inversion 9</strong> is a common pericentric inversion (~1%
+of Europeans) that is generally considered a normal variant — though
+some studies suggest mildly elevated risk for recurrent pregnancy
+loss.</li>
+</ul>
+<h4 id="deletion-syndromes">Deletion Syndromes</h4>
+<p><strong>Deletions</strong> remove chromosomal material and produce
+<strong>haploinsufficiency</strong> — one functional copy is not enough
+for normal function. Some classic deletion syndromes:</p>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 22%" />
+<col style="width: 24%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr>
+<th>Syndrome</th>
+<th>Deletion</th>
+<th>Frequency</th>
+<th>Key Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cri-du-chat</strong></td>
+<td>5p15.2</td>
+<td>1/20,000–50,000</td>
+<td>Distinctive high-pitched mewing cry in infancy (laryngeal
+abnormalities); microcephaly; severe intellectual disability;
+characteristic facies; cardiac defects</td>
+</tr>
+<tr>
+<td><strong>DiGeorge / 22q11.2 deletion</strong></td>
+<td>22q11.2 (3 Mb)</td>
+<td>1/4,000</td>
+<td>Conotruncal cardiac defects (tetralogy of Fallot, interrupted aortic
+arch); thymic hypoplasia (T-cell immunodeficiency); hypocalcemia
+(parathyroid hypoplasia); cleft palate; characteristic facies; learning
+disabilities; schizophrenia risk increased ~25×</td>
+</tr>
+<tr>
+<td><strong>Williams syndrome</strong></td>
+<td>7q11.23 (1.55 Mb, 26 genes including <em>ELN</em>)</td>
+<td>1/7,500–20,000</td>
+<td>“Elfin” facies; supravalvular aortic stenosis (elastin
+haploinsufficiency); hypercalcemia; intellectual disability with
+<strong>paradoxically preserved language</strong> and
+hypersociability</td>
+</tr>
+<tr>
+<td><strong>Prader-Willi syndrome</strong></td>
+<td>15q11-q13 paternal deletion</td>
+<td>1/15,000</td>
+<td>Hypotonia; hyperphagia; obesity; intellectual disability; short
+stature (see imprinting below)</td>
+</tr>
+<tr>
+<td><strong>Angelman syndrome</strong></td>
+<td>15q11-q13 maternal deletion</td>
+<td>1/15,000</td>
+<td>Severe intellectual disability; seizures; ataxic gait;
+characteristic happy demeanor with frequent laughter</td>
+</tr>
+<tr>
+<td><strong>Wolf-Hirschhorn</strong></td>
+<td>4p16.3</td>
+<td>1/50,000</td>
+<td>Severe growth retardation; “Greek warrior helmet” facies;
+intellectual disability; seizures</td>
+</tr>
+<tr>
+<td><strong>WAGR syndrome</strong></td>
+<td>11p13</td>
+<td>rare</td>
+<td>Wilms tumor + Aniridia + Genitourinary abnormalities + intellectual
+disability (Range)</td>
+</tr>
+<tr>
+<td><strong>Smith-Magenis</strong></td>
+<td>17p11.2</td>
+<td>1/25,000</td>
+<td>Intellectual disability; sleep disturbances (inverted melatonin
+cycle); behavioral abnormalities</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DiGeorge / 22q11.2 deletion syndrome</strong> deserves
+special attention as one of the most common microdeletion syndromes and
+a paradigm for <strong>contiguous gene syndromes</strong> — phenotypes
+resulting from haploinsufficiency of multiple adjacent genes
+simultaneously. The deletion is typically caused by <strong>non-allelic
+homologous recombination (NAHR)</strong> between low-copy repeats (LCRs)
+flanking the region. Within the deleted region, <strong>TBX1</strong> is
+the key driver of cardiac and craniofacial features; other deleted genes
+contribute to immune, neurological, and behavioral phenotypes. The
+22q11.2 deletion confers an approximately 25-fold increased risk of
+schizophrenia, making it one of the strongest known genetic risk factors
+for psychotic illness.</p>
+<p><strong>Cri-du-chat syndrome</strong> (5p deletion) was first
+described in 1963 by Jérôme Lejeune (who had identified trisomy 21 four
+years earlier). The distinctive cat-like cry in infancy results from
+laryngeal cartilage abnormalities. Survival to adulthood is common but
+with severe intellectual disability requiring lifelong care.</p>
+<h4 id="duplications">Duplications</h4>
+<p>Duplications (extra copies of chromosomal segments) typically produce
+<strong>gain-of-function</strong> phenotypes — opposite to deletions.
+Many duplication syndromes are reciprocal to known deletion
+syndromes:</p>
+<ul>
+<li><strong>22q11.2 duplication syndrome</strong>: Reciprocal to
+DiGeorge. Highly variable, often mild; some carriers are phenotypically
+normal.</li>
+<li><strong>Charcot-Marie-Tooth disease type 1A</strong>: Duplication of
+17p11.2 containing <em>PMP22</em> causes peripheral neuropathy through
+PMP22 overexpression.</li>
+<li><strong>MECP2 duplication syndrome</strong> (Xq28): Severe
+intellectual disability and recurrent infections; reciprocal to Rett
+syndrome (caused by <em>MECP2</em> loss-of-function mutations in
+girls).</li>
+</ul>
+<p>The reciprocal relationship between deletion and duplication
+phenotypes confirms gene dosage as the proximate cause and reinforces
+the dosage-sensitivity principle developed in the
+chromosomal-rearrangements section.</p>
+<blockquote>
+<p><strong>Clinical Connection: Prenatal Screening for Chromosomal
+Abnormalities</strong> <strong>Cell-free fetal DNA (cfDNA)
+testing</strong> (NIPT – non-invasive prenatal testing): Analyzes fetal
+DNA fragments circulating in maternal blood (from ~10 weeks gestation).
+Detects trisomies 21, 18, 13 and sex chromosome aneuploidies with
+&gt;99% sensitivity and &gt;99.5% specificity for trisomy 21. Has
+largely replaced first-trimester combined screening (nuchal translucency
++ biochemical markers) as the primary screening tool. Diagnostic
+confirmation still requires amniocentesis or chorionic villus sampling
+(CVS) for karyotyping or chromosomal microarray. <strong>Chromosomal
+microarray (CMA)</strong> is now the first-line test for fetal
+abnormalities or developmental delay, detecting copy-number changes at
+sub-megabase resolution.</p>
+</blockquote>
+<hr />
+<h2 id="genomic-imprinting-and-uniparental-disomy">Genomic Imprinting
+and Uniparental Disomy</h2>
+<p>Mendel’s laws assume that the phenotypic effect of an allele is
+<strong>independent of which parent transmitted it</strong>. For most
+loci this is true. But ~100–200 human genes show <strong>genomic
+imprinting</strong> — they are expressed from a single parental allele,
+with the other allele silenced by parent-of-origin-specific epigenetic
+marks (methylation, chromatin) established during gametogenesis ().</p>
+<h3 id="the-principle-of-imprinting">The principle of imprinting</h3>
+<p>For an imprinted gene: - A maternally-imprinted
+(paternally-expressed) gene contributes primarily the paternal allele to
+the offspring’s expression. - A paternally-imprinted
+(maternally-expressed) gene contributes primarily the maternal allele. -
+The “silent” allele is not deleted — it carries methylation marks
+acquired during egg or sperm formation that are preserved through
+embryogenesis.</p>
+<p>This violates Mendel’s assumption because the phenotype now depends
+on <strong>which parent contributed which allele</strong>, even at
+otherwise equivalent loci.</p>
+<h3 id="canonical-imprinted-regions">Canonical imprinted regions</h3>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 29%" />
+<col style="width: 57%" />
+</colgroup>
+<thead>
+<tr>
+<th>Region</th>
+<th>Imprinting status</th>
+<th>Disease (loss of expressed allele)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>15q11–q13</strong></td>
+<td>Paternal expression of <em>SNRPN</em>, <em>NDN</em>,
+<em>MAGEL2</em>, others; maternal expression of <em>UBE3A</em> in
+neurons</td>
+<td>Loss of paternal expression → <strong>Prader-Willi
+syndrome</strong>; loss of maternal <em>UBE3A</em> → <strong>Angelman
+syndrome</strong></td>
+</tr>
+<tr>
+<td><strong>11p15.5</strong></td>
+<td>Paternal expression of <em>IGF2</em>; maternal expression of
+<em>H19</em> and <em>CDKN1C</em></td>
+<td>Disrupted imprinting → <strong>Beckwith-Wiedemann syndrome</strong>
+(overgrowth, Wilms tumor risk); reciprocal disruption →
+<strong>Russell-Silver syndrome</strong> (growth restriction)</td>
+</tr>
+<tr>
+<td><strong>14q32</strong></td>
+<td><em>DLK1, MEG3</em> imprinted</td>
+<td>Maternal UPD14 → Temple syndrome; paternal UPD14 → Kagami-Ogata
+syndrome</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mechanisms-causing-imprinting-disorders">Mechanisms causing
+imprinting disorders</h3>
+<p>Imprinting disorders arise through several distinct mechanisms — and
+a key clinical insight is that <strong>the underlying mutation type is
+independent of the disease phenotype</strong>, which depends primarily
+on whether the active parental allele is present:</p>
+<ol type="1">
+<li><p><strong>Deletion of the active allele</strong> (~70–75% of
+Prader-Willi and Angelman cases). A microdeletion of 15q11-q13 on the
+paternally inherited chromosome causes Prader-Willi; the same
+microdeletion on the maternally inherited chromosome causes Angelman.
+The deletion is identical at the DNA level — the disease depends on
+which parent transmitted it.</p></li>
+<li><p><strong>Uniparental disomy (UPD)</strong> (~25% of Prader-Willi,
+~5% of Angelman cases). Both copies of chromosome 15 are inherited from
+one parent. Maternal UPD15 (no paternal contribution) causes
+Prader-Willi; paternal UPD15 (no maternal contribution) causes Angelman.
+UPD usually arises through <strong>trisomy rescue</strong> — a trisomic
+conceptus loses one chromosome to revert to disomy; if the lost
+chromosome was from the parent with a single copy, the result is
+UPD.</p>
+<p><strong>Isodisomy vs. heterodisomy.</strong> UPD comes in two
+genetically distinct flavors that depend on <em>when</em> the meiotic
+error occurred:</p>
+<ul>
+<li><strong>Heterodisomy</strong> — both inherited copies derive from
+<strong>different homologs</strong> of the parent (the two copies are
+heterozygous for parental polymorphisms). Heterodisomy arises from
+<strong>meiosis I non-disjunction</strong> followed by trisomy rescue.
+The two homologs of one parent are inherited together, and the offspring
+is heterozygous at centromeric markers from that parent.</li>
+<li><strong>Isodisomy</strong> — both inherited copies are
+<strong>identical</strong> sister-chromatid copies of a single parental
+homolog. Isodisomy arises from <strong>meiosis II
+non-disjunction</strong> plus trisomy rescue, or from a postzygotic
+mitotic error. The offspring is <strong>homozygous along the entire
+chromosome</strong> for the parent-of-origin’s allele.</li>
+</ul>
+<p>Isodisomy is clinically important because it can <strong>unmask
+recessive alleles</strong>: if the contributing parent is a carrier for
+a recessive disease on the affected chromosome, isodisomy produces
+homozygosity for the recessive allele and the offspring is affected —
+even though a single parent was a carrier. Documented examples include
+cystic fibrosis from maternal isodisomy 7 and rod monochromacy from
+paternal isodisomy 14. Mixed UPD (heterodisomy at the centromere with
+isodisomic distal regions) reflects a meiosis I error followed by a
+crossover; the relative proportions of iso- and heterodisomic regions
+trace the meiotic crossover that occurred in the parent’s
+germline.</p></li>
+<li><p><strong>Imprinting center mutations</strong> (~1–2% of cases).
+Mutations in the imprinting control regions disrupt the establishment or
+maintenance of methylation marks, producing functional UPD without
+sequence changes elsewhere.</p></li>
+<li><p><strong><em>UBE3A</em> point mutations</strong> (~10% of Angelman
+cases). Mutations in the <em>UBE3A</em> gene itself, which is expressed
+primarily from the maternal allele in neurons, cause Angelman
+syndrome.</p></li>
+</ol>
+<h3 id="connection-to-chromosome-behavior">Connection to chromosome
+behavior</h3>
+<p>The imprinting story directly connects molecular biology (DNA
+methylation), gametogenesis (where parent-of-origin marks are
+established), meiosis (where non-disjunction can produce UPD via trisomy
+rescue), and clinical genetics (where the same chromosomal lesion
+produces different diseases depending on parental origin). For details
+on the establishment and erasure of imprinting marks during germline
+development, see .</p>
+<blockquote>
+<p><strong>Clinical Connection: Why Both Parents Are Needed</strong>
+Imprinting explains why mammalian parthenogenesis (development from an
+unfertilized egg) and androgenesis (development from sperm primarily)
+fail. Mouse experiments combining two pronuclei from one parent —
+gynogenetic embryos with two maternal pronuclei or androgenetic embryos
+with two paternal pronuclei — fail at distinct embryonic stages,
+demonstrating that <strong>maternal and paternal genomes are not
+interchangeable</strong>. Imprinted genes have evolved to enforce
+biparental contribution in mammalian reproduction.</p>
+</blockquote>
+<p><strong>Concept Check 17.3</strong></p>
+<blockquote>
+<ol type="1">
+<li>A trisomy 21 fetus inherits two centromeric markers from the mother
+— one identical to grandmother’s and one identical to grandfather’s —
+and one paternal centromere. Was the non-disjunction event in maternal
+meiosis I or maternal meiosis II? Explain.</li>
+<li>Using with <span class="math inline">\(P_0 = 6.7 \times
+10^{-4}\)</span>, <span class="math inline">\(a_0 = 20\)</span>, and
+<span class="math inline">\(k = 0.18\)</span>, estimate the trisomy 21
+risk at maternal age 38. How does it compare to age 28?</li>
+<li>A child with cystic fibrosis is born to a mother known to be a CFTR
+carrier and a father whose CFTR sequencing shows two wild-type alleles
+(paternity confirmed). What chromosomal mechanism could explain the
+diagnosis, and what kind of UPD would it require?</li>
+<li>Why does <em>Drosophila</em> hyper-transcribe the single male X
+(MOF/MSL) while <em>C. elegans</em> halves transcription of both XX
+hermaphrodite chromosomes (DCC), yet mammals silence one X (XIST)? What
+general biological problem do most three solve?</li>
+</ol>
+</blockquote>
+<hr />
+<h2
+id="recombination-mapping-physical-vs.-genetic-distance">Recombination
+Mapping: Physical vs. Genetic Distance</h2>
+<p><strong>Genetic distance</strong> (cM) does not always correspond
+linearly to <strong>physical distance</strong> (Mb):</p>
+<p><span class="math display">\[\begin{equation}
+1 \text{ cM} \approx 1 \text{ Mb (genome-wide average in humans)}
+\label{eq:unit_V_chromosomal_cm_to_mb}
+\end{equation}\]</span></p>
+<p>However, this ratio varies dramatically: - <strong>Hotspots</strong>:
+Recombination rates can be 10-100x the average in small regions (~1-2
+kb); determined by PRDM9 protein (zinc finger domain recognizes specific
+DNA motifs) - <strong>Coldspots</strong>: Centromeric and
+heterochromatic regions have very low recombination - <strong>Sex
+differences</strong>: Female genetic maps are ~1.5-1.8x longer than male
+maps (more crossovers in female meiosis)</p>
+<p><strong>Concept Check 17.4</strong></p>
+<blockquote>
+<ol type="1">
+<li>From a three-point testcross of 1{,}000 progeny you score 440 + 435
+parentals, 48 + 45 single crossovers in one region, 14 + 12 single
+crossovers in the other, and 4 + 2 double crossovers: use the
+double-crossover class to fix the gene order, then compute both map
+distances and explain why the directly summed parental-to-parental
+distance underestimates the true physical separation.</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="inbreeding-and-the-inbreeding-coefficient">Inbreeding and the
+Inbreeding Coefficient</h2>
+<h3 id="the-inbreeding-coefficient-f">The Inbreeding Coefficient
+(F)</h3>
+<p>The <strong>inbreeding coefficient (F)</strong> is the probability
+that an individual has two alleles at a locus that are identical by
+descent (IBD) – inherited from the same ancestral allele through both
+parents.</p>
+<p><strong>Calculation for offspring of first-cousin
+mating</strong>:</p>
+<p>First cousins share one pair of grandparents. For a specific rare
+recessive allele (frequency q) in one grandparent:</p>
+<p><span class="math display">\[\begin{equation}
+F = \frac{1}{16} = 0.0625 \quad \text{(for first-cousin offspring)}
+\label{eq:unit_V_chromosomal_F_first_cousin}
+\end{equation}\]</span></p>
+<p><strong>General formula using path coefficients</strong> :</p>
+<p><span class="math display">\[\begin{equation}
+F = \sum\left(\frac{1}{2}\right)^{n_1 + n_2 + 1}
+\label{eq:unit_V_chromosomal_F_path}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(n_1\)</span> and <span
+class="math inline">\(n_2\)</span> are the number of links from one
+parent to the common ancestor and from the common ancestor to the other
+parent, summed over most paths through most common ancestors.</p>
+<h3 id="consequences-of-inbreeding">Consequences of Inbreeding</h3>
+<ul>
+<li><strong>Increased homozygosity</strong>: <span
+class="math inline">\(F\)</span> proportion of loci become homozygous
+beyond random expectation</li>
+<li><strong>Exposure of recessive alleles</strong>: Rare deleterious
+recessive alleles are more likely to become homozygous</li>
+<li><strong>Inbreeding depression</strong>: Reduced fitness (fertility,
+viability) in inbred populations</li>
+<li><strong>Examples</strong>: Amish (Ellis-van Creveld syndrome,
+1/5,000 vs. 1/200,000 in general population due to <a
+href="#gl:founder-effect"><strong>founder effect</strong></a> +
+consanguinity); Finnish disease heritage (36 rare diseases enriched in
+Finland due to founder effects)</li>
+</ul>
+<blockquote>
+<p><strong>Clinical Connection: Consanguinity and Genetic
+Disease</strong> In populations where consanguineous marriage is common
+(parts of Middle East, South Asia, North Africa: 20-50% of marriages are
+consanguineous), the incidence of autosomal recessive disorders is
+significantly elevated. First-cousin offspring have ~6-8% risk of
+congenital abnormality (vs. ~2-3% in outbred populations). Genetic
+counseling and carrier screening programs are important in these
+communities.</p>
+</blockquote>
+<p><strong>Concept Check 17.2</strong></p>
+<blockquote>
+<ol type="1">
+<li>Why are nearly most calico cats female? What would the karyotype of
+a rare calico male be?</li>
+<li>Explain why maternal age increases the risk of trisomy 21 but
+paternal age does not have the same effect.</li>
+<li>Calculate the inbreeding coefficient for offspring of a half-sibling
+mating (sharing one parent).</li>
+<li>Why does the Philadelphia chromosome produce a constitutively active
+kinase? What is the normal function of ABL1?</li>
+<li>A child has Prader-Willi syndrome with a normal-appearing chromosome
+15 by FISH. What molecular tests would you order, and what mechanisms
+might be responsible?</li>
+<li>Distinguish reciprocal from Robertsonian translocation. Why are
+Robertsonian carriers especially relevant to Down syndrome
+counseling?</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="worked-example-linkage-analysis">Worked Example: Linkage
+Analysis</h2>
+<p><strong>Problem</strong>: In a testcross, the following offspring are
+observed from a female heterozygous for three linked genes (A, B, C)
+crossed with a homozygous recessive male:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Phenotype</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A B C</td>
+<td>412</td>
+</tr>
+<tr>
+<td>2</td>
+<td>a b c</td>
+<td>405</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A b C</td>
+<td>82</td>
+</tr>
+<tr>
+<td>4</td>
+<td>a B c</td>
+<td>78</td>
+</tr>
+<tr>
+<td>5</td>
+<td>A B c</td>
+<td>32</td>
+</tr>
+<tr>
+<td>6</td>
+<td>a b C</td>
+<td>28</td>
+</tr>
+<tr>
+<td>7</td>
+<td>A b c</td>
+<td>3</td>
+</tr>
+<tr>
+<td>8</td>
+<td>a B C</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Total</td>
+<td></td>
+<td>1,042</td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li>Determine gene order.</li>
+</ol>
+<p>Parental classes: 1 and 2 (most frequent); DCO classes: 7 and 8
+(least frequent).</p>
+<p>Compare: Parental = A B C / a b c; DCO = A b c / a B C.</p>
+<p>The <strong>B</strong> gene has switched relative to A and C. Gene
+order: <strong>A – B – C</strong>.</p>
+<ol start="2" type="a">
+<li>Calculate map distances.</li>
+</ol>
+<p><span class="math display">\[d_{A-B} = \frac{82 + 78 + 3 + 2}{1042}
+\times 100 = \frac{165}{1042} \times 100 = 15.8 \text{ cM}
+\tag{17.8}\]</span></p>
+<p><span class="math display">\[d_{B-C} = \frac{32 + 28 + 3 + 2}{1042}
+\times 100 = \frac{65}{1042} \times 100 = 6.2 \text{ cM}
+\tag{17.9}\]</span></p>
+<ol start="3" type="a">
+<li>Calculate interference.</li>
+</ol>
+<p><span class="math display">\[\text{Expected DCO} = 0.158 \times 0.062
+\times 1042 = 10.2 \tag{17.10}\]</span></p>
+<p><span class="math display">\[\text{CoC} = \frac{5}{10.2} = 0.49;
+\quad I = 1 - 0.49 = 0.51 \tag{17.11}\]</span></p>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>Recombination and mutation models often begin from pairwise sequence
+disparity:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.genetics <span class="im">import</span> hamming_distance</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(hamming_distance(<span class="st">&quot;ATGCATGC&quot;</span>, <span class="st">&quot;ATACATGC&quot;</span>))</span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> Non-invasive prenatal
+testing counts fetal DNA fragments mapped to chromosomes —
+high-throughput karyotyping that detects trisomies without invasive
+sampling.</p>
+</blockquote>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Chromosomal Inheritance and Linkage</strong>, frontier
+biology belongs inside the evidence logic of the chapter. Classical
+genetics remains essential, but modern interpretation adds penetrance,
+polygenicity, structural variation, ancestry-aware inference, and
+uncertainty in risk prediction. The core reading question is this:
+chromosome-scale inheritance depends on recombination, segregation,
+structural variation, and dosage compensation.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>A good genetics answer separates the Mendelian transmission model
+from the evidence needed to use it in a population, family, or clinical
+setting.</p>
+<p><strong>Source practice:</strong> For inheritance and population
+claims, separate the model assumptions from sampling, ancestry
+representation, penetrance, linkage, and environment.</p>
+<h3
+id="structural-variation-consent-and-chromosome-scale-counseling">Structural
+Variation, Consent, and Chromosome-Scale Counseling</h3>
+<p>Chromosome-scale inheritance is clinically useful because it links a
+visible or sequenced rearrangement to a reproductive risk. It is also
+easy to overstate. Karyotypes, chromosomal microarrays, short-read
+sequencing, long-read sequencing, and graph-reference alignment see
+different classes of variation: balanced translocations, copy-number
+variants, repeat expansions, inversions, and complex rearrangements can
+move between visible cytogenetics and sequence-level evidence. The Human
+Pangenome Reference highlights why a single linear reference can miss or
+misrepresent variants carried by under-sampled ancestries .</p>
+<p>For prenatal, carrier, or infertility testing, the counseling note
+should name the assay and its blind spots, distinguish screening from
+diagnosis, state whether a variant is pathogenic or uncertain, and
+explain family implications without treating relatives as automatic
+research subjects. Consent and data-retention language matter because
+chromosomal findings can expose non-paternity, consanguinity, incidental
+adult-onset risks, or information relevant to relatives who did not
+choose testing.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Chromosome theory</strong>: proposed chromosomes carry
+genes; Morgan proved this with X-linked <em>white</em> in
+<em>Drosophila</em>.</li>
+<li><strong>Chromosome architecture</strong>: Centromeres (CENP-A,
+alpha-satellite, kinetochore docking), telomeres (TTAGGG, shelterin,
+telomerase), and the heterochromatin/euchromatin distinction shape both
+mechanics and expression.</li>
+<li><strong>Meiosis vs. mitosis</strong>: A two-division
+reductional/equational program with synapsis, crossing over, and
+reductional segregation at MI is the cellular basis of Mendel’s
+laws.</li>
+<li><strong>Sex determination</strong>: XX/XY (mammals, SRY gene), ZW/ZZ
+(birds), XO (grasshoppers), haplodiploidy (hymenoptera),
+temperature-dependent (reptiles).</li>
+<li><strong>X-inactivation</strong>: Lyon hypothesis (1961); XIST RNA
+coats Xi; Polycomb-mediated H3K27me3; DNA methylation; Barr body. ~15%
+of genes escape.</li>
+<li><strong>Dosage compensation</strong>: X-inactivation in mammals, MSL
+upregulation in <em>Drosophila</em>, DCC downregulation in <em>C.
+elegans</em>; broader principles include autosomal dosage sensitivity,
+gene-balance constraints, miRNA buffering, and Polycomb
+maintenance.</li>
+<li><strong>X-linked recessive inheritance</strong>: Males affected
+&gt;&gt; females; no male-to-male transmission; carrier mothers pass to
+50% of sons.</li>
+<li><strong>Linkage and recombination</strong>: RF &lt; 50% indicates
+linkage; 1 cM ≈ 1% recombination; three-point cross determines gene
+order and detects interference; Haldane and Kosambi mapping functions
+correct for undetected double crossovers; PRDM9 directs hotspots; female
+maps are ~1.5–1.8× longer than male maps.</li>
+<li><strong>Non-disjunction</strong>: MI errors produce trisomies
+inheriting both parental homologs; MII errors produce trisomies
+inheriting two sister copies of one homolog. The cohesin-decay model
+explains the maternal age effect.</li>
+<li><strong>Chromosomal abnormalities</strong>: Aneuploidy from
+non-disjunction (trisomies 21, 18, 13; Turner 45,X; Klinefelter 47,XXY);
+structural rearrangements include reciprocal and Robertsonian
+translocations (Philadelphia chromosome → BCR-ABL1 → CML), pericentric
+and paracentric inversions, deletion syndromes (DiGeorge 22q11.2,
+Cri-du-chat 5p, Williams 7q11.23, Wolf-Hirschhorn 4p), and reciprocal
+duplication syndromes.</li>
+<li><strong>Imprinting and uniparental disomy</strong>: ~100–200
+imprinted human genes; deletion of an expressed allele, UPD via trisomy
+rescue, imprinting-center mutations, or <em>UBE3A</em> point mutations
+most cause Prader-Willi or Angelman depending on parental origin.</li>
+<li><strong>Inbreeding</strong>: F = probability of identity by descent;
+increases homozygosity; exposes recessive alleles; inbreeding
+depression.</li>
+<li><strong>Connections:</strong> See for meiosis errors, for <span
+class="math inline">\(F_{ST}\)</span> and drift, and for imprinting
+disorders.</li>
+</ul>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li>Explain Morgan’s evidence that the <em>white</em> gene is on the X
+chromosome. What cross results would differ if <em>white</em> were
+autosomal recessive?</li>
+<li>Describe the role of XIST RNA in X-inactivation. Why do ~15% of
+genes escape inactivation, and what are the phenotypic
+consequences?</li>
+<li>A woman is a carrier for both hemophilia A (F8, Xq28) and red-green
+color blindness (OPN1LW, Xq28). These genes are ~6 cM apart. What
+proportion of her sons will have both conditions? A single?
+Neither?</li>
+<li>Perform a three-point test cross analysis given the following data:
+[provide data if assigned]</li>
+<li>Explain the maternal age effect on non-disjunction. What molecular
+mechanism has been proposed?</li>
+<li>Why is trisomy 21 the most common viable autosomal trisomy? (Hint:
+consider chromosome 21 gene content.)</li>
+<li>Describe the BCR-ABL1 fusion and explain why imatinib was a
+breakthrough in cancer therapy. What is the T315I resistance
+mutation?</li>
+<li>Compare NHEJ and HR as mechanisms for joining chromosome
+translocation breakpoints. Which is more likely to produce the
+Philadelphia chromosome?</li>
+<li>Calculate the inbreeding coefficient for offspring of a double
+first-cousin mating (where both parents are first cousins through
+independent lineages).</li>
+<li>Explain why dosage compensation is necessary and compare the three
+known mechanisms (mammals, <em>Drosophila</em>, <em>C.
+elegans</em>).</li>
+<li>A child carries a de novo balanced reciprocal translocation with no
+gene interruption. When is genetic counselling still indicated?</li>
+<li>Contrast <strong>Robertsonian</strong>
+vs. <strong>reciprocal</strong> translocations regarding segregation
+products at meiosis I.</li>
+<li>Distinguish meiosis I from meiosis II non-disjunction. How would
+centromere-region marker analysis identify the failure mode in a
+trisomic conception?</li>
+<li>A 22q11.2 deletion is found in a child with congenital heart
+disease. List four other phenotypic systems likely affected, and explain
+why a single contiguous deletion produces such diverse features.</li>
+<li>Why does maternal UPD15 cause Prader-Willi syndrome rather than
+Angelman syndrome?</li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Lyon (1961). Gene action in the {X}-chromosome of the mouse ({Mus
+musculus L.}). <em>Nature</em>, 190.</li>
+<li>Hassold &amp; Hunt (2001). To err (meiotically) is human: The
+genesis of human aneuploidy. <em>Nature Reviews Genetics</em>, 2.</li>
+<li>Wright (1922). Coefficients of inbreeding and relationship.
+<em>American Naturalist</em>, 56.</li>
+<li>Sutton (1902). On the morphology of the chromosome group in
+{Brachystola magna}. <em>Biological Bulletin</em>, 4.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<ol type="1">
+<li><strong>Chromosome theory of heredity</strong> – genes are located
+on chromosomes; chromosomal behavior in meiosis explains Mendelian
+laws</li>
+<li><strong>Centromere</strong> – chromosomal region holding sister
+chromatids; site of kinetochore assembly; CENP-A defines identity
+epigenetically</li>
+<li><strong>Telomere</strong> – terminal TTAGGG repeats bound by
+shelterin; protected by telomerase in stem and germ cells</li>
+<li><strong>Heterochromatin</strong> – densely packed, transcriptionally
+silenced chromatin; constitutive vs. facultative</li>
+<li><strong>SRY</strong> – sex-determining region Y; master switch for
+male development in mammals</li>
+<li><strong>X-inactivation</strong> – silencing of one X chromosome in
+female somatic cells for dosage compensation</li>
+<li><strong>XIST</strong> – long non-coding RNA that coats and silences
+the inactive X chromosome</li>
+<li><strong>Barr body</strong> – condensed, transcriptionally inactive X
+chromosome visible at nuclear periphery</li>
+<li><strong>Hemizygous</strong> – having a single copy of a gene (e.g.,
+X-linked genes in males)</li>
+<li><strong>Linkage</strong> – tendency of genes on the same chromosome
+to be inherited together</li>
+<li><strong>Recombination frequency (RF)</strong> – proportion of
+recombinant offspring; measure of genetic distance</li>
+<li><strong>Centimorgan (cM)</strong> – unit of genetic distance; 1 cM =
+1% recombination frequency</li>
+<li><strong>Three-point test cross</strong> – cross using three linked
+markers to determine gene order and distances simultaneously</li>
+<li><strong>Interference</strong> – suppression of nearby crossovers; I
+= 1 - coefficient of coincidence</li>
+<li><strong>PRDM9</strong> – zinc-finger histone methyltransferase that
+directs meiotic recombination hotspots</li>
+<li><strong>Non-disjunction</strong> – failure of chromosomes to
+separate during meiosis, leading to aneuploidy</li>
+<li><strong>Aneuploidy</strong> – abnormal chromosome number (monosomy,
+trisomy)</li>
+<li><strong>Reciprocal translocation</strong> – exchange of segments
+between two non-homologous chromosomes</li>
+<li><strong>Robertsonian translocation</strong> – centromeric fusion of
+two acrocentric chromosomes</li>
+<li><strong>Pericentric inversion</strong> – inversion that includes the
+centromere</li>
+<li><strong>Paracentric inversion</strong> – inversion confined to one
+chromosome arm</li>
+<li><strong>Philadelphia chromosome</strong> – t(9;22) translocation
+producing BCR-ABL1 fusion; hallmark of CML</li>
+<li><strong>Inbreeding coefficient (F)</strong> – probability that two
+alleles at a locus are identical by descent</li>
+<li><strong>LOD score</strong> – statistical measure of evidence for
+genetic linkage in pedigrees</li>
+<li><strong>Pseudoautosomal region</strong> – segments at X and Y
+chromosome tips that recombine during male meiosis</li>
+<li><strong>Dosage compensation</strong> – mechanism equalizing X-linked
+gene expression between XX and XY individuals</li>
+<li><strong>Uniparental disomy (UPD)</strong> – both copies of a
+chromosome inherited from one parent; cause of imprinting disorders via
+trisomy rescue</li>
+<li><strong>Genomic imprinting</strong> – parent-of-origin-specific
+expression resulting from gametic methylation marks</li>
+</ol>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Chromosomal Inheritance and Linkage</strong> should leave a
+reproducible trail from a biological claim to the code, figure, diagram,
+or paper-based activity that can test it. Use the surfaces below to
+inspect the chapter’s assumptions, rerun the relevant model, or compare
+the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/genetics/genetics.py</code>
+(<code>recombination_frequency</code>, <code>genetic_distance</code>,
+<code>infer_three_point_order</code>)</td>
+<td>Convert offspring counts into linkage maps and gene order.</td>
+</tr>
+<tr>
+<td><code>src/visualization/plots.py</code>
+(<code>plot_chromosome_structure</code>)</td>
+<td>Connect cytogenetic structure to inheritance patterns.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>chromosome_inheritance_diagram</code>,
+<code>x_inactivation_diagram</code>)</td>
+<td>Compare segregation, linkage, and dosage compensation.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> specify phase, recombinant
+classes, crossover assumptions, and mapping limits before inferring
+chromosome structure. <strong>Cross-reference:</strong> use , , and
+.</p>
+</body>
+</html>

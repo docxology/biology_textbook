@@ -1,0 +1,5 @@
+graph TD
+    Prior["Prior Beliefs<br/>(internal model)"] -->|"Predictions (top-down)"| Sensor["Sensory Input"]
+    Sensor -->|"Prediction errors (bottom-up)"| Prior
+    Prior --> Action["Actions<br/>Minimise prediction error<br/>through behaviour"]
+    Action --> Sensor

@@ -1,0 +1,19 @@
+flowchart LR
+    subgraph M ["Skeletal muscle / RBCs"]
+        GLU1["Glucose"] -->|"glycolysis<br/>+2 ATP"| LAC1["Lactate"]
+    end
+
+    subgraph B ["Bloodstream"]
+        LAC2["Lactate ↑"]
+    end
+
+    subgraph L ["Liver"]
+        LAC3["Lactate"] -->|"LDH"| PYR["Pyruvate"]
+        PYR -->|"gluconeogenesis<br/>−6 ATP equivalents"| GLU2["Glucose"]
+    end
+
+    LAC1 --> LAC2 --> LAC3
+    GLU2 --> GLU1
+
+    style M fill:#fff3e6
+    style L fill:#e6ffe6

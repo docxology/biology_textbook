@@ -1,0 +1,2718 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>018_bioenergetics_and_respiration</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="bioenergetics-and-cellular-respiration">Bioenergetics and
+Cellular Respiration</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 9</strong> · Level 3/3 · 60 min read · 100 min lecture ·
+Prerequisites: , </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Define the laws of <a
+href="#gl:thermodynamics"><strong>thermodynamics</strong></a> and apply
+them to biological reactions, distinguishing standard (<span
+class="math inline">\(\Delta G^{\circ\prime}\)</span>) from
+physiological (<span class="math inline">\(\Delta G\)</span>) free
+energies.</li>
+<li>Explain the role of ATP as a central phosphoryl-group donor and
+short-term energy carrier, including the molecular basis of its high
+phosphoryl group transfer potential.</li>
+<li>Describe most 10 steps of <a
+href="#gl:glycolysis"><strong>glycolysis</strong></a> with <a
+href="#gl:enzyme"><strong>enzyme</strong></a>s, intermediates, and
+regulatory mechanisms.</li>
+<li>Explain the pyruvate dehydrogenase complex and its regulation.</li>
+<li>Describe most 8 steps of the TCA cycle with carbon tracking,
+cofactor yields, and regulation.</li>
+<li>Describe the electron transport chain complexes I–IV, including
+proton stoichiometry and the Q cycle.</li>
+<li>Explain <a href="#gl:atp-synthase"><strong>ATP synthase</strong></a>
+structure and the rotary catalysis mechanism, including the
+proton-motive force equation.</li>
+<li>Calculate net ATP yield from glucose oxidation using modern P/O
+ratios (~2.5 for NADH, ~1.5 for FADH<span
+class="math inline">\(_2\)</span>) and explain how the “30–32 ATP”
+number is derived.</li>
+<li>Compare substrate-level and <a
+href="#gl:oxidative-phosphorylation"><strong>oxidative
+phosphorylation</strong></a> quantitatively across yield, speed,
+sustainability, and physiological niche.</li>
+<li>Describe <a
+href="#gl:fermentation"><strong>fermentation</strong></a> pathways, the
+Cori cycle, and the glucose-alanine cycle as inter-organ shuttles.</li>
+<li>Explain gluconeogenesis (four bypass enzymes) and its reciprocal
+regulation with glycolysis.</li>
+<li>Quantify reactive oxygen species (ROS) production at the ETC and the
+antioxidant defences that constrain it.</li>
+<li>Distinguish anaplerotic and cataplerotic flux through the TCA cycle
+in the context of inter-organ metabolism.</li>
+<li>Explain physiological (UCP1, brown adipose) and pharmacological
+(DNP) uncoupling at a molecular level.</li>
+<li>Compute the thermodynamic efficiency of glucose oxidation from
+standard free energies of formation.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Cells harvest free energy by coupling
+redox chemistry to phosphoryl transfer and ion gradients.</li>
+<li><strong>Core concepts:</strong> free energy, redox, glycolysis,
+oxidative phosphorylation.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change: Pathways
+and transformations of energy and matter, Systems; AP Biology:
+Energetics, Systems Interactions; NGSS-style topics: Matter and Energy
+in Organisms and Ecosystems.</li>
+<li><strong>Model or quantitative lens:</strong> Delta G, ATP yield, and
+electron-carrier accounting.</li>
+<li><strong>Data skill:</strong> Track carbon, electrons, and ATP across
+a pathway.</li>
+<li><strong>Practice cadence:</strong> Representing and Describing Data,
+Statistical Tests and Data Analysis.</li>
+<li><strong>Common misconception to repair:</strong> ATP is not stored
+energy in a vague sense; it is a coupling currency with defined reaction
+chemistry.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Transfer energy accounting to
+exercise, fermentation, hypoxia, and mitochondrial disease.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.biochemistry.biochemistry.glycolysis_summary</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette: The Heretic Who Was Right About
+ATP</strong></p>
+<p>In 1961, British biochemist Peter Mitchell proposed something that
+nearly the entire biochemistry community considered preposterous: that
+the synthesis of ATP was not driven by a hypothetical high-energy
+chemical intermediate but by a <strong>proton gradient across a
+membrane</strong> — a <strong>proton-motive force</strong> . Mitchell’s
+“chemiosmotic hypothesis” met with fierce resistance. Efraim Racker, one
+of biochemistry’s most respected voices, called it “an act of faith, not
+of reason.” Mitchell spent years defending his idea from private funds
+after leaving a university position.</p>
+<p>In 1978, the Nobel Committee awarded Peter Mitchell the Nobel Prize
+in Chemistry — alone, without co-recipients — specifically for the
+chemiosmotic hypothesis. It was a stunning vindication. Today we know
+that the ~28 molecules of ATP produced per glucose in oxidative
+phosphorylation are most driven by the proton gradient that Mitchell
+described. The mitochondrion — and the <a
+href="#gl:chloroplast"><strong>chloroplast</strong></a> — are
+essentially biological batteries, storing energy as a proton
+electrochemical gradient. This chapter explains exactly how they are
+charged and discharged.</p>
+<p><em>Primary source: Mitchell, P. (1961). Coupling of phosphorylation
+to electron and hydrogen transfer by a chemi-osmotic type of mechanism.
+Nature, 191(4784), 144–148.</em></p>
+</blockquote>
+<hr />
+<h2 id="thermodynamics-of-life">Thermodynamics of Life</h2>
+<h3 id="first-and-second-laws">First and Second Laws</h3>
+<p>The <strong>First Law of Thermodynamics:</strong> Energy cannot be
+created or destroyed — primarily converted. Life obeys this law: every
+metabolic reaction converts one form of energy to another, with total
+energy conserved.</p>
+<p>The <strong>Second Law of Thermodynamics:</strong> In any spontaneous
+process, the total entropy (disorder) of the universe increases. This
+means no energy conversion is 100% efficient — some energy is typically
+dispersed as heat. Living organisms maintain internal order (low
+entropy) at the expense of increasing entropy in their surroundings
+(heat release, CO<span class="math inline">\(_2\)</span> production,
+waste generation).</p>
+<p>A useful schematic: a cell is a <strong>dissipative
+structure</strong> in the sense of Prigogine — its internal order is
+maintained by a continuous through-flux of free energy (food, sunlight)
+and a continuous out-flux of low-grade heat. Stop the through-flux, and
+the cell relaxes to thermal equilibrium — which is to say, dies.</p>
+<h3 id="gibbs-free-energy-a-derivation-from-first-principles">Gibbs Free
+Energy: A Derivation From First Principles</h3>
+<p>For a process at constant temperature <span
+class="math inline">\(T\)</span> and constant pressure <span
+class="math inline">\(P\)</span> (the conditions inside virtually every
+cell), the relevant thermodynamic potential is the <strong>Gibbs free
+energy</strong> <span class="math inline">\(G\)</span>. Starting from
+the second law, we have for the universe (system + surroundings):</p>
+<p><span class="math display">\[\Delta S_{\text{universe}} = \Delta
+S_{\text{system}} + \Delta S_{\text{surroundings}} \geq 0
+\tag{9.0a}\]</span></p>
+<p>Heat released by the system at constant pressure equals <span
+class="math inline">\(-\Delta H_{\text{system}}\)</span>, and this heat
+increases the entropy of the surroundings by <span
+class="math inline">\(-\Delta H_{\text{system}}/T\)</span>.
+Substituting:</p>
+<p><span class="math display">\[\Delta S_{\text{universe}} = \Delta
+S_{\text{system}} - \frac{\Delta H_{\text{system}}}{T} \geq 0
+\tag{9.0b}\]</span></p>
+<p>Multiplying both sides by <span class="math inline">\(-T\)</span> and
+dropping the “system” subscript yields the <strong>defining inequality
+of spontaneity at constant <span class="math inline">\(T\)</span>, <span
+class="math inline">\(P\)</span></strong>:</p>
+<p><span class="math display">\[\begin{equation}
+\Delta G = \Delta H - T\Delta S \leq 0
+\label{eq:unit_III_gibbs_free_energy}
+\end{equation}\]</span></p>
+<ul>
+<li><strong><span class="math inline">\(\Delta G &lt;
+0\)</span>:</strong> reaction is spontaneous (exergonic); energy
+released</li>
+<li><strong><span class="math inline">\(\Delta G &gt;
+0\)</span>:</strong> reaction is non-spontaneous (endergonic); energy
+input required</li>
+<li><strong><span class="math inline">\(\Delta G = 0\)</span>:</strong>
+system is at equilibrium (no net reaction)</li>
+</ul>
+<p>This is profound: a quantity that depends primarily on the
+<em>system</em> (not the surroundings) tells us whether the
+<em>universe’s</em> entropy will increase. It is the workhorse of
+biochemical thermodynamics.</p>
+<h3 id="standard-free-energy-and-actual-free-energy">Standard Free
+Energy and Actual Free Energy</h3>
+<p>The standard free energy change (<span class="math inline">\(\Delta
+G^{\circ\prime}\)</span>) is measured under biochemical standard
+conditions (1 M concentrations for reactants except H<span
+class="math inline">\(^+\)</span>, <a
+href="#gl:ph"><strong>pH</strong></a> 7.0, 25 degrees C, 1 atm, and
+water at unit activity). Under cellular conditions (not standard state),
+<span class="math inline">\(\Delta G\)</span> differs from <span
+class="math inline">\(\Delta G^{\circ\prime}\)</span>:</p>
+<p><span class="math display">\[\Delta G = \Delta G^{\circ\prime} + RT
+\ln Q \tag{9.2}\]</span></p>
+<p>where <span class="math inline">\(Q\)</span> = [products]/[reactants]
+(mass action ratio, reaction quotient).</p>
+<p>The relationship between <span class="math inline">\(\Delta
+G^{\circ\prime}\)</span> and the equilibrium constant:</p>
+<p><span class="math display">\[\Delta G^{\circ\prime} = -RT \ln K_{eq}
+\tag{9.3}\]</span></p>
+<p><strong>Standard versus physiological <span
+class="math inline">\(\Delta G^{\circ\prime}\)</span> for key hydrolysis
+reactions</strong> (37 °C, pH 7.0, 1 mM Mg<span
+class="math inline">\(^{2+}\)</span>):</p>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 44%" />
+<col style="width: 37%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr>
+<th>Reaction</th>
+<th><span class="math inline">\(\Delta G^{\circ\prime}\)</span>
+(kJ/mol)</th>
+<th>Cellular <span class="math inline">\(\Delta G\)</span> (kJ/mol)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phosphoenolpyruvate (PEP) → Pyruvate + P<span
+class="math inline">\(_i\)</span></td>
+<td><span class="math inline">\(-61.9\)</span></td>
+<td>about <span class="math inline">\(-65\)</span></td>
+<td>Highest-energy phosphate bond in cells</td>
+</tr>
+<tr>
+<td>1,3-Bisphosphoglycerate → 3-PG + P<span
+class="math inline">\(_i\)</span></td>
+<td><span class="math inline">\(-49.3\)</span></td>
+<td>about <span class="math inline">\(-52\)</span></td>
+<td>Drives ATP synthesis at glycolysis step 7</td>
+</tr>
+<tr>
+<td>Phosphocreatine → Creatine + P<span
+class="math inline">\(_i\)</span></td>
+<td><span class="math inline">\(-43.0\)</span></td>
+<td>about <span class="math inline">\(-47\)</span></td>
+<td>Muscle ATP buffer (phosphagen)</td>
+</tr>
+<tr>
+<td><strong>ATP → ADP + P<span
+class="math inline">\(_i\)</span></strong></td>
+<td><strong><span class="math inline">\(-30.5\)</span></strong></td>
+<td><strong><span class="math inline">\(-50\)</span> to <span
+class="math inline">\(-54\)</span></strong></td>
+<td>The “energy currency benchmark”</td>
+</tr>
+<tr>
+<td>ATP → AMP + PP<span class="math inline">\(_i\)</span></td>
+<td><span class="math inline">\(-45.6\)</span></td>
+<td>about <span class="math inline">\(-50\)</span></td>
+<td>PP<span class="math inline">\(_i\)</span> further hydrolysed
+(irreversibility)</td>
+</tr>
+<tr>
+<td>Glucose-1-P → Glucose + P<span
+class="math inline">\(_i\)</span></td>
+<td><span class="math inline">\(-20.9\)</span></td>
+<td><span class="math inline">\(-21\)</span></td>
+<td>Low-energy ester</td>
+</tr>
+<tr>
+<td>Glucose-6-P → Glucose + P<span
+class="math inline">\(_i\)</span></td>
+<td><span class="math inline">\(-13.8\)</span></td>
+<td><span class="math inline">\(-14\)</span></td>
+<td>Low-energy phosphate ester</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key insight:</strong> ATP sits in the <em>middle</em> of this
+spectrum. It is energetically capable of phosphorylating many low-energy
+compounds (glucose, F6P) but can itself be re-synthesised from
+higher-energy intermediates such as PEP and 1,3-BPG. This intermediate
+position is what makes ATP an effective “energy currency” rather than
+the highest-potential molecule in the cell.</p>
+<p><strong>Why cells maintain far-from-equilibrium conditions:</strong>
+At equilibrium, <span class="math inline">\(\Delta G = 0\)</span> and no
+net work can be done. Cells maintain metabolite concentrations far from
+equilibrium (<span class="math inline">\(Q \neq K_{eq}\)</span>),
+keeping <span class="math inline">\(\Delta G\)</span> strongly negative
+for exergonic reactions. This is why cells must continuously consume
+nutrients — to maintain the far-from-equilibrium state that enables
+life.</p>
+<h3 id="worked-example-free-energy-and-equilibrium">Worked Example: Free
+Energy and Equilibrium</h3>
+<p><em>Problem:</em> The <span class="math inline">\(\Delta
+G^{\circ\prime}\)</span> for glucose-6-phosphate isomerase (G6P to F6P)
+is +1.7 kJ/mol. Calculate <span class="math inline">\(K_{eq}\)</span> at
+37 degrees C. Is this reaction spontaneous under standard
+conditions?</p>
+<p><em>Solution:</em></p>
+<p><span class="math display">\[\Delta G^{\circ\prime} = -RT \ln K_{eq}
+\tag{9.4}\]</span></p>
+<p><span class="math display">\[1{,}700 = -(8.314)(310) \ln K_{eq}
+\tag{9.5}\]</span></p>
+<p><span class="math display">\[\ln K_{eq} = \frac{-1{,}700}{2{,}577} =
+-0.660 \tag{9.6}\]</span></p>
+<p><span class="math display">\[K_{eq} = e^{-0.660} = 0.517
+\tag{9.7}\]</span></p>
+<p>Under standard conditions, this reaction is slightly non-spontaneous
+(<span class="math inline">\(\Delta G^{\circ\prime} &gt; 0\)</span>).
+However, in the cell, the mass action ratio <span
+class="math inline">\(Q\)</span> is kept well below <span
+class="math inline">\(K_{eq}\)</span> because F6P is rapidly consumed by
+PFK-1, making the actual <span class="math inline">\(\Delta G\)</span>
+negative.</p>
+<h3 id="worked-example-complete-glucose-oxidation">Worked Example:
+Complete Glucose Oxidation</h3>
+<p><em>Problem:</em> Calculate the standard free energy of complete
+glucose oxidation (glucose + 6 O<span class="math inline">\(_2\)</span>
+→ 6 CO<span class="math inline">\(_2\)</span> + 6 H<span
+class="math inline">\(_2\)</span>O) from tabulated standard free
+energies of formation, and compare it with the energy harvested as
+ATP.</p>
+<p><em>Solution:</em> Using <span class="math inline">\(\Delta
+G^{\circ}_f\)</span> values (kJ/mol) at 25 °C — glucose: <span
+class="math inline">\(-910.4\)</span>; CO<span
+class="math inline">\(_2\)</span> (aq): <span
+class="math inline">\(-394.4\)</span>; H<span
+class="math inline">\(_2\)</span>O (l): <span
+class="math inline">\(-237.1\)</span>; O<span
+class="math inline">\(_2\)</span>: 0:</p>
+<p><span class="math display">\[\Delta G^{\circ\prime}_{\text{rxn}} =
+\sum \Delta G^{\circ}_f(\text{products}) - \sum \Delta
+G^{\circ}_f(\text{reactants}) \tag{9.7a}\]</span></p>
+<p><span class="math display">\[= [6(-394.4) + 6(-237.1)] - [(-910.4) +
+6(0)] = -3{,}789 + 910.4 \approx -2{,}870 \; \text{kJ/mol}
+\tag{9.7b}\]</span></p>
+<p>If 32 ATP are produced per glucose at a cellular hydrolysis <span
+class="math inline">\(\Delta G\)</span> of <span
+class="math inline">\(-50\)</span> kJ/mol, the energy captured as ATP is
+<span class="math inline">\(32 \times 50 = 1{,}600\)</span> kJ/mol. The
+thermodynamic efficiency of glucose oxidation in cells is therefore:</p>
+<p><span class="math display">\[\eta = \frac{1{,}600}{2{,}870} \approx
+56\% \tag{9.7c}\]</span></p>
+<p>The remaining ~44% is dissipated as heat — useful for mammals to
+maintain body temperature, but ultimately a payment to the second law.
+For comparison: a modern combined-cycle gas turbine power plant achieves
+~60% thermal efficiency at &gt;800 K, while an automobile engine
+averages ~25%. A 56%-efficient isothermal energy converter operating at
+310 K is, by any engineering standard, remarkable.</p>
+<h3 id="atp-as-energy-currency">ATP as Energy Currency</h3>
+<p>ATP (adenosine triphosphate) is the cell’s central short-term energy
+carrier and phosphoryl-group donor for many endergonic reactions. The
+phrase “energy currency” is useful shorthand, but the cell also uses ion
+gradients, redox cofactors such as NADH/NADPH, thioesters such as
+acetyl-CoA, and activated carriers such as UDP-glucose.</p>
+<p>The high negative <span class="math inline">\(\Delta G\)</span> of
+ATP hydrolysis under cellular conditions (<span
+class="math inline">\(-50\)</span> to <span
+class="math inline">\(-54\)</span> kJ/mol; <span
+class="math inline">\(\Delta G^{\circ\prime} = -30.5\)</span> kJ/mol)
+arises from: 1. <strong>Electrostatic repulsion</strong> between closely
+spaced negative charges on the gamma-phosphate (relieved on hydrolysis)
+2. <strong>Resonance stabilisation</strong> of inorganic phosphate
+(P<span class="math inline">\(_i\)</span>) product — P<span
+class="math inline">\(_i\)</span> has more resonance forms than the
+terminal phosphate of ATP 3. <strong>Hydration</strong> (solvation
+enthalpy) of P<span class="math inline">\(_i\)</span> and ADP — products
+are better hydrated than reactants 4. <strong>Entropy increase</strong>
+— one molecule becomes two</p>
+<p>ATP couples exergonic reactions to endergonic ones via
+<strong>phosphoryl group transfer</strong>. The cell maintains a very
+high ATP/ADP ratio (~10 in most cells; ATP ~3–5 mM, ADP ~0.5 mM),
+keeping the cellular <span class="math inline">\(\Delta G\)</span> of
+hydrolysis more negative than <span class="math inline">\(\Delta
+G^{\circ\prime}\)</span>.</p>
+<p><strong>Daily ATP turnover:</strong> A resting adult uses ~40 kg of
+ATP per day (body contains about 50 g at any time, so each ATP molecule
+is recycled ~800 times/day). During vigorous exercise, ATP turnover can
+reach ~0.5 kg/min — roughly the body’s mass in ATP equivalents flowing
+through the adenylate pool every two hours.</p>
+<blockquote>
+<p><strong>Concept Check 1:</strong> The <span
+class="math inline">\(\Delta G^{\circ\prime}\)</span> of ATP hydrolysis
+is <span class="math inline">\(-30.5\)</span> kJ/mol, but the actual
+cellular <span class="math inline">\(\Delta G\)</span> is approximately
+<span class="math inline">\(-54\)</span> kJ/mol. Using the equation
+<span class="math inline">\(\Delta G = \Delta G^{\circ\prime} + RT \ln
+Q\)</span>, calculate the mass action ratio <span
+class="math inline">\(Q\)</span> = [ADP][P<span
+class="math inline">\(_i\)</span>]/[ATP] in the cell at 37 degrees
+C.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 1b:</strong> A cell experiences a sudden drop
+in ATP (from 4 mM to 1 mM) without changes in ADP or P<span
+class="math inline">\(_i\)</span>. Predict the qualitative effect on (a)
+the cellular <span class="math inline">\(\Delta G\)</span> of ATP
+hydrolysis, (b) the ATP/ADP ratio, and (c) the activity of AMPK.</p>
+</blockquote>
+<hr />
+<h2 id="glycolysis">Glycolysis</h2>
+<p>Glycolysis (Greek: <em>glykys</em> = sweet; <em>lysis</em> =
+splitting) converts one glucose (6C) to two pyruvate (3C), netting 2 ATP
+and 2 NADH. It occurs in the <strong><a
+href="#gl:cytoplasm">cytoplasm</a></strong> of most cells and does not
+require oxygen.</p>
+<pre class="mermaid"><code>flowchart TD
+    G[&quot;Glucose (6C)&lt;br/&gt;C₆H₁₂O₆&quot;] --&gt;|&quot;Step 1: Hexokinase&lt;br/&gt;ATP→ADP&lt;br/&gt;ΔG = −16.7 kJ/mol&lt;br/&gt;⚡ IRREVERSIBLE&quot;| G6P[&quot;Glucose-6-phosphate&quot;]
+    G6P --&gt;|&quot;Step 2: Phosphoglucose isomerase&lt;br/&gt;ΔG = +1.7&quot;| F6P[&quot;Fructose-6-phosphate&quot;]
+    F6P --&gt;|&quot;Step 3: PFK-1&lt;br/&gt;ATP→ADP&lt;br/&gt;ΔG = −14.2 kJ/mol&lt;br/&gt;⚡ IRREVERSIBLE&lt;br/&gt;COMMITTED STEP&quot;| F16BP[&quot;Fructose-1,6-bisphosphate&quot;]
+    F16BP --&gt;|&quot;Step 4: Aldolase&lt;br/&gt;ΔG = +23.8&quot;| TwoC3[&quot;DHAP + G3P&lt;br/&gt;(2 × triose phosphates)&quot;]
+    TwoC3 --&gt;|&quot;Step 5: TPI&lt;br/&gt;DHAP→G3P&lt;br/&gt;ΔG = +7.5&quot;| G3Px2[&quot;2 × G3P&quot;]
+    G3Px2 --&gt;|&quot;Step 6: GAPDH&lt;br/&gt;2 NAD⁺→2 NADH&lt;br/&gt;2 Pᵢ incorporated&lt;br/&gt;ΔG = −6.3&quot;| BPG[&quot;2 × 1,3-BPG&quot;]
+    BPG --&gt;|&quot;Step 7: PGK&lt;br/&gt;2 ADP→2 ATP&lt;br/&gt;ΔG = −18.5&lt;br/&gt;💰 Substrate-level phosphorylation&quot;| PG3[&quot;2 × 3-PG&quot;]
+    PG3 --&gt;|&quot;Step 8: PGM&lt;br/&gt;ΔG = +4.4&quot;| PG2[&quot;2 × 2-PG&quot;]
+    PG2 --&gt;|&quot;Step 9: Enolase&lt;br/&gt;2 H₂O released&lt;br/&gt;ΔG = +1.8&quot;| PEP[&quot;2 × PEP&quot;]
+    PEP --&gt;|&quot;Step 10: Pyruvate kinase&lt;br/&gt;2 ADP→2 ATP&lt;br/&gt;ΔG = −31.4 kJ/mol&lt;br/&gt;⚡ IRREVERSIBLE&lt;br/&gt;💰 Substrate-level phosphorylation&quot;| PYR[&quot;2 × Pyruvate (3C)&quot;]
+
+    style G fill:#e6f3ff
+    style F16BP fill:#fff3e6
+    style PYR fill:#ffe6e6</code></pre>
+<!-- alt: Flowchart for Glycolysis: Hexokinase ATP→ADP ΔG = −16.7 kJ/mol ⚡ IRREVERSIBLE". -->
+<p><em>Flowchart for Glycolysis: Hexokinase ATP→ADP ΔG = −16.7 kJ/mol ⚡
+IRREVERSIBLE”| G6P[“Glucose-6-phosphate”], Glucose (6C,
+Glucose-6-phosphate, and Phosphoglucose isomerase ΔG = +1.7”|
+F6P[“Fructose-6-phosphate”] identify the main nodes and their
+directional relationships.</em></p>
+<p><em>The 10 steps of glycolysis (Mermaid).</em> The energy investment
+phase (steps 1–5) consumes 2 ATP. The energy payoff phase (steps 6–10)
+produces 4 ATP and 2 NADH. The three irreversible steps (1, 3, 10) are
+the regulatory control points.</p>
+<h3 id="ten-enzymatic-steps">Ten Enzymatic Steps</h3>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 14%" />
+<col style="width: 19%" />
+<col style="width: 45%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr>
+<th>Step</th>
+<th>Enzyme</th>
+<th>Reaction</th>
+<th><span class="math inline">\(\Delta G\)</span> (kJ/mol)</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Hexokinase</td>
+<td>Glucose + ATP → G6P + ADP</td>
+<td><span class="math inline">\(-16.7\)</span></td>
+<td>Traps glucose in cell</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Phosphoglucose isomerase</td>
+<td>G6P → F6P</td>
+<td><span class="math inline">\(+1.7\)</span></td>
+<td>Aldose to ketose</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>PFK-1</strong></td>
+<td>F6P + ATP → F1,6BP + ADP</td>
+<td><span class="math inline">\(-14.2\)</span></td>
+<td><strong>Committed step; rate-limiting</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td>Aldolase</td>
+<td>F1,6BP → DHAP + G3P</td>
+<td><span class="math inline">\(+23.8\)</span></td>
+<td>Pulled forward by step 5</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Triose phosphate isomerase</td>
+<td>DHAP → G3P</td>
+<td><span class="math inline">\(+7.5\)</span></td>
+<td>“Perfect enzyme” (<span class="math inline">\(k_{cat}/K_m\)</span>
+near diffusion limit)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>GAPDH</td>
+<td>G3P + P<span class="math inline">\(_i\)</span> + NAD<span
+class="math inline">\(^+\)</span> → 1,3BPG + NADH</td>
+<td><span class="math inline">\(-6.3\)</span></td>
+<td>First NADH production</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Phosphoglycerate kinase</td>
+<td>1,3BPG + ADP → 3PG + ATP</td>
+<td><span class="math inline">\(-18.5\)</span></td>
+<td>First ATP production</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Phosphoglycerate mutase</td>
+<td>3PG → 2PG</td>
+<td><span class="math inline">\(+4.4\)</span></td>
+<td>Phosphate shift</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Enolase</td>
+<td>2PG → PEP + H<span class="math inline">\(_2\)</span>O</td>
+<td><span class="math inline">\(+1.8\)</span></td>
+<td>Dehydration</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Pyruvate kinase</td>
+<td>PEP + ADP → Pyruvate + ATP</td>
+<td><span class="math inline">\(-31.4\)</span></td>
+<td>Largest energy release</td>
+</tr>
+</tbody>
+</table>
+<h3 id="regulation-of-glycolysis">Regulation of Glycolysis</h3>
+<p><strong>PFK-1 is the master regulator</strong> of glycolysis. It
+integrates energy status, biosynthetic needs, and hormonal signals :</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Activators</th>
+<th>Inhibitors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AMP (low energy)</td>
+<td>ATP (high energy, <a
+href="#gl:allosteric"><strong>allosteric</strong></a> at regulatory
+site)</td>
+</tr>
+<tr>
+<td>Fructose-2,6-bisphosphate (F2,6BP, most potent)</td>
+<td>Citrate (TCA cycle intermediate = adequate supply)</td>
+</tr>
+<tr>
+<td>ADP</td>
+<td>H<span class="math inline">\(^+\)</span> (low pH; prevents excessive
+lactate acidosis)</td>
+</tr>
+<tr>
+<td>P<span class="math inline">\(_i\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fructose-2,6-bisphosphate (F2,6BP)</strong> is the most
+potent activator of PFK-1 (lowers <span
+class="math inline">\(K_m\)</span> for F6P by 50-fold). It is produced
+by <strong>PFK-2</strong> (a bifunctional enzyme with both kinase and
+phosphatase domains). Insulin activates PFK-2 kinase activity (producing
+F2,6BP, stimulating glycolysis). Glucagon (via PKA) activates PFK-2
+phosphatase activity (destroying F2,6BP, inhibiting glycolysis in
+liver).</p>
+<h3 id="energy-accounting">Energy Accounting</h3>
+<p>Net output from 1 glucose: - 2 ATP (from steps 7 and 10, minus 2 ATP
+consumed at steps 1 and 3) - 2 NADH (from step 6; each NADH worth ~2.5
+ATP via oxidative phosphorylation in <a
+href="#gl:aerobic"><strong>aerobic</strong></a> conditions)</p>
+<blockquote>
+<p><strong>Clinical Connection: The Warburg Effect</strong> Cancer cells
+often exhibit the <strong>Warburg effect</strong> — high rates of
+glycolysis even in the presence of oxygen (“aerobic glycolysis”). Rather
+than fully oxidising glucose to CO<span
+class="math inline">\(_2\)</span> via the TCA cycle and ETC, cancer
+cells convert most glucose to lactate. This seems wasteful (2 ATP
+vs. 30–32 ATP per glucose), but it provides rapid ATP production and
+generates biosynthetic precursors (G6P for pentose phosphate pathway,
+3PG for serine biosynthesis) needed for rapid cell division. PET
+scanning exploits this by detecting tumour uptake of <span
+class="math inline">\(^{18}\)</span>F-fluorodeoxyglucose (FDG). see for
+metabolic integration.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 2:</strong> Steps 4 and 5 of glycolysis have
+very positive <span class="math inline">\(\Delta
+G^{\circ\prime}\)</span> values (+23.8 and +7.5 kJ/mol). How do these
+reactions proceed in vivo despite being thermodynamically unfavourable
+under standard conditions?</p>
+</blockquote>
+<hr />
+<h2 id="gluconeogenesis-reverse-but-not-the-reverse">Gluconeogenesis:
+Reverse But Not the Reverse</h2>
+<p>Gluconeogenesis is <em>not</em> glycolysis run backwards. Three
+glycolytic steps (hexokinase, PFK-1, pyruvate kinase) are
+<strong>physiologically irreversible</strong> in the forward direction —
+their cellular <span class="math inline">\(\Delta G\)</span> values are
+too negative. Gluconeogenesis bypasses each of these three steps with
+dedicated enzymes that use different chemistry, often paying additional
+ATP/GTP to make the reverse direction thermodynamically favourable.</p>
+<h3 id="the-four-bypass-reactions">The Four Bypass Reactions</h3>
+<pre class="mermaid"><code>flowchart TD
+    PYR[&quot;Pyruvate (mitochondrion)&quot;] --&gt;|&quot;Pyruvate carboxylase&lt;br/&gt;+ATP, +CO₂, biotin&lt;br/&gt;ΔG°&#39; = −0.5&quot;| OAA[&quot;Oxaloacetate&quot;]
+    OAA --&gt;|&quot;Malate DH&lt;br/&gt;NADH&quot;| MAL[&quot;Malate&quot;]
+    MAL --&gt;|&quot;transport across IMM&quot;| MALc[&quot;Malate (cytoplasm)&quot;]
+    MALc --&gt;|&quot;cytosolic Malate DH&quot;| OAAc[&quot;Oxaloacetate (cytoplasm)&quot;]
+    OAAc --&gt;|&quot;PEPCK&lt;br/&gt;+GTP, −CO₂&lt;br/&gt;ΔG°&#39; = +0.8&quot;| PEP[&quot;PEP&quot;]
+    PEP --&gt;|&quot;Glycolytic enzymes&lt;br/&gt;(reverse direction)&lt;br/&gt;2 ATP + 2 NADH&lt;br/&gt;consumed per glucose&quot;| F16BP[&quot;Fructose-1,6-BP&quot;]
+    F16BP --&gt;|&quot;FBPase-1&lt;br/&gt;ΔG°&#39; = −16.3&lt;br/&gt;(replaces PFK-1)&quot;| F6P[&quot;Fructose-6-P&quot;]
+    F6P --&gt;|&quot;isomerase&quot;| G6P[&quot;Glucose-6-P&quot;]
+    G6P --&gt;|&quot;G6Pase (ER lumen)&lt;br/&gt;liver/kidney only&lt;br/&gt;(replaces hexokinase)&quot;| GLU[&quot;Glucose&quot;]
+
+    style PYR fill:#fff3e6
+    style GLU fill:#e6ffe6</code></pre>
+<!-- alt: Flowchart for The Four Bypass Reactions: Pyruvate (mitochondrion), Oxaloacetate, Malate, and Malate (cytoplasm) form the diagram's primary path or branches. -->
+<p><em>Flowchart for The Four Bypass Reactions: Pyruvate
+(mitochondrion), Oxaloacetate, Malate, and Malate (cytoplasm) form the
+diagram’s primary path or branches.</em></p>
+<p><em>Gluconeogenesis from pyruvate to glucose (Mermaid).</em> Four
+bypass enzymes (pyruvate carboxylase, PEPCK, FBPase-1, G6Pase) replace
+the three irreversible glycolytic steps. The pyruvate-to-PEP conversion
+requires two enzymes — pyruvate carboxylase consumes ATP and PEPCK
+consumes GTP — so the bypass spans two energy-consuming steps.</p>
+<h3 id="the-four-bypass-enzymes-in-detail">The Four Bypass Enzymes in
+Detail</h3>
+<p><strong>1. Pyruvate carboxylase (PC):</strong> A mitochondrial
+biotin-dependent carboxylase that converts pyruvate + CO<span
+class="math inline">\(_2\)</span> + ATP → oxaloacetate + ADP + P<span
+class="math inline">\(_i\)</span>. Two key features: (a)
+<strong>allosterically activated by acetyl-CoA</strong>, providing a
+feed-forward signal that fat oxidation (which produces acetyl-CoA)
+supplies the OAA needed for both gluconeogenesis and TCA flux; (b)
+requires biotin as a covalently bound prosthetic group that carries the
+activated CO<span class="math inline">\(_2\)</span> (–N–COO<span
+class="math inline">\(^-\)</span>). Biotin deficiency (rare; most often
+from chronic raw-egg consumption due to avidin) disrupts pyruvate
+carboxylase and three other carboxylases simultaneously, producing
+lactic acidosis and ketogenic dysregulation.</p>
+<p><strong>2. PEPCK (phosphoenolpyruvate carboxykinase):</strong> A
+cytosolic (and partially mitochondrial) GTP-dependent decarboxylase that
+converts OAA + GTP → PEP + CO<span class="math inline">\(_2\)</span> +
+GDP. This enzyme is unusual among gluconeogenic enzymes in that it is
+regulated almost entirely at the level of <em>transcription</em> —
+glucagon (via cAMP→PKA→CREB) and cortisol (via the glucocorticoid
+receptor) potently induce PEPCK mRNA, while insulin (via FoxO1
+phosphorylation and exclusion from the nucleus) potently represses it.
+PEPCK transcription has a half-time of ~1 hour, making it a slow but
+powerful long-term switch.</p>
+<p><strong>3. Fructose-1,6-bisphosphatase (FBPase-1):</strong> Cytosolic
+phosphatase that converts F1,6BP + H<span
+class="math inline">\(_2\)</span>O → F6P + P<span
+class="math inline">\(_i\)</span> (<span class="math inline">\(\Delta
+G^{\circ\prime} = -16.3\)</span> kJ/mol). Critically regulated
+<strong>allosterically</strong> by F2,6BP (strong inhibitor) and AMP
+(inhibitor) — both signals of glycolytic demand or low energy. The same
+F2,6BP that <em>activates</em> PFK-1 <em>inhibits</em> FBPase-1, so a
+single second messenger flips the entire futile-cycle node.</p>
+<p><strong>4. Glucose-6-phosphatase (G6Pase):</strong> A
+9-transmembrane-helix protein whose catalytic site faces the
+<strong>lumen of the endoplasmic reticulum</strong>, accessed by a
+phosphate transporter (SLC37A4) and a glucose efflux transporter
+(GLUT2). Critically, G6Pase is expressed almost exclusively in
+<strong>liver and renal cortex</strong> — muscle and brain lack it,
+which is why these tissues cannot release free glucose to the blood even
+though they produce G6P internally. Mutations in G6Pase cause
+<strong>von Gierke disease (GSD I)</strong>: severe fasting
+hypoglycaemia with hepatomegaly.</p>
+<table>
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 27%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>Glycolytic step (irreversible)</th>
+<th>Gluconeogenic bypass</th>
+<th>Energy cost</th>
+<th>Compartment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pyruvate kinase</td>
+<td><strong>Pyruvate carboxylase</strong> + <strong>PEPCK</strong></td>
+<td>+1 ATP + 1 GTP per pyruvate</td>
+<td>Mitochondrion + cytoplasm</td>
+</tr>
+<tr>
+<td>PFK-1</td>
+<td><strong>Fructose-1,6-bisphosphatase (FBPase-1)</strong></td>
+<td>None (hydrolysis is exergonic)</td>
+<td>Cytoplasm</td>
+</tr>
+<tr>
+<td>Hexokinase</td>
+<td><strong>Glucose-6-phosphatase (G6Pase)</strong></td>
+<td>None (hydrolysis is exergonic)</td>
+<td>ER lumen (liver, kidney primarily)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Net cost:</strong> Synthesising one glucose from two pyruvate
+consumes <strong>6 ATP equivalents</strong> (2 ATP at pyruvate
+carboxylase × 2, 2 GTP at PEPCK × 2, 2 ATP at PGK × 2 in the reverse
+direction). This is why gluconeogenesis is restricted to tissues with
+substantial ATP-generating capacity (liver, renal cortex).</p>
+<h3 id="reciprocal-regulation">Reciprocal Regulation</h3>
+<p>The same allosteric and hormonal signals that activate glycolysis
+inhibit gluconeogenesis, ensuring the two pathways do not run as a
+futile cycle:</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 36%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Glycolysis (PFK-1)</th>
+<th>Gluconeogenesis (FBPase-1)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fructose-2,6-bisphosphate</td>
+<td>Strong activator</td>
+<td>Strong inhibitor</td>
+</tr>
+<tr>
+<td>AMP</td>
+<td>Activator</td>
+<td>Inhibitor</td>
+</tr>
+<tr>
+<td>Citrate</td>
+<td>Inhibitor</td>
+<td>Activator</td>
+</tr>
+<tr>
+<td>Acetyl-CoA</td>
+<td>(no direct effect)</td>
+<td>Activates pyruvate carboxylase</td>
+</tr>
+<tr>
+<td>Insulin</td>
+<td>↑ PFK-2 kinase → ↑ F2,6BP → glycolysis ON</td>
+<td>↓ PEPCK / G6Pase transcription</td>
+</tr>
+<tr>
+<td>Glucagon</td>
+<td>↑ PFK-2 phosphatase → ↓ F2,6BP → glycolysis OFF</td>
+<td>↑ PEPCK / G6Pase transcription</td>
+</tr>
+</tbody>
+</table>
+<p>Glucagon-driven phosphorylation of PFK-2/FBPase-2 simultaneously
+turns <em>off</em> PFK-1 (glycolysis) and turns <em>on</em> FBPase-1
+(gluconeogenesis) by destroying F2,6BP. This is a textbook example of
+how a single bifunctional enzyme can act as a metabolic switch.</p>
+<blockquote>
+<p><strong>Concept Check 2b:</strong> A patient with renal cortex damage
+but intact liver presents with mild fasting hypoglycaemia after
+prolonged exercise. Explain the contribution of renal gluconeogenesis to
+whole-body glucose homeostasis, and why it is invisible in healthy
+individuals.</p>
+</blockquote>
+<hr />
+<h2 id="the-cori-cycle-and-the-glucose-alanine-cycle">The Cori Cycle and
+the Glucose-Alanine Cycle</h2>
+<p>Inter-organ metabolism allows tissues to specialise: muscle generates
+ATP rapidly via glycolysis, while liver shoulders the gluconeogenic
+burden. Two complementary inter-organ shuttles dominate fasting and
+exercise physiology.</p>
+<h3 id="the-cori-cycle-lactate-shuttle">The Cori Cycle (Lactate
+Shuttle)</h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph M [&quot;Skeletal muscle / RBCs&quot;]
+        GLU1[&quot;Glucose&quot;] --&gt;|&quot;glycolysis&lt;br/&gt;+2 ATP&quot;| LAC1[&quot;Lactate&quot;]
+    end
+
+    subgraph B [&quot;Bloodstream&quot;]
+        LAC2[&quot;Lactate ↑&quot;]
+    end
+
+    subgraph L [&quot;Liver&quot;]
+        LAC3[&quot;Lactate&quot;] --&gt;|&quot;LDH&quot;| PYR[&quot;Pyruvate&quot;]
+        PYR --&gt;|&quot;gluconeogenesis&lt;br/&gt;−6 ATP equivalents&quot;| GLU2[&quot;Glucose&quot;]
+    end
+
+    LAC1 --&gt; LAC2 --&gt; LAC3
+    GLU2 --&gt; GLU1
+
+    style M fill:#fff3e6
+    style L fill:#e6ffe6</code></pre>
+<!-- alt: Flowchart for The Cori Cycle (Lactate Shuttle): Skeletal muscle / RBCs, Glucose, Lactate, and Bloodstream form the diagram's primary path or branches. -->
+<p><em>Flowchart for The Cori Cycle (Lactate Shuttle): Skeletal muscle /
+RBCs, Glucose, Lactate, and Bloodstream form the diagram’s primary path
+or branches.</em></p>
+<p><em>Cori cycle: lactate from anaerobic muscle is regenerated to
+glucose in the liver (Mermaid).</em> Each turn nets +2 ATP for muscle
+but −6 ATP for liver, a 4-ATP net loss to the organism — the metabolic
+cost of supporting hypoxic tissue.</p>
+<h3 id="the-glucose-alanine-cycle">The Glucose-Alanine Cycle</h3>
+<p>When muscle proteins are catabolised, branched-chain amino acid
+carbon skeletons donate amino groups to pyruvate, forming
+<strong>alanine</strong>. Alanine carries both carbon and nitrogen
+safely to the liver:</p>
+<ol type="1">
+<li>Muscle: Pyruvate + Glutamate → Alanine + α-Ketoglutarate (alanine
+aminotransferase)</li>
+<li>Alanine travels via blood to liver</li>
+<li>Liver: Alanine + α-KG → Pyruvate + Glutamate (alanine
+aminotransferase, reverse)</li>
+<li>Glutamate releases NH<span class="math inline">\(_4^+\)</span> into
+the urea cycle; pyruvate enters gluconeogenesis</li>
+<li>Glucose returns to muscle via blood</li>
+</ol>
+<pre class="mermaid"><code>flowchart LR
+    subgraph M2 [&quot;Skeletal muscle&quot;]
+        AAS[&quot;Branched-chain&lt;br/&gt;amino acid catabolism&quot;] --&gt; NH3[&quot;–NH₂ to pyruvate&quot;]
+        PYR2[&quot;Pyruvate&quot;] --&gt; ALA1[&quot;Alanine&quot;]
+        NH3 --&gt; ALA1
+    end
+
+    subgraph BL [&quot;Bloodstream&quot;]
+        ALA2[&quot;Alanine ↑&quot;]
+    end
+
+    subgraph LIV [&quot;Liver&quot;]
+        ALA3[&quot;Alanine&quot;] --&gt;|&quot;ALT&quot;| PYR3[&quot;Pyruvate&quot;]
+        ALA3 --&gt;|&quot;+α-KG&quot;| GLU3[&quot;Glutamate&quot;]
+        GLU3 --&gt;|&quot;GDH&quot;| UREA[&quot;NH₄⁺ → urea cycle&quot;]
+        PYR3 --&gt;|&quot;gluconeogenesis&quot;| GLC2[&quot;Glucose&quot;]
+    end
+
+    ALA1 --&gt; ALA2 --&gt; ALA3
+    GLC2 --&gt; M2
+
+    style M2 fill:#fff3e6
+    style LIV fill:#e6ffe6</code></pre>
+<!-- alt: Flowchart for The Glucose-Alanine Cycle: Skeletal muscle, Branched-chain amino acid catabolism, –NH₂ to pyruvate, and Pyruvate form the diagram's primary path or branches. -->
+<p><em>Flowchart for The Glucose-Alanine Cycle: Skeletal muscle,
+Branched-chain amino acid catabolism, –NH₂ to pyruvate, and Pyruvate
+form the diagram’s primary path or branches.</em></p>
+<p><em>Glucose-alanine cycle: alanine simultaneously carries
+gluconeogenic carbon and waste nitrogen from muscle to liver
+(Mermaid).</em> The liver disposes of NH<span
+class="math inline">\(_4^+\)</span> via the urea cycle and exports
+glucose back to muscle.</p>
+<p><strong>Why this is clever:</strong> Alanine simultaneously
+transports gluconeogenic carbon and waste nitrogen, replacing the need
+for two separate transport systems. It also keeps free ammonia (toxic to
+the brain) out of circulation — nitrogen is delivered directly to the
+urea-cycling liver.</p>
+<blockquote>
+<p><strong>Concept Check 3:</strong> During an acute sprint, muscle
+lactate output rises from 1 mM/min to 8 mM/min. Estimate the additional
+hepatic ATP demand (in ATP equivalents per minute) required to recycle
+this lactate via the Cori cycle, assuming most lactate reaches the
+liver.</p>
+</blockquote>
+<hr />
+<h2 id="pyruvate-oxidation-and-the-citric-acid-cycle">Pyruvate Oxidation
+and the Citric Acid Cycle</h2>
+<p>Under aerobic conditions, pyruvate enters the mitochondria (via the
+MPC, mitochondrial pyruvate carrier) and is oxidised.</p>
+<h3 id="pyruvate-dehydrogenase-complex-pdc">Pyruvate Dehydrogenase
+Complex (PDC)</h3>
+<p><span class="math display">\[\text{Pyruvate (3C)} + \text{CoA} +
+\text{NAD}^+ \rightarrow \text{Acetyl-CoA (2C)} + \text{CO}_2 +
+\text{NADH} \tag{9.8}\]</span></p>
+<p>Catalysed by PDC — a 9.5 MDa multienzyme complex with three catalytic
+components (E1: pyruvate dehydrogenase; E2: dihydrolipoyl
+transacetylase; E3: dihydrolipoyl dehydrogenase) using <strong>five
+cofactors</strong>: TPP (thiamine pyrophosphate, vitamin B<span
+class="math inline">\(_1\)</span>), lipoic acid, FAD (vitamin B<span
+class="math inline">\(_2\)</span>), NAD<span
+class="math inline">\(^+\)</span> (vitamin B<span
+class="math inline">\(_3\)</span>), CoA (vitamin B<span
+class="math inline">\(_5\)</span>).</p>
+<p><strong>PDC regulation:</strong></p>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Condition</th>
+<th>PDC activity</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High acetyl-CoA, NADH, ATP</td>
+<td>Inhibited</td>
+<td>PDH kinase (PDK) phosphorylates E1 → inactive</td>
+</tr>
+<tr>
+<td>High CoA, NAD<span class="math inline">\(^+\)</span>, AMP, Ca<span
+class="math inline">\(^{2+}\)</span></td>
+<td>Activated</td>
+<td>PDH phosphatase (PDP) dephosphorylates E1 → active</td>
+</tr>
+<tr>
+<td>Insulin</td>
+<td>Activated</td>
+<td>Activates PDP in adipose tissue</td>
+</tr>
+<tr>
+<td>Exercise (Ca<span class="math inline">\(^{2+}\)</span>)</td>
+<td>Activated</td>
+<td>Ca<span class="math inline">\(^{2+}\)</span> activates PDP</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Clinical Connection: PDC Deficiency</strong> Pyruvate
+dehydrogenase deficiency is the most common genetic cause of lactic
+acidosis. Without PDC, pyruvate cannot enter the TCA cycle and is
+instead reduced to lactate. Neurological damage results from the brain’s
+dependence on glucose oxidation. Treatment: <strong>ketogenic
+diet</strong> (high fat, very low carbohydrate) provides acetyl-CoA
+directly from fatty acid beta-oxidation, bypassing the PDC block.
+Dichloroacetate (DCA) inhibits PDK, keeping residual PDC active.</p>
+</blockquote>
+<h3 id="tca-cycle-krebs-cycle-citric-acid-cycle">TCA Cycle (Krebs Cycle
+/ Citric Acid Cycle)</h3>
+<p>The TCA cycle occurs in the mitochondrial matrix. It oxidises
+acetyl-CoA to CO<span class="math inline">\(_2\)</span>, generating
+reduced cofactors (NADH, FADH<span class="math inline">\(_2\)</span>)
+that feed the ETC.</p>
+<pre class="mermaid"><code>flowchart LR
+    OAA[&quot;Oxaloacetate (4C)&quot;]
+    Citrate[&quot;Citrate (6C)&quot;]
+    Isocitrate[&quot;Isocitrate (6C)&quot;]
+    alphaKG[&quot;α-Ketoglutarate (5C)&quot;]
+    SuccCoA[&quot;Succinyl-CoA (4C)&quot;]
+    Succ[&quot;Succinate (4C)&quot;]
+    Fum[&quot;Fumarate (4C)&quot;]
+    Mal[&quot;Malate (4C)&quot;]
+
+    OAA --&gt;|&quot;Step 1: Citrate synthase&lt;br/&gt;Acetyl-CoA + H₂O&lt;br/&gt;ΔG°&#39; = −32.2&quot;| Citrate
+    Citrate --&gt;|&quot;Step 2: Aconitase&lt;br/&gt;(via cis-aconitate)&lt;br/&gt;ΔG°&#39; = +6.3&quot;| Isocitrate
+    Isocitrate --&gt;|&quot;Step 3: Isocitrate DH&lt;br/&gt;NAD⁺→NADH + CO₂&lt;br/&gt;ΔG°&#39; = −20.9&lt;br/&gt;REGULATED&quot;| alphaKG
+    alphaKG --&gt;|&quot;Step 4: α-KG DH complex&lt;br/&gt;NAD⁺→NADH + CO₂&lt;br/&gt;ΔG°&#39; = −33.5&lt;br/&gt;REGULATED&quot;| SuccCoA
+    SuccCoA --&gt;|&quot;Step 5: Succinyl-CoA synthetase&lt;br/&gt;GDP→GTP (or ADP→ATP)&lt;br/&gt;ΔG°&#39; = −2.9&quot;| Succ
+    Succ --&gt;|&quot;Step 6: Succinate DH (Complex II)&lt;br/&gt;FAD→FADH₂&lt;br/&gt;ΔG°&#39; = 0&quot;| Fum
+    Fum --&gt;|&quot;Step 7: Fumarase&lt;br/&gt;H₂O added&lt;br/&gt;ΔG°&#39; = −3.8&quot;| Mal
+    Mal --&gt;|&quot;Step 8: Malate DH&lt;br/&gt;NAD⁺→NADH&lt;br/&gt;ΔG°&#39; = +29.7&quot;| OAA</code></pre>
+<!-- alt: Flowchart for TCA Cycle (Krebs Cycle / Citric Acid Cycle): Oxaloacetate (4C), Citrate (6C), Isocitrate (6C), and α-Ketoglutarate (5C) form the diagram's primary path or branches. -->
+<p><em>Flowchart for TCA Cycle (Krebs Cycle / Citric Acid Cycle):
+Oxaloacetate (4C), Citrate (6C), Isocitrate (6C), and α-Ketoglutarate
+(5C) form the diagram’s primary path or branches.</em></p>
+<p><em>The eight steps of the TCA cycle (Mermaid).</em> Each turn
+oxidises one acetyl group (2C) to 2 CO<span
+class="math inline">\(_2\)</span>, producing 3 NADH, 1 FADH<span
+class="math inline">\(_2\)</span>, and 1 GTP. The cycle turns twice per
+glucose molecule.</p>
+<p><strong>Eight steps with details:</strong></p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 23%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Step</th>
+<th>Enzyme</th>
+<th>Reaction</th>
+<th>Products</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Citrate synthase</td>
+<td>Acetyl-CoA + OAA → Citrate + CoA</td>
+<td>–</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Aconitase</td>
+<td>Citrate → Isocitrate (via cis-aconitate)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Isocitrate dehydrogenase</strong></td>
+<td>Isocitrate → alpha-KG + CO<span
+class="math inline">\(_2\)</span></td>
+<td><strong>NADH</strong></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>alpha-KG dehydrogenase complex</strong></td>
+<td>alpha-KG → Succinyl-CoA + CO<span
+class="math inline">\(_2\)</span></td>
+<td><strong>NADH</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Succinyl-CoA synthetase</td>
+<td>Succinyl-CoA → Succinate</td>
+<td><strong>GTP</strong></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Succinate dehydrogenase (Complex II)</td>
+<td>Succinate → Fumarate</td>
+<td><strong>FADH<span class="math inline">\(_2\)</span></strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Fumarase</td>
+<td>Fumarate + H<span class="math inline">\(_2\)</span>O → Malate</td>
+<td>–</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Malate dehydrogenase</td>
+<td>Malate → OAA</td>
+<td><strong>NADH</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Carbon tracking:</strong> The two carbons entering as
+acetyl-CoA are NOT the same two carbons lost as CO<span
+class="math inline">\(_2\)</span> in the first turn — they are released
+in subsequent turns. This can be demonstrated using <span
+class="math inline">\(^{14}\)</span>C-labelled acetyl-CoA.</p>
+<p><strong>Net per turn:</strong> 3 NADH + 1 FADH<span
+class="math inline">\(_2\)</span> + 1 GTP + 2 CO<span
+class="math inline">\(_2\)</span></p>
+<p><strong>Total from 2 turns (per glucose):</strong> 6 NADH + 2
+FADH<span class="math inline">\(_2\)</span> + 2 GTP + 4 CO<span
+class="math inline">\(_2\)</span></p>
+<p><strong>TCA cycle regulation:</strong></p>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 38%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr>
+<th>Enzyme</th>
+<th>Activators</th>
+<th>Inhibitors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Citrate synthase</td>
+<td>OAA, acetyl-CoA (substrates)</td>
+<td>ATP, NADH, succinyl-CoA, citrate</td>
+</tr>
+<tr>
+<td>Isocitrate DH</td>
+<td>ADP, Ca<span class="math inline">\(^{2+}\)</span></td>
+<td>ATP, NADH</td>
+</tr>
+<tr>
+<td>alpha-KG DH</td>
+<td>Ca<span class="math inline">\(^{2+}\)</span>, AMP</td>
+<td>ATP, NADH, succinyl-CoA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="anaplerotic-and-cataplerotic-reactions">Anaplerotic and
+Cataplerotic Reactions</h3>
+<p>The TCA cycle is not a closed loop in vivo — intermediates flow in
+and out for biosynthesis. <strong>Anaplerotic</strong> (“filling-up”)
+reactions replenish drained intermediates; <strong>cataplerotic</strong>
+(“emptying”) reactions remove intermediates for downstream pathways.</p>
+<p><strong>Major anaplerotic inputs:</strong></p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th>Reaction</th>
+<th>Enzyme</th>
+<th>Cofactor</th>
+<th>Tissue</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pyruvate + CO<span class="math inline">\(_2\)</span> + ATP →
+OAA</td>
+<td><strong>Pyruvate carboxylase</strong></td>
+<td>Biotin (vitamin B<span class="math inline">\(_7\)</span>)</td>
+<td>Liver, kidney</td>
+<td>Replenishes OAA; primary anaplerotic source</td>
+</tr>
+<tr>
+<td>Glutamate → α-KG + NH<span class="math inline">\(_4^+\)</span></td>
+<td>Glutamate dehydrogenase</td>
+<td>NAD(P)<span class="math inline">\(^+\)</span></td>
+<td>Liver</td>
+<td>Amino-acid catabolism</td>
+</tr>
+<tr>
+<td>Glutamine → Glutamate + NH<span class="math inline">\(_4^+\)</span>
+→ α-KG</td>
+<td>Glutaminase + GDH</td>
+<td>–</td>
+<td>Most tissues</td>
+<td>Amino-acid catabolism</td>
+</tr>
+<tr>
+<td>Aspartate → OAA</td>
+<td>Aspartate aminotransferase</td>
+<td>PLP</td>
+<td>Most tissues</td>
+<td>Direct anaplerosis</td>
+</tr>
+<tr>
+<td>Propionyl-CoA → Succinyl-CoA</td>
+<td>Propionyl-CoA carboxylase + methylmalonyl-CoA mutase</td>
+<td>Biotin, B<span class="math inline">\(_{12}\)</span></td>
+<td>Liver</td>
+<td>Odd-chain fatty acid + Val/Ile/Met catabolism</td>
+</tr>
+</tbody>
+</table>
+<p>Pyruvate carboxylase is <strong>allosterically activated by
+acetyl-CoA</strong>. This is biologically elegant: when acetyl-CoA
+accumulates (high fat oxidation, fed state) and OAA becomes limiting,
+the cell senses the imbalance and replenishes OAA so that citrate
+synthase can continue.</p>
+<p><strong>Glutamate dehydrogenase (GDH)</strong> catalyses the
+reversible deamination of glutamate to α-ketoglutarate, releasing
+NH<span class="math inline">\(_4^+\)</span>. It uses <em>either</em>
+NAD<span class="math inline">\(^+\)</span> (catabolic direction) or
+NADP<span class="math inline">\(^+\)</span> (anabolic direction) and is
+allosterically regulated by ADP (activator) and GTP (inhibitor) — making
+it a sensor of mitochondrial energy state. In hepatocytes, GDH-driven
+glutamate catabolism feeds α-KG into the TCA cycle and NH<span
+class="math inline">\(_4^+\)</span> into the urea cycle, integrating
+amino-acid catabolism with both energy production and nitrogen
+disposal.</p>
+<p><strong>Major cataplerotic outflows:</strong></p>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 33%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Intermediate withdrawn</th>
+<th>Destination pathway</th>
+<th>Example product</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>α-Ketoglutarate</td>
+<td>Glutamate / glutamine biosynthesis; collagen hydroxylation</td>
+<td>Glu, Gln, hydroxyproline</td>
+</tr>
+<tr>
+<td>Succinyl-CoA</td>
+<td>Heme biosynthesis (δ-ALA synthase)</td>
+<td>Heme, cytochromes</td>
+</tr>
+<tr>
+<td>Oxaloacetate</td>
+<td>Gluconeogenesis (via PEPCK); aspartate, asparagine biosynthesis</td>
+<td>Glucose, Asp, Asn</td>
+</tr>
+<tr>
+<td>Citrate</td>
+<td>Cytosolic acetyl-CoA for fatty acid synthesis; cholesterol</td>
+<td>Palmitate, cholesterol</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Clinical connection — biotin deficiency:</strong> Because
+pyruvate carboxylase, propionyl-CoA carboxylase, and acetyl-CoA
+carboxylase most depend on biotin, dietary biotin deficiency (rare;
+sometimes seen with chronic raw-egg consumption due to avidin) causes
+lactic acidosis, neurological symptoms, and ketogenic dysregulation
+simultaneously.</p>
+<blockquote>
+<p><strong>Concept Check 4:</strong> If fluoroacetate (a metabolic
+poison) inhibits aconitase (step 2), predict the immediate effect on (a)
+citrate levels, (b) isocitrate levels, (c) NADH production, and (d) ATP
+synthesis.</p>
+</blockquote>
+<hr />
+<h2 id="oxidative-phosphorylation">Oxidative Phosphorylation</h2>
+<p>Oxidative phosphorylation (OxPhos) accounts for ~90% of ATP
+production in aerobic organisms. It takes place at the inner
+mitochondrial membrane.</p>
+<h3 id="electron-transport-chain-etc">Electron Transport Chain
+(ETC)</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant NADH as NADH (matrix)
+    participant CI as Complex I&lt;br/&gt;(NADH:UQ oxidoreductase)&lt;br/&gt;46 subunits, 1 MDa&lt;br/&gt;Pumps 4 H⁺
+    participant Q as Ubiquinone (Q)&lt;br/&gt;Lipid-soluble&lt;br/&gt;mobile carrier
+    participant CII as Complex II&lt;br/&gt;(Succinate DH)&lt;br/&gt;4 subunits&lt;br/&gt;No H⁺ pumping
+    participant CIII as Complex III&lt;br/&gt;(Cytochrome bc₁)&lt;br/&gt;Q cycle&lt;br/&gt;Pumps 4 H⁺/2e⁻
+    participant CytC as Cytochrome c&lt;br/&gt;Soluble&lt;br/&gt;IMS carrier
+    participant CIV as Complex IV&lt;br/&gt;(Cytochrome c oxidase)&lt;br/&gt;Pumps 2 H⁺/2e⁻
+    participant O2 as O₂ → H₂O
+    participant CV as Complex V&lt;br/&gt;(ATP synthase)&lt;br/&gt;~3 H⁺ per ATP
+
+    NADH-&gt;&gt;CI: 2 electrons (NADH → NAD⁺ + H⁺)
+    CI-&gt;&gt;Q: Electrons via FMN → Fe-S clusters → Q
+    Note over CI: 4 H⁺ pumped to IMS
+
+    CII-&gt;&gt;Q: FADH₂ → FAD (from succinate)
+    Note over CII: 0 H⁺ pumped (no energy)
+
+    Q-&gt;&gt;CIII: QH₂ delivers electrons
+    Note over CIII: Q cycle: 4 H⁺ per 2e⁻
+    CIII-&gt;&gt;CytC: Electron to cytochrome c
+
+    CytC-&gt;&gt;CIV: Electron delivery
+    Note over CIV: 2 H⁺ pumped; 2 H⁺ consumed
+    CIV-&gt;&gt;O2: 4e⁻ + 4H⁺ + O₂ → 2H₂O
+
+    Note over CV: PMF drives H⁺ through F₀ channel
+    Note over CV: γ-subunit rotates 120° per ATP
+    Note over CV: ~3 H⁺ per ATP synthesised</code></pre>
+<!-- alt: Sequence diagram for Electron Transport Chain (ETC) showing ordered interaction among NADH (matrix), Complex I (NADH:UQ oxidoreductase) 46 subunits, 1 MDa Pumps 4 H⁺, Ubiquinone (Q) Lipid-soluble mobile carrier, and Complex II (Succinate DH) 4 subunits No H⁺ pumping. -->
+<p><em>Sequence diagram for Electron Transport Chain (ETC) showing
+ordered interaction among NADH (matrix), Complex I (NADH:UQ
+oxidoreductase) 46 subunits, 1 MDa Pumps 4 H⁺, Ubiquinone (Q)
+Lipid-soluble mobile carrier, and Complex II (Succinate DH) 4 subunits
+No H⁺ pumping.</em></p>
+<p><em>Electron flow through the ETC complexes I–IV and proton pumping
+that generates the proton motive force (Mermaid).</em> ATP synthase
+(Complex V) uses this PMF to synthesise ATP via rotary catalysis.</p>
+<p><strong>Complex I (NADH:ubiquinone oxidoreductase):</strong> -
+Largest ETC complex (~46 subunits in mammals, ~1 MDa) - L-shaped
+structure: hydrophilic arm in matrix (electron transfer), membrane arm
+(proton pumping) - Electron path: NADH → FMN → 7 Fe-S clusters →
+ubiquinone (Q) - Pumps <strong>4 H<span
+class="math inline">\(^+\)</span></strong> per NADH oxidised - Inhibited
+by <strong>rotenone</strong> (fish poison, pesticide) and
+<strong>piericidin A</strong></p>
+<p><strong>Complex II (succinate:ubiquinone oxidoreductase):</strong> -
+Also is step 6 of the TCA cycle (succinate dehydrogenase) - 4 subunits;
+FAD covalently bound - Electron path: succinate → FAD → Fe-S clusters →
+ubiquinone (Q) - Pumps <strong>0 H<span
+class="math inline">\(^+\)</span></strong> (insufficient energy from
+FADH<span class="math inline">\(_2\)</span> oxidation to pump protons) -
+This is why FADH<span class="math inline">\(_2\)</span> yields less ATP
+than NADH</p>
+<p><strong>Complex III (cytochrome bc<span
+class="math inline">\(_1\)</span> complex):</strong> - The <strong>Q
+cycle</strong> mechanism (Mitchell, Nobel Prize 1978) : 1. QH<span
+class="math inline">\(_2\)</span> binds Q<span
+class="math inline">\(_o\)</span> site; one electron goes to Fe-S
+cluster → cytochrome c<span class="math inline">\(_1\)</span> →
+cytochrome c (high potential path) 2. Second electron goes to cytochrome
+b<span class="math inline">\(_L\)</span> → cytochrome b<span
+class="math inline">\(_H\)</span> → Q at Q<span
+class="math inline">\(_i\)</span> site, forming Q<span
+class="math inline">\(^{\bullet-}\)</span> (semiquinone) 3. Second
+QH<span class="math inline">\(_2\)</span> repeats; second electron to
+Q<span class="math inline">\(_i\)</span> completes QH<span
+class="math inline">\(_2\)</span> formation 4. Net: 2 QH<span
+class="math inline">\(_2\)</span> oxidised, 1 Q reduced, 2 cytochrome c
+reduced, <strong>4 H<span class="math inline">\(^+\)</span> pumped per
+2e<span class="math inline">\(^-\)</span></strong> - Inhibited by
+<strong>antimycin A</strong> (Q<span class="math inline">\(_i\)</span>
+site) and <strong>myxothiazol</strong> (Q<span
+class="math inline">\(_o\)</span> site)</p>
+<p><strong>Complex IV (cytochrome c oxidase):</strong> - Contains
+Cu<span class="math inline">\(_A\)</span>, heme a, heme a<span
+class="math inline">\(_3\)</span>-Cu<span
+class="math inline">\(_B\)</span> centres - Transfers 4 electrons to
+O<span class="math inline">\(_2\)</span>: <span
+class="math inline">\(\text{O}_2 + 4\text{e}^- +
+4\text{H}^+_{\text{matrix}} \rightarrow 2\text{H}_2\text{O}\)</span> -
+Pumps <strong>2 H<span class="math inline">\(^+\)</span> per 2
+electrons</strong> (plus 2 H<span class="math inline">\(^+\)</span>
+consumed in water formation) - Inhibited by <strong>cyanide</strong>
+(CN<span class="math inline">\(^-\)</span>), <strong>carbon
+monoxide</strong> (CO), and <strong>azide</strong> (N<span
+class="math inline">\(_3^-\)</span>) — most bind heme a<span
+class="math inline">\(_3\)</span>-Cu<span
+class="math inline">\(_B\)</span></p>
+<blockquote>
+<p><strong>Clinical Connection: Cyanide Poisoning</strong> Cyanide
+irreversibly inhibits Complex IV by binding to the Fe<span
+class="math inline">\(^{3+}\)</span> of heme a<span
+class="math inline">\(_3\)</span>. Most electron flow stops, the proton
+gradient collapses, and ATP synthesis ceases. Cells switch to <a
+href="#gl:anaerobic"><strong>anaerobic</strong></a> glycolysis,
+producing lactic acid. Death results from inability to produce
+sufficient ATP, especially in the brain and heart. Treatment:
+hydroxocobalamin (vitamin B<span class="math inline">\(_{12a}\)</span>)
+chelates cyanide, or sodium thiosulphate converts it to less toxic
+thiocyanate.</p>
+</blockquote>
+<h3 id="reactive-oxygen-species-and-antioxidant-defence">Reactive Oxygen
+Species and Antioxidant Defence</h3>
+<p>The ETC’s job is to deliver four electrons safely onto O<span
+class="math inline">\(_2\)</span> to produce water — but ~0.1–2% of
+electrons “leak” prematurely, producing <strong>reactive oxygen species
+(ROS)</strong>.</p>
+<p><strong>Sites of ROS production in the ETC:</strong></p>
+<table>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 20%" />
+<col style="width: 16%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr>
+<th>Site</th>
+<th>Primary ROS</th>
+<th>Mechanism</th>
+<th>Inhibitor that <em>increases</em> ROS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Complex I (FMN, Fe-S clusters)</td>
+<td>Superoxide (O<span class="math inline">\(_2^{\bullet-}\)</span>)
+into matrix</td>
+<td>Reverse electron transfer when ETC is reduced; FMNH<span
+class="math inline">\(_2\)</span> donates 1e<span
+class="math inline">\(^-\)</span> to O<span
+class="math inline">\(_2\)</span></td>
+<td>Rotenone</td>
+</tr>
+<tr>
+<td>Complex III (Q<span class="math inline">\(_o\)</span> site)</td>
+<td>Superoxide into both matrix and IMS</td>
+<td>Q<span class="math inline">\(^{\bullet-}\)</span> semiquinone
+donates 1e<span class="math inline">\(^-\)</span> to O<span
+class="math inline">\(_2\)</span></td>
+<td>Antimycin A</td>
+</tr>
+<tr>
+<td>Glycerol-3-P dehydrogenase, ETF-QO</td>
+<td>Superoxide</td>
+<td>Flavoprotein leakage</td>
+<td>–</td>
+</tr>
+<tr>
+<td>Monoamine oxidase (outer membrane)</td>
+<td>H<span class="math inline">\(_2\)</span>O<span
+class="math inline">\(_2\)</span></td>
+<td>2e<span class="math inline">\(^-\)</span> donation to O<span
+class="math inline">\(_2\)</span></td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The ROS cascade:</strong></p>
+<p><span class="math display">\[\begin{equation}
+\text{O}_2 \xrightarrow{1\text{e}^-} \text{O}_2^{\bullet-}
+\xrightarrow{\text{SOD}} \text{H}_2\text{O}_2
+\xrightarrow{\text{Fe}^{2+}} \text{HO}^\bullet + \text{OH}^- +
+\text{Fe}^{3+}
+\label{eq:unit_III_ros_cascade}
+\end{equation}\]</span></p>
+<p>The Fenton reaction (last step) is particularly dangerous: hydroxyl
+radicals (HO<span class="math inline">\(^\bullet\)</span>) are the most
+reactive biological oxidants and damage essentially any nearby molecule
+(DNA, lipids, proteins).</p>
+<p><strong>Antioxidant defence enzymes:</strong></p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr>
+<th>Enzyme</th>
+<th>Reaction</th>
+<th>Cofactor</th>
+<th>Localisation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Superoxide dismutase (SOD1, cytosolic)</td>
+<td>2 O<span class="math inline">\(_2^{\bullet-}\)</span> + 2 H<span
+class="math inline">\(^+\)</span> → H<span
+class="math inline">\(_2\)</span>O<span
+class="math inline">\(_2\)</span> + O<span
+class="math inline">\(_2\)</span></td>
+<td>Cu, Zn</td>
+<td>Cytoplasm, IMS</td>
+</tr>
+<tr>
+<td>Superoxide dismutase (SOD2, mitochondrial)</td>
+<td>2 O<span class="math inline">\(_2^{\bullet-}\)</span> + 2 H<span
+class="math inline">\(^+\)</span> → H<span
+class="math inline">\(_2\)</span>O<span
+class="math inline">\(_2\)</span> + O<span
+class="math inline">\(_2\)</span></td>
+<td>Mn</td>
+<td>Mitochondrial matrix</td>
+</tr>
+<tr>
+<td>Superoxide dismutase (SOD3, extracellular)</td>
+<td>2 O<span class="math inline">\(_2^{\bullet-}\)</span> + 2 H<span
+class="math inline">\(^+\)</span> → H<span
+class="math inline">\(_2\)</span>O<span
+class="math inline">\(_2\)</span> + O<span
+class="math inline">\(_2\)</span></td>
+<td>Cu, Zn</td>
+<td>Plasma, ECM</td>
+</tr>
+<tr>
+<td>Catalase</td>
+<td>2 H<span class="math inline">\(_2\)</span>O<span
+class="math inline">\(_2\)</span> → 2 H<span
+class="math inline">\(_2\)</span>O + O<span
+class="math inline">\(_2\)</span></td>
+<td>Heme</td>
+<td>Peroxisomes</td>
+</tr>
+<tr>
+<td>Glutathione peroxidase (GPx)</td>
+<td>H<span class="math inline">\(_2\)</span>O<span
+class="math inline">\(_2\)</span> + 2 GSH → 2 H<span
+class="math inline">\(_2\)</span>O + GSSG</td>
+<td>Selenocysteine</td>
+<td>Cytoplasm, mitochondria</td>
+</tr>
+<tr>
+<td>Peroxiredoxins (Prx1–6)</td>
+<td>H<span class="math inline">\(_2\)</span>O<span
+class="math inline">\(_2\)</span> + 2 R-SH → 2 H<span
+class="math inline">\(_2\)</span>O + R-S-S-R</td>
+<td>Cysteine</td>
+<td>Multiple compartments</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Non-enzymatic antioxidants:</strong> Glutathione (GSH; ~5 mM
+cytosolic), ascorbate (vitamin C), α-tocopherol (vitamin E,
+lipid-soluble), ubiquinone (also acts as antioxidant in its reduced
+QH<span class="math inline">\(_2\)</span> form), and uric acid (~50% of
+plasma antioxidant capacity in humans).</p>
+<p><strong>Clinical relevance:</strong></p>
+<ul>
+<li><strong>Mitochondrial diseases:</strong> Complex I and III
+deficiencies often present with elevated lactate AND elevated ROS damage
+markers (8-oxoguanine in mtDNA, malondialdehyde in lipids).</li>
+<li><strong>Aging (mitochondrial free-radical theory):</strong>
+Cumulative mtDNA damage from ROS may underlie age-related mitochondrial
+decline. Modern data suggests ROS are also signalling molecules,
+complicating the simple “oxidative damage = aging” model.</li>
+<li><strong>Reperfusion injury:</strong> During ischaemia, ETC carriers
+become highly reduced. Upon reoxygenation, a burst of ROS is released —
+paradoxically, the <em>return</em> of oxygen causes the worst tissue
+damage in stroke and heart attack.</li>
+<li><strong>ALS:</strong> Mutations in SOD1 cause ~20% of familial
+amyotrophic lateral sclerosis. The pathology is gain-of-function (toxic
+SOD1 aggregates), not simple loss of antioxidant activity.</li>
+</ul>
+<blockquote>
+<p><strong>Concept Check 4b:</strong> Antimycin A blocks the Q<span
+class="math inline">\(_i\)</span> site of Complex III. Predict the
+effects on (a) electron flow upstream (Complexes I, II), (b) downstream
+(Complex IV), (c) PMF magnitude, and (d) ROS production. Explain why
+this combination of effects makes antimycin A particularly
+cytotoxic.</p>
+</blockquote>
+<h3 id="atp-synthase-the-rotary-nanomotor">ATP Synthase — the Rotary
+Nanomotor</h3>
+<p>The <strong>proton-motive force</strong> (PMF) consists of two
+components — the electrical potential (<span
+class="math inline">\(\Delta\Psi\)</span>) and the chemical gradient
+(ΔpH):</p>
+<p><span class="math display">\[\begin{equation}
+\text{PMF} = \Delta\Psi - \frac{2.303RT}{F}\Delta\text{pH} \approx 180
+\; \text{mV}
+\label{eq:unit_III_proton_motive_force}
+\end{equation}\]</span></p>
+<p>In mitochondria, <span class="math inline">\(\Delta\Psi \approx
+150\)</span> mV contributes ~80% of the PMF, while ΔpH ~0.5 units
+contributes ~20%.</p>
+<p>The free energy stored per mole of protons translocated against this
+PMF is:</p>
+<p><span class="math display">\[\Delta G_{\text{H}^+} = F \cdot
+\text{PMF} \approx 96{,}485 \times 0.180 \approx 17.4 \; \text{kJ/mol}
+\tag{9.7d}\]</span></p>
+<p>So pumping ~3.67 H<span class="math inline">\(^+\)</span> to make one
+ATP requires ~64 kJ/mol of stored gradient energy — the budget that
+funds an ATP whose cellular hydrolysis <span
+class="math inline">\(\Delta G \approx -54\)</span> kJ/mol. The ~10
+kJ/mol surplus is the thermodynamic driving force that keeps net ATP
+synthesis flowing forward and sets the response time of the system to
+ATP demand.</p>
+<p><strong>ATP synthase (Complex V)</strong> is a molecular rotary
+motor:</p>
+<p><strong>F<span class="math inline">\(_1\)</span> (catalytic head,
+matrix-facing):</strong> - alpha<span
+class="math inline">\(_3\)</span>-beta<span
+class="math inline">\(_3\)</span>-gamma-delta-epsilon - Three catalytic
+sites on beta subunits (binding change mechanism, Boyer) - Each beta
+subunit cycles through three states: <strong>O</strong> (open, empty),
+<strong>L</strong> (loose, binds ADP + P<span
+class="math inline">\(_i\)</span>), <strong>T</strong> (tight, catalyses
+ATP synthesis) - 120-degree rotation of gamma converts O→L→T→O</p>
+<p><strong>F<span class="math inline">\(_0\)</span> (membrane-spanning
+proton channel):</strong> - Subunit a (proton channel) + c-ring (c<span
+class="math inline">\(_{10-15}\)</span>, varies by species) - Each
+c-subunit binds one H<span class="math inline">\(^+\)</span> from IMS,
+rotates, releases H<span class="math inline">\(^+\)</span> to matrix -
+Full c-ring rotation (360 degrees) produces 3 ATP</p>
+<p><strong>Stoichiometry:</strong> If the c-ring has 10 subunits, then
+10 H<span class="math inline">\(^+\)</span> per revolution, producing 3
+ATP, so ~3.3 H<span class="math inline">\(^+\)</span> per ATP. With 8
+c-subunits (yeast), ~2.7 H<span class="math inline">\(^+\)</span> per
+ATP.</p>
+<p>Paul Boyer (binding change mechanism) and John Walker (crystal
+structure of F<span class="math inline">\(_1\)</span>) shared the Nobel
+Prize in Chemistry, 1997. The rotation of the gamma subunit was directly
+visualised by Yoshida and colleagues using fluorescent <a
+href="#gl:actin"><strong>actin</strong></a> filaments attached to gamma
+— one of the most beautiful experiments in biochemistry.</p>
+<h3 id="how-the-3032-atp-number-is-calculated-po-ratios">How the “30–32
+ATP” Number Is Calculated: P/O Ratios</h3>
+<p>The classical undergraduate value of 38 ATP/glucose came from
+<em>assumed</em> round-number stoichiometries (3 ATP/NADH, 2
+ATP/FADH<span class="math inline">\(_2\)</span>, 1 ATP per
+substrate-level step). Modern biochemistry uses <strong>measured P/O
+ratios</strong> based on actual c-ring stoichiometry and proton
+transport:</p>
+<p><strong>Proton pumping per substrate:</strong></p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 19%" />
+<col style="width: 17%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr>
+<th>Substrate</th>
+<th>Complex I</th>
+<th>Complex III</th>
+<th>Complex IV</th>
+<th>Total H<span class="math inline">\(^+\)</span> pumped</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 NADH (matrix)</td>
+<td>4</td>
+<td>4</td>
+<td>2</td>
+<td><strong>10 H<span class="math inline">\(^+\)</span></strong></td>
+</tr>
+<tr>
+<td>1 FADH<span class="math inline">\(_2\)</span> (Complex II)</td>
+<td>0</td>
+<td>4</td>
+<td>2</td>
+<td><strong>6 H<span class="math inline">\(^+\)</span></strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Mammalian mitochondrial c-ring:</strong> 8 subunits (recent
+cryo-EM data). <strong>ATP synthase stoichiometry:</strong> 8 H<span
+class="math inline">\(^+\)</span> per full revolution → 3 ATP per
+revolution → <strong>2.67 H<span
+class="math inline">\(^+\)</span>/ATP</strong>. <strong>Add P<span
+class="math inline">\(_i\)</span> transport:</strong> importing P<span
+class="math inline">\(_i\)</span> via the phosphate carrier costs
+<strong>1 additional H<span class="math inline">\(^+\)</span></strong>
+per ATP. So the <em>effective</em> H<span
+class="math inline">\(^+\)</span> cost per ATP is approximately
+<strong>3.67 H<span class="math inline">\(^+\)</span>/ATP</strong>.</p>
+<p><span class="math display">\[\begin{equation}
+\text{P/O ratio (NADH)} =
+\frac{10\;\text{H}^+}{3.67\;\text{H}^+/\text{ATP}} \approx
+2.5\;\text{ATP per NADH}
+\label{eq:unit_III_po_ratio_nadh}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+\text{P/O ratio (FADH}_2\text{)} =
+\frac{6\;\text{H}^+}{3.67\;\text{H}^+/\text{ATP}} \approx 1.5\;\text{ATP
+per FADH}_2
+\label{eq:unit_III_po_ratio_fadh2}
+\end{equation}\]</span></p>
+<p><strong>Total ATP per glucose (aerobic):</strong></p>
+<p><span class="math display">\[\begin{equation}
+\text{ATP}_{\text{glucose}} = \underbrace{2}_{\text{glycolysis SLP}} +
+\underbrace{2}_{\text{TCA SLP (2 GTP)}} + \underbrace{10 \times
+2.5}_{\text{NADH via OxPhos}} + \underbrace{2 \times
+1.5}_{\text{FADH}_2\text{ via OxPhos}} \approx 32\;\text{ATP}
+\label{eq:unit_III_atp_yield}
+\end{equation}\]</span></p>
+<p>(if cytoplasmic NADH uses the malate-aspartate shuttle; ~30 ATP if
+the glycerol-3-P shuttle is used in muscle and brain).</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>NADH</th>
+<th>FADH<span class="math inline">\(_2\)</span></th>
+<th>ATP direct</th>
+<th>ATP via OxPhos</th>
+<th>Subtotal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Glycolysis</td>
+<td>2</td>
+<td>0</td>
+<td>2</td>
+<td>2 × 2.5 = 5*</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Pyruvate oxidation</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>2 × 2.5 = 5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>TCA cycle</td>
+<td>6</td>
+<td>2</td>
+<td>2</td>
+<td>6 × 2.5 + 2 × 1.5 = 18</td>
+<td>20</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>10</strong></td>
+<td><strong>2</strong></td>
+<td><strong>4</strong></td>
+<td><strong>28</strong></td>
+<td><strong>~30–32</strong></td>
+</tr>
+</tbody>
+</table>
+<p>*Glycolytic NADH yields 2.5 ATP (malate-aspartate shuttle) or 1.5 ATP
+(glycerol-3-phosphate shuttle), giving 30 or 32 ATP total.</p>
+<p><strong>The glycerol-3-phosphate shuttle vs. malate-aspartate
+shuttle:</strong></p>
+<ul>
+<li>Cytoplasmic NADH cannot cross the IMM directly.</li>
+<li><strong>Malate-aspartate shuttle</strong> (liver, heart, kidney):
+NADH electrons enter the matrix via OAA→malate→OAA at full reducing
+potential → <strong>2.5 ATP each</strong>.</li>
+<li><strong>Glycerol-3-phosphate shuttle</strong> (skeletal muscle,
+brain): NADH electrons enter directly into Q via FAD-linked
+mitochondrial G3PDH → <strong>1.5 ATP each</strong> (skips Complex
+I).</li>
+</ul>
+<h3 id="worked-example-total-atp-yield">Worked Example: Total ATP
+Yield</h3>
+<p><em>Problem:</em> Calculate the total ATP yield from one molecule of
+glucose using the malate-aspartate shuttle for most glycolytic NADH.</p>
+<p><em>Solution:</em></p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Quantity</th>
+<th>ATP per unit</th>
+<th>ATP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Glycolysis substrate-level</td>
+<td>2 ATP</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>TCA substrate-level (GTP)</td>
+<td>2 GTP</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Glycolytic NADH (malate-aspartate)</td>
+<td>2 NADH</td>
+<td>2.5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Pyruvate DH NADH</td>
+<td>2 NADH</td>
+<td>2.5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>TCA NADH</td>
+<td>6 NADH</td>
+<td>2.5</td>
+<td>15</td>
+</tr>
+<tr>
+<td>TCA FADH<span class="math inline">\(_2\)</span></td>
+<td>2 FADH<span class="math inline">\(_2\)</span></td>
+<td>1.5</td>
+<td>3</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td></td>
+<td></td>
+<td><strong>32</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The thermodynamic efficiency:</p>
+<p><span class="math display">\[\eta = \frac{32 \times 30.5}{2{,}870}
+\times 100\% = 34\% \tag{9.10}\]</span></p>
+<p>Using the more realistic <em>cellular</em> <span
+class="math inline">\(\Delta G\)</span> of <span
+class="math inline">\(-50\)</span> kJ/mol, efficiency rises to ~56%,
+comparable to the best internal combustion engines and considerably
+better than most human-engineered energy converters.</p>
+<blockquote>
+<p><strong>Concept Check 5:</strong> Why does FADH<span
+class="math inline">\(_2\)</span> yield fewer ATP than NADH? Trace the
+difference back to the ETC entry point and proton pumping
+stoichiometry.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 5b:</strong> Consult . If a mutation altered
+the c-ring stoichiometry from 8 to 12 subunits (raising H<span
+class="math inline">\(^+\)</span>/ATP from 2.67 to 4), recompute the P/O
+ratios for NADH and FADH<span class="math inline">\(_2\)</span> and the
+total ATP yield per glucose. Comment on what this would mean for daily
+ATP turnover and whole-organism metabolism.</p>
+</blockquote>
+<hr />
+<h2
+id="substrate-level-vs.-oxidative-phosphorylation-a-quantitative-comparison">Substrate-Level
+vs. Oxidative Phosphorylation: A Quantitative Comparison</h2>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 49%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Substrate-level phosphorylation</th>
+<th>Oxidative phosphorylation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Location</td>
+<td>Cytoplasm (glycolysis), matrix (TCA)</td>
+<td>Inner mitochondrial membrane</td>
+</tr>
+<tr>
+<td>Energy source</td>
+<td>High-energy phosphorylated intermediate</td>
+<td>Proton motive force</td>
+</tr>
+<tr>
+<td>O<span class="math inline">\(_2\)</span> required?</td>
+<td>No</td>
+<td>Yes (terminal electron acceptor)</td>
+</tr>
+<tr>
+<td>Energy “currency” intermediate</td>
+<td>1,3-BPG, PEP, succinyl-CoA</td>
+<td><span class="math inline">\(\Delta\mu_{\text{H}^+}\)</span>
+(electrochemical)</td>
+</tr>
+<tr>
+<td>Maximum theoretical efficiency</td>
+<td>~60% (per intermediate)</td>
+<td>~70% (PMF → ATP)</td>
+</tr>
+<tr>
+<td>ATP per glucose (aerobic, 32 total)</td>
+<td>4 ATP (12.5%)</td>
+<td>28 ATP (87.5%)</td>
+</tr>
+<tr>
+<td>Speed of onset</td>
+<td>Immediate (ms)</td>
+<td>Seconds (requires PMF buildup)</td>
+</tr>
+<tr>
+<td>Sustainability</td>
+<td>Limited (substrate-bound)</td>
+<td>Continuous (as long as fuel + O<span
+class="math inline">\(_2\)</span>)</td>
+</tr>
+<tr>
+<td>Examples</td>
+<td>PGK, pyruvate kinase, succinyl-CoA synthetase</td>
+<td>ATP synthase</td>
+</tr>
+<tr>
+<td>Inhibited by</td>
+<td>Specific enzyme inhibitors</td>
+<td>ETC inhibitors, uncouplers, oligomycin</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Quantitative leverage:</strong> Although substrate-level
+phosphorylation contributes roughly 12.5% of total ATP in this
+accounting, it is critical in two scenarios:</p>
+<ol type="1">
+<li><strong>Anaerobic conditions:</strong> It is the <em>primarily</em>
+source of ATP, so 4 ATP/glucose is everything.</li>
+<li><strong>Sprint exercise:</strong> It can produce ATP in
+milliseconds, before mitochondrial respiration ramps up; the
+phosphocreatine system extends this further.</li>
+</ol>
+<p>This illustrates why metabolic systems are layered:
+fast-but-low-yield substrate-level phosphorylation handles transients
+while slow-but-high-yield OxPhos handles steady state.</p>
+<p><strong>Numerical leverage at the organism level.</strong> A 70 kg
+adult at rest uses ~1,400 kcal/day, equivalent to ~250 mol ATP turned
+over. If primarily substrate-level phosphorylation operated, with ~4
+ATP/glucose, the body would need to oxidise ~62 mol glucose/day (= 11
+kg). Aerobic OxPhos at ~32 ATP/glucose reduces the requirement to ~8 mol
+= 1.4 kg glucose/day — a more achievable dietary intake. The 8-fold
+yield improvement of OxPhos is precisely what enables active
+multicellular life on a planet with bulk-food-supply constraints.</p>
+<hr />
+<h2 id="fermentation">Fermentation</h2>
+<p>Without O<span class="math inline">\(_2\)</span> (or in cells that
+lack mitochondria), pyruvate is not oxidised aerobically. Instead,
+<strong>fermentation</strong> regenerates NAD<span
+class="math inline">\(^+\)</span> so glycolysis can continue:</p>
+<p><strong>Alcoholic fermentation</strong> (yeast, some bacteria): <span
+class="math display">\[\text{Pyruvate}
+\xrightarrow[\text{TPP}]{\text{pyruvate decarboxylase}}
+\text{Acetaldehyde} + \text{CO}_2 \xrightarrow[\text{NADH} \rightarrow
+\text{NAD}^+]{\text{alcohol dehydrogenase}} \text{Ethanol}
+\tag{9.11}\]</span></p>
+<p><strong>Lactic acid fermentation</strong> (muscle, erythrocytes,
+<em>Lactobacillus</em>): <span class="math display">\[\text{Pyruvate} +
+\text{NADH} \xrightarrow{\text{lactate dehydrogenase}} \text{Lactate} +
+\text{NAD}^+ \tag{9.12}\]</span></p>
+<p>Both pathways yield primarily <strong>2 ATP per glucose</strong>
+(from glycolysis alone).</p>
+<p><strong>The Cori Cycle:</strong> In exercising muscle, lactate is
+exported to the blood, taken up by the liver, and converted back to
+glucose via <strong>gluconeogenesis</strong> at the cost of 6 ATP. This
+glucose returns to the muscle via the blood. The Cori cycle shifts the
+metabolic burden of gluconeogenesis from the oxygen-limited muscle to
+the well-oxygenated liver.</p>
+<p><strong>Pasteur Effect:</strong> In the presence of oxygen, yeast
+switches from fermentation to aerobic respiration, dramatically reducing
+glucose consumption (because 32 ATP/glucose aerobically vs. 2
+ATP/glucose by fermentation — 16x more efficient).</p>
+<blockquote>
+<p><strong>Clinical Connection: Lactic Acidosis</strong> Lactic acidosis
+occurs when lactate production exceeds clearance. <strong>Type
+A</strong> (most common): tissue hypoxia (shock, cardiac arrest, severe
+anaemia) forces reliance on glycolysis. <strong>Type B</strong>:
+metabolic causes (liver failure preventing lactate clearance, metformin
+in renal impairment, thiamine deficiency preventing PDC function,
+mitochondrial diseases). Blood lactate &gt;4 mmol/L with pH &lt;7.35
+indicates lactic acidosis. Treatment focuses on addressing the
+underlying cause and restoring tissue oxygenation.</p>
+</blockquote>
+<blockquote>
+<p><strong>Clinical Connection: Mitochondrial Complex Disorders</strong>
+<a href="#gl:mutation"><strong>Mutation</strong></a>s in nuclear or
+mitochondrial <a href="#gl:gene"><strong>gene</strong></a>s encoding ETC
+complex subunits cause a spectrum of diseases: - <strong>Complex I
+deficiency:</strong> Most common ETC disorder (~30% of paediatric
+mitochondrial disease); Leigh syndrome (necrotising encephalopathy),
+optic atrophy, cardiomyopathy - <strong>Complex II deficiency:</strong>
+Rare; associated with paragangliomas and pheochromocytomas (SDH
+mutations are tumour suppressors) - <strong>Complex III
+deficiency:</strong> Exercise intolerance, lactic acidosis -
+<strong>Complex IV (COX) deficiency:</strong> Leigh syndrome,
+cardiomyopathy; reversible COX deficiency in infants Most are
+characterised by lactic acidosis, neurological dysfunction, and exercise
+intolerance — tissues with high energy demands (brain, heart, muscle)
+are most affected.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 6:</strong> A patient with a mitochondrial
+Complex I mutation has reduced NADH oxidation. Would you expect
+succinate-linked respiration (via Complex II) to be normal or impaired
+in this patient? Explain.</p>
+</blockquote>
+<hr />
+<h2 id="uncoupling-proteins-and-brown-adipose-thermogenesis">Uncoupling
+Proteins and Brown Adipose Thermogenesis</h2>
+<p>In most cells, the primary “exit” for protons in the IMS back to the
+matrix is through ATP synthase. <strong>Uncoupling proteins
+(UCPs)</strong> provide an alternative path that dissipates the proton
+gradient as heat — uncoupling electron transport from ATP synthesis.</p>
+<h3 id="ucp1-the-brown-adipose-thermogenin">UCP1: The Brown Adipose
+Thermogenin</h3>
+<p><strong>Structure:</strong> UCP1 is a 32-kDa, six-transmembrane-helix
+protein in the IMM of brown adipocytes. It belongs to the SLC25
+mitochondrial carrier family.</p>
+<p><strong>Mechanism (proton transport, not pure leak):</strong></p>
+<p><span class="math display">\[\begin{equation}
+\text{H}^+_{\text{IMS}} + \text{FA}^- \xrightarrow{\text{UCP1}}
+\text{H}^+_{\text{matrix}} + \text{FA}^-
+\label{eq:unit_III_ucp1_mechanism}
+\end{equation}\]</span></p>
+<p>Long-chain fatty acid anions (FA<span
+class="math inline">\(^-\)</span>) act as cofactors: they bind H<span
+class="math inline">\(^+\)</span> in the IMS, traverse the membrane via
+UCP1, and release H<span class="math inline">\(^+\)</span> in the
+matrix. UCP1 is <strong>inhibited by purine nucleotides</strong> (ATP,
+ADP, GTP, GDP) and <strong>activated by fatty acids</strong> released
+from intracellular triglyceride stores.</p>
+<p><strong>Activation cascade in brown adipose tissue
+(BAT):</strong></p>
+<pre class="mermaid"><code>flowchart LR
+    NE[&quot;Norepinephrine (cold,&lt;br/&gt;sympathetic activation)&quot;] --&gt; B3[&quot;β₃-adrenergic receptor&quot;]
+    B3 --&gt; AC[&quot;Adenylyl cyclase&quot;]
+    AC --&gt; cAMP[&quot;↑ cAMP&quot;]
+    cAMP --&gt; PKA[&quot;PKA activated&quot;]
+    PKA --&gt; HSL[&quot;HSL activated&lt;br/&gt;(lipolysis)&quot;]
+    HSL --&gt; FA[&quot;↑ Free fatty acids&quot;]
+    FA --&gt; UCP[&quot;UCP1 activated&quot;]
+    UCP --&gt; HEAT[&quot;Heat (thermogenesis)&quot;]
+
+    PKA --&gt; CIDEA[&quot;↑ CIDEA, PGC-1α&lt;br/&gt;transcription&quot;]
+    CIDEA --&gt; BIO[&quot;Mitochondrial biogenesis&lt;br/&gt;(chronic adaptation)&quot;]
+
+    style HEAT fill:#ffe6e6
+    style BIO fill:#e6ffe6</code></pre>
+<!-- alt: Flowchart for UCP1: The Brown Adipose Thermogenin: Norepinephrine (cold, sympathetic activation), β₃-adrenergic receptor, Adenylyl cyclase, and ↑ cAMP form the diagram's primary path or branches. -->
+<p><em>Flowchart for UCP1: The Brown Adipose Thermogenin: Norepinephrine
+(cold, sympathetic activation), β₃-adrenergic receptor, Adenylyl
+cyclase, and ↑ cAMP form the diagram’s primary path or
+branches.</em></p>
+<p><em>Sympathetic activation of brown adipose thermogenesis
+(Mermaid).</em> Norepinephrine binds β<span
+class="math inline">\(_3\)</span>-adrenergic receptors → cAMP → PKA →
+simultaneous lipolysis (acute fuel) and PGC-1α transcription (chronic
+mitochondrial biogenesis). UCP1 short-circuits the proton gradient,
+releasing energy as heat.</p>
+<h3 id="physiological-roles">Physiological Roles</h3>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Role of UCP1 / brown fat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Neonates</strong></td>
+<td>Critical for non-shivering thermogenesis; lack effective shivering
+due to small muscle mass; ~5% body weight is BAT</td>
+</tr>
+<tr>
+<td><strong>Hibernating mammals</strong></td>
+<td>Massive BAT depots maintain ~5 °C body temp; explosive arousal phase
+warms the body in hours</td>
+</tr>
+<tr>
+<td><strong>Adult humans</strong></td>
+<td>Active BAT discovered in 2009 in the supraclavicular and paraspinal
+regions; activated by cold exposure; declines with age and obesity</td>
+</tr>
+<tr>
+<td><strong>Cold acclimation</strong></td>
+<td>Chronic cold exposure increases BAT mass and UCP1 expression — a
+target for obesity therapy</td>
+</tr>
+<tr>
+<td><strong>Beige (brite) adipocytes</strong></td>
+<td>UCP1<span class="math inline">\(^+\)</span> cells that emerge from
+white adipose under cold/exercise; an inducible thermogenic
+compartment</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Other UCPs:</strong></p>
+<ul>
+<li><strong>UCP2</strong>: ubiquitously expressed; modest uncoupling
+activity; thought to attenuate ROS and modulate insulin secretion.</li>
+<li><strong>UCP3</strong>: skeletal muscle and BAT; possible role in
+lipid handling; debated thermogenic relevance.</li>
+<li><strong>Plant UCPs</strong> (PUMPs): present in mitochondria of
+e.g. <em>Arum</em> species, where they generate the heat (~46 °C) that
+volatilises odours to attract pollinator insects.</li>
+</ul>
+<blockquote>
+<p><strong>Clinical Connection: DNP — A Cautionary Tale</strong>
+2,4-Dinitrophenol (DNP) is a synthetic chemical uncoupler that
+dissipates PMF as heat, mimicking UCP1 across most tissues. In the
+1930s, DNP was sold as a weight-loss drug — patients lost ~1 kg/week as
+their basal metabolic rate increased ~50%. But the therapeutic window is
+dangerously narrow: at slightly higher doses, body temperature rises to
+&gt;40 °C (fatal hyperthermia), and unregulated tissue uncoupling causes
+cataracts, neuropathy, and sudden death. DNP was banned in 1938 but
+remains a recurrent source of bodybuilding deaths today. The takeaway:
+physiological uncoupling is <em>regulated</em> (UCP1 activated primarily
+in BAT, primarily on demand) — pharmacological uncoupling is unregulated
+and potentially lethal.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 6b:</strong> A 3-month-old infant is brought to
+the ED in mild hypothermia after exposure to cold. Imaging reveals
+normal BAT volume and PET activity. Predict (a) whether shivering or
+non-shivering thermogenesis dominates the infant’s response, (b) the
+role of β<span class="math inline">\(_3\)</span>-AR signalling, and (c)
+the metabolic consequences of repeated cold exposures.</p>
+</blockquote>
+<hr />
+<h2 id="metabolic-poisons-and-inhibitors">Metabolic Poisons and
+Inhibitors</h2>
+<p>Understanding the ETC and oxidative phosphorylation has been greatly
+advanced by studying specific inhibitors and metabolic poisons:</p>
+<h3 id="etc-inhibitors">ETC Inhibitors</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>Inhibitor</th>
+<th>Target</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Rotenone</strong></td>
+<td>Complex I (NADH dehydrogenase)</td>
+<td>Blocks electron transfer from Fe-S clusters to ubiquinone;
+NADH-linked respiration stops; used as fish poison and pesticide</td>
+</tr>
+<tr>
+<td><strong>Antimycin A</strong></td>
+<td>Complex III (Q<span class="math inline">\(_i\)</span> site)</td>
+<td>Blocks electron transfer at the Q<span
+class="math inline">\(_i\)</span> site of the Q cycle; generates
+superoxide</td>
+</tr>
+<tr>
+<td><strong>Cyanide (CN<span
+class="math inline">\(^-\)</span>)</strong></td>
+<td>Complex IV (CuB/a<span class="math inline">\(_3\)</span>)</td>
+<td>Binds Fe<span class="math inline">\(^{3+}\)</span> in cytochrome
+a<span class="math inline">\(_3\)</span>, blocking O<span
+class="math inline">\(_2\)</span> reduction; rapidly fatal</td>
+</tr>
+<tr>
+<td><strong>Carbon monoxide (CO)</strong></td>
+<td>Complex IV (haem a<span class="math inline">\(_3\)</span>)</td>
+<td>Competes with O<span class="math inline">\(_2\)</span> for binding;
+also binds haemoglobin (200x affinity vs O<span
+class="math inline">\(_2\)</span>)</td>
+</tr>
+<tr>
+<td><strong>Hydrogen sulfide (H<span
+class="math inline">\(_2\)</span>S)</strong></td>
+<td>Complex IV</td>
+<td>Similar to cyanide; binds haem iron; toxic at &gt;50 ppm in air</td>
+</tr>
+</tbody>
+</table>
+<h3 id="uncouplers">Uncouplers</h3>
+<p><strong>Uncouplers</strong> dissipate the proton gradient without
+inhibiting electron transport, allowing respiration to continue at
+maximum rate without ATP production:</p>
+<ul>
+<li><strong>2,4-dinitrophenol (DNP):</strong> A lipid-soluble weak acid;
+carries H<span class="math inline">\(^+\)</span> across the IMM. Was
+used as a weight-loss drug in the 1930s (burns fat by dissipating energy
+as heat) but was banned due to narrow therapeutic window and fatal
+hyperthermia.</li>
+<li><strong>FCCP/CCCP:</strong> Research uncouplers; commonly used in
+mitochondrial stress tests (Seahorse assays)</li>
+<li><strong>Thermogenin (UCP1):</strong> The physiological uncoupler in
+brown adipose tissue, developed in the thermogenesis discussion
+above.</li>
+</ul>
+<h3 id="atp-synthase-inhibitors">ATP Synthase Inhibitors</h3>
+<ul>
+<li><strong>Oligomycin:</strong> Blocks the H<span
+class="math inline">\(^+\)</span> channel in the c-ring of F<span
+class="math inline">\(_0\)</span>; prevents H<span
+class="math inline">\(^+\)</span> flow and ATP synthesis; also halts
+electron transport (because PMF builds up, preventing further H<span
+class="math inline">\(^+\)</span> pumping by the ETC)</li>
+<li><strong>DCCD (dicyclohexylcarbodiimide):</strong> Reacts with a
+specific Asp/Glu residue in the c-subunit, blocking H<span
+class="math inline">\(^+\)</span> translocation</li>
+</ul>
+<blockquote>
+<p><strong>Concept Check 7:</strong> If oligomycin is added to
+mitochondria, electron transport stops. If DNP (an uncoupler) is then
+added, electron transport resumes. Explain these observations in terms
+of the chemiosmotic model.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 7b:</strong> A researcher exposes isolated
+mitochondria sequentially to: (1) succinate, (2) ADP + P<span
+class="math inline">\(_i\)</span>, (3) rotenone, (4) DNP. For each
+addition, predict whether O<span class="math inline">\(_2\)</span>
+consumption increases, decreases, or stays the same, and explain why —
+referring to and .</p>
+</blockquote>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>Cellular ATP hydrolysis free energy is adjusted by the mass-action
+ratio <span class="math inline">\(Q =
+[\mathrm{ADP}][\mathrm{P_i}]/[\mathrm{ATP}]\)</span>:</p>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.biochemistry <span class="im">import</span> atp_free_energy</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">round</span>(atp_free_energy(atp_conc_mM<span class="op">=</span><span class="fl">3.0</span>, adp_conc_mM<span class="op">=</span><span class="fl">1.0</span>, pi_conc_mM<span class="op">=</span><span class="fl">10.0</span>), <span class="dv">2</span>))</span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> Mitochondrial poisons
+(cyanide, carbon monoxide) and uncouplers like DNP illustrate how
+collapsing PMF or bypassing ATP synthase converts energy to heat — the
+same gradient you model when counting protons per ATP. UCP1 is a
+regulated example of the same principle.</p>
+</blockquote>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Bioenergetics and Cellular Respiration</strong>, frontier
+biology belongs inside the evidence logic of the chapter. Metabolism is
+now studied as a regulated network constrained by energy, redox balance,
+compartmentation, and environment. The core reading question is this:
+respiration claims should track electrons, protons, redox poise, ATP
+yield, and uncoupling.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>A strong metabolic explanation names the flux, the limiting step, the
+sensor, and the condition under which the pathway changes direction or
+priority.</p>
+<p><strong>Source practice:</strong> For metabolic claims, keep the
+organism, compartment, energetic state, and measurement method visible;
+a pathway map is not enough without flux or concentration evidence.</p>
+<h3 id="current-evidence-map-respiration-evidence-accounting">Current
+Evidence Map: Respiration Evidence Accounting</h3>
+<pre class="mermaid"><code>flowchart LR
+    A[&quot;Carbon substrate&quot;] --&gt; B[&quot;Electron carriers&quot;]
+    B --&gt; C[&quot;Proton gradient&quot;]
+    C --&gt; D[&quot;ATP synthase&quot;]
+    C --&gt; E[&quot;Leak or uncoupling&quot;]
+    D --&gt; F[&quot;ATP yield&quot;]
+    E --&gt; G[&quot;Heat or lower efficiency&quot;]
+    F --&gt; H[&quot;Physiological interpretation&quot;]
+    G --&gt; H</code></pre>
+<!-- alt: Flowchart showing ATP-yield claims are conditional on shuttle use, proton leak, coupling efficiency, tissue state, and measurement method rather than one fixed number. -->
+<p><em>ATP-yield claims are conditional on shuttle use, proton leak,
+coupling efficiency, tissue state, and measurement method rather than
+one fixed number.</em></p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><span class="math inline">\(\Delta G = \Delta H - T\Delta S\)</span>
+(); cellular reactions are coupled to ATP hydrolysis (<span
+class="math inline">\(\Delta G \approx -54\)</span> kJ/mol) to drive
+endergonic processes. Cells maintain far-from-equilibrium
+conditions.</li>
+<li>ATP turnover is ~40 kg/day; the high <span
+class="math inline">\(\Delta G\)</span> of hydrolysis arises from charge
+repulsion, resonance stabilisation, and hydration of products. ATP sits
+in the <em>middle</em> of the phosphoryl-transfer hierarchy, between
+very high (PEP, 1,3-BPG) and very low (glucose-6-P).</li>
+<li>Glucose oxidation has a standard free energy of <span
+class="math inline">\(\approx -2{,}870\)</span> kJ/mol; cells capture
+~56% of this as ATP, dissipating the rest as heat.</li>
+<li>Glycolysis: 10 cytoplasmic steps; net 2 ATP + 2 NADH per glucose;
+regulated by PFK-1 (activated by AMP, F2,6BP; inhibited by ATP,
+citrate).</li>
+<li>Gluconeogenesis: not the reverse of glycolysis — uses four bypass
+enzymes (pyruvate carboxylase, PEPCK, FBPase-1, G6Pase) at a cost of 6
+ATP equivalents per glucose; reciprocally regulated with glycolysis via
+F2,6BP.</li>
+<li>The Cori cycle and glucose-alanine cycle distribute metabolic burden
+between muscle and liver, supporting hypoxic tissues at a
+4-ATP-per-glucose net cost to the organism.</li>
+<li>PDC links glycolysis to TCA; regulated by
+phosphorylation/dephosphorylation; deficiency causes lactic
+acidosis.</li>
+<li>TCA cycle: 8 mitochondrial matrix steps; 6 NADH + 2 FADH<span
+class="math inline">\(_2\)</span> + 2 GTP per glucose; regulated by
+isocitrate DH and α-KG DH; anaplerotic (pyruvate carboxylase, glutamate
+dehydrogenase) and cataplerotic flux balance the cycle.</li>
+<li>ETC: Complex I (4 H<span class="math inline">\(^+\)</span>), II (0
+H<span class="math inline">\(^+\)</span>), III (4 H<span
+class="math inline">\(^+\)</span> via Q cycle), IV (2 H<span
+class="math inline">\(^+\)</span>); final electron acceptor = O<span
+class="math inline">\(_2\)</span>. Modest electron leak produces ROS ();
+SOD, catalase, GPx, and peroxiredoxins constrain damage.</li>
+<li>ATP synthase: F<span class="math inline">\(_0\)</span>F<span
+class="math inline">\(_1\)</span> rotary motor; binding change
+mechanism; ~3.67 H<span class="math inline">\(^+\)</span> per ATP
+(including phosphate import). Proton-motive force ≈ 180 mV ().</li>
+<li>Modern ATP yield: ~30–32 ATP per glucose aerobically (, , ); 2 ATP
+per glucose anaerobically.</li>
+<li>Uncoupling proteins (UCP1) regulate physiological thermogenesis in
+brown adipose tissue; pharmacological uncouplers (DNP) dissipate the
+same PMF unregulated and are dangerous.</li>
+<li><strong>Connections:</strong> See for light-driven phosphorylation,
+for hormonal integration, and Unit X for ecosystem productivity and
+reduced carbon.</li>
+</ul>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li><p>Explain why cells must maintain metabolite concentrations far
+from equilibrium. What would happen to ATP synthesis if the cell reached
+thermodynamic equilibrium?</p></li>
+<li><p>Describe most 10 steps of glycolysis. Which three steps are
+irreversible and why are these the regulatory control points?</p></li>
+<li><p>Compare the four bypass enzymes of gluconeogenesis with the three
+irreversible glycolytic steps they replace. Why is each bypass
+thermodynamically favourable in the gluconeogenic direction?</p></li>
+<li><p>Explain the structure and regulation of the pyruvate
+dehydrogenase complex. Why does it require five cofactors?</p></li>
+<li><p>Track the fate of both carbon atoms in acetyl-CoA through one
+turn of the TCA cycle. Are these the same carbons released as CO<span
+class="math inline">\(_2\)</span>?</p></li>
+<li><p>Distinguish between anaplerotic and cataplerotic reactions. Give
+two examples of each, and explain why pyruvate carboxylase is
+allosterically activated by acetyl-CoA.</p></li>
+<li><p>Describe the Q cycle in Complex III. Why is this mechanism
+necessary, and how does it contribute to proton pumping?</p></li>
+<li><p>Identify the major ETC sites of ROS production and the
+antioxidant enzymes that detoxify each downstream species. Why is the
+Fenton reaction particularly dangerous?</p></li>
+<li><p>Explain the binding change mechanism of ATP synthase. How was the
+rotation of the gamma subunit experimentally demonstrated?</p></li>
+<li><p>Calculate the ATP yield from complete oxidation of one molecule
+of glucose via glycolysis, PDC, TCA cycle, and oxidative phosphorylation
+(). Explain why the answer is 30 or 32 depending on the NADH shuttle
+used, and trace each number back to specific P/O ratios.</p></li>
+<li><p>Compare alcoholic and lactic acid fermentation. Why is
+fermentation essential even though it produces far less ATP than aerobic
+respiration?</p></li>
+<li><p>Compare physiological (UCP1) and pharmacological (DNP)
+uncoupling. Why does the body tolerate UCP1 activity but not DNP, even
+though both dissipate the same PMF as heat?</p></li>
+<li><p>A patient presents with exercise intolerance and lactic acidosis.
+Genetic testing reveals a mutation in the ND1 gene (Complex I subunit).
+Explain the biochemical basis of each symptom.</p></li>
+<li><p>Explain the Pasteur effect and the Warburg effect. How do they
+represent opposite metabolic strategies?</p></li>
+<li><p>Recompute <code>atp_free_energy</code> when cytosolic ATP drops
+to 1 mM while ADP rises to 4 mM (Pi fixed). Does hydrolysis become more
+or less exergonic, and why does that matter during exercise?</p></li>
+<li><p>Using <code>glycolysis_summary()</code> from the same module,
+state the net ATP and NADH from one glucose without writing most ten
+steps.</p></li>
+<li><p>Using <span class="math inline">\(\Delta G^{\circ\prime}\)</span>
+values for ATP and PEP hydrolysis, compute the standard free energy
+change of pyruvate kinase (PEP + ADP → pyruvate + ATP). Compare with the
+cellular <span class="math inline">\(\Delta G\)</span> and explain the
+irreversibility.</p></li>
+<li><p>Compute the proton motive force from <span
+class="math inline">\(\Delta\Psi = -160\)</span> mV and <span
+class="math inline">\(\Delta\text{pH} = 0.6\)</span> at 37 °C using .
+Convert to free energy per mole of protons.</p></li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Mitchell (1961). Coupling of phosphorylation to electron and
+hydrogen transfer by a chemi-osmotic type of mechanism. <em>Nature</em>,
+191 .</li>
+<li>Atkinson (1968). The regulation of enzyme activity in metabolism.
+<em>Biochemical Journal</em>, 108 .</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gibbs free energy (<span class="math inline">\(\Delta
+G\)</span>)</strong></td>
+<td>Thermodynamic quantity predicting reaction spontaneity; <span
+class="math inline">\(\Delta G &lt; 0\)</span> = spontaneous</td>
+</tr>
+<tr>
+<td><strong>ATP</strong></td>
+<td>Adenosine triphosphate; central phosphoryl-group donor and
+short-term energy carrier; <span class="math inline">\(\Delta G\)</span>
+hydrolysis <span class="math inline">\(\approx -54\)</span> kJ/mol
+(cellular)</td>
+</tr>
+<tr>
+<td><strong>Glycolysis</strong></td>
+<td>10-step cytoplasmic pathway converting glucose to 2 pyruvate + 2 ATP
++ 2 NADH</td>
+</tr>
+<tr>
+<td><strong>Gluconeogenesis</strong></td>
+<td>Synthesis of glucose from non-carbohydrate precursors using four
+bypass enzymes; 6 ATP equivalents per glucose</td>
+</tr>
+<tr>
+<td><strong>PFK-1</strong></td>
+<td>Phosphofructokinase-1; committed step of glycolysis; allosterically
+regulated</td>
+</tr>
+<tr>
+<td><strong>Pyruvate dehydrogenase complex</strong></td>
+<td>Multienzyme complex linking glycolysis to TCA; 5 cofactors;
+regulated by phosphorylation</td>
+</tr>
+<tr>
+<td><strong>TCA cycle</strong></td>
+<td>8-step mitochondrial cycle oxidising acetyl-CoA; produces 3 NADH + 1
+FADH<span class="math inline">\(_2\)</span> + 1 GTP per turn</td>
+</tr>
+<tr>
+<td><strong>Anaplerotic reaction</strong></td>
+<td>Reaction replenishing TCA cycle intermediates (e.g., pyruvate
+carboxylase)</td>
+</tr>
+<tr>
+<td><strong>Cataplerotic reaction</strong></td>
+<td>Reaction removing TCA intermediates for biosynthesis (e.g., citrate
+→ acetyl-CoA for FA synthesis)</td>
+</tr>
+<tr>
+<td><strong>Electron transport chain</strong></td>
+<td>Complexes I–IV on IMM; transfers electrons from NADH/FADH<span
+class="math inline">\(_2\)</span> to O<span
+class="math inline">\(_2\)</span>, pumping H<span
+class="math inline">\(^+\)</span></td>
+</tr>
+<tr>
+<td><strong>Q cycle</strong></td>
+<td>Complex III mechanism doubling H<span
+class="math inline">\(^+\)</span> pumping efficiency per electron
+pair</td>
+</tr>
+<tr>
+<td><strong>ATP synthase</strong></td>
+<td>F<span class="math inline">\(_0\)</span>F<span
+class="math inline">\(_1\)</span> rotary motor using PMF to synthesise
+ATP; ~3.67 H<span class="math inline">\(^+\)</span>/ATP including P<span
+class="math inline">\(_i\)</span> import</td>
+</tr>
+<tr>
+<td><strong>Proton motive force (PMF)</strong></td>
+<td>Electrochemical gradient of H<span class="math inline">\(^+\)</span>
+across IMM; <span class="math inline">\(\approx 180\)</span> mV; drives
+ATP synthesis</td>
+</tr>
+<tr>
+<td><strong>P/O ratio</strong></td>
+<td>ATP molecules produced per oxygen atom reduced; ~2.5 for NADH, ~1.5
+for FADH<span class="math inline">\(_2\)</span></td>
+</tr>
+<tr>
+<td><strong>Reactive oxygen species (ROS)</strong></td>
+<td>O<span class="math inline">\(_2^{\bullet-}\)</span>, H<span
+class="math inline">\(_2\)</span>O<span
+class="math inline">\(_2\)</span>, HO<span
+class="math inline">\(^\bullet\)</span> produced by electron leak;
+constrained by SOD, catalase, GPx</td>
+</tr>
+<tr>
+<td><strong>Uncoupling protein (UCP1)</strong></td>
+<td>IMM proton channel in brown adipose tissue; dissipates PMF as
+heat</td>
+</tr>
+<tr>
+<td><strong>Fermentation</strong></td>
+<td>Anaerobic regeneration of NAD<span
+class="math inline">\(^+\)</span>; lactic acid or ethanol pathways; 2
+ATP per glucose</td>
+</tr>
+<tr>
+<td><strong>Cori cycle</strong></td>
+<td>Lactate (muscle) to glucose (liver) shuttle; shifts gluconeogenic
+cost to liver</td>
+</tr>
+<tr>
+<td><strong>Glucose-alanine cycle</strong></td>
+<td>Inter-organ shuttle carrying both carbon and waste nitrogen from
+muscle to liver</td>
+</tr>
+<tr>
+<td><strong>Warburg effect</strong></td>
+<td>Aerobic glycolysis in cancer cells; rapid ATP + biosynthetic
+precursors despite O<span class="math inline">\(_2\)</span></td>
+</tr>
+<tr>
+<td><strong>Substrate-level phosphorylation</strong></td>
+<td>Direct transfer of phosphoryl group from high-energy intermediate to
+ADP</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Bioenergetics and Cellular Respiration</strong> should leave
+a reproducible trail from a biological claim to the code, figure,
+diagram, or paper-based activity that can test it. Use the surfaces
+below to inspect the chapter’s assumptions, rerun the relevant model, or
+compare the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/biochemistry/biochemistry.py</code>
+(<code>reaction_free_energy</code>, <code>atp_free_energy</code>,
+<code>glycolysis_summary</code>)</td>
+<td>Track energy accounting across glycolysis, respiration, and ATP
+coupling.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>glycolysis_pathway_diagram</code>,
+<code>atp_synthesis_diagram</code>)</td>
+<td>Check pathway order and coupling between electron flow and proton
+motive force.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> name the electron donor,
+acceptor, compartment, proton path, and ATP-yield assumption before
+comparing respiratory claims. <strong>Cross-reference:</strong> connect
+with , , and .</p>
+</body>
+</html>

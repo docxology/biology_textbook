@@ -1,0 +1,2861 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>050_ecosystem_ecology</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="ecosystem-ecology-and-biogeochemical-cycles">Ecosystem Ecology
+and Biogeochemical Cycles</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 34</strong> · Level 2/3 · 65 min read · 75 min lecture ·
+Prerequisites: , </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you should be able to:</p>
+<ol type="1">
+<li>Define an ecosystem and distinguish <a
+href="#gl:abiotic"><strong>abiotic</strong></a> from biotic components;
+categorise consumers by trophic role.</li>
+<li>Explain energy flow through <a
+href="#gl:trophic-level"><strong>trophic level</strong></a>s, calculate
+ecological efficiency, and explain why food chains are short.</li>
+<li>Describe the carbon, nitrogen, phosphorus, and sulphur cycles and
+their key anthropogenic disruptions.</li>
+<li>Calculate gross primary production (GPP), net primary production
+(NPP), and net ecosystem production (NEP).</li>
+<li>Describe <a
+href="#gl:eutrophication"><strong>eutrophication</strong></a> and
+hypoxia as consequences of nutrient cycle disruption.</li>
+<li>Explain ecosystem services and their economic valuation.</li>
+<li>Describe climate change feedbacks involving biogeochemical cycles
+(permafrost carbon, ocean acidification).</li>
+<li>Explain the biological pump and its role in ocean carbon
+sequestration.</li>
+<li>Compare methods for measuring NPP (harvest, eddy covariance, <span
+class="math inline">\(^{14}\)</span>C, remote sensing) and explain why
+ANPP/BNPP partitioning matters for global carbon accounting.</li>
+<li>Use the Hubbard Brook watershed experiment to explain how live
+vegetation regulates nutrient retention, and contrast open vs. closed
+nutrient cycling regimes.</li>
+<li>Describe ocean productivity zones (upwelling, gyres, polar) and the
+Martin curve, and connect soil pedogenesis (CLORPT, horizons) to
+long-term carbon storage.</li>
+<li>Use the Redfield ratio to diagnose nutrient limitation, and evaluate
+the planetary boundaries and Gaia hypothesis as frameworks for Earth
+system thinking.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Ecosystems couple energy flow and matter
+cycling across organisms, environments, and time.</li>
+<li><strong>Core concepts:</strong> primary productivity, trophic
+efficiency, nutrient cycles, decomposition.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change: Systems,
+Evolution, Pathways and transformations of energy and matter; AP
+Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics:
+Interdependent Relationships in Ecosystems, Matter and Energy in
+Organisms and Ecosystems, Natural Selection and Evolution.</li>
+<li><strong>Model or quantitative lens:</strong> Energy-flow,
+productivity, and nutrient-budget calculations.</li>
+<li><strong>Data skill:</strong> Trace matter and energy through food
+webs and biogeochemical cycles.</li>
+<li><strong>Practice cadence:</strong> Representing and Describing Data,
+Statistical Tests and Data Analysis, Argumentation.</li>
+<li><strong>Common misconception to repair:</strong> Energy flows
+through ecosystems, but matter cycles; confusing the two breaks many
+explanations.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Transfer ecosystem reasoning to
+eutrophication, carbon budgets, agriculture, and climate feedback.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.ecology.ecology.food_web_trophic_levels</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette — Measuring What an Ecosystem Actually Runs
+On</strong></p>
+<p>In 1953, Howard T. Odum waded into Silver Springs, Florida — a
+crystal-clear, constant-temperature spring — and spent months measuring
+oxygen concentrations at stations upstream and downstream to calculate
+the primary productivity of an entire ecosystem. His method,
+upstream-downstream dissolved oxygen change, was brilliantly simple: if
+an ecosystem produces oxygen during the day and consumes it at night,
+measuring both rates gives net and gross production. From his data, Odum
+constructed the first complete energy flow diagram of a natural
+ecosystem, quantifying how much energy entered via <a
+href="#gl:photosynthesis"><strong>photosynthesis</strong></a>, how much
+was lost at each trophic level, and how much left the system as heat.
+The 10% rule — roughly 10% of energy transfers between trophic levels —
+came directly from Odum’s data. The concept that ecosystems are
+energy-processing machines, quantifiable and modelable, born in Silver
+Springs, became foundational to biogeochemistry, conservation biology,
+fisheries management, and climate modelling. Silver Springs is still one
+of the most-studied aquatic ecosystems on Earth.</p>
+</blockquote>
+<h2 id="ecosystem-concepts">Ecosystem Concepts</h2>
+<p>An <strong>ecosystem</strong> comprises most organisms (biotic
+component) and the physical/chemical environment (abiotic component) in
+a defined area, interacting through energy flow and nutrient cycling .
+Ecosystems vary from a few litres (rock pool) to thousands of km<span
+class="math inline">\(^2\)</span> (boreal forest). Their defining
+features are:</p>
+<ol type="1">
+<li><strong>Energy input</strong> (solar or chemical) drives biological
+activity</li>
+<li><strong>Nutrient cycling</strong> — atoms cycle repeatedly between
+biotic and abiotic phases (unlike energy, which flows linearly through
+and out of the system)</li>
+<li><strong>Emergent properties</strong> — productivity, stability,
+resistance — cannot be predicted from individual species properties
+alone</li>
+</ol>
+<h3 id="the-two-fundamental-processes">The Two Fundamental
+Processes</h3>
+<p>The distinction between energy <strong>flow</strong> and nutrient
+<strong>cycling</strong> is fundamental:</p>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 27%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Process</th>
+<th>Energy</th>
+<th>Nutrients</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direction</td>
+<td>One-way (flows through system)</td>
+<td>Cyclic (atoms recycled indefinitely)</td>
+</tr>
+<tr>
+<td>Source</td>
+<td>Solar radiation (99.9%) or chemosynthesis</td>
+<td>Geological and atmospheric reservoirs</td>
+</tr>
+<tr>
+<td>Efficiency</td>
+<td>~1-2% of solar energy captured by photosynthesis</td>
+<td>~100% recycled over geological time</td>
+</tr>
+<tr>
+<td>Limiting?</td>
+<td>Rarely limiting (except deep sea, caves)</td>
+<td>Often limiting (N, P, Fe, water)</td>
+</tr>
+<tr>
+<td>Conservation law</td>
+<td>Energy conserved but degraded (2nd law)</td>
+<td>Mass conserved (atoms neither created nor destroyed)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ecosystem-services">Ecosystem Services</h3>
+<p><strong>Costanza et al. (1997, <em>Nature</em>)</strong> estimated
+global ecosystem services at &gt;$33 trillion/year (updated to ~$125
+trillion/year by Costanza et al. 2014). The four categories:</p>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th>Category</th>
+<th>Services</th>
+<th>Examples</th>
+<th>Valuation approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Provisioning</strong></td>
+<td>Materials and energy</td>
+<td>Food, freshwater, timber, fuel, medicine, genetic resources</td>
+<td>Market prices</td>
+</tr>
+<tr>
+<td><strong>Regulating</strong></td>
+<td>Environmental processes</td>
+<td>Climate regulation (C sequestration), flood control, pollination,
+disease regulation, air purification, water purification</td>
+<td>Avoided cost; replacement cost</td>
+</tr>
+<tr>
+<td><strong>Cultural</strong></td>
+<td>Non-material benefits</td>
+<td>Recreation, ecotourism, spiritual value, aesthetic beauty,
+education</td>
+<td>Willingness-to-pay surveys</td>
+</tr>
+<tr>
+<td><strong>Supporting</strong></td>
+<td>Foundation for most others</td>
+<td>Soil formation, nutrient cycling, primary productivity, water
+cycling</td>
+<td>Cost of replication</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>Millennium Ecosystem Assessment</strong> (2005; 1,300
+scientists from 95 countries) concluded that 60% of Earth’s ecosystem
+services are being degraded or used unsustainably. The <strong>IPBES
+Global Assessment</strong> (2019) expanded this to 75% of terrestrial
+and 66% of marine ecosystems significantly altered.</p>
+<blockquote>
+<p><strong>Concept Check:</strong> A wetland provides flood attenuation,
+water purification, carbon sequestration, recreation, and biodiversity
+habitat. If this wetland is drained for agriculture, which ecosystem
+services are lost? How would you calculate the economic cost of losing
+flood attenuation alone?</p>
+</blockquote>
+<hr />
+<h2 id="trophic-structure-and-energy-flow">Trophic Structure and Energy
+Flow</h2>
+<p><strong>Trophic levels</strong> (from Greek <em>trophe</em> =
+nourishment) describe feeding position in the food web:</p>
+<table>
+<colgroup>
+<col style="width: 37%" />
+<col style="width: 25%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr>
+<th>Trophic level</th>
+<th>Organisms</th>
+<th>Energy source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 — Producers (<a
+href="#gl:autotroph"><strong>autotroph</strong></a>s)</td>
+<td>Plants, algae, cyanobacteria, chemolithotrophs</td>
+<td>Solar energy (GPP) or chemical energy</td>
+</tr>
+<tr>
+<td>2 — Primary consumers (herbivores)</td>
+<td>Insects, zooplankton, ungulates, small mammals</td>
+<td>NPP consumed</td>
+</tr>
+<tr>
+<td>3 — Secondary consumers (carnivores)</td>
+<td>Spiders, small fish, small birds</td>
+<td>Primary consumer biomass</td>
+</tr>
+<tr>
+<td>4 — Tertiary consumers</td>
+<td>Large fish, raptors</td>
+<td>Secondary consumer biomass</td>
+</tr>
+<tr>
+<td>Apex — Top predators</td>
+<td>Orca, wolf, lion, large sharks</td>
+<td>Top-down regulation</td>
+</tr>
+<tr>
+<td><a href="#gl:decomposer"><strong>Decomposer</strong></a>/detritivore
+(parallel)</td>
+<td>Bacteria, fungi, earthworms, millipedes</td>
+<td>Dead organic matter (detrital pathway)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ecological-efficiency">Ecological Efficiency</h3>
+<pre class="mermaid"><code>graph TD
+    subgraph &quot;Energy Flow Through Trophic Levels&quot;
+        SUN[&quot;Solar Energy&lt;br/&gt;1,000,000 kJ&quot;] --&gt;|&quot;~1-2% captured&lt;br/&gt;(photosynthesis)&quot;| P[&quot;Producers&lt;br/&gt;10,000 kJ NPP&quot;]
+        P --&gt;|&quot;~10% efficiency&lt;br/&gt;(Lindeman)&quot;| H[&quot;Herbivores&lt;br/&gt;1,000 kJ&quot;]
+        H --&gt;|&quot;~10%&quot;| C1[&quot;Secondary Consumers&lt;br/&gt;100 kJ&quot;]
+        C1 --&gt;|&quot;~10%&quot;| C2[&quot;Tertiary Consumers&lt;br/&gt;10 kJ&quot;]
+        C2 --&gt;|&quot;~10%&quot;| APEX[&quot;Apex Predators&lt;br/&gt;1 kJ&quot;]
+
+        P --&gt;|&quot;~90% lost&quot;| R1[&quot;Respiration&lt;br/&gt;+ Not consumed&lt;br/&gt;+ Detritus&quot;]
+        H --&gt;|&quot;~90% lost&quot;| R2[&quot;Respiration&lt;br/&gt;+ Feces&lt;br/&gt;+ Detritus&quot;]
+        C1 --&gt;|&quot;~90% lost&quot;| R3[&quot;Respiration&lt;br/&gt;+ Detritus&quot;]
+
+        R1 --&gt; DEC[&quot;Decomposers&lt;br/&gt;(bacteria, fungi)&quot;]
+        R2 --&gt; DEC
+        R3 --&gt; DEC
+        DEC --&gt;|&quot;Mineralisation&quot;| NUT[&quot;Inorganic nutrients&lt;br/&gt;recycled to producers&quot;]
+        NUT --&gt; P
+    end</code></pre>
+<!-- alt: Flowchart for Ecological Efficiency: Solar Energy 1,000,000 kJ, Producers 10,000 kJ NPP, Herbivores 1,000 kJ, and Secondary Consumers 100 kJ form the diagram's primary path or branches. -->
+<p><em>Flowchart for Ecological Efficiency: Solar Energy 1,000,000 kJ,
+Producers 10,000 kJ NPP, Herbivores 1,000 kJ, and Secondary Consumers
+100 kJ form the diagram’s primary path or branches.</em></p>
+<p>The <strong>trophic efficiency</strong> (10% rule, Lindeman 1942,
+<em>Ecology</em>) describes the fraction of energy at trophic level
+<span class="math inline">\(n\)</span> transferred to level <span
+class="math inline">\(n+1\)</span>:</p>
+<p><span class="math display">\[\begin{equation}
+\text{Trophic Efficiency} =
+\frac{\text{Production}_{n+1}}{\text{Production}_n} \times 100\% \approx
+5\text{-}20\%
+\label{eq:ecosystem_ecology_1}
+\end{equation}\]</span></p>
+<p><strong>Decomposition of efficiency:</strong></p>
+<p><span class="math display">\[\begin{equation}
+\text{Trophic efficiency} = \text{Consumption efficiency} \times
+\text{Assimilation efficiency} \times \text{Production efficiency}
+\label{eq:ecosystem_ecology_2}
+\end{equation}\]</span></p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 31%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Component</th>
+<th>Definition</th>
+<th>Typical range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Consumption efficiency</strong></td>
+<td>Fraction of available production ingested</td>
+<td>20-50% (herbivores); 50-100% (carnivores)</td>
+</tr>
+<tr>
+<td><strong>Assimilation efficiency</strong></td>
+<td>Fraction of ingested energy absorbed across gut</td>
+<td>20-60% (herbivores on plants); 60-90% (carnivores on animal
+tissue)</td>
+</tr>
+<tr>
+<td><strong>Production efficiency</strong></td>
+<td>Fraction of assimilated energy converted to new biomass</td>
+<td>1-3% (endotherms); 20-60% (ectotherms)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="production-efficiency-by-organism-group">Production Efficiency
+by Organism Group</h3>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 64%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr>
+<th>Group</th>
+<th>Production efficiency</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Insects (ectotherms)</td>
+<td>40-60%</td>
+<td>No <a
+href="#gl:thermoregulation"><strong>thermoregulation</strong></a>
+cost</td>
+</tr>
+<tr>
+<td>Fish (ectotherms)</td>
+<td>20-30%</td>
+<td>Moderate metabolic costs</td>
+</tr>
+<tr>
+<td>Amphibians (ectotherms)</td>
+<td>30-40%</td>
+<td>Low metabolic rate</td>
+</tr>
+<tr>
+<td>Birds (endotherms)</td>
+<td>1-3%</td>
+<td>~97% of assimilated energy on thermoregulation</td>
+</tr>
+<tr>
+<td>Mammals (endotherms)</td>
+<td>1-3%</td>
+<td>High metabolic overhead</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Consequence for food chain length:</strong> 10% efficiency
+means energy decreases by an order of magnitude per trophic level.
+Chains longer than 4-5 levels are energetically unsustainable in most
+ecosystems.</p>
+<p><strong>Human dietary implications:</strong> Producing 1 kg beef
+requires ~7-8 kg grain and ~15,000 L water. Shifting from trophic level
+3 (carnivore) to level 2 (herbivore) reduces land and water footprint by
+5-10x. Insect <a href="#gl:protein"><strong>protein</strong></a> (40-60%
+production efficiency) is ~20x more efficient than beef protein
+(1-3%).</p>
+<blockquote>
+<p>🔬 <strong>Clinical Connection — Biomagnification and Human
+Health:</strong> The 10% energy transfer rule has a dangerous corollary:
+persistent pollutants that are not metabolised
+<strong>biomagnify</strong> through the food chain. DDT
+(dichlorodiphenyltrichloroethane) concentrates ~10x per trophic level.
+In Lake Michigan in the 1960s: water = 0.014 ppm DDT → <a
+href="#gl:phytoplankton"><strong>phytoplankton</strong></a> = 5 ppm →
+zooplankton = 10 ppm → small fish = 50 ppm → large fish = 200 ppm → bald
+eagle eggs = 2,000 ppm. At 2,000 ppm, DDT metabolite DDE inhibits
+carbonic anhydrase in the shell gland, producing thin eggshells →
+reproductive failure → near-extinction. Mercury (methylmercury) follows
+the same pattern: tuna and swordfish accumulate mercury to levels that
+prompt FDA advisories for pregnant women (&gt;0.5 ppm → neurological
+risk to developing fetus).</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check:</strong> A savanna ecosystem has NPP = 500 g
+C/m<span class="math inline">\(^2\)</span>/yr. If herbivores consume 20%
+of NPP with 10% trophic efficiency, and a lion (tertiary consumer) eats
+herbivores with 10% efficiency, how much energy (g C/m<span
+class="math inline">\(^2\)</span>/yr) is available to sustain the lion
+population?</p>
+</blockquote>
+<hr />
+<h2 id="primary-productivity">Primary Productivity</h2>
+<p><strong>Gross Primary Production (GPP):</strong> Total rate of
+CO<span class="math inline">\(_2\)</span> fixation by most autotrophs
+(μmol CO<span class="math inline">\(_2\)</span>/m<span
+class="math inline">\(^2\)</span>/s or g C/m<span
+class="math inline">\(^2\)</span>/year).</p>
+<p><strong>Net Primary Production (NPP):</strong> GPP minus autotrophic
+respiration (<span class="math inline">\(R_a\)</span>):</p>
+<p><span class="math display">\[\begin{equation}
+NPP = GPP - R_a
+\label{eq:ecosystem_ecology_3}
+\end{equation}\]</span></p>
+<p><strong>Net Ecosystem Production (NEP):</strong> NPP minus
+heterotrophic respiration (<span class="math inline">\(R_h\)</span>,
+decomposers):</p>
+<p><span class="math display">\[\begin{equation}
+NEP = NPP - R_h
+\label{eq:ecosystem_ecology_4}
+\end{equation}\]</span></p>
+<p><strong>Net <a href="#gl:biome"><strong>Biome</strong></a> Production
+(NBP):</strong> NEP minus disturbance losses (fire, harvest, land-use
+change):</p>
+<p><span class="math display">\[\begin{equation}
+NBP = NEP - D
+\label{eq:ecosystem_ecology_5}
+\end{equation}\]</span></p>
+<blockquote>
+<p>NBP determines whether an ecosystem is a net carbon
+<strong>sink</strong> (<span class="math inline">\(NBP &gt; 0\)</span>)
+or <strong>source</strong> (<span class="math inline">\(NBP &lt;
+0\)</span>).</p>
+</blockquote>
+<h3 id="the-productivity-hierarchy">The Productivity Hierarchy</h3>
+<p><span class="math display">\[\begin{equation}
+\text{Solar radiation} \xrightarrow{\sim 1\text{-}2\%} GPP
+\xrightarrow{-R_a (\sim 50\%)} NPP \xrightarrow{-R_h} NEP
+\xrightarrow{-D} NBP
+\label{eq:ecosystem_ecology_6}
+\end{equation}\]</span></p>
+<p>Only about 1–2% of incident solar energy is captured
+photosynthetically as <strong>gross primary production</strong> (GPP).
+Autotrophic respiration (<span class="math inline">\(R_a\)</span>)
+consumes roughly half of GPP, leaving <strong>net primary
+production</strong> (NPP) — the biomass actually available to consumers.
+Subtracting heterotrophic respiration (<span
+class="math inline">\(R_h\)</span>, by animals, fungi, and microbes)
+gives <strong>net ecosystem production</strong> (NEP); subtracting
+further non-respiratory losses such as fire, harvest, and erosion (<span
+class="math inline">\(D\)</span>) gives <strong>net biome
+production</strong> (NBP), the quantity that determines whether a region
+is a long-term carbon sink or source. Each arrow is a quantitatively
+large loss, which is why food chains are short and why NBP is small
+relative to GPP.</p>
+<h3 id="global-primary-production">Global Primary Production</h3>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 28%" />
+<col style="width: 29%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>Ecosystem</th>
+<th>NPP (g C/m<span class="math inline">\(^2\)</span>/yr)</th>
+<th>Area (10<span class="math inline">\(^6\)</span> km<span
+class="math inline">\(^2\)</span>)</th>
+<th>Global contribution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tropical rainforests</td>
+<td>900-1,700</td>
+<td>17</td>
+<td>~30% of terrestrial NPP</td>
+</tr>
+<tr>
+<td>Temperate forests</td>
+<td>400-900</td>
+<td>12</td>
+<td></td>
+</tr>
+<tr>
+<td>Boreal forests</td>
+<td>100-400</td>
+<td>12</td>
+<td></td>
+</tr>
+<tr>
+<td>Tropical grasslands/savanna</td>
+<td>200-600</td>
+<td>22</td>
+<td></td>
+</tr>
+<tr>
+<td>Desert</td>
+<td>10-50</td>
+<td>42</td>
+<td>Minimal</td>
+</tr>
+<tr>
+<td>Tundra</td>
+<td>50-150</td>
+<td>9</td>
+<td></td>
+</tr>
+<tr>
+<td>Open ocean</td>
+<td>50-150</td>
+<td>332</td>
+<td>~45% of global NPP</td>
+</tr>
+<tr>
+<td>Coastal/upwelling</td>
+<td>200-600</td>
+<td>27</td>
+<td></td>
+</tr>
+<tr>
+<td>Coral reefs</td>
+<td>500-2,000</td>
+<td>0.6</td>
+<td>High per area, small total</td>
+</tr>
+<tr>
+<td><strong>Global total</strong></td>
+<td>—</td>
+<td>—</td>
+<td><strong>about 120 Pg C/yr (land) + 90 Pg C/yr (ocean)</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="factors-limiting-gpp">Factors Limiting GPP</h3>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 47%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Terrestrial</th>
+<th>Marine</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Light</td>
+<td>Yes (canopy shading, LAI)</td>
+<td>Yes (depth; turbidity; latitude)</td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td>Yes (<a href="#gl:enzyme"><strong>enzyme</strong></a> rates;
+freeze)</td>
+<td>Yes (Arctic/Antarctic)</td>
+</tr>
+<tr>
+<td>Water</td>
+<td>Primary limitation in many biomes</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Nitrogen</td>
+<td>Limiting in most ecosystems</td>
+<td>Primary limiter in most open ocean</td>
+</tr>
+<tr>
+<td>Phosphorus</td>
+<td>Co-limiting, especially in old weathered soils</td>
+<td>Co-limiting</td>
+</tr>
+<tr>
+<td>Iron</td>
+<td>Not typically</td>
+<td>Yes; 30% of ocean is iron-limited (HNLC regions)</td>
+</tr>
+<tr>
+<td>CO<span class="math inline">\(_2\)</span></td>
+<td>Potentially (CO<span class="math inline">\(_2\)</span> fertilisation
+effect)</td>
+<td>Dissolved CO<span class="math inline">\(_2\)</span> rarely
+limiting</td>
+</tr>
+</tbody>
+</table>
+<h3 id="measuring-npp">Measuring NPP</h3>
+<p>Different methods access different components of NPP and apply across
+different scales. No single method captures everything; the modern
+practice combines them.</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 15%" />
+<col style="width: 24%" />
+<col style="width: 24%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Method</th>
+<th>Scale</th>
+<th>Approach</th>
+<th>Captures</th>
+<th>Misses</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Harvest method</strong></td>
+<td>Plot (m<span class="math inline">\(^2\)</span>–ha)</td>
+<td>Clip aboveground biomass at peak; correct for litterfall, herbivory,
+mortality</td>
+<td>ANPP directly</td>
+<td>BNPP; rapid turnover; non-peak production</td>
+</tr>
+<tr>
+<td><strong>Eddy covariance</strong></td>
+<td>Hectares (canopy footprint)</td>
+<td>Tower-mounted sonic anemometer + IRGA measure CO<span
+class="math inline">\(_2\)</span> flux 10–20 Hz; partition NEP → GPP,
+<span class="math inline">\(R_e\)</span></td>
+<td>NEP at half-hourly resolution; 24/7/365</td>
+<td>Primarily the tower footprint; tall tower needed for forests</td>
+</tr>
+<tr>
+<td><strong>Remote sensing</strong></td>
+<td>Regional / global</td>
+<td>MODIS NDVI → fAPAR (fraction absorbed PAR) → light-use-efficiency
+NPP models (e.g., MOD17)</td>
+<td>Continental and global scales</td>
+<td>Hidden BNPP; saturation in dense canopies; cloud occlusion</td>
+</tr>
+<tr>
+<td><strong><span class="math inline">\(^{14}\)</span>C
+uptake</strong></td>
+<td>Aquatic, bottle</td>
+<td>Add NaH<span class="math inline">\(^{14}\)</span>CO<span
+class="math inline">\(_3\)</span>; incubate; filter and count <span
+class="math inline">\(^{14}\)</span>C in cells</td>
+<td>Phytoplankton primary production</td>
+<td>Mostly net (some respired <span
+class="math inline">\(^{14}\)</span>C lost); bottle effects</td>
+</tr>
+<tr>
+<td><strong>O<span class="math inline">\(_2\)</span> light/dark
+bottles</strong></td>
+<td>Aquatic</td>
+<td>Incubate paired bottles; light = NPP, dark = respiration; sum =
+GPP</td>
+<td>GPP and NPP simultaneously</td>
+<td>Sensitive to incubation duration</td>
+</tr>
+<tr>
+<td><strong>Litterfall traps + stem increment</strong></td>
+<td>Forest plot</td>
+<td>Annual leaf and twig fall + dendrometer band; sum = ANPP</td>
+<td>Long-term forest dynamics</td>
+<td>Belowground; understory</td>
+</tr>
+<tr>
+<td><strong>Minirhizotrons / ingrowth cores</strong></td>
+<td>Plot, root-specific</td>
+<td>Image roots through transparent tubes or harvest from buried mesh
+cores</td>
+<td>BNPP estimates</td>
+<td>Disturbance artefacts; coarse roots underrepresented</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Eddy covariance</strong> is the current gold standard for
+ecosystem-level carbon flux measurement. A global network of ~800 flux
+towers (FLUXNET) provides continuous GPP, <span
+class="math inline">\(R_e\)</span>, and NEP measurements across biomes;
+the data drive every modern terrestrial carbon model and are a primary
+input to the IPCC reports.</p>
+<p><strong>Cross-validation matters.</strong> Eddy covariance NEP at the
+Harvard Forest tower agreed with biometric (harvest + litterfall +
+dendrometer) NEP within 15% over 12 years (Barford et al. 2001,
+<em>Science</em>) — independent confirmation that the flux community’s
+numbers are real, not artefacts of filtering or gap-filling.</p>
+<h3 id="anpp-bnpp-and-their-ratio">ANPP, BNPP, and Their Ratio</h3>
+<p>Total NPP partitions into <strong>aboveground</strong> (ANPP —
+leaves, stems, reproductive organs) and <strong>belowground</strong>
+(BNPP — roots, root exudates, mycorrhizal carbon transfer). Belowground
+production is notoriously hard to measure but is often the larger
+fraction:</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 28%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>Biome</th>
+<th>ANPP/NPP</th>
+<th>BNPP/NPP</th>
+<th>BNPP / ANPP</th>
+<th>Driver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tropical rainforest</td>
+<td>0.65–0.75</td>
+<td>0.25–0.35</td>
+<td>0.4</td>
+<td>Resource-rich; allocation favours canopy competition</td>
+</tr>
+<tr>
+<td>Temperate deciduous forest</td>
+<td>0.55–0.65</td>
+<td>0.35–0.45</td>
+<td>0.7</td>
+<td>Seasonal, balanced</td>
+</tr>
+<tr>
+<td>Temperate grassland</td>
+<td>0.30–0.40</td>
+<td>0.60–0.70</td>
+<td>1.5–2.5</td>
+<td>Drought, fire, grazing favour root storage</td>
+</tr>
+<tr>
+<td>Tundra</td>
+<td>0.20–0.30</td>
+<td>0.70–0.80</td>
+<td>3–4</td>
+<td>Cold soils; nutrient acquisition expensive; root protection from
+freezing</td>
+</tr>
+<tr>
+<td>Boreal forest</td>
+<td>0.40–0.55</td>
+<td>0.45–0.60</td>
+<td>1.0–1.3</td>
+<td>Slow N mineralisation; mycorrhizal demand high</td>
+</tr>
+</tbody>
+</table>
+<p>Globally, BNPP is roughly half of total NPP — meaning <em>half</em>
+of the planet’s photosynthate is invested below the soil surface, where
+carbon turnover times can stretch into millennia. Ignoring BNPP in
+carbon-stock estimates underestimates terrestrial sequestration by 30–50
+% for grasslands and tundra.</p>
+<blockquote>
+<p><strong>Concept Check:</strong> A grassland and a forest both report
+ANPP = 400 g C/m<span class="math inline">\(^2\)</span>/yr. Which
+ecosystem has higher <em>total</em> NPP, and why does this matter for
+policy (e.g., carbon-credit accounting under REDD+)?</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check:</strong> A tropical rainforest has GPP = 3,000
+g C/m<span class="math inline">\(^2\)</span>/yr. If autotrophic
+respiration consumes 50% and heterotrophic respiration consumes 80% of
+NPP, calculate NPP and NEP. Is this ecosystem a net carbon sink?</p>
+</blockquote>
+<hr />
+<h2 id="the-carbon-cycle-and-climate-change">The Carbon Cycle and
+Climate Change</h2>
+<h3 id="carbon-reservoirs">Carbon Reservoirs</h3>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 28%" />
+<col style="width: 34%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr>
+<th>Reservoir</th>
+<th>Size (Pg C)</th>
+<th>Turnover time</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atmosphere</td>
+<td>~860 (2024)</td>
+<td>Years</td>
+<td>421 ppm CO<span class="math inline">\(_2\)</span> (Keeling
+Curve)</td>
+</tr>
+<tr>
+<td>Vegetation</td>
+<td>~560</td>
+<td>Decades</td>
+<td>Mainly tropical forests</td>
+</tr>
+<tr>
+<td>Soil organic carbon</td>
+<td>1,500-2,400</td>
+<td>Decades-millennia</td>
+<td>Largest terrestrial reservoir</td>
+</tr>
+<tr>
+<td>Permafrost</td>
+<td>~1,700</td>
+<td>Millennia</td>
+<td>Vulnerable to thaw</td>
+</tr>
+<tr>
+<td>Ocean surface</td>
+<td>~900</td>
+<td>Months</td>
+<td>Rapid exchange with atmosphere</td>
+</tr>
+<tr>
+<td>Ocean deep</td>
+<td>~37,000</td>
+<td>Centuries-millennia</td>
+<td>Largest active reservoir</td>
+</tr>
+<tr>
+<td>Lithosphere (fossil fuels)</td>
+<td>~3,700 (recoverable)</td>
+<td>Geological timescales</td>
+<td>Being transferred to atmosphere</td>
+</tr>
+<tr>
+<td>Marine sediments (carbonate)</td>
+<td>&gt;60,000,000</td>
+<td>Millions of years</td>
+<td>Long-term geological storage</td>
+</tr>
+</tbody>
+</table>
+<h3 id="annual-carbon-fluxes-2020s">Annual Carbon Fluxes (2020s)</h3>
+<pre class="mermaid"><code>graph LR
+    subgraph &quot;Global Carbon Cycle — Annual Fluxes (Pg C/yr)&quot;
+        ATM[&quot;Atmosphere&lt;br/&gt;860 Pg C&lt;br/&gt;421 ppm CO₂&quot;]
+        LAND[&quot;Terrestrial&lt;br/&gt;Biosphere&quot;]
+        OCEAN[&quot;Ocean&quot;]
+        FF[&quot;Fossil Fuels&lt;br/&gt;3,700 Pg C&quot;]
+        LUC[&quot;Land-Use&lt;br/&gt;Change&quot;]
+        PERM[&quot;Permafrost&lt;br/&gt;1,700 Pg C&quot;]
+    end
+
+    LAND --&gt;|&quot;GPP: 120&quot;| ATM
+    ATM --&gt;|&quot;Resp: 118&quot;| LAND
+    ATM --&gt;|&quot;Ocean uptake: 92&quot;| OCEAN
+    OCEAN --&gt;|&quot;Outgassing: 89&quot;| ATM
+    FF --&gt;|&quot;Combustion: 10&quot;| ATM
+    LUC --&gt;|&quot;Deforestation: 1.5&quot;| ATM
+
+    LAND -.-&gt;|&quot;Land sink: 3.5&quot;| LAND
+    OCEAN -.-&gt;|&quot;Ocean sink: 2.9&quot;| OCEAN
+    PERM -.-&gt;|&quot;Thaw: 0.3-1.0&quot;| ATM</code></pre>
+<!-- alt: Graph showing net atmospheric accumulation:. ~4.7 Pg C/yr → CO_2 rising at ~2.4 ppm/yr. -->
+<p><em>Net atmospheric accumulation:. ~4.7 Pg C/yr → CO<span
+class="math inline">\(_2\)</span> rising at ~2.4 ppm/yr.</em></p>
+<h3 id="the-biological-pump">The Biological Pump</h3>
+<p>The <strong>biological pump</strong> transfers carbon from ocean
+surface to deep water via biological processes:</p>
+<ol type="1">
+<li><strong>Photosynthesis</strong> by phytoplankton in euphotic zone
+fixes CO<span class="math inline">\(_2\)</span> into organic carbon</li>
+<li><strong>Sinking particles</strong> — dead phytoplankton, fecal
+pellets, aggregates (marine snow) sink to depth</li>
+<li><strong>Active transport</strong> — zooplankton diel vertical
+migration moves carbon downward (feeding at surface at night,
+metabolising at depth during day)</li>
+<li><strong>Dissolution</strong> at depth — organic carbon remineralised
+by bacteria, releasing CO<span class="math inline">\(_2\)</span> into
+deep water</li>
+<li><strong>Carbonate pump</strong> — CaCO<span
+class="math inline">\(_3\)</span> shells (foraminifera,
+coccolithophores) sink and dissolve below the carbonate compensation
+depth (~4,000 m)</li>
+</ol>
+<p>The biological pump exports ~10-15 Pg C/yr to deep water,
+sequestering it for centuries to millennia. Without the pump,
+atmospheric CO<span class="math inline">\(_2\)</span> would be ~200 ppm
+higher.</p>
+<h3 id="key-climate-feedbacks">Key Climate Feedbacks</h3>
+<p><strong>1. Permafrost carbon feedback (positive):</strong>
+Arctic/subarctic permafrost contains ~1,700 Pg C (twice the atmospheric
+reservoir). Warming → thaw → CO<span class="math inline">\(_2\)</span> +
+CH<span class="math inline">\(_4\)</span> release → more warming.</p>
+<ul>
+<li>CH<span class="math inline">\(_4\)</span> from <a
+href="#gl:anaerobic"><strong>anaerobic</strong></a> decomposition in
+thermokarst lakes is 80x more potent than CO<span
+class="math inline">\(_2\)</span> over 20 years</li>
+<li>Estimated +1.5-2.5<span class="math inline">\(^\circ\)</span>C
+additional warming if permafrost fully thaws (IPCC AR6 2021)</li>
+<li><strong>Abrupt thaw</strong> (collapse of ice-rich permafrost) may
+be more important than gradual thaw; largely omitted from current
+climate models (Turetsky et al. 2020, <em>Nature Geoscience</em>)</li>
+</ul>
+<p><strong>2. Ocean acidification:</strong></p>
+<p><span class="math display">\[\begin{equation}
+CO_2 + H_2O \rightarrow H_2CO_3 \rightarrow HCO_3^- + H^+
+\label{eq:ecosystem_ecology_7}
+\end{equation}\]</span></p>
+<p>Ocean <a href="#gl:ph"><strong>pH</strong></a> has decreased from
+~8.2 to ~8.05 since industrialisation (30% increase in [H<span
+class="math inline">\(^+\)</span>]). Consequences:</p>
+<ul>
+<li>Decreased [CO<span class="math inline">\(_3^{2-}\)</span>] →
+carbonate undersaturation → dissolution of calcareous shells</li>
+<li><strong>Aragonite saturation state:</strong> <span
+class="math inline">\(\Omega_{aragonite} =
+\frac{[Ca^{2+}][CO_3^{2-}]}{K_{sp,aragonite}}\)</span></li>
+<li>When <span class="math inline">\(\Omega &lt; 1\)</span>: aragonite
+dissolves</li>
+<li>Tropical coral reefs projected to be in net erosion by 2050 at
+current emission trajectories (Hoegh-Guldberg et al. 2007,
+<em>Science</em>)</li>
+<li>Pteropods (sea butterflies) — thin aragonite shells already
+dissolving in Southern Ocean</li>
+<li>Ocean acidification also impairs fish olfaction (affecting predator
+avoidance behaviour)</li>
+</ul>
+<p><strong>3. Methane hydrates (clathrate gun hypothesis):</strong>
+~500-2,500 Pg C locked in methane clathrates (ice-like structures) in
+ocean sediments and permafrost. Destabilisation during rapid warming →
+mass marine CH<span class="math inline">\(_4\)</span> release →
+catastrophic warming. Possible role in the Paleocene-Eocene Thermal
+Maximum (PETM, ~56 Ma): 5-8<span class="math inline">\(^\circ\)</span>C
+warming over ~10,000 years, mass marine extinction.</p>
+<p><strong>4. CO<span class="math inline">\(_2\)</span> fertilisation
+effect (negative feedback, partially):</strong> Higher atmospheric
+CO<span class="math inline">\(_2\)</span> increases photosynthetic rate
+(especially in C3 plants), partially offsetting emissions. However, this
+effect is limited by nitrogen and phosphorus availability, and saturates
+at high CO<span class="math inline">\(_2\)</span> levels. FACE (Free-Air
+CO<span class="math inline">\(_2\)</span> Enrichment) experiments show
+~15-25% NPP increase at 550 ppm, but diminishing returns beyond
+this.</p>
+<blockquote>
+<p>🔬 <strong>Clinical Connection — Ocean Acidification and Food
+Security:</strong> Ocean acidification threatens the $100 billion/year
+global shellfish industry. Oyster larvae in Pacific Northwest hatcheries
+experienced mass mortality beginning ~2005, traced to corrosive upwelled
+water with low <span class="math inline">\(\Omega_{aragonite}\)</span>.
+Hatcheries now monitor real-time carbonate chemistry and <a
+href="#gl:buffer"><strong>buffer</strong></a> intake water with sodium
+carbonate. Wild shellfish populations cannot be similarly managed. By
+2100, oyster calcification rates are projected to decline 25-40% under
+RCP 8.5, with cascading effects on coastal economies and nutrition —
+particularly in developing nations dependent on shellfish protein.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check:</strong> The ocean currently absorbs ~2.9 Pg
+C/yr from the atmosphere. If ocean warming reduces the solubility pump
+by 20%, how much additional CO<span class="math inline">\(_2\)</span>
+would remain in the atmosphere annually? What would be the approximate
+additional warming contribution over 50 years?</p>
+</blockquote>
+<hr />
+<h2 id="the-nitrogen-cycle">The Nitrogen Cycle</h2>
+<p>Nitrogen (N) is often the most limiting macronutrient in terrestrial
+and freshwater ecosystems. Despite comprising 78% of the atmosphere,
+<span class="math inline">\(N_2\)</span> is biologically inert — its
+triple bond (<span class="math inline">\(\equiv\)</span>) requires
+enormous energy to break.</p>
+<h3 id="key-nitrogen-transformations">Key Nitrogen Transformations</h3>
+<p><span class="math display">\[\begin{equation}
+\text{N}_2 \xrightarrow{\text{nitrogenase}} \text{NH}_3
+\xrightarrow{\text{GS/GOGAT}} \text{Organic N}
+\xrightarrow{\text{ammonification}} \text{NH}_4^+
+\xrightarrow{\text{Nitrosomonas}} \text{NO}_2^-
+\xrightarrow{\text{Nitrobacter}} \text{NO}_3^-
+\xrightarrow{\text{denitrification}} \text{N}_2\text{O} \to \text{N}_2
+\label{eq:ecosystem_ecology_8}
+\end{equation}\]</span></p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>Process</th>
+<th>Organisms</th>
+<th>Reaction</th>
+<th>Location</th>
+<th>Oxygen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>N<span class="math inline">\(_2\)</span>
+fixation</strong></td>
+<td><em>Rhizobium</em>, <em>Azotobacter</em>, <em>Anabaena</em>,
+<em>Frankia</em></td>
+<td>N<span class="math inline">\(_2\)</span> + 8H<span
+class="math inline">\(^+\)</span> + 8e<span
+class="math inline">\(^-\)</span> + 16ATP → 2NH<span
+class="math inline">\(_3\)</span> + H<span
+class="math inline">\(_2\)</span></td>
+<td>Root nodules; soil; ocean</td>
+<td>O<span class="math inline">\(_2\)</span>-sensitive
+(nitrogenase)</td>
+</tr>
+<tr>
+<td><strong>Ammonification</strong></td>
+<td>Most decomposers</td>
+<td>Organic N → NH<span class="math inline">\(_4^+\)</span></td>
+<td>Ubiquitous</td>
+<td><a href="#gl:aerobic"><strong>Aerobic</strong></a> or anaerobic</td>
+</tr>
+<tr>
+<td><strong><a href="#gl:nitrification">Nitrification</a> (step
+1)</strong></td>
+<td><em>Nitrosomonas</em>, <em>Nitrososphaera</em> (AOA)</td>
+<td>NH<span class="math inline">\(_3\)</span> → NO<span
+class="math inline">\(_2^-\)</span></td>
+<td>Aerobic soil/water</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><strong>Nitrification (step 2)</strong></td>
+<td><em>Nitrobacter</em>, <em>Nitrospira</em></td>
+<td>NO<span class="math inline">\(_2^-\)</span> → NO<span
+class="math inline">\(_3^-\)</span></td>
+<td>Aerobic soil/water</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><strong>Comammox</strong></td>
+<td><em>Nitrospira inopinata</em></td>
+<td>NH<span class="math inline">\(_3\)</span> → NO<span
+class="math inline">\(_3^-\)</span> (complete)</td>
+<td>Soil, engineered systems</td>
+<td>Required</td>
+</tr>
+<tr>
+<td><strong>Denitrification</strong></td>
+<td><em>Pseudomonas</em>, <em>Paracoccus</em></td>
+<td>NO<span class="math inline">\(_3^-\)</span> → N<span
+class="math inline">\(_2\)</span>O → N<span
+class="math inline">\(_2\)</span></td>
+<td>Waterlogged soil; sediments</td>
+<td>Anaerobic</td>
+</tr>
+<tr>
+<td><strong>Anammox</strong></td>
+<td><em>Candidatus Kuenenia</em></td>
+<td>NH<span class="math inline">\(_4^+\)</span> + NO<span
+class="math inline">\(_2^-\)</span> → N<span
+class="math inline">\(_2\)</span> + 2H<span
+class="math inline">\(_2\)</span>O</td>
+<td>Marine sediments</td>
+<td>Anaerobic</td>
+</tr>
+<tr>
+<td><strong>DNRA</strong></td>
+<td>Various bacteria</td>
+<td>NO<span class="math inline">\(_3^-\)</span> → NH<span
+class="math inline">\(_4^+\)</span></td>
+<td>Low C:N sediments</td>
+<td>Anaerobic</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    subgraph Atmosphere [&quot;Atmosphere (78% N₂)&quot;]
+        N2[&quot;N₂\n(triple bond, inert)&quot;]
+    end
+
+    subgraph Biological [&quot;Biological N Transformations&quot;]
+        NH3[&quot;NH₃/NH₄⁺\n(ammonium)&quot;]
+        NO2[&quot;NO₂⁻\n(nitrite)&quot;]
+        NO3[&quot;NO₃⁻\n(nitrate)&quot;]
+        ORG[&quot;Organic N\n(amino acids, proteins)&quot;]
+        N2O[&quot;N₂O\n(nitrous oxide\n~273× CO₂ warming\nGWP100, IPCC AR6)&quot;]
+    end
+
+    subgraph Anthropogenic [&quot;Human Inputs&quot;]
+        HB[&quot;Haber-Bosch\n~130 Tg N/yr\n400-500°C, 150-300 atm&quot;]
+        FERT[&quot;Fertiliser Application\n(only 30-50% uptake)&quot;]
+    end
+
+    subgraph Consequences [&quot;Environmental Consequences&quot;]
+        EUTR[&quot;Eutrophication\n→ Algal Blooms\n→ Hypoxic Dead Zones&quot;]
+        OZONE[&quot;Stratospheric\nOzone Depletion&quot;]
+    end
+
+    N2 --&gt;|&quot;N₂ fixation\n(nitrogenase)\nRhizobium, Azotobacter&quot;| NH3
+    N2 --&gt;|&quot;Haber-Bosch&quot;| HB
+    HB --&gt; FERT
+    FERT --&gt; NH3
+    NH3 --&gt;|&quot;Assimilation\n(GS/GOGAT)&quot;| ORG
+    ORG --&gt;|&quot;Ammonification\n(decomposers)&quot;| NH3
+    NH3 --&gt;|&quot;Nitrification\n(Nitrosomonas)&quot;| NO2
+    NO2 --&gt;|&quot;Nitrification\n(Nitrobacter)&quot;| NO3
+    NO3 --&gt;|&quot;Plant uptake&quot;| ORG
+    NO3 --&gt;|&quot;Denitrification\n(Pseudomonas)&quot;| N2O
+    N2O --&gt; N2
+    NO3 --&gt;|&quot;Leaching/Runoff&quot;| EUTR
+    N2O --&gt;|&quot;Radiative forcing&quot;| OZONE
+
+    style N2 fill:#4a90d9,color:#fff
+    style HB fill:#d9534f,color:#fff
+    style EUTR fill:#f0ad4e,color:#000
+    style N2O fill:#f0ad4e,color:#000</code></pre>
+<!-- alt: Flowchart showing nitrogen cycle showing biological transformations (fixation, ammonification, nitrification, denitrification) and anthropogenic disruption via the Haber-Bosch process. Excess reactive nitrogen cascades through ecosystems, causing eutrophication, hypoxia, and N₂O-mediated climate warming and ozone depletion. -->
+<p><em>The nitrogen cycle showing biological transformations (fixation,
+ammonification, nitrification, denitrification) and anthropogenic
+disruption via the Haber-Bosch process. Excess reactive nitrogen
+cascades through ecosystems, causing eutrophication, hypoxia, and
+N₂O-mediated climate warming and ozone depletion.</em></p>
+<h3 id="biological-nitrogen-fixation">Biological Nitrogen Fixation</h3>
+<p>The <strong>nitrogenase enzyme complex</strong> (Fe-Mo cofactor)
+catalyses the most energetically expensive biological reaction:</p>
+<p><span class="math display">\[\begin{equation}
+N_2 + 8H^+ + 8e^- + 16ATP \rightarrow 2NH_3 + H_2 + 16ADP + 16P_i
+\label{eq:ecosystem_ecology_9}
+\end{equation}\]</span></p>
+<p>Nitrogenase is <strong>irreversibly inactivated by O<span
+class="math inline">\(_2\)</span></strong>. Strategies for O<span
+class="math inline">\(_2\)</span> protection: -
+<strong>Rhizobium</strong> in legume root nodules: leghemoglobin (O<span
+class="math inline">\(_2\)</span>-scavenging pink protein) maintains low
+O<span class="math inline">\(_2\)</span> -
+<strong>Cyanobacteria</strong> (<em>Anabaena</em>): specialised
+heterocyst cells lack photosystem II (no O<span
+class="math inline">\(_2\)</span> production) -
+<strong>Azotobacter</strong>: very high respiration rate consumes O<span
+class="math inline">\(_2\)</span> before it reaches nitrogenase</p>
+<p>Global biological N fixation: ~130 Tg N/yr (natural) + ~130 Tg N/yr
+(Haber-Bosch) = ~260 Tg N/yr total.</p>
+<h3 id="anthropogenic-nitrogen-disruption">Anthropogenic Nitrogen
+Disruption</h3>
+<p><strong>Haber-Bosch process</strong> (1909; Fritz Haber, Nobel Prize
+1918):</p>
+<p><span class="math display">\[\begin{equation}
+N_2 + 3H_2 \xrightarrow{400\text{-}500°C, 150\text{-}300\text{ atm, Fe
+catalyst}} 2NH_3
+\label{eq:ecosystem_ecology_10}
+\end{equation}\]</span></p>
+<p>This single industrial process has <strong>doubled global reactive
+nitrogen</strong> and enabled the feeding of ~4 billion additional
+people. It is arguably the most important chemical invention of the 20th
+century — and one of the most environmentally damaging.</p>
+<p><strong>The reactive nitrogen cascade:</strong> Anthropogenic N
+travels through multiple compartments, causing damage at each step:</p>
+<ol type="1">
+<li><strong>Fertiliser</strong> → crop N (typically 30-50% taken up by
+plants)</li>
+<li><strong>Runoff</strong> → freshwater eutrophication → algal
+blooms</li>
+<li><strong>Coastal zones</strong> → marine eutrophication → hypoxia
+(“dead zones”)</li>
+<li><strong>Denitrification</strong> → N<span
+class="math inline">\(_2\)</span>O (potent greenhouse gas, 298x CO<span
+class="math inline">\(_2\)</span> warming potential over 100 years)</li>
+<li><strong>N<span class="math inline">\(_2\)</span>O</strong> →
+stratospheric ozone depletion (now the primary ozone-depleting
+substance; Ravishankara et al. 2009, <em>Science</em>)</li>
+</ol>
+<p><strong>Major hypoxic “dead zones”:</strong> | Location | Area
+(km<span class="math inline">\(^2\)</span>) | Primary nutrient source |
+| ——– | ————- | ———————- | | Gulf of Mexico | &gt;15,000 | Mississippi
+River agricultural runoff | | Baltic Sea | ~60,000 | European
+agricultural + industrial | | Chesapeake Bay | ~7,000 | Agricultural +
+urban | | East China Sea | ~20,000 | Yangtze River |</p>
+<blockquote>
+<p>🔬 <strong>Clinical Connection — Nitrate Contamination of Drinking
+Water:</strong> Agricultural nitrogen runoff contaminates groundwater
+with nitrate (NO<span class="math inline">\(_3^-\)</span>). In infants,
+gut bacteria reduce NO<span class="math inline">\(_3^-\)</span> to
+NO<span class="math inline">\(_2^-\)</span>, which oxidises hemoglobin
+to methemoglobin (Fe<span class="math inline">\(^{3+}\)</span>),
+incapable of carrying O<span class="math inline">\(_2\)</span>. This
+causes <strong>methemoglobinemia</strong> (“blue baby syndrome”) —
+cyanosis and potentially fatal hypoxia. The EPA maximum contaminant
+level for nitrate is 10 mg/L as N. In the US Corn Belt, &gt;20% of
+private wells exceed this limit. Chronic low-level nitrate exposure is
+also epidemiologically linked to colorectal cancer (Ward et al. 2018,
+<em>Int. J. Cancer</em>).</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check:</strong> The Haber-Bosch process has doubled
+global reactive nitrogen. Trace the fate of nitrogen applied as ammonium
+fertiliser to a cornfield: what percentage is taken up by the crop, what
+happens to the rest, and what environmental consequences arise at each
+step?</p>
+</blockquote>
+<hr />
+<h2 id="the-phosphorus-cycle">The Phosphorus Cycle</h2>
+<p>Phosphorus has <strong>no significant gaseous phase</strong> — its
+cycle is sedimentary (unlike C and N):</p>
+<h3 id="phosphorus-reservoirs-and-fluxes">Phosphorus Reservoirs and
+Fluxes</h3>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 16%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr>
+<th>Reservoir</th>
+<th>Size</th>
+<th>Key features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Continental crust</strong></td>
+<td>Primary source</td>
+<td>P in phosphate rock (apatite: Ca<span
+class="math inline">\(_5\)</span>(PO<span
+class="math inline">\(_4\)</span>)<span
+class="math inline">\(_3\)</span>(OH,F,Cl)); mined for fertiliser</td>
+</tr>
+<tr>
+<td><strong>Soil</strong></td>
+<td>Variable</td>
+<td>P sorbed to Fe<span class="math inline">\(^{3+}\)</span> and Al<span
+class="math inline">\(^{3+}\)</span> oxides (makes P unavailable at pH
+&lt; 5 or &gt; 8)</td>
+</tr>
+<tr>
+<td><strong>Freshwater</strong></td>
+<td>Very low</td>
+<td>Dissolved inorganic P (DIP) often &lt; 10 μg/L</td>
+</tr>
+<tr>
+<td><strong>Ocean</strong></td>
+<td>Low</td>
+<td>DIP at nanomolar concentrations in surface; higher at depth
+(remineralisation)</td>
+</tr>
+<tr>
+<td><strong>Marine sediments</strong></td>
+<td>Very large</td>
+<td>Long-term geological sink</td>
+</tr>
+</tbody>
+</table>
+<h3 id="p-limitation-in-ecosystems">P Limitation in Ecosystems</h3>
+<ul>
+<li><strong>Freshwater lakes:</strong> primarily P-limited (Schindler
+1977 — whole-lake experiment in Ontario demonstrated P controls algal
+growth; this finding led to P-detergent bans)</li>
+<li><strong>Open ocean:</strong> co-limitation by N and P; N in
+short-term, P in long-term (Redfield ratio: 106C:16N:1P in marine
+phytoplankton)</li>
+<li><strong>Tropical soils:</strong> severely P-limited (old weathered
+laterite soils; P leached over millions of years; mycorrhizal
+associations critical for P acquisition)</li>
+</ul>
+<h3 id="the-redfield-ratio">The Redfield Ratio</h3>
+<p><strong>:</strong> Marine phytoplankton consistently maintain an
+elemental ratio of:</p>
+<p><span class="math display">\[\begin{equation}
+106C : 16N : 1P
+\label{eq:ecosystem_ecology_11}
+\end{equation}\]</span></p>
+<p>This stoichiometric constraint means: - N:P ratio &lt; 16 →
+N-limiting - N:P ratio &gt; 16 → P-limiting - Deviation from Redfield
+ratio indicates which nutrient limits growth</p>
+<h3 id="phosphorus-crisis">Phosphorus Crisis</h3>
+<p>Global phosphate rock reserves are concentrated in ~6 countries
+(Morocco controls &gt;70% of reserves). Depletion projections vary
+widely (50-400 years at current extraction rates). <strong>Phosphorus
+recovery</strong> from wastewater (struvite precipitation: MgNH<span
+class="math inline">\(_4\)</span>PO<span class="math inline">\(_4 \cdot
+6H_2O\)</span>) is critical for long-term food security. Unlike
+nitrogen, phosphorus cannot be synthesised — it must be mined or
+recycled.</p>
+<blockquote>
+<p><strong>Concept Check:</strong> Schindler’s whole-lake experiment
+added P to one half and N+C to the other half. Primarily the P-enriched
+half developed algal blooms. Why is P the primary limiting nutrient in
+freshwater but N is often more limiting in the ocean?</p>
+</blockquote>
+<hr />
+<h2 id="the-sulphur-cycle">The Sulphur Cycle</h2>
+<p>Sulphur (S) cycling connects biological, atmospheric, and geological
+processes:</p>
+<p>Sulphur is a useful corrective to overly simple nutrient-cycle
+diagrams because it links metabolism, redox gradients, aerosols, odours,
+mining, acid rain, and ocean-atmosphere exchange. In sediments, sulphate
+reduction can dominate anaerobic respiration after oxygen and nitrate
+are depleted; at oxic-anoxic interfaces, sulphide oxidisers recycle
+reduced sulphur back toward sulphate. The biological interpretation
+therefore depends on redox state, electron donors, pH, and whether the
+system is microbial mat, wetland, hydrothermal vent, soil, or ocean
+surface.</p>
+<h3 id="key-sulphur-transformations">Key Sulphur Transformations</h3>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 25%" />
+<col style="width: 22%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr>
+<th>Process</th>
+<th>Organisms</th>
+<th>Reaction</th>
+<th>Environment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Assimilatory S reduction</strong></td>
+<td>Plants, bacteria</td>
+<td>SO<span class="math inline">\(_4^{2-}\)</span> → organic S
+(cysteine, methionine)</td>
+<td>Ubiquitous</td>
+</tr>
+<tr>
+<td><strong>Decomposition</strong></td>
+<td>Decomposers</td>
+<td>Organic S → H<span class="math inline">\(_2\)</span>S</td>
+<td>Anaerobic sediments</td>
+</tr>
+<tr>
+<td><strong>Dissimilatory S reduction</strong></td>
+<td><em>Desulfovibrio</em>, <em>Desulfobacter</em></td>
+<td>SO<span class="math inline">\(_4^{2-}\)</span> + H<span
+class="math inline">\(_2\)</span> → H<span
+class="math inline">\(_2\)</span>S</td>
+<td>Anaerobic (below N-reduction zone)</td>
+</tr>
+<tr>
+<td><strong>S oxidation</strong></td>
+<td><em>Thiobacillus</em>, <em>Beggiatoa</em></td>
+<td>H<span class="math inline">\(_2\)</span>S → S<span
+class="math inline">\(^0\)</span> → SO<span
+class="math inline">\(_4^{2-}\)</span></td>
+<td>Chemolithotrophic; oxic-anoxic interface</td>
+</tr>
+<tr>
+<td><strong>DMS production</strong></td>
+<td>Marine phytoplankton</td>
+<td>DMSP → DMS (dimethylsulphide)</td>
+<td>Ocean surface</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-claw-hypothesis">The CLAW Hypothesis</h3>
+<p><strong>Charlson-Lovelock-Andreae-Warren (1987):</strong> Marine
+phytoplankton emit DMS → DMS oxidises to SO<span
+class="math inline">\(_4^{2-}\)</span> aerosols in the atmosphere →
+these aerosols serve as <strong>cloud condensation nuclei (CCN)</strong>
+→ more clouds → increased albedo → cooling. This represents a potential
+<strong>planetary thermostat</strong> (negative feedback).</p>
+<p>However, the strength of this feedback remains debated. Satellite
+studies show correlations between phytoplankton blooms and cloud
+properties, but the magnitude of the DMS-climate link is uncertain.</p>
+<h3 id="acid-rain">Acid Rain</h3>
+<p>Fossil fuel combustion releases SO<span
+class="math inline">\(_2\)</span> and NO<span
+class="math inline">\(_x\)</span>:</p>
+<p><span class="math display">\[\begin{equation}
+SO_2 + H_2O + \frac{1}{2}O_2 \rightarrow H_2SO_4
+\label{eq:ecosystem_ecology_12}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+2NO_2 + H_2O \rightarrow HNO_3 + HNO_2
+\label{eq:ecosystem_ecology_13}
+\end{equation}\]</span></p>
+<p><strong>Environmental effects:</strong> pH &lt; 4.2 in sensitive
+lakes → fish kills, forest dieback (1970s-1990s). The success of sulphur
+emission regulations (US Clean Air Act 1990) in reversing acid rain
+damage demonstrates that environmental recovery is possible with
+political action — a major environmental success story.</p>
+<hr />
+<h2 id="b-nutrient-cycling-models-open-vs.-closed-systems">7B Nutrient
+Cycling Models: Open vs. Closed Systems</h2>
+<p>Whether an ecosystem is a net <strong>sink</strong> or
+<strong>source</strong> for a nutrient depends on the relative rates of
+input, internal recycling, and output (leakage). Two idealised limits
+are useful:</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 13%" />
+<col style="width: 15%" />
+<col style="width: 40%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Model</th>
+<th>Inputs</th>
+<th>Outputs</th>
+<th>Internal recycling</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Closed</strong></td>
+<td><span class="math inline">\(\to 0\)</span></td>
+<td><span class="math inline">\(\to 0\)</span></td>
+<td>Dominates</td>
+<td>Mature tropical rainforest on ancient soil; coral reef interior</td>
+</tr>
+<tr>
+<td><strong>Open</strong></td>
+<td>Large</td>
+<td>Large</td>
+<td>Small relative to fluxes</td>
+<td>Floodplain wetland; nutrient-loaded estuary; agricultural field</td>
+</tr>
+</tbody>
+</table>
+<p>For a single nutrient pool <span class="math inline">\(X\)</span>
+(e.g., soil-bound P, kg/ha) with input rate <span
+class="math inline">\(I\)</span> (e.g., atmospheric deposition +
+weathering) and output rate <span class="math inline">\(O\)</span>
+(leaching + erosion + harvest):</p>
+<p><span class="math display">\[\begin{equation}
+\frac{dX}{dt} = I - O = I - k X
+\label{eq:ecosystem_ecology_nutrient_pool}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is the leakage rate
+(yr<span class="math inline">\(^{-1}\)</span>). At steady state (<span
+class="math inline">\(dX/dt = 0\)</span>): <span
+class="math inline">\(\hat X = I/k\)</span>, and the <strong>mean
+residence time</strong> is <span class="math inline">\(\tau = 1/k =
+X/O\)</span>. A closed system has <span class="math inline">\(\tau \gg
+1\)</span> (nutrients cycle internally many times before leaving); an
+open system has <span class="math inline">\(\tau \le 1\)</span>
+(nutrients flow through quickly).</p>
+<h3 id="hubbard-brook-the-watershed-that-defined-the-field">Hubbard
+Brook: The Watershed That Defined the Field</h3>
+<p>The <strong>Hubbard Brook Experimental Forest</strong> (New
+Hampshire, USA) hosts the longest-running ecosystem-scale watershed
+experiment in the world . The design is brilliant: a small forested
+watershed has a single stream outlet, so weighing rainfall inputs
+against streamwater outputs gives the entire ecosystem nutrient budget —
+no plot extrapolation needed.</p>
+<p>In 1965–1966, Bormann, Likens, and colleagues clear-cut Watershed 2
+and suppressed regrowth with herbicides for three years, then compared
+inputs and outputs against an undisturbed reference watershed. The
+results overturned the dogma that mature forests “leak” nutrients in
+proportion to inputs:</p>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr>
+<th>Stream output (kg/ha/yr)</th>
+<th>Reference (intact)</th>
+<th>Clear-cut (year 2)</th>
+<th>Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NO<span class="math inline">\(_3^-\)</span>–N</strong></td>
+<td>2.0</td>
+<td>53</td>
+<td>26×</td>
+</tr>
+<tr>
+<td><strong>Ca<span class="math inline">\(^{2+}\)</span></strong></td>
+<td>14</td>
+<td>78</td>
+<td>5.6×</td>
+</tr>
+<tr>
+<td><strong>K<span class="math inline">\(^+\)</span></strong></td>
+<td>1.7</td>
+<td>36</td>
+<td>21×</td>
+</tr>
+<tr>
+<td><strong>Streamflow (cm/yr)</strong></td>
+<td>73</td>
+<td>100</td>
+<td>1.4× (no transpiration)</td>
+</tr>
+</tbody>
+</table>
+<p>The clear-cut watershed lost more N in two years than it had
+accumulated over decades. The lessons:</p>
+<ol type="1">
+<li><strong>Live vegetation is the single largest control on nutrient
+retention.</strong> Roots take up dissolved N-&gt; build biomass -&gt; N
+stays in the system.</li>
+<li><strong>Transpiration moves water out of soils</strong> and prevents
+nitrate-leaching events. Removing it raises water tables and flushes
+nutrients to streams.</li>
+<li><strong>Mature forests are quasi-closed for most nutrients</strong>,
+retaining 80–95 % of inputs through tight biological cycling.</li>
+<li>The same logic explains why agricultural watersheds (no perennial
+deep-rooted vegetation) leak nitrate and drive hypoxic dead zones in
+downstream receiving waters.</li>
+</ol>
+<p>Hubbard Brook also detected <strong>acid rain</strong> in the 1970s
+by tracking declining streamwater Ca<span
+class="math inline">\(^{2+}\)</span> concentration over decades; that
+signal contributed to the science underlying the U.S. Clean Air Act
+amendments of 1990. Few ecosystem experiments have had comparable
+scientific or policy impact.</p>
+<blockquote>
+<p><strong>Concept Check:</strong> Why does a clear-cut forest lose 20×
+more nitrate in streamflow than an intact forest, even though the
+standing soil-N pool is the same? Trace the mechanism through (a) plant
+uptake, (b) decomposition rate, (c) hydrology.</p>
+</blockquote>
+<hr />
+<h2 id="c-ocean-ecosystem-ecology">7C Ocean Ecosystem Ecology</h2>
+<p>Marine ecosystems contribute roughly half of global NPP (~50 Pg C/yr)
+on just two-thirds of the planet’s surface — but the productivity is
+enormously heterogeneous, structured by light, nutrients, and physical
+mixing.</p>
+<h3 id="productivity-zones-of-the-ocean">Productivity Zones of the
+Ocean</h3>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 47%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th>Zone</th>
+<th>Depth</th>
+<th>Light</th>
+<th>NPP (g C/m<span class="math inline">\(^2\)</span>/yr)</th>
+<th>Drivers</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Euphotic</strong></td>
+<td>0–100 m</td>
+<td>&gt; 1 % surface PAR</td>
+<td>50–600</td>
+<td>Phytoplankton growth; temperature- and nutrient-limited</td>
+</tr>
+<tr>
+<td><strong>Mesopelagic (twilight)</strong></td>
+<td>100–1,000 m</td>
+<td>&lt; 1 %</td>
+<td>0 (heterotrophic)</td>
+<td>Diel vertical migrators; remineralisation</td>
+</tr>
+<tr>
+<td><strong>Bathypelagic / abyssopelagic</strong></td>
+<td>1,000–6,000 m</td>
+<td>None</td>
+<td>0 (heterotrophic + chemo)</td>
+<td>Marine snow rains down; deep-sea food webs</td>
+</tr>
+<tr>
+<td><strong>Coastal upwelling</strong></td>
+<td>0–200 m</td>
+<td>High</td>
+<td>500–2,000</td>
+<td>Wind-driven upwelling brings cold, nutrient-rich water (Peruvian,
+Benguela, Californian, Canary currents)</td>
+</tr>
+<tr>
+<td><strong>Subtropical gyres (“ocean deserts”)</strong></td>
+<td>0–200 m</td>
+<td>High</td>
+<td>25–100</td>
+<td>Permanent thermal stratification; nutrients trapped at depth</td>
+</tr>
+<tr>
+<td><strong>Polar oceans</strong></td>
+<td>0–200 m (seasonal)</td>
+<td>Strong seasonality</td>
+<td>50–300 (intense in summer)</td>
+<td>Diatom blooms after ice retreat</td>
+</tr>
+<tr>
+<td><strong>Continental shelves</strong></td>
+<td>0–200 m</td>
+<td>High</td>
+<td>100–600</td>
+<td>River nutrient inputs; tidal mixing</td>
+</tr>
+</tbody>
+</table>
+<p>The four major <strong>coastal upwelling systems</strong> (eastern
+boundaries of ocean basins) cover &lt; 1 % of ocean area but produce ~20
+% of global fisheries catch — a dramatic illustration of how local
+mixing physics can dwarf area-based productivity expectations.</p>
+<h3 id="biological-pump-and-its-efficiency">Biological Pump and Its
+Efficiency</h3>
+<p>The biological pump operates at three scales:</p>
+<p><span class="math display">\[\begin{equation}
+\text{Export production} = \text{NPP} \times \text{e-ratio}
+\label{eq:ecosystem_ecology_export_ratio}
+\end{equation}\]</span></p>
+<p>where the <strong>e-ratio</strong> is the fraction of NPP that
+escapes the surface layer as sinking particles. Typical values: 0.1 in
+oligotrophic gyres (most carbon is recycled in surface), 0.3–0.5 in
+upwelling zones (large diatoms sink fast), and 0.5+ during diatom blooms
+in polar oceans.</p>
+<p><span class="math display">\[\begin{equation}
+\text{Sequestration efficiency} = \exp(-z/z_{1/2})
+\label{eq:ecosystem_ecology_martin_curve}
+\end{equation}\]</span></p>
+<p>The <strong>Martin curve</strong> (Martin et al. 1987, <em>Deep-Sea
+Research</em>) describes how export flux attenuates with depth as
+bacteria remineralise sinking organic matter. Carbon that escapes below
+~1,000 m is sequestered for centuries to millennia; carbon remineralised
+in the upper ocean returns to the atmosphere within years.</p>
+<p>Climate change is reorganising both pumps. Warming <strong>stratifies
+the surface ocean</strong>, reducing nutrient supply from depth and
+lowering NPP; acidification reduces calcareous-shell production,
+weakening the carbonate pump; and oxygen minimum zones are expanding,
+shifting remineralisation pathways. The net effect on the future ocean
+carbon sink is one of the largest open questions in Earth-system
+science.</p>
+<blockquote>
+<p>🔬 <strong>Clinical Connection — Harmful Algal Blooms.</strong>
+Nutrient-loaded coastal waters increasingly experience <strong>harmful
+algal blooms</strong> (HABs) by <em>Karenia brevis</em> (red tide,
+Florida — produces brevetoxins → respiratory distress, fish kills),
+<em>Pseudo-nitzschia</em> (Pacific coast — produces domoic acid →
+amnesic shellfish poisoning, lethal in birds and humans), and
+cyanobacterial blooms in Lake Erie (microcystin → liver toxicity; the
+2014 Toledo, Ohio drinking-water shutdown affected 500,000 people). HABs
+are open-system biogeochemistry meeting public health: agricultural
+runoff loads N and P to coastal waters, warm summers stratify and warm
+the surface, and the resulting blooms produce neurotoxins that move up
+the food chain via shellfish and finfish to humans. Each of the carbon,
+nitrogen, and phosphorus cycle disruptions in this chapter
+contributes.</p>
+</blockquote>
+<hr />
+<h2 id="d-soil-formation-and-pedogenesis">7D Soil Formation and
+Pedogenesis</h2>
+<p>Soils are the central terrestrial reservoir for organic carbon
+(1,500–2,400 Pg C, more than vegetation and atmosphere combined) and the
+medium through which nutrient cycles are mediated.
+<strong>Pedogenesis</strong> (soil formation) is itself an
+ecosystem-scale process operating over centuries to millennia.</p>
+<h3 id="five-state-factors-jenny-1941">Five State Factors (Jenny
+1941)</h3>
+<p><span class="math display">\[\begin{equation}
+\text{Soil} = f\,(\text{climate, organisms, relief, parent material,
+time})
+\label{eq:ecosystem_ecology_clorpt}
+\end{equation}\]</span></p>
+<p>This <strong>CLORPT</strong> framework remains the foundational
+organising principle of pedology. Climate sets the rates of weathering
+and decomposition; organisms (especially plants and microbes) drive
+organic matter accumulation; relief (topography) routes water and
+erosion; parent material (bedrock) supplies the mineralogy; and time
+integrates everything.</p>
+<h3 id="soil-horizons">Soil Horizons</h3>
+<p>A mature soil typically displays vertical layering reflecting
+depth-dependent processes:</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 15%" />
+<col style="width: 28%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Horizon</th>
+<th>Depth</th>
+<th>Processes</th>
+<th>Composition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>O (organic)</strong></td>
+<td>Top 0–10 cm</td>
+<td>Litter accumulation; decomposition</td>
+<td>Leaf litter; partially decomposed organic matter</td>
+</tr>
+<tr>
+<td><strong>A (topsoil)</strong></td>
+<td>5–30 cm</td>
+<td>Bioturbation; humification; root activity</td>
+<td>Dark, organic-matter-rich; high biological activity</td>
+</tr>
+<tr>
+<td><strong>E (eluvial)</strong></td>
+<td>0–50 cm (boreal/podzol)</td>
+<td>Leaching of clays, Fe, Al downward</td>
+<td>Pale, depleted; sandy texture</td>
+</tr>
+<tr>
+<td><strong>B (subsoil)</strong></td>
+<td>30–150 cm</td>
+<td>Illuviation: accumulation of leached materials</td>
+<td>Clay, Fe, Al oxides; often reddish or yellowish</td>
+</tr>
+<tr>
+<td><strong>C (parent material)</strong></td>
+<td>Below B</td>
+<td>Slow weathering of bedrock</td>
+<td>Rock fragments transitioning to soil</td>
+</tr>
+<tr>
+<td><strong>R (bedrock)</strong></td>
+<td>Bottom</td>
+<td>None</td>
+<td>Unweathered rock</td>
+</tr>
+</tbody>
+</table>
+<h3 id="three-stages-of-pedogenesis">Three Stages of Pedogenesis</h3>
+<ol type="1">
+<li><strong>Weathering and primary mineral breakdown.</strong> Physical
+fragmentation and chemical hydrolysis of bedrock release mineral
+nutrients (Ca, Mg, K, P, Fe). Cyanobacteria and lichens accelerate
+weathering through carbonic and oxalic acid secretion. Net rate:
+0.01–0.1 mm/yr (slow!).</li>
+<li><strong>Organic matter accumulation.</strong> Pioneer plants
+colonise; their litter fuels decomposers; humus forms (recalcitrant
+polymeric organic matter). Net soil organic carbon (SOC) increases at
+5–50 g C/m<span class="math inline">\(^2\)</span>/yr in temperate
+ecosystems for centuries.</li>
+<li><strong>Horizon differentiation and steady-state.</strong> Vertical
+translocation of clays, Fe/Al, and dissolved organic matter creates the
+A–E–B horizon sequence. Eventually inputs balance losses (leaching +
+decomposition + erosion) and SOC reaches a climate-determined
+ceiling.</li>
+</ol>
+<p>Tropical soils on ancient Gondwanan parent material (Brazilian
+shield, Australian outback) are at stage 3 <em>and ancient</em> — most P
+has leached over millions of years, leaving extremely low-fertility
+laterites; this explains why tropical rainforest productivity is high
+(rapid recycling) but cleared tropical soils are infertile (no
+recyclable pool left). Glacier-Bay primary succession () is the same
+process running at the centennial timescale.</p>
+<h3 id="soil-carbon-and-climate-feedback">Soil Carbon and Climate
+Feedback</h3>
+<p>Warming accelerates microbial decomposition more than it accelerates
+plant productivity, so a warmer world is expected to release soil carbon
+to the atmosphere — a positive feedback estimated at +30 to +200 Pg C
+over the 21st century (Crowther et al. 2016, <em>Nature</em>).
+Permafrost soils contain ~1,700 Pg C, twice the atmospheric pool, and
+are one of the largest uncertainties in 21st-century climate
+trajectories.</p>
+<hr />
+<h2
+id="e-coupled-biogeochemical-cycles-and-the-redfield-stoichiometry">7E
+Coupled Biogeochemical Cycles and the Redfield Stoichiometry</h2>
+<p>The C, N, and P cycles do not operate independently — biological
+demand stitches them into a coupled system whose stoichiometry is one of
+the most powerful diagnostic tools in ecosystem science.</p>
+<h3 id="the-redfield-ratio-revisited">The Redfield Ratio Revisited</h3>
+<p>Marine phytoplankton consistently maintain an elemental composition
+of <span class="math inline">\(106\,\text{C} : 16\,\text{N} :
+1\,\text{P}\)</span> . This ratio also describes the average composition
+of dissolved nutrients in deep ocean water — strong evidence that
+<strong>biology actively controls ocean chemistry</strong> (the Redfield
+insight). Deviations from Redfield diagnose limitation:</p>
+<table>
+<thead>
+<tr>
+<th>Ambient N : P</th>
+<th>Implication</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt; 16 (e.g., 8)</td>
+<td>N-limiting; nitrogen-fixers favoured</td>
+</tr>
+<tr>
+<td>≈ 16</td>
+<td>Balanced; both potentially limiting</td>
+</tr>
+<tr>
+<td>&gt; 16 (e.g., 30)</td>
+<td>P-limiting; high-P-affinity species favoured</td>
+</tr>
+</tbody>
+</table>
+<p>Terrestrial systems show similar but more variable ratios reflecting
+differences between woody (high C : N : P) and herbaceous tissues.
+Forest canopy: ~<span class="math inline">\(1200 : 28 : 1\)</span>. Soil
+microbial biomass: ~<span class="math inline">\(60 : 7 : 1\)</span> (N-
+and P-rich relative to plants — explaining why microbes immobilise
+mineral nutrients).</p>
+<h3 id="stoichiometric-coupling">Stoichiometric Coupling</h3>
+<p>Ecosystem-scale stoichiometry generates predictable feedbacks:</p>
+<ul>
+<li><strong>CO<span class="math inline">\(_2\)</span> fertilisation has
+limits.</strong> Higher atmospheric CO<span
+class="math inline">\(_2\)</span> raises plant C : N ratios; without
+proportional N input, growth saturates (the <strong>progressive nitrogen
+limitation</strong> hypothesis confirmed by long-term FACE
+experiments).</li>
+<li><strong>N deposition has P costs.</strong> Anthropogenic N
+enrichment shifts ecosystems from N- to P-limited; soil and freshwater P
+demand rises sharply.</li>
+<li><strong>Anoxia shifts cycles.</strong> Hypoxic dead zones suppress
+nitrate-dependent respiration pathways but enable iron and sulphate
+reduction; the N : P : Fe : S coupling reorganises.</li>
+</ul>
+<h3 id="planetary-boundaries">Planetary Boundaries</h3>
+<p> and the Stockholm Resilience Centre frame anthropogenic
+biogeochemical disruption as transgression of <strong>planetary
+boundaries</strong>. In the current assessment, six of nine boundaries
+are crossed: climate change, biosphere integrity, biogeochemical flows
+(N and P), land-system change, freshwater change, and novel entities
+(chemical pollution). Stratospheric ozone remains a regulatory success
+story, while ocean acidification is close to its boundary. Ecosystem
+ecology provides the quantitative basis for each of these limits — and
+for designing interventions to return inside them.</p>
+<hr />
+<h2 id="f-ecosystem-services-quantification-and-earth-system-science">7F
+Ecosystem Services Quantification and Earth System Science</h2>
+<h3 id="quantifying-and-valuing-services">Quantifying and Valuing
+Services</h3>
+<p>Beyond the opening qualitative categories, ecosystem services are
+increasingly quantified using three valuation approaches:</p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 23%" />
+<col style="width: 26%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr>
+<th>Method</th>
+<th>Approach</th>
+<th>Strengths</th>
+<th>Limitations</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Market price</strong></td>
+<td>Use observed prices for traded ecosystem outputs (timber, fish)</td>
+<td>Direct; defensible</td>
+<td>Primarily captures provisioning services</td>
+</tr>
+<tr>
+<td><strong>Replacement cost</strong></td>
+<td>Estimate cost of engineering substitutes (water treatment plants for
+wetland filtration)</td>
+<td>Tangible</td>
+<td>Assumes substitutes exist; ignores non-substitutables</td>
+</tr>
+<tr>
+<td><strong>Willingness-to-pay</strong></td>
+<td>Survey residents on what they would pay for clean air, biodiversity,
+etc.</td>
+<td>Captures cultural and existence value</td>
+<td>Hypothetical bias; income-dependent</td>
+</tr>
+</tbody>
+</table>
+<p>Costanza et al. (2014, <em>Ecosyst. Serv.</em>) updated their
+landmark 1997 estimate: global ecosystem services are worth ~$125
+trillion/yr (vs. global GDP of ~$100 trillion/yr in 2024). The TEEB
+initiative (The Economics of Ecosystems and Biodiversity, 2010) extended
+these methods to corporate and government decision-making.
+Ecosystem-service trade-offs (e.g., cropland conversion gains
+provisioning food but loses regulating climate and water purification)
+are now standard in environmental impact assessments.</p>
+<h3 id="the-gaia-hypothesis-critical-evaluation">The Gaia Hypothesis:
+Critical Evaluation</h3>
+<p> proposed the <strong>Gaia hypothesis</strong>: life and the abiotic
+environment form a coupled, self-regulating system. Modern Earth System
+Science keeps the coupling but rejects teleology; the key question is
+which feedbacks stabilise the Earth system and which amplify
+perturbations. Core claims and current standing:</p>
+<table>
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr>
+<th>Gaia claim</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atmospheric composition (O<span class="math inline">\(_2\)</span>,
+CH<span class="math inline">\(_4\)</span>, N<span
+class="math inline">\(_2\)</span>O) is biologically driven</td>
+<td><strong>Strongly supported</strong> — biology is essential</td>
+</tr>
+<tr>
+<td>Earth’s climate is biologically buffered (CLAW, biological pump,
+vegetation albedo)</td>
+<td><strong>Partially supported</strong> — feedbacks exist but are not
+always stabilising</td>
+</tr>
+<tr>
+<td>Biota act <em>teleologically</em> to maintain habitability</td>
+<td><strong>Rejected</strong> — no mechanism for group/planetary
+selection (Doolittle 1981); selection acts on individuals</td>
+</tr>
+<tr>
+<td>The biosphere is a <strong>superorganism</strong></td>
+<td><strong>Metaphorical</strong> — useful for systems thinking but not
+a literal claim</td>
+</tr>
+</tbody>
+</table>
+<p>The modern synthesis treats Gaia as <strong>Earth System
+Science</strong>: biology, geochemistry, hydrology, and atmospheric
+science form a single coupled system, with feedbacks that can be
+stabilising (negative) or destabilising (positive) depending on the
+perturbation. The IPCC reports, the Anthropocene Working Group, and the
+Planetary Boundaries framework are the descendants of this line of
+thinking.</p>
+<p>Per ’s dictum that “nothing in biology makes sense except in the
+light of evolution,” nothing in 21st-century ecology makes sense except
+in the light of human-driven Earth system change. The ecosystem ecology
+of this chapter — energy flow, biogeochemical cycles, ecosystem services
+— is now the operating manual for managing the planet itself.</p>
+<blockquote>
+<p><strong>Concept Check:</strong> The Gaia hypothesis predicts that the
+biosphere stabilises Earth’s habitability. List two examples where
+biological feedbacks stabilise the climate system and two where they
+destabilise it. What does this tell you about the difference between
+“Gaia as superorganism” and “Earth as a coupled biogeochemical
+system”?</p>
+</blockquote>
+<hr />
+<h2 id="the-water-cycle-hydrological-cycle">The Water Cycle
+(Hydrological Cycle)</h2>
+<p>The water cycle connects most biogeochemical cycles and drives
+nutrient transport:</p>
+<p>For biology, the water cycle is also a vegetation and land-use cycle.
+Roots, stomata, leaf area, soil organic matter, and microbial crusts
+influence infiltration, transpiration, runoff, and groundwater recharge;
+deforestation, drainage, compaction, and irrigation alter those same
+fluxes. Climate-change impacts on drought, flood risk, and food security
+therefore cannot be read from precipitation totals alone; residence
+time, timing, storage, and plant access to water matter just as
+much.</p>
+<h3 id="key-fluxes">Key Fluxes</h3>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 56%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Process</th>
+<th>Rate (10<span class="math inline">\(^3\)</span> km<span
+class="math inline">\(^3\)</span>/yr)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Evaporation</strong> (ocean)</td>
+<td>434</td>
+<td>Largest single flux</td>
+</tr>
+<tr>
+<td><strong>Precipitation</strong> (ocean)</td>
+<td>398</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Evapotranspiration</strong> (land)</td>
+<td>71</td>
+<td>Plant <a href="#gl:transpiration"><strong>transpiration</strong></a>
+= 60-90% of terrestrial evaporation</td>
+</tr>
+<tr>
+<td><strong>Precipitation</strong> (land)</td>
+<td>107</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Runoff</strong> (rivers to ocean)</td>
+<td>36</td>
+<td>Balances net ocean→land atmospheric transport</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Plant transpiration</strong> is a massively underappreciated
+flux: a single large oak tree transpires ~400 L/day. Tropical forests
+generate ~50% of their own rainfall through transpiration recycling (the
+“flying rivers” of the Amazon). Deforestation disrupts this cycle,
+potentially triggering tipping points toward savannification.</p>
+<hr />
+<h2 id="ecosystem-services-and-conservation-economics">Ecosystem
+Services and Conservation Economics</h2>
+<h3 id="biodiversity-ecosystem-functioning-bef">Biodiversity-Ecosystem
+Functioning (BEF)</h3>
+<p><strong>Tilman et al. (1996, 2001):</strong> Species richness
+generally increases ecosystem productivity, stability, and nutrient
+retention.</p>
+<p>Mechanisms: - <strong>Complementarity:</strong> different species use
+different resource pools/times; <a
+href="#gl:niche"><strong>niche</strong></a> partitioning increases total
+resource capture - <strong>Sampling effect:</strong> more diverse
+communities more likely to contain highly productive species -
+<strong>Facilitation:</strong> some species improve conditions for
+others (nitrogen fixers enrich soil for grasses)</p>
+<p><strong>The insurance hypothesis</strong> : Biodiversity provides
+insurance against environmental fluctuations. In diverse communities,
+when one species declines due to unfavourable conditions, others
+compensate. This stabilises ecosystem function over time.</p>
+<h3 id="payment-for-ecosystem-services-pes">Payment for Ecosystem
+Services (PES)</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 42%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th>Program</th>
+<th>Mechanism</th>
+<th>Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>REDD+</strong></td>
+<td>Carbon market payments to prevent deforestation</td>
+<td>International</td>
+</tr>
+<tr>
+<td><strong>Costa Rica PES</strong></td>
+<td>Government payments to landowners for forest conservation</td>
+<td>National</td>
+</tr>
+<tr>
+<td><strong>Pollination services</strong></td>
+<td>Beekeepers paid by orchardists</td>
+<td>Local</td>
+</tr>
+<tr>
+<td><strong>Wetland banking</strong></td>
+<td>Developers purchase credits for wetland destruction</td>
+<td>National (US)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Challenges:</strong> Additionality (would conservation have
+happened anyway?), leakage (deforestation displaced elsewhere),
+permanence (forest may be cut later), measurement (how much carbon is
+actually stored?).</p>
+<blockquote>
+<p><strong>Concept Check:</strong> The Millennium Ecosystem Assessment
+found that 60% of ecosystem services are degraded. Give three specific
+examples of degraded ecosystem services and explain how the degradation
+of each affects human wellbeing.</p>
+</blockquote>
+<hr />
+<h2 id="worked-example">Worked Example</h2>
+<p><strong>Problem:</strong> In a lake ecosystem, the gross primary
+productivity (GPP) of phytoplankton is <span
+class="math inline">\(10,000\text{ J/m}^2\text{/yr}\)</span>. The
+phytoplankton expend <span class="math inline">\(4,000\text{
+J/m}^2\text{/yr}\)</span> via cellular respiration (<span
+class="math inline">\(R\)</span>). Primary consumers (zooplankton)
+subsequently ingest the phytoplankton with a trophic efficiency of 10%.
+Calculate the net primary productivity (NPP) of the phytoplankton and
+the energy available to the secondary consumers.</p>
+<p><strong>Solution:</strong></p>
+<p><strong>Step 1. Calculate Net Primary Productivity (NPP).</strong>
+NPP is the energy that remains in the primary producers after
+respiration. <span class="math display">\[NPP = GPP - R
+\label{eq:unit_X_ecosystem_ecology_item_1}\]</span></p>
+<p><span class="math display">\[NPP = 10,000\text{ J} - 4,000\text{ J} =
+6,000\text{ J/m}^2\text{/yr}
+\label{eq:unit_X_ecosystem_ecology_item_2}\]</span></p>
+<p><strong>Step 2. Calculate the energy transferred to primary
+consumers.</strong> The zooplankton consume with a 10% trophic
+efficiency. <span class="math display">\[\text{Zooplankton Production} =
+NPP \times 0.10 \label{eq:unit_X_ecosystem_ecology_item_3}\]</span></p>
+<p><span class="math display">\[\text{Zooplankton Production} =
+6,000\text{ J} \times 0.10 = 600\text{ J/m}^2\text{/yr}
+\label{eq:unit_X_ecosystem_ecology_item_4}\]</span></p>
+<p><strong>Step 3. Calculate the energy available to secondary
+consumers.</strong> If secondary consumers (e.g., small fish) also have
+a 10% trophic efficiency: <span class="math display">\[\text{Fish
+Production} = \text{Zooplankton Production} \times 0.10
+\label{eq:unit_X_ecosystem_ecology_item_5}\]</span></p>
+<p><span class="math display">\[\text{Fish Production} = 600\text{ J}
+\times 0.10 = 60\text{ J/m}^2\text{/yr}
+\label{eq:unit_X_ecosystem_ecology_item_6}\]</span></p>
+<p><strong>Answer:</strong> The NPP of the phytoplankton is
+<strong><span class="math inline">\(6,000\text{
+J/m}^2\text{/yr}\)</span></strong>, and the energy available to the
+secondary consumers (produced by primary consumers) is <strong><span
+class="math inline">\(60\text{ J/m}^2\text{/yr}\)</span></strong>.</p>
+<hr />
+<h2
+id="worked-example-nutrient-pool-mass-balance-and-residence-time">Worked
+Example: Nutrient Pool Mass Balance and Residence Time</h2>
+<p><strong>Problem:</strong> A forested watershed holds a soil-available
+nitrogen pool of <span class="math inline">\(X = 800\text{ kg
+N/ha}\)</span>. Atmospheric deposition plus weathering supply an input
+of <span class="math inline">\(I = 8\text{ kg N/ha/yr}\)</span>, and the
+pool is at steady state. Calculate the stream-plus-erosion output flux
+<span class="math inline">\(O\)</span>, the mean residence time τ, and
+the leakage rate <span class="math inline">\(k\)</span>, then verify the
+steady-state pool size and interpret whether the system is open or
+closed.</p>
+<p><strong>Solution:</strong></p>
+<p><strong>Step 1. Identify the given variables.</strong> - Nitrogen
+pool (<span class="math inline">\(X\)</span>) = <span
+class="math inline">\(800\text{ kg N/ha}\)</span> - Input flux (<span
+class="math inline">\(I\)</span>) = <span class="math inline">\(8\text{
+kg N/ha/yr}\)</span> - Steady state: <span class="math inline">\(dX/dt =
+0\)</span>, so output equals input.</p>
+<p><strong>Step 2. Determine the output flux from the steady-state mass
+balance.</strong> <span class="math display">\[\frac{dX}{dt} = I - O = 0
+\;\Rightarrow\; O = I = 8\text{ kg N/ha/yr}
+\label{eq:unit_X_ecosystem_ecology_item_7}\]</span></p>
+<p><strong>Step 3. Compute the mean residence time.</strong> <span
+class="math display">\[\tau = \frac{X}{O} = \frac{800\text{ kg
+N/ha}}{8\text{ kg N/ha/yr}} = 100\text{ yr}
+\label{eq:unit_X_ecosystem_ecology_item_8}\]</span></p>
+<p><strong>Step 4. Compute the leakage rate and check the steady-state
+pool.</strong> <span class="math display">\[k = \frac{1}{\tau} =
+\frac{1}{100\text{ yr}} = 0.01\text{ yr}^{-1}
+\label{eq:unit_X_ecosystem_ecology_item_9}\]</span></p>
+<p><span class="math display">\[\hat{X} = \frac{I}{k} = \frac{8\text{ kg
+N/ha/yr}}{0.01\text{ yr}^{-1}} = 800\text{ kg N/ha}
+\label{eq:unit_X_ecosystem_ecology_item_10}\]</span></p>
+<p>The recovered <span class="math inline">\(\hat{X}\)</span> equals the
+stated pool, confirming the system is genuinely at steady state.</p>
+<p><strong>Answer:</strong> <span class="math inline">\(O = 8\text{ kg
+N/ha/yr}\)</span>, <span class="math inline">\(\tau = 100\text{
+yr}\)</span>, and <span class="math inline">\(k = 0.01\text{
+yr}^{-1}\)</span>. Because <span class="math inline">\(\tau = 100\text{
+yr} \gg 1\)</span>, an average nitrogen atom is recycled internally
+about 100 times before it leaves the watershed, so this is a tightly
+retaining, quasi-closed system; a disturbance that strips deep-rooted
+vegetation would raise <span class="math inline">\(O\)</span>, collapse
+τ, and rapidly flush the nitrogen pool to streamwater.</p>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Ecosystem Ecology and Biogeochemical Cycles</strong>,
+frontier biology belongs inside the evidence logic of the chapter.
+Ecology and conservation decisions increasingly combine field data,
+remote sensing, community knowledge, model uncertainty, and explicit
+values. The core reading question is this: ecosystem claims should track
+stocks, fluxes, residence times, boundaries, and coupled cycles.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>Use biodiversity metrics carefully: population indices, extinction
+risk categories, ecosystem services, and management targets answer
+different questions .</p>
+<p><strong>Source practice:</strong> For conservation claims, cite
+assessment sources and state whether the evidence is a population index,
+extinction-risk assessment, ecosystem-service valuation, satellite
+product, or policy synthesis .</p>
+<h3 id="current-evidence-map-agroecology-as-coupled-fluxes">Current
+Evidence Map: Agroecology as Coupled Fluxes</h3>
+<pre class="mermaid"><code>flowchart LR
+    A[&quot;Soil organic matter&quot;] --&gt; B[&quot;Water retention&quot;]
+    A --&gt; C[&quot;Nutrient cycling&quot;]
+    D[&quot;Crop diversity&quot;] --&gt; E[&quot;Pest regulation&quot;]
+    D --&gt; F[&quot;Pollinator habitat&quot;]
+    B --&gt; G[&quot;Yield stability&quot;]
+    C --&gt; G
+    E --&gt; G
+    F --&gt; G
+    G --&gt; H[&quot;Food security&quot;]</code></pre>
+<!-- alt: Flowchart showing food-security claims should connect ecological mechanisms to access, resilience, livelihoods, and tradeoffs rather than equating yield alone with nutrition . -->
+<p><em>Food-security claims should connect ecological mechanisms to
+access, resilience, livelihoods, and tradeoffs rather than equating
+yield alone with nutrition .</em></p>
+<h2 id="key-terms">Key Terms</h2>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPP</strong></td>
+<td>Gross Primary Production; total CO<span
+class="math inline">\(_2\)</span> fixation rate in an ecosystem</td>
+</tr>
+<tr>
+<td><strong>NPP</strong></td>
+<td>Net Primary Production; GPP - autotrophic respiration; biomass
+available to consumers</td>
+</tr>
+<tr>
+<td><strong>NEP</strong></td>
+<td>Net Ecosystem Production; NPP - heterotrophic respiration; ecosystem
+carbon balance</td>
+</tr>
+<tr>
+<td><strong>NBP</strong></td>
+<td>Net Biome Production; NEP - disturbance losses; regional carbon
+balance</td>
+</tr>
+<tr>
+<td><strong>Trophic efficiency</strong></td>
+<td>Fraction of energy at trophic level <span
+class="math inline">\(n\)</span> transferred to level <span
+class="math inline">\(n+1\)</span>; typically ~10%</td>
+</tr>
+<tr>
+<td><strong>Biomagnification</strong></td>
+<td>Increasing concentration of persistent pollutants at higher trophic
+levels</td>
+</tr>
+<tr>
+<td><strong>Eutrophication</strong></td>
+<td>Nutrient enrichment of water body → algal bloom → low O<span
+class="math inline">\(_2\)</span> → hypoxia</td>
+</tr>
+<tr>
+<td><strong>Biogeochemical cycle</strong></td>
+<td>Movement of an element through biotic and abiotic compartments</td>
+</tr>
+<tr>
+<td><strong>Haber-Bosch process</strong></td>
+<td>Industrial NH<span class="math inline">\(_3\)</span> synthesis;
+doubles global reactive N; drives eutrophication</td>
+</tr>
+<tr>
+<td><strong>Biological pump</strong></td>
+<td>Transfer of carbon from ocean surface to deep water via biological
+processes</td>
+</tr>
+<tr>
+<td><strong>Permafrost feedback</strong></td>
+<td>Warming → permafrost thaw → CO<span
+class="math inline">\(_2\)</span> + CH<span
+class="math inline">\(_4\)</span> release → further warming</td>
+</tr>
+<tr>
+<td><strong>Ocean acidification</strong></td>
+<td>CO<span class="math inline">\(_2\)</span> absorption → carbonic acid
+→ pH decrease → carbonate undersaturation</td>
+</tr>
+<tr>
+<td><strong>DMS (dimethylsulphide)</strong></td>
+<td>Volatile S compound from phytoplankton; → cloud condensation
+nuclei</td>
+</tr>
+<tr>
+<td><strong>Redfield ratio</strong></td>
+<td>106C:16N:1P stoichiometry of marine phytoplankton</td>
+</tr>
+<tr>
+<td><strong>Reactive nitrogen cascade</strong></td>
+<td>Sequential environmental damage as anthropogenic N moves through
+compartments</td>
+</tr>
+<tr>
+<td><strong>REDD+</strong></td>
+<td>International mechanism for carbon payments to prevent
+deforestation</td>
+</tr>
+<tr>
+<td><strong>Eddy covariance</strong></td>
+<td>Micrometeorological method for measuring ecosystem carbon flux</td>
+</tr>
+<tr>
+<td><strong>CLAW hypothesis</strong></td>
+<td>DMS-cloud-albedo feedback as planetary thermostat</td>
+</tr>
+<tr>
+<td><strong>ANPP / BNPP</strong></td>
+<td>Aboveground / belowground net primary production; ratio varies from
+0.4 (rainforest) to 3+ (tundra)</td>
+</tr>
+<tr>
+<td><strong>Eddy covariance</strong></td>
+<td>Continuous tower-based measurement of ecosystem CO<span
+class="math inline">\(_2\)</span> flux; gold standard for NEP</td>
+</tr>
+<tr>
+<td><strong>Martin curve</strong></td>
+<td>Exponential attenuation of organic-matter flux with depth in the
+ocean</td>
+</tr>
+<tr>
+<td><strong>Hubbard Brook</strong></td>
+<td>Long-running watershed experiment that demonstrated the dominant
+role of vegetation in nutrient retention</td>
+</tr>
+<tr>
+<td><strong>CLORPT</strong></td>
+<td>Jenny’s five soil-forming state factors: climate, organisms, relief,
+parent material, time</td>
+</tr>
+<tr>
+<td><strong>Soil horizons</strong></td>
+<td>Vertical layers (O, A, E, B, C, R) reflecting depth-dependent
+pedogenic processes</td>
+</tr>
+<tr>
+<td><strong>Planetary boundaries</strong></td>
+<td>Quantitative limits on anthropogenic perturbation across nine
+Earth-system processes</td>
+</tr>
+<tr>
+<td><strong>Earth System Science</strong></td>
+<td>Coupled study of biology, geochemistry, hydrology, and atmospheric
+science as a single planetary system</td>
+</tr>
+<tr>
+<td><strong>Export production / e-ratio</strong></td>
+<td>Fraction of NPP that escapes the surface ocean as sinking
+particles</td>
+</tr>
+<tr>
+<td><strong>Open vs. closed cycle</strong></td>
+<td>Whether a nutrient cycle is dominated by external fluxes (open) or
+internal recycling (closed)</td>
+</tr>
+<tr>
+<td><strong>Mean residence time (τ)</strong></td>
+<td><span class="math inline">\(X/O\)</span>; average time a nutrient
+atom spends in a pool before leaving</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li><p>An estuary receives large inputs of fertiliser-derived N and P
+from agricultural runoff each spring. Trace the <strong>cascade of
+events</strong> from nutrient loading to hypoxia, naming each ecological
+and microbial process involved. Which specific microbial process creates
+the anoxic condition?</p></li>
+<li><p>A tropical rainforest has GPP = 3,000 g C/m<span
+class="math inline">\(^2\)</span>/yr and autotrophic respiration = 1,500
+g C/m<span class="math inline">\(^2\)</span>/yr. Heterotrophic
+respiration = 1,200 g C/m<span class="math inline">\(^2\)</span>/yr.
+Calculate: (a) NPP, (b) NEP, (c) Is this ecosystem a net carbon sink or
+source? (d) If deforestation converts this to farmland with NEP = -200 g
+C/m<span class="math inline">\(^2\)</span>/yr, what is the additional
+carbon released per hectare per year?</p></li>
+<li><p>Iron fertilisation experiments (Martin 1990: “Give me half a
+tanker of iron and I will give you an ice age”) showed that adding Fe to
+HNLC ocean regions triggers phytoplankton blooms. (a) Explain why these
+regions are high in N and P but low in phytoplankton. (b) Why doesn’t
+iron fertilisation cause long-term net CO<span
+class="math inline">\(_2\)</span> drawdown? (c) What are the ecological
+risks of large-scale iron fertilisation?</p></li>
+<li><p>The permafrost carbon feedback is estimated to release 1-1.5 Pg
+CO<span class="math inline">\(_2\)</span>-equivalent per year for each
+degree of additional warming. Current warming projections suggest
+2-4<span class="math inline">\(^\circ\)</span>C above pre-industrial by
+2100. Calculate the range of additional CO<span
+class="math inline">\(_2\)</span>-equivalent that permafrost might
+contribute over 80 years, assuming linear temperature rise. Compare with
+annual fossil fuel emissions of ~10 Pg C/yr.</p></li>
+<li><p>Compare the nitrogen and phosphorus cycles in terms of: (a)
+whether they have a significant atmospheric phase, (b) the primary
+anthropogenic disruption, (c) the main environmental consequence, and
+(d) whether the element can be industrially synthesised from atmospheric
+or geological sources.</p></li>
+<li><p>Using the concept of trophic efficiency, calculate how many
+kilograms of phytoplankton are needed to produce 1 kg of tuna (assume
+tuna feeds at trophic level 4 with 10% efficiency at each step). How
+does this relate to the environmental footprint of eating
+high-trophic-level seafood?</p></li>
+<li><p>Explain the biological pump in detail. Why is it important for
+climate regulation? If ocean warming stratifies the surface layer more
+strongly (reducing nutrient upwelling), what happens to the efficiency
+of the biological pump and atmospheric CO<span
+class="math inline">\(_2\)</span>?</p></li>
+<li><p>The Keeling Curve shows atmospheric CO<span
+class="math inline">\(_2\)</span> rising from 315 ppm in 1958 to 421 ppm
+in 2024. Given that ~55% of anthropogenic CO<span
+class="math inline">\(_2\)</span> emissions are absorbed by land and
+ocean sinks: (a) What would atmospheric CO<span
+class="math inline">\(_2\)</span> be without these sinks? (b) If ocean
+acidification reduces the ocean’s capacity to absorb CO<span
+class="math inline">\(_2\)</span> by 15%, how much additional CO<span
+class="math inline">\(_2\)</span> would remain in the atmosphere per
+year?</p></li>
+<li><p>A farmer applies 200 kg N/ha as ammonium nitrate fertiliser.
+Primarily 40% is taken up by the corn crop. Trace the fate of the
+remaining 120 kg N/ha through the nitrogen cycle: what fraction is
+likely denitrified, leached as nitrate, volatilised as NH<span
+class="math inline">\(_3\)</span>, and converted to N<span
+class="math inline">\(_2\)</span>O? What is the total environmental cost
+of this “excess” nitrogen?</p></li>
+<li><p>Compare the CLAW hypothesis (DMS-cloud feedback) with the
+permafrost carbon feedback. One is a negative feedback and one is
+positive. Explain which is which, their relative magnitudes, and their
+implications for Earth’s climate trajectory.</p></li>
+<li><p>Assign trophic levels with <code>food_web_trophic_levels</code>
+for a three-species chain; verify tuna-style pyramids require
+multiplying efficiencies.</p></li>
+<li><p>Why is <strong>Redfield</strong> stoichiometry a diagnostic for
+nutrient limitation rather than a comprehensive constant?</p></li>
+<li><p>The Hubbard Brook clear-cut experiment increased streamwater
+NO<span class="math inline">\(_3^-\)</span> losses 26-fold. Trace the
+mechanism through (a) cessation of plant uptake, (b) accelerated
+decomposition without canopy cooling, (c) elevated water tables and
+reduced transpiration. Why is this evidence that mature forests function
+as quasi-closed nutrient systems?</p></li>
+<li><p>Compare four methods for measuring NPP (harvest, eddy covariance,
+<span class="math inline">\(^{14}\)</span>C, MODIS remote sensing). For
+each, give one ecosystem where it is the <em>most</em> defensible method
+and one where it would systematically underestimate true NPP.</p></li>
+<li><p>A coastal upwelling zone has surface NPP = 1,500 g C/m<span
+class="math inline">\(^2\)</span>/yr and an e-ratio of 0.4; a
+subtropical gyre has NPP = 50 g C/m<span
+class="math inline">\(^2\)</span>/yr and an e-ratio of 0.1. (a)
+Calculate export production for each. (b) If both export equal
+<em>fractions</em> of carbon below 1,000 m via the Martin curve (<span
+class="math inline">\(z_{1/2} = 200\)</span> m), which contributes more
+to long-term carbon sequestration per unit area? (c) How does
+climate-driven stratification of the surface ocean change both
+numbers?</p></li>
+<li><p>Explain the ANPP/BNPP partition for a temperate grassland
+(BNPP/ANPP ≈ 2) vs. a tropical rainforest (BNPP/ANPP ≈ 0.4). Why does
+this partition affect (a) carbon-credit accounting under REDD+, (b)
+ecosystem response to drought, (c) long-term soil organic carbon
+accumulation?</p></li>
+<li><p>Apply the Redfield ratio to diagnose three scenarios: (a) ambient
+N : P = 6, (b) N : P = 16, (c) N : P = 35. For each, predict which
+nutrient is limiting and which functional groups (e.g., diatoms,
+cyanobacteria, dinoflagellates) you expect to dominate.</p></li>
+<li><p>The Gaia hypothesis claims Earth’s biosphere actively maintains
+habitability. Evaluate this claim by listing two stabilising biological
+feedbacks (negative) and two destabilising ones (positive). What is the
+difference between “Gaia as a metaphor for Earth System Science” and
+“Gaia as a literal superorganism”? Why was Doolittle (1981)’s critique
+decisive?</p></li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Levin (1998). Ecosystems and the Biosphere as Complex Adaptive
+Systems. <em>Ecosystems</em>, 1.</li>
+<li>Bormann &amp; Likens (1967). Nutrient cycling. <em>Science</em>,
+155.</li>
+<li>Redfield (1958). The biological control of chemical factors in the
+environment. <em>American Scientist</em>, 46.</li>
+<li>Yachi &amp; Loreau (1999). Biodiversity and ecosystem productivity
+in a fluctuating environment: The insurance hypothesis. <em>Proceedings
+of the National Academy of Sciences</em>, 96.</li>
+</ul>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>Trophic position can be read off an adjacency list of “eats”
+relations:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.ecology <span class="im">import</span> food_web_trophic_levels</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>web <span class="op">=</span> {<span class="st">&quot;phyto&quot;</span>: [], <span class="st">&quot;zooplankton&quot;</span>: [<span class="st">&quot;phyto&quot;</span>], <span class="st">&quot;fish&quot;</span>: [<span class="st">&quot;zooplankton&quot;</span>]}</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(food_web_trophic_levels(web))</span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> Biomagnification of
+methylmercury follows the same stepped energy flow you quantify with
+trophic level assignments.</p>
+</blockquote>
+<hr />
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Ecosystems</strong> = biotic + abiotic components; energy
+flows through trophic levels (~10% efficiency; Lindeman 1942); nutrient
+atoms cycle.</li>
+<li><strong>GPP → NPP → NEP → NBP</strong> hierarchy; global terrestrial
+NPP ~120 Pg C/yr; tropical rainforests dominate.</li>
+<li><strong>Energy flow:</strong> one-way through system with ~10%
+trophic efficiency; biomagnification of persistent pollutants
+concentrates toxins at higher levels.</li>
+<li><strong>Carbon cycle:</strong> 10 Pg C/yr fossil fuel input;
+atmospheric CO<span class="math inline">\(_2\)</span> at 421 ppm (2024);
+biological pump exports 10-15 Pg C/yr to deep ocean; permafrost (1,700
+Pg) vulnerable; ocean acidification (<span class="math inline">\(\Omega
+&lt; 1\)</span> → coral dissolution).</li>
+<li><strong>Nitrogen cycle:</strong> N<span
+class="math inline">\(_2\)</span> fixation (nitrogenase; Haber-Bosch
+doubles global reactive N) → nitrification → denitrification / anammox.
+Reactive N cascade causes eutrophication, hypoxia, N<span
+class="math inline">\(_2\)</span>O (298x CO<span
+class="math inline">\(_2\)</span> warming potential).</li>
+<li><strong>Phosphorus cycle:</strong> sedimentary (no gas phase);
+P-limiting in freshwater; Redfield ratio 106C:16N:1P; globally finite
+reserves.</li>
+<li><strong>Sulphur cycle:</strong> DMS → cloud condensation nuclei →
+planetary thermostat (CLAW hypothesis); acid rain from SO<span
+class="math inline">\(_2\)</span> (reversed by regulation).</li>
+<li><strong>Measuring NPP:</strong> harvest, eddy covariance (FLUXNET),
+<span class="math inline">\(^{14}\)</span>C uptake, MODIS remote sensing
+— each captures different components; ANPP/BNPP partition varies from
+0.4 (rainforest) to &gt;3 (tundra) and shifts conclusions about global
+carbon storage.</li>
+<li><strong>Hubbard Brook :</strong> the clear-cut experiment showed
+live vegetation retains 80–95% of nutrient inputs; mature forests are
+quasi-closed for most nutrients. Open vs. closed nutrient regimes
+governed by mean residence time <span class="math inline">\(\tau =
+X/O\)</span>.</li>
+<li><strong>Ocean ecosystem ecology:</strong> half of global NPP;
+productivity zones (euphotic, mesopelagic, abyssopelagic, upwelling,
+gyres, polar); biological pump exports ~10–15 Pg C/yr; Martin curve
+attenuates flux with depth.</li>
+<li><strong>Soil formation:</strong> Jenny’s CLORPT factors; horizon
+differentiation (O–A–E–B–C–R); soils store 1,500–2,400 Pg C;
+warming-driven SOC release is a major positive climate feedback.</li>
+<li><strong>Coupled cycles:</strong> Redfield <span
+class="math inline">\(106\,\text{C}:16\,\text{N}:1\,\text{P}\)</span>
+diagnoses nutrient limitation; the planetary boundaries framework places
+six of nine Earth-system limits already crossed .</li>
+<li><strong>Water cycle:</strong> plant transpiration drives 60-90% of
+terrestrial evaporation; tropical forests generate their own
+rainfall.</li>
+<li><strong>Ecosystem services</strong> (~$125T/yr; Costanza 2014); 60%
+degraded (MEA 2005); biodiversity increases ecosystem function via
+complementarity and insurance.</li>
+<li><strong>Earth System Science / Gaia:</strong> modern descendant of
+the Lovelock–Margulis hypothesis; biology and abiotic systems are
+coupled, but the “superorganism” claim is rejected — feedbacks can
+stabilise <em>or</em> destabilise.</li>
+<li><strong>Connections:</strong> See for photosynthetic GPP/NPP
+concepts, Unit VIII for transpiration in the water cycle, and for biome
+NPP benchmarks.</li>
+</ul>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Ecosystem Ecology and Biogeochemical Cycles</strong> should
+leave a reproducible trail from a biological claim to the code, figure,
+diagram, or paper-based activity that can test it. Use the surfaces
+below to inspect the chapter’s assumptions, rerun the relevant model, or
+compare the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/ecology/ecology.py</code>
+(<code>food_web_trophic_levels</code>, <code>connectance</code>,
+<code>biodiversity_indices</code>)</td>
+<td>Translate ecosystem structure into trophic, network, and diversity
+calculations.</td>
+</tr>
+<tr>
+<td><code>src/biology/botany/botany.py</code>
+(<code>photosynthesis_rate</code>, <code>water_potential</code>)</td>
+<td>Link primary production and plant-water constraints to ecosystem
+fluxes.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>nutrient_cycle_diagram</code>,
+<code>food_web_diagram</code>)</td>
+<td>Keep stocks, fluxes, and boundaries visually explicit.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> state system boundary, stock,
+flux, residence time, unit, and time window before comparing ecosystem
+budgets. <strong>Cross-reference:</strong> connect with , , and .</p>
+</body>
+</html>

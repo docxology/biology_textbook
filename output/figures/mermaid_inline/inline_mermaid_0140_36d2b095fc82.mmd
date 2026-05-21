@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant Atm as Atmosphere<br/>(psi = -100 MPa)
+    participant Leaf as Leaf Mesophyll<br/>(psi = -1.5 MPa)
+    participant Xylem as Xylem Column<br/>(Continuous water column)
+    participant Root as Root<br/>(psi = -0.3 MPa)
+    participant Soil as Soil<br/>(psi = -0.03 MPa)
+
+    Atm->>Leaf: 1. Evaporation at cell wall surface<br/>(driven by VPD)
+    Note over Leaf: Water meniscus at cell wall<br/>generates negative pressure
+    Leaf->>Xylem: 2. Tension (negative pressure)<br/>pulls water column upward
+    Note over Xylem: Cohesion: H-bonds hold<br/>water molecules together<br/>(tensile strength ~-30 MPa)
+    Note over Xylem: Adhesion: water clings<br/>to hydrophilic xylem walls
+    Xylem->>Root: 3. Tension transmitted<br/>through continuous column
+    Root->>Soil: 4. Water enters root<br/>down psi gradient
+    Note over Soil,Atm: SPAC gradient drives<br/>entire process passively

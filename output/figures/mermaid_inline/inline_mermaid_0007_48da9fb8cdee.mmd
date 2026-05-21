@@ -1,0 +1,10 @@
+graph TD
+    subgraph Phase Space Landscape
+        S1["Initial State A"] -->|Trajectory| A1(("Attractor 1<br/>(e.g., Health)"))
+        S2["Initial State B"] -->|Trajectory| A1
+        S3["Initial State C<br/>(Perturbation)"] -->|Trajectory| A2(("Attractor 2<br/>(e.g., Disease)"))
+        A1 -.->|"High threshold barrier"| A2
+    end
+
+    style A1 fill:#2ecc71,color:#fff
+    style A2 fill:#e74c3c,color:#fff

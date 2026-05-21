@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>003_unit_intro</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered"
+id="unit-0-systems-science-and-the-biology-of-complexity-introduction">Unit
+0 — Systems Science and the Biology of Complexity: Introduction</h1>
+<p><strong>Unit 0 · Introduction</strong></p>
+<hr />
+<h2 class="unnumbered" id="why-this-unit-matters">Why This Unit
+Matters</h2>
+<p>The modern study of biology began by reducing living phenomena to
+their smallest parts — cells, molecules, genes. This reductionist
+strategy yielded extraordinary insight. Yet the more we learned about
+individual components, the clearer it became that biology cannot be
+explained by parts alone: a neuron firing is not a thought, a gene is
+not a behaviour, a metabolic pathway is not a cell. What emerges from
+the <em>interaction</em> of parts — properties no single component
+possesses in isolation — is the subject of <strong>systems
+science</strong>.</p>
+<p>Unit 0 introduces three interlocking frameworks that recur in every
+subsequent unit:</p>
+<ol type="1">
+<li><strong>Systems science</strong> — the general theory of organised
+complexity: how hierarchical systems form, how feedback governs their
+behaviour, how new properties emerge.</li>
+<li><strong>Complex adaptive systems</strong> — how populations of
+agents with local rules give rise to robust, evolvable, collective
+behaviour.</li>
+<li><strong>Active inference and the free energy principle</strong> — a
+mathematically grounded account of how living agents maintain themselves
+by predicting and acting on their environments.</li>
+</ol>
+<p>Reading Unit 0 is optional but recommended: it supplies the
+vocabulary of emergence, attractors, bifurcations, allostasis, and
+precision that makes Units I–X fit together as a single coherent theory
+of living organisation.</p>
+<hr />
+<h2 class="unnumbered" id="landmark-discoveries">Landmark
+Discoveries</h2>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 42%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr>
+<th>Year</th>
+<th>Contribution</th>
+<th>Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1867</td>
+<td>Hermann von Helmholtz — <em>Handbook of Physiological
+Optics</em></td>
+<td>First framing of perception as unconscious inference</td>
+</tr>
+<tr>
+<td>1932</td>
+<td>Walter Cannon — <em>The Wisdom of the Body</em></td>
+<td>Coined <em>homeostasis</em>; proposed regulated internal milieu</td>
+</tr>
+<tr>
+<td>1948</td>
+<td>Norbert Wiener — <em>Cybernetics</em></td>
+<td>Formalised feedback control; bridged engineering and biology</td>
+</tr>
+<tr>
+<td>1968</td>
+<td>Ludwig von Bertalanffy — <em>General System Theory</em></td>
+<td>Articulated open systems and hierarchy across disciplines</td>
+</tr>
+<tr>
+<td>1977</td>
+<td>Ilya Prigogine — Nobel in Chemistry</td>
+<td>Dissipative structures and non-equilibrium self-organisation</td>
+</tr>
+<tr>
+<td>1987</td>
+<td>Per Bak, Tang &amp; Wiesenfeld — <em>Phys. Rev. Lett.</em></td>
+<td>Self-organised criticality and power-law scaling in CAS</td>
+</tr>
+<tr>
+<td>1992</td>
+<td>John Holland — <em>Adaptation in Natural and Artificial
+Systems</em></td>
+<td>Genetic algorithms; formal CAS framework</td>
+</tr>
+<tr>
+<td>2010</td>
+<td>Karl Friston — <em>Nature Rev. Neurosci.</em></td>
+<td>Free energy principle as a unified theory of brain function</td>
+</tr>
+<tr>
+<td>2015</td>
+<td>Peter Sterling — <em>Allostasis</em></td>
+<td>Proactive predictive regulation, contrasting homeostasis</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="key-concepts-and-connections">Key Concepts
+and Connections</h2>
+<ul>
+<li><strong>System</strong> — a set of interacting components forming an
+integrated whole; open systems exchange matter and energy with their
+environment.</li>
+<li><strong>Emergence</strong> — properties of a system that cannot be
+explained solely by properties of its components (e.g., consciousness
+emerges from neural circuits; life emerges from biochemistry).</li>
+<li><strong>Feedback</strong> — output fed back as input, shaping future
+behaviour; negative feedback stabilises, positive feedback
+amplifies.</li>
+<li><strong>Attractor</strong> — a region of phase space toward which
+trajectories converge; phase transitions move a system between
+attractors.</li>
+<li><strong>Complex adaptive system (CAS)</strong> — a system of
+adaptive agents whose collective behaviour self-organises without
+central control.</li>
+<li><strong>Free energy</strong> — a variational upper bound on
+surprise; minimising it unifies perception, action, and learning.</li>
+<li><strong>Homeostasis vs. allostasis</strong> — passive correction to
+a fixed set-point vs. predictive adjustment of set-points based on
+context.</li>
+</ul>
+<p>These ideas are deliberately general: every subsequent unit of the
+textbook re-encounters them. Feedback appears in enzyme regulation (Unit
+I), in signalling cascades (Unit II), in metabolic flux (Unit III), in
+population dynamics (Unit X), and in neural control (Unit IX).
+Attractors describe cell-fate decisions (Unit II), bistable genetic
+switches (Unit IV), and ecosystem stable states (Unit X). Active
+inference recurs as the unifying framework for physiology (Unit IX) and
+behaviour.</p>
+<hr />
+<h2 class="unnumbered" id="current-evidence-thread">Current Evidence
+Thread</h2>
+<p>Systems-science and complexity claims are not evidenced the way a
+single-gene knockout is; the evidence is whether a model’s assumptions
+survive contact with data. A claim earns confidence when its generative
+model exposes the parameters and boundary that matter, when a
+perturbation or time-series test could have falsified it but did not,
+and when an explicit null or alternative model fails where it succeeds.
+Across this unit — emergence, adaptive agents, and active inference —
+read each idea as such a model and ask what observation would move you.
+As you move through the chapters, keep a two-column note:
+<strong>claim</strong> on the left, <strong>evidence that would change
+my confidence</strong> on the right. By the end of the unit, each major
+idea should be tied to a measurement, model, citation, or paper-based
+lab decision.</p>
+<h2 class="unnumbered" id="chapter-roadmap">Chapter Roadmap</h2>
+<pre class="mermaid"><code>graph LR
+    C1[&quot;Systems Science&lt;br/&gt;and the Logic&lt;br/&gt;of Emergence&quot;] --&gt; C2[&quot;Complex Adaptive&lt;br/&gt;Systems&quot;]
+    C2 --&gt; C3[&quot;Active Inference&lt;br/&gt;and the Free&lt;br/&gt;Energy Principle&quot;]
+    C1 -.-&gt;|&quot;feedback, emergence&quot;| UI[&quot;Units I–X&quot;]
+    C2 -.-&gt;|&quot;attractors, evolution&quot;| UI
+    C3 -.-&gt;|&quot;prediction, allostasis&quot;| UI
+
+    style C1 fill:#34495e,color:#fff
+    style C2 fill:#2c3e50,color:#fff
+    style C3 fill:#1a252f,color:#fff</code></pre>
+<!-- alt: Graph showing unit 0 roadmap: systems science introduces feedback and emergence, complex adaptive systems adds attractors and evolution, and active inference connects prediction and allostasis to later units. -->
+<p><em>Unit 0 roadmap: systems science introduces feedback and
+emergence, complex adaptive systems adds attractors and evolution, and
+active inference connects prediction and allostasis to later
+units.</em></p>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 44%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Core question</th>
+<th>Key tools</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1 Systems Science</td>
+<td><em>How does organisation arise from interaction?</em></td>
+<td>Feedback, hierarchy, Hill equation, delay oscillation</td>
+</tr>
+<tr>
+<td>0.2 Complex Adaptive Systems</td>
+<td><em>How do simple local rules produce robust global
+behaviour?</em></td>
+<td>Phase space, bifurcation, fitness landscape, power laws</td>
+</tr>
+<tr>
+<td>0.3 Active Inference</td>
+<td><em>How do living agents maintain themselves against
+disorder?</em></td>
+<td>Bayesian inference, free energy, precision, allostasis</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="connections-across-the-textbook">Connections
+Across the Textbook</h2>
+<ul>
+<li><strong>Unit I — Chemistry of Life</strong>: thermodynamic gradients
+(Unit 0.1) explain why proteins fold spontaneously; catalysis is a
+feedback-regulated modular system.</li>
+<li><strong>Unit II — The Cell</strong>: organelles are modules; the
+fluid-mosaic membrane is a self-organised phase; signalling cascades are
+hierarchical feedback loops.</li>
+<li><strong>Unit III — Energy and Metabolism</strong>: glycolysis and
+the TCA cycle are classic examples of allosteric feedback and
+feed-forward control.</li>
+<li><strong>Unit IV–V — Genetics</strong>: regulatory networks, bistable
+switches, and epigenetic memory are CAS par excellence.</li>
+<li><strong>Unit VI — Evolution</strong>: fitness landscapes from are
+the formal substrate of selection.</li>
+<li><strong>Unit IX — Physiology and Neuroscience</strong>: allostasis
+from and predictive coding replace simple fixed-set-point homeostasis as
+the model of central control.</li>
+<li><strong>Unit X — Ecology</strong>: phase transitions, alternative
+stable states, and tipping points apply the mathematics of
+directly.</li>
+</ul>
+<hr />
+<h2 class="unnumbered" id="computational-toolbox-unit-0">Computational
+Toolbox — Unit 0</h2>
+<p>The three Unit 0 chapters are conceptual rather than algorithmic, but
+they motivate every piece of code used later:</p>
+<ul>
+<li><strong>Hill cooperative binding:</strong> cell-biology helpers,
+especially <code>hill_equation()</code>.</li>
+<li><strong>Receptor occupancy:</strong> cell-signalling helpers for
+ligand binding and response.</li>
+<li><strong>Logistic dynamics:</strong> ecology helpers for growth under
+carrying capacity.</li>
+<li><strong>Lotka–Volterra oscillation:</strong> ecology helpers for
+predator–prey cycles.</li>
+<li><strong>Bayesian update:</strong> neuroscience-style posterior
+inference, illustrated in .</li>
+</ul>
+<p>Each concrete chapter later in the textbook either uses one of these
+helpers or gives the reader a chance to write the next one.</p>
+<hr />
+<p><em>Source modules: <code>src/biology/</code> (general framework
+across most domains).</em> <em>Figures:
+<code>src/mermaid/biology_diagrams.py</code> — systems-level diagrams
+reused throughout the book.</em></p>
+</body>
+</html>

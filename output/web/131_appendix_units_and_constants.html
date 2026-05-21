@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>131_appendix_units_and_constants</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered"
+id="appendix-d-units-physical-constants-and-biological-ranges">Appendix
+D — Units, Physical Constants, and Biological Ranges</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Appendix D</strong> · Level 1/3 · 20 min read ·
+Prerequisites: none · Use as reference</p>
+</blockquote>
+<p>A compact reference for units, constants, and characteristic
+magnitudes encountered throughout the textbook. Use it during worked
+problems to sanity-check dimensional analysis, convert between unit
+systems, and verify that numerical answers fall in biologically
+plausible ranges.</p>
+<hr />
+<h2 class="unnumbered" id="d.1-si-base-and-derived-units">D.1 SI Base
+and Derived Units</h2>
+<table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>SI unit</th>
+<th>Symbol</th>
+<th>In base units</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Length</td>
+<td>metre</td>
+<td>m</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Mass</td>
+<td>kilogram</td>
+<td>kg</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Time</td>
+<td>second</td>
+<td>s</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Amount of substance</td>
+<td>mole</td>
+<td>mol</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Temperature</td>
+<td>kelvin</td>
+<td>K</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Electric current</td>
+<td>ampere</td>
+<td>A</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Force</td>
+<td>newton</td>
+<td>N</td>
+<td>kg · m · s⁻²</td>
+</tr>
+<tr>
+<td>Energy</td>
+<td>joule</td>
+<td>J</td>
+<td>kg · m² · s⁻²</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>watt</td>
+<td>W</td>
+<td>J · s⁻¹</td>
+</tr>
+<tr>
+<td>Pressure</td>
+<td>pascal</td>
+<td>Pa</td>
+<td>N · m⁻²</td>
+</tr>
+<tr>
+<td>Electric charge</td>
+<td>coulomb</td>
+<td>C</td>
+<td>A · s</td>
+</tr>
+<tr>
+<td>Electric potential</td>
+<td>volt</td>
+<td>V</td>
+<td>J · C⁻¹</td>
+</tr>
+<tr>
+<td>Electric conductance</td>
+<td>siemens</td>
+<td>S</td>
+<td>Ω⁻¹</td>
+</tr>
+<tr>
+<td>Frequency</td>
+<td>hertz</td>
+<td>Hz</td>
+<td>s⁻¹</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="metric-prefixes">Metric prefixes</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Symbol</th>
+<th>Factor</th>
+<th>Biological use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>giga-</td>
+<td>G</td>
+<td>10⁹</td>
+<td>Gb base pairs in a genome</td>
+</tr>
+<tr>
+<td>mega-</td>
+<td>M</td>
+<td>10⁶</td>
+<td>MDa protein complex; Mb DNA fragment</td>
+</tr>
+<tr>
+<td>kilo-</td>
+<td>k</td>
+<td>10³</td>
+<td>kJ mol⁻¹ (ΔG); kDa protein mass</td>
+</tr>
+<tr>
+<td>centi-</td>
+<td>c</td>
+<td>10⁻²</td>
+<td>cM genetic map distance</td>
+</tr>
+<tr>
+<td>milli-</td>
+<td>m</td>
+<td>10⁻³</td>
+<td>mM intracellular metabolites; ms AP duration</td>
+</tr>
+<tr>
+<td>micro-</td>
+<td>μ</td>
+<td>10⁻⁶</td>
+<td>μm cell size; μM low-abundance metabolite</td>
+</tr>
+<tr>
+<td>nano-</td>
+<td>n</td>
+<td>10⁻⁹</td>
+<td>nm bond length; nM receptor ligand</td>
+</tr>
+<tr>
+<td>pico-</td>
+<td>p</td>
+<td>10⁻¹²</td>
+<td>pN molecular motor force; pM low-abundance hormone</td>
+</tr>
+<tr>
+<td>femto-</td>
+<td>f</td>
+<td>10⁻¹⁵</td>
+<td>fmol amount in a single cell</td>
+</tr>
+<tr>
+<td>atto-</td>
+<td>a</td>
+<td>10⁻¹⁸</td>
+<td>amol; approaches single-molecule detection</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="d.2-universal-physical-constants">D.2
+Universal Physical Constants</h2>
+<table>
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 31%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Symbol</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Avogadro’s number</td>
+<td><span class="math inline">\(N_A\)</span></td>
+<td><span class="math inline">\(6.022 \times 10^{23}\)</span> mol⁻¹</td>
+</tr>
+<tr>
+<td>Boltzmann constant</td>
+<td><span class="math inline">\(k_B\)</span></td>
+<td><span class="math inline">\(1.381 \times 10^{-23}\)</span> J K⁻¹ =
+<span class="math inline">\(8.617 \times 10^{-5}\)</span> eV K⁻¹</td>
+</tr>
+<tr>
+<td>Gas constant</td>
+<td><span class="math inline">\(R = N_A k_B\)</span></td>
+<td>8.314 J K⁻¹ mol⁻¹ = 1.987 cal K⁻¹ mol⁻¹</td>
+</tr>
+<tr>
+<td>Faraday constant</td>
+<td><span class="math inline">\(F\)</span></td>
+<td><span class="math inline">\(9.649 \times 10^{4}\)</span> C
+mol⁻¹</td>
+</tr>
+<tr>
+<td>Elementary charge</td>
+<td><span class="math inline">\(e\)</span></td>
+<td><span class="math inline">\(1.602 \times 10^{-19}\)</span> C</td>
+</tr>
+<tr>
+<td>Speed of light in vacuum</td>
+<td><span class="math inline">\(c\)</span></td>
+<td><span class="math inline">\(2.998 \times 10^{8}\)</span> m s⁻¹</td>
+</tr>
+<tr>
+<td>Planck constant</td>
+<td><span class="math inline">\(h\)</span></td>
+<td><span class="math inline">\(6.626 \times 10^{-34}\)</span> J s</td>
+</tr>
+<tr>
+<td>Permittivity of free space</td>
+<td><span class="math inline">\(\varepsilon_0\)</span></td>
+<td><span class="math inline">\(8.854 \times 10^{-12}\)</span> F
+m⁻¹</td>
+</tr>
+<tr>
+<td>Standard atmospheric pressure</td>
+<td><span class="math inline">\(P_{\text{atm}}\)</span></td>
+<td>101,325 Pa = 760 Torr</td>
+</tr>
+<tr>
+<td>Body temperature</td>
+<td><span class="math inline">\(T_{\text{body}}\)</span></td>
+<td>310.15 K = 37.00 °C</td>
+</tr>
+<tr>
+<td>Thermal energy at body T</td>
+<td><span class="math inline">\(k_B T\)</span></td>
+<td><span class="math inline">\(4.28 \times 10^{-21}\)</span> J ≈ 0.027
+eV = 2.57 kJ mol⁻¹</td>
+</tr>
+</tbody>
+</table>
+<p>The rule “<span class="math inline">\(k_B T \approx
+\tfrac{1}{40}\)</span> eV <span class="math inline">\(\approx
+\tfrac{2.5}{1000}\)</span> kJ mol⁻¹ at room temperature” is useful:
+hydrogen bonds (~20 kJ mol⁻¹) are ~8 <span class="math inline">\(k_B
+T\)</span>, so they survive thermal fluctuations; van der Waals contacts
+(~1 kJ mol⁻¹) are ~0.4 <span class="math inline">\(k_B T\)</span>, so
+each one is barely stable but collectively numerous contacts
+summate.</p>
+<hr />
+<h2 class="unnumbered" id="d.3-energy-conversions">D.3 Energy
+Conversions</h2>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>To</th>
+<th>Factor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 J</td>
+<td>cal</td>
+<td>0.239</td>
+</tr>
+<tr>
+<td>1 cal</td>
+<td>J</td>
+<td>4.184</td>
+</tr>
+<tr>
+<td>1 kcal</td>
+<td>kJ</td>
+<td>4.184</td>
+</tr>
+<tr>
+<td>1 eV</td>
+<td>J</td>
+<td><span class="math inline">\(1.602 \times 10^{-19}\)</span></td>
+</tr>
+<tr>
+<td>1 eV</td>
+<td>kJ mol⁻¹</td>
+<td>96.485</td>
+</tr>
+<tr>
+<td>1 kJ mol⁻¹</td>
+<td>eV</td>
+<td>0.01036</td>
+</tr>
+<tr>
+<td>1 J</td>
+<td>kg⋅m² s⁻²</td>
+<td>1 (definition)</td>
+</tr>
+<tr>
+<td>1 <span class="math inline">\(k_B T\)</span> at 37 °C</td>
+<td>kJ mol⁻¹</td>
+<td>2.577</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="atp-hydrolysis-benchmarks">ATP hydrolysis
+benchmarks</h3>
+<ul>
+<li>Standard ΔG°′ for ATP → ADP + P<span
+class="math inline">\(_i\)</span>: <strong>−30.5 kJ mol⁻¹</strong>.</li>
+<li>Cellular ΔG (physiological [ATP]/[ADP]): <strong>−57 kJ
+mol⁻¹</strong>, roughly 22 <span class="math inline">\(k_B
+T\)</span>.</li>
+<li>Number of ATP hydrolyses required to lift a 1 kg mass 1 m: ~300,000
+— illustrating why muscle needs 10⁸ ATP molecules consumed per
+second.</li>
+</ul>
+<hr />
+<h2 class="unnumbered" id="d.4-pressure-conversions">D.4 Pressure
+Conversions</h2>
+<table>
+<thead>
+<tr>
+<th>From</th>
+<th>To</th>
+<th>Factor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 atm</td>
+<td>Pa</td>
+<td>101,325</td>
+</tr>
+<tr>
+<td>1 atm</td>
+<td>mmHg (Torr)</td>
+<td>760</td>
+</tr>
+<tr>
+<td>1 atm</td>
+<td>bar</td>
+<td>1.01325</td>
+</tr>
+<tr>
+<td>1 mmHg</td>
+<td>kPa</td>
+<td>0.1333</td>
+</tr>
+<tr>
+<td>1 mmHg</td>
+<td>Pa</td>
+<td>133.322</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Blood pressure</strong>: systolic 120 mmHg ≈ 16 kPa.
+<strong>Arterial O₂</strong>: <span
+class="math inline">\(P_{\text{a}}O_2 \approx 100\)</span> mmHg ≈ 13.3
+kPa. <strong>Venous O₂</strong>: <span
+class="math inline">\(P_{\text{v}}O_2 \approx 40\)</span> mmHg ≈ 5.3
+kPa.</p>
+<hr />
+<h2 class="unnumbered" id="d.5-concentration-conversions">D.5
+Concentration Conversions</h2>
+<p>1 molar (M) = 1 mol L⁻¹ = 10³ mmol L⁻¹ = 10⁶ μmol L⁻¹ = 10⁹ nmol L⁻¹
+= 10¹² pmol L⁻¹.</p>
+<table>
+<colgroup>
+<col style="width: 65%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr>
+<th>Concentration</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pM (<span class="math inline">\(10^{-12}\)</span> M)</td>
+<td>Circulating hormones (insulin, oxytocin)</td>
+</tr>
+<tr>
+<td>nM (<span class="math inline">\(10^{-9}\)</span> M)</td>
+<td>Vitamin B₁₂, transcription factor at a target site</td>
+</tr>
+<tr>
+<td>μM (<span class="math inline">\(10^{-6}\)</span> M)</td>
+<td>Glucose in blood (5 × 10⁻³ M = 5 mM, upper end)</td>
+</tr>
+<tr>
+<td>mM (<span class="math inline">\(10^{-3}\)</span> M)</td>
+<td>Major intracellular ions (Na⁺, K⁺), ATP (~5 mM)</td>
+</tr>
+<tr>
+<td>M</td>
+<td>Cytoplasm water (55 M); seawater NaCl (0.5 M)</td>
+</tr>
+</tbody>
+</table>
+<p>Molarity of water: <span class="math inline">\(M_{H_2O} = 1000 \text{
+g L}^{-1} / 18 \text{ g mol}^{-1} = 55.5\)</span> M. This is why [H₂O]
+is treated as constant in biological equilibrium expressions.</p>
+<hr />
+<h2 class="unnumbered"
+id="d.6-biological-magnitudes-quick-reference">D.6 Biological Magnitudes
+— Quick Reference</h2>
+<h3 class="unnumbered" id="time-scales">Time scales</h3>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bond vibration</td>
+<td>10⁻¹⁴ s</td>
+</tr>
+<tr>
+<td>Enzyme turnover (<span class="math inline">\(k_{cat}\)</span>)</td>
+<td>10⁻³ – 10⁻⁶ s</td>
+</tr>
+<tr>
+<td>Action potential</td>
+<td>10⁻³ s</td>
+</tr>
+<tr>
+<td>Synaptic transmission</td>
+<td>10⁻³ s</td>
+</tr>
+<tr>
+<td>Ribosome peptide-bond formation</td>
+<td>0.1 s (5 aa s⁻¹ per ribosome)</td>
+</tr>
+<tr>
+<td>Protein folding</td>
+<td>10⁻³ – 1 s</td>
+</tr>
+<tr>
+<td>Mitosis</td>
+<td>1 h</td>
+</tr>
+<tr>
+<td>Cell cycle (dividing human cell)</td>
+<td>1 d</td>
+</tr>
+<tr>
+<td>Hair growth</td>
+<td>1 cm month⁻¹</td>
+</tr>
+<tr>
+<td>Human generation time</td>
+<td>~25 yr</td>
+</tr>
+<tr>
+<td>Mammalian species lifespan</td>
+<td>10⁶ – 10⁷ yr</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="length-scales">Length scales</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C–C bond</td>
+<td>0.15 nm</td>
+</tr>
+<tr>
+<td>Protein (average globular)</td>
+<td>3 nm</td>
+</tr>
+<tr>
+<td>Ribosome</td>
+<td>25 nm</td>
+</tr>
+<tr>
+<td>Virus (small RNA)</td>
+<td>30 nm</td>
+</tr>
+<tr>
+<td>Nuclear pore</td>
+<td>100 nm</td>
+</tr>
+<tr>
+<td>Bacterium (<em>E. coli</em>)</td>
+<td>1 μm</td>
+</tr>
+<tr>
+<td>Mitochondrion</td>
+<td>2 μm</td>
+</tr>
+<tr>
+<td>Eukaryotic cell (average)</td>
+<td>10–20 μm</td>
+</tr>
+<tr>
+<td>Neuron axon (giraffe recurrent laryngeal)</td>
+<td>2 m</td>
+</tr>
+<tr>
+<td>Animal (blue whale)</td>
+<td>30 m</td>
+</tr>
+<tr>
+<td>Redwood tree</td>
+<td>100 m</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered" id="energy-scales">Energy scales</h3>
+<table>
+<thead>
+<tr>
+<th>Interaction / event</th>
+<th>Energy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Van der Waals contact</td>
+<td>~1 kJ mol⁻¹</td>
+</tr>
+<tr>
+<td>Hydrogen bond</td>
+<td>~20 kJ mol⁻¹</td>
+</tr>
+<tr>
+<td>C–C covalent bond</td>
+<td>~350 kJ mol⁻¹</td>
+</tr>
+<tr>
+<td>ATP hydrolysis (standard)</td>
+<td>−30.5 kJ mol⁻¹</td>
+</tr>
+<tr>
+<td>ATP hydrolysis (cellular)</td>
+<td>−57 kJ mol⁻¹</td>
+</tr>
+<tr>
+<td>Glucose complete oxidation</td>
+<td>−2870 kJ mol⁻¹</td>
+</tr>
+<tr>
+<td>Photosynthesis per photon (680 nm)</td>
+<td>176 kJ mol⁻¹</td>
+</tr>
+<tr>
+<td>Daily human basal energy</td>
+<td>7000 kJ d⁻¹ (≈1700 kcal d⁻¹)</td>
+</tr>
+</tbody>
+</table>
+<h3 class="unnumbered"
+id="organismal-physiology-reference-scales">Organismal physiology
+reference scales</h3>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 30%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr>
+<th>System</th>
+<th>Useful scale</th>
+<th>Source-backed context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Digestive absorption</td>
+<td>Small-intestinal villi and microvilli expand absorptive surface</td>
+<td>Nutrient uptake depends on epithelial surface area, enzymes, bile,
+transporters, and gut motility .</td>
+</tr>
+<tr>
+<td>Renal excretion</td>
+<td>Adult kidneys filter plasma continuously and adjust urine
+concentration</td>
+<td>Filtration, tubular reabsorption, secretion, and collecting-duct
+water handling set volume, electrolyte, pH, and nitrogen-waste balance
+.</td>
+</tr>
+<tr>
+<td>Skeletal muscle</td>
+<td>Sarcomere force depends on actin-myosin overlap and cross-bridge
+cycling</td>
+<td>Sliding-filament physiology links molecular geometry to organismal
+movement .</td>
+</tr>
+<tr>
+<td>Somatosensation</td>
+<td>Receptor density sets spatial resolution</td>
+<td>Mechanoreceptor subtype, receptive-field size, and cortical
+magnification jointly shape touch discrimination .</td>
+</tr>
+<tr>
+<td>Behaviour</td>
+<td>Four explanatory levels</td>
+<td>Mechanism, development, function, and phylogeny answer different
+questions about the same behaviour .</td>
+</tr>
+<tr>
+<td>Reproduction</td>
+<td>Infertility triage starts after 12 months, or 6 months at age
+35+</td>
+<td>Evaluation separates ovulation, sperm production, anatomy,
+implantation, endocrine timing, and age-dependent gamete quality .</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="d.7-fundamental-biological-constants">D.7
+Fundamental Biological Constants</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 16%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+<th>Source / context</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Resting cell membrane potential</td>
+<td>≈ −70 mV</td>
+<td>Neurons, muscle cells</td>
+</tr>
+<tr>
+<td>Intracellular [Na⁺] / [K⁺]</td>
+<td>~10 / 140 mM</td>
+<td>Maintained by Na⁺/K⁺-ATPase</td>
+</tr>
+<tr>
+<td>Extracellular [Na⁺] / [K⁺]</td>
+<td>~145 / 5 mM</td>
+<td>Plasma</td>
+</tr>
+<tr>
+<td>Blood pH</td>
+<td>7.35–7.45</td>
+<td>Tightly regulated</td>
+</tr>
+<tr>
+<td>Arterial pCO₂</td>
+<td>~40 mmHg</td>
+<td>Regulated by respiration</td>
+</tr>
+<tr>
+<td>Body-water content</td>
+<td>60 % of body mass</td>
+<td>Total body water</td>
+</tr>
+<tr>
+<td>Haemoglobin O₂ capacity</td>
+<td>1.34 mL O₂ / g Hb</td>
+<td>Full saturation</td>
+</tr>
+<tr>
+<td>Blood volume</td>
+<td>~5 L in adult</td>
+<td>7 % of body mass</td>
+</tr>
+<tr>
+<td>Body surface area (adult)</td>
+<td>~1.8 m²</td>
+<td>DuBois formula</td>
+</tr>
+<tr>
+<td>Mitochondrial membrane potential</td>
+<td>≈ −180 mV</td>
+<td>Drives ATP synthesis</td>
+</tr>
+<tr>
+<td>Proton gradient ΔpH across inner mito membrane</td>
+<td>~1 unit</td>
+<td>Chemiosmosis</td>
+</tr>
+<tr>
+<td>Genome size (human)</td>
+<td>3 × 10⁹ bp</td>
+<td>Haploid</td>
+</tr>
+<tr>
+<td>Protein-coding genes (human)</td>
+<td>~20,000</td>
+<td>ENCODE estimate</td>
+</tr>
+<tr>
+<td>Cells in the adult human body</td>
+<td>~3.7 × 10¹³</td>
+<td>Bianconi et al. 2013</td>
+</tr>
+<tr>
+<td>Bacteria in human gut</td>
+<td>~10¹⁴</td>
+<td>~equal to human cell count</td>
+</tr>
+<tr>
+<td>Species described on Earth</td>
+<td>~2 × 10⁶</td>
+<td>Estimated 10–30× more undescribed</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Module: reference only (no code)</em></p>
+</body>
+</html>

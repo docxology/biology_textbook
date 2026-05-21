@@ -1,0 +1,26 @@
+flowchart TD
+    A["Ancestral Population"]
+    B["Allopatric Speciation"]
+    C["Sympatric Speciation"]
+    D["Polyploidy Speciation"]
+    B1["Independent genetic drift"]
+    B2["Dobzhansky-Muller incompatibilities"]
+    B3["Reproductive isolation complete"]
+    C1["Disruptive natural selection"]
+    C2["Assortative mating"]
+    C3["Host-race divergence"]
+    D1["Autopolyploidy 4n"]
+    D2["Allopolyploid hybridization"]
+    D3["Instant reproductive isolation"]
+    A -->|geographic barrier| B
+    A -->|ecological divergence| C
+    A -->|genome duplication| D
+    B --> B1
+    B1 --> B2
+    B2 --> B3
+    C --> C1
+    C1 --> C2
+    C2 -->|sympatric outcome| C3
+    D --> D1
+    D --> D2
+    D2 -->|chromosome doubling| D3

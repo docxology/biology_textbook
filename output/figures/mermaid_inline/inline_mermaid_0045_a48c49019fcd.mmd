@@ -1,0 +1,24 @@
+graph TD
+    A["Growth Factor<br/>(RTK/RAS)"] --> D["ERK/MAPK"]
+    B["Wnt Ligand"] --> E["Beta-catenin"]
+    C["Cytokine<br/>(JAK-STAT)"] --> F["STAT3"]
+
+    D --> G["Cyclin D1<br/>Transcription"]
+    E --> G
+    F --> G
+
+    D --> H["Cell Proliferation"]
+    G --> H
+
+    I["Death Ligand<br/>(FasL/TNF)"] --> J["Caspase-8"]
+    K["DNA Damage"] --> L["p53"]
+    L --> M["Apoptosis"]
+    J --> M
+
+    N["PI3K/Akt<br/>(Survival)"] --> O["BAD phosphorylation<br/>(inactivation)"]
+    O -.->|"Inhibits"| M
+    N --> P["mTORC1<br/>(Cell Growth)"]
+
+    style H fill:#e6ffe6
+    style M fill:#ffe6e6
+    style G fill:#fff3e6

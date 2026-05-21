@@ -1,0 +1,19 @@
+flowchart LR
+    subgraph Mitosis
+        M1["G2: 2n diploid<br/>(replicated, 4C DNA)"] --> M2["Prometaphase: chromosomes attach to spindle"]
+        M2 --> M3["Metaphase: chromosomes line up"]
+        M3 --> M4["Anaphase: SISTERS separate"]
+        M4 --> M5["Two diploid daughters, each 2n"]
+    end
+    subgraph "Meiosis I (Reductional)"
+        I1["G2: 2n diploid<br/>(replicated, 4C DNA)"] --> I2["Prophase I: synapsis, crossing over"]
+        I2 --> I3["Metaphase I: bivalents align"]
+        I3 --> I4["Anaphase I: HOMOLOGS separate<br/>(sisters stay joined)"]
+        I4 --> I5["Two haploid cells, each 1n with sister chromatids"]
+    end
+    subgraph "Meiosis II (Equational)"
+        II1["Metaphase II: chromosomes align"] --> II2["Anaphase II: SISTERS separate"]
+        II2 --> II3["Four haploid gametes, each 1n"]
+    end
+    M5 -.- I5
+    I5 --> II1

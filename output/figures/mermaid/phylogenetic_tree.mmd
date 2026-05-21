@@ -1,0 +1,21 @@
+flowchart TD
+    LUCA["Last Universal Common Ancestor"]
+    Bac["Bacteria"]
+    Arc["Archaea"]
+    Host["Asgard-like archaeal host"]
+    Endo["Bacterial endosymbiont"]
+    Euk["Eukarya"]
+    Prot["Protists"]
+    Fung["Fungi"]
+    Plant["Plants"]
+    Anim["Animals"]
+    LUCA -->|~3.8 Ga| Bac
+    LUCA -->|~3.8 Ga| Arc
+    Arc -->|archaeal lineage| Host
+    Bac -->|alphaproteobacterium| Endo
+    Host -->|host cell| Euk
+    Endo -->|mitochondrion| Euk
+    Euk --> Prot
+    Euk --> Fung
+    Euk --> Plant
+    Euk --> Anim

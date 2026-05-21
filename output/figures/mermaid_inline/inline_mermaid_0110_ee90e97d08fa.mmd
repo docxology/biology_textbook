@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant AP as Ancestral Population
+    participant GB as Geographic Barrier Forms
+    participant P1 as Population 1
+    participant P2 as Population 2
+    participant DM as D-M Incompatibilities Accumulate
+    participant SC as Secondary Contact
+    participant RI as Reproductive Isolation Confirmed
+
+    AP->>GB: Population divided by barrier
+    GB->>P1: Selection + drift in Environment A
+    GB->>P2: Selection + drift in Environment B
+    P1->>DM: Independent allelic substitutions
+    P2->>DM: Independent allelic substitutions
+    DM->>SC: Barrier removed, populations meet
+    SC->>RI: Hybrids have reduced fitness
+    Note over RI: If reinforcement occurs, prezygotic barriers strengthen

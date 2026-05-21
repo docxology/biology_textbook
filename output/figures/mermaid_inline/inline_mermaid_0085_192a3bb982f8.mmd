@@ -1,0 +1,14 @@
+flowchart TD
+    Gene["miRNA gene (RNA Pol II)"] --> primiRNA["pri-miRNA<br/>(capped, polyadenylated)"]
+    primiRNA --> Drosha["DROSHA/DGCR8<br/>(Nuclear RNase III)<br/>cleaves to ~65 nt hairpin"]
+    Drosha --> premiRNA["pre-miRNA hairpin<br/>exported by Exportin-5/RanGTP"]
+    premiRNA --> Dicer["DICER/TRBP<br/>(Cytoplasmic RNase III)<br/>cleaves to ~22 bp duplex"]
+    Dicer --> Duplex["miRNA:miRNA* duplex"]
+    Duplex --> RISC["AGO2/RISC loading<br/>(guide strand retained;<br/>passenger strand* degraded)"]
+    RISC --> mRNA["Target mRNA<br/>(3'UTR complementarity)"]
+    mRNA -->|"Perfect match<br/>(siRNA-like)"| Cleavage["mRNA CLEAVAGE<br/>(slicer activity of AGO2)"]
+    mRNA -->|"Imperfect match<br/>(miRNA typical)"| Repression["Translational repression +<br/>mRNA deadenylation/decay"]
+
+    style RISC fill:#8e44ad,color:#fff
+    style Cleavage fill:#e74c3c,color:#fff
+    style Repression fill:#e67e22,color:#fff

@@ -1,0 +1,22 @@
+flowchart TD
+    XX["Early XX somatic cell"]
+    Count["Count X chromosomes"]
+    Choice["Choose future inactive X"]
+    Xa["Xa remains transcriptionally active"]
+    Xi["Xi initiates silencing"]
+    XIST["XIST RNA coats Xi in cis"]
+    Polycomb["Polycomb marks H3K27me3 and H2AK119ub"]
+    DNAme["DNA methylation and late replication stabilize silence"]
+    Escape["Escape genes remain partially active"]
+    Barr["Condensed Barr body"]
+    Mosaic["Mitotic inheritance creates tissue mosaicism"]
+    XX -->|early embryo| Count
+    Count --> Choice
+    Choice --> Xa
+    Choice --> Xi
+    Xi -->|cis spreading| XIST
+    XIST -->|recruitment| Polycomb
+    Polycomb -->|maintenance| DNAme
+    DNAme -->|compaction| Barr
+    Barr -->|cell divisions| Mosaic
+    Xi -->|incomplete silencing| Escape

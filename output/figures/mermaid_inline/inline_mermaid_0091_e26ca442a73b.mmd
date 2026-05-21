@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant Q as Question
+    participant A as Analysis
+    participant R as Result
+
+    Q->>A: Is the trait present in every generation?
+    A->>A: If YES: likely dominant
+    A->>A: If NO (skips generations): likely recessive
+
+    Q->>A: Are males and females equally affected?
+    A->>A: If YES: likely autosomal
+    A->>A: If males >> females: likely X-linked recessive
+
+    Q->>A: Can an affected father have affected sons?
+    A->>A: If YES: NOT X-linked (autosomal)
+    A->>A: If NO: consistent with X-linked
+
+    Q->>A: Are all children of affected mothers affected?
+    A->>A: If YES: consider mitochondrial inheritance
+
+    A->>R: Dominant vs Recessive
+    A->>R: Autosomal vs X-linked vs Mitochondrial

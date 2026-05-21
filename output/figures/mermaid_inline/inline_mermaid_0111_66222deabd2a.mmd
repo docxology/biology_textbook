@@ -1,0 +1,21 @@
+graph TD
+    R["Root (MRCA of all taxa)"] --> N1["Internal Node (divergence event)"]
+    R --> OG["Outgroup"]
+    N1 --> N2["Internal Node"]
+    N1 --> C["Taxon C"]
+    N2 --> A["Taxon A"]
+    N2 --> B["Taxon B"]
+
+    style R fill:#e8d5b7,stroke:#8B7355
+    style N1 fill:#d4e6f1,stroke:#5B9BD5
+    style N2 fill:#d4e6f1,stroke:#5B9BD5
+    style A fill:#d5f5e3,stroke:#2ECC71
+    style B fill:#d5f5e3,stroke:#2ECC71
+    style C fill:#d5f5e3,stroke:#2ECC71
+    style OG fill:#fadbd8,stroke:#E74C3C
+
+    linkStyle 0 stroke:#333,stroke-width:2px
+    linkStyle 1 stroke:#333,stroke-width:2px
+    linkStyle 2 stroke:#333,stroke-width:2px
+    linkStyle 3 stroke:#333,stroke-width:2px
+    linkStyle 4 stroke:#333,stroke-width:2px

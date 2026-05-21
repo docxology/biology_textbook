@@ -1,0 +1,2111 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>015_membrane_transport</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="membrane-structure-and-transport">Membrane Structure and
+Transport</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 7</strong> · Level 2/3 · 50 min read · 75 min lecture ·
+Prerequisites: , </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Describe the fluid mosaic model of the plasma membrane and recent
+updates from single-molecule studies.</li>
+<li>Classify membrane <a
+href="#gl:protein"><strong>protein</strong></a>s by their topology and
+function.</li>
+<li>Distinguish passive from active transport and provide mechanistic
+explanations.</li>
+<li>Derive the Nernst equation and apply it to membrane potential
+calculations.</li>
+<li>Explain the Goldman-Hodgkin-Katz equation for multi-ion membrane
+potential.</li>
+<li>Describe ion channel gating mechanisms and selectivity filters.</li>
+<li>Explain the Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase cycle and its physiological
+significance.</li>
+<li>Describe vesicular trafficking including SNARE-mediated membrane
+fusion.</li>
+<li>Compare <a href="#gl:endocytosis"><strong>endocytosis</strong></a>
+types: phagocytosis, macropinocytosis, clathrin-mediated, and
+caveolar.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Membranes convert gradients,
+permeability, and selective transport into cellular physiology.</li>
+<li><strong>Core concepts:</strong> bilayers, diffusion, osmosis,
+electrochemical gradients.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change: Structure
+and function, Systems, Information flow, exchange, and storage; AP
+Biology: Systems Interactions, Information Storage and Transmission;
+NGSS-style topics: Structure and Function.</li>
+<li><strong>Model or quantitative lens:</strong> Nernst, Goldman,
+osmotic, and facilitated-transport calculations.</li>
+<li><strong>Data skill:</strong> Interpret transport data from
+gradients, rates, and membrane potentials.</li>
+<li><strong>Practice cadence:</strong> Visual Representations, Questions
+and Methods, Argumentation.</li>
+<li><strong>Common misconception to repair:</strong> Equilibrium does
+not mean equal concentration; charge and permeability matter.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Transfer gradient logic to neurons,
+kidneys, roots, and mitochondrial membranes.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.cell.cell_biology.nernst_potential</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<!-- alt: Semilog plot of GHK membrane potential in millivolts versus relative sodium permeability. Increasing sodium permeability depolarises the membrane, while separate line styles show how different chloride permeabilities shift the voltage. -->
+<hr />
+<blockquote>
+<p><strong>Opening Vignette: The Membrane Pump That Makes Cancer Cells
+Immortal</strong></p>
+<p>In 1976, July Ling and colleagues at MIT discovered that some tumour
+cells were extraordinarily difficult to kill with chemotherapy drugs
+because they expressed unusual amounts of a 170 kDa membrane protein —
+later named <strong>P-glycoprotein</strong> (P-gp) — that used ATP
+hydrolysis to actively export cytotoxic drugs from the cell interior
+(Juliano &amp; Ling, 1976, <em>Biochimica et Biophysica Acta</em>). A
+cancer cell overexpressing P-gp can reduce the intracellular
+concentration of doxorubicin, vincristine, paclitaxel, and dozens of
+other chemotherapy agents to sub-lethal levels, rendering the entire
+drug arsenal ineffective. This phenomenon — <strong>multidrug resistance
+(MDR)</strong> — remains one of the greatest challenges in oncology.</p>
+<p>P-gp is an ABC transporter: it has two <a
+href="#gl:nucleotide"><strong>nucleotide</strong></a>-binding domains
+(NBDs) that hydrolyse ATP and two transmembrane domains (TMDs) that form
+the drug-export channel. It exemplifies the principle that membranes are
+not passive barriers — they are dynamic, information-processing systems
+that control exactly which molecules enter and exit cells, and at what
+rate. Understanding that selectivity, and exploiting it therapeutically,
+is the central theme of this chapter.</p>
+<p><em>Primary source: Juliano, R. L. &amp; Ling, V. (1976). A surface
+glycoprotein modulating drug permeability in Chinese hamster ovary cell
+mutants. Biochimica et Biophysica Acta, 455(1), 152–162.</em></p>
+</blockquote>
+<hr />
+<p>In 1972, Singer and Nicolson proposed the <strong>fluid mosaic
+model</strong>: the plasma membrane is a lipid bilayer in which proteins
+float like icebergs in a sea of lipids. Both the lipid and protein
+components can diffuse laterally within the membrane plane
+(<strong>fluid</strong> component), while the asymmetric distribution of
+lipids and proteins across the two leaflets generates
+<strong>mosaic</strong> heterogeneity.</p>
+<h3 id="membrane-lipid-composition">Membrane Lipid Composition</h3>
+<p>The plasma membrane is not a homogeneous bilayer but contains
+distinct regions of varying composition:</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 42%" />
+<col style="width: 36%" />
+</colgroup>
+<thead>
+<tr>
+<th>Lipid Class</th>
+<th>% of membrane (animal)</th>
+<th>Location preference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phosphatidylcholine (PC)</td>
+<td>25–30</td>
+<td>Outer leaflet</td>
+</tr>
+<tr>
+<td>Phosphatidylethanolamine (PE)</td>
+<td>25</td>
+<td>Inner leaflet</td>
+</tr>
+<tr>
+<td>Phosphatidylserine (PS)</td>
+<td>10</td>
+<td>Inner leaflet (negatively charged)</td>
+</tr>
+<tr>
+<td>Sphingomyelin (SM)</td>
+<td>15</td>
+<td>Outer leaflet (rafts)</td>
+</tr>
+<tr>
+<td>Cholesterol</td>
+<td>20–50</td>
+<td>Both leaflets (condenses rafts)</td>
+</tr>
+<tr>
+<td>Phosphatidylinositol (PI)</td>
+<td>5</td>
+<td>Inner leaflet (signalling: PIP<span
+class="math inline">\(_2\)</span>, PIP<span
+class="math inline">\(_3\)</span>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Lipid asymmetry</strong> is maintained by
+<strong>flippases</strong> (ATP-dependent; P4-ATPases; move PS and PE to
+the inner leaflet) and <strong>floppases</strong> (ATP-dependent; ABC
+transporters; move lipids to the outer leaflet).
+<strong>Scramblases</strong> (Ca<span
+class="math inline">\(^{2+}\)</span>-activated; TMEM16F) randomise
+asymmetry during <a href="#gl:apoptosis"><strong>apoptosis</strong></a>
+— externalised phosphatidylserine (PS) is the “eat me” signal recognised
+by phagocyte receptors (TIM-4, BAI-1, Stabilin-2).</p>
+<p><strong>Membrane fluidity</strong> depends on lipid composition:
+<span class="math display">\[\text{Fluidity} \propto \frac{\text{degree
+of unsaturation} + \text{chain shortness}}{\text{cholesterol content
+(moderate)}} \tag{7.1}
+\label{eq:unit_II_membrane_transport_item_1}\]</span></p>
+<p>Cholesterol has a biphasic effect: at low temperature, it disrupts
+crystalline packing (fluidises); at high temperature, it restricts
+excessive fluidity (condenses). This <strong>buffering</strong> effect
+maintains membrane fluidity across a physiological temperature
+range.</p>
+<h3 id="lipid-rafts-and-membrane-microdomains">Lipid Rafts and Membrane
+Microdomains</h3>
+<p><strong>Lipid rafts</strong> are dynamic, cholesterol- and
+sphingolipid-enriched microdomains (10–200 nm) in the outer leaflet that
+preferentially recruit certain proteins: - <strong>GPI-anchored
+proteins</strong> partition into rafts - <strong>Signalling
+receptors</strong> (e.g., T cell receptor, B cell receptor) cluster in
+rafts upon ligand binding - <strong>Caveolins</strong> (caveolae)
+represent a specialised, stable form of lipid raft</p>
+<p><strong>Controversy:</strong> The existence and functional
+significance of lipid rafts has been debated. Single-molecule tracking
+studies reveal that raft-like domains are transient (~10–20 ms
+lifetime), small (~10–20 nm), and form/dissolve dynamically. STED
+super-resolution microscopy (Eggeling et al., 2009, <em>Nature</em>)
+confirmed that sphingolipids and GPI-anchored proteins are transiently
+confined in nanoscale membrane domains, supporting a dynamic raft
+model.</p>
+<h3 id="updates-to-the-fluid-mosaic-model">Updates to the Fluid Mosaic
+Model</h3>
+<p>Since 1972, several refinements have been made:</p>
+<ol type="1">
+<li><strong>Membrane is more mosaic than fluid:</strong> Up to 50% of
+membrane area is occupied by proteins; crowding restricts lateral
+diffusion</li>
+<li><strong>Cytoskeletal fences:</strong> The <a
+href="#gl:actin"><strong>actin</strong></a> cortex creates corrals
+(“picket fence” model, Kusumi et al.) that compartmentalise membrane
+proteins into ~40–300 nm domains, restricting free diffusion</li>
+<li><strong>Lipid asymmetry</strong> is more extensive than originally
+appreciated</li>
+<li><strong>Membrane curvature</strong> is actively generated by
+BAR-domain proteins, ESCRT complexes, and coat proteins</li>
+<li><strong>Transbilayer communication:</strong> Inner and outer leaflet
+lipids can be coupled through interdigitating acyl chains</li>
+</ol>
+<blockquote>
+<p><strong>Concept Check 1:</strong> During apoptosis,
+phosphatidylserine (PS) moves from the inner to the outer leaflet. What
+<a href="#gl:enzyme"><strong>enzyme</strong></a> mediates this, and why
+is PS externalisation a critical signal for phagocytic clearance?</p>
+</blockquote>
+<hr />
+<h2 id="membrane-proteins">Membrane Proteins</h2>
+<p><strong>Integral (transmembrane) proteins</strong> span the bilayer
+via alpha-helical segments (of ~20 hydrophobic amino acids each,
+sufficient to span the ~3 nm hydrophobic core) or beta-barrel structures
+(found primarily in outer membranes of Gram-negative bacteria,
+mitochondria, and <a
+href="#gl:chloroplast"><strong>chloroplast</strong></a>s).</p>
+<p><strong>Peripheral proteins</strong> associate noncovalently with
+membrane surfaces or integral proteins via electrostatic interactions,
+<a href="#gl:hydrogen-bond"><strong>hydrogen bond</strong></a>s, or
+hydrophobic interactions with the lipid headgroup region.</p>
+<p><strong>Lipid-anchored proteins</strong> are covalently modified
+with: - <strong>GPI-anchors</strong> (outer leaflet): e.g., alkaline
+phosphatase, CD59 (complement regulator) - <strong>Myristoyl</strong>
+groups (inner leaflet, N-terminal): e.g., Src kinase -
+<strong>Palmitoyl</strong> groups (inner leaflet, Cys residue): e.g.,
+Ras (reversible; regulates membrane association) -
+<strong>Farnesyl/geranylgeranyl</strong> groups (inner leaflet,
+C-terminal CAAX): e.g., Ras, Rho GTPases</p>
+<h3 id="functions-of-membrane-proteins">Functions of Membrane
+Proteins</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Function</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transport (channel)</td>
+<td>Aquaporins, K<span class="math inline">\(^+\)</span> channels,
+Cl<span class="math inline">\(^-\)</span> channels, mechanosensitive
+channels</td>
+</tr>
+<tr>
+<td>Transport (carrier)</td>
+<td>GLUT glucose transporters, amino acid carriers, nucleoside
+transporters</td>
+</tr>
+<tr>
+<td>Active transport (pump)</td>
+<td>Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase, Ca<span
+class="math inline">\(^{2+}\)</span>-ATPase (SERCA), H<span
+class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase</td>
+</tr>
+<tr>
+<td>ABC transporter</td>
+<td>MDR1/P-glycoprotein, CFTR, ABCA1 (cholesterol efflux)</td>
+</tr>
+<tr>
+<td>Receptor</td>
+<td>EGFR, insulin R, beta<span
+class="math inline">\(_2\)</span>-adrenergic R, rhodopsin, TLR4</td>
+</tr>
+<tr>
+<td>Enzyme</td>
+<td>Adenylyl cyclase, guanylyl cyclase, gamma-secretase</td>
+</tr>
+<tr>
+<td>Cell adhesion</td>
+<td>Integrins, cadherins, selectins, IgCAMs</td>
+</tr>
+<tr>
+<td>Structural anchor</td>
+<td>Ankyrin-spectrin (RBC), dystrophin-glycoprotein complex</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="passive-transport">Passive Transport</h2>
+<p>Passive transport requires no energy input — molecules move down
+their electrochemical gradient.</p>
+<pre class="mermaid"><code>flowchart LR
+    A[&quot;Passive Transport&lt;br/&gt;(Down gradient, no ATP)&quot;] --&gt; B[&quot;Simple Diffusion&lt;br/&gt;Through lipid bilayer&lt;br/&gt;O2, CO2, ethanol&quot;]
+    A --&gt; C[&quot;Facilitated Diffusion&quot;]
+    C --&gt; D[&quot;Ion Channels&lt;br/&gt;Aqueous pore&lt;br/&gt;Very fast: 10^7-10^8 ions/s&lt;br/&gt;Gated, selective&quot;]
+    C --&gt; E[&quot;Carrier Proteins&lt;br/&gt;(Uniporters)&lt;br/&gt;Conformational change&lt;br/&gt;Slower: 10^2-10^4/s&lt;br/&gt;Saturable (Km)&quot;]
+
+    F[&quot;Active Transport&lt;br/&gt;(Against gradient, ATP)&quot;] --&gt; G[&quot;Primary Active&lt;br/&gt;Direct ATP hydrolysis&lt;br/&gt;Na+/K+-ATPase&lt;br/&gt;Ca2+-ATPase&lt;br/&gt;H+/K+-ATPase&quot;]
+    F --&gt; H[&quot;Secondary Active&lt;br/&gt;Uses ion gradient&lt;br/&gt;(from primary pump)&quot;]
+    H --&gt; I[&quot;Symport&lt;br/&gt;Same direction&lt;br/&gt;SGLT1 (Na+/glucose)&lt;br/&gt;Na+/amino acid&quot;]
+    H --&gt; J[&quot;Antiport&lt;br/&gt;Opposite direction&lt;br/&gt;NCX (Na+/Ca2+)&lt;br/&gt;NHE (Na+/H+)&quot;]
+
+    K[&quot;Bulk Transport&quot;] --&gt; L[&quot;Endocytosis&lt;br/&gt;(Into cell)&quot;]
+    K --&gt; M[&quot;Exocytosis&lt;br/&gt;(Out of cell)&quot;]
+
+    style A fill:#e6ffe6
+    style F fill:#ffe6e6
+    style K fill:#e6f3ff</code></pre>
+<!-- alt: Flowchart showing classification of membrane transport mechanisms, from simple diffusion through channels and carriers to primary and secondary active transport and bulk transport. -->
+<p><em>Classification of membrane transport mechanisms, from simple
+diffusion through channels and carriers to primary and secondary active
+transport and bulk transport.</em></p>
+<h3 id="simple-diffusion">Simple Diffusion</h3>
+<p>For uncharged molecules, flux obeys Fick’s First Law:</p>
+<p><span class="math display">\[J = -D \frac{d[C]}{dx} = P \cdot \Delta
+[C] \tag{7.2} \label{eq:unit_II_membrane_transport_item_2}\]</span></p>
+<p>where <span class="math inline">\(P\)</span> = permeability
+coefficient (m/s) = <span class="math inline">\(D \cdot
+K_{\text{oil/water}} / d\)</span> (membrane thickness).</p>
+<p>Membrane permeability: - <strong>High:</strong> small nonpolar
+molecules (O<span class="math inline">\(_2\)</span>, CO<span
+class="math inline">\(_2\)</span>, N<span
+class="math inline">\(_2\)</span>, ethanol, benzene) -
+<strong>Moderate:</strong> small polar uncharged (water, glycerol, urea)
+- <strong>Low:</strong> large polar (glucose, amino acids) -
+<strong>Very low/none:</strong> ions (Na<span
+class="math inline">\(^+\)</span>, K<span
+class="math inline">\(^+\)</span>, Cl<span
+class="math inline">\(^-\)</span>, Ca<span
+class="math inline">\(^{2+}\)</span>) — require protein channels</p>
+<p>The <strong>partition coefficient</strong> (<span
+class="math inline">\(K_{\text{oil/water}}\)</span>) is the strongest
+predictor of simple diffusion rate. Overton’s rule (1899): membrane
+permeability correlates with oil/water partition coefficient.</p>
+<h3 id="osmosis-and-the-vant-hoff-equation">Osmosis and the van’t Hoff
+Equation</h3>
+<p>Although water is technically a small polar molecule, its transport
+across cell membranes is fast and quantitative enough to deserve its own
+treatment. <strong>Osmosis</strong> is the net diffusion of water across
+a semi-permeable membrane in response to a difference in solute
+concentrations. Because water mass is conserved, osmosis amounts to a
+redistribution of <em>volume</em> — and uncontrolled osmotic swelling
+will lyse a cell.</p>
+<p>The thermodynamic driving force is the difference in <strong>water
+chemical potential</strong> <span class="math inline">\(\mu_w\)</span>
+between two compartments:</p>
+<p><span class="math display">\[\mu_w = \mu_w^0 + RT \ln a_w + \bar{V}_w
+P \tag{7.24} \label{eq:unit_II_membrane_transport_item_3}\]</span></p>
+<p>where <span class="math inline">\(a_w\)</span> is water activity (≈
+mole fraction in dilute solution) and <span
+class="math inline">\(\bar{V}_w\)</span> is the partial molar volume of
+water (~18 mL/mol). Each dissolved solute particle reduces <span
+class="math inline">\(a_w\)</span> proportionally — this is the
+molecular origin of colligative properties (boiling-point elevation,
+freezing-point depression, vapour-pressure lowering). Setting <span
+class="math inline">\(\mu_w\)</span> equal on both sides of a
+semi-permeable membrane and solving for the pressure required to balance
+a solute gradient yields <strong>van’t Hoff’s law</strong>:</p>
+<p><span class="math display">\[\begin{equation}
+\Pi = i M R T
+\label{eq:unit_II_vant_hoff}
+\end{equation}\]</span></p>
+<p>where Π is the <strong>osmotic pressure</strong> (in atm or Pa),
+<span class="math inline">\(M\)</span> is the solute molar
+concentration, <span class="math inline">\(R\)</span> is the gas
+constant, <span class="math inline">\(T\)</span> is absolute
+temperature, and <span class="math inline">\(i\)</span> is the
+<strong>van’t Hoff factor</strong> — the number of effective particles
+produced per formula unit (1 for glucose; 2 for NaCl; 3 for CaCl<span
+class="math inline">\(_2\)</span> at full dissociation).</p>
+<p>In SI units with <span class="math inline">\(R = 0.0821\)</span>
+L·atm/mol/K and 37 °C (<span class="math inline">\(T = 310\)</span> K),
+1 mM of an ideal solute generates <span class="math inline">\(\Pi = 1
+\cdot 0.001 \cdot 0.0821 \cdot 310 = 0.0254\)</span> atm ≈ 25 mmHg.
+Plasma is ~290 mOsm/L, generating ~7,500 mmHg of total osmotic pressure
+— but cells don’t burst because they are surrounded by isotonic
+interstitial fluid, and primarily the <em>difference</em> matters.</p>
+<p><strong>Worked Example: Osmotic swelling of a red blood
+cell.</strong></p>
+<p>A red blood cell is placed in a hypotonic solution (200 mOsm/L;
+plasma is 290 mOsm/L). Calculate (a) the initial osmotic pressure
+difference driving water inward, (b) the cell’s predicted volume change
+to reach equilibrium.</p>
+<ol type="a">
+<li>The osmotic pressure gradient is: <span class="math display">\[
+\Delta \Pi = (290 - 200) \times 10^{-3} \cdot 0.0821 \cdot 310 = 0.0900
+\cdot 25.45 = 2.29 \text{ atm} \approx 1{,}740 \text{
+mmHg}  \label{eq:unit_II_membrane_transport_item_4}\]</span></li>
+</ol>
+<p>This drives water into the cell at a flux of <span
+class="math inline">\(J_w = p_f \cdot \Delta C\)</span>, where <span
+class="math inline">\(p_f \approx 0.02\)</span> cm/s for an AQP1-rich
+erythrocyte. For a typical cell (<span class="math inline">\(A \approx
+140 \, \mu\text{m}^2\)</span>, <span class="math inline">\(V \approx 90
+\, \mu\text{m}^3\)</span>), volume doubling occurs in roughly 200 ms —
+fast enough to be visible in a microscope as the cell swells from
+biconcave disc to sphere.</p>
+<ol start="2" type="a">
+<li>At osmotic equilibrium, water content adjusts to make intracellular
+osmolarity = 200 mOsm/L. If initial intracellular osmolyte content is
+<span class="math inline">\(V_0 \cdot C_0 = 90 \cdot 290 =
+26{,}100\)</span> μmol·μm<span class="math inline">\(^3\)</span>/L, the
+new equilibrium volume is: <span class="math display">\[ V_\text{new} =
+V_0 \cdot \frac{C_0}{C_\text{new}} = 90 \cdot \frac{290}{200} = 130.5 \,
+\mu\text{m}^3  \label{eq:unit_II_membrane_transport_item_5}\]</span></li>
+</ol>
+<p>A 45% volume increase. RBCs reach a critical volume of ~150 μm<span
+class="math inline">\(^3\)</span> before haemolysis (membrane area
+cannot accommodate further sphere expansion), so the cell is on the
+brink of lysis.</p>
+<p><strong>Tonicity terms (clinical):</strong> Hypotonic solutions cause
+cells to swell (haemolysis if severe). Isotonic solutions (e.g., 0.9%
+NaCl, 5% dextrose, lactated Ringer’s) preserve volume. Hypertonic
+solutions cause cells to shrink (crenation in RBCs). Aquaporin defects
+cause major fluid balance disorders: <strong>AQP2 mutations</strong>
+cause nephrogenic diabetes insipidus (water reabsorption fails despite
+vasopressin); <strong>AQP4 autoantibodies</strong> cause neuromyelitis
+optica (astrocyte water-handling fails, edema and demyelination). The
+osmotic pressure of plasma proteins (mostly albumin, ~25 mmHg) is the
+<strong>oncotic pressure</strong> that retains fluid in the vasculature
+— its loss in nephrotic syndrome and liver failure causes generalised
+oedema.</p>
+<blockquote>
+<p><strong>Concept Check 1b:</strong> A patient with severe burns
+receives 4 L of 0.45% NaCl (“half-normal saline”) rapidly. Calculate the
+tonicity relative to plasma (290 mOsm/L) and predict the consequence for
+red blood cells.</p>
+</blockquote>
+<h3 id="facilitated-diffusion-via-channels">Facilitated Diffusion via
+Channels</h3>
+<p><strong>Ion channels</strong> are integral membrane proteins forming
+aqueous pores. They are: - <strong>Selective:</strong> ion selectivity
+filter determines which ions pass - <strong>Gated:</strong> open/close
+in response to specific stimuli - <strong>Fast:</strong> ion throughput
+rates of 10<span class="math inline">\(^7\)</span>–10<span
+class="math inline">\(^8\)</span> ions/s (near diffusion limit)</p>
+<p><strong>Gating mechanisms:</strong></p>
+<ul>
+<li><strong>Voltage-gated:</strong> opened by membrane-potential change;
+examples include sodium channel Nav1.1–1.9, potassium channel Kv1–12,
+and calcium channel Cav1–3 families.</li>
+<li><strong>Ligand-gated, extracellular:</strong> opened by
+neurotransmitter binding; examples include nAChR, GABAA receptor, NMDAR,
+and AMPAR.</li>
+<li><strong>Ligand-gated, intracellular:</strong> opened by second
+messengers; examples include calcium-activated potassium channel BK and
+retinal cGMP-gated channels.</li>
+<li><strong>Mechanosensitive:</strong> opened by stretch or pressure;
+examples include Piezo1/2, TREK-1, and bacterial MscL.</li>
+<li><strong>Temperature-gated:</strong> opened by heat or cold; examples
+include TRPV1 (&gt;43 degrees C, capsaicin) and TRPM8 (&lt;26 degrees C,
+menthol).</li>
+<li><strong>Light-gated:</strong> opened by photons; channelrhodopsin
+ChR2 is the standard optogenetic example.</li>
+</ul>
+<p><strong>Selectivity filter of K<span
+class="math inline">\(^+\)</span> channels</strong> (MacKinnon, Nobel
+Prize 2003): The selectivity filter contains the signature sequence
+TVGYG. Four carbonyl oxygens from each of the four subunits line the
+pore, precisely mimicking the hydration shell of K<span
+class="math inline">\(^+\)</span> (radius 1.33 angstroms). Na<span
+class="math inline">\(^+\)</span> (radius 0.95 angstroms) is too small
+to be coordinated effectively — the energetic cost of dehydrating
+Na<span class="math inline">\(^+\)</span> without compensating
+coordination makes Na<span class="math inline">\(^+\)</span> passage
+unfavourable. This elegant size-exclusion mechanism achieves 10,000:1
+selectivity for K<span class="math inline">\(^+\)</span> over Na<span
+class="math inline">\(^+\)</span>.</p>
+<p><strong>Aquaporins (AQP):</strong> Facilitate water transport (not
+solutes). AQP1 (Peter Agre, Nobel Prize 2003) channels ~3 x 10<span
+class="math inline">\(^8\)</span> water molecules/s while excluding
+protons (the Grotthuss mechanism is interrupted by a critical asparagine
+residue in the channel pore, and the electrostatic field of the NPA
+motif reorients water molecules, preventing H<span
+class="math inline">\(_3\)</span>O<span
+class="math inline">\(^+\)</span> passage).</p>
+<p><strong>Aquaporin discovery and selectivity in detail.</strong>
+Before 1992, biologists could not explain how erythrocytes and renal
+tubule cells achieve water permeability rates 100× faster than predicted
+from the lipid bilayer alone. Peter Agre’s group, while studying
+Rh-blood-group proteins, noticed a contaminating 28 kDa membrane
+protein. Reconstitution experiments (Preston et al., 1992,
+<em>Science</em>) demonstrated that this protein — christened
+<strong>AQP1</strong> (aquaporin-1) — conferred ~10× water permeability
+when expressed in <em>Xenopus</em> oocytes. Agre shared the 2003 Nobel
+Prize in Chemistry. Thirteen aquaporin paralogues are now known in
+humans, with tissue-specific expression: AQP2 (renal collecting duct,
+vasopressin-regulated), AQP4 (astrocyte endfeet, target of NMO
+autoantibodies), AQP5 (salivary/lacrimal glands), AQP7 (adipocytes,
+glycerol channel).</p>
+<p>The structural basis of selectivity is exquisite. Each AQP monomer is
+a hexa-helical bundle with two short re-entrant helices (carrying the
+conserved <strong>NPA motifs</strong> — Asn-Pro-Ala) that meet in the
+middle of the membrane to form the narrowest part of the pore (~2.8 Å,
+just wide enough for a single water molecule). Two mechanisms exclude
+protons:</p>
+<ol type="1">
+<li><strong>Electrostatic barrier:</strong> The two NPA half-helices
+have positive macrodipoles meeting in the middle of the pore — repelling
+H<span class="math inline">\(_3\)</span>O<span
+class="math inline">\(^+\)</span> but attracting electrically neutral
+water.</li>
+<li><strong>Hydrogen-bond reorientation:</strong> The central
+asparagines force passing water molecules to flip their hydrogen-bond
+donor/acceptor orientation. This breaks the proton-relay (Grotthuss)
+chain that would otherwise allow H<span
+class="math inline">\(^+\)</span> to “hop” through the channel.</li>
+</ol>
+<p>The water permeability coefficient (<span
+class="math inline">\(p_f\)</span>, the <strong>osmotic
+permeability</strong>) for a single AQP1 channel is ~<span
+class="math inline">\(3 \times 10^{-14}\)</span> cm<span
+class="math inline">\(^3\)</span>/s, corresponding to ~3 × 10<span
+class="math inline">\(^9\)</span> water molecules/s under typical
+osmotic gradients. A red blood cell expressing ~200,000 AQP1 channels
+can therefore exchange its entire water volume in &lt;100 ms — the basis
+of erythrocyte swelling/shrinking responses.</p>
+<p><strong>Clinical aquaporins.</strong> Loss-of-function mutations in
+AQP2 cause <strong>nephrogenic diabetes insipidus</strong> (kidneys
+cannot concentrate urine despite normal vasopressin). Autoantibodies
+against AQP4 cause <strong>neuromyelitis optica (Devic’s
+disease)</strong>, a demyelinating disorder distinct from MS. AQP1 is
+upregulated in many tumours and is being explored as a target in glioma
+therapy.</p>
+<p><strong>Clinical Connection: Channelopathies.</strong> Ion channel <a
+href="#gl:mutation"><strong>mutation</strong></a>s cause a wide range of
+diseases:</p>
+<ul>
+<li><strong>Long QT syndrome:</strong> Mutations in cardiac potassium or
+sodium channels prolong repolarisation and can trigger fatal
+arrhythmias. Drug-development screens therefore test for hERG channel
+block.</li>
+<li><strong>Cystic fibrosis:</strong> Mutations in CFTR disrupt chloride
+transport. The common deltaF508 variant causes misfolding and ER
+retention; modulator combinations such as lumacaftor/ivacaftor and
+elexacaftor/tezacaftor/ivacaftor partly restore channel function.</li>
+<li><strong>Malignant hyperthermia:</strong> RyR1 mutations cause
+uncontrolled Ca<span class="math inline">\(^{2+}\)</span> release from
+sarcoplasmic reticulum after exposure to volatile anaesthetics. See for
+calcium signalling.</li>
+</ul>
+<blockquote>
+<p><strong>Concept Check 2:</strong> Tetrodotoxin (TTX, from pufferfish)
+blocks voltage-gated Na<span class="math inline">\(^+\)</span> channels
+by binding the selectivity filter from the extracellular side. Predict
+the effects of TTX on (a) <a href="#gl:action-potential"><strong>action
+potential</strong></a> generation, (b) nerve conduction, and (c)
+skeletal muscle contraction.</p>
+</blockquote>
+<h3 id="ion-channel-gating-kinetics">Ion Channel Gating Kinetics</h3>
+<p>A single ion channel in a patch-clamp recording flickers between open
+and closed states stochastically. The time-averaged current through a
+population of <span class="math inline">\(N\)</span> channels with
+single-channel conductance γ (in pS = pico-siemens) and open probability
+<span class="math inline">\(P_o\)</span> is:</p>
+<p><span class="math display">\[\begin{equation}
+I = N \cdot P_o \cdot \gamma \cdot (V_m - E_\text{rev})
+\label{eq:unit_II_macroscopic_current}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(V_m\)</span> is the membrane
+potential and <span class="math inline">\(E_\text{rev}\)</span> is the
+reversal potential (for a perfectly selective channel, <span
+class="math inline">\(E_\text{rev} = E_\text{ion}\)</span>). This
+decomposition is one of the most powerful in biophysics: drugs can
+change channel function by altering <span
+class="math inline">\(N\)</span> (channel expression/internalisation),
+<span class="math inline">\(P_o\)</span> (gating modulators, allosteric
+drugs), or γ (pore-block, modifications of selectivity filter), and each
+can be measured separately.</p>
+<p><strong>Single-channel conductances of representative channels (in
+pS):</strong></p>
+<ul>
+<li><strong>nAChR, muscle endplate:</strong> conductance 30–50 pS; open
+probability about 0.85 with ACh; throughput about 3 x 10^7 ions/s.</li>
+<li><strong>BK, large-conductance calcium-activated potassium
+channel:</strong> conductance 200–250 pS; open probability 0.1–0.9
+depending on calcium; throughput up to 10^8 ions/s.</li>
+<li><strong>Kv1.x delayed rectifier:</strong> conductance 10–20 pS; open
+probability about 0.7 at +20 mV; throughput about 10^6 ions/s.</li>
+<li><strong>Nav1.x:</strong> conductance 15–20 pS; transient open
+probability below 0.5; throughput about 5 x 10^6 ions/s during an action
+potential.</li>
+<li><strong>L-type Cav1.2:</strong> conductance about 25 pS; open
+probability about 0.3; throughput about 10^5 ions/s.</li>
+<li><strong>ClC-1 skeletal chloride channel:</strong> conductance about
+1 pS with gating-coupled pores; open probability about 0.5 at rest.</li>
+<li><strong>CFTR chloride channel / ABC transporter:</strong>
+conductance 8–10 pS; PKA-dependent open probability 0.3–0.5.</li>
+</ul>
+<p><strong>Open probability and gating models.</strong> The open
+probability <span class="math inline">\(P_o\)</span> depends on the
+gating stimulus (voltage, ligand concentration, mechanical force). For a
+voltage-gated channel with effective gating charge <span
+class="math inline">\(z_g\)</span> (typical ~4–6 for Na<span
+class="math inline">\(_V\)</span>, ~6–10 for K<span
+class="math inline">\(_V\)</span>), the equilibrium open probability
+follows a Boltzmann relation:</p>
+<p><span class="math display">\[P_o(V) = \frac{1}{1 +
+\exp\left(-\frac{z_g F (V - V_{1/2})}{RT}\right)} \tag{7.19}
+\label{eq:unit_II_membrane_transport_item_6}\]</span></p>
+<p>where <span class="math inline">\(V_{1/2}\)</span> is the
+half-activation voltage. This sigmoidal curve is steep (~5–10 mV per
+e-fold change) — small voltage perturbations cause large changes in
+<span class="math inline">\(P_o\)</span>, the basis of the action
+potential’s switch-like behaviour. For ligand-gated channels with <span
+class="math inline">\(n\)</span> binding sites and Hill coefficient
+<span class="math inline">\(h\)</span>:</p>
+<p><span class="math display">\[P_o([L]) = \frac{[L]^h}{[L]^h + K_d^h}
+\tag{7.20} \label{eq:unit_II_membrane_transport_item_7}\]</span></p>
+<p>For the muscle nAChR, <span class="math inline">\(h \approx
+1.5\)</span> and <span class="math inline">\(K_d \approx 30\)</span> μM
+for ACh: half-maximal activation at ~30 μM, full activation by ~300 μM.
+The sub-millisecond opening of nAChRs after ACh release at the
+neuromuscular junction (peak [ACh] ~1 mM at the postsynaptic membrane)
+ensures essentially complete channel activation in every action
+potential.</p>
+<h3 id="electroneutral-vs.-electrogenic-transport">Electroneutral
+vs. Electrogenic Transport</h3>
+<p>Whether a transporter contributes net charge to the membrane
+potential depends on the <strong>stoichiometry of the transport
+cycle</strong>.</p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 20%" />
+<col style="width: 41%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Transporter</th>
+<th>Stoichiometry</th>
+<th>Net charge moved per cycle</th>
+<th>Electrogenic?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase</td>
+<td>3 Na<span class="math inline">\(^+\)</span> out / 2 K<span
+class="math inline">\(^+\)</span> in / 1 ATP</td>
+<td>+1 outward</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Ca<span class="math inline">\(^{2+}\)</span>-ATPase (SERCA)</td>
+<td>2 Ca<span class="math inline">\(^{2+}\)</span> in (to ER) / 2 H<span
+class="math inline">\(^+\)</span> out / 1 ATP</td>
+<td>0</td>
+<td>No (electroneutral)</td>
+</tr>
+<tr>
+<td>H<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase (gastric)</td>
+<td>1 H<span class="math inline">\(^+\)</span> out / 1 K<span
+class="math inline">\(^+\)</span> in / 1 ATP</td>
+<td>0</td>
+<td>No</td>
+</tr>
+<tr>
+<td>NCX (Na<span class="math inline">\(^+\)</span>/Ca<span
+class="math inline">\(^{2+}\)</span> exchanger)</td>
+<td>3 Na<span class="math inline">\(^+\)</span> in / 1 Ca<span
+class="math inline">\(^{2+}\)</span> out</td>
+<td>+1 inward</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>NHE1 (Na<span class="math inline">\(^+\)</span>/H<span
+class="math inline">\(^+\)</span> exchanger)</td>
+<td>1 Na<span class="math inline">\(^+\)</span> in / 1 H<span
+class="math inline">\(^+\)</span> out</td>
+<td>0</td>
+<td>No</td>
+</tr>
+<tr>
+<td>SGLT1 (Na<span class="math inline">\(^+\)</span>/glucose
+symport)</td>
+<td>2 Na<span class="math inline">\(^+\)</span> in / 1 glucose</td>
+<td>+2 inward</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>AE1 (Cl<span class="math inline">\(^-\)</span>/HCO<span
+class="math inline">\(_3^-\)</span> exchanger)</td>
+<td>1 Cl<span class="math inline">\(^-\)</span> out / 1 HCO<span
+class="math inline">\(_3^-\)</span> in</td>
+<td>0</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Energetic consequences.</strong> Electroneutral transporters
+move solutes “for free” with respect to the membrane potential — their
+thermodynamic feasibility depends primarily on chemical concentration
+gradients. Electrogenic transporters, by contrast, are driven by
+<em>both</em> concentration and voltage. The Na<span
+class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase, for example, would still
+hydrolyse ATP if Na<span class="math inline">\(^+\)</span> and K<span
+class="math inline">\(^+\)</span> concentrations were equalised, because
+moving net positive charge against the membrane potential (interior
+negative) costs additional energy: the <strong>electrochemical
+gradient</strong> is the relevant thermodynamic quantity:</p>
+<p><span class="math display">\[\Delta G_\text{ion} = RT \ln
+\frac{[C]_\text{out}}{[C]_\text{in}} + z F V_m \tag{7.21}
+\label{eq:unit_II_membrane_transport_item_8}\]</span></p>
+<p>For a 100× concentration gradient and 100 mV opposing voltage: <span
+class="math inline">\(\Delta G \approx +12 + 9.6 = 21.6\)</span> kJ/mol.
+ATP hydrolysis releases ~50 kJ/mol under cellular conditions, so a
+single ATP can drive ~2 ions of net charge against this combined
+gradient — exactly the stoichiometry observed in the Na<span
+class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase (3 Na<span
+class="math inline">\(^+\)</span> out – 2 K<span
+class="math inline">\(^+\)</span> in = +1 net per ATP, with margin for
+irreversibility).</p>
+<blockquote>
+<p><strong>Clinical Connection: Channelopathy diagnostics.</strong> When
+a patient presents with arrhythmia, episodic weakness, or seizures,
+modern diagnostics include <strong>gene panels</strong> (sequencing
+known channel genes) followed by <strong>functional
+reconstitution</strong> of variants in HEK293 or oocyte expression
+systems. Patch-clamp measurements decompose the disease-causing change
+into <span class="math inline">\(N\)</span>, <span
+class="math inline">\(P_o\)</span>, and γ effects: for example, the
+cystic fibrosis ΔF508 mutation reduces <span
+class="math inline">\(N\)</span> at the membrane (trafficking defect,
+fixed by lumacaftor); G551D reduces <span
+class="math inline">\(P_o\)</span> (gating defect, fixed by ivacaftor).
+The combination drug Orkambi addresses both — a triumph of
+mechanism-guided pharmacology.</p>
+</blockquote>
+<h3 id="facilitated-diffusion-via-carriers-uniporters">Facilitated
+Diffusion via Carriers (Uniporters)</h3>
+<p><strong>GLUT transporters</strong> (SLC2A family; 14 isoforms in
+humans) facilitate glucose diffusion:</p>
+<table>
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 16%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr>
+<th>Transporter</th>
+<th>Tissue</th>
+<th><span class="math inline">\(K_m\)</span> (mM)</th>
+<th>Regulation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GLUT1</td>
+<td>Erythrocytes, brain endothelium, placenta</td>
+<td>1.5</td>
+<td>Constitutive</td>
+</tr>
+<tr>
+<td>GLUT2</td>
+<td>Liver, pancreatic beta-cells, small intestine</td>
+<td>17</td>
+<td>Low affinity; glucose sensor</td>
+</tr>
+<tr>
+<td>GLUT3</td>
+<td><a href="#gl:neuron"><strong>Neuron</strong></a>s</td>
+<td>1.4</td>
+<td>Constitutive; high affinity for brain</td>
+</tr>
+<tr>
+<td><a href="#gl:glut4"><strong>GLUT4</strong></a></td>
+<td>Muscle, adipose</td>
+<td>5</td>
+<td>Insulin-stimulated PM insertion</td>
+</tr>
+<tr>
+<td>GLUT5</td>
+<td>Small intestine</td>
+<td>N/A</td>
+<td>Fructose transporter</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>alternating access mechanism</strong>: the carrier
+alternates between outward-facing (substrate binds from extracellular
+side) and inward-facing (substrate released to <a
+href="#gl:cytoplasm"><strong>cytoplasm</strong></a>) conformations. This
+is slower than channel transport (~10<span
+class="math inline">\(^2\)</span>–10<span
+class="math inline">\(^4\)</span> molecules/s) but allows specificity
+and saturability.</p>
+<h2 id="worked-example-glut-transporter-kinetics">Worked Example: GLUT
+Transporter Kinetics</h2>
+<p><em>Problem:</em> GLUT1 has <span class="math inline">\(K_m =
+1.5\)</span> mM and <span class="math inline">\(V_{max} = 200\)</span>
+μmol/min per gram of membrane protein. Blood glucose is ~5 mM. At what
+fraction of <span class="math inline">\(V_{max}\)</span> is GLUT1
+operating?</p>
+<p><em>Solution:</em></p>
+<p>Using the Michaelis-Menten equation:</p>
+<p><span class="math display">\[v = \frac{V_{max} \cdot [S]}{K_m + [S]}
+= \frac{200 \times 5}{1.5 + 5} = \frac{1000}{6.5} = 154 \;
+\mu\text{mol/min/g} \tag{7.3}
+\label{eq:unit_II_membrane_transport_item_9}\]</span></p>
+<p><span class="math display">\[\frac{v}{V_{max}} = \frac{154}{200} =
+0.77 = 77\% \tag{7.4}
+\label{eq:unit_II_membrane_transport_item_10}\]</span></p>
+<p>GLUT1 operates at 77% of maximum capacity at normal blood glucose —
+providing a safety margin while ensuring high glucose flux to the
+brain.</p>
+<hr />
+<h2 id="active-transport">Active Transport</h2>
+<p>Active transport moves solutes against their electrochemical
+gradient, requiring energy (usually ATP hydrolysis or proton motive
+force).</p>
+<h3 id="primary-active-transport-pumps">Primary Active Transport —
+Pumps</h3>
+<p><strong>Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase (sodium-potassium
+pump):</strong> Exports 3 Na<span class="math inline">\(^+\)</span> and
+imports 2 K<span class="math inline">\(^+\)</span> per ATP consumed
+(overall electrogenic; net +1 charge out). This pump consumes ~25% of
+the body’s ATP (up to 70% in neurons).</p>
+<pre class="mermaid"><code>flowchart TD
+    A[&quot;E1 conformation&lt;br/&gt;Intracellular-facing&lt;br/&gt;High Na+ affinity&quot;] --&gt;|&quot;3 Na+ bind&lt;br/&gt;from cytoplasm&quot;| B[&quot;E1·3Na+&quot;]
+    B --&gt;|&quot;ATP phosphorylates&lt;br/&gt;Asp376 (E1-P)&quot;| C[&quot;E1-P·3Na+&lt;br/&gt;Occluded state&quot;]
+    C --&gt;|&quot;Conformational change&lt;br/&gt;to E2-P&quot;| D[&quot;E2-P&lt;br/&gt;Extracellular-facing&lt;br/&gt;Low Na+ affinity&quot;]
+    D --&gt;|&quot;3 Na+ released&lt;br/&gt;to extracellular&quot;| E[&quot;E2-P&lt;br/&gt;High K+ affinity&quot;]
+    E --&gt;|&quot;2 K+ bind&lt;br/&gt;from extracellular&quot;| F[&quot;E2-P·2K+&quot;]
+    F --&gt;|&quot;Dephosphorylation&lt;br/&gt;(E2 → E1)&quot;| G[&quot;E1·2K+&lt;br/&gt;Occluded state&quot;]
+    G --&gt;|&quot;2 K+ released&lt;br/&gt;to cytoplasm&quot;| A
+
+    style A fill:#e6f3ff
+    style D fill:#ffe6e6
+    style C fill:#fff3e6
+    style G fill:#fff3e6</code></pre>
+<!-- alt: Flowchart showing post-Albers cycle of the Na^+/K^+-ATPase. The pump alternates between E1 (inward-facing, high Na^+ affinity) and E2 (outward-facing, high K^+ affinity) conformations. Phosphorylation by ATP and subsequent dephosphorylation drive the conformational changes. -->
+<p><em>The Post-Albers cycle of the Na<span
+class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase. The pump alternates between E1
+(inward-facing, high Na<span class="math inline">\(^+\)</span> affinity)
+and E2 (outward-facing, high K<span class="math inline">\(^+\)</span>
+affinity) conformations. Phosphorylation by ATP and subsequent
+dephosphorylation drive the conformational changes.</em></p>
+<p>This maintains: - Resting membrane potential (K<span
+class="math inline">\(^+\)</span> gradient) - High intracellular [K<span
+class="math inline">\(^+\)</span>] (~140 mM) and low [Na<span
+class="math inline">\(^+\)</span>] (~12 mM) - Low intracellular Na<span
+class="math inline">\(^+\)</span> that drives secondary active transport
+- Cell volume regulation (preventing osmotic swelling)</p>
+<p><strong>Inhibition by ouabain/digitalis:</strong> Cardiac glycosides
+block the K<span class="math inline">\(^+\)</span>-binding E2-P form.
+This elevates intracellular Na<span class="math inline">\(^+\)</span>,
+which reduces Na<span class="math inline">\(^+\)</span>/Ca<span
+class="math inline">\(^{2+}\)</span> exchanger activity (NCX normally
+uses the Na<span class="math inline">\(^+\)</span> gradient to export
+Ca<span class="math inline">\(^{2+}\)</span>), so [Ca<span
+class="math inline">\(^{2+}\)</span>]<span
+class="math inline">\(_i\)</span> rises, causing stronger cardiac
+contraction. Used for heart failure; narrow therapeutic window (toxicity
+causes arrhythmias).</p>
+<p><strong>Other primary active transport pumps:</strong> -
+<strong>Ca<span class="math inline">\(^{2+}\)</span>-ATPase
+(SERCA):</strong> pumps Ca<span class="math inline">\(^{2+}\)</span>
+from cytoplasm into ER/SR lumen; maintains [Ca<span
+class="math inline">\(^{2+}\)</span>]<span
+class="math inline">\(_i\)</span> at ~100 nM (10,000-fold lower than
+extracellular); critical for muscle relaxation - <strong>H<span
+class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase:</strong> gastric parietal
+cells; pumps H<span class="math inline">\(^+\)</span> into stomach lumen
+(<a href="#gl:ph"><strong>pH</strong></a> ~1); target of proton pump
+inhibitors (omeprazole, lansoprazole) for acid reflux/ulcer treatment -
+<strong>V-type H<span class="math inline">\(^+\)</span>-ATPase:</strong>
+acidifies lysosomes, endosomes; does not use a phosphorylated
+intermediate</p>
+<h3 id="abc-transporters">ABC Transporters</h3>
+<p><strong>ATP-Binding Cassette (ABC) transporters</strong> are a
+superfamily of ~48 members in humans. They use ATP hydrolysis to
+transport diverse substrates across membranes:</p>
+<ul>
+<li><strong>MDR1/P-glycoprotein (ABCB1):</strong> Broad-specificity drug
+efflux pump; exports hydrophobic compounds from the cell. Overexpressed
+in many cancers, causing <strong>multidrug resistance</strong> — tumour
+cells pump out chemotherapy drugs before they can act. Substrates
+include taxol, doxorubicin, vincristine.</li>
+<li><strong>CFTR (ABCC7):</strong> Unique ABC transporter that functions
+as a Cl<span class="math inline">\(^-\)</span> channel. Mutations cause
+<strong>cystic fibrosis</strong> (see Clinical Connection above).</li>
+<li><strong>ABCA1:</strong> Cholesterol and phospholipid efflux to
+apoA-I; critical for HDL formation. Loss-of-function mutations cause
+<strong>Tangier disease</strong> (very low HDL, cholesterol deposition
+in tissues).</li>
+<li><strong>TAP1/TAP2 (ABCB2/3):</strong> Transport antigenic peptides
+from cytoplasm into ER lumen for MHC class I loading and immune
+presentation.</li>
+</ul>
+<h3 id="secondary-active-transport">Secondary Active Transport</h3>
+<p>Uses the Na<span class="math inline">\(^+\)</span> electrochemical
+gradient (generated by the primary pump) to drive uphill transport of
+other solutes:</p>
+<ul>
+<li><strong>Symport (co-transport, same direction):</strong> SGLT1
+(intestinal glucose): 2 Na<span class="math inline">\(^+\)</span> + 1
+glucose move in together; net uptake even if [glucose]<span
+class="math inline">\(_{\text{in}}\)</span> &gt; [glucose]<span
+class="math inline">\(_{\text{out}}\)</span>. SGLT2 (kidney proximal
+tubule): 1 Na<span class="math inline">\(^+\)</span> + 1 glucose; target
+of gliflozin drugs for type 2 diabetes.</li>
+<li><strong>Antiport (exchange, opposite directions):</strong> NCX
+(Na<span class="math inline">\(^+\)</span>/Ca<span
+class="math inline">\(^{2+}\)</span> exchanger): 3 Na<span
+class="math inline">\(^+\)</span> in, 1 Ca<span
+class="math inline">\(^{2+}\)</span> out; critical for cardiac Ca<span
+class="math inline">\(^{2+}\)</span> <a
+href="#gl:homeostasis"><strong>homeostasis</strong></a>. NHE (Na<span
+class="math inline">\(^+\)</span>/H<span
+class="math inline">\(^+\)</span> exchanger): Na<span
+class="math inline">\(^+\)</span> in, H<span
+class="math inline">\(^+\)</span> out; regulates intracellular pH.</li>
+</ul>
+<blockquote>
+<p><strong>Clinical Connection: SGLT2 Inhibitors in Diabetes and Heart
+Failure</strong> SGLT2 inhibitors (empagliflozin, dapagliflozin,
+canagliflozin) block glucose reabsorption in the kidney proximal tubule,
+causing glucosuria (glucose loss in urine) and lowering blood glucose.
+Remarkably, these drugs also reduce cardiovascular death and heart
+failure hospitalisations, even in non-diabetic patients — likely through
+natriuresis, osmotic diuresis, and favourable metabolic effects. They
+represent a rare case where a simple transport mechanism becomes a
+blockbuster drug target. see (Metabolic Integration) for insulin
+signalling.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 3:</strong> The antibiotic gramicidin forms a
+channel in bacterial membranes that allows monovalent cations (Na<span
+class="math inline">\(^+\)</span>, K<span
+class="math inline">\(^+\)</span>) to flow freely. Predict how
+gramicidin would affect (a) the bacterial membrane potential, (b) the
+proton motive force, and (c) bacterial ATP synthesis.</p>
+</blockquote>
+<hr />
+<h2 id="the-nernst-equation-and-membrane-potential">The Nernst Equation
+and Membrane Potential</h2>
+<h3 id="electrochemical-potential">Electrochemical Potential</h3>
+<p>The electrochemical potential of an ion is:</p>
+<p><span class="math display">\[\tilde{\mu}_i = \mu_i^0 + RT\ln[C_i] +
+z_i F V \tag{7.5}
+\label{eq:unit_II_membrane_transport_item_11}\]</span></p>
+<p>where <span class="math inline">\(z_i\)</span> = ionic charge, <span
+class="math inline">\(F\)</span> = Faraday constant (96,485 C/mol),
+<span class="math inline">\(V\)</span> = membrane potential.</p>
+<p>At equilibrium (no net flux), the <strong>Nernst equation</strong>
+gives the equilibrium potential <span
+class="math inline">\(E_i\)</span>:</p>
+<p><span class="math display">\[E_i = \frac{RT}{z_i F} \ln
+\frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}} \tag{7.6}
+\label{eq:unit_II_membrane_transport_item_12}\]</span></p>
+<p>At 37 degrees C (310 K), <span class="math inline">\(RT/F\)</span> =
+26.7 mV. Converting to log<span
+class="math inline">\(_{10}\)</span>:</p>
+<p><span class="math display">\[E_i = \frac{61.5 \; \text{mV}}{z_i}
+\log_{10} \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}} \tag{7.7}
+\label{eq:unit_II_membrane_transport_item_13}\]</span></p>
+<h3 id="derivation-of-the-nernst-equation">Derivation of the Nernst
+Equation</h3>
+<p>Starting from the condition of zero net electrochemical driving force
+at equilibrium:</p>
+<p><span class="math display">\[\Delta \tilde{\mu}_i = 0 \tag{7.8}
+\label{eq:unit_II_membrane_transport_item_14}\]</span></p>
+<p><span class="math display">\[RT \ln
+\frac{[C_i]_{\text{in}}}{[C_i]_{\text{out}}} + z_i F (V_{\text{in}} -
+V_{\text{out}}) = 0 \tag{7.9}
+\label{eq:unit_II_membrane_transport_item_15}\]</span></p>
+<p><span class="math display">\[z_i F \cdot E_i = -RT \ln
+\frac{[C_i]_{\text{in}}}{[C_i]_{\text{out}}} = RT \ln
+\frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}} \tag{7.10}
+\label{eq:unit_II_membrane_transport_item_16}\]</span></p>
+<p><span class="math display">\[E_i = \frac{RT}{z_i F} \ln
+\frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}} \tag{7.11}
+\label{eq:unit_II_membrane_transport_item_17}\]</span></p>
+<h2 id="worked-example-nernst-potential">Worked Example: Nernst
+Potential</h2>
+<p><em>Problem:</em> Calculate the Nernst equilibrium potential for
+Ca<span class="math inline">\(^{2+}\)</span> at 37 degrees C, given
+[Ca<span class="math inline">\(^{2+}\)</span>]<span
+class="math inline">\(_{\text{out}}\)</span> = 2.5 mM and [Ca<span
+class="math inline">\(^{2+}\)</span>]<span
+class="math inline">\(_{\text{in}}\)</span> = 0.0001 mM (100 nM).</p>
+<p><em>Solution:</em></p>
+<p><span class="math display">\[E_{Ca} = \frac{RT}{z_{Ca}F} \ln
+\frac{[Ca^{2+}]_{\text{out}}}{[Ca^{2+}]_{\text{in}}} = \frac{26.7 \;
+\text{mV}}{2} \ln \frac{2.5}{0.0001} \tag{7.12}
+\label{eq:unit_II_membrane_transport_item_18}\]</span></p>
+<p><span class="math display">\[E_{Ca} = 13.35 \; \text{mV} \times
+\ln(25,000) = 13.35 \times 10.13 = +135 \; \text{mV} \tag{7.13}
+\label{eq:unit_II_membrane_transport_item_19}\]</span></p>
+<p>The strongly positive <span class="math inline">\(E_{Ca}\)</span>
+means that Ca<span class="math inline">\(^{2+}\)</span> has a massive
+driving force to enter cells. Brief Ca<span
+class="math inline">\(^{2+}\)</span> channel openings can therefore
+cause significant signalling events.</p>
+<p><strong>Nernst potentials of key ions:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Ion</th>
+<th>[inside] (mM)</th>
+<th>[outside] (mM)</th>
+<th><span class="math inline">\(E_i\)</span> (mV, 37 degrees C)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K<span class="math inline">\(^+\)</span></td>
+<td>140</td>
+<td>5</td>
+<td>-89</td>
+</tr>
+<tr>
+<td>Na<span class="math inline">\(^+\)</span></td>
+<td>12</td>
+<td>145</td>
+<td>+63</td>
+</tr>
+<tr>
+<td>Ca<span class="math inline">\(^{2+}\)</span></td>
+<td>0.0001</td>
+<td>2.5</td>
+<td>+135</td>
+</tr>
+<tr>
+<td>Cl<span class="math inline">\(^-\)</span></td>
+<td>4</td>
+<td>110</td>
+<td>-82</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Worked Example: Nernst Potentials for K<span
+class="math inline">\(^+\)</span>, Na<span
+class="math inline">\(^+\)</span>, and Cl<span
+class="math inline">\(^-\)</span>.</strong></p>
+<p>Each row of the table above can be reproduced from below by careful
+sign-handling. Using the simplified form at 37 °C: <span
+class="math inline">\(E_i = (61.5 \text{ mV} / z_i)
+\log_{10}([\text{out}]/[\text{in}])\)</span>.</p>
+<p><span class="math display">\[\begin{equation}
+E_i = \frac{RT}{z_i F} \ln \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}}
+\label{eq:unit_II_membrane_transport_nernst}
+\end{equation}\]</span></p>
+<p><em>Potassium (z = +1):</em> <span class="math inline">\(E_K = 61.5
+\cdot \log_{10}(5/140) = 61.5 \cdot \log_{10}(0.0357) = 61.5 \cdot
+(-1.447) = -89.0 \text{ mV}\)</span>. K<span
+class="math inline">\(^+\)</span> is concentrated inside, so equilibrium
+drives K<span class="math inline">\(^+\)</span> outward; the equilibrium
+potential is negative (interior must be ~89 mV more negative to halt
+K<span class="math inline">\(^+\)</span> efflux). The resting membrane
+potential (<span class="math inline">\(V_m \approx -70\)</span> mV) is
+therefore <em>less negative</em> than <span
+class="math inline">\(E_K\)</span> — meaning K<span
+class="math inline">\(^+\)</span> continues to leak slowly outward at
+rest.</p>
+<p><em>Sodium (z = +1):</em> <span class="math inline">\(E_{Na} = 61.5
+\cdot \log_{10}(145/12) = 61.5 \cdot \log_{10}(12.08) = 61.5 \cdot 1.082
+= +66.6 \text{ mV}\)</span>. (Tabulated values vary 63–67 mV depending
+on the assumed concentrations.) Na<span
+class="math inline">\(^+\)</span> is concentrated outside, so
+equilibrium drives Na<span class="math inline">\(^+\)</span> inward; the
+equilibrium potential is strongly positive. The resting membrane
+potential is <em>very far</em> from <span
+class="math inline">\(E_{Na}\)</span> — meaning Na<span
+class="math inline">\(^+\)</span> has a massive electrochemical force
+driving it inward, restrained primarily by the low resting Na<span
+class="math inline">\(^+\)</span> permeability.</p>
+<p><em>Chloride (z = −1):</em> <span class="math inline">\(E_{Cl} =
+(61.5 / -1) \cdot \log_{10}(110/4) = -61.5 \cdot \log_{10}(27.5) = -61.5
+\cdot 1.439 = -88.5 \text{ mV}\)</span>. (Tabulated values vary 80–90 mV
+depending on cell type — neurons have higher [Cl<span
+class="math inline">\(^-\)</span>]<span
+class="math inline">\(_i\)</span> than skeletal muscle.) Note the
+<em>negative</em> sign on <span
+class="math inline">\(z_\text{Cl}\)</span> inverts the ratio’s effect: a
+higher [Cl<span class="math inline">\(^-\)</span>]<span
+class="math inline">\(_o\)</span> than [Cl<span
+class="math inline">\(^-\)</span>]<span
+class="math inline">\(_i\)</span> yields a <em>negative</em> equilibrium
+potential, the opposite of K<span class="math inline">\(^+\)</span>. In
+adult neurons, <span class="math inline">\(E_\text{Cl}\)</span> sits
+near <span class="math inline">\(V_m\)</span>, so Cl<span
+class="math inline">\(^-\)</span> is essentially at equilibrium and
+small Cl<span class="math inline">\(^-\)</span> permeability changes
+(e.g., GABA<span class="math inline">\(_A\)</span>-receptor opening)
+cause primarily modest hyperpolarisation by stabilising <span
+class="math inline">\(V_m\)</span> near <span
+class="math inline">\(E_\text{Cl}\)</span>. In neonatal neurons,
+[Cl<span class="math inline">\(^-\)</span>]<span
+class="math inline">\(_i\)</span> is higher (~25 mM) due to immature
+KCC2 expression, <span class="math inline">\(E_\text{Cl}\)</span>
+becomes ~−40 mV, and GABA is <em>depolarising</em> — a fact with major
+implications for early brain development and neonatal seizures.</p>
+<p>These three numbers — <span class="math inline">\(E_K \approx
+-89\)</span>, <span class="math inline">\(E_{Na} \approx +63\)</span>,
+<span class="math inline">\(E_{Cl} \approx -82\)</span> — together with
+the relative permeabilities <span class="math inline">\(P_K : P_{Na} :
+P_{Cl}\)</span> generate the entire repertoire of resting and action
+potentials in excitable cells.</p>
+<p>The resting membrane potential (-70 mV) lies close to <span
+class="math inline">\(E_K\)</span> because the resting cell membrane is
+~25x more permeable to K<span class="math inline">\(^+\)</span> than
+Na<span class="math inline">\(^+\)</span>. K<span
+class="math inline">\(^+\)</span> “leaks” out through K2P (two-pore
+domain) leak channels; uncovered negative charges on impermeable
+intracellular proteins (Donnan effect) and the electrogenic Na<span
+class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span> pump (net export of +1 charge per
+cycle) contribute the remainder.</p>
+<h3 id="goldman-hodgkin-katz-equation">Goldman-Hodgkin-Katz
+Equation</h3>
+<p>When multiple ions carry current, the resting membrane potential is
+given by the <strong>Goldman equation</strong>:</p>
+<p><span class="math display">\[\begin{equation}
+V_m = \frac{RT}{F} \ln \frac{P_K[K^+]_o + P_{Na}[Na^+]_o +
+P_{Cl}[Cl^-]_i}{P_K[K^+]_i + P_{Na}[Na^+]_i + P_{Cl}[Cl^-]_o}
+\label{eq:unit_II_ghk}
+\end{equation}\]</span></p>
+<p>Note: anions (Cl<span class="math inline">\(^-\)</span>) appear with
+reversed subscripts because of their negative charge.</p>
+<p><strong>Derivation sketch.</strong> The full Goldman-Hodgkin-Katz
+(GHK) derivation begins from the Nernst-Planck equation for ionic flux
+<span class="math inline">\(J_i\)</span> across a membrane of thickness
+<span class="math inline">\(d\)</span> in a constant electric field:</p>
+<p><span class="math display">\[J_i = -D_i \left( \frac{dC_i}{dx} + z_i
+C_i \frac{F}{RT} \frac{dV}{dx} \right) \tag{7.22}
+\label{eq:unit_II_membrane_transport_item_20}\]</span></p>
+<p>Integrating across the membrane assuming a constant field (<span
+class="math inline">\(dV/dx = -V_m/d\)</span>) and a single permeability
+<span class="math inline">\(P_i = D_i \beta_i / d\)</span> (where <span
+class="math inline">\(\beta_i\)</span> is the partition coefficient
+between water and membrane) gives the <strong>GHK current
+equation</strong>:</p>
+<p><span class="math display">\[I_i = z_i F P_i \frac{z_i F V_m / RT}{1
+- \exp(-z_i F V_m / RT)} \left( [C_i]_\text{in} - [C_i]_\text{out}
+\exp(-z_i F V_m / RT) \right) \tag{7.23}
+\label{eq:unit_II_membrane_transport_item_21}\]</span></p>
+<p>At the resting membrane potential, the <em>net</em> current must be
+zero: <span class="math inline">\(\sum_i I_i = 0\)</span>. Solving this
+for K<span class="math inline">\(^+\)</span>, Na<span
+class="math inline">\(^+\)</span>, and Cl<span
+class="math inline">\(^-\)</span> (and treating Cl<span
+class="math inline">\(^-\)</span> as monovalent anion) algebraically
+yields the GHK voltage equation . The key conceptual takeaways are: (i)
+the membrane potential is a <em>weighted log average</em> of the Nernst
+potentials, with weights set by permeability; (ii) the ion with the
+highest permeability dominates; (iii) shifts in permeability ratios
+(e.g., during the action potential) produce predictable shifts in <span
+class="math inline">\(V_m\)</span>.</p>
+<h2 id="worked-example-goldman-equation">Worked Example: Goldman
+Equation</h2>
+<p><em>Problem:</em> Calculate <span class="math inline">\(V_m\)</span>
+at 37 degrees C given relative permeabilities <span
+class="math inline">\(P_K : P_{Na} : P_{Cl}\)</span> = 1.0 : 0.04 : 0.45
+and the ion concentrations in the table above.</p>
+<p><em>Solution:</em></p>
+<p><span class="math display">\[V_m = 26.7 \; \text{mV} \times \ln
+\frac{(1.0)(5) + (0.04)(145) + (0.45)(4)}{(1.0)(140) + (0.04)(12) +
+(0.45)(110)} \tag{7.15}
+\label{eq:unit_II_membrane_transport_item_22}\]</span></p>
+<p><span class="math display">\[V_m = 26.7 \times \ln \frac{5.0 + 5.8 +
+1.8}{140 + 0.48 + 49.5} = 26.7 \times \ln \frac{12.6}{190.0} \tag{7.16}
+\label{eq:unit_II_membrane_transport_item_23}\]</span></p>
+<p><span class="math display">\[V_m = 26.7 \times \ln(0.0663) = 26.7
+\times (-2.71) = -72.4 \; \text{mV} \tag{7.17}
+\label{eq:unit_II_membrane_transport_item_24}\]</span></p>
+<p>This is close to the experimentally measured <a
+href="#gl:resting-potential"><strong>resting potential</strong></a> of
+~-70 mV.</p>
+<blockquote>
+<p><strong>Concept Check 4:</strong> During an action potential, the
+permeability to Na<span class="math inline">\(^+\)</span> increases
+~500-fold (from <span class="math inline">\(P_{Na}/P_K\)</span> = 0.04
+to ~20). Using the Goldman equation, predict what happens to <span
+class="math inline">\(V_m\)</span>. Why does the membrane potential
+approach but not quite reach <span
+class="math inline">\(E_{Na}\)</span>?</p>
+</blockquote>
+<hr />
+<h2 id="membrane-potential-and-the-action-potential">Membrane Potential
+and the Action Potential</h2>
+<p>While the Nernst and Goldman equations describe resting membrane
+potential, the <strong>action potential</strong> is the defining
+electrical event in excitable cells (neurons, muscle cells, some
+endocrine cells).</p>
+<h3 id="phases-of-the-action-potential">Phases of the Action
+Potential</h3>
+<ol type="1">
+<li><p><strong>Resting state</strong> (<span
+class="math inline">\(V_m\)</span> ~ -70 mV): Voltage-gated Na<span
+class="math inline">\(^+\)</span> and K<span
+class="math inline">\(^+\)</span> channels are closed. K<span
+class="math inline">\(^+\)</span> leak channels (K2P family) maintain
+the resting potential near <span
+class="math inline">\(E_K\)</span>.</p></li>
+<li><p><strong><a href="#gl:depolarisation">Depolarisation</a> to
+threshold</strong> (~-55 mV): Graded potentials (e.g., from synaptic
+input) depolarise the membrane. If threshold is reached, voltage-gated
+Na<span class="math inline">\(^+\)</span> channels (Na$_V$1.x) open
+rapidly (activation gate).</p></li>
+<li><p><strong>Rising phase</strong> (depolarisation): Na<span
+class="math inline">\(^+\)</span> influx drives <span
+class="math inline">\(V_m\)</span> toward <span
+class="math inline">\(E_{Na}\)</span> (+63 mV). Positive feedback:
+depolarisation opens more Na<span class="math inline">\(^+\)</span>
+channels. This is the Hodgkin-Huxley regenerative cycle.</p></li>
+<li><p><strong>Overshoot:</strong> <span
+class="math inline">\(V_m\)</span> briefly exceeds 0 mV (typically
+reaches +30 to +40 mV but does not reach <span
+class="math inline">\(E_{Na}\)</span> because Na<span
+class="math inline">\(^+\)</span> channel inactivation begins).</p></li>
+<li><p><strong>Repolarisation:</strong> Na<span
+class="math inline">\(^+\)</span> channel inactivation (ball-and-chain
+mechanism, h-gate) closes channels within ~1 ms. Voltage-gated K<span
+class="math inline">\(^+\)</span> channels (K<span
+class="math inline">\(_V\)</span>, delayed rectifier) open slowly,
+allowing K<span class="math inline">\(^+\)</span> efflux, driving <span
+class="math inline">\(V_m\)</span> back toward <span
+class="math inline">\(E_K\)</span>.</p></li>
+<li><p><strong>Undershoot (afterhyperpolarisation):</strong> K<span
+class="math inline">\(^+\)</span> channels remain open transiently,
+overshooting below resting potential (~ -80 mV). K<span
+class="math inline">\(^+\)</span> channels then close, and <span
+class="math inline">\(V_m\)</span> returns to rest.</p></li>
+<li><p><strong>Refractory periods:</strong> Absolute refractory period
+(Na<span class="math inline">\(^+\)</span> channels inactivated; no
+action potential possible). Relative refractory period (some Na<span
+class="math inline">\(^+\)</span> channels recovered; stronger stimulus
+needed).</p></li>
+</ol>
+<h3 id="hodgkin-huxley-model">Hodgkin-Huxley Model</h3>
+<p>Hodgkin and Huxley (Nobel Prize 1963) described the action potential
+mathematically using voltage-clamp experiments on the squid giant
+axon:</p>
+<p><span class="math display">\[I_m = C_m \frac{dV}{dt} + g_K n^4 (V -
+E_K) + g_{Na} m^3 h (V - E_{Na}) + g_L (V - E_L) \tag{7.18}
+\label{eq:unit_II_membrane_transport_item_25}\]</span></p>
+<p>where <span class="math inline">\(m\)</span> = Na<span
+class="math inline">\(^+\)</span> activation variable, <span
+class="math inline">\(h\)</span> = Na<span
+class="math inline">\(^+\)</span> inactivation variable, <span
+class="math inline">\(n\)</span> = K<span
+class="math inline">\(^+\)</span> activation variable. This model
+predicted the ionic basis of the action potential before the molecular
+identity of ion channels was known.</p>
+<h3 id="saltatory-conduction">Saltatory Conduction</h3>
+<p>In myelinated axons, myelin sheaths (formed by Schwann cells in PNS,
+oligodendrocytes in CNS) insulate the axon, reducing membrane
+capacitance. Action potentials “jump” between <strong>nodes of
+Ranvier</strong> (gaps in myelin where Na<span
+class="math inline">\(^+\)</span> channels are concentrated at
+~1,000/um<span class="math inline">\(^2\)</span>). This increases
+conduction velocity from ~1 m/s (unmyelinated C fibres) to ~120 m/s
+(large myelinated A-alpha fibres).</p>
+<blockquote>
+<p><strong>Clinical Connection: Multiple Sclerosis and
+Demyelination</strong> Multiple sclerosis (MS) is an autoimmune disease
+in which T cells and antibodies attack CNS myelin. Demyelination exposes
+K<span class="math inline">\(^+\)</span> channels normally under the
+myelin sheath, causing K<span class="math inline">\(^+\)</span> leakage
+and conduction block. Symptoms include visual disturbances, motor
+weakness, and sensory abnormalities. The drug 4-aminopyridine
+(dalfampridine) blocks exposed K<span class="math inline">\(^+\)</span>
+channels and partially restores conduction, improving walking ability in
+MS patients.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check 6:</strong> Local anaesthetics (e.g.,
+lidocaine) block voltage-gated Na<span class="math inline">\(^+\)</span>
+channels by entering the channel pore from the intracellular side in
+their uncharged form, then becoming protonated and trapped. Why do local
+anaesthetics preferentially block small-diameter pain fibres before
+large motor fibres?</p>
+</blockquote>
+<hr />
+<h2 id="bulk-transport-endocytosis-and-exocytosis">Bulk Transport:
+Endocytosis and Exocytosis</h2>
+<h3 id="exocytosis-and-snare-mediated-membrane-fusion">Exocytosis and
+SNARE-Mediated Membrane Fusion</h3>
+<p><strong>Exocytosis:</strong> secretory vesicles fuse with the plasma
+membrane, releasing contents extracellularly.</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant V as Vesicle (v-SNARE: VAMP/synaptobrevin)
+    participant T as Target membrane (t-SNAREs: syntaxin + SNAP-25)
+    participant R as Regulatory proteins
+
+    Note over V,T: Step 1: Tethering
+    V-&gt;&gt;T: Rab GTPase + tethering factors bring vesicle close
+
+    Note over V,T: Step 2: Docking
+    V-&gt;&gt;T: v-SNARE (VAMP) engages t-SNAREs (syntaxin + SNAP-25)
+
+    Note over V,T: Step 3: Priming
+    R-&gt;&gt;V: Munc18 + Munc13 prepare SNARE complex
+    R-&gt;&gt;V: Complexin clamps the primed state (prevents premature fusion)
+
+    Note over V,T: Step 4: Ca2+ trigger
+    R-&gt;&gt;V: Ca2+ influx → synaptotagmin binds Ca2+ → displaces complexin
+
+    Note over V,T: Step 5: Fusion
+    V-&gt;&gt;T: SNARE complex zippers (4-helix bundle) → membrane fusion (~0.2 ms)
+    T-&gt;&gt;V: Vesicle contents released
+
+    Note over V,T: Step 6: Recycling
+    R-&gt;&gt;V: NSF + alpha-SNAP disassemble SNARE complex (ATP-dependent)
+    V-&gt;&gt;V: v-SNARE recycled for next round</code></pre>
+<!-- alt: Sequence diagram showing SNARE-mediated vesicle fusion during regulated exocytosis. The v-SNARE on the vesicle (VAMP/synaptobrevin) and t-SNAREs on the target membrane (syntaxin + SNAP-25) form a tight four-helix bundle that drives membrane fusion. Synaptotagmin acts as the Ca^2+ sensor that triggers fusion in <1 ms. -->
+<p><em>SNARE-mediated vesicle fusion during regulated exocytosis. The
+v-SNARE on the vesicle (VAMP/synaptobrevin) and t-SNAREs on the target
+membrane (syntaxin + SNAP-25) form a tight four-helix bundle that drives
+membrane fusion. <a
+href="#gl:synaptotagmin"><strong>Synaptotagmin</strong></a> acts as the
+Ca<span class="math inline">\(^{2+}\)</span> sensor that triggers fusion
+in &lt;1 ms.</em></p>
+<ul>
+<li><strong>Synaptic vesicle fusion:</strong> Ca<span
+class="math inline">\(^{2+}\)</span> entry through voltage-gated Ca<span
+class="math inline">\(^{2+}\)</span> channels triggers synaptotagmin,
+fusion occurs in &lt;0.2 ms (fastest biological membrane fusion)</li>
+<li><strong>Insulin secretion:</strong> glucose metabolism raises
+ATP/ADP ratio, closes K<span class="math inline">\(_{ATP}\)</span>
+channels, depolarisation opens Ca<span
+class="math inline">\(^{2+}\)</span> channels, Ca<span
+class="math inline">\(^{2+}\)</span> triggers insulin granule
+exocytosis</li>
+</ul>
+<blockquote>
+<p><strong>Clinical Connection: Botulinum Toxin and Tetanus
+Toxin</strong> Both botulinum toxin (Botox) and tetanus toxin are zinc
+metalloproteases that cleave SNARE proteins: - <strong>Botulinum
+toxin</strong> (7 serotypes A–G) cleaves VAMP, SNAP-25, or syntaxin at
+the neuromuscular junction, preventing acetylcholine release, causing
+flaccid paralysis. Clinical uses: dystonia, spasticity, cosmetic wrinkle
+reduction. - <strong>Tetanus toxin</strong> cleaves VAMP in inhibitory
+interneurons of the spinal cord, preventing GABA/glycine release,
+causing unopposed excitatory activity and spastic paralysis
+(lockjaw).</p>
+</blockquote>
+<h3 id="snare-mechanism-in-detail">SNARE Mechanism in Detail</h3>
+<p>The SNARE hypothesis (Rothman, Schekman, Südhof — 2013 Nobel Prize in
+Physiology or Medicine) explains how vesicles fuse with target membranes
+with both spatial and temporal precision. Each fusion event requires a
+quartet of helices contributed by a v-SNARE (on the vesicle) and
+t-SNAREs (on the target membrane). The four-helix bundle
+“<strong>zippers</strong>” from the membrane-distal N-terminus toward
+the membrane-proximal C-terminus, releasing ~35 <span
+class="math inline">\(k_B T\)</span> of free energy per SNARE complex —
+enough to overcome the kinetic barrier (~25 <span
+class="math inline">\(k_B T\)</span>) for membrane fusion.</p>
+<p><strong>Compartment-specific SNARE pairs</strong> ensure that each
+vesicle fuses primarily with its correct target:</p>
+<table>
+<colgroup>
+<col style="width: 51%" />
+<col style="width: 22%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>Compartment pair</th>
+<th>v-SNARE</th>
+<th>t-SNAREs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synaptic vesicle → presynaptic membrane</td>
+<td>VAMP2 (synaptobrevin)</td>
+<td>Syntaxin-1 + SNAP-25</td>
+</tr>
+<tr>
+<td>ER → cis-Golgi (COPII)</td>
+<td>Sec22 / Bet1</td>
+<td>Syntaxin-5 + Membrin + GS27</td>
+</tr>
+<tr>
+<td>Endosome → late endosome</td>
+<td>VAMP7 / VAMP8</td>
+<td>Syntaxin-7 + Vti1b + Syntaxin-8</td>
+</tr>
+<tr>
+<td>Late endosome → lysosome</td>
+<td>VAMP7</td>
+<td>Syntaxin-7 + Vti1b + Syntaxin-8</td>
+</tr>
+<tr>
+<td>Golgi → plasma membrane (constitutive)</td>
+<td>VAMP2 / VAMP3 / VAMP4</td>
+<td>Syntaxin-3/4 + SNAP-23</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The five steps of SNARE-mediated fusion:</strong></p>
+<ol type="1">
+<li><strong>Tethering.</strong> Rab GTPases on the vesicle (e.g., Rab3
+on synaptic vesicles, Rab1 on ER-derived vesicles) bind their effectors
+on the target membrane (long coiled-coil tethers like p115 or large
+multi-subunit complexes like the exocyst). Tethering is reversible and
+provides ~100 nm initial contact.</li>
+<li><strong>Docking.</strong> The four SNARE helices begin to pair
+through their N-terminal regions. SM proteins (Sec1/Munc18 family)
+chaperone the syntaxin partner, holding it in an open conformation. At
+synapses, Munc18 + Munc13 prepare syntaxin-1 for SNARE assembly.</li>
+<li><strong>Priming.</strong> Partial zippering brings the vesicle
+within ~5 nm of the target membrane. <strong>Complexin</strong> binds
+the half-zippered SNARE complex, clamping it in a metastable state ready
+to release on demand. Without complexin, vesicles fuse spontaneously;
+with complexin primarily, they cannot fuse — both must be present for
+regulated fusion.</li>
+<li><strong>Triggering.</strong> At the synapse, action-potential-evoked
+Ca<span class="math inline">\(^{2+}\)</span> entry through voltage-gated
+Ca<span class="math inline">\(^{2+}\)</span> channels reaches ~10 μM at
+the active zone within microseconds. Synaptotagmin-1 (Ca<span
+class="math inline">\(^{2+}\)</span> sensor with two C2 domains) binds
+Ca<span class="math inline">\(^{2+}\)</span> and PIP<span
+class="math inline">\(_2\)</span>, displaces complexin, and releases the
+SNAREs to complete zippering. The whole event takes &lt;0.2 ms — the
+fastest known protein-mediated fusion.</li>
+<li><strong>Disassembly.</strong> After fusion, the cis-SNARE complex
+(the four helices now in the same membrane) is dismantled by
+<strong>NSF</strong> (N-ethylmaleimide-sensitive factor, an AAA+ ATPase)
+and its adaptor <strong>alpha-SNAP</strong>. This requires ATP
+hydrolysis (~1 ATP per SNARE complex) and recycles the SNAREs for the
+next round.</li>
+</ol>
+<h3 id="vesicle-coat-proteins-in-detail">Vesicle Coat Proteins in
+Detail</h3>
+<p>Three major coat systems shape the secretory and endocytic pathways:
+<strong>COPII</strong>, <strong>COPI</strong>, and
+<strong>clathrin</strong>. Each is built around a small GTPase (Sar1 for
+COPII, Arf1 for COPI and clathrin) that anchors to the membrane upon
+GDP→GTP exchange and recruits coat subunits. Membrane curvature is
+generated by the geometry of the coat itself.</p>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 10%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 25%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Coat</th>
+<th>GTPase</th>
+<th>Inner layer</th>
+<th>Outer layer</th>
+<th>Cargo selection</th>
+<th>Vesicle size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>COPII</strong></td>
+<td>Sar1</td>
+<td>Sec23/24 (Sec24 is cargo selector via DXE/FF motifs)</td>
+<td>Sec13/31 (cuboctahedral cage)</td>
+<td>Anterograde ER→Golgi</td>
+<td>60–80 nm</td>
+</tr>
+<tr>
+<td><strong>COPI</strong></td>
+<td>Arf1</td>
+<td>β-, γ-, δ-, ζ-COP (cargo selector via KKXX)</td>
+<td>α-, β’-, ε-COP</td>
+<td>Retrograde Golgi→ER, intra-Golgi</td>
+<td>60–100 nm</td>
+</tr>
+<tr>
+<td><strong>Clathrin</strong></td>
+<td>Arf1 (TGN) or none (PM)</td>
+<td>Adaptor proteins (AP1 at TGN, AP2 at PM, AP3 at endosome, AP4)</td>
+<td>Clathrin triskelions (3 heavy + 3 light chains)</td>
+<td>Selective endocytosis; lysosomal sorting</td>
+<td>80–120 nm</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Clathrin triskelions</strong> are 3-legged structures that
+self-assemble into open polyhedral lattices (hexagons + pentagons, like
+a soccer ball). Each clathrin-coated pit contains ~36 triskelions
+arranged into a lattice that gradually curves the membrane into a deep
+invagination. The vesicle is then released by <strong>dynamin</strong>,
+a GTPase that wraps as a helical collar around the neck and uses GTP
+hydrolysis to constrict and pinch off the bud (~60–120 nm vesicle,
+depending on local geometry). After release, the clathrin coat is
+disassembled by Hsc70 + auxilin (J-domain co-chaperone) at the cost of
+~1 ATP per triskelion released.</p>
+<p><strong>Vesicle traffic in numbers.</strong> A typical mammalian cell
+sustains ~10<span class="math inline">\(^4\)</span> exocytic events and
+~10<span class="math inline">\(^4\)</span> endocytic events per minute.
+The plasma membrane area equivalent of one entire cell is internalised
+every ~30 minutes — meaning the membrane is in dynamic flux, with
+steady-state composition maintained by precise SNARE-coupled
+bidirectional traffic. A typical secretory neuron at full activity can
+fuse ~1000 synaptic vesicles per second.</p>
+<h3 id="endocytosis">Endocytosis</h3>
+<p><strong>Clathrin-mediated endocytosis (CME):</strong> 1. Cargo
+receptors cluster in clathrin-coated pits (adaptor AP2 links receptors
+to clathrin triskelions) 2. Clathrin assembles into a polyhedral basket,
+deforming the membrane into an invagination 3. Dynamin GTPase wraps
+around the neck of the invagination and pinches it off (~60–120 nm
+vesicle) 4. Clathrin coat disassembles (uncoated by Hsc70 + auxilin) 5.
+Vesicle fuses with early endosome - Examples: LDL receptor, transferrin
+receptor, EGF receptor</p>
+<p><strong>Caveolar endocytosis:</strong> - 50–80 nm flask-shaped
+invaginations rich in cholesterol and sphingolipids - Coated with
+caveolin-1 (integral membrane protein with hairpin topology) -
+Functions: transcytosis across endothelial cells, lipid homeostasis,
+signalling compartmentalisation</p>
+<p><strong>Phagocytosis:</strong> - Professional phagocytes
+(macrophages, neutrophils, dendritic cells) - Actin-driven pseudopod
+extension engulfs large particles (&gt;0.5 μm): bacteria, dead cells,
+debris - Receptors: Fc receptors (opsonised particles), complement
+receptors, scavenger receptors, TLRs - Phagosome fuses with lysosomes to
+form phagolysosome for degradation</p>
+<p><strong>Macropinocytosis:</strong> - Non-specific uptake of large
+volumes of extracellular fluid - Actin-driven membrane ruffles collapse
+back onto the cell surface, trapping fluid in large vesicles (0.2–5 μm)
+- Important for antigen sampling by dendritic cells and for nutrient
+acquisition by cancer cells (exploited by RAS-mutant tumours)</p>
+<blockquote>
+<p><strong>Concept Check 5:</strong> Familial hypercholesterolaemia (FH)
+can be caused by mutations in the LDL receptor, the adaptor protein ARH,
+or the PCSK9 protease. For each, explain how the mutation leads to
+elevated blood LDL cholesterol. Which type responds to statin
+therapy?</p>
+</blockquote>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>Nernst potentials for tabulated physiological ions are computed in
+closed form:</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.cell <span class="im">import</span> PHYSIOLOGICAL_IONS, nernst_potential</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ion <span class="kw">in</span> PHYSIOLOGICAL_IONS:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ion.charge <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(ion.ion, <span class="bu">round</span>(nernst_potential(ion), <span class="dv">2</span>), <span class="st">&quot;mV&quot;</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> Long QT channelopathies and
+familial hyperkalaemic paralysis are reminders that single-ion
+permeability or gradient defects reshape the Goldman-style integrative
+potential you approximate in silico.</p>
+</blockquote>
+<hr />
+<h3
+id="alphafold-predicted-transporter-structures-computational-biology-meets-membrane-biophysics">AlphaFold-Predicted
+Transporter Structures: Computational Biology Meets Membrane
+Biophysics</h3>
+<p>Membrane transporter structures have historically been among the
+hardest to solve experimentally: hydrophobic surfaces resist
+crystallisation, cryo-EM requires stable purified protein, and
+conformational flexibility (the very thing that makes transporters work)
+blurs reconstructions. <strong>AlphaFold2</strong> (DeepMind, 2021),
+<strong>AlphaFold-Multimer</strong> (2022), and AlphaFold 3 (2024)
+changed the workflow by making high-quality structural hypotheses
+routine for many folded domains and complexes, including many membrane
+proteins .</p>
+<p>By 2024, the <strong>AlphaFold Protein Structure Database</strong>
+provided structure coverage for more than 214 million protein sequences
+in UniProt . This transforms downstream biology: researchers can inspect
+predicted transmembrane helices and cavities in an orphan transporter,
+nominate binding-site residues, compare paralogues, and design
+mutagenesis or cryo-EM experiments before a solved structure exists. The
+correct lesson is not that prediction replaces structure determination;
+it is that prediction changes what counts as a good first
+experiment.</p>
+<p>Cautions are important for scientific literacy: AlphaFold predicts
+likely static conformations, but transporters function by
+<em>cycling</em> between conformations (outward-open ↔︎ occluded ↔︎
+inward-open); a single model can miss gating, allostery, lipid
+dependence, and ligand-coupled state changes. <strong>Predicted Aligned
+Error (PAE)</strong> plots flag low-confidence inter-domain geometries,
+and <strong>AlphaFold3</strong> integrates ligands, ions, nucleic acids,
+and other biomolecules into interaction hypotheses . The field now often
+generates predicted structures <em>before</em> requesting experimental
+ones, but strong biological claims still require transport assays,
+mutagenesis, binding data, or experimental structures.</p>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Membrane Structure and Transport</strong>, frontier
+biology belongs inside the evidence logic of the chapter. Cell biology
+is increasingly measured as live, spatial, single-cell, and
+perturbational data rather than static diagrams alone. The core reading
+question is this: transport claims require gradients, permeability,
+electrochemical driving force, gating, and energy coupling.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>Ask what measurement scale is being claimed: nanometre structure,
+single-cell transcript abundance, organelle dynamics, tissue context, or
+organismal phenotype.</p>
+<p><strong>Source practice:</strong> For cell-state claims, distinguish
+microscopy, live-cell perturbation, single-cell sequencing, spatial
+transcriptomics, and biochemical assay evidence before making a causal
+statement.</p>
+<h3 id="current-evidence-map-transporter-structure-to-function">Current
+Evidence Map: Transporter Structure to Function</h3>
+<pre class="mermaid"><code>flowchart LR
+    A[&quot;Predicted transporter fold&quot;] --&gt; B[&quot;Cavity and gate residues&quot;]
+    B --&gt; C[&quot;Substrate or ion hypothesis&quot;]
+    C --&gt; D[&quot;Mutagenesis panel&quot;]
+    D --&gt; E[&quot;Transport assay&quot;]
+    E --&gt; F[&quot;State-cycle model&quot;]</code></pre>
+<!-- alt: Flowchart showing transporter structure claims need functional assays because transport depends on cycling among states, not a single static conformation . -->
+<p><em>Transporter structure claims need functional assays because
+transport depends on cycling among states, not a single static
+conformation .</em></p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>The plasma membrane is a fluid mosaic bilayer with asymmetric lipid
+distribution maintained by flippases. Lipid rafts are dynamic
+cholesterol-sphingolipid microdomains with signalling roles.</li>
+<li>Ion channels achieve selectivity through precise selectivity filters
+(K<span class="math inline">\(^+\)</span> channel: carbonyl oxygen
+coordination) and are gated by voltage, ligands, mechanical force, or
+temperature.</li>
+<li>The Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase maintains ionic gradients
+essential for membrane potential, cell volume, and secondary active
+transport, consuming ~25% of cellular ATP.</li>
+<li>ABC transporters use ATP to transport diverse substrates; clinical
+significance includes multidrug resistance (MDR1) and cystic fibrosis
+(CFTR).</li>
+<li>The Nernst equation gives the equilibrium potential of each ion; the
+Goldman equation gives the actual membrane potential for multiple ions
+simultaneously.</li>
+<li>SNARE proteins mediate membrane fusion in exocytosis; synaptotagmin
+is the Ca<span class="math inline">\(^{2+}\)</span> sensor for regulated
+secretion.</li>
+<li>Endocytosis types (clathrin-mediated, caveolar, phagocytosis,
+macropinocytosis) internalise specific cargo or bulk fluid.</li>
+<li><strong>Connections:</strong> See for water and <a
+href="#gl:osmosis"><strong>osmosis</strong></a>, Unit IX for excitable
+tissues, and for receptor-mediated signalling.</li>
+</ul>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li><p>Derive the Nernst equation from the electrochemical potential
+equation. Calculate <span class="math inline">\(E_K\)</span> at 20
+degrees C (293 K) given [K<span class="math inline">\(^+\)</span>]<span
+class="math inline">\(_{\text{in}}\)</span> = 140 mM, [K<span
+class="math inline">\(^+\)</span>]<span
+class="math inline">\(_{\text{out}}\)</span> = 5 mM.</p></li>
+<li><p>Explain how the Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase contributes to the resting
+membrane potential both directly (electrogenic pump) and indirectly
+(maintaining K<span class="math inline">\(^+\)</span>
+gradient).</p></li>
+<li><p>Compare the selectivity mechanisms of K<span
+class="math inline">\(^+\)</span> channels and Na<span
+class="math inline">\(^+\)</span> channels. How does each achieve
+&gt;100:1 selectivity for its preferred ion?</p></li>
+<li><p>A patient is treated with omeprazole for gastric ulcer disease.
+What is the molecular target of this drug, and how does inhibiting it
+reduce gastric acid secretion?</p></li>
+<li><p>Explain why MDR1/P-glycoprotein overexpression causes multidrug
+resistance in cancer. Suggest two strategies to overcome this
+resistance.</p></li>
+<li><p>Describe the complete SNARE fusion cycle for synaptic vesicle
+exocytosis, from vesicle docking to <a
+href="#gl:snare-complex"><strong>SNARE complex</strong></a> disassembly.
+What role does Ca<span class="math inline">\(^{2+}\)</span>
+play?</p></li>
+<li><p>Using the Goldman equation, predict how the resting membrane
+potential would change if the membrane suddenly became equally permeable
+to Na<span class="math inline">\(^+\)</span> and K<span
+class="math inline">\(^+\)</span>.</p></li>
+<li><p>Compare clathrin-mediated endocytosis with phagocytosis in terms
+of vesicle size, coat proteins, cytoskeletal involvement, and cell types
+involved.</p></li>
+<li><p>Explain the biphasic effect of cholesterol on membrane fluidity.
+Why is this important for cells that experience temperature
+fluctuations?</p></li>
+<li><p>SGLT2 inhibitors cause glucose loss in urine. Calculate the
+approximate caloric loss per day if a diabetic patient loses 70 g of
+glucose per day in urine (glucose: 4 kcal/g).</p></li>
+<li><p>Run the Nernst loop in the bridge code and identify which ion’s
+equilibrium potential is closest to a typical neuronal resting
+potential; justify using permeability weighting qualitatively.</p></li>
+<li><p>Explain why CFTR is called a <strong>channel</strong> yet sits in
+the ABC transporter superfamily, and how that relates to ATP usage
+vs. passive flow.</p></li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Mitchell (1961). Coupling of phosphorylation to electron and
+hydrogen transfer by a chemi-osmotic type of mechanism. <em>Nature</em>,
+191.</li>
+<li>Singer &amp; Nicolson (1972). The fluid mosaic model of the
+structure of cell membranes. <em>Science</em>, 175.</li>
+<li>Hodgkin &amp; Huxley (1952). A quantitative description of membrane
+current and its application to conduction and excitation in nerve.
+<em>Journal of Physiology</em>, 117.</li>
+<li>Skou (1957). The influence of some cations on an adenosine
+triphosphatase from peripheral nerves. <em>Biochimica et Biophysica
+Acta</em>, 23.</li>
+<li>Agre (2004). Aquaporin water channels (Nobel lecture).
+<em>Bioscience Reports</em>, 24.</li>
+<li>Simons &amp; Ikonen (1997). Functional rafts in cell membranes.
+<em>Nature</em>, 387.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fluid mosaic model</strong></td>
+<td>Singer-Nicolson model of the membrane as a lipid bilayer sea with
+floating protein icebergs</td>
+</tr>
+<tr>
+<td><strong>Lipid raft</strong></td>
+<td>Dynamic cholesterol/sphingolipid-enriched microdomain that
+concentrates signalling proteins</td>
+</tr>
+<tr>
+<td><strong>Flippase</strong></td>
+<td>ATP-dependent enzyme maintaining lipid asymmetry by moving PS/PE to
+the inner leaflet</td>
+</tr>
+<tr>
+<td><strong>Aquaporin</strong></td>
+<td>Water-selective channel; excludes protons via electrostatic
+mechanism</td>
+</tr>
+<tr>
+<td><strong>GLUT</strong></td>
+<td>Glucose transporter family (SLC2A); 14 isoforms with tissue-specific
+expression and <span class="math inline">\(K_m\)</span></td>
+</tr>
+<tr>
+<td><strong>Na<span class="math inline">\(^+\)</span>/K<span
+class="math inline">\(^+\)</span>-ATPase</strong></td>
+<td>Primary active pump; 3 Na<span class="math inline">\(^+\)</span> out
+/ 2 K<span class="math inline">\(^+\)</span> in per ATP; electrogenic;
+25% of body ATP</td>
+</tr>
+<tr>
+<td><strong>Symport</strong></td>
+<td>Secondary active transport where two solutes move in the same
+direction</td>
+</tr>
+<tr>
+<td><strong>Antiport</strong></td>
+<td>Secondary active transport where two solutes move in opposite
+directions</td>
+</tr>
+<tr>
+<td><strong>Nernst potential</strong></td>
+<td>Equilibrium potential of a single ion species: <span
+class="math inline">\(E_i = (RT/z_iF) \ln([C]_o/[C]_i)\)</span></td>
+</tr>
+<tr>
+<td><strong>Goldman equation</strong></td>
+<td>Membrane potential equation accounting for permeabilities and
+concentrations of multiple ions</td>
+</tr>
+<tr>
+<td><strong>Selectivity filter</strong></td>
+<td>Narrow region of an ion channel that determines ion selectivity
+(e.g., TVGYG in K<span class="math inline">\(^+\)</span> channels)</td>
+</tr>
+<tr>
+<td><strong>ABC transporter</strong></td>
+<td>ATP-binding cassette transporter superfamily; drug efflux (MDR1),
+Cl<span class="math inline">\(^-\)</span> channel (CFTR)</td>
+</tr>
+<tr>
+<td><strong>SNARE</strong></td>
+<td>Soluble NSF attachment protein receptor; mediates membrane fusion
+via four-helix bundle zippering</td>
+</tr>
+<tr>
+<td><strong>Clathrin</strong></td>
+<td>Triskelion coat protein forming polyhedral baskets during
+receptor-mediated endocytosis</td>
+</tr>
+<tr>
+<td><strong>Channelopathy</strong></td>
+<td>Disease caused by ion channel mutations (e.g., Long QT syndrome,
+cystic fibrosis)</td>
+</tr>
+<tr>
+<td><strong>Macropinocytosis</strong></td>
+<td>Non-specific bulk uptake of extracellular fluid via actin-driven
+membrane ruffling</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Membrane Structure and Transport</strong> should leave a
+reproducible trail from a biological claim to the code, figure, diagram,
+or paper-based activity that can test it. Use the surfaces below to
+inspect the chapter’s assumptions, rerun the relevant model, or compare
+the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/cell/cell_biology.py</code>
+(<code>nernst_potential</code>, <code>goldman_equation</code>,
+<code>osmotic_pressure</code>, <code>diffusion_flux</code>)</td>
+<td>Reproduce electrochemical, osmotic, and diffusive driving
+forces.</td>
+</tr>
+<tr>
+<td><code>src/visualization/plots.py</code>
+(<code>plot_nernst_potentials</code>)</td>
+<td>Inspect ion-specific gradients and sign conventions.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>membrane_transport_diagram</code>)</td>
+<td>Separate channels, carriers, pumps, and coupled transport.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> list concentrations,
+permeability, charge, temperature, and membrane orientation before
+interpreting transport direction. <strong>Cross-reference:</strong>
+connect with and .</p>
+</body>
+</html>

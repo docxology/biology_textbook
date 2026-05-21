@@ -1,0 +1,23 @@
+flowchart LR
+    subgraph M2 ["Skeletal muscle"]
+        AAS["Branched-chain<br/>amino acid catabolism"] --> NH3["–NH₂ to pyruvate"]
+        PYR2["Pyruvate"] --> ALA1["Alanine"]
+        NH3 --> ALA1
+    end
+
+    subgraph BL ["Bloodstream"]
+        ALA2["Alanine ↑"]
+    end
+
+    subgraph LIV ["Liver"]
+        ALA3["Alanine"] -->|"ALT"| PYR3["Pyruvate"]
+        ALA3 -->|"+α-KG"| GLU3["Glutamate"]
+        GLU3 -->|"GDH"| UREA["NH₄⁺ → urea cycle"]
+        PYR3 -->|"gluconeogenesis"| GLC2["Glucose"]
+    end
+
+    ALA1 --> ALA2 --> ALA3
+    GLC2 --> M2
+
+    style M2 fill:#fff3e6
+    style LIV fill:#e6ffe6

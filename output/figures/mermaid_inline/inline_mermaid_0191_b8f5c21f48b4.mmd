@@ -1,0 +1,23 @@
+graph TD
+    subgraph "Better (Integrated)"
+        B1((Large)) --- B2((Large))
+        B1 --- B3((Large))
+        B2 --- B3
+        linkStyle 0,1,2 stroke:#198754,stroke-width:4px
+        noteB["<b>Connected & Large</b><br/>High gene flow<br/>Lower extinction risk<br/>Resilient to shifts"]
+    end
+
+    subgraph "Worse (Fragmented)"
+        W1((Small))
+        W2((Small))
+        W3((Small))
+        noteW["<b>Isolated & Small</b><br/>Edge effects dominate<br/>Inbreeding risk<br/>Vulnerable to stochasticity"]
+    end
+
+    subgraph "SLOSS Debate"
+        S1["<b>Single Large</b><br/>Protects wide-ranging<br/>apex predators"]
+        S2["<b>Several Small</b><br/>Protects rare plants<br/>in unique micro-habitats"]
+    end
+
+    style B1 fill:#d1e7dd,stroke:#0f5132
+    style W1 fill:#f8d7da,stroke:#842029

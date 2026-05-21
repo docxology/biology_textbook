@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>129_appendix_instructor_orchestration</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered"
+id="appendix-b-instructor-orchestration-guide">Appendix B — Instructor
+Orchestration Guide</h1>
+<p></p>
+<p>This appendix is generated from the same curriculum and alignment
+records that populate chapter Study Blueprints. It gives instructors a
+compact sequence for turning the textbook into lectures, labs, quizzes,
+and transfer tasks without hand-rebuilding a course map.</p>
+<h2 class="unnumbered" id="reusable-teaching-loop">Reusable Teaching
+Loop</h2>
+<ol type="1">
+<li><strong>Launch from a phenomenon.</strong> Begin with a case,
+dataset, model failure, or observed pattern that makes the chapter
+question necessary.</li>
+<li><strong>Model the mechanism.</strong> Ask students to draw, compute,
+simulate, or annotate the causal structure before reading the full
+explanation.</li>
+<li><strong>Gather evidence.</strong> Use the companion lab as the
+measurement and reproducibility surface for the chapter.</li>
+<li><strong>Check transfer.</strong> Use the question bank to sample
+recall, application, data interpretation, and argumentation.</li>
+<li><strong>Close the loop.</strong> Return to the transfer task and
+require a claim, evidence, reasoning, and uncertainty statement.</li>
+</ol>
+<h2 class="unnumbered" id="chapter-orchestration-matrix">Chapter
+Orchestration Matrix</h2>
+<h3 class="unnumbered" id="unit-0">Unit 0</h3>
+<h4 class="unnumbered"
+id="systems-science-and-the-logic-of-emergence">Systems Science and the
+Logic of Emergence</h4>
+<ul>
+<li><strong>Core thread:</strong> Use systems diagrams, uncertainty, and
+feedback as recurring sense-making tools.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Box-and-arrow causal models with explicit inputs,
+outputs, and feedback signs, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to translate a verbal
+biological system into variables, links, and testable predictions and
+then answer: given a biological scenario, identify the system boundary,
+feedback loop, and missing measurement.</li>
+<li><strong>Summative product:</strong> Apply the same feedback map to a
+cell, organism, and ecosystem, then name what changes at each
+scale.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Systems,
+Structure and function; AP Biology: Systems Interactions; NGSS-style
+topics: Structure and Function, Interdependent Relationships in
+Ecosystems.</li>
+</ul>
+<h4 class="unnumbered" id="complex-adaptive-systems">Complex Adaptive
+Systems</h4>
+<ul>
+<li><strong>Core thread:</strong> Use systems diagrams, uncertainty, and
+feedback as recurring sense-making tools.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Agent-rule and scaling arguments for emergent
+biological patterns, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to distinguish
+deterministic trends from stochastic variation in repeated simulations
+and then answer: explain an observed population pattern from
+individual-level rules and identify one falsifiable prediction.</li>
+<li><strong>Summative product:</strong> Compare flocking, immune
+activation, and microbial biofilms as adaptive systems.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Systems,
+Structure and function; AP Biology: Systems Interactions; NGSS-style
+topics: Structure and Function, Interdependent Relationships in
+Ecosystems.</li>
+</ul>
+<h4 class="unnumbered"
+id="active-inference-and-the-free-energy-principle">Active Inference and
+the Free Energy Principle</h4>
+<ul>
+<li><strong>Core thread:</strong> Use systems diagrams, uncertainty, and
+feedback as recurring sense-making tools.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Bayesian belief updating and
+expected-free-energy-style policy comparison, then test the model
+through data.</li>
+<li><strong>Formative check:</strong> Ask students to read a small
+probability table and update a prediction after new evidence and then
+answer: calculate a posterior belief and explain what action would
+reduce uncertainty or restore a set point.</li>
+<li><strong>Summative product:</strong> Map prediction-error reasoning
+onto chemotaxis, thermoregulation, and attention.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Systems,
+Structure and function; AP Biology: Systems Interactions; NGSS-style
+topics: Structure and Function, Interdependent Relationships in
+Ecosystems.</li>
+</ul>
+<h3 class="unnumbered" id="unit-i">Unit I</h3>
+<h4 class="unnumbered" id="atoms-molecules-and-chemical-bonds">Atoms,
+Molecules, and Chemical Bonds</h4>
+<ul>
+<li><strong>Core thread:</strong> Connect chemical structure, water,
+polymers, and catalysis to biological mechanism.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Formal charge and electronegativity-difference
+reasoning, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to use tabular atomic
+data to predict polarity, solubility, and biological reactivity and then
+answer: predict bond polarity, formal charge, or isotope behaviour and
+connect it to a biological consequence.</li>
+<li><strong>Summative product:</strong> Use atomic reasoning to explain
+a medical tracer, enzyme cofactor, or membrane-solubility problem.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Pathways and transformations of energy and matter; AP
+Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and
+Energy in Organisms and Ecosystems, Structure and Function.</li>
+</ul>
+<h4 class="unnumbered" id="water-the-molecule-of-life">Water — The
+Molecule of Life</h4>
+<ul>
+<li><strong>Core thread:</strong> Connect chemical structure, water,
+polymers, and catalysis to biological mechanism.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Henderson-Hasselbalch and pH-scale calculations,
+then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to convert between
+pH, hydrogen ion concentration, and buffer ratios and then answer:
+calculate a pH or buffer ratio and interpret what it means for a
+biological system.</li>
+<li><strong>Summative product:</strong> Transfer water-property
+reasoning to blood buffering, plant transport, or protein folding.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Pathways and transformations of energy and matter; AP
+Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and
+Energy in Organisms and Ecosystems, Structure and Function.</li>
+</ul>
+<h4 class="unnumbered" id="biological-macromolecules">Biological
+Macromolecules</h4>
+<ul>
+<li><strong>Core thread:</strong> Connect chemical structure, water,
+polymers, and catalysis to biological mechanism.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Polymerization energetics and
+sequence-to-structure reasoning, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to classify molecules
+from structural evidence rather than names alone and then answer: given
+a molecular feature, infer likely solubility, interaction partners, or
+cellular role.</li>
+<li><strong>Summative product:</strong> Explain how a mutation, lipid
+substitution, or glycosylation change propagates to phenotype.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Pathways and transformations of energy and matter; AP
+Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and
+Energy in Organisms and Ecosystems, Structure and Function.</li>
+</ul>
+<h4 class="unnumbered"
+id="enzymes-and-the-kinetics-of-catalysis">Enzymes and the Kinetics of
+Catalysis</h4>
+<ul>
+<li><strong>Core thread:</strong> Connect chemical structure, water,
+polymers, and catalysis to biological mechanism.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Michaelis-Menten, Lineweaver-Burk, and
+inhibition-pattern calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to fit or interpret
+enzyme-rate data and identify which parameter changed and then answer:
+infer Vmax, Km, or inhibition type from data and justify the mechanistic
+interpretation.</li>
+<li><strong>Summative product:</strong> Apply enzyme-kinetic reasoning
+to drug dosing, metabolic control, or diagnostic assays.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Pathways and transformations of energy and matter; AP
+Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and
+Energy in Organisms and Ecosystems, Structure and Function.</li>
+</ul>
+<h3 class="unnumbered" id="unit-ii">Unit II</h3>
+<h4 class="unnumbered" id="cell-theory-and-cell-types">Cell Theory and
+Cell Types</h4>
+<ul>
+<li><strong>Core thread:</strong> Revisit boundaries, compartments, and
+signals as causal models of cellular work.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Surface-area-to-volume scaling, then test the
+model through data.</li>
+<li><strong>Formative check:</strong> Ask students to infer cellular
+constraints from measurements, micrographs, and scale bars and then
+answer: use size or microscopy evidence to classify a cell and predict a
+constraint on exchange.</li>
+<li><strong>Summative product:</strong> Transfer scale reasoning to
+eggs, neurons, root hairs, and microbial colonies.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Systems, Information flow, exchange, and storage; AP
+Biology: Systems Interactions, Information Storage and Transmission;
+NGSS-style topics: Structure and Function.</li>
+</ul>
+<h4 class="unnumbered" id="cell-structure-and-organelles">Cell Structure
+and Organelles</h4>
+<ul>
+<li><strong>Core thread:</strong> Revisit boundaries, compartments, and
+signals as causal models of cellular work.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Compartment-flow and motor-transport
+calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to trace a molecule
+through compartments using evidence from labels or perturbations and
+then answer: predict which organelle or cytoskeletal process is
+disrupted from a phenotype.</li>
+<li><strong>Summative product:</strong> Apply compartment logic to
+secretion, apoptosis, infection, or cell division.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Systems, Information flow, exchange, and storage; AP
+Biology: Systems Interactions, Information Storage and Transmission;
+NGSS-style topics: Structure and Function.</li>
+</ul>
+<h4 class="unnumbered" id="membrane-structure-and-transport">Membrane
+Structure and Transport</h4>
+<ul>
+<li><strong>Core thread:</strong> Revisit boundaries, compartments, and
+signals as causal models of cellular work.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Nernst, Goldman, osmotic, and
+facilitated-transport calculations, then test the model through
+data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret
+transport data from gradients, rates, and membrane potentials and then
+answer: calculate or predict ion movement and explain which force
+dominates.</li>
+<li><strong>Summative product:</strong> Transfer gradient logic to
+neurons, kidneys, roots, and mitochondrial membranes.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Systems, Information flow, exchange, and storage; AP
+Biology: Systems Interactions, Information Storage and Transmission;
+NGSS-style topics: Structure and Function.</li>
+</ul>
+<h4 class="unnumbered" id="cell-signalling-and-communication">Cell
+Signalling and Communication</h4>
+<ul>
+<li><strong>Core thread:</strong> Revisit boundaries, compartments, and
+signals as causal models of cellular work.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Ligand-receptor occupancy and dose-response
+reasoning, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to read pathway
+diagrams and infer the effect of agonists, antagonists, or mutations and
+then answer: predict the outcome of perturbing one pathway component and
+justify the causal chain.</li>
+<li><strong>Summative product:</strong> Apply signaling logic to
+hormones, neurotransmitters, immune receptors, or cancer mutations.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Systems, Information flow, exchange, and storage; AP
+Biology: Systems Interactions, Information Storage and Transmission;
+NGSS-style topics: Structure and Function.</li>
+</ul>
+<h3 class="unnumbered" id="unit-iii">Unit III</h3>
+<h4 class="unnumbered"
+id="bioenergetics-and-cellular-respiration">Bioenergetics and Cellular
+Respiration</h4>
+<ul>
+<li><strong>Core thread:</strong> Track matter, electrons, and free
+energy through pathways and ecosystems.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Delta G, ATP yield, and electron-carrier
+accounting, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to track carbon,
+electrons, and ATP across a pathway and then answer: calculate an energy
+yield or redox consequence and connect it to cellular work.</li>
+<li><strong>Summative product:</strong> Transfer energy accounting to
+exercise, fermentation, hypoxia, and mitochondrial disease.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Pathways
+and transformations of energy and matter, Systems; AP Biology:
+Energetics, Systems Interactions; NGSS-style topics: Matter and Energy
+in Organisms and Ecosystems.</li>
+</ul>
+<h4 class="unnumbered" id="photosynthesis">Photosynthesis</h4>
+<ul>
+<li><strong>Core thread:</strong> Track matter, electrons, and free
+energy through pathways and ecosystems.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Photon, ATP/NADPH, and Calvin-cycle
+stoichiometry, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret
+light-response and carbon-fixation data and then answer: compute
+carbon-fixation requirements and explain a limiting factor.</li>
+<li><strong>Summative product:</strong> Transfer photosynthetic
+constraints to crops, algae, climate, or ecosystem productivity.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Pathways
+and transformations of energy and matter, Systems; AP Biology:
+Energetics, Systems Interactions; NGSS-style topics: Matter and Energy
+in Organisms and Ecosystems.</li>
+</ul>
+<h4 class="unnumbered"
+id="metabolic-integration-and-regulation">Metabolic Integration and
+Regulation</h4>
+<ul>
+<li><strong>Core thread:</strong> Track matter, electrons, and free
+energy through pathways and ecosystems.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Energy charge, control points, and pathway-flux
+comparisons, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to use pathway
+evidence to infer which metabolic state or tissue is active and then
+answer: predict how a change in substrate, hormone, or enzyme activity
+redirects flux.</li>
+<li><strong>Summative product:</strong> Apply metabolic network
+reasoning to diabetes, fasting, exercise, or cancer metabolism.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Pathways
+and transformations of energy and matter, Systems; AP Biology:
+Energetics, Systems Interactions; NGSS-style topics: Matter and Energy
+in Organisms and Ecosystems.</li>
+</ul>
+<h3 class="unnumbered" id="unit-iv">Unit IV</h3>
+<h4 class="unnumbered" id="dna-replication-and-the-cell-cycle">DNA
+Replication and the Cell Cycle</h4>
+<ul>
+<li><strong>Core thread:</strong> Connect sequence, regulation, genome
+integrity, and phenotype through evidence.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Replication-fork speed, error-rate, and
+cell-cycle timing calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret
+replication or cell-cycle data from timing, labeling, or checkpoint
+perturbations and then answer: calculate replication timing or error
+burden and infer checkpoint consequences.</li>
+<li><strong>Summative product:</strong> Transfer replication logic to
+cancer, aging, viral replication, or antibiotic targets.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change:
+Information flow, exchange, and storage, Structure and function; AP
+Biology: Information Storage and Transmission, Systems Interactions;
+NGSS-style topics: Inheritance and Variation of Traits, Structure and
+Function.</li>
+</ul>
+<h4 class="unnumbered"
+id="gene-expression-transcription-and-translation">Gene Expression —
+Transcription and Translation</h4>
+<ul>
+<li><strong>Core thread:</strong> Connect sequence, regulation, genome
+integrity, and phenotype through evidence.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Reading-frame, codon, and expression-output
+calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to convert DNA/RNA
+sequence data into predicted molecular products and then answer:
+translate or annotate a sequence and explain how a regulatory change
+alters output.</li>
+<li><strong>Summative product:</strong> Apply expression logic to
+mutations, biotechnology, development, and disease diagnostics.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change:
+Information flow, exchange, and storage, Structure and function; AP
+Biology: Information Storage and Transmission, Systems Interactions;
+NGSS-style topics: Inheritance and Variation of Traits, Structure and
+Function.</li>
+</ul>
+<h4 class="unnumbered" id="mutations-crispr-and-genomics">Mutations,
+CRISPR, and Genomics</h4>
+<ul>
+<li><strong>Core thread:</strong> Connect sequence, regulation, genome
+integrity, and phenotype through evidence.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Mutation-rate, edit-efficiency, and
+sequence-comparison calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to classify variants
+and predict likely molecular effect from sequence evidence and then
+answer: predict the impact of a variant and justify the evidence needed
+to validate it.</li>
+<li><strong>Summative product:</strong> Transfer variant reasoning to
+cancer genomics, ancestry, gene therapy, or microbial evolution.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change:
+Information flow, exchange, and storage, Structure and function; AP
+Biology: Information Storage and Transmission, Systems Interactions;
+NGSS-style topics: Inheritance and Variation of Traits, Structure and
+Function.</li>
+</ul>
+<h4 class="unnumbered" id="epigenetics-and-gene-regulation">Epigenetics
+and Gene Regulation</h4>
+<ul>
+<li><strong>Core thread:</strong> Connect sequence, regulation, genome
+integrity, and phenotype through evidence.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Regulatory-state and expression-ratio reasoning,
+then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret
+chromatin or expression evidence from simple regulatory datasets and
+then answer: explain how a regulatory mark changes accessibility and
+predict downstream expression.</li>
+<li><strong>Summative product:</strong> Apply regulation logic to
+differentiation, imprinting, cancer, or environmental responses.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change:
+Information flow, exchange, and storage, Structure and function; AP
+Biology: Information Storage and Transmission, Systems Interactions;
+NGSS-style topics: Inheritance and Variation of Traits, Structure and
+Function.</li>
+</ul>
+<h3 class="unnumbered" id="unit-v">Unit V</h3>
+<h4 class="unnumbered" id="mendelian-genetics-and-heredity">Mendelian
+Genetics and Heredity</h4>
+<ul>
+<li><strong>Core thread:</strong> Use probability and population
+reasoning to connect inheritance to evolution.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Punnett, binomial, pedigree, and chi-square
+calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to use family or
+cross data to infer genotype probabilities and then answer: compute a
+genetic probability or chi-square result and explain the biological
+assumption.</li>
+<li><strong>Summative product:</strong> Transfer inheritance reasoning
+to counseling, breeding, model organisms, and risk prediction.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change:
+Information flow, exchange, and storage, Evolution; AP Biology:
+Information Storage and Transmission, Evolution; NGSS-style topics:
+Inheritance and Variation of Traits, Natural Selection and
+Evolution.</li>
+</ul>
+<h4 class="unnumbered"
+id="chromosomal-inheritance-and-linkage">Chromosomal Inheritance and
+Linkage</h4>
+<ul>
+<li><strong>Core thread:</strong> Use probability and population
+reasoning to connect inheritance to evolution.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Recombination frequency and three-point mapping,
+then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to infer gene order
+or chromosomal mechanism from offspring counts and then answer: use
+progeny classes to calculate map distances and infer the most likely
+gene order.</li>
+<li><strong>Summative product:</strong> Transfer linkage reasoning to
+disease mapping, breeding, and genome assemblies.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change:
+Information flow, exchange, and storage, Evolution; AP Biology:
+Information Storage and Transmission, Evolution; NGSS-style topics:
+Inheritance and Variation of Traits, Natural Selection and
+Evolution.</li>
+</ul>
+<h4 class="unnumbered"
+id="population-genetics-and-hardy-weinberg-equilibrium">Population
+Genetics and Hardy-Weinberg Equilibrium</h4>
+<ul>
+<li><strong>Core thread:</strong> Use probability and population
+reasoning to connect inheritance to evolution.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Hardy-Weinberg and allele-frequency recurrence
+calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to estimate genotype
+or allele frequencies from population data and then answer: calculate
+expected frequencies and identify which evolutionary force could explain
+deviations.</li>
+<li><strong>Summative product:</strong> Apply population-genetic
+reasoning to screening, conservation, and pathogen evolution.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change:
+Information flow, exchange, and storage, Evolution; AP Biology:
+Information Storage and Transmission, Evolution; NGSS-style topics:
+Inheritance and Variation of Traits, Natural Selection and
+Evolution.</li>
+</ul>
+<h3 class="unnumbered" id="unit-vi">Unit VI</h3>
+<h4 class="unnumbered"
+id="evolution-theory-natural-selection-and-adaptation">Evolution —
+Theory, Natural Selection, and Adaptation</h4>
+<ul>
+<li><strong>Core thread:</strong> Return to variation, evidence, and
+historical inference across evolutionary scales.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Selection coefficient and allele-frequency
+trajectory calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret fitness
+data and distinguish selection from other forces and then answer:
+estimate selection strength from data and explain why the result is
+context dependent.</li>
+<li><strong>Summative product:</strong> Transfer selection reasoning to
+antibiotics, pesticide resistance, cancer, or climate adaptation.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Evolution,
+Systems; AP Biology: Evolution, Systems Interactions; NGSS-style topics:
+Natural Selection and Evolution, Interdependent Relationships in
+Ecosystems.</li>
+</ul>
+<h4 class="unnumbered"
+id="genetic-drift-gene-flow-and-speciation">Genetic Drift, Gene Flow,
+and Speciation</h4>
+<ul>
+<li><strong>Core thread:</strong> Return to variation, evidence, and
+historical inference across evolutionary scales.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Fixation probability, effective population size,
+and migration-selection balance, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to distinguish
+stochastic from directional change in allele-frequency data and then
+answer: predict how population size or isolation changes divergence and
+fixation risk.</li>
+<li><strong>Summative product:</strong> Apply drift reasoning to
+endangered populations, founder effects, and island radiations.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Evolution,
+Systems; AP Biology: Evolution, Systems Interactions; NGSS-style topics:
+Natural Selection and Evolution, Interdependent Relationships in
+Ecosystems.</li>
+</ul>
+<h4 class="unnumbered"
+id="phylogenetics-and-the-tree-of-life">Phylogenetics and the Tree of
+Life</h4>
+<ul>
+<li><strong>Core thread:</strong> Return to variation, evidence, and
+historical inference across evolutionary scales.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Tree-distance, parsimony, and molecular-clock
+calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to read trees
+correctly and map traits or sequences onto branches and then answer: use
+a tree to infer shared ancestry, character transitions, or divergence
+time.</li>
+<li><strong>Summative product:</strong> Transfer tree thinking to
+pathogens, conservation units, gene families, and development.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Evolution,
+Systems; AP Biology: Evolution, Systems Interactions; NGSS-style topics:
+Natural Selection and Evolution, Interdependent Relationships in
+Ecosystems.</li>
+</ul>
+<h3 class="unnumbered" id="unit-vii">Unit VII</h3>
+<h4 class="unnumbered" id="bacteria-archaea-and-viruses">Bacteria,
+Archaea, and Viruses</h4>
+<ul>
+<li><strong>Core thread:</strong> Use microbes to integrate evolution,
+ecology, host response, and public decisions.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Growth-rate, genome-size, and dilution
+calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret
+microbial observations from growth, sequence, or structural evidence and
+then answer: classify a microbe or virus from evidence and predict a
+likely vulnerability.</li>
+<li><strong>Summative product:</strong> Apply microbial diversity
+reasoning to antibiotics, biotechnology, ecology, and outbreaks.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Evolution,
+Systems, Structure and function; AP Biology: Evolution, Systems
+Interactions; NGSS-style topics: Structure and Function, Interdependent
+Relationships in Ecosystems.</li>
+</ul>
+<h4 class="unnumbered"
+id="microbial-ecology-and-the-microbiome">Microbial Ecology and the
+Microbiome</h4>
+<ul>
+<li><strong>Core thread:</strong> Use microbes to integrate evolution,
+ecology, host response, and public decisions.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Diversity indices, richness estimates, and
+interaction-network reasoning, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to compute or
+interpret community metrics from abundance data and then answer: use
+community data to infer diversity, dominance, and a plausible ecological
+mechanism.</li>
+<li><strong>Summative product:</strong> Transfer microbial ecology to
+soils, oceans, digestion, disease, and climate feedbacks.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Evolution,
+Systems, Structure and function; AP Biology: Evolution, Systems
+Interactions; NGSS-style topics: Structure and Function, Interdependent
+Relationships in Ecosystems.</li>
+</ul>
+<h4 class="unnumbered" id="infectious-disease-and-immunity">Infectious
+Disease and Immunity</h4>
+<ul>
+<li><strong>Core thread:</strong> Use microbes to integrate evolution,
+ecology, host response, and public decisions.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with R0, herd-immunity threshold, and SIR trajectory
+calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret outbreak
+curves and intervention effects and then answer: calculate a threshold
+or outbreak trajectory and identify the intervention lever.</li>
+<li><strong>Summative product:</strong> Transfer disease-dynamic
+reasoning to vaccination, antimicrobial resistance, and public-health
+policy.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Evolution,
+Systems, Structure and function; AP Biology: Evolution, Systems
+Interactions; NGSS-style topics: Structure and Function, Interdependent
+Relationships in Ecosystems.</li>
+</ul>
+<h3 class="unnumbered" id="unit-viii">Unit VIII</h3>
+<h4 class="unnumbered"
+id="plant-structure-water-relations-and-transport">Plant Structure,
+Water Relations, and Transport</h4>
+<ul>
+<li><strong>Core thread:</strong> Read plant form as an engineered
+compromise among transport, energy, and reproduction.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Water-potential and transpiration-flux
+calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret
+plant-water data from pressure, solute, and humidity measurements and
+then answer: calculate water potential and predict the direction of
+water movement.</li>
+<li><strong>Summative product:</strong> Transfer plant-water reasoning
+to drought, irrigation, forest physiology, and crop breeding.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Pathways and transformations of energy and matter,
+Systems; AP Biology: Energetics, Systems Interactions; NGSS-style
+topics: Structure and Function, Matter and Energy in Organisms and
+Ecosystems.</li>
+</ul>
+<h4 class="unnumbered" id="plant-reproduction-and-development">Plant
+Reproduction and Development</h4>
+<ul>
+<li><strong>Core thread:</strong> Read plant form as an engineered
+compromise among transport, energy, and reproduction.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Life-cycle accounting and
+phyllotaxis/growth-pattern calculations, then test the model through
+data.</li>
+<li><strong>Formative check:</strong> Ask students to track ploidy,
+tissue origin, and reproductive stage from diagrams or observations and
+then answer: trace a plant life cycle and predict the consequence of
+disrupting one stage.</li>
+<li><strong>Summative product:</strong> Transfer reproductive reasoning
+to agriculture, pollination ecology, and plant evolution.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Pathways and transformations of energy and matter,
+Systems; AP Biology: Energetics, Systems Interactions; NGSS-style
+topics: Structure and Function, Matter and Energy in Organisms and
+Ecosystems.</li>
+</ul>
+<h4 class="unnumbered" id="plant-responses-to-the-environment">Plant
+Responses to the Environment</h4>
+<ul>
+<li><strong>Core thread:</strong> Read plant form as an engineered
+compromise among transport, energy, and reproduction.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Dose-response, water-use-efficiency, and
+hormone-interaction reasoning, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret plant
+response data across light, gravity, water, and hormone treatments and
+then answer: predict a plant response from a signal and identify the
+likely hormone or pathway.</li>
+<li><strong>Summative product:</strong> Transfer response logic to shade
+avoidance, drought, flowering, and crop management.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Pathways and transformations of energy and matter,
+Systems; AP Biology: Energetics, Systems Interactions; NGSS-style
+topics: Structure and Function, Matter and Energy in Organisms and
+Ecosystems.</li>
+</ul>
+<h3 class="unnumbered" id="unit-ix">Unit IX</h3>
+<h4 class="unnumbered"
+id="circulation-respiration-and-homeostasis">Circulation, Respiration,
+and Homeostasis</h4>
+<ul>
+<li><strong>Core thread:</strong> Spiral homeostasis from organ systems
+to neural, endocrine, and immune decisions.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Cardiac-output, diffusion, oxygen-saturation, and
+feedback calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret
+physiological data from pressure, flow, saturation, or set-point changes
+and then answer: calculate a transport or feedback variable and explain
+the compensatory response.</li>
+<li><strong>Summative product:</strong> Transfer homeostatic reasoning
+to exercise, altitude, hemorrhage, fever, and shock.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Systems; AP Biology: Systems Interactions, Energetics;
+NGSS-style topics: Structure and Function.</li>
+</ul>
+<h4 class="unnumbered" id="nervous-system-and-neural-signalling">Nervous
+System and Neural Signalling</h4>
+<ul>
+<li><strong>Core thread:</strong> Spiral homeostasis from organ systems
+to neural, endocrine, and immune decisions.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Cable-length, conduction, and simple circuit
+calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret neural
+data from anatomy, timing, or lesion evidence and then answer: predict
+behavioural or signal consequences from a circuit or structural
+perturbation.</li>
+<li><strong>Summative product:</strong> Transfer circuit reasoning to
+reflexes, sensory systems, learning, and disease.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Systems; AP Biology: Systems Interactions, Energetics;
+NGSS-style topics: Structure and Function.</li>
+</ul>
+<h4 class="unnumbered"
+id="action-potentials-and-synaptic-transmission">Action Potentials and
+Synaptic Transmission</h4>
+<ul>
+<li><strong>Core thread:</strong> Spiral homeostasis from organ systems
+to neural, endocrine, and immune decisions.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Nernst/Goldman, Hodgkin-Huxley, and
+synaptic-current reasoning, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret voltage
+traces, conductance changes, and synaptic perturbations and then answer:
+predict how changing an ion gradient or channel conductance alters
+excitability.</li>
+<li><strong>Summative product:</strong> Transfer excitability reasoning
+to anesthesia, toxins, epilepsy, and neuromuscular disease.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Systems; AP Biology: Systems Interactions, Energetics;
+NGSS-style topics: Structure and Function.</li>
+</ul>
+<h4 class="unnumbered" id="endocrine-and-immune-systems">Endocrine and
+Immune Systems</h4>
+<ul>
+<li><strong>Core thread:</strong> Spiral homeostasis from organ systems
+to neural, endocrine, and immune decisions.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Hormone feedback, dose-response, and
+immune-memory reasoning, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret
+endocrine or immune data from time courses, titers, or perturbations and
+then answer: predict the consequence of changing a hormone, receptor,
+antigen, or immune-cell population.</li>
+<li><strong>Summative product:</strong> Transfer signaling and immunity
+reasoning to vaccination, autoimmunity, stress, and metabolism.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Structure
+and function, Systems; AP Biology: Systems Interactions, Energetics;
+NGSS-style topics: Structure and Function.</li>
+</ul>
+<h3 class="unnumbered" id="unit-x">Unit X</h3>
+<h4 class="unnumbered"
+id="population-ecology-and-growth-models">Population Ecology and Growth
+Models</h4>
+<ul>
+<li><strong>Core thread:</strong> Use ecological models to connect
+populations, interactions, matter, climate, and decisions.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Exponential/logistic growth, mark-recapture, and
+matrix projection, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to use abundance or
+age-structure data to estimate growth and risk and then answer:
+calculate a growth or sampling parameter and interpret its conservation
+meaning.</li>
+<li><strong>Summative product:</strong> Transfer population models to
+fisheries, invasive species, epidemiology, and endangered species.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Systems,
+Evolution, Pathways and transformations of energy and matter; AP
+Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics:
+Interdependent Relationships in Ecosystems, Matter and Energy in
+Organisms and Ecosystems, Natural Selection and Evolution.</li>
+</ul>
+<h4 class="unnumbered"
+id="community-ecology-and-species-interactions">Community Ecology and
+Species Interactions</h4>
+<ul>
+<li><strong>Core thread:</strong> Use ecological models to connect
+populations, interactions, matter, climate, and decisions.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Lotka-Volterra-style interaction and
+diversity-pattern reasoning, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to interpret
+abundance, interaction, or disturbance data from communities and then
+answer: predict how changing one species or resource alters community
+structure.</li>
+<li><strong>Summative product:</strong> Transfer interaction reasoning
+to restoration, disease ecology, agriculture, and invasion biology.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Systems,
+Evolution, Pathways and transformations of energy and matter; AP
+Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics:
+Interdependent Relationships in Ecosystems, Matter and Energy in
+Organisms and Ecosystems, Natural Selection and Evolution.</li>
+</ul>
+<h4 class="unnumbered"
+id="ecosystem-ecology-and-biogeochemical-cycles">Ecosystem Ecology and
+Biogeochemical Cycles</h4>
+<ul>
+<li><strong>Core thread:</strong> Use ecological models to connect
+populations, interactions, matter, climate, and decisions.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Energy-flow, productivity, and nutrient-budget
+calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to trace matter and
+energy through food webs and biogeochemical cycles and then answer:
+calculate a flux or efficiency and explain which pool or process limits
+the system.</li>
+<li><strong>Summative product:</strong> Transfer ecosystem reasoning to
+eutrophication, carbon budgets, agriculture, and climate feedback.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Systems,
+Evolution, Pathways and transformations of energy and matter; AP
+Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics:
+Interdependent Relationships in Ecosystems, Matter and Energy in
+Organisms and Ecosystems, Natural Selection and Evolution.</li>
+</ul>
+<h4 class="unnumbered" id="biomes-and-conservation-biology">Biomes and
+Conservation Biology</h4>
+<ul>
+<li><strong>Core thread:</strong> Use ecological models to connect
+populations, interactions, matter, climate, and decisions.</li>
+<li><strong>Instructor move:</strong> Launch from a phenomenon, have
+students model it with Species-area, risk, and prioritization
+calculations, then test the model through data.</li>
+<li><strong>Formative check:</strong> Ask students to use maps, trend
+data, and threat categories to justify conservation priorities and then
+answer: evaluate a conservation scenario using evidence, tradeoffs, and
+uncertainty.</li>
+<li><strong>Summative product:</strong> Transfer conservation reasoning
+to land use, climate corridors, restoration, and environmental
+justice.</li>
+<li><strong>Lab/question pair:</strong> ; .</li>
+<li><strong>External alignment:</strong> Vision &amp; Change: Systems,
+Evolution, Pathways and transformations of energy and matter; AP
+Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics:
+Interdependent Relationships in Ecosystems, Matter and Energy in
+Organisms and Ecosystems, Natural Selection and Evolution.</li>
+</ul>
+</body>
+</html>

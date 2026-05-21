@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>043_circulation_respiration_homeostasis</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="circulation-respiration-and-homeostasis">Circulation,
+Respiration, and Homeostasis</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 28</strong> · Level 3/3 · 60 min read · 100 min lecture ·
+Prerequisites: , </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<ol type="1">
+<li>Describe the evolutionary progression of cardiovascular systems from
+open to closed, and from 2-chamber to 4-chamber hearts.</li>
+<li>Explain the cardiac cycle including electrical conduction,
+mechanical events, and the ECG.</li>
+<li>Apply Poiseuille’s law to blood flow and explain arteriolar
+regulation of vascular resistance.</li>
+<li>Describe oxygen transport by haemoglobin using the Hill equation,
+including the Bohr and Haldane effects.</li>
+<li>Explain CO<span class="math inline">\(_2\)</span> transport
+mechanisms and the chloride shift.</li>
+<li>Describe pulmonary ventilation mechanics, lung volumes, and
+spirometry.</li>
+<li>Apply Fick’s law to alveolar gas exchange.</li>
+<li>Explain respiratory control by medullary centres and
+chemoreceptors.</li>
+<li>Describe homeostatic control systems, <a
+href="#gl:thermoregulation"><strong>thermoregulation</strong></a>, and
+fluid balance.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Animal transport systems maintain
+gradients that let cells exchange gases, nutrients, heat, and
+wastes.</li>
+<li><strong>Core concepts:</strong> cardiac output, gas exchange,
+homeostasis, feedback.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change: Structure
+and function, Systems; AP Biology: Systems Interactions, Energetics;
+NGSS-style topics: Structure and Function.</li>
+<li><strong>Model or quantitative lens:</strong> Cardiac-output,
+diffusion, oxygen-saturation, and feedback calculations.</li>
+<li><strong>Data skill:</strong> Interpret physiological data from
+pressure, flow, saturation, or set-point changes.</li>
+<li><strong>Practice cadence:</strong> Visual Representations,
+Statistical Tests and Data Analysis, Argumentation.</li>
+<li><strong>Common misconception to repair:</strong> Homeostasis is
+dynamic regulation, not an unchanging internal state.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Transfer homeostatic reasoning to
+exercise, altitude, hemorrhage, fever, and shock.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.physiology.physiology.oxygen_saturation</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette — The Doctor Who Proved the Heart Was a
+Pump</strong></p>
+<p>In 1628, William Harvey published <em>Exercitatio Anatomica de Motu
+Cordis et Sanguinis</em> — a slim 72-page monograph that demolished
+1,400 years of medical dogma. The <a
+href="#gl:dominant"><strong>dominant</strong></a> Galenic view held that
+blood was continuously manufactured from food in the liver and consumed
+by tissues. Harvey’s insight was quantitative: he calculated the volume
+expelled by the heart with each beat (about 60 mL) and multiplied by
+heart rate. The heart expels roughly 4.3 kg of blood per minute — far
+more than the body could possibly generate from food. The primarily
+explanation was that blood circulates, continuously recirculated by the
+heart. Harvey’s argument was revolutionary in method as much as finding:
+he used mathematical reasoning, vivisection, and comparative anatomy
+across many species rather than received authority. He was ridiculed
+widely and lost patients; he died in 1657. Modern cardiology, cardiac
+surgery, and pharmacology of the cardiovascular system most stand on the
+foundation he built alone.</p>
+</blockquote>
+<h2 id="evolution-of-cardiovascular-systems">Evolution of Cardiovascular
+Systems</h2>
+<p>The cardiovascular system evolved to overcome the limitations of
+diffusion for O<span class="math inline">\(_2\)</span> and nutrient
+delivery in large organisms:</p>
+<p><strong>Open circulatory systems</strong> (arthropods, most
+molluscs): Heart pumps haemolymph into open sinuses (haemocoel).
+Haemolymph bathes tissues directly. Low pressure, slow flow. Adequate
+for small ectotherms with low metabolic rates.</p>
+<p><strong>Closed circulatory systems</strong> (annelids, cephalopods,
+most vertebrates): Blood confined within vessels. Higher pressure
+enables faster, more directed flow. Allows separate regulation of blood
+flow to different organs.</p>
+<p><strong>Vertebrate heart evolution:</strong></p>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 20%" />
+<col style="width: 23%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Heart Type</th>
+<th>Chambers</th>
+<th>Organisms</th>
+<th>Key Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2-chamber</td>
+<td>1 atrium + 1 ventricle</td>
+<td>Fish</td>
+<td>Single circuit: heart to gills to body to heart</td>
+</tr>
+<tr>
+<td>3-chamber</td>
+<td>2 atria + 1 ventricle</td>
+<td>Amphibians, most reptiles</td>
+<td>Double circuit with some mixing in ventricle</td>
+</tr>
+<tr>
+<td>3.5-chamber</td>
+<td>Partial septum</td>
+<td>Crocodilians</td>
+<td>Nearly complete ventricular separation</td>
+</tr>
+<tr>
+<td>4-chamber</td>
+<td>2 atria + 2 ventricles</td>
+<td>Birds, mammals</td>
+<td>Complete separation of pulmonary and systemic circuits</td>
+</tr>
+</tbody>
+</table>
+<p>The 4-chamber heart enables complete separation of oxygenated and
+deoxygenated blood, supporting the high metabolic rates required for
+endothermy.</p>
+<hr />
+<h2 id="heart-anatomy-and-the-cardiac-cycle">Heart Anatomy and the
+Cardiac Cycle</h2>
+<h3 id="cardiac-conduction-system">Cardiac Conduction System</h3>
+<p>The heart is a self-exciting organ. Its electrical conduction system
+ensures coordinated contraction:</p>
+<pre class="mermaid"><code>flowchart TD
+    SA[&quot;SA Node (Sinoatrial)&lt;br/&gt;Natural pacemaker&lt;br/&gt;Intrinsic rate: 70-80 bpm&lt;br/&gt;Located: right atrium wall&quot;] --&gt; Atria[&quot;Atrial Depolarisation&lt;br/&gt;P wave on ECG&lt;br/&gt;Atrial contraction&quot;]
+    Atria --&gt; AV[&quot;AV Node (Atrioventricular)&lt;br/&gt;Delay: ~0.1 s&lt;br/&gt;Intrinsic rate: 40-60 bpm&lt;br/&gt;PR interval on ECG&quot;]
+    AV --&gt; His[&quot;Bundle of His&lt;br/&gt;Penetrates fibrous skeleton&lt;br/&gt;Only electrical connection&lt;br/&gt;between atria and ventricles&quot;]
+    His --&gt; BB[&quot;Bundle Branches&lt;br/&gt;Left and Right&lt;br/&gt;Down interventricular septum&quot;]
+    BB --&gt; Purk[&quot;Purkinje Fibres&lt;br/&gt;Rapid conduction (2-4 m/s)&lt;br/&gt;Distribute impulse to&lt;br/&gt;ventricular myocardium&quot;]
+    Purk --&gt; Vent[&quot;Ventricular Depolarisation&lt;br/&gt;QRS complex on ECG&lt;br/&gt;Ventricular contraction (systole)&quot;]
+    Vent --&gt; Repol[&quot;Ventricular Repolarisation&lt;br/&gt;T wave on ECG&lt;br/&gt;Ventricular relaxation (diastole)&quot;]
+
+    style SA fill:#ffcccc
+    style AV fill:#ffffcc
+    style Purk fill:#ccffcc</code></pre>
+<!-- alt: Flowchart showing cardiac conduction system and corresponding ECG waves. The SA node initiates depolarisation, which spreads through the atria (P wave), is delayed at the AV node, then rapidly conducted through the bundle of His and Purkinje fibres to the ventricles (QRS complex). Ventricular repolarisation produces the T wave. -->
+<p><em>Cardiac conduction system and corresponding ECG waves. The SA
+node initiates <a
+href="#gl:depolarisation"><strong>depolarisation</strong></a>, which
+spreads through the atria (P wave), is delayed at the AV node, then
+rapidly conducted through the bundle of His and Purkinje fibres to the
+ventricles (QRS complex). Ventricular repolarisation produces the T
+wave.</em></p>
+<p><strong>ECG waves and their significance:</strong> - <strong>P
+wave:</strong> Atrial depolarisation and contraction - <strong>PR
+interval:</strong> Time from atrial depolarisation to ventricular
+depolarisation (0.12-0.20 s). Prolonged PR = AV block. - <strong>QRS
+complex:</strong> Ventricular depolarisation (0.06-0.10 s). Wide QRS =
+conduction defect or ventricular origin. - <strong>T wave:</strong>
+Ventricular repolarisation - <strong>QT interval:</strong> Total
+ventricular electrical activity. Prolonged QT = risk of torsade de
+pointes arrhythmia.</p>
+<h3 id="the-cardiac-cycle">The Cardiac Cycle</h3>
+<p>At a heart rate of 70 bpm, one cardiac cycle lasts ~0.8 seconds:</p>
+<ul>
+<li><strong>Systole</strong> (contraction, ~0.3 s):
+<ul>
+<li>Isovolumetric contraction: Most valves closed, ventricular pressure
+rises rapidly</li>
+<li>Ejection phase: Ventricular pressure exceeds aortic pressure (~80
+mmHg), aortic valve opens, blood ejected</li>
+<li>Peak systolic pressure: ~120 mmHg in left ventricle</li>
+</ul></li>
+<li><strong>Diastole</strong> (relaxation, ~0.5 s):
+<ul>
+<li>Isovolumetric relaxation: Most valves closed, ventricular pressure
+falls</li>
+<li>Rapid filling: Ventricular pressure falls below atrial pressure, AV
+valve opens, blood flows passively (accounts for ~80% of filling)</li>
+<li>Atrial systole (“atrial kick”): Final ~20% of ventricular
+filling</li>
+</ul></li>
+</ul>
+<p><strong>Starling’s Law of the Heart (Frank-Starling
+mechanism):</strong> Ventricular stroke volume increases with
+end-diastolic volume (preload). Increased venous return stretches
+ventricular cardiomyocytes, optimising <a
+href="#gl:actin"><strong>actin</strong></a>-myosin overlap and
+increasing Ca<span class="math inline">\(^{2+}\)</span> sensitivity of
+troponin C. This intrinsic mechanism ensures that left and right cardiac
+outputs remain matched.</p>
+<p><span class="math display">\[\begin{equation}
+SV \propto EDV \quad \text{(within physiological range)}
+\label{eq:circulation_respiration_homeostasis_1}
+\end{equation}\]</span></p>
+<blockquote>
+<p><strong>Clinical Connection:</strong> Heart failure occurs when the
+Frank-Starling mechanism can no longer compensate for reduced
+contractility. In systolic heart failure (HFrEF, ejection fraction
+&lt;40%), the weakened ventricle operates on a depressed Starling curve.
+Treatments include ACE inhibitors (reduce afterload), beta-blockers
+(reduce myocardial demand), and SGLT2 inhibitors (reduce preload). The
+2024 ESC guidelines emphasise early combination therapy.</p>
+</blockquote>
+<hr />
+<h2 id="cardiac-output-and-blood-pressure">Cardiac Output and Blood
+Pressure</h2>
+<h3 id="cardiac-output">Cardiac Output</h3>
+<p><span class="math display">\[\begin{equation}
+CO = HR \times SV
+\label{eq:unit_IX_cardiac_output}
+\end{equation}\]</span></p>
+<ul>
+<li>At rest: <span class="math inline">\(CO = 70\;\text{bpm} \times
+70\;\text{mL} \approx 5\;\text{L/min}\)</span></li>
+<li>Maximum exercise: <span class="math inline">\(CO = 200\;\text{bpm}
+\times 130\;\text{mL} \approx 26\;\text{L/min}\)</span> (elite athletes
+— up to 35 L/min documented)</li>
+</ul>
+<p><strong>The Frank-Starling mechanism</strong> is the heart’s
+intrinsic capacity to match its output to venous return on a
+beat-to-beat basis. Within physiological limits, increased end-diastolic
+volume (preload) stretches ventricular cardiomyocytes, optimising
+actin-myosin overlap (length-tension relationship) and increasing the
+Ca<span class="math inline">\(^{2+}\)</span>-sensitivity of troponin C.
+The result is an increased stroke volume <em>without</em> any extrinsic
+neural or hormonal command. Because the right and left hearts are in
+series, this intrinsic matching is essential — any sustained mismatch
+would cause pulmonary or systemic congestion. Acutely transfusing fluid
+or rising from supine to legs-up posture both expand venous return, and
+the Frank-Starling mechanism translates that into matched increases in
+both ventricles.</p>
+<p><strong>Regulation of cardiac output:</strong></p>
+<ul>
+<li><strong>Sympathetic stimulation</strong> (<span
+class="math inline">\(\beta_1\)</span> adrenergic receptors): Increases
+both HR (positive chronotropy via SA node) and SV (positive inotropy via
+increased Ca<span class="math inline">\(^{2+}\)</span> entry through
+L-type Ca<span class="math inline">\(^{2+}\)</span> channels and SR
+Ca<span class="math inline">\(^{2+}\)</span> release)</li>
+<li><strong>Parasympathetic stimulation</strong> (M<span
+class="math inline">\(_2\)</span> muscarinic receptors via vagus nerve):
+Decreases HR primarily (negative chronotropy). Vagal tone dominates at
+rest, which is why resting HR is ~70 bpm rather than the SA node’s
+intrinsic 100 bpm.</li>
+<li><strong>Frank-Starling mechanism:</strong> Intrinsic matching of SV
+to venous return (see above)</li>
+</ul>
+<h3 id="blood-pressure">Blood Pressure</h3>
+<p><span class="math display">\[\begin{equation}
+MAP = DP + \frac{1}{3}PP = DP + \frac{1}{3}(SP - DP)
+\label{eq:circulation_respiration_homeostasis_3}
+\end{equation}\]</span></p>
+<p>where MAP = mean arterial pressure, DP = diastolic pressure, SP =
+systolic pressure, PP = pulse pressure.</p>
+<p>Normal: SP/DP = 120/80 mmHg, MAP about 93 mmHg.</p>
+<p><span class="math display">\[\begin{equation}
+MAP = CO \times TPR
+\label{eq:circulation_respiration_homeostasis_4}
+\end{equation}\]</span></p>
+<p>where TPR = total peripheral resistance. Blood pressure is regulated
+by: - Cardiac output (HR, SV, blood volume) - Total peripheral
+resistance (arteriolar diameter – the dominant factor)</p>
+<h3 id="blood-flow-poiseuilles-law">Blood Flow – Poiseuille’s Law</h3>
+<p><span class="math display">\[\begin{equation}
+Q = \frac{\pi r^4 \Delta P}{8 \eta L}
+\label{eq:circulation_respiration_homeostasis_5}
+\end{equation}\]</span></p>
+<p>The <strong>r<span class="math inline">\(^4\)</span>
+dependence</strong> is the most physiologically critical feature:
+halving vessel radius reduces flow by 16-fold. Arterioles (radius
+~50-100 um) serve as the primary resistance vessels.</p>
+<p><strong>Regulation of arteriolar tone:</strong> - <strong>Local
+autoregulation:</strong> - Myogenic response: Smooth muscle contracts in
+response to stretch (maintains constant flow despite pressure changes) -
+Metabolic: CO<span class="math inline">\(_2\)</span>, H<span
+class="math inline">\(^+\)</span>, K<span
+class="math inline">\(^+\)</span>, adenosine from active tissues cause
+vasodilation - Endothelial: Shear stress stimulates NO (nitric oxide)
+production via eNOS. NO diffuses to smooth muscle, activates guanylyl
+cyclase to cGMP to PKG to smooth muscle relaxation. - <strong>Neural
+(sympathetic):</strong> Noradrenaline acts on <span
+class="math inline">\(\alpha_1\)</span> receptors causing
+vasoconstriction in most vascular beds. Exceptions: skeletal muscle
+during exercise (cholinergic vasodilation and metabolic override). -
+<strong>Hormonal:</strong> Angiotensin II (potent vasoconstrictor), ANP
+(vasodilator), ADH/vasopressin (vasoconstrictor at high doses).</p>
+<p><strong>Concept Check:</strong> During exercise, cardiac output
+increases from 5 to 25 L/min, but blood pressure increases primarily
+modestly (e.g., 120/80 to 160/80). How is this possible? (Consider what
+happens to TPR.)</p>
+<h3 id="worked-example-cardiac-reserve">Worked Example: Cardiac
+Reserve</h3>
+<p>A healthy 40-year-old has resting cardiac output of 5 L/min (HR 70
+bpm × SV 70 mL). The <strong>age-predicted maximum heart rate</strong>
+is given by:</p>
+<p><span class="math display">\[\begin{equation}
+HR_{\max} \approx 220 - \text{age (years)}
+\label{eq:unit_IX_hrmax}
+\end{equation}\]</span></p>
+<p>(The Tanaka 2001 formula <span class="math inline">\(HR_{\max} = 208
+- 0.7 \cdot \text{age}\)</span> is more accurate for older adults and is
+now preferred in cardiology.)</p>
+<p>For our 40-year-old, <span class="math inline">\(HR_{\max} \approx
+180\)</span> bpm. With exercise-induced sympathetic activation
+increasing stroke volume to ~120 mL via the <strong>Frank-Starling
+mechanism</strong> and ↑contractility (β<span
+class="math inline">\(_1\)</span>):</p>
+<p><span class="math display">\[CO_{\max} = 180 \times 120 =
+21{,}600\;\text{mL/min} \approx 21.6\;\text{L/min}
+\label{eq:unit_IX_circulation_respiration_homeostasis_item_1}\]</span></p>
+<p>This represents a <strong>~4.3-fold increase</strong> over rest —
+typical for an untrained adult. Endurance training increases the SV
+reserve more than the HR reserve, allowing elite athletes to reach 30–35
+L/min cardiac output despite <em>lower</em> maximum heart rates than
+untrained subjects.</p>
+<p><strong>Cardiac reserve <span class="math inline">\(= CO_{\max} -
+CO_{\text{rest}} \approx 16.6\;\text{L/min}\)</span></strong> in this
+example. Cardiac reserve is the master variable that limits exercise
+tolerance: heart-failure patients with reduced ejection fraction may
+have a reserve of 3–5 L/min and become symptomatic with mild
+activity.</p>
+<h3
+id="baroreceptor-reflex-beat-to-beat-blood-pressure-control">Baroreceptor
+Reflex — Beat-to-Beat Blood Pressure Control</h3>
+<p>The arterial <strong>baroreceptor reflex</strong> is the body’s
+primary short-term blood pressure stabiliser, operating on a
+beat-to-beat timescale (seconds). Stretch-sensitive mechanoreceptors in
+the <strong>carotid sinus</strong> (innervated by the glossopharyngeal
+nerve, CN IX) and <strong>aortic arch</strong> (innervated by the vagus,
+CN X) increase their firing rate when arterial wall stretch
+increases.</p>
+<pre class="mermaid"><code>flowchart TD
+    BP[&quot;Blood pressure rises&lt;br/&gt;(e.g., standing → MAP increase)&quot;]
+    Recep[&quot;Carotid sinus + aortic arch&lt;br/&gt;baroreceptors stretch&lt;br/&gt;→ increased firing&quot;]
+    NTS[&quot;Nucleus tractus solitarii (NTS)&lt;br/&gt;medulla oblongata&lt;br/&gt;(integration centre)&quot;]
+    Sym[&quot;Sympathetic outflow&lt;br/&gt;DECREASED&lt;br/&gt;(via RVLM inhibition)&quot;]
+    Para[&quot;Parasympathetic outflow&lt;br/&gt;INCREASED&lt;br/&gt;(via nucleus ambiguus)&quot;]
+    HR[&quot;HR ↓ (β1 ↓, M2 ↑)&quot;]
+    SV[&quot;Contractility ↓ (β1 ↓)&quot;]
+    TPR[&quot;Vasoconstriction ↓&lt;br/&gt;(α1 ↓ in arterioles)&quot;]
+    Vol[&quot;Venous capacitance ↑&lt;br/&gt;(α1 ↓ in veins)&lt;br/&gt;→ reduced venous return&quot;]
+
+    BP --&gt; Recep
+    Recep --&gt;|&quot;CN IX, CN X afferents&quot;| NTS
+    NTS --&gt; Sym
+    NTS --&gt; Para
+    Sym --&gt; HR
+    Sym --&gt; SV
+    Sym --&gt; TPR
+    Sym --&gt; Vol
+    Para --&gt; HR
+
+    HR -.-&gt;|&quot;Net effect:&lt;br/&gt;BP normalises&quot;| BP
+    SV -.-&gt; BP
+    TPR -.-&gt; BP
+    Vol -.-&gt; BP</code></pre>
+<!-- alt: Flowchart showing baroreceptor reflex Pressure rise stretches arterial baroreceptors, increasing firing to the NTS in the medulla. The NTS inhibits the rostral ventrolateral medulla (RVLM, sympathetic premotor neurons) and excites the nucleus ambiguus (parasympathetic). Reduced sympathetic and increased parasympathetic outflow lower HR, contractility, and TPR — restoring normal MAP within seconds. -->
+<p><em>Baroreceptor reflex Pressure rise stretches arterial
+baroreceptors, increasing firing to the NTS in the medulla. The NTS
+inhibits the rostral ventrolateral medulla (RVLM, sympathetic premotor
+neurons) and excites the nucleus ambiguus (parasympathetic). Reduced
+sympathetic and increased parasympathetic outflow lower HR,
+contractility, and TPR — restoring normal MAP within seconds.</em></p>
+<p>The reflex is <strong>bidirectional</strong>: low MAP unloads
+baroreceptors → reduced firing → disinhibition of sympathetic outflow →
+tachycardia, vasoconstriction, increased contractility.
+<strong>Orthostatic hypotension</strong> results from impaired
+baroreflex (autonomic neuropathy in diabetes, ageing, or pure autonomic
+failure).</p>
+<p><strong>Baroreceptor adaptation:</strong> With sustained hypertension
+over hours to days, baroreceptors <strong>reset</strong> to the elevated
+pressure — they fire less for a given pressure than in a normotensive
+person. This is why chronic hypertension is not corrected by the reflex:
+the system has adapted to defend the new (elevated) set point. Long-term
+blood pressure control requires the renin-angiotensin-aldosterone system
+(RAAS) and renal pressure-natriuresis, not the baroreflex.</p>
+<h3 id="raas-cascade-long-term-blood-pressure-and-volume-control">RAAS
+Cascade — Long-term Blood Pressure and Volume Control</h3>
+<p>The <strong>renin-angiotensin-aldosterone system</strong> is the
+dominant long-term BP regulator, operating over hours to days through
+changes in vascular tone, sodium retention, and blood volume.</p>
+<p><span class="math display">\[\begin{equation}
+\text{Angiotensinogen} \xrightarrow{\text{renin}} \text{Angiotensin I}
+\xrightarrow{\text{ACE}} \text{Angiotensin II}
+\label{eq:circulation_respiration_homeostasis_raas}
+\end{equation}\]</span></p>
+<p><strong>Trigger signals for renin release</strong> from
+juxtaglomerular cells in afferent arterioles: 1. <strong>Reduced renal
+perfusion pressure</strong> (sensed by JG cells as stretch ↓) 2.
+<strong>Reduced NaCl delivery</strong> to the macula densa (sensed in
+distal tubule via NKCC2) 3. <strong>Sympathetic activation</strong>
+(β<span class="math inline">\(_1\)</span> adrenergic stimulation of JG
+cells)</p>
+<p><strong>Angiotensin II effects (multi-organ):</strong> -
+<strong>Vasoconstriction</strong> at AT<span
+class="math inline">\(_1\)</span> receptors (potent direct effect on
+arterioles → ↑TPR → ↑MAP) - <strong>Aldosterone release</strong> from
+adrenal zona glomerulosa → renal Na<span
+class="math inline">\(^+\)</span> reabsorption (ENaC) and K<span
+class="math inline">\(^+\)</span> secretion → ↑blood volume -
+<strong>ADH release</strong> from posterior pituitary → renal water
+reabsorption (aquaporin-2) → ↑blood volume - <strong>Sympathetic
+facilitation</strong> (central and peripheral) - <strong>Thirst</strong>
+(subfornical organ) - <strong>Direct renal effects:</strong>
+preferential constriction of efferent arteriole (preserves GFR during
+hypoperfusion); proximal tubule Na<span
+class="math inline">\(^+\)</span> reabsorption</p>
+<blockquote>
+<p><strong>Clinical Connection — RAAS pharmacology:</strong> ACE
+inhibitors (lisinopril, enalapril) block conversion of Ang I to Ang II.
+ARBs (losartan, valsartan) block AT<span
+class="math inline">\(_1\)</span> receptors. Direct renin inhibitors
+(aliskiren) block at the top. Aldosterone antagonists (spironolactone,
+eplerenone) block the mineralocorticoid receptor. These four classes are
+foundational for hypertension, heart failure (HFrEF), diabetic
+nephropathy, and post-MI ventricular remodelling. The 2024 PARADIGM-HF
+trials established <strong>ARNI (angiotensin receptor-neprilysin
+inhibitor; sacubitril/valsartan)</strong> as superior to ACE inhibition
+alone in HFrEF — neprilysin inhibition prolongs natriuretic peptides
+(ANP/BNP) while ARB blocks AT<span
+class="math inline">\(_1\)</span>.</p>
+</blockquote>
+<h2
+id="digestive-nutritional-renal-and-excretory-integration">Digestive,
+Nutritional, Renal, and Excretory Integration</h2>
+<p>Animal homeostasis also depends on how the gut, liver, kidney, and
+excretory surfaces couple intake to internal composition. Digestion is
+not just “food breakdown”; it is staged chemical and mechanical
+processing: stomach acid denatures proteins and limits microbes,
+pancreatic enzymes and bile complete macromolecule hydrolysis in the
+small intestine, and villi plus microvilli expand absorptive surface for
+monosaccharides, amino acids, lipids, vitamins, and ions . Nutritional
+status then becomes a systems variable. A high-protein meal changes
+hepatic urea production and renal nitrogen excretion; a low-salt or
+dehydrating environment recruits RAAS and ADH; and malnutrition weakens
+immune barriers, wound repair, growth, and reproductive function .</p>
+<p>The vertebrate kidney stabilises plasma volume, osmolality, pH,
+electrolytes, and nitrogen balance by filtering plasma, reclaiming
+useful solutes, secreting selected wastes, and concentrating urine .
+Filtration at the glomerulus is pressure-driven; proximal tubules
+reclaim most filtered Na<span class="math inline">\(^+\)</span>,
+glucose, amino acids, and bicarbonate; the loop of Henle builds the
+corticomedullary osmotic gradient; distal nephron segments fine-tune
+Na<span class="math inline">\(^+\)</span>, K<span
+class="math inline">\(^+\)</span>, acid-base, and water balance under
+aldosterone and ADH. Across animals, excretory designs solve the same
+problem with different constraints: aquatic fishes can excrete ammonia
+directly, mammals convert nitrogen to urea, and birds/reptiles conserve
+water by excreting uric acid. The unifying claim is comparative and
+mechanistic: excretion trades ATP, water, and toxicity risk against the
+environment an organism inhabits.</p>
+<hr />
+<h2 id="capillary-fluid-exchange-and-the-lymphatic-system">Capillary
+Fluid Exchange and the Lymphatic System</h2>
+<h3 id="starling-forces">Starling Forces</h3>
+<p>At the capillary level, O<span class="math inline">\(_2\)</span> and
+nutrients are delivered to tissues while CO<span
+class="math inline">\(_2\)</span> and waste products are removed. Fluid
+exchange across the capillary wall is governed by the <strong>Starling
+forces</strong> (Ernest Starling, 1896):</p>
+<p><span class="math display">\[\begin{equation}
+J_v = L_p \left[(P_c - P_{if}) - \sigma(\pi_c - \pi_{if})\right]
+\label{eq:circulation_respiration_homeostasis_6}
+\end{equation}\]</span></p>
+<p>where: - <span class="math inline">\(J_v\)</span> = net fluid flux
+(positive = filtration out of capillary) - <span
+class="math inline">\(L_p\)</span> = hydraulic conductivity of the
+capillary wall - <span class="math inline">\(P_c\)</span> = capillary
+hydrostatic pressure - <span class="math inline">\(P_{if}\)</span> =
+interstitial fluid hydrostatic pressure - σ = reflection coefficient (0
+= fully permeable to <a href="#gl:protein"><strong>protein</strong></a>;
+1 = impermeable) - <span class="math inline">\(\pi_c\)</span> =
+capillary oncotic pressure (colloid osmotic pressure, from plasma
+proteins, mainly albumin) - <span
+class="math inline">\(\pi_{if}\)</span> = interstitial oncotic
+pressure</p>
+<p><strong>Typical values at the arteriolar end of a skeletal muscle
+capillary:</strong></p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 48%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Force</th>
+<th>Value (mmHg)</th>
+<th>Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Capillary hydrostatic pressure (<span
+class="math inline">\(P_c\)</span>)</td>
+<td>35</td>
+<td>Out (filtration)</td>
+</tr>
+<tr>
+<td>Interstitial hydrostatic pressure (<span
+class="math inline">\(P_{if}\)</span>)</td>
+<td><span class="math inline">\(-3\)</span></td>
+<td>Out (filtration)</td>
+</tr>
+<tr>
+<td>Capillary oncotic pressure (<span
+class="math inline">\(\pi_c\)</span>)</td>
+<td>26</td>
+<td>In (reabsorption)</td>
+</tr>
+<tr>
+<td>Interstitial oncotic pressure (<span
+class="math inline">\(\pi_{if}\)</span>)</td>
+<td>1</td>
+<td>Out (filtration)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Net filtration pressure (arteriolar end):</strong></p>
+<p><span class="math display">\[\begin{equation}
+\text{NFP} = (P_c + \pi_{if}) - (\pi_c + P_{if}) = (35 + 1) - (26 +
+(-3)) = 36 - 23 = +13\;\text{mmHg}
+\label{eq:circulation_respiration_homeostasis_7}
+\end{equation}\]</span></p>
+<p>Positive NFP: fluid filters <strong>out</strong> of capillary at the
+arteriolar end.</p>
+<p><strong>At the venular end</strong> (<span
+class="math inline">\(P_c\)</span> drops to ~15 mmHg due to resistance
+loss):</p>
+<p><span class="math display">\[\begin{equation}
+\text{NFP} = (15 + 1) - (26 + (-3)) = 16 - 23 = -7\;\text{mmHg}
+\label{eq:circulation_respiration_homeostasis_8}
+\end{equation}\]</span></p>
+<p>Negative NFP: fluid is <strong>reabsorbed</strong> into capillary at
+the venular end.</p>
+<p><strong>Net result:</strong> ~90% of filtered fluid is reabsorbed at
+the venular end. The remaining ~10% (about 2–3 L/day) must be returned
+via the <strong>lymphatic system</strong>.</p>
+<h3 id="the-lymphatic-system">The Lymphatic System</h3>
+<p>The lymphatic system drains excess interstitial fluid and returned
+plasma proteins that leak out of capillaries:</p>
+<ul>
+<li><strong>Blind-ended lymphatic capillaries</strong> in tissues are
+highly permeable; interstitial fluid + proteins enter by bulk flow</li>
+<li>Lymph flows through lymph vessels (propelled by skeletal muscle
+compression and one-way valves) into lymph nodes</li>
+<li>Lymph nodes filter lymph, removing pathogens and debris, and add
+lymphocytes</li>
+<li>Right lymphatic duct (drains right chest, arm, head) and thoracic
+duct (drains everything else) return lymph to venous circulation
+(subclavian veins)</li>
+<li>Flow: ~2–3 L/day; lymph protein concentration ~2 g/dL (compared with
+plasma ~7 g/dL)</li>
+</ul>
+<blockquote>
+<p><strong>Clinical Connection:</strong> <strong>Lymphoedema</strong>
+occurs when lymphatic return is impaired, causing protein-rich fluid to
+accumulate in the interstitium. Causes: filariasis (<em>Wuchereria
+bancrofti</em>, the leading worldwide cause), surgical lymph node
+dissection (common after breast cancer surgery), or radiation damage.
+Unlike simple oedema (protein-poor), lymphoedema is high-protein, making
+it prone to skin fibrosis, infection (cellulitis), and functional
+impairment. <strong>Pitting oedema</strong> (non-lymphoedema) results
+from elevated <span class="math inline">\(P_c\)</span> (heart failure,
+portal hypertension) or reduced <span
+class="math inline">\(\pi_c\)</span> (hypoalbuminaemia from cirrhosis or
+nephrotic syndrome).</p>
+</blockquote>
+<h2
+id="worked-example-hypoalbuminaemia-and-net-filtration-pressure">Worked
+Example: Hypoalbuminaemia and Net Filtration Pressure</h2>
+<p>A patient has serum albumin of 2 g/dL (normal 4 g/dL), reducing <span
+class="math inline">\(\pi_c\)</span> from 26 mmHg to 13 mmHg (oncotic
+pressure <span class="math inline">\(\propto\)</span> protein
+concentration). At the arteriolar end (<span
+class="math inline">\(P_c\)</span> = 35 mmHg):</p>
+<p><span class="math display">\[\begin{equation}
+\text{NFP} = (35 + 1) - (13 + (-3)) = 36 - 10 = +26\;\text{mmHg}
+\label{eq:circulation_respiration_homeostasis_9}
+\end{equation}\]</span></p>
+<p>And at the venular end (<span class="math inline">\(P_c\)</span> = 15
+mmHg):</p>
+<p><span class="math display">\[\begin{equation}
+\text{NFP} = (15 + 1) - (13 + (-3)) = 16 - 10 = +6\;\text{mmHg}
+\label{eq:circulation_respiration_homeostasis_10}
+\end{equation}\]</span></p>
+<p>Both ends now show net filtration — fluid cannot be reabsorbed,
+leading to progressive oedema. The lymphatics are overwhelmed. This
+explains the <strong>anasarca</strong> (generalised oedema) seen in
+severe hypoalbuminaemia from nephrotic syndrome or liver failure.</p>
+<p><strong>Concept Check:</strong> Using the Starling equation with
+arteriolar <span class="math inline">\(P_c = 35\)</span> mmHg, <span
+class="math inline">\(P_{if} = -3\)</span> mmHg, <span
+class="math inline">\(\pi_{if} = 1\)</span> mmHg, predict the sign of
+the net filtration pressure when plasma albumin halves (<span
+class="math inline">\(\pi_c\)</span>: 26 mmHg), and explain why
+nephrotic-syndrome oedema arises even though capillary hydrostatic
+pressure is unchanged. (Hint: compute NFP at both the arteriolar and
+venular ends before and after the <span
+class="math inline">\(\pi_c\)</span> fall.)</p>
+<hr />
+<h2 id="oxygen-transport">Oxygen Transport</h2>
+<!-- alt: Three sigmoidal haemoglobin saturation curves plotted against oxygen partial pressure. The fever/exercise curve is shifted right, the fetal haemoglobin curve is shifted left, and vertical guides mark typical tissue and alveolar oxygen pressures. -->
+<h3 id="haemoglobin-structure">Haemoglobin Structure</h3>
+<p>Haemoglobin (Hb) is an <span
+class="math inline">\(\alpha_2\beta_2\)</span> tetramer. Each subunit
+contains a <strong>haeme</strong> group (iron-porphyrin; Fe<span
+class="math inline">\(^{2+}\)</span>) that binds one O<span
+class="math inline">\(_2\)</span>. Oxygen-carrying capacity: 1.34 mL
+O<span class="math inline">\(_2\)</span> per gram Hb; typical Hb
+concentration: 150 g/L blood. Total: ~201 mL O<span
+class="math inline">\(_2\)</span>/L blood bound to Hb. Plasma dissolved
+O<span class="math inline">\(_2\)</span>: 0.003 <span
+class="math inline">\(\times\)</span> PO<span
+class="math inline">\(_2\)</span> (mL/L/mmHg), giving about 0.3 mL/L at
+PO<span class="math inline">\(_2\)</span> = 100 mmHg. Hb carries
+~670<span class="math inline">\(\times\)</span> more O<span
+class="math inline">\(_2\)</span> than plasma alone.</p>
+<h3 id="o_2-hb-dissociation-curve-and-the-hill-equation">O<span
+class="math inline">\(_2\)</span>-Hb Dissociation Curve and the Hill
+Equation</h3>
+<pre class="mermaid"><code>flowchart LR
+    subgraph Lung [&quot;Alveolar Capillary (Lung)&quot;]
+        L1[&quot;PO2 = 100 mmHg&lt;br/&gt;SO2 = 97%&lt;br/&gt;O2 LOADING&quot;]
+    end
+
+    subgraph Tissue [&quot;Tissue Capillary&quot;]
+        T1[&quot;PO2 = 40 mmHg (rest)&lt;br/&gt;SO2 = 75%&lt;br/&gt;O2 UNLOADING&quot;]
+        T2[&quot;PO2 = 20 mmHg (exercise)&lt;br/&gt;SO2 = 35%&lt;br/&gt;Enhanced unloading&quot;]
+    end
+
+    subgraph Bohr [&quot;Bohr Effect Shifts Curve RIGHT&quot;]
+        B1[&quot;Decreased pH&lt;br/&gt;(more H+)&quot;]
+        B2[&quot;Increased CO2&quot;]
+        B3[&quot;Increased temperature&quot;]
+        B4[&quot;Increased 2,3-DPG&quot;]
+        B1 --&gt; B5[&quot;RIGHT SHIFT&lt;br/&gt;P50 increases&lt;br/&gt;O2 released more readily&quot;]
+        B2 --&gt; B5
+        B3 --&gt; B5
+        B4 --&gt; B5
+    end
+
+    L1 --&gt; |&quot;Blood travels&quot;| T1
+    T1 --&gt; |&quot;Exercise&quot;| T2
+    B5 --&gt; |&quot;Enhances O2 delivery&lt;br/&gt;to active tissues&quot;| T2</code></pre>
+<!-- alt: Flowchart showing oxygen delivery from lung to tissue and the Bohr effect. In the lungs (high PO_2), haemoglobin loads O_2 to 97% saturation. In tissues (lower PO_2), O_2 is released. The Bohr effect rightward shift of the dissociation curve in metabolically active tissues (low pH, high CO_2, high temperature) enhances O_2 delivery where it is most needed. -->
+<p><em>Oxygen delivery from lung to tissue and the Bohr effect. In the
+lungs (high PO<span class="math inline">\(_2\)</span>), haemoglobin
+loads O<span class="math inline">\(_2\)</span> to 97% saturation. In
+tissues (lower PO<span class="math inline">\(_2\)</span>), O<span
+class="math inline">\(_2\)</span> is released. The Bohr effect rightward
+shift of the dissociation curve in metabolically active tissues (low <a
+href="#gl:ph"><strong>pH</strong></a>, high CO<span
+class="math inline">\(_2\)</span>, high temperature) enhances O<span
+class="math inline">\(_2\)</span> delivery where it is most
+needed.</em></p>
+<p>Hb-O<span class="math inline">\(_2\)</span> binding is
+<strong>cooperative</strong> (T-state to R-state conformational switch).
+The resulting sigmoidal binding curve, together with physiological
+affinity shifts (), follows the Hill equation:</p>
+<p><span class="math display">\[\begin{equation}
+SO_2 = \frac{(PO_2 / P_{50})^n}{1 + (PO_2 / P_{50})^n}
+\label{eq:circulation_respiration_homeostasis_11}
+\end{equation}\]</span></p>
+<p>where <strong>P<span class="math inline">\(_{50}\)</span></strong> =
+PO<span class="math inline">\(_2\)</span> at 50% saturation (about 26
+mmHg for human HbA at 37 degrees C, pH 7.4) and <strong>n</strong> is
+about 2.7 (Hill coefficient; n = 1 would be non-cooperative; n = 4 would
+be perfectly cooperative for a tetramer).</p>
+<p><strong>Bohr effect:</strong> The curve shifts rightward (P<span
+class="math inline">\(_{50}\)</span> increases, affinity decreases)
+with: - Increased [H<span class="math inline">\(^+\)</span>] (lower pH):
+Protons bind to histidine residues on Hb, stabilising T-state -
+Increased CO<span class="math inline">\(_2\)</span>: Forms
+carbaminohaemoglobin and generates H<span
+class="math inline">\(^+\)</span> - Increased temperature: Weakens
+Hb-O<span class="math inline">\(_2\)</span> bond - Increased 2,3-DPG
+(2,3-diphosphoglycerate): Binds between β chains, stabilising
+T-state</p>
+<p><strong>Physiological significance:</strong> In metabolically active
+tissues (low pH, high CO<span class="math inline">\(_2\)</span>, high
+temperature), Hb releases more O<span class="math inline">\(_2\)</span>
+exactly where it is needed.</p>
+<h2 id="worked-example-28.z-bohr-effect-and-23-bpg-in-exercise">Worked
+Example: 28.Z — Bohr Effect and 2,3-BPG in Exercise</h2>
+<p>A trained cyclist’s vastus lateralis at maximal exercise has tissue
+<span class="math inline">\(P\mathrm{O}_2 = 18\)</span> mmHg, pH = 7.20
+(lactic acidosis), and temperature = 39 °C. At rest, the same muscle has
+<span class="math inline">\(P\mathrm{O}_2 = 40\)</span> mmHg, pH = 7.40,
+and 37 °C. Estimate the resulting <strong>shift in P<span
+class="math inline">\(_{50}\)</span></strong> and the resulting
+<strong>fractional change in O<span class="math inline">\(_2\)</span>
+unloading per cycle of blood</strong>.</p>
+<p><strong>Step 1.</strong> Quantify the rightward shift in P<span
+class="math inline">\(_{50}\)</span> from exercise conditions. Empirical
+relations (Severinghaus correction):</p>
+<p><span class="math display">\[\Delta \log P_{50} = -0.48(\Delta
+\text{pH}) + 0.024(\Delta T) + 0.061
+\log\left(\frac{[\text{2,3-BPG}]}{4.6\;\text{mM}}\right)
+\label{eq:unit_IX_circulation_respiration_homeostasis_item_2}\]</span></p>
+<p>For pH change 7.40 → 7.20 (ΔpH = −0.20) and <span
+class="math inline">\(T\)</span> change 37 → 39 °C (<span
+class="math inline">\(\Delta T\)</span> = +2):</p>
+<p><span class="math display">\[\Delta \log P_{50} = -0.48(-0.20) +
+0.024(2) = 0.096 + 0.048 = 0.144
+\label{eq:unit_IX_circulation_respiration_homeostasis_item_3}\]</span></p>
+<p><span class="math display">\[P_{50}^{\text{exercise}} =
+P_{50}^{\text{rest}} \times 10^{0.144} = 26 \times 1.39 \approx
+36\;\text{mmHg}
+\label{eq:unit_IX_circulation_respiration_homeostasis_item_4}\]</span></p>
+<p><strong>Step 2.</strong> Compute saturation at tissue O<span
+class="math inline">\(_2\)</span> tension under each condition using
+Hill (<span class="math inline">\(n = 2.7\)</span>):</p>
+<p>At rest (P<span class="math inline">\(_{50}\)</span> = 26 mmHg, <span
+class="math inline">\(P\mathrm{O}_2 = 40\)</span>): <span
+class="math display">\[SO_2 = \frac{(40/26)^{2.7}}{1 + (40/26)^{2.7}} =
+\frac{3.32}{4.32} \approx 0.77
+\label{eq:unit_IX_circulation_respiration_homeostasis_item_5}\]</span></p>
+<p>At exercise (P<span class="math inline">\(_{50}\)</span> = 36 mmHg,
+<span class="math inline">\(P\mathrm{O}_2 = 18\)</span>): <span
+class="math display">\[SO_2 = \frac{(18/36)^{2.7}}{1 + (18/36)^{2.7}} =
+\frac{0.154}{1.154} \approx 0.13
+\label{eq:unit_IX_circulation_respiration_homeostasis_item_6}\]</span></p>
+<p><strong>Step 3.</strong> Compare arterial-to-venous O<span
+class="math inline">\(_2\)</span> unloading. Arterial saturation in both
+cases ≈ 0.97 (lung Bohr/Haldane effect already accounted for there).
+Then:</p>
+<ul>
+<li>Rest extraction: <span class="math inline">\(\Delta SO_2 = 0.97 -
+0.77 = 0.20\)</span> (20% of bound O<span
+class="math inline">\(_2\)</span> released)</li>
+<li>Exercise extraction: <span class="math inline">\(\Delta SO_2 = 0.97
+- 0.13 = 0.84\)</span> (84% of bound O<span
+class="math inline">\(_2\)</span> released)</li>
+</ul>
+<p><strong>Result.</strong> Exercise increases per-pass O<span
+class="math inline">\(_2\)</span> extraction more than 4-fold. Combined
+with ~5-fold increase in cardiac output, total O<span
+class="math inline">\(_2\)</span> delivery to working muscle rises
+~20-fold — fully accounting for the increased VO<span
+class="math inline">\(_2\)</span> during maximal aerobic exercise.</p>
+<p><strong>2,3-BPG adaptation.</strong> Chronic hypoxia (high altitude,
+anaemia, chronic lung disease) elevates RBC 2,3-BPG within hours,
+further right-shifting the curve to enhance peripheral O<span
+class="math inline">\(_2\)</span> delivery. Stored bank blood (&gt;2
+weeks) loses 2,3-BPG → left-shifted curve → poor O<span
+class="math inline">\(_2\)</span> delivery despite normal Hb
+concentration.</p>
+<p><strong>Haldane effect:</strong> Deoxygenated Hb binds CO<span
+class="math inline">\(_2\)</span> and H<span
+class="math inline">\(^+\)</span> more readily than oxygenated Hb. In
+tissues, O<span class="math inline">\(_2\)</span> release promotes
+CO<span class="math inline">\(_2\)</span> and H<span
+class="math inline">\(^+\)</span> binding. In lungs, O<span
+class="math inline">\(_2\)</span> loading promotes CO<span
+class="math inline">\(_2\)</span> release. This is quantitatively as
+important as the Bohr effect for gas exchange.</p>
+<p><strong>Special haemoglobins:</strong> - <strong>Foetal Hb (HbF,
+<span class="math inline">\(\alpha_2\gamma_2\)</span>):</strong> P<span
+class="math inline">\(_{50}\)</span> about 19 mmHg; higher O<span
+class="math inline">\(_2\)</span> affinity than adult HbA because γ
+chains bind 2,3-DPG poorly. Foetus extracts O<span
+class="math inline">\(_2\)</span> from maternal blood across placenta. -
+<strong>Myoglobin:</strong> Monomeric (no cooperativity); P<span
+class="math inline">\(_{50}\)</span> about 2 mmHg; O<span
+class="math inline">\(_2\)</span> storage in muscle; delivers O<span
+class="math inline">\(_2\)</span> during contraction when blood flow is
+compressed. - <strong>HbS (sickle cell):</strong> Glu6Val <a
+href="#gl:mutation"><strong>mutation</strong></a> in β-globin. HbS
+polymerises when deoxygenated, distorting RBCs into sickle shapes. <a
+href="#gl:heterozygous"><strong>Heterozygous</strong></a> advantage:
+resistance to <em>Plasmodium falciparum</em> malaria.</p>
+<h3 id="co_2-transport">CO<span class="math inline">\(_2\)</span>
+Transport</h3>
+<p>CO<span class="math inline">\(_2\)</span> is transported from tissues
+to lungs by three mechanisms: - <strong>Dissolved CO<span
+class="math inline">\(_2\)</span>:</strong> 8% (physically dissolved in
+plasma; proportional to PCO<span class="math inline">\(_2\)</span>) -
+<strong>Carbaminohaemoglobin:</strong> 27% (CO<span
+class="math inline">\(_2\)</span> binds to terminal amino groups of Hb)
+- <strong>Bicarbonate (HCO<span
+class="math inline">\(_3^-\)</span>):</strong> 65% (the dominant
+mechanism)</p>
+<p><span class="math display">\[\begin{equation}
+\mathrm{CO}_2 + \mathrm{H}_2\mathrm{O} \rightleftharpoons
+\mathrm{H}_2\mathrm{CO}_3 \rightarrow \mathrm{H}^+ + \mathrm{HCO}_3^-
+\label{eq:circulation_respiration_homeostasis_12}
+\end{equation}\]</span></p>
+<p>Carbonic anhydrase catalyses the rapid reversible hydration step.
+<strong>Chloride shift:</strong> As HCO<span
+class="math inline">\(_3^-\)</span> is produced inside RBCs, it is
+exported via the Band 3 (AE1) Cl<span
+class="math inline">\(^-\)</span>/HCO<span
+class="math inline">\(_3^-\)</span> exchanger. Cl<span
+class="math inline">\(^-\)</span> enters the RBC in exchange,
+maintaining electroneutrality. The process reverses in the lungs.</p>
+<blockquote>
+<p><strong>Clinical Connection:</strong> Carbon monoxide (CO) poisoning
+occurs because CO binds haemoglobin with 200-250x higher affinity than
+O<span class="math inline">\(_2\)</span>, forming carboxyhaemoglobin
+(COHb). Even low CO levels (e.g., 10% COHb) shift the O<span
+class="math inline">\(_2\)</span>-Hb curve leftward (remaining Hb holds
+O<span class="math inline">\(_2\)</span> more tightly), reducing O<span
+class="math inline">\(_2\)</span> delivery to tissues. Treatment: 100%
+O<span class="math inline">\(_2\)</span> or hyperbaric O<span
+class="math inline">\(_2\)</span> to competitively displace CO.</p>
+</blockquote>
+<p><strong>Concept Check:</strong> Exercising muscle is hotter, more
+acidic, and higher in CO<span class="math inline">\(_2\)</span> and
+2,3-BPG than resting muscle. State whether each change shifts the O<span
+class="math inline">\(_2\)</span>-Hb dissociation curve left or right,
+and explain why a curve that shifts in the <em>opposite</em> direction
+(e.g., in stored bank blood depleted of 2,3-BPG) impairs tissue O<span
+class="math inline">\(_2\)</span> delivery even when haemoglobin
+concentration and arterial saturation are normal. (Hint: track what each
+shift does to <span class="math inline">\(P_{50}\)</span> and to the
+O<span class="math inline">\(_2\)</span> released between arterial and
+tissue <span class="math inline">\(P\mathrm{O}_2\)</span>.)</p>
+<hr />
+<h2 id="respiratory-system-and-ventilation">Respiratory System and
+Ventilation</h2>
+<h3 id="anatomy">Anatomy</h3>
+<p><strong>Conducting zone</strong> (dead space, ~150 mL): Nasal
+passages (warm, humidify, filter) to pharynx to larynx to trachea
+(C-shaped cartilage rings) to bronchi (right and left mainstem) to
+bronchioles. Bronchioles have smooth muscle (regulated by autonomic NS:
+sympathetic <span class="math inline">\(\beta_2\)</span> =
+bronchodilation; parasympathetic M<span
+class="math inline">\(_3\)</span> = bronchoconstriction).</p>
+<p><strong>Respiratory zone:</strong> Respiratory bronchioles to
+alveolar ducts to alveolar sacs. ~300 million alveoli in adult human
+lungs. Total alveolar surface area: ~70 m<span
+class="math inline">\(^2\)</span> (half a tennis court). Alveolar wall
+thickness: ~0.5 um. Type I pneumocytes (gas exchange, 95% of surface
+area). Type II pneumocytes (produce <a
+href="#gl:surfactant"><strong>surfactant</strong></a>, 5% of surface
+area; also stem cells that regenerate Type I cells).</p>
+<h3 id="lung-mechanics">Lung Mechanics</h3>
+<p><strong>Inspiration (active at rest):</strong> Diaphragm + external
+intercostals contract. Thorax volume increases. Intrapleural pressure
+decreases (from <span class="math inline">\(-5\)</span> to <span
+class="math inline">\(-8\)</span> cmH<span
+class="math inline">\(_2\)</span>O). Alveolar pressure falls ~1 cmH<span
+class="math inline">\(_2\)</span>O below atmospheric. Air flows in.</p>
+<p><strong>Expiration (passive at rest):</strong> Elastic recoil of lung
+tissue and chest wall. Alveolar pressure rises ~1 cmH<span
+class="math inline">\(_2\)</span>O above atmospheric. Air flows out.</p>
+<h3
+id="pulmonary-surfactant-laplaces-law-and-alveolar-stability">Pulmonary
+Surfactant — Laplace’s Law and Alveolar Stability</h3>
+<p>For a spherical air-liquid interface, Laplace’s law gives the
+collapse pressure due to surface tension:</p>
+<p><span class="math display">\[\begin{equation}
+P = \frac{2\gamma}{r}
+\label{eq:unit_IX_laplace}
+\end{equation}\]</span></p>
+<p>where γ is the surface tension (N/m) and <span
+class="math inline">\(r\)</span> is the alveolar radius. Using <span
+class="math inline">\(T\)</span> as the symbol for surface tension is
+also common in textbooks; both conventions appear below.</p>
+<p>where <span class="math inline">\(T\)</span> = surface tension (N/m)
+and <span class="math inline">\(r\)</span> = radius. With the surface
+tension of water (~70 mN/m), a 50 μm alveolus would collapse at <span
+class="math inline">\(P \approx 2(0.07)/(2.5 \times 10^{-5}) =
+5{,}600\)</span> Pa = 56 cmH<span class="math inline">\(_2\)</span>O —
+far exceeding inspiratory pressure. Without surfactant, small alveoli
+(r<span class="math inline">\(_{\min}\)</span> during expiration) would
+empty into larger ones, producing massive atelectasis.</p>
+<p><strong>Surfactant</strong> is a complex of phospholipids (~80%,
+dominated by <strong>DPPC, dipalmitoylphosphatidylcholine</strong>) and
+four surfactant-specific proteins, secreted by <strong>Type II
+pneumocytes</strong> as lamellar bodies that unwind into a monolayer at
+the air-liquid interface.</p>
+<table>
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr>
+<th>Protein</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SP-A</strong></td>
+<td>Hydrophilic; innate immunity (opsonin for pathogens); regulates
+surfactant turnover; mutations rare</td>
+</tr>
+<tr>
+<td><strong>SP-B</strong></td>
+<td>Hydrophobic; essential for lamellar body biogenesis and surface film
+formation. <strong>SP-B deficiency is uniformly lethal in
+newborns</strong> (severe RDS unresponsive to therapy)</td>
+</tr>
+<tr>
+<td><strong>SP-C</strong></td>
+<td>Hydrophobic; stabilises surface film during compression-expansion.
+Mutations cause familial interstitial lung disease</td>
+</tr>
+<tr>
+<td><strong>SP-D</strong></td>
+<td>Hydrophilic; innate immunity (similar role to SP-A); collectin
+family</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Surfactant action.</strong> DPPC molecules align at the
+air-liquid interface, displacing water molecules and reducing surface
+tension from ~70 mN/m to ~5–10 mN/m at full lung volume — and to
+<strong>near zero</strong> during expiration when alveoli are smallest
+and the surfactant film is most compressed. This
+<strong>non-linear</strong> behaviour (lower tension at smaller radius)
+is critical: it inverts the destabilising effect of Laplace’s law,
+making small alveoli <strong>stable</strong> rather than
+collapse-prone.</p>
+<p><strong>Surfactant turnover</strong> is rapid (~10 h half-life). Type
+II cells synthesise, secrete, internalise, and recycle surfactant
+continuously. Deep breaths (sighs) extend and refresh the surface film;
+absence of sighs (e.g., during anaesthesia, prolonged shallow breathing)
+leads to atelectasis.</p>
+<blockquote>
+<p><strong>Clinical Connection:</strong> Premature infants (&lt;34 weeks
+gestation) lack mature Type II pneumocytes and adequate surfactant,
+leading to <strong>neonatal respiratory distress syndrome (NRDS /
+hyaline membrane disease)</strong> — the leading cause of death in
+premature infants before surfactant therapy. Treatment: intratracheal
+administration of exogenous surfactant (beractant from bovine lung;
+poractant alfa from porcine lung). <strong>Antenatal
+corticosteroids</strong> (betamethasone) given to mothers in preterm
+labour 24–48 h before delivery accelerate fetal Type II cell maturation
+and reduce NRDS incidence by ~50% — one of the most cost-effective
+interventions in modern medicine. <strong>Adult ARDS</strong> has
+surfactant inactivation by inflammatory exudates as a contributing
+mechanism; replacement therapy in adults has been less successful than
+in neonates.</p>
+</blockquote>
+<h3 id="lung-volumes-and-spirometry">Lung Volumes and Spirometry</h3>
+<table>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 26%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr>
+<th>Volume/Capacity</th>
+<th>Definition</th>
+<th>Typical Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tidal volume (TV)</td>
+<td>Normal breath</td>
+<td>500 mL</td>
+</tr>
+<tr>
+<td>Inspiratory reserve (IRV)</td>
+<td>Maximum additional inspiration</td>
+<td>3,000 mL</td>
+</tr>
+<tr>
+<td>Expiratory reserve (ERV)</td>
+<td>Maximum additional expiration</td>
+<td>1,200 mL</td>
+</tr>
+<tr>
+<td>Residual volume (RV)</td>
+<td>Air remaining after maximal expiration</td>
+<td>1,200 mL</td>
+</tr>
+<tr>
+<td>Vital capacity (VC)</td>
+<td>TV + IRV + ERV</td>
+<td>4,700 mL</td>
+</tr>
+<tr>
+<td>Total lung capacity (TLC)</td>
+<td>VC + RV</td>
+<td>5,900 mL</td>
+</tr>
+<tr>
+<td>Functional residual capacity (FRC)</td>
+<td>ERV + RV</td>
+<td>2,400 mL</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Spirometry and pulmonary function</strong> : -
+<strong>FEV<span class="math inline">\(_1\)</span>:</strong> Volume
+expired in first second of forced expiration - <strong>FVC:</strong>
+Total volume during forced expiration - <strong>FEV<span
+class="math inline">\(_1\)</span>/FVC ratio:</strong> - Normal: above
+the age-dependent lower limit of normal; a fixed at least 70% threshold
+is a useful screening simplification but can over-call obstruction in
+older adults and under-call it in younger adults. - <strong>Obstructive
+disease</strong> (COPD, asthma): reduced FEV<span
+class="math inline">\(_1\)</span>/FVC (air trapping, increased
+resistance) - <strong>Restrictive disease</strong> (pulmonary fibrosis):
+preserved or high FEV<span class="math inline">\(_1\)</span>/FVC with
+reduced FVC/TLC (stiff lungs, reduced compliance)</p>
+<hr />
+<h2 id="gas-exchange">Gas Exchange</h2>
+<pre class="mermaid"><code>sequenceDiagram
+    participant CPG as Medullary Respiratory&lt;br/&gt;Centre (DRG/VRG)
+    participant PN as Phrenic Nerve&lt;br/&gt;(C3-C5)
+    participant Dia as Diaphragm
+    participant Alv as Alveoli
+    participant Cap as Pulmonary Capillary
+
+    CPG-&gt;&gt;PN: Rhythmic impulses&lt;br/&gt;(12-20 breaths/min)
+    PN-&gt;&gt;Dia: Motor stimulation
+    Dia-&gt;&gt;Alv: Contraction expands thorax&lt;br/&gt;Air flows in (inspiration)
+    Note over Alv: Alveolar gas:&lt;br/&gt;PO2 = 100 mmHg&lt;br/&gt;PCO2 = 40 mmHg
+    Note over Cap: Venous blood:&lt;br/&gt;PO2 = 40 mmHg&lt;br/&gt;PCO2 = 46 mmHg
+    Alv-&gt;&gt;Cap: O2 diffuses DOWN gradient&lt;br/&gt;(Fick&#39;s law)
+    Cap-&gt;&gt;Alv: CO2 diffuses DOWN gradient
+    Note over Cap: Arterial blood:&lt;br/&gt;PO2 = 100 mmHg&lt;br/&gt;PCO2 = 40 mmHg&lt;br/&gt;Equilibrium in 0.3 s
+    CPG-&gt;&gt;CPG: Chemoreceptor feedback:&lt;br/&gt;Central: H+ in CSF (from CO2)&lt;br/&gt;Peripheral: PO2, PCO2, pH</code></pre>
+<!-- alt: Sequence diagram showing respiratory control and gas exchange. The medullary respiratory centre generates the breathing rhythm. Chemoreceptors (central and peripheral) provide feedback to adjust ventilation rate. Gas exchange at the alveolar-capillary interface follows Fick's law, with equilibration occurring within 0.3 seconds. -->
+<p><em>Respiratory control and gas exchange. The medullary respiratory
+centre generates the breathing rhythm. Chemoreceptors (central and
+peripheral) provide feedback to adjust ventilation rate. Gas exchange at
+the alveolar-capillary interface follows Fick’s law, with equilibration
+occurring within 0.3 seconds.</em></p>
+<p><strong>Fick’s law of diffusion for gas exchange:</strong></p>
+<p><span class="math display">\[\begin{equation}
+\dot{V}_{gas} = \frac{D \cdot A \cdot \Delta P}{T}
+\label{eq:circulation_respiration_homeostasis_13}
+\end{equation}\]</span></p>
+<p>where D = diffusion coefficient (solubility/molecular weight), A =
+alveolar surface area (~70 m<span class="math inline">\(^2\)</span>),
+<span class="math inline">\(\Delta P\)</span> = partial pressure
+difference, T = barrier thickness (~0.5 um).</p>
+<p>CO<span class="math inline">\(_2\)</span> diffuses 20x faster than
+O<span class="math inline">\(_2\)</span> (despite similar molecular
+weight) because CO<span class="math inline">\(_2\)</span> is much more
+soluble in aqueous tissue.</p>
+<h2 id="worked-example-alveolar-oxygen-diffusion">Worked Example:
+Alveolar Oxygen Diffusion</h2>
+<p>Calculate the rate of O<span class="math inline">\(_2\)</span>
+diffusion across the alveolar-capillary barrier using Fick’s law with
+these values: - <span class="math inline">\(D_{O_2}\)</span> (in tissue
+at 37°C) <span class="math inline">\(\approx 1.5 \times 10^{-5}\)</span>
+cm<span class="math inline">\(^2\)</span>/s - <span
+class="math inline">\(A\)</span> = 70 m<span
+class="math inline">\(^2\)</span> = <span class="math inline">\(70
+\times 10^4\)</span> cm<span class="math inline">\(^2\)</span> - <span
+class="math inline">\(\Delta P_{O_2}\)</span> = alveolar <span
+class="math inline">\(PO_2\)</span> 100 mmHg <span
+class="math inline">\(-\)</span> venous <span
+class="math inline">\(PO_2\)</span> 40 mmHg = 60 mmHg <span
+class="math inline">\(= 60 \times 133.3\)</span> Pa <span
+class="math inline">\(\approx 8{,}000\)</span> Pa; for gas diffusion use
+<span class="math inline">\(\Delta P\)</span> in mmHg directly with a
+tissue-specific coefficient - <span class="math inline">\(T\)</span> =
+0.5 μm <span class="math inline">\(= 0.5 \times 10^{-4}\)</span> cm</p>
+<p>Using Krogh’s diffusion constant <span class="math inline">\(K_{O_2}
+\approx 1.73 \times 10^{-9}\)</span> mL O<span
+class="math inline">\(_2\)</span>/(cm<span
+class="math inline">\(\cdot\)</span>s<span
+class="math inline">\(\cdot\)</span>mmHg):</p>
+<p><span class="math display">\[\begin{equation}
+\dot{V}_{O_2} = K_{O_2} \cdot A \cdot \frac{\Delta P}{T} = 1.73 \times
+10^{-9} \times 70 \times 10^4 \times \frac{60}{0.5 \times 10^{-4}}
+\label{eq:circulation_respiration_homeostasis_14}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+= 1.73 \times 10^{-9} \times 7 \times 10^5 \times 1.2 \times 10^6
+\approx 1.45\;\text{mL O}_2/\text{s} = 87\;\text{mL O}_2/\text{min}
+\label{eq:circulation_respiration_homeostasis_15}
+\end{equation}\]</span></p>
+<p>At rest, whole-body O<span class="math inline">\(_2\)</span>
+consumption is ~250 mL/min — so the diffusing capacity, even under
+resting conditions, is ample. During maximal exercise, increased cardiac
+output, capillary recruitment, and a wider <span
+class="math inline">\(\Delta P\)</span> (tissues extract more O<span
+class="math inline">\(_2\)</span>, reducing venous <span
+class="math inline">\(PO_2\)</span> to ~20 mmHg) push diffusion to the
+limit in elite athletes.</p>
+<blockquote>
+<p><strong>Clinical Connection:</strong> In
+<strong>diffusion-limited</strong> lung disease (pulmonary fibrosis,
+interstitial lung disease), the alveolar-capillary membrane is thickened
+(increased <span class="math inline">\(T\)</span>) and the surface area
+is reduced. Fick’s law predicts reduced O<span
+class="math inline">\(_2\)</span> transfer: patients become hypoxaemic
+especially during exercise when transit time through capillaries is
+shortened and the blood cannot equilibrate with alveolar O<span
+class="math inline">\(_2\)</span>.</p>
+</blockquote>
+<h3 id="respiratory-control">Respiratory Control</h3>
+<p><strong>Central pattern generator:</strong> Medullary respiratory
+centres generate the basic breathing rhythm: - <strong>Dorsal
+respiratory group (DRG):</strong> Primarily inspiratory <a
+href="#gl:neuron"><strong>neuron</strong></a>s; drives diaphragm via
+phrenic nerve - <strong>Ventral respiratory group (VRG):</strong> Active
+during forced breathing; contains both inspiratory and expiratory
+neurons</p>
+<p><strong>Pontine centres:</strong> - <strong>Pneumotaxic
+centre:</strong> Limits inspiration duration; increases respiratory rate
+- <strong>Apneustic centre:</strong> Promotes prolonged inspiration
+(normally inhibited by pneumotaxic centre)</p>
+<p><strong>Chemoreceptors:</strong> - <strong>Central
+chemoreceptors</strong> (ventral medullary surface): Respond to H<span
+class="math inline">\(^+\)</span> in CSF (which reflects arterial
+PCO<span class="math inline">\(_2\)</span> because CO<span
+class="math inline">\(_2\)</span> freely crosses the blood-brain barrier
+and is converted to H<span class="math inline">\(^+\)</span> by carbonic
+anhydrase). This is the <strong>primary driver</strong> of normal
+ventilation. - <strong>Peripheral chemoreceptors</strong> (carotid
+bodies at carotid bifurcation; aortic bodies on aortic arch): Respond to
+decreased PO<span class="math inline">\(_2\)</span> (&lt;60 mmHg
+primarily), increased PCO<span class="math inline">\(_2\)</span>, and
+decreased pH. The carotid bodies are the primary sensors of arterial
+PO<span class="math inline">\(_2\)</span>.</p>
+<p><strong>Concept Check:</strong> In chronic COPD, patients may retain
+CO<span class="math inline">\(_2\)</span> chronically (hypercapnia).
+Over time, central chemoreceptors reset to the elevated CO<span
+class="math inline">\(_2\)</span> level. What becomes the primary
+stimulus for breathing in these patients, and why is high-flow oxygen
+potentially dangerous?</p>
+<hr />
+<h2
+id="exercise-physiology-integrated-cardiovascular-and-respiratory-adjustments">Exercise
+Physiology — Integrated Cardiovascular and Respiratory Adjustments</h2>
+<p>Exercise is the most demanding physiological challenge for the
+cardiovascular and respiratory systems. The match between O<span
+class="math inline">\(_2\)</span> delivery and demand is precise and
+rapid. The <strong>Fick principle</strong> quantifies O<span
+class="math inline">\(_2\)</span> consumption:</p>
+<p><span class="math display">\[\begin{equation}
+\dot{V}\mathrm{O}_2 = CO \times (Ca\mathrm{O}_2 - Cv\mathrm{O}_2)
+\label{eq:circulation_respiration_homeostasis_fick}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(Ca\mathrm{O}_2 -
+Cv\mathrm{O}_2\)</span> is the arteriovenous O<span
+class="math inline">\(_2\)</span> content difference. At rest, an
+average adult has <span class="math inline">\(\dot{V}\mathrm{O}_2
+\approx 250\)</span> mL/min = 5 L/min × (200 − 150) mL/L = 5 L/min × 50
+mL/L. Maximal O<span class="math inline">\(_2\)</span> uptake (V̇O<span
+class="math inline">\(_2\)</span>max) in elite endurance athletes can
+exceed 80 mL/kg/min (vs ~40 mL/kg/min in untrained adults).</p>
+<h3 id="cardiovascular-adjustments">Cardiovascular adjustments</h3>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 10%" />
+<col style="width: 43%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Rest</th>
+<th>Maximal exercise</th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Heart rate</strong></td>
+<td>70 bpm</td>
+<td>200 bpm (220−age rule)</td>
+<td>Sympathetic ↑ + vagal withdrawal</td>
+</tr>
+<tr>
+<td><strong>Stroke volume</strong></td>
+<td>70 mL</td>
+<td>130–160 mL (untrained); &gt;200 mL (elite)</td>
+<td>Frank-Starling (↑venous return) + ↑contractility (β<span
+class="math inline">\(_1\)</span>)</td>
+</tr>
+<tr>
+<td><strong>Cardiac output</strong></td>
+<td>5 L/min</td>
+<td>26–35 L/min (5–7×)</td>
+<td>HR × SV</td>
+</tr>
+<tr>
+<td><strong>Systolic BP</strong></td>
+<td>120 mmHg</td>
+<td>200 mmHg</td>
+<td>↑CO ↑ TPR (running muscle excepted)</td>
+</tr>
+<tr>
+<td><strong>Diastolic BP</strong></td>
+<td>80 mmHg</td>
+<td>80 mmHg (unchanged)</td>
+<td>Active muscle vasodilation offsets sympathetic vasoconstriction</td>
+</tr>
+<tr>
+<td><strong>MAP</strong></td>
+<td>93 mmHg</td>
+<td>120 mmHg</td>
+<td>Pulse pressure widens</td>
+</tr>
+<tr>
+<td><strong>Skeletal muscle blood flow</strong></td>
+<td>1 L/min (20% of CO)</td>
+<td>22 L/min (84% of CO)</td>
+<td>Local metabolic vasodilation (adenosine, K<span
+class="math inline">\(^+\)</span>, lactate, H<span
+class="math inline">\(^+\)</span>, CO<span
+class="math inline">\(_2\)</span>) overrides sympathetic
+vasoconstriction</td>
+</tr>
+<tr>
+<td><strong>Splanchnic blood flow</strong></td>
+<td>1.4 L/min</td>
+<td>0.3 L/min</td>
+<td>Sympathetic vasoconstriction redistributes flow</td>
+</tr>
+<tr>
+<td><strong>Skin blood flow</strong></td>
+<td>0.4 L/min</td>
+<td>1.5 L/min (heat dissipation)</td>
+<td>Hypothalamic thermoregulation</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>a-vO<span class="math inline">\(_2\)</span>
+difference</strong> widens from 50 mL/L at rest to &gt;150 mL/L at
+maximal exercise — combined with ~5-fold ↑CO, produces ~20-fold ↑V̇O<span
+class="math inline">\(_2\)</span>.</p>
+<h3 id="respiratory-adjustments">Respiratory adjustments</h3>
+<ul>
+<li><strong>Minute ventilation</strong> (<span
+class="math inline">\(\dot{V}_E\)</span>): rises from 6 L/min at rest to
+100–200 L/min at maximal exercise (~20–30× increase) — driven primarily
+by ↑tidal volume initially (up to ~50% of vital capacity) and then
+↑frequency (up to ~50/min).</li>
+<li><strong>Anaerobic threshold:</strong> ~50–80% of V̇O<span
+class="math inline">\(_2\)</span>max in untrained vs trained subjects;
+lactate production exceeds clearance, blood lactate rises, ventilation
+rises disproportionately to drive off CO<span
+class="math inline">\(_2\)</span> and buffer H<span
+class="math inline">\(^+\)</span> (respiratory compensation for
+metabolic acidosis).</li>
+<li><strong>Diffusion capacity:</strong> Pulmonary capillary recruitment
+and dilation increase the area for gas exchange ~3-fold, maintaining
+alveolar-end-capillary equilibration even with shortened transit time
+(0.75 s at rest → 0.25 s at exercise).</li>
+</ul>
+<p><strong>Training adaptations:</strong> Endurance training increases
+stroke volume (cardiac hypertrophy, eccentric), capillary density,
+mitochondrial volume, and oxidative enzyme content (citrate synthase,
+β-HAD). V̇O<span class="math inline">\(_2\)</span>max can increase 15–25%
+with training. Cardiac output increases at any work rate; resting heart
+rate falls (~50 bpm or lower in trained athletes — eccentric hypertrophy
+and ↑vagal tone).</p>
+<p><strong>Concept Check:</strong> An athlete has <span
+class="math inline">\(\dot{V}\mathrm{O}_2 = 4{,}000\)</span> mL/min,
+arterial O<span class="math inline">\(_2\)</span> content <span
+class="math inline">\(Ca\mathrm{O}_2 = 200\)</span> mL/L, and
+mixed-venous content <span class="math inline">\(Cv\mathrm{O}_2 =
+40\)</span> mL/L at maximal exercise. Use the Fick principle to solve
+for cardiac output, and explain why a trained endurance athlete reaches
+a higher <span class="math inline">\(\dot{V}\mathrm{O}_2\)</span>max
+than an untrained person of identical maximal cardiac output. (Hint:
+rearrange <span class="math inline">\(\dot{V}\mathrm{O}_2 = CO \times
+(Ca\mathrm{O}_2 - Cv\mathrm{O}_2)\)</span> and consider the a-vO<span
+class="math inline">\(_2\)</span> difference.)</p>
+<hr />
+<h2 id="homeostasis">Homeostasis</h2>
+<h3 id="principles">Principles</h3>
+<p><strong><a href="#gl:homeostasis">Homeostasis</a></strong> :
+Maintenance of a relatively stable internal environment (milieu
+interieur, Claude Bernard 1865) despite external fluctuations.</p>
+<p><strong>Negative feedback:</strong> The dominant control mechanism. A
+change in a regulated variable is detected by a sensor, compared to a
+set point by a control centre, and corrected by an effector that opposes
+the change.</p>
+<p><strong>Positive feedback:</strong> Amplifies a change rather than
+opposing it. Rare in physiology; examples include: - Oxytocin and
+uterine contractions during labour - Platelet activation in haemostasis
+- <a href="#gl:action-potential"><strong>Action potential</strong></a>
+upstroke (Na<span class="math inline">\(^+\)</span> channel positive
+feedback)</p>
+<h3 id="temperature-regulation">Temperature Regulation</h3>
+<p><strong>Ectotherms</strong> (fish, amphibians, reptiles,
+invertebrates): Body temperature tracks environmental temperature.
+Behavioural thermoregulation (basking, seeking shade).</p>
+<p><strong>Endotherms</strong> (mammals, birds): Maintain body
+temperature near a set point (~37 degrees C in humans) via metabolic
+heat production and physiological regulation.</p>
+<p>The <strong>hypothalamus</strong> serves as the thermostat:</p>
+<p><strong>Heat dissipation (when too hot):</strong> - Cutaneous
+vasodilation (increased blood flow to skin surface) - Sweating
+(evaporative cooling; ~580 kcal/L evaporated) - Behavioural responses
+(seeking shade, reducing activity)</p>
+<p><strong>Heat conservation/generation (when too cold):</strong> -
+Cutaneous vasoconstriction (reduced heat loss from skin) - Piloerection
+(limited effectiveness in humans) - Shivering thermogenesis (skeletal
+muscle contraction without useful work; increases metabolic rate 5-fold)
+- <strong>Non-shivering thermogenesis:</strong> Brown adipose tissue
+(BAT) expresses UCP1 (uncoupling protein 1), which dissipates the
+mitochondrial proton gradient as heat rather than ATP. Significant in
+neonates and hibernating mammals; recently confirmed active in adult
+humans by PET-CT imaging.</p>
+<h3 id="countercurrent-heat-exchange">Countercurrent Heat Exchange</h3>
+<p><strong>Countercurrent heat exchange</strong> is a passive but
+elegant mechanism that conserves core heat in cold-stressed appendages.
+Arteries supplying the limb run alongside paired veins (the <strong>vena
+comitans</strong> arrangement). Warm arterial blood transfers heat to
+the cooler venous blood returning from the cold extremity. By the time
+arterial blood reaches the distal limb, it has cooled substantially;
+conversely, returning venous blood is rewarmed before reaching the
+core.</p>
+<pre class="mermaid"><code>flowchart LR
+    Core[&quot;Core: 37 °C&quot;]
+    A1[&quot;Artery: 37 °C&quot;]
+    A2[&quot;Artery: 30 °C&lt;br/&gt;(after heat loss&lt;br/&gt;to vena comitans)&quot;]
+    A3[&quot;Artery: 22 °C&lt;br/&gt;at distal limb&quot;]
+    V3[&quot;Vein: 18 °C&lt;br/&gt;at distal limb&quot;]
+    V2[&quot;Vein: 28 °C&lt;br/&gt;(after rewarming&lt;br/&gt;from artery)&quot;]
+    V1[&quot;Vein: 35 °C&lt;br/&gt;(re-entering core)&quot;]
+    Skin[&quot;Cold environment:&lt;br/&gt;0 °C&quot;]
+
+    Core --&gt; A1
+    A1 --&gt;|&quot;heat to V&quot;| V1
+    A1 --&gt; A2
+    A2 --&gt;|&quot;heat to V&quot;| V2
+    A2 --&gt; A3
+    A3 --&gt;|&quot;some heat&lt;br/&gt;radiated to skin&quot;| Skin
+    A3 --&gt; V3
+    V3 --&gt;|&quot;warmed&lt;br/&gt;by adjacent A&quot;| V2
+    V2 --&gt; V1
+    V1 --&gt; Core</code></pre>
+<!-- alt: Flowchart showing countercurrent heat exchange in a cold limb Heat flows continuously from warmer arterial to cooler venous blood along the entire vessel length. Warm arterial blood is "pre-cooled" before reaching the distal extremity; cold venous blood is "rewarmed" before re-entering the core. The result is dramatic conservation of core body temperature despite cold exposure of the appendage. -->
+<p><em>Countercurrent heat exchange in a cold limb Heat flows
+continuously from warmer arterial to cooler venous blood along the
+entire vessel length. Warm arterial blood is “pre-cooled” before
+reaching the distal extremity; cold venous blood is “rewarmed” before
+re-entering the core. The result is dramatic conservation of core body
+temperature despite cold exposure of the appendage.</em></p>
+<p>The same principle operates in <strong>fish gills</strong>
+(countercurrent O<span class="math inline">\(_2\)</span> extraction —
+water flow opposite to blood flow extracts up to 80–90% of dissolved
+O<span class="math inline">\(_2\)</span>), the <strong>renal
+medulla</strong> (countercurrent multiplication for urine
+concentration), and the <strong>placenta</strong> (maternal-fetal
+exchange).</p>
+<h3 id="hibernation-torpor-and-heterothermy">Hibernation, Torpor, and
+Heterothermy</h3>
+<p>Some endotherms can dramatically lower their body temperature and
+metabolic rate, entering states of <strong>torpor</strong> (short-term,
+hours to days) or <strong>hibernation</strong> (seasonal, weeks to
+months):</p>
+<ul>
+<li><strong>Daily torpor</strong> in small mammals (hummingbirds, mice)
+and many bats: nightly drops in T<span class="math inline">\(_b\)</span>
+to ~10–20 °C, saving ~50% of energy expenditure.</li>
+<li><strong>Multi-day torpor</strong> in some marsupials (sugar gliders)
+and primates (lemurs).</li>
+<li><strong>Hibernation</strong> in ground squirrels, marmots, bears:
+T<span class="math inline">\(_b\)</span> falls to near 0 °C in some
+species; metabolic rate drops to &lt;2% of basal; heart rate falls from
+~300 to &lt;10 bpm. Periodic arousals (every 1–3 weeks) raise T<span
+class="math inline">\(_b\)</span> briefly to enable function then return
+to torpor.</li>
+</ul>
+<p><strong>Mechanisms:</strong> - <strong>Hypothalamic set point
+reduction:</strong> During torpor entry, the thermal set point is
+actively lowered (not a failure of regulation). -
+<strong>Pre-fattening:</strong> Animals deposit large lipid stores
+(white and brown) in autumn. - <strong>Metabolic suppression:</strong>
+Mitochondrial respiration and ATPase activity are suppressed beyond what
+temperature alone predicts (Q<span class="math inline">\(_{10}\)</span>
+exceeds typical values). - <strong>Adaptive cold tolerance:</strong>
+Membrane composition shifts to maintain fluidity; SERCA pumps are
+modified to maintain Ca<span class="math inline">\(^{2+}\)</span>
+handling. - <strong>Arousal via BAT:</strong> BAT thermogenesis (UCP1,
+sympathetic input) plus shivering raises T<span
+class="math inline">\(_b\)</span> to normothermic levels for
+arousal.</p>
+<blockquote>
+<p><strong>Clinical Connection:</strong> Therapeutic hypothermia (32–36
+°C for 24–72 h) is now standard care after cardiac arrest with return of
+spontaneous circulation, and after neonatal hypoxic-ischaemic
+encephalopathy. The mechanism — slowed metabolic demand, reduced
+excitotoxicity, suppressed apoptotic pathways — parallels natural
+hibernation. Pharmacological induction of torpor-like states (“synthetic
+torpor”) is an active area of research for trauma, stroke, and even
+spaceflight.</p>
+</blockquote>
+<blockquote>
+<p><strong>Clinical Connection:</strong> Fever is not a failure of
+thermoregulation but a regulated elevation of the hypothalamic set
+point. Pyrogens (IL-1, IL-6, TNF-alpha from macrophages) stimulate
+hypothalamic COX-2 to produce PGE<span
+class="math inline">\(_2\)</span>, which raises the set point. The body
+then uses normal heat-generating mechanisms (vasoconstriction,
+shivering) to reach the new, higher set point. NSAIDs (aspirin,
+ibuprofen) reduce fever by inhibiting COX-2.</p>
+</blockquote>
+<h3 id="fluid-and-electrolyte-homeostasis">Fluid and Electrolyte
+Homeostasis</h3>
+<p><strong>Renal regulation:</strong> The kidney filters ~180 L of
+plasma per day but excretes about 1.5 L urine.</p>
+<p>The nephron performs: 1. <strong>Glomerular filtration:</strong> ~125
+mL/min GFR. Pressure-driven ultrafiltration. Proteins and blood cells
+excluded. 2. <strong>Tubular reabsorption:</strong> PCT reabsorbs ~65%
+of filtrate; Loop of Henle creates corticomedullary concentration
+gradient by countercurrent multiplication; DCT + collecting duct adjust
+water (ADH) and Na<span class="math inline">\(^+\)</span> (aldosterone).
+3. <strong>Tubular secretion:</strong> Organic acids, drugs, K<span
+class="math inline">\(^+\)</span>, H<span
+class="math inline">\(^+\)</span> secreted.</p>
+<p><strong>Key <a href="#gl:hormone"><strong>hormone</strong></a>s in
+fluid balance:</strong> - <strong>ADH (vasopressin):</strong> Released
+from posterior pituitary when plasma osmolality rises. Inserts
+aquaporin-2 channels into collecting duct, increasing water
+reabsorption. Diabetes insipidus: deficiency of ADH (central) or renal
+insensitivity (nephrogenic) causes massive urine output (up to 20
+L/day). - <strong>Aldosterone:</strong> Released from adrenal cortex
+zona glomerulosa (stimulated by angiotensin II and high K<span
+class="math inline">\(^+\)</span>). Increases ENaC Na<span
+class="math inline">\(^+\)</span> channels in collecting duct,
+increasing Na<span class="math inline">\(^+\)</span> and water
+reabsorption. - <strong>ANP (atrial natriuretic peptide):</strong>
+Released from atrial cardiomyocytes when stretched. Promotes Na<span
+class="math inline">\(^+\)</span> and water excretion. Antagonises
+RAAS.</p>
+<p><strong>RAAS (Renin-Angiotensin-Aldosterone System):</strong> 1. Low
+renal perfusion pressure detected by juxtaglomerular cells 2. Renin
+secreted, cleaves angiotensinogen (liver) to angiotensin I 3. ACE (lung
+endothelium) converts angiotensin I to angiotensin II 4. Angiotensin II:
+vasoconstriction + aldosterone release + ADH release + thirst
+stimulation 5. Net effect: blood pressure and volume restoration</p>
+<hr />
+<h2 id="worked-example">Worked Example</h2>
+<p><strong>Problem:</strong> A patient has a resting heart rate (<span
+class="math inline">\(HR\)</span>) of <span
+class="math inline">\(75\text{ beats/min}\)</span> and a stroke volume
+(<span class="math inline">\(SV\)</span>) of <span
+class="math inline">\(70\text{ mL/beat}\)</span>. During exercise, the
+heart rate increases to <span class="math inline">\(150\text{
+beats/min}\)</span> and stroke volume increases to <span
+class="math inline">\(110\text{ mL/beat}\)</span>. Calculate the resting
+cardiac output (<span class="math inline">\(CO_{rest}\)</span>) and the
+exercise cardiac output (<span
+class="math inline">\(CO_{exercise}\)</span>) in L/min. What is the
+fold-increase in cardiac output?</p>
+<p><strong>Solution:</strong></p>
+<p><strong>Step 1. Calculate resting cardiac output.</strong> <span
+class="math display">\[CO = HR \times SV
+\label{eq:unit_IX_circulation_respiration_homeostasis_item_7}\]</span></p>
+<p><span class="math display">\[CO_{rest} = 75\text{ beats/min} \times
+70\text{ mL/beat} = 5,250\text{ mL/min} = 5.25\text{ L/min}
+\label{eq:unit_IX_circulation_respiration_homeostasis_item_8}\]</span></p>
+<p><strong>Step 2. Calculate exercise cardiac output.</strong> <span
+class="math display">\[CO_{exercise} = 150\text{ beats/min} \times
+110\text{ mL/beat} = 16,500\text{ mL/min} = 16.5\text{ L/min}
+\label{eq:unit_IX_circulation_respiration_homeostasis_item_9}\]</span></p>
+<p><strong>Step 3. Calculate the fold-increase.</strong> <span
+class="math display">\[\text{Fold-increase} =
+\frac{CO_{exercise}}{CO_{rest}}
+\label{eq:unit_IX_circulation_respiration_homeostasis_item_10}\]</span></p>
+<p><span class="math display">\[\text{Fold-increase} = \frac{16.5\text{
+L/min}}{5.25\text{ L/min}} \approx 3.14
+\label{eq:unit_IX_circulation_respiration_homeostasis_item_11}\]</span></p>
+<p><strong>Answer:</strong> The patient’s cardiac output increases from
+<strong><span class="math inline">\(5.25\text{ L/min}\)</span></strong>
+at rest to <strong><span class="math inline">\(16.5\text{
+L/min}\)</span></strong> during exercise, representing a
+<strong>3.14-fold</strong> increase.</p>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>The Hb–O<span class="math inline">\(_2\)</span> curve used in
+problems is materialised as discrete samples:</p>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.physiology <span class="im">import</span> oxygen_dissociation_curve</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>curve <span class="op">=</span> oxygen_dissociation_curve(p50_mmHg<span class="op">=</span><span class="fl">26.0</span>, n_points<span class="op">=</span><span class="dv">8</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">round</span>(curve[<span class="dv">4</span>].saturation, <span class="dv">3</span>))</span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> Pulse oximeters estimate
+SpO<span class="math inline">\(_2\)</span> along the same saturation
+curve; right shifts from fever or acidosis explain why patients can be
+“happy hypoxaemic” until they abruptly decompensate.</p>
+</blockquote>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Circulation, Respiration, and Homeostasis</strong>,
+frontier biology belongs inside the evidence logic of the chapter.
+Physiology now blends mechanism with allostasis, immune-endocrine-neural
+coupling, wearable data, and individualized risk without reducing bodies
+to simple machines. The core reading question is this: homeostasis
+claims should connect flow, diffusion, control loops, reserve capacity,
+and measurement limits.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>Interpret physiological data by separating baseline variation,
+perturbation response, compensation, and the threshold where
+compensation becomes pathology.</p>
+<p><strong>Source practice:</strong> For physiology claims, cite the
+measurement context and distinguish baseline variation, compensation,
+pathophysiology, and treatment evidence.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Cardiovascular evolution:</strong> Open to closed; 2-chamber
+(fish) to 4-chamber (mammals/birds). Complete separation enables
+high-pressure systemic and low-pressure pulmonary circuits.</li>
+<li><strong>Cardiac cycle:</strong> SA node (pacemaker) to AV node
+(delay) to bundle of His to Purkinje fibres. ECG: P (atrial), QRS
+(ventricular depolarisation), T (repolarisation). Starling’s law matches
+SV to preload.</li>
+<li><strong>Cardiac output:</strong> CO = HR <span
+class="math inline">\(\times\)</span> SV; ~5 L/min at rest. Regulated by
+sympathetic (<span class="math inline">\(\beta_1\)</span>),
+parasympathetic (M<span class="math inline">\(_2\)</span>), and Starling
+mechanism.</li>
+<li><strong>Blood flow:</strong> Poiseuille’s law (<span
+class="math inline">\(Q \propto r^4\)</span>); arteriolar tone is the
+key regulator. Local autoregulation (myogenic, metabolic, endothelial
+NO) and neural/hormonal control.</li>
+<li><strong>O<span class="math inline">\(_2\)</span> transport:</strong>
+Hb cooperatively binds O<span class="math inline">\(_2\)</span> (Hill
+equation; n about 2.7; P<span class="math inline">\(_{50}\)</span> about
+26 mmHg). Bohr effect unloads O<span class="math inline">\(_2\)</span>
+in metabolically active tissues. Haldane effect facilitates CO<span
+class="math inline">\(_2\)</span> transport.</li>
+<li><strong>CO<span class="math inline">\(_2\)</span>
+transport:</strong> 65% as bicarbonate (carbonic anhydrase), 27%
+carbaminohaemoglobin, 8% dissolved.</li>
+<li><strong>Ventilation:</strong> Diaphragm contraction creates negative
+intrapulmonary pressure. Surfactant prevents alveolar collapse. FEV<span
+class="math inline">\(_1\)</span>/FVC ratio distinguishes obstructive
+from restrictive disease.</li>
+<li><strong>Gas exchange:</strong> Fick’s law governs diffusion across
+the alveolar-capillary membrane (70 m<span
+class="math inline">\(^2\)</span> surface area, 0.5 um thickness).</li>
+<li><strong>Respiratory control:</strong> Medullary DRG/VRG generate
+rhythm. Central chemoreceptors (H<span
+class="math inline">\(^+\)</span>/CO<span
+class="math inline">\(_2\)</span> in CSF) are the primary driver;
+peripheral chemoreceptors (carotid/aortic bodies) detect PO<span
+class="math inline">\(_2\)</span>.</li>
+<li><strong>Homeostasis:</strong> Negative feedback dominates.
+Thermoregulation via hypothalamus (vasomotor, sweating, shivering, BAT).
+Fluid balance via RAAS, ADH, aldosterone, ANP.</li>
+<li><strong>Connections:</strong> See and for neural control of
+breathing and autonomic output, for metabolic heat load, and for blood
+osmolarity.</li>
+</ul>
+<hr />
+<h2 id="key-terms">Key Terms</h2>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><a href="#gl:cardiac-output">Cardiac output
+(CO)</a></strong></td>
+<td>Volume of blood pumped per minute; CO = HR <span
+class="math inline">\(\times\)</span> SV</td>
+</tr>
+<tr>
+<td><strong>Stroke volume (SV)</strong></td>
+<td>Volume ejected per heartbeat; ~70 mL at rest</td>
+</tr>
+<tr>
+<td><strong><a href="#gl:frank-starling-law">Frank-Starling law</a>
+(Equation~<span
+class="math inline">\(\eqref{eq:circulation_respiration_homeostasis_1}\)</span>)</strong></td>
+<td>Increased preload (EDV) causes increased SV</td>
+</tr>
+<tr>
+<td><strong>Poiseuille’s law</strong></td>
+<td><span class="math inline">\(Q = \pi r^4 \Delta P / (8\eta
+L)\)</span>; flow depends on radius to the 4th power</td>
+</tr>
+<tr>
+<td><strong>Mean arterial pressure</strong></td>
+<td>MAP = DP + 1/3(SP - DP); ~93 mmHg normally</td>
+</tr>
+<tr>
+<td><strong>Haemoglobin</strong></td>
+<td><span class="math inline">\(\alpha_2\beta_2\)</span> tetramer;
+cooperative O<span class="math inline">\(_2\)</span> binding; 4 haeme
+groups</td>
+</tr>
+<tr>
+<td><strong>Bohr effect</strong></td>
+<td>Rightward shift of O<span class="math inline">\(_2\)</span>-Hb curve
+with decreased pH / increased CO<span
+class="math inline">\(_2\)</span></td>
+</tr>
+<tr>
+<td><strong>Haldane effect</strong></td>
+<td>Deoxygenated Hb binds CO<span class="math inline">\(_2\)</span> and
+H<span class="math inline">\(^+\)</span> more readily than oxygenated
+Hb</td>
+</tr>
+<tr>
+<td><strong>P<span class="math inline">\(_{50}\)</span></strong></td>
+<td>PO<span class="math inline">\(_2\)</span> at 50% Hb saturation; ~26
+mmHg for adult HbA</td>
+</tr>
+<tr>
+<td><strong>Surfactant</strong></td>
+<td>DPPC from Type II pneumocytes; reduces alveolar surface tension</td>
+</tr>
+<tr>
+<td><strong>FEV<span class="math inline">\(_1\)</span>/FVC</strong></td>
+<td>Spirometric ratio interpreted against the age-dependent lower limit
+of normal; obstruction lowers the ratio, while restriction usually
+preserves or raises it with reduced absolute volumes</td>
+</tr>
+<tr>
+<td><strong>Chemoreceptors</strong></td>
+<td>Central (medullary, respond to H<span
+class="math inline">\(^+\)</span>/CO<span
+class="math inline">\(_2\)</span>) and peripheral (carotid/aortic,
+respond to PO<span class="math inline">\(_2\)</span>)</td>
+</tr>
+<tr>
+<td><strong>Homeostasis</strong></td>
+<td>Maintenance of stable internal environment via negative
+feedback</td>
+</tr>
+<tr>
+<td><strong>RAAS</strong></td>
+<td>Renin-Angiotensin-Aldosterone System; restores blood pressure and
+volume</td>
+</tr>
+<tr>
+<td><strong>UCP1</strong></td>
+<td>Uncoupling protein 1 in brown adipose tissue; generates heat</td>
+</tr>
+<tr>
+<td><strong>ADH (vasopressin)</strong></td>
+<td>Posterior pituitary hormone; inserts aquaporin-2 in collecting
+duct</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li><p>A patient’s ECG shows a prolonged PR interval (0.28 s) but normal
+QRS complexes. Name the type of heart block and explain which structure
+in the conduction system is likely affected.</p></li>
+<li><p>Using the Hill equation with P<span
+class="math inline">\(_{50}\)</span> = 26 mmHg and n = 2.7, calculate
+SO<span class="math inline">\(_2\)</span> at PO<span
+class="math inline">\(_2\)</span> = 100 mmHg (arterial) and PO<span
+class="math inline">\(_2\)</span> = 40 mmHg (venous). What is the O<span
+class="math inline">\(_2\)</span> extraction ratio?</p></li>
+<li><p>Explain why CO<span class="math inline">\(_2\)</span> diffuses 20
+times faster than O<span class="math inline">\(_2\)</span> across the
+alveolar-capillary membrane despite having a similar molecular weight.
+What property accounts for this difference?</p></li>
+<li><p>An arteriole supplying skeletal muscle constricts from radius 50
+um to 40 um. Using Poiseuille’s law, calculate the fold-change in blood
+flow (assume most other variables constant). Why does this make
+arteriolar tone the dominant regulator of organ blood flow?</p></li>
+<li><p>A mountain climber at 5,500 m altitude breathes air with PO<span
+class="math inline">\(_2\)</span> = 75 mmHg. Describe the acute and
+chronic compensatory responses involving the respiratory system,
+cardiovascular system, and blood.</p></li>
+<li><p>Compare central and peripheral chemoreceptors in terms of
+location, stimulus, and response latency. Why is the central
+chemoreceptor considered the primary driver of normal
+ventilation?</p></li>
+<li><p>Explain why administering high-flow oxygen to a patient with
+chronic COPD and CO<span class="math inline">\(_2\)</span> retention
+could suppress their ventilatory drive. What is the safer
+approach?</p></li>
+<li><p>A patient with diabetes insipidus produces 15 L of dilute urine
+per day. Explain the molecular defect (central vs nephrogenic), and
+describe how ADH normally regulates water reabsorption at the molecular
+level.</p></li>
+<li><p>During intense exercise, skeletal muscle produces large amounts
+of CO<span class="math inline">\(_2\)</span>, H<span
+class="math inline">\(^+\)</span>, and heat. Explain how each of these
+factors enhances O<span class="math inline">\(_2\)</span> delivery to
+the exercising muscle via the Bohr effect.</p></li>
+<li><p>Compare shivering thermogenesis and non-shivering thermogenesis
+(BAT/UCP1) in terms of mechanism, efficiency, tissue involved, and
+developmental significance.</p></li>
+<li><p>A 45-year-old patient with nephrotic syndrome (severe
+proteinuria, serum albumin 1.8 g/dL) presents with bilateral pitting
+oedema to the knees. Using the Starling equation, explain: (a) why
+plasma oncotic pressure is reduced; (b) how this shifts the net
+filtration pressure at both arteriolar and venular capillary ends; (c)
+why the oedema is pitting rather than non-pitting. How does treatment
+with albumin infusion immediately reduce oedema?</p></li>
+<li><p>Using Fick’s law, predict what happens to alveolar O<span
+class="math inline">\(_2\)</span> diffusion in: (a) a patient with
+idiopathic pulmonary fibrosis where membrane thickness doubles and
+surface area halves; (b) a healthy person exercising at altitude (4,000
+m, alveolar <span class="math inline">\(PO_2\)</span> = 60 mmHg, tissue
+<span class="math inline">\(PO_2\)</span> = 30 mmHg). Which is more
+likely to cause frank hypoxaemia at rest vs exercise?</p></li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Starling (1918). The Linacre Lecture on the Law of the Heart.
+<em>Longmans, Green and Co.</em>.</li>
+<li>Cannon (1932). <em>The Wisdom of the Body</em>. W. W. Norton.</li>
+</ul>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Circulation, Respiration, and Homeostasis</strong> should
+leave a reproducible trail from a biological claim to the code, figure,
+diagram, or paper-based activity that can test it. Use the surfaces
+below to inspect the chapter’s assumptions, rerun the relevant model, or
+compare the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/physiology/physiology.py</code>
+(<code>poiseuille_flow</code>, <code>oxygen_saturation</code>,
+<code>oxygen_dissociation_curve</code>,
+<code>homeostasis_response</code>)</td>
+<td>Reproduce flow, gas transport, and regulatory response claims.</td>
+</tr>
+<tr>
+<td><code>src/visualization/plots.py</code>
+(<code>plot_oxygen_dissociation</code>)</td>
+<td>Inspect shifts in oxygen loading and unloading.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> state vessel radius, pressure
+gradient, haemoglobin state, tissue demand, and feedback variable before
+interpreting homeostasis. <strong>Cross-reference:</strong> connect with
+and .</p>
+</body>
+</html>

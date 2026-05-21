@@ -1,0 +1,23 @@
+graph TD
+    HOME["⚖️ Homeostasis<br/>(negative feedback;<br/>set-point; effector)"] --> CIRC["❤️ Circulatory System<br/>(cardiac output; BP;<br/>Starling forces)"]
+    HOME --> RESP["🫁 Respiratory System<br/>(gas exchange;<br/>ventilation-perfusion)"]
+    HOME --> ENDO["💉 Endocrine System<br/>(hormones; anterior<br/>pituitary; feedback loops)"]
+    HOME --> IMMUNE["🛡️ Immune System<br/>(innate; adaptive;<br/>MHC; clonal selection)"]
+
+    NERVE["⚡ Nervous System<br/>(CNS + PNS;<br/>neurons; glial cells)"] --> AP["📈 Action Potential<br/>(Hodgkin-Huxley;<br/>Na⁺/K⁺ conductance)"]
+    AP --> SYN["🔌 Synaptic Transmission<br/>(NT release;<br/>EPSP/IPSP; GPCR)"]
+    NERVE --> HOME
+
+    CIRC --> GAS["🩸 Gas Transport<br/>(haemoglobin O₂ binding;<br/>Bohr effect; Hill n≈2.8)"]
+    RESP --> GAS
+
+    ENDO --> INS["🍭 Glucose Homeostasis<br/>(insulin/glucagon;<br/>pancreatic β-cells; diabetes)"]
+    ENDO --> STRESS["💪 Stress Response<br/>(HPA axis;<br/>cortisol; adrenaline)"]
+
+    IMMUNE --> B["🅱️ B Cells<br/>(antibodies; class switching;<br/>memory)"]
+    IMMUNE --> T["🅣 T Cells<br/>(CD4/CD8; CTL;<br/>regulatory T cells)"]
+
+    style HOME fill:#e74c3c,color:#fff
+    style NERVE fill:#3498db,color:#fff
+    style IMMUNE fill:#27ae60,color:#fff
+    style ENDO fill:#f39c12,color:#fff

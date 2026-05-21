@@ -1,0 +1,24 @@
+flowchart LR
+    NADH["NADH electrons"]
+    FADH["FADH2 electrons"]
+    CI["Complex I pumps H+"]
+    CII["Complex II feeds Q"]
+    Q["Ubiquinone pool"]
+    CIII["Complex III pumps H+"]
+    CIV["Complex IV pumps H+"]
+    Pm["Proton-motive force"]
+    ATP["ATP synthase"]
+    O2["O2 reduced to water"]
+    ATPP["ADP + Pi to ATP"]
+    NADH -->|2 e-| CI
+    FADH -->|2 e-| CII
+    CI --> Q
+    CII --> Q
+    Q --> CIII
+    CIII -->|cytochrome c| CIV
+    CIV -->|terminal acceptor| O2
+    CI -->|4 H+| Pm
+    CIII -->|4 H+| Pm
+    CIV -->|2 H+| Pm
+    Pm -->|H+ flow| ATP
+    ATP -->|rotary catalysis| ATPP

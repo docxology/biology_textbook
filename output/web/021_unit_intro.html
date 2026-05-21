@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>021_unit_intro</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered" id="unit-iv-molecular-genetics-introduction">Unit
+IV — Molecular Genetics: Introduction</h1>
+<h2 class="unnumbered" id="why-this-unit-matters">Why This Unit
+Matters</h2>
+<p>In 1944, Oswald Avery, Colin MacLeod, and Maclyn McCarty performed
+one of the most transformative experiments in the history of science.
+They showed that the "transforming principle" that could convert
+harmless <em>Streptococcus pneumoniae</em> into a lethal strain was not
+protein — as virtually everyone expected — but deoxyribonucleic acid
+(DNA). The announcement was met with scepticism. DNA seemed too simple:
+primarily four nucleotide bases, arranged in an apparently monotonous
+double helix. How could such a molecule encode the almost infinite
+variety of life?</p>
+<p>The answer, revealed over the next three decades, is linguistic in
+structure: a four-letter alphabet (A, T, G, C) organised into
+three-letter codons, read in a linear sequence, encoding twenty amino
+acids, assembled by ribosomes into an effectively unlimited number of
+proteins. This is the molecular logic of life: <strong>information flows
+from DNA to RNA to protein</strong>, and control is exerted at every
+step. The central dogma, articulated by Francis Crick in 1958, has been
+refined but rarely overturned.</p>
+<p>This unit examines the molecular machinery that reads, copies, and
+expresses genetic information. You will study the multiprotein complexes
+that replicate DNA with an error rate of fewer than one mistake per 10⁹
+base pairs, the RNA polymerases that transcribe genes in a regulated,
+stimulus-responsive manner, and the ribosome — a 2.5 MDa
+ribonucleoprotein machine that interprets the genetic code at ~15 amino
+acids per second. You will also examine how mutations drive evolution
+and disease, how the genome is structurally organised, and how
+CRISPR-Cas9 has made precise genome editing a clinical reality .</p>
+<hr />
+<h2 class="unnumbered" id="landmark-discoveries">Landmark
+Discoveries</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 7%" />
+<col style="width: 29%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th>Discoverer(s)</th>
+<th>Year</th>
+<th>Journal / Source</th>
+<th>Discovery</th>
+<th>Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Avery, MacLeod &amp; McCarty</td>
+<td>1944</td>
+<td><em>J. Exp. Med.</em></td>
+<td>DNA is the genetic material</td>
+<td>Overturned protein hypothesis; opened molecular genetics</td>
+</tr>
+<tr>
+<td>Watson &amp; Crick</td>
+<td>1953</td>
+<td><em>Nature</em></td>
+<td>Double-helix structure of DNA</td>
+<td>Anti-parallel complementary strands implied replication
+mechanism</td>
+</tr>
+<tr>
+<td>Meselson &amp; Stahl</td>
+<td>1958</td>
+<td><em>Proc. Natl. Acad. Sci.</em></td>
+<td>Semi-conservative DNA replication</td>
+<td>Definitive proof of how DNA is copied; used ¹⁵N density-gradient
+experiment</td>
+</tr>
+<tr>
+<td>Nirenberg &amp; Matthaei</td>
+<td>1961</td>
+<td><em>Proc. Natl. Acad. Sci.</em></td>
+<td>Deciphering the genetic code</td>
+<td>Used cell-free translation of poly-U to show UUU = phenylalanine;
+cracked the codon table</td>
+</tr>
+<tr>
+<td>Jacob &amp; Monod</td>
+<td>1961</td>
+<td><em>J. Mol. Biol.</em></td>
+<td><em>lac</em> operon — gene regulatory model</td>
+<td>First demonstration of gene circuit logic;
+inducer-repressor-operator model</td>
+</tr>
+<tr>
+<td>Alec Jeffreys</td>
+<td>1984</td>
+<td><em>Nature</em></td>
+<td>DNA fingerprinting (RFLP-based)</td>
+<td>Transformed forensic science, paternity testing, and population
+genetics</td>
+</tr>
+<tr>
+<td>Doudna &amp; Charpentier</td>
+<td>2012</td>
+<td><em>Science</em></td>
+<td>CRISPR-Cas9 programmable genome editing</td>
+<td>Created a precise molecular "scissors" for any target sequence;
+Nobel Prize 2020</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="key-concepts-and-connections">Key Concepts
+and Connections</h2>
+<pre class="mermaid"><code>graph TD
+    DNA[&quot;🧬 DNA Double Helix&lt;br/&gt;(anti-parallel; A–T, G–C;&lt;br/&gt;5&#39;→3&#39; polarity)&quot;] --&gt; REP[&quot;🔁 Replication&lt;br/&gt;(semi-conservative;&lt;br/&gt;DNA pol III; proofreading)&quot;]
+    DNA --&gt; TRANS[&quot;📝 Transcription&lt;br/&gt;(RNA polymerase;&lt;br/&gt;promoter → mRNA)&quot;]
+
+    TRANS --&gt; mRNA[&quot;📨 mRNA Processing&lt;br/&gt;(5&#39; cap, 3&#39; polyA,&lt;br/&gt;splicing → exons)&quot;]
+    mRNA --&gt; TRNSL[&quot;🏭 Translation&lt;br/&gt;(ribosome 80S;&lt;br/&gt;tRNA; genetic code)&quot;]
+    TRNSL --&gt; PROT[&quot;🔩 Protein&lt;br/&gt;(folding; post-translational&lt;br/&gt;modification)&quot;]
+
+    DNA --&gt; REG[&quot;🎛️ Gene Regulation&lt;br/&gt;(promoters, enhancers,&lt;br/&gt;TFs, epigenetics)&quot;]
+    REG --&gt; TRANS
+
+    DNA --&gt; MUT[&quot;⚠️ Mutations&lt;br/&gt;(point, frameshift;&lt;br/&gt;transitions, transversions)&quot;]
+    MUT --&gt; REPAIR[&quot;🔧 DNA Repair&lt;br/&gt;(BER, NER, MMR,&lt;br/&gt;DSBR/homologous recomb.)&quot;]
+    DNA --&gt; EPIGEN[&quot;🏷️ Epigenetics&lt;br/&gt;(methylation, histone&lt;br/&gt;modification, imprinting)&quot;]
+
+    DNA --&gt; CRISPR[&quot;✂️ CRISPR-Cas9&lt;br/&gt;(sgRNA-guided;&lt;br/&gt;DSB → HDR or NHEJ)&quot;]
+
+    DNA --&gt; GENOME[&quot;📚 Genome Organisation&lt;br/&gt;(chromatin, nucleosomes,&lt;br/&gt;topoisomers, repetitive DNA)&quot;]
+
+    style DNA fill:#2c3e50,color:#fff
+    style CRISPR fill:#e74c3c,color:#fff
+    style REG fill:#8e44ad,color:#fff
+    style MUT fill:#e67e22,color:#fff</code></pre>
+<!-- alt: Graph showing unit IV concept map — Molecular Genetics. Dark = DNA; purple = regulation; orange = mutations; red = editing technology. -->
+<p><em>Unit IV concept map — Molecular Genetics. Dark = DNA; purple =
+regulation; orange = mutations; red = editing technology.</em></p>
+<hr />
+<h2 class="unnumbered" id="current-evidence-thread">Current Evidence
+Thread</h2>
+<p>Read this unit as molecular genetics built from stacked evidence
+layers: DNA sequence and replication fidelity, transcription and
+translation output, the chromatin and methylation state that gates that
+output, and the variant calls and clinical interpretations that follow
+from most three. Molecular genetics now spans single-reference
+sequences, telomere-to-telomere assemblies, pangenome graphs, long-read
+sequencing, CRISPR medicines, and ethical deployment. As you move
+through the chapters, keep a two-column note: <strong>claim</strong> on
+the left, <strong>evidence that would change my confidence</strong> on
+the right. By the end of the unit, each major idea should be tied to a
+measurement, model, citation, or paper-based lab decision.</p>
+<h2 class="unnumbered" id="chapter-roadmap">Chapter Roadmap</h2>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 11%" />
+<col style="width: 28%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Title</th>
+<th>Core Question</th>
+<th>Key Equation / Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>12</strong></td>
+<td>DNA Replication and the Cell Cycle</td>
+<td>How is DNA copied with such extraordinary accuracy, and how is
+replication coupled to cell division?</td>
+<td>Error rate: ~10⁻⁹ per base; cell cycle checkpoint models</td>
+</tr>
+<tr>
+<td><strong>13</strong></td>
+<td>Gene Expression</td>
+<td>How is genetic information transcribed and translated into
+functional proteins?</td>
+<td>Rate equations for coupled transcription-translation</td>
+</tr>
+<tr>
+<td><strong>14</strong></td>
+<td>Mutations, CRISPR, and Genomics</td>
+<td>What causes mutations, how are they repaired, and what does the
+human reference genome reveal?</td>
+<td>Jukes-Cantor distance; mutation rate × generation time</td>
+</tr>
+<tr>
+<td><strong>15</strong></td>
+<td>Epigenetics and Gene Regulation</td>
+<td>How do chromatin, methylation, and regulatory RNAs tune gene
+expression without changing DNA sequence?</td>
+<td>Methylation state; histone modification; regulatory network
+logic</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="connections-across-the-textbook">Connections
+Across the Textbook</h2>
+<ul>
+<li><strong>DNA replication</strong> directly links to Unit V (meiosis
+and crossing-over in ) and Unit VI (molecular clock calculations using
+sequence divergence).</li>
+<li><strong>Gene regulation</strong> (operons, TFs, miRNA) reappears in
+Unit VIII (plant hormone signal transduction) and Unit IX (endocrine
+control of gene expression via steroid receptors).</li>
+<li><strong>Mutations and DNA repair</strong> are essential context for
+Unit VI (evolution as mutation + selection) and
+oncogene/tumour-suppressor biology in Unit II and Unit IX.</li>
+<li><strong>CRISPR-Cas9</strong> appears in clinical connection boxes
+throughout — gene therapy (Unit V), antibiotic resistance (Unit VII),
+and plant engineering (Unit VIII).</li>
+</ul>
+<blockquote>
+<p><strong>Key vocabulary introduced here:</strong> nucleotide, base
+pair, template strand, coding strand, codon, anticodon, spliceosome,
+intron, exon, promoter, enhancer, transcription factor, epigenome,
+proto-oncogene, restriction enzyme, CRISPR.</p>
+</blockquote>
+<h2 class="unnumbered" id="computational-toolbox-unit-iv">Computational
+Toolbox — Unit IV</h2>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.genetics <span class="im">import</span> translate_mrna, dna_complement, punnett_square</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Translate an mRNA sequence into amino acids</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>mrna <span class="op">=</span> <span class="st">&quot;AUGUUUGAAGAACUUUAG&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>protein <span class="op">=</span> translate_mrna(mrna)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;mRNA:    </span><span class="sc">{</span>mrna<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Protein: </span><span class="sc">{</span><span class="st">&#39;-&#39;</span><span class="sc">.</span>join(protein)<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected: Protein: Met-Phe-Glu-Glu-Leu (stop at UAG)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the DNA complement of a coding sequence</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>dna_template <span class="op">=</span> <span class="st">&quot;ATGTTCGAAATG&quot;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>complement <span class="op">=</span> dna_complement(dna_template)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;5&#39;→3&#39; complement: </span><span class="sc">{</span>complement<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected: 5&#39;→3&#39; complement: CATTTCGAACAT  (antiparallel)</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Punnett square: monohybrid cross Aa × Aa</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> punnett_square(<span class="st">&quot;Aa&quot;</span>, <span class="st">&quot;Aa&quot;</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Genotype ratios: </span><span class="sc">{</span>result<span class="sc">.</span>genotype_ratios<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Phenotype ratios: </span><span class="sc">{</span>result<span class="sc">.</span>phenotype_ratios<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected:</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Genotype ratios: {&#39;AA&#39;: 0.25, &#39;Aa&#39;: 0.5, &#39;aa&#39;: 0.25}</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Phenotype ratios: {&#39;dominant&#39;: 0.75, &#39;recessive&#39;: 0.25}</span></span></code></pre></div>
+<blockquote>
+<p><strong>Try it yourself:</strong> Change the mRNA to
+<code>AUGCAGUGA</code> — note that UGA is a stop codon. Compare proteins
+produced from synonymous codon changes using the
+<code>GENETIC_CODE</code> dictionary.</p>
+</blockquote>
+<hr />
+<p><em>Source modules: <code>src/biology/genetics/</code> —
+<code>translate_mrna()</code>, <code>dna_complement()</code>,
+<code>punnett_square()</code>, <code>hardy_weinberg()</code>.</em>
+<em>Figures: <code>src/mermaid/biology_diagrams.py</code> (central dogma
+diagrams, CRISPR mechanism).</em></p>
+</body>
+</html>

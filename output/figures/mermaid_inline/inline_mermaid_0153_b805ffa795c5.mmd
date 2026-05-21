@@ -1,0 +1,25 @@
+flowchart TD
+    BP["Blood pressure rises<br/>(e.g., standing → MAP increase)"]
+    Recep["Carotid sinus + aortic arch<br/>baroreceptors stretch<br/>→ increased firing"]
+    NTS["Nucleus tractus solitarii (NTS)<br/>medulla oblongata<br/>(integration centre)"]
+    Sym["Sympathetic outflow<br/>DECREASED<br/>(via RVLM inhibition)"]
+    Para["Parasympathetic outflow<br/>INCREASED<br/>(via nucleus ambiguus)"]
+    HR["HR ↓ (β1 ↓, M2 ↑)"]
+    SV["Contractility ↓ (β1 ↓)"]
+    TPR["Vasoconstriction ↓<br/>(α1 ↓ in arterioles)"]
+    Vol["Venous capacitance ↑<br/>(α1 ↓ in veins)<br/>→ reduced venous return"]
+
+    BP --> Recep
+    Recep -->|"CN IX, CN X afferents"| NTS
+    NTS --> Sym
+    NTS --> Para
+    Sym --> HR
+    Sym --> SV
+    Sym --> TPR
+    Sym --> Vol
+    Para --> HR
+
+    HR -.->|"Net effect:<br/>BP normalises"| BP
+    SV -.-> BP
+    TPR -.-> BP
+    Vol -.-> BP

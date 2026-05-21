@@ -1,0 +1,23 @@
+flowchart TB
+    subgraph "Vaccine Types and Immune Mechanisms"
+        A["Live Attenuated<br/>(MMR, varicella,<br/>yellow fever, OPV)"] --> M1["Replicates in host<br/>→ prolonged antigen<br/>presentation"]
+        M1 --> R1["Strong T + B cell<br/>memory; often<br/>single dose sufficient"]
+
+        B["Inactivated/Killed<br/>(IPV, influenza IIV,<br/>hepatitis A)"] --> M2["No replication;<br/>whole killed pathogen<br/>+ adjuvant"]
+        M2 --> R2["Humoral > cellular;<br/>multiple doses needed;<br/>safe in immunocompromised"]
+
+        C["Subunit/Recombinant<br/>(HBsAg, HPV VLP,<br/>acellular pertussis)"] --> M3["Purified antigen<br/>or VLP + adjuvant"]
+        M3 --> R3["Very safe; specific<br/>immunity; adjuvant<br/>required"]
+
+        D["Toxoid<br/>(tetanus, diphtheria)"] --> M4["Chemically inactivated<br/>toxin (formalin)"]
+        M4 --> R4["Anti-toxin antibodies;<br/>neutralizes toxin,<br/>not the bacterium"]
+
+        E["Conjugate<br/>(Hib, PCV13, PCV20,<br/>meningococcal)"] --> M5["Polysaccharide<br/>covalently linked<br/>to protein carrier"]
+        M5 --> R5["Converts T-independent<br/>→ T-dependent response;<br/>enables infant vaccination"]
+
+        F["mRNA<br/>(BNT162b2, mRNA-1273)"] --> M6["LNP-encapsulated<br/>mRNA → host cell<br/>translates antigen"]
+        M6 --> R6["Strong Ab + T cell<br/>response; no integration;<br/>rapid manufacturing<br/>(48 hrs for sequence)"]
+
+        G["Viral Vector<br/>(ChAdOx1, Ad26,<br/>rVSV-ZEBOV)"] --> M7["Non-replicating<br/>adenovirus or VSV<br/>delivers antigen gene"]
+        M7 --> R7["Strong immunogenicity;<br/>pre-existing vector<br/>immunity can reduce<br/>efficacy"]
+    end

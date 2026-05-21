@@ -1,0 +1,47 @@
+sequenceDiagram
+    participant DC as Dendritic Cell (APC)
+    participant Th as Naive CD4+ T Cell
+    participant Tc as Naive CD8+ T Cell
+    participant B as B Cell
+
+    Note over DC: Captures pathogen at infection site
+    Note over DC: Migrates to draining lymph node
+    Note over DC: Processes antigen onto MHC-II and MHC-I
+
+    DC->>Th: Signal 1: TCR binds peptide:MHC-II
+    DC->>Th: Signal 2: B7 (CD80/86) binds CD28
+    DC->>Th: Signal 3: Cytokine context
+    Note over Th: Without Signal 2 → ANERGY
+
+    alt IL-12 environment
+        Th->>Th: Th1 differentiation (T-bet)
+        Note over Th: IFN-γ, TNF-α
+        Note over Th: Macrophage activation
+    else IL-4 environment
+        Th->>Th: Th2 differentiation (GATA3)
+        Note over Th: IL-4, IL-5, IL-13
+        Note over Th: IgE class switch, eosinophils
+    else IL-6 + TGF-β environment
+        Th->>Th: Th17 differentiation (RORγt)
+        Note over Th: IL-17, IL-22
+        Note over Th: Neutrophil recruitment
+    else TGF-β alone
+        Th->>Th: Treg differentiation (Foxp3)
+        Note over Th: IL-10, TGF-β
+        Note over Th: Immune suppression
+    end
+
+    DC->>Tc: Signal 1: TCR binds peptide:MHC-I
+    DC->>Tc: Signal 2: Co-stimulation
+    Th->>Tc: IL-2 (T cell growth factor)
+    Note over Tc: CTL activation
+    Note over Tc: Perforin + Granzyme B
+    Note over Tc: Kill virus-infected cells
+
+    Th->>B: CD40L binds CD40
+    Th->>B: IL-21 (Tfh cells)
+    Note over B: Germinal center reaction
+    Note over B: Somatic hypermutation
+    Note over B: Affinity maturation
+    Note over B: Class switch recombination
+    B->>B: Plasma cells + Memory B cells

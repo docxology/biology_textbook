@@ -1,0 +1,28 @@
+stateDiagram-v2
+    [*] --> InitialFrequency: New Neutral Mutation (p = 1/2N)
+
+    state "Large Population (N = 10,000)" as Large {
+        [*] --> SlowDrift: Allele Frequency Fluctuates Slowly
+        SlowDrift --> SlowDrift: Small Random Changes Each Generation
+        SlowDrift --> EventualFixation: Rarely Fixes (p = 1)
+        SlowDrift --> EventualLoss: Usually Lost (p = 0)
+        note right of SlowDrift: Time to fixation ~4Ne generations\nMost new mutations lost
+    }
+
+    state "Small Population (N = 50)" as Small {
+        [*] --> RapidDrift: Allele Frequency Fluctuates Widely
+        RapidDrift --> QuickFixation: Can Fix Rapidly
+        RapidDrift --> QuickLoss: Can Be Lost Rapidly
+        note right of RapidDrift: Rapid loss of heterozygosity\nRandom alleles fix regardless of fitness
+    }
+
+    state "Bottleneck Event" as Bottleneck {
+        [*] --> Crash: Population Size Drops Dramatically
+        Crash --> Recovery: Survivors Carry Subset of Alleles
+        Recovery --> ReducedDiversity: Genetic Diversity Permanently Reduced
+        note right of Crash: Example - Cheetah bottleneck ~10,000 ya\nNorthern elephant seal - 20 individuals
+    }
+
+    InitialFrequency --> Large
+    InitialFrequency --> Small
+    Large --> Bottleneck: Environmental Catastrophe

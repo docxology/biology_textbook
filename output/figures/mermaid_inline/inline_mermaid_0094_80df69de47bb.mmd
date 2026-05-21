@@ -1,0 +1,26 @@
+flowchart TD
+    A[Sex Determination Systems] --> B["XX/XY System (Mammals)"]
+    A --> C["ZW/ZZ System (Birds, Reptiles, Butterflies)"]
+    A --> D["XX/XO System (Grasshoppers, some insects)"]
+    A --> E["Haplodiploidy (Hymenoptera: bees, ants, wasps)"]
+    A --> F["Environmental (Temperature-dependent: reptiles)"]
+
+    B --> B1["XX = Female; XY = Male"]
+    B1 --> B2["SRY Gene on Y Chromosome"]
+    B2 --> B3["SRY Encodes TDF --> SOX9 Activation"]
+    B3 --> B4["Sertoli Cell Differentiation --> Testes"]
+    B1 --> B5["Without SRY: Default Ovary Development"]
+
+    C --> C1["ZZ = Male; ZW = Female"]
+    C1 --> C2["DMRT1 on Z: Dosage-dependent Male Determination"]
+
+    D --> D1["XX = Female; XO = Male (no Y chromosome)"]
+
+    E --> E1["Diploid (2n) = Female; Haploid (n) = Male"]
+    E1 --> E2["Males Develop from Unfertilized Eggs"]
+
+    F --> F1["Incubation Temperature Determines Sex"]
+    F1 --> F2["e.g., Alligators: <30C = Female, >34C = Male"]
+
+    style A fill:#4a90d9,color:#fff
+    style B2 fill:#5cb85c,color:#fff

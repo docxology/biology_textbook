@@ -1,0 +1,23 @@
+graph TD
+    subgraph MODELS["Enzyme-Substrate Binding Models"]
+        LK["Lock-and-Key<br/>\citep{fischer1894}"]
+        IF["Induced Fit<br/>\citep{koshland1958}"]
+        CS["Conformational Selection<br/>(Modern View)"]
+    end
+
+    LK --> LK1["Rigid active site<br/>perfectly complementary<br/>to substrate"]
+    LK --> LK2["Problem: Cannot explain<br/>TS stabilisation or<br/>allosteric regulation"]
+
+    IF --> IF1["Substrate binding induces<br/>conformational change<br/>in enzyme"]
+    IF --> IF2["Active site moulds<br/>around substrate<br/>Improved complementarity to TS"]
+
+    CS --> CS1["Enzyme exists as<br/>ensemble of conformations<br/>in dynamic equilibrium"]
+    CS --> CS2["Substrate selects and<br/>stabilises the optimal<br/>pre-existing conformation"]
+    CS --> CS3["Supported by NMR<br/>and single-molecule<br/>experiments"]
+
+    LK1 -.->|"Too simple"| IF
+    IF2 -.->|"Extended by"| CS
+
+    style LK fill:#e74c3c,color:#fff
+    style IF fill:#e67e22,color:#fff
+    style CS fill:#2ecc71,color:#fff

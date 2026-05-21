@@ -1,0 +1,34 @@
+stateDiagram-v2
+    [*] --> LightInput: Photoperiod signal
+
+    state LightInput {
+        PhyB --> PhyBPfr: Red light
+        PhyBPfr --> PhyB: Far-red or dark
+    }
+
+    LightInput --> ClockGating: Entrains circadian clock
+
+    state ClockGating {
+        CCA1_LHY --> TOC1: Morning repression
+        TOC1 --> GI: Evening activation
+        GI --> CO_mRNA: GIGANTEA stabilises CO mRNA
+    }
+
+    ClockGating --> CO_protein: CONSTANS protein
+
+    state CO_protein {
+        CO_stable: CO stable in light\n(long days - CO peaks in light)
+        CO_degraded: CO degraded in dark\n(short days - CO peaks in dark)
+    }
+
+    CO_stable --> FT: CO activates FT transcription
+
+    state FT {
+        FT_leaf: FT protein (florigen)\nproduced in leaves
+        FT_phloem: Transported via phloem
+        FT_SAM: Arrives at SAM
+    }
+
+    FT --> Flowering: FT + FD → AP1/SOC1\nFloral meristem identity
+
+    CO_degraded --> NoFlowering: No FT production\nVegetative growth continues

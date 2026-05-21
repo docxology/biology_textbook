@@ -1,0 +1,18 @@
+stateDiagram-v2
+    [*] --> Sporophyte_2n: Fertilisation (syngamy)
+    Sporophyte_2n --> Spores_n: Meiosis in sporangia
+    Spores_n --> Gametophyte_n: Mitotic growth
+    Gametophyte_n --> Gametes_n: Mitosis produces gametes
+    Gametes_n --> Sporophyte_2n: Fertilisation
+
+    note right of Sporophyte_2n
+        DIPLOID (2n)
+        Dominant in vascular plants
+        Produces spores by meiosis
+    end note
+
+    note right of Gametophyte_n
+        HAPLOID (n)
+        Dominant in bryophytes
+        Reduced to few cells in angiosperms
+    end note

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>072_lab_population_genetics</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered"
+id="lab-18-population-genetics-and-hardy-weinberg-equilibrium">Lab 18 —
+Population Genetics and Hardy-Weinberg Equilibrium</h1>
+<p></p>
+<h2 class="unnumbered" id="learning-objectives">Learning Objectives</h2>
+<p><em>This activity accompanies of the textbook — review that chapter
+before attempting the exercises below.</em></p>
+<ul>
+<li>Apply Hardy-Weinberg equations to calculate allele and genotype
+frequencies from population data</li>
+<li>Test for deviations from HWE using chi-square analysis</li>
+<li>Simulate the effect of genetic drift on small vs large populations
+using a bead model</li>
+<li>Evaluate the effect of natural selection on allele frequencies
+across generations</li>
+</ul>
+<!-- lab-alignment-start -->
+<h3 class="unnumbered" id="alignment-and-rubric-map">Alignment and
+Rubric Map</h3>
+<ul>
+<li><strong>Outcome 1 (LO1):</strong> Interpret the supplied evidence or
+model output for Population Genetics and Hardy-Weinberg
+Equilibrium.</li>
+<li><strong>Outcome 2 (LO2):</strong> Identify controls and comparison
+groups that make the claim testable.</li>
+<li><strong>Outcome 3 (LO3):</strong> Quantify uncertainty, boundary
+conditions, or alternative explanations before concluding.</li>
+<li><strong>Outcome 4 (LO4):</strong> Transfer the mechanism to a new
+biological case or public-facing decision.</li>
+<li><strong>Chapter LO coverage:</strong> LO1, LO2, LO3, LO4</li>
+<li><strong>Rubric dimensions:</strong> evidence; controls; uncertainty;
+mechanism; transfer. <!-- lab-alignment-end --> ## Background
+{.unnumbered}</li>
+</ul>
+<p>The Hardy-Weinberg principle states that in a large, randomly mating
+population with no selection, mutation, migration, or drift, allele
+frequencies (p, q) and genotype frequencies (p², 2pq, q²) remain
+constant across generations. Deviations from HWE indicate one or more of
+these forces is acting. Genetic drift — random changes in allele
+frequency — is most powerful in small populations, causing loss of
+variation and potentially fixing or eliminating alleles by chance
+alone.</p>
+<h2 class="unnumbered" id="paper-based-materials">Paper-Based
+Materials</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 66%" />
+</colgroup>
+<thead>
+<tr>
+<th>Item</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Two colours of beads (representing A and a alleles): 50 of each
+colour</td>
+<td>100 total</td>
+</tr>
+<tr>
+<td>Opaque bag or cup (for random sampling)</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Population genetics data table (printed: real MN blood group
+data)</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Calculator</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Chi-square critical value table</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Graph paper</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 class="unnumbered" id="paper-based-investigation">Paper-Based
+Investigation</h2>
+<p><strong>Part A — Hardy-Weinberg Calculation</strong></p>
+<ol type="1">
+<li>Using the provided MN blood group data (genotype counts <strong>MM =
+298, MN = 489, NN = 213</strong>, from a sample of <em>n</em> = 1000;
+classic combined US-Caucasian MN blood-group survey, as reproduced in
+standard population-genetics texts): calculate allele frequencies
+<em>p</em> (M) and <em>q</em> (N). <em>(Check: p(M) ≈ 0.5425, q(N) ≈
+0.4575.)</em></li>
+<li>Calculate expected genotype frequencies under HWE (p², 2pq, q²) and
+expected counts.</li>
+<li>Perform chi-square test to determine whether the population is in
+HWE.</li>
+</ol>
+<p><strong>Part B — Genetic Drift Simulation</strong></p>
+<ol start="4" type="1">
+<li>Place 50 red (A) and 50 blue (a) beads in the bag: this represents a
+population of 100 with p = q = 0.5.</li>
+<li>Without looking, draw 10 beads (simulating a bottleneck to N=10).
+Record the frequency of red (A) beads drawn. Then <strong>discard the
+old bag and rebuild a fresh 100-bead pool at the drawn allele
+ratio</strong>: multiply the observed red fraction by 100, round to the
+nearest whole bead, and use that many red beads with the remainder blue
+(e.g. 6/10 red → 60 red + 40 blue). Repeat the draw–rebuild cycle for 5
+generations, recording <em>p</em> (red fraction) each generation.</li>
+<li>A second group runs the same simulation with N=50 (draw 50 beads,
+then rebuild a 100-bead pool at the drawn allele ratio by the same
+rounding rule) for 5 generations.</li>
+</ol>
+<p><strong>Part C — Selection Simulation (Optional)</strong></p>
+<ol start="7" type="1">
+<li>In generation 1 of the drift simulation, designate aa (2 blue drawn)
+as lethal — remove any drawn aa pairs and resample. Track p over 3
+generations.</li>
+</ol>
+<h2 class="unnumbered" id="data-recording">Data Recording</h2>
+<p>MN blood group HWE test (observed counts from the <em>n</em> = 1000
+sample: MM = 298, MN = 489, NN = 213; source: classic combined
+US-Caucasian MN blood-group survey reproduced in standard
+population-genetics texts):</p>
+<table>
+<thead>
+<tr>
+<th>Genotype</th>
+<th>Observed</th>
+<th>p or q</th>
+<th>Expected</th>
+<th>(O−E)²/E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MM</td>
+<td>298</td>
+<td>p² =</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NN</td>
+<td>213</td>
+<td>q² =</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MN</td>
+<td>489</td>
+<td>2pq =</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>1000</strong></td>
+<td>—</td>
+<td><strong>1000</strong></td>
+<td>χ² = ___</td>
+</tr>
+</tbody>
+</table>
+<p>Fill the <em>Expected</em> column using your calculated <em>p</em>
+and <em>q</em> (Part A), then χ² = Σ (O−E)²/E.</p>
+<p>χ² = ___; df = 1; HWE at α = 0.05? (Y/N) — compare χ² to the critical
+value 3.841.</p>
+<p>Drift simulation:</p>
+<table>
+<thead>
+<tr>
+<th>Generation</th>
+<th>p (N=10 group)</th>
+<th>p (N=50 group)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0.5</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<!-- lab-evidence-checklist-start -->
+<h2 class="unnumbered"
+id="evidence-and-reproducibility-checklist">Evidence and Reproducibility
+Checklist</h2>
+<ul>
+<li><strong>Primary evidence goal:</strong> Test equilibrium and model
+allele-frequency change.</li>
+<li><strong>Data skill to practice:</strong> Estimate genotype or allele
+frequencies from population data.</li>
+<li><strong>BioSkills emphasis:</strong> Quantitative reasoning, Process
+of science.</li>
+<li><strong>Control logic:</strong> identify at least one positive
+control, one negative control, or one baseline comparison before
+interpreting results.</li>
+<li><strong>Measurement discipline:</strong> record units, uncertainty,
+sample size, and any discarded observation with a reason.</li>
+<li><strong>Mechanistic link:</strong> connect one result directly to
+the parent chapter’s big idea before writing the conclusion.</li>
+<li><strong>Reproducibility check:</strong> state one procedural detail
+that another group would need in order to reproduce the result.
+<!-- lab-evidence-checklist-end --></li>
+</ul>
+<h2 class="unnumbered" id="paper-based-evidence-upgrade">Paper-Based
+Evidence Upgrade</h2>
+<p>Before answering the analysis questions, annotate the paper dataset
+for <strong>Population Genetics and Hardy-Weinberg Equilibrium</strong>
+with a reproducibility pass:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Evidence check</th>
+<th>Student action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Control logic</td>
+<td>Mark the comparison that functions as the baseline, negative
+control, or reference case.</td>
+</tr>
+<tr>
+<td>Uncertainty</td>
+<td>Circle the row, card, diagram feature, or model assumption most
+likely to change the conclusion.</td>
+</tr>
+<tr>
+<td>Model comparison</td>
+<td>State whether a simpler rule, null model, or alternative mechanism
+could explain the same pattern.</td>
+</tr>
+<tr>
+<td>Decision threshold</td>
+<td>Write the minimum evidence that would make you revise the
+interpretation.</td>
+</tr>
+<tr>
+<td>Reproducibility</td>
+<td>Record the exact scoring rule another group would need to reproduce
+your classification.</td>
+</tr>
+</tbody>
+</table>
+<p>Focus note: in this lab the simulated allele-frequency series across
+generations are the evidence — compare observed genotype counts against
+the Hardy-Weinberg expectation and contrast small versus large N to
+attribute change to drift, selection, or sampling. Keep required work
+paper-based; any material-handling or equipment version belongs only in
+an optional extension.</p>
+<h2 class="unnumbered" id="analysis-questions">Analysis Questions</h2>
+<ol type="1">
+<li>Was the MN blood group population in HWE? Which of the HWE
+assumptions might be violated in a real human population, and how would
+each violation shift allele frequencies over generations?</li>
+<li>Was there more variation in allele frequency across generations in
+the N=10 or N=50 group? Define genetic drift in terms of sampling error
+and explain why population size affects drift magnitude.</li>
+<li>Founder effect: a group of 20 individuals colonises a new island. By
+chance, the founding group contains no aa individuals. Even without
+selection against aa, will this condition persist? Explain using HWE and
+the concept that mutation-selection equilibrium is absent if frequency
+starts at zero.</li>
+<li>Heterozygote advantage: sickle-cell anaemia (aa) is lethal, but
+carriers (Aa) are more resistant to malaria than AA homozygotes. With
+the heterozygote Aa as the fittest genotype, let <em>s</em> be the
+selection coefficient against AA and <em>t</em> the selection
+coefficient against aa (relative fitnesses 1−<em>s</em> : 1 :
+1−<em>t</em>). The stable equilibrium allele frequency of <em>a</em> is
+<strong>q̂ = s / (s + t)</strong>. For a malarious region with <em>s</em>
+= 0.2 (AA disadvantage) and <em>t</em> = 1 (aa lethal), compute q̂ and
+interpret why the <em>a</em> allele persists in the population despite
+being lethal in homozygotes.</li>
+<li>A conservation biologist studying a population of 25 cheetahs finds
+they are almost completely genetically homogeneous (very low
+heterozygosity). Explain two consequences of this for: (a) short-term
+disease resistance; (b) long-term adaptive capacity. What management
+intervention would restore genetic variation?</li>
+</ol>
+<h2 class="unnumbered" id="safety-and-ethics-notes">Safety and Ethics
+Notes</h2>
+<p>No chemical hazards. Beads present a swallowing hazard — do not use
+with young children. When discussing human population genetics data
+(e.g., blood groups by ethnicity), maintain scientific objectivity and
+avoid discriminatory interpretation.</p>
+<h2 class="unnumbered" id="debrief-and-reflection">Debrief and
+Reflection</h2>
+<p>After you finish the practical work, spend 5–10 minutes in your small
+group comparing results and discussing the following prompts. Each
+member should contribute at least one observation before moving to the
+next prompt:</p>
+<ol type="1">
+<li><strong>What did your measurements show</strong> — compare the
+group’s results to the textbook’s predictions. Where they diverge,
+suggest at least one mechanistic explanation before concluding
+“experimental error.”</li>
+<li><strong>What would change the outcome</strong> — propose one
+modification to the procedure that would sharpen the measurement or
+extend the result to a new biological context, and predict what you
+would observe.</li>
+<li><strong>One-sentence headline</strong> — each student composes a
+single sentence summarising the lab’s take-home message, suitable for a
+tweet. Compare sentences across groups; good headlines are short,
+quantitative, and mechanistic.</li>
+<li><strong>Connection back to the textbook</strong> — identify one
+section of that your data either confirmed or complicated. Cite the
+specific passage.</li>
+</ol>
+<h2 class="unnumbered" id="further-reading-lab">Further Reading
+(Lab)</h2>
+<ul>
+<li>Revisit the parent chapter for the theoretical foundations on which
+this lab is built.</li>
+<li>Look up any <strong>bolded glossary term</strong> introduced in the
+textbook chapter (each has a <code>#gl:term-slug</code> link in the
+text) — its master definition is in
+<code>manuscript/glossary.md</code>.</li>
+<li>Explore the appended <code>src/</code> module that implements the
+corresponding quantitative model (when applicable) — referenced in the
+parent chapter’s “Bridge to Computation” subsection.</li>
+</ul>
+<p><em>Module footer: parent chapter
+<code>\cref{sec:unit_V_population_genetics}</code>; all numerical
+quantities in this lab use SI units — see Appendix D of the textbook for
+unit conversions and biological-scale reference values.</em></p>
+</body>
+</html>

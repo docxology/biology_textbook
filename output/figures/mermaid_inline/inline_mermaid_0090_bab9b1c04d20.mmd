@@ -1,0 +1,13 @@
+flowchart TD
+    A["Recruit cohort: cases (disease) + controls (no disease)"] --> B["Genotype 500,000–10 million SNPs per individual via SNP array"]
+    B --> C["Quality control: filter low-call-rate SNPs/individuals; check Hardy-Weinberg in controls; check ancestry"]
+    C --> D["Impute additional genotypes from reference panels (1000 Genomes, TOPMed)"]
+    D --> E["Logistic regression at each SNP: case vs control, adjusting for ancestry PCs, age, sex"]
+    E --> F["Genome-wide significance threshold: p < 5×10⁻⁸ (Bonferroni for ~10⁶ independent tests)"]
+    F --> G["Replicate top hits in independent cohorts"]
+    G --> H["Manhattan plot: -log10(p) vs chromosome position"]
+    H --> I["Fine-mapping & functional follow-up: which gene? which mechanism?"]
+
+    style A fill:#4a90d9,color:#fff
+    style F fill:#d9534f,color:#fff
+    style I fill:#5cb85c,color:#fff

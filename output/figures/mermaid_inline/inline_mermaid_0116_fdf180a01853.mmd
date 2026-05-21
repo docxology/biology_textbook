@@ -1,0 +1,13 @@
+flowchart TD
+    A["Heat-fixed bacterial smear"] --> B["Step 1: Crystal violet<br/>(primary stain, 1 min)"]
+    B --> C["Step 2: Iodine mordant<br/>(CV-I complex forms, 1 min)"]
+    C --> D["Step 3: Acetone-alcohol<br/>decolorizer (10-30 sec)"]
+    D --> E{"Cell wall<br/>architecture?"}
+    E -->|"Thick peptidoglycan<br/>(20-80 nm)"| F["CV-I complex<br/>TRAPPED in wall"]
+    E -->|"Thin peptidoglycan<br/>(2-7 nm) +<br/>outer membrane"| G["CV-I complex<br/>WASHED OUT<br/>(lipid dissolved)"]
+    F --> H["Step 4: Safranin<br/>counterstain"]
+    G --> H
+    H --> I["GRAM-POSITIVE<br/>Purple/Violet"]
+    H --> J["GRAM-NEGATIVE<br/>Pink/Red"]
+    I --> K["Thick PG wall<br/>Teichoic acids<br/>Lipoteichoic acids<br/>No outer membrane"]
+    J --> L["Thin PG wall<br/>Outer membrane with LPS<br/>Periplasmic space<br/>Porins"]

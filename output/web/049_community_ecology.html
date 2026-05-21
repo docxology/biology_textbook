@@ -1,0 +1,2614 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>049_community_ecology</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 id="community-ecology-and-species-interactions">Community Ecology
+and Species Interactions</h1>
+<p></p>
+<!-- chapter-metadata-badge -->
+<blockquote>
+<p><strong>Ch 33</strong> · Level 2/3 · 80 min read · 100 min lecture ·
+Prerequisites: </p>
+</blockquote>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this chapter, you should be able to:</p>
+<ol type="1">
+<li>Define a community and categorise the six types of biotic
+interactions with examples.</li>
+<li>Apply Lotka-Volterra competition equations to predict competitive
+outcomes and explain the <a
+href="#gl:competitive-exclusion"><strong>competitive
+exclusion</strong></a> principle and <a
+href="#gl:niche"><strong>niche</strong></a> theory.</li>
+<li>Explain <a href="#gl:trophic-cascade"><strong>trophic
+cascade</strong></a>s and keystone species with quantitative
+examples.</li>
+<li>Compare primary and <a
+href="#gl:secondary-succession"><strong>secondary
+succession</strong></a> and explain the intermediate disturbance
+hypothesis.</li>
+<li>Calculate Shannon diversity (H’), Simpson index, and species
+evenness and explain what each measures.</li>
+<li>Apply <a href="#gl:island-biogeography"><strong>island
+biogeography</strong></a> theory, the <a
+href="#gl:species-area-relationship"><strong>species-area
+relationship</strong></a>, and SLOSS debate to conservation design.</li>
+<li>Describe the role of disturbance, facilitation, and alternative
+stable states in shaping communities.</li>
+<li>Explain food web topology, connectance, network robustness, and the
+relationship between complexity and stability.</li>
+<li>Compare niche-based and neutral theories of biodiversity, and
+explain when each null model is appropriate.</li>
+<li>Use functional traits (CSR strategies, leaf economics spectrum) to
+predict community assembly and ecosystem function beyond species
+lists.</li>
+<li>Distinguish classical, augmentative, and conservation biological
+control, and evaluate their risk profiles using community ecology
+principles.</li>
+</ol>
+<!-- curriculum-scaffold-start -->
+<h3 id="study-blueprint">Study Blueprint</h3>
+<ul>
+<li><strong>Big idea:</strong> Communities are structured by
+interactions among species and by the context of those
+interactions.</li>
+<li><strong>Core concepts:</strong> competition, predation, mutualism,
+succession.</li>
+<li><strong>Framework alignment:</strong> Vision &amp; Change: Systems,
+Evolution, Pathways and transformations of energy and matter; AP
+Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics:
+Interdependent Relationships in Ecosystems, Matter and Energy in
+Organisms and Ecosystems, Natural Selection and Evolution.</li>
+<li><strong>Model or quantitative lens:</strong> Lotka-Volterra-style
+interaction and diversity-pattern reasoning.</li>
+<li><strong>Data skill:</strong> Interpret abundance, interaction, or
+disturbance data from communities.</li>
+<li><strong>Practice cadence:</strong> Representing and Describing Data,
+Statistical Tests and Data Analysis, Argumentation.</li>
+<li><strong>Common misconception to repair:</strong> A species
+interaction is not permanently good or bad; the sign can change with
+context.</li>
+<li><strong>Primary lab:</strong> .</li>
+<li><strong>Question bank:</strong> .</li>
+<li><strong>Transfer task:</strong> Transfer interaction reasoning to
+restoration, disease ecology, agriculture, and invasion biology.</li>
+<li><strong>Bridge to computation:</strong>
+<code>biology.ecology.ecology.biodiversity_indices</code>.
+<!-- curriculum-scaffold-end --></li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>Opening Vignette — How Wolves Changed Rivers</strong></p>
+<p>In 1995, 14 gray wolves were reintroduced to Yellowstone National
+Park after a 70-year absence. What happened next has become one of
+ecology’s most vivid demonstrations of a trophic cascade. With predators
+back, elk avoided grazing in valleys and riverside areas where they were
+vulnerable. Vegetation in those areas — willows, aspens, cottonwoods —
+rebounded within years. With trees stabilising river banks, erosion
+slowed. Beaver colonies, dependent on willows, increased sixfold. Beaver
+dams created wetlands that supported fish, otters, ducks, and
+amphibians. River channels narrowed and meandered, becoming more
+complex. The wolves, through fear alone — the “landscape of fear” effect
+documented by William Ripple — had changed the physical geography of the
+park. The Yellowstone study has been cited thousands of times,
+popularised by a viral YouTube video with 40 million views, and debated
+(some effects took decades to show). But it remains the canonical
+example that removing or restoring apex predators cascades through every
+<a href="#gl:trophic-level"><strong>trophic level</strong></a> of a
+community.</p>
+</blockquote>
+<h3 id="chapter-roadmap">Chapter Roadmap</h3>
+<p>This is a long chapter that covers eight closely-related but
+distinguishable topics. Read it as <em>two halves</em>:</p>
+<ul>
+<li><strong>Part A — Local interactions between species:</strong> what
+happens when two or a few species meet. The chapter begins with
+community definitions, then develops competition, predation and trophic
+cascades, <a href="#gl:mutualism"><strong>mutualism</strong></a>, and
+parasitism.</li>
+<li><strong>Part B — Community-scale patterns and assembly:</strong>
+what emerges when you scale up. Succession, diversity measurement,
+island biogeography, and food-web network structure become the
+organising themes.</li>
+<li><strong>Part C — Process-level theory and applications:</strong>
+neutral theory supplies a null model for biodiversity; trait-based
+ecology (CSR, leaf economics) predicts ecosystem function; biological
+control applies the entire chapter to pests and disease vectors.</li>
+</ul>
+<p>If you are reading for a one-semester survey, Part A supplies the
+mechanistic vocabulary and Part B supplies the integrative patterns.
+Part C provides the modern frameworks and applied translations.
+Instructors wanting to split the chapter over two lectures can use the
+Part-A/Part-B boundary; a third lecture can cover Part C.</p>
+<h2 id="community-ecology-fundamentals">Community Ecology
+Fundamentals</h2>
+<p>An <strong>ecological community</strong> is an assemblage of
+populations of different species occupying the same region and time,
+interacting with each other and their <a
+href="#gl:abiotic"><strong>abiotic</strong></a> environment. Community
+ecology analyses the <strong>biotic interactions</strong> among species
+and their effects on community structure — species composition and
+relative abundance — as well as the processes driving community assembly
+and succession.</p>
+<h3 id="emergent-properties-of-communities">Emergent Properties of
+Communities</h3>
+<p>Communities possess properties that cannot be predicted from studying
+individual species in isolation:</p>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 34%" />
+<col style="width: 37%" />
+</colgroup>
+<thead>
+<tr>
+<th>Property</th>
+<th>Definition</th>
+<th>Measurement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Species richness (<span
+class="math inline">\(S\)</span>)</strong></td>
+<td>Number of species present</td>
+<td>Count of unique species</td>
+</tr>
+<tr>
+<td><strong>Species evenness</strong></td>
+<td>How equal are species abundances?</td>
+<td>Pielou’s <span class="math inline">\(J&#39;\)</span></td>
+</tr>
+<tr>
+<td><strong>Diversity</strong></td>
+<td>Combined richness and evenness</td>
+<td>Shannon <span class="math inline">\(H&#39;\)</span>, Simpson <span
+class="math inline">\(1-D\)</span></td>
+</tr>
+<tr>
+<td><strong>Community structure</strong></td>
+<td>Food web topology, trophic levels, functional groups</td>
+<td>Network analysis, connectance</td>
+</tr>
+<tr>
+<td><strong>Resistance</strong></td>
+<td>Ability to withstand perturbation without change</td>
+<td>Deviation from baseline after disturbance</td>
+</tr>
+<tr>
+<td><strong>Resilience</strong></td>
+<td>Speed of return to baseline after perturbation</td>
+<td>Recovery time</td>
+</tr>
+<tr>
+<td><strong>Rank-abundance distribution</strong></td>
+<td>Pattern of relative abundance across species</td>
+<td>Log-normal, geometric series, broken stick</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rank-abundance-models">Rank-Abundance Models</h3>
+<p>The distribution of individuals among species in a community follows
+predictable patterns:</p>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 16%" />
+<col style="width: 32%" />
+<col style="width: 39%" />
+</colgroup>
+<thead>
+<tr>
+<th>Model</th>
+<th>Pattern</th>
+<th>Interpretation</th>
+<th>Typical community</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Geometric series</strong></td>
+<td>Steep, convex</td>
+<td>Strong dominance; niche pre-emption</td>
+<td>Species-poor, harsh environments</td>
+</tr>
+<tr>
+<td><strong>Log-series</strong></td>
+<td>Moderate slope</td>
+<td>Many rare species, few common</td>
+<td>Island faunas, successional communities</td>
+</tr>
+<tr>
+<td><strong>Log-normal</strong></td>
+<td>Moderate, symmetric bell curve on log scale</td>
+<td>Most natural communities</td>
+<td>Large, undisturbed communities</td>
+</tr>
+<tr>
+<td><strong>Broken stick</strong></td>
+<td>Shallow, even</td>
+<td>Resources divided equally</td>
+<td>Species-poor, saturated communities</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Preston’s canonical log-normal</strong> (1962): In most large
+communities, when species are binned by abundance in octaves
+(doublings), the distribution is approximately log-normal. This has deep
+connections to the species-area relationship.</p>
+<h3 id="types-of-biotic-interactions">Types of Biotic Interactions</h3>
+<pre class="mermaid"><code>graph TD
+    subgraph &quot;Species Interactions Matrix&quot;
+        MUT[&quot;&lt;b&gt;Mutualism (+/+)&lt;/b&gt;&lt;br/&gt;Both benefit&lt;br/&gt;Mycorrhizae, fig-wasp,&lt;br/&gt;cleaner fish, coral-zooxanthellae&quot;]
+        COM[&quot;&lt;b&gt;Commensalism (+/0)&lt;/b&gt;&lt;br/&gt;One benefits, other unaffected&lt;br/&gt;Cattle egret + cattle,&lt;br/&gt;barnacles on whale&quot;]
+        PAR[&quot;&lt;b&gt;Parasitism (+/−)&lt;/b&gt;&lt;br/&gt;Parasite benefits, host harmed&lt;br/&gt;Tapeworm, mistletoe,&lt;br/&gt;Toxoplasma, malaria&quot;]
+        PRE[&quot;&lt;b&gt;Predation (+/−)&lt;/b&gt;&lt;br/&gt;Predator benefits, prey killed&lt;br/&gt;Wolf-moose, owl-mouse,&lt;br/&gt;spider-fly&quot;]
+        COMP[&quot;&lt;b&gt;Competition (−/−)&lt;/b&gt;&lt;br/&gt;Both harmed&lt;br/&gt;Warblers in same tree,&lt;br/&gt;plants competing for light&quot;]
+        AME[&quot;&lt;b&gt;Amensalism (0/−)&lt;/b&gt;&lt;br/&gt;One unaffected, other harmed&lt;br/&gt;Black walnut juglone,&lt;br/&gt;elephant trampling&quot;]
+    end
+    MUT --&gt; OBL[&quot;Obligate vs.&lt;br/&gt;Facultative&quot;]
+    PAR --&gt; COEV[&quot;Coevolutionary&lt;br/&gt;Arms Race&quot;]
+    PRE --&gt; COEV
+    COMP --&gt; CE[&quot;Competitive&lt;br/&gt;Exclusion or&lt;br/&gt;Coexistence&quot;]</code></pre>
+<!-- alt: Flowchart for Types of Biotic Interactions: Mutualism (+/+) Both benefit Mycorrhizae, fig-wasp, cleaner fish, coral-zooxanthellae, Parasitism (+/−) Parasite benefits, host harmed Tapeworm, mistletoe, Toxoplasma, malaria, Predation (+/−) Predator benefits, prey killed Wolf-moose, owl-mouse, spider-fly, and Competition (−/−) Both harmed Warblers in same tree, plants competing for light form the diagram's primary path or branches. -->
+<p><em>Flowchart for Types of Biotic Interactions: Mutualism (+/+) Both
+benefit Mycorrhizae, fig-wasp, cleaner fish, coral-zooxanthellae,
+Parasitism (+/−) Parasite benefits, host harmed Tapeworm, mistletoe,
+Toxoplasma, malaria, Predation (+/−) Predator benefits, prey killed
+Wolf-moose, owl-mouse, spider-fly, and Competition (−/−) Both harmed
+Warblers in same tree, plants competing for light form the diagram’s
+primary path or branches.</em></p>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 26%" />
+<col style="width: 26%" />
+<col style="width: 15%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th>Interaction</th>
+<th>Species A effect</th>
+<th>Species B effect</th>
+<th>Mechanism</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mutualism (+/+)</td>
+<td>Benefits</td>
+<td>Benefits</td>
+<td>Direct reciprocal benefit</td>
+<td>Mycorrhizae (+plant, +fungus); fig-wasp pollination; cleaner
+fish</td>
+</tr>
+<tr>
+<td>Commensalism (+/0)</td>
+<td>Benefits</td>
+<td>Neutral</td>
+<td>One benefits, other unaffected</td>
+<td>Cattle egret + cattle (cattle disturb insects); barnacles on
+whale</td>
+</tr>
+<tr>
+<td>Parasitism (+/-)</td>
+<td>Benefits (<a href="#gl:parasite"><strong>parasite</strong></a>)</td>
+<td>Harmed (host)</td>
+<td>Partial exploitation; usually not lethal</td>
+<td>Tapeworm + human; mistletoe + tree; <em>Toxoplasma</em> +
+rodent</td>
+</tr>
+<tr>
+<td>Predation (+/-)</td>
+<td>Benefits (predator)</td>
+<td>Harmed (prey)</td>
+<td>Prey consumed; drives prey adaptation</td>
+<td>Wolf + moose; <em>Daphnia</em> + <a
+href="#gl:phytoplankton"><strong>phytoplankton</strong></a></td>
+</tr>
+<tr>
+<td>Competition (-/-)</td>
+<td>Harmed</td>
+<td>Harmed</td>
+<td>Shared resource demand</td>
+<td>Two warbler species in same niche; plants competing for light</td>
+</tr>
+<tr>
+<td>Amensalism (0/-)</td>
+<td>Neutral</td>
+<td>Harmed</td>
+<td>Inhibitory compounds; physical suppression</td>
+<td>Juglone from black walnut; <a
+href="#gl:biofilm"><strong>biofilm</strong></a> quorum quenching</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Concept Check:</strong> A remora fish attaches to a shark,
+feeding on scraps from the shark’s meals. Is this mutualism,
+commensalism, or parasitism? What additional information would you need
+to determine the exact interaction type?</p>
+</blockquote>
+<hr />
+<h2 id="competition-theory">Competition Theory</h2>
+<h3 id="lotka-volterra-interspecific-competition">Lotka-Volterra
+Interspecific Competition</h3>
+<p>Two competing species <span class="math inline">\(N_1\)</span> and
+<span class="math inline">\(N_2\)</span> with shared resources are
+modelled by:</p>
+<p><span class="math display">\[\begin{equation}
+\frac{dN_1}{dt} = r_1 N_1 \left(1 - \frac{N_1 + \alpha_{12}
+N_2}{K_1}\right)
+\label{eq:community_ecology_1}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+\frac{dN_2}{dt} = r_2 N_2 \left(1 - \frac{N_2 + \alpha_{21}
+N_1}{K_2}\right)
+\label{eq:community_ecology_2}
+\end{equation}\]</span></p>
+<p>where: - <span class="math inline">\(\alpha_{12}\)</span> =
+competitive effect of species 2 on species 1 (per individual) - <span
+class="math inline">\(\alpha_{21}\)</span> = competitive effect of
+species 1 on species 2 - <span class="math inline">\(K_1\)</span>, <span
+class="math inline">\(K_2\)</span> = carrying capacities of each
+species</p>
+<p><strong>Isocline analysis:</strong> Four outcomes depending on
+isocline intersections: 1. <strong>Species 1 wins:</strong> <span
+class="math inline">\(K_1 &gt; K_2/\alpha_{12}\)</span> AND <span
+class="math inline">\(K_1/\alpha_{21} &gt; K_2\)</span> 2.
+<strong>Species 2 wins:</strong> <span class="math inline">\(K_2 &gt;
+K_1/\alpha_{21}\)</span> AND <span class="math inline">\(K_2/\alpha_{12}
+&gt; K_1\)</span> (symmetric case) 3. <strong>Unstable equilibrium
+(priority effect):</strong> <span class="math inline">\(K_1 &gt;
+K_2/\alpha_{12}\)</span> AND <span class="math inline">\(K_2 &gt;
+K_1/\alpha_{21}\)</span> — whoever starts higher wins 4. <strong>Stable
+coexistence:</strong> <span class="math inline">\(K_1 &lt;
+K_2/\alpha_{12}\)</span> AND <span class="math inline">\(K_2 &lt;
+K_1/\alpha_{21}\)</span> — interspecific competition weaker than
+intraspecific</p>
+<h3 id="competitive-exclusion-principle-gauses-law">Competitive
+Exclusion Principle (Gause’s Law)</h3>
+<p><strong>:</strong> Two species competing for the same limiting
+resource cannot stably coexist; the superior competitor excludes the
+other. Demonstrated with <em>Paramecium aurelia</em> vs. <em>P.
+caudatum</em> grown together on a single bacterial food source — <em>P.
+aurelia</em> consistently drove <em>P. caudatum</em> to extinction
+within 20 days.</p>
+<p><strong>Important qualifications:</strong> Competitive exclusion
+requires (1) complete niche overlap, (2) constant environment, (3) no
+spatial refugia, and (4) sufficient time. In nature, these conditions
+are rarely fully met.</p>
+<h3 id="hutchinsons-niche-concept">Hutchinson’s Niche Concept</h3>
+<p><strong>Fundamental niche</strong> : the n-dimensional hypervolume of
+environmental conditions and resources permitting a species to maintain
+<span class="math inline">\(r \geq 0\)</span>.</p>
+<p><strong>Realised niche:</strong> the subset of the fundamental niche
+actually occupied after accounting for interspecific competition,
+predation, and other biotic interactions. Typically smaller than or
+equal to the fundamental niche.</p>
+<p><span class="math display">\[\begin{equation}
+\text{Realised niche} = \text{Fundamental niche} - \text{Competitive
+exclusion zone}
+\label{eq:community_ecology_3}
+\end{equation}\]</span></p>
+<p><strong>Hutchinson’s paradox of the plankton</strong> (1961): Why do
+hundreds of phytoplankton species coexist in the apparently homogeneous
+water column, most competing for the same light and nutrients? Violates
+competitive exclusion. Solutions:</p>
+<ol type="1">
+<li><strong>Temporal niche partitioning</strong> — seasonal turnover,
+disturbance prevents equilibrium</li>
+<li><strong>Spatial heterogeneity</strong> — microscale gradients in
+light, nutrients, turbulence</li>
+<li><strong>Predation (selective grazing)</strong> — zooplankton
+preferentially graze <a
+href="#gl:dominant"><strong>dominant</strong></a> species</li>
+<li><strong>Allelopathy</strong> — chemical warfare among
+phytoplankton</li>
+<li><strong>Non-equilibrium dynamics</strong> — the system rarely
+reaches competitive exclusion</li>
+</ol>
+<h3 id="modern-coexistence-theory">Modern Coexistence Theory </h3>
+<p>Coexistence requires that <strong>intraspecific competition &gt;
+interspecific competition</strong> for both species. This is enabled by
+two classes of mechanisms:</p>
+<p><strong>Stabilising mechanisms</strong> (niche differences): -
+<strong>Resource partitioning:</strong> different foods, microhabitats,
+activity times - <strong>Janzen-Connell effect:</strong>
+species-specific enemies concentrate near conspecifics, giving
+heterospecifics an advantage - <strong>Storage effect:</strong> temporal
+environmental variation favours different species at different times;
+long-lived adults “store” good years - <strong>Relative
+nonlinearity:</strong> species respond differently to resource
+fluctuations</p>
+<p><strong>Equalising mechanisms</strong> (fitness similarity): -
+Trade-offs between competitive ability and other traits (dispersal,
+stress tolerance) - Similar per-capita growth rates at low density</p>
+<p>The mathematical condition for coexistence is:</p>
+<p><span class="math display">\[\begin{equation}
+\rho &lt; \frac{\kappa_j}{\kappa_i} &lt; \frac{1}{\rho}
+\label{eq:community_ecology_4}
+\end{equation}\]</span></p>
+<p>where ρ = niche overlap (0 to 1) and <span
+class="math inline">\(\kappa_i/\kappa_j\)</span> = fitness ratio. Lower
+ρ (more niche differentiation) allows greater fitness inequality.</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.ecology.ecology <span class="im">import</span> lotka_volterra</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> lotka_volterra(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    N1_0<span class="op">=</span><span class="dv">100</span>, N2_0<span class="op">=</span><span class="dv">100</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    r1<span class="op">=</span><span class="fl">0.5</span>, r2<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    K1<span class="op">=</span><span class="dv">500</span>, K2<span class="op">=</span><span class="dv">500</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    alpha12<span class="op">=</span><span class="fl">0.6</span>,   <span class="co"># species 2 slightly suppresses species 1</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    alpha21<span class="op">=</span><span class="fl">0.8</span>,   <span class="co"># species 1 strongly suppresses species 2</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    t_end<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Final N1: </span><span class="sc">{</span>result<span class="sc">.</span>N1[<span class="op">-</span><span class="dv">1</span>]<span class="sc">:.0f}</span><span class="ss">, N2: </span><span class="sc">{</span>result<span class="sc">.</span>N2[<span class="op">-</span><span class="dv">1</span>]<span class="sc">:.0f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected: species 1 wins (lower alpha12 means less impact from competitor)</span></span></code></pre></div>
+<blockquote>
+<p>🔬 <strong>Clinical Connection — Competitive Exclusion in the <a
+href="#gl:microbiome"><strong>Microbiome</strong></a>:</strong> The
+competitive exclusion principle operates within the human gut
+microbiome. <strong>Clostridium difficile</strong> infection (CDI)
+typically occurs after antibiotic treatment eliminates normal gut flora,
+removing competitive exclusion and allowing <em>C. difficile</em> to
+proliferate unopposed. <strong>Fecal <a
+href="#gl:microbiota"><strong>microbiota</strong></a> transplantation
+(FMT)</strong> restores competitive exclusion by reintroducing a diverse
+microbial community, achieving ~90% cure rates for recurrent CDI. This
+is Gause’s principle applied to clinical medicine.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check:</strong> Two species of Paramecium (<em>P.
+aurelia</em> and <em>P. bursaria</em>) coexist in the same pond. <em>P.
+aurelia</em> feeds on bacteria in open water; <em>P. bursaria</em>
+harbours symbiotic algae and feeds near the bottom. Explain their
+coexistence using Chesson’s framework: what is the stabilising
+mechanism?</p>
+</blockquote>
+<hr />
+<h2 id="predation-keystone-species-and-trophic-cascades">Predation,
+Keystone Species, and Trophic Cascades</h2>
+<h3 id="predator-prey-arms-races">Predator-Prey Arms Races</h3>
+<p><a href="#gl:coevolution"><strong>Coevolution</strong></a> between
+predators and prey drives a Red Queen dynamic of escalating
+adaptations:</p>
+<p><strong>Anti-predator defences:</strong></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 37%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Mechanism</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Crypsis</strong></td>
+<td>Match background appearance</td>
+<td><em>Biston betularia</em> (peppered moth) — industrial melanism</td>
+</tr>
+<tr>
+<td><strong>Aposematism</strong></td>
+<td>Bright warning colours advertise toxicity</td>
+<td>Poison dart frogs (<em>Dendrobates</em>) — alkaloid warning</td>
+</tr>
+<tr>
+<td><strong>Mullerian mimicry</strong></td>
+<td>Two toxic species converge on same warning signal</td>
+<td><em>Heliconius</em> butterflies sharing wing patterns</td>
+</tr>
+<tr>
+<td><strong>Batesian mimicry</strong></td>
+<td>Palatable species mimics toxic model</td>
+<td>Viceroy (<em>Limenitis archippus</em>) mimics monarch</td>
+</tr>
+<tr>
+<td><strong>Chemical defence</strong></td>
+<td>Toxic compounds deter predators</td>
+<td>Monarch butterflies sequester cardenolide glycosides</td>
+</tr>
+<tr>
+<td><strong>Startle display</strong></td>
+<td>Sudden reveal of eyespots or bright colours</td>
+<td>Io moth (<em>Automeris io</em>) eyespot flash</td>
+</tr>
+<tr>
+<td><strong>Behavioural</strong></td>
+<td>Alarm calls, mobbing, confusion effect</td>
+<td>Starling murmurations confuse raptors</td>
+</tr>
+<tr>
+<td><strong>Morphological</strong></td>
+<td>Spines, shells, armour</td>
+<td>Porcupine quills; turtle shells; hedgehog spines</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Counter-adaptations in predators:</strong> -
+<strong>Kingsnakes</strong> (<em>Lampropeltis</em>) evolved resistance
+to rattlesnake venom - <strong>Rough-skinned newt</strong> (<em>Taricha
+granulosa</em>) vs. <strong>garter snake</strong> (<em>Thamnophis
+sirtalis</em>): escalating toxin (tetrodotoxin) and resistance — one of
+the best-documented coevolutionary arms races - <strong>Cuckoo</strong>
+(<em>Cuculus canorus</em>) egg mimicry vs. host egg discrimination —
+classic parasitic arms race</p>
+<h3 id="hare-lynx-cycle">Hare-Lynx Cycle</h3>
+<p><em>Lepus americanus</em> (snowshoe hare) and <em>Lynx
+canadensis</em> show coupled ~10-year population cycles in boreal
+Canada. Hudson’s Bay Company fur trading records from 1736-1940 reveal
+the cycle. Modern analysis:</p>
+<p><span class="math display">\[\begin{equation}
+\frac{dH}{dt} = r_{max}H - aPH \qquad \frac{dP}{dt} = b \cdot a \cdot P
+\cdot H - dP
+\label{eq:community_ecology_5}
+\end{equation}\]</span></p>
+<p>The cycle is driven by multiple feedback loops: 1.
+<strong>Predation</strong> (~60% of cycle) — lynx consumption drives
+hare decline 2. <strong>Food quality</strong> (~20%) — hare overgrazing
+induces phenolic toughening of willow/birch browse 3. <strong>Stress
+physiology</strong> (~20%) — predation risk elevates <a
+href="#gl:cortisol"><strong>cortisol</strong></a>, suppressing
+reproduction 4. True cycles require <strong>tri-trophic</strong>
+feedbacks; purely Lotka-Volterra predation alone is insufficient (Krebs
+et al. 2001, <em>Science</em>)</p>
+<h3 id="keystone-species">Keystone Species</h3>
+<p>A <strong><a href="#gl:keystone-species">keystone
+species</a></strong> (Paine 1966, 1969) has disproportionately large
+effects on community structure relative to its abundance. Removal of the
+keystone causes dramatic community reorganisation.</p>
+<p><strong>Types of keystone effects:</strong></p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 45%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr>
+<th>Type</th>
+<th>Mechanism</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Keystone predator</strong></td>
+<td>Prevents competitive exclusion by suppressing dominant prey</td>
+<td><em>Pisaster ochraceus</em> (sea star) → prevents mussel
+monopoly</td>
+</tr>
+<tr>
+<td><strong>Keystone herbivore</strong></td>
+<td>Controls dominant plant, maintaining diversity</td>
+<td>African elephant → prevents woodland encroachment on savanna</td>
+</tr>
+<tr>
+<td><strong>Keystone mutualist</strong></td>
+<td>Supports many other species through interaction network</td>
+<td>Fig trees → fruit for 1,200+ vertebrate species in tropical
+forests</td>
+</tr>
+<tr>
+<td><strong>Ecosystem engineer</strong></td>
+<td>Physically modifies habitat</td>
+<td>Beaver dams create wetland habitat for diverse communities</td>
+</tr>
+</tbody>
+</table>
+<h3 id="trophic-cascades">Trophic Cascades</h3>
+<p>A <strong>trophic cascade</strong> occurs when changes at one trophic
+level ripple through the food web to affect non-adjacent levels:</p>
+<p><strong>Top-down cascade</strong> (predator-driven): - Sea otter →
+sea urchin → kelp cascade - Wolf → elk → willow cascade in Yellowstone
+</p>
+<p><strong>Bottom-up cascade</strong> (resource-driven): - Nutrient
+enrichment → phytoplankton → zooplankton → fish</p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant W as Wolves (reintroduced 1995)
+    participant E as Elk
+    participant V as Willows/Cottonwoods
+    participant B as Beavers
+    participant S as Stream Morphology
+    participant Bio as Biodiversity
+
+    W-&gt;&gt;E: Predation + landscape of fear
+    Note over E: Elk avoid riverbanks&lt;br/&gt;(behavioural trophic cascade)
+    E-&gt;&gt;V: Reduced browsing
+    Note over V: Willows and cottonwoods&lt;br/&gt;recover along streams
+    V-&gt;&gt;B: Beaver food/dam material returns
+    Note over B: Beaver population increases&lt;br/&gt;Dam building resumes
+    B-&gt;&gt;S: Dam pools, channel complexity
+    Note over S: Stream morphology transforms&lt;br/&gt;Deeper pools, slower flow
+    S-&gt;&gt;Bio: Habitat diversity increases
+    Note over Bio: Songbirds, fish, amphibians,&lt;br/&gt;insects all increase</code></pre>
+<!-- alt: Sequence diagram for Trophic Cascades showing ordered interaction among Wolves (reintroduced 1995), Elk, Willows/Cottonwoods, and Beavers. -->
+<p><em>Sequence diagram for Trophic Cascades showing ordered interaction
+among Wolves (reintroduced 1995), Elk, Willows/Cottonwoods, and
+Beavers.</em></p>
+<p><strong>Quantitative trophic cascade — Sea Otter example:</strong> -
+1 sea otter consumes ~10 kg sea urchin/day - Each urchin removed
+protects ~1 m<span class="math inline">\(^2\)</span> of kelp - Kelp
+productivity: ~300 g C/m<span class="math inline">\(^2\)</span>/yr -
+Therefore: 1 otter → ~3,650 m<span class="math inline">\(^2\)</span>
+kelp protected → ~1,095 kg C/yr sequestered - Kelp forests also
+attenuate wave energy by 60-70%, providing coastal protection valued at
+about $10,000/km/yr</p>
+<p><strong>Mesopredator release:</strong> removal of apex predators →
+explosion of medium-sized predators → disproportionate prey decline.
+Example: coyote increase after wolf removal → ground-nesting bird
+decline in North America.</p>
+<blockquote>
+<p>🔬 <strong>Clinical Connection — Trophic Cascades and Lyme
+Disease:</strong> The decline of apex predators in eastern North America
+has contributed to a trophic cascade affecting human health. Wolf and
+cougar removal → deer population explosion → increased tick-deer
+encounters → increased <em>Borrelia burgdorferi</em> transmission → Lyme
+disease incidence increased 25-fold from 1990 to 2020 in the
+northeastern USA. Deer also browse forest understory, reducing small
+mammal habitat diversity, which concentrates ticks on the most competent
+reservoir hosts (white-footed mice), further amplifying transmission.
+Predator restoration could reduce disease burden — a health-relevant
+trophic cascade.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check:</strong> In Yellowstone, wolves primarily
+cause a “behavioural trophic cascade” rather than a purely numerical
+one. What is the difference? How does the “landscape of fear” concept
+explain why elk behaviour change (avoiding riverbanks) may be more
+important than elk population reduction?</p>
+</blockquote>
+<hr />
+<h2 id="mutualism-parasitism-and-facilitation">Mutualism, Parasitism,
+and Facilitation</h2>
+<h3 id="mutualism">Mutualism</h3>
+<p><strong>Obligate mutualism:</strong> neither partner can survive
+without the other (e.g., fig-wasp pollination; lichens = fungus +
+alga/cyanobacterium).</p>
+<p><strong>Facultative mutualism:</strong> both benefit but can survive
+independently (e.g., seed-dispersing birds and fruiting trees).</p>
+<p><strong>Mycorrhizal networks:</strong> - <strong>Arbuscular
+mycorrhizae (AM, Glomeromycota):</strong> obligate symbionts; hyphae
+form arbuscules inside root cortex cells; deliver P and micronutrients;
+receive up to 30% of plant photosynthate; present in ~80% of land plant
+species - <strong>Ectomycorrhizae (EM, Basidiomycota +
+Ascomycota):</strong> hyphae form Hartig net around root cells; dominant
+in temperate/boreal forests (<em>Pinus</em>, <em>Betula</em>,
+<em>Fagus</em>); provide N via proteolytic <a
+href="#gl:enzyme"><strong>enzyme</strong></a>s - <strong>Common
+mycorrhizal networks (CMNs) — “Wood Wide Web”:</strong> CMNs transfer
+carbon, water, and nutrient signals between plants of same and different
+species; large “mother trees” supply carbon to understory seedlings
+(Simard et al. 1997, <em>Nature</em>). Contested: whether transfer is
+truly adaptive signalling or passive diffusion remains debated (Karst et
+al. 2023, <em>Nature Ecology &amp; Evolution</em>)</p>
+<h3 id="parasitism-and-disease-ecology">Parasitism and Disease
+Ecology</h3>
+<p>Parasites regulate host populations and can function as keystone
+species:</p>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 18%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>Parasite type</th>
+<th>Example</th>
+<th>Ecological effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Macroparasite</strong></td>
+<td>Intestinal helminths, ticks, lice</td>
+<td>Reduce host fitness; can regulate population size</td>
+</tr>
+<tr>
+<td><strong>Microparasite</strong></td>
+<td><em>Batrachochytrium dendrobatidis</em> (Bd)</td>
+<td>Chytrid fungus: &gt;90 amphibian species extinctions since 1970</td>
+</tr>
+<tr>
+<td><strong>Parasitoid</strong></td>
+<td><em>Cotesia glomerata</em> (braconid wasp)</td>
+<td>Lays eggs inside caterpillars; larvae consume host</td>
+</tr>
+<tr>
+<td><strong>Social parasite</strong></td>
+<td>Cuckoo (<em>Cuculus canorus</em>)</td>
+<td>Brood parasitism; reduces host reproductive output</td>
+</tr>
+<tr>
+<td><strong>Manipulative parasite</strong></td>
+<td><em>Toxoplasma gondii</em></td>
+<td>Alters rodent behaviour (decreased fear of cats) to facilitate
+transmission</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The parasite-mediated competition hypothesis:</strong>
+parasites can determine competitive outcomes between host species,
+effectively functioning as “hidden” keystone species.</p>
+<h3 id="facilitation">Facilitation</h3>
+<p><strong>Facilitation</strong> occurs when one species improves the
+survival or reproduction of another. Unlike mutualism, facilitation can
+be unidirectional:</p>
+<ul>
+<li><strong>Nurse plants</strong> in deserts: cacti establish under the
+shade of nurse shrubs (<em>Larrea</em>, <em>Ambrosia</em>)</li>
+<li><strong>Foundation species:</strong> create habitat structure (e.g.,
+corals, kelp, <em>Spartina</em> grass in salt marshes)</li>
+<li><strong>Nitrogen fixers:</strong> <em>Lupinus</em> colonises
+volcanic substrates, enriching soil N for later successional species
+(Mount St. Helens <a href="#gl:primary-succession"><strong>primary
+succession</strong></a>)</li>
+</ul>
+<blockquote>
+<p><strong>Concept Check:</strong> The relationship between clownfish
+and sea anemones is often described as mutualism. The clownfish gains
+protection from predators; the anemone may benefit from clownfish
+defending against butterfly fish that eat anemone tentacles. How would
+you design an experiment to determine whether this interaction is truly
+mutualism (+/+) or commensalism (+/0)?</p>
+</blockquote>
+<hr />
+<h2 id="ecological-succession">Ecological Succession</h2>
+<p><strong>Succession</strong> = directional, generally predictable
+change in community composition over time after disturbance or on newly
+available substrate.</p>
+<p>Contemporary succession ecology is less deterministic than the
+classical “march to climax” story. Recovery trajectories depend on
+surviving legacies, seed banks, dispersal corridors, disturbance
+severity, herbivory, invasive species, soil microbes, and climate
+conditions during recovery. The practical question is not only which
+stage comes next, but which intervention would change the trajectory:
+protecting refuges, adding propagules, removing barriers, or accepting a
+novel stable state.</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 38%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Primary succession</th>
+<th>Secondary succession</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Starting substrate</td>
+<td>Bare rock/sterile substrate (no soil)</td>
+<td>Disturbed community with soil intact</td>
+</tr>
+<tr>
+<td>Typical rate</td>
+<td>Centuries to millennia</td>
+<td>Decades to centuries</td>
+</tr>
+<tr>
+<td>Pioneer species</td>
+<td>Cyanobacteria, lichens, mosses</td>
+<td>Annual weeds, grasses</td>
+</tr>
+<tr>
+<td>Soil development</td>
+<td>Must form from scratch (weathering + organic accumulation)</td>
+<td>Already present; seed bank may survive</td>
+</tr>
+<tr>
+<td>Example</td>
+<td>Krakatoa (1883); Surtsey, Iceland (1963); Mount St. Helens
+(1980)</td>
+<td>Old-field succession (abandoned farmland); post-fire forest
+regrowth</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mechanisms-of-succession">Mechanisms of Succession</h3>
+<p><strong></strong> proposed three mechanisms:</p>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 42%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Model</th>
+<th>Mechanism</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Facilitation</strong></td>
+<td>Early species modify environment to favour later species</td>
+<td>Nitrogen-fixing <em>Alnus</em> (alder) enriches soil, enabling
+spruce colonisation (Glacier Bay, Alaska)</td>
+</tr>
+<tr>
+<td><strong>Tolerance</strong></td>
+<td>Later species can establish regardless of early species but grow
+more slowly</td>
+<td>Shade-tolerant species slowly replace shade-intolerant pioneers</td>
+</tr>
+<tr>
+<td><strong>Inhibition</strong></td>
+<td>Early colonists resist replacement; succession proceeds primarily
+when pioneers die</td>
+<td><em>Cladonia</em> lichen crusts inhibit vascular plant establishment
+on sand dunes</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid"><code>flowchart TD
+    A{Disturbance Type?} --&gt;|&quot;Bare substrate\n(no soil)&quot;| B[&quot;Primary Succession\n(centuries)&quot;]
+    A --&gt;|&quot;Soil intact\n(seed bank present)&quot;| C[&quot;Secondary Succession\n(decades)&quot;]
+
+    B --&gt; D[&quot;Pioneer Community\nLichens, cyanobacteria, mosses\nWeathering begins&quot;]
+    C --&gt; E[&quot;Pioneer Community\nAnnual weeds, grasses\nSeed bank germinates&quot;]
+
+    D --&gt; F{Mechanism?}
+    E --&gt; F
+
+    F --&gt;|&quot;Facilitation\n(Connell-Slatyer)&quot;| G[&quot;Early species improve\nconditions for later species\n(N-fixation, soil building)&quot;]
+    F --&gt;|&quot;Tolerance&quot;| H[&quot;Later species establish\nindependently; outcompete\npioneers via shade tolerance&quot;]
+    F --&gt;|&quot;Inhibition&quot;| I[&quot;Pioneers resist replacement;\nsuccession only when\npioneers die or are removed&quot;]
+
+    G --&gt; J[&quot;Intermediate Community\nShrubs, shade-intolerant trees\nIncreasing soil depth&quot;]
+    H --&gt; J
+    I --&gt; J
+
+    J --&gt; K[&quot;Late-Successional Community\nShade-tolerant canopy species\nComplex vertical structure\nHigh biomass, low NPP/biomass&quot;]
+
+    K --&gt; L{Disturbance?}
+    L --&gt;|&quot;Fire, storm,\nhuman clearing&quot;| C
+    L --&gt;|&quot;Stable&quot;| M[&quot;Dynamic Equilibrium\n(not a fixed &#39;climax&#39;)&quot;]
+
+    style D fill:#f0ad4e,color:#000
+    style E fill:#f0ad4e,color:#000
+    style K fill:#5cb85c,color:#fff
+    style M fill:#4a90d9,color:#fff</code></pre>
+<!-- alt: Flowchart showing ecological succession pathways. Primary succession begins on bare substrate and takes centuries; secondary succession begins with intact soil and proceeds in decades. Three mechanisms (facilitation, tolerance, inhibition) operate at transition points. Modern ecology views the endpoint as a dynamic equilibrium rather than a fixed climax state. -->
+<p><em>Ecological succession pathways. Primary succession begins on bare
+substrate and takes centuries; secondary succession begins with intact
+soil and proceeds in decades. Three mechanisms (facilitation, tolerance,
+inhibition) operate at transition points. Modern ecology views the
+endpoint as a dynamic equilibrium rather than a fixed climax
+state.</em></p>
+<p>In reality, most successional sequences involve most three mechanisms
+operating simultaneously at different stages and spatial scales.</p>
+<h3 id="climax-community-concept">Climax Community Concept</h3>
+<p><strong>Classical view :</strong> Succession proceeds toward a
+single, deterministic climax community determined by regional climate
+(the “organismal” model — community as superorganism).</p>
+<p><strong>Modern view (Gleason 1926; Whittaker 1953):</strong>
+Communities are assemblages of individually distributed species (the
+“individualistic” model). Multiple stable endpoints possible;
+disturbance history, stochastic colonisation, and priority effects most
+influence trajectory. The concept of a single climax is largely
+abandoned.</p>
+<h3 id="intermediate-disturbance-hypothesis-idh">Intermediate
+Disturbance Hypothesis (IDH)</h3>
+<p><strong>Connell (1978):</strong> Communities at intermediate levels
+of disturbance frequency and intensity show maximum species
+diversity:</p>
+<ul>
+<li><strong>Low disturbance</strong> → competitive exclusion → low
+diversity (dominant competitor wins)</li>
+<li><strong>High disturbance</strong> → primarily r-selected pioneers
+survive → low diversity</li>
+<li><strong>Intermediate</strong> → prevents competitive dominance while
+enabling diverse colonisation</li>
+</ul>
+<p><span class="math display">\[\begin{equation}
+H&#39; = f(\text{disturbance frequency, intensity})
+\label{eq:community_ecology_6}
+\end{equation}\]</span></p>
+<p><strong>Evidence:</strong> Coral reefs, tropical forests, stream
+invertebrate communities — moderate disturbance (hurricanes, floods,
+fires) increases diversity.</p>
+<p><strong>Criticisms:</strong> The IDH has been challenged as overly
+simplistic (Fox 2013, <em>Ecology</em>). Some communities show monotonic
+diversity-disturbance relationships. The hypothesis also assumes a
+competition-colonisation trade-off that is not comprehensive.</p>
+<h3 id="alternative-stable-states-and-regime-shifts">Alternative Stable
+States and Regime Shifts</h3>
+<p><strong>Alternative stable states</strong> (Lewontin 1969; Scheffer
+et al. 2001): Some ecosystems can exist in multiple stable
+configurations under the same environmental conditions. Transitions
+between states (<strong>regime shifts</strong>) can be triggered by
+small perturbations near <strong>tipping points</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>System</th>
+<th>State 1</th>
+<th>State 2</th>
+<th>Tipping mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shallow lake</td>
+<td>Clear water (macrophytes dominant)</td>
+<td>Turbid (algal bloom)</td>
+<td>Nutrient loading exceeds P threshold</td>
+</tr>
+<tr>
+<td>Coral reef</td>
+<td>Coral dominated</td>
+<td>Macroalgae dominated</td>
+<td>Overfishing of herbivorous fish</td>
+</tr>
+<tr>
+<td>Savanna</td>
+<td>Grassland with scattered trees</td>
+<td>Closed-canopy forest</td>
+<td>Fire suppression</td>
+</tr>
+<tr>
+<td>Arctic</td>
+<td>Perennial sea ice</td>
+<td>Seasonal/ice-free</td>
+<td>Ocean warming threshold</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Early warning signals</strong> of approaching tipping points:
+- Increased temporal variance (flickering) - <strong>Critical slowing
+down</strong> — recovery from perturbation becomes slower - Increased
+spatial correlation - Skewed distribution of system state</p>
+<p>These early warning indicators are being applied to monitor reef,
+lake, and climate system stability.</p>
+<blockquote>
+<p>🔬 <strong>Clinical Connection — Microbiome Regime Shifts:</strong>
+The human gut microbiome exhibits alternative stable states analogous to
+ecological regime shifts. A healthy, diverse microbiome represents one
+stable state. Antibiotic treatment or <em>C. difficile</em> infection
+can trigger a regime shift to an impoverished, pathogenic state. Once
+established, the unhealthy state resists return to the diverse state
+(hysteresis) — explaining why probiotics alone are often insufficient
+and why fecal microbiota transplantation (which provides a complete
+microbial community) is more effective.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check:</strong> After the 1980 eruption of Mount
+St. Helens, ecologists observed primary succession proceeding much
+faster than predicted. Surviving pocket gophers, ants, and lupine plants
+in patches of surviving soil created nuclei of rapid recovery. Which
+successional mechanism(s) does this illustrate, and why does it
+challenge Clements’ classical model?</p>
+</blockquote>
+<hr />
+<h2 id="measuring-biodiversity">Measuring Biodiversity</h2>
+<h3 id="alpha-beta-and-gamma-diversity">Alpha, Beta, and Gamma
+Diversity</h3>
+<p><strong></strong> distinguished three scales of diversity:</p>
+<p>These scales also clarify what modern biodiversity tools can and
+cannot show. Environmental DNA, acoustic monitoring, camera traps,
+remote sensing, and citizen-science records can reveal turnover across
+space faster than classical plots alone, but each method has detection
+bias, taxonomic gaps, and scale limits. A credible diversity comparison
+states the sampling unit, detection method, taxonomic resolution, and
+whether the result is richness, evenness, composition, or functional
+change.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 47%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>Scale</th>
+<th>Definition</th>
+<th>Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Alpha (α) diversity</strong></td>
+<td>Species richness within a single community/habitat</td>
+<td><span class="math inline">\(H&#39;\)</span>, Simpson’s, species
+count</td>
+</tr>
+<tr>
+<td><strong>Beta (β) diversity</strong></td>
+<td>Turnover in species composition between communities</td>
+<td>Jaccard index, Bray-Curtis dissimilarity</td>
+</tr>
+<tr>
+<td><strong>Gamma (γ) diversity</strong></td>
+<td>Total diversity across most communities in a landscape</td>
+<td><span class="math inline">\(\gamma = \bar{\alpha} \times
+\beta\)</span> (multiplicative)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="shannon-wiener-diversity-index-h">Shannon-Wiener Diversity Index
+(<span class="math inline">\(H&#39;\)</span>)</h3>
+<p><span class="math display">\[\begin{equation}
+H&#39; = -\sum_{i=1}^{S} p_i \ln p_i
+\label{eq:community_ecology_7}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(p_i\)</span> = proportion of
+individuals belonging to species <span
+class="math inline">\(i\)</span>.</p>
+<ul>
+<li>Range: <span class="math inline">\(H&#39; = 0\)</span> (monoculture)
+to <span class="math inline">\(H&#39; = \ln(S)\)</span> (perfectly
+even)</li>
+<li>Sensitive to rare species</li>
+<li>Typical values: 1.5-3.5 for most communities; &gt;4.0 for extremely
+diverse tropical communities</li>
+</ul>
+<h3 id="simpson-diversity-index-1-d">Simpson Diversity Index (<span
+class="math inline">\(1-D\)</span>)</h3>
+<p><span class="math display">\[\begin{equation}
+D = \sum_{i=1}^{S} p_i^2 \qquad \text{Simpson&#39;s diversity} = 1 - D
+\label{eq:community_ecology_8}
+\end{equation}\]</span></p>
+<ul>
+<li>Range: 0-1; probability that two randomly selected individuals are
+from <strong>different</strong> species</li>
+<li>Weighted toward dominant species (less affected by rare species than
+<span class="math inline">\(H&#39;\)</span>)</li>
+<li>Also expressed as reciprocal: Simpson’s reciprocal <span
+class="math inline">\(= 1/D\)</span> (effective number of species)</li>
+</ul>
+<h3 id="pielous-evenness-j">Pielou’s Evenness (<span
+class="math inline">\(J&#39;\)</span>)</h3>
+<p><span class="math display">\[\begin{equation}
+J&#39; = \frac{H&#39;}{\ln S} \in [0, 1]
+\label{eq:community_ecology_9}
+\end{equation}\]</span></p>
+<p><span class="math inline">\(J&#39; = 1\)</span> means most species
+equally abundant; <span class="math inline">\(J&#39; \to 0\)</span>
+means dominated by one species.</p>
+<h3 id="worked-example">Worked Example</h3>
+<table>
+<thead>
+<tr>
+<th>Species</th>
+<th>Abundance</th>
+<th><span class="math inline">\(p_i\)</span></th>
+<th><span class="math inline">\(p_i \ln p_i\)</span></th>
+<th><span class="math inline">\(p_i^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>50</td>
+<td>0.500</td>
+<td>-0.347</td>
+<td>0.250</td>
+</tr>
+<tr>
+<td>B</td>
+<td>30</td>
+<td>0.300</td>
+<td>-0.361</td>
+<td>0.090</td>
+</tr>
+<tr>
+<td>C</td>
+<td>15</td>
+<td>0.150</td>
+<td>-0.285</td>
+<td>0.023</td>
+</tr>
+<tr>
+<td>D</td>
+<td>4</td>
+<td>0.040</td>
+<td>-0.129</td>
+<td>0.002</td>
+</tr>
+<tr>
+<td>E</td>
+<td>1</td>
+<td>0.010</td>
+<td>-0.046</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>100</strong></td>
+<td><strong>1.000</strong></td>
+<td><strong>-1.167</strong></td>
+<td><strong>0.364</strong></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(H&#39; = 1.167\)</span>; <span
+class="math inline">\(H&#39;_{max} = \ln 5 = 1.609\)</span>; <span
+class="math inline">\(J&#39; = 1.167/1.609 = 0.725\)</span></p>
+<p>Simpson’s <span class="math inline">\(D = 0.364\)</span>; Simpson’s
+diversity <span class="math inline">\(= 1 - 0.364 = 0.636\)</span></p>
+<h3 id="beta-diversity-measuring-turnover">Beta Diversity: Measuring
+Turnover</h3>
+<p><strong>Jaccard similarity index:</strong></p>
+<p><span class="math display">\[\begin{equation}
+J = \frac{|A \cap B|}{|A \cup B|}
+\label{eq:community_ecology_10}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> are species sets from two communities.
+<span class="math inline">\(J = 1\)</span> means identical composition;
+<span class="math inline">\(J = 0\)</span> means no shared species.</p>
+<p><strong>Bray-Curtis dissimilarity</strong> (incorporates
+abundance):</p>
+<p><span class="math display">\[\begin{equation}
+BC = 1 - \frac{2 \sum_i \min(a_i, b_i)}{\sum_i (a_i + b_i)}
+\label{eq:community_ecology_11}
+\end{equation}\]</span></p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.ecology.ecology <span class="im">import</span> biodiversity_indices</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Community counts (array of species abundances)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>counts <span class="op">=</span> [<span class="dv">50</span>, <span class="dv">30</span>, <span class="dv">15</span>, <span class="dv">4</span>, <span class="dv">1</span>]    <span class="co"># 5 species; very uneven</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> biodiversity_indices(counts)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Species richness: </span><span class="sc">{</span>result<span class="sc">.</span>species_richness<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Shannon H&#39;: </span><span class="sc">{</span>result<span class="sc">.</span>shannon_index<span class="sc">:.3f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Simpson 1-D: </span><span class="sc">{</span>result<span class="sc">.</span>simpson_index<span class="sc">:.3f}</span><span class="ss">&quot;</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Evenness J&#39;: </span><span class="sc">{</span>result<span class="sc">.</span>evenness<span class="sc">:.3f}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<blockquote>
+<p><strong>Concept Check:</strong> Community X has 4 species with
+abundances [100, 100, 100, 100]. Community Y has 4 species with
+abundances [394, 2, 2, 2]. Both have <span class="math inline">\(S =
+4\)</span>. Calculate <span class="math inline">\(H&#39;\)</span> and
+<span class="math inline">\(J&#39;\)</span> for each. Which community is
+more “diverse” and why does evenness matter as much as richness?</p>
+</blockquote>
+<hr />
+<h2 id="island-biogeography-theory">Island Biogeography Theory</h2>
+<h3 id="macarthur-wilson-equilibrium-model">MacArthur-Wilson Equilibrium
+Model</h3>
+<p><strong>:</strong> <em>The Theory of Island Biogeography</em> —
+equilibrium species richness on islands balances immigration
+(colonisation) rate and extinction rate:</p>
+<ul>
+<li><strong>Immigration rate</strong> decreases as <span
+class="math inline">\(S\)</span> increases (fewer uncolonised species
+remain in the mainland pool)</li>
+<li><strong>Extinction rate</strong> increases as <span
+class="math inline">\(S\)</span> increases (more species present means
+more potential extinctions)</li>
+<li>At <strong>equilibrium</strong> (<span
+class="math inline">\(\hat{S}\)</span>): immigration rate = extinction
+rate</li>
+</ul>
+<p><strong>Effects of island characteristics:</strong></p>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 55%" />
+<col style="width: 26%" />
+</colgroup>
+<thead>
+<tr>
+<th>Factor</th>
+<th>Effect on <span class="math inline">\(\hat{S}\)</span></th>
+<th>Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Larger area</strong></td>
+<td>Higher <span class="math inline">\(\hat{S}\)</span></td>
+<td>Lower extinction rate (larger populations, more habitats)</td>
+</tr>
+<tr>
+<td><strong>Closer to mainland</strong></td>
+<td>Higher <span class="math inline">\(\hat{S}\)</span></td>
+<td>Higher immigration rate (easier colonisation)</td>
+</tr>
+<tr>
+<td><strong>Small + far</strong></td>
+<td>Lowest <span class="math inline">\(\hat{S}\)</span></td>
+<td>High extinction, low immigration</td>
+</tr>
+<tr>
+<td><strong>Large + near</strong></td>
+<td>Highest <span class="math inline">\(\hat{S}\)</span></td>
+<td>Low extinction, high immigration</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="visualizing-food-web-connectance-and-modularity">Visualizing
+Food Web Connectance and Modularity</h3>
+<pre class="mermaid"><code>graph TD
+    subgraph &quot;High Connectance Web&quot;
+        A1((S1)) --- A2((S2))
+        A1 --- A3((S3))
+        A1 --- A4((S4))
+        A2 --- A3
+        A2 --- A4
+        A3 --- A4
+        noteA[&quot;&lt;b&gt;High C = L/S²&lt;/b&gt;&lt;br/&gt;Robust to single extinctions&lt;br/&gt;Rapid perturbation spread&quot;]
+    end
+
+    subgraph &quot;Modular Web&quot;
+        B1((M1)) --- B2((M2))
+        B1 --- B3((M3))
+        B2 --- B3
+        
+        C1((M4)) --- C2((M5))
+        C1 --- C3((M6))
+        C2 --- C3
+        
+        B2 ---|Bridge Link| C1
+        noteB[&quot;&lt;b&gt;High Modularity&lt;/b&gt;&lt;br/&gt;Compartmentalised links&lt;br/&gt;Contains perturbations&lt;br/&gt;Typical of large ecosystems&quot;]
+    end
+
+    style A1 fill:#e2e3e5,stroke:#383d41
+    style B1 fill:#cfe2ff,stroke:#084298
+    style C1 fill:#d1e7dd,stroke:#0f5132</code></pre>
+<!-- alt: Flowchart for Visualizing Food Web Connectance and Modularity: High C = L/S² Robust to single extinctions Rapid perturbation spread and High Modularity Compartmentalised links Contains perturbations Typical of large ecosystems form the diagram's primary path or branches. -->
+<p><em>Flowchart for Visualizing Food Web Connectance and Modularity:
+High C = L/S² Robust to single extinctions Rapid perturbation spread and
+High Modularity Compartmentalised links Contains perturbations Typical
+of large ecosystems form the diagram’s primary path or
+branches.</em></p>
+<hr />
+<h3 id="species-area-relationship">Species-Area Relationship</h3>
+<p><span class="math display">\[\begin{equation}
+S = cA^z
+\label{eq:community_ecology_12}
+\end{equation}\]</span></p>
+<p>Log-transformed: <span class="math inline">\(\log S = \log c + z \log
+A\)</span></p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 34%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr>
+<th>Context</th>
+<th>Typical <span class="math inline">\(z\)</span></th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True islands</td>
+<td>0.20-0.35</td>
+<td>Higher <span class="math inline">\(z\)</span> because islands are
+more isolated</td>
+</tr>
+<tr>
+<td>Mainland habitat fragments</td>
+<td>0.12-0.17</td>
+<td>Lower <span class="math inline">\(z\)</span> due to rescue effect
+from surrounding matrix</td>
+</tr>
+<tr>
+<td>Archipelagoes</td>
+<td>0.25-0.33</td>
+<td>Standard island prediction</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Practical calculation:</strong> Doubling area increases <span
+class="math inline">\(S\)</span> by <span class="math inline">\(\approx
+19\%\)</span> (when <span class="math inline">\(z = 0.25\)</span>, since
+<span class="math inline">\(2^{0.25} - 1 = 0.189\)</span>).</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> species_area(c, A, z):</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c <span class="op">*</span> (A <span class="op">**</span> z)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Old-growth forest fragment richness predictions</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> area_ha <span class="kw">in</span> [<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>, <span class="dv">1000</span>, <span class="dv">10000</span>]:</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    S <span class="op">=</span> species_area(c<span class="op">=</span><span class="dv">5</span>, A<span class="op">=</span>area_ha, z<span class="op">=</span><span class="fl">0.25</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;Area = </span><span class="sc">{</span>area_ha<span class="sc">:&gt;6}</span><span class="ss"> ha → S = </span><span class="sc">{</span>S<span class="sc">:.1f}</span><span class="ss"> bird species&quot;</span>)</span></code></pre></div>
+<h3 id="empirical-tests">Empirical Tests</h3>
+<ul>
+<li><strong>Post-Krakatoa recolonisation</strong> (1883-1983): After
+complete sterilisation by eruption, species accumulated toward
+equilibrium; initial overshoot then relaxation </li>
+<li><strong>Florida Keys experiment</strong> : Fumigated small mangrove
+islands → recolonisation to predicted equilibrium within 2 years;
+confirmed immigration-extinction dynamics</li>
+<li><strong>Habitat fragments as islands:</strong> Biological Dynamics
+of Forest Fragments Project (BDFFP, Amazonia; Laurance et al. 2011) — 40
+years of data on isolated 1-100 ha fragments showing predictable species
+loss following species-area relationship</li>
+</ul>
+<h3 id="sloss-debate">SLOSS Debate</h3>
+<p><strong>Single Large Or Several Small</strong> — for conservation,
+which reserve design maximises biodiversity?</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 34%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>Design</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Single large</strong></td>
+<td>Lower edge-to-interior ratio; larger MVPs; protects area-demanding
+species</td>
+<td>Vulnerability to single catastrophe; may miss regional habitat
+diversity</td>
+</tr>
+<tr>
+<td><strong>Several small</strong></td>
+<td>Redundancy against disaster; covers more habitat types; protects
+local endemics</td>
+<td>Edge effects dominant; lower <span class="math inline">\(S\)</span>
+per patch; connectivity problems</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Modern consensus: Core-corridor-matrix design:</strong> -
+Large core reserves (the “single large” benefit) - Habitat corridors or
+stepping stones connecting reserves - Matrix land uses compatible with
+wildlife movement (agroforestry, wildlife-friendly farming) - Example
+initiatives: Yellowstone-to-Yukon (Y2Y, 3,200 km); Florida Wildlife
+Corridor (1,000+ miles)</p>
+<h3 id="extinction-debt">Extinction Debt</h3>
+<p><strong>Extinction debt</strong> (Tilman et al. 1994,
+<em>Nature</em>): Species currently present in degraded/fragmented
+habitats may be committed to future extinction — but the extinction is
+<strong>delayed</strong> by decades to centuries as existing individuals
+slowly die without replacement.</p>
+<p><span class="math display">\[\begin{equation}
+\text{Species committed to extinction} = S_{\text{pre-fragmentation}} -
+c \cdot A_{\text{remaining}}^z
+\label{eq:community_ecology_13}
+\end{equation}\]</span></p>
+<p><strong>Implications:</strong> - Present-day species richness
+<strong>overestimates</strong> long-term viability - Conservation
+assessments based on current presence may be dangerously optimistic -
+European calcareous grasslands: 20-50% of plant species face committed
+extinction due to historical fragmentation - Amazon deforestation:
+25-year extinction debt means current biodiversity surveys underestimate
+eventual losses</p>
+<h3 id="metapopulation-dynamics-levins-1969-hanski-1994">Metapopulation
+Dynamics (Levins, 1969; Hanski, 1994)</h3>
+<p>A patchwork of habitat fragments connected by dispersal — local
+extinctions offset by recolonisation. Metapopulation persistence
+requires fraction of occupied patches to exceed extinction
+threshold:</p>
+<p><span class="math display">\[\begin{equation}
+\hat{p} = 1 - \frac{e}{c}
+\label{eq:community_ecology_14}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(e\)</span> = extinction rate per
+patch, <span class="math inline">\(c\)</span> = colonisation rate;
+metapopulation persists if <span class="math inline">\(e/c &lt;
+1\)</span>.</p>
+<p><strong>Hanski’s incidence function model</strong> extends this by
+incorporating patch area (affects extinction rate) and isolation
+(affects colonisation rate):</p>
+<p><span class="math display">\[\begin{equation}
+J_i = \frac{1}{1 + (e_i/c_i)^2}
+\label{eq:community_ecology_15}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(J_i\)</span> = probability that
+patch <span class="math inline">\(i\)</span> is occupied, <span
+class="math inline">\(e_i \propto A_i^{-x}\)</span>, and <span
+class="math inline">\(c_i\)</span> depends on distance to occupied
+patches.</p>
+<blockquote>
+<p>🔬 <strong>Clinical Connection — Habitat Fragmentation and Zoonotic
+Disease:</strong> As forests are fragmented into small patches, edge
+effects increase human-wildlife contact, facilitating zoonotic pathogen
+spillover. The emergence of Nipah virus in Malaysia (1998-99) was linked
+to bat habitat loss: displaced fruit bats (<em>Pteropus</em> spp.) moved
+to pig farms near forest fragments, facilitating transmission to
+livestock and then humans. Similarly, Ebola outbreaks correlate
+spatially with deforestation frontiers. Island biogeography theory
+predicts that small fragments lose apex predators first (mesopredator
+release), increasing populations of rodents and bats that serve as
+pathogen reservoirs.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check:</strong> A national park of 10,000 km<span
+class="math inline">\(^2\)</span> is split by a highway into two
+fragments of 6,000 km<span class="math inline">\(^2\)</span> and 4,000
+km<span class="math inline">\(^2\)</span>. Using <span
+class="math inline">\(S = 50A^{0.25}\)</span>, calculate species
+richness for: (a) the intact park, (b) each fragment separately, (c)
+both fragments combined assuming no species overlap. How does a wildlife
+corridor change your prediction?</p>
+</blockquote>
+<hr />
+<h2 id="food-web-structure-and-network-ecology">Food Web Structure and
+Network Ecology</h2>
+<h3 id="food-web-topology">Food Web Topology</h3>
+<p>Food webs are network representations of feeding relationships in
+communities — a graph where nodes are species (or trophic units) and
+directed edges encode “<span class="math inline">\(i\)</span> eats <span
+class="math inline">\(j\)</span>.” Treating the community as a graph
+unlocks the entire toolbox of network science (degree distributions,
+clustering, modularity, motif analysis), which has reshaped community
+ecology over the past two decades. Key metrics:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 34%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Definition</th>
+<th>Typical value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Connectance (<span
+class="math inline">\(C\)</span>)</strong></td>
+<td><span class="math inline">\(C = L/S^2\)</span> (or <span
+class="math inline">\(L/[S(S-1)/2]\)</span>); fraction of possible links
+realised</td>
+<td>0.05-0.30</td>
+</tr>
+<tr>
+<td><strong>Links per species (<span
+class="math inline">\(L/S\)</span>)</strong></td>
+<td>Average number of trophic links per species</td>
+<td>~2 for most food webs</td>
+</tr>
+<tr>
+<td><strong>Chain length</strong></td>
+<td>Number of links from base to top</td>
+<td>3-5 typically</td>
+</tr>
+<tr>
+<td><strong>Omnivory</strong></td>
+<td>Fraction of species feeding at &gt;1 trophic level</td>
+<td>~50% in many webs</td>
+</tr>
+<tr>
+<td><strong>Mean trophic level</strong></td>
+<td>Average path length from primary producers</td>
+<td>2.5–3.5 typical</td>
+</tr>
+<tr>
+<td><strong>Generality</strong></td>
+<td>Mean number of resources per consumer</td>
+<td>Skewed: most consumers specialised</td>
+</tr>
+<tr>
+<td><strong>Vulnerability</strong></td>
+<td>Mean number of consumers per resource</td>
+<td>Skewed: most prey have few predators</td>
+</tr>
+<tr>
+<td><strong>Nestedness</strong></td>
+<td>Specialists’ diets are subsets of generalists’ diets</td>
+<td>High in mutualistic networks</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Minimal food-web statistics from an adjacency dictionary</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> web_stats(web):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    species <span class="op">=</span> <span class="bu">set</span>(web).union({p <span class="cf">for</span> prey <span class="kw">in</span> web.values() <span class="cf">for</span> p <span class="kw">in</span> prey})</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    S <span class="op">=</span> <span class="bu">len</span>(species)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    L <span class="op">=</span> <span class="bu">sum</span>(<span class="bu">len</span>(v) <span class="cf">for</span> v <span class="kw">in</span> web.values())</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    C <span class="op">=</span> L <span class="op">/</span> (S <span class="op">*</span> S)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {<span class="st">&quot;S&quot;</span>: S, <span class="st">&quot;L&quot;</span>: L, <span class="st">&quot;L/S&quot;</span>: L <span class="op">/</span> S, <span class="st">&quot;connectance&quot;</span>: C}</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>example <span class="op">=</span> {</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;phyto&quot;</span>: [], <span class="st">&quot;zoo&quot;</span>: [<span class="st">&quot;phyto&quot;</span>], <span class="st">&quot;shrimp&quot;</span>: [<span class="st">&quot;phyto&quot;</span>],</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;minnow&quot;</span>: [<span class="st">&quot;zoo&quot;</span>, <span class="st">&quot;shrimp&quot;</span>], <span class="st">&quot;bass&quot;</span>: [<span class="st">&quot;minnow&quot;</span>, <span class="st">&quot;shrimp&quot;</span>],</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(web_stats(example))</span></code></pre></div>
+<h3 id="cascade-effects-and-robustness">Cascade Effects and
+Robustness</h3>
+<p>Food webs are not just descriptive: their topology predicts how
+perturbations propagate. Removal experiments (real or simulated) reveal
+three classes of network response:</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 23%" />
+<col style="width: 55%" />
+</colgroup>
+<thead>
+<tr>
+<th>Response</th>
+<th>Mechanism</th>
+<th>Topological signature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bottom-up cascade</strong></td>
+<td>Loss of a producer ripples upward through consumers</td>
+<td>Few generalist consumers; long chains</td>
+</tr>
+<tr>
+<td><strong>Top-down cascade</strong> ( system)</td>
+<td>Loss of a top predator releases mesopredators or herbivores</td>
+<td>Strong vertical interaction strengths</td>
+</tr>
+<tr>
+<td><strong>Horizontal cascade</strong></td>
+<td>Loss of one prey shifts predator to alternative prey, harming it
+indirectly</td>
+<td>Apparent competition; shared predators</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Robustness analysis</strong> (Dunne et al. 2002, <em>Ecol.
+Lett.</em>) sequentially removes species (random order, most-connected
+first, or rarest first) and tracks the fraction of secondary
+extinctions. Results across 16 well-resolved food webs:</p>
+<ul>
+<li>Random removal: ~50% of species can disappear before web
+collapse</li>
+<li><strong>Most-connected-first removal: collapse after about 20% of
+species removed</strong> — hubs (highly connected generalists) are
+disproportionately important</li>
+<li>Rarest-first: minimal cascade — rare species are weakly
+embedded</li>
+</ul>
+<p>This is a striking parallel to the <strong>scale-free
+network</strong> robustness literature (Barabási &amp; Albert 1999):
+tolerance to random failure but vulnerability to targeted attack. For
+conservation, hub species are ecological-network analogues of keystone
+species, identifiable from topology alone.</p>
+<h3 id="complexity-stability-debate">Complexity-Stability Debate</h3>
+<p><strong>May (1972, <em>Nature</em>):</strong> Mathematical analysis
+of random community matrices showed that complexity (high <span
+class="math inline">\(S\)</span>, high <span
+class="math inline">\(C\)</span>, strong interaction strengths)
+<strong>destabilises</strong> communities — contradicting the intuitive
+“diversity begets stability” hypothesis. The May criterion: a random
+Jacobian is locally stable primarily if <span
+class="math inline">\(\sigma\sqrt{SC} &lt; 1\)</span> (with σ = standard
+deviation of interaction strengths).</p>
+<p><strong>Resolution (McCann 2000, <em>Nature</em>; Allesina &amp; Tang
+2012, <em>Nature</em>):</strong> - Weak interactions stabilise food webs
+(dampen oscillations) - Non-random interaction structure (modularity,
+nestedness) promotes stability - Real food webs are not random — they
+have specific architectures that enhance stability -
+<strong>Weak-interaction dominance:</strong> most interactions are weak;
+few are strong. The many weak links act as stabilisers.</p>
+<p><strong>Modularity:</strong> food webs are organised into modules
+(compartments) with strong within-module interactions and weak
+between-module interactions. This structure limits the spread of
+perturbations — a forest pathogen outbreak in one module rarely cascades
+into the aquatic module of the same landscape food web.</p>
+<hr />
+<h2 id="neutral-theory-of-biodiversity">Neutral Theory of
+Biodiversity</h2>
+<p>The competition-coexistence theory developed earlier explains
+community structure through <strong>niches</strong> — species coexist
+because they differ. <strong>Hubbell’s unified neutral theory of
+biodiversity and biogeography (UNTB; Hubbell 2001)</strong> proposes the
+radical alternative: at the scale of trophically similar species (e.g.,
+canopy trees in a tropical forest), <strong>most individuals are
+demographically equivalent</strong> regardless of species, and observed
+community patterns emerge from random birth–death–dispersal–speciation
+alone.</p>
+<h3 id="the-neutral-assumption">The Neutral Assumption</h3>
+<p>Each individual, regardless of species, has the same per-capita
+probabilities of: - Birth (replacement of a vacancy by an offspring) -
+Death (creation of a vacancy) - Immigration <span
+class="math inline">\(m\)</span> from a regional
+<strong>metacommunity</strong> (replaces local community via dispersal)
+- Speciation (rate ν in the metacommunity)</p>
+<p>The local community has fixed size <span
+class="math inline">\(J\)</span> (zero-sum constraint — every death is
+replaced); dynamics are pure ecological drift, mathematically isomorphic
+to neutral <a href="#gl:genetic-drift"><strong>genetic
+drift</strong></a> (). Two parameters do most of the work:</p>
+<p><span class="math display">\[\begin{equation}
+\theta = 2 J_M \nu \qquad \text{(fundamental biodiversity number)}
+\label{eq:unit_X_neutral_theta}
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+m = \text{immigration probability per local death}
+\label{eq:unit_X_neutral_m}
+\end{equation}\]</span></p>
+<p>The metacommunity size is <span class="math inline">\(J_M\)</span>.
+Together, θ and <span class="math inline">\(m\)</span> predict species
+abundance distributions, species–area curves, and beta diversity —
+without invoking niche differences at most.</p>
+<h3 id="predictions-and-empirical-successes">Predictions and Empirical
+Successes</h3>
+<p>UNTB predicts: - <strong>Species abundance distribution</strong>
+follows a zero-sum multinomial (very close to the rank-abundance pattern
+introduced earlier, but with a heavier tail of rare species) -
+<strong>Species–area relationships</strong> with <span
+class="math inline">\(z \approx 0.20\)</span>–0.30 (matching empirical
+island values, ) - <strong>Beta diversity</strong> declines with
+geographic distance even in homogeneous habitat (purely from limited
+dispersal)</p>
+<p>Hubbell’s analysis of the Barro Colorado Island 50-ha forest plot
+(Panama, &gt; 200 tree species) showed UNTB fit the species abundance
+distribution as well as niche-based models. Volkov et al. (2003,
+<em>Nature</em>) confirmed neutral fits across forests in Panama,
+Ecuador, India, and Malaysia.</p>
+<h3 id="limits-and-synthesis">Limits and Synthesis</h3>
+<p>UNTB has been heavily criticised: real species are <em>not</em>
+equivalent (massive trait variation; clear niche differences in measured
+demographic rates), and dynamic predictions (e.g., extinction times)
+often fail. The modern view, following Adler, HilleRisLambers &amp;
+Levine (2007, <em>Ecol. Lett.</em>), is that <strong>niche and neutral
+processes co-occur</strong>: Chesson-style niche differences stabilise
+coexistence, while neutral drift adds stochastic variation in relative
+abundance. UNTB is the null model — if your data look neutral, you have
+not yet found the ecology that distinguishes species.</p>
+<blockquote>
+<p><strong>Concept Check:</strong> Two tropical forest plots have nearly
+identical species-abundance distributions. The first sits in a
+homogeneous lowland habitat; the second spans a steep elevation
+gradient. Why is the <em>neutral</em> explanation of the
+species-abundance pattern more plausible for the first plot than the
+second, and what additional data would discriminate the two
+hypotheses?</p>
+</blockquote>
+<hr />
+<h2 id="trait-based-community-ecology">Trait-Based Community
+Ecology</h2>
+<p>Counting species ignores that a 1 mm aphid and a 10 m oak both add
+“+1” to richness. <strong>Trait-based ecology</strong> replaces (or
+complements) species lists with measured <strong>functional
+traits</strong> — morphological, physiological, or phenological
+attributes that influence performance. This shifts community ecology
+from a taxonomic enterprise to a quantitative, predictive one.</p>
+<h3 id="grimes-csr-triangle">Grime’s CSR Triangle</h3>
+<p>Grime’s CSR scheme (1977, 2001) classifies plant strategies along two
+stress axes — disturbance and stress (resource limitation) — yielding
+three primary strategies and the gradients between them:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 25%" />
+<col style="width: 35%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Conditions</th>
+<th>Trait syndrome</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C — Competitor</strong></td>
+<td>Low stress, low disturbance</td>
+<td>Tall, fast-growing, high biomass, deep roots; leaves long-lived but
+expensive</td>
+<td>Mature forest dominants (oak, beech, <em>Eucalyptus</em>)</td>
+</tr>
+<tr>
+<td><strong>S — Stress-tolerator</strong></td>
+<td>High stress, low disturbance</td>
+<td>Slow growth, evergreen, sclerophyllous leaves, conservative resource
+use</td>
+<td>Desert succulents, alpine cushion plants, lichens, conifers in
+nutrient-poor soils</td>
+</tr>
+<tr>
+<td><strong>R — Ruderal</strong></td>
+<td>Low stress, high disturbance</td>
+<td>Short-lived, high seed output, rapid maturation, weak
+competitors</td>
+<td>Annual weeds (<em>Senecio</em>, <em>Capsella</em>); pioneer
+trees</td>
+</tr>
+</tbody>
+</table>
+<p>Most species fall along intermediates (CR, CS, SR, CSR). Crucially,
+the CSR axes capture independent gradients to the <a
+href="#gl:r-strategist"><strong>r-strategist</strong></a>/<a
+href="#gl:k-strategist"><strong>K-strategist</strong></a> axis of
+population ecology — a stress-tolerator is K-like in longevity but
+slow-growing, not high-fecundity.</p>
+<h3 id="the-leaf-economics-spectrum">The Leaf Economics Spectrum</h3>
+<p>Wright et al. (2004, <em>Nature</em>) analysed &gt; 2,500 plant
+species globally and uncovered a stunningly tight axis along which leaf
+traits co-vary — the <strong>leaf economics spectrum (LES)</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 48%" />
+<col style="width: 51%" />
+</colgroup>
+<thead>
+<tr>
+<th>Acquisitive (fast) end</th>
+<th>Conservative (slow) end</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High specific leaf area (SLA, m<span
+class="math inline">\(^2\)</span> kg<span
+class="math inline">\(^{-1}\)</span>)</td>
+<td>Low SLA (thick, dense leaves)</td>
+</tr>
+<tr>
+<td>High mass-based photosynthetic rate (<span
+class="math inline">\(A_{\text{mass}}\)</span>)</td>
+<td>Low <span class="math inline">\(A_{\text{mass}}\)</span></td>
+</tr>
+<tr>
+<td>High leaf N concentration (Rubisco-rich)</td>
+<td>Low leaf N</td>
+</tr>
+<tr>
+<td>Short leaf lifespan (months)</td>
+<td>Long leaf lifespan (years; evergreen)</td>
+</tr>
+<tr>
+<td>Low construction cost per unit area</td>
+<td>High construction cost; defended</td>
+</tr>
+</tbody>
+</table>
+<p>The LES is widely observed across biomes — tropical pioneer trees and
+desert annuals can occupy the same acquisitive end of the axis despite
+very different evolutionary histories. The axis captures a major
+trade-off between rapid resource capture and resource conservation, but
+local exceptions occur because water stress, herbivory, nutrient
+limitation, and phylogeny can bend the relationship. Analogous spectra
+exist for roots (Bergmann et al. 2020, <em>Sci. Adv.</em>) and for
+whole-plant strategy axes (Diaz et al. 2016, <em>Nature</em>).</p>
+<h3 id="functional-diversity-and-community-assembly">Functional
+Diversity and Community Assembly</h3>
+<p>Trait data enable <strong>functional diversity</strong> indices
+(functional richness, evenness, divergence; Villéger, Mason &amp;
+Mouillot 2008, <em>Ecology</em>) that detect community assembly
+mechanisms invisible to species lists:</p>
+<ul>
+<li><strong>Functional clustering</strong> (traits more similar than
+expected by chance) → <em>environmental filtering</em> (primarily some
+strategies tolerate the local abiotic conditions)</li>
+<li><strong>Functional overdispersion</strong> (traits more different
+than expected) → <em>competitive exclusion</em> via limiting similarity
+and Chesson-style stabilising mechanisms.</li>
+</ul>
+<p>A community of 30 alpine cushion plants and a community of 30
+tropical canopy trees both have <span class="math inline">\(S =
+30\)</span>, but their trait spreads on the LES are wildly different —
+and that difference predicts ecosystem function (productivity,
+decomposition, drought response) far better than richness alone.</p>
+<blockquote>
+<p><strong>Concept Check:</strong> Two grassland plots have identical
+Shannon diversity <span class="math inline">\(H&#39; = 2.5\)</span>.
+Plot A’s plants cluster tightly on the conservative end of the LES; plot
+B’s plants span the entire LES. Which plot is more productive on
+average, which is more drought-resilient, and which would you predict
+has stronger competitive interactions?</p>
+</blockquote>
+<hr />
+<h2 id="biological-control">Biological Control</h2>
+<p>The competition, predation, and parasitism theory developed above has
+direct translational application: <strong>biological control</strong>
+uses natural enemies to suppress pest populations, replacing or reducing
+chemical pesticides. It is community ecology deployed for agriculture,
+public health, and invasive-species management.</p>
+<h3 id="three-classical-strategies">Three Classical Strategies</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 26%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr>
+<th>Strategy</th>
+<th>Approach</th>
+<th>Time scale</th>
+<th>Risk profile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Classical (importation)</strong></td>
+<td>Import a specialist natural enemy from the pest’s native range;
+expect it to establish and self-perpetuate</td>
+<td>Years to decades; one-shot release</td>
+<td>High — non-target effects if enemy is not specialist enough</td>
+</tr>
+<tr>
+<td><strong>Augmentative</strong></td>
+<td>Mass-rear and release natural enemies repeatedly to suppress current
+outbreak</td>
+<td>Weeks to months; greenhouse, glasshouse</td>
+<td>Low — released organisms typically fail to overwinter</td>
+</tr>
+<tr>
+<td><strong>Conservation</strong></td>
+<td>Modify habitat to favour resident natural enemies (hedgerows, beetle
+banks, insectary plants, reduced pesticide use)</td>
+<td>Continuous</td>
+<td>Lowest — uses native species</td>
+</tr>
+</tbody>
+</table>
+<h3 id="classical-successes-and-failures">Classical Successes and
+Failures</h3>
+<p><strong>Cottony cushion scale (<em>Icerya purchasi</em>) and the
+vedalia beetle (<em>Rodolia cardinalis</em>).</strong> Imported in 1888
+from Australia to California citrus groves — within two years the citrus
+industry was saved. This is the textbook success and the prototype for
+most subsequent classical biocontrol programs.</p>
+<p><strong>Prickly pear (<em>Opuntia stricta</em>) and <em>Cactoblastis
+cactorum</em>.</strong> Released in 1925 in Australia, the moth larvae
+cleared 25 million ha of invasive cactus by 1940 — one of the
+largest-scale ecological interventions in history.</p>
+<p><strong>Cane toad (<em>Rhinella marina</em>).</strong> Released in
+1935 in Queensland to control sugarcane beetles; the toads ignored the
+beetles, ate everything else, and are now an invasive plague across
+northern Australia. Classical biocontrol’s most-cited cautionary tale: a
+generalist natural enemy will eat non-target species, and the lesson
+cost ecologists decades of credibility.</p>
+<h3 id="risk-assessment-and-modern-practice">Risk Assessment and Modern
+Practice</h3>
+<p>After the cane-toad era, regulatory frameworks (e.g., the FAO
+<strong>Code of Conduct for the Import and Release of Exotic Biological
+Control Agents</strong>, 1996) require:</p>
+<ol type="1">
+<li><strong>Host-specificity testing</strong> — quarantine trials
+against native non-target species</li>
+<li><strong>Climate matching</strong> — does the agent’s native climate
+predict its spread in the target range?</li>
+<li><strong>Population modelling</strong> — Lotka–Volterra or matrix
+projection of agent and target dynamics; predicted suppression
+vs. escape</li>
+<li><strong>Reversibility analysis</strong> — can the agent be
+eradicated if it causes damage? (Almost typically: no.)</li>
+</ol>
+<p>Modern programs increasingly favour <strong>conservation biological
+control</strong>, which avoids introducing non-native species entirely.
+Field margins of insectary plants (e.g., <em>Phacelia</em>,
+<em>Fagopyrum</em>) increase syrphid and parasitoid wasp populations
+that suppress aphids in adjacent crops by 30–50 % (Tscharntke et
+al. 2007, <em>Biol. Control</em>). This connects directly to
+ecosystem-services valuation ().</p>
+<blockquote>
+<p>🔬 <strong>Clinical Connection — <em>Wolbachia</em> and
+Mosquito-Borne Disease.</strong> Conservation biological control extends
+to public health. <em>Wolbachia</em> is an intracellular bacterium that,
+when introduced into <em>Aedes aegypti</em> mosquitoes, blocks dengue,
+Zika, and chikungunya virus transmission. Field trials in Yogyakarta
+(Indonesia) and Niterói (Brazil) released <em>Wolbachia</em>-carrying
+mosquitoes that spread the bacterium through the wild population via
+cytoplasmic incompatibility. Within 27 months of release in Yogyakarta,
+dengue incidence dropped 77% in treated neighbourhoods (Utarini et
+al. 2021, <em>N. Engl. J. Med.</em>). This is biological control of
+disease vectors via a manipulative endosymbiont — community ecology in
+service of pandemic prevention.</p>
+</blockquote>
+<blockquote>
+<p><strong>Concept Check:</strong> A regulator must approve or reject a
+proposed classical biocontrol release of a parasitoid wasp against an
+invasive moth pest. (a) What three host-specificity tests would you
+require? (b) Why is “the agent attacks the target moth in the lab”
+insufficient evidence for safety? (c) How does a sound elasticity
+analysis () of the <em>target’s</em> matrix model help you predict
+whether the release will succeed?</p>
+</blockquote>
+<hr />
+<h2 id="worked-example-1">Worked Example</h2>
+<p><strong>Problem:</strong> An ecologist surveys a small forest patch
+and identifies three species of trees: - Species A: 50 individuals -
+Species B: 30 individuals - Species C: 20 individuals</p>
+<p>Calculate the Shannon Diversity Index (<span
+class="math inline">\(H\)</span>) for this tree community. The formula
+is: <span class="math display">\[H = -\sum (p_i \ln p_i)
+\label{eq:unit_X_community_ecology_item_1}\]</span></p>
+<p>where <span class="math inline">\(p_i\)</span> is the proportion of
+total individuals belonging to the <span
+class="math inline">\(i\)</span>-th species.</p>
+<p><strong>Solution:</strong></p>
+<p><strong>Step 1. Calculate the total number of individuals (<span
+class="math inline">\(N\)</span>).</strong> <span
+class="math display">\[N = 50 + 30 + 20 = 100
+\label{eq:unit_X_community_ecology_item_2}\]</span></p>
+<p><strong>Step 2. Calculate the proportion (<span
+class="math inline">\(p_i\)</span>) for each species.</strong> - <span
+class="math inline">\(p_A = 50 / 100 = 0.50\)</span> - <span
+class="math inline">\(p_B = 30 / 100 = 0.30\)</span> - <span
+class="math inline">\(p_C = 20 / 100 = 0.20\)</span></p>
+<p><strong>Step 3. Calculate <span class="math inline">\(p_i \ln
+p_i\)</span> for each species.</strong> - Species A: <span
+class="math inline">\(0.50 \times \ln(0.50) \approx 0.50 \times (-0.693)
+\approx -0.347\)</span> - Species B: <span class="math inline">\(0.30
+\times \ln(0.30) \approx 0.30 \times (-1.204) \approx -0.361\)</span> -
+Species C: <span class="math inline">\(0.20 \times \ln(0.20) \approx
+0.20 \times (-1.609) \approx -0.322\)</span></p>
+<p><strong>Step 4. Sum the values and multiply by <span
+class="math inline">\(-1\)</span>.</strong> <span
+class="math display">\[H = - (-0.347 + -0.361 + -0.322) = - (-1.030) =
+1.030 \label{eq:unit_X_community_ecology_item_3}\]</span></p>
+<p><strong>Answer:</strong> The Shannon Diversity Index for this tree
+community is approximately <strong>1.03</strong>.</p>
+<hr />
+<h2 id="current-evidence-and-frontier-biology">Current Evidence and
+Frontier Biology</h2>
+<p>For <strong>Community Ecology and Species Interactions</strong>,
+frontier biology belongs inside the evidence logic of the chapter.
+Ecology and conservation decisions increasingly combine field data,
+remote sensing, community knowledge, model uncertainty, and explicit
+values. The core reading question is this: community claims should
+identify interaction type, network position, disturbance regime, and
+observational limits.</p>
+<ul>
+<li><strong>What to verify:</strong> identify the observation, model,
+assay, or dataset that would make the claim stronger or weaker.</li>
+<li><strong>What to qualify:</strong> state the scale, organism, cell
+type, environmental condition, or population where the claim is expected
+to hold.</li>
+<li><strong>What to compare:</strong> test at least one alternative
+explanation, baseline, or null model before treating the pattern as
+causal.</li>
+<li><strong>What to cite:</strong> distinguish primary evidence, review
+synthesis, public dataset, and institutional guidance; for recent or
+numeric claims, prefer the source closest to the measurement and state
+what has changed since it was published.</li>
+</ul>
+<p>Use biodiversity metrics carefully: population indices, extinction
+risk categories, ecosystem services, and management targets answer
+different questions .</p>
+<p><strong>Source practice:</strong> For conservation claims, cite
+assessment sources and state whether the evidence is a population index,
+extinction-risk assessment, ecosystem-service valuation, satellite
+product, or policy synthesis .</p>
+<h2 id="key-terms">Key Terms</h2>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Competitive exclusion principle</strong></td>
+<td>Two species cannot stably coexist if they occupy the exact same
+niche; the superior competitor excludes the other</td>
+</tr>
+<tr>
+<td><strong>Keystone species</strong></td>
+<td>Species with disproportionately large effects on community structure
+relative to its abundance</td>
+</tr>
+<tr>
+<td><strong>Trophic cascade</strong></td>
+<td>Indirect effect of apex predator on plant biomass via suppressing
+herbivores; top-down regulation</td>
+</tr>
+<tr>
+<td><strong>Succession</strong></td>
+<td>Directional change in community composition over time; primary (bare
+substrate) or secondary (after disturbance)</td>
+</tr>
+<tr>
+<td><strong>Intermediate Disturbance Hypothesis</strong></td>
+<td>Moderate disturbance frequency/intensity maximises species diversity
+by preventing competitive exclusion</td>
+</tr>
+<tr>
+<td><strong>Shannon diversity (<span
+class="math inline">\(H&#39;\)</span>)</strong></td>
+<td><span class="math inline">\(H&#39; = -\sum p_i \ln p_i\)</span>;
+quantifies species richness and evenness simultaneously</td>
+</tr>
+<tr>
+<td><strong>Simpson index (<span
+class="math inline">\(1-D\)</span>)</strong></td>
+<td>Probability that two random individuals are from different species;
+weighted toward dominant species</td>
+</tr>
+<tr>
+<td><strong>Species-area relationship</strong></td>
+<td><span class="math inline">\(S = cA^z\)</span>; species richness
+increases with area; <span class="math inline">\(z \approx 0.25\)</span>
+for habitat islands</td>
+</tr>
+<tr>
+<td><strong>SLOSS</strong></td>
+<td>Single Large Or Several Small reserves debate in conservation
+biology</td>
+</tr>
+<tr>
+<td><strong>Extinction debt</strong></td>
+<td>Species present today but predicted to go extinct based on current
+habitat loss; time-delayed response</td>
+</tr>
+<tr>
+<td><strong>Metapopulation</strong></td>
+<td>Network of semi-isolated subpopulations connected by dispersal;
+local extinctions offset by recolonisation</td>
+</tr>
+<tr>
+<td><strong>Alternative stable states</strong></td>
+<td>Multiple stable community configurations under the same
+environmental conditions; regime shifts between states</td>
+</tr>
+<tr>
+<td><strong>Niche differentiation</strong></td>
+<td>Process by which competing species evolve to use different
+resources, reducing niche overlap</td>
+</tr>
+<tr>
+<td><strong>Fundamental niche</strong></td>
+<td>Full range of environmental conditions where a species can maintain
+<span class="math inline">\(r \geq 0\)</span> (Hutchinson)</td>
+</tr>
+<tr>
+<td><strong>Realised niche</strong></td>
+<td>Subset of fundamental niche actually occupied after biotic
+interactions</td>
+</tr>
+<tr>
+<td><strong>Connectance</strong></td>
+<td>Proportion of possible trophic links that are realised in a food
+web</td>
+</tr>
+<tr>
+<td><strong>Facilitation</strong></td>
+<td>One species improves survival or reproduction of another; mechanism
+of succession</td>
+</tr>
+<tr>
+<td><strong>Beta diversity</strong></td>
+<td>Species turnover between communities; measured by Jaccard or
+Bray-Curtis indices</td>
+</tr>
+<tr>
+<td><strong>Neutral theory (UNTB)</strong></td>
+<td>Hubbell’s framework: per-capita demographic equivalence;
+biodiversity arises from drift, dispersal, and speciation</td>
+</tr>
+<tr>
+<td><strong>Fundamental biodiversity number (θ)</strong></td>
+<td><span class="math inline">\(\theta = 2J_M\nu\)</span>; controls
+species richness in the metacommunity under UNTB</td>
+</tr>
+<tr>
+<td><strong>CSR strategies</strong></td>
+<td>Grime’s competitor / stress-tolerator / ruderal classification of
+plant strategies</td>
+</tr>
+<tr>
+<td><strong>Leaf economics spectrum (LES)</strong></td>
+<td>Comprehensive axis from acquisitive (high SLA, short-lived leaves)
+to conservative (thick, long-lived) leaves</td>
+</tr>
+<tr>
+<td><strong>Functional diversity</strong></td>
+<td>Trait-based diversity metric; clustering vs. overdispersion
+diagnoses assembly mechanism</td>
+</tr>
+<tr>
+<td><strong>Classical biological control</strong></td>
+<td>Importation of a specialist natural enemy from a pest’s native
+range</td>
+</tr>
+<tr>
+<td><strong>Conservation biological control</strong></td>
+<td>Habitat modification to favour resident natural enemies; lowest-risk
+strategy</td>
+</tr>
+<tr>
+<td><strong>Network robustness</strong></td>
+<td>Resilience of a food web to species removal; collapses fastest under
+most-connected-first deletion</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="review-questions">Review Questions</h2>
+<ol type="1">
+<li><p>Two warbler species (<em>Dendroica castanea</em> and <em>D.
+fusca</em>) share a boreal spruce tree habitat. MacArthur (1958) showed
+they coexist by partitioning the tree into feeding zones. Using
+Chesson’s modern coexistence theory: (a) Which of Chesson’s two
+mechanisms (equalising vs. stabilising) enables their coexistence? (b)
+Write <a href="#gl:lotka-volterra-equations"><strong>Lotka-Volterra
+equations</strong></a> and specify the condition for stable coexistence
+in terms of <span class="math inline">\(\alpha_{12}\)</span> and <span
+class="math inline">\(\alpha_{21}\)</span>.</p></li>
+<li><p>A trophic cascade operates in Yellowstone: wolves → elk → willows
+→ beavers → altered stream morphology. (a) Is this a bottom-up or
+top-down cascade? (b) Predict what happens to each level if chronic
+wasting disease eliminates 90% of the elk population. (c) How does the
+“landscape of fear” concept modify purely density-mediated cascade
+predictions?</p></li>
+<li><p>A tropical rainforest island (area = 500 km<span
+class="math inline">\(^2\)</span>) currently has <span
+class="math inline">\(S = 200\)</span> bird species. Deforestation
+reduces area to 125 km<span class="math inline">\(^2\)</span> (25% of
+original). (a) Using the species-area relationship with <span
+class="math inline">\(z = 0.25\)</span> and appropriate <span
+class="math inline">\(c\)</span>, predict the final equilibrium species
+richness. (b) If the extinction debt takes 50 years to fully manifest,
+what is the expected species number at year 10 assuming linear debt
+decay?</p></li>
+<li><p>Compare the Shannon diversity index (<span
+class="math inline">\(H&#39;\)</span>) for three communities:</p>
+<ul>
+<li>Community A: 4 species, abundances = [25, 25, 25, 25]</li>
+<li>Community B: 4 species, abundances = [97, 1, 1, 1]</li>
+<li>Community C: 8 species, abundances = [50, 20, 10, 8, 5, 4, 2, 1]
+Calculate <span class="math inline">\(H&#39;\)</span> and <span
+class="math inline">\(J&#39;\)</span> for each. Which community shows:
+highest richness? highest evenness? highest <span
+class="math inline">\(H&#39;\)</span>?</li>
+</ul></li>
+<li><p>Explain Hutchinson’s “paradox of the plankton.” Why does the
+coexistence of hundreds of phytoplankton species apparently violate
+competitive exclusion, and what are three mechanisms that resolve the
+paradox?</p></li>
+<li><p>The Biological Dynamics of Forest Fragments Project (BDFFP) in
+Amazonia found that 1-ha fragments lost 50% of their bird species within
+15 years, while 100-ha fragments lost 10%. (a) Calculate <span
+class="math inline">\(z\)</span> from these two data points. (b) Predict
+the species richness of a 10-ha fragment relative to a 100-ha fragment.
+(c) What role do edge effects play beyond the simple species-area
+prediction?</p></li>
+<li><p>A shallow lake in the Netherlands exists in a clear-water state
+with abundant macrophytes. Nutrient loading from agriculture gradually
+increases. Describe the regime shift to the turbid, algal-dominated
+state using the framework of alternative stable states. Why is reducing
+nutrients back to the original level insufficient to restore the
+clear-water state (hysteresis)?</p></li>
+<li><p>Design a reserve system for a large mammal species (home range =
+100 km<span class="math inline">\(^2\)</span>, <span
+class="math inline">\(N_e\)</span> requirement = 500) in a landscape of
+forest fragments. Use island biogeography principles to specify: (a)
+minimum total reserve area, (b) number and size of core reserves, (c)
+corridor design, (d) matrix management. Justify each design
+element.</p></li>
+<li><p>The rough-skinned newt and common garter snake represent one of
+the best-documented coevolutionary arms races. Describe the escalation:
+what toxin does the newt produce, what resistance mechanism has the
+snake evolved, and what geographic mosaic pattern is observed? How does
+this relate to Red Queen dynamics?</p></li>
+<li><p>Explain how the competitive exclusion principle applies to
+<em>Clostridium difficile</em> infection and its treatment by fecal
+microbiota transplantation. What ecological principles make FMT more
+effective than antibiotic treatment for recurrent CDI?</p></li>
+<li><p>Using <code>lotka_volterra</code>, estimate whether predator peak
+<strong>lags</strong> prey peak for default parameters (inspect time
+series qualitatively).</p></li>
+<li><p>How does <strong>connectance</strong> <span
+class="math inline">\(C=L/S^2\)</span> relate to stability arguments in
+diverse food webs?</p></li>
+<li><p>Hubbell’s neutral theory predicts a species-abundance
+distribution from drift and dispersal alone. (a) Why is UNTB best
+regarded as a <em>null model</em> rather than a competitor to niche
+theory? (b) If a community fits UNTB perfectly, what does that
+<em>not</em> prove about the underlying ecology? Cite the Adler,
+HilleRisLambers &amp; Levine (2007) synthesis.</p></li>
+<li><p>Two oak forests share identical species lists (<span
+class="math inline">\(S = 30\)</span>, <span
+class="math inline">\(H&#39; = 2.8\)</span>) but differ markedly in leaf
+economics: forest A’s species cluster on the conservative end of the
+LES; forest B’s species span the entire spectrum. (a) Which forest is
+more functionally diverse? (b) Predict relative productivity,
+decomposition rate, and drought-resilience for each. (c) Why do two
+communities with identical Shannon diversity behave
+differently?</p></li>
+<li><p>A food-web robustness analysis simulates extinctions in random
+vs. most-connected-first orders. The web collapses after 50% removal
+under random deletion but after 18% removal under most-connected-first
+deletion. (a) Explain the asymmetry using network topology. (b)
+Translate the result into a conservation prioritisation rule for hub
+species (analogous to keystone identification but topological).</p></li>
+<li><p>A government agency proposes releasing a parasitoid wasp from
+East Asia to control an invasive aphid species in California. (a)
+Outline the host-specificity testing required before approval. (b) Why
+is the cane toad disaster relevant precedent? (c) Sketch how the agent
+and aphid populations would interact in a coupled Lotka-Volterra model —
+and what condition supports long-term aphid suppression rather than
+coexistence?</p></li>
+</ol>
+<hr />
+<h2 id="further-reading-and-source-notes">Further Reading and Source
+Notes</h2>
+<ul>
+<li>Paine (1966). Food Web Complexity and Species Diversity. <em>The
+American Naturalist</em>, 100.</li>
+<li>Connell (1978). Diversity in tropical rain forests and coral reefs.
+<em>Science</em>, 199.</li>
+<li>Gause (1934). <em>The Struggle for Existence</em>. Williams &amp;
+Wilkins.</li>
+<li>Hutchinson (1957). Concluding remarks. <em>Cold Spring Harbor
+Symposia on Quantitative Biology</em>, 22.</li>
+<li>Chesson (2000). Mechanisms of maintenance of species diversity.
+<em>Annual Review of Ecology and Systematics</em>, 31.</li>
+<li>Ehrlich &amp; Raven (1964). Butterflies and plants: A study in
+coevolution. <em>Evolution</em>, 18.</li>
+</ul>
+<hr />
+<h2 id="computational-bridge">Computational Bridge</h2>
+<p>Predator–prey cycles from the chapter are reproduced by numerical
+integration:</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.ecology <span class="im">import</span> lotka_volterra</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>lv <span class="op">=</span> lotka_volterra(<span class="fl">40.0</span>, <span class="fl">9.0</span>, <span class="fl">0.5</span>, <span class="fl">0.02</span>, <span class="fl">0.01</span>, <span class="fl">0.2</span>, t_end<span class="op">=</span><span class="fl">80.0</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(lv.times), <span class="bu">round</span>(lv.prey[<span class="op">-</span><span class="dv">1</span>], <span class="dv">2</span>))</span></code></pre></div>
+<blockquote>
+<p><strong>Clinical / systems note:</strong> FMT restores diversity and
+colonisation resistance — an ecological intervention for a microbiome
+community treated as a competitive network.</p>
+</blockquote>
+<hr />
+<h2 id="summary">Summary</h2>
+<ul>
+<li><strong>Biotic interactions:</strong> mutualism (+/+), commensalism
+(+/0), parasitism (+/-), predation (+/-), competition (-/-), amensalism
+(0/-) — shape community composition and evolution.</li>
+<li><strong>Competition:</strong> Lotka-Volterra equations; competitive
+exclusion if niches overlap completely; stable coexistence if
+intraspecific &gt; interspecific effects. Modern coexistence theory :
+stabilising + equalising mechanisms.</li>
+<li><strong>Niche theory:</strong> Hutchinson’s n-dimensional
+hypervolume; fundamental vs. realised niche; paradox of the plankton
+resolved by non-equilibrium dynamics and niche partitioning.</li>
+<li><strong>Trophic cascades:</strong> keystone predators suppress
+herbivores → plant biomass increases (wolves→elk→willows; sea
+otters→urchins→kelp). Behavioural cascades via “landscape of fear.”</li>
+<li><strong>Succession:</strong> primary (bare substrate, slow)
+vs. secondary (disturbed community, faster);
+facilitation/tolerance/inhibition mechanisms; IDH: intermediate
+disturbance maximises diversity; alternative stable states and regime
+shifts with hysteresis.</li>
+<li><strong>Diversity indices:</strong> <span
+class="math inline">\(H&#39;\)</span> (Shannon) combines richness +
+evenness; Simpson <span class="math inline">\(1-D\)</span> = probability
+of inter-specific encounter; <span class="math inline">\(J&#39;\)</span>
+(evenness) = <span class="math inline">\(H&#39;/\ln S\)</span>. Alpha,
+beta, gamma diversity at different spatial scales.</li>
+<li><strong>Island biogeography:</strong> <span class="math inline">\(S
+= cA^z\)</span>; equilibrium balances colonisation and extinction; SLOSS
+debate resolved toward core-corridor-matrix design; extinction debt
+warns of delayed species loss.</li>
+<li><strong>Food web structure:</strong> connectance, modularity,
+weak-interaction dominance stabilise complex communities.
+<strong>Network robustness</strong> under targeted
+(most-connected-first) deletion collapses faster than under random
+deletion — hub species are topological keystones.</li>
+<li><strong>Neutral theory (UNTB):</strong> Hubbell’s
+per-capita-equivalence framework; two parameters θ and <span
+class="math inline">\(m\)</span> predict species-abundance distributions
+and species–area relationships from drift, dispersal, and speciation
+alone. Best treated as a null model that niche-based theory must
+beat.</li>
+<li><strong>Trait-based ecology:</strong> Grime’s CSR triangle; the leaf
+economics spectrum (LES) is a widely observed acquisitive↔︎conservative
+axis with local exceptions. Functional diversity diagnoses assembly
+mechanisms (clustering = environmental filtering; overdispersion =
+limiting similarity) that species lists miss.</li>
+<li><strong>Biological control:</strong> classical importation (vedalia
+beetle success; cane toad disaster), augmentative releases, and
+conservation biological control. <em>Wolbachia</em>-loaded <em>Aedes
+aegypti</em> extends the framework to vector-borne disease.</li>
+<li><strong>Connections:</strong> See for consumer-resource
+oscillations, for energy flux, and for microbial communities.</li>
+</ul>
+<hr />
+<h3 id="companion-source-module">Companion Source Module</h3>
+<p><strong>Community Ecology and Species Interactions</strong> should
+leave a reproducible trail from a biological claim to the code, figure,
+diagram, or paper-based activity that can test it. Use the surfaces
+below to inspect the chapter’s assumptions, rerun the relevant model, or
+compare the manuscript explanation with companion labs and figures.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>Surface</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>src/biology/ecology/ecology.py</code>
+(<code>lotka_volterra</code>, <code>connectance</code>,
+<code>biodiversity_indices</code>)</td>
+<td>Quantify interactions, network structure, and community
+diversity.</td>
+</tr>
+<tr>
+<td><code>src/visualization/plots.py</code>
+(<code>plot_lotka_volterra</code>,
+<code>plot_species_area_relationship</code>)</td>
+<td>Inspect dynamics and richness-area patterns.</td>
+</tr>
+<tr>
+<td><code>src/mermaid/biology_diagrams.py</code>
+(<code>food_web_diagram</code>)</td>
+<td>Keep trophic links and interaction signs explicit.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reproducibility check:</strong> define interaction sign,
+spatial scale, sampling effort, disturbance history, and network
+boundary before interpreting community patterns.
+<strong>Cross-reference:</strong> use , , and .</p>
+</body>
+</html>

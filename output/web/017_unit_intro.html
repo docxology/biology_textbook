@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>017_unit_intro</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      white-space: pre-wrap;
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<!-- render:skip-beamer -->
+<h1 class="unnumbered"
+id="unit-iii-energy-and-metabolism-introduction">Unit III — Energy and
+Metabolism: Introduction</h1>
+<h2 class="unnumbered" id="why-this-unit-matters">Why This Unit
+Matters</h2>
+<p>Life is, at its core, an ongoing argument with the second law of
+thermodynamics. The second law demands that disorder increases in any
+closed system; living organisms are ordered, and they maintain that
+order at the price of consuming energy and exporting entropy to their
+surroundings. A resting human adult dissipates approximately 80 watts —
+the same as an incandescent light bulb — in the form of body heat, CO₂,
+and metabolic waste. Every breath you take, every protein you
+synthesise, every ion you pump against its gradient, uses energy
+extracted from the oxidation of food.</p>
+<p>The molecular currency of this energy economy is ATP (adenosine
+triphosphate). At any moment, your cells contain ~50 g of ATP, yet you
+consume roughly 40 kg of ATP every day at rest. This means each ATP
+molecule is recycled approximately 800 times — phosphorylated from ADP
+in mitochondria, hydrolysed to ADP in the cytoplasm, and regenerated in
+an endless chemical cycle. During vigorous exercise, ATP turnover in
+muscle can exceed 0.5 kg per minute.</p>
+<p>This unit traces energy from its entry point — sunlight captured by
+chlorophyll, or chemical bonds in food — through the interconnected
+pathways of glycolysis, the TCA cycle, oxidative phosphorylation, and
+photosynthesis, to its exit as heat and CO₂. Each pathway is treated
+quantitatively: you will derive ATP yields, calculate free energy
+changes, and model the regulatory logic that switches metabolism between
+fed and fasted states. The central thread is Peter Mitchell’s
+chemiosmosis (Nobel Prize 1978): ion gradients across membranes couple
+electron flow to ATP synthesis, and the same principle operates in both
+mitochondria and chloroplasts.</p>
+<hr />
+<h2 class="unnumbered" id="landmark-discoveries">Landmark
+Discoveries</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 7%" />
+<col style="width: 29%" />
+<col style="width: 16%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th>Discoverer(s)</th>
+<th>Year</th>
+<th>Journal / Source</th>
+<th>Discovery</th>
+<th>Significance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hans Krebs</td>
+<td>1937</td>
+<td><em>Enzymologia</em></td>
+<td>Citric acid (Krebs/TCA) cycle</td>
+<td>Identified the central hub of aerobic catabolism; Nobel Prize
+1953</td>
+</tr>
+<tr>
+<td>Otto Warburg</td>
+<td>1923–1930</td>
+<td><em>Biochemische Zeitschrift</em></td>
+<td>Respiratory enzyme and Warburg effect</td>
+<td>First measured oxygen consumption in cancer; discovered aerobic
+glycolysis</td>
+</tr>
+<tr>
+<td>Peter Mitchell</td>
+<td>1961</td>
+<td><em>Nature</em></td>
+<td>Chemiosmotic hypothesis</td>
+<td>Proposed proton gradients drive ATP synthesis; revolutionary
+paradigm shift; Nobel Prize 1978</td>
+</tr>
+<tr>
+<td>Paul Boyer &amp; John Walker</td>
+<td>1994–1997</td>
+<td><em>Biochemistry; J. Mol. Biol.</em></td>
+<td>Binding-change mechanism of ATP synthase</td>
+<td>Explained rotary catalysis of F₁F₀-ATP synthase; Nobel Prize
+1997</td>
+</tr>
+<tr>
+<td>Melvin Calvin, Andrew Benson &amp; James Bassham</td>
+<td>1950</td>
+<td><em>J. Am. Chem. Soc.</em></td>
+<td>Calvin cycle (carbon fixation)</td>
+<td>Traced ¹⁴C through photosynthesis; established the biochemistry of
+C₃ fixation; Nobel Prize 1961</td>
+</tr>
+<tr>
+<td>Racker &amp; Stoeckenius</td>
+<td>1974</td>
+<td><em>J. Biol. Chem.</em></td>
+<td>Bacteriorhodopsin + ATP synthase reconstitution</td>
+<td>Direct experimental proof of Mitchell’s chemiosmosis using purified
+components</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="key-concepts-and-connections">Key Concepts
+and Connections</h2>
+<pre class="mermaid"><code>graph TD
+    THERMO[&quot;Thermodynamics&lt;br/&gt;(ΔG = ΔH − TΔS;&lt;br/&gt;1st &amp; 2nd Laws)&quot;] --&gt; ATP[&quot;ATP&lt;br/&gt;(central energy carrier;&lt;br/&gt;ΔG ≈ −54 kJ/mol cellular)&quot;]
+
+    ATP --&gt; GLYC[&quot;🍬 Glycolysis&lt;br/&gt;(10 steps; cytoplasm;&lt;br/&gt;2 ATP + 2 NADH/glucose)&quot;]
+    GLYC --&gt; PDC[&quot;🔗 Pyruvate Dehydrogenase&lt;br/&gt;(5 cofactors;&lt;br/&gt;GlycolysisTCA bridge)&quot;]
+    PDC --&gt; TCA[&quot;🔄 TCA Cycle&lt;br/&gt;(8 steps; matrix;&lt;br/&gt;6 NADH + 2 FADH₂ + 2 GTP)&quot;]
+
+    TCA --&gt; ETC[&quot;⚡ Electron Transport Chain&lt;br/&gt;(Complexes I–IV;&lt;br/&gt;10 H⁺ per NADH)&quot;]
+    ETC --&gt; PMF[&quot;🌊 Proton-Motive Force&lt;br/&gt;(ΔΨ + ΔpH ≈ 180 mV)&quot;]
+    PMF --&gt; ATPS[&quot;🔩 ATP Synthase&lt;br/&gt;(F₀F₁ rotary motor;&lt;br/&gt;~3 H⁺/ATP)&quot;]
+
+    PHOTO[&quot;☀️ Photosynthesis&lt;br/&gt;(light reactions → NADPH + ATP;&lt;br/&gt;Calvin cycle → G3P)&quot;] --&gt; ATP
+    PHOTO --&gt; GLYC
+
+    FERM[&quot;🍺 Fermentation&lt;br/&gt;(anaerobic; 2 ATP;&lt;br/&gt;lactate or ethanol)&quot;] --&gt; GLYC
+    GLYC --&gt; FERM
+
+    INT[&quot;🔀 Metabolic Integration&lt;br/&gt;(insulin, glucagon,&lt;br/&gt;AMPK regulation)&quot;] --&gt; GLYC
+    INT --&gt; TCA
+
+    style ATP fill:#f39c12,color:#fff
+    style ETC fill:#e74c3c,color:#fff
+    style PHOTO fill:#27ae60,color:#fff
+    style ATPS fill:#8e44ad,color:#fff</code></pre>
+<!-- alt: Graph showing unit III concept map — Energy and Metabolism. Orange = ATP currency; red = oxidative phosphorylation; green = photosynthesis; purple = ATP synthase. -->
+<p><em>Unit III concept map — Energy and Metabolism. Orange = ATP
+currency; red = oxidative phosphorylation; green = photosynthesis;
+purple = ATP synthase.</em></p>
+<hr />
+<h2 class="unnumbered" id="current-evidence-thread">Current Evidence
+Thread</h2>
+<p>Read this unit as one regulated network rather than three separate
+pathways: respiration, the integrated fasting/fed economy, and
+photosynthesis are most constrained by the same currencies of energy
+charge, redox poise, and compartmentation, and a claim in one chapter is
+primarily as strong as the flux, sensor, and condition it specifies.
+Metabolism is now studied as a regulated network constrained by energy,
+redox balance, compartmentation, and environment. As you move through
+the chapters, keep a two-column note: <strong>claim</strong> on the
+left, <strong>evidence that would change my confidence</strong> on the
+right. By the end of the unit, each major idea should be tied to a
+measurement, model, citation, or paper-based lab decision.</p>
+<h2 class="unnumbered" id="chapter-roadmap">Chapter Roadmap</h2>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 11%" />
+<col style="width: 28%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Title</th>
+<th>Core Question</th>
+<th>Key Equation / Model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>9</strong></td>
+<td>Bioenergetics and Cellular Respiration</td>
+<td>How do cells extract and convert chemical energy from glucose?</td>
+<td><span class="math inline">\(\Delta G = \Delta G^{\circ\prime} +
+RT\ln Q\)</span>; P/O ratios</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td>Photosynthesis</td>
+<td>How do plants capture solar energy and fix CO₂?</td>
+<td>Light-harvesting cross-section; Z-scheme; Calvin cycle
+stoichiometry</td>
+</tr>
+<tr>
+<td><strong>11</strong></td>
+<td>Metabolic Integration</td>
+<td>How do hormones and allosteric signals coordinate anabolic and
+catabolic pathways?</td>
+<td>AMPK activation; insulin/glucagon signalling logic</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 class="unnumbered" id="connections-across-the-textbook">Connections
+Across the Textbook</h2>
+<ul>
+<li><strong>ATP and free energy</strong> introduced here underpin most
+driven processes in Unit IV (DNA replication, transcription,
+translation), Unit VIII (active transport in phloem), and Unit IX
+(Na⁺/K⁺-ATPase in neurons).</li>
+<li><strong>The TCA cycle as metabolic hub</strong> is integrated in and
+connects to amino acid catabolism (Unit IV), fatty acid oxidation, and
+nucleotide synthesis.</li>
+<li><strong>Proton-motive force</strong> is the conceptual bridge
+between mitochondrial ATP synthesis (this unit) and chloroplast ATP
+synthesis (), and between bacterial physiology (Unit VII) and the
+evolution of eukaryotes (Unit II, endosymbiosis).</li>
+<li><strong>Warburg effect</strong> (cancer cells performing aerobic
+glycolysis) appears in Unit II (cell signalling oncogenes), Unit IV
+(genomic instability), and the clinical connection sections
+throughout.</li>
+</ul>
+<blockquote>
+<p><strong>Key vocabulary introduced here:</strong> free energy,
+enthalpy, entropy, ATP hydrolysis, glycolysis, oxidative
+phosphorylation, proton-motive force, chemiosmosis, electron transport
+chain, substrate-level phosphorylation, fermentation, Calvin cycle,
+Warburg effect.</p>
+</blockquote>
+<h2 class="unnumbered" id="computational-toolbox-unit-iii">Computational
+Toolbox — Unit III</h2>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> biology.biochemistry <span class="im">import</span> atp_free_energy, glycolysis_summary</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ATP hydrolysis free energy under physiological conditions</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>delta_g <span class="op">=</span> atp_free_energy(atp_conc_mM<span class="op">=</span><span class="fl">3.0</span>, adp_conc_mM<span class="op">=</span><span class="fl">1.0</span>, pi_conc_mM<span class="op">=</span><span class="fl">10.0</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;ΔG (ATP hydrolysis) = </span><span class="sc">{</span>delta_g<span class="sc">:.1f}</span><span class="ss"> kJ/mol&quot;</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected: ΔG (ATP hydrolysis) ≈ -45.2 kJ/mol</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># (Standard ΔG°&#39; = -30.5 kJ/mol; physiological conditions make it more negative</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  due to low [ADP][Pi] and high [ATP] in active cells)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing aerobic vs anaerobic ATP yield</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>aerobic <span class="op">=</span> glycolysis_summary()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Glycolysis only: </span><span class="sc">{</span>aerobic<span class="sc">.</span>net_atp<span class="sc">}</span><span class="ss"> ATP per glucose&quot;</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2 ATP (substrate-level only); aerobic adds ~32 more via oxidative phosphorylation</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># The complete aerobic yield</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>total_aerobic_atp <span class="op">=</span> aerobic.net_atp <span class="op">+</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">10</span><span class="op">*</span><span class="fl">2.5</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span><span class="fl">1.5</span>  <span class="co"># GTP + NADH + FADH2</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Aerobic total (estimate): ~</span><span class="sc">{</span>total_aerobic_atp<span class="sc">:.0f}</span><span class="ss"> ATP per glucose&quot;</span>)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Expected: Aerobic total (estimate): ~32 ATP per glucose</span></span></code></pre></div>
+<blockquote>
+<p><strong>Try it yourself:</strong> The P/O ratio (ATP per oxygen atom)
+is 2.5 for NADH and 1.5 for FADH₂. Calculate the theoretical maximum
+yield from one glucose: 10 NADH × 2.5 + 2 FADH₂ × 1.5 + 4
+substrate-level = __?</p>
+</blockquote>
+<hr />
+<p><em>Source modules:
+<code>src/biology/biochemistry/biochemistry.py</code> —
+<code>glycolysis_summary()</code>, <code>atp_free_energy()</code>,
+<code>michaelis_menten()</code>.</em> <em>Figures:
+<code>src/visualization/</code> (ETC diagrams, ATP yield tables);
+<code>src/mermaid/biology_diagrams.py</code> (metabolic pathway
+diagrams).</em></p>
+</body>
+</html>
