@@ -507,6 +507,26 @@ Treat every model as a claim about mechanism: define the system boundary, identi
 
 **Source practice:** Use model-validation sources when available, and state which observation would falsify the model rather than treating a diagram as proof.
 
+## Unit 0 Integration: From Systems to Adaptive Agents
+
+\nameref{sec:unit_0_systems_science} defines boundaries, feedback, and dynamics. CAS reasoning adds three commitments:
+
+1. **Agents are heterogeneous.** Cells, organisms, immune clones, microbial taxa, or firms in a food system do not all share the same state, history, or rule set.
+2. **Rules are local.** Global patterns emerge from local sensing, movement, reproduction, death, learning, or signalling.
+3. **History matters.** The same perturbation can have different outcomes after a system has crossed a threshold, acquired a mutation, changed a niche, or settled into a new attractor.
+
+These commitments are what let CAS connect evolution, immunity, cancer, neural circuits, microbial ecology, and conservation. They also prevent a common overclaim. A system is not complex-adaptive merely because it has many parts. It becomes CAS-like when local adaptive rules, heterogeneity, and path dependence explain a global pattern better than a single representative-agent model.
+
+### Diagnostic workflow
+
+When you meet a later chapter case, ask:
+
+- What are the agents?
+- What local rule does each agent follow?
+- What variable changes through feedback or selection?
+- What global property appears after the agents interact?
+- What perturbation would distinguish emergence from ordinary aggregation?
+
 ## Summary
 
 - A complex adaptive system is a collection of interacting agents with adaptive rules that generate emergent collective behaviour.

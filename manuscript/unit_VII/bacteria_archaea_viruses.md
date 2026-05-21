@@ -448,7 +448,7 @@ Archaea are prokaryotes that were long classified with bacteria but differ funda
 
 ### Archaeal Lipid Biochemistry: Why Hot Vents Don't Melt Membranes
 
-The single most diagnostic biochemical feature of Archaea is the architecture of their membrane lipids. Three differences from bacterial/eukaryotic phospholipids are simultaneously present, and most three contribute to extreme stability:
+The single most diagnostic biochemical feature of Archaea is the architecture of their membrane lipids. Three differences from bacterial/eukaryotic phospholipids are simultaneously present, and the combination contributes to extreme stability:
 
 1. **Ether linkages** instead of ester linkages between glycerol and the hydrocarbon chains. Ether bonds (C–O–C) are far more chemically inert than ester bonds (C–O–C(=O)) — they resist acid hydrolysis, base hydrolysis, oxidation, and high-temperature cleavage.
 2. **Isoprenoid (phytanyl) chains** (built from C5 isoprene units, with branched methyl groups every 4 carbons) instead of straight-chain fatty acids. Methyl branches cause kinks that prevent tight chain crystallization at low temperatures (preventing membrane gelling) while van-der-Waals interactions between branches stiffen the membrane against fluidization at high temperatures.
@@ -1071,7 +1071,7 @@ flowchart LR
 14. **Peptidoglycan pathway integration.** Place fosfomycin, D-cycloserine, bacitracin, vancomycin, and ampicillin on the peptidoglycan biosynthesis pathway and explain why a single resistance mutation generally confers resistance to a single of them — but VanA-type vancomycin resistance and PBP2a (mecA) MRSA evade two by altering different parts of the same step.
 15. **Two-component systems and antibiotic stewardship.** PhoQ-PhoP modifies lipid A in response to host antimicrobial peptides. Explain how this TCS contributes to colistin resistance and why a PhoQ inhibitor would be expected to "re-sensitize" *Salmonella* to polymyxins.
 16. **Biofilm pharmacology.** A patient with a *S. aureus* prosthetic-knee infection fails six weeks of vancomycin. Explain four distinct biofilm-related reasons for this failure and design a combination strategy targeting at least two of them.
-17. **Phage therapy resistance.** A clinical phage cocktail uses three phages with non-overlapping receptors (LPS O-antigen, OmpC, type IV pilus). Estimate the probability that a single bacterium escapes most three by independent mutation and explain why cocktails have outperformed single-phage therapies in trials.
+17. **Phage therapy resistance.** A clinical phage cocktail uses three phages with non-overlapping receptors (LPS O-antigen, OmpC, type IV pilus). Estimate the probability that a single bacterium escapes the full cocktail by independent mutation and explain why cocktails have outperformed single-phage therapies in trials.
 18. **CRISPR types comparison.** A biotech company wants to develop a phage-therapy product that itself targets multi-drug-resistant *E. coli* CRISPR-immune to the original phage. Compare Type I (Cas3, processive degradation) and Type II (Cas9, blunt DSB) approaches for this application, and justify your choice based on (a) target size, (b) delivery, and (c) likelihood of bacterial escape.## Further Reading and Source Notes
 
 - Woese & Fox (1977). Phylogenetic structure of the prokaryotic domain: The primary kingdoms. *Proceedings of the National Academy of Sciences*, 74.

@@ -30,7 +30,7 @@
 <!-- lab-alignment-end -->
 ## Background {.unnumbered}
 
-This lab is a paper-based source and evidence analysis. You will work with source cards based on classic biological episodes and contemporary debates about microbiomes and bioethics.
+This lab is a paper-based source and evidence analysis. You will work with source cards based on classic biological episodes, global knowledge traditions, experimental systems, modern molecular biology, microbiomes, and bioethics. The goal is not to memorize a timeline; the goal is to learn how a biological claim becomes credible, limited, revised, or ethically consequential.
 
 ## Pre-Lab Concept Questions {.unnumbered}
 
@@ -43,8 +43,27 @@ This lab is a paper-based source and evidence analysis. You will work with sourc
 - Printed source-card packet.
 - Evidence-map worksheet.
 - Timeline strip with blank event cards.
+- Concept-boundary worksheet with columns for unit, mechanism, function, model, and value.
 - Coloured pens or pencils.
 - Sticky notes for uncertainty and value annotations.
+
+### Source-card packet {.unnumbered}
+
+The instructor should provide short paraphrased cards or public-domain excerpts representing at least these cases:
+
+| Card | Practice emphasis | Prompt |
+| --- | --- | --- |
+| Aristotle | Functional anatomy | What does the part do for the organism? |
+| Ibn Sina / materia medica | Medical classification | How are body, remedy, and illness organised? |
+| Linnaeus | Classification | What makes names portable across observers? |
+| Harvey | Experiment and quantification | What intervention distinguishes circulation from flow-through production? |
+| Hooke | Instrument-mediated observation | What can be claimed once microscopy changes the visible scale? |
+| Darwin-Wallace | Historical causation | What traces support selection as a past process? |
+| Mendel / Fisher | Inheritance and model-building | How do crosses become population explanations? |
+| Franklin / Watson-Crick / Crick | Molecular evidence | How do structure, image, and information claims fit together? |
+| Waddington / developmental systems | Development | Why is nature-nurture too coarse? |
+| Microbiome / symbiosis | Biological individuality | Where should the organism boundary be drawn? |
+| Bioethics / public biology | Values and governance | Which decision changes when uncertainty remains? |
 
 ## Paper-Based Investigation {.unnumbered}
 
@@ -82,9 +101,26 @@ Apply the evidence-map checklist to a microbiome health claim, a conservation de
 | Hooke | | | | |
 | Darwin-Wallace | | | | |
 | Mendel | | | | |
-| Watson-Crick | | | | |
+| Franklin / Watson-Crick / Crick | | | | |
+| Waddington / developmental systems | | | | |
+| Microbiome / symbiosis | | | | |
 | Levins | | | | |
 | Bioethics case | | | | |
+
+### Part 5 — Prelude Capstone Matrix {.unnumbered}
+
+Choose one source card and connect it to the four prelude chapters.
+
+| Prelude lens | Question to answer |
+| --- | --- |
+| Systems science | What boundary and variables define the system? |
+| Complex adaptive systems | Are there heterogeneous agents, local rules, and path-dependent outcomes? |
+| Active inference | Is there a hidden state, observation, action, and precision-weighting problem? |
+| History/philosophy | Which evidence practice and value judgement shape the claim? |
+
+## Paper-Based Evidence Upgrade {.unnumbered}
+
+The evidence upgrade for this lab is the source-card audit trail. For every card, record the exact claim, the source practice that made it visible, the comparison that would make it stronger, and the uncertainty or value judgement that should remain in the conclusion.
 
 <!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
@@ -105,6 +141,7 @@ Apply the evidence-map checklist to a microbiome health claim, a conservation de
 3. How did the biological unit change across your source cards?
 4. Where did uncertainty come from: missing data, model assumptions, historical contingency, category choice, or value conflict?
 5. How would your evidence map change if the audience were a patient, a conservation manager, or a first-year student?
+6. Which prelude lens added the most information to your source card, and which lens risked overclaiming?
 
 ## Safety and Ethics Notes {.unnumbered}
 

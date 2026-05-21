@@ -50,7 +50,7 @@ The logistic-growth projection worked example in the parent chapter (\cref{sec:u
 
 **Part A — Growth Curve Fitting**
 
-1. Plot most three population time series on graph paper. For the yeast data, identify: lag phase, exponential phase, plateau (K).
+1. Plot the three population time series on graph paper. For the yeast data, identify: lag phase, exponential phase, plateau (K).
 2. Estimate K from the plateau of the logistic curve.
 3. Estimate r from the exponential phase: r ≈ (ln N₂ − ln N₁) / (t₂ − t₁) during the period of fastest growth.
 

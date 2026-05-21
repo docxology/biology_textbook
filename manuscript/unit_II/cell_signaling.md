@@ -592,7 +592,7 @@ Scaffold proteins explain how the same MAPK cascade can produce different outcom
 
 > **Concept Check 7:** A neuron at rest contains ~10$^{−7}$ M cytoplasmic [Ca$^{2+}$]. Following an action potential, [Ca$^{2+}$] near a synaptic vesicle rises to ~10$^{−5}$ M for ~1 ms before being buffered and pumped back. Synaptotagmin has 2 C2 domains, each binding 2–3 Ca$^{2+}$ ions cooperatively (Hill coefficient ~3). Explain why this molecular architecture produces an essentially "most-or-nothing" exocytotic response to the brief calcium pulse, and how this differs from the sustained calcium signals used in CaMKII-mediated long-term potentiation.
 
-> **Concept Check 8:** A scaffold protein binds both an upstream kinase (RAF) and a downstream substrate (ERK) but does not bind the intermediate kinase (MEK). Predict the qualitative effect on signal transmission. What does this suggest about why most three components must be present on the scaffold for productive signalling?
+> **Concept Check 8:** A scaffold protein binds both an upstream kinase (RAF) and a downstream substrate (ERK) but does not bind the intermediate kinase (MEK). Predict the qualitative effect on signal transmission. What does this suggest about why the three components must be present on the scaffold for productive signalling?
 
 ```mermaid
 graph TD

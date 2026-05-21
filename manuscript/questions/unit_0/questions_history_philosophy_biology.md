@@ -25,7 +25,7 @@
 1. Define biology as an evidence practice rather than a list of facts.
 
 <!-- SOLUTION
-**Answer (Q1, Recall).** Biology is a practice because claims are produced through observation, experiment, classification, modelling, measurement, interpretation, and ethical judgement.
+**Answer (Q1, Recall).** Biology is an evidence practice because claims are produced through observation, experiment, classification, modelling, measurement, interpretation, and ethical judgement. A biological "fact" is stronger when we can name the method, unit, comparison, uncertainty, and possible revision path that produced it.
 SOLUTION -->
 
 <!-- assess: LO=LO2; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
@@ -39,7 +39,7 @@ SOLUTION -->
 3. What distinguishes natural history from experiment as a biological practice?
 
 <!-- SOLUTION
-**Answer (Q3, Recall).** Natural history compares and classifies organisms across places and times; experiment changes conditions and measures responses.
+**Answer (Q3, Recall).** Natural history compares and classifies organisms across places and times, often revealing distribution, variation, and association. Experiment deliberately changes conditions and measures responses, making causal claims stronger when controls and comparison groups are well designed.
 SOLUTION -->
 
 <!-- assess: LO=LO4; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
@@ -74,7 +74,7 @@ SOLUTION -->
 8. Name two ways values can enter biological research without making evidence arbitrary.
 
 <!-- SOLUTION
-**Answer (Q8, Recall).** Values can shape questions, categories, risks, and communication while evidence remains constrained by data and methods.
+**Answer (Q8, Recall).** Values can shape which questions are asked, how categories are defined, which risks are acceptable, and how uncertainty is communicated. Evidence is not arbitrary because claims still must answer to observations, controls, replication, and alternative explanations.
 SOLUTION -->
 
 <!-- assess: LO=LO1; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
@@ -142,7 +142,7 @@ SOLUTION -->
 17. Classify a phylogenetic tree as observation, experiment, model, or classification, and justify your answer.
 
 <!-- SOLUTION
-**Answer (Q17, Application).** It is a model-supported classification and historical inference built from observations and assumptions.
+**Answer (Q17, Application).** It is a model-supported classification and historical inference built from observations and assumptions. The sequence or morphology data are observations; the tree is an inferred model of relationships under assumptions about character change, sampling, and method.
 SOLUTION -->
 
 <!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
@@ -182,7 +182,7 @@ SOLUTION -->
 22. Are humans biological individuals if their bodies depend on microbial communities?
 
 <!-- SOLUTION
-**Answer (Q22, Synthesis).** Yes in many contexts, but microbial dependence makes individuality partly context-dependent.
+**Answer (Q22, Synthesis).** Yes in many contexts, because legal, developmental, and physiological practices often treat a human body as one individual. But microbial dependence makes individuality partly context-dependent: for digestion, immunity, and disease ecology, the relevant unit may be a host-microbe system rather than a single genome.
 SOLUTION -->
 
 <!-- assess: LO=LO7; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
@@ -217,7 +217,7 @@ SOLUTION -->
 27. Propose a source-card activity that distinguishes observation from interpretation.
 
 <!-- SOLUTION
-**Answer (Q27, Synthesis).** Students underline observations, circle inferences, list missing comparisons, and write an alternative interpretation.
+**Answer (Q27, Synthesis).** Students underline observations, circle inferences, list missing comparisons, and write an alternative interpretation. A strong version also asks them to name the biological unit, the instrument or source practice, one value-laden decision, and one finding that would force revision.
 SOLUTION -->
 
 <!-- assess: LO=LO4; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
@@ -238,6 +238,5 @@ SOLUTION -->
 30. Choose a later topic and identify its unit, model assumption, mechanism, and value-laden decision.
 
 <!-- SOLUTION
-**Answer (Q30, Synthesis).** For antibiotic resistance: unit might be gene or population; model selection under drug exposure; mechanism mutation or plasmids; decision stewardship and patient benefit.
+**Answer (Q30, Synthesis).** For antibiotic resistance: the unit might be a resistance gene, bacterium, patient microbiome, hospital ward, or regional population. The model assumption is selection under drug exposure; the mechanism may involve mutation, plasmids, efflux, or biofilm protection; the value-laden decision is stewardship that balances patient benefit against population-level resistance risk.
 SOLUTION -->
-

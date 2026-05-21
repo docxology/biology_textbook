@@ -78,7 +78,7 @@ In this data-analysis lab you will interpret simulated glucose tolerance test da
 3. **Set Up Controls**: Why is it important to have a normal control group? What other controls could you include in a clinical GTT study?
 
 4. **Data Analysis**: 
-   - Plot blood glucose (mM) vs time (min, 0–120 min) for most three subjects on the same graph
+   - Plot blood glucose (mM) vs time (min, 0–120 min) for the three subjects on the same graph
    - Annotate key events: glucose ingestion (t = 0), peak blood glucose, return to baseline
    - Calculate AUC for each subject using the trapezoid rule at 30-minute intervals
 

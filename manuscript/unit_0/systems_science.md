@@ -531,6 +531,21 @@ Treat every model as a claim about mechanism: define the system boundary, identi
 
 **Source practice:** Use model-validation sources when available, and state which observation would falsify the model rather than treating a diagram as proof.
 
+## Unit 0 Integration: Using Systems Science Without Overclaiming
+
+Systems language is powerful because it travels across scales, but that portability can become vagueness. Before calling something a system, write down four commitments:
+
+1. **Boundary:** what is inside, what is outside, and what crosses the boundary?
+2. **State variables:** what quantities describe the system well enough to answer the question?
+3. **Interactions:** which edges are causal, which are correlations, and which are unknown?
+4. **Timescale:** what changes fast, what changes slowly, and what has already been assumed constant?
+
+This checklist connects the rest of this opening unit. \nameref{sec:unit_0_complex_adaptive_systems} asks what happens when many bounded systems act as agents. \nameref{sec:unit_0_active_inference} asks when the boundary can be formalised as a Markov blanket with sensory and active states. \nameref{sec:unit_0_history_philosophy_biology} asks how boundaries, variables, and mechanisms became accepted scientific categories in the first place.
+
+### When systems explanations fail
+
+A systems explanation is weak when it merely renames complexity. "Everything is connected" is not a model. A usable systems claim should predict what happens when one connection is cut, one delay is shortened, one module is isolated, or one boundary is redrawn. If none of those perturbations would change the explanation, the diagram is decorative rather than explanatory.
+
 ## Summary
 
 - A system is defined by components, relationships, and boundary; equifinality and multifinality distinguish living open systems from contrived isolated ones.

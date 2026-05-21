@@ -368,7 +368,7 @@ Where lateral roots emerge from the pericycle, they must rupture the endodermis 
 - **Pure symplastic transport** uses plasmodesmata to bypass plasma membranes entirely. Plasmodesmal aperture is regulated by callose deposition at the neck region; under stress, callose deposition closes plasmodesmata, isolating cells.
 - **Transmembrane pathway** crosses plasma membranes twice per cell (entry + exit) via aquaporins for water and selective transporters for ions. Slowest but most selective.
 
-In practice, most three pathways operate simultaneously; the relative contribution shifts with developmental stage, salinity, and mycorrhizal colonisation.
+In practice, the three pathways operate simultaneously; the relative contribution shifts with developmental stage, salinity, and mycorrhizal colonisation.
 
 **Passage cells:** In older roots, most endodermal cells deposit a continuous suberin lamella covering the entire inner surface of the cell wall. **Passage cells** — endodermal cells that retain a thin wall and lack the suberin lamella, located opposite protoxylem poles — provide selective transport routes through the otherwise sealed older endodermis.
 

@@ -262,7 +262,7 @@ In a trihybrid cross AaBbCc x AaBbCc, what fraction of offspring will be:
 $$P = \frac{2}{4} \times \frac{2}{4} \times \frac{2}{4} = \frac{8}{64} = \frac{1}{8} \tag{16.10} \label{eq:unit_V_mendelian_genetics_item_10}$$
 
 
-(b) Homozygous for most three loci (AA BB CC or aa bb cc etc.)?
+(b) Homozygous for the three loci (AA BB CC or aa bb cc etc.)?
 
 Each locus has probability $\frac{1}{4}$ + $\frac{1}{4}$ = $\frac{1}{2}$ of being homozygous (either AA or aa).
 
@@ -1008,7 +1008,7 @@ A good genetics answer separates the Mendelian transmission model from the evide
 ## Review Questions
 
 1. Explain why Mendel's laws were not widely recognized for 34 years after their publication. What developments in cell biology (1900) made them comprehensible?
-2. Perform a trihybrid cross AaBbCc x AaBbCc. What fraction of offspring will show most three dominant phenotypes? What fraction will be heterozygous at most three loci?
+2. Perform a trihybrid cross AaBbCc x AaBbCc. What fraction of offspring will show the three dominant phenotypes? What fraction will be heterozygous at the three loci?
 3. A snapdragon cross between two pink flowers ($C^RC^W$ x $C^RC^W$) produces 240 offspring. How many of each color would you expect? Perform a chi-squared test if the observed counts are 55 red, 128 pink, 57 white.
 4. In the ABO blood group system, a type A mother and type B father have a type O child. What are the parents' genotypes? What is the probability their next child will be type AB?
 5. Describe three examples of pleiotropy and explain how one gene can affect multiple organ systems.

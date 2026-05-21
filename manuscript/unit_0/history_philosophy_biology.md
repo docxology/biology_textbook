@@ -62,13 +62,13 @@ Scientific facts in biology travel through instruments, organisms, protocols, di
 
 Natural historians compare organisms across places and times. Physiologists perturb living systems and measure responses. Geneticists infer hidden inheritance rules from crosses and sequences. Evolutionary biologists use models to separate drift, selection, mutation, migration, and history. Molecular biologists connect structure to information and mechanism. Philosophers of biology ask what these practices assume when they use words such as "function", "fitness", "species", "gene", "individual", "self", and "cause" \citep{sober1984,okasha2006}.
 
-Two lessons follow. First, biological knowledge is material: it depends on microscopes, culture media, field notebooks, model organisms, databases, and statistical tools. Second, biological knowledge is revisable: better instruments or better comparisons can change the apparent unit of explanation. Rheinberger calls experimental systems engines for producing "epistemic things", objects that are not fully known in advance but become tractable through repeated manipulation \citep{rheinberger1997}. That idea fits the rest of this textbook: a model is useful only when its assumptions, boundary conditions, and failure modes are visible.
+Two lessons follow. First, biological knowledge is material: it depends on microscopes, culture media, field notebooks, model organisms, databases, and statistical tools. Second, biological knowledge is revisable: better instruments or better comparisons can change the apparent unit of explanation. Rheinberger calls experimental systems engines for producing "epistemic things", objects that are not fully known in advance but become tractable through repeated manipulation \citep{rheinberger1997}. That idea fits the rest of this textbook: a model is useful when its assumptions, boundary conditions, and failure modes are visible.
 
 ---
 
 ## Ancient and Global Traditions
 
-Aristotle's biological works treated organisms as structured wholes whose parts made sense in relation to activities such as nutrition, motion, perception, and reproduction \citep{aristotleParts}. Lloyd's comparative work on ancient Greek and Chinese science is useful here because it resists two simple mistakes: treating one tradition as the universal template for rational inquiry, or treating traditions as isolated from social and institutional settings \citep{lloyd1996}. History is not a search for the first person to say a modern sentence. It is a way to understand how different communities made organisms, bodies, remedies, classification, and explanation intelligible.
+Aristotle's biological works treated organisms as structured wholes whose parts made sense in relation to activities such as nutrition, motion, perception, and reproduction \citep{aristotleParts}. Lloyd's comparative work on ancient Greek and Chinese science is useful here because it resists two simple mistakes: treating one tradition as the single template for rational inquiry, or treating traditions as isolated from social and institutional settings \citep{lloyd1996}. History is not a search for the first person to say a modern sentence. It is a way to understand how different communities made organisms, bodies, remedies, classification, and explanation intelligible.
 
 Medical and biological thought also moved through Persian, Arabic, Chinese, Indian, Indigenous, and other knowledge traditions. Ibn Sina's *Canon of Medicine* helped organise anatomy, physiology, diagnosis, and therapeutics across centuries of medical education \citep{ibnsinaCanon}. Chinese materia medica and medical theory, summarised in part by Needham's history of Chinese science, show a different way of organising bodies, plants, illness, and intervention \citep{needham1954}. Harding's critique of supposedly view-from-nowhere science and Haraway's account of situated knowledge help students ask a practical question: whose organisms, whose environments, and whose risks are being made visible \citep{harding1986,haraway1988}?
 
@@ -104,7 +104,7 @@ Mendel showed that inheritance could be particulate even when traits appear blen
 
 Molecular biology added another explanatory layer. Watson and Crick's DNA model linked chemical structure to copying and information storage \citep{watson1953}; Franklin and Gosling's X-ray work was part of the empirical basis for DNA structure \citep{franklin1953}; Crick's central-dogma framing clarified directional information transfer while leaving room for later discoveries about regulation, RNA, epigenetics, and genome architecture \citep{crick1958,crick1966}. Judson's history of molecular biology is useful because it shows discovery as a network of instruments, rival groups, model building, and interpretation rather than a single heroic moment \citep{judson1996}.
 
-The same history also warns against over-tight metaphors. "Information", "program", and "blueprint" can help students reason about DNA, but Keller argues that gene-centred language often overstates control when regulation is distributed across cells, organisms, and environments \citep{keller2010}. Kimura's neutral theory and later extended-synthesis debates further show that evolutionary explanation cannot be reduced to adaptive storytelling alone \citep{kimura1983,pigliucci2010,laland2015}. Use genes as powerful explanatory units, not as the only biological units.
+The same history also warns against over-tight metaphors. "Information", "program", and "blueprint" can help students reason about DNA, but Keller argues that gene-centred language often overstates control when regulation is distributed across cells, organisms, and environments \citep{keller2010}. Kimura's neutral theory and later extended-synthesis debates further show that evolutionary explanation cannot be reduced to adaptive storytelling alone \citep{kimura1983,pigliucci2010,laland2015}. Use genes as powerful explanatory units, not as the sole biological units.
 
 ---
 
@@ -149,6 +149,21 @@ Models simplify. That is their strength and their danger. Levins argued that mod
 Historical sciences and experimental sciences use evidence differently. Cleland argues that historical sciences often work by collecting traces of past events and testing rival explanations against those traces \citep{cleland2002}. That logic is central to evolution, phylogenetics, paleontology, epidemiological reconstruction, and conservation history. Data-centric biology adds another layer: databases do not speak for themselves; Leonelli shows that data must be curated, standardised, moved, and interpreted before they become evidence \citep{leonelli2016}. Kitano's systems-biology overview makes the same point computationally: large networks require explicit models, not just lists of parts \citep{kitano2002}.
 
 When reading a biological model, ask what unit it uses, what it leaves out, what evidence would change it, which alternatives explain the same pattern, and which decision would change if the model were wrong.
+
+---
+
+## Current Evidence and Frontier Biology
+
+For **History and Philosophy of Biology**, frontier work belongs inside the evidence logic of the chapter. Historical and philosophical claims are strongest when they identify the source practice, comparison set, interpretive assumption, and possible counterevidence rather than merely listing famous names.
+
+- **What to verify:** identify the primary source, scholarly synthesis, dataset, or ethical document that supports the claim.
+- **What to qualify:** state the tradition, organism, period, population, or institutional setting where the claim applies.
+- **What to compare:** contrast one alternative explanation, source category, or boundary choice before treating the claim as settled.
+- **What to cite:** distinguish primary text, historical reconstruction, philosophical analysis, STS critique, and current biomedical guidance.
+
+Treat every historical claim as a claim about practice: name who produced the evidence, what method made it visible, what unit was assumed, and what would revise the interpretation.
+
+**Source practice:** Use primary sources for focal episodes and scholarly synthesis for context; avoid using chronology as a substitute for evidence.
 
 ---
 

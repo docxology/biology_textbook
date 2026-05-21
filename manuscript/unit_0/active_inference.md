@@ -489,6 +489,21 @@ Treat every model as a claim about mechanism: define the system boundary, identi
 
 **Source practice:** Use model-validation sources when available, and state which observation would falsify the model rather than treating a diagram as proof.
 
+## Unit 0 Integration: When Active Inference Is the Right Tool
+
+Active inference is strongest when a biological case has these four ingredients:
+
+1. **Hidden state:** something important is not directly observed, such as temperature threat, nutrient availability, body-water status, or social risk.
+2. **Observation:** the organism receives noisy sensory evidence about that hidden state.
+3. **Action:** the organism can change the world or its body to make future observations more expected.
+4. **Precision control:** the system weights some errors more than others because not every signal is equally reliable or equally important.
+
+If a case lacks action, active inference may reduce to perceptual inference or Bayesian updating. If it lacks a plausible generative model, the explanation may be little more than metaphor. If it cannot be distinguished from reinforcement learning, optimal control, or ordinary feedback, the active-inference label has not yet earned its keep.
+
+### Bridge to history and philosophy
+
+\nameref{sec:unit_0_history_philosophy_biology} is the check on overextension. It asks whether "function", "goal", "model", "self", and "boundary" are being used as causal claims, historical claims, modelling assumptions, or value-laden descriptions. Active inference can clarify biological agency when those meanings are kept separate.
+
 ## Summary
 
 - The free energy principle proposes that living systems minimise variational free energy — a measure of the gap between their generative model and sensory evidence.

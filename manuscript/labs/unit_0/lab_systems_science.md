@@ -96,7 +96,7 @@ Why do loops 3 and 4 have different signs, and what does the switch imply for th
 ### Part 3 — Hill Curve by Hand {.unnumbered}
 
 1. Using $K_d = 10\,\mu\mathrm{M}$, compute θ at $[L] = 1, 2, 5, 10, 20, 50, 100\,\mu\mathrm{M}$ for three values of $n$: 1, 2.8 (physiological Hb), and 4.
-2. Plot most three curves on the same axes. Label the "switch zone" where small changes in $[L]$ produce large changes in θ.
+2. Plot the three curves on the same axes. Label the "switch zone" where small changes in $[L]$ produce large changes in θ.
 3. For which $n$ is the transition sharpest? How does this cooperativity benefit an oxygen-carrying pigment?
 
 ### Part 4 — Complicated vs. Complex {.unnumbered}

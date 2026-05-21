@@ -10,11 +10,12 @@
 
 The modern study of biology began by reducing living phenomena to their smallest parts — cells, molecules, genes. This reductionist strategy yielded extraordinary insight. Yet the more we learned about individual components, the clearer it became that biology cannot be explained by parts alone: a neuron firing is not a thought, a gene is not a behaviour, a metabolic pathway is not a cell. What emerges from the *interaction* of parts — properties no single component possesses in isolation — is the subject of **systems science**.
 
-\nameref{sec:unit_0_unit_intro} introduces three interlocking frameworks that recur in every subsequent unit:
+\nameref{sec:unit_0_unit_intro} introduces four interlocking frameworks that recur in every subsequent unit:
 
 1. **Systems science** — the general theory of organised complexity: how hierarchical systems form, how feedback governs their behaviour, how new properties emerge.
 2. **Complex adaptive systems** — how populations of agents with local rules give rise to robust, evolvable, collective behaviour.
 3. **Active inference and the free energy principle** — a mathematically grounded account of how living agents maintain themselves by predicting and acting on their environments.
+4. **History and philosophy of biology** — the source-critical practice of asking where biological concepts came from, what they assume, and how evidence and values revise them.
 
 Reading \nameref{sec:unit_0_unit_intro} is optional but recommended: it supplies the vocabulary of emergence, attractors, bifurcations, allostasis, and precision that makes \nameref{sec:unit_I_unit_intro} through \nameref{sec:unit_X_unit_intro} fit together as a single coherent theory of living organisation.
 
@@ -52,7 +53,7 @@ These ideas are deliberately general: every subsequent unit of the textbook re-e
 
 ## Current Evidence Thread {.unnumbered}
 
-Systems-science and complexity claims are not evidenced the way a single-gene knockout is; the evidence is whether a model's assumptions survive contact with data. A claim earns confidence when its generative model exposes the parameters and boundary that matter, when a perturbation or time-series test could have falsified it but did not, and when an explicit null or alternative model fails where it succeeds. Across this unit — emergence, adaptive agents, and active inference — read each idea as such a model and ask what observation would move you. As you
+Systems-science and complexity claims are not evidenced the way a single-gene knockout is; the evidence is whether a model's assumptions survive contact with data. A claim earns confidence when its generative model exposes the parameters and boundary that matter, when a perturbation or time-series test could have falsified it but did not, and when an explicit null or alternative model fails where it succeeds. Across this unit — emergence, adaptive agents, active inference, and the history/philosophy of biological concepts — read each idea as such a model and ask what observation would move you. As you
 move through the chapters, keep a two-column note: **claim** on the left,
 **evidence that would change my confidence** on the right. By the end of the
 unit, each major idea should be tied to a measurement, model, citation, or
@@ -64,23 +65,27 @@ paper-based lab decision.
 graph LR
     C1["Systems Science<br/>and the Logic<br/>of Emergence"] --> C2["Complex Adaptive<br/>Systems"]
     C2 --> C3["Active Inference<br/>and the Free<br/>Energy Principle"]
+    C3 --> C4["History and Philosophy<br/>of Biology"]
     C1 -.->|"feedback, emergence"| UI["Later textbook units"]
     C2 -.->|"attractors, evolution"| UI
     C3 -.->|"prediction, allostasis"| UI
+    C4 -.->|"evidence, concepts, values"| UI
 
     style C1 fill:#34495e,color:#fff
     style C2 fill:#2c3e50,color:#fff
     style C3 fill:#1a252f,color:#fff
+    style C4 fill:#5d3a00,color:#fff
 ```
-<!-- alt: Graph showing amerefsec:unit_0_unit_intro roadmap: systems science introduces feedback and emergence, complex adaptive systems adds attractors and evolution, and active inference connects prediction and allostasis to later units. -->
+<!-- alt: Graph showing the opening-unit roadmap: systems science introduces feedback and emergence, complex adaptive systems adds attractors and evolution, active inference connects prediction and allostasis, and history/philosophy connects evidence, concepts, and values to later units. -->
 
-*\nameref{sec:unit_0_unit_intro} roadmap: systems science introduces feedback and emergence, complex adaptive systems adds attractors and evolution, and active inference connects prediction and allostasis to later units.*
+*\nameref{sec:unit_0_unit_intro} roadmap: systems science introduces feedback and emergence, complex adaptive systems adds attractors and evolution, active inference connects prediction and allostasis, and history/philosophy connects evidence, concepts, and values to later units.*
 
 | Chapter | Core question | Key tools |
 | ------- | ------------- | --------- |
 | 0.1 Systems Science | *How does organisation arise from interaction?* | Feedback, hierarchy, Hill equation, delay oscillation |
 | 0.2 Complex Adaptive Systems | *How do simple local rules produce robust global behaviour?* | Phase space, bifurcation, fitness landscape, power laws |
 | 0.3 Active Inference | *How do living agents maintain themselves against disorder?* | Bayesian inference, free energy, precision, allostasis |
+| 0.4 History and Philosophy of Biology | *How did biology's concepts, evidence practices, and values become what they are?* | Source analysis, mechanism/function, individuality, model critique |
 
 ---
 
@@ -91,6 +96,7 @@ graph LR
 - **\nameref{sec:unit_III_unit_intro} — Energy and Metabolism**: glycolysis and the TCA cycle are classic examples of allosteric feedback and feed-forward control.
 - **\nameref{sec:unit_IV_unit_intro}–V — Genetics**: regulatory networks, bistable switches, and epigenetic memory are CAS par excellence.
 - **\nameref{sec:unit_VI_unit_intro} — Evolution**: fitness landscapes from \cref{sec:unit_0_complex_adaptive_systems} are the formal substrate of selection.
+- **\nameref{sec:unit_VII_unit_intro} — Microbiology**: biological-self questions from \cref{sec:unit_0_history_philosophy_biology} clarify microbiomes, symbiosis, pathogens, and host boundaries.
 - **\nameref{sec:unit_IX_unit_intro} — Physiology and Neuroscience**: allostasis from \cref{sec:unit_0_active_inference} and predictive coding replace simple fixed-set-point homeostasis as the model of central control.
 - **\nameref{sec:unit_X_unit_intro} — Ecology**: phase transitions, alternative stable states, and tipping points apply the mathematics of \cref{sec:unit_0_complex_adaptive_systems} directly.
 
@@ -98,13 +104,14 @@ graph LR
 
 ## Computational Toolbox — Unit 0 {.unnumbered}
 
-The three \nameref{sec:unit_0_unit_intro} chapters are conceptual rather than algorithmic, but they motivate every piece of code used later:
+The four \nameref{sec:unit_0_unit_intro} chapters are conceptual rather than algorithmic, but they motivate every piece of code and evidence check used later:
 
 - **Hill cooperative binding:** cell-biology helpers, especially `hill_equation()`.
 - **Receptor occupancy:** cell-signalling helpers for ligand binding and response.
 - **Logistic dynamics:** ecology helpers for growth under carrying capacity.
 - **Lotka–Volterra oscillation:** ecology helpers for predator–prey cycles.
 - **Bayesian update:** neuroscience-style posterior inference, illustrated in \cref{sec:unit_0_active_inference}.
+- **Source and citation closure:** table-of-contents, bibliography, cross-reference, and curriculum helpers that keep claims traceable across chapters, labs, and question banks.
 
 Each concrete chapter later in the textbook either uses one of these helpers or gives the reader a chance to write the next one.
 

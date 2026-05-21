@@ -15,7 +15,7 @@
 5. Explain the cytochrome b$_6$f complex and the Q cycle in chloroplasts.
 6. Describe Photosystem I, linear and cyclic electron flow, and NADPH production.
 7. Explain the Z-scheme of photosynthetic electron transport, including standard electrode potentials of each carrier.
-8. Describe most three phases of the [**Calvin cycle**](#gl:calvin-cycle), including RuBisCO biochemistry, structure (L$_8$S$_8$), catalytic mechanism, and the CO$_2$/O$_2$ specificity factor (τ).
+8. Describe the three phases of the [**Calvin cycle**](#gl:calvin-cycle), including RuBisCO biochemistry, structure (L$_8$S$_8$), catalytic mechanism, and the CO$_2$/O$_2$ specificity factor (τ).
 9. Explain the thioredoxin/ferredoxin redox regulation system and the activating role of stromal pH and Mg$^{2+}$.
 10. Explain photorespiration and its metabolic costs.
 11. Compare C3, C4, and CAM [**photosynthesis**](#gl:photosynthesis) strategies and their water-use efficiency, including quantitative trade-offs.

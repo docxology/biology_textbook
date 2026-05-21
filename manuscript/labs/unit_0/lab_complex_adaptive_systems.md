@@ -166,7 +166,7 @@ equipment version belongs only in an optional extension.
 
 1. The logistic map transitions from periodic to chaotic behaviour as $r$ passes through the Feigenbaum point (~3.57). Why does this transition occur even though the underlying equation is completely deterministic?
 2. In Part 2, you drew a hysteresis loop. Why can reducing $P$ to the level *at which* eutrophication occurred fail to restore the clear-water state? What mechanism sustains the turbid attractor?
-3. Power-law distributions appear in earthquake magnitudes, neural avalanches, and extinction events. What common CAS mechanism could explain most three?
+3. Power-law distributions appear in earthquake magnitudes, neural avalanches, and extinction events. What common CAS mechanism could explain this shared pattern?
 4. Cancer has been described as a "failed CAS" where normal tissue homeostasis breaks down. Identify two CAS features that go wrong in malignancy.
 5. Propose a paper simulation or card-based experiment using a bacterial-biofilm model to demonstrate one CAS principle (e.g., stigmergic self-organisation, threshold transitions, or robustness to perturbation). Describe the set-up, observable, and expected result.
 

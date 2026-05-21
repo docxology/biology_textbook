@@ -801,7 +801,7 @@ The imprinting story directly connects molecular biology (DNA methylation), game
 > 1. A trisomy 21 fetus inherits two centromeric markers from the mother — one identical to grandmother's and one identical to grandfather's — and one paternal centromere. Was the non-disjunction event in maternal meiosis I or maternal meiosis II? Explain.
 > 2. Using \cref{eq:unit_V_maternal_age_risk} with $P_0 = 6.7 \times 10^{-4}$, $a_0 = 20$, and $k = 0.18$, estimate the trisomy 21 risk at maternal age 38. How does it compare to age 28?
 > 3. A child with cystic fibrosis is born to a mother known to be a CFTR carrier and a father whose CFTR sequencing shows two wild-type alleles (paternity confirmed). What chromosomal mechanism could explain the diagnosis, and what kind of UPD would it require?
-> 4. Why does *Drosophila* hyper-transcribe the single male X (MOF/MSL) while *C. elegans* halves transcription of both XX hermaphrodite chromosomes (DCC), yet mammals silence one X (XIST)? What general biological problem do most three solve?
+> 4. Why does *Drosophila* hyper-transcribe the single male X (MOF/MSL) while *C. elegans* halves transcription of both XX hermaphrodite chromosomes (DCC), yet mammals silence one X (XIST)? What general biological problem do the three strategies solve?
 
 ---
 

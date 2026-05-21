@@ -831,7 +831,7 @@ The discovery that the ribosome's peptidyl transferase activity resides in rRNA 
 >
 > Engineered ribozymes (e.g., hammerhead ribozymes targeting specific mRNAs) have been explored as gene therapy tools. More practically, **riboswitches** --- RNA elements that bind small molecules and regulate gene expression --- are promising antibiotic targets. Because riboswitches are found in bacteria but not humans, drugs that interfere with riboswitch function could selectively kill pathogens. The antibiotic roseoflavin targets the FMN riboswitch in Gram-positive bacteria.
 
-> **Concept Check 5:** The RNA World hypothesis proposes that RNA preceded both DNA and proteins as the primordial macromolecule of life. What three properties must RNA possess to fulfil this role, and does it actually possess most three?
+> **Concept Check 5:** The RNA World hypothesis proposes that RNA preceded both DNA and proteins as the primordial macromolecule of life. What three properties must RNA possess to fulfil this role, and does RNA actually possess the full set?
 
 ---
 

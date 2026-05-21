@@ -414,7 +414,7 @@ flowchart TD
 
 *Ecological succession pathways. Primary succession begins on bare substrate and takes centuries; secondary succession begins with intact soil and proceeds in decades. Three mechanisms (facilitation, tolerance, inhibition) operate at transition points. Modern ecology views the endpoint as a dynamic equilibrium rather than a fixed climax state.*
 
-In reality, most successional sequences involve most three mechanisms operating simultaneously at different stages and spatial scales.
+In reality, most successional sequences involve the three mechanisms operating simultaneously at different stages and spatial scales.
 
 ### Climax Community Concept
 

@@ -381,7 +381,7 @@ The ribosome has three tRNA-binding sites:
 3. **Translocation**: eEF2-GTP (EF-G in prokaryotes) promotes translocation; ribosome moves 3 nt (one codon) along mRNA; tRNAs shift: A to P, P to E; E-site tRNA dissociates
 
 **Termination**: When a stop codon enters the A site:
-- **eRF1** (class I release factor) recognizes most three stop codons (in eukaryotes) -- its shape mimics tRNA
+- **eRF1** (class I release factor) recognizes the three stop codons (in eukaryotes) -- its shape mimics tRNA
 - **eRF3-GTP** (class II release factor) stimulates eRF1 activity
 - Water molecule attacks the peptidyl-tRNA ester bond, releasing the completed polypeptide
 - **ABCE1** (ribosome recycling factor) splits the 80S ribosome into subunits for re-use

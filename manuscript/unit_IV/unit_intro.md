@@ -76,7 +76,7 @@ graph TD
 
 ## Current Evidence Thread {.unnumbered}
 
-Read this unit as molecular genetics built from stacked evidence layers: DNA sequence and replication fidelity, transcription and translation output, the chromatin and methylation state that gates that output, and the variant calls and clinical interpretations that follow from most three. Molecular genetics now spans single-reference sequences, telomere-to-telomere assemblies, pangenome graphs, long-read sequencing, CRISPR medicines, and ethical deployment. As you
+Read this unit as molecular genetics built from stacked evidence layers: DNA sequence and replication fidelity, transcription and translation output, the chromatin and methylation state that gates that output, and the variant calls and clinical interpretations that follow from these layers. Molecular genetics now spans single-reference sequences, telomere-to-telomere assemblies, pangenome graphs, long-read sequencing, CRISPR medicines, and ethical deployment. As you
 move through the chapters, keep a two-column note: **claim** on the left,
 **evidence that would change my confidence** on the right. By the end of the
 unit, each major idea should be tied to a measurement, model, citation, or

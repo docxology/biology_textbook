@@ -74,7 +74,7 @@ Natural selection operates whenever three conditions are met simultaneously:
 2. **Differential survival and reproduction**: Some variants survive longer, reproduce more, or both -- contributing disproportionately to the next generation.
 3. **Environmental pressure**: Resources are limited; not most individuals can survive and reproduce equally. The environment determines which traits are advantageous.
 
-When most three conditions hold, [**allele**](#gl:allele) frequencies shift across generations -- populations evolve.
+When the three conditions hold, [**allele**](#gl:allele) frequencies shift across generations -- populations evolve.
 
 ### The Modern Synthesis and Beyond
 
@@ -535,7 +535,7 @@ When buffering is overwhelmed — by extreme environmental stress, by a chaperon
 
 **Positive frequency-dependent selection**: The common phenotype has an advantage (e.g., warning coloration in Mullerian mimicry — predators learn to avoid the most common pattern).
 
-> **Concept Check 3:** A population of side-blotched lizards has roughly equal frequencies of orange, blue, and yellow male morphs. Each year, biologists notice that the frequency of orange males rises sharply for two years, then yellow males rise as orange decline, then blue males rise as yellow decline — and the cycle repeats. Why does negative frequency-dependent selection produce **cycles** rather than a stable equilibrium with most three morphs at constant frequencies? (Hint: think about what happens when one morph's fitness depends on the *current* frequencies of the other two, not a one-step-ahead average.)
+> **Concept Check 3:** A population of side-blotched lizards has roughly equal frequencies of orange, blue, and yellow male morphs. Each year, biologists notice that the frequency of orange males rises sharply for two years, then yellow males rise as orange decline, then blue males rise as yellow decline — and the cycle repeats. Why does negative frequency-dependent selection produce **cycles** rather than a stable equilibrium with the three morphs at constant frequencies? (Hint: think about what happens when one morph's fitness depends on the *current* frequencies of the other two, not a one-step-ahead average.)
 
 > **Concept Check on quantitative genetics:** A dairy farmer practices artificial selection on milk yield, with selection differential $S = 1{,}000$ kg/lactation and observed response $R = 200$ kg in the next generation. (a) What is the implied narrow-sense heritability? (b) The same selection regime applied for 20 generations produces about 3,000 kg total response (not 4,000 kg as naive multiplication would predict). Give two reasons the response decelerates.
 

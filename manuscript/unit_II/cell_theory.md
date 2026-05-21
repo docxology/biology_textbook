@@ -425,7 +425,7 @@ For nearly a century, textbooks asserted that prokaryotes lack a [**cytoskeleton
 
 **Crescentin and curvature.** *Caulobacter crescentus* gets its name from a comma-shaped curve produced by a single helical bundle of CreS filaments running along the inner curve of the cell. Mutational loss of *creS* yields straight rods. CreS is biophysically a coiled-coil of the same family as nuclear lamins and cytokeratins.
 
-These discoveries closed a major textbook gap: **most three eukaryotic cytoskeletal classes (microfilaments, microtubules, intermediate filaments) have prokaryotic ancestors**. The cytoskeleton predates compartmentalisation by at least 1.5 billion years.
+These discoveries closed a major textbook gap: **the three eukaryotic cytoskeletal classes (microfilaments, microtubules, intermediate filaments) have prokaryotic ancestors**. The cytoskeleton predates compartmentalisation by at least 1.5 billion years.
 
 > **Concept Check 4b:** A pharmaceutical company is screening for narrow-spectrum antibiotics that block bacterial cell division without affecting human cells. Why is FtsZ a more promising target than MreB? (Consider the structural and functional homology to eukaryotic counterparts and what happens when each protein is inhibited.)
 
