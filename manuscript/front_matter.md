@@ -234,7 +234,7 @@ script to refresh this grid.
 | \nameref{sec:unit_0_unit_intro} | 0.1 | \nameref{sec:unit_0_systems_science} | Level 2/3 | 35 min | 50 min |
 | \nameref{sec:unit_0_unit_intro} | 0.2 | \nameref{sec:unit_0_complex_adaptive_systems} | Level 2/3 | 35 min | 50 min |
 | \nameref{sec:unit_0_unit_intro} | 0.3 | \nameref{sec:unit_0_active_inference} | Level 3/3 | 45 min | 75 min |
-| \nameref{sec:unit_0_unit_intro} | 0.4 | \nameref{sec:unit_0_history_philosophy_biology} | Level 2/3 | 55 min | 75 min |
+| \nameref{sec:unit_0_unit_intro} | 0.4 | \nameref{sec:unit_0_history_philosophy_biology} | Level 2/3 | 80 min | 100 min |
 | \nameref{sec:unit_I_unit_intro} | 1 | \nameref{sec:unit_I_atoms_molecules} | Level 1/3 | 40 min | 50 min |
 | \nameref{sec:unit_I_unit_intro} | 2 | \nameref{sec:unit_I_water_and_life} | Level 1/3 | 40 min | 50 min |
 | \nameref{sec:unit_I_unit_intro} | 3 | \nameref{sec:unit_I_macromolecules} | Level 2/3 | 55 min | 75 min |
@@ -270,7 +270,7 @@ script to refresh this grid.
 | \nameref{sec:unit_X_unit_intro} | 33 | \nameref{sec:unit_X_community_ecology} | Level 2/3 | 80 min | 100 min |
 | \nameref{sec:unit_X_unit_intro} | 34 | \nameref{sec:unit_X_ecosystem_ecology} | Level 2/3 | 65 min | 75 min |
 | \nameref{sec:unit_X_unit_intro} | 35 | \nameref{sec:unit_X_biomes_and_conservation} | Level 2/3 | 70 min | 75 min |
-| | | **Totals** | | **2205 min (36 h)** | **3050 min (50 h)** |
+| | | **Totals** | | **2230 min (37 h)** | **3075 min (51 h)** |
 <!-- course-planning-grid-end -->
 
 \newpage

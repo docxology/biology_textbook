@@ -75,8 +75,8 @@ CHAPTERS: list[ChapterMeta] = [
         0,
         "0",
         2,
-        55,
-        75,
+        80,
+        100,
         ("unit_0_systems_science", "unit_0_complex_adaptive_systems", "unit_0_active_inference"),
     ),
     # Unit I — Chemistry of Life
