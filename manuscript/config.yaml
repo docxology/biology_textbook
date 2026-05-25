@@ -504,6 +504,6 @@ chapter_metadata:
 # EXPORT OPTIONS (instructor/solutions toggles; not wired in project-local analysis scripts)
 # ---------------------------------------------------------------------------
 export:
-  include_solutions: false
+  include_solutions: true
   include_worked_problems: true
   watermark_instructor: true

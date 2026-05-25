@@ -49,10 +49,15 @@ def run_analysis() -> None:
     cfg_solutions = bool(config.get("export", {}).get("include_solutions", False))
     env_solutions = os.environ.get("BIOLOGY_INCLUDE_SOLUTIONS") == "1"
     include_solutions = cfg_solutions or env_solutions
+    watermark_instructor = bool(config.get("export", {}).get("watermark_instructor", False))
     if include_solutions:
         logger.info("  → Instructor edition: revealing answer keys in question banks")
 
-    inject_chapters_for_rendering(chapters, include_solutions=include_solutions)
+    inject_chapters_for_rendering(
+        chapters,
+        include_solutions=include_solutions,
+        watermark_instructor=watermark_instructor,
+    )
     figure_registry_path = write_figure_registry()
     visual_manifest_path = write_visual_manifest()
 

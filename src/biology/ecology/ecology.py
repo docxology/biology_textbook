@@ -253,22 +253,21 @@ def lotka_volterra(
         if val <= 0:
             raise ValueError(f"{name} must be positive, got {val}")
 
-    dt = t_end / steps
-    times = [0.0]
-    prey_hist = [prey0]
-    pred_hist = [predator0]
+    from biology.numerics import euler_integrate_pair
 
-    N, P = prey0, predator0
-    for _ in range(steps):
-        dN = (alpha * N - beta * N * P) * dt
-        dP = (delta * N * P - gamma * P) * dt
-        N = max(0.0, N + dN)
-        P = max(0.0, P + dP)
-        times.append(times[-1] + dt)
-        prey_hist.append(N)
-        pred_hist.append(P)
+    times, prey_hist, pred_hist = euler_integrate_pair(
+        (prey0, predator0),
+        t_end,
+        steps,
+        lambda n, p: (alpha * n - beta * n * p, delta * n * p - gamma * p),
+    )
 
-    logger.info(f"Lotka-Volterra: {steps} steps, final prey={N:.2f}, predator={P:.2f}")
+    logger.info(
+        "Lotka-Volterra: %s steps, final prey=%.2f, predator=%.2f",
+        steps,
+        prey_hist[-1],
+        pred_hist[-1],
+    )
     return LotkaVolterraResult(
         times=times,
         prey=prey_hist,

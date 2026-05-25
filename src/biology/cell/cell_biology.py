@@ -396,3 +396,47 @@ def signal_amplification(amplification_steps: list[float]) -> float:
     for step in amplification_steps:
         total *= step
     return total
+
+
+# ---------------------------------------------------------------------------
+# Organelle Size Reference Data (typical diameters in micrometres)
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class OrganelleSize:
+    """Reference diameter for a cellular structure.
+
+    Sizes are typical diameters cited in standard cell-biology references for
+    a mammalian cell context. The figure axis is logarithmic so values are
+    only used as order-of-magnitude landmarks, not precise measurements.
+    """
+
+    name: str
+    diameter_um: float
+    category: str  # e.g. "prokaryotic cell", "organelle", "macromolecule"
+
+
+ORGANELLE_SIZES: tuple[OrganelleSize, ...] = (
+    OrganelleSize("Ribosome", 0.025, "macromolecular"),
+    OrganelleSize("Microtubule (diameter)", 0.025, "macromolecular"),
+    OrganelleSize("Centriole (diameter)", 0.20, "organelle"),
+    OrganelleSize("Lysosome", 0.50, "organelle"),
+    OrganelleSize("Peroxisome", 0.60, "organelle"),
+    OrganelleSize("Mitochondrion (length)", 2.0, "organelle"),
+    OrganelleSize("Chloroplast (length)", 6.0, "organelle"),
+    OrganelleSize("Nucleus", 6.0, "organelle"),
+    OrganelleSize("E. coli cell (length)", 2.0, "prokaryotic cell"),
+    OrganelleSize("Animal cell (typical)", 20.0, "eukaryotic cell"),
+    OrganelleSize("Plant cell (typical)", 50.0, "eukaryotic cell"),
+)
+
+
+def organelle_size_table() -> tuple[OrganelleSize, ...]:
+    """Return the canonical organelle-size reference table.
+
+    Returns:
+        Tuple of ``OrganelleSize`` rows sorted in increasing diameter so the
+        log-scale figure renders monotonically.
+    """
+    return tuple(sorted(ORGANELLE_SIZES, key=lambda row: row.diameter_um))

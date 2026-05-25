@@ -2,6 +2,15 @@
 
 \label{sec:unit_0_active_inference}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/prediction_error_precision.png}
+\caption{Posterior mean and sensory weight as functions of sensory precision $\pi_s$ on a log axis. The Bayesian posterior $\mu_{\mathrm{post}} = (\pi_p \mu_p + \pi_s y) / (\pi_p + \pi_s)$ smoothly slides from the prior toward the observation as $\pi_s$ grows. The complementary sensory weight $\pi_s / (\pi_s + \pi_p)$ saturates near one, quantifying how much the observation is trusted.}
+\label{fig:unit_0_prediction_error_precision}
+\end{figure}
+
+<!-- alt: Two overlaid curves on a log-x precision axis. The posterior-mean curve rises smoothly from the prior baseline toward the observation value as precision increases. The sensory-weight curve rises from near zero and saturates near one. -->
+
 
 <!-- chapter-metadata-badge -->
 > Level 3/3 · 45 min read · 75 min lecture · Prerequisites: \cref{sec:unit_0_systems_science}, \cref{sec:unit_0_complex_adaptive_systems}
@@ -207,7 +216,7 @@ Each prediction error can be weighted by **precision** (inverse variance): high 
 \label{eq:unit_0_precision}
 \end{equation}
 
-where $\pi = 1/\sigma^2$ is the precision. **Attention** — from spatial orienting to feature selection — can be read as **optimizing precision** over sensory hierarchies: amplify unexpected but reliable signals, attenuate predictable ones. **Sensory attenuation** during self-generated movement (you tickle yourself less than others tickle you) follows because the motor command predicts somatic input, down-weighting proprioceptive precision so the tickle does not register as surprising. Disorders that mis-estimate precision (autism-spectrum hypotheses; schizophrenia-spectrum **aberrant salience**) reinterpret noise as meaningful structure or vice versa, producing false inference at the perceptual or interoceptive level.
+where $\pi = 1/\sigma^2$ is the precision (\cref{fig:unit_0_prediction_error_precision} shows posterior mean and sensory weight as $\pi_s$ varies on a log axis). **Attention** — from spatial orienting to feature selection — can be read as **optimizing precision** over sensory hierarchies: amplify unexpected but reliable signals, attenuate predictable ones. **Sensory attenuation** during self-generated movement (you tickle yourself less than others tickle you) follows because the motor command predicts somatic input, down-weighting proprioceptive precision so the tickle does not register as surprising. Disorders that mis-estimate precision (autism-spectrum hypotheses; schizophrenia-spectrum **aberrant salience**) reinterpret noise as meaningful structure or vice versa, producing false inference at the perceptual or interoceptive level.
 
 ### Worked Example: Bayesian Updating and Prediction Error
 

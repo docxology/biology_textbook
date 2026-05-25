@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Long-term potentiation (LTP) is an activity-dependent, long-lasting (hours to days) increase in synaptic efficacy following high-frequency stimulation — a leading cellular model of learning and memory. It was first described in the **hippocampus**, at the perforant-path inputs to the dentate gyrus (Bliss and Lømo, 1973), and is classically studied at the Schaffer-collateral → CA1 synapse. NMDA-receptor-dependent Ca²⁺ influx activates CaMKII, which phosphorylates and inserts AMPA receptors (early LTP); late LTP additionally requires CREB-driven gene expression and structural spine changes. See \cref{sec:unit_IX_action_potential_synapses}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** Initiating condition: at cerebellar parallel-fiber → Purkinje-cell synapses, coincident parallel-fiber input with climbing-fiber activation produces a large Ca²⁺ signal plus PKC activation. (a) **LTD vs LTP mechanism**: low/specific Ca²⁺ patterns here drive AMPA-receptor *internalization* (phosphatase- and PKC-dependent endocytosis), weakening the synapse — the mirror image of LTP, where larger NMDA-mediated Ca²⁺ drives CaMKII-dependent AMPA-receptor *insertion* and strengthening; the direction is set by the amplitude/pattern of postsynaptic Ca²⁺ (BCM-style sliding threshold). (b) In **motor learning**, the climbing fiber carries an "error" or teaching signal; pairing it with the parallel-fiber inputs active during a faulty movement depresses exactly those synapses, so the Purkinje cell's output is corrected on subsequent attempts. (c) For the **vestibulo-ocular reflex**, retinal-slip errors relayed by climbing fibers induce parallel-fiber LTD in the flocculus, re-tuning the gain so eye movements again precisely cancel head movements — cerebellar LTD as the substrate of VOR adaptation. See \cref{sec:unit_IX_action_potential_synapses}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

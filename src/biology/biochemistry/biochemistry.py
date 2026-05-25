@@ -260,3 +260,89 @@ def glycolysis_summary() -> GlycolysisResult:
         steps=GLYCOLYSIS_STEPS,
         total_delta_G_kJ=total_dG,
     )
+
+
+# ---------------------------------------------------------------------------
+# Metabolic Integration — ATP Yield by Pathway
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class PathwayATPYield:
+    """ATP yield summary for one catabolic pathway.
+
+    ATP yields follow the modern stoichiometry of 2.5 ATP per NADH and 1.5
+    ATP per FADH2 reoxidised through the mitochondrial electron-transport
+    chain, with the GTP from succinyl-CoA synthetase counted as one ATP.
+    Glycolysis and lactic-acid fermentation produce two ATP per glucose by
+    substrate-level phosphorylation; the NADH route is accounted only when a
+    pathway reoxidises it in the mitochondrion.
+    """
+
+    pathway: str
+    substrate_level_atp: float
+    nadh_count: float
+    fadh2_count: float
+    oxidative_atp: float
+    total_atp: float
+    requires_oxygen: bool
+
+
+def _oxidative_atp(nadh: float, fadh2: float) -> float:
+    return nadh * 2.5 + fadh2 * 1.5
+
+
+def atp_yield_by_pathway() -> tuple[PathwayATPYield, ...]:
+    """Tabulate the canonical ATP yields used by the integration figure.
+
+    Numbers follow the textbook stoichiometry: 2 net substrate-level ATP from
+    glycolysis, 2 mitochondrial GTP/ATP from the TCA cycle (one per acetyl-
+    CoA), and ten NADH plus two FADH2 routed through oxidative
+    phosphorylation per glucose. Aerobic respiration sums to ~30-32 ATP; the
+    figure uses 30 to reflect the cytosolic NADH shuttle correction.
+
+    Returns:
+        Tuple of ``PathwayATPYield`` rows in pedagogical order.
+    """
+    glycolysis = PathwayATPYield(
+        pathway="Glycolysis (substrate level only)",
+        substrate_level_atp=2.0,
+        nadh_count=2.0,
+        fadh2_count=0.0,
+        oxidative_atp=0.0,
+        total_atp=2.0,
+        requires_oxygen=False,
+    )
+    fermentation = PathwayATPYield(
+        pathway="Lactic-acid fermentation",
+        substrate_level_atp=2.0,
+        nadh_count=0.0,
+        fadh2_count=0.0,
+        oxidative_atp=0.0,
+        total_atp=2.0,
+        requires_oxygen=False,
+    )
+    tca = PathwayATPYield(
+        pathway="TCA cycle (per glucose, 2 turns)",
+        substrate_level_atp=2.0,
+        nadh_count=6.0,
+        fadh2_count=2.0,
+        oxidative_atp=_oxidative_atp(6.0, 2.0),
+        total_atp=2.0 + _oxidative_atp(6.0, 2.0),
+        requires_oxygen=True,
+    )
+    aerobic_total = PathwayATPYield(
+        pathway="Aerobic respiration (full)",
+        substrate_level_atp=4.0,
+        nadh_count=10.0,
+        fadh2_count=2.0,
+        oxidative_atp=_oxidative_atp(10.0, 2.0),
+        total_atp=30.0,  # canonical textbook value with shuttle correction
+        requires_oxygen=True,
+    )
+    rows = (glycolysis, fermentation, tca, aerobic_total)
+    logger.debug(
+        "ATP yields: %s",
+        {row.pathway: row.total_atp for row in rows},
+    )
+    return rows

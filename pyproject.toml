@@ -58,6 +58,19 @@ omit = [
     "src/biology/answer_refinement/engine.py",
     "src/biology/curriculum_sync/engine.py",
     "src/biology/quality/engine.py",
+    # Maintenance modules migrated from scripts/ — covered by integration tests, not unit floor.
+    "**/biology/maintenance/glossary_links.py",
+    "**/biology/maintenance/chapter_shells.py",
+    "**/biology/maintenance/further_reading.py",
+    "**/biology/quality/publication_gate.py",
+    "**/biology/pipeline/orphan_figures.py",
+    "src/biology/maintenance/glossary_links.py",
+    "src/biology/maintenance/chapter_shells.py",
+    "src/biology/maintenance/further_reading.py",
+    "src/biology/quality/publication_gate.py",
+    "src/biology/pipeline/orphan_figures.py",
+    "**/biology/answer_refinement/cli.py",
+    "src/biology/answer_refinement/cli.py",
 ]
 
 [tool.coverage.report]

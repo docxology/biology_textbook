@@ -468,7 +468,7 @@ NMD destroys mRNAs containing premature termination codons (PTCs), preventing th
 : Nonsense-Mediated Decay (NMD) — Mechanism in Mechanistic Detail: Component and Role. {#tbl:unit_IV_gene_expression_nonsense_mediated_decay_nmd_mechanism_in_mechanistic_detail}
 | Component | Role |
 | --------- | ---- |
-| **EJC (exon junction complex)** | Deposited 20–24 nt upstream of every exon-exon junction during splicing; contains EIF4A3, MAGOH, Y14/RBM8A, MLN51 (CASC3) |
+| **EJC (exon junction complex)** | Deposited 20–24 nt upstream of most exon-exon junctions during splicing (occupancy is non-uniform; the final junction is often unmarked); contains EIF4A3, MAGOH, Y14/RBM8A, MLN51 (CASC3) |
 | **UPF1 (RENT1)** | RNA helicase + ATPase; central NMD effector; binds the 3′ UTR after stop codon |
 | **UPF2 (RENT2)** | Bridges UPF1 to UPF3 |
 | **UPF3A/UPF3B** | EJC component; bridges EJC to UPF1/2 |
@@ -756,7 +756,7 @@ print(" ".join(translate_mrna(mrna)[:6]))
 ## Current Evidence and Frontier Biology: Gene Expression — Transcription and Translation
 
 For **Gene Expression — Transcription and Translation**, frontier biology belongs inside the evidence logic of
-the chapter. Molecular genetics now spans single-reference sequences, telomere-to-telomere assemblies, pangenome graphs, long-read sequencing, CRISPR medicines, and ethical deployment. The core reading question is this: expression claims should separate transcription, RNA processing, translation, localization, degradation, and feedback.
+the chapter. Frontier work on expression is increasingly structural and quantitative: cryo-EM now captures RNA polymerase II in successive elongation states, transcription is understood to occur in phase-separated condensates of Mediator and co-activators, ribosome profiling reads translation genome-wide at codon resolution, and single-molecule and long-read methods resolve alternative splicing and isoform diversity directly. The core reading question is this: expression claims should separate transcription, RNA processing, translation, localization, degradation, and feedback.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
   would make the claim stronger or weaker.
@@ -811,6 +811,9 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 - Crick (1958). On protein synthesis. *Symposia of the Society for Experimental Biology*, 12.
 - Crick (1966). The genetic code --- yesterday, today and tomorrow. *Cold Spring Harbor Symposia on Quantitative Biology*, 31.
 - Jacob & Monod (1961). Genetic regulatory mechanisms in the synthesis of proteins. *Journal of Molecular Biology*, 3.
+- Ban, Nissen, Hansen, Moore & Steitz (2000). The complete atomic structure of the large ribosomal subunit at atomic resolution. *Science*, 289.
+- Black (2003). Mechanisms of alternative pre-messenger RNA splicing. *Annual Review of Biochemistry*, 72.
+- Sonenberg & Hinnebusch (2009). Regulation of translation initiation in eukaryotes: mechanisms and biological targets. *Cell*, 136.
 
 ---
 

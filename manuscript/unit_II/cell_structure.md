@@ -2,6 +2,15 @@
 
 \label{sec:unit_II_cell_structure}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{../figures/organelle_size_scale.png}
+\caption{Characteristic linear dimensions of biological structures on a log scale, from ribosomes and viruses through organelles to whole eukaryotic cells. Bars are colored by category (macromolecule, virus, organelle, prokaryote, eukaryote) and span roughly four orders of magnitude. Spatial scale constrains diffusion times, mechanical behavior, and the kinds of imaging that resolve each level.}
+\label{fig:unit_II_organelle_size_scale}
+\end{figure}
+
+<!-- alt: Horizontal bar chart on a log scale. Each bar corresponds to a biological structure (ribosome, virus, mitochondrion, nucleus, typical bacterium, typical animal cell) and is colored by category. Bar lengths span four orders of magnitude in micrometers. -->
+
 
 <!-- chapter-metadata-badge -->
 > Level 2/3 · 50 min read · 75 min lecture · Prerequisites: \cref{sec:unit_II_cell_theory}
@@ -13,9 +22,9 @@
 3. Describe the [**cytoskeleton**](#gl:cytoskeleton): microtubules, microfilaments, and intermediate filaments, including their associated motor proteins.
 4. Explain how the nucleus controls [**gene**](#gl:gene) expression through [**chromatin**](#gl:chromatin) organization and the [**histone code**](#gl:histone-code).
 5. Relate organelle dysfunction to specific human diseases.
-6. Describe mitochondrial dynamics (fusion, fission) and their role in cellular [**homeostasis**](#gl:homeostasis).
+6. Predict the cellular consequences of unopposed mitochondrial fission versus unopposed fusion, given their role in cellular [**homeostasis**](#gl:homeostasis).
 7. Explain the role of peroxisomes, centrosomes, and primary cilia in cell biology.
-8. Describe cell adhesion molecules and their role in tissue architecture.
+8. Distinguish cadherin-, integrin-, and tight-junction-based adhesion by their cytoskeletal coupling and role in tissue architecture.
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -60,7 +69,7 @@
 
 Electron microscopy and fractionation made organelles experimentally tractable: Palade's dense cytoplasmic particles became ribosomes \citep{palade1955small}, Blobel and Dobberstein's translocation experiments connected membrane-bound ribosomes to secretory-protein targeting \citep{blobel1975proteintransfer}, and vesicle-traffic work later unified secretion, endocytosis, and regulated exocytosis as related transport systems \citep{rothman1994transport}.
 
-Before examining each organelle individually, it is useful to fix the dimensions and copy numbers in a single reference table. Sizes vary modestly across cell types; the values below are typical for a cultured mammalian cell (HeLa-like, ~20 μm diameter).
+Before examining each organelle individually, it is useful to fix the dimensions and copy numbers in a single reference table. Sizes vary modestly across cell types; the values below are typical for a cultured mammalian cell (HeLa-like, ~20 μm diameter). \cref{fig:unit_II_organelle_size_scale} places those values on a log axis alongside ribosomes, viruses, and prokaryotic cells so the four-order-of-magnitude span is visible at a glance.
 
 : Study Blueprint: Organelle and Linear dimension. {#tbl:unit_II_cell_structure_study_blueprint}
 | Organelle | Linear dimension | Number per cell | Approximate volume | Membrane area |

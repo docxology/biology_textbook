@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** The centrosome is the primary microtubule-organizing center (MTOC) of animal cells: two barrel-shaped centrioles (each nine triplet microtubules in a pinwheel) surrounded by pericentriolar material containing gamma-tubulin ring complexes that nucleate microtubules. During the cell cycle the centrosome duplicates (one new centriole per existing one) in S phase; at mitosis the two centrosomes separate and migrate to opposite poles, where each nucleates the microtubules of the bipolar mitotic spindle that captures and segregates chromosomes. Centrosome amplification (more than 2 per cell) causes multipolar spindles and chromosomal instability, a common feature of cancer. See \cref{sec:unit_II_cell_structure}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** GFP-NLS is imported by the classical importin pathway powered by the Ran gradient. (1) In the cytoplasm, importin-alpha binds the basic NLS (the adaptor) and importin-beta binds importin-alpha and provides the affinity for the nuclear pore complex. (2) Importin-beta interacts with the FG-repeat nucleoporins lining the NPC central channel, allowing the cargo complex to translocate through the roughly 9 nm gated channel. (3) Inside the nucleus, RanGTP (kept high in the nucleus by chromatin-bound RanGEF/RCC1) binds importin-beta, causing a conformational change that releases importin-alpha and the GFP-NLS cargo into the nucleoplasm. (4) The importins are recycled back to the cytoplasm bound to RanGTP; cytoplasmic RanGAP then hydrolyses RanGTP to RanGDP, releasing the importins for another round. The roughly 10^4:1 nuclear:cytoplasmic RanGTP ratio makes import vectorial; it is GTP-hydrolysis-powered, not driven by a translocation ATPase. See \cref{sec:unit_II_cell_structure}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

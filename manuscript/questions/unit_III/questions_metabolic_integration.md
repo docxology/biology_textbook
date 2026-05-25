@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Metabolic syndrome is a cluster of cardiometabolic risk factors driven by insulin resistance and central adiposity. Four diagnostic criteria (any three define it): central/abdominal obesity (large waist circumference), elevated fasting glucose (or insulin resistance), elevated triglycerides, reduced HDL cholesterol, and elevated blood pressure. See \cref{sec:unit_III_metabolic_integration}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO11; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** (a) Malonyl-CoA inhibits carnitine palmitoyltransferase I (CPT-1). (b) Malonyl-CoA is produced in the cytoplasm by acetyl-CoA carboxylase (the committed step of fatty acid synthesis). (c) Because CPT-1 sits on the outer mitochondrial membrane and gates long-chain fatty-acyl entry into the matrix, blocking CPT-1 stops β-oxidation while cytoplasmic fatty acid synthesis continues unhindered — so in the fed/lipogenic state newly made fatty acids are not immediately re-oxidised, preventing a futile cycle. See \cref{sec:unit_III_metabolic_integration}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

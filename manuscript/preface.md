@@ -2,7 +2,7 @@
 
 ## A Textbook Built With Code {.unnumbered}
 
-Welcome to *Introduction to Biology: A Generative Approach* — an open-source textbook covering introductory biology across **\nameref{sec:unit_0_unit_intro}**, the thematic sequence from **\nameref{sec:unit_I_unit_intro}** through **\nameref{sec:unit_X_unit_intro}**, and **44 core chapters**, plus optional **laboratories** and **question banks** in the appendices. Where this text uses quantitative models, the corresponding computations are implemented as tested Python modules.
+Welcome to *Introduction to Biology: A Generative Approach* — **Instructor Edition** with visible model answers in the question-bank appendices — an open-source textbook covering introductory biology across **\nameref{sec:unit_0_unit_intro}**, the thematic sequence from **\nameref{sec:unit_I_unit_intro}** through **\nameref{sec:unit_X_unit_intro}**, and **44 core chapters**, plus optional **laboratories** and **question banks** in the appendices. Where this text uses quantitative models, the corresponding computations are implemented as tested Python modules.
 
 Whether we examine Michaelis–Menten enzyme kinetics, Lotka–Volterra predator–prey dynamics, or Hodgkin–Huxley action potentials, the underlying mathematical model exists as a working module in the accompanying codebase. Many figures are generated programmatically. Process diagrams are expressed using Mermaid where it improves clarity. For instructors and independent learners, this supports inspection, extension, and reproducible re-generation of results.
 

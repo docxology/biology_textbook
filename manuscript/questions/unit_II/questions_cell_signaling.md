@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Protein phosphatases terminate signaling by removing the phosphate groups that kinases add, reversing activation of pathway components. Examples include PP1 and PP2A (dephosphorylate PKA substrates), calcineurin/PP2B (Ca²⁺-dependent), MKPs/DUSPs (dephosphorylate MAPKs), and PTEN (removes the 3-phosphate from PIP₃, opposing PI3K). See \cref{sec:unit_II_cell_signaling}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO11; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** (a) Ligand binding brings type II and type I TGF-β receptors together; the constitutively active type II receptor trans-phosphorylates and activates the type I receptor, which then phosphorylates receptor-SMADs (SMAD2/3). (b) Phospho-SMAD2/3 binds the co-SMAD SMAD4, forming a heteromeric complex that translocates to the nucleus. (c) The SMAD complex binds DNA with cofactors to regulate transcription; in normal epithelium it acts as a tumor suppressor (induces p21, cytostasis), but with cooperating oncogenic signals the same complex drives an EMT program (Snail/Slug), promoting invasion — outcome is context-dependent. See \cref{sec:unit_II_cell_signaling}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

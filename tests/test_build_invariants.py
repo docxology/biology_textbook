@@ -213,6 +213,19 @@ def test_glossary_links_resolve_to_master_glossary_anchors() -> None:
     assert not missing, f"Glossary links without anchors: {missing}"
 
 
+def test_glossary_index_term_count_matches_glossary_entries() -> None:
+    """Appendix G intro count must match parsed glossary entries."""
+    from biology.maintenance.glossary_links import glossary_term_count, parse_glossary_index_entries
+
+    glossary_text = (MANUSCRIPT / "glossary.md").read_text(encoding="utf-8")
+    index_text = (MANUSCRIPT / "appendices" / "appendix_index.md").read_text(encoding="utf-8")
+    count = glossary_term_count(glossary_text)
+    intro_match = re.search(r"An index of the (\d+) glossary terms", index_text)
+    assert intro_match is not None, "appendix_index.md missing glossary term count intro"
+    assert int(intro_match.group(1)) == count
+    assert len(parse_glossary_index_entries(glossary_text)) == count
+
+
 def test_glossary_and_index_use_semantic_chapter_links() -> None:
     """Appendix F/G should not contain stale ``Chapter N``/``Ch N`` back-references."""
     offenders: list[str] = []

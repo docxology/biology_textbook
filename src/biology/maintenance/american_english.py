@@ -19,6 +19,7 @@ SKIP_RELATIVE_PATHS = frozenset(
     {
         "src/biology/maintenance/american_english.py",
         "src/biology/maintenance/data/british_to_american.yaml",
+        "src/biology/quality/patterns.py",
     }
 )
 
@@ -88,6 +89,8 @@ def _protected_spans(text: str) -> list[tuple[int, int]]:
     for match in re.finditer(r"(?<!\$)\$[^$\n]+\$", text):
         spans.append(match.span())
     for match in re.finditer(r"`[^`\n]+`", text):
+        spans.append(match.span())
+    for match in re.finditer(r"https?://[^\s)>\]}]+", text):
         spans.append(match.span())
     front_matter = re.match(r"\A---\n.*?\n---\n", text, re.DOTALL)
     if front_matter:

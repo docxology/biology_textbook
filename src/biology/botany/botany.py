@@ -300,3 +300,83 @@ def plant_biomass_growth(
 
     logger.debug(f"Plant growth: final biomass={biomass[-1]:.2f} g at day {duration_days}")
     return PlantGrowthResult(times_days=times, biomass_g=biomass, relative_growth_rate=relative_growth_rate)
+
+
+# ---------------------------------------------------------------------------
+# Plant Reproduction — Pollen Tube Growth Curve
+# ---------------------------------------------------------------------------
+
+
+@dataclass
+class PollenTubeGrowthResult:
+    """Length-vs-time profile for a growing pollen tube."""
+
+    times_min: list[float]
+    lengths_um: list[float]
+    elongation_rate_um_per_min: float
+    saturation_length_um: float
+
+
+def pollen_tube_growth(
+    *,
+    max_length_um: float = 1500.0,
+    growth_rate_um_per_min: float = 12.0,
+    duration_min: float = 240.0,
+    initial_length_um: float = 50.0,
+    steps: int = 240,
+) -> PollenTubeGrowthResult:
+    """Simulate pollen tube length over time using a saturating growth model.
+
+    Empirical pollen tubes elongate at a near-constant tip rate for hours
+    before slowing as they approach the ovule. We use a logistic kinetic
+    law dL/dt = r * L * (1 - L/L_max), starting from ``initial_length_um``,
+    so the curve is smooth, monotone, and bounded by ``max_length_um``.
+
+    Args:
+        max_length_um: Saturation length L_max (must exceed ``initial_length_um``).
+        growth_rate_um_per_min: Intrinsic elongation rate r (must be positive).
+        duration_min: Simulated duration (minutes, must be positive).
+        initial_length_um: Initial pollen-tube length (must be positive).
+        steps: Number of Euler steps (must be positive).
+
+    Returns:
+        PollenTubeGrowthResult with ``steps + 1`` (time, length) samples.
+
+    Raises:
+        ValueError: If any argument is out of range.
+    """
+    if max_length_um <= 0 or initial_length_um <= 0:
+        raise ValueError("lengths must be positive.")
+    if max_length_um <= initial_length_um:
+        raise ValueError("max_length_um must exceed initial_length_um.")
+    if growth_rate_um_per_min <= 0:
+        raise ValueError("growth_rate_um_per_min must be positive.")
+    if duration_min <= 0 or steps <= 0:
+        raise ValueError("duration_min and steps must be positive.")
+
+    from biology.numerics import euler_integrate_scalar
+
+    # Saturating linear growth: dL/dt = r * (1 - L / L_max). At small L this
+    # gives an approximately constant tip rate of ``growth_rate_um_per_min``;
+    # near the saturation length the rate falls smoothly to zero. The
+    # formulation is bounded above by ``max_length_um`` for any positive step
+    # size, which keeps the pedagogical figure monotone and well-behaved.
+    def derivative(length: float) -> float:
+        saturation_term = max(0.0, 1.0 - length / max_length_um)
+        return growth_rate_um_per_min * saturation_term
+
+    times, lengths = euler_integrate_scalar(
+        initial_length_um,
+        duration_min,
+        steps,
+        derivative,
+    )
+    logger.debug(
+        "Pollen tube growth: final length=%.1f um at %.0f min", lengths[-1], duration_min
+    )
+    return PollenTubeGrowthResult(
+        times_min=times,
+        lengths_um=lengths,
+        elongation_rate_um_per_min=growth_rate_um_per_min,
+        saturation_length_um=max_length_um,
+    )

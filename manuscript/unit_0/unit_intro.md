@@ -32,7 +32,7 @@ Reading \nameref{sec:unit_0_unit_intro} is optional but recommended: it supplies
 | 1987 | Per Bak, Tang & Wiesenfeld — \citep{bak1987} | Self-organized criticality and power-law scaling in CAS |
 | 1992 | John Holland — \citep{holland1992} | Genetic algorithms; formal CAS framework |
 | 2010 | Karl Friston — \citep{friston2010} | Free energy principle as a unified theory of brain function |
-| 2012 | Peter Sterling — \citep{sterling2015} | Predictive allostasis, contrasting error-correction homeostasis |
+| 2015 | Peter Sterling — \citep{sterling2015} | Predictive allostasis, contrasting error-correction homeostasis |
 
 ---
 

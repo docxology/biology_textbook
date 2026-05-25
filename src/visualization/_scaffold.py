@@ -21,6 +21,7 @@ from textbook_visuals import pad_png_to_square
 from .cvd import (
     BAR_NEG,
     BAR_POS,
+    BLUE,
     GRAY,
     ORANGE,
     PUNNETT_DOMINANT,
@@ -28,6 +29,7 @@ from .cvd import (
     PURPLE,
     SERIES2,
     SERIES3,
+    SERIES4,
     TEAL,
 )
 
@@ -36,6 +38,7 @@ logger = get_logger(__name__)
 __all__ = [
     "BAR_NEG",
     "BAR_POS",
+    "BLUE",
     "GRAY",
     "ORANGE",
     "PUNNETT_DOMINANT",
@@ -43,6 +46,7 @@ __all__ = [
     "PURPLE",
     "SERIES2",
     "SERIES3",
+    "SERIES4",
     "TEAL",
     "_save_figure",
     "get_logger",

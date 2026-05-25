@@ -1,6 +1,6 @@
 # Biology Textbook — Tests
 
-**Domain, visualization, and manuscript-invariant suites · zero mocks.** Run `pytest` from this active project directory for the current test count and line coverage; the tree currently ships **41** `test_*.py` modules and `pyproject.toml` enforces a **90 %** gate on `src/`.
+**Domain, visualization, and manuscript-invariant suites · zero mocks.** Run `pytest` from this active project directory for the current test count and line coverage; the tree currently ships **51** `test_*.py` files + `conftest.py` — run `uv run python -m pytest tests/ -q` for the current collected count; `pyproject.toml` enforces a **90 %** gate on `src/`.
 
 ## Running
 
@@ -20,7 +20,7 @@ uv run python -m pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 
 ## Layout
 
-**41** `test_*.py` files: **6** domain modules (exercising `src/biology/*`, mermaid, visualization) + **35** invariant / render-quality / script-quality / bootstrap modules. Plus `conftest.py` (fixtures and path bootstrap, not a test module). Run `uv run python -m pytest tests/ -q` for the current collected count.
+**51** `test_*.py` files: **7** domain modules (exercising `src/biology/*`, mermaid, visualization) + **44** invariant / render-quality / script-quality / bootstrap modules. Plus `conftest.py` (fixtures and path bootstrap, not a test module). Run `uv run python -m pytest tests/ -q` for the current collected count.
 
 ### Domain tests (6 `test_*.py` + `conftest.py`)
 

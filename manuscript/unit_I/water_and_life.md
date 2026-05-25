@@ -59,7 +59,7 @@
 
 Among known molecules on Earth, liquid water is unusually well suited as the solvent of life \citep{ball2008water}. It is the most abundant molecule in living cells (~70% of cell mass), and metabolism depends on water as solvent, reactant, product, or thermal buffer. The following properties --- each a direct consequence of its molecular structure --- make water biologically hard to substitute.
 
-Water is so central to biology that astrobiologists use the mantra "follow the water" when searching for extraterrestrial life. Every known form of life requires liquid water, and the "habitable zone" around a star is defined primarily by the temperature range permitting liquid water on a planet's surface.
+Water is so central to biology that astrobiologists use the mantra "follow the water" when searching for extraterrestrial life. Every known form of life requires liquid water to grow and reproduce (though anhydrobionts such as tardigrades and brine-shrimp cysts can survive years of near-total desiccation in a dormant state), and the "habitable zone" around a star is defined primarily by the temperature range permitting liquid water on a planet's surface.
 
 ---
 
@@ -574,7 +574,7 @@ This is the pressure of a vehicle tyre. The lipid bilayer cannot resist such for
 \label{eq:unit_I_water_activity}
 \end{equation}
 
-Adding solutes lowers $a_w$ below 1 (pure water), which (i) reduces the rate of water-dependent reactions including hydrolysis, (ii) inhibits microbial growth, and (iii) suppresses freezing. Most cellular processes proceed at $a_w \gtrsim 0.99$. When $a_w$ falls below 0.6 (e.g., honey, raisins, dried meat), microbial growth halts entirely --- the basis of most traditional preservation methods. We will quantify this further in \S 8 below.
+Adding solutes lowers $a_w$ below 1 (pure water), which (i) reduces the rate of water-dependent reactions including hydrolysis, (ii) inhibits microbial growth, and (iii) suppresses freezing. Most cellular processes proceed at $a_w \gtrsim 0.99$. When $a_w$ falls below ~0.60 (e.g., honey, raisins, dried meat), microbial growth is essentially arrested --- the lowest recorded growth limit, that of the xerophilic mold *Xeromyces bisporus*, is $a_w \approx 0.61$ --- which is the basis of most traditional preservation methods. We will quantify this further in \S 8 below.
 
 ### Proton Hopping --- The Grotthuss Mechanism
 

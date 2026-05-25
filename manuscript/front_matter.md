@@ -21,13 +21,13 @@ and to those who show them the way.*
 
 The author gratefully acknowledges many contributions, learnings, and sources of inspiration.
 
-**Scientific foundations.** This textbook builds on the foundational scholarship of too many to name, and in particular the textbooks of Alberts et al. (*Molecular Biology of the Cell*), Campbell & Reece (*Biology*), Stryer (*Biochemistry*), Lehninger (*Principles of Biochemistry*), the primary literature cited throughout each chapter, and a variety of other sources. We aim to cite specific experimental results at point of use with full author credit. The vision of this textbook is informed by the open curriculum [OpenStax Biology 2e](https://openstax.org/details/books/biology-2e). We pause in gratitude and awe to those who have gone before us in Epistemia (like Academic but think bigger), and to those who will come after us.
+**Scientific foundations.** This textbook builds on foundational scholarship in molecular biology, biochemistry, physiology, ecology, and evolution—including the textbooks of Alberts et al. (*Molecular Biology of the Cell*), Campbell & Reece (*Biology*), Stryer (*Biochemistry*), Lehninger (*Principles of Biochemistry*), the primary literature cited throughout each chapter, and the open curriculum [OpenStax Biology 2e](https://openstax.org/details/books/biology-2e). We cite specific experimental results at point of use with full author credit and pause in gratitude to the researchers whose work makes this synthesis possible.
 
 **Open science.** This textbook is open source and open access. The source code is licensed under the Apache-2.0 license, and the text is licensed under the Creative Commons Attribution 4.0 International license. Sources, figures, tests, and rendered outputs are maintained in the [biology textbook repository](https://github.com/docxology/biology_textbook). The work builds on, and contributes to, the open-science community whose code, data, lifeways, and scholarship have made this work freely available, computationally grounded, and broadly accessible.
 
 **Open educational resources.** Open textbook adoption in U.S. and Canadian higher education has grown from roughly 1-in-400 classes in 2013 to about 1-in-80 by 2023, measured from syllabus-assigned titles rather than download counts \citep{opensyllabus2023oer}. At the University of Georgia, courses that switched to OpenStax materials---including introductory biology---showed improved grade distributions and lower D/F/W rates compared with prior commercial-textbook terms \citep{colvard2018oer}. This book treats [OpenStax Biology 2e](https://openstax.org/details/books/biology-2e) as conceptual inspiration and a public reference point, not as a derivative work.
 
-**Biology education.** This textbook is designed to be used in a biology course (it is an exercise left to the reader, what kind of course this will be), and is therefore grounded in the principles of active learning and student-centered teaching.
+**Biology education.** This textbook supports introductory through upper-division biology courses—survey, majors, pre-health, and computation-first reading paths—with active learning, companion labs, and question banks aligned to each chapter. Suggested reading paths in the navigation section below map units to common course designs.
 
 **Research project template.** The build pipeline, testing infrastructure, and multi-project architecture are based on the author's [Research Project Template](https://github.com/docxology/template). The template provides version control, testing, documentation, and publication tooling used to build this textbook.
 
@@ -54,7 +54,8 @@ modules and used to generate figures where appropriate. Every aspect of this tex
 | **Diagrams** | Mermaid process diagrams; automatically rendered | Hand-drawn |
 | **Opening vignettes** | Landmark experiment narrative opening each chapter | Absent |
 | **Curriculum map** | Generated chapter/lab/question/standards alignment | Usually external |
-| **Master glossary** | 226 terms with etymology and chapter cross-references | Chapter-end lists |
+| **Master glossary** | 225 terms with etymology and chapter cross-references | Chapter-end lists |
+| **Instructor edition** | Question-bank model answers rendered as blockquotes (`export.include_solutions: true`) | Student edition hides solutions |
 | **Open access** | CC BY 4.0; fully open source | Copyright restricted |
 | **Citations** | Inline, with year and journal | Often chapter-end primarily |
 
@@ -66,28 +67,28 @@ cellular, organismal, evolutionary, and ecological scales. The entries below
 are generated from `manuscript/config.yaml` so navigation stays aligned with
 the rendered table of contents.
 
-- **\nameref{sec:unit_0_unit_intro}:** \nameref{sec:unit_0_systems_science}; \nameref{sec:unit_0_complex_adaptive_systems}; \nameref{sec:unit_0_active_inference}; \nameref{sec:unit_0_history_philosophy_biology}.
-- **\nameref{sec:unit_I_unit_intro}:** \nameref{sec:unit_I_atoms_molecules}; \nameref{sec:unit_I_water_and_life}; \nameref{sec:unit_I_macromolecules}; \nameref{sec:unit_I_enzymes_and_kinetics}.
-- **\nameref{sec:unit_II_unit_intro}:** \nameref{sec:unit_II_cell_theory}; \nameref{sec:unit_II_cell_structure}; \nameref{sec:unit_II_membrane_transport}; \nameref{sec:unit_II_cell_signaling}.
-- **\nameref{sec:unit_III_unit_intro}:** \nameref{sec:unit_III_bioenergetics_and_respiration}; \nameref{sec:unit_III_photosynthesis}; \nameref{sec:unit_III_metabolic_integration}.
-- **\nameref{sec:unit_IV_unit_intro}:** \nameref{sec:unit_IV_dna_replication_and_cell_cycle}; \nameref{sec:unit_IV_gene_expression}; \nameref{sec:unit_IV_mutations_and_genomics}; \nameref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}; \nameref{sec:unit_IV_epigenetic_inheritance_and_disease}.
-- **\nameref{sec:unit_V_unit_intro}:** \nameref{sec:unit_V_mendelian_principles}; \nameref{sec:unit_V_mendelian_extensions_and_human_genetics}; \nameref{sec:unit_V_chromosomal_inheritance}; \nameref{sec:unit_V_population_genetics}.
-- **\nameref{sec:unit_VI_unit_intro}:** \nameref{sec:unit_VI_evolution_and_selection}; \nameref{sec:unit_VI_genetic_drift_and_speciation}; \nameref{sec:unit_VI_phylogenetics}.
-- **\nameref{sec:unit_VII_unit_intro}:** \nameref{sec:unit_VII_bacteria_archaea_viruses}; \nameref{sec:unit_VII_microbial_ecology}; \nameref{sec:unit_VII_host_immunity_and_vaccines}; \nameref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-- **\nameref{sec:unit_VIII_unit_intro}:** \nameref{sec:unit_VIII_plant_structure_and_water}; \nameref{sec:unit_VIII_plant_reproduction}; \nameref{sec:unit_VIII_plant_responses}.
-- **\nameref{sec:unit_IX_unit_intro}:** \nameref{sec:unit_IX_circulation_respiration_homeostasis}; \nameref{sec:unit_IX_nervous_system}; \nameref{sec:unit_IX_action_potential_synapses}; \nameref{sec:unit_IX_endocrine_signaling}; \nameref{sec:unit_IX_immune_system_defense}.
-- **\nameref{sec:unit_X_unit_intro}:** \nameref{sec:unit_X_population_ecology}; \nameref{sec:unit_X_community_interactions}; \nameref{sec:unit_X_biodiversity_and_food_webs}; \nameref{sec:unit_X_ecosystem_ecology}; \nameref{sec:unit_X_biomes_and_conservation}.
+- **Unit 0 — Systems Science and the Biology of Complexity:** Systems Science and the Logic of Emergence; Complex Adaptive Systems; Active Inference and the Free Energy Principle; History and Philosophy of Biology.
+- **Unit I — Chemistry of Life:** Atoms, Molecules, and Chemical Bonds; Water — The Molecule of Life; Biological Macromolecules; Enzymes and the Kinetics of Catalysis.
+- **Unit II — The Cell:** Cell Theory and Cell Types; Cell Structure and Organelles; Membrane Structure and Transport; Cell Signaling and Communication.
+- **Unit III — Energy and Metabolism:** Bioenergetics and Cellular Respiration; Photosynthesis; Metabolic Integration and Regulation.
+- **Unit IV — Molecular Genetics:** DNA Replication and the Cell Cycle; Gene Expression — Transcription and Translation; Mutations, CRISPR, and Genomics; Chromatin and Epigenetic Mechanisms; Epigenetic Inheritance and Disease.
+- **Unit V — Classical Genetics and Heredity:** Mendelian Principles and Probability; Mendelian Extensions and Human Genetics; Chromosomal Inheritance and Linkage; Population Genetics and Hardy-Weinberg Equilibrium.
+- **Unit VI — Evolution:** Evolution — Theory, Natural Selection, and Adaptation; Genetic Drift, Gene Flow, and Speciation; Phylogenetics and the Tree of Life.
+- **Unit VII — Microbiology:** Bacteria, Archaea, and Viruses; Microbial Ecology and the Microbiome; Host Immunity and Vaccines; Antimicrobial Resistance and Epidemiology.
+- **Unit VIII — Botany — Plant Biology:** Plant Structure, Water Relations, and Transport; Plant Reproduction and Development; Plant Responses to the Environment.
+- **Unit IX — Zoology and Systems Physiology:** Circulation, Respiration, and Homeostasis; Nervous System and Neural Signaling; Action Potentials and Synaptic Transmission; Endocrine Signaling and Homeostasis; Immune System Architecture and Defense.
+- **Unit X — Ecology:** Population Ecology and Growth Models; Community Interactions and Succession; Biodiversity, Food Webs, and Biogeography; Ecosystem Ecology and Biogeochemical Cycles; Biomes and Conservation Biology.
 - **Laboratory activities:** one companion lab follows each chapter in the
 same canonical order.
 - **Question banks:** one 30-item question bank follows each chapter in the
 same canonical order.
-- **\nameref{sec:appendix_curriculum_map}:** reference material generated or ordered from the same manifest.
-- **\nameref{sec:appendix_instructor_orchestration}:** reference material generated or ordered from the same manifest.
-- **\nameref{sec:appendix_math_review}:** reference material generated or ordered from the same manifest.
-- **\nameref{sec:appendix_units_and_constants}:** reference material generated or ordered from the same manifest.
-- **\nameref{sec:appendix_periodic_table}:** reference material generated or ordered from the same manifest.
-- **\nameref{sec:glossary}:** reference material generated or ordered from the same manifest.
-- **\nameref{sec:appendix_index}:** reference material generated or ordered from the same manifest.
+- **Appendix A — Curriculum Map:** reference material generated or ordered from the same manifest.
+- **Appendix B — Instructor Orchestration Guide:** reference material generated or ordered from the same manifest.
+- **Appendix C — Mathematical Review for Biology:** reference material generated or ordered from the same manifest.
+- **Appendix D — Units, Physical Constants, and Biological Ranges:** reference material generated or ordered from the same manifest.
+- **Appendix E — A Periodic Table for Biology:** reference material generated or ordered from the same manifest.
+- **Appendix F — Master Glossary of Biological Terms:** reference material generated or ordered from the same manifest.
+- **Appendix G — Index of Key Terms:** reference material generated or ordered from the same manifest.
 - **Source modules:** `src/biology/<domain>/` contains the tested Python
 implementations for the quantitative models used throughout the book.
 <!-- toc-navigation-end -->

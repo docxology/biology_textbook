@@ -219,7 +219,7 @@ $$ p_c = 1 - \frac{1}{3.17} = 0.685 \;\rightarrow\; 68.5\,\% \label{eq:unit_VII_
 - **Granuloma**: Hallmark of TB pathology -- organized aggregate of infected macrophages, epithelioid cells, multinucleated giant cells, and T cells; hypoxic caseous necrotic center; both contains and protects the bacilli
 - Latent TB: 90-95% of infected individuals contain the infection as LTBI (latent TB infection); 5-10% lifetime risk of reactivation, increased by HIV, immunosuppression, malnutrition
 - Treatment: standard drug-susceptible pulmonary TB is treated with a multi-drug rifamycin-based regimen, classically 6 months of isoniazid + rifampicin + pyrazinamide + ethambutol followed by continuation therapy; adherence support matters because metabolically slow bacilli and granuloma drug penetration make undertreatment risky.
-- **MDR/RR-TB** (multidrug-resistant or rifampicin-resistant TB), **pre-XDR-TB** (MDR/RR-TB with fluoroquinolone resistance), and **XDR-TB** (MDR/RR-TB plus resistance to a fluoroquinolone and at least one additional Group A drug such as bedaquiline or linezolid) remain major AMR threats. WHO's consolidated 2025 treatment guidance now prioritizes shorter most-oral regimens for eligible patients, including 6-month BPaLM/BPaL-based options, while reserving longer individualized regimens for resistance, toxicity, pregnancy/age limits, extrapulmonary disease, or poor early response \citep{who2025tb}.
+- **MDR/RR-TB** (multidrug-resistant or rifampicin-resistant TB), **pre-XDR-TB** (MDR/RR-TB with fluoroquinolone resistance), and **XDR-TB** (MDR/RR-TB plus resistance to a fluoroquinolone and at least one additional Group A drug such as bedaquiline or linezolid) remain major AMR threats. WHO's 2025 treatment guidance keeps short, fully oral regimens central for eligible MDR/RR-TB patients, retains BPaLM/BPaL use where appropriate, and adds a 6-month bedaquiline-delamanid-linezolid-levofloxacin-clofazimine (BDLLfxC) option for selected patients; longer individualized regimens may be needed when resistance, toxicity, pregnancy/age limits, extrapulmonary disease, or poor early response make shorter regimens unsuitable \citep{who2025tbtreatmentmodule4}.
 
 ```mermaid
 flowchart TD
@@ -236,9 +236,9 @@ flowchart TD
     G --> J
     I --> J
 ```
-<!-- alt: Flowchart showing TB regimen decision schematic. WHO's shorter BPaLM/BPaL options are eligibility-dependent tools for MDR/RR-TB, not a comprehensive replacement for susceptibility testing, toxicity monitoring, or individualized care. -->
+<!-- alt: Flowchart showing TB regimen decision schematic. WHO's shorter BPaLM/BPaL and BDLLfxC options are eligibility-dependent tools for MDR/RR-TB, not a comprehensive replacement for susceptibility testing, toxicity monitoring, or individualized care. -->
 
-*TB regimen decision schematic. WHO's shorter BPaLM/BPaL options are eligibility-dependent tools for MDR/RR-TB, not a comprehensive replacement for susceptibility testing, toxicity monitoring, or individualized care \citep{who2025tb}.*
+*TB regimen decision schematic. WHO's shorter BPaLM/BPaL and BDLLfxC options are eligibility-dependent tools for MDR/RR-TB, not a comprehensive replacement for susceptibility testing, toxicity monitoring, or individualized care \citep{who2025tbtreatmentmodule4}.*
 
 - Global burden: an estimated 282 million cases and 610,000 deaths in 2024 across 80 countries \citep{who2025malaria}. The WHO African Region still accounts for the overwhelming majority of cases and deaths, with young children carrying the greatest mortality burden.
 - Species: *P. falciparum* (most lethal; 99% of deaths), *P. vivax* (most widespread; hypnozoites cause relapse), *P. malariae*, *P. ovale*, *P. knowlesi* (zoonotic, from macaques)

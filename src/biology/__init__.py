@@ -14,6 +14,7 @@ from . import biochemistry
 from . import microbiology
 from . import botany
 from . import neuroscience
+from . import foundations
 from . import crossref_validator
 from . import chapter_metadata
 from . import curriculum
@@ -30,6 +31,7 @@ __all__ = [
     "microbiology",
     "botany",
     "neuroscience",
+    "foundations",
     "crossref_validator",
     "chapter_metadata",
     "curriculum",

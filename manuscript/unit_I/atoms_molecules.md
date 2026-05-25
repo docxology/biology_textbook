@@ -2,6 +2,15 @@
 
 \label{sec:unit_I_atoms_molecules}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{../figures/electronegativity_bond_energy.png}
+\caption{Quantitative chemistry behind biological molecules. The top panel shows Pauling electronegativities for the atoms most common in living matter (H, C, N, O, P, S, plus Na, K, Cl, Ca). The bottom panel shows representative bond dissociation energies on a log scale, color-coded by covalent versus noncovalent class. The order-of-magnitude separation explains why covalent backbones persist while noncovalent interactions can rearrange under physiological conditions.}
+\label{fig:unit_I_electronegativity_bond_energy}
+\end{figure}
+
+<!-- alt: Two-panel figure. Top panel: vertical bars showing Pauling electronegativity values for ten biologically relevant atoms. Bottom panel: vertical bars on a log scale showing bond dissociation energies in kJ/mol for several covalent and noncovalent bond types, with covalent bonds clearly larger than hydrogen bonds and van der Waals interactions. -->
+
 
 <!-- chapter-metadata-badge -->
 > Level 1/3 · 40 min read · 50 min lecture · Prerequisites: none
@@ -155,7 +164,7 @@ Total: 0 + 3(−1) + 0 = −3, matching the overall charge. By symmetry the four
 
 ### Electronegativity Drives Polarity in Biology
 
-The Pauling **electronegativity** (χ) of an element predicts how strongly it pulls bonding electrons \citep{pauling1932electronegativity}. Differences in χ across a bond ($\Delta\chi$) determine the partial charges that drive [**hydrogen bond**](#gl:hydrogen-bond)ing, dipole--dipole interactions, and acid-base behavior throughout biology.
+The Pauling **electronegativity** (χ) of an element predicts how strongly it pulls bonding electrons \citep{pauling1932electronegativity}. Differences in χ across a bond ($\Delta\chi$) determine the partial charges that drive [**hydrogen bond**](#gl:hydrogen-bond)ing, dipole--dipole interactions, and acid-base behavior throughout biology. The chapter-opening \cref{fig:unit_I_electronegativity_bond_energy} pairs the electronegativities for biologically common atoms with representative bond dissociation energies on a log scale.
 
 : Electronegativity Drives Polarity in Biology: Element and χ (Pauling). {#tbl:unit_I_atoms_molecules_electronegativity_drives_polarity_in_biology}
 | Element | χ (Pauling) | Period | Biological role |

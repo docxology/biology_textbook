@@ -124,6 +124,58 @@ def plot_water_potential_transpiration(
     return _save_figure(fig, output_dir, "water_potential_transpiration.png")
 
 
+def plot_pollen_tube_growth(output_dir: Path) -> Path:
+    """Plot pollen-tube elongation length over time.
+
+    Two illustrative growth profiles share the panel: a fast tube (lily-like,
+    20 um/min, 2000 um saturation) and a slow tube (Arabidopsis-like,
+    8 um/min, 1000 um saturation). Both follow a saturating logistic curve.
+
+    Args:
+        output_dir: Directory to save PNG.
+
+    Returns:
+        Path to the saved PNG.
+    """
+    from biology.botany import pollen_tube_growth
+
+    fast = pollen_tube_growth(max_length_um=2000.0, growth_rate_um_per_min=20.0)
+    slow = pollen_tube_growth(max_length_um=1000.0, growth_rate_um_per_min=8.0)
+
+    fig, ax = plt.subplots(figsize=(9, 5))
+    ax.plot(
+        fast.times_min,
+        fast.lengths_um,
+        color=SERIES2[0],
+        linewidth=2.4,
+        linestyle="-",
+        label="Fast (lily-like, 20 um/min)",
+    )
+    ax.plot(
+        slow.times_min,
+        slow.lengths_um,
+        color=SERIES2[1],
+        linewidth=2.4,
+        linestyle="--",
+        label="Slow (Arabidopsis-like, 8 um/min)",
+    )
+    ax.axhline(
+        fast.saturation_length_um,
+        color=GRAY,
+        linestyle=":",
+        linewidth=1.0,
+        alpha=0.7,
+    )
+    ax.set_xlabel("Time (minutes)", fontsize=13)
+    ax.set_ylabel("Pollen tube length (um)", fontsize=13)
+    ax.set_title("Pollen Tube Elongation Through the Style", fontsize=14)
+    ax.legend(fontsize=10, frameon=False)
+    ax.tick_params(labelsize=11)
+    ax.grid(True, color="#dddddd", linewidth=0.6, alpha=0.7)
+    fig.tight_layout()
+    return _save_figure(fig, output_dir, "pollen_tube_growth.png", aspect="landscape")
+
+
 # ---------------------------------------------------------------------------
 # Ecology — logistic growth, species–area, biome NPP
 # ---------------------------------------------------------------------------

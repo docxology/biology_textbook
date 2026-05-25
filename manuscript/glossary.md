@@ -4,7 +4,7 @@
 *Etymology notation: [Gk] = Greek; [L] = Latin; [OFr] = Old French; [Ar] = Arabic.*
 *Cross-references use semantic `\cref{...}` links generated from the canonical table of contents.*
 
-*Maintenance note: glossary terms must use a Pandoc bracketed span, `[**Term**]{#gl:<slug>}` (with `markdown+bracketed_spans`, Pandoc emits a real LaTeX `\label{gl:...}` in PDF). Chapters link with `[**term**](#gl:<slug>)`. After editing terms, run `uv run python scripts/link_glossary.py --check` from the project root and verify `tests/test_build_invariants.py` plus markdown validation.*
+*Maintenance note: glossary terms must use a Pandoc bracketed span, ``[**Term**]{#gl:term-slug}`` (with `markdown+bracketed_spans`, Pandoc emits a real LaTeX `\label{gl:...}` in PDF). Chapters link with ``[**term**](#gl:term-slug)``. After editing terms, run `uv run python scripts/link_glossary.py --check` from the project root and verify `tests/test_build_invariants.py` plus markdown validation.*
 
 ---
 
@@ -24,7 +24,7 @@
 
 [**Allele**]{#gl:allele} [Gk *allelon* = of each other; shortened from *allelemorph*] — One of two or more alternative forms of a gene at the same chromosomal locus. Defined by a distinct nucleotide sequence. → \cref{sec:unit_V_mendelian_principles}
 
-[**Allostasis**]{#gl:allostasis} [Gk *allos* = other + *stasis* = standing] — Predictive physiological regulation in which the brain adjusts setpoints and resource allocation in anticipation of demand, rather than merely correcting error after disturbance. → \cref{sec:unit_IX_immune_system_defense}
+[**Allostasis**]{#gl:allostasis} [Gk *allos* = other + *stasis* = standing] — Predictive physiological regulation in which the brain adjusts setpoints and resource allocation in anticipation of demand, rather than merely correcting error after disturbance. → \cref{sec:unit_0_active_inference}
 
 [**Allosteric**]{#gl:allosteric} [Gk *allos* = other + *stereos* = solid/space] — Describing a regulatory site on an enzyme or receptor that is spatially distinct from the active site; ligand binding there changes the macromolecule's conformation and activity. → \cref{sec:unit_I_enzymes_and_kinetics}
 

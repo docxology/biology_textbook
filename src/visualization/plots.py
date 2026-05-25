@@ -8,6 +8,7 @@ from pathlib import Path
 from visualization.plots_botany import (
     plot_light_response_curve,
     plot_photosynthesis_rate,
+    plot_pollen_tube_growth,
     plot_water_potential_transpiration,
 )
 from visualization.plots_cell import (
@@ -15,6 +16,7 @@ from visualization.plots_cell import (
     plot_ghk_permeability,
     plot_hill_equation,
     plot_nernst_potentials,
+    plot_organelle_size_scale,
     plot_osmotic_pressure,
 )
 from visualization.plots_ecology import (
@@ -27,11 +29,20 @@ from visualization.plots_ecology import (
     plot_species_area_relationship,
 )
 from visualization.plots_evolution import plot_fitness_landscape, plot_molecular_clock
+from visualization.plots_foundations import (
+    plot_biology_milestones,
+    plot_electronegativity_bond_energy,
+    plot_network_degree_distribution,
+    plot_polymer_hierarchy,
+    plot_prediction_error_precision,
+)
 from visualization.plots_genetics import (
     plot_genetic_drift_trajectories,
     plot_hardy_weinberg,
     plot_methylation_heatmap,
+    plot_mutation_rate_spectrum,
     plot_punnett_square,
+    plot_replication_fork_progression,
     plot_selection_simulation,
     plot_translation_codons,
 )
@@ -42,6 +53,7 @@ from visualization.plots_microbiology import (
 )
 from visualization.plots_physiology import (
     plot_action_potential,
+    plot_atp_yield_comparison,
     plot_glycolysis_summary,
     plot_homeostasis_feedback,
     plot_michaelis_menten,
@@ -59,6 +71,16 @@ FIGURE_ASPECT: dict[str, str] = {
     "genetic_drift_trajectories": "landscape",
     "selection_simulation": "landscape",
     "food_web_trophic_levels": "landscape",
+    "network_degree_distribution": "landscape",
+    "prediction_error_precision": "landscape",
+    "biology_milestones": "landscape",
+    "electronegativity_bond_energy": "landscape",
+    "polymer_hierarchy": "landscape",
+    "organelle_size_scale": "landscape",
+    "atp_yield_comparison": "landscape",
+    "replication_fork_progression": "landscape",
+    "mutation_rate_spectrum": "landscape",
+    "pollen_tube_growth": "landscape",
 }
 
 
@@ -95,4 +117,16 @@ ALL_FIGURE_GENERATORS: list[tuple[str, FigureGenerator]] = [
     ("species_area_relationship", plot_species_area_relationship),
     ("biome_distribution", plot_biome_distribution),
     ("genetic_drift_trajectories", plot_genetic_drift_trajectories),
+    # Foundations (Unit 0 + Unit I)
+    ("network_degree_distribution", plot_network_degree_distribution),
+    ("prediction_error_precision", plot_prediction_error_precision),
+    ("biology_milestones", plot_biology_milestones),
+    ("electronegativity_bond_energy", plot_electronegativity_bond_energy),
+    ("polymer_hierarchy", plot_polymer_hierarchy),
+    # Cell / metabolism / genetics / botany extensions
+    ("organelle_size_scale", plot_organelle_size_scale),
+    ("atp_yield_comparison", plot_atp_yield_comparison),
+    ("replication_fork_progression", plot_replication_fork_progression),
+    ("mutation_rate_spectrum", plot_mutation_rate_spectrum),
+    ("pollen_tube_growth", plot_pollen_tube_growth),
 ]

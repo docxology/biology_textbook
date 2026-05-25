@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** The Münch pressure-flow hypothesis explains phloem transport as bulk flow driven by an osmotically generated turgor gradient. At a source (e.g., a mature leaf) sucrose is loaded into sieve tubes, lowering Ψ_s so water enters osmotically from adjacent xylem and raises turgor pressure. At a sink (root, fruit) sucrose is unloaded, Ψ_s rises, water leaves, and turgor falls. The resulting source-to-sink pressure difference drives bulk flow of phloem sap through the sieve-tube network; the direction is set by which tissue is loading vs. unloading. See \cref{sec:unit_VIII_plant_structure_and_water}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** Four contrasts: (1) Vascular bundle arrangement—dicot stems have bundles in a single ring around the pith; monocot stems have bundles scattered throughout the ground tissue. (2) Vascular cambium—present between xylem and phloem in dicots (a continuous lateral meristem); absent or non-functional in monocots. (3) Cortex/pith organization—dicots show a distinct cortex and central pith separated by the bundle ring; monocots lack a discrete pith/cortex boundary because bundles are dispersed. (4) Secondary growth—dicots undergo secondary thickening (wood) via the cambium; monocots generally lack true secondary growth. See \cref{sec:unit_VIII_plant_structure_and_water}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

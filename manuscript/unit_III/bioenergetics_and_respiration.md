@@ -1083,6 +1083,9 @@ flowchart LR
 
 - Mitchell (1961). Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism. *Nature*, 191 \citep{mitchell1961}.
 - Atkinson (1968). The regulation of enzyme activity in metabolism. *Biochemical Journal*, 108 \citep{atkinson1968}.
+- Krebs & Johnson (1937). The role of citric acid in intermediate metabolism in animal tissues. *Enzymologia*, 4.
+- Boyer (1997). The ATP synthase --- a splendid molecular machine. *Annual Review of Biochemistry*, 66.
+- Rich (2003). The molecular machinery of Keilin's respiratory chain. *Biochemical Society Transactions*, 31.
 
 ---
 

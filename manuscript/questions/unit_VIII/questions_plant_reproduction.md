@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Photoperiodism is a plant's flowering response to the relative lengths of day and night, with night length being the true measured signal (sensed via the phytochrome system). The shared principle is a critical night-length threshold that gates the floral transition. Short-day plants flower when the night exceeds a critical length (e.g., chrysanthemum, poinsettia); long-day plants flower when the night is shorter than a critical length (e.g., spinach, many cereals); day-neutral plants flower after sufficient vegetative growth regardless of photoperiod (e.g., tomato). The decisive contrast is the direction of the night-length threshold (or its absence). See \cref{sec:unit_VIII_plant_reproduction}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** In Arabidopsis embryogenesis the zygote is polarized, with PIN7 (apical) and PIN1 (basal) establishing an auxin gradient. (a) The asymmetric first division produces a small apical cell (gives rise to the embryo proper) and a large basal cell (gives rise mostly to the suspensor) — this fixes the apical–basal axis. (b) The suspensor anchors the embryo to maternal tissue, channels nutrients, and signals to pattern the basal (root) domain (WOX9), then undergoes programmed cell death after the globular stage; the embryo proper, via WOX2, patterns the apical domain. (c) PIN-mediated polar auxin transport creates an auxin maximum at the basal end (with ARF5/MONOPTEROS interpreting it) that specifies the root pole and the embryonic vascular axis; the radial axis (protoderm, procambium, ground meristem) is established at the globular–heart transition. See \cref{sec:unit_VIII_plant_reproduction}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

@@ -12,6 +12,7 @@ from biology.pipeline.collection import collect_ordered_chapters, load_config
 from biology.pipeline.injection import (
     clear_stale_slide_artifacts,
     inject_chapters_for_rendering,
+    instructor_preamble_text,
     reveal_solutions,
 )
 from biology.pipeline.numbering import (
@@ -186,6 +187,45 @@ def test_inject_chapters_reveals_solutions_and_copies_aux(tmp_path: Path, monkey
     assert "> Answer line." in content
     assert (output / "config.yaml").exists()
     assert (output / "assets" / "cover" / "cover.png").exists()
+
+
+def test_instructor_preamble_text_appends_when_no_latex_fence() -> None:
+    preamble = instructor_preamble_text("plain preamble\n", watermark_instructor=True)
+    assert "draftwatermark" in preamble
+
+
+def test_instructor_preamble_text_is_noop_when_disabled() -> None:
+    text = "```latex\n\\usepackage{geometry}\n```\n"
+    assert instructor_preamble_text(text, watermark_instructor=False) == text
+
+
+def test_inject_applies_instructor_watermark_to_preamble(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    manuscript = tmp_path / "manuscript"
+    manuscript.mkdir()
+    (manuscript / "preamble.md").write_text("```latex\n\\usepackage{geometry}\n```\n", encoding="utf-8")
+    source = tmp_path / "chapter.md"
+    source.write_text("# Chapter\n", encoding="utf-8")
+    output = tmp_path / "output" / "manuscript"
+    monkeypatch.setattr("biology.pipeline.injection.OUTPUT_DIR", output)
+    monkeypatch.setattr("biology.pipeline.injection.MANUSCRIPT_DIR", manuscript)
+    monkeypatch.setattr("biology.pipeline.injection.PROJECT_ROOT", tmp_path)
+
+    inject_chapters_for_rendering(
+        [source],
+        include_solutions=True,
+        watermark_instructor=True,
+    )
+
+    preamble = (output / "preamble.md").read_text(encoding="utf-8")
+    assert "draftwatermark" in preamble
+    assert "INSTRUCTOR EDITION" in preamble
+
+
+def test_load_config_include_solutions_enabled_for_instructor_edition() -> None:
+    config = load_config()
+    export = config.get("export", {})
+    assert export.get("include_solutions") is True
+    assert export.get("watermark_instructor") is True
 
 
 def test_inject_preserves_existing_skip_beamer_marker(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:

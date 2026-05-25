@@ -22,6 +22,7 @@ EXPECTED_CONFIGURED_SURFACE_COUNTS = {
 
 QUESTION_GENERIC_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("generic-answer-define", re.compile(r"Give the canonical definition of")),
+    ("generic-answer-define-broad", re.compile(r"Give the canonical definition")),
     ("generic-answer-mechanism", re.compile(r"Build a mechanistic answer")),
     ("generic-answer-numeric", re.compile(r"Numerical problem on")),
     ("generic-answer-position", re.compile(r"Take a position on \*")),
@@ -60,6 +61,7 @@ QUESTION_GENERIC_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("generic-answer-biological-players", re.compile(r"Name the biological players")),
     ("generic-answer-one-limitation", re.compile(r"name one limitation or counterexample")),
     ("generic-answer-boundary-condition", re.compile(r"boundary condition that prevents overgeneralizing")),
+    ("generic-answer-boundary-condition-uk", re.compile(r"boundary condition that prevents overgeneralising")),
     ("generic-answer-carry-values", re.compile(r"Carry through these values:")),
     ("generic-answer-named-items", re.compile(r"Use these named items explicitly:")),
     ("generic-answer-current-define", re.compile(r"Define \*")),
@@ -129,6 +131,7 @@ STALE_CLAIM_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("stale-living-planet-2022", re.compile(r"Living Planet Report \(2022\)")),
     ("stale-living-planet-69", re.compile(r"69% average decline")),
     ("stale-food-10b-2050", re.compile(r"feeding a projected 10 billion people by 2050")),
+    ("stale-covid-700m-infections", re.compile(r"SARS-CoV-2 infected ~700 million people globally")),
     ("overbroad-beta-lactam", re.compile(r"all β-lactams", flags=re.IGNORECASE)),
     ("overbroad-atp-currency", re.compile(r"universal energy currency", flags=re.IGNORECASE)),
 )

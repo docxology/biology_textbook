@@ -1,0 +1,222 @@
+# Orphan figure insertions: pair each ``src/visualization/`` generator output
+# (PNG stem) with the chapter file that should reference it. The YAML loader at
+# ``src/biology/pipeline/orphan_figures.py`` validates each row and the script
+# ``scripts/insert_orphan_figures.py`` is a thin CLI orchestrator. Each row:
+#
+#   png:     figure file stem (also generator name)
+#   target:  chapter path relative to ``manuscript/``
+#   anchor:  literal substring marking the insertion point
+#   caption: figure caption text
+#   label:   crossref label, e.g. ``fig:unit_V_punnett_square``
+#   alt:     accessibility alt text
+insertions:
+  - png: punnett_AaxAa
+    target: unit_V/mendelian_principles.md
+    anchor: Punnett Square
+    caption: >-
+      Punnett square for a monohybrid cross Aa × Aa. Each cell shows the zygote
+      genotype; the 3:1 phenotype ratio follows directly from the 1:2:1 genotype
+      ratio.
+    label: fig:unit_V_punnett_square
+    alt: >-
+      Two-by-two Punnett square labeled with Aa times Aa showing four offspring:
+      one AA homozygous dominant, two Aa heterozygous, one aa homozygous recessive.
+  - png: light_response_curves
+    target: unit_III/photosynthesis.md
+    anchor: saturating light response
+    caption: >-
+      Light-response curves for C3 and C4 plants. Net CO2 assimilation versus
+      photosynthetic photon flux density, showing light compensation point,
+      light saturation, and maximum assimilation rate.
+    label: fig:unit_III_light_response
+    alt: >-
+      Hyperbolic curves relating net photosynthesis to light intensity for C3
+      and C4 plants, with the C4 curve saturating at higher irradiance.
+  - png: methylation_heatmap
+    target: unit_IV/chromatin_and_epigenetic_mechanisms.md
+    anchor: methylation
+    caption: >-
+      DNA methylation heatmap across a panel of promoters and enhancers (rows)
+      and cell lines (columns). Darker cells denote higher CpG methylation;
+      cell-type-specific hypermethylation corresponds to silenced loci.
+    label: fig:unit_IV_methylation_heatmap
+    alt: >-
+      Heatmap with regulatory elements on rows and cell types on columns;
+      methylation level color-coded from low (yellow) to high (red).
+  - png: logistic_growth
+    target: unit_X/population_ecology.md
+    anchor: logistic
+    caption: >-
+      Logistic growth of a population with carrying capacity K. Population size
+      follows dN/dt = rN(1 - N/K); the S-shaped curve asymptotes at K after an
+      inflection at N = K/2.
+    label: fig:unit_X_logistic_growth
+    alt: >-
+      Sigmoid population growth curve rising from a small initial size to a
+      plateau at the carrying capacity K.
+  - png: species_area_relationship
+    target: unit_X/biomes_and_conservation.md
+    anchor: species-area
+    caption: >-
+      Species–area relationship on log–log axes. The slope z of the linear fit
+      (S = cA^z) ranges from ~0.15 for contiguous continental biomes to ~0.35
+      for isolated oceanic islands, implying doubled habitat area roughly adds
+      10 percent species (mainland) or 25 percent (islands).
+    label: fig:unit_X_species_area
+    alt: >-
+      Log-log plot of species richness against area, with two distinct slopes
+      for islands versus mainlands.
+  - png: biome_distribution
+    target: unit_X/biomes_and_conservation.md
+    anchor: terrestrial biome
+    caption: >-
+      Whittaker biome classification in temperature-precipitation space.
+      Tropical rainforest, savanna, desert, temperate forest, tundra, and ten
+      other biomes occupy characteristic climate envelopes; the diagonals define
+      the major biome boundaries.
+    label: fig:unit_X_biome_distribution
+    alt: >-
+      Two-axis plot of mean annual temperature against precipitation with
+      colored polygons denoting biome classes.
+  - png: hardy_weinberg
+    target: unit_V/population_genetics.md
+    anchor: Hardy-Weinberg equilibrium
+    caption: >-
+      Hardy-Weinberg genotype-frequency curves. As allele frequency $p$ varies,
+      $p^2$, $2pq$, and $q^2$ trace the expected AA, Aa, and aa proportions
+      under random mating.
+    label: fig:unit_V_hardy_weinberg
+    alt: >-
+      Three curves showing genotype frequencies versus allele frequency p for
+      AA, Aa, and aa under Hardy-Weinberg equilibrium.
+  - png: hill_equation
+    target: unit_II/cell_signaling.md
+    anchor: Hill coefficient
+    caption: >-
+      Hill-equation receptor occupancy for cooperative binding. Higher Hill
+      coefficients steepen the dose-response curve around the dissociation
+      constant $K_d$.
+    label: fig:unit_II_hill_equation
+    alt: >-
+      Sigmoid occupancy curves for Hill coefficients n equals 1, 2, and 4 on a
+      log-scaled ligand axis.
+  - png: sir_model
+    target: unit_VII/host_immunity_and_vaccines.md
+    anchor: SIR trajectory
+    caption: >-
+      SIR compartment trajectories for a closed population. Susceptible
+      individuals decline as the infected compartment peaks, then recoveries
+      accumulate; $R_0$ sets outbreak scale.
+    label: fig:unit_VII_sir_model
+    alt: >-
+      Time series of susceptible, infected, and recovered populations during an
+      SIR epidemic.
+  - png: glycolysis_summary
+    target: unit_III/bioenergetics_and_respiration.md
+    anchor: glycolysis
+    caption: >-
+      Glycolysis energetics by pathway step. Net ATP and NADH yields per
+      reaction summarize the investment and payoff phases of the ten-step
+      pathway.
+    label: fig:unit_III_glycolysis_summary
+    alt: Grouped bar chart of ATP and NADH yield for each glycolysis step.
+  - png: poiseuille_flow
+    target: unit_IX/circulation_respiration_homeostasis.md
+    anchor: Poiseuille
+    caption: >-
+      Hagen-Poiseuille flow versus vessel radius. Volumetric flow scales with
+      $r^4$, so small radius reductions sharply reduce perfusion at fixed
+      pressure gradient.
+    label: fig:unit_IX_poiseuille_flow
+    alt: Curve showing blood flow increasing steeply with vessel radius under Poiseuille law.
+  - png: fitness_landscape
+    target: unit_VI/genetic_drift_and_speciation.md
+    anchor: Genetic drift
+    caption: >-
+      One-locus mean fitness landscapes under directional selection,
+      heterozygote advantage, and underdominance. The shape of $\bar W(p)$
+      predicts whether allele frequency moves toward fixation, an interior
+      equilibrium, or disruptive thresholds.
+    label: fig:unit_VI_fitness_landscape
+    alt: >-
+      Three mean-fitness curves over allele frequency p illustrating different
+      selection modes.
+  - png: molecular_clock
+    target: unit_VI/phylogenetics.md
+    anchor: molecular clock
+    caption: >-
+      Molecular-clock divergence estimates from substitution rate and sequence
+      divergence ($t = d / 2\mu$). Faster-evolving lineages and larger
+      divergences yield shorter inferred times when rates are held constant.
+    label: fig:unit_VI_molecular_clock
+    alt: >-
+      Horizontal bar chart of estimated divergence times in million years for
+      four example taxon pairs.
+  - png: biodiversity_indices
+    target: unit_X/biodiversity_and_food_webs.md
+    anchor: Shannon
+    caption: >-
+      Shannon and Simpson diversity indices compared for an even meadow
+      assemblage and a dominant-species grassland. Evenness raises Shannon $H'$
+      and Simpson $1-D$ relative to skewed abundance distributions.
+    label: fig:unit_X_biodiversity_indices
+    alt: >-
+      Bar chart comparing Shannon and Simpson indices for two communities with
+      different evenness.
+  - png: photosynthesis_rate
+    target: unit_VIII/plant_responses.md
+    anchor: photosynthesis
+    caption: >-
+      Net photosynthesis light-response curves for C3-like and C4-like
+      parameter sets. Higher light-saturation points and lower dark respiration
+      shift the compensation and saturation regions.
+    label: fig:unit_VIII_photosynthesis_rate
+    alt: Two hyperbolic net-photosynthesis curves versus photosynthetically active radiation.
+  - png: osmotic_pressure
+    target: unit_I/water_and_life.md
+    anchor: osmotic
+    caption: >-
+      van 't Hoff osmotic pressure versus solute concentration at 37 °C.
+      Electrolytes with van 't Hoff factor $i>1$ generate proportionally higher
+      osmotic pressure than non-electrolytes at equal molarity.
+    label: fig:unit_I_osmotic_pressure
+    alt: >-
+      Linear rise of osmotic pressure with concentration for i equals 1 and
+      i equals 2 solutes.
+  - png: translation_codons
+    target: unit_IV/gene_expression.md
+    anchor: translation
+    caption: >-
+      Translation output for a representative mRNA. Codon parsing yields an
+      amino-acid count profile summarizing peptide composition from the genetic
+      code.
+    label: fig:unit_IV_translation_codons
+    alt: Bar chart of amino-acid counts produced from translating a sample mRNA sequence.
+  - png: mic_dilution_series
+    target: unit_VII/microbial_ecology.md
+    anchor: MIC
+    caption: >-
+      Serial two-fold broth dilution series for minimum inhibitory
+      concentration (MIC) testing. Antibiotic concentration halves in each
+      successive tube from the starting stock.
+    label: fig:unit_VII_mic_dilution_series
+    alt: Log-scaled bar chart of antibiotic concentration across eight serial dilution tubes.
+  - png: homeostasis_feedback
+    target: unit_IX/endocrine_signaling.md
+    anchor: homeostasis
+    caption: >-
+      Proportional negative-feedback correction of a temperature deviation
+      toward a set point. Each iteration applies a corrective response
+      proportional to the measured error.
+    label: fig:unit_IX_homeostasis_feedback
+    alt: >-
+      Line plot of measured temperature converging toward set point with
+      overlaid corrective responses.
+  - png: food_web_trophic_levels
+    target: unit_X/ecosystem_ecology.md
+    anchor: trophic
+    caption: >-
+      Trophic levels inferred by breadth-first search from producer species in a
+      simple aquatic food web. Each consumer is one level above its prey.
+    label: fig:unit_X_food_web_trophic_levels
+    alt: Horizontal bar chart assigning trophic levels from phytoplankton through apex predator.

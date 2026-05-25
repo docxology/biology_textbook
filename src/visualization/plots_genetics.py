@@ -308,3 +308,95 @@ def plot_translation_codons(
     fig.tight_layout()
     return _save_figure(fig, output_dir, "translation_codons.png")
 
+
+def plot_replication_fork_progression(output_dir: Path) -> Path:
+    """Bases-replicated over time for one vs many active replication origins.
+
+    Single-origin (prokaryotic) and 200-origin (eukaryotic) curves on the same
+    axes show why eukaryotic chromosomes can be replicated within an S phase
+    even though the per-fork velocity is slower.
+
+    Args:
+        output_dir: Directory to save PNG.
+
+    Returns:
+        Path to the saved PNG.
+    """
+    from biology.genetics import replication_fork_progression
+
+    prokaryote = replication_fork_progression(
+        velocity_bp_per_s=1000.0, duration_s=2400.0, origins=1, steps=120
+    )
+    eukaryote = replication_fork_progression(
+        velocity_bp_per_s=50.0, duration_s=2400.0, origins=200, steps=120
+    )
+
+    fig, ax = plt.subplots(figsize=(10, 5))
+    ax.plot(
+        np.array(prokaryote.times_s) / 60.0,
+        np.array(prokaryote.bases_replicated) / 1e6,
+        color=SERIES2[0],
+        linewidth=2.4,
+        linestyle="-",
+        label="Prokaryotic: 1 origin, 1000 bp/s",
+    )
+    ax.plot(
+        np.array(eukaryote.times_s) / 60.0,
+        np.array(eukaryote.bases_replicated) / 1e6,
+        color=SERIES2[1],
+        linewidth=2.4,
+        linestyle="--",
+        label="Eukaryotic: 200 origins, 50 bp/s",
+    )
+    ax.set_xlabel("Time (minutes)", fontsize=13)
+    ax.set_ylabel("Bases replicated (Mb)", fontsize=13)
+    ax.set_title("Replication Fork Progression — Single vs Many Origins", fontsize=14)
+    ax.legend(fontsize=10, frameon=False)
+    ax.tick_params(labelsize=11)
+    ax.grid(True, color="#dddddd", linewidth=0.6, alpha=0.7)
+    fig.tight_layout()
+    return _save_figure(fig, output_dir, "replication_fork_progression.png", aspect="landscape")
+
+
+def plot_mutation_rate_spectrum(output_dir: Path) -> Path:
+    """Log-scale horizontal bars for per-site mutation rates by class.
+
+    Each bar shows the canonical per-site, per-generation mutation rate for
+    one variant class in the human germline. The log axis spans roughly four
+    orders of magnitude so the rare large-structural-variant class is still
+    legible alongside microsatellite slippage.
+
+    Args:
+        output_dir: Directory to save PNG.
+
+    Returns:
+        Path to the saved PNG.
+    """
+    from biology.genetics import mutation_rate_spectrum
+
+    rows = list(mutation_rate_spectrum())
+    labels = [row.mutation_class for row in rows]
+    rates = np.array([row.rate_per_site_per_generation for row in rows])
+
+    fig, ax = plt.subplots(figsize=(10, 5.5))
+    y_positions = np.arange(len(rows))
+    ax.barh(y_positions, rates, color=SERIES2[0], edgecolor="black", linewidth=0.6)
+    for idx, rate in enumerate(rates):
+        ax.text(
+            rate * 1.15,
+            idx,
+            f"{rate:.1e}",
+            va="center",
+            fontsize=9,
+            color=GRAY,
+        )
+    ax.set_yticks(y_positions)
+    ax.set_yticklabels(labels, fontsize=10)
+    ax.set_xscale("log")
+    ax.set_xlabel("Rate per site per generation (log scale)", fontsize=13)
+    ax.set_title("Mutation Rate Spectrum in the Human Germline", fontsize=14)
+    ax.grid(True, which="both", axis="x", color="#dddddd", linewidth=0.6, alpha=0.7)
+    ax.tick_params(labelsize=10)
+    fig.tight_layout()
+    return _save_figure(fig, output_dir, "mutation_rate_spectrum.png", aspect="landscape")
+

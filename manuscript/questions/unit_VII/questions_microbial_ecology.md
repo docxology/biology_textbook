@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** The global nitrogen cycle is the set of microbially driven transformations that move nitrogen among atmospheric N2, ammonia/ammonium, nitrite, nitrate, and organic nitrogen via fixation, nitrification, assimilation, ammonification, and denitrification. Two types of nitrogen-fixing bacteria are the symbiotic Rhizobium (in legume root nodules) and free-living/diazotrophic bacteria such as Azotobacter (cyanobacteria like Anabaena also fix N2). See \cref{sec:unit_VII_microbial_ecology}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** (a) Use a non-parametric rank correlation (Spearman) or compositionally aware methods (e.g., SparCC/ANCOM) to test association between Akkermansia/F. prausnitzii relative abundance and T2D status, since microbiome data are compositional and non-normal. (b) Establish causality by colonizing germ-free mice: gnotobiotically transfer T2D-patient versus healthy microbiota (or mono-colonize with the candidate taxa) and measure glucose tolerance/insulin sensitivity, with the prediction that adding the depleted taxa improves metabolic phenotype. (c) Control confounders including diet (especially fiber), metformin and other medications, BMI, age, and sequencing batch — metformin in particular independently alters the microbiome and can spuriously associate taxa with T2D. See \cref{sec:unit_VII_microbial_ecology}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

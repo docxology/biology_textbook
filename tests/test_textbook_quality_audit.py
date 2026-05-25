@@ -8,6 +8,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from biology.quality.patterns import QUESTION_GENERIC_PATTERNS
+
 
 PROJECT = Path(__file__).resolve().parent.parent
 MANUSCRIPT = PROJECT / "manuscript"
@@ -19,77 +21,6 @@ audit = importlib.util.module_from_spec(spec)
 sys.modules["audit_textbook_quality"] = audit
 assert spec.loader is not None
 spec.loader.exec_module(audit)
-
-
-GENERIC_ANSWER_PHRASES = (
-    "Build a mechanistic answer",
-    "Give the canonical definition",
-    "Numerical problem on",
-    "Take a position on *",
-    "Propose an experimental or engineering response",
-    "Rubric for *",
-    "name the relevant players",
-    "scale-setting detail",
-    "state the judgment, cite two lines of evidence",
-    "identify the governing equation or ratio",
-    "specify the manipulated variable",
-    "propose one comparative or population-genomic test",
-    "propose one clinical intervention",
-    "propose one molecular intervention",
-    "Name the term in ",
-    "Evidence anchor:",
-    "Credit requires an explicit mechanism",
-    "prompt-linked evidence",
-    "Core response for *",
-    "Expected answer for *",
-    "Prompt cues to cover:",
-    "Source standard:",
-    "Common pitfall:",
-    "Chapter lens:",
-    "set up the governing equation",
-    "state a defensible judgment",
-    "support it with two chapter-specific observations",
-    "Answer every requested clause",
-    "Ground the answer in \\cref",
-    "Use \\cref",
-    "Extend \\cref",
-    "Name the biological players",
-    "name one limitation or counterexample",
-    "boundary condition that prevents overgeneralising",
-    "Carry through these values:",
-    "Use these named items explicitly:",
-    "Define *",
-    "Compare *",
-    "Solve *",
-    "Explain *",
-    "Design the test for *",
-    "Evaluate *",
-    "Apply the chapter principle to *",
-    "Required clauses:",
-    "Use the stated values explicitly:",
-    "Named evidence to include:",
-    "Do not stop at the first noun phrase",
-    "Anchor the response to \\cref",
-    "A complete response should",
-    "Expected reasoning:",
-    "Scoring focus:",
-    "Key answer:",
-    "Comparison answer:",
-    "Calculation answer:",
-    "Mechanistic answer:",
-    "Design answer:",
-    "Evaluation answer:",
-    "Application answer:",
-    "Chapter evidence:",
-    "Evidence check:",
-    "Trace *",
-    "Give a precise account of *",
-    "Write the model for *",
-    "Turn *",
-    "Assess *",
-    "Use the chapter principle with *",
-    "Reference point: \\cref",
-)
 
 
 GENERIC_COMPANION_SOURCE_PHRASES = (
@@ -317,11 +248,45 @@ def test_question_banks_have_exactly_thirty_questions_and_solutions() -> None:
     for path in sorted((MANUSCRIPT / "questions").rglob("questions_*.md")):
         text = path.read_text(encoding="utf-8")
         q_numbers = [int(match.group(1)) for match in re.finditer(r"^(\d{1,2})\.\s+", text, re.MULTILINE)]
+        answer_numbers = [
+            int(match.group(1))
+            for match in re.finditer(r"^\*\*Answer \(Q(\d{1,2}),", text, re.MULTILINE)
+        ]
         solution_count = len(re.findall(r"<!-- SOLUTION\s*\n", text))
         if q_numbers != list(range(1, 31)):
             offenders.append(f"{path.relative_to(MANUSCRIPT)} questions={q_numbers}")
+        if answer_numbers != list(range(1, 31)):
+            offenders.append(f"{path.relative_to(MANUSCRIPT)} answer_labels={answer_numbers}")
         if solution_count != 30:
             offenders.append(f"{path.relative_to(MANUSCRIPT)} solutions={solution_count}")
+    assert not offenders
+
+
+def test_question_bank_range_headings_are_unique_and_ordered() -> None:
+    expected_headings = [
+        "## Questions 1–10: Recall and Comprehension {.unnumbered}",
+        "## Questions 11–20: Application and Analysis {.unnumbered}",
+        "## Questions 21–30: Synthesis and Evaluation {.unnumbered}",
+    ]
+    offenders: list[str] = []
+    for path in sorted((MANUSCRIPT / "questions").rglob("questions_*.md")):
+        lines = path.read_text(encoding="utf-8").splitlines()
+        headings = [line for line in lines if line.startswith("## Questions ")]
+        if headings != expected_headings:
+            offenders.append(f"{path.relative_to(MANUSCRIPT)} headings={headings}")
+            continue
+        question_line_by_number = {
+            int(match.group(1)): line_no
+            for line_no, line in enumerate(lines, start=1)
+            if (match := re.match(r"^(\d{1,2})\.\s+", line))
+        }
+        for start, heading in zip((1, 11, 21), expected_headings, strict=True):
+            heading_line = lines.index(heading) + 1
+            question_line = question_line_by_number[start]
+            if heading_line >= question_line:
+                offenders.append(
+                    f"{path.relative_to(MANUSCRIPT)} has {heading!r} after question {start}"
+                )
     assert not offenders
 
 
@@ -329,9 +294,9 @@ def test_question_solution_blocks_have_no_generic_answer_signatures() -> None:
     offenders: list[str] = []
     for path in sorted((MANUSCRIPT / "questions").rglob("questions_*.md")):
         for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
-            for phrase in GENERIC_ANSWER_PHRASES:
-                if phrase in line:
-                    offenders.append(f"{path.relative_to(MANUSCRIPT)}:{line_no}: {phrase}")
+            for code, pattern in QUESTION_GENERIC_PATTERNS:
+                if pattern.search(line):
+                    offenders.append(f"{path.relative_to(MANUSCRIPT)}:{line_no}: {code}")
     assert not offenders
 
 
@@ -654,6 +619,7 @@ def test_known_stale_population_and_conservation_counts_are_absent() -> None:
         "Living Planet Report (2022)",
         "69% average decline",
         "feeding a projected 10 billion people by 2050",
+        "SARS-CoV-2 infected ~700 million people globally",
         "all β-lactams",
         "universal energy currency",
     )
@@ -663,6 +629,22 @@ def test_known_stale_population_and_conservation_counts_are_absent() -> None:
         for phrase in stale:
             if phrase in text:
                 offenders.append(f"{path.relative_to(MANUSCRIPT)} contains {phrase!r}")
+    assert not offenders
+
+
+def test_student_facing_prose_has_no_confirmed_grammar_artifacts() -> None:
+    artifacts = (
+        "to silences target genes",
+        "During COVID-19 pandemic",
+    )
+    offenders: list[str] = []
+    for path in sorted(MANUSCRIPT.rglob("*.md")):
+        if path.name in {"AGENTS.md", "README.md"}:
+            continue
+        text = path.read_text(encoding="utf-8")
+        for artifact in artifacts:
+            if artifact in text:
+                offenders.append(f"{path.relative_to(MANUSCRIPT)} contains {artifact!r}")
     assert not offenders
 
 

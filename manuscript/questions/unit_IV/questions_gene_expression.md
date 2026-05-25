@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** The **wobble hypothesis** (Crick, 1966) states that base pairing between the third base of the codon and the first base of the anticodon is less stringent than standard Watson–Crick pairing, so a single tRNA can read several synonymous codons. The **third (3') codon position** allows this degeneracy: non-standard pairings (e.g., G–U, or inosine in the anticodon pairing with U, C, or A) let ~45 tRNAs decode all 61 sense codons, explaining the code's redundancy. See \cref{sec:unit_IV_gene_expression}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO1; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** **(a)** Common DNA-binding domains include the **zinc finger** (Cys₂His₂ fingers inserting an α-helix into the major groove), the **helix-turn-helix / homeodomain**, and the **basic leucine zipper (bZIP)** and basic helix-loop-helix, which dimerize and grip DNA with basic regions. **(b)** The separate **activation domain** does not bind DNA; it recruits coactivators and the **Mediator complex**, which bridges the enhancer-bound activator to RNA Pol II and the general transcription factors, stimulating preinitiation-complex assembly and CTD phosphorylation. **(c)** Distal enhancers contact promoters through **chromatin looping**: cohesin and CTCF organize loop domains (TADs), bringing the enhancer-bound activator/Mediator into physical proximity with the promoter even when they are tens of kb apart in linear sequence. See \cref{sec:unit_IV_gene_expression}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

@@ -607,30 +607,21 @@ Modified T cells are expanded in vitro and infused back into the patient. The CA
 
 ## Worked Example: Innate Recognition to Effector Response
 
-**Problem:** A 35-year-old woman is found to have an elevated total cortisol level of 28 μg/dL on a morning blood draw. CBG (cortisol-binding globulin) is also elevated at 60 μg/mL (normal: ~30 μg/mL). She is six months pregnant. Estimate her **free (bioactive) cortisol** assuming free cortisol normally accounts for ~5% of total at baseline CBG. Should she be diagnosed with Cushing's syndrome?
+**Problem:** A Gram-negative bacterium enters a wound. The alternative complement pathway runs continuously at a low "tick-over" rate, but surface-bound C3b nucleates an amplification loop: each C3 convertase cleaves ~1000 C3 molecules before it decays, and a fraction $p$ of the resulting C3b deposits nearby to seed new convertases. (a) Compute the per-cycle amplification factor on an unregulated pathogen surface where $p = 0.10$, and on a host cell whose regulators (DAF, factor H) cut effective deposition to $p = 0.0005$. (b) Explain why this single parameter separates explosive opsonization from self-tolerance.
 
 **Solution:**
 
-**Step 1.** Recognize that pregnancy elevates estrogen, which increases hepatic CBG synthesis ~2-fold. Total cortisol rises in parallel with CBG, but **free cortisol** — the biologically active fraction — remains in the normal range.
+**Step 1.** Define the amplification factor $a$ as the number of C3 molecules cleaved per convertase times the fraction that reforms a convertase:
 
-**Step 2.** Estimate baseline free cortisol fraction. With normal CBG, 5% of total cortisol is free. With doubled CBG, the free fraction drops because more cortisol is sequestered:
+$$a = (\text{C3 cleaved per convertase}) \times p \label{eq:unit_IX_immune_system_defense_innate_1}$$
 
-$$\text{free fraction} \propto \frac{1}{1 + [\text{CBG}]/K_d^{\text{CBG}}} \label{eq:unit_IX_endocrine_and_immune_item_1}$$
+**Step 2.** Evaluate on each surface. On the pathogen, $a = 1000 \times 0.10 = 100 \gg 1$, so C3b deposition grows geometrically each cycle. On the host cell, regulators drop the effective fraction and the loop dies out:
 
+$$a_{\text{pathogen}} = 100, \qquad a_{\text{host}} = 1000 \times 0.0005 = 0.5 < 1 \label{eq:unit_IX_immune_system_defense_innate_2}$$
 
-$$\text{free fraction (pregnancy)} \approx \frac{5\%}{2} = 2.5\% \label{eq:unit_IX_endocrine_and_immune_item_2}$$
+**Step 3.** Connect to the effector response: once C3b passes the deposition threshold, opsonization (phagocyte CR1/CR3), anaphylatoxin chemotaxis (C5a), and the membrane attack complex follow — turning a molecular recognition event into neutrophil recruitment and target lysis.
 
-
-**Step 3.** Calculate free cortisol:
-
-$$[\text{cortisol}]_{\text{free}} = 0.025 \times 28\;\mu\text{g/dL} = 0.7\;\mu\text{g/dL} \label{eq:unit_IX_endocrine_and_immune_item_3}$$
-
-
-This is within the normal range (free cortisol ~0.5–1.0 μg/dL).
-
-**Answer:** The elevated total cortisol reflects increased CBG, not pathological cortisol excess. **Free cortisol** is normal. The patient should not be diagnosed with Cushing's syndrome based on total cortisol alone. The appropriate test in pregnancy is **24-h urinary free cortisol** (which measures the unbound fraction excreted by the kidney) or salivary cortisol (free cortisol equilibrates with saliva).
-
-This illustrates a fundamental principle: **for protein-bound hormones, total plasma concentration is misleading; primarily the free fraction is biologically active.** The same applies to thyroid hormones (TBG changes during pregnancy), testosterone (SHBG), and many others.
+**Answer:** Innate recognition is fast and germline-encoded, yet it still discriminates self from non-self through an amplification factor gated by host-restricted regulators: $a > 1$ on pathogens drives explosive complement deposition, while $a < 1$ on host cells (DAF, factor H, CD59) keeps the same cascade silent. Losing those regulators is exactly what causes paroxysmal nocturnal hemoglobinuria — host red cells without CD59/DAF are attacked by their own complement.
 
 ---
 
@@ -665,14 +656,14 @@ h = homeostasis_response(37.0, 38.5, gain=0.8)
 print(round(h.corrective_response, 3), h.is_within_tolerance)
 ```
 
-> **Clinical / systems note:** Glucose clamp studies in humans literally estimate controller gain for insulin secretion — the same proportional picture in a different domain.
+> **Clinical / systems note:** The same proportional-feedback logic governs immune set points — IL-2 consumed by regulatory T cells damps effector T-cell expansion, holding a response within tolerance.
 
 ---
 
 ## Current Evidence and Frontier Biology: Immune System Architecture and Defense
 
 For **Immune System Architecture and Defense**, frontier biology belongs inside the evidence logic of
-the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-neural coupling, wearable data, and individualized risk without reducing bodies to simple machines. The core reading question is this: endocrine-immune claims should include feedback, timing, receptor sensitivity, inflammation, and allostatic load.
+the chapter. Immunology is moving fast: single-cell and spatial atlases now resolve immune-cell states in situ, structural vaccinology and mRNA platforms have compressed antigen-design timelines, checkpoint inhibitors and engineered cell therapies (CAR-T, TCR-T) are redrawing oncology, and neoantigen prediction couples immunology to genomics. The core reading question is this: immune claims should specify the arm (innate vs adaptive), the effector mechanism, the readout (titer, cytotoxicity, protection), and the evidence scale from single molecule to randomized trial.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
   would make the claim stronger or weaker.
@@ -685,26 +676,26 @@ the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-n
   the source closest to the measurement and state what has changed since it was
   published.
 
-Separate baseline set point, perturbation response, compensation, and failure threshold before interpreting physiological data.
+Separate recognition, activation, effector function, and memory before interpreting an immune dataset, and distinguish a protective response from immunopathology.
 
-**Source practice:** For body-system claims, cite the measurement context and distinguish set point, perturbation, compensation, pathophysiology, and treatment evidence.
+**Source practice:** For immune claims, cite the recognition event and the effector readout, and distinguish mechanism (assay or structure), population evidence (cohort or trial), and clinical guidance (product label or surveillance report).
 
-### Current Evidence Map: Allostasis and Immune-Endocrine Coupling
+### Current Evidence Map: From Pattern Recognition to Protective Memory
 
 ```mermaid
 flowchart LR
-    A["Repeated stressor"] --> B["Neural appraisal"]
-    B --> C["HPA axis"]
-    C --> D["Cortisol rhythm"]
-    D --> E["Immune tone"]
-    E --> F["Inflammation risk"]
-    D --> G["Metabolic allocation"]
-    F --> H["Allostatic load"]
+    A["PAMP / DAMP"] --> B["PRR sensing (innate)"]
+    B --> C["Inflammation + antigen presentation"]
+    C --> D["T-cell priming"]
+    C --> E["B-cell activation"]
+    D --> F["Effector + memory T cells"]
+    E --> G["Antibodies + memory B cells"]
+    F --> H["Protection / immunotherapy readout"]
     G --> H
 ```
-<!-- alt: Flowchart showing physiology is often adaptive over short time scales and costly over long time scales, so baseline, perturbation, compensation, and pathology must be distinguished. -->
+<!-- alt: Flowchart showing an immune response reads as a chain -- recognition, activation, effector function, and memory -- so a claim should name which link the evidence actually measures. -->
 
-*Physiology is often adaptive over short time scales and costly over long time scales, so baseline, perturbation, compensation, and pathology must be distinguished.*
+*An immune response reads as a chain --- recognition, activation, effector function, and memory --- so a claim should name which link the evidence actually measures.*
 
 ## Summary
 
@@ -721,19 +712,19 @@ flowchart LR
 
 ## Review Questions
 
-1. Compare peptide and steroid hormone signaling in terms of synthesis, transport, receptor location, signaling speed, and duration. Why do steroid hormones have longer-lasting effects despite similar half-lives?
+1. Compare innate and adaptive immunity across speed, specificity, memory, and the nature of their recognition receptors (germline-encoded vs somatically rearranged). Why does the body need both arms rather than relying on the more precise adaptive system alone?
 
-2. Explain cortisol synthesis from cholesterol, including the role of StAR. Which enzyme deficiency causes the most common form of congenital adrenal hyperplasia, and why does it produce both glucocorticoid deficiency and androgen excess?
+2. Describe how the three complement activation pathways (classical, lectin, alternative) are each triggered and how they converge on the C3 convertase. Distinguish the three effector outcomes — opsonization, the membrane attack complex, and anaphylatoxin-driven inflammation — and give one example of each.
 
-3. Compare the two transcriptional modes of the glucocorticoid receptor (transactivation vs transrepression). Which mediates the anti-inflammatory effect of glucocorticoid drugs, and why does this dual mechanism complicate the development of "dissociated" glucocorticoids with anti-inflammatory action but no metabolic side effects?
+3. Compare the four families of pattern-recognition receptors — TLRs, NLRs, RLRs, and cGAS-STING — by cellular location, the class of PAMP or DAMP each detects, and the dominant signaling output (NF-κB-driven inflammation vs IRF-driven type I interferon). Why is germline-encoded pattern recognition fast but unable to provide immunological memory?
 
-4. Explain why T4 is called a prohormone. Describe the role of D1, D2, and D3 deiodinases. Why is rT3 elevated during severe illness ("low T3 syndrome")?
+4. Contrast MHC class I and class II antigen-presentation pathways — peptide source, processing compartment, loading machinery, and the T-cell subset each engages. What is cross-presentation, why is it essential for priming CD8+ responses against viruses that do not infect dendritic cells, and how does this constrain vaccine design?
 
-5. A patient has elevated TSH but normal free T4 ("subclinical hypothyroidism"). Explain the mechanism (think about the slope of the TSH–T4 feedback curve) and the clinical decision about treatment.
+5. Explain the "missing-self" hypothesis for NK-cell recognition in terms of the balance between activating receptors and inhibitory KIRs that read MHC class I. Why does this make NK cells especially effective against virus-infected and tumor cells that downregulate MHC I, and how does antibody-dependent cellular cytotoxicity (ADCC) link NK cells to therapeutic antibodies?
 
-6. Trace the molecular pathway from insulin binding to GLUT4 translocation in muscle. Identify three nodes where Type 2 diabetes-associated defects occur.
+6. Distinguish the type I interferon response (IFN-α/β) from type II interferon (IFN-γ): the cells that produce each, the triggers, and the effector states they induce. Outline how type I IFN establishes an antiviral state (e.g., PKR, OAS/RNase L, Mx proteins) and why this is induced within hours of infection.
 
-7. Explain how leptin signals body energy stores to the brain and why most obese individuals have leptin resistance. How does adiponectin act as a complementary signal? Why doesn't exogenous leptin work for obesity?
+7. Trace the vascular and cellular events of acute inflammation, from local mediator release (histamine, prostaglandins, chemokines) through the neutrophil recruitment cascade (rolling on selectins → integrin-mediated firm adhesion → transmigration). Explain the four cardinal signs mechanistically and contrast resolution with the transition to chronic inflammation.
 
 8. Describe TLR4 signaling in response to bacterial LPS. Compare with the TRIF-IRF3 branch and the cGAS-STING pathway. Why does septic shock result from massive cytokine release, and what is the mechanism of action of "anti-TNF" therapeutics like infliximab?
 
@@ -753,9 +744,9 @@ flowchart LR
 
 16. Describe the design of an anti-CD19 CAR-T cell — antigen recognition domain, hinge, transmembrane, co-stimulatory, and activation domains. Why does CAR-T therapy frequently cause cytokine release syndrome, and how does anti-IL-6R tocilizumab treat CRS without compromising tumor killing?
 
-17. Bisphenol A binds estrogen receptors with much lower affinity than oestradiol. Explain the concept of non-monotonic dose-response curves and why low-dose endocrine disruption can have greater developmental impact than high-dose adult exposure.
+17. Mucosal surfaces are the entry point for most pathogens. Explain how secretory IgA is produced and transported across the epithelium, the role of M cells and Peyer's patches in sampling luminal antigen, and the concept of oral tolerance. Why does the gut require an immune strategy distinct from systemic immunity?
 
-18. Aspirin and ibuprofen both inhibit cyclooxygenase, but primarily aspirin permanently inhibits platelet COX-1. Explain the molecular and cellular basis of this difference and its therapeutic significance. Why did selective COX-2 inhibitors like rofecoxib increase cardiovascular risk?
+18. Compare live-attenuated, inactivated, subunit/conjugate, viral-vector, and mRNA vaccine platforms on immunogenicity, the balance of humoral vs cellular immunity they elicit, safety, and cold-chain requirements. What is a "correlate of protection," and why is establishing one essential before a vaccine can be licensed?
 
 19. Explain why memory T and B cells respond more rapidly and strongly to re-exposure than naïve cells. Identify at least four mechanistic differences.
 
@@ -765,29 +756,31 @@ flowchart LR
 
 ## Further Reading and Source Notes: Immune System Architecture and Defense
 
-- Sterling & Eyer (1988). Allostasis: a new paradigm to explain arousal pathology. In *Handbook of Life Stress, Cognition and Health* \citep{sterling1988}.
-- Sterling (2012). Allostasis: A model of predictive regulation. *Physiology \& Behavior*, 106(1), 5–15 \citep{sterling2015}.
-- Cannon (1932). *The Wisdom of the Body*. W. W. Norton.
+- Medzhitov & Janeway (1997). Innate immunity: the virtues of a nonclonal system of recognition. *Cell*, 91.
+- Tonegawa (1983). Somatic generation of antibody diversity. *Nature*, 302.
+- Zinkernagel & Doherty (1974). Restriction of in vitro T cell-mediated cytotoxicity in lymphocytic choriomeningitis. *Nature*, 248.
+- Leach, Krummel & Allison (1996). Enhancement of antitumor immunity by CTLA-4 blockade. *Science*, 271.
+- Murphy & Weaver (2016). *Janeway's Immunobiology* (9th ed.). Garland Science.
 
 ---
 
 ## Key Terms
 
-: Current Evidence Map: Allostasis and Immune-Endocrine Coupling: Term and Definition. {#tbl:unit_IX_immune_system_defense_current_evidence_map_allostasis_and_immune_endocrine_coupling}
+: Key Terms: Term and Definition. {#tbl:unit_IX_immune_system_defense_key_terms}
 | Term | Definition |
 | ---- | ---------- |
-| **Hormone** | Chemical signal secreted into blood; acts at distant target via specific receptor |
-| **HPA axis** | Hypothalamus–pituitary–adrenal; stress response; cortisol |
-| **HPT axis** | Hypothalamus–pituitary–thyroid; metabolism; T3/T4 |
-| **HPG axis** | Hypothalamus–pituitary–gonad; reproduction; sex steroids |
-| **StAR** | Steroidogenic acute regulatory protein; rate-limiting cholesterol transport |
-| **GR** | Glucocorticoid receptor; nuclear receptor with transactivation and transrepression modes |
-| **Deiodinase** | T4→T3 conversion enzymes (D1, D2 activate; D3 inactivates) |
-| **Wolff-Chaikoff effect** | Acute iodide excess transiently inhibits thyroid hormone synthesis |
-| **Insulin receptor** | $\alpha_2\beta_2$ RTK; phosphorylates IRS → PI3K → Akt → GLUT4 |
-| **Leptin** | Adipocyte hormone; satiety; long-term energy signal; LepR/JAK2/STAT3 |
-| **Adiponectin** | Adipocyte hormone; insulin sensitiser via AMPK |
-| **GLP-1** | Incretin from intestinal L-cells; potentiates glucose-stimulated insulin |
+| **Innate immunity** | Fast, germline-encoded, non-clonal first-line defense; no immunological memory |
+| **Adaptive immunity** | Slow, antigen-specific, clonal response that generates immunological memory |
+| **Phagocytosis** | Engulfment of opsonized particles by neutrophils, macrophages, and dendritic cells |
+| **Opsonization** | Tagging of a pathogen (C3b, IgG) to enhance phagocytic uptake |
+| **NK cell** | Innate lymphocyte killing "missing-self" (low-MHC-I) and antibody-coated cells (ADCC) |
+| **Type I interferon** | IFN-α/β; antiviral state induced via PRR → IRF3/7 |
+| **Inflammation** | Vascular and cellular response (vasodilation, recruitment) to infection or damage |
+| **Antigen presentation** | Display of peptide on MHC I (to CD8+) or MHC II (to CD4+) T cells |
+| **Affinity maturation** | AID-driven somatic hypermutation plus selection that raises antibody affinity |
+| **Class-switch recombination** | Constant-region switch (IgM→IgG/IgA/IgE) that preserves antigen specificity |
+| **Secretory IgA** | Dimeric, J-chain + secretory-component antibody mediating mucosal immune exclusion |
+| **Central vs peripheral tolerance** | Thymic/marrow deletion (AIRE) versus Treg, anergy, and checkpoints in the periphery |
 | **PRR** | Pattern recognition receptor (TLR, NLR, RLR, cGAS) |
 | **TLR4** | Recognizes LPS; signals via MyD88 → NF-κB |
 | **NLRP3** | Cytosolic inflammasome; activates caspase-1 → IL-1β + pyroptosis |

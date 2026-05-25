@@ -21,6 +21,7 @@ STALE_OR_UNQUALIFIED_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
         re.compile(r"AMR is projected to cause 10 million deaths per year by 2050 \(O'Neill Report, 2016\)"),
     ),
     ("unqualified-high-co2-2100", re.compile(r"Atmospheric CO₂ levels are projected to reach 800-1000 ppm by 2100")),
+    ("stale-covid-700m-infections", re.compile(r"SARS-CoV-2 infected ~700 million people globally")),
 )
 
 
@@ -30,7 +31,10 @@ def main() -> int:
     args = parser.parse_args()
 
     claims = load_current_claims(project_root=PROJECT)
-    issues = [issue.format() for issue in validate_current_claims(claims)]
+    issues = [
+        issue.format()
+        for issue in validate_current_claims(claims, references_path=PROJECT / "manuscript" / "references.bib")
+    ]
     issues.extend(_scan_stale_phrases())
     for issue in issues:
         print(issue)

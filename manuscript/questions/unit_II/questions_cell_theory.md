@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Compartmentalization is the segregation of biochemical processes into discrete membrane-bound organelles within the eukaryotic cell. It is advantageous for four reasons given in the chapter: (1) incompatible reactions run simultaneously in separate compartments --- e.g., protein synthesis in the cytoplasm (pH 7.2) versus protein degradation in lysosomes (pH 4.5); (2) substrates and enzymes are concentrated locally (TCA enzymes in the mitochondrial matrix raise reaction rates); (3) gene expression is regulated by separating transcription (nucleus) from translation (cytoplasm), enabling splicing and mRNA export control; (4) internal membranes add enormous surface area for membrane-associated reactions. This last point is the topological solution to the cube-law problem: a HeLa cell has ~5-fold lower surface-to-volume than E. coli yet 10x higher metabolic flux, only possible because internal membranes supply the missing surface area. See \cref{sec:unit_II_cell_theory}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** STED beats the ~200 nm Abbe diffraction limit (resolution ~30-50 nm), so it can resolve individual nuclear pore complexes (NPCs) and map their spatial distribution --- something impossible by conventional light microscopy. The key variable is NPC position relative to active chromatin. If NPCs cluster over transcriptionally active regions, the most parsimonious interpretation is that this minimizes the diffusion distance for newly transcribed, processed mRNA to reach an export channel: the nuclear envelope separates transcription from translation, and NPCs are the only conduits for mRNA export, so co-localizing pores with active genes accelerates and spatially organizes mRNA delivery to the cytoplasm. It implies the nuclear envelope is not a uniform barrier but a spatially patterned interface coupled to genome organization. A control and alternative to test: compare NPC distribution after transcriptional inhibition (e.g., actinomycin D); if clustering disperses, it supports an activity-coupled, dynamic arrangement rather than a fixed structural one. See \cref{sec:unit_II_cell_theory}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

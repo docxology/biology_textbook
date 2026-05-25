@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Cholesterol intercalates between phospholipids with its rigid steroid ring near the head groups and acts as a fluidity buffer. At high temperature it restrains phospholipid motion and reduces fluidity (condensing effect); at low temperature it disrupts tight crystalline packing and prevents the membrane from becoming a rigid gel (fluidising effect). The net result is that membrane fluidity is stabilized across a physiological temperature range. See \cref{sec:unit_II_membrane_transport}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO11; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** (a) Flippases (ATP-dependent P4-ATPases) normally translocate phosphatidylserine (and PE) from the outer to the inner leaflet, keeping PS confined to the cytoplasmic face. (b) During apoptosis, Ca²⁺-activated scramblases (TMEM16F) bidirectionally and non-selectively randomize lipids across the bilayer (and flippases are inactivated), so PS moves to the outer leaflet. (c) Externalised PS is an 'eat me' signal recognized by phagocyte receptors (TIM-4, BAI-1, Stabilin-2), so the apoptotic cell is engulfed and cleared without releasing inflammatory contents. See \cref{sec:unit_II_membrane_transport}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

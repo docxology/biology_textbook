@@ -78,19 +78,21 @@ SOLUTION -->
 **Answer (Q10, Recall).** Molecular clocks use the roughly constant accumulation of substitutions over time to date divergences. They are calibrated with independent evidence — dated fossils at nodes or known biogeographic/geological events — to convert genetic distance into absolute time. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
 11. Given the character matrix below (1=present, 0=absent): determine the synapomorphies that define the clade (birds + crocodiles) relative to lizards and snakes, using the parsimony principle.
 
+| Taxon | Archosaur skull | Feathers | 4-chambered heart | Endothermy |
+|-------|----------------|----------|-------------------|------------|
+| Lizard | 0 | 0 | 0 | 0 |
+| Crocodile | 1 | 0 | 1 | 0 |
+| Bird | 1 | 1 | 1 | 1 |
+
 <!-- SOLUTION
-**Answer (Q11, Application).** Score the character matrix and place characters on candidate trees: a state shared by birds + crocodiles but absent in lizards and snakes (e.g., a derived archosaur feature such as a four-chambered heart / gizzard / specific skull fenestration in the matrix) is the synapomorphy uniting (birds + crocodiles) as a clade under parsimony, because it requires a single origin rather than multiple independent gains. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q11, Application).** Map each character onto the tree and apply parsimony. **Archosaur skull** and a **four-chambered heart** are each present in crocodile and bird but absent in lizard (and snakes), so each is a shared derived character (synapomorphy) uniting birds + crocodiles as the clade Archosauria — one origin is more parsimonious than independent gains in two lineages. **Feathers** and **endothermy** are present only in birds, so they are bird-specific (autapomorphies) and do not diagnose the birds + crocodile clade. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
-   | Taxon | Archosaur skull | Feathers | 4-chambered heart | Endothermy |
-   |-------|----------------|----------|-------------------|------------|
-   | Lizard | 0 | 0 | 0 | 0 |
-   | Crocodile | 1 | 0 | 1 | 0 |
-   | Bird | 1 | 1 | 1 | 1 |
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
 12. Two competing phylogenies are proposed for the Paleocene mammals: (A) requires 12 evolutionary changes; (B) requires 15 changes. By parsimony, which tree is preferred? Explain what assumption is made when choosing the more parsimonious tree.
@@ -147,65 +149,66 @@ SOLUTION -->
 **Answer (Q20, Application).** Long-branch attraction: rapidly evolving (long) branches accumulate many independent changes, some matching by chance (homoplasy), which parsimony/distance methods misread as shared ancestry, clustering the long branches together regardless of true relationships. Mitigate by adding taxa to break long branches and by using model-based (ML/Bayesian) methods that correct for multiple substitutions. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 
+
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 
 <!-- assess: LO=LO3; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 21. Evaluate the evidence that Archaean clade Asgard is the closest prokaryotic relative of eukaryotes. What specific eukaryotic features (endomembrane, cytoskeleton homologues, ubiquitin) were identified in their genomes? What does this suggest about the origin of eukaryotic complexity?
 
 <!-- SOLUTION
-**Answer (Q21, Evaluation).** Asgard archaea (Lokiarchaeota etc.) carry eukaryotic signature proteins — actin/profilin cytoskeletal homologues, ESCRT/membrane-trafficking and ubiquitin-system components — and branch as the closest prokaryotic relatives of eukaryotes in phylogenomic analyses. This supports a two-domain tree and an archaeal host that already possessed eukaryotic-like cellular machinery before mitochondrial endosymbiosis. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q21, Synthesis).** Asgard archaea (Lokiarchaeota etc.) carry eukaryotic signature proteins — actin/profilin cytoskeletal homologues, ESCRT/membrane-trafficking and ubiquitin-system components — and branch as the closest prokaryotic relatives of eukaryotes in phylogenomic analyses. This supports a two-domain tree and an archaeal host that already possessed eukaryotic-like cellular machinery before mitochondrial endosymbiosis. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO4; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 22. Design a phylogenomic study (using hundreds of genes rather than one marker) to resolve a "soft polytomy" (unresolved node) in the avian tree of life. Describe: coalescent methods (ASTRAL) vs concatenation (ML on combined alignment), what sources of conflict between gene trees need to be accounted for, and how you would determine whether the polytomy reflects rapid radiation rather than incomplete data.
 
 <!-- SOLUTION
-**Answer (Q22, Evaluation).** Sample hundreds of loci genome-wide; infer gene trees and combine by a coalescent method (ASTRAL) and by concatenated ML, comparing results. Account for ILS, gene-tree estimation error, and HGT/introgression as conflict sources. A true hard polytomy from rapid radiation is supported when gene-tree conflict is high and uniformly distributed and added data do not resolve the node, rather than reflecting missing data. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q22, Synthesis).** Sample hundreds of loci genome-wide; infer gene trees and combine by a coalescent method (ASTRAL) and by concatenated ML, comparing results. Account for ILS, gene-tree estimation error, and HGT/introgression as conflict sources. A true hard polytomy from rapid radiation is supported when gene-tree conflict is high and uniformly distributed and added data do not resolve the node, rather than reflecting missing data. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO5; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 23. The ribosomal RNA (rRNA) phylogeny (Woese, 1977) unified most life into three domains. Evaluate why rRNA was chosen as a comprehensive phylogenetic marker: (a) ubiquitous, almost universally homologous; (b) highly conserved but containing variable regions; (c) unlikely to undergo HGT. Are there limitations to rRNA as a "true" species tree marker?
 
 <!-- SOLUTION
-**Answer (Q23, Evaluation).** rRNA was chosen because it is universal and homologous across all life, functionally constrained yet contains variable regions resolving multiple depths, and rarely transferred horizontally. Limitations: HGT is not zero, multiple rRNA copies can differ (paralogy), strong base-composition/rate biases and saturation can mislead deep nodes — so rRNA is a good but imperfect proxy for the species tree. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q23, Synthesis).** rRNA was chosen because it is universal and homologous across all life, functionally constrained yet contains variable regions resolving multiple depths, and rarely transferred horizontally. Limitations: HGT is not zero, multiple rRNA copies can differ (paralogy), strong base-composition/rate biases and saturation can mislead deep nodes — so rRNA is a good but imperfect proxy for the species tree. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO6; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 24. Bayesian phylogenetics (MrBayes, BEAST) uses prior probabilities and MCMC sampling to estimate the posterior distribution of trees. Compare Bayesian vs maximum likelihood approaches: (a) what is the difference in interpretation of the "support" values (posterior probabilities vs bootstrap); (b) when does Bayesian inference provide overconfident node support; (c) how is divergence time estimation performed in BEAST?
 
 <!-- SOLUTION
-**Answer (Q24, Evaluation).** (a) Bayesian support is a posterior probability (probability the clade is true given data and priors); bootstrap is a frequentist resampling proportion. (b) Bayesian PP can be overconfident under model misspecification or with very short internal branches. (c) BEAST estimates divergence times by combining a clock model, tree prior, and fossil/biogeographic calibration priors via MCMC to sample dated trees. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q24, Synthesis).** (a) Bayesian support is a posterior probability (probability the clade is true given data and priors); bootstrap is a frequentist resampling proportion. (b) Bayesian PP can be overconfident under model misspecification or with very short internal branches. (c) BEAST estimates divergence times by combining a clock model, tree prior, and fossil/biogeographic calibration priors via MCMC to sample dated trees. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO7; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 25. Ancient DNA (aDNA) sequencing has transformed our understanding of human history by adding extinct hominin and historical populations to phylogenies. Evaluate the technical challenges of aDNA analysis: (a) DNA degradation (short fragments, C→U deamination); (b) contamination from environmental microbes and modern human DNA; (c) how mapDamage software and UDG treatment are used to address these.
 
 <!-- SOLUTION
-**Answer (Q25, Evaluation).** (a) aDNA is fragmented and chemically damaged (C→U deamination causing C→T miscoding at fragment ends). (b) It is easily contaminated by environmental and modern-human DNA. (c) mapDamage models the deamination signature to authenticate ancient reads, and UDG/USER treatment excises uracils to remove deamination errors before genotyping, improving reliability of ancient phylogenetic placement. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q25, Synthesis).** (a) aDNA is fragmented and chemically damaged (C→U deamination causing C→T miscoding at fragment ends). (b) It is easily contaminated by environmental and modern-human DNA. (c) mapDamage models the deamination signature to authenticate ancient reads, and UDG/USER treatment excises uracils to remove deamination errors before genotyping, improving reliability of ancient phylogenetic placement. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO8; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 26. Evaluate the "bush of life" metaphor vs the traditional "tree of life" for describing microbial evolution. How prevalent is HGT among bacteria and archaea (what fraction of the typical prokaryote genome has been acquired by HGT), and at what level (genus, family, phylum) does HGT obscure true vertical inheritance?
 
 <!-- SOLUTION
-**Answer (Q26, Evaluation).** For prokaryotes the 'bush/web of life' better reflects pervasive HGT: a substantial fraction of a typical prokaryote genome (often tens of percent of genes, cumulatively) has foreign ancestry. HGT can obscure vertical inheritance up to genus/family and even phylum level for some genes, though a core of rarely transferred informational genes still recovers a backbone organismal tree. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q26, Synthesis).** For prokaryotes the 'bush/web of life' better reflects pervasive HGT: a substantial fraction of a typical prokaryote genome (often tens of percent of genes, cumulatively) has foreign ancestry. HGT can obscure vertical inheritance up to genus/family and even phylum level for some genes, though a core of rarely transferred informational genes still recovers a backbone organismal tree. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO9; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 27. TransposableElements have been used as phylogenetic markers (SINEs/LINEs as synapomorphies): a SINE insertion shared by multiple taxa must have occurred once in a common ancestor. Evaluate the advantages of transposon-based markers over sequence-based phylogenetics: (a) irreversibility of insertion; (b) independence of molecular evolution model assumptions; (c) limitations (element excision, parallel insertions in hotspot regions).
 
 <!-- SOLUTION
-**Answer (Q27, Evaluation).** (a) Transposon (SINE/LINE) insertions are effectively irreversible, so a shared insertion is a near-unambiguous synapomorphy. (b) Presence/absence does not depend on substitution-model assumptions. (c) Limitations: rare precise excision and parallel insertions into hotspots, and incomplete lineage sorting of polymorphic insertions, can still create homoplasy, so multiple independent insertions are used. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q27, Synthesis).** (a) Transposon (SINE/LINE) insertions are effectively irreversible, so a shared insertion is a near-unambiguous synapomorphy. (b) Presence/absence does not depend on substitution-model assumptions. (c) Limitations: rare precise excision and parallel insertions into hotspots, and incomplete lineage sorting of polymorphic insertions, can still create homoplasy, so multiple independent insertions are used. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO1; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 28. The "total evidence dating" approach (tip calibration) uses morphological characters from fossils as direct terminal taxa (not just calibration points) in Bayesian time-tree analysis. Evaluate the advantages of total evidence dating over node calibration, and describe what happens to morphological branch length estimates when the model of trait evolution (e.g., Mk model) is misspecified.
 
 <!-- SOLUTION
-**Answer (Q28, Evaluation).** Total-evidence (tip) dating places fossils as dated terminal taxa with morphological characters, jointly estimating topology and timescale and using the fossilised-birth–death process, which propagates uncertainty better than fixing node ages. If the morphological model (e.g., Mk) is misspecified, morphological branch lengths and hence inferred rates and divergence times are biased, distorting the time tree. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q28, Synthesis).** Total-evidence (tip) dating places fossils as dated terminal taxa with morphological characters, jointly estimating topology and timescale and using the fossilised-birth–death process, which propagates uncertainty better than fixing node ages. If the morphological model (e.g., Mk) is misspecified, morphological branch lengths and hence inferred rates and divergence times are biased, distorting the time tree. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO2; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 29. Horizontal gene transfer in cancer (somatic HGT from tumor microenvironment bacteria into human cells) has been reported but remains controversial. Evaluate the evidence: (a) what sequencing artifacts can mimic bacterial HGT; (b) what controls are needed to rule out contamination; (c) if real, what functional consequences might cancer-incorporated bacterial genes have?
 
 <!-- SOLUTION
-**Answer (Q29, Evaluation).** (a) Bacterial reads can arise from index-hopping, reference contamination, or chimeric assembly mimicking HGT. (b) Needed controls: matched blanks, multiple independent libraries, paired-end reads spanning human–bacterial junctions, and orthogonal validation (PCR/FISH). (c) If real, integrated bacterial genes could alter host gene expression or metabolism in tumor cells, but the bar for evidence is high given pervasive artifact risk. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q29, Synthesis).** (a) Bacterial reads can arise from index-hopping, reference contamination, or chimeric assembly mimicking HGT. (b) Needed controls: matched blanks, multiple independent libraries, paired-end reads spanning human–bacterial junctions, and orthogonal validation (PCR/FISH). (c) If real, integrated bacterial genes could alter host gene expression or metabolism in tumor cells, but the bar for evidence is high given pervasive artifact risk. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO3; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 30. Critically assess whether a "tree of life" can be reconstructed from extant biodiversity alone, without fossil calibration. What information is intrinsically lost when primarily the tips (extant species) and not the internal nodes (extinct ancestors) are known? Use the concept of incomplete ancestry and the "big-bang" topology problem of rapid early diversification as a specific example.
 
 <!-- SOLUTION
-**Answer (Q30, Evaluation).** From extant tips alone, extinct lineages and ancestral states are unobserved, so deep relationships, ancestral character reconstruction, and absolute timing are weakly identified. Rapid early diversification gives near-simultaneous splits ('big-bang' topology) with little informative signal on short internal branches, so without fossil calibration both branching order and timescale of the deep tree remain poorly resolved. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q30, Synthesis).** From extant tips alone, extinct lineages and ancestral states are unobserved, so deep relationships, ancestral character reconstruction, and absolute timing are weakly identified. Rapid early diversification gives near-simultaneous splits ('big-bang' topology) with little informative signal on short internal branches, so without fossil calibration both branching order and timescale of the deep tree remain poorly resolved. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->

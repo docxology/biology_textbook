@@ -566,11 +566,11 @@ This "mirror image" pair illustrates the **parental-conflict (kinship)** theory:
 
 ## X-Chromosome Inactivation (Lyonization) — In Depth
 
-In female placental mammals, dosage compensation for ~900 X-linked genes is achieved by transcriptionally silencing one of the two X chromosomes in every somatic cell.
+In female placental mammals, dosage compensation for ~900 X-linked genes is achieved by transcriptionally silencing one of the two X chromosomes in nearly every somatic cell (subject to the ~15–25% of X-linked genes that escape inactivation, discussed below).
 
 **Key features:**
 - **Random choice:** Either the maternal or paternal X can be inactivated in each cell (choice is random in each blastomere nucleus). Imprinted paternal X-inactivation occurs in mouse extra-embryonic lineages but not in humans.
-- **Clonal maintenance:** Once established (~day 4.5 in human embryo), the inactive state is mitotically heritable in most daughter cells — the same X is silenced in every descendant.
+- **Clonal maintenance:** Once established (~day 4.5 in human embryo), the inactive state is mitotically heritable in most daughter cells — the same X is silenced across essentially every descendant in a lineage, with rare stochastic exceptions and age-related skewing in tissues such as blood.
 - **Barr body:** The inactive X (Xi) forms a dense heterochromatic body (Barr body) visible by interphase cytology.
 - **Incomplete:** ~15–25% of X-linked genes **escape** inactivation. Most escapees lie in the **pseudoautosomal regions (PAR1, PAR2)** that recombine with the Y; others (e.g., *KDM6A*, *KDM5C*, *DDX3X*, *ZFX*) escape across the X. Escape genes contribute to female-biased autoimmune disease and to Turner syndrome haploinsufficiency phenotypes.
 
@@ -708,7 +708,7 @@ The clinical promise is substantial: a dCas9–DNMT3A targeting the *HBG1/2* pro
 ## Current Evidence and Frontier Biology: Chromatin and Epigenetic Mechanisms
 
 For **Chromatin and Epigenetic Mechanisms**, frontier biology belongs inside the evidence logic of
-the chapter. Molecular genetics now spans single-reference sequences, telomere-to-telomere assemblies, pangenome graphs, long-read sequencing, CRISPR medicines, and ethical deployment. The core reading question is this: epigenetic claims require causal perturbation, cell-type specificity, timing, and inheritance controls.
+the chapter. Frontier work on chromatin is mechanistic and structural: cryo-EM now resolves nucleosome-engaging machines (PRC2, SWI/SNF remodelers, the DNMT and TET enzymes), many chromatin domains are understood to form by phase separation, single-cell ATAC-seq and CUT&RUN map accessibility and histone marks at cell-type resolution, and epigenetic editing (dCas9–writer/eraser fusions) tests causality directly. The core reading question is this: a chromatin mark is correlational until a targeted writer- or eraser-perturbation, with cell-type and timing controls, shows it drives the expression change.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
   would make the claim stronger or weaker.

@@ -576,7 +576,7 @@ The single greatest challenge for vaccine development against many viruses is th
 - **2009 H1N1** (pandemic) — ~ 284,000 deaths; quadruple reassortant (avian + human + two swine lineages); milder than predicted because of partial cross-immunity from related H1N1 strains.
 - **H5N1 highly pathogenic avian influenza (HPAI)** — ongoing outbreaks in dairy cattle and poultry (2024–26); ~ 60 % case-fatality rate in the rare human cases; intense surveillance for adaptation to mammalian transmission.
 
-**HIV reverse transcriptase: the quasi-species cloud.** HIV uses an entirely different mechanism — extreme intra-host evolution. Reverse transcriptase has an **error rate of ~ 3 × 10⁻⁵ per base per replication cycle**, and HIV makes ~ $10^{10}$ virions per day in an untreated patient. With a 9.7-kb genome, this produces **every single point mutation in the viral genome multiple times every day** and a substantial fraction of possible double mutations. The resulting population — a cloud of related sequences around a consensus — is termed a **quasi-species**.
+**HIV reverse transcriptase: the quasi-species cloud.** HIV uses an entirely different mechanism — extreme intra-host evolution. Reverse transcriptase has an **error rate of ~ 3 × 10⁻⁵ per base per replication cycle**, and HIV makes ~ $10^{10}$ virions per day in an untreated patient. With a 9.7-kb genome, this order-of-magnitude estimate implies that **essentially every possible single-point mutation in the viral genome arises many times per day** (subject to hotspots and defective particles) along with a substantial fraction of possible double mutations. The resulting population — a cloud of related sequences around a consensus — is termed a **quasi-species**.
 
 Consequences:
 

@@ -2,6 +2,15 @@
 
 \label{sec:unit_0_history_philosophy_biology}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{../figures/biology_milestones.png}
+\caption{A chronologically ordered timeline of selected milestones in the history of biology. Bars are colored by era (microscopy, classification, cell theory, evolution, genetics, molecular biology, modern synthesis, genomics). The chart compresses several thousand years of practice into a single comparative view; the underlying milestone table is reproducible from \texttt{biology.foundations.BIOLOGY\_MILESTONES}.}
+\label{fig:unit_0_biology_milestones}
+\end{figure}
+
+<!-- alt: Horizontal bar chart of biology milestones from antiquity to modern times. Each bar reaches the milestone year; labels along the y-axis name the event and figure (for example, microscope, cell theory, evolution by natural selection, DNA double helix). Bars are color-coded by era. -->
+
 <!-- chapter-metadata-badge -->
 > Level 2/3 · 80 min read · 100 min lecture · Prerequisites: \cref{sec:unit_0_systems_science}, \cref{sec:unit_0_complex_adaptive_systems}, \cref{sec:unit_0_active_inference}
 
@@ -53,7 +62,7 @@ This chapter asks how biology makes such claims stable enough to teach. A biolog
 
 Biology is not a finished catalog of facts. It is a changing evidence practice for asking how living systems are organized, how they persist, how they change, and how we should act when biological knowledge matters in medicine, agriculture, conservation, and public life. Systems science, complex adaptive systems, and active inference provide formal lenses; history and philosophy explain why those lenses exist, what they clarify, and where they can mislead. Mayr's history of biological thought and Hull's account of science as a process both emphasize that biology is deeply historical: its central objects are lineages, organisms, environments, and practices that change over time \citep{mayr1982,hull1988}.
 
-A first-year student often meets biology as named content: cell theory, natural selection, Mendelian inheritance, the central dogma, germ theory, ecological succession. Yet each idea came from a particular practice. Hooke's microscopy made cells visible \citep{hooke1665}. Harvey's circulation experiments made physiology quantitative and interventionist \citep{harvey1628}. Darwin and Wallace turned variation, biogeography, and natural history into a causal theory of adaptation \citep{darwin1858,darwin1859}. Mendel's pea crosses became a genetics framework after later researchers recognized how particulate inheritance could be combined with population thinking \citep{mendel1866,fisher1930}.
+A first-year student often meets biology as named content: cell theory, natural selection, Mendelian inheritance, the central dogma, germ theory, ecological succession. Yet each idea came from a particular practice. Hooke's microscopy made cells visible \citep{hooke1665}. Harvey's circulation experiments made physiology quantitative and interventionist \citep{harvey1628}. Darwin and Wallace turned variation, biogeography, and natural history into a causal theory of adaptation \citep{darwin1858,darwin1859}. Mendel's pea crosses became a genetics framework after later researchers recognized how particulate inheritance could be combined with population thinking \citep{mendel1866,fisher1930}. The milestone timeline in \cref{fig:unit_0_biology_milestones} clusters these episodes by era so the bursts of microscopy, classification, evolution, genetics, and molecular biology are visible at a glance.
 
 Read this chapter as a set of modules, not as a march from ignorance to truth. Each module asks: What counted as evidence? What was treated as a biological unit? Which instruments, organisms, models, and values shaped the answer?
 

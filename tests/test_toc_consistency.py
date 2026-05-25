@@ -129,9 +129,11 @@ def test_front_matter_navigation_lists_every_unit_and_reference_once() -> None:
     book_toc: BookToc = load_toc(PROJECT)
     block = _navigation_block()
     for unit in book_toc.units:
-        assert block.count(unit.name_ref) == 1, unit.display_title
+        assert block.count(unit.display_title) == 1, unit.display_title
+        for chapter in unit.chapters:
+            assert chapter.title in block, chapter.title
     for reference in book_toc.references:
-        assert block.count(reference.name_ref) == 1, reference.title
+        assert block.count(reference.title) == 1, reference.title
 
 
 def test_front_matter_generated_blocks_match_toc_builders() -> None:

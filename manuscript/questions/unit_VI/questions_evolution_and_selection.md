@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Convergent evolution is the independent evolution of similar traits in unrelated lineages under similar selection (analogy, not homology). Example: the streamlined body and fins of sharks (fish), ichthyosaurs (reptiles), and dolphins (mammals). See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -114,32 +115,33 @@ SOLUTION -->
 16. Gould and Lewontin's "spandrel" argument suggests that not most traits are adaptations — some are architectural by-products of other adaptations (spandrels in the context of evolutionary biology). Give two specific biological examples of putative spandrels and evaluate the methodological criteria needed to distinguish a spandrel from an adaptation.
 
 <!-- SOLUTION
-**Answer (Q16, Synthesis).** Spandrels are non-adaptive by-products of other adaptations. Putative examples: the human chin (a by-product of jaw remodeling) and male nipples (developmental by-product of a shared body plan). Distinguishing a spandrel from an adaptation requires evidence of current fitness benefit, a history of selection on the trait itself, and a functional design match — not merely a plausible use story. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q16, Application).** Spandrels are non-adaptive by-products of other adaptations. Putative examples: the human chin (a by-product of jaw remodeling) and male nipples (developmental by-product of a shared body plan). Distinguishing a spandrel from an adaptation requires evidence of current fitness benefit, a history of selection on the trait itself, and a functional design match — not merely a plausible use story. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO8; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 17. Antibiotic resistance evolution offers real-time evidence of natural selection. Describe the Lenski long-term evolution experiment with *E. coli* (>75,000 generations). What phenotypic innovations have evolved, and how does the experiment distinguish "chance" events from adaptive improvement?
 
 <!-- SOLUTION
-**Answer (Q17, Synthesis).** The Lenski LTEE propagates 12 *E. coli* lineages by daily transfer for >75,000 generations. Adaptive improvement appears as steadily rising relative fitness and cell size; the key innovation is aerobic citrate utilization (Cit⁺) in one lineage. Replaying frozen ancestors shows Cit⁺ required specific potentiating mutations, distinguishing contingent 'chance' history from repeatable adaptive gains. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q17, Application).** The Lenski LTEE propagates 12 *E. coli* lineages by daily transfer for >75,000 generations. Adaptive improvement appears as steadily rising relative fitness and cell size; the key innovation is aerobic citrate utilization (Cit⁺) in one lineage. Replaying frozen ancestors shows Cit⁺ required specific potentiating mutations, distinguishing contingent 'chance' history from repeatable adaptive gains. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO9; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 18. Coevolution occurs when two species reciprocally affect each other's evolution. Describe the Red Queen model of host-parasite coevolution: (a) why does the host need to evolve continuously; (b) what does the snail (*Potamopyrgus antipodarum*) – trematode parasite system teach us; (c) what arms race dynamics emerge between plant alkaloids and insect detoxification enzymes?
 
 <!-- SOLUTION
-**Answer (Q18, Synthesis).** (a) Hosts must evolve continuously because parasites adapt to common host genotypes, so rare host types are favored (negative frequency-dependent selection). (b) The *Potamopyrgus*–trematode system shows sexual lineages persist where parasite pressure is high, supporting the Red Queen explanation for sex. (c) Plant alkaloid diversification and insect detoxification (e.g., cytochrome P450) escalate reciprocally in a coevolutionary arms race. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q18, Application).** (a) Hosts must evolve continuously because parasites adapt to common host genotypes, so rare host types are favored (negative frequency-dependent selection). (b) The *Potamopyrgus*–trematode system shows sexual lineages persist where parasite pressure is high, supporting the Red Queen explanation for sex. (c) Plant alkaloid diversification and insect detoxification (e.g., cytochrome P450) escalate reciprocally in a coevolutionary arms race. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO1; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 19. Punctuated equilibrium (Gould and Eldredge, 1972) argues that most evolutionary change is concentrated in rapid bursts associated with speciation, not in gradual anagenesis. Evaluate the fossil evidence for and against punctuated equilibrium using the Cerion land snail data from the Bahamas and the evolution of horse lineages.
 
 <!-- SOLUTION
-**Answer (Q19, Evaluation).** Punctuated equilibrium predicts long stasis punctuated by rapid change at speciation. *Cerion* land snails show long morphological stasis with abrupt shifts, supporting it; horse lineages show substantial gradual, branching change, supporting phyletic gradualism in places. The fossil record contains both patterns, so the debate is about relative frequency, not an either/or. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q19, Application).** Punctuated equilibrium predicts long stasis punctuated by rapid change at speciation. *Cerion* land snails show long morphological stasis with abrupt shifts, supporting it; horse lineages show substantial gradual, branching change, supporting phyletic gradualism in places. The fossil record contains both patterns, so the debate is about relative frequency, not an either/or. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 20. Biogeography provides evidence for evolution: organisms on islands often resemble those on the nearest mainland but have evolved unique adaptations. Apply the concept of adaptive radiation to Hawaiian honeycreepers (~50 species from one ancestral finch-like coloniser): which resources were exploited by different lineages, and what ecological opportunity allowed such rapid diversification?
 
 <!-- SOLUTION
-**Answer (Q20, Synthesis).** Hawaiian honeycreepers radiated from one finch-like coloniser into ~50 species exploiting nectar, seeds, insects, and snails, with bills specialized per resource. Ecological opportunity — vacant niches on isolated young islands with few competitors — plus repeated island formation drove rapid adaptive radiation. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q20, Application).** Hawaiian honeycreepers radiated from one finch-like coloniser into ~50 species exploiting nectar, seeds, insects, and snails, with bills specialized per resource. Ecological opportunity — vacant niches on isolated young islands with few competitors — plus repeated island formation drove rapid adaptive radiation. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 
@@ -147,59 +149,59 @@ SOLUTION -->
 21. Evaluate the extended evolutionary synthesis (EES) relative to the modern synthesis. Which additional mechanisms does EES incorporate (developmental plasticity, epigenetic inheritance, niche construction, evolvability)? Choose one mechanism and evaluate the evidence that it plays a role comparable in importance to natural selection in at least one biological system.
 
 <!-- SOLUTION
-**Answer (Q21, Evaluation).** The Extended Evolutionary Synthesis adds developmental plasticity, epigenetic inheritance, niche construction, and evolvability to the gene-frequency core of the Modern Synthesis. Niche construction has strong evidence (e.g., earthworm soil modification altering selection on themselves and descendants), but whether it rivals natural selection in importance is system-dependent and still debated; it modifies the selective environment rather than replacing selection. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q21, Synthesis).** The Extended Evolutionary Synthesis adds developmental plasticity, epigenetic inheritance, niche construction, and evolvability to the gene-frequency core of the Modern Synthesis. Niche construction has strong evidence (e.g., earthworm soil modification altering selection on themselves and descendants), but whether it rivals natural selection in importance is system-dependent and still debated; it modifies the selective environment rather than replacing selection. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO4; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 22. Design an experiment to test the "good genes" hypothesis for female preference in peacocks (*Pavo cristatus*). Describe: the relevant measurements (eyespot count, parasite load, extra-pair offspring survival), statistical analyses needed, and a falsification criterion. What result would confirm vs reject the hypothesis?
 
 <!-- SOLUTION
-**Answer (Q22, Evaluation).** Measure male eyespot number, parasite/immune load, and survival of (cross-fostered) offspring; analyze with correlation/GLMs relating preference and ornament to offspring viability, controlling for maternal effects. Good-genes is confirmed if offspring of preferred, low-parasite males show higher survival; it is rejected if ornament predicts attractiveness but not offspring viability. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q22, Synthesis).** Measure male eyespot number, parasite/immune load, and survival of (cross-fostered) offspring; analyze with correlation/GLMs relating preference and ornament to offspring viability, controlling for maternal effects. Good-genes is confirmed if offspring of preferred, low-parasite males show higher survival; it is rejected if ornament predicts attractiveness but not offspring viability. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO5; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 23. Evaluate the evolutionary arms race between cuckoos and their hosts (*Cuculus canorus* vs reed warblers). Describe: (a) forgery (egg mimicry); (b) host counter-adaptations (pattern recognition, egg ejection); (c) what would have to happen for the host to "win" and cuckoos to go extinct. What does the coevolutionary balance tell us about the role of Red Queen dynamics in parasite-host coevolution?
 
 <!-- SOLUTION
-**Answer (Q23, Evaluation).** (a) Cuckoos forge host-egg color/pattern (gens-specific egg mimicry). (b) Hosts counter-adapt by fine pattern discrimination and ejecting odd eggs. (c) For hosts to 'win' and cuckoos to go locally extinct, host rejection must approach 100% faster than cuckoos can improve mimicry or switch hosts. The persistent oscillating balance exemplifies Red Queen coevolution — neither side reaches a permanent advantage. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q23, Synthesis).** (a) Cuckoos forge host-egg color/pattern (gens-specific egg mimicry). (b) Hosts counter-adapt by fine pattern discrimination and ejecting odd eggs. (c) For hosts to 'win' and cuckoos to go locally extinct, host rejection must approach 100% faster than cuckoos can improve mimicry or switch hosts. The persistent oscillating balance exemplifies Red Queen coevolution — neither side reaches a permanent advantage. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO6; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 24. Molecular convergence (independent evolution of the same molecular change in different lineages) provides the strongest evidence for adaptation at the sequence level. Evaluate three examples: (a) same amino acid substitution in hemoglobin for high-altitude adaptation in birds; (b) convergent microbial drug resistance mutations; (c) convergent VLDLR mutations for flight in birds. What does molecular convergence tell us about the size of genotypic variation space accessible by natural selection?
 
 <!-- SOLUTION
-**Answer (Q24, Evaluation).** (a) Identical hemoglobin substitutions for high-altitude O₂ affinity in unrelated bird lineages; (b) recurrent *rpoB*/target-site resistance mutations across microbes; (c) convergent VLDLR-pathway changes associated with flight. Repeated independent fixation of the same change shows the accessible adaptive genotype space is small and selection is highly repeatable at the sequence level. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q24, Synthesis).** (a) Identical hemoglobin substitutions for high-altitude O₂ affinity in unrelated bird lineages; (b) recurrent *rpoB*/target-site resistance mutations across microbes; (c) convergent VLDLR-pathway changes associated with flight. Repeated independent fixation of the same change shows the accessible adaptive genotype space is small and selection is highly repeatable at the sequence level. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO7; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 25. The "fitness landscape" model represents most possible genotypes as a surface where height corresponds to fitness. Evaluate the limitations of this model for understanding: (a) epistasis (non-additive interactions between loci); (b) adaptive valleys (can evolution cross fitness valleys?); (c) frequency-dependent fitness (landscape changes with allele frequency). Propose an alternative model that addresses these limitations.
 
 <!-- SOLUTION
-**Answer (Q25, Evaluation).** (a) Additive landscapes ignore epistasis, where a locus's fitness depends on genotype at others, making the surface rugged. (b) Adaptive valleys require crossing low-fitness genotypes, hard under selection alone (drift, recombination, or environmental change help). (c) Frequency-dependent fitness means the surface is not static. A better model is a dynamic, high-dimensional genotype network (holey/ Gavrilets landscape) where neutral ridges connect peaks. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q25, Synthesis).** (a) Additive landscapes ignore epistasis, where a locus's fitness depends on genotype at others, making the surface rugged. (b) Adaptive valleys require crossing low-fitness genotypes, hard under selection alone (drift, recombination, or environmental change help). (c) Frequency-dependent fitness means the surface is not static. A better model is a dynamic, high-dimensional genotype network (holey/ Gavrilets landscape) where neutral ridges connect peaks. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO8; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 26. Group selection (selection acting on groups rather than individuals) was largely dismissed after Williams (1966), but has been revived as multilevel selection (MLS) theory. Evaluate: (a) the conditions under which group selection overrides individual selection; (b) the evidence from slime mould (*Dictyostelium*) cooperation; (c) whether human cooperation can be explained by MLS or requires cultural group selection.
 
 <!-- SOLUTION
-**Answer (Q26, Evaluation).** (a) Group selection overrides individual selection when between-group variance and differential group productivity are large relative to within-group selfish advantage and migration is low. (b) *Dictyostelium* fruiting-body cooperation (with cheater conflict) shows multilevel dynamics. (c) Human cooperation is better explained by kin selection, reciprocity, and cultural group selection (norms, punishment) than by simple genetic group selection. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q26, Synthesis).** (a) Group selection overrides individual selection when between-group variance and differential group productivity are large relative to within-group selfish advantage and migration is low. (b) *Dictyostelium* fruiting-body cooperation (with cheater conflict) shows multilevel dynamics. (c) Human cooperation is better explained by kin selection, reciprocity, and cultural group selection (norms, punishment) than by simple genetic group selection. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO9; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 27. Evaluate the claim that evolutionary theory is a scientific fact while specific evolutionary narratives (the origin of feathers, the evolution of eukaryotes) are provisional hypotheses. What does "theory" mean in science compared to colloquial usage? How does the misunderstanding of "theory" fuel creationist objections, and what is the appropriate scientific response?
 
 <!-- SOLUTION
-**Answer (Q27, Evaluation).** In science a 'theory' is a well-substantiated explanatory framework (evolution, like gravitation), not a guess. Evolution as a process is a fact and a theory; specific historical narratives (feather origin, eukaryogenesis) are provisional hypotheses tested against evidence. Creationist objections exploit the colloquial 'just a theory'; the appropriate response is to clarify the scientific meaning and the strength of convergent evidence. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q27, Synthesis).** In science a 'theory' is a well-substantiated explanatory framework (evolution, like gravitation), not a guess. Evolution as a process is a fact and a theory; specific historical narratives (feather origin, eukaryogenesis) are provisional hypotheses tested against evidence. Creationist objections exploit the colloquial 'just a theory'; the appropriate response is to clarify the scientific meaning and the strength of convergent evidence. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO1; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 28. Evolvability — the capacity to evolve — may itself be a product of natural selection. Evaluate: (a) the evidence that the modular architecture of proteins (protein domains) evolved to enhance evolvability; (b) whether mutation rate itself can be subject to natural selection; (c) the concept of robustness (canalization) and its relationship to evolvability.
 
 <!-- SOLUTION
-**Answer (Q28, Evaluation).** (a) Modular protein-domain architecture lets domains recombine, plausibly enhancing evolvability, though it may be a by-product of structural constraints. (b) Mutation rate is heritable and selectable — mutator alleles rise in novel/stressful environments and fall once adapted. (c) Robustness (canalization) buffers phenotypes against mutation, accumulating cryptic variation that can fuel future evolvability when released. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q28, Synthesis).** (a) Modular protein-domain architecture lets domains recombine, plausibly enhancing evolvability, though it may be a by-product of structural constraints. (b) Mutation rate is heritable and selectable — mutator alleles rise in novel/stressful environments and fall once adapted. (c) Robustness (canalization) buffers phenotypes against mutation, accumulating cryptic variation that can fuel future evolvability when released. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO2; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 29. The "major evolutionary transitions" (Szathmáry and Maynard Smith, 1995) describe eight key events in the history of life (e.g., origin of the eukaryotic cell, origin of multicellularity). Evaluate what distinguishes each transition from ordinary speciation, and propose what the next major evolutionary transition might be (e.g., a digital information-based evolving system?).
 
 <!-- SOLUTION
-**Answer (Q29, Evaluation).** The major transitions (e.g., origin of chromosomes, the eukaryotic cell, multicellularity, eusociality) each change the unit of selection and how information is stored/transmitted — formerly independent replicators become interdependent and reproduce as a whole, unlike ordinary speciation which does not create a new higher-level individual. A plausible next transition is a tightly integrated human–digital information system. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q29, Synthesis).** The major transitions (e.g., origin of chromosomes, the eukaryotic cell, multicellularity, eusociality) each change the unit of selection and how information is stored/transmitted — formerly independent replicators become interdependent and reproduce as a whole, unlike ordinary speciation which does not create a new higher-level individual. A plausible next transition is a tightly integrated human–digital information system. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO3; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 30. Critically evaluate whether evolutionary theory can be directly applied to artificial systems (machine learning algorithms, memes, cultural evolution). What structural features must any system have to undergo Darwinian evolution (heritable variation, differential reproduction, competition)? Does cultural evolution satisfy these criteria, and how does it differ from biological evolution in terms of inheritance mechanisms and selection units?
 
 <!-- SOLUTION
-**Answer (Q30, Evaluation).** Any Darwinian system needs heritable variation, differential reproduction/retention, and competition for limited resources. Cultural evolution satisfies these (ideas vary, are copied with error, and spread differentially) but differs from biology: inheritance can be horizontal and Lamarckian (acquired changes transmitted), selection units are memes/practices, and transmission is high-fidelity-optional and intentional. See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q30, Synthesis).** Any Darwinian system needs heritable variation, differential reproduction/retention, and competition for limited resources. Cultural evolution satisfies these (ideas vary, are copied with error, and spread differentially) but differs from biology: inheritance can be horizontal and Lamarckian (acquired changes transmitted), selection units are memes/practices, and transmission is high-fidelity-optional and intentional. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->

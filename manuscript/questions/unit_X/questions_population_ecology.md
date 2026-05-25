@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** **Density-dependent** factors change in per-capita effect as population density changes — they intensify as $N$ rises and provide regulatory feedback (competition for food, predation, disease, parasitism, accumulation of wastes). **Density-independent** factors affect the same *fraction* of individuals regardless of density (weather, fire, flood, drought, habitat destruction). Density-dependent factors stabilize populations near $K$; density-independent ones cause fluctuations not tied to abundance. See \cref{sec:unit_X_population_ecology}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO1; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** (a) Long-term datasets show poleward/upslope range-margin shifts averaging on the order of kilometers per decade and earlier phenology in butterflies, birds, and trees, broadly tracking isotherm movement. (b) Species lag because of limited **dispersal ability**, **habitat fragmentation** blocking movement corridors, slow life cycles (long-lived trees), and dependence on biotic partners that do not move in step. (c) **PVA** projects extinction probability by combining vital rates with climate-driven scenarios for habitat and demographic parameters, comparing persistence under different warming trajectories to rank management options (corridors, assisted migration). The conclusion would change if dispersal or adaptive capacity were higher than assumed. See \cref{sec:unit_X_population_ecology}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

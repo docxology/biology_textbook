@@ -11,7 +11,7 @@ Manuscript-driven introductory biology (44 chapters across Units 0-X, 44 paper-b
 | **Text license** | CC BY 4.0 (`manuscript/config.yaml` → `book.license`) |
 | **Code license** | Apache-2.0 (`book.code_license`) |
 
-**Build health:** run `uv run python -m pytest tests/ --cov=src --cov-fail-under=90` from this directory for test count and coverage; the current filesystem has 36 Python files under `scripts/` and 41 `test_*.py` modules under `tests/`. `references.bib`, `glossary.md`, lab computation snippets, question-bank answers, current-claim ledger entries, quality-advisory triage, assessment metadata, visual-contract manifest findings, textbook-quality audit findings, chapter pedagogy regression locks (`test_chapter_pedagogy_coverage.py`), and script hygiene are kept closed by tests. Aggregate publication gate: `uv run python scripts/audit_publication_readiness.py --check` (uses temporary visual artifacts; add `--full` before release). The question-bank gate rejects generated-style solution scaffolds such as `Expected reasoning:`, `Key answer:`, and `Mechanistic answer:`. The visual manifest covers 252 records: 32 `plot_*` figure generators, 24 registered Mermaid diagrams in `src/`, and 196 inline Mermaid fences in the manuscript. Regenerate the combined PDF to refresh file size and layout.
+**Build health:** run `uv run python -m pytest tests/ --cov=src --cov-fail-under=90` from this directory for test count and coverage; the current filesystem has 36 Python files under `scripts/` and 51 `test_*.py` modules under `tests/`. `references.bib`, `glossary.md`, lab computation snippets, question-bank answers, current-claim ledger entries, quality-advisory triage, assessment metadata, visual-contract manifest findings, textbook-quality audit findings, chapter pedagogy regression locks (`test_chapter_pedagogy_coverage.py`), and script hygiene are kept closed by tests. Aggregate publication gate: `uv run python scripts/audit_publication_readiness.py --check` (uses temporary visual artifacts; add `--full` before release). The question-bank gate rejects generated-style solution scaffolds such as `Expected reasoning:`, `Key answer:`, and `Mechanistic answer:`. The visual manifest covers 262 records: 42 `plot_*` figure generators, 24 registered Mermaid diagrams in `src/`, and 196 inline Mermaid fences in the manuscript. Regenerate the combined PDF to refresh file size and layout.
 
 ## Location
 
@@ -54,7 +54,7 @@ uv run python scripts/03_render_pdf.py --project biology_textbook
 
 Authoritative ordering: **`manuscript/config.yaml`**. It defines Unit 0 (systems / complexity prelude), Units I – X (**44** core chapter files across unit directories), front matter, and optional appendices (`labs/`, `questions/`). Chapter numbers are assigned at render time; filenames are descriptive slugs.
 
-Supporting files in `manuscript/`: `preamble.md` (LaTeX geometry, body size, and `cleveref` — keep in sync with `config.yaml` layout/typography), `references.bib` (358 entries, fully closed), `glossary.md` (226 terms with `{#gl:…}` anchors), `front_matter.md` (includes auto-generated Course Planning Grid), `preface.md`.
+Supporting files in `manuscript/`: `preamble.md` (LaTeX geometry, body size, and `cleveref` — keep in sync with `config.yaml` layout/typography), `references.bib` (358 entries, fully closed), `glossary.md` (225 terms with `{#gl:…}` anchors), `front_matter.md` (includes auto-generated Course Planning Grid), `preface.md`.
 
 ### Manuscript-wide conventions
 
@@ -82,7 +82,7 @@ For more legible print or on-screen reading, use a second build with larger marg
 ├── src/mermaid/       # diagram definitions + renderer
 ├── src/visualization/ # __init__.py (ALL_FIGURE_GENERATORS, 32 plots) + cvd.py (palette)
 ├── scripts/           # 36 Python files — see [AGENTS.md](AGENTS.md) (core build + content maintenance)
-├── tests/             # 41 test modules, ≥90% line+branch on `src/`, no mocks
+├── tests/             # 47 test modules, ≥90% line+branch on `src/`, no mocks
 ├── manuscript/        # config.yaml drives unit/chapter/lab/question order
 └── docs/              # composable authoring, architecture, pipeline, testing, API, guides
 ```

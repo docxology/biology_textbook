@@ -228,3 +228,65 @@ def plot_homeostasis_feedback(
     fig.tight_layout()
     return _save_figure(fig, output_dir, "homeostasis_feedback.png")
 
+
+def plot_atp_yield_comparison(output_dir: Path) -> Path:
+    """Stacked bar chart of ATP yield by catabolic pathway.
+
+    Shows substrate-level ATP and oxidative-phosphorylation ATP for
+    glycolysis, lactic-acid fermentation, the TCA cycle, and full aerobic
+    respiration. Anaerobic pathways have zero oxidative ATP; full aerobic
+    respiration is dominated by the oxidative contribution.
+
+    Args:
+        output_dir: Directory to save PNG.
+
+    Returns:
+        Path to the saved PNG.
+    """
+    from biology.biochemistry import atp_yield_by_pathway
+
+    rows = list(atp_yield_by_pathway())
+    labels = [row.pathway for row in rows]
+    substrate = np.array([row.substrate_level_atp for row in rows])
+    oxidative = np.array([row.oxidative_atp for row in rows])
+
+    x = np.arange(len(rows))
+    fig, ax = plt.subplots(figsize=(11, 5.5))
+    ax.bar(
+        x,
+        substrate,
+        label="Substrate-level ATP",
+        color=SERIES2[0],
+        edgecolor="black",
+        linewidth=0.6,
+    )
+    ax.bar(
+        x,
+        oxidative,
+        bottom=substrate,
+        label="Oxidative phosphorylation ATP",
+        color=SERIES2[1],
+        edgecolor="black",
+        linewidth=0.6,
+    )
+    totals = [row.total_atp for row in rows]
+    for idx, total in enumerate(totals):
+        ax.text(
+            idx,
+            total + 0.6,
+            f"{total:.1f}",
+            ha="center",
+            va="bottom",
+            fontsize=10,
+            fontweight="bold",
+        )
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=15, ha="right", fontsize=10)
+    ax.set_ylabel("ATP yield per glucose molecule", fontsize=13)
+    ax.set_title("ATP Yield Comparison Across Catabolic Pathways", fontsize=14)
+    ax.legend(fontsize=10, frameon=False)
+    ax.tick_params(labelsize=10)
+    fig.tight_layout()
+    return _save_figure(fig, output_dir, "atp_yield_comparison.png", aspect="landscape")
+

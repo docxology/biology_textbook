@@ -19,6 +19,26 @@ SOLUTION_BLOCK_RE = re.compile(
     re.DOTALL,
 )
 
+INSTRUCTOR_WATERMARK_LATEX = """
+% Instructor edition watermark (injected by biology_analysis.py when export.watermark_instructor is true)
+\\usepackage{draftwatermark}
+\\SetWatermarkText{INSTRUCTOR EDITION}
+\\SetWatermarkScale{1.5}
+\\SetWatermarkColor[gray]{0.88}
+"""
+
+
+def instructor_preamble_text(preamble: str, *, watermark_instructor: bool) -> str:
+    """Return preamble text, optionally appending the instructor watermark block."""
+    if not watermark_instructor:
+        return preamble
+    if "draftwatermark" in preamble:
+        return preamble
+    marker = "```latex"
+    if marker not in preamble:
+        return preamble + INSTRUCTOR_WATERMARK_LATEX
+    return preamble.replace(marker, marker + INSTRUCTOR_WATERMARK_LATEX, 1)
+
 
 def clear_stale_slide_artifacts() -> None:
     """Remove stale generated slide files before a fresh WIP render."""
@@ -43,7 +63,12 @@ def reveal_solutions(text: str) -> str:
     return SOLUTION_BLOCK_RE.sub(repl, text)
 
 
-def inject_chapters_for_rendering(chapters: list[Path], *, include_solutions: bool = False) -> None:
+def inject_chapters_for_rendering(
+    chapters: list[Path],
+    *,
+    include_solutions: bool = False,
+    watermark_instructor: bool = False,
+) -> None:
     """Copy all chapters into OUTPUT_DIR with sequential numeric prefixes."""
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     for existing in OUTPUT_DIR.glob("*.md"):
@@ -66,11 +91,20 @@ def inject_chapters_for_rendering(chapters: list[Path], *, include_solutions: bo
         shutil.copystat(src, dest)
         logger.info("  Injected [%02d] %s → %s", index, src.name, dest.name)
 
-    for aux in ("config.yaml", "references.bib", "preamble.md"):
+    for aux in ("config.yaml", "references.bib"):
         src = MANUSCRIPT_DIR / aux
         if src.exists():
             shutil.copy2(src, OUTPUT_DIR / aux)
             logger.info("  Copied auxiliary file: %s", aux)
+
+    preamble_src = MANUSCRIPT_DIR / "preamble.md"
+    if preamble_src.exists():
+        preamble_text = instructor_preamble_text(
+            preamble_src.read_text(encoding="utf-8"),
+            watermark_instructor=watermark_instructor and include_solutions,
+        )
+        write_text_atomic(OUTPUT_DIR / "preamble.md", preamble_text)
+        logger.info("  Copied auxiliary file: preamble.md")
 
     cover_assets = MANUSCRIPT_DIR / "assets" / "cover"
     if cover_assets.exists():
@@ -88,5 +122,6 @@ def inject_chapters_for_rendering(chapters: list[Path], *, include_solutions: bo
 __all__ = [
     "clear_stale_slide_artifacts",
     "inject_chapters_for_rendering",
+    "instructor_preamble_text",
     "reveal_solutions",
 ]

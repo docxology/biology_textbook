@@ -10,13 +10,13 @@
 
 By the end of this chapter, you should be able to:
 
-1. Describe tropisms and how plants sense and respond to directional stimuli, including the molecular pathway for phototropism \citep{went1926}.
+1. Predict how PIN auxin-efflux-carrier relocalization produces the differential growth of a phototropic response \citep{went1926}, and describe how plants sense other directional stimuli.
 2. Explain the major plant [**hormone**](#gl:hormone)s (auxin, gibberellin, cytokinin, ABA, ethylene, brassinosteroids, jasmonates, salicylate, strigolactones) and their signaling pathways.
 3. Describe photomorphogenesis: phytochrome biochemistry (Pr/Pfr photoconversion), cryptochrome FAD signaling, and shade avoidance.
 4. Explain gravitropism in roots and shoots, including amyloplast settling and PIN [**protein**](#gl:protein) relocalization.
 5. Describe [**photoperiodism**](#gl:photoperiodism), the role of [**phytochrome**](#gl:phytochrome), florigen (FT), and the molecular basis of flowering time control via vernalisation (FLC silencing).
 6. Explain the plant circadian clock molecular architecture (morning loop CCA1/LHY/TOC1; evening loop PRR5/7/9) and how it gates growth, flowering, and [**photosynthesis**](#gl:photosynthesis).
-7. Describe drought (ABA pathway), cold (CBF-COR pathway), heat (HSP response), salt, flooding, and [**herbivory**](#gl:herbivory) (jasmonate) stress responses.
+7. Compare the signaling logic of ABA-mediated drought and jasmonate-mediated [**herbivory**](#gl:herbivory) responses, and describe the cold (CBF-COR), heat (HSP), salt, and flooding responses.
 8. Describe plant immunity (PTI, ETI), the hypersensitive response, systemic acquired resistance (SAR), and JA/SA antagonism.
 9. Evaluate agricultural applications of plant hormone biology: ethylene inhibitors, gibberellin dwarfing genes, and auxin herbicides.
 

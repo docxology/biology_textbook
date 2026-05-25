@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Decomposition is the microbial and detritivore breakdown of dead organic matter, releasing inorganic nutrients (mineralization) and CO2 via heterotrophic respiration. Primary decomposers are bacteria and fungi (saprotrophs), assisted by detritivores (earthworms, millipedes, woodlice, soil arthropods) that fragment litter and increase surface area for microbial attack. Termites add symbiotic lignocellulose digestion and mound/galleried soil structure; ants fragment and move organic matter, excavate mineral soil, and redistribute nutrients. They are not primary microbial decomposers, but they engineer the physical and biological conditions under which decomposition proceeds. See \cref{sec:unit_X_ecosystem_ecology}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO11; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** (a) Waterlogging makes wetland soils anoxic; once O2, nitrate, and sulfate are depleted, methanogens produce CH4 via the aceticlastic pathway (acetate to CH4 plus CO2) and the hydrogenotrophic pathway (CO2 plus H2 to CH4). (b) CH4 has a 100-year GWP of roughly 27 to 30 times CO2 (IPCC AR6). (c) Net effect is timescale-dependent: wetlands are persistent long-term carbon sinks (peat) but strong short-term CH4 sources, so they can warm over short horizons and cool over millennia depending on the GWP horizon chosen. See \cref{sec:unit_X_ecosystem_ecology}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

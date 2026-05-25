@@ -5,7 +5,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
+import re
 from typing import Any
+from urllib.parse import urlparse
 
 import yaml
 
@@ -89,6 +91,7 @@ def validate_current_claims(
     *,
     today: date | None = None,
     max_checked_age_days: int = DEFAULT_MAX_CHECKED_AGE_DAYS,
+    references_path: Path | None = None,
 ) -> list[ClaimIssue]:
     """Return all structural, source-link, and freshness issues in ``claims``."""
 
@@ -96,6 +99,8 @@ def validate_current_claims(
     issues: list[ClaimIssue] = []
     seen: set[str] = set()
     claim_ids = {claim.claim_id for claim in claims}
+    bibliography_keys = _bib_keys(references_path) if references_path else None
+    source_root = references_path.parent.parent if references_path else PROJECT
 
     for required_id in sorted(REQUIRED_CLAIM_IDS - claim_ids):
         issues.append(ClaimIssue(required_id, "missing-required-claim", "required high-velocity topic is absent"))
@@ -114,6 +119,22 @@ def validate_current_claims(
             )
         if not claim.citekey and not claim.url:
             issues.append(ClaimIssue(claim.claim_id, "missing-source", "citekey or url is required"))
+        if claim.citekey and bibliography_keys is not None and claim.citekey not in bibliography_keys:
+            issues.append(
+                ClaimIssue(
+                    claim.claim_id,
+                    "missing-bibliography-entry",
+                    f"citekey {claim.citekey!r} is absent from {references_path}",
+                )
+            )
+        if claim.url and not _is_external_url(claim.url) and not (source_root / claim.url).exists():
+            issues.append(
+                ClaimIssue(
+                    claim.claim_id,
+                    "missing-local-source",
+                    f"local source path {claim.url!r} does not exist under {source_root}",
+                )
+            )
         if not claim.refresh_trigger.strip():
             issues.append(ClaimIssue(claim.claim_id, "missing-refresh-trigger", "refresh_trigger is required"))
         if claim.evidence_date > today:
@@ -153,6 +174,20 @@ def _claim_local_context(text: str, anchor_index: int) -> str:
     end = text.find("\n\n", anchor_index)
     end = len(text) if end == -1 else end
     return text[start:end]
+
+
+def _bib_keys(path: Path) -> set[str]:
+    """Return BibTeX entry keys from ``path``."""
+
+    return {
+        match.group(1).strip()
+        for match in re.finditer(r"@\w+\s*\{\s*([^,\s]+)\s*,", path.read_text(encoding="utf-8"))
+    }
+
+
+def _is_external_url(value: str) -> bool:
+    parsed = urlparse(value)
+    return parsed.scheme in {"http", "https", "doi"}
 
 
 def _claim_from_mapping(record: Any, project_root: Path) -> CurrentClaim:

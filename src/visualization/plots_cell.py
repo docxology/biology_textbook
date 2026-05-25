@@ -252,3 +252,58 @@ def plot_osmotic_pressure(
     fig.tight_layout()
     return _save_figure(fig, output_dir, "osmotic_pressure.png")
 
+
+def plot_organelle_size_scale(output_dir: Path) -> Path:
+    """Log-scale horizontal bars for canonical organelle and cell sizes.
+
+    The plot uses a logarithmic diameter axis so a ribosome (25 nm) and a
+    plant cell (50 um) coexist in the same panel. Categories share colors:
+    macromolecular complexes, organelles, prokaryotic cells, eukaryotic
+    cells.
+
+    Args:
+        output_dir: Directory to save PNG.
+
+    Returns:
+        Path to the saved PNG.
+    """
+    from biology.cell import organelle_size_table
+
+    rows = list(organelle_size_table())
+    names = [row.name for row in rows]
+    diameters = np.array([row.diameter_um for row in rows])
+
+    palette = {
+        "macromolecular": SERIES3[0],
+        "organelle": SERIES3[1],
+        "prokaryotic cell": SERIES3[2],
+        "eukaryotic cell": PURPLE,
+    }
+    colors = [palette[row.category] for row in rows]
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+    y_positions = np.arange(len(rows))
+    ax.barh(y_positions, diameters, color=colors, edgecolor="black", linewidth=0.6)
+    ax.set_yticks(y_positions)
+    ax.set_yticklabels(names, fontsize=10)
+    ax.set_xscale("log")
+    ax.set_xlabel("Diameter (micrometres, log scale)", fontsize=13)
+    ax.set_title("Cellular Structures on a Logarithmic Size Scale", fontsize=14)
+    ax.tick_params(labelsize=10)
+    ax.grid(True, which="both", axis="x", color="#dddddd", linewidth=0.6, alpha=0.7)
+
+    legend_handles = [
+        plt.Rectangle((0, 0), 1, 1, color=color, ec="black", linewidth=0.6)
+        for color in palette.values()
+    ]
+    ax.legend(
+        legend_handles,
+        list(palette.keys()),
+        loc="lower right",
+        fontsize=9,
+        frameon=False,
+        title="Category",
+    )
+    fig.tight_layout()
+    return _save_figure(fig, output_dir, "organelle_size_scale.png", aspect="landscape")
+

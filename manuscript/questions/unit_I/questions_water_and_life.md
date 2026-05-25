@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Seawater is **hypertonic** to a freshwater fish (external solute concentration far exceeds the fish's body fluids). Across the gill and gut epithelia water therefore moves by osmosis from the dilute body fluids (high water potential) to the concentrated seawater (low water potential): the fish **loses water and dehydrates**, and salt diffuses inward. A freshwater-adapted fish lacks the salt-secreting machinery to compensate, so without osmoregulatory adaptation it cannot survive -- cells shrink and plasma osmolarity rises. (Marine teleosts solve this by drinking seawater and actively excreting NaCl through chloride cells.) See \cref{sec:unit_I_water_and_life}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** Adaptation: mangroves use **ultrafiltration at the roots** (a Casparian-strip/suberised endodermis acting as a salt-excluding membrane that filters most NaCl from incoming water), supplemented by **salt-secreting glands on leaves** and salt sequestration/leaf shedding; aerial pneumatophores handle the separate problem of waterlogged anoxic soil. Calculation -- minimum root (xylem) pressure needed: to draw water in, the plant's xylem water potential must be more negative than the seawater. Treating the values as water potentials, the seawater has \(\Psi_s = -2.5\) MPa and the transpirational pull contributes \(\Psi_p = -1.0\) MPa, so the xylem must reach at least \(\Psi = -2.5 + (-1.0) = \mathbf{-3.5\ MPa}\). Equivalently the root system must overcome the 2.5 MPa osmotic barrier plus the 1.0 MPa transport demand, i.e. generate \(\geq 3.5\) MPa of tension -- well within the cohesion--tension range but far beyond ordinary root pressure, which is why filtration plus large negative leaf \(\Psi\) is required. See \cref{sec:unit_I_water_and_life}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

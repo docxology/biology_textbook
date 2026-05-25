@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** The **neutral theory of molecular evolution** holds that the great majority of molecular variation within and between species is selectively neutral and evolves by **random genetic drift** rather than positive selection, with deleterious mutations removed by purifying selection. It was proposed by **Motoo Kimura** (1968), with related work by King and Jukes and the nearly-neutral extension by Tomoko Ohta. See \cref{sec:unit_V_population_genetics}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO11; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** **Sexual selection** favors traits that increase mating success even at a survival cost. **Intrasexual selection** is competition among same-sex individuals for mates — e.g. male **red deer (stag) antler combat** for harem access. **Intersexual selection** is mate choice by the other sex — e.g. **peahens choosing peacocks with the largest, most symmetric trains**. Under the **Zahavian handicap principle**, a costly ornament can spread because only high-quality individuals can bear the cost and survive, so the handicap is an **honest signal of genetic quality**; choosy females gain fitter offspring, driving runaway elaboration of the trait despite its survival penalty. See \cref{sec:unit_V_population_genetics}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

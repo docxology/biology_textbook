@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** In **XX/XY** systems, typical mammalian females are XX and males are XY, with SRY initiating testis development. In **ZW/ZZ** systems, common in birds and butterflies, females are ZW and males are ZZ. In **XO** systems, males have one X and no second sex chromosome. In **haplodiploidy**, common in Hymenoptera, unfertilised haploid eggs develop as males and fertilized diploid eggs develop as females. Haplodiploidy changes relatedness patterns among relatives, so it matters for kin-selection models, but it is not a complete explanation for eusociality because ecology, mating system, colony demography, and phylogenetic history also matter; diploid termites are the key contrast. See \cref{sec:unit_V_chromosomal_inheritance}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO11; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** In an inversion heterozygote, the inverted and normal homologs can only synapse by forming an **inversion loop**. A crossover *within* the loop produces chromatids with **duplications and deletions** (paracentric inversions also yield acentric/dicentric chromatids), which are typically inviable, so only non-recombinant gametes survive — recombination in the region is effectively **suppressed**. Selection therefore favors inversions when they **capture a set of co-adapted (epistatically beneficial) alleles**, because the inversion locks the favorable haplotype together and shields it from being broken up by recombination (a 'supergene'). See \cref{sec:unit_V_chromosomal_inheritance}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

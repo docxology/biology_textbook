@@ -496,6 +496,85 @@ class TestVisualizationFigures:
         path = plot_translation_codons(output_dir=tmp_path)
         assert path.exists()
 
+    # --- 2026-05-25 foundations and extension figures ---
+
+    def test_network_degree_distribution_figure(self, tmp_path):
+        from visualization import plot_network_degree_distribution
+        path = plot_network_degree_distribution(output_dir=tmp_path)
+        assert path.exists()
+        assert path.name == "network_degree_distribution.png"
+
+    def test_prediction_error_precision_figure(self, tmp_path):
+        from visualization import plot_prediction_error_precision
+        path = plot_prediction_error_precision(output_dir=tmp_path)
+        assert path.exists()
+        assert path.name == "prediction_error_precision.png"
+
+    def test_biology_milestones_figure(self, tmp_path):
+        from visualization import plot_biology_milestones
+        path = plot_biology_milestones(output_dir=tmp_path)
+        assert path.exists()
+        assert path.name == "biology_milestones.png"
+
+    def test_electronegativity_bond_energy_figure(self, tmp_path):
+        from visualization import plot_electronegativity_bond_energy
+        path = plot_electronegativity_bond_energy(output_dir=tmp_path)
+        assert path.exists()
+        assert path.name == "electronegativity_bond_energy.png"
+
+    def test_polymer_hierarchy_figure(self, tmp_path):
+        from visualization import plot_polymer_hierarchy
+        path = plot_polymer_hierarchy(output_dir=tmp_path)
+        assert path.exists()
+        assert path.name == "polymer_hierarchy.png"
+
+    def test_organelle_size_scale_figure(self, tmp_path):
+        from visualization import plot_organelle_size_scale
+        path = plot_organelle_size_scale(output_dir=tmp_path)
+        assert path.exists()
+        assert path.name == "organelle_size_scale.png"
+
+    def test_atp_yield_comparison_figure(self, tmp_path):
+        from visualization import plot_atp_yield_comparison
+        path = plot_atp_yield_comparison(output_dir=tmp_path)
+        assert path.exists()
+        assert path.name == "atp_yield_comparison.png"
+
+    def test_replication_fork_progression_figure(self, tmp_path):
+        from visualization import plot_replication_fork_progression
+        path = plot_replication_fork_progression(output_dir=tmp_path)
+        assert path.exists()
+        assert path.name == "replication_fork_progression.png"
+
+    def test_mutation_rate_spectrum_figure(self, tmp_path):
+        from visualization import plot_mutation_rate_spectrum
+        path = plot_mutation_rate_spectrum(output_dir=tmp_path)
+        assert path.exists()
+        assert path.name == "mutation_rate_spectrum.png"
+
+    def test_pollen_tube_growth_figure(self, tmp_path):
+        from visualization import plot_pollen_tube_growth
+        path = plot_pollen_tube_growth(output_dir=tmp_path)
+        assert path.exists()
+        assert path.name == "pollen_tube_growth.png"
+
+    def test_all_figure_generators_includes_new_entries(self):
+        from visualization.plots import ALL_FIGURE_GENERATORS
+        names = {name for name, _ in ALL_FIGURE_GENERATORS}
+        for expected in (
+            "network_degree_distribution",
+            "prediction_error_precision",
+            "biology_milestones",
+            "electronegativity_bond_energy",
+            "polymer_hierarchy",
+            "organelle_size_scale",
+            "atp_yield_comparison",
+            "replication_fork_progression",
+            "mutation_rate_spectrum",
+            "pollen_tube_growth",
+        ):
+            assert expected in names, f"missing {expected} in ALL_FIGURE_GENERATORS"
+
     def test_visual_manifest_records_required_fields(self, tmp_path):
         import runpy
 

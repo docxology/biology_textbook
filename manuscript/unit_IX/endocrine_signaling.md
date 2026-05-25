@@ -736,7 +736,9 @@ flowchart LR
 
 - Sterling & Eyer (1988). Allostasis: A new paradigm to explain arousal pathology. Wiley.
 - Sterling (2012). Allostasis: A model of predictive regulation. *Physiology \& Behavior*, 106.
-- Control & Prevention} (2024). Infertility FAQs.
+- McEwen (1998). Protective and damaging effects of stress mediators. *New England Journal of Medicine*, 338.
+- Friedman & Halaas (1998). Leptin and the regulation of body weight in mammals. *Nature*, 395.
+- Jameson & De Groot, eds. (2016). *Endocrinology: Adult and Pediatric* (7th ed.). Elsevier.
 
 ---
 

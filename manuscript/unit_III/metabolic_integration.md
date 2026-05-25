@@ -2,6 +2,15 @@
 
 \label{sec:unit_III_metabolic_integration}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{../figures/atp_yield_comparison.png}
+\caption{ATP yield per glucose for four catabolic strategies: anaerobic glycolysis (lactic-acid fermentation), ethanolic fermentation, fully aerobic respiration with the malate--aspartate shuttle, and aerobic respiration with the glycerol--phosphate shuttle. Stacked bars partition ATP into glycolysis, the TCA cycle, and oxidative phosphorylation. The order-of-magnitude jump between fermentation and aerobic respiration motivates the metabolic switching central to this chapter.}
+\label{fig:unit_III_atp_yield_comparison}
+\end{figure}
+
+<!-- alt: Stacked bar chart of ATP yield per glucose for four catabolic pathways. Anaerobic glycolysis and ethanolic fermentation each yield about two ATP from glycolysis alone. The two aerobic columns add taller TCA-cycle and oxidative-phosphorylation segments, reaching roughly thirty ATP. -->
+
 
 <!-- chapter-metadata-badge -->
 > Level 3/3 · 60 min read · 100 min lecture · Prerequisites: \cref{sec:unit_III_bioenergetics_and_respiration}, \cref{sec:unit_III_photosynthesis}
@@ -402,7 +411,7 @@ Each cycle: removes 2 carbons as acetyl-CoA, produces 1 FADH$_2$ + 1 NADH.
 ### ATP Yield from Palmitoyl-CoA (C16:0)
 
 Summing the products of complete fatty-acid oxidation makes the "fat is
-energy-dense" claim quantitative. Palmitoyl-CoA (16 carbons) undergoes 7 cycles
+energy-dense" claim quantitative; the chapter-opening \cref{fig:unit_III_atp_yield_comparison} already showed the corresponding glucose-substrate comparison across fermentative and aerobic strategies. Palmitoyl-CoA (16 carbons) undergoes 7 cycles
 of beta-oxidation:
 
 : ATP Yield from Palmitoyl-CoA (C16:0): Product and Quantity. {#tbl:unit_III_metabolic_integration_atp_yield_from_palmitoyl_coa_c16_0}
@@ -970,6 +979,9 @@ A strong metabolic-integration claim names the organ, hormone signal, substrate 
 
 - Atkinson (1968). The regulation of enzyme activity in metabolism. *Biochemical Journal*, 108 \citep{atkinson1968}.
 - Mitchell (1961). Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism. *Nature*, 191 \citep{mitchell1961}.
+- Hardie, Ross & Hawley (2012). AMPK: a nutrient and energy sensor that maintains energy homeostasis. *Nature Reviews Molecular Cell Biology*, 13.
+- Saxton & Sabatini (2017). mTOR signaling in growth, metabolism, and disease. *Cell*, 168.
+- Randle, Garland, Hales & Newsholme (1963). The glucose fatty-acid cycle. *The Lancet*, 281.
 
 ---
 

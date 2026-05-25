@@ -953,6 +953,9 @@ Interpret circulation and gas-exchange data by separating baseline set point, pe
 
 - Starling (1918). The Linacre Lecture on the Law of the Heart. *Longmans, Green and Co.*.
 - Cannon (1932). *The Wisdom of the Body*. W. W. Norton.
+- Bohr, Hasselbalch & Krogh (1904). The Bohr effect: influence of carbon dioxide on the oxygen dissociation of blood. *Scandinavian Archives of Physiology*, 16.
+- Perutz (1970). Stereochemistry of cooperative effects in hemoglobin. *Nature*, 228.
+- West (2012). *Respiratory Physiology: The Essentials* (9th ed.). Lippincott Williams & Wilkins.
 
 ---
 

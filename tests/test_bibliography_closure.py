@@ -105,3 +105,18 @@ def test_bib_entries_have_required_metadata() -> None:
             missing.append(f"{key}: misc missing responsible body")
 
     assert not missing
+
+
+def test_bibliography_does_not_use_known_bad_source_targets() -> None:
+    """Resolved source-audit defects must not return as broken URLs or wrong DOIs."""
+
+    bib = BIB.read_text(encoding="utf-8")
+    bad_targets = (
+        "10.1042/bj1080015",
+        "10.1111/j.1096-3642.1858.tb01375.x",
+        "10.1098/rstb.2013.0327",
+        "10.1002/anie.199723371",
+        "10.1016/S2213-8587(24)00380-7",
+        "https://www.isetl.org/ijtlhe/pdf/IJTLHE3386.pdf",
+    )
+    assert not [target for target in bad_targets if target in bib]

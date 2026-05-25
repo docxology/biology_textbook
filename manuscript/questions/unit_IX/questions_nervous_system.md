@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** The somatic nervous system mediates voluntary control of skeletal muscle: single myelinated motor neurons run from CNS to effector and release ACh (excitatory only) at the neuromuscular junction. The autonomic nervous system controls involuntary visceral function via a two-neuron preganglionic/postganglionic chain and can excite or inhibit targets through its antagonistic sympathetic and parasympathetic divisions. See \cref{sec:unit_IX_nervous_system}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** (a) Glutamate uptake: astrocyte EAAT1/EAAT2 transporters clear ~90% of synaptic glutamate, terminating signaling and preventing excitotoxic over-activation of NMDA receptors. (b) K$^+$ buffering: astrocytes take up activity-driven extracellular K$^+$ through Kir4.1 channels and redistribute it through the gap-junction-coupled syncytium, keeping the resting potential stable. (c) Tripartite synapse: the astrocyte process is a functional third partner that senses synaptic glutamate (astrocytic Ca$^{2+}$ rise) and releases gliotransmitters (glutamate, ATP, D-serine) that modulate synaptic strength and plasticity. See \cref{sec:unit_IX_nervous_system}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

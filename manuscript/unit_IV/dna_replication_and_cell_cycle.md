@@ -2,6 +2,15 @@
 
 \label{sec:unit_IV_dna_replication_and_cell_cycle}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/replication_fork_progression.png}
+\caption{Bases replicated over time for a single fast prokaryotic replication fork (1000 bp/s, one origin) versus many slow eukaryotic forks (50 bp/s, 200 origins). The product of velocity and origin count places the eukaryotic curve well above the prokaryotic curve within an S phase, even though each individual fork is twenty times slower.}
+\label{fig:unit_IV_replication_fork_progression}
+\end{figure}
+
+<!-- alt: Two-curve line plot of bases replicated in megabases versus time in minutes. The fast single-origin prokaryotic curve rises linearly. The eukaryotic curve uses many slow origins but climbs much faster because of parallelism. -->
+
 
 <!-- chapter-metadata-badge -->
 > Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_I_macromolecules}, \cref{sec:unit_II_cell_structure}
@@ -14,7 +23,7 @@
 4. Describe origin licensing, the role of MCM helicases, and how re-replication is prevented.
 5. Explain the [**telomere**](#gl:telomere) end-replication problem and the role of telomerase.
 6. Describe the stages of the [**cell cycle**](#gl:cell-cycle) and the function of cyclin-CDK complexes at each checkpoint.
-7. Explain the DNA damage response pathway involving ATM, ATR, and p53.
+7. Predict which checkpoint fails first when ATM is lost in a cell carrying a double-strand break, using the ATM/ATR/p53 damage-response pathway.
 8. Describe the stages of [**mitosis**](#gl:mitosis) at the molecular level, including spindle assembly checkpoint mechanisms.
 9. Explain the mechanism and biological importance of [**meiosis**](#gl:meiosis), including crossing over and [**independent assortment**](#gl:independent-assortment).
 10. Describe DNA damage types and the key repair pathways, and connect repair defects to human disease.
@@ -83,6 +92,8 @@ Replication begins at specific genomic sites called **origins of replication (or
 
 - **Prokaryotes**: *E. coli* has a single origin (*oriC*), a 245-bp sequence containing five 9-bp DnaA-binding sites (DnaA boxes) and three AT-rich 13-mer repeats that melt first upon initiation
 - **Eukaryotes**: Human genome contains approximately 30,000-50,000 origins; yeast origins are called **autonomously replicating sequences (ARS)**, each approximately 150 bp containing an 11-bp ARS consensus sequence (ACS)
+
+The throughput consequence of this contrast is the subject of \cref{fig:unit_IV_replication_fork_progression}: a fast single prokaryotic fork is overtaken in absolute base output by many slow eukaryotic forks once origin count is in the hundreds.
 
 **Origin licensing** ensures each origin fires primarily once per S phase:
 
@@ -795,7 +806,7 @@ print(lagging_template)
 ## Current Evidence and Frontier Biology: DNA Replication and the Cell Cycle
 
 For **DNA Replication and the Cell Cycle**, frontier biology belongs inside the evidence logic of
-the chapter. Molecular genetics now spans single-reference sequences, telomere-to-telomere assemblies, pangenome graphs, long-read sequencing, CRISPR medicines, and ethical deployment. The core reading question is this: replication claims should connect polymerase accuracy, checkpoint timing, damage response, and cancer relevance.
+the chapter. Frontier work on replication is resolving the replisome in molecular detail: cryo-EM structures of the CMG helicase and the eukaryotic replisome, single-molecule assays of fork dynamics and origin licensing, and the recognition that replication stress and fork protection underlie both cancer genome instability and the action of PARP inhibitors and ATR-checkpoint drugs. The core reading question is this: replication claims should connect polymerase accuracy, checkpoint timing, damage response, and cancer relevance.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
   would make the claim stronger or weaker.

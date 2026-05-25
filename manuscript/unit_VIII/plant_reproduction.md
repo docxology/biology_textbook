@@ -2,6 +2,15 @@
 
 \label{sec:unit_VIII_plant_reproduction}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/pollen_tube_growth.png}
+\caption{Pollen-tube length versus time for two contrasting growth profiles: a fast tube (lily-like, $\sim$20\,$\mu$m/min, $\sim$2\,mm saturation) and a slow tube (Arabidopsis-like, $\sim$8\,$\mu$m/min, $\sim$1\,mm saturation). Both follow a saturating logistic curve in which growth rate falls as the tube approaches its maximum length, mirroring the depletion of tip-localised secretory vesicles. The dashed line marks the upper saturation asymptote of the fast tube.}
+\label{fig:unit_VIII_pollen_tube_growth}
+\end{figure}
+
+<!-- alt: Two saturating-growth curves of pollen-tube length in micrometers versus time in minutes. The lily-like curve climbs rapidly toward a 2000 micrometer asymptote; the Arabidopsis-like curve climbs more slowly and saturates near 1000 micrometers. -->
+
 
 <!-- chapter-metadata-badge -->
 > Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_VIII_plant_structure_and_water}
@@ -138,7 +147,7 @@ Gymnosperms ("naked seed") include conifers (~630 species), cycads (~350), *Gink
 
 - **Heterospory:** Microsporangia (in pollen cones/microstrobili) produce microspores that develop into pollen grains (male gametophyte). Megasporangia (in ovulate cones) produce megaspores that develop into the female gametophyte (with archegonia).
 - **Pollen eliminates the need for water** for fertilization. Wind-dispersed pollen lands on the ovule (pollination drop mechanism in many gymnosperms).
-- **Slow fertilization:** In pines, 12-18 months elapse between pollination and fertilization. The pollen tube grows slowly through the nucellus to reach the archegonium.
+- **Slow fertilization:** In pines, 12-18 months elapse between pollination and fertilization. The pollen tube grows slowly through the nucellus to reach the archegonium; the quantitative contrast between fast and slow pollen tubes appears in \cref{fig:unit_VIII_pollen_tube_growth}.
 - **Seeds:** The fertilized ovule develops into a seed containing the embryo, stored food (female gametophyte tissue), and a protective seed coat derived from the integuments. Seeds are "naked" (not enclosed in a fruit).
 
 ### Angiosperms (Flowering Plants)

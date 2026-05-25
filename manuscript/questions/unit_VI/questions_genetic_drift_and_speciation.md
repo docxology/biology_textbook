@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Adaptive radiation is rapid diversification of one lineage into many species occupying different ecological niches. Classic example: Darwin's finches on the Galápagos, diversified in beak form by diet. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -108,38 +109,39 @@ SOLUTION -->
 15. In cichlid fish adaptive radiation in Lake Victoria, > 500 species evolved in < 15,000 years — an extremely rapid speciation event. Propose: (a) what ecological opportunity promoted rapid radiation; (b) what role mate choice based on color pattern played in sympatric speciation; (c) how light transmission in different lake depths may have driven divergence.
 
 <!-- SOLUTION
-**Answer (Q15, Synthesis).** (a) Vacant niches and habitat heterogeneity in a young, large lake offered ecological opportunity. (b) Divergent female preference for male nuptial color drove assortative mating and sympatric divergence. (c) Depth-dependent light spectra shifted optimal signaling color, coupling sensory drive to mate choice and accelerating speciation; turbidity collapse reverses it, showing the mechanism's fragility. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q15, Application).** (a) Vacant niches and habitat heterogeneity in a young, large lake offered ecological opportunity. (b) Divergent female preference for male nuptial color drove assortative mating and sympatric divergence. (c) Depth-dependent light spectra shifted optimal signaling color, coupling sensory drive to mate choice and accelerating speciation; turbidity collapse reverses it, showing the mechanism's fragility. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO7; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 16. Ring species provide a spatial illustration of the speciation continuum. The Larus gull chain circles the Arctic: populations A interbreed with B, B with C, C with D, D with E, but A and E do not interbreed. Explain: (a) why A and E are or are not separate species under BSC; (b) what this shows about speciation as a gradual, continuous process; (c) how climate change and habitat connectivity changes could affect this ring.
 
 <!-- SOLUTION
-**Answer (Q16, Synthesis).** (a) Under the BSC A and E are not a single species where they fail to interbreed, yet a continuous chain connects them. (b) This shows speciation is gradual and continuous — reproductive isolation accumulates with genetic distance along the ring. (c) Breaking habitat connectivity (climate change, habitat loss) collapses the chain into discrete isolated species. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q16, Application).** (a) Under the BSC A and E are not a single species where they fail to interbreed, yet a continuous chain connects them. (b) This shows speciation is gradual and continuous — reproductive isolation accumulates with genetic distance along the ring. (c) Breaking habitat connectivity (climate change, habitat loss) collapses the chain into discrete isolated species. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO8; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 17. Hybridization between species can produce evolutionary novelty. Allopolyploidy (hybrid + chromosome doubling) has produced many crop species: bread wheat (AABBDD, from three diploid ancestors). Explain: (a) how polyploidy immediately produces reproductive isolation from both ancestors; (b) why polyploid plants are often phenotypically superior (hybrid vigour/heterosis); (c) what the estimated contribution of allopolyploidy to flowering plant diversity is.
 
 <!-- SOLUTION
-**Answer (Q17, Synthesis).** (a) Allopolyploidy doubles chromosomes so backcrosses to either diploid ancestor yield sterile odd-ploidy hybrids — instantaneous reproductive isolation. (b) Fixed heterozygosity and gene/dosage redundancy give heterosis and buffering. (c) A large fraction of angiosperm diversity (most species have polyploidy in their ancestry; ~15% of speciation events are polyploid) traces to allopolyploidy. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q17, Application).** (a) Allopolyploidy doubles chromosomes so backcrosses to either diploid ancestor yield sterile odd-ploidy hybrids — instantaneous reproductive isolation. (b) Fixed heterozygosity and gene/dosage redundancy give heterosis and buffering. (c) A large fraction of angiosperm diversity (most species have polyploidy in their ancestry; ~15% of speciation events are polyploid) traces to allopolyploidy. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO9; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 18. "Magic traits" are traits that simultaneously cause both ecological divergence (adaptation to different niches) and assortative mating (non-random mating based on the same trait). Give one example of a magic trait and explain why this simplifies the theory of sympatric speciation.
 
 <!-- SOLUTION
-**Answer (Q18, Synthesis).** A magic trait simultaneously causes ecological divergence and assortative mating. Example: beak size in Darwin's finches, which determines both diet (natural selection) and song/mate recognition (assortative mating). One trait under divergent selection automatically generates non-random mating, removing the need for separate loci and recombination to align — greatly easing sympatric speciation. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q18, Application).** A magic trait simultaneously causes ecological divergence and assortative mating. Example: beak size in Darwin's finches, which determines both diet (natural selection) and song/mate recognition (assortative mating). One trait under divergent selection automatically generates non-random mating, removing the need for separate loci and recombination to align — greatly easing sympatric speciation. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO1; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 19. The biological species concept has been criticised as inapplicable to: (a) asexual organisms; (b) freely hybridizing plant species. Evaluate two alternative species concepts (phylogenetic species concept, ecological species concept) and explain which is most useful for biodiversity conservation.
 
 <!-- SOLUTION
-**Answer (Q19, Evaluation).** The BSC fails for asexual and freely hybridizing taxa. The Phylogenetic Species Concept (smallest diagnosable monophyletic unit) applies to asexuals and fossils but can oversplit; the Ecological Species Concept (lineage adapted to a distinct niche) captures adaptive divergence. For conservation, the PSC/ESU framework is most useful because it identifies diagnosable, independently evolving units for legal protection. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q19, Application).** The BSC fails for asexual and freely hybridizing taxa. The Phylogenetic Species Concept (smallest diagnosable monophyletic unit) applies to asexuals and fossils but can oversplit; the Ecological Species Concept (lineage adapted to a distinct niche) captures adaptive divergence. For conservation, the PSC/ESU framework is most useful because it identifies diagnosable, independently evolving units for legal protection. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 20. Hybrid zones are regions where two distinct populations interbreed. Using the tension zone model: (a) explain why a hybrid zone maintains a stable width; (b) what happens to hybrid fitness at the center of the zone; (c) how hybrid zone data can estimate the selection against hybrids and the rate of gene flow.
 
 <!-- SOLUTION
-**Answer (Q20, Synthesis).** (a) A tension zone is maintained by a balance between dispersal of parental types into the zone and selection against hybrids, giving a stable cline width independent of the environment. (b) Hybrid fitness is lowest at the zone center. (c) Cline width and shape estimate the selection coefficient against hybrids and dispersal distance, hence effective gene flow across the boundary. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q20, Application).** (a) A tension zone is maintained by a balance between dispersal of parental types into the zone and selection against hybrids, giving a stable cline width independent of the environment. (b) Hybrid fitness is lowest at the zone center. (c) Cline width and shape estimate the selection coefficient against hybrids and dispersal distance, hence effective gene flow across the boundary. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 
@@ -147,59 +149,59 @@ SOLUTION -->
 21. Evaluate the evidence that speciation can occur without geographic separation (sympatric speciation) using the apple maggot fly (*Rhagoletis pomonella*) host-race formation as a case study. What conditions (assortative mating by habitat, additive gene effects, limited gene flow) are required, and what genetic evidence suggests incipient sympatric speciation is occurring?
 
 <!-- SOLUTION
-**Answer (Q21, Evaluation).** *Rhagoletis* host-race formation supports sympatric speciation: apple vs hawthorn races show habitat-based assortative mating (host fidelity), allochronic isolation (different fruiting times), and additive genetic differences in diapause timing with reduced gene flow. Allele-frequency and diapause clines indicate incipient — not yet complete — sympatric divergence, the strongest empirical case for the process. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q21, Synthesis).** *Rhagoletis* host-race formation supports sympatric speciation: apple vs hawthorn races show habitat-based assortative mating (host fidelity), allochronic isolation (different fruiting times), and additive genetic differences in diapause timing with reduced gene flow. Allele-frequency and diapause clines indicate incipient — not yet complete — sympatric divergence, the strongest empirical case for the process. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO4; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 22. Design a population genomics study to determine whether two morphologically distinct bird populations on isolated islands should be classified as separate species. Describe: the genomic data you would collect (RAD-seq or whole-genome resequencing), the analyses you would perform (Fst, phylogeny, ABBA-BABA test for gene flow), and the threshold values you would use to make the classification decision.
 
 <!-- SOLUTION
-**Answer (Q22, Evaluation).** Collect whole-genome resequencing (or RAD-seq) from both island populations; compute genome-wide F_ST, build a phylogeny, and run ABBA-BABA/D-statistics for gene flow; estimate divergence time and migration. Classify as separate species if F_ST is high and uniform, the populations are reciprocally monophyletic, and gene-flow tests show little/no admixture; treat low F_ST with ongoing gene flow as one species. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q22, Synthesis).** Collect whole-genome resequencing (or RAD-seq) from both island populations; compute genome-wide F_ST, build a phylogeny, and run ABBA-BABA/D-statistics for gene flow; estimate divergence time and migration. Classify as separate species if F_ST is high and uniform, the populations are reciprocally monophyletic, and gene-flow tests show little/no admixture; treat low F_ST with ongoing gene flow as one species. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO5; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 23. Evaluate the "glacial refugia" hypothesis for European biodiversity: during Pleistocene glaciations, populations were isolated in southern refugia (Iberia, Italy, Balkans), underwent allopatric evolution, then expanded northward after glaciers retreated. What phylogeographic data would test this hypothesis, and what consequences does secondary contact of previously isolated populations have for hybrid zone formation?
 
 <!-- SOLUTION
-**Answer (Q23, Evaluation).** Test phylogeographic predictions: southern refugial populations should show higher diversity and older, divergent lineages, with northern populations a subset (signature of post-glacial expansion). mtDNA/genomic phylogeography and demographic modeling test it. Secondary contact of refugial lineages produces hybrid zones whose width and clines reveal the strength of post-contact selection and gene flow. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q23, Synthesis).** Test phylogeographic predictions: southern refugial populations should show higher diversity and older, divergent lineages, with northern populations a subset (signature of post-glacial expansion). mtDNA/genomic phylogeography and demographic modeling test it. Secondary contact of refugial lineages produces hybrid zones whose width and clines reveal the strength of post-contact selection and gene flow. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO6; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 24. Gene drive technology (e.g., CRISPR-based homing drives) can spread a gene (e.g., infertility) through a wild population at rates faster than Mendelian inheritance. Evaluate the ecological risks of releasing a gene drive into a wild mosquito population to suppress malaria transmission: (a) off-target spread to non-target species; (b) irreversibility; (c) international governance challenges (the drive does not respect national borders).
 
 <!-- SOLUTION
-**Answer (Q24, Evaluation).** (a) Off-target homing or hybridization could spread the drive into related non-target species. (b) Self-propagating drives are effectively irreversible once released. (c) Because organisms cross borders, a unilateral release imposes risk on other nations, demanding international governance, containment (split or daisy-chain drives), and reversal/immunising-drive contingencies before any field release. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q24, Synthesis).** (a) Off-target homing or hybridization could spread the drive into related non-target species. (b) Self-propagating drives are effectively irreversible once released. (c) Because organisms cross borders, a unilateral release imposes risk on other nations, demanding international governance, containment (split or daisy-chain drives), and reversal/immunising-drive contingencies before any field release. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO7; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 25. Inbreeding depression (reduced fitness in highly homozygous individuals) limits the viability of small, isolated populations. Evaluate: (a) the mechanisms of inbreeding depression (overdominance vs partial dominance of deleterious recessives); (b) the threshold F_cr (critical inbreeding coefficient) below which genetic rescue is needed; (c) policy implications for reintroduction of individuals from genetically distinct populations.
 
 <!-- SOLUTION
-**Answer (Q25, Evaluation).** (a) Inbreeding depression arises from increased homozygosity exposing deleterious recessives (partial dominance) and loss of overdominant heterozygote advantage. (b) Below a critical inbreeding coefficient (rising F, shrinking N_e), fitness collapses and genetic rescue is warranted. (c) Policy: introduce a few migrants from genetically distinct populations to restore heterozygosity, weighing rescue against outbreeding depression and local adaptation loss. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q25, Synthesis).** (a) Inbreeding depression arises from increased homozygosity exposing deleterious recessives (partial dominance) and loss of overdominant heterozygote advantage. (b) Below a critical inbreeding coefficient (rising F, shrinking N_e), fitness collapses and genetic rescue is warranted. (c) Policy: introduce a few migrants from genetically distinct populations to restore heterozygosity, weighing rescue against outbreeding depression and local adaptation loss. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO8; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 26. The concept of "reproductive character displacement" predicts that the signal used for mate recognition must diverge faster between sympatric sister species than between allopatric ones, to prevent costly hybridization. Evaluate the evidence for reproductive character displacement in: (a) *Ficedula* flycatchers in Scandinavia; (b) cricket frog calling frequencies; (c) *Phlox drummondii* flower color contrast.
 
 <!-- SOLUTION
-**Answer (Q26, Evaluation).** Reproductive character displacement predicts faster signal divergence in sympatry than allopatry. (a) *Ficedula* flycatcher plumage/song diverges more where sympatric, reducing hybridization. (b) Cricter-frog call frequency shifts in sympatry. (c) *Phlox* flower color diverges where congeners co-occur. Consistent sympatric exaggeration of the mate-recognition signal supports selection against costly hybridization. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q26, Synthesis).** Reproductive character displacement predicts faster signal divergence in sympatry than allopatry. (a) *Ficedula* flycatcher plumage/song diverges more where sympatric, reducing hybridization. (b) Cricter-frog call frequency shifts in sympatry. (c) *Phlox* flower color diverges where congeners co-occur. Consistent sympatric exaggeration of the mate-recognition signal supports selection against costly hybridization. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO9; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 27. Evaluate the genomics of speciation: "genomic islands of divergence" are regions of elevated Fst interspersed with regions of low Fst in partially reproductively isolated populations. Interpret these patterns: do islands represent targets of selection, or artifacts of reduced recombination around centromeres? What sequencing/analysis strategy would distinguish selective sweeps from reduced recombination as drivers of Fst peaks?
 
 <!-- SOLUTION
-**Answer (Q27, Evaluation).** Genomic islands of divergence (high-F_ST regions in a low-F_ST background) can reflect selection/reproductive-isolation loci OR reduced recombination near centromeres inflating F_ST. Distinguish them by mapping recombination rate and absolute divergence (d_XY): true selective sweeps/barrier loci show elevated d_XY and recent coalescence, whereas low-recombination artifacts show high F_ST without elevated d_XY. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q27, Synthesis).** Genomic islands of divergence (high-F_ST regions in a low-F_ST background) can reflect selection/reproductive-isolation loci OR reduced recombination near centromeres inflating F_ST. Distinguish them by mapping recombination rate and absolute divergence (d_XY): true selective sweeps/barrier loci show elevated d_XY and recent coalescence, whereas low-recombination artifacts show high F_ST without elevated d_XY. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO1; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 28. Evaluate the concept of the "speciation continuum": from partially isolated populations (e.g., Fst = 0.1) through incipient species (partial reproductive isolation, fertile hybrids) to full species (complete reproductive isolation). At what point on this continuum should conservation efforts classify distinct evolutionary significant units (ESUs) for legal protection?
 
 <!-- SOLUTION
-**Answer (Q28, Evaluation).** On the speciation continuum, conservation should designate Evolutionarily Significant Units where populations are reciprocally monophyletic at neutral markers and show adaptive/ecological divergence and restricted gene flow — i.e., independently evolving lineages — even before full reproductive isolation, so distinct evolutionary potential is protected without over-splitting clinal variation. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q28, Synthesis).** On the speciation continuum, conservation should designate Evolutionarily Significant Units where populations are reciprocally monophyletic at neutral markers and show adaptive/ecological divergence and restricted gene flow — i.e., independently evolving lineages — even before full reproductive isolation, so distinct evolutionary potential is protected without over-splitting clinal variation. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO2; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 29. Mass extinction events (e.g., end-Cretaceous, 66 Mya) dramatically restructured biodiversity. Evaluate: (a) what evolutionary patterns characterize the burst of diversification after mass extinction (adaptive radiation); (b) whether the sixth mass extinction (current human-driven biodiversity crisis) is comparable in rate to previous ones; (c) whether survivors of previous extinctions provide models for predicting which present-day species will persist.
 
 <!-- SOLUTION
-**Answer (Q29, Evaluation).** (a) Post-extinction recovery shows adaptive radiation as survivors fill emptied niches (e.g., mammalian radiation after the K–Pg). (b) Current background-corrected extinction rates are 100–1000× the fossil baseline, comparable in rate to past mass extinctions though earlier in cumulative magnitude. (c) Previous survivors (generalists, wide ranges, small body size, broad tolerance) predict which present-day taxa are likeliest to persist. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q29, Synthesis).** (a) Post-extinction recovery shows adaptive radiation as survivors fill emptied niches (e.g., mammalian radiation after the K–Pg). (b) Current background-corrected extinction rates are 100–1000× the fossil baseline, comparable in rate to past mass extinctions though earlier in cumulative magnitude. (c) Previous survivors (generalists, wide ranges, small body size, broad tolerance) predict which present-day taxa are likeliest to persist. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->
 <!-- assess: LO=LO3; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 30. Critically evaluate the "two-speed genome" concept in fungi (*Zymoseptoria tritici*, wheat pathogen): the genome is divided into "core" (gene-rich, slowly evolving) and "accessory" (transposon-rich, rapidly evolving) chromosomes. How does this architecture accelerate host-pathogen coevolution, and how might it apply to our understanding of evolutionary rate variation in other organisms, including humans (conserved regions vs rapidly evolving regions)?
 
 <!-- SOLUTION
-**Answer (Q30, Evaluation).** The two-speed genome separates a conserved core (housekeeping, slow) from a transposon-rich accessory compartment (effectors, fast) — compartmentalising rapid host-adaptation while preserving essential function, accelerating coevolution. The same conserved-vs-rapidly-evolving partitioning (e.g., constrained genes vs immune/recognition loci) generalizes to evolutionary-rate heterogeneity across genomes, including humans. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Answer (Q30, Synthesis).** The two-speed genome separates a conserved core (housekeeping, slow) from a transposon-rich accessory compartment (effectors, fast) — compartmentalising rapid host-adaptation while preserving essential function, accelerating coevolution. The same conserved-vs-rapidly-evolving partitioning (e.g., constrained genes vs immune/recognition loci) generalizes to evolutionary-rate heterogeneity across genomes, including humans. See \cref{sec:unit_VI_genetic_drift_and_speciation}.
 SOLUTION -->

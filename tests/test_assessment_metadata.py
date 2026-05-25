@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 import sys
 
 
@@ -58,3 +59,14 @@ def test_question_bank_metadata_has_auditable_bloom_and_difficulty_mix() -> None
         assert {"Analyze", "Evaluate", "Create"} & set(bank.bloom_mix)
         assert all(item.format == "short-answer" for item in bank.items)
         assert all(item.minutes > 0 for item in bank.items)
+
+
+def test_question_answer_labels_match_assessment_difficulty() -> None:
+    toc = load_toc(PROJECT)
+    label_re = re.compile(r"^\*\*Answer \(Q(\d{1,2}), ([^)]+)\)\.\*\*", re.MULTILINE)
+    for question in toc.questions:
+        bank = parse_question_bank(question.path)
+        expected = {item.number: item.difficulty for item in bank.items}
+        text = question.path.read_text(encoding="utf-8")
+        labels = {int(number): difficulty for number, difficulty in label_re.findall(text)}
+        assert labels == expected, question.path

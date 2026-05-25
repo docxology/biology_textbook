@@ -34,7 +34,7 @@ claims:
     topic: genome-editing therapy
     source_tier: scholarly_primary
     citekey: chalumeau2025primeediting
-    url: https://doi.org/10.1182/blood.2024027657
+    url: https://doi.org/10.1182/blood.2024028166
     url_or_citekey: chalumeau2025primeediting
     evidence_date: 2025-01-01
     checked_as_of: 2026-05-20
@@ -372,7 +372,7 @@ claims:
     topic: tuberculosis
     source_tier: official_primary
     citekey: who2025tb
-    url: https://www.who.int/publications/i/item/9789240114708
+    url: https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2025
     url_or_citekey: who2025tb
     evidence_date: 2025-10-01
     checked_as_of: 2026-05-20
@@ -380,14 +380,14 @@ claims:
   - claim_id: tb-bpalm-guidance-2025
     file: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     source_path: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
-    anchor_text: "shorter most-oral regimens for eligible patients"
-    claim_text: "WHO 2025 TB guidance prioritizes shorter most-oral regimens for eligible MDR/RR-TB patients while preserving individualized regimens for exclusions."
+    anchor_text: "short, fully oral regimens central for eligible"
+    claim_text: "WHO 2025 TB treatment guidance keeps short, fully oral regimens central for eligible MDR/RR-TB patients while preserving individualized regimens for exclusions."
     topic: tuberculosis
     source_tier: official_primary
-    citekey: who2025tb
-    url: https://www.who.int/publications/i/item/9789240114708
-    url_or_citekey: who2025tb
-    evidence_date: 2025-10-01
+    citekey: who2025tbtreatmentmodule4
+    url: https://iris.who.int/handle/10665/380799
+    url_or_citekey: who2025tbtreatmentmodule4
+    evidence_date: 2025-04-15
     checked_as_of: 2026-05-20
     refresh_trigger: "New WHO drug-resistant TB guideline, regimen eligibility change, or resistance/toxicity update."
   - claim_id: malaria-2025-burden-2024
@@ -398,7 +398,7 @@ claims:
     topic: malaria
     source_tier: official_primary
     citekey: who2025malaria
-    url: https://www.who.int/teams/global-malaria-program/reports/world-malaria-report-2025
+    url: https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025
     url_or_citekey: who2025malaria
     evidence_date: 2025-12-01
     checked_as_of: 2026-05-20
@@ -411,7 +411,7 @@ claims:
     topic: malaria
     source_tier: official_primary
     citekey: who2025malaria
-    url: https://www.who.int/teams/global-malaria-program/reports/world-malaria-report-2025
+    url: https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025
     url_or_citekey: who2025malaria
     evidence_date: 2025-12-01
     checked_as_of: 2026-05-20
@@ -619,20 +619,46 @@ claims:
     topic: diabetes epidemiology
     source_tier: official_primary
     citekey: magliano2025idfdiabetesatlas11
-    url: https://doi.org/10.1016/S2213-8587(24)00380-7
+    url: https://doi.org/10.1016/S2213-8587(25)00299-2
     url_or_citekey: magliano2025idfdiabetesatlas11
     evidence_date: 2025-02-01
     checked_as_of: 2026-05-23
     refresh_trigger: "New IDF Diabetes Atlas edition or Lancet companion prevalence update."
+  - claim_id: covid-confirmed-cases-2024-host-immunity-question
+    file: manuscript/questions/unit_VII/questions_host_immunity_and_vaccines.md
+    source_path: manuscript/questions/unit_VII/questions_host_immunity_and_vaccines.md
+    anchor_text: "more than 776.8 million confirmed COVID-19 cases"
+    claim_text: "WHO's 24 December 2024 COVID-19 epidemiological update reported more than 776.8 million confirmed cases globally through 10 November 2024 while noting that reported cases undercount infections."
+    topic: COVID-19 surveillance
+    source_tier: official_primary
+    citekey: who2024covidepiupdate
+    url: https://www.who.int/publications/m/item/covid-19-epidemiological-update---24-december-2024
+    url_or_citekey: who2024covidepiupdate
+    evidence_date: 2024-12-24
+    checked_as_of: 2026-05-23
+    refresh_trigger: "New WHO COVID-19 epidemiological update, surveillance-method update, or variant/annual-vaccination guidance change."
+  - claim_id: covid-confirmed-cases-2024-amr-question
+    file: manuscript/questions/unit_VII/questions_antimicrobial_resistance_and_epidemiology.md
+    source_path: manuscript/questions/unit_VII/questions_antimicrobial_resistance_and_epidemiology.md
+    anchor_text: "more than 776.8 million confirmed COVID-19 cases"
+    claim_text: "WHO's 24 December 2024 COVID-19 epidemiological update reported more than 776.8 million confirmed cases globally through 10 November 2024 while noting that reported cases undercount infections."
+    topic: COVID-19 surveillance
+    source_tier: official_primary
+    citekey: who2024covidepiupdate
+    url: https://www.who.int/publications/m/item/covid-19-epidemiological-update---24-december-2024
+    url_or_citekey: who2024covidepiupdate
+    evidence_date: 2024-12-24
+    checked_as_of: 2026-05-23
+    refresh_trigger: "New WHO COVID-19 epidemiological update, surveillance-method update, or variant/annual-vaccination guidance change."
   - claim_id: master-glossary-term-count
     file: manuscript/front_matter.md
     source_path: manuscript/front_matter.md
-    anchor_text: "226 terms with etymology and chapter cross-references"
-    claim_text: "The master glossary documents 226 indexed terms with {#gl:…} anchors in manuscript/glossary.md."
+    anchor_text: "225 terms with etymology and chapter cross-references"
+    claim_text: "The master glossary documents 225 indexed terms with {#gl:…} anchors in manuscript/glossary.md."
     topic: textbook metadata
     source_tier: official_summary
     citekey: ""
-    url: https://github.com/docxology/biology_textbook/blob/main/manuscript/glossary.md
+    url: manuscript/glossary.md
     url_or_citekey: manuscript/glossary.md
     evidence_date: 2026-05-23
     checked_as_of: 2026-05-23

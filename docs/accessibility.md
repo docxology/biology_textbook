@@ -56,7 +56,7 @@
 | --- | ------ | ----- |
 | `include_solutions` | **Implemented in `biology_analysis`** | When `true`, `<!-- SOLUTION ... SOLUTION -->` blocks in question banks are revealed as blockquoted instructor answers; the same behavior can be forced with `BIOLOGY_INCLUDE_SOLUTIONS=1`. |
 | `include_worked_problems` | **Advisory** | |
-| `watermark_instructor` | **Not wired** in project-local scripts | |
+| `watermark_instructor` | Injected into `output/manuscript/preamble.md` when `export.include_solutions: true` | `draftwatermark` “INSTRUCTOR EDITION” |
 
 ### `chapter_metadata` (`config.yaml` section)
 

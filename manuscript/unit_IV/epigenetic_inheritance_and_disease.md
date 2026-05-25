@@ -224,6 +224,8 @@ The Dutch Hunger Winter (Hongerwinter, 1944–1945) provides the most studied hu
 
 > **Concept Check 8:** A scientist treats cells with the DNMT inhibitor decitabine for 48 hours, then washes it out. Predicting that DNMT1 will resume normal activity after washout, will the demethylation persist, partially recover, or fully recover over the subsequent 10 cell generations? Sketch a quantitative model assuming ε returns to 0.95 instantaneously after washout and starting *f₀* = 0.10 (10 % methylated post-decitabine).
 
+> **Concept Check 9:** A child inherits a deletion of the **maternal** 15q11–q13 region (the imprinted Prader-Willi/Angelman locus). Predict which syndrome results, then explain why the *same* deletion on the **paternal** chromosome produces the other syndrome. What does this parent-of-origin effect reveal about how imprinting — rather than gene dosage by itself — determines phenotype?
+
 ---
 
 ## Cancer Epigenetics and Clinical Translation
@@ -385,7 +387,7 @@ print(polycomb_spread(seeds=2, generations=5, k=10))
 ## Current Evidence and Frontier Biology: Epigenetic Inheritance and Disease
 
 For **Epigenetic Inheritance and Disease**, frontier biology belongs inside the evidence logic of
-the chapter. Molecular genetics now spans single-reference sequences, telomere-to-telomere assemblies, pangenome graphs, long-read sequencing, CRISPR medicines, and ethical deployment. The core reading question is this: epigenetic claims require causal perturbation, cell-type specificity, timing, and inheritance controls.
+the chapter. Frontier work on epigenetic inheritance is testing how — and whether — chromatin states cross generations: germline reprogramming erases most marks at fertilization and in primordial germ cells, imprinted loci and a handful of retained marks escape, and environmental exposures (the Dutch Hunger Winter cohort, the agouti-mouse model) are scrutinized for genuine transgenerational effects versus in-utero confounding. The core reading question is this: epigenetic claims require causal perturbation, cell-type specificity, timing, and inheritance controls.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
   would make the claim stronger or weaker.
@@ -406,16 +408,16 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 
 ```mermaid
 flowchart TD
-    A["Chromatin mark observed"] --> B["Cell-type context"]
-    B --> C["Perturb writer or eraser"]
-    C --> D["Expression change"]
-    D --> E["Phenotype or cell state"]
-    E --> F["Rescue or orthogonal assay"]
-    F --> G["Causal epigenetic claim"]
+    A["Ancestral exposure or inherited mark"] --> B["Survives germline reprogramming?"]
+    B --> C["Detected in an unexposed generation"]
+    C --> D["Cell-type and timing controls"]
+    D --> E["Exclude in-utero or cultural transmission"]
+    E --> F["Orthogonal assay or rescue"]
+    F --> G["Causal transgenerational claim"]
 ```
-<!-- alt: Flowchart showing an epigenetic mark is not automatically a cause; causal claims need perturbation, timing, cell-type specificity, expression readout, and rescue or orthogonal evidence. -->
+<!-- alt: Flowchart showing a transgenerational claim is not automatic: an inherited mark must survive germline reprogramming, appear in an unexposed generation, and survive controls excluding in-utero or cultural transmission before it can be called causal. -->
 
-*An epigenetic mark is not automatically a cause; causal claims need perturbation, timing, cell-type specificity, expression readout, and rescue or orthogonal evidence.*
+*A transgenerational claim is not automatic: an inherited mark must survive germline reprogramming, appear in an unexposed generation, and survive controls excluding in-utero or cultural transmission before it can be called causal.*
 
 ## Summary
 

@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Brønsted–Lowry: an **acid** is a proton (H⁺) donor; a **base** is a proton acceptor. Biological examples: (acid) the carboxyl side chain of glutamate (pKₐ ≈ 4.1) donates a proton at physiological pH; (base) the imidazole ring of histidine (pKₐ ≈ 6.0) can accept a proton. Conjugate pairs (acid ⇌ conjugate base + H⁺) underlie every physiological buffer, most notably bicarbonate (H₂CO₃ / HCO₃⁻, pKₐ = 6.1).
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO11; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** Mg²⁺ has electron configuration [Ne] after losing both 3s electrons — its **empty 3s/3p valence shell** makes it an archetypal **Lewis acid** (electron-pair acceptor). Consequences: (i) the small, doubly-charged cation has a high **charge density (q/r ≈ 2.8 e/Å)**, generating a strong electrostatic field that neutralizes the triply-negative phosphate chain of ATP⁴⁻; the biologically active species is actually **Mg·ATP²⁻**, not free ATP⁴⁻. (ii) By coordinating with the β- and γ-phosphate oxygens, Mg²⁺ **polarizes the terminal P–O bond** and orients the γ-phosphate for nucleophilic attack — kinases are typically **100–1000× slower** in the absence of Mg²⁺ (K_m for Mg²⁺ ≈ 0.1–1 mM). (iii) In ribosomes and ribozymes, Mg²⁺ similarly stabilizes RNA folding and activates the 2′-OH for phosphodiester attack. Physiological free [Mg²⁺] ≈ 0.5 mM, total ≈ 20 mM (mostly bound) — tight regulation, because even small shifts alter every ATP-dependent reaction. See \cref{sec:unit_I_atoms_molecules}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

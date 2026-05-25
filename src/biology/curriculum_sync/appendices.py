@@ -146,8 +146,8 @@ def build_front_matter_navigation(book_toc: Any) -> str:
         "",
     ]
     for unit in book_toc.units:
-        chapter_list = "; ".join(chapter.name_ref for chapter in unit.chapters)
-        lines.append(f"- **{unit.name_ref}:** {chapter_list}.")
+        chapter_list = "; ".join(chapter.title for chapter in unit.chapters)
+        lines.append(f"- **{unit.display_title}:** {chapter_list}.")
     lines.extend(
         [
             "- **Laboratory activities:** one companion lab follows each chapter in the",
@@ -158,7 +158,7 @@ def build_front_matter_navigation(book_toc: Any) -> str:
     )
     for reference in book_toc.references:
         lines.append(
-            f"- **{reference.name_ref}:** reference material generated or ordered from the same manifest."
+            f"- **{reference.title}:** reference material generated or ordered from the same manifest."
         )
     lines.extend(
         [

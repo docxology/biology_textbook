@@ -2,6 +2,15 @@
 
 \label{sec:unit_I_macromolecules}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{../figures/polymer_hierarchy.png}
+\caption{Hierarchy of biological macromolecules from monomer to polymer to assembly. Each row groups a polymer family (proteins, nucleic acids, carbohydrates, lipids) and the four columns expose the same four-step pattern: monomer, polymer, assembly, and example function. Arrows show the monomer-to-polymer-to-assembly direction; the function column anchors the chemistry to a recognisable biological role.}
+\label{fig:unit_I_polymer_hierarchy}
+\end{figure}
+
+<!-- alt: Schematic grid of biological macromolecule families. Each row labels one family (proteins, nucleic acids, carbohydrates, lipids) along the left edge and contains four colored cells (monomer, polymer, assembly, function) connected by left-to-right arrows. -->
+
 
 <!-- chapter-metadata-badge -->
 > Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_I_atoms_molecules}, \cref{sec:unit_I_water_and_life}
@@ -56,7 +65,7 @@
 ---
 
 
-Biological macromolecules fall into four major classes: **carbohydrates**, **lipids**, **proteins**, and **nucleic acids**. The first three are polymers of small repeating units (monomers); lipids are an important exception --- they form assemblies through noncovalent hydrophobic interactions rather than covalent polymerization.
+Biological macromolecules fall into four major classes: **carbohydrates**, **lipids**, **proteins**, and **nucleic acids**. The first three are polymers of small repeating units (monomers); lipids are an important exception --- they form assemblies through noncovalent hydrophobic interactions rather than covalent polymerization. \cref{fig:unit_I_polymer_hierarchy} lays out the monomer-to-polymer-to-assembly progression family by family so the same chemistry is recognizable across the four classes.
 
 ```mermaid
 classDiagram
@@ -432,7 +441,7 @@ Sphingolipids use **sphingosine** (rather than glycerol) as the backbone. Cerami
 
 > **Clinical Connection: Tay-Sachs Disease and Sphingolipid Storage**
 >
-> Tay-Sachs disease results from deficiency of the lysosomal enzyme hexosaminidase A, which normally degrades the ganglioside GM2. Without this enzyme, GM2 accumulates in [**neuron**](#gl:neuron)s, causing progressive neurodegeneration. Symptoms appear at ~6 months and include cherry-red macular spots, seizures, and developmental regression. The disease is invariably fatal by age 3--5. Carrier frequency is ~1/30 in Ashkenazi Jewish populations due to a [**founder effect**](#gl:founder-effect). This is one of ~50 known **lysosomal storage diseases**, most caused by deficient hydrolytic enzymes.
+> Tay-Sachs disease results from deficiency of the lysosomal enzyme hexosaminidase A, which normally degrades the ganglioside GM2. Without this enzyme, GM2 accumulates in [**neuron**](#gl:neuron)s, causing progressive neurodegeneration. Symptoms of the classic infantile form appear at ~6 months and include cherry-red macular spots, seizures, and developmental regression; this form is invariably fatal by age 3--5. Rarer juvenile and late-onset forms, which retain partial hexosaminidase A activity, progress more slowly and are compatible with substantially longer survival. Carrier frequency is ~1/30 in Ashkenazi Jewish populations due to a [**founder effect**](#gl:founder-effect). This is one of ~50 known **lysosomal storage diseases**, most caused by deficient hydrolytic enzymes.
 
 ### Sterols and Steroid Hormones
 

@@ -20,6 +20,8 @@
 - **Suggested use:** draw one recall item, one application item, and one synthesis item when building a short quiz from this bank.
 <!-- question-coverage-end -->
 
+## Questions 1–10: Recall and Comprehension {.unnumbered}
+
 <!-- assess: LO=LO1; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
 1. Define biology as an evidence practice rather than a list of facts.
 
@@ -94,6 +96,8 @@ SOLUTION -->
 ---
 
 ## Application Questions (2 marks each) {.unnumbered}
+
+## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
 11. Revise this statement: Harvey proved circulation by looking carefully at anatomy.
@@ -170,11 +174,13 @@ SOLUTION -->
 
 ## Synthesis Questions (4 marks each) {.unnumbered}
 
+## Questions 21–30: Synthesis and Evaluation {.unnumbered}
+
 <!-- assess: LO=LO3; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 21. Evaluate the claim that organs having functions makes biology goal-directed.
 
 <!-- SOLUTION
-**Answer (Q21, Synthesis).** Function language is useful when it means causal role or selected effect, but it misleads when it implies conscious goals, inevitable progress, or perfect design. A strong answer should separate mechanism (how the organ works), development (how it forms), function (what contribution or selected effect it has), and evolutionary history (why that contribution became common).
+**Answer (Q21, Synthesis).** Function language is useful when it means causal role or selected effect, but it misleads when it implies conscious goals, inevitable progress, or perfect design. Separate mechanism (how the organ works), development (how it forms), function (what contribution or selected effect it has), and evolutionary history (why that contribution became common).
 SOLUTION -->
 
 <!-- assess: LO=LO4; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
@@ -237,5 +243,5 @@ SOLUTION -->
 30. Choose a later topic and identify its unit, model assumption, mechanism, and value-laden decision.
 
 <!-- SOLUTION
-**Answer (Q30, Synthesis).** For antibiotic resistance: the unit might be a resistance gene, bacterium, patient microbiome, hospital ward, or regional population. The model assumption is selection under drug exposure; the mechanism may involve mutation, plasmids, efflux, target modification, or biofilm protection; the value-laden decision is stewardship that balances patient benefit against population-level resistance risk. A complete answer names the level of explanation and one observation that would force revision.
+**Answer (Q30, Synthesis).** For antibiotic resistance: the unit might be a resistance gene, bacterium, patient microbiome, hospital ward, or regional population. The model assumption is selection under drug exposure; the mechanism may involve mutation, plasmids, efflux, target modification, or biofilm protection; the value-laden decision is stewardship that balances patient benefit against population-level resistance risk. Name the level of explanation and one observation that would force revision.
 SOLUTION -->

@@ -26,7 +26,11 @@ from biology.current_claims import CurrentClaim, load_current_claims, validate_c
 
 def test_current_claims_ledger_is_valid() -> None:
     claims = load_current_claims(project_root=PROJECT)
-    issues = validate_current_claims(claims, today=date(2026, 5, 23))
+    issues = validate_current_claims(
+        claims,
+        today=date(2026, 5, 23),
+        references_path=PROJECT / "manuscript" / "references.bib",
+    )
     assert not [issue.format() for issue in issues]
 
 
@@ -67,6 +71,47 @@ def test_current_claims_require_citekey_near_anchor(tmp_path: Path) -> None:
     assert not [issue for issue in issues if issue.code == "missing-citekey-near-claim"]
 
 
+def test_current_claims_require_citekey_to_resolve_when_bibliography_is_checked(tmp_path: Path) -> None:
+    source = tmp_path / "chapter.md"
+    source.write_text("The claim anchor cites missing-key.", encoding="utf-8")
+    references = tmp_path / "references.bib"
+    references.write_text(
+        "@article{source-key,\n"
+        "  author = {Example, A.},\n"
+        "  title = {Example},\n"
+        "  journal = {Journal},\n"
+        "  year = {2026}\n"
+        "}\n",
+        encoding="utf-8",
+    )
+    claim = _claim(source, checked_as_of=date(2026, 1, 2), citekey="missing-key")
+
+    issues = validate_current_claims((claim,), today=date(2026, 5, 21), references_path=references)
+
+    assert any(issue.code == "missing-bibliography-entry" for issue in issues)
+
+
+def test_current_claims_require_local_source_urls_to_exist(tmp_path: Path) -> None:
+    source = tmp_path / "manuscript" / "chapter.md"
+    source.parent.mkdir()
+    source.write_text("The claim anchor cites source-key.", encoding="utf-8")
+    references = tmp_path / "manuscript" / "references.bib"
+    references.write_text(
+        "@article{source-key,\n"
+        "  author = {Example, A.},\n"
+        "  title = {Example},\n"
+        "  journal = {Journal},\n"
+        "  year = {2026}\n"
+        "}\n",
+        encoding="utf-8",
+    )
+    claim = _claim(source, checked_as_of=date(2026, 1, 2), url="manuscript/missing.md")
+
+    issues = validate_current_claims((claim,), today=date(2026, 5, 21), references_path=references)
+
+    assert any(issue.code == "missing-local-source" for issue in issues)
+
+
 def test_current_claims_cover_required_fast_moving_topics() -> None:
     claims = load_current_claims(project_root=PROJECT)
     topics = {claim.topic for claim in claims}
@@ -96,11 +141,30 @@ def test_removed_stale_current_claim_phrases_do_not_return() -> None:
         "UN median projection ~10.4 billion by 2100",
         "AMR is projected to cause 10 million deaths per year by 2050 (O'Neill Report, 2016)",
         "Atmospheric CO₂ levels are projected to reach 800-1000 ppm by 2100",
+        "SARS-CoV-2 infected ~700 million people globally",
     )
     assert not [phrase for phrase in stale_phrases if phrase in text]
 
 
-def _claim(source: Path, *, checked_as_of: date) -> CurrentClaim:
+def test_current_claim_sources_do_not_use_known_bad_targets() -> None:
+    text = (PROJECT / "manuscript" / "current_claims.yaml").read_text(encoding="utf-8")
+    bad_targets = (
+        "blood.2024027657",
+        "9789240114708",
+        "global-malaria-program/reports/world-malaria-report-2025",
+        "S2213-8587(24)00380-7",
+        "github.com/docxology/biology_textbook/blob/main/manuscript/glossary.md",
+    )
+    assert not [target for target in bad_targets if target in text]
+
+
+def _claim(
+    source: Path,
+    *,
+    checked_as_of: date,
+    citekey: str = "source-key",
+    url: str | None = None,
+) -> CurrentClaim:
     return CurrentClaim(
         claim_id="example-current-claim",
         file=source,
@@ -111,5 +175,6 @@ def _claim(source: Path, *, checked_as_of: date) -> CurrentClaim:
         evidence_date=date(2026, 1, 1),
         checked_as_of=checked_as_of,
         refresh_trigger="Source update.",
-        citekey="source-key",
+        citekey=citekey,
+        url=url,
     )

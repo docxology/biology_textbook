@@ -136,7 +136,7 @@ biology_textbook/
 │   ├── enrich_embedded_textbook.py      # embedded frontier boxes, lab upgrades, answer-key refinement, audit matrix
 │   ├── generate_cover_art.py          # deterministic text-free cover montage asset
 │   ├── generate_diagrams.py         # 24 mermaid → PNG (or .mmd)
-│   ├── generate_figures.py            # 32 matplotlib figure generators
+│   ├── generate_figures.py            # 42 matplotlib figure generators
 │   ├── insert_answer_keys.py         # answer-key blocks in question banks
 │   ├── insert_chapter_metadata.py    # metadata badges + Course Planning Grid
 │   ├── insert_crossref_labels.py     # \label{sec:…} + rewrite legacy chapter prose → \cref

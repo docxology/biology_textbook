@@ -827,6 +827,9 @@ For speciation claims, separate drift, gene flow, selection, geography, and repr
 
 - Mayr (1942). *Systematics and the Origin of Species*. Columbia University Press.
 - Templeton (1989). The meaning of species and speciation: A genetic perspective. Sinauer.
+- Kimura (1968). Evolutionary rate at the molecular level. *Nature*, 217.
+- Kingman (1982). The coalescent. *Stochastic Processes and their Applications*, 13.
+- Coyne & Orr (2004). *Speciation*. Sinauer.
 
 ---
 

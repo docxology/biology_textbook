@@ -2,6 +2,15 @@
 
 \label{sec:unit_IV_mutations_and_genomics}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{../figures/mutation_rate_spectrum.png}
+\caption{Per-site, per-generation mutation rates across the human germline by variant class. The horizontal bars use a log axis to keep rare large-structural-variant rates and microsatellite slippage legible alongside the dominant single-base-substitution rate. The ordering reveals where mutagenic load actually accumulates and which classes of variation will dominate population-level variance.}
+\label{fig:unit_IV_mutation_rate_spectrum}
+\end{figure}
+
+<!-- alt: Horizontal bar chart on a log scale of per-site per-generation mutation rates by class. Single-base substitutions, small indels, transposable element insertions, microsatellite slippage, and copy-number/large structural variants are each labeled with their canonical rate. -->
+
 
 <!-- chapter-metadata-badge -->
 > Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_IV_gene_expression}
@@ -48,7 +57,7 @@ A **mutation** is any heritable change in DNA sequence. Mutations are the ultima
 
 > **Mathematical Background:** Poisson statistics govern rare mutation events. For a review of probability distributions relevant to genetics, see \nameref{sec:appendix_math_review}.
 
-The **per-nucleotide per-generation mutation rate** in humans is approximately $\mu \approx 1.2 \times 10^{-8}$ per bp per generation (Kong et al., 2012, *Nature*). For a diploid genome of $2N \approx 6.4 \times 10^9$ bp, the expected number of de novo mutations per offspring is:
+The **per-nucleotide per-generation mutation rate** in humans is approximately $\mu \approx 1.2 \times 10^{-8}$ per bp per generation (Kong et al., 2012, *Nature*). \cref{fig:unit_IV_mutation_rate_spectrum} places that single-base-substitution rate alongside indels, microsatellite slippage, transposable-element insertion, and large structural variants on a single log axis, so the order-of-magnitude spread across variant classes is visible at a glance. For a diploid genome of $2N \approx 6.4 \times 10^9$ bp, the expected number of de novo mutations per offspring is:
 
 \begin{equation}M = 2N \times \mu \approx 6.4 \times 10^9 \times 1.2 \times 10^{-8} \approx 70\text{--}80 \text{ mutations/generation}\label{eq:mutations_per_gen}\end{equation}
 
@@ -888,9 +897,11 @@ flowchart LR
 
 ## Further Reading and Source Notes: Mutations, CRISPR, and Genomics
 
-- Ward (1988). In the Shadow of the Dinosaurs: Early Mesozoic Tetrapods. *Science*, 240.
 - Ohno (1970). *Evolution by Gene Duplication*. Springer-Verlag.
 - Doudna & Charpentier (2014). The new frontier of genome engineering with {CRISPR-Cas9}. *Science*, 346.
+- Lander et al. (2001). Initial sequencing and analysis of the human genome. *Nature*, 409.
+- Richards et al. (2015). Standards and guidelines for the interpretation of sequence variants: ACMG/AMP consensus recommendation. *Genetics in Medicine*, 17.
+- Alexandrov et al. (2013). Signatures of mutational processes in human cancer. *Nature*, 500.
 
 ---
 

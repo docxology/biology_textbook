@@ -25,7 +25,6 @@ _V1_SIGNATURES = (
     "Numerical problem on *",
     "Build a mechanistic answer to *",
     "Propose an experimental or engineering response to *",
-    "Take a position on *",
     "Apply the chapter's principles to the scenario:",
     "Expected answer for *",
     "Prompt cues to cover:",
@@ -201,6 +200,16 @@ _STOP_NAMED = {
     "Why",
 }
 
+_VOCAB_MAP = {
+    "define": "definition",
+    "explain": "mechanism",
+    "compare": "comparison",
+    "calculate": "quantitative",
+    "design": "experimental",
+    "evaluate": "evaluation",
+    "apply": "application",
+}
+
 def classify_question(text: str) -> str:
     t = text.lower().strip()
 
@@ -240,6 +249,12 @@ def classify_question(text: str) -> str:
 
     # Default
     return "explain"
+
+
+def question_kind(text: str) -> str:
+    """Map refinement question types to enrichment answer-key vocabulary."""
+
+    return _VOCAB_MAP[classify_question(text)]
 
 
 # ---------------------------------------------------------------------------
@@ -479,4 +494,3 @@ def _candidate_sentences(chapter_text: str) -> list[str]:
             continue
         sentences.append(cleaned)
     return sentences
-

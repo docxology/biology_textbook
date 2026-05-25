@@ -6,6 +6,7 @@ import sys
 
 from biology.answer_refinement.engine import process_bank
 from biology.answer_refinement.paths import MANUSCRIPT, QUESTIONS
+from biology.answer_refinement.scaffolds import process_bank as process_scaffold_bank
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -30,4 +31,20 @@ def main(argv: list[str] | None = None) -> int:
     return 0
 
 
-__all__ = ["main"]
+def fill_main(argv: list[str] | None = None) -> int:
+    argv = list(sys.argv[1:] if argv is None else argv)
+    dry_run = "--dry-run" in argv
+    total_filled = 0
+    files = 0
+    for bank in sorted(QUESTIONS.rglob("questions_*.md")):
+        filled = process_scaffold_bank(bank, dry_run=dry_run)
+        if filled:
+            files += 1
+            total_filled += filled
+            print(f"  [{'D' if dry_run else '+'}] {bank.relative_to(MANUSCRIPT)}: filled {filled}")
+    mode = "DRY RUN" if dry_run else "APPLIED"
+    print(f"\n[{mode}] scaffolds_filled={total_filled} files_touched={files}")
+    return 0
+
+
+__all__ = ["main", "fill_main"]

@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Standard qualitative food tests: **(a) reducing sugars -- Benedict's (or Fehling's) reagent**, which is reduced from blue Cu\(^{2+}\) to a brick-red Cu\(_2\)O precipitate on heating with a reducing sugar (free aldehyde/ketone). **(b) Starch -- iodine/potassium iodide solution**, which forms a blue-black amylose--iodine complex. **(c) Protein -- the Biuret test**, where peptide bonds chelate Cu\(^{2+}\) in alkali to give a violet color. **(d) Lipids -- the emulsion (ethanol) test** (a cloudy white emulsion when alcohol-dissolved sample is added to water) or Sudan III, which stains lipids red. Each reagent reports a specific functional group: free carbonyl, helical polysaccharide, peptide bond, or nonpolar lipid. See \cref{sec:unit_I_macromolecules}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO11; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** Model: with one disulfide bond among \(c\) cysteines, the number of distinct pairings is \(c-1\) when only two Cys exist, but more generally the number of ways to choose one bonded pair from \(c\) cysteines is \(\binom{c}{2}\). For a peptide with exactly **two Cys residues**, \(\binom{2}{2}=\)... only **1** possible disulfide arrangement (the two Cys must bond each other). (If the 10-residue peptide had \(c\) cysteines forming one bond, there would be \(\binom{c}{2}\) choices; e.g. 4 Cys \(\to\) 6.) Conditions: disulfide bonds form under **oxidising conditions** -- the ER lumen (catalysed by protein disulfide isomerase) and the extracellular space, where the redox potential is oxidising. They are **rare in intracellular (cytosolic) proteins** because the cytosol is kept strongly **reducing** (high glutathione GSH/GSSG ratio, thioredoxin/glutaredoxin systems), so any cytosolic disulfide is rapidly reduced back to free thiols. See \cref{sec:unit_I_macromolecules}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

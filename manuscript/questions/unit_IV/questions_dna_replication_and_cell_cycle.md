@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Telomerase is a ribonucleoprotein reverse transcriptase that uses its own RNA template to add TTAGGG repeats to chromosome 3' ends, offsetting the end-replication problem. Most somatic cells repress the catalytic subunit hTERT, so telomeres shorten ~50–200 bp per division until critical shortening triggers senescence — a tumor-suppressive limit on proliferation. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO1; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** (a) Origin licensing is the G1 loading of MCM2-7 helicase double hexamers onto origins by ORC, Cdc6, and Cdt1 to form the pre-replicative complex, marking each origin to fire once. (b) Re-replication would over-amplify portions of the genome, causing gene-copy imbalance and DNA damage. (c) Geminin binds and inhibits Cdt1, blocking new MCM loading after S phase begins, so origins cannot be re-licensed and each fires only once per cycle. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

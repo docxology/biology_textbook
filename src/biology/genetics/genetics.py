@@ -643,4 +643,115 @@ def synthetic_methylation_beta_matrix(
     return np.clip(base, 0.0, 1.0)
 
 
+# ---------------------------------------------------------------------------
+# Mutation Rate Spectrum (per-base, per-generation rates by class)
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class MutationClassRate:
+    """Per-base, per-generation mutation rate for one class of variant."""
+
+    mutation_class: str
+    rate_per_site_per_generation: float
+    organism: str
+    notes: str
+
+
+MUTATION_RATE_SPECTRUM: tuple[MutationClassRate, ...] = (
+    MutationClassRate("Single-nucleotide substitution", 1.2e-8, "human germline", "Roach et al. 2010"),
+    MutationClassRate("Small insertion or deletion", 1.5e-9, "human germline", "Kondrashov 2003"),
+    MutationClassRate("CpG transition", 1.0e-7, "human germline", "Hodgkinson & Eyre-Walker 2011"),
+    MutationClassRate("Microsatellite slippage", 1.0e-4, "human germline", "Sun et al. 2012"),
+    MutationClassRate("Large structural variant", 1.6e-5, "human germline", "Conrad et al. 2010"),
+    MutationClassRate("Whole-gene duplication", 1.0e-5, "human germline", "Lynch & Conery 2000"),
+)
+
+
+def mutation_rate_spectrum() -> tuple[MutationClassRate, ...]:
+    """Return the canonical mutation-rate spectrum used by the figure.
+
+    Returns:
+        Tuple of ``MutationClassRate`` rows sorted from rarest to most
+        common, so a horizontal log-scale bar chart reads bottom-to-top.
+    """
+    return tuple(
+        sorted(MUTATION_RATE_SPECTRUM, key=lambda row: row.rate_per_site_per_generation)
+    )
+
+
+# ---------------------------------------------------------------------------
+# Replication Fork Progression (deterministic kinematic model)
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class ReplicationForkProfile:
+    """Time-series of replication progress for a single fork.
+
+    Bases-replicated is a simple kinematic prediction at constant fork
+    velocity ``velocity_bp_per_s`` over ``duration_s`` seconds. The model is
+    deterministic and exposes the dependence on origin number ``origins`` so
+    the chapter figure can contrast a single origin (prokaryotic) with many
+    parallel origins (eukaryotic).
+    """
+
+    times_s: tuple[float, ...]
+    bases_replicated: tuple[float, ...]
+    velocity_bp_per_s: float
+    origins: int
+
+
+def replication_fork_progression(
+    *,
+    velocity_bp_per_s: float = 1000.0,
+    duration_s: float = 1800.0,
+    origins: int = 1,
+    steps: int = 60,
+) -> ReplicationForkProfile:
+    """Compute bases replicated over time at constant fork velocity.
+
+    Bases-replicated(t) = 2 * origins * velocity_bp_per_s * t (two forks per
+    origin advance in opposite directions). The default values mimic E. coli:
+    one origin, ~1000 bp/s velocity, ~30 minutes to copy 4.6 Mb.
+
+    Args:
+        velocity_bp_per_s: Fork velocity in base pairs per second.
+        duration_s: Total time to simulate (seconds).
+        origins: Number of active origins (must be positive).
+        steps: Number of integration steps (must be positive).
+
+    Returns:
+        ReplicationForkProfile with ``steps + 1`` (time, bases) samples.
+
+    Raises:
+        ValueError: If any parameter is non-positive.
+    """
+    if velocity_bp_per_s <= 0:
+        raise ValueError("velocity_bp_per_s must be positive.")
+    if duration_s <= 0:
+        raise ValueError("duration_s must be positive.")
+    if origins <= 0:
+        raise ValueError("origins must be positive.")
+    if steps <= 0:
+        raise ValueError("steps must be positive.")
+
+    dt = duration_s / steps
+    times = tuple(i * dt for i in range(steps + 1))
+    bases = tuple(2.0 * origins * velocity_bp_per_s * t for t in times)
+    logger.debug(
+        "Replication fork: v=%.1f bp/s, origins=%d, total bases at %.0fs = %.2e",
+        velocity_bp_per_s,
+        origins,
+        duration_s,
+        bases[-1],
+    )
+    return ReplicationForkProfile(
+        times_s=times,
+        bases_replicated=bases,
+        velocity_bp_per_s=velocity_bp_per_s,
+        origins=origins,
+    )
+
+
 gametes = _gametes

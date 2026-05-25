@@ -309,6 +309,8 @@ P(\text{homozygous at most 3}) = \frac{1}{2} \times \frac{1}{2} \times \frac{1}{
 
 > **Concept Check (Evaluation):** Genome-wide association studies (GWAS) identify thousands of SNPs associated with complex traits like height, BMI, and schizophrenia — but each SNP has tiny effect size (odds ratio 1.01-1.10) and explains <0.1% of trait variance. Yet the identified SNPs together explain <50% of heritability for most traits — the "missing heritability" problem. (a) Evaluate four possible explanations for missing heritability: (i) rare variants with large effects (not detected by GWAS), (ii) gene-gene interactions (epistasis), (iii) overestimated heritability from twin studies, (iv) epigenetic variants not captured by SNP arrays. For each, predict what experimental approach would resolve it. (b) Polygenic risk scores (PRS) aggregate genome-wide SNP effects. A PRS for coronary artery disease has a population AUC of 0.64. Explain what this means clinically and why population-level prediction does not translate to individual risk certainty.
 
+> **Concept Check (Chi-square):** A dihybrid cross scored 315 round-yellow : 108 round-green : 101 wrinkled-yellow : 32 wrinkled-green offspring (Mendel's classic F₂, *n* = 556). (a) State the phenotypic ratio expected under independent assortment with simple dominance. (b) Compute the χ² statistic against that expectation and, with 3 degrees of freedom, decide whether to reject the null hypothesis at α = 0.05 (critical value 7.81). (c) Explain what a failure to reject does — and does not — establish about linkage.
+
 ---
 
 ## Current Evidence and Frontier Biology: Mendelian Principles and Probability
@@ -346,6 +348,9 @@ A good genetics answer separates the Mendelian transmission model from the evide
 
 - Mendel (1866). Versuche {\"u}ber Pflanzenhybriden. *Verhandlungen des naturforschenden Vereines in Br{\"u}nn*, 4.
 - Sutton (1902). On the morphology of the chromosome group in {Brachystola magna}. *Biological Bulletin*, 4.
+- Morgan (1910). Sex limited inheritance in {Drosophila}. *Science*, 32.
+- Fisher (1918). The correlation between relatives on the supposition of Mendelian inheritance. *Transactions of the Royal Society of Edinburgh*, 52.
+- Hartl & Clark (2007). *Principles of Population Genetics* (4th ed.). Sinauer.
 
 ---
 

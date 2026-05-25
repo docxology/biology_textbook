@@ -2,7 +2,7 @@
 
 ## Script Roles
 
-This directory contains **32** Python files. **Three** are Stage-2 **orchestrators** called by the root pipeline; **seventeen** are idempotent **structural / build-quality** utilities (labels, metadata, curriculum, bib, labs, figures, typography, lab computation, cover art, PDF-log checks, manuscript-quality audits, current-claim audits, assessment metadata, visual-contract audit, publication-readiness audit) that keep invariants in `tests/test_build_invariants.py` and related tests satisfied; **nine** are **optional pedagogy / content** helpers (glossary linking, embedded enrichment, question-bank answers, labs, further reading, Mermaid alt text, glossary-card export) used during content iteration. `_bootstrap.py` centralizes `sys.path` setup; `atomic_io.py` re-exports `src/textbook_io.write_text_atomic`; `__init__.py` marks the package.
+This directory contains **36** Python files. **Three** are Stage-2 **orchestrators** called by the root pipeline; **seventeen** are idempotent **structural / build-quality** utilities (labels, metadata, curriculum, bib, labs, figures, typography, lab computation, cover art, PDF-log checks, manuscript-quality audits, current-claim audits, assessment metadata, visual-contract audit, publication-readiness audit) that keep invariants in `tests/test_build_invariants.py` and related tests satisfied; **nine** are **optional pedagogy / content** helpers (glossary linking, embedded enrichment, question-bank answers, labs, further reading, Mermaid alt text, glossary-card export) used during content iteration. `_bootstrap.py` centralizes `sys.path` setup; `atomic_io.py` re-exports `src/textbook_io.write_text_atomic`; `__init__.py` marks the package.
 
 All scientific computation resides in `../src/`; orchestrators only coordinate I/O, path resolution, and module invocation. Utilities parse and rewrite markdown/bib/yaml source. The root Stage 02 runner reads `analysis.scripts` in `../manuscript/config.yaml` and runs only the three build-producing scripts below; maintenance utilities stay manual.
 
@@ -12,7 +12,7 @@ All scientific computation resides in `../src/`; orchestrators only coordinate I
 | ------ | ------- |
 | `biology_analysis.py` | Reads `manuscript/config.yaml`, runs all biology src modules, collects the full ordered textbook into `output/manuscript/` (front matter, unit intros, chapters, labs, question banks, reference appendices), marks injected files to skip per-section Beamer slide derivation, and copies live `config.yaml`, `references.bib`, `preamble.md`, and cover assets alongside so the PDF renderer can find book metadata and images |
 | `generate_diagrams.py` | Renders 24 diagrams in `ALL_BIOLOGY_DIAGRAMS` to PNG via `mmdc` when available; fallback `.mmd` → `output/figures/mermaid/` |
-| `generate_figures.py` | Generates 32 square-padded matplotlib figures via `src/visualization/ALL_FIGURE_GENERATORS` (`cvd.py` palette when `config.yaml` has `color_blindness_safe: true`); logs policy; output → `output/figures/` |
+| `generate_figures.py` | Generates 42 square-padded matplotlib figures via `src/visualization/ALL_FIGURE_GENERATORS` (`cvd.py` palette when `config.yaml` has `color_blindness_safe: true`); logs policy; output → `output/figures/` |
 
 ## Scripts — Manuscript maintenance and build-quality utilities
 

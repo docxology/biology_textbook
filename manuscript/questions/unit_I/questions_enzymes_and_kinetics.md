@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Initiating condition: raising temperature increases molecular kinetic energy. Mechanism: by the Arrhenius equation \(k = A\,e^{-E_a/RT}\), higher \(T\) gives more molecules with energy \(\geq E_a\) and more frequent productive collisions, so rate rises (\(Q_{10} \approx 2\): roughly doubling per 10 degrees C). Outcome at extremes: (1) **above the optimum temperature**, the heat disrupts the non-covalent bonds holding tertiary/quaternary structure, causing **denaturation** -- the active site loses its shape and activity falls sharply (irreversibly for most enzymes); (2) at **very low temperature**, molecular motion and collision frequency are too low, so the enzyme is nearly inactive (though not denatured -- activity returns on warming). Net: a bell-shaped activity-temperature curve peaking near the organism's physiological temperature (~37 degrees C for human enzymes). See \cref{sec:unit_I_enzymes_and_kinetics}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO11; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** A **suicide (mechanism-based) inhibitor** is a substrate analog that is chemically inert until the target enzyme begins to process it; the enzyme's own catalytic chemistry converts it into a reactive species that then forms a **covalent bond** with an active-site residue, permanently inactivating the enzyme. Step-by-step example -- **penicillin on bacterial transpeptidase**: (1) penicillin's \(\beta\)-lactam ring mimics the D-Ala--D-Ala terminus of the peptidoglycan substrate and enters the active site; (2) the active-site serine attacks the strained \(\beta\)-lactam carbonyl as it would the normal substrate; (3) this opens the ring and forms a stable **covalent acyl-enzyme** that cannot be hydrolysed, irreversibly blocking cell-wall cross-linking, so the bacterium lyses. Suicide inhibitors are more **selective** than ordinary reversible inhibitors because they require the *target enzyme's specific catalytic activity* to become reactive -- they remain harmless toward non-target proteins that cannot process them, minimizing off-target effects. See \cref{sec:unit_I_enzymes_and_kinetics}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

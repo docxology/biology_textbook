@@ -11,9 +11,9 @@
 1. Classify signaling molecules by their mode of delivery and explain signal amplification logic.
 2. Describe the major families of cell-surface receptors (GPCRs, RTKs, ion channels) and their signaling mechanisms.
 3. Explain the cAMP, PIP$_2$/DAG/IP$_3$, and RTK-MAP kinase [**signal transduction**](#gl:signal-transduction) cascades in detail.
-4. Describe additional signaling pathways: Wnt/beta-catenin, JAK-STAT, and Notch.
+4. Compare the Wnt/beta-catenin, JAK-STAT, and Notch pathways by their route from receptor to nuclear effector.
 5. Explain signal termination mechanisms: GTPase activity, phosphodiesterases, phosphatases, and receptor internalization.
-6. Describe the stages of [**mitosis**](#gl:mitosis) and the role of CDK-cyclin complexes in [**cell cycle**](#gl:cell-cycle) control.
+6. Predict how cyclin-CDK checkpoint failure alters [**cell cycle**](#gl:cell-cycle) progression, relating it to the stages of [**mitosis**](#gl:mitosis).
 7. Explain the mechanisms of [**apoptosis**](#gl:apoptosis) (intrinsic and extrinsic pathways).
 8. Explain cancer as dysregulated signaling and evaluate current targeted therapies.
 
@@ -890,7 +890,7 @@ flowchart LR
     E --> F
     F --> G["Causal signaling model"]
 ```
-<!-- alt: Flowchart showing a signaling claim is stronger when receptor state, ligand source, cell neighborhood and perturbation response point to the same mechanism. -->
+<!-- alt: Flowchart showing a signaling claim is stronger when receptor state, ligand source, cell neighborhood, and perturbation response point to the same mechanism. -->
 
 *A signaling claim is stronger when receptor state, ligand source, cell neighborhood, and perturbation response point to the same mechanism.*
 

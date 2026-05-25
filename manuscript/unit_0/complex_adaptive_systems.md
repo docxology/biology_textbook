@@ -2,6 +2,15 @@
 
 \label{sec:unit_0_complex_adaptive_systems}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/network_degree_distribution.png}
+\caption{Scale-free versus random network degree distributions on log--log axes. The Poisson curve from a random (Erdős--Rényi) network falls off sharply past its mean degree, while the power-law curve $P(k)\propto k^{-\gamma}$ from a scale-free network keeps a fat tail of hubs at high degrees. Biological networks of regulatory, metabolic, and protein-interaction data often resemble the latter pattern.}
+\label{fig:unit_0_network_degree_distribution}
+\end{figure}
+
+<!-- alt: Log-log plot with two overlaid curves of P(k) against degree k. The Poisson random-network curve drops off quickly past the mean degree while the scale-free power-law curve continues as a roughly straight line on log-log axes, retaining probability mass at very high degrees. -->
+
 
 <!-- chapter-metadata-badge -->
 > Level 2/3 · 35 min read · 50 min lecture · Prerequisites: \cref{sec:unit_0_systems_science}
@@ -211,7 +220,7 @@ P(x) \propto x^{-\alpha}
 
 where α is the scaling exponent. Power-law distributions in biology arise in:
 
-- Protein interaction network degree distributions (α ≈ 2–3).
+- Protein interaction network degree distributions (α ≈ 2–3); contrast the heavy tail with the rapidly-decaying Poisson distribution expected for a random network in \cref{fig:unit_0_network_degree_distribution}.
 - Species abundance distributions (Preston's lognormal-like, with power-law tail).
 - Neuronal avalanche sizes \citep{beggs2003} (α ≈ 1.5).
 - Forest fire size distributions and earthquake magnitudes (Gutenberg–Richter law).
@@ -468,12 +477,12 @@ The pattern is comprehensive: the rules are absurdly simple, the global behavior
 
 ```mermaid
 flowchart LR
-    A[Initialize N agents\nwith random states] --> B[For each agent:\nsense local neighborhood
-    B --> C[Apply local rules\nto update internal state\nand action]
-    C --> D[Update environment\n(pheromones, chemicals,\nphysical positions)]
-    D --> E{Stop?\n(time / convergence)}
-    E -->|No| B
-    E -->|Yes| F[Measure global\nemergent properties]
+    A["Initialize N agents\nwith random states"] --> B["For each agent:\nsense local neighborhood"]
+    B --> C["Apply local rules\nto update internal state\nand action"]
+    C --> D["Update environment\n(pheromones, chemicals,\nphysical positions)"]
+    D --> E{"Stop?\n(time / convergence)"}
+    E -->|"No"| B
+    E -->|"Yes"| F["Measure global\nemergent properties"]
 ```
 <!-- alt: Flowchart showing agent-based modeling loop linking local rules to measured emergent behavior. -->
 

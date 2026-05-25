@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Thermoregulation is the homeostatic control of body temperature around a set point via heat production and heat exchange. Endotherms (mammals, birds) generate and regulate internal metabolic heat to keep core temperature stable (~37 \textdegree C) independent of ambient temperature; ectotherms (fish, reptiles, invertebrates) have body temperatures that track the environment and rely mainly on behavioral thermoregulation. The mechanistic difference is internal metabolic heat production plus physiological regulation versus reliance on external heat. See \cref{sec:unit_IX_circulation_respiration_homeostasis}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** (a) Reduced ventricular contractility lowers stroke volume and effective arterial filling; the kidney senses underperfusion and activates RAAS (and sympathetic and ADH systems), causing Na\(^+\) and water retention and congestion. (b) Diuretics relieve congestive symptoms (edema, dyspnoea) by offloading volume but do not interrupt the maladaptive neurohormonal remodeling that drives progression, so they do not improve survival. (c) ACE inhibitors/ARBs, evidence-based beta-blockers, mineralocorticoid antagonists, and ARNI (sacubitril/valsartan, which adds neprilysin inhibition to prolong protective natriuretic peptides while blocking AT\(_1\)) all blunt the RAAS/sympathetic remodeling cascade, and trials show they reduce mortality in HFrEF. See \cref{sec:unit_IX_circulation_respiration_homeostasis}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

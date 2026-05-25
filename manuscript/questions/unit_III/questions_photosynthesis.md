@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Chlorophyll a absorbs maximally at roughly 430 nm (blue) and 662–680 nm (red). Chlorophyll b absorbs maximally at roughly 453 nm (blue) and 642 nm (red); it is an accessory pigment that broadens the harvested spectrum and funnels energy to chlorophyll a. Both reflect green light, giving plants their color. See \cref{sec:unit_III_photosynthesis}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO11; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** Chloroplast CF1F0 and mitochondrial F1F0 share the rotary catalytic mechanism. Proton-gradient direction differs: in chloroplasts protons accumulate in the thylakoid lumen and flow out to the stroma to make ATP, whereas in mitochondria protons flow from the intermembrane space into the matrix. CF1F0 can in principle run in reverse (ATP hydrolysis pumping H+), but the chloroplast enzyme is held off in the dark by a thiol-regulated γ-subunit: in the light, reduced thioredoxin (and the proton gradient) activates it for ATP synthesis; in the dark the oxidised γ-subunit inhibits it to prevent wasteful ATP hydrolysis. See \cref{sec:unit_III_photosynthesis}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

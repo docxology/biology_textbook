@@ -78,6 +78,7 @@ SOLUTION -->
 **Answer (Q10, Recall).** Vernalisation is the promotion of flowering by prolonged cold exposure (weeks at ~4 °C), required by winter annuals and biennials so that they flower in spring rather than before winter. The gene epigenetically silenced is FLC (FLOWERING LOCUS C), a MADS-box transcription factor that represses the floral integrators FT and SOC1. Extended cold induces VIN3, which joins the VRN2–PRC2 Polycomb complex to deposit repressive H3K27me3 at the FLC locus; this silencing is mitotically maintained after return to warmth, relieving repression of FT/SOC1 so flowering proceeds. See \cref{sec:unit_VIII_plant_responses}.
 SOLUTION -->
 
+
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -140,6 +141,7 @@ SOLUTION -->
 <!-- SOLUTION
 **Answer (Q20, Application).** Initiating condition: a localized pathogen infection triggers a hypersensitive response and a rise in salicylic acid, plus mobile signals (e.g., pipecolic/N-hydroxy-pipecolic acid, methyl-SA) that travel through the phloem to distal tissues. Changed component: in those distal tissues SA accumulates and reduces the cellular redox state, so the normally oligomeric NPR1 is reduced to monomers. Intermediate mechanism: monomeric NPR1 enters the nucleus and acts as a transcriptional coactivator with TGA bZIP transcription factors at PR-gene promoters. Observable outcome: broad-spectrum pathogenesis-related (PR) genes (PR-1, β-1,3-glucanase, thaumatin-like proteins) are expressed and defenses are "primed" plant-wide, so a secondary infection in previously uninfected tissue is met with a faster, stronger response — long-lasting systemic acquired resistance. See \cref{sec:unit_VIII_plant_responses}.
 SOLUTION -->
+
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 

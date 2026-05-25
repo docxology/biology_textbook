@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import re
-from pathlib import Path
 
 from biology.maintenance.american_english import (
     MANUSCRIPT,
@@ -31,6 +30,8 @@ def test_american_english_normalization_is_idempotent() -> None:
             "",
             "Germinal centres organise tumour defence and colour vision.",
             "",
+            "url: https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health",
+            "",
             "```python",
             "colour = '#0072B2'  # keep code unchanged",
             "```",
@@ -41,7 +42,13 @@ def test_american_english_normalization_is_idempotent() -> None:
     assert count >= 5
     assert once == twice
     assert "Signaling and behavior" in once
+    assert "global-programme" in once
     assert "colour = '#0072B2'" in once
+
+
+def test_american_english_scan_ignores_url_literals() -> None:
+    text = "url: https://www.who.int/teams/global-programme/reports/world-malaria-report-2025\n"
+    assert find_british_spellings(text) == []
 
 
 def test_claims_ledger_anchor_paths_exist() -> None:
