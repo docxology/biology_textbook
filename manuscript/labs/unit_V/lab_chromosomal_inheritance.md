@@ -1,4 +1,4 @@
-# Lab 17 — Chromosomal Inheritance and Linkage {.unnumbered}
+# Lab — Chromosomal Inheritance and Linkage {.unnumbered}
 
 \label{sec:lab_unit_V_chromosomal_inheritance}
 
@@ -45,7 +45,7 @@
 
 5. **Real-World Application**: Chromosomal abnormalities like Down syndrome are often caused by nondisjunction. Why does maternal age increase the risk of nondisjunction? What cellular mechanisms normally prevent this?
 
-## Background {.unnumbered}
+## Lab Context: Chromosomal Inheritance and Linkage {.unnumbered}
 
 Genes on the same chromosome are linked and tend to be inherited together (violating independent assortment). The **recombination frequency** between linked genes — measured as the percentage of recombinant offspring among total — is proportional to map distance (1% recombination = 1 centimorgan, cM). X-linked traits are carried on the X chromosome; since males are hemizygous (XY), a single recessive allele is expressed. Nondisjunction during meiosis (failure of chromosomes to separate) produces aneuploid gametes, leading to conditions such as trisomy 21 (Down syndrome).
 
@@ -53,6 +53,7 @@ Genes on the same chromosome are linked and tend to be inherited together (viola
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Chromosomal Inheritance and Linkage: inheritance source card: model assumptions, sampling frame, ancestry/context boundary, and uncertainty | 1 |
 | Linkage mapping dataset (3 genes, pairwise recombination frequencies) (printed) | 1 |
 | Karyotype images (4 cases: normal, trisomy 21, Turner syndrome 45,X, translocation) (printed) | 1 set |
 | Scissors and paste (for karyotype sorting exercise) | 1 set |
@@ -80,7 +81,7 @@ Genes on the same chromosome are linked and tend to be inherited together (viola
    - Draw the linear linkage map. Which gene is in the middle? Indicate the distances between each adjacent pair.
    - Calculate the expected coefficient of coincidence (observed double crossovers / expected double crossovers) and interference (1 - coefficient of coincidence).
 
-### Part 2: Computational Biology Exercise - Linkage Analysis with Python {.unnumbered}
+### Part 2: Computational Biology Exercise — Linkage Analysis with Python {.unnumbered}
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
@@ -163,6 +164,10 @@ equipment version belongs only in an optional extension.
 (c) P(daughter has hemophilia, X^h X^h) = 1/2 of daughters = 50%. Among offspring, 1/4 = 25%.
 
 **Interpretation:** Because the father is hemizygous and affected, half of his daughters inherit the recessive allele on his X and the other half inherit it from the carrier mother as well — an unusually high rate of affected daughters compared with a more typical carrier mother × unaffected father cross, where affected daughters are rare. The expected ratios assume Mendelian segregation and equal viability, which can be perturbed by selection or sampling variation in small families.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Chromosomal Inheritance and Linkage before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 7** · Level 2/3 · 50 min read · 75 min lecture · Prerequisites: \cref{sec:unit_II_cell_structure}, \cref{sec:unit_I_water_and_life}
+> Level 2/3 · 50 min read · 75 min lecture · Prerequisites: \cref{sec:unit_II_cell_structure}, \cref{sec:unit_I_water_and_life}
 
 ## Learning Objectives
 
@@ -84,7 +84,10 @@ The plasma membrane is not a homogeneous bilayer but contains distinct regions o
 **Lipid asymmetry** is maintained by **flippases** (ATP-dependent; P4-ATPases; move PS and PE to the inner leaflet) and **floppases** (ATP-dependent; ABC transporters; move lipids to the outer leaflet). **Scramblases** (Ca$^{2+}$-activated; TMEM16F) randomise asymmetry during [**apoptosis**](#gl:apoptosis) --- externalised phosphatidylserine (PS) is the "eat me" signal recognised by phagocyte receptors (TIM-4, BAI-1, Stabilin-2).
 
 **Membrane fluidity** depends on lipid composition:
-$$\text{Fluidity} \propto \frac{\text{degree of unsaturation} + \text{chain shortness}}{\text{cholesterol content (moderate)}} \tag{7.1} \label{eq:unit_II_membrane_transport_item_1}$$
+\begin{equation}
+\text{Fluidity} \propto \frac{\text{degree of unsaturation} + \text{chain shortness}}{\text{cholesterol content (moderate)}}
+\label{eq:unit_II_membrane_transport_item_1}
+\end{equation}
 
 
 Cholesterol has a biphasic effect: at low temperature, it disrupts crystalline packing (fluidises); at high temperature, it restricts excessive fluidity (condenses). This **buffering** effect maintains membrane fluidity across a physiological temperature range.
@@ -112,7 +115,7 @@ Since 1972, several refinements have been made:
 
 ---
 
-## Membrane Proteins
+## Membrane Proteins as Transporters, Receptors, and Anchors
 
 **Integral (transmembrane) proteins** span the bilayer via alpha-helical segments (of ~20 hydrophobic amino acids each, sufficient to span the ~3 nm hydrophobic core) or beta-barrel structures (found primarily in outer membranes of Gram-negative bacteria, mitochondria, and [**chloroplast**](#gl:chloroplast)s).
 
@@ -139,7 +142,7 @@ Since 1972, several refinements have been made:
 
 ---
 
-## Passive Transport
+## Passive Transport Down Electrochemical Gradients
 
 Passive transport requires no energy input --- molecules move down their electrochemical gradient.
 
@@ -166,11 +169,14 @@ flowchart LR
 
 *Classification of membrane transport mechanisms, from simple diffusion through channels and carriers to primary and secondary active transport and bulk transport.*
 
-### Simple Diffusion
+### Simple Diffusion Through the Lipid Bilayer
 
 For uncharged molecules, flux obeys Fick's First Law:
 
-$$J = -D \frac{d[C]}{dx} = P \cdot \Delta [C] \tag{7.2} \label{eq:unit_II_membrane_transport_item_2}$$
+\begin{equation}
+J = -D \frac{d[C]}{dx} = P \cdot \Delta [C]
+\label{eq:unit_II_membrane_transport_item_2}
+\end{equation}
 
 
 where $P$ = permeability coefficient (m/s) = $D \cdot K_{\text{oil/water}} / d$ (membrane thickness).
@@ -189,7 +195,10 @@ Although water is technically a small polar molecule, its transport across cell 
 
 The thermodynamic driving force is the difference in **water chemical potential** $\mu_w$ between two compartments:
 
-$$\mu_w = \mu_w^0 + RT \ln a_w + \bar{V}_w P \tag{7.24} \label{eq:unit_II_membrane_transport_item_3}$$
+\begin{equation}
+\mu_w = \mu_w^0 + RT \ln a_w + \bar{V}_w P
+\label{eq:unit_II_membrane_transport_item_3}
+\end{equation}
 
 
 where $a_w$ is water activity (≈ mole fraction in dilute solution) and $\bar{V}_w$ is the partial molar volume of water (~18 mL/mol). Each dissolved solute particle reduces $a_w$ proportionally — this is the molecular origin of colligative properties (boiling-point elevation, freezing-point depression, vapour-pressure lowering). Setting $\mu_w$ equal on both sides of a semi-permeable membrane and solving for the pressure required to balance a solute gradient yields **van't Hoff's law**:
@@ -284,12 +293,18 @@ where $V_m$ is the membrane potential and $E_\text{rev}$ is the reversal potenti
 
 **Open probability and gating models.** The open probability $P_o$ depends on the gating stimulus (voltage, ligand concentration, mechanical force). For a voltage-gated channel with effective gating charge $z_g$ (typical ~4–6 for Na$_V$, ~6–10 for K$_V$), the equilibrium open probability follows a Boltzmann relation:
 
-$$P_o(V) = \frac{1}{1 + \exp\left(-\frac{z_g F (V - V_{1/2})}{RT}\right)} \tag{7.19} \label{eq:unit_II_membrane_transport_item_6}$$
+\begin{equation}
+P_o(V) = \frac{1}{1 + \exp\left(-\frac{z_g F (V - V_{1/2})}{RT}\right)}
+\label{eq:unit_II_membrane_transport_item_6}
+\end{equation}
 
 
 where $V_{1/2}$ is the half-activation voltage. This sigmoidal curve is steep (~5–10 mV per e-fold change) — small voltage perturbations cause large changes in $P_o$, the basis of the action potential's switch-like behaviour. For ligand-gated channels with $n$ binding sites and Hill coefficient $h$:
 
-$$P_o([L]) = \frac{[L]^h}{[L]^h + K_d^h} \tag{7.20} \label{eq:unit_II_membrane_transport_item_7}$$
+\begin{equation}
+P_o([L]) = \frac{[L]^h}{[L]^h + K_d^h}
+\label{eq:unit_II_membrane_transport_item_7}
+\end{equation}
 
 
 For the muscle nAChR, $h \approx 1.5$ and $K_d \approx 30$ μM for ACh: half-maximal activation at ~30 μM, full activation by ~300 μM. The sub-millisecond opening of nAChRs after ACh release at the neuromuscular junction (peak [ACh] ~1 mM at the postsynaptic membrane) ensures essentially complete channel activation in every action potential.
@@ -310,7 +325,10 @@ Whether a transporter contributes net charge to the membrane potential depends o
 
 **Energetic consequences.** Electroneutral transporters move solutes "for free" with respect to the membrane potential — their thermodynamic feasibility depends primarily on chemical concentration gradients. Electrogenic transporters, by contrast, are driven by *both* concentration and voltage. The Na$^+$/K$^+$-ATPase, for example, would still hydrolyse ATP if Na$^+$ and K$^+$ concentrations were equalised, because moving net positive charge against the membrane potential (interior negative) costs additional energy: the **electrochemical gradient** is the relevant thermodynamic quantity:
 
-$$\Delta G_\text{ion} = RT \ln \frac{[C]_\text{out}}{[C]_\text{in}} + z F V_m \tag{7.21} \label{eq:unit_II_membrane_transport_item_8}$$
+\begin{equation}
+\Delta G_\text{ion} = RT \ln \frac{[C]_\text{out}}{[C]_\text{in}} + z F V_m
+\label{eq:unit_II_membrane_transport_item_8}
+\end{equation}
 
 
 For a 100× concentration gradient and 100 mV opposing voltage: $\Delta G \approx +12 + 9.6 = 21.6$ kJ/mol. ATP hydrolysis releases ~50 kJ/mol under cellular conditions, so a single ATP can drive ~2 ions of net charge against this combined gradient — exactly the stoichiometry observed in the Na$^+$/K$^+$-ATPase (3 Na$^+$ out – 2 K$^+$ in = +1 net per ATP, with margin for irreversibility).
@@ -339,17 +357,23 @@ The **alternating access mechanism**: the carrier alternates between outward-fac
 
 Using the Michaelis-Menten equation:
 
-$$v = \frac{V_{max} \cdot [S]}{K_m + [S]} = \frac{200 \times 5}{1.5 + 5} = \frac{1000}{6.5} = 154 \; \mu\text{mol/min/g} \tag{7.3} \label{eq:unit_II_membrane_transport_item_9}$$
+\begin{equation}
+v = \frac{V_{max} \cdot [S]}{K_m + [S]} = \frac{200 \times 5}{1.5 + 5} = \frac{1000}{6.5} = 154 \; \mu\text{mol/min/g}
+\label{eq:unit_II_membrane_transport_item_9}
+\end{equation}
 
 
-$$\frac{v}{V_{max}} = \frac{154}{200} = 0.77 = 77\% \tag{7.4} \label{eq:unit_II_membrane_transport_item_10}$$
+\begin{equation}
+\frac{v}{V_{max}} = \frac{154}{200} = 0.77 = 77\%
+\label{eq:unit_II_membrane_transport_item_10}
+\end{equation}
 
 
 GLUT1 operates at 77% of maximum capacity at normal blood glucose --- providing a safety margin while ensuring high glucose flux to the brain.
 
 ---
 
-## Active Transport
+## Active Transport Coupled to Energy Input
 
 Active transport moves solutes against their electrochemical gradient, requiring energy (usually ATP hydrolysis or proton motive force).
 
@@ -389,7 +413,7 @@ This maintains:
 - **H$^+$/K$^+$-ATPase:** gastric parietal cells; pumps H$^+$ into stomach lumen ([**pH**](#gl:ph) ~1); target of proton pump inhibitors (omeprazole, lansoprazole) for acid reflux/ulcer treatment
 - **V-type H$^+$-ATPase:** acidifies lysosomes, endosomes; does not use a phosphorylated intermediate
 
-### ABC Transporters
+### ABC Transporters and ATP-Powered Pumping
 
 **ATP-Binding Cassette (ABC) transporters** are a superfamily of ~48 members in humans. They use ATP hydrolysis to transport diverse substrates across membranes:
 
@@ -414,39 +438,60 @@ Uses the Na$^+$ electrochemical gradient (generated by the primary pump) to driv
 
 ## The Nernst Equation and Membrane Potential
 
-### Electrochemical Potential
+### Electrochemical Potential and Ion Driving Force
 
 The electrochemical potential of an ion is:
 
-$$\tilde{\mu}_i = \mu_i^0 + RT\ln[C_i] + z_i F V \tag{7.5} \label{eq:unit_II_membrane_transport_item_11}$$
+\begin{equation}
+\tilde{\mu}_i = \mu_i^0 + RT\ln[C_i] + z_i F V
+\label{eq:unit_II_membrane_transport_item_11}
+\end{equation}
 
 
 where $z_i$ = ionic charge, $F$ = Faraday constant (96,485 C/mol), $V$ = membrane potential.
 
 At equilibrium (no net flux), the **Nernst equation** gives the equilibrium potential $E_i$:
 
-$$E_i = \frac{RT}{z_i F} \ln \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}} \tag{7.6} \label{eq:unit_II_membrane_transport_item_12}$$
+\begin{equation}
+E_i = \frac{RT}{z_i F} \ln \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}}
+\label{eq:unit_II_membrane_transport_item_12}
+\end{equation}
 
 
 At 37 degrees C (310 K), $RT/F$ = 26.7 mV. Converting to log$_{10}$:
 
-$$E_i = \frac{61.5 \; \text{mV}}{z_i} \log_{10} \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}} \tag{7.7} \label{eq:unit_II_membrane_transport_item_13}$$
+\begin{equation}
+E_i = \frac{61.5 \; \text{mV}}{z_i} \log_{10} \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}}
+\label{eq:unit_II_membrane_transport_item_13}
+\end{equation}
 
 
 ### Derivation of the Nernst Equation
 
 Starting from the condition of zero net electrochemical driving force at equilibrium:
 
-$$\Delta \tilde{\mu}_i = 0 \tag{7.8} \label{eq:unit_II_membrane_transport_item_14}$$
+\begin{equation}
+\Delta \tilde{\mu}_i = 0
+\label{eq:unit_II_membrane_transport_item_14}
+\end{equation}
 
 
-$$RT \ln \frac{[C_i]_{\text{in}}}{[C_i]_{\text{out}}} + z_i F (V_{\text{in}} - V_{\text{out}}) = 0 \tag{7.9} \label{eq:unit_II_membrane_transport_item_15}$$
+\begin{equation}
+RT \ln \frac{[C_i]_{\text{in}}}{[C_i]_{\text{out}}} + z_i F (V_{\text{in}} - V_{\text{out}}) = 0
+\label{eq:unit_II_membrane_transport_item_15}
+\end{equation}
 
 
-$$z_i F \cdot E_i = -RT \ln \frac{[C_i]_{\text{in}}}{[C_i]_{\text{out}}} = RT \ln \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}} \tag{7.10} \label{eq:unit_II_membrane_transport_item_16}$$
+\begin{equation}
+z_i F \cdot E_i = -RT \ln \frac{[C_i]_{\text{in}}}{[C_i]_{\text{out}}} = RT \ln \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}}
+\label{eq:unit_II_membrane_transport_item_16}
+\end{equation}
 
 
-$$E_i = \frac{RT}{z_i F} \ln \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}} \tag{7.11} \label{eq:unit_II_membrane_transport_item_17}$$
+\begin{equation}
+E_i = \frac{RT}{z_i F} \ln \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}}
+\label{eq:unit_II_membrane_transport_item_17}
+\end{equation}
 
 
 ## Worked Example: Nernst Potential
@@ -455,10 +500,16 @@ $$E_i = \frac{RT}{z_i F} \ln \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}} \tag{7
 
 *Solution:*
 
-$$E_{Ca} = \frac{RT}{z_{Ca}F} \ln \frac{[Ca^{2+}]_{\text{out}}}{[Ca^{2+}]_{\text{in}}} = \frac{26.7 \; \text{mV}}{2} \ln \frac{2.5}{0.0001} \tag{7.12} \label{eq:unit_II_membrane_transport_item_18}$$
+\begin{equation}
+E_{Ca} = \frac{RT}{z_{Ca}F} \ln \frac{[Ca^{2+}]_{\text{out}}}{[Ca^{2+}]_{\text{in}}} = \frac{26.7 \; \text{mV}}{2} \ln \frac{2.5}{0.0001}
+\label{eq:unit_II_membrane_transport_item_18}
+\end{equation}
 
 
-$$E_{Ca} = 13.35 \; \text{mV} \times \ln(25,000) = 13.35 \times 10.13 = +135 \; \text{mV} \tag{7.13} \label{eq:unit_II_membrane_transport_item_19}$$
+\begin{equation}
+E_{Ca} = 13.35 \; \text{mV} \times \ln(25,000) = 13.35 \times 10.13 = +135 \; \text{mV}
+\label{eq:unit_II_membrane_transport_item_19}
+\end{equation}
 
 
 The strongly positive $E_{Ca}$ means that Ca$^{2+}$ has a massive driving force to enter cells. Brief Ca$^{2+}$ channel openings can therefore cause significant signalling events.
@@ -504,14 +555,20 @@ Note: anions (Cl$^-$) appear with reversed subscripts because of their negative 
 
 **Derivation sketch.** The full Goldman-Hodgkin-Katz (GHK) derivation begins from the Nernst-Planck equation for ionic flux $J_i$ across a membrane of thickness $d$ in a constant electric field:
 
-$$J_i = -D_i \left( \frac{dC_i}{dx} + z_i C_i \frac{F}{RT} \frac{dV}{dx} \right) \tag{7.22} \label{eq:unit_II_membrane_transport_item_20}$$
+\begin{equation}
+J_i = -D_i \left( \frac{dC_i}{dx} + z_i C_i \frac{F}{RT} \frac{dV}{dx} \right)
+\label{eq:unit_II_membrane_transport_item_20}
+\end{equation}
 
 Integrating across the membrane assuming a constant field ($dV/dx = -V_m/d$) and a single permeability $P_i = D_i \beta_i / d$ (where $\beta_i$ is the partition coefficient between water and membrane) gives the **GHK current equation**:
 
-$$I_i = z_i F P_i \frac{z_i F V_m / RT}{1 - \exp(-z_i F V_m / RT)} \left( [C_i]_\text{in} - [C_i]_\text{out} \exp(-z_i F V_m / RT) \right) \tag{7.23} \label{eq:unit_II_membrane_transport_item_21}$$
+\begin{equation}
+I_i = z_i F P_i \frac{z_i F V_m / RT}{1 - \exp(-z_i F V_m / RT)} \left( [C_i]_\text{in} - [C_i]_\text{out} \exp(-z_i F V_m / RT) \right)
+\label{eq:unit_II_membrane_transport_item_21}
+\end{equation}
 
 
-At the resting membrane potential, the *net* current must be zero: $\sum_i I_i = 0$. Solving this for K$^+$, Na$^+$, and Cl$^-$ (and treating Cl$^-$ as monovalent anion) algebraically yields the GHK voltage equation \cref{eq:unit_II_ghk}. The key conceptual takeaways are: (i) the membrane potential is a *weighted log average* of the Nernst potentials, with weights set by permeability; (ii) the ion with the highest permeability dominates; (iii) shifts in permeability ratios (e.g., during the action potential) produce predictable shifts in $V_m$.
+At the resting membrane potential, the *net* current must be zero: $\sum_i I_i = 0$. Solving this for K$^+$, Na$^+$, and Cl$^-$ (and treating Cl$^-$ as monovalent anion) algebraically yields the GHK voltage equation \cref{eq:unit_II_ghk}. \cref{fig:unit_II_ghk_permeability} shows how depolarisation tracks relative Na$^+$ permeability when K$^+$ permeability is held fixed and Cl$^-$ permeability is varied. The key conceptual takeaways are: (i) the membrane potential is a *weighted log average* of the Nernst potentials, with weights set by permeability; (ii) the ion with the highest permeability dominates; (iii) shifts in permeability ratios (e.g., during the action potential) produce predictable shifts in $V_m$.
 
 ## Worked Example: Goldman Equation
 
@@ -519,13 +576,22 @@ At the resting membrane potential, the *net* current must be zero: $\sum_i I_i =
 
 *Solution:*
 
-$$V_m = 26.7 \; \text{mV} \times \ln \frac{(1.0)(5) + (0.04)(145) + (0.45)(4)}{(1.0)(140) + (0.04)(12) + (0.45)(110)} \tag{7.15} \label{eq:unit_II_membrane_transport_item_22}$$
+\begin{equation}
+V_m = 26.7 \; \text{mV} \times \ln \frac{(1.0)(5) + (0.04)(145) + (0.45)(4)}{(1.0)(140) + (0.04)(12) + (0.45)(110)}
+\label{eq:unit_II_membrane_transport_item_22}
+\end{equation}
 
 
-$$V_m = 26.7 \times \ln \frac{5.0 + 5.8 + 1.8}{140 + 0.48 + 49.5} = 26.7 \times \ln \frac{12.6}{190.0} \tag{7.16} \label{eq:unit_II_membrane_transport_item_23}$$
+\begin{equation}
+V_m = 26.7 \times \ln \frac{5.0 + 5.8 + 1.8}{140 + 0.48 + 49.5} = 26.7 \times \ln \frac{12.6}{190.0}
+\label{eq:unit_II_membrane_transport_item_23}
+\end{equation}
 
 
-$$V_m = 26.7 \times \ln(0.0663) = 26.7 \times (-2.71) = -72.4 \; \text{mV} \tag{7.17} \label{eq:unit_II_membrane_transport_item_24}$$
+\begin{equation}
+V_m = 26.7 \times \ln(0.0663) = 26.7 \times (-2.71) = -72.4 \; \text{mV}
+\label{eq:unit_II_membrane_transport_item_24}
+\end{equation}
 
 
 This is close to the experimentally measured [**resting potential**](#gl:resting-potential) of ~-70 mV.
@@ -563,12 +629,15 @@ While the Nernst and Goldman equations describe resting membrane potential, the 
 
 Hodgkin and Huxley (Nobel Prize 1963) described the action potential mathematically using voltage-clamp experiments on the squid giant axon:
 
-$$I_m = C_m \frac{dV}{dt} + g_K n^4 (V - E_K) + g_{Na} m^3 h (V - E_{Na}) + g_L (V - E_L) \tag{7.18} \label{eq:unit_II_membrane_transport_item_25}$$
+\begin{equation}
+I_m = C_m \frac{dV}{dt} + g_K n^4 (V - E_K) + g_{Na} m^3 h (V - E_{Na}) + g_L (V - E_L)
+\label{eq:unit_II_membrane_transport_item_25}
+\end{equation}
 
 
 where $m$ = Na$^+$ activation variable, $h$ = Na$^+$ inactivation variable, $n$ = K$^+$ activation variable. This model predicted the ionic basis of the action potential before the molecular identity of ion channels was known.
 
-### Saltatory Conduction
+### Saltatory Conduction Along Myelinated Axons
 
 In myelinated axons, myelin sheaths (formed by Schwann cells in PNS, oligodendrocytes in CNS) insulate the axon, reducing membrane capacitance. Action potentials "jump" between **nodes of Ranvier** (gaps in myelin where Na$^+$ channels are concentrated at ~1,000/um$^2$). This increases conduction velocity from ~1 m/s (unmyelinated C fibres) to ~120 m/s (large myelinated A-alpha fibres).
 
@@ -660,7 +729,7 @@ Three major coat systems shape the secretory and endocytic pathways: **COPII**, 
 
 **Vesicle traffic in numbers.** A typical mammalian cell sustains ~10$^4$ exocytic events and ~10$^4$ endocytic events per minute. The plasma membrane area equivalent of one entire cell is internalised every ~30 minutes — meaning the membrane is in dynamic flux, with steady-state composition maintained by precise SNARE-coupled bidirectional traffic. A typical secretory neuron at full activity can fuse ~1000 synaptic vesicles per second.
 
-### Endocytosis
+### Endocytosis and Cargo Internalisation
 
 **Clathrin-mediated endocytosis (CME):**
 1. Cargo receptors cluster in clathrin-coated pits (adaptor AP2 links receptors to clathrin triskelions)
@@ -710,7 +779,7 @@ for ion in PHYSIOLOGICAL_IONS:
 
 ---
 
-### AlphaFold-Predicted Transporter Structures: Computational Biology Meets Membrane Biophysics
+### Predicted Transporter Structures and Experimental Tests
 
 Membrane transporter structures have historically been among the hardest to solve experimentally: hydrophobic surfaces resist crystallisation, cryo-EM requires stable purified protein, and conformational flexibility (the very thing that makes transporters work) blurs reconstructions. **AlphaFold2** (DeepMind, 2021), **AlphaFold-Multimer** (2022), and AlphaFold 3 (2024) changed the workflow by making high-quality structural hypotheses routine for many folded domains and complexes, including many membrane proteins \citep{abramson2024alphafold3,varadi2024alphafolddb}.
 
@@ -720,7 +789,7 @@ Cautions are important for scientific literacy: AlphaFold predicts likely static
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Membrane Structure and Transport
 
 For **Membrane Structure and Transport**, frontier biology belongs inside the evidence logic of
 the chapter. Cell biology is increasingly measured as live, spatial, single-cell, and perturbational data rather than static diagrams alone. The core reading question is this: transport claims require gradients, permeability, electrochemical driving force, gating, and energy coupling.
@@ -736,9 +805,9 @@ the chapter. Cell biology is increasingly measured as live, spatial, single-cell
   the source closest to the measurement and state what has changed since it was
   published.
 
-Ask what measurement scale is being claimed: nanometre structure, single-cell transcript abundance, organelle dynamics, tissue context, or organismal phenotype.
+For membrane-transport claims, specify the ion or solute, gradient, permeability, transporter state, and membrane context before calculating flux.
 
-**Source practice:** For cell-state claims, distinguish microscopy, live-cell perturbation, single-cell sequencing, spatial transcriptomics, and biochemical assay evidence before making a causal statement.
+**Source practice:** Pair structural or electrophysiological claims with transport assays, permeability measurements, or single-channel data that constrain mechanism.
 
 Mechanosensitive channel claims should name the force, lipid environment, oligomeric state, and assay context; TMEM63 channelopathy work links structural rearrangement to disease mutations, so the mechanism should remain tied to the channel family and assay context \citep{zheng2025tmem63channelopathies}.
 
@@ -797,7 +866,7 @@ flowchart LR
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Membrane Structure and Transport
 
 - Mitchell (1961). Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism. *Nature*, 191.
 - Singer & Nicolson (1972). The fluid mosaic model of the structure of cell membranes. *Science*, 175.
@@ -832,7 +901,7 @@ flowchart LR
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Membrane Structure and Transport
 
 **Membrane Structure and Transport** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

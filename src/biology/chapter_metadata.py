@@ -123,52 +123,100 @@ CHAPTERS: list[ChapterMeta] = [
     ),
     ChapterMeta("unit_IV_gene_expression", 13, "IV", 2, 60, 100, ("unit_IV_dna_replication_and_cell_cycle",)),
     ChapterMeta("unit_IV_mutations_and_genomics", 14, "IV", 2, 55, 75, ("unit_IV_gene_expression",)),
-    ChapterMeta("unit_IV_epigenetics_and_gene_regulation", 15, "IV", 3, 50, 75, ("unit_IV_gene_expression",)),
+    ChapterMeta(
+        "unit_IV_chromatin_and_epigenetic_mechanisms", 15, "IV", 3, 28, 40, ("unit_IV_gene_expression",)
+    ),
+    ChapterMeta(
+        "unit_IV_epigenetic_inheritance_and_disease",
+        16,
+        "IV",
+        3,
+        28,
+        40,
+        ("unit_IV_chromatin_and_epigenetic_mechanisms",),
+    ),
     # Unit V — Classical Genetics
-    ChapterMeta("unit_V_mendelian_genetics", 16, "V", 2, 65, 100, ("unit_IV_dna_replication_and_cell_cycle",)),
-    ChapterMeta("unit_V_chromosomal_inheritance", 17, "V", 2, 60, 75, ("unit_V_mendelian_genetics",)),
+    ChapterMeta(
+        "unit_V_mendelian_principles", 17, "V", 2, 35, 55, ("unit_IV_dna_replication_and_cell_cycle",)
+    ),
+    ChapterMeta(
+        "unit_V_mendelian_extensions_and_human_genetics",
+        18,
+        "V",
+        2,
+        35,
+        55,
+        ("unit_V_mendelian_principles",),
+    ),
+    ChapterMeta("unit_V_chromosomal_inheritance", 19, "V", 2, 60, 75, ("unit_V_mendelian_principles",)),
     ChapterMeta(
         "unit_V_population_genetics",
-        18,
+        20,
         "V",
         3,
         75,
         100,
-        ("unit_V_mendelian_genetics", "unit_V_chromosomal_inheritance"),
+        ("unit_V_mendelian_principles", "unit_V_chromosomal_inheritance"),
     ),
     # Unit VI — Evolution
-    ChapterMeta("unit_VI_evolution_and_selection", 19, "VI", 2, 60, 75, ("unit_V_population_genetics",)),
-    ChapterMeta("unit_VI_genetic_drift_and_speciation", 20, "VI", 3, 60, 75, ("unit_VI_evolution_and_selection",)),
-    ChapterMeta("unit_VI_phylogenetics", 21, "VI", 3, 60, 100, ("unit_VI_genetic_drift_and_speciation",)),
+    ChapterMeta("unit_VI_evolution_and_selection", 21, "VI", 2, 60, 75, ("unit_V_population_genetics",)),
+    ChapterMeta("unit_VI_genetic_drift_and_speciation", 22, "VI", 3, 60, 75, ("unit_VI_evolution_and_selection",)),
+    ChapterMeta("unit_VI_phylogenetics", 23, "VI", 3, 60, 100, ("unit_VI_genetic_drift_and_speciation",)),
     # Unit VII — Microbiology
-    ChapterMeta("unit_VII_bacteria_archaea_viruses", 22, "VII", 2, 65, 75, ("unit_II_cell_structure",)),
-    ChapterMeta("unit_VII_microbial_ecology", 23, "VII", 2, 60, 75, ("unit_VII_bacteria_archaea_viruses",)),
-    ChapterMeta("unit_VII_infectious_disease", 24, "VII", 2, 60, 75, ("unit_VII_bacteria_archaea_viruses",)),
+    ChapterMeta("unit_VII_bacteria_archaea_viruses", 24, "VII", 2, 65, 75, ("unit_II_cell_structure",)),
+    ChapterMeta("unit_VII_microbial_ecology", 25, "VII", 2, 60, 75, ("unit_VII_bacteria_archaea_viruses",)),
+    ChapterMeta("unit_VII_host_immunity_and_vaccines", 26, "VII", 2, 30, 40, ("unit_VII_bacteria_archaea_viruses",)),
+    ChapterMeta(
+        "unit_VII_antimicrobial_resistance_and_epidemiology",
+        27,
+        "VII",
+        2,
+        35,
+        45,
+        ("unit_VII_host_immunity_and_vaccines",),
+    ),
     # Unit VIII — Botany
-    ChapterMeta("unit_VIII_plant_structure_and_water", 25, "VIII", 2, 55, 75, ("unit_II_membrane_transport",)),
-    ChapterMeta("unit_VIII_plant_reproduction", 26, "VIII", 2, 55, 75, ("unit_VIII_plant_structure_and_water",)),
-    ChapterMeta("unit_VIII_plant_responses", 27, "VIII", 2, 55, 75, ("unit_VIII_plant_reproduction",)),
+    ChapterMeta("unit_VIII_plant_structure_and_water", 28, "VIII", 2, 55, 75, ("unit_II_membrane_transport",)),
+    ChapterMeta("unit_VIII_plant_reproduction", 29, "VIII", 2, 55, 75, ("unit_VIII_plant_structure_and_water",)),
+    ChapterMeta("unit_VIII_plant_responses", 30, "VIII", 2, 55, 75, ("unit_VIII_plant_reproduction",)),
     # Unit IX — Zoology / Physiology
     ChapterMeta(
         "unit_IX_circulation_respiration_homeostasis",
-        28,
+        31,
         "IX",
         3,
         60,
         100,
         ("unit_II_membrane_transport", "unit_III_bioenergetics_and_respiration"),
     ),
-    ChapterMeta("unit_IX_nervous_system", 29, "IX", 3, 55, 75, ("unit_IX_circulation_respiration_homeostasis",)),
-    ChapterMeta("unit_IX_action_potential_synapses", 30, "IX", 3, 55, 100, ("unit_IX_nervous_system",)),
-    ChapterMeta("unit_IX_endocrine_and_immune", 31, "IX", 2, 55, 75, ("unit_IX_circulation_respiration_homeostasis",)),
-    # Unit X — Ecology
-    ChapterMeta("unit_X_population_ecology", 32, "X", 3, 75, 100, ("unit_V_population_genetics",)),
-    ChapterMeta("unit_X_community_ecology", 33, "X", 2, 80, 100, ("unit_X_population_ecology",)),
+    ChapterMeta("unit_IX_nervous_system", 32, "IX", 3, 55, 75, ("unit_IX_circulation_respiration_homeostasis",)),
+    ChapterMeta("unit_IX_action_potential_synapses", 33, "IX", 3, 55, 100, ("unit_IX_nervous_system",)),
     ChapterMeta(
-        "unit_X_ecosystem_ecology", 34, "X", 2, 65, 75, ("unit_X_community_ecology", "unit_III_photosynthesis")
+        "unit_IX_endocrine_signaling", 34, "IX", 2, 30, 40, ("unit_IX_circulation_respiration_homeostasis",)
     ),
-    ChapterMeta("unit_X_biomes_and_conservation", 35, "X", 2, 70, 75, ("unit_X_ecosystem_ecology",)),
+    ChapterMeta(
+        "unit_IX_immune_system_defense", 35, "IX", 2, 30, 40, ("unit_IX_endocrine_signaling",)
+    ),
+    # Unit X — Ecology
+    ChapterMeta("unit_X_population_ecology", 36, "X", 3, 75, 100, ("unit_V_population_genetics",)),
+    ChapterMeta("unit_X_community_interactions", 37, "X", 2, 45, 55, ("unit_X_population_ecology",)),
+    ChapterMeta(
+        "unit_X_biodiversity_and_food_webs", 38, "X", 2, 40, 50, ("unit_X_community_interactions",)
+    ),
+    ChapterMeta(
+        "unit_X_ecosystem_ecology",
+        39,
+        "X",
+        2,
+        65,
+        75,
+        ("unit_X_community_interactions", "unit_X_biodiversity_and_food_webs", "unit_III_photosynthesis"),
+    ),
+    ChapterMeta("unit_X_biomes_and_conservation", 40, "X", 2, 70, 75, ("unit_X_ecosystem_ecology",)),
 ]
+
+
+CHAPTERS_BY_ID: dict[str, ChapterMeta] = {chapter.chapter_id: chapter for chapter in CHAPTERS}
 
 
 # ---------------------------------------------------------------------------
@@ -186,10 +234,7 @@ def by_id(chapter_id: str) -> ChapterMeta | None:
     Returns:
         The matching :class:`ChapterMeta`, or ``None`` if no chapter has that ID.
     """
-    for c in CHAPTERS:
-        if c.chapter_id == chapter_id:
-            return c
-    return None
+    return CHAPTERS_BY_ID.get(chapter_id)
 
 
 def by_unit(unit: str) -> list[ChapterMeta]:
@@ -204,4 +249,4 @@ def by_unit(unit: str) -> list[ChapterMeta]:
     return [c for c in CHAPTERS if c.unit == unit]
 
 
-__all__ = ["ChapterMeta", "CHAPTERS", "by_id", "by_unit"]
+__all__ = ["ChapterMeta", "CHAPTERS", "CHAPTERS_BY_ID", "by_id", "by_unit"]

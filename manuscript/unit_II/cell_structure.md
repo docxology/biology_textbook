@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 6** · Level 2/3 · 50 min read · 75 min lecture · Prerequisites: \cref{sec:unit_II_cell_theory}
+> Level 2/3 · 50 min read · 75 min lecture · Prerequisites: \cref{sec:unit_II_cell_theory}
 
 ## Learning Objectives
 
@@ -91,7 +91,7 @@ Three numerical patterns deserve attention. (1) The internal membrane area excee
 
 The **nucleus** (diameter typically 5--10 μm) is the defining hallmark of the eukaryotic cell.
 
-### Nuclear Envelope
+### Nuclear Envelope, Pores, and Lamina
 
 The nucleus is bounded by the **nuclear envelope** --- two concentric [**phospholipid bilayer**](#gl:phospholipid-bilayer)s (inner and outer nuclear membrane). The outer nuclear membrane is continuous with the rough ER. The **nuclear pore complex (NPC)** penetrates both membranes at ~3,000 pores per nucleus. Each NPC is a massive protein assembly (~120 MDa; 34 distinct nucleoporin proteins, 8-fold rotational symmetry), gating passage of macromolecules:
 
@@ -158,7 +158,7 @@ Human nuclear DNA (2 x 3.2 billion base pairs = 6.4 Gbp total) is packaged into 
 | Phosphorylation | H3S10ph | Mitotic condensation | Aurora B | PP1 |
 | Ubiquitination | H2BK120ub | [**Transcription**](#gl:transcription) elongation | RNF20/40 | USP22 |
 
-### Nucleolus
+### Nucleolus and Ribosome Biogenesis
 
 The **nucleolus** (1--3 per nucleus) is not membrane-bound. It is the site of ribosomal RNA (rRNA) transcription by RNA polymerase I and [**ribosome**](#gl:ribosome) assembly. It disassembles during [**mitosis**](#gl:mitosis) and re-forms around **nucleolus organiser regions (NORs)** on chromosomes 13, 14, 15, 21, and 22 (in humans).
 
@@ -178,7 +178,7 @@ The nucleolus has three ultrastructural regions:
 
 Mitochondria (singular: mitochondrion) are 1--5 μm long, often branching, highly dynamic organelles. A liver hepatocyte contains ~1,000--2,000 mitochondria, constituting ~20% of cell volume.
 
-### Structural Organisation
+### Mitochondrial Structural Organisation and Cristae
 
 - **Outer mitochondrial membrane (OMM):** contains **porin** (VDAC) channels; freely permeable to molecules <5 kDa. Also contains MAM (mitochondria-associated ER membrane) contact sites for Ca$^{2+}$ and lipid exchange.
 - **Intermembrane space (IMS):** equivalent to cytoplasm in ion composition; site of electron carrier cytochrome c; contains pro-apoptotic factors (Smac/DIABLO, AIF)
@@ -294,7 +294,7 @@ flowchart TD
 
 *The endomembrane system and secretory/endocytic pathways. COPII vesicles carry cargo anterograde (ER to Golgi); COPI vesicles carry cargo retrograde (Golgi to ER). The trans-Golgi network sorts proteins to lysosomes (via M6P signal), plasma membrane, or secretory granules.*
 
-### Endoplasmic Reticulum
+### Endoplasmic Reticulum Structure and Protein/Lipid Processing
 
 **Rough ER** (RER): studded with ribosomes; site of synthesis, folding, and initial N-glycosylation of secreted and membrane proteins. Molecular chaperones (BiP/GRP78, calnexin, calreticulin) ensure proper folding; misfolded proteins are retrotranslocated for **ER-associated degradation (ERAD)** by the proteasome.
 
@@ -337,7 +337,7 @@ If the lesion is repaired, the UPR shuts down and homeostasis resumes. If the st
 > **Clinical Connection: ER Stress and Type 2 Diabetes**
 > Pancreatic beta-cells produce enormous quantities of insulin (~1 million molecules per cell per minute during glucose stimulation). This places extreme demands on the ER folding machinery. Chronic hyperglycaemia and obesity increase insulin demand beyond ER capacity, triggering the UPR. Prolonged UPR activation causes beta-cell apoptosis, contributing to the progressive decline in insulin secretion seen in type 2 diabetes. Pharmacological chaperones (e.g., TUDCA, 4-PBA) that reduce ER stress are being investigated as diabetes therapeutics.
 
-### Golgi Apparatus
+### Golgi Apparatus and Vesicular Sorting
 
 The Golgi stack (cis-Golgi network, cis, medial, trans, trans-Golgi network/TGN) receives cargo from the ER in **COPII-coated vesicles** and processes proteins by:
 - O-glycosylation (adding sugars to Ser/Thr)
@@ -355,7 +355,7 @@ The Golgi stack (cis-Golgi network, cis, medial, trans, trans-Golgi network/TGN)
 
 **Brefeldin A** (BFA) inhibits GBF1 (a GEF for Arf1 GTPase needed for COPI assembly) and dissolves the Golgi within minutes --- demonstrating its dynamic membrane flux.
 
-### Lysosomes
+### Lysosomes and Acid Hydrolase Compartments
 
 Lysosomes ([**pH**](#gl:ph) 4.5--5.0, maintained by V-type H$^+$-ATPase) contain ~60 acid hydrolases (proteases, lipases, nucleases, glycosidases) that digest:
 - **Autophagy:** cellular debris and aged organelles (macroautophagy, microautophagy, chaperone-mediated autophagy)
@@ -381,7 +381,7 @@ Lysosomes ([**pH**](#gl:ph) 4.5--5.0, maintained by V-type H$^+$-ATPase) contain
 
 ---
 
-## The Cytoskeleton
+## Cytoskeletal Filaments and Cellular Mechanics
 
 The cytoskeleton is a dynamic protein network pervading the cytoplasm, providing structural support, enabling cell movement, and directing intracellular traffic.
 
@@ -409,7 +409,7 @@ graph TD
 
 *Cytoskeletal components and their associated motor proteins. [**Actin**](#gl:actin) filaments are driven by myosin motors, microtubules by kinesin and dynein motors, and intermediate filaments have no associated motors.*
 
-### Actin Microfilaments
+### Actin Microfilaments and Cortical Force Generation
 
 Actin filaments (F-actin; diameter ~7 nm) are polar, ATP-driven polymers of globular G-actin monomers. Properties:
 - **Treadmilling:** net polymerisation at the (+) barbed end; depolymerisation at the (-) pointed end, resulting in net movement of the filament while maintaining constant length
@@ -425,11 +425,17 @@ C_c^{\text{end}} = \frac{k_-}{k_+}
 
 When the free monomer concentration $[G\text{-actin}]$ exceeds $C_c$, the end grows; below $C_c$, the end shrinks. Crucially, the (+) barbed end and the (−) pointed end have *different* critical concentrations because of their different geometries:
 
-$$C_c^{(+)} \approx 0.1 \, \mu\text{M}, \qquad C_c^{(-)} \approx 0.6 \, \mu\text{M} \tag{6.2} \label{eq:unit_II_cell_structure_item_1}$$
+\begin{equation}
+C_c^{(+)} \approx 0.1 \, \mu\text{M}, \qquad C_c^{(-)} \approx 0.6 \, \mu\text{M}
+\label{eq:unit_II_cell_structure_item_1}
+\end{equation}
 
 In a steady state with $[G\text{-actin}]$ between these two values (say 0.3 μM), the (+) end grows continuously while the (−) end shrinks continuously — and the filament *translates* through space at a steady velocity even though its average length is constant. This is **treadmilling**, and the velocity is:
 
-$$v_\text{tread} = \delta \cdot k_+^{(+)} \cdot ([G] - C_c^{(+)}) \tag{6.3} \label{eq:unit_II_cell_structure_item_2}$$
+\begin{equation}
+v_\text{tread} = \delta \cdot k_+^{(+)} \cdot ([G] - C_c^{(+)})
+\label{eq:unit_II_cell_structure_item_2}
+\end{equation}
 
 
 where $\delta = 2.7$ nm (axial rise per monomer; two monomers per helical repeat = 5.4 nm). For lamellipodial actin in a migrating fibroblast, treadmilling proceeds at ~0.1 μm/s at 37 °C — the molecular speed limit on which crawling cells move.
@@ -445,7 +451,7 @@ ATP hydrolysis on the filament shifts the (−)-end disassembly rate, increasing
 
 Functions: cell shape, cytokinesis (contractile ring), muscle contraction, phagocytosis, cell crawling (lamellipodia, filopodia), intracellular organelle movement.
 
-### Tubulin Microtubules
+### Tubulin Microtubules and Intracellular Transport
 
 Microtubules (MTs; 25 nm diameter) are hollow tubes of alpha/beta-tubulin heterodimers forming 13 protofilaments. Properties:
 - **GTP-driven dynamic instability:** rapid switching between growth (rescue) and catastrophic depolymerisation; GTP cap model --- growing end has GTP-tubulin; loss of cap triggers depolymerisation
@@ -515,7 +521,7 @@ A single dendrite that supports 100 active spines and turns over 10 cargoes per 
 
 **Vincristine/vinblastine** (vinca alkaloids from *Catharanthus roseus*) also destabilise MT. Used in cancer chemotherapy (lymphomas, leukaemias).
 
-### Intermediate Filaments
+### Intermediate Filaments and Tensile Strength
 
 Intermediate filaments (IFs; ~10 nm diameter) are ropelike cables of coiled-coil proteins. Unlike actin and MT, IFs are not polar and have no associated motors --- they are **purely structural**:
 
@@ -541,7 +547,7 @@ Intermediate filaments (IFs; ~10 nm diameter) are ropelike cables of coiled-coil
 
 ## Centrosomes, Centrioles, and Cilia
 
-### Centrosome/MTOC
+### Centrosome/MTOC as the Microtubule Organizing Centre
 
 The **centrosome** is the primary microtubule organising centre (MTOC) in animal cells. It consists of two **centrioles** (barrel-shaped structures of 9 triplet microtubules arranged in a pinwheel) surrounded by **pericentriolar material (PCM)** containing gamma-tubulin ring complexes (gamma-TuRC) that nucleate new microtubules.
 
@@ -551,7 +557,7 @@ During mitosis, centrosomes duplicate and migrate to opposite poles of the cell,
 
 **Motile cilia** (9+2 axoneme: 9 outer doublet MTs + 2 central singlet MTs, linked by dynein arms and nexin bridges) beat in coordinated waves. Found on respiratory epithelium (~200 per cell), fallopian tube epithelium, and ependymal cells lining brain ventricles.
 
-**Primary cilia** (9+0 axoneme: no central pair, non-motile) are mechanosensory/chemosensory antennae present on nearly most mammalian cells. Function as signalling hubs:
+**Primary cilia** (9+0 axoneme: no central pair, non-motile) are mechanosensory/chemosensory antennae present on nearly every mammalian cell type. Function as signalling hubs:
 - **Hedgehog signalling:** Smoothened receptor relocates to the primary cilium upon Hedgehog ligand binding
 - **Polycystin-1/2:** mechanosensitive Ca$^{2+}$ channels on kidney primary cilia; sense urine flow
 
@@ -564,14 +570,17 @@ During mitosis, centrosomes duplicate and migrate to opposite poles of the cell,
 
 ---
 
-## Peroxisomes
+## Peroxisomes and Single-Membrane Oxidative Compartments
 
 Peroxisomes contain oxidases that generate hydrogen peroxide (H$_2$O$_2$) as a byproduct of fatty acid beta-oxidation, and **catalase** that destroys it:
 
-$$2\text{H}_2\text{O}_2 \rightarrow 2\text{H}_2\text{O} + \text{O}_2 \quad (\text{catalase}) \tag{6.1} \label{eq:unit_II_cell_structure_item_9}$$
+\begin{equation}
+2\text{H}_2\text{O}_2 \rightarrow 2\text{H}_2\text{O} + \text{O}_2 \quad (\text{catalase})
+\label{eq:unit_II_cell_structure_item_9}
+\end{equation}
 
 
-### Key Functions
+### Peroxisome Metabolism, Detoxification, and Biosynthesis
 
 - **Very-long-chain fatty acid (VLCFA) beta-oxidation:** Shortens VLCFAs (>C22) to medium-chain products that are then transferred to mitochondria for complete oxidation
 - **Plasmalogen biosynthesis:** Ether-linked phospholipids essential for myelin sheaths; ~50% of heart phospholipids are plasmalogens
@@ -580,7 +589,7 @@ $$2\text{H}_2\text{O}_2 \rightarrow 2\text{H}_2\text{O} + \text{O}_2 \quad (\tex
 - **Reactive oxygen species management:** Both generation (H$_2$O$_2$ from oxidases) and detoxification (catalase, peroxidase)
 - **Glyoxylate metabolism:** Alanine-glyoxylate aminotransferase (AGT) converts glyoxylate to glycine
 
-### Peroxisome Biogenesis
+### Peroxisome Biogenesis and Protein Import
 
 Peroxisomes form by **growth and division** of existing peroxisomes (similar to mitochondria) and also by **de novo formation** from ER-derived vesicles. Peroxisomal matrix proteins are imported post-translationally via **PTS1** (C-terminal SKL tripeptide) or **PTS2** (N-terminal nonapeptide) signals, recognised by PEX5 and PEX7 receptors.
 
@@ -604,7 +613,7 @@ Multicellular organisms require cells to adhere to each other and to the extrace
 | Selectins | Heterophilic (sugar ligands) | Yes | L-selectin (leukocytes), P-selectin (platelets, endothelium), E-selectin (endothelium) | Leukocyte rolling and homing |
 | IgCAMs | Homo/heterophilic | No | NCAM, ICAM-1, VCAM-1 | Neural development; immune cell adhesion |
 
-### Cell Junctions
+### Cell Junctions and Tissue Barrier Architecture
 
 - **Tight junctions (zonula occludens):** Seal adjacent epithelial cells; prevent paracellular diffusion; claudins and occludin form the seal; ZO-1/2/3 link to actin cytoskeleton. Create apical-basal polarity.
 - **Adherens junctions (zonula adherens):** Cadherin-mediated; linked to actin cytoskeleton via catenins (alpha, beta, p120). E-cadherin loss is a hallmark of epithelial-mesenchymal transition (EMT) in cancer metastasis.
@@ -677,7 +686,7 @@ print(count_membrane_bound_organelles(org))
 
 ---
 
-### DddA-Derived Base Editors: Editing the Mitochondrial Genome Without a Double-Strand Break
+### Mitochondrial Base Editors Without Double-Strand Breaks
 
 Mitochondrial DNA (mtDNA) encodes 13 proteins of the electron transport chain and 22 tRNAs — mutations here cause a spectrum of **mitochondrial diseases** (MELAS, MERRF, Leber's hereditary optic neuropathy) that affect roughly 1 in 5000 births. CRISPR–Cas9 could not reach mtDNA because guide RNA import into mitochondria is inefficient, and any DNA double-strand break in the polyploid (100–10 000 copies per cell) mitochondrial genome triggers rapid linear-DNA degradation rather than useful repair.
 
@@ -687,7 +696,7 @@ Worked example: for the MELAS-causing mutation m.3243A>G in tRNA^Leu^, a DdCBE t
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Cell Structure and Organelles
 
 For **Cell Structure and Organelles**, frontier biology belongs inside the evidence logic of
 the chapter. Cell biology is increasingly measured as live, spatial, single-cell, and perturbational data rather than static diagrams alone. The core reading question is this: organelle function is dynamic, contact-mediated, and context-dependent rather than a fixed list of compartments.
@@ -703,9 +712,9 @@ the chapter. Cell biology is increasingly measured as live, spatial, single-cell
   the source closest to the measurement and state what has changed since it was
   published.
 
-Ask what measurement scale is being claimed: nanometre structure, single-cell transcript abundance, organelle dynamics, tissue context, or organismal phenotype.
+For organelle claims, identify the imaging scale, molecular marker, dynamics, and perturbation evidence before assigning structure to function.
 
-**Source practice:** For cell-state claims, distinguish microscopy, live-cell perturbation, single-cell sequencing, spatial transcriptomics, and biochemical assay evidence before making a causal statement.
+**Source practice:** Distinguish fixed microscopy, live-cell perturbation, biochemical fractionation, and spatial omics evidence when making causal claims about cell architecture.
 
 ### Current Evidence Map: Membrane-Bound and Condensate Organization
 
@@ -761,7 +770,7 @@ flowchart TD
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Cell Structure and Organelles
 
 - Sagan (1967). On the origin of mitosing cells. *Journal of Theoretical Biology*, 14.
 - de Duve (1969). The lysosome in retrospect. *Lysosomes in Biology and Pathology*, North-Holland.
@@ -797,7 +806,7 @@ flowchart TD
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Cell Structure and Organelles
 
 **Cell Structure and Organelles** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

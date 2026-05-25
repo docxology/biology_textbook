@@ -182,8 +182,10 @@ units:
         title: "Gene Expression — Transcription and Translation"
       - file: mutations_and_genomics.md
         title: "Mutations, CRISPR, and Genomics"
-      - file: epigenetics_and_gene_regulation.md
-        title: "Epigenetics and Gene Regulation"
+      - file: chromatin_and_epigenetic_mechanisms.md
+        title: "Chromatin and Epigenetic Mechanisms"
+      - file: epigenetic_inheritance_and_disease.md
+        title: "Epigenetic Inheritance and Disease"
 
 
   - id: unit_V
@@ -191,8 +193,10 @@ units:
     label: "V"
     directory: unit_V
     chapters:
-      - file: mendelian_genetics.md
-        title: "Mendelian Genetics and Heredity"
+      - file: mendelian_principles.md
+        title: "Mendelian Principles and Probability"
+      - file: mendelian_extensions_and_human_genetics.md
+        title: "Mendelian Extensions and Human Genetics"
       - file: chromosomal_inheritance.md
         title: "Chromosomal Inheritance and Linkage"
       - file: population_genetics.md
@@ -219,8 +223,10 @@ units:
         title: "Bacteria, Archaea, and Viruses"
       - file: microbial_ecology.md
         title: "Microbial Ecology and the Microbiome"
-      - file: infectious_disease.md
-        title: "Infectious Disease and Immunity"
+      - file: host_immunity_and_vaccines.md
+        title: "Host Immunity and Vaccines"
+      - file: antimicrobial_resistance_and_epidemiology.md
+        title: "Antimicrobial Resistance and Epidemiology"
 
   - id: unit_VIII
     title: "Botany — Plant Biology"
@@ -245,8 +251,10 @@ units:
         title: "Nervous System and Neural Signalling"
       - file: action_potential_synapses.md
         title: "Action Potentials and Synaptic Transmission"
-      - file: endocrine_and_immune.md
-        title: "Endocrine and Immune Systems"
+      - file: endocrine_signaling.md
+        title: "Endocrine Signaling and Homeostasis"
+      - file: immune_system_defense.md
+        title: "Immune System Architecture and Defense"
 
   - id: unit_X
     title: "Ecology"
@@ -255,8 +263,10 @@ units:
     chapters:
       - file: population_ecology.md
         title: "Population Ecology and Growth Models"
-      - file: community_ecology.md
-        title: "Community Ecology and Species Interactions"
+      - file: community_interactions.md
+        title: "Community Interactions and Succession"
+      - file: biodiversity_and_food_webs.md
+        title: "Biodiversity, Food Webs, and Biogeography"
       - file: ecosystem_ecology.md
         title: "Ecosystem Ecology and Biogeochemical Cycles"
       - file: biomes_and_conservation.md
@@ -325,10 +335,12 @@ appendices:
         - file: lab_dna_replication_and_cell_cycle.md
         - file: lab_gene_expression.md
         - file: lab_mutations_and_genomics.md
-        - file: lab_epigenetics_and_gene_regulation.md
+        - file: lab_chromatin_and_epigenetic_mechanisms.md
+        - file: lab_epigenetic_inheritance_and_disease.md
     - unit: unit_V
       files:
-        - file: lab_mendelian_genetics.md
+        - file: lab_mendelian_principles.md
+        - file: lab_mendelian_extensions_and_human_genetics.md
         - file: lab_chromosomal_inheritance.md
         - file: lab_population_genetics.md
     - unit: unit_VI
@@ -340,7 +352,8 @@ appendices:
       files:
         - file: lab_bacteria_archaea_viruses.md
         - file: lab_microbial_ecology.md
-        - file: lab_infectious_disease.md
+        - file: lab_host_immunity_and_vaccines.md
+        - file: lab_antimicrobial_resistance_and_epidemiology.md
     - unit: unit_VIII
       files:
         - file: lab_plant_structure_and_water.md
@@ -351,11 +364,13 @@ appendices:
         - file: lab_circulation_respiration_homeostasis.md
         - file: lab_nervous_system.md
         - file: lab_action_potential_synapses.md
-        - file: lab_endocrine_and_immune.md
+        - file: lab_endocrine_signaling.md
+        - file: lab_immune_system_defense.md
     - unit: unit_X
       files:
         - file: lab_population_ecology.md
-        - file: lab_community_ecology.md
+        - file: lab_community_interactions.md
+        - file: lab_biodiversity_and_food_webs.md
         - file: lab_ecosystem_ecology.md
         - file: lab_biomes_and_conservation.md
 
@@ -388,10 +403,12 @@ appendices:
         - file: questions_dna_replication_and_cell_cycle.md
         - file: questions_gene_expression.md
         - file: questions_mutations_and_genomics.md
-        - file: questions_epigenetics_and_gene_regulation.md
+        - file: questions_chromatin_and_epigenetic_mechanisms.md
+        - file: questions_epigenetic_inheritance_and_disease.md
     - unit: unit_V
       files:
-        - file: questions_mendelian_genetics.md
+        - file: questions_mendelian_principles.md
+        - file: questions_mendelian_extensions_and_human_genetics.md
         - file: questions_chromosomal_inheritance.md
         - file: questions_population_genetics.md
     - unit: unit_VI
@@ -403,7 +420,8 @@ appendices:
       files:
         - file: questions_bacteria_archaea_viruses.md
         - file: questions_microbial_ecology.md
-        - file: questions_infectious_disease.md
+        - file: questions_host_immunity_and_vaccines.md
+        - file: questions_antimicrobial_resistance_and_epidemiology.md
     - unit: unit_VIII
       files:
         - file: questions_plant_structure_and_water.md
@@ -414,11 +432,13 @@ appendices:
         - file: questions_circulation_respiration_homeostasis.md
         - file: questions_nervous_system.md
         - file: questions_action_potential_synapses.md
-        - file: questions_endocrine_and_immune.md
+        - file: questions_endocrine_signaling.md
+        - file: questions_immune_system_defense.md
     - unit: unit_X
       files:
         - file: questions_population_ecology.md
-        - file: questions_community_ecology.md
+        - file: questions_community_interactions.md
+        - file: questions_biodiversity_and_food_webs.md
         - file: questions_ecosystem_ecology.md
         - file: questions_biomes_and_conservation.md
 

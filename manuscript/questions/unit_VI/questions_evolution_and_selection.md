@@ -1,4 +1,4 @@
-# Questions — Ch 19: Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
+# Questions — Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
 
 \label{sec:q_unit_VI_evolution_and_selection}
 
@@ -100,10 +100,10 @@ SOLUTION -->
 **Answer (Q13, Application).** (a) Large ornaments are costly, so only individuals in good condition can grow them without dying — the handicap guarantees signal honesty. (b) Female preference can evolve by Fisherian runaway (preference and ornament alleles become genetically correlated and self-reinforce) or good-genes (ornaments index heritable viability). (c) The models are distinguished by testing whether ornament size predicts offspring viability (good genes) versus only attractiveness (runaway). See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO5; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-14. Kin selection allows altruistic behaviour to evolve when altruism benefits genetic relatives. Apply Hamilton's rule: altruism evolves when rb > c (r = relatedness, b = benefit, c = cost). A worker honey bee (r = 0.75 to sisters) helps raise 10 sisters (b = 10) at the cost of 0 own offspring (due to sterility). Is altruism favoured? What would rB need to be to just exceed c = 3.0?
+14. Kin selection allows altruistic behaviour to evolve when altruism benefits genetic relatives. Apply Hamilton's rule: altruism evolves when $rB > C$ (r = relatedness, B = benefit, C = cost). A worker honey bee ($r = 0.75$ to full sisters in a simplified haplodiploid case) helps raise 10 additional sisters ($B = 10$) at an opportunity cost of 3 own offspring ($C = 3$). Is helping favoured? Then explain why haplodiploidy by itself cannot explain eusociality, using termites as the contrast case.
 
 <!-- SOLUTION
-**Answer (Q14, Application).** Hamilton's rule: altruism spreads when rb > c. Here r = 0.75, b = 10, c = 0 → rb = 7.5 > 0, so altruism is strongly favoured. To just exceed c = 3.0 you need rb > 3, i.e. with r = 0.75 a benefit b > 4 (b_min = 3/0.75 = 4). See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q14, Application).** Hamilton's rule is satisfied because $rB = 0.75 \times 10 = 7.5$, and $7.5 > 3$, so helping is favoured under the stated assumptions. The threshold benefit is $B > C/r = 3/0.75 = 4$, so raising more than four equivalent full sisters would exceed the cost. The caveat is biological: haplodiploidy raises relatedness in many ants, bees, and wasps, but many haplodiploids are solitary and termites are diploid eusocial insects. Eusociality therefore needs kin structure plus ecology, mating system, nest defence, brood provisioning, and phylogenetic history. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO6; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
 15. Selection on quantitative traits can be modelled by the breeder's equation: R = h²S (R = response to selection, h² = heritability, S = selection differential). If height heritability is 0.80 and we select parents who are 5 cm taller than the population mean, predict R. How many generations of selection would be needed to shift mean height by 10 cm?

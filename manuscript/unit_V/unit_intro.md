@@ -67,9 +67,9 @@ graph TD
     style POP fill:#8e44ad,color:#fff
     style MEI fill:#e74c3c,color:#fff
 ```
-<!-- alt: Flowchart for Key Concepts and Connections: 1 phenotypic ratio; Punnett square)"], 🫛 Mendel's Laws (Segregation + Independent Assortment), 📊 Monohybrid Cross (3:1 phenotypic ratio; Punnett square), and 3:3:1; two unlinked genes)"] form the diagram's primary path or branches. -->
+<!-- alt: Graph showing classical genetics concept map linking Mendel's laws to monohybrid ratios, Punnett squares, dihybrid ratios, linkage, chromosomes, and population genetics. -->
 
-*Flowchart for Key Concepts and Connections: 1 phenotypic ratio; Punnett square)"], 🫛 Mendel's Laws (Segregation + Independent Assortment), 📊 Monohybrid Cross (3:1 phenotypic ratio; Punnett square), and 3:3:1; two unlinked genes)"] form the diagram's primary path or branches.*
+*Classical genetics concept map linking Mendel's laws to monohybrid ratios, Punnett squares, dihybrid ratios, linkage, chromosomes, and population genetics.*
 
 **\nameref{sec:unit_V_unit_intro} concept map — Classical Genetics and Heredity.**
 

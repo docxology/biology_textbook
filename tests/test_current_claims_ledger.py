@@ -9,8 +9,15 @@ import sys
 
 PROJECT = Path(__file__).resolve().parent.parent
 SRC = PROJECT / "src"
-TEMPLATE_ROOT = PROJECT.parent.parent
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from textbook_paths import discover_template_root  # noqa: E402
+
+TEMPLATE_ROOT = discover_template_root(PROJECT)
 for path in (TEMPLATE_ROOT, SRC):
+    if path is None:
+        continue
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
@@ -19,7 +26,7 @@ from biology.current_claims import CurrentClaim, load_current_claims, validate_c
 
 def test_current_claims_ledger_is_valid() -> None:
     claims = load_current_claims(project_root=PROJECT)
-    issues = validate_current_claims(claims, today=date(2026, 5, 20))
+    issues = validate_current_claims(claims, today=date(2026, 5, 23))
     assert not [issue.format() for issue in issues]
 
 
@@ -43,17 +50,41 @@ def test_current_claims_checked_as_of_policy_allows_boundary(tmp_path: Path) -> 
     assert not [issue for issue in issues if issue.code == "stale-checked-date"]
 
 
+def test_current_claims_require_citekey_near_anchor(tmp_path: Path) -> None:
+    source = tmp_path / "chapter.md"
+    source.write_text(
+        "The claim anchor has no local citation.\n\nA later paragraph cites source-key.",
+        encoding="utf-8",
+    )
+    claim = _claim(source, checked_as_of=date(2026, 1, 2))
+
+    issues = validate_current_claims((claim,), today=date(2026, 5, 21))
+
+    assert any(issue.code == "missing-citekey-near-claim" for issue in issues)
+
+    source.write_text("The claim anchor cites source-key.\n\nA later paragraph continues.", encoding="utf-8")
+    issues = validate_current_claims((claim,), today=date(2026, 5, 21))
+    assert not [issue for issue in issues if issue.code == "missing-citekey-near-claim"]
+
+
 def test_current_claims_cover_required_fast_moving_topics() -> None:
     claims = load_current_claims(project_root=PROJECT)
     topics = {claim.topic for claim in claims}
     assert {
         "AI biomolecular modeling",
         "antimicrobial resistance",
+        "brain cell atlases",
         "climate scenario",
         "conservation status",
+        "enzyme databases",
+        "gene therapy",
         "genome-editing therapy",
+        "microbial taxonomy",
+        "molecular biology databases",
         "pangenomics",
+        "plant pangenomics",
         "population projection",
+        "RNA databases",
     } <= topics
 
 

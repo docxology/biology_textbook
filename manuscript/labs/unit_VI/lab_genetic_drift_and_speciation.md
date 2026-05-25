@@ -1,4 +1,4 @@
-# Lab 20 — Genetic Drift, Gene Flow, and Speciation {.unnumbered}
+# Lab — Genetic Drift, Gene Flow, and Speciation {.unnumbered}
 
 \label{sec:lab_unit_VI_genetic_drift_and_speciation}
 
@@ -45,7 +45,7 @@
 
 5. **Real-World Application**: The founder effect is thought to have played a role in the high prevalence of certain genetic disorders in isolated populations (e.g., Tay-Sachs in Ashkenazi Jews). How does the founder effect explain this pattern? What are the implications for genetic counseling?
 
-## Background {.unnumbered}
+## Lab Context: Genetic Drift, Gene Flow, and Speciation {.unnumbered}
 
 Even without natural selection, populations evolve through random genetic drift, gene flow, and mutation. The **founder effect** (a special case of bottleneck) occurs when a small number of individuals colonise a new area, carrying primarily a subset of the original gene pool's variation. **Speciation** — the formation of new species — occurs when reproductive isolation evolves between populations, typically after geographic (allopatric) or ecological (sympatric) separation. The Fixation Index **Fst = (H_T − H_S) / H_T** quantifies genetic differentiation between populations (0 = no differentiation; 1 = complete differentiation).
 
@@ -55,6 +55,7 @@ The effective-population-size worked example in the parent chapter (\cref{sec:un
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Genetic Drift, Gene Flow, and Speciation: evolutionary-evidence source card: alternative hypotheses, sampling, calibration, and confidence boundary | 1 |
 | 100 beads (50 red, 50 blue — representing two alleles) in a bag | 1 |
 | Second bag for "new island" | 1 |
 | Speciation case study cards (allopatric: Hawaiian honeycreepers; sympatric: cichlid fish in Lake Victoria) | 1 set |
@@ -84,7 +85,7 @@ The effective-population-size worked example in the parent chapter (\cref{sec:un
    - Compare p values: original, 6-founder, 20-founder.
    - Perform at least 3 replicates for each founder size.
 
-### Part 2: Computational Biology Exercise - Population Genetics Analysis with Python {.unnumbered}
+### Part 2: Computational Biology Exercise — Population Genetics Analysis with Python {.unnumbered}
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
@@ -160,6 +161,10 @@ equipment version belongs only in an optional extension.
 **Solution:** Substitute N_m = 10 and N_f = 50 into the formula. The numerator is 4 × 10 × 50 = 2000. The denominator is N_m + N_f = 10 + 50 = 60. Dividing, N_e ≈ 2000 / 60 ≈ 33.3 — roughly one-third of the census size. For a random-mating population of the same census size 100 with equal breeding success, N_e would be much closer to 100, although seldom exactly equal because of generational and reproductive variance.
 
 **Interpretation:** Reducing the breeding sex ratio from 50:50 to 10:50 cuts the effective population size from near 100 to about 33. The per-generation loss of heterozygosity is governed by 1 / (2 N_e), so this skew triples the rate of drift compared with the random-mating case. Two consequences follow: rare alleles are lost more readily, and the inbreeding coefficient F accumulates faster. In a conservation context, this is why a census count alone can give an overly optimistic view of a population's genetic health — the relevant quantity for diversity loss is N_e, not N.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Genetic Drift, Gene Flow, and Speciation before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

@@ -1,4 +1,4 @@
-# Questions — Ch 28: Circulation, Respiration, and Homeostasis {.unnumbered}
+# Questions — Circulation, Respiration, and Homeostasis {.unnumbered}
 
 \label{sec:q_unit_IX_circulation_respiration_homeostasis}
 

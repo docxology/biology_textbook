@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 12** · Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_I_macromolecules}, \cref{sec:unit_II_cell_structure}
+> Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_I_macromolecules}, \cref{sec:unit_II_cell_structure}
 
 ## Learning Objectives
 
@@ -72,7 +72,7 @@ The phosphodiester backbone runs 5' to 3' and carries two negative charges per [
 
 ---
 
-## DNA Replication
+## DNA Replication and Genome Copying Fidelity
 
 Replication is **semiconservative** -- each daughter double helix retains one parental strand. This was demonstrated by \citet{meselson1958} using $^{15}$N density gradient centrifugation in *E. coli*. After one generation in $^{14}$N medium, most DNA was intermediate density (ruling out conservative replication). After two generations, half was intermediate and half was light (ruling out dispersive replication).
 
@@ -149,7 +149,7 @@ flowchart TD
 
 *Eukaryotic DNA replication machinery at the replication fork. The leading strand is synthesized continuously, while the lagging strand requires repeated priming and ligation of Okazaki fragments.*
 
-### Key enzymes at the fork:
+### Replication Fork Enzymes and Their Roles
 
 | Enzyme | Prokaryote | Eukaryote | Function |
 |--------|-----------|-----------|----------|
@@ -310,7 +310,7 @@ The error rate of replication is remarkably low: approximately 1 error per $10^{
 2. **3' to 5' exonuclease proofreading** (~$10^{-2}$ improvement): If a mismatch is incorporated, the polymerase pauses; the 3' to 5' exonuclease domain excises the incorrect nucleotide and the polymerase re-extends
 3. **Mismatch repair (MMR)** (~$10^{-3}$ improvement): Post-replicative scanning by MutS (MSH2/MSH6 in humans), which detects mismatches and small insertion/deletion loops
 
-\begin{equation}\text{Overall error rate} \approx 10^{-5} \times 10^{-2} \times 10^{-3} = 10^{-10} \text{ per bp per replication} \tag{12.1}\label{eq:error_rate}\end{equation}
+\begin{equation}\text{Overall error rate} \approx 10^{-5} \times 10^{-2} \times 10^{-3} = 10^{-10} \text{ per bp per replication}\label{eq:error_rate}\end{equation}
 
 > **Clinical Connection: Lynch Syndrome (HNPCC)**
 > Germline mutations in MMR [**gene**](#gl:gene)s (*MLH1*, *MSH2*, *MSH6*, *PMS2*) cause Lynch syndrome (hereditary non-polyposis colorectal cancer). Affected individuals have a 50-80% lifetime risk of colorectal cancer and increased risk of endometrial, ovarian, and gastric cancers. The hallmark is **microsatellite instability (MSI)** -- expansion or contraction of short tandem repeats due to uncorrected replication slippage. MSI-high tumors respond well to immune checkpoint inhibitors (anti-PD-1), making Lynch syndrome diagnosis therapeutically important.
@@ -356,7 +356,7 @@ Result: each replication cycle, ~50–200 bp of TTAGGG repeats are lost from tel
 
 **Telomerase**: A specialized reverse transcriptase that extends the 3' overhang:
 
-\begin{equation}5'\text{-}(TTAGGG)_n\text{-OH-3'} \xrightarrow{\text{TERC RNA template: 3'-AAUCCC-5'}} 5'\text{-}(TTAGGG)_{n+1}\text{-OH-3'} \tag{12.2}\label{eq:telomerase}\end{equation}
+\begin{equation}5'\text{-}(TTAGGG)_n\text{-OH-3'} \xrightarrow{\text{TERC RNA template: 3'-AAUCCC-5'}} 5'\text{-}(TTAGGG)_{n+1}\text{-OH-3'}\label{eq:telomerase}\end{equation}
 
 - **TERT** (telomerase reverse transcriptase): the catalytic protein subunit
 - **TERC** (telomerase RNA component): 451-nt RNA containing the template sequence (in humans, 5'-CUAACCCUAAC-3') used to add TTAGGG repeats
@@ -684,7 +684,7 @@ DNA sustains approximately 10,000-100,000 lesions per cell per day from endogeno
 | Pyrimidine dimers (CPD) | UV light (280-320 nm) | Variable (sun exposure dependent) |
 | Alkylated bases | Endogenous S-adenosylmethionine; alkylating agents | ~3,000 |
 
-### Repair Pathways
+### DNA Repair Pathways and Cell-Cycle Context
 
 **Direct reversal**:
 - **Photolyase** (not in humans): uses visible light energy to directly cleave cyclobutane pyrimidine dimers
@@ -734,11 +734,11 @@ The choice between NHEJ and HR is regulated by **53BP1** (favors NHEJ) versus **
 
 **Solution**: The expendable telomere reserve is the starting length minus the senescence threshold; the number of divisions is that reserve divided by the loss per division:
 
-\begin{equation}n = \frac{10{,}000 \text{ bp} - 4{,}000 \text{ bp}}{100 \text{ bp/division}} = \frac{6{,}000 \text{ bp}}{100 \text{ bp/division}} = 60 \text{ divisions} \tag{12.5}\label{eq:telomere_shortening_divisions}\end{equation}
+\begin{equation}n = \frac{10{,}000 \text{ bp} - 4{,}000 \text{ bp}}{100 \text{ bp/division}} = \frac{6{,}000 \text{ bp}}{100 \text{ bp/division}} = 60 \text{ divisions}\label{eq:telomere_shortening_divisions}\end{equation}
 
 (b) How much total telomeric DNA is lost over that lifespan?
 
-\begin{equation}\Delta L = 60 \text{ divisions} \times 100 \text{ bp/division} = 6{,}000 \text{ bp} \tag{12.6}\label{eq:telomere_total_loss}\end{equation}
+\begin{equation}\Delta L = 60 \text{ divisions} \times 100 \text{ bp/division} = 6{,}000 \text{ bp}\label{eq:telomere_total_loss}\end{equation}
 
 The predicted $60$ divisions sits squarely within the measured Hayflick limit of $\approx 50$--$70$ divisions for human fibroblasts, showing how the end-replication problem imposes a built-in replicative clock that limits the proliferative capacity of somatic cells and acts as a tumour-suppressive barrier.
 
@@ -751,7 +751,7 @@ The predicted $60$ divisions sits squarely within the measured Hayflick limit of
 
 **Solution**: Bidirectional replication means two forks travel in opposite directions. Each fork must cover half the genome:
 
-\begin{equation}t = \frac{4.6 \times 10^6 \text{ bp}}{2 \times 1000 \text{ bp/s}} = 2300 \text{ s} \approx 38.3 \text{ min} \tag{12.3}\label{eq:replication_time_bacteria}\end{equation}
+\begin{equation}t = \frac{4.6 \times 10^6 \text{ bp}}{2 \times 1000 \text{ bp/s}} = 2300 \text{ s} \approx 38.3 \text{ min}\label{eq:replication_time_bacteria}\end{equation}
 
 (b) *E. coli* can divide every 20 minutes under optimal conditions. How is this possible?
 
@@ -759,7 +759,7 @@ The predicted $60$ divisions sits squarely within the measured Hayflick limit of
 
 (c) The eukaryotic replication fork speed is ~50 bp/s. If the human genome (3.2 Gb) had a single origin, how long would S phase take?
 
-\begin{equation}t = \frac{3.2 \times 10^9}{2 \times 50} = 3.2 \times 10^7 \text{ s} \approx 370 \text{ days} \tag{12.4}\label{eq:replication_time_euk}\end{equation}
+\begin{equation}t = \frac{3.2 \times 10^9}{2 \times 50} = 3.2 \times 10^7 \text{ s} \approx 370 \text{ days}\label{eq:replication_time_euk}\end{equation}
 
 This is why eukaryotes require approximately 30,000-50,000 origins to complete replication in approximately 8 hours.
 
@@ -781,7 +781,7 @@ print(lagging_template)
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: DNA Replication and the Cell Cycle
 
 For **DNA Replication and the Cell Cycle**, frontier biology belongs inside the evidence logic of
 the chapter. Molecular genetics now spans single-reference sequences, telomere-to-telomere assemblies, pangenome graphs, long-read sequencing, CRISPR medicines, and ethical deployment. The core reading question is this: replication claims should connect polymerase accuracy, checkpoint timing, damage response, and cancer relevance.
@@ -797,7 +797,7 @@ the chapter. Molecular genetics now spans single-reference sequences, telomere-t
   the source closest to the measurement and state what has changed since it was
   published.
 
-When a genomic claim depends on a reference, ask whether short reads, structural variants, ancestry representation, phasing, or clinical validation could change the interpretation \citep{humanpangenome2023,fda2023casgevy,fda2024casgevythalassemia}.
+For reference-dependent genetic claims, ask whether read length, structural variation, ancestry representation, phasing, or clinical validation changes the interpretation \citep{humanpangenome2023,fda2023casgevy,fda2024casgevythalassemia}.
 
 **Source practice:** For genomics and editing claims, distinguish discovery from clinical actionability, and cite reference resources, regulatory records, or primary editing studies close to the claim \citep{humanpangenome2023,fda2026casgevy,chalumeau2025primeediting}.
 
@@ -832,7 +832,7 @@ When a genomic claim depends on a reference, ask whether short reads, structural
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: DNA Replication and the Cell Cycle
 
 - Meselson & Stahl (1958). The replication of {DNA} in {Escherichia coli}. *Proceedings of the National Academy of Sciences*, 44.
 - Okazaki et al. (1968). Mechanism of DNA chain growth: Discontinuous synthesis. *Proceedings of the National Academy of Sciences*, 59.
@@ -865,7 +865,7 @@ When a genomic claim depends on a reference, ask whether short reads, structural
 
 ---
 
-### Companion Source Module
+## Companion Source Module: DNA Replication and the Cell Cycle
 
 **DNA Replication and the Cell Cycle** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

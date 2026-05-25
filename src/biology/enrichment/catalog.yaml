@@ -1,0 +1,1067 @@
+FRONTIER_BY_UNIT:
+  unit_0:
+  - Systems models are useful when they expose assumptions, uncertainty, and failure modes rather than merely producing elegant
+    diagrams.
+  - Define the system boundary, observable, uncertainty, and rival explanation before treating a model as a mechanism.
+  unit_I:
+  - Chemistry-of-life claims now connect classical bonding and thermodynamics with AI-guided structure prediction and experimental
+    validation.
+  - 'Treat biomolecular predictions as constrained hypotheses: compare confidence, conservation, solvent exposure, and assay
+    evidence before claiming mechanism \citep{abramson2024alphafold3}.'
+  unit_II:
+  - Cell biology is increasingly measured as live, spatial, single-cell, and perturbational data rather than static diagrams
+    alone.
+  - Name the measurement scale, perturbation, and boundary condition before moving from cell-state pattern to causal explanation.
+  unit_III:
+  - Metabolism is now studied as a regulated network constrained by energy, redox balance, compartmentation, and environment.
+  - Name the flux, compartment, limiting step, sensor, and condition under which pathway priority changes.
+  unit_IV:
+  - Molecular genetics now spans single-reference sequences, telomere-to-telomere assemblies, pangenome graphs, long-read
+    sequencing, CRISPR medicines, and ethical deployment.
+  - For reference-dependent genetic claims, ask whether read length, structural variation, ancestry representation, phasing,
+    or clinical validation changes the interpretation \citep{humanpangenome2023,fda2023casgevy,fda2024casgevythalassemia}.
+  unit_V:
+  - Classical genetics remains essential, but modern interpretation adds penetrance, polygenicity, structural variation, ancestry-aware
+    inference, and uncertainty in risk prediction.
+  - A good genetics answer separates the Mendelian transmission model from the evidence needed to use it in a population,
+    family, or clinical setting.
+  unit_VI:
+  - Evolutionary claims are strongest when they combine mechanism, comparative evidence, population process, and explicit
+    uncertainty.
+  - Separate selection, drift, convergence, shared ancestry, and testable present-day predictions before assigning evolutionary
+    cause.
+  unit_VII:
+  - Microbiology and infectious disease now require One Health reasoning across people, animals, environments, genomics, and
+    antimicrobial stewardship.
+  - For resistance or outbreak claims, name the organism, determinant, selection pressure, transmission route, and surveillance
+    evidence \citep{who2024bppl,cdc2025antibioticuse,murray2022amr}.
+  unit_VIII:
+  - Plant biology links molecular regulation to climate stress, water limitation, crop resilience, phenology, and ecosystem
+    feedbacks.
+  - Name the tissue, signal, environmental driver, measurable trait, and growth-reproduction-defence-water tradeoff.
+  unit_IX:
+  - Physiology now blends mechanism with allostasis, immune-endocrine-neural coupling, wearable data, and individualized risk
+    without reducing bodies to simple machines.
+  - Separate baseline set point, perturbation response, compensation, and failure threshold before interpreting physiological
+    data.
+  unit_X:
+  - Ecology and conservation decisions increasingly combine field data, remote sensing, community knowledge, model uncertainty,
+    and explicit values.
+  - 'Select biodiversity and conservation metrics by decision need: abundance, interaction, function, risk, service, and governance
+    metrics answer different questions \citep{ipbes2019global,ipbes2024transformative,wwf2024livingplanet,iucn2025redlist,fao2024sofia}.'
+SOURCE_PRACTICE_BY_UNIT:
+  unit_0: Use model-validation sources that expose boundaries, observables, and falsifiers rather than treating a diagram
+    as proof.
+  unit_I: For structure and interaction claims, cite experimental structures when available and validate predictions with
+    confidence metrics, conservation, mutagenesis, binding, or cryo-EM/X-ray/NMR evidence \citep{abramson2024alphafold3,velankar2026alphafolddb2025,emblebi2026alphafoldcomplexes}.
+  unit_II: For cell claims, distinguish microscopy, live-cell perturbation, single-cell sequencing, spatial transcriptomics,
+    and biochemical assay evidence before making a causal statement.
+  unit_III: For metabolism claims, keep the organism, compartment, energetic state, and measurement method visible; a pathway
+    map is not enough without flux or concentration evidence.
+  unit_IV: For genomics and editing claims, distinguish discovery from clinical actionability, and cite reference resources,
+    regulatory records, or primary editing studies close to the claim \citep{humanpangenome2023,fda2026casgevy,chalumeau2025primeediting}.
+  unit_V: For genetics claims, separate model assumptions from sampling, ancestry representation, penetrance, linkage, and
+    environment.
+  unit_VI: For evolution claims, prefer evidence that compares alternatives such as selection, drift, gene flow, constraint,
+    convergence, and shared ancestry.
+  unit_VII: For pathogen, resistance, and intervention claims, tie statements to organism-resistance pairs, surveillance evidence,
+    official guidance, and trial/regulatory status \citep{who2024bppl,who2025tb,who2025malaria,cdc2025lenacapavirprep,cdc2026candidaauris}.
+  unit_VIII: For plant claims, name the tissue, environmental driver, field context, and growth-reproduction tradeoff; separate
+    laboratory potential from agronomic adoption.
+  unit_IX: For body-system claims, cite the measurement context and distinguish set point, perturbation, compensation, pathophysiology,
+    and treatment evidence.
+  unit_X: For ecology and conservation claims, cite assessment sources and state whether the evidence is an index, risk assessment,
+    service valuation, satellite product, or policy synthesis \citep{ipbes2024transformative,noaa2025coralbleaching,fao2025sofi}.
+EXTRA_FRONTIER_BY_STEM:
+  cell_theory: Single-cell atlases are most useful when they clarify the sampled tissue, donor context, assay chemistry, and
+    annotation uncertainty; Human Cell Atlas-style resources turn cell theory into a measurable census, but they do not remove
+    the need for perturbation evidence \citep{regev2017humancellatlas,pan2024singlecellatlas}.
+  membrane_transport: Mechanosensitive channel claims should name the force, lipid environment, oligomeric state, and assay
+    context; TMEM63 channelopathy work links structural rearrangement to disease mutations, so the mechanism should remain
+    tied to the channel family and assay context \citep{zheng2025tmem63channelopathies}.
+  photosynthesis: Carbonyl-sulfide tracer work turns global GPP into an explicitly physiological inference about CO2 diffusion
+    through stomata and mesophyll, so carbon-cycle claims should report the tracer, diffusion assumptions, and biome context
+    rather than treating satellite greenness as a direct proxy for photosynthesis \citep{lai2024gppcarbonylsulfide}.
+  plant_structure_and_water: 'Hydraulic safety claims should also be benchmarked against comparative vulnerability data: globally,
+    many forest species operate close to xylem failure thresholds, so drought tolerance must be framed as a margin rather
+    than a binary trait \citep{choat2012hydraulicmargins}.'
+  plant_responses: 'Heat-stress responses should be separated by tissue and developmental stage: protecting vegetative leaves
+    is not the same as preserving male reproductive success, where epigenetic regulation and pollen development can be the
+    limiting failure point \citep{malik2022heatstressmale}. Guard-cell calcium work shows that stomatal dynamics can depend
+    on the count and timing of unitary cytosolic Ca2+ signals, linking ion-channel physiology to whole-plant water tradeoffs
+    without implying plant decision-making is animal-like cognition \citep{huang2024guardcells}.'
+  ecosystem_ecology: 'Vegetation-carbon claims are measurement-sensitive: daily rainfall variability can strongly affect global
+    vegetation activity, so ecosystem productivity arguments should distinguish total precipitation from event timing and
+    intensity \citep{feldman2024rainfallvariability}.'
+FOCUS_BY_STEM:
+  systems_science: system boundary choice, feedback sign, and scale determine whether a model explains or hides the biology.
+  complex_adaptive_systems: agent rules, heterogeneity, stochasticity, and path dependence make biological prediction conditional
+    rather than absolute.
+  active_inference: active-inference explanations must connect hidden states, sensory evidence, action, and measurable prediction
+    error.
+  history_philosophy_biology: history-and-philosophy claims should separate mechanism, model assumption, historical context,
+    and normative language.
+  atoms_molecules: molecular claims need charge, polarity, geometry, concentration, and solvent context.
+  water_and_life: water's biological effects depend on hydrogen bonding, colligative context, interfaces, temperature, and
+    solute identity.
+  macromolecules: macromolecule explanations should connect sequence, structure, dynamics, modification, interaction, and
+    assay evidence.
+  enzymes_and_kinetics: enzyme claims should separate binding, catalysis, regulation, transport limits, and measurement conditions.
+  cell_theory: cell-theory evidence now includes microscopy, lineage tracing, omics, and synthetic-cell boundary tests.
+  cell_structure: organelle function is dynamic, contact-mediated, and context-dependent rather than a fixed list of compartments.
+  membrane_transport: transport claims require gradients, permeability, electrochemical driving force, gating, and energy
+    coupling.
+  cell_signaling: signalling explanations should include receptor context, dose, timing, feedback, crosstalk, and cellular
+    state.
+  bioenergetics_and_respiration: respiration claims should track electrons, protons, redox poise, ATP yield, and uncoupling.
+  photosynthesis: photosynthesis claims should distinguish light capture, carbon fixation, photorespiration, water stress,
+    and canopy context.
+  metabolic_integration: metabolic integration depends on compartmentation, hormone state, nutrient availability, and time
+    scale.
+  dna_replication_and_cell_cycle: replication claims should connect polymerase accuracy, checkpoint timing, damage response,
+    and cancer relevance.
+  gene_expression: expression claims should separate transcription, RNA processing, translation, localization, degradation,
+    and feedback.
+  mutations_and_genomics: genomics claims should distinguish variant discovery, pathogenic interpretation, ancestry representation,
+    and clinical actionability.
+  chromosomal_inheritance: chromosome-scale inheritance depends on recombination, segregation, structural variation, and dosage
+    compensation.
+  population_genetics: allele-frequency explanations should name the force, parameter values, assumptions, and data needed
+    to distinguish forces.
+  evolution_and_selection: selection claims need fitness components, ecological context, genetic variation, and alternative
+    hypotheses.
+  genetic_drift_and_speciation: speciation claims should separate gene flow, reproductive isolation, demographic history,
+    and genomic architecture.
+  phylogenetics: phylogenetic confidence depends on sampling, model choice, homology, conflict among loci, and calibration.
+  bacteria_archaea_viruses: microbial claims should identify taxonomy, genome architecture, metabolism, resistance mechanism,
+    and environment.
+  microbial_ecology: microbiome claims should distinguish correlation, mechanism, host context, perturbation, and causality.
+  plant_structure_and_water: plant-water claims require water potential, hydraulic pathway, stomatal control, tissue anatomy,
+    and stress context.
+  plant_reproduction: plant reproduction links pollination, development, genetics, phenology, dispersal, and environmental
+    filtering.
+  plant_responses: plant response claims should connect signal perception, hormone network, gene expression, phenotype, and
+    tradeoff.
+  circulation_respiration_homeostasis: homeostasis claims should connect flow, diffusion, control loops, reserve capacity,
+    and measurement limits.
+  nervous_system: neural explanations should separate circuit architecture, glial support, plasticity, behaviour, and evidence
+    scale.
+  action_potential_synapses: synaptic claims require ion-channel timing, driving force, transmitter release, receptor dynamics,
+    and plasticity.
+  population_ecology: population claims require density dependence, demographic stochasticity, dispersal, age structure, and
+    management objective.
+  ecosystem_ecology: ecosystem claims should track stocks, fluxes, residence times, boundaries, and coupled cycles.
+  biomes_and_conservation: conservation claims must separate ecological evidence, social values, feasibility, and uncertainty
+    in tradeoffs.
+  endocrine_signaling: endocrine-immune claims should include feedback, timing, receptor sensitivity, inflammation, and allostatic
+    load.
+  immune_system_defense: endocrine-immune claims should include feedback, timing, receptor sensitivity, inflammation, and
+    allostatic load.
+  chromatin_and_epigenetic_mechanisms: epigenetic claims require causal perturbation, cell-type specificity, timing, and inheritance
+    controls.
+  epigenetic_inheritance_and_disease: epigenetic claims require causal perturbation, cell-type specificity, timing, and inheritance
+    controls.
+  community_interactions: community claims should identify interaction type, network position, disturbance regime, and observational
+    limits.
+  biodiversity_and_food_webs: community claims should identify interaction type, network position, disturbance regime, and
+    observational limits.
+  mendelian_principles: Mendelian patterns are starting models that must be qualified by penetrance, linkage, environment,
+    and sampling.
+  mendelian_extensions_and_human_genetics: Mendelian patterns are starting models that must be qualified by penetrance, linkage,
+    environment, and sampling.
+  host_immunity_and_vaccines: infectious-disease reasoning should connect pathogen biology, transmission, immunity, diagnostics,
+    interventions, and equity.
+  antimicrobial_resistance_and_epidemiology: infectious-disease reasoning should connect pathogen biology, transmission, immunity,
+    diagnostics, interventions, and equity.
+FIGURE_BY_STEM:
+  macromolecules:
+  - AI Structure Claims Need Validation
+  - "flowchart LR\n    A[\"Sequence or complex question\"] --> B[\"AFDB or AlphaFold 3 model\"]\n    B --> C[\"Confidence\
+    \ and PAE check\"]\n    C --> D[\"Interface or active-site hypothesis\"]\n    D --> E[\"Conservation and mutagenesis\"\
+    ]\n    E --> F[\"Binding, kinetics, or structure test\"]\n    F --> G[\"Qualified biological claim\"]"
+  - Workflow for turning an AI-predicted protein or protein-complex model into a testable, qualified biological claim.
+  - AI structure models are strongest when confidence, interface geometry, conservation, mutagenesis, and experimental assays
+    converge rather than when a model is treated as final evidence \citep{abramson2024alphafold3,velankar2026alphafolddb2025,emblebi2026alphafoldcomplexes}.
+  enzymes_and_kinetics:
+  - Enzyme Engineering Evidence Chain
+  - "flowchart LR\n    A[\"Catalytic problem\"] --> B[\"Structure or model\"]\n    B --> C[\"Residue hypothesis\"]\n    C\
+    \ --> D[\"Variant library\"]\n    D --> E[\"Kinetic screen\"]\n    E --> F[\"Specificity and stability\"]\n    F --> G[\"\
+    Application decision\"]"
+  - Evidence chain for enzyme engineering from structural hypothesis to kinetic, specificity, and stability evidence.
+  - Enzyme-engineering claims need rate, specificity, stability, and context; a better active-site story is not enough without
+    quantitative kinetics.
+  cell_structure:
+  - Membrane-Bound and Condensate Organization
+  - "flowchart TD\n    A[\"Cell organization\"] --> B[\"Membrane-bound organelles\"]\n    A --> C[\"Biomolecular condensates\"\
+    ]\n    B --> D[\"Lipid barrier and lumen\"]\n    C --> E[\"Weak multivalent interactions\"]\n    E --> F[\"Concentration\
+    \ threshold\"]\n    F --> G[\"Dynamic assembly\"]\n    G --> H[\"Function or disease risk\"]"
+  - Comparison of classical membrane-bounded compartments with dynamic biomolecular condensates assembled by weak multivalent
+    interactions.
+  - Condensates should be taught as regulatable cellular organization, not as a replacement for membrane-bound organelles
+    or as proof of causality by appearance alone.
+  cell_signaling:
+  - Spatial Single-Cell Signalling Evidence
+  - "flowchart LR\n    A[\"Tissue sample\"] --> B[\"Spatial transcriptomics\"]\n    A --> C[\"Perturbation assay\"]\n    B\
+    \ --> D[\"Cell-state map\"]\n    C --> E[\"Changed pathway activity\"]\n    D --> F[\"Neighbour context\"]\n    E -->\
+    \ F\n    F --> G[\"Causal signalling model\"]"
+  - How spatial transcriptomics and perturbation evidence combine to support a cell-signalling model.
+  - A signalling claim is stronger when receptor state, ligand source, cell neighbourhood, and perturbation response point
+    to the same mechanism.
+  membrane_transport:
+  - Transporter Structure to Function
+  - "flowchart LR\n    A[\"Predicted transporter fold\"] --> B[\"Cavity and gate residues\"]\n    B --> C[\"Substrate or ion\
+    \ hypothesis\"]\n    C --> D[\"Mutagenesis panel\"]\n    D --> E[\"Transport assay\"]\n    E --> F[\"State-cycle model\"\
+    ]"
+  - Workflow linking a predicted membrane-transporter structure to mutagenesis, transport assays, and state-cycle interpretation.
+  - Transporter structure claims need functional assays because transport depends on cycling among states, not a single static
+    conformation \citep{abramson2024alphafold3,varadi2024alphafolddb}.
+  bioenergetics_and_respiration:
+  - Respiration Evidence Accounting
+  - "flowchart LR\n    A[\"Carbon substrate\"] --> B[\"Electron carriers\"]\n    B --> C[\"Proton gradient\"]\n    C --> D[\"\
+    ATP synthase\"]\n    C --> E[\"Leak or uncoupling\"]\n    D --> F[\"ATP yield\"]\n    E --> G[\"Heat or lower efficiency\"\
+    ]\n    F --> H[\"Physiological interpretation\"]\n    G --> H"
+  - Respiration interpretation requires tracking electron carriers, proton motive force, ATP synthesis, and uncoupling.
+  - ATP-yield claims are conditional on shuttle use, proton leak, coupling efficiency, tissue state, and measurement method
+    rather than one fixed number.
+  photosynthesis:
+  - Photosynthesis Under Stress
+  - "flowchart TD\n    A[\"Light and CO2 supply\"] --> B[\"Electron transport\"]\n    A --> C[\"Stomatal conductance\"]\n\
+    \    C --> D[\"Internal CO2\"]\n    D --> E[\"Calvin cycle\"]\n    B --> E\n    E --> F[\"Sugar export\"]\n    C --> G[\"\
+    Water loss\"]\n    G --> H[\"Growth tradeoff\"]"
+  - Stress-aware photosynthesis map connecting light capture, stomatal conductance, carbon fixation, sugar export, and water
+    loss.
+  - 'Photosynthesis in a plant is a coupled carbon-water decision: high light cannot raise growth if CO2 entry, water status,
+    or sink demand becomes limiting.'
+  mutations_and_genomics:
+  - Genome Editing From Variant to Follow-Up
+  - "flowchart LR\n    A[\"Disease mechanism\"] --> B[\"Editing strategy\"]\n    B --> C[\"Cell collection or delivery\"]\n\
+    \    C --> D[\"On-target edit assay\"]\n    D --> E[\"Off-target and SV checks\"]\n    E --> F[\"Clinical endpoint\"]\n\
+    \    F --> G[\"Long-term monitoring\"]"
+  - Genome-editing therapy workflow from disease mechanism to editing strategy, safety assays, clinical endpoint, and long-term
+    monitoring.
+  - Casgevy and prime-editing examples show why editing medicines require molecular endpoints, structural-variant surveillance,
+    toxicity monitoring, and long follow-up \citep{fda2026casgevy,chalumeau2025primeediting}.
+  population_genetics:
+  - Ancestry-Aware Variant Interpretation
+  - "flowchart LR\n    A[\"Sampled individuals\"] --> B[\"Reference choice\"]\n    B --> C[\"Variant calls\"]\n    C --> D[\"\
+    Allele frequency\"]\n    D --> E[\"Model assumptions\"]\n    E --> F[\"Risk or selection claim\"]\n    B --> G[\"Pangenome\
+    \ graph\"]\n    G --> C"
+  - Population-genetic interpretation depends on sampling, reference choice, variant calls, allele frequencies, and model
+    assumptions.
+  - Graph references can reduce reference bias, but population-genetic interpretation still depends on sampling design, assumptions,
+    and validation \citep{humanpangenome2023}.
+  bacteria_archaea_viruses:
+  - AMR Movement Across One Health
+  - "flowchart LR\n    A[\"Antibiotic pressure\"] --> B[\"Resistant strain\"]\n    B --> C[\"Plasmid or integron\"]\n    C\
+    \ --> D[\"Horizontal transfer\"]\n    D --> E[\"Clinic\"]\n    D --> F[\"Farm\"]\n    D --> G[\"Wastewater\"]\n    E -->\
+    \ H[\"Surveillance and stewardship\"]\n    F --> H\n    G --> H"
+  - One Health map of antimicrobial-resistance selection, mobile genetic elements, movement across settings, and surveillance.
+  - WHO priority lists are most useful when students connect the organism-resistance pair to selection pressure, transmission
+    route, and stewardship action \citep{who2024bppl,murray2022amr}.
+  microbial_ecology:
+  - Microbiome Causality Ladder
+  - "flowchart TD\n    A[\"Association study\"] --> B[\"Longitudinal pattern\"]\n    B --> C[\"Mechanistic metabolite\"]\n\
+    \    C --> D[\"Perturbation test\"]\n    D --> E[\"Transfer or rescue\"]\n    E --> F[\"Host outcome\"]\n    F --> G[\"\
+    Qualified causality\"]"
+  - Microbiome causality ladder from association to longitudinal evidence, mechanism, perturbation, transfer or rescue, and
+    host outcome.
+  - Microbiome claims become stronger as they move from correlation toward perturbation and rescue evidence; many human associations
+    remain context-dependent.
+  plant_structure_and_water:
+  - Hydraulic Safety Tradeoff
+  - "flowchart LR\n    A[\"Dry air or soil\"] --> B[\"Lower water potential\"]\n    B --> C[\"Stomatal closure\"]\n    C -->\
+    \ D[\"Less water loss\"]\n    C --> E[\"Less CO2 entry\"]\n    B --> F[\"Xylem tension\"]\n    F --> G[\"Cavitation risk\"\
+    ]\n    D --> H[\"Survival\"]\n    E --> I[\"Lower growth\"]"
+  - Plant hydraulic tradeoff connecting water potential, stomatal closure, carbon gain, xylem tension, cavitation risk, survival,
+    and growth.
+  - Drought responses should be read as tradeoffs among carbon gain, water loss, hydraulic safety, and growth rather than
+    as simple stress resistance.
+  plant_responses:
+  - Plant Stress Response Decision
+  - "flowchart TD\n    A[\"Stress cue\"] --> B[\"Sensor and hormone network\"]\n    B --> C[\"ABA or defence signal\"]\n \
+    \   C --> D[\"Gene-expression change\"]\n    D --> E[\"Trait response\"]\n    E --> F[\"Growth cost\"]\n    E --> G[\"\
+    Survival benefit\"]\n    F --> H[\"Fitness outcome\"]\n    G --> H"
+  - Plant stress-response map connecting cue perception, hormone signalling, gene expression, trait response, growth cost,
+    and survival benefit.
+  - 'Stress tolerance is not free: the same response that improves survival can reduce growth or reproduction depending on
+    timing and environment.'
+  ecosystem_ecology:
+  - Agroecology as Coupled Fluxes
+  - "flowchart LR\n    A[\"Soil organic matter\"] --> B[\"Water retention\"]\n    A --> C[\"Nutrient cycling\"]\n    D[\"\
+    Crop diversity\"] --> E[\"Pest regulation\"]\n    D --> F[\"Pollinator habitat\"]\n    B --> G[\"Yield stability\"]\n\
+    \    C --> G\n    E --> G\n    F --> G\n    G --> H[\"Food security\"]"
+  - Agroecology systems map linking soil organic matter, water retention, nutrient cycling, crop diversity, pest regulation,
+    pollinator habitat, yield stability, and food security.
+  - Food-security claims should connect ecological mechanisms to access, resilience, livelihoods, and tradeoffs rather than
+    equating yield alone with nutrition \citep{fao2025sofi}.
+  biomes_and_conservation:
+  - Conservation Decision Evidence Chain
+  - "flowchart TD\n    A[\"Biodiversity signal\"] --> B[\"Driver analysis\"]\n    B --> C[\"Conservation option\"]\n    C\
+    \ --> D[\"Ecological outcome\"]\n    C --> E[\"Social feasibility\"]\n    D --> F[\"Tradeoff review\"]\n    E --> F\n\
+    \    F --> G[\"Adaptive monitoring\"]\n    H[\"Coral heat stress\"] --> B\n    I[\"Assisted evolution\"] --> C"
+  - Conservation evidence chain linking biodiversity signals, driver analysis, intervention options, ecological outcomes,
+    social feasibility, tradeoff review, and adaptive monitoring.
+  - Coral assisted evolution and IPBES transformative-change examples show why conservation decisions need evidence, values,
+    feasibility, and monitoring in the same frame \citep{ipbes2024transformative,noaa2025coralbleaching,strader2022coralheat}.
+  endocrine_signaling:
+  - Allostasis and Immune-Endocrine Coupling
+  - "flowchart LR\n    A[\"Repeated stressor\"] --> B[\"Neural appraisal\"]\n    B --> C[\"HPA axis\"]\n    C --> D[\"Cortisol\
+    \ rhythm\"]\n    D --> E[\"Immune tone\"]\n    E --> F[\"Inflammation risk\"]\n    D --> G[\"Metabolic allocation\"]\n\
+    \    F --> H[\"Allostatic load\"]\n    G --> H"
+  - Allostatic-load map linking repeated stressors, HPA-axis dynamics, immune tone, metabolic allocation, and disease risk.
+  - Physiology is often adaptive over short time scales and costly over long time scales, so baseline, perturbation, compensation,
+    and pathology must be distinguished.
+  immune_system_defense:
+  - Allostasis and Immune-Endocrine Coupling
+  - "flowchart LR\n    A[\"Repeated stressor\"] --> B[\"Neural appraisal\"]\n    B --> C[\"HPA axis\"]\n    C --> D[\"Cortisol\
+    \ rhythm\"]\n    D --> E[\"Immune tone\"]\n    E --> F[\"Inflammation risk\"]\n    D --> G[\"Metabolic allocation\"]\n\
+    \    F --> H[\"Allostatic load\"]\n    G --> H"
+  - Allostatic-load map linking repeated stressors, HPA-axis dynamics, immune tone, metabolic allocation, and disease risk.
+  - Physiology is often adaptive over short time scales and costly over long time scales, so baseline, perturbation, compensation,
+    and pathology must be distinguished.
+  chromatin_and_epigenetic_mechanisms:
+  - Epigenetic Causality Ladder
+  - "flowchart TD\n    A[\"Chromatin mark observed\"] --> B[\"Cell-type context\"]\n    B --> C[\"Perturb writer or eraser\"\
+    ]\n    C --> D[\"Expression change\"]\n    D --> E[\"Phenotype or cell state\"]\n    E --> F[\"Rescue or orthogonal assay\"\
+    ]\n    F --> G[\"Causal epigenetic claim\"]"
+  - Evidence ladder for moving from an observed chromatin mark to a causal epigenetic claim.
+  - An epigenetic mark is not automatically a cause; causal claims need perturbation, timing, cell-type specificity, expression
+    readout, and rescue or orthogonal evidence.
+  epigenetic_inheritance_and_disease:
+  - Epigenetic Causality Ladder
+  - "flowchart TD\n    A[\"Chromatin mark observed\"] --> B[\"Cell-type context\"]\n    B --> C[\"Perturb writer or eraser\"\
+    ]\n    C --> D[\"Expression change\"]\n    D --> E[\"Phenotype or cell state\"]\n    E --> F[\"Rescue or orthogonal assay\"\
+    ]\n    F --> G[\"Causal epigenetic claim\"]"
+  - Evidence ladder for moving from an observed chromatin mark to a causal epigenetic claim.
+  - An epigenetic mark is not automatically a cause; causal claims need perturbation, timing, cell-type specificity, expression
+    readout, and rescue or orthogonal evidence.
+  host_immunity_and_vaccines:
+  - Intervention Choice Across Pathogens
+  - "flowchart TD\n    A[\"Pathogen and setting\"] --> B[\"Transmission route\"]\n    B --> C[\"Diagnostic evidence\"]\n \
+    \   C --> D[\"Resistance or immune status\"]\n    D --> E[\"Drug, vaccine, or vector tool\"]\n    E --> F[\"Adherence\
+    \ and equity\"]\n    F --> G[\"Surveillance feedback\"]"
+  - Decision map for infectious-disease intervention choice across transmission, diagnostics, resistance, adherence, equity,
+    and surveillance feedback.
+  - TB regimens, malaria spatial emanators, lenacapavir PrEP, Candida auris control, and Long COVID mechanisms are cases where
+    intervention choices depend on evidence and setting. \citep{who2025tb,who2025spatialemanators,cdc2025lenacapavirprep,cdc2026candidaauris,longcovid2026mechanisms}
+  antimicrobial_resistance_and_epidemiology:
+  - Intervention Choice Across Pathogens
+  - "flowchart TD\n    A[\"Pathogen and setting\"] --> B[\"Transmission route\"]\n    B --> C[\"Diagnostic evidence\"]\n \
+    \   C --> D[\"Resistance or immune status\"]\n    D --> E[\"Drug, vaccine, or vector tool\"]\n    E --> F[\"Adherence\
+    \ and equity\"]\n    F --> G[\"Surveillance feedback\"]"
+  - Decision map for infectious-disease intervention choice across transmission, diagnostics, resistance, adherence, equity,
+    and surveillance feedback.
+  - TB regimens, malaria spatial emanators, lenacapavir PrEP, Candida auris control, and Long COVID mechanisms are cases where
+    intervention choices depend on evidence and setting. \citep{who2025tb,who2025spatialemanators,cdc2025lenacapavirprep,cdc2026candidaauris,longcovid2026mechanisms}
+COMPANION_INTRO_BY_STEM:
+  history_philosophy_biology: '**History and Philosophy of Biology** should leave a reproducible trail from a claim about
+    biological knowledge to the evidence practice that produced it.'
+COMPANION_SOURCE_BY_STEM:
+  history_philosophy_biology: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/toc.py` (`load_toc`) | Inspect how chapter order, companion labels, and display numbers are derived from
+    `manuscript/config.yaml`. |
+
+    | `src/biology/curriculum.py` (`CURRICULUM`) | Connect historical and philosophical concepts to lab, question-bank, misconception,
+    and transfer records. |
+
+    | `src/biology/alignment.py` (`ALIGNMENTS`) | Compare biology-as-practice ideas with course standards and skills frameworks.
+    |
+
+    | `src/biology/crossref_validator.py` (`validate`) | Check whether claims, labels, and references remain mechanically
+    traceable. |
+
+
+    **Reproducibility check:** before accepting a biological claim, name the evidence practice, the biological unit, the model
+    assumption, and the value-laden decision if one is present. **Cross-reference:** compare this checklist with \cref{sec:unit_0_systems_science},
+    \cref{sec:unit_0_complex_adaptive_systems}, \cref{sec:unit_VI_evolution_and_selection}, and \cref{sec:unit_VII_microbial_ecology}.'
+  systems_science: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/cell/cell_biology.py` (`hill_equation`, `receptor_occupancy`, `signal_amplification`) | Turn feedback,
+    thresholds, and signalling gain into inspectable calculations. |
+
+    | `src/biology/ecology/ecology.py` (`logistic_growth`) | Compare linear intuition with bounded growth and carrying-capacity
+    dynamics. |
+
+    | `src/biology/biochemistry/biochemistry.py` (`reaction_free_energy`) | Connect system directionality to thermodynamic
+    constraints. |
+
+    | `src/visualization/plots.py` (`plot_logistic_growth`) and `src/mermaid/biology_diagrams.py` (`population_growth_stages_diagram`)
+    | Check whether graphical summaries preserve the same model assumptions. |
+
+
+    **Reproducibility check:** change one parameter at a time, record the sign of the response, and explain whether the result
+    reflects feedback, saturation, or an arbitrary boundary choice. **Cross-reference:** pair this with \cref{sec:unit_0_complex_adaptive_systems},
+    \cref{sec:unit_III_bioenergetics_and_respiration}, and \cref{sec:unit_X_population_ecology}.'
+  complex_adaptive_systems: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/ecology/ecology.py` (`lotka_volterra`, `biodiversity_indices`, `logistic_growth`) | Explore feedback, interaction
+    strength, and diversity metrics as emergent summaries. |
+
+    | `src/biology/evolution/evolution.py` (`simulate_selection`, `wright_fisher_drift`, `fitness_landscape_1d`) | Compare
+    selection, drift, and landscape ruggedness as agent-level rules. |
+
+    | `src/visualization/plots.py` (`plot_lotka_volterra`, `plot_selection_simulation`) | Inspect how oscillations and allele-frequency
+    trajectories depend on starting conditions. |
+
+    | `src/mermaid/biology_diagrams.py` (`food_web_diagram`, `population_growth_stages_diagram`) | Link network structure
+    to emergent population outcomes. |
+
+
+    **Reproducibility check:** rerun or recalculate a scenario from two initial states and ask whether convergence, hysteresis,
+    or path dependence is doing the explanatory work. **Cross-reference:** use \cref{sec:unit_0_systems_science}, \cref{sec:unit_V_population_genetics},
+    and \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs} as comparison cases.'
+  active_inference: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/neuroscience/neuroscience.py` (`action_potential_hh`, `hebbian_weight_update`) | Connect prediction, update,
+    and plasticity to measurable neural variables. |
+
+    | `src/biology/physiology/physiology.py` (`homeostasis_response`) | Compare allostatic regulation with error-correcting
+    control. |
+
+    | `src/biology/cell/cell_biology.py` (`receptor_occupancy`, `signal_amplification`) | Make sensing and gain explicit rather
+    than metaphorical. |
+
+    | `src/mermaid/biology_diagrams.py` (`nervous_system_reflex_diagram`, `hormone_signaling_diagram`) | Contrast reflex arcs,
+    endocrine loops, and inference-style control diagrams. |
+
+
+    **Reproducibility check:** name the hidden state, observation, action, and error term before treating a biological feedback
+    loop as active inference. **Cross-reference:** compare with \cref{sec:unit_IX_nervous_system}, \cref{sec:unit_IX_circulation_respiration_homeostasis},
+    and \cref{sec:unit_II_cell_signaling}.'
+  atoms_molecules: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/biochemistry/biochemistry.py` (`reaction_free_energy`, `atp_free_energy`) | Tie bonding and reaction direction
+    to energy accounting. |
+
+    | `src/biology/cell/cell_biology.py` (`osmotic_pressure`, `diffusion_flux`) | Connect charge, solubility, and concentration
+    gradients to cell-scale outcomes. |
+
+    | `src/mermaid/biology_diagrams.py` (`macromolecule_classification_diagram`) | Place atomic and bond-level concepts inside
+    the larger biomolecule map. |
+
+
+    **Reproducibility check:** for every molecular claim, write the charge/polarity, solvent context, and unit-bearing quantity
+    that would make the claim testable. **Cross-reference:** extend the same logic in \cref{sec:unit_I_water_and_life}, \cref{sec:unit_I_macromolecules},
+    and \cref{sec:unit_II_membrane_transport}.'
+  water_and_life: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/cell/cell_biology.py` (`osmotic_pressure`, `diffusion_flux`) | Translate water potential, solute gradients,
+    and diffusion into quantitative predictions. |
+
+    | `src/biology/botany/botany.py` (`water_potential`, `transpiration_flux`) | Carry water chemistry into plant transport
+    and drought-response scenarios. |
+
+    | `src/visualization/plots.py` (`plot_light_response_curve`) | Use graph reading practice for environmental-response curves
+    with clear axes and units. |
+
+
+    **Reproducibility check:** state temperature, solute identity, concentration, and membrane permeability before generalising
+    a water-property claim. **Cross-reference:** connect molecular water properties to \cref{sec:unit_VIII_plant_structure_and_water}
+    and \cref{sec:unit_II_membrane_transport}.'
+  macromolecules: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/biochemistry/biochemistry.py` (`reaction_free_energy`, `glycolysis_summary`) | Relate polymer chemistry
+    and hydrolysis to energy flow. |
+
+    | `src/biology/genetics/genetics.py` (`dna_complement`, `transcribe_dna_to_mrna`, `translate_mrna`) | Connect nucleic-acid
+    structure to information transfer. |
+
+    | `src/mermaid/biology_diagrams.py` (`macromolecule_classification_diagram`, `transcription_translation_diagram`) | Compare
+    classification diagrams with sequence-to-function pathways. |
+
+
+    **Reproducibility check:** separate sequence, three-dimensional structure, modification state, and assay evidence before
+    claiming function. **Cross-reference:** use this bridge with \cref{sec:unit_I_enzymes_and_kinetics}, \cref{sec:unit_IV_gene_expression},
+    and \cref{sec:unit_IV_mutations_and_genomics}.'
+  enzymes_and_kinetics: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/biochemistry/biochemistry.py` (`michaelis_menten`, `competitive_inhibition`, `enzyme_rate_curve`) | Reproduce
+    saturation curves, inhibition shifts, and parameter interpretation. |
+
+    | `src/visualization/plots.py` (`plot_michaelis_menten`) | Check that graph shape, axes, and units match the kinetic equation.
+    |
+
+    | `src/mermaid/biology_diagrams.py` (`enzyme_kinetics_diagram`) | Keep mechanism, substrate binding, and regulation visually
+    aligned. |
+
+
+    **Reproducibility check:** report substrate range, enzyme amount, temperature, pH, and rate units before comparing kinetic
+    parameters. **Cross-reference:** connect kinetics to \cref{sec:unit_III_metabolic_integration} and \cref{sec:unit_IV_gene_expression}.'
+  cell_theory: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/cell/cell_biology.py` (`get_organelles_by_cell_type`, `count_membrane_bound_organelles`) | Turn cell-type
+    comparisons into explicit feature lists rather than memorised diagrams. |
+
+    | `src/mermaid/biology_diagrams.py` (`organelle_function_diagram`) | Connect cell theory to structure-function evidence.
+    |
+
+
+    **Reproducibility check:** identify the observation scale, specimen state, and imaging limit before deciding what counts
+    as evidence for a cellular claim. **Cross-reference:** compare with \cref{sec:unit_II_cell_structure} and \cref{sec:unit_VII_bacteria_archaea_viruses}.'
+  cell_structure: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/cell/cell_biology.py` (`Organelle`, `get_organelles_by_cell_type`, `count_membrane_bound_organelles`) |
+    Connect organelle inventories to cell type and function. |
+
+    | `src/mermaid/biology_diagrams.py` (`organelle_function_diagram`, `membrane_transport_diagram`) | Keep compartment diagrams
+    tied to transport and interaction. |
+
+
+    **Reproducibility check:** treat an organelle claim as conditional on cell type, developmental state, and measurement
+    method. **Cross-reference:** use \cref{sec:unit_II_cell_theory}, \cref{sec:unit_II_membrane_transport}, and \cref{sec:unit_III_bioenergetics_and_respiration}.'
+  membrane_transport: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/cell/cell_biology.py` (`nernst_potential`, `goldman_equation`, `osmotic_pressure`, `diffusion_flux`) |
+    Reproduce electrochemical, osmotic, and diffusive driving forces. |
+
+    | `src/visualization/plots.py` (`plot_nernst_potentials`) | Inspect ion-specific gradients and sign conventions. |
+
+    | `src/mermaid/biology_diagrams.py` (`membrane_transport_diagram`) | Separate channels, carriers, pumps, and coupled transport.
+    |
+
+
+    **Reproducibility check:** list concentrations, permeability, charge, temperature, and membrane orientation before interpreting
+    transport direction. **Cross-reference:** connect with \cref{sec:unit_IX_action_potential_synapses} and \cref{sec:unit_VIII_plant_structure_and_water}.'
+  cell_signaling: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/cell/cell_biology.py` (`receptor_occupancy`, `hill_equation`, `signal_amplification`) | Quantify ligand
+    binding, cooperativity, and cascade gain. |
+
+    | `src/mermaid/biology_diagrams.py` (`hormone_signaling_diagram`, `immune_response_diagram`) | Compare receptor logic
+    across endocrine and immune examples. |
+
+
+    **Reproducibility check:** specify dose, timing, receptor context, feedback, and readout before inferring pathway causality.
+    **Cross-reference:** extend the same logic in \cref{sec:unit_IX_endocrine_signaling,sec:unit_IX_immune_system_defense}
+    and \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms,sec:unit_IV_epigenetic_inheritance_and_disease}.'
+  bioenergetics_and_respiration: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/biochemistry/biochemistry.py` (`reaction_free_energy`, `atp_free_energy`, `glycolysis_summary`) | Track
+    energy accounting across glycolysis, respiration, and ATP coupling. |
+
+    | `src/mermaid/biology_diagrams.py` (`glycolysis_pathway_diagram`, `atp_synthesis_diagram`) | Check pathway order and
+    coupling between electron flow and proton motive force. |
+
+
+    **Reproducibility check:** name the electron donor, acceptor, compartment, proton path, and ATP-yield assumption before
+    comparing respiratory claims. **Cross-reference:** connect with \cref{sec:unit_III_photosynthesis}, \cref{sec:unit_III_metabolic_integration},
+    and \cref{sec:unit_I_enzymes_and_kinetics}.'
+  photosynthesis: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/botany/botany.py` (`photosynthesis_rate`, `light_response_curve`) | Reproduce light-response and environmental-limitation
+    scenarios. |
+
+    | `src/visualization/plots.py` (`plot_light_response_curve`) | Inspect saturation, compensation points, and axis labeling.
+    |
+
+    | `src/mermaid/biology_diagrams.py` (`photosynthesis_light_dark_diagram`) | Separate light reactions, carbon fixation,
+    and regulation. |
+
+
+    **Reproducibility check:** report light intensity, CO2, temperature, water status, and plant pathway before comparing
+    photosynthetic rates. **Cross-reference:** compare with \cref{sec:unit_VIII_plant_responses} and \cref{sec:unit_X_ecosystem_ecology}.'
+  metabolic_integration: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/biochemistry/biochemistry.py` (`glycolysis_summary`, `atp_free_energy`, `reaction_free_energy`) | Connect
+    pathway summaries to energy and redox constraints. |
+
+    | `src/biology/physiology/physiology.py` (`homeostasis_response`) | Compare cellular flux regulation with organism-level
+    homeostasis. |
+
+    | `src/mermaid/biology_diagrams.py` (`glycolysis_pathway_diagram`, `hormone_signaling_diagram`) | Link metabolic pathways
+    to endocrine control. |
+
+
+    **Reproducibility check:** state fed/fasted status, tissue, compartment, and time scale before predicting pathway priority.
+    **Cross-reference:** use \cref{sec:unit_III_bioenergetics_and_respiration}, \cref{sec:unit_I_enzymes_and_kinetics}, and
+    \cref{sec:unit_IX_endocrine_signaling,sec:unit_IX_immune_system_defense}.'
+  dna_replication_and_cell_cycle: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/genetics/genetics.py` (`dna_complement`, `hamming_distance`) | Test strand complementarity and sequence-change
+    reasoning. |
+
+    | `src/mermaid/biology_diagrams.py` (`dna_replication_diagram`, `cell_cycle_diagram`) | Keep replication forks, checkpoints,
+    and cell-cycle stages aligned. |
+
+
+    **Reproducibility check:** identify strand polarity, origin/fork direction, repair pathway, and checkpoint readout before
+    diagnosing replication errors. **Cross-reference:** connect with \cref{sec:unit_IV_mutations_and_genomics} and \cref{sec:unit_V_chromosomal_inheritance}.'
+  gene_expression: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/genetics/genetics.py` (`transcribe_dna_to_mrna`, `translate_mrna`, `gc_content`) | Reproduce transcription,
+    translation, codon lookup, and sequence-composition checks. |
+
+    | `src/mermaid/biology_diagrams.py` (`transcription_translation_diagram`, `mirna_biogenesis_diagram`) | Connect coding
+    flow with RNA regulation. |
+
+
+    **Reproducibility check:** specify template strand, reading frame, RNA-processing assumptions, and regulatory layer before
+    interpreting expression. **Cross-reference:** use \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms,sec:unit_IV_epigenetic_inheritance_and_disease}
+    and \cref{sec:unit_I_macromolecules}.'
+  mutations_and_genomics: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/genetics/genetics.py` (`dna_complement`, `translate_mrna`, `hamming_distance`, `jukes_cantor_distance`)
+    | Compare sequence variants, coding effects, and corrected molecular distances. |
+
+    | `src/mermaid/biology_diagrams.py` (`transcription_translation_diagram`, `dna_replication_diagram`) | Link mutation class
+    to replication and expression context. |
+
+
+    **Reproducibility check:** distinguish discovery technology, reference representation, variant class, evidence level,
+    and clinical actionability. **Cross-reference:** connect with \cref{sec:unit_IV_dna_replication_and_cell_cycle}, \cref{sec:unit_IV_gene_expression},
+    and \cref{sec:unit_VII_bacteria_archaea_viruses}.'
+  chromosomal_inheritance: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/genetics/genetics.py` (`recombination_frequency`, `genetic_distance`, `infer_three_point_order`) | Convert
+    offspring counts into linkage maps and gene order. |
+
+    | `src/visualization/plots.py` (`plot_chromosome_structure`) | Connect cytogenetic structure to inheritance patterns.
+    |
+
+    | `src/mermaid/biology_diagrams.py` (`chromosome_inheritance_diagram`, `x_inactivation_diagram`) | Compare segregation,
+    linkage, and dosage compensation. |
+
+
+    **Reproducibility check:** specify phase, recombinant classes, crossover assumptions, and mapping limits before inferring
+    chromosome structure. **Cross-reference:** use \cref{sec:unit_V_mendelian_principles,sec:unit_V_mendelian_extensions_and_human_genetics},
+    \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms,sec:unit_IV_epigenetic_inheritance_and_disease}, and \cref{sec:unit_V_population_genetics}.'
+  population_genetics: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/genetics/genetics.py` (`hardy_weinberg`, `chi_squared_test`, `jukes_cantor_distance`) | Test equilibrium,
+    goodness of fit, and molecular-distance assumptions. |
+
+    | `src/biology/evolution/evolution.py` (`simulate_selection`, `wright_fisher_drift`, `molecular_clock_divergence_time`)
+    | Compare deterministic and stochastic allele-frequency change. |
+
+    | `src/visualization/plots.py` (`plot_selection_simulation`) | Inspect trajectories and sampling effects. |
+
+
+    **Reproducibility check:** state population size, mating model, selection coefficient, migration, mutation, and sampling
+    uncertainty before attributing allele-frequency change. **Cross-reference:** connect with \cref{sec:unit_V_mendelian_principles,sec:unit_V_mendelian_extensions_and_human_genetics},
+    \cref{sec:unit_VI_evolution_and_selection}, and \cref{sec:unit_VI_genetic_drift_and_speciation}.'
+  evolution_and_selection: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/evolution/evolution.py` (`selection_one_generation`, `simulate_selection`, `fitness_landscape_1d`) | Reproduce
+    selection trajectories and landscape reasoning. |
+
+    | `src/visualization/plots.py` (`plot_selection_simulation`) | Compare fitness assumptions with plotted allele-frequency
+    change. |
+
+    | `src/mermaid/biology_diagrams.py` (`natural_selection_diagram`) | Keep variation, inheritance, differential survival,
+    and adaptation distinct. |
+
+
+    **Reproducibility check:** define fitness component, environment, heritable variation, and alternative explanation before
+    calling a trait adaptive. **Cross-reference:** use \cref{sec:unit_V_population_genetics} and \cref{sec:unit_VI_genetic_drift_and_speciation}.'
+  genetic_drift_and_speciation: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/evolution/evolution.py` (`wright_fisher_drift`, `simulate_drift`, `isolation_index`) | Compare stochastic
+    drift, bottlenecks, and isolation measures. |
+
+    | `src/mermaid/biology_diagrams.py` (`speciation_diagram`, `phylogenetic_tree_diagram`) | Connect reproductive isolation
+    to lineage divergence. |
+
+
+    **Reproducibility check:** report effective population size, migration, selection possibility, and time scale before assigning
+    divergence to drift or speciation. **Cross-reference:** compare with \cref{sec:unit_V_population_genetics}, \cref{sec:unit_VI_evolution_and_selection},
+    and \cref{sec:unit_VI_phylogenetics}.'
+  phylogenetics: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/evolution/evolution.py` (`molecular_clock_divergence_time`) | Translate genetic distance and rate assumptions
+    into divergence-time estimates. |
+
+    | `src/biology/genetics/genetics.py` (`hamming_distance`, `jukes_cantor_distance`) | Compare raw and corrected sequence
+    distances. |
+
+    | `src/mermaid/biology_diagrams.py` (`phylogenetic_tree_diagram`) | Keep topology, branch length, and interpretation visually
+    distinct. |
+
+
+    **Reproducibility check:** state alignment quality, homology assumption, substitution model, sampling, and calibration
+    before treating a tree as history. **Cross-reference:** use \cref{sec:unit_VI_genetic_drift_and_speciation} and \cref{sec:unit_VII_bacteria_archaea_viruses}.'
+  bacteria_archaea_viruses: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/microbiology/microbiology.py` (`bacterial_growth_curve`, `doubling_time`, `ViralReplicationResult`) | Check
+    growth, doubling, and viral-replication assumptions. |
+
+    | `src/visualization/plots.py` (`plot_bacterial_growth`) | Inspect growth phases and axis scaling. |
+
+    | `src/mermaid/biology_diagrams.py` (`viral_replication_cycle_diagram`) | Link genome strategy to replication cycle. |
+
+
+    **Reproducibility check:** specify taxon, environment, growth phase, genome type, and measurement method before generalising
+    microbial claims. **Cross-reference:** connect with \cref{sec:unit_VII_microbial_ecology} and \cref{sec:unit_VII_host_immunity_and_vaccines,sec:unit_VII_antimicrobial_resistance_and_epidemiology}.'
+  microbial_ecology: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/microbiology/microbiology.py` (`bacterial_growth_curve`, `doubling_time`) | Quantify growth constraints
+    for interacting microbial populations. |
+
+    | `src/biology/ecology/ecology.py` (`lotka_volterra`, `connectance`, `biodiversity_indices`) | Treat microbiomes as communities
+    with measurable interaction structure. |
+
+    | `src/mermaid/biology_diagrams.py` (`food_web_diagram`) | Compare cross-feeding and competition with broader food-web
+    logic. |
+
+
+    **Reproducibility check:** distinguish association, perturbation response, mechanism, and host/environment context before
+    making a microbiome-causality claim. **Cross-reference:** use \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs}
+    and \cref{sec:unit_VII_host_immunity_and_vaccines,sec:unit_VII_antimicrobial_resistance_and_epidemiology}.'
+  plant_structure_and_water: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/botany/botany.py` (`water_potential`, `transpiration_flux`) | Reproduce plant-water calculations and hydraulic
+    tradeoffs. |
+
+    | `src/biology/cell/cell_biology.py` (`osmotic_pressure`) | Connect cellular osmotic pressure to tissue-level water movement.
+    |
+
+    | `src/visualization/plots.py` (`plot_light_response_curve`) | Practice graph interpretation for environmental-response
+    curves. |
+
+
+    **Reproducibility check:** list solute potential, pressure potential, tissue, humidity, temperature, and stomatal state
+    before predicting water movement. **Cross-reference:** use \cref{sec:unit_I_water_and_life} and \cref{sec:unit_VIII_plant_responses}.'
+  plant_reproduction: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/botany/botany.py` (`plant_biomass_growth`) | Explore growth allocation and reproductive tradeoffs. |
+
+    | `src/biology/genetics/genetics.py` (`punnett_square`, `chi_squared_test`) | Connect inheritance evidence to breeding
+    and reproductive outcomes. |
+
+    | `src/mermaid/biology_diagrams.py` (`hormone_signaling_diagram`) | Link developmental timing to hormone signalling. |
+
+
+    **Reproducibility check:** state pollination mechanism, developmental stage, genetic model, and environmental filter before
+    interpreting reproductive success. **Cross-reference:** connect with \cref{sec:unit_V_mendelian_principles,sec:unit_V_mendelian_extensions_and_human_genetics}
+    and \cref{sec:unit_VIII_plant_responses}.'
+  plant_responses: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/botany/botany.py` (`photosynthesis_rate`, `light_response_curve`, `transpiration_flux`) | Quantify how
+    light, CO2, water, and temperature shape response curves. |
+
+    | `src/visualization/plots.py` (`plot_light_response_curve`) | Check saturation and stress interpretation visually. |
+
+    | `src/mermaid/biology_diagrams.py` (`photosynthesis_light_dark_diagram`, `hormone_signaling_diagram`) | Link environmental
+    sensing to pathway response. |
+
+
+    **Reproducibility check:** name the signal, receptor/tissue, hormone network, phenotype, and tradeoff before claiming
+    adaptive response. **Cross-reference:** use \cref{sec:unit_VIII_plant_structure_and_water}, \cref{sec:unit_VIII_plant_reproduction},
+    and \cref{sec:unit_III_photosynthesis}.'
+  circulation_respiration_homeostasis: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/physiology/physiology.py` (`poiseuille_flow`, `oxygen_saturation`, `oxygen_dissociation_curve`, `homeostasis_response`)
+    | Reproduce flow, gas transport, and regulatory response claims. |
+
+    | `src/visualization/plots.py` (`plot_oxygen_dissociation`) | Inspect shifts in oxygen loading and unloading. |
+
+
+    **Reproducibility check:** state vessel radius, pressure gradient, haemoglobin state, tissue demand, and feedback variable
+    before interpreting homeostasis. **Cross-reference:** connect with \cref{sec:unit_IX_endocrine_signaling,sec:unit_IX_immune_system_defense}
+    and \cref{sec:unit_III_bioenergetics_and_respiration}.'
+  nervous_system: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/neuroscience/neuroscience.py` (`cable_voltage_attenuation`, `hebbian_weight_update`, `action_potential_hh`)
+    | Connect circuit architecture, passive spread, spiking, and plasticity. |
+
+    | `src/visualization/plots.py` (`plot_action_potential`) | Check timing and amplitude of neural signals. |
+
+    | `src/mermaid/biology_diagrams.py` (`nervous_system_reflex_diagram`) | Keep stimulus, integration, motor output, and
+    feedback distinct. |
+
+
+    **Reproducibility check:** specify cell type, circuit level, recording method, and behavioural readout before linking
+    neural mechanism to outcome. **Cross-reference:** use \cref{sec:unit_IX_action_potential_synapses} and \cref{sec:unit_0_active_inference}.'
+  action_potential_synapses: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/neuroscience/neuroscience.py` (`action_potential_hh`, `synaptic_current`, `cable_voltage_attenuation`)
+    | Reproduce spike timing, postsynaptic currents, and passive spread. |
+
+    | `src/biology/cell/cell_biology.py` (`nernst_potential`, `goldman_equation`) | Check ion gradients and membrane-voltage
+    assumptions. |
+
+    | `src/visualization/plots.py` (`plot_action_potential`, `plot_nernst_potentials`) | Compare calculated voltages with
+    plotted signals. |
+
+
+    **Reproducibility check:** list ion concentrations, conductances, reversal potentials, synaptic delay, and receptor type
+    before interpreting excitability. **Cross-reference:** connect with \cref{sec:unit_II_membrane_transport} and \cref{sec:unit_IX_nervous_system}.'
+  population_ecology: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/ecology/ecology.py` (`exponential_growth`, `logistic_growth`, `allee_strong_growth`) | Reproduce density-independent,
+    density-dependent, and Allee-effect scenarios. |
+
+    | `src/visualization/plots.py` (`plot_logistic_growth`) | Inspect carrying capacity and growth-rate assumptions. |
+
+    | `src/mermaid/biology_diagrams.py` (`population_growth_stages_diagram`) | Link model phases to visual summaries. |
+
+
+    **Reproducibility check:** state time step, units, density dependence, stochasticity, and management objective before
+    forecasting a population. **Cross-reference:** compare with \cref{sec:unit_V_population_genetics} and \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs}.'
+  ecosystem_ecology: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/ecology/ecology.py` (`food_web_trophic_levels`, `connectance`, `biodiversity_indices`) | Translate ecosystem
+    structure into trophic, network, and diversity calculations. |
+
+    | `src/biology/botany/botany.py` (`photosynthesis_rate`, `water_potential`) | Link primary production and plant-water
+    constraints to ecosystem fluxes. |
+
+    | `src/mermaid/biology_diagrams.py` (`nutrient_cycle_diagram`, `food_web_diagram`) | Keep stocks, fluxes, and boundaries
+    visually explicit. |
+
+
+    **Reproducibility check:** state system boundary, stock, flux, residence time, unit, and time window before comparing
+    ecosystem budgets. **Cross-reference:** connect with \cref{sec:unit_III_photosynthesis}, \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs},
+    and \cref{sec:unit_X_biomes_and_conservation}.'
+  biomes_and_conservation: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/ecology/ecology.py` (`species_area_relationship`, `biodiversity_indices`, `connectance`) | Reproduce conservation
+    metrics and tradeoff-sensitive summaries. |
+
+    | `src/visualization/plots.py` (`plot_species_area_relationship`, `plot_biome_distribution`) | Inspect species-area assumptions
+    and biome comparisons. |
+
+    | `src/mermaid/biology_diagrams.py` (`food_web_diagram`, `nutrient_cycle_diagram`) | Connect conservation action to ecological
+    pathways. |
+
+
+    **Reproducibility check:** separate ecological evidence, social objective, feasibility, uncertainty, and monitoring indicator
+    before choosing a conservation action. **Cross-reference:** use \cref{sec:unit_X_population_ecology}, \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs},
+    and \cref{sec:unit_X_ecosystem_ecology}.'
+  endocrine_signaling: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/physiology/physiology.py` (`homeostasis_response`) | Compare hormone feedback and inflammatory regulation
+    as control problems. |
+
+    | `src/biology/cell/cell_biology.py` (`receptor_occupancy`, `signal_amplification`) | Quantify receptor sensitivity and
+    cascade gain. |
+
+    | `src/mermaid/biology_diagrams.py` (`immune_response_diagram`, `hormone_signaling_diagram`) | Connect endocrine and immune
+    sequence logic. |
+
+
+    **Reproducibility check:** specify ligand/cytokine, receptor, timing, tissue, feedback loop, and readout before calling
+    a response adaptive or pathological. **Cross-reference:** use \cref{sec:unit_II_cell_signaling}, \cref{sec:unit_IX_circulation_respiration_homeostasis},
+    and \cref{sec:unit_VII_host_immunity_and_vaccines,sec:unit_VII_antimicrobial_resistance_and_epidemiology}.'
+  immune_system_defense: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/physiology/physiology.py` (`homeostasis_response`) | Compare hormone feedback and inflammatory regulation
+    as control problems. |
+
+    | `src/biology/cell/cell_biology.py` (`receptor_occupancy`, `signal_amplification`) | Quantify receptor sensitivity and
+    cascade gain. |
+
+    | `src/mermaid/biology_diagrams.py` (`immune_response_diagram`, `hormone_signaling_diagram`) | Connect endocrine and immune
+    sequence logic. |
+
+
+    **Reproducibility check:** specify ligand/cytokine, receptor, timing, tissue, feedback loop, and readout before calling
+    a response adaptive or pathological. **Cross-reference:** use \cref{sec:unit_II_cell_signaling}, \cref{sec:unit_IX_circulation_respiration_homeostasis},
+    and \cref{sec:unit_VII_host_immunity_and_vaccines,sec:unit_VII_antimicrobial_resistance_and_epidemiology}.'
+  chromatin_and_epigenetic_mechanisms: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/genetics/genetics.py` (`cpg_methylation_remaining`, `histone_modification_state`) | Convert methylation
+    maintenance and histone-mark claims into explicit state checks. |
+
+    | `src/visualization/plots.py` (`plot_methylation_heatmap`) | Inspect whether heatmap interpretation depends on color
+    alone or includes labels. |
+
+    | `src/mermaid/biology_diagrams.py` (`mirna_biogenesis_diagram`, `x_inactivation_diagram`) | Compare RNA-mediated and
+    chromatin-mediated regulation. |
+
+
+    **Reproducibility check:** require cell type, developmental time, perturbation evidence, and inheritance control before
+    calling a mark causal. **Cross-reference:** use \cref{sec:unit_IV_gene_expression}, \cref{sec:unit_IV_mutations_and_genomics},
+    and \cref{sec:unit_V_chromosomal_inheritance}.'
+  epigenetic_inheritance_and_disease: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/genetics/genetics.py` (`cpg_methylation_remaining`, `histone_modification_state`) | Convert methylation
+    maintenance and histone-mark claims into explicit state checks. |
+
+    | `src/visualization/plots.py` (`plot_methylation_heatmap`) | Inspect whether heatmap interpretation depends on color
+    alone or includes labels. |
+
+    | `src/mermaid/biology_diagrams.py` (`mirna_biogenesis_diagram`, `x_inactivation_diagram`) | Compare RNA-mediated and
+    chromatin-mediated regulation. |
+
+
+    **Reproducibility check:** require cell type, developmental time, perturbation evidence, and inheritance control before
+    calling a mark causal. **Cross-reference:** use \cref{sec:unit_IV_gene_expression}, \cref{sec:unit_IV_mutations_and_genomics},
+    and \cref{sec:unit_V_chromosomal_inheritance}.'
+  community_interactions: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/ecology/ecology.py` (`lotka_volterra`, `connectance`, `biodiversity_indices`) | Quantify interactions,
+    network structure, and community diversity. |
+
+    | `src/visualization/plots.py` (`plot_lotka_volterra`, `plot_species_area_relationship`) | Inspect dynamics and richness-area
+    patterns. |
+
+    | `src/mermaid/biology_diagrams.py` (`food_web_diagram`) | Keep trophic links and interaction signs explicit. |
+
+
+    **Reproducibility check:** define interaction sign, spatial scale, sampling effort, disturbance history, and network boundary
+    before interpreting community patterns. **Cross-reference:** use \cref{sec:unit_X_population_ecology}, \cref{sec:unit_X_ecosystem_ecology},
+    and \cref{sec:unit_VII_microbial_ecology}.'
+  biodiversity_and_food_webs: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/ecology/ecology.py` (`lotka_volterra`, `connectance`, `biodiversity_indices`) | Quantify interactions,
+    network structure, and community diversity. |
+
+    | `src/visualization/plots.py` (`plot_lotka_volterra`, `plot_species_area_relationship`) | Inspect dynamics and richness-area
+    patterns. |
+
+    | `src/mermaid/biology_diagrams.py` (`food_web_diagram`) | Keep trophic links and interaction signs explicit. |
+
+
+    **Reproducibility check:** define interaction sign, spatial scale, sampling effort, disturbance history, and network boundary
+    before interpreting community patterns. **Cross-reference:** use \cref{sec:unit_X_population_ecology}, \cref{sec:unit_X_ecosystem_ecology},
+    and \cref{sec:unit_VII_microbial_ecology}.'
+  mendelian_principles: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/genetics/genetics.py` (`punnett_square`, `hardy_weinberg`, `chi_squared_test`) | Reproduce inheritance
+    ratios, equilibrium expectations, and goodness-of-fit tests. |
+
+    | `src/visualization/plots.py` (`plot_punnett_square`) | Check genotype and phenotype tables visually. |
+
+    | `src/mermaid/biology_diagrams.py` (`mendelian_cross_diagram`) | Link segregation logic to diagrammed crosses. |
+
+
+    **Reproducibility check:** state genotype notation, dominance model, sample size, and statistical expectation before interpreting
+    a ratio. **Cross-reference:** compare with \cref{sec:unit_V_chromosomal_inheritance} and \cref{sec:unit_V_population_genetics}.'
+  mendelian_extensions_and_human_genetics: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/genetics/genetics.py` (`punnett_square`, `hardy_weinberg`, `chi_squared_test`) | Reproduce inheritance
+    ratios, equilibrium expectations, and goodness-of-fit tests. |
+
+    | `src/visualization/plots.py` (`plot_punnett_square`) | Check genotype and phenotype tables visually. |
+
+    | `src/mermaid/biology_diagrams.py` (`mendelian_cross_diagram`) | Link segregation logic to diagrammed crosses. |
+
+
+    **Reproducibility check:** state genotype notation, dominance model, sample size, and statistical expectation before interpreting
+    a ratio. **Cross-reference:** compare with \cref{sec:unit_V_chromosomal_inheritance} and \cref{sec:unit_V_population_genetics}.'
+  host_immunity_and_vaccines: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/microbiology/microbiology.py` (`basic_reproduction_number`, `sir_model`, `mic_fold_dilution`) | Reproduce
+    transmission and antimicrobial-resistance calculations. |
+
+    | `src/biology/ecology/ecology.py` (`exponential_growth`) | Compare early outbreak growth with ecological growth models.
+    |
+
+    | `src/mermaid/biology_diagrams.py` (`immune_response_diagram`, `viral_replication_cycle_diagram`) | Connect pathogen
+    life cycle to host response. |
+
+
+    **Reproducibility check:** identify pathogen, host population, transmission route, diagnostic window, intervention, and
+    surveillance source before comparing disease claims. **Cross-reference:** connect with \cref{sec:unit_VII_bacteria_archaea_viruses},
+    \cref{sec:unit_IX_endocrine_signaling,sec:unit_IX_immune_system_defense}, and \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs}.'
+  antimicrobial_resistance_and_epidemiology: '| Surface | Use it for |
+
+    | --- | --- |
+
+    | `src/biology/microbiology/microbiology.py` (`basic_reproduction_number`, `sir_model`, `mic_fold_dilution`) | Reproduce
+    transmission and antimicrobial-resistance calculations. |
+
+    | `src/biology/ecology/ecology.py` (`exponential_growth`) | Compare early outbreak growth with ecological growth models.
+    |
+
+    | `src/mermaid/biology_diagrams.py` (`immune_response_diagram`, `viral_replication_cycle_diagram`) | Connect pathogen
+    life cycle to host response. |
+
+
+    **Reproducibility check:** identify pathogen, host population, transmission route, diagnostic window, intervention, and
+    surveillance source before comparing disease claims. **Cross-reference:** connect with \cref{sec:unit_VII_bacteria_archaea_viruses},
+    \cref{sec:unit_IX_endocrine_signaling,sec:unit_IX_immune_system_defense}, and \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs}.'
+companion_patterns:
+  section: \n*(?:---\s*\n\s*)?#{2,3}\s+Companion Source Module(?::[^\n{]+)?(?:\s+\{[^}]*\})?\s*\n.*?(?=\n---\s*\n\s*## |\n##\s+|\Z)
+  note_line: (?m)^\*(?:Companion source note:|Module:|Figure:|Diagram:|Cross-references:)[^\n]*\n?
+  inline_note: \*(?:Companion source note:|Module:|Figure:|Diagram:|Cross-references:)[^\n]*\*
+  section_flags: 48
+  note_line_flags: 40
+  inline_note_flags: 32

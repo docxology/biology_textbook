@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 14** · Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_IV_gene_expression}
+> Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_IV_gene_expression}
 
 ## Learning Objectives
 
@@ -50,23 +50,23 @@ A **mutation** is any heritable change in DNA sequence. Mutations are the ultima
 
 The **per-nucleotide per-generation mutation rate** in humans is approximately $\mu \approx 1.2 \times 10^{-8}$ per bp per generation (Kong et al., 2012, *Nature*). For a diploid genome of $2N \approx 6.4 \times 10^9$ bp, the expected number of de novo mutations per offspring is:
 
-\begin{equation}M = 2N \times \mu \approx 6.4 \times 10^9 \times 1.2 \times 10^{-8} \approx 70\text{--}80 \text{ mutations/generation} \tag{14.1}\label{eq:mutations_per_gen}\end{equation}
+\begin{equation}M = 2N \times \mu \approx 6.4 \times 10^9 \times 1.2 \times 10^{-8} \approx 70\text{--}80 \text{ mutations/generation}\label{eq:mutations_per_gen}\end{equation}
 
 The probability of observing exactly $k$ mutations in a region of length $L$ follows the **Poisson distribution**:
 
-\begin{equation}P(k) = \frac{(\mu L)^k \, e^{-\mu L}}{k!} \tag{14.2}\label{eq:poisson_mut}\end{equation}
+\begin{equation}P(k) = \frac{(\mu L)^k \, e^{-\mu L}}{k!}\label{eq:poisson_mut}\end{equation}
 
 This is used to assess whether a [**gene**](#gl:gene) or genomic region has an excess of mutations relative to the background rate — a signature of positive selection or a mutational hotspot.
 
 For genome-wide studies, the **Bonferroni-corrected significance threshold** for $m$ independent tests is:
 
-\begin{equation}\alpha_{\text{corrected}} = \frac{\alpha}{m} = \frac{0.05}{10^6} = 5 \times 10^{-8} \tag{14.3}\label{eq:bonferroni_correction}\end{equation}
+\begin{equation}\alpha_{\text{corrected}} = \frac{\alpha}{m} = \frac{0.05}{10^6} = 5 \times 10^{-8}\label{eq:bonferroni_correction}\end{equation}
 
 This is the standard genome-wide significance threshold for GWAS: primarily associations with $p < 5 \times 10^{-8}$ are considered robust.
 
 The **Ka/Ks ratio** (also called dN/dS or ω) measures the ratio of nonsynonymous to synonymous substitution rates, revealing the mode of [**natural selection**](#gl:natural-selection):
 
-\begin{equation}\omega = \frac{K_a}{K_s} = \frac{d_N}{d_S} \tag{14.4}\label{eq:omega_ratio}\end{equation}
+\begin{equation}\omega = \frac{K_a}{K_s} = \frac{d_N}{d_S}\label{eq:omega_ratio}\end{equation}
 
 where $\omega < 1$ indicates purifying selection, $\omega = 1$ neutral evolution, and $\omega > 1$ positive selection.
 
@@ -125,9 +125,9 @@ A special class of mutations involving expansion of short tandem repeats:
 
 ---
 
-## Mutagenic Agents
+## Mutagenic Agents and DNA-Damage Mechanisms
 
-### Physical Mutagens
+### Physical Mutagens: Radiation and Replication Stress
 
 **UV radiation (UVB, 280-320 nm)**:
 - Creates **cyclobutane pyrimidine dimers (CPDs)**: covalent bonds form between adjacent pyrimidines (T-T most common)
@@ -141,7 +141,7 @@ A special class of mutations involving expansion of short tandem repeats:
 - DSBs are the most dangerous lesion -- if unrepaired, lead to chromosomal translocations, deletions, or cell death
 - Repaired by NHEJ and HR
 
-### Chemical Mutagens
+### Chemical Mutagens and Base-Altering Reactions
 
 | Agent | Type | Mechanism | Mutation Caused |
 |-------|------|-----------|----------------|
@@ -225,7 +225,7 @@ flowchart TD
 
 *DNA damage types and their corresponding repair pathways. The choice of DSB repair pathway depends on [**cell cycle**](#gl:cell-cycle) phase: NHEJ predominates in G1, while HR requires a sister chromatid template available in S/G2.*
 
-### Repair Pathway Details
+### DNA Repair Pathway Specificity and Disease Consequences
 
 | Damage Type | Repair Pathway | Key Proteins | Disease if Defective |
 |-------------|---------------|-------------|---------------------|
@@ -520,7 +520,7 @@ Transposable elements (TEs) make up ~46 % of the human genome — far more than 
 
 > **Concept Check (Synthesis):** Copy number variation (CNV) is a class of structural genetic variation in which segments of $\geq 1$ kb are duplicated or deleted. A major mechanism is non-allelic homologous recombination (NAHR) between flanking segmental duplications. (a) Chromosome 15q11–q13 carries large segmental duplications that flank the Prader–Willi / Angelman syndrome region. Explain why this architecture predisposes the region to recurrent microdeletions and microduplications, and predict the phenotypic consequence of a paternally vs. maternally inherited deletion — the answer should invoke genomic imprinting at SNRPN and UBE3A. (b) The 22q11.2 deletion syndrome (the molecular basis of DiGeorge / velocardiofacial syndrome) occurs in roughly 1 in 4,000 live births, making it one of the most common recurrent microdeletion syndromes in humans. Given that NAHR drives most recurrence, sketch how the expected deletion frequency should scale with (i) the length of the flanking segmental duplications, (ii) the percent sequence identity between them, and (iii) the genomic distance separating them. Use this to argue why 22q11.2 is so structurally unstable relative to a hypothetical CNV interval flanked by 5 kb duplications at 90% identity.
 
-### Genomic Variation
+### Genomic Variation Across SNVs, Structural Variants, and Haplotypes
 
 - **Single nucleotide polymorphisms (SNPs)**: ~1 per 300 bp on average; the human genome contains ~4-5 million SNPs per individual relative to the reference. Most are neutral; ~2% in coding regions; ~0.5% are missense.
 - **Indels**: ~500,000 per genome; usually 1-50 bp
@@ -579,7 +579,7 @@ flowchart LR
 
 ### Pangenome Graph Reasoning
 
-The old mental model of a genome reference was a single linear string. That is still useful, but it hides ancestry-specific haplotypes, structural variants, alternate gene copies, and repeat-resolved sequence that do not align cleanly to one coordinate path. The Human Pangenome Reference Consortium's draft reference introduced a graph built from 47 diverse individuals and 94 phased haplotypes \citep{humanpangenome2023}. In a graph, a variant is not merely "different from the reference"; it is a path through an explicitly represented set of alternatives. This improves reasoning about structural variation and representation, while adding new validation obligations: graph alignment, annotation transfer, clinical reporting, and population sampling must become part of the claim.
+The old mental model of a genome reference was a single linear string. That is still useful, but it hides ancestry-specific haplotypes, structural variants, alternate gene copies, and repeat-resolved sequence that do not align cleanly to one coordinate path. The Human Pangenome Reference Consortium's 2023 draft reference introduced a graph built from 47 diverse individuals and 94 phased haplotypes; its 2025 Release II expanded the resource to assemblies from 232 individuals with phased, near-telomere-to-telomere assemblies, annotations, and graph-based alignments \citep{humanpangenome2023,hprc2025release2}. In a graph, a variant is not merely "different from the reference"; it is a path through an explicitly represented set of alternatives. This improves reasoning about structural variation and representation, while adding new validation obligations: graph alignment, annotation transfer, clinical reporting, and population sampling must become part of the claim.
 
 ```mermaid
 flowchart LR
@@ -685,7 +685,7 @@ Mutation rate varies enormously with cellular context, mutagen exposure, and DNA
 
 ## Personal Genomics and Ethical Issues
 
-### Pharmacogenomics
+### Pharmacogenomics and Evidence-Governed Prescribing
 
 Genetic variation affects drug response:
 
@@ -699,7 +699,7 @@ Pharmacogenomics is strongest when it is treated as one evidence layer in prescr
 | **HLA-B*5701** | Abacavir (HIV) | Pre-treatment testing mandatory; positive patients have ~50% risk of hypersensitivity reaction |
 | **DPYD** | 5-fluorouracil | DPD deficiency: potentially fatal toxicity; pre-treatment testing recommended in EU |
 
-### Ethical Considerations
+### Ethical Considerations in Personal and Clinical Genomics
 
 - **Genetic privacy**: Genetic information reveals predisposition, not certainty. The **GINA Act** (Genetic Information Nondiscrimination Act, 2008, USA) prohibits genetic discrimination in employment and health insurance but does NOT cover life insurance, disability insurance, or long-term care insurance.
 - **Direct-to-consumer (DTC) testing**: Companies like 23andMe provide ancestry and health risk information. Concerns include: limited clinical validity for most variants, potential for anxiety, and data privacy (law enforcement access to databases).
@@ -719,15 +719,15 @@ Pharmacogenomics is strongest when it is treated as one evidence layer in prescr
 
 **Solution**: The Poisson mean is the per-bp rate times the diploid coding target length:
 
-\begin{equation}\lambda = \mu L = 1.2 \times 10^{-8} \times 22{,}116 \text{ bp} = 2.65 \times 10^{-4} \text{ mutations/generation} \tag{14.5}\label{eq:dmd_cds_lambda}\end{equation}
+\begin{equation}\lambda = \mu L = 1.2 \times 10^{-8} \times 22{,}116 \text{ bp} = 2.65 \times 10^{-4} \text{ mutations/generation}\label{eq:dmd_cds_lambda}\end{equation}
 
 (b) Using the Poisson model, what is the probability that a given child carries no new coding mutation in *DMD*?
 
-\begin{equation}P(k=0) = \frac{(\lambda)^0 e^{-\lambda}}{0!} = e^{-2.65 \times 10^{-4}} \approx 0.99973 \tag{14.6}\label{eq:dmd_cds_p0}\end{equation}
+\begin{equation}P(k=0) = \frac{(\lambda)^0 e^{-\lambda}}{0!} = e^{-2.65 \times 10^{-4}} \approx 0.99973\label{eq:dmd_cds_p0}\end{equation}
 
 (c) What is the probability of at least one new coding mutation in *DMD*?
 
-\begin{equation}P(k \geq 1) = 1 - e^{-\lambda} \approx 2.65 \times 10^{-4} \approx \frac{1}{3{,}800} \text{ births} \tag{14.7}\label{eq:dmd_cds_pge1}\end{equation}
+\begin{equation}P(k \geq 1) = 1 - e^{-\lambda} \approx 2.65 \times 10^{-4} \approx \frac{1}{3{,}800} \text{ births}\label{eq:dmd_cds_pge1}\end{equation}
 
 Even though any single child is overwhelmingly likely to inherit an intact *DMD* coding sequence, a rate of roughly $1$ in $3{,}800$ births applied across a large population continually regenerates new Duchenne muscular dystrophy alleles --- which is why this X-linked disorder persists despite strong negative selection against affected males.
 
@@ -788,7 +788,7 @@ print(wt)
 
 The first CRISPR–Cas9 therapy approved by the FDA and EMA (**Casgevy / exagamglogene autotemcel**, Vertex/CRISPR Therapeutics) provides a quantitative benchmark for the entire field \citep{fda2023casgevy,fda2024casgevythalassemia,fda2026casgevy}. The therapy edits autologous CD34⁺ haematopoietic stem cells *ex vivo* at the **BCL11A enhancer** to de-repress fetal haemoglobin (HbF), then reinfuses them after conditioning chemotherapy. In the pivotal trials, **28 of 29 sickle-cell patients became free of vaso-occlusive crises for > 12 months**, and **39 of 42 β-thalassemia patients became transfusion-independent** — outcomes previously achievable primarily via allogeneic bone-marrow transplant with its attendant graft-versus-host morbidity.
 
-The safety discussion that accompanies this approval is instructive. Off-target editing in CD34⁺ cells is measured pre-infusion by **GUIDE-seq** and **deep amplicon sequencing** at 100+ predicted sites — with Casgevy, off-target editing fell below the detection floor (~0.1 %) at most surveyed loci. Residual concerns include **large structural variants** (kilobase-scale deletions, inversions, chromothripsis) that amplicon-seq can miss; long-read WGS of treated HSC clones is the emerging gold-standard check. Longitudinal monitoring follows these patients for **15 years** for malignancy, driven by the theoretical risk that any DNA double-strand break event in a stem cell compartment could, over decades, seed a clonal expansion. This regulatory framework — efficacy by molecular endpoint, safety by unbiased structural-variant surveillance, surveillance by decade-scale cohort — is now the template every subsequent *in vivo* CRISPR therapy (e.g., Verve's PCSK9 base editor for hypercholesterolaemia) must meet.
+The safety discussion that accompanies this approval is instructive. Off-target editing in CD34⁺ cells is measured pre-infusion by **GUIDE-seq** and **deep amplicon sequencing** at 100+ predicted sites — with Casgevy, off-target editing fell below the detection floor (~0.1 %) at most surveyed loci. Residual concerns include **large structural variants** (kilobase-scale deletions, inversions, chromothripsis) that amplicon-seq can miss; long-read WGS of treated HSC clones is the emerging gold-standard check. Longitudinal monitoring follows these patients for **15 years** for malignancy, driven by the theoretical risk that any DNA double-strand break event in a stem cell compartment could, over decades, seed a clonal expansion \citep{fda2026casgevy}. This regulatory framework — efficacy by molecular endpoint, safety by unbiased structural-variant surveillance, surveillance by decade-scale cohort — is now the template every subsequent *in vivo* CRISPR therapy (e.g., Verve's PCSK9 base editor for hypercholesterolaemia) must meet.
 
 ### The Telomere-to-Telomere (T2T) Consortium: A Truly Complete Human Genome
 
@@ -798,7 +798,7 @@ What newly resolvable sequence revealed: **centromeric α-satellite arrays** spa
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Mutations, CRISPR, and Genomics
 
 For **Mutations, CRISPR, and Genomics**, frontier biology belongs inside the evidence logic of
 the chapter. Molecular genetics now spans single-reference sequences, telomere-to-telomere assemblies, pangenome graphs, long-read sequencing, CRISPR medicines, and ethical deployment. The core reading question is this: genomics claims should distinguish variant discovery, pathogenic interpretation, ancestry representation, and clinical actionability.
@@ -814,9 +814,13 @@ the chapter. Molecular genetics now spans single-reference sequences, telomere-t
   the source closest to the measurement and state what has changed since it was
   published.
 
-When a genomic claim depends on a reference, ask whether short reads, structural variants, ancestry representation, phasing, or clinical validation could change the interpretation \citep{humanpangenome2023,fda2023casgevy,fda2024casgevythalassemia}.
+When a genomics claim depends on a reference, ask whether reads, structural variants, ancestry representation, phasing, or clinical validation changes the interpretation \citep{humanpangenome2023,fda2023casgevy,fda2024casgevythalassemia}.
 
-**Source practice:** For genomics and editing claims, distinguish discovery from clinical actionability, and cite reference resources, regulatory records, or primary editing studies close to the claim \citep{humanpangenome2023,fda2026casgevy,chalumeau2025primeediting}.
+Clinical variant interpretation must separate variant existence from medical meaning. dbSNP is useful for submitted sequence variation identifiers; ClinVar aggregates assertions about variant-disease relationships; RefSeq and the MANE collaboration stabilize the transcript and protein reference used for HGVS naming. A report-ready variant claim should include the rsID or ClinVar Variation ID when applicable, the RefSeq/MANE accession used for nomenclature, review status, and the evidence category rather than equating "listed variant" with "pathogenic variant" \citep{dbsnp2026,clinvar2026,refseq2026,mane2026}.
+
+Translation evidence has separate ledgers as well. ClinicalTrials.gov records protocol, recruitment, and submitted-results status, while FDA product pages and approval materials determine approved indications. Casgevy and Lyfgenia are therefore best compared as distinct approved sickle-cell therapies with different molecular strategies: CRISPR-Cas9 enhancer editing for Casgevy and lentiviral gene addition for Lyfgenia \citep{clinicaltrials2026,fda2026casgevy,fda2026lyfgenia}.
+
+**Source practice:** For mutation, genomics, and editing claims, distinguish discovery from clinical actionability, and cite reference resources, regulatory records, or primary editing studies close to the claim \citep{humanpangenome2023,fda2026casgevy,chalumeau2025primeediting}.
 
 ### Current Evidence Map: Genome Editing From Variant to Follow-Up
 
@@ -865,7 +869,7 @@ flowchart LR
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Mutations, CRISPR, and Genomics
 
 - Ward (1988). In the Shadow of the Dinosaurs: Early Mesozoic Tetrapods. *Science*, 240.
 - Ohno (1970). *Evolution by Gene Duplication*. Springer-Verlag.
@@ -895,7 +899,7 @@ flowchart LR
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Mutations, CRISPR, and Genomics
 
 **Mutations, CRISPR, and Genomics** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

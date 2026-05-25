@@ -1,34 +1,16 @@
 """Mermaid diagram subpackage."""
 
+from __future__ import annotations
+
+from . import biology_diagrams as _biology_diagrams
+from .diagram_spec_loader import diagram_factory_names
+from .diagrams import class_diagram, flowchart, pie_chart, sequence_diagram, state_diagram
 from .renderer import MermaidDiagram, MermaidRenderer
-from .diagrams import flowchart, sequence_diagram, class_diagram, state_diagram, pie_chart
-from .biology_diagrams import (
-    macromolecule_classification_diagram,
-    enzyme_kinetics_diagram,
-    organelle_function_diagram,
-    membrane_transport_diagram,
-    glycolysis_pathway_diagram,
-    atp_synthesis_diagram,
-    cell_cycle_diagram,
-    transcription_translation_diagram,
-    mendelian_cross_diagram,
-    natural_selection_diagram,
-    phylogenetic_tree_diagram,
-    viral_replication_cycle_diagram,
-    photosynthesis_light_dark_diagram,
-    nervous_system_reflex_diagram,
-    immune_response_diagram,
-    food_web_diagram,
-    population_growth_stages_diagram,
-    speciation_diagram,
-    hormone_signaling_diagram,
-    dna_replication_diagram,
-    nutrient_cycle_diagram,
-    chromosome_inheritance_diagram,
-    mirna_biogenesis_diagram,
-    x_inactivation_diagram,
-    ALL_BIOLOGY_DIAGRAMS,
-)
+
+ALL_BIOLOGY_DIAGRAMS = _biology_diagrams.ALL_BIOLOGY_DIAGRAMS
+
+_FACTORY_NAMES = diagram_factory_names()
+globals().update({name: getattr(_biology_diagrams, name) for name in _FACTORY_NAMES})
 
 __all__ = [
     "MermaidDiagram",
@@ -38,29 +20,6 @@ __all__ = [
     "class_diagram",
     "state_diagram",
     "pie_chart",
-    "macromolecule_classification_diagram",
-    "enzyme_kinetics_diagram",
-    "organelle_function_diagram",
-    "membrane_transport_diagram",
-    "glycolysis_pathway_diagram",
-    "atp_synthesis_diagram",
-    "cell_cycle_diagram",
-    "transcription_translation_diagram",
-    "mendelian_cross_diagram",
-    "natural_selection_diagram",
-    "phylogenetic_tree_diagram",
-    "viral_replication_cycle_diagram",
-    "photosynthesis_light_dark_diagram",
-    "nervous_system_reflex_diagram",
-    "immune_response_diagram",
-    "food_web_diagram",
-    "population_growth_stages_diagram",
-    "speciation_diagram",
-    "hormone_signaling_diagram",
-    "dna_replication_diagram",
-    "nutrient_cycle_diagram",
-    "chromosome_inheritance_diagram",
-    "mirna_biogenesis_diagram",
-    "x_inactivation_diagram",
     "ALL_BIOLOGY_DIAGRAMS",
+    *_FACTORY_NAMES,
 ]

@@ -144,6 +144,16 @@ def _question_assessment(number: int, fields: dict[str, str], path: Path) -> Que
     missing = required - set(fields)
     if missing:
         raise ValueError(f"Question {number} in {path} missing metadata fields: {sorted(missing)}")
+    if fields["bloom"] not in ALLOWED_BLOOM_LEVELS:
+        raise ValueError(
+            f"Question {number} in {path} has invalid bloom level {fields['bloom']!r}; "
+            f"expected one of {sorted(ALLOWED_BLOOM_LEVELS)}"
+        )
+    if fields["difficulty"] not in ALLOWED_DIFFICULTIES:
+        raise ValueError(
+            f"Question {number} in {path} has invalid difficulty {fields['difficulty']!r}; "
+            f"expected one of {sorted(ALLOWED_DIFFICULTIES)}"
+        )
     try:
         minutes = int(fields["minutes"])
     except ValueError as exc:

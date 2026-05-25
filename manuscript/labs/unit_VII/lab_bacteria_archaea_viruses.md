@@ -1,4 +1,4 @@
-# Lab 22 — Bacteria, Archaea, and Viruses {.unnumbered}
+# Lab — Bacteria, Archaea, and Viruses {.unnumbered}
 
 \label{sec:lab_unit_VII_bacteria_archaea_viruses}
 
@@ -45,7 +45,7 @@
 
 5. **Real-World Application**: Antibiotic resistance is a growing problem. How does the misuse of antibiotics in agriculture contribute to the evolution of resistant bacteria? What policies could help address this issue?
 
-## Background {.unnumbered}
+## Lab Context: Bacteria, Archaea, and Viruses {.unnumbered}
 
 Prokaryotes — Bacteria and Archaea — are the most abundant life forms on Earth (~10³¹ cells). Gram staining differentiates bacteria based on cell wall composition: Gram-positive (thick peptidoglycan layer retains crystal violet — purple) vs Gram-negative (thin peptidoglycan + outer membrane — loses crystal violet, appears pink after safranin counterstain). Viruses are acellular entities that replicate primarily inside host cells; bacteriophages infect bacteria and follow either lytic (immediate replication and lysis) or lysogenic (DNA integration, dormancy) cycles.
 
@@ -53,6 +53,7 @@ Prokaryotes — Bacteria and Archaea — are the most abundant life forms on Ear
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Bacteria, Archaea, and Viruses: pathogen-surveillance source card: organism-resistance pair, official guidance date, setting, and intervention limit | 1 |
 | Gram-stain image cards with metadata removed | 1 set |
 | Known Gram-positive and Gram-negative control image cards | 1 set |
 | Printed serial-dilution plate images (10⁻⁴ to 10⁻⁶, three replicates) | 1 set |
@@ -82,7 +83,7 @@ Prokaryotes — Bacteria and Archaea — are the most abundant life forms on Ear
    - Record: colour (purple = Gram+, pink = Gram-), cell shape (coccus, bacillus, spirillum), arrangement (single, pairs, chains, clusters), and confidence score (1-5).
    - Compare independent scorers. Resolve disagreements primarily after recording the original calls.
 
-### Part 2: Computational Biology Exercise - Bacterial Growth Analysis with Python {.unnumbered}
+### Part 2: Computational Biology Exercise — Bacterial Growth Analysis with Python {.unnumbered}
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
@@ -160,6 +161,10 @@ equipment version belongs only in an optional extension.
 **Solution:** First, convert time to a consistent unit: t = 2 h = 120 min. The number of doublings is t / t_d = 120 / 20 = 6. Apply the formula: N = 10⁵ × 2⁶ = 10⁵ × 64 = 6.4 × 10⁶ cells/mL. Six doublings multiply the population by 64, producing a final density of about 6.4 × 10⁶ cells/mL.
 
 **Interpretation:** This estimate presumes exponential growth with nutrients and space not limiting; in a closed flask the culture tends to enter stationary phase before the simple model holds for many more doublings. A typical mid-log *E. coli* culture saturates near 10⁹ cells/mL, so the 6.4 × 10⁶ value is consistent with early-to-mid log phase rather than late-stationary phase.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Bacteria, Archaea, and Viruses before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

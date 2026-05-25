@@ -1,4 +1,4 @@
-# Questions — Ch 8: Cell Signalling and Communication {.unnumbered}
+# Questions — Cell Signalling and Communication {.unnumbered}
 
 \label{sec:q_unit_II_cell_signaling}
 

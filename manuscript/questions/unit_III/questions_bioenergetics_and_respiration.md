@@ -1,4 +1,4 @@
-# Questions — Ch 9: Bioenergetics and Cellular Respiration {.unnumbered}
+# Questions — Bioenergetics and Cellular Respiration {.unnumbered}
 
 \label{sec:q_unit_III_bioenergetics_and_respiration}
 

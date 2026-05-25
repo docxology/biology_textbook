@@ -1,16 +1,25 @@
 # Population Genetics and Hardy-Weinberg Equilibrium
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/hardy_weinberg.png}
+\caption{Hardy-Weinberg genotype-frequency curves. As allele frequency $p$ varies, $p^2$, $2pq$, and $q^2$ trace the expected AA, Aa, and aa proportions under random mating.}
+\label{fig:unit_V_hardy_weinberg}
+\end{figure}
+
+<!-- alt: Three curves showing genotype frequencies versus allele frequency p for AA, Aa, and aa under Hardy-Weinberg equilibrium. -->
+
 \label{sec:unit_V_population_genetics}
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 18** · Level 3/3 · 75 min read · 100 min lecture · Prerequisites: \cref{sec:unit_V_mendelian_genetics}, \cref{sec:unit_V_chromosomal_inheritance}
+> Level 3/3 · 75 min read · 100 min lecture · Prerequisites: \cref{sec:unit_V_mendelian_principles}, \cref{sec:unit_V_chromosomal_inheritance}
 
 ## Learning Objectives
 
 1. Define [**allele**](#gl:allele) frequency, genotype frequency, and [**gene**](#gl:gene) pool.
-2. State the Hardy-Weinberg \citep{weinberg1908} principle, derive the equilibrium equation, and list most five assumptions.
-3. Apply [**Hardy-Weinberg equilibrium**](#gl:hardy-weinberg-equilibrium) (Equation~\eqref{eq:population_genetics_1}) to calculate carrier frequencies and estimate disease prevalence.
+2. State the Hardy-Weinberg \citep{weinberg1908} principle, derive the equilibrium equation, and list the five assumptions.
+3. Apply [**Hardy-Weinberg equilibrium**](#gl:hardy-weinberg-equilibrium) (\cref{eq:population_genetics_1}) to calculate carrier frequencies and estimate disease prevalence.
 4. Test a population for HWE using the chi-squared test.
 5. Describe [**natural selection**](#gl:natural-selection): fitness, selection coefficient, dominance coefficient, and types of selection.
 6. Calculate allele frequency change under selection and predict equilibrium conditions for balancing selection.
@@ -42,7 +51,7 @@
 > 
 > In 1908, a cricket enthusiast named G.H. Hardy — then England's most distinguished pure mathematician — was irritated by a biologist's claim that [**dominant**](#gl:dominant) alleles automatically increase in frequency over time. Hardy spent an afternoon at the cricket match and, in a brief letter to *Science*, produced the algebraic proof that in the absence of disturbing forces, allele frequencies remain constant generation after generation. A German physician, Wilhelm Weinberg, had independently derived the same principle. The Hardy-Weinberg equilibrium became the null hypothesis of [**population genetics**](#gl:population-genetics) — and its deviations became the heartbeat of evolutionary biology. Nowhere is this better illustrated than the peppered moth (*Biston betularia*) during England's Industrial Revolution: pollution blackened tree bark, shifting the population from mostly pale moths to mostly dark (melanic) ones within decades — textbook natural selection altering allele frequencies in real time.
 
-### Chapter Roadmap
+### Chapter Roadmap for Population-Genetic Forces
 
 The chapter is long because it bridges three levels of time and scale — read it as a narrowing lens:
 
@@ -60,7 +69,7 @@ If you are reading for the core Mendelian-genetics course, prioritise the Hardy-
 \end{figure}
 <!-- alt: Multiple allele-frequency trajectories over generations for effective population sizes 25, 100, and 1000. The smallest population size has the widest random excursions, while the largest remains closest to the initial frequency. -->
 
-## The Gene Pool
+## The Gene Pool as Population-Level Genetic Variation
 
 A **population** is a group of individuals of the same species living in the same area at the same time and that interbreed. The **gene pool** is the population's allele set across loci.
 
@@ -96,7 +105,7 @@ F_{AA} + F_{Aa} + F_{aa} = 1
 
 Note that allele frequencies can be calculated from genotype frequencies but not vice versa (without additional assumptions), because different combinations of genotype frequencies can yield the same allele frequencies.
 
-## Worked Example: 18.1: In a population of 1,000 individuals: 360 AA, 480 Aa, 160 aa.
+## Worked Example: Allele Frequencies from Genotype Counts
 
 \begin{equation}
 p = \frac{2(360) + 480}{2(1000)} = \frac{1200}{2000} = 0.60
@@ -122,9 +131,9 @@ Check: $p + q = 0.60 + 0.40 = 1.00$ (correct).
 
 The **Hardy-Weinberg principle** (G.H. Hardy and Wilhelm Weinberg, 1908) states: in a large, randomly mating population with no evolutionary forces acting, allele frequencies and genotype frequencies remain constant from generation to generation.
 
-### Derivation
+### Deriving Hardy-Weinberg Genotype Frequencies
 
-Under random mating, [**gamete**](#gl:gamete)s combine randomly. The probability of drawing an A allele from the gene pool is $p$, and of drawing an a allele is $q$:
+Under random mating, [**gamete**](#gl:gamete)s combine randomly. \cref{fig:unit_V_hardy_weinberg} traces how $p^2$, $2pq$, and $q^2$ vary as allele frequency $p$ changes. The probability of drawing an A allele from the gene pool is $p$, and of drawing an a allele is $q$:
 
 \begin{equation}
 P(AA) = p \times p = p^2
@@ -297,7 +306,7 @@ Genotype frequencies under HWE:
 
 ---
 
-## Natural Selection
+## Natural Selection and Allele-Frequency Change
 
 ### Fitness and Selection
 
@@ -425,9 +434,9 @@ This predicts HbS frequency of ~12%, remarkably close to the observed ~10-20% in
 
 ---
 
-## Genetic Drift
+## Genetic Drift in Finite Populations
 
-In finite populations, allele frequencies change from generation to generation by **random sampling error** -- this is **genetic drift**.
+In finite populations, allele frequencies change from generation to generation by **random sampling error** -- this is **genetic drift**. \cref{fig:unit_V_genetic_drift_trajectories} contrasts stochastic allele-frequency paths under three effective population sizes, illustrating why drift is strongest when $N_e$ is small.
 
 ### Wright-Fisher Model
 
@@ -653,7 +662,7 @@ Because population-genetic models predict the **genome-wide** $F_{ST}$ distribut
 
 ---
 
-## Mutation
+## Mutation-Selection Balance and New Variation
 
 ### Mutation-Selection Balance
 
@@ -702,7 +711,7 @@ Since selection acts on heterozygotes (who are much more common than rare homozy
 
 ---
 
-## Molecular Evolution
+## Molecular Evolution and Sequence Substitution
 
 ### Neutral Theory \citep{kimura1968}
 
@@ -732,7 +741,7 @@ The ratio of nonsynonymous (amino acid-changing, Ka or dN) to synonymous (silent
 
 ---
 
-## Population Structure
+## Population Structure and Ancestry Inference
 
 ### Wright's F-Statistics
 
@@ -744,13 +753,13 @@ Wright defined three hierarchical F-statistics:
 
 Relationship: $(1 - F_{IT}) = (1 - F_{IS})(1 - F_{ST})$
 
-### STRUCTURE Analysis
+### Population Structure Inference with STRUCTURE
 
 The program STRUCTURE (Pritchard et al., 2000) uses Bayesian clustering to assign individuals to $K$ populations based on multilocus genotype data. It has been widely used in human population genetics to identify population structure (though the number of clusters $K$ is a modeling choice, not a biological fact -- an important caveat against over-interpretation).
 
 ---
 
-## Coalescent Theory
+## Coalescent Theory and Genealogy Backward in Time
 
 ### The Coalescent Framework
 
@@ -765,7 +774,7 @@ Rather than tracing alleles forward in time (classical population genetics), **c
 
 **Y-chromosomal Adam**: The TMRCA for most human Y [**chromosome**](#gl:chromosome)s is estimated at ~200,000-300,000 years ago. Same caveat applies.
 
-### Molecular Clocks
+### Molecular Clocks in Population Genetics
 
 If neutral substitutions accumulate at a roughly constant rate ($\mu_n$), sequence divergence between species provides a "clock" for estimating divergence times.
 
@@ -826,7 +835,7 @@ t = \frac{0.01004}{2 \times 2 \times 10^{-9}} = \frac{0.01004}{4 \times 10^{-9}}
 
 ---
 
-## Worked Example: Comprehensive Population Genetics
+## Worked Example: Combined Population-Genetics Calculations
 
 **Problem**: In a population of 10,000 grasshoppers, you observe the following genotype counts at a color locus with codominant alleles:
 
@@ -887,7 +896,7 @@ print(round(traj[-1].p, 4))
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Population Genetics and Hardy-Weinberg Equilibrium
 
 For **Population Genetics and Hardy-Weinberg Equilibrium**, frontier biology belongs inside the evidence logic of
 the chapter. Classical genetics remains essential, but modern interpretation adds penetrance, polygenicity, structural variation, ancestry-aware inference, and uncertainty in risk prediction. The core reading question is this: allele-frequency explanations should name the force, parameter values, assumptions, and data needed to distinguish forces.
@@ -905,7 +914,7 @@ the chapter. Classical genetics remains essential, but modern interpretation add
 
 A good genetics answer separates the Mendelian transmission model from the evidence needed to use it in a population, family, or clinical setting.
 
-**Source practice:** For inheritance and population claims, separate the model assumptions from sampling, ancestry representation, penetrance, linkage, and environment.
+**Source practice:** For population-genetic claims, state model assumptions, sampling frame, ancestry representation, selection regime, and drift or migration alternative.
 
 ### Current Evidence Map: Ancestry-Aware Variant Interpretation
 
@@ -955,7 +964,7 @@ flowchart LR
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Population Genetics and Hardy-Weinberg Equilibrium
 
 - Weinberg (1908). {\"U}ber den Nachweis der Vererbung beim Menschen. *Jahreshefte des Vereins f{\"u}r vaterl{\"a}ndische Naturkunde in W{\"u}rttemberg*, 64.
 - Kimura (1968). Evolutionary Rate at the Molecular Level. *Nature*, 217.
@@ -988,7 +997,7 @@ flowchart LR
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Population Genetics and Hardy-Weinberg Equilibrium
 
 **Population Genetics and Hardy-Weinberg Equilibrium** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -1001,4 +1010,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/biology/evolution/evolution.py` (`simulate_selection`, `wright_fisher_drift`, `molecular_clock_divergence_time`) | Compare deterministic and stochastic allele-frequency change. |
 | `src/visualization/plots.py` (`plot_selection_simulation`) | Inspect trajectories and sampling effects. |
 
-**Reproducibility check:** state population size, mating model, selection coefficient, migration, mutation, and sampling uncertainty before attributing allele-frequency change. **Cross-reference:** connect with \cref{sec:unit_V_mendelian_genetics}, \cref{sec:unit_VI_evolution_and_selection}, and \cref{sec:unit_VI_genetic_drift_and_speciation}.
+**Reproducibility check:** state population size, mating model, selection coefficient, migration, mutation, and sampling uncertainty before attributing allele-frequency change. **Cross-reference:** connect with \cref{sec:unit_V_mendelian_principles,sec:unit_V_mendelian_extensions_and_human_genetics}, \cref{sec:unit_VI_evolution_and_selection}, and \cref{sec:unit_VI_genetic_drift_and_speciation}.

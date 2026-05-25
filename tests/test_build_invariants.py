@@ -30,7 +30,7 @@ def _manuscript_markdown_files() -> list[Path]:
 
 
 def test_every_chapter_has_section_label() -> None:
-    """All 39 chapter files must declare ``\\label{sec:unit_…_…}``."""
+    """All 44 chapter files must declare ``\\label{sec:unit_…_…}``."""
     missing: list[Path] = []
     for unit_dir in sorted(MANUSCRIPT.glob("unit_*")):
         for ch in sorted(unit_dir.glob("*.md")):
@@ -111,6 +111,25 @@ def test_every_registered_figure_is_referenced() -> None:
             continue
         orphans.append(n)
     assert not orphans, f"Figure generators not referenced in manuscript: {orphans}"
+
+
+def test_every_figure_label_has_prose_cref() -> None:
+    """Every ``\\label{fig:…}`` in renderable manuscript must have ``\\cref{fig:…}``."""
+    all_text_parts: list[str] = []
+    label_files: dict[str, list[str]] = {}
+    for md in _manuscript_markdown_files():
+        text = md.read_text(encoding="utf-8")
+        all_text_parts.append(text)
+        for match in re.finditer(r"\\label\{(fig:[^}]+)\}", text):
+            label_files.setdefault(match.group(1), []).append(str(md.relative_to(MANUSCRIPT)))
+    corpus = "\n".join(all_text_parts)
+    missing: list[str] = []
+    for label in sorted(label_files):
+        if label == "fig:...":
+            continue
+        if f"\\cref{{{label}}}" not in corpus and f"@fig:{label[4:]}" not in corpus:
+            missing.append(f"{label} ({', '.join(label_files[label])})")
+    assert not missing, f"Figure labels without prose \\cref: {missing}"
 
 
 def test_bibliography_closed() -> None:

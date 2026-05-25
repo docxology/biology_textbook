@@ -1,4 +1,4 @@
-# Lab 4 — Enzymes and the Kinetics of Catalysis {.unnumbered}
+# Lab — Enzymes and the Kinetics of Catalysis {.unnumbered}
 
 \label{sec:lab_unit_I_enzymes_and_kinetics}
 
@@ -31,7 +31,7 @@
 2. Sketch in words the shape of a Michaelis–Menten v-versus-[S] curve. Apply the equation v = Vmax · [S] / (Km + [S]) to explain why the curve approaches Vmax asymptotically and why doubling [S] far above Km has little effect on v.
 3. Compare competitive inhibition (where an inhibitor binds the active site) and allosteric (non-competitive) inhibition that reduces effective enzyme activity by binding elsewhere. For each, predict the qualitative effect on the apparent Km and apparent Vmax measured from a v-versus-[S] curve.
 
-## Background {.unnumbered}
+## Lab Context: Enzymes and the Kinetics of Catalysis {.unnumbered}
 
 Enzymes are biological catalysts that lower activation energy. The enzyme catalase converts hydrogen peroxide (H₂O₂) to water and oxygen: **2 H₂O₂ → 2 H₂O + O₂**. This reaction is often monitored by counting O₂ bubbles per minute or by measuring the height of foam produced. Catalase is one of the fastest known enzymes (k_cat ~40,000,000 s⁻¹) and is found in most aerobic organisms.
 
@@ -43,6 +43,8 @@ The quantitative DHFR inhibition worked example in the parent chapter (\cref{sec
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Enzymes and the Kinetics of Catalysis: BRENDA enzyme-entry card with EC number, organism, kinetic field, ligand, reference, and release date | 1 |
+| Pathway provenance cards comparing one KEGG pathway map and one BioCyc pathway/genome entry for the same catalase or peroxide-detoxification reaction | 1 set |
 | Catalase activity dataset with three replicates per condition | 1 |
 | Enzyme-structure and active-site cards | 1 set |
 | Michaelis-Menten curve worksheet | 1 |
@@ -124,6 +126,10 @@ equipment version belongs only in an optional extension.
 
 **Interpretation:** Near Km, the enzyme is sensitive to substrate availability and small shifts in [S] move v sharply; far above Km, the enzyme is approaching saturation and additional substrate buys progressively less rate. Cells exploit this by keeping many regulated enzymes at [S] ≈ Km, where small allosteric or feedback signals can produce meaningful changes in flux. The same arithmetic tells you that to reach within 10% of Vmax in this enzyme you would need [S] ≈ 9·Km = 22.5 mM.
 
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Enzymes and the Kinetics of Catalysis before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

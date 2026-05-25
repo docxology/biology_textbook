@@ -1,4 +1,4 @@
-# Lab 12 — DNA Replication and the Cell Cycle {.unnumbered}
+# Lab — DNA Replication and the Cell Cycle {.unnumbered}
 
 \label{sec:lab_unit_IV_dna_replication_and_cell_cycle}
 
@@ -45,7 +45,7 @@
 
 5. **Real-World Application**: Chemotherapy drugs often target rapidly dividing cells. How does the cell cycle explain why these drugs affect cancer cells more than normal cells? What are the side effects related to this mechanism?
 
-## Background {.unnumbered}
+## Lab Context: DNA Replication and the Cell Cycle {.unnumbered}
 
 DNA replication is semiconservative (Meselson–Stahl, 1958): each daughter double helix retains one original strand and one newly synthesised strand. Replication proceeds bidirectionally from origins of replication; DNA polymerase extends DNA in the 5'→3' direction, requiring the lagging strand to be synthesised discontinuously as Okazaki fragments. The cell cycle (G₁ → S → G₂ → M) is driven by cyclin-CDK complexes and monitored by checkpoints (G₁/S, G₂/M, spindle assembly checkpoint). The mitotic index (fraction of cells in mitosis) reflects proliferative activity and is elevated in tumours.
 
@@ -53,6 +53,7 @@ DNA replication is semiconservative (Meselson–Stahl, 1958): each daughter doub
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for DNA Replication and the Cell Cycle: genomics/database source card: reference release, sample coverage, version, clinical boundary, and refresh trigger | 1 |
 | Printed cell-cycle image cards from root tip, embryo, and tumour tissue datasets | 1 set |
 | Mitotic stage decision key with example features | 1 |
 | Meselson-Stahl simulation dataset (printed) | 1 |
@@ -85,7 +86,7 @@ DNA replication is semiconservative (Meselson–Stahl, 1958): each daughter doub
    - Calculate mitotic index = (cells in mitosis ÷ total cells counted) × 100%.
    - Report the mean, range, and standard error across replicate cards; flag any card whose uncertain-cell count exceeds 10%.
 
-### Part 2: Computational Biology Exercise - Cell Cycle Modeling with Python {.unnumbered}
+### Part 2: Computational Biology Exercise — Cell Cycle Modeling with Python {.unnumbered}
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
@@ -162,6 +163,10 @@ equipment version belongs only in an optional extension.
 - The full genome could in principle finish in well under an hour if every origin fired at once; the measured S phase of ~8 hours (~28,800 s) is far longer than the per-replicon time, which fits a model in which origins fire in temporally staggered clusters rather than synchronously.
 
 **Interpretation:** Replicon-level kinetics are not the rate-limiting feature of S phase; origin firing schedules, replication-timing programs, and fork stalling at hard-to-replicate regions tend to set the overall duration. This reframes "how long does replication take?" as a question about origin regulation rather than polymerase speed.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for DNA Replication and the Cell Cycle before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

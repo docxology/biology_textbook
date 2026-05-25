@@ -1,6 +1,6 @@
 # Unit 0: Systems Science and the Biology of Complexity — AGENTS.md
 
-## Overview
+## Unit 0 Authoring Contract
 Unit 0 is a foundational prologue to the textbook, introducing the conceptual, mathematical, historical, and philosophical frameworks that underpin all subsequent units. It situates biology within systems science, complexity theory, active inference, and source-critical history/philosophy of biology.
 
 ## Chapters

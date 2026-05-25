@@ -427,41 +427,9 @@ def chi_squared_test(
     chi2 = sum((o - e) ** 2 / e for o, e in zip(observed, expected))
     df = len(observed) - 1
 
-    # Approximate p-value using regularised incomplete gamma function
-    # p = 1 - gammainc(df/2, chi2/2) — use math.lgamma for a simple estimate
-    # For a simple textbook-quality approximation we use the complement
-    # of the chi2 CDF via the regularised upper incomplete gamma.
-    # Python's math library doesn't have this directly, so we use a
-    # series expansion for small df.
-    try:
-        import math
+    from scipy.stats import chi2 as chi2_dist
 
-        # Upper regularised incomplete gamma Q(a, x) ≈ via series (Abramowitz)
-        a = df / 2.0
-        x = chi2 / 2.0
-        if x < 0:
-            p_value = 1.0
-        elif x == 0:
-            p_value = 1.0
-        else:
-            # Use the log-gamma complement: rough p-value
-            # For df=1: p = erfc(sqrt(chi2/2)) is exact.
-            if df == 1:
-                p_value = math.erfc(math.sqrt(chi2 / 2.0))
-            else:
-                # Simple bound: if chi2 > df + 3*sqrt(2*df): p ≈ 0
-                threshold = df + 3 * math.sqrt(2 * df)
-                if chi2 > threshold:
-                    p_value = 0.0
-                elif chi2 < df * 0.1:
-                    p_value = 1.0
-                else:
-                    # Log-gamma-based estimate
-                    log_p = a * math.log(x) - x - math.lgamma(a + 1)
-                    p_value = max(0.0, min(1.0, math.exp(log_p)))
-    except (OverflowError, ValueError) as exc:
-        logger.debug("Could not estimate chi-squared p-value: %s", exc)
-        p_value = float("nan")
+    p_value = float(chi2_dist.sf(chi2, df))
 
     # Standard chi-squared critical values at alpha=0.05
     CRITICAL_VALUES = {1: 3.841, 2: 5.991, 3: 7.815, 4: 9.488, 5: 11.070}
@@ -649,3 +617,30 @@ def histone_modification_state(mark: str) -> str:
         return "active"
     else:
         return "context-dependent"
+
+
+def synthetic_methylation_beta_matrix(
+    n_loci: int = 24,
+    n_samples: int = 8,
+    rng_seed: int = 42,
+):
+    """Return a deterministic synthetic CpG methylation β matrix for teaching plots.
+
+    Args:
+        n_loci: Number of CpG loci (rows).
+        n_samples: Number of samples (columns).
+        rng_seed: RNG seed for reproducibility.
+
+    Returns:
+        ``numpy.ndarray`` of shape ``(n_loci, n_samples)`` with β in [0, 1].
+    """
+    import numpy as np
+
+    rng = np.random.default_rng(rng_seed)
+    base = rng.uniform(0.15, 0.85, size=(n_loci, n_samples))
+    if n_loci > 14:
+        base[8:15, :] *= 0.4
+    return np.clip(base, 0.0, 1.0)
+
+
+gametes = _gametes

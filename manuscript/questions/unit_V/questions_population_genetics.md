@@ -1,4 +1,4 @@
-# Questions — Ch 18: Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
+# Questions — Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
 
 \label{sec:q_unit_V_population_genetics}
 

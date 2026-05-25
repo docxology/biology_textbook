@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 11** · Level 3/3 · 60 min read · 100 min lecture · Prerequisites: \cref{sec:unit_III_bioenergetics_and_respiration}, \cref{sec:unit_III_photosynthesis}
+> Level 3/3 · 60 min read · 100 min lecture · Prerequisites: \cref{sec:unit_III_bioenergetics_and_respiration}, \cref{sec:unit_III_photosynthesis}
 
 ## Learning Objectives
 
@@ -64,7 +64,7 @@ By the end of this chapter, you should be able to:
 
 ---
 
-## Pathways Are Not Isolated
+## Metabolic Pathways as Coupled Flux Networks
 
 [**Glycolysis**](#gl:glycolysis), the TCA cycle, beta-oxidation, and biosynthetic pathways do not operate independently. They share intermediates, co-factors (NAD$^+$/NADH, NADP$^+$/NADPH, CoA), and are subject to **allosteric cross-regulation**. Integration of these pathways defines the **metabolic state** of the cell.
 
@@ -152,7 +152,10 @@ This fuel-switching timeline is one of the most elegant examples of metabolic in
 
 Insulin is the master anabolic [**hormone**](#gl:hormone), secreted by pancreatic beta-cells in response to elevated blood glucose. Its signalling cascade is one of the most important in metabolic regulation:
 
-$$\text{Insulin} \to \text{IR (RTK)} \to \text{IRS-1/2} \to \text{PI3K} \to \text{PIP}_3 \to \text{PDK1 + mTORC2} \to \text{Akt (Thr308 + Ser473)} \tag{11.1}$$
+\begin{equation}
+\text{Insulin} \to \text{IR (RTK)} \to \text{IRS-1/2} \to \text{PI3K} \to \text{PIP}_3 \to \text{PDK1 + mTORC2} \to \text{Akt (Thr308 + Ser473)}
+\label{eq:unit_III_metabolic_integration_worked_1}
+\end{equation}
 
 ```mermaid
 flowchart LR
@@ -200,9 +203,9 @@ flowchart LR
     style GLUT4 fill:#cce5ff
     style PROT fill:#cce5ff
 ```
-<!-- alt: Flowchart for Insulin Signalling: The PI3K/Akt/mTOR Pathway: Insulin, Insulin receptor (α₂β₂ tyrosine kinase), IRS-1/2 (Tyr phosphorylated), and PI3K (p85/p110) form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing insulin receptor activation recruits IRS proteins, PI3K, Akt, and mTOR-linked targets to promote glucose uptake, glycogen synthesis, and anabolic metabolism. -->
 
-*Flowchart for Insulin Signalling: The PI3K/Akt/mTOR Pathway: Insulin, Insulin receptor (α₂β₂ tyrosine kinase), IRS-1/2 (Tyr phosphorylated), and PI3K (p85/p110) form the diagram's primary path or branches.*
+*Insulin receptor activation recruits IRS proteins, PI3K, Akt, and mTOR-linked targets to promote glucose uptake, glycogen synthesis, and anabolic metabolism.*
 
 *Insulin signalling cascade from receptor to downstream metabolic and growth effects (Mermaid).* Akt is the central node, integrating PDK1 (Thr308) and mTORC2 (Ser473) phosphorylations to drive glucose uptake, glycogen synthesis, lipogenesis, and protein synthesis.
 
@@ -270,9 +273,9 @@ flowchart TD
     style GLYR fill:#e6ffe6
     style GNG fill:#e6ffe6
 ```
-<!-- alt: Flowchart for Glucagon Signalling: cAMP/PKA Pathway: Glucagon (or epinephrine via β-AR), Glucagon receptor / β-AR (GPCR), Gαs, and Adenylyl cyclase form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing glucagon and epinephrine activate GPCR-cAMP-PKA signalling, shifting liver metabolism toward glycogen breakdown and gluconeogenesis during fasting or stress. -->
 
-*Flowchart for Glucagon Signalling: cAMP/PKA Pathway: Glucagon (or epinephrine via β-AR), Glucagon receptor / β-AR (GPCR), Gαs, and Adenylyl cyclase form the diagram's primary path or branches.*
+*Glucagon and epinephrine activate GPCR-cAMP-PKA signalling, shifting liver metabolism toward glycogen breakdown and gluconeogenesis during fasting or stress.*
 
 *Glucagon (or epinephrine) signalling cascade in the liver (Mermaid).* The cAMP/PKA cascade simultaneously activates glycogenolysis (via phosphorylase kinase) and gluconeogenesis (via CREB transcription) while suppressing glycolysis (via PFK-2/pyruvate kinase phosphorylation).
 
@@ -307,7 +310,7 @@ A single glucagon binding event releases a burst of ~10$^7$ glucose-1-phosphate 
 
 ---
 
-## Gluconeogenesis
+## Gluconeogenesis and Fasting Glucose Supply
 
 Gluconeogenesis synthesises glucose from non-carbohydrate precursors (lactate, glycerol, glucogenic amino acids). It occurs primarily in the **liver** and to a lesser extent in the **kidney cortex**.
 
@@ -330,9 +333,9 @@ Gluconeogenesis is NOT simply the reverse of glycolysis. Three irreversible glyc
 
 ---
 
-## Glycogen Metabolism
+## Glycogen Metabolism and Rapid Glucose Storage
 
-### Glycogen Structure
+### Glycogen Branching and Granule Architecture
 
 Glycogen is a branched polymer of glucose units:
 - **Alpha-1,4 linkages:** linear chains (~8--12 glucose units between branch points)
@@ -341,7 +344,7 @@ Glycogen is a branched polymer of glucose units:
 
 Liver glycogen (~100 g): blood glucose [**buffer**](#gl:buffer). Muscle glycogen (~400 g): local fuel for contraction (rarely exported as glucose because muscle lacks G6Pase).
 
-### Key Enzymes
+### Glycogen Synthase and Glycogen Phosphorylase Regulation
 
 **Glycogen phosphorylase:** Cleaves alpha-1,4 linkages from non-reducing ends, releasing glucose-1-phosphate. Regulated by:
 - **Allosteric activation:** AMP (muscle); glucose (liver, inhibitory)
@@ -498,7 +501,7 @@ AMPK is activated when its catalytic α-subunit is phosphorylated at **Thr172**.
 
 **CaMKKβ provides a Ca$^{2+}$-coupled activation route** — for example, in muscle contraction (where Ca$^{2+}$ release accompanies ATP demand) or in T-cell activation following T-cell receptor engagement. This route runs **in parallel** to the AMP/LKB1 pathway and lets cells anticipate energy demand from Ca$^{2+}$ signals before AMP rises.
 
-### Energy Charge
+### Adenylate Energy Charge and Metabolic State
 
 The **energy charge (EC)** of the adenylate system was introduced by Atkinson \citep{atkinson1968} as a single scalar that captures the fractional saturation of the adenylate pool with high-energy phosphate:
 
@@ -531,7 +534,10 @@ Numerator: $5.0 + 0.5 \times 0.6 = 5.0 + 0.30 = 5.30$. Denominator: $5.0 + 0.6 +
 
 **Step 3 --- Compute and interpret against the AMPK threshold.**
 
-$$EC = \frac{5.30}{5.65} = 0.938 \tag{11.3}$$
+\begin{equation}
+EC = \frac{5.30}{5.65} = 0.938
+\label{eq:unit_III_metabolic_integration_worked_2}
+\end{equation}
 
 At $EC = 0.938$ the pool sits in the normal resting band of 0.85--0.95 and well above the AMPK-activation window of 0.70--0.85. Predict: AMPK is largely inactive and the cell is in an energy-replete state favouring anabolism. A fall toward $EC \approx 0.80$ (rising AMP) would move the pool into the AMPK-sensitive window and switch the cell toward catabolism.
 
@@ -558,11 +564,17 @@ At $EC = 0.938$ the pool sits in the normal resting band of 0.85--0.95 and well 
 
 **Step 1 --- State the operational form of the flux control coefficient.** For a small fractional change in enzyme activity, $C_i^J = \dfrac{\partial \ln J}{\partial \ln e_i}$ is approximated by the ratio of fractional changes:
 
-$$C_i^J \approx \frac{\Delta J / J}{\Delta e_i / e_i} \tag{11.9}$$
+\begin{equation}
+C_i^J \approx \frac{\Delta J / J}{\Delta e_i / e_i}
+\label{eq:unit_III_metabolic_integration_worked_3}
+\end{equation}
 
 **Step 2 --- Substitute for PFK-1.** Here $\Delta e/e = 0.20$ and $\Delta J/J = 0.05$:
 
-$$C_{\text{PFK-1}}^{J} = \frac{0.05}{0.20} = 0.25 \tag{11.10}$$
+\begin{equation}
+C_{\text{PFK-1}}^{J} = \frac{0.05}{0.20} = 0.25
+\label{eq:unit_III_metabolic_integration_worked_4}
+\end{equation}
 
 **Step 3 --- Substitute for the pyruvate transporter.** Here $\Delta e/e = 0.30$ and $\Delta J/J = 0.03$:
 
@@ -626,11 +638,14 @@ Proposed by Randle et al. (1963, *The Lancet*), the Randle cycle describes **rec
 1. Insulin → ACC activated → malonyl-CoA synthesis increases → **CPT-1 inhibited** → beta-oxidation blocked
 2. Elevated NADH from glycolysis → inhibits beta-oxidation dehydrogenases
 
-### Metabolic Flexibility
+### Metabolic Flexibility Across Feeding and Fasting
 
 **Metabolic flexibility** = the ability to switch between glucose and fat oxidation in response to fuel availability. Assessed by the respiratory quotient (RQ):
 
-$$RQ = \frac{\text{CO}_2 \text{ produced}}{\text{O}_2 \text{ consumed}} \tag{11.4}$$
+\begin{equation}
+RQ = \frac{\text{CO}_2 \text{ produced}}{\text{O}_2 \text{ consumed}}
+\label{eq:unit_III_metabolic_integration_worked_5}
+\end{equation}
 
 - RQ = 1.0: pure glucose oxidation
 - RQ = 0.7: pure fat oxidation
@@ -713,15 +728,24 @@ graph LR
 
 A **substrate cycle** involves two opposing metabolic reactions operating simultaneously:
 
-$$\text{Fructose-6-P} + \text{ATP} \xrightarrow{\text{PFK-1}} \text{Fructose-1,6-BP} + \text{ADP} \tag{11.5}$$
+\begin{equation}
+\text{Fructose-6-P} + \text{ATP} \xrightarrow{\text{PFK-1}} \text{Fructose-1,6-BP} + \text{ADP}
+\label{eq:unit_III_metabolic_integration_worked_6}
+\end{equation}
 
-$$\text{Fructose-1,6-BP} + \text{H}_2\text{O} \xrightarrow{\text{FBPase-1}} \text{Fructose-6-P} + \text{P}_i \tag{11.6}$$
+\begin{equation}
+\text{Fructose-1,6-BP} + \text{H}_2\text{O} \xrightarrow{\text{FBPase-1}} \text{Fructose-6-P} + \text{P}_i
+\label{eq:unit_III_metabolic_integration_worked_7}
+\end{equation}
 
 Net reaction: ATP → ADP + P$_i$ (energy dissipated as heat)
 
 **Why substrate cycles are useful (Newsholme hypothesis, 1984):**
 
-$$\text{Amplification factor} = \frac{v_{\text{PFK}} + v_{\text{FBPase}}}{v_{\text{PFK}} - v_{\text{FBPase}}} \tag{11.7}$$
+\begin{equation}
+\text{Amplification factor} = \frac{v_{\text{PFK}} + v_{\text{FBPase}}}{v_{\text{PFK}} - v_{\text{FBPase}}}
+\label{eq:unit_III_metabolic_integration_worked_8}
+\end{equation}
 
 When both enzymes run at 50 U/min each and net flux is 1 U/min, a 10% change in PFK produces a 500% change in net flux --- **metabolic rheostat** behaviour. Substrate cycles provide ultrasensitive flux control at the cost of ATP.
 
@@ -790,7 +814,10 @@ The portal-vein drainage means that VAT lipolytic products (FFAs, glycerol) and 
 
 **Flux control coefficient ($C_i^J$):** The fractional change in pathway flux ($J$) caused by a fractional change in enzyme activity ($e_i$), with most other variables held constant:
 
-$$C_i^J = \frac{e_i}{J} \cdot \frac{\partial J}{\partial e_i} = \frac{\partial \ln J}{\partial \ln e_i} \tag{11.8}$$
+\begin{equation}
+C_i^J = \frac{e_i}{J} \cdot \frac{\partial J}{\partial e_i} = \frac{\partial \ln J}{\partial \ln e_i}
+\label{eq:unit_III_metabolic_integration_worked_9}
+\end{equation}
 
 Each $C_i^J$ ranges from 0 (this enzyme has no control over flux) to ~1 (this enzyme has near-total control). Negative values are possible for enzymes that produce inhibitors of the pathway.
 
@@ -847,7 +874,7 @@ print(round(base.reaction_rate, 2), round(blocked.reaction_rate, 2))
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Metabolic Integration and Regulation
 
 For **Metabolic Integration and Regulation**, frontier biology belongs inside the evidence logic of
 the chapter. Metabolism is now studied as a regulated network constrained by energy, redox balance, compartmentation, and environment. The core reading question is this: metabolic integration depends on compartmentation, hormone state, nutrient availability, and time scale.
@@ -863,9 +890,9 @@ the chapter. Metabolism is now studied as a regulated network constrained by ene
   the source closest to the measurement and state what has changed since it was
   published.
 
-A strong metabolic explanation names the flux, the limiting step, the sensor, and the condition under which the pathway changes direction or priority.
+A strong metabolic-integration claim names the organ, hormone signal, substrate flux, fed-fasting state, and timescale of compensation.
 
-**Source practice:** For metabolic claims, keep the organism, compartment, energetic state, and measurement method visible; a pathway map is not enough without flux or concentration evidence.
+**Source practice:** For whole-body metabolism claims, connect pathway logic to fluxomics, hormone measurements, tissue state, or clinical biomarkers rather than pathway membership alone.
 
 ## Summary
 
@@ -924,7 +951,7 @@ A strong metabolic explanation names the flux, the limiting step, the sensor, an
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Metabolic Integration and Regulation
 
 - Atkinson (1968). The regulation of enzyme activity in metabolism. *Biochemical Journal*, 108 \citep{atkinson1968}.
 - Mitchell (1961). Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism. *Nature*, 191 \citep{mitchell1961}.
@@ -958,7 +985,7 @@ A strong metabolic explanation names the flux, the limiting step, the sensor, an
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Metabolic Integration and Regulation
 
 **Metabolic Integration and Regulation** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -971,4 +998,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/biology/physiology/physiology.py` (`homeostasis_response`) | Compare cellular flux regulation with organism-level homeostasis. |
 | `src/mermaid/biology_diagrams.py` (`glycolysis_pathway_diagram`, `hormone_signaling_diagram`) | Link metabolic pathways to endocrine control. |
 
-**Reproducibility check:** state fed/fasted status, tissue, compartment, and time scale before predicting pathway priority. **Cross-reference:** use \cref{sec:unit_III_bioenergetics_and_respiration}, \cref{sec:unit_I_enzymes_and_kinetics}, and \cref{sec:unit_IX_endocrine_and_immune}.
+**Reproducibility check:** state fed/fasted status, tissue, compartment, and time scale before predicting pathway priority. **Cross-reference:** use \cref{sec:unit_III_bioenergetics_and_respiration}, \cref{sec:unit_I_enzymes_and_kinetics}, and \cref{sec:unit_IX_endocrine_signaling,sec:unit_IX_immune_system_defense}.

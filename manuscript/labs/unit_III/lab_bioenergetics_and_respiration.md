@@ -1,4 +1,4 @@
-# Lab 9 — Bioenergetics and Cellular Respiration {.unnumbered}
+# Lab — Bioenergetics and Cellular Respiration {.unnumbered}
 
 \label{sec:lab_unit_III_bioenergetics_and_respiration}
 
@@ -31,7 +31,7 @@
 2. Define respiratory quotient (RQ) as a ratio of gas-exchange rates, and give the theoretical RQ values for carbohydrate, lipid, and protein substrates.
 3. A germinating pea seedling and a dormant pea seed of the same mass sit in identical respirometers at the same temperature. Predict which would show a greater O₂ consumption rate and explain the metabolic basis of the prediction.
 
-## Background {.unnumbered}
+## Lab Context: Bioenergetics and Cellular Respiration {.unnumbered}
 
 Cellular respiration converts the chemical energy in organic molecules to ATP. The complete aerobic pathway — glycolysis → pyruvate oxidation → Krebs cycle → oxidative phosphorylation — yields a theoretical maximum of ~30 ATP per glucose. The overall equation is: **C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + ~30 ATP**. CO₂ production rate and O₂ consumption rate can serve as proxies for metabolic rate. In this lab, printed datasets provide model evidence for comparing aerobic respiration, fermentation, and substrate effects.
 
@@ -39,6 +39,7 @@ Cellular respiration converts the chemical energy in organic molecules to ATP. T
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Bioenergetics and Cellular Respiration: metabolism source card: organism, compartment, condition, measurement method, and flux boundary | 1 |
 | Fermentation CO₂ dataset by substrate type | 1 |
 | Respirometry O₂-consumption dataset for active, dormant, and volume-control cases | 1 |
 | Pathway carbon-and-electron tracing cards | 1 set |
@@ -101,7 +102,7 @@ Before answering the analysis questions, annotate the paper dataset for
 Focus note: in a respiration dataset, follow the electrons and protons explicitly — ask which step the measured rate (O₂ uptake, ATP, Δp) actually constrains, and whether the reported P/O or ATP yield holds once shuttle use and proton leak are stated. Keep required work paper-based; any material-handling or
 equipment version belongs only in an optional extension.
 
-### Worked Example {.unnumbered}
+### Worked Example: ATP Yield and Gas-Exchange Proxies {.unnumbered}
 
 **Problem:** A respirometer containing germinating peas with total mass 15.3 g shows a fluid displacement equivalent to 0.85 mL of O₂ consumed over 10 minutes. A control respirometer containing glass beads of identical volume shows 0.04 mL of displacement over the same 10 minutes (a thermobaric drift correction). The lab is at 25 °C and 1 atm. (a) Compute the corrected O₂ consumption rate in mL O₂ per minute per gram of pea tissue. (b) Convert that rate into mmol O₂ per minute per gram using the ideal gas law.
 
@@ -126,6 +127,10 @@ Per gram: 3.31 × 10⁻⁶ / 15.3 ≈ 2.16 × 10⁻⁷ mol O₂ / (min·g) ≈ 0
 
 **Interpretation:** The glass-bead control subtracts apparent gas-volume change that is not biological — thermal expansion, slow leaks, capillary creep. Without it, the measurement would overstate respiration by about 5%, which would matter when comparing treatments. Mass-specific rates (per gram of tissue) let students compare seeds of different sizes on equal footing, and converting to molar units lets them connect the measurement to stoichiometric equations for glucose oxidation — for example, predicting CO₂ production from a known RQ.
 
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Bioenergetics and Cellular Respiration before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

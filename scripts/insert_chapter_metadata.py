@@ -23,24 +23,20 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+from _bootstrap import PROJECT, ensure_project_paths
+
+ensure_project_paths(include_scripts=True)
+
 try:
     from scripts.atomic_io import write_text_atomic
 except ModuleNotFoundError:  # pragma: no cover - direct script execution path
-    sys.path.insert(0, str(Path(__file__).resolve().parent))
     from atomic_io import write_text_atomic  # type: ignore[import-not-found,no-redef]
 
-
-PROJECT = Path(__file__).resolve().parent.parent
 MANUSCRIPT = PROJECT / "manuscript"
-SRC = PROJECT / "src"
-TEMPLATE_ROOT = PROJECT.parent.parent
 
 
 def _load_toc():
     """Load the canonical ToC API from ``src/biology/toc.py``."""
-    for path in (SRC, TEMPLATE_ROOT):
-        if str(path) not in sys.path:
-            sys.path.insert(0, str(path))
     toc = importlib.import_module("biology.toc")
     return toc.load_toc(PROJECT)
 
@@ -72,9 +68,8 @@ def _format_badge(chapter, chapter_map) -> str:
         # Use bare title as link text; \cref handles formatting in PDF.
         prereq_links.append(f"\\cref{{sec:{pid}}}")
     prereqs = ", ".join(prereq_links) if prereq_links else "none"
-    num_badge = f"Ch {chapter.display_number}"
     return (f"{_BADGE_MARKER}\n"
-            f"> **{num_badge}** · {meta.difficulty_label} · "
+            f"> {meta.difficulty_label} · "
             f"{meta.reading_time_min} min read · "
             f"{meta.lecture_time_min} min lecture · "
             f"Prerequisites: {prereqs}")

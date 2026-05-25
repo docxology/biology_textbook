@@ -14,7 +14,12 @@ import yaml
 PROJECT = Path(__file__).resolve().parent.parent
 MANUSCRIPT = PROJECT / "manuscript"
 SRC = PROJECT / "src"
-TEMPLATE_ROOT = PROJECT.parent.parent
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from textbook_paths import discover_template_root  # noqa: E402
+
+TEMPLATE_ROOT = discover_template_root(PROJECT)
 
 
 def _load_module(name: str, path: Path):
@@ -52,9 +57,80 @@ def _chapter_metadata():
 
 def _alignment():
     for path in (SRC, TEMPLATE_ROOT):
+        if path is None:
+            continue
         if str(path) not in sys.path:
             sys.path.insert(0, str(path))
     return importlib.import_module("biology.alignment")
+
+
+def _sync_blocks():
+    return importlib.import_module("biology.curriculum_sync.sync_blocks")
+
+
+def test_sync_blocks_replaces_duplicate_marker_blocks() -> None:
+    sync_blocks = _sync_blocks()
+    block = "\n".join(
+        [
+            sync_blocks.CHAPTER_MARKER[0],
+            "### Study Blueprint",
+            sync_blocks.CHAPTER_MARKER[1],
+        ]
+    )
+    text = f"Lead\n\n{block}\n\n{block}\n\nTail\n"
+
+    updated, changed = sync_blocks._replace_block(
+        text,
+        sync_blocks.CHAPTER_MARKER,
+        "replacement",
+    )
+
+    assert changed is True
+    assert updated.count("replacement") == 1
+    assert sync_blocks.CHAPTER_MARKER[0] not in updated
+
+
+def test_sync_blocks_normalizes_heading_titles_and_attrs() -> None:
+    sync_blocks = _sync_blocks()
+
+    assert (
+        sync_blocks._toc_safe_heading_title(
+            "12. Further Reading {.unnumbered}",
+            chapter_title="Cell Theory",
+        )
+        == "Further Reading and Source Notes: Cell Theory {.unnumbered}"
+    )
+    assert sync_blocks._format_heading(
+        "Evidence",
+        {"#anchor", ".unnumbered"},
+    ) == "Evidence {.unnumbered #anchor}"
+
+
+def test_sync_blocks_normalize_headings_preserves_fenced_code(tmp_path: Path) -> None:
+    sync_blocks = _sync_blocks()
+    path = tmp_path / "chapter.md"
+    path.write_text(
+        "\n".join(
+            [
+                "# Demo",
+                "",
+                "```markdown",
+                "## Procedure",
+                "```",
+                "",
+                "## 2. Procedure",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    changed = sync_blocks.normalize_headings(path, unnumbered=True, dry_run=False)
+
+    assert changed is True
+    text = path.read_text(encoding="utf-8")
+    assert "```markdown\n## Procedure\n```" in text
+    assert "## Experimental Procedure {.unnumbered}" in text
 
 
 def test_every_config_chapter_has_curriculum_record() -> None:
@@ -88,6 +164,8 @@ def test_curriculum_records_are_instructionally_complete() -> None:
 
 def test_curriculum_bridge_apis_resolve() -> None:
     for path in (SRC, TEMPLATE_ROOT):
+        if path is None:
+            continue
         if str(path) not in sys.path:
             sys.path.insert(0, str(path))
 

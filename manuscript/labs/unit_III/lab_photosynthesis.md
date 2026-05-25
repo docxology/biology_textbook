@@ -1,4 +1,4 @@
-# Lab 10 — Photosynthesis {.unnumbered}
+# Lab — Photosynthesis {.unnumbered}
 
 \label{sec:lab_unit_III_photosynthesis}
 
@@ -46,7 +46,7 @@
 
 5. **Real-World Application**: Commercial greenhouses often use LED grow lights. Based on your knowledge of photosynthesis, what light spectrum would you recommend for maximizing plant growth? Consider both energy efficiency and photosynthetic efficiency.
 
-## Background {.unnumbered}
+## Lab Context: Photosynthesis {.unnumbered}
 
 Photosynthesis converts light energy to chemical energy: **6 CO₂ + 6 H₂O + light → C₆H₁₂O₆ + 6 O₂**. The light-dependent reactions in the thylakoid membrane split water (photolysis) and generate NADPH and ATP; the Calvin cycle in the stroma uses NADPH and ATP to fix CO₂ into G3P and ultimately glucose. A floating leaf-disc assay can estimate photosynthesis because O₂ accumulation increases buoyancy; here, an image-and-data packet provides the same ET₅₀ evidence without requiring plant material, bicarbonate solution, lamps, or cutting tools.
 
@@ -54,6 +54,7 @@ Photosynthesis converts light energy to chemical energy: **6 CO₂ + 6 H₂O + l
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Photosynthesis: metabolism source card: organism, compartment, condition, measurement method, and flux boundary | 1 |
 | Simulated leaf-disc time-course dataset by light colour | 1 |
 | Light-intensity and inverse-square worksheet | 1 |
 | Chlorophyll absorption spectrum packet | 1 |
@@ -81,7 +82,7 @@ Photosynthesis converts light energy to chemical energy: **6 CO₂ + 6 H₂O + l
    - Use the three provided replicate runs for each condition
    - Calculate ET₅₀ for each replicate using linear interpolation or the formula: ET₅₀ = (t₂ - t₁) × (5 - n₁) / (n₂ - n₁) + t₁
 
-### Part 2: Computational Biology Exercise - Data Analysis with Python {.unnumbered}
+### Part 2: Computational Biology Exercise — Data Analysis with Python {.unnumbered}
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
@@ -181,6 +182,10 @@ equipment version belongs only in an optional extension.
 
 **Interpretation:** At a 200 μmol photons m⁻² s⁻¹ flux — roughly one-tenth of full sunlight — this leaf shows a net positive O₂ output of 18 μmol m⁻² s⁻¹, about 90% of gross evolution. Respiration is a constant draw that the plant must exceed to grow; the compensation point sets the lower limit of viable canopy position. Note that the assumption "respiration is unchanged in light" is approximate — in reality, photorespiration and possibly partial mitochondrial inhibition in the light shift the balance, so net evolution computed this way is a useful upper estimate rather than an exact prediction.
 
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Photosynthesis before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

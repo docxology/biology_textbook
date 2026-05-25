@@ -1,4 +1,4 @@
-# Lab 27 — Plant Responses to the Environment {.unnumbered}
+# Lab — Plant Responses to the Environment {.unnumbered}
 
 \label{sec:lab_unit_VIII_plant_responses}
 
@@ -31,7 +31,7 @@
 2. Distinguish phytochrome Pr from Pfr — which form is active, what wavelength converts Pr to Pfr, and what happens to Pfr in darkness?
 3. Define the critical night length for photoperiodism. Is a short-day plant induced to flower when nights are longer or shorter than the critical length?
 
-## Background {.unnumbered}
+## Lab Context: Plant Responses to the Environment {.unnumbered}
 
 Plants integrate environmental signals and respond through photoreceptors and hormone signalling. Auxin (IAA) is produced in the shoot apex and promotes elongation at low concentrations but inhibits at high concentrations (biphasic response). Gibberellins (GAs) promote stem elongation and seed germination by targeting DELLA protein degradation. Phototropism (bending toward light) results from asymmetric auxin distribution driven by the PIN auxin efflux carriers. Phytochrome Pr (inactive, absorbs red 660 nm) ↔ Pfr (active, absorbs far-red 730 nm) provides a light quality sensor — Pfr promotes seed germination and flowering.
 
@@ -39,6 +39,7 @@ Plants integrate environmental signals and respond through photoreceptors and ho
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Plant Responses to the Environment: plant evidence source card: tissue, driver, field context, breeding/adoption boundary, and refresh trigger | 1 |
 | Phototropism and gravitropism image sequence with angle scale | 1 packet |
 | Auxin dose-response dataset with replicated curvature measurements | 1 |
 | Gibberellin dwarf-pea stem-length dataset with control and GA-treated groups | 1 |
@@ -134,6 +135,10 @@ equipment version belongs only in an optional extension.
 **Solution:** (a) Night = 10 h > 9 h critical → flowers. (b) Night = 8 h < 9 h critical → does not flower. (c) The red-light pulse converts Pfr (accumulated since dusk) back to Pr interrupting the dark period signal. The effective uninterrupted dark period is now about 5 h on each side of the pulse, both below 9 h → does not flower.
 
 **Interpretation:** Short-day plants respond to uninterrupted night length exceeding the critical threshold. A brief light interruption resets the phytochrome photoequilibrium, demonstrating that the biological clock measures darkness continuity rather than total dark duration.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Plant Responses to the Environment before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

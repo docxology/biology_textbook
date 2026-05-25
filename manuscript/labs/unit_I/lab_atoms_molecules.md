@@ -1,4 +1,4 @@
-# Lab 1 — Atoms, Molecules, and Chemical Bonds {.unnumbered}
+# Lab — Atoms, Molecules, and Chemical Bonds {.unnumbered}
 
 \label{sec:lab_unit_I_atoms_molecules}
 
@@ -31,7 +31,7 @@
 2. Distinguish an ionic bond (such as that holding Na⁺ and Cl⁻ together in a NaCl lattice) from a polar covalent bond (such as the O–H bond in water). Apply this distinction to predict why NaCl dissociates into ions in aqueous solution while H₂O does not.
 3. Compare the role of a hydrogen-bond donor (a hydrogen attached to N, O, or F) and a hydrogen-bond acceptor (a lone pair on N, O, or F). Use the contrast to explain why ammonia (NH₃) can act as both donor and acceptor whereas methane (CH₄) is unable to function as either.
 
-## Background {.unnumbered}
+## Lab Context: Atoms, Molecules, and Chemical Bonds {.unnumbered}
 
 Chemistry underpins every biological process. Atoms bond through electronegativity differences: when atoms share electrons unequally, they form polar covalent bonds (as in O–H), creating partial charges (δ+ and δ−). These partial charges enable hydrogen bonding — the weak but pervasive force that gives water its remarkable properties and stabilises the three-dimensional shapes of proteins and DNA.
 
@@ -41,6 +41,7 @@ In this lab, you will use a paper dataset of solubility and surface-tension obse
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Atoms, Molecules, and Chemical Bonds: molecular-structure source card: experimental method, prediction confidence, assay validation, and release date | 1 |
 | Molecule cards: water, oil-like hydrocarbon, NaCl, sucrose, dye A, dye B, soap | 1 set |
 | Printed solubility observation dataset | 1 |
 | Printed surface-tension observation card | 1 |
@@ -117,6 +118,10 @@ equipment version belongs only in an optional extension.
 
 **Interpretation:** A single polar O–H group is often enough to bring small alcohols into the aqueous phase, which is one reason cells use hydroxyl groups so widely (for example, on sugars and on the side chains of serine and threonine). As the non-polar hydrocarbon portion of an alcohol grows longer — for instance going from methanol to octanol — the molecule's water solubility drops, and the same reasoning explains why phospholipids assemble into bilayers rather than dissolving.
 
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Atoms, Molecules, and Chemical Bonds before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

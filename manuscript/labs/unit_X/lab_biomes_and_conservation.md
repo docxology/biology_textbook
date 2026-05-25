@@ -1,4 +1,4 @@
-# Lab 35 — Biomes and Conservation Biology {.unnumbered}
+# Lab — Biomes and Conservation Biology {.unnumbered}
 
 \label{sec:lab_unit_X_biomes_and_conservation}
 
@@ -30,7 +30,7 @@
 2. State the IUCN Red List criterion most commonly cited for the "Critically Endangered" category — for example, an observed or projected population reduction over the past or next three generations, or a very small or restricted population. Cite at least one quantitative threshold that the IUCN typically uses.
 3. Define effective population size (Ne) in your own words, and explain in two sentences why Ne is often substantially smaller than the census population size N in wild populations.
 
-## Background {.unnumbered}
+## Lab Context: Biomes and Conservation Biology {.unnumbered}
 
 Biomes are large-scale communities determined primarily by climate (temperature and precipitation). The species-area relationship **$S = cA^z$** (log-linear: log S = log c + z·log A) predicts that decreasing habitat area reduces species richness; the exponent z (typically 0.2–0.35 for oceanic islands) can be used to predict extinction rates from deforestation. Minimum viable population (MVP) analyses determine the population size needed for a defined probability of persistence over a defined time frame. IUCN Red List criteria assign species to categories (LC, NT, VU, EN, CR, EW, EX) based on population decline rates, geographic range, and quantitative extinction risk.
 
@@ -38,6 +38,8 @@ Biomes are large-scale communities determined primarily by climate (temperature 
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Biomes and Conservation Biology: conservation-assessment source card comparing GBIF occurrence records, IUCN category evidence, IPBES policy synthesis, assessment version, and monitoring trigger | 1 |
+| GBIF occurrence-filter worksheet with coordinate uncertainty, date, basis of record, taxonomic backbone match, duplicate flag, and sampling-bias notes | 1 |
 | Whittaker biome diagram (printed with temperature and precipitation axes) | 1 |
 | Climate data cards (10 locations: MAT and MAP values) | 1 set |
 | Species-area relationship dataset (6 habitat fragments: area and species count) | 1 |
@@ -135,6 +137,10 @@ equipment version belongs only in an optional extension.
 **Solution:** Effective population size: Ne ≈ 85 / 3 ≈ 28. Per-generation retention factor: (1 − 1/(2 × 28)) = (1 − 1/56) ≈ 0.9821. After 10 generations: H_10 = 0.45 × (0.9821)^10 ≈ 0.45 × 0.836 ≈ 0.376. So expected heterozygosity drops from 0.45 to roughly 0.38 — about a 16% relative loss in 10 generations under drift alone.
 
 **Interpretation:** Genetic drift erodes heterozygosity faster in small populations because each generation loses a fraction 1/(2Ne) of the variation in expectation. With Ne ≈ 28, even a decade of generations is enough to make inbreeding depression and reduced adaptive capacity plausible concerns. Conservation actions that raise effective size — corridors, translocations, genetic rescue — can slow this loss substantially.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Biomes and Conservation Biology before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Insert a ``## Further Reading`` section into every chapter that lacks one.
+"""Insert a chapter-specific source-note section into configured chapters.
 
 Strategy
 --------
 
-For each chapter file that does not already contain a ``## Further Reading``
-(or ``### Further Reading``) heading, the script:
+For each configured chapter file that does not already contain a further-reading
+or source-notes heading, the script:
 
 1. Parses the chapter prose for all ``\\citep{…}`` / ``\\citet{…}`` keys.
 2. Parses ``manuscript/references.bib`` for the matching entries.
@@ -13,11 +13,12 @@ For each chapter file that does not already contain a ``## Further Reading``
    chapter so the Further Reading list is self-consistent; if fewer than
    four are cited, the chapter-specific curated map in this file supplies
    supplements.
-4. Renders the section as a bulleted list of "Author (year). *Title*.
-   *Venue*." lines and injects it AFTER ``## Review Questions`` (or the
-   closest equivalent) and BEFORE the module reference footer.
+4. Renders the section as ``## Further Reading and Source Notes:
+   <Chapter Title>`` plus a bulleted list of "Author (year). *Title*.
+   *Venue*." lines. It injects the block AFTER ``## Review Questions`` (or
+   the closest equivalent) and BEFORE the module reference footer.
 
-Idempotent: if a ``## Further Reading`` heading already exists, the file
+Idempotent: if a further-reading/source-notes heading already exists, the file
 is skipped.
 """
 
@@ -28,14 +29,20 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
+from _bootstrap import ensure_project_paths
+
+ensure_project_paths(include_scripts=True)
+
 try:
+    from biology.toc import load_toc
     from scripts.atomic_io import write_text_atomic
 except ModuleNotFoundError:  # pragma: no cover - direct script execution path
-    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from biology.toc import load_toc
     from atomic_io import write_text_atomic  # type: ignore[import-not-found,no-redef]
 
 
-MANUSCRIPT = Path(__file__).resolve().parent.parent / "manuscript"
+PROJECT_DIR = Path(__file__).resolve().parent.parent
+MANUSCRIPT = PROJECT_DIR / "manuscript"
 BIB = MANUSCRIPT / "references.bib"
 
 
@@ -190,15 +197,15 @@ def pick_keys(chapter_rel: str, chapter_keys: list[str]) -> list[str]:
     return picks[:6]
 
 
-def render_section(entries: list[BibEntry]) -> str:
-    lines = ["", "## Further Reading", ""]
+def render_section(entries: list[BibEntry], chapter_title: str) -> str:
+    lines = ["", f"## Further Reading and Source Notes: {chapter_title}", ""]
     for e in entries:
         lines.append(f"- {e.pretty()}")
     lines.append("")
     return "\n".join(lines)
 
 
-def inject(path: Path, bib: dict[str, BibEntry], dry_run: bool = False) -> bool:
+def inject(path: Path, bib: dict[str, BibEntry], chapter_title: str, dry_run: bool = False) -> bool:
     text = path.read_text(encoding="utf-8")
     if _FURTHER_READING_RE.search(text):
         return False  # already has one
@@ -209,7 +216,7 @@ def inject(path: Path, bib: dict[str, BibEntry], dry_run: bool = False) -> bool:
     if not entries:
         print(f"WARN: no references found for {chapter_rel}", file=sys.stderr)
         return False
-    section = render_section(entries)
+    section = render_section(entries, chapter_title)
 
     # Insertion site preference:
     # 1. After Review Questions block (find its end = next \n## or EOF)
@@ -254,15 +261,14 @@ def main(argv: list[str] | None = None) -> int:
     bib = parse_bib()
     inserted = 0
     skipped = 0
-    for unit_dir in sorted(MANUSCRIPT.glob("unit_*")):
-        for ch in sorted(unit_dir.glob("*.md")):
-            if ch.name in {"README.md", "AGENTS.md", "unit_intro.md"}:
-                continue
-            if inject(ch, bib, dry_run=dry_run):
-                inserted += 1
-                print(f"  [{'D' if dry_run else '+'}] {ch.relative_to(MANUSCRIPT)}")
-            else:
-                skipped += 1
+    toc = load_toc(PROJECT_DIR)
+    for chapter in toc.chapters:
+        ch = chapter.path
+        if inject(ch, bib, chapter.title, dry_run=dry_run):
+            inserted += 1
+            print(f"  [{'D' if dry_run else '+'}] {ch.relative_to(MANUSCRIPT)}")
+        else:
+            skipped += 1
     mode = "DRY RUN" if dry_run else "APPLIED"
     print(f"\n[{mode}] further_reading_inserted={inserted} skipped={skipped}")
     return 0

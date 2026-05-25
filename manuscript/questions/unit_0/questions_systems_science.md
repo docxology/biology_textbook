@@ -1,4 +1,4 @@
-# Questions — Ch 0.1: Systems Science and the Logic of Emergence {.unnumbered}
+# Questions — Systems Science and the Logic of Emergence {.unnumbered}
 
 \label{sec:q_unit_0_systems_science}
 

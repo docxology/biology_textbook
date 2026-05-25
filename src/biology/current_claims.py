@@ -26,9 +26,18 @@ REQUIRED_CLAIM_IDS = {
     "oneill-amr-warning-scenario",
     "photosynthesis-co2-scenario-range",
     "alphafold3-hypothesis-generator",
-    "iucn-red-list-2025-1",
+    "human-pangenome-release-ii-2025",
+    "iucn-red-list-2025-2",
     "who-bppl-2024-amr-triage",
     "human-pangenome-2023-reference",
+    "nar-database-issue-2026",
+    "rnacentral-2026-gene-literature",
+    "gtdb-r10-rs226-2025",
+    "plant-pangenomes-crop-breeding-2024",
+    "mouse-brain-cell-atlas-2023",
+    "brenda-2026-enzyme-resource",
+    "lyfgenia-gene-therapy-approval",
+    "who-glass-2025-amr-surveillance",
 }
 
 DEFAULT_MAX_CHECKED_AGE_DAYS = 180
@@ -123,11 +132,27 @@ def validate_current_claims(
             issues.append(ClaimIssue(claim.claim_id, "missing-file", f"{claim.file} does not exist"))
             continue
         text = claim.file.read_text(encoding="utf-8")
-        if claim.anchor_text not in text:
+        anchor_index = text.find(claim.anchor_text)
+        if anchor_index == -1:
             issues.append(ClaimIssue(claim.claim_id, "missing-anchor", "anchor_text not found in source file"))
-        if claim.citekey and claim.citekey not in text:
-            issues.append(ClaimIssue(claim.claim_id, "missing-citekey-near-claim", "citekey not found in source file"))
+        elif claim.citekey and claim.citekey not in _claim_local_context(text, anchor_index):
+            issues.append(
+                ClaimIssue(
+                    claim.claim_id,
+                    "missing-citekey-near-claim",
+                    "citekey must appear in the same paragraph or table block as anchor_text",
+                )
+            )
     return issues
+
+
+def _claim_local_context(text: str, anchor_index: int) -> str:
+    """Return the paragraph or table block containing a current-claim anchor."""
+    start = text.rfind("\n\n", 0, anchor_index)
+    start = 0 if start == -1 else start + 2
+    end = text.find("\n\n", anchor_index)
+    end = len(text) if end == -1 else end
+    return text[start:end]
 
 
 def _claim_from_mapping(record: Any, project_root: Path) -> CurrentClaim:

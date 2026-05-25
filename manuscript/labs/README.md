@@ -1,6 +1,6 @@
 # Laboratory Activities
 
-This directory contains **39 paper-based laboratory activities** — one per textbook chapter (including the four Unit 0 orientation chapters) — designed for individual or small-group work (~4 students) without requiring wet-lab access or specialised equipment. The required path uses printed datasets, image/card packets, decision matrices, graphing tasks, control logic, uncertainty analysis, and reproducibility checks. Wet-lab, microscope, culture, reagent, specimen, heating, or dissection variants belong only in clearly marked optional extensions.
+This directory contains **44 paper-based laboratory activities** — one per textbook chapter (including the four Unit 0 orientation chapters) — designed for individual or small-group work (~4 students) without requiring wet-lab access or specialised equipment. The required path uses printed datasets, image/card packets, decision matrices, graphing tasks, control logic, uncertainty analysis, and reproducibility checks. Wet-lab, microscope, culture, reagent, specimen, heating, or dissection variants belong only in clearly marked optional extensions.
 
 ## Lab File Naming Convention
 
@@ -27,7 +27,7 @@ Each lab follows this template:
 | **H1 title** followed by `\label{sec:lab_unit_X_<stem>}` | H1 is generated from the parent chapter title by `../../scripts/sync_curriculum_materials.py`; the label enables `\cref{}` cross-referencing from the parent chapter |
 | **Opening `\cref`-link** | One sentence pointing back to the parent textbook chapter (auto-inserted by `../../scripts/link_labs_to_chapters.py`) |
 | **Learning Objectives** | 3–4 measurable outcomes tied to chapter objectives |
-| **Background** | ~150 words connecting theory to the activity |
+| **Lab Context: `<Parent Chapter Title>`** | ~150 words connecting theory to the activity |
 | **Materials** | Per-group materials list; household/classroom items only |
 | **Paper-Based Investigation / Procedure** | 5–8 numbered steps using datasets, cards, diagrams, model tables, or decision matrices |
 | **Data Recording** | Table or observation template |

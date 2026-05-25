@@ -1,10 +1,19 @@
 # Genetic Drift, Gene Flow, and Speciation
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/fitness_landscape.png}
+\caption{One-locus mean fitness landscapes under directional selection, heterozygote advantage, and underdominance. The shape of $\bar W(p)$ predicts whether allele frequency moves toward fixation, an interior equilibrium, or disruptive thresholds.}
+\label{fig:unit_VI_fitness_landscape}
+\end{figure}
+
+<!-- alt: Three mean-fitness curves over allele frequency p illustrating different selection modes. -->
+
 \label{sec:unit_VI_genetic_drift_and_speciation}
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 20** · Level 3/3 · 60 min read · 75 min lecture · Prerequisites: \cref{sec:unit_VI_evolution_and_selection}
+> Level 3/3 · 60 min read · 75 min lecture · Prerequisites: \cref{sec:unit_VI_evolution_and_selection}
 
 ## Learning Objectives
 
@@ -42,15 +51,15 @@ By the end of this chapter, you should be able to:
 > 
 > Beneath London's streets, in the tunnels of the Underground railway system, a mosquito silently diverged from its surface relatives. *Culex pipiens pipiens* lives above ground, hibernates through winter, and feeds on birds. Its descendant, *Culex pipiens molestus*, rarely hibernates, bites mammals, and can breed without a blood meal — perfectly adapted to the warm, mammal-rich tunnels of the Tube. Genetic analysis published in 1999 confirmed that the two are reproductively isolated, despite sharing the same city. The London Underground mosquito has become a textbook example of parapatric speciation without geographic separation — showing that [**reproductive isolation**](#gl:reproductive-isolation) can evolve from a founder event and novel selection pressures even within a few kilometers and a few hundred years. Tube passengers helped document evolution in progress every time they got bitten.
 
-## Genetic Drift
+## Genetic Drift as Random Allele-Frequency Change
 
-### Definition and Significance
+### Genetic Drift as Sampling Error in Finite Populations
 
-**Genetic drift** is the random change in [**allele**](#gl:allele) frequencies across generations that results from the sampling error inherent in finite populations. Unlike [**natural selection**](#gl:natural-selection), drift is **undirected** -- it is equally likely to increase or decrease the frequency of any allele, regardless of its effect on fitness. Drift is a consequence of probability, not adaptation.
+**Genetic drift** is the random change in [**allele**](#gl:allele) frequencies across generations that results from the sampling error inherent in finite populations. \cref{fig:unit_VI_fitness_landscape} contrasts mean-fitness landscapes that shape whether selection fixes, balances, or disruptively sorts alleles — the selective backdrop against which drift operates. Unlike [**natural selection**](#gl:natural-selection), drift is **undirected** -- it is equally likely to increase or decrease the frequency of any allele, regardless of its effect on fitness. Drift is a consequence of probability, not adaptation.
 
 The power of drift is inversely proportional to population size. In large populations, the law of large numbers ensures that actual allele frequencies closely match expected frequencies. In small populations, random sampling can cause dramatic, unpredictable fluctuations -- and ultimately, the fixation or loss of alleles.
 
-### Mathematical Treatment
+### Wright-Fisher Sampling Mathematics
 
 Under the **Wright-Fisher model**, a population of $N$ diploid individuals contains $2N$ gene copies at each locus. Each generation, the new population is formed by randomly sampling $2N$ alleles (with replacement) from the current generation's gene pool.
 
@@ -101,15 +110,15 @@ stateDiagram-v2
         Gen100_L --> [*]: p ≈ 0.5
     }
 ```
-<!-- alt: State diagram for Mathematical Treatment showing transitions among p = 0.5, High variance, Allele likely fixed or lost, and p = 0.0 or 1.0. -->
+<!-- alt: State diagram showing genetic drift is stronger in small populations: allele frequency can move from p = 0.5 through high variance toward fixation or loss, while large populations tend to remain closer to the starting frequency. -->
 
-*State diagram for Mathematical Treatment showing transitions among p = 0.5, High variance, Allele likely fixed or lost, and p = 0.0 or 1.0.*
+*Genetic drift is stronger in small populations: allele frequency can move from p = 0.5 through high variance toward fixation or loss, while large populations tend to remain closer to the starting frequency.*
 
 ### Effective Population Size
 
 > **Mathematical Background:** Effective population size calculations use basic probability. For a review of variance and probability relevant to genetic drift, see \cref{sec:appendix_math_review}.
 
-The **effective population size** ($N_e$) is the size of an ideal Wright-Fisher population that would experience the same magnitude of genetic drift as the actual population. In nearly most real populations, $N_e$ is substantially smaller than the census size $N$ because of:
+The **effective population size** ($N_e$) is the size of an ideal Wright-Fisher population that would experience the same magnitude of genetic drift as the actual population. In nearly every real population, $N_e$ is substantially smaller than the census size $N$ because of:
 
 **Unequal sex ratio**: If the number of breeding females ($N_f$) differs from the number of breeding males ($N_m$):
 
@@ -166,7 +175,7 @@ Motoo Kimura's **[neutral theory](#gl:neutral-theory) of molecular evolution** (
 
 Tomoko Ohta extended this to the **nearly neutral theory** (1973), which recognizes that most mutations are slightly deleterious. The fate of a slightly deleterious mutation depends on population size: if $\lvert s\rvert < 1/(2N_e)$, selection is too weak to overcome drift, and the mutation behaves effectively as neutral. In small populations, more mutations fall into this "nearly neutral" category, leading to faster accumulation of slightly deleterious substitutions. This predicts that species with small $N_e$ (e.g., large-bodied vertebrates) should accumulate more slightly deleterious mutations than species with large $N_e$ (e.g., bacteria) -- a prediction confirmed by comparative genomics.
 
-### Bottleneck Effect
+### Bottleneck Effect and Loss of Variation
 
 A **population bottleneck** occurs when a population undergoes a dramatic, temporary reduction in size. The genetic consequences are severe and often irreversible:
 
@@ -189,7 +198,7 @@ A **population bottleneck** occurs when a population undergoes a dramatic, tempo
 >
 > The cheetah illustrates why genetic diversity matters for species survival. With minimal MHC variation, a single pathogen could potentially devastate the entire species -- every individual lacks the immune diversity that protects genetically variable populations. Conservation geneticists use molecular markers to assess genetic health of endangered populations, guide captive breeding programs to maximize $N_e$, and identify genetically distinct populations that should be managed separately. The Florida panther recovery program successfully increased genetic diversity by introducing Texas pumas -- a controversial but effective genetic rescue. Similar approaches are being considered for cheetahs, using the more genetically diverse East African populations to supplement Southern African populations.
 
-### Founder Effect
+### Founder Effect and Colonisation History
 
 The **founder effect** occurs when a small number of individuals establish a new population, carrying primarily a non-representative sample of the source population's genetic variation. Unlike bottlenecks, founder effects involve colonization of new territory, and the resulting population may remain small for many generations.
 
@@ -246,7 +255,7 @@ These three cases illustrate that the founder effect is **not selection** but **
 
 ## Gene Flow and Mutation
 
-### Gene Flow
+### Gene Flow as Migration-Mediated Allele Exchange
 
 **Gene flow** (migration) is the movement of alleles between populations through the dispersal and reproduction of individuals (or their [**gamete**](#gl:gamete)s, such as pollen). Gene flow has two primary evolutionary effects:
 
@@ -400,7 +409,7 @@ where μ is the mutation rate and $s$ is the selection coefficient against the h
 
 ---
 
-## Species Concepts
+## Species Concepts and the Boundaries of Lineages
 
 Defining what constitutes a "species" is one of the most contentious issues in biology. Multiple species concepts exist, each emphasizing different aspects of biological reality.
 
@@ -440,7 +449,7 @@ A species is a set of organisms exploiting a single ecological [**niche**](#gl:n
 
 Alan \citet{templeton1989} proposed the most comprehensive definition: a species is the most inclusive group of organisms having the potential for **genetic exchangeability** (gene flow) and/or **demographic exchangeability** (ecological interchangeability). This concept subsumes elements of the BSC and ecological concepts.
 
-### Ring Species
+### Ring Species and Gradual Reproductive Isolation
 
 **Ring species** demonstrate speciation as a gradual process. A series of populations forms a ring around a geographic barrier, with neighboring populations interbreeding freely. However, at the point where the ring closes, the terminal populations are reproductively isolated despite being connected by a chain of interbreeding intermediates.
 
@@ -453,7 +462,7 @@ Ring species challenge the BSC because reproductive isolation is not absolute bu
 
 ---
 
-## Speciation Mechanisms
+## Speciation Mechanisms Across Geography and Gene Flow
 
 ```mermaid
 flowchart TD
@@ -471,11 +480,11 @@ flowchart TD
     E --> E2["Requires strong disruptive selection or polyploidy"]
     E --> E3["Examples: Cichlids, Rhagoletis, allopolyploidy"]
 ```
-<!-- alt: Flowchart for Speciation Mechanisms: Speciation, Allopatric, Peripatric, and Parapatric form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing speciation mechanisms differ in how gene flow is reduced: geographic separation, edge isolation, adjacent divergence, and reproductive barriers change lineage independence. -->
 
-*Flowchart for Speciation Mechanisms: Speciation, Allopatric, Peripatric, and Parapatric form the diagram's primary path or branches.*
+*Speciation mechanisms differ in how gene flow is reduced: geographic separation, edge isolation, adjacent divergence, and reproductive barriers change lineage independence.*
 
-### Allopatric Speciation
+### Allopatric Speciation by Geographic Isolation
 
 **Allopatric speciation** -- speciation resulting from geographic isolation -- is the most common and best-documented mode. A geographic barrier (mountain range, ocean, ice sheet, river) divides a population, preventing gene flow. The isolated populations then diverge through a combination of natural selection (adapting to different local environments) and genetic drift, eventually accumulating enough differences that reproductive isolation is a byproduct of divergence.
 
@@ -490,14 +499,14 @@ flowchart TD
 
 This accelerating accumulation explains why reproductive isolation often appears suddenly after a period of gradual divergence.
 
-### Peripatric Speciation
+### Peripatric Speciation in Small Peripheral Populations
 
 **Peripatric speciation** occurs when a small population at the periphery of a species' range becomes isolated. The small founding population experiences strong genetic drift (founder effect), which, combined with potentially different selective pressures at the range margin, can drive rapid divergence.
 
 - **Hawaiian honeycreepers**: Approximately 55 species evolved from one or two founding finch-like ancestors that colonized the Hawaiian Islands approximately 5 Mya. The radiation produced an extraordinary diversity of bill shapes -- from long, curved bills for nectar feeding (*Drepanis*) to massive, parrot-like bills for seed cracking (*Pseudonestor*) to thin, warbler-like bills for insect gleaning (*Oreomystis*). Many species are now critically endangered or extinct.
 - **Darwin's finches**: Fifteen species on the Galapagos Islands, diversified from a single South American ancestor approximately 1--2 Mya. Beak depth and width vary with seed size and hardness. **Character displacement** -- divergence in beak morphology is greater where two species co-occur (sympatry) than where each occurs alone (allopatry) -- provides evidence that competition drives morphological divergence.
 
-### Parapatric Speciation
+### Parapatric Speciation Along Environmental Gradients
 
 **Parapatric speciation** occurs along an environmental gradient without a clear geographic barrier. Adjacent populations experience different selective pressures, and if selection against intermediates is strong enough to overcome gene flow, divergence can proceed.
 
@@ -512,7 +521,7 @@ w \approx \frac{\sigma}{\sqrt{s}}
 
 where σ is the dispersal distance per generation and $s$ is the selection coefficient against immigrants. Narrow clines indicate strong selection relative to dispersal.
 
-### Sympatric Speciation
+### Sympatric Speciation Without Geographic Separation
 
 **Sympatric speciation** -- speciation within a single, freely mixing population -- has long been controversial because gene flow should homogenize populations. However, several mechanisms can overcome gene flow:
 
@@ -566,7 +575,7 @@ An estimated 15% of [**angiosperm**](#gl:angiosperm) speciation events involve p
 
 ---
 
-## Reproductive Isolation
+## Reproductive Isolation Before and After Fertilisation
 
 Reproductive isolation is the hallmark of speciation under the BSC. Barriers to reproduction are classified as **prezygotic** (preventing formation of a hybrid [**zygote**](#gl:zygote)) or **postzygotic** (reducing fitness of hybrid offspring).
 
@@ -580,7 +589,7 @@ Reproductive isolation is the hallmark of speciation under the BSC. Barriers to 
 
 Haldane's rule has been confirmed across a broad range of animal taxa examined, making it one of the most robust generalizations in speciation biology.
 
-### Prezygotic Barriers
+### Prezygotic Barriers to Mating or Fertilisation
 
 | Barrier type | Mechanism | Example |
 | ------------ | --------- | ------- |
@@ -590,7 +599,9 @@ Haldane's rule has been confirmed across a broad range of animal taxa examined, 
 | **Mechanical** | Incompatible reproductive structures | *Salvia* flower species: bee-pollinated species have different petal structures than hummingbird-pollinated species, preventing pollen transfer |
 | **Gametic** | Sperm-egg recognition molecules are species-specific | Sea urchin bindin [**protein**](#gl:protein): species-specific sperm-egg binding prevents cross-fertilization |
 
-### Postzygotic Barriers
+Pollinator-mediated isolation often combines mechanical, behavioural, and ecological barriers. A floral shift from bee visitation to bird visitation can change flower shape, colour, nectar volume, pollen placement, and the timing or habitat of effective pollen transfer. If pollen is regularly moved within each floral form but rarely between forms, divergent selection on plant traits reduces gene flow even before hybrids are tested. The pollinator side also matters: managed honeybees, bumblebees, solitary bees, birds, and moths do not sample flowers in identical ways, so a speciation claim should measure effective pollen transfer rather than treating "pollinator" as a single interchangeable agent \citep{garibaldi2013wild,ipbes2016pollinators}.
+
+### Postzygotic Barriers to Hybrid Fitness
 
 **Hybrid inviability**: Hybrids fail to develop properly due to Dobzhansky-Muller incompatibilities. Gene regulatory networks that function within each parental species produce dysfunctional combinations in hybrids.
 
@@ -598,7 +609,7 @@ Haldane's rule has been confirmed across a broad range of animal taxa examined, 
 
 **Hybrid breakdown**: F1 hybrids may be viable and fertile, but F2 or backcross offspring show reduced fitness. This occurs when [**recombination**](#gl:recombination) in the F1 generation breaks up co-adapted gene complexes, producing incompatible allele combinations in the F2.
 
-### Reinforcement
+### Reinforcement by Selection Against Hybrids
 
 **Reinforcement** (also called the Wallace effect) occurs when natural selection strengthens prezygotic barriers after secondary contact. If hybrids have low fitness (due to postzygotic barriers), individuals who mate with members of their own species leave more viable offspring than those who hybridize. This selects for enhanced mate discrimination.
 
@@ -627,7 +638,7 @@ Recent evidence also suggests introgression from an unknown "ghost lineage" into
 
 ---
 
-## Adaptive Radiation
+## Adaptive Radiation and Ecological Opportunity
 
 **Adaptive radiation** is the rapid diversification of a single ancestral lineage into multiple species occupying diverse ecological niches. Radiations are typically triggered by one of three circumstances: mass extinction (opening ecological opportunities), colonization of a new, underexploited territory, or the evolution of a key innovation that opens new adaptive zones.
 
@@ -650,11 +661,11 @@ sequenceDiagram
     SC->>RI: Hybrids have reduced fitness
     Note over RI: If reinforcement occurs, prezygotic barriers strengthen
 ```
-<!-- alt: Sequence diagram for Adaptive Radiation showing ordered interaction among Ancestral Population, Geographic Barrier Forms, Population 1, and Population 2. -->
+<!-- alt: Sequence diagram showing adaptive radiation begins when one lineage enters new ecological opportunity, then populations diverge across habitats and traits into multiple descendant species. -->
 
-*Sequence diagram for Adaptive Radiation showing ordered interaction among Ancestral Population, Geographic Barrier Forms, Population 1, and Population 2.*
+*Adaptive radiation begins when one lineage enters new ecological opportunity, then populations diverge across habitats and traits into multiple descendant species.*
 
-### Hawaiian Honeycreepers
+### Hawaiian Honeycreepers as Island Adaptive Radiation
 
 The Hawaiian honeycreeper radiation (family Fringillidae, tribe Drepanidini) produced approximately 55 species from one or two founding finch-like ancestors that arrived approximately 5 Mya. Bill morphology diversified to exploit a remarkable range of food sources:
 
@@ -675,7 +686,7 @@ Key features driving cichlid diversification:
 - **Sexual selection on color**: Female mate choice based on male nuptial coloration drives assortative mating. In Lake Victoria, species that are distinguished solely by color can hybridize when visual cues are disrupted by turbidity.
 - **Rapid speciation**: Genetic divergence between species is often minimal, suggesting that speciation was driven primarily by sexual selection and ecological specialization rather than accumulated genetic distance.
 
-### Galapagos Finches
+### Galapagos Finches and Beak-Trait Diversification
 
 Darwin's finches (15 species across the Galapagos Islands and Cocos Island) diversified from a single South American ancestor approximately 1--2 Mya. The Grants' long-term research on Daphne Major island documented natural selection in real time:
 
@@ -726,7 +737,7 @@ At the molecular level, the **neutral substitution rate** equals the per-individ
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Genetic Drift, Gene Flow, and Speciation
 
 For **Genetic Drift, Gene Flow, and Speciation**, frontier biology belongs inside the evidence logic of
 the chapter. Evolutionary claims are strongest when they combine mechanism, comparative evidence, population process, and explicit uncertainty. The core reading question is this: speciation claims should separate gene flow, reproductive isolation, demographic history, and genomic architecture.
@@ -742,9 +753,9 @@ the chapter. Evolutionary claims are strongest when they combine mechanism, comp
   the source closest to the measurement and state what has changed since it was
   published.
 
-Distinguish adaptation from drift, phylogenetic signal from convergence, and historical explanation from a testable prediction about present-day data.
+For speciation claims, separate drift, gene flow, selection, geography, and reproductive isolation before treating divergence as lineage independence.
 
-**Source practice:** For evolutionary claims, prefer evidence that compares alternatives such as selection, drift, gene flow, constraint, convergence, and shared ancestry.
+**Source practice:** For drift and speciation claims, pair models with sampling design, migration estimates, reproductive-isolation evidence, and alternative demographic histories.
 
 ## Summary
 
@@ -809,14 +820,14 @@ Distinguish adaptation from drift, phylogenetic signal from convergence, and his
 10. Explain why Dobzhansky-Muller incompatibilities accumulate as the square of the number of substitutions (Orr's snowball effect). What does this predict about the relationship between genetic divergence time and the strength of reproductive isolation?
 11. Re-run `simulate_drift` with $N=200$ vs. $N=20$ for the same number of generations. Which trajectory shows larger $|p_{50}-p_0|$ on average?
 12. Contrast **reinforcement** with **fusion** at secondary contact; give one genomic signature expected under each.
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Genetic Drift, Gene Flow, and Speciation
 
 - Mayr (1942). *Systematics and the Origin of Species*. Columbia University Press.
 - Templeton (1989). The meaning of species and speciation: A genetic perspective. Sinauer.
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Genetic Drift, Gene Flow, and Speciation
 
 **Genetic Drift, Gene Flow, and Speciation** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

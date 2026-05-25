@@ -10,7 +10,7 @@ from __future__ import annotations
 import math
 from dataclasses import dataclass
 
-from infrastructure.core.logging.utils import get_logger
+from textbook_logging import get_logger
 
 logger = get_logger(__name__)
 

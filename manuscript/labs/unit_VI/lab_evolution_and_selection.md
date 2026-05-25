@@ -1,4 +1,4 @@
-# Lab 19 — Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
+# Lab — Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
 
 \label{sec:lab_unit_VI_evolution_and_selection}
 
@@ -45,7 +45,7 @@
 
 5. **Real-World Application**: Antibiotic resistance is a classic example of natural selection. How does the overuse of antibiotics create selection pressure for resistant bacteria? What can be done to slow this process?
 
-## Background {.unnumbered}
+## Lab Context: Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
 
 Natural selection operates when three conditions are met: (1) heritable variation exists; (2) variation affects survival/reproduction (fitness); (3) traits are inherited. Over generations, favourable alleles increase in frequency (directional selection), multiple phenotypes are maintained (balancing/disruptive selection), or variation is reduced around an optimum (stabilising selection). The selection coefficient *s* quantifies fitness cost: a lethal allele has s = 1.0; a neutral allele has s = 0.
 
@@ -55,6 +55,7 @@ The breeder's equation ($R = h^2 S$) worked example in the parent chapter (\cref
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Evolution — Theory, Natural Selection, and Adaptation: evolutionary-evidence source card: alternative hypotheses, sampling, calibration, and confidence boundary | 1 |
 | Coloured paper squares (30 each of: green, red, brown, on green and brown backgrounds) | 1 set |
 | Forceps (one per student, simulating different beak types) | 4 |
 | 60-second timer | 1 |
@@ -87,7 +88,7 @@ The breeder's equation ($R = h^2 S$) worked example in the parent chapter (\cref
    - Repeat on a brown paper background.
    - Perform at least 3 replicates for each background type.
 
-### Part 2: Computational Biology Exercise - Selection Coefficient Analysis with Python {.unnumbered}
+### Part 2: Computational Biology Exercise — Selection Coefficient Analysis with Python {.unnumbered}
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
@@ -162,6 +163,10 @@ equipment version belongs only in an optional extension.
 **Solution:** At each generation, update p_{t+1} = p_t + s × p_t × (1 − p_t)^2 with s = 0.08. Starting at p_0 = 0.02, the per-generation increments are small while p is rare and grow as p increases. Iterating the recursion gives approximately p_1 ≈ 0.02154, p_5 ≈ 0.02893, p_10 ≈ 0.04075, p_15 ≈ 0.05625, and p_20 ≈ 0.07585. The trajectory is concave-up in the rare-allele regime and accelerates as the favored allele becomes more common.
 
 **Interpretation:** Over 20 generations, the allele frequency rises from 0.02 to roughly 0.076 — a near-fourfold increase, but the allele remains far from fixation. Two features of the trajectory are characteristic of selection on a rare dominant: the initial increase is slow because (1 − p)^2 is near 1 and p is small, and the rate of change is governed by the product s × p. As p grows past about 0.5, the (1 − p)^2 factor pulls Δp back down, producing the familiar sigmoid sweep. The approximation neglects drift, which becomes important when N_e × s × p is below about 1 — in small populations this trajectory would show much greater stochastic variation.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Evolution — Theory, Natural Selection, and Adaptation before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

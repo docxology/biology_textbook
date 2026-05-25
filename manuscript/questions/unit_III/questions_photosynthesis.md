@@ -1,4 +1,4 @@
-# Questions — Ch 10: Photosynthesis {.unnumbered}
+# Questions — Photosynthesis {.unnumbered}
 
 \label{sec:q_unit_III_photosynthesis}
 

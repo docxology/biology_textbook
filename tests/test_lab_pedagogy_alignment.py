@@ -8,8 +8,15 @@ import sys
 
 PROJECT = Path(__file__).resolve().parent.parent
 SRC = PROJECT / "src"
-TEMPLATE_ROOT = PROJECT.parent.parent
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from textbook_paths import discover_template_root  # noqa: E402
+
+TEMPLATE_ROOT = discover_template_root(PROJECT)
 for path in (TEMPLATE_ROOT, SRC):
+    if path is None:
+        continue
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
@@ -23,7 +30,7 @@ from biology.toc import load_toc  # noqa: E402
 
 def test_every_lab_maps_to_measurable_outcomes_and_chapter_los() -> None:
     toc = load_toc(PROJECT)
-    assert len(toc.labs) == 39
+    assert len(toc.labs) == 44
     for lab in toc.labs:
         alignment = parse_lab_alignment(lab.path)
         chapter_los = set(chapter_learning_objectives(lab.chapter.path))

@@ -1,17 +1,17 @@
 # Biology Textbook — Tests
 
-**Domain, visualization, and manuscript-invariant suites · zero mocks.** Run `pytest` from this project directory (`projects_in_progress/biology_textbook/` in this checkout, or `projects/biology_textbook/` after promotion) for the current test count and line coverage; `pyproject.toml` enforces a **90 %** gate on `src/`.
+**Domain, visualization, and manuscript-invariant suites · zero mocks.** Run `pytest` from this active project directory for the current test count and line coverage; `pyproject.toml` enforces a **90 %** gate on `src/`.
 
 ## Running
 
 From this project directory:
 
 ```bash
-uv run pytest tests/ -v
-uv run pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
+uv run python -m pytest tests/ -v
+uv run python -m pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 ```
 
-`conftest.py` sets `MPLBACKEND=Agg` and adds `src/` plus the template root to `sys.path` so `infrastructure.*` imports resolve.
+`conftest.py` sets `MPLBACKEND=Agg` and calls `textbook_paths.ensure_project_paths(include_scripts=True)` so `src/`, `scripts/`, and the template root resolve on `sys.path`.
 
 ## Config vs tests
 
@@ -20,7 +20,7 @@ uv run pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 
 ## Layout
 
-**27** `test_*.py` files: **6** domain modules (exercising `src/biology/*`, mermaid, visualization) + **21** invariant / render-quality / script-quality modules (`test_accessibility.py` includes alt-text quality, unit chapters, labs, and questions). Plus `conftest.py` (fixtures and `sys.path`, not a test module). Run `uv run pytest tests/ -q` for the current collected count.
+**37** `test_*.py` files: **6** domain modules (exercising `src/biology/*`, mermaid, visualization) + **31** invariant / render-quality / script-quality / bootstrap modules. Plus `conftest.py` (fixtures and path bootstrap, not a test module). Run `uv run python -m pytest tests/ -q` for the current collected count.
 
 ### Domain tests (6 `test_*.py` + `conftest.py`)
 
@@ -32,9 +32,9 @@ uv run pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 | `test_microbiology_botany_neuroscience.py` | Growth, plants, neural models |
 | `test_mermaid_and_visualization.py` | Renderer and figure generators |
 | `test_coverage_gap.py` | Branches, edge cases, and error paths |
-| `conftest.py` | `MPLBACKEND=Agg`, `sys.path` bootstrap |
+| `conftest.py` | `MPLBACKEND=Agg`, `ensure_project_paths()` bootstrap |
 
-### Invariant and quality tests (21 files)
+### Invariant and quality tests (31 modules)
 
 | File | Focus |
 | ---- | ----- |
@@ -43,6 +43,7 @@ uv run pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 | `test_build_invariants.py` | Chapter labels, metadata badges, lab/question back-links, figure-generator usage, Course Planning Grid |
 | `test_bibliography_closure.py` | `{cited} == {defined}` in `references.bib`; no mid-word citation artefacts |
 | `test_chapter_metadata.py` | `ChapterMeta` completeness and consistency vs `config.yaml` |
+| `test_chapter_pedagogy_coverage.py` | REVIEW §7 pedagogy locks: worked examples, Concept Checks, Bloom diversity, LO floor |
 | `test_curriculum_metadata.py` | `CurriculumRecord` completeness and chapter/lab/question path closure |
 | `test_current_claims_ledger.py` | Fast-moving current-claim ledger coverage, sources, anchors, and stale-phrase locks |
 | `test_assessment_metadata.py` | Item-level LO, Bloom, difficulty, format, and minutes metadata across all question banks |
@@ -54,10 +55,13 @@ uv run pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 | `test_crossref_validator_edges.py` | Edge cases (markdown `{#fig:}`, multi-line equations, duplicates across files) |
 | `test_lab_integrity.py` | Lab computation sections are self-contained and execute against `biology.*` snippets |
 | `test_enrichment_substance_gate.py` | Embedded-enrichment boilerplate and duplicate-body detectors |
+| `test_logging_compat.py` | Logging helper compatibility across checkout layouts |
+| `test_maintenance_engine_smoke.py` | Smoke imports for extracted maintenance engines under `src/biology/` |
 | `test_pdf_log_quality.py` | PDF-log checker catches undefined references and severe overfull boxes |
 | `test_pdf_opening_and_mermaid.py` | Book opening metadata, cover asset, and inline Mermaid rendering |
 | `test_question_answer_refinement.py` | Generated-answer heuristics classify quantitative questions and preserve hand-written answers |
 | `test_script_quality.py` | Scripts parse cleanly and avoid hard-coded checkout paths or obsolete helpers |
+| `test_textbook_paths.py` | Checkout path discovery and `ensure_project_paths()` bootstrap |
 | `test_textbook_quality_audit.py` | Umbrella textbook-quality audit: stale claims, copyedit artifacts, enrichment presence, and current-source locks |
 
 No mocks for scientific behaviour — real numeric data and file output only.

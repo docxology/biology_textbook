@@ -13,36 +13,15 @@ from __future__ import annotations
 
 import subprocess  # nosec B404 - wrapper invokes the local Mermaid CLI with fixed arguments.
 import shutil
-import os
 from dataclasses import dataclass
 from pathlib import Path
-from tempfile import NamedTemporaryFile
 from typing import Optional
 
-from infrastructure.core.logging.utils import get_logger
+from textbook_io import write_text_atomic
+from textbook_logging import get_logger
+from textbook_visuals import pad_png_to_square
 
 logger = get_logger(__name__)
-
-
-def _write_text_atomic(path: Path, text: str) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp_path: Path | None = None
-    try:
-        with NamedTemporaryFile(
-            "w",
-            encoding="utf-8",
-            dir=path.parent,
-            prefix=f".{path.name}.",
-            suffix=".tmp",
-            delete=False,
-        ) as handle:
-            handle.write(text)
-            tmp_path = Path(handle.name)
-        os.replace(tmp_path, path)
-    finally:
-        if tmp_path is not None and tmp_path.exists():
-            tmp_path.unlink()
-
 
 def _find_puppeteer_config() -> Optional[Path]:
     """Walk up from this file's directory to find a .puppeteer.json config.
@@ -72,8 +51,9 @@ class MermaidDiagram:
         self,
         output_dir: Path,
         width: int = 1200,
-        height: int = 800,
+        height: int = 1200,
         background_color: str = "white",
+        square: bool = True,
     ) -> Path:
         """Render this diagram to PNG using the module-level renderer.
 
@@ -82,12 +62,20 @@ class MermaidDiagram:
             width: Output image width in pixels.
             height: Output image height in pixels.
             background_color: Background colour (hex or name).
+            square: Pad PNG output to a square canvas when rendering succeeds.
 
         Returns:
             Path to the generated PNG (or .mmd fallback).
         """
         renderer = MermaidRenderer(output_dir=output_dir)
-        return renderer.render(self.name, self.source, width=width, height=height, background_color=background_color)
+        return renderer.render(
+            self.name,
+            self.source,
+            width=width,
+            height=height,
+            background_color=background_color,
+            square=square,
+        )
 
 
 class MermaidRenderer:
@@ -124,8 +112,9 @@ class MermaidRenderer:
         name: str,
         source: str,
         width: int = 1200,
-        height: int = 800,
+        height: int = 1200,
         background_color: str = "white",
+        square: bool = True,
     ) -> Path:
         """Render Mermaid source to PNG or fallback .mmd file.
 
@@ -135,6 +124,7 @@ class MermaidRenderer:
             width: PNG width in pixels (only used if mmdc available).
             height: PNG height in pixels.
             background_color: Background color.
+            square: Pad PNG output to a square canvas when rendering succeeds.
 
         Returns:
             Path to the generated file (.png or .mmd).
@@ -145,14 +135,14 @@ class MermaidRenderer:
             raise ValueError(f"Mermaid source for '{name}' must not be empty.")
 
         if self._check_mmdc():
-            return self._render_with_mmdc(name, source, width, height, background_color)
+            return self._render_with_mmdc(name, source, width, height, background_color, square)
         if self.strict_png:
             raise RuntimeError("Mermaid CLI 'mmdc' is required when strict_png=True")
         return self._write_mmd_source(name, source)
 
     def _write_mmd_source(self, name: str, source: str) -> Path:
         mmd_path = self.output_dir / f"{name}.mmd"
-        _write_text_atomic(mmd_path, source)
+        write_text_atomic(mmd_path, source)
         logger.debug(f"Wrote Mermaid source: {mmd_path}")
         return mmd_path
 
@@ -163,11 +153,12 @@ class MermaidRenderer:
         width: int,
         height: int,
         background_color: str,
+        square: bool,
     ) -> Path:
         """Render via mmdc subprocess to PNG."""
         # Write temporary .mmd input
         mmd_path = self.output_dir / f"{name}.mmd"
-        _write_text_atomic(mmd_path, source)
+        write_text_atomic(mmd_path, source)
 
         png_path = self.output_dir / f"{name}.png"
 
@@ -209,6 +200,8 @@ class MermaidRenderer:
                     f"{message}. Falling back to .mmd."
                 )
                 return mmd_path
+            if square:
+                pad_png_to_square(png_path)
             logger.info(f"Rendered Mermaid PNG: {png_path}")
             return png_path
         except subprocess.TimeoutExpired:

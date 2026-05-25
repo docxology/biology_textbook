@@ -37,7 +37,7 @@
 2. A foraging mouse has a prior expectation that food is at burrow A. It sees a faint scent cue pointing to burrow B. Apply the idea of prediction error to explain how the mouse should update its belief, and identify which sensor property determines how much the cue moves the belief.
 3. Compare perceptual inference (updating beliefs to match observations) with active inference (acting on the environment so observations match beliefs). Give one biological situation where each is the more efficient route to reducing prediction error.
 
-## Background {.unnumbered}
+## Lab Context: Active Inference and the Free Energy Principle {.unnumbered}
 
 Active inference proposes that living agents minimise a quantity called **variational free energy** — an upper bound on the "surprise" of observed sensory data given the agent's internal generative model. The core equation (simplified):
 
@@ -62,6 +62,7 @@ Today's lab is paper-based: you will work through two hand-computed examples and
 
 ## Paper-Based Materials {.unnumbered}
 
+- Source-governance card for Active Inference and the Free Energy Principle: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
 - Printed worksheet with two Bayesian inference problems (provided).
 - Behaviour scenario-card set with ten animal and human examples.
 - Calculator or phone.
@@ -143,6 +144,10 @@ Before answering the analysis questions, annotate the paper dataset for
 
 Focus note: When you annotate the Bayesian-update and perceptual-versus-active-inference datasets, the load-bearing numbers are the prior variance, the sensory variance, and the resulting Kalman gain: check that the posterior shift is reproducible from those three values alone, and that each behaviour-classification verdict cites the specific prediction-error a sceptic could recompute. Keep required work paper-based; any material-handling or
 equipment version belongs only in an optional extension.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Active Inference and the Free Energy Principle before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ### Worked Example: Bayesian update of a discrete food-location belief {.unnumbered}
 

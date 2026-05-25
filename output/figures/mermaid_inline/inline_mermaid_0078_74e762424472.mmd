@@ -1,9 +1,0 @@
-flowchart LR
-    L["Single linear reference"] --> M["Reads forced onto one path"]
-    M --> N["Small variants called well"]
-    M --> O["Structural variants and ancestry-specific alleles can be missed"]
-
-    P["Pangenome graph"] --> Q["Shared backbone plus alternate paths"]
-    Q --> R["SNPs, indels, inversions, insertions, and haplotypes represented"]
-    R --> S["Variant interpretation with path evidence"]
-    S --> T["Clinical claim requires graph-aware validation"]

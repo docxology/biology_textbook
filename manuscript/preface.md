@@ -2,7 +2,7 @@
 
 ## A Textbook Built With Code {.unnumbered}
 
-Welcome to *Introduction to Biology: A Generative Approach* — an open-source textbook covering introductory biology across **\nameref{sec:unit_0_unit_intro}**, the thematic sequence from **\nameref{sec:unit_I_unit_intro}** through **\nameref{sec:unit_X_unit_intro}**, and **39 core chapters**, plus optional **laboratories** and **question banks** in the appendices. Where this text uses quantitative models, the corresponding computations are implemented as tested Python modules.
+Welcome to *Introduction to Biology: A Generative Approach* — an open-source textbook covering introductory biology across **\nameref{sec:unit_0_unit_intro}**, the thematic sequence from **\nameref{sec:unit_I_unit_intro}** through **\nameref{sec:unit_X_unit_intro}**, and **44 core chapters**, plus optional **laboratories** and **question banks** in the appendices. Where this text uses quantitative models, the corresponding computations are implemented as tested Python modules.
 
 Whether we examine Michaelis–Menten enzyme kinetics, Lotka–Volterra predator–prey dynamics, or Hodgkin–Huxley action potentials, the underlying mathematical model exists as a working module in the accompanying codebase. Many figures are generated programmatically. Process diagrams are expressed using Mermaid where it improves clarity. For instructors and independent learners, this supports inspection, extension, and reproducible re-generation of results.
 
@@ -125,13 +125,13 @@ semantic references resolved from the canonical manuscript labels.
 | **\nameref{sec:unit_I_unit_intro}** | \nameref{sec:unit_I_atoms_molecules}; \nameref{sec:unit_I_water_and_life}; \nameref{sec:unit_I_macromolecules}; \nameref{sec:unit_I_enzymes_and_kinetics} |
 | **\nameref{sec:unit_II_unit_intro}** | \nameref{sec:unit_II_cell_theory}; \nameref{sec:unit_II_cell_structure}; \nameref{sec:unit_II_membrane_transport}; \nameref{sec:unit_II_cell_signaling} |
 | **\nameref{sec:unit_III_unit_intro}** | \nameref{sec:unit_III_bioenergetics_and_respiration}; \nameref{sec:unit_III_photosynthesis}; \nameref{sec:unit_III_metabolic_integration} |
-| **\nameref{sec:unit_IV_unit_intro}** | \nameref{sec:unit_IV_dna_replication_and_cell_cycle}; \nameref{sec:unit_IV_gene_expression}; \nameref{sec:unit_IV_mutations_and_genomics}; \nameref{sec:unit_IV_epigenetics_and_gene_regulation} |
-| **\nameref{sec:unit_V_unit_intro}** | \nameref{sec:unit_V_mendelian_genetics}; \nameref{sec:unit_V_chromosomal_inheritance}; \nameref{sec:unit_V_population_genetics} |
+| **\nameref{sec:unit_IV_unit_intro}** | \nameref{sec:unit_IV_dna_replication_and_cell_cycle}; \nameref{sec:unit_IV_gene_expression}; \nameref{sec:unit_IV_mutations_and_genomics}; \nameref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}; \nameref{sec:unit_IV_epigenetic_inheritance_and_disease} |
+| **\nameref{sec:unit_V_unit_intro}** | \nameref{sec:unit_V_mendelian_principles}; \nameref{sec:unit_V_mendelian_extensions_and_human_genetics}; \nameref{sec:unit_V_chromosomal_inheritance}; \nameref{sec:unit_V_population_genetics} |
 | **\nameref{sec:unit_VI_unit_intro}** | \nameref{sec:unit_VI_evolution_and_selection}; \nameref{sec:unit_VI_genetic_drift_and_speciation}; \nameref{sec:unit_VI_phylogenetics} |
-| **\nameref{sec:unit_VII_unit_intro}** | \nameref{sec:unit_VII_bacteria_archaea_viruses}; \nameref{sec:unit_VII_microbial_ecology}; \nameref{sec:unit_VII_infectious_disease} |
+| **\nameref{sec:unit_VII_unit_intro}** | \nameref{sec:unit_VII_bacteria_archaea_viruses}; \nameref{sec:unit_VII_microbial_ecology}; \nameref{sec:unit_VII_host_immunity_and_vaccines}; \nameref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} |
 | **\nameref{sec:unit_VIII_unit_intro}** | \nameref{sec:unit_VIII_plant_structure_and_water}; \nameref{sec:unit_VIII_plant_reproduction}; \nameref{sec:unit_VIII_plant_responses} |
-| **\nameref{sec:unit_IX_unit_intro}** | \nameref{sec:unit_IX_circulation_respiration_homeostasis}; \nameref{sec:unit_IX_nervous_system}; \nameref{sec:unit_IX_action_potential_synapses}; \nameref{sec:unit_IX_endocrine_and_immune} |
-| **\nameref{sec:unit_X_unit_intro}** | \nameref{sec:unit_X_population_ecology}; \nameref{sec:unit_X_community_ecology}; \nameref{sec:unit_X_ecosystem_ecology}; \nameref{sec:unit_X_biomes_and_conservation} |
+| **\nameref{sec:unit_IX_unit_intro}** | \nameref{sec:unit_IX_circulation_respiration_homeostasis}; \nameref{sec:unit_IX_nervous_system}; \nameref{sec:unit_IX_action_potential_synapses}; \nameref{sec:unit_IX_endocrine_signaling}; \nameref{sec:unit_IX_immune_system_defense} |
+| **\nameref{sec:unit_X_unit_intro}** | \nameref{sec:unit_X_population_ecology}; \nameref{sec:unit_X_community_interactions}; \nameref{sec:unit_X_biodiversity_and_food_webs}; \nameref{sec:unit_X_ecosystem_ecology}; \nameref{sec:unit_X_biomes_and_conservation} |
 <!-- preface-scope-end -->
 
 ---

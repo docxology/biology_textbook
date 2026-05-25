@@ -1,9 +1,0 @@
-flowchart TD
-    A["Standard Dihybrid F2: 9:3:3:1"] --> B{Type of Epistasis?}
-    B -->|"Recessive epistasis (aa masks B locus)"| C["9 A_B_ : 3 A_bb : 4 aa__ — 9:3:4"]
-    B -->|"Dominant epistasis (A_ masks B locus)"| D["12 A___ : 3 aaB_ : 1 aabb — 12:3:1"]
-    B -->|"Duplicate recessive (both genes needed)"| E["9 A_B_ : 7 others — 9:7"]
-    B -->|"Duplicate dominant (either gene sufficient)"| F["15 colored : 1 aabb — 15:1"]
-    B -->|"Dominant + recessive interaction"| G["13 : 3"]
-
-    style A fill:#4a90d9,color:#fff

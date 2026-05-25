@@ -1,4 +1,4 @@
-# Questions — Ch 27: Plant Responses to the Environment {.unnumbered}
+# Questions — Plant Responses to the Environment {.unnumbered}
 
 \label{sec:q_unit_VIII_plant_responses}
 

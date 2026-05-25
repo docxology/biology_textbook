@@ -62,9 +62,9 @@ graph TD
     style J fill:#e67e22,color:#fff
     style K fill:#d35400,color:#fff
 ```
-<!-- alt: Graph showing amerefsec:unit_I_unit_intro concept map — Chemistry of Life. Arrows show conceptual dependencies; colour groups: blue = atomic/molecular; orange = enzyme function. -->
+<!-- alt: Graph showing chemistry-of-life concept map — arrows show conceptual dependencies; colour groups: blue = atomic/molecular; orange = enzyme function. -->
 
-*\nameref{sec:unit_I_unit_intro} concept map — Chemistry of Life. Arrows show conceptual dependencies; colour groups: blue = atomic/molecular; orange = enzyme function.*
+*Chemistry-of-life concept map — arrows show conceptual dependencies; colour groups: blue = atomic/molecular; orange = enzyme function.*
 
 ---
 

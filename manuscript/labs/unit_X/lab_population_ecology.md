@@ -1,4 +1,4 @@
-# Lab 32 — Population Ecology and Growth Models {.unnumbered}
+# Lab — Population Ecology and Growth Models {.unnumbered}
 
 \label{sec:lab_unit_X_population_ecology}
 
@@ -10,6 +10,7 @@
 - Calculate intrinsic rate of increase (r) and carrying capacity (K) from population time series
 - Apply the mark-recapture method (Lincoln-Petersen) to estimate population size
 - Evaluate density-dependent vs density-independent limiting factors from case study data
+- Interpret colony founding and fragmentation scenarios where Allee effects change social-insect population trajectories
 
 
 <!-- lab-alignment-start -->
@@ -30,7 +31,7 @@
 2. Distinguish density-dependent from density-independent regulation, giving one biological example of each. State which type of regulation would more plausibly stabilise a population near its carrying capacity over time.
 3. Sketch the three classic survivorship curves (Types I, II, III) and identify one organism whose life history matches each. In one sentence per type, explain how the curve's shape reflects the timing of mortality across the life cycle.
 
-## Background {.unnumbered}
+## Lab Context: Population Ecology and Growth Models {.unnumbered}
 
 Population growth follows exponential growth (dN/dt = rN) when resources are unlimited, and logistic growth (dN/dt = rN(1 − N/K)) as populations approach the carrying capacity K. Real populations fluctuate around K due to density-dependent factors (competition, predation, disease — intensify as N increases) or may crash due to density-independent factors (storms, droughts — unrelated to N). The Lincoln-Petersen mark-recapture estimate: N̂ = (M × C) / R, where M = initial marked individuals, C = recapture sample size, R = recaptured marked individuals.
 
@@ -40,11 +41,12 @@ The logistic-growth projection worked example in the parent chapter (\cref{sec:u
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Population Ecology and Growth Models: conservation-assessment source card: index versus census, assessment version, value judgment, and monitoring trigger | 1 |
 | Population time series data (printed: 3 species — moth (exponential), snowshoe hare (oscillating), logistic yeast) | 1 |
 | Graph paper or spreadsheet template | 1 |
 | Calculator | 1 |
 | Mark-recapture card deck or printed capture-history table | 1 |
-| Management scenario cards for invasive species, harvested fisheries, and climate-driven range shifts | 1 set |
+| Management scenario cards for invasive species, harvested fisheries, climate-driven range shifts, and eusocial colony founding or fragmentation | 1 set |
 
 ## Paper-Based Investigation {.unnumbered}
 
@@ -62,6 +64,10 @@ The logistic-growth projection worked example in the parent chapter (\cref{sec:u
 **Part C — Density Dependence Analysis**
 
 6. Given data on white-tailed deer population growth rate (r) vs density in 4 regions: plot r vs N/K (relative density). Identify whether r decreases with increasing density (density-dependent regulation) — this confirms a logistic pattern.
+
+**Part D — Colony Allee-Effect Scenario**
+
+7. Use the colony scenario cards to decide whether a founding ant, bee, or termite colony is below or above an Allee threshold. Record the worker number, queen survival, foraging success, and brood-care constraint that supports your classification, then predict whether the colony grows, stalls, or collapses.
 
 ## Data Recording {.unnumbered}
 
@@ -118,6 +124,10 @@ equipment version belongs only in an optional extension.
 
 **Interpretation:** The population is in its near-exponential phase: most of the logistic term (K − N)/K is still close to 1, so growth is fast relative to the rate it will show near K. As N rises toward K, the brake term shrinks toward zero and dN/dt falls smoothly to zero at N = K. The Euler step is acceptable for one-year projections at low N relative to K, but it overshoots the true logistic trajectory when N grows enough within the year to change the brake substantially.
 
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Population Ecology and Growth Models before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+
 ## Analysis Questions {.unnumbered}
 
 1. Why does the yeast population growth slow as it approaches K? Use the term "intraspecific competition" and identify two specific density-dependent resources that become limiting.
@@ -125,6 +135,7 @@ equipment version belongs only in an optional extension.
 3. Your two mark-recapture estimates probably differed slightly. List three assumptions of the Lincoln-Petersen method and explain which assumption is most likely violated in the printed capture-history simulation.
 4. Invasive species often exhibit exponential growth in new habitats. Name a specific invasive species, identify what density-dependent factor is absent in the new habitat, and predict when/how logistic behaviour will eventually emerge.
 5. Apply a fisheries management scenario: a cod population has K = 500,000 tonnes and r = 0.2/year. Using the maximum sustainable yield formula (MSY = rK/4), calculate the MSY and the population size at MSY (N = K/2). If fishing reduces the population below K/4, explain why the population will continue to decline even if fishing stops.
+6. A newly founded termite or ant colony has a queen and a small worker force. Explain why a colony can show an Allee effect even when each surviving worker is healthy. Which demographic variable would you monitor to distinguish ordinary density dependence from a threshold caused by brood care, foraging, or nest defence?
 
 
 ## Post-Lab Synthesis {.unnumbered}

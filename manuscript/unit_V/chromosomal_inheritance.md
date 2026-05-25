@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 17** · Level 2/3 · 60 min read · 75 min lecture · Prerequisites: \cref{sec:unit_V_mendelian_genetics}
+> Level 2/3 · 60 min read · 75 min lecture · Prerequisites: \cref{sec:unit_V_mendelian_principles}
 
 ## Learning Objectives
 
@@ -18,7 +18,7 @@
 8. Define genetic [**linkage**](#gl:linkage) and [**recombination**](#gl:recombination); calculate map distance from cross data.
 9. Perform three-point test cross analysis to determine [**gene**](#gl:gene) order and map distances.
 10. Classify chromosomal rearrangements (translocations, inversions, deletions, duplications) and their clinical consequences, including the Philadelphia chromosome, DiGeorge, and Cri-du-chat syndromes.
-11. Connect chromosome behavior to genomic imprinting and uniparental disomy (cross-link to \cref{sec:unit_IV_epigenetics_and_gene_regulation}).
+11. Connect chromosome behavior to genomic imprinting and uniparental disomy (cross-link to \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}).
 12. Calculate inbreeding coefficients and predict their effect on offspring homozygosity and fitness.
 
 <!-- curriculum-scaffold-start -->
@@ -62,7 +62,7 @@ In 1902, Walter Sutton (studying grasshopper *Brachystola magna*) and Theodor Bo
 
 A eukaryotic chromosome is far more than a passive package of DNA — it is a structurally organized object whose every architectural feature has a functional role in transmission, expression, and protection of the genetic material. Understanding chromosome behavior requires understanding chromosome **anatomy**: the metaphase chromosome in \cref{fig:unit_V_chromosome_structure} shows how the centromere, telomeres, and heterochromatic and euchromatic domains discussed below are arranged along the sister chromatids.
 
-### Centromeres
+### Centromeres and Kinetochore Attachment
 
 The **centromere** is the chromosomal region where sister chromatids are held together after DNA replication and where the **kinetochore** assembles to attach to spindle microtubules during cell division. Centromeres position chromosomes correctly at metaphase and are essential for the orderly disjunction of chromatids at anaphase.
 
@@ -70,7 +70,7 @@ The **centromere** is the chromosomal region where sister chromatids are held to
 - **Sequence composition**: Human centromeres contain **alpha-satellite DNA** — tandem repeats of a 171-bp monomer organized into higher-order arrays spanning 0.3–5 Mb. The DNA sequence is rapidly evolving, but centromere identity is **epigenetically defined** by the histone variant **CENP-A**, which replaces canonical H3 in centromeric nucleosomes and recruits the kinetochore.
 - **Robertsonian translocations** involve fusion of two acrocentric chromosomes through their centromeres — a phenomenon that depends on the unique architecture of acrocentric short arms and is revisited in the structural-rearrangements discussion.
 
-### Telomeres
+### Telomeres and Chromosome-End Protection
 
 The ends of linear eukaryotic chromosomes pose a structural problem: the cell must distinguish a true chromosome end from a double-strand break (which would otherwise trigger DNA damage signaling). **Telomeres** solve this with specialized terminal structures.
 
@@ -254,6 +254,8 @@ flowchart TD
 | Haplodiploidy | Hymenoptera (bees, ants, wasps) | Haploid (n) | [**Diploid (2n)**](#gl:diploid) | CSD locus (complementary sex determiner) |
 | Temperature-dependent | Crocodilians, some turtles | Temperature-dependent | Temperature-dependent | Aromatase (converts testosterone to estradiol) |
 
+Haplodiploidy is a sex-determination mechanism, not a stand-alone explanation for social life. In many Hymenoptera, unfertilised haploid eggs develop as males and fertilised diploid eggs develop as females; complementary sex-determination loci can make some diploid genotypes male instead. This chromosome logic changes relatedness patterns among relatives, which matters for kin-selection models, but eusociality also depends on ecology, colony demography, and mating system. Termites provide a useful contrast: they are diploid cockroach relatives, yet they evolved [**eusociality**](#gl:eusociality) through a different phylogenetic route \citep{bourke2011principles,hughes2008ancestral,inward2007death}.
+
 ---
 
 ## X-Inactivation and Dosage Compensation
@@ -287,7 +289,7 @@ flowchart TD
 
 *The molecular mechanism of X-inactivation. XIST RNA coats the future inactive X chromosome, recruiting Polycomb complexes that establish repressive [**histone**](#gl:histone) marks and DNA methylation, ultimately condensing the chromosome into a Barr body.*
 
-### Molecular Mechanism
+### Molecular Mechanism of X-Inactivation
 
 1. **XIST** (X-inactive specific transcript): A 17 kb lncRNA transcribed primarily from the X that will be inactivated
 2. XIST RNA **coats** the Xi chromosome *in cis* -- spreading outward from the X-inactivation center (XIC) at Xq13
@@ -323,7 +325,7 @@ flowchart TD
 The core insight is that **gene dosage is itself a regulated variable**, defended by multiple parallel mechanisms. X-inactivation is the most spectacular example because an entire chromosome is silenced, but it is one strategy among many.
 
 > **Clinical Connection: Calico Cats and X-Inactivation**
-> The calico coat pattern in cats is a visible demonstration of X-inactivation. The *O* gene (orange) is X-linked: $X^O$ produces orange pigment; $X^o$ produces black pigment. [**Heterozygous**](#gl:heterozygous) females ($X^OX^o$) are mosaics -- patches of orange (cells with $X^o$ inactivated) and black (cells with $X^O$ inactivated). White patches come from a separate autosomal spotting gene. Nearly most calico cats are female; rare calico males are usually 47,XXY (Klinefelter).
+> The calico coat pattern in cats is a visible demonstration of X-inactivation. The *O* gene (orange) is X-linked: $X^O$ produces orange pigment; $X^o$ produces black pigment. [**Heterozygous**](#gl:heterozygous) females ($X^OX^o$) are mosaics -- patches of orange (cells with $X^o$ inactivated) and black (cells with $X^O$ inactivated). White patches come from a separate autosomal spotting gene. Calico cats are overwhelmingly female; rare calico males are usually 47,XXY (Klinefelter).
 
 ---
 
@@ -406,7 +408,7 @@ RF = \frac{\text{number of recombinant offspring}}{\text{total offspring}} \time
 
 The three-point test cross determines the order of three linked genes and the distances between them simultaneously. It is more efficient than three separate two-point crosses and reveals **interference**.
 
-## Worked Example: 17.2: In *Drosophila*, three linked genes on chromosome 2:
+## Worked Example: Three-Point Test Cross in *Drosophila*
 - dp (dumpy wings): recessive
 - b (black body): recessive
 - cn (cinnabar eyes): recessive
@@ -435,25 +437,46 @@ The b gene has switched relative to dp and cn. Therefore, the gene order is: **d
 
 **Step 2: Calculate map distances.**
 
-$$\text{Distance dp-b} = \frac{40 + 38 + 5 + 2}{900} \times 100 = \frac{85}{900} \times 100 = 9.4 \text{ cM} \tag{17.1}$$
+\begin{equation}
+\text{Distance dp-b} = \frac{40 + 38 + 5 + 2}{900} \times 100 = \frac{85}{900} \times 100 = 9.4 \text{ cM}
+\label{eq:unit_V_chromosomal_inheritance_worked_1}
+\end{equation}
 
-$$\text{Distance b-cn} = \frac{62 + 58 + 5 + 2}{900} \times 100 = \frac{127}{900} \times 100 = 14.1 \text{ cM} \tag{17.2}$$
+\begin{equation}
+\text{Distance b-cn} = \frac{62 + 58 + 5 + 2}{900} \times 100 = \frac{127}{900} \times 100 = 14.1 \text{ cM}
+\label{eq:unit_V_chromosomal_inheritance_worked_2}
+\end{equation}
 
-$$\text{Total map distance dp-cn} = 9.4 + 14.1 = 23.5 \text{ cM} \tag{17.3}$$
+\begin{equation}
+\text{Total map distance dp-cn} = 9.4 + 14.1 = 23.5 \text{ cM}
+\label{eq:unit_V_chromosomal_inheritance_worked_3}
+\end{equation}
 
 **Step 3: Calculate interference.**
 
-$$\text{Expected double crossovers} = 0.094 \times 0.141 \times 900 = 11.9 \tag{17.4}$$
+\begin{equation}
+\text{Expected double crossovers} = 0.094 \times 0.141 \times 900 = 11.9
+\label{eq:unit_V_chromosomal_inheritance_worked_4}
+\end{equation}
 
-$$\text{Observed double crossovers} = 5 + 2 = 7 \tag{17.5}$$
+\begin{equation}
+\text{Observed double crossovers} = 5 + 2 = 7
+\label{eq:unit_V_chromosomal_inheritance_worked_5}
+\end{equation}
 
-$$\text{Coefficient of coincidence (CoC)} = \frac{\text{observed}}{\text{expected}} = \frac{7}{11.9} = 0.59 \tag{17.6}$$
+\begin{equation}
+\text{Coefficient of coincidence (CoC)} = \frac{\text{observed}}{\text{expected}} = \frac{7}{11.9} = 0.59
+\label{eq:unit_V_chromosomal_inheritance_worked_6}
+\end{equation}
 
-$$\text{Interference (I)} = 1 - \text{CoC} = 1 - 0.59 = 0.41 \tag{17.7}$$
+\begin{equation}
+\text{Interference (I)} = 1 - \text{CoC} = 1 - 0.59 = 0.41
+\label{eq:unit_V_chromosomal_inheritance_worked_7}
+\end{equation}
 
 An interference of 0.41 means that 41% of expected double crossovers did not occur -- a crossover in one region partially suppresses crossovers in the adjacent region (**positive interference**).
 
-### Mapping Functions
+### Mapping Functions and Recombination Interference
 
 Simple RF underestimates true genetic distance because multiple crossovers between distant loci are undetectable (double crossovers restore parental configuration).
 
@@ -522,7 +545,7 @@ Haldane's classic 1922 observation extends beyond sex-determination biology to r
 
 ---
 
-## Chromosomal Abnormalities
+## Chromosomal Abnormalities and Dosage Imbalance
 
 ```mermaid
 flowchart LR
@@ -690,7 +713,7 @@ The Philadelphia chromosome story is one of the great triumphs of molecular targ
 
 **Robertsonian translocations** fuse two acrocentric chromosomes (chromosomes 13, 14, 15, 21, 22 in humans) at their centromeres, producing one large derivative chromosome and losing the small short arms. Carriers have 45 chromosomes but a normal genome content (the lost short arms contain primarily ribosomal RNA gene clusters, present in multiple copies elsewhere). The clinical consequence appears in offspring: a Robertsonian carrier can produce gametes with two copies of one chromosome, leading to trisomic offspring. **Robertsonian translocation t(14;21) is the cause of approximately 4% of Down syndrome cases**, with a recurrence risk of 10–15% (much higher than the population rate of ~1/700) — making karyotype analysis essential for genetic counseling of recurrent Down syndrome families.
 
-#### Worked Example 17.3: Robertsonian translocation segregation
+#### Worked Example: Robertsonian Translocation Segregation
 
 A phenotypically normal woman has a Robertsonian translocation rob(14;21), giving her a karyotype 45,XX,rob(14;21). At meiosis, the trivalent formed by chromosome 14, chromosome 21, and the rob(14;21) derivative can segregate in **six** different ways, producing six possible gamete types — three balanced and three unbalanced:
 
@@ -754,7 +777,7 @@ The reciprocal relationship between deletion and duplication phenotypes confirms
 
 ## Genomic Imprinting and Uniparental Disomy
 
-Mendel's laws assume that the phenotypic effect of an allele is **independent of which parent transmitted it**. For most loci this is true. But ~100–200 human genes show **genomic imprinting** — they are expressed from a single parental allele, with the other allele silenced by parent-of-origin-specific epigenetic marks (methylation, chromatin) established during gametogenesis (\cref{sec:unit_IV_epigenetics_and_gene_regulation}).
+Mendel's laws assume that the phenotypic effect of an allele is **independent of which parent transmitted it**. For most loci this is true. But ~100–200 human genes show **genomic imprinting** — they are expressed from a single parental allele, with the other allele silenced by parent-of-origin-specific epigenetic marks (methylation, chromatin) established during gametogenesis (\cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}).
 
 ### The principle of imprinting
 
@@ -791,7 +814,7 @@ Imprinting disorders arise through several distinct mechanisms — and a key cli
 
 ### Connection to chromosome behavior
 
-The imprinting story directly connects molecular biology (DNA methylation), gametogenesis (where parent-of-origin marks are established), meiosis (where non-disjunction can produce UPD via trisomy rescue), and clinical genetics (where the same chromosomal lesion produces different diseases depending on parental origin). For details on the establishment and erasure of imprinting marks during germline development, see \cref{sec:unit_IV_epigenetics_and_gene_regulation}.
+The imprinting story directly connects molecular biology (DNA methylation), gametogenesis (where parent-of-origin marks are established), meiosis (where non-disjunction can produce UPD via trisomy rescue), and clinical genetics (where the same chromosomal lesion produces different diseases depending on parental origin). For details on the establishment and erasure of imprinting marks during germline development, see \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}.
 
 > **Clinical Connection: Why Both Parents Are Needed**
 > Imprinting explains why mammalian parthenogenesis (development from an unfertilized egg) and androgenesis (development from sperm primarily) fail. Mouse experiments combining two pronuclei from one parent — gynogenetic embryos with two maternal pronuclei or androgenetic embryos with two paternal pronuclei — fail at distinct embryonic stages, demonstrating that **maternal and paternal genomes are not interchangeable**. Imprinted genes have evolved to enforce biparental contribution in mammalian reproduction.
@@ -861,7 +884,7 @@ where $n_1$ and $n_2$ are the number of links from one parent to the common ance
 
 **Concept Check 17.2**
 
-> 1. Why are nearly most calico cats female? What would the karyotype of a rare calico male be?
+> 1. Why is the calico phenotype seen overwhelmingly in females? What would the karyotype of a rare calico male be?
 > 2. Explain why maternal age increases the risk of trisomy 21 but paternal age does not have the same effect.
 > 3. Calculate the inbreeding coefficient for offspring of a half-sibling mating (sharing one parent).
 > 4. Why does the Philadelphia chromosome produce a constitutively active kinase? What is the normal function of ABL1?
@@ -896,15 +919,27 @@ The **B** gene has switched relative to A and C. Gene order: **A -- B -- C**.
 
 (b) Calculate map distances.
 
-$$d_{A-B} = \frac{82 + 78 + 3 + 2}{1042} \times 100 = \frac{165}{1042} \times 100 = 15.8 \text{ cM} \tag{17.8}$$
+\begin{equation}
+d_{A-B} = \frac{82 + 78 + 3 + 2}{1042} \times 100 = \frac{165}{1042} \times 100 = 15.8 \text{ cM}
+\label{eq:unit_V_chromosomal_inheritance_worked_8}
+\end{equation}
 
-$$d_{B-C} = \frac{32 + 28 + 3 + 2}{1042} \times 100 = \frac{65}{1042} \times 100 = 6.2 \text{ cM} \tag{17.9}$$
+\begin{equation}
+d_{B-C} = \frac{32 + 28 + 3 + 2}{1042} \times 100 = \frac{65}{1042} \times 100 = 6.2 \text{ cM}
+\label{eq:unit_V_chromosomal_inheritance_worked_9}
+\end{equation}
 
 (c) Calculate interference.
 
-$$\text{Expected DCO} = 0.158 \times 0.062 \times 1042 = 10.2 \tag{17.10}$$
+\begin{equation}
+\text{Expected DCO} = 0.158 \times 0.062 \times 1042 = 10.2
+\label{eq:unit_V_chromosomal_inheritance_worked_10}
+\end{equation}
 
-$$\text{CoC} = \frac{5}{10.2} = 0.49; \quad I = 1 - 0.49 = 0.51 \tag{17.11}$$
+\begin{equation}
+\text{CoC} = \frac{5}{10.2} = 0.49; \quad I = 1 - 0.49 = 0.51
+\label{eq:unit_V_chromosomal_inheritance_worked_11}
+\end{equation}
 
 ---
 
@@ -922,7 +957,7 @@ print(hamming_distance("ATGCATGC", "ATACATGC"))
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Chromosomal Inheritance and Linkage
 
 For **Chromosomal Inheritance and Linkage**, frontier biology belongs inside the evidence logic of
 the chapter. Classical genetics remains essential, but modern interpretation adds penetrance, polygenicity, structural variation, ancestry-aware inference, and uncertainty in risk prediction. The core reading question is this: chromosome-scale inheritance depends on recombination, segregation, structural variation, and dosage compensation.
@@ -940,14 +975,14 @@ the chapter. Classical genetics remains essential, but modern interpretation add
 
 A good genetics answer separates the Mendelian transmission model from the evidence needed to use it in a population, family, or clinical setting.
 
-**Source practice:** For inheritance and population claims, separate the model assumptions from sampling, ancestry representation, penetrance, linkage, and environment.
+**Source practice:** For chromosomal claims, connect cytogenetic observation, recombination data, dosage effect, and developmental context before inferring inheritance risk.
 
 ## Summary
 
 - **Chromosome theory**: \citet{sutton1902} proposed chromosomes carry genes; Morgan proved this with X-linked *white* in *Drosophila*.
 - **Chromosome architecture**: Centromeres (CENP-A, alpha-satellite, kinetochore docking), telomeres (TTAGGG, shelterin, telomerase), and the heterochromatin/euchromatin distinction shape both mechanics and expression.
 - **Meiosis vs. mitosis**: A two-division reductional/equational program with synapsis, crossing over, and reductional segregation at MI is the cellular basis of Mendel's laws.
-- **Sex determination**: XX/XY (mammals, SRY gene), ZW/ZZ (birds), XO (grasshoppers), haplodiploidy (hymenoptera), temperature-dependent (reptiles).
+- **Sex determination**: XX/XY (mammals, SRY gene), ZW/ZZ (birds), XO (grasshoppers), haplodiploidy (Hymenoptera; a sex-determination system, not by itself a sociality explanation), and temperature-dependent systems (reptiles).
 - **X-inactivation**: Lyon hypothesis (1961); XIST RNA coats Xi; Polycomb-mediated H3K27me3; DNA methylation; Barr body. ~15% of genes escape.
 - **Dosage compensation**: X-inactivation in mammals, MSL upregulation in *Drosophila*, DCC downregulation in *C. elegans*; broader principles include autosomal dosage sensitivity, gene-balance constraints, miRNA buffering, and Polycomb maintenance.
 - **X-linked recessive inheritance**: Males affected >> females; no male-to-male transmission; carrier mothers pass to 50% of sons.
@@ -956,7 +991,7 @@ A good genetics answer separates the Mendelian transmission model from the evide
 - **Chromosomal abnormalities**: Aneuploidy from non-disjunction (trisomies 21, 18, 13; Turner 45,X; Klinefelter 47,XXY); structural rearrangements include reciprocal and Robertsonian translocations (Philadelphia chromosome → BCR-ABL1 → CML), pericentric and paracentric inversions, deletion syndromes (DiGeorge 22q11.2, Cri-du-chat 5p, Williams 7q11.23, Wolf-Hirschhorn 4p), and reciprocal duplication syndromes.
 - **Imprinting and uniparental disomy**: ~100–200 imprinted human genes; deletion of an expressed allele, UPD via trisomy rescue, imprinting-center mutations, or *UBE3A* point mutations most cause Prader-Willi or Angelman depending on parental origin.
 - **Inbreeding**: F = probability of identity by descent; increases homozygosity; exposes recessive alleles; inbreeding depression.
-- **Connections:** See \cref{sec:unit_IV_dna_replication_and_cell_cycle} for meiosis errors, \cref{sec:unit_V_population_genetics} for $F_{ST}$ and drift, and \cref{sec:unit_IV_epigenetics_and_gene_regulation} for imprinting disorders.
+- **Connections:** See \cref{sec:unit_IV_dna_replication_and_cell_cycle} for meiosis errors, \cref{sec:unit_V_population_genetics} for $F_{ST}$ and drift, and \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} for imprinting disorders.
 
 ---
 
@@ -972,16 +1007,16 @@ A good genetics answer separates the Mendelian transmission model from the evide
 8. Compare NHEJ and HR as mechanisms for joining chromosome translocation breakpoints. Which is more likely to produce the Philadelphia chromosome?
 9. Calculate the inbreeding coefficient for offspring of a double first-cousin mating (where both parents are first cousins through independent lineages).
 10. Explain why dosage compensation is necessary and compare the three known mechanisms (mammals, *Drosophila*, *C. elegans*).
-11. A child carries a de novo balanced reciprocal translocation with no gene interruption. When is genetic counselling still indicated?
-12. Contrast **Robertsonian** vs. **reciprocal** translocations regarding segregation products at meiosis I.
-13. Distinguish meiosis I from meiosis II non-disjunction. How would centromere-region marker analysis identify the failure mode in a trisomic conception?
-14. A 22q11.2 deletion is found in a child with congenital heart disease. List four other phenotypic systems likely affected, and explain why a single contiguous deletion produces such diverse features.
-15. Why does maternal UPD15 cause Prader-Willi syndrome rather than Angelman syndrome?
+11. Explain why haplodiploidy is relevant to relatedness in ants, bees, and wasps but does not by itself explain eusociality. What comparison does termite evolution add?
+12. A child carries a de novo balanced reciprocal translocation with no gene interruption. When is genetic counselling still indicated?
+13. Contrast **Robertsonian** vs. **reciprocal** translocations regarding segregation products at meiosis I.
+14. Distinguish meiosis I from meiosis II non-disjunction. How would centromere-region marker analysis identify the failure mode in a trisomic conception?
+15. A 22q11.2 deletion is found in a child with congenital heart disease. List four other phenotypic systems likely affected, and explain why a single contiguous deletion produces such diverse features.
 
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Chromosomal Inheritance and Linkage
 
 - Lyon (1961). Gene action in the {X}-chromosome of the mouse ({Mus musculus L.}). *Nature*, 190.
 - Hassold & Hunt (2001). To err (meiotically) is human: The genesis of human aneuploidy. *Nature Reviews Genetics*, 2.
@@ -1023,7 +1058,7 @@ A good genetics answer separates the Mendelian transmission model from the evide
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Chromosomal Inheritance and Linkage
 
 **Chromosomal Inheritance and Linkage** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -1036,4 +1071,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/visualization/plots.py` (`plot_chromosome_structure`) | Connect cytogenetic structure to inheritance patterns. |
 | `src/mermaid/biology_diagrams.py` (`chromosome_inheritance_diagram`, `x_inactivation_diagram`) | Compare segregation, linkage, and dosage compensation. |
 
-**Reproducibility check:** specify phase, recombinant classes, crossover assumptions, and mapping limits before inferring chromosome structure. **Cross-reference:** use \cref{sec:unit_V_mendelian_genetics}, \cref{sec:unit_IV_epigenetics_and_gene_regulation}, and \cref{sec:unit_V_population_genetics}.
+**Reproducibility check:** specify phase, recombinant classes, crossover assumptions, and mapping limits before inferring chromosome structure. **Cross-reference:** use \cref{sec:unit_V_mendelian_principles,sec:unit_V_mendelian_extensions_and_human_genetics}, \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms,sec:unit_IV_epigenetic_inheritance_and_disease}, and \cref{sec:unit_V_population_genetics}.

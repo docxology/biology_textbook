@@ -20,19 +20,17 @@ import re
 import sys
 from pathlib import Path
 
+from _bootstrap import PROJECT, ensure_project_paths
 
-PROJECT = Path(__file__).resolve().parent.parent
-SRC = PROJECT / "src"
-TEMPLATE_ROOT = PROJECT.parent.parent
+ensure_project_paths(include_scripts=True)
+
+try:
+    from scripts.atomic_io import write_text_atomic
+except ModuleNotFoundError:  # pragma: no cover - direct script execution path
+    from atomic_io import write_text_atomic  # type: ignore[import-not-found,no-redef]
+
 GLOSSARY = PROJECT / "manuscript" / "glossary.md"
 INDEX = PROJECT / "manuscript" / "appendices" / "appendix_index.md"
-
-
-def _ensure_import_paths() -> None:
-    for path in (SRC, TEMPLATE_ROOT):
-        path_str = str(path)
-        if path_str not in sys.path:
-            sys.path.insert(0, path_str)
 
 
 # Bracketed span: [**Term**]{#gl:slug} — Pandoc `markdown+bracketed_spans` emits
@@ -72,7 +70,6 @@ def _slug(term: str) -> str:
 
 def _chapter_ref_map() -> dict[str, str]:
     """Return legacy display numbers mapped to canonical section labels."""
-    _ensure_import_paths()
     from biology.toc import load_toc
 
     book_toc = load_toc(PROJECT)
@@ -263,9 +260,9 @@ def run(argv: list[str] | None = None) -> int:
 
     pending_changes = (glossary_out != glossary_text) or (index_out != index_text)
     if pending_changes and not args.dry_run and not args.check:
-        _write_text_atomic(GLOSSARY, glossary_out)
+        write_text_atomic(GLOSSARY, glossary_out)
         if INDEX.exists():
-            _write_text_atomic(INDEX, index_out)
+            write_text_atomic(INDEX, index_out)
 
     duplicate_anchors = find_duplicate_glossary_anchors(glossary_out)
     hardcoded = [
@@ -321,13 +318,6 @@ def run(argv: list[str] | None = None) -> int:
         or bool(bad_crefs)
     )
     return 1 if failed else 0
-
-
-def _write_text_atomic(path: Path, text: str) -> None:
-    tmp_path = path.with_name(f".{path.name}.tmp")
-    with tmp_path.open("w", encoding="utf-8") as handle:
-        handle.write(text)
-    tmp_path.replace(path)
 
 
 if __name__ == "__main__":

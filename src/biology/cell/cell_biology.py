@@ -9,19 +9,13 @@ import math
 from dataclasses import dataclass
 from typing import Optional
 
-from infrastructure.core.logging.utils import get_logger
+from textbook_logging import get_logger
+
+from biology.constants import FARADAY_CONSTANT, GAS_CONSTANT
 
 logger = get_logger(__name__)
 
-# ---------------------------------------------------------------------------
-# Constants
-# ---------------------------------------------------------------------------
-FARADAY_CONSTANT = 96485.0  # C mol⁻¹
-GAS_CONSTANT = 8.314  # J mol⁻¹ K⁻¹
-AVOGADRO = 6.022e23  # mol⁻¹
-BOLTZMANN = 1.381e-23  # J K⁻¹
-
-
+# Re-export constants for backward-compatible imports from this module.
 # ---------------------------------------------------------------------------
 # Data Classes
 # ---------------------------------------------------------------------------

@@ -2,17 +2,17 @@
 
 ## Location and pipeline status
 
-This project lives under **`projects_in_progress/biology_textbook/`** in this checkout. `resolve_project_root()` prefers `projects/biology_textbook/` when that tree has `src/`, `tests/`, `scripts/`, and `manuscript/`; otherwise it resolves this WIP path (see root [AGENTS.md](../../AGENTS.md)). **Publication:** `manuscript/config.yaml` → `publication.doi` and `publication.repository_url` (Zenodo + GitHub).
+This project is currently maintained as an active standalone checkout; run project-local commands from this directory so `pyproject.toml` applies. Template-hosted render entry points still use `--project biology_textbook` and resolve the project through the template infrastructure when available. **Publication:** `manuscript/config.yaml` → `publication.doi` and `publication.repository_url` (Zenodo + GitHub).
 
 Work here uses the same patterns as active template projects: thin orchestrators in `scripts/`, computation in `src/`, manuscript in `manuscript/`, tests in `tests/` (zero mocks, ≥90% line coverage on `src/`).
 
 **Composable authoring (stable `sec:` / `fig:` / `eq:` IDs, script order, which tests fail when):** [docs/composable_authoring.md](docs/composable_authoring.md). **Editorial** style for agents: [docs/agent_instructions.md](docs/agent_instructions.md). **Accessibility / config enforcement vs advisory:** [docs/accessibility.md](docs/accessibility.md). **Doc index:** [docs/README.md](docs/README.md).
 
-## Overview
+## Manuscript Source Contract
 
-Introductory biology textbook content is driven by **`manuscript/config.yaml`**: unit ordering, chapter files, front matter, appendices (labs and question banks), and render metadata. Nine domain subpackages under `src/biology/` implement quantitative models. Mermaid diagrams are generated via `src/mermaid/`; use `scripts/generate_diagrams.py --strict-png` for publication gates so `.mmd` fallbacks are rejected. Matplotlib figures are defined in **`src/visualization/plots.py`** and registered in `ALL_FIGURE_GENERATORS`.
+Introductory biology textbook content is driven by **`manuscript/config.yaml`**: unit ordering, chapter files, front matter, appendices (labs and question banks), and render metadata. Nine domain subpackages under `src/biology/` implement quantitative models. Mermaid diagrams are declared in **`src/mermaid/diagram_specs.yaml`** and built via `src/mermaid/diagram_spec_loader.py`; matplotlib figures live in **`src/visualization/plots_*.py`** modules and register through `plots.py` → `ALL_FIGURE_GENERATORS`.
 
-Canonical chapter counts and filenames are **only** in `config.yaml` (currently Unit 0 plus Units I–X, **39 core chapter files**, 39 paper-based labs, and 39 question banks of 30 questions each). All 39 chapters carry:
+Canonical chapter counts and filenames are **only** in `config.yaml` (currently Unit 0 plus Units I–X, **44 core chapter files**, 44 paper-based labs, and 44 question banks of 30 questions each). All 44 chapters carry:
 
 - `\label{sec:unit_X_<stem>}` immediately after the H1 title (for `\cref{}` cross-referencing)
 - A `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites
@@ -51,6 +51,21 @@ Student PDFs are built **compact** by default:
 | `botany/` | Water relations, photosynthesis pathways |
 | `neuroscience/` | Hodgkin–Huxley, passive cable, synaptic transmission, Hebbian plasticity |
 
+Shared utilities: `numerics.py` (Euler integration), `constants.py` (physical constants), `assessment.py`, `chapter_metadata.py`, `current_claims.py`, `toc.py`.
+
+Maintenance packages (logic in `src/`, thin CLIs in `scripts/`):
+
+| Package | Script | Role |
+| --- | --- | --- |
+| `crossref/` | — | Manuscript `\label`/`\cref` scanner (re-exported as `crossref_validator.py`) |
+| `quality/` | `audit_textbook_quality.py` | Umbrella quality audit + advisory ledger |
+| `enrichment/` | `enrich_embedded_textbook.py` | Frontier boxes, companion modules, audit matrix |
+| `answer_refinement/` | `refine_generated_answers.py` | Question-bank answer heuristics |
+| `curriculum_sync/` | `sync_curriculum_materials.py` | Curriculum scaffolds + front matter |
+| `visual_contracts.py` | `audit_visual_contracts.py` | Figure/diagram manifest gate |
+
+Root I/O: `textbook_io.py` (`write_text_atomic`); `textbook_paths.py` for shared path helpers.
+
 ---
 
 ## Source layout
@@ -58,25 +73,36 @@ Student PDFs are built **compact** by default:
 ```text
 src/
 ├── __init__.py
+├── textbook_io.py              # atomic write/replace for maintenance scripts
 ├── biology/
-│   ├── __init__.py
-│   ├── biochemistry/biochemistry.py
-│   ├── botany/botany.py
-│   ├── cell/cell_biology.py
-│   ├── ecology/ecology.py
-│   ├── evolution/evolution.py
-│   ├── genetics/genetics.py
-│   ├── microbiology/microbiology.py
-│   ├── neuroscience/neuroscience.py
-│   ├── physiology/physiology.py
-│   ├── chapter_metadata.py   # per-chapter difficulty, reading/lecture time, prereqs
-│   └── crossref_validator.py # validates \label/\cref and @fig:/@eq:/@tbl:/@sec: coverage
+│   ├── numerics.py             # euler_integrate_scalar()
+│   ├── constants.py            # FARADAY, GAS_CONSTANT, …
+│   ├── assessment.py           # question/lab metadata parser + enum enforcement
+│   ├── chapter_metadata.py     # CHAPTERS_BY_ID, difficulty/time badges
+│   ├── crossref_validator.py   # thin re-export shim → crossref/
+│   ├── crossref/               # scan_file, validate (see crossref/AGENTS.md)
+│   ├── quality/                # audit engine (see quality/AGENTS.md)
+│   ├── enrichment/             # embedded enrichment (see enrichment/AGENTS.md)
+│   ├── answer_refinement/
+│   ├── curriculum_sync/
+│   ├── visual_contracts.py
+│   ├── biochemistry/ … neuroscience/   # nine domain subpackages
+│   └── …
 ├── mermaid/
-│   ├── renderer.py           # mmdc → PNG; .mmd fallback; walks up for .puppeteer.json
-│   ├── diagrams.py           # Generic Mermaid builders
-│   └── biology_diagrams.py   # ALL_BIOLOGY_DIAGRAMS registry (24 diagrams)
+│   ├── diagram_specs.yaml      # declarative nodes/edges for 24 biology diagrams
+│   ├── diagram_spec_loader.py  # YAML → MermaidDiagram builders
+│   ├── biology_diagrams.py     # factory registry + ALL_BIOLOGY_DIAGRAMS
+│   ├── diagrams.py             # flowchart, sequence, state builders
+│   └── renderer.py
 └── visualization/
-    └── __init__.py           # ALL_FIGURE_GENERATORS (18 matplotlib generators, headless Agg)
+    ├── _scaffold.py            # Agg backend, _save_figure, palette constants
+    ├── plots.py                # ALL_FIGURE_GENERATORS registry (~50 lines)
+    ├── plots_cell.py           # domain figure generators
+    ├── plots_genetics.py
+    ├── plots_ecology.py
+    ├── plots_physiology.py
+    ├── plots_botany.py
+    └── plots_microbiology.py
 ```
 
 ### Mermaid CLI and `.puppeteer.json`
@@ -94,7 +120,7 @@ biology_textbook/
 ├── pyproject.toml
 ├── .puppeteer.json          # optional; for mmdc + system Chrome
 ├── src/                     # biology, mermaid, visualization
-├── scripts/                          # 31 Python files — core build vs. content maintenance
+├── scripts/                          # 33 Python files — core build vs. content maintenance
 │   ├── add_mermaid_alt_text.py        # audit/normalize Mermaid alt text + captions; --check gate
 │   ├── atomic_io.py                   # atomic write/replace helper for mutating scripts
 │   ├── audit_current_claims.py        # current-claims ledger and stale-phrase gate
@@ -110,7 +136,7 @@ biology_textbook/
 │   ├── enrich_embedded_textbook.py      # embedded frontier boxes, lab upgrades, answer-key refinement, audit matrix
 │   ├── generate_cover_art.py          # deterministic text-free cover montage asset
 │   ├── generate_diagrams.py         # 24 mermaid → PNG (or .mmd)
-│   ├── generate_figures.py            # 18 matplotlib figure generators
+│   ├── generate_figures.py            # 32 matplotlib figure generators
 │   ├── insert_answer_keys.py         # answer-key blocks in question banks
 │   ├── insert_chapter_metadata.py    # metadata badges + Course Planning Grid
 │   ├── insert_crossref_labels.py     # \label{sec:…} + rewrite legacy chapter prose → \cref
@@ -124,7 +150,7 @@ biology_textbook/
 │   ├── pad_short_labs.py              # extend very short lab files
 │   ├── refine_generated_answers.py    # rewrites legacy/generated answer scaffolds; --dry-run should be clean
 │   └── sync_assessment_metadata.py     # question-item metadata and lab outcome/rubric alignment
-├── tests/                            # 27 test_*.py modules; run pytest for current count and coverage
+├── tests/                            # 31 test_*.py modules; run pytest for current count and coverage
 │   ├── conftest.py
 │   ├── test_accessibility.py          # alt text + mermaid accessibility contract
 │   ├── test_assessment_metadata.py    # item-level question metadata
@@ -150,15 +176,19 @@ biology_textbook/
 │   ├── test_pdf_log_quality.py
 │   ├── test_pdf_opening_and_mermaid.py
 │   ├── test_question_answer_refinement.py
+│   ├── test_chapter_pedagogy_coverage.py # REVIEW §7 pedagogy regression locks
+│   ├── test_logging_compat.py
+│   ├── test_maintenance_engine_smoke.py
 │   ├── test_script_quality.py
+│   ├── test_textbook_paths.py           # checkout path discovery + bootstrap helpers
 │   ├── test_textbook_quality_audit.py # umbrella stale-claim/copyedit/enrichment quality audit
 │   └── test_toc_consistency.py
 ├── manuscript/
 │   ├── config.yaml            # single source of truth for order and units
 │   ├── front_matter.md, preface.md, preamble.md, glossary.md, references.bib
 │   ├── unit_0/ … unit_X/
-│   ├── labs/                  # 39 labs across 11 unit_*/ subdirs
-│   └── questions/             # 39 question banks across 11 unit_*/ subdirs
+│   ├── labs/                  # 44 labs across 11 unit_*/ subdirs
+│   └── questions/             # 44 question banks across 11 unit_*/ subdirs
 ├── docs/                      # architecture, pipeline, testing, API, accessibility, pedagogy
 └── output/                    # generated (disposable)
 ```
@@ -170,10 +200,10 @@ biology_textbook/
 From this project directory:
 
 ```bash
-uv run pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
+uv run python -m pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 ```
 
-Run `uv run pytest tests/ --cov=src --cov-fail-under=90` from this project directory so this `pyproject.toml` applies the 90 % gate (repo-root pytest may use the root config). Zero-mock policy — no `MagicMock`, `mocker.patch`, or `unittest.mock` for behaviour under test. Invariant-style tests for manuscript quality:
+Run `uv run python -m pytest tests/ --cov=src --cov-fail-under=90` from this project directory so this `pyproject.toml` applies the 90 % gate (repo-root pytest may use the root config). Zero-mock policy — no `MagicMock`, `mocker.patch`, or `unittest.mock` for behaviour under test. Invariant-style tests for manuscript quality:
 
 - `test_build_invariants.py` — every chapter has `\label{sec:…}` and a metadata badge; every lab and question bank links back via `\cref{}`; every registered figure generator is referenced
 - `test_bibliography_closure.py` — `{cited} == {defined}` in `references.bib`
@@ -182,15 +212,16 @@ Run `uv run pytest tests/ --cov=src --cov-fail-under=90` from this project direc
 - `test_accessibility.py` — LaTeX figures and mermaid blocks meet alt/caption contract
 - `test_lab_integrity.py` — optional lab computation snippets resolve project modules and do not depend on hidden notebooks or CSVs
 - `test_question_answer_refinement.py` — generated answer heuristics stay idempotent and preserve hand-written solutions
+- `test_chapter_pedagogy_coverage.py` — REVIEW §7 pedagogy locks: worked-example floor, Concept-Check density, Bloom diversity, LO count floor
 - `test_script_quality.py` — project scripts parse and avoid hard-coded checkout paths or obsolete maintenance clones
 
 ## Manuscript validation
 
-From the **repository root** (paths relative to template):
+From a template repository root with infrastructure available, pass the current manuscript path:
 
 ```bash
-uv run python -m infrastructure.validation.cli markdown projects_in_progress/biology_textbook/manuscript/
-uv run python -m infrastructure.validation.cli prerender projects_in_progress/biology_textbook/manuscript/ --repo-root .
+uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/manuscript/
+uv run python -m infrastructure.validation.cli prerender /path/to/biology_textbook/manuscript/ --repo-root .
 ```
 
 Use `markdown` after bulk edits; add `prerender` before relying on a clean PDF (same gate as the renderer’s source check).
@@ -207,7 +238,7 @@ Every change that adds or renames a chapter, lab, question bank, figure, or BibT
 | Every `\citep{…}` / `\citet{…}` resolves; every bib entry is cited | `test_bibliography_closure` | `scripts/integrate_orphan_citations.py` |
 | Every figure generator referenced in manuscript | `test_build_invariants.test_every_registered_figure_is_referenced` | `scripts/insert_orphan_figures.py` |
 | Registered Mermaid publication output is PNG, not `.mmd` fallback | manual publication gate / renderer strict mode | `scripts/generate_diagrams.py --strict-png` |
-| 192 inline Mermaid fences each have one alt comment and one italic caption; PDF preprocessing renders them to PNG | `test_accessibility.py` + `test_pdf_opening_and_mermaid.py` | `scripts/add_mermaid_alt_text.py --check` and install `mmdc` |
+| 193 inline Mermaid fences each have one alt comment and one italic caption; PDF preprocessing renders them to PNG | `test_accessibility.py` + `test_pdf_opening_and_mermaid.py` | `scripts/add_mermaid_alt_text.py --check` and install `mmdc` |
 | Visual manifest is derived from figures, registered Mermaid, and inline Mermaid; generated manifest lives under `output/figures/` | `audit_visual_contracts.py --check` / publication readiness | `scripts/audit_visual_contracts.py --check` |
 | Fast-moving claims carry source, anchor, tier, checked date, and refresh trigger | `test_current_claims_ledger.py` | `scripts/audit_current_claims.py --check` and update `manuscript/current_claims.yaml` |
 | Question-bank items and labs carry assessment metadata | `test_assessment_metadata.py` / `test_lab_pedagogy_alignment.py` | `scripts/sync_assessment_metadata.py --dry-run` to preview, then `--check` |
@@ -224,7 +255,7 @@ The LaTeX preamble (`manuscript/preamble.md`) now loads **cleveref** (after `hyp
 3. Read [docs/testing_guide.md](docs/testing_guide.md) before changing tests.
 4. Read [docs/architecture.md](docs/architecture.md) before changing `scripts/` vs `src/` boundaries.
 5. New quantitative claims in prose should map to tested code in the appropriate `src/biology/` module when feasible.
-6. Prefer `infrastructure.core.logging.utils.get_logger(__name__)` in Python entrypoints.
+6. Prefer `textbook_logging.get_logger(__name__)` in Python entrypoints; it uses template infrastructure logging when available and falls back to stdlib logging in standalone checkouts.
 7. Treat `ALL_FIGURE_GENERATORS` and `ALL_BIOLOGY_DIAGRAMS` as visual manifests: add the generator/factory to the registry, reference it from manuscript prose, keep alt/caption text nearby, and verify the corresponding tests before relying on the visual.
 8. After any manuscript edit that adds chapters, figures, diagrams, citations, current claims, labs, or question banks, re-run the relevant `scripts/insert_*` / `scripts/link_*` / `scripts/integrate_*` / audit helper and verify invariant tests still pass (see [docs/testing_guide.md](docs/testing_guide.md) failure-to-fix table).
 

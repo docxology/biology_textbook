@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 27** · Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_VIII_plant_reproduction}
+> Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_VIII_plant_reproduction}
 
 ## Learning Objectives
 
@@ -19,6 +19,15 @@ By the end of this chapter, you should be able to:
 7. Describe drought (ABA pathway), cold (CBF-COR pathway), heat (HSP response), salt, flooding, and [**herbivory**](#gl:herbivory) (jasmonate) stress responses.
 8. Describe plant immunity (PTI, ETI), the hypersensitive response, systemic acquired resistance (SAR), and JA/SA antagonism.
 9. Evaluate agricultural applications of plant hormone biology: ethylene inhibitors, gibberellin dwarfing genes, and auxin herbicides.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/photosynthesis_rate.png}
+\caption{Net photosynthesis light-response curves for C3-like and C4-like parameter sets. Higher light-saturation points and lower dark respiration shift the compensation and saturation regions.}
+\label{fig:unit_VIII_photosynthesis_rate}
+\end{figure}
+
+<!-- alt: Net photosynthesis light-response curves for C3-like and C4-like plants: hyperbolic net assimilation versus photosynthetically active radiation, with higher light-saturation and lower dark respiration shifting compensation and saturation. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -42,7 +51,7 @@ By the end of this chapter, you should be able to:
 > 
 > "I care more about Drosera than the origin of species in the world," Darwin wrote to his friend Asa Gray in 1860. For fifteen years he systematically experimented on sundews and Venus flytraps, weighing morsels of meat to 1/78,000 of a grain, timing trap closure, and testing with hundreds of chemical solutions — establishing that carnivorous plants actively respond to nitrogenous stimuli, not merely mechanical touch. His 1875 book *Insectivorous Plants* described hormone-like chemical signals in plants decades before the word "hormone" existed. In those experiments lurked the seed of plant hormone biology: auxin, gibberellins, abscisic acid, cytokinin, ethylene — the five classical plant hormones whose discovery unfolded over the next century. Darwin rarely found them by name, but his insight that plants sense and respond to their environment through diffusible chemical signals laid much of the groundwork that followed.
 
-## Plant Hormones Overview
+## Plant Hormone Networks and Growth Decisions
 
 Plant hormones (phytohormones) are small organic molecules produced in low concentrations that regulate virtually every aspect of plant growth, development, and stress responses. Unlike animal hormones, plant hormones are often produced at many sites throughout the plant and can act locally.
 
@@ -105,7 +114,7 @@ flowchart LR
 - **Root initiation:** High auxin promotes adventitious and lateral root formation
 - **Fruit development:** Auxin from developing seeds promotes fruit growth
 
-### Gibberellins (GAs)
+### Gibberellins (GAs) and Stem Elongation
 
 **Biosynthesis:** From the MEP pathway in plastids; active forms include GA$_1$, GA$_3$, GA$_4$. Produced in young leaves, root tips, and developing seeds.
 
@@ -121,7 +130,7 @@ flowchart LR
 - **Fruit development:** Can induce parthenocarpy (seedless fruit production without fertilisation; seedless grapes)
 - **Flowering:** In some long-day plants, GA can substitute for the long-day photoperiod requirement
 
-### Cytokinins
+### Cytokinins and Cell Division Signals
 
 **Biosynthesis:** From adenine derivatives via IPT (isopentenyltransferase). Primarily synthesised in **root tips** and transported to shoots via [**xylem**](#gl:xylem).
 
@@ -142,7 +151,7 @@ flowchart LR
 
 **Signalling:** ABA binds PYR/PYL/RCAR receptors, which inhibit PP2C phosphatases, activating SnRK2 kinases. SnRK2 phosphorylates SLAC1 (stomatal closure), AREB/ABF transcription factors (stress genes), and ion channels.
 
-### Ethylene
+### Ethylene and Gaseous Stress/Ripening Signals
 
 **Biosynthesis:** From methionine via SAM (S-adenosylmethionine) to ACC (1-aminocyclopropane-1-carboxylic acid) by ACC synthase, then to ethylene by ACC oxidase. Ethylene is a **gas** -- it diffuses freely between cells and even between plants.
 
@@ -157,7 +166,7 @@ flowchart LR
 
 > **Concept Check (Evaluate):** A "hormone network" framework treats phytohormones as nodes in a regulatory network rather than as isolated signals. Ethylene (ET), abscisic acid (ABA), jasmonate (JA), salicylate (SA), auxin (IAA), cytokinin (CK), and brassinosteroid (BR) together populate more than 30 pairwise interaction nodes. (a) Evaluate the adaptive logic of the JA–ET synergism during wounding. Caterpillar feeding induces JA accumulation (the systemic wound signal acting through jasmonoyl-isoleucine) and local ET production at the damaged tissue. Together, the two hormones synergistically induce trypsin-protease-inhibitor expression to a level roughly 10–100× that produced by either signal alone. Why might evolution have favoured a configuration in which two distinct signals must coincide to release the most expensive defence chemistry? (b) BR promotes cell elongation, whereas ET inhibits elongation (the classical triple response: radial swelling, exaggerated apical hook, and shortened hypocotyl). During the emergence of a dark-grown seedling pushing up through soil, propose why their antagonism is adaptive, and outline a plausible molecular mechanism by which elevated ET signalling could attenuate BR responses at the BES1 / BZR1 transcription-factor layer.
 
-### Jasmonates (JA)
+### Jasmonates (JA) and Wound Defence
 
 **Biosynthesis:** From linolenic acid (membrane lipid) via the LOX (lipoxygenase) pathway. The active form is **JA-Ile** (jasmonyl-isoleucine conjugate, produced by JAR1).
 
@@ -186,7 +195,7 @@ Pre-wounding, JAZ proteins recruit **TOPLESS** corepressor via the **NINJA** ada
 
 **Concept Check:** Aspirin (acetylsalicylic acid) is derived from salicylic acid, originally extracted from willow bark (*Salix*). Why might plants produce SA in response to pathogens, and what does this tell us about the evolutionary age of this defence pathway?
 
-### Strigolactones
+### Strigolactones and Branching/Mycorrhizal Signals
 
 **Biosynthesis:** From carotenoid precursors via D27 isomerase and CCD7/CCD8 cleavage. Produced primarily in roots.
 
@@ -198,7 +207,7 @@ Pre-wounding, JAZ proteins recruit **TOPLESS** corepressor via the **NINJA** ada
 
 ---
 
-## Phototropism
+## Phototropism and Auxin-Driven Bending
 
 The molecular pathway for phototropism in *Arabidopsis thaliana* is one of the best-characterised plant signalling cascades:
 
@@ -249,7 +258,7 @@ $$ \theta = \frac{2.0 \text{ mm}}{1.5 \text{ mm}} = 1.33 \text{ rad} = 1.33 \tim
 
 ---
 
-## Gravitropism
+## Gravitropism and Gravity-Sensing Root Architecture
 
 ```mermaid
 graph TD
@@ -291,7 +300,7 @@ graph TD
 
 Plants integrate diverse light signals — wavelength, intensity, direction, duration, timing — through a constellation of photoreceptors. The two most studied families are phytochromes (red/far-red sensors) and cryptochromes (blue/UV-A sensors).
 
-### Phytochrome Biochemistry
+### Phytochrome Biochemistry and Red/Far-Red Switching
 
 Phytochromes are dimeric ~125 kDa chromoproteins. Each monomer carries a bilin chromophore (phytochromobilin) covalently attached to a conserved cysteine in the photosensory module. The chromophore exists in two photointerconvertible forms:
 
@@ -374,14 +383,14 @@ This PRR cascade creates a wave of repression sweeping across the day, with each
 
 The **Evening Complex (EC)** comprises ELF3, ELF4, and LUX (LUX ARRHYTHMO; a Myb-domain TF). ELF3 is a scaffold protein; LUX provides DNA binding. The EC peaks at ZT12–16 and represses morning genes (PRR9, PIF4, GI) — gating early-night growth. *elf3* mutants are arrhythmic.
 
-### Temperature Compensation
+### Temperature Compensation in Plant Circadian Clocks
 
 A defining property of the circadian clock is **temperature compensation**: the period remains ~24 h across a wide temperature range (10–30 °C) despite the underlying biochemical reactions accelerating with temperature (Q$_{10}$ ~ 2). Mechanisms include:
 - **Alternative splicing of CCA1:** at lower temperature, an alternative splice form (CCA1β) acts as a repressor of CCA1α, slowing the loop
 - **Temperature-dependent protein stability of PRR proteins:** PRR9/7 are more rapidly degraded at higher temperatures
 - **JMJ30 demethylase:** counters temperature effects on chromatin marks at clock loci
 
-### Clock Outputs
+### Clock Outputs for Growth, Metabolism, and Flowering
 
 The clock gates numerous physiological processes by regulating downstream gene expression:
 - **Stomatal opening:** Anticipatory opening before dawn; controlled by clock-gated H$^+$-ATPase activity
@@ -394,7 +403,7 @@ The clock gates numerous physiological processes by regulating downstream gene e
 
 ## Photoperiodism, Flowering Time, and Vernalisation
 
-### Photoperiodic Categories
+### Photoperiodic Categories and Flowering Responses
 
 Plants are classified by their flowering response to day/night length:
 
@@ -494,7 +503,7 @@ Prolonged cold exposure (weeks at 4 °C) promotes flowering in winter annuals (*
 
 ---
 
-## Gravitropism, Touch Responses, and Other Tropisms
+## Touch Responses and Additional Tropisms
 
 ### Gravitropism — Statolith and PIN Asymmetry (deep dive)
 
@@ -527,7 +536,7 @@ Plants respond to mechanical stimuli — wind, rain, animal contact — through 
 - Jasmonate signalling: JA mediates the coiling response; *Bryonia* tendrils require JA for coiling
 - Within minutes of contact, tendril coils a complete 360° around the support
 
-### Other Tropisms
+### Hydrotropism, Thigmotropism, and Heliotropism
 
 - **Hydrotropism:** Roots grow toward moisture; mediated by ABA and MIZ1 (mizu-kussei 1) protein in root cap. *miz1* mutants lack hydrotropism but retain gravitropism.
 - **Thigmotropism in roots:** Roots growing along a substrate exhibit obstacle avoidance, mediated by mechanosensitive channels.
@@ -612,14 +621,14 @@ Above 35-42 degrees C, the heat shock response is activated:
 - **Small HSPs** (sHSPs, 15-40 kDa): ATP-independent holdases that accumulate in cytoplasmic aggregates
 - **Thermomemory:** H3K4me3 epigenetic marks at HSP loci persist for several days, allowing faster response to subsequent heat episodes
 
-### Salt Stress
+### Salt Stress and Ion Homeostasis
 
 High soil salinity (NaCl) causes both osmotic stress and ion toxicity:
 - **SOS pathway** (Salt Overly Sensitive): SOS3 (Ca$^{2+}$ sensor) activates SOS2 (kinase), which activates **SOS1** (Na$^+$/H$^+$ antiporter) to expel Na$^+$ from roots
 - **Vacuolar sequestration:** NHX1 antiporter pumps Na$^+$ into vacuole
 - **Compatible osmolytes:** Proline, glycine betaine, mannitol accumulate to lower $\psi_s$ without enzyme inhibition
 
-### Flooding Response
+### Flooding Response and Low-Oxygen Signalling
 
 Submergence deprives roots of O$_2$:
 - **ERFVII transcription factors** (RAP2.2, RAP2.12): Stabilised under hypoxia (normally degraded by the N-end rule pathway when O$_2$ is present -- direct O$_2$ sensing)
@@ -772,7 +781,7 @@ The semi-dwarf wheat varieties that catalysed the Green Revolution carry mutatio
 - Sugarcane (increases stem length and sugar yield)
 - Hybrid rice seed production (activates female lines)
 
-### Auxin Herbicides
+### Auxin Herbicides and Synthetic Growth-Regulator Toxicity
 
 **2,4-D (2,4-dichlorophenoxyacetic acid)** and related compounds (dicamba, MCPA) are synthetic auxin analogues used as selective broadleaf herbicides:
 - Mechanism: synthetic auxins activate the same TIR1-Aux/IAA-ARF pathway as natural IAA, but at much higher and sustained concentrations
@@ -792,7 +801,7 @@ The semi-dwarf wheat varieties that catalysed the Green Revolution carry mutatio
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Plant Responses to the Environment
 
 For **Plant Responses to the Environment**, frontier biology belongs inside the evidence logic of
 the chapter. Plant biology links molecular regulation to climate stress, water limitation, crop resilience, phenology, and ecosystem feedbacks. The core reading question is this: plant response claims should connect signal perception, hormone network, gene expression, phenotype, and tradeoff.
@@ -808,9 +817,9 @@ the chapter. Plant biology links molecular regulation to climate stress, water l
   the source closest to the measurement and state what has changed since it was
   published.
 
-A strong plant explanation names the tissue, signal, environmental driver, measurable trait, and tradeoff between growth, reproduction, defence, and water use.
+A strong plant-response claim names the signal, receptor or hormone, environmental driver, phenotype, and cost of the response \citep{huang2024guardcells}.
 
-**Source practice:** For plant-stress and crop claims, name the tissue, environmental driver, field context, and growth-reproduction tradeoff; separate laboratory potential from agronomic adoption.
+**Source practice:** For plant-stress claims, cite tissue-specific assays, field conditions, signalling perturbations, and growth-defence-water tradeoffs \citep{huang2024guardcells}.
 
 Heat-stress responses should be separated by tissue and developmental stage: protecting vegetative leaves is not the same as preserving male reproductive success, where epigenetic regulation and pollen development can be the limiting failure point \citep{malik2022heatstressmale}. Guard-cell calcium work shows that stomatal dynamics can depend on the count and timing of unitary cytosolic Ca2+ signals, linking ion-channel physiology to whole-plant water tradeoffs without implying plant decision-making is animal-like cognition \citep{huang2024guardcells}.
 
@@ -910,7 +919,7 @@ flowchart TD
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Plant Responses to the Environment
 
 - Hager (1971). Acid growth theory of auxin action. *Planta*, 100.
 - \citet{went1926} — On diffusion and the stimulation of growth by auxins. *Recueil des Travaux Botaniques Néerlandais*, 33.
@@ -920,7 +929,7 @@ flowchart TD
 
 ## Computational Bridge
 
-Photosynthetic light response is tabulated for any PAR grid:
+Photosynthetic light response is tabulated for any PAR grid; \cref{fig:unit_VIII_photosynthesis_rate} plots net assimilation from the hyperbolic rate model for C3-like and C4-like parameter sets.
 
 ```python
 from biology.botany import light_response_curve
@@ -955,7 +964,7 @@ print(round(curve[-1][1], 2))
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Plant Responses to the Environment
 
 **Plant Responses to the Environment** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

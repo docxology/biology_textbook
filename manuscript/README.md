@@ -1,10 +1,10 @@
 # Biology Textbook — Manuscript
 
-## Overview
+## Manuscript Source Map
 
 All Markdown sources for the book. PDF/HTML output is produced by the template rendering pipeline (Pandoc/LaTeX) after analysis injects ordered files into `output/manuscript/`. **Chapter order and numbering** come only from **`config.yaml`** — filenames are descriptive slugs, not chapter indices.
 
-Rendering resolves the project with `infrastructure.project.discovery.resolve_project_root` (prefers `projects/biology_textbook/` when that tree has `src/`, `tests/`, `scripts/`, and `manuscript/`; otherwise `projects_in_progress/biology_textbook/`). From the repository root, `uv run python scripts/03_render_pdf.py --project biology_textbook` and `./run.sh --project biology_textbook` use that resolved path.
+Rendering through the template pipeline uses `infrastructure.project.discovery.resolve_project_root` with `--project biology_textbook` when template infrastructure is available. Project-local authoring, tests, and maintenance scripts should run from this active checkout.
 
 ## Quick reference
 
@@ -25,9 +25,9 @@ Rendering resolves the project with `infrastructure.project.discovery.resolve_pr
 | Navigation / scope blocks | `front_matter.md` and `preface.md` generated markers — edit `config.yaml`, then rerun `uv run python scripts/sync_curriculum_materials.py` |
 | Course Planning Grid | Auto-generated in `front_matter.md` between `<!-- course-planning-grid-start -->` and `<!-- course-planning-grid-end -->` markers — edit `config.yaml` titles/order and `../src/biology/chapter_metadata.py`, then rerun `../scripts/insert_chapter_metadata.py` |
 | Glossary | `glossary.md` — each term is a bracketed span `` [**Term**]{#gl:<slug>} `` (PDF ``\label{gl:…}``); link on first use with `` `[**term**](#gl:<slug>)` `` |
-| Generate figures | From project root: `uv run python scripts/generate_figures.py` (18 matplotlib; uses `src/visualization/cvd.py` for CVD-friendly colours) |
+| Generate figures | From project root: `uv run python scripts/generate_figures.py` (32 square-padded matplotlib; uses `src/visualization/cvd.py` for CVD-friendly colours) |
 | Accessibility, config vs tests | [../docs/accessibility.md](../docs/accessibility.md) |
-| Generate registered Mermaid PNGs | `uv run python scripts/generate_diagrams.py --strict-png` for publication checks (24 registry diagrams); the 192 inline Mermaid fences render during PDF preprocessing |
+| Generate registered Mermaid PNGs | `uv run python scripts/generate_diagrams.py --strict-png` for publication checks (24 registry diagrams); the 193 inline Mermaid fences render during PDF preprocessing |
 | Check current claims | `uv run python scripts/audit_current_claims.py --check`; source data lives in `current_claims.yaml` |
 | Check assessment metadata | `uv run python scripts/sync_assessment_metadata.py --dry-run` to preview drift; `uv run python scripts/sync_assessment_metadata.py --check` gates question items and lab alignment |
 | Render PDF | From repo root: `uv run python scripts/03_render_pdf.py --project biology_textbook` |
@@ -46,7 +46,7 @@ After large bibliography or glossary edits, refresh any documented counts with `
 - Every lab and question bank `\cref`-links back to its parent chapter
 - Lab and question-bank entries in `config.yaml` store only `file:` names; do not add duplicated `title:` strings there
 - Every `\citep{…}` / `\citet{…}` resolves to an entry in `references.bib`; no entry is orphaned
-- All invariants are asserted by `../tests/test_toc_consistency.py`, `../tests/test_build_invariants.py`, `../tests/test_bibliography_closure.py`, `../tests/test_chapter_metadata.py`, `../tests/test_curriculum_metadata.py`, `../tests/test_accessibility.py`, `../tests/test_crossref_validator*.py`, `../tests/test_lab_integrity.py`, `../tests/test_question_answer_refinement.py`, and `../tests/test_script_quality.py`
+- All invariants are asserted by `../tests/test_toc_consistency.py`, `../tests/test_build_invariants.py`, `../tests/test_bibliography_closure.py`, `../tests/test_chapter_metadata.py`, `../tests/test_curriculum_metadata.py`, `../tests/test_accessibility.py`, `../tests/test_crossref_validator*.py`, `../tests/test_lab_integrity.py`, `../tests/test_question_answer_refinement.py`, `../tests/test_chapter_pedagogy_coverage.py`, and `../tests/test_script_quality.py`
 
 ## Course pathways
 
@@ -73,17 +73,17 @@ Counts are **body chapters** per `config.yaml` (excluding labs/questions appendi
 
 | Unit | Title | Chapters |
 | ---- | ----- | -------- |
-| 0 | Systems Science and the Biology of Complexity | 3 |
+| 0 | Systems Science and the Biology of Complexity | 4 |
 | I | Chemistry of Life | 4 |
 | II | The Cell | 4 |
 | III | Energy and Metabolism | 3 |
-| IV | Molecular Genetics | 4 |
-| V | Classical Genetics and Heredity | 3 |
+| IV | Molecular Genetics | 5 |
+| V | Classical Genetics and Heredity | 4 |
 | VI | Evolution | 3 |
-| VII | Microbiology | 3 |
+| VII | Microbiology | 4 |
 | VIII | Botany — Plant Biology | 3 |
-| IX | Zoology and Systems Physiology | 4 |
-| X | Ecology | 4 |
-| **Total** | | **38** |
+| IX | Zoology and Systems Physiology | 5 |
+| X | Ecology | 5 |
+| **Total** | | **44** |
 
 See `AGENTS.md` for naming conventions, figure rules, and contribution notes.

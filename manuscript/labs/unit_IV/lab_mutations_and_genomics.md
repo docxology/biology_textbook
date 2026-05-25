@@ -1,4 +1,4 @@
-# Lab 14 — Mutations, CRISPR, and Genomics {.unnumbered}
+# Lab — Mutations, CRISPR, and Genomics {.unnumbered}
 
 \label{sec:lab_unit_IV_mutations_and_genomics}
 
@@ -45,7 +45,7 @@
 
 5. **Real-World Application**: Germline genome editing raises significant ethical concerns. What are the main arguments for and against editing human embryos to eliminate genetic diseases? Where do you stand on this issue?
 
-## Background {.unnumbered}
+## Lab Context: Mutations, CRISPR, and Genomics {.unnumbered}
 
 Mutations — heritable changes in DNA sequence — can be neutral (synonymous), harmful (loss-of-function missense or nonsense), or beneficial (gain-of-function). CRISPR-Cas9 (Clustered Regularly Interspaced Short Palindromic Repeats) is a programmable nuclease: the guide RNA (gRNA; ~20 nt complementary to the target) directs Cas9 to create a blunt-ended double-strand break 3 bp upstream of the PAM sequence (5'-NGG-3'). Repair by NHEJ creates indel mutations (disruptive); HDR with a template creates precise edits.
 
@@ -53,6 +53,8 @@ Mutations — heritable changes in DNA sequence — can be neutral (synonymous),
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Mutations, CRISPR, and Genomics: ClinVar/dbSNP/RefSeq/MANE source card with variant identifier, transcript accession, review status, reference release, clinical boundary, and refresh trigger | 1 |
+| Clinical-translation provenance card contrasting ClinicalTrials.gov trial status with FDA Casgevy and Lyfgenia approved-indication evidence | 1 |
 | Wild-type and mutant DNA sequences (printed cards: WT, SNP1, SNP2, frameshift) | 1 set |
 | Codon table | 1 |
 | CRISPR guide RNA design worksheet (target region provided) | 1 |
@@ -60,6 +62,7 @@ Mutations — heritable changes in DNA sequence — can be neutral (synonymous),
 | Off-target candidate sequence cards with mismatch positions marked | 1 set |
 | Editing-efficiency replicate dataset | 1 |
 | Pangenome path cards: linear reference, alternate insertion path, inversion path, and read-alignment summaries | 1 set |
+| Molecular-database status card: 2026 NAR database issue excerpt with resource type, new/update status, and last-reviewed date | 1 |
 | Prime-editing gamma-globin promoter case card with pegRNA, intended edits, donor variability, and HbF readout | 1 |
 | Ruler (mm) | 1 |
 | Ethical debate scenario cards (4 scenarios) | 1 set |
@@ -83,7 +86,7 @@ Mutations — heritable changes in DNA sequence — can be neutral (synonymous),
    - Compare SNP1, SNP2, and frameshift sequences with the WT. For each: identify the nucleotide change, classify the mutation type, determine the amino acid change, and assess likely functional impact.
    - Use the provided codon table and protein domain information to inform your assessment.
 
-### Part 2: Computational Biology Exercise - CRISPR gRNA Design and Efficiency Analysis {.unnumbered}
+### Part 2: Computational Biology Exercise — CRISPR gRNA Design and Efficiency Analysis {.unnumbered}
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
@@ -106,11 +109,12 @@ print("Jukes-Cantor distance:", round(jukes_cantor_distance(p_distance), 3))
 
 6. **Hypothesis**: Predict the relationship between gRNA binding affinity and editing efficiency in the dataset. Would it be linear, saturating, or something else? Why?
 
-### Part 4: Pangenome and Prime-Editing Decision Cards {.unnumbered}
+### Part 4: Pangenome, Database, and Prime-Editing Decision Cards {.unnumbered}
 
 7. Sort the pangenome path cards into three evidence classes: confidently represented by a single linear reference, better represented by an alternate graph path, and unresolved without long-read or phased evidence.
-8. For the gamma-globin promoter prime-editing card, identify the intended regulatory effect, the difference between editing a coding sequence and editing an enhancer/promoter motif, and the donor-to-donor variability that would limit a comprehensive claim.
-9. Build a decision matrix comparing Casgevy-style BCL11A enhancer disruption, base editing of an *HBB* point mutation, and prime editing of *HBG1/HBG2* promoter motifs. Score each for target logic, double-strand-break risk, validation burden, and current clinical maturity.
+8. Use the molecular-database status card to decide whether a transcript, allele, or variant-resource claim is based on a new database, an updated database, or a retired/discontinued source; record the date that would need re-checking before publication.
+9. For the gamma-globin promoter prime-editing card, identify the intended regulatory effect, the difference between editing a coding sequence and editing an enhancer/promoter motif, and the donor-to-donor variability that would limit a comprehensive claim.
+10. Build a decision matrix comparing Casgevy-style BCL11A enhancer disruption, base editing of an *HBB* point mutation, and prime editing of *HBG1/HBG2* promoter motifs. Score each for target logic, double-strand-break risk, validation burden, and current clinical maturity.
 
 ## Data Recording {.unnumbered}
 
@@ -126,7 +130,7 @@ Gel band sizes: Control: _______ bp; Lane 2 bands: _______ bp, _______ bp
 Indel efficiency estimate = (cleavage bands / total DNA) × 100%: _______%
 Off-target risk score for selected gRNA: _______; highest-risk mismatch pattern: _______
 Replicate editing efficiencies: ___%, ___%, ___%; mean ± SEM: _______
-Pangenome path selected: _______; graph evidence needed: _______; prime-editing validation readout: _______
+Pangenome path selected: _______; graph evidence needed: _______; database status/date to re-check: _______; prime-editing validation readout: _______
 
 Ethics summary (2–3 sentences per group position):
 
@@ -169,6 +173,10 @@ equipment version belongs only in an optional extension.
 - Why it recurs: codon 12 is a single-codon hot spot because a one-base change there converts RAS into a constitutively active oncoprotein that drives MAPK and PI3K signaling; the mutation gives a strong proliferative advantage to clonal lineages in colon, pancreas, lung, and other epithelial tissues, so it is repeatedly selected during tumor evolution.
 
 **Interpretation:** A single missense change can convert a regulated switch into a constitutive signal without altering protein length or stability. The recurrence of identical mutations across independent tumors is itself evidence that the variant is a driver rather than a passenger.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Mutations, CRISPR, and Genomics before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

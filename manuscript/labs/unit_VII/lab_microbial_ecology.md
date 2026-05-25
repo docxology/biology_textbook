@@ -1,4 +1,4 @@
-# Lab 23 — Microbial Ecology and the Microbiome {.unnumbered}
+# Lab — Microbial Ecology and the Microbiome {.unnumbered}
 
 \label{sec:lab_unit_VII_microbial_ecology}
 
@@ -46,7 +46,7 @@
 
 5. **Real-World Application**: The human gut microbiome is linked to health and disease. How might antibiotic treatment reduce microbial diversity, and what are the potential health consequences of this reduction?
 
-## Background {.unnumbered}
+## Lab Context: Microbial Ecology and the Microbiome {.unnumbered}
 
 The human gut microbiome contains ~3.8 × 10¹³ bacteria from hundreds of species; the ratio of microbial to human cells is approximately 1:1 (revised from earlier overestimates). Culture-based methods recover about 1% of environmental microbes (the "great plate count anomaly"). Metagenomics and 16S rRNA gene sequencing (amplifying the hypervariable V3–V4 region) now allow culture-independent assessment of community composition. The **Shannon diversity index H' = −Σ(p_i × ln p_i)** integrates species richness and evenness.
 
@@ -54,6 +54,7 @@ The human gut microbiome contains ~3.8 × 10¹³ bacteria from hundreds of speci
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Microbial Ecology and the Microbiome: pathogen-surveillance source card: organism-resistance pair, official guidance date, setting, and intervention limit | 1 |
 | Printed community case packet (soil, skin, tap water, gut) with metadata cards | 1 |
 | Printed colony-image panel from archived BSL-1 teaching plates | 1 |
 | Printed 16S rRNA OTU table (two samples: healthy gut vs antibiotic-treated gut — 10 taxa, abundance data) | 1 |
@@ -82,7 +83,7 @@ The human gut microbiome contains ~3.8 × 10¹³ bacteria from hundreds of speci
    - Check whether each sample has enough reads for fair comparison; if not, apply the rarefaction rule provided in the case packet.
    - Compare at least three replicate rows per sample type before drawing conclusions.
 
-### Part 2: Computational Biology Exercise - Diversity Analysis with Python {.unnumbered}
+### Part 2: Computational Biology Exercise — Diversity Analysis with Python {.unnumbered}
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
@@ -166,6 +167,10 @@ equipment version belongs only in an optional extension.
 **Solution:** H′ = −[(0.45 × ln 0.45) + (0.30 × ln 0.30) + (0.15 × ln 0.15) + (0.10 × ln 0.10)] = −[(0.45 × −0.799) + (0.30 × −1.204) + (0.15 × −1.897) + (0.10 × −2.303)] = −[−0.360 − 0.361 − 0.285 − 0.230] = 1.236. Maximum possible H′ for 4 equally abundant taxa = ln(4) = 1.386.
 
 **Interpretation:** H′ = 1.236 out of a maximum 1.386, giving evenness J = 1.236/1.386 = 0.892. The community is moderately uneven — dominated by genera A and B — but retains relatively high diversity compared to its species-rich potential.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Microbial Ecology and the Microbiome before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

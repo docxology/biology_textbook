@@ -1,8 +1,22 @@
 # API Reference — `src/biology/` Public Functions
 
-**Covers:** nine domain subpackages (biochemistry, cell, genetics, evolution, ecology, physiology, microbiology, botany, neuroscience), curriculum/orchestration metadata (`chapter_metadata`, `curriculum`, `alignment`), manuscript utilities (`crossref_validator`), `src/mermaid/biology_diagrams`, and `src/visualization` (including `cvd.py`). Public entry points are exercised by the project test suite (`uv run pytest tests/ --cov=src` from the project directory for current counts and coverage floors).
+**Covers:** nine domain subpackages, shared utilities (`numerics`, `constants`, `assessment`), maintenance packages (`quality`, `enrichment`, `crossref`, …), `src/mermaid/` (YAML-backed diagrams), and `src/visualization/` (domain plot modules).
 
 **Maintenance:** This file lists the main public entry points used from manuscript and tests. It is not an exhaustive dump of every `def` in `src/biology/` (helpers and module-private functions are omitted). After adding a user-facing function, add a row here; for a quick audit run `rg '^\s*def ' src/biology` and reconcile new names.
+
+## `biology.numerics`
+
+| Function | Arguments | Returns | Description |
+| -------- | --------- | ------- | ----------- |
+| `euler_integrate_scalar(f, y0, t_end, steps)` | callable, float, float, int | `tuple[list[float], list[float]]` | Fixed-step Euler integration for scalar ODEs |
+
+## `biology.constants`
+
+| Name | Description |
+| ---- | ----------- |
+| `FARADAY`, `FARADAY_CONSTANT` | Faraday constant (C/mol) — aliases |
+| `GAS_CONSTANT` | Ideal gas constant (J/(mol·K)) |
+| `AVOGADRO`, `BOLTZMANN` | Avogadro and Boltzmann constants |
 
 ## `biology.biochemistry`
 
@@ -38,7 +52,7 @@
 | `transcribe_dna_to_mrna(dna)` | str | str | DNA template → mRNA |
 | `dna_complement(sequence)` | str | str | 5'→3' complement |
 | `hardy_weinberg(p, q=None, dominant_homozygous_freq=None, recessive_homozygous_freq=None)` | floats | `HardyWeinbergResult` | Genotype frequencies at HW eq. |
-| `chi_squared_test(observed, expected, alpha=0.05)` | lists, float | `ChiSquaredResult` | χ² statistic + approximate p-value |
+| `chi_squared_test(observed, expected, alpha=0.05)` | lists, float | `ChiSquaredResult` | χ² statistic + p-value via `scipy.stats.chi2.sf` |
 | `recombination_frequency(recombinants, total)` | ints | float | Recombination fraction, 0–1 |
 | `genetic_distance(recombinants, total)` | ints | float (cM) | Map distance in centimorgans |
 | `infer_three_point_order(distances_cM)` | dict[tuple[str, str], float] | `LinkageMapResult` | Simple three-marker gene-order inference |
@@ -146,7 +160,7 @@ with canonical chapter titles from `biology.toc`.
 | `ChapterMeta(chapter_id, number, unit, difficulty, reading_time_min, lecture_time_min, prerequisites)` | frozen dataclass | One record per chapter |
 | `ChapterMeta.difficulty_label` | property | PDF-safe string such as `Level 2/3` for rendered badges |
 | `ChapterMeta.star_badge` | property | Legacy 3-char star string kept for compatibility tests only |
-| `CHAPTERS` | `list[ChapterMeta]` | All 38 configured chapters, ordered as in `config.yaml` |
+| `CHAPTERS` | `list[ChapterMeta]` | All 44 configured chapters, ordered as in `config.yaml` |
 | `by_id(chapter_id)` | `ChapterMeta \| None` | Look up a single chapter record |
 | `by_unit(unit)` | `list[ChapterMeta]` | All chapters in a given unit ("0", "I", …, "X") |
 
@@ -165,7 +179,7 @@ misconception probe, transfer task, and bridge API.
 | `CurriculumRecord(...)` | frozen dataclass | One instructional record per chapter |
 | `CurriculumRecord.lab_label` | property | Companion lab `sec:` label |
 | `CurriculumRecord.question_label` | property | Companion question-bank `sec:` label |
-| `CURRICULUM` | `tuple[CurriculumRecord, ...]` | All 38 chapter records in `config.yaml` order |
+| `CURRICULUM` | `tuple[CurriculumRecord, ...]` | All 44 chapter records in `config.yaml` order |
 | `CURRICULUM_BY_ID` | mapping | Fast lookup by `chapter_id` |
 | `by_id(chapter_id)` | `CurriculumRecord \| None` | Optional lookup |
 | `require(chapter_id)` | `CurriculumRecord` | Strict lookup with a clear error |
@@ -194,6 +208,107 @@ high-school life-science topics, and BioSkills categories.
 Tests: `tests/test_curriculum_metadata.py` asserts alignment coverage, known
 framework labels, instructional completeness, and generated Appendix B links.
 
+## `biology.assessment`
+
+Question-bank and lab assessment metadata parsers. Consumed by `scripts/sync_assessment_metadata.py` and pedagogy invariant tests.
+
+| Symbol | Kind | Description |
+| ------ | ---- | ----------- |
+| `QuestionAssessment` | frozen dataclass | One question-bank item's LO, Bloom, difficulty, format, minutes |
+| `QuestionBankAssessment` | dataclass | Parsed bank with item list and summary counts |
+| `LabAlignment` | dataclass | Lab measurable outcomes, LO coverage, rubric dimensions |
+| `parse_question_bank(path)` | function | Parse HTML-comment assessment fields from a question bank |
+| `parse_lab_alignment(path)` | function | Parse lab alignment block from a lab markdown file |
+| `chapter_learning_objectives(path)` | function | Extract declared LO strings from a chapter file |
+
+Tests: `tests/test_assessment_metadata.py`, `tests/test_lab_pedagogy_alignment.py`, `tests/test_chapter_pedagogy_coverage.py`.
+
+## `biology.current_claims`
+
+Fast-moving fact ledger for `manuscript/current_claims.yaml`. Gate script: `scripts/audit_current_claims.py --check`.
+
+| Symbol | Kind | Description |
+| ------ | ---- | ----------- |
+| `CurrentClaim` | frozen dataclass | One auditable claim with source tier, dates, anchor, refresh trigger |
+| `ClaimIssue` | frozen dataclass | Validation finding (`code`, `message`) |
+| `load_current_claims(path=None, project_root=None)` | function | Load ledger YAML as typed records |
+| `validate_current_claims(claims, today=None, max_checked_age_days=180)` | function | Structural, link, and freshness checks |
+
+Tests: `tests/test_current_claims_ledger.py`.
+
+## `biology.quality`
+
+Manuscript quality audit engine behind `scripts/audit_textbook_quality.py`.
+
+| Symbol | Kind | Description |
+| ------ | ---- | ----------- |
+| `Finding` | dataclass | One audit finding (file, line, code, message) |
+| `ManuscriptSurface` | dataclass | Configured manuscript surface for advisory audits |
+| `collect_findings()` | function | Run all auditors and return findings |
+| `print_report(findings, max_advisories=0)` | function | Human-readable report; respects advisory cap |
+| `main(argv)` | function | CLI entry (`--check`, `--max-advisories`) |
+
+Pattern catalogs in `biology.quality.patterns` (`QUESTION_GENERIC_PATTERNS`, `ALLOWED_ADVISORY_CLASSIFICATIONS`, `EXPECTED_CONFIGURED_SURFACE_COUNTS`) are consumed by the engine and re-exported for regression tests — not for direct manuscript editing.
+
+Tests: `tests/test_textbook_quality_audit.py`, `tests/test_audit_v3_and_crossref_gate.py`.
+
+## `biology.enrichment`
+
+Embedded frontier/companion enrichment catalog and apply engine.
+
+| Symbol | Kind | Description |
+| ------ | ---- | ----------- |
+| `ChapterRecord` | dataclass | Chapter stem, paths, and enrichment context |
+| `chapter_records()` | function | Build chapter records from canonical ToC |
+| `enrich_chapters(records, dry_run)` | function | Insert or refresh frontier sections |
+| `enrich_labs(records, dry_run)` | function | Lab evidence-upgrade blocks |
+| `write_audit_matrix(records, dry_run)` | function | Regenerate embedded-enrichment audit matrix doc |
+| `main(argv)` | function | CLI entry for `scripts/enrich_embedded_textbook.py` |
+
+Tests: `tests/test_enrichment_substance_gate.py`, `tests/test_textbook_quality_audit.py`.
+
+## `biology.answer_refinement`
+
+Generated-answer heuristics for question banks (CLI: `scripts/refine_generated_answers.py`).
+
+| Symbol | Kind | Description |
+| ------ | ---- | ----------- |
+| `classify_question(text)` | function | Categorize a question stem for refinement |
+| `is_v1_generated(body)` | function | Detect legacy generated-answer signatures |
+| `generate_answer(...)` | function | Build a refined answer from chapter evidence |
+| `process_bank(path, dry_run=False)` | function | Refine one question-bank file in place |
+| `main(argv)` | function | CLI entry |
+
+Tests: `tests/test_question_answer_refinement.py`.
+
+## `biology.curriculum_sync`
+
+TOC-driven curriculum scaffold sync (CLI: `scripts/sync_curriculum_materials.py`).
+
+| Symbol | Kind | Description |
+| ------ | ---- | ----------- |
+| `sync_h1(path, title, dry_run)` | function | Replace first H1 with canonical title |
+| `sync_section_label(path, label, dry_run)` | function | Ensure `\label{sec:...}` after H1 |
+| `sync_chapter/lab/question(...)` | functions | Insert or refresh generated metadata blocks |
+| `build_appendix(...)` / `build_instructor_appendix(...)` | functions | Study Blueprint and instructor appendix bodies |
+| `sync_front_matter_navigation(book_toc, dry_run)` | function | Front-matter navigation block |
+| `main(argv)` | function | CLI entry |
+
+Tests: `tests/test_toc_consistency.py`, `tests/test_curriculum_metadata.py`.
+
+## `textbook_paths` / `textbook_io`
+
+Checkout bootstrap and atomic I/O helpers at `src/` root (not under `biology/`).
+
+| Symbol | Kind | Description |
+| ------ | ---- | ----------- |
+| `ensure_project_paths(include_scripts=False)` | function | Insert `src/`, optional `scripts/`, and template root on `sys.path` |
+| `discover_template_root(start)` | function | Find template repo for symlinked checkouts |
+| `template_root()` | function | Cached template root or `None` |
+| `write_text_atomic(path, text, encoding="utf-8")` | function | Atomic text write via temp file + replace |
+
+Tests: `tests/test_textbook_paths.py`, `tests/test_atomic_io.py`. Used by `tests/conftest.py` and maintenance scripts.
+
 ## `biology.crossref_validator`
 
 Manuscript-wide pandoc-crossref / LaTeX `\label{}` validator. Consumed by manuscript maintenance scripts and `tests/test_crossref_validator*.py`.
@@ -209,7 +324,7 @@ Manuscript-wide pandoc-crossref / LaTeX `\label{}` validator. Consumed by manusc
 
 **When to use:** after bulk-editing chapters, adding `@fig:` / `@eq:` references, or changing `{#fig:...}` / `\label{...}` — run `validate(manuscript_root)` in a small script or rely on `pytest tests/test_crossref_validator*.py`. Same logical checks as infrastructure `prerender` for undefined citations, plus label graph integrity.
 
-Detects raw-LaTeX figure environments (`\begin{figure}…\label{fig:…}…\end{figure}`), LaTeX equation environments, inline `$$…$$` display math (with `\tag{}` or `\label{}`), table captions (`Table: … {#tbl:…}`), markdown images (`![alt](…){#fig:…}`), section labels (`## Heading {#sec:…}`), and cross-references (`@fig:`, `@eq:`, `@tbl:`, `@sec:`). Details: [composable_authoring.md](composable_authoring.md).
+Detects raw-LaTeX figure environments (`\begin{figure}…\label{fig:…}…\end{figure}`), LaTeX equation environments, inline `$$…$$` display math, table captions (`Table: … {#tbl:…}`), markdown images (`![alt](…){#fig:…}`), section labels (`## Heading {#sec:…}`), and cross-references (`@fig:`, `@eq:`, `@tbl:`, `@sec:`). Manual equation-number tags are rejected so rendered numbering stays LaTeX-assigned. Details: [composable_authoring.md](composable_authoring.md).
 
 ## `visualization.cvd`
 
@@ -223,7 +338,7 @@ Constants for **colour-vision–friendly** matplotlib styling (blue/orange/teal,
 
 ## `mermaid.biology_diagrams`
 
-`ALL_BIOLOGY_DIAGRAMS` currently registers **24** `MermaidDiagram` objects. Keep this table in sync with the registry names (not just the factory names) in `src/mermaid/biology_diagrams.py`.
+Diagram structure is declared in `src/mermaid/diagram_specs.yaml` and loaded by `diagram_spec_loader.py`. Factory functions are registered at import time; `ALL_BIOLOGY_DIAGRAMS` holds **24** built `MermaidDiagram` objects. Keep the table below in sync with registry `name` stems.
 
 | Factory | Registry name | Title / topic |
 | ------- | ------------- | ------------- |
@@ -254,7 +369,7 @@ Constants for **colour-vision–friendly** matplotlib styling (blue/orange/teal,
 
 ## `visualization` (matplotlib generators)
 
-All plot entry points live in `src/visualization/plots.py`. Each `plot_*` function takes a required `output_dir: Path` and optional numeric parameters; each returns `Path` to a PNG. They are listed in registry order below (same as `ALL_FIGURE_GENERATORS`).
+Plot entry points are split across `src/visualization/plots_{cell,genetics,ecology,evolution,physiology,botany,microbiology}.py` and registered in `plots.py` → `ALL_FIGURE_GENERATORS`. Each `plot_*` function takes a required `output_dir: Path` and optional numeric parameters; each returns `Path` to a PNG.
 
 Colour defaults come from [`visualization.cvd`](#visualizationcvd) when multiple series or sign categories are shown. **Allowlist** names (what the manuscript may cite) are in [../manuscript/AGENTS.md](../manuscript/AGENTS.md).
 
@@ -274,3 +389,21 @@ Colour defaults come from [`visualization.cvd`](#visualizationcvd) when multiple
 | `logistic_growth` | `plot_logistic_growth` | `logistic_growth.png` |
 | `species_area_relationship` | `plot_species_area_relationship` | `species_area_relationship.png` |
 | `biome_distribution` | `plot_biome_distribution` | `biome_distribution.png` |
+| `ghk_permeability` | `plot_ghk_permeability` | `ghk_permeability.png` |
+| `hill_equation` | `plot_hill_equation` | `hill_equation.png` |
+| `osmotic_pressure` | `plot_osmotic_pressure` | `osmotic_pressure.png` |
+| `hardy_weinberg` | `plot_hardy_weinberg` | `hardy_weinberg.png` |
+| `translation_codons` | `plot_translation_codons` | `translation_codons.png` |
+| `genetic_drift_trajectories` | `plot_genetic_drift_trajectories` | `genetic_drift_trajectories.png` |
+| `poiseuille_flow` | `plot_poiseuille_flow` | `poiseuille_flow.png` |
+| `glycolysis_summary` | `plot_glycolysis_summary` | `glycolysis_summary.png` |
+| `homeostasis_feedback` | `plot_homeostasis_feedback` | `homeostasis_feedback.png` |
+| `fitness_landscape` | `plot_fitness_landscape` | `fitness_landscape.png` |
+| `molecular_clock` | `plot_molecular_clock` | `molecular_clock.png` |
+| `photosynthesis_rate` | `plot_photosynthesis_rate` | `photosynthesis_rate.png` |
+| `water_potential_transpiration` | `plot_water_potential_transpiration` | `water_potential_transpiration.png` |
+| `sir_model` | `plot_sir_model` | `sir_model.png` |
+| `mic_dilution_series` | `plot_mic_dilution_series` | `mic_dilution_series.png` |
+| `allee_threshold_dynamics` | `plot_allee_threshold_dynamics` | `allee_threshold_dynamics.png` |
+| `biodiversity_indices` | `plot_biodiversity_indices` | `biodiversity_indices.png` |
+| `food_web_trophic_levels` | `plot_food_web_trophic_levels` | `food_web_trophic_levels.png` |

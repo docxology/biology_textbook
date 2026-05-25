@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 29** · Level 3/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_IX_circulation_respiration_homeostasis}
+> Level 3/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_IX_circulation_respiration_homeostasis}
 
 ## Learning Objectives
 
@@ -40,7 +40,7 @@
 > 
 > In 1897, Charles Scott Sherrington coined the word "synapse" — from the Greek for "clasp" — to describe the morphological gap between neurons. Over four decades, working with decerebrate cats and dogs whose spinal cord reflexes could be studied in isolation, Sherrington showed that reflexes were not simple mechanical responses but involved integration: competing signals converged on motor neurons, inhibiting some pathways while exciting others, with the outcome depending on the algebraic summation of hundreds of inputs. His 1906 masterwork, *The Integrative Action \citep{sherrington1906} of the Nervous System*, established the principles of convergence, divergence, summation, inhibition, and the motor neuron as the "final common pathway." The electrical basis of these phenomena — [**action potential**](#gl:action-potential)s, EPSPs, IPSPs — was not known until Hodgkin, Huxley, and Eccles worked it out in the 1950s. Sherrington and Adrian shared the 1932 Nobel Prize; Eccles, Hodgkin, and Huxley shared the 1963 Nobel Prize. The synapse Sherrington named launched two Nobel Prizes' worth of discoveries.
 
-## Nervous System Organisation
+## Nervous System Organisation Across Cells, Circuits, and Regions
 
 The human nervous system comprises approximately **86 billion neurons** and ~85 billion non-neuronal cells (Azevedo et al., 2009). It is organised hierarchically into two major divisions.
 
@@ -84,7 +84,7 @@ graph TD
 
 ## Neuron Types and Structure
 
-### Neuron Classification
+### Neuron Classification by Function and Morphology
 
 **By function:**
 - **Sensory (afferent) neurons:** Carry information from sensory receptors toward CNS. Most are pseudounipolar (cell body off to one side of a single process that bifurcates).
@@ -97,7 +97,7 @@ graph TD
 - **Pseudounipolar:** Single process that splits into peripheral and central branches (most sensory neurons in DRG)
 - **Anaxonic:** No distinguishable axon (amacrine cells of retina; some interneurons)
 
-### Neuron Structure
+### Neuron Structure from Dendrites to Axon Terminals
 
 A typical neuron comprises:
 
@@ -109,7 +109,7 @@ A typical neuron comprises:
 
 ---
 
-## Glial Cells
+## Glial Cells and Neural Support Functions
 
 | Glial type | Location | Key functions |
 | ---------- | -------- | ------------ |
@@ -120,6 +120,8 @@ A typical neuron comprises:
 | **Ependymal cells** | CNS | Line ventricles; ciliated surface moves CSF; produce CSF (together with choroid plexus; 450-500 mL/day; total CSF volume ~150 mL, replaced ~3 times/day) |
 | **Radial glia** | Developing CNS | Neural stem cells; scaffold for neuronal migration (inside-out cortical layering); give rise to both neurons and glia |
 | **Satellite cells** | PNS | Surround cell bodies in ganglia; analogous to astrocytes |
+
+Modern brain-cell atlases turn this table into a data problem rather than a final classification. The NIH BRAIN Initiative reported a 2023 whole-mouse-brain atlas covering more than 32 million cells, and the companion Nature atlas organized about 4.0 million quality-controlled single-cell transcriptomes plus spatial MERFISH data into 34 classes, 338 subclasses, 1,201 supertypes, and 5,322 clusters \citep{nimh2023mousebrainatlas,yao2023mousebrainatlas}. Those categories are powerful reference maps, but they remain release- and method-dependent: a cell type claim should state the atlas, species, region, assay, and annotation level.
 
 > **Clinical Connection:** Microglia-mediated synaptic pruning is essential during development (eliminating ~50% of synapses during adolescence). Dysregulated pruning has been linked to schizophrenia: the complement component C4A [**gene**](#gl:gene) is the strongest genetic risk factor for schizophrenia (Sekar et al., 2016, *Nature*). Individuals with high C4A expression show excessive synaptic pruning in prefrontal cortex during adolescence, correlating with symptom onset.
 
@@ -182,7 +184,7 @@ The **blood-brain barrier (BBB)** is a selective barrier between blood and brain
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/action_potential.png}
-\caption{Hodgkin--Huxley action-potential simulation showing membrane voltage over time, resting potential, and threshold.}
+\caption{Hodgkin--Huxley action-potential simulation showing a simulated membrane-voltage trace crossing threshold, spiking, and returning through after-hyperpolarisation as voltage-gated conductances change.}
 \label{fig:unit_IX_action_potential}
 \end{figure}
 <!-- alt: Time-course plot of neuronal membrane potential in millivolts, rising rapidly from rest to a positive spike, repolarising below rest, and returning toward resting voltage with threshold and resting-potential reference lines. -->
@@ -229,7 +231,7 @@ The resting potential is dominated by **K$^+$** (highest resting conductance via
 
 Before a graded potential can trigger an action potential at the axon hillock, it must travel electrotonically from the synapse. This passive spread is governed by the **cable properties** of the dendrite, modelled as a leaky electrical cable.
 
-### Length Constant (λ)
+### Length Constant (λ) and Spatial Attenuation
 
 The **space constant** (or length constant) λ determines how far a steady-state voltage change spreads along a dendrite or axon:
 
@@ -347,7 +349,7 @@ $$V(50) = 5 \cdot e^{-0.25} = 5 \cdot 0.779 \approx 3.89\;\text{mV}$$
 
 ## Graded Potentials and Synaptic Integration
 
-### Graded Potentials
+### Graded Potentials and Local Voltage Changes
 
 **Excitatory postsynaptic potentials (EPSPs):** Depolarising events (typically caused by Na$^+$ or mixed cation influx through ionotropic receptors like AMPA). Amplitude proportional to stimulus strength. Decay with distance (electrotonic spread governed by the length constant λ).
 
@@ -449,7 +451,7 @@ graph LR
 
 *Major brain regions and their functions. The cerebral cortex is divided into four lobes with specialised functions. Subcortical structures handle motor control (basal ganglia), sensory relay (thalamus), [**homeostasis**](#gl:homeostasis) (hypothalamus), memory (hippocampus), and emotion (amygdala). The cerebellum coordinates movement, and the brainstem controls vital functions.*
 
-### Cerebral Cortex
+### Cerebral Cortex and Distributed Processing
 
 The cortex is ~3 mm thick, contains ~20 billion neurons, and has a surface area of ~2,500 cm$^2$ (increased by folding into gyri and sulci).
 
@@ -458,7 +460,7 @@ The cortex is ~3 mm thick, contains ~20 billion neurons, and has a surface area 
 - **Broca's area** (left inferior frontal gyrus): Speech production. Damage causes non-fluent (expressive) aphasia -- comprehension intact but speech production impaired.
 - **Wernicke's area** (left posterior superior temporal gyrus): Language comprehension. Damage causes fluent (receptive) aphasia -- speech flows but is nonsensical.
 
-### Basal Ganglia
+### Basal Ganglia and Action Selection
 
 The basal ganglia (caudate, putamen, globus pallidus, subthalamic nucleus, substantia nigra) modulate cortical motor output:
 
@@ -468,7 +470,7 @@ The basal ganglia (caudate, putamen, globus pallidus, subthalamic nucleus, subst
 
 **Parkinson's disease:** Degeneration of SNc dopaminergic neurons (>60% loss before symptoms appear). Loss of dopamine removes facilitation of movement, causing: bradykinesia (slow movement), rigidity, resting tremor, postural instability. Treatment: L-DOPA (dopamine precursor crosses BBB); deep brain stimulation of STN.
 
-### Other Key Structures
+### Cerebellum, Hippocampus, Hypothalamus, and Spinal Cord
 
 **Cerebellum:** Contains more neurons than the rest of the brain combined (~70 billion granule cells). Functions: motor coordination, error correction (compares intended vs actual movement), timing, motor learning, balance. Damage causes ataxia (uncoordinated movement) but not paralysis.
 
@@ -480,9 +482,9 @@ The basal ganglia (caudate, putamen, globus pallidus, subthalamic nucleus, subst
 
 ---
 
-## Sensory Systems
+## Sensory Systems and Neural Coding
 
-### Somatosensation
+### Somatosensation and Mechanoreceptor Pathways
 
 | Receptor Type | Stimulus | Adaptation | Modality |
 | ------------- | -------- | ---------- | -------- |
@@ -496,7 +498,7 @@ The basal ganglia (caudate, putamen, globus pallidus, subthalamic nucleus, subst
 - **A-delta fibres:** Thinly myelinated (5-30 m/s). Sharp, well-localised "first pain"
 - **C fibres:** Unmyelinated (0.5-2 m/s). Dull, diffuse "second pain"
 
-### Visual Pathway
+### Visual Pathway from Retina to Cortex
 
 Retina (photoreceptors: rods for dim light/peripheral vision; cones for colour/acuity) to optic nerve to optic chiasm (nasal fibres cross) to **lateral geniculate nucleus (LGN)** of thalamus to primary visual cortex (V1, striate cortex) in occipital lobe.
 
@@ -506,7 +508,7 @@ Beyond V1, visual processing splits into:
 
 > **Concept Check (Synthesis --- Cross-Unit Connection):** The Free Energy Principle provides a mechanistic account of cortical function. In the predictive coding implementation: descending connections carry predictions (from higher to lower cortical areas); ascending connections carry prediction errors (residuals between prediction and sensory input). Precision-weighting of prediction errors is controlled by neuromodulators (dopamine modulates prediction errors in striatum; acetylcholine modulates precision in sensory cortex). (a) Explain why this architecture predicts that sensory cortex neurons should respond most vigorously to surprising stimuli rather than expected ones (consistent with the Rao-Ballard model). (b) Hallucinations in psychosis can be modelled as excessive precision-weighting of priors over sensory evidence --- predict what happens to cortical prediction error signals under this condition. (c) Connect to the Markov blanket framework in \nameref{sec:unit_0_unit_intro}: identify the Markov blanket of a cortical column in terms of its synaptic inputs (sensory states), outputs (motor/autonomic states), and internal states.
 
-### Proprioception
+### Proprioception and Body-Position Feedback
 
 Muscle spindles (detect muscle length and stretch velocity), Golgi tendon organs (detect muscle tension), and joint receptors provide unconscious awareness of body position. Information travels via dorsal column-medial lemniscal pathway (proprioception, fine touch) or spinocerebellar tracts (to cerebellum for motor coordination).
 
@@ -557,7 +559,7 @@ Brain-computer interfaces (BCIs) and neural prosthetics convert neural activity 
 
 ---
 
-## Pain Pathways
+## Pain Pathways and Nociceptive Processing
 
 Pain is the body's most clinically important sensory modality and serves both protective and pathological roles.
 
@@ -575,7 +577,7 @@ Free nerve endings of A-delta and C fibres express **molecular sensors** that tr
 
 A-delta and C fibres release glutamate **and substance P** into the dorsal horn of the spinal cord (lamina I, II, V). Second-order neurons cross the midline (anterior white commissure), ascend in the contralateral **spinothalamic tract**, and synapse in the ventral posterolateral (VPL) nucleus of the thalamus. Third-order neurons project to primary somatosensory cortex (S1), insula (interoceptive), and anterior cingulate (affective dimension of pain). Substance P binds NK1 receptors on second-order neurons; the combined glutamate-Substance P transmission distinguishes pain from innocuous somatosensation.
 
-### Descending modulation
+### Descending Modulation of Pain Signals
 
 The brain actively **suppresses** ongoing pain signalling through descending circuits:
 
@@ -595,7 +597,7 @@ This **PAG → RVM → DH** axis is the substrate for **stress-induced analgesia
 
 Sleep is not the absence of brain activity but a structured succession of states with distinct functions.
 
-### Architecture
+### Sleep Architecture Across NREM and REM Stages
 
 Adult sleep cycles between **NREM** (further divided into N1, N2, N3) and **REM** stages, each cycle ~90 minutes:
 
@@ -626,7 +628,7 @@ Sleep occurs when Process C (low) coincides with Process S (high). Disruption of
 
 ---
 
-## Neural Plasticity
+## Neural Plasticity and Activity-Dependent Change
 
 **Hebbian learning:** "Neurons that fire together wire together" \citep{hebb1949}. Correlated pre- and postsynaptic activity strengthens synaptic connections.
 
@@ -646,7 +648,7 @@ Sleep occurs when Process C (low) coincides with Process S (high). Disruption of
 
 ---
 
-## Worked Example
+## Worked Example: Potassium Equilibrium Potential
 
 **Problem:**
 Calculate the equilibrium potential for potassium ($E_K$) in a mammalian neuron at $37^\circ\text{C}$, given an intracellular potassium concentration $[K^+]_i$ of $140\text{ mM}$ and an extracellular concentration $[K^+]_o$ of $5\text{ mM}$.
@@ -713,7 +715,7 @@ The resting membrane potential is approximately **$-70\text{ mV}$** — close to
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Nervous System and Neural Signalling
 
 For **Nervous System and Neural Signalling**, frontier biology belongs inside the evidence logic of
 the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-neural coupling, wearable data, and individualized risk without reducing bodies to simple machines. The core reading question is this: neural explanations should separate circuit architecture, glial support, plasticity, behaviour, and evidence scale.
@@ -729,9 +731,9 @@ the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-n
   the source closest to the measurement and state what has changed since it was
   published.
 
-Interpret physiological data by separating baseline variation, perturbation response, compensation, and the threshold where compensation becomes pathology.
+Interpret neural data by separating baseline excitability, stimulus perturbation, circuit compensation, and the threshold where signalling becomes pathology.
 
-**Source practice:** For physiology claims, cite the measurement context and distinguish baseline variation, compensation, pathophysiology, and treatment evidence.
+**Source practice:** For nervous-system claims, distinguish electrophysiology, imaging, circuit perturbation, behavioural evidence, and clinical observation \citep{yao2023mousebrainatlas}.
 
 ## Key Terms
 
@@ -785,7 +787,7 @@ Interpret physiological data by separating baseline variation, perturbation resp
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Nervous System and Neural Signalling
 
 - Sherrington (1906). *The Integrative Action of the Nervous System*. Yale University Press.
 - Hebb (1949). *The Organization of Behavior: A Neuropsychological Theory*. Wiley.
@@ -832,7 +834,7 @@ Landmark findings enabled by optogenetics: **(1) Memory engrams** — Tonegawa a
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Nervous System and Neural Signalling
 
 **Nervous System and Neural Signalling** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

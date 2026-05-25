@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 30** · Level 3/3 · 55 min read · 100 min lecture · Prerequisites: \cref{sec:unit_IX_nervous_system}
+> Level 3/3 · 55 min read · 100 min lecture · Prerequisites: \cref{sec:unit_IX_nervous_system}
 
 ## Learning Objectives
 
@@ -64,7 +64,7 @@ where:
 - $I_K = \bar{g}_K n^4 (V - E_K)$; $\bar{g}_K$ = 36 mS/cm$^2$; $E_K$ = $-77$ mV
 - $I_L = g_L (V - E_L)$; $g_L$ = 0.3 mS/cm$^2$; $E_L$ = $-54.4$ mV
 
-### Gating Variables
+### Hodgkin-Huxley Gating Variables
 
 Each gating variable ($m$, $h$, $n$) evolves according to first-order Markov kinetics:
 
@@ -124,7 +124,7 @@ stateDiagram-v2
 - **Repolarisation:** h-gate closes (Na$^+$ inactivation, $\tau_h \approx 5$ ms) AND n-gate opens (K$^+$ delayed rectifier, $\tau_n \approx 5$ ms). Na$^+$ influx stops; K$^+$ efflux drives membrane back toward E$_K$.
 - **Afterhyperpolarisation (undershoot):** n-gate slow to close. K$^+$ efflux continues briefly, hyperpolarising membrane below [**resting potential**](#gl:resting-potential) (~$-80$ mV). This is the relative refractory period.
 
-### Channel Pharmacology
+### Channel Pharmacology and Excitability
 
 **Tetrodotoxin (TTX):** Puffer fish toxin. Blocks Nav channels from the extracellular side by occluding the selectivity filter pore. Blocks most AP generation. LD$_{50}$ in mice: ~10 ug/kg. Used extensively as a research tool to study Na$^+$-dependent processes.
 
@@ -138,7 +138,7 @@ stateDiagram-v2
 
 ---
 
-## Refractory Periods
+## Refractory Periods and Directional Propagation
 
 **Absolute refractory period** (~1-2 ms after spike peak): Na$^+$ channels are in the inactivated state (h about 0). They cannot be re-opened regardless of stimulus strength. This supports:
 - Unidirectional AP propagation (the region just behind the AP cannot be re-excited)
@@ -154,7 +154,7 @@ stateDiagram-v2
 
 ## Myelination and Conduction Velocity
 
-### Unmyelinated Conduction
+### Unmyelinated Conduction and Cable Spread
 
 In continuous conduction, the AP generates local circuits along the axon membrane:
 
@@ -210,7 +210,7 @@ For the same 1 μm fibre with myelination, conduction approaches ~6 m/s (>10× f
 
 The **energetic cost** of action potentials is also dramatically reduced: in unmyelinated axons, Na$^+$/K$^+$-ATPase must continuously pump out Na$^+$ along the entire length. In myelinated axons, AP-associated ion fluxes occur primarily at nodes (~0.1% of axon surface), reducing the metabolic cost of spike propagation by a similar factor.
 
-### Multiple Sclerosis
+### Multiple Sclerosis and Demyelinating Conduction Failure
 
 **Multiple sclerosis (MS):** Autoimmune demyelination of CNS white matter. T cells recognise myelin basic protein (MBP) and proteolipid protein (PLP) as autoantigens. Inflammatory attack destroys oligodendrocyte myelin sheaths.
 
@@ -224,13 +224,13 @@ Treatment: Disease-modifying therapies (interferons, natalizumab, ocrelizumab) r
 
 ## Chemical Synaptic Transmission
 
-### Synapse Types
+### Synapse Types and Functional Polarity
 
 **Electrical synapses** (gap junctions): Connexin/innexin hemichannels directly connect [**cytoplasm**](#gl:cytoplasm)s. Bidirectional, nearly instantaneous (<0.1 ms). Found in: cardiac pacemaker cells (connexin 43), retinal processing (rod-cone coupling), hippocampal interneuron synchronisation. Connexin 26/30 mutations cause hereditary deafness.
 
 **Chemical synapses:** Unidirectional. Modifiable (plasticity). Synaptic delay: 0.5-2 ms. The [**dominant**](#gl:dominant) synapse type in the CNS.
 
-### Presynaptic Machinery
+### Presynaptic Machinery for Vesicle Fusion
 
 ```mermaid
 sequenceDiagram
@@ -335,7 +335,7 @@ The post-spike EPSC amplitude is proportional to $u \cdot x$. This single model 
 **Interpretation.** The NMJ deliberately operates at high safety factor ($m \approx 50$ on a $\sim 100$-vesicle RRP per active zone, so $p \approx 0.5$) precisely because failure is intolerable for survival behaviours. Central synapses, by contrast, often run at $m = 1$–$5$ — they accept failures in exchange for the ability to perform fine probabilistic computation. The quantal framework converts the same molecular machinery (vesicles + Ca$^{2+}$ + SNAREs) into wildly different reliability regimes by tuning a single biophysical knob: $p$.
 
 
-### Postsynaptic Receptors
+### Postsynaptic Receptors and Ionotropic/Metabotropic Signalling
 
 | Receptor class | Example | Ion selectivity | Speed | Mechanism |
 | -------------- | ------- | --------------- | ----- | --------- |
@@ -359,9 +359,9 @@ The post-spike EPSC amplitude is proportional to $u \cdot x$. This single model 
 
 ---
 
-## Neurotransmitter Systems
+## Neurotransmitter Systems and Receptor Families
 
-### Glutamate (Excitatory)
+### Glutamate as the Major Excitatory Transmitter
 
 The major excitatory neurotransmitter in the CNS (~90% of excitatory synapses).
 
@@ -373,7 +373,7 @@ The major excitatory neurotransmitter in the CNS (~90% of excitatory synapses).
 
 **[Excitotoxicity](#gl:excitotoxicity):** Excessive glutamate release (e.g., during stroke/ischaemia) overactivates NMDA receptors. Massive Ca$^{2+}$ influx activates calpains, endonucleases, and nitric oxide synthase, leading to neuronal death. This is a major mechanism of ischaemic brain damage.
 
-### GABA (Inhibitory)
+### GABA as the Major Inhibitory Transmitter
 
 The major inhibitory neurotransmitter (~30% of CNS synapses). Synthesised from glutamate by glutamic acid decarboxylase (GAD65/GAD67).
 
@@ -381,7 +381,7 @@ The major inhibitory neurotransmitter (~30% of CNS synapses). Synthesised from g
 - **GABA$_A$** (ionotropic): Cl$^-$ channel. Pentameric (typically $\alpha_1\beta_2\gamma_2$). Binding sites for: GABA (agonist), benzodiazepines (positive [**allosteric**](#gl:allosteric) modulators at α/γ interface), barbiturates, neurosteroids, ethanol, anaesthetics (propofol, isoflurane).
 - **GABA$_B$** (metabotropic): G$_i$-coupled GPCR. Activates K$^+$ channels (postsynaptic hyperpolarisation) and inhibits Ca$^{2+}$ channels (presynaptic, reduces NT release). Baclofen is a GABA$_B$ agonist (used for spasticity).
 
-### Acetylcholine (ACh)
+### Acetylcholine at Neuromuscular and Autonomic Synapses
 
 **Receptors:**
 - **Nicotinic (nAChR):** Ionotropic pentamer. Muscle type ($\alpha_1^2\beta_1\delta\epsilon$) at NMJ. Neuronal types ($\alpha_4\beta_2$, $\alpha_7$) in CNS. Na$^+$/K$^+$ channels.
@@ -389,7 +389,7 @@ The major inhibitory neurotransmitter (~30% of CNS synapses). Synthesised from g
 
 **CNS cholinergic system:** Basal forebrain (nucleus basalis of Meynert) projects to cortex. Critical for attention and memory. Degeneration in Alzheimer's disease.
 
-### Dopamine
+### Dopamine in Reward, Movement, and Precision Signals
 
 **Receptors:** D1-D5 (most GPCRs). D1-like (D1, D5): G$_s$, increase cAMP. D2-like (D2, D3, D4): G$_i$, decrease cAMP.
 
@@ -405,7 +405,7 @@ Synthesised from tryptophan by tryptophan hydroxylase (TPH2 in CNS). Raphe nucle
 
 **Functions:** Mood regulation, sleep/wake cycle, appetite, pain modulation. ~90% of body's serotonin is in enterochromaffin cells of the GI tract.
 
-### Norepinephrine (NE)
+### Norepinephrine in Arousal and Autonomic Modulation
 
 Synthesised from dopamine by dopamine β-hydroxylase (DBH). Locus coeruleus (brainstem) projects to entire cortex. Functions: arousal, attention, vigilance, stress response.
 
@@ -563,7 +563,7 @@ BCIs translate neural activity into commands for external devices, offering hope
 
 **Neuralink** and other companies are developing high-bandwidth, minimally invasive BCIs with thousands of channels, aiming to treat paralysis and eventually enhance human cognition.
 
-### Ethical Considerations
+### Ethical Considerations in AI and Neurotechnology
 
 As AI becomes more integrated with neuroscience, important ethical questions arise:
 
@@ -630,7 +630,7 @@ model = PPO("MlpPolicy", env).learn(total_timesteps=10000)
 
 ---
 
-### Neuropeptides
+### Neuropeptides and Slow Modulatory Signalling
 
 **Characteristics:** Larger molecules (3-40 amino acids); synthesised in soma (not terminals); stored in large dense-core vesicles; released by higher-frequency stimulation; diffuse farther (volume transmission); slower, longer-lasting effects.
 
@@ -711,7 +711,7 @@ Low-frequency stimulation (1 Hz, 15 min) produces modest Ca$^{2+}$ entry via NMD
 
 ---
 
-## Drug Mechanisms
+## Neuropharmacology: Synaptic and Ion-Channel Drug Mechanisms
 
 | Drug | Molecular Target | Mechanism | Clinical Use |
 | ---- | ---------------- | --------- | ------------ |
@@ -742,7 +742,7 @@ Low-frequency stimulation (1 Hz, 15 min) produces modest Ca$^{2+}$ entry via NMD
 
 ---
 
-## Worked Example
+## Worked Example: Quantal Release at the Neuromuscular Junction
 
 **Problem:** You voltage-clamp a frog neuromuscular junction and record spontaneous miniature end-plate currents (mEPCs). From 500 events, the mean mEPC amplitude is $q = 1.2$ nA (quantal size). You then stimulate the motor nerve with single pulses and measure evoked EPCs.
 
@@ -787,7 +787,7 @@ This is a typical resting release probability for a vertebrate neuromuscular jun
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Action Potentials and Synaptic Transmission
 
 For **Action Potentials and Synaptic Transmission**, frontier biology belongs inside the evidence logic of
 the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-neural coupling, wearable data, and individualized risk without reducing bodies to simple machines. The core reading question is this: synaptic claims require ion-channel timing, driving force, transmitter release, receptor dynamics, and plasticity.
@@ -803,9 +803,9 @@ the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-n
   the source closest to the measurement and state what has changed since it was
   published.
 
-Interpret physiological data by separating baseline variation, perturbation response, compensation, and the threshold where compensation becomes pathology.
+Interpret synaptic data by separating resting state, channel kinetics, perturbation response, plasticity, and pathological threshold.
 
-**Source practice:** For physiology claims, cite the measurement context and distinguish baseline variation, compensation, pathophysiology, and treatment evidence.
+**Source practice:** For action-potential and synapse claims, cite voltage traces, conductance models, pharmacology, or perturbation evidence matched to the mechanism.
 
 ## Key Terms
 
@@ -859,7 +859,7 @@ Interpret physiological data by separating baseline variation, perturbation resp
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Action Potentials and Synaptic Transmission
 
 - Frey & Morris (1997). Synaptic tagging and long-term potentiation. *Nature*, 385.
 - Hodgkin & Huxley (1952). A quantitative description of membrane current and its application to conduction and excitation in nerve. *Journal of Physiology*, 117.
@@ -896,11 +896,11 @@ print(round(exc.peak_current_pA, 2), round(inh.peak_current_pA, 2))
 - **Neurotransmitters:** Glutamate (AMPA/NMDA/mGluR, excitatory); GABA (GABA$_A$/GABA$_B$, inhibitory); ACh (nicotinic/muscarinic); DA (D1-D5, reward/motor); 5-HT (mood/sleep); NE (arousal); neuropeptides (volume transmission, pain, reward).
 - **LTP:** NMDA-Ca$^{2+}$-CaMKII-AMPA pathway. Early: phosphorylation and insertion of AMPA receptors. Late: CREB-dependent gene expression, structural spine changes. LTD: opposite; phosphatases remove AMPA receptors.
 - **Drug mechanisms:** Cocaine (DAT block), morphine (mu agonist), SSRIs (SERT block), benzodiazepines (GABA$_A$ PAM), ketamine (NMDA block), botulinum toxin (SNAP-25 cleavage).
-- **Connections:** See \cref{sec:unit_IX_nervous_system} for resting potential and integration, \cref{sec:unit_VII_infectious_disease} for synaptic pathogens and toxins, and \cref{sec:unit_II_membrane_transport} for ion channels.
+- **Connections:** See \cref{sec:unit_IX_nervous_system} for resting potential and integration, \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} for synaptic pathogens and toxins, and \cref{sec:unit_II_membrane_transport} for ion channels.
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Action Potentials and Synaptic Transmission
 
 **Action Potentials and Synaptic Transmission** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

@@ -3,7 +3,7 @@
 \label{sec:unit_0_history_philosophy_biology}
 
 <!-- chapter-metadata-badge -->
-> **Ch 0.4** · Level 2/3 · 80 min read · 100 min lecture · Prerequisites: \cref{sec:unit_0_systems_science}, \cref{sec:unit_0_complex_adaptive_systems}, \cref{sec:unit_0_active_inference}
+> Level 2/3 · 80 min read · 100 min lecture · Prerequisites: \cref{sec:unit_0_systems_science}, \cref{sec:unit_0_complex_adaptive_systems}, \cref{sec:unit_0_active_inference}
 
 ---
 
@@ -38,6 +38,16 @@ By the end of this chapter, students will be able to:
 
 ---
 
+## Opening Vignette: Darwin, Wallace, and Evidence Before an Audience
+
+On 1 July 1858, members of the Linnean Society of London heard a set of papers that neither principal author presented in person. Charles Darwin, still grieving a family death, and Alfred Russel Wallace, still in the Malay Archipelago, had independently reached the same unsettling explanation: variation, inheritance, and differential survival could make adaptation without a designing hand. Joseph Hooker and Charles Lyell arranged for extracts from Darwin's unpublished work and Wallace's Ternate essay to be read together \citep{darwin1858}.
+
+The episode matters because no one placed a finch, a beetle, or a fossil on the table that evening as decisive proof. The evidence was distributed across field observations, specimens, breeding analogies, geographic patterns, correspondence, and a causal argument about populations. Darwin's later book expanded that argument into a sustained evidential architecture: artificial selection, biogeography, homology, embryology, and the fossil record each constrained the same theory \citep{darwin1859}.
+
+This chapter asks how biology makes such claims stable enough to teach. A biological explanation is not just a fact plus a famous name. It is a practice that chooses units, draws boundaries, builds models, handles values, and states what evidence would force revision.
+
+---
+
 ## Why History and Philosophy Belong in Introductory Biology
 
 Biology is not a finished catalogue of facts. It is a changing evidence practice for asking how living systems are organised, how they persist, how they change, and how we should act when biological knowledge matters in medicine, agriculture, conservation, and public life. Systems science, complex adaptive systems, and active inference provide formal lenses; history and philosophy explain why those lenses exist, what they clarify, and where they can mislead. Mayr's history of biological thought and Hull's account of science as a process both emphasise that biology is deeply historical: its central objects are lineages, organisms, environments, and practices that change over time \citep{mayr1982,hull1988}.
@@ -64,9 +74,11 @@ Natural historians compare organisms across places and times. Physiologists pert
 
 Two lessons follow. First, biological knowledge is material: it depends on microscopes, culture media, field notebooks, model organisms, databases, and statistical tools. Second, biological knowledge is revisable: better instruments or better comparisons can change the apparent unit of explanation. Rheinberger calls experimental systems engines for producing "epistemic things", objects that are not fully known in advance but become tractable through repeated manipulation \citep{rheinberger1997}. That idea fits the rest of this textbook: a model is useful when its assumptions, boundary conditions, and failure modes are visible.
 
+> **Concept Check:** A patch-clamp trace, a phylogenetic tree, and a randomized clinical trial each support different kinds of biological claims. Choose one claim each could support, then name the system boundary and the kind of evidence that would most directly weaken it.
+
 ---
 
-## Ancient and Global Traditions
+## Ancient and Global Knowledge Traditions in Biology and Medicine
 
 Aristotle's biological works treated organisms as structured wholes whose parts made sense in relation to activities such as nutrition, motion, perception, and reproduction \citep{aristotleParts}. Lloyd's comparative work on ancient Greek and Chinese science is useful here because it resists two simple mistakes: treating one tradition as the single template for rational inquiry, or treating traditions as isolated from social and institutional settings \citep{lloyd1996}. History is not a search for the first person to say a modern sentence. It is a way to understand how different communities made organisms, bodies, remedies, classification, and explanation intelligible.
 
@@ -114,15 +126,28 @@ Biologists constantly use purpose-like language: hearts are "for" pumping blood,
 
 This distinction matters for \cref{sec:unit_0_active_inference}. Active inference can make goal-directed behaviour mathematically explicit, but it should not license vague claims that every biological process "wants" something. A good functional claim states the system, the effect, the evidence that the effect matters, and whether the explanation is about current causal contribution, selected history, or a modelled preferred state.
 
+| Purpose-like sentence | Defensible biological reading | Evidence needed |
+| --- | --- | --- |
+| The heart is for pumping blood | Causal role in circulation | Pressure gradients, flow, tissue perfusion, perturbation |
+| Flowers are for attracting pollinators | Selected-effect or current ecological role | Visitor behaviour, reproductive output, phylogenetic or manipulation evidence |
+| A cell wants glucose | Modelled preference or regulatory set point | Sensor, action, uptake response, rival metabolic explanation |
+| A gene controls a trait | Contribution within a developmental system | Variant effect, regulatory context, environment, intervention |
+
+Recent debates over Markov blankets and explanatory pluralism make the same point from the active-inference side: a formal partition can clarify agency when the system boundary, observables, and rival models are explicit \citep{bruineberg2022markov,colomboWright2017}. Treating every organised process as literal inference would collapse a useful modelling tool into metaphor.
+
 Gould and Lewontin's critique of adaptationist storytelling warns that not every trait is an optimised adaptation \citep{gouldLewontin1979}. Some traits are by-products, constraints, historical inheritances, or consequences of developmental architecture. Function is a hypothesis to test, not a decorative label.
+
+> **Concept Check:** A textbook says that flowers are "for" attracting pollinators. Rewrite that claim as (a) a mechanistic claim, (b) a selected-effect functional claim, and (c) a causal-role claim, then state which version active inference could model without implying conscious purpose.
 
 ---
 
 ## Species, Individuals, and the Boundaries of Life
 
-Mayr's biological species concept emphasised reproductive isolation \citep{mayr1942}; Ghiselin and Hull argued that species can be understood as historical individuals rather than timeless classes \citep{ghiselin1974,hull1978}; Okasha used levels-of-selection debates to show why individuality depends on reproduction, inheritance, cooperation, and conflict \citep{okasha2006}. This is not a vocabulary dispute. It changes how biologists count entities, assign causes, and explain change.
+Mayr's biological species concept emphasised reproductive isolation \citep{mayr1942}; de Queiroz's general lineage account treated species concepts as different operational routes to separately evolving lineages \citep{deQueiroz2007}; Ghiselin and Hull argued that species can be understood as historical individuals rather than timeless classes \citep{ghiselin1974,hull1978}; Okasha and Clarke show why biological individuality depends on reproduction, inheritance, cooperation, conflict, and criteria that can be multiply realised \citep{okasha2006,clarke2013individuals}. This is not a vocabulary dispute. It changes how biologists count entities, assign causes, and explain change.
 
 Microbiomes sharpen the problem because biological identity is not exhausted by one genome or one cell lineage \citep{hmp2012structure,sender2016cells}. O'Malley argues that philosophy of biology must take microbial life seriously because microbes challenge assumptions about individuality, species, sex, ecology, and evolution \citep{omalley2014}. Gilbert, Sapp, and Tauber's "symbiotic view of life" and Pradeu's work on immunological selfhood both push students to treat biological boundaries as regulated, relational, and sometimes porous \citep{gilbert2012symbiotic,pradeu2012}. Margulis's endosymbiotic theory makes the same lesson historical: some cellular parts began as organisms in relation \citep{margulis1967}.
+
+> **Concept Check:** A lichen, a coral colony, and a human gut microbiome each blur the boundary of biological individuality. Pick one case and compare genetic, physiological, and evolutionary criteria for deciding whether it is one individual or many.
 
 ---
 
@@ -150,9 +175,64 @@ Historical sciences and experimental sciences use evidence differently. Cleland 
 
 When reading a biological model, ask what unit it uses, what it leaves out, what evidence would change it, which alternatives explain the same pattern, and which decision would change if the model were wrong.
 
+## Levels of Explanation and Causal Pluralism
+
+Biology often needs several explanations for the same case. A bird's migration can be explained by neural circuits, developmental experience, ecological payoff, and evolutionary history. A fever can be explained by cytokine signalling, hypothalamic set-point change, pathogen suppression, and clinical risk. These explanations are not automatically rivals, because they answer different causal questions. The mistake is to let one level pretend to have completed the work of the relevant others.
+
+Explanatory pluralism is not relativism. It does not say that any story is as good as any other. It says that a strong biological account names the level of organisation, the causal relationship being claimed, and the test that would make that relationship fail. A molecular mechanism is incomplete if it cannot connect to phenotype; a population model is incomplete if it cannot state which organism-level processes supply its parameters; a social or ethical analysis is incomplete if it treats empirical constraints as optional.
+
+| Explanation level | Typical question | Common failure mode | Stronger version |
+| --- | --- | --- | --- |
+| Molecular or cellular | What entities and activities produce the effect? | Treating the part as the whole explanation | State the organismal or environmental condition where the mechanism matters |
+| Developmental | How does the trait come into being? | Treating genes and environment as separable rivals | Name the interaction, timing, and perturbation that would change the outcome |
+| Evolutionary or historical | Why did this pattern arise in a lineage? | Turning adaptation into an untested just-so story | Compare selection with drift, constraint, phylogeny, and contingency |
+| Ecological or social | What boundary and decision context matter? | Treating a value choice as if it were a measurement | Separate empirical constraints from risk, justice, cost, and benefit |
+
+> **Concept Check:** A clinician says a fever is "caused by infection." Rewrite the explanation at molecular, physiological, evolutionary, and public-health levels, then identify one observation that would weaken each level-specific claim.
+
+## First-Principles Claim Audit
+
+A first-principles reading of biology starts by stripping a claim down to what cannot be wished away. The point is not to distrust every claim equally; it is to separate evidence, modelling choices, and inherited habits before reasoning from them.
+
+| Claim element | First-principles question | Typical status | Example |
+| --- | --- | --- | --- |
+| Observation | What measurement or trace exists? | Hard constraint when reproducible | A sequence read, fossil layer, voltage trace, or field count |
+| Boundary | Where is the system drawn? | Soft constraint | Cell, host-microbiome system, population, ecosystem |
+| Mechanism | What entities and activities produce the phenomenon? | Hard if experimentally constrained; provisional if inferred | Enzyme active site, ion channel, pollinator behaviour |
+| Function | Is this current contribution, selected history, or modelled preference? | Often mixed | Heart pumping, flower attraction, active-inference preferred state |
+| Model | What assumptions make prediction possible? | Assumption until tested outside the fitting case | Hardy-Weinberg equilibrium, logistic growth, Markov blanket partition |
+| Value | Which decision, risk, or category matters? | Soft constraint that must be explicit | Disease threshold, conservation priority, research-benefit standard |
+
+The reconstructed rule is simple: keep hard constraints, mark soft constraints, and test assumptions. If a claim cannot say what would revise it, it is not yet ready to carry explanatory weight.
+
+### Claim Audit in Practice
+
+The claim audit is a transfer tool for the rest of the book. Use it whenever a statement sounds obvious, final, or purpose-like. Start with the observation that cannot be ignored, then ask which boundary, mechanism, function, model, value, and revision test are being smuggled into the sentence.
+
+```mermaid
+graph TD
+    Claim["Biological claim"] --> Evidence["Evidence practice<br/>observation, experiment, comparison, model, or database"]
+    Evidence --> Boundary["System boundary<br/>unit, scale, and environment"]
+    Boundary --> Mechanism["Mechanism or history<br/>entities, activities, and traces"]
+    Mechanism --> Model["Model assumptions<br/>idealisation, domain, and rivals"]
+    Model --> Values["Value or decision context<br/>risk, category, benefit, or harm"]
+    Values --> Revision["Falsifier or revision test<br/>what would force a better account"]
+```
+<!-- alt: Graph showing claim-audit workflow: a strong biological claim states its evidence practice, boundary, mechanism or history, modelling assumptions, value context, and revision test. -->
+
+*Claim-audit workflow: a strong biological claim states its evidence practice, boundary, mechanism or history, modelling assumptions, value context, and revision test.*
+
+| Later claim | Hard constraint | Soft constraint or assumption | Revision test |
+| --- | --- | --- | --- |
+| Flowers attract pollinators | Floral traits and visitor behaviour can be observed and compared | "For" may mean selected effect, current causal role, or human purpose unless specified | A manipulation that changes floral traits without changing pollinator visits would weaken the functional claim |
+| A microbiome is part of an individual | Host-microbe interactions can affect metabolism, development, immunity, and ecology | The boundary may be genetic, physiological, ecological, clinical, or evolutionary | A criterion that predicts one case but fails for lichens, corals, or gut communities needs a narrower domain |
+| Active inference explains homeostasis | Organisms sense, act, and maintain viable internal ranges | A Markov blanket or generative model is a modelling choice, not proof that every process literally infers | A rival control or physiological model with better predictions should limit the active-inference interpretation |
+
+The point is not to slow every page into philosophy. It is to prevent category mistakes before they spread: mechanism is not the same as function, a model boundary is not a natural boundary, and a useful formalism is not automatically a general law.
+
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: History and Philosophy of Biology
 
 For **History and Philosophy of Biology**, frontier work belongs inside the evidence logic of the chapter. Historical and philosophical claims are strongest when they identify the source practice, comparison set, interpretive assumption, and possible counterevidence rather than merely listing famous names.
 
@@ -173,6 +253,10 @@ Values enter biology whenever researchers choose questions, define categories, e
 
 Values do not make evidence optional. They make the questions more explicit: who is affected, what harms are possible, what categories are being used, who benefits, and what uncertainty remains? Jasanoff's STS work treats science and social order as co-produced rather than sealed off from one another \citep{jasanoff2004}. Schiebinger's history of gender and science, Haraway's situated knowledge, and feminist critiques such as Fausto-Sterling's work on sex classification show that the categories used in biology can be scientifically productive, politically consequential, and revisable \citep{schiebinger1999,haraway1988,faustoSterling1993}.
 
+Douglas's account of values in science helps distinguish epistemic values, such as explanatory power and coherence, from social and ethical values that enter when uncertainty affects policy, risk, or harm \citep{douglas2009valuefree}. A responsible biology claim should therefore say which values shaped the question and which observations still constrain the answer.
+
+> **Concept Check:** A conservation model ranks habitats for protection using species richness, carbon storage, and local livelihoods. Classify one hard constraint, one soft constraint, and one untested assumption in the model, then name evidence that would change the ranking.
+
 ---
 
 ## Synthesis: A Checklist for Biological Claims
@@ -186,6 +270,18 @@ Values do not make evidence optional. They make the questions more explicit: who
 - **Model:** What assumptions make the model usable, and what do they leave out?
 - **Values:** What decision, harm, benefit, category, or governance choice is being made?
 - **Revision:** What evidence would force a better explanation?
+
+---
+
+## Summary
+
+- Biology is an evidence practice, not a finished list of names, dates, and facts.
+- Natural history, experiment, mechanism, historical inference, and models answer different but compatible questions.
+- Function-language is useful when causal role, selected history, modelled preference, and human purpose are kept separate.
+- Species and biological individuals are boundary claims, not always sharp natural kinds.
+- Developmental and microbiome examples show that genes, organisms, environments, and symbioses often share explanatory work.
+- Models are tools with assumptions, domains of validity, and failure modes; they should be compared against alternatives.
+- Values shape questions, categories, risks, and decisions, but evidence still constrains responsible biological action.
 
 ---
 
@@ -225,14 +321,14 @@ Values do not make evidence optional. They make the questions more explicit: who
 
 ---
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: History and Philosophy of Biology
 
 - Aristotle, Ibn Sina, Needham, Lloyd, Linnaeus, Schiebinger, Hooke, Harvey, Bernard, Rheinberger, Darwin, Wallace, Mendel, Fisher, Haldane, Dobzhansky, Mayr, Huxley, Watson, Crick, Franklin, Keller, Kimura, Pigliucci, and Laland anchor the chapter's historical source spine \citep{aristotleParts,ibnsinaCanon,needham1954,lloyd1996,linnaeus1753,schiebinger2004,hooke1665,harvey1628,bernard1865,rheinberger1997,darwin1858,darwin1859,mendel1866,fisher1930,haldane1932,dobzhansky1937,mayr1942,huxley1942,watson1953,crick1958,crick1966,franklin1953,keller2010,kimura1983,pigliucci2010,laland2015}.
-- Machamer, Darden, Craver, Tinbergen, Wright, Mayr, Gould, Lewontin, Sober, Hull, Ghiselin, Okasha, Waddington, Oyama, West-Eberhard, O'Malley, Gilbert, Sapp, Tauber, Pradeu, Margulis, Levins, Wimsatt, Weisberg, Cleland, Leonelli, Kitano, Haraway, Harding, Jasanoff, Kevles, UNESCO, the Nuremberg Code, and Beauchamp and Childress anchor the philosophical, STS, modelling, and ethics spine \citep{machamer2000,tinbergen1963aims,wright1973,mayr1974teleology,gouldLewontin1979,sober1984,hull1978,ghiselin1974,okasha2006,waddington1957,oyama2000,westEberhard2003,omalley2014,gilbert2012symbiotic,pradeu2012,margulis1967,levins1966,wimsatt1987,weisberg2013,cleland2002,leonelli2016,kitano2002,haraway1988,harding1986,jasanoff2004,kevles1985,unesco1997genome,nuremberg1947,beauchamp1979}.
+- Machamer, Darden, Craver, Tinbergen, Wright, Mayr, Gould, Lewontin, Sober, Hull, Ghiselin, de Queiroz, Okasha, Clarke, Bruineberg, Colombo, Douglas, Waddington, Oyama, West-Eberhard, O'Malley, Gilbert, Sapp, Tauber, Pradeu, Margulis, Levins, Wimsatt, Weisberg, Cleland, Leonelli, Kitano, Haraway, Harding, Jasanoff, Kevles, UNESCO, the Nuremberg Code, and Beauchamp and Childress anchor the philosophical, STS, modelling, and ethics spine \citep{machamer2000,tinbergen1963aims,wright1973,mayr1974teleology,gouldLewontin1979,sober1984,hull1978,ghiselin1974,deQueiroz2007,okasha2006,clarke2013individuals,bruineberg2022markov,colomboWright2017,douglas2009valuefree,waddington1957,oyama2000,westEberhard2003,omalley2014,gilbert2012symbiotic,pradeu2012,margulis1967,levins1966,wimsatt1987,weisberg2013,cleland2002,leonelli2016,kitano2002,haraway1988,harding1986,jasanoff2004,kevles1985,unesco1997genome,nuremberg1947,beauchamp1979}.
 
 ---
 
-## Companion Source Module
+## Companion Source Module: History and Philosophy of Biology
 
 **History and Philosophy of Biology** should leave a reproducible trail from a claim about biological knowledge to the evidence practice that produced it.
 

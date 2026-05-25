@@ -3,11 +3,15 @@
 
 Default ``--check`` runs the practical project-local gate: quality audits,
 current-claim freshness, assessment synchronization, Mermaid alt normalization,
-strict figure/diagram generation, lint, mypy, recursive markdown/prerender
-validation, artifact counts, WIP resolver smoke, and tracked-artifact hygiene.
+strict figure/diagram generation into temporary review artifacts, lint, mypy,
+recursive markdown/prerender validation, artifact counts, WIP resolver smoke,
+and tracked-artifact hygiene.
 
-``--full`` adds expensive root orchestration: root setup, root project-only test
-stage, root render, root output validation, and project coverage.
+``--full`` adds expensive root orchestration: root setup, authoritative
+project-root pytest with the 90% ``src/`` gate, root render, root output
+validation, and tracked-artifact hygiene. Template ``01_run_tests.py`` may
+report lower union coverage for symlinked WIP checkouts; this gate uses the
+project directory instead (see ``docs/testing_guide.md``).
 """
 
 from __future__ import annotations
@@ -17,18 +21,17 @@ from collections.abc import Callable
 from dataclasses import dataclass
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
+from _bootstrap import PROJECT, ensure_project_paths
+from textbook_paths import discover_template_root
 
-PROJECT = Path(__file__).resolve().parent.parent
-TEMPLATE_ROOT = PROJECT.parent.parent
-SRC = PROJECT / "src"
+ensure_project_paths()
+
+TEMPLATE_ROOT = discover_template_root(PROJECT)
 MANUSCRIPT = PROJECT / "manuscript"
-
-for path in (TEMPLATE_ROOT, SRC):
-    path_str = str(path)
-    if path_str not in sys.path:
-        sys.path.insert(0, path_str)
+DEFAULT_REVIEW_ARTIFACT_DIR = Path(tempfile.gettempdir()) / "biology_textbook_publication_readiness"
 
 
 @dataclass(frozen=True)
@@ -50,10 +53,15 @@ class PythonStep:
     full_only: bool = False
 
 
-def build_command_steps(*, full: bool) -> list[CommandStep]:
+def build_command_steps(*, full: bool, artifact_dir: Path | None = None) -> list[CommandStep]:
     """Return subprocess checks for the selected audit depth."""
 
     py = sys.executable
+    template_cwd = TEMPLATE_ROOT or PROJECT
+    review_artifacts = artifact_dir or DEFAULT_REVIEW_ARTIFACT_DIR
+    review_figures = review_artifacts / "figures"
+    review_mermaid = review_figures / "mermaid"
+    review_manifest = review_figures / "visual_manifest.json"
     steps = [
         CommandStep(
             "quality-audit",
@@ -61,12 +69,29 @@ def build_command_steps(*, full: bool) -> list[CommandStep]:
             PROJECT,
         ),
         CommandStep("current-claims", (py, "scripts/audit_current_claims.py", "--check"), PROJECT),
-        CommandStep("visual-contracts", (py, "scripts/audit_visual_contracts.py", "--check"), PROJECT),
         CommandStep("assessment-sync", (py, "scripts/sync_assessment_metadata.py", "--check"), PROJECT),
         CommandStep("mermaid-alt-sync", (py, "scripts/add_mermaid_alt_text.py", "--check"), PROJECT),
-        CommandStep("figures-strict", (py, "scripts/generate_figures.py"), PROJECT),
-        CommandStep("diagrams-strict", (py, "scripts/generate_diagrams.py", "--strict-png"), PROJECT),
-        CommandStep("ruff", ("uv", "run", "ruff", "check", "src", "scripts", "tests"), PROJECT),
+        CommandStep("figures-strict", (py, "scripts/generate_figures.py", "--output-dir", str(review_figures)), PROJECT),
+        CommandStep(
+            "diagrams-strict",
+            (py, "scripts/generate_diagrams.py", "--strict-png", "--output-dir", str(review_mermaid)),
+            PROJECT,
+        ),
+        CommandStep(
+            "visual-contracts",
+            (
+                py,
+                "scripts/audit_visual_contracts.py",
+                "--figures-root",
+                str(review_figures),
+                "--output",
+                str(review_manifest),
+                "--render-inline",
+                "--check",
+            ),
+            PROJECT,
+        ),
+        CommandStep("ruff", ("uv", "run", "ruff", "check", "src", "scripts", "tests", "--ignore", "E402"), PROJECT),
         CommandStep("mypy", ("uv", "run", "mypy", "src", "scripts", "tests"), PROJECT),
         CommandStep(
             "root-wip-resolver-smoke",
@@ -77,64 +102,75 @@ def build_command_steps(*, full: bool) -> list[CommandStep]:
                 "-c",
                 (
                     "from pathlib import Path; "
+                    "import sys; "
+                    "sys.path.insert(0, str(Path('src').resolve())); "
+                    "from textbook_paths import discover_template_root; "
+                    "root=discover_template_root(Path.cwd()); "
+                    "assert root is not None, 'template infrastructure not found'; "
+                    "sys.path.insert(0, str(root)); "
                     "from infrastructure.project.discovery import resolve_project_root; "
-                    "p=resolve_project_root(Path('.'), 'biology_textbook'); "
-                    "assert p.is_dir() and p.name == 'biology_textbook' and 'projects_in_progress' in p.parts; "
+                    "p=resolve_project_root(root, 'biology_textbook'); "
+                    "assert p.is_dir() and p.name == 'biology_textbook'; "
                     "print(p)"
                 ),
             ),
-            TEMPLATE_ROOT,
+            PROJECT,
         ),
         CommandStep(
-            "coverage",
-            ("uv", "run", "pytest", "tests", "--cov=src", "--cov-report=term-missing"),
+            "project-tests-gate",
+            (
+                "uv",
+                "run",
+                "pytest",
+                "tests",
+                "--cov=src",
+                "--cov-fail-under=90",
+                "--cov-report=term-missing",
+                "-q",
+            ),
             PROJECT,
             full_only=True,
         ),
         CommandStep(
             "root-setup",
             ("uv", "run", "python", "scripts/00_setup_environment.py", "--project", "biology_textbook"),
-            TEMPLATE_ROOT,
-            full_only=True,
-        ),
-        CommandStep(
-            "root-project-tests",
-            (
-                "uv",
-                "run",
-                "python",
-                "scripts/01_run_tests.py",
-                "--project",
-                "biology_textbook",
-                "--project-only",
-                "--quiet",
-            ),
-            TEMPLATE_ROOT,
+            template_cwd,
             full_only=True,
         ),
         CommandStep(
             "root-render",
             ("uv", "run", "python", "scripts/03_render_pdf.py", "--project", "biology_textbook"),
-            TEMPLATE_ROOT,
+            template_cwd,
             full_only=True,
         ),
         CommandStep(
             "root-validate-output",
             ("uv", "run", "python", "scripts/04_validate_output.py", "--project", "biology_textbook"),
-            TEMPLATE_ROOT,
+            template_cwd,
+            full_only=True,
+        ),
+        CommandStep(
+            "root-pdf-log",
+            (
+                sys.executable,
+                "scripts/check_pdf_log.py",
+                str((TEMPLATE_ROOT or PROJECT) / "output" / "biology_textbook" / "pdf" / "_combined_manuscript.log"),
+            ),
+            PROJECT,
             full_only=True,
         ),
     ]
     return [step for step in steps if full or not step.full_only]
 
 
-def build_python_steps(*, full: bool) -> list[PythonStep]:
+def build_python_steps(*, full: bool, artifact_dir: Path | None = None) -> list[PythonStep]:
     """Return in-process checks for the selected audit depth."""
 
+    review_artifacts = artifact_dir or DEFAULT_REVIEW_ARTIFACT_DIR
     steps = [
         PythonStep("recursive-markdown", check_recursive_markdown),
         PythonStep("recursive-prerender", check_recursive_prerender),
-        PythonStep("artifact-counts", check_artifact_counts),
+        PythonStep("artifact-counts", lambda: check_artifact_counts(review_artifacts)),
         PythonStep("tracked-artifact-hygiene", check_tracked_artifact_hygiene),
     ]
     return [step for step in steps if full or not step.full_only]
@@ -175,7 +211,10 @@ def _recursive_manuscript_markdown() -> list[str]:
 def check_recursive_markdown() -> list[str]:
     """Run infrastructure markdown validators over the recursive manuscript set."""
 
-    from infrastructure.validation.content.markdown_validator import (
+    if TEMPLATE_ROOT is None:
+        return ["template infrastructure not found; set BIOLOGY_TEXTBOOK_TEMPLATE_ROOT"]
+
+    from infrastructure.validation.content.markdown_validator import (  # type: ignore[import-not-found]
         collect_symbols,
         validate_citations,
         validate_images,
@@ -203,8 +242,11 @@ def check_recursive_markdown() -> list[str]:
 def check_recursive_prerender() -> list[str]:
     """Run the render-blocking source markdown gate over recursive manuscript files."""
 
-    from infrastructure.core.exceptions import RenderingError
-    from infrastructure.rendering._pdf_combined_renderer import prevalidate_source_markdown
+    if TEMPLATE_ROOT is None:
+        return ["template infrastructure not found; set BIOLOGY_TEXTBOOK_TEMPLATE_ROOT"]
+
+    from infrastructure.core.exceptions import RenderingError  # type: ignore[import-not-found]
+    from infrastructure.rendering._pdf_combined_renderer import prevalidate_source_markdown  # type: ignore[import-not-found]
 
     try:
         prevalidate_source_markdown(
@@ -217,14 +259,14 @@ def check_recursive_prerender() -> list[str]:
     return []
 
 
-def check_artifact_counts() -> list[str]:
+def check_artifact_counts(artifact_dir: Path | None = None) -> list[str]:
     """Verify strict generation produced enough figure and Mermaid PNG artifacts."""
 
     from mermaid import ALL_BIOLOGY_DIAGRAMS
     from visualization import ALL_FIGURE_GENERATORS
 
     issues: list[str] = []
-    figures_dir = PROJECT / "output" / "figures"
+    figures_dir = (artifact_dir or DEFAULT_REVIEW_ARTIFACT_DIR) / "figures"
     mermaid_dir = figures_dir / "mermaid"
     figure_pngs = [path for path in figures_dir.glob("*.png") if path.is_file()]
     mermaid_pngs = [path for path in mermaid_dir.glob("*.png") if path.is_file()]
@@ -241,10 +283,9 @@ def check_artifact_counts() -> list[str]:
 def check_tracked_artifact_hygiene() -> list[str]:
     """Fail if generated/cache artifacts under this WIP tree are tracked by git."""
 
-    rel_project = PROJECT.relative_to(TEMPLATE_ROOT)
     result = subprocess.run(  # noqa: S603
-        ("git", "ls-files", "--", str(rel_project)),
-        cwd=TEMPLATE_ROOT,
+        ("git", "ls-files", "--", "."),
+        cwd=PROJECT,
         check=False,
         capture_output=True,
         text=True,
@@ -279,10 +320,12 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     failures = 0
-    for command_step in build_command_steps(full=args.full):
-        failures += 1 if run_command_step(command_step) else 0
-    for python_step in build_python_steps(full=args.full):
-        failures += 1 if run_python_step(python_step) else 0
+    with tempfile.TemporaryDirectory(prefix="biology_textbook_readiness_") as tmpdir:
+        artifact_dir = Path(tmpdir)
+        for command_step in build_command_steps(full=args.full, artifact_dir=artifact_dir):
+            failures += 1 if run_command_step(command_step) else 0
+        for python_step in build_python_steps(full=args.full, artifact_dir=artifact_dir):
+            failures += 1 if run_python_step(python_step) else 0
 
     status = "PASS" if failures == 0 else "FAIL"
     depth = "full" if args.full else "default"

@@ -28,6 +28,7 @@ def test_pdf_log_checker_flags_undefined_references_and_severe_overfull_boxes() 
             [
                 "LaTeX Warning: Hyper reference `gl:fatty-acid' on page 117 undefined",
                 "Missing character: There is no ★ (U+2605) in font [lmroman10-regular]:mapping=tex-text;!",
+                "! Double superscript.",
                 "Overfull \\hbox (12.0pt too wide) in paragraph at lines 1--2",
                 "Overfull \\vbox (143.18613pt too high) has occurred while \\output is active",
             ]
@@ -35,10 +36,11 @@ def test_pdf_log_checker_flags_undefined_references_and_severe_overfull_boxes() 
         max_overfull_pt=50,
     )
 
-    assert len(issues) == 3
+    assert len(issues) == 4
     assert "undefined" in issues[0].message
     assert "Missing character" in issues[1].message
-    assert "143.18613pt" in issues[2].message
+    assert "Double superscript" in issues[2].message
+    assert "143.18613pt" in issues[3].message
 
 
 def test_pdf_log_checker_allows_minor_overfull_boxes() -> None:

@@ -108,29 +108,26 @@ Content...
 flowchart TD
   A[Display an equation] --> B{Cross-reference it later<br/>with cref?}
   B -- Yes --> C{Single line<br/>or multi-line?}
-  B -- No --> D{Need a manual number<br/>like 4.7?}
+  B -- No --> D{Needs a displayed<br/>worked step?}
   C -- Single --> E[begin equation + label end equation]
   C -- Multi --> F[begin align + label end align]
-  D -- Yes --> G[double-dollar with tag]
-  D -- No --> H[plain double-dollar]
+  D -- Yes --> G[plain double-dollar]
   E --> I[Refer with cref]
   F --> I
-  G --> J[Never combine with label]
+  G --> J[No rendered number, no cref]
 ```
 
-### The five valid patterns
+### The four valid patterns
 
 | Pattern | Use when | Cross-reference? |
 | ------- | -------- | ---------------- |
 | `\begin{equation}\label{eq:...}…\end{equation}` | You will refer to the equation elsewhere. | **Yes** — `\cref{eq:...}` |
 | `\begin{align}\label{eq:...}…\end{align}` | Multi-line derivation that needs cross-reference. | **Yes** — `\cref{eq:...}` |
-| `$$ … \tag{N.M} $$` | Manual numbering for a one-off display equation. | **No** — never combine with `\label{}`. |
 | `$$ … $$` (plain) | Display math without numbering. | No |
 | `$ … $` | Inline math. | No |
 
 > [!WARNING]
-> **NEVER combine `\tag{}` with `\label{}` on a `$$...$$` line — this causes xelatex failure.**
-> If you need both a custom number and a label, promote the equation to `\begin{equation}\tag{...}\label{...}\end{equation}`.
+> Do not use manual equation-number tags in manuscript prose. Use a labelled equation or align environment when a display equation needs a rendered number or cross-reference.
 
 ### Side-by-side: correct vs incorrect
 
@@ -147,12 +144,8 @@ Hardy–Weinberg equilibrium (\cref{eq:unit_V_hardy_weinberg}) is violated when�
 ```
 
 ```latex
-%% INCORRECT — \tag and \label on a $$ line: aborts xelatex with
-%% "! Package amsmath Error: \tag not allowed here."
-$$
-p^2 + 2pq + q^2 = 1
-\tag{5.1}\label{eq:unit_V_hardy_weinberg}
-$$
+%% INCORRECT — manual numbering plus a label on a $$ line aborts xelatex.
+%% Use the labelled equation environment above instead.
 ```
 
 ```latex
@@ -184,16 +177,6 @@ The current-balance equations (\cref{eq:unit_VII_hodgkin_huxley_currents}) under
 C_m \frac{dV}{dt} &= -I_{\text{Na}} - I_{\text{K}} + I_{\text{stim}} \label{eq:unit_VII_hh_membrane} \\
 I_{\text{Na}}     &= \bar{g}_{\text{Na}} m^3 h (V - E_{\text{Na}})  \label{eq:unit_VII_hh_sodium}
 \end{align}
-```
-
-#### Locally-numbered equation, no cross-reference (`$$` + `\tag`)
-
-```markdown
-%% CORRECT — manual number 4.7, no \label, no cref needed
-$$
-v = \frac{V_{\max}\,[S]}{K_m + [S]}
-\tag{4.7}
-$$
 ```
 
 #### Plain display math (no number, no reference)
@@ -617,7 +600,7 @@ flowchart LR
 | Total nodes per diagram | < 15 strongly preferred | Beyond 20, split into two diagrams |
 | Total edges per node | < 6 | Dense crossings reduce legibility |
 | Special characters in labels | Wrap in `"..."` | Required for `(`, `)`, `:`, `,`, `<`, `>` |
-| Render size (PNG) | 1200×800 px default | Set with `mmdc -w 1200 -H 800` |
+| Render size (PNG) | 1200×1200 px default | Set with `mmdc -w 1200 -H 1200`; the project pads rendered Mermaid PNGs to a square canvas for review and print consistency |
 
 > [!WARNING]
 > **Special characters in node labels** are the #1 cause of mermaid render failures. Always wrap labels with parentheses, colons, or commas in double quotes:

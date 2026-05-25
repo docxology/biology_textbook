@@ -1,8 +1,8 @@
 # Biology Textbook Scripts — AGENTS.md
 
-## Overview
+## Script Roles
 
-This directory contains **31** Python files. **Three** are Stage-2 **orchestrators** called by the root pipeline; **seventeen** are idempotent **structural / build-quality** utilities (labels, metadata, curriculum, bib, labs, figures, typography, lab computation, cover art, PDF-log checks, manuscript-quality audits, current-claim audits, assessment metadata, visual-contract audit, publication-readiness audit) that keep invariants in `tests/test_build_invariants.py` and related tests satisfied; **nine** are **optional pedagogy / content** helpers (glossary linking, embedded enrichment, question-bank answers, labs, further reading, Mermaid alt text, glossary-card export) used during content iteration. `atomic_io.py` is a shared helper and `__init__.py` marks the package.
+This directory contains **32** Python files. **Three** are Stage-2 **orchestrators** called by the root pipeline; **seventeen** are idempotent **structural / build-quality** utilities (labels, metadata, curriculum, bib, labs, figures, typography, lab computation, cover art, PDF-log checks, manuscript-quality audits, current-claim audits, assessment metadata, visual-contract audit, publication-readiness audit) that keep invariants in `tests/test_build_invariants.py` and related tests satisfied; **nine** are **optional pedagogy / content** helpers (glossary linking, embedded enrichment, question-bank answers, labs, further reading, Mermaid alt text, glossary-card export) used during content iteration. `_bootstrap.py` centralizes `sys.path` setup; `atomic_io.py` re-exports `src/textbook_io.write_text_atomic`; `__init__.py` marks the package.
 
 All scientific computation resides in `../src/`; orchestrators only coordinate I/O, path resolution, and module invocation. Utilities parse and rewrite markdown/bib/yaml source. The root Stage 02 runner reads `analysis.scripts` in `../manuscript/config.yaml` and runs only the three build-producing scripts below; maintenance utilities stay manual.
 
@@ -12,7 +12,7 @@ All scientific computation resides in `../src/`; orchestrators only coordinate I
 | ------ | ------- |
 | `biology_analysis.py` | Reads `manuscript/config.yaml`, runs all biology src modules, collects the full ordered textbook into `output/manuscript/` (front matter, unit intros, chapters, labs, question banks, reference appendices), marks injected files to skip per-section Beamer slide derivation, and copies live `config.yaml`, `references.bib`, `preamble.md`, and cover assets alongside so the PDF renderer can find book metadata and images |
 | `generate_diagrams.py` | Renders 24 diagrams in `ALL_BIOLOGY_DIAGRAMS` to PNG via `mmdc` when available; fallback `.mmd` → `output/figures/mermaid/` |
-| `generate_figures.py` | Generates 18 matplotlib figures via `src/visualization/ALL_FIGURE_GENERATORS` (`cvd.py` palette when `config.yaml` has `color_blindness_safe: true`); logs policy; output → `output/figures/` |
+| `generate_figures.py` | Generates 32 square-padded matplotlib figures via `src/visualization/ALL_FIGURE_GENERATORS` (`cvd.py` palette when `config.yaml` has `color_blindness_safe: true`); logs policy; output → `output/figures/` |
 
 ## Scripts — Manuscript maintenance and build-quality utilities
 
@@ -38,8 +38,8 @@ the matching script is the canonical fix.
 | `check_pdf_log.py` | `test_pdf_log_quality.py` | Fails on undefined LaTeX references and severe overfull boxes above the configured point threshold |
 | `audit_textbook_quality.py` | `test_textbook_quality_audit.py` | Umbrella quality gate for generic answers, current-claim drift, wet-lab defaults, hard-coded rendered references, glossary/citation closure, embedded-enrichment coverage, and `manuscript/quality_advisories.yaml` triage |
 | `audit_current_claims.py` | `test_current_claims_ledger.py` | Validates `manuscript/current_claims.yaml` source tiers, checked dates, refresh triggers, anchors, and stale-phrase locks |
-| `audit_visual_contracts.py` | publication-readiness gate | Generates/checks `output/figures/visual_manifest.json` from raw figure blocks, registered Mermaid factories, inline Mermaid fences, asset dimensions, alt text, captions, and generator names |
-| `audit_publication_readiness.py` | aggregate gate | Runs quality, current-claim, assessment, Mermaid alt, strict figure/diagram, lint, mypy, WIP resolver, artifact-count, and tracked-artifact checks; `--full` adds root setup/test/render/validate |
+| `audit_visual_contracts.py` | publication-readiness gate | Generates/checks a visual manifest and review matrix from raw figure blocks, registered Mermaid factories, inline Mermaid fences, asset dimensions, alt text, captions, generator names, action taken, exceptions, and square-ish aspect policy |
+| `audit_publication_readiness.py` | aggregate gate | Runs quality, current-claim, assessment, Mermaid alt, strict figure/diagram, lint, mypy, WIP resolver, artifact-count, and tracked-artifact checks using temporary visual artifacts; `--full` adds root setup/test/render/validate |
 | `sync_assessment_metadata.py` | `test_assessment_metadata.py` + `test_lab_pedagogy_alignment.py` | Inserts/verifies question-item metadata and lab outcome/LO/rubric alignment blocks from `biology.assessment` / `biology.toc` surfaces; `--dry-run` previews drift without writing |
 
 ## Pedagogy and content utilities (optional)
@@ -51,12 +51,12 @@ Idempotent unless noted. Support `--dry-run` where implemented in each script.
 | `add_mermaid_alt_text.py` | Audits inline Mermaid `<!-- alt: … -->` comments and italic captions; `--check` fails on drift and the tool refuses to insert generic filler | Supports [../tests/test_accessibility.py](../tests/test_accessibility.py) / [../manuscript/AGENTS.md](../manuscript/AGENTS.md) |
 | `bold_glossary_first_use.py` | Bold+link first glossary-term occurrence per chapter to `#gl:` anchors | Works with `link_glossary.py` |
 | `extract_glossary_cards.py` | Exports glossary entries into card-style study/review data | Content utility; not a structural gate |
-| `insert_further_reading.py` | Adds `## Further Reading` from chapter `\cite` keys + `references.bib` | Content quality; not a structural gate |
+| `insert_further_reading.py` | Adds `## Further Reading and Source Notes: <Chapter Title>` from configured chapter `\cite` keys + `references.bib` | Content quality; not a structural gate |
 | `pad_short_labs.py` | Appends debrief block to labs under 100 lines | Labs only |
 | `fill_answer_scaffolds.py` | Fills `INSTRUCTOR SCAFFOLD` blocks in question banks with generated stubs | Questions/appendices |
 | `insert_answer_keys.py` | Inserts HTML-comment solution blocks for instructor edition | Works with `biology_analysis.py` `export.include_solutions` |
 | `refine_generated_answers.py` | Replaces v1 auto-answers in question banks with improved heuristics; leaves hand-written solutions untouched | Follow-up to `fill_answer_scaffolds.py` |
-| `enrich_embedded_textbook.py` | Inserts embedded frontier/evidence sections, current-evidence Mermaid maps, paper-based lab evidence upgrades, refined answer keys, and `docs/embedded_enrichment_audit_matrix.md` | Run with `--dry-run` before applying; preserves the 38/38/38 structure |
+| `enrich_embedded_textbook.py` | Inserts embedded frontier/evidence sections, current-evidence Mermaid maps, paper-based lab evidence upgrades, refined answer keys, and `docs/embedded_enrichment_audit_matrix.md` | Run with `--dry-run` before applying; preserves the 44/44/44 structure |
 
 ## Architecture: Thin Orchestrator Pattern
 
@@ -93,7 +93,7 @@ carry exactly one nearby `<!-- alt: ... -->` comment and one italic caption. Dur
 the infrastructure renderer writes deterministic `.mmd` + `.png` files under
 `output/figures/mermaid_inline/` and replaces the fence with a Pandoc image
 reference. PDF rendering fails clearly if `mmdc` is unavailable or a diagram
-cannot render; inline diagrams are never silently stripped. The manuscript currently has 192 inline Mermaid fences.
+cannot render; inline diagrams are never silently stripped. The manuscript currently has 193 inline Mermaid fences.
 
 **Adding a new registered diagram:**
 
@@ -128,12 +128,12 @@ This registry, together with `ALL_BIOLOGY_DIAGRAMS`, is the visual manifest: reg
 ## Running Individually
 
 ```bash
-cd /path/to/template/projects_in_progress/biology_textbook
+cd /path/to/biology_textbook
 
 # Stage-2 orchestrators
 uv run python scripts/generate_diagrams.py                    # 24 mermaid diagrams
 uv run python scripts/generate_diagrams.py --output-dir /custom/path
-uv run python scripts/generate_figures.py                     # 18 matplotlib figures
+uv run python scripts/generate_figures.py                     # 32 square-padded matplotlib figures
 uv run python scripts/generate_figures.py --output-dir /custom/path
 uv run python scripts/biology_analysis.py                     # collect chapters + live config/references/preamble/cover assets
 uv run python scripts/generate_cover_art.py                    # refresh text-free cover montage asset
@@ -142,8 +142,8 @@ uv run python scripts/audit_textbook_quality.py --check --max-advisories 0 # man
 uv run python scripts/audit_current_claims.py --check          # current-claim ledger gate
 uv run python scripts/sync_assessment_metadata.py --dry-run    # preview assessment metadata drift
 uv run python scripts/sync_assessment_metadata.py --check      # assessment metadata gate
-uv run python scripts/audit_visual_contracts.py --check        # visual manifest gate
-uv run python scripts/audit_publication_readiness.py --check   # aggregate local publication gate
+uv run python scripts/audit_visual_contracts.py --figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check # visual manifest gate
+uv run python scripts/audit_publication_readiness.py --check   # aggregate local gate; visual artifacts go to temp
 
 # Manuscript maintenance (each supports --dry-run)
 uv run python scripts/insert_crossref_labels.py
@@ -157,6 +157,14 @@ uv run python scripts/insert_orphan_figures.py
 uv run python scripts/normalize_typography.py
 uv run python scripts/fix_greek_math_prose.py
 uv run python scripts/enrich_embedded_textbook.py --dry-run
+uv run python scripts/refine_generated_answers.py --dry-run
+uv run python scripts/insert_answer_keys.py --dry-run
+uv run python scripts/fill_answer_scaffolds.py --dry-run
+uv run python scripts/bold_glossary_first_use.py --dry-run
+uv run python scripts/extract_glossary_cards.py --dry-run
+uv run python scripts/insert_further_reading.py --dry-run
+uv run python scripts/pad_short_labs.py --dry-run
+uv run python scripts/add_mermaid_alt_text.py --dry-run
 ```
 
 ## No-Mocks Policy

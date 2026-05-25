@@ -4,7 +4,7 @@ Matplotlib figure generation and colour-vision-friendly plotting defaults live h
 
 | File | Role |
 | ---- | ---- |
-| `plots.py` | 18 `plot_*` functions plus `ALL_FIGURE_GENERATORS` |
+| `plots.py` | 32 `plot_*` functions plus `ALL_FIGURE_GENERATORS` |
 | `cvd.py` | Colour-vision-friendly palette constants and line/hatch conventions |
 | `__init__.py` | Re-exports public plot functions and the registry |
 

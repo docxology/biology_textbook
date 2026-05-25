@@ -17,6 +17,7 @@
 | [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md) | Optional LO↔question-bank HTML comment convention |
 | [absolute_language_triage.md](absolute_language_triage.md) | Advisory absolute-language categories: valid scientific absolutes, needed qualifiers, copyedit artifacts |
 | [embedded_enrichment_audit_matrix.md](embedded_enrichment_audit_matrix.md) | Section-by-section audit matrix for embedded chapter, lab, question-bank, glossary, and appendix enrichment |
+| [current_source_refresh_matrix.md](current_source_refresh_matrix.md) | Config-driven current-source refresh matrix for renderable manuscript sections and fast-moving claims |
 | [AGENTS.md](AGENTS.md) | This `docs/` hub: directory list and documentation principles |
 
 **Composable development:** Use [composable_authoring.md](composable_authoring.md) when adding or renaming chapters, registering `plot_*` figures or `*_diagram()` factories, or wiring `\cref` / `@fig:` / `{#eq:...}` so the same invariants the CI runs stay green. [agent_instructions.md](agent_instructions.md) covers **editorial** style; [manuscript/AGENTS.md](../manuscript/AGENTS.md) + tests are the **mechanical** contract.
@@ -25,15 +26,15 @@
 
 The biology textbook project integrates:
 
-- Manuscript content organised in **`manuscript/config.yaml`** (Unit 0, Units I – X, **39 chapters**, **39 labs**, **39 question banks**)
-- **Quantitative models** in `src/biology/*` (9 domain subpackages) plus two manuscript utilities — `src/biology/chapter_metadata.py` (per-chapter difficulty/time/prereq records) and `src/biology/crossref_validator.py` (enforces `\label`/`\cref` consistency)
-- **Figures** (`src/visualization/plots.py`, 18 generators; **`src/visualization/cvd.py`** for colour-vision–friendly defaults tied to `config.yaml` → `accessibility.color_blindness_safe`) and **diagrams** (`src/mermaid/`, 24 diagrams, optional `mmdc`)
-- **Tests:** run `uv run pytest tests/ --cov=src --cov-fail-under=90` from the project directory for current count and coverage; invariant-style modules include build invariants, bibliography closure, crossref validator, chapter metadata, **accessibility** (alt proximity, quality, labs/questions)
+- Manuscript content organised in **`manuscript/config.yaml`** (Unit 0, Units I – X, **44 chapters**, **44 labs**, **44 question banks**)
+- **Quantitative models** in `src/biology/*` (9 domain subpackages) plus manuscript utilities and maintenance packages: `chapter_metadata.py`, `toc.py`, `curriculum.py`, `assessment.py`, `current_claims.py`, `alignment.py`, `crossref/` (shim at `crossref_validator.py`), and extracted `quality/`, `enrichment/`, `answer_refinement/`, `curriculum_sync/`; checkout bootstrap in `textbook_paths.py` and atomic I/O in `textbook_io.py`
+- **Figures** (`src/visualization/plots.py`, 32 generators; **`src/visualization/cvd.py`** for colour-vision–friendly defaults tied to `config.yaml` → `accessibility.color_blindness_safe`) and **diagrams** (`src/mermaid/`, 24 registered diagrams plus 193 inline Mermaid fences, optional `mmdc`)
+- **Tests:** run `uv run python -m pytest tests/ --cov=src --cov-fail-under=90` from the project directory for current count and coverage; invariant-style modules include build invariants, bibliography closure, crossref validator, chapter metadata, **accessibility** (alt proximity, quality, labs/questions)
 - **Access / pedagogy reference:** [accessibility.md](accessibility.md), [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md)
 - **Embedded enrichment workflow:** run `uv run python scripts/enrich_embedded_textbook.py --dry-run` to inspect whether chapter frontier boxes, unit evidence threads, lab evidence upgrades, answer keys, and [embedded_enrichment_audit_matrix.md](embedded_enrichment_audit_matrix.md) are current.
 
-**Checkout path:** `projects_in_progress/biology_textbook/` in this workspace. `resolve_project_root` uses `projects/biology_textbook/` when project markers are present; otherwise the same name under `projects_in_progress/`. Pipeline entry points use `--project biology_textbook` from the template repository root.
+**Checkout path:** this active tree can be used as a standalone project directory. Pipeline entry points still use `--project biology_textbook` from the template repository root when template infrastructure is available.
 
-**Current gates:** 31 Python files under `scripts/`, 27 `test_*.py` modules under `tests/`, 24 registered Mermaid diagrams, 18 registered matplotlib figures, and 192 inline Mermaid fences in `manuscript/`. Use `scripts/generate_diagrams.py --strict-png` for publication PNG checks, `scripts/audit_current_claims.py --check` for fast-moving claims, `scripts/sync_assessment_metadata.py --dry-run` to preview question/lab metadata drift, `scripts/sync_assessment_metadata.py --check` for the assessment gate, and `scripts/audit_visual_contracts.py --check` for the derived visual manifest.
+**Current gates:** 33 Python files under `scripts/`, 37 `test_*.py` modules under `tests/`, 32 registered matplotlib figures, 24 registered Mermaid diagrams, and 193 inline Mermaid fences in `manuscript/`. Use `scripts/generate_diagrams.py --strict-png` for publication PNG checks, `scripts/audit_current_claims.py --check` for fast-moving claims, `scripts/sync_assessment_metadata.py --dry-run` to preview question/lab metadata drift, `scripts/sync_assessment_metadata.py --check` for the assessment gate, `scripts/audit_visual_contracts.py --figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check` for the derived 249-record visual manifest and square-ish aspect policy, `tests/test_chapter_pedagogy_coverage.py` for REVIEW §7 pedagogy locks, and `scripts/audit_publication_readiness.py --check` (temporary visual artifacts; `--full` before release) for the aggregate gate.
 
 See [../AGENTS.md](../AGENTS.md) for project layout, validation commands, AI protocol, and invariant conventions.

@@ -8,6 +8,9 @@ from pathlib import Path
 from typing import Protocol, cast
 
 
+from biology.quality import paths as quality_paths
+
+
 PROJECT = Path(__file__).resolve().parent.parent
 SCRIPT = PROJECT / "scripts" / "audit_textbook_quality.py"
 
@@ -36,14 +39,14 @@ audit = cast(AuditModule, module)
 
 
 def run_targeted_audits(manuscript: Path) -> list[FindingLike]:
-    original_manuscript = audit.MANUSCRIPT
+    original_manuscript = quality_paths.MANUSCRIPT
     try:
-        audit.MANUSCRIPT = manuscript
+        quality_paths.MANUSCRIPT = manuscript
         findings: list[FindingLike] = []
         audit.audit_templated_enrichment(findings)
         return findings
     finally:
-        audit.MANUSCRIPT = original_manuscript
+        quality_paths.MANUSCRIPT = original_manuscript
 
 
 def test_chapter_frontier_boilerplate_is_flagged(tmp_path: Path) -> None:

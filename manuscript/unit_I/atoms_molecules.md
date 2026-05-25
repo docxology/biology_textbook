@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 1** · Level 1/3 · 40 min read · 50 min lecture · Prerequisites: none
+> Level 1/3 · 40 min read · 50 min lecture · Prerequisites: none
 
 ## Learning Objectives
 
@@ -62,7 +62,7 @@ Life is fundamentally chemistry. Every organism, from a bacterium to a blue whal
 
 Of the 118 known elements, only about 25 are essential to life. Just six elements --- carbon, hydrogen, nitrogen, oxygen, phosphorus, and sulfur (CHNOPS) --- account for approximately 97% of the mass of a human body. Trace elements such as iron, zinc, copper, manganese, and selenium perform critical catalytic roles despite being present in minuscule quantities.
 
-### Subatomic Particles
+### Subatomic Particles and Atomic Identity
 
 An atom consists of three primary subatomic particles:
 
@@ -176,7 +176,7 @@ The peptide bond's polarity (carbonyl O is $\delta^-$, amide H is $\delta^+$) is
 
 ---
 
-## Chemical Bonds
+## Chemical Bonds as Biological Forces
 
 ```mermaid
 flowchart TD
@@ -200,7 +200,7 @@ flowchart TD
 
 *Electronegativity and bond type. Classification of chemical bonds by electronegativity difference (ΔEN). The boundaries (0.5 and 1.7) are approximate; real bonds exist on a continuum.*
 
-### Covalent Bonds
+### Covalent Bonds and Molecular Stability
 
 A **covalent bond** forms when two atoms share one or more pairs of electrons. The strength of a covalent bond is approximately 150--950 kJ/mol, far greater than thermal energy at body temperature (~2.5 kJ/mol), making them the primary structural bonds of organic molecules.
 
@@ -227,7 +227,7 @@ A **covalent bond** forms when two atoms share one or more pairs of electrons. T
 
 **Worked example:** Water (H$_2$O). Oxygen's electronegativity (3.44) vs. hydrogen's (2.20) gives $\Delta\chi$ = 1.24 --- a polar covalent bond. The two O--H bonds create a partial negative charge on oxygen (δ− = −0.834 in formal charge terms) and partial positive charges on each hydrogen (δ+ = +0.417 each). This polarity drives water's exceptional biological properties (see \cref{sec:unit_I_water_and_life}).
 
-### Ionic Bonds
+### Ionic Interactions in Biological Solutes
 
 Ionic bonds form when one atom transfers electrons to another, generating oppositely charged ions. In aqueous biological environments, ionic bonds are typically disrupted by water molecules competing for the ions. The **lattice energy** of NaCl is 787 kJ/mol, yet it dissolves readily because of the high dielectric constant of water ($\varepsilon \approx 80$).
 
@@ -235,7 +235,7 @@ In proteins, ionic interactions (**salt bridges**) between oppositely charged re
 
 > **Concept Check 2:** Why do salt bridges buried in the hydrophobic core of a protein contribute more to stability than those on the protein surface? Consider the role of the dielectric constant.
 
-### Hydrogen Bonds
+### Hydrogen Bonds in Water, Proteins, and Nucleic Acids
 
 A **hydrogen bond** forms when a hydrogen atom covalently bonded to an electronegative atom (N, O, or F) is attracted to another electronegative atom. The bond energy is 2--40 kJ/mol --- weaker than covalent bonds but stronger than van der Waals forces. Hydrogen bond strengths and distances vary systematically with donor and acceptor identity:
 
@@ -292,7 +292,7 @@ These same forces explain why geckos can walk on walls: their toe pads have mill
 
 ---
 
-## Functional Groups
+## Functional Groups and Biomolecular Reactivity
 
 Six major functional groups determine the chemical reactivity of organic molecules:
 
@@ -425,15 +425,21 @@ Double bonds in unsaturated fatty acids adopt either **cis** (Z) or **trans** (E
 
 **Oxidation states of carbon:**
 
-$$\text{CH}_4 \xrightarrow{-2e^-} \text{CH}_3\text{OH} \xrightarrow{-2e^-} \text{HCHO} \xrightarrow{-2e^-} \text{HCOOH} \xrightarrow{-2e^-} \text{CO}_2 \tag{1.1} \label{eq:unit_I_atoms_molecules_item_1}$$
+\begin{equation}
+\text{CH}_4 \xrightarrow{-2e^-} \text{CH}_3\text{OH} \xrightarrow{-2e^-} \text{HCHO} \xrightarrow{-2e^-} \text{HCOOH} \xrightarrow{-2e^-} \text{CO}_2
+\label{eq:unit_I_atoms_molecules_item_1}
+\end{equation}
 
 
 Each step represents a two-electron oxidation. Carbon in methane has oxidation state --4; in CO$_2$ it is +4. The complete oxidation of one mole of glucose releases 2,870 kJ:
 
-$$\text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2 \rightarrow 6\text{CO}_2 + 6\text{H}_2\text{O} \quad \Delta G^{\circ'} = -2,870 \; \text{kJ/mol} \tag{1.2} \label{eq:unit_I_atoms_molecules_item_2}$$
+\begin{equation}
+\text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2 \rightarrow 6\text{CO}_2 + 6\text{H}_2\text{O} \quad \Delta G^{\circ'} = -2,870 \; \text{kJ/mol}
+\label{eq:unit_I_atoms_molecules_item_2}
+\end{equation}
 
 
-### Reduction Potentials
+### Reduction Potentials and Electron Transfer
 
 The **standard reduction potential** ($E^{\circ'}$) measures the tendency of a half-reaction to gain electrons under standard biochemical conditions (pH 7, 25 degrees C, 1 M concentrations):
 
@@ -446,7 +452,10 @@ The **standard reduction potential** ($E^{\circ'}$) measures the tendency of a h
 
 The **free energy change** of a redox reaction is related to the potential difference:
 
-$$\Delta G^{\circ'} = -nF\Delta E^{\circ'} \tag{1.3} \label{eq:unit_I_atoms_molecules_item_3}$$
+\begin{equation}
+\Delta G^{\circ'} = -nF\Delta E^{\circ'}
+\label{eq:unit_I_atoms_molecules_item_3}
+\end{equation}
 
 
 where $n$ = number of electrons transferred and $F$ = Faraday constant (96,485 C/mol).
@@ -475,12 +484,18 @@ The major electron carriers in metabolism are:
 
 The **mole** (mol) is the SI unit for amount of substance, equal to Avogadro's number ($N_A$):
 
-$$N_A = 6.022 \times 10^{23} \; \text{mol}^{-1} \tag{1.4} \label{eq:unit_I_atoms_molecules_item_4}$$
+\begin{equation}
+N_A = 6.022 \times 10^{23} \; \text{mol}^{-1}
+\label{eq:unit_I_atoms_molecules_item_4}
+\end{equation}
 
 
 **Molarity (M)** is defined as moles of solute per litre of solution:
 
-$$[C] = \frac{n}{V} \quad \text{(mol L}^{-1}\text{)} \tag{1.5} \label{eq:unit_I_atoms_molecules_item_5}$$
+\begin{equation}
+[C] = \frac{n}{V} \quad \text{(mol L}^{-1}\text{)}
+\label{eq:unit_I_atoms_molecules_item_5}
+\end{equation}
 
 
 In biochemistry, cellular concentrations are typically in the millimolar (mM) to micromolar (μM) range. ATP concentration in a liver cell is approximately 3--5 mM. The dissociation constant $K_d$ of a high-affinity antibody for its antigen might be $10^{-10}$ M (100 pM).
@@ -503,14 +518,20 @@ In biochemistry, cellular concentrations are typically in the millimolar (mM) to
 
 Water autoionises:
 
-$$\text{H}_2\text{O} \rightleftharpoons \text{H}^+ + \text{OH}^- \tag{1.6} \label{eq:unit_I_atoms_molecules_item_6}$$
+\begin{equation}
+\text{H}_2\text{O} \rightleftharpoons \text{H}^+ + \text{OH}^-
+\label{eq:unit_I_atoms_molecules_item_6}
+\end{equation}
 
 
 with the equilibrium constant at 25 degrees C: $K_w = [\text{H}^+][\text{OH}^-] = 10^{-14} \, \text{M}^2$.
 
 The **pH** is defined as:
 
-$$\text{pH} = -\log_{10}[\text{H}^+] \tag{1.7} \label{eq:unit_I_atoms_molecules_item_7}$$
+\begin{equation}
+\text{pH} = -\log_{10}[\text{H}^+]
+\label{eq:unit_I_atoms_molecules_item_7}
+\end{equation}
 
 
 At 37 degrees C (body temperature), $K_w \approx 2.4 \times 10^{-14}$, so neutral pH is about 6.81. The slight shift is physiologically meaningful.
@@ -541,7 +562,7 @@ For a weak acid HA with dissociation constant $K_a$:
 
 A buffer resists pH change when [A$^-$]/[HA] is near 1 (i.e., pH is about pK$_a$). The effective buffer range is typically pK$_a \pm$ 1. Outside this range, one component is depleted and buffer capacity drops sharply.
 
-### Buffer Capacity
+### Buffer Capacity in Physiological Fluids
 
 The **buffer capacity** β measures how much strong acid or base a buffer can absorb before pH shifts appreciably. Formally, β is the moles of strong base added per litre per unit pH increase:
 
@@ -585,7 +606,10 @@ flowchart LR
 
 The **bicarbonate buffer system** in blood operates at pH 7.4 with:
 
-$$\text{CO}_2 + \text{H}_2\text{O} \rightleftharpoons \text{H}_2\text{CO}_3 \rightleftharpoons \text{H}^+ + \text{HCO}_3^- \tag{1.9} \label{eq:unit_I_atoms_molecules_item_9}$$
+\begin{equation}
+\text{CO}_2 + \text{H}_2\text{O} \rightleftharpoons \text{H}_2\text{CO}_3 \rightleftharpoons \text{H}^+ + \text{HCO}_3^-
+\label{eq:unit_I_atoms_molecules_item_9}
+\end{equation}
 
 
 where pKa$_1$ = 6.1. Despite the pH/pKa offset of ~1.3 units, the bicarbonate system is effective because CO$_2$ can be rapidly exhaled to shift the equilibrium (an **open system**). The normal ratio of [HCO$_3^-$]/[CO$_2$] is approximately 20:1.
@@ -611,7 +635,7 @@ The blood buffering hierarchy: **bicarbonate (~75% of capacity) > haemoglobin (~
 
 > **Concept Check 7:** You are designing a buffer for an enzyme that has its optimum at pH 6.5. Two candidates are available: 100 mM MES (pKa 6.15) and 100 mM HEPES (pKa 7.55). Using \cref{eq:unit_I_buffer_capacity}, decide which provides greater buffer capacity at pH 6.5 and explain your reasoning.
 
-### Titration Curves
+### Titration Curves and pKa Estimation
 
 A titration curve plots pH against the volume of added base (or acid). For a monoprotic weak acid:
 
@@ -632,26 +656,38 @@ The **isoelectric point** (pI) is the pH at which the amino acid carries zero ne
 
 ---
 
-## Worked Examples
+## Worked Examples: Buffers, Redox, and Physiological pH
 
 **Problem 1:** A solution contains 0.05 M acetic acid (CH$_3$COOH, pKa = 4.76) and 0.15 M sodium acetate. What is the pH?
 
 *Solution:*
-$$\text{pH} = 4.76 + \log\frac{0.15}{0.05} = 4.76 + \log 3 = 4.76 + 0.477 = 5.24 \tag{1.10} \label{eq:unit_I_atoms_molecules_item_10}$$
+\begin{equation}
+\text{pH} = 4.76 + \log\frac{0.15}{0.05} = 4.76 + \log 3 = 4.76 + 0.477 = 5.24
+\label{eq:unit_I_atoms_molecules_item_10}
+\end{equation}
 
 
 **Problem 2:** What fraction of histidine's imidazole group (pKa = 6.0) is protonated at pH 7.0?
 
 *Solution:*
-$$\frac{[\text{HA}]}{[\text{HA}] + [\text{A}^-]} = \frac{1}{1 + 10^{\text{pH} - \text{pK}_a}} = \frac{1}{1 + 10^{7.0 - 6.0}} = \frac{1}{11} \approx 0.091 = 9.1\% \tag{1.11} \label{eq:unit_I_atoms_molecules_item_11}$$
+\begin{equation}
+\frac{[\text{HA}]}{[\text{HA}] + [\text{A}^-]} = \frac{1}{1 + 10^{\text{pH} - \text{pK}_a}} = \frac{1}{1 + 10^{7.0 - 6.0}} = \frac{1}{11} \approx 0.091 = 9.1\%
+\label{eq:unit_I_atoms_molecules_item_11}
+\end{equation}
 
 
 **Problem 3:** Calculate the free energy released when 2 electrons are transferred from NADH ($E^{\circ'} = -0.320$ V) to O$_2$ ($E^{\circ'} = +0.816$ V).
 
 *Solution:*
-$$\Delta E^{\circ'} = E^{\circ'}_{\text{acceptor}} - E^{\circ'}_{\text{donor}} = +0.816 - (-0.320) = +1.136 \; \text{V} \tag{1.12} \label{eq:unit_I_atoms_molecules_item_12}$$
+\begin{equation}
+\Delta E^{\circ'} = E^{\circ'}_{\text{acceptor}} - E^{\circ'}_{\text{donor}} = +0.816 - (-0.320) = +1.136 \; \text{V}
+\label{eq:unit_I_atoms_molecules_item_12}
+\end{equation}
 
-$$\Delta G^{\circ'} = -nF\Delta E^{\circ'} = -(2)(96{,}485)(1.136) = -219{,}213 \; \text{J/mol} \approx -219.2 \; \text{kJ/mol} \tag{1.13} \label{eq:unit_I_atoms_molecules_item_13}$$
+\begin{equation}
+\Delta G^{\circ'} = -nF\Delta E^{\circ'} = -(2)(96{,}485)(1.136) = -219{,}213 \; \text{J/mol} \approx -219.2 \; \text{kJ/mol}
+\label{eq:unit_I_atoms_molecules_item_13}
+\end{equation}
 
 
 This large negative $\Delta G^{\circ'}$ drives [**oxidative phosphorylation**](#gl:oxidative-phosphorylation), ultimately producing ~2.5 ATP per NADH (see \cref{sec:unit_III_bioenergetics_and_respiration}).
@@ -659,9 +695,15 @@ This large negative $\Delta G^{\circ'}$ drives [**oxidative phosphorylation**](#
 **Problem 4:** A patient's arterial blood shows [HCO$_3^-$] = 12 mM and pCO$_2$ = 40 mmHg. Using the Henderson-Hasselbalch equation with [CO$_2$] = 0.03 $\times$ pCO$_2$ mM and pKa = 6.1, calculate the blood pH. Is this acidosis or alkalosis?
 
 *Solution:*
-$$[\text{CO}_2] = 0.03 \times 40 = 1.2 \; \text{mM} \tag{1.14} \label{eq:unit_I_atoms_molecules_item_14}$$
+\begin{equation}
+[\text{CO}_2] = 0.03 \times 40 = 1.2 \; \text{mM}
+\label{eq:unit_I_atoms_molecules_item_14}
+\end{equation}
 
-$$\text{pH} = 6.1 + \log\frac{12}{1.2} = 6.1 + \log 10 = 6.1 + 1.0 = 7.1 \tag{1.15} \label{eq:unit_I_atoms_molecules_item_15}$$
+\begin{equation}
+\text{pH} = 6.1 + \log\frac{12}{1.2} = 6.1 + \log 10 = 6.1 + 1.0 = 7.1
+\label{eq:unit_I_atoms_molecules_item_15}
+\end{equation}
 
 
 The pH of 7.1 is below the normal range of 7.35--7.45, indicating **metabolic acidosis** (low bicarbonate with normal pCO$_2$). Normal [HCO$_3^-$] is 24 mM; this patient's value is halved.
@@ -669,11 +711,20 @@ The pH of 7.1 is below the normal range of 7.35--7.45, indicating **metabolic ac
 **Problem 5:** The Ka of lactic acid is $1.38 \times 10^{-4}$. Calculate the pKa. If a muscle cell produces lactic acid during intense exercise, what percentage is ionised at intracellular pH 6.8?
 
 *Solution:*
-$$\text{pK}_a = -\log(1.38 \times 10^{-4}) = 3.86 \tag{1.16} \label{eq:unit_I_atoms_molecules_item_16}$$
+\begin{equation}
+\text{pK}_a = -\log(1.38 \times 10^{-4}) = 3.86
+\label{eq:unit_I_atoms_molecules_item_16}
+\end{equation}
 
-$$\frac{[\text{A}^-]}{[\text{HA}]} = 10^{\text{pH} - \text{pK}_a} = 10^{6.8 - 3.86} = 10^{2.94} = 871 \tag{1.17} \label{eq:unit_I_atoms_molecules_item_17}$$
+\begin{equation}
+\frac{[\text{A}^-]}{[\text{HA}]} = 10^{\text{pH} - \text{pK}_a} = 10^{6.8 - 3.86} = 10^{2.94} = 871
+\label{eq:unit_I_atoms_molecules_item_17}
+\end{equation}
 
-$$\text{Fraction ionised} = \frac{871}{1 + 871} = 0.9989 = 99.9\% \tag{1.18} \label{eq:unit_I_atoms_molecules_item_18}$$
+\begin{equation}
+\text{Fraction ionised} = \frac{871}{1 + 871} = 0.9989 = 99.9\%
+\label{eq:unit_I_atoms_molecules_item_18}
+\end{equation}
 
 
 At physiological pH, the Henderson-Hasselbalch relationship predicts that the ionised form (lactate$^-$) strongly dominates over protonated lactic acid. This is why we typically refer to "lactate" rather than "lactic acid" in biological contexts.
@@ -709,7 +760,7 @@ print(round(dg, 2))  # -30.5
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Atoms, Molecules, and Chemical Bonds
 
 For **Atoms, Molecules, and Chemical Bonds**, frontier biology belongs inside the evidence logic of
 the chapter. Chemistry-of-life claims now connect classical bonding and thermodynamics with AI-guided structure prediction and experimental validation. The core reading question is this: molecular claims need charge, polarity, geometry, concentration, and solvent context.
@@ -725,9 +776,9 @@ the chapter. Chemistry-of-life claims now connect classical bonding and thermody
   the source closest to the measurement and state what has changed since it was
   published.
 
-Use AI biomolecular models as hypothesis generators: compare confidence, conservation, solvent exposure, and assay evidence before turning a predicted contact into a biological claim \citep{abramson2024alphafold3}.
+Treat biomolecular predictions as constrained hypotheses: compare confidence, conservation, solvent exposure, and assay evidence before claiming mechanism \citep{abramson2024alphafold3}.
 
-**Source practice:** For structure and interaction claims, cite experimental structures when available and treat AlphaFold 3 or AFDB complex predictions as hypotheses to validate with confidence metrics, conservation, mutagenesis, binding, or cryo-EM/X-ray/NMR evidence \citep{abramson2024alphafold3,velankar2026alphafolddb2025,emblebi2026alphafoldcomplexes}.
+**Source practice:** For structure and interaction claims, cite experimental structures when available and validate predictions with confidence metrics, conservation, mutagenesis, binding, or cryo-EM/X-ray/NMR evidence \citep{abramson2024alphafold3,velankar2026alphafolddb2025,emblebi2026alphafoldcomplexes}.
 
 ## Summary
 
@@ -784,7 +835,7 @@ Use AI biomolecular models as hypothesis generators: compare confidence, conserv
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Atoms, Molecules, and Chemical Bonds
 
 - Henderson (1913). *The Fitness of the Environment*. Macmillan.
 - Pauling (1932; 1939). Electronegativity and *The Nature of the Chemical Bond* \citep{pauling1932electronegativity}.
@@ -795,7 +846,7 @@ Use AI biomolecular models as hypothesis generators: compare confidence, conserv
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Atoms, Molecules, and Chemical Bonds
 
 **Atoms, Molecules, and Chemical Bonds** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

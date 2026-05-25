@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 28** · Level 3/3 · 60 min read · 100 min lecture · Prerequisites: \cref{sec:unit_II_membrane_transport}, \cref{sec:unit_III_bioenergetics_and_respiration}
+> Level 3/3 · 60 min read · 100 min lecture · Prerequisites: \cref{sec:unit_II_membrane_transport}, \cref{sec:unit_III_bioenergetics_and_respiration}
 
 ## Learning Objectives
 
@@ -17,6 +17,15 @@
 7. Apply Fick's law to alveolar gas exchange.
 8. Explain respiratory control by medullary centres and chemoreceptors.
 9. Describe homeostatic control systems, [**thermoregulation**](#gl:thermoregulation), and fluid balance.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/poiseuille_flow.png}
+\caption{Hagen-Poiseuille flow versus vessel radius. Volumetric flow scales with $r^4$, so small radius reductions sharply reduce perfusion at fixed pressure gradient.}
+\label{fig:unit_IX_poiseuille_flow}
+\end{figure}
+
+<!-- alt: Curve showing blood flow increasing steeply with vessel radius under Poiseuille law. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -119,7 +128,7 @@ SV \propto EDV \quad \text{(within physiological range)}
 
 ## Cardiac Output and Blood Pressure
 
-### Cardiac Output
+### Cardiac Output as Heart Rate Times Stroke Volume
 
 \begin{equation}
 CO = HR \times SV
@@ -137,7 +146,7 @@ CO = HR \times SV
 - **Parasympathetic stimulation** (M$_2$ muscarinic receptors via vagus nerve): Decreases HR primarily (negative chronotropy). Vagal tone dominates at rest, which is why resting HR is ~70 bpm rather than the SA node's intrinsic 100 bpm.
 - **Frank-Starling mechanism:** Intrinsic matching of SV to venous return (see above)
 
-### Blood Pressure
+### Blood Pressure and Vascular Resistance
 
 \begin{equation}
 MAP = DP + \frac{1}{3}PP = DP + \frac{1}{3}(SP - DP)
@@ -158,6 +167,8 @@ where TPR = total peripheral resistance. Blood pressure is regulated by:
 - Total peripheral resistance (arteriolar diameter -- the dominant factor)
 
 ### Blood Flow -- Poiseuille's Law
+
+\cref{fig:unit_IX_poiseuille_flow} shows how volumetric flow scales with $r^4$ at fixed pressure gradient — the physiological reason arteriolar radius is the dominant lever on organ perfusion.
 
 \begin{equation}
 Q = \frac{\pi r^4 \Delta P}{8 \eta L}
@@ -271,7 +282,7 @@ The vertebrate kidney stabilises plasma volume, osmolality, pH, electrolytes, an
 
 ## Capillary Fluid Exchange and the Lymphatic System
 
-### Starling Forces
+### Starling Forces in Capillary Exchange
 
 At the capillary level, O$_2$ and nutrients are delivered to tissues while CO$_2$ and waste products are removed. Fluid exchange across the capillary wall is governed by the **Starling forces** (Ernest Starling, 1896):
 
@@ -352,19 +363,19 @@ Both ends now show net filtration — fluid cannot be reabsorbed, leading to pro
 
 ---
 
-## Oxygen Transport
+## Oxygen Transport by Haemoglobin
 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/oxygen_dissociation_curve.png}
-\caption{Oxygen--haemoglobin dissociation curves showing percent saturation versus $p\mathrm{O}_2$ for normal adult haemoglobin, a right-shifted fever/exercise condition, and a left-shifted fetal-haemoglobin condition.}
+\caption{Oxygen--haemoglobin dissociation curves showing percent saturation versus $p\mathrm{O}_2$ for normal adult haemoglobin, a right-shifted fever/exercise condition, and a left-shifted fetal-haemoglobin condition; compare loading in the lung with unloading in active tissue.}
 \label{fig:unit_IX_oxygen_dissociation}
 \end{figure}
 <!-- alt: Three sigmoidal haemoglobin saturation curves plotted against oxygen partial pressure. The fever/exercise curve is shifted right, the fetal haemoglobin curve is shifted left, and vertical guides mark typical tissue and alveolar oxygen pressures. -->
 
 
-### Haemoglobin Structure
+### Haemoglobin Structure and Cooperative Binding
 
 Haemoglobin (Hb) is an $\alpha_2\beta_2$ tetramer. Each subunit contains a **haeme** group (iron-porphyrin; Fe$^{2+}$) that binds one O$_2$. Oxygen-carrying capacity: 1.34 mL O$_2$ per gram Hb; typical Hb concentration: 150 g/L blood. Total: ~201 mL O$_2$/L blood bound to Hb. Plasma dissolved O$_2$: 0.003 $\times$ PO$_2$ (mL/L/mmHg), giving about 0.3 mL/L at PO$_2$ = 100 mmHg. Hb carries ~670$\times$ more O$_2$ than plasma alone.
 
@@ -417,7 +428,7 @@ where **P$_{50}$** = PO$_2$ at 50% saturation (about 26 mmHg for human HbA at 37
 
 **Physiological significance:** In metabolically active tissues (low pH, high CO$_2$, high temperature), Hb releases more O$_2$ exactly where it is needed.
 
-## Worked Example: 28.Z — Bohr Effect and 2,3-BPG in Exercise
+## Worked Example: Bohr Effect and 2,3-BPG in Exercise
 
 A trained cyclist's vastus lateralis at maximal exercise has tissue $P\mathrm{O}_2 = 18$ mmHg, pH = 7.20 (lactic acidosis), and temperature = 39 °C. At rest, the same muscle has $P\mathrm{O}_2 = 40$ mmHg, pH = 7.40, and 37 °C. Estimate the resulting **shift in P$_{50}$** and the resulting **fractional change in O$_2$ unloading per cycle of blood**.
 
@@ -483,13 +494,13 @@ Carbonic anhydrase catalyses the rapid reversible hydration step. **Chloride shi
 
 ## Respiratory System and Ventilation
 
-### Anatomy
+### Respiratory Tract Anatomy and Alveolar Architecture
 
 **Conducting zone** (dead space, ~150 mL): Nasal passages (warm, humidify, filter) to pharynx to larynx to trachea (C-shaped cartilage rings) to bronchi (right and left mainstem) to bronchioles. Bronchioles have smooth muscle (regulated by autonomic NS: sympathetic $\beta_2$ = bronchodilation; parasympathetic M$_3$ = bronchoconstriction).
 
 **Respiratory zone:** Respiratory bronchioles to alveolar ducts to alveolar sacs. ~300 million alveoli in adult human lungs. Total alveolar surface area: ~70 m$^2$ (half a tennis court). Alveolar wall thickness: ~0.5 um. Type I pneumocytes (gas exchange, 95% of surface area). Type II pneumocytes (produce [**surfactant**](#gl:surfactant), 5% of surface area; also stem cells that regenerate Type I cells).
 
-### Lung Mechanics
+### Lung Mechanics and Pressure Gradients
 
 **Inspiration (active at rest):** Diaphragm + external intercostals contract. Thorax volume increases. Intrapleural pressure decreases (from $-5$ to $-8$ cmH$_2$O). Alveolar pressure falls ~1 cmH$_2$O below atmospheric. Air flows in.
 
@@ -545,7 +556,7 @@ where $T$ = surface tension (N/m) and $r$ = radius. With the surface tension of 
 
 ---
 
-## Gas Exchange
+## Gas Exchange Across the Alveolar-Capillary Barrier
 
 ```mermaid
 sequenceDiagram
@@ -602,7 +613,7 @@ This matches whole-body resting O$_2$ consumption (~250 mL/min). During maximal 
 
 > **Clinical Connection:** In **diffusion-limited** lung disease (pulmonary fibrosis, interstitial lung disease), the alveolar-capillary membrane is thickened (increased $T$) and the surface area is reduced. Fick's law predicts reduced O$_2$ transfer: patients become hypoxaemic especially during exercise when transit time through capillaries is shortened and the blood cannot equilibrate with alveolar O$_2$.
 
-### Respiratory Control
+### Respiratory Control by Chemoreceptors and Brainstem Circuits
 
 **Central pattern generator:** Medullary respiratory centres generate the basic breathing rhythm:
 - **Dorsal respiratory group (DRG):** Primarily inspiratory [**neuron**](#gl:neuron)s; drives diaphragm via phrenic nerve
@@ -665,7 +676,7 @@ Exercise is the most demanding physiological challenge for the cardiovascular an
 
 where $Ca\mathrm{O}_2 - Cv\mathrm{O}_2$ is the arteriovenous O$_2$ content difference. At rest, an average adult has $\dot{V}\mathrm{O}_2 \approx 250$ mL/min = 5 L/min × (200 − 150) mL/L = 5 L/min × 50 mL/L. Maximal O$_2$ uptake (V̇O$_2$max) in elite endurance athletes can exceed 80 mL/kg/min (vs ~40 mL/kg/min in untrained adults).
 
-### Cardiovascular adjustments
+### Cardiovascular Adjustments During Exercise
 
 | Variable | Rest | Maximal exercise | Mechanism |
 | -------- | ---- | ---------------- | --------- |
@@ -681,7 +692,7 @@ where $Ca\mathrm{O}_2 - Cv\mathrm{O}_2$ is the arteriovenous O$_2$ content diffe
 
 The **a-vO$_2$ difference** widens from 50 mL/L at rest to >150 mL/L at maximal exercise — combined with ~5-fold ↑CO, produces ~20-fold ↑V̇O$_2$.
 
-### Respiratory adjustments
+### Respiratory Adjustments During Exercise
 
 - **Minute ventilation** ($\dot{V}_E$): rises from 6 L/min at rest to 100–200 L/min at maximal exercise (~20–30× increase) — driven primarily by ↑tidal volume initially (up to ~50% of vital capacity) and then ↑frequency (up to ~50/min).
 - **Anaerobic threshold:** ~50–80% of V̇O$_2$max in untrained vs trained subjects; lactate production exceeds clearance, blood lactate rises, ventilation rises disproportionately to drive off CO$_2$ and buffer H$^+$ (respiratory compensation for metabolic acidosis).
@@ -693,11 +704,13 @@ The **a-vO$_2$ difference** widens from 50 mL/L at rest to >150 mL/L at maximal 
 
 ---
 
-## Homeostasis
+## Homeostatic Control of Temperature, Fluids, and Electrolytes
 
-### Principles
+### Principles of Feedback, Set Points, and Allostasis
 
 **[Homeostasis](#gl:homeostasis)** \citep{cannon1932}: Maintenance of a relatively stable internal environment (milieu interieur, Claude Bernard 1865) despite external fluctuations.
+
+Modern physiology treats this definition as broader than a thermostat. Bernard and Cannon's organism-centred idea was later narrowed by cybernetic language about fixed set points, but many living regulators defend viable ranges through context-dependent, anticipatory, and multi-loop control \citep{bechtel2024homeostasis}. In this chapter, "set point" is useful shorthand once the regulated variable, sensor, effector, timescale, and tolerated range are named.
 
 **Negative feedback:** The dominant control mechanism. A change in a regulated variable is detected by a sensor, compared to a set point by a control centre, and corrected by an effector that opposes the change.
 
@@ -706,7 +719,7 @@ The **a-vO$_2$ difference** widens from 50 mL/L at rest to >150 mL/L at maximal 
 - Platelet activation in haemostasis
 - [**Action potential**](#gl:action-potential) upstroke (Na$^+$ channel positive feedback)
 
-### Temperature Regulation
+### Temperature Regulation by Heat Balance
 
 **Ectotherms** (fish, amphibians, reptiles, invertebrates): Body temperature tracks environmental temperature. Behavioural thermoregulation (basking, seeking shade).
 
@@ -799,7 +812,7 @@ The nephron performs:
 
 ---
 
-## Worked Example
+## Worked Example: Cardiac Output During Exercise
 
 **Problem:**
 A patient has a resting heart rate ($HR$) of $75\text{ beats/min}$ and a stroke volume ($SV$) of $70\text{ mL/beat}$. During exercise, the heart rate increases to $150\text{ beats/min}$ and stroke volume increases to $110\text{ mL/beat}$. Calculate the resting cardiac output ($CO_{rest}$) and the exercise cardiac output ($CO_{exercise}$) in L/min. What is the fold-increase in cardiac output?
@@ -842,7 +855,7 @@ print(round(curve[4].saturation, 3))
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Circulation, Respiration, and Homeostasis
 
 For **Circulation, Respiration, and Homeostasis**, frontier biology belongs inside the evidence logic of
 the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-neural coupling, wearable data, and individualized risk without reducing bodies to simple machines. The core reading question is this: homeostasis claims should connect flow, diffusion, control loops, reserve capacity, and measurement limits.
@@ -858,9 +871,9 @@ the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-n
   the source closest to the measurement and state what has changed since it was
   published.
 
-Interpret physiological data by separating baseline variation, perturbation response, compensation, and the threshold where compensation becomes pathology.
+Interpret circulation and gas-exchange data by separating baseline set point, perturbation, compensation, and the threshold where compensation fails.
 
-**Source practice:** For physiology claims, cite the measurement context and distinguish baseline variation, compensation, pathophysiology, and treatment evidence.
+**Source practice:** For cardiorespiratory claims, cite measurement context, pressure or flow conditions, saturation data, and treatment evidence when relevant.
 
 ## Summary
 
@@ -884,7 +897,7 @@ Interpret physiological data by separating baseline variation, perturbation resp
 | ---- | ---------- |
 | **[Cardiac output (CO)](#gl:cardiac-output)** | Volume of blood pumped per minute; CO = HR $\times$ SV |
 | **Stroke volume (SV)** | Volume ejected per heartbeat; ~70 mL at rest |
-| **[Frank-Starling law](#gl:frank-starling-law) (Equation~\eqref{eq:circulation_respiration_homeostasis_1})** | Increased preload (EDV) causes increased SV |
+| **[Frank-Starling law](#gl:frank-starling-law) (\cref{eq:circulation_respiration_homeostasis_1})** | Increased preload (EDV) causes increased SV |
 | **Poiseuille's law** | $Q = \pi r^4 \Delta P / (8\eta L)$; flow depends on radius to the 4th power |
 | **Mean arterial pressure** | MAP = DP + 1/3(SP - DP); ~93 mmHg normally |
 | **Haemoglobin** | $\alpha_2\beta_2$ tetramer; cooperative O$_2$ binding; 4 haeme groups |
@@ -930,14 +943,14 @@ Interpret physiological data by separating baseline variation, perturbation resp
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Circulation, Respiration, and Homeostasis
 
 - Starling (1918). The Linacre Lecture on the Law of the Heart. *Longmans, Green and Co.*.
 - Cannon (1932). *The Wisdom of the Body*. W. W. Norton.
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Circulation, Respiration, and Homeostasis
 
 **Circulation, Respiration, and Homeostasis** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -949,4 +962,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/biology/physiology/physiology.py` (`poiseuille_flow`, `oxygen_saturation`, `oxygen_dissociation_curve`, `homeostasis_response`) | Reproduce flow, gas transport, and regulatory response claims. |
 | `src/visualization/plots.py` (`plot_oxygen_dissociation`) | Inspect shifts in oxygen loading and unloading. |
 
-**Reproducibility check:** state vessel radius, pressure gradient, haemoglobin state, tissue demand, and feedback variable before interpreting homeostasis. **Cross-reference:** connect with \cref{sec:unit_IX_endocrine_and_immune} and \cref{sec:unit_III_bioenergetics_and_respiration}.
+**Reproducibility check:** state vessel radius, pressure gradient, haemoglobin state, tissue demand, and feedback variable before interpreting homeostasis. **Cross-reference:** connect with \cref{sec:unit_IX_endocrine_signaling,sec:unit_IX_immune_system_defense} and \cref{sec:unit_III_bioenergetics_and_respiration}.

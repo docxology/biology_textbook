@@ -28,7 +28,7 @@
 - **Chapter LO coverage:** LO1, LO2, LO3, LO4
 - **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
 <!-- lab-alignment-end -->
-## Background {.unnumbered}
+## Lab Context: History and Philosophy of Biology {.unnumbered}
 
 This lab is a paper-based source and evidence analysis. You will work with source cards based on classic biological episodes, global knowledge traditions, experimental systems, modern molecular biology, microbiomes, and bioethics. The goal is not to memorize a timeline; the goal is to learn how a biological claim becomes credible, limited, revised, or ethically consequential.
 
@@ -44,9 +44,11 @@ This lab is a paper-based source and evidence analysis. You will work with sourc
 - Evidence-map worksheet.
 - Timeline strip with blank event cards.
 - Concept-boundary worksheet with columns for unit, mechanism, function, model, and value.
+- Explanation-level cards for molecular, developmental, evolutionary, ecological, and social/ethical claims.
 - Coloured pens or pencils.
 - Sticky notes for uncertainty and value annotations.
 
+- Source-governance card for History and Philosophy of Biology: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
 ### Source-card packet {.unnumbered}
 
 The instructor should provide short paraphrased cards or public-domain excerpts representing at least these cases:
@@ -79,6 +81,7 @@ Sort each source card into one primary evidence practice: observation, experimen
 | Claim being made | |
 | Evidence practice | |
 | Mechanism or function | |
+| Explanation level | |
 | Missing comparison | |
 | Main uncertainty | |
 | Value-laden decision, if any | |
@@ -88,7 +91,16 @@ Sort each source card into one primary evidence practice: observation, experimen
 
 Choose one pair: Aristotle and a modern mechanistic account; Harvey and descriptive anatomy; Darwin-Wallace selection and a simple survival claim; Mendelian inheritance and DNA-level information transfer; or a biological species concept and a microbial case. Name what each explanation clarifies and what remains unsettled.
 
-### Part 4 — Modern Transfer Case {.unnumbered}
+### Part 4 — Check the Explanation Level {.unnumbered}
+
+Choose one claim from the evidence map and rewrite it at two different levels: molecular/cellular, developmental, evolutionary/historical, ecological, or social/ethical. For each version, state the evidence that would make that version stronger and the evidence that would weaken it.
+
+| Claim version | Level | What it explains | What it leaves out | Revision test |
+| --- | --- | --- | --- | --- |
+| | | | | |
+| | | | | |
+
+### Part 5 — Modern Transfer Case {.unnumbered}
 
 Apply the evidence-map checklist to a microbiome health claim, a conservation decision, a genetic-risk claim, or a public-health recommendation involving uncertain evidence.
 
@@ -107,7 +119,7 @@ Apply the evidence-map checklist to a microbiome health claim, a conservation de
 | Levins | | | | |
 | Bioethics case | | | | |
 
-### Part 5 — Prelude Capstone Matrix {.unnumbered}
+### Part 6 — Prelude Capstone Matrix {.unnumbered}
 
 Choose one source card and connect it to the four prelude chapters.
 
@@ -134,14 +146,19 @@ The evidence upgrade for this lab is the source-card audit trail. For every card
 - **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
 <!-- lab-evidence-checklist-end -->
 
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for History and Philosophy of Biology before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+
 ## Analysis Questions {.unnumbered}
 
 1. Which source card was hardest to classify by evidence practice, and why?
 2. Name one case where functional language helped you reason and one case where it risked hiding a mechanism.
 3. How did the biological unit change across your source cards?
-4. Where did uncertainty come from: missing data, model assumptions, historical contingency, category choice, or value conflict?
-5. How would your evidence map change if the audience were a patient, a conservation manager, or a first-year student?
-6. Which prelude lens added the most information to your source card, and which lens risked overclaiming?
+4. Which explanation level changed the conclusion most: molecular, developmental, evolutionary, ecological, or social/ethical?
+5. Where did uncertainty come from: missing data, model assumptions, historical contingency, category choice, or value conflict?
+6. How would your evidence map change if the audience were a patient, a conservation manager, or a first-year student?
+7. Which prelude lens added the most information to your source card, and which lens risked overclaiming?
 
 ## Safety and Ethics Notes {.unnumbered}
 

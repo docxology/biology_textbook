@@ -1,6 +1,6 @@
 # Question Banks
 
-This directory contains **39 comprehensive question banks** — one per textbook chapter (including the four Unit 0 orientation chapters) — with **30 questions each**, ordered from simplest recall to most sophisticated synthesis and evaluation.
+This directory contains **44 comprehensive question banks** — one per textbook chapter (including the four Unit 0 orientation chapters) — with **30 questions each**, ordered from simplest recall to most sophisticated synthesis and evaluation.
 
 ## File Naming Convention
 
@@ -15,7 +15,7 @@ questions/
 ├── README.md                           ← this file
 ├── AGENTS.md                           ← authoring conventions (agent-facing)
 ├── unit_0/, unit_I/, … unit_X/         ← 11 unit subdirectories
-│   └── questions_{chapter}.md         ← one 30-question file per chapter (38 total)
+│   └── questions_{chapter}.md         ← one 30-question file per chapter (39 total)
 ```
 
 ## Question Difficulty Tiers

@@ -7,17 +7,23 @@ Relative to the **template** repository: generic infrastructure lives in `infras
 ```text
 biology_textbook/
 ├── src/
-│   ├── biology/                  # Nine domain subpackages + three manuscript utilities
+│   ├── biology/                  # Nine domain subpackages + manuscript utilities and maintenance packages
 │   │   ├── __init__.py
 │   │   ├── biochemistry/, cell/, genetics/, evolution/, ecology/,
 │   │   ├── physiology/, microbiology/, botany/, neuroscience/
-│   │   ├── chapter_metadata.py    # per-chapter difficulty / reading time / prereqs
-│   │   ├── toc.py                 # canonical units/chapters/labs/questions/reference appendices
-│   │   └── crossref_validator.py  # \label ↔ \cref and @fig:/@eq:/@tbl:/@sec: coverage
-│   ├── mermaid/                  # Renderer + biology_diagrams registry (24 diagrams)
-│   └── visualization/            # __init__.py: ALL_FIGURE_GENERATORS (18); cvd.py: CVD-friendly palette
+│   │   ├── numerics.py, constants.py
+│   │   ├── chapter_metadata.py, toc.py, curriculum.py, assessment.py
+│   │   ├── current_claims.py, alignment.py, visual_contracts.py
+│   │   ├── crossref/              # package; shim at crossref_validator.py
+│   │   ├── quality/, enrichment/, answer_refinement/, curriculum_sync/
+│   │   └── crossref_validator.py  # re-export shim
+│   ├── textbook_paths.py         # template-root discovery, ensure_project_paths()
+│   ├── textbook_io.py            # atomic text writes
+│   ├── textbook_logging.py       # infrastructure-aware logging fallback
+│   ├── mermaid/                  # diagram_specs.yaml + diagram_spec_loader (24 diagrams)
+│   └── visualization/            # plots_*.py domain modules + plots.py registry + cvd.py
 ├── tests/                        # domain + invariant tests; zero mocks; ≥90 % coverage on src/ (see pytest)
-├── scripts/                      # 31 Python files — see project [AGENTS.md](../AGENTS.md)
+├── scripts/                      # 33 Python files — see project [AGENTS.md](../AGENTS.md)
 ├── manuscript/                   # config.yaml + 11 units + labs + questions + glossary + references.bib
 ├── docs/                         # guides (this directory; see [README.md](README.md))
 ├── output/                       # Generated (disposable)
@@ -39,13 +45,18 @@ biology_textbook/
 | `biology.neuroscience` | `action_potential_hh`, `cable_voltage_attenuation`, `synaptic_current`, `hebbian_weight_update` | `test_microbiology_botany_neuroscience.py` |
 | `biology.chapter_metadata` | `CHAPTERS` list of `ChapterMeta(difficulty, reading_time_min, lecture_time_min, prerequisites)` | `test_chapter_metadata.py` |
 | `biology.toc` | `load_toc()` canonical units, chapters, companion-material titles, and reference appendices | `test_toc_consistency.py` |
+| `biology.curriculum` | `CurriculumRecord`, learning objectives, curriculum scaffold | `test_curriculum_metadata.py` |
+| `biology.assessment` | Question-bank and lab assessment metadata parsers | `test_assessment_metadata.py`, `test_lab_pedagogy_alignment.py` |
+| `biology.current_claims` | `CurrentClaim` ledger loader and validator | `test_current_claims_ledger.py` |
+| `biology.quality` | Umbrella manuscript quality audit engine | `test_textbook_quality_audit.py` |
+| `biology.enrichment` | Embedded frontier/companion enrichment catalog | `test_enrichment_substance_gate.py`, `test_textbook_quality_audit.py` |
 | `biology.crossref_validator` | `validate()`, `scan_file()`, `scan_directory()`, `CrossRefReport` | `test_crossref_validator{,_edges,_internals}.py` |
 
-Overall **`src/`** line + branch coverage is enforced at **≥90 %** via `pyproject.toml` (`fail_under = 90`). Run `uv run pytest tests/ --cov=src` from the project directory for the live report.
+Overall **`src/`** line + branch coverage is enforced at **≥90 %** via `pyproject.toml` (`fail_under = 90`). Run `uv run python -m pytest tests/ --cov=src` from the project directory for the live report.
 
 ## Manuscript invariants as tests
 
-The [`tests/`](../tests/) suite is **27** `test_*.py` files: **six** domain modules (algorithms, Mermaid, matplotlib) plus **twenty-one** manuscript, lab, question, render, current-claim, assessment-alignment, and script-quality invariant modules. Authoritative list and failure-to-fix table: [testing_guide.md](testing_guide.md#test-organisation); the same invariant list appears under “Invariant tests (Stage 2 gate-keepers)” in [pipeline_guide.md](pipeline_guide.md).
+The [`tests/`](../tests/) suite is **31** `test_*.py` files: domain modules plus manuscript, lab, question, render, current-claim, assessment-alignment, maintenance-engine smoke, and script-quality invariant modules. Authoritative list and failure-to-fix table: [testing_guide.md](testing_guide.md#test-organisation); the same invariant list appears under “Invariant tests (Stage 2 gate-keepers)” in [pipeline_guide.md](pipeline_guide.md).
 
 Invariant modules:
 
@@ -97,7 +108,7 @@ Composable authoring depends on a few **bidirectional** links between content an
 | ------ | ------------------- | ------------ |
 | Chapter order & titles | [manuscript/config.yaml](../manuscript/config.yaml) `units[].chapters[]` | [src/biology/chapter_metadata.py](../src/biology/chapter_metadata.py) `CHAPTERS` / `ChapterMeta` — must match; [tests/test_chapter_metadata.py](../tests/test_chapter_metadata.py) |
 | Section cross-refs | `\label{sec:unit_X_<stem>}` / `\cref{sec:...}` | `chapter_id` in `ChapterMeta` equals `unit_X_<stem>`; prerequisites tuple lists other `chapter_id` values (resolved to `\cref` in badges) |
-| Matplotlib figures | `\includegraphics{../figures/...}` + `\label{fig:...}` in chapters | [src/visualization/plots.py](../src/visualization/plots.py) `ALL_FIGURE_GENERATORS` + [cvd.py](../src/visualization/cvd.py) defaults; every registered generator referenced; [tests/test_build_invariants.py](../tests/test_build_invariants.py) |
+| Matplotlib figures | `\includegraphics{../figures/...}` + `\label{fig:...}` in chapters | [src/visualization/plots.py](../src/visualization/plots.py) + domain `plots_*.py` modules; [cvd.py](../src/visualization/cvd.py) palette |
 | Mermaid diagrams | Inline fences and/or generated PNGs | [src/mermaid/biology_diagrams.py](../src/mermaid/biology_diagrams.py) `ALL_BIOLOGY_DIAGRAMS`; [tests/test_mermaid_and_visualization.py](../tests/test_mermaid_and_visualization.py) |
 | Cross-reference graph | `@fig:` / `@eq:`, `{#fig:...}`, raw `\label{}` | [src/biology/crossref_validator.py](../src/biology/crossref_validator.py) `validate()`; [tests/test_crossref_validator\*.py](../tests/) |
 

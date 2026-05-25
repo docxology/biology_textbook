@@ -9,7 +9,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from infrastructure.core.logging.utils import get_logger
+from textbook_logging import get_logger
 
 logger = get_logger(__name__)
 
@@ -289,16 +289,14 @@ def plant_biomass_growth(
     if duration_days <= 0:
         raise ValueError("duration_days must be positive.")
 
-    dt = duration_days / steps
-    times = [0.0]
-    biomass = [initial_biomass_g]
-    W = initial_biomass_g
+    from biology.numerics import euler_integrate_scalar
 
-    for _ in range(steps):
-        dW = relative_growth_rate * W * (1.0 - W / carrying_capacity_g)
-        W = max(0.0, W + dW * dt)
-        times.append(times[-1] + dt)
-        biomass.append(W)
+    times, biomass = euler_integrate_scalar(
+        initial_biomass_g,
+        duration_days,
+        steps,
+        lambda w: relative_growth_rate * w * (1.0 - w / carrying_capacity_g),
+    )
 
     logger.debug(f"Plant growth: final biomass={biomass[-1]:.2f} g at day {duration_days}")
     return PlantGrowthResult(times_days=times, biomass_g=biomass, relative_growth_rate=relative_growth_rate)

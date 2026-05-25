@@ -1,4 +1,4 @@
-# Lab 6 — Cell Structure and Organelles {.unnumbered}
+# Lab — Cell Structure and Organelles {.unnumbered}
 
 \label{sec:lab_unit_II_cell_structure}
 
@@ -38,7 +38,7 @@
 3. Compute total mitochondrial volume in a hepatocyte if each mitochondrion is a 1 µm × 3 µm cylinder and the cell contains 2000 of them. Express as a fraction of a cell with total volume 5000 µm³.
 4. Predict three cell types where you would expect mitochondrial content to approach 40% of cell volume (answer: cardiac muscle, BAT, hepatocytes).
 
-## Background {.unnumbered}
+## Lab Context: Cell Structure and Organelles {.unnumbered}
 
 Eukaryotic cells are organised into membrane-bounded compartments (organelles) that divide labour: the nucleus stores and expresses DNA; the rough ER synthesises membrane and secretory proteins; the Golgi receives, modifies, and sorts vesicle cargo; mitochondria generate ATP via oxidative phosphorylation. The type and abundance of organelles reflects a cell's function — liver hepatocytes are rich in rough ER (secretory proteins) and smooth ER (lipid metabolism); muscle cells are packed with mitochondria; leaf mesophyll cells contain hundreds of chloroplasts.
 
@@ -46,6 +46,7 @@ Eukaryotic cells are organised into membrane-bounded compartments (organelles) t
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Cell Structure and Organelles: cell-atlas or imaging source card: sample, assay, cell-state call, perturbation evidence, and uncertainty | 1 |
 | Transmission electron micrograph (TEM) print packet: plant cell, animal cell, secretory cell, mitochondrion close-up, chloroplast close-up | 1 set |
 | Ruler (mm) | 1 |
 | Scale bar calculator worksheet | 1 |
@@ -60,7 +61,7 @@ Eukaryotic cells are organised into membrane-bounded compartments (organelles) t
 3. **Light microscopy image cards:** Use the onion root tip and pancreas images to identify cells in interphase versus mitosis and secretory acinar cells with abundant granular cytoplasm.
 4. **Card sort:** Deal the function cards (e.g., "exports proteins", "detoxifies drugs", "contains DNA") and assign each to the correct organelle. Record your assignments.
 
-### Part D — Cell-Type Organelle Profile {.unnumbered}
+### Extension — Cell-Type Organelle Profile {.unnumbered}
 
 5. Using the provided TEM images, count or estimate the abundance of each major organelle (rough ER, smooth ER, mitochondria, Golgi, vacuole, chloroplast, peroxisome) for each of: hepatocyte, cardiac myocyte, pancreatic acinar cell, palisade mesophyll cell, skin fibroblast. Fill in the table below (use 0/+/++/+++ rather than precise counts).
 
@@ -139,6 +140,10 @@ The bacterium has an SA:V about 10× larger than the eukaryotic cell (3.0 vs 0.3
 
 **Interpretation:** A small bacterium can move nutrients, gases, and wastes across its plasma membrane fast enough to support whole-cell metabolism by diffusion alone. The 20 μm eukaryotic cell has roughly one-tenth as much membrane per unit volume, so simple plasma-membrane diffusion is insufficient. Eukaryotes recover lost exchange surface by sub-dividing the cytoplasm into membrane-bound organelles (mitochondria, ER, Golgi), each of which contributes its own internal membrane area. Compartmentalisation is partly a geometric response to the diffusion limit on cell size.
 
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Cell Structure and Organelles before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

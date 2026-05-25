@@ -1,5 +1,5 @@
 version: 1
-checked_as_of: '2026-05-20'
+checked_as_of: '2026-05-24'
 policy:
   valid_scientific_absolute: Auditable definition, named technical term, quantitative
     boundary condition, or deliberately qualified scientific statement.

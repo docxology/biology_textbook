@@ -1,4 +1,4 @@
-# Questions — Ch 11: Metabolic Integration and Regulation {.unnumbered}
+# Questions — Metabolic Integration and Regulation {.unnumbered}
 
 \label{sec:q_unit_III_metabolic_integration}
 

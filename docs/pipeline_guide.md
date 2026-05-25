@@ -1,8 +1,8 @@
 # Pipeline Guide
 
-## Overview
+## Pipeline Entry Points
 
-When **`biology_textbook`** is checked out under **`projects/biology_textbook/`** (or under **`projects_in_progress/biology_textbook/`** before promotion), it uses the standard template pipeline (stages [1/9]–[9/9], clean as [0/9]). `./run.sh --project biology_textbook` and `resolve_project_root` prefer `projects/biology_textbook/` when that tree has `src/`, `tests/`, `scripts/`, and `manuscript/`. Run pytest and project-local scripts from the resolved project directory so `pyproject.toml` applies.
+When **`biology_textbook`** is used as an active standalone checkout, run pytest and project-local scripts from this project directory so `pyproject.toml` applies. Template-hosted pipeline entry points such as `./run.sh --project biology_textbook` still resolve the project through the template infrastructure when available.
 
 ```bash
 # From template root
@@ -22,7 +22,7 @@ uv run python scripts/05_copy_outputs.py --project biology_textbook
 | # | Stage | Script | Description |
 |---|-------|--------|-------------|
 | 1 | Setup | `00_setup_environment.py` | Verify Python version, uv, mmdc (Mermaid CLI), LaTeX |
-| 2 | Tests | `01_run_tests.py` | Project test suite (27 test files in-tree); fails if `src/` coverage < 90 % |
+| 2 | Tests | `01_run_tests.py` | Project test suite (31 test files in-tree); fails if `src/` coverage < 90 % |
 | 3 | Analysis | `02_run_analysis.py` | Runs `analysis.scripts` from `manuscript/config.yaml` (`generate_figures.py`, `generate_diagrams.py`, `biology_analysis.py`) → figures and the full ordered textbook are injected into `output/`, `output/analysis_report.json` written |
 | 4 | PDF Render | `03_render_pdf.py` | Pandoc: Markdown → LaTeX → PDF; uses `manuscript/config.yaml`; loads `cleveref` via preamble; invokes `pandoc-crossref` if on PATH |
 | 5 | Validate | `04_validate_output.py` | Checks PDF for `??` unresolved refs, word count, page count |
@@ -49,12 +49,12 @@ Run `uv run python scripts/refine_generated_answers.py --dry-run` after any
 question-bank edits. A clean manuscript reports `refined=0`; any nonzero count
 means legacy/generated answer text should be rewritten before the audit gate.
 
-From `projects/biology_textbook/` (resolved project root):
+From the active project root:
 
 ### Core generators (run before PDF render)
 
 ```bash
-uv run python scripts/generate_figures.py        # 14 matplotlib PNGs into output/figures/
+uv run python scripts/generate_figures.py        # 32 square-padded matplotlib PNGs into output/figures/
 uv run python scripts/generate_diagrams.py       # 24 mermaid diagrams (PNG via mmdc or .mmd fallback)
 uv run python scripts/biology_analysis.py        # inject chapters + references.bib + preamble.md into output/manuscript/
 ```
@@ -79,7 +79,7 @@ These scripts are **idempotent**; running any of them twice leaves the manuscrip
 
 Each helper supports `--dry-run`.
 
-**Full script inventory** (29 `*.py` files: orchestrators, structural maintenance, build-quality helpers, and optional pedagogy utilities): [../scripts/AGENTS.md](../scripts/AGENTS.md).
+**Full script inventory** (32 `*.py` files: orchestrators, structural maintenance, build-quality helpers, and optional pedagogy utilities): [../scripts/AGENTS.md](../scripts/AGENTS.md).
 
 ### Suggested order when changing structure
 
@@ -171,7 +171,7 @@ Fourteen **invariant/quality** `test_*.py` modules (plus six **domain** `test_*.
 | `\bibliographystyle{plainnat}` declared in `preamble.md` | bibtex aborts: "Illegal, another `\bibstyle` command" | **Remove** the line. Pandoc auto-injects it; a double declaration is fatal. |
 | `\includegraphics{output/figures/foo.png}` (absolute-style path) | xelatex: `! LaTeX Error: File '...' not found.` | Use `../figures/foo.png` — paths are relative to `output/manuscript/`, not the source `manuscript/` tree. |
 | Bare `$\alpha$` / `$\beta$` etc. in pipe-table cells | Pandoc emits `\(\alpha)` without closing `\)`; xelatex aborts on the table | Run `scripts/fix_greek_math_prose.py` to replace with Unicode in prose contexts. |
-| `\tag{}` and `\label{}` on the same `$$…$$` line | xelatex: `! Package amsmath Error: \tag not allowed here.` | Promote to `\begin{equation}\tag{...}\label{...}\end{equation}`. See [manuscript_guide.md#equations](manuscript_guide.md#equations). |
+| Manual equation numbering on a `$$…$$` line | xelatex errors or numbering drift | Use a labelled `equation` or `align` environment for numbered display equations; use plain `$$…$$` only for unnumbered display math. See [manuscript_guide.md#equations](manuscript_guide.md#equations). |
 | Hand-typed "Figure 4.2" / "Chapter 11" / "Equation 5.7" in chapter prose | Number drifts when chapters are reordered | Use `\cref{fig:unit_X_<descriptor>}`, `\cref{sec:unit_X_<stem>}`, or `\cref{eq:unit_X_<descriptor>}`; `cleveref` injects the right number and the cross-reference validator rejects hard-coded rendered numbers. |
 | `mmdc` missing on CI | PDF rendering fails before Pandoc when inline Mermaid fences are present | Install Mermaid CLI on the build host. Registry diagrams can still be regenerated with `scripts/generate_diagrams.py`; inline diagrams render strictly during PDF preprocessing. |
 | Mermaid label with unquoted `(`, `)`, `:` | mmdc render fails with parse error | Wrap label: `A["Glucose (C6H12O6)"]`. |

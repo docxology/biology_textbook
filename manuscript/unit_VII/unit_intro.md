@@ -71,9 +71,9 @@ graph TD
     style MICRO fill:#27ae60,color:#fff
     style SIR fill:#f39c12,color:#fff
 ```
-<!-- alt: Graph showing amerefsec:unit_VII_unit_intro concept map — Microbiology. Red = bacteria; purple = viruses; green = microbiome; orange = epidemiological models. -->
+<!-- alt: Graph showing microbiology concept map — red = bacteria; purple = viruses; green = microbiome; orange = epidemiological models. -->
 
-*\nameref{sec:unit_VII_unit_intro} concept map — Microbiology. Red = bacteria; purple = viruses; green = microbiome; orange = epidemiological models.*
+*Microbiology concept map — red = bacteria; purple = viruses; green = microbiome; orange = epidemiological models.*
 
 ---
 

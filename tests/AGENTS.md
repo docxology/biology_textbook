@@ -9,13 +9,13 @@ Coverage and test count change with the suite; run with `--cov=src` to see curre
 ## Running
 
 ```bash
-cd projects_in_progress/biology_textbook
-uv run pytest tests/ --cov=src --cov-fail-under=90
+cd /path/to/biology_textbook
+uv run python -m pytest tests/ --cov=src --cov-fail-under=90
 ```
 
 ## Files
 
-**27** `test_*.py` files + `conftest.py` — see [../docs/testing_guide.md](../docs/testing_guide.md#test-organisation) for the same split.
+**31** `test_*.py` files + `conftest.py` — see [../docs/testing_guide.md](../docs/testing_guide.md#test-organisation) for the same split.
 
 ### Domain tests (6 modules + conftest)
 
@@ -29,7 +29,7 @@ uv run pytest tests/ --cov=src --cov-fail-under=90
 | `test_mermaid_and_visualization.py` | Diagram renderer and PNG outputs |
 | `test_coverage_gap.py` | Error paths and low-coverage branches |
 
-### Invariant and quality tests (21)
+### Invariant and quality tests (25 modules)
 
 | Module | Scope |
 | ------ | ----- |
@@ -52,6 +52,10 @@ uv run pytest tests/ --cov=src --cov-fail-under=90
 | `test_pdf_log_quality.py` | PDF-log checker catches undefined references and severe overfull boxes |
 | `test_pdf_opening_and_mermaid.py` | Book opening, cover asset, and inline Mermaid rendering contracts |
 | `test_question_answer_refinement.py` | Generated answer refinement remains idempotent and preserves hand-written answers |
+| `test_logging_compat.py` | Logging helper compatibility across checkout layouts |
+| `test_maintenance_engine_smoke.py` | Smoke imports for extracted maintenance engines under `src/biology/` |
+| `test_textbook_paths.py` | Checkout path discovery, `ensure_project_paths()`, and template-root resolution |
+| `test_chapter_pedagogy_coverage.py` | REVIEW §7 pedagogy locks: worked-example floor, Concept-Check density, Bloom diversity, LO count |
 | `test_script_quality.py` | Scripts parse cleanly and avoid hard-coded local checkout paths or obsolete clones |
 | `test_textbook_quality_audit.py` | Umbrella textbook-quality audit: stale claims, copyedit artifacts, enrichment presence, and current-source locks |
 

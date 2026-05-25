@@ -1,4 +1,4 @@
-# Questions — Ch 30: Action Potentials and Synaptic Transmission {.unnumbered}
+# Questions — Action Potentials and Synaptic Transmission {.unnumbered}
 
 \label{sec:q_unit_IX_action_potential_synapses}
 

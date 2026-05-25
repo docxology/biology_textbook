@@ -71,9 +71,9 @@ graph TD
     style ECO fill:#e67e22,color:#fff
     style CONS fill:#e74c3c,color:#fff
 ```
-<!-- alt: Graph showing amerefsec:unit_X_unit_intro concept map — Ecology. Green = population; blue = community; orange = ecosystem; red = conservation. -->
+<!-- alt: Graph showing ecology concept map — green = population; blue = community; orange = ecosystem; red = conservation. -->
 
-*\nameref{sec:unit_X_unit_intro} concept map — Ecology. Green = population; blue = community; orange = ecosystem; red = conservation.*
+*Ecology concept map — green = population; blue = community; orange = ecosystem; red = conservation.*
 
 ---
 

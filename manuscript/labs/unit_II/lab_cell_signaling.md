@@ -1,4 +1,4 @@
-# Lab 8 — Cell Signalling and Communication {.unnumbered}
+# Lab — Cell Signalling and Communication {.unnumbered}
 
 \label{sec:lab_unit_II_cell_signaling}
 
@@ -31,7 +31,7 @@
 2. A growth-factor receptor and a hormone receptor both activate downstream kinases. Distinguish how a receptor tyrosine kinase (RTK) initiates signalling from how a G-protein–coupled receptor (GPCR) initiates signalling, naming at least one molecular event unique to each pathway.
 3. Two cell types express the same GPCR yet respond to the same ligand in opposite directions (one secretes, the other contracts). Propose two molecular reasons the downstream effect can differ even when the receptor and ligand are identical.
 
-## Background {.unnumbered}
+## Lab Context: Cell Signalling and Communication {.unnumbered}
 
 Cell signalling enables cells to detect and respond to extracellular information. The three stages are: (1) **Reception** — a ligand binds its receptor (GPCR, RTK, nuclear receptor); (2) **Transduction** — signal is converted and amplified through a cascade of molecular switches; (3) **Response** — altered gene expression, enzyme activity, or cytoskeletal change. Amplification is a key feature: one activated receptor can activate hundreds of G proteins, each activating dozens of adenylate cyclase molecules, each producing thousands of cAMP molecules — giving a cascade amplification of >10⁶.
 
@@ -41,6 +41,7 @@ In this lab you will simulate and calculate signal amplification through a casca
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Cell Signalling and Communication: cell-atlas or imaging source card: sample, assay, cell-state call, perturbation evidence, and uncertainty | 1 |
 | Signal cascade worksheet (instructor-provided: table with step values) | 1 |
 | Calculator | 1 |
 | Graph paper or laptop (for dose-response curve) | 1 |
@@ -126,6 +127,10 @@ Total amplification = 10⁴ = 10,000-fold. One ligand-binding event produces rou
 
 **Interpretation:** Cascade amplification lets cells respond to very low extracellular ligand concentrations — picomolar hormone levels can drive micromolar intracellular effector levels. The same architecture also means that even modest dysregulation early in the cascade (for example, a kinase that hydrolyses GTP too slowly) is multiplied 10⁴-fold downstream, which is one reason many oncogenes and signalling diseases map to early cascade components.
 
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Cell Signalling and Communication before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

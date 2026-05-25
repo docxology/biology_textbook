@@ -37,7 +37,7 @@
 2. A lake receives steady phosphorus runoff for years with little visible change, then shifts abruptly into a turbid eutrophic state. Apply the idea of a tipping point to explain why a small additional input can drive a large outcome here.
 3. Compare a random (Erdős–Rényi) network with a scale-free network in terms of how they respond to the targeted removal of a high-degree node. Which topology tends to be more resilient to random failure, and which is more vulnerable to a directed attack on hubs?
 
-## Background {.unnumbered}
+## Lab Context: Complex Adaptive Systems {.unnumbered}
 
 A **complex adaptive system (CAS)** is a population of agents whose collective behaviour emerges from local rules rather than central control. Examples run from neurons in a cortical circuit to ants in a colony to species in an ecosystem. Two mathematical tools recur across scales:
 
@@ -61,6 +61,7 @@ This lab is paper-based; a calculator and graph paper are the only tools needed.
 - Graph paper (2 sheets per student).
 - Calculator.
 - Coloured pens.
+- Source-governance card for Complex Adaptive Systems: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
 - Worksheet with a blank logistic-map table and a blank phase landscape.
 
 ---
@@ -148,7 +149,11 @@ Before answering the analysis questions, annotate the paper dataset for
 Focus note: Here the reproducibility pass turns on the logistic-map iteration and the hysteresis-loop dataset: record the exact value of $r$ and the seed/initial condition for every trajectory, and for the tipping-point loop note which branch (clear-water versus turbid) you read and the phosphorus level at which the jump occurred, since a different starting point silently changes the conclusion. Keep required work paper-based; any material-handling or
 equipment version belongs only in an optional extension.
 
-### Worked Example {.unnumbered}
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Complex Adaptive Systems before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+
+### Worked Example: Logistic-Map Period Doubling {.unnumbered}
 
 **Problem:** A small quorum-sensing study models 5 bacterial cells as nodes in a graph. The undirected edges (signalling pairs) are: A–B, A–C, B–C, B–D, C–D, D–E. Compute the local clustering coefficient at node B and the average path length between A and E. Local clustering coefficient at a node is C_i = 2·(triangles through i) / (k_i · (k_i − 1)), where k_i is that node's degree.
 

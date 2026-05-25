@@ -41,7 +41,7 @@ build_front_matter_navigation = _sync_script.build_front_matter_navigation
 build_preface_scope_table = _sync_script.build_preface_scope_table
 build_suggested_reading_paths = _sync_script.build_suggested_reading_paths
 build_textbook_concept_map = _sync_script.build_textbook_concept_map
-_section_numbering_directives = _load_script_module("biology_analysis")._section_numbering_directives
+from biology.pipeline.numbering import section_numbering_directives as _section_numbering_directives
 
 
 def _first_h1(path: Path) -> str:
@@ -210,6 +210,39 @@ def test_render_injection_resets_section_numbering_after_unit_zero() -> None:
     assert r"\renewcommand{\thesection}{\arabic{section}}" in directives[
         book_toc.units_by_id["unit_I"].intro_path.resolve()
     ]
+
+
+def test_chapter_badges_match_canonical_format() -> None:
+    """Metadata badges must match insert_chapter_metadata output (no stale ordinals)."""
+    book_toc = load_toc(PROJECT)
+    chapter_map = book_toc.chapters_by_id
+    mismatches: list[str] = []
+    badge_pattern = re.compile(
+        re.escape(_metadata_script._BADGE_MARKER) + r"\n> .*(?=\n|$)",
+        flags=re.MULTILINE,
+    )
+    for chapter in book_toc.chapters:
+        expected = _metadata_script._format_badge(chapter, chapter_map)
+        text = chapter.path.read_text(encoding="utf-8")
+        match = badge_pattern.search(text)
+        if match is None:
+            mismatches.append(f"{chapter.path.relative_to(PROJECT)}: missing badge")
+            continue
+        if match.group(0) != expected:
+            mismatches.append(str(chapter.path.relative_to(PROJECT)))
+    assert not mismatches, f"Stale chapter badges: {mismatches[:5]}"
+
+
+def test_companion_h1s_do_not_embed_chapter_ordinals() -> None:
+    """Lab and question H1s must not bake in Ch N / Lab N ordinals."""
+    offenders: list[str] = []
+    for companion in (*load_toc(PROJECT).labs, *load_toc(PROJECT).questions):
+        h1 = _first_h1(companion.path)
+        if re.search(r"\bCh\s+\d", h1):
+            offenders.append(f"{companion.path.relative_to(PROJECT)}: {h1}")
+        if re.match(r"^Lab\s+\d", h1):
+            offenders.append(f"{companion.path.relative_to(PROJECT)}: {h1}")
+    assert not offenders, offenders[:5]
 
 
 def test_markdown_headings_are_toc_safe() -> None:

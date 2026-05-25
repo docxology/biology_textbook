@@ -6,22 +6,17 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 import re
-import sys
 
+from _bootstrap import PROJECT, ensure_project_paths
 
-PROJECT = Path(__file__).resolve().parent.parent
-SRC = PROJECT / "src"
-TEMPLATE_ROOT = PROJECT.parent.parent
-for path in (TEMPLATE_ROOT, SRC):
-    if str(path) not in sys.path:
-        sys.path.insert(0, str(path))
+ensure_project_paths(include_scripts=True)
 
-from biology.assessment import chapter_learning_objectives  # noqa: E402
-from biology.toc import load_toc  # noqa: E402
+from biology.assessment import chapter_learning_objectives
+from biology.toc import load_toc
 
 try:
     from scripts.atomic_io import write_text_atomic
-except ModuleNotFoundError:  # pragma: no cover - direct script execution fallback
+except ModuleNotFoundError:  # pragma: no cover - direct script execution path
     from atomic_io import write_text_atomic  # type: ignore[import-not-found,no-redef]
 
 

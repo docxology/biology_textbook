@@ -89,13 +89,13 @@ The periodic table remains under-explored for biological innovations. Astrobiolo
 | P | \cref{sec:unit_IV_dna_replication_and_cell_cycle} | \cref{sec:unit_III_bioenergetics_and_respiration} |
 | S | \cref{sec:unit_I_macromolecules} | \cref{sec:unit_III_bioenergetics_and_respiration} |
 | Na, K | \cref{sec:unit_II_membrane_transport} | \cref{sec:unit_IX_nervous_system}; \cref{sec:unit_IX_action_potential_synapses} |
-| Ca | \cref{sec:unit_II_cell_signaling} | \cref{sec:unit_IX_circulation_respiration_homeostasis}; \cref{sec:unit_IX_endocrine_and_immune} |
+| Ca | \cref{sec:unit_II_cell_signaling} | \cref{sec:unit_IX_circulation_respiration_homeostasis}; \cref{sec:unit_IX_immune_system_defense} |
 | Mg | \cref{sec:unit_I_macromolecules} | \cref{sec:unit_III_bioenergetics_and_respiration} |
 | Fe | \cref{sec:unit_III_bioenergetics_and_respiration} | \cref{sec:unit_IX_circulation_respiration_homeostasis} |
 | Cu | \cref{sec:unit_III_bioenergetics_and_respiration} | |
-| Zn | \cref{sec:unit_I_enzymes_and_kinetics} | \cref{sec:unit_IV_epigenetics_and_gene_regulation} |
+| Zn | \cref{sec:unit_I_enzymes_and_kinetics} | \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} |
 | Se | \cref{sec:unit_III_bioenergetics_and_respiration} | |
-| I | \cref{sec:unit_IX_endocrine_and_immune} | |
+| I | \cref{sec:unit_IX_immune_system_defense} | |
 | Co | — | \cref{sec:unit_III_metabolic_integration} |
 
 ---

@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 0.2** · Level 2/3 · 35 min read · 50 min lecture · Prerequisites: \cref{sec:unit_0_systems_science}
+> Level 2/3 · 35 min read · 50 min lecture · Prerequisites: \cref{sec:unit_0_systems_science}
 
 ---
 
@@ -87,9 +87,13 @@ This principle recurs throughout biology:
 
 ### Ant-Colony Optimisation and Stigmergy
 
-Ant foraging is a paradigmatic CAS. An ant deposits a pheromone trail as it returns from a food source; subsequent ants probabilistically follow stronger trails and reinforce them. Shorter trails are reinforced faster (more round-trips per unit time), so the colony progressively converges on near-optimal paths. This **stigmergic** mechanism — communication through environmental modification — has been re-engineered into ant-colony-optimisation algorithms used to route packets in computer networks and schedule jobs in factories. A single ant is nearly random; the colony is a problem-solver.
+Ant foraging is a paradigmatic CAS. An ant deposits a pheromone trail as it returns from a food source; subsequent ants probabilistically follow stronger trails and reinforce them. Shorter trails are reinforced faster (more round-trips per unit time), while pheromone evaporation weakens abandoned routes. The colony therefore converges on near-optimal paths through local reinforcement and decay, not through any ant holding a map.
 
-### Immune Surveillance
+This [**stigmergic**](#gl:stigmergy) mechanism — communication through environmental modification — was named from termite nest-building work and then abstracted into ant-colony-optimisation algorithms for routing, scheduling, and search problems \citep{grasse1959stigmergy,dorigo2004ant}. The lesson is precise: a single ant is noisy and limited, but the colony can act as a distributed solver because the environment stores partial information.
+
+Social insects also make the boundary between organism and collective negotiable. A honeybee swarm deciding where to nest integrates waggle dances, quorum-like thresholds, and inhibitory signals; field tracking confirms that dance-recruited bees fly toward advertised locations rather than merely becoming more active \citep{riley2005flight,seeley2010honeybee}. The colony behaves like a [**superorganism**](#gl:superorganism) as an analogy grounded in task allocation, communication, and colony-level reproduction, not as a claim that the group has a literal brain.
+
+### Immune Surveillance as Distributed Adaptation
 
 Each lymphocyte carries a single antigen receptor specificity. The immune system as a whole performs continuous surveillance not because any cell is "smart" but because billions of differently-specific cells circulate, sample, and clonally expand on contact with cognate antigen. Negative selection in the thymus removes self-reactive clones; affinity maturation in the germinal centre runs micro-evolution within the lymph node. The system has no commander; collective decision emerges from local rules.
 
@@ -114,11 +118,11 @@ graph LR
 
 *Dictyostelium discoideum* (slime mould) spends most of its life as independent amoebae. When starved, individual cells begin secreting cyclic AMP (cAMP), triggering a **collective aggregation** into a multicellular slug and eventually a fruiting body. No single cell plans the fruiting body; the entire developmental programme is orchestrated by local cAMP gradients — a spectacular example of biological self-organisation.
 
-### Termite Mounds
+### Termite Mounds as Collective Construction
 
-Termites build elaborate air-conditioned mounds — up to 9 metres tall — following primarily local construction rules (place soil pellets where you detect a pheromone trail). The architecture emerges from millions of local decisions, not from a blueprint read by any individual termite.
+Termites build elaborate mounds by following primarily local construction rules (place, remove, or reinforce soil pellets where cues indicate work). The architecture emerges from millions of local decisions, not from a blueprint read by any individual termite. Modern mound-physics work shows that the structure can couple wind, solar heating, and internal porosity to gas exchange, so "air conditioning" is an emergent physical consequence of collective construction rather than a designed appliance \citep{ocko2017solar}. Termite mounds are therefore a clean bridge between behaviour, architecture, and physiology: local building rules alter the abiotic environment, and that altered environment feeds back on colony survival.
 
-### Embryonic Development
+### Embryonic Development as Coordinated Self-Organisation
 
 The body plan of a vertebrate emerges from a single fertilised cell through cell division, migration, and differentiation guided by local chemical gradients (morphogens). The French flag model of positional information — cells adopt different fates depending on the local concentration of a morphogen — captures the CAS logic of development.
 
@@ -444,7 +448,7 @@ graph TD
 
 *Cross-scale interactions: upward emergence and downward causation.*
 
-### A Gallery of Agent-Based Models
+### Agent-Based Models Across Biological Scales
 
 | Phenomenon | Agents | Local rules | Emergent property |
 | ---------- | ------ | ----------- | ----------------- |
@@ -487,7 +491,7 @@ These diagnostics turn CAS theory from rhetorical to actionable.
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Complex Adaptive Systems
 
 For **Complex Adaptive Systems**, frontier biology belongs inside the evidence logic of
 the chapter. Systems models are useful when they expose assumptions, uncertainty, and failure modes rather than merely producing elegant diagrams. The core reading question is this: agent rules, heterogeneity, stochasticity, and path dependence make biological prediction conditional rather than absolute.
@@ -503,9 +507,9 @@ the chapter. Systems models are useful when they expose assumptions, uncertainty
   the source closest to the measurement and state what has changed since it was
   published.
 
-Treat every model as a claim about mechanism: define the system boundary, identify the observable that would falsify the model, and report the uncertainty that would change a decision.
+For complexity claims, name the interacting agents, update rule, feedback loop, and attractor or phase-space evidence before treating emergence as more than description.
 
-**Source practice:** Use model-validation sources when available, and state which observation would falsify the model rather than treating a diagram as proof.
+**Source practice:** Pair simulation or network models with empirical traces of local interaction, perturbation, or time-series behaviour; state what simpler linear model would miss.
 
 ## Unit 0 Integration: From Systems to Adaptive Agents
 
@@ -517,7 +521,7 @@ Treat every model as a claim about mechanism: define the system boundary, identi
 
 These commitments are what let CAS connect evolution, immunity, cancer, neural circuits, microbial ecology, and conservation. They also prevent a common overclaim. A system is not complex-adaptive merely because it has many parts. It becomes CAS-like when local adaptive rules, heterogeneity, and path dependence explain a global pattern better than a single representative-agent model.
 
-### Diagnostic workflow
+### Diagnostic Workflow for CAS Explanations
 
 When you meet a later chapter case, ask:
 
@@ -536,13 +540,13 @@ When you meet a later chapter case, ask:
 - Fitness landscapes (Wright's metaphor; Kauffman's NK formalism) capture the structure of adaptive evolution; ruggedness predicts replicate divergence and resistance evolution.
 - Genetic algorithms transplant biological evolution into computational design problems, illustrating that the search-by-variation-and-selection logic is substrate-independent.
 - The logistic map demonstrates that a single nonlinear feedback can produce fixed points, period doubling, and chaos at the Feigenbaum point.
-- Evolution, the immune system, neural networks, and ecosystems are most biological CAS — and so is the engineered swarm of drones, the genetic algorithm, and the social network.
+- Evolution, social-insect colonies, the immune system, neural networks, and ecosystems are major biological CAS — and so are the engineered swarm of drones, the genetic algorithm, and the social network.
 
 ---
 
 ## Key Terms
 
-**complex adaptive system** · **agent** · **stigmergy** · **self-organisation** · **attractor** · **basin of attraction** · **phase space** · **phase transition** · **critical system** · **power law** · **scale-free** · **fitness landscape** · **NK model** · **genetic algorithm** · **logistic map** · **Feigenbaum constant** · **robustness** · **degeneracy** · **limit cycle** · **strange attractor** · **Turing pattern** · **bistable switch** · **hysteresis**
+**complex adaptive system** · **agent** · **stigmergy** · **superorganism** · **self-organisation** · **attractor** · **basin of attraction** · **phase space** · **phase transition** · **critical system** · **power law** · **scale-free** · **fitness landscape** · **NK model** · **genetic algorithm** · **logistic map** · **Feigenbaum constant** · **robustness** · **degeneracy** · **limit cycle** · **strange attractor** · **Turing pattern** · **bistable switch** · **hysteresis**
 
 ---
 
@@ -590,7 +594,7 @@ When you meet a later chapter case, ask:
 
 ---
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Complex Adaptive Systems
 
 - Holland, J. H. (1992). *Adaptation in Natural and Artificial Systems* (2nd ed.) \citep{holland1992}. MIT Press.
 - Kauffman, S. A. (1993). *The Origins of Order: Self-Organisation and Selection in Evolution* \citep{kauffman1993}. Oxford University Press.
@@ -601,7 +605,7 @@ When you meet a later chapter case, ask:
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Complex Adaptive Systems
 
 **Complex Adaptive Systems** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -615,4 +619,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/visualization/plots.py` (`plot_lotka_volterra`, `plot_selection_simulation`) | Inspect how oscillations and allele-frequency trajectories depend on starting conditions. |
 | `src/mermaid/biology_diagrams.py` (`food_web_diagram`, `population_growth_stages_diagram`) | Link network structure to emergent population outcomes. |
 
-**Reproducibility check:** rerun or recalculate a scenario from two initial states and ask whether convergence, hysteresis, or path dependence is doing the explanatory work. **Cross-reference:** use \cref{sec:unit_0_systems_science}, \cref{sec:unit_V_population_genetics}, and \cref{sec:unit_X_community_ecology} as comparison cases.
+**Reproducibility check:** rerun or recalculate a scenario from two initial states and ask whether convergence, hysteresis, or path dependence is doing the explanatory work. **Cross-reference:** use \cref{sec:unit_0_systems_science}, \cref{sec:unit_V_population_genetics}, and \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs} as comparison cases.

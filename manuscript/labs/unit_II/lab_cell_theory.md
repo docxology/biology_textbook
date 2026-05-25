@@ -1,4 +1,4 @@
-# Lab 5 — Cell Theory and Cell Types {.unnumbered}
+# Lab — Cell Theory and Cell Types {.unnumbered}
 
 \label{sec:lab_unit_II_cell_theory}
 
@@ -38,7 +38,7 @@
 3. Look up Robert Hooke (1665) and Antoni van Leeuwenhoek (1673). In 2–3 sentences, explain who saw what first and why both contributed to cell theory.
 4. Predict: at 400× total magnification, how many *Bacillus subtilis* cells (2 µm long) would fit end-to-end across the diameter of the FOV? (Answer: 450 µm / 2 µm ≈ 225 cells.)
 
-## Background {.unnumbered}
+## Lab Context: Cell Theory and Cell Types {.unnumbered}
 
 Cell theory, formalised by Schleiden, Schwann, and Virchow (1838–1855), states that: (1) most living things are composed of cells; (2) the cell is the basic unit of life; and (3) most cells arise from pre-existing cells. Two fundamental cell types exist: **prokaryotes** (Bacteria, Archaea — no nucleus, typically 0.5–5 µm) and **eukaryotes** (Eukarya — membrane-bounded nucleus, 10–100 µm). Light microscopy can resolve features above ~200 nm, allowing clear visualisation of cell walls, chloroplasts, and the nucleus, though the electron microscope is needed for ribosomes and membranes.
 
@@ -46,6 +46,7 @@ Cell theory, formalised by Schleiden, Schwann, and Virchow (1838–1855), states
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Cell Theory and Cell Types: cell-atlas or imaging source card: sample, assay, cell-state call, perturbation evidence, and uncertainty | 1 |
 | Micrograph packet: *Bacillus*, onion epidermis, leaf mesophyll, epithelial cell | 1 |
 | Scale-bar worksheet | 1 |
 | Cell-feature evidence cards | 1 set |
@@ -61,7 +62,7 @@ Cell theory, formalised by Schleiden, Schwann, and Virchow (1838–1855), states
 4. **Animal epithelial micrograph:** Inspect the epithelial-cell image. Identify nucleus, plasma membrane boundary, and lack of cell wall.
 5. For each case, record estimated cell diameter, presence/absence of nucleus, cell wall, chloroplasts, and large vacuole. Flag any feature that cannot be resolved from the image.
 
-### Part D — Microbial Diversity Image Packet {.unnumbered}
+### Extension — Microbial Diversity Image Packet {.unnumbered}
 
 6. Use the printed microbial-diversity packet to compare chain-forming cocci and rod-shaped cells. Sketch both and identify the evidence for prokaryotic organisation.
 7. Estimate cells per field of view from the annotated image grid, then calculate how the estimate would change under a 1:10 dilution. State one counting assumption that affects reproducibility.
@@ -134,6 +135,10 @@ Diffusion time scales with r², so a 10× increase in radius produces a 100× in
 
 **Interpretation:** A small metabolite crosses a 15 μm cell in tens of milliseconds — fast enough that simple diffusion suffices to homogenise concentrations during ordinary metabolism. At 150 μm the same molecule takes several seconds, which is comparable to or longer than many reaction time scales. This r² scaling is one quantitative reason cells tend to be small, and one reason large cells (oocytes, neurons, plant fibres) adopt strategies such as cytoplasmic streaming, internal compartments, or extreme shape changes (e.g. axonal projections) rather than simple size scaling.
 
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Cell Theory and Cell Types before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

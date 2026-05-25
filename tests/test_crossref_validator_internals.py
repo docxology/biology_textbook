@@ -49,8 +49,9 @@ def test_inline_display_eq_with_tag_detected(v, tmp_path: Path) -> None:
     f = tmp_path / "x.md"
     f.write_text("# X\n\n$$ E = mc^2 \\tag{1.1} $$\n\n", encoding="utf-8")
     defined, _, issues = v.scan_file(f)
-    assert any(k == "eq" for k, _ in defined), "tagged equation should be registered"
-    assert not [i for i in issues if i.kind == "equation" and i.problem == "missing_id"]
+    assert not any(k == "eq" for k, _ in defined)
+    assert any(i.kind == "equation" and i.problem == "hardcoded_equation_tag" for i in issues)
+    assert any(i.kind == "equation" and i.problem == "missing_id" for i in issues)
 
 
 def test_inline_display_eq_without_tag_flagged(v, tmp_path: Path) -> None:
@@ -89,6 +90,18 @@ def test_latex_equation_env_with_label_detected(v, tmp_path: Path) -> None:
     )
     defined, _, _ = v.scan_file(f)
     assert ("eq", "relativity") in defined
+
+
+def test_one_line_latex_equation_env_with_label_detected(v, tmp_path: Path) -> None:
+    f = tmp_path / "eq_inline.md"
+    f.write_text(
+        "# E\n\n\\begin{equation}E = mc^2\\label{eq:relativity}\\end{equation}\n\n"
+        "See Sections 2 and 5 for a deliberately bad prose reference.\n",
+        encoding="utf-8",
+    )
+    defined, _, issues = v.scan_file(f)
+    assert ("eq", "relativity") in defined
+    assert any(i.problem == "prose_xref" for i in issues)
 
 
 def test_latex_equation_env_without_label_flagged(v, tmp_path: Path) -> None:
@@ -144,6 +157,61 @@ def test_plain_numbered_xref_patterns_flagged(v, tmp_path: Path) -> None:
     )
     _, _, issues = v.scan_file(f)
     assert any(i.problem == "prose_xref" for i in issues)
+
+
+def test_plural_numbered_xref_lists_are_flagged(v, tmp_path: Path) -> None:
+    f = tmp_path / "plural.md"
+    f.write_text(
+        "# P\n\n"
+        "Sections 2 and 5 introduce the dynamics, while Figures 3.1 and 3.2 show the phase portraits.\n",
+        encoding="utf-8",
+    )
+    _, _, issues = v.scan_file(f)
+    contexts = [i.context for i in issues if i.problem == "prose_xref"]
+    assert contexts
+
+
+def test_raw_latex_ref_commands_are_flagged(v, tmp_path: Path) -> None:
+    f = tmp_path / "rawref.md"
+    f.write_text(
+        "# P\n\n"
+        "Apply the model in Equation~\\eqref{eq:population_genetics_1}, "
+        "Figure~\\ref{fig:example}, Section \\ref{sec:plain_space}, "
+        "and the bare target \\autoref{tbl:plain_table}.\n",
+        encoding="utf-8",
+    )
+    _, _, issues = v.scan_file(f)
+    contexts = [i.context for i in issues if i.problem == "prose_xref"]
+    assert contexts and "\\autoref{tbl:plain_table}" in contexts[0]
+
+
+def test_inline_dollar_equation_with_tag_and_label_is_flagged(v, tmp_path: Path) -> None:
+    f = tmp_path / "tag_label.md"
+    f.write_text(
+        "# P\n\n"
+        r"$$ p^2 + 2pq + q^2 = 1 \tag{18.1} \label{eq:population_genetics_1}$$"
+        "\n",
+        encoding="utf-8",
+    )
+    _, _, issues = v.scan_file(f)
+    assert any(i.problem == "tag_label_dollar_equation" for i in issues)
+    assert any(i.problem == "hardcoded_equation_tag" for i in issues)
+
+
+def test_latex_equation_environment_with_tag_is_flagged(v, tmp_path: Path) -> None:
+    f = tmp_path / "env_tag.md"
+    f.write_text(
+        "# P\n\n"
+        "\\begin{equation}\n"
+        "x = y\n"
+        "\\tag{2.4}\n"
+        "\\label{eq:manual_tag}\n"
+        "\\end{equation}\n",
+        encoding="utf-8",
+    )
+    defined, _, issues = v.scan_file(f)
+    assert ("eq", "manual_tag") in defined
+    assert any(i.kind == "equation" and i.problem == "hardcoded_equation_tag" for i in issues)
 
 
 def test_at_ref_collection(v, tmp_path: Path) -> None:

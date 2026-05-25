@@ -1,10 +1,19 @@
 # Microbial Ecology and the Microbiome
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/mic_dilution_series.png}
+\caption{Serial two-fold broth dilution series for minimum inhibitory concentration (MIC) testing. Antibiotic concentration halves in each successive tube from the starting stock.}
+\label{fig:unit_VII_mic_dilution_series}
+\end{figure}
+
+<!-- alt: Log-scaled bar chart of antibiotic concentration across eight serial dilution tubes. -->
+
 \label{sec:unit_VII_microbial_ecology}
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 23** · Level 2/3 · 60 min read · 75 min lecture · Prerequisites: \cref{sec:unit_VII_bacteria_archaea_viruses}
+> Level 2/3 · 60 min read · 75 min lecture · Prerequisites: \cref{sec:unit_VII_bacteria_archaea_viruses}
 
 ## Learning Objectives
 
@@ -41,7 +50,7 @@ By the end of this chapter, you should be able to:
 > 
 > For decades, textbooks cited the figure that the human body contains ten times more bacterial cells than human cells. In 2016, Sender, Fuchs, and Milo published a careful recalculation: the ratio is approximately 1:1, with roughly 38 trillion bacteria and 30 trillion human cells \citep{sender2016cells}. But the bacteria contribute only about 0.2 kg of body mass, compared to 70 kg of self. What changed science was not the ratio but the Human Microbiome Project (2007–2016), which used 16S rRNA sequencing and shotgun metagenomics to map healthy human-associated microbial communities across body sites \citep{hmp2012structure}. The project revealed that gut microbiome composition influences immunity, metabolism, neurotransmitter production, and drug efficacy — and differs between individuals as distinctly as a fingerprint. The microbiome is now recognised as an additional organ, and its disruption (dysbiosis) is linked to inflammatory bowel disease, obesity, depression, and antibiotic-associated colitis. We are ecosystems, not individuals.
 
-## Microbial Ecology Approaches
+## Measuring Microbial Communities Across Scales
 
 ### The Great Plate Count Anomaly
 
@@ -126,8 +135,10 @@ flowchart LR
 3. **Library preparation and sequencing** — Illumina MiSeq 2 × 300 bp is standard; ~ 100 000 reads/sample is typical for diversity analyses, with ~ 10 × that needed to detect rare taxa.
 4. **Quality filtering** — trim adapters and primers; discard reads with average Q < 25 or expected errors > 1.
 5. **OTU clustering vs ASV inference** — see comparison below.
-6. **Taxonomic assignment** — match representative sequences against reference databases (SILVA 138, Greengenes2, RDP) using naive Bayes (RDP classifier) or k-mer methods (VSEARCH); confidence threshold typically 80 %.
+6. **Taxonomic assignment** — match representative sequences against reference databases (SILVA 138.2, Greengenes2, RDP) using naive Bayes (RDP classifier) or k-mer methods (VSEARCH); confidence threshold typically 80 % \citep{chuvochina2025silva2026}.
 7. **Diversity analyses and statistics** — alpha (within-sample) and beta (between-sample) diversity, with multiple-comparison correction.
+
+Taxonomy itself is now a versioned data product. GTDB release R10-RS226 organized 715,230 bacterial and 17,245 archaeal genomes into 136,646 bacterial and 6,968 archaeal species clusters, using average nucleotide identity for species and relative evolutionary divergence on marker-gene trees for higher ranks \citep{parks2026gtdb}. That makes a microbial name an evidence claim: reports should state the database and release used, especially when MAGs or uncultured lineages drive the biological conclusion.
 
 ### OTU vs ASV: A Decade-Long Methodological Shift
 
@@ -165,7 +176,7 @@ Modern best practice: report results from both approaches, confirm robustness, a
 > **Concept Check 1b:**
 > A reviewer criticises a 2016 microbiome paper for using 97 %-identity OTU clustering instead of ASVs. The authors respond that re-running with DADA2 gives the same overall conclusions. Explain (a) what the reviewer's underlying concern is, (b) why the conclusions might still be the same in this case, and (c) one biological situation where OTU vs ASV could change a paper's conclusions.
 
-### Diversity Metrics
+### Diversity Metrics for Microbial Communities
 
 Quantifying microbial community diversity requires mathematical frameworks borrowed from classical ecology. Diversity has two components — **richness** (how many distinct taxa?) and **evenness** (how uniformly are they distributed?) — and most metrics are weighted combinations of these.
 
@@ -302,13 +313,13 @@ The Chao1 estimator predicts that the true species richness is **195 species**. 
 
 ## The Human Microbiome
 
-### Overview
+### Human Microbiome Scale, Body-Site Ecology, and Gene Content
 
 The human body harbors approximately $3.8 \times 10^{13}$ bacterial cells -- close to the number of human somatic cells ($3.0$-$3.7 \times 10^{13}$, depending on counting assumptions) \citep{sender2016cells}. The microbial gene catalog is far larger: millions of microbial genes compared to approximately 20,000 human [**protein**](#gl:protein)-coding genes. This "second genome" provides metabolic capabilities that human cells lack, effectively extending our biochemical repertoire.
 
 The total mass of the human microbiome is approximately 200 g, predominantly residing in the colon. Each body site harbors a distinct microbial community shaped by local environmental conditions ([**pH**](#gl:ph), oxygen, moisture, nutrient availability, immune surveillance).
 
-### Gut Microbiome
+### Gut Microbiome Gradients and Functional Guilds
 
 The gastrointestinal tract represents the densest microbial habitat on the human body, with a gradient from relatively sparse colonization in the stomach ($10^1$-$10^3$ bacteria/mL, limited by gastric acid) to extraordinary density in the colon ($10^{11}$ bacteria/mL -- approaching the theoretical packing limit for bacterial cells).
 
@@ -344,7 +355,7 @@ Two complementary frameworks describe gut-microbiome composition:
 - ***Lactobacillus rhamnosus*** GG — adheres to epithelium, secretes p40/p75 proteins that promote tight-junction integrity; the most-studied probiotic strain in clinical use.
 - ***Roseburia intestinalis*** — secondary butyrate producer via the butyrate-CoA-transferase pathway; depleted with fiber-poor diets.
 
-### Oral Microbiome
+### Oral Microbiome and Biofilm Niches
 
 The oral cavity harbors over 700 species across distinct habitats (teeth, gingival crevice, tongue dorsum, buccal mucosa, hard palate). Key species include:
 
@@ -352,7 +363,7 @@ The oral cavity harbors over 700 species across distinct habitats (teeth, gingiv
 - *Porphyromonas gingivalis*: Keystone pathogen in chronic periodontitis; produces gingipain proteases that degrade host tissues and subvert complement
 - *Fusobacterium nucleatum*: Bridge organism in dental plaque biofilm formation; recently implicated as enriched in colorectal cancer tumors
 
-### Skin Microbiome
+### Skin Microbiome Across Moist, Dry, and Sebaceous Sites
 
 The skin (about 1.5 m$^2$ surface area) harbors $10^4$-$10^6$ bacteria per cm$^2$, with community composition varying by microenvironment:
 
@@ -360,7 +371,7 @@ The skin (about 1.5 m$^2$ surface area) harbors $10^4$-$10^6$ bacteria per cm$^2
 - **Moist sites** (axillae, groin, toe web): *Staphylococcus*, *Corynebacterium*; body odor results from bacterial metabolism of apocrine sweat components
 - **Dry sites** (forearm, leg): Most diverse; *Cutibacterium*, *Staphylococcus*, *Micrococcus*
 
-### Vaginal Microbiome
+### Vaginal Microbiome and Lactobacillus-Dominated Protection
 
 In reproductive-age women, the vaginal microbiome is typically dominated by *Lactobacillus* species (L. crispatus, L. iners, L. gasseri, L. jensenii), which maintain a protective low pH (~3.8-4.5) through lactic acid production. They also produce hydrogen peroxide and bacteriocins that inhibit pathogen colonization.
 
@@ -397,7 +408,7 @@ Host-microbiome interaction is mediated by three classes of molecular interface:
 
 Butyrate has been called a "molecular bridge" between microbiome and host because it can engage four mechanisms simultaneously: G-protein-coupled signalling (GPR41/43/109A), epigenetic regulation (HDAC inhibition), mitochondrial fuel (β-oxidation provides ~ 70 % of colonocyte ATP), and Treg differentiation (via GPR109A and HDAC-dependent FoxP3 upregulation). Butyrate concentrations in the colonic lumen reach 10–20 mM — 1000× higher than in serum, justifying the local-action interpretation.
 
-### Metabolic Functions
+### Metabolic Functions of Microbial Communities
 
 The gut microbiome functions as a metabolic organ, performing biochemical transformations that human cells cannot:
 
@@ -466,7 +477,7 @@ graph LR
 
 **Drug metabolism**: The gut microbiome can profoundly affect drug pharmacokinetics through first-pass microbial biotransformation. The cardiac glycoside digoxin is inactivated by *Eggerthella lenta*; the anti-cancer prodrug irinotecan is reactivated to its toxic form by bacterial β-glucuronidase, causing severe diarrhea; the Parkinson's drug L-DOPA is decarboxylated by gut bacteria, reducing its bioavailability.
 
-### Immune Development
+### Immune Development Shaped by Early Microbial Exposure
 
 The microbiome is essential for proper immune system development. Germ-free mice (raised in sterile isolators) exhibit:
 
@@ -491,7 +502,7 @@ The bidirectional communication network between the gut microbiome and the centr
 
 Experimental evidence includes dramatic behavioral differences in germ-free mice (increased anxiety-like behavior in some strains, decreased in others), which can be partially normalized by colonization with specific probiotic strains (*Lactobacillus rhamnosus* JB-1 reduces anxiety-like behavior via vagal signaling).
 
-### Colonization Resistance
+### Colonization Resistance Against Pathogen Invasion
 
 The resident microbiota provides a critical defense against pathogen colonization through multiple mechanisms:
 
@@ -554,13 +565,19 @@ Broad-spectrum antibiotics cause profound disruption of the gut microbiome that 
 
 ---
 
-## Environmental Microbiology
+## Environmental Microbiology Across Soil, Ocean, and Biofilms
 
-### Soil Microbiology
+### Soil Microbiology and Rhizosphere Processes
 
 Soil is among Earth's most microbially diverse habitats, containing roughly $10^8$-$10^9$ bacterial cells per gram and thousands to tens of thousands of amplicon sequence variants per gram depending on soil type, sequencing depth, and the taxonomic cutoff used. The dominant phyla often include Proteobacteria, Firmicutes, Actinobacteria, Bacteroidetes, and Acidobacteria, but relative abundances shift strongly with pH, moisture, carbon input, and land management.
 
 Soil microorganisms drive global carbon decomposition, nitrogen cycling, phosphorus solubilization, and organic matter turnover. The **rhizosphere** (soil zone immediately surrounding plant roots) is a hotspot of microbial activity, enriched 10-100 fold compared to bulk soil, driven by root exudates (sugars, amino acids, organic acids) that feed microbial communities.
+
+### Termite Guts as Lignocellulose Bioreactors
+
+Termites make microbial ecology visible at animal scale. Wood and grass are dominated by lignocellulose, a polymer-rich substrate that most animals cannot digest alone. Termite hindguts solve that problem by housing dense consortia of protists, bacteria, and archaea that hydrolyse cellulose and hemicellulose, ferment sugars to acetate used by the host, recycle hydrogen through methanogenesis or reductive acetogenesis, and supply nitrogen through fixation and recycling pathways \citep{brune2014symbiotic}. The termite is therefore not just an insect consumer; it is a mobile anaerobic bioreactor whose microbial partners connect plant litter to carbon, methane, and nitrogen cycling.
+
+This example also clarifies symbiosis as a systems claim. Removing the gut community removes a metabolic capability, while changing diet, oxygen gradients, or host lineage changes the community. The unit of function is host plus microbiome, and the relevant evidence is not just "who is there" by 16S sequencing but which enzymes, redox reactions, and fermentation products actually move carbon and nitrogen.
 
 ### Marine and Environmental Microbiome Diversity
 
@@ -577,7 +594,7 @@ Microbial diversity in environmental systems dwarfs that of multicellular life. 
 
 **Hydrothermal vents.** Chemolithoautotrophic communities at hydrothermal vents form the base of food webs completely independent of sunlight. Sulfur-oxidizing bacteria (*Thiomicrospira*, *Beggiatoa*) and hydrogen-oxidizing archaea (*Methanopyrus*) sustain ecosystems including tube worms (*Riftia pachyptila*, which lack a digestive system and rely entirely on endosymbiotic sulfur-oxidizing bacteria housed in a specialized organ called the trophosome).
 
-### Microbial Biogeochemistry
+### Microbial Biogeochemistry in Carbon, Nitrogen, and Sulfur Cycles
 
 Microbes catalyse virtually every redox transformation of nitrogen, sulfur, and carbon at the global scale. The key enzymatic steps are now well-characterised, each linked to a marker gene that ecologists use to track the corresponding flux in environmental DNA.
 
@@ -621,7 +638,7 @@ The **kill-the-winner (KTW) hypothesis** (Thingstad, 2000) explains why marine m
 
 The dynamics are analogous to Lotka–Volterra predator–prey cycles but with one twist: phage population growth is bursty (each successful infection produces ~ 50–500 progeny in ~ 30 minutes), giving boom-and-bust cycles superimposed on the long-term equilibrium. **Cyanophage-cyanobacteria oscillations** in the ocean have been directly observed via metagenomics, with measurable phage-mediated turnover of *Prochlorococcus* populations every few days. KTW is now considered as fundamental as competitive exclusion for understanding microbial-community structure: the predator-mediated maintenance of diversity that ecologists discovered in macroscopic systems (Paine's keystone-predator experiments) operates equally — perhaps more strongly — in microbial systems.
 
-### Biofilms
+### Biofilms as Structured Microbial Communities
 
 Over 80% of bacteria in natural environments exist in **biofilms** -- structured communities enclosed in a self-produced extracellular polymeric substance (EPS) matrix of polysaccharides, proteins, extracellular DNA (eDNA), and lipids.
 
@@ -635,6 +652,8 @@ Biofilm formation proceeds through five stages:
 
 Biofilms are **10-1,000-fold more antibiotic-resistant** than planktonic cells due to:
 
+\cref{fig:unit_VII_mic_dilution_series} illustrates the serial two-fold dilution layout used to determine minimum inhibitory concentration (MIC) in broth assays.
+
 - EPS barrier limiting antibiotic diffusion
 - Metabolically dormant persister cells (not susceptible to growth-dependent antibiotics)
 - Local accumulation of resistance enzymes (β-lactamases in the matrix)
@@ -642,7 +661,7 @@ Biofilms are **10-1,000-fold more antibiotic-resistant** than planktonic cells d
 
 Clinical impact: ~80% of chronic bacterial infections involve biofilms (CDC), including cystic fibrosis lung infections (*Pseudomonas aeruginosa*), dental plaque, prosthetic joint infections, catheter-associated UTIs, and endocarditis.
 
-### Quorum Sensing
+### Quorum Sensing and Density-Dependent Gene Regulation
 
 **Quorum sensing (QS)** is a cell density-dependent communication system in which bacteria produce and detect small signaling molecules (**autoinducers**) that accumulate as the population grows. When autoinducer concentration exceeds a threshold, coordinate gene expression is triggered across the population:
 
@@ -687,7 +706,7 @@ sequenceDiagram
 | AI-2 (LuxS) | Furanosyl borate diester | Cross-species (most bacteria with LuxS) | Interspecies communication |
 | PQS | 2-heptyl-3-hydroxy-4-quinolone | *P. aeruginosa* | Iron acquisition, virulence |
 
-### Bioremediation
+### Bioremediation and Engineered Microbial Metabolism
 
 Microorganisms can be harnessed to degrade environmental pollutants:
 
@@ -704,13 +723,13 @@ Microorganisms can be harnessed to degrade environmental pollutants:
 > **Concept Check 4b:**
 > Marine *Prochlorococcus* populations oscillate with their cyanophages on a ~ 5–7 day cycle, while their Shannon diversity (~ 1.5 nats) is approximately constant. Use the kill-the-winner framework to (a) explain why high overall diversity is maintained despite a single species dominating numerically, (b) predict what happens to phage population during a *Prochlorococcus* crash, and (c) describe how a metagenomic time-series experiment could test these predictions.
 
-> **Concept Check (Synthesis — Syntrophic Coupling and Obligate Cooperation):** In anaerobic sediments, **acetate oxidation** to CO$_2$ and H$_2$ has a standard Gibbs free energy of $\Delta G^\circ' = +104$ kJ/mol — strongly **endergonic** under standard conditions. The reaction therefore cannot proceed unless **H$_2$ is kept at extremely low partial pressures** (typically below ~10 Pa) by a syntrophic partner that consumes it: a **hydrogenotrophic methanogen** (e.g., *Methanobacterium*) catalysing CO$_2$ + 4 H$_2$ → CH$_4$ + 2 H$_2$O ($\Delta G^\circ' = -131$ kJ/mol). The two reactions coupled give a small but favourable net $\Delta G^\circ' \approx -27$ kJ/mol, sufficient to drive both partners' metabolism. (a) **Synthesise how this obligate syntrophic coupling parallels eukaryotic intracellular compartmentalisation.** Eukaryotic cells use organelle compartments (mitochondria, peroxisomes) to keep incompatible reactions spatially segregated and pool resources across compartments; syntrophic bacteria and methanogens accomplish the same by **interspecies hydrogen transfer (IHT)** — H$_2$ produced by the bacterium diffuses through a few micrometres of intercellular space and is immediately consumed by the methanogen, the spatial proximity functioning as a "metabolic compartment" without a single-cell boundary. (b) **Quantitatively justify** why ~10 Pa H$_2$ is the threshold: at this pressure, the H$_2$ term in the Nernst-style equation for $\Delta G$ (acetate oxidation) drops below the methanogen H$_2$-consumption $\Delta G$, making the coupled system favourable. (c) **Predict the experimental consequence of inhibiting methanogenesis** with **2-bromoethanesulfonate (BES)** — a structural analog of methyl-CoM that competitively inhibits the methyl-CoM reductase (Mcr) enzyme. Trace through: (i) BES blocks H$_2$ consumption by the methanogen; (ii) H$_2$ partial pressure rises rapidly above 10 Pa; (iii) acetate oxidation becomes thermodynamically infeasible and stops; (iv) the syntrophic bacterium starves; (v) within hours both partners' growth ceases. **Both populations collapse**, not just the methanogen — demonstrating that the cooperation is obligate, not facultative. (d) **Connect to the origin of eukaryotes**: the syntrophy hypothesis of eukaryogenesis (Martin & Müller 1998) proposes that the original endosymbiotic relationship between archaeal host and α-proteobacterial ancestor of mitochondria was exactly this kind of H$_2$ exchange — formalising the parallel between extracellular syntrophy and intracellular metabolic compartmentalisation.
+> **Concept Check (Synthesis — Syntrophic Coupling and Obligate Cooperation):** In anaerobic sediments, **acetate oxidation** to CO$_2$ and H$_2$ has a standard Gibbs free energy of $\Delta G^{\circ\prime} = +104$ kJ/mol — strongly **endergonic** under standard conditions. The reaction therefore cannot proceed unless **H$_2$ is kept at extremely low partial pressures** (typically below ~10 Pa) by a syntrophic partner that consumes it: a **hydrogenotrophic methanogen** (e.g., *Methanobacterium*) catalysing CO$_2$ + 4 H$_2$ → CH$_4$ + 2 H$_2$O ($\Delta G^{\circ\prime} = -131$ kJ/mol). The two reactions coupled give a small but favourable net $\Delta G^{\circ\prime} \approx -27$ kJ/mol, sufficient to drive both partners' metabolism. (a) **Synthesise how this obligate syntrophic coupling parallels eukaryotic intracellular compartmentalisation.** Eukaryotic cells use organelle compartments (mitochondria, peroxisomes) to keep incompatible reactions spatially segregated and pool resources across compartments; syntrophic bacteria and methanogens accomplish the same by **interspecies hydrogen transfer (IHT)** — H$_2$ produced by the bacterium diffuses through a few micrometres of intercellular space and is immediately consumed by the methanogen, the spatial proximity functioning as a "metabolic compartment" without a single-cell boundary. (b) **Quantitatively justify** why ~10 Pa H$_2$ is the threshold: at this pressure, the H$_2$ term in the Nernst-style equation for $\Delta G$ (acetate oxidation) drops below the methanogen H$_2$-consumption $\Delta G$, making the coupled system favourable. (c) **Predict the experimental consequence of inhibiting methanogenesis** with **2-bromoethanesulfonate (BES)** — a structural analog of methyl-CoM that competitively inhibits the methyl-CoM reductase (Mcr) enzyme. Trace through: (i) BES blocks H$_2$ consumption by the methanogen; (ii) H$_2$ partial pressure rises rapidly above 10 Pa; (iii) acetate oxidation becomes thermodynamically infeasible and stops; (iv) the syntrophic bacterium starves; (v) within hours both partners' growth ceases. **Both populations collapse**, not just the methanogen — demonstrating that the cooperation is obligate, not facultative. (d) **Connect to the origin of eukaryotes**: the syntrophy hypothesis of eukaryogenesis (Martin & Müller 1998) proposes that the original endosymbiotic relationship between archaeal host and α-proteobacterial ancestor of mitochondria was exactly this kind of H$_2$ exchange — formalising the parallel between extracellular syntrophy and intracellular metabolic compartmentalisation.
 
 ---
 
-## Microbial Biotechnology
+## Microbial Biotechnology for Production and Environmental Engineering
 
-### Industrial Fermentation
+### Industrial Fermentation and Metabolic Control
 
 Microorganisms have been harnessed for food production for millennia, and modern biotechnology has expanded their applications enormously:
 
@@ -733,7 +752,7 @@ The current frontier is less about replacing fermentation with a new idea and mo
 - **Erythropoietin (EPO)**: Stimulates red blood cell production; produced in CHO (Chinese hamster ovary) cells for proper glycosylation
 - **Hepatitis B [**vaccine**](#gl:vaccine)**: Recombinant HBsAg produced in yeast (*Saccharomyces cerevisiae*) -- the first recombinant vaccine
 
-### Environmental Biotechnology
+### Environmental Biotechnology and Waste-Stream Remediation
 
 - **Biogas production**: Anaerobic digestion by methanogenic archaea converts organic waste to methane for energy; widely used in wastewater treatment and agricultural waste management
 - **Constructed wetlands**: Engineered ecosystems using microbial communities for water purification
@@ -762,7 +781,7 @@ print(round(res.shannon_index, 3), res.species_richness)
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Microbial Ecology and the Microbiome
 
 For **Microbial Ecology and the Microbiome**, frontier biology belongs inside the evidence logic of
 the chapter. Microbiology and infectious disease now require One Health reasoning across people, animals, environments, genomics, and antimicrobial stewardship. The core reading question is this: microbiome claims should distinguish correlation, mechanism, host context, perturbation, and causality.
@@ -778,9 +797,9 @@ the chapter. Microbiology and infectious disease now require One Health reasonin
   the source closest to the measurement and state what has changed since it was
   published.
 
-For AMR and pathogen claims, name the organism-resistance pair, the selection pressure, the transmission route, and the surveillance evidence that would change triage \citep{who2024bppl,cdc2025antibioticuse,murray2022amr}.
+For resistance or outbreak claims, name the organism, determinant, selection pressure, transmission route, and surveillance evidence \citep{who2024bppl,cdc2025antibioticuse,murray2022amr}.
 
-**Source practice:** For pathogen, AMR, and intervention claims, tie statements to organism-resistance pairs, surveillance evidence, official guidance, and trial/regulatory status \citep{who2024bppl,who2025tb,who2025malaria,cdc2025lenacapavirprep,cdc2026candidaauris}.
+**Source practice:** For pathogen, resistance, and intervention claims, tie statements to organism-resistance pairs, surveillance evidence, official guidance, and trial/regulatory status \citep{who2024bppl,who2025tb,who2025malaria,cdc2025lenacapavirprep,cdc2026candidaauris}.
 
 ### Current Evidence Map: Microbiome Causality Ladder
 
@@ -803,11 +822,11 @@ flowchart TD
 - **Diversity metrics**: Alpha diversity quantifies within-sample diversity. Shannon entropy $H' = -\sum p_i \ln p_i$ (\cref{eq:unit_VII_shannon}), Simpson index λ and inverse Simpson $1/\lambda$, Chao1 richness, and Faith's PD weight richness and evenness differently. Beta diversity (Bray-Curtis, UniFrac, Jaccard) quantifies between-sample differences. Rarefaction curves diagnose sampling depth.
 - The **human microbiome** ($3.8 \times 10^{13}$ cells, 3.3 million genes) varies by body site. The gut microbiome (Firmicutes, Bacteroidetes dominant) has a small **species-level core** but a large **functional core**; *Akkermansia muciniphila*, *F. prausnitzii*, *B. fragilis*, and *Roseburia* are keystone taxa. Microbial SCFAs (butyrate as colonocyte fuel, HDAC inhibitor, GPR109A agonist; propionate via GPR41/43; acetate as systemic fuel) signal through three GPCRs and HDAC. Pattern-recognition receptors (TLR2/4/5, NOD1/2, AhR) read the microbial milieu in real time, with PSA from *B. fragilis* a striking example of microbial control of Tregs.
 - **Dysbiosis** is associated with obesity (functional polysaccharide-degradation gene shift; F/B ratio is method-sensitive and not a reliable single biomarker), IBD (reduced *F. prausnitzii*, reduced butyrate), colorectal cancer (*F. nucleatum* enrichment), and antibiotic-induced *C. difficile* infection (FMT achieves >90% cure).
-- **Environmental microbiology**: Soil harbors $10^8$-$10^9$ bacteria/g; ocean contains *Prochlorococcus* (~ $10^{27}$ cells, 20 % of global primary production) and SAR11 (~ $10^{28}$ cells); deep biosphere holds another $10^{29}$ cells. **[Nitrogen fixation](#gl:nitrogen-fixation)** by nitrogenase requires 16 ATP per N$_2$ and O$_2$ protection. The microbial nitrogen cycle is tracked by *nifH* (fixation), *amoA* (nitrification), *nosZ* (denitrification), and *hzsA* (anammox); sulfur by *dsrA* and *soxB*; carbon by *mcrA* (methanogenesis) and various CO$_2$-fixation markers. **Anammox** accounts for 30–50 % of marine N$_2$ production.
+- **Environmental microbiology**: Soil harbors $10^8$-$10^9$ bacteria/g; ocean contains *Prochlorococcus* (~ $10^{27}$ cells, 20 % of global primary production) and SAR11 (~ $10^{28}$ cells); deep biosphere holds another $10^{29}$ cells. Termite hindguts show how animal hosts can carry anaerobic microbial bioreactors that convert lignocellulose into acetate, methane precursors, and recycled nitrogen. **[Nitrogen fixation](#gl:nitrogen-fixation)** by nitrogenase requires 16 ATP per N$_2$ and O$_2$ protection. The microbial nitrogen cycle is tracked by *nifH* (fixation), *amoA* (nitrification), *nosZ* (denitrification), and *hzsA* (anammox); sulfur by *dsrA* and *soxB*; carbon by *mcrA* (methanogenesis) and various CO$_2$-fixation markers. **Anammox** accounts for 30–50 % of marine N$_2$ production.
 - **Phage-host kill-the-winner dynamics** maintain ocean diversity: phages preferentially predate dominant bacterial species, releasing rare species from competitive exclusion. Phages turn over 20–40 % of marine bacteria daily.
 - **Biofilms** (80% of natural bacteria) are 10-1,000x more antibiotic-resistant; **quorum sensing** coordinates population-level behavior via autoinducers (AHL, AIP, AI-2).
 - **Bioremediation** uses microbial metabolism to degrade pollutants including hydrocarbons, heavy metals, and plastics (PETase).
-- **Connections:** See \cref{sec:unit_X_ecosystem_ecology} for nutrient cycles, \cref{sec:unit_III_bioenergetics_and_respiration} for fermentation products, and \cref{sec:unit_VII_infectious_disease} for dysbiosis and infection.
+- **Connections:** See \cref{sec:unit_X_ecosystem_ecology} for nutrient cycles, \cref{sec:unit_III_bioenergetics_and_respiration} for fermentation products, and \cref{sec:unit_VII_host_immunity_and_vaccines} for dysbiosis and infection.
 
 ---
 
@@ -829,7 +848,8 @@ flowchart TD
 | **Simpson index** | Probability that two random individuals belong to the same species: $\lambda = \sum p_i^2$; complement $1-\lambda$ is the Gini-Simpson; reciprocal $1/\lambda$ is the inverse Simpson effective number |
 | **Chao1** | Estimator of true richness using singletons and doubletons: $\hat{S}_{Chao1} = S_{obs} + f_1^2/(2 f_2)$ |
 | **Microbiome** | The collective community of microorganisms (and their genomes) inhabiting a defined environment |
-| **Core microbiome** | Taxa or genes present in nearly most healthy individuals; smaller at species level than at functional-gene level |
+| **Termite gut microbiome** | Anaerobic symbiotic community that digests lignocellulose, ferments sugars, and links host feeding to carbon and nitrogen cycling |
+| **Core microbiome** | Taxa or genes present in nearly every healthy individual; smaller at species level than at functional-gene level |
 | **Akkermansia muciniphila** | Mucin-degrading Verrucomicrobia species correlated with metabolic health; pasteurised *A. muciniphila* approved as novel food (EFSA, 2021) |
 | **Dysbiosis** | Compositional and functional imbalance of the microbiome associated with disease states |
 | **Short-chain fatty acids (SCFAs)** | Bacterial fermentation products (butyrate, propionate, acetate) with roles in colonocyte nutrition, immune regulation, and metabolic signaling |
@@ -875,7 +895,7 @@ flowchart TD
 15. **Anammox vs denitrification.** Why has anammox replaced conventional denitrification in many modern wastewater plants? Compute the stoichiometric advantage in O$_2$ demand per mole of N removed.
 16. **Kill-the-winner test.** Design a 30-day metagenomic time-series experiment in a marine mesocosm to test whether *Prochlorococcus* abundance and cyanophage abundance show predator-prey oscillations. Specify sampling frequency, sequencing approach, and the statistical analysis (cross-correlation, lagged regression) you would use.
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Microbial Ecology and the Microbiome
 
 - Woese & Fox (1977). Phylogenetic structure of the prokaryotic domain: The primary kingdoms. *Proceedings of the National Academy of Sciences*, 74.
 - The Human Microbiome Project Consortium (2012). Structure, function and diversity of the healthy human microbiome \citep{hmp2012structure}.
@@ -888,7 +908,7 @@ flowchart TD
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Microbial Ecology and the Microbiome
 
 **Microbial Ecology and the Microbiome** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -901,4 +921,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/biology/ecology/ecology.py` (`lotka_volterra`, `connectance`, `biodiversity_indices`) | Treat microbiomes as communities with measurable interaction structure. |
 | `src/mermaid/biology_diagrams.py` (`food_web_diagram`) | Compare cross-feeding and competition with broader food-web logic. |
 
-**Reproducibility check:** distinguish association, perturbation response, mechanism, and host/environment context before making a microbiome-causality claim. **Cross-reference:** use \cref{sec:unit_X_community_ecology} and \cref{sec:unit_VII_infectious_disease}.
+**Reproducibility check:** distinguish association, perturbation response, mechanism, and host/environment context before making a microbiome-causality claim. **Cross-reference:** use \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs} and \cref{sec:unit_VII_host_immunity_and_vaccines,sec:unit_VII_antimicrobial_resistance_and_epidemiology}.

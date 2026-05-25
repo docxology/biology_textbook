@@ -1,5 +1,7 @@
 """Biochemistry subpackage."""
 
+from biology.constants import FARADAY, GAS_CONSTANT
+
 from .biochemistry import (
     EnzymeKineticsResult,
     MetabolicPathwayStep,
@@ -11,8 +13,6 @@ from .biochemistry import (
     atp_free_energy,
     GLYCOLYSIS_STEPS,
     glycolysis_summary,
-    FARADAY,
-    GAS_CONSTANT,
 )
 
 __all__ = [

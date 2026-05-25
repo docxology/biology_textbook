@@ -4,15 +4,15 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 9** · Level 3/3 · 60 min read · 100 min lecture · Prerequisites: \cref{sec:unit_II_cell_structure}, \cref{sec:unit_I_enzymes_and_kinetics}
+> Level 3/3 · 60 min read · 100 min lecture · Prerequisites: \cref{sec:unit_II_cell_structure}, \cref{sec:unit_I_enzymes_and_kinetics}
 
 ## Learning Objectives
 
 1. Define the laws of [**thermodynamics**](#gl:thermodynamics) and apply them to biological reactions, distinguishing standard ($\Delta G^{\circ\prime}$) from physiological ($\Delta G$) free energies.
 2. Explain the role of ATP as a central phosphoryl-group donor and short-term energy carrier, including the molecular basis of its high phosphoryl group transfer potential.
-3. Describe most 10 steps of [**glycolysis**](#gl:glycolysis) with [**enzyme**](#gl:enzyme)s, intermediates, and regulatory mechanisms.
+3. Describe the 10 steps of [**glycolysis**](#gl:glycolysis) with [**enzyme**](#gl:enzyme)s, intermediates, and regulatory mechanisms.
 4. Explain the pyruvate dehydrogenase complex and its regulation.
-5. Describe most 8 steps of the TCA cycle with carbon tracking, cofactor yields, and regulation.
+5. Describe the 8 steps of the TCA cycle with carbon tracking, cofactor yields, and regulation.
 6. Describe the electron transport chain complexes I--IV, including proton stoichiometry and the Q cycle.
 7. Explain [**ATP synthase**](#gl:atp-synthase) structure and the rotary catalysis mechanism, including the proton-motive force equation.
 8. Calculate net ATP yield from glucose oxidation using modern P/O ratios (~2.5 for NADH, ~1.5 for FADH$_2$) and explain how the "30--32 ATP" number is derived.
@@ -23,6 +23,15 @@
 13. Distinguish anaplerotic and cataplerotic flux through the TCA cycle in the context of inter-organ metabolism.
 14. Explain physiological (UCP1, brown adipose) and pharmacological (DNP) uncoupling at a molecular level.
 15. Compute the thermodynamic efficiency of glucose oxidation from standard free energies of formation.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/glycolysis_summary.png}
+\caption{Glycolysis energetics by pathway step. Net ATP and NADH yields per reaction summarise the investment and payoff phases of the ten-step pathway.}
+\label{fig:unit_III_glycolysis_summary}
+\end{figure}
+
+<!-- alt: Grouped bar chart of ATP and NADH yield for each glycolysis step. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -79,11 +88,17 @@ A useful schematic: a cell is a **dissipative structure** in the sense of Prigog
 
 For a process at constant temperature $T$ and constant pressure $P$ (the conditions inside virtually every cell), the relevant thermodynamic potential is the **Gibbs free energy** $G$. Starting from the second law, we have for the universe (system + surroundings):
 
-$$\Delta S_{\text{universe}} = \Delta S_{\text{system}} + \Delta S_{\text{surroundings}} \geq 0 \tag{9.0a}$$
+\begin{equation}
+\Delta S_{\text{universe}} = \Delta S_{\text{system}} + \Delta S_{\text{surroundings}} \geq 0
+\label{eq:unit_III_bioenergetics_and_respiration_worked_1}
+\end{equation}
 
 Heat released by the system at constant pressure equals $-\Delta H_{\text{system}}$, and this heat increases the entropy of the surroundings by $-\Delta H_{\text{system}}/T$. Substituting:
 
-$$\Delta S_{\text{universe}} = \Delta S_{\text{system}} - \frac{\Delta H_{\text{system}}}{T} \geq 0 \tag{9.0b}$$
+\begin{equation}
+\Delta S_{\text{universe}} = \Delta S_{\text{system}} - \frac{\Delta H_{\text{system}}}{T} \geq 0
+\label{eq:unit_III_bioenergetics_and_respiration_worked_2}
+\end{equation}
 
 Multiplying both sides by $-T$ and dropping the "system" subscript yields the **defining inequality of spontaneity at constant $T$, $P$**:
 
@@ -102,13 +117,19 @@ This is profound: a quantity that depends primarily on the *system* (not the sur
 
 The standard free energy change ($\Delta G^{\circ\prime}$) is measured under biochemical standard conditions (1 M concentrations for reactants except H$^+$, [**pH**](#gl:ph) 7.0, 25 degrees C, 1 atm, and water at unit activity). Under cellular conditions (not standard state), $\Delta G$ differs from $\Delta G^{\circ\prime}$:
 
-$$\Delta G = \Delta G^{\circ\prime} + RT \ln Q \tag{9.2}$$
+\begin{equation}
+\Delta G = \Delta G^{\circ\prime} + RT \ln Q
+\label{eq:unit_III_bioenergetics_and_respiration_worked_3}
+\end{equation}
 
 where $Q$ = [products]/[reactants] (mass action ratio, reaction quotient).
 
 The relationship between $\Delta G^{\circ\prime}$ and the equilibrium constant:
 
-$$\Delta G^{\circ\prime} = -RT \ln K_{eq} \tag{9.3}$$
+\begin{equation}
+\Delta G^{\circ\prime} = -RT \ln K_{eq}
+\label{eq:unit_III_bioenergetics_and_respiration_worked_4}
+\end{equation}
 
 **Standard versus physiological $\Delta G^{\circ\prime}$ for key hydrolysis reactions** (37 °C, pH 7.0, 1 mM Mg$^{2+}$):
 
@@ -132,13 +153,25 @@ $$\Delta G^{\circ\prime} = -RT \ln K_{eq} \tag{9.3}$$
 
 *Solution:*
 
-$$\Delta G^{\circ\prime} = -RT \ln K_{eq} \tag{9.4}$$
+\begin{equation}
+\Delta G^{\circ\prime} = -RT \ln K_{eq}
+\label{eq:unit_III_bioenergetics_and_respiration_worked_5}
+\end{equation}
 
-$$1{,}700 = -(8.314)(310) \ln K_{eq} \tag{9.5}$$
+\begin{equation}
+1{,}700 = -(8.314)(310) \ln K_{eq}
+\label{eq:unit_III_bioenergetics_and_respiration_worked_6}
+\end{equation}
 
-$$\ln K_{eq} = \frac{-1{,}700}{2{,}577} = -0.660 \tag{9.6}$$
+\begin{equation}
+\ln K_{eq} = \frac{-1{,}700}{2{,}577} = -0.660
+\label{eq:unit_III_bioenergetics_and_respiration_worked_7}
+\end{equation}
 
-$$K_{eq} = e^{-0.660} = 0.517 \tag{9.7}$$
+\begin{equation}
+K_{eq} = e^{-0.660} = 0.517
+\label{eq:unit_III_bioenergetics_and_respiration_worked_8}
+\end{equation}
 
 Under standard conditions, this reaction is slightly non-spontaneous ($\Delta G^{\circ\prime} > 0$). However, in the cell, the mass action ratio $Q$ is kept well below $K_{eq}$ because F6P is rapidly consumed by PFK-1, making the actual $\Delta G$ negative.
 
@@ -148,13 +181,22 @@ Under standard conditions, this reaction is slightly non-spontaneous ($\Delta G^
 
 *Solution:* Using $\Delta G^{\circ}_f$ values (kJ/mol) at 25 °C — glucose: $-910.4$; CO$_2$ (aq): $-394.4$; H$_2$O (l): $-237.1$; O$_2$: 0:
 
-$$\Delta G^{\circ\prime}_{\text{rxn}} = \sum \Delta G^{\circ}_f(\text{products}) - \sum \Delta G^{\circ}_f(\text{reactants}) \tag{9.7a}$$
+\begin{equation}
+\Delta G^{\circ\prime}_{\text{rxn}} = \sum \Delta G^{\circ}_f(\text{products}) - \sum \Delta G^{\circ}_f(\text{reactants})
+\label{eq:unit_III_bioenergetics_and_respiration_worked_9}
+\end{equation}
 
-$$= [6(-394.4) + 6(-237.1)] - [(-910.4) + 6(0)] = -3{,}789 + 910.4 \approx -2{,}870 \; \text{kJ/mol} \tag{9.7b}$$
+\begin{equation}
+= [6(-394.4) + 6(-237.1)] - [(-910.4) + 6(0)] = -3{,}789 + 910.4 \approx -2{,}870 \; \text{kJ/mol}
+\label{eq:unit_III_bioenergetics_and_respiration_worked_10}
+\end{equation}
 
 If 32 ATP are produced per glucose at a cellular hydrolysis $\Delta G$ of $-50$ kJ/mol, the energy captured as ATP is $32 \times 50 = 1{,}600$ kJ/mol. The thermodynamic efficiency of glucose oxidation in cells is therefore:
 
-$$\eta = \frac{1{,}600}{2{,}870} \approx 56\% \tag{9.7c}$$
+\begin{equation}
+\eta = \frac{1{,}600}{2{,}870} \approx 56\%
+\label{eq:unit_III_bioenergetics_and_respiration_worked_11}
+\end{equation}
 
 The remaining ~44% is dissipated as heat — useful for mammals to maintain body temperature, but ultimately a payment to the second law. For comparison: a modern combined-cycle gas turbine power plant achieves ~60% thermal efficiency at >800 K, while an automobile engine averages ~25%. A 56%-efficient isothermal energy converter operating at 310 K is, by any engineering standard, remarkable.
 
@@ -178,7 +220,9 @@ ATP couples exergonic reactions to endergonic ones via **phosphoryl group transf
 
 ---
 
-## Glycolysis
+## Glycolysis as Cytosolic Glucose Oxidation
+
+\cref{fig:unit_III_glycolysis_summary} summarises net ATP and NADH yields across the ten glycolytic steps, separating the investment and payoff phases.
 
 Glycolysis (Greek: *glykys* = sweet; *lysis* = splitting) converts one glucose (6C) to two pyruvate (3C), netting 2 ATP and 2 NADH. It occurs in the **[cytoplasm](#gl:cytoplasm)** of most cells and does not require oxygen.
 
@@ -199,9 +243,9 @@ flowchart TD
     style F16BP fill:#fff3e6
     style PYR fill:#ffe6e6
 ```
-<!-- alt: Flowchart for Glycolysis: Hexokinase ATP→ADP ΔG = −16.7 kJ/mol ⚡ IRREVERSIBLE". -->
+<!-- alt: Flowchart showing glycolysis commits glucose through ATP-investment steps, harvests reducing power, and conserves energy as ATP and pyruvate; irreversible steps mark the main regulatory checkpoints. -->
 
-*Flowchart for Glycolysis: Hexokinase ATP→ADP ΔG = −16.7 kJ/mol ⚡ IRREVERSIBLE"| G6P["Glucose-6-phosphate"], Glucose (6C, Glucose-6-phosphate, and Phosphoglucose isomerase ΔG = +1.7"| F6P["Fructose-6-phosphate"] identify the main nodes and their directional relationships.*
+*Glycolysis commits glucose through ATP-investment steps, harvests reducing power, and conserves energy as ATP and pyruvate; irreversible steps mark the main regulatory checkpoints.*
 
 *The 10 steps of glycolysis (Mermaid).* The energy investment phase (steps 1--5) consumes 2 ATP. The energy payoff phase (steps 6--10) produces 4 ATP and 2 NADH. The three irreversible steps (1, 3, 10) are the regulatory control points.
 
@@ -233,7 +277,7 @@ flowchart TD
 
 **Fructose-2,6-bisphosphate (F2,6BP)** is the most potent activator of PFK-1 (lowers $K_m$ for F6P by 50-fold). It is produced by **PFK-2** (a bifunctional enzyme with both kinase and phosphatase domains). Insulin activates PFK-2 kinase activity (producing F2,6BP, stimulating glycolysis). Glucagon (via PKA) activates PFK-2 phosphatase activity (destroying F2,6BP, inhibiting glycolysis in liver).
 
-### Energy Accounting
+### ATP and Reducing-Equivalent Accounting
 
 Net output from 1 glucose:
 - 2 ATP (from steps 7 and 10, minus 2 ATP consumed at steps 1 and 3)
@@ -267,9 +311,9 @@ flowchart TD
     style PYR fill:#fff3e6
     style GLU fill:#e6ffe6
 ```
-<!-- alt: Flowchart for The Four Bypass Reactions: Pyruvate (mitochondrion), Oxaloacetate, Malate, and Malate (cytoplasm) form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing gluconeogenesis bypasses irreversible glycolytic steps by moving carbon through mitochondrial oxaloacetate, malate export, and cytosolic phosphoenolpyruvate formation. -->
 
-*Flowchart for The Four Bypass Reactions: Pyruvate (mitochondrion), Oxaloacetate, Malate, and Malate (cytoplasm) form the diagram's primary path or branches.*
+*Gluconeogenesis bypasses irreversible glycolytic steps by moving carbon through mitochondrial oxaloacetate, malate export, and cytosolic phosphoenolpyruvate formation.*
 
 *Gluconeogenesis from pyruvate to glucose (Mermaid).* Four bypass enzymes (pyruvate carboxylase, PEPCK, FBPase-1, G6Pase) replace the three irreversible glycolytic steps. The pyruvate-to-PEP conversion requires two enzymes — pyruvate carboxylase consumes ATP and PEPCK consumes GTP — so the bypass spans two energy-consuming steps.
 
@@ -291,7 +335,7 @@ flowchart TD
 
 **Net cost:** Synthesising one glucose from two pyruvate consumes **6 ATP equivalents** (2 ATP at pyruvate carboxylase × 2, 2 GTP at PEPCK × 2, 2 ATP at PGK × 2 in the reverse direction). This is why gluconeogenesis is restricted to tissues with substantial ATP-generating capacity (liver, renal cortex).
 
-### Reciprocal Regulation
+### Reciprocal Regulation of Glycolysis and Gluconeogenesis
 
 The same allosteric and hormonal signals that activate glycolysis inhibit gluconeogenesis, ensuring the two pathways do not run as a futile cycle:
 
@@ -337,9 +381,9 @@ flowchart LR
     style M fill:#fff3e6
     style L fill:#e6ffe6
 ```
-<!-- alt: Flowchart for The Cori Cycle (Lactate Shuttle): Skeletal muscle / RBCs, Glucose, Lactate, and Bloodstream form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing cori cycle moves lactate from anaerobic tissues to liver gluconeogenesis, trading rapid local ATP production for whole-body glucose recycling. -->
 
-*Flowchart for The Cori Cycle (Lactate Shuttle): Skeletal muscle / RBCs, Glucose, Lactate, and Bloodstream form the diagram's primary path or branches.*
+*The Cori cycle moves lactate from anaerobic tissues to liver gluconeogenesis, trading rapid local ATP production for whole-body glucose recycling.*
 
 *Cori cycle: lactate from anaerobic muscle is regenerated to glucose in the liver (Mermaid).* Each turn nets +2 ATP for muscle but −6 ATP for liver, a 4-ATP net loss to the organism — the metabolic cost of supporting hypoxic tissue.
 
@@ -378,9 +422,9 @@ flowchart LR
     style M2 fill:#fff3e6
     style LIV fill:#e6ffe6
 ```
-<!-- alt: Flowchart for The Glucose-Alanine Cycle: Skeletal muscle, Branched-chain amino acid catabolism, –NH₂ to pyruvate, and Pyruvate form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing glucose-alanine cycle couples muscle nitrogen disposal to hepatic gluconeogenesis: amino groups move as alanine while liver returns glucose. -->
 
-*Flowchart for The Glucose-Alanine Cycle: Skeletal muscle, Branched-chain amino acid catabolism, –NH₂ to pyruvate, and Pyruvate form the diagram's primary path or branches.*
+*The glucose-alanine cycle couples muscle nitrogen disposal to hepatic gluconeogenesis: amino groups move as alanine while liver returns glucose.*
 
 *Glucose-alanine cycle: alanine simultaneously carries gluconeogenic carbon and waste nitrogen from muscle to liver (Mermaid).* The liver disposes of NH$_4^+$ via the urea cycle and exports glucose back to muscle.
 
@@ -396,7 +440,10 @@ Under aerobic conditions, pyruvate enters the mitochondria (via the MPC, mitocho
 
 ### Pyruvate Dehydrogenase Complex (PDC)
 
-$$\text{Pyruvate (3C)} + \text{CoA} + \text{NAD}^+ \rightarrow \text{Acetyl-CoA (2C)} + \text{CO}_2 + \text{NADH} \tag{9.8}$$
+\begin{equation}
+\text{Pyruvate (3C)} + \text{CoA} + \text{NAD}^+ \rightarrow \text{Acetyl-CoA (2C)} + \text{CO}_2 + \text{NADH}
+\label{eq:unit_III_bioenergetics_and_respiration_worked_12}
+\end{equation}
 
 Catalysed by PDC --- a 9.5 MDa multienzyme complex with three catalytic components (E1: pyruvate dehydrogenase; E2: dihydrolipoyl transacetylase; E3: dihydrolipoyl dehydrogenase) using **five cofactors**: TPP (thiamine pyrophosphate, vitamin B$_1$), lipoic acid, FAD (vitamin B$_2$), NAD$^+$ (vitamin B$_3$), CoA (vitamin B$_5$).
 
@@ -436,9 +483,9 @@ flowchart LR
     Fum -->|"Step 7: Fumarase<br/>H₂O added<br/>ΔG°' = −3.8"| Mal
     Mal -->|"Step 8: Malate DH<br/>NAD⁺→NADH<br/>ΔG°' = +29.7"| OAA
 ```
-<!-- alt: Flowchart for TCA Cycle (Krebs Cycle / Citric Acid Cycle): Oxaloacetate (4C), Citrate (6C), Isocitrate (6C), and α-Ketoglutarate (5C) form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing TCA cycle oxidizes acetyl-CoA to regenerate oxaloacetate while producing NADH, FADH2, and GTP for oxidative phosphorylation. -->
 
-*Flowchart for TCA Cycle (Krebs Cycle / Citric Acid Cycle): Oxaloacetate (4C), Citrate (6C), Isocitrate (6C), and α-Ketoglutarate (5C) form the diagram's primary path or branches.*
+*The TCA cycle oxidizes acetyl-CoA to regenerate oxaloacetate while producing NADH, FADH2, and GTP for oxidative phosphorylation.*
 
 *The eight steps of the TCA cycle (Mermaid).* Each turn oxidises one acetyl group (2C) to 2 CO$_2$, producing 3 NADH, 1 FADH$_2$, and 1 GTP. The cycle turns twice per glucose molecule.
 
@@ -502,7 +549,7 @@ Pyruvate carboxylase is **allosterically activated by acetyl-CoA**. This is biol
 
 ---
 
-## Oxidative Phosphorylation
+## Oxidative Phosphorylation and Proton-Motive Force
 
 Oxidative phosphorylation (OxPhos) accounts for ~90% of ATP production in aerobic organisms. It takes place at the inner mitochondrial membrane.
 
@@ -539,9 +586,9 @@ sequenceDiagram
     Note over CV: γ-subunit rotates 120° per ATP
     Note over CV: ~3 H⁺ per ATP synthesised
 ```
-<!-- alt: Sequence diagram for Electron Transport Chain (ETC) showing ordered interaction among NADH (matrix), Complex I (NADH:UQ oxidoreductase) 46 subunits, 1 MDa Pumps 4 H⁺, Ubiquinone (Q) Lipid-soluble mobile carrier, and Complex II (Succinate DH) 4 subunits No H⁺ pumping. -->
+<!-- alt: Sequence diagram showing electron transport passes reducing equivalents from NADH and FADH2 through complexes I-IV to oxygen, with proton pumping by complexes I, III, and IV building the gradient for ATP synthase. -->
 
-*Sequence diagram for Electron Transport Chain (ETC) showing ordered interaction among NADH (matrix), Complex I (NADH:UQ oxidoreductase) 46 subunits, 1 MDa Pumps 4 H⁺, Ubiquinone (Q) Lipid-soluble mobile carrier, and Complex II (Succinate DH) 4 subunits No H⁺ pumping.*
+*Electron transport passes reducing equivalents from NADH and FADH2 through complexes I-IV to oxygen, with proton pumping by complexes I, III, and IV building the gradient for ATP synthase.*
 
 *Electron flow through the ETC complexes I--IV and proton pumping that generates the proton motive force (Mermaid).* ATP synthase (Complex V) uses this PMF to synthesise ATP via rotary catalysis.
 
@@ -638,7 +685,10 @@ In mitochondria, $\Delta\Psi \approx 150$ mV contributes ~80% of the PMF, while 
 
 The free energy stored per mole of protons translocated against this PMF is:
 
-$$\Delta G_{\text{H}^+} = F \cdot \text{PMF} \approx 96{,}485 \times 0.180 \approx 17.4 \; \text{kJ/mol} \tag{9.7d}$$
+\begin{equation}
+\Delta G_{\text{H}^+} = F \cdot \text{PMF} \approx 96{,}485 \times 0.180 \approx 17.4 \; \text{kJ/mol}
+\label{eq:unit_III_bioenergetics_and_respiration_worked_13}
+\end{equation}
 
 So pumping ~3.67 H$^+$ to make one ATP requires ~64 kJ/mol of stored gradient energy — the budget that funds an ATP whose cellular hydrolysis $\Delta G \approx -54$ kJ/mol. The ~10 kJ/mol surplus is the thermodynamic driving force that keeps net ATP synthesis flowing forward and sets the response time of the system to ATP demand.
 
@@ -726,7 +776,10 @@ The classical undergraduate value of 38 ATP/glucose came from *assumed* round-nu
 
 The thermodynamic efficiency:
 
-$$\eta = \frac{32 \times 30.5}{2{,}870} \times 100\% = 34\% \tag{9.10}$$
+\begin{equation}
+\eta = \frac{32 \times 30.5}{2{,}870} \times 100\% = 34\%
+\label{eq:unit_III_bioenergetics_and_respiration_worked_14}
+\end{equation}
 
 Using the more realistic *cellular* $\Delta G$ of $-50$ kJ/mol, efficiency rises to ~56%, comparable to the best internal combustion engines and considerably better than most human-engineered energy converters.
 
@@ -762,15 +815,21 @@ This illustrates why metabolic systems are layered: fast-but-low-yield substrate
 
 ---
 
-## Fermentation
+## Fermentation and NAD+ Regeneration
 
 Without O$_2$ (or in cells that lack mitochondria), pyruvate is not oxidised aerobically. Instead, **fermentation** regenerates NAD$^+$ so glycolysis can continue:
 
 **Alcoholic fermentation** (yeast, some bacteria):
-$$\text{Pyruvate} \xrightarrow[\text{TPP}]{\text{pyruvate decarboxylase}} \text{Acetaldehyde} + \text{CO}_2 \xrightarrow[\text{NADH} \rightarrow \text{NAD}^+]{\text{alcohol dehydrogenase}} \text{Ethanol} \tag{9.11}$$
+\begin{equation}
+\text{Pyruvate} \xrightarrow[\text{TPP}]{\text{pyruvate decarboxylase}} \text{Acetaldehyde} + \text{CO}_2 \xrightarrow[\text{NADH} \rightarrow \text{NAD}^+]{\text{alcohol dehydrogenase}} \text{Ethanol}
+\label{eq:unit_III_bioenergetics_and_respiration_worked_15}
+\end{equation}
 
 **Lactic acid fermentation** (muscle, erythrocytes, *Lactobacillus*):
-$$\text{Pyruvate} + \text{NADH} \xrightarrow{\text{lactate dehydrogenase}} \text{Lactate} + \text{NAD}^+ \tag{9.12}$$
+\begin{equation}
+\text{Pyruvate} + \text{NADH} \xrightarrow{\text{lactate dehydrogenase}} \text{Lactate} + \text{NAD}^+
+\label{eq:unit_III_bioenergetics_and_respiration_worked_16}
+\end{equation}
 
 Both pathways yield primarily **2 ATP per glucose** (from glycolysis alone).
 
@@ -830,13 +889,13 @@ flowchart LR
     style HEAT fill:#ffe6e6
     style BIO fill:#e6ffe6
 ```
-<!-- alt: Flowchart for UCP1: The Brown Adipose Thermogenin: Norepinephrine (cold, sympathetic activation), β₃-adrenergic receptor, Adenylyl cyclase, and ↑ cAMP form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing cold-triggered sympathetic signalling activates brown-adipose UCP1, allowing proton flow to produce heat instead of ATP. -->
 
-*Flowchart for UCP1: The Brown Adipose Thermogenin: Norepinephrine (cold, sympathetic activation), β₃-adrenergic receptor, Adenylyl cyclase, and ↑ cAMP form the diagram's primary path or branches.*
+*Cold-triggered sympathetic signalling activates brown-adipose UCP1, allowing proton flow to produce heat instead of ATP.*
 
 *Sympathetic activation of brown adipose thermogenesis (Mermaid).* Norepinephrine binds β$_3$-adrenergic receptors → cAMP → PKA → simultaneous lipolysis (acute fuel) and PGC-1α transcription (chronic mitochondrial biogenesis). UCP1 short-circuits the proton gradient, releasing energy as heat.
 
-### Physiological Roles
+### Physiological Roles of Lactate
 
 | Setting | Role of UCP1 / brown fat |
 | ------- | ------------------------ |
@@ -863,7 +922,7 @@ flowchart LR
 
 Understanding the ETC and oxidative phosphorylation has been greatly advanced by studying specific inhibitors and metabolic poisons:
 
-### ETC Inhibitors
+### Electron-Transport Chain Inhibitors
 
 | Inhibitor | Target | Effect |
 | --------- | ------ | ------ |
@@ -873,7 +932,7 @@ Understanding the ETC and oxidative phosphorylation has been greatly advanced by
 | **Carbon monoxide (CO)** | Complex IV (haem a$_3$) | Competes with O$_2$ for binding; also binds haemoglobin (200x affinity vs O$_2$) |
 | **Hydrogen sulfide (H$_2$S)** | Complex IV | Similar to cyanide; binds haem iron; toxic at >50 ppm in air |
 
-### Uncouplers
+### Uncouplers and Proton Leak
 
 **Uncouplers** dissipate the proton gradient without inhibiting electron transport, allowing respiration to continue at maximum rate without ATP production:
 
@@ -906,7 +965,7 @@ print(round(atp_free_energy(atp_conc_mM=3.0, adp_conc_mM=1.0, pi_conc_mM=10.0), 
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Bioenergetics and Cellular Respiration
 
 For **Bioenergetics and Cellular Respiration**, frontier biology belongs inside the evidence logic of
 the chapter. Metabolism is now studied as a regulated network constrained by energy, redox balance, compartmentation, and environment. The core reading question is this: respiration claims should track electrons, protons, redox poise, ATP yield, and uncoupling.
@@ -922,9 +981,9 @@ the chapter. Metabolism is now studied as a regulated network constrained by ene
   the source closest to the measurement and state what has changed since it was
   published.
 
-A strong metabolic explanation names the flux, the limiting step, the sensor, and the condition under which the pathway changes direction or priority.
+A strong respiration claim names the compartment, redox carrier, coupling site, and energetic condition under which ATP yield or flux changes.
 
-**Source practice:** For metabolic claims, keep the organism, compartment, energetic state, and measurement method visible; a pathway map is not enough without flux or concentration evidence.
+**Source practice:** For respiration claims, keep organism, tissue, substrate, oxygen status, and measurement method visible; pathway maps need flux or concentration evidence.
 
 ### Current Evidence Map: Respiration Evidence Accounting
 
@@ -965,7 +1024,7 @@ flowchart LR
 
 1. Explain why cells must maintain metabolite concentrations far from equilibrium. What would happen to ATP synthesis if the cell reached thermodynamic equilibrium?
 
-2. Describe most 10 steps of glycolysis. Which three steps are irreversible and why are these the regulatory control points?
+2. Describe the 10 steps of glycolysis. Which three steps are irreversible and why are these the regulatory control points?
 
 3. Compare the four bypass enzymes of gluconeogenesis with the three irreversible glycolytic steps they replace. Why is each bypass thermodynamically favourable in the gluconeogenic direction?
 
@@ -993,7 +1052,7 @@ flowchart LR
 
 15. Recompute `atp_free_energy` when cytosolic ATP drops to 1 mM while ADP rises to 4 mM (Pi fixed). Does hydrolysis become more or less exergonic, and why does that matter during exercise?
 
-16. Using `glycolysis_summary()` from the same module, state the net ATP and NADH from one glucose without writing most ten steps.
+16. Using `glycolysis_summary()` from the same module, state the net ATP and NADH from one glucose without writing the ten steps.
 
 17. Using $\Delta G^{\circ\prime}$ values for ATP and PEP hydrolysis, compute the standard free energy change of pyruvate kinase (PEP + ADP → pyruvate + ATP). Compare with the cellular $\Delta G$ and explain the irreversibility.
 
@@ -1002,7 +1061,7 @@ flowchart LR
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Bioenergetics and Cellular Respiration
 
 - Mitchell (1961). Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism. *Nature*, 191 \citep{mitchell1961}.
 - Atkinson (1968). The regulation of enzyme activity in metabolism. *Biochemical Journal*, 108 \citep{atkinson1968}.
@@ -1037,7 +1096,7 @@ flowchart LR
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Bioenergetics and Cellular Respiration
 
 **Bioenergetics and Cellular Respiration** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

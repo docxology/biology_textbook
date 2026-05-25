@@ -1,4 +1,4 @@
-# Lab 30 — Action Potentials and Synaptic Transmission {.unnumbered}
+# Lab — Action Potentials and Synaptic Transmission {.unnumbered}
 
 \label{sec:lab_unit_IX_action_potential_synapses}
 
@@ -30,7 +30,7 @@
 2. During the rising phase of an action potential, which ion's membrane permeability changes most, and in which direction? Describe in two sentences how voltage-gated channel kinetics produce this change.
 3. State one functional difference between an EPSP and an IPSP at the level of postsynaptic membrane conductance, and predict how each would shift the probability of reaching threshold at the axon hillock.
 
-## Background {.unnumbered}
+## Lab Context: Action Potentials and Synaptic Transmission {.unnumbered}
 
 Synaptic transmission involves vesicle fusion (Ca²⁺-triggered SNARE complex assembly), neurotransmitter diffusion across the synaptic cleft, and receptor binding on the postsynaptic membrane. Release is quantal: the minimum unit is the vesicle (one quantum, ~5,000 molecules). The mean quantal content (m̄) can be estimated by the Poisson failure method: m̄ = ln(N/F₀) where N = total trials and F₀ = failures. Long-term potentiation (LTP) at Schaffer collateral → CA1 synapses requires NMDA receptor-mediated Ca²⁺ influx and CaMKII autophosphorylation.
 
@@ -40,6 +40,7 @@ The quantal-analysis worked example in the parent chapter (\cref{sec:unit_IX_act
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Action Potentials and Synaptic Transmission: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
 | Compound action potential trace (printed: 3 peaks corresponding to Aα, Aδ, C fibres with time and conduction velocity axes) | 1 |
 | Quantal release dataset (printed: 100 stimulus trials, number of quanta released each trial, count of failures) | 1 |
 | GABA-A receptor pharmacology worksheet | 1 |
@@ -123,6 +124,10 @@ equipment version belongs only in an optional extension.
 **Solution:** The prefactor RT/F at 310 K equals (8.314 × 310)/96485 ≈ 0.0267 V, or about 26.7 mV. The natural log of (145/15) is ln(9.667) ≈ 2.269. Multiplying gives E_Na ≈ 26.7 mV × 2.269 ≈ 60.6 mV. Reported as approximately +60 to +62 mV depending on rounding.
 
 **Interpretation:** The Goldman–Hodgkin–Katz equation weights each ion's contribution to Vm by its relative permeability. When Na⁺ permeability dominates, Vm shifts toward E_Na; residual K⁺ and Cl⁻ permeabilities pull Vm back somewhat, so peak depolarization typically reaches roughly +30 to +40 mV rather than +60 mV. Membrane voltage approaches the equilibrium potential of the dominant ion, weighted by the other permeabilities that remain non-zero.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Action Potentials and Synaptic Transmission before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

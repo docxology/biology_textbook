@@ -68,11 +68,9 @@ graph TD
     style HORMON fill:#8e44ad,color:#fff
     style DEF fill:#e67e22,color:#fff
 ```
-<!-- alt: Flowchart for Key Concepts and Connections: 🌿 Plant Structure (roots, stems, leaves; meristems; vascular: xylem/phloem), 💧 Water Relations (Ψ = Ψs + Ψp; cohesion-tension mechanism), 🌬️ Transpiration (stomata; guard cells; transpiration stream), and ☀️ Photosynthesis ( amerefsec:unit_III_unit_intro → C₃, C₄, CAM pathways) form the diagram's primary path or branches. -->
+<!-- alt: Graph showing plant-biology concept map linking structure, water transport, transpiration, reproduction, and environmental responses with photosynthesis as a shared physiological constraint. -->
 
-*Flowchart for Key Concepts and Connections: 🌿 Plant Structure (roots, stems, leaves; meristems; vascular: xylem/phloem), 💧 Water Relations (Ψ = Ψs + Ψp; cohesion-tension mechanism), 🌬️ Transpiration (stomata; guard cells; transpiration stream), and ☀️ Photosynthesis (\nameref{sec:unit_III_unit_intro} → C₃, C₄, CAM pathways) form the diagram's primary path or branches.*
-
-**\nameref{sec:unit_VIII_unit_intro} concept map — Plant Biology.**
+*Plant-biology concept map linking structure, water transport, transpiration, reproduction, and environmental responses with photosynthesis as a shared physiological constraint.*
 
 ---
 
@@ -99,7 +97,7 @@ paper-based lab decision.
 - **Photosynthesis** (\cref{sec:unit_III_photosynthesis}) is the biochemical foundation of plant carbon metabolism; this unit extends it by covering C₄ and CAM pathways and carbon assimilation in leaves.
 - **Water potential and osmosis** (\cref{sec:unit_I_atoms_molecules}; \cref{sec:unit_II_membrane_transport}) directly underlie the transpiration stream model.
 - **Plant hormone receptor signalling** (auxin, ABA) uses the same signalling classes covered in \nameref{sec:unit_II_unit_intro} (cell signalling: receptor kinases, second messengers).
-- **Plant-pollinator and plant-mycorrhizal interactions** connect to \nameref{sec:unit_X_unit_intro} (community ecology, mutualism, co-evolution).
+- **Plant-pollinator, myrmecochory, and plant-mycorrhizal interactions** connect to \nameref{sec:unit_X_unit_intro} (community ecology, mutualism, co-evolution).
 - **Secondary metabolites as medicines** (alkaloids, terpenoids) link to \nameref{sec:unit_I_unit_intro} (functional groups) and \nameref{sec:unit_VII_unit_intro} (antimicrobial compounds).
 
 > **Key vocabulary introduced here:** meristem, apical dominance, cohesion-tension, water potential (Ψ), transpiration, turgor pressure, phloem, xylem, stomata, guard cell, photoperiodism, phytochrome, auxin, gibberellin, cytokinin, abscisic acid (ABA), ethylene, alternation of generations, angiosperm, gymnosperm, double fertilisation.

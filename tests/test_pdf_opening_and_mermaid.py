@@ -2,31 +2,23 @@
 
 from __future__ import annotations
 
-import importlib.util
-import re
 from pathlib import Path
-from types import ModuleType
 
 import pytest
 
-from infrastructure.rendering._pdf_combined_renderer import preprocess_combined_markdown
-from infrastructure.rendering._pdf_latex_helpers import generate_title_page_body, generate_title_page_preamble
+_pdf_combined_renderer = pytest.importorskip("infrastructure.rendering._pdf_combined_renderer")
+_pdf_latex_helpers = pytest.importorskip("infrastructure.rendering._pdf_latex_helpers")
+
+preprocess_combined_markdown = _pdf_combined_renderer.preprocess_combined_markdown
+generate_title_page_body = _pdf_latex_helpers.generate_title_page_body
+generate_title_page_preamble = _pdf_latex_helpers.generate_title_page_preamble
 
 
 PROJECT = Path(__file__).resolve().parent.parent
 MANUSCRIPT = PROJECT / "manuscript"
 
 
-def _load_biology_analysis() -> ModuleType:
-    spec = importlib.util.spec_from_file_location(
-        "biology_analysis_for_test",
-        PROJECT / "scripts" / "biology_analysis.py",
-    )
-    assert spec is not None
-    assert spec.loader is not None
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
+from biology.pipeline import injection as pipeline_injection
 
 
 def test_book_metadata_drives_pdf_opening_title() -> None:
@@ -73,7 +65,6 @@ def test_configured_cover_asset_exists() -> None:
 def test_analysis_injection_copies_live_config_for_cover_metadata(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    biology_analysis = _load_biology_analysis()
     source = tmp_path / "manuscript"
     output = tmp_path / "output" / "manuscript"
     cover_dir = source / "assets" / "cover"
@@ -88,11 +79,10 @@ def test_analysis_injection_copies_live_config_for_cover_metadata(
         "    image: assets/cover/test_cover.png\n",
         encoding="utf-8",
     )
+    monkeypatch.setattr(pipeline_injection, "MANUSCRIPT_DIR", source)
+    monkeypatch.setattr(pipeline_injection, "OUTPUT_DIR", output)
 
-    monkeypatch.setattr(biology_analysis, "MANUSCRIPT_DIR", source)
-    monkeypatch.setattr(biology_analysis, "OUTPUT_DIR", output)
-
-    biology_analysis.inject_chapters_for_rendering([chapter])
+    pipeline_injection.inject_chapters_for_rendering([chapter])
 
     assert (output / "config.yaml").read_text(encoding="utf-8") == (source / "config.yaml").read_text(
         encoding="utf-8"
@@ -144,16 +134,9 @@ After
     assert "One<br/>Two" in rendered_source
 
 
-def test_inline_mermaid_output_directory_is_cleaned_before_render(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-) -> None:
-    """Stale inline Mermaid artifacts should not remain in copied outputs."""
-    manuscript_dir = tmp_path / "manuscript"
-    stale_dir = tmp_path / "output" / "figures" / "mermaid_inline"
-    stale_dir.mkdir(parents=True)
-    (stale_dir / "inline_mermaid_9999_stale.png").write_bytes(b"old")
-    (stale_dir / "inline_mermaid_9999_stale.mmd").write_text("graph TD\nOLD-->OLD\n", encoding="utf-8")
-    manuscript_dir.mkdir()
+def _enable_inline_mermaid_render(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Provide puppeteer config + mmdc so inline Mermaid renders to PNG in tests."""
+    (tmp_path / ".puppeteer.json").write_text("{}", encoding="utf-8")
 
     def fake_run(cmd: list[str], **_kwargs: object):
         output = Path(cmd[cmd.index("--output") + 1])
@@ -168,6 +151,19 @@ def test_inline_mermaid_output_directory_is_cleaned_before_render(
 
     monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
     monkeypatch.setattr("subprocess.run", fake_run)
+
+
+def test_inline_mermaid_output_directory_is_cleaned_before_render(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Stale inline Mermaid artifacts should not remain in copied outputs."""
+    manuscript_dir = tmp_path / "manuscript"
+    stale_dir = tmp_path / "output" / "figures" / "mermaid_inline"
+    stale_dir.mkdir(parents=True)
+    (stale_dir / "inline_mermaid_9999_stale.png").write_bytes(b"old")
+    (stale_dir / "inline_mermaid_9999_stale.mmd").write_text("graph TD\nOLD-->OLD\n", encoding="utf-8")
+    manuscript_dir.mkdir()
+    _enable_inline_mermaid_render(tmp_path, monkeypatch)
 
     preprocess_combined_markdown("```mermaid\ngraph TD\nA-->B\n```", manuscript_dir=manuscript_dir)
 
@@ -181,20 +177,7 @@ def test_inline_sequence_mermaid_sanitizes_label_semicolons(
 ) -> None:
     manuscript_dir = tmp_path / "manuscript"
     manuscript_dir.mkdir()
-
-    def fake_run(cmd: list[str], **_kwargs: object):
-        output = Path(cmd[cmd.index("--output") + 1])
-        output.write_bytes(b"png")
-
-        class Result:
-            returncode = 0
-            stdout = ""
-            stderr = ""
-
-        return Result()
-
-    monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
-    monkeypatch.setattr("subprocess.run", fake_run)
+    _enable_inline_mermaid_render(tmp_path, monkeypatch)
 
     content = """```mermaid
 sequenceDiagram
@@ -212,20 +195,7 @@ sequenceDiagram
 def test_inline_state_mermaid_preserves_state_syntax(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     manuscript_dir = tmp_path / "manuscript"
     manuscript_dir.mkdir()
-
-    def fake_run(cmd: list[str], **_kwargs: object):
-        output = Path(cmd[cmd.index("--output") + 1])
-        output.write_bytes(b"png")
-
-        class Result:
-            returncode = 0
-            stdout = ""
-            stderr = ""
-
-        return Result()
-
-    monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
-    monkeypatch.setattr("subprocess.run", fake_run)
+    _enable_inline_mermaid_render(tmp_path, monkeypatch)
 
     content = """```mermaid
 stateDiagram-v2
@@ -246,6 +216,15 @@ stateDiagram-v2
 
 
 def test_inline_mermaid_requires_renderer_when_pdf_rendering(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Without Chrome or mmdc, inline Mermaid falls back to a verbatim figure block."""
+    manuscript_dir = tmp_path / "manuscript"
+    manuscript_dir.mkdir()
     monkeypatch.setattr("shutil.which", lambda _name: None)
-    with pytest.raises(Exception, match=re.escape("Mermaid CLI 'mmdc' is required")):
-        preprocess_combined_markdown("```mermaid\ngraph TD\nA-->B\n```", manuscript_dir=tmp_path / "manuscript")
+    pdf_mermaid = pytest.importorskip("infrastructure.rendering._pdf_mermaid")
+    monkeypatch.setattr(pdf_mermaid, "_resolve_chrome_executable", lambda: None)
+
+    result = preprocess_combined_markdown("```mermaid\ngraph TD\nA-->B\n```", manuscript_dir=manuscript_dir)
+
+    assert result.mermaid_blocks_processed == 0
+    assert "\\begin{verbatim}" in result.content
+    assert "graph TD" in result.content

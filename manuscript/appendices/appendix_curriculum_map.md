@@ -257,11 +257,11 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Not every mutation is harmful, and not every harmful mutation changes a protein sequence.
 - **Transfer task:** Transfer variant reasoning to cancer genomics, ancestry, gene therapy, or microbial evolution.
 
-### — Epigenetics and Gene Regulation {.unnumbered}
+### — Chromatin and Epigenetic Mechanisms {.unnumbered}
 
-- **Chapter:** \cref{sec:unit_IV_epigenetics_and_gene_regulation}.
-- **Lab:** \cref{sec:lab_unit_IV_epigenetics_and_gene_regulation}.
-- **Question bank:** \cref{sec:q_unit_IV_epigenetics_and_gene_regulation}.
+- **Chapter:** \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}.
+- **Lab:** \cref{sec:lab_unit_IV_chromatin_and_epigenetic_mechanisms}.
+- **Question bank:** \cref{sec:q_unit_IV_chromatin_and_epigenetic_mechanisms}.
 - **Big idea:** Cells create stable yet reversible expression states through chromatin, DNA marks, and regulatory circuits.
 - **Core concepts:** chromatin, methylation, histone modification, enhancers.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
@@ -270,21 +270,47 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Epigenetic does not mean independent of DNA sequence or permanently inherited.
 - **Transfer task:** Apply regulation logic to differentiation, imprinting, cancer, or environmental responses.
 
+### — Epigenetic Inheritance and Disease {.unnumbered}
+
+- **Chapter:** \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
+- **Lab:** \cref{sec:lab_unit_IV_epigenetic_inheritance_and_disease}.
+- **Question bank:** \cref{sec:q_unit_IV_epigenetic_inheritance_and_disease}.
+- **Big idea:** Three-dimensional genome organisation and epigenetic inheritance link regulatory architecture to disease phenotypes.
+- **Core concepts:** 3D genome, phase separation, imprinting, epigenetic inheritance.
+- **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
+- **Practice cadence:** Concept Explanation, Questions and Methods, Argumentation.
+- **Model/data skill:** Chromatin-loop, inheritance, and disease-risk reasoning. Interpret Hi-C, imprinting, or transgenerational datasets with causal caution.
+- **Misconception probe:** A chromatin contact map is not proof of function without perturbation.
+- **Transfer task:** Apply inheritance logic to cancer, developmental disorders, and environmental exposure.
+
 
 ## Unit V {.unnumbered}
 
-### — Mendelian Genetics and Heredity {.unnumbered}
+### — Mendelian Principles and Probability {.unnumbered}
 
-- **Chapter:** \cref{sec:unit_V_mendelian_genetics}.
-- **Lab:** \cref{sec:lab_unit_V_mendelian_genetics}.
-- **Question bank:** \cref{sec:q_unit_V_mendelian_genetics}.
-- **Big idea:** Inheritance patterns arise from chromosome behaviour, probability, and genotype-to-phenotype mapping.
-- **Core concepts:** segregation, independent assortment, pedigrees, epistasis.
+- **Chapter:** \cref{sec:unit_V_mendelian_principles}.
+- **Lab:** \cref{sec:lab_unit_V_mendelian_principles}.
+- **Question bank:** \cref{sec:q_unit_V_mendelian_principles}.
+- **Big idea:** Mendelian segregation and probability explain inheritance when alleles assort independently.
+- **Core concepts:** segregation, independent assortment, Punnett squares, probability.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
 - **Practice cadence:** Statistical Tests and Data Analysis, Representing and Describing Data.
-- **Model/data skill:** Punnett, binomial, pedigree, and chi-square calculations. Use family or cross data to infer genotype probabilities.
+- **Model/data skill:** Punnett, binomial, and chi-square calculations. Use cross data to infer genotype probabilities.
 - **Misconception probe:** Dominant does not mean common, stronger, or better.
-- **Transfer task:** Transfer inheritance reasoning to counseling, breeding, model organisms, and risk prediction.
+- **Transfer task:** Transfer Mendelian probability to model organisms and introductory human genetics.
+
+### — Mendelian Extensions and Human Genetics {.unnumbered}
+
+- **Chapter:** \cref{sec:unit_V_mendelian_extensions_and_human_genetics}.
+- **Lab:** \cref{sec:lab_unit_V_mendelian_extensions_and_human_genetics}.
+- **Question bank:** \cref{sec:q_unit_V_mendelian_extensions_and_human_genetics}.
+- **Big idea:** Extensions to Mendelian ratios and human pedigree analysis reveal when simple dominance fails.
+- **Core concepts:** incomplete dominance, epistasis, pedigrees, penetrance.
+- **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
+- **Practice cadence:** Statistical Tests and Data Analysis, Representing and Describing Data.
+- **Model/data skill:** Pedigree, epistasis, and multi-locus probability calculations. Infer inheritance mode and extension mechanism from family or cross data.
+- **Misconception probe:** A single-gene model is a starting hypothesis, not always sufficient by itself.
+- **Transfer task:** Transfer extension reasoning to counseling, GWAS interpretation, and breeding.
 
 ### — Chromosomal Inheritance and Linkage {.unnumbered}
 
@@ -383,18 +409,31 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** A microbiome is not automatically beneficial; context determines the effect.
 - **Transfer task:** Transfer microbial ecology to soils, oceans, digestion, disease, and climate feedbacks.
 
-### — Infectious Disease and Immunity {.unnumbered}
+### — Host Immunity and Vaccines {.unnumbered}
 
-- **Chapter:** \cref{sec:unit_VII_infectious_disease}.
-- **Lab:** \cref{sec:lab_unit_VII_infectious_disease}.
-- **Question bank:** \cref{sec:q_unit_VII_infectious_disease}.
-- **Big idea:** Disease dynamics emerge from host susceptibility, pathogen traits, transmission networks, and immunity.
-- **Core concepts:** transmission, R0, immunity, vaccination.
+- **Chapter:** \cref{sec:unit_VII_host_immunity_and_vaccines}.
+- **Lab:** \cref{sec:lab_unit_VII_host_immunity_and_vaccines}.
+- **Question bank:** \cref{sec:q_unit_VII_host_immunity_and_vaccines}.
+- **Big idea:** Host immunity and vaccination reshape pathogen transmission by changing susceptible fractions.
+- **Core concepts:** innate immunity, adaptive immunity, vaccination, herd immunity.
 - **Framework alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
 - **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
-- **Model/data skill:** R0, herd-immunity threshold, and SIR trajectory calculations. Interpret outbreak curves and intervention effects.
+- **Model/data skill:** Herd-immunity threshold and basic immunological reasoning. Interpret antibody, cellular, and vaccine-response evidence.
+- **Misconception probe:** Immunity is not binary; timing, dose, and variant matter.
+- **Transfer task:** Transfer immunity reasoning to outbreak response and clinical decision-making.
+
+### — Antimicrobial Resistance and Epidemiology {.unnumbered}
+
+- **Chapter:** \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+- **Lab:** \cref{sec:lab_unit_VII_antimicrobial_resistance_and_epidemiology}.
+- **Question bank:** \cref{sec:q_unit_VII_antimicrobial_resistance_and_epidemiology}.
+- **Big idea:** Antimicrobial resistance and epidemic dynamics emerge from pathogen evolution and transmission networks.
+- **Core concepts:** antibiotic resistance, R0, transmission, surveillance.
+- **Framework alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
+- **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
+- **Model/data skill:** R0, resistance-mechanism, and outbreak-trajectory calculations. Interpret resistance assays and outbreak curves.
 - **Misconception probe:** R0 is not a fixed property of a pathogen alone; it depends on host behaviour and environment.
-- **Transfer task:** Transfer disease-dynamic reasoning to vaccination, antimicrobial resistance, and public-health policy.
+- **Transfer task:** Transfer resistance and epidemiology reasoning to stewardship and public-health policy.
 
 
 ## Unit VIII {.unnumbered}
@@ -480,18 +519,31 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** An action potential is not electricity flowing like a wire; it is regenerated ion-channel dynamics.
 - **Transfer task:** Transfer excitability reasoning to anesthesia, toxins, epilepsy, and neuromuscular disease.
 
-### — Endocrine and Immune Systems {.unnumbered}
+### — Endocrine Signaling and Homeostasis {.unnumbered}
 
-- **Chapter:** \cref{sec:unit_IX_endocrine_and_immune}.
-- **Lab:** \cref{sec:lab_unit_IX_endocrine_and_immune}.
-- **Question bank:** \cref{sec:q_unit_IX_endocrine_and_immune}.
-- **Big idea:** Long-range signaling and immune recognition coordinate body-wide adaptation and defense.
-- **Core concepts:** hormones, receptors, innate immunity, adaptive immunity.
+- **Chapter:** \cref{sec:unit_IX_endocrine_signaling}.
+- **Lab:** \cref{sec:lab_unit_IX_endocrine_signaling}.
+- **Question bank:** \cref{sec:q_unit_IX_endocrine_signaling}.
+- **Big idea:** Hormone feedback loops coordinate long-range physiological homeostasis.
+- **Core concepts:** hormones, feedback, receptors, homeostasis.
 - **Framework alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
 - **Practice cadence:** Visual Representations, Statistical Tests and Data Analysis, Argumentation.
-- **Model/data skill:** Hormone feedback, dose-response, and immune-memory reasoning. Interpret endocrine or immune data from time courses, titers, or perturbations.
+- **Model/data skill:** Hormone feedback and dose-response reasoning. Interpret endocrine time courses, panels, and perturbations.
+- **Misconception probe:** A hormone surge is not always pathological; context and set-point matter.
+- **Transfer task:** Transfer endocrine reasoning to metabolism, stress, and development.
+
+### — Immune System Architecture and Defense {.unnumbered}
+
+- **Chapter:** \cref{sec:unit_IX_immune_system_defense}.
+- **Lab:** \cref{sec:lab_unit_IX_immune_system_defense}.
+- **Question bank:** \cref{sec:q_unit_IX_immune_system_defense}.
+- **Big idea:** Innate and adaptive immunity integrate recognition, effector function, tolerance, and memory.
+- **Core concepts:** innate immunity, adaptive immunity, tolerance, immunotherapy.
+- **Framework alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
+- **Practice cadence:** Visual Representations, Statistical Tests and Data Analysis, Argumentation.
+- **Model/data skill:** Immune-memory, cytokine, and recognition reasoning. Interpret immune titers, cytokine profiles, or perturbation data.
 - **Misconception probe:** Immunity is not just attack; recognition, tolerance, memory, and regulation are equally central.
-- **Transfer task:** Transfer signaling and immunity reasoning to vaccination, autoimmunity, stress, and metabolism.
+- **Transfer task:** Transfer immunity reasoning to vaccination, autoimmunity, infection, and cancer therapy.
 
 
 ## Unit X {.unnumbered}
@@ -509,18 +561,31 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Carrying capacity is not a fixed magic number; it changes with resources, interactions, and disturbance.
 - **Transfer task:** Transfer population models to fisheries, invasive species, epidemiology, and endangered species.
 
-### — Community Ecology and Species Interactions {.unnumbered}
+### — Community Interactions and Succession {.unnumbered}
 
-- **Chapter:** \cref{sec:unit_X_community_ecology}.
-- **Lab:** \cref{sec:lab_unit_X_community_ecology}.
-- **Question bank:** \cref{sec:q_unit_X_community_ecology}.
-- **Big idea:** Communities are structured by interactions among species and by the context of those interactions.
+- **Chapter:** \cref{sec:unit_X_community_interactions}.
+- **Lab:** \cref{sec:lab_unit_X_community_interactions}.
+- **Question bank:** \cref{sec:q_unit_X_community_interactions}.
+- **Big idea:** Communities are structured by pairwise species interactions and successional change.
 - **Core concepts:** competition, predation, mutualism, succession.
 - **Framework alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
 - **Practice cadence:** Representing and Describing Data, Statistical Tests and Data Analysis, Argumentation.
-- **Model/data skill:** Lotka-Volterra-style interaction and diversity-pattern reasoning. Interpret abundance, interaction, or disturbance data from communities.
+- **Model/data skill:** Lotka-Volterra-style interaction reasoning. Interpret abundance, interaction, or disturbance data from communities.
 - **Misconception probe:** A species interaction is not permanently good or bad; the sign can change with context.
-- **Transfer task:** Transfer interaction reasoning to restoration, disease ecology, agriculture, and invasion biology.
+- **Transfer task:** Transfer interaction reasoning to restoration, agriculture, and invasion biology.
+
+### — Biodiversity, Food Webs, and Biogeography {.unnumbered}
+
+- **Chapter:** \cref{sec:unit_X_biodiversity_and_food_webs}.
+- **Lab:** \cref{sec:lab_unit_X_biodiversity_and_food_webs}.
+- **Question bank:** \cref{sec:q_unit_X_biodiversity_and_food_webs}.
+- **Big idea:** Biodiversity patterns, food webs, and island biogeography scale from local interactions to landscape structure.
+- **Core concepts:** food webs, keystone species, species-area, diversity indices.
+- **Framework alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
+- **Practice cadence:** Representing and Describing Data, Statistical Tests and Data Analysis, Argumentation.
+- **Model/data skill:** Shannon, species-area, and network connectance reasoning. Interpret food-web, richness, or biogeography datasets.
+- **Misconception probe:** Richness alone does not equal functional stability.
+- **Transfer task:** Transfer biodiversity reasoning to conservation planning and habitat fragmentation.
 
 ### — Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
 

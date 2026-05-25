@@ -44,43 +44,43 @@ When you need to substitute a heavy resource:
 ## Running tests
 
 > [!IMPORTANT]
-> Run from **`projects/biology_textbook/`** (or the path returned by `resolve_project_root` for `--project biology_textbook`) so this project's `pyproject.toml` applies (`coverage fail_under=90`, `pythonpath=src`). Running pytest from the repo root may pick up different config.
+> Run from the active project directory so this project's `pyproject.toml` applies (`coverage fail_under=90`, `pythonpath=src`). Template-orchestrated runs (`scripts/01_run_tests.py --project biology_textbook` from the template repo) also load `[tool.coverage.run]` via `--cov-config` on the project `pyproject.toml`; `tests/conftest.py` sets `COVERAGE_RCFILE` as a fallback when pytest is invoked directly.
 
 ```bash
 # Full suite, verbose
-uv run pytest tests/ -v
+uv run python -m pytest tests/ -v
 
 # Full suite with coverage report (HTML)
-uv run pytest tests/ --cov=src --cov-report=html
+uv run python -m pytest tests/ --cov=src --cov-report=html
 open htmlcov/index.html
 
 # Coverage with terminal-missing breakdown
-uv run pytest tests/ --cov=src --cov-report=term-missing
+uv run python -m pytest tests/ --cov=src --cov-report=term-missing
 
 # Run a single test file
-uv run pytest tests/test_cell_biology.py -v
+uv run python -m pytest tests/test_cell_biology.py -v
 
 # Run a single test function
-uv run pytest tests/test_genetics.py::test_punnett_square_monohybrid -v
+uv run python -m pytest tests/test_genetics.py::test_punnett_square_monohybrid -v
 
 # Run all tests matching a name pattern
-uv run pytest tests/ -k "punnett" -v
+uv run python -m pytest tests/ -k "punnett" -v
 
 # Run a specific invariant
-uv run pytest tests/test_build_invariants.py::test_every_chapter_has_section_label -v
+uv run python -m pytest tests/test_build_invariants.py::test_every_chapter_has_section_label -v
 
 # Stop at first failure (useful for triage)
-uv run pytest tests/ -x
+uv run python -m pytest tests/ -x
 
 # Show local variables on failure
-uv run pytest tests/ -l
+uv run python -m pytest tests/ -l
 
 # Pure-domain tests (skip slow/optional)
-uv run pytest tests/ -m "not slow"
+uv run python -m pytest tests/ -m "not slow"
 ```
 
 > [!TIP]
-> When debugging a single invariant, copy the **command** from the [authoring-mistake → test → fix table](#authoring-mistake--test--fix-consolidated) — each row gives the exact `uv run pytest …::test_name -v` line.
+> When debugging a single invariant, copy the **command** from the [authoring-mistake → test → fix table](#authoring-mistake--test--fix-consolidated) — each row gives the exact `uv run python -m pytest …::test_name -v` line.
 
 ---
 
@@ -96,13 +96,15 @@ uv run pytest tests/ -m "not slow"
 | `src/visualization/` | 80 % | ≥ 80 % (exercised by `test_mermaid_and_visualization.py`) |
 | Manuscript invariants | all green | `pytest` from project dir |
 
-Run `uv run pytest tests/ --cov=src --cov-report=term-missing` for the per-file breakdown.
+Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the per-file breakdown.
+
+**Project root vs template root:** The **90 %** gate applies from this project directory (`uv run pytest tests/ --cov=src --cov-fail-under=90`) and from template orchestration (`uv run python scripts/01_run_tests.py --project biology_textbook`), which passes `--cov-config=<project>/pyproject.toml` so omit rules (maintenance engines under `src/biology/*/engine.py`) match local runs. `scripts/audit_publication_readiness.py --check` uses temporary visual artifacts for strict local generation; `--full` uses the project-root pytest gate for release validation.
 
 ---
 
 ## Test organisation
 
-**Total: 27 test files** (domain + invariant/quality). The suite is partitioned into **domain tests** (exercising `src/biology/*` models) and **invariant/quality tests** (asserting manuscript, lab, question-bank, table-of-contents, render-log, glossary, current-claim, assessment-alignment, accessibility, and script-level gates).
+**Total: 37 test files** (domain + invariant/quality). The suite is partitioned into **domain tests** (exercising `src/biology/*` models) and **invariant/quality tests** (asserting manuscript, lab, question-bank, table-of-contents, render-log, glossary, current-claim, assessment-alignment, accessibility, standalone bootstrap, and script-level gates).
 
 ### Domain tests (6 `test_*.py` files)
 
@@ -114,10 +116,37 @@ Run `uv run pytest tests/ --cov=src --cov-report=term-missing` for the per-file 
 | `test_microbiology_botany_neuroscience.py` | Bacterial growth, MIC, water potential, Hodgkin-Huxley, synaptic transmission, LTP |
 | `test_mermaid_and_visualization.py` | Mermaid renderer, `ALL_BIOLOGY_DIAGRAMS`, matplotlib `ALL_FIGURE_GENERATORS` |
 | `test_coverage_gap.py` | Deliberately closes residual branches in existing modules |
+| `conftest.py` | `MPLBACKEND=Agg`, `ensure_project_paths()` bootstrap, `COVERAGE_RCFILE` + early cov-config hook for direct pytest |
+
+### Invariant and quality tests (25 files)
+
+| Test file | What it guards |
+| --------- | -------------- |
+| `test_atomic_io.py` | Atomic write/replace helpers used by maintenance scripts |
+| `test_audit_v3_and_crossref_gate.py` | Generic-answer v3 and malformed `\cref` detector regressions |
+| `test_build_invariants.py` | Every chapter has `\label{sec:…}` and a metadata badge; every lab/question `\cref`-links to its parent chapter; every registered figure generator is referenced; every `\label{fig:…}` has prose `\cref`; Course Planning Grid populated |
+| `test_bibliography_closure.py` | `{cited}` == `{defined}` in `references.bib` — no orphans, no dangling citations, no mid-word citation artefacts |
+| `test_chapter_metadata.py` | Every `config.yaml` chapter has a `ChapterMeta` record; prerequisites resolve; difficulty ∈ {1, 2, 3}; chapter numbers contiguous 1..N |
+| `test_chapter_pedagogy_coverage.py` | REVIEW §7 pedagogy locks: ≥2 worked examples on 12 quantitative chapters, ≥3 Concept Checks on Unit IX + four named chapters, Bloom diversity on three chapters, ≥7 LOs on all core chapters |
+| `test_curriculum_metadata.py` | Every `config.yaml` chapter has a curriculum record; lab/question companion paths exist and align |
 | `test_current_claims_ledger.py` | Fast-moving claim ledger, source tier, anchor, and stale-phrase checks |
 | `test_assessment_metadata.py` | Item-level LO, Bloom, difficulty, format, and minutes metadata across all question banks |
 | `test_lab_pedagogy_alignment.py` | Lab outcome, LO-coverage, and rubric-dimension metadata checks |
-| `conftest.py` | `MPLBACKEND=Agg` + `sys.path` bootstrap |
+| `test_toc_consistency.py` | Renderable H1s, front-matter navigation, reference appendix headings, and Course Planning Grid titles match `biology.toc`; lab/question config entries avoid duplicated titles |
+| `test_accessibility.py` | Alt-text substance + proximity; unit chapters, labs, questions; Mermaid or italic caption after blocks |
+| `test_crossref_validator.py` | Top-level invariant: no unresolved `@fig:`/`@eq:`/`@tbl:`/`@sec:` refs, no duplicate labels, `cleveref` loaded in preamble |
+| `test_crossref_validator_internals.py` | Parser coverage: `$$…$$`, `\begin{figure}`, `\begin{equation}`, table captions, section labels, prose xrefs |
+| `test_crossref_validator_edges.py` | Edge cases: markdown images with `{#fig:}` attrs, block equations with id on following line, duplicate labels across files |
+| `test_lab_integrity.py` | Lab Part 2 computation sections are self-contained, avoid hidden notebooks/CSV dependencies, and execute `biology.*` snippets |
+| `test_enrichment_substance_gate.py` | Embedded-enrichment boilerplate and duplicate-body detectors |
+| `test_logging_compat.py` | Logging helper compatibility across checkout layouts |
+| `test_maintenance_engine_smoke.py` | Smoke imports for extracted maintenance engines under `src/biology/` |
+| `test_pdf_log_quality.py` | PDF-log checker reports undefined references and severe overfull boxes above the configured threshold |
+| `test_pdf_opening_and_mermaid.py` | Book opening uses `book.*` metadata, cover asset exists, and inline Mermaid converts to PNG references |
+| `test_question_answer_refinement.py` | Generated-answer heuristics classify quantitative questions, strip command prefixes, and preserve hand-written answers |
+| `test_script_quality.py` | Scripts parse as Python, avoid hard-coded local checkout paths, and keep retired duplicate helpers removed |
+| `test_textbook_paths.py` | Checkout path discovery, `ensure_project_paths()`, and template-root resolution |
+| `test_textbook_quality_audit.py` | Umbrella textbook-quality audit: stale claims, copyedit artifacts, enrichment presence, and current-source locks |
 
 ### Textbook quality audit
 
@@ -137,29 +166,6 @@ phrases. It also requires the embedded-enrichment audit matrix,
 chapter frontier boxes, unit evidence threads, and paper-based lab evidence
 upgrade sections introduced by `scripts/enrich_embedded_textbook.py`.
 
-### Invariant and quality tests (18 files)
-
-| Test file | What it guards |
-| --------- | -------------- |
-| `test_atomic_io.py` | Atomic write/replace helpers used by maintenance scripts |
-| `test_audit_v3_and_crossref_gate.py` | Generic-answer v3 and malformed `\cref` detector regressions |
-| `test_build_invariants.py` | Every chapter has `\label{sec:…}` and a metadata badge; every lab/question `\cref`-links to its parent chapter; every registered figure generator is referenced; Course Planning Grid populated |
-| `test_bibliography_closure.py` | `{cited}` == `{defined}` in `references.bib` — no orphans, no dangling citations, no mid-word citation artefacts |
-| `test_chapter_metadata.py` | Every `config.yaml` chapter has a `ChapterMeta` record; prerequisites resolve; difficulty ∈ {1, 2, 3}; chapter numbers contiguous 1..N |
-| `test_curriculum_metadata.py` | Every `config.yaml` chapter has a curriculum record; lab/question companion paths exist and align |
-| `test_toc_consistency.py` | Renderable H1s, front-matter navigation, reference appendix headings, and Course Planning Grid titles match `biology.toc`; lab/question config entries avoid duplicated titles |
-| `test_accessibility.py` | Alt-text substance + proximity; unit chapters, labs, questions; Mermaid or italic caption after blocks |
-| `test_crossref_validator.py` | Top-level invariant: no unresolved `@fig:`/`@eq:`/`@tbl:`/`@sec:` refs, no duplicate labels, `cleveref` loaded in preamble |
-| `test_crossref_validator_internals.py` | Parser coverage: `$$…$$`, `\begin{figure}`, `\begin{equation}`, table captions, section labels, prose xrefs |
-| `test_crossref_validator_edges.py` | Edge cases: markdown images with `{#fig:}` attrs, block equations with id on following line, duplicate labels across files |
-| `test_lab_integrity.py` | Lab Part 2 computation sections are self-contained, avoid hidden notebooks/CSV dependencies, and execute `biology.*` snippets |
-| `test_enrichment_substance_gate.py` | Embedded-enrichment boilerplate and duplicate-body detectors |
-| `test_pdf_log_quality.py` | PDF-log checker reports undefined references and severe overfull boxes above the configured threshold |
-| `test_pdf_opening_and_mermaid.py` | Book opening uses `book.*` metadata, cover asset exists, and inline Mermaid converts to PNG references |
-| `test_question_answer_refinement.py` | Generated-answer heuristics classify quantitative questions, strip command prefixes, and preserve hand-written answers |
-| `test_script_quality.py` | Scripts parse as Python, avoid hard-coded local checkout paths, and keep retired duplicate helpers removed |
-| `test_textbook_quality_audit.py` | Umbrella textbook-quality audit: stale claims, copyedit artifacts, enrichment presence, and current-source locks |
-
 ---
 
 ## Authoring mistake → test → fix (consolidated)
@@ -168,38 +174,40 @@ Use this table when pytest fails. Each row gives the **specific authoring mistak
 
 | # | Authoring mistake | Test name | Single-test command | How to fix |
 | - | ----------------- | --------- | ------------------- | ---------- |
-| 1 | Forgot `\label{sec:unit_X_<stem>}` after a chapter's H1 | `test_every_chapter_has_section_label` | `uv run pytest tests/test_build_invariants.py::test_every_chapter_has_section_label -v` | Run `scripts/insert_crossref_labels.py` (idempotent) |
-| 2 | Forgot the `<!-- chapter-metadata-badge -->` block | `test_every_chapter_has_metadata_badge` | `uv run pytest tests/test_build_invariants.py::test_every_chapter_has_metadata_badge -v` | Run `scripts/insert_chapter_metadata.py` (requires matching `ChapterMeta`) |
-| 3 | Lab file is missing `\cref{sec:...}` to its parent chapter | `test_every_lab_links_to_parent_chapter` | `uv run pytest tests/test_build_invariants.py::test_every_lab_links_to_parent_chapter -v` | Run `scripts/link_labs_to_chapters.py` |
-| 4 | Question bank is missing `\cref{sec:...}` to its parent chapter | `test_every_question_links_to_parent_chapter` | `uv run pytest tests/test_build_invariants.py::test_every_question_links_to_parent_chapter -v` | Run `scripts/link_labs_to_chapters.py` |
-| 5 | Registered `plot_*` never referenced from any chapter | `test_every_registered_figure_is_referenced` | `uv run pytest tests/test_build_invariants.py::test_every_registered_figure_is_referenced -v` | Add a `\begin{figure}...\end{figure}` block (use `scripts/insert_orphan_figures.py --dry-run` to scaffold) |
-| 6 | Front-matter Course Planning Grid empty / stale | `test_course_planning_grid_populated` | `uv run pytest tests/test_build_invariants.py::test_course_planning_grid_populated -v` | Re-run `scripts/insert_chapter_metadata.py` |
-| 6a | A chapter, unit intro, lab, question bank, reference appendix, or glossary H1 drifts from `config.yaml` | `test_renderable_h1s_match_canonical_toc` | `uv run pytest tests/test_toc_consistency.py::test_renderable_h1s_match_canonical_toc -v` | Run `scripts/sync_curriculum_materials.py` |
-| 6b | Lab/question entries duplicate derived `title:` strings in `config.yaml` | `test_lab_and_question_config_entries_do_not_duplicate_titles` | `uv run pytest tests/test_toc_consistency.py::test_lab_and_question_config_entries_do_not_duplicate_titles -v` | Delete the duplicated `title:` keys; keep only `file:` |
-| 7 | Citekey in chapter not present in `references.bib` | `test_no_dangling_citations` | `uv run pytest tests/test_bibliography_closure.py::test_no_dangling_citations -v` | Add the BibTeX entry to `references.bib` (`@article{...}`) |
-| 8 | BibTeX entry never cited | `test_no_orphan_bib_entries` | `uv run pytest tests/test_bibliography_closure.py::test_no_orphan_bib_entries -v` | Cite it in the most relevant chapter, or run `scripts/integrate_orphan_citations.py` |
-| 9 | `\cite{}` glued to a word (`...as\citep{x}shows...`) | `test_no_midword_citations` | `uv run pytest tests/test_bibliography_closure.py::test_no_midword_citations -v` | Add a space before/after the `\citep{}` |
-| 10 | `ChapterMeta` missing for a chapter listed in `config.yaml` | `test_every_config_chapter_has_meta` | `uv run pytest tests/test_chapter_metadata.py::test_every_config_chapter_has_meta -v` | Add a `ChapterMeta(...)` record to `src/biology/chapter_metadata.py` |
-| 11 | `ChapterMeta.prerequisites` references unknown `chapter_id` | `test_prerequisites_resolve` | `uv run pytest tests/test_chapter_metadata.py::test_prerequisites_resolve -v` | Fix typo, or add the missing `ChapterMeta` for the prereq |
-| 12 | Difficulty out of {1, 2, 3} | `test_difficulty_in_range` | `uv run pytest tests/test_chapter_metadata.py::test_difficulty_in_range -v` | Set difficulty to 1, 2, or 3; rendered badges display Level 1/3 through Level 3/3 |
-| 13 | Chapter numbers non-contiguous | `test_chapter_numbers_contiguous` | `uv run pytest tests/test_chapter_metadata.py::test_chapter_numbers_contiguous -v` | Renumber `ChapterMeta(..., number=N, ...)` to be contiguous 1..N |
-| 14 | Figure has no `<!-- alt: ... -->` immediately after `\end{figure}` | `test_every_latex_figure_has_alt_nearby` | `uv run pytest tests/test_accessibility.py::test_every_latex_figure_has_alt_nearby -v` | Add `<!-- alt: ... -->` comment immediately after `\end{figure}` |
-| 15 | Mermaid block has missing, duplicate, or stale metadata | `test_every_mermaid_block_has_exactly_one_alt_and_caption` | `uv run pytest tests/test_accessibility.py::test_every_mermaid_block_has_exactly_one_alt_and_caption -v` | Add one `<!-- alt: ... -->` comment and one italic caption, or run `scripts/add_mermaid_alt_text.py` |
-| 16 | Alt text is too short / generic ("Figure 4", "graph") | `test_alt_text_substance` | `uv run pytest tests/test_accessibility.py::test_alt_text_substance -v` | Rewrite to describe axes, trend, and salient features (15–35 words) |
-| 17 | `@fig:foo` referenced but no `{#fig:foo}` defined | `test_no_unresolved_refs` | `uv run pytest tests/test_crossref_validator.py::test_no_unresolved_refs -v` | Define the label, or fix the reference typo |
-| 18 | Same `\label{fig:foo}` defined in two files | `test_no_duplicate_labels` | `uv run pytest tests/test_crossref_validator.py::test_no_duplicate_labels -v` | Make the label globally unique (use the `unit_X_<descriptor>` convention) |
-| 19 | `cleveref` missing from preamble | `test_cleveref_loaded` | `uv run pytest tests/test_crossref_validator.py::test_cleveref_loaded -v` | Add `\usepackage{cleveref}` to `manuscript/preamble.md` after `hyperref` |
-| 20 | `$$…$$` block mixing `\tag{}` and `\label{}` | `test_dollar_block_label_tag_mutex` | `uv run pytest tests/test_crossref_validator_internals.py::test_dollar_block_label_tag_mutex -v` | Promote to `\begin{equation}\tag{}\label{}\end{equation}` (see [manuscript_guide.md#equations](manuscript_guide.md#equations)) |
-| 21 | Markdown image with `{#fig:...}` attribute parses incorrectly | `test_markdown_image_attrs` | `uv run pytest tests/test_crossref_validator_edges.py::test_markdown_image_attrs -v` | Check syntax: `![alt](path){#fig:label}` (no space before `{`) |
-| 22 | Lab Part 2 references a hidden notebook, CSV, pandas import, or display-only `plt.show()` workflow | `test_labs_do_not_reference_missing_computational_artifacts` | `uv run pytest tests/test_lab_integrity.py::test_labs_do_not_reference_missing_computational_artifacts -v` | Run `scripts/normalize_lab_computational_workflows.py`; keep snippets self-contained |
-| 23 | Optional lab snippet imports a module path that does not resolve | `test_lab_python_snippets_execute_against_project_modules` | `uv run pytest tests/test_lab_integrity.py::test_lab_python_snippets_execute_against_project_modules -v` | Fix the `from biology... import ...` line or add/export the missing API in `src/biology` |
-| 24 | Generated answer refiner starts rewriting hand-written answers or stops recognizing current generated signatures | `test_current_generated_signatures_are_refinable` / `test_hand_written_answer_is_not_refinable` | `uv run pytest tests/test_question_answer_refinement.py -v` | Update `scripts/refine_generated_answers.py` signature predicates with paired tests |
-| 25 | Script contains an absolute local checkout path or an obsolete duplicate helper returns | `test_scripts_do_not_embed_absolute_checkout_paths` / `test_obsolete_mermaid_alt_helpers_removed` | `uv run pytest tests/test_script_quality.py -v` | Replace hard-coded paths with project-relative `Path` logic; keep one canonical helper |
-| 26 | A fast-moving biology claim loses its source, anchor, source tier, checked date, or refresh trigger | `test_current_claims_ledger_is_valid` | `uv run pytest tests/test_current_claims_ledger.py -v` | Update `manuscript/current_claims.yaml` and keep the cited claim text/source close to the manuscript claim |
-| 27 | A question-bank item or lab loses LO/Bloom/rubric metadata | `test_all_question_bank_items_have_assessment_metadata` / `test_every_lab_maps_to_measurable_outcomes_and_chapter_los` | `uv run pytest tests/test_assessment_metadata.py tests/test_lab_pedagogy_alignment.py -v` | Run `scripts/sync_assessment_metadata.py --dry-run`, write with `scripts/sync_assessment_metadata.py`, then review any pedagogical mismatch manually |
+| 1 | Forgot `\label{sec:unit_X_<stem>}` after a chapter's H1 | `test_every_chapter_has_section_label` | `uv run python -m pytest tests/test_build_invariants.py::test_every_chapter_has_section_label -v` | Run `scripts/insert_crossref_labels.py` (idempotent) |
+| 2 | Forgot the `<!-- chapter-metadata-badge -->` block | `test_every_chapter_has_metadata_badge` | `uv run python -m pytest tests/test_build_invariants.py::test_every_chapter_has_metadata_badge -v` | Run `scripts/insert_chapter_metadata.py` (requires matching `ChapterMeta`) |
+| 3 | Lab file is missing `\cref{sec:...}` to its parent chapter | `test_every_lab_links_to_parent_chapter` | `uv run python -m pytest tests/test_build_invariants.py::test_every_lab_links_to_parent_chapter -v` | Run `scripts/link_labs_to_chapters.py` |
+| 4 | Question bank is missing `\cref{sec:...}` to its parent chapter | `test_every_question_links_to_parent_chapter` | `uv run python -m pytest tests/test_build_invariants.py::test_every_question_links_to_parent_chapter -v` | Run `scripts/link_labs_to_chapters.py` |
+| 5 | Registered `plot_*` never referenced from any chapter | `test_every_registered_figure_is_referenced` | `uv run python -m pytest tests/test_build_invariants.py::test_every_registered_figure_is_referenced -v` | Add a `\begin{figure}...\end{figure}` block (use `scripts/insert_orphan_figures.py --dry-run` to scaffold) |
+| 5b | Figure `\label{fig:…}` without prose `\cref{fig:…}` | `test_every_figure_label_has_prose_cref` | `uv run python -m pytest tests/test_build_invariants.py::test_every_figure_label_has_prose_cref -v` | Weave `\cref{fig:…}` into teaching prose in the same chapter (REVIEW §8 standard) |
+| 6 | Front-matter Course Planning Grid empty / stale | `test_course_planning_grid_populated` | `uv run python -m pytest tests/test_build_invariants.py::test_course_planning_grid_populated -v` | Re-run `scripts/insert_chapter_metadata.py` |
+| 6a | A chapter, unit intro, lab, question bank, reference appendix, or glossary H1 drifts from `config.yaml` | `test_renderable_h1s_match_canonical_toc` | `uv run python -m pytest tests/test_toc_consistency.py::test_renderable_h1s_match_canonical_toc -v` | Run `scripts/sync_curriculum_materials.py` |
+| 6b | Lab/question entries duplicate derived `title:` strings in `config.yaml` | `test_lab_and_question_config_entries_do_not_duplicate_titles` | `uv run python -m pytest tests/test_toc_consistency.py::test_lab_and_question_config_entries_do_not_duplicate_titles -v` | Delete the duplicated `title:` keys; keep only `file:` |
+| 7 | Citekey in chapter not present in `references.bib` | `test_no_dangling_citations` | `uv run python -m pytest tests/test_bibliography_closure.py::test_no_dangling_citations -v` | Add the BibTeX entry to `references.bib` (`@article{...}`) |
+| 8 | BibTeX entry never cited | `test_no_orphan_bib_entries` | `uv run python -m pytest tests/test_bibliography_closure.py::test_no_orphan_bib_entries -v` | Cite it in the most relevant chapter, or run `scripts/integrate_orphan_citations.py` |
+| 9 | `\cite{}` glued to a word (`...as\citep{x}shows...`) | `test_no_midword_citations` | `uv run python -m pytest tests/test_bibliography_closure.py::test_no_midword_citations -v` | Add a space before/after the `\citep{}` |
+| 10 | `ChapterMeta` missing for a chapter listed in `config.yaml` | `test_every_config_chapter_has_meta` | `uv run python -m pytest tests/test_chapter_metadata.py::test_every_config_chapter_has_meta -v` | Add a `ChapterMeta(...)` record to `src/biology/chapter_metadata.py` |
+| 11 | `ChapterMeta.prerequisites` references unknown `chapter_id` | `test_prerequisites_resolve` | `uv run python -m pytest tests/test_chapter_metadata.py::test_prerequisites_resolve -v` | Fix typo, or add the missing `ChapterMeta` for the prereq |
+| 12 | Difficulty out of {1, 2, 3} | `test_difficulty_in_range` | `uv run python -m pytest tests/test_chapter_metadata.py::test_difficulty_in_range -v` | Set difficulty to 1, 2, or 3; rendered badges display Level 1/3 through Level 3/3 |
+| 13 | Chapter numbers non-contiguous | `test_chapter_numbers_contiguous` | `uv run python -m pytest tests/test_chapter_metadata.py::test_chapter_numbers_contiguous -v` | Renumber `ChapterMeta(..., number=N, ...)` to be contiguous 1..N |
+| 14 | Figure has no `<!-- alt: ... -->` immediately after `\end{figure}` | `test_every_latex_figure_has_alt_nearby` | `uv run python -m pytest tests/test_accessibility.py::test_every_latex_figure_has_alt_nearby -v` | Add `<!-- alt: ... -->` comment immediately after `\end{figure}` |
+| 15 | Mermaid block has missing, duplicate, or stale metadata | `test_every_mermaid_block_has_exactly_one_alt_and_caption` | `uv run python -m pytest tests/test_accessibility.py::test_every_mermaid_block_has_exactly_one_alt_and_caption -v` | Add one `<!-- alt: ... -->` comment and one italic caption, or run `scripts/add_mermaid_alt_text.py` |
+| 16 | Alt text is too short / generic ("Figure 4", "graph") | `test_alt_text_substance` | `uv run python -m pytest tests/test_accessibility.py::test_alt_text_substance -v` | Rewrite to describe axes, trend, and salient features (15–35 words) |
+| 17 | `@fig:foo` referenced but no `{#fig:foo}` defined | `test_no_unresolved_refs` | `uv run python -m pytest tests/test_crossref_validator.py::test_no_unresolved_refs -v` | Define the label, or fix the reference typo |
+| 18 | Same `\label{fig:foo}` defined in two files | `test_no_duplicate_labels` | `uv run python -m pytest tests/test_crossref_validator.py::test_no_duplicate_labels -v` | Make the label globally unique (use the `unit_X_<descriptor>` convention) |
+| 19 | `cleveref` missing from preamble | `test_cleveref_loaded` | `uv run python -m pytest tests/test_crossref_validator.py::test_cleveref_loaded -v` | Add `\usepackage{cleveref}` to `manuscript/preamble.md` after `hyperref` |
+| 20 | Manual equation numbering in renderable manuscript prose | `test_latex_equation_environment_with_tag_is_flagged` | `uv run python -m pytest tests/test_crossref_validator_internals.py::test_latex_equation_environment_with_tag_is_flagged -v` | Use a labelled `equation` or `align` environment; let LaTeX assign the rendered number (see [manuscript_guide.md#equations](manuscript_guide.md#equations)) |
+| 21 | Markdown image with `{#fig:...}` attribute parses incorrectly | `test_markdown_image_attrs` | `uv run python -m pytest tests/test_crossref_validator_edges.py::test_markdown_image_attrs -v` | Check syntax: `![alt](path){#fig:label}` (no space before `{`) |
+| 22 | Lab Part 2 references a hidden notebook, CSV, pandas import, or display-only `plt.show()` workflow | `test_labs_do_not_reference_missing_computational_artifacts` | `uv run python -m pytest tests/test_lab_integrity.py::test_labs_do_not_reference_missing_computational_artifacts -v` | Run `scripts/normalize_lab_computational_workflows.py`; keep snippets self-contained |
+| 23 | Optional lab snippet imports a module path that does not resolve | `test_lab_python_snippets_execute_against_project_modules` | `uv run python -m pytest tests/test_lab_integrity.py::test_lab_python_snippets_execute_against_project_modules -v` | Fix the `from biology... import ...` line or add/export the missing API in `src/biology` |
+| 24 | Generated answer refiner starts rewriting hand-written answers or stops recognizing current generated signatures | `test_current_generated_signatures_are_refinable` / `test_hand_written_answer_is_not_refinable` | `uv run python -m pytest tests/test_question_answer_refinement.py -v` | Update `scripts/refine_generated_answers.py` signature predicates with paired tests |
+| 25 | Script contains an absolute local checkout path or an obsolete duplicate helper returns | `test_scripts_do_not_embed_absolute_checkout_paths` / `test_no_legacy_mermaid_alt_maintenance_clones` | `uv run python -m pytest tests/test_script_quality.py -v` | Replace hard-coded paths with project-relative `Path` logic; keep one canonical helper |
+| 26 | Quantitative chapter drops below two worked examples, Concept-Check floor, Bloom diversity, or seven LOs | `test_chapter_pedagogy_coverage.py` (parametrized) | `uv run python -m pytest tests/test_chapter_pedagogy_coverage.py -v` | Add a second worked example, Concept Check, higher-order LO verb, or sync assessment metadata after LO edits |
+| 27 | A fast-moving biology claim loses its source, anchor, source tier, checked date, or refresh trigger | `test_current_claims_ledger_is_valid` | `uv run python -m pytest tests/test_current_claims_ledger.py -v` | Update `manuscript/current_claims.yaml` and keep the cited claim text/source close to the manuscript claim |
+| 28 | A question-bank item or lab loses LO/Bloom/rubric metadata | `test_all_question_bank_items_have_assessment_metadata` / `test_every_lab_maps_to_measurable_outcomes_and_chapter_los` | `uv run python -m pytest tests/test_assessment_metadata.py tests/test_lab_pedagogy_alignment.py -v` | Run `scripts/sync_assessment_metadata.py --dry-run`, write with `scripts/sync_assessment_metadata.py`, then review any pedagogical mismatch manually |
 
 > [!TIP]
-> The single-test command form is `uv run pytest <file>::<test_name> -v`. You can run **multiple** tests at once with a `-k` filter — e.g. `uv run pytest tests/test_build_invariants.py -k "label or badge" -v`.
+> The single-test command form is `uv run python -m pytest <file>::<test_name> -v`. You can run **multiple** tests at once with a `-k` filter — e.g. `uv run python -m pytest tests/test_build_invariants.py -k "label or badge" -v`.
 
 ---
 

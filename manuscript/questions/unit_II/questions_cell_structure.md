@@ -1,4 +1,4 @@
-# Questions — Ch 6: Cell Structure and Organelles {.unnumbered}
+# Questions — Cell Structure and Organelles {.unnumbered}
 
 \label{sec:q_unit_II_cell_structure}
 

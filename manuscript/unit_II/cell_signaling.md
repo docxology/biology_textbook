@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 8** · Level 3/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_II_membrane_transport}, \cref{sec:unit_I_enzymes_and_kinetics}
+> Level 3/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_II_membrane_transport}, \cref{sec:unit_I_enzymes_and_kinetics}
 
 ## Learning Objectives
 
@@ -102,15 +102,27 @@ This product structure means that *removing one step* of a cascade cuts gain by 
 
 **Time delay and adaptation.** Each step also adds a time constant $\tau_i$ (the lifetime of the activated species). The total response time is:
 
-$$\tau_\text{total} \approx \sqrt{\sum_i \tau_i^2} \tag{8.0} \label{eq:unit_II_cell_signaling_item_1}$$
+\begin{equation}
+\tau_\text{total} \approx \sqrt{\sum_i \tau_i^2}
+\label{eq:unit_II_cell_signaling_item_1}
+\end{equation}
 
 
 For visual transduction (rhodopsin → transducin → PDE6 → cGMP fall): individual $\tau_i$ are ~10 ms, total response ~50 ms. For epinephrine: hundreds of milliseconds to seconds. The cascade thus also serves as a **temporal filter** — fast inputs reach the effector quickly, slow inputs are integrated.
 
-**Cooperativity sharpens the response.** A linear cascade has gain but not steepness — the dose–response is hyperbolic (Hill coefficient 1). To make a switch-like response, cells use:
+**Cooperativity sharpens the response.** \cref{fig:unit_II_hill_equation} contrasts Hill coefficients that steepen receptor occupancy around $K_d$. A linear cascade has gain but not steepness — the dose–response is hyperbolic (Hill coefficient 1). To make a switch-like response, cells use:
 - *Multiple binding sites* (haemoglobin O$_2$, $n_H = 2.8$).
 - *Multi-site phosphorylation requiring full occupancy* (ERK requires both Thr and Tyr phosphorylation; effective $n_H \approx 5$ in the MAP kinase cascade).
 - *Positive feedback loops* (ERK → SOS feedback creates bistability).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/hill_equation.png}
+\caption{Hill-equation receptor occupancy for cooperative binding. Higher Hill coefficients steepen the dose-response curve around the dissociation constant $K_d$.}
+\label{fig:unit_II_hill_equation}
+\end{figure}
+
+<!-- alt: Sigmoid occupancy curves for Hill coefficients n equals 1, 2, and 4 on a log-scaled ligand axis. -->
 
 The Huang–Ferrell analysis of the MAPK cascade showed mathematically that *three sequential switches* (each with $n_H = 1.7$ from its dual phosphorylation requirement) compose to give an overall Hill coefficient near 5 — converting a graded growth-factor input into an essentially digital ERK output. This is the molecular substrate of the cell's "decision making" between proliferation and quiescence.
 
@@ -120,26 +132,38 @@ The Huang–Ferrell analysis of the MAPK cascade showed mathematically that *thr
 
 **Receptor--ligand binding equilibrium.** The dissociation constant $K_d$ quantifies receptor affinity:
 
-$$K_d = \frac{[\text{R}][\text{L}]}{[\text{RL}]} \tag{8.1} \label{eq:unit_II_cell_signaling_item_2}$$
+\begin{equation}
+K_d = \frac{[\text{R}][\text{L}]}{[\text{RL}]}
+\label{eq:unit_II_cell_signaling_item_2}
+\end{equation}
 
 
 where $[\text{R}]$ is free receptor concentration, $[\text{L}]$ is free ligand concentration, and $[\text{RL}]$ is the receptor--ligand complex. The fraction of receptors occupied at a given ligand concentration is:
 
-$$\theta = \frac{[\text{L}]}{[\text{L}] + K_d} \tag{8.2} \label{eq:unit_II_cell_signaling_item_3}$$
+\begin{equation}
+\theta = \frac{[\text{L}]}{[\text{L}] + K_d}
+\label{eq:unit_II_cell_signaling_item_3}
+\end{equation}
 
 
 When $[\text{L}] = K_d$, exactly 50% of receptors are occupied. Typical $K_d$ values: [**insulin receptor**](#gl:insulin-receptor) ~0.1 nM; epinephrine--beta$_2$ receptor ~1 μM.
 
 **The Hill equation** models cooperative binding and switch-like signalling responses:
 
-$$\theta = \frac{[\text{L}]^{n_H}}{K_d^{n_H} + [\text{L}]^{n_H}} \tag{8.3} \label{eq:unit_II_cell_signaling_item_4}$$
+\begin{equation}
+\theta = \frac{[\text{L}]^{n_H}}{K_d^{n_H} + [\text{L}]^{n_H}}
+\label{eq:unit_II_cell_signaling_item_4}
+\end{equation}
 
 
 where $n_H$ is the Hill coefficient. $n_H = 1$ gives a hyperbolic (Michaelis--Menten-like) curve; $n_H > 1$ produces a sigmoidal (switch-like) response. The MAPK cascade achieves an effective $n_H \approx 5$, creating the ultrasensitive most-or-none ERK activation observed experimentally (Huang \& Ferrell, 1996, *PNAS*).
 
 **Signal amplification cascade.** If each step in a cascade has amplification factor $A_i$, the total amplification is:
 
-$$G_{\text{total}} = \prod_{i=1}^{n} A_i = A_1 \times A_2 \times \cdots \times A_n \tag{8.4} \label{eq:unit_II_cell_signaling_item_5}$$
+\begin{equation}
+G_{\text{total}} = \prod_{i=1}^{n} A_i = A_1 \times A_2 \times \cdots \times A_n
+\label{eq:unit_II_cell_signaling_item_5}
+\end{equation}
 
 
 For the epinephrine--glycogen cascade ($n = 4$ steps, $A_i \approx 10^{1.5}$ per step): $G_{\text{total}} \approx 10^6$, explaining how one hormone molecule triggers release of $\sim 10^8$ glucose molecules.
@@ -209,7 +233,7 @@ Because the cascade gain is a product rather than a sum, each added tier multipl
 
 ---
 
-## Cell-Surface Receptors
+## Cell-Surface Receptors and Signal Initiation
 
 ### G Protein-Coupled Receptors (GPCRs)
 
@@ -471,7 +495,7 @@ Direct coupling of ligand binding to ion flow, bypassing G proteins. Fastest sig
 
 ---
 
-## Intracellular Receptors
+## Intracellular Receptors for Lipid-Soluble Signals
 
 Lipophilic signalling molecules (steroid hormones, thyroid hormone, retinoic acid, vitamin D) diffuse through the membrane and bind **cytoplasmic or nuclear receptors** --- ligand-activated transcription factors. The nuclear receptor superfamily includes 48 members in humans.
 
@@ -493,7 +517,7 @@ Target genes include anti-inflammatory (IkB-alpha, annexin A1), gluconeogenic (P
 
 ---
 
-## Additional Signalling Pathways
+## Developmental, Cytokine, and Termination Pathways
 
 ### Wnt/Beta-Catenin Pathway
 
@@ -519,7 +543,7 @@ Cytokine receptors (e.g., IL-6R, IFN receptors, erythropoietin receptor) lack in
 - JAK inhibitors (ruxolitinib, tofacitinib) are used for myeloproliferative disorders and rheumatoid arthritis
 - STAT3 is constitutively active in many cancers → survival and proliferation
 
-### Notch Pathway
+### Notch Pathway and Contact-Dependent Cell Fate
 
 Direct cell-cell signalling (juxtacrine):
 1. Delta/Jagged ligand on one cell binds Notch receptor on adjacent cell
@@ -640,7 +664,7 @@ The Huang-Ferrell model of the MAPK cascade demonstrated that the cascade acts a
 
 Cell division is controlled by cyclin-dependent kinases (CDKs) activated by their partner cyclins (Nobel Prize 2001: Hartwell, Hunt, Nurse).
 
-### Phases
+### Cell-Cycle Phases and CDK-Cyclin Control
 
 | Phase | Event | Duration (typical animal cell) | Key CDK-Cyclin |
 | ----- | ----- | ------------------------------- | --------------- |
@@ -654,7 +678,7 @@ Cell division is controlled by cyclin-dependent kinases (CDKs) activated by thei
 - **G2/M checkpoint:** DNA repair complete? CDK1-Cyclin B (MPF --- maturation-promoting factor) triggers mitotic entry. Activated by CDC25 phosphatase; inhibited by Wee1 kinase.
 - **Spindle assembly checkpoint (SAC):** most kinetochores attached to microtubules? Mad2/BubR1 inhibit [**Anaphase**](#gl:anaphase) Promoting Complex (APC/C) until satisfied. APC/C then ubiquitinates securin → separase released → cleaves cohesin → sister chromatid separation.
 
-### Tumour Suppressors
+### Tumour Suppressors and Checkpoint Control
 
 - **p53:** "guardian of the [**genome**](#gl:genome)"; activated by DNA damage (via ATM/ATR kinases, Chk1/Chk2) → arrests cell cycle (via p21/WAF1 inhibiting CDK2) or triggers apoptosis (via PUMA, NOXA); mutated in ~50% of human cancers. MDM2 is the E3 ubiquitin ligase that normally keeps p53 levels low; MDM2 inhibitors (nutlins) are in clinical trials.
 - **pRB:** binds and represses E2F in G1; CDK4/6 phosphorylation releases E2F → S phase entry; mutated/deleted in retinoblastoma and many cancers. CDK4/6 inhibitors (palbociclib, ribociclib) are used in HR$^+$ breast cancer.
@@ -821,7 +845,7 @@ Why this matters for signalling: paracrine and juxtacrine signalling — Notch�
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Cell Signalling and Communication
 
 For **Cell Signalling and Communication**, frontier biology belongs inside the evidence logic of
 the chapter. Cell biology is increasingly measured as live, spatial, single-cell, and perturbational data rather than static diagrams alone. The core reading question is this: signalling explanations should include receptor context, dose, timing, feedback, crosstalk, and cellular state.
@@ -837,9 +861,9 @@ the chapter. Cell biology is increasingly measured as live, spatial, single-cell
   the source closest to the measurement and state what has changed since it was
   published.
 
-Ask what measurement scale is being claimed: nanometre structure, single-cell transcript abundance, organelle dynamics, tissue context, or organismal phenotype.
+For signalling claims, identify the ligand, receptor state, second messenger, timescale, and feedback branch before naming a pathway as causal.
 
-**Source practice:** For cell-state claims, distinguish microscopy, live-cell perturbation, single-cell sequencing, spatial transcriptomics, and biochemical assay evidence before making a causal statement.
+**Source practice:** Separate live-cell perturbation, phosphoproteomics, reporter assays, and single-cell data before inferring pathway direction or decision logic.
 
 ### Current Evidence Map: Spatial Single-Cell Signalling Evidence
 
@@ -897,7 +921,7 @@ flowchart LR
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Cell Signalling and Communication
 
 - Alon (2019). *An Introduction to Systems Biology: Design Principles of Biological Circuits*. Chapman and Hall/CRC.
 - Tyson et al. (2003). Sniffers, buzzers, toggles and blinkers: dynamics of regulatory and signaling pathways in the cell. *Current Opinion in Cell Biology*, 15.
@@ -930,7 +954,7 @@ flowchart LR
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Cell Signalling and Communication
 
 **Cell Signalling and Communication** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -942,4 +966,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/biology/cell/cell_biology.py` (`receptor_occupancy`, `hill_equation`, `signal_amplification`) | Quantify ligand binding, cooperativity, and cascade gain. |
 | `src/mermaid/biology_diagrams.py` (`hormone_signaling_diagram`, `immune_response_diagram`) | Compare receptor logic across endocrine and immune examples. |
 
-**Reproducibility check:** specify dose, timing, receptor context, feedback, and readout before inferring pathway causality. **Cross-reference:** extend the same logic in \cref{sec:unit_IX_endocrine_and_immune} and \cref{sec:unit_IV_epigenetics_and_gene_regulation}.
+**Reproducibility check:** specify dose, timing, receptor context, feedback, and readout before inferring pathway causality. **Cross-reference:** extend the same logic in \cref{sec:unit_IX_endocrine_signaling,sec:unit_IX_immune_system_defense} and \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms,sec:unit_IV_epigenetic_inheritance_and_disease}.

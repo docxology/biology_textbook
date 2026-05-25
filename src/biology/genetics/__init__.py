@@ -15,6 +15,7 @@ from .genetics import (
     translate_mrna,
     gc_content,
     punnett_square,
+    gametes,
     hardy_weinberg,
     chi_squared_test,
     hamming_distance,
@@ -24,6 +25,7 @@ from .genetics import (
     jukes_cantor_distance,
     cpg_methylation_remaining,
     histone_modification_state,
+    synthetic_methylation_beta_matrix,
 )
 
 __all__ = [
@@ -41,6 +43,7 @@ __all__ = [
     "translate_mrna",
     "gc_content",
     "punnett_square",
+    "gametes",
     "hardy_weinberg",
     "chi_squared_test",
     "hamming_distance",
@@ -50,4 +53,5 @@ __all__ = [
     "jukes_cantor_distance",
     "cpg_methylation_remaining",
     "histone_modification_state",
+    "synthetic_methylation_beta_matrix",
 ]

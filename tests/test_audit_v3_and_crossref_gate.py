@@ -8,6 +8,9 @@ from pathlib import Path
 from typing import Protocol, cast
 
 
+from biology.quality import paths as quality_paths
+
+
 PROJECT = Path(__file__).resolve().parent.parent
 SCRIPT = PROJECT / "scripts" / "audit_textbook_quality.py"
 
@@ -38,15 +41,20 @@ audit = cast(AuditModule, module)
 
 
 def run_targeted_audits(manuscript: Path) -> list[FindingLike]:
-    original_manuscript = audit.MANUSCRIPT
+    original_manuscript = quality_paths.MANUSCRIPT
+    import biology.maintenance.manuscript_walker as manuscript_walker
+
+    original_walker_manuscript = manuscript_walker.MANUSCRIPT
     try:
-        audit.MANUSCRIPT = manuscript
+        quality_paths.MANUSCRIPT = manuscript
+        manuscript_walker.MANUSCRIPT = manuscript
         findings: list[FindingLike] = []
         audit.audit_question_answers(findings)
         audit.audit_broken_crossrefs(findings)
         return findings
     finally:
-        audit.MANUSCRIPT = original_manuscript
+        quality_paths.MANUSCRIPT = original_manuscript
+        manuscript_walker.MANUSCRIPT = original_walker_manuscript
 
 
 def test_v3_solution_signatures_are_flagged(tmp_path: Path) -> None:

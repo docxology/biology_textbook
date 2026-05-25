@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 0.1** · Level 2/3 · 35 min read · 50 min lecture · Prerequisites: none
+> Level 2/3 · 35 min read · 50 min lecture · Prerequisites: none
 
 ---
 
@@ -18,7 +18,7 @@ By the end of this chapter, students will be able to:
 4. Apply the concepts of hierarchy, modularity, and scale to cellular and organismal biology.
 5. Distinguish between linear and nonlinear system behaviour.
 6. Analyse delayed feedback loops and predict whether they will damp, oscillate, or destabilise.
-7. Recognise scale-free network structure in biological data and explain its functional implications.
+7. Recognise hub-heavy network structure in biological data, test scale-free claims cautiously, and explain functional implications.
 8. Apply the Hill equation, the chemostat equations, and simple oscillator models to quantitative problems.
 
 <!-- curriculum-scaffold-start -->
@@ -45,7 +45,7 @@ In 1948, Norbert Wiener published *Cybernetics: or Control and Communication in 
 
 Their insight was radical: biology cannot be understood by dissecting organisms into parts and studying each in isolation. Instead, one must study *relationships* — the flows of matter, energy, and information that connect components and give rise to behaviour no component possesses alone. When Walter Cannon coined **[homeostasis](#gl:homeostasis)** in 1932 \citep{cannon1932}, he was describing a systems-level property: the blood glucose concentration of 5 mM is not a property of any single cell but an emergent steady-state of millions of feedback interactions between pancreatic β-cells, hepatocytes, skeletal myocytes, and adipocytes.
 
-This chapter introduces the core vocabulary and conceptual toolkit of systems science — the intellectual scaffolding that unifies every subsequent chapter in this textbook. We will move from definitions (what is a system?) through dynamics (feedback, delay, oscillation, chaos) to architecture (hierarchy, modularity, scale-free networks), then close with information, entropy, and the practical implications of a systems perspective for biomedicine.
+This chapter introduces the core vocabulary and conceptual toolkit of systems science — the intellectual scaffolding that unifies every subsequent chapter in this textbook. We will move from definitions (what is a system?) through dynamics (feedback, delay, oscillation, chaos) to architecture (hierarchy, modularity, hub-heavy networks), then close with information, entropy, and the practical implications of a systems perspective for biomedicine.
 
 ---
 
@@ -184,7 +184,7 @@ Feed-forward without feedback is brittle — any mis-prediction persists uncorre
 
 ---
 
-## Emergence
+## Emergence Across Biological Levels
 
 **Emergence** refers to properties of a system that cannot be explained solely by properties of its components. Emergent properties are *relational* — they arise from the pattern of interaction, not from any single part.
 
@@ -198,8 +198,11 @@ Feed-forward without feedback is brittle — any mis-prediction persists uncorre
 | Cellular | Metabolism, replication, signalling | [**Organelle**](#gl:organelle)s and molecules |
 | Tissue | Contractility, conductance, secretion | Cells |
 | Organism | Consciousness, immunity, homeostasis | Tissues and organs |
+| Colony / social group | Task allocation, swarm choice, nest climate regulation | Related or interacting organisms plus signals and modified habitat |
 | Population | Heredity, selection, drift | Individual organisms |
 | Ecosystem | Nutrient cycling, energy flow | Populations and [**abiotic**](#gl:abiotic) factors |
+
+Social-insect colonies are useful boundary cases for this table because they sit between organism-level physiology and population-level ecology. A honeybee swarm choosing a nest site, an ant colony allocating workers to foraging trails, or a termite colony regulating mound airflow has colony-level properties that no worker possesses in isolation \citep{seeley2010honeybee,dorigo2004ant,ocko2017solar}. Calling such a colony a [**superorganism**](#gl:superorganism) is an analogy with limits, but it can be a productive systems model when the analysis names the boundary, the colony-level regulated variable, and the worker-level interactions that generate it \citep{bourke2011principles}.
 
 ### Strong and Weak Emergence
 
@@ -243,7 +246,7 @@ Higher-level organisation *constrains* lower-level behaviour (downward causation
 - A mutation (molecular level) can alter the organismal [**phenotype**](#gl:phenotype) and hence population fitness.
 - Tissue architecture constrains diffusion gradients that, in turn, pattern gene expression (developmental biology's central feedback).
 
-### Modularity
+### Modular Organization and Evolvable Interfaces
 
 Living systems are modular — composed of semi-independent subsystems with defined interfaces. Modularity confers:
 
@@ -325,13 +328,13 @@ For $n > 1$ and balanced production rates $\alpha_1 \approx \alpha_2$, the syste
 
 ## Nonlinear Dynamics: Bifurcations, Limit Cycles, and Chaos
 
-Sections 2 and 5 hinted at oscillations and bistability. Nonlinear dynamics \citep{strogatz2018} provides the formal vocabulary for these and other behaviours.
+The earlier feedback and bistability examples hinted at oscillations and alternative stable states. Nonlinear dynamics \citep{strogatz2018} provides the formal vocabulary for these and other behaviours.
 
 ### Phase Space and Trajectories
 
 The **phase space** of a system is the space of possible internal states. A two-variable system (e.g. predator–prey densities, or a gene's mRNA and protein abundance) has a 2-D phase plane in which each system trajectory is a curve. **Fixed points** are states where the derivatives vanish; **limit cycles** are closed trajectories that nearby trajectories spiral towards or away from.
 
-### Bifurcations
+### Bifurcations and Qualitative State Changes
 
 A **bifurcation** is a qualitative change in the structure of phase space as a control parameter varies. Three biologically important kinds:
 
@@ -388,7 +391,7 @@ Sino-atrial node cells lack a true resting potential. Instead, their membrane po
 
 In rapidly dividing cells the cyclin–CDK system is the master oscillator. M-cyclin accumulates linearly during interphase; once a threshold is reached, M-CDK activity is amplified by a positive-feedback bistable switch (Wee1 inactivation, Cdc25 activation), driving entry into mitosis. APC/C-mediated cyclin destruction collapses M-CDK activity, the bistable switch flips back, and the cycle resets. This is a **relaxation oscillator**: a slow build-up followed by a fast release, mathematically distinct from the harmonic oscillation of the circadian clock.
 
-### Common Architecture
+### Shared Feedback Architecture of Biological Oscillators
 
 | Oscillator | Period | Mechanism class |
 | ---------- | ------ | --------------- |
@@ -404,7 +407,7 @@ The lesson: oscillators are not exotic; they are nature's default solution to th
 
 ## Scale-Free Networks in Biology
 
-Most biological systems are not random networks but **scale-free**: their node-degree distribution follows a power law $P(k) \propto k^{-\gamma}$ with exponent γ typically between 2 and 3 (\cref{sec:unit_0_complex_adaptive_systems} discusses power laws in depth). A few **hub** nodes have many connections; most nodes have few.
+Many biological networks are **hub-heavy** rather than random: a few nodes have many interactions, while most nodes have few. Some datasets are well approximated by **scale-free** degree distributions, $P(k) \propto k^{-\gamma}$, but the universality of strict power laws is contested and depends on sampling, curation, and statistical testing \citep{barabasi1999,barabasi2004network,broido2019scalefree}. The durable biological lesson is therefore not "everything is scale-free"; it is that hub structure, modularity, and heavy-tailed connectivity can change robustness, vulnerability, and controllability.
 
 Biologically validated examples include:
 
@@ -414,14 +417,14 @@ Biologically validated examples include:
 - **Food webs** — apex species with broad diets contrast with specialist links.
 - **Brain connectomes** — cortical "rich-club" hubs disproportionately interconnect distant brain regions.
 
-### Why Scale-Free?
+### Mechanisms Generating Scale-Free Biological Networks
 
-Two mechanisms generate scale-free architecture:
+Two mechanisms can generate scale-free-like or hub-heavy architecture:
 
 1. **Preferential attachment** — new nodes preferentially connect to already-popular nodes (Barabási-Albert model). In biology this maps onto **gene duplication**: a duplicated gene inherits its parent's interaction partners, so highly-connected proteins beget more highly-connected proteins.
 2. **Optimisation under cost-and-benefit** — connections have wiring cost; a few high-degree hubs minimise total path length while limiting cost.
 
-### Functional Consequences
+### Functional Consequences of Hub-Dominated Networks
 
 | Property | Random network | Scale-free network |
 | -------- | -------------- | ------------------ |
@@ -447,7 +450,7 @@ Living systems process **information**: they detect signals (genetic, chemical, 
 
 Life builds local order (decreases local entropy) by doing work, and in so doing increases entropy of the surroundings. Self-organisation — spontaneous formation of ordered structures — occurs when energy dissipation enables pattern formation (e.g., Bénard cells, Turing patterns in morphogenesis, the spiral waves of slime-mould aggregation).
 
-### Shannon Information
+### Shannon Information and Biological Signal Content
 
 Claude Shannon defined the information content of a discrete probability distribution as
 
@@ -511,7 +514,7 @@ A naive reading of systems biology is that it builds bigger models of more parts
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Systems Science and the Logic of Emergence
 
 For **Systems Science and the Logic of Emergence**, frontier biology belongs inside the evidence logic of
 the chapter. Systems models are useful when they expose assumptions, uncertainty, and failure modes rather than merely producing elegant diagrams. The core reading question is this: system boundary choice, feedback sign, and scale determine whether a model explains or hides the biology.
@@ -527,9 +530,11 @@ the chapter. Systems models are useful when they expose assumptions, uncertainty
   the source closest to the measurement and state what has changed since it was
   published.
 
-Treat every model as a claim about mechanism: define the system boundary, identify the observable that would falsify the model, and report the uncertainty that would change a decision.
+For systems claims, identify the regulated variable, feedback sign, sensor, comparator, effector, and delay before naming a loop or emergent property.
 
-**Source practice:** Use model-validation sources when available, and state which observation would falsify the model rather than treating a diagram as proof.
+Single-cell and spatial technologies now sharpen that source practice: a modern systems-biology claim should ask which scale was actually measured, whether the tissue context was preserved, and how perturbation closes the loop between discovery and mechanism \citep{fischer2025systemsbio}. A beautiful network inferred from snapshots is a hypothesis until perturbation, time-series, or independent validation tests its causal edges.
+
+**Source practice:** Use control, network, perturbation, or measurement sources that expose system boundaries and feedback evidence rather than treating a diagram as proof.
 
 ## Unit 0 Integration: Using Systems Science Without Overclaiming
 
@@ -542,7 +547,7 @@ Systems language is powerful because it travels across scales, but that portabil
 
 This checklist connects the rest of this opening unit. \nameref{sec:unit_0_complex_adaptive_systems} asks what happens when many bounded systems act as agents. \nameref{sec:unit_0_active_inference} asks when the boundary can be formalised as a Markov blanket with sensory and active states. \nameref{sec:unit_0_history_philosophy_biology} asks how boundaries, variables, and mechanisms became accepted scientific categories in the first place.
 
-### When systems explanations fail
+### Failure Modes of Systems Explanations
 
 A systems explanation is weak when it merely renames complexity. "Everything is connected" is not a model. A usable systems claim should predict what happens when one connection is cut, one delay is shortened, one module is isolated, or one boundary is redrawn. If none of those perturbations would change the explanation, the diagram is decorative rather than explanatory.
 
@@ -552,7 +557,8 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 - Most living systems are open systems that import free energy and export entropy.
 - Negative feedback achieves homeostasis; positive feedback generates rapid transitions; delay turns stabilising loops into oscillators.
 - Emergent properties arise from patterns of interaction and cannot be reduced to component properties alone.
-- Biological organisation is hierarchical, modular, predominantly nonlinear, and overwhelmingly scale-free in its network structure.
+- Emergence also appears at colony scale: social-insect colonies can regulate nest climate, food discovery, or collective choice through worker interactions and environmental signals.
+- Biological organisation is hierarchical, modular, predominantly nonlinear, and often hub-heavy; strict scale-free claims require explicit statistical tests.
 - Bifurcations classify how qualitative dynamical behaviour changes — saddle-node (catastrophes), Hopf (oscillation onset), pitchfork (symmetry-breaking commitment).
 - Biological oscillators (circadian, cardiac, cell-cycle) realise delayed-feedback limit cycles; chaos appears in some cardiac and population dynamics.
 - Hill-type cooperativity implements sharp molecular thresholds; the toggle switch implements bistable cell-fate decisions; network motifs (feed-forward loops) shape dynamics and compensation under perturbation.
@@ -562,7 +568,7 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 ## Key Terms
 
-**system** · **emergence** · **negative feedback** · **positive feedback** · **homeostasis** · **allostasis** · **hierarchy** · **modularity** · **nonlinearity** · **bistability** · **bifurcation** · **limit cycle** · **chaos** · **Lyapunov exponent** · **scale-free network** · **hub** · **self-organisation** · **Hill equation** · **toggle switch** · **open system** · **network motif** · **feed-forward loop** · **mutual information** · **equifinality**
+**system** · **emergence** · **negative feedback** · **positive feedback** · **homeostasis** · **allostasis** · **hierarchy** · **modularity** · **nonlinearity** · **bistability** · **bifurcation** · **limit cycle** · **chaos** · **Lyapunov exponent** · **scale-free network** · **hub** · **self-organisation** · **superorganism** · **Hill equation** · **toggle switch** · **open system** · **network motif** · **feed-forward loop** · **mutual information** · **equifinality**
 
 ---
 
@@ -584,7 +590,7 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 8. Explain how a delay τ in a negative-feedback loop with gain $k$ can convert a stable equilibrium into a sustained oscillation. Use the conditions $k\tau \ll 1$, $k\tau \approx 1/2$, and $k\tau > \pi/2$ to predict three qualitatively different behaviours and give a biological example of each.
 
-9. Protein–protein interaction networks are scale-free with a power-law exponent near 2.5. Why does this make cells robust to random gene loss yet vulnerable to viral effectors that target hub proteins (e.g., adenovirus E1B targeting p53)? How would you design an antiviral that exploits this asymmetry?
+9. Protein–protein interaction networks often contain hubs, even when a strict scale-free law is not established. Why can hub-heavy architecture make cells robust to many random gene losses yet vulnerable to perturbations that target hub proteins (e.g., adenovirus E1B targeting p53)? How would you design an antiviral that exploits this asymmetry without overclaiming the network model?
 
 10. The cardiac pacemaker is extraordinarily robust to ±20% perturbation of any single ionic conductance. Why might this robustness be a general property of well-designed limit-cycle oscillators, and what does it predict about the genetic redundancy you would expect to find in clock genes?
 
@@ -606,7 +612,7 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 7. Compare saddle-node, Hopf, and pitchfork bifurcations by what happens to fixed points and which biological transition each underlies (catastrophic regime shift, oscillation onset, cell-fate commitment). For a stable spiral that gains a small limit cycle as a parameter crosses $\mu_c$, name the bifurcation and a disorder consistent with it failing.
 
-8. Explain why scale-free protein-interaction networks ($\gamma \approx 2.5$) are robust to random gene loss but fragile to targeted hub attack. Use this asymmetry to explain why TP53, MYC, and KRAS are potent cancer drivers and to propose the logic of a hub-exploiting antiviral.
+8. Explain why hub-heavy protein-interaction networks can be robust to random gene loss but fragile to targeted hub attack. Use this asymmetry to explain why TP53, MYC, and KRAS are potent cancer drivers and to propose the logic of a hub-exploiting antiviral.
 
 9. Evaluate, using the mutual-information expression $I = \tfrac12\log_2(1 + \sigma^2_{\text{signal}}/\sigma^2_{\text{noise}})$, why a single cytokine pathway conveying ~1 bit cannot reliably distinguish "low/medium/high" concentrations, and why evolution favours parallel signalling channels over ever-finer measurement of one channel.
 
@@ -614,7 +620,7 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 ---
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Systems Science and the Logic of Emergence
 
 - Bertalanffy, L. von (1968). *General System Theory* \citep{bertalanffy1968}. Braziller.
 - Strogatz, S. H. (2018). *Nonlinear Dynamics and Chaos* (2nd ed.) \citep{strogatz2018}. Westview Press.
@@ -625,7 +631,7 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Systems Science and the Logic of Emergence
 
 **Systems Science and the Logic of Emergence** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

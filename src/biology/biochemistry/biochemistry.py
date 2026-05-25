@@ -10,17 +10,11 @@ import math
 from dataclasses import dataclass
 from typing import Optional
 
-from infrastructure.core.logging.utils import get_logger
+from textbook_logging import get_logger
+
+from biology.constants import GAS_CONSTANT
 
 logger = get_logger(__name__)
-
-# ---------------------------------------------------------------------------
-# Constants
-# ---------------------------------------------------------------------------
-
-FARADAY = 96485.0  # C mol⁻¹
-GAS_CONSTANT = 8.314  # J mol⁻¹ K⁻¹
-
 
 # ---------------------------------------------------------------------------
 # Data Classes

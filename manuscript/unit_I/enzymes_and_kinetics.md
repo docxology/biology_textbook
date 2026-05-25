@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 4** · Level 3/3 · 60 min read · 75 min lecture · Prerequisites: \cref{sec:unit_I_macromolecules}
+> Level 3/3 · 60 min read · 75 min lecture · Prerequisites: \cref{sec:unit_I_macromolecules}
 
 ## Learning Objectives
 
@@ -75,7 +75,10 @@ OMP decarboxylase achieves the largest known rate enhancement: without this enzy
 
 Every reaction proceeds through a **transition state** (TS) --- a transient, high-energy configuration that cannot be isolated. The **activation energy** ($E_a$ or $\Delta G^{\ddagger}$) is the energy required to reach this state from the ground state:
 
-$$\text{Rate} = A \cdot e^{-\Delta G^{\ddagger}/RT} \tag{4.1} \label{eq:unit_I_enzymes_and_kinetics_item_1}$$
+\begin{equation}
+\text{Rate} = A \cdot e^{-\Delta G^{\ddagger}/RT}
+\label{eq:unit_I_enzymes_and_kinetics_item_1}
+\end{equation}
 
 
 where $A$ is the pre-exponential factor. Lowering $\Delta G^{\ddagger}$ by just 17 kJ/mol increases the rate by $e^7 \approx 1{,}000$-fold. Lowering it by 34 kJ/mol gives a million-fold increase.
@@ -160,11 +163,14 @@ The **seventh class (translocases)** was added in 2018, recognising the catalyti
 
 > **Mathematical Background:** The Michaelis-Menten equation uses hyperbolic functions and dimensional analysis. For a review of logarithms and rate equations, see \cref{sec:appendix_math_review}.
 
-### Detailed Derivation
+### Deriving the Michaelis-Menten Equation
 
 In 1913, Leonor Michaelis and Maud Menten proposed a kinetic framework for enzyme-catalysed reactions. The basic mechanism:
 
-$$\text{E} + \text{S} \underset{k_{-1}}{\overset{k_1}{\rightleftharpoons}} \text{ES} \overset{k_2}{\rightarrow} \text{E} + \text{P} \tag{4.2} \label{eq:unit_I_enzymes_and_kinetics_item_2}$$
+\begin{equation}
+\text{E} + \text{S} \underset{k_{-1}}{\overset{k_1}{\rightleftharpoons}} \text{ES} \overset{k_2}{\rightarrow} \text{E} + \text{P}
+\label{eq:unit_I_enzymes_and_kinetics_item_2}
+\end{equation}
 
 
 **Step 1: Write rate equations.**
@@ -175,12 +181,18 @@ The rate of ES formation: $\frac{d[\text{ES}]}{dt} = k_1[\text{E}][\text{S}] - k
 
 This assumes that after an initial transient, [ES] reaches a constant level because the rate of ES formation equals the rate of ES breakdown:
 
-$$k_1[\text{E}][\text{S}] = (k_{-1} + k_2)[\text{ES}] \tag{4.3} \label{eq:unit_I_enzymes_and_kinetics_item_3}$$
+\begin{equation}
+k_1[\text{E}][\text{S}] = (k_{-1} + k_2)[\text{ES}]
+\label{eq:unit_I_enzymes_and_kinetics_item_3}
+\end{equation}
 
 
 **Step 3: Define the Michaelis constant.**
 
-$$K_m = \frac{k_{-1} + k_2}{k_1} \tag{4.4} \label{eq:unit_I_enzymes_and_kinetics_item_4}$$
+\begin{equation}
+K_m = \frac{k_{-1} + k_2}{k_1}
+\label{eq:unit_I_enzymes_and_kinetics_item_4}
+\end{equation}
 
 
 **Step 4: Express [E] in terms of measurable quantities.**
@@ -189,17 +201,26 @@ Total enzyme: $[\text{E}]_T = [\text{E}] + [\text{ES}]$, so $[\text{E}] = [\text
 
 Substituting: $([\text{E}]_T - [\text{ES}])[\text{S}] = K_m[\text{ES}]$
 
-$$[\text{ES}] = \frac{[\text{E}]_T[\text{S}]}{K_m + [\text{S}]} \tag{4.5} \label{eq:unit_I_enzymes_and_kinetics_item_5}$$
+\begin{equation}
+[\text{ES}] = \frac{[\text{E}]_T[\text{S}]}{K_m + [\text{S}]}
+\label{eq:unit_I_enzymes_and_kinetics_item_5}
+\end{equation}
 
 
 **Step 5: Calculate the initial velocity.**
 
-$$v_0 = k_2[\text{ES}] = \frac{k_2[\text{E}]_T[\text{S}]}{K_m + [\text{S}]} \tag{4.6} \label{eq:unit_I_enzymes_and_kinetics_item_6}$$
+\begin{equation}
+v_0 = k_2[\text{ES}] = \frac{k_2[\text{E}]_T[\text{S}]}{K_m + [\text{S}]}
+\label{eq:unit_I_enzymes_and_kinetics_item_6}
+\end{equation}
 
 
 Since $V_{max} = k_2[\text{E}]_T$ (maximum rate when most enzyme is saturated):
 
-$$\boxed{v_0 = \frac{V_{max}[\text{S}]}{K_m + [\text{S}]}} \tag{4.7} \label{eq:unit_I_enzymes_and_kinetics_item_7}$$
+\begin{equation}
+\boxed{v_0 = \frac{V_{max}[\text{S}]}{K_m + [\text{S}]}}
+\label{eq:unit_I_enzymes_and_kinetics_item_7}
+\end{equation}
 
 
 This is the **Michaelis-Menten equation** --- a rectangular hyperbola (\cref{eq:unit_I_enzymes_and_kinetics_item_7}); plotting $v_0$ against $[\text{S}]$ traces the saturating curve shown in \cref{fig:unit_I_michaelis_menten}, where the velocity rises steeply at low substrate and asymptotically approaches $V_{max}$.
@@ -245,7 +266,10 @@ Special cases:
 
 Inverting the Michaelis-Menten equation:
 
-$$\frac{1}{v_0} = \frac{K_m}{V_{max}} \cdot \frac{1}{[\text{S}]} + \frac{1}{V_{max}} \tag{4.8} \label{eq:unit_I_enzymes_and_kinetics_item_8}$$
+\begin{equation}
+\frac{1}{v_0} = \frac{K_m}{V_{max}} \cdot \frac{1}{[\text{S}]} + \frac{1}{V_{max}}
+\label{eq:unit_I_enzymes_and_kinetics_item_8}
+\end{equation}
 
 
 The **double-reciprocal (Lineweaver-Burk) plot** of $1/v$ vs. $1/[\text{S}]$ is linear:
@@ -273,7 +297,7 @@ From the Lineweaver-Burk plot:
 
 ---
 
-## Enzyme Inhibition
+## Enzyme Inhibition and Kinetic Signatures
 
 ```mermaid
 stateDiagram-v2
@@ -302,25 +326,34 @@ stateDiagram-v2
     note right of EI_mixed: Km changed, Vmax↓
     note right of EI_irrev: Permanent inactivation<br/>Cannot be overcome
 ```
-<!-- alt: State diagram for Enzyme Inhibition showing transitions among E exists in solution, S binds (active site), S dissociates, and Catalysis (k_cat). -->
+<!-- alt: State diagram showing enzyme inhibitors change kinetic outcomes by binding free enzyme, enzyme-substrate complex, allosteric sites, or covalent targets; the binding route determines whether Km, Vmax, or both change. -->
 
-*State diagram for Enzyme Inhibition showing transitions among E exists in solution, S binds (active site), S dissociates, and Catalysis (k_cat).*
+*Enzyme inhibitors change kinetic outcomes by binding free enzyme, enzyme-substrate complex, allosteric sites, or covalent targets; the binding route determines whether Km, Vmax, or both change.*
 
-### Competitive Inhibition
+### Competitive Inhibition and Apparent Km
 
 A **competitive inhibitor** (I) resembles the substrate structurally and competes for the same active site. Binding of I and S are mutually exclusive:
 
-$$E + I \rightleftharpoons EI \quad (K_i = [\text{E}][\text{I}]/[\text{EI}]) \tag{4.9} \label{eq:unit_I_enzymes_and_kinetics_item_9}$$
+\begin{equation}
+E + I \rightleftharpoons EI \quad (K_i = [\text{E}][\text{I}]/[\text{EI}])
+\label{eq:unit_I_enzymes_and_kinetics_item_9}
+\end{equation}
 
 
 The apparent $K_m$ increases (less substrate affinity at fixed [I]) while $V_{max}$ is unchanged (inhibition overcome by high [S]):
 
-$$v_0 = \frac{V_{max}[\text{S}]}{K_m\left(1 + \frac{[\text{I}]}{K_i}\right) + [\text{S}]} \tag{4.10} \label{eq:unit_I_enzymes_and_kinetics_item_10}$$
+\begin{equation}
+v_0 = \frac{V_{max}[\text{S}]}{K_m\left(1 + \frac{[\text{I}]}{K_i}\right) + [\text{S}]}
+\label{eq:unit_I_enzymes_and_kinetics_item_10}
+\end{equation}
 
 
 Defining $\alpha = 1 + [\text{I}]/K_i$:
 
-$$v_0 = \frac{V_{max}[\text{S}]}{\alpha K_m + [\text{S}]} \tag{4.11} \label{eq:unit_I_enzymes_and_kinetics_item_11}$$
+\begin{equation}
+v_0 = \frac{V_{max}[\text{S}]}{\alpha K_m + [\text{S}]}
+\label{eq:unit_I_enzymes_and_kinetics_item_11}
+\end{equation}
 
 
 On a Lineweaver-Burk plot: same $y$-intercept ($1/V_{max}$), different slopes. Lines intersect on the $y$-axis.
@@ -339,11 +372,14 @@ On a Lineweaver-Burk plot: same $y$-intercept ($1/V_{max}$), different slopes. L
 >
 > Statins (e.g., atorvastatin, rosuvastatin) are competitive inhibitors of HMG-CoA reductase, the rate-limiting enzyme in cholesterol biosynthesis. By mimicking the structure of HMG-CoA, statins bind the active site with $K_i$ values in the low nanomolar range (much lower than the $K_m$ for HMG-CoA, ~4 μM). This reduces hepatic cholesterol synthesis, upregulates LDL receptors, and lowers circulating LDL cholesterol by 30--50%. Statins are among the most widely prescribed drugs worldwide, with robust evidence for reducing cardiovascular events and mortality.
 
-### Uncompetitive Inhibition
+### Uncompetitive Inhibition and Coupled Km/Vmax Shifts
 
 An **uncompetitive inhibitor** binds primarily to the ES complex, not free enzyme:
 
-$$v_0 = \frac{V_{max}[\text{S}]}{K_m + \alpha'[\text{S}]} \tag{4.12} \label{eq:unit_I_enzymes_and_kinetics_item_12}$$
+\begin{equation}
+v_0 = \frac{V_{max}[\text{S}]}{K_m + \alpha'[\text{S}]}
+\label{eq:unit_I_enzymes_and_kinetics_item_12}
+\end{equation}
 
 
 where $\alpha' = 1 + [\text{I}]/K_i'$. Both $K_m$ and $V_{max}$ are decreased proportionally --- the ratio $V_{max}/K_m$ (= $k_{cat}/K_m$) is unchanged. On a Lineweaver-Burk plot: **parallel lines** (both slope and intercepts change equally).
@@ -354,7 +390,10 @@ Uncompetitive inhibition is rare in single-substrate reactions but important in 
 
 A **mixed inhibitor** binds to both free enzyme (E) and the ES complex, at a site other than the active site:
 
-$$v_0 = \frac{V_{max}[\text{S}]}{\alpha K_m + \alpha'[\text{S}]} \tag{4.13} \label{eq:unit_I_enzymes_and_kinetics_item_13}$$
+\begin{equation}
+v_0 = \frac{V_{max}[\text{S}]}{\alpha K_m + \alpha'[\text{S}]}
+\label{eq:unit_I_enzymes_and_kinetics_item_13}
+\end{equation}
 
 
 where $\alpha = 1 + [\text{I}]/K_i$ and $\alpha' = 1 + [\text{I}]/K_i'$.
@@ -366,7 +405,7 @@ On a Lineweaver-Burk plot: lines intersect to the left of the $y$-axis (not on i
 
 **Pure noncompetitive inhibitor:** Heavy metal ions (Hg$^{2+}$, Pb$^{2+}$) that bind cysteine residues distant from the active site.
 
-### Irreversible Inhibition
+### Irreversible Inhibition and Covalent Inactivation
 
 **Irreversible inhibitors** form covalent bonds with enzyme residues, permanently inactivating the enzyme. The enzyme must be replaced by new protein synthesis.
 
@@ -465,7 +504,10 @@ Allosteric enzymes are not governed by simple [**Michaelis-Menten kinetics**](#g
 
 For an enzyme with $n$ equivalent cooperative subunits, the fraction of active sites occupied (θ) follows the **Hill equation**:
 
-$$\theta = \frac{[\text{S}]^n}{K_{0.5}^n + [\text{S}]^n} \tag{4.14} \label{eq:unit_I_enzymes_and_kinetics_item_15}$$
+\begin{equation}
+\theta = \frac{[\text{S}]^n}{K_{0.5}^n + [\text{S}]^n}
+\label{eq:unit_I_enzymes_and_kinetics_item_15}
+\end{equation}
 
 
 where **$n$** is the Hill coefficient:
@@ -475,7 +517,10 @@ where **$n$** is the Hill coefficient:
 
 **Linearised Hill equation:**
 
-$$\log\frac{\theta}{1 - \theta} = n\log[\text{S}] - n\log K_{0.5} \tag{4.15} \label{eq:unit_I_enzymes_and_kinetics_item_16}$$
+\begin{equation}
+\log\frac{\theta}{1 - \theta} = n\log[\text{S}] - n\log K_{0.5}
+\label{eq:unit_I_enzymes_and_kinetics_item_16}
+\end{equation}
 
 
 A plot of $\log[\theta/(1-\theta)]$ vs. $\log[\text{S}]$ (the **Hill plot**) gives a straight line with slope $n$ and $x$-intercept at $\log K_{0.5}$.
@@ -573,18 +618,24 @@ The same logic explains why haemoglobin's $n \approx 2.8$ delivers ~25% of bound
 
 ## Environmental Factors Affecting Enzyme Activity
 
-### Temperature
+### Temperature Effects on Enzyme Rate and Stability
 
 Enzyme activity generally increases with temperature ($\uparrow$ kinetic energy -> $\uparrow$ collision frequency -> $\uparrow$ rate) according to the Arrhenius equation:
 
-$$k = A \cdot e^{-E_a/RT} \tag{4.16} \label{eq:unit_I_enzymes_and_kinetics_item_17}$$
+\begin{equation}
+k = A \cdot e^{-E_a/RT}
+\label{eq:unit_I_enzymes_and_kinetics_item_17}
+\end{equation}
 
 
 A 10 degrees C rise approximately doubles reaction rate ($Q_{10} \approx 2$). However, **above the optimal temperature**, denaturation of the protein occurs (tertiary and quaternary structure disrupts), sharply reducing activity. The optimal temperature for most human enzymes: ~37 degrees C.
 
 **$Q_{10}$ calculation:**
 
-$$Q_{10} = \left(\frac{k_2}{k_1}\right)^{10/(T_2 - T_1)} \tag{4.17} \label{eq:unit_I_enzymes_and_kinetics_item_18}$$
+\begin{equation}
+Q_{10} = \left(\frac{k_2}{k_1}\right)^{10/(T_2 - T_1)}
+\label{eq:unit_I_enzymes_and_kinetics_item_18}
+\end{equation}
 
 
 For most enzyme reactions, $Q_{10}$ = 1.5--3.0. The $Q_{10}$ rule breaks down near the denaturation temperature.
@@ -594,7 +645,7 @@ For most enzyme reactions, $Q_{10}$ = 1.5--3.0. The $Q_{10}$ rule breaks down ne
 - *Pyrococcus furiosus* (deep-sea vent, 100 degrees C) Pfu polymerase: even more thermostable and has 3'->5' proofreading activity (higher fidelity than Taq).
 - *Psychrobacter* (Antarctic, --20 degrees C) enzymes: more flexible (more Gly, fewer Pro, fewer salt bridges), lower activation energy, active at sub-zero temperatures but rapidly denature at 37 degrees C.
 
-### pH
+### pH Effects on Active-Site Chemistry
 
 Enzyme catalysis depends on the ionisation state of key active-site residues. Activity-pH curves are typically bell-shaped:
 
@@ -666,7 +717,7 @@ The Cas9 protein from *Streptococcus pyogenes* is an RNA-guided endonuclease:
 - **Applications:** [**Gene**](#gl:gene) editing, gene therapy (sickle cell disease, β-thalassaemia), diagnostics (SHERLOCK, DETECTR)
 - **Nobel Prize 2020:** Jennifer Doudna and Emmanuelle Charpentier
 
-### Industrial Applications
+### Industrial and Therapeutic Enzyme Applications
 
 | Enzyme | Industry | Application |
 | ------ | -------- | ----------- |
@@ -704,13 +755,16 @@ A successful directed evolution campaign will track several of these metrics sim
 
 ---
 
-## Worked Examples
+## Worked Examples: Rates, Inhibition, and Catalytic Efficiency
 
 **Problem 1:** An enzyme obeys Michaelis-Menten kinetics with $K_m$ = 2.0 mM and $V_{max}$ = 100 μmol/min. Calculate $v_0$ at [S] = 0.5 mM, 2.0 mM, 10 mM, and 200 mM.
 
 *Solution:*
 
-$$v_0 = \frac{100 \times [\text{S}]}{2.0 + [\text{S}]} \tag{4.18} \label{eq:unit_I_enzymes_and_kinetics_item_19}$$
+\begin{equation}
+v_0 = \frac{100 \times [\text{S}]}{2.0 + [\text{S}]}
+\label{eq:unit_I_enzymes_and_kinetics_item_19}
+\end{equation}
 
 
 | [S] (mM) | $v_0$ (μmol/min) | % of $V_{max}$ |
@@ -723,9 +777,15 @@ $$v_0 = \frac{100 \times [\text{S}]}{2.0 + [\text{S}]} \tag{4.18} \label{eq:unit
 **Problem 2:** In the presence of a competitive inhibitor at [I] = 5 mM and $K_i$ = 2.5 mM, what is the new apparent $K_m$? At what [S] will $v_0$ = $V_{max}/2$?
 
 *Solution:*
-$$\alpha = 1 + \frac{[\text{I}]}{K_i} = 1 + \frac{5.0}{2.5} = 3.0 \tag{4.19} \label{eq:unit_I_enzymes_and_kinetics_item_20}$$
+\begin{equation}
+\alpha = 1 + \frac{[\text{I}]}{K_i} = 1 + \frac{5.0}{2.5} = 3.0
+\label{eq:unit_I_enzymes_and_kinetics_item_20}
+\end{equation}
 
-$$K_m^{app} = \alpha K_m = 3.0 \times 2.0 = 6.0 \; \text{mM} \tag{4.20} \label{eq:unit_I_enzymes_and_kinetics_item_21}$$
+\begin{equation}
+K_m^{app} = \alpha K_m = 3.0 \times 2.0 = 6.0 \; \text{mM}
+\label{eq:unit_I_enzymes_and_kinetics_item_21}
+\end{equation}
 
 
 $v_0 = V_{max}/2$ when [S] = $K_m^{app}$ = 6.0 mM. The inhibitor triples the substrate concentration needed for half-maximal velocity.
@@ -735,7 +795,10 @@ $v_0 = V_{max}/2$ when [S] = $K_m^{app}$ = 6.0 mM. The inhibitor triples the sub
 (b) pO$_2$ = 100 mmHg (arterial blood)
 
 *Solution:*
-$$\theta = \frac{[\text{S}]^n}{K_{0.5}^n + [\text{S}]^n} \tag{4.21} \label{eq:unit_I_enzymes_and_kinetics_item_22}$$
+\begin{equation}
+\theta = \frac{[\text{S}]^n}{K_{0.5}^n + [\text{S}]^n}
+\label{eq:unit_I_enzymes_and_kinetics_item_22}
+\end{equation}
 
 
 (a) $\theta = \frac{40^{2.8}}{26^{2.8} + 40^{2.8}} = \frac{40^{2.8}}{26^{2.8} + 40^{2.8}}$
@@ -809,7 +872,7 @@ When a metabolite sits at a branch point (e.g., glucose-6-phosphate, fed into gl
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Enzymes and the Kinetics of Catalysis
 
 For **Enzymes and the Kinetics of Catalysis**, frontier biology belongs inside the evidence logic of
 the chapter. Chemistry-of-life claims now connect classical bonding and thermodynamics with AI-guided structure prediction and experimental validation. The core reading question is this: enzyme claims should separate binding, catalysis, regulation, transport limits, and measurement conditions.
@@ -825,9 +888,11 @@ the chapter. Chemistry-of-life claims now connect classical bonding and thermody
   the source closest to the measurement and state what has changed since it was
   published.
 
-Use AI biomolecular models as hypothesis generators: compare confidence, conservation, solvent exposure, and assay evidence before turning a predicted contact into a biological claim \citep{abramson2024alphafold3}.
+Treat biomolecular predictions as constrained hypotheses: compare confidence, conservation, solvent exposure, and assay evidence before claiming mechanism \citep{abramson2024alphafold3}.
 
-**Source practice:** For structure and interaction claims, cite experimental structures when available and treat AlphaFold 3 or AFDB complex predictions as hypotheses to validate with confidence metrics, conservation, mutagenesis, binding, or cryo-EM/X-ray/NMR evidence \citep{abramson2024alphafold3,velankar2026alphafolddb2025,emblebi2026alphafoldcomplexes}.
+Enzyme and pathway sources answer different parts of a mechanism. BRENDA in 2026 is the release-specific enzyme resource to cite for curated functional enzyme, ligand, kinetic, and organism-linked data; KEGG and BioCyc-style pathway databases place reactions into organism-aware pathway maps and pathway/genome databases. When a pathway diagram is used as evidence, record the EC number or reaction identifier, organism, database release or access date, and whether flux was measured experimentally or inferred from annotation \citep{hauenstein2026brenda,kegg2026,biocyc2026}.
+
+**Source practice:** For structure and interaction claims, cite experimental structures when available and validate predictions with confidence metrics, conservation, mutagenesis, binding, or cryo-EM/X-ray/NMR evidence \citep{abramson2024alphafold3,velankar2026alphafolddb2025,emblebi2026alphafoldcomplexes}.
 
 ### Current Evidence Map: Enzyme Engineering Evidence Chain
 
@@ -882,7 +947,7 @@ flowchart LR
 ## Review Questions
 
 1. Explain, using transition state theory, why an enzyme that binds the transition state $10^6$-fold more tightly than the substrate achieves a rate enhancement of approximately $10^6$-fold.
-2. Derive the Michaelis-Menten equation starting from the steady-state assumption. State clearly most assumptions made.
+2. Derive the Michaelis-Menten equation starting from the steady-state assumption. State the assumptions clearly.
 3. An enzyme has $K_m$ = 0.2 mM and $V_{max}$ = 50 μmol/min. A competitive inhibitor ($K_i$ = 0.1 mM) is added at 0.5 mM. Calculate the apparent $K_m$ and the rate at [S] = 0.2 mM with and without inhibitor.
 4. On a Lineweaver-Burk plot, two lines obtained with and without an inhibitor are parallel. Identify the type of inhibition and explain what molecular event is occurring.
 5. The Hill coefficient for phosphofructokinase-1 is approximately 3.8. What does this tell you about the enzyme's response to changes in substrate concentration near $K_{0.5}$?
@@ -901,14 +966,14 @@ flowchart LR
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Enzymes and the Kinetics of Catalysis
 
 - Fischer (1894). Einfluss der Configuration auf die Wirkung der Enzyme. *Berichte der deutschen chemischen Gesellschaft*, 27.
 - Koshland (1958). Application of a Theory of Enzyme Specificity to Protein Synthesis. *Proceedings of the National Academy of Sciences*, 44.
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Enzymes and the Kinetics of Catalysis
 
 **Enzymes and the Kinetics of Catalysis** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

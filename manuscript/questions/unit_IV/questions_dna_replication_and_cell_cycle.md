@@ -1,4 +1,4 @@
-# Questions — Ch 12: DNA Replication and the Cell Cycle {.unnumbered}
+# Questions — DNA Replication and the Cell Cycle {.unnumbered}
 
 \label{sec:q_unit_IV_dna_replication_and_cell_cycle}
 

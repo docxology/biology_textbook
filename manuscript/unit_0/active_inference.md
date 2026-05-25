@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 0.3** · Level 3/3 · 45 min read · 75 min lecture · Prerequisites: \cref{sec:unit_0_systems_science}, \cref{sec:unit_0_complex_adaptive_systems}
+> Level 3/3 · 45 min read · 75 min lecture · Prerequisites: \cref{sec:unit_0_systems_science}, \cref{sec:unit_0_complex_adaptive_systems}
 
 ---
 
@@ -43,13 +43,13 @@ By the end of this chapter, students will be able to:
 
 In 1867, Hermann von Helmholtz proposed that perception is not passive recording but **unconscious inference**: the brain interprets noisy sensory signals by combining them with prior knowledge about the world. When you perceive a flat photograph as three-dimensional, your brain is making an inference — filling in depth from shadow, texture, and perspective cues that it has learned through a lifetime of experience.
 
-For over a century, Helmholtz's insight remained a philosophical curiosity. Then, in the early 2000s, neuroscientist Karl Friston formulated the **free energy principle (FEP)** — a mathematical framework that makes Helmholtz's intuition precise. The FEP proposes that most living systems, from single cells to entire organisms, can be understood as systems that minimise **variational free energy**: a tractable upper bound on the surprise (negative log-probability) of their sensory observations \citep{friston2010}. The bacterium swimming up a glucose gradient and the neuroscientist modelling the brain are, under this framework, performing the same fundamental operation — inference under uncertainty.
+For over a century, Helmholtz's insight remained a philosophical curiosity. Then, in the early 2000s, neuroscientist Karl Friston formulated the **free energy principle (FEP)** — a mathematical framework that makes Helmholtz's intuition precise. The FEP proposes that many living systems, from single cells to entire organisms, can be modelled as systems that minimise **variational free energy**: a tractable upper bound on the surprise (negative log-probability) of their sensory observations \citep{friston2010}. The bacterium swimming up a glucose gradient and the neuroscientist modelling the brain can, under this framework, be described with the same inferential vocabulary — inference under uncertainty.
 
-The free energy principle does not merely explain perception. By extending inference to *action* — organisms act to make their predictions come true — it provides a unified account of sensation, movement, homeostasis, development, and even evolution \citep{friston2017}. This chapter introduces this powerful framework and shows how it connects to every major theme in this textbook.
+The free energy principle does not merely explain perception. By extending inference to *action* — organisms act to make their predictions come true — it offers a broad account of sensation, movement, homeostasis, development, and evolutionary modelling \citep{friston2017}. This chapter introduces the framework and shows how it connects to major themes in this textbook while remaining one model among competing biological explanations.
 
 ---
 
-## The Problem of Life
+## Maintaining Viable States Under Uncertainty
 
 Most living organisms face a fundamental challenge: they must maintain their internal organisation in the face of a ceaselessly changing and uncertain environment. To survive, an organism must:
 
@@ -89,7 +89,7 @@ graph LR
 
 Before formalising free energy, we need a way to make rigorous the boundary between an agent and its environment. The **Markov blanket** provides exactly this.
 
-### Definition
+### Markov Blanket Definition
 
 For a set of random variables, the Markov blanket of a node is the minimal set of nodes that, once conditioned on, render the node statistically independent of every other variable in the network. For an agent that persists in time, this generalises to a partition of states into four disjoint classes:
 
@@ -142,7 +142,7 @@ graph TD
 
 ## The Free Energy Principle
 
-The free energy principle, developed principally by Karl Friston (UCL), proposes that most living systems can be characterised as systems that **minimise their free energy** — a quantity that measures the mismatch between an agent's internal model and the sensory data it receives.
+The free energy principle, developed principally by Karl Friston (UCL), proposes that many living systems can be modelled as systems that **minimise variational free energy** under explicit assumptions about the agent, its boundary, its observations, and its generative model.
 
 Formally, variational free energy $F$ provides an upper bound on **surprisal** (the log-probability of sensory observations under a model):
 
@@ -173,7 +173,7 @@ The first term penalises beliefs that deviate from priors; the second rewards be
 
 ---
 
-## The Bayesian Brain
+## Predictive Processing and the Bayesian Brain Hypothesis
 
 The **Bayesian brain hypothesis** (Helmholtz 1867; Friston 2005; Clark 2013) proposes that the brain is fundamentally a **prediction machine**: it maintains a hierarchical generative model of the world and continuously uses that model to predict incoming sensory signals.
 
@@ -253,7 +253,7 @@ graph TD
 
 ---
 
-## Active Inference
+## Active Inference as a Perception-Action Loop
 
 **Active inference** extends predictive coding from perception to **action**. An organism can reduce prediction error in two ways:
 
@@ -264,7 +264,7 @@ Under the FEP, behaviour is the fulfilment of prior expectations. An organism wi
 
 This reframes homeostasis: not as the passive correction of deviations, but as the **active fulfilment of generative model predictions about body state**.
 
-### Homoeostasis vs. Allostasis
+### Homeostasis vs. Allostasis
 
 | Concept | Core idea | Active inference framing |
 | ------- | --------- | ------------------------ |
@@ -387,11 +387,11 @@ The FEP was developed in neuroscience but is not limited to it. Recent work exte
 - **Development.** Morphogen gradients pattern tissues by reducing free energy of cell-fate "predictions"; experimentally induced perturbations are absorbed when the developmental model can re-infer position from remaining cues.
 - **Evolution.** Natural selection itself can be framed as gradient descent on a long-timescale free energy functional, with the species' generative model encoded in its genome and the niche acting as the sensory environment. This is the most ambitious and the most contested of the FEP's extensions.
 
-The unifying claim is that **any system that resists dispersion — that maintains its Markov blanket against thermodynamic noise — *behaves as if* it minimises free energy**. The "as-if" is important: the FEP is a description of what self-organising systems necessarily do at large enough timescales, not a claim that any particular molecule "computes" free energy.
+The unifying claim is that **many systems that resist dispersion — systems modelled as maintaining a Markov blanket against thermodynamic noise — *behave as if* they minimise free energy**. The "as-if" is important: the FEP is a candidate modelling description of self-organising systems at selected timescales, not a claim that any particular molecule "computes" free energy or that Markov blankets automatically settle biological individuality.
 
 ---
 
-## Computational Psychiatry: When Inference Goes Wrong
+## Computational Psychiatry and Precision-Weighting Disorders
 
 If the brain is a prediction machine, many psychiatric conditions admit a generative-model interpretation. The framework is provisional but increasingly testable.
 
@@ -417,15 +417,15 @@ A complementary account proposes that autism involves *reduced* precision on top
 
 ---
 
-## Applications Beyond Neuroscience
+## Active Inference Applications Beyond Neuroscience
 
 The active-inference framework has been applied — with varying degrees of empirical support — well beyond brain science.
 
-### Immunology
+### Immune Recognition as Population-Level Inference
 
 The adaptive immune system can be framed as a multi-agent active-inference system. Each B-cell embodies a hypothesis (its receptor specificity); the population of B-cells maintains a distribution over possible antigens; somatic hypermutation generates new hypotheses; clonal selection performs Bayesian update; and memory cells are high-precision priors that minimise future free energy of re-infection. The thymic deletion of self-reactive T-cells corresponds to clipping the prior to exclude hypotheses that would generate persistent self-reactive prediction errors.
 
-### Developmental Biology
+### Developmental Patterning as Hierarchical Inference
 
 Embryonic development can be modelled as a hierarchical inference: each cell receives morphogen "observations," combines them with priors encoded in its genome and current state, and performs an active update (differentiation, migration, division). Robustness to perturbation is then explained as *Bayesian inference over a redundant generative model*: removing one cue still leaves enough information to infer position.
 
@@ -435,7 +435,9 @@ If natural selection filters for free-energy-minimising organisms, the long-time
 
 ### Ecology and Collective Behaviour
 
-Schooling fish, foraging ants, and coordinated bacteria can be analysed as collective active-inference systems whose Markov blankets are larger than any individual organism. The mathematical formalism predicts when collective behaviour will outperform individual behaviour: when individual sensory data are noisy and the environment is partially observable, a collective Bayesian posterior is sharper than any individual's.
+Schooling fish, foraging ants, honeybee swarms, and coordinated bacteria can be analysed as collective active-inference systems whose Markov blankets are larger than any individual organism. The mathematical formalism predicts when collective behaviour can outperform individual behaviour: when individual sensory data are noisy and the environment is partially observable, a collective Bayesian posterior can be sharper than a single individual's estimate.
+
+Social insects make the boundary conditions unusually concrete. In ant foraging, pheromone trails are a form of [**stigmergy**](#gl:stigmergy): each worker changes the environment, and later workers sample that changed environment as evidence for food location or trail quality \citep{grasse1959stigmergy,dorigo2004ant}. In honeybee house-hunting and foraging, waggle-dance communication lets many scouts turn fragmentary spatial observations into a colony-level choice, while flight-track experiments show that dances can transmit usable vector information about distant resources \citep{riley2005flight,seeley2010honeybee}. An active-inference reading should keep the "as-if" qualifier visible: the model is useful when observations, actions, uncertainty, and updating rules can be specified, not when collective behaviour is merely renamed as inference.
 
 ---
 
@@ -456,20 +458,20 @@ Schooling fish, foraging ants, and coordinated bacteria can be analysed as colle
 
 ## The Free Energy Principle in Context
 
-The FEP is a **theoretical framework**, not a claim about specific neural mechanisms. It provides a unifying mathematical language, but multiple neural implementations are consistent with it. It should be understood alongside:
+The FEP is a **theoretical framework**, not a claim about specific neural mechanisms. It provides a unifying mathematical language, but multiple neural implementations are consistent with it, and critics argue that broad FEP explanations must still earn discriminating predictions and clear system boundaries \citep{bruineberg2022markov,colomboWright2017}. It should be understood alongside:
 
 - **Reinforcement learning** (reward-maximising agents). Active inference subsumes RL in the limit where epistemic value is zero (no information-seeking).
 - **Optimal control theory** (minimum-cost action selection). Active inference subsumes OC in the limit where the generative model perfectly captures dynamics.
 - **Information-theoretic accounts** of neural coding. Predictive coding implements rate-distortion-optimal sensory compression.
 - **Cybernetics** (Wiener; Ashby). Cybernetic homeostasis is the special case of active inference with a fixed prior and reactive correction.
 
-The FEP is most powerful as a **design principle**: living systems *behave as if* they are minimising free energy, just as the lens *behaves as if* it minimises the time of light travel (Fermat's principle). Whether neurons "really" compute KL divergences or just behave as if they do is a separate empirical question.
+The FEP is useful as a **design principle**: selected living systems can be modelled as if they are minimising free energy, just as the lens can be modelled as if it minimises the time of light travel (Fermat's principle). Whether neurons "really" compute KL divergences or just behave as if they do is a separate empirical question.
 
 > **Concept Check 7:** Reinforcement learning maximises expected reward; optimal control minimises expected cost; active inference minimises expected free energy. State a biological prediction that would distinguish active inference from pure RL — i.e. a behaviour that an RL agent would not produce but an active-inference agent would.
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Active Inference and the Free Energy Principle
 
 For **Active Inference and the Free Energy Principle**, frontier biology belongs inside the evidence logic of
 the chapter. Systems models are useful when they expose assumptions, uncertainty, and failure modes rather than merely producing elegant diagrams. The core reading question is this: active-inference explanations must connect hidden states, sensory evidence, action, and measurable prediction error.
@@ -485,9 +487,9 @@ the chapter. Systems models are useful when they expose assumptions, uncertainty
   the source closest to the measurement and state what has changed since it was
   published.
 
-Treat every model as a claim about mechanism: define the system boundary, identify the observable that would falsify the model, and report the uncertainty that would change a decision.
+For active-inference claims, identify the agent boundary, observed state, generative-model assumption, and rival control account before calling the behaviour inference.
 
-**Source practice:** Use model-validation sources when available, and state which observation would falsify the model rather than treating a diagram as proof.
+**Source practice:** Cite formal FEP/active-inference work for the model, empirical physiology or behaviour studies for the organism, and explicit boundary critiques when Markov blankets carry the explanation.
 
 ## Unit 0 Integration: When Active Inference Is the Right Tool
 
@@ -506,7 +508,7 @@ If a case lacks action, active inference may reduce to perceptual inference or B
 
 ## Summary
 
-- The free energy principle proposes that living systems minimise variational free energy — a measure of the gap between their generative model and sensory evidence.
+- The free energy principle proposes that living systems can often be modelled as minimising variational free energy — a measure of the gap between their generative model and sensory evidence.
 - Markov blankets formalise the boundary between an agent and its environment, partitioning most states into internal, sensory, active, and external classes.
 - The Bayesian brain maintains hierarchical generative models that generate top-down predictions; prediction errors drive belief updating; the canonical microcircuit implements this in cortical layers.
 - Active inference distinguishes perceptual inference (update beliefs) from active inference (act to fulfil predictions).
@@ -568,7 +570,7 @@ If a case lacks action, active inference may reduce to perceptual inference or B
 
 ---
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Active Inference and the Free Energy Principle
 
 - Friston, K. (2010). The free-energy principle: A unified brain theory? \citep{friston2010} *Nature Reviews Neuroscience*, 11(2), 127–138.
 - Friston, K., FitzGerald, T., Rigoli, F., Schwartenbeck, P., & Pezzulo, G. (2017). Active inference: A process theory \citep{friston2017}. *Neural Computation*, 29(1), 1–49.
@@ -579,7 +581,7 @@ If a case lacks action, active inference may reduce to perceptual inference or B
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Active Inference and the Free Energy Principle
 
 **Active Inference and the Free Energy Principle** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

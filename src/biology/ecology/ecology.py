@@ -9,7 +9,7 @@ from __future__ import annotations
 import math
 from dataclasses import dataclass
 
-from infrastructure.core.logging.utils import get_logger
+from textbook_logging import get_logger
 
 logger = get_logger(__name__)
 
@@ -133,17 +133,14 @@ def logistic_growth(
     if t_end <= 0:
         raise ValueError("t_end must be positive.")
 
-    dt = t_end / steps
-    times = [0.0]
-    pops = [N0]
-    N = N0
+    from biology.numerics import euler_integrate_scalar
 
-    for _ in range(steps):
-        dN = r * N * (1.0 - N / K)
-        N = max(0.0, N + dN * dt)
-        times.append(times[-1] + dt)
-        pops.append(N)
-
+    times, pops = euler_integrate_scalar(
+        N0,
+        t_end,
+        steps,
+        lambda n: r * n * (1.0 - n / K),
+    )
     logger.debug(f"Logistic growth: K={K}, r={r}, final N={pops[-1]:.2f}")
     return PopulationGrowthResult(times=times, populations=pops, model="logistic")
 
@@ -188,16 +185,14 @@ def allee_strong_growth(
     if steps <= 0 or t_end <= 0:
         raise ValueError("steps and t_end must be positive.")
 
-    dt = t_end / steps
-    times = [0.0]
-    pops = [N0]
-    N = N0
+    from biology.numerics import euler_integrate_scalar
 
-    for _ in range(steps):
-        dN = r * N * (N / A - 1.0) * (1.0 - N / K) * dt
-        N = max(0.0, N + dN)
-        times.append(times[-1] + dt)
-        pops.append(N)
+    times, pops = euler_integrate_scalar(
+        N0,
+        t_end,
+        steps,
+        lambda n: r * n * (n / A - 1.0) * (1.0 - n / K),
+    )
 
     logger.debug(
         "Allee strong: A=%s K=%s r=%s final N=%.4f",

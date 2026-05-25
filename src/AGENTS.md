@@ -9,6 +9,9 @@ All scientific computation and manuscript-consumed metadata for the biology text
 ```text
 src/
 ├── __init__.py
+├── textbook_paths.py              # template-root discovery, ensure_project_paths()
+├── textbook_io.py                 # atomic text writes (used by scripts/atomic_io.py)
+├── textbook_logging.py            # infrastructure-aware logging fallback
 ├── biology/                      # nine domain subpackages + manuscript utilities
 │   ├── __init__.py
 │   ├── biochemistry/biochemistry.py
@@ -26,13 +29,25 @@ src/
 │   ├── assessment.py              # question-bank and lab assessment metadata parser
 │   ├── curriculum.py              # learning objectives and curriculum records
 │   ├── alignment.py               # standards, skills, and instructor alignment
-│   └── crossref_validator.py      # \label / \cref / @ref scanner + hard-coded prose refs
+│   ├── visual_contracts.py        # derived visual manifest helpers
+│   ├── crossref/                  # split validator package (shim: crossref_validator.py)
+│   ├── quality/                   # manuscript quality audit engine
+│   ├── enrichment/                # embedded frontier/companion enrichment
+│   ├── answer_refinement/         # question-bank answer heuristics
+│   ├── curriculum_sync/           # TOC-driven curriculum scaffold sync
+│   └── crossref_validator.py      # re-export shim for biology.crossref
 ├── mermaid/                       # Mermaid source + renderer
 │   ├── renderer.py
 │   ├── diagrams.py
+│   ├── diagram_spec_loader.py     # loads diagram_specs.yaml
+│   ├── diagram_specs.yaml
 │   └── biology_diagrams.py        # ALL_BIOLOGY_DIAGRAMS (24 diagrams)
 └── visualization/
-    └── __init__.py                # ALL_FIGURE_GENERATORS (18 matplotlib generators)
+    ├── __init__.py                # ALL_FIGURE_GENERATORS registry
+    ├── plots.py                   # aggregator + registry (32 generators)
+    ├── plots_{cell,genetics,ecology,evolution,physiology,botany,microbiology}.py
+    ├── _scaffold.py               # shared matplotlib scaffolding
+    └── cvd.py                     # colour-vision–friendly palette defaults
 ```
 
 ## `biology/` — nine domain subpackages
@@ -85,7 +100,7 @@ Dependency-free markdown / LaTeX scanner that parses:
 
 - `\begin{figure}…\label{fig:…}…\end{figure}` blocks (raw LaTeX)
 - `\begin{equation}…\label{eq:…}…\end{equation}` environments
-- Inline `$$…$$` display equations (with `\tag{}` or `\label{}`)
+- Inline `$$…$$` display equations, with manual equation-number tags rejected
 - Markdown images with `{#fig:…}` pandoc-crossref attributes
 - Table captions `Table: … {#tbl:…}`
 - Section labels `## Heading {#sec:…}`
@@ -94,17 +109,22 @@ Dependency-free markdown / LaTeX scanner that parses:
 
 Exports `CrossRefIssue`, `CrossRefReport`, `scan_file`, `scan_directory`, `validate`, `suggest_id`. Covered by three test files (`test_crossref_validator.py`, `test_crossref_validator_internals.py`, `test_crossref_validator_edges.py`).
 
-## Current-claims and assessment utilities
+## Current-claims, assessment, and maintenance packages
 
 - `biology/current_claims.py` loads `manuscript/current_claims.yaml` as `CurrentClaim` records and validates source tier, source URL, checked date, refresh trigger, anchor text, and stale-phrase coverage. The script gate is `../scripts/audit_current_claims.py --check`; the test gate is `../tests/test_current_claims_ledger.py`.
 - `biology/assessment.py` parses question-bank item metadata comments and lab alignment blocks as `QuestionBankAssessment`, `QuestionAssessment`, and `LabAlignment`. Keep it in sync with `../scripts/sync_assessment_metadata.py`; tests are `../tests/test_assessment_metadata.py` and `../tests/test_lab_pedagogy_alignment.py`.
+- `biology/quality/` — umbrella audit engine behind `../scripts/audit_textbook_quality.py`; see `biology/quality/AGENTS.md`.
+- `biology/enrichment/` — embedded frontier/companion catalog and apply engine; see `biology/enrichment/AGENTS.md`.
+- `biology/answer_refinement/` — heuristic question-bank answer upgrades; see `biology/answer_refinement/AGENTS.md`.
+- `biology/curriculum_sync/` — Study Blueprint and appendix curriculum sync; see `biology/curriculum_sync/AGENTS.md`.
 
 ## `mermaid/`
 
-Three files:
+Three files plus spec loader:
 
 - `renderer.py` — `MermaidRenderer` class; invokes `mmdc` (Mermaid CLI) with optional `.puppeteer.json` for system Chrome; writes `.mmd` fallback when `mmdc` is missing unless `strict_png=True`.
 - `diagrams.py` — generic builders (flowchart, sequence, graph).
+- `diagram_spec_loader.py` + `diagram_specs.yaml` — declarative diagram metadata.
 - `biology_diagrams.py` — domain-specific factories and the `ALL_BIOLOGY_DIAGRAMS` registry (24 diagrams used throughout the manuscript).
 
 ## `visualization/`
@@ -119,7 +139,7 @@ ALL_FIGURE_GENERATORS = [
 ]
 ```
 
-Every entry **must** be referenced from a chapter (invariant `test_build_invariants.py::test_every_registered_figure_is_referenced`). Use `../scripts/insert_orphan_figures.py` to insert a reference if you add a generator.
+Every entry **must** be referenced from a chapter (`test_every_registered_figure_is_referenced`) and every `\label{fig:…}` **must** have prose `\cref{fig:…}` (`test_every_figure_label_has_prose_cref`). Use `../scripts/insert_orphan_figures.py` to insert a reference if you add a generator.
 
 Treat `ALL_FIGURE_GENERATORS` and `ALL_BIOLOGY_DIAGRAMS` as the visual manifests. Do not add unregistered visuals for reusable assets; register them, generate them, reference them from manuscript prose, and keep alt/caption text close to the image or inline Mermaid fence.
 
@@ -137,7 +157,7 @@ from visualization import ALL_FIGURE_GENERATORS
 ```
 
 > [!NOTE]
-> `biology/__init__.py` imports every subpackage at package-import time. Some subpackages use `from infrastructure.core.logging.utils import get_logger`, so either run from the template root with `infrastructure/` on `sys.path`, or dynamically load `biology.chapter_metadata` / `biology.crossref_validator` via `importlib.util` (as tests do) to avoid triggering the chain.
+> `biology/__init__.py` imports every subpackage at package-import time. Subpackages use `textbook_logging.get_logger`, which delegates to template infrastructure logging when available and otherwise falls back to stdlib logging for standalone checkouts.
 
 ## Conventions
 

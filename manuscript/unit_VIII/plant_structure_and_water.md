@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 25** · Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_II_membrane_transport}
+> Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_II_membrane_transport}
 
 ## Learning Objectives
 
@@ -52,7 +52,7 @@
 
 Flowering plants (angiosperms, ~300,000 species) are organised into two major organ systems that work together to acquire resources from both soil and atmosphere.
 
-### Root System
+### Root System Architecture and Soil Exploration
 
 The root system anchors the plant, absorbs water and minerals, and stores nutrients. Two major architectural types exist:
 
@@ -82,7 +82,7 @@ The temporal scaffolding is provided by the **plastochron index (PI)**, defined 
 
 Genetic chimeras (e.g., variegated geraniums) reveal these clonal layers as stable, parallel cell lineages whose interactions specify organ identity.
 
-### Shoot System
+### Shoot System Architecture and Light Capture
 
 The shoot system comprises the stem and leaves and is responsible for [**photosynthesis**](#gl:photosynthesis), reproduction, and support.
 
@@ -94,7 +94,7 @@ The shoot system comprises the stem and leaves and is responsible for [**photosy
 
 Leaves are initiated at the PZ where PIN1-mediated auxin maxima form, producing the characteristic phyllotaxis pattern (often 137.5 degrees divergence angle).
 
-### Leaf Anatomy
+### Leaf Anatomy for Gas Exchange and Photosynthesis
 
 Leaf cross-section layers (adaxial to abaxial):
 
@@ -233,7 +233,7 @@ where:
 - **$\Psi_m$** = matric potential. Reflects water binding to colloidal surfaces (cell walls, soil clay particles, dry seeds). Typically $\leq 0$. Typically negligible in well-hydrated cells but dominates in dry seeds (where $\Psi_m$ can reach $-100$ MPa) and in dry soils.
 - **$\Psi_g$** = gravitational potential = $\rho g h$. Significant primarily in tall trees. At 10 m height, $\Psi_g = -0.1$ MPa. At 100 m (coast redwood), $\Psi_g = -1.0$ MPa.
 
-In well-hydrated, free-flowing systems (most active leaf and root cells) $\Psi_m$ is folded into $\Psi_p$ and the simplified three-component form $\Psi = \Psi_s + \Psi_p + \Psi_g$ is used. In dry seeds, lichens, and very dry soils, $\Psi_m$ must be retained explicitly. See \cref{eq:unit_VIII_water_potential}.
+In well-hydrated, free-flowing systems (most active leaf and root cells) $\Psi_m$ is folded into $\Psi_p$ and the simplified three-component form $\Psi = \Psi_s + \Psi_p + \Psi_g$ is used. In dry seeds, lichens, and very dry soils, $\Psi_m$ must be retained explicitly. See \cref{eq:unit_VIII_water_potential}. \cref{fig:unit_VIII_water_potential_transpiration} links solute-driven $\Psi_s$ shifts to Fick-law transpiration flux under varying stomatal conductance.
 
 ### Worked Example: Calculating Water Potential
 
@@ -441,7 +441,7 @@ where γ is surface tension of water (0.0728 N/m), θ is contact angle, and $r$ 
 
 5. The tension at the top of the column draws water from the roots, which in turn absorbs water from the soil down the water potential gradient.
 
-### Critical Evaluation of the Cohesion-Tension Theory: Embolism Debate and Synchrotron Resolution
+### Cohesion-Tension Theory: Embolism Evidence and Synchrotron Imaging
 
 The cohesion-tension model is not without controversy, and its mature form represents a triumph of integrating ecological, physical, and microscopic evidence — together with rebuttals to specific objections.
 
@@ -526,7 +526,7 @@ The cell is at equilibrium with the xylem ($\Delta\Psi = 0$). No net flow.
 
 ---
 
-## Stomatal Regulation
+## Stomatal Regulation of Water Loss and CO2 Uptake
 
 Stomata represent the critical control point where plants balance carbon gain (CO$_2$ uptake for photosynthesis) against water loss (transpiration).
 
@@ -707,7 +707,7 @@ The current consensus: Münch pressure-flow is the **dominant** mechanism, suppl
 
 ## Nutrient Uptake and Mineral Nutrition
 
-### Essential Nutrients
+### Essential Mineral Nutrients and Deficiency Logic
 
 Plants require 17 essential elements, divided into macronutrients and micronutrients:
 
@@ -758,7 +758,7 @@ The plant provides photosynthate (sucrose, then metabolised to malate/succinate)
 
 Other nitrogen-fixing associations: *Frankia* (actinobacterium) with alder, bayberry; *Anabaena* with water fern *Azolla* (used as green manure in rice paddies for millennia).
 
-### Mycorrhizal Associations
+### Mycorrhizal Associations and Nutrient Exchange
 
 **Mycorrhizae** ("fungus-root") are mutualistic associations between plant roots and soil fungi. Approximately **80% of land plant species** form mycorrhizal associations. Two major types:
 
@@ -785,7 +785,7 @@ Other nitrogen-fixing associations: *Frankia* (actinobacterium) with alder, bayb
 
 ## Adaptations for Water and Nutrient Acquisition
 
-### Xerophyte Adaptations
+### Xerophyte Adaptations to Water Deficit
 
 Plants in arid environments have evolved numerous strategies to minimise water loss and maximise water uptake:
 
@@ -796,7 +796,7 @@ Plants in arid environments have evolved numerous strategies to minimise water l
 - **Succulence** (water storage in stems or leaves; *Opuntia*, *Aloe*)
 - **Deep or extensive root systems** (mesquite roots can reach 50+ m depth)
 
-### Hydrophyte Adaptations
+### Hydrophyte Adaptations to Flooded Environments
 
 Aquatic and wetland plants face the opposite challenge -- too much water and often [**anaerobic**](#gl:anaerobic) substrates:
 
@@ -805,7 +805,7 @@ Aquatic and wetland plants face the opposite challenge -- too much water and oft
 - **Dissected or thin leaves** (maximise surface area for gas exchange in water)
 - **Adventitious roots** from stem nodes
 
-### Carnivorous Plants
+### Carnivorous Plants and Nutrient Acquisition
 
 In nutrient-poor environments (bogs, sandy soils), some plants supplement mineral nutrition by capturing and digesting insects and other small animals:
 
@@ -834,7 +834,7 @@ print(round(psi.water_potential_MPa, 4))
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Plant Structure, Water Relations, and Transport
 
 For **Plant Structure, Water Relations, and Transport**, frontier biology belongs inside the evidence logic of
 the chapter. Plant biology links molecular regulation to climate stress, water limitation, crop resilience, phenology, and ecosystem feedbacks. The core reading question is this: plant-water claims require water potential, hydraulic pathway, stomatal control, tissue anatomy, and stress context.
@@ -850,9 +850,9 @@ the chapter. Plant biology links molecular regulation to climate stress, water l
   the source closest to the measurement and state what has changed since it was
   published.
 
-A strong plant explanation names the tissue, signal, environmental driver, measurable trait, and tradeoff between growth, reproduction, defence, and water use.
+A strong plant-transport claim names the tissue, water-potential component, environmental driver, measurable flow, and tradeoff with growth or defence.
 
-**Source practice:** For plant-stress and crop claims, name the tissue, environmental driver, field context, and growth-reproduction tradeoff; separate laboratory potential from agronomic adoption.
+**Source practice:** For plant-water claims, connect anatomy and physiology to water-potential measurements, field context, and growth-reproduction tradeoffs.
 
 Hydraulic safety claims should also be benchmarked against comparative vulnerability data: globally, many forest species operate close to xylem failure thresholds, so drought tolerance must be framed as a margin rather than a binary trait \citep{choat2012hydraulicmargins}.
 
@@ -963,14 +963,14 @@ flowchart LR
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Plant Structure, Water Relations, and Transport
 
 - \citet{dixon1894} — On the ascent of sap. *Philosophical Transactions of the Royal Society B*, 186.
 - \citet{munch1930} — Die Stoffbewegungen in der Pflanze. *Gustav Fischer Verlag*.
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Plant Structure, Water Relations, and Transport
 
 **Plant Structure, Water Relations, and Transport** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

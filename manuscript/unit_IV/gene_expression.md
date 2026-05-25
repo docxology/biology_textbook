@@ -1,10 +1,19 @@
 # Gene Expression — Transcription and Translation
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/translation_codons.png}
+\caption{Translation output for a representative mRNA. Codon parsing yields an amino-acid count profile summarising peptide composition from the genetic code.}
+\label{fig:unit_IV_translation_codons}
+\end{figure}
+
+<!-- alt: Bar chart of amino-acid counts produced from translating a sample mRNA sequence. -->
+
 \label{sec:unit_IV_gene_expression}
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 13** · Level 2/3 · 60 min read · 100 min lecture · Prerequisites: \cref{sec:unit_IV_dna_replication_and_cell_cycle}
+> Level 2/3 · 60 min read · 100 min lecture · Prerequisites: \cref{sec:unit_IV_dna_replication_and_cell_cycle}
 
 ## Learning Objectives
 
@@ -41,17 +50,21 @@
 > 
 > In 1961, Francis Crick and colleagues knew that information flowed from DNA to [**protein**](#gl:protein), but the molecular intermediary was a mystery. Working with Sydney Brenner and François Jacob at Cambridge, Matthew Meselson performed a deceptively simple experiment: he mixed radioactively labelled [**ribosome**](#gl:ribosome)s from bacteria infected with T4 phage with unlabelled ribosomes, then centrifuged the extract through a density gradient. The new viral proteins appeared on *old* unlabelled ribosomes — proving that ribosomes are non-specific "machines," and that the specificity must come from a short-lived "messenger" molecule. Brenner named it messenger RNA. Within a decade, the entire transcription and translation apparatus — RNA polymerase, transfer RNA, [**codon**](#gl:codon)s, the genetic code — had been decoded. This vignette illustrates how a single elegant experiment can overturn received wisdom and open an entire research programme.
 
-## Transcription
+## Transcription as RNA Synthesis from DNA
 
-### Overview: The Central Dogma
+### Central Dogma and Information Flow in Gene Expression
 
 Transcription produces RNA from a DNA template. The **central dogma** \citep{crick1958} describes the flow of genetic information:
 
-\begin{equation}\text{DNA} \xrightarrow{\text{transcription}} \text{RNA} \xrightarrow{\text{translation}} \text{Protein} \tag{13.1}\label{eq:central_dogma}\end{equation}
+\begin{equation}\text{DNA} \xrightarrow{\text{transcription}} \text{RNA} \xrightarrow{\text{translation}} \text{Protein}\label{eq:central_dogma}\end{equation}
 
 Additional information flows include: **reverse transcription** (RNA to DNA; retroviruses, telomerase), **RNA replication** (RNA-dependent RNA polymerases in RNA viruses), and **direct translation regulation** (riboswitches, IREs).
 
-### Prokaryotic Transcription
+The evidence base around this dogma is now database-mediated as much as experiment-mediated. The 2026 *Nucleic Acids Research* Database Issue reported 182 database papers: 84 new resources, 86 updates to resources previously described in the issue, and 12 resources first published elsewhere \citep{rigden2026nardatabase}. For gene-expression work, that means a student should ask not only "which molecule carries information?" but also "which curated resource defines the transcript, modification, allele, regulatory element, or expression context, and when was that resource last updated?"
+
+RNA databases make this source-governance problem concrete. RNAcentral in 2026 had grown beyond a sequence index into a gene- and literature-linked resource: its abstract reports 45 million non-coding RNA sequences, while release 26 introduced gene-level views for genome-mapped ncRNA sequences and a human set of 103,814 ncRNA genes from 600,225 transcripts \citep{rnacentral2026}. These counts should be read as release-specific evidence, not permanent facts; the durable lesson is that a non-coding RNA claim needs the sequence identifier, gene model, source database, and literature provenance checked together.
+
+### Prokaryotic Transcription and Sigma-Factor Promoters
 
 **RNA polymerase (RNAP)** in *E. coli*: core [**enzyme**](#gl:enzyme) ($\alpha_2\beta\beta'\omega$) + sigma (σ) factor:
 
@@ -72,7 +85,7 @@ Additional information flows include: **reverse transcription** (RNA to DNA; ret
 - **Rho-independent (intrinsic)**: GC-rich inverted repeat in nascent RNA forms a stem-loop hairpin followed by a run of ~6-8 U residues (weak rU-dA base pairs) -- hairpin destabilizes RNAP-RNA contact, U-tract promotes dissociation
 - **Rho-dependent**: Rho protein (hexameric helicase) loads onto rut (Rho utilization) sites on the nascent RNA, translocates 5' to 3' along the RNA (powered by ATP hydrolysis), catches up when RNAP pauses, and unwinds the RNA-DNA hybrid to release the transcript
 
-### Eukaryotic Transcription
+### Eukaryotic Transcription and RNA Polymerase Specialization
 
 **Three nuclear RNA polymerases:**
 
@@ -163,7 +176,7 @@ flowchart LR
 
 *Eukaryotic mRNA processing pipeline. Pre-mRNA undergoes co-transcriptional capping, splicing, and polyadenylation before export. Transcripts with premature termination codons (PTCs) are eliminated by nonsense-mediated decay (NMD).*
 
-### 5' Capping
+### 5' Capping and mRNA Stability
 
 The 5' end of pre-mRNA receives a **7-methylguanosine cap** (m$^7$G) added co-transcriptionally when the transcript is 20-30 nt long. The capping reaction involves three enzymatic steps:
 
@@ -177,7 +190,7 @@ Cap functions:
 - Signals nuclear export via the cap-binding complex (CBC: CBP20/CBP80)
 - Enhances splicing of the first [**intron**](#gl:intron)
 
-### 3' Polyadenylation
+### 3' Polyadenylation and Transcript Lifetime
 
 The 3' end is processed by cleavage and polyadenylation:
 
@@ -226,7 +239,7 @@ Introns are removed from pre-mRNA by the **spliceosome**, one of the cell's most
 > **Clinical Connection: Spinal Muscular Atrophy and Splice-Modifying Therapy**
 > Spinal muscular atrophy (SMA) is caused by loss of the *SMN1* gene. The paralog *SMN2* has a C-to-T transition in exon 7 that weakens an exonic splicing enhancer, causing ~90% exon 7 skipping and production of a truncated, unstable protein. **Nusinersen (Spinraza)** is an antisense oligonucleotide (ASO) that binds an intronic splicing silencer (ISS-N1) in *SMN2* intron 7, promoting exon 7 inclusion and full-length SMN protein production. Approved by FDA in 2016, it was one of the first splice-modifying therapies. **Risdiplam (Evrysdi)**, an oral small molecule that stabilizes U1 snRNP binding at the *SMN2* exon 7 5' SS, was approved in 2020.
 
-### Alternative Splicing
+### Alternative Splicing and Transcript Diversity
 
 Alternative splicing generates multiple protein isoforms from a single gene. An estimated >95% of human multi-exon genes undergo alternative splicing.
 
@@ -279,11 +292,11 @@ NMD degrades ~5-10% of the human transcriptome, including many alternatively spl
 
 ---
 
-## Translation
+## Translation and Ribosome-Mediated Protein Synthesis
 
 ### The Genetic Code
 
-The genetic code maps 64 codons ($4^3 = 64$) to 20 amino acids plus stop signals:
+The genetic code maps 64 codons ($4^3 = 64$) to 20 amino acids plus stop signals. \cref{fig:unit_IV_translation_codons} shows amino-acid counts from translating a representative mRNA.
 
 | Property | Description |
 |----------|-------------|
@@ -346,7 +359,7 @@ stateDiagram-v2
 
 *The ribosomal translation cycle in eukaryotes. Initiation involves cap-dependent scanning to the start codon. Elongation cycles through decoding, [**peptide bond**](#gl:peptide-bond) formation, and translocation. Termination occurs when a stop codon is recognized by eRF1.*
 
-### Ribosome Structure
+### Ribosome Structure and Catalytic RNA
 
 | Feature | Prokaryotic (70S) | Eukaryotic (80S) |
 |---------|-------------------|------------------|
@@ -486,7 +499,7 @@ Translation fidelity is achieved through multiple kinetic checkpoints, each cont
 4. **Peptidyl transferase activity-coupled fidelity**: the rate of peptide bond formation depends on whether the tRNA is correctly accommodated; incorrect tRNAs have slower peptide-bond chemistry, providing another opportunity for dissociation.
 5. **Quality control after translation**: misfolded proteins are degraded by the proteasome; ribosomes stalling on damaged mRNAs trigger ribosome-associated quality control (RQC) via Pelota-Hbs1L splitting and NEMF-LTN1-mediated nascent-peptide ubiquitination.
 
-\begin{equation}\text{Overall translation error} \approx 10^{-3} \times 10^{-3} \times \text{(post-transfer editing)} \approx 10^{-4}\text{ to }10^{-5} \tag{13.4}\label{eq:translation_fidelity}\end{equation}
+\begin{equation}\text{Overall translation error} \approx 10^{-3} \times 10^{-3} \times \text{(post-transfer editing)} \approx 10^{-4}\text{ to }10^{-5}\label{eq:translation_fidelity}\end{equation}
 
 For a typical ~500-amino acid protein, this error rate predicts ~5 % of nascent polypeptides contain at least one misincorporation. Most are tolerated; a few drive cellular dysfunction in aging or disease (statin-induced muscle damage from low-fidelity translation; age-related aggregation diseases). Sub-cohort of mistranslated proteins are degraded by the proteasome before causing problems.
 
@@ -540,7 +553,7 @@ The ubiquitin-proteasome system (UPS) is the primary mechanism for targeted prot
 
 ---
 
-## Gene Regulation
+## Gene Regulation Across DNA, RNA, and Chromatin
 
 ### Prokaryotic Gene Regulation: The Lac Operon
 
@@ -576,14 +589,14 @@ This provides fine-tuning: repression gives ~70-fold regulation; attenuation add
 
 1. **Synergy:** Two TFs bound at adjacent sites produce more than the sum of their individual effects. Cooperative DNA binding (when one TF stabilises the binding of the next via direct protein–protein contact or by inducing DNA bending) and synergistic activation (when each TF independently recruits a different co-activator) both contribute. The interferon-β enhanceosome shows ~10× synergy: each individual TF drives about 5-fold transcription, but together they drive > 1000-fold induction.
 2. **Quenching:** A repressor TF bound near an activator can inhibit the activator without displacing it (e.g., via histone deacetylation recruitment, or by sequestering coactivators in a non-productive complex). Examples: GAL80 quenches GAL4 in yeast; BCL6 quenches NF-κB in germinal-centre B cells.
-3. **Enhanceosome:** A specific stereochemical assembly where the TF binding sites are positioned such that most eight (or more) factors must bind simultaneously and cooperatively to activate transcription. Spacing between binding sites is critical (loss of even one base-pair spacing destroys cooperative assembly). The IFN-β enhanceosome (3.7 kb upstream): NF-κB (p50/p65), IRF3, IRF7, ATF2/c-Jun, plus the architectural protein HMGA1 wraps the entire 55-bp regulatory region into a defined 3D conformation that primarily forms during viral infection.
+3. **Enhanceosome:** A specific stereochemical assembly where the TF binding sites are positioned such that the eight or more factors must bind simultaneously and cooperatively to activate transcription. Spacing between binding sites is critical (loss of even one base-pair spacing destroys cooperative assembly). The IFN-β enhanceosome (3.7 kb upstream): NF-κB (p50/p65), IRF3, IRF7, ATF2/c-Jun, plus the architectural protein HMGA1 wraps the entire 55-bp regulatory region into a defined 3D conformation that primarily forms during viral infection.
 
 **Super-enhancers — the high-output regulatory class.** First operationally defined by Whyte and Young (2013), super-enhancers are unusually large regulatory regions (median ~10 kb, often >50 kb) characterised by:
 - **H3K27ac density:** at least 10-fold higher than typical enhancers, often spanning multiple H3K27ac peaks
 - **BRD4 occupancy:** the BET-family reader concentrates here, as do Mediator and lineage-defining TFs
 - **MED1/MED12 enrichment:** super-enhancers are constructed largely from Mediator-bound elements
 - **Transcriptional output:** drives high-output expression of cell-identity genes (e.g., *MYC* in cancer cell lines, lineage-defining TFs like *SOX2* in ES cells, *PU.1* in haematopoietic cells)
-- **Phase separation:** super-enhancer condensates concentrate Pol II, BRD4, Mediator, CDK7/9 — see \cref{sec:unit_IV_epigenetics_and_gene_regulation} for detailed mechanism
+- **Phase separation:** super-enhancer condensates concentrate Pol II, BRD4, Mediator, CDK7/9 — see \cref{sec:unit_IV_epigenetic_inheritance_and_disease} for detailed mechanism
 - **Identification:** ROSE (Rank Ordering of Super-Enhancers) algorithm — rank H3K27ac signal across most enhancers; the inflection point distinguishes super-enhancers (top ~3 % of enhancers, accounting for ~30 % of H3K27ac signal) from typical enhancers
 - **Therapeutic implication:** BET inhibitors (JQ1, OTX015, molibresib, mivebresib) preferentially collapse super-enhancer-driven transcription, providing tumour selectivity. CDK7 (THZ1, SY-5609) and CDK9 (AZD4573) inhibitors disrupt the condensate phosphorylation machinery.
 
@@ -638,7 +651,7 @@ Because each miRNA can have hundreds to thousands of targets (TargetScan, miRand
 
 > **Concept Check:** A circRNA bearing 70 miR-7 binding sites is over-expressed in a cell — predict the direction of change in the protein output of a miR-7 target mRNA and explain the post-transcriptional mechanism.
 
-### Epigenetic Regulation
+### Epigenetic Regulation of Transcriptional State
 
 **DNA methylation**:
 - Addition of a methyl group to the 5-position of cytosine (5mC) in CpG dinucleotides
@@ -688,7 +701,7 @@ Because each miRNA can have hundreds to thousands of targets (TargetScan, miRand
 
 **Solution**: Reading in triplets from AUG:
 
-\begin{equation}\text{AUG-UUC-AAG-GAC-UAU-UGC-CCG-UAG-ACU-U} \tag{13.2}\label{eq:reading_frame}\end{equation}
+\begin{equation}\text{AUG-UUC-AAG-GAC-UAU-UGC-CCG-UAG-ACU-U}\label{eq:reading_frame}\end{equation}
 
 | Codon | Amino Acid |
 |-------|-----------|
@@ -707,7 +720,7 @@ Because each miRNA can have hundreds to thousands of targets (TargetScan, miRand
 
 **Solution**: Frameshift mutation. New reading frame:
 
-\begin{equation}\text{AUG-GUU-CAA-GGA-CUA-UUG-CCC-GUA-GAC-UU} \tag{13.3}\label{eq:frameshift}\end{equation}
+\begin{equation}\text{AUG-GUU-CAA-GGA-CUA-UUG-CCC-GUA-GAC-UU}\label{eq:frameshift}\end{equation}
 
 Met-Val-Gln-Gly-Leu-Leu-Pro-Val-Asp... (completely different protein, no stop codon in this segment)
 
@@ -728,7 +741,7 @@ print(" ".join(translate_mrna(mrna)[:6]))
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Gene Expression — Transcription and Translation
 
 For **Gene Expression — Transcription and Translation**, frontier biology belongs inside the evidence logic of
 the chapter. Molecular genetics now spans single-reference sequences, telomere-to-telomere assemblies, pangenome graphs, long-read sequencing, CRISPR medicines, and ethical deployment. The core reading question is this: expression claims should separate transcription, RNA processing, translation, localization, degradation, and feedback.
@@ -744,7 +757,7 @@ the chapter. Molecular genetics now spans single-reference sequences, telomere-t
   the source closest to the measurement and state what has changed since it was
   published.
 
-When a genomic claim depends on a reference, ask whether short reads, structural variants, ancestry representation, phasing, or clinical validation could change the interpretation \citep{humanpangenome2023,fda2023casgevy,fda2024casgevythalassemia}.
+For reference-dependent genetic claims, ask whether read length, structural variation, ancestry representation, phasing, or clinical validation changes the interpretation \citep{humanpangenome2023,fda2023casgevy,fda2024casgevythalassemia}.
 
 **Source practice:** For genomics and editing claims, distinguish discovery from clinical actionability, and cite reference resources, regulatory records, or primary editing studies close to the claim \citep{humanpangenome2023,fda2026casgevy,chalumeau2025primeediting}.
 
@@ -759,7 +772,7 @@ When a genomic claim depends on a reference, ask whether short reads, structural
 - **Gene regulation**: prokaryotic operons (lac: inducible; trp: repressible with attenuation); eukaryotic: chromatin remodeling, histone code, DNA methylation, transcription factor combinatorics, miRNA/siRNA/lncRNA.
 - **[Epigenetics](#gl:epigenetics)**: heritable changes in gene expression without DNA sequence change; DNA methylation (CpG islands), histone modifications; dysregulated in cancer.
 - **Development**: Hox genes specify positional identity; homeodomain TFs; colinearity of gene order and expression domain.
-- **Connections:** See \cref{sec:unit_IV_epigenetics_and_gene_regulation} for chromatin and RNAi, \nameref{sec:unit_VI_unit_intro} for how expression variation fuels evolution, and \cref{sec:unit_II_cell_signaling} for signal-driven transcription factors.
+- **Connections:** See \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} for chromatin and RNAi, \nameref{sec:unit_VI_unit_intro} for how expression variation fuels evolution, and \cref{sec:unit_II_cell_signaling} for signal-driven transcription factors.
 
 ---
 
@@ -781,7 +794,7 @@ When a genomic claim depends on a reference, ask whether short reads, structural
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Gene Expression — Transcription and Translation
 
 - Crick (1958). On protein synthesis. *Symposia of the Society for Experimental Biology*, 12.
 - Crick (1966). The genetic code --- yesterday, today and tomorrow. *Cold Spring Harbor Symposia on Quantitative Biology*, 31.
@@ -813,7 +826,7 @@ When a genomic claim depends on a reference, ask whether short reads, structural
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Gene Expression — Transcription and Translation
 
 **Gene Expression — Transcription and Translation** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -825,4 +838,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/biology/genetics/genetics.py` (`transcribe_dna_to_mrna`, `translate_mrna`, `gc_content`) | Reproduce transcription, translation, codon lookup, and sequence-composition checks. |
 | `src/mermaid/biology_diagrams.py` (`transcription_translation_diagram`, `mirna_biogenesis_diagram`) | Connect coding flow with RNA regulation. |
 
-**Reproducibility check:** specify template strand, reading frame, RNA-processing assumptions, and regulatory layer before interpreting expression. **Cross-reference:** use \cref{sec:unit_IV_epigenetics_and_gene_regulation} and \cref{sec:unit_I_macromolecules}.
+**Reproducibility check:** specify template strand, reading frame, RNA-processing assumptions, and regulatory layer before interpreting expression. **Cross-reference:** use \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms,sec:unit_IV_epigenetic_inheritance_and_disease} and \cref{sec:unit_I_macromolecules}.

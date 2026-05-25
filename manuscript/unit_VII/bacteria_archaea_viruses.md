@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 22** · Level 2/3 · 65 min read · 75 min lecture · Prerequisites: \cref{sec:unit_II_cell_structure}
+> Level 2/3 · 65 min read · 75 min lecture · Prerequisites: \cref{sec:unit_II_cell_structure}
 
 ## Learning Objectives
 
@@ -178,7 +178,7 @@ When Gram-negative bacteria lyse during infection, released LPS triggers massive
 
 ---
 
-## Bacterial Diversity and Metabolic Types
+## Bacterial Morphology and Metabolic Diversity
 
 ### Morphology and Arrangement
 
@@ -201,7 +201,7 @@ Cell arrangements reflect division plane and post-division adhesion patterns:
 - **Tetrad** (groups of 4): *Micrococcus* -- divides in two perpendicular planes
 - **Sarcina** (cuboidal packets of 8): *Sarcina ventriculi* -- divides in three planes
 
-### Metabolic Diversity
+### Metabolic Diversity and Energy Harvesting
 
 Bacteria exhibit unparalleled metabolic diversity -- far exceeding that of eukaryotes combined. This diversity is classified by energy source (photo- vs chemo-) and carbon source (auto- vs hetero-):
 
@@ -245,7 +245,7 @@ Bacteria exhibit unparalleled metabolic diversity -- far exceeding that of eukar
 
 ## Bacterial Genetics, Signalling and Sociality
 
-### Binary Fission
+### Binary Fission and Exponential Growth
 
 Bacteria reproduce asexually by binary fission: the circular chromosome is replicated bidirectionally from a single origin of replication (*oriC*), the cell elongates, a septum forms at mid-cell (coordinated by the FtsZ ring -- a tubulin homolog), and two daughter cells separate. Generation times vary enormously:
 
@@ -411,7 +411,7 @@ flowchart LR
 
 **Quorum quenching as therapy.** Because most virulence factors are quorum-regulated, blocking QS *attenuates* virulence without killing bacteria — sidestepping the strong selection for resistance that lytic antibiotics impose. Strategies include: **(1)** lactonases (AiiA from *Bacillus*, AhlD) and acylases that hydrolyse AHLs; **(2)** synthetic AIP analogs that competitively inhibit AgrC; **(3)** halogenated furanones (originally from the seaweed *Delisea pulchra*) that destabilise LuxR-family receptors; **(4)** PqsR antagonists (e.g., M64); **(5)** c-di-GMP signalling disruptors. Several are in early clinical trials (notably for *P. aeruginosa* in cystic fibrosis), though "anti-virulence" compounds face the challenge that they do not directly clear infection — they must work synergistically with antibiotics or host immunity.
 
-### Endospores
+### Endospores and Dormancy Under Stress
 
 Certain Firmicutes -- primarily *Bacillus* (central or subterminal spores) and *Clostridium* (terminal spores) -- produce **endospores** in response to nutrient depletion. The endospore is the most resistant biological structure known:
 
@@ -431,9 +431,9 @@ Certain Firmicutes -- primarily *Bacillus* (central or subterminal spores) and *
 
 ---
 
-## Archaea
+## Archaea and Extremophile Cell Biology
 
-### Distinguishing Features
+### Distinguishing Archaeal Features
 
 Archaea are prokaryotes that were long classified with bacteria but differ fundamentally at the molecular level:
 
@@ -501,7 +501,7 @@ Quantitatively: a typical bacterial membrane fluidizes (loses lipid order) above
 
 **Implications.** The discovery of Asgard archaea has narrowed the "evolutionary gap" between prokaryotes and eukaryotes from a vast unbridgeable distance to a graded continuum. Many of the molecular machines once thought to be uniquely eukaryotic (membrane-trafficking ESCRTs, actin cytoskeleton, ubiquitin signalling) were already present in the archaeal common ancestor of eukaryotes. Eukaryogenesis was a *combinatorial* event: pre-existing archaeal ESPs + acquisition of a mitochondrion + nucleus + later innovations. Two outstanding questions remain: (1) how exactly did the first eukaryotic cell engulf the proto-mitochondrion (phagocytosis-first, syntrophy-first, or virus-mediated?); (2) which Asgard subgroup is the closest living relative — Heimdallarchaeota (current consensus) or a yet-undiscovered lineage?
 
-### Archaeal Biotechnology
+### Archaeal Biotechnology and Thermostable Enzymes
 
 Archaeal enzymes, evolved for extreme conditions, have enormous biotechnological value:
 
@@ -523,9 +523,9 @@ Archaeal enzymes, evolved for extreme conditions, have enormous biotechnological
 
 ---
 
-## Viruses
+## Viruses as Genome-Delivery Replicators
 
-### General Features
+### Viral General Features and Host Dependence
 
 Viruses are obligate intracellular [**parasite**](#gl:parasite)s that cannot carry out metabolism independently. They lack ribosomes, cannot generate ATP, and require host cell machinery for replication. Whether viruses are "alive" remains a philosophical and definitional question -- they exhibit heredity and evolution but not autonomous metabolism or cellular organization.
 
@@ -535,7 +535,7 @@ A complete virus particle (virion) consists of:
 - **Capsid**: Protein shell assembled from capsomeres; icosahedral (20 triangular faces -- *adenovirus*), helical (*tobacco mosaic virus*), or complex (*bacteriophage T4*)
 - **Envelope** (some viruses): Lipid bilayer derived from host cell membrane during budding; contains viral glycoproteins essential for host cell attachment and entry
 
-### Baltimore Classification
+### Baltimore Classification by Genome Type and Replication Strategy
 
 David Baltimore (Nobel Prize 1975) classified viruses by genome type and replication strategy into seven classes:
 
@@ -636,7 +636,7 @@ HIV (human immunodeficiency virus) is a Class VI retrovirus with a complex life 
 | Entry inhibitors | CCR5 coreceptor | Maraviroc |
 | Fusion inhibitors | gp41 | Enfuvirtide |
 
-### Prions
+### Prions and Protein-Based Infectious States
 
 **Prions** are infectious agents composed entirely of misfolded protein -- they contain no nucleic acid. The normal cellular prion protein (PrP$^C$, predominantly α-helical) is converted to the pathogenic scrapie form (PrP$^{Sc}$, predominantly β-sheet) through templated conformational change. PrP$^{Sc}$ serves as a seed, converting neighboring PrP$^C$ molecules in a chain reaction that produces amyloid fibrils.
 
@@ -749,7 +749,7 @@ flowchart LR
 
 *Antibiotic targets organised by cellular process (cell-wall synthesis, protein synthesis, nucleic-acid synthesis, membrane disruption) alongside the principal resistance mechanisms.*
 
-### Selective Toxicity
+### Selective Toxicity and Therapeutic Index
 
 The foundation of antibiotic therapy is **selective toxicity** -- targeting structures present in bacteria but absent or sufficiently different in human cells:
 
@@ -884,7 +884,7 @@ Phages have evolved **anti-CRISPR (Acr)** proteins that counteract bacterial CRI
 - **AcrIIIA4**: Degrades the cA₄ second messenger; blocks Csm6 activation
 
 > **Clinical Connection: CRISPR-Based Therapies (2023–2026)**
-> The first CRISPR-based medicines have now been approved. **Casgevy** (exagamglogene autotemcel), developed by Vertex and CRISPR Therapeutics, received FDA approval in December 2023 for sickle cell disease and January 2024 approval for transfusion-dependent β-thalassemia; FDA's 2026 product page lists both indications for patients 12 years of age and older \citep{fda2023casgevy,fda2024casgevythalassemia,fda2026casgevy}. The ex vivo approach edits patient HSCs to reactivate fetal haemoglobin (HbF) by disrupting the BCL11A erythroid enhancer, compensating for defective adult haemoglobin. Simultaneously, Bluebird Bio's lentiviral gene therapy Lyfgenia was approved for SCD. By 2026, CRISPR therapies for transthyretin amyloidosis (intellia NTLA-2001, in vivo hepatic editing) and [**heterozygous**](#gl:heterozygous) familial hypercholesterolaemia are in Phase III trials.
+> The first CRISPR-based medicines have now been approved. **Casgevy** (exagamglogene autotemcel), developed by Vertex and CRISPR Therapeutics, received FDA approval in December 2023 for sickle cell disease and January 2024 approval for transfusion-dependent β-thalassemia; FDA's 2026 product page lists both indications for patients 12 years of age and older \citep{fda2023casgevy,fda2024casgevythalassemia,fda2026casgevy}. The ex vivo approach edits patient HSCs to reactivate fetal haemoglobin (HbF) by disrupting the BCL11A erythroid enhancer, compensating for defective adult haemoglobin. Simultaneously, Bluebird Bio's lentiviral gene therapy Lyfgenia was approved for SCD; its FDA product page should be treated as regulatory evidence distinct from ClinicalTrials.gov trial status and from the Casgevy editing mechanism \citep{clinicaltrials2026,fda2026lyfgenia}. By 2026, CRISPR therapies for transthyretin amyloidosis (intellia NTLA-2001, in vivo hepatic editing) and [**heterozygous**](#gl:heterozygous) familial hypercholesterolaemia are in Phase III trials.
 
 **Concept Check 6:**
 > A Type II CRISPR-Cas9 system fails to cleave a target sequence despite perfect spacer-target complementarity. List three molecular explanations for this failure, relating each to a specific step in the CRISPR mechanism (adaptation, biogenesis, or interference).
@@ -953,7 +953,7 @@ Quantitatively: **Ka/Ks ratios** on the RBD exceed 1.5 across the pandemic (posi
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Bacteria, Archaea, and Viruses
 
 For **Bacteria, Archaea, and Viruses**, frontier biology belongs inside the evidence logic of
 the chapter. Microbiology and infectious disease now require One Health reasoning across people, animals, environments, genomics, and antimicrobial stewardship. The core reading question is this: microbial claims should identify taxonomy, genome architecture, metabolism, resistance mechanism, and environment.
@@ -969,9 +969,9 @@ the chapter. Microbiology and infectious disease now require One Health reasonin
   the source closest to the measurement and state what has changed since it was
   published.
 
-For AMR and pathogen claims, name the organism-resistance pair, the selection pressure, the transmission route, and the surveillance evidence that would change triage \citep{who2024bppl,cdc2025antibioticuse,murray2022amr}.
+For microbial-resistance claims, name the organism, resistance determinant, drug pressure, transmission route, and surveillance source \citep{who2024bppl,cdc2025antibioticuse,murray2022amr}.
 
-**Source practice:** For pathogen, AMR, and intervention claims, tie statements to organism-resistance pairs, surveillance evidence, official guidance, and trial/regulatory status \citep{who2024bppl,who2025tb,who2025malaria,cdc2025lenacapavirprep,cdc2026candidaauris}.
+**Source practice:** For microbial and AMR claims, tie statements to organism-resistance pairs, surveillance evidence, genome data, official guidance, and stewardship context \citep{who2024bppl,cdc2025antibioticuse,murray2022amr}.
 
 ### Current Evidence Map: AMR Movement Across One Health
 
@@ -1003,7 +1003,7 @@ flowchart LR
 - **Viruses** (Baltimore classes I-VII) are obligate intracellular parasites; bacteriophage lytic/lysogenic cycles and the HIV life cycle illustrate replication strategies and drug targets. **Phage therapy** is re-emerging as a clinical adjunct for multi-drug-resistant infections, with engineering, cocktail design, and antibiotic combination addressing rapid resistance and immune neutralization \citep{doub2022phagepseudomonas}. Phage pharmacokinetics are non-linear with a proliferation threshold $B^* = m/(bk)$.
 - **CRISPR-Cas** is a heritable bacterial adaptive immune system (adaptation–expression–interference); Types I (Cas3), II (Cas9), and III (Cas10) differ in effector architecture, target nucleic acid, and PAM requirements. Type II Cas9 has been repurposed as the dominant genome-editing technology and now drives FDA-approved therapeutics (Casgevy, 2023–2026 FDA records).
 - **Antibiotic resistance** mechanisms (enzymatic inactivation, target modification, efflux, reduced permeability) spread via HGT; ESKAPE organisms remain a useful mnemonic, but current AMR triage should use pathogen-resistance pairs and WHO BPPL priority categories rather than a single threat list.
-- **Connections:** See \cref{sec:unit_VI_phylogenetics} for phylogeny of mobile elements, \cref{sec:unit_VII_infectious_disease} for host immunity, and \nameref{sec:unit_III_unit_intro} for metabolic targets of antibiotics.
+- **Connections:** See \cref{sec:unit_VI_phylogenetics} for phylogeny of mobile elements, \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} for host immunity, and \nameref{sec:unit_III_unit_intro} for metabolic targets of antibiotics.
 
 ---
 
@@ -1072,7 +1072,9 @@ flowchart LR
 15. **Two-component systems and antibiotic stewardship.** PhoQ-PhoP modifies lipid A in response to host antimicrobial peptides. Explain how this TCS contributes to colistin resistance and why a PhoQ inhibitor would be expected to "re-sensitize" *Salmonella* to polymyxins.
 16. **Biofilm pharmacology.** A patient with a *S. aureus* prosthetic-knee infection fails six weeks of vancomycin. Explain four distinct biofilm-related reasons for this failure and design a combination strategy targeting at least two of them.
 17. **Phage therapy resistance.** A clinical phage cocktail uses three phages with non-overlapping receptors (LPS O-antigen, OmpC, type IV pilus). Estimate the probability that a single bacterium escapes the full cocktail by independent mutation and explain why cocktails have outperformed single-phage therapies in trials.
-18. **CRISPR types comparison.** A biotech company wants to develop a phage-therapy product that itself targets multi-drug-resistant *E. coli* CRISPR-immune to the original phage. Compare Type I (Cas3, processive degradation) and Type II (Cas9, blunt DSB) approaches for this application, and justify your choice based on (a) target size, (b) delivery, and (c) likelihood of bacterial escape.## Further Reading and Source Notes
+18. **CRISPR types comparison.** A biotech company wants to develop a phage-therapy product that itself targets multi-drug-resistant *E. coli* CRISPR-immune to the original phage. Compare Type I (Cas3, processive degradation) and Type II (Cas9, blunt DSB) approaches for this application, and justify your choice based on (a) target size, (b) delivery, and (c) likelihood of bacterial escape.
+
+## Further Reading and Source Notes: Bacteria, Archaea, and Viruses
 
 - Woese & Fox (1977). Phylogenetic structure of the prokaryotic domain: The primary kingdoms. *Proceedings of the National Academy of Sciences*, 74.
 - COVID-19} (2022). The Lancet Commission on lessons for the future from the COVID-19 pandemic. *The Lancet*, 400.
@@ -1084,7 +1086,7 @@ flowchart LR
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Bacteria, Archaea, and Viruses
 
 **Bacteria, Archaea, and Viruses** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -1097,4 +1099,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/visualization/plots.py` (`plot_bacterial_growth`) | Inspect growth phases and axis scaling. |
 | `src/mermaid/biology_diagrams.py` (`viral_replication_cycle_diagram`) | Link genome strategy to replication cycle. |
 
-**Reproducibility check:** specify taxon, environment, growth phase, genome type, and measurement method before generalising microbial claims. **Cross-reference:** connect with \cref{sec:unit_VII_microbial_ecology} and \cref{sec:unit_VII_infectious_disease}.
+**Reproducibility check:** specify taxon, environment, growth phase, genome type, and measurement method before generalising microbial claims. **Cross-reference:** connect with \cref{sec:unit_VII_microbial_ecology} and \cref{sec:unit_VII_host_immunity_and_vaccines,sec:unit_VII_antimicrobial_resistance_and_epidemiology}.

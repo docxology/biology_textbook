@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 26** · Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_VIII_plant_structure_and_water}
+> Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_VIII_plant_structure_and_water}
 
 ## Learning Objectives
 
@@ -131,7 +131,7 @@ $$ \frac{\text{maternal}}{\text{paternal}} = \frac{2n}{1n} = \frac{20}{10} = \fr
 
 Horsetails (*Equisetum*) and club mosses (*Lycopodium*, *Selaginella*) are also seedless vascular plants. *Selaginella* shows early heterospory (different-sized spores for male and female gametophytes), a precursor to the seed habit.
 
-### Gymnosperms
+### Gymnosperms and Naked-Seed Reproduction
 
 Gymnosperms ("naked seed") include conifers (~630 species), cycads (~350), *Ginkgo biloba* (1 species), and gnetophytes (~70). Key reproductive features:
 
@@ -153,7 +153,7 @@ Angiosperms (~300,000 species) are the most diverse plant group, with several ke
 
 ## Angiosperm Flower Structure and the ABCDE Model
 
-### Flower Architecture
+### Flower Architecture and Reproductive Organ Identity
 
 Angiosperm flowers are **modified shoots** (shoot lateral organs with determinate growth). A **complete flower** contains four whorls (from outside inward):
 
@@ -289,13 +289,13 @@ The angiosperm female gametophyte is also drastically reduced — a 7-celled, 8-
 
 ## Pollination, Pollen-Pistil Interactions, and Double Fertilisation
 
-### Pollination Systems
+### Pollination Systems and Pollen Transfer Strategies
 
 **Transfer of pollen from anther to stigma** occurs by various vectors, each associated with characteristic floral traits (pollination syndromes):
 
 | Vector | Syndrome | Flower morphology | Plant examples |
 | ------ | -------- | ----------------- | -------------- |
-| Bees (*Apis*, *Bombus*) | Melittophily | Blue/yellow/UV-reflective; landing platform; nectar guide | *Trifolium*, *Solanum*, *Linaria* |
+| Bees (*Apis*, *Bombus*, solitary bees) | Melittophily | Blue/yellow/UV-reflective; landing platform; nectar guide; sometimes vibration-released pollen | *Trifolium*, *Solanum*, *Linaria* |
 | Butterflies | Psychophily | Red/pink; narrow tube; nectar platform; day-opening | *Asclepias*, *Buddleja* |
 | Hawkmoths | Sphingophily | White; strong scent dusk-dawn; long narrow tube; night-opening | *Nicotiana*, *Datura* |
 | Bats | Chiropterophily | Large; white/pale; fermented/fruity scent; nocturnal; robust | *Agave*, *Ceiba*, *Adansonia* |
@@ -303,7 +303,9 @@ The angiosperm female gametophyte is also drastically reduced — a 7-celled, 8-
 | Wind | Anemophily | Small, inconspicuous; no nectar; enormous pollen quantities; feathery stigma | *Poa*, *Quercus*, grasses, *Betula* |
 | Water | Hydrophily | Variable; pollen at water level | *Vallisneria*, *Ceratophyllum* |
 
-**80% of flowering plants** are insect-pollinated (entomophilous). Global pollination services estimated at ~$577 billion/year (IPBES 2016).
+Animal pollination is not a decorative add-on to plant reproduction. The IPBES pollinators assessment reported that more than three quarters of leading global food-crop types benefit at least partly from animal pollination, while 5--8% of global crop production by volume depends directly on animal pollination \citep{ipbes2016pollinators}. The same assessment separates crop production from wild-plant reproduction: managed honey bees are important agricultural pollinators, but wild bees, flies, butterflies, moths, beetles, birds, and bats support many crop and wild-plant networks.
+
+Bees illustrate why pollinators are not interchangeable. Honey bees provide portable managed colonies; bumblebees can buzz-pollinate poricidal anthers such as *Solanum*; solitary bees often forage under different temperatures, flower heights, or times of day. A global crop synthesis found that wild pollinator visitation improved fruit set regardless of honey bee abundance, so replacing diverse wild pollinators with managed honey bees is not an equivalent ecological substitution \citep{garibaldi2013wild}. Conservation therefore focuses on nesting substrate, floral continuity, pesticide exposure, disease spillover, and habitat connectivity as well as hive numbers.
 
 **Concept Check 3:** A plant species has small, green, scentless flowers that produce copious dry pollen. What is its likely pollination vector? What other structural features would you expect?
 
@@ -555,7 +557,7 @@ DELLA degradation (of RGA, GAI, RGL1-3 in *Arabidopsis*) releases repression of:
 
 ## Embryogenesis and Meristem Organisation
 
-### Early Embryogenesis
+### Early Embryogenesis and Body-Axis Formation
 
 **Arabidopsis** embryogenesis is the best-studied model:
 
@@ -716,6 +718,8 @@ A **fruit** is the mature ovary wall (**pericarp**: exocarp + mesocarp + endocar
 | Capsule | Dry; multiple septa; dehisces by pores or valves | Cotton, poppy, *Arabidopsis* | Wind-shaken; gravity |
 | Bur | Achene with hooks or spines | Burdock (*Arctium*), cocklebur (*Xanthium*) | Epizoochory (animal fur/feathers) |
 
+**[Myrmecochory](#gl:myrmecochory)** is seed dispersal by ants. Many seeds carry lipid-rich elaiosomes that attract ants; the ants carry the seed to the nest, consume the reward, and discard the intact seed in nutrient-rich refuse or protected microsites. This mutualism has evolved repeatedly across flowering plants and is associated with diversification in several lineages, making ants both dispersal agents and selective partners in fruit/seed evolution \citep{lengyel2009convergent}.
+
 ### Vegetative Reproduction: Mechanisms and Practical Applications
 
 Plants have diverse mechanisms for **vegetative (asexual) reproduction**, each with distinct anatomical and ecological characteristics that have been widely exploited in agriculture and horticulture:
@@ -764,7 +768,7 @@ The combination yields rice plants that produce maternal clones in seed form acr
 
 **Risks to wild relatives:** Apomictic hybrids could become invasive (since each seed is a perfect copy of the elite plant) and could erode genetic diversity in wild populations through escapes. Regulatory caution is warranted.
 
-### Plant Biotechnology
+### Plant Biotechnology in Reproduction and Crop Improvement
 
 Modern plant biotechnology builds on understanding of plant reproduction:
 
@@ -772,6 +776,8 @@ Modern plant biotechnology builds on understanding of plant reproduction:
 - **Somatic embryogenesis:** Somatic cells (non-reproductive) can be induced to form embryo-like structures that develop into complete plants. Used commercially for oil palm, conifers, coffee.
 - **Agrobacterium tumefaciens:** Natural genetic engineer. Its Ti [**plasmid**](#gl:plasmid) contains T-DNA that integrates into the plant [**genome**](#gl:genome). Modified T-DNA (with antibiotic resistance and gene of interest replacing oncogenes) is the primary tool for plant transformation.
 - **Applications:** Bt crops (insecticidal crystal protein gene from *Bacillus thuringiensis*), golden rice (beta-carotene biosynthesis genes), drought-tolerant cultivars (DREB/CBF overexpression), herbicide-resistant varieties (modified EPSPS gene).
+
+Plant pangenomes extend this toolkit beyond single-reference breeding. Crop and wild-relative pangenomes represent core and variable sequence across many individuals, exposing structural variants, presence-absence variation, and regulatory alleles that a single elite reference can miss \citep{schreiber2024plantpangenomes}. For a breeding claim, the source-governed question becomes whether the trait maps to a shared reference allele, an alternate haplotype, or variation absent from the reference line.
 
 > **Clinical Connection:** The Bt toxin proteins (Cry proteins) are harmless to mammals because they require alkaline gut [**pH**](#gl:ph) (found in insect midguts but not mammalian stomachs) to become active. Bt crops have reduced insecticide use by 37% globally while increasing yields 22% in developing countries (meta-analysis, Klumper & Qaim, 2014).
 
@@ -785,7 +791,7 @@ Modern plant biotechnology builds on understanding of plant reproduction:
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Plant Reproduction and Development
 
 For **Plant Reproduction and Development**, frontier biology belongs inside the evidence logic of
 the chapter. Plant biology links molecular regulation to climate stress, water limitation, crop resilience, phenology, and ecosystem feedbacks. The core reading question is this: plant reproduction links pollination, development, genetics, phenology, dispersal, and environmental filtering.
@@ -801,9 +807,9 @@ the chapter. Plant biology links molecular regulation to climate stress, water l
   the source closest to the measurement and state what has changed since it was
   published.
 
-A strong plant explanation names the tissue, signal, environmental driver, measurable trait, and tradeoff between growth, reproduction, defence, and water use.
+A strong plant-reproduction claim names the tissue, developmental signal, pollination or seed context, measurable trait, and fitness tradeoff \citep{schreiber2024plantpangenomes}.
 
-**Source practice:** For plant-stress and crop claims, name the tissue, environmental driver, field context, and growth-reproduction tradeoff; separate laboratory potential from agronomic adoption.
+**Source practice:** For reproduction claims, separate laboratory potential from field performance, inheritance, agronomic adoption, and ecological side effects \citep{schreiber2024plantpangenomes}.
 
 ## Key Terms
 
@@ -848,6 +854,7 @@ A strong plant explanation names the tissue, signal, environmental driver, measu
 | **FIS-PRC2** | Polycomb complex (MEA-FIS2-FIE-MSI1) regulating endosperm imprinting |
 | **Heterospory** | Production of two different spore sizes (micro- and megaspores); precursor to seed habit |
 | **Pericarp** | Mature ovary wall comprising exocarp, mesocarp, and endocarp; forms the fruit |
+| **[Myrmecochory](#gl:myrmecochory)** | Seed dispersal by ants, often mediated by lipid-rich elaiosomes attached to seeds |
 | **Parthenocarpy** | Fruit development without fertilisation; can be natural or induced by auxin/GA |
 | **Climacteric fruit** | Fruit type with autocatalytic ethylene burst at ripening (banana, tomato, apple) |
 | **System 1/System 2 ethylene** | Basal vs auto-catalytic ripening ethylene biosynthesis |
@@ -890,7 +897,7 @@ A strong plant explanation names the tissue, signal, environmental driver, measu
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Plant Reproduction and Development
 
 - \citet{coen1991} — The war of the whorls: Genetic interactions controlling flower development. *Nature*, 353.
 - \citet{nawaschin1898} — Resultate einer Revision der Befruchtungsvorgänge bei *Lilium martagon* und *Fritillaria tenella*. *Bulletin de l'Académie Impériale des Sciences de Saint-Pétersbourg*, 9.
@@ -923,7 +930,7 @@ print(round(out.biomass_g[-1], 2))
 - **Endosperm (typically 3n; 2m:1p):** Free-nuclear → cellular development; PEG/MEG imprinting via FIS-PRC2 drives parent-of-origin expression and parental-conflict regulation. Dosage is canonically 2m:1p but varies in some lineages and developmental contexts.
 - **Self-incompatibility:** Sporophytic SI (SRK-SCR-ARC1; *Brassica*) acts at stigma surface; gametophytic SI (S-RNase/SLF; Solanaceae, Rosaceae) acts in style by collaborative non-self recognition.
 - **Polyploidy:** Auto- vs allopolyploids; 70% of angiosperms have paleopolyploid history; major crop genomes (wheat, cotton, strawberry) are polyploid.
-- **Fruit types:** Diverse adaptations for dispersal (endozoochory, anemochory, explosive dehiscence, epizoochory). Climacteric fruits (banana, tomato, apple) ripen via System 2 autocatalytic ethylene burst — controlled commercially with 1-MCP. Parthenocarpy can be induced by auxin/GA (seedless grapes, watermelons).
+- **Fruit and seed dispersal:** Diverse adaptations for dispersal include endozoochory, anemochory, explosive dehiscence, epizoochory, and ant-mediated myrmecochory. Climacteric fruits (banana, tomato, apple) ripen via System 2 autocatalytic ethylene burst — controlled commercially with 1-MCP. Parthenocarpy can be induced by auxin/GA (seedless grapes, watermelons).
 - **Seed dormancy:** Five classes (PD, PY, MD, MPD, combinational); broken by stratification, scarification, light (Pfr), smoke-karrikins (KAI2), or temperature fluctuation. Germination: GA degrades DELLA, releasing α-amylase transcription; ABA-DOG1-PP2C-SnRK2 axis maintains dormancy.
 - **Vegetative reproduction:** Stolons, rhizomes, bulbs, corms, tubers, adventitious roots/plantlets, fragmentation, layering, grafting. Foundation of clonal crop production (banana, potato, garlic, grape).
 - **Apomixis:** Sporophytic (adventive embryony, e.g., citrus nucellar) vs gametophytic (apospory in *Hieracium*, diplospory in *Taraxacum*; pseudogamous vs autonomous endosperm). Wang *et al.* 2022 synthetic apomixis in rice via MiMe + MTL/BBML.
@@ -935,7 +942,7 @@ print(round(out.biomass_g[-1], 2))
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Plant Reproduction and Development
 
 **Plant Reproduction and Development** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -948,4 +955,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/biology/genetics/genetics.py` (`punnett_square`, `chi_squared_test`) | Connect inheritance evidence to breeding and reproductive outcomes. |
 | `src/mermaid/biology_diagrams.py` (`hormone_signaling_diagram`) | Link developmental timing to hormone signalling. |
 
-**Reproducibility check:** state pollination mechanism, developmental stage, genetic model, and environmental filter before interpreting reproductive success. **Cross-reference:** connect with \cref{sec:unit_V_mendelian_genetics} and \cref{sec:unit_VIII_plant_responses}.
+**Reproducibility check:** state pollination mechanism, developmental stage, genetic model, and environmental filter before interpreting reproductive success. **Cross-reference:** connect with \cref{sec:unit_V_mendelian_principles,sec:unit_V_mendelian_extensions_and_human_genetics} and \cref{sec:unit_VIII_plant_responses}.

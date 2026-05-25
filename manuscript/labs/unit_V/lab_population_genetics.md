@@ -1,4 +1,4 @@
-# Lab 18 — Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
+# Lab — Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
 
 \label{sec:lab_unit_V_population_genetics}
 
@@ -30,7 +30,7 @@
 2. Define effective population size (N_e) and explain how it differs from the census size (N). Identify at least two demographic factors — such as unequal sex ratios, variance in reproductive success, or fluctuations across generations — that tend to make N_e smaller than N.
 3. Distinguish the inbreeding coefficient F from the heterozygosity H. State how the two quantities are related under the simple model F = 1 − (H_observed / H_expected), and predict the direction of change in F after a population goes through a severe bottleneck.
 
-## Background {.unnumbered}
+## Lab Context: Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
 
 The Hardy-Weinberg principle states that in a large, randomly mating population with no selection, mutation, migration, or drift, allele frequencies (p, q) and genotype frequencies (p², 2pq, q²) remain constant across generations. Deviations from HWE indicate one or more of these forces is acting. Genetic drift — random changes in allele frequency — is most powerful in small populations, causing loss of variation and potentially fixing or eliminating alleles by chance alone.
 
@@ -38,6 +38,7 @@ The Hardy-Weinberg principle states that in a large, randomly mating population 
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Population Genetics and Hardy-Weinberg Equilibrium: inheritance source card: model assumptions, sampling frame, ancestry/context boundary, and uncertainty | 1 |
 | Two colours of beads (representing A and a alleles): 50 of each colour | 100 total |
 | Opaque bag or cup (for random sampling) | 2 |
 | Population genetics data table (printed: real MN blood group data) | 1 |
@@ -124,6 +125,10 @@ equipment version belongs only in an optional extension.
 **Solution:** Under Hardy-Weinberg, the homozygous-recessive genotype frequency equals q^2. Taking the square root, q = sqrt(0.09) = 0.30. The dominant allele frequency is p = 1 − q = 1 − 0.30 = 0.70. The expected genotype frequencies are p^2 = 0.49 for AA, 2pq = 2 × 0.70 × 0.30 = 0.42 for Aa, and q^2 = 0.09 for aa, which sums to 1.00. Multiplying each genotype frequency by the population size of 400 gives 0.49 × 400 = 196 AA individuals, 0.42 × 400 = 168 Aa individuals, and 0.09 × 400 = 36 aa individuals, summing to 400.
 
 **Interpretation:** The estimated heterozygote frequency of 0.42 is the largest single class — a characteristic feature of populations with intermediate allele frequencies. The estimate of p relies on the assumption of Hardy-Weinberg equilibrium; in a real population, deviations driven by selection, drift, or non-random mating can bias the q^2-to-q inference. A useful cross-check is to compare the predicted heterozygote count (168) with a directly genotyped count, since systematic shortfalls of heterozygotes can indicate inbreeding or hidden population structure.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Population Genetics and Hardy-Weinberg Equilibrium before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

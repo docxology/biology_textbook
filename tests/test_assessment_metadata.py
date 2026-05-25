@@ -8,8 +8,15 @@ import sys
 
 PROJECT = Path(__file__).resolve().parent.parent
 SRC = PROJECT / "src"
-TEMPLATE_ROOT = PROJECT.parent.parent
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
+
+from textbook_paths import discover_template_root  # noqa: E402
+
+TEMPLATE_ROOT = discover_template_root(PROJECT)
 for path in (TEMPLATE_ROOT, SRC):
+    if path is None:
+        continue
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
@@ -30,7 +37,7 @@ def test_all_question_bank_items_have_assessment_metadata() -> None:
         assert len(bank.items) == 30, question.path
         assert [item.number for item in bank.items] == list(range(1, 31))
         item_count += len(bank.items)
-    assert item_count == 1170
+    assert item_count == 1320
 
 
 def test_each_chapter_learning_objective_is_assessed() -> None:

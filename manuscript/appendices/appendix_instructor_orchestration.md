@@ -199,25 +199,43 @@ evidence, reasoning, and uncertainty statement.
 - **Lab/question pair:** \cref{sec:lab_unit_IV_mutations_and_genomics}; \cref{sec:q_unit_IV_mutations_and_genomics}.
 - **External alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
 
-#### — Epigenetics and Gene Regulation {.unnumbered}
+#### — Chromatin and Epigenetic Mechanisms {.unnumbered}
 
 - **Core thread:** Connect sequence, regulation, genome integrity, and phenotype through evidence.
 - **Instructor move:** Launch from a phenomenon, have students model it with Regulatory-state and expression-ratio reasoning, then test the model through data.
 - **Formative check:** Ask students to interpret chromatin or expression evidence from simple regulatory datasets and then answer: explain how a regulatory mark changes accessibility and predict downstream expression.
 - **Summative product:** Apply regulation logic to differentiation, imprinting, cancer, or environmental responses.
-- **Lab/question pair:** \cref{sec:lab_unit_IV_epigenetics_and_gene_regulation}; \cref{sec:q_unit_IV_epigenetics_and_gene_regulation}.
+- **Lab/question pair:** \cref{sec:lab_unit_IV_chromatin_and_epigenetic_mechanisms}; \cref{sec:q_unit_IV_chromatin_and_epigenetic_mechanisms}.
+- **External alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
+
+#### — Epigenetic Inheritance and Disease {.unnumbered}
+
+- **Core thread:** Connect sequence, regulation, genome integrity, and phenotype through evidence.
+- **Instructor move:** Launch from a phenomenon, have students model it with Chromatin-loop, inheritance, and disease-risk reasoning, then test the model through data.
+- **Formative check:** Ask students to interpret Hi-C, imprinting, or transgenerational datasets with causal caution and then answer: explain how 3D organisation or inherited marks alter expression and disease risk.
+- **Summative product:** Apply inheritance logic to cancer, developmental disorders, and environmental exposure.
+- **Lab/question pair:** \cref{sec:lab_unit_IV_epigenetic_inheritance_and_disease}; \cref{sec:q_unit_IV_epigenetic_inheritance_and_disease}.
 - **External alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
 
 
 ### Unit V {.unnumbered}
 
-#### — Mendelian Genetics and Heredity {.unnumbered}
+#### — Mendelian Principles and Probability {.unnumbered}
 
 - **Core thread:** Use probability and population reasoning to connect inheritance to evolution.
-- **Instructor move:** Launch from a phenomenon, have students model it with Punnett, binomial, pedigree, and chi-square calculations, then test the model through data.
-- **Formative check:** Ask students to use family or cross data to infer genotype probabilities and then answer: compute a genetic probability or chi-square result and explain the biological assumption.
-- **Summative product:** Transfer inheritance reasoning to counseling, breeding, model organisms, and risk prediction.
-- **Lab/question pair:** \cref{sec:lab_unit_V_mendelian_genetics}; \cref{sec:q_unit_V_mendelian_genetics}.
+- **Instructor move:** Launch from a phenomenon, have students model it with Punnett, binomial, and chi-square calculations, then test the model through data.
+- **Formative check:** Ask students to use cross data to infer genotype probabilities and then answer: compute a genetic probability or chi-square result and explain the biological assumption.
+- **Summative product:** Transfer Mendelian probability to model organisms and introductory human genetics.
+- **Lab/question pair:** \cref{sec:lab_unit_V_mendelian_principles}; \cref{sec:q_unit_V_mendelian_principles}.
+- **External alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
+
+#### — Mendelian Extensions and Human Genetics {.unnumbered}
+
+- **Core thread:** Use probability and population reasoning to connect inheritance to evolution.
+- **Instructor move:** Launch from a phenomenon, have students model it with Pedigree, epistasis, and multi-locus probability calculations, then test the model through data.
+- **Formative check:** Ask students to infer inheritance mode and extension mechanism from family or cross data and then answer: use pedigree or extension evidence to justify an inheritance diagnosis.
+- **Summative product:** Transfer extension reasoning to counseling, GWAS interpretation, and breeding.
+- **Lab/question pair:** \cref{sec:lab_unit_V_mendelian_extensions_and_human_genetics}; \cref{sec:q_unit_V_mendelian_extensions_and_human_genetics}.
 - **External alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
 
 #### — Chromosomal Inheritance and Linkage {.unnumbered}
@@ -289,13 +307,22 @@ evidence, reasoning, and uncertainty statement.
 - **Lab/question pair:** \cref{sec:lab_unit_VII_microbial_ecology}; \cref{sec:q_unit_VII_microbial_ecology}.
 - **External alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
 
-#### — Infectious Disease and Immunity {.unnumbered}
+#### — Host Immunity and Vaccines {.unnumbered}
 
 - **Core thread:** Use microbes to integrate evolution, ecology, host response, and public decisions.
-- **Instructor move:** Launch from a phenomenon, have students model it with R0, herd-immunity threshold, and SIR trajectory calculations, then test the model through data.
-- **Formative check:** Ask students to interpret outbreak curves and intervention effects and then answer: calculate a threshold or outbreak trajectory and identify the intervention lever.
-- **Summative product:** Transfer disease-dynamic reasoning to vaccination, antimicrobial resistance, and public-health policy.
-- **Lab/question pair:** \cref{sec:lab_unit_VII_infectious_disease}; \cref{sec:q_unit_VII_infectious_disease}.
+- **Instructor move:** Launch from a phenomenon, have students model it with Herd-immunity threshold and basic immunological reasoning, then test the model through data.
+- **Formative check:** Ask students to interpret antibody, cellular, and vaccine-response evidence and then answer: predict how immunity or vaccination changes individual and population risk.
+- **Summative product:** Transfer immunity reasoning to outbreak response and clinical decision-making.
+- **Lab/question pair:** \cref{sec:lab_unit_VII_host_immunity_and_vaccines}; \cref{sec:q_unit_VII_host_immunity_and_vaccines}.
+- **External alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
+
+#### — Antimicrobial Resistance and Epidemiology {.unnumbered}
+
+- **Core thread:** Use microbes to integrate evolution, ecology, host response, and public decisions.
+- **Instructor move:** Launch from a phenomenon, have students model it with R0, resistance-mechanism, and outbreak-trajectory calculations, then test the model through data.
+- **Formative check:** Ask students to interpret resistance assays and outbreak curves and then answer: calculate a threshold or outbreak trajectory and identify the intervention lever.
+- **Summative product:** Transfer resistance and epidemiology reasoning to stewardship and public-health policy.
+- **Lab/question pair:** \cref{sec:lab_unit_VII_antimicrobial_resistance_and_epidemiology}; \cref{sec:q_unit_VII_antimicrobial_resistance_and_epidemiology}.
 - **External alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
 
 
@@ -358,13 +385,22 @@ evidence, reasoning, and uncertainty statement.
 - **Lab/question pair:** \cref{sec:lab_unit_IX_action_potential_synapses}; \cref{sec:q_unit_IX_action_potential_synapses}.
 - **External alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
 
-#### — Endocrine and Immune Systems {.unnumbered}
+#### — Endocrine Signaling and Homeostasis {.unnumbered}
 
 - **Core thread:** Spiral homeostasis from organ systems to neural, endocrine, and immune decisions.
-- **Instructor move:** Launch from a phenomenon, have students model it with Hormone feedback, dose-response, and immune-memory reasoning, then test the model through data.
-- **Formative check:** Ask students to interpret endocrine or immune data from time courses, titers, or perturbations and then answer: predict the consequence of changing a hormone, receptor, antigen, or immune-cell population.
-- **Summative product:** Transfer signaling and immunity reasoning to vaccination, autoimmunity, stress, and metabolism.
-- **Lab/question pair:** \cref{sec:lab_unit_IX_endocrine_and_immune}; \cref{sec:q_unit_IX_endocrine_and_immune}.
+- **Instructor move:** Launch from a phenomenon, have students model it with Hormone feedback and dose-response reasoning, then test the model through data.
+- **Formative check:** Ask students to interpret endocrine time courses, panels, and perturbations and then answer: predict the consequence of changing a hormone, receptor, or axis set-point.
+- **Summative product:** Transfer endocrine reasoning to metabolism, stress, and development.
+- **Lab/question pair:** \cref{sec:lab_unit_IX_endocrine_signaling}; \cref{sec:q_unit_IX_endocrine_signaling}.
+- **External alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
+
+#### — Immune System Architecture and Defense {.unnumbered}
+
+- **Core thread:** Spiral homeostasis from organ systems to neural, endocrine, and immune decisions.
+- **Instructor move:** Launch from a phenomenon, have students model it with Immune-memory, cytokine, and recognition reasoning, then test the model through data.
+- **Formative check:** Ask students to interpret immune titers, cytokine profiles, or perturbation data and then answer: predict the consequence of changing an antigen, cell population, or checkpoint.
+- **Summative product:** Transfer immunity reasoning to vaccination, autoimmunity, infection, and cancer therapy.
+- **Lab/question pair:** \cref{sec:lab_unit_IX_immune_system_defense}; \cref{sec:q_unit_IX_immune_system_defense}.
 - **External alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
 
 
@@ -379,13 +415,22 @@ evidence, reasoning, and uncertainty statement.
 - **Lab/question pair:** \cref{sec:lab_unit_X_population_ecology}; \cref{sec:q_unit_X_population_ecology}.
 - **External alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
 
-#### — Community Ecology and Species Interactions {.unnumbered}
+#### — Community Interactions and Succession {.unnumbered}
 
 - **Core thread:** Use ecological models to connect populations, interactions, matter, climate, and decisions.
-- **Instructor move:** Launch from a phenomenon, have students model it with Lotka-Volterra-style interaction and diversity-pattern reasoning, then test the model through data.
+- **Instructor move:** Launch from a phenomenon, have students model it with Lotka-Volterra-style interaction reasoning, then test the model through data.
 - **Formative check:** Ask students to interpret abundance, interaction, or disturbance data from communities and then answer: predict how changing one species or resource alters community structure.
-- **Summative product:** Transfer interaction reasoning to restoration, disease ecology, agriculture, and invasion biology.
-- **Lab/question pair:** \cref{sec:lab_unit_X_community_ecology}; \cref{sec:q_unit_X_community_ecology}.
+- **Summative product:** Transfer interaction reasoning to restoration, agriculture, and invasion biology.
+- **Lab/question pair:** \cref{sec:lab_unit_X_community_interactions}; \cref{sec:q_unit_X_community_interactions}.
+- **External alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
+
+#### — Biodiversity, Food Webs, and Biogeography {.unnumbered}
+
+- **Core thread:** Use ecological models to connect populations, interactions, matter, climate, and decisions.
+- **Instructor move:** Launch from a phenomenon, have students model it with Shannon, species-area, and network connectance reasoning, then test the model through data.
+- **Formative check:** Ask students to interpret food-web, richness, or biogeography datasets and then answer: calculate a diversity or species-area metric and interpret its ecological meaning.
+- **Summative product:** Transfer biodiversity reasoning to conservation planning and habitat fragmentation.
+- **Lab/question pair:** \cref{sec:lab_unit_X_biodiversity_and_food_webs}; \cref{sec:q_unit_X_biodiversity_and_food_webs}.
 - **External alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
 
 #### — Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}

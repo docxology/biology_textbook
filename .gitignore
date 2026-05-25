@@ -23,3 +23,6 @@ __pycache__/
 # Stale probes / tmp
 tmp_*.txt
 tmp_*.log
+
+# Pipeline outputs (regenerated; never commit)
+output/

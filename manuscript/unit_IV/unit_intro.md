@@ -68,9 +68,9 @@ graph TD
     style REG fill:#8e44ad,color:#fff
     style MUT fill:#e67e22,color:#fff
 ```
-<!-- alt: Graph showing amerefsec:unit_IV_unit_intro concept map — Molecular Genetics. Dark = DNA; purple = regulation; orange = mutations; red = editing technology. -->
+<!-- alt: Graph showing molecular-genetics concept map — dark = DNA; purple = regulation; orange = mutations; red = editing technology. -->
 
-*\nameref{sec:unit_IV_unit_intro} concept map — Molecular Genetics. Dark = DNA; purple = regulation; orange = mutations; red = editing technology.*
+*Molecular-genetics concept map — dark = DNA; purple = regulation; orange = mutations; red = editing technology.*
 
 ---
 

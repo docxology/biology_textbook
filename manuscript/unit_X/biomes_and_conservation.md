@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 35** · Level 2/3 · 70 min read · 75 min lecture · Prerequisites: \cref{sec:unit_X_ecosystem_ecology}
+> Level 2/3 · 70 min read · 75 min lecture · Prerequisites: \cref{sec:unit_X_ecosystem_ecology}
 
 ## Learning Objectives
 
@@ -51,7 +51,7 @@
 > 
 > In 1966, ecologist E.O. Wilson and his student Daniel Simberloff tested a bold prediction of island biogeography theory — that small islands far from the mainland support fewer species, and that a disturbed island will bounce back to a predictable species count. Simberloff hired professional exterminators to fumigate small mangrove islands off the Florida Keys with methyl bromide, killing most arthropods. He then monitored recolonisation. Within a year, species counts had returned to near the pre-defaunation levels predicted by island area and distance equations Wilson had developed with Robert MacArthur in 1967. The MacArthur-Wilson Theory of Island Biogeography — predicting species number from area $S = cA^z$ — became the mathematical foundation for reserve design in conservation biology. The SLOSS debate (Single Large Or Several Small reserves), minimum viable populations, habitat fragmentation analysis, and biodiversity hotspot identification most derive from Wilson and MacArthur's equations. And it most started with methyl bromide on tiny Keys mangroves.
 
-## Biome Concepts and Classification
+## Biomes as Climate-Filtered Ecological Regions
 
 A **biome** is a large-scale ecological zone characterised by climate (principally temperature and precipitation) and the type of vegetation and animal communities adapted to those conditions. Biome distribution follows Whittaker's (1975) climate-vegetation gradient map, subsequently confirmed and refined by MODIS satellite NPP data (Running et al. 2004, *Science*) and updated with machine-learning-enhanced Koppen-Geiger classifications (Monzon-Alvarado et al. 2023, *Glob. Change Biol.*).
 
@@ -125,9 +125,9 @@ flowchart TD
     K --> L
     L --> M["Still requires emissions reduction and water-quality management"]
 ```
-<!-- alt: Flowchart showing coral bleaching and assisted-evolution response. Heat-tolerant hosts, symbionts, or microbiomes can improve local resilience in some settings, but they are complements to climate mitigation and reef-water-quality management, not substitutes. -->
+<!-- alt: Flowchart showing coral bleaching responses can test heat-tolerant hosts, symbionts, or microbiomes as local resilience tools, but those interventions remain complements to climate mitigation and reef-water-quality management. -->
 
-*Coral bleaching and assisted-evolution response. Heat-tolerant hosts, symbionts, or microbiomes can improve local resilience in some settings, but they are complements to climate mitigation and reef-water-quality management, not substitutes \citep{noaa2025coralbleaching,strader2022coralheat}.*
+*Coral bleaching responses can test heat-tolerant hosts, symbionts, or microbiomes as local resilience tools, but those interventions remain complements to climate mitigation and reef-water-quality management \citep{noaa2025coralbleaching,strader2022coralheat}.*
 
 > 🔬 **Clinical Connection — Reef-Derived Pharmaceuticals:** Coral reef ecosystems are a source of bioactive compounds for drug development. **Pseudopterosin** (from the Caribbean sea whip *Pseudopterogorgia elisabethae*) has potent anti-inflammatory and analgesic properties and is used in commercial wound-healing formulations. **Discodermolide** (from the deep-sea sponge *Discodermia dissoluta*) shows anti-cancer properties by stabilising microtubules, similar to taxol. The cone snail toxin **ziconotide** (Prialt) is an FDA-approved non-opioid analgesic for severe chronic pain. Reef destruction through bleaching and acidification threatens the loss of undiscovered pharmaceutical compounds before they can be identified — a form of pharmacological extinction debt.
 
@@ -150,9 +150,9 @@ graph TD
         TIP --> PERM["Permafrost Thaw<br/>Abrupt thaw adds<br/>2-5 Gt C/yr by 2050<br/>(Turetsky et al. 2024)"]
     end
 ```
-<!-- alt: Flowchart for Climate Change and Biome Boundary Shifts: Global Warming +1.1°C since pre-industrial, Poleward Shift 5-10 km/decade (Chen et al. 2023), Upslope Shift 6 m/decade elevation (mountain ecosystems), and Tipping Points (non-linear transitions) form the diagram's primary path or branches. -->
+<!-- alt: Graph showing climate warming can move biome boundaries poleward or upslope, but threshold responses and local dispersal limits make shifts uneven rather than smooth. -->
 
-*Flowchart for Climate Change and Biome Boundary Shifts: Global Warming +1.1°C since pre-industrial, Poleward Shift 5-10 km/decade (Chen et al. 2023), Upslope Shift 6 m/decade elevation (mountain ecosystems), and Tipping Points (non-linear transitions) form the diagram's primary path or branches.*
+*Climate warming can move biome boundaries poleward or upslope, but threshold responses and local dispersal limits make shifts uneven rather than smooth.*
 
 ### Key Findings (2023-2025)
 
@@ -182,7 +182,7 @@ where $w_i$ = variable weights (temperature, precipitation, seasonality index), 
 | **MaxEnt** | Machine learning; maximum entropy | High predictive power; handles sparse data | Overfitting risk; correlative primarily |
 | **Process-based (e.g., LPJ-GUESS)** | Mechanistic plant physiology | Captures mechanisms; projects novel climates | Data-intensive; computationally expensive |
 
-### Climate Velocity
+### Climate Velocity and Dispersal Limits
 
 **Climate velocity** = the speed at which climate conditions shift geographically:
 
@@ -210,13 +210,13 @@ The **Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Se
 
 | IPBES finding | Quantitative result |
 | ------------- | ------------------- |
-| Species threatened with extinction | ~1,000,000 in the IPBES synthesis; the IUCN Red List provides the tracked assessed-species subset \citep{iucn2025redlist} |
+| Species threatened with extinction | ~1,000,000 in the IPBES synthesis \citep{ipbes2019global}; the IUCN Red List provides the tracked assessed-species subset \citep{iucn2025redlist} |
 | Average abundance of native species in major terrestrial biomes | Declined ≥ 20% (mostly since 1900) |
 | Monitored vertebrate populations | 73% average decline since 1970 in the Living Planet Index; this is a population-index trend, not a count of individual animals \citep{wwf2024livingplanet} |
 | Wetlands | 85% lost since 1700 |
 | Forest cover | 32% lost (vs. pre-industrial) |
 | Coral reef cover | 50% lost since 1870 |
-| Pollinator populations | 40% of insect pollinators threatened |
+| Pollinator populations | 40% of insect pollinators threatened in the IPBES pollinator synthesis \citep{ipbes2016pollinators,ipbes2019global} |
 | Local livestock breeds | 9% extinct; another 1,000 threatened (genetic erosion of food security) |
 
 ### Quantified Drivers (IPBES 2019)
@@ -234,6 +234,8 @@ IPBES ranked the relative importance of the five direct drivers of biodiversity 
 For **marine systems**, the ranking changes: direct exploitation > climate change > pollution > land-/sea-use change > invasive species. Climate change is projected to overtake direct exploitation as the dominant marine driver by 2050.
 
 The Transformative Change Assessment (IPBES 2024) goes further: **incremental conservation alone cannot meet 30x30 or biodiversity targets**. Systemic changes to economic, financial, and governance systems are required — including reforming environmentally harmful subsidies, shifting incentives toward ecosystem stewardship, and integrating biodiversity into most policy domains (the "whole-of-government" approach) \citep{ipbes2024transformative}.
+
+Pollinator decline requires careful interpretation. Managed honey bee colonies can increase in some agricultural regions while wild bees, butterflies, moths, flies, beetles, birds, or bats decline locally; those are different indicators, not contradictory facts. IPBES links pollinator risk to land-use change, pesticide exposure, pathogens, invasive species, climate change, and reduced floral/nesting resources \citep{ipbes2016pollinators}. Crop studies also show that wild pollinator visitation can improve fruit set even when honey bees are present, so conservation targets should include habitat heterogeneity, floral continuity, nesting substrate, pesticide timing, and disease spillover rather than hive counts alone \citep{garibaldi2013wild}.
 
 Food systems are a useful place to make "transformative change" concrete. FAO, IFAD, UNICEF, WFP, and WHO report that high food-price inflation continues to undermine access to healthy diets, especially for low-income populations \citep{fao2025sofi}. Conservation biology therefore cannot treat agricultural landscapes as outside nature: agroecology, diversified crop rotations, soil-carbon restoration, pollinator habitat, reduced food waste, sustainable fisheries, and equitable market access are biodiversity strategies and food-security strategies at the same time. The claim is not that agroecology alone solves hunger; it is that biodiversity, nutrition, farm livelihoods, and climate resilience are coupled enough that single-objective policies often fail.
 
@@ -271,7 +273,7 @@ Earth currently experiences the **Sixth Mass Extinction** — driven primarily b
 | **Least Concern** | LC | Widespread and abundant |
 | **Data Deficient** | DD | Insufficient data to assess |
 
-The IUCN Red List is a tracked subset of assessed species, not a census of global biodiversity. Version 2025-1 listed 169,420 assessed species, with 47,187 classified as threatened (Vulnerable, Endangered, or Critically Endangered), about 28% of assessed species \citep{iucn2025redlist}. Counts change with new assessments and reassessments, so the category logic is more durable than any single annual total.
+The IUCN Red List is a tracked subset of assessed species, not a census of global biodiversity. Version 2025-2 listed 172,620 assessed species, with 48,646 classified as threatened (Vulnerable, Endangered, or Critically Endangered), about 28% of assessed species \citep{iucn2025redlist}. Counts change with new assessments and reassessments, so the category logic is more durable than any single annual total.
 
 **Criteria for listing** (IUCN uses 5 criteria, any one sufficient):
 - **A:** Population reduction (quantitative decline thresholds)
@@ -318,9 +320,9 @@ flowchart LR
     style EN3 fill:#f0ad4e,color:#000
     style LC fill:#5cb85c,color:#fff
 ```
-<!-- alt: Flowchart showing IUCN Red List assessment framework and conservation triage decision tree. Species are assessed against five criteria (population decline, geographic range, small population, very small population, quantitative analysis). Threatened species receive conservation interventions based on urgency and feasibility. -->
+<!-- alt: Flowchart showing IUCN Red List assessment is a criteria-based risk workflow: the category follows the strongest supported evidence, then conservation triage weighs urgency, feasibility, and monitoring needs. -->
 
-*IUCN Red List assessment framework and conservation triage decision tree. Species are assessed against five criteria (population decline, geographic range, small population, very small population, quantitative analysis). Threatened species receive conservation interventions based on urgency and feasibility.*
+*IUCN Red List assessment is a criteria-based risk workflow: the category follows the strongest supported evidence, then conservation triage weighs urgency, feasibility, and monitoring needs.*
 
 ---
 
@@ -383,7 +385,7 @@ Typical $N_e/N$ ratio: 0.10-0.25 for vertebrates. Therefore, to achieve $N_e = 5
 
 **Extinction debt** (Tilman et al. 1994, *Nature*): Species present in degraded/fragmented habitats are committed to future extinction because habitat can no longer support viable populations — but extinction is **delayed** (50-500 years) by existing long-lived individuals.
 
-### Mathematical Framework
+### Mathematical Framework for Extinction Debt
 
 \begin{equation}
 \text{Species committed to extinction} = S_{\text{pre-fragmentation}} - c \cdot A_{\text{remaining}}^z
@@ -401,7 +403,7 @@ where $S_{\text{pre-fragmentation}}$ is species richness before habitat loss, $A
 
 <!-- alt: Log-log plot of species richness against habitat area. The oceanic-island line is steeper than the mainland-fragment line, and a dotted reference line sits between them. -->
 
-### Relaxation Time
+### Relaxation Time After Habitat Loss
 
 **Relaxation time** = the period between habitat loss and final extinction of committed species. Determined by:
 - Longevity of individuals (trees: centuries; insects: months)
@@ -409,7 +411,7 @@ where $S_{\text{pre-fragmentation}}$ is species richness before habitat loss, $A
 - Habitat quality of remaining fragments
 - Connectivity between patches (rescue effect)
 
-### Case Studies
+### Case Studies of Delayed Extinction
 
 | System | Debt estimate | Relaxation time | Reference |
 | ------ | ------------- | --------------- | --------- |
@@ -424,7 +426,7 @@ where $S_{\text{pre-fragmentation}}$ is species richness before habitat loss, $A
 
 ---
 
-## Reserve Design
+## Reserve Design for Area, Connectivity, and Edge Effects
 
 ### Island Biogeography Applied to Conservation
 
@@ -462,7 +464,7 @@ print(f"Species lost from fragmentation: {((S_large-S_small)/S_large)*100:.0f}%"
 | Circular better than elongated | Less edge effect | Supported |
 | Connected by corridors better than isolated | Rescue effect; gene flow | Strongly supported |
 
-### Edge Effects
+### Edge Effects and Fragment Microclimates
 
 Habitat edges create microclimatic gradients that penetrate 100-300 m into forest fragments:
 
@@ -483,7 +485,7 @@ For a circular reserve:
 
 where $r$ = reserve radius and $d$ = edge penetration distance. For a 10-ha circular reserve ($r = 178$ m) with 200-m edge effects: **zero interior habitat.** This illustrates why small fragments are ecological traps for interior-dependent species.
 
-### Habitat Corridors
+### Habitat Corridors and Connectivity Trade-Offs
 
 **Evidence for corridor effectiveness:**
 - Tewksbury et al. (2002, *PNAS*): Connected patches had 25-100% more pollinator movement than unconnected
@@ -500,7 +502,7 @@ where $r$ = reserve radius and $d$ = edge penetration distance. For a 10-ha circ
 
 ## Emerging Conservation Strategies
 
-### Rewilding
+### Rewilding and Trophic Restoration
 
 **Rewilding** (Soule & Noss 1998; updated Jorgensen 2024, *Nat. Ecol. Evol.*): Restore ecological processes — especially trophic interactions — by reintroducing lost species, particularly apex predators and megaherbivores.
 
@@ -522,7 +524,7 @@ where $r$ = reserve radius and $d$ = edge penetration distance. For a 10-ha circ
 
 **Pleistocene Park hypothesis:** Zimov et al. (2012, *Science*): Reintroducing large herbivores to Arctic tundra compacts snow in winter, allowing cold air to freeze soil deeper, **slowing permafrost thaw** by ~80% compared to snow-insulated control plots.
 
-### Conservation Genomics
+### Conservation Genomics for Diversity and Management
 
 **Whole-[**genome**](#gl:genome) sequencing** of threatened populations enables:
 
@@ -560,9 +562,9 @@ sequenceDiagram
     MGMT->>POP: Implement management strategy
     Note over MGMT,POP: Monitor genomic response<br/>over 5-10 generations
 ```
-<!-- alt: Sequence diagram for Conservation Genomics showing ordered interaction among Endangered Population, Whole-Genome Sequencing, Genomic Analysis, and Management Decision. -->
+<!-- alt: Sequence diagram showing conservation-genomics workflows move from whole-genome sequencing to estimates of inbreeding, adaptive variation, and management choices. -->
 
-*Sequence diagram for Conservation Genomics showing ordered interaction among Endangered Population, Whole-Genome Sequencing, Genomic Analysis, and Management Decision.*
+*Conservation-genomics workflows move from whole-genome sequencing to estimates of inbreeding, adaptive variation, and management choices.*
 
 ### Assisted Gene Flow and Assisted Migration
 
@@ -619,13 +621,13 @@ graph TD
     style B1 fill:#d1e7dd,stroke:#0f5132
     style W1 fill:#f8d7da,stroke:#842029
 ```
-<!-- alt: Flowchart for Visualizing Reserve Design Principles: Connected & Large High gene flow Lower extinction risk Resilient to shifts, Isolated & Small Edge effects dominate Inbreeding risk Vulnerable to stochasticity, Single Large Protects wide-ranging apex predators, and Several Small Protects rare plants in unique micro-habitats form the diagram's primary path or branches. -->
+<!-- alt: Graph showing reserve design compares connectivity, area, edge effects, and habitat uniqueness; large connected reserves and several smaller reserves solve different conservation problems. -->
 
-*Flowchart for Visualizing Reserve Design Principles: Connected & Large High gene flow Lower extinction risk Resilient to shifts, Isolated & Small Edge effects dominate Inbreeding risk Vulnerable to stochasticity, Single Large Protects wide-ranging apex predators, and Several Small Protects rare plants in unique micro-habitats form the diagram's primary path or branches.*
+*Reserve design compares connectivity, area, edge effects, and habitat uniqueness; large connected reserves and several smaller reserves solve different conservation problems.*
 
 ---
 
-## 7B Climate Velocity, Refugia, and Range Shifts
+## Climate Velocity, Refugia, and Species Range Shifts
 
 \citet{ripple2012} and Loarie et al. (2009, *Nature*) established **climate velocity** as the central organising metric for climate-adaptive conservation. The velocity is the speed at which a given thermal envelope moves across the landscape, and species must disperse at least this fast to track their climatic niche.
 
@@ -665,7 +667,7 @@ Refugia identification is a major effort of climate-adaptive conservation planni
 
 ---
 
-## 7C Ecosystem-Based Adaptation: Using Nature for Climate Resilience
+## Ecosystem-Based Adaptation and Climate-Resilience Planning
 
 **Ecosystem-Based Adaptation (EbA)** uses biodiversity and ecosystem services as part of an overall adaptation strategy to help people adapt to climate change. The framework — formalised by the CBD and IUCN in 2009 — sits at the intersection of conservation and human resilience: protecting and restoring ecosystems to buffer communities against floods, storms, droughts, heat waves, and rising seas, while simultaneously sequestering carbon and conserving biodiversity.
 
@@ -681,7 +683,7 @@ Refugia identification is a major effort of climate-adaptive conservation planni
 | **Drought-tolerant agroecosystems** | Diverse cropping, perennial roots, soil organic matter | Food security; reduced N$_2$O |
 | **Living shorelines** | Marsh and oyster reef construction replacing seawalls | Habitat; better long-term storm performance than hard infrastructure |
 
-### Quantified Performance
+### Quantified Performance of Ecosystem-Based Adaptation
 
 EbA projects often outperform engineered alternatives on cost and resilience:
 
@@ -707,7 +709,7 @@ EbA is best understood as one component of a multi-layered adaptation portfolio 
 
 ## International Conservation Frameworks
 
-### Key Agreements
+### Conservation Agreements: CITES, CBD, GBF, and Paris Agreement
 
 | Framework | Year | Target | Status (2024) |
 | --------- | ---- | ------ | ------------- |
@@ -745,7 +747,7 @@ The Kunming-Montreal Global Biodiversity Framework (GBF, 2022) set a target to p
 
 ---
 
-## Worked Example
+## Worked Example: Species-Area Prediction for Island Birds
 
 **Problem:**
 An ecologist studies bird species on an archipelago. The species-area relationship for this region follows the equation $S = cA^z$, where $c = 10$ and $z = 0.3$. Island X has an area ($A$) of $1,000\text{ km}^2$. Calculate the expected number of bird species ($S$) on Island X.
@@ -813,7 +815,7 @@ $N_e \approx 67$ and $\Delta F \approx 0.75\%$ per generation. The herd is demog
 
 **Minimum viable population (MVP)** is defined as the smallest population size with $\geq 95\ \%$ probability of persistence over 100 generations, incorporating demographic stochasticity, environmental variance, and genetic deterioration from inbreeding depression and loss of adaptive variation. The classical rule-of-thumb is the **"50 / 500 rule"** (Franklin 1980): $N_e \geq 50$ to avoid short-term inbreeding depression, $N_e \geq 500$ to retain long-term adaptive potential against mutation-drift balance. Modern refinements (Frankham, Brook & Bradshaw 2014) revise these upward — $N_e \geq 100$ and $N_e \geq 1000$ — as the more defensible thresholds given empirical estimates of mutational-variance and inbreeding-load effects.
 
-**Case 1 — The Arabian Oryx (*Oryx leucoryx*)**. Extinct in the wild by 1972 after hunting reduced the Arabian population to zero, the species survived primarily in a 9-founder "World Herd" assembled at Phoenix Zoo. Careful pedigree management and reintroduction programs (Oman 1982, Saudi Arabia 1989, Jordan 1997) have grown the wild population to ~1250 (IUCN 2017, Vulnerable). The genetic cost: current population heterozygosity is ~70 % of the pre-bottleneck estimate, and most 6 microsatellite loci have at most 2 alleles — a cautionary example that demographic recovery does not erase the genetic signature of a bottleneck.
+**Case 1 — The Arabian Oryx (*Oryx leucoryx*)**. Extinct in the wild by 1972 after hunting reduced the Arabian population to zero, the species survived primarily in a 9-founder "World Herd" assembled at Phoenix Zoo. Careful pedigree management and reintroduction programs (Oman 1982, Saudi Arabia 1989, Jordan 1997) have grown the wild population to ~1250 (IUCN 2017, Vulnerable). The genetic cost: current population heterozygosity is ~70 % of the pre-bottleneck estimate, and the 6 microsatellite loci have at most 2 alleles — a cautionary example that demographic recovery does not erase the genetic signature of a bottleneck.
 
 **Case 2 — The California Condor (*Gymnogyps californianus*)**. From a 1982 low of 22 individuals (the entire species in captivity by 1987), a captive-breeding / release program has grown the population to > 500 (half wild, half captive). Genomic sequencing (Ralls et al. 2020) detected **23 known deleterious alleles** in the founders, two fixed during the bottleneck. The ongoing challenge is not census size but **lead toxicosis** from ingestion of lead ammunition in carcasses — a clear example of *why* habitat and regulatory intervention remain necessary even when demographic targets are met.
 
@@ -890,7 +892,7 @@ The boreal–tundra ecotone is advancing northward at a velocity of approximatel
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Biomes and Conservation Biology
 
 For **Biomes and Conservation Biology**, frontier biology belongs inside the evidence logic of
 the chapter. Ecology and conservation decisions increasingly combine field data, remote sensing, community knowledge, model uncertainty, and explicit values. The core reading question is this: conservation claims must separate ecological evidence, social values, feasibility, and uncertainty in tradeoffs.
@@ -906,9 +908,11 @@ the chapter. Ecology and conservation decisions increasingly combine field data,
   the source closest to the measurement and state what has changed since it was
   published.
 
-Use biodiversity metrics carefully: population indices, extinction risk categories, ecosystem services, and management targets answer different questions \citep{ipbes2019global,ipbes2024transformative,wwf2024livingplanet,iucn2025redlist,fao2024sofia}.
+Use conservation metrics carefully: population indices, extinction-risk categories, ecosystem services, and governance targets answer different decisions \citep{ipbes2019global,ipbes2024transformative,wwf2024livingplanet,iucn2025redlist,fao2024sofia}.
 
-**Source practice:** For conservation claims, cite assessment sources and state whether the evidence is a population index, extinction-risk assessment, ecosystem-service valuation, satellite product, or policy synthesis \citep{ipbes2024transformative,noaa2025coralbleaching,fao2025sofi}.
+Occurrence data answer a different question from extinction-risk categories or policy synthesis. GBIF is open biodiversity occurrence infrastructure: it mobilizes where-and-when records from museums, monitoring programmes, DNA barcodes, and recent observations through shared data standards such as Darwin Core. Use GBIF to ask where a taxon has been recorded; use IUCN and IPBES to ask how risk, drivers, and policy responses have been assessed. A conservation claim should filter date, coordinate uncertainty, taxonomic backbone, duplicates, and sampling bias before treating occurrence points as abundance or range evidence \citep{gbif2026,iucn2025redlist,ipbes2024transformative}.
+
+**Source practice:** For conservation decisions, identify whether the evidence is a population index, extinction-risk assessment, ecosystem-service valuation, satellite product, or policy synthesis \citep{ipbes2024transformative,noaa2025coralbleaching,iucn2025redlist,fao2025sofi}.
 
 ### Current Evidence Map: Conservation Decision Evidence Chain
 
@@ -924,9 +928,9 @@ flowchart TD
     H["Coral heat stress"] --> B
     I["Assisted evolution"] --> C
 ```
-<!-- alt: Flowchart showing coral assisted evolution and IPBES transformative-change examples show why conservation decisions need evidence, values, feasibility, and monitoring in the same frame. -->
+<!-- alt: Flowchart showing coral assisted-evolution and IPBES transformative-change examples show how conservation decisions combine biological evidence, values, feasibility, governance, and post-intervention monitoring. -->
 
-*Coral assisted evolution and IPBES transformative-change examples show why conservation decisions need evidence, values, feasibility, and monitoring in the same frame \citep{ipbes2024transformative,noaa2025coralbleaching,strader2022coralheat}.*
+*Coral assisted-evolution and IPBES transformative-change examples show how conservation decisions combine biological evidence, values, feasibility, governance, and post-intervention monitoring \citep{ipbes2024transformative,noaa2025coralbleaching,strader2022coralheat}.*
 
 ## Key Terms
 
@@ -995,7 +999,7 @@ flowchart TD
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Biomes and Conservation Biology
 
 - Soule (1980). Thresholds for Survival: Maintaining Fitness and Evolutionary Potential. *Conservation Biology: An Evolutionary-Ecological Perspective*.
 - Frankham (1995). Effective population size/adult population size ratios in wildlife: A review. *Genetical Research*, 66.
@@ -1026,19 +1030,19 @@ for a in (1.0, 10.0, 100.0):
 - **IPBES findings:** ~1 million species threatened (12.5%); 85% of wetlands lost since 1700; 50% coral reef loss since 1870. Drivers ranked: land-use change > exploitation > climate change (rising fast) > pollution > invasives. Transformative Change Assessment (2024) argues incremental conservation insufficient.
 - **Climate velocity** $v = (\partial T/\partial t)/|\nabla T|$: fast in flat tropical and temperate plains (6–10 km/yr), slow in mountains (6 m/yr); refugia (topographic, hydrological, microclimatic, elevational) are the key targets for climate-adaptive reserve design.
 - **Ecosystem-based adaptation (EbA):** mangroves, coral reefs, urban green infrastructure, wetlands, agroforestry. Often outperforms hard infrastructure on cost ($94/m vs. $2,000/m for coastal protection) and provides co-benefits, but cannot substitute for emissions reduction.
-- **IUCN Red List:** CR = at least 80% population decline under Criterion A; version 2025-1 listed 47,187 threatened species among 169,420 assessed, and totals change as assessments expand \citep{iucn2025redlist}.
+- **IUCN Red List:** CR = at least 80% population decline under Criterion A; version 2025-2 listed 48,646 threatened species among 172,620 assessed, and totals change as assessments expand \citep{iucn2025redlist}.
 - **MVP:** 50/500 rule (Franklin); revised 100/1000 \citep{frankham2014}; PVA accounts for most stochasticity types. $N_e/N$ ratio typically 0.10-0.25.
 - **Extinction debt:** fragmented species committed to extinction with 50-500 yr lags; current surveys overestimate long-term viability.
 - **Reserve design:** core-corridor-matrix; edge effects penetrate 100-300 m; corridors increase movement 50%; 30x30 target.
 - **Emerging strategies:** rewilding ([**trophic cascade**](#gl:trophic-cascade)s), conservation genomics (ROH, adaptive variation), assisted gene flow (coral heat tolerance), de-extinction (mammoth project), climate-adaptive management.
 - **International frameworks:** CBD, CITES, 30x30 target; $700 billion/yr funding gap; quality and representativeness challenges.
-- **Connections:** See \cref{sec:unit_VI_phylogenetics} for phylogenetic diversity, \cref{sec:unit_X_community_ecology} for trophic rewilding, and \cref{sec:unit_V_population_genetics} for small-[**population genetics**](#gl:population-genetics).
+- **Connections:** See \cref{sec:unit_VI_phylogenetics} for phylogenetic diversity, \cref{sec:unit_X_community_interactions} for trophic rewilding, and \cref{sec:unit_V_population_genetics} for small-[**population genetics**](#gl:population-genetics).
 
 ---
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Biomes and Conservation Biology
 
 **Biomes and Conservation Biology** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -1051,4 +1055,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/visualization/plots.py` (`plot_species_area_relationship`, `plot_biome_distribution`) | Inspect species-area assumptions and biome comparisons. |
 | `src/mermaid/biology_diagrams.py` (`food_web_diagram`, `nutrient_cycle_diagram`) | Connect conservation action to ecological pathways. |
 
-**Reproducibility check:** separate ecological evidence, social objective, feasibility, uncertainty, and monitoring indicator before choosing a conservation action. **Cross-reference:** use \cref{sec:unit_X_population_ecology}, \cref{sec:unit_X_community_ecology}, and \cref{sec:unit_X_ecosystem_ecology}.
+**Reproducibility check:** separate ecological evidence, social objective, feasibility, uncertainty, and monitoring indicator before choosing a conservation action. **Cross-reference:** use \cref{sec:unit_X_population_ecology}, \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs}, and \cref{sec:unit_X_ecosystem_ecology}.

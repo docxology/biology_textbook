@@ -64,20 +64,20 @@ class ChapterTocItem:
 
     @property
     def lab_prefix(self) -> str:
-        """Return the lab prefix derived from chapter order."""
+        """Return the lab prefix for Unit 0 prelude labs (alpha-indexed)."""
         if self.meta.number > 0:
-            return f"Lab {self.meta.number}"
+            return "Lab"
         return f"Lab {_alpha_index(self.ordinal_in_unit)}"
 
     @property
     def lab_title(self) -> str:
-        """Return the companion lab H1 title."""
+        """Return the companion lab H1 title (no chapter ordinal — use \\cref)."""
         return f"{self.lab_prefix} — {self.title}"
 
     @property
     def question_title(self) -> str:
-        """Return the companion question-bank H1 title."""
-        return f"Questions — Ch {self.companion_number}: {self.title}"
+        """Return the companion question-bank H1 title (no chapter ordinal)."""
+        return f"Questions — {self.title}"
 
 
 @dataclass(frozen=True)

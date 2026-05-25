@@ -1,4 +1,4 @@
-# Questions — Ch 0.3: Active Inference and the Free Energy Principle {.unnumbered}
+# Questions — Active Inference and the Free Energy Principle {.unnumbered}
 
 \label{sec:q_unit_0_active_inference}
 

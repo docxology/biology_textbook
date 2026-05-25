@@ -6,28 +6,20 @@ Default output: <project_root>/output/figures/
 
 from __future__ import annotations
 
-import sys
 import argparse
 from pathlib import Path
 
 import yaml
 
-SCRIPT_DIR = Path(__file__).resolve().parent
-PROJECT_DIR = SCRIPT_DIR.parent
-TEMPLATE_ROOT = PROJECT_DIR.parent.parent
-SRC_DIR = PROJECT_DIR / "src"
-CONFIG_FILE = PROJECT_DIR / "manuscript" / "config.yaml"
+from _bootstrap import PROJECT as PROJECT_DIR, ensure_project_paths
 
-def _ensure_import_paths() -> None:
-    for path in (SRC_DIR, TEMPLATE_ROOT):
-        path_str = str(path)
-        if path_str not in sys.path:
-            sys.path.insert(0, path_str)
+ensure_project_paths()
+
+CONFIG_FILE = PROJECT_DIR / "manuscript" / "config.yaml"
 
 
 def main() -> int:
-    _ensure_import_paths()
-    from infrastructure.core.logging.utils import get_logger
+    from textbook_logging import get_logger
     from visualization import ALL_FIGURE_GENERATORS
 
     logger = get_logger(__name__)

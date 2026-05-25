@@ -1,4 +1,4 @@
-# Lab 25 — Plant Structure, Water Relations, and Transport {.unnumbered}
+# Lab — Plant Structure, Water Relations, and Transport {.unnumbered}
 
 \label{sec:lab_unit_VIII_plant_structure_and_water}
 
@@ -46,7 +46,7 @@
 
 5. **Real-World Application**: Drought stress affects crop yields. How does understanding transpiration help in developing drought-resistant crops? What traits would you select for?
 
-## Background {.unnumbered}
+## Lab Context: Plant Structure, Water Relations, and Transport {.unnumbered}
 
 Vascular plants have three tissue systems: dermal (epidermis, cuticle, guard cells), ground (parenchyma, collenchyma, sclerenchyma), and vascular (xylem for water/mineral transport upward; phloem for sugar/assimilate transport, bidirectional). Transpiration — evaporation of water from stomata — drives the cohesion-tension mechanism that pulls water from root to leaf. Environmental factors (light, humidity, temperature, wind) modulate transpiration rate by affecting stomatal aperture.
 
@@ -54,6 +54,7 @@ Vascular plants have three tissue systems: dermal (epidermis, cuticle, guard cel
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Plant Structure, Water Relations, and Transport: plant evidence source card: tissue, driver, field context, breeding/adoption boundary, and refresh trigger | 1 |
 | Printed dicot stem and root cross-section diagrams with scale bars | 1 packet |
 | Transpiration dataset for four environmental treatments, with three replicates each | 1 |
 | Leaf-area and stomatal-density data cards for broadleaf, needleleaf, and succulent plants | 1 set |
@@ -81,7 +82,7 @@ Vascular plants have three tissue systems: dermal (epidermis, cuticle, guard cel
    - Use the printed root cross-section diagram to identify: epidermis (root hairs), cortex, endodermis (Casparian strip), pericycle, vascular cylinder (xylem star pattern; phloem between xylem arms).
    - Record at least three independent tissue-identification decisions per organ, citing the visual feature used for each decision.
 
-### Part 2: Computational Biology Exercise - Transpiration Analysis with Python {.unnumbered}
+### Part 2: Computational Biology Exercise — Transpiration Analysis with Python {.unnumbered}
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
@@ -162,6 +163,10 @@ equipment version belongs only in an optional extension.
 **Solution:** (a) New Ψcell = −0.9 + 0.15 = −0.75 MPa. (b) Ψcell (−0.75) < Ψxylem (−0.35), so water moves from xylem into the cell. (c) Ψcell (−0.75) < Ψsolution (−0.7) numerically (more negative), so water moves from solution into cell — wait, water moves toward lower (more negative) Ψ: Ψcell = −0.75 is more negative than Ψsolution = −0.7, so water moves from solution into cell.
 
 **Interpretation:** Both solute concentration (Ψs) and turgor pressure (Ψp) determine the direction of water movement. Transpiration lowers Ψp, creating the driving force for water uptake from xylem — the basis of the cohesion-tension mechanism.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Plant Structure, Water Relations, and Transport before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

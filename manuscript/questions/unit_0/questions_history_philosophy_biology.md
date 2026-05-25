@@ -1,4 +1,4 @@
-# Questions — Ch 0.4: History and Philosophy of Biology {.unnumbered}
+# Questions — History and Philosophy of Biology {.unnumbered}
 
 \label{sec:q_unit_0_history_philosophy_biology}
 
@@ -114,7 +114,7 @@ SOLUTION -->
 13. Rephrase the heart wants to pump blood into a defensible functional statement.
 
 <!-- SOLUTION
-**Answer (Q13, Application).** The heart contributes to circulation by generating pressure gradients that move blood through vessels.
+**Answer (Q13, Application).** The heart does not literally want anything. A defensible causal-role version is: cardiac muscle contraction generates pressure gradients that move blood through pulmonary and systemic vessels. A selected-effect version would add that vertebrate hearts were shaped by selection because this circulation supported oxygen delivery, waste removal, and sustained activity.
 SOLUTION -->
 
 <!-- assess: LO=LO6; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -175,7 +175,7 @@ SOLUTION -->
 21. Evaluate the claim that organs having functions makes biology goal-directed.
 
 <!-- SOLUTION
-**Answer (Q21, Synthesis).** Function language is useful, but it misleads if it implies conscious goals or inevitable progress.
+**Answer (Q21, Synthesis).** Function language is useful when it means causal role or selected effect, but it misleads when it implies conscious goals, inevitable progress, or perfect design. A strong answer should separate mechanism (how the organ works), development (how it forms), function (what contribution or selected effect it has), and evolutionary history (why that contribution became common).
 SOLUTION -->
 
 <!-- assess: LO=LO6; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
@@ -203,7 +203,7 @@ SOLUTION -->
 25. Design a four-column evidence map for a microbiome health claim.
 
 <!-- SOLUTION
-**Answer (Q25, Synthesis).** Use claim, biological unit, evidence practice, and uncertainty; distinguish association from intervention and name confounders.
+**Answer (Q25, Synthesis).** A strong four-column map could use claim, biological unit, evidence practice, and revision test. For example: "a high-fibre diet improves microbiome health"; unit = host-microbe system rather than single species; evidence practice = association study, intervention trial, or mechanistic metabolomics; revision test = a controlled diet intervention that changes fibre without changing confounders and measures symptoms, taxa, and metabolites.
 SOLUTION -->
 
 <!-- assess: LO=LO2; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
@@ -231,12 +231,12 @@ SOLUTION -->
 29. Build a Tinbergen-style explanation for one behaviour.
 
 <!-- SOLUTION
-**Answer (Q29, Synthesis).** Name mechanism, development, function, and evolutionary history, keeping the four questions distinct.
+**Answer (Q29, Synthesis).** For bird migration: mechanism = photoperiod, circadian/circannual signalling, fat metabolism, navigation cues, and motor circuits; development = inherited programme plus juvenile learning and calibration; function = seasonal movement can increase feeding or breeding success; evolutionary history = lineages with successful routes left more descendants under past climates. Keep the four answers distinct, then state which evidence would weaken each.
 SOLUTION -->
 
 <!-- assess: LO=LO6; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 30. Choose a later topic and identify its unit, model assumption, mechanism, and value-laden decision.
 
 <!-- SOLUTION
-**Answer (Q30, Synthesis).** For antibiotic resistance: the unit might be a resistance gene, bacterium, patient microbiome, hospital ward, or regional population. The model assumption is selection under drug exposure; the mechanism may involve mutation, plasmids, efflux, or biofilm protection; the value-laden decision is stewardship that balances patient benefit against population-level resistance risk.
+**Answer (Q30, Synthesis).** For antibiotic resistance: the unit might be a resistance gene, bacterium, patient microbiome, hospital ward, or regional population. The model assumption is selection under drug exposure; the mechanism may involve mutation, plasmids, efflux, target modification, or biofilm protection; the value-laden decision is stewardship that balances patient benefit against population-level resistance risk. A complete answer names the level of explanation and one observation that would force revision.
 SOLUTION -->

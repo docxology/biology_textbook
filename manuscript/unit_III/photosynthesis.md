@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 10** · Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_III_bioenergetics_and_respiration}
+> Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_III_bioenergetics_and_respiration}
 
 ## Learning Objectives
 
@@ -63,7 +63,7 @@
 
 ---
 
-## Overview of Photosynthesis
+## Photosynthesis as Light-Driven Carbon Fixation
 
 Photosynthesis is one of Earth's dominant chemical processes: it fixes approximately **120 Gt of carbon** from CO$_2$ per year, sustains atmospheric oxygen, and supports nearly every heterotrophic food web.
 
@@ -77,7 +77,7 @@ The reaction is highly endergonic --- it requires light energy to drive it. Phot
 1. **Light-dependent reactions** (thylakoid membrane): H$_2$O → O$_2$ + NADPH + ATP
 2. **Light-independent reactions / Calvin cycle** (stroma): CO$_2$ + ATP + NADPH → G3P (sugar)
 
-### Chloroplast Structure
+### Chloroplast Structure and Thylakoid Compartments
 
 - **Outer envelope:** freely permeable (porin-like channels)
 - **Inner envelope:** selective transporters (triose phosphate / phosphate antiporter, TPT)
@@ -93,7 +93,7 @@ Thylakoid membranes are densely packed with protein complexes --- ~70% protein b
 
 ## Light Absorption and Energy Transfer
 
-### Photosynthetic Pigments
+### Photosynthetic Pigments and Light Absorption
 
 Chlorophylls absorb light primarily at:
 
@@ -203,7 +203,10 @@ Each molecule of O$_2$ requires 4 photons (one photon per electron from water). 
 
 **The Kok cycle (S-state cycle):** The OEC cycles through 5 oxidation states (S$_0$--S$_4$), accumulating 4 oxidising equivalents before releasing O$_2$:
 
-$$\text{S}_0 \xrightarrow{h\nu} \text{S}_1 \xrightarrow{h\nu} \text{S}_2 \xrightarrow{h\nu} \text{S}_3 \xrightarrow{h\nu} \text{S}_4 \xrightarrow{-\text{O}_2} \text{S}_0 \tag{10.4}$$
+\begin{equation}
+\text{S}_0 \xrightarrow{h\nu} \text{S}_1 \xrightarrow{h\nu} \text{S}_2 \xrightarrow{h\nu} \text{S}_3 \xrightarrow{h\nu} \text{S}_4 \xrightarrow{-\text{O}_2} \text{S}_0
+\label{eq:unit_III_photosynthesis_worked_1}
+\end{equation}
 
 Each S-state transition involves one photon absorption and one electron extraction from the Mn$_4$Ca cluster.
 
@@ -260,9 +263,9 @@ sequenceDiagram
     Fd->>FNR: e⁻ transfer
     FNR->>NADP: NADP⁺ + 2e⁻ + H⁺ → NADPH
 ```
-<!-- alt: Sequence diagram for The Z-Scheme: Standard Electrode Potentials showing ordered interaction among H₂O (E°' = +0.82 V), OEC (Mn₄Ca), P680/PS II (E°' = +1.25 V), and Plastoquinone Pool (PQH₂). -->
+<!-- alt: Sequence diagram showing z-scheme electron flow uses high-potential P680 to oxidize water, transfers electrons through plastoquinone and cytochrome b6f, and re-excites them at photosystem I for NADPH production. -->
 
-*Sequence diagram for The Z-Scheme: Standard Electrode Potentials showing ordered interaction among H₂O (E°' = +0.82 V), OEC (Mn₄Ca), P680/PS II (E°' = +1.25 V), and Plastoquinone Pool (PQH₂).*
+*Z-scheme electron flow uses high-potential P680 to oxidize water, transfers electrons through plastoquinone and cytochrome b6f, and re-excites them at photosystem I for NADPH production.*
 
 *The Z-scheme of photosynthetic electron transport (Mermaid).* Two photons (absorbed by PS II and PS I) drive each electron from water ($E^{\circ\prime} = +0.82$ V) to NADPH ($E^{\circ\prime} = -0.32$ V), spanning a total potential of 1.14 V. The "Z" shape arises from plotting electron carriers against their redox potential.
 
@@ -335,7 +338,10 @@ Per glucose (6 CO$_2$ fixed): **18 ATP + 12 NADPH**.
 
 Linear electron flow produces NADPH at a fixed ratio of 2 NADPH per 4 e$^-$ (4 photons per electron pair), so 12 NADPH require:
 
-$$n_{\text{photons}} = 12 \times 4 = 48\;\text{photons (LEF primarily)} \tag{10.4a}$$
+\begin{equation}
+n_{\text{photons}} = 12 \times 4 = 48\;\text{photons (LEF primarily)}
+\label{eq:unit_III_photosynthesis_worked_2}
+\end{equation}
 
 But linear flow produces about 12 ATP from this (12 × 1.0 ATP per NADPH at ~1:1 stoichiometry — far short of the 18 ATP required). The shortfall of 6 ATP must be supplied by **cyclic electron flow**, which is estimated to require ~6–9 additional photons. Total: **~54–57 photons per glucose**.
 
@@ -393,9 +399,9 @@ flowchart LR
     Input["Input per 3 CO₂<br/>9 ATP + 6 NADPH"] -.-> RuBP
     G3P -.-> Output["Net output<br/>1 G3P (3C)<br/>= ½ glucose"]
 ```
-<!-- alt: Flowchart for The Calvin Cycle (Light-Independent Reactions): Phase 1: Carboxylation, RuBP (5C), 2 × 3-PGA (3C), and Phase 2: Reduction form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing calvin cycle fixes CO2 onto RuBP, reduces 3-PGA using ATP and NADPH, and regenerates RuBP so carbon assimilation can continue. -->
 
-*Flowchart for The Calvin Cycle (Light-Independent Reactions): Phase 1: Carboxylation, RuBP (5C), 2 × 3-PGA (3C), and Phase 2: Reduction form the diagram's primary path or branches.*
+*The Calvin cycle fixes CO2 onto RuBP, reduces 3-PGA using ATP and NADPH, and regenerates RuBP so carbon assimilation can continue.*
 
 *The three phases of the Calvin cycle (Mermaid).* For every 3 CO$_2$ fixed, 9 ATP and 6 NADPH are consumed, and 1 net G3P (3C) is produced. Six turns of the cycle produce one glucose molecule.
 
@@ -440,7 +446,10 @@ where $V_c$, $V_o$ are maximal carboxylase/oxygenase rates and $K_c$, $K_o$ are 
 
 ### Carboxylation (Carbon Fixation)
 
-$$\text{RuBP (5C)} + \text{CO}_2 \xrightarrow{\text{RuBisCO}} 2 \times \text{3-PGA (3C)} \tag{10.5}$$
+\begin{equation}
+\text{RuBP (5C)} + \text{CO}_2 \xrightarrow{\text{RuBisCO}} 2 \times \text{3-PGA (3C)}
+\label{eq:unit_III_photosynthesis_worked_3}
+\end{equation}
 
 **RuBisCO** is the most abundant protein on Earth (~0.7 billion tonnes globally; ~50% of leaf protein). Despite its central importance, RuBisCO has remarkable limitations:
 
@@ -448,22 +457,28 @@ $$\text{RuBP (5C)} + \text{CO}_2 \xrightarrow{\text{RuBisCO}} 2 \times \text{3-P
 - **Indiscriminate:** also reacts with O$_2$ (**oxygenase activity**), leading to **photorespiration** and wasting ~25% of fixed carbon in C3 plants
 - Plants compensate for RuBisCO's slowness by producing enormous quantities of it
 
-### Reduction
+### Calvin-Cycle Reduction of 3-PGA
 
 This is the primary reductive step of the Calvin cycle: the ATP and NADPH
 generated by the light reactions are spent here to convert 3-PGA into the
 triose phosphate G3P. For every 6 CO$_2$ fixed, 12 G3P are produced — 2 leave
 as the cycle's net carbohydrate yield and 10 are recycled to regenerate RuBP.
 
-$$\text{3-PGA} + \text{ATP} \rightarrow \text{1,3-BPG} + \text{ADP} \quad (\text{phosphoglycerate kinase}) \tag{10.6}$$
+\begin{equation}
+\text{3-PGA} + \text{ATP} \rightarrow \text{1,3-BPG} + \text{ADP} \quad (\text{phosphoglycerate kinase})
+\label{eq:unit_III_photosynthesis_worked_4}
+\end{equation}
 
-$$\text{1,3-BPG} + \text{NADPH} \rightarrow \text{G3P} + \text{NADP}^+ + \text{P}_i \quad (\text{G3P dehydrogenase}) \tag{10.7}$$
+\begin{equation}
+\text{1,3-BPG} + \text{NADPH} \rightarrow \text{G3P} + \text{NADP}^+ + \text{P}_i \quad (\text{G3P dehydrogenase})
+\label{eq:unit_III_photosynthesis_worked_5}
+\end{equation}
 
 ### Regeneration of RuBP
 
 Five G3P molecules (15 carbons) are rearranged through a complex 10-step pathway (involving transketolase, aldolase, sedoheptulose-1,7-bisphosphatase, ribulose-5-phosphate epimerase, and ribulose-5-phosphate isomerase) to regenerate 3 RuBP (15 carbons), consuming 3 ATP.
 
-### Stoichiometry
+### Photosynthetic Stoichiometry and Energy Balance
 
 **To fix 6 CO$_2$ (net gain 1 hexose):**
 
@@ -504,11 +519,14 @@ This is remarkably efficient for an energy conversion process. Whole-canopy phot
 
 ---
 
-## Photorespiration
+## Photorespiration and Rubisco Oxygenase Activity
 
 RuBisCO's oxygenase activity produces **2-phosphoglycolate** (2C), which must be recycled through the photorespiratory pathway (C2 cycle):
 
-$$\text{RuBP} + \text{O}_2 \xrightarrow{\text{RuBisCO oxygenase}} \text{3-PGA (3C)} + \text{2-phosphoglycolate (2C)} \tag{10.9}$$
+\begin{equation}
+\text{RuBP} + \text{O}_2 \xrightarrow{\text{RuBisCO oxygenase}} \text{3-PGA (3C)} + \text{2-phosphoglycolate (2C)}
+\label{eq:unit_III_photosynthesis_worked_6}
+\end{equation}
 
 The photorespiratory pathway spans three [**organelle**](#gl:organelle)s:
 1. **Chloroplast:** 2-phosphoglycolate → glycolate (phosphatase)
@@ -575,9 +593,9 @@ flowchart LR
     style BSC fill:#fff3e6
     style MC2 fill:#e6ffe6
 ```
-<!-- alt: Flowchart for C4 Photosynthesis (First stable product: oxaloacetate, 4C): Mesophyll Cell, CO₂ (atmospheric), Oxaloacetate (4C), and Malate (4C) form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing C4 photosynthesis separates initial PEP-carboxylase fixation in mesophyll cells from Rubisco activity in bundle-sheath cells, concentrating CO2 around Rubisco. -->
 
-*Flowchart for C4 Photosynthesis (First stable product: oxaloacetate, 4C): Mesophyll Cell, CO₂ (atmospheric), Oxaloacetate (4C), and Malate (4C) form the diagram's primary path or branches.*
+*C4 photosynthesis separates initial PEP-carboxylase fixation in mesophyll cells from Rubisco activity in bundle-sheath cells, concentrating CO2 around Rubisco.*
 
 *C4 photosynthesis (Mermaid).* Spatial separation of initial CO$_2$ fixation (mesophyll cells, PEP carboxylase) and the Calvin cycle (bundle sheath cells, RuBisCO). This CO$_2$-concentrating mechanism virtually eliminates photorespiration.
 
@@ -625,7 +643,7 @@ where $c_a$ and $c_i$ are atmospheric and intercellular CO$_2$ concentrations, $
 
 CAM is the extreme: by opening stomata at night when air is cool and humid (small $e_i - e_a$), CAM plants lose ~10× less water per CO$_2$ fixed than C3 plants do midday — a huge advantage in deserts but at the cost of slow growth.
 
-### Comparison
+### Comparing C3, C4, and CAM Photosynthesis
 
 | Feature | C3 | C4 | CAM |
 | ------- | -- | -- | --- |
@@ -687,9 +705,9 @@ flowchart LR
     style DARK fill:#2c3e50,color:#fff
     style INACTIVE fill:#ffe6e6
 ```
-<!-- alt: Flowchart for The Thioredoxin/Ferredoxin Redox Regulation System: Light, PS I, Ferredoxin (red), and Fd-Thioredoxin Reductase form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing light-driven ferredoxin reduces thioredoxin, which switches Calvin-cycle enzymes toward daytime carbon fixation. -->
 
-*Flowchart for The Thioredoxin/Ferredoxin Redox Regulation System: Light, PS I, Ferredoxin (red), and Fd-Thioredoxin Reductase form the diagram's primary path or branches.*
+*Light-driven ferredoxin reduces thioredoxin, which switches Calvin-cycle enzymes toward daytime carbon fixation.*
 
 *The thioredoxin/ferredoxin system as the master light-dependent redox switch (Mermaid).* Calvin-cycle enzymes carry regulatory disulfides that are reduced (activated) in the light and re-oxidised (inactivated) in the dark. This prevents futile ATP/NADPH consumption during darkness.
 
@@ -723,7 +741,7 @@ In the light, H$^+$ pumping from stroma to lumen has two activating effects:
 
 This is a beautifully integrated example of physical chemistry: the *same* H$^+$ transport that builds the PMF for ATP synthesis simultaneously activates the carbon-fixation enzymes that consume that ATP.
 
-### CP12 Regulation
+### CP12 Regulation of Calvin-Cycle Enzymes
 
 **CP12** is a small regulatory protein that forms a ternary complex with GAPDH and PRK in the dark, inactivating both enzymes simultaneously. Light-dependent reduction of CP12 by thioredoxin releases GAPDH and PRK, activating the Calvin cycle.
 
@@ -789,9 +807,9 @@ sequenceDiagram
 
     Note over Z,Heat: ~50% of absorbed photons<br/>can be safely dissipated
 ```
-<!-- alt: Sequence diagram for qE: The Xanthophyll Cycle in Detail showing ordered interaction among Excess light, Lumen pH ↓ (~5), PsbS (2 Glu protonated), and Violaxanthin de-epoxidase. -->
+<!-- alt: Sequence diagram showing excess light acidifies the thylakoid lumen, activating PsbS and the xanthophyll cycle so excitation energy is safely dissipated as heat. -->
 
-*Sequence diagram for qE: The Xanthophyll Cycle in Detail showing ordered interaction among Excess light, Lumen pH ↓ (~5), PsbS (2 Glu protonated), and Violaxanthin de-epoxidase.*
+*Excess light acidifies the thylakoid lumen, activating PsbS and the xanthophyll cycle so excitation energy is safely dissipated as heat.*
 
 *The xanthophyll cycle and qE quenching cascade (Mermaid).* Lumen acidification (signal of excess light) protonates PsbS and activates VDE. Zeaxanthin appears at the LHCII quenching site within seconds and dissipates excess excitation as heat. When light decreases, lumen pH rises and the whole system reverses over minutes.
 
@@ -907,7 +925,7 @@ print(round(anet, 2))
 
 ---
 
-### Engineering Synthetic Photosynthesis: From Photorespiration Bypass to Directed Evolution of Rubisco
+### Synthetic Photosynthesis and Rubisco Engineering
 
 Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) is the most abundant protein on Earth, yet it is famously inefficient: $k_{\text{cat}}$ ≈ 3 s⁻¹ and an oxygenation side-reaction that drains 20–50 % of carbon in warm climates through **photorespiration**. Engineering around this rate-limiting step is the central problem of crop productivity. Three complementary strategies have matured between 2019 and 2024.
 
@@ -917,10 +935,12 @@ Quantitative targets put the stakes in context: improving crop photosynthetic ef
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Photosynthesis
 
 For **Photosynthesis**, frontier biology belongs inside the evidence logic of
 the chapter. Metabolism is now studied as a regulated network constrained by energy, redox balance, compartmentation, and environment. The core reading question is this: photosynthesis claims should distinguish light capture, carbon fixation, photorespiration, water stress, and canopy context.
+
+Global photosynthesis is also a measurement problem, not just a chloroplast pathway diagram. Carbonyl sulfide uptake, solar-induced fluorescence, isotope constraints, flux towers, and ecosystem models each see a different part of gross primary production; comparing them teaches students why the largest biological carbon flux remains an inference with method-specific uncertainty \citep{lai2024terrestrialphotosynthesis}. A strong photosynthesis claim names the scale: leaf enzyme, canopy gas exchange, crop yield, or planetary carbon cycle.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
   would make the claim stronger or weaker.
@@ -933,9 +953,9 @@ the chapter. Metabolism is now studied as a regulated network constrained by ene
   the source closest to the measurement and state what has changed since it was
   published.
 
-A strong metabolic explanation names the flux, the limiting step, the sensor, and the condition under which the pathway changes direction or priority.
+A strong photosynthesis claim names the light environment, carbon pathway, water status, and measurement scale before comparing productivity.
 
-**Source practice:** For metabolic claims, keep the organism, compartment, energetic state, and measurement method visible; a pathway map is not enough without flux or concentration evidence.
+**Source practice:** For photosynthesis claims, pair pathway diagrams with gas-exchange, fluorescence, isotope, field, or crop-yield evidence matched to the plant context.
 
 Carbonyl-sulfide tracer work turns global GPP into an explicitly physiological inference about CO2 diffusion through stomata and mesophyll, so carbon-cycle claims should report the tracer, diffusion assumptions, and biome context rather than treating satellite greenness as a direct proxy for photosynthesis \citep{lai2024gppcarbonylsulfide}.
 
@@ -1010,7 +1030,7 @@ flowchart TD
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Photosynthesis
 
 - Mitchell (1961). Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism. *Nature*, 191 \citep{mitchell1961}.
 - Hager (1971). Die Reversiblen lichtabhängigen Xanthophyllumwandlungen im Chloroplasten. *Berichte der Deutschen Botanischen Gesellschaft*, 84 \citep{hager1971}.
@@ -1046,7 +1066,7 @@ flowchart TD
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Photosynthesis
 
 **Photosynthesis** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

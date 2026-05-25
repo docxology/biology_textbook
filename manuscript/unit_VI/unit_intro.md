@@ -71,9 +71,9 @@ graph TD
     style PHYL fill:#27ae60,color:#fff
     style CLOCK fill:#f39c12,color:#fff
 ```
-<!-- alt: Graph showing amerefsec:unit_VI_unit_intro concept map — Evolution. Red = selection; blue = drift; green = phylogenetics; orange = molecular clock. -->
+<!-- alt: Graph showing evolution concept map — red = selection; blue = drift; green = phylogenetics; orange = molecular clock. -->
 
-*\nameref{sec:unit_VI_unit_intro} concept map — Evolution. Red = selection; blue = drift; green = phylogenetics; orange = molecular clock.*
+*Evolution concept map — red = selection; blue = drift; green = phylogenetics; orange = molecular clock.*
 
 ---
 
@@ -97,7 +97,7 @@ paper-based lab decision.
 
 ## Connections Across the Textbook {.unnumbered}
 
-- **Hardy-Weinberg equilibrium** in \cref{sec:unit_V_population_genetics} is the null model disrupted by most five evolutionary forces analysed here.
+- **Hardy-Weinberg equilibrium** in \cref{sec:unit_V_population_genetics} is the null model disrupted by the five evolutionary forces analysed here.
 - **Molecular clock** and **Jukes-Cantor distances** connect to \nameref{sec:unit_IV_unit_intro} (mutation rates in DNA replication) and \nameref{sec:unit_VII_unit_intro} (phylogeny of pathogens and antibiotic-resistance evolution).
 - **Speciation** links to \nameref{sec:unit_X_unit_intro} (biogeography, island species-area relationship, MacArthur-Wilson model).
 - **Adaptive evolution** of immune genes connects to \nameref{sec:unit_IX_unit_intro} (MHC diversity and pathogen immunity), and antibiotic resistance evolution motivates the clinical sections of \nameref{sec:unit_VII_unit_intro}.

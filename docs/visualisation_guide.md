@@ -7,7 +7,7 @@
 
 ## Table of contents
 
-- [Overview](#overview)
+- [Visual Output Contract](#visual-output-contract)
 - [Six-step checklist for new figures](#six-step-checklist-for-new-figures)
 - [Generating figures](#generating-figures)
 - [Matplotlib figure conventions](#matplotlib-figure-conventions)
@@ -21,14 +21,22 @@
 
 ---
 
-## Overview
+## Visual Output Contract
 
-The `biology_textbook` project generates **two types of visual output**:
+The `biology_textbook` project generates **three types of visual output**:
 
-1. **Matplotlib figures** — quantitative plots from `src/visualization/plots.py` (`ALL_FIGURE_GENERATORS`)
-2. **Mermaid diagrams** — biological pathway/network diagrams from `src/mermaid/biology_diagrams.py` (`ALL_BIOLOGY_DIAGRAMS`), rendered to PNG via the `mmdc` CLI
+1. **Matplotlib figures** — 32 quantitative plots from `src/visualization/plots.py` (`ALL_FIGURE_GENERATORS`)
+2. **Registered Mermaid diagrams** — 24 biological pathway/network diagrams from `src/mermaid/biology_diagrams.py` (`ALL_BIOLOGY_DIAGRAMS`), rendered to PNG via the `mmdc` CLI
+3. **Inline Mermaid fences** — 193 manuscript-local diagrams rendered during PDF preprocessing and optional visual-contract review
 
-All figures and diagrams are saved to `output/figures/` and `output/figures/mermaid/` respectively.
+Matplotlib figures and registered Mermaid diagrams are square-padded after rendering so labels and legends do not change the final canvas shape. The visual-contract audit measures all 249 records and fails `--check` when a normal matplotlib figure falls outside aspect ratio `0.85-1.18`, or a Mermaid PNG falls outside `0.75-1.33`, unless the record carries a reviewed exception reason. Use temporary review roots for verification:
+
+```bash
+tmp=$(mktemp -d)
+uv run python scripts/generate_figures.py --output-dir "$tmp/figures"
+uv run python scripts/generate_diagrams.py --strict-png --output-dir "$tmp/figures/mermaid"
+uv run python scripts/audit_visual_contracts.py --figures-root "$tmp/figures" --output "$tmp/visual_manifest.json" --render-inline --check
+```
 
 ---
 
@@ -40,10 +48,10 @@ Use this every time you add a new visualisation. Each step maps to an enforced o
 | - | ---- | ----- | ----------- |
 | 1 | **Implement** the generator: `plot_<descriptor>(*, output_path: Path) -> Path` | `src/visualization/plots.py` | Coverage gate (≥ 90 %) — `test_mermaid_and_visualization.py` |
 | 2 | **Register** the generator in `ALL_FIGURE_GENERATORS` (key matches allowlist) | `src/visualization/plots.py` | Allowlist in [manuscript/AGENTS.md](../manuscript/AGENTS.md) |
-| 3 | **Generate** the PNG: `uv run python scripts/generate_figures.py` | from project dir | Inspect `output/figures/<file>.png` |
+| 3 | **Generate** the PNG: `uv run python scripts/generate_figures.py` | from project dir | Inspect `output/figures/<file>.png`; square padding is applied by `_save_figure` |
 | 4 | **Embed** the figure in the chapter using raw-LaTeX `\begin{figure}…\label{fig:unit_X_<descriptor>}…\end{figure}` and an `<!-- alt: … -->` comment **immediately after** `\end{figure}` | `manuscript/unit_<X>/<chapter>.md` | `test_accessibility.py`, `test_build_invariants.py` |
 | 5 | **Cross-reference** the figure from prose with `\cref{fig:unit_X_<descriptor>}` (no hand-typed "Figure 4.2") | same chapter or any other | `test_crossref_validator.py` |
-| 6 | **Validate**: `uv run pytest tests/test_build_invariants.py tests/test_accessibility.py -v` | from project dir | CI gate |
+| 6 | **Validate**: `uv run python -m pytest tests/test_build_invariants.py tests/test_accessibility.py -v` and run the temp-root visual-contract audit above | from project dir | CI gate |
 
 > [!TIP]
 > If a generator is registered but never embedded, `test_every_registered_figure_is_referenced` fails. Use `scripts/insert_orphan_figures.py --dry-run` to scaffold an embedding block automatically.
@@ -52,7 +60,7 @@ Use this every time you add a new visualisation. Each step maps to an enforced o
 
 ## Generating figures
 
-From the project directory (`projects/biology_textbook/`):
+From the active project directory:
 
 ```bash
 uv run python scripts/generate_figures.py
@@ -82,7 +90,7 @@ All figure generators must follow these rules (enforced by `tests/test_mermaid_a
 | - | ---- | --- |
 | 1 | **Headless backend.** Set `MPLBACKEND=Agg`; never call `plt.show()` in library code. | CI has no display. |
 | 2 | **Font sizes.** Titles 15–18 pt; axis labels 14 pt; tick labels 12 pt; legend 11 pt. | Readable at 2 mm-margin print density. |
-| 3 | **DPI = 150.** Use `_save_figure(fig, ..., dpi=150, bbox_inches="tight")`. | Crisp on screen and print without bloated file size. |
+| 3 | **DPI = 150 and square output.** Use `visualization._scaffold._save_figure`; it saves with a tight bounding box, closes the figure, and pads the PNG to a square canvas. | Crisp on screen and print without bloated file size or aspect-ratio drift. |
 | 4 | **CVD palette.** Import from `src/visualization/cvd.py`; never use red and green as the only two-way distinction. | Colour-vision-deficiency safety. |
 | 5 | **Legends with handles.** When multiple series appear, pass explicit `handles, labels`. | Avoids fragile auto-legend ordering. |
 | 6 | **Pathlib for I/O.** Use `pathlib.Path`; resolve at call time. | Cross-platform; no hardcoded `/tmp`. |
@@ -96,14 +104,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from pathlib import Path
-
-def _save_figure(fig, output_dir: Path, filename: str) -> Path:
-    """Save and close a matplotlib figure deterministically."""
-    output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / filename
-    fig.savefig(path, dpi=150, bbox_inches="tight")
-    plt.close(fig)
-    return path
+from visualization._scaffold import _save_figure
 ```
 
 ### Canonical generator skeleton
@@ -113,6 +114,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
 from visualization.cvd import SERIES2
+from visualization._scaffold import _save_figure
 
 def plot_my_descriptor(
     output_dir: Path,
@@ -125,7 +127,7 @@ def plot_my_descriptor(
     y1 = np.sin(x)
     y2 = np.cos(x) + 0.1 * rng.standard_normal(200)
 
-    fig, ax = plt.subplots(figsize=(6, 4))
+    fig, ax = plt.subplots(figsize=(6, 6))
     ax.plot(x, y1, color=SERIES2[0], linestyle="-", linewidth=2, label="Sine")
     ax.plot(x, y2, color=SERIES2[1], linestyle="--", linewidth=2, label="Noisy cosine")
     ax.set_xlabel("Time (s)", fontsize=14)
@@ -234,7 +236,7 @@ MermaidRenderer(out).render(diagram.name, diagram.source)
 uv run python scripts/generate_diagrams.py
 
 # Single diagram (requires mmdc on PATH)
-mmdc -i /tmp/diagram.mmd -o output/figures/mermaid/diagram.png -w 1200 -H 800
+mmdc -i /tmp/diagram.mmd -o output/figures/mermaid/diagram.png -w 1200 -H 1200
 ```
 
 > [!TIP]
@@ -321,6 +323,7 @@ When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
 - For diagrams: describe the key process and what elements are connected.
 - Inline Mermaid metadata is maintained by `uv run python scripts/add_mermaid_alt_text.py`; use `--check` during review to fail on duplicate, missing, or stale Mermaid metadata.
 - Every generator registered in `ALL_FIGURE_GENERATORS` **must** be referenced at least once — `tests/test_build_invariants.py::test_every_registered_figure_is_referenced` enforces this.
+- Every `\label{fig:…}` **must** have at least one prose `\cref{fig:…}` — `tests/test_build_invariants.py::test_every_figure_label_has_prose_cref` enforces this (2026-05-23 figure expansion pass).
 
 ---
 
@@ -372,7 +375,7 @@ When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
 2. From the project directory: `uv run python scripts/generate_figures.py`.
 3. Embed in the chapter with raw LaTeX `\begin{figure}…\includegraphics{../figures/<file>.png}…\label{fig:unit_X_<descriptor>}…\end{figure}` and an `<!-- alt: … -->` comment.
 4. Reference with `\cref{fig:...}` in prose.
-5. Confirm `tests/test_build_invariants.py::test_every_registered_figure_is_referenced` and `tests/test_accessibility.py` pass. Optional: `scripts/insert_orphan_figures.py --dry-run`.
+5. Confirm `tests/test_build_invariants.py::test_every_registered_figure_is_referenced`, `tests/test_accessibility.py`, and `scripts/audit_visual_contracts.py --figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check` pass. Optional: `scripts/insert_orphan_figures.py --dry-run`.
 
 ### Adding a new registered Mermaid diagram
 
@@ -380,6 +383,7 @@ When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
 2. From the project directory: `uv run python scripts/generate_diagrams.py`.
 3. `tests/test_mermaid_and_visualization.py` exercises the registry.
 4. Reference the diagram from manuscript as required by your chapter. Inline fences need one `<!-- alt: ... -->` comment plus one italic caption; static PNGs need descriptive markdown image alt text.
+5. Use balanced `flowchart TD`/`LR` directions, short wrapped labels, and subgraphs/phase blocks so the rendered PNG remains square-ish without misrepresenting sequence semantics.
 
 ---
 

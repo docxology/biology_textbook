@@ -100,12 +100,11 @@ PDF-render failure so diagrams are never silently dropped.
 | ------- | --- | ---------------- |
 | `\begin{equation}\label{eq:unit_X_<descriptor>}…\end{equation}` | Anything you `\cref{...}` | **Yes** |
 | `\begin{align}\label{eq:unit_X_<descriptor>}…\end{align}` | Multi-line cross-referenced derivation | **Yes** |
-| `$$ … \tag{N.M} $$` | Manual numbering for one-off display equation | **No** — never combine with `\label` |
 | `$$ … $$` (plain) | Display math without numbering or reference | No |
 | `$ … $` | Inline math | No |
 
 > [!WARNING]
-> **Never put `\tag{}` and `\label{}` on the same `$$…$$` line — xelatex will abort with `\tag not allowed here`.** Promote to `\begin{equation}\tag{...}\label{...}\end{equation}` if you need both. See [manuscript_guide.md#equations](manuscript_guide.md#equations) for the full decision tree, side-by-side correct/incorrect examples, and the multi-line `align` pattern.
+> Do not use manual equation-number tags in manuscript prose. Use labelled `equation` or `align` environments for numbered display equations; use plain `$$ … $$` only for unnumbered display math.
 
 `pandoc-crossref` attributes like `{#eq:myid}` on display math are validated by [../src/biology/crossref_validator.py](../src/biology/crossref_validator.py).
 
@@ -175,17 +174,17 @@ Details match [../manuscript/AGENTS.md — Adding a New Chapter](../manuscript/A
 
 ## Validation commands
 
-From **`projects/biology_textbook/`** (project root):
+From the active project root:
 
 ```bash
-uv run pytest tests/ --cov=src --cov-fail-under=90
+uv run python -m pytest tests/ --cov=src --cov-fail-under=90
 ```
 
 From **template repository root**:
 
 ```bash
-uv run python -m infrastructure.validation.cli markdown projects/biology_textbook/manuscript/
-uv run python -m infrastructure.validation.cli prerender projects/biology_textbook/manuscript/ --repo-root .
+uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/manuscript/
+uv run python -m infrastructure.validation.cli prerender /path/to/biology_textbook/manuscript/ --repo-root .
 ```
 
 > [!TIP]

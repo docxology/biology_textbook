@@ -25,7 +25,7 @@
 
 ## Scope
 
-These instructions apply when modifying **`projects/biology_textbook/`** (or the same tree under **`projects_in_progress/biology_textbook/`** before promotion). `resolve_project_root` prefers `projects/biology_textbook/` when that directory has the standard project markers.
+These instructions apply when modifying the active `biology_textbook` project directory. Template-hosted render and validation entry points still use `--project biology_textbook` when the template infrastructure is available.
 
 > [!IMPORTANT]
 > **Source of truth (mechanical rules):** If anything here disagrees with [../manuscript/AGENTS.md](../manuscript/AGENTS.md) or the test suite, **the manuscript contract and tests win** — especially for `\label` / `\cref` naming, figure paths, and cross-references. This file is **editorial** (voice, structure, teaching style); [../manuscript/AGENTS.md](../manuscript/AGENTS.md) and [composable_authoring.md](composable_authoring.md) are **composable / structural** (how to add chapters, modules, and figures without breaking the build).
@@ -126,12 +126,12 @@ When writing or editing manuscript chapters:
 2. **Citation format:** author(s) year in parentheses for inline (e.g. *(Hodgkin & Huxley, 1952)*); use full journal name in landmark tables.
 3. **LaTeX math:** `$...$` for inline, `$$...$$` for display. Prefer descriptive names: `$K_m$` not just `$K$`. See [manuscript_guide.md#equations](manuscript_guide.md#equations) for the cross-reference decision tree.
 4. **Figures (LaTeX):** raw `\begin{figure}...\end{figure}` with `\caption{...}` and `\label{fig:unit_X_<descriptor>}`; refer in prose with `\cref{fig:...}`. **Do not** hand-type "Figure 4.2" in prose. After each figure block, an `<!-- alt: ... -->` HTML comment is **required** ([test_accessibility.py](../tests/test_accessibility.py)).
-5. **Figures (Mermaid):** after each ` ```mermaid ` block, include exactly one `<!-- alt: ... -->` comment and one *italic* descriptive caption; no hand-numbered "Figure N.M" in prose. The manuscript currently contains 192 inline Mermaid fences, including 18 current-evidence maps; keep captions specific enough that a reader can interpret the figure without color.
+5. **Figures (Mermaid):** after each ` ```mermaid ` block, include exactly one `<!-- alt: ... -->` comment and one *italic* descriptive caption; no hand-numbered "Figure N.M" in prose. The manuscript currently contains 193 inline Mermaid fences, including 18 current-evidence maps; keep captions specific enough that a reader can interpret the figure without color.
 6. **Mermaid types:** `flowchart LR` (pathways), `sequenceDiagram` (signal cascades), `flowchart TD` / `graph TD` (hierarchies). Node labels in sentence case, < 30 characters; wrap labels with parentheses or colons in `"..."`.
 7. **Clinical Connection:** blockquote `> **Clinical Connection:**`. One per major section. Reference drug names with class, mechanism, and approval status.
 8. **Concept Check:** one per major section (not per subsection). Format: `> **Concept Check:** \<integrative question\>`.
 9. **SI units:** always use SI (kJ/mol, Pa, mol/L or mM, s or ms). Non-SI where biologically conventional (mmHg for blood pressure; mV for membrane potential).
-10. **Embedded additions:** preserve the 38-chapter / 38-lab / 38-question-bank structure. Add current biology, accessibility, and pedagogy upgrades inside existing sections unless the user explicitly asks for a structural change.
+10. **Embedded additions:** preserve the 44-chapter / 39-lab / 39-question-bank structure. Add current biology, accessibility, and pedagogy upgrades inside existing sections unless the user explicitly asks for a structural change.
 11. **Question banks:** keep exactly 30 questions and 30 solution blocks per bank. Answers should name the chapter-specific mechanism, evidence, common pitfall, and scoring expectation; do not leave generic rubrics or old generator labels such as `Expected reasoning:`, `Key answer:`, `Mechanistic answer:`, or `Chapter evidence:`.
 12. **Paper-based labs:** required lab work must run with printed datasets, cards, diagrams, tables, decision matrices, and ordinary discussion tools. Wet or equipment-based versions belong only in clearly optional extension sections.
 13. **Current-science claims:** cite or qualify recent claims, especially clinical approvals, disease-burden numbers, AI biomolecular modeling, pangenome/long-read genomics, AMR, biodiversity, fisheries, and conservation assessments.
@@ -380,7 +380,7 @@ Every chapter must have, in this order:
 | `MPLBACKEND` error | Set `import matplotlib; matplotlib.use("Agg")` before any `pyplot` import |
 | Multiple blank lines lint warning | Use single blank line between sections; avoid double-blank |
 | Vignette trailing space (MD009) | Ensure `> ` line has no trailing spaces; use `> ` not `>  ` |
-| `xelatex` aborts on a `$$` block | Likely `\tag{}` and `\label{}` mixed — see [manuscript_guide.md#equations](manuscript_guide.md#equations) |
+| `xelatex` aborts on a `$$` block | Likely manual numbering mixed with a label — see [manuscript_guide.md#equations](manuscript_guide.md#equations) |
 | `bibtex` aborts on "Illegal `\bibstyle`" | `\bibliographystyle{plainnat}` was redeclared in `preamble.md` — remove it |
 
 ---
@@ -388,21 +388,21 @@ Every chapter must have, in this order:
 ## Commands
 
 ```bash
-# Tests (from project directory: projects/biology_textbook/)
-uv run pytest tests/ --cov=src --cov-fail-under=90        # full suite + coverage gate
+# Tests (from the active project directory)
+uv run python -m pytest tests/ --cov=src --cov-fail-under=90        # full suite + coverage gate
 
 # Validate manuscript markdown (from template repository root)
-uv run python -m infrastructure.validation.cli markdown projects/biology_textbook/manuscript/
+uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/manuscript/
 
 # Strict source gate (template root): same pitfalls + undefined citations as the PDF prerender
-uv run python -m infrastructure.validation.cli prerender projects/biology_textbook/manuscript/ --repo-root .
+uv run python -m infrastructure.validation.cli prerender /path/to/biology_textbook/manuscript/ --repo-root .
 
 # Full analysis + render (template root)
 uv run python scripts/02_run_analysis.py --project biology_textbook
 uv run python scripts/03_render_pdf.py --project biology_textbook
 
 # Regenerate figures / diagrams directly (from project directory)
-uv run python scripts/generate_figures.py       # 14 matplotlib generators
+uv run python scripts/generate_figures.py       # 32 square-padded matplotlib generators
 uv run python scripts/generate_diagrams.py      # 24 mermaid diagrams
 
 # Manuscript maintenance (idempotent; each supports --dry-run)

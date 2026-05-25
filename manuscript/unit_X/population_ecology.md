@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 32** · Level 3/3 · 75 min read · 100 min lecture · Prerequisites: \cref{sec:unit_V_population_genetics}
+> Level 3/3 · 75 min read · 100 min lecture · Prerequisites: \cref{sec:unit_V_population_genetics}
 
 ## Learning Objectives
 
@@ -50,7 +50,7 @@
 > 
 > In 1838, Belgian mathematician Pierre François Verhulst looked at census data and asked: why don't populations simply grow exponentially forever? His answer was the logistic equation — dN/dt = rN(1 − N/K) — where K, the carrying capacity, captures the idea that resources limit growth. For nearly a century, the logistic model was theoretical. Then in 1934, Russian ecologist Georgy Gause grew two *Paramecium* species in test tubes and observed the sigmoid growth curve Verhulst had predicted: slow growth, rapid growth, leveling off at carrying capacity. His experiments also showed [**competitive exclusion**](#gl:competitive-exclusion) — two species competing for the same [**niche**](#gl:niche) cannot coexist indefinitely. Gause published this in *The Struggle for Existence* at age 23. The logistic model now underlies fisheries management, epidemiology (the SIR model is a direct descendant), conservation minimum viable population estimates, and pandemic projections. Verhulst's equation, written in a 4-page paper with no data, may have saved more lives than any equation since Newton's second law.
 
-### Chapter Roadmap
+### Chapter Roadmap for Population Models and Conservation Decisions
 
 The chapter spans the full pipeline from individuals to metapopulations. Read it as three nested scales:
 
@@ -60,11 +60,11 @@ The chapter spans the full pipeline from individuals to metapopulations. Read it
 
 For a brief treatment, focus on the core growth mathematics and the applied field-estimation and demographic-transition material. For a full quantitative course, work through most sections including the matrix-model and PVA toolkit, which underlie modern conservation practice.
 
-## What Is a Population?
+## Populations as Bounded, Measurable Units
 
 A **population** consists of individuals of a single species (conspecifics) inhabiting a defined area at a given time. Population ecology investigates the factors that regulate population size, density, distribution, and growth over time. Understanding population dynamics is fundamental to wildlife management, conservation biology, epidemiology, and sustainable resource harvest.
 
-### Population Attributes
+### Population Attributes: Size, Density, and Age Structure
 
 Populations are characterised by several measurable attributes:
 
@@ -88,7 +88,7 @@ The fundamental relationship between $R_0$, $T$, and $r$ is the **Euler-Lotka eq
 
 For approximate computation: $r \approx \ln(R_0) / T$
 
-### Dispersion Patterns
+### Dispersion Patterns Across Space
 
 Individuals within a population are distributed in one of three spatial patterns:
 
@@ -137,7 +137,7 @@ Since $R_0 > 1$, this population is **growing**.
 
 A **static life table** (vertical life table) uses age structure data from a single time point — useful when tracking cohorts is impractical (e.g., long-lived species like elephants or trees). It assumes stable age distribution.
 
-### Survivorship Curves
+### Survivorship Curves and Age-Specific Mortality
 
 Three canonical survivorship curve types (Pearl 1928; Deevey 1947):
 
@@ -155,9 +155,9 @@ graph TD
     E --> H["Strategy: Intermediate;<br/>constant hazard rate"]
     F --> I["Strategy: Many offspring,<br/>minimal parental care,<br/>r-selected traits"]
 ```
-<!-- alt: Flowchart for Survivorship Curves: Convex curve on log plot, Straight line on log plot, Concave curve on log plot, and High parental investment, few offspring, K-selected traits"] form the diagram's primary path or branches. -->
+<!-- alt: Graph showing survivorship curves compare age-specific mortality patterns: Type I curves retain most individuals until late life, Type II curves decline steadily, and Type III curves lose many offspring early. -->
 
-*Flowchart for Survivorship Curves: Convex curve on log plot, Straight line on log plot, Concave curve on log plot, and High parental investment, few offspring, K-selected traits"] form the diagram's primary path or branches.*
+*Survivorship curves compare age-specific mortality patterns: Type I curves retain most individuals until late life, Type II curves decline steadily, and Type III curves lose many offspring early.*
 
 **Mathematical representation of survivorship:**
 
@@ -171,7 +171,7 @@ For Type III: $l_x \approx e^{-bx^n}$ where $n < 1$
 
 > **Concept Check:** Sea turtles lay 50-200 eggs per nesting event but about 1 in 1,000 hatchlings survives to reproductive age. Which survivorship curve type does this represent, and what would a conservation program need to achieve (in terms of stage-specific survival rates) to increase population growth?
 
-### Reproductive Value
+### Reproductive Value and Future Genetic Contribution
 
 Fisher's **reproductive value** ($v_x$) quantifies the expected future contribution of an individual of age $x$ to population growth:
 
@@ -184,7 +184,7 @@ Reproductive value peaks at the age of first reproduction in growing populations
 
 ---
 
-## Exponential Growth
+## Exponential Growth Under Unlimited Resources
 
 When resources are unlimited and the environment exerts no [**density-dependent regulation**](#gl:density-dependent-regulation), population growth is **exponential** (or geometric in discrete-time models):
 
@@ -283,9 +283,9 @@ stateDiagram-v2
         Stable equilibrium
     end note
 ```
-<!-- alt: State diagram for Logistic Growth and Density Dependence showing transitions among N₀ << K, Growth accelerates, N approaches K/2, and N = K/2, max dN/dt. -->
+<!-- alt: State diagram showing logistic growth accelerates when population size is far below carrying capacity, reaches maximum growth near K/2, and slows as density-dependent limits dominate. -->
 
-*State diagram for Logistic Growth and Density Dependence showing transitions among N₀ << K, Growth accelerates, N approaches K/2, and N = K/2, max dN/dt.*
+*Logistic growth accelerates when population size is far below carrying capacity, reaches maximum growth near K/2, and slows as density-dependent limits dominate.*
 
 ### Density-Dependent Factors
 
@@ -378,7 +378,7 @@ The **Allee effect** \citep{allee1931} occurs when per capita fitness *decreases
 \label{eq:population_ecology_13}
 \end{equation}
 
-where $A$ = **Allee threshold**. Below $A$, the population declines deterministically to extinction. There are three equilibria: $N = 0$ (stable), $N = A$ (unstable), and $N = K$ (stable).
+where $A$ = **Allee threshold**. Below $A$, the population declines deterministically to extinction. \cref{fig:unit_X_allee_threshold_dynamics} compares trajectories for starting densities below, at, and above this threshold. There are three equilibria: $N = 0$ (stable), $N = A$ (unstable), and $N = K$ (stable).
 
 \begin{figure}[htbp]
 \centering
@@ -401,6 +401,8 @@ where $A$ = **Allee threshold**. Below $A$, the population declines deterministi
 | **Genetic diversity** | Florida panther (pre-1995, $N_e \approx 25$) | Small $N$ → inbreeding depression → reduced fitness |
 | **Pollination failure** | Rare plants in fragmented meadows | Low density → pollinators don't visit → seed set fails |
 | **Environmental conditioning** | Soil [**microbiome**](#gl:microbiome) enrichment by plant roots | Few plants → soil biota depauperate → poor seedling establishment |
+
+Social insects add a colony-level version of the same logic. In a [**eusocial**](#gl:eusociality) colony, a queen, workers, brood, nest architecture, stored resources, and microbial partners form one demographic unit. A founding queen or tiny fragment may fail even in good habitat because there are too few workers to forage, thermoregulate, defend the nest, rear brood, and maintain the fungus garden or gut-symbiont pathway. Once the worker force crosses a threshold, division of labour and positive feedback can make growth accelerate. The Allee effect therefore applies not only to populations of individuals but also to the minimum viable size of cooperative groups \citep{bourke2011principles}.
 
 Stephens et al. (1999, *Trends Ecol. Evol.*) distinguished the **component Allee effect** (reduction in any fitness component at low density) from the **demographic Allee effect** (reduction in per capita population growth rate). A species may experience component Allee effects in reproduction without a demographic Allee effect if compensating survival increases at low density offset the reproductive reduction.
 
@@ -432,7 +434,7 @@ print(f"Above A: N_final ≈ {above.populations[-1]:.1f}")
 <!-- alt: Two-panel figure — left panel: time series of prey and predator population sizes showing offset oscillating cycles (predator peak lags prey peak); right panel: phase-plane plot of predator vs prey densities tracing a closed counter-clockwise orbit around the coexistence equilibrium. -->
 
 
-### Interspecific Competition
+### Interspecific Competition and Niche Overlap
 
 Two species sharing a limiting resource compete. The Lotka-Volterra competition model:
 
@@ -548,9 +550,9 @@ graph LR
     K --- K2["Whales<br/>r ~ 0.02/yr"]
     K --- K3["Elephants<br/>r ~ 0.02/yr"]
 ```
-<!-- alt: Flowchart for r vs. K Selection and Life History Theory: r-selected High fecundity Small body Short lifespan Type III survivorship Colonisers, K-selected Low fecundity Large body Long lifespan Type I survivorship Competitors, Bacteria r ~ 40/day, and Insects r ~ 10/yr form the diagram's primary path or branches. -->
+<!-- alt: Graph showing life-history strategies compare high-fecundity colonizers with slower, competitive species; real organisms vary continuously rather than falling into two fixed bins. -->
 
-*Flowchart for r vs. K Selection and Life History Theory: r-selected High fecundity Small body Short lifespan Type III survivorship Colonisers, K-selected Low fecundity Large body Long lifespan Type I survivorship Competitors, Bacteria r ~ 40/day, and Insects r ~ 10/yr form the diagram's primary path or branches.*
+*Life-history strategies compare high-fecundity colonizers with slower, competitive species; real organisms vary continuously rather than falling into two fixed bins.*
 
 ### Beyond r-K: Modern Life History Theory
 
@@ -571,7 +573,7 @@ The r-K framework has been largely superseded by more nuanced models:
 
 ---
 
-## 7B Age-Structured Models and the Leslie Matrix
+## Age-Structured Population Models and the Leslie Matrix
 
 The scalar growth models treat most individuals as demographically identical. Real populations are structured by age (or stage), and demographic rates are highly age-specific: a one-year-old salmon and a four-year-old salmon contribute very differently to population growth. **Matrix population models** \citep{lotka1925} make this structure explicit and underlie virtually every modern population viability analysis, [**fisheries**](#gl:fisheries) stock assessment, and conservation triage exercise.
 
@@ -653,7 +655,7 @@ print(f"stable stage distribution = {np.round(w, 3)}")
 
 ---
 
-## 7C Individual-Based Models and Stochastic Simulation
+## Individual-Based Population Models and Stochastic Simulation
 
 Matrix models are deterministic and assume infinite, well-mixed populations. Two regimes break those assumptions and demand a different tool:
 
@@ -676,7 +678,7 @@ Matrix models are deterministic and assume infinite, well-mixed populations. Two
 
 ---
 
-## 7D Population Viability Analysis (PVA)
+## Population Viability Analysis and Extinction-Risk Forecasting
 
 **Population viability analysis** integrates matrix models and stochastic simulation into a quantitative extinction-risk forecast. PVA is the formal answer to "How long does this species have, and what intervention buys the most time?" — required by the U.S. Endangered Species Act, the IUCN Red List Criterion E, and most national recovery plans.
 
@@ -722,7 +724,7 @@ PVA outputs depend on the model structure, input data, and uncertainty assumptio
 
 ---
 
-## Metapopulation Dynamics
+## Metapopulation Dynamics Across Habitat Patches
 
 A **metapopulation** (Levins 1969; Hanski 1994) is a "population of populations" — a set of spatially separated subpopulations (patches) connected by dispersal. Local extinctions are balanced by recolonisation from other patches.
 
@@ -788,9 +790,9 @@ graph TD
     style SinkC fill:#f8d7da,stroke:#842029
     style SinkD fill:#f8d7da,stroke:#842029
 ```
-<!-- alt: Flowchart for Visualizing Metapopulation and Source-Sink Dynamics: Source Patch A λ > 1 High quality habitat Net Emigration, Source Patch B λ > 1 High quality habitat Net Emigration, Sink Patch C λ Poor quality habitat Net Immigration, and Sink Patch D λ Ecological Trap? Net Immigration form the diagram's primary path or branches. -->
+<!-- alt: Graph showing metapopulation diagrams distinguish source patches with lambda > 1 from sink or trap patches that persist through immigration despite local decline. -->
 
-*Flowchart for Visualizing Metapopulation and Source-Sink Dynamics: Source Patch A λ > 1 High quality habitat Net Emigration, Source Patch B λ > 1 High quality habitat Net Emigration, Sink Patch C λ Poor quality habitat Net Immigration, and Sink Patch D λ Ecological Trap? Net Immigration form the diagram's primary path or branches.*
+*Metapopulation diagrams distinguish source patches with lambda > 1 from sink or trap patches that persist through immigration despite local decline.*
 
 ---
 
@@ -821,7 +823,7 @@ where:
 
 **Jolly-Seber method** — for open populations with multiple sampling occasions. Estimates $N$, survival rate (φ), and recruitment ($B$) at each time point. Computationally intensive; requires at least 3 capture occasions.
 
-### Distance Sampling
+### Distance Sampling and Detection Probability
 
 **Line transect distance sampling** estimates density from the perpendicular distances of detected objects from the transect line:
 
@@ -858,9 +860,9 @@ The **total fertility rate** is the average number of children born to a woman o
 
 ---
 
-## Worked Examples
+## Worked Examples: Leslie Matrices and Population Growth
 
-### Worked Example 1: Leslie Matrix Projection
+### Worked Example: Leslie Matrix Projection
 
 **Problem:**
 A 3-age-class population (juvenile, subadult, adult) has Leslie matrix
@@ -888,7 +890,7 @@ Numerical root-finding gives $\lambda_1 \approx 1.094$.
 
 ---
 
-### Worked Example 2 — Mark-Recapture Estimation
+### Worked Example: Mark-Recapture Estimation
 
 **Problem:**
 A population ecologist uses the mark-recapture method to estimate the size of a grasshopper population in a meadow. On the first day, she captures, marks, and releases 120 grasshoppers ($M$). On the second day, she captures a total of 150 grasshoppers ($C$), of which 30 are marked ($R$). Calculate the estimated population size ($N$).
@@ -918,7 +920,7 @@ The estimated size of the grasshopper population is **600 individuals**.
 
 ---
 
-### Worked Example 3 — Logistic Projection and r/K Strategist Vulnerability
+### Worked Example: Logistic Projection and r/K Strategist Vulnerability
 
 **Problem:**
 A population obeys logistic growth with $r = 0.2$/yr, $K = 1000$, and $N_0 = 100$. (a) Project the population at $t = 10$ yr and $t = 20$ yr using the closed-form logistic solution. (b) Compare the recovery trajectory of an r-strategist ($r = 2.0$, $K = 200$) versus a K-strategist ($r = 0.1$, $K = 1000$) starting at the same $N_0 = 50$ after a population collapse.
@@ -972,7 +974,7 @@ A perennial plant has the following demographic rates: seedling survival = 0.3, 
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Population Ecology and Growth Models
 
 For **Population Ecology and Growth Models**, frontier biology belongs inside the evidence logic of
 the chapter. Ecology and conservation decisions increasingly combine field data, remote sensing, community knowledge, model uncertainty, and explicit values. The core reading question is this: population claims require density dependence, demographic stochasticity, dispersal, age structure, and management objective.
@@ -988,9 +990,9 @@ the chapter. Ecology and conservation decisions increasingly combine field data,
   the source closest to the measurement and state what has changed since it was
   published.
 
-Use biodiversity metrics carefully: population indices, extinction risk categories, ecosystem services, and management targets answer different questions \citep{ipbes2019global,ipbes2024transformative,wwf2024livingplanet,iucn2025redlist,fao2024sofia}.
+Select biodiversity and conservation metrics by decision need: abundance, interaction, function, risk, service, and governance metrics answer different questions \citep{ipbes2019global,ipbes2024transformative,wwf2024livingplanet,iucn2025redlist,fao2024sofia}.
 
-**Source practice:** For conservation claims, cite assessment sources and state whether the evidence is a population index, extinction-risk assessment, ecosystem-service valuation, satellite product, or policy synthesis \citep{ipbes2024transformative,noaa2025coralbleaching,fao2025sofi}.
+**Source practice:** For ecology and conservation claims, cite assessment sources and state whether the evidence is an index, risk assessment, service valuation, satellite product, or policy synthesis \citep{ipbes2024transformative,noaa2025coralbleaching,fao2025sofi}.
 
 ## Key Terms
 
@@ -1053,7 +1055,7 @@ Use biodiversity metrics carefully: population indices, extinction risk categori
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Population Ecology and Growth Models
 
 - Lotka (1925). *Elements of Physical Biology*. Williams \& Wilkins.
 - Volterra (1926). Variazioni e fluttuazioni del numero d'individui in specie animali conviventi. *Memorie dell'Accademia dei Lincei*, 2.
@@ -1096,11 +1098,11 @@ print(round(ser.populations[-1], 2))
 - **Metapopulations:** Levins model ($\hat{p} = 1 - e/c$); source-sink dynamics; rescue effect. Habitat corridors increase connectivity.
 - **Population estimation:** mark-recapture (Lincoln-Petersen, Jolly-Seber), distance sampling.
 - **Human demographics:** 8 billion (2022); demographic transition; population momentum; TFR declining globally.
-- **Connections:** See \cref{sec:unit_X_community_ecology} for species interactions, \cref{sec:unit_V_population_genetics} for [**allele**](#gl:allele) frequencies in subdivided populations, and \nameref{sec:unit_VI_unit_intro} for life-history evolution.
+- **Connections:** See \cref{sec:unit_X_community_interactions} for species interactions, \cref{sec:unit_V_population_genetics} for [**allele**](#gl:allele) frequencies in subdivided populations, and \nameref{sec:unit_VI_unit_intro} for life-history evolution.
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Population Ecology and Growth Models
 
 **Population Ecology and Growth Models** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -1113,4 +1115,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/visualization/plots.py` (`plot_logistic_growth`) | Inspect carrying capacity and growth-rate assumptions. |
 | `src/mermaid/biology_diagrams.py` (`population_growth_stages_diagram`) | Link model phases to visual summaries. |
 
-**Reproducibility check:** state time step, units, density dependence, stochasticity, and management objective before forecasting a population. **Cross-reference:** compare with \cref{sec:unit_V_population_genetics} and \cref{sec:unit_X_community_ecology}.
+**Reproducibility check:** state time step, units, density dependence, stochasticity, and management objective before forecasting a population. **Cross-reference:** compare with \cref{sec:unit_V_population_genetics} and \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs}.

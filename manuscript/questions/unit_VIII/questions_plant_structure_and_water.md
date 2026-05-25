@@ -1,4 +1,4 @@
-# Questions — Ch 25: Plant Structure, Water Relations, and Transport {.unnumbered}
+# Questions — Plant Structure, Water Relations, and Transport {.unnumbered}
 
 \label{sec:q_unit_VIII_plant_structure_and_water}
 

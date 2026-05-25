@@ -21,22 +21,13 @@ and to those who show them the way.*
 
 The author gratefully acknowledges many contributions, learnings, and sources of inspiration.
 
-**Scientific foundations.** This textbook builds on the foundational scholarship of
-too many to name, and in particular the textbooks of Alberts et al. (*Molecular Biology of the Cell*), Campbell & Reece (*Biology*),
-Stryer (*Biochemistry*), Lehninger (*Principles of Biochemistry*), the primary literature cited throughout each chapter, and a variety of other sources. We aim to cite specific experimental results at point of use with full author credit. The vision of this textbook is informed by the open curriculum [OpenStax Biology 2e](https://openstax.org/details/books/biology-2e). We pause in gratitude and awe to those who have gone before us in Epistemia (like Academic but think bigger), and to those who will come after us.
+**Scientific foundations.** This textbook builds on the foundational scholarship of too many to name, and in particular the textbooks of Alberts et al. (*Molecular Biology of the Cell*), Campbell & Reece (*Biology*), Stryer (*Biochemistry*), Lehninger (*Principles of Biochemistry*), the primary literature cited throughout each chapter, and a variety of other sources. We aim to cite specific experimental results at point of use with full author credit. The vision of this textbook is informed by the open curriculum [OpenStax Biology 2e](https://openstax.org/details/books/biology-2e). We pause in gratitude and awe to those who have gone before us in Epistemia (like Academic but think bigger), and to those who will come after us.
 
 **Open science.** This textbook is open source and open access. The source code is licensed under the Apache-2.0 license, and the text is licensed under the Creative Commons Attribution 4.0 International license. The source code is available in the [biology textbook source repository](https://github.com/docxology/biology_textbook). The text is available in the [biology textbook repository](https://github.com/docxology/biology_textbook). The work builds on, and contributes to, the open-science community whose code, data, lifeways, and scholarship have made this work freely available, computationally grounded, and broadly accessible.*
 
-**Biology education.** This textbook is designed to be used in a  biology course (it is an exercise left to the reader, what kind of course this will be), and is therefore grounded in the principles of active learning and student-centered teaching. The textbook is designed to be used in a first-year biology course, and is therefore grounded in the principles of active learning and student-centered teaching. The textbook is designed to be used in a first-year biology course, and is therefore grounded in the principles of active learning and student-centered teaching.
+**Biology education.** This textbook is designed to be used in a  biology course (it is an exercise left to the reader, what kind of course this will be), and is therefore grounded in the principles of active learning and student-centered teaching.
 
-**Research project template.** The build pipeline, testing infrastructure, and
-multi-project architecture are based on the author's own Project Template
-maintained in the [Research Project Template repository](https://github.com/docxology/template).
-This textbook’s sources, figures, and tests live in the dedicated book repository
-[biology textbook source repository](https://github.com/docxology/biology_textbook).
-The template is a comprehensive framework for reproducible research, including
-version control, testing, documentation, and publication. It is a model for
-this work, and the template is used to build this textbook.
+**Research project template.** The build pipeline, testing infrastructure, and multi-project architecture are based on the author's own Project Template maintained in the [Research Project Template repository](https://github.com/docxology/template). This textbook’s sources, figures, and tests live in the dedicated book repository [biology textbook source repository](https://github.com/docxology/biology_textbook). The template is a comprehensive framework for reproducible research, including version control, testing, documentation, and publication. It is a model for this work, and the template is used to build this textbook.
 
 \newpage
 
@@ -81,13 +72,13 @@ the rendered table of contents.
 - **\nameref{sec:unit_I_unit_intro}:** \nameref{sec:unit_I_atoms_molecules}; \nameref{sec:unit_I_water_and_life}; \nameref{sec:unit_I_macromolecules}; \nameref{sec:unit_I_enzymes_and_kinetics}.
 - **\nameref{sec:unit_II_unit_intro}:** \nameref{sec:unit_II_cell_theory}; \nameref{sec:unit_II_cell_structure}; \nameref{sec:unit_II_membrane_transport}; \nameref{sec:unit_II_cell_signaling}.
 - **\nameref{sec:unit_III_unit_intro}:** \nameref{sec:unit_III_bioenergetics_and_respiration}; \nameref{sec:unit_III_photosynthesis}; \nameref{sec:unit_III_metabolic_integration}.
-- **\nameref{sec:unit_IV_unit_intro}:** \nameref{sec:unit_IV_dna_replication_and_cell_cycle}; \nameref{sec:unit_IV_gene_expression}; \nameref{sec:unit_IV_mutations_and_genomics}; \nameref{sec:unit_IV_epigenetics_and_gene_regulation}.
-- **\nameref{sec:unit_V_unit_intro}:** \nameref{sec:unit_V_mendelian_genetics}; \nameref{sec:unit_V_chromosomal_inheritance}; \nameref{sec:unit_V_population_genetics}.
+- **\nameref{sec:unit_IV_unit_intro}:** \nameref{sec:unit_IV_dna_replication_and_cell_cycle}; \nameref{sec:unit_IV_gene_expression}; \nameref{sec:unit_IV_mutations_and_genomics}; \nameref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}; \nameref{sec:unit_IV_epigenetic_inheritance_and_disease}.
+- **\nameref{sec:unit_V_unit_intro}:** \nameref{sec:unit_V_mendelian_principles}; \nameref{sec:unit_V_mendelian_extensions_and_human_genetics}; \nameref{sec:unit_V_chromosomal_inheritance}; \nameref{sec:unit_V_population_genetics}.
 - **\nameref{sec:unit_VI_unit_intro}:** \nameref{sec:unit_VI_evolution_and_selection}; \nameref{sec:unit_VI_genetic_drift_and_speciation}; \nameref{sec:unit_VI_phylogenetics}.
-- **\nameref{sec:unit_VII_unit_intro}:** \nameref{sec:unit_VII_bacteria_archaea_viruses}; \nameref{sec:unit_VII_microbial_ecology}; \nameref{sec:unit_VII_infectious_disease}.
+- **\nameref{sec:unit_VII_unit_intro}:** \nameref{sec:unit_VII_bacteria_archaea_viruses}; \nameref{sec:unit_VII_microbial_ecology}; \nameref{sec:unit_VII_host_immunity_and_vaccines}; \nameref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 - **\nameref{sec:unit_VIII_unit_intro}:** \nameref{sec:unit_VIII_plant_structure_and_water}; \nameref{sec:unit_VIII_plant_reproduction}; \nameref{sec:unit_VIII_plant_responses}.
-- **\nameref{sec:unit_IX_unit_intro}:** \nameref{sec:unit_IX_circulation_respiration_homeostasis}; \nameref{sec:unit_IX_nervous_system}; \nameref{sec:unit_IX_action_potential_synapses}; \nameref{sec:unit_IX_endocrine_and_immune}.
-- **\nameref{sec:unit_X_unit_intro}:** \nameref{sec:unit_X_population_ecology}; \nameref{sec:unit_X_community_ecology}; \nameref{sec:unit_X_ecosystem_ecology}; \nameref{sec:unit_X_biomes_and_conservation}.
+- **\nameref{sec:unit_IX_unit_intro}:** \nameref{sec:unit_IX_circulation_respiration_homeostasis}; \nameref{sec:unit_IX_nervous_system}; \nameref{sec:unit_IX_action_potential_synapses}; \nameref{sec:unit_IX_endocrine_signaling}; \nameref{sec:unit_IX_immune_system_defense}.
+- **\nameref{sec:unit_X_unit_intro}:** \nameref{sec:unit_X_population_ecology}; \nameref{sec:unit_X_community_interactions}; \nameref{sec:unit_X_biodiversity_and_food_webs}; \nameref{sec:unit_X_ecosystem_ecology}; \nameref{sec:unit_X_biomes_and_conservation}.
 - **Laboratory activities:** one companion lab follows each chapter in the
 same canonical order.
 - **Question banks:** one 30-item question bank follows each chapter in the
@@ -249,28 +240,33 @@ script to refresh this grid.
 | \nameref{sec:unit_IV_unit_intro} | 12 | \nameref{sec:unit_IV_dna_replication_and_cell_cycle} | Level 2/3 | 55 min | 75 min |
 | \nameref{sec:unit_IV_unit_intro} | 13 | \nameref{sec:unit_IV_gene_expression} | Level 2/3 | 60 min | 100 min |
 | \nameref{sec:unit_IV_unit_intro} | 14 | \nameref{sec:unit_IV_mutations_and_genomics} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_IV_unit_intro} | 15 | \nameref{sec:unit_IV_epigenetics_and_gene_regulation} | Level 3/3 | 50 min | 75 min |
-| \nameref{sec:unit_V_unit_intro} | 16 | \nameref{sec:unit_V_mendelian_genetics} | Level 2/3 | 65 min | 100 min |
-| \nameref{sec:unit_V_unit_intro} | 17 | \nameref{sec:unit_V_chromosomal_inheritance} | Level 2/3 | 60 min | 75 min |
-| \nameref{sec:unit_V_unit_intro} | 18 | \nameref{sec:unit_V_population_genetics} | Level 3/3 | 75 min | 100 min |
-| \nameref{sec:unit_VI_unit_intro} | 19 | \nameref{sec:unit_VI_evolution_and_selection} | Level 2/3 | 60 min | 75 min |
-| \nameref{sec:unit_VI_unit_intro} | 20 | \nameref{sec:unit_VI_genetic_drift_and_speciation} | Level 3/3 | 60 min | 75 min |
-| \nameref{sec:unit_VI_unit_intro} | 21 | \nameref{sec:unit_VI_phylogenetics} | Level 3/3 | 60 min | 100 min |
-| \nameref{sec:unit_VII_unit_intro} | 22 | \nameref{sec:unit_VII_bacteria_archaea_viruses} | Level 2/3 | 65 min | 75 min |
-| \nameref{sec:unit_VII_unit_intro} | 23 | \nameref{sec:unit_VII_microbial_ecology} | Level 2/3 | 60 min | 75 min |
-| \nameref{sec:unit_VII_unit_intro} | 24 | \nameref{sec:unit_VII_infectious_disease} | Level 2/3 | 60 min | 75 min |
-| \nameref{sec:unit_VIII_unit_intro} | 25 | \nameref{sec:unit_VIII_plant_structure_and_water} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_VIII_unit_intro} | 26 | \nameref{sec:unit_VIII_plant_reproduction} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_VIII_unit_intro} | 27 | \nameref{sec:unit_VIII_plant_responses} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_IX_unit_intro} | 28 | \nameref{sec:unit_IX_circulation_respiration_homeostasis} | Level 3/3 | 60 min | 100 min |
-| \nameref{sec:unit_IX_unit_intro} | 29 | \nameref{sec:unit_IX_nervous_system} | Level 3/3 | 55 min | 75 min |
-| \nameref{sec:unit_IX_unit_intro} | 30 | \nameref{sec:unit_IX_action_potential_synapses} | Level 3/3 | 55 min | 100 min |
-| \nameref{sec:unit_IX_unit_intro} | 31 | \nameref{sec:unit_IX_endocrine_and_immune} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_X_unit_intro} | 32 | \nameref{sec:unit_X_population_ecology} | Level 3/3 | 75 min | 100 min |
-| \nameref{sec:unit_X_unit_intro} | 33 | \nameref{sec:unit_X_community_ecology} | Level 2/3 | 80 min | 100 min |
-| \nameref{sec:unit_X_unit_intro} | 34 | \nameref{sec:unit_X_ecosystem_ecology} | Level 2/3 | 65 min | 75 min |
-| \nameref{sec:unit_X_unit_intro} | 35 | \nameref{sec:unit_X_biomes_and_conservation} | Level 2/3 | 70 min | 75 min |
-| | | **Totals** | | **2230 min (37 h)** | **3075 min (51 h)** |
+| \nameref{sec:unit_IV_unit_intro} | 15 | \nameref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} | Level 3/3 | 28 min | 40 min |
+| \nameref{sec:unit_IV_unit_intro} | 16 | \nameref{sec:unit_IV_epigenetic_inheritance_and_disease} | Level 3/3 | 28 min | 40 min |
+| \nameref{sec:unit_V_unit_intro} | 17 | \nameref{sec:unit_V_mendelian_principles} | Level 2/3 | 35 min | 55 min |
+| \nameref{sec:unit_V_unit_intro} | 18 | \nameref{sec:unit_V_mendelian_extensions_and_human_genetics} | Level 2/3 | 35 min | 55 min |
+| \nameref{sec:unit_V_unit_intro} | 19 | \nameref{sec:unit_V_chromosomal_inheritance} | Level 2/3 | 60 min | 75 min |
+| \nameref{sec:unit_V_unit_intro} | 20 | \nameref{sec:unit_V_population_genetics} | Level 3/3 | 75 min | 100 min |
+| \nameref{sec:unit_VI_unit_intro} | 21 | \nameref{sec:unit_VI_evolution_and_selection} | Level 2/3 | 60 min | 75 min |
+| \nameref{sec:unit_VI_unit_intro} | 22 | \nameref{sec:unit_VI_genetic_drift_and_speciation} | Level 3/3 | 60 min | 75 min |
+| \nameref{sec:unit_VI_unit_intro} | 23 | \nameref{sec:unit_VI_phylogenetics} | Level 3/3 | 60 min | 100 min |
+| \nameref{sec:unit_VII_unit_intro} | 24 | \nameref{sec:unit_VII_bacteria_archaea_viruses} | Level 2/3 | 65 min | 75 min |
+| \nameref{sec:unit_VII_unit_intro} | 25 | \nameref{sec:unit_VII_microbial_ecology} | Level 2/3 | 60 min | 75 min |
+| \nameref{sec:unit_VII_unit_intro} | 26 | \nameref{sec:unit_VII_host_immunity_and_vaccines} | Level 2/3 | 30 min | 40 min |
+| \nameref{sec:unit_VII_unit_intro} | 27 | \nameref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} | Level 2/3 | 35 min | 45 min |
+| \nameref{sec:unit_VIII_unit_intro} | 28 | \nameref{sec:unit_VIII_plant_structure_and_water} | Level 2/3 | 55 min | 75 min |
+| \nameref{sec:unit_VIII_unit_intro} | 29 | \nameref{sec:unit_VIII_plant_reproduction} | Level 2/3 | 55 min | 75 min |
+| \nameref{sec:unit_VIII_unit_intro} | 30 | \nameref{sec:unit_VIII_plant_responses} | Level 2/3 | 55 min | 75 min |
+| \nameref{sec:unit_IX_unit_intro} | 31 | \nameref{sec:unit_IX_circulation_respiration_homeostasis} | Level 3/3 | 60 min | 100 min |
+| \nameref{sec:unit_IX_unit_intro} | 32 | \nameref{sec:unit_IX_nervous_system} | Level 3/3 | 55 min | 75 min |
+| \nameref{sec:unit_IX_unit_intro} | 33 | \nameref{sec:unit_IX_action_potential_synapses} | Level 3/3 | 55 min | 100 min |
+| \nameref{sec:unit_IX_unit_intro} | 34 | \nameref{sec:unit_IX_endocrine_signaling} | Level 2/3 | 30 min | 40 min |
+| \nameref{sec:unit_IX_unit_intro} | 35 | \nameref{sec:unit_IX_immune_system_defense} | Level 2/3 | 30 min | 40 min |
+| \nameref{sec:unit_X_unit_intro} | 36 | \nameref{sec:unit_X_population_ecology} | Level 3/3 | 75 min | 100 min |
+| \nameref{sec:unit_X_unit_intro} | 37 | \nameref{sec:unit_X_community_interactions} | Level 2/3 | 45 min | 55 min |
+| \nameref{sec:unit_X_unit_intro} | 38 | \nameref{sec:unit_X_biodiversity_and_food_webs} | Level 2/3 | 40 min | 50 min |
+| \nameref{sec:unit_X_unit_intro} | 39 | \nameref{sec:unit_X_ecosystem_ecology} | Level 2/3 | 65 min | 75 min |
+| \nameref{sec:unit_X_unit_intro} | 40 | \nameref{sec:unit_X_biomes_and_conservation} | Level 2/3 | 70 min | 75 min |
+| | | **Totals** | | **2256 min (37 h)** | **3110 min (51 h)** |
 <!-- course-planning-grid-end -->
 
 \newpage

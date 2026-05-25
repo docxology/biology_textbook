@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 5** · Level 1/3 · 45 min read · 50 min lecture · Prerequisites: \cref{sec:unit_I_macromolecules}
+> Level 1/3 · 45 min read · 50 min lecture · Prerequisites: \cref{sec:unit_I_macromolecules}
 
 ## Learning Objectives
 
@@ -151,7 +151,10 @@ Cells are small --- almost without exception. Why?
 
 The rate of metabolism (nutrient consumption, waste generation) scales with **volume** ($V \propto r^3$). The rate of exchange with the environment (nutrient uptake, waste removal) scales with **surface area** ($A \propto r^2$). The ratio:
 
-$$\frac{A}{V} = \frac{4\pi r^2}{\frac{4}{3}\pi r^3} = \frac{3}{r} \tag{5.1}$$
+\begin{equation}
+\frac{A}{V} = \frac{4\pi r^2}{\frac{4}{3}\pi r^3} = \frac{3}{r}
+\label{eq:unit_II_cell_theory_worked_1}
+\end{equation}
 
 As $r$ increases, $A/V$ decreases. A sphere with $r = 1$ μm has $A/V = 3$ μm$^{-1}$. With $r = 1$ mm (1,000x larger), $A/V = 0.003$ μm$^{-1}$. Large cells simply cannot exchange nutrients fast enough for their metabolic demand.
 
@@ -163,19 +166,37 @@ As $r$ increases, $A/V$ decreases. A sphere with $r = 1$ μm has $A/V = 3$ μm$^
 
 For the bacterium ($r = 0.5$ μm):
 
-$$A = 4\pi r^2 = 4\pi(0.5)^2 = 3.14 \; \mu\text{m}^2 \tag{5.2}$$
+\begin{equation}
+A = 4\pi r^2 = 4\pi(0.5)^2 = 3.14 \; \mu\text{m}^2
+\label{eq:unit_II_cell_theory_worked_2}
+\end{equation}
 
-$$V = \frac{4}{3}\pi r^3 = \frac{4}{3}\pi(0.5)^3 = 0.524 \; \mu\text{m}^3 \tag{5.3}$$
+\begin{equation}
+V = \frac{4}{3}\pi r^3 = \frac{4}{3}\pi(0.5)^3 = 0.524 \; \mu\text{m}^3
+\label{eq:unit_II_cell_theory_worked_3}
+\end{equation}
 
-$$\frac{A}{V} = \frac{3.14}{0.524} = 6.0 \; \mu\text{m}^{-1} \tag{5.4}$$
+\begin{equation}
+\frac{A}{V} = \frac{3.14}{0.524} = 6.0 \; \mu\text{m}^{-1}
+\label{eq:unit_II_cell_theory_worked_4}
+\end{equation}
 
 For the eukaryotic cell ($r = 10$ μm):
 
-$$A = 4\pi(10)^2 = 1,257 \; \mu\text{m}^2 \tag{5.5}$$
+\begin{equation}
+A = 4\pi(10)^2 = 1,257 \; \mu\text{m}^2
+\label{eq:unit_II_cell_theory_worked_5}
+\end{equation}
 
-$$V = \frac{4}{3}\pi(10)^3 = 4,189 \; \mu\text{m}^3 \tag{5.6}$$
+\begin{equation}
+V = \frac{4}{3}\pi(10)^3 = 4,189 \; \mu\text{m}^3
+\label{eq:unit_II_cell_theory_worked_6}
+\end{equation}
 
-$$\frac{A}{V} = \frac{1,257}{4,189} = 0.30 \; \mu\text{m}^{-1} \tag{5.7}$$
+\begin{equation}
+\frac{A}{V} = \frac{1,257}{4,189} = 0.30 \; \mu\text{m}^{-1}
+\label{eq:unit_II_cell_theory_worked_7}
+\end{equation}
 
 The bacterium has a 20-fold higher $A/V$ ratio, enabling far more efficient diffusion-based exchange per unit metabolic volume.
 
@@ -183,7 +204,10 @@ The bacterium has a 20-fold higher $A/V$ ratio, enabling far more efficient diff
 
 Diffusion time scales with the square of distance:
 
-$$t = \frac{x^2}{2D} \tag{5.8}$$
+\begin{equation}
+t = \frac{x^2}{2D}
+\label{eq:unit_II_cell_theory_worked_8}
+\end{equation}
 
 where $D$ is the diffusion coefficient. For a small molecule ($D \approx 10^{-9}$ m$^2$/s) to diffuse across a 1 μm cell takes ~0.5 ms. Across a 1 mm cell, it takes ~500 s (over 8 minutes). This places an absolute upper limit on cell size for diffusion-dependent processes.
 
@@ -209,11 +233,17 @@ m = \rho \cdot \frac{4}{3}\pi r^3, \qquad A = 4\pi r^2
 
 Suppose every unit volume of cytoplasm consumes oxygen at a constant rate $q$ (mol O$_2$ s$^{-1}$ m$^{-3}$). The total metabolic demand $\dot{M}_\text{demand}$ scales as:
 
-$$\dot{M}_\text{demand} = q \cdot V = q \cdot \tfrac{4}{3}\pi r^3 \tag{5.10}$$
+\begin{equation}
+\dot{M}_\text{demand} = q \cdot V = q \cdot \tfrac{4}{3}\pi r^3
+\label{eq:unit_II_cell_theory_worked_9}
+\end{equation}
 
 Maximum oxygen flux through the membrane is set by Fick's law and is bounded by surface area:
 
-$$\dot{M}_\text{supply} = P_{O_2} \cdot \Delta[O_2] \cdot A = P_{O_2} \cdot \Delta[O_2] \cdot 4\pi r^2 \tag{5.11}$$
+\begin{equation}
+\dot{M}_\text{supply} = P_{O_2} \cdot \Delta[O_2] \cdot A = P_{O_2} \cdot \Delta[O_2] \cdot 4\pi r^2
+\label{eq:unit_II_cell_theory_worked_10}
+\end{equation}
 
 A viable cell requires $\dot{M}_\text{supply} \ge \dot{M}_\text{demand}$. Setting these equal yields a **maximum admissible radius**:
 
@@ -286,11 +316,14 @@ flowchart TD
 
 *Overview of microscopy techniques used in cell biology, categorised by resolution capability.*
 
-### Light Microscopy
+### Light Microscopy, Contrast, and Resolution
 
 The **resolution limit** of light microscopy is governed by the Abbe diffraction limit:
 
-$$d = \frac{\lambda}{2 \cdot \text{NA}} \tag{5.9}$$
+\begin{equation}
+d = \frac{\lambda}{2 \cdot \text{NA}}
+\label{eq:unit_II_cell_theory_worked_11}
+\end{equation}
 
 where λ is the wavelength of light and NA is the numerical aperture of the objective. For visible light ($\lambda \approx 550$ nm) and a high-quality oil-immersion objective (NA = 1.4): $d \approx 200$ nm.
 
@@ -306,7 +339,7 @@ where λ is the wavelength of light and NA is the numerical aperture of the obje
 
 **Total internal reflection fluorescence (TIRF):** Evanescent wave illuminates about 100 nm of the cell adjacent to the coverslip surface. Used to study membrane dynamics, vesicle fusion events, and single-molecule behaviour at the plasma membrane.
 
-### Electron Microscopy
+### Electron Microscopy and Ultrastructure
 
 **Transmission electron microscopy (TEM):** Electrons pass through ultrathin sections (~50--70 nm) stained with heavy metals (uranyl acetate, osmium tetroxide). Resolution ~0.1 nm. Reveals ultrastructural details of [**organelle**](#gl:organelle)s, membranes, and macromolecular complexes.
 
@@ -331,11 +364,11 @@ Super-resolution methods bypass the Abbe diffraction limit, achieving resolution
 
 ---
 
-## Prokaryotic Cells
+## Prokaryotic Cells and Cellular Economy
 
 Prokaryotes (**pro** = before, **karyon** = nucleus) lack membrane-bound organelles. They include the domains **Bacteria** and **[Archaea](#gl:archaea)**.
 
-### Key Features
+### Prokaryotic Cell Features and Constraints
 
 | Feature | Bacteria | Archaea |
 | ------- | -------- | ------- |
@@ -456,11 +489,11 @@ The discovery of Archaea by \citet{woese1977} as a separate domain transformed o
 
 ---
 
-## Eukaryotic Cells
+## Eukaryotic Cells and Compartmentalisation
 
 Eukaryotic cells (**eu** = true; **karyon** = nucleus) contain membrane-bound organelles and a true nucleus. They include protists, fungi, plants, and animals.
 
-### Organelle Inventory
+### Eukaryotic Organelle Inventory
 
 **Core eukaryotic organelles and functions:**
 
@@ -492,7 +525,7 @@ The defining feature of eukaryotic cells is **compartmentalisation** --- the seg
 
 ---
 
-## Endosymbiotic Theory
+## Endosymbiotic Theory and Organelle Origins
 
 Lynn Margulis formalised the **endosymbiotic theory** (1967): mitochondria and chloroplasts are the descendants of free-living bacteria engulfed by a proto-eukaryotic host ~1.5--2 billion years ago.
 
@@ -574,11 +607,11 @@ This work defines the boundary between chemistry and life and raises profound qu
 
 ---
 
-## Extremophile Cells
+## Extremophile Cells and Environmental Limits
 
 Extremophiles are organisms (primarily archaea, but also some bacteria and eukaryotes) that thrive in environments previously considered incompatible with life. They demonstrate the remarkable adaptability of cellular organisation.
 
-### Types of Extremophiles
+### Extremophile Cell Strategies
 
 | Type | Environment | Example organism | Cellular adaptation |
 | ---- | ----------- | ---------------- | ------------------- |
@@ -606,7 +639,7 @@ Extremophiles expand our understanding of habitable environments in the solar sy
 
 ## Cell Type Classification
 
-### By Carbon/Energy Source
+### Nutritional Classification by Carbon and Energy Source
 
 | Type | Carbon source | Energy source | Examples |
 | ---- | ------------- | ------------- | -------- |
@@ -615,7 +648,7 @@ Extremophiles expand our understanding of habitable environments in the solar sy
 | Chemoautotroph | CO$_2$ | Inorganic chemicals | Nitrifiers, sulphur oxidisers |
 | Chemoheterotroph | Organic carbon | Organic chemicals | Animals, fungi, most bacteria |
 
-### By Oxygen Relationship
+### Oxygen Requirements and Aerotolerance
 
 - **Obligate aerobe:** requires O$_2$ (complex animals, *Mycobacterium tuberculosis*)
 - **Facultative anaerobe:** can grow with or without O$_2$ (yeast, *E. coli*)
@@ -643,7 +676,7 @@ print(len(animal), len(plant))
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Cell Theory and Cell Types
 
 For **Cell Theory and Cell Types**, frontier biology belongs inside the evidence logic of
 the chapter. Cell biology is increasingly measured as live, spatial, single-cell, and perturbational data rather than static diagrams alone. The core reading question is this: cell-theory evidence now includes microscopy, lineage tracing, omics, and synthetic-cell boundary tests.
@@ -659,9 +692,9 @@ the chapter. Cell biology is increasingly measured as live, spatial, single-cell
   the source closest to the measurement and state what has changed since it was
   published.
 
-Ask what measurement scale is being claimed: nanometre structure, single-cell transcript abundance, organelle dynamics, tissue context, or organismal phenotype.
+Name the measurement scale, perturbation, and boundary condition before moving from cell-state pattern to causal explanation.
 
-**Source practice:** For cell-state claims, distinguish microscopy, live-cell perturbation, single-cell sequencing, spatial transcriptomics, and biochemical assay evidence before making a causal statement.
+**Source practice:** For cell claims, distinguish microscopy, live-cell perturbation, single-cell sequencing, spatial transcriptomics, and biochemical assay evidence before making a causal statement.
 
 Single-cell atlases are most useful when they clarify the sampled tissue, donor context, assay chemistry, and annotation uncertainty; Human Cell Atlas-style resources turn cell theory into a measurable census, but they do not remove the need for perturbation evidence \citep{regev2017humancellatlas,pan2024singlecellatlas}.
 
@@ -726,7 +759,7 @@ These questions have no single correct answer — they are designed to provoke d
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Cell Theory and Cell Types
 
 - Sagan (1967). On the origin of mitosing cells. *Journal of Theoretical Biology*, 14.
 - Schleiden (1838). Beitr{\"a}ge zur Phytogenesis. *M{\"u}ller's Archiv f{\"u}r Anatomie, Physiologie und wissenschaftliche Medicin*.
@@ -760,7 +793,7 @@ These questions have no single correct answer — they are designed to provoke d
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Cell Theory and Cell Types
 
 **Cell Theory and Cell Types** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

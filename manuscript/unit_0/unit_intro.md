@@ -76,9 +76,9 @@ graph LR
     style C3 fill:#1a252f,color:#fff
     style C4 fill:#5d3a00,color:#fff
 ```
-<!-- alt: Graph showing the opening-unit roadmap: systems science introduces feedback and emergence, complex adaptive systems adds attractors and evolution, active inference connects prediction and allostasis, and history/philosophy connects evidence, concepts, and values to later units. -->
+<!-- alt: Graph showing opening-unit roadmap: systems science introduces feedback and emergence, complex adaptive systems adds attractors and evolution, active inference connects prediction and allostasis, and history/philosophy connects evidence, concepts, and values to later units. -->
 
-*\nameref{sec:unit_0_unit_intro} roadmap: systems science introduces feedback and emergence, complex adaptive systems adds attractors and evolution, active inference connects prediction and allostasis, and history/philosophy connects evidence, concepts, and values to later units.*
+*Opening-unit roadmap: systems science introduces feedback and emergence, complex adaptive systems adds attractors and evolution, active inference connects prediction and allostasis, and history/philosophy connects evidence, concepts, and values to later units.*
 
 | Chapter | Core question | Key tools |
 | ------- | ------------- | --------- |

@@ -1,4 +1,4 @@
-# Lab 21 — Phylogenetics and the Tree of Life {.unnumbered}
+# Lab — Phylogenetics and the Tree of Life {.unnumbered}
 
 \label{sec:lab_unit_VI_phylogenetics}
 
@@ -30,7 +30,7 @@
 2. Describe what bootstrap support represents in a maximum-likelihood or parsimony phylogeny. Explain how the sites of a sequence alignment are resampled with replacement to build pseudo-replicate trees, and how a bootstrap value (for example, 95) on a branch is interpreted as the fraction of pseudo-replicates that recovered that clade.
 3. Distinguish parsimony, maximum likelihood, and Bayesian inference as tree-building criteria. State the optimality criterion or objective function used by each, and identify one strength and one limitation per method (for example, parsimony is conceptually simple but susceptible to long-branch attraction).
 
-## Background {.unnumbered}
+## Lab Context: Phylogenetics and the Tree of Life {.unnumbered}
 
 Phylogenetics reconstructs evolutionary history by identifying shared derived characters (**synapomorphies**) that define clades. Maximum parsimony selects the tree requiring the fewest evolutionary changes. Molecular phylogenies use DNA/protein sequence differences, calibrated with fossil dates, to construct ultrametric trees with branch lengths proportional to substitution rate or time. Bootstrap values (percentage of resampled datasets recovering the same clade) indicate support for individual nodes.
 
@@ -38,6 +38,7 @@ Phylogenetics reconstructs evolutionary history by identifying shared derived ch
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Phylogenetics and the Tree of Life: evolutionary-evidence source card: alternative hypotheses, sampling, calibration, and confidence boundary | 1 |
 | Character matrix (12 taxa × 10 morphological characters; 0=absent, 1=present) | 1 printed |
 | Molecular phylogeny printout (5 taxa; with branch lengths and bootstrap values) | 1 |
 | Cladogram construction guide | 1 |
@@ -113,6 +114,10 @@ equipment version belongs only in an optional extension.
 **Solution:** UPGMA joins the two closest lineages first. The smallest distance is d(A, B) = 0.05, so A and B cluster first. The node AB lies at depth d(A, B) / 2 = 0.025 (each tip is 0.025 from the node). The new distance from the AB cluster to C is the average of the original distances from C to each member: d(AB, C) = (d(A, C) + d(B, C)) / 2 = (0.12 + 0.10) / 2 = 0.11. The node ABC then lies at depth d(AB, C) / 2 = 0.055. The branch length from the AB node up to the ABC node is 0.055 − 0.025 = 0.030, and the branch from C up to the ABC node is 0.055. Converting depths to divergence times with a clock of 2 percent per million years (i.e., 0.02 substitutions per site per million years), the A–B split occurred at 0.025 / 0.02 = 1.25 million years ago, and the AB–C split occurred at 0.055 / 0.02 = 2.75 million years ago.
 
 **Interpretation:** UPGMA produces an ultrametric tree, in which every tip is equidistant from the root — an assumption equivalent to a strict molecular clock across lineages. The estimated split times here depend on that assumption; if the clock varies among lineages, neighbor-joining or a relaxed-clock model in a Bayesian framework would be more appropriate. The distances in this example are also small enough that no multiple-hit correction is applied; for larger distances, a Jukes-Cantor or more parameter-rich substitution model is typically used before tree construction.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Phylogenetics and the Tree of Life before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

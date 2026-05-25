@@ -1,4 +1,4 @@
-# Lab 11 — Metabolic Integration and Regulation {.unnumbered}
+# Lab — Metabolic Integration and Regulation {.unnumbered}
 
 \label{sec:lab_unit_III_metabolic_integration}
 
@@ -46,7 +46,7 @@
 
 5. **Real-World Application**: Metformin is a first-line drug for type 2 diabetes. Based on your knowledge of metabolic regulation, how might metformin work? Consider its effects on AMP:ATP ratio and downstream targets.
 
-## Background {.unnumbered}
+## Lab Context: Metabolic Integration and Regulation {.unnumbered}
 
 Metabolic integration means that pathways (glycolysis, gluconeogenesis, β-oxidation, glycogen synthesis) are coordinated by hormonal signals and allosteric regulators, not running independently. Insulin (released postprandially) activates GLUT4 translocation, glycogen synthase, and fatty acid synthesis; it inhibits gluconeogenesis and lipolysis. Glucagon (released during fasting) does the reverse. PFK-1 is the key allosteric valve of glycolysis: activated by AMP, ADP, and fructose-2,6-bisphosphate; inhibited by ATP and citrate.
 
@@ -56,6 +56,7 @@ In this data-analysis lab you will interpret simulated glucose tolerance test da
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Metabolic Integration and Regulation: metabolism source card: organism, compartment, condition, measurement method, and flux boundary | 1 |
 | GTT dataset (instructor-provided, printed or digital) | 1 per student |
 | Graph paper or laptop with spreadsheet software | 1 |
 | Calculator | 1 |
@@ -82,7 +83,7 @@ In this data-analysis lab you will interpret simulated glucose tolerance test da
    - Annotate key events: glucose ingestion (t = 0), peak blood glucose, return to baseline
    - Calculate AUC for each subject using the trapezoid rule at 30-minute intervals
 
-### Part 2: Computational Biology Exercise - Statistical Analysis with Python {.unnumbered}
+### Part 2: Computational Biology Exercise — Statistical Analysis with Python {.unnumbered}
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
@@ -175,6 +176,10 @@ Step 5 — Ratio: fat reserves contain roughly 135,000 / 400 ≈ 340 times more 
 
 **Interpretation:** Liver glycogen would support a small fraction of one day at rest. This is why a 24-hour fast forces the liver to switch substantially toward gluconeogenesis (using lactate, glycerol, glucogenic amino acids) and why adipose lipolysis and ketogenesis become quantitatively important within roughly a day of food deprivation. Tissue-specific glucose dependence (notably the brain, which uses about 20% of BMR and prefers glucose) is what compels the body to defend blood glucose by mobilising every substrate that can feed gluconeogenesis or ketogenesis once glycogen is depleted.
 
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Metabolic Integration and Regulation before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

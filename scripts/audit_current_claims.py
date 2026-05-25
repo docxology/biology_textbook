@@ -4,19 +4,13 @@
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
 import re
-import sys
 
+from _bootstrap import PROJECT, ensure_project_paths
 
-PROJECT = Path(__file__).resolve().parent.parent
-SRC = PROJECT / "src"
-TEMPLATE_ROOT = PROJECT.parent.parent
-for path in (TEMPLATE_ROOT, SRC):
-    if str(path) not in sys.path:
-        sys.path.insert(0, str(path))
+ensure_project_paths(include_scripts=True)
 
-from biology.current_claims import load_current_claims, validate_current_claims  # noqa: E402
+from biology.current_claims import load_current_claims, validate_current_claims
 
 
 STALE_OR_UNQUALIFIED_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (

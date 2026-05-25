@@ -1,4 +1,4 @@
-# Lab 26 — Plant Reproduction and Development {.unnumbered}
+# Lab — Plant Reproduction and Development {.unnumbered}
 
 \label{sec:lab_unit_VIII_plant_reproduction}
 
@@ -46,7 +46,7 @@
 
 5. **Real-World Application**: Climate change is affecting plant reproduction. How might rising temperatures impact pollen viability and fertilization success? What are the implications for crop production?
 
-## Background {.unnumbered}
+## Lab Context: Plant Reproduction and Development {.unnumbered}
 
 Angiosperms (flowering plants) undergo **double fertilisation**: one sperm nucleus (n) fuses with the egg (n) to form the zygote (2n); a second sperm fuses with the two polar nuclei (2×n = 2n) to form the primary endosperm nucleus (3n), which nourishes the developing embryo. Pollen grains (male gametophytes, n) germinate on the stigma and grow a pollen tube through the style to deliver sperm to the embryo sac (female gametophyte) in the ovule.
 
@@ -54,8 +54,9 @@ Angiosperms (flowering plants) undergo **double fertilisation**: one sperm nucle
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Plant Reproduction and Development: plant evidence source card: tissue, driver, field context, breeding/adoption boundary, and refresh trigger | 1 |
 | Flower anatomy diagram packet with labelled and unlabelled angiosperm structures | 1 |
-| Pollination syndrome card set (wind, bee, moth, bird, and generalized flowers) | 1 set |
+| Pollination and dispersal syndrome card set (wind, managed honeybee, bumblebee, solitary bee, moth, bird, generalized flowers, and elaiosome-bearing seeds for myrmecochory) | 1 set |
 | Pollen-tube growth dataset across temperature and sucrose treatments | 1 |
 | Printed micrograph panels or schematic pollen-tube images with scale bars | 1 set |
 | Double-fertilisation ploidy worksheet | 1 |
@@ -80,9 +81,9 @@ Angiosperms (flowering plants) undergo **double fertilisation**: one sperm nucle
    - Identify external parts on the printed diagram: sepals, petals, stamens (anther + filament), pistil (stigma + style + ovary).
    - Use the ovary cross-section diagram to locate ovules and trace the path a pollen tube would follow.
    - Use micrograph panels or schematic cards to record pollen characteristics such as size, surface texture, and tube length.
-   - Compare wind-pollinated vs insect-pollinated flower cards. Fill in the comparison table and cite the trait evidence behind each classification.
+   - Compare wind-pollinated, bee-pollinated, and ant-dispersed cards. Fill in the comparison table and cite the trait evidence behind each classification.
 
-### Part 2: Computational Biology Exercise - Pollen Tube Growth Analysis with Python {.unnumbered}
+### Part 2: Computational Biology Exercise — Pollen Tube Growth Analysis with Python {.unnumbered}
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
@@ -133,13 +134,14 @@ Flower anatomy diagram (label most structures):
 | 90 | | |
 | 120 | | |
 
-| Character | Wind-pollinated (grass) | Insect-pollinated (lily) |
-| --------- | ----------------------- | ------------------------ |
+| Character | Wind-pollinated (grass) | Bee-pollinated (lily or orchard flower) | Ant-dispersed seed |
+| --------- | ----------------------- | ------------------------- | ------------------ |
 | Petal colour | | |
 | Fragrance | | |
 | Pollen size | | |
 | Pollen surface | | |
 | Stigma surface | | |
+| Dispersal reward or cue | | | |
 
 <!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
@@ -178,13 +180,17 @@ equipment version belongs only in an optional extension.
 
 **Interpretation:** For a stable population (neither growing nor declining), each individual must on average produce exactly one surviving replacement over its lifetime. With 90 potential offspring over 15 seasons, this plant has high fecundity — but most offspring are lost at the germination and early establishment stages, consistent with a Type III survivorship curve.
 
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Plant Reproduction and Development before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+
 ## Analysis Questions {.unnumbered}
 
 1. Pollen tube growth is driven by cytoplasmic streaming and tip-directed vesicle fusion. What is the role of Ca²⁺ ions (specifically the tip-focused Ca²⁺ gradient) in regulating pollen tube polarity and growth direction?
 
 2. Describe double fertilisation: where does each sperm go, what does each produce, and what are the ploidy levels of the zygote and endosperm?
 
-3. A bee visits a fragrant, brightly coloured flower with sticky pollen. A grass flower has no petals, no fragrance, and produces vast quantities of dry pollen. Explain the evolutionary logic behind each strategy using cost-benefit trade-offs.
+3. A honeybee, a bumblebee, and a solitary bee visit different fragrant, brightly coloured flowers with sticky pollen. A grass flower has no petals, no fragrance, and produces vast quantities of dry pollen. A woodland herb produces an elaiosome-bearing seed that ants carry to the nest. Explain the evolutionary logic behind each strategy using cost-benefit trade-offs, and state why "bee pollination" is still too broad unless the visitor actually transfers pollen.
 
 4. Self-incompatibility (SI) systems prevent self-fertilisation in many plant species. The S-RNase system in *Petunia* involves the pistil secreting an RNase that degrades pollen tube RNA if the pollen S-allele matches the pistil S-allele. How does this mechanism selectively destroy "self" pollen without harming "foreign" pollen?
 
@@ -205,14 +211,14 @@ equipment version belongs only in an optional extension.
 This project will span 2-3 lab sessions:
 
 **Session 1**: Research Question and Hypothesis
-- How do flower traits correlate with pollination syndrome?
-- Formulate a hypothesis about the relationship between specific traits (e.g., petal colour, nectar production) and pollinator type
+- How do flower traits correlate with pollination syndrome, and how do seed rewards correlate with ant-mediated dispersal?
+- Formulate a hypothesis about the relationship between specific traits (e.g., petal colour, nectar production, floral tube depth, elaiosome presence) and pollinator or disperser type
 - Design a study comparing multiple plant species
 
 **Session 2**: Data Extraction and Analysis
 - Extract flower morphology data from species cards, image databases, or published datasets
-- Score pollinator visits from provided video stills or summarized observation tables
-- Analyze correlations between traits and pollinator type
+- Score pollinator visits from provided video stills or summarized observation tables, separating managed honeybees from wild bees when the evidence allows it
+- Analyze correlations between traits and pollinator type; add a myrmecochory extension that compares seed-removal rates for elaiosome-present vs elaiosome-removed cards
 
 **Session 3**: Data Interpretation and Presentation
 - Perform statistical analysis (e.g., principal component analysis)
@@ -223,11 +229,11 @@ This project will span 2-3 lab sessions:
 
 **Case Study: Pollinator Decline**
 
-1. **Research Task**: Investigate the causes and consequences of pollinator decline (bees, butterflies, etc.). What crop groups depend on animal pollination, and how do dependence estimates differ between staple calories, fruits, nuts, and specialty crops?
+1. **Research Task**: Investigate the causes and consequences of pollinator decline (bees, butterflies, etc.). What crop groups depend on animal pollination, and how do dependence estimates differ between staple calories, fruits, nuts, and specialty crops? Separate managed honeybee service from wild-bee service when evidence permits that distinction.
 
 2. **Field-Translation Consideration**: A warming treatment advances flowering in a chamber experiment, but a field dataset shows variable pollinator emergence. What evidence would let you decide whether the crop faces pollen heat failure, pollinator mismatch, or both?
 
-3. **Policy Proposal**: Design a policy to protect pollinator populations while supporting agricultural productivity. Consider: incentives for habitat restoration, pesticide timing, heat-wave monitoring during flowering, and seed-set surveillance.
+3. **Policy Proposal**: Design a policy to protect pollinator populations while supporting agricultural productivity. Consider: incentives for habitat restoration, pesticide timing, heat-wave monitoring during flowering, seed-set surveillance, nesting substrate for wild bees, and edge-habitat management that does not increase invasive-ant disruption of native seed dispersal.
 
 
 ## Post-Lab Synthesis {.unnumbered}

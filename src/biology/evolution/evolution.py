@@ -7,10 +7,11 @@ All computations are real mathematical models — no mock methods.
 
 from __future__ import annotations
 
+import random
 from dataclasses import dataclass, field
 from typing import Optional
 
-from infrastructure.core.logging.utils import get_logger
+from textbook_logging import get_logger
 
 logger = get_logger(__name__)
 
@@ -164,16 +165,17 @@ def wright_fisher_drift(
     Raises:
         ValueError: If p not in [0,1] or N ≤ 0.
     """
-    import random
-
     if not (0.0 <= p <= 1.0):
         raise ValueError(f"p must be in [0, 1], got {p}.")
     if N <= 0:
         raise ValueError("N must be positive.")
 
     rng = random.Random(rng_seed)  # nosec B311 - deterministic teaching simulation, not cryptography.
+    return _wright_fisher_one_generation(p, N, rng)
+
+
+def _wright_fisher_one_generation(p: float, N: int, rng: random.Random) -> float:
     copies = 2 * N
-    # Binomial sampling
     drawn = sum(1 for _ in range(copies) if rng.random() < p)
     p_new = drawn / copies
     logger.debug(f"Drift: N={N}, p {p:.4f} → {p_new:.4f}")
@@ -202,14 +204,11 @@ def simulate_drift(
     """
     if generations <= 0:
         raise ValueError("generations must be positive.")
-    import random
 
     rng = random.Random(rng_seed)  # nosec B311 - deterministic teaching simulation, not cryptography.
     history = [p]
     for _ in range(generations):
-        copies = 2 * N
-        drawn = sum(1 for _ in range(copies) if rng.random() < history[-1])
-        history.append(drawn / copies)
+        history.append(_wright_fisher_one_generation(history[-1], N, rng))
     return history
 
 

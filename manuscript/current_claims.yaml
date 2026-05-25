@@ -8,9 +8,9 @@ claims:
     topic: genome-editing therapy
     source_tier: official_primary
     citekey: fda2026casgevy
-    url: https://www.fda.gov/media/174615/download?attachment
+    url: https://www.fda.gov/vaccines-blood-biologics/casgevy
     url_or_citekey: fda2026casgevy
-    evidence_date: 2026-01-01
+    evidence_date: 2026-03-26
     checked_as_of: 2026-05-20
     refresh_trigger: "FDA label, EMA EPAR, or pivotal-trial endpoint update."
   - claim_id: casgevy-long-followup-2026
@@ -21,9 +21,9 @@ claims:
     topic: genome-editing therapy
     source_tier: official_primary
     citekey: fda2026casgevy
-    url: https://www.fda.gov/media/174615/download?attachment
+    url: https://www.fda.gov/vaccines-blood-biologics/casgevy
     url_or_citekey: fda2026casgevy
-    evidence_date: 2026-01-01
+    evidence_date: 2026-03-26
     checked_as_of: 2026-05-20
     refresh_trigger: "FDA label, long-term follow-up guidance, or postmarketing safety update."
   - claim_id: prime-editing-hbf-2025
@@ -76,7 +76,7 @@ claims:
     url: https://www.nature.com/articles/s41586-023-05896-x
     url_or_citekey: humanpangenome2023
     evidence_date: 2023-05-10
-    checked_as_of: 2026-05-20
+    checked_as_of: 2026-05-21
     refresh_trigger: "New HPRC reference release, Nature/GRCh update, or graph-reference tooling change."
   - claim_id: human-pangenome-47-94-2023
     file: manuscript/unit_IV/mutations_and_genomics.md
@@ -89,8 +89,21 @@ claims:
     url: https://www.nature.com/articles/s41586-023-05896-x
     url_or_citekey: humanpangenome2023
     evidence_date: 2023-05-10
-    checked_as_of: 2026-05-20
+    checked_as_of: 2026-05-21
     refresh_trigger: "New HPRC release, additional haplotype sampling, or clinical graph-reference adoption update."
+  - claim_id: human-pangenome-release-ii-2025
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "2025 Release II expanded the resource to assemblies from 232 individuals"
+    claim_text: "HPRC Release II expanded the pangenome resource to assemblies from 232 individuals with phased, near-telomere-to-telomere assemblies, annotations, and graph-based alignments."
+    topic: pangenomics
+    source_tier: official_summary
+    citekey: hprc2025release2
+    url: https://humanpangenome.org/hprc-data-release-2/
+    url_or_citekey: hprc2025release2
+    evidence_date: 2025-05-12
+    checked_as_of: 2026-05-23
+    refresh_trigger: "New HPRC release, marker publication, sample-count update, or clinical graph-reference adoption update."
   - claim_id: alphafold3-hypothesis-generator
     file: manuscript/unit_I/macromolecules.md
     source_path: manuscript/unit_I/macromolecules.md
@@ -112,14 +125,53 @@ claims:
     topic: AI biomolecular modeling
     source_tier: official_summary
     citekey: emblebi2026alphafoldcomplexes
-    url: https://www.ebi.ac.uk/about/news/technology-and-innovation/alphafold-database-protein-complexes/
+    url: https://www.ebi.ac.uk/about/news/technology-and-innovation/first-complexes-alphafold-database/
     url_or_citekey: emblebi2026alphafoldcomplexes
-    evidence_date: 2026-05-20
-    checked_as_of: 2026-05-20
+    evidence_date: 2026-03-16
+    checked_as_of: 2026-05-23
     refresh_trigger: "New AlphaFold DB complex release, database schema update, or validation benchmark."
+  - claim_id: brenda-2026-enzyme-resource
+    file: manuscript/unit_I/enzymes_and_kinetics.md
+    source_path: manuscript/unit_I/enzymes_and_kinetics.md
+    anchor_text: "BRENDA in 2026 is the release-specific enzyme resource"
+    claim_text: "BRENDA in 2026 is used as a release-specific enzyme resource for curated functional enzyme, ligand, kinetic, and organism-linked data."
+    topic: enzyme databases
+    source_tier: scholarly_primary
+    citekey: hauenstein2026brenda
+    url: https://doi.org/10.1093/nar/gkaf1113
+    url_or_citekey: hauenstein2026brenda
+    evidence_date: 2026-01-06
+    checked_as_of: 2026-05-23
+    refresh_trigger: "New BRENDA publication, database release, license/access change, or enzyme-resource curation update."
+  - claim_id: nar-database-issue-2026
+    file: manuscript/unit_IV/gene_expression.md
+    source_path: manuscript/unit_IV/gene_expression.md
+    anchor_text: "The 2026 *Nucleic Acids Research* Database Issue reported 182 database papers"
+    claim_text: "The 2026 NAR Database Issue reported 182 database papers, including new, updated, and previously elsewhere-published resources."
+    topic: molecular biology databases
+    source_tier: scholarly_review
+    citekey: rigden2026nardatabase
+    url: https://doi.org/10.1093/nar/gkaf1427
+    url_or_citekey: rigden2026nardatabase
+    evidence_date: 2025-12-23
+    checked_as_of: 2026-05-21
+    refresh_trigger: "New NAR database issue, Molecular Biology Database Collection update, or database retirement/addition count update."
+  - claim_id: rnacentral-2026-gene-literature
+    file: manuscript/unit_IV/gene_expression.md
+    source_path: manuscript/unit_IV/gene_expression.md
+    anchor_text: "RNAcentral in 2026 had grown beyond a sequence index"
+    claim_text: "RNAcentral release 26 is framed as a release-specific non-coding RNA resource with gene-level and literature-linked interpretation layers."
+    topic: RNA databases
+    source_tier: scholarly_primary
+    citekey: rnacentral2026
+    url: https://doi.org/10.1093/nar/gkaf1329
+    url_or_citekey: rnacentral2026
+    evidence_date: 2026-01-06
+    checked_as_of: 2026-05-21
+    refresh_trigger: "New RNAcentral release, NAR database update, gene-model rebuild, literature-integration change, or ncRNA count revision."
   - claim_id: tazemetostat-epigenetic-therapy-2020
-    file: manuscript/unit_IV/epigenetics_and_gene_regulation.md
-    source_path: manuscript/unit_IV/epigenetics_and_gene_regulation.md
+    file: manuscript/unit_IV/epigenetic_inheritance_and_disease.md
+    source_path: manuscript/unit_IV/epigenetic_inheritance_and_disease.md
     anchor_text: "tazemetostat became the first epigenetic-pathway-defined targeted therapy"
     claim_text: "Tazemetostat is used as a source-governed example of an FDA-approved epigenetic-pathway-targeted cancer therapy."
     topic: epigenetic therapy
@@ -143,6 +195,19 @@ claims:
     evidence_date: 2024-04-26
     checked_as_of: 2026-05-20
     refresh_trigger: "New Human Cell Atlas release, spatial atlas benchmark, or disease-tissue validation update."
+  - claim_id: mouse-brain-cell-atlas-2023
+    file: manuscript/unit_IX/nervous_system.md
+    source_path: manuscript/unit_IX/nervous_system.md
+    anchor_text: "The NIH BRAIN Initiative reported a 2023 whole-mouse-brain atlas"
+    claim_text: "The 2023 NIH BRAIN/BICCN mouse brain atlas is used as a release-specific example of transcriptomic and spatial cell-type classification."
+    topic: brain cell atlases
+    source_tier: scholarly_primary
+    citekey: yao2023mousebrainatlas
+    url: https://doi.org/10.1038/s41586-023-06812-z
+    url_or_citekey: yao2023mousebrainatlas
+    evidence_date: 2023-12-13
+    checked_as_of: 2026-05-21
+    refresh_trigger: "New BICAN/BICCN atlas release, Allen Brain Cell Atlas update, cell-type taxonomy revision, or cross-species atlas update."
   - claim_id: bci-speech-neuroprosthesis-2023
     file: manuscript/unit_IX/nervous_system.md
     source_path: manuscript/unit_IX/nervous_system.md
@@ -157,8 +222,8 @@ claims:
     checked_as_of: 2026-05-20
     refresh_trigger: "New neural-prosthesis trial, clinical-device approval, long-term implant study, or privacy/safety guidance."
   - claim_id: cart-product-roster-2026
-    file: manuscript/unit_IX/endocrine_and_immune.md
-    source_path: manuscript/unit_IX/endocrine_and_immune.md
+    file: manuscript/unit_IX/immune_system_defense.md
+    source_path: manuscript/unit_IX/immune_system_defense.md
     anchor_text: "current FDA product pages and labels"
     claim_text: "CAR-T product rosters and approved-use language are current-source claims that should be checked against FDA pages before publication."
     topic: immunotherapy
@@ -170,8 +235,8 @@ claims:
     checked_as_of: 2026-05-20
     refresh_trigger: "New FDA cellular/gene therapy product approval, label update, or safety communication."
   - claim_id: cart-boxed-warning-2024
-    file: manuscript/unit_IX/endocrine_and_immune.md
-    source_path: manuscript/unit_IX/endocrine_and_immune.md
+    file: manuscript/unit_IX/immune_system_defense.md
+    source_path: manuscript/unit_IX/immune_system_defense.md
     anchor_text: "FDA required boxed-warning language for T-cell malignancies"
     claim_text: "FDA required boxed warning language for T-cell malignancies after BCMA-directed or CD19-directed autologous CAR-T products."
     topic: immunotherapy
@@ -183,8 +248,8 @@ claims:
     checked_as_of: 2026-05-20
     refresh_trigger: "FDA CAR-T boxed-warning update, REMS change, or long-term follow-up safety signal."
   - claim_id: checkpoint-indications-2026
-    file: manuscript/unit_IX/endocrine_and_immune.md
-    source_path: manuscript/unit_IX/endocrine_and_immune.md
+    file: manuscript/unit_IX/immune_system_defense.md
+    source_path: manuscript/unit_IX/immune_system_defense.md
     anchor_text: "checkpoint indications change by tumour type"
     claim_text: "Checkpoint inhibitor indications and examples are current clinical claims that change by tumour type, biomarker, and line of therapy."
     topic: immunotherapy
@@ -208,6 +273,19 @@ claims:
     evidence_date: 2022-07-19
     checked_as_of: 2026-05-20
     refresh_trigger: "New randomized phage-therapy trial, compassionate-use series, FDA guidance, or resistance/safety update."
+  - claim_id: lyfgenia-gene-therapy-approval
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "lentiviral gene addition for Lyfgenia"
+    claim_text: "Lyfgenia is treated as an FDA-approved sickle-cell gene-addition therapy with a molecular strategy distinct from Casgevy CRISPR editing."
+    topic: gene therapy
+    source_tier: official_primary
+    citekey: fda2026lyfgenia
+    url: https://www.fda.gov/vaccines-blood-biologics/lyfgenia
+    url_or_citekey: fda2026lyfgenia
+    evidence_date: 2023-12-08
+    checked_as_of: 2026-05-23
+    refresh_trigger: "FDA Lyfgenia label, approval-history, boxed-warning, or indication update."
   - claim_id: who-bppl-2024-amr-triage
     file: manuscript/unit_VII/bacteria_archaea_viruses.md
     source_path: manuscript/unit_VII/bacteria_archaea_viruses.md
@@ -221,9 +299,35 @@ claims:
     evidence_date: 2024-05-17
     checked_as_of: 2026-05-20
     refresh_trigger: "New WHO BPPL, GLASS, or CDC AR threat update."
+  - claim_id: who-glass-2025-amr-surveillance
+    file: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
+    source_path: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
+    anchor_text: "WHO GLASS \\citep{who2025glass} now track"
+    claim_text: "WHO GLASS 2025 is used as the surveillance frame for AMR and antimicrobial-use interpretation, complementing priority-list triage."
+    topic: antimicrobial resistance
+    source_tier: official_primary
+    citekey: who2025glass
+    url: https://www.who.int/publications/i/item/9789240116337
+    url_or_citekey: who2025glass
+    evidence_date: 2025-10-13
+    checked_as_of: 2026-05-23
+    refresh_trigger: "New WHO GLASS report, country-reporting update, AMR trend revision, or BPPL refresh."
+  - claim_id: gtdb-r10-rs226-2025
+    file: manuscript/unit_VII/microbial_ecology.md
+    source_path: manuscript/unit_VII/microbial_ecology.md
+    anchor_text: "GTDB release R10-RS226 organized 715,230 bacterial and 17,245 archaeal genomes"
+    claim_text: "GTDB R10-RS226 is framed as a release-specific genome taxonomy resource for reproducible bacterial, archaeal, isolate, SAG, and MAG classification."
+    topic: microbial taxonomy
+    source_tier: scholarly_primary
+    citekey: parks2026gtdb
+    url: https://doi.org/10.1093/nar/gkaf1040
+    url_or_citekey: parks2026gtdb
+    evidence_date: 2025-10-22
+    checked_as_of: 2026-05-21
+    refresh_trigger: "New GTDB release, species-cluster revision, NCBI RefSeq synchronization, or GTDB-Tk classification-policy update."
   - claim_id: oneill-amr-warning-scenario
-    file: manuscript/labs/unit_VII/lab_infectious_disease.md
-    source_path: manuscript/labs/unit_VII/lab_infectious_disease.md
+    file: manuscript/labs/unit_VII/lab_antimicrobial_resistance_and_epidemiology.md
+    source_path: manuscript/labs/unit_VII/lab_antimicrobial_resistance_and_epidemiology.md
     anchor_text: "historical warning scenario, not a current burden count"
     claim_text: "The O'Neill 10-million-deaths-by-2050 AMR figure is treated as a warning scenario rather than a current burden estimate."
     topic: antimicrobial resistance
@@ -235,8 +339,8 @@ claims:
     checked_as_of: 2026-05-20
     refresh_trigger: "New Lancet/WHO global AMR burden estimate or policy-forecast revision."
   - claim_id: candida-auris-colonization-control-2026
-    file: manuscript/unit_VII/infectious_disease.md
-    source_path: manuscript/unit_VII/infectious_disease.md
+    file: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
+    source_path: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     anchor_text: "can colonise patients without symptoms"
     claim_text: "CDC guidance frames Candida auris as a healthcare-transmissible yeast that may colonise asymptomatic patients and requires infection-control source governance."
     topic: fungal antimicrobial resistance
@@ -248,8 +352,8 @@ claims:
     checked_as_of: 2026-05-20
     refresh_trigger: "CDC C. auris clinical overview update, outbreak guidance, resistance report, or diagnostic recommendation."
   - claim_id: candida-auris-echinocandin-treatment-2024
-    file: manuscript/unit_VII/infectious_disease.md
-    source_path: manuscript/unit_VII/infectious_disease.md
+    file: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
+    source_path: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     anchor_text: "echinocandins remain typical initial adult therapy"
     claim_text: "Echinocandins remain typical initial adult therapy for clinical Candida auris infection, while resistance trends require refreshing."
     topic: fungal antimicrobial resistance
@@ -261,8 +365,8 @@ claims:
     checked_as_of: 2026-05-20
     refresh_trigger: "CDC clinical-care update, echinocandin-resistance report, or antifungal guideline revision."
   - claim_id: tb-2025-burden-2024
-    file: manuscript/unit_VII/infectious_disease.md
-    source_path: manuscript/unit_VII/infectious_disease.md
+    file: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
+    source_path: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     anchor_text: "estimated 10.7 million people fell ill with TB in 2024"
     claim_text: "WHO's 2025 TB report estimates 10.7 million people developed TB in 2024."
     topic: tuberculosis
@@ -274,8 +378,8 @@ claims:
     checked_as_of: 2026-05-20
     refresh_trigger: "New WHO Global tuberculosis report, treatment guideline, or surveillance revision."
   - claim_id: tb-bpalm-guidance-2025
-    file: manuscript/unit_VII/infectious_disease.md
-    source_path: manuscript/unit_VII/infectious_disease.md
+    file: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
+    source_path: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     anchor_text: "shorter most-oral regimens for eligible patients"
     claim_text: "WHO 2025 TB guidance prioritises shorter most-oral regimens for eligible MDR/RR-TB patients while preserving individualized regimens for exclusions."
     topic: tuberculosis
@@ -287,8 +391,8 @@ claims:
     checked_as_of: 2026-05-20
     refresh_trigger: "New WHO drug-resistant TB guideline, regimen eligibility change, or resistance/toxicity update."
   - claim_id: malaria-2025-burden-2024
-    file: manuscript/unit_VII/infectious_disease.md
-    source_path: manuscript/unit_VII/infectious_disease.md
+    file: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
+    source_path: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     anchor_text: "estimated 282 million cases and 610,000 deaths in 2024"
     claim_text: "WHO's 2025 malaria reporting estimates 282 million cases and 610,000 deaths in 2024."
     topic: malaria
@@ -300,8 +404,8 @@ claims:
     checked_as_of: 2026-05-20
     refresh_trigger: "New WHO World malaria report, country-surveillance revision, or burden estimate update."
   - claim_id: malaria-r21-second-vaccine
-    file: manuscript/unit_VII/infectious_disease.md
-    source_path: manuscript/unit_VII/infectious_disease.md
+    file: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
+    source_path: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     anchor_text: "R21/Matrix-M is now the second WHO-recommended malaria vaccine"
     claim_text: "R21/Matrix-M is framed as a second WHO-recommended malaria vaccine and as an addition to, not replacement for, malaria control."
     topic: malaria
@@ -313,8 +417,8 @@ claims:
     checked_as_of: 2026-05-20
     refresh_trigger: "New WHO malaria vaccine recommendation, efficacy update, safety signal, or implementation guidance."
   - claim_id: malaria-spatial-emanators-2025
-    file: manuscript/unit_VII/infectious_disease.md
-    source_path: manuscript/unit_VII/infectious_disease.md
+    file: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
+    source_path: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     anchor_text: "2025 conditional recommendation for indoor **spatial emanators**"
     claim_text: "WHO issued a conditional recommendation for indoor spatial emanators as an added malaria vector-control tool in areas with ongoing transmission."
     topic: malaria
@@ -338,18 +442,18 @@ claims:
     evidence_date: 2021-08-09
     checked_as_of: 2026-05-20
     refresh_trigger: "New IPCC scenario assessment or CMIP concentration update."
-  - claim_id: iucn-red-list-2025-1
+  - claim_id: iucn-red-list-2025-2
     file: manuscript/unit_X/biomes_and_conservation.md
     source_path: manuscript/unit_X/biomes_and_conservation.md
-    anchor_text: "Version 2025-1 listed 169,420 assessed species"
-    claim_text: "IUCN 2025-1 counts are a tracked assessed-species subset and should not be treated as a census of all biodiversity."
+    anchor_text: "Version 2025-2 listed 172,620 assessed species"
+    claim_text: "IUCN 2025-2 counts are a tracked assessed-species subset and should not be treated as a census of all biodiversity."
     topic: conservation status
     source_tier: official_summary
     citekey: iucn2025redlist
-    url: https://www.iucnredlist.org/resources/summary-statistics
+    url: https://nc.iucnredlist.org/redlist/content/attachment_files/2025-2_RL_Table1a.pdf
     url_or_citekey: iucn2025redlist
-    evidence_date: 2025-01-01
-    checked_as_of: 2026-05-20
+    evidence_date: 2025-10-10
+    checked_as_of: 2026-05-21
     refresh_trigger: "New IUCN Red List version or summary-statistics table."
   - claim_id: cites-appendices-live-2026
     file: manuscript/unit_X/biomes_and_conservation.md
@@ -430,8 +534,8 @@ claims:
     checked_as_of: 2026-05-20
     refresh_trigger: "New SOFI report, nutrition burden update, or food-security methods revision."
   - claim_id: prs-transferability-disparities-2019
-    file: manuscript/unit_V/mendelian_genetics.md
-    source_path: manuscript/unit_V/mendelian_genetics.md
+    file: manuscript/unit_V/mendelian_extensions_and_human_genetics.md
+    source_path: manuscript/unit_V/mendelian_extensions_and_human_genetics.md
     anchor_text: "Current PRS accuracy is several-fold higher in European-ancestry cohorts"
     claim_text: "Clinical PRS interpretation should be framed as ancestry- and context-dependent because present accuracy differs across ancestry cohorts."
     topic: polygenic risk scores
@@ -455,3 +559,29 @@ claims:
     evidence_date: 2022-12-27
     checked_as_of: 2026-05-20
     refresh_trigger: "New rice/maize/sorghum synthetic-apomixis field trial, seed-setting benchmark, containment study, or stability report."
+  - claim_id: plant-pangenomes-crop-breeding-2024
+    file: manuscript/unit_VIII/plant_reproduction.md
+    source_path: manuscript/unit_VIII/plant_reproduction.md
+    anchor_text: "Plant pangenomes extend this toolkit beyond single-reference breeding"
+    claim_text: "Plant pangenomes are used as a source-governed crop-breeding example for structural variation, presence-absence variation, and wild-relative haplotypes not captured by one reference line."
+    topic: plant pangenomics
+    source_tier: scholarly_review
+    citekey: schreiber2024plantpangenomes
+    url: https://doi.org/10.1038/s41576-024-00691-4
+    url_or_citekey: schreiber2024plantpangenomes
+    evidence_date: 2024-02-20
+    checked_as_of: 2026-05-21
+    refresh_trigger: "New major crop pangenome review, crop-specific pangenome release, structural-variant benchmark, or breeding-adoption update."
+  - claim_id: pollinator-crop-dependence-ipbes-2016
+    file: manuscript/unit_VIII/plant_reproduction.md
+    source_path: manuscript/unit_VIII/plant_reproduction.md
+    anchor_text: "more than three quarters of leading global food-crop types benefit at least partly from animal pollination"
+    claim_text: "IPBES pollinator assessment figures are used to frame animal pollination as a crop-production and biodiversity-service claim, including the distinction between crop types that benefit from pollination and production volume directly dependent on animal pollination."
+    topic: pollination services
+    source_tier: official_summary
+    citekey: ipbes2016pollinators
+    url: https://files.ipbes.net/ipbes-web-prod-public-files/downloads/pdf/2017_pollination_full_report_book_v12_pages.pdf
+    url_or_citekey: ipbes2016pollinators
+    evidence_date: 2016-02-26
+    checked_as_of: 2026-05-23
+    refresh_trigger: "New IPBES pollinator assessment, FAO crop-pollination synthesis, or major pollinator-risk/status update."

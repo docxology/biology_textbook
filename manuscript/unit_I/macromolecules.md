@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 3** · Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_I_atoms_molecules}, \cref{sec:unit_I_water_and_life}
+> Level 2/3 · 55 min read · 75 min lecture · Prerequisites: \cref{sec:unit_I_atoms_molecules}, \cref{sec:unit_I_water_and_life}
 
 ## Learning Objectives
 
@@ -14,6 +14,7 @@
 4. Explain nucleic acid structure, including A-form, B-form, and Z-form DNA, as well as RNA secondary structures.
 5. Distinguish the structures and roles of carbohydrates and lipids, including glycoproteins and sphingolipids.
 6. Describe ribozymes, their discovery, and their significance for the RNA World hypothesis.
+7. Compare storage and structural roles of polysaccharides using starch, glycogen, and cellulose as examples.
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -46,7 +47,7 @@
 > DNA technology (1982), when the human insulin gene was inserted into *E. coli* to manufacture
 > pharmaceutical insulin for diabetics. Before recombinant insulin, most medical insulin came from
 > pig and cow pancreas, with shortages, immunological reactions, and ethical concerns. Today,
-> nearly most 500 million diabetics worldwide who require insulin use a product whose existence
+> nearly 500 million diabetics worldwide who require insulin use a product whose existence
 > depends on understanding the four classes of biological macromolecules this chapter explores.
 >
 > *Primary source: Sanger, F. & Thompson, E. O. P. (1953). The amino-acid sequence in the glycyl chain of insulin. Biochem. J., 53(3), 353–374.*
@@ -132,7 +133,10 @@ classDiagram
 
 Most biological polymers are built by **condensation (dehydration) reactions**, in which two monomers are joined with the release of one water molecule per bond:
 
-$$\text{Monomer}_1\text{--OH} + \text{H--Monomer}_2 \rightarrow \text{Monomer}_1\text{--Monomer}_2 + \text{H}_2\text{O} \tag{3.1} \label{eq:unit_I_macromolecules_item_1}$$
+\begin{equation}
+\text{Monomer}_1\text{--OH} + \text{H--Monomer}_2 \rightarrow \text{Monomer}_1\text{--Monomer}_2 + \text{H}_2\text{O}
+\label{eq:unit_I_macromolecules_item_1}
+\end{equation}
 
 
 The reverse, **hydrolysis**, uses water to cleave the bond. These reactions require [**enzyme**](#gl:enzyme) catalysis (see \cref{sec:unit_I_enzymes_and_kinetics}) and energy input for condensation.
@@ -178,9 +182,9 @@ By coupling the unfavourable peptide bond formation (+10 kJ/mol) to the favourab
 
 ---
 
-## Carbohydrates
+## Carbohydrates as Energy Stores and Structural Polymers
 
-### Monosaccharides
+### Monosaccharides and Ring Chemistry
 
 The simplest carbohydrates are **monosaccharides** with the empirical formula (CH$_2$O)$_n$. They are classified by:
 - **Number of carbons:** trioses (3C), tetroses (4C), pentoses (5C), hexoses (6C)
@@ -249,9 +253,9 @@ flowchart TD
     style CELLULOSE fill:#e74c3c,color:#fff
     style SCFA fill:#e67e22,color:#fff
 ```
-<!-- alt: Flowchart showing carbohydrate digestion and absorption. Carbohydrate digestion and absorption pathway. Note the key distinction: α-linked polysaccharides (starch) are digested by human enzymes, while β-linked cellulose passes to the colon where microbial fermentation produces short-chain fatty acids. -->
+<!-- alt: Flowchart showing digestible alpha-linked carbohydrates pass through amylase, brush-border enzymes, and portal absorption, while beta-linked cellulose bypasses human enzymes and reaches microbial fermentation in the colon. -->
 
-*Carbohydrate digestion and absorption. Carbohydrate digestion and absorption pathway. Note the key distinction: α-linked polysaccharides (starch) are digested by human enzymes, while β-linked cellulose passes to the colon where microbial [**fermentation**](#gl:fermentation) produces short-chain fatty acids.*
+*Digestible alpha-linked carbohydrates pass through amylase, brush-border enzymes, and portal absorption, while beta-linked cellulose bypasses human enzymes and reaches microbial [**fermentation**](#gl:fermentation) in the colon.*
 
 > **Clinical Connection: Lactose Intolerance**
 >
@@ -312,11 +316,11 @@ The highly negatively charged GAGs attract enormous amounts of water (via osmoti
 
 ---
 
-## Lipids
+## Lipids, Membranes, and Energy Storage
 
 Lipids are not polymers but are grouped together by their **hydrophobicity** --- they do not form regular covalent polymers, yet their self-assembly into bilayers, vesicles, and membranes is central to cellular life.
 
-### Fatty Acids
+### Fatty Acids and Membrane Fluidity
 
 Fatty acids are long-chain carboxylic acids. Food-relevant examples:
 
@@ -370,7 +374,7 @@ graph TD
 
 *Lipid classes and roles. Classification of lipids. Unlike other macromolecules, lipids are classified by solubility (hydrophobicity) rather than by a common monomer structure. Note the diversity of roles: energy storage, membrane structure, signalling, and waterproofing.*
 
-### Glycerophospholipids
+### Glycerophospholipids and Bilayer Architecture
 
 Glycerophospholipids (also called phosphoglycerides) are the most abundant membrane lipids. Their structure: glycerol backbone + 2 fatty acid chains at positions sn-1 and sn-2 + phosphate group at sn-3 + polar head group attached to the phosphate.
 
@@ -408,7 +412,7 @@ The "fluid mosaic" model of Singer and Nicolson (1972) proposed that membranes a
 
 > **Concept Check 7:** A typical phospholipid diffuses ~1 μm/s laterally in a fluid bilayer but flips between leaflets primarily once every several hours unaided. Use the structure of a phospholipid (charged head, hydrocarbon tails) and the energetics of the hydrophobic effect to explain this 10$^{12}$-fold difference. Why must cells expend ATP on flippases to break this asymmetry?
 
-### Sphingolipids
+### Sphingolipids in Membranes and Signalling
 
 Sphingolipids use **sphingosine** (rather than glycerol) as the backbone. Ceramide (sphingosine + fatty acid) is the core structure:
 
@@ -447,7 +451,7 @@ Cholesterol is the precursor to most steroid [**hormone**](#gl:hormone)s:
 
 ---
 
-## Proteins
+## Proteins as Folded Catalytic and Structural Polymers
 
 Proteins are the most structurally and functionally diverse macromolecules. They serve as:
 - Structural elements (collagen, keratin, [**actin**](#gl:actin), tubulin)
@@ -457,9 +461,9 @@ Proteins are the most structurally and functionally diverse macromolecules. They
 - Immune molecules (antibodies)
 - Motor proteins (myosin, kinesin, dynein)
 
-### Amino Acids
+### Amino Acid Chemistry and Side-Chain Diversity
 
-Most 20 canonical amino acids share a common backbone:
+The 20 canonical amino acids share a common backbone:
 
 ```
     NH₂
@@ -491,7 +495,10 @@ The **α-amino group** (pKa ~9.0) and **α-carboxyl group** (pKa ~2.0) flank the
 
 A peptide bond forms by condensation between the carboxyl of one amino acid and the amino group of the next:
 
-$$\text{--NH--CHR}_1\text{--CO--NH--CHR}_2\text{--CO--} \ldots \tag{3.2} \label{eq:unit_I_macromolecules_item_5}$$
+\begin{equation}
+\text{--NH--CHR}_1\text{--CO--NH--CHR}_2\text{--CO--} \ldots
+\label{eq:unit_I_macromolecules_item_5}
+\end{equation}
 
 
 The peptide bond has **partial double-bond character** (~40% double bond due to resonance), making it planar and **trans** (almost typically; *cis* occurs ~0.03% of the time, except before proline where *cis* occurs ~5%). This rigidity limits rotation around the C$_\alpha$--C bond to the backbone dihedral angles φ and ψ (described on a Ramachandran plot), constraining protein conformational space.
@@ -678,9 +685,9 @@ A typical eukaryotic protein is modified by a "code" of covalent chemistry layer
 
 ---
 
-## Nucleic Acids
+## Nucleic Acids as Information Polymers
 
-### Nucleotide Monomers
+### Nucleotide Monomers and Phosphodiester Linkages
 
 Each [**nucleotide**](#gl:nucleotide) consists of:
 1. A pentose sugar (ribose in RNA; 2'-deoxyribose in DNA)
@@ -695,7 +702,7 @@ The **nucleoside** is base + sugar. The **nucleotide** is nucleoside + phosphate
 
 **Phosphodiester bond:** Nucleotides are linked 3'->5' by phosphodiester bonds, forming the sugar-phosphate backbone. This backbone is highly uniform and carries a negative charge at every phosphate (one negative charge per nucleotide at physiological pH).
 
-### DNA Structure
+### DNA Structure, Base Pairing, and Helical Geometry
 
 DNA (deoxyribonucleic acid) is a double-stranded helix discovered by Watson and Crick in 1953, guided by X-ray diffraction data from Franklin and Wilkins and Chargaff's rules:
 
@@ -835,7 +842,7 @@ The discovery that the ribosome's peptidyl transferase activity resides in rRNA 
 
 ---
 
-## Key Comparisons
+## Key Comparisons Among Macromolecule Classes
 
 ### The Four Macromolecule Classes Compared
 
@@ -876,7 +883,7 @@ print(round(gc_content(seq), 3))  # 0.583
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Biological Macromolecules
 
 For **Biological Macromolecules**, frontier biology belongs inside the evidence logic of
 the chapter. Chemistry-of-life claims now connect classical bonding and thermodynamics with AI-guided structure prediction and experimental validation. The core reading question is this: macromolecule explanations should connect sequence, structure, dynamics, modification, interaction, and assay evidence.
@@ -892,9 +899,11 @@ the chapter. Chemistry-of-life claims now connect classical bonding and thermody
   the source closest to the measurement and state what has changed since it was
   published.
 
-Use AI biomolecular models as hypothesis generators: compare confidence, conservation, solvent exposure, and assay evidence before turning a predicted contact into a biological claim \citep{abramson2024alphafold3}.
+Use AI biomolecular models as hypotheses about folding, contact, or complex formation; compare confidence, conservation, solvent exposure, and assay evidence before treating them as structure \citep{abramson2024alphafold3}.
 
-**Source practice:** For structure and interaction claims, cite experimental structures when available and treat AlphaFold 3 or AFDB complex predictions as hypotheses to validate with confidence metrics, conservation, mutagenesis, binding, or cryo-EM/X-ray/NMR evidence \citep{abramson2024alphafold3,velankar2026alphafolddb2025,emblebi2026alphafoldcomplexes}.
+Protein evidence now has a provenance stack. UniProt stabilizes protein names, accessions, isoforms, sequence features, and curated functional annotations; the wwPDB archive and PDBe entry pages connect atomic coordinates to deposition metadata, methods, ligands, and validation reports; EMDB supplies the density-map layer for cryo-EM structures. A defensible macromolecule claim should name the UniProt accession, PDB identifier or EMDB map when available, and whether the structural support is experimental, predicted, or an experimentally constrained model \citep{uniprot2025,wwpdb2026,pdbe2026,emdb2026}.
+
+**Source practice:** For macromolecular structure claims, prefer experimental structures when available and validate predictions with confidence metrics, conservation, mutagenesis, binding, or cryo-EM/X-ray/NMR evidence \citep{abramson2024alphafold3,velankar2026alphafolddb2025,emblebi2026alphafoldcomplexes}.
 
 ### Current Evidence Map: AI Structure Claims Need Validation
 
@@ -921,7 +930,7 @@ flowchart LR
 - DNA exists in A, B, and Z forms; B-form dominates under physiological conditions. RNA forms complex secondary structures including pseudoknots and G-quadruplexes.
 - DNA's double helix uses complementary A--T and G--C pairing; this complementarity is the structural basis of heredity and information transfer.
 - Ribozymes (catalytic RNAs) demonstrate RNA's dual role as information carrier and catalyst, supporting the RNA World hypothesis. The ribosome itself is a ribozyme.
-- **Connections:** See \cref{sec:unit_IV_dna_replication_and_cell_cycle} and \cref{sec:unit_IV_gene_expression} for replication, [**transcription**](#gl:transcription), and translation; \cref{sec:unit_V_mendelian_genetics} for segregation of alleles; and \cref{sec:unit_I_enzymes_and_kinetics} for enzymes that polymerise and hydrolyse these macromolecules.
+- **Connections:** See \cref{sec:unit_IV_dna_replication_and_cell_cycle} and \cref{sec:unit_IV_gene_expression} for replication, [**transcription**](#gl:transcription), and translation; \cref{sec:unit_V_mendelian_principles} for segregation of alleles; and \cref{sec:unit_I_enzymes_and_kinetics} for enzymes that polymerise and hydrolyse these macromolecules.
 
 ## Key Terms
 
@@ -965,7 +974,7 @@ flowchart LR
 16. Liquid--liquid phase separation forms the nucleolus, P-bodies, and stress granules. Explain why **multivalent** weak interactions are essential and why a protein with a single high-affinity binding site for its partner does not phase separate.
 17. List three reasons why cells use post-translational modifications (PTMs) rather than relying solely on transcription/translation to regulate protein activity. Include time scales, energetic cost, and reversibility in your answer.
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Biological Macromolecules
 
 - Pauling, Corey & Branson (1951). The structure of proteins: Two hydrogen-bonded helical configurations of the polypeptide chain. *Proceedings of the National Academy of Sciences*, 37.
 - Anfinsen (1973). Principles that govern the folding of protein chains. *Science*, 181.
@@ -977,7 +986,7 @@ flowchart LR
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Biological Macromolecules
 
 **Biological Macromolecules** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

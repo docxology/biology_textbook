@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 21** · Level 3/3 · 60 min read · 100 min lecture · Prerequisites: \cref{sec:unit_VI_genetic_drift_and_speciation}
+> Level 3/3 · 60 min read · 100 min lecture · Prerequisites: \cref{sec:unit_VI_genetic_drift_and_speciation}
 
 ## Learning Objectives
 
@@ -19,6 +19,15 @@ By the end of this chapter, you should be able to:
 7. Calculate a Jukes-Cantor corrected distance from observed sequence divergence and estimate a divergence time, explaining why the correction is needed and why mitochondrial estimates differ from nuclear calibrations.
 8. Explain how long-read sequencing (PacBio HiFi, Oxford Nanopore) resolves deep-divergence and polyploid phylogenies that short reads cannot, using the animal tree of life and ancient-DNA examples.
 9. Evaluate a phylogenetic claim by identifying the dataset, model, and null hypothesis needed to distinguish shared ancestry from convergence and to assess sampling and calibration uncertainty.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/molecular_clock.png}
+\caption{Molecular-clock divergence estimates from substitution rate and sequence divergence ($t = d / 2\mu$). Faster-evolving lineages and larger divergences yield shorter inferred times when rates are held constant.}
+\label{fig:unit_VI_molecular_clock}
+\end{figure}
+
+<!-- alt: Horizontal bar chart of estimated divergence times in million years for four example taxon pairs. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -42,7 +51,7 @@ By the end of this chapter, you should be able to:
 > 
 > In the 1970s, Carl Woese was alone in his University of Illinois laboratory, painstakingly sequencing ribosomal RNA by subjecting it to nuclease digestion and then separating fragments on two-dimensional electrophoresis gels — an agonisingly laborious technique that took months per organism. When he sequenced methanogens (thought to be unusual bacteria), the rRNA pattern was unlike any bacterium. It was unlike any [**eukaryote**](#gl:eukaryote) too. Woese concluded they formed a third domain of life — the Archaea. His 1977 *PNAS* paper was widely dismissed for nearly a decade: a microbiologist claiming to overturn a century of classification with RNA fingerprints? Yet the phylogenetic evidence was incontrovertible, and by the 1990s the three-domain tree had rearranged most of biology. The lesson: molecular sequence data can reveal evolutionary relationships invisible to morphology, and great paradigm shifts are often dismissed before they are accepted.
 
-## What Phylogenetics Tells Us
+## What Phylogenetics Reveals About Shared History
 
 **Phylogenetics** is the study of evolutionary relationships among organisms, inferred from heritable characters (DNA sequences, [**protein**](#gl:protein) sequences, morphological traits, behavioral traits). A phylogenetic analysis produces a tree (or network) that represents the historical pattern of descent from common ancestors.
 
@@ -110,9 +119,9 @@ graph TD
     linkStyle 3 stroke:#333,stroke-width:2px
     linkStyle 4 stroke:#333,stroke-width:2px
 ```
-<!-- alt: Flowchart for tree terminology and reading phylogenies: root (MRCA of sampled taxa), internal node (divergence event), outgroup, and branch labels define how to read relatedness. -->
+<!-- alt: Graph showing reading a phylogeny depends on tracing common ancestry: roots, internal nodes, outgroups, and branch labels define relationships rather than left-to-right order. -->
 
-*Flowchart for tree terminology and reading phylogenies: root (MRCA of sampled taxa), internal node (divergence event), outgroup, and branch labels define how to read relatedness.*
+*Reading a phylogeny depends on tracing common ancestry: roots, internal nodes, outgroups, and branch labels define relationships rather than left-to-right order.*
 
 **Key: A and B are sister taxa. The clade (A, B, C) is monophyletic. The outgroup roots the tree.**
 
@@ -138,7 +147,7 @@ graph TD
 
 **Polyphyletic group**: A group whose members do NOT share a most recent common ancestor exclusive to that group. "Warm-blooded animals" (birds + mammals) is polyphyletic because endothermy evolved independently in each lineage. Polyphyletic groups reflect convergent evolution, not shared ancestry.
 
-### Character Types
+### Character Types and Phylogenetic Signal
 
 **Synapomorphy**: A shared derived character that defines a clade. The amniotic egg is a synapomorphy of Amniota (reptiles, birds, and mammals). Synapomorphies are the characters most informative for identifying clades.
 
@@ -148,7 +157,7 @@ graph TD
 
 **Homoplasy**: A character state that appears similar in two or more taxa but was NOT inherited from their common ancestor. Homoplasy arises through **convergent evolution** (independent evolution of similar features -- e.g., wings in bats and birds) or **reversal** (return to an ancestral state). Homoplasy confounds phylogenetic analysis because it falsely suggests shared ancestry.
 
-### Rooting Trees
+### Rooting Trees with Outgroups and Clocks
 
 An **unrooted tree** shows the relationships among taxa but does not indicate the direction of evolutionary time. To root a tree (and thereby determine which character states are ancestral versus derived), one of two approaches is used:
 
@@ -184,6 +193,12 @@ Decades of cognitive-science research on student tree-reading reveal a recurring
 
 > **Concept Check 2:** Consider the traditional classification "Reptilia" that includes turtles, lizards, snakes, and crocodilians but excludes birds. Is this group monophyletic, paraphyletic, or polyphyletic? Explain your reasoning based on the phylogenetic position of birds relative to crocodilians.
 
+### Eusociality as a Character on a Tree
+
+Phylogenies prevent a common social-insect error: treating "ants, bees, and termites" as one natural group because each can form colonies. Ants and bees are hymenopterans, whereas molecular phylogenies place termites within cockroaches (Blattodea), not as a separate insect order outside them \citep{inward2007death}. Their colony organization is therefore a case of convergent social evolution, not simple inheritance from one eusocial ancestor.
+
+Mapping [**eusociality**](#gl:eusociality) onto a tree asks which components are homologous and which are analogous. Cooperative brood care, overlapping generations, and reproductive division of labour define the social syndrome \citep{crespi1995definition}; the genetic and ecological routes differ among ants, bees, wasps, and termites. Haplodiploidy helps explain relatedness patterns in many Hymenoptera, but diploid termites show that ancestry, mating system, nest defence, diet, and symbiosis can produce similar colony-level outcomes through different historical paths \citep{bourke2011principles}.
+
 ---
 
 ## Phylogenetic Reconstruction Methods
@@ -211,11 +226,11 @@ flowchart TD
     C3 --> C3b["MrBayes, BEAST"]
     C3 --> C3c["Complex model support"]
 ```
-<!-- alt: Flowchart for Phylogenetic Reconstruction Methods: Phylogenetic Methods, Distance-Based, Character-Based, and UPGMA form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing phylogenetic reconstruction methods differ in the evidence they optimise: distance methods summarize pairwise divergence, while character-based methods evaluate histories of trait or sequence change. -->
 
-*Flowchart for Phylogenetic Reconstruction Methods: Phylogenetic Methods, Distance-Based, Character-Based, and UPGMA form the diagram's primary path or branches.*
+*Phylogenetic reconstruction methods differ in the evidence they optimise: distance methods summarize pairwise divergence, while character-based methods evaluate histories of trait or sequence change.*
 
-### Distance Methods
+### Distance-Based Tree Reconstruction: UPGMA and Neighbor-Joining
 
 **UPGMA (Unweighted Pair Group Method with Arithmetic Mean)**: The simplest clustering algorithm. It assumes a strict molecular clock (equal rates of evolution across most lineages) and produces an ultrametric tree where most tips are equidistant from the root. UPGMA works by iteratively joining the two most similar sequences and recalculating distances.
 
@@ -258,7 +273,7 @@ Four taxa (A, B, C, D) have the symmetric pairwise distance matrix below (substi
 
 **Interpretation:** A and B cluster first at node height 0.05 substitutions/site; in the reduced matrix the smallest remaining distance is $d_{CD} = 0.12$, so the next step joins C and D, yielding the tree $((A,B),(C,D))$ — exactly what an equal-rate (clock-like) dataset should produce.
 
-### Maximum Parsimony
+### Maximum Parsimony and Minimum-Change Trees
 
 **Maximum parsimony** selects the tree (or trees) requiring the fewest total character-state changes. This is an application of Occam's razor -- the simplest explanation is preferred.
 
@@ -323,14 +338,14 @@ where $L$ is the alignment length and θ represents the parameters of the substi
 | **JC69** (Jukes-Cantor, 1969) | Most substitutions equally likely; equal base frequencies | 0 free parameters |
 | **K2P** (Kimura 2-parameter, 1980) | Transitions $\neq$ transversions; equal base frequencies | 1 (Ti/Tv ratio) |
 | **HKY85** (Hasegawa-Kishino-Yano) | Ti $\neq$ Tv + unequal base frequencies | 4 |
-| **GTR** (General Time Reversible) | Most 6 substitution types have independent rates + unequal base frequencies | 9 |
+| **GTR** (General Time Reversible) | The 6 substitution types have independent rates + unequal base frequencies | 9 |
 | **GTR+Γ+I** | GTR + gamma-distributed rate variation across sites + proportion of invariant sites | 11 |
 
 **Model selection** uses information criteria: **AIC** $= 2k - 2\ln L$ (where $k$ = number of parameters) or **BIC** $= k\ln n - 2\ln L$ (where $n$ = sample size). The model with the lowest AIC or BIC provides the best balance of fit and complexity. Tools: ModelFinder (implemented in IQ-TREE), jModelTest2.
 
 **Software**: RAxML (Randomized Axelerated Maximum Likelihood), IQ-TREE (fast ML with ultrafast bootstrap UFBoot2), FastTree (approximate ML for very large alignments).
 
-### Bayesian Inference
+### Bayesian Inference and Posterior Tree Distributions
 
 Bayesian phylogenetics uses Bayes' theorem to estimate the posterior probability of trees:
 
@@ -355,7 +370,7 @@ A typical Bayesian phylogenetic workflow consists of the following steps. **(1) 
 
 Bayesian phylogenetic dating uses one of two molecular-clock frameworks. A **strict clock** assumes a single substitution rate across the entire tree; this is appropriate for **closely related taxa** (within-species or recent congeners), where the assumption is testable and often defensible — e.g., dating SARS-CoV-2 lineages within a single pandemic, or dating Native American mtDNA lineages relative to the Bering Strait crossing. A **relaxed clock** allows substitution rates to vary across branches, drawn from a prior distribution (uncorrelated lognormal, exponential, or autocorrelated random walk). Relaxed clocks are appropriate for **divergent taxa with rate heterogeneity** — for example, mammalian phylogenies where rodents evolve 5–10× faster than cetaceans, or insect phylogenies where holometabolous lineages have generation-time-correlated rate shifts. The choice of clock is **testable**: a likelihood-ratio test or Bayes-factor comparison between strict and relaxed clock models, evaluated under the same data and tree prior, indicates which is supported. In practice, modern phylogeneticists routinely default to relaxed clocks and primarily revert to strict clocks when relaxed-clock parameter estimates indicate near-uniform rates.
 
-### Bootstrap Analysis
+### Bootstrap Analysis and Branch-Support Uncertainty
 
 **Non-parametric bootstrap** \citep{felsenstein1985} assesses branch support by resampling:
 
@@ -442,11 +457,11 @@ Tools like **DistAL** and reconciliation methods (Notung, Ranger-DTL) systematic
 
 ---
 
-## Molecular Clocks
+## Molecular Clocks and Divergence-Time Estimation
 
 ### The Molecular Clock Hypothesis
 
-\citet{zuckerkandl1965} observed that the number of amino acid differences between homologous proteins from different species is roughly proportional to the time since those species diverged. This **molecular clock** hypothesis -- that neutral substitutions accumulate at an approximately constant rate -- allows divergence times to be estimated from sequence data.
+\citet{zuckerkandl1965} observed that the number of amino acid differences between homologous proteins from different species is roughly proportional to the time since those species diverged. \cref{fig:unit_VI_molecular_clock} compares example divergence-time estimates from the relation $t = d/(2\mu)$. This **molecular clock** hypothesis -- that neutral substitutions accumulate at an approximately constant rate -- allows divergence times to be estimated from sequence data.
 
 The theoretical basis comes from Kimura's [**neutral theory**](#gl:neutral-theory) (1968): the rate of neutral substitution equals the neutral [**mutation**](#gl:mutation) rate, μ, regardless of population size. For strictly neutral mutations:
 
@@ -457,7 +472,7 @@ k = \mu
 
 where $k$ is the substitution rate per site per generation.
 
-### Clock Calculations
+### Clock Calculations from Sequence Divergence
 
 **Jukes-Cantor correction**: Observed sequence divergence underestimates true divergence because of multiple substitutions at the same site (saturation). The JC69 correction accounts for this:
 
@@ -502,7 +517,7 @@ Human and chimpanzee mitochondrial *cytochrome b* sequences differ by approximat
 
 *Note:* This estimate of about 378,000 years for mtDNA is much lower than the accepted species divergence time of about 6--7 Mya. This occurs because mitochondrial [**gene**](#gl:gene)s evolve significantly faster than the genome-wide average, and substituting a long-term nuclear calibration rate yields an artificially recent divergence for rapidly evolving loci.
 
-### Rate Calibration
+### Rate Calibration with Fossils and Tip Dates
 
 Molecular clocks must be calibrated against independent time estimates:
 
@@ -517,7 +532,7 @@ Molecular clocks must be calibrated against independent time estimates:
 - **Autocorrelated rates**: Closely related lineages have similar rates (rates evolve gradually along the tree). Implemented in BEAST.
 - **Uncorrelated rates**: Each branch draws its rate independently from a statistical distribution (e.g., lognormal). Implemented in BEAST2.
 
-### Limitations
+### Molecular Clock Limitations: Rate Heterogeneity, Generation Time, and Saturation
 
 - **Rate heterogeneity**: Substitution rates can vary dramatically among lineages. Rodents evolve approximately 5--10 times faster than cetaceans at synonymous sites.
 - **Generation time effect**: Species with shorter generation times accumulate more mutations per unit time because there are more DNA replication events per year.
@@ -582,7 +597,7 @@ ASR is more than a historical exercise — it is now a **protein-engineering pla
 
 The 16S rRNA gene is ideal for deep phylogenetics because it is present in all cellular organisms, contains both highly conserved regions (for universal primer design) and variable regions (for discriminating taxa), and is long enough (about 1,550 bp) for robust phylogenetic inference.
 
-### Domain Bacteria
+### Domain Bacteria and Prokaryotic Phylogenetic Diversity
 
 Bacteria are the most metabolically diverse domain of life. Major phyla include:
 
@@ -597,7 +612,7 @@ Bacteria are the most metabolically diverse domain of life. Major phyla include:
 - **Spirochetes**: Helical morphology. *Treponema pallidum* (syphilis), *Borrelia burgdorferi* (Lyme disease).
 - **Chlamydiae**: Obligate intracellular [**parasite**](#gl:parasite)s with a unique biphasic developmental cycle.
 
-### Domain Archaea
+### Domain Archaea and the Eukaryote Connection
 
 Archaea were originally found primarily in extreme environments, but culture-independent methods (metagenomics) have revealed that they are ubiquitous -- in soils, oceans, and the human gut.
 
@@ -612,7 +627,7 @@ Archaea were originally found primarily in extreme environments, but culture-ind
   - **Thorarchaeota**, **Odinarchaeota**, **Heimdallarchaeota**: Additional Asgard lineages with progressively more eukaryotic-like features.
   - The Asgard archaea are the **closest known living relatives of eukaryotes**, supporting the "two-domain" tree (Eocyte hypothesis) in which eukaryotes arose from within Archaea rather than as a separate domain.
 
-### Domain Eukarya
+### Domain Eukarya and Endosymbiotic Origins
 
 The **Last Eukaryotic Common Ancestor (LECA)** already possessed a nucleus, mitochondria, endomembrane system, [**cytoskeleton**](#gl:cytoskeleton), and sexual reproduction. Modern eukaryotic diversity is organized into several supergroups:
 
@@ -624,7 +639,7 @@ The **Last Eukaryotic Common Ancestor (LECA)** already possessed a nucleus, mito
   - **Archaeplastida**: Glaucophyta + Rhodophyta (red algae) + Chloroplastida (green algae + land plants). This clade acquired plastids through **primary [**endosymbiosis**](#gl:endosymbiosis)** with a cyanobacterium.
 - **Excavata** (debated monophyly): Deep-branching protists including *Giardia* (intestinal parasite), *Trichomonas* (STI pathogen), *Trypanosoma* (sleeping sickness, Chagas disease), and *Euglena*.
 
-### Endosymbiotic Theory
+### Endosymbiotic Theory in Tree-of-Life Reconstruction
 
 Lynn Margulis (1967, then writing as Lynn Sagan) proposed that mitochondria and chloroplasts originated as free-living bacteria engulfed by ancestral eukaryotic cells. Decades of molecular evidence have confirmed this theory:
 
@@ -685,13 +700,13 @@ classDiagram
 
 > **Real-World Connection: Antibiotic Resistance and HGT**
 >
-> The spread of antibiotic resistance among pathogenic bacteria is fundamentally a problem of horizontal gene transfer. Resistance genes -- encoding [**enzyme**](#gl:enzyme)s that degrade antibiotics (beta-lactamases), modify antibiotics (aminoglycoside acetyltransferases), or pump them out of the cell (efflux pumps) -- are frequently carried on mobile genetic elements: plasmids, transposons, and integrons. A single conjugation event can transfer multi-drug resistance from a harmless gut bacterium to a pathogenic strain. The NDM-1 (New Delhi metallo-beta-lactamase) gene, first identified in 2008, has spread globally within years via plasmid-mediated HGT, conferring resistance to nearly most beta-lactam antibiotics including carbapenems -- the "last resort" drugs. Understanding HGT is essential for combating the antibiotic resistance crisis.
+> The spread of antibiotic resistance among pathogenic bacteria is fundamentally a problem of horizontal gene transfer. Resistance genes -- encoding [**enzyme**](#gl:enzyme)s that degrade antibiotics (beta-lactamases), modify antibiotics (aminoglycoside acetyltransferases), or pump them out of the cell (efflux pumps) -- are frequently carried on mobile genetic elements: plasmids, transposons, and integrons. A single conjugation event can transfer multi-drug resistance from a harmless gut bacterium to a pathogenic strain. The NDM-1 (New Delhi metallo-beta-lactamase) gene, first identified in 2008, has spread globally within years via plasmid-mediated HGT, conferring resistance to nearly every beta-lactam antibiotic class, including carbapenems -- the "last resort" drugs. Understanding HGT is essential for combating the antibiotic resistance crisis.
 
 > **Concept Check 5:** Explain why the discovery of Asgard archaea (particularly Lokiarchaeota) supports a two-domain rather than three-domain tree of life. What eukaryotic signature proteins were found in Lokiarchaeota genomes?
 
 ---
 
-## Human Phylogeny
+## Human Phylogeny and Hominin Evolution
 
 ### Great Apes and Molecular Phylogeny
 
@@ -705,7 +720,7 @@ Humans belong to the superfamily **Hominoidea** (great apes and lesser apes). Mo
 
 The molecular phylogeny contradicts earlier morphology-based classifications that grouped orangutans, gorillas, and chimpanzees as "great apes" separate from humans. DNA data unambiguously place humans within the great apes, as the sister taxon of *Pan*.
 
-### Fossil Hominins
+### Fossil Hominins and Mosaic Human Evolution
 
 The human fossil record is one of the richest and most intensively studied:
 
@@ -729,7 +744,7 @@ The **Out of Africa** hypothesis, supported by both genetic and fossil evidence,
 - **Y-chromosomal Adam**: The most recent common ancestor of living human Y [**chromosome**](#gl:chromosome)s dates to approximately 200--340 kya.
 - **Multiple dispersal events**: Genetic evidence suggests at least two major dispersal waves -- an early dispersal to Australia/Oceania (about 65 kya) and a later dispersal populating Europe and Asia (about 45--50 kya).
 
-### Archaic Introgression
+### Archaic Introgression from Neanderthals and Denisovans
 
 One of the most remarkable discoveries of the genomic era is that modern humans carry DNA from extinct hominin species, acquired through interbreeding:
 
@@ -780,7 +795,7 @@ Three phylogenetic problems that long reads solved: **(1) The animal tree of lif
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Phylogenetics and the Tree of Life
 
 For **Phylogenetics and the Tree of Life**, frontier biology belongs inside the evidence logic of
 the chapter. Evolutionary claims are strongest when they combine mechanism, comparative evidence, population process, and explicit uncertainty. The core reading question is this: phylogenetic confidence depends on sampling, model choice, homology, conflict among loci, and calibration.
@@ -796,9 +811,9 @@ the chapter. Evolutionary claims are strongest when they combine mechanism, comp
   the source closest to the measurement and state what has changed since it was
   published.
 
-Distinguish adaptation from drift, phylogenetic signal from convergence, and historical explanation from a testable prediction about present-day data.
+For phylogenetic claims, separate tree signal, model choice, convergence, sampling, and gene-tree conflict before treating topology as history.
 
-**Source practice:** For evolutionary claims, prefer evidence that compares alternatives such as selection, drift, gene flow, constraint, convergence, and shared ancestry.
+**Source practice:** For phylogenetic claims, compare distance, likelihood, Bayesian, fossil, and genomic evidence when alternatives such as convergence or incomplete lineage sorting matter.
 
 ## Summary
 
@@ -862,7 +877,7 @@ Distinguish adaptation from drift, phylogenetic signal from convergence, and his
 10. A conservation biologist must choose between protecting Species X (one of 50 species in a diverse, recently radiated clade) and Species Y (the sole surviving member of an ancient lineage). Using the concept of phylogenetic diversity, argue for which species should receive priority and explain the logic behind the EDGE conservation framework.
 11. Why does uncorrected $p$-distance **underestimate** deep divergences, and when is Jukes--Cantor inadequate compared with GTR+Γ?
 12. Name one scenario where a **network** rather than a bifurcating tree better represents genome evolution.
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Phylogenetics and the Tree of Life
 
 - Saitou & Nei (1987). The neighbor-joining method: a new method for reconstructing phylogenetic trees. *Molecular Biology and Evolution*, 4.
 - Felsenstein (1985). Confidence limits on phylogenies: An approach using the bootstrap. *Evolution*, 39.
@@ -872,7 +887,7 @@ Distinguish adaptation from drift, phylogenetic signal from convergence, and his
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Phylogenetics and the Tree of Life
 
 **Phylogenetics and the Tree of Life** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

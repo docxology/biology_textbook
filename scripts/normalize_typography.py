@@ -21,10 +21,13 @@ import re
 import sys
 from pathlib import Path
 
+from _bootstrap import ensure_project_paths
+
+ensure_project_paths(include_scripts=True)
+
 try:
     from scripts.atomic_io import write_text_atomic
 except ModuleNotFoundError:  # pragma: no cover - direct script execution path
-    sys.path.insert(0, str(Path(__file__).resolve().parent))
     from atomic_io import write_text_atomic  # type: ignore[import-not-found,no-redef]
 
 

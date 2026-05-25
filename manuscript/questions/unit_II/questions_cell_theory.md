@@ -1,4 +1,4 @@
-# Questions — Ch 5: Cell Theory and Cell Types {.unnumbered}
+# Questions — Cell Theory and Cell Types {.unnumbered}
 
 \label{sec:q_unit_II_cell_theory}
 

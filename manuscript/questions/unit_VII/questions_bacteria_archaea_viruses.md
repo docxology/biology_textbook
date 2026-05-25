@@ -1,4 +1,4 @@
-# Questions — Ch 22: Bacteria, Archaea, and Viruses {.unnumbered}
+# Questions — Bacteria, Archaea, and Viruses {.unnumbered}
 
 \label{sec:q_unit_VII_bacteria_archaea_viruses}
 

@@ -9,11 +9,11 @@ The project remains aligned with the template's two-layer contract: scientific a
 
 | Area | Current state |
 | ---- | ------------- |
-| Manuscript | 38 configured chapters, 38 labs, 38 question banks |
+| Manuscript | 44 configured chapters, 44 labs, 44 question banks |
 | Domain code | 9 `biology.*` subpackages plus `chapter_metadata` and `crossref_validator` |
-| Figures / diagrams | 14 matplotlib generators, 24 registered Mermaid diagrams |
-| Scripts | 30 Python files: pipeline orchestrators, structural utilities, pedagogy/content utilities, and render-log checks |
-| Tests | 27 `test_*.py` modules, zero scientific mocks, `src/` coverage gate at 90% |
+| Figures / diagrams | 32 matplotlib generators, 24 registered Mermaid diagrams |
+| Scripts | 32 Python files: pipeline orchestrators, structural utilities, pedagogy/content utilities, and render-log checks |
+| Tests | 31 `test_*.py` modules, zero scientific mocks, `src/` coverage gate at 90% |
 
 ## 2. Improvements In This Review Pass
 
@@ -104,7 +104,7 @@ output passed with 0 errors — a self-inflicted blind spot.
 - **Regression test** (`tests/test_audit_v3_and_crossref_gate.py`, no mocks,
   real tmp files): asserts v3 signature flagged, both broken-cref shapes
   flagged, clean input flags neither. 3 passed; ruff + mypy clean.
-- **Corrupted cross-references repaired**: 39+ malformed `cref{sec:…}` /
+- **Corrupted cross-references repaired**: 44+ malformed `cref{sec:…}` /
   `cref{eq:…}` / comma-joined multi-ref tokens across 13 question banks
   normalized to canonical `\cref{…}`; on-disk `broken-crossref` count = 0
   (independently confirmed by the new audit detector).
@@ -187,6 +187,10 @@ all low-Bloom on a Nernst/GHK chapter); single-worked-example thinness in ~15
 high-LO chapters; Concept-Check density low in Unit IX. These are genuine but
 contestable, large, expert-sensitive re-engineering — do as a focused dedicated
 pass, not a rushed wave.
+
+> **Superseded (2026-05-23):** Tier-2 items above were completed in §7 and are
+> regression-locked by `tests/test_chapter_pedagogy_coverage.py`; see §12 for
+> the final comprehensive pass gate table.
 
 **Validation (this pass).**
 ```bash
@@ -302,3 +306,110 @@ uv run python scripts/sync_assessment_metadata.py --check
 uv run pytest tests/test_current_claims_ledger.py tests/test_assessment_metadata.py tests/test_lab_pedagogy_alignment.py -q
 uv run mypy src tests scripts --no-incremental
 ```
+
+## 11. Thermo-Nuclear Quality Overhaul — Baseline + Completion (2026-05-23)
+
+**Environment:** Recreated stale `.venv` (was pointing at `projects_in_progress/biology_textbook`).
+
+### Baseline (pre-refactor)
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1020 passed**, 91.90% coverage |
+| `ruff check src tests scripts --ignore E402` | pass |
+| `mypy src tests scripts` | pass |
+| `audit_textbook_quality.py --check --max-advisories 0` | PASS (0 errors, 0 advisories) |
+| `audit_current_claims.py --check` | 41 claims, 0 issues |
+| `sync_assessment_metadata.py --check` | synchronized |
+| `audit_visual_contracts.py --check` | 235 records, clean |
+
+### Structural changes (Phases 1–4)
+
+- **`src/biology/numerics.py`**, **`constants.py`**: shared Euler integration + physical constants; drift/Punnett/chi-square dedup.
+- **`src/biology/crossref/`**: split monolithic validator; `crossref_validator.py` is a re-export shim.
+- **Script → `src/` extraction:** `quality/`, `enrichment/`, `answer_refinement/`, `curriculum_sync/`, `visual_contracts.py`, `textbook_io.py`. No script >500 lines.
+- **`src/visualization/`**: domain plot modules + `_scaffold.py`; `plots.py` is registry only.
+- **`src/mermaid/diagram_specs.yaml`** + **`diagram_spec_loader.py`**: `biology_diagrams.py` reduced to loader/registry (~35 lines).
+
+### Final verification (pre–final-pass)
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` (project root) | **1027 passed**, **90.18%** coverage |
+| `enrich_embedded_textbook.py --dry-run` | **0 mutations** (idempotent) |
+| PDF render + `check_pdf_log.py` | PASS (18.2 MB combined PDF) |
+
+**Note:** Run pytest from the project root (`projects/active/biology_textbook`) for the 90% `src/` gate. Template-orchestrated `01_run_tests.py` may report lower union coverage because path resolution spans the symlink layout.
+
+## 12. Final Comprehensive Pass — 2026-05-23
+
+Closes thermo-nuclear structural debt, locks Tier-2 pedagogy from §7 in regression tests, and runs the full publication gate stack.
+
+### Structural debt closed
+
+| Item | Result |
+| --- | --- |
+| `scripts/_bootstrap.py` + `src/textbook_paths.ensure_project_paths()` | All maintenance scripts migrated off copy-pasted `sys.path` loops |
+| Atomic I/O dedup | `scripts/add_mermaid_alt_text.py`, `scripts/link_glossary.py`, `src/mermaid/renderer.py` import `textbook_io.write_text_atomic` |
+| Package docs | `src/biology/answer_refinement/AGENTS.md`, `src/biology/curriculum_sync/AGENTS.md`; `scripts/AGENTS.md` + `src/AGENTS.md` updated |
+| Mypy bootstrap | `typings/_bootstrap.pyi` + bootstrap logic in `src/textbook_paths.py` |
+| Git hygiene | `output/` added to `.gitignore`; 754 tracked pipeline artifacts removed from index |
+
+### Pedagogy regression locks
+
+`tests/test_chapter_pedagogy_coverage.py` (21 tests, no mocks):
+
+- ≥2 worked-example sections on 12 quantitative chapter stems (REVIEW §7 list)
+- ≥3 Concept Checks on all Unit IX chapters plus four named chapters
+- Bloom diversity on `gene_expression`, `metabolic_integration`, `nervous_system`
+- ≥7 numbered LOs on every core chapter (minimal fix: 7th LO on `macromolecules`)
+
+After LO edits: `sync_assessment_metadata.py` + `--check` pass.
+
+### Gate table (project root)
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1067 passed**, **~91.1%** coverage |
+| `ruff check src tests scripts --ignore E402` | pass |
+| `mypy src tests scripts` | pass |
+| `audit_textbook_quality.py --check --max-advisories 0` | PASS |
+| `audit_current_claims.py --check` | 41 claims, 0 issues |
+| `sync_assessment_metadata.py --check` | synchronized |
+| `audit_visual_contracts.py --check` | 249 records, clean |
+| `refine_generated_answers.py --dry-run` | refined=0; hand_written_preserved=1170 |
+| `enrich_embedded_textbook.py --dry-run` | **0 chapter mutations** |
+| `normalize_lab_computational_workflows.py --dry-run` | labs_normalised=0 |
+| `audit_publication_readiness.py --check` | PASS |
+| `audit_publication_readiness.py --check --full` | PASS (project-root pytest gate; root render/validate) |
+
+### Template-root verification
+
+```bash
+cd /Users/4d/Documents/GitHub/template
+uv run python -m infrastructure.validation.cli markdown projects/biology_textbook/manuscript/
+uv run python -m infrastructure.validation.cli prerender projects/biology_textbook/manuscript --repo-root .
+uv run python scripts/02_run_analysis.py --project biology_textbook
+uv run python scripts/03_render_pdf.py --project biology_textbook
+uv run python scripts/04_validate_output.py --project biology_textbook
+uv run python scripts/05_copy_outputs.py --project biology_textbook
+cd /Users/4d/Documents/GitHub/projects/active/biology_textbook
+uv run python scripts/check_pdf_log.py /Users/4d/Documents/GitHub/template/output/biology_textbook/pdf/_combined_manuscript.log
+# (also runs automatically as `root-pdf-log` inside `audit_publication_readiness.py --full`)
+```
+
+**Note:** `execute_pipeline.py --core-only --skip-infra` still runs Stage 3 project tests from the template root and may fail on union coverage (~81%) even when all project-root tests pass. Stages 02–05 above are the authoritative template render path for this WIP checkout.
+
+## 13. Figure expansion pass (2026-05-23)
+
+Research memo and gap matrix: `docs/figure_expansion_research_memo.md`, `docs/figure_gap_matrix.md`.
+
+| Item | Result |
+| --- | --- |
+| Matplotlib registry | **18 → 32** generators in `ALL_FIGURE_GENERATORS` |
+| New Tier 1 plots | Hardy–Weinberg, Hill, SIR, glycolysis summary, Poiseuille, fitness landscape, molecular clock, biodiversity, photosynthesis rate, osmotic pressure |
+| New Tier 2 plots | Translation codons, MIC dilution, homeostasis feedback, food-web trophic levels |
+| Cref regressions fixed | `fig:unit_II_ghk_permeability`, `fig:unit_V_genetic_drift_trajectories`, `fig:unit_VIII_water_potential_transpiration`, `fig:unit_X_allee_threshold_dynamics` |
+| New invariant | `test_every_figure_label_has_prose_cref` in `tests/test_build_invariants.py` |
+| Chapters with `\includegraphics` | **14 → 28** (14 prior + 14 expansion) |
+| Deferred (documented) | Unit 0 prose chapters; `cell_structure`, `atoms_molecules`, `macromolecules`, `metabolic_integration`, `dna_replication`, `mutations_and_genomics`, `plant_reproduction` |

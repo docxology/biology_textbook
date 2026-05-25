@@ -37,7 +37,7 @@
 2. A bedroom thermostat raises the heater output when the room cools and lowers it when the room warms. Classify the dominant feedback loop in this control system and identify the variable whose deviation drives the corrective action.
 3. Compare a stock (a quantity with accumulated history) and a flow (a rate that changes a stock per unit time) for the case of a small lake's water budget. Give one biological stock and one biological flow that would be appropriate to include in a model of that lake's ecology.
 
-## Background {.unnumbered}
+## Lab Context: Systems Science and the Logic of Emergence {.unnumbered}
 
 A **system** is a set of interacting components, bounded against its surroundings, whose behaviour depends on the interactions as much as on the parts. The central mathematical tool for stability is the **Hill equation**:
 
@@ -65,6 +65,7 @@ Today's lab trains three intuitions: what counts as "the system", how feedback l
 - Graph paper (2 sheets per student).
 - Calculator.
 - Coloured pens.
+- Source-governance card for Systems Science and the Logic of Emergence: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
 - Worksheet with blank feedback diagrams and Hill-curve axes.
 
 ---
@@ -173,6 +174,10 @@ Before answering the analysis questions, annotate the paper dataset for
 
 Focus note: For the feedback-diagram and Hill-curve datasets, the reproducible quantities are the sign assigned to each loop edge and the Hill coefficient $n$ used for the saturation calculation: state the system boundary you drew, justify every $+$ or $-$ sign from the dataset, and report the O$_2$-saturation numbers another group must be able to regenerate from your stated $n$. Keep required work paper-based; any material-handling or
 equipment version belongs only in an optional extension.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Systems Science and the Logic of Emergence before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ### Worked Example: Stock-and-flow projection of a small mammal population {.unnumbered}
 

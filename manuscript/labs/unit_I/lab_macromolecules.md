@@ -1,4 +1,4 @@
-# Lab 3 — Biological Macromolecules {.unnumbered}
+# Lab — Biological Macromolecules {.unnumbered}
 
 \label{sec:lab_unit_I_macromolecules}
 
@@ -38,7 +38,7 @@
 3. Compute the energy density of pure triglyceride (37 kJ g⁻¹) vs pure starch (17 kJ g⁻¹) vs pure protein (17 kJ g⁻¹). Why do organisms store long-term energy as fat rather than glycogen?
 4. Predict which of the following will yield a positive classic peptide-bond assay test at room temperature: a single amino acid (glycine), a dipeptide, albumin. Justify in one sentence (classic peptide-bond assay requires ≥2 peptide bonds → at least tripeptide).
 
-## Background {.unnumbered}
+## Lab Context: Biological Macromolecules {.unnumbered}
 
 Macromolecules — carbohydrates, lipids, proteins, and nucleic acids — form the molecular architecture of cells. Each class has distinctive chemical groups that produce diagnostic patterns in classic colorimetric tests. Reducing sugars (glucose, fructose, maltose) donate electrons to Cu²⁺ in classic reducing-sugar assay, producing a colour change from blue to yellow/orange/red; sucrose (non-reducing) does not react unless hydrolysed. The classic peptide-bond assay reaction turns purple in the presence of peptide bonds (≥2). classic lipid-partition assay, an oil-soluble dye, partitions into lipids and stains them red-orange.
 
@@ -48,6 +48,7 @@ In this lab you will interpret a blinded paper dataset for five unknown samples 
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Biological Macromolecules: UniProt accession, PDB/PDBe structure record, EMDB map when relevant, experimental method, prediction confidence, assay validation, and release date | 1 |
 | Blinded macromolecule reaction dataset for samples A–E | 1 |
 | Molecular-structure cards: glucose, fructose, sucrose, starch, albumin, triglyceride | 1 set |
 | Positive-control and negative-control cards | 1 set |
@@ -135,6 +136,10 @@ equipment version belongs only in an optional extension.
 
 **Interpretation:** A single-point calibration through the origin is the lightest reasonable model for this assay; it gives roughly 0.14 g·mL⁻¹, which is comparable in order of magnitude to dilute serum albumin (about 0.04 g·mL⁻¹) and to several food-protein extracts. The estimate assumes the linear range extends from the standard to the unknown reading, that background absorbance has been subtracted, and that the unknown contains protein with a peptide-bond density similar to the standard — assumptions a more rigorous lab would test with a multi-point calibration curve, a blank, and a known positive control.
 
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Biological Macromolecules before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

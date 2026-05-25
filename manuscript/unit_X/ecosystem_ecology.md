@@ -4,13 +4,13 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 34** · Level 2/3 · 65 min read · 75 min lecture · Prerequisites: \cref{sec:unit_X_community_ecology}, \cref{sec:unit_III_photosynthesis}
+> Level 2/3 · 65 min read · 75 min lecture · Prerequisites: \cref{sec:unit_X_community_interactions}, \cref{sec:unit_X_biodiversity_and_food_webs}, \cref{sec:unit_III_photosynthesis}
 
 ## Learning Objectives
 
 By the end of this chapter, you should be able to:
 
-1. Define an ecosystem \citep{levin1998} and distinguish [**abiotic**](#gl:abiotic) from biotic components; categorise consumers by trophic role.
+1. Define an ecosystem \citep{levin1998} and distinguish [**abiotic**](#gl:abiotic) from biotic components; categorise consumers by trophic role. \cref{fig:unit_X_food_web_trophic_levels} assigns trophic levels in a simple aquatic web by breadth-first search from producers.
 2. Explain energy flow through [**trophic level**](#gl:trophic-level)s, calculate ecological efficiency, and explain why food chains are short.
 3. Describe the carbon, nitrogen, phosphorus, and sulphur cycles and their key anthropogenic disruptions.
 4. Calculate gross primary production (GPP), net primary production (NPP), and net ecosystem production (NEP).
@@ -22,6 +22,15 @@ By the end of this chapter, you should be able to:
 10. Use the Hubbard Brook watershed experiment to explain how live vegetation regulates nutrient retention, and contrast open vs. closed nutrient cycling regimes.
 11. Describe ocean productivity zones (upwelling, gyres, polar) and the Martin curve, and connect soil pedogenesis (CLORPT, horizons) to long-term carbon storage.
 12. Use the Redfield ratio to diagnose nutrient limitation, and evaluate the planetary boundaries and Gaia hypothesis as frameworks for Earth system thinking.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/food_web_trophic_levels.png}
+\caption{Trophic levels inferred by breadth-first search from producer species in a simple aquatic food web. Each consumer is one level above its prey.}
+\label{fig:unit_X_food_web_trophic_levels}
+\end{figure}
+
+<!-- alt: Horizontal bar chart assigning trophic levels from phytoplankton through apex predator. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -45,7 +54,7 @@ By the end of this chapter, you should be able to:
 > 
 > In 1953, Howard T. Odum waded into Silver Springs, Florida — a crystal-clear, constant-temperature spring — and spent months measuring oxygen concentrations at stations upstream and downstream to calculate the primary productivity of an entire ecosystem. His method, upstream-downstream dissolved oxygen change, was brilliantly simple: if an ecosystem produces oxygen during the day and consumes it at night, measuring both rates gives net and gross production. From his data, Odum constructed the first complete energy flow diagram of a natural ecosystem, quantifying how much energy entered via [**photosynthesis**](#gl:photosynthesis), how much was lost at each trophic level, and how much left the system as heat. The 10% rule — roughly 10% of energy transfers between trophic levels — came directly from Odum's data. The concept that ecosystems are energy-processing machines, quantifiable and modelable, born in Silver Springs, became foundational to biogeochemistry, conservation biology, fisheries management, and climate modelling. Silver Springs is still one of the most-studied aquatic ecosystems on Earth.
 
-## Ecosystem Concepts
+## Ecosystem Concepts and System Boundaries
 
 An **ecosystem** comprises most organisms (biotic component) and the physical/chemical environment (abiotic component) in a defined area, interacting through energy flow and nutrient cycling \citep{bormann1967}. Ecosystems vary from a few litres (rock pool) to thousands of km$^2$ (boreal forest). Their defining features are:
 
@@ -65,7 +74,7 @@ The distinction between energy **flow** and nutrient **cycling** is fundamental:
 | Limiting? | Rarely limiting (except deep sea, caves) | Often limiting (N, P, Fe, water) |
 | Conservation law | Energy conserved but degraded (2nd law) | Mass conserved (atoms neither created nor destroyed) |
 
-### Ecosystem Services
+### Ecosystem Services and Human Well-Being
 
 **Costanza et al. (1997, *Nature*)** estimated global ecosystem services at >$33 trillion/year (updated to ~$125 trillion/year by Costanza et al. 2014). The four categories:
 
@@ -93,9 +102,9 @@ The **Millennium Ecosystem Assessment** (2005; 1,300 scientists from 95 countrie
 | 3 — Secondary consumers (carnivores) | Spiders, small fish, small birds | Primary consumer biomass |
 | 4 — Tertiary consumers | Large fish, raptors | Secondary consumer biomass |
 | Apex — Top predators | Orca, wolf, lion, large sharks | Top-down regulation |
-| [**Decomposer**](#gl:decomposer)/detritivore (parallel) | Bacteria, fungi, earthworms, millipedes | Dead organic matter (detrital pathway) |
+| [**Decomposer**](#gl:decomposer)/detritivore (parallel) | Bacteria, fungi, termites, ants, earthworms, millipedes | Dead organic matter and soil organic pathways |
 
-### Ecological Efficiency
+### Ecological Efficiency Across Trophic Transfers
 
 ```mermaid
 graph TD
@@ -117,9 +126,9 @@ graph TD
         NUT --> P
     end
 ```
-<!-- alt: Flowchart for Ecological Efficiency: Solar Energy 1,000,000 kJ, Producers 10,000 kJ NPP, Herbivores 1,000 kJ, and Secondary Consumers 100 kJ form the diagram's primary path or branches. -->
+<!-- alt: Graph showing energy transfer narrows across trophic levels because respiration, heat loss, and unconsumed biomass leave a limited fraction of producer energy for higher consumers. -->
 
-*Flowchart for Ecological Efficiency: Solar Energy 1,000,000 kJ, Producers 10,000 kJ NPP, Herbivores 1,000 kJ, and Secondary Consumers 100 kJ form the diagram's primary path or branches.*
+*Energy transfer narrows across trophic levels because respiration, heat loss, and unconsumed biomass leave a limited fraction of producer energy for higher consumers.*
 
 The **trophic efficiency** (10% rule, Lindeman 1942, *Ecology*) describes the fraction of energy at trophic level $n$ transferred to level $n+1$:
 
@@ -163,7 +172,7 @@ The **trophic efficiency** (10% rule, Lindeman 1942, *Ecology*) describes the fr
 
 ---
 
-## Primary Productivity
+## Primary Productivity and Carbon Fixation
 
 **Gross Primary Production (GPP):** Total rate of CO$_2$ fixation by most autotrophs (μmol CO$_2$/m$^2$/s or g C/m$^2$/year).
 
@@ -235,7 +244,7 @@ small relative to GPP.
 | Iron | Not typically | Yes; 30% of ocean is iron-limited (HNLC regions) |
 | CO$_2$ | Potentially (CO$_2$ fertilisation effect) | Dissolved CO$_2$ rarely limiting |
 
-### Measuring NPP
+### Measuring Net Primary Productivity
 
 Different methods access different components of NPP and apply across different scales. No single method captures everything; the modern practice combines them.
 
@@ -275,7 +284,7 @@ Globally, BNPP is roughly half of total NPP — meaning *half* of the planet's p
 
 ## The Carbon Cycle and Climate Change
 
-### Carbon Reservoirs
+### Carbon Reservoirs Across Atmosphere, Ocean, Land, and Rock
 
 | Reservoir | Size (Pg C) | Turnover time | Notes |
 | --------- | ----------- | ------------- | ----- |
@@ -312,9 +321,9 @@ graph LR
     OCEAN -.->|"Ocean sink: 2.9"| OCEAN
     PERM -.->|"Thaw: 0.3-1.0"| ATM
 ```
-<!-- alt: Graph showing net atmospheric accumulation:. ~4.7 Pg C/yr → CO_2 rising at ~2.4 ppm/yr. -->
+<!-- alt: Graph showing carbon-budget accounting compares emissions with land and ocean sinks; the residual net atmospheric accumulation is about 4.7 Pg C per year, consistent with rising CO_2. -->
 
-*Net atmospheric accumulation:. ~4.7 Pg C/yr → CO$_2$ rising at ~2.4 ppm/yr.*
+*Carbon-budget accounting compares emissions with land and ocean sinks; the residual net atmospheric accumulation is about 4.7 Pg C per year, consistent with rising CO$_2$.*
 
 ### The Biological Pump
 
@@ -518,7 +527,7 @@ This stoichiometric constraint means:
 - N:P ratio > 16 → P-limiting
 - Deviation from Redfield ratio indicates which nutrient limits growth
 
-### Phosphorus Crisis
+### Phosphorus Crisis in Food Systems
 
 Global phosphate rock reserves are concentrated in ~6 countries (Morocco controls >70% of reserves). Depletion projections vary widely (50-400 years at current extraction rates). **Phosphorus recovery** from wastewater (struvite precipitation: MgNH$_4$PO$_4 \cdot 6H_2O$) is critical for long-term food security. Unlike nitrogen, phosphorus cannot be synthesised — it must be mined or recycled.
 
@@ -548,7 +557,7 @@ Sulphur is a useful corrective to overly simple nutrient-cycle diagrams because 
 
 However, the strength of this feedback remains debated. Satellite studies show correlations between phytoplankton blooms and cloud properties, but the magnitude of the DMS-climate link is uncertain.
 
-### Acid Rain
+### Acid Rain and Sulfur/Nitrogen Deposition
 
 Fossil fuel combustion releases SO$_2$ and NO$_x$:
 
@@ -566,7 +575,7 @@ SO_2 + H_2O + \frac{1}{2}O_2 \rightarrow H_2SO_4
 
 ---
 
-## 7B Nutrient Cycling Models: Open vs. Closed Systems
+## Nutrient Cycling Models: Open and Closed Ecosystem Budgets
 
 Whether an ecosystem is a net **sink** or **source** for a nutrient depends on the relative rates of input, internal recycling, and output (leakage). Two idealised limits are useful:
 
@@ -610,7 +619,7 @@ Hubbard Brook also detected **acid rain** in the 1970s by tracking declining str
 
 ---
 
-## 7C Ocean Ecosystem Ecology
+## Marine Ecosystem Ecology and the Biological Pump
 
 Marine ecosystems contribute roughly half of global NPP (~50 Pg C/yr) on just two-thirds of the planet's surface — but the productivity is enormously heterogeneous, structured by light, nutrients, and physical mixing.
 
@@ -652,7 +661,7 @@ Climate change is reorganising both pumps. Warming **stratifies the surface ocea
 
 ---
 
-## 7D Soil Formation and Pedogenesis
+## Soil Formation, Pedogenesis, and Soil-Carbon Feedbacks
 
 Soils are the central terrestrial reservoir for organic carbon (1,500–2,400 Pg C, more than vegetation and atmosphere combined) and the medium through which nutrient cycles are mediated. **Pedogenesis** (soil formation) is itself an ecosystem-scale process operating over centuries to millennia.
 
@@ -665,7 +674,7 @@ Soils are the central terrestrial reservoir for organic carbon (1,500–2,400 Pg
 
 This **CLORPT** framework remains the foundational organising principle of pedology. Climate sets the rates of weathering and decomposition; organisms (especially plants and microbes) drive organic matter accumulation; relief (topography) routes water and erosion; parent material (bedrock) supplies the mineralogy; and time integrates everything.
 
-### Soil Horizons
+### Soil Horizons and Vertical Differentiation
 
 A mature soil typically displays vertical layering reflecting depth-dependent processes:
 
@@ -684,7 +693,13 @@ A mature soil typically displays vertical layering reflecting depth-dependent pr
 2. **Organic matter accumulation.** Pioneer plants colonise; their litter fuels decomposers; humus forms (recalcitrant polymeric organic matter). Net soil organic carbon (SOC) increases at 5–50 g C/m$^2$/yr in temperate ecosystems for centuries.
 3. **Horizon differentiation and steady-state.** Vertical translocation of clays, Fe/Al, and dissolved organic matter creates the A–E–B horizon sequence. Eventually inputs balance losses (leaching + decomposition + erosion) and SOC reaches a climate-determined ceiling.
 
-Tropical soils on ancient Gondwanan parent material (Brazilian shield, Australian outback) are at stage 3 *and ancient* — most P has leached over millions of years, leaving extremely low-fertility laterites; this explains why tropical rainforest productivity is high (rapid recycling) but cleared tropical soils are infertile (no recyclable pool left). Glacier-Bay primary succession (\cref{sec:unit_X_community_ecology}) is the same process running at the centennial timescale.
+Tropical soils on ancient Gondwanan parent material (Brazilian shield, Australian outback) are at stage 3 *and ancient* — most P has leached over millions of years, leaving extremely low-fertility laterites; this explains why tropical rainforest productivity is high (rapid recycling) but cleared tropical soils are infertile (no recyclable pool left). Glacier-Bay primary succession (\cref{sec:unit_X_community_interactions}) is the same process running at the centennial timescale.
+
+### Social Insects as Soil Engineers
+
+Termites and ants are organismal components of CLORPT, not incidental soil fauna. Termites fragment litter, digest lignocellulose through gut symbionts, build galleries and mounds, and create redox and moisture gradients that alter decomposition and gas exchange \citep{brune2014symbiotic,ocko2017solar}. Ants excavate nests, move mineral particles, concentrate organic matter, and redistribute seeds and arthropod remains. In dry agricultural systems, plots with ants and termites can show higher infiltration, nutrient redistribution, and crop yield, illustrating that small-bodied social insects can have ecosystem-level effects \citep{evans2011antsTermites}.
+
+The general lesson is that "decomposition" is not just microbes dissolving dead matter. It is a coupled detrital food web in which animal engineers expose surface area, move particles, condition microclimate, and host microbial metabolisms. Removing those engineers can change water flow, nutrient residence time, and plant recruitment even when plant species and climate remain the same.
 
 ### Soil Carbon and Climate Feedback
 
@@ -692,7 +707,7 @@ Warming accelerates microbial decomposition more than it accelerates plant produ
 
 ---
 
-## 7E Coupled Biogeochemical Cycles and the Redfield Stoichiometry
+## Coupled Biogeochemical Cycles and Ecological Stoichiometry
 
 The C, N, and P cycles do not operate independently — biological demand stitches them into a coupled system whose stoichiometry is one of the most powerful diagnostic tools in ecosystem science.
 
@@ -708,7 +723,7 @@ Marine phytoplankton consistently maintain an elemental composition of $106\,\te
 
 Terrestrial systems show similar but more variable ratios reflecting differences between woody (high C : N : P) and herbaceous tissues. Forest canopy: ~$1200 : 28 : 1$. Soil microbial biomass: ~$60 : 7 : 1$ (N- and P-rich relative to plants — explaining why microbes immobilise mineral nutrients).
 
-### Stoichiometric Coupling
+### Stoichiometric Coupling of C, N, P, Fe, and S
 
 Ecosystem-scale stoichiometry generates predictable feedbacks:
 
@@ -716,13 +731,13 @@ Ecosystem-scale stoichiometry generates predictable feedbacks:
 - **N deposition has P costs.** Anthropogenic N enrichment shifts ecosystems from N- to P-limited; soil and freshwater P demand rises sharply.
 - **Anoxia shifts cycles.** Hypoxic dead zones suppress nitrate-dependent respiration pathways but enable iron and sulphate reduction; the N : P : Fe : S coupling reorganises.
 
-### Planetary Boundaries
+### Planetary Boundaries and Biogeochemical Overshoot
 
 \citet{richardson2023earth} and the Stockholm Resilience Centre frame anthropogenic biogeochemical disruption as transgression of **planetary boundaries**. In the current assessment, six of nine boundaries are crossed: climate change, biosphere integrity, biogeochemical flows (N and P), land-system change, freshwater change, and novel entities (chemical pollution). Stratospheric ozone remains a regulatory success story, while ocean acidification is close to its boundary. Ecosystem ecology provides the quantitative basis for each of these limits — and for designing interventions to return inside them.
 
 ---
 
-## 7F Ecosystem Services Quantification and Earth System Science
+## Quantifying Ecosystem Services in Earth-System Science
 
 ### Quantifying and Valuing Services
 
@@ -761,7 +776,7 @@ The water cycle connects most biogeochemical cycles and drives nutrient transpor
 
 For biology, the water cycle is also a vegetation and land-use cycle. Roots, stomata, leaf area, soil organic matter, and microbial crusts influence infiltration, transpiration, runoff, and groundwater recharge; deforestation, drainage, compaction, and irrigation alter those same fluxes. Climate-change impacts on drought, flood risk, and food security therefore cannot be read from precipitation totals alone; residence time, timing, storage, and plant access to water matter just as much.
 
-### Key Fluxes
+### Key Hydrological Fluxes
 
 | Process | Rate (10$^3$ km$^3$/yr) | Description |
 | ------- | ----------------------- | ----------- |
@@ -803,7 +818,7 @@ Mechanisms:
 
 ---
 
-## Worked Example
+## Worked Example: Net Primary Productivity and Trophic Transfer
 
 **Problem:**
 In a lake ecosystem, the gross primary productivity (GPP) of phytoplankton is $10,000\text{ J/m}^2\text{/yr}$. The phytoplankton expend $4,000\text{ J/m}^2\text{/yr}$ via cellular respiration ($R$). Primary consumers (zooplankton) subsequently ingest the phytoplankton with a trophic efficiency of 10%. Calculate the net primary productivity (NPP) of the phytoplankton and the energy available to the secondary consumers.
@@ -931,7 +946,7 @@ Costanza et al. (1997) estimated the annual value of global ecosystem services a
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Ecosystem Ecology and Biogeochemical Cycles
 
 For **Ecosystem Ecology and Biogeochemical Cycles**, frontier biology belongs inside the evidence logic of
 the chapter. Ecology and conservation decisions increasingly combine field data, remote sensing, community knowledge, model uncertainty, and explicit values. The core reading question is this: ecosystem claims should track stocks, fluxes, residence times, boundaries, and coupled cycles.
@@ -947,9 +962,9 @@ the chapter. Ecology and conservation decisions increasingly combine field data,
   the source closest to the measurement and state what has changed since it was
   published.
 
-Use biodiversity metrics carefully: population indices, extinction risk categories, ecosystem services, and management targets answer different questions \citep{ipbes2019global,ipbes2024transformative,wwf2024livingplanet,iucn2025redlist,fao2024sofia}.
+Select biodiversity and conservation metrics by decision need: abundance, interaction, function, risk, service, and governance metrics answer different questions \citep{ipbes2019global,ipbes2024transformative,wwf2024livingplanet,iucn2025redlist,fao2024sofia}.
 
-**Source practice:** For conservation claims, cite assessment sources and state whether the evidence is a population index, extinction-risk assessment, ecosystem-service valuation, satellite product, or policy synthesis \citep{ipbes2024transformative,noaa2025coralbleaching,fao2025sofi}.
+**Source practice:** For ecology and conservation claims, cite assessment sources and state whether the evidence is an index, risk assessment, service valuation, satellite product, or policy synthesis \citep{ipbes2024transformative,noaa2025coralbleaching,fao2025sofi}.
 
 Vegetation-carbon claims are measurement-sensitive: daily rainfall variability can strongly affect global vegetation activity, so ecosystem productivity arguments should distinguish total precipitation from event timing and intensity \citep{feldman2024rainfallvariability}.
 
@@ -1040,7 +1055,7 @@ flowchart LR
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Ecosystem Ecology and Biogeochemical Cycles
 
 - Levin (1998). Ecosystems and the Biosphere as Complex Adaptive Systems. *Ecosystems*, 1.
 - Bormann & Likens (1967). Nutrient cycling. *Science*, 155.
@@ -1078,7 +1093,7 @@ print(food_web_trophic_levels(web))
 - **Rainfall variability:** vegetation activity depends on event timing and intensity as well as precipitation totals, so productivity arguments should separate daily rainfall variability from mean water supply \citep{feldman2024rainfallvariability}.
 - **Hubbard Brook \citep{bormann1967}:** the clear-cut experiment showed live vegetation retains 80–95% of nutrient inputs; mature forests are quasi-closed for most nutrients. Open vs. closed nutrient regimes governed by mean residence time $\tau = X/O$.
 - **Ocean ecosystem ecology:** half of global NPP; productivity zones (euphotic, mesopelagic, abyssopelagic, upwelling, gyres, polar); biological pump exports ~10–15 Pg C/yr; Martin curve attenuates flux with depth.
-- **Soil formation:** Jenny's CLORPT factors; horizon differentiation (O–A–E–B–C–R); soils store 1,500–2,400 Pg C; warming-driven SOC release is a major positive climate feedback.
+- **Soil formation:** Jenny's CLORPT factors; horizon differentiation (O–A–E–B–C–R); termites and ants act as soil engineers by moving particles, organic matter, water, and microbial metabolism; soils store 1,500–2,400 Pg C; warming-driven SOC release is a major positive climate feedback.
 - **Coupled cycles:** Redfield $106\,\text{C}:16\,\text{N}:1\,\text{P}$ diagnoses nutrient limitation; the planetary boundaries framework places six of nine Earth-system limits already crossed \citep{richardson2023earth}.
 - **Water cycle:** plant transpiration drives 60-90% of terrestrial evaporation; tropical forests generate their own rainfall.
 - **Ecosystem services** (~$125T/yr; Costanza 2014); 60% degraded (MEA 2005); biodiversity increases ecosystem function via complementarity and insurance.
@@ -1087,7 +1102,7 @@ print(food_web_trophic_levels(web))
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Ecosystem Ecology and Biogeochemical Cycles
 
 **Ecosystem Ecology and Biogeochemical Cycles** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
@@ -1100,4 +1115,4 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/biology/botany/botany.py` (`photosynthesis_rate`, `water_potential`) | Link primary production and plant-water constraints to ecosystem fluxes. |
 | `src/mermaid/biology_diagrams.py` (`nutrient_cycle_diagram`, `food_web_diagram`) | Keep stocks, fluxes, and boundaries visually explicit. |
 
-**Reproducibility check:** state system boundary, stock, flux, residence time, unit, and time window before comparing ecosystem budgets. **Cross-reference:** connect with \cref{sec:unit_III_photosynthesis}, \cref{sec:unit_X_community_ecology}, and \cref{sec:unit_X_biomes_and_conservation}.
+**Reproducibility check:** state system boundary, stock, flux, residence time, unit, and time window before comparing ecosystem budgets. **Cross-reference:** connect with \cref{sec:unit_III_photosynthesis}, \cref{sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs}, and \cref{sec:unit_X_biomes_and_conservation}.

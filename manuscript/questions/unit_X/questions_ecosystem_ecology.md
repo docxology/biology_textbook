@@ -1,4 +1,4 @@
-# Questions — Ch 34: Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
+# Questions — Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
 
 \label{sec:q_unit_X_ecosystem_ecology}
 
@@ -73,10 +73,10 @@ SOLUTION -->
 **Answer (Q9, Recall).** Eutrophication is nutrient over-enrichment of a water body that triggers excessive algal growth, followed by decomposition that depletes dissolved oxygen and can cause hypoxic dead zones. It is caused chiefly by phosphorus (usual limiting nutrient in freshwater) and nitrogen (often limiting in marine systems) from fertilizer runoff, sewage, and detergents. See \cref{sec:unit_X_ecosystem_ecology}.
 SOLUTION -->
 <!-- assess: LO=LO10; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-10. Define decomposition. What organisms are primary decomposers?
+10. Define decomposition. What organisms are primary decomposers, and how do termites and ants change the detrital pathway?
 
 <!-- SOLUTION
-**Answer (Q10, Recall).** Decomposition is the microbial and detritivore breakdown of dead organic matter, releasing inorganic nutrients (mineralization) and CO2 via heterotrophic respiration. Primary decomposers are bacteria and fungi (saprotrophs), assisted by detritivores (earthworms, millipedes, woodlice, soil arthropods) that fragment litter and increase surface area for microbial attack. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q10, Recall).** Decomposition is the microbial and detritivore breakdown of dead organic matter, releasing inorganic nutrients (mineralization) and CO2 via heterotrophic respiration. Primary decomposers are bacteria and fungi (saprotrophs), assisted by detritivores (earthworms, millipedes, woodlice, soil arthropods) that fragment litter and increase surface area for microbial attack. Termites add symbiotic lignocellulose digestion and mound/galleried soil structure; ants fragment and move organic matter, excavate mineral soil, and redistribute nutrients. They are not primary microbial decomposers, but they engineer the physical and biological conditions under which decomposition proceeds. See \cref{sec:unit_X_ecosystem_ecology}.
 SOLUTION -->
 
 ## Questions 11–20: Application and Analysis {.unnumbered}

@@ -1,4 +1,4 @@
-# Questions — Ch 20: Genetic Drift, Gene Flow, and Speciation {.unnumbered}
+# Questions — Genetic Drift, Gene Flow, and Speciation {.unnumbered}
 
 \label{sec:q_unit_VI_genetic_drift_and_speciation}
 

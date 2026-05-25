@@ -69,9 +69,9 @@ graph TD
     style MEMB fill:#2980b9,color:#fff
     style SIG fill:#27ae60,color:#fff
 ```
-<!-- alt: Graph showing amerefsec:unit_II_unit_intro concept map — The Cell. Purple = foundational theory; red = energy-related organelles (anticipating amerefsec:unit_III_unit_intro); blue = membrane; green = signalling. -->
+<!-- alt: Graph showing cell concept map — purple = foundational theory; red = energy-related organelles anticipating energy metabolism; blue = membrane; green = signalling. -->
 
-*\nameref{sec:unit_II_unit_intro} concept map — The Cell. Purple = foundational theory; red = energy-related organelles (anticipating \nameref{sec:unit_III_unit_intro}); blue = membrane; green = signalling.*
+*Cell concept map — purple = foundational theory; red = energy-related organelles anticipating energy metabolism; blue = membrane; green = signalling.*
 
 ---
 

@@ -1,4 +1,4 @@
-# Questions — Ch 21: Phylogenetics and the Tree of Life {.unnumbered}
+# Questions — Phylogenetics and the Tree of Life {.unnumbered}
 
 \label{sec:q_unit_VI_phylogenetics}
 

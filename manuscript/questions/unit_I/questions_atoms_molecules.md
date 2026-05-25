@@ -1,4 +1,4 @@
-# Questions — Ch 1: Atoms, Molecules, and Chemical Bonds {.unnumbered}
+# Questions — Atoms, Molecules, and Chemical Bonds {.unnumbered}
 
 \label{sec:q_unit_I_atoms_molecules}
 

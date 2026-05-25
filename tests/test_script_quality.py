@@ -13,10 +13,25 @@ PROJECT = Path(__file__).resolve().parent.parent
 SCRIPTS = PROJECT / "scripts"
 DOC_PATHS = [
     PROJECT / "README.md",
+    PROJECT / "AGENTS.md",
     PROJECT / "REVIEW.md",
+    PROJECT / "docs" / "README.md",
     PROJECT / "docs" / "architecture.md",
     PROJECT / "docs" / "pipeline_guide.md",
     PROJECT / "docs" / "testing_guide.md",
+    PROJECT / "manuscript" / "README.md",
+    PROJECT / "tests" / "README.md",
+    PROJECT / "tests" / "AGENTS.md",
+    PROJECT / "scripts" / "AGENTS.md",
+]
+GENERIC_OVERVIEW_HEADING_PATHS = [
+    PROJECT / "AGENTS.md",
+    PROJECT / "docs" / "AGENTS.md",
+    PROJECT / "docs" / "pipeline_guide.md",
+    PROJECT / "docs" / "visualisation_guide.md",
+    PROJECT / "manuscript" / "README.md",
+    PROJECT / "manuscript" / "unit_0" / "AGENTS.md",
+    PROJECT / "scripts" / "AGENTS.md",
 ]
 
 
@@ -70,6 +85,22 @@ def test_mermaid_alt_text_preserves_acronym_prefixes() -> None:
     assert "Flowchart showing tLR4" not in alt
 
 
+def test_mermaid_alt_text_cleans_nameref_artifacts() -> None:
+    """Caption cleanup should not leak malformed ``amerefsec:`` text into alt comments."""
+    namespace = runpy.run_path(str(SCRIPTS / "add_mermaid_alt_text.py"))
+    alt_from_caption = namespace["_alt_from_caption"]
+    metadata_is_weak = namespace["_metadata_is_weak"]
+
+    alt = alt_from_caption(
+        r"\nameref{sec:unit_I_unit_intro} concept map — Chemistry of Life.",
+        "graph TD\n    A[Atoms] --> B[Macromolecules]",
+        "## Chemistry of Life",
+    )
+
+    assert "amerefsec" not in alt
+    assert metadata_is_weak("Graph showing amerefsec:unit_I_unit_intro concept map")
+
+
 def test_publication_readiness_gate_documents_default_and_full_scope() -> None:
     namespace = runpy.run_path(str(SCRIPTS / "audit_publication_readiness.py"))
     build_command_steps = namespace["build_command_steps"]
@@ -82,8 +113,9 @@ def test_publication_readiness_gate_documents_default_and_full_scope() -> None:
     assert "diagrams-strict" in default_names
     assert "root-wip-resolver-smoke" in default_names
     assert "coverage" not in default_names
+    assert "project-tests-gate" not in default_names
     assert "root-render" not in default_names
-    assert {"coverage", "root-setup", "root-project-tests", "root-render", "root-validate-output"} <= full_names
+    assert {"project-tests-gate", "root-setup", "root-render", "root-validate-output", "root-pdf-log"} <= full_names
 
 
 def test_publication_readiness_gate_uses_check_mode_for_mutating_sync_scripts() -> None:
@@ -93,6 +125,48 @@ def test_publication_readiness_gate_uses_check_mode_for_mutating_sync_scripts() 
 
     assert "--check" in commands["assessment-sync"]
     assert "--check" in commands["mermaid-alt-sync"]
+
+
+def test_publication_readiness_gate_uses_temporary_visual_outputs(tmp_path: Path) -> None:
+    namespace = runpy.run_path(str(SCRIPTS / "audit_publication_readiness.py"))
+    build_command_steps = namespace["build_command_steps"]
+    commands = {
+        step.name: step.command
+        for step in build_command_steps(full=False, artifact_dir=tmp_path)
+    }
+    project_output = str(PROJECT / "output")
+
+    assert "--output" in commands["visual-contracts"]
+    assert "--output-dir" in commands["figures-strict"]
+    assert "--output-dir" in commands["diagrams-strict"]
+    for command in commands.values():
+        assert not any(part.startswith(project_output) for part in command)
+
+
+def test_publication_readiness_project_tests_gate_uses_module_pytest_entrypoint() -> None:
+    namespace = runpy.run_path(str(SCRIPTS / "audit_publication_readiness.py"))
+    build_command_steps = namespace["build_command_steps"]
+    commands = {step.name: step.command for step in build_command_steps(full=True)}
+
+    assert commands["project-tests-gate"][:3] == ("uv", "run", "pytest")
+    assert "--cov-fail-under=90" in commands["project-tests-gate"]
+
+
+def test_further_reading_inserter_uses_specialized_source_heading() -> None:
+    namespace = runpy.run_path(str(SCRIPTS / "insert_further_reading.py"))
+    bib_entry = namespace["BibEntry"](
+        key="example",
+        entry_type="article",
+        author="Example, Ada",
+        year="2026",
+        title="Source governance in biology",
+        journal="Journal of Biology Sources",
+    )
+
+    section = namespace["render_section"]([bib_entry], "Cell Theory")
+
+    assert "## Further Reading and Source Notes: Cell Theory" in section
+    assert "\n## Further Reading\n" not in section
 
 
 def test_assessment_sync_dry_run_path_does_not_write(tmp_path: Path) -> None:
@@ -122,6 +196,15 @@ def test_extract_glossary_cards_parser_matches_live_glossary() -> None:
     assert "\\cref" not in entries[0]["definition"]
 
 
+def test_documentation_headings_avoid_generic_overview() -> None:
+    offenders: list[str] = []
+    pattern = re.compile(r"^## Overview$", flags=re.MULTILINE)
+    for path in GENERIC_OVERVIEW_HEADING_PATHS:
+        if pattern.search(path.read_text(encoding="utf-8")):
+            offenders.append(str(path.relative_to(PROJECT)))
+    assert not offenders
+
+
 def test_documented_project_counts_match_live_inventory() -> None:
     """Docs should not drift from the live script/test inventory."""
     script_count = len(_script_files())
@@ -130,21 +213,42 @@ def test_documented_project_counts_match_live_inventory() -> None:
         r"\b20 Python files\b",
         r"\b21 Python files\b",
         r"\b22 Python files\b",
+        r"\b29 `test_",
+        r"\b29 Python files\b",
+        r"\b38 labs\b",
+        r"\b38 question banks\b",
         r"\b16 test modules\b",
         r"\b18 test files\b",
         r"\b19 test modules\b",
+        r"\b38 configured chapters\b",
+        r"\b38-chapter\b",
+        r"\b38/38/38\b",
         r"13 matplotlib",
+        r"14 matplotlib generators",
+        r"\b18 `plot_\*`",
+        r"\b18 matplotlib",
+        r"\b18 registered matplotlib",
+        r"\b18 plots\b",
         r"568 passed",
         r"92\.33%",
     )
     offenders: list[str] = []
     for path in DOC_PATHS:
         text = path.read_text(encoding="utf-8")
-        if f"{script_count} Python files" not in text and path.name in {"README.md", "architecture.md"}:
-            offenders.append(f"{path.relative_to(PROJECT)} missing live script count {script_count}")
-        if path.name in {"README.md", "testing_guide.md"} and str(test_count) not in text:
-            offenders.append(f"{path.relative_to(PROJECT)} missing live test count {test_count}")
+        rel = path.relative_to(PROJECT).as_posix()
+        if f"{script_count} Python files" not in text and rel in {"README.md", "docs/architecture.md"}:
+            offenders.append(f"{rel} missing live script count {script_count}")
+        if "44 chapters" not in text and rel == "README.md":
+            offenders.append(f"{rel} missing live 44-chapter count")
+        if rel == "manuscript/README.md" and "**44**" not in text:
+            offenders.append(f"{rel} missing live 44-chapter total in unit map")
+        if rel in {"README.md", "docs/testing_guide.md", "tests/README.md"} and str(test_count) not in text:
+            offenders.append(f"{rel} missing live test count {test_count}")
+        if rel == "README.md" and "test_chapter_pedagogy_coverage" not in text:
+            offenders.append(f"{rel} missing pedagogy regression test signpost")
         for pattern in stale_patterns:
+            if rel == "REVIEW.md":
+                continue
             if re.search(pattern, text):
                 offenders.append(f"{path.relative_to(PROJECT)} contains stale pattern {pattern!r}")
     assert not offenders

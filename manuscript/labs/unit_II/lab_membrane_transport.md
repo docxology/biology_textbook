@@ -1,4 +1,4 @@
-# Lab 7 — Membrane Structure and Transport {.unnumbered}
+# Lab — Membrane Structure and Transport {.unnumbered}
 
 \label{sec:lab_unit_II_membrane_transport}
 
@@ -31,7 +31,7 @@
 2. Distinguish facilitated diffusion from active transport. For each, identify (i) whether energy from ATP is required, (ii) the direction of net movement relative to the concentration gradient, and (iii) one representative transmembrane protein family.
 3. A red blood cell is placed in a 0.9% NaCl solution and shows no change in volume; another is placed in distilled water and lyses. Use the terms hypertonic, hypotonic, and isotonic to predict the behaviour of the same red blood cell placed in a 3% NaCl solution, and predict what a plant cell would do under the same three conditions.
 
-## Background {.unnumbered}
+## Lab Context: Membrane Structure and Transport {.unnumbered}
 
 The plasma membrane is a selectively permeable phospholipid bilayer with embedded proteins. Water moves by osmosis across membranes from regions of high water potential (Ψ) to low Ψ (high solute concentration). In plant cells, plasmolysis occurs when the cell is placed in hypertonic solution — the cytoplasm shrinks away from the rigid cell wall. In animal cells, a hypertonic solution causes crenation (cell shrinking). Membrane fluidity depends on phospholipid composition (unsaturated fatty acids → more fluid) and temperature (higher temperature → more fluid).
 
@@ -41,6 +41,7 @@ In this lab you will use printed datasets to investigate how temperature damages
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Membrane Structure and Transport: cell-atlas or imaging source card: sample, assay, cell-state call, perturbation evidence, and uncertainty | 1 |
 | Membrane-leakage dataset at 20°C, 40°C, 60°C, 80°C, and 100°C | 1 |
 | Annotated onion plasmolysis image packet | 1 |
 | NaCl gradient and water-potential cards | 1 set |
@@ -126,6 +127,10 @@ Therefore water moves **out of the cell into the bathing solution** until potent
 
 **Interpretation:** Direction of water movement is set by the sign of (Ψcell − Ψsolution), not by solute concentrations alone. Pressure potential lets walled cells (plants, fungi, many algae) maintain positive Ψp even when their Ψs is strongly negative — this is the molecular basis of turgor pressure, plant rigidity, and the wilting response when soil Ψ drops. Animal cells, which lack a rigid wall, cannot generate positive Ψp and so rely on isotonic environments (or active volume regulation) to avoid lysis or crenation.
 
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Membrane Structure and Transport before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

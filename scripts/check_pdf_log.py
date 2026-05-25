@@ -20,6 +20,7 @@ _OVERFULL_RE = re.compile(
     r"(?P<direction>wide|high)\)",
 )
 _MISSING_CHARACTER_RE = re.compile(r"Missing character:")
+_DOUBLE_SUPERSCRIPT_RE = re.compile(r"^! Double superscript\.")
 
 
 @dataclass(frozen=True)
@@ -33,7 +34,7 @@ class PdfLogIssue:
 def find_pdf_log_issues(
     log_text: str, *, max_overfull_pt: float = 50.0, max_overfull_vbox_pt: float | None = None
 ) -> list[PdfLogIssue]:
-    """Return undefined-reference, missing-glyph, and severe-overfull-box issues."""
+    """Return undefined-reference, missing-glyph, double-superscript, and severe-overfull-box issues."""
     issues: list[PdfLogIssue] = []
     effective_vbox_pt = max_overfull_vbox_pt if max_overfull_vbox_pt is not None else max_overfull_pt
     for line_no, line in enumerate(log_text.splitlines(), start=1):
@@ -41,6 +42,9 @@ def find_pdf_log_issues(
             issues.append(PdfLogIssue(line_no, line.strip()))
             continue
         if _MISSING_CHARACTER_RE.search(line):
+            issues.append(PdfLogIssue(line_no, line.strip()))
+            continue
+        if _DOUBLE_SUPERSCRIPT_RE.search(line):
             issues.append(PdfLogIssue(line_no, line.strip()))
             continue
         match = _OVERFULL_RE.search(line)
@@ -71,7 +75,7 @@ def run(argv: list[str] | None = None) -> int:
     )
     if not issues:
         print(
-            "[PASS] no undefined references, missing glyphs, "
+            "[PASS] no undefined references, missing glyphs, double superscripts, "
             f"or overfull boxes (hbox > {args.max_overfull_pt:g}pt, "
             f"vbox > {args.max_overfull_vbox_pt:g}pt)"
         )

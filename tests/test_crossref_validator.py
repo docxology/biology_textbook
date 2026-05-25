@@ -12,13 +12,14 @@ that the minimum label coverage holds:
   :mod:`scripts.insert_crossref_labels`).
 * No ``@fig:``, ``@eq:``, ``@tbl:``, ``@sec:`` reference is unresolved.
 
-Bare inline ``$$…$$`` display equations without ``\\tag{}`` or ``\\label``
-are considered worked-example steps and are not required to carry ids.
+Bare inline ``$$…$$`` display equations without labels are considered
+worked-example steps and are not required to carry ids.
 """
 
 from __future__ import annotations
 
 import importlib.util
+import re
 import sys
 from pathlib import Path
 
@@ -87,6 +88,28 @@ def test_all_latex_figures_labeled(report) -> None:
     )
 
 
+def test_all_textual_equation_labels_are_collected(report) -> None:
+    """The validator must collect one-line and multi-line equation labels."""
+    manuscript = Path(__file__).resolve().parent.parent / "manuscript"
+    expected: dict[str, Path] = {}
+    for md in manuscript.rglob("*.md"):
+        if md.name in {"AGENTS.md", "README.md", "preamble.md"}:
+            continue
+        for line in md.read_text(encoding="utf-8").splitlines():
+            if line.lstrip().startswith("%"):
+                continue
+            for label in re.findall(r"\\label\{eq:([^}]+)\}", line):
+                expected[label] = md
+
+    collected = {_id for kind, _id in report.defined if kind == "eq"}
+    missing = sorted(set(expected) - collected)
+
+    assert not missing, (
+        f"{len(missing)} textual equation labels were not collected: "
+        + ", ".join(f"{label} in {expected[label].relative_to(manuscript)}" for label in missing[:10])
+    )
+
+
 def test_chapter_and_lab_section_labels_present() -> None:
     """Every chapter, lab, and question file has ``\\label{sec:…}``."""
     manuscript = Path(__file__).resolve().parent.parent / "manuscript"
@@ -130,9 +153,9 @@ def test_suggest_id_slugifies() -> None:
 
 
 def test_config_chapter_count_matches_preface() -> None:
-    """Sanity check — config enumerates 39 chapters (4 Unit 0 + 35 main).
+    """Sanity check — config enumerates 44 chapters (4 Unit 0 + 40 main).
 
-    The preface states "39 core chapters" — this test guards against silent
+    The preface states "44 core chapters" — this test guards against silent
     drift between the YAML manifest and the stated count.
     """
     import yaml
@@ -140,4 +163,4 @@ def test_config_chapter_count_matches_preface() -> None:
         (Path(__file__).resolve().parent.parent / "manuscript" / "config.yaml").read_text()
     )
     total = sum(len(u.get("chapters", [])) for u in cfg["units"])
-    assert total == 39, f"Expected 39 chapters, found {total}"
+    assert total == 44, f"Expected 44 chapters, found {total}"

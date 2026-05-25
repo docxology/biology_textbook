@@ -1,4 +1,4 @@
-# Lab 29 — Nervous System and Neural Signalling {.unnumbered}
+# Lab — Nervous System and Neural Signalling {.unnumbered}
 
 \label{sec:lab_unit_IX_nervous_system}
 
@@ -30,7 +30,7 @@
 2. Compare the preganglionic and postganglionic neurotransmitters typically used by the sympathetic and parasympathetic divisions. Indicate which division is more likely to release noradrenaline at its target tissues and which is more likely to release acetylcholine.
 3. Define myelination at the level of a single axon and state, in one sentence, why myelinated fibres conduct faster than unmyelinated fibres of the same diameter.
 
-## Background {.unnumbered}
+## Lab Context: Nervous System and Neural Signalling {.unnumbered}
 
 Neural signalling depends on the passive spread of graded potentials and, for long-distance signalling, the most-or-nothing action potential (AP). The **two-point discrimination threshold** (Weber's two-point test) reveals the density of somatosensory receptors in the skin: fingertips (2–3 mm threshold) vs upper back (40–70 mm). The patellar reflex is monosynaptic: stretching the patellar tendon activates Ia afferents in the quadriceps → synapse on α motor neurons in the spinal cord → quadriceps contraction. The entire arc takes <50 ms.
 
@@ -38,6 +38,7 @@ Neural signalling depends on the passive spread of graded potentials and, for lo
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Nervous System and Neural Signalling: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
 | Patellar reflex case dataset with baseline, Jendrassik, and neuropathy scenarios | 1 |
 | Two-point discrimination dataset for fingertip, palm, forearm, and upper back | 1 |
 | Action potential recording trace (printed: one AP at scale with time axis in ms, voltage axis in mV) | 1 |
@@ -137,6 +138,10 @@ equipment version belongs only in an optional extension.
 **Solution:** Convert units before dividing: 24 cm = 0.24 m and 2.4 ms = 0.0024 s. Conduction velocity v = distance / time = 0.24 m / 0.0024 s = 100 m/s. This is faster than the typical Aβ range, suggesting the measurement either (i) used a relatively long inter-electrode segment that averages over fast proximal fibres or (ii) reflects a healthy nerve with rapid saltatory conduction. A value substantially below 30 m/s in this segment would have been more consistent with focal demyelination from carpal tunnel compression.
 
 **Interpretation:** Conduction velocity is one of the most sensitive electrophysiological signs of demyelination, because saltatory conduction depends on intact myelin between nodes of Ranvier. Slowing on the order of 30–50% below the expected range, particularly when localised to the segment under the carpal ligament, supports the clinical suspicion. A normal or supra-normal velocity makes focal demyelination unlikely on its own.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Nervous System and Neural Signalling before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

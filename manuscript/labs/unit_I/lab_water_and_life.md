@@ -1,4 +1,4 @@
-# Lab 2 — Water — The Molecule of Life {.unnumbered}
+# Lab — Water — The Molecule of Life {.unnumbered}
 
 \label{sec:lab_unit_I_water_and_life}
 
@@ -31,7 +31,7 @@
 2. Apply hydrogen-bonding reasoning to explain why ice is less dense than liquid water and what that anomaly means for organisms living in a temperate lake during winter.
 3. Compare cohesion (water-to-water hydrogen bonding) and adhesion (water-to-other-surface attraction). Use the contrast to explain how the cohesion–tension model lifts a column of water from soil to the canopy of a tall tree.
 
-## Background {.unnumbered}
+## Lab Context: Water — The Molecule of Life {.unnumbered}
 
 Water's extraordinary properties arise from its bent molecular geometry (104.5° H–O–H bond angle) and the resulting network of hydrogen bonds. Each water molecule can form up to four hydrogen bonds — two through lone pairs (O as H-bond acceptor) and two through O–H groups (H-bond donor). This network gives water its high specific heat (4.18 J/g·°C), high surface tension (72 mN/m), strong cohesion/adhesion, and the ability to dissolve ionic and polar solutes. Most of these properties are exploited by living organisms.
 
@@ -41,6 +41,7 @@ In this lab you will analyse heat-absorption data for water and oil, interpret c
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Water — The Molecule of Life: molecular-structure source card: experimental method, prediction confidence, assay validation, and release date | 1 |
 | Heat-capacity dataset: water and oil temperature over time | 1 |
 | Capillary-rise diagram packet for water, oil, and xylem | 1 |
 | Osmosis model dataset for membrane bags in different solute conditions | 1 |
@@ -129,6 +130,10 @@ equipment version belongs only in an optional extension.
 
 **Interpretation:** The lizard's high water fraction buffers temperature changes: the same 840 J that warms the water-rich body by about 0.14 °C warms a drier body of the same mass by closer to 0.16 °C. Over an hour-long basking bout, with heat loads in the kilojoule range, that difference compounds and helps explain why high-water tissues stabilise core temperature against fluctuating environmental loads. Real organisms also dissipate heat by evaporation and conduction, so the calculation is an upper bound on the temperature rise rather than a complete thermal model.
 
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Water — The Molecule of Life before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

@@ -1,4 +1,4 @@
-# Lab 28 — Circulation, Respiration, and Homeostasis {.unnumbered}
+# Lab — Circulation, Respiration, and Homeostasis {.unnumbered}
 
 \label{sec:lab_unit_IX_circulation_respiration_homeostasis}
 
@@ -30,7 +30,7 @@
 2. Sketch (or describe) the oxygen–haemoglobin dissociation curve and indicate the direction the curve shifts when blood pH falls. State the physiological reason this Bohr-effect shift is helpful in metabolically active tissues.
 3. Define DO₂ (oxygen delivery) and VO₂ (oxygen consumption) in words, and write the Fick equation that relates VO₂ to cardiac output and the arteriovenous O₂ content difference.
 
-## Background {.unnumbered}
+## Lab Context: Circulation, Respiration, and Homeostasis {.unnumbered}
 
 The cardiovascular system delivers oxygen and removes CO₂ at a rate matched to tissue demand. Cardiac output (CO) = stroke volume (SV) × heart rate (HR). The Frank-Starling law states that greater ventricular filling (preload) stretches sarcomeres to a more optimal myosin–actin overlap, increasing stroke volume. Spirometry measures lung volumes: tidal volume (TV ~500 mL), inspiratory reserve (IRV ~3,000 mL), expiratory reserve (ERV ~1,200 mL), and FVC = (TV + IRV + ERV) for healthy adults.
 
@@ -38,6 +38,7 @@ The cardiovascular system delivers oxygen and removes CO₂ at a rate matched to
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Circulation, Respiration, and Homeostasis: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
 | Calculator | 1 |
 | Graph paper or spreadsheet template | 1 |
 | Cardiovascular response dataset with rest, exercise, recovery, and heart-failure cases | 1 |
@@ -120,6 +121,10 @@ equipment version belongs only in an optional extension.
 **Solution:** Cardiac output during exercise is CO = HR × SV = 140 bpm × 100 mL = 14,000 mL/min = 14 L/min. The arteriovenous O₂ difference is (0.20 − 0.15) = 0.05 mL O₂ per mL blood, or 50 mL O₂ per litre of blood. Applying Fick: VO₂ = 14 L/min × 50 mL O₂/L = 700 mL O₂/min. Resting VO₂ at the same Ca−Cv difference would be 5 L/min × 50 mL/L = 250 mL O₂/min.
 
 **Interpretation:** Exercise raised CO by about 2.8-fold (5 → 14 L/min). VO₂ rose roughly in step under the assumed Ca−Cv difference, but in practice the arteriovenous O₂ difference also widens during exercise as tissues extract more O₂, so VO₂ typically scales faster than CO alone. This shows why both CO and extraction matter for matching O₂ supply to demand.
+
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Circulation, Respiration, and Homeostasis before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

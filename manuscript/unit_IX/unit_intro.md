@@ -71,9 +71,9 @@ graph TD
     style IMMUNE fill:#27ae60,color:#fff
     style ENDO fill:#f39c12,color:#fff
 ```
-<!-- alt: Flowchart for Key Concepts and Connections: ⚖️ Homeostasis (negative feedback; set-point; effector), ❤️ Circulatory System (cardiac output; BP; Starling forces), 🫁 Respiratory System (gas exchange; ventilation-perfusion), and 💉 Endocrine System (hormones; anterior pituitary; feedback loops) form the diagram's primary path or branches. -->
+<!-- alt: Graph showing systems physiology concept map linking homeostasis, circulation, respiration, endocrine signalling, immunity, and neural control through feedback loops. -->
 
-*Flowchart for Key Concepts and Connections: ⚖️ Homeostasis (negative feedback; set-point; effector), ❤️ Circulatory System (cardiac output; BP; Starling forces), 🫁 Respiratory System (gas exchange; ventilation-perfusion), and 💉 Endocrine System (hormones; anterior pituitary; feedback loops) form the diagram's primary path or branches.*
+*Systems physiology concept map linking homeostasis, circulation, respiration, endocrine signalling, immunity, and neural control through feedback loops.*
 
 **\nameref{sec:unit_IX_unit_intro} concept map — Zoology and Systems Physiology.**
 

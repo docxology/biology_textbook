@@ -68,9 +68,9 @@ graph TD
     style PHOTO fill:#27ae60,color:#fff
     style ATPS fill:#8e44ad,color:#fff
 ```
-<!-- alt: Graph showing amerefsec:unit_III_unit_intro concept map — Energy and Metabolism. Orange = ATP currency; red = oxidative phosphorylation; green = photosynthesis; purple = ATP synthase. -->
+<!-- alt: Graph showing energy-and-metabolism concept map — orange = ATP currency; red = oxidative phosphorylation; green = photosynthesis; purple = ATP synthase. -->
 
-*\nameref{sec:unit_III_unit_intro} concept map — Energy and Metabolism. Orange = ATP currency; red = oxidative phosphorylation; green = photosynthesis; purple = ATP synthase.*
+*Energy-and-metabolism concept map — orange = ATP currency; red = oxidative phosphorylation; green = photosynthesis; purple = ATP synthase.*
 
 ---
 

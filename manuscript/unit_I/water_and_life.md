@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 2** · Level 1/3 · 40 min read · 50 min lecture · Prerequisites: \cref{sec:unit_I_atoms_molecules}
+> Level 1/3 · 40 min read · 50 min lecture · Prerequisites: \cref{sec:unit_I_atoms_molecules}
 
 ## Learning Objectives
 
@@ -16,6 +16,15 @@
 6. Describe the structure and function of aquaporins and their clinical significance.
 7. Explain colligative properties and their relevance to antifreeze organisms and cryobiology.
 8. Define water activity and explain its importance for food science and microbiology.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/osmotic_pressure.png}
+\caption{van 't Hoff osmotic pressure versus solute concentration at 37 °C. Electrolytes with van 't Hoff factor $i>1$ generate proportionally higher osmotic pressure than non-electrolytes at equal molarity.}
+\label{fig:unit_I_osmotic_pressure}
+\end{figure}
+
+<!-- alt: Linear rise of osmotic pressure with concentration for i equals 1 and i equals 2 solutes. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -134,7 +143,10 @@ The high heat capacity of water has global implications: coastal climates are mo
 
 **Worked example:** How much heat is required to raise the temperature of 70 kg of body water (a typical human) by 1 degree C?
 
-$$Q = mC_p\Delta T = 70{,}000 \;\text{g} \times 4.18 \;\text{J g}^{-1}\text{K}^{-1} \times 1 \;\text{K} = 292{,}600 \;\text{J} \approx 293 \;\text{kJ} \tag{2.1} \label{eq:unit_I_water_and_life_item_1}$$
+\begin{equation}
+Q = mC_p\Delta T = 70{,}000 \;\text{g} \times 4.18 \;\text{J g}^{-1}\text{K}^{-1} \times 1 \;\text{K} = 292{,}600 \;\text{J} \approx 293 \;\text{kJ}
+\label{eq:unit_I_water_and_life_item_1}
+\end{equation}
 
 
 This is equivalent to the energy in approximately 70 kcal of food --- a substantial metabolic investment. This explains why fever is energetically costly: raising body temperature by even 2 degrees C requires ~586 kJ, roughly 20% of resting metabolic output for one hour.
@@ -177,7 +189,7 @@ Liquid water is denser than ice because the hexagonal lattice of ice (perfect te
 - Maximum density at 4 degrees C, so lakes stratify with cold water at 4 degrees C at the bottom
 - Floating sea ice reflects solar radiation (albedo effect), contributing to climate regulation
 
-If ice were denser than water, as is the case for nearly most other substances, lakes and oceans would freeze from the bottom up, making most aquatic life unsustainable in temperate climates where water bodies freeze seasonally.
+If ice were denser than water, as is the case for nearly every other substance, lakes and oceans would freeze from the bottom up, making most aquatic life unsustainable in temperate climates where water bodies freeze seasonally.
 
 > **Concept Check 2:** If ice sank instead of floated, how would this affect lake ecosystems during winter? Consider both the physical arrangement and biological consequences.
 
@@ -195,7 +207,10 @@ If ice were denser than water, as is the case for nearly most other substances, 
 
 The energy cost of separating the ionic lattice is offset by the energy released from forming the hydration shell. This balance is captured by the **Born equation** for the free energy of ion solvation:
 
-$$\Delta G_{\text{solv}} = -\frac{z^2 e^2 N_A}{8\pi\varepsilon_0 r}\left(1 - \frac{1}{\varepsilon_r}\right) \tag{2.2} \label{eq:unit_I_water_and_life_item_2}$$
+\begin{equation}
+\Delta G_{\text{solv}} = -\frac{z^2 e^2 N_A}{8\pi\varepsilon_0 r}\left(1 - \frac{1}{\varepsilon_r}\right)
+\label{eq:unit_I_water_and_life_item_2}
+\end{equation}
 
 
 where $z$ is the ion charge, $r$ is the ionic radius, and $\varepsilon_r$ is the dielectric constant of the solvent.
@@ -218,26 +233,32 @@ sequenceDiagram
     Note over W1,Bulk: Second hydration<br/>shell is more<br/>disordered
     Note over Ion,Bulk: Complete hydrated ion:<br/>ΔG_solv = −365 kJ/mol<br/>for Na⁺
 ```
-<!-- alt: Sequence diagram for Hydrophilic Interactions and the Hydration Shell showing ordered interaction among Na⁺ Ion, Water Molecule 1, Water Molecule 2, and Water Molecule 3. -->
+<!-- alt: Sequence diagram showing hydration shells form because polar water molecules orient around ions; oxygen faces cations and hydrogens face anions, stabilising solutes in solution. -->
 
-*Sequence diagram for Hydrophilic Interactions and the Hydration Shell showing ordered interaction among Na⁺ Ion, Water Molecule 1, Water Molecule 2, and Water Molecule 3.*
+*Hydration shells form because polar water molecules orient around ions; oxygen faces cations and hydrogens face anions, stabilising solutes in solution.*
 
 ### The Dielectric Constant and Electrostatic Screening
 
 Water's high dielectric constant ($\varepsilon$ = 78.5 at 25 degrees C) dramatically weakens electrostatic interactions between charges. Coulomb's law in a medium:
 
-$$F = \frac{q_1 q_2}{4\pi\varepsilon_0\varepsilon_r r^2} \tag{2.3} \label{eq:unit_I_water_and_life_item_3}$$
+\begin{equation}
+F = \frac{q_1 q_2}{4\pi\varepsilon_0\varepsilon_r r^2}
+\label{eq:unit_I_water_and_life_item_3}
+\end{equation}
 
 
 In water, the force between two charges is reduced by a factor of 78.5 compared to vacuum. This is why NaCl (lattice energy 787 kJ/mol) dissolves readily in water but not in hexane ($\varepsilon$ = 1.9).
 
-### Hydrophobic Effect
+### Hydrophobic Effect and Entropy-Driven Assembly
 
 **Hydrophobic** ("water-fearing") molecules carry nonpolar groups (C--H, C--C) that cannot H-bond with water. When forced into aqueous solution, surrounding water molecules form a rigid, ordered cage (**clathrate structure**) to maintain their H-bonding network. This **decreases entropy** ($\Delta S < 0$).
 
 The **hydrophobic effect** is therefore driven by entropy: aggregating nonpolar molecules together minimises the clathrate-ordered water, restoring freedom to bulk water molecules ($\Delta S$ increases). The free energy change is:
 
-$$\Delta G = \Delta H - T\Delta S \tag{2.4} \label{eq:unit_I_water_and_life_item_4}$$
+\begin{equation}
+\Delta G = \Delta H - T\Delta S
+\label{eq:unit_I_water_and_life_item_4}
+\end{equation}
 
 
 Because $\Delta S$ is positive (entropy of the system increases) and $\Delta H \approx 0$ (van der Waals interactions in the nonpolar aggregate are similar to water-water interactions), $\Delta G < 0$ --- the aggregation is spontaneous.
@@ -268,28 +289,42 @@ The **critical micelle concentration (CMC)** is the concentration above which am
 
 ## Osmotic Pressure --- The van 't Hoff Equation
 
+\cref{fig:unit_I_osmotic_pressure} plots osmotic pressure versus molarity for non-electrolytes and a 1:1 electrolyte at body temperature.
+
 When a selectively permeable membrane separates solutions of different solute concentrations, **water moves from low solute (high water potential) to high solute (low water potential)** by [**osmosis**](#gl:osmosis).
 
 ### Derivation of the van 't Hoff Equation
 
 The osmotic pressure can be derived from the chemical potential of water. The chemical potential of water in a solution is:
 
-$$\mu_{\text{water}} = \mu^{\circ}_{\text{water}} + RT\ln a_w \tag{2.5} \label{eq:unit_I_water_and_life_item_5}$$
+\begin{equation}
+\mu_{\text{water}} = \mu^{\circ}_{\text{water}} + RT\ln a_w
+\label{eq:unit_I_water_and_life_item_5}
+\end{equation}
 
 
 where $a_w$ is the water activity. For dilute ideal solutions, $a_w \approx 1 - x_s$ where $x_s$ is the mole fraction of solute. Using the approximation $\ln(1-x) \approx -x$ for small $x$:
 
-$$\mu_{\text{water}} \approx \mu^{\circ}_{\text{water}} - RTx_s \tag{2.6} \label{eq:unit_I_water_and_life_item_6}$$
+\begin{equation}
+\mu_{\text{water}} \approx \mu^{\circ}_{\text{water}} - RTx_s
+\label{eq:unit_I_water_and_life_item_6}
+\end{equation}
 
 
 The osmotic pressure is the external pressure needed to restore the chemical potential to that of pure water:
 
-$$\pi \bar{V} = RTx_s \tag{2.7} \label{eq:unit_I_water_and_life_item_7}$$
+\begin{equation}
+\pi \bar{V} = RTx_s
+\label{eq:unit_I_water_and_life_item_7}
+\end{equation}
 
 
 For dilute solutions, $x_s \approx n_s/n_w$ and $n_w\bar{V} \approx V$, giving the **van 't Hoff equation**:
 
-$$\pi = iCRT \tag{2.8} \label{eq:unit_I_water_and_life_item_8}$$
+\begin{equation}
+\pi = iCRT
+\label{eq:unit_I_water_and_life_item_8}
+\end{equation}
 
 
 where:
@@ -298,25 +333,34 @@ where:
 - **$R$** = 8.314 J mol$^{-1}$ K$^{-1}$
 - **$T$** = temperature in Kelvin
 
-### Worked Examples
+### Worked Examples: Osmotic Pressure and Isotonic Fluids
 
 **Example 1 --- Blood plasma osmotic pressure:** Blood plasma osmolarity is about 0.3 Osm (made up of NaCl, glucose, proteins, etc.). Using $i \cdot C_{\text{total}}$ = 0.3 mol/L, T = 310 K:
 
-$$\pi = 0.3 \times 8.314 \times 310 = 773 \; \text{kPa} \approx 7.6 \; \text{atm} \tag{2.9} \label{eq:unit_I_water_and_life_item_9}$$
+\begin{equation}
+\pi = 0.3 \times 8.314 \times 310 = 773 \; \text{kPa} \approx 7.6 \; \text{atm}
+\label{eq:unit_I_water_and_life_item_9}
+\end{equation}
 
 
 This means a 7.6 atm pressure difference would be required to completely prevent osmotic water movement --- illustrating why [**turgor pressure**](#gl:turgor-pressure) is critical for plant cell rigidity (see \cref{sec:unit_VIII_plant_structure_and_water}).
 
 **Example 2 --- Sucrose solution:** What osmotic pressure is generated by a 0.5 M sucrose solution at 25 degrees C? Sucrose does not dissociate, so $i = 1$:
 
-$$\pi = 1 \times 0.5 \times 8.314 \times 298 = 1,239 \; \text{kPa} \approx 12.2 \; \text{atm} \tag{2.10} \label{eq:unit_I_water_and_life_item_10}$$
+\begin{equation}
+\pi = 1 \times 0.5 \times 8.314 \times 298 = 1,239 \; \text{kPa} \approx 12.2 \; \text{atm}
+\label{eq:unit_I_water_and_life_item_10}
+\end{equation}
 
 
 This is why plant cells can generate enormous turgor pressures --- enough for roots to crack concrete.
 
 **Example 3 --- Intravenous fluids:** A nurse prepares an isotonic saline drip using NaCl. What concentration is needed? Plasma osmolarity = 0.3 Osm; NaCl $i = 2$:
 
-$$C = \frac{0.3}{2} = 0.15 \; \text{M} = 0.15 \times 58.44 = 8.77 \; \text{g/L} \approx 0.9\% \tag{2.11} \label{eq:unit_I_water_and_life_item_11}$$
+\begin{equation}
+C = \frac{0.3}{2} = 0.15 \; \text{M} = 0.15 \times 58.44 = 8.77 \; \text{g/L} \approx 0.9\%
+\label{eq:unit_I_water_and_life_item_11}
+\end{equation}
 
 
 This is the basis for "normal saline" (0.9% NaCl), almost universally used in clinical settings.
@@ -375,7 +419,10 @@ flowchart LR
 
 Small molecules move passively down their **concentration gradients** by Brownian motion --- diffusion. Fick's First Law describes the net flux $J$ (mol m$^{-2}$ s$^{-1}$):
 
-$$J = -D \frac{d[C]}{dx} \tag{2.12} \label{eq:unit_I_water_and_life_item_12}$$
+\begin{equation}
+J = -D \frac{d[C]}{dx}
+\label{eq:unit_I_water_and_life_item_12}
+\end{equation}
 
 
 where:
@@ -388,7 +435,10 @@ The negative sign indicates flux is in the direction of decreasing concentration
 
 The diffusion coefficient is predicted by the Stokes-Einstein equation:
 
-$$D = \frac{k_B T}{6\pi\eta r} \tag{2.13} \label{eq:unit_I_water_and_life_item_13}$$
+\begin{equation}
+D = \frac{k_B T}{6\pi\eta r}
+\label{eq:unit_I_water_and_life_item_13}
+\end{equation}
 
 
 where $k_B$ is the Boltzmann constant, $T$ is temperature, η is solvent viscosity, and $r$ is the hydrodynamic radius of the solute. This equation predicts that:
@@ -428,7 +478,10 @@ This is why multicellular organisms exceeding ~1 mm require **circulatory system
 
 During exercise, the O$_2$ concentration at the capillary wall is approximately 0.13 mM, and at the centre of a muscle fibre (radius 25 μm) it drops to 0.01 mM. The flux across the fibre radius:
 
-$$J = -D\frac{\Delta C}{\Delta x} = -(2.1 \times 10^{-9})\frac{(0.01 - 0.13) \times 10^3}{25 \times 10^{-6}} = 1.0 \times 10^{-2} \; \text{mol m}^{-2}\text{s}^{-1} \tag{2.14} \label{eq:unit_I_water_and_life_item_14}$$
+\begin{equation}
+J = -D\frac{\Delta C}{\Delta x} = -(2.1 \times 10^{-9})\frac{(0.01 - 0.13) \times 10^3}{25 \times 10^{-6}} = 1.0 \times 10^{-2} \; \text{mol m}^{-2}\text{s}^{-1}
+\label{eq:unit_I_water_and_life_item_14}
+\end{equation}
 
 
 **Application 2 --- CO$_2$ removal from tissues:**
@@ -439,7 +492,10 @@ CO$_2$ produced by [**aerobic**](#gl:aerobic) metabolism ($D = 1.9 \times 10^{-9
 
 The synaptic cleft is ~20 nm wide. For acetylcholine ($D \approx 5 \times 10^{-10}$ m$^2$/s):
 
-$$t = \frac{x^2}{2D} = \frac{(20 \times 10^{-9})^2}{2 \times 5 \times 10^{-10}} = 4 \times 10^{-7} \; \text{s} = 0.4 \; \text{$\mu$s} \tag{2.15} \label{eq:unit_I_water_and_life_item_15}$$
+\begin{equation}
+t = \frac{x^2}{2D} = \frac{(20 \times 10^{-9})^2}{2 \times 5 \times 10^{-10}} = 4 \times 10^{-7} \; \text{s} = 0.4 \; \text{$\mu$s}
+\label{eq:unit_I_water_and_life_item_15}
+\end{equation}
 
 
 This submicrosecond diffusion time ensures rapid neurotransmission, far faster than the ~0.5 ms delay of synaptic transmission (which is dominated by vesicle fusion and receptor activation).
@@ -582,25 +638,31 @@ A single AQP1 channel transports approximately $3 \times 10^9$ water molecules p
 
 ---
 
-## Colligative Properties
+## Colligative Properties and Freezing/Boiling Shifts
 
 **Colligative properties** depend on the number of dissolved particles, not their identity. They are direct consequences of water activity reduction by solutes.
 
 ### Boiling Point Elevation and Freezing Point Depression
 
-$$\Delta T_b = iK_b m \quad \text{and} \quad \Delta T_f = iK_f m \tag{2.16} \label{eq:unit_I_water_and_life_item_18}$$
+\begin{equation}
+\Delta T_b = iK_b m \quad \text{and} \quad \Delta T_f = iK_f m
+\label{eq:unit_I_water_and_life_item_18}
+\end{equation}
 
 
 where $K_b$ = 0.512 degrees C/m (ebullioscopic constant) and $K_f$ = 1.86 degrees C/m (cryoscopic constant) for water, $m$ is molality (mol/kg solvent), and $i$ is the van 't Hoff factor.
 
 **Worked example:** Blood serum has an effective molality of ~0.3 m (most solutes combined). Freezing point depression:
 
-$$\Delta T_f = 1 \times 1.86 \times 0.3 = 0.558 \; \text{degrees C} \tag{2.17} \label{eq:unit_I_water_and_life_item_19}$$
+\begin{equation}
+\Delta T_f = 1 \times 1.86 \times 0.3 = 0.558 \; \text{degrees C}
+\label{eq:unit_I_water_and_life_item_19}
+\end{equation}
 
 
 Clinical osmometers measure this freezing point depression to determine serum osmolality. Normal serum freezes at --0.56 degrees C, corresponding to ~290 mOsm/kg.
 
-### Antifreeze Organisms
+### Antifreeze Proteins and Cryoprotective Adaptations
 
 Many organisms survive sub-zero temperatures using biological antifreeze strategies:
 
@@ -624,7 +686,10 @@ Many organisms survive sub-zero temperatures using biological antifreeze strateg
 
 **Water activity** ($a_w$) is the ratio of the vapour pressure of water in a solution to that of pure water:
 
-$$a_w = \frac{p}{p^{\circ}} \tag{2.18} \label{eq:unit_I_water_and_life_item_20}$$
+\begin{equation}
+a_w = \frac{p}{p^{\circ}}
+\label{eq:unit_I_water_and_life_item_20}
+\end{equation}
 
 
 Pure water has $a_w = 1.0$. Adding solutes lowers $a_w$. For an ideal dilute solution, $a_w \approx 1 - x_s$ where $x_s$ is the mole fraction of solute.
@@ -691,7 +756,7 @@ show that controlling water potential and solute load
 (\cref{sec:unit_II_membrane_transport}) is as much a target of natural
 selection as any catalytic site.
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Water — The Molecule of Life
 
 For **Water — The Molecule of Life**, frontier biology belongs inside the evidence logic of
 the chapter. Chemistry-of-life claims now connect classical bonding and thermodynamics with AI-guided structure prediction and experimental validation. The core reading question is this: water's biological effects depend on hydrogen bonding, colligative context, interfaces, temperature, and solute identity.
@@ -707,11 +772,11 @@ the chapter. Chemistry-of-life claims now connect classical bonding and thermody
   the source closest to the measurement and state what has changed since it was
   published.
 
-Use AI biomolecular models as hypothesis generators: compare confidence, conservation, solvent exposure, and assay evidence before turning a predicted contact into a biological claim \citep{abramson2024alphafold3}.
+Treat water-structure claims as context-dependent: temperature, solute identity, charge density, interfaces, and hydrogen bonding determine which interactions dominate \citep{abramson2024alphafold3}.
 
-**Source practice:** For structure and interaction claims, cite experimental structures when available and treat AlphaFold 3 or AFDB complex predictions as hypotheses to validate with confidence metrics, conservation, mutagenesis, binding, or cryo-EM/X-ray/NMR evidence \citep{abramson2024alphafold3,velankar2026alphafolddb2025,emblebi2026alphafoldcomplexes}.
+**Source practice:** Tie hydration, polarity, and colligative claims to measured potentials, solubility, spectroscopy, or thermodynamic data rather than generic molecular diagrams \citep{abramson2024alphafold3}.
 
-## Summary of Water's Exceptional Properties
+## Quantitative Summary of Water's Physical Properties
 
 | Property | Value (25 degrees C) | Biological Consequence |
 | -------- | -------------------- | --------------------- |
@@ -806,7 +871,7 @@ print(round(pi_pa))  # ~7.7e5 Pa for ~isotonic NaCl (order of several atm)
 ---
 
 
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Water — The Molecule of Life
 
 - Henderson (1913). *The Fitness of the Environment*. Macmillan.
 - Eisenberg & Kauzmann (1969). *The Structure and Properties of Water*. Oxford University Press.
@@ -817,7 +882,7 @@ print(round(pi_pa))  # ~7.7e5 Pa for ~isotonic NaCl (order of several atm)
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Water — The Molecule of Life
 
 **Water — The Molecule of Life** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

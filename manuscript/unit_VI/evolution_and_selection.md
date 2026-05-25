@@ -4,7 +4,7 @@
 
 
 <!-- chapter-metadata-badge -->
-> **Ch 19** · Level 2/3 · 60 min read · 75 min lecture · Prerequisites: \cref{sec:unit_V_population_genetics}
+> Level 2/3 · 60 min read · 75 min lecture · Prerequisites: \cref{sec:unit_V_population_genetics}
 
 ## Learning Objectives
 
@@ -40,7 +40,7 @@ By the end of this chapter, you should be able to:
 
 > **Opening Vignette — Thirteen Finches, One Revelation**
 > 
-> In 1835, H.M.S. Beagle anchored in the Galápagos Islands for five weeks. Charles Darwin explored several islands, collecting birds and noting that their beaks differed island to island — but he initially assumed they were different species entirely. It was the ornithologist John Gould who, examining Darwin's specimens back in London in 1837, declared most 13 birds finches, each adapted to a different food source. Primarily then did Darwin understand what he had seen: a single ancestral population, blown across 900 km of ocean, had diversified into 13 species to exploit different ecological [**niche**](#gl:niche)s. The insight sparked his theory of natural selection. A century and a half later, Peter and Rosemary Grant spent 40 years documenting beak evolution in *Geospiza fortis* during drought years — measuring beaks with calipers on every individual — providing the most comprehensive real-time record of natural selection in a wild population ever assembled.
+> In 1835, H.M.S. Beagle anchored in the Galápagos Islands for five weeks. Charles Darwin explored several islands, collecting birds and noting that their beaks differed island to island — but he initially assumed they were different species entirely. It was the ornithologist John Gould who, examining Darwin's specimens back in London in 1837, declared the 13 birds finches, each adapted to a different food source. That recognition helped Darwin understand what he had seen: a single ancestral population, blown across 900 km of ocean, had diversified into 13 species to exploit different ecological [**niche**](#gl:niche)s. The insight sparked his theory of natural selection. A century and a half later, Peter and Rosemary Grant spent 40 years documenting beak evolution in *Geospiza fortis* during drought years — measuring beaks with calipers on every individual — providing the most comprehensive real-time record of natural selection in a wild population ever assembled.
 
 ## Historical Context of Evolutionary Thought
 
@@ -91,7 +91,7 @@ The Modern Synthesis remains the foundation of evolutionary biology, though late
 
 ---
 
-## Evidence for Evolution
+## Evidence for Evolution Across Fossils, Genomes, and Development
 
 Five independent lines of evidence converge to support evolution. Each alone would be suggestive; together they constitute one of the most strongly supported theories in science.
 
@@ -116,11 +116,11 @@ flowchart TD
     F --> F2["Pseudogenes"]
     F --> F3["Endogenous retroviruses"]
 ```
-<!-- alt: Flowchart for Evidence for Evolution: Evidence for Evolution, Fossil Record, Comparative Anatomy, and Embryology form the diagram's primary path or branches. -->
+<!-- alt: Flowchart showing independent evidence streams for evolution, including fossils, anatomy, embryology, biogeography, and molecular comparison, converge on common descent and descent with modification. -->
 
-*Flowchart for Evidence for Evolution: Evidence for Evolution, Fossil Record, Comparative Anatomy, and Embryology form the diagram's primary path or branches.*
+*Independent evidence streams for evolution, including fossils, anatomy, embryology, biogeography, and molecular comparison, converge on common descent and descent with modification.*
 
-### Fossil Record
+### Fossil Record and Temporal Sequence Evidence
 
 The fossil record documents the history of life through mineralized remains preserved in sedimentary rock. Fossils form through several processes: permineralization (minerals replace organic material), compression (organisms flattened in sediment), amber preservation (organisms entombed in tree resin), and trace fossils (footprints, burrows, coprolites). The record is inherently incomplete -- fossilization requires specific conditions (rapid burial, absence of scavengers, appropriate mineral chemistry), and soft-bodied organisms are rarely preserved. Despite this incompleteness, key transitional fossils bridge major evolutionary gaps:
 
@@ -128,7 +128,7 @@ The fossil record documents the history of life through mineralized remains pres
 - **Archaeopteryx lithographica** (150 Mya, Late Jurassic): Found in Solnhofen limestone, Germany. Combines dinosaur features (teeth, clawed fingers, bony tail) with bird features (asymmetric flight feathers, wishbone). Now understood as one member of a diverse radiation of feathered dinosaurs.
 - **Whale evolution**: One of the best-documented evolutionary transitions. *Pakicetus* (50 Mya) was a terrestrial carnivore with cetacean ear bones. *Ambulocetus* (49 Mya) was semi-aquatic with large hind limbs for swimming. *Rodhocetus* (47 Mya) had reduced hind limbs and a more streamlined body. *Basilosaurus* (37 Mya) was fully aquatic with vestigial hind limbs. Modern cetaceans retain vestigial pelvic bones embedded in muscle.
 
-### Comparative Anatomy
+### Comparative Anatomy and Homology
 
 **Homologous structures** share a common developmental and evolutionary origin but may serve different functions. The vertebrate forelimb illustrates this principle: the human arm (manipulation), bat wing (flight), whale flipper (swimming), and horse leg (running) most contain the same bones -- humerus, radius, ulna, carpals, metacarpals, phalanges -- arranged in the same relative positions. The functional differences reflect modification of a shared ancestral blueprint.
 
@@ -136,7 +136,7 @@ The fossil record documents the history of life through mineralized remains pres
 
 **Vestigial structures** are reduced remnants of organs that were functional in ancestors: the human coccyx (remnant of a tail), arrector pili muscles (produce goose bumps -- useful for fur-covered ancestors, functionless in largely hairless humans), wisdom teeth (third molars suited to ancestral diets of tough plant material), and the whale pelvis (tiny bones embedded in body wall, remnants of hind limbs).
 
-### Embryology
+### Embryology and Developmental Homology
 
 **Pharyngeal arches** appear in the embryos of most vertebrates -- fish, amphibians, reptiles, birds, and mammals. In fish, these arches develop into gills and their supporting structures. In terrestrial vertebrates, the same embryonic structures are repurposed for entirely different functions: the first pharyngeal arch forms the jaw and middle ear ossicles (malleus and incus); the second arch forms the stapes, styloid process, and much of the hyoid bone; the third and fourth arches contribute to laryngeal and tracheal cartilages. This shared developmental program, using homologous embryonic structures for radically different adult functions, is compelling evidence for common ancestry.
 
@@ -144,7 +144,7 @@ The fossil record documents the history of life through mineralized remains pres
 
 Human embryos possess a tail at approximately week 5 of development, containing 10--12 developing caudal vertebrae. By week 8, programmed cell death ([**apoptosis**](#gl:apoptosis)) reduces this to the 3--5 fused vertebrae of the adult coccyx. In rare developmental anomalies, the apoptotic program fails partially, and a "vestigial tail" is present at birth -- a striking reminder of our evolutionary heritage. Similarly, human embryos develop lanugo (fine body hair) at approximately week 20, a remnant of the fur coat that covered our mammalian ancestors.
 
-### Biogeography
+### Biogeography and Historical Dispersal
 
 The geographic distribution of organisms reflects evolutionary history, geological events, and patterns of dispersal and vicariance. Darwin and Wallace both recognized that biogeography provides powerful evidence for evolution -- the distribution of organisms makes sense primarily in the context of evolutionary history and plate tectonics:
 
@@ -156,7 +156,7 @@ The geographic distribution of organisms reflects evolutionary history, geologic
 >
 > Understanding biogeographic patterns is critical for conservation. Oceanic islands and other biogeographic isolates harbor disproportionate numbers of endemic species -- organisms found nowhere else. Madagascar covers 0.4% of Earth's land surface but harbors approximately 5% of known species, nearly 90% of which are endemic. The island has been isolated from Africa for approximately 88 million years, allowing a unique biota to evolve in isolation. Conservation of island biotas requires understanding their evolutionary history: small, isolated populations are inherently vulnerable to extinction from habitat loss, introduced predators, and genetic erosion. The current extinction crisis disproportionately affects island species -- approximately 75% of recorded bird and mammal extinctions since 1500 have occurred on islands. Because "recorded extinctions" are biased toward vertebrates and well-surveyed islands, use the index as a directional warning signal, not as a complete inventory of biodiversity loss.
 
-### Molecular Evidence
+### Molecular Evidence from Sequence Similarity and Shared Variants
 
 Molecular data provide the most quantitative and testable evidence for evolution. The molecular evidence is particularly powerful because it generates precise, quantitative predictions that can be verified independently:
 
@@ -186,7 +186,7 @@ Molecular data provide the most quantitative and testable evidence for evolution
 <!-- alt: Three-panel line plot of allele A frequency over generations. Directional selection increases the favoured allele, balancing selection trajectories converge toward an intermediate frequency, and disruptive underdominance trajectories move away from the intermediate threshold. -->
 
 
-### Fitness
+### Fitness as Reproductive Success in Context
 
 **Darwinian fitness** ($W$) measures relative reproductive success -- the contribution of a genotype to the next generation compared to other genotypes:
 
@@ -221,9 +221,9 @@ flowchart LR
         X1["Mate choice or competition"] --> X2["Exaggerated traits evolve"]
     end
 ```
-<!-- alt: Flowchart showing fisher's Fundamental Theorem of Natural Selection. (1930): The rate of increase in mean population fitness equals the additive genetic variance in fitness:. -->
+<!-- alt: Flowchart showing selection modes change trait distributions in different ways: directional selection shifts a mean, stabilizing selection narrows variation, disruptive selection splits a distribution, and sexual selection amplifies mating-linked traits. -->
 
-*Fisher's Fundamental Theorem of Natural Selection. (1930): The rate of increase in mean population fitness equals the additive genetic variance in fitness:.*
+*Selection modes change trait distributions in different ways: directional selection shifts a mean, stabilizing selection narrows variation, disruptive selection splits a distribution, and sexual selection amplifies mating-linked traits.*
 
 \begin{equation}
 \frac{d\bar{W}}{dt} = V_A(W)
@@ -234,7 +234,7 @@ This theorem implies that natural selection typically increases mean fitness (th
 
 > **Concept Check (Synthesis --- Cross-Unit Connection):** \nameref{sec:unit_0_unit_intro} introduced the Free Energy Principle: biological systems minimize variational [**free energy**](#gl:free-energy) (prediction error) to maintain their phenotypic states. (a) Reframe natural selection in FEP terms: if fitness reflects how well an organism's phenotype predicts and responds to its environment, explain why selection pressure corresponds to the gradient of long-run expected surprise across phenotypic variation. (b) In this framing, what does "genetic drift" correspond to --- is it analogous to noise in a learning algorithm, to stochastic exploration in active inference, or to something else? Defend your choice. (c) How does the Baldwin effect (environmentally induced phenotypic change that can become genetically assimilated) illustrate the relationship between within-lifetime and across-generation free energy minimization?
 
-### Directional Selection
+### Directional Selection and Trait-Mean Shifts
 
 Directional selection shifts the mean [**phenotype**](#gl:phenotype) toward one extreme. The population's phenotype distribution moves in one direction across generations, in contrast to the stabilising and disruptive regimes whose divergent allele-frequency trajectories are simulated in \cref{fig:unit_VI_selection_simulation}.
 
@@ -273,7 +273,7 @@ The selection coefficient is approximately **0.10**. This means the resistant ba
 
 In the absence of antibiotics, resistance alleles often carry a **fitness cost** (the resistant genotype grows more slowly than the sensitive genotype). This predicts that resistance frequencies should decline when antibiotic use is reduced. However, compensatory mutations can eliminate the fitness cost of resistance without eliminating resistance itself -- making resistance effectively irreversible in many clinical settings.
 
-### Stabilizing Selection
+### Stabilizing Selection and Intermediate Optima
 
 Stabilizing selection favors intermediate phenotypes, reducing variance without shifting the mean. It is the most common form of selection in nature.
 
@@ -317,7 +317,7 @@ Consider a single-locus, two-allele model with heterozygote advantage. Starting 
 In the first generation, $p$ falls from 0.9 toward the equilibrium value $\hat{p} = 0.6$ — a balanced polymorphism is maintained because both homozygotes have reduced fitness relative to the heterozygote. This dynamic mirrors the maintenance of the sickle haemoglobin allele in malaria-endemic regions: HbAS heterozygotes carry the highest fitness, HbAA homozygotes pay a malaria-susceptibility cost, and HbSS homozygotes pay a severe anaemia cost. The equilibrium frequency of HbS in such populations is the empirical analogue of the $\hat{q}$ computed here.
 
 
-### Sexual Selection
+### Sexual Selection and Mating Success
 
 Darwin recognized that many traits -- peacock tails, elk antlers, birdsong complexity -- reduce survival but enhance mating success. **Sexual selection** operates through two mechanisms: **intrasexual selection** (typically male-male competition for access to mates or to resources mates require) and **intersexual selection** (mate choice, typically by females among displaying males).
 
@@ -367,14 +367,14 @@ Empirical tests are difficult because they require demonstrating heritable varia
 
 Imagine an ancestral peafowl population in which a small subset of females have a slight genetic preference for males with longer tails ("preference allele" frequency = 0.05). Long-tailed males are 5% more likely to be mated than short-tailed males, but they pay a 10% survival cost from increased predation. The genetic correlation between preference and trait builds over generations — initially weakly, but accelerating once the correlation becomes substantial. After ~100 generations of runaway, both preference frequency and tail length have escalated dramatically. The system reaches equilibrium when the survival cost (10% per unit tail length) balances the mating advantage (5% × tail length), producing tail lengths far beyond what natural selection alone would favor.
 
-**The peacock's tail thus is** simultaneously: (a) an honest signal of genetic quality (Zahavi handicap), (b) the equilibrium of a Fisherian runaway between preference and trait, and (c) a marker for "good genes" (parasite resistance) \citep{hamilton1982}. Most three mechanisms can operate together. Modern empirical work emphasizes that real peacock tail evolution — and most sexual ornaments — combines these forces in proportions that vary across species and contexts.
+**The peacock's tail thus is** simultaneously: (a) an honest signal of genetic quality (Zahavi handicap), (b) the equilibrium of a Fisherian runaway between preference and trait, and (c) a marker for "good genes" (parasite resistance) \citep{hamilton1982}. The three mechanisms can operate together. Modern empirical work emphasizes that real peacock tail evolution — and most sexual ornaments — combines these forces in proportions that vary across species and contexts.
 
 > **Concept Check (Synthesis):** Zahavian handicap theory proposes that elaborate ornaments (peacock tail, elk antlers) are honest signals of genetic quality precisely because they are costly to produce and maintain. A male with poor parasite resistance would struggle to bear the cost of a large peacock tail without paying a survival penalty — so females who prefer larger tails are selecting indirectly for the immune-gene variants that permit them. (a) Formalize this with a two-locus toy model: an ornament allele $O$ (cost $c$, viability $1 - c$) paired with a resistance allele $R$ (benefit $b$, viability $1 + b$). Under what condition (relationship between $b$ and $c$, allowing for the genetic correlation between $O$ and $R$ that female preference generates) does the female preference for $O$ spread? (b) Fisher's *sexy sons* (runaway) mechanism is an alternative: female preference and male ornament become genetically correlated and co-evolve as a positive-feedback loop, independent of any signal honesty. Contrast the predictions of the two models for what happens when parasites are experimentally removed from a population — which model predicts that ornament size declines, and which predicts that ornament size remains high (or continues to drift upward) for several generations after the parasite pressure is lifted?
 
 
-### Kin Selection
+### Kin Selection and Inclusive Fitness
 
-**Hamilton's rule** (1964) explains altruistic behavior: an altruistic act is favored when:
+**Hamilton's rule** explains altruistic behavior: an altruistic act is favored when \citep{hamilton1964geneticalI,hamilton1964geneticalII}:
 
 \begin{equation}
 rB > C
@@ -390,7 +390,9 @@ Coefficients of relatedness:
 - First cousins: $r = 0.125$
 - Parent–offspring: $r = 0.5$
 
-**Eusociality in Hymenoptera**: In haplodiploid species (ants, bees, wasps), females are diploid and males are haploid. Full sisters share $r = 0.75$ (they share most of their father's genes plus half of their mother's). This unusually high relatedness may predispose haplodiploidy systems toward eusociality. Modern understanding emphasizes that eusociality evolves when ecological conditions (defensible nests, progressive provisioning, high predation risk for solitary individuals) combine with kin structure to make helping more profitable than independent reproduction.
+**[Eusociality](#gl:eusociality) in insects**: Eusocial societies combine cooperative brood care, overlapping generations, and a reproductive division of labour in which some individuals reproduce little or do not reproduce \citep{crespi1995definition,bourke2011principles}. In [**haplodiploid**](#gl:haplodiploidy) Hymenoptera (many ants, bees, and wasps), females are diploid and males are haploid. Full sisters can share $r = 0.75$ (the full paternal genome plus, on average, half of the maternal genome), so helping a mother produce sisters can satisfy Hamilton's rule more easily than producing one's own offspring. The honeybee genome made this a concrete genomic system for studying sociality, chemical communication, immunity, and caste biology \citep{honeybeeGenome2006}.
+
+Haplodiploidy is a useful entry point but not a sufficient explanation. Many haplodiploid insects are solitary, while termites are diploid and nevertheless evolved eusocial colonies. Comparative evidence points to ancestral monogamy, kin structure, defensible nests, progressive brood provisioning, and ecological risks of independent nesting as interacting conditions that make helping profitable \citep{hughes2008ancestral,bourke2011principles}. Termites are especially important because phylogenetic work places them within cockroaches, showing that eusociality evolved independently outside Hymenoptera \citep{inward2007death}.
 
 ### Evolutionary Game Theory: Hawk–Dove and the ESS
 
@@ -525,7 +527,7 @@ When buffering is overwhelmed — by extreme environmental stress, by a chaperon
 
 **Cryptic variation as evolutionary fuel**: Recent studies in zebrafish, threespine stickleback, and *Drosophila* show that populations with deeper reservoirs of cryptic variation respond to novel selection pressures faster than populations with shallow reservoirs. Modular development plus cryptic variation thus form a paired pair of features that increase evolvability — modularity by allowing independent change, cryptic variation by storing adaptive material.
 
-**Inclusive fitness**: Hamilton's insight extended the concept of fitness beyond direct reproduction. An individual's **inclusive fitness** includes both its direct fitness (own offspring) and the fitness gained indirectly by helping relatives reproduce — weighted by the coefficient of relatedness. A sterile worker bee with zero direct fitness can still have high inclusive fitness if she helps her queen mother produce hundreds of full sisters ($r = 0.75$ each).
+**[Inclusive fitness](#gl:inclusive-fitness)**: Hamilton's insight extended the concept of fitness beyond direct reproduction. An individual's inclusive fitness includes both its direct fitness (own offspring) and the fitness gained indirectly by helping relatives reproduce — weighted by the coefficient of relatedness \citep{hamilton1964geneticalI,hamilton1964geneticalII}. A sterile worker bee with zero direct fitness can still have high inclusive fitness if she helps her queen mother produce many full sisters; the same logic also explains why social evolution is sensitive to queen mating number, colony founding ecology, and whether helpers are assisting full siblings, half-siblings, or more distant kin.
 
 ### Frequency-Dependent Selection
 
@@ -544,7 +546,7 @@ When buffering is overwhelmed — by extreme environmental stress, by a chaperon
 > **Concept Check (Synthesis — Industrial Melanism Revisited):** The classical peppered-moth story (rise of *carbonaria* during the Industrial Revolution; recovery of *typica* after the Clean Air Act) is sometimes told as pure directional selection on a single locus. Re-synthesise the case as follows: (a) why did the *carbonaria* allele not reach 100 % even at peak pollution, given the apparent strong selection — what role might **heterozygote dynamics**, frequency-dependent predation, or microhabitat heterogeneity play? (b) The selection coefficient reversed direction within ~50 years (industrialisation → Clean Air Act); design an **evolutionary rescue experiment** in the laboratory that uses *Biston betularia* or a comparable lepidopteran to test whether the trait can re-evolve when the environment shifts again. Specify the population sizes, selection intensities, and number of generations needed to detect a response above noise.
 
 
-### Balancing Selection
+### Balancing Selection and Maintained Polymorphism
 
 Several mechanisms maintain genetic polymorphism within populations, collectively termed **balancing selection**:
 
@@ -570,20 +572,20 @@ An **exaptation** is a feature that was originally shaped by natural selection f
 - **Feathers** evolved initially for [**thermoregulation**](#gl:thermoregulation) in small theropod dinosaurs. Flight capability was a later co-option of an existing structure.
 - **Swim bladders** in bony fish are homologous with lungs in terrestrial vertebrates. The ancestral structure was likely a vascularized outpocketing of the pharynx used for gas exchange in oxygen-poor water, later modified for buoyancy control in derived fish lineages and for terrestrial respiration in the lineage leading to tetrapods.
 
-### Phylogenetic Constraints
+### Phylogenetic Constraints on Adaptive Pathways
 
 Evolution cannot start from scratch. Natural selection can primarily modify existing structures, constrained by the organism's **bauplan** (body plan):
 
 - **Panda's "thumb"**: The giant panda's thumb is not a true digit but an enlarged radial sesamoid bone. The true thumb is committed to the bear-like paw. Natural selection co-opted a wrist bone to create a functional but imperfect food-handling structure -- a testament to evolutionary tinkering rather than design.
 - **Recurrent laryngeal nerve**: In mammals, this branch of the vagus nerve loops from the brainstem down around the aortic arch and back up to the larynx. In giraffes, this detour adds approximately 4.5 meters of unnecessary nerve length. The path makes developmental sense given the ancestral fish anatomy (where the nerve innervated the sixth gill arch) but is a suboptimal arrangement in a long-necked mammal.
 
-### Developmental Constraints
+### Developmental Constraints on Phenotypic Variation
 
 Body plans established during embryonic development are deeply conserved and difficult to alter fundamentally. The basic organization of body segments, limb positions, and organ systems is established by deeply conserved developmental gene networks (Hox genes, signaling pathways such as Hedgehog, Wnt, and BMP). Tetrapods are ancestrally four-limbed -- not because four is optimal for every ecological situation but because the tetrapod body plan was established approximately 375 Mya and is embedded so deeply in the developmental genetic toolkit that altering limb number would require simultaneously reorganizing multiple interconnected developmental pathways. No tetrapod has evolved six limbs, despite the potential utility of additional appendages. Snakes have lost their limbs entirely (through modification of Hox gene expression domains), demonstrating that reduction is possible even when addition is not.
 
 Similarly, the vertebrate eye is built "backwards" -- with photoreceptors behind the retinal [**neuron**](#gl:neuron)s and blood vessels, creating a blind spot where the optic nerve exits. Cephalopod eyes evolved independently with photoreceptors facing forward, lacking a blind spot. The vertebrate arrangement persists because the ancestral developmental program cannot easily be reorganized without disrupting the entire eye structure.
 
-### Trade-offs
+### Evolutionary Trade-Offs and Constraint Surfaces
 
 Organisms cannot maximize most fitness components simultaneously:
 
@@ -593,7 +595,7 @@ Organisms cannot maximize most fitness components simultaneously:
 - **Fecundity versus offspring quality**: Organisms face a fundamental trade-off between producing many small offspring (r-strategy) or few large offspring (K-strategy). Each egg or seed requires maternal investment; allocating more to each offspring reduces the total number that can be produced.
 - **Current reproduction versus future survival**: Investing heavily in current reproduction often reduces an organism's probability of surviving to reproduce again. Semelparous organisms (salmon, annual plants) invest everything in a single reproductive event and then die. Iteroparous organisms (most mammals, perennial plants) reproduce multiple times but invest less per reproductive event.
 
-### Coevolution
+### Coevolution and Reciprocal Selection
 
 **Coevolution** occurs when two or more species exert reciprocal selective pressures on each other, driving evolutionary change in both lineages.
 
@@ -619,7 +621,7 @@ Organisms cannot maximize most fitness components simultaneously:
 
 A central question in evolutionary biology is whether macroevolution is simply the accumulation of microevolutionary changes over vast timescales, or whether additional processes operate at higher levels of biological organization. Most evolutionary biologists accept that the same fundamental mechanisms (mutation, selection, drift, gene flow) underlie both scales, but that emergent properties (species selection, developmental constraints, contingency) shape macroevolutionary patterns.
 
-### Punctuated Equilibrium
+### Punctuated Equilibrium and Tempo of Change
 
 **Punctuated equilibrium** \citep{gould1972} proposes that most species experience long periods of morphological stasis (millions of years) interrupted by brief episodes of rapid evolutionary change associated with speciation events. This pattern contrasts with **phyletic gradualism**, which predicts slow, continuous morphological change.
 
@@ -646,10 +648,11 @@ The debate between punctuated equilibrium and gradualism is largely resolved: bo
 - The evolution of the **amniotic egg** (about 340 Mya), freeing tetrapods from dependence on water for reproduction
 - The evolution of **flowers** in [**angiosperm**](#gl:angiosperm)s (about 130 Mya), enabling coevolution with pollinators and explosive diversification
 - The evolution of **flight** in insects (about 350 Mya), birds (about 150 Mya), and bats (about 55 Mya), each opening vast ecological opportunities
+- The evolution of **eusocial colonies** in ants, some bees and wasps, and termites, converting related individuals into coordinated units that forage, defend nests, rear brood, and modify environments at scales difficult for solitary insects to achieve \citep{crespi1995definition,bourke2011principles}
 
 Key innovations often trigger **adaptive radiations** (see \cref{sec:unit_VI_genetic_drift_and_speciation}) by allowing lineages to exploit previously inaccessible resources.
 
-### Mass Extinctions
+### Mass Extinctions and Selective Regime Shifts
 
 ```mermaid
 timeline
@@ -705,6 +708,7 @@ The status of the EES is actively debated. Laland *et al.* (2015, *Nature*) argu
 
 - **Beaver dams** create wetland environments that persist for centuries and modify selection on the beavers themselves (favoring traits useful in lodge-based aquatic life), on aquatic plants and fish (which evolve in response to slowed water and altered hydrology), and on terrestrial herbivores in surrounding meadows.
 - **Earthworms** modify soil pH, structure, drainage, and nutrient cycling. Plants in earthworm-modified soils experience radically different selective regimes than they would in unmodified soils. Earthworm presence has measurably changed plant community composition and microbial diversity over millennia.
+- **Termites and ants** excavate galleries, concentrate organic matter, move mineral soil upward, and alter infiltration and nutrient availability. In dry systems, these nests and mounds can create fertile patches that change plant recruitment and competitive context \citep{evans2011antsTermites}. Termites add a microbial dimension because gut symbionts unlock lignocellulose and return carbon and nitrogen to ecosystem cycling \citep{brune2014symbiotic}.
 - **Cyanobacteria** transformed Earth's atmosphere from anoxic to oxygenic over the Great Oxidation Event (~2.4 Ga), simultaneously enabling the evolution of aerobic respiration and constraining (or extinguishing) the anaerobic life forms that had previously dominated. The largest niche-construction event in Earth history.
 - **Human agriculture** is the most extreme recent example: humans modified plant and animal genomes through artificial selection while simultaneously modifying their own selective environment (creating new disease pressures from livestock, dietary shifts, sedentary lifestyles).
 
@@ -738,7 +742,7 @@ The evolutionary significance of TEI in mammals (especially humans) remains deba
 
 One of the most powerful confirmations of evolutionary theory is the direct observation of evolution occurring within human timescales.
 
-### Laboratory Evolution
+### Laboratory Evolution as Experimental Selection
 
 **Richard Lenski's Long-Term Evolution Experiment (LTEE)**: Since 1988, 12 populations of *Escherichia coli* have been propagated daily in minimal glucose medium at Michigan State University. By 2024, these populations have undergone over 80,000 generations. Key results include:
 
@@ -746,7 +750,7 @@ One of the most powerful confirmations of evolutionary theory is the direct obse
 - Around generation 31,500, one population evolved the ability to metabolize citrate under aerobic conditions -- a trait previously considered a defining characteristic distinguishing *E. coli* from other enteric bacteria. This required multiple mutations occurring in a specific order, demonstrating the role of historical contingency in evolution.
 - Mutations in mutator genes (DNA repair) increased the mutation rate in some lineages, accelerating adaptation but also accumulating slightly deleterious mutations.
 
-### Natural Experiments
+### Natural Experiments in Contemporary Evolution
 
 **Darwin's finch beak evolution**: Peter and Rosemary Grant's 40-year field study on Daphne Major island documented directional selection on beak depth in medium ground finches (*Geospiza fortis*) during the 1977 drought (beak depth increased 4%) and the 1983 El Nino (beak depth decreased as small seeds became abundant again). This provided real-time quantitative evidence that selection can produce measurable morphological change within a single generation.
 
@@ -756,7 +760,7 @@ One of the most powerful confirmations of evolutionary theory is the direct obse
 
 Meanwhile, native predators in newly colonized areas have evolved rapidly in response. Red-bellied black snakes (*Pseudechis porphyriacus*) and green tree snakes (*Dendrelaphis punctulatus*) have evolved smaller heads relative to body size (reducing their ability to consume the large, toxic toads -- a behavioral and morphological adaptation that reduces mortality). Some snake populations have also evolved increased physiological resistance to toad toxins (bufadienolides). This represents rapid, reciprocal coevolutionary response to an invasive species.
 
-> **Concept Check 6:** The LTEE citrate-utilization mutation required multiple genetic changes occurring in a specific sequence. How does this observation relate to the concept of historical contingency in evolution? Would you expect the same mutation to arise in most 12 replicate populations?
+> **Concept Check 6:** The LTEE citrate-utilization mutation required multiple genetic changes occurring in a specific sequence. How does this observation relate to the concept of historical contingency in evolution? Would you expect the same mutation to arise across the 12 replicate populations?
 
 ### Punctuated Equilibrium versus Phyletic Gradualism: Empirical Signatures
 
@@ -825,7 +829,7 @@ The common thread: the tools of evolutionary biology are now potent enough that 
 
 ---
 
-## Current Evidence and Frontier Biology
+## Current Evidence and Frontier Biology: Evolution — Theory, Natural Selection, and Adaptation
 
 For **Evolution — Theory, Natural Selection, and Adaptation**, frontier biology belongs inside the evidence logic of
 the chapter. Evolutionary claims are strongest when they combine mechanism, comparative evidence, population process, and explicit uncertainty. The core reading question is this: selection claims need fitness components, ecological context, genetic variation, and alternative hypotheses.
@@ -841,16 +845,16 @@ the chapter. Evolutionary claims are strongest when they combine mechanism, comp
   the source closest to the measurement and state what has changed since it was
   published.
 
-Distinguish adaptation from drift, phylogenetic signal from convergence, and historical explanation from a testable prediction about present-day data.
+For selection claims, separate fitness differences from storytelling by naming the trait, environment, heritable variation, and plausible nonadaptive alternative.
 
-**Source practice:** For evolutionary claims, prefer evidence that compares alternatives such as selection, drift, gene flow, constraint, convergence, and shared ancestry.
+**Source practice:** For adaptation claims, prefer evidence that compares selection with drift, constraint, plasticity, and shared ancestry before assigning function.
 
 ## Summary
 
 - Pre-Darwinian thinkers (Lamarck, Cuvier, Lyell) established concepts of species change, extinction, and deep geological time that set the stage for Darwin and Wallace.
 - Five independent lines of evidence support evolution: fossil record (transitional forms), comparative anatomy (homology, vestigiality), embryology (shared developmental stages), biogeography (geographic distributions reflecting history), and molecular biology (sequence similarity, shared pseudogenes, ERVs).
 - Natural selection requires heritable variation, differential reproduction, and environmental pressure. It operates through multiple modes: directional, stabilizing, disruptive, sexual, kin, and frequency-dependent selection.
-- Fitness ($W$) is relative reproductive success. Hamilton's rule ($rB > C$) extends selection theory to explain altruism among relatives.
+- Fitness ($W$) is relative reproductive success. Hamilton's rule ($rB > C$) extends selection theory to explain altruism among relatives; eusocial insects show why relatedness, monogamy, ecology, and phylogeny must be evaluated together rather than reduced to haplodiploidy alone.
 - Adaptation is constrained by phylogenetic history, developmental programs, and trade-offs. Exaptations demonstrate co-option of existing structures for new functions.
 - Coevolution produces arms races (newt-snake toxin resistance) and maintains the Red Queen dynamic.
 - Macroevolutionary patterns include punctuated equilibrium, mass extinctions (5 major events plus the ongoing 6th), and the Extended Evolutionary Synthesis incorporating plasticity, epigenetics, niche construction, and cultural evolution.
@@ -869,6 +873,8 @@ Distinguish adaptation from drift, phylogenetic signal from convergence, and his
 | **Disruptive selection** | Selection favoring both phenotypic extremes at the expense of intermediates |
 | **Sexual selection** | Selection arising from variation in mating success; includes intersexual (mate choice) and intrasexual (competition) components |
 | **Kin selection** | Natural selection favoring altruistic behaviors toward genetic relatives, governed by Hamilton's rule ($rB > C$) |
+| **[Eusociality](#gl:eusociality)** | Social system with cooperative brood care, overlapping generations, and reproductive division of labour |
+| **[Haplodiploidy](#gl:haplodiploidy)** | Sex-determination system in which haploid males develop from unfertilised eggs and diploid females from fertilised eggs |
 | **Frequency-dependent selection** | Fitness of a phenotype depends on its frequency in the population; negative form maintains polymorphism |
 | **Adaptation** | A heritable trait shaped by natural selection that increases fitness in the current environment |
 | **Exaptation** | A trait originally shaped by selection for one function that has been co-opted for a different function |
@@ -882,7 +888,7 @@ Distinguish adaptation from drift, phylogenetic signal from convergence, and his
 | **Analogous structures** | Features in different species similar in function but with different developmental and evolutionary origins |
 | **Modern Synthesis** | Unification of Darwinian selection with Mendelian genetics, population genetics, paleontology, and systematics (1930s--1950s) |
 | **Extended Evolutionary Synthesis** | Expansion of the Modern Synthesis to include developmental plasticity, epigenetic inheritance, niche construction, and cultural evolution |
-| **Inclusive fitness** | Total fitness including direct reproduction plus indirect fitness gained by helping relatives reproduce |
+| **[Inclusive fitness](#gl:inclusive-fitness)** | Total fitness including direct reproduction plus indirect fitness gained by helping relatives reproduce |
 | **Phyletic gradualism** | Model proposing slow, continuous morphological change throughout a lineage's history |
 | **Uniformitarianism** | Principle that the same geological processes operating today have typically operated at similar rates |
 | **Catastrophism** | Doctrine that Earth's features and fossil [**succession**](#gl:succession) result from sudden, violent events |
@@ -914,10 +920,13 @@ Distinguish adaptation from drift, phylogenetic signal from convergence, and his
 10. The Extended Evolutionary Synthesis proposes mechanisms beyond those in the Modern Synthesis. Choose one (developmental plasticity, epigenetic inheritance, niche construction, or cultural evolution) and explain how it might influence evolutionary trajectories in ways not captured by standard population genetics models.
 11. At which $p$ is $\bar W$ maximised for the fitness set in the bridge code? Relate to equilibrium under one-locus selection.
 12. Give one example where **kin selection** predicts a behaviour that violates individual fitness maximisation yet spreads in haplodiploid hymenoptera.
-## Further Reading and Source Notes
+## Further Reading and Source Notes: Evolution — Theory, Natural Selection, and Adaptation
 
 - Darwin & Wallace (1858). On the Tendency of Species to form Varieties. *Journal of the Proceedings of the Linnean Society: Zoology*, 3.
 - Williams (1966). *Adaptation and Natural Selection*. Princeton University Press.
+- Hamilton (1964). The genetical evolution of social behaviour I and II. *Journal of Theoretical Biology*.
+- Crespi & Yanega (1995). The definition of eusociality. *Behavioral Ecology*.
+- Bourke (2011). *Principles of Social Evolution*. Oxford University Press.
 - Karn & Penrose (1951). Birth weight and gestation time in relation to maternal age, parity and infant survival. *Annals of Eugenics*, 16.
 - Hamilton & Zuk (1982). Heritable true fitness and bright birds: A role for parasites?. *Science*, 218.
 - Gould & Eldredge (1972). Punctuated equilibria: an alternative to phyletic gradualism. *Models in Paleobiology*.
@@ -925,7 +934,7 @@ Distinguish adaptation from drift, phylogenetic signal from convergence, and his
 
 ---
 
-### Companion Source Module
+## Companion Source Module: Evolution — Theory, Natural Selection, and Adaptation
 
 **Evolution — Theory, Natural Selection, and Adaptation** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the

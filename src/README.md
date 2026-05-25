@@ -11,7 +11,7 @@ Scripts in `../scripts/` are thin orchestrators; reusable logic belongs here.
 | `mermaid/` | Mermaid renderer, generic builders, and the 24 registered biology diagram factories; use strict PNG mode for publication builds |
 | `visualization/` | Eighteen matplotlib figure generators plus the colour-vision-friendly palette helpers |
 
-Run `uv run pytest tests/ --cov=src --cov-fail-under=90` from the project root
+Run `uv run python -m pytest tests/ --cov=src --cov-fail-under=90` from the project root
 after changing public functions, metadata APIs, diagram registries, or figure
 generators.
 

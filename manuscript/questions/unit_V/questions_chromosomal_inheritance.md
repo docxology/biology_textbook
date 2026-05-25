@@ -1,4 +1,4 @@
-# Questions — Ch 17: Chromosomal Inheritance and Linkage {.unnumbered}
+# Questions — Chromosomal Inheritance and Linkage {.unnumbered}
 
 \label{sec:q_unit_V_chromosomal_inheritance}
 
@@ -73,10 +73,10 @@ SOLUTION -->
 **Answer (Q9, Recall).** A **chromosomal translocation** is the transfer of a chromosomal segment to a non-homologous chromosome. The **Philadelphia chromosome** arises from a reciprocal translocation **t(9;22)** that fuses *BCR* (chr 22) to *ABL1* (chr 9), creating the constitutively active *BCR-ABL1* tyrosine-kinase fusion oncogene that drives chronic myeloid leukemia. See \cref{sec:unit_V_chromosomal_inheritance}.
 SOLUTION -->
 <!-- assess: LO=LO10; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-10. What is a karyotype? How is one prepared?
+10. Compare XX/XY, ZW/ZZ, XO, and haplodiploid sex determination. Why should haplodiploidy be treated as a chromosome mechanism rather than a complete explanation for eusociality?
 
 <!-- SOLUTION
-**Answer (Q10, Recall).** A **karyotype** is the ordered display of an individual's complete chromosome set, arranged by size, centromere position, and banding pattern. It is prepared by arresting dividing cells (e.g. lymphocytes) in metaphase with colchicine, applying hypotonic swelling, staining (Giemsa banding), then imaging and pairing the chromosomes to detect numerical and structural abnormalities. See \cref{sec:unit_V_chromosomal_inheritance}.
+**Answer (Q10, Recall).** In **XX/XY** systems, typical mammalian females are XX and males are XY, with SRY initiating testis development. In **ZW/ZZ** systems, common in birds and butterflies, females are ZW and males are ZZ. In **XO** systems, males have one X and no second sex chromosome. In **haplodiploidy**, common in Hymenoptera, unfertilised haploid eggs develop as males and fertilised diploid eggs develop as females. Haplodiploidy changes relatedness patterns among relatives, so it matters for kin-selection models, but it is not a complete explanation for eusociality because ecology, mating system, colony demography, and phylogenetic history also matter; diploid termites are the key contrast. See \cref{sec:unit_V_chromosomal_inheritance}.
 SOLUTION -->
 
 ## Questions 11–20: Application and Analysis {.unnumbered}

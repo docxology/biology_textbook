@@ -1,4 +1,4 @@
-# Questions — Ch 0.2: Complex Adaptive Systems {.unnumbered}
+# Questions — Complex Adaptive Systems {.unnumbered}
 
 \label{sec:q_unit_0_complex_adaptive_systems}
 

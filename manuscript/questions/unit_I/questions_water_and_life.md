@@ -1,4 +1,4 @@
-# Questions — Ch 2: Water — The Molecule of Life {.unnumbered}
+# Questions — Water — The Molecule of Life {.unnumbered}
 
 \label{sec:q_unit_I_water_and_life}
 

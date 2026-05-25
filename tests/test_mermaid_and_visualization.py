@@ -64,8 +64,161 @@ class TestMermaidRenderer:
         assert path.exists()
         assert path.stat().st_size > 0
 
+    def test_mermaid_png_output_is_square_padded(self, tmp_path, monkeypatch):
+        from PIL import Image
 
-class TestMermaidDiagramBuilders:
+        def fake_run(cmd, **_kwargs):
+            output = Path(cmd[cmd.index("--output") + 1])
+            Image.new("RGB", (900, 120), "white").save(output)
+
+            class Result:
+                returncode = 0
+                stdout = ""
+                stderr = ""
+
+            return Result()
+
+        monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
+        monkeypatch.setattr("subprocess.run", fake_run)
+
+        renderer = MermaidRenderer(output_dir=tmp_path, strict_png=True)
+        path = renderer.render("wide", "flowchart LR\n    A[Start] --> B[End]")
+
+        with Image.open(path) as image:
+            assert image.width == image.height
+
+    def test_strict_png_raises_when_mmdc_missing(self, tmp_path, monkeypatch):
+        monkeypatch.setattr("shutil.which", lambda _name: None)
+        renderer = MermaidRenderer(output_dir=tmp_path, strict_png=True)
+        with pytest.raises(RuntimeError, match="strict_png"):
+            renderer.render("missing_cli", "flowchart TD\n  A-->B")
+
+    def test_render_all_raises_when_diagram_invalid(self, tmp_path):
+        from mermaid.renderer import MermaidDiagram
+
+        renderer = MermaidRenderer(output_dir=tmp_path)
+        invalid = MermaidDiagram(name="", source="flowchart TD\n  A-->B")
+        with pytest.raises(RuntimeError, match="Mermaid rendering failed"):
+            renderer.render_all([invalid])
+
+    def test_find_puppeteer_config_from_repo_root(self):
+        from mermaid.renderer import _find_puppeteer_config
+
+        config = _find_puppeteer_config()
+        if (Path(__file__).resolve().parents[1] / ".puppeteer.json").exists():
+            assert config is not None
+            assert config.name == ".puppeteer.json"
+
+    def test_mmdc_failure_falls_back_to_mmd_when_not_strict(self, tmp_path, monkeypatch):
+        def failing_run(*_args, **_kwargs):
+            class Result:
+                returncode = 1
+                stdout = ""
+                stderr = "render failed"
+
+            return Result()
+
+        monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
+        monkeypatch.setattr("subprocess.run", failing_run)
+        renderer = MermaidRenderer(output_dir=tmp_path, strict_png=False)
+        path = renderer.render("fallback", "flowchart TD\n  A-->B")
+        assert path.suffix == ".mmd"
+
+    def test_strict_png_requires_mmdc(self, tmp_path, monkeypatch):
+        monkeypatch.setattr("shutil.which", lambda _name: None)
+        renderer = MermaidRenderer(output_dir=tmp_path, strict_png=True)
+        with pytest.raises(RuntimeError, match="mmdc"):
+            renderer.render("needs_cli", "flowchart TD\n  A-->B")
+
+    def test_mermaid_diagram_dataclass_delegates_to_renderer(self, tmp_path, monkeypatch):
+        from mermaid.renderer import MermaidDiagram
+
+        monkeypatch.setattr("shutil.which", lambda _name: None)
+        diagram = MermaidDiagram(name="delegate", source="flowchart TD\n  A-->B", title="Delegate")
+        path = diagram.render(tmp_path, square=False)
+        assert path.suffix == ".mmd"
+
+    def test_mmdc_timeout_falls_back_when_not_strict(self, tmp_path, monkeypatch):
+        import subprocess
+
+        def timeout_run(*_args, **_kwargs):
+            raise subprocess.TimeoutExpired(cmd="mmdc", timeout=60)
+
+        monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
+        monkeypatch.setattr("subprocess.run", timeout_run)
+        renderer = MermaidRenderer(output_dir=tmp_path, strict_png=False)
+        path = renderer.render("timeout_case", "flowchart TD\n  A-->B")
+        assert path.suffix == ".mmd"
+
+    def test_strict_png_raises_on_mmdc_failure(self, tmp_path, monkeypatch):
+        def failing_run(*_args, **_kwargs):
+            class Result:
+                returncode = 1
+                stdout = ""
+                stderr = "render failed"
+
+            return Result()
+
+        monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
+        monkeypatch.setattr("subprocess.run", failing_run)
+        renderer = MermaidRenderer(output_dir=tmp_path, strict_png=True)
+        with pytest.raises(RuntimeError, match="exit code"):
+            renderer.render("strict_fail", "flowchart TD\n  A-->B")
+
+    def test_strict_png_raises_on_timeout(self, tmp_path, monkeypatch):
+        import subprocess
+
+        def timeout_run(*_args, **_kwargs):
+            raise subprocess.TimeoutExpired(cmd="mmdc", timeout=60)
+
+        monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
+        monkeypatch.setattr("subprocess.run", timeout_run)
+        renderer = MermaidRenderer(output_dir=tmp_path, strict_png=True)
+        with pytest.raises(RuntimeError, match="timed out"):
+            renderer.render("strict_timeout", "flowchart TD\n  A-->B")
+
+    def test_mmdc_oserror_falls_back_when_not_strict(self, tmp_path, monkeypatch):
+        def oserror_run(*_args, **_kwargs):
+            raise OSError("mmdc not executable")
+
+        monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
+        monkeypatch.setattr("subprocess.run", oserror_run)
+        renderer = MermaidRenderer(output_dir=tmp_path, strict_png=False)
+        path = renderer.render("oserror_case", "flowchart TD\n  A-->B")
+        assert path.suffix == ".mmd"
+
+    def test_render_success_without_square_padding(self, tmp_path, monkeypatch):
+        from PIL import Image
+
+        def fake_run(cmd, **_kwargs):
+            output = Path(cmd[cmd.index("--output") + 1])
+            Image.new("RGB", (900, 120), "white").save(output)
+
+            class Result:
+                returncode = 0
+                stdout = ""
+                stderr = ""
+
+            return Result()
+
+        monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
+        monkeypatch.setattr("subprocess.run", fake_run)
+        renderer = MermaidRenderer(output_dir=tmp_path, strict_png=True)
+        path = renderer.render("wide_raw", "flowchart LR\n  A-->B", square=False)
+        with Image.open(path) as image:
+            assert image.width == 900
+            assert image.height == 120
+
+    def test_find_puppeteer_config_returns_none_without_config(self, tmp_path, monkeypatch):
+        import mermaid.renderer as renderer_module
+
+        isolated = tmp_path / "deep" / "nested"
+        isolated.mkdir(parents=True)
+        stub = isolated / "renderer.py"
+        stub.write_text("# isolated\n", encoding="utf-8")
+        monkeypatch.setattr(renderer_module, "__file__", str(stub))
+        assert renderer_module._find_puppeteer_config() is None
+
     def test_flowchart_produces_valid_source(self):
         d = flowchart("test", "Test", [("A", "Start"), ("B", "End")], [("A", "B", "step")])
         assert "flowchart" in d.source
@@ -142,16 +295,53 @@ class TestMermaidDiagramBuilders:
 # ===========================================================================
 
 class TestVisualizationFigures:
+    def test_save_figure_square_pads_wide_figures(self, tmp_path):
+        from PIL import Image
+        import matplotlib.pyplot as plt
+        from visualization._scaffold import _save_figure
+
+        fig, ax = plt.subplots(figsize=(8, 2))
+        ax.plot([0, 1], [0, 1])
+
+        path = _save_figure(fig, tmp_path, "wide.png")
+
+        with Image.open(path) as image:
+            assert image.width == image.height
+
+    def test_save_figure_landscape_keeps_wide_ratio(self, tmp_path):
+        from PIL import Image
+        import matplotlib.pyplot as plt
+        from visualization._scaffold import _save_figure
+
+        fig, ax = plt.subplots(figsize=(8, 2))
+        ax.plot([0, 1], [0, 1])
+
+        path = _save_figure(fig, tmp_path, "wide_landscape.png", aspect="landscape")
+
+        with Image.open(path) as image:
+            assert image.width > image.height
+
+    def test_lotka_volterra_figure_is_landscape(self, tmp_path):
+        from PIL import Image
+        from visualization import plot_lotka_volterra
+
+        path = plot_lotka_volterra(output_dir=tmp_path)
+        with Image.open(path) as image:
+            assert image.width / image.height > 1.05
+
+    def test_punnett_square_figure_is_square(self, tmp_path):
+        from PIL import Image
+        from visualization import plot_punnett_square
+
+        path = plot_punnett_square("Aa", "Aa", output_dir=tmp_path)
+        with Image.open(path) as image:
+            assert 0.85 <= image.width / image.height <= 1.18
+
     def test_nernst_potential_figure(self, tmp_path):
         from visualization import plot_nernst_potentials
         path = plot_nernst_potentials(output_dir=tmp_path)
         assert path.exists()
         assert path.suffix in (".png", ".pdf")
-
-    def test_punnett_square_figure(self, tmp_path):
-        from visualization import plot_punnett_square
-        path = plot_punnett_square("Aa", "Aa", output_dir=tmp_path)
-        assert path.exists()
 
     def test_chromosome_structure_figure(self, tmp_path):
         from visualization import plot_chromosome_structure
@@ -235,6 +425,77 @@ class TestVisualizationFigures:
         path = plot_allee_threshold_dynamics(output_dir=tmp_path)
         assert path.exists()
 
+    def test_hardy_weinberg_figure(self, tmp_path):
+        from visualization import plot_hardy_weinberg
+        path = plot_hardy_weinberg(output_dir=tmp_path)
+        assert path.exists()
+        assert path.name == "hardy_weinberg.png"
+
+    def test_hill_equation_figure(self, tmp_path):
+        from visualization import plot_hill_equation
+        path = plot_hill_equation(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_sir_model_figure(self, tmp_path):
+        from visualization import plot_sir_model
+        path = plot_sir_model(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_glycolysis_summary_figure(self, tmp_path):
+        from visualization import plot_glycolysis_summary
+        path = plot_glycolysis_summary(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_poiseuille_flow_figure(self, tmp_path):
+        from visualization import plot_poiseuille_flow
+        path = plot_poiseuille_flow(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_molecular_clock_figure(self, tmp_path):
+        from visualization import plot_molecular_clock
+        path = plot_molecular_clock(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_biodiversity_indices_figure(self, tmp_path):
+        from visualization import plot_biodiversity_indices
+        path = plot_biodiversity_indices(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_photosynthesis_rate_figure(self, tmp_path):
+        from visualization import plot_photosynthesis_rate
+        path = plot_photosynthesis_rate(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_osmotic_pressure_figure(self, tmp_path):
+        from visualization import plot_osmotic_pressure
+        path = plot_osmotic_pressure(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_fitness_landscape_figure(self, tmp_path):
+        from visualization import plot_fitness_landscape
+        path = plot_fitness_landscape(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_homeostasis_feedback_figure(self, tmp_path):
+        from visualization import plot_homeostasis_feedback
+        path = plot_homeostasis_feedback(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_mic_dilution_series_figure(self, tmp_path):
+        from visualization import plot_mic_dilution_series
+        path = plot_mic_dilution_series(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_food_web_trophic_levels_figure(self, tmp_path):
+        from visualization import plot_food_web_trophic_levels
+        path = plot_food_web_trophic_levels(output_dir=tmp_path)
+        assert path.exists()
+
+    def test_translation_codons_figure(self, tmp_path):
+        from visualization import plot_translation_codons
+        path = plot_translation_codons(output_dir=tmp_path)
+        assert path.exists()
+
     def test_visual_manifest_records_required_fields(self, tmp_path):
         import runpy
 
@@ -261,6 +522,46 @@ class TestVisualizationFigures:
         payload = json.loads(manifest_path.read_text(encoding="utf-8"))
         assert payload
         assert required <= set(payload[0])
+
+    def test_visual_contract_flags_non_square_raw_figures(self):
+        from biology.visual_contracts import VisualRecord, check_records
+
+        record = VisualRecord(
+            kind="raw_figure",
+            source_path="manuscript/unit_X/example.md",
+            line=12,
+            label="fig:unit_X_example",
+            caption="Example caption with enough biological vocabulary.",
+            alt="Example alt text with enough biological vocabulary.",
+            asset_path="../figures/example.png",
+            generator="plot_example",
+            width_px=1200,
+            height_px=300,
+        )
+
+        findings = check_records([record])
+
+        assert any(finding.code == "figure-square-aspect" for finding in findings)
+
+    def test_landscape_raw_figure_passes_aspect_policy(self):
+        from biology.visual_contracts import VisualRecord, check_records
+
+        record = VisualRecord(
+            kind="raw_figure",
+            source_path="manuscript/unit_VI/lotka_volterra.md",
+            line=12,
+            label="fig:unit_VI_lotka",
+            caption="Lotka-Volterra predator-prey dynamics with oscillatory population trajectories.",
+            alt="Line plot of predator and prey population cycles over time with opposing phase.",
+            asset_path="../figures/lotka_volterra.png",
+            generator="plot_lotka_volterra",
+            width_px=1600,
+            height_px=900,
+            aspect_policy="figure-landscape",
+        )
+
+        findings = check_records([record])
+        assert not any(finding.code == "figure-square-aspect" for finding in findings)
 
 
 # ===========================================================================

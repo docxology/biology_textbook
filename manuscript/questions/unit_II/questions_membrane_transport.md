@@ -1,4 +1,4 @@
-# Questions — Ch 7: Membrane Structure and Transport {.unnumbered}
+# Questions — Membrane Structure and Transport {.unnumbered}
 
 \label{sec:q_unit_II_membrane_transport}
 

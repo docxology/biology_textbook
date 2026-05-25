@@ -1,4 +1,4 @@
-# Lab 34 — Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
+# Lab — Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
 
 \label{sec:lab_unit_X_ecosystem_ecology}
 
@@ -10,6 +10,7 @@
 - Model nitrogen cycle transformations using an annotated diagram
 - Calculate carbon flux between reservoirs using published global carbon budget data
 - Evaluate the impact of nutrient loading on eutrophication using scenario data
+- Explain how termites and ants act as ecosystem engineers that modify soil structure, carbon turnover, and nutrient cycling
 
 
 <!-- lab-alignment-start -->
@@ -30,19 +31,23 @@
 2. Explain why energy transfer efficiency between adjacent trophic levels averages around 10% rather than being much higher. Identify two energy losses (for example, respiration and heat) that limit the fraction passed upward.
 3. Sketch the nitrogen cycle at the level of a grassland ecosystem and identify two processes that move nitrogen from the soil into living biomass and two processes that move it back to soil or atmosphere.
 
-## Background {.unnumbered}
+## Lab Context: Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
 
 Ecosystems are characterised by flows of energy (one-way, lost as heat at each step) and cycles of matter (recycled through biogeochemical pathways). **Gross primary productivity (GPP)** is total photosynthesis; **net primary productivity (NPP) = GPP − respiration**. The nitrogen cycle includes fixation (N₂ → NH₃ by nitrogenase), nitrification (NH₃ → NO₂⁻ → NO₃⁻ by *Nitrosomonas*, *Nitrobacter*), denitrification (NO₃⁻ → N₂ by anaerobic bacteria), and assimilation (NH₄⁺/NO₃⁻ → amino acids by plants).
+
+Termites and ants add a useful animal-mediated layer to this cycle picture. Termite gut symbionts transform lignocellulose into usable carbon compounds, while termite mounds and ant nests move soil, alter porosity, concentrate organic matter, and change local water and nutrient dynamics \citep{brune2014symbiotic,evans2011antsTermites}. In this lab, treat nests and mounds as ecosystem-engineering structures: ask which flux or stock changes, not merely whether the insect is "beneficial."
 
 ## Paper-Based Materials {.unnumbered}
 
 | Item | Quantity |
 | ---- | -------- |
+| Source-governance card for Ecosystem Ecology and Biogeochemical Cycles: conservation-assessment source card: index versus census, assessment version, value judgment, and monitoring trigger | 1 |
 | Light-dark bottle dissolved oxygen dataset with three replicates per treatment | 1 |
 | Nitrogen cycle blank diagram (for annotation) | 1 |
 | Global carbon budget data (IPCC AR6 summary values, printed) | 1 |
 | Eutrophication case packet with nutrient loading, turbidity, chlorophyll-a, and fish-kill observations | 1 |
 | Ecosystem-service card set for wetlands, forests, croplands, and urban streams | 1 |
+| Soil-engineer card set: termite mound, termite gut symbiosis, ant nest, earthworm comparison, and nearby control soil | 1 set |
 | Graph paper or spreadsheet template | 1 |
 | Calculator | 1 |
 
@@ -57,7 +62,7 @@ Ecosystems are characterised by flows of energy (one-way, lost as heat at each s
 
 **Part B — Nitrogen Cycle Annotation**
 
-5. Complete the blank nitrogen cycle diagram: label most 5 processes (fixation, nitrification, denitrification, assimilation, decomposition/ammonification). Name one key organism for each process.
+5. Complete the blank nitrogen cycle diagram: label the 5 processes (fixation, nitrification, denitrification, assimilation, decomposition/ammonification). Name one key organism for each process.
 
 **Part C — Carbon Budget Calculation**
 
@@ -66,6 +71,10 @@ Ecosystems are characterised by flows of energy (one-way, lost as heat at each s
 **Part D — Eutrophication Experiment**
 
 7. Use the eutrophication case packet to compare control and nutrient-addition scenarios over 5 days. Interpret turbidity, chlorophyll-a, dissolved oxygen, and fish-kill observations as indicators of algal bloom risk.
+
+**Part E — Soil Engineers and Nutrient Hotspots**
+
+8. Compare the soil-engineer cards. For each termite mound, ant nest, earthworm, or control-soil case, predict the direction of change in infiltration, organic-matter concentration, nitrogen availability, and carbon turnover. Mark which prediction depends on microbial symbionts versus physical soil movement.
 
 ## Data Recording {.unnumbered}
 
@@ -118,6 +127,10 @@ equipment version belongs only in an optional extension.
 
 **Interpretation:** Productivity falls off sharply at each level: of 2,000 g C/m²/yr fixed photosynthetically, roughly 1,100 ends up as new plant biomass after respiration losses, about 40 reaches herbivores, and around 3.2 reaches carnivores. The strong attenuation helps explain why long food chains and large top-predator standing crops are uncommon in low-productivity ecosystems, and why nutrient and disturbance regimes that shift NPP often propagate upward through the food web.
 
+### Source-Governance Checkpoint {.unnumbered}
+
+Complete the source-governance card for Ecosystem Ecology and Biogeochemical Cycles before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+
 ## Analysis Questions {.unnumbered}
 
 1. The dark bottle showed decreased DO while the light bottle showed increased DO. Explain why: which process dominates in the light bottle, and which process in the dark bottle? Why is O₂ a useful proxy for carbon fixation here?
@@ -125,6 +138,7 @@ equipment version belongs only in an optional extension.
 3. Nitrogen fixation by *Rhizobium* in legume root nodules requires enormous amounts of ATP and anaerobic conditions (nitrogenase is inactivated by O₂). Explain why this process is energetically costly and how the leghaemoglobin protein maintains low O₂ in the nodule while supporting aerobic bacterial respiration.
 4. In the eutrophication case packet, the nutrient-addition scenario shows increased chlorophyll-a followed by bottom-water hypoxia. Trace the ecological mechanism from nutrient addition -> algal bloom -> bacterial decomposition -> hypoxia -> fish kill.
 5. Wetlands are sometimes called "kidneys of the landscape." Explain their role in nitrogen cycling (using specific N-cycle steps), phosphorus immobilisation, and carbon sequestration. Why is wetland drainage for agriculture a double ecological concern?
+6. Compare termites and ants as ecosystem engineers. How can gut symbioses, mound ventilation, nest excavation, and food storage change carbon flow or nitrogen availability? Identify one measurement that would separate a microbial-digestion effect from a soil-structure effect.
 
 
 ## Post-Lab Synthesis {.unnumbered}

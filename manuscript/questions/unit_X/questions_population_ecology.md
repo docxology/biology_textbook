@@ -1,4 +1,4 @@
-# Questions — Ch 32: Population Ecology and Growth Models {.unnumbered}
+# Questions — Population Ecology and Growth Models {.unnumbered}
 
 \label{sec:q_unit_X_population_ecology}
 
