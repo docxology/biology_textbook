@@ -28,8 +28,8 @@
 - **Data skill:** Interpret plant-water data from pressure, solute, and humidity measurements.
 - **Practice cadence:** Visual Representations, Questions and Methods, Argumentation.
 - **Common misconception to repair:** Water does not move because plants pull with intention; it follows potential gradients and cohesion.
-- **Primary lab:** \cref{sec:lab_unit_VIII_plant_structure_and_water}.
-- **Question bank:** \cref{sec:q_unit_VIII_plant_structure_and_water}.
+- **Primary lab:** \nameref{sec:lab_unit_VIII_plant_structure_and_water}.
+- **Question bank:** \nameref{sec:q_unit_VIII_plant_structure_and_water}.
 - **Transfer task:** Transfer plant-water reasoning to drought, irrigation, forest physiology, and crop breeding.
 - **Bridge to computation:** `biology.botany.botany.water_potential`.
 <!-- curriculum-scaffold-end -->
@@ -40,31 +40,31 @@
 \caption{Plant water-potential and transpiration calculations. The left panel shows solute and total water potential as solute concentration changes; the right panel shows Fick-law transpiration flux as the external vapour gradient and stomatal conductance vary.}
 \label{fig:unit_VIII_water_potential_transpiration}
 \end{figure}
-<!-- alt: Two-panel plant-water figure. The water-potential panel shows solute potential becoming more negative with concentration and total water potential offset by turgor pressure; the transpiration panel shows flux decreasing as outside vapour concentration approaches the leaf interior, with higher conductance producing higher flux. -->
+<!-- alt: Two-panel plant-water figure. The water-potential panel shows solute potential becoming more negative with concentration and total water potential offset by turgor pressure; the transpiration panel shows flux decreasing as outside vapor concentration approaches the leaf interior, with higher conductance producing higher flux. -->
 
 ---
 
-> **Opening Vignette — How a Giant Sequoia Pulls Water 100 Metres Up**
+> **Opening Vignette — How a Giant Sequoia Pulls Water 100 Meters Up**
 >
-> A mature coast redwood (*Sequoia sempervirens*) can stand 115 metres tall. Getting water from soil to the topmost leaves requires lifting it against a gravitational pull of roughly 1.1 MPa — while simultaneously overcoming resistance to flow through millions of microscopic [**xylem**](#gl:xylem) conduits. How? The answer, worked out by Henry Dixon and John Joly in 1894 \citep{dixon1894} and validated with pressure-bomb measurements in the 1960s, is cohesion-tension: water molecules cohere to each other and adhere to xylem walls so strongly that evaporation from leaf [**stomata**](#gl:stomata) creates a continuous negative-pressure column (tension) that pulls water up from the roots. The column can sustain tensions as low as −10 MPa before xylem embolism shatters it. This entirely passive, thermodynamically driven mechanism moves trillions of litres of water into Earth's atmosphere annually — and is so elegant that engineers studying microfluidics still struggle to replicate it artificially.
+> A mature coast redwood (*Sequoia sempervirens*) can stand 115 meters tall. Getting water from soil to the topmost leaves requires lifting it against a gravitational pull of roughly 1.1 MPa — while simultaneously overcoming resistance to flow through millions of microscopic [**xylem**](#gl:xylem) conduits. How? The answer, worked out by Henry Dixon and John Joly in 1894 \citep{dixon1894} and validated with pressure-bomb measurements in the 1960s, is cohesion-tension: water molecules cohere to each other and adhere to xylem walls so strongly that evaporation from leaf [**stomata**](#gl:stomata) creates a continuous negative-pressure column (tension) that pulls water up from the roots. The column can sustain tensions as low as −10 MPa before xylem embolism shatters it. This entirely passive, thermodynamically driven mechanism moves trillions of liters of water into Earth's atmosphere annually — and is so elegant that engineers studying microfluidics still struggle to replicate it artificially.
 
 ## The Plant Body Plan
 
-Flowering plants (angiosperms, ~300,000 species) are organised into two major organ systems that work together to acquire resources from both soil and atmosphere.
+Flowering plants (angiosperms, ~300,000 species) are organized into two major organ systems that work together to acquire resources from both soil and atmosphere.
 
 ### Root System Architecture and Soil Exploration
 
 The root system anchors the plant, absorbs water and minerals, and stores nutrients. Two major architectural types exist:
 
-- **Taproot system:** A single [**dominant**](#gl:dominant) primary root (derived from the embryonic radicle) with smaller lateral roots branching off. Common in eudicots (e.g., carrots, dandelions, oaks). Deep taproot systems can access water tables several metres below the surface.
-- **Fibrous root system:** A dense mat of similarly sized adventitious roots arising from the stem base. The primary root is short-lived. Common in monocots (e.g., grasses, wheat, rice). Excellent for soil stabilisation and surface nutrient capture.
+- **Taproot system:** A single [**dominant**](#gl:dominant) primary root (derived from the embryonic radicle) with smaller lateral roots branching off. Common in eudicots (e.g., carrots, dandelions, oaks). Deep taproot systems can access water tables several meters below the surface.
+- **Fibrous root system:** A dense mat of similarly sized adventitious roots arising from the stem base. The primary root is short-lived. Common in monocots (e.g., grasses, wheat, rice). Excellent for soil stabilization and surface nutrient capture.
 
-**Root apical meristem (RAM):** Located near the root tip, protected by the root cap. The RAM contains slowly dividing cells in the quiescent centre (QC) surrounded by rapidly dividing initial cells that produce most root tissues. The root tip is organised into distinct zones:
+**Root apical meristem (RAM):** Located near the root tip, protected by the root cap. The RAM contains slowly dividing cells in the quiescent center (QC) surrounded by rapidly dividing initial cells that produce most root tissues. The root tip is organized into distinct zones:
 
 1. **Root cap** -- protects the meristem; secretes mucilage for lubrication; columella cells contain starch-filled amyloplasts (statoliths) for gravity sensing
 2. **Meristematic zone** -- active cell division
 3. **Elongation zone** -- cells expand primarily in length (up to 10-fold); driven by [**turgor pressure**](#gl:turgor-pressure) and cell wall loosening
-4. **Maturation zone** -- cells differentiate into specialised types; root hairs develop here
+4. **Maturation zone** -- cells differentiate into specialized types; root hairs develop here
 
 **Root hairs** are single elongated epidermal cells that dramatically amplify surface area (~600 cm$^2$ per cm of root length). Mineral ions are absorbed actively against their electrochemical gradients by specific transporters (NO$_3^-$ by NRT1/NRT2; K$^+$ by HKT; Fe$^{2+}$ by IRT1).
 
@@ -74,7 +74,7 @@ The shoot is built as a series of repeating modular units called **phytomers**. 
 
 The temporal scaffolding is provided by the **plastochron index (PI)**, defined as the time interval between successive leaf-primordium initiations at the SAM (Erickson and Michelini, 1957). At constant temperature the plastochron is approximately constant for a given genotype (~24 h in *Arabidopsis*, ~36 h in maize), permitting developmental time to be expressed in plastochron units rather than chronological time. The **leaf plastochron index (LPI)** ranks leaves by developmental age — LPI 0 is the youngest visible leaf, LPI 1 the next, and so on — and is the standard developmental clock for maize and tobacco physiology experiments.
 
-**Meristematic zones at the SAM** are organised radially and clonally:
+**Meristematic zones at the SAM** are organized radially and clonally:
 
 - **L1 (tunica outer layer):** Strictly anticlinal divisions; gives rise to epidermis
 - **L2 (tunica inner layer):** Mostly anticlinal; produces mesophyll, gametes
@@ -86,7 +86,7 @@ Genetic chimeras (e.g., variegated geraniums) reveal these clonal layers as stab
 
 The shoot system comprises the stem and leaves and is responsible for [**photosynthesis**](#gl:photosynthesis), reproduction, and support.
 
-**Shoot apical meristem (SAM):** Maintains a pool of pluripotent stem cells at the shoot tip throughout the plant's life. The SAM is organised into:
+**Shoot apical meristem (SAM):** Maintains a pool of pluripotent stem cells at the shoot tip throughout the plant's life. The SAM is organized into:
 
 - **Central zone (CZ):** Slowly dividing stem cells maintained by the WUS-CLV3 negative feedback loop
 - **Peripheral zone (PZ):** Faster-dividing cells that form lateral organ primordia (leaves, flowers)
@@ -106,9 +106,9 @@ Leaf cross-section layers (adaxial to abaxial):
 **Stomata:** Pores bounded by two kidney-shaped **[guard cell](#gl:guard-cell)s**. Stomatal aperture is controlled by guard cell turgor:
 
 - Light activates blue-light phototropins and red-light photosynthesis in guard cell chloroplasts. K$^+$ influx (via K$^+$ inward-rectifying channels) lowers osmotic potential. Water enters by [**osmosis**](#gl:osmosis). Guard cells swell and bow apart. Stomata open.
-- Drought triggers ABA signalling. ABA activates SnRK2 kinases. SLAC1 anion channels open, releasing Cl$^-$. Membrane depolarises. K$^+$ leaves via GORK channels. Water follows osmotically. Guard cells deflate. Stomata close.
+- Drought triggers ABA signaling. ABA activates SnRK2 kinases. SLAC1 anion channels open, releasing Cl$^-$. Membrane depolarizes. K$^+$ leaves via GORK channels. Water follows osmotically. Guard cells deflate. Stomata close.
 
-Typical stomatal density: ~200 stomata/mm$^2$ in many mesophytes. Each stoma can open or close in minutes. Stomata allow CO$_2$ in and O$_2$ plus water vapour out -- the inevitable tradeoff between photosynthesis and transpiration.
+Typical stomatal density: ~200 stomata/mm$^2$ in many mesophytes. Each stoma can open or close in minutes. Stomata allow CO$_2$ in and O$_2$ plus water vapor out -- the inevitable tradeoff between photosynthesis and transpiration.
 
 > **Clinical Connection:** Understanding stomatal biology is essential for crop engineering. Overexpression of the SLAC1 [**gene**](#gl:gene) in barley produced plants with more responsive stomata and 40% greater water-use efficiency in field trials, directly relevant to agriculture in drought-prone regions.
 
@@ -142,16 +142,16 @@ graph TD
     D2 --> D2a[Sieve Tube Elements<br/>No nucleus at maturity]
     D2 --> D2b[Companion Cells<br/>Metabolic support]
 ```
-<!-- alt: Graph showing organisation of the three plant tissue systems showing major cell types within each Dermal tissue forms the outer covering, ground tissue fills the interior, and vascular tissue provides transport. -->
+<!-- alt: Graph showing organization of the three plant tissue systems showing major cell types within each Dermal tissue forms the outer covering, ground tissue fills the interior, and vascular tissue provides transport. -->
 
-*Organisation of the three plant tissue systems showing major cell types within each Dermal tissue forms the outer covering, ground tissue fills the interior, and vascular tissue provides transport.*
+*Organization of the three plant tissue systems showing major cell types within each Dermal tissue forms the outer covering, ground tissue fills the interior, and vascular tissue provides transport.*
 
 ### Dermal Tissue System
 
 The dermal tissue system is the outer protective covering of the plant:
 
 - **Epidermis:** A single layer of tightly packed cells covering most surfaces. Secretes the cuticle.
-- **Cuticle:** A waxy layer composed of cutin (a polyester of hydroxylated fatty acids) and epicuticular waxes. Minimises water loss from non-stomatal surfaces. The cuticle can reduce transpiration by 95% compared to an unprotected surface.
+- **Cuticle:** A waxy layer composed of cutin (a polyester of hydroxylated fatty acids) and epicuticular waxes. Minimizes water loss from non-stomatal surfaces. The cuticle can reduce transpiration by 95% compared to an unprotected surface.
 - **Trichomes:** Hair-like epidermal appendages. Diverse functions: reduce wind speed at leaf surface (boundary layer), reflect excess light, secrete defensive compounds (glandular trichomes of tomato produce toxic sesquiterpenes), deter [**herbivory**](#gl:herbivory).
 - **Root hairs:** Tubular extensions of single epidermal cells in the root maturation zone. Increase absorptive surface area by 2-10-fold.
 
@@ -163,7 +163,7 @@ Ground tissue fills the space between dermal and vascular tissues. Three cell ty
 
 **Collenchyma cells:** Living at maturity. Unevenly thickened primary cell walls (thicker at corners). Provide flexible mechanical support to growing organs. Found in petioles and young stems. Celery "strings" are collenchyma strands.
 
-**Sclerenchyma cells:** Typically dead at maturity. Thick, lignified secondary cell walls. Provide rigid support. Two types: fibres (elongated cells in bundles; flax, hemp) and sclereids (short, irregular cells; the gritty texture in pears; the hard shell of walnuts).
+**Sclerenchyma cells:** Typically dead at maturity. Thick, lignified secondary cell walls. Provide rigid support. Two types: fibers (elongated cells in bundles; flax, hemp) and sclereids (short, irregular cells; the gritty texture in pears; the hard shell of walnuts).
 
 ### Vascular Tissue System -- Xylem in Detail
 
@@ -175,7 +175,7 @@ The vascular tissue system is the plant's long-distance transport network.
 
 **Metaxylem** differentiates after elongation has ceased. With no constraint on extensibility, metaxylem develops continuous lignified walls with **scalariform** (ladder-like), **reticulate** (net-like), or **pitted** thickenings. Metaxylem conduits are wider (50–500 µm in some lianas), longer-lived, and bear the bulk of mature transpiration flux.
 
-A simple mnemonic: **proto = first** (extensible, ephemeral), **meta = mature** (durable, mechanically robust). The transition can be visualised in any longitudinal section of an elongating maize root: closer to the tip, narrow protoxylem dominates; further back in the maturation zone, metaxylem vessels of much greater calibre come on-line.
+A simple mnemonic: **proto = first** (extensible, ephemeral), **meta = mature** (durable, mechanically robust). The transition can be visualized in any longitudinal section of an elongating maize root: closer to the tip, narrow protoxylem dominates; further back in the maturation zone, metaxylem vessels of much greater caliber come on-line.
 
 The two principal cell types of xylem differ markedly in mechanics:
 
@@ -207,11 +207,11 @@ where $Q$ is volumetric flow (m³/s), $r$ is conduit radius (m), $\Delta P$ is p
 **Phloem** (sugar and organic compound transport, bidirectional):
 
 - **Sieve tube elements:** Living at maturity but lack nucleus, [**ribosome**](#gl:ribosome)s, and tonoplast at maturity. Connected end-to-end at sieve plates (modified cell walls perforated by sieve pores, 1-15 µm diameter). P-[**protein**](#gl:protein) (phloem protein) plugs sieve pores when cells are damaged, preventing phloem sap loss.
-- **Companion cells:** Retain full complement of [**organelle**](#gl:organelle)s. Connected to sieve tube elements by numerous plasmodesmata. Provide metabolic support including ATP for active sugar loading. Transfer cells (specialised companion cells with wall ingrowths) increase membrane surface area for active transport.
+- **Companion cells:** Retain full complement of [**organelle**](#gl:organelle)s. Connected to sieve tube elements by numerous plasmodesmata. Provide metabolic support including ATP for active sugar loading. Transfer cells (specialized companion cells with wall ingrowths) increase membrane surface area for active transport.
 
 **Concept Check 3:** Why must xylem conducting cells be dead at maturity, while phloem sieve tube elements must remain alive?
 
-**Concept Check 4:** Using the Hagen-Poiseuille relation, calculate the ratio of volumetric flow between a vessel of radius 100 µm and a tracheid of radius 25 µm, holding pressure gradient and length constant. Explain why drought-prone species may nevertheless favour the narrower conduit.
+**Concept Check 4:** Using the Hagen-Poiseuille relation, calculate the ratio of volumetric flow between a vessel of radius 100 µm and a tracheid of radius 25 µm, holding pressure gradient and length constant. Explain why drought-prone species may nevertheless favor the narrower conduit.
 
 **Concept Check 5:** A botanist examines a longitudinal section of an emerging shoot from a deciduous tree. She notes spirally banded conduits near the apex but reticulate-pitted conduits 5 cm behind. Identify each conduit type and explain the developmental logic of the difference.
 
@@ -316,7 +316,7 @@ where φ is wall extensibility (a measure of how readily the wall yields), $\Psi
 
 1. **Incipient plasmolysis:** Turgor reaches zero ($\Psi_p = 0$); at this point $\Psi = \Psi_s$. The protoplast is just losing contact with the wall.
 2. **Concave plasmolysis:** Protoplast withdraws inward; plasma membrane appears scalloped at the corners.
-3. **Convex plasmolysis:** Protoplast becomes a small spherical body in the centre of the cell; reversible if rehydrated within minutes, but prolonged plasmolysis kills the cell.
+3. **Convex plasmolysis:** Protoplast becomes a small spherical body in the center of the cell; reversible if rehydrated within minutes, but prolonged plasmolysis kills the cell.
 
 **Worked Example — Quantitative Plasmolysis:** A cell at $\Psi_p = 0.5$ MPa, $\Psi_s = -0.73$ MPa is placed in a sucrose solution at $\Psi_s = -1.0$ MPa. Water leaves the cell. As water exits, $\Psi_s$ becomes more negative (solutes concentrate; assume volume change of 20% from full turgor to incipient plasmolysis). At incipient plasmolysis, $\Psi_p = 0$ and $\Psi_{cell} = \Psi_s$ must equal $\Psi_{external} = -1.0$ MPa. Since $\Psi_s$ scales inversely with cell volume ($\Psi_s \cdot V$ ≈ constant for ideal solutes), we calculate the relative volume at incipient plasmolysis as $V_p / V_0 = \Psi_{s,0} / \Psi_{s,p} = -0.73 / -1.0 = 0.73$, i.e., the cell loses ~27% of its initial volume before plasmolysing.
 
@@ -354,8 +354,8 @@ Radial anatomy of a young dicot root (from outside inward):
 
 The Casparian strip is a band of **lignin and suberin** deposited in the radial and transverse walls of endodermal cells. The two polymers play distinct, sequential roles:
 
-- **Lignin** (a phenylpropanoid polymer of monolignol units p-coumaryl, coniferyl, and sinapyl alcohol cross-linked by oxidative coupling) is deposited first, forming the **Casparian strip proper** — a discontinuous belt that fuses cell wall to plasma membrane. CASP1–CASP5 transmembrane proteins assemble into a hexagonal scaffold that recruits ESB1 (a dirigent protein) and PER64 (a peroxidase), localising lignification to a precise sub-micron belt. *casp1 casp3* double mutants have discontinuous strips and leak ions into the stele.
-- **Suberin** (an aliphatic-aromatic polyester of long-chain ω-hydroxy fatty acids and ferulate esters) is deposited later as the **suberin lamella** on the inner face of the cell wall, after the Casparian strip is mature. Suberisation is regulated by SGN3-CIF1/CIF2 receptor-peptide signalling, which monitors the integrity of the Casparian strip via leakage of CIF peptides from stele to cortex.
+- **Lignin** (a phenylpropanoid polymer of monolignol units p-coumaryl, coniferyl, and sinapyl alcohol cross-linked by oxidative coupling) is deposited first, forming the **Casparian strip proper** — a discontinuous belt that fuses cell wall to plasma membrane. CASP1–CASP5 transmembrane proteins assemble into a hexagonal scaffold that recruits ESB1 (a dirigent protein) and PER64 (a peroxidase), localizing lignification to a precise sub-micron belt. *casp1 casp3* double mutants have discontinuous strips and leak ions into the stele.
+- **Suberin** (an aliphatic-aromatic polyester of long-chain ω-hydroxy fatty acids and ferulate esters) is deposited later as the **suberin lamella** on the inner face of the cell wall, after the Casparian strip is mature. Suberisation is regulated by SGN3-CIF1/CIF2 receptor-peptide signaling, which monitors the integrity of the Casparian strip via leakage of CIF peptides from stele to cortex.
 
 **Why both polymers?** Lignin is hydrophobic and rigid but porous to small molecules; suberin is even more hydrophobic and seals against water and ion flow. The two-stage system gives a fast-acting initial seal (lignin Casparian strip) followed by a slow-developing reinforcement (suberin lamella) that further restricts symplastic transport across the inner endodermal face.
 
@@ -368,7 +368,7 @@ Where lateral roots emerge from the pericycle, they must rupture the endodermis 
 - **Pure symplastic transport** uses plasmodesmata to bypass plasma membranes entirely. Plasmodesmal aperture is regulated by callose deposition at the neck region; under stress, callose deposition closes plasmodesmata, isolating cells.
 - **Transmembrane pathway** crosses plasma membranes twice per cell (entry + exit) via aquaporins for water and selective transporters for ions. Slowest but most selective.
 
-In practice, the three pathways operate simultaneously; the relative contribution shifts with developmental stage, salinity, and mycorrhizal colonisation.
+In practice, the three pathways operate simultaneously; the relative contribution shifts with developmental stage, salinity, and mycorrhizal colonization.
 
 **Passage cells:** In older roots, most endodermal cells deposit a continuous suberin lamella covering the entire inner surface of the cell wall. **Passage cells** — endodermal cells that retain a thin wall and lack the suberin lamella, located opposite protoxylem poles — provide selective transport routes through the otherwise sealed older endodermis.
 
@@ -448,7 +448,7 @@ The cohesion-tension model is not without controversy, and its mature form repre
 **Lines of supporting evidence:**
 
 1. **Pressure-bomb measurements** (Scholander *et al.*, 1965) directly demonstrate that excised stems of transpiring trees release water primarily when external pressure is applied, consistent with negative xylem pressure prior to excision. Pressure required matches predictions of the tension hypothesis (typically $-1$ to $-3$ MPa for well-watered crops; $-6$ to $-10$ MPa under drought).
-2. **Magnetic resonance imaging (MRI)** in vivo (Holbrook *et al.*, 2001) visualises continuous water columns in mature angiosperm trunks, with abrupt transitions to embolised conduits matching predictions of tension-induced cavitation.
+2. **Magnetic resonance imaging (MRI)** in vivo (Holbrook *et al.*, 2001) visualizes continuous water columns in mature angiosperm trunks, with abrupt transitions to embolised conduits matching predictions of tension-induced cavitation.
 3. **Pressure probes** (Steudle, 1995) in living root cortex cells confirm steep tension gradients between epidermis and stele consistent with bulk-flow-driven uptake.
 4. **Acoustic emission** of xylem during drought (Tyree and Sperry, 1989) records sharp clicks corresponding to individual cavitation events, the count of which scales with drought severity.
 
@@ -456,33 +456,33 @@ The cohesion-tension model is not without controversy, and its mature form repre
 
 Critics (most prominently U. Zimmermann and colleagues, 1990s–2000s) argued that water columns under tensions of $-1$ MPa or more should be metastable and would cavitate continuously, making sustained negative pressures of $-10$ MPa physiologically implausible. The Zimmermann school proposed alternative "tissue tension" models in which water moved by mechanisms other than bulk flow.
 
-This challenge has been progressively resolved by direct visualisation:
+This challenge has been progressively resolved by direct visualization:
 
-- **Improved pressure probes** (Wei *et al.*, 1999) confirmed predicted tensions in living conduits without artefact.
+- **Improved pressure probes** (Wei *et al.*, 1999) confirmed predicted tensions in living conduits without artifact.
 - **Synthetic-tree experiments** (Wheeler and Stroock, *Nature* 2008) constructed transparent microfluidic devices replicating the geometry of a leaf's evaporative surface; these "synthetic trees" sustained water under tension to $-22$ MPa, mirroring biological systems and proving that cell wall pore geometry alone is sufficient to support the predicted tensions.
-- **Synchrotron X-ray micro-CT** (Brodersen *et al.*, *Plant Physiol.* 2010; Choat *et al.*, *Nature* 2012) imaged living xylem in real time and showed that under moderate drought, embolisms are confined to a small fraction of conduits — settling the long-running argument over how prevalent embolism is in actively transpiring plants. Synchrotron imaging also visualised **embolism repair** under daily root pressure: embolised conduits refill overnight in *Vitis* and *Laurus*.
+- **Synchrotron X-ray micro-CT** (Brodersen *et al.*, *Plant Physiol.* 2010; Choat *et al.*, *Nature* 2012) imaged living xylem in real time and showed that under moderate drought, embolisms are confined to a small fraction of conduits — settling the long-running argument over how prevalent embolism is in actively transpiring plants. Synchrotron imaging also visualized **embolism repair** under daily root pressure: embolised conduits refill overnight in *Vitis* and *Laurus*.
 
 **Mechanism of embolism repair:** Two complementary mechanisms are now well-attested:
 
 - **Root pressure refilling:** Active mineral secretion into xylem at night generates positive xylem pressure (0.05–0.5 MPa) sufficient to push water back into embolised conduits. Common in herbaceous species and in many trees overnight.
 - **Phloem-driven refilling:** Phloem-derived sugars osmotically draw water into embolised conduits via parenchyma cells lining the xylem (Salleo *et al.*, 2004; Nardini *et al.*, 2011). This mechanism operates against negative bulk xylem pressure and is observed during the day.
 
-**Net assessment:** The TACT mechanism is correct in its essentials. Water in xylem is genuinely under tension; the column is stabilised by cohesion and adhesion at scales where pore geometry sustains negative pressures far beyond what bulk water could endure. The system is metastable but biologically sufficient — and the cost of occasional cavitation is mitigated by redundant pathways and active repair.
+**Net assessment:** The TACT mechanism is correct in its essentials. Water in xylem is genuinely under tension; the column is stabilized by cohesion and adhesion at scales where pore geometry sustains negative pressures far beyond what bulk water could endure. The system is metastable but biologically sufficient — and the cost of occasional cavitation is mitigated by redundant pathways and active repair.
 
 ### Xylem Transport Parameters
 
 **Xylem sap velocity** measured by MRI and heat pulse methods: 3-45 m/h in trees; 15-50 m/h in herbaceous plants. Ring-porous trees (oak, elm) can reach velocities of 40+ m/h in their large early-wood vessels.
 
-**Transpiration flux** (Fick's first law for water vapour):
+**Transpiration flux** (Fick's first law for water vapor):
 
 \begin{equation}
 E = g_s \cdot \Delta w
 \label{eq:unit_VIII_transpiration_flux}
 \end{equation}
 
-where $g_s$ = stomatal conductance (mmol m$^{-2}$ s$^{-1}$) and $\Delta w$ = vapour pressure difference between leaf interior and ambient air (mol mol$^{-1}$).
+where $g_s$ = stomatal conductance (mmol m$^{-2}$ s$^{-1}$) and $\Delta w$ = vapor pressure difference between leaf interior and ambient air (mol mol$^{-1}$).
 
-A well-watered broadleaf tree can transpire 200-400 litres of water per day. A large oak may transpire over 150,000 litres during a growing season.
+A well-watered broadleaf tree can transpire 200-400 liters of water per day. A large oak may transpire over 150,000 liters during a growing season.
 
 ### Cavitation and Embolism
 
@@ -532,34 +532,34 @@ Stomata represent the critical control point where plants balance carbon gain (C
 
 ### Stomatal Opening — Guard Cell Ion Fluxes
 
-The mechanism of stomatal opening involves a coordinated cascade of ion fluxes that generate the osmotic gradient driving water entry. The molecular logic is one of the best-characterised electrophysiological systems in plants:
+The mechanism of stomatal opening involves a coordinated cascade of ion fluxes that generate the osmotic gradient driving water entry. The molecular logic is one of the best-characterized electrophysiological systems in plants:
 
 1. **Blue light (peak 450 nm)** activates phototropin receptors (PHOT1/PHOT2) on guard cells via FMN photoreduction
 2. **PHOTs activate plasma membrane H$^+$-ATPases** (AHA1, AHA2) via 14-3-3-mediated phosphorylation of the C-terminal autoinhibitory domain
 3. **H$^+$ extrusion hyperpolarises** the membrane (interior becomes more negative, $V_m$ shifts from $-100$ to $-180$ mV) and acidifies the apoplast (pH 6 → 5)
 4. **K$^+$ inward-rectifying channels** (KAT1 in *Arabidopsis*; voltage-gated, six-transmembrane Shaker family) open at hyperpolarised potentials. K$^+$ flows down its electrochemical gradient into the guard cell, accumulating at concentrations of 400–800 mM. KAT1 is the rate-limiting K$^+$ entry channel for stomatal opening; *kat1* knockouts have severely reduced light-induced opening.
-5. **Cl$^-$ accumulates** as a charge-balancing **counterion** through SLAH3 and CLC channels operating in reverse mode under hyperpolarisation
-6. **Malate$^{2-}$** is synthesised from chloroplast-derived starch via PEP carboxylase and converted by NADP-malate dehydrogenase, providing additional charge-balancing osmoticum
+5. **Cl$^-$ accumulates** as a charge-balancing **counterion** through SLAH3 and CLC channels operating in reverse mode under hyperpolarization
+6. **Malate$^{2-}$** is synthesized from chloroplast-derived starch via PEP carboxylase and converted by NADP-malate dehydrogenase, providing additional charge-balancing osmoticum
 7. **Sucrose** accumulates in late-afternoon stomata, supplementing K$^+$/malate as an osmoticum (afternoon stomata may be 50% sucrose-driven)
 8. **Decreased osmotic potential** ($\Psi_s$ more negative, by 1.5–2 MPa) drives water influx through aquaporins (PIP1, PIP2)
 9. **Guard cells swell.** Their differentially thickened walls (thicker on the inner pore-facing wall, thinner on the outer wall) cause the cells to bow apart asymmetrically
 10. **Stomatal aperture** opens by 5–25 µm depending on species
 
-### Stomatal Closure -- ABA Signalling Cascade in Detail
+### Stomatal Closure -- ABA Signaling Cascade in Detail
 
-Under drought stress, abscisic acid (ABA) triggers rapid stomatal closure through a molecular relay that has become a textbook example of plant signal transduction. The pathway can be summarised in five steps:
+Under drought stress, abscisic acid (ABA) triggers rapid stomatal closure through a molecular relay that has become a textbook example of plant signal transduction. The pathway can be summarized in five steps:
 
 > **ABA → PYR1 → PP2C → SnRK2 → SLAC1**
 
-Each step in this cascade has been crystallographically resolved (PYR1-ABA-PP2C ternary complex, Melcher *et al.*, *Nature* 2009; SnRK2-PP2C complex, Soon *et al.*, *Science* 2012) and is now textbook signalling.
+Each step in this cascade has been crystallographically resolved (PYR1-ABA-PP2C ternary complex, Melcher *et al.*, *Nature* 2009; SnRK2-PP2C complex, Soon *et al.*, *Science* 2012) and is now textbook signaling.
 
 1. **ABA synthesis:** Soil drying activates NCED3 (9-*cis*-epoxycarotenoid dioxygenase) in roots, cleaving 9'-*cis*-violaxanthin/neoxanthin to xanthoxin (ABA precursor). Local ABA biosynthesis also occurs in leaf vasculature and guard cells themselves.
 2. **ABA distribution:** ABA travels via xylem to guard cells and is concentrated by the AIT1/NPF4 family of ABA importers and the ABCG25 exporter.
 3. **Receptor binding:** ABA binds **PYR/PYL/RCAR** receptors (14 paralogs in *Arabidopsis*) at a START-domain pocket. This binding "closes" the receptor's gate loop over the binding pocket.
 4. **PP2C inhibition:** The closed ABA-PYR complex docks onto and **inhibits Type-2C protein phosphatases** (ABI1, ABI2, HAB1). PP2Cs normally dephosphorylate (and thereby inactivate) downstream kinases.
 5. **SnRK2 activation:** Released from PP2C inhibition, **SnRK2 kinases** (especially OST1/SnRK2.6) autophosphorylate and become active. OST1 phosphorylates downstream targets including:
-   - **SLAC1** anion channel: phosphorylation at Ser120 opens the channel; massive Cl$^-$ and malate$^{2-}$ efflux **depolarises** the membrane (V$_m$ shifts to $-30$ to $-50$ mV)
-   - **GORK** outward-rectifying K$^+$ channel: opens at depolarised potentials; K$^+$ leaves the cell down its electrochemical gradient
+   - **SLAC1** anion channel: phosphorylation at Ser120 opens the channel; massive Cl$^-$ and malate$^{2-}$ efflux **depolarizes** the membrane (V$_m$ shifts to $-30$ to $-50$ mV)
+   - **GORK** outward-rectifying K$^+$ channel: opens at depolarized potentials; K$^+$ leaves the cell down its electrochemical gradient
    - **AKT1/KAT1**: inward-rectifying K$^+$ channels are inhibited (preventing K$^+$ re-entry)
    - **NADPH oxidase RBOHF**: produces reactive oxygen species (ROS) that activate Ca$^{2+}$-permeable channels, raising cytosolic Ca$^{2+}$ and amplifying SLAC1/GORK responses
 6. **Osmotic deflation:** Loss of K$^+$, Cl$^-$, and malate raises $\Psi_s$ by 1.5 MPa; water exits via aquaporins; turgor drops
@@ -570,7 +570,7 @@ The ABA cascade integrates with a parallel **CO$_2$-sensing pathway** (HT1 kinas
 ```mermaid
 flowchart TD
     Drought[Soil drying] --> NCED[NCED3 activated]
-    NCED --> ABA[ABA synthesised]
+    NCED --> ABA[ABA synthesized]
     ABA --> Xylem[Xylem transport to guard cells]
     Xylem --> PYR["PYR/PYL/RCAR receptor (closed gate)"]
     PYR --> PP2C[PP2C phosphatase INHIBITED]
@@ -578,19 +578,19 @@ flowchart TD
     SnRK2 --> SLAC[SLAC1 opens: Cl- and malate2- efflux]
     SnRK2 --> GORK[GORK opens: K+ efflux]
     SnRK2 --> RBOH[RBOHF NADPH oxidase: ROS, Ca2+ rise]
-    SLAC --> Depol[Membrane depolarised]
+    SLAC --> Depol[Membrane depolarized]
     GORK --> Loss[Net solute loss]
     Loss --> Water[Water exits via aquaporins]
     Water --> Close[Stomata close in 5-15 min]
 ```
-<!-- alt: Flowchart showing ABA signalling cascade in guard cells ABA binding releases SnRK2 kinases from PP2C inhibition; SnRK2 then drives the ion-flux changes that osmotically deflate the guard cell. -->
+<!-- alt: Flowchart showing ABA signaling cascade in guard cells ABA binding releases SnRK2 kinases from PP2C inhibition; SnRK2 then drives the ion-flux changes that osmotically deflate the guard cell. -->
 
-*The ABA signalling cascade in guard cells ABA binding releases SnRK2 kinases from PP2C inhibition; SnRK2 then drives the ion-flux changes that osmotically deflate the guard cell.*
+*The ABA signaling cascade in guard cells ABA binding releases SnRK2 kinases from PP2C inhibition; SnRK2 then drives the ion-flux changes that osmotically deflate the guard cell.*
 
 ### Other Factors Affecting Stomata
 
 - **CO$_2$ concentration:** Elevated internal CO$_2$ promotes closure (reduces need for gas exchange). This is significant under rising atmospheric CO$_2$, where plants partially close stomata, reducing transpiration but potentially increasing leaf temperature.
-- **Humidity:** Low humidity (high vapour pressure deficit, VPD) promotes closure as a protective response against excessive water loss
+- **Humidity:** Low humidity (high vapor pressure deficit, VPD) promotes closure as a protective response against excessive water loss
 - **Photosynthetically active radiation (PAR):** Drives opening via both blue-light specific and photosynthesis-dependent pathways
 - **Circadian clock:** Stomata show anticipatory opening before dawn, controlled by the plant circadian clock
 
@@ -603,7 +603,7 @@ iWUE = \frac{A_n}{g_s}
 \label{eq:unit_VIII_iwue}
 \end{equation}
 
-where $A_n$ is net CO$_2$ assimilation rate (µmol CO$_2$ m$^{-2}$ s$^{-1}$) and $g_s$ is stomatal conductance to water vapour (mol H$_2$O m$^{-2}$ s$^{-1}$). Higher iWUE means more carbon fixed per unit water transpired.
+where $A_n$ is net CO$_2$ assimilation rate (µmol CO$_2$ m$^{-2}$ s$^{-1}$) and $g_s$ is stomatal conductance to water vapor (mol H$_2$O m$^{-2}$ s$^{-1}$). Higher iWUE means more carbon fixed per unit water transpired.
 
 **C3, C4, and CAM trade-offs:**
 
@@ -611,13 +611,13 @@ where $A_n$ is net CO$_2$ assimilation rate (µmol CO$_2$ m$^{-2}$ s$^{-1}$) and
 - **C4 plants** (maize, sorghum, sugarcane, many tropical grasses) concentrate CO$_2$ in bundle-sheath cells via the C4 pump. Mesophyll [CO$_2$] is amplified ~10-fold relative to ambient, allowing stomata to be partially closed without limiting photosynthesis. iWUE ~150–250 µmol mol$^{-1}$.
 - **CAM plants** (succulents, cacti, agaves, pineapple) open stomata primarily at night, when VPD is low. CO$_2$ is fixed as malate and stored in vacuoles; during the day, decarboxylation releases CO$_2$ inside closed leaves for photosynthesis. iWUE can exceed 500 µmol mol$^{-1}$ — an order of magnitude above C3.
 
-The progression C3 → C4 → CAM represents progressive specialisation for water-limited environments, with CAM as the most extreme adaptation. The iWUE differential explains why C4 maize outperforms C3 wheat in hot, semi-arid climates and why CAM cacti dominate true deserts.
+The progression C3 → C4 → CAM represents progressive specialization for water-limited environments, with CAM as the most extreme adaptation. The iWUE differential explains why C4 maize outperforms C3 wheat in hot, semi-arid climates and why CAM cacti dominate true deserts.
 
 **Concept Check 9:** A researcher fumigates a leaf with elevated CO$_2$ while simultaneously illuminating it with blue light. Predict the net effect on stomatal aperture and explain the competing signals at the level of OST1/SLAC1.
 
 **Concept Check 10:** An *ost1* loss-of-function *Arabidopsis* mutant is subjected to drought. Predict its phenotype relative to wild type. What would happen if the same mutant carried a constitutively active SLAC1 transgene?
 
-**Concept Check 11 (Analyze) — Guard-cell ion logic at opening and closing.** Blue light activates the guard-cell H$^+$-ATPase, hyperpolarising the plasma membrane to roughly $-180$ mV. This opens inward-rectifying K$^+$ channels (KAT1); K$^+$ floods in, water follows via aquaporins, turgor rises, and stomata open. ABA reverses the logic by activating SLAC1, which exports Cl$^-$ and malate$^{2-}$, depolarising the membrane to roughly $-30$ mV; outward-rectifying GORK then exports K$^+$ and the guard cell shrinks. (a) Map the sign of the driving force on K$^+$ at $-180$ mV vs $-30$ mV given $E_{\text{K}} \approx -90$ mV, and explain why the same K$^+$ permeability supports opposite net fluxes in the two states. (b) Predict the phenotype of a *slac1* knockout exposed to a 24-hour drought: what fraction of the closure response is lost, and which residual mechanisms (if any) still contribute? (c) Design a single-cell patch-clamp experiment that would distinguish "loss of depolarisation drive" from "loss of K$^+$ efflux capacity" as the dominant cause of impaired closure in your knockout.
+**Concept Check 11 (Analyze) — Guard-cell ion logic at opening and closing.** Blue light activates the guard-cell H$^+$-ATPase, hyperpolarising the plasma membrane to roughly $-180$ mV. This opens inward-rectifying K$^+$ channels (KAT1); K$^+$ floods in, water follows via aquaporins, turgor rises, and stomata open. ABA reverses the logic by activating SLAC1, which exports Cl$^-$ and malate$^{2-}$, depolarizing the membrane to roughly $-30$ mV; outward-rectifying GORK then exports K$^+$ and the guard cell shrinks. (a) Map the sign of the driving force on K$^+$ at $-180$ mV vs $-30$ mV given $E_{\text{K}} \approx -90$ mV, and explain why the same K$^+$ permeability supports opposite net fluxes in the two states. (b) Predict the phenotype of a *slac1* knockout exposed to a 24-hour drought: what fraction of the closure response is lost, and which residual mechanisms (if any) still contribute? (c) Design a single-cell patch-clamp experiment that would distinguish "loss of depolarization drive" from "loss of K$^+$ efflux capacity" as the dominant cause of impaired closure in your knockout.
 
 **Concept Check 12 (Evaluate) — Casparian strip and ion exclusion at the endodermis.** The Casparian strip blocks the apoplastic route at the endodermis, forcing every solute through at least one plasma membrane crossing. Mature roots typically exclude approximately 99% of soil Na$^+$ from the shoot while concentrating K$^+$ approximately 100-fold above soil levels in the xylem sap. (a) Explain how the strip converts a non-selective bulk-flow path into a transporter-gated selectivity filter, and identify which membrane (epidermal, cortical, endodermal) carries the K$^+$-selecting machinery (HKT, AKT1, HAK5). (b) A mutant disrupts CASP1/CASP3-mediated lignification so the strip becomes discontinuous. Predict, with direction and order-of-magnitude estimate, the change in xylem Na$^+$ : K$^+$ ratio of a young plant exposed to 50 mM NaCl irrigation. (c) Evaluate whether this loss-of-function could ever be adaptive — for example, in a halophyte that uses Na$^+$ as a cheap osmoticum — and contrast with a glycophyte crop where the same mutation would be agronomically lethal.
 
@@ -636,7 +636,7 @@ How sugars enter sieve tubes from photosynthetic mesophyll determines key physio
 
 1. Sucrose is exported from mesophyll cells to the apoplast (cell-wall space) via **SWEET11/SWEET12** sucrose efflux carriers (uniporters, facilitated diffusion)
 2. The H$^+$-ATPase on the companion-cell plasma membrane creates a steep proton gradient (apoplast pH ~5.5; cytoplasm pH ~7.5) and a hyperpolarised membrane potential
-3. **SUT1** (Sucrose-H$^+$ symporter; also known as SUC2 in *Arabidopsis*) uses the proton gradient to import sucrose against its concentration gradient (10–50× concentration step). The full family of **sucrose transporters (SUTs)** comprises three clades with distinct cellular localisations and kinetic properties: SUT1/SUC2 is the workhorse loader on companion cells (low $K_m$ ~1 mM); SUT4 localises to tonoplasts and mediates vacuolar sucrose mobilisation; SUT2 has been proposed as a sucrose sensor with high $K_m$. Knockout of *SUT1* in maize (*sut1* mutants) causes sugar accumulation in source leaves and starvation in sinks, confirming its role as the rate-limiting loader.
+3. **SUT1** (Sucrose-H$^+$ symporter; also known as SUC2 in *Arabidopsis*) uses the proton gradient to import sucrose against its concentration gradient (10–50× concentration step). The full family of **sucrose transporters (SUTs)** comprises three clades with distinct cellular localisations and kinetic properties: SUT1/SUC2 is the workhorse loader on companion cells (low $K_m$ ~1 mM); SUT4 localizes to tonoplasts and mediates vacuolar sucrose mobilization; SUT2 has been proposed as a sucrose sensor with high $K_m$. Knockout of *SUT1* in maize (*sut1* mutants) causes sugar accumulation in source leaves and starvation in sinks, confirming its role as the rate-limiting loader.
 4. Imported sucrose moves through plasmodesmata between companion cell and sieve element to enter the conducting stream
 5. Loading rate: 5–15 µmol sucrose per cm$^2$ of leaf per hour
 
@@ -645,7 +645,7 @@ Apoplastic loading is energetically costly (one ATP per sucrose) but allows very
 **Symplastic loading** (Type 1; many trees, especially temperate broadleaves like willow, poplar; also many tropical species):
 
 1. Sucrose moves from mesophyll to companion cells **entirely through plasmodesmata** without crossing any membrane. Plasmodesmal density at the mesophyll–companion cell interface is 10–100 × higher in symplastic loaders than in apoplastic loaders. This is the diagnostic anatomical feature of symplastic loading — first established by Gamalei (1989) in his comparative survey of >300 species.
-2. In specialised "intermediary cells" (companion-cell variant), sucrose is converted to larger oligosaccharides (raffinose, stachyose) by **galactinol synthase + raffinose synthase**. These larger oligosaccharides cannot diffuse back through the narrow plasmodesmal aperture (~3 nm size limit at the desmotubule).
+2. In specialized "intermediary cells" (companion-cell variant), sucrose is converted to larger oligosaccharides (raffinose, stachyose) by **galactinol synthase + raffinose synthase**. These larger oligosaccharides cannot diffuse back through the narrow plasmodesmal aperture (~3 nm size limit at the desmotubule).
 3. The accumulated raffinose-family oligosaccharides (RFOs) form a one-way **polymer trap** (Turgeon, 1991), lowering $\Psi_s$ and drawing water into the sieve tube.
 
 Symplastic loading is energetically cheap (no membrane transport) but limited in concentration. Some temperate trees (apple, *Malus*) use a third hybrid strategy — passive symplastic loading without polymer trapping, where the source-sink concentration gradient alone drives unloading.
@@ -656,6 +656,7 @@ Plasmodesmata are dynamic; their aperture is set by the deposition of callose (�
 
 **Comparison across plant groups:**
 
+: Phloem Loading — Apoplastic vs Symplastic Pathways: Loading type and Plant groups. {#tbl:unit_VIII_plant_structure_and_water_phloem_loading_apoplastic_vs_symplastic_pathways}
 | Loading type | Plant groups | Plasmodesmata at mesophyll-CC interface | Rate-limiting step | Phloem sap [sucrose] |
 | ------------ | ------------ | --------------------------------------- | ------------------ | -------------------- |
 | Apoplastic (SUT1) | Most herbaceous crops, cereals, *Arabidopsis*, *Solanum* | Few (<1 per µm$^2$) | SUT1 H$^+$-symport | Up to 1.0 M |
@@ -687,7 +688,7 @@ Flow rates: 0.5-1.5 m/h; rates up to 3 m/h have been measured.
 2. **Pressure probes** on individual sieve elements directly measure positive turgor of +1–2 MPa near the source and lower turgor near sinks
 3. **Cessation of flow on cooling** the petiole (which inhibits H$^+$-ATPase but does not block plasmodesmata) confirms active loading is required
 4. **Source–sink reversal:** Removing the lower leaves of a soybean plant reverses flow direction in the stem (downward to upward) within hours, consistent with passive bulk flow following the pressure gradient
-5. **Mathematical modelling** with realistic sieve-tube geometry (Thompson and Holbrook, 2003) shows Münch flow can readily account for observed transport rates in trees up to ~100 m, provided sieve tubes are wide enough
+5. **Mathematical modeling** with realistic sieve-tube geometry (Thompson and Holbrook, 2003) shows Münch flow can readily account for observed transport rates in trees up to ~100 m, provided sieve tubes are wide enough
 
 **Evidence against (and modifications to) Münch flow:**
 
@@ -713,17 +714,19 @@ Plants require 17 essential elements, divided into macronutrients and micronutri
 
 **Macronutrients** (required in large quantities):
 
+: Essential Mineral Nutrients and Deficiency Logic: Element and Symbol. {#tbl:unit_VIII_plant_structure_and_water_essential_mineral_nutrients_and_deficiency_logic}
 | Element | Symbol | Primary Functions | Deficiency Symptoms |
 | ------- | ------ | ----------------- | ------------------- |
 | Nitrogen | N | Amino acids, [**nucleotide**](#gl:nucleotide)s, [**chlorophyll**](#gl:chlorophyll) | Chlorosis (yellowing) of older leaves first |
 | Phosphorus | P | ATP, nucleic acids, membranes | Purple/dark green leaves; stunted growth |
 | Potassium | K | Osmotic regulation, [**enzyme**](#gl:enzyme) activation, stomata | Marginal leaf necrosis; weak stems |
-| Calcium | Ca | Cell wall (middle lamella), signalling | Growing point death; blossom-end rot |
-| Magnesium | Mg | Chlorophyll centre, enzyme cofactor | Interveinal chlorosis of older leaves |
-| Sulphur | S | Cysteine, methionine, coenzyme A | General chlorosis; stunted growth |
+| Calcium | Ca | Cell wall (middle lamella), signaling | Growing point death; blossom-end rot |
+| Magnesium | Mg | Chlorophyll center, enzyme cofactor | Interveinal chlorosis of older leaves |
+| Sulfur | S | Cysteine, methionine, coenzyme A | General chlorosis; stunted growth |
 
 **Micronutrients** (required in trace quantities):
 
+: Essential Mineral Nutrients and Deficiency Logic: Element and Symbol. {#tbl:unit_VIII_plant_structure_and_water_essential_mineral_nutrients_and_deficiency_logic_2}
 | Element | Symbol | Primary Functions |
 | ------- | ------ | ----------------- |
 | Iron | Fe | Electron transport, chlorophyll synthesis |
@@ -744,7 +747,7 @@ Atmospheric N$_2$ is inaccessible to plants directly. Some plants form symbiotic
 1. Legume roots secrete flavonoids into the rhizosphere
 2. Flavonoids activate *nod* genes in *Rhizobium*, producing Nod factors (lipochitooligosaccharides)
 3. Nod factors bind NFR1/NFR5 receptors on root hair cells, triggering root hair curling and infection thread formation
-4. Bacteria enter root cortex via infection thread, released into host cells, and differentiate into bacteroids within specialised structures called nodules
+4. Bacteria enter root cortex via infection thread, released into host cells, and differentiate into bacteroids within specialized structures called nodules
 5. Bacteroids express **nitrogenase** (enzyme complex: Fe-protein + MoFe-protein) which catalyses:
 
 \begin{equation}
@@ -752,9 +755,9 @@ N_2 + 8H^+ + 8e^- + 16\text{ATP} \rightarrow 2NH_3 + H_2 + 16\text{ADP} + 16P_i
 \label{eq:unit_VIII_nitrogenase}
 \end{equation}
 
-6. **Leghemoglobin** (produced by host, gives nodules pink colour) maintains low O$_2$ concentration (nitrogenase is irreversibly inhibited by O$_2$) while supplying O$_2$ for bacteroid respiration
+6. **Leghemoglobin** (produced by host, gives nodules pink color) maintains low O$_2$ concentration (nitrogenase is irreversibly inhibited by O$_2$) while supplying O$_2$ for bacteroid respiration
 
-The plant provides photosynthate (sucrose, then metabolised to malate/succinate) to the bacteroid; the bacteroid provides fixed nitrogen as NH$_4^+$ or amino acids (alanine, aspartate).
+The plant provides photosynthate (sucrose, then metabolized to malate/succinate) to the bacteroid; the bacteroid provides fixed nitrogen as NH$_4^+$ or amino acids (alanine, aspartate).
 
 Other nitrogen-fixing associations: *Frankia* (actinobacterium) with alder, bayberry; *Anabaena* with water fern *Azolla* (used as green manure in rice paddies for millennia).
 
@@ -777,9 +780,9 @@ Other nitrogen-fixing associations: *Frankia* (actinobacterium) with alder, bayb
 - Dominant in temperate and boreal forest trees (*Pinus*, *Betula*, *Fagus*, *Quercus*)
 - Many EM fungi produce mushrooms (e.g., chanterelles, truffles, *Amanita*)
 
-**Common mycorrhizal networks (CMNs):** Mycorrhizal fungi can connect multiple plants, forming underground networks. Carbon, water, and nutrient signals have been documented moving between plants via these networks, though the ecological significance of active plant-plant signalling through CMNs remains debated.
+**Common mycorrhizal networks (CMNs):** Mycorrhizal fungi can connect multiple plants, forming underground networks. Carbon, water, and nutrient signals have been documented moving between plants via these networks, though the ecological significance of active plant-plant signaling through CMNs remains debated.
 
-**Concept Check 13:** A farmer notices that legume crops planted alongside non-legume crops improve the growth of both. Explain the mechanisms by which nitrogen fixed by rhizobia in legume nodules can become available to neighbouring non-legume plants.
+**Concept Check 13:** A farmer notices that legume crops planted alongside non-legume crops improve the growth of both. Explain the mechanisms by which nitrogen fixed by rhizobia in legume nodules can become available to neighboring non-legume plants.
 
 ---
 
@@ -787,7 +790,7 @@ Other nitrogen-fixing associations: *Frankia* (actinobacterium) with alder, bayb
 
 ### Xerophyte Adaptations to Water Deficit
 
-Plants in arid environments have evolved numerous strategies to minimise water loss and maximise water uptake:
+Plants in arid environments have evolved numerous strategies to minimize water loss and maximize water uptake:
 
 - **Thick cuticle and epicuticular waxes** (reduce cuticular transpiration)
 - **Sunken stomata** in pits or grooves (create humid microenvironment; *Nerium oleander*)
@@ -802,7 +805,7 @@ Aquatic and wetland plants face the opposite challenge -- too much water and oft
 
 - **Aerenchyma** (large air-filled cortical spaces for gas transport to submerged roots)
 - **Thin or absent cuticle** (CO$_2$ and O$_2$ diffuse directly from water)
-- **Dissected or thin leaves** (maximise surface area for gas exchange in water)
+- **Dissected or thin leaves** (maximize surface area for gas exchange in water)
 - **Adventitious roots** from stem nodes
 
 ### Carnivorous Plants and Nutrient Acquisition
@@ -811,7 +814,7 @@ In nutrient-poor environments (bogs, sandy soils), some plants supplement minera
 
 - **Pitcher plants** (*Nepenthes*, *Sarracenia*): modified leaves form pitfall traps with slippery surfaces and digestive enzymes
 - **Sundews** (*Drosera*): sticky mucilage on tentacle-like trichomes; leaf slowly curls around prey
-- **Venus flytrap** (*Dionaea muscipula*): snap trap triggered by touch-sensitive trigger hairs; requires two stimulations within 20 seconds (counting mechanism involves Ca$^{2+}$ signalling)
+- **Venus flytrap** (*Dionaea muscipula*): snap trap triggered by touch-sensitive trigger hairs; requires two stimulations within 20 seconds (counting mechanism involves Ca$^{2+}$ signaling)
 
 Most carnivorous plants derive primarily nitrogen and phosphorus from prey.
 
@@ -850,7 +853,7 @@ the chapter. Plant biology links molecular regulation to climate stress, water l
   the source closest to the measurement and state what has changed since it was
   published.
 
-A strong plant-transport claim names the tissue, water-potential component, environmental driver, measurable flow, and tradeoff with growth or defence.
+A strong plant-transport claim names the tissue, water-potential component, environmental driver, measurable flow, and tradeoff with growth or defense.
 
 **Source practice:** For plant-water claims, connect anatomy and physiology to water-potential measurements, field context, and growth-reproduction tradeoffs.
 
@@ -884,12 +887,13 @@ flowchart LR
 - **Stomatal regulation:** Opening via H$^+$-ATPase, KAT1, malate accumulation (blue light, phototropins); closure via ABA-PYR-PP2C-SnRK2-SLAC1/GORK cascade. Balances CO$_2$ gain vs water loss; iWUE = $A_n/g_s$ (\cref{eq:unit_VIII_iwue}). C4 and CAM plants achieve iWUE 2–10× C3 by concentrating CO$_2$ behind partially-closed stomata.
 - **Phloem:** Münch pressure-flow \citep{munch1930} with apoplastic loading (SUT1 cotransporter; herbaceous crops; high sieve-tube concentration) or symplastic loading via polymer trap (raffinose; many trees; many plasmodesmata; lower concentration) at source. Bidirectional flow follows turgor gradient; symplastic vs apoplastic unloading varies by sink type.
 - **Nutrient uptake:** 17 essential elements (6 macro, 8 micro, plus C/H/O). [**Nitrogen fixation**](#gl:nitrogen-fixation) by rhizobia in legume nodules. Mycorrhizae (AM and EM) enhance P and N uptake in 80% of plant species.
-- **Connections:** See \cref{sec:unit_VIII_plant_reproduction} and \cref{sec:unit_VIII_plant_responses} for reproduction and signalling, \cref{sec:unit_I_water_and_life} for water [**thermodynamics**](#gl:thermodynamics), and \cref{sec:unit_X_biomes_and_conservation} for primary production.
+- **Connections:** See \cref{sec:unit_VIII_plant_reproduction} and \cref{sec:unit_VIII_plant_responses} for reproduction and signaling, \cref{sec:unit_I_water_and_life} for water [**thermodynamics**](#gl:thermodynamics), and \cref{sec:unit_X_biomes_and_conservation} for primary production.
 
 ---
 
 ## Key Terms
 
+: Current Evidence Map: Hydraulic Safety Tradeoff: Term and Definition. {#tbl:unit_VIII_plant_structure_and_water_current_evidence_map_hydraulic_safety_tradeoff}
 | Term | Definition |
 | ---- | ---------- |
 | **Water potential (Ψ)** | Free energy of water per unit volume; determines direction of water movement; units MPa |
@@ -952,7 +956,7 @@ flowchart LR
 
 11. Critically evaluate the cohesion-tension theory \citep{dixon1894}. Identify two lines of evidence supporting it (including synchrotron imaging) and one historical objection that has been resolved. What is the air-seeding hypothesis, and how does it apply to torus-margo pits?
 
-12. Using `transpiration_flux`, predict whether doubling stomatal conductance doubles water loss if the leaf-to-air vapour gradient is held fixed. Then compute the iWUE consequence assuming $A_n$ saturates at 80% of the doubled $g_s$.
+12. Using `transpiration_flux`, predict whether doubling stomatal conductance doubles water loss if the leaf-to-air vapor gradient is held fixed. Then compute the iWUE consequence assuming $A_n$ saturates at 80% of the doubled $g_s$.
 
 13. Contrast **hydraulic redistribution** via roots with capillary rise in soil --- when does each dominate overnight water status?
 
@@ -977,6 +981,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Plant Structure, Water Relations, and Transport. {#tbl:unit_VIII_plant_structure_and_water_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/botany/botany.py` (`water_potential`, `transpiration_flux`) | Reproduce plant-water calculations and hydraulic tradeoffs. |

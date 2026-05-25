@@ -1,6 +1,5 @@
-# Lab — Biological Macromolecules {.unnumbered}
+# Lab — Biological Macromolecules {#sec:lab_unit_I_macromolecules .unnumbered}
 
-\label{sec:lab_unit_I_macromolecules}
 
 ## Learning Objectives {.unnumbered}
 
@@ -9,7 +8,7 @@
 - Apply simulated colorimetric-test evidence to identify carbohydrates, proteins, and lipids
 - Distinguish reducing sugars from non-reducing sugars using structural logic
 - Identify proteins and lipids from reaction cards, labels, and model results
-- Interpret qualitative colour evidence with controls, uncertainty, and reproducibility checks
+- Interpret qualitative color evidence with controls, uncertainty, and reproducibility checks
 
 
 
@@ -40,12 +39,13 @@
 
 ## Lab Context: Biological Macromolecules {.unnumbered}
 
-Macromolecules — carbohydrates, lipids, proteins, and nucleic acids — form the molecular architecture of cells. Each class has distinctive chemical groups that produce diagnostic patterns in classic colorimetric tests. Reducing sugars (glucose, fructose, maltose) donate electrons to Cu²⁺ in classic reducing-sugar assay, producing a colour change from blue to yellow/orange/red; sucrose (non-reducing) does not react unless hydrolysed. The classic peptide-bond assay reaction turns purple in the presence of peptide bonds (≥2). classic lipid-partition assay, an oil-soluble dye, partitions into lipids and stains them red-orange.
+Macromolecules — carbohydrates, lipids, proteins, and nucleic acids — form the molecular architecture of cells. Each class has distinctive chemical groups that produce diagnostic patterns in classic colorimetric tests. Reducing sugars (glucose, fructose, maltose) donate electrons to Cu²⁺ in classic reducing-sugar assay, producing a color change from blue to yellow/orange/red; sucrose (non-reducing) does not react unless hydrolysed. The classic peptide-bond assay reaction turns purple in the presence of peptide bonds (≥2). classic lipid-partition assay, an oil-soluble dye, partitions into lipids and stains them red-orange.
 
 In this lab you will interpret a blinded paper dataset for five unknown samples (A–E), compare it with positive and negative controls, and identify the macromolecules present in each. The chemistry is treated as evidence to reason from, not as a required wet procedure.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_I_macromolecules_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Biological Macromolecules: UniProt accession, PDB/PDBe structure record, EMDB map when relevant, experimental method, prediction confidence, assay validation, and release date | 1 |
@@ -84,6 +84,7 @@ In this lab you will interpret a blinded paper dataset for five unknown samples 
 
 ## Data Recording {.unnumbered}
 
+: Part F — AI Structure Evidence Check: Sample and Reducing-sugar evidence. {#tbl:unit_I_macromolecules_part_f_ai_structure_evidence_check}
 | Sample | Reducing-sugar evidence | Peptide-bond evidence | Lipid-partition evidence | Macromolecule(s) present |
 | ------ | ------------------- | --------------- | ---------------- | ------------------------ |
 | A | | | | |
@@ -114,6 +115,7 @@ AI model evidence: highest-confidence contact = _______; lowest-confidence regio
 Before answering the analysis questions, annotate the paper dataset for
 **Biological Macromolecules** with a reproducibility pass:
 
+: Part F — AI Structure Evidence Check: Evidence check and Student action. {#tbl:unit_I_macromolecules_part_f_ai_structure_evidence_check_2}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -122,7 +124,7 @@ Before answering the analysis questions, annotate the paper dataset for
 | Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
 | Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
 
-Focus note: each colour-change assay (reducing-sugar, peptide-bond, and the lipid grease-spot test) is a separate qualitative detector with its own false positives -- record the positive and negative reference samples and the minimum colour shift you will accept before scoring a macromolecule class as present. Keep required work paper-based; any material-handling or
+Focus note: each color-change assay (reducing-sugar, peptide-bond, and the lipid grease-spot test) is a separate qualitative detector with its own false positives -- record the positive and negative reference samples and the minimum color shift you will accept before scoring a macromolecule class as present. Keep required work paper-based; any material-handling or
 equipment version belongs only in an optional extension.
 
 ### Worked Example: Estimating protein concentration from a standard curve {.unnumbered}
@@ -146,13 +148,13 @@ Complete the source-governance card for Biological Macromolecules before writing
 1. Which samples tested positive for reducing sugars? Were any positive for sucrose (hint: sucrose does NOT turn classic reducing-sugar assay red without hydrolysis)? How would you distinguish glucose from sucrose using primarily classic reducing-sugar assay test?
 2. A sample of milk tested positive for both classic reducing-sugar assay (weakly) and classic peptide-bond assay (strongly) and showed a grease spot. Name the three macromolecule classes present in milk.
 3. Why does classic reducing-sugar assay require heating to detect reducing sugars, while classic peptide-bond assay works at room temperature? What does this reveal about the reaction mechanisms?
-4. Dietary fibre (cellulose) is a polysaccharide. Predict whether it would give a positive classic reducing-sugar assay test. Explain in terms of glycosidic bond type (α vs β linkage) and digestibility.
-5. A patient has phenylketonuria (PKU) — inability to metabolise phenylalanine. Which macromolecule class and which specific monomer is relevant? How does dietary management (low-phenylalanine diet) relate to the biochemistry of this lab?
+4. Dietary fiber (cellulose) is a polysaccharide. Predict whether it would give a positive classic reducing-sugar assay test. Explain in terms of glycosidic bond type (α vs β linkage) and digestibility.
+5. A patient has phenylketonuria (PKU) — inability to metabolize phenylalanine. Which macromolecule class and which specific monomer is relevant? How does dietary management (low-phenylalanine diet) relate to the biochemistry of this lab?
 6. An AlphaFold-derived packet predicts a ligand contact in a low-confidence loop. What additional evidence would move the claim from "hypothesis" to "supported mechanism"? Name at least one sequence, structural, and biochemical check.
 
 ## Post-Lab Synthesis {.unnumbered}
 
-> **Concept Check (Synthesis):** A field microbiologist collects a turbid sample from a brackish pond and a separate sample of dispersed lipid droplets skimmed from the surface film. Each sample is dried, resuspended, and tested with the same colour-change panel used in this lab (reducing-sugar, peptide-bond/biuret, and grease-spot lipid).
+> **Concept Check (Synthesis):** A field microbiologist collects a turbid sample from a brackish pond and a separate sample of dispersed lipid droplets skimmed from the surface film. Each sample is dried, resuspended, and tested with the same color-change panel used in this lab (reducing-sugar, peptide-bond/biuret, and grease-spot lipid).
 >
 > (a) Predict the qualitative pattern of positives and negatives expected for a bacterial-cell-enriched sample versus a lipid-droplet-enriched sample, and justify each prediction in terms of macromolecule composition. Identify which single assay outcome would most strongly distinguish the two sample types.
 > (b) Evaluate the limits of this evidence: name one false-positive scenario and one false-negative scenario for each assay (for example, a sugar contaminant on glassware, or a protein concentration below the assay's detection threshold). Specify what additional control or dilution series would harden the distinction.
@@ -160,7 +162,7 @@ Complete the source-governance card for Biological Macromolecules before writing
 
 ## Extension Analysis Questions {.unnumbered}
 
-7. Galactosaemia patients cannot metabolise galactose (a component of lactose). Using your understanding of glycosidic bonds, explain why such a patient must avoid milk but can safely consume glucose or fructose sweetened foods.
+7. Galactosaemia patients cannot metabolize galactose (a component of lactose). Using your understanding of glycosidic bonds, explain why such a patient must avoid milk but can safely consume glucose or fructose sweetened foods.
 8. The Keto diet shifts metabolism to fat oxidation. Predict which macromolecule category would dominate your test results on a piece of bacon vs a slice of bread. Discuss why each is energy-dense but in biochemically different ways (immediate vs sustained release).
 9. Protein-losing enteropathy causes albumin leakage into the gut. Given classic peptide-bond assay's sensitivity (~0.1 mg/mL), would you expect a positive classic peptide-bond assay reaction on a faecal sample from such a patient? Why might faecal protein quantification via classic peptide-bond assay be unreliable (hint: digestive proteolysis)?
 
@@ -185,7 +187,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -204,5 +206,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_I_macromolecules}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

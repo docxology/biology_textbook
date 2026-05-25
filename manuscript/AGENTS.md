@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This directory contains all textbook manuscript source files, organised by unit. Each unit directory contains registered chapter files and may also contain orientation files such as `unit_intro.md`. A master `config.yaml` in this directory controls rendered chapter ordering, auto-numbering, page layout, typography, front matter, labs, question banks, and reference appendices.
+This directory contains all textbook manuscript source files, organized by unit. Each unit directory contains registered chapter files and may also contain orientation files such as `unit_intro.md`. A master `config.yaml` in this directory controls rendered chapter ordering, auto-numbering, page layout, typography, front matter, labs, question banks, and reference appendices.
 
 > **Composable workflows** (add chapter, register figure, `ChapterMeta` / `\label` naming, which tests to run): [../docs/composable_authoring.md](../docs/composable_authoring.md). This file is the **manuscript** contract; that doc ties it to scripts and tests.
 
@@ -24,14 +24,14 @@ This directory contains all textbook manuscript source files, organised by unit.
 | `authors[]` | `name`, `orcid`, `email`, `affiliation` | Full author list with affiliations |
 | `publication` | `doi`, `repository_url`, `repository_label`, `keywords` | Zenodo DOI and living Git source on generated publishing page |
 | `layout` | `margin_*_mm`, `page_size`, `line_height` | Page margins, paper size, and `setspace` stretch — **must match** `preamble.md` geometry and `\setstretch{...}` |
-| `typography` | `link_color`, `link_color_internal`, `link_color_external` | Hyperlink colour (default: `#CC0000` red) |
+| `typography` | `link_color`, `link_color_internal`, `link_color_external` | Hyperlink color (default: `#CC0000` red) |
 | `typography` | `body_font`, `heading_font`, `base_font_size_pt` | Font settings; **body point size is applied in** `preamble.md` via `\renewcommand{\normalsize}{...}` (keep equal to `base_font_size_pt`) |
 | `front_matter` | `include_front_matter`, `files[]`, `include_preface` | Source files rendered after the generated cover, publishing-information page, and table of contents; preface appears only when listed and enabled |
 | `appendices` | `include_labs`, `include_questions`, `labs[]`, `questions[]`, `reference[]` | Optional labs, question banks, and reference appendices after core units. Lab/question entries store only `file:` names; their display titles are derived from chapter titles by `src/biology/toc.py`. |
 | `rendering` | `auto_number_*`, `output_format` | Numbering and rendering options |
 | `units[]` | `chapters[].file`, `chapters[].title` | Chapter files and display titles, in rendering order |
 | `llm` | `reviews.enabled`, `translations.enabled` | Optional LLM review/translation stage |
-| `accessibility`, `content_notes`, `export`, `chapter_metadata` (tail of file) | mixed | **Advisory vs enforced:** not every key is read by the build. See [../docs/accessibility.md](../docs/accessibility.md) for the table. **Tests** (`test_accessibility.py` and other invariant modules) and **`src/visualization/cvd.py`** (matplotlib palette) are the main enforcement for alt text and colour-vision–friendly figures when `color_blindness_safe` is true. |
+| `accessibility`, `content_notes`, `export`, `chapter_metadata` (tail of file) | mixed | **Advisory vs enforced:** not every key is read by the build. See [../docs/accessibility.md](../docs/accessibility.md) for the table. **Tests** (`test_accessibility.py` and other invariant modules) and **`src/visualization/cvd.py`** (matplotlib palette) are the main enforcement for alt text and colorvision–friendly figures when `color_blindness_safe` is true. |
 
 ## Directory Structure
 
@@ -58,15 +58,17 @@ manuscript/
 - **One chapter = one Markdown file registered in `config.yaml`.** Unit orientation files such as `unit_intro.md` are source notes unless they are explicitly added to the render order.
 - **Filename**: `descriptive_slug.md` — all lowercase, underscores, no chapter numbers.
 - **First heading** in file = exact chapter title from `config.yaml` (rendered with auto-assigned number). Run `scripts/sync_curriculum_materials.py` after title or order edits to normalize chapter, unit-intro, lab, question-bank, glossary, and reference-appendix H1s from `src/biology/toc.py`.
-- **Section label**: the first non-blank line after the H1 title must be `\label{sec:unit_X_<stem>}` (inserted by `scripts/insert_crossref_labels.py`). Refer to this chapter elsewhere with `\cref{sec:unit_X_<stem>}`. Enforced by `tests/test_build_invariants.py::test_every_chapter_has_section_label`.
+- **Numbered chapter section label**: the first non-blank line after the H1 title must be `\label{sec:unit_X_<stem>}` (inserted by `scripts/insert_crossref_labels.py`). Refer to this chapter elsewhere with `\cref{sec:unit_X_<stem>}`. Enforced by `tests/test_build_invariants.py::test_every_chapter_has_section_label`.
+- **Unnumbered section label** (unit intros, labs, question banks, reference appendices, glossary): embed the canonical id on the H1 as a Pandoc identifier, e.g. `# Title {#sec:unit_I_unit_intro .unnumbered}`. Do **not** use a standalone `\label{sec:…}` line between H1 and the first `##` heading — that breaks `\nameref` on `\section*` and prevents Pandoc from parsing subsequent headings. Maintained by `scripts/sync_curriculum_materials.py` and `scripts/insert_crossref_labels.py` (labs/questions). Enforced by `tests/test_build_invariants.py::test_unnumbered_surfaces_use_h1_identifiers` and related lab/question checks.
 - **Metadata badge**: after the label, a `<!-- chapter-metadata-badge -->` blockquote (inserted by `scripts/insert_chapter_metadata.py` from data in `src/biology/chapter_metadata.py`) shows Level 1/3–3/3 difficulty, reading time, lecture time, and prerequisites. Enforced by `tests/test_build_invariants.py::test_every_chapter_has_metadata_badge`.
 - **Figures**: raw-LaTeX `\begin{figure}\centering\includegraphics[…]{../figures/<name>.png}\caption{…}\label{fig:unit_X_<descriptor>}\end{figure}` blocks. Paths are relative to `output/manuscript/`.
 - **Diagrams (authoring)**: inline ` ```mermaid ` fences are fine for HTML review; the manuscript currently has 193 inline fences. Every fence must be followed by exactly one `<!-- alt: ... -->` comment and one italic caption. At PDF-build time the renderer converts each block strictly to a PNG image; missing `mmdc` or a render failure is a build failure.
 - **Diagrams (registered)**: factories in `src/mermaid/biology_diagrams.py` that appear in `ALL_BIOLOGY_DIAGRAMS` are rendered by `scripts/generate_diagrams.py`; use `--strict-png` for publication gates. Reference via the usual markdown image syntax if a static PNG is desired.
 - **Equations**: Use LaTeX `\begin{equation}\label{eq:unit_X_<descriptor>}…\end{equation}` or `align` environments for numbered display equations. Use unnumbered display math only for worked steps that are not referenced. Do not use manual equation-number tags in manuscript prose; rendered equation numbers are assigned by LaTeX and cross-referenced with `\cref{eq:...}`.
+- **Tables**: Chapter and lab pipe tables carry a pandoc caption line immediately above the header row: `: Summary text {#tbl:unit_X_<descriptor>}`. Regenerate missing captions with `scripts/annotate_table_captions.py --write`; polish weak auto-generated titles with `scripts/polish_table_captions.py --write`. Cross-reference numbered tables with `\cref{tbl:…}`. Plain pipe tables in unit intros (Landmark Discoveries), front matter, appendices, and question banks stay unnumbered.
 - **Citations**: `\citep{key}` for parenthetical, `\citet{key}` for textual. All citekeys must exist in `references.bib`; `tests/test_bibliography_closure.py` enforces this bidirectionally.
-- **Cross-references** in prose: `\cref{sec:…}` / `\cref{fig:…}` / `\cref{eq:…}` — never hand-type rendered numbers such as "Chapter 11", "Figure 4.3", "Equation 5.7", "Section 2", or "§2".
-- **Visible unit/appendix references** in student-facing prose: use `\nameref{sec:unit_X_unit_intro}` for units, `\cref{sec:appendix_<slug>}` for appendices, and generator-owned marker blocks for navigation/scope tables. Do not hand-author visible labels such as "Unit I", "Appendix C", or "Figure FM-1" outside generated blocks.
+- **Cross-references** in prose: numbered chapters use `\cref{sec:…}`; unnumbered surfaces (unit intros, labs, question banks, reference appendices, glossary) use `\nameref{sec:…}` because `\cref` on `\section*` resolves to a shared counter. Figures, equations, and numbered tables use `\cref{fig:…}` / `\cref{eq:…}` / `\cref{tbl:…}`. Never hand-type rendered numbers such as "Chapter 11", "Figure 4.3", "Equation 5.7", "Section 2", or "§2".
+- **Visible unit/appendix references** in student-facing prose: use `\nameref{sec:unit_X_unit_intro}` for units and `\nameref{sec:appendix_<slug>}` (or `\nameref{sec:glossary}`) for appendices; use generator-owned marker blocks for navigation/scope tables. Do not hand-author visible labels such as "Unit I", "Appendix C", or "Figure FM-1" outside generated blocks.
 - **Glossary terms**: on first use in a chapter, link with the markdown-link syntax `` `[**term**](#gl:<slug>)` `` (slug is generated from the term by `scripts/link_glossary.py`); the `{#gl:<slug>}` anchor is defined in `manuscript/glossary.md`.
 - **Code blocks**: standard fenced blocks; imports from `biology.*` src modules.
 
@@ -90,6 +92,20 @@ paths, a generated concept map, and "About This Textbook" material.
 Its scope table is generated from the same `BookToc` source. Do not duplicate
 cover, copyright, author metadata, or hand-maintained unit-title lists inside
 `front_matter.md` or `preface.md`.
+
+## Render workflow (injected manuscript)
+
+The template PDF stage prefers `projects/biology_textbook/output/manuscript/` when that directory contains markdown files. Edits under `manuscript/` alone do **not** change the combined PDF until analysis refreshes the injection.
+
+```bash
+cd projects/biology_textbook
+uv run python scripts/sync_curriculum_materials.py   # after scaffold/label/title edits
+uv run python scripts/biology_analysis.py            # copies ordered manuscript → output/manuscript/
+cd ../..  # template root
+uv run python scripts/03_render_pdf.py --project biology_textbook
+```
+
+Run `uv run python scripts/audit_textbook_quality.py --check --max-advisories 0` before render when chapters, labs, question banks, or biological claims changed.
 
 ## Adding a New Chapter
 
@@ -152,6 +168,15 @@ Mermaid diagrams may be written inline in Markdown (recommended for authoring an
 1. Author diagram function in `src/mermaid/biology_diagrams.py` → add to `ALL_BIOLOGY_DIAGRAMS`.
 2. Run `uv run python scripts/generate_diagrams.py --strict-png` → exports PNGs under `output/figures/mermaid/` and rejects `.mmd` fallback output.
 3. Reference the generated image in the chapter using standard Markdown image syntax with a correct relative path.
+
+## American English
+
+Prose, learning objectives, alt text, Mermaid labels, and generator strings under `src/biology/` use **American English** spellings (`behavior`, `organization`, `signaling`, `color`, `center`, …). **`references.bib` keeps published title spellings** (original UK spellings in citation titles, journal names, URLs). Figure and diagram conventions: [../docs/visualization_guide.md](../docs/visualization_guide.md).
+
+- Gate: `uv run pytest tests/test_american_english.py`
+- Batch rewrite: `uv run python scripts/normalize_american_english.py` (mapping in `src/biology/maintenance/data/british_to_american.yaml`; skips `references.bib`, `preamble.md`, and code fences)
+- Optional LO Bloom HTML comments use American **`analyze`**, not `analyse` (see [../docs/pedagogy_objectives_mapping.md](../docs/pedagogy_objectives_mapping.md))
+- After editing enrichment or curriculum generators, run normalize, then `scripts/sync_curriculum_materials.py` and `scripts/enrich_embedded_textbook.py` so synced blocks stay aligned.
 
 ## Print density (PDF)
 

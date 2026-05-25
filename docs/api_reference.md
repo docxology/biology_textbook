@@ -328,13 +328,13 @@ Detects raw-LaTeX figure environments (`\begin{figure}…\label{fig:…}…\end{
 
 ## `visualization.cvd`
 
-Constants for **colour-vision–friendly** matplotlib styling (blue/orange/teal, Punnett hatching, line styles for overlapping series). Consumed by `src/visualization/plots.py`. Aligns with `manuscript/config.yaml` → `accessibility.color_blindness_safe: true` — see [accessibility.md](accessibility.md) and [visualisation_guide.md](visualisation_guide.md).
+Constants for **colorvision–friendly** matplotlib styling (blue/orange/teal, Punnett hatching, line styles for overlapping series). Consumed by `src/visualization/plots.py`. Aligns with `manuscript/config.yaml` → `accessibility.color_blindness_safe: true` — see [accessibility.md](accessibility.md) and [visualization_guide.md](visualization_guide.md).
 
 | Symbol | Role |
 | ------ | ---- |
 | `BAR_POS`, `BAR_NEG` | Signed bar charts (e.g. Nernst) |
 | `PUNNETT_DOMINANT`, `PUNNETT_RECESSIVE` | Punnett cells (with hatch patterns in the square plot) |
-| `SERIES2`, `SERIES3` | Default multi-line series colours |
+| `SERIES2`, `SERIES3` | Default multi-line series colors |
 
 ## `mermaid.biology_diagrams`
 
@@ -360,7 +360,7 @@ Diagram structure is declared in `src/mermaid/diagram_specs.yaml` and loaded by 
 | `food_web_diagram()` | `terrestrial_food_web` | Terrestrial food web and nutrient recycling |
 | `population_growth_stages_diagram()` | `population_growth_phases` | Logistic growth phases |
 | `speciation_diagram()` | `speciation_diagram` | Speciation mechanisms |
-| `hormone_signaling_diagram()` | `hormone_signaling_diagram` | Hormone signalling pathways |
+| `hormone_signaling_diagram()` | `hormone_signaling_diagram` | Hormone signaling pathways |
 | `dna_replication_diagram()` | `dna_replication_diagram` | DNA replication fork |
 | `nutrient_cycle_diagram()` | `nutrient_cycle_diagram` | Nitrogen cycle |
 | `chromosome_inheritance_diagram()` | `chromosome_inheritance_diagram` | Sex-linked inheritance and X-inactivation |
@@ -371,7 +371,7 @@ Diagram structure is declared in `src/mermaid/diagram_specs.yaml` and loaded by 
 
 Plot entry points are split across `src/visualization/plots_{cell,genetics,ecology,evolution,physiology,botany,microbiology}.py` and registered in `plots.py` → `ALL_FIGURE_GENERATORS`. Each `plot_*` function takes a required `output_dir: Path` and optional numeric parameters; each returns `Path` to a PNG.
 
-Colour defaults come from [`visualization.cvd`](#visualizationcvd) when multiple series or sign categories are shown. **Allowlist** names (what the manuscript may cite) are in [../manuscript/AGENTS.md](../manuscript/AGENTS.md).
+Color defaults come from [`visualization.cvd`](#visualizationcvd) when multiple series or sign categories are shown. **Allowlist** names (what the manuscript may cite) are in [../manuscript/AGENTS.md](../manuscript/AGENTS.md).
 
 | Registry key | `plot_*` / callable | Output filename (typical) |
 | ------------ | -------------------- | --------------------------- |

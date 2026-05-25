@@ -10,7 +10,7 @@ chapter gap matrix and existing `src/biology/*` APIs.
 | Rank | Plot type | Rationale |
 | --- | --- | --- |
 | 1 | Hardy–Weinberg genotype/allele curves | Foundational null model; bridges Mendelian counts to population genetics |
-| 2 | Hill / receptor-occupancy curves | Quantitative signalling; cooperativity is invisible in prose alone |
+| 2 | Hill / receptor-occupancy curves | Quantitative signaling; cooperativity is invisible in prose alone |
 | 3 | SIR epidemic trajectories | Connects microbiology to public-health reasoning; R₀ intuition |
 | 4 | Glycolysis ATP/NADH yield summary | Energy accounting anchor for respiration chapters |
 | 5 | Poiseuille r⁴ flow sensitivity | Cardiovascular physiology; explains radius as dominant lever |
@@ -23,7 +23,7 @@ chapter gap matrix and existing `src/biology/*` APIs.
 ## Accessibility (WCAG / CVD)
 
 - Use the project `visualization.cvd` palette (Okabe–Ito–inspired hues; no red/green-only pairs).
-- Pair colour with line style or hatching for multi-series curves.
+- Pair color with line style or hatching for multi-series curves.
 - Every `\includegraphics` block carries a substantive `<!-- alt: … -->` comment (not filename echo).
 - Target ≥4.5:1 contrast for text on figure backgrounds where labels are rendered.
 

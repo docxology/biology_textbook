@@ -4,10 +4,7 @@ from __future__ import annotations
 
 import logging
 import re
-from pathlib import Path
 
-from biology.answer_refinement.paths import MANUSCRIPT
-from textbook_io import write_text_atomic
 
 logger = logging.getLogger(__name__)
 
@@ -35,7 +32,7 @@ _V1_SIGNATURES = (
     "Source standard:",
     "Common pitfall:",
     "Chapter lens:",
-    "boundary condition that prevents overgeneralising it",
+    "boundary condition that prevents overgeneralizing it",
     "Answer every requested clause rather than only the opening phrase",
     "Ground the answer in \\cref{",
     "Use \\cref{",

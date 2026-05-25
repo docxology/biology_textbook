@@ -1,6 +1,5 @@
-# Lab — Genetic Drift, Gene Flow, and Speciation {.unnumbered}
+# Lab — Genetic Drift, Gene Flow, and Speciation {#sec:lab_unit_VI_genetic_drift_and_speciation .unnumbered}
 
-\label{sec:lab_unit_VI_genetic_drift_and_speciation}
 
 *This activity accompanies \cref{sec:unit_VI_genetic_drift_and_speciation} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -53,6 +52,7 @@ The effective-population-size worked example in the parent chapter (\cref{sec:un
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VI_genetic_drift_and_speciation_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Genetic Drift, Gene Flow, and Speciation: evolutionary-evidence source card: alternative hypotheses, sampling, calibration, and confidence boundary | 1 |
@@ -109,6 +109,7 @@ print("isolation example:", round(isolation_index(gene_flow_rate=0.01, mutation_
 
 ## Data Recording {.unnumbered}
 
+: Part 3: Morphological Divergence Analysis: Founding event and Sample size. {#tbl:unit_VI_genetic_drift_and_speciation_part_3_morphological_divergence_analysis}
 | Founding event | Sample size | p (red allele) | q (blue allele) |
 | -------------- | ----------- | -------------- | --------------- |
 | Original | 100 | 0.5 | 0.5 |
@@ -117,6 +118,7 @@ print("isolation example:", round(isolation_index(gene_flow_rate=0.01, mutation_
 
 Mockingbird data summary (fill from provided table):
 
+: Part 3: Morphological Divergence Analysis: Island and Mean beak length (mm). {#tbl:unit_VI_genetic_drift_and_speciation_part_3_morphological_divergence_analysis_2}
 | Island | Mean beak length (mm) | Mean body mass (g) | Distinct from others? |
 | ------ | --------------------- | ------------------- | ---------------------- |
 | Santa Cruz | | | |
@@ -143,6 +145,7 @@ Fst calculation: H_T = ___; H_S = ___; Fst = ___; Interpretation:
 Before answering the analysis questions, annotate the paper dataset for
 **Genetic Drift, Gene Flow, and Speciation** with a reproducibility pass:
 
+: Part 3: Morphological Divergence Analysis: Evidence check and Student action. {#tbl:unit_VI_genetic_drift_and_speciation_part_3_morphological_divergence_analysis_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -238,7 +241,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_VI_genetic_drift_and_speciation} that your data either confirmed or complicated. Cite the specific passage.
 

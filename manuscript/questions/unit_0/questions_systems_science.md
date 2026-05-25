@@ -1,6 +1,5 @@
-# Questions — Systems Science and the Logic of Emergence {.unnumbered}
+# Questions — Systems Science and the Logic of Emergence {#sec:q_unit_0_systems_science .unnumbered}
 
-\label{sec:q_unit_0_systems_science}
 
 *This activity accompanies \cref{sec:unit_0_systems_science} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -24,31 +23,31 @@
 1. Define 'systems science' in your own words and provide a biological example.
 
 <!-- SOLUTION
-**Answer (Q1, Recall).** Systems science studies how the *organisation of and interactions among* components — not the components in isolation — generate the behaviour of a whole; it makes the boundary, components, environment, flows, and feedback signs explicit. Biological example: blood-glucose regulation, where pancreas, insulin, glucagon, liver, and muscle form a feedback network whose stable set-point behaviour cannot be read off any single hormone.
+**Answer (Q1, Recall).** Systems science studies how the *organization of and interactions among* components — not the components in isolation — generate the behavior of a whole; it makes the boundary, components, environment, flows, and feedback signs explicit. Biological example: blood-glucose regulation, where pancreas, insulin, glucagon, liver, and muscle form a feedback network whose stable set-point behavior cannot be read off any single hormone.
 SOLUTION -->
 <!-- assess: LO=LO2; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
 2. What distinguishes a complex adaptive system from a simple system?
 
 <!-- SOLUTION
-**Answer (Q2, Recall).** A simple system has few components and fixed, predictable input–output relations. A complex adaptive system is a network of many heterogeneous agents that act on local information and adapt, producing emergent, nonlinear, history-dependent behaviour that cannot be predicted from any agent alone (e.g., the immune system, an ant colony, an ecosystem). The defining contrast is adaptation and emergence versus fixed, decomposable mechanism.
+**Answer (Q2, Recall).** A simple system has few components and fixed, predictable input–output relations. A complex adaptive system is a network of many heterogeneous agents that act on local information and adapt, producing emergent, nonlinear, history-dependent behavior that cannot be predicted from any agent alone (e.g., the immune system, an ant colony, an ecosystem). The defining contrast is adaptation and emergence versus fixed, decomposable mechanism.
 SOLUTION -->
 <!-- assess: LO=LO3; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
 3. What is the free energy principle? What does free energy measure?
 
 <!-- SOLUTION
-**Answer (Q3, Recall).** The free energy principle (Friston) states that any system that maintains itself far from equilibrium must act and perceive so as to minimise *variational free energy* — an information-theoretic upper bound on sensory surprise. Free energy measures the mismatch between the organism's internal generative model (its predictions) and the sensory data it actually receives; minimising it keeps the organism within its viable physiological states.
+**Answer (Q3, Recall).** The free energy principle (Friston) states that any system that maintains itself far from equilibrium must act and perceive so as to minimize *variational free energy* — an information-theoretic upper bound on sensory surprise. Free energy measures the mismatch between the organism's internal generative model (its predictions) and the sensory data it actually receives; minimizing it keeps the organism within its viable physiological states.
 SOLUTION -->
 <!-- assess: LO=LO4; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
 4. Describe one biological example of negative feedback and one of positive feedback.
 
 <!-- SOLUTION
-**Answer (Q4, Recall).** Negative feedback: thermoregulation — a rise in core temperature triggers sweating and vasodilation that return temperature toward the set point (stabilising). Positive feedback: the rising phase of the action potential — Na⁺ influx depolarises the membrane, opening more voltage-gated Na⁺ channels and amplifying the depolarisation until channels inactivate (self-reinforcing and self-limiting).
+**Answer (Q4, Recall).** Negative feedback: thermoregulation — a rise in core temperature triggers sweating and vasodilation that return temperature toward the set point (stabilizing). Positive feedback: the rising phase of the action potential — Na⁺ influx depolarizes the membrane, opening more voltage-gated Na⁺ channels and amplifying the depolarization until channels inactivate (self-reinforcing and self-limiting).
 SOLUTION -->
 <!-- assess: LO=LO5; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
 5. What is the difference between homeostasis and allostasis?
 
 <!-- SOLUTION
-**Answer (Q5, Recall).** Homeostasis holds a regulated variable near a *fixed* set point through reactive negative feedback. Allostasis (Sterling) achieves stability *through change*: the brain predictively adjusts set points and mobilises resources in anticipation of demand, so the target itself moves. The decisive difference is reactive constancy versus anticipatory, model-based set-point adjustment.
+**Answer (Q5, Recall).** Homeostasis holds a regulated variable near a *fixed* set point through reactive negative feedback. Allostasis (Sterling) achieves stability *through change*: the brain predictively adjusts set points and mobilizes resources in anticipation of demand, so the target itself moves. The decisive difference is reactive constancy versus anticipatory, model-based set-point adjustment.
 SOLUTION -->
 
 ---
@@ -56,10 +55,10 @@ SOLUTION -->
 ## Application Questions (2 marks each) {.unnumbered}
 
 <!-- assess: LO=LO6; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-6. A drug blocks a key kinase in a signalling cascade, but the tumour eventually regrows. Explain this outcome using the concept of feedback compensation.
+6. A drug blocks a key kinase in a signaling cascade, but the tumor eventually regrows. Explain this outcome using the concept of feedback compensation.
 
 <!-- SOLUTION
-**Answer (Q6, Application).** Blocking one kinase removes a single edge of a signalling network, but negative-feedback nodes the pathway normally suppresses are de-repressed and parallel routes reroute flux to restore downstream signalling (e.g., loss of ERK-mediated feedback reactivates upstream receptor/PI3K input). The network's redundancy and compensatory feedback restore proliferative output, so single-target inhibition is evaded — which is why combination therapy is often required.
+**Answer (Q6, Application).** Blocking one kinase removes a single edge of a signaling network, but negative-feedback nodes the pathway normally suppresses are de-repressed and parallel routes reroute flux to restore downstream signaling (e.g., loss of ERK-mediated feedback reactivates upstream receptor/PI3K input). The network's redundancy and compensatory feedback restore proliferative output, so single-target inhibition is evaded — which is why combination therapy is often required.
 SOLUTION -->
 <!-- assess: LO=LO7; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
 7. Explain why the lac operon switch is described as bistable. What advantage does bistability provide over a graded (linear) response?
@@ -77,13 +76,13 @@ SOLUTION -->
 9. Apply the active inference framework to explain how a fever might be adaptive rather than merely a pathological response.
 
 <!-- SOLUTION
-**Answer (Q9, Application).** Under active inference an organism acts to fulfil its predictions about preferred, viable states. Infection raises the *expected* (set-point) temperature encoded by the hypothalamic generative model; the body then acts — shivering, vasoconstriction — to realise that prediction because elevated temperature accelerates immune kinetics and impairs pathogen replication. Fever is thus a controlled, model-driven allostatic shift rather than a regulatory failure, adaptive up to its metabolic and tissue-stress costs.
+**Answer (Q9, Application).** Under active inference an organism acts to fulfil its predictions about preferred, viable states. Infection raises the *expected* (set-point) temperature encoded by the hypothalamic generative model; the body then acts — shivering, vasoconstriction — to realize that prediction because elevated temperature accelerates immune kinetics and impairs pathogen replication. Fever is thus a controlled, model-driven allostatic shift rather than a regulatory failure, adaptive up to its metabolic and tissue-stress costs.
 SOLUTION -->
 <!-- assess: LO=LO2; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
 10. In evolutionary terms, what is niche construction, and how does it relate to the free energy principle?
 
 <!-- SOLUTION
-**Answer (Q10, Application).** Niche construction is the organism's modification of its own environment (beaver dams, earthworm-altered soil), changing the selection pressures it and its descendants experience. Under the free energy principle, agents minimise surprise not only by updating internal models (perception) but by acting on the world so it matches their expected states — niche construction is free-energy minimisation externalised and inherited across generations, stabilising the organism–environment fit.
+**Answer (Q10, Application).** Niche construction is the organism's modification of its own environment (beaver dams, earthworm-altered soil), changing the selection pressures it and its descendants experience. Under the free energy principle, agents minimize surprise not only by updating internal models (perception) but by acting on the world so it matches their expected states — niche construction is free-energy minimization externalised and inherited across generations, stabilizing the organism–environment fit.
 SOLUTION -->
 
 ---
@@ -91,10 +90,10 @@ SOLUTION -->
 ## Synthesis Questions (4 marks each) {.unnumbered}
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-11. Compare and contrast the immune system and an evolving tumour as complex adaptive systems. In each case, identify (a) the agents, (b) the selection pressures, (c) an emergent property, and (d) a critical vulnerability.
+11. Compare and contrast the immune system and an evolving tumor as complex adaptive systems. In each case, identify (a) the agents, (b) the selection pressures, (c) an emergent property, and (d) a critical vulnerability.
 
 <!-- SOLUTION
-**Answer (Q11, Synthesis).** Both are populations of heritable, variable, selected agents whose adaptive behaviour is emergent. (a) Agents: lymphocyte clones vs tumour subclones. (b) Selection pressures: antigen affinity and self-tolerance vs immune attack, therapy, hypoxia. (c) Emergent property: immunological memory vs collective drug resistance. (d) Critical vulnerability: tolerance breakdown or T-cell exhaustion vs dependence on a driver mutation or shared resource. The decisive contrast: the immune system is selected for host benefit, whereas tumour evolution is selected purely for local proliferative fitness against the host.
+**Answer (Q11, Synthesis).** Both are populations of heritable, variable, selected agents whose adaptive behavior is emergent. (a) Agents: lymphocyte clones vs tumor subclones. (b) Selection pressures: antigen affinity and self-tolerance vs immune attack, therapy, hypoxia. (c) Emergent property: immunological memory vs collective drug resistance. (d) Critical vulnerability: tolerance breakdown or T-cell exhaustion vs dependence on a driver mutation or shared resource. The decisive contrast: the immune system is selected for host benefit, whereas tumor evolution is selected purely for local proliferative fitness against the host.
 SOLUTION -->
 
 <!-- assess: LO=LO4; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -108,7 +107,7 @@ SOLUTION -->
 13. Describe how ecosystem collapse (e.g., coral bleaching, fishery collapse) can be framed as a phase transition in a complex adaptive system. What warning signals might precede the transition? Why is recovery often much harder than the original decline?
 
 <!-- SOLUTION
-**Answer (Q13, Synthesis).** A reef or fishery near a bifurcation has a shallow basin of attraction; a small additional forcing (warming, harvest pressure) pushes it across a tipping point into an alternative stable state (algal-dominated reef, collapsed stock). Early-warning signals are signatures of *critical slowing down* — rising variance, increased autocorrelation, and slower recovery from small disturbances. Recovery is hard because of hysteresis: feedbacks that stabilise the new state (macroalgal dominance, recruitment failure) mean the driver must fall far below the original threshold before the system flips back.
+**Answer (Q13, Synthesis).** A reef or fishery near a bifurcation has a shallow basin of attraction; a small additional forcing (warming, harvest pressure) pushes it across a tipping point into an alternative stable state (algal-dominated reef, collapsed stock). Early-warning signals are signatures of *critical slowing down* — rising variance, increased autocorrelation, and slower recovery from small disturbances. Recovery is hard because of hysteresis: feedbacks that stabilize the new state (macroalgal dominance, recruitment failure) mean the driver must fall far below the original threshold before the system flips back.
 SOLUTION -->
 
 ## Data and Model Interpretation Questions (3 marks each) {.unnumbered}
@@ -180,16 +179,16 @@ SOLUTION -->
 23. Compare a thermostat, blood calcium regulation, and quorum sensing. Which parts of the analogy are useful, and where does the analogy break down?
 
 <!-- SOLUTION
-**Answer (Q23, Analysis).** The thermostat analogy is useful for set point, sensor, comparator, and effector logic. Blood calcium adds multiple organs, hormones, and time scales. Quorum sensing adds population-level communication and threshold-like collective behaviour. The analogy breaks down when biological systems change their own sensors, set points, and effectors through development, learning, or evolution.
+**Answer (Q23, Analysis).** The thermostat analogy is useful for set point, sensor, comparator, and effector logic. Blood calcium adds multiple organs, hormones, and time scales. Quorum sensing adds population-level communication and threshold-like collective behavior. The analogy breaks down when biological systems change their own sensors, set points, and effectors through development, learning, or evolution.
 SOLUTION -->
 
 ## Evaluation and Design Questions (4 marks each) {.unnumbered}
 
 <!-- assess: LO=LO8; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-24. Design a minimal experiment to distinguish direct causation from correlation in a proposed feedback loop between a hormone and a behaviour.
+24. Design a minimal experiment to distinguish direct causation from correlation in a proposed feedback loop between a hormone and a behavior.
 
 <!-- SOLUTION
-**Answer (Q24, Create).** A strong design manipulates the hormone while measuring behaviour, includes vehicle and sham controls, and ideally blocks the receptor to test specificity. Time-resolved measurements should show that hormone change precedes behavioural change. A rescue condition, such as restoring receptor signaling, would strengthen causal inference.
+**Answer (Q24, Create).** A strong design manipulates the hormone while measuring behavior, includes vehicle and sham controls, and ideally blocks the receptor to test specificity. Time-resolved measurements should show that hormone change precedes behavioral change. A rescue condition, such as restoring receptor signaling, would strengthen causal inference.
 SOLUTION -->
 
 <!-- assess: LO=LO1; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
@@ -224,7 +223,7 @@ SOLUTION -->
 29. A student says, "If we know every molecule in a cell, we know the cell." Respond using emergence, scale, and model choice.
 
 <!-- SOLUTION
-**Answer (Q29, Evaluation).** Knowing every molecule is not enough unless interactions, spatial organization, time scales, and boundary conditions are also known. Emergent properties such as oscillation, polarity, and fate commitment arise from relations among parts. The appropriate model depends on the question: molecular detail for catalysis, network detail for signaling, and coarse-grained variables for tissue behaviour.
+**Answer (Q29, Evaluation).** Knowing every molecule is not enough unless interactions, spatial organization, time scales, and boundary conditions are also known. Emergent properties such as oscillation, polarity, and fate commitment arise from relations among parts. The appropriate model depends on the question: molecular detail for catalysis, network detail for signaling, and coarse-grained variables for tissue behavior.
 SOLUTION -->
 
 <!-- assess: LO=LO6; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->

@@ -1,7 +1,6 @@
-# Unit VII — Microbiology: Introduction {.unnumbered}
+# Unit VII — Microbiology: Introduction {#sec:unit_VII_unit_intro .unnumbered}
 
 
-\label{sec:unit_VII_unit_intro}
 ## Why This Unit Matters {.unnumbered}
 
 The living world is microbial. In mass, in metabolic diversity, and in evolutionary history, microorganisms
@@ -34,13 +33,13 @@ metabolic syndrome.
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| Antoni van Leeuwenhoek | 1676 | *Philos. Trans. R. Soc.* | First observation of bacteria (\"animalcules\") | Founded microbiology; showed microorganisms are everywhere |
-| Louis Pasteur | 1859–1861 | *Ann. Sci. Nat.* | Disproof of spontaneous generation | Established germ theory; revolutionised medicine and food safety |
-| Robert Koch | 1876–1884 | *Investigations into the Etiology of Traumatic Infective Diseases* | Koch's postulates; anthrax, TB, cholera | Rigorous criteria for linking pathogen to disease |
-| Alexander Fleming | 1928 | *Brit. J. Exp. Pathol.* | Penicillin discovery | Launched the antibiotic era; Nobel Prize 1945 |
-| Carl Woese & George Fox | 1977 | *Proc. Natl. Acad. Sci.* | Archaea as third domain (16S rRNA) | Restructured the comprehensive tree of life; archaea are closer to eukaryotes than to bacteria |
-| David Relman et al. | 1999–2006 | *Proc. Natl. Acad. Sci.; Science* | Human microbiome characterisation by 16S rRNA | Revealed ~10¹³ microbial cells as an integral part of human biology |
-| Murray et al. | 2022 | *The Lancet* | Global mortality from antimicrobial resistance (1.27 million deaths, 2019) | Quantified the scale of the AMR crisis as a call to action |
+| Antoni van Leeuwenhoek | 1676 | \citep{leeuwenhoek1676} | First observation of bacteria (\"animalcules\") | Founded microbiology; showed microorganisms are everywhere |
+| Louis Pasteur | 1859–1861 | \citep{pasteur1861} | Disproof of spontaneous generation | Established germ theory; revolutionised medicine and food safety |
+| Robert Koch | 1876–1884 | \citep{koch1884} | Koch's postulates; anthrax, TB, cholera | Rigorous criteria for linking pathogen to disease |
+| Alexander Fleming | 1928 | \citep{fleming1929} | Penicillin discovery | Launched the antibiotic era; Nobel Prize 1945 |
+| Carl Woese & George Fox | 1977 | \citep{woese1977} | Archaea as third domain (16S rRNA) | Restructured the comprehensive tree of life; archaea are closer to eukaryotes than to bacteria |
+| David Relman et al. | 1999–2006 | \citep{relman1999,hmp2012structure} | Human microbiome characterization by 16S rRNA | Revealed ~10¹³ microbial cells as an integral part of human biology |
+| Murray et al. | 2022 | \citep{murray2022amr} | Global mortality from antimicrobial resistance (1.27 million deaths, 2019) | Quantified the scale of the AMR crisis as a call to action |
 
 ---
 
@@ -98,7 +97,7 @@ paper-based lab decision.
 ## Connections Across the Textbook {.unnumbered}
 
 - **Prokaryotic cell structure** in \cref{sec:unit_II_cell_theory} and \cref{sec:unit_II_cell_structure} provides the foundation for understanding antibiotic mechanisms (cell wall, ribosome 70S targets).
-- **Viral replication** links to \nameref{sec:unit_IV_unit_intro} (CRISPR discovered as a bacterially-encoded anti-phage defence system; RNA viruses and reverse transcriptase).
+- **Viral replication** links to \nameref{sec:unit_IV_unit_intro} (CRISPR discovered as a bacterially-encoded anti-phage defense system; RNA viruses and reverse transcriptase).
 - **Antibiotic resistance evolution** is a direct application of \nameref{sec:unit_VI_unit_intro} (natural selection, fitness, molecular clocks on resistance genes).
 - **Infectious disease epidemiology** (SIR model) connects to \nameref{sec:unit_X_unit_intro} (disease ecology, parasite-host dynamics in community ecology).
 - **Microbiome** connects to \nameref{sec:unit_IX_unit_intro} (gut-brain axis, immune regulation) and \nameref{sec:unit_X_unit_intro} (decomposer role in nutrient cycling).

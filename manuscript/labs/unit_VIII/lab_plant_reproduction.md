@@ -1,6 +1,5 @@
-# Lab — Plant Reproduction and Development {.unnumbered}
+# Lab — Plant Reproduction and Development {#sec:lab_unit_VIII_plant_reproduction .unnumbered}
 
-\label{sec:lab_unit_VIII_plant_reproduction}
 
 *This activity accompanies \cref{sec:unit_VIII_plant_reproduction} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -48,18 +47,19 @@
 
 ## Lab Context: Plant Reproduction and Development {.unnumbered}
 
-Angiosperms (flowering plants) undergo **double fertilisation**: one sperm nucleus (n) fuses with the egg (n) to form the zygote (2n); a second sperm fuses with the two polar nuclei (2×n = 2n) to form the primary endosperm nucleus (3n), which nourishes the developing embryo. Pollen grains (male gametophytes, n) germinate on the stigma and grow a pollen tube through the style to deliver sperm to the embryo sac (female gametophyte) in the ovule.
+Angiosperms (flowering plants) undergo **double fertilization**: one sperm nucleus (n) fuses with the egg (n) to form the zygote (2n); a second sperm fuses with the two polar nuclei (2×n = 2n) to form the primary endosperm nucleus (3n), which nourishes the developing embryo. Pollen grains (male gametophytes, n) germinate on the stigma and grow a pollen tube through the style to deliver sperm to the embryo sac (female gametophyte) in the ovule.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VIII_plant_reproduction_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Plant Reproduction and Development: plant evidence source card: tissue, driver, field context, breeding/adoption boundary, and refresh trigger | 1 |
-| Flower anatomy diagram packet with labelled and unlabelled angiosperm structures | 1 |
+| Flower anatomy diagram packet with labeled and unlabelled angiosperm structures | 1 |
 | Pollination and dispersal syndrome card set (wind, managed honeybee, bumblebee, solitary bee, moth, bird, generalized flowers, and elaiosome-bearing seeds for myrmecochory) | 1 set |
 | Pollen-tube growth dataset across temperature and sucrose treatments | 1 |
 | Printed micrograph panels or schematic pollen-tube images with scale bars | 1 set |
-| Double-fertilisation ploidy worksheet | 1 |
+| Double-fertilization ploidy worksheet | 1 |
 | Climate-risk case packet for crop flowering, heat stress, and pollinator service data | 1 |
 | Graph paper or spreadsheet template | 1 |
 | Calculator or optional Python REPL with this project installed | 1 |
@@ -72,10 +72,10 @@ Angiosperms (flowering plants) undergo **double fertilisation**: one sperm nucle
 
 2. **Identify Variables**:
    - Independent variable: Pollination syndrome (wind vs insect)
-   - Dependent variable: Flower morphological traits (petal colour, fragrance, pollen size, stigma surface)
+   - Dependent variable: Flower morphological traits (petal color, fragrance, pollen size, stigma surface)
    - Controlled variables: Plant species, growing conditions, measurement methods, etc.
 
-3. **Set Up Controls**: Why is it important for each pollination-syndrome card to include both a labelled reference image and a blinded comparison image? What other controls could you include to ensure accurate comparisons?
+3. **Set Up Controls**: Why is it important for each pollination-syndrome card to include both a labeled reference image and a blinded comparison image? What other controls could you include to ensure accurate comparisons?
 
 4. **Data Collection**:
    - Identify external parts on the printed diagram: sepals, petals, stamens (anther + filament), pistil (stigma + style + ovary).
@@ -87,7 +87,7 @@ Angiosperms (flowering plants) undergo **double fertilisation**: one sperm nucle
 
 *Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
 
-Use a growth curve as a quantitative analogue for pollen-tube extension.
+Use a growth curve as a quantitative analog for pollen-tube extension.
 
 ```python
 from biology.botany import plant_biomass_growth
@@ -116,7 +116,8 @@ Flower anatomy diagram (label most structures):
 
 `[Annotate the printed flower diagram here]`
 
-| Structure | Present? | Description (colour, size, texture) |
+: Part 3: Pollen Germination Dataset: Structure and Present?. {#tbl:unit_VIII_plant_reproduction_part_3_pollen_germination_dataset}
+| Structure | Present? | Description (color, size, texture) |
 | --------- | -------- | ------------------------------------- |
 | Sepals | | |
 | Petals | | |
@@ -126,6 +127,7 @@ Flower anatomy diagram (label most structures):
 | Ovary | | |
 | Ovules | | |
 
+: Part 3: Pollen Germination Dataset: Time (min) and Pollen tube length (µm). {#tbl:unit_VIII_plant_reproduction_part_3_pollen_germination_dataset_2}
 | Time (min) | Pollen tube length (µm) | Pollen tube growth rate (µm/min) |
 | ---------- | ----------------------- | --------------------------------- |
 | 0 | 0 | — |
@@ -134,9 +136,10 @@ Flower anatomy diagram (label most structures):
 | 90 | | |
 | 120 | | |
 
+: Part 3: Pollen Germination Dataset: Character and Wind-pollinated (grass). {#tbl:unit_VIII_plant_reproduction_part_3_pollen_germination_dataset_3}
 | Character | Wind-pollinated (grass) | Bee-pollinated (lily or orchard flower) | Ant-dispersed seed |
 | --------- | ----------------------- | ------------------------- | ------------------ |
-| Petal colour | | |
+| Petal color | | |
 | Fragrance | | |
 | Pollen size | | |
 | Pollen surface | | |
@@ -160,6 +163,7 @@ Flower anatomy diagram (label most structures):
 Before answering the analysis questions, annotate the paper dataset for
 **Plant Reproduction and Development** with a reproducibility pass:
 
+: Part 3: Pollen Germination Dataset: Evidence check and Student action. {#tbl:unit_VIII_plant_reproduction_part_3_pollen_germination_dataset_4}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -188,11 +192,11 @@ Complete the source-governance card for Plant Reproduction and Development befor
 
 1. Pollen tube growth is driven by cytoplasmic streaming and tip-directed vesicle fusion. What is the role of Ca²⁺ ions (specifically the tip-focused Ca²⁺ gradient) in regulating pollen tube polarity and growth direction?
 
-2. Describe double fertilisation: where does each sperm go, what does each produce, and what are the ploidy levels of the zygote and endosperm?
+2. Describe double fertilization: where does each sperm go, what does each produce, and what are the ploidy levels of the zygote and endosperm?
 
-3. A honeybee, a bumblebee, and a solitary bee visit different fragrant, brightly coloured flowers with sticky pollen. A grass flower has no petals, no fragrance, and produces vast quantities of dry pollen. A woodland herb produces an elaiosome-bearing seed that ants carry to the nest. Explain the evolutionary logic behind each strategy using cost-benefit trade-offs, and state why "bee pollination" is still too broad unless the visitor actually transfers pollen.
+3. A honeybee, a bumblebee, and a solitary bee visit different fragrant, brightly colored flowers with sticky pollen. A grass flower has no petals, no fragrance, and produces vast quantities of dry pollen. A woodland herb produces an elaiosome-bearing seed that ants carry to the nest. Explain the evolutionary logic behind each strategy using cost-benefit trade-offs, and state why "bee pollination" is still too broad unless the visitor actually transfers pollen.
 
-4. Self-incompatibility (SI) systems prevent self-fertilisation in many plant species. The S-RNase system in *Petunia* involves the pistil secreting an RNase that degrades pollen tube RNA if the pollen S-allele matches the pistil S-allele. How does this mechanism selectively destroy "self" pollen without harming "foreign" pollen?
+4. Self-incompatibility (SI) systems prevent self-fertilization in many plant species. The S-RNase system in *Petunia* involves the pistil secreting an RNase that degrades pollen tube RNA if the pollen S-allele matches the pistil S-allele. How does this mechanism selectively destroy "self" pollen without harming "foreign" pollen?
 
 5. Seedless watermelons are triploid (3n). Explain the steps used to produce them (starting from a colchicine treatment of diploid cells), and why triploid plants are sterile — using the concept of homologous chromosome pairing during meiosis.
 
@@ -212,7 +216,7 @@ This project will span 2-3 lab sessions:
 
 **Session 1**: Research Question and Hypothesis
 - How do flower traits correlate with pollination syndrome, and how do seed rewards correlate with ant-mediated dispersal?
-- Formulate a hypothesis about the relationship between specific traits (e.g., petal colour, nectar production, floral tube depth, elaiosome presence) and pollinator or disperser type
+- Formulate a hypothesis about the relationship between specific traits (e.g., petal color, nectar production, floral tube depth, elaiosome presence) and pollinator or disperser type
 - Design a study comparing multiple plant species
 
 **Session 2**: Data Extraction and Analysis
@@ -260,7 +264,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_VIII_plant_reproduction} that your data either confirmed or complicated. Cite the specific passage.
 

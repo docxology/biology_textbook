@@ -15,7 +15,6 @@ fail if any Mermaid block would be changed.
 from __future__ import annotations
 
 import argparse
-from pathlib import Path
 
 from _bootstrap import PROJECT, ensure_project_paths
 

@@ -1,6 +1,5 @@
-# Lab — Atoms, Molecules, and Chemical Bonds {.unnumbered}
+# Lab — Atoms, Molecules, and Chemical Bonds {#sec:lab_unit_I_atoms_molecules .unnumbered}
 
-\label{sec:lab_unit_I_atoms_molecules}
 
 ## Learning Objectives {.unnumbered}
 
@@ -33,12 +32,13 @@
 
 ## Lab Context: Atoms, Molecules, and Chemical Bonds {.unnumbered}
 
-Chemistry underpins every biological process. Atoms bond through electronegativity differences: when atoms share electrons unequally, they form polar covalent bonds (as in O–H), creating partial charges (δ+ and δ−). These partial charges enable hydrogen bonding — the weak but pervasive force that gives water its remarkable properties and stabilises the three-dimensional shapes of proteins and DNA.
+Chemistry underpins every biological process. Atoms bond through electronegativity differences: when atoms share electrons unequally, they form polar covalent bonds (as in O–H), creating partial charges (δ+ and δ−). These partial charges enable hydrogen bonding — the weak but pervasive force that gives water its remarkable properties and stabilizes the three-dimensional shapes of proteins and DNA.
 
-In this lab, you will use a paper dataset of solubility and surface-tension observations as proxies for molecular polarity and hydrogen bonding capacity: "like dissolves like" — polar solutes dissolve in polar solvents (water), while non-polar solutes dissolve primarily in non-polar solvents (oil). You will also visualise electron sharing differences using electronegativity tables and molecule cards.
+In this lab, you will use a paper dataset of solubility and surface-tension observations as proxies for molecular polarity and hydrogen bonding capacity: "like dissolves like" — polar solutes dissolve in polar solvents (water), while non-polar solutes dissolve primarily in non-polar solvents (oil). You will also visualize electron sharing differences using electronegativity tables and molecule cards.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Atoms, Molecules, and Chemical Bonds: molecular-structure source card: experimental method, prediction confidence, assay validation, and release date | 1 |
@@ -60,6 +60,7 @@ In this lab, you will use a paper dataset of solubility and surface-tension obse
 
 ## Data Recording {.unnumbered}
 
+: Alignment and Rubric Map: Cup and Solvent. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map_2}
 | Cup | Solvent | Solute/Dye | Dissolves? (Y/N) | Observations |
 | --- | ------- | ---------- | ---------------- | ------------ |
 | A | Water | NaCl | | |
@@ -69,6 +70,7 @@ In this lab, you will use a paper dataset of solubility and surface-tension obse
 | E | Water | Water dye | | |
 | F | Oil | Turmeric | | |
 
+: Alignment and Rubric Map: Bond and ΔEN. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map_3}
 | Bond | ΔEN | Polar? |
 | ---- | --- | ------ |
 | O–H | | |
@@ -81,7 +83,7 @@ Paperclip float: ________ After soap: ________
 <!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
 
-- **Primary evidence goal:** Classify bonds and solvent behaviour using simple observations.
+- **Primary evidence goal:** Classify bonds and solvent behavior using simple observations.
 - **Data skill to practice:** Use tabular atomic data to predict polarity, solubility, and biological reactivity.
 - **BioSkills emphasis:** Quantitative reasoning, Interdisciplinary nature of science.
 - **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
@@ -95,6 +97,7 @@ Paperclip float: ________ After soap: ________
 Before answering the analysis questions, annotate the paper dataset for
 **Atoms, Molecules, and Chemical Bonds** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map_4}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -103,7 +106,7 @@ Before answering the analysis questions, annotate the paper dataset for
 | Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
 | Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
 
-Focus note: read each solubility result as a test of bond polarity -- treat the water-versus-oil pairing as the control contrast, and decide in advance how strong a colour or layering change counts as "dissolved" for an ionic versus a non-polar solute. Keep required work paper-based; any material-handling or
+Focus note: read each solubility result as a test of bond polarity -- treat the water-versus-oil pairing as the control contrast, and decide in advance how strong a color or layering change counts as "dissolved" for an ionic versus a non-polar solute. Keep required work paper-based; any material-handling or
 equipment version belongs only in an optional extension.
 
 ### Worked Example: Polarity of O–H versus C–H and solubility prediction {.unnumbered}
@@ -114,7 +117,7 @@ equipment version belongs only in an optional extension.
 
 - ΔEN(O–H) = 3.44 − 2.20 = 1.24 → polar covalent.
 - ΔEN(C–H) = 2.55 − 2.20 = 0.35 → non-polar covalent.
-- Methanol has a hydrogen-bond donor (O–H) and acceptor (lone pairs on O), which let it engage water's hydrogen-bond network; the CH₃ group is small enough that the polar O–H dominates the overall behaviour, so methanol is expected to be highly soluble in water.
+- Methanol has a hydrogen-bond donor (O–H) and acceptor (lone pairs on O), which let it engage water's hydrogen-bond network; the CH₃ group is small enough that the polar O–H dominates the overall behavior, so methanol is expected to be highly soluble in water.
 
 **Interpretation:** A single polar O–H group is often enough to bring small alcohols into the aqueous phase, which is one reason cells use hydroxyl groups so widely (for example, on sugars and on the side chains of serine and threonine). As the non-polar hydrocarbon portion of an alcohol grows longer — for instance going from methanol to octanol — the molecule's water solubility drops, and the same reasoning explains why phospholipids assemble into bilayers rather than dissolving.
 
@@ -127,7 +130,7 @@ Complete the source-governance card for Atoms, Molecules, and Chemical Bonds bef
 
 1. Which solutes dissolved in water but not oil? Which dissolved in oil but not water? Explain in terms of bond polarity.
 2. Why did NaCl dissolve in water but not in vegetable oil? What type of bond holds NaCl together, and how does water break it apart?
-3. Based on ΔEN values, rank the four bonds from most to least polar. How does bond polarity influence molecular behaviour in biological systems?
+3. Based on ΔEN values, rank the four bonds from most to least polar. How does bond polarity influence molecular behavior in biological systems?
 4. The paperclip floated due to surface tension. What property of water creates surface tension, and why did soap destroy it? What is the biological significance of surfactants?
 5. Predict whether cholesterol (a steroid with a polar hydroxyl group and a large non-polar body) would dissolve in blood plasma (aqueous) or in a membrane (lipid). Justify your answer using polarity principles.
 
@@ -136,7 +139,7 @@ Complete the source-governance card for Atoms, Molecules, and Chemical Bonds bef
 > **Concept Check (Synthesis):** A pharmaceutical-development team is designing a small-molecule candidate that must cross the largely lipid plasma membrane to reach its intracellular target and then remain soluble in the aqueous cytoplasm long enough to bind that target.
 >
 > (a) Evaluate the polarity profile such a molecule should have. Identify which functional-group features (for example, ionisable groups, hydroxyl groups, alkyl chains) tend to enhance membrane permeability versus aqueous solubility, and explain the tension between the two requirements using the polarity principles tested in this lab.
-> (b) Predict the relative cell-uptake behaviour of two candidates that share the same molecular skeleton but differ in a single substituent: candidate A carries a permanently charged quaternary ammonium group, candidate B carries a neutral hydroxyl group at the same position. Justify the prediction in terms of hydrogen-bonding capacity and the energetics of partitioning between water and lipid.
+> (b) Predict the relative cell-uptake behavior of two candidates that share the same molecular skeleton but differ in a single substituent: candidate A carries a permanently charged quaternary ammonium group, candidate B carries a neutral hydroxyl group at the same position. Justify the prediction in terms of hydrogen-bonding capacity and the energetics of partitioning between water and lipid.
 > (c) Design a follow-up paper-based experiment, using the same molecular-card and solubility-dataset format as today's lab, that would let a peer group compare three candidate molecules along the membrane-permeability versus aqueous-solubility axis. Specify the controls and the threshold of evidence at which you would advance a candidate to a wet-lab assay.
 
 ## Optional Hands-On Extension {.unnumbered}
@@ -160,7 +163,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -179,5 +182,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_I_atoms_molecules}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

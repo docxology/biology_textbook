@@ -1,14 +1,13 @@
-# Unit III — Energy and Metabolism: Introduction {.unnumbered}
+# Unit III — Energy and Metabolism: Introduction {#sec:unit_III_unit_intro .unnumbered}
 
 
-\label{sec:unit_III_unit_intro}
 ## Why This Unit Matters {.unnumbered}
 
 Life is, at its core, an ongoing argument with the second law of thermodynamics. The second law
 demands that disorder increases in any closed system; living organisms are ordered, and they maintain
 that order at the price of consuming energy and exporting entropy to their surroundings. A resting human
 adult dissipates approximately 80 watts — the same as an incandescent light bulb — in the form of body
-heat, CO₂, and metabolic waste. Every breath you take, every protein you synthesise, every ion you pump
+heat, CO₂, and metabolic waste. Every breath you take, every protein you synthesize, every ion you pump
 against its gradient, uses energy extracted from the oxidation of food.
 
 The molecular currency of this energy economy is ATP (adenosine triphosphate). At any moment, your
@@ -31,12 +30,12 @@ same principle operates in both mitochondria and chloroplasts.
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| Hans Krebs | 1937 | *Enzymologia* | Citric acid (Krebs/TCA) cycle | Identified the central hub of aerobic catabolism; Nobel Prize 1953 |
-| Otto Warburg | 1923–1930 | *Biochemische Zeitschrift* | Respiratory enzyme and Warburg effect | First measured oxygen consumption in cancer; discovered aerobic glycolysis |
-| Peter Mitchell | 1961 | *Nature* | Chemiosmotic hypothesis | Proposed proton gradients drive ATP synthesis; revolutionary paradigm shift; Nobel Prize 1978 |
-| Paul Boyer & John Walker | 1994–1997 | *Biochemistry; J. Mol. Biol.* | Binding-change mechanism of ATP synthase | Explained rotary catalysis of F₁F₀-ATP synthase; Nobel Prize 1997 |
-| Melvin Calvin, Andrew Benson & James Bassham | 1950 | *J. Am. Chem. Soc.* | Calvin cycle (carbon fixation) | Traced ¹⁴C through photosynthesis; established the biochemistry of C₃ fixation; Nobel Prize 1961 |
-| Racker & Stoeckenius | 1974 | *J. Biol. Chem.* | Bacteriorhodopsin + ATP synthase reconstitution | Direct experimental proof of Mitchell's chemiosmosis using purified components |
+| Hans Krebs | 1937 | \citep{krebs1937} | Citric acid (Krebs/TCA) cycle | Identified the central hub of aerobic catabolism; Nobel Prize 1953 |
+| Otto Warburg | 1923–1930 | \citep{warburg1924carcinomzelle} | Respiratory enzyme and Warburg effect | First measured oxygen consumption in cancer; discovered aerobic glycolysis |
+| Peter Mitchell | 1961 | \citep{mitchell1961} | Chemiosmotic hypothesis | Proposed proton gradients drive ATP synthesis; revolutionary paradigm shift; Nobel Prize 1978 |
+| Paul Boyer & John Walker | 1994–1997 | \citep{boyer1997} | Binding-change mechanism of ATP synthase | Explained rotary catalysis of F₁F₀-ATP synthase; Nobel Prize 1997 |
+| Melvin Calvin, Andrew Benson & James Bassham | 1950 | \citep{calvin1961} | Calvin cycle (carbon fixation) | Traced ¹⁴C through photosynthesis; established the biochemistry of C₃ fixation; Nobel Prize 1961 |
+| Racker & Stoeckenius | 1974 | \citep{racker1974} | Bacteriorhodopsin + ATP synthase reconstitution | Direct experimental proof of Mitchell's chemiosmosis using purified components |
 
 ---
 
@@ -88,7 +87,7 @@ paper-based lab decision.
 | ------- | ----- | ------------- | -------------------- |
 | **9** | Bioenergetics and Cellular Respiration | How do cells extract and convert chemical energy from glucose? | $\Delta G = \Delta G^{\circ\prime} + RT\ln Q$; P/O ratios |
 | **10** | Photosynthesis | How do plants capture solar energy and fix CO₂? | Light-harvesting cross-section; Z-scheme; Calvin cycle stoichiometry |
-| **11** | Metabolic Integration | How do hormones and allosteric signals coordinate anabolic and catabolic pathways? | AMPK activation; insulin/glucagon signalling logic |
+| **11** | Metabolic Integration | How do hormones and allosteric signals coordinate anabolic and catabolic pathways? | AMPK activation; insulin/glucagon signaling logic |
 
 ---
 
@@ -97,7 +96,7 @@ paper-based lab decision.
 - **ATP and free energy** introduced here underpin most driven processes in \nameref{sec:unit_IV_unit_intro} (DNA replication, transcription, translation), \nameref{sec:unit_VIII_unit_intro} (active transport in phloem), and \nameref{sec:unit_IX_unit_intro} (Na⁺/K⁺-ATPase in neurons).
 - **The TCA cycle as metabolic hub** is integrated in \cref{sec:unit_III_metabolic_integration} and connects to amino acid catabolism (\nameref{sec:unit_IV_unit_intro}), fatty acid oxidation, and nucleotide synthesis.
 - **Proton-motive force** is the conceptual bridge between mitochondrial ATP synthesis (this unit) and chloroplast ATP synthesis (\cref{sec:unit_III_photosynthesis}), and between bacterial physiology (\nameref{sec:unit_VII_unit_intro}) and the evolution of eukaryotes (\nameref{sec:unit_II_unit_intro}, endosymbiosis).
-- **Warburg effect** (cancer cells performing aerobic glycolysis) appears in \nameref{sec:unit_II_unit_intro} (cell signalling oncogenes), \nameref{sec:unit_IV_unit_intro} (genomic instability), and the clinical connection sections throughout.
+- **Warburg effect** (cancer cells performing aerobic glycolysis) appears in \nameref{sec:unit_II_unit_intro} (cell signaling oncogenes), \nameref{sec:unit_IV_unit_intro} (genomic instability), and the clinical connection sections throughout.
 
 > **Key vocabulary introduced here:** free energy, enthalpy, entropy, ATP hydrolysis, glycolysis, oxidative phosphorylation, proton-motive force, chemiosmosis, electron transport chain, substrate-level phosphorylation, fermentation, Calvin cycle, Warburg effect.
 

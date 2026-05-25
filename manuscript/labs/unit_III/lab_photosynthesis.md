@@ -1,12 +1,11 @@
-# Lab — Photosynthesis {.unnumbered}
+# Lab — Photosynthesis {#sec:lab_unit_III_photosynthesis .unnumbered}
 
-\label{sec:lab_unit_III_photosynthesis}
 
 *This activity accompanies \cref{sec:unit_III_photosynthesis} of the textbook — review that chapter before attempting the exercises below.*
 
 ## Learning Objectives {.unnumbered}
 
-- Design and analyse an experiment to quantify photosynthesis rates using a simulated leaf-disc dataset
+- Design and analyze an experiment to quantify photosynthesis rates using a simulated leaf-disc dataset
 - Formulate testable hypotheses about how light wavelength and intensity affect photosynthesis
 - Identify independent, dependent, and controlled variables in experimental designs
 - Analyze experimental data using basic statistical methods and data visualization
@@ -52,10 +51,11 @@ Photosynthesis converts light energy to chemical energy: **6 CO₂ + 6 H₂O + l
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_III_photosynthesis_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Photosynthesis: metabolism source card: organism, compartment, condition, measurement method, and flux boundary | 1 |
-| Simulated leaf-disc time-course dataset by light colour | 1 |
+| Simulated leaf-disc time-course dataset by light color | 1 |
 | Light-intensity and inverse-square worksheet | 1 |
 | Chlorophyll absorption spectrum packet | 1 |
 | Experimental-design card set: controls, variables, confounds | 1 |
@@ -114,6 +114,7 @@ print("first/last model points:", curve[0], curve[-1])
 
 ## Data Recording {.unnumbered}
 
+: Part 4: CAM vs C3 Comparison (Extended Investigation): Time (min) and Clear (white). {#tbl:unit_III_photosynthesis_part_4_cam_vs_c3_comparison_extended_investigation}
 | Time (min) | Clear (white) | Red filter | Blue filter | Green filter |
 | ---------- | ------------- | ---------- | ----------- | ------------ |
 | 0 | 0/10 | 0/10 | 0/10 | 0/10 |
@@ -128,6 +129,7 @@ print("first/last model points:", curve[0], curve[-1])
 ET₅₀ (time for 5 discs to float): Clear __ Red __ Blue __ Green __
 
 Light intensity experiment:
+: Part 4: CAM vs C3 Comparison (Extended Investigation): Distance (cm) and Relative Intensity (1/d²). {#tbl:unit_III_photosynthesis_part_4_cam_vs_c3_comparison_extended_investigation_2}
 | Distance (cm) | Relative Intensity (1/d²) | ET₅₀ |
 | ------------- | ------------------------- | ---- |
 | 10 | 1.00 | |
@@ -151,6 +153,7 @@ Light intensity experiment:
 Before answering the analysis questions, annotate the paper dataset for
 **Photosynthesis** with a reproducibility pass:
 
+: Part 4: CAM vs C3 Comparison (Extended Investigation): Evidence check and Student action. {#tbl:unit_III_photosynthesis_part_4_cam_vs_c3_comparison_extended_investigation_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -197,7 +200,7 @@ Complete the source-governance card for Photosynthesis before writing the conclu
 
 4. The Calvin cycle does not directly require light. Why would removing light quickly halt the Calvin cycle reactions? (Hint: consider the fate of NADPH and ATP between the two stages.)
 
-5. A crop scientist wants to maximise yield using artificial grow lights. Using your results, recommend the optimal light wavelength(s) and explain. What other environmental factors (CO₂, temperature, water) should she simultaneously optimise, and what law of limiting factors applies?
+5. A crop scientist wants to maximize yield using artificial grow lights. Using your results, recommend the optimal light wavelength(s) and explain. What other environmental factors (CO₂, temperature, water) should she simultaneously optimize, and what law of limiting factors applies?
 
 
 ## Post-Lab Synthesis {.unnumbered}
@@ -232,7 +235,7 @@ This project will span 2-3 lab sessions:
 - Write a detailed paper protocol to test temperature effects using provided ET₅₀ datasets or simulation cards
 
 **Session 2**: Data Collection
-- Analyse the provided ET₅₀ data at different temperatures
+- Analyze the provided ET₅₀ data at different temperatures
 - Include proper controls and replicates
 
 **Session 3**: Data Analysis and Presentation
@@ -268,7 +271,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_III_photosynthesis} that your data either confirmed or complicated. Cite the specific passage.
 

@@ -1,6 +1,5 @@
-# Lab B — Complex Adaptive Systems {.unnumbered}
+# Lab B — Complex Adaptive Systems {#sec:lab_unit_0_complex_adaptive_systems .unnumbered}
 
-\label{sec:lab_unit_0_complex_adaptive_systems}
 
 *This activity accompanies \cref{sec:unit_0_complex_adaptive_systems} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -10,7 +9,7 @@
 
 ## Learning Objectives {.unnumbered}
 
-- Simulate a simple agent-based system on paper and observe emergent global behaviour.
+- Simulate a simple agent-based system on paper and observe emergent global behavior.
 - Compute the period of a logistic map for selected reproductive rates and identify the onset of chaos.
 - Sketch a phase diagram for a two-basin attractor landscape and reason about tipping points.
 - Distinguish *robustness* from *redundancy* using a worked biological example.
@@ -39,7 +38,7 @@
 
 ## Lab Context: Complex Adaptive Systems {.unnumbered}
 
-A **complex adaptive system (CAS)** is a population of agents whose collective behaviour emerges from local rules rather than central control. Examples run from neurons in a cortical circuit to ants in a colony to species in an ecosystem. Two mathematical tools recur across scales:
+A **complex adaptive system (CAS)** is a population of agents whose collective behavior emerges from local rules rather than central control. Examples run from neurons in a cortical circuit to ants in a colony to species in an ecosystem. Two mathematical tools recur across scales:
 
 1. **The logistic map** — a discrete-time model $x_{n+1} = r x_n (1 - x_n)$ that passes from stable fixed point → period-2 → period-4 → chaos as the parameter $r$ increases. It captures the essence of bifurcation theory in a single line of algebra.
 2. **Phase-space attractor landscapes** — a potential-well picture that shows how systems can occupy alternative stable states with a "tipping point" between them, and how hysteresis delays recovery.
@@ -51,7 +50,7 @@ This lab is paper-based; a calculator and graph paper are the only tools needed.
 ## Pre-Lab (to complete before class) {.unnumbered}
 
 1. Write down the logistic map and draw its form for $0 \le x \le 1$, $r = 2.5$. Mark the intersection with the identity line $x_{n+1} = x_n$ — the fixed point.
-2. Briefly define: **attractor**, **bifurcation**, **hysteresis**, **self-organised criticality**.
+2. Briefly define: **attractor**, **bifurcation**, **hysteresis**, **self-organized criticality**.
 3. Bring three examples of bistable biological systems to class (for Part 3 discussion).
 
 ---
@@ -60,7 +59,7 @@ This lab is paper-based; a calculator and graph paper are the only tools needed.
 
 - Graph paper (2 sheets per student).
 - Calculator.
-- Coloured pens.
+- Colored pens.
 - Source-governance card for Complex Adaptive Systems: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
 - Worksheet with a blank logistic-map table and a blank phase landscape.
 
@@ -71,8 +70,8 @@ This lab is paper-based; a calculator and graph paper are the only tools needed.
 ### Part 1 — The Logistic Map by Hand {.unnumbered}
 
 1. Starting from $x_0 = 0.2$, compute 20 iterations of the logistic map for each of these $r$ values: $r = 2.5,\; 3.2,\; 3.5,\; 3.8$.
-2. For each $r$, plot $x_n$ against iteration number $n$ on the same axes (use a different colour for each $r$).
-3. Identify the long-term behaviour: fixed point, period-2, period-4, or chaotic.
+2. For each $r$, plot $x_n$ against iteration number $n$ on the same axes (use a different color for each $r$).
+3. Identify the long-term behavior: fixed point, period-2, period-4, or chaotic.
 4. Bonus: compute $x_{100}$ for $r = 3.8$ with $x_0 = 0.2$ and $x_0 = 0.20001$. How different are they? Relate to "sensitive dependence on initial conditions."
 
 ### Part 2 — Attractor Landscape and Tipping Points {.unnumbered}
@@ -102,6 +101,7 @@ Consider the mammalian immune system as a CAS. It has five categories of robustn
 
 ## Data Tables {.unnumbered}
 
+: Part 3 — Robustness Versus Redundancy: Iteration n and x_n at r=2.5. {#tbl:unit_0_complex_adaptive_systems_part_3_robustness_versus_redundancy}
 | Iteration $n$ | $x_n$ at $r=2.5$ | $x_n$ at $r=3.2$ | $x_n$ at $r=3.5$ | $x_n$ at $r=3.8$ |
 | ------------- | ---------------- | ---------------- | ---------------- | ---------------- |
 | 0 | 0.2 | 0.2 | 0.2 | 0.2 |
@@ -111,6 +111,7 @@ Consider the mammalian immune system as a CAS. It has five categories of robustn
 
 Long-term regime at each $r$: $r=2.5$: ___, $r=3.2$: ___, $r=3.5$: ___, $r=3.8$: ___.
 
+: Part 3 — Robustness Versus Redundancy: CAS property and Immune-system example. {#tbl:unit_0_complex_adaptive_systems_part_3_robustness_versus_redundancy_2}
 | CAS property | Immune-system example | Associated fragility |
 | ------------ | --------------------- | -------------------- |
 | Redundancy | | |
@@ -124,7 +125,7 @@ Long-term regime at each $r$: $r=2.5$: ___, $r=3.2$: ___, $r=3.5$: ___, $r=3.8$:
 <!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
 
-- **Primary evidence goal:** Explore how small rule changes alter collective behaviour.
+- **Primary evidence goal:** Explore how small rule changes alter collective behavior.
 - **Data skill to practice:** Distinguish deterministic trends from stochastic variation in repeated simulations.
 - **BioSkills emphasis:** Modeling and simulation, Process of science, Quantitative reasoning.
 - **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
@@ -138,6 +139,7 @@ Long-term regime at each $r$: $r=2.5$: ___, $r=3.2$: ___, $r=3.5$: ___, $r=3.8$:
 Before answering the analysis questions, annotate the paper dataset for
 **Complex Adaptive Systems** with a reproducibility pass:
 
+: Part 3 — Robustness Versus Redundancy: Evidence check and Student action. {#tbl:unit_0_complex_adaptive_systems_part_3_robustness_versus_redundancy_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -155,25 +157,25 @@ Complete the source-governance card for Complex Adaptive Systems before writing 
 
 ### Worked Example: Logistic-Map Period Doubling {.unnumbered}
 
-**Problem:** A small quorum-sensing study models 5 bacterial cells as nodes in a graph. The undirected edges (signalling pairs) are: A–B, A–C, B–C, B–D, C–D, D–E. Compute the local clustering coefficient at node B and the average path length between A and E. Local clustering coefficient at a node is C_i = 2·(triangles through i) / (k_i · (k_i − 1)), where k_i is that node's degree.
+**Problem:** A small quorum-sensing study models 5 bacterial cells as nodes in a graph. The undirected edges (signaling pairs) are: A–B, A–C, B–C, B–D, C–D, D–E. Compute the local clustering coefficient at node B and the average path length between A and E. Local clustering coefficient at a node is C_i = 2·(triangles through i) / (k_i · (k_i − 1)), where k_i is that node's degree.
 
 **Solution:**
 
-- Degree of B = 3 (neighbours A, C, D).
-- Pairs of B's neighbours = 3 (A–C, A–D, C–D). Of these, the edges actually present in the graph are A–C and C–D — that is 2 triangles through B.
+- Degree of B = 3 (neighbors A, C, D).
+- Pairs of B's neighbors = 3 (A–C, A–D, C–D). Of these, the edges actually present in the graph are A–C and C–D — that is 2 triangles through B.
 - Local clustering at B = (2 × 2) / (3 × 2) = 4 / 6 ≈ 0.667.
 - Shortest path A → E: A–C–D–E has length 3; A–B–D–E also has length 3. So the path length between A and E is 3 edges.
 
-**Interpretation:** A clustering coefficient near 0.67 at node B indicates that most of B's signalling partners also signal with each other — a hallmark of locally cohesive community structure that supports stigmergic coordination (cells can corroborate signals through redundant local links). The path length of 3 between the most-distant pair shows that even in this tiny graph, signal propagation requires intermediate relays; longer paths in a real biofilm slow the global response and contribute to threshold-like collective behaviour.
+**Interpretation:** A clustering coefficient near 0.67 at node B indicates that most of B's signaling partners also signal with each other — a hallmark of locally cohesive community structure that supports stigmergic coordination (cells can corroborate signals through redundant local links). The path length of 3 between the most-distant pair shows that even in this tiny graph, signal propagation requires intermediate relays; longer paths in a real biofilm slow the global response and contribute to threshold-like collective behavior.
 
 
 ## Analysis Questions {.unnumbered}
 
-1. The logistic map transitions from periodic to chaotic behaviour as $r$ passes through the Feigenbaum point (~3.57). Why does this transition occur even though the underlying equation is completely deterministic?
+1. The logistic map transitions from periodic to chaotic behavior as $r$ passes through the Feigenbaum point (~3.57). Why does this transition occur even though the underlying equation is completely deterministic?
 2. In Part 2, you drew a hysteresis loop. Why can reducing $P$ to the level *at which* eutrophication occurred fail to restore the clear-water state? What mechanism sustains the turbid attractor?
 3. Power-law distributions appear in earthquake magnitudes, neural avalanches, and extinction events. What common CAS mechanism could explain this shared pattern?
 4. Cancer has been described as a "failed CAS" where normal tissue homeostasis breaks down. Identify two CAS features that go wrong in malignancy.
-5. Propose a paper simulation or card-based experiment using a bacterial-biofilm model to demonstrate one CAS principle (e.g., stigmergic self-organisation, threshold transitions, or robustness to perturbation). Describe the set-up, observable, and expected result.
+5. Propose a paper simulation or card-based experiment using a bacterial-biofilm model to demonstrate one CAS principle (e.g., stigmergic self-organization, threshold transitions, or robustness to perturbation). Describe the set-up, observable, and expected result.
 
 ## Post-Lab Synthesis {.unnumbered}
 
@@ -181,7 +183,7 @@ Complete the source-governance card for Complex Adaptive Systems before writing 
 >
 > (a) Relate the bistability you explored in Part 2's hysteresis loop to this estuary's observed regime shift. What ecological feedback would sustain the phytoplankton-dominated attractor once the system flipped, and how does that connection to bistability change the kind of restoration target a manager should set?
 > (b) Predict the qualitative outcome of two interventions: a sharp reduction of nutrient inflow back to historical levels, and the same reduction combined with mechanical removal of phytoplankton biomass to seed seagrass regrowth. Justify the contrast in expected outcomes using the language of attractors, basin depth, and perturbation magnitude.
-> (c) Design a short monitoring programme (three measurable variables and one statistical early-warning signal, such as rising variance or increased autocorrelation in nutrient or chlorophyll time series) that would detect whether a partly recovered estuary is approaching another tipping point before the visible regime shift occurs.
+> (c) Design a short monitoring program (three measurable variables and one statistical early-warning signal, such as rising variance or increased autocorrelation in nutrient or chlorophyll time series) that would detect whether a partly recovered estuary is approaching another tipping point before the visible regime shift occurs.
 
 ---
 

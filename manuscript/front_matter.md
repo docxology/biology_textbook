@@ -23,11 +23,13 @@ The author gratefully acknowledges many contributions, learnings, and sources of
 
 **Scientific foundations.** This textbook builds on the foundational scholarship of too many to name, and in particular the textbooks of Alberts et al. (*Molecular Biology of the Cell*), Campbell & Reece (*Biology*), Stryer (*Biochemistry*), Lehninger (*Principles of Biochemistry*), the primary literature cited throughout each chapter, and a variety of other sources. We aim to cite specific experimental results at point of use with full author credit. The vision of this textbook is informed by the open curriculum [OpenStax Biology 2e](https://openstax.org/details/books/biology-2e). We pause in gratitude and awe to those who have gone before us in Epistemia (like Academic but think bigger), and to those who will come after us.
 
-**Open science.** This textbook is open source and open access. The source code is licensed under the Apache-2.0 license, and the text is licensed under the Creative Commons Attribution 4.0 International license. The source code is available in the [biology textbook source repository](https://github.com/docxology/biology_textbook). The text is available in the [biology textbook repository](https://github.com/docxology/biology_textbook). The work builds on, and contributes to, the open-science community whose code, data, lifeways, and scholarship have made this work freely available, computationally grounded, and broadly accessible.*
+**Open science.** This textbook is open source and open access. The source code is licensed under the Apache-2.0 license, and the text is licensed under the Creative Commons Attribution 4.0 International license. Sources, figures, tests, and rendered outputs are maintained in the [biology textbook repository](https://github.com/docxology/biology_textbook). The work builds on, and contributes to, the open-science community whose code, data, lifeways, and scholarship have made this work freely available, computationally grounded, and broadly accessible.
 
-**Biology education.** This textbook is designed to be used in a  biology course (it is an exercise left to the reader, what kind of course this will be), and is therefore grounded in the principles of active learning and student-centered teaching.
+**Open educational resources.** Open textbook adoption in U.S. and Canadian higher education has grown from roughly 1-in-400 classes in 2013 to about 1-in-80 by 2023, measured from syllabus-assigned titles rather than download counts \citep{opensyllabus2023oer}. At the University of Georgia, courses that switched to OpenStax materials---including introductory biology---showed improved grade distributions and lower D/F/W rates compared with prior commercial-textbook terms \citep{colvard2018oer}. This book treats [OpenStax Biology 2e](https://openstax.org/details/books/biology-2e) as conceptual inspiration and a public reference point, not as a derivative work.
 
-**Research project template.** The build pipeline, testing infrastructure, and multi-project architecture are based on the author's own Project Template maintained in the [Research Project Template repository](https://github.com/docxology/template). This textbook’s sources, figures, and tests live in the dedicated book repository [biology textbook source repository](https://github.com/docxology/biology_textbook). The template is a comprehensive framework for reproducible research, including version control, testing, documentation, and publication. It is a model for this work, and the template is used to build this textbook.
+**Biology education.** This textbook is designed to be used in a biology course (it is an exercise left to the reader, what kind of course this will be), and is therefore grounded in the principles of active learning and student-centered teaching.
+
+**Research project template.** The build pipeline, testing infrastructure, and multi-project architecture are based on the author's [Research Project Template](https://github.com/docxology/template). The template provides version control, testing, documentation, and publication tooling used to build this textbook.
 
 \newpage
 
@@ -42,10 +44,6 @@ When a chapter introduces a model (enzyme kinetics, predator–prey dynamics, ac
 potentials), the corresponding computation is implemented in the accompanying Python
 modules and used to generate figures where appropriate. Every aspect of this textbook is designed to help students move between mechanisms, measurements, and models: what a system does, how we know, and what a simple quantitative model can predict (and where it breaks).
 
-This approach aims to help students move between mechanisms, measurements, and
-models: what a system does, how we know, and what a simple quantitative model can
-predict (and where it breaks).
-
 ### What Makes This Textbook Different {.unnumbered}
 
 | Feature | This Textbook | Traditional Textbook |
@@ -56,7 +54,7 @@ predict (and where it breaks).
 | **Diagrams** | Mermaid process diagrams; automatically rendered | Hand-drawn |
 | **Opening vignettes** | Landmark experiment narrative opening each chapter | Absent |
 | **Curriculum map** | Generated chapter/lab/question/standards alignment | Usually external |
-| **Master glossary** | 220 terms with etymology and chapter cross-references | Chapter-end lists |
+| **Master glossary** | 226 terms with etymology and chapter cross-references | Chapter-end lists |
 | **Open access** | CC BY 4.0; fully open source | Copyright restricted |
 | **Citations** | Inline, with year and journal | Often chapter-end primarily |
 
@@ -99,9 +97,9 @@ implementations for the quantitative models used throughout the book.
 <!-- suggested-reading-paths-start -->
 | Path | Emphasis | Notes |
 | ---- | -------- | ----- |
-| **AP / first-year survey** | \nameref{sec:unit_I_unit_intro}; \nameref{sec:unit_II_unit_intro}; \nameref{sec:unit_III_unit_intro}; selected genetics/evolution chapters; \nameref{sec:unit_X_unit_intro} | Skim the systems orientation; prioritise metabolism and genetics core narratives. |
+| **AP / first-year survey** | \nameref{sec:unit_I_unit_intro}; \nameref{sec:unit_II_unit_intro}; \nameref{sec:unit_III_unit_intro}; selected genetics/evolution chapters; \nameref{sec:unit_X_unit_intro} | Skim the systems orientation; prioritize metabolism and genetics core narratives. |
 | **Pre-health / majors** | \nameref{sec:unit_I_unit_intro} through \nameref{sec:unit_IX_unit_intro}; \nameref{sec:unit_X_unit_intro}; systems orientation as setup | Add labs for quantitative skills; pair each physiology chapter with its Python bridge. |
-| **Ecology / environmental focus** | \nameref{sec:unit_I_unit_intro} and \nameref{sec:unit_II_unit_intro} as review; \nameref{sec:unit_III_photosynthesis}; \nameref{sec:unit_VI_unit_intro}; \nameref{sec:unit_VII_unit_intro}; \nameref{sec:unit_X_unit_intro} | Emphasise population models, biogeochemistry, conservation metrics in `ecology.py`. |
+| **Ecology / environmental focus** | \nameref{sec:unit_I_unit_intro} and \nameref{sec:unit_II_unit_intro} as review; \nameref{sec:unit_III_photosynthesis}; \nameref{sec:unit_VI_unit_intro}; \nameref{sec:unit_VII_unit_intro}; \nameref{sec:unit_X_unit_intro} | Emphasize population models, biogeochemistry, conservation metrics in `ecology.py`. |
 | **Computation-first** | \nameref{sec:unit_0_unit_intro} plus any later unit | Read “Bridge to computation” blocks first, then narrative; run `scripts/generate_figures.py`. |
 <!-- suggested-reading-paths-end -->
 
@@ -146,7 +144,7 @@ below shows primary dependency paths and integrative threads.
 graph TD
     U0["Unit 0 — Systems Science and the Biology of Complexity<br/>feedback, emergence,<br/>active inference, history"]
     I["Unit I — Chemistry of Life<br/>atoms, bonds, water,<br/>macromolecules, enzymes"]
-    II["Unit II — The Cell<br/>organelles, membranes,<br/>signalling, transport"]
+    II["Unit II — The Cell<br/>organelles, membranes,<br/>signaling, transport"]
     III["Unit III — Energy and Metabolism<br/>respiration, photosynthesis,<br/>ATP, chemiosmosis"]
     IV["Unit IV — Molecular Genetics<br/>DNA, transcription,<br/>translation, genomics"]
     V["Unit V — Classical Genetics and Heredity<br/>Mendelian, chromosomal,<br/>population genetics"]

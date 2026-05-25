@@ -24,8 +24,10 @@ from _bootstrap import ensure_project_paths
 ensure_project_paths(include_scripts=True)
 
 try:
+    from biology.citations import citation_keys
     from scripts.atomic_io import write_text_atomic
 except ModuleNotFoundError:  # pragma: no cover - direct script execution path
+    from biology.citations import citation_keys
     from atomic_io import write_text_atomic  # type: ignore[import-not-found,no-redef]
 
 
@@ -163,7 +165,7 @@ def run(argv: list[str] | None = None) -> int:
             print(f"WARN: target missing {ins.target}", file=sys.stderr)
             continue
         text = ins.target.read_text(encoding="utf-8")
-        if f"\\citep{{{ins.citekey}}}" in text or f"\\citet{{{ins.citekey}}}" in text:
+        if ins.citekey in citation_keys(text):
             skipped_already_cited += 1
             continue
         new_text, ok = _inject_citation(text, ins.anchor, ins.citekey)

@@ -10,7 +10,7 @@
 
 By the end of this chapter, you should be able to:
 
-1. Describe the structure of an atom, including subatomic particles and their quantum mechanical behaviour.
+1. Describe the structure of an atom, including subatomic particles and their quantum mechanical behavior.
 2. Explain how [**electronegativity**](#gl:electronegativity) governs covalent and ionic bond formation.
 3. Distinguish between polar covalent, nonpolar covalent, and ionic bonds with biological examples.
 4. Explain the roles of [**hydrogen bond**](#gl:hydrogen-bond)s and [**van der Waals forces**](#gl:van-der-waals-forces) in biological macromolecules.
@@ -29,8 +29,8 @@ By the end of this chapter, you should be able to:
 - **Data skill:** Use tabular atomic data to predict polarity, solubility, and biological reactivity.
 - **Practice cadence:** Concept Explanation, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** Weak interactions are not unimportant; many weak interactions together dominate structure and specificity.
-- **Primary lab:** \cref{sec:lab_unit_I_atoms_molecules}.
-- **Question bank:** \cref{sec:q_unit_I_atoms_molecules}.
+- **Primary lab:** \nameref{sec:lab_unit_I_atoms_molecules}.
+- **Question bank:** \nameref{sec:q_unit_I_atoms_molecules}.
 - **Transfer task:** Use atomic reasoning to explain a medical tracer, enzyme cofactor, or membrane-solubility problem.
 - **Bridge to computation:** `biology.biochemistry.biochemistry.atp_free_energy`.
 <!-- curriculum-scaffold-end -->
@@ -39,21 +39,21 @@ By the end of this chapter, you should be able to:
 
 > **Opening Vignette: The Radioactive Tracer That Exposed Cancer**
 >
-> In 1973, chemist Alfred Wolf and colleagues at Brookhaven National Laboratory synthesised a new
-> molecule: fluorine-18-labelled deoxyglucose ($^{18}$F-FDG). Because $^{18}$F decays with a
+> In 1973, chemist Alfred Wolf and colleagues at Brookhaven National Laboratory synthesized a new
+> molecule: fluorine-18-labeled deoxyglucose ($^{18}$F-FDG). Because $^{18}$F decays with a
 > half-life of just 109.8 minutes, emitting a positron that collides with a nearby electron to
 > produce a pair of detectable gamma rays, the molecule could be tracked in real time inside a
 > living body. Because FDG mimics glucose, metabolically hungry cells take it up — and cancer cells,
 > with their vastly elevated glucose consumption (the **Warburg effect**, first described by Otto
 > Warburg in 1924 \citep{warburg1924carcinomzelle}), accumulate it at concentrations 2–10× higher than surrounding normal tissue.
 >
-> Today, PET (positron emission tomography) scanning using $^{18}$F-FDG is performed over 2 million
-> times per year in the United States alone, guiding cancer diagnosis, staging, and treatment
-> response assessment. None of it would be possible without understanding the atomic and subatomic
+> Today, PET (positron emission tomography) scanning---mostly with $^{18}$F-FDG---is performed roughly
+> two million times per year in the United States alone \citep{indrakanti2022multiplefdgpet,imv2024pet},
+> guiding cancer diagnosis, staging, and treatment response assessment. None of it would be possible without understanding the atomic and subatomic
 > physics of radioactive decay, the electronegativity that distinguishes O–H from C–H bonds, and
 > the biochemistry of glucose transport — precisely the subjects of this chapter.
 >
-> *Primary sources: Warburg's tumour-metabolism report \citep{warburg1924carcinomzelle}, the first labelled FDG chemistry \citep{ido1978fdg}, and human PET validation with FDG \citep{phelps1979fdg}.*
+> *Primary sources: Warburg's tumor-metabolism report \citep{warburg1924carcinomzelle}, the first labeled FDG chemistry \citep{ido1978fdg}, and human PET validation with FDG \citep{phelps1979fdg}.*
 
 ---
 
@@ -66,6 +66,7 @@ Of the 118 known elements, only about 25 are essential to life. Just six element
 
 An atom consists of three primary subatomic particles:
 
+: Subatomic Particles and Atomic Identity: Particle and Charge. {#tbl:unit_I_atoms_molecules_subatomic_particles_and_atomic_identity}
 | Particle | Charge | Mass (Da) | Location |
 | -------- | ------ | --------- | -------- |
 | Proton | +1 | 1.007 | Nucleus |
@@ -78,18 +79,19 @@ The **atomic number** (Z) equals the number of protons, defining the element. Th
 
 Isotopes are classified as **stable** or **radioactive** (radioisotopes). Radioisotopes undergo spontaneous nuclear decay, emitting alpha particles, beta particles, or gamma rays.
 
+: Isotopes and Their Biological Applications: Isotope and Half-life. {#tbl:unit_I_atoms_molecules_isotopes_and_their_biological_applications}
 | Isotope | Half-life | Decay Type | Biological/Medical Application |
 | ------- | --------- | ---------- | ------------------------------ |
 | $^{14}$C | 5,730 years | $\beta^-$ | Radiocarbon dating of fossils and archaeological specimens |
 | $^{3}$H (tritium) | 12.3 years | $\beta^-$ | Tracing metabolic pathways in autoradiography |
-| $^{32}$P | 14.3 days | $\beta^-$ | Labelling DNA/RNA in molecular biology |
+| $^{32}$P | 14.3 days | $\beta^-$ | Labeling DNA/RNA in molecular biology |
 | $^{18}$F | 109.8 min | $\beta^+$ | PET (positron emission tomography) imaging |
 | $^{131}$I | 8.0 days | $\beta^-$, γ | Thyroid cancer radiotherapy |
 | $^{99m}$Tc | 6.0 hours | γ | SPECT imaging of bones, heart, kidneys |
 
 > **Clinical Connection: PET Imaging and $^{18}$F-FDG**
 >
-> Positron emission tomography (PET) exploits the short half-life of $^{18}$F. The glucose analogue $^{18}$F-fluorodeoxyglucose ($^{18}$F-FDG) is taken up by metabolically active cells. Because cancer cells have elevated glucose uptake (the Warburg effect), PET scans reveal tumours as "hot spots." The emitted positron annihilates with a nearby electron, producing two 511 keV gamma photons detected by the scanner in coincidence.
+> Positron emission tomography (PET) exploits the short half-life of $^{18}$F. The glucose analog $^{18}$F-fluorodeoxyglucose ($^{18}$F-FDG) is taken up by metabolically active cells. Because cancer cells have elevated glucose uptake (the Warburg effect), PET scans reveal tumors as "hot spots." The emitted positron annihilates with a nearby electron, producing two 511 keV gamma photons detected by the scanner in coincidence.
 
 > **Concept Check 1:** Carbon-14 has a half-life of 5,730 years. If a fossilised bone contains 12.5% of its original $^{14}$C, approximately how old is it? (Hint: How many half-lives reduce 100% to 12.5%?)
 
@@ -97,6 +99,7 @@ Isotopes are classified as **stable** or **radioactive** (radioisotopes). Radioi
 
 Electrons occupy discrete energy levels called **shells** (principal quantum number n = 1, 2, 3, ...). Within each shell, electrons occupy **orbitals** --- three-dimensional regions of space where the probability of finding an electron exceeds 90%.
 
+: Electron Shells, Orbitals, and Valence: Shell (n) and Subshells. {#tbl:unit_I_atoms_molecules_electron_shells_orbitals_and_valence}
 | Shell (n) | Subshells | Orbitals | Max Electrons |
 | --------- | --------- | -------- | ------------- |
 | 1 | 1s | 1 | 2 |
@@ -107,6 +110,7 @@ The outermost occupied shell is the **valence shell** --- its electron count det
 
 **Key biological elements and their valences:**
 
+: Electron Shells, Orbitals, and Valence: Element and Symbol. {#tbl:unit_I_atoms_molecules_electron_shells_orbitals_and_valence_2}
 | Element | Symbol | Atomic Number | Valence Electrons | Typical Bonds |
 | ------- | ------ | ------------- | ----------------- | ------------- |
 | Hydrogen | H | 1 | 1 | 1 |
@@ -116,19 +120,19 @@ The outermost occupied shell is the **valence shell** --- its electron count det
 | Phosphorus | P | 15 | 5 | 5 |
 | Sulfur | S | 16 | 6 | 2, 4, or 6 |
 
-Carbon's four valence electrons allow it to form four strong covalent bonds in a tetrahedral geometry ($sp^3$ hybridisation, bond angle 109.5 degrees), enabling virtually unlimited structural complexity --- the molecular foundation of life.
+Carbon's four valence electrons allow it to form four strong covalent bonds in a tetrahedral geometry ($sp^3$ hybridization, bond angle 109.5 degrees), enabling virtually unlimited structural complexity --- the molecular foundation of life.
 
-### Orbital Hybridisation in Biological Molecules
+### Orbital Hybridization in Biological Molecules
 
-Carbon's bonding versatility arises from orbital hybridisation --- the linear combination of atomic $s$ and $p$ orbitals to form new hybrid orbitals matched to molecular geometry.
+Carbon's bonding versatility arises from orbital hybridization --- the linear combination of atomic $s$ and $p$ orbitals to form new hybrid orbitals matched to molecular geometry.
 
 - **$sp^3$:** One $s$ + three $p$ orbitals -> four equivalent hybrid orbitals pointing to the corners of a tetrahedron (109.5 degrees). Each forms a single (σ) bond. Example: methane, saturated carbons in [**fatty acid**](#gl:fatty-acid) tails, the α-carbon of every amino acid.
 - **$sp^2$:** One $s$ + two $p$ orbitals -> three coplanar hybrid orbitals (120 degrees) plus one unhybridised $p$ orbital perpendicular to the plane that overlaps with another $p$ orbital to form a π-bond. Example: C=C in unsaturated fatty acids, the carbonyl carbon of every [**peptide bond**](#gl:peptide-bond), aromatic rings.
 - **$sp$:** One $s$ + one $p$ orbital -> two collinear hybrid orbitals (180 degrees) plus two $p$ orbitals available for two π-bonds. Example: C$\equiv$N in hydrogen cyanide; the C$\equiv$C of acetylene; rare in biology except in some natural products.
 
-Nitrogen exhibits analogous hybridisation: in primary amines (--NH$_2$) and the α-amino group of amino acids, nitrogen is $sp^3$ with one lone pair (pyramidal geometry, bond angle ~107 degrees). In the planar peptide bond, however, the nitrogen lone pair is delocalised into the carbonyl π system; the nitrogen behaves as effectively $sp^2$, locking the six atoms of the peptide unit (C$_\alpha$--C(=O)--N(H)--C$_\alpha$) into a plane.
+Nitrogen exhibits analogous hybridization: in primary amines (--NH$_2$) and the α-amino group of amino acids, nitrogen is $sp^3$ with one lone pair (pyramidal geometry, bond angle ~107 degrees). In the planar peptide bond, however, the nitrogen lone pair is delocalized into the carbonyl π system; the nitrogen behaves as effectively $sp^2$, locking the six atoms of the peptide unit (C$_\alpha$--C(=O)--N(H)--C$_\alpha$) into a plane.
 
-The **peptide bond** between amino acids has partial double-bond character (~40%) because of resonance between the $sp^2$-hybridised C and N atoms, enforcing planarity and the *trans* configuration that constrains [**protein**](#gl:protein) backbone geometry. The *cis* form is destabilised by ~8 kJ/mol relative to *trans* (except before proline, where the steric penalty is smaller and ~5% of X-Pro bonds are *cis*).
+The **peptide bond** between amino acids has partial double-bond character (~40%) because of resonance between the $sp^2$-hybridized C and N atoms, enforcing planarity and the *trans* configuration that constrains [**protein**](#gl:protein) backbone geometry. The *cis* form is destabilised by ~8 kJ/mol relative to *trans* (except before proline, where the steric penalty is smaller and ~5% of X-Pro bonds are *cis*).
 
 ### Lewis Structures and Formal Charge
 
@@ -139,7 +143,7 @@ A **Lewis structure** depicts every valence electron --- as bonding pairs (lines
 \label{eq:unit_I_formal_charge}
 \end{equation}
 
-Formal charges sum to the molecular charge and help select among possible Lewis structures: the best structure minimises formal charges and places any negative formal charge on the most electronegative atom.
+Formal charges sum to the molecular charge and help select among possible Lewis structures: the best structure minimizes formal charges and places any negative formal charge on the most electronegative atom.
 
 **Worked example --- formal charge on phosphate (PO$_4^{3-}$):** Phosphate has central P bonded to four O atoms. In the most common textbook structure, three P--O are single bonds (each O carries three lone pairs) and one P=O is a double bond (the doubly bonded O carries two lone pairs).
 
@@ -147,12 +151,13 @@ Formal charges sum to the molecular charge and help select among possible Lewis 
 - *Each single-bonded O (with three lone pairs):* 6 lone-pair electrons; 1 bond $\times$ 2 / 2 = 1 bonding electron assigned. FC = 6 − 6 − 1 = **−1** ($\times$ 3 oxygens = −3).
 - *Double-bonded O (with two lone pairs):* 4 lone-pair electrons; 2 bonds $\times$ 2 / 2 = 2 bonding electrons. FC = 6 − 4 − 2 = **0**.
 
-Total: 0 + 3(−1) + 0 = −3, matching the overall charge. By symmetry the four oxygens are actually equivalent; resonance delocalises the three negative charges and the double-bond character across the four P--O bonds, giving an average bond order of 1.25 and bond length 154 pm (intermediate between a P--O single bond at 163 pm and a P=O double bond at 145 pm). This delocalisation explains why phosphate is such a stable leaving group --- a key feature exploited by ATP, GTP, and the DNA/RNA backbone.
+Total: 0 + 3(−1) + 0 = −3, matching the overall charge. By symmetry the four oxygens are actually equivalent; resonance delocalizes the three negative charges and the double-bond character across the four P--O bonds, giving an average bond order of 1.25 and bond length 154 pm (intermediate between a P--O single bond at 163 pm and a P=O double bond at 145 pm). This delocalization explains why phosphate is such a stable leaving group --- a key feature exploited by ATP, GTP, and the DNA/RNA backbone.
 
 ### Electronegativity Drives Polarity in Biology
 
-The Pauling **electronegativity** (χ) of an element predicts how strongly it pulls bonding electrons \citep{pauling1932electronegativity}. Differences in χ across a bond ($\Delta\chi$) determine the partial charges that drive [**hydrogen bond**](#gl:hydrogen-bond)ing, dipole--dipole interactions, and acid-base behaviour throughout biology.
+The Pauling **electronegativity** (χ) of an element predicts how strongly it pulls bonding electrons \citep{pauling1932electronegativity}. Differences in χ across a bond ($\Delta\chi$) determine the partial charges that drive [**hydrogen bond**](#gl:hydrogen-bond)ing, dipole--dipole interactions, and acid-base behavior throughout biology.
 
+: Electronegativity Drives Polarity in Biology: Element and χ (Pauling). {#tbl:unit_I_atoms_molecules_electronegativity_drives_polarity_in_biology}
 | Element | χ (Pauling) | Period | Biological role |
 | ------- | ---------------- | ------ | --------------- |
 | F | 3.98 | 2 | Fluorinated drugs (5-FU, FDG) |
@@ -206,6 +211,7 @@ A **covalent bond** forms when two atoms share one or more pairs of electrons. T
 
 **Bond energies of biologically important bonds:**
 
+: Covalent Bonds and Molecular Stability: Bond and Energy (kJ/mol). {#tbl:unit_I_atoms_molecules_covalent_bonds_and_molecular_stability}
 | Bond | Energy (kJ/mol) | Bond Length (pm) | Biological Context |
 | ---- | --------------- | ---------------- | ------------------ |
 | C--C | 346 | 154 | Hydrocarbon chains |
@@ -231,7 +237,7 @@ A **covalent bond** forms when two atoms share one or more pairs of electrons. T
 
 Ionic bonds form when one atom transfers electrons to another, generating oppositely charged ions. In aqueous biological environments, ionic bonds are typically disrupted by water molecules competing for the ions. The **lattice energy** of NaCl is 787 kJ/mol, yet it dissolves readily because of the high dielectric constant of water ($\varepsilon \approx 80$).
 
-In proteins, ionic interactions (**salt bridges**) between oppositely charged residues stabilise higher-order structure. Aspartate (Asp, D, --COO$^-$) and lysine (Lys, K, --NH$_3^+$) frequently form salt bridges in [**enzyme**](#gl:enzyme) active sites. A typical salt bridge contributes 5--20 kJ/mol to protein stability, with the strength depending on the local dielectric environment (buried salt bridges are stronger because of lower effective dielectric constant).
+In proteins, ionic interactions (**salt bridges**) between oppositely charged residues stabilize higher-order structure. Aspartate (Asp, D, --COO$^-$) and lysine (Lys, K, --NH$_3^+$) frequently form salt bridges in [**enzyme**](#gl:enzyme) active sites. A typical salt bridge contributes 5--20 kJ/mol to protein stability, with the strength depending on the local dielectric environment (buried salt bridges are stronger because of lower effective dielectric constant).
 
 > **Concept Check 2:** Why do salt bridges buried in the hydrophobic core of a protein contribute more to stability than those on the protein surface? Consider the role of the dielectric constant.
 
@@ -239,6 +245,7 @@ In proteins, ionic interactions (**salt bridges**) between oppositely charged re
 
 A **hydrogen bond** forms when a hydrogen atom covalently bonded to an electronegative atom (N, O, or F) is attracted to another electronegative atom. The bond energy is 2--40 kJ/mol --- weaker than covalent bonds but stronger than van der Waals forces. Hydrogen bond strengths and distances vary systematically with donor and acceptor identity:
 
+: Hydrogen Bonds in Water, Proteins, and Nucleic Acids: H-bond type and Donor--Acceptor distance (pm). {#tbl:unit_I_atoms_molecules_hydrogen_bonds_in_water_proteins_and_nucleic_acids}
 | H-bond type | Donor--Acceptor distance (pm) | Energy (kJ/mol) | Biological occurrence |
 | ----------- | ----------------------------- | --------------- | --------------------- |
 | F--H$\cdots$F$^-$ (low-barrier) | 240 | 50--170 | Rare in biology; fluoride enzymes |
@@ -267,6 +274,7 @@ Optimal: D--H$\cdots$A angle about 180 degrees; H$\cdots$A distance about 1.8--2
 
 **Types of hydrogen bonds in biology:**
 
+: Hydrogen Bonds in Water, Proteins, and Nucleic Acids: Type and Donor. {#tbl:unit_I_atoms_molecules_hydrogen_bonds_in_water_proteins_and_nucleic_acids_2}
 | Type | Donor | Acceptor | Example |
 | ---- | ----- | -------- | ------- |
 | N--H$\cdots$O | Peptide N--H | Peptide C=O | α-helix backbone |
@@ -286,9 +294,9 @@ There are three components of van der Waals forces:
 
 The **van der Waals radius** defines the effective "size" of an atom. When two non-bonded atoms approach closer than the sum of their van der Waals radii, repulsive forces dominate (Pauli exclusion). This steric effect constrains the conformational space of macromolecules, as described by Ramachandran plots for proteins (see \cref{sec:unit_I_macromolecules}).
 
-**London dispersion forces and lipid packing.** The strength of dispersion forces between two nonpolar surfaces grows roughly with the polarisability and the contact area: longer alkyl chains have more electrons whose instantaneous dipoles correlate more strongly. For two parallel hydrocarbon chains, the dispersion energy of attraction is approximately 2 kJ/mol per CH$_2$ pair --- modest individually but additive. A 16-carbon palmitic acid tail in close van der Waals contact with a neighbouring tail in a phospholipid bilayer thus contributes ~30 kJ/mol of attractive interaction per chain pair, which (combined with the [**hydrophobic effect**](#gl:hydrophobic-effect); see \cref{sec:unit_I_water_and_life}) holds the bilayer together. Longer chains (24 carbons in sphingolipids) and saturated chains (which can pack closely) give more rigid membranes; introducing a single *cis* double bond into oleic acid kinks the chain by ~30 degrees, weakening dispersion contacts and raising membrane fluidity --- the molecular reason vegetable oils are liquid while butter is solid at room temperature.
+**London dispersion forces and lipid packing.** The strength of dispersion forces between two nonpolar surfaces grows roughly with the polarisability and the contact area: longer alkyl chains have more electrons whose instantaneous dipoles correlate more strongly. For two parallel hydrocarbon chains, the dispersion energy of attraction is approximately 2 kJ/mol per CH$_2$ pair --- modest individually but additive. A 16-carbon palmitic acid tail in close van der Waals contact with a neighboring tail in a phospholipid bilayer thus contributes ~30 kJ/mol of attractive interaction per chain pair, which (combined with the [**hydrophobic effect**](#gl:hydrophobic-effect); see \cref{sec:unit_I_water_and_life}) holds the bilayer together. Longer chains (24 carbons in sphingolipids) and saturated chains (which can pack closely) give more rigid membranes; introducing a single *cis* double bond into oleic acid kinks the chain by ~30 degrees, weakening dispersion contacts and raising membrane fluidity --- the molecular reason vegetable oils are liquid while butter is solid at room temperature.
 
-These same forces explain why geckos can walk on walls: their toe pads have millions of setae maximising van der Waals contact with smooth surfaces, generating up to 10 N/cm$^2$ of adhesive force.
+These same forces explain why geckos can walk on walls: their toe pads have millions of setae maximizing van der Waals contact with smooth surfaces, generating up to 10 N/cm$^2$ of adhesive force.
 
 ---
 
@@ -309,7 +317,7 @@ graph TD
     CO --> CO1["H-bond acceptor<br/>Aldehydes, Ketones<br/>Peptide bond carbonyl"]
     COOH --> COOH1["Ionisable pKa ~4–5<br/>Asp, Glu, Fatty acids<br/>Negative at pH 7"]
     NH2 --> NH21["Weak base pKa ~9–10<br/>Lys, N-terminus<br/>Positive at pH 7"]
-    PO4 --> PO41["Highly charged at pH 7<br/>DNA/RNA, ATP, signalling<br/>Two negative charges"]
+    PO4 --> PO41["Highly charged at pH 7<br/>DNA/RNA, ATP, signaling<br/>Two negative charges"]
     SH --> SH1["Oxidisable → disulfide<br/>Cysteine, CoA<br/>Redox-sensitive"]
 
     style FG fill:#34495e,color:#fff
@@ -324,19 +332,21 @@ graph TD
 
 *Major functional groups. The six major functional groups of biological chemistry, their key properties, and representative biomolecules.*
 
+: Van der Waals Forces and Lipid Packing: Functional Group and Structure. {#tbl:unit_I_atoms_molecules_van_der_waals_forces_and_lipid_packing}
 | Functional Group | Structure | Properties | Biological Role |
 | --------------- | --------- | ---------- | --------------- |
 | Hydroxyl | --OH | Polar, H-bond donor/acceptor | Alcohols, sugars, serine |
 | Carbonyl | C=O | Polar, H-bond acceptor | Ketones, aldehydes, amide bonds |
 | Carboxyl | --COOH | Polar, ionisable (pKa~4--5) | Amino acids, fatty acids |
 | Amino | --NH$_2$ | Polar, weak base, H-bond donor | Amino acids, [**nucleotide**](#gl:nucleotide)s, ATP |
-| Phosphate | --OPO$_3^{2-}$ | Highly polar, charged at pH 7 | DNA/RNA backbone, ATP, signalling |
+| Phosphate | --OPO$_3^{2-}$ | Highly polar, charged at pH 7 | DNA/RNA backbone, ATP, signaling |
 | Sulfhydryl | --SH | Polar, oxidisable | Cysteine disulfide bridges |
 
 The **phosphate group** deserves special attention in biochemistry. At physiological pH, phosphate groups carry two negative charges. In ATP (adenosine triphosphate), the three sequential phosphate groups are electrostatically repulsed, storing energy that is released upon hydrolysis (~30.5 kJ/mol under standard conditions; ~50 kJ/mol under cellular conditions; see \cref{sec:unit_III_bioenergetics_and_respiration}).
 
 **Additional functional groups encountered in biochemistry:**
 
+: Van der Waals Forces and Lipid Packing: Functional Group and Structure. {#tbl:unit_I_atoms_molecules_van_der_waals_forces_and_lipid_packing_2}
 | Functional Group | Structure | Example |
 | --------------- | --------- | ------- |
 | Methyl | --CH$_3$ | DNA methylation (epigenetic silencing) |
@@ -350,9 +360,9 @@ The **phosphate group** deserves special attention in biochemistry. At physiolog
 
 ---
 
-## Resonance Structures and Delocalised Electrons
+## Resonance Structures and Delocalized Electrons
 
-Many biologically important molecules cannot be accurately described by a single Lewis structure. **Resonance** occurs when electrons (particularly π electrons and lone pairs) are delocalised across multiple atoms.
+Many biologically important molecules cannot be accurately described by a single Lewis structure. **Resonance** occurs when electrons (particularly π electrons and lone pairs) are delocalized across multiple atoms.
 
 ### The Peptide Bond as a Resonance Hybrid
 
@@ -360,18 +370,19 @@ The peptide bond (C--N) in proteins has significant double-bond character becaus
 
 **Structure I:** C=O with C--N single bond (nitrogen has a lone pair)
 
-**Structure II:** C--O$^-$ with C=N$^+$ double bond (lone pair delocalised into π system)
+**Structure II:** C--O$^-$ with C=N$^+$ double bond (lone pair delocalized into π system)
 
 The actual bond is a **resonance hybrid** --- the C--N bond length (132 pm) is intermediate between a single C--N (147 pm) and a double C=N (127 pm). This partial double-bond character enforces planarity and restricts rotation around the peptide bond, which is fundamental to protein backbone geometry.
 
 ### Resonance in Carboxylate Ions
 
-When a carboxyl group (--COOH) loses its proton at physiological pH, the resulting carboxylate (--COO$^-$) has two equivalent C--O bonds (bond length 126 pm each) due to delocalisation of the negative charge over both oxygen atoms. This resonance stabilisation explains why carboxylate ions are weaker bases (pKa ~4--5) than alcohols (pKa ~16).
+When a carboxyl group (--COOH) loses its proton at physiological pH, the resulting carboxylate (--COO$^-$) has two equivalent C--O bonds (bond length 126 pm each) due to delocalization of the negative charge over both oxygen atoms. This resonance stabilization explains why carboxylate ions are weaker bases (pKa ~4--5) than alcohols (pKa ~16).
 
 ### Aromatic Systems in Biology
 
-The aromatic amino acids phenylalanine, tyrosine, and tryptophan contain **aromatic rings** with fully delocalised π electrons. These systems absorb UV light at characteristic wavelengths:
+The aromatic amino acids phenylalanine, tyrosine, and tryptophan contain **aromatic rings** with fully delocalized π electrons. These systems absorb UV light at characteristic wavelengths:
 
+: Aromatic amino acid absorbance maxima. {#tbl:unit_I_atoms_molecules_aromatic_systems_in_biology}
 | Amino Acid | $\lambda_{max}$ (nm) | $\varepsilon$ (M$^{-1}$ cm$^{-1}$) | Application |
 | ---------- | -------------------- | ----------------------------------- | ----------- |
 | Tryptophan | 280 | 5,500 | Protein concentration (A280) |
@@ -394,7 +405,7 @@ A **chiral** (asymmetric) carbon is bonded to four different substituents. Such 
 
 ### R/S Configuration
 
-The Cahn-Ingold-Prelog (CIP) system assigns **R** (rectus) or **S** (sinister) designations based on the priority of substituents around the chiral centre. Priority rules:
+The Cahn-Ingold-Prelog (CIP) system assigns **R** (rectus) or **S** (sinister) designations based on the priority of substituents around the chiral center. Priority rules:
 
 1. Higher atomic number = higher priority
 2. If tied, move outward until a difference is found
@@ -443,6 +454,7 @@ Each step represents a two-electron oxidation. Carbon in methane has oxidation s
 
 The **standard reduction potential** ($E^{\circ'}$) measures the tendency of a half-reaction to gain electrons under standard biochemical conditions (pH 7, 25 degrees C, 1 M concentrations):
 
+: Reduction potentials for selected biological half-reactions. {#tbl:unit_I_atoms_molecules_reduction_potentials_and_electron_transfer}
 | Half-Reaction | $E^{\circ'}$ (V) |
 | ------------- | ---------------- |
 | O$_2$ + 4H$^+$ + 4$e^-$ -> 2H$_2$O | +0.816 |
@@ -470,7 +482,7 @@ The major electron carriers in metabolism are:
 - **Ubiquinone (CoQ)/Ubiquinol:** lipid-soluble electron carrier in the mitochondrial inner membrane
 - **Cytochromes:** iron-containing proteins that transfer single electrons via Fe$^{2+}$/Fe$^{3+}$ cycling
 
-> **Concept Check 5:** In the electron transport chain, electrons flow from NADH ($E^{\circ'} = -0.320$ V) to O$_2$ ($E^{\circ'} = +0.816$ V). Calculate $\Delta G^{\circ'}$ for the transfer of 2 electrons. Is this process thermodynamically favourable?
+> **Concept Check 5:** In the electron transport chain, electrons flow from NADH ($E^{\circ'} = -0.320$ V) to O$_2$ ($E^{\circ'} = +0.816$ V). Calculate $\Delta G^{\circ'}$ for the transfer of 2 electrons. Is this process thermodynamically favorable?
 
 ---
 
@@ -490,7 +502,7 @@ N_A = 6.022 \times 10^{23} \; \text{mol}^{-1}
 \end{equation}
 
 
-**Molarity (M)** is defined as moles of solute per litre of solution:
+**Molarity (M)** is defined as moles of solute per liter of solution:
 
 \begin{equation}
 [C] = \frac{n}{V} \quad \text{(mol L}^{-1}\text{)}
@@ -502,6 +514,7 @@ In biochemistry, cellular concentrations are typically in the millimolar (mM) to
 
 **Comparison of concentration scales used in biology:**
 
+: Biological Electron Carriers: Unit and Abbreviation. {#tbl:unit_I_atoms_molecules_biological_electron_carriers}
 | Unit | Abbreviation | Value | Typical Use |
 | ---- | ------------ | ----- | ----------- |
 | Molar | M | mol/L | Standard solutions |
@@ -538,6 +551,7 @@ At 37 degrees C (body temperature), $K_w \approx 2.4 \times 10^{-14}$, so neutra
 
 **Key physiological pH values:**
 
+: The pH Scale: Compartment and pH. {#tbl:unit_I_atoms_molecules_the_ph_scale}
 | Compartment | pH | Significance |
 | ----------- | -- | ------------ |
 | Blood plasma | 7.35--7.45 | Tight regulation; acidosis/alkalosis outside this range |
@@ -545,7 +559,7 @@ At 37 degrees C (body temperature), $K_w \approx 2.4 \times 10^{-14}$, so neutra
 | Gastric juice | 1.5--3.5 | Pepsin active; kills pathogens |
 | [**Cytoplasm**](#gl:cytoplasm) (liver) | 7.2 | Most enzyme optima |
 | Mitochondrial matrix | 7.8--8.0 | pH gradient drives ATP synthesis |
-| Pancreatic secretions | 8.0--8.5 | Neutralises gastric acid |
+| Pancreatic secretions | 8.0--8.5 | Neutralizes gastric acid |
 
 > **Clinical Connection: Diabetic Ketoacidosis**
 >
@@ -564,7 +578,7 @@ A buffer resists pH change when [A$^-$]/[HA] is near 1 (i.e., pH is about pK$_a$
 
 ### Buffer Capacity in Physiological Fluids
 
-The **buffer capacity** β measures how much strong acid or base a buffer can absorb before pH shifts appreciably. Formally, β is the moles of strong base added per litre per unit pH increase:
+The **buffer capacity** β measures how much strong acid or base a buffer can absorb before pH shifts appreciably. Formally, β is the moles of strong base added per liter per unit pH increase:
 
 \begin{equation}
 \beta = \frac{dC_b}{d\text{pH}} = 2.303\left([\text{H}^+] + [\text{OH}^-] + \frac{C_T \, K_a [\text{H}^+]}{(K_a + [\text{H}^+])^2}\right)
@@ -616,10 +630,11 @@ where pKa$_1$ = 6.1. Despite the pH/pKa offset of ~1.3 units, the bicarbonate sy
 
 The **phosphate buffer** (H$_2$PO$_4^-$ / HPO$_4^{2-}$; pKa = 6.8) buffers intracellular pH and is crucial in renal pH regulation.
 
-**Protein buffers** --- particularly histidine residues (imidazole pKa = 6.0) --- provide significant intracellular buffering. Haemoglobin alone accounts for ~60% of the buffering capacity of blood because it contains 38 histidine residues per tetramer.
+**Protein buffers** --- particularly histidine residues (imidazole pKa = 6.0) --- provide significant intracellular buffering. Hemoglobin alone accounts for ~60% of the buffering capacity of blood because it contains 38 histidine residues per tetramer.
 
 ### Comparison of Biological pH Buffering Systems
 
+: Comparison of Biological pH Buffering Systems: System and Conjugate pair. {#tbl:unit_I_atoms_molecules_comparison_of_biological_ph_buffering_systems}
 | System | Conjugate pair | pKa (37 $^\circ$C) | Concentration | Compartment | Special features |
 | ------ | -------------- | ------------------ | ------------- | ----------- | ---------------- |
 | Bicarbonate | H$_2$CO$_3$ / HCO$_3^-$ | 6.10 (apparent) | ~24 mM | Plasma, ECF | Open system: CO$_2$ exhaled by lungs |
@@ -627,9 +642,9 @@ The **phosphate buffer** (H$_2$PO$_4^-$ / HPO$_4^{2-}$; pKa = 6.8) buffers intra
 | Imidazole (His) | His-H$^+$ / His | 6.00 | 38 sites/Hb tetramer | RBC | Biggest blood buffer; Bohr effect |
 | Ammonia | NH$_4^+$ / NH$_3$ | 9.25 | Variable | Renal tubule | H$^+$ excretion in acidosis |
 | Carbonyl/amide | --COOH / --COO$^-$ | 4--5 | Many sites | Proteins | Side-chain buffering |
-| Sulfonate | --SO$_3$H / --SO$_3^-$ | < 1 | Glycosaminoglycans | ECM | Typically ionised at cellular pH |
+| Sulfonate | --SO$_3$H / --SO$_3^-$ | < 1 | Glycosaminoglycans | ECM | Typically ionized at cellular pH |
 
-The blood buffering hierarchy: **bicarbonate (~75% of capacity) > haemoglobin (~24%) > plasma proteins/phosphate (~1%)**. Despite its inferior pKa, bicarbonate dominates because (i) it is at high concentration and (ii) it is the main *open* system, with CO$_2$ disposal by lungs (minutes timescale) and HCO$_3^-$ disposal/regeneration by kidneys (hours-to-days timescale). This three-compartment design --- a chemistry buffer coupled to two organ-system control loops --- is the body's solution to the problem that any closed buffer will eventually be titrated to exhaustion.
+The blood buffering hierarchy: **bicarbonate (~75% of capacity) > hemoglobin (~24%) > plasma proteins/phosphate (~1%)**. Despite its inferior pKa, bicarbonate dominates because (i) it is at high concentration and (ii) it is the main *open* system, with CO$_2$ disposal by lungs (minutes timescale) and HCO$_3^-$ disposal/regeneration by kidneys (hours-to-days timescale). This three-compartment design --- a chemistry buffer coupled to two organ-system control loops --- is the body's solution to the problem that any closed buffer will eventually be titrated to exhaustion.
 
 > **Concept Check 6:** A patient is hyperventilating after a panic attack. Their pCO$_2$ falls from 40 mmHg to 25 mmHg while [HCO$_3^-$] is briefly unchanged at 24 mM. Use \cref{eq:unit_I_henderson_hasselbalch} to predict the resulting blood pH. Will this be respiratory acidosis or alkalosis? Why does breathing into a paper bag help?
 
@@ -639,12 +654,13 @@ The blood buffering hierarchy: **bicarbonate (~75% of capacity) > haemoglobin (~
 
 A titration curve plots pH against the volume of added base (or acid). For a monoprotic weak acid:
 
-- At the **half-equivalence point**, pH = pKa (50% ionised)
+- At the **half-equivalence point**, pH = pKa (50% ionized)
 - The **buffer region** extends from approximately pKa -- 1 to pKa + 1
 - At the **equivalence point**, most acid has been converted to conjugate base
 
 Amino acids with ionisable side chains show **multiphasic titration curves** with two or three pKa values:
 
+: Titration Curves and pKa Estimation: Amino Acid and pKa_1 (α-COOH). {#tbl:unit_I_atoms_molecules_titration_curves_and_pka_estimation}
 | Amino Acid | pKa$_1$ (α-COOH) | pKa$_2$ (α-NH$_3^+$) | pKa$_R$ (side chain) | pI |
 | ---------- | ---------------------- | -------------------------- | -------------------- | -- |
 | Glycine | 2.34 | 9.60 | --- | 5.97 |
@@ -708,7 +724,7 @@ This large negative $\Delta G^{\circ'}$ drives [**oxidative phosphorylation**](#
 
 The pH of 7.1 is below the normal range of 7.35--7.45, indicating **metabolic acidosis** (low bicarbonate with normal pCO$_2$). Normal [HCO$_3^-$] is 24 mM; this patient's value is halved.
 
-**Problem 5:** The Ka of lactic acid is $1.38 \times 10^{-4}$. Calculate the pKa. If a muscle cell produces lactic acid during intense exercise, what percentage is ionised at intracellular pH 6.8?
+**Problem 5:** The Ka of lactic acid is $1.38 \times 10^{-4}$. Calculate the pKa. If a muscle cell produces lactic acid during intense exercise, what percentage is ionized at intracellular pH 6.8?
 
 *Solution:*
 \begin{equation}
@@ -727,12 +743,13 @@ The pH of 7.1 is below the normal range of 7.35--7.45, indicating **metabolic ac
 \end{equation}
 
 
-At physiological pH, the Henderson-Hasselbalch relationship predicts that the ionised form (lactate$^-$) strongly dominates over protonated lactic acid. This is why we typically refer to "lactate" rather than "lactic acid" in biological contexts.
+At physiological pH, the Henderson-Hasselbalch relationship predicts that the ionized form (lactate$^-$) strongly dominates over protonated lactic acid. This is why we typically refer to "lactate" rather than "lactic acid" in biological contexts.
 
 ---
 
 ## Key Comparison: Bond Types in Biology
 
+: Titration Curves and pKa Estimation: Property and Covalent. {#tbl:unit_I_atoms_molecules_titration_curves_and_pka_estimation_2}
 | Property | Covalent | Ionic | Hydrogen Bond | Van der Waals |
 | -------- | -------- | ----- | ------------- | ------------- |
 | **Strength (kJ/mol)** | 150--950 | 20--200 (in solution) | 2--40 | 0.1--10 |
@@ -784,8 +801,8 @@ Treat biomolecular predictions as constrained hypotheses: compare confidence, co
 
 - Atoms consist of protons (nuclear charge), neutrons (nuclear mass), and electrons (chemical reactivity).
 - Electronegativity differences determine bond polarity: life exploits polar O--H and N--H bonds for hydrogen bonding.
-- Carbon's tetravalency and capacity for $sp^3$/$sp^2$/$sp$ hybridisation is the structural basis of most organic molecules.
-- Resonance delocalisation stabilises peptide bonds, carboxylate ions, and aromatic rings.
+- Carbon's tetravalency and capacity for $sp^3$/$sp^2$/$sp$ hybridization is the structural basis of most organic molecules.
+- Resonance delocalization stabilizes peptide bonds, carboxylate ions, and aromatic rings.
 - Chirality (L-amino acids, D-sugars) is a hallmark of biological specificity.
 - Redox reactions (electron transfer) drive energy metabolism; $\Delta G^{\circ'} = -nF\Delta E^{\circ'}$.
 - Isotopes serve as tracers (metabolic studies) and therapeutic agents (radiotherapy, PET imaging).
@@ -802,13 +819,13 @@ Treat biomolecular predictions as constrained hypotheses: compare confidence, co
 - **Hydrogen bond:** Weak bond between H bonded to N/O/F and another electronegative atom
 - **Van der Waals force:** Weak attractions from transient or induced dipoles
 - **Functional group:** Characteristic chemical group determining reactivity
-- **Resonance:** Delocalisation of electrons across multiple atoms
+- **Resonance:** Delocalization of electrons across multiple atoms
 - **Chirality:** Property of a molecule with a non-superimposable mirror image
 - **Enantiomer:** One of two mirror-image forms of a chiral molecule
 - **Oxidation:** Loss of electrons
 - **Reduction:** Gain of electrons
 - **Reduction potential ($E^{\circ'}$):** Tendency of a half-reaction to gain electrons
-- **Molarity:** Concentration in moles per litre
+- **Molarity:** Concentration in moles per liter
 - **pH:** Negative log of hydrogen ion concentration
 - **Buffer:** Solution that resists pH change
 - **Henderson-Hasselbalch equation:** pH = pKa + log([A$^-$]/[HA])
@@ -822,11 +839,11 @@ Treat biomolecular predictions as constrained hypotheses: compare confidence, co
 4. Explain why phosphate groups in DNA confer structural stability while also making DNA polyanionic.
 5. Carbon-11 ($^{11}$C) has a half-life of 20.4 minutes. Why is this isotope useful for PET imaging of brain metabolism but impractical for studies lasting several hours?
 6. Explain why the peptide bond is planar. Include the concept of resonance in your answer, and describe how this planarity constrains protein structure.
-7. A pharmaceutical company synthesises a chiral drug as a racemic mixture. Explain why both enantiomers might not have the same therapeutic effect, and give a historical example.
+7. A pharmaceutical company synthesizes a chiral drug as a racemic mixture. Explain why both enantiomers might not have the same therapeutic effect, and give a historical example.
 8. Using the $\Delta G^{\circ'} = -nF\Delta E^{\circ'}$ relationship, predict whether the following reaction is spontaneous: cytochrome c (reduced) donating an electron to O$_2$. Refer to the table of standard reduction potentials.
 9. Calculate the pI of aspartate (pKa$_1$ = 2.09, pKa$_R$ = 3.86, pKa$_2$ = 9.82). At pH 7.4, what is the net charge on aspartate?
 10. A buffer is prepared with 0.1 M NaH$_2$PO$_4$ and 0.1 M Na$_2$HPO$_4$ (pKa = 6.8). Calculate the pH. If 10 mL of 1 M HCl is added to 1 L of this buffer, what is the new pH?
-11. Using `reaction_free_energy` with ΔG°' = -30.5 kJ/mol, compute ΔG when [ADP][Pi]/[ATP] = 0.1 vs. 2.0 (take concentrations in a consistent molar basis). Which condition better matches a working muscle fibre?
+11. Using `reaction_free_energy` with ΔG°' = -30.5 kJ/mol, compute ΔG when [ADP][Pi]/[ATP] = 0.1 vs. 2.0 (take concentrations in a consistent molar basis). Which condition better matches a working muscle fiber?
 12. Compare how a **closed** phosphate buffer in a test tube and the **open** HCO$_3^-$/CO$_2$ system in blood respond to a bolus of strong acid. Which system restores pH faster in vivo, and which organ systems do the work?
 13. Using the formal-charge formula \cref{eq:unit_I_formal_charge}, draw a Lewis structure for the carboxylate ion --COO$^-$ and assign the formal charge on each atom. Explain how resonance equalises the two C--O bond lengths.
 14. Sort C--C, C=C, O--H, N--H, and C--H bonds by polarity using the Pauling electronegativity table. For each bond, predict whether the H atom (where present) can serve as a hydrogen bond donor.
@@ -853,6 +870,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Atoms, Molecules, and Chemical Bonds. {#tbl:unit_I_atoms_molecules_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/biochemistry/biochemistry.py` (`reaction_free_energy`, `atp_free_energy`) | Tie bonding and reaction direction to energy accounting. |

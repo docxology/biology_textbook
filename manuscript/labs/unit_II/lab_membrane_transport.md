@@ -1,6 +1,5 @@
-# Lab — Membrane Structure and Transport {.unnumbered}
+# Lab — Membrane Structure and Transport {#sec:lab_unit_II_membrane_transport .unnumbered}
 
-\label{sec:lab_unit_II_membrane_transport}
 
 ## Learning Objectives {.unnumbered}
 
@@ -8,7 +7,7 @@
 
 - Interpret osmosis data and estimate osmotic potential from model tissues
 - Quantify plasmolysis using annotated image packets across NaCl concentrations
-- Relate membrane lipid bilayer fluidity to temperature through simulated colour-leakage data
+- Relate membrane lipid bilayer fluidity to temperature through simulated color-leakage data
 - Apply the fluid-mosaic model to explain observed transport phenomena
 
 
@@ -29,16 +28,17 @@
 
 1. Define osmotic potential (Ψs) and pressure potential (Ψp) in one sentence each, and write the equation relating them to the total water potential Ψ of a plant cell.
 2. Distinguish facilitated diffusion from active transport. For each, identify (i) whether energy from ATP is required, (ii) the direction of net movement relative to the concentration gradient, and (iii) one representative transmembrane protein family.
-3. A red blood cell is placed in a 0.9% NaCl solution and shows no change in volume; another is placed in distilled water and lyses. Use the terms hypertonic, hypotonic, and isotonic to predict the behaviour of the same red blood cell placed in a 3% NaCl solution, and predict what a plant cell would do under the same three conditions.
+3. A red blood cell is placed in a 0.9% NaCl solution and shows no change in volume; another is placed in distilled water and lyses. Use the terms hypertonic, hypotonic, and isotonic to predict the behavior of the same red blood cell placed in a 3% NaCl solution, and predict what a plant cell would do under the same three conditions.
 
 ## Lab Context: Membrane Structure and Transport {.unnumbered}
 
 The plasma membrane is a selectively permeable phospholipid bilayer with embedded proteins. Water moves by osmosis across membranes from regions of high water potential (Ψ) to low Ψ (high solute concentration). In plant cells, plasmolysis occurs when the cell is placed in hypertonic solution — the cytoplasm shrinks away from the rigid cell wall. In animal cells, a hypertonic solution causes crenation (cell shrinking). Membrane fluidity depends on phospholipid composition (unsaturated fatty acids → more fluid) and temperature (higher temperature → more fluid).
 
-In this lab you will use printed datasets to investigate how temperature damages membranes (simulated betacyanin leakage) and how plasmolysis changes across a NaCl concentration gradient. The required work is paper-based and emphasises controls, graphing, and model interpretation.
+In this lab you will use printed datasets to investigate how temperature damages membranes (simulated betacyanin leakage) and how plasmolysis changes across a NaCl concentration gradient. The required work is paper-based and emphasizes controls, graphing, and model interpretation.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_II_membrane_transport_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Membrane Structure and Transport: cell-atlas or imaging source card: sample, assay, cell-state call, perturbation evidence, and uncertainty | 1 |
@@ -64,7 +64,8 @@ In this lab you will use printed datasets to investigate how temperature damages
 
 ## Data Recording {.unnumbered}
 
-| Temperature (°C) | Absorbance at 530 nm | Qualitative colour of water |
+: Alignment and Rubric Map: Temperature (°C) and Absorbance at 530 nm. {#tbl:unit_II_membrane_transport_alignment_and_rubric_map_2}
+| Temperature (°C) | Absorbance at 530 nm | Qualitative color of water |
 | ----------------- | --------------------- | ---------------------------- |
 | 20 | | |
 | 40 | | |
@@ -72,6 +73,7 @@ In this lab you will use printed datasets to investigate how temperature damages
 | 80 | | |
 | 100 | | |
 
+: Alignment and Rubric Map: [NaCl] (%) and Cells plasmolysed (of 20). {#tbl:unit_II_membrane_transport_alignment_and_rubric_map_3}
 | [NaCl] (%) | Cells plasmolysed (of 20) | % Plasmolysis |
 | ---------- | ------------------------- | ------------- |
 | 0 | | |
@@ -97,6 +99,7 @@ In this lab you will use printed datasets to investigate how temperature damages
 Before answering the analysis questions, annotate the paper dataset for
 **Membrane Structure and Transport** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_II_membrane_transport_alignment_and_rubric_map_4}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -137,7 +140,7 @@ Complete the source-governance card for Membrane Structure and Transport before 
 1. Plot absorbance vs temperature. At approximately what temperature did membrane integrity fail dramatically (sharp increase in absorbance)? What happened to the phospholipid bilayer at this temperature?
 2. Plot % plasmolysed cells vs [NaCl]. At what concentration does 50% plasmolysis occur (incipient plasmolysis)? This approximates the osmotic potential of the onion cell cytoplasm — what is your estimate in osmol/L?
 3. In a real beetroot assay, why would rinsing cut discs matter? What confound would exist if the dataset mixed surface-cut leakage with temperature-induced leakage?
-4. Predict how results would differ if you used a saturated fat membrane (e.g., modelled by adding cholesterol to a liposome) vs a polyunsaturated fat membrane. Which would show damage at a lower temperature?
+4. Predict how results would differ if you used a saturated fat membrane (e.g., modeled by adding cholesterol to a liposome) vs a polyunsaturated fat membrane. Which would show damage at a lower temperature?
 5. Red blood cells placed in 2% NaCl would crenate. Compare this to the plant cell response in 2% NaCl. Why do plant cells plasmolysis (shrink away from the cell wall) instead of simply shrinking like animal cells?
 
 
@@ -170,7 +173,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -189,5 +192,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_II_membrane_transport}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

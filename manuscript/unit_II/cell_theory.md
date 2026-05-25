@@ -9,7 +9,7 @@
 ## Learning Objectives
 
 1. State the three original tenets of cell theory (Schleiden, Schwann, Virchow) and the modern additions.
-2. Compare the structural organisation of prokaryotic, eukaryotic, and archaeal cells at the molecular level.
+2. Compare the structural organization of prokaryotic, eukaryotic, and archaeal cells at the molecular level.
 3. Describe the endosymbiotic \citep{margulis1967} theory and evaluate the molecular evidence supporting it.
 4. Classify cells by metabolic lifestyle (autotrophic vs. heterotrophic) and oxygen relationship.
 5. Quantify the surface-area-to-volume relationship and derive the mathematical constraints on cell size.
@@ -27,8 +27,8 @@
 - **Data skill:** Infer cellular constraints from measurements, micrographs, and scale bars.
 - **Practice cadence:** Visual Representations, Questions and Methods, Argumentation.
 - **Common misconception to repair:** Cells are not just small bags of fluid; boundaries and internal organization create function.
-- **Primary lab:** \cref{sec:lab_unit_II_cell_theory}.
-- **Question bank:** \cref{sec:q_unit_II_cell_theory}.
+- **Primary lab:** \nameref{sec:lab_unit_II_cell_theory}.
+- **Question bank:** \nameref{sec:q_unit_II_cell_theory}.
 - **Transfer task:** Transfer scale reasoning to eggs, neurons, root hairs, and microbial colonies.
 - **Bridge to computation:** `biology.cell.cell_biology.diffusion_flux`.
 <!-- curriculum-scaffold-end -->
@@ -48,7 +48,7 @@
 > Today, a single human body contains approximately 37.2 trillion cells (Bianconi et al., 2013,
 > *Annals of Human Biology*) — a number so large that if laid end-to-end they would circle the
 > Earth 200 times. Every one of those cells descended, by an unbroken chain of cell division, from
-> a single fertilised egg roughly nine months before your birth. And every cell alive on Earth today
+> a single fertilized egg roughly nine months before your birth. And every cell alive on Earth today
 > is the product of 3.7 billion years of unbroken cell division since the origin of life — not one
 > cell has ever been created from scratch by spontaneous generation since Leuwenhoek looked through
 > his microscope in 1674.
@@ -117,7 +117,7 @@ Modern cell biology has expanded the original three postulates:
 7. **Cells contain the information necessary for their own reproduction.** The [**genome**](#gl:genome) encodes not just structural components but the regulatory logic for cell division, differentiation, and programmed cell death.
 
 > **Clinical Connection: Virchow and the Origin of Cancer Biology**
-> Virchow's principle *omnis cellula e cellula* had a profound clinical implication: if most cells come from pre-existing cells, then cancer cells must also arise from normal cells through transformation. Virchow himself applied this reasoning to pathology, founding the field of cellular pathology. Today, cancer biology rests on the understanding that [**mutation**](#gl:mutation)s accumulate in somatic cells, transforming them into malignant clones --- a direct intellectual descendant of Virchow's third postulate. see \cref{sec:unit_II_cell_signaling} (Cell Signalling) for oncogenes and tumour suppressors.
+> Virchow's principle *omnis cellula e cellula* had a profound clinical implication: if most cells come from pre-existing cells, then cancer cells must also arise from normal cells through transformation. Virchow himself applied this reasoning to pathology, founding the field of cellular pathology. Today, cancer biology rests on the understanding that [**mutation**](#gl:mutation)s accumulate in somatic cells, transforming them into malignant clones --- a direct intellectual descendant of Virchow's third postulate. see \cref{sec:unit_II_cell_signaling} (Cell Signaling) for oncogenes and tumor suppressors.
 
 > **Concept Check 1:** Viruses are not considered "alive" by cell theory standards. List three properties of viruses that exclude them from cell theory, and one property that challenges the boundary between living and non-living.
 
@@ -129,6 +129,7 @@ Modern cell biology has expanded the original three postulates:
 
 Biology spans an enormous range of scales. Understanding this range is essential for appreciating why cells occupy a specific size [**niche**](#gl:niche).
 
+: Orders of Magnitude in Biology: Structure and Approximate size. {#tbl:unit_II_cell_theory_orders_of_magnitude_in_biology}
 | Structure | Approximate size | Scale |
 | --------- | ---------------- | ----- |
 | Water molecule | 0.28 nm | Angstrom |
@@ -218,7 +219,7 @@ where $D$ is the diffusion coefficient. For a small molecule ($D \approx 10^{-9}
 - **Reducing metabolically active volume:** plant vacuoles occupy >80% of cell volume but are largely metabolically inert
 - **Reducing effective diffusion distance:** nerve axons can be >1 m long but about 1--20 μm in diameter; active transport supplements diffusion
 - **Cytoplasmic streaming:** in giant plant cells (e.g., *Chara* internodal cells, >10 cm), [**actin**](#gl:actin)-myosin-driven streaming circulates [**cytoplasm**](#gl:cytoplasm) at ~60 μm/s, overcoming diffusion limitations
-- **Multinucleation:** skeletal muscle fibres (up to 30 cm long) contain hundreds of nuclei, each governing a local cytoplasmic domain
+- **Multinucleation:** skeletal muscle fibers (up to 30 cm long) contain hundreds of nuclei, each governing a local cytoplasmic domain
 
 > **Concept Check 2:** *Thiomargarita namibiensis* is a bacterium with a diameter of ~750 μm --- visible to the naked eye. How does it survive despite having an $A/V$ ratio of about 0.008 μm$^{-1}$? (Hint: consider what fills >95% of its volume.)
 
@@ -258,8 +259,9 @@ For typical mammalian parameters ($P_{O_2} \approx 1\times10^{-4}$ m/s, $\Delta[
 
 ### Quantitative Comparison: Prokaryote vs. Eukaryote
 
-Prokaryotes and eukaryotes occupy fundamentally different scales of organisation. The differences in linear dimension translate to even larger gaps in volume, surface area, and information content:
+Prokaryotes and eukaryotes occupy fundamentally different scales of organization. The differences in linear dimension translate to even larger gaps in volume, surface area, and information content:
 
+: Quantitative Comparison: Prokaryote vs. Eukaryote: Property and E. coli (prokaryote). {#tbl:unit_II_cell_theory_quantitative_comparison_prokaryote_vs_eukaryote}
 | Property | *E. coli* (prokaryote) | HeLa cell (eukaryote) | Ratio (Euk/Prok) |
 | -------- | ----------------------- | --------------------- | ---------------- |
 | Length / diameter | 2 μm × 0.5 μm | ~20 μm | ~10–40 × |
@@ -271,13 +273,13 @@ Prokaryotes and eukaryotes occupy fundamentally different scales of organisation
 | Doubling time | 20 min (rich media) | ~24 h | 70 × slower |
 | ATP turnover (molecules/s) | ~10$^9$ | ~10$^{10}$ | ~10 × |
 
-**Worked Example: Why eukaryotes need internal membranes.** A HeLa cell with $r = 10$ μm has about 1.25 μm$^{-1}$ surface-to-volume — about 5-fold less than *E. coli*. Yet the eukaryotic cell sustains roughly 10× higher absolute metabolic flux. The arithmetic closes if the eukaryote *adds internal membrane surface area* equivalent to the plasma membrane's deficit. Indeed, the inner mitochondrial membrane in a single hepatocyte provides ~$3 \times 10^4$ μm$^2$ of additional respiratory surface — roughly 6× the plasma membrane area. Compartmentalisation is therefore not optional aesthetics: it is the topological solution to the cube-law constraint on a body plan that contains 1,000× more cytoplasm than a bacterium.
+**Worked Example: Why eukaryotes need internal membranes.** A HeLa cell with $r = 10$ μm has about 1.25 μm$^{-1}$ surface-to-volume — about 5-fold less than *E. coli*. Yet the eukaryotic cell sustains roughly 10× higher absolute metabolic flux. The arithmetic closes if the eukaryote *adds internal membrane surface area* equivalent to the plasma membrane's deficit. Indeed, the inner mitochondrial membrane in a single hepatocyte provides ~$3 \times 10^4$ μm$^2$ of additional respiratory surface — roughly 6× the plasma membrane area. Compartmentalization is therefore not optional aesthetics: it is the topological solution to the cube-law constraint on a body plan that contains 1,000× more cytoplasm than a bacterium.
 
 > **Concept Check 3b:** A spherical eukaryotic cell with $r = 10$ μm has plasma-membrane area $A_\text{PM} \approx 1{,}260$ μm$^2$. If respiratory demand scales with cytoplasmic volume and the cell needs 6× the plasma-membrane area to support its metabolism, estimate the total inner membrane area its mitochondria must provide.
 
-> **Concept Check (Analysis):** A spherical bacterial cell has radius r = 1 μm; a giant squid neuron axon has radius r = 500 μm. (a) Calculate the surface-area-to-volume (SA/V) ratio for each. (b) Diffusion of ATP from the cell centre to the periphery takes time t ∝ r²/D where D(ATP) = 300 μm²/s. Calculate the diffusion time for each cell. (c) The squid axon uses active axonal transport (kinesin at 1 μm/s) rather than diffusion for cargo delivery. At what axon length does active transport become strictly necessary (say, when diffusion time exceeds 1 hour)?
+> **Concept Check (Analysis):** A spherical bacterial cell has radius r = 1 μm; a giant squid neuron axon has radius r = 500 μm. (a) Calculate the surface-area-to-volume (SA/V) ratio for each. (b) Diffusion of ATP from the cell center to the periphery takes time t ∝ r²/D where D(ATP) = 300 μm²/s. Calculate the diffusion time for each cell. (c) The squid axon uses active axonal transport (kinesin at 1 μm/s) rather than diffusion for cargo delivery. At what axon length does active transport become strictly necessary (say, when diffusion time exceeds 1 hour)?
 
-> **Worked Example --- Surface-Area-to-Volume Limits on Cell Size:** Consider a cell approximated as a sphere of radius r. Metabolic rate scales with volume V = (4/3)πr³, while nutrient/waste exchange scales with surface area SA = 4πr². Oxygen diffusion flux across the membrane: J_O2 = P × ΔCO2, where P = permeability × SA. If the cell's O2 consumption rate is q per unit volume, the cell can grow provided J_O2 > q × V, i.e., P × SA/V > q. For a typical eukaryotic cell: P(O2) ≈ 0.04 cm/s, q ≈ 10⁻¹⁰ mol/s per cell (radius 10 μm). Verify: SA/V = 3/r = 3/(10 × 10⁻⁴ cm) = 300 cm⁻¹. J = P × SA/V × ΔCO2 = 0.04 × 300 × 200 μM = 2400 μM·cm/s --- exceeds q. Now scale to r = 1 mm: SA/V = 3/0.1 = 30 cm⁻¹; J = 0.04 × 30 × 200 = 240 μM·cm/s --- still OK at periphery, but the centre is now O2-limited, explaining why cells >200 μm in avascular tissue become hypoxic and die.
+> **Worked Example --- Surface-Area-to-Volume Limits on Cell Size:** Consider a cell approximated as a sphere of radius r. Metabolic rate scales with volume V = (4/3)πr³, while nutrient/waste exchange scales with surface area SA = 4πr². Oxygen diffusion flux across the membrane: J_O2 = P × ΔCO2, where P = permeability × SA. If the cell's O2 consumption rate is q per unit volume, the cell can grow provided J_O2 > q × V, i.e., P × SA/V > q. For a typical eukaryotic cell: P(O2) ≈ 0.04 cm/s, q ≈ 10⁻¹⁰ mol/s per cell (radius 10 μm). Verify: SA/V = 3/r = 3/(10 × 10⁻⁴ cm) = 300 cm⁻¹. J = P × SA/V × ΔCO2 = 0.04 × 300 × 200 μM = 2400 μM·cm/s --- exceeds q. Now scale to r = 1 mm: SA/V = 3/0.1 = 30 cm⁻¹; J = 0.04 × 30 × 200 = 240 μM·cm/s --- still OK at periphery, but the center is now O2-limited, explaining why cells >200 μm in avascular tissue become hypoxic and die.
 
 
 ---
@@ -305,16 +307,16 @@ flowchart TD
 
     D --> D1["STED<br/>Stimulated emission depletion"]
     D --> D2["STORM<br/>Stochastic optical<br/>reconstruction"]
-    D --> D3["PALM<br/>Photoactivated<br/>localisation"]
+    D --> D3["PALM<br/>Photoactivated<br/>localization"]
 
     style A fill:#f9f9f9
     style B fill:#e6f3ff
     style C fill:#ffe6e6
     style D fill:#e6ffe6
 ```
-<!-- alt: Flowchart showing overview of microscopy techniques used in cell biology, categorised by resolution capability. -->
+<!-- alt: Flowchart showing overview of microscopy techniques used in cell biology, categorized by resolution capability. -->
 
-*Overview of microscopy techniques used in cell biology, categorised by resolution capability.*
+*Overview of microscopy techniques used in cell biology, categorized by resolution capability.*
 
 ### Light Microscopy, Contrast, and Resolution
 
@@ -331,13 +333,13 @@ where λ is the wavelength of light and NA is the numerical aperture of the obje
 
 **Phase-contrast microscopy:** Converts phase differences (from refractive index variations in transparent specimens) into amplitude differences visible as contrast. Ideal for observing living, unstained cells. Invented by Frits Zernike (Nobel Prize in Physics, 1953).
 
-**Differential interference contrast (DIC/Nomarski):** Uses polarised light split into two beams that pass through slightly different optical paths in the specimen. Produces a pseudo-3D relief image with excellent contrast. Eliminates the "halo" artifact of phase-contrast.
+**Differential interference contrast (DIC/Nomarski):** Uses polarized light split into two beams that pass through slightly different optical paths in the specimen. Produces a pseudo-3D relief image with excellent contrast. Eliminates the "halo" artifact of phase-contrast.
 
-**Fluorescence microscopy:** Specimens labelled with fluorophores (antibodies conjugated to FITC, Cy3, Cy5; or genetically encoded GFP and derivatives). Excitation light of specific wavelength causes fluorophore emission at a longer wavelength. Enables specific protein localisation, live-cell imaging, and multiplexing (multiple colours simultaneously).
+**Fluorescence microscopy:** Specimens labeled with fluorophores (antibodies conjugated to FITC, Cy3, Cy5; or genetically encoded GFP and derivatives). Excitation light of specific wavelength causes fluorophore emission at a longer wavelength. Enables specific protein localization, live-cell imaging, and multiplexing (multiple colors simultaneously).
 
-**Confocal laser scanning microscopy:** Uses a pinhole to reject out-of-focus light, producing optical sections ~0.5--1 μm thick. Z-stacks can be reconstructed into 3D images. Essential for thick specimens and co-localisation studies.
+**Confocal laser scanning microscopy:** Uses a pinhole to reject out-of-focus light, producing optical sections ~0.5--1 μm thick. Z-stacks can be reconstructed into 3D images. Essential for thick specimens and co-localization studies.
 
-**Total internal reflection fluorescence (TIRF):** Evanescent wave illuminates about 100 nm of the cell adjacent to the coverslip surface. Used to study membrane dynamics, vesicle fusion events, and single-molecule behaviour at the plasma membrane.
+**Total internal reflection fluorescence (TIRF):** Evanescent wave illuminates about 100 nm of the cell adjacent to the coverslip surface. Used to study membrane dynamics, vesicle fusion events, and single-molecule behavior at the plasma membrane.
 
 ### Electron Microscopy and Ultrastructure
 
@@ -356,9 +358,9 @@ Super-resolution methods bypass the Abbe diffraction limit, achieving resolution
 
 **STED (Stimulated Emission Depletion):** A donut-shaped depletion beam suppresses fluorescence from the periphery of the excitation spot, shrinking the effective point spread function. Resolution ~30--50 nm. Developed by Stefan Hell (Nobel Prize in Chemistry, 2014).
 
-**STORM (Stochastic Optical Reconstruction Microscopy):** Individual fluorophores are stochastically activated, imaged, and precisely localised over thousands of frames. The composite image achieves ~20 nm resolution. Co-developed by Xiaowei Zhuang.
+**STORM (Stochastic Optical Reconstruction Microscopy):** Individual fluorophores are stochastically activated, imaged, and precisely localized over thousands of frames. The composite image achieves ~20 nm resolution. Co-developed by Xiaowei Zhuang.
 
-**PALM (Photoactivated Localisation Microscopy):** Similar to STORM but uses photoactivatable fluorescent proteins (e.g., mEos, Dendra2). Particularly suited for live-cell imaging of genetically encoded constructs. Co-developed by Eric Betzig (Nobel Prize in Chemistry, 2014).
+**PALM (Photoactivated Localization Microscopy):** Similar to STORM but uses photoactivatable fluorescent proteins (e.g., mEos, Dendra2). Particularly suited for live-cell imaging of genetically encoded constructs. Co-developed by Eric Betzig (Nobel Prize in Chemistry, 2014).
 
 > **Concept Check 3:** A researcher wants to study the real-time dynamics of clathrin-coated pit formation at the plasma membrane of a living cell. Which microscopy technique would be most appropriate and why?
 
@@ -370,6 +372,7 @@ Prokaryotes (**pro** = before, **karyon** = nucleus) lack membrane-bound organel
 
 ### Prokaryotic Cell Features and Constraints
 
+: Prokaryotic Cell Features and Constraints: Feature and Bacteria. {#tbl:unit_II_cell_theory_prokaryotic_cell_features_and_constraints}
 | Feature | Bacteria | Archaea |
 | ------- | -------- | ------- |
 | Diameter | 0.2--10 μm | 0.2--10 μm |
@@ -432,7 +435,7 @@ classDiagram
 - **Capsule:** polysaccharide layer external to cell wall; anti-phagocytic (evades immune system); [**biofilm**](#gl:biofilm) formation. *Streptococcus pneumoniae* with capsule is virulent; without capsule is avirulent (Griffith's transformation experiment, 1928).
 - **Flagellum:** rotating protein filament powered by proton motive force (bacteria) or ATP (archaea); each rotation of the bacterial flagellar motor ~100 Hz in *E. coli*; composed of flagellin protein subunits; the basal body contains a rotary motor with stator and rotor components.
 - **Pili (fimbriae):** protein tubes for attachment, conjugation, biofilm; Type IV pili can retract to generate motile force ("twitching motility"); F-pili mediate DNA transfer during conjugation.
-- **Nucleoid:** condensed region containing the circular chromosome (typically 1--6 Mbp); not bounded by a membrane; associated with nucleoid-associated proteins (NAPs: HU, H-NS, Fis, IHF) that organise chromosome topology.
+- **Nucleoid:** condensed region containing the circular chromosome (typically 1--6 Mbp); not bounded by a membrane; associated with nucleoid-associated proteins (NAPs: HU, H-NS, Fis, IHF) that organize chromosome topology.
 - **Plasmids:** small circular DNA molecules (1--200 kb) carrying accessory [**gene**](#gl:gene)s (antibiotic resistance, [**virulence**](#gl:virulence) factors, metabolic capabilities); replicate independently; horizontally transferable between cells.
 
 > **Clinical Connection: Gram Staining and Antibiotic Selection**
@@ -444,21 +447,22 @@ classDiagram
 
 For nearly a century, textbooks asserted that prokaryotes lack a [**cytoskeleton**](#gl:cytoskeleton). The discovery of bacterial cytoskeletal homologues over the past 25 years has overturned that view: prokaryotes contain dedicated structural and force-generating filaments that are evolutionary precursors of every major eukaryotic cytoskeletal class.
 
+: The Prokaryotic Cytoskeleton --- A Recent Revolution: Bacterial protein and Eukaryotic homologue. {#tbl:unit_II_cell_theory_the_prokaryotic_cytoskeleton_a_recent_revolution}
 | Bacterial protein | Eukaryotic homologue | Function | Year established |
 | ----------------- | -------------------- | -------- | ---------------- |
 | **FtsZ** | Tubulin (GTPase fold) | Z-ring assembly at midcell; recruits divisome; constricts during binary fission | 1991 (Bi & Lutkenhaus) |
 | **MreB** | Actin (ATP-binding fold) | Helical filaments under inner membrane; defines rod-shaped cell geometry; coordinates peptidoglycan synthesis | 2001 (Jones et al.) |
 | **Crescentin (CreS)** | Intermediate filaments (lamins) | Curves *Caulobacter crescentus* into its vibrioid shape | 2003 (Ausmees et al.) |
 | **ParM** | Actin | Pushes plasmid copies apart during segregation | 2002 |
-| **Bactofilins (BacA/B)** | None close | Polar localisation; cell-wall remodelling | 2010 |
+| **Bactofilins (BacA/B)** | None close | Polar localization; cell-wall remodeling | 2010 |
 
-**FtsZ and bacterial cytokinesis.** FtsZ polymerises GTP-dependently into protofilaments that form a contractile **Z-ring** at the future division site. The Z-ring recruits the divisome (FtsA, FtsW, FtsI/PBP3) which synthesises septal peptidoglycan as the membrane invaginates. FtsZ treadmills around the ring at ~30 nm/s — strikingly similar in mechanism to actin treadmilling, yet evolutionarily a tubulin homologue. The GTP-bound monomer fold superimposes on alpha/beta-tubulin with RMSD < 2 Å despite < 10% sequence identity, providing direct structural evidence that the eukaryotic mitotic machinery descends from a bacterial cell-division protein.
+**FtsZ and bacterial cytokinesis.** FtsZ polymerizes GTP-dependently into protofilaments that form a contractile **Z-ring** at the future division site. The Z-ring recruits the divisome (FtsA, FtsW, FtsI/PBP3) which synthesizes septal peptidoglycan as the membrane invaginates. FtsZ treadmills around the ring at ~30 nm/s — strikingly similar in mechanism to actin treadmilling, yet evolutionarily a tubulin homologue. The GTP-bound monomer fold superimposes on alpha/beta-tubulin with RMSD < 2 Å despite < 10% sequence identity, providing direct structural evidence that the eukaryotic mitotic machinery descends from a bacterial cell-division protein.
 
-**MreB and rod-shaped morphology.** MreB filaments rotate around the bacterial circumference, dragging the **Rod complex** (RodA, MreC, MreD, PBP2) that synthesises lateral peptidoglycan. Loss of MreB converts rod-shaped *E. coli* into spheres (cocci) within minutes; expression in mutant cocci restores rod shape. MreB is therefore both structural (filament) and a guidance system (positional cue for cell-wall synthesis), exactly mirroring eukaryotic actin's dual roles.
+**MreB and rod-shaped morphology.** MreB filaments rotate around the bacterial circumference, dragging the **Rod complex** (RodA, MreC, MreD, PBP2) that synthesizes lateral peptidoglycan. Loss of MreB converts rod-shaped *E. coli* into spheres (cocci) within minutes; expression in mutant cocci restores rod shape. MreB is therefore both structural (filament) and a guidance system (positional cue for cell-wall synthesis), exactly mirroring eukaryotic actin's dual roles.
 
 **Crescentin and curvature.** *Caulobacter crescentus* gets its name from a comma-shaped curve produced by a single helical bundle of CreS filaments running along the inner curve of the cell. Mutational loss of *creS* yields straight rods. CreS is biophysically a coiled-coil of the same family as nuclear lamins and cytokeratins.
 
-These discoveries closed a major textbook gap: **the three eukaryotic cytoskeletal classes (microfilaments, microtubules, intermediate filaments) have prokaryotic ancestors**. The cytoskeleton predates compartmentalisation by at least 1.5 billion years.
+These discoveries closed a major textbook gap: **the three eukaryotic cytoskeletal classes (microfilaments, microtubules, intermediate filaments) have prokaryotic ancestors**. The cytoskeleton predates compartmentalization by at least 1.5 billion years.
 
 > **Concept Check 4b:** A pharmaceutical company is screening for narrow-spectrum antibiotics that block bacterial cell division without affecting human cells. Why is FtsZ a more promising target than MreB? (Consider the structural and functional homology to eukaryotic counterparts and what happens when each protein is inhibited.)
 
@@ -466,6 +470,7 @@ These discoveries closed a major textbook gap: **the three eukaryotic cytoskelet
 
 The discovery of Archaea by \citet{woese1977} as a separate domain transformed our view of life's deep structure. Archaea were initially described as "prokaryotes that live in extreme environments," but molecular phylogenetics revealed that Archaea share many features with eukaryotes that bacteria do not — a fact now central to debates about eukaryotic origin (the "Asgard archaea" hypothesis). The table below extends \cref{sec:unit_II_cell_theory} earlier comparison with molecular detail relevant to drug development, evolution, and astrobiology.
 
+: Detailed Comparison: Bacteria vs. Archaea: Feature and Bacteria. {#tbl:unit_II_cell_theory_detailed_comparison_bacteria_vs_archaea}
 | Feature | Bacteria | Archaea | Functional / clinical note |
 | ------- | -------- | ------- | -------------------------- |
 | Cell wall | Peptidoglycan (N-acetylmuramic acid + N-acetylglucosamine, beta-1,4 linked, peptide cross-bridges) | Pseudopeptidoglycan (NAG + N-acetyltalosaminuronic acid, beta-1,3 linked) or S-layer or polysaccharide | Penicillins/vancomycin target NAM and D-Ala-D-Ala — both absent in archaea |
@@ -475,13 +480,13 @@ The discovery of Archaea by \citet{woese1977} as a separate domain transformed o
 | TATA-binding protein (TBP) | Absent | Present (homologous to eukaryotic TBP) | Promoter recognition is eukaryote-like |
 | Histones | Absent (nucleoid-associated proteins HU/H-NS) | H3/H4-like archaeal histones, octameric tetramers | Asgard archaea have histones structurally indistinguishable from eukaryotic |
 | Replication initiator | DnaA (single ori per chromosome) | Cdc6/Orc1 family; multiple origins | Eukaryotic-style |
-| DNA topoisomerase | Topo IV; Gyrase (negative supercoiling) | Reverse gyrase (positive supercoiling) in hyperthermophiles | Reverse gyrase stabilises DNA at >80 °C |
+| DNA topoisomerase | Topo IV; Gyrase (negative supercoiling) | Reverse gyrase (positive supercoiling) in hyperthermophiles | Reverse gyrase stabilizes DNA at >80 °C |
 | tRNA introns | Rare | Common (BHB intron motif) | Used as taxonomic marker |
 | Translation initiator | fMet-tRNA$^{fMet}$ (formylated) | Met-tRNA$_i^{Met}$ (not formylated) | Same as eukaryotes |
 | Sensitivity: chloramphenicol, streptomycin | Sensitive | Resistant | Antibiotic discrimination |
 | Sensitivity: anisomycin, diphtheria toxin | Resistant | Sensitive | Both target eukaryote-like ribosomal features |
 | CRISPR–Cas | Present in ~50% | Present in ~90% | Adaptive immune systems against viruses |
-| Energy metabolism | Photosynthetic (oxygenic, anoxygenic), chemoautotrophic, heterotrophic | Methanogens, halophiles, sulphate reducers, ammonia oxidisers | Methanogenesis is exclusive to archaea |
+| Energy metabolism | Photosynthetic (oxygenic, anoxygenic), chemoautotrophic, heterotrophic | Methanogens, halophiles, sulfate reducers, ammonia oxidisers | Methanogenesis is exclusive to archaea |
 
 **Why this matters.** Archaea share information-processing machinery (transcription, translation, replication) with eukaryotes but housekeeping/metabolic machinery with bacteria. The leading "two-domain" tree (Embley & Williams; Spang et al. 2015) places eukaryotes *within* the Asgard archaea, with the mitochondrial endosymbiont contributing the bacterial-style metabolism. The bacteria–archaea distinction is not a curiosity — it is the structural map for the deepest split in the tree of life.
 
@@ -489,7 +494,7 @@ The discovery of Archaea by \citet{woese1977} as a separate domain transformed o
 
 ---
 
-## Eukaryotic Cells and Compartmentalisation
+## Eukaryotic Cells and Compartmentalization
 
 Eukaryotic cells (**eu** = true; **karyon** = nucleus) contain membrane-bound organelles and a true nucleus. They include protists, fungi, plants, and animals.
 
@@ -497,6 +502,7 @@ Eukaryotic cells (**eu** = true; **karyon** = nucleus) contain membrane-bound or
 
 **Core eukaryotic organelles and functions:**
 
+: Eukaryotic Organelle Inventory: Organelle and Membrane. {#tbl:unit_II_cell_theory_eukaryotic_organelle_inventory}
 | Organelle | Membrane | Function | Unique to |
 | --------- | -------- | -------- | --------- |
 | Nucleus | Double (NE) | DNA storage; transcription | Eukaryotes |
@@ -510,13 +516,13 @@ Eukaryotic cells (**eu** = true; **karyon** = nucleus) contain membrane-bound or
 | Peroxisome | Single | Fatty acid beta-oxidation; H$_2$O$_2$ detox | Eukaryotes |
 | Ribosome | None | [**Translation**](#gl:translation) | Most cells |
 | [**Cytoskeleton**](#gl:cytoskeleton) | None | Structural; motility; intracellular transport | Eukaryotes |
-| Centrosome | None (MTOC) | Microtubule organising centre | Animal cells |
+| Centrosome | None (MTOC) | Microtubule organizing center | Animal cells |
 
-This inventory should not be read as a set of isolated boxes. Eukaryotic organelles exchange lipids, ions, metabolites, and stress signals through membrane-contact sites; mitochondria divide and fuse, the ER wraps around many organelles, lysosomes function as nutrient-sensing hubs, and biomolecular condensates add non-membrane compartments for RNA, protein, and signalling control. A modern cell-biological explanation names the compartment, the traffic route, the time scale, and the evidence type: microscopy, perturbation, biochemical fractionation, or single-cell/spatial data.
+This inventory should not be read as a set of isolated boxes. Eukaryotic organelles exchange lipids, ions, metabolites, and stress signals through membrane-contact sites; mitochondria divide and fuse, the ER wraps around many organelles, lysosomes function as nutrient-sensing hubs, and biomolecular condensates add non-membrane compartments for RNA, protein, and signaling control. A modern cell-biological explanation names the compartment, the traffic route, the time scale, and the evidence type: microscopy, perturbation, biochemical fractionation, or single-cell/spatial data.
 
-### Compartmentalisation: The Eukaryotic Advantage
+### Compartmentalization: The Eukaryotic Advantage
 
-The defining feature of eukaryotic cells is **compartmentalisation** --- the segregation of biochemical processes into membrane-bound organelles. This provides several advantages:
+The defining feature of eukaryotic cells is **compartmentalization** --- the segregation of biochemical processes into membrane-bound organelles. This provides several advantages:
 
 1. **Incompatible reactions can occur simultaneously:** Protein synthesis (cytoplasm, pH 7.2) and protein degradation (lysosomes, pH 4.5) are separated by lysosomal membranes.
 2. **Concentration of substrates and enzymes:** Mitochondrial matrix concentrates TCA cycle enzymes, increasing reaction rates.
@@ -558,7 +564,7 @@ If cell theory is correct that most cells descend from pre-existing cells \citep
 
 3. **The DNA replication anomaly.** Bacterial and archaeal DNA polymerases (Family A vs. Family B) share *no* sequence similarity in their catalytic cores, despite both performing the same chemistry. The simplest explanation is that LUCA used **RNA-genome replication** and DNA replication evolved twice independently *after* the bacterial–archaeal split. This argues that LUCA was a late RNA-world organism with a stable genetic code and ribosomes but was still transitioning from RNA to DNA storage.
 
-The reconstruction has profound implications. LUCA was not the first cell — it was the last common one. Earlier lineages may have existed but left no descendants. The vast biochemical diversity of modern life (oxygenic photosynthesis, methanogenesis, eukaryotic compartmentalisation) most evolved *after* LUCA, layered onto its conserved core.
+The reconstruction has profound implications. LUCA was not the first cell — it was the last common one. Earlier lineages may have existed but left no descendants. The vast biochemical diversity of modern life (oxygenic photosynthesis, methanogenesis, eukaryotic compartmentalization) most evolved *after* LUCA, layered onto its conserved core.
 
 > **Concept Check 5b:** If LUCA used naturally occurring proton gradients (from inorganic vent chemistry) rather than self-generated ones, which modern molecular machinery must have evolved *before* free-living cells became possible? (Consider what a free-living cell must do that a vent-bound consortium need not.)
 
@@ -567,7 +573,7 @@ The reconstruction has profound implications. LUCA was not the first cell — it
 Viruses are not cells (no membranes of their own metabolism, no ribosomes, no autonomous reproduction) and so are excluded from cell theory by definition. But viruses are cellular *parasites*, and their replication strategies illuminate what cells must do to maintain integrity. Bacteriophages — viruses that infect bacteria — provide the textbook example.
 
 **Lytic cycle (e.g., T4 bacteriophage):**
-1. **Attachment:** tail fibres bind specific surface receptors (e.g., LPS, OmpC) — defines host range.
+1. **Attachment:** tail fibers bind specific surface receptors (e.g., LPS, OmpC) — defines host range.
 2. **Penetration:** the genome is injected into the [**cytoplasm**](#gl:cytoplasm) through a contractile tail; capsid remains outside.
 3. **Hijacking:** within ~2 min, host RNA polymerase transcribes "early" phage genes that degrade the host chromosome (T4 gene 46/47 nucleases) and reprogramme cell metabolism toward phage production.
 4. **Replication and assembly:** phage DNA is replicated (~100 copies per cell); structural proteins self-assemble into capsids; DNA is packaged via a portal motor (one of the strongest molecular machines known: ~57 pN of force, comparable to muscle myosin).
@@ -581,12 +587,12 @@ The lytic cycle is the textbook image of viral infection: rapid, fatal, producti
 3. **Quiescence:** the prophage is replicated passively with the host chromosome at every cell division. Lambda CI repressor blocks lytic gene expression. The bacterium grows and divides normally with the prophage as a stowaway. This state can persist for thousands of generations.
 4. **Induction:** stressors (UV, mitomycin C, low nutrients) activate the host SOS response → RecA cleaves CI repressor → lytic genes are derepressed → prophage excises → enters lytic cycle.
 
-The lysogenic cycle has profound consequences. **Specialised transduction** carries host genes between bacteria when imprecise excision packages chromosomal DNA. Many bacterial **virulence factors are phage-encoded**: diphtheria toxin (β-phage in *Corynebacterium diphtheriae*), cholera toxin (CTXφ in *Vibrio cholerae*), Shiga toxin (Stx phage in EHEC *E. coli* O157:H7), botulinum toxin types C and D. The lysogen-to-lytic switch — controlled by a single repressor — is the prototype for many developmental switches and inspired the operon model of \citet{jacob1961}.
+The lysogenic cycle has profound consequences. **Specialized transduction** carries host genes between bacteria when imprecise excision packages chromosomal DNA. Many bacterial **virulence factors are phage-encoded**: diphtheria toxin (β-phage in *Corynebacterium diphtheriae*), cholera toxin (CTXφ in *Vibrio cholerae*), Shiga toxin (Stx phage in EHEC *E. coli* O157:H7), botulinum toxin types C and D. The lysogen-to-lytic switch — controlled by a single repressor — is the prototype for many developmental switches and inspired the operon model of \citet{jacob1961}.
 
 > **Clinical Connection: Phage Therapy in the Antibiotic-Resistance Era**
-> Lytic bacteriophages can target antibiotic-resistant bacteria with exquisite specificity (one phage typically infects one species or even strain). Compassionate-use phage therapy has cured otherwise-fatal infections (Steffanie Strathdee, *A. baumannii* sepsis, 2017; cystic fibrosis *Mycobacterium abscessus*, 2019). Phages are now in late-stage clinical trials for chronic urinary infections and prosthetic-joint infections. Phage cocktails — designed to evade host-resistance evolution by targeting multiple receptors — are the closest realisation of the "magic bullet" concept since penicillin.
+> Lytic bacteriophages can target antibiotic-resistant bacteria with exquisite specificity (one phage typically infects one species or even strain). Compassionate-use phage therapy has cured otherwise-fatal infections (Steffanie Strathdee, *A. baumannii* sepsis, 2017; cystic fibrosis *Mycobacterium abscessus*, 2019). Phages are now in late-stage clinical trials for chronic urinary infections and prosthetic-joint infections. Phage cocktails — designed to evade host-resistance evolution by targeting multiple receptors — are the closest realization of the "magic bullet" concept since penicillin.
 
-> **Concept Check 5c:** A *V. cholerae* strain loses its CTXφ prophage. The resulting strain can colonise the human gut but causes mild diarrhoea. Why? What does this tell you about the relationship between cell theory's exclusion of viruses and the practical impact of viruses on cellular biology?
+> **Concept Check 5c:** A *V. cholerae* strain loses its CTXφ prophage. The resulting strain can colonise the human gut but causes mild diarrhea. Why? What does this tell you about the relationship between cell theory's exclusion of viruses and the practical impact of viruses on cellular biology?
 
 ---
 
@@ -603,16 +609,17 @@ Key findings:
 This work defines the boundary between chemistry and life and raises profound questions: What is the minimal instruction set for a living system? Can we understand life by building it from scratch?
 
 > **Clinical Connection: Synthetic Biology and Minimal Cells**
-> The minimal cell concept has direct applications in biotechnology. Engineered minimal cells could serve as "chassis" organisms for producing pharmaceuticals, biofuels, or industrial chemicals with predictable behaviour and reduced metabolic complexity. Understanding essential gene sets also identifies new antibiotic targets --- genes essential for bacterial survival that have no human homologues.
+> The minimal cell concept has direct applications in biotechnology. Engineered minimal cells could serve as "chassis" organisms for producing pharmaceuticals, biofuels, or industrial chemicals with predictable behavior and reduced metabolic complexity. Understanding essential gene sets also identifies new antibiotic targets --- genes essential for bacterial survival that have no human homologues.
 
 ---
 
 ## Extremophile Cells and Environmental Limits
 
-Extremophiles are organisms (primarily archaea, but also some bacteria and eukaryotes) that thrive in environments previously considered incompatible with life. They demonstrate the remarkable adaptability of cellular organisation.
+Extremophiles are organisms (primarily archaea, but also some bacteria and eukaryotes) that thrive in environments previously considered incompatible with life. They demonstrate the remarkable adaptability of cellular organization.
 
 ### Extremophile Cell Strategies
 
+: Extremophile Cell Strategies: Type and Environment. {#tbl:unit_II_cell_theory_extremophile_cell_strategies}
 | Type | Environment | Example organism | Cellular adaptation |
 | ---- | ----------- | ---------------- | ------------------- |
 | Thermophile | >60 degrees C | *Thermus aquaticus* (source of Taq polymerase) | Reverse gyrase; saturated membrane lipids |
@@ -641,11 +648,12 @@ Extremophiles expand our understanding of habitable environments in the solar sy
 
 ### Nutritional Classification by Carbon and Energy Source
 
+: Nutritional Classification by Carbon and Energy Source: Type and Carbon source. {#tbl:unit_II_cell_theory_nutritional_classification_by_carbon_and_energy_source}
 | Type | Carbon source | Energy source | Examples |
 | ---- | ------------- | ------------- | -------- |
 | Photoautotroph | CO$_2$ | Light | Plants, cyanobacteria, algae |
-| Photoheterotroph | Organic carbon | Light | Purple non-sulphur bacteria |
-| Chemoautotroph | CO$_2$ | Inorganic chemicals | Nitrifiers, sulphur oxidisers |
+| Photoheterotroph | Organic carbon | Light | Purple non-sulfur bacteria |
+| Chemoautotroph | CO$_2$ | Inorganic chemicals | Nitrifiers, sulfur oxidisers |
 | Chemoheterotroph | Organic carbon | Organic chemicals | Animals, fungi, most bacteria |
 
 ### Oxygen Requirements and Aerotolerance
@@ -662,7 +670,7 @@ Extremophiles expand our understanding of habitable environments in the solar sy
 
 ## Computational Bridge
 
-The codebase tags canonical organelle inventories by cell type --- useful when you compare compartmentalisation across the three domains:
+The codebase tags canonical organelle inventories by cell type --- useful when you compare compartmentalization across the three domains:
 
 ```python
 from biology.cell import get_organelles_by_cell_type
@@ -750,11 +758,11 @@ These questions have no single correct answer — they are designed to provoke d
 
 3. **The 149-gene mystery.** JCVI-syn3.0 has 149 essential genes of unknown function. Choose one approach (CRISPR screening, AlphaFold structural prediction, evolutionary co-occurrence analysis, or chemical biology) and argue why it is most likely to crack this set first. What ethical or biosafety considerations follow from understanding the minimal genome?
 
-4. **Astrobiology and the biosignature problem.** If life on Mars or Europa derives from a separate origin, it might lack DNA, ribosomes, and ATP — making it invisible to instruments designed around terrestrial biochemistry. How might cell theory be revised if we discovered non-cellular life elsewhere? Conversely, what *cellular* features might be comprehensive across any biochemistry (compartmentalisation? polymer-based information storage? membranes?) and why?
+4. **Astrobiology and the biosignature problem.** If life on Mars or Europa derives from a separate origin, it might lack DNA, ribosomes, and ATP — making it invisible to instruments designed around terrestrial biochemistry. How might cell theory be revised if we discovered non-cellular life elsewhere? Conversely, what *cellular* features might be comprehensive across any biochemistry (compartmentalization? polymer-based information storage? membranes?) and why?
 
 5. **Endosymbiosis and modern biotechnology.** Some researchers propose engineering new endosymbionts: introducing nitrogen-fixing bacteria into plant cells to eliminate fertiliser dependence. What lessons from the natural mitochondrial endosymbiosis (gene transfer to host nucleus, metabolite exchange, intimate cell-cycle coupling) suggest what would be needed for such a designed symbiosis to be stable across generations?
 
-6. **The phage-resistance arms race.** Bacteria evolve CRISPR-Cas defences; phages evolve anti-CRISPR proteins (Acrs); bacteria evolve anti-anti-CRISPR systems. This Red Queen dynamic has continued for ~3 billion years. What does it predict about the long-term success of phage therapy for antibiotic-resistant infections in humans? How might phage-cocktail design exploit or sidestep this dynamic?
+6. **The phage-resistance arms race.** Bacteria evolve CRISPR-Cas defenses; phages evolve anti-CRISPR proteins (Acrs); bacteria evolve anti-anti-CRISPR systems. This Red Queen dynamic has continued for ~3 billion years. What does it predict about the long-term success of phage therapy for antibiotic-resistant infections in humans? How might phage-cocktail design exploit or sidestep this dynamic?
 
 ---
 
@@ -772,6 +780,7 @@ These questions have no single correct answer — they are designed to provoke d
 
 ## Key Terms
 
+: Oxygen Requirements and Aerotolerance: Term and Definition. {#tbl:unit_II_cell_theory_oxygen_requirements_and_aerotolerance}
 | Term | Definition |
 | ---- | ---------- |
 | **Cell theory** | Foundational principle: most organisms are composed of cells, cells are the basic unit of life, most cells arise from pre-existing cells |
@@ -789,7 +798,7 @@ These questions have no single correct answer — they are designed to provoke d
 | **JCVI-syn3.0** | Minimal synthetic cell with 473 genes; defines the lower boundary of self-replicating life |
 | **Extremophile** | Organism thriving in extreme environments (temperature, pH, salinity, pressure, radiation) |
 | **Diffusion limit** | Physical constraint on cell size imposed by the relationship $t = x^2/2D$ |
-| **Compartmentalisation** | Segregation of biochemical processes into membrane-bound organelles; a defining eukaryotic feature |
+| **Compartmentalization** | Segregation of biochemical processes into membrane-bound organelles; a defining eukaryotic feature |
 
 ---
 
@@ -800,6 +809,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Cell Theory and Cell Types. {#tbl:unit_II_cell_theory_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/cell/cell_biology.py` (`get_organelles_by_cell_type`, `count_membrane_bound_organelles`) | Turn cell-type comparisons into explicit feature lists rather than memorised diagrams. |

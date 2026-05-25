@@ -1,4 +1,4 @@
-# Nervous System and Neural Signalling
+# Nervous System and Neural Signaling
 
 \label{sec:unit_IX_nervous_system}
 
@@ -8,9 +8,9 @@
 
 ## Learning Objectives
 
-1. Describe the organisation of the vertebrate nervous system (CNS, PNS) and the roles of glial cells.
+1. Describe the organization of the vertebrate nervous system (CNS, PNS) and the roles of glial cells.
 2. Explain [**neuron**](#gl:neuron) structure and classify neuron types by function and morphology.
-3. **Analyse** how the [**axon hillock**](#gl:axon-hillock) integrates competing excitatory and inhibitory synaptic inputs to determine whether the neuron fires.
+3. **Analyze** how the [**axon hillock**](#gl:axon-hillock) integrates competing excitatory and inhibitory synaptic inputs to determine whether the neuron fires.
 4. Describe graded potentials, synaptic summation, and how the [**axon hillock**](#gl:axon-hillock) integrates inputs.
 5. Compare the sympathetic and parasympathetic divisions of the autonomic nervous system.
 6. Describe the major brain regions and their functions.
@@ -21,15 +21,15 @@
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
 
-- **Big idea:** Nervous systems compute with cells whose structure shapes information flow and behaviour.
+- **Big idea:** Nervous systems compute with cells whose structure shapes information flow and behavior.
 - **Core concepts:** neurons, glia, circuits, sensory processing.
 - **Framework alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
 - **Model or quantitative lens:** Cable-length, conduction, and simple circuit calculations.
 - **Data skill:** Interpret neural data from anatomy, timing, or lesion evidence.
 - **Practice cadence:** Visual Representations, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** The brain is not only neurons; glia and circuit context are essential to function.
-- **Primary lab:** \cref{sec:lab_unit_IX_nervous_system}.
-- **Question bank:** \cref{sec:q_unit_IX_nervous_system}.
+- **Primary lab:** \nameref{sec:lab_unit_IX_nervous_system}.
+- **Question bank:** \nameref{sec:q_unit_IX_nervous_system}.
 - **Transfer task:** Transfer circuit reasoning to reflexes, sensory systems, learning, and disease.
 - **Bridge to computation:** `biology.neuroscience.neuroscience.cable_voltage_attenuation`.
 <!-- curriculum-scaffold-end -->
@@ -40,9 +40,9 @@
 > 
 > In 1897, Charles Scott Sherrington coined the word "synapse" — from the Greek for "clasp" — to describe the morphological gap between neurons. Over four decades, working with decerebrate cats and dogs whose spinal cord reflexes could be studied in isolation, Sherrington showed that reflexes were not simple mechanical responses but involved integration: competing signals converged on motor neurons, inhibiting some pathways while exciting others, with the outcome depending on the algebraic summation of hundreds of inputs. His 1906 masterwork, *The Integrative Action \citep{sherrington1906} of the Nervous System*, established the principles of convergence, divergence, summation, inhibition, and the motor neuron as the "final common pathway." The electrical basis of these phenomena — [**action potential**](#gl:action-potential)s, EPSPs, IPSPs — was not known until Hodgkin, Huxley, and Eccles worked it out in the 1950s. Sherrington and Adrian shared the 1932 Nobel Prize; Eccles, Hodgkin, and Huxley shared the 1963 Nobel Prize. The synapse Sherrington named launched two Nobel Prizes' worth of discoveries.
 
-## Nervous System Organisation Across Cells, Circuits, and Regions
+## Nervous System Organization Across Cells, Circuits, and Regions
 
-The human nervous system comprises approximately **86 billion neurons** and ~85 billion non-neuronal cells (Azevedo et al., 2009). It is organised hierarchically into two major divisions.
+The human nervous system comprises approximately **86 billion neurons** and ~85 billion non-neuronal cells (Azevedo et al., 2009). It is organized hierarchically into two major divisions.
 
 ```mermaid
 graph TD
@@ -70,9 +70,9 @@ graph TD
     Auto --> Para["Parasympathetic<br/>CN III,VII,IX,X + S2-S4<br/>Rest and digest<br/>ACh at target organs"]
     Auto --> Ent["Enteric NS<br/>~500 million neurons<br/>Intrinsic gut regulation"]
 ```
-<!-- alt: Graph showing organisation of the vertebrate nervous system. The CNS (brain and spinal cord) integrates information. The PNS (somatic and autonomic divisions) connects the CNS to the body. The autonomic NS has sympathetic, parasympathetic, and enteric subdivisions. -->
+<!-- alt: Graph showing organization of the vertebrate nervous system. The CNS (brain and spinal cord) integrates information. The PNS (somatic and autonomic divisions) connects the CNS to the body. The autonomic NS has sympathetic, parasympathetic, and enteric subdivisions. -->
 
-*Organisation of the vertebrate nervous system. The CNS (brain and spinal cord) integrates information. The PNS (somatic and autonomic divisions) connects the CNS to the body. The autonomic NS has sympathetic, parasympathetic, and enteric subdivisions.*
+*Organization of the vertebrate nervous system. The CNS (brain and spinal cord) integrates information. The PNS (somatic and autonomic divisions) connects the CNS to the body. The autonomic NS has sympathetic, parasympathetic, and enteric subdivisions.*
 
 - Blood-brain barrier (BBB): Tight junctions between endothelial cells + astrocyte endfeet
 - Three meningeal layers: dura mater (tough outer), arachnoid mater (middle; CSF-filled subarachnoid space), pia mater (thin; adheres to brain surface)
@@ -105,12 +105,13 @@ A typical neuron comprises:
 - **Dendrites:** Receive synaptic inputs. Dendritic spines (0.5-2 um protrusions) increase surface area and compartmentalise Ca$^{2+}$ signals. A single cortical pyramidal neuron may have 10,000-30,000 dendritic spines.
 - **Axon hillock:** Junction between soma and axon. Highest density of voltage-gated Na$^+$ channels (~800-1200/um$^2$). Lowest threshold for action potential initiation. The "decision-making" node.
 - **Axon:** Signal conduction pathway. Myelinated or unmyelinated. Can extend >1 m (motor neurons to foot muscles). Axoplasmic transport: fast anterograde (kinesin, 200-400 mm/day for vesicles), slow anterograde (0.5-5 mm/day for cytoskeletal proteins), fast retrograde (dynein, 200-300 mm/day for recycled materials and trophic signals).
-- **Axon terminal (bouton):** Contains synaptic vesicles (40-50 nm diameter, each containing ~5,000-10,000 neurotransmitter molecules). Active zone: specialised region of presynaptic membrane where vesicles dock and fuse.
+- **Axon terminal (bouton):** Contains synaptic vesicles (40-50 nm diameter, each containing ~5,000-10,000 neurotransmitter molecules). Active zone: specialized region of presynaptic membrane where vesicles dock and fuse.
 
 ---
 
 ## Glial Cells and Neural Support Functions
 
+: Neuron Structure from Dendrites to Axon Terminals: Glial type and Location. {#tbl:unit_IX_nervous_system_neuron_structure_from_dendrites_to_axon_terminals}
 | Glial type | Location | Key functions |
 | ---------- | -------- | ------------ |
 | **Astrocytes** | CNS | Metabolic support (lactate shuttle to neurons); BBB construction; K$^+$ spatial buffering; glutamate-glutamine recycling; tripartite synapse (modulate synaptic transmission); scar formation after injury |
@@ -127,16 +128,16 @@ Modern brain-cell atlases turn this table into a data problem rather than a fina
 
 ### Astrocytes — More Than Glue
 
-Astrocytes were once considered passive support cells but are now recognised as active partners in synaptic transmission, brain metabolism, and homeostasis. A single cortical astrocyte contacts ~100,000–2,000,000 synapses through its fine processes ("perisynaptic astrocyte processes" or PAPs) — forming the third element of the **tripartite synapse** (presynaptic terminal + postsynaptic spine + astrocyte process).
+Astrocytes were once considered passive support cells but are now recognized as active partners in synaptic transmission, brain metabolism, and homeostasis. A single cortical astrocyte contacts ~100,000–2,000,000 synapses through its fine processes ("perisynaptic astrocyte processes" or PAPs) — forming the third element of the **tripartite synapse** (presynaptic terminal + postsynaptic spine + astrocyte process).
 
 **Key astrocyte functions:**
 
-- **K$^+$ spatial buffering:** Following synaptic activity, extracellular K$^+$ rises locally. Astrocytes express high densities of inwardly-rectifying Kir4.1 channels and aquaporin-4 (AQP4) at endfeet on capillaries. K$^+$ enters astrocytes locally and exits at sites of low K$^+$ via the panastrocytic syncytium (gap junctions formed by connexin 43/30) — preventing extracellular K$^+$ accumulation that would depolarise neurons and disrupt firing.
+- **K$^+$ spatial buffering:** Following synaptic activity, extracellular K$^+$ rises locally. Astrocytes express high densities of inwardly-rectifying Kir4.1 channels and aquaporin-4 (AQP4) at endfeet on capillaries. K$^+$ enters astrocytes locally and exits at sites of low K$^+$ via the panastrocytic syncytium (gap junctions formed by connexin 43/30) — preventing extracellular K$^+$ accumulation that would depolarize neurons and disrupt firing.
 - **Glutamate clearance:** EAAT1 and EAAT2 transporters (the "glutamate-aspartate transporters") on astrocytes clear ~90% of synaptically released glutamate. EAAT2/GLT-1 dysfunction is implicated in ALS (mutations) and excitotoxicity in stroke.
 - **Glutamate-glutamine cycle:** Astrocytes convert glutamate to glutamine via glutamine synthetase, then export glutamine to neurons, where neurons reconvert it back to glutamate via glutaminase. This metabolically traps glutamate within neurons (glutamate is itself a metabolic intermediate that cannot be allowed to accumulate in extracellular space).
 - **Astrocyte-neuron lactate shuttle:** Astrocytes preferentially perform glycolysis (express PFK1 and LDH-A) and export lactate. Active neurons take up lactate via MCT2 and use it as a major energy substrate during sustained activity. This "ANLS hypothesis" (Pellerin and Magistretti, 1994) explains the glucose-lactate metabolic coupling underlying fMRI BOLD signals.
 - **Gliotransmission:** Activated astrocytes release glutamate, ATP, D-serine (an NMDA receptor co-agonist), and other transmitters via Ca$^{2+}$-dependent vesicle exocytosis or channel-mediated release — modulating synaptic transmission and plasticity.
-- **Reactive astrogliosis:** After CNS injury, astrocytes hypertrophy, upregulate GFAP, and form glial scars. This both contains damage and inhibits axonal regeneration (chondroitin sulphate proteoglycans). Modulating reactive astrogliosis is a target for spinal cord injury therapeutics.
+- **Reactive astrogliosis:** After CNS injury, astrocytes hypertrophy, upregulate GFAP, and form glial scars. This both contains damage and inhibits axonal regeneration (chondroitin sulfate proteoglycans). Modulating reactive astrogliosis is a target for spinal cord injury therapeutics.
 
 ### Oligodendrocytes and Myelin
 
@@ -172,9 +173,9 @@ The **blood-brain barrier (BBB)** is a selective barrier between blood and brain
 - **Receptor-mediated transcytosis:** Insulin, transferrin (iron), leptin — receptors mediate endocytosis on the luminal side and exocytosis on the abluminal side. This is exploited to deliver therapeutics: a "Trojan horse" strategy fuses drugs to anti-transferrin-receptor antibodies.
 - **Active efflux pumps:** **P-glycoprotein (P-gp/ABCB1)** and **BCRP/ABCG2** on the luminal surface actively pump substrates back into blood. Many lipophilic drugs that should enter the brain by passive diffusion are pumped out — explaining the limited brain penetration of many chemotherapies and the role of P-gp polymorphisms in inter-individual drug response.
 
-**BBB-bypassing structures (circumventricular organs):** Subfornical organ, area postrema (chemotrigger zone), median eminence, neurohypophysis, OVLT, pineal gland — lack tight junctions and have fenestrated capillaries to allow hormones and circulating signals to reach specialised neurons (e.g., AT$_1$ on subfornical neurons → thirst).
+**BBB-bypassing structures (circumventricular organs):** Subfornical organ, area postrema (chemotrigger zone), median eminence, neurohypophysis, OVLT, pineal gland — lack tight junctions and have fenestrated capillaries to allow hormones and circulating signals to reach specialized neurons (e.g., AT$_1$ on subfornical neurons → thirst).
 
-> **Clinical Connection:** BBB breakdown contributes to many CNS diseases. In multiple sclerosis, autoreactive T cells must first cross the BBB (via VLA-4/VCAM-1 interaction); the monoclonal antibody **natalizumab** blocks VLA-4 and dramatically reduces relapses. In Alzheimer's, BBB pericyte dysfunction precedes overt neurodegeneration. In ischaemic stroke, BBB breakdown produces vasogenic oedema and haemorrhagic transformation. Pharmacologically, the BBB is the major obstacle to CNS drug delivery — about 2% of small molecules and 0% of biologics readily cross.
+> **Clinical Connection:** BBB breakdown contributes to many CNS diseases. In multiple sclerosis, autoreactive T cells must first cross the BBB (via VLA-4/VCAM-1 interaction); the monoclonal antibody **natalizumab** blocks VLA-4 and dramatically reduces relapses. In Alzheimer's, BBB pericyte dysfunction precedes overt neurodegeneration. In ischemic stroke, BBB breakdown produces vasogenic edema and hemorrhagic transformation. Pharmacologically, the BBB is the major obstacle to CNS drug delivery — about 2% of small molecules and 0% of biologics readily cross.
 
 ---
 
@@ -196,6 +197,7 @@ The resting membrane potential (~$-70$ mV) arises from unequal ion distributions
 
 **Typical neuronal ion concentrations:**
 
+: Ion Distribution and the Nernst Equation: Ion and Intracellular (mM). {#tbl:unit_IX_nervous_system_ion_distribution_and_the_nernst_equation}
 | Ion | Intracellular (mM) | Extracellular (mM) | Equilibrium Potential |
 | --- | ------------------- | ------------------- | -------------------- |
 | K$^+$ | 140 | 5 | $-89$ mV |
@@ -229,7 +231,7 @@ The resting potential is dominated by **K$^+$** (highest resting conductance via
 
 ## Cable Properties and Passive Signal Spread
 
-Before a graded potential can trigger an action potential at the axon hillock, it must travel electrotonically from the synapse. This passive spread is governed by the **cable properties** of the dendrite, modelled as a leaky electrical cable.
+Before a graded potential can trigger an action potential at the axon hillock, it must travel electrotonically from the synapse. This passive spread is governed by the **cable properties** of the dendrite, modeled as a leaky electrical cable.
 
 ### Length Constant (λ) and Spatial Attenuation
 
@@ -251,6 +253,7 @@ At distance $x = \lambda$, the voltage has decayed to $V_0/e \approx 37\%$ of it
 
 **Typical values:**
 
+: Length Constant (λ) and Spatial Attenuation: Structure and Diameter (µm). {#tbl:unit_IX_nervous_system_length_constant_and_spatial_attenuation}
 | Structure | Diameter (µm) | λ (mm) | Implication |
 | --------- | ------------- | -------------- | ----------- |
 | Thin dendrite | 0.5 | ~0.1–0.2 | Distal synapses attenuate strongly before reaching soma |
@@ -279,7 +282,7 @@ V(t) = V_\infty \left(1 - e^{-t/\tau_m}\right)\quad \text{(voltage rising in res
 \label{eq:nervous_system_6}
 \end{equation}
 
-**Significance:** $\tau_m$ governs the time window for **temporal summation** in neuronal membrane integration. If two EPSPs arrive within $\tau_m$ of each other at the same synapse, the second EPSP begins before the membrane has fully repolarized from the first, and the [**depolarisation**](#gl:depolarisation)s summate.
+**Significance:** $\tau_m$ governs the time window for **temporal summation** in neuronal membrane integration. If two EPSPs arrive within $\tau_m$ of each other at the same synapse, the second EPSP begins before the membrane has fully repolarized from the first, and the [**depolarization**](#gl:depolarization)s summate.
 
 ## Worked Example: Dendritic Length Constant
 
@@ -340,7 +343,7 @@ $$V(50) = 5 \cdot e^{-0.25} = 5 \cdot 0.779 \approx 3.89\;\text{mV}$$
 
 1. **Per-synapse efficacy at the hillock.** Proximal $\approx 5.7 \times$ more effective than distal in driving the hillock toward threshold, for an identical local EPSP amplitude.
 2. **Spatial summation arithmetic.** Five distal synapses firing simultaneously deliver $5 \times 0.68 \approx 3.4$ mV — still less than a *single* proximal synapse at 50 $\mu$m. Five proximal synapses deliver $5 \times 3.89 \approx 19.5$ mV — enough by itself to cross a 15 mV threshold gap (from $-70$ to $-55$ mV).
-3. **Active boosting.** Real dendrites are not purely passive: dendritic Na$^+$ and NMDA-receptor-mediated regenerative spikes can boost distal EPSPs locally, partly compensating for electrotonic loss. Boosting is gated by prior depolarisation, so distal inputs that arrive *after* proximal inputs benefit more than ones arriving first — the basis of a fast/slow coincidence-detection scheme in cortical pyramidal cells.
+3. **Active boosting.** Real dendrites are not purely passive: dendritic Na$^+$ and NMDA-receptor-mediated regenerative spikes can boost distal EPSPs locally, partly compensating for electrotonic loss. Boosting is gated by prior depolarization, so distal inputs that arrive *after* proximal inputs benefit more than ones arriving first — the basis of a fast/slow coincidence-detection scheme in cortical pyramidal cells.
 
 **Take-home.** Two synapses of identical molecular composition can differ by an order of magnitude in their influence on the spike output of the same neuron, purely because of where they sit on the dendritic tree. Synaptic location is a tuning parameter — and dendritic geometry is a cheap, slow form of plasticity that operates on developmental timescales.
 
@@ -351,7 +354,7 @@ $$V(50) = 5 \cdot e^{-0.25} = 5 \cdot 0.779 \approx 3.89\;\text{mV}$$
 
 ### Graded Potentials and Local Voltage Changes
 
-**Excitatory postsynaptic potentials (EPSPs):** Depolarising events (typically caused by Na$^+$ or mixed cation influx through ionotropic receptors like AMPA). Amplitude proportional to stimulus strength. Decay with distance (electrotonic spread governed by the length constant λ).
+**Excitatory postsynaptic potentials (EPSPs):** Depolarizing events (typically caused by Na$^+$ or mixed cation influx through ionotropic receptors like AMPA). Amplitude proportional to stimulus strength. Decay with distance (electrotonic spread governed by the length constant λ).
 
 **Inhibitory postsynaptic potentials (IPSPs):** Hyperpolarising events (Cl$^-$ influx through GABA$_A$ receptors or K$^+$ efflux through GABA$_B$-activated K$^+$ channels). Shunting inhibition: even if IPSP does not change $V_m$ much, opening Cl$^-$ channels increases membrane conductance, reducing the effectiveness of nearby EPSPs.
 
@@ -379,13 +382,13 @@ flowchart TD
 
 *Neural circuit types and synaptic integration. Convergence allows integration of multiple inputs; divergence allows signal distribution. At the axon hillock, temporal and spatial summation of EPSPs and IPSPs determine whether threshold is reached.*
 
-If the net depolarisation at the axon hillock exceeds threshold (~$-55$ mV), an most-or-none action potential is generated, with the stereotyped Na$^+$- and K$^+$-driven waveform of rise, peak, and hyperpolarisation shown in \cref{fig:unit_IX_action_potential}. The axon hillock has the highest density of Nav1.2 and Nav1.6 channels, making it the lowest-threshold site.
+If the net depolarization at the axon hillock exceeds threshold (~$-55$ mV), an most-or-none action potential is generated, with the stereotyped Na$^+$- and K$^+$-driven waveform of rise, peak, and hyperpolarization shown in \cref{fig:unit_IX_action_potential}. The axon hillock has the highest density of Nav1.2 and Nav1.6 channels, making it the lowest-threshold site.
 
-**Strategic placement of inhibition:** Inhibitory synapses (GABA$_A$) are preferentially located on the soma and proximal dendrites, positioned to maximally dampen axon hillock depolarisation.
+**Strategic placement of inhibition:** Inhibitory synapses (GABA$_A$) are preferentially located on the soma and proximal dendrites, positioned to maximally dampen axon hillock depolarization.
 
-**Concept Check (Analyze) — Axon hillock integration and AIS biophysics.** The axon initial segment (AIS) concentrates Nav1.6 channels at densities ~50-fold above the soma, placing the spike-initiation threshold near $-55$ mV. (a) Compute the net depolarisation delivered to the AIS by *five* proximal EPSPs of 4 mV each vs. *five* distal EPSPs of 4 mV each that have attenuated to $\sim 0.7$ mV by the time they reach the AIS (use the cable-theory result above). Which configuration crosses a 15 mV threshold gap from $-70$ mV? (b) A myelin-associated glycoprotein (MAG) mutation reported in human peripheral neuropathy shortens the AIS by approximately 30%. Predict the directional effect on Nav1.6 channel number, spike-initiation threshold, and high-frequency firing fidelity. (c) Distinguish two failure modes — *increased excitability* (more spontaneous spikes) and *decreased fidelity* (broken phase-locking at $> 100$ Hz) — and identify which is more clinically disabling for a motor neuron driving rapid finger movements.
+**Concept Check (Analyze) — Axon hillock integration and AIS biophysics.** The axon initial segment (AIS) concentrates Nav1.6 channels at densities ~50-fold above the soma, placing the spike-initiation threshold near $-55$ mV. (a) Compute the net depolarization delivered to the AIS by *five* proximal EPSPs of 4 mV each vs. *five* distal EPSPs of 4 mV each that have attenuated to $\sim 0.7$ mV by the time they reach the AIS (use the cable-theory result above). Which configuration crosses a 15 mV threshold gap from $-70$ mV? (b) A myelin-associated glycoprotein (MAG) mutation reported in human peripheral neuropathy shortens the AIS by approximately 30%. Predict the directional effect on Nav1.6 channel number, spike-initiation threshold, and high-frequency firing fidelity. (c) Distinguish two failure modes — *increased excitability* (more spontaneous spikes) and *decreased fidelity* (broken phase-locking at $> 100$ Hz) — and identify which is more clinically disabling for a motor neuron driving rapid finger movements.
 
-**Concept Check (Evaluate) — Astrocyte glutamate handling, ischaemia, and excitotoxicity.** Astrocytes terminate excitatory synaptic transmission by clearing glutamate via the electrogenic transporter GLT-1 (EAAT2), which couples one glutamate uptake to the inward movement of three Na$^+$ and one H$^+$ and the outward movement of one K$^+$. Glutamate is then converted to glutamine by glutamine synthetase and shuttled back to neurons. (a) Compute the energetic cost: how much ATP must the Na$^+$/K$^+$-ATPase consume to maintain the gradient that powers one round of GLT-1 transport? (b) During the first minutes of ischaemic stroke, intracellular ATP drops, the Na$^+$/K$^+$-ATPase stalls, intracellular Na$^+$ rises, and GLT-1 begins to run in *efflux* mode (the thermodynamic gradient flips). Predict the local extracellular glutamate concentration trajectory and the consequent fraction of nearby NMDA receptors that lose their Mg$^{2+}$ block. (c) Evaluate why NMDA-receptor antagonists (memantine, low-affinity uncompetitive blockers) have been shown to be more clinically tolerated than high-affinity blockers (MK-801) as neuroprotectants — connect on/off kinetics to the difference between pathological tonic activation and physiological phasic activation.
+**Concept Check (Evaluate) — Astrocyte glutamate handling, ischemia, and excitotoxicity.** Astrocytes terminate excitatory synaptic transmission by clearing glutamate via the electrogenic transporter GLT-1 (EAAT2), which couples one glutamate uptake to the inward movement of three Na$^+$ and one H$^+$ and the outward movement of one K$^+$. Glutamate is then converted to glutamine by glutamine synthetase and shuttled back to neurons. (a) Compute the energetic cost: how much ATP must the Na$^+$/K$^+$-ATPase consume to maintain the gradient that powers one round of GLT-1 transport? (b) During the first minutes of ischemic stroke, intracellular ATP drops, the Na$^+$/K$^+$-ATPase stalls, intracellular Na$^+$ rises, and GLT-1 begins to run in *efflux* mode (the thermodynamic gradient flips). Predict the local extracellular glutamate concentration trajectory and the consequent fraction of nearby NMDA receptors that lose their Mg$^{2+}$ block. (c) Evaluate why NMDA-receptor antagonists (memantine, low-affinity uncompetitive blockers) have been shown to be more clinically tolerated than high-affinity blockers (MK-801) as neuroprotectants — connect on/off kinetics to the difference between pathological tonic activation and physiological phasic activation.
 
 
 ---
@@ -396,18 +399,18 @@ The [**autonomic nervous system (ANS)**](#gl:autonomic-nervous-system) regulates
 
 ### Sympathetic Division ("Fight or Flight")
 
-- **Preganglionic neurons:** T1-L2 spinal cord (thoracolumbar outflow). Short preganglionic fibres to paravertebral (sympathetic chain) or prevertebral ganglia.
+- **Preganglionic neurons:** T1-L2 spinal cord (thoracolumbar outflow). Short preganglionic fibers to paravertebral (sympathetic chain) or prevertebral ganglia.
 - **Preganglionic neurotransmitter:** ACh at nicotinic receptors
 - **Postganglionic neurotransmitter:** Norepinephrine (NE) at α and β adrenergic receptors on target organs
-- **Exception:** Adrenal medulla -- preganglionic sympathetic fibres synapse directly on chromaffin cells (modified postganglionic neurons) that release epinephrine (80%) and NE (20%) into blood as [**hormone**](#gl:hormone)s
+- **Exception:** Adrenal medulla -- preganglionic sympathetic fibers synapse directly on chromaffin cells (modified postganglionic neurons) that release epinephrine (80%) and NE (20%) into blood as [**hormone**](#gl:hormone)s
 
 **Sympathetic effects:** Increased HR ($\beta_1$), bronchodilation ($\beta_2$), pupil dilation (mydriasis), inhibited GI motility, glycogenolysis in liver ($\beta_2$), vasoconstriction ($\alpha_1$) in skin/viscera, vasodilation ($\beta_2$) in skeletal muscle.
 
 ### Parasympathetic Division ("Rest and Digest")
 
-- **Preganglionic neurons:** Brainstem (CN III, VII, IX, X) and sacral spinal cord (S2-S4; craniosacral outflow). Long preganglionic fibres to terminal ganglia near or within target organs.
+- **Preganglionic neurons:** Brainstem (CN III, VII, IX, X) and sacral spinal cord (S2-S4; craniosacral outflow). Long preganglionic fibers to terminal ganglia near or within target organs.
 - **Both neurotransmitters:** ACh. Preganglionic: nicotinic receptors. Postganglionic: muscarinic receptors (M1-M5) on target organs.
-- **Vagus nerve (CN X):** Carries ~75% of parasympathetic fibres; innervates heart, lungs, GI tract to splenic flexure.
+- **Vagus nerve (CN X):** Carries ~75% of parasympathetic fibers; innervates heart, lungs, GI tract to splenic flexure.
 
 **Parasympathetic effects:** Decreased HR (M$_2$), bronchoconstriction (M$_3$), pupil constriction (miosis), increased GI motility and secretion, bladder contraction.
 
@@ -444,12 +447,12 @@ graph LR
 
     subgraph Posterior ["Posterior Brain"]
         CB["CEREBELLUM<br/>Motor coordination<br/>Error correction<br/>Timing, sequence learning<br/>Purkinje cells"]
-        BS2["BRAINSTEM<br/>Respiratory centres<br/>Cardiovascular centres<br/>Cranial nerve nuclei<br/>Reticular activating system"]
+        BS2["BRAINSTEM<br/>Respiratory centers<br/>Cardiovascular centers<br/>Cranial nerve nuclei<br/>Reticular activating system"]
     end
 ```
-<!-- alt: Graph showing major brain regions and their functions. The cerebral cortex is divided into four lobes with specialised functions. Subcortical structures handle motor control (basal ganglia), sensory relay (thalamus), homeostasis (hypothalamus), memory (hippocampus), and emotion (amygdala). The cerebellum coordinates movement, and the brainstem controls vital functions. -->
+<!-- alt: Graph showing major brain regions and their functions. The cerebral cortex is divided into four lobes with specialized functions. Subcortical structures handle motor control (basal ganglia), sensory relay (thalamus), homeostasis (hypothalamus), memory (hippocampus), and emotion (amygdala). The cerebellum coordinates movement, and the brainstem controls vital functions. -->
 
-*Major brain regions and their functions. The cerebral cortex is divided into four lobes with specialised functions. Subcortical structures handle motor control (basal ganglia), sensory relay (thalamus), [**homeostasis**](#gl:homeostasis) (hypothalamus), memory (hippocampus), and emotion (amygdala). The cerebellum coordinates movement, and the brainstem controls vital functions.*
+*Major brain regions and their functions. The cerebral cortex is divided into four lobes with specialized functions. Subcortical structures handle motor control (basal ganglia), sensory relay (thalamus), [**homeostasis**](#gl:homeostasis) (hypothalamus), memory (hippocampus), and emotion (amygdala). The cerebellum coordinates movement, and the brainstem controls vital functions.*
 
 ### Cerebral Cortex and Distributed Processing
 
@@ -476,9 +479,9 @@ The basal ganglia (caudate, putamen, globus pallidus, subthalamic nucleus, subst
 
 **Hippocampus:** Essential for consolidating declarative (episodic and semantic) memories from short-term to long-term storage. Contains place cells (fire at specific locations; O'Keefe, Nobel 2014) and grid cells (fire in a hexagonal spatial pattern; Moser and Moser, Nobel 2014). One of few brain regions with confirmed adult neurogenesis (dentate gyrus).
 
-**Hypothalamus:** Homeostatic control centre with 13+ nuclei controlling: temperature, hunger/satiety, thirst, circadian rhythms (suprachiasmatic nucleus, SCN), autonomic output, and endocrine function (connects to pituitary via the hypothalamo-hypophyseal portal system).
+**Hypothalamus:** Homeostatic control center with 13+ nuclei controlling: temperature, hunger/satiety, thirst, circadian rhythms (suprachiasmatic nucleus, SCN), autonomic output, and endocrine function (connects to pituitary via the hypothalamo-hypophyseal portal system).
 
-**Spinal cord:** Grey matter (butterfly-shaped, contains neuronal cell bodies): dorsal horn (sensory processing), ventral horn (motor neuron cell bodies), lateral horn (T1-L2: sympathetic preganglionic neurons). White matter (surrounding, myelinated tracts): ascending (sensory, e.g., spinothalamic tract for pain/temperature) and descending (motor, e.g., corticospinal tract for voluntary movement).
+**Spinal cord:** Gray matter (butterfly-shaped, contains neuronal cell bodies): dorsal horn (sensory processing), ventral horn (motor neuron cell bodies), lateral horn (T1-L2: sympathetic preganglionic neurons). White matter (surrounding, myelinated tracts): ascending (sensory, e.g., spinothalamic tract for pain/temperature) and descending (motor, e.g., corticospinal tract for voluntary movement).
 
 ---
 
@@ -486,6 +489,7 @@ The basal ganglia (caudate, putamen, globus pallidus, subthalamic nucleus, subst
 
 ### Somatosensation and Mechanoreceptor Pathways
 
+: Somatosensation and Mechanoreceptor Pathways: Receptor Type and Stimulus. {#tbl:unit_IX_nervous_system_somatosensation_and_mechanoreceptor_pathways}
 | Receptor Type | Stimulus | Adaptation | Modality |
 | ------------- | -------- | ---------- | -------- |
 | Meissner's corpuscle | Light touch, texture | Rapidly adapting | Fine touch discrimination |
@@ -494,29 +498,29 @@ The basal ganglia (caudate, putamen, globus pallidus, subthalamic nucleus, subst
 | Ruffini ending | Skin stretch | Slowly adapting | Joint position, stretch |
 | Free nerve endings | Pain, temperature | Variable | Nociception, thermoreception |
 
-**Nociception:** Two fibre types carry pain signals:
-- **A-delta fibres:** Thinly myelinated (5-30 m/s). Sharp, well-localised "first pain"
-- **C fibres:** Unmyelinated (0.5-2 m/s). Dull, diffuse "second pain"
+**Nociception:** Two fiber types carry pain signals:
+- **A-delta fibers:** Thinly myelinated (5-30 m/s). Sharp, well-localized "first pain"
+- **C fibers:** Unmyelinated (0.5-2 m/s). Dull, diffuse "second pain"
 
 ### Visual Pathway from Retina to Cortex
 
-Retina (photoreceptors: rods for dim light/peripheral vision; cones for colour/acuity) to optic nerve to optic chiasm (nasal fibres cross) to **lateral geniculate nucleus (LGN)** of thalamus to primary visual cortex (V1, striate cortex) in occipital lobe.
+Retina (photoreceptors: rods for dim light/peripheral vision; cones for color/acuity) to optic nerve to optic chiasm (nasal fibers cross) to **lateral geniculate nucleus (LGN)** of thalamus to primary visual cortex (V1, striate cortex) in occipital lobe.
 
 Beyond V1, visual processing splits into:
 - **Dorsal stream** ("where/how"): V1 to posterior parietal cortex. Motion, spatial relationships, visually guided action.
-- **Ventral stream** ("what"): V1 to inferotemporal cortex. Object recognition, face recognition, colour.
+- **Ventral stream** ("what"): V1 to inferotemporal cortex. Object recognition, face recognition, color.
 
-> **Concept Check (Synthesis --- Cross-Unit Connection):** The Free Energy Principle provides a mechanistic account of cortical function. In the predictive coding implementation: descending connections carry predictions (from higher to lower cortical areas); ascending connections carry prediction errors (residuals between prediction and sensory input). Precision-weighting of prediction errors is controlled by neuromodulators (dopamine modulates prediction errors in striatum; acetylcholine modulates precision in sensory cortex). (a) Explain why this architecture predicts that sensory cortex neurons should respond most vigorously to surprising stimuli rather than expected ones (consistent with the Rao-Ballard model). (b) Hallucinations in psychosis can be modelled as excessive precision-weighting of priors over sensory evidence --- predict what happens to cortical prediction error signals under this condition. (c) Connect to the Markov blanket framework in \nameref{sec:unit_0_unit_intro}: identify the Markov blanket of a cortical column in terms of its synaptic inputs (sensory states), outputs (motor/autonomic states), and internal states.
+> **Concept Check (Synthesis --- Cross-Unit Connection):** The Free Energy Principle provides a mechanistic account of cortical function. In the predictive coding implementation: descending connections carry predictions (from higher to lower cortical areas); ascending connections carry prediction errors (residuals between prediction and sensory input). Precision-weighting of prediction errors is controlled by neuromodulators (dopamine modulates prediction errors in striatum; acetylcholine modulates precision in sensory cortex). (a) Explain why this architecture predicts that sensory cortex neurons should respond most vigorously to surprising stimuli rather than expected ones (consistent with the Rao-Ballard model). (b) Hallucinations in psychosis can be modeled as excessive precision-weighting of priors over sensory evidence --- predict what happens to cortical prediction error signals under this condition. (c) Connect to the Markov blanket framework in \nameref{sec:unit_0_unit_intro}: identify the Markov blanket of a cortical column in terms of its synaptic inputs (sensory states), outputs (motor/autonomic states), and internal states.
 
 ### Proprioception and Body-Position Feedback
 
 Muscle spindles (detect muscle length and stretch velocity), Golgi tendon organs (detect muscle tension), and joint receptors provide unconscious awareness of body position. Information travels via dorsal column-medial lemniscal pathway (proprioception, fine touch) or spinocerebellar tracts (to cerebellum for motor coordination).
 
-### Musculoskeletal Control and Behaviour
+### Musculoskeletal Control and Behavior
 
-Skeletal movement is a loop, not a one-way command. Alpha motor neurons release acetylcholine at the neuromuscular junction; muscle fibres depolarise, release Ca$^{2+}$ from the sarcoplasmic reticulum, and contract by the sliding-filament mechanism in which myosin heads cyclically bind actin, pull, detach, and reset \citep{huxley1954sliding}. Sensory feedback closes the loop: muscle spindles report length, Golgi tendon organs report tension, cutaneous mechanoreceptors report contact, and vestibular inputs report head acceleration. Reflexes are therefore local control policies embedded in a larger behavioural system, not primitive leftovers.
+Skeletal movement is a loop, not a one-way command. Alpha motor neurons release acetylcholine at the neuromuscular junction; muscle fibers depolarize, release Ca$^{2+}$ from the sarcoplasmic reticulum, and contract by the sliding-filament mechanism in which myosin heads cyclically bind actin, pull, detach, and reset \citep{huxley1954sliding}. Sensory feedback closes the loop: muscle spindles report length, Golgi tendon organs report tension, cutaneous mechanoreceptors report contact, and vestibular inputs report head acceleration. Reflexes are therefore local control policies embedded in a larger behavioral system, not primitive leftovers.
 
-Behavioural biology adds four levels of explanation that should not be collapsed: mechanism (the neural and hormonal circuit), development (how the behaviour changes across life), function (what fitness problem it solves), and evolutionary history (how related species differ) \citep{tinbergen1963aims}. A startle reflex, bird song, courtship display, or human reaching movement can be read through those four levels. The organismal habit is to ask which sensory cue, motor effector, motivational state, developmental window, and ecological payoff are actually supported by the evidence.
+Behavioral biology adds four levels of explanation that should not be collapsed: mechanism (the neural and hormonal circuit), development (how the behavior changes across life), function (what fitness problem it solves), and evolutionary history (how related species differ) \citep{tinbergen1963aims}. A startle reflex, bird song, courtship display, or human reaching movement can be read through those four levels. The organismal habit is to ask which sensory cue, motor effector, motivational state, developmental window, and ecological payoff are actually supported by the evidence.
 
 ---
 
@@ -526,16 +530,17 @@ Modern neuroscience and clinical neurology rely on a portfolio of imaging modali
 
 ### fMRI and the BOLD signal
 
-**Functional MRI (fMRI)** measures the **blood-oxygen-level-dependent (BOLD)** signal, which exploits a magnetic-resonance peculiarity of haemoglobin: oxyhaemoglobin is **diamagnetic**, while deoxyhaemoglobin is **paramagnetic** and distorts the local T2*-weighted MR signal. Active brain regions paradoxically *increase* local oxyhaemoglobin (and decrease deoxyhaemoglobin) within seconds, because the **neurovascular coupling** response over-supplies blood relative to the metabolic demand. The mismatch between blood-flow increase (~50%) and O$_2$ extraction increase (~5–20%) produces the **BOLD signal rise**, peaking ~5 s after activity onset.
+**Functional MRI (fMRI)** measures the **blood-oxygen-level-dependent (BOLD)** signal, which exploits a magnetic-resonance peculiarity of hemoglobin: oxyhaemoglobin is **diamagnetic**, while deoxyhaemoglobin is **paramagnetic** and distorts the local T2*-weighted MR signal. Active brain regions paradoxically *increase* local oxyhaemoglobin (and decrease deoxyhaemoglobin) within seconds, because the **neurovascular coupling** response over-supplies blood relative to the metabolic demand. The mismatch between blood-flow increase (~50%) and O$_2$ extraction increase (~5–20%) produces the **BOLD signal rise**, peaking ~5 s after activity onset.
 
 The neurovascular coupling that drives BOLD is mediated largely by astrocytes (recall the astrocyte tripartite synapse): synaptic glutamate elevates astrocytic Ca$^{2+}$, which releases vasoactive arachidonic acid metabolites (PGE$_2$, EETs) onto local arterioles. The astrocyte-neuron lactate shuttle (ANLS) is the metabolic coupling underlying fMRI BOLD signals.
 
-BOLD does *not* measure spike rates directly; it measures the haemodynamic response to recent local-field-potential activity. fMRI excels at spatial localisation (~1–3 mm) but trades temporal resolution (seconds) — the inverse trade-off compared with EEG.
+BOLD does *not* measure spike rates directly; it measures the hemodynamic response to recent local-field-potential activity. fMRI excels at spatial localization (~1–3 mm) but trades temporal resolution (seconds) — the inverse trade-off compared with EEG.
 
 ### EEG and oscillation bands
 
-**Electroencephalography (EEG)** measures the summed extracellular electrical potentials produced by synchronised cortical pyramidal-neuron currents. EEG has millisecond temporal resolution but limited spatial localisation (~1–2 cm). Brain rhythms occupy distinct frequency bands tied to behavioural states:
+**Electroencephalography (EEG)** measures the summed extracellular electrical potentials produced by synchronized cortical pyramidal-neuron currents. EEG has millisecond temporal resolution but limited spatial localization (~1–2 cm). Brain rhythms occupy distinct frequency bands tied to behavioral states:
 
+: EEG and oscillation bands: Band and Frequency (Hz). {#tbl:unit_IX_nervous_system_eeg_and_oscillation_bands}
 | Band | Frequency (Hz) | Dominant state | Generator / function |
 | ---- | -------------- | -------------- | -------------------- |
 | **Delta (δ)** | 0.5–4 | Deep NREM sleep (N3); coma; infancy | Thalamocortical bursts; slow-wave sleep; memory consolidation |
@@ -544,18 +549,18 @@ BOLD does *not* measure spike rates directly; it measures the haemodynamic respo
 | **Beta (β)** | 13–30 | Awake, focused; anxious; motor tasks | Cortical activation; motor planning (sensorimotor cortex) |
 | **Gamma (γ)** | 30–80+ | Sensory binding; conscious perception | Local cortical inhibitory networks (PV interneurons) |
 
-Clinical EEG is the bedside tool for diagnosing **epilepsy** (interictal spikes; rhythmic ictal patterns), **encephalopathy** (generalised slowing), and **brain death** (electrocerebral silence). MEG (magnetoencephalography) measures the same neuronal currents via tiny magnetic fields with better localisation than EEG.
+Clinical EEG is the bedside tool for diagnosing **epilepsy** (interictal spikes; rhythmic ictal patterns), **encephalopathy** (generalized slowing), and **brain death** (electrocerebral silence). MEG (magnetoencephalography) measures the same neuronal currents via tiny magnetic fields with better localization than EEG.
 
 ### Connectivity, MEG, NIRS, PET
 
 - **Diffusion tensor imaging (DTI):** Maps white-matter tracts by measuring water diffusion anisotropy along axons. Used in stroke, traumatic axonal injury, neurosurgical planning.
 - **Resting-state fMRI:** Identifies networks of co-fluctuating brain regions (default mode network, salience network, frontoparietal control). Disturbances correlate with depression, schizophrenia, Alzheimer's.
-- **PET (positron emission tomography):** Tracer-based metabolic or receptor-binding imaging; FDG-PET shows glucose uptake (epilepsy localisation, dementia patterns); amyloid-PET (florbetapir) and tau-PET enable Alzheimer's disease characterisation.
-- **NIRS (near-infrared spectroscopy):** Optical analogue of fMRI; portable; used in neonatal monitoring and bedside cerebral oximetry.
+- **PET (positron emission tomography):** Tracer-based metabolic or receptor-binding imaging; FDG-PET shows glucose uptake (epilepsy localization, dementia patterns); amyloid-PET (florbetapir) and tau-PET enable Alzheimer's disease characterization.
+- **NIRS (near-infrared spectroscopy):** Optical analog of fMRI; portable; used in neonatal monitoring and bedside cerebral oximetry.
 
 ### Neural Prosthetics and Brain-Computer Interfaces
 
-Brain-computer interfaces (BCIs) and neural prosthetics convert neural activity into an external action or stimulation pattern. The strongest current speech demonstrations are still experimental implants, not consumer mind-reading devices: 2023 intracortical speech neuroprostheses decoded attempted speech into text or avatar control at high performance in single-participant research settings \citep{willett2023speechneuroprosthesis,metzger2023avatarneuroprosthesis}. The scientific claim is therefore bounded: motor and speech cortices contain decodable intention signals, but clinical translation requires stable implants, calibration, infection and tissue-response management, privacy safeguards, and evidence that performance generalises beyond highly supported trials.
+Brain-computer interfaces (BCIs) and neural prosthetics convert neural activity into an external action or stimulation pattern. The strongest current speech demonstrations are still experimental implants, not consumer mind-reading devices: 2023 intracortical speech neuroprostheses decoded attempted speech into text or avatar control at high performance in single-participant research settings \citep{willett2023speechneuroprosthesis,metzger2023avatarneuroprosthesis}. The scientific claim is therefore bounded: motor and speech cortices contain decodable intention signals, but clinical translation requires stable implants, calibration, infection and tissue-response management, privacy safeguards, and evidence that performance generalizes beyond highly supported trials.
 
 ---
 
@@ -565,29 +570,29 @@ Pain is the body's most clinically important sensory modality and serves both pr
 
 ### Nociceptors and transduction
 
-Free nerve endings of A-delta and C fibres express **molecular sensors** that transduce noxious stimuli into membrane depolarisation:
+Free nerve endings of A-delta and C fibers express **molecular sensors** that transduce noxious stimuli into membrane depolarization:
 
 - **TRPV1:** Capsaicin- and heat-activated (>43 °C); also activated by acidic pH and inflammatory lipids. Resiniferatoxin and lidocaine-soaked TRPV1 agonist patches deplete nociceptors of substance P.
 - **TRPM8:** Cold- and menthol-activated (15–25 °C).
 - **TRPA1:** Mustard oil, cinnamaldehyde, environmental irritants; cold-activated in some species.
-- **ASICs (acid-sensing ion channels):** Activated by tissue acidosis (ischaemia, inflammation).
+- **ASICs (acid-sensing ion channels):** Activated by tissue acidosis (ischemia, inflammation).
 - **Nav1.7 (SCN9A):** Voltage-gated Na$^+$ channel essential for nociceptor excitability. *Loss-of-function* mutations cause **congenital insensitivity to pain (CIP)** — patients fail to detect injuries and self-mutilate. *Gain-of-function* mutations cause **inherited erythromelalgia** (severe burning pain). Nav1.7-selective inhibitors are in clinical development as non-opioid analgesics.
 
 ### Ascending pathway — the spinothalamic tract
 
-A-delta and C fibres release glutamate **and substance P** into the dorsal horn of the spinal cord (lamina I, II, V). Second-order neurons cross the midline (anterior white commissure), ascend in the contralateral **spinothalamic tract**, and synapse in the ventral posterolateral (VPL) nucleus of the thalamus. Third-order neurons project to primary somatosensory cortex (S1), insula (interoceptive), and anterior cingulate (affective dimension of pain). Substance P binds NK1 receptors on second-order neurons; the combined glutamate-Substance P transmission distinguishes pain from innocuous somatosensation.
+A-delta and C fibers release glutamate **and substance P** into the dorsal horn of the spinal cord (lamina I, II, V). Second-order neurons cross the midline (anterior white commissure), ascend in the contralateral **spinothalamic tract**, and synapse in the ventral posterolateral (VPL) nucleus of the thalamus. Third-order neurons project to primary somatosensory cortex (S1), insula (interoceptive), and anterior cingulate (affective dimension of pain). Substance P binds NK1 receptors on second-order neurons; the combined glutamate-Substance P transmission distinguishes pain from innocuous somatosensation.
 
 ### Descending Modulation of Pain Signals
 
-The brain actively **suppresses** ongoing pain signalling through descending circuits:
+The brain actively **suppresses** ongoing pain signaling through descending circuits:
 
-- **Periaqueductal grey (PAG)** in the midbrain receives input from cortex, hypothalamus, and amygdala
+- **Periaqueductal gray (PAG)** in the midbrain receives input from cortex, hypothalamus, and amygdala
 - PAG activates the **rostral ventromedial medulla (RVM)**
 - RVM serotonergic neurons project to the **dorsal horn (DH)**, where they release serotonin, noradrenaline, and endogenous opioids onto pain-transmission neurons
 
 This **PAG → RVM → DH** axis is the substrate for **stress-induced analgesia** (hand-on-flame reflex without pain in life-or-death situations) and for the placebo effect. Endogenous opioids (β-endorphin, enkephalin, dynorphin) acting on μ-, δ-, and κ-opioid receptors are released along this axis. **Morphine and other opioid analgesics** exploit the same descending pathway.
 
-**Gate control theory** (Melzack & Wall, 1965): A-β fibres (mechanoreceptors, "innocuous touch") activate inhibitory interneurons in the dorsal horn that "gate" C-fibre transmission — the basis for **rubbing a stubbed toe** to reduce pain, and the rationale for **TENS (transcutaneous electrical nerve stimulation)** therapy.
+**Gate control theory** (Melzack & Wall, 1965): A-β fibers (mechanoreceptors, "innocuous touch") activate inhibitory interneurons in the dorsal horn that "gate" C-fiber transmission — the basis for **rubbing a stubbed toe** to reduce pain, and the rationale for **TENS (transcutaneous electrical nerve stimulation)** therapy.
 
 > **Clinical Connection:** Chronic neuropathic pain (post-herpetic neuralgia, diabetic neuropathy) reflects maladaptive central sensitisation — peripheral nerve injury upregulates Nav1.7/1.8 in nociceptors, expands receptive fields, and reduces descending inhibition. Treatments include gabapentinoids (target α$_2\delta$ subunits of voltage-gated Ca$^{2+}$ channels), SNRIs (boost descending serotonin/noradrenaline), and topical lidocaine (Nav blocker).
 
@@ -620,7 +625,7 @@ Sleep occurs when Process C (low) coincides with Process S (high). Disruption of
 ### Functions of sleep
 
 - **Memory consolidation:** Slow-wave sleep replays hippocampal place-cell sequences; REM consolidates emotional and procedural memory.
-- **Glymphatic clearance:** During NREM, the brain's glymphatic (glial-lymphatic) system expands extracellular space ~60% and accelerates CSF–ISF exchange, clearing amyloid-β, tau, and other metabolites. Chronic sleep deprivation is a recognised risk factor for Alzheimer's disease.
+- **Glymphatic clearance:** During NREM, the brain's glymphatic (glial-lymphatic) system expands extracellular space ~60% and accelerates CSF–ISF exchange, clearing amyloid-β, tau, and other metabolites. Chronic sleep deprivation is a recognized risk factor for Alzheimer's disease.
 - **Synaptic homeostasis (Tononi-Cirelli hypothesis):** Wake-time learning produces net synaptic potentiation; sleep allows broad synaptic downscaling, restoring information capacity.
 - **Metabolic and immune restoration:** GH and prolactin peak during deep sleep; cytokine cycling supports immune surveillance.
 
@@ -633,7 +638,7 @@ Sleep occurs when Process C (low) coincides with Process S (high). Disruption of
 **Hebbian learning:** "Neurons that fire together wire together" \citep{hebb1949}. Correlated pre- and postsynaptic activity strengthens synaptic connections.
 
 **Long-term potentiation (LTP):** Activity-dependent, long-lasting increase in synaptic efficacy. At Schaffer collateral to CA1 synapses in hippocampus:
-1. High-frequency stimulation depolarises postsynaptic membrane enough to relieve Mg$^{2+}$ block of NMDA receptors
+1. High-frequency stimulation depolarizes postsynaptic membrane enough to relieve Mg$^{2+}$ block of NMDA receptors
 2. Ca$^{2+}$ influx through NMDA receptors activates CaMKII
 3. CaMKII phosphorylates AMPA receptors (increased conductance) and promotes AMPA receptor insertion into synapse
 4. Structural plasticity: Dendritic spine enlargement, new spine formation
@@ -707,7 +712,7 @@ $$\frac{13.95}{189.98} \approx 0.0734, \qquad \log_{10}(0.0734) \approx -1.134$$
 $$V_m = 61.5\text{ mV} \times (-1.134) \approx -69.7\text{ mV}$$
 
 **Answer:**
-The resting membrane potential is approximately **$-70\text{ mV}$** — close to $E_K$ ($-89$ mV) but depolarised relative to it because the finite Na$^+$ and Cl$^-$ permeabilities pull $V_m$ toward their (more positive) equilibrium potentials. The K$^+$ term dominates because $P_K$ is the largest permeability.
+The resting membrane potential is approximately **$-70\text{ mV}$** — close to $E_K$ ($-89$ mV) but depolarized relative to it because the finite Na$^+$ and Cl$^-$ permeabilities pull $V_m$ toward their (more positive) equilibrium potentials. The K$^+$ term dominates because $P_K$ is the largest permeability.
 
 **Concept Check:** If $P_{Na}$ rose tenfold (from 0.04 to 0.40) while $P_K$ and $P_{Cl}$ were unchanged, predict the new sign of the numerator-vs-denominator imbalance and whether $V_m$ moves toward $E_{Na}$ or $E_K$.
 
@@ -715,10 +720,10 @@ The resting membrane potential is approximately **$-70\text{ mV}$** — close to
 
 ---
 
-## Current Evidence and Frontier Biology: Nervous System and Neural Signalling
+## Current Evidence and Frontier Biology: Nervous System and Neural Signaling
 
-For **Nervous System and Neural Signalling**, frontier biology belongs inside the evidence logic of
-the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-neural coupling, wearable data, and individualized risk without reducing bodies to simple machines. The core reading question is this: neural explanations should separate circuit architecture, glial support, plasticity, behaviour, and evidence scale.
+For **Nervous System and Neural Signaling**, frontier biology belongs inside the evidence logic of
+the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-neural coupling, wearable data, and individualized risk without reducing bodies to simple machines. The core reading question is this: neural explanations should separate circuit architecture, glial support, plasticity, behavior, and evidence scale.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
   would make the claim stronger or weaker.
@@ -731,19 +736,20 @@ the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-n
   the source closest to the measurement and state what has changed since it was
   published.
 
-Interpret neural data by separating baseline excitability, stimulus perturbation, circuit compensation, and the threshold where signalling becomes pathology.
+Interpret neural data by separating baseline excitability, stimulus perturbation, circuit compensation, and the threshold where signaling becomes pathology.
 
-**Source practice:** For nervous-system claims, distinguish electrophysiology, imaging, circuit perturbation, behavioural evidence, and clinical observation \citep{yao2023mousebrainatlas}.
+**Source practice:** For nervous-system claims, distinguish electrophysiology, imaging, circuit perturbation, behavioral evidence, and clinical observation \citep{yao2023mousebrainatlas}.
 
 ## Key Terms
 
+: Functions of sleep: Term and Definition. {#tbl:unit_IX_nervous_system_functions_of_sleep}
 | Term | Definition |
 | ---- | ---------- |
 | **Resting membrane potential** | Electrochemical potential across neuronal membrane at rest; ~$-70$ mV |
 | **Nernst potential** | Voltage at which net flux of a single ion species = 0 |
 | **GHK equation** | Multi-ion extension of Nernst; weights each ion by membrane permeability |
-| **EPSP** | Excitatory postsynaptic potential: depolarisation toward threshold |
-| **IPSP** | Inhibitory postsynaptic potential: hyperpolarisation or shunting inhibition |
+| **EPSP** | Excitatory postsynaptic potential: depolarization toward threshold |
+| **IPSP** | Inhibitory postsynaptic potential: hyperpolarization or shunting inhibition |
 | **Axon hillock** | Lowest threshold region; highest Nav channel density; AP initiation site |
 | **Tripartite synapse** | Presynaptic + postsynaptic + astrocyte glial process |
 | **Sympathetic NS** | Thoracolumbar outflow; fight or flight; NE on adrenergic receptors |
@@ -764,7 +770,7 @@ Interpret neural data by separating baseline excitability, stimulus perturbation
 
 1. Calculate E$_K$ using the Nernst equation for a neuron with [K$^+$]$_{in}$ = 150 mM and [K$^+$]$_{out}$ = 4 mM at 37 degrees C. How does this compare to the resting potential of $-70$ mV, and what accounts for the difference?
 
-2. Compare the sympathetic and parasympathetic divisions in terms of: (a) spinal cord origin, (b) preganglionic fibre length, (c) neurotransmitters at ganglia and target organs, (d) receptor types, and (e) effects on heart rate.
+2. Compare the sympathetic and parasympathetic divisions in terms of: (a) spinal cord origin, (b) preganglionic fiber length, (c) neurotransmitters at ganglia and target organs, (d) receptor types, and (e) effects on heart rate.
 
 3. A patient presents with non-fluent speech but intact comprehension. Which brain region is likely damaged? What would you expect on MRI? How does this differ from damage to Wernicke's area?
 
@@ -787,7 +793,7 @@ Interpret neural data by separating baseline excitability, stimulus perturbation
 ---
 
 
-## Further Reading and Source Notes: Nervous System and Neural Signalling
+## Further Reading and Source Notes: Nervous System and Neural Signaling
 
 - Sherrington (1906). *The Integrative Action of the Nervous System*. Yale University Press.
 - Hebb (1949). *The Organization of Behavior: A Neuropsychological Theory*. Wiley.
@@ -806,7 +812,7 @@ c = cable_voltage_attenuation(2.0, max_distance_µm=800.0, n_points=20)
 print(round(c.lambda_µm, 2))
 ```
 
-> **Clinical / systems note:** Local anaesthetics shorten the depolarisation segment that electrotonic spread must bridge --- functionally shrinking λ until synaptic input fails to reach threshold.
+> **Clinical / systems note:** Local anaesthetics shorten the depolarization segment that electrotonic spread must bridge --- functionally shrinking λ until synaptic input fails to reach threshold.
 
 ---
 
@@ -814,37 +820,38 @@ print(round(c.lambda_µm, 2))
 
 Until 2005, neuroscience had two experimental tools for probing neural circuits: **electrical stimulation** (fast, but indiscriminate — excites every cell and axon within a ~100 μm radius) and **pharmacological inactivation** (specific, but slow and diffuse). **Optogenetics** — introduced by Boyden, Deisseroth, and colleagues (*Nat. Neurosci.* 2005) — merged genetic specificity with millisecond temporal precision by transplanting light-gated ion channels from microbes into mammalian neurons.
 
-The core tools: **Channelrhodopsin-2 (ChR2)**, a blue-light-gated non-selective cation channel from the green alga *Chlamydomonas reinhardtii*, opens in ~1 ms on 470 nm illumination and drives neurons to fire action potentials with up to 40 Hz fidelity. **Halorhodopsin (NpHR)** from *Natronomonas pharaonis* is a yellow-light-driven inward Cl⁻ pump that hyperpolarises neurons and silences firing. **Archaerhodopsin (Arch)** is a green-light-driven outward H⁺ pump with similar inhibitory effect. Transgene expression via AAV with cell-type-specific [**promoter**](#gl:promoter)s (Thy1 for cortical pyramidal neurons, PV-Cre × ChR2 for parvalbumin interneurons, DAT-Cre for dopamine neurons) delivers the channel primarily to genetically defined populations. Combined with implanted optical fibres (for deep structures) or surface-mounted LEDs (for cortex), the experimenter can turn specific cell types on or off in milliseconds.
+The core tools: **Channelrhodopsin-2 (ChR2)**, a blue-light-gated non-selective cation channel from the green alga *Chlamydomonas reinhardtii*, opens in ~1 ms on 470 nm illumination and drives neurons to fire action potentials with up to 40 Hz fidelity. **Halorhodopsin (NpHR)** from *Natronomonas pharaonis* is a yellow-light-driven inward Cl⁻ pump that hyperpolarises neurons and silences firing. **Archaerhodopsin (Arch)** is a green-light-driven outward H⁺ pump with similar inhibitory effect. Transgene expression via AAV with cell-type-specific [**promoter**](#gl:promoter)s (Thy1 for cortical pyramidal neurons, PV-Cre × ChR2 for parvalbumin interneurons, DAT-Cre for dopamine neurons) delivers the channel primarily to genetically defined populations. Combined with implanted optical fibers (for deep structures) or surface-mounted LEDs (for cortex), the experimenter can turn specific cell types on or off in milliseconds.
 
-Landmark findings enabled by optogenetics: **(1) Memory engrams** — Tonegawa and colleagues (*Nature* 2012, *Science* 2014) showed that optogenetic reactivation of the specific hippocampal neurons active during fear conditioning is sufficient to recall the fear memory in a neutral context, proving engram cells are *the* physical substrate of memory. **(2) Parkinson's disease circuit dissection** — Kravitz et al. (*Nature* 2010) showed that direct-pathway (D1) striatal neuron optogenetic activation rescues motor deficits in parkinsonian mice, while indirect-pathway (D2) activation mimics them, confirming the 1990s pharmacological model. **(3) Basis of deep brain stimulation** — optogenetic DBS mimics in rodents has clarified which STN cell types produce the therapeutic benefit in Parkinson's patients. **Clinical [**translation**](#gl:translation)**: RST-001 (jSAM for retinitis pigmentosa, GenSight Biologics) uses ChrimsonR delivered by AAV to retinal ganglion cells and specialised goggles to convert images to patterned light. A 2021 *Nature Medicine* report documented partial restoration of visual function in a blind patient — optogenetics' first human therapeutic success.
+Landmark findings enabled by optogenetics: **(1) Memory engrams** — Tonegawa and colleagues (*Nature* 2012, *Science* 2014) showed that optogenetic reactivation of the specific hippocampal neurons active during fear conditioning is sufficient to recall the fear memory in a neutral context, proving engram cells are *the* physical substrate of memory. **(2) Parkinson's disease circuit dissection** — Kravitz et al. (*Nature* 2010) showed that direct-pathway (D1) striatal neuron optogenetic activation rescues motor deficits in parkinsonian mice, while indirect-pathway (D2) activation mimics them, confirming the 1990s pharmacological model. **(3) Basis of deep brain stimulation** — optogenetic DBS mimics in rodents has clarified which STN cell types produce the therapeutic benefit in Parkinson's patients. **Clinical [**translation**](#gl:translation)**: RST-001 (jSAM for retinitis pigmentosa, GenSight Biologics) uses ChrimsonR delivered by AAV to retinal ganglion cells and specialized goggles to convert images to patterned light. A 2021 *Nature Medicine* report documented partial restoration of visual function in a blind patient — optogenetics' first human therapeutic success.
 
 ---
 
 ## Summary
 
-- **NS organisation:** CNS (brain + spinal cord) + PNS (somatic + autonomic + enteric). 86 billion neurons; glia provide myelin, BBB, metabolic support, immune surveillance.
+- **NS organization:** CNS (brain + spinal cord) + PNS (somatic + autonomic + enteric). 86 billion neurons; glia provide myelin, BBB, metabolic support, immune surveillance.
 - **Neuron types:** Sensory (afferent, pseudounipolar), motor (efferent, multipolar), interneurons (integration). Axon hillock has highest Nav channel density.
 - **Resting potential:** E$_K$ = $-89$ mV dominates; Na$^+$/K$^+$-ATPase maintains gradients; GHK equation weights by permeabilities; $V_m \approx -70$ mV.
-- **Synaptic integration:** EPSPs (depolarising) and IPSPs (hyperpolarising/shunting) summate temporally and spatially at the axon hillock. Threshold at ~$-55$ mV triggers most-or-none AP.
+- **Synaptic integration:** EPSPs (depolarizing) and IPSPs (hyperpolarising/shunting) summate temporally and spatially at the axon hillock. Threshold at ~$-55$ mV triggers most-or-none AP.
 - **ANS:** Sympathetic (T1-L2, NE, fight-or-flight) vs parasympathetic (craniosacral, ACh, rest-and-digest). Enteric NS: semi-autonomous gut control.
 - **Brain:** Cortex (4 lobes, motor/sensory homunculi, language areas); basal ganglia (direct/indirect pathways, dopamine); thalamus (sensory relay); hippocampus (memory, place cells); hypothalamus (homeostasis); cerebellum (coordination); brainstem (vital functions).
-- **Sensory systems:** Mechanoreceptors (Meissner, Pacinian, Ruffini, Merkel), nociceptors (A-delta, C fibres), proprioceptors; visual pathway (retina to LGN to V1 to dorsal/ventral streams).
+- **Sensory systems:** Mechanoreceptors (Meissner, Pacinian, Ruffini, Merkel), nociceptors (A-delta, C fibers), proprioceptors; visual pathway (retina to LGN to V1 to dorsal/ventral streams).
 - **Neural plasticity:** LTP (NMDA-Ca$^{2+}$-CaMKII-AMPA), LTD, homeostatic scaling, critical periods, synaptic pruning.
 - **Connections:** See \cref{sec:unit_IX_action_potential_synapses} for active propagation, \cref{sec:unit_II_cell_signaling} for second messengers, and \cref{sec:unit_0_active_inference} for active inference themes.
 
 ---
 
-## Companion Source Module: Nervous System and Neural Signalling
+## Companion Source Module: Nervous System and Neural Signaling
 
-**Nervous System and Neural Signalling** should leave a reproducible trail from a biological claim to
+**Nervous System and Neural Signaling** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Nervous System and Neural Signaling. {#tbl:unit_IX_nervous_system_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/neuroscience/neuroscience.py` (`cable_voltage_attenuation`, `hebbian_weight_update`, `action_potential_hh`) | Connect circuit architecture, passive spread, spiking, and plasticity. |
 | `src/visualization/plots.py` (`plot_action_potential`) | Check timing and amplitude of neural signals. |
 | `src/mermaid/biology_diagrams.py` (`nervous_system_reflex_diagram`) | Keep stimulus, integration, motor output, and feedback distinct. |
 
-**Reproducibility check:** specify cell type, circuit level, recording method, and behavioural readout before linking neural mechanism to outcome. **Cross-reference:** use \cref{sec:unit_IX_action_potential_synapses} and \cref{sec:unit_0_active_inference}.
+**Reproducibility check:** specify cell type, circuit level, recording method, and behavioral readout before linking neural mechanism to outcome. **Cross-reference:** use \cref{sec:unit_IX_action_potential_synapses} and \cref{sec:unit_0_active_inference}.

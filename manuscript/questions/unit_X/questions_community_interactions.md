@@ -1,6 +1,5 @@
-# Questions — Community Interactions and Succession {.unnumbered}
+# Questions — Community Interactions and Succession {#sec:q_unit_X_community_interactions .unnumbered}
 
-\label{sec:q_unit_X_community_interactions}
 
 <!-- question-coverage-start -->
 ## Instructor Use and Coverage Notes {.unnumbered}
@@ -40,7 +39,7 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO4; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-4. What is a niche? Distinguish fundamental niche from realised niche.
+4. What is a niche? Distinguish fundamental niche from realized niche.
 
 <!-- SOLUTION
 **Answer (Q4, Recall).** A **niche** is the multidimensional set of environmental conditions and resources a species uses and the role it plays (Hutchinson's *n*-dimensional hypervolume). The **fundamental niche** is the full range of conditions where a species *could* persist ($r \geq 0$) in the absence of competitors. The **realized niche** is the usually smaller portion it actually occupies after biotic interactions (competition, predation) restrict it. See \cref{sec:unit_X_community_interactions}.
@@ -114,21 +113,21 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-14. Trophic cascades: when wolves were reintroduced to Yellowstone, elk herbivory decreased, allowing aspen and willow regeneration, which stabilised stream banks and increased beaver populations. Trace this top-down trophic cascade: wolves → elk behaviour change → vegetation recovery → stream geomorphology change → beaver habitat expansion. Is this primarily a density-mediated or trait-mediated cascade?
+14. Trophic cascades: when wolves were reintroduced to Yellowstone, elk herbivory decreased, allowing aspen and willow regeneration, which stabilized stream banks and increased beaver populations. Trace this top-down trophic cascade: wolves → elk behavior change → vegetation recovery → stream geomorphology change → beaver habitat expansion. Is this primarily a density-mediated or trait-mediated cascade?
 
 <!-- SOLUTION
 **Answer (Q14, Application).** Causal chain: wolves reduce elk numbers **and** keep elk from lingering in risky riparian zones → less browsing on aspen, willow, cottonwood → woody vegetation recovers along streams → root systems and shade stabilize banks and lower water temperature → beaver gain food and dam-building material → beaver ponds further reshape stream geomorphology and create wetland habitat. It is a **mixed cascade**: a strong **trait-mediated** component (elk change *where and how* they forage out of fear) operating alongside a **density-mediated** component (fewer elk overall). See \cref{sec:unit_X_community_interactions}.
 SOLUTION -->
 
 <!-- assess: LO=LO4; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-15. Mycorrhizal networks ("wood-wide web") connect trees underground, potentially allowing nutrient and carbon transfer between individuals. Evaluate the evidence: (a) ¹³C/¹⁵N labelling experiments showing carbon transfer between Douglas fir and paper birch; (b) whether transfer is mutualistic (mother trees provisioning seedlings) or incidental (fungal self-interest); (c) the evidence from Simard's studies and the controversy around the "mother tree" narrative.
+15. Mycorrhizal networks ("wood-wide web") connect trees underground, potentially allowing nutrient and carbon transfer between individuals. Evaluate the evidence: (a) ¹³C/¹⁵N labeling experiments showing carbon transfer between Douglas fir and paper birch; (b) whether transfer is mutualistic (mother trees provisioning seedlings) or incidental (fungal self-interest); (c) the evidence from Simard's studies and the controversy around the "mother tree" narrative.
 
 <!-- SOLUTION
-**Answer (Q15, Application).** (a) Dual-isotope (\textsuperscript{13}C/\textsuperscript{15}N) pulse-labelling shows net carbon moving between Douglas fir and paper birch through shared ectomycorrhizal networks, with direction depending on shading and source–sink gradients. (b) The contested question is *function*: transfer may reflect adaptive 'mother-tree' provisioning of kin seedlings, or it may be incidental flux serving the **fungus's** own carbon economy with trees as competing sinks. (c) Simard's labelling and kin-recognition studies support directed transfer, but critics (e.g., Karst et al.) argue field evidence for fitness-relevant, adaptive provisioning is weak and the 'mother tree' narrative outruns the data — passive diffusion within a fungal network remains a sufficient explanation for much of the signal. See \cref{sec:unit_X_community_interactions}.
+**Answer (Q15, Application).** (a) Dual-isotope (\textsuperscript{13}C/\textsuperscript{15}N) pulse-labeling shows net carbon moving between Douglas fir and paper birch through shared ectomycorrhizal networks, with direction depending on shading and source–sink gradients. (b) The contested question is *function*: transfer may reflect adaptive 'mother-tree' provisioning of kin seedlings, or it may be incidental flux serving the **fungus's** own carbon economy with trees as competing sinks. (c) Simard's labeling and kin-recognition studies support directed transfer, but critics (e.g., Karst et al.) argue field evidence for fitness-relevant, adaptive provisioning is weak and the 'mother tree' narrative outruns the data — passive diffusion within a fungal network remains a sufficient explanation for much of the signal. See \cref{sec:unit_X_community_interactions}.
 SOLUTION -->
 
 <!-- assess: LO=LO5; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-16. Evaluate the intermediate disturbance hypothesis (IDH, Connell 1978): species diversity is maximised at intermediate disturbance frequency/intensity. Evaluate: (a) the mechanism (low disturbance → competitive exclusion; high disturbance → primarily ruderals survive); (b) empirical support from coral reef and tropical forest studies; (c) criticisms (meta-analyses showing weak or inconsistent support for IDH).
+16. Evaluate the intermediate disturbance hypothesis (IDH, Connell 1978): species diversity is maximized at intermediate disturbance frequency/intensity. Evaluate: (a) the mechanism (low disturbance → competitive exclusion; high disturbance → primarily ruderals survive); (b) empirical support from coral reef and tropical forest studies; (c) criticisms (meta-analyses showing weak or inconsistent support for IDH).
 
 <!-- SOLUTION
 **Answer (Q16, Synthesis).** (a) **Mechanism:** at low disturbance, superior competitors monopolize resources and exclude others; at high disturbance, only fast-colonizing ruderals tolerant of frequent destruction survive; at **intermediate** disturbance both competitors and colonizers coexist, peaking diversity. (b) **Support:** Connell's coral-reef and tropical-forest work and many stream-invertebrate studies show humped diversity–disturbance curves. (c) **Criticism:** large meta-analyses (e.g., Mackey & Currie; Fox 2013) find the humped pattern is the minority outcome and IDH conflates several mechanisms; the conclusion would change if diversity responded monotonically once productivity and spatial scale are controlled. IDH is best treated as one possible pattern, not a general law. See \cref{sec:unit_X_community_interactions}.
@@ -207,7 +206,7 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO5; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
-27. Herbivore-plant coevolution has produced elaborate chemical defence systems. The milkweed (*Asclepias*) – monarch butterfly (*Danaus plexippus*) system illustrates escalation: (a) milkweed produces cardenolides (toxic Na⁺/K⁺-ATPase inhibitors); (b) monarch larvae sequester cardenolides for their own defence; (c) monarch Na⁺/K⁺-ATPase has evolved resistance mutations. Trace this coevolutionary arms race.
+27. Herbivore-plant coevolution has produced elaborate chemical defense systems. The milkweed (*Asclepias*) – monarch butterfly (*Danaus plexippus*) system illustrates escalation: (a) milkweed produces cardenolides (toxic Na⁺/K⁺-ATPase inhibitors); (b) monarch larvae sequester cardenolides for their own defense; (c) monarch Na⁺/K⁺-ATPase has evolved resistance mutations. Trace this coevolutionary arms race.
 
 <!-- SOLUTION
 **Answer (Q27, Application).** Coevolutionary arms race (reciprocal selection): (1) milkweed evolves **cardenolides**, cardiac glycosides that block the Na\textsuperscript{+}/K\textsuperscript{+}-ATPase of herbivores; (2) this selects monarch larvae that **tolerate and sequester** the toxins, gaining their own chemical defense against birds (aposematism); (3) sequestration is enabled by **target-site insensitivity** — amino-acid substitutions in the monarch's Na\textsuperscript{+}/K\textsuperscript{+}-ATPase that confer resistance; (4) milkweeds with higher or novel cardenolide profiles are then favored, escalating the cycle. The result is reciprocal adaptation and a diffuse coevolutionary escalation between defense and counter-defense. See \cref{sec:unit_X_community_interactions}.
@@ -228,7 +227,7 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO8; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
-30. Parasitoids (e.g., parasitoid wasps) lay eggs inside or on host insects; the larva consumes the host from inside. Compare parasitoid-host dynamics to classical predator-prey dynamics: (a) why parasitoid search efficiency matters (Nicholson-Bailey model); (b) why parasitoid-host systems tend toward unstable oscillations in simple models; (c) what stabilising mechanisms exist in nature (spatial refugia, host immunity).
+30. Parasitoids (e.g., parasitoid wasps) lay eggs inside or on host insects; the larva consumes the host from inside. Compare parasitoid-host dynamics to classical predator-prey dynamics: (a) why parasitoid search efficiency matters (Nicholson-Bailey model); (b) why parasitoid-host systems tend toward unstable oscillations in simple models; (c) what stabilizing mechanisms exist in nature (spatial refugia, host immunity).
 
 <!-- SOLUTION
 **Answer (Q30, Application).** (a) In the **Nicholson–Bailey** model, the fraction of hosts escaping parasitism depends on parasitoid **search efficiency** (attack rate $a$) and parasitoid density; each parasitized host yields the next parasitoid generation, tightly coupling the two. (b) Because reproduction is discrete and perfectly density-dependent with a built-in time lag (one host generation), the simple model is **inherently unstable** — it produces diverging oscillations leading to extinction of one or both. (c) Real systems persist via **stabilizing mechanisms**: spatial heterogeneity and host **refugia** (a protected fraction of hosts), aggregated parasitoid attack, host density dependence, host immune defenses, and parasitoid interference — all of which add negative feedback that damps the oscillations. See \cref{sec:unit_X_community_interactions}.

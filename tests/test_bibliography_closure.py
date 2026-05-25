@@ -1,7 +1,7 @@
 """Invariant tests for the bibliography.
 
 Asserts:
-* Every ``\\citep{key}`` / ``\\citet{key}`` in the manuscript resolves to a
+* Every documented natbib citation command in the manuscript resolves to a
   ``@entry{key, …}`` in ``manuscript/references.bib`` (no dangling refs).
 * Every entry in ``references.bib`` is cited at least once (no orphans).
 * Citation ids contain no mid-word artifacts (e.g. ``word\\citep{…}suffix``).
@@ -9,24 +9,21 @@ Asserts:
 
 from __future__ import annotations
 
-import re
 from pathlib import Path
+import re
 
 import pytest
+
+from biology.citations import bib_keys, citation_keys, iter_midword_citations
 
 
 MANUSCRIPT = Path(__file__).resolve().parent.parent / "manuscript"
 BIB = MANUSCRIPT / "references.bib"
 
 
-_RE_BIB_KEY = re.compile(r"@\w+\{([^,\s]+),")
-_RE_CITE = re.compile(r"\\cite[pt]?\*?\{([^}]+)\}")
-_RE_MIDWORD = re.compile(r"[A-Za-z]\\cite[pt]?\*?\{[^}]+\}[A-Za-z]")
-
-
 @pytest.fixture(scope="module")
 def defined_keys() -> set[str]:
-    return set(_RE_BIB_KEY.findall(BIB.read_text(encoding="utf-8")))
+    return bib_keys(BIB.read_text(encoding="utf-8"))
 
 
 @pytest.fixture(scope="module")
@@ -35,9 +32,7 @@ def cited_keys() -> set[str]:
     for md in MANUSCRIPT.rglob("*.md"):
         if md.name in {"README.md", "AGENTS.md"}:
             continue
-        for match in _RE_CITE.finditer(md.read_text(encoding="utf-8")):
-            for key in match.group(1).split(","):
-                cited.add(key.strip())
+        cited.update(citation_keys(md.read_text(encoding="utf-8")))
     return cited
 
 
@@ -60,7 +55,7 @@ def test_no_midword_citation_artifacts() -> None:
         if md.name in {"README.md", "AGENTS.md"}:
             continue
         text = md.read_text(encoding="utf-8")
-        for match in _RE_MIDWORD.finditer(text):
+        for match in iter_midword_citations(text):
             # Allow ``\citep{…}'s`` (apostrophe-s), which is fine grammar.
             excerpt = match.group(0)
             if excerpt.endswith(r"'s"):
@@ -71,4 +66,42 @@ def test_no_midword_citation_artifacts() -> None:
 
 def test_all_cite_commands_resolve(cited_keys) -> None:
     """Sanity: cited_keys is non-empty and citations use natbib commands."""
-    assert cited_keys, "No \\citep/\\citet commands found — did citation style change?"
+    assert cited_keys, "No natbib citation commands found — did citation style change?"
+
+
+def test_documented_natbib_optional_arguments_are_parsed() -> None:
+    """The shared parser must match documented natbib examples."""
+
+    text = (
+        r"\citet[p.~12]{watson1953} and \citealp{hodgkin1952, huxley1952} "
+        r"plus \citeyear{mendel1866}."
+    )
+    assert citation_keys(text) == {"watson1953", "hodgkin1952", "huxley1952", "mendel1866"}
+
+
+def test_bib_entries_have_required_metadata() -> None:
+    """Every BibTeX entry carries the fields needed for a usable reference list."""
+
+    bib = BIB.read_text(encoding="utf-8")
+    missing: list[str] = []
+    for match in re.finditer(r"@(?P<kind>\w+)\s*\{(?P<key>[^,]+),(?P<body>.*?)(?=\n@|\Z)", bib, re.DOTALL):
+        kind = match.group("kind").lower()
+        key = match.group("key")
+        body = match.group("body")
+
+        def has_field(field: str) -> bool:
+            return re.search(rf"\b{field}\s*=", body, flags=re.IGNORECASE) is not None
+
+        for field in ("title", "year"):
+            if not has_field(field):
+                missing.append(f"{key}: missing {field}")
+        if kind == "article" and not has_field("journal"):
+            missing.append(f"{key}: article missing journal")
+        if kind in {"article", "book", "incollection", "inproceedings"} and not (
+            has_field("author") or has_field("editor")
+        ):
+            missing.append(f"{key}: missing author/editor")
+        if kind == "misc" and not (has_field("author") or has_field("organization") or has_field("institution")):
+            missing.append(f"{key}: misc missing responsible body")
+
+    assert not missing

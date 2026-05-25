@@ -6,7 +6,11 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from biology.citations import strip_citations
+from biology.maintenance.models import PROJECT
 from textbook_io import write_text_atomic
+
+MANUSCRIPT = PROJECT / "manuscript"
 
 MERMAID_BLOCK_RE = re.compile(
     r"^```mermaid\s*\n(?P<source>.*?)^```\s*$",
@@ -30,8 +34,8 @@ WEAK_METADATA_FRAGMENTS: tuple[str, ...] = (
     "gene regulatory network showing interactions between transcription factors and target genes",
     "metabolic network diagram showing biochemical pathways and their connections",
     "state diagram showing biological states and transitions",
-    "mermaid directed graph summarising a conceptual relationship described in the surrounding text",
-    "mermaid sequence diagram summarising a conceptual relationship described in the surrounding text",
+    "mermaid directed graph summarizing a conceptual relationship described in the surrounding text",
+    "mermaid sequence diagram summarizing a conceptual relationship described in the surrounding text",
     "phylogenetic tree showing evolutionary relationships among taxa",
     "food web network showing trophic interactions",
     "flowchart of the global carbon cycle showing major carbon fluxes between reservoirs",
@@ -92,14 +96,14 @@ def _plain_text(markdown: str) -> str:
     """Return readable text from a one-line caption or Mermaid label."""
     text = MARKDOWN_LINK_RE.sub(lambda match: match.group(1), markdown)
     text = re.sub(r"<[^>]+>", " ", text)
-    text = re.sub(r"\\cite[tp]?\{[^}]*$", "", text)
+    text = strip_citations(text, strip_incomplete_tail=True)
     text = re.sub(r"\*\*([^*]+)\*\*", r"\1", text)
     text = re.sub(r"`([^`]+)`", r"\1", text)
     text = text.replace("<br/>", " ").replace(r"\n", " ")
     text = text.replace("$", "")
     text = re.sub(r"\\(?:[Cc]ref|[Nn]ameref|ref)\{[^}]+\}", "the referenced section", text)
     text = re.sub(r"\bamerefsec:[A-Za-z0-9_:-]+\b", "the referenced section", text)
-    text = re.sub(r"\\cite[tp]?\{[^}]+\}", "", text)
+    text = strip_citations(text)
     text = re.sub(r"\\[a-zA-Z]+", "", text)
     text = text.replace("{", "").replace("}", "")
     text = re.sub(r"\b[A-Za-z]+[0-9]{4}\b", "", text)
@@ -217,8 +221,8 @@ def _caption_from_source(source: str, text_before: str) -> str:
             "components, and outcomes."
         )
     if examples:
-        return f"Diagram for {heading}: {examples} summarize the main labelled relationships."
-    return f"Diagram for {heading}: labelled elements summarize the process described in the surrounding text."
+        return f"Diagram for {heading}: {examples} summarize the main labeled relationships."
+    return f"Diagram for {heading}: labeled elements summarize the process described in the surrounding text."
 
 
 def _alt_from_caption(caption: str, source: str, text_before: str) -> str:
@@ -334,4 +338,3 @@ def normalize_all(*, manuscript: Path, write: bool) -> list[FileResult]:
         if path.name not in {"AGENTS.md", "README.md"}
     ]
     return [normalize_file(path, write=write) for path in files]
-

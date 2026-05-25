@@ -2,18 +2,11 @@
 
 from __future__ import annotations
 
-import importlib
-import importlib.util
 import re
-import sys
-from dataclasses import dataclass
-from pathlib import Path
-from types import ModuleType
 from typing import Any, Mapping
 
-from biology.curriculum_sync.paths import MANUSCRIPT, SRC, TEMPLATE_ROOT
+from biology.crossref.helpers import section_reference
 from biology.curriculum_sync.sync_blocks import _framework_line, _join
-from textbook_io import write_text_atomic
 
 
 CHAPTER_MARKER = ("<!-- curriculum-scaffold-start -->", "<!-- curriculum-scaffold-end -->")
@@ -49,9 +42,7 @@ def build_appendix(
     meta_by_id = {record.chapter_id: record for record in chapter_meta.CHAPTERS}
     chapters_by_id = book_toc.chapters_by_id
     lines = [
-        f"# {book_toc.references_by_file['appendix_curriculum_map.md'].title} {{.unnumbered}}",
-        "",
-        "\\label{sec:appendix_curriculum_map}",
+        f"# {book_toc.references_by_file['appendix_curriculum_map.md'].title} {{#sec:appendix_curriculum_map .unnumbered}}",
         "",
         "This appendix is generated from `src/biology/curriculum.py` and",
         "`src/biology/alignment.py`. It links each chapter to its companion lab,",
@@ -73,9 +64,9 @@ def build_appendix(
             [
                 f"### {heading} {{.unnumbered}}",
                 "",
-                f"- **Chapter:** \\cref{{sec:{record.chapter_id}}}.",
-                f"- **Lab:** \\cref{{{record.lab_label}}}.",
-                f"- **Question bank:** \\cref{{{record.question_label}}}.",
+                f"- **Chapter:** {section_reference(f'sec:{record.chapter_id}')}.",
+                f"- **Lab:** {section_reference(record.lab_label)}.",
+                f"- **Question bank:** {section_reference(record.question_label)}.",
                 f"- **Big idea:** {record.big_idea}",
                 f"- **Core concepts:** {', '.join(record.core_concepts)}.",
                 f"- **Framework alignment:** {_framework_line(alignment)}",
@@ -97,9 +88,7 @@ def build_instructor_appendix(
     meta_by_id = {record.chapter_id: record for record in chapter_meta.CHAPTERS}
     chapters_by_id = book_toc.chapters_by_id
     lines = [
-        f"# {book_toc.references_by_file['appendix_instructor_orchestration.md'].title} {{.unnumbered}}",
-        "",
-        "\\label{sec:appendix_instructor_orchestration}",
+        f"# {book_toc.references_by_file['appendix_instructor_orchestration.md'].title} {{#sec:appendix_instructor_orchestration .unnumbered}}",
         "",
         "This appendix is generated from the same curriculum and alignment records",
         "that populate chapter Study Blueprints. It gives instructors a compact",
@@ -139,8 +128,8 @@ def build_instructor_appendix(
                 f"- **Instructor move:** {alignment.instructor_move}",
                 f"- **Formative check:** {alignment.formative_check}",
                 f"- **Summative product:** {alignment.summative_product}",
-                f"- **Lab/question pair:** \\cref{{{record.lab_label}}}; "
-                f"\\cref{{{record.question_label}}}.",
+                f"- **Lab/question pair:** {section_reference(record.lab_label)}; "
+                f"{section_reference(record.question_label)}.",
                 f"- **External alignment:** {_framework_line(alignment)}",
                 "",
             ]
@@ -197,7 +186,7 @@ def build_suggested_reading_paths(book_toc: Any) -> str:
             f"{_unit_ref(book_toc, 'unit_I')}; {_unit_ref(book_toc, 'unit_II')}; "
             f"{_unit_ref(book_toc, 'unit_III')}; selected genetics/evolution chapters; "
             f"{_unit_ref(book_toc, 'unit_X')} | "
-            "Skim the systems orientation; prioritise metabolism and genetics core narratives. |"
+            "Skim the systems orientation; prioritize metabolism and genetics core narratives. |"
         ),
         (
             "| **Pre-health / majors** | "
@@ -211,7 +200,7 @@ def build_suggested_reading_paths(book_toc: Any) -> str:
             f"{_chapter_ref(book_toc, 'unit_III_photosynthesis')}; "
             f"{_unit_ref(book_toc, 'unit_VI')}; {_unit_ref(book_toc, 'unit_VII')}; "
             f"{_unit_ref(book_toc, 'unit_X')} | "
-            "Emphasise population models, biogeochemistry, conservation metrics in `ecology.py`. |"
+            "Emphasize population models, biogeochemistry, conservation metrics in `ecology.py`. |"
         ),
         (
             "| **Computation-first** | "
@@ -240,7 +229,7 @@ def build_textbook_concept_map(book_toc: Any) -> str:
     summaries = {
         "unit_0": "feedback, emergence,<br/>active inference, history",
         "unit_I": "atoms, bonds, water,<br/>macromolecules, enzymes",
-        "unit_II": "organelles, membranes,<br/>signalling, transport",
+        "unit_II": "organelles, membranes,<br/>signaling, transport",
         "unit_III": "respiration, photosynthesis,<br/>ATP, chemiosmosis",
         "unit_IV": "DNA, transcription,<br/>translation, genomics",
         "unit_V": "Mendelian, chromosomal,<br/>population genetics",

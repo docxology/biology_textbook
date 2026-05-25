@@ -1,6 +1,5 @@
-# Lab — Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
+# Lab — Ecosystem Ecology and Biogeochemical Cycles {#sec:lab_unit_X_ecosystem_ecology .unnumbered}
 
-\label{sec:lab_unit_X_ecosystem_ecology}
 
 ## Learning Objectives {.unnumbered}
 
@@ -33,12 +32,13 @@
 
 ## Lab Context: Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
 
-Ecosystems are characterised by flows of energy (one-way, lost as heat at each step) and cycles of matter (recycled through biogeochemical pathways). **Gross primary productivity (GPP)** is total photosynthesis; **net primary productivity (NPP) = GPP − respiration**. The nitrogen cycle includes fixation (N₂ → NH₃ by nitrogenase), nitrification (NH₃ → NO₂⁻ → NO₃⁻ by *Nitrosomonas*, *Nitrobacter*), denitrification (NO₃⁻ → N₂ by anaerobic bacteria), and assimilation (NH₄⁺/NO₃⁻ → amino acids by plants).
+Ecosystems are characterized by flows of energy (one-way, lost as heat at each step) and cycles of matter (recycled through biogeochemical pathways). **Gross primary productivity (GPP)** is total photosynthesis; **net primary productivity (NPP) = GPP − respiration**. The nitrogen cycle includes fixation (N₂ → NH₃ by nitrogenase), nitrification (NH₃ → NO₂⁻ → NO₃⁻ by *Nitrosomonas*, *Nitrobacter*), denitrification (NO₃⁻ → N₂ by anaerobic bacteria), and assimilation (NH₄⁺/NO₃⁻ → amino acids by plants).
 
 Termites and ants add a useful animal-mediated layer to this cycle picture. Termite gut symbionts transform lignocellulose into usable carbon compounds, while termite mounds and ant nests move soil, alter porosity, concentrate organic matter, and change local water and nutrient dynamics \citep{brune2014symbiotic,evans2011antsTermites}. In this lab, treat nests and mounds as ecosystem-engineering structures: ask which flux or stock changes, not merely whether the insect is "beneficial."
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_X_ecosystem_ecology_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Ecosystem Ecology and Biogeochemical Cycles: conservation-assessment source card: index versus census, assessment version, value judgment, and monitoring trigger | 1 |
@@ -78,6 +78,7 @@ Termites and ants add a useful animal-mediated layer to this cycle picture. Term
 
 ## Data Recording {.unnumbered}
 
+: Alignment and Rubric Map: Bottle type and Initial DO (mg/L). {#tbl:unit_X_ecosystem_ecology_alignment_and_rubric_map_2}
 | Bottle type | Initial DO (mg/L) | Final DO (mg/L) | Change |
 | ----------- | ----------------- | --------------- | ------ |
 | Dark | | | |
@@ -108,6 +109,7 @@ Eutrophication indicators (day 3-5): chlorophyll-a change: ___; DO change: ___; 
 Before answering the analysis questions, annotate the paper dataset for
 **Ecosystem Ecology and Biogeochemical Cycles** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_X_ecosystem_ecology_alignment_and_rubric_map_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -165,7 +167,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -184,5 +186,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_X_ecosystem_ecology}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

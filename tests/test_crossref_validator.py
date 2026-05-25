@@ -111,8 +111,9 @@ def test_all_textual_equation_labels_are_collected(report) -> None:
 
 
 def test_chapter_and_lab_section_labels_present() -> None:
-    """Every chapter, lab, and question file has ``\\label{sec:…}``."""
+    """Chapters use post-H1 ``\\label{sec:…}``; labs/questions use H1 ``{#sec:…}``."""
     manuscript = Path(__file__).resolve().parent.parent / "manuscript"
+    h1_identifier = re.compile(r"^#\s+.*\{#sec:[^}\s]+")
     missing: list[Path] = []
     for subtree in ("unit_I", "unit_II", "unit_III", "unit_IV", "unit_V",
                      "unit_VI", "unit_VII", "unit_VIII", "unit_IX", "unit_X",
@@ -124,10 +125,14 @@ def test_chapter_and_lab_section_labels_present() -> None:
             if md.name in {"README.md", "AGENTS.md", "unit_intro.md"}:
                 continue
             text = md.read_text(encoding="utf-8")
-            if r"\label{sec:" not in text:
+            if subtree in {"labs", "questions"}:
+                first_h1 = next((line for line in text.splitlines() if line.startswith("# ")), "")
+                if not h1_identifier.match(first_h1):
+                    missing.append(md)
+            elif r"\label{sec:" not in text:
                 missing.append(md)
     assert not missing, (
-        f"{len(missing)} content files without \\label{{sec:…}}: "
+        f"{len(missing)} content files without a section label: "
         + ", ".join(str(p.relative_to(manuscript)) for p in missing[:5])
     )
 

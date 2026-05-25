@@ -1,7 +1,6 @@
-# Unit X — Ecology: Introduction {.unnumbered}
+# Unit X — Ecology: Introduction {#sec:unit_X_unit_intro .unnumbered}
 
 
-\label{sec:unit_X_unit_intro}
 ## Why This Unit Matters {.unnumbered}
 
 In 1966, ecologist Robert Paine removed most sea stars (*Pisaster ochraceus*) from a stretch of rocky
@@ -32,13 +31,13 @@ This unit will give you the quantitative tools to understand why, and to partici
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| Alfred Lotka & Vito Volterra | 1925–1926 | *Elements of Physical Biology*; *Mem. Accad. Lincei* | Lotka-Volterra predator-prey ODEs | First quantitative model of species interactions; linked ecology to mathematics |
-| Eugene Odum | 1953 | *Fundamentals of Ecology* | Ecosystem as unit of ecology with energy flow | Introduced energy-flow and trophic-level thinking into mainstream ecology |
-| Robert Paine | 1966 | *American Naturalist* | Keystone species concept (sea star experiment) | Showed top-down regulation; single species can structure entire communities |
-| Robert MacArthur & E.O. Wilson | 1967 | *The Theory of Island Biogeography* | Island biogeography: $S = cA^z$ | Connected species richness to area and isolation; foundational for conservation |
-| Paul Ehrlich & Peter Raven | 1964 | *Evolution* | Coevolution between plants and butterflies | Launched chemical ecology and co-evolutionary theory |
-| Intergovernmental Science-Policy Platform on Biodiversity (IPBES) | 2019 | IPBES Global Assessment | 1 million species threatened with extinction | Quantified the biodiversity crisis; policy-science interface |
-| Ripple et al. | 2014 | *Science* | Trophic cascades from large predators | Wolves reintroduced to Yellowstone reshaped rivers via trophic cascade |
+| Alfred Lotka & Vito Volterra | 1925–1926 | \citep{lotka1925,volterra1926} | Lotka-Volterra predator-prey ODEs | First quantitative model of species interactions; linked ecology to mathematics |
+| Eugene Odum | 1953 | \citep{odum1953} | Ecosystem as unit of ecology with energy flow | Introduced energy-flow and trophic-level thinking into mainstream ecology |
+| Robert Paine | 1966 | \citep{paine1966} | Keystone species concept (sea star experiment) | Showed top-down regulation; single species can structure entire communities |
+| Robert MacArthur & E.O. Wilson | 1967 | \citep{macarthur1967} | Island biogeography: $S = cA^z$ | Connected species richness to area and isolation; foundational for conservation |
+| Paul Ehrlich & Peter Raven | 1964 | \citep{ehrlich1964} | Coevolution between plants and butterflies | Launched chemical ecology and co-evolutionary theory |
+| Intergovernmental Science-Policy Platform on Biodiversity (IPBES) | 2019 | \citep{ipbes2019global} | 1 million species threatened with extinction | Quantified the biodiversity crisis; policy-science interface |
+| Ripple et al. | 2014 | \citep{ripple2014} | Trophic cascades from large predators | Wolves reintroduced to Yellowstone reshaped rivers via trophic cascade |
 
 ---
 
@@ -104,7 +103,7 @@ paper-based lab decision.
 - **Climate change impacts** on biomes connect to \nameref{sec:unit_VIII_unit_intro} (plant responses to drought, CO₂ enrichment) and \nameref{sec:unit_VI_unit_intro} (evolution of species under selection by climate).
 - **Conservation biology** uses evolutionary genetics (\nameref{sec:unit_VI_unit_intro}: effective population size, genetic rescue) and macroecology (island biogeography, keystone species).
 
-> **Key vocabulary introduced here:** intrinsic rate of increase ($r$), carrying capacity ($K$), logistic growth, density dependence, keystone species, trophic cascade, competitive exclusion, fundamental vs. realised niche, coevolution, mutualism, parasitism, primary productivity (GPP, NPP), trophic efficiency, biogeochemical cycle, biome, species-area relationship, island biogeography, minimum viable population (MVP), extinction debt.
+> **Key vocabulary introduced here:** intrinsic rate of increase ($r$), carrying capacity ($K$), logistic growth, density dependence, keystone species, trophic cascade, competitive exclusion, fundamental vs. realized niche, coevolution, mutualism, parasitism, primary productivity (GPP, NPP), trophic efficiency, biogeochemical cycle, biome, species-area relationship, island biogeography, minimum viable population (MVP), extinction debt.
 
 
 ## Computational Toolbox — Unit X {.unnumbered}

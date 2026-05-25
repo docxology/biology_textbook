@@ -15,14 +15,14 @@ uv run python -m pytest tests/ --cov=src --cov-fail-under=90
 
 ## Files
 
-**31** `test_*.py` files + `conftest.py` — see [../docs/testing_guide.md](../docs/testing_guide.md#test-organisation) for the same split.
+**40** `test_*.py` files + `conftest.py` — see [../docs/testing_guide.md](../docs/testing_guide.md#test-organization) for the same split.
 
 ### Domain tests (6 modules + conftest)
 
 | Module | Scope |
 | ------ | ----- |
 | `conftest.py` | `MPLBACKEND=Agg`; `sys.path` for `src/` and template root |
-| `test_cell_biology.py` | Membrane biophysics, organelles, signalling helpers |
+| `test_cell_biology.py` | Membrane biophysics, organelles, signaling helpers |
 | `test_genetics.py` | DNA/RNA, crosses, population genetics |
 | `test_ecology_evolution_physiology_biochemistry.py` | Multi-domain models |
 | `test_microbiology_botany_neuroscience.py` | Growth, plants, neurons |
@@ -36,7 +36,7 @@ uv run python -m pytest tests/ --cov=src --cov-fail-under=90
 | `test_atomic_io.py` | Atomic write/replace helpers used by maintenance scripts |
 | `test_audit_v3_and_crossref_gate.py` | Generic-answer v3 and malformed `\cref` detector regressions |
 | `test_build_invariants.py` | End-to-end structural locks: every chapter has `\label{sec:…}` and a metadata badge; every lab/question `\cref`-links to its parent; every registered figure generator is referenced; Course Planning Grid populated |
-| `test_bibliography_closure.py` | `{cited} == {defined}` in `references.bib` — no orphans, no dangling, no mid-word citation artefacts |
+| `test_bibliography_closure.py` | `{cited} == {defined}` in `references.bib` — no orphans, no dangling, no mid-word citation artifacts |
 | `test_chapter_metadata.py` | Every `config.yaml` chapter has a `ChapterMeta` record; prerequisites resolve; difficulty ∈ {1, 2, 3}; chapter numbers contiguous; `by_id` / `by_unit` lookups |
 | `test_curriculum_metadata.py` | Every `config.yaml` chapter has a `CurriculumRecord`; lab/question paths exist and align to curriculum metadata |
 | `test_current_claims_ledger.py` | `manuscript/current_claims.yaml` has source tiers, checked dates, refresh triggers, anchors, and stale-phrase coverage |
@@ -62,7 +62,7 @@ uv run python -m pytest tests/ --cov=src --cov-fail-under=90
 ## Conventions
 
 - Add tests next to the domain they exercise; use `test_coverage_gap.py` only for scattered edge cases.
-- Do not import `unittest.mock` for behaviour verification.
+- Do not import `unittest.mock` for behavior verification.
 - Dynamically loading modules outside the `biology` package (e.g. `crossref_validator`, `chapter_metadata` for tests): register in `sys.modules` before `spec.loader.exec_module(…)` so `@dataclass` can resolve its module context.
 
 See [../docs/testing_guide.md](../docs/testing_guide.md) and [../docs/composable_authoring.md](../docs/composable_authoring.md) (when to run invariant tests after manuscript changes).

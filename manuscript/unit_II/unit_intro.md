@@ -1,7 +1,6 @@
-# Unit II — The Cell: Introduction {.unnumbered}
+# Unit II — The Cell: Introduction {#sec:unit_II_unit_intro .unnumbered}
 
 
-\label{sec:unit_II_unit_intro}
 ## Why This Unit Matters {.unnumbered}
 
 In 1665, Robert Hooke pressed a thin sliver of cork against the lens of a compound microscope he had
@@ -31,13 +30,13 @@ minimal cell, which asks: what is the irreducible instruction set for life?
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| Robert Hooke | 1665 | *Micrographia* | "Cells" in cork | Named and conceptualised the cellular unit; launched microscopy as a biological tool |
-| Schleiden & Schwann | 1838–39 | Multiple | Cell theory (plants + animals) | First two postulates: most organisms are composed of cells |
-| Rudolf Virchow | 1855 | *Archiv f. path. Anat.* | *Omnis cellula e cellula* | Third postulate: cells arise primarily from pre-existing cells; foundational to cancer biology |
-| George Palade | 1953 | *J. Histochem. Cytochem.* | Ribosome discovery via electron microscopy | Identified the protein synthesis machinery; Nobel Prize, 1974 |
-| Peter Mitchell | 1961 | *Nature* | Chemiosmosis — proton-gradient-driven ATP synthesis | Explained mitochondrial ATP production; later became central to \nameref{sec:unit_III_unit_intro} |
-| Lynn Margulis | 1967 | *J. Theor. Biol.* | Formal endosymbiotic theory | Proposed mitochondria and chloroplasts are descended from engulfed bacteria |
-| J. Craig Venter et al. | 2016 | *Science* | JCVI-syn3.0: minimal synthetic cell (473 genes) | Defined the lower boundary of self-replicating cellular life |
+| Robert Hooke | 1665 | \citep{hooke1665} | "Cells" in cork | Named and conceptualised the cellular unit; launched microscopy as a biological tool |
+| Schleiden & Schwann | 1838–39 | \citep{schleiden1838,schwann1839} | Cell theory (plants + animals) | First two postulates: most organisms are composed of cells |
+| Rudolf Virchow | 1855 | \citep{virchow1855} | *Omnis cellula e cellula* | Third postulate: cells arise primarily from pre-existing cells; foundational to cancer biology |
+| George Palade | 1953 | \citep{palade1955small} | Ribosome discovery via electron microscopy | Identified the protein synthesis machinery; Nobel Prize, 1974 |
+| Peter Mitchell | 1961 | \citep{mitchell1961} | Chemiosmosis — proton-gradient-driven ATP synthesis | Explained mitochondrial ATP production; later became central to \nameref{sec:unit_III_unit_intro} |
+| Lynn Margulis | 1967 | \citep{margulis1967} | Formal endosymbiotic theory | Proposed mitochondria and chloroplasts are descended from engulfed bacteria |
+| J. Craig Venter et al. | 2016 | \citep{venter2016syn3} | JCVI-syn3.0: minimal synthetic cell (473 genes) | Defined the lower boundary of self-replicating cellular life |
 
 ---
 
@@ -58,7 +57,7 @@ graph TD
     EUK --> LYS["♻️ Lysosomes<br/>(pH 4.5;<br/>autophagy)"]
 
     EUK --> MEMB["🌊 Plasma Membrane<br/>(fluid-mosaic;<br/>selective permeability)"]
-    MEMB --> SIG["📡 Cell Signalling<br/>(GPCR, RTK,<br/>second messengers)"]
+    MEMB --> SIG["📡 Cell Signaling<br/>(GPCR, RTK,<br/>second messengers)"]
     MEMB --> TRP["🚪 Membrane Transport<br/>(channels, pumps,<br/>carriers)"]
 
     SIZE["📐 Cell Size Constraints<br/>(A/V = 3/r;<br/>diffusion t = x²/2D)"] --> PRO
@@ -69,9 +68,9 @@ graph TD
     style MEMB fill:#2980b9,color:#fff
     style SIG fill:#27ae60,color:#fff
 ```
-<!-- alt: Graph showing cell concept map — purple = foundational theory; red = energy-related organelles anticipating energy metabolism; blue = membrane; green = signalling. -->
+<!-- alt: Graph showing cell concept map — purple = foundational theory; red = energy-related organelles anticipating energy metabolism; blue = membrane; green = signaling. -->
 
-*Cell concept map — purple = foundational theory; red = energy-related organelles anticipating energy metabolism; blue = membrane; green = signalling.*
+*Cell concept map — purple = foundational theory; red = energy-related organelles anticipating energy metabolism; blue = membrane; green = signaling.*
 
 ---
 
@@ -90,14 +89,14 @@ paper-based lab decision.
 | **5** | Cell Theory and Cell Types | What is a cell, and how did cell theory transform biology? | $A/V = 3/r$; $t = x^2/2D$ |
 | **6** | Cell Structure and Organelles | How do eukaryotic organelles achieve compartmentalised function? | Nernst equation (membrane potential) |
 | **7** | Membrane Transport | How do cells control passage across membranes? | Fick's First Law: $J = -D(dC/dx)$ |
-| **8** | Cell Signalling | How do extracellular signals change intracellular behaviour? | Hill equation (co-operativity); cAMP second messenger models |
+| **8** | Cell Signaling | How do extracellular signals change intracellular behavior? | Hill equation (co-operativity); cAMP second messenger models |
 
 ---
 
 ## Connections Across the Textbook {.unnumbered}
 
 - **Membranes and transport** (\cref{sec:unit_II_membrane_transport}) are the physical substrate for the proton-motive force of mitochondria and chloroplasts (\nameref{sec:unit_III_unit_intro}) and the action potential of neurons (\nameref{sec:unit_IX_unit_intro}).
-- **Cell signalling** (\cref{sec:unit_II_cell_signaling}) reappears in \nameref{sec:unit_IV_unit_intro} (nuclear signalling and gene regulation), \nameref{sec:unit_V_unit_intro} (mitosis/meiosis checkpoints), \nameref{sec:unit_IX_unit_intro} (hormone receptor cascades), and oncogene/tumour-suppressor biology.
+- **Cell signaling** (\cref{sec:unit_II_cell_signaling}) reappears in \nameref{sec:unit_IV_unit_intro} (nuclear signaling and gene regulation), \nameref{sec:unit_V_unit_intro} (mitosis/meiosis checkpoints), \nameref{sec:unit_IX_unit_intro} (hormone receptor cascades), and oncogene/tumor-suppressor biology.
 - **Endosymbiosis** directly informs \nameref{sec:unit_VI_unit_intro} (mitochondrial DNA as molecular clock), \nameref{sec:unit_VII_unit_intro} (organelle gene transfer to nucleus), and \nameref{sec:unit_VIII_unit_intro} (chloroplast inheritance).
 - **Prokaryotic cell structure** (cell walls, flagella, pili) underpins \nameref{sec:unit_VII_unit_intro} (Microbiology) — antibiotic mechanisms, Gram staining, biofilm formation.
 

@@ -18,7 +18,7 @@
 ## Chapters
 
 1. `circulation_respiration_homeostasis.md` — Circulation, Respiration, and Homeostasis
-2. `nervous_system.md` — Nervous System and Neural Signalling
+2. `nervous_system.md` — Nervous System and Neural Signaling
 3. `action_potential_synapses.md` — Action Potentials and Synaptic Transmission
 4. `endocrine_and_immune.md` — Endocrine and Immune Systems
 

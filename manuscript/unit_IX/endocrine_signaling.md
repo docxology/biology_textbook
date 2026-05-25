@@ -8,10 +8,10 @@
 
 ## Learning Objectives
 
-1. Compare endocrine and nervous system signalling in terms of speed, duration, and specificity.
-2. Classify [**hormone**](#gl:hormone)s by chemical class (peptide, steroid, amine, eicosanoid) and describe their synthesis, transport, receptor location, and signalling duration.
+1. Compare endocrine and nervous system signaling in terms of speed, duration, and specificity.
+2. Classify [**hormone**](#gl:hormone)s by chemical class (peptide, steroid, amine, eicosanoid) and describe their synthesis, transport, receptor location, and signaling duration.
 3. Explain the HPA, HPT, and HPG axes with feedback regulation, including detailed steroidogenesis and the circadian profile of cortisol.
-4. Trace insulin and glucagon signalling in glucose [**homeostasis**](#gl:homeostasis), including IR/IRS/PI3K/Akt/GLUT4, crosstalk with leptin and GLP-1, and the pathophysiology of diabetes.
+4. Trace insulin and glucagon signaling in glucose [**homeostasis**](#gl:homeostasis), including IR/IRS/PI3K/Akt/GLUT4, crosstalk with leptin and GLP-1, and the pathophysiology of diabetes.
 5. Describe the adrenal gland structure and function (cortex and medulla), including cortisol synthesis from cholesterol.
 6. Describe thyroid hormone synthesis, T4→T3 conversion, the nuclear receptor mechanism, and the Wolff-Chaikoff effect.
 7. Describe the growth hormone axis and IGF-1.
@@ -28,8 +28,8 @@
 - **Data skill:** Interpret endocrine time courses, panels, and perturbations.
 - **Practice cadence:** Visual Representations, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** A hormone surge is not always pathological; context and set-point matter.
-- **Primary lab:** \cref{sec:lab_unit_IX_endocrine_signaling}.
-- **Question bank:** \cref{sec:q_unit_IX_endocrine_signaling}.
+- **Primary lab:** \nameref{sec:lab_unit_IX_endocrine_signaling}.
+- **Question bank:** \nameref{sec:q_unit_IX_endocrine_signaling}.
 - **Transfer task:** Transfer endocrine reasoning to metabolism, stress, and development.
 - **Bridge to computation:** `biology.physiology.physiology.homeostasis_response`.
 <!-- curriculum-scaffold-end -->
@@ -38,12 +38,13 @@
 
 > **Opening Vignette — The Hormone That Changed Medicine Forever**
 >
-> Before 1921, Type 1 diabetes was a death sentence. Children diagnosed with it were placed on starvation diets — sometimes eating fewer than 500 calories per day — which extended their lives by months while slowly wasting them. Then Frederick Banting, a young Canadian surgeon, persuaded the University of Toronto to give him laboratory space and a few dogs. Working with student Charles Best and biochemist J.B. Collip to purify the extract, they isolated the pancreatic secretion that controlled blood glucose — insulin. The first human injection was given to 14-year-old Leonard Thompson on January 11, 1922. He had been near death; within days his blood glucose normalised and he survived. Banting and John Macleod received the Nobel Prize in 1923. Insulin was the first hormone to be purified, the first to be sequenced (by Frederick Sanger, 1951), and the first to be produced by recombinant DNA technology (1982). No single molecule has had a more direct impact on human survival.
+> Before 1921, Type 1 diabetes was a death sentence. Children diagnosed with it were placed on starvation diets — sometimes eating fewer than 500 calories per day — which extended their lives by months while slowly wasting them. Then Frederick Banting, a young Canadian surgeon, persuaded the University of Toronto to give him laboratory space and a few dogs. Working with student Charles Best and biochemist J.B. Collip to purify the extract, they isolated the pancreatic secretion that controlled blood glucose — insulin. The first human injection was given to 14-year-old Leonard Thompson on January 11, 1922. He had been near death; within days his blood glucose normalized and he survived. Banting and John Macleod received the Nobel Prize in 1923. Insulin was the first hormone to be purified, the first to be sequenced (by Frederick Sanger, 1951), and the first to be produced by recombinant DNA technology (1982) \citep{sanger1955insulin}. No single molecule has had a more direct impact on human survival.
 
 ## Endocrine System Overview
 
 ### Endocrine vs Nervous System
 
+: Endocrine vs Nervous System: Feature and Nervous System. {#tbl:unit_IX_endocrine_signaling_endocrine_vs_nervous_system}
 | Feature | Nervous System | Endocrine System |
 | ------- | -------------- | ---------------- |
 | Signal type | Electrical + chemical (neurotransmitter) | Chemical (hormone) |
@@ -52,20 +53,22 @@
 | Target | Specific (synapse) | Widespread (most cells with receptor) |
 | Distance | Short (synaptic cleft, 20 nm) | Long (via blood circulation) |
 
-**Mixed signalling:** Neuroendocrine cells (e.g., hypothalamic [**neuron**](#gl:neuron)s secreting releasing hormones, adrenal medulla chromaffin cells) bridge both systems. Sterling and Eyer's concept of [**allostasis**](#gl:allostasis) \citep{sterling1988,sterling2015} extends classical homeostasis: the brain anticipates physiological needs and adjusts setpoints predictively, integrating endocrine and autonomic outputs.
+**Mixed signaling:** Neuroendocrine cells (e.g., hypothalamic [**neuron**](#gl:neuron)s secreting releasing hormones, adrenal medulla chromaffin cells) bridge both systems. Sterling and Eyer's concept of [**allostasis**](#gl:allostasis) \citep{sterling1988,sterling2015} extends Cannon's classical homeostasis \citep{cannon1932}: the brain anticipates physiological needs and adjusts setpoints predictively, integrating endocrine and autonomic outputs.
 
 ### Hormone Classes — Synthesis, Transport, and Mechanism
 
-| Class | Solubility | Synthesis | Transport in Blood | Receptor Location | Signalling Speed | Duration | Examples |
+: Hormone Classes — Synthesis, Transport, and Mechanism: Class and Solubility. {#tbl:unit_IX_endocrine_signaling_hormone_classes_synthesis_transport_and_mechanism}
+| Class | Solubility | Synthesis | Transport in Blood | Receptor Location | Signaling Speed | Duration | Examples |
 | ----- | ---------- | --------- | ------------------ | ----------------- | ---------------- | -------- | -------- |
 | **Peptide/[**protein**](#gl:protein)** | Water-soluble | Ribosomal synthesis as preprohormones; cleaved in ER/Golgi; stored in secretory granules | Free in plasma | Plasma membrane (RTKs, GPCRs) | Seconds to minutes | Minutes to hours | Insulin, glucagon, GH, ACTH, ADH, PTH, prolactin |
-| **Steroid** | Lipid-soluble | Synthesised on demand from cholesterol (no storage); enzymatic cascades in mitochondria/SER | Bound to carrier proteins (CBG, SHBG, albumin) — about 5% free and bioactive | Nuclear receptors (intracellular) | Hours (transcription required) | Hours to days | [**Cortisol**](#gl:cortisol), aldosterone, oestrogen, testosterone, vitamin D |
+| **Steroid** | Lipid-soluble | Synthesized on demand from cholesterol (no storage); enzymatic cascades in mitochondria/SER | Bound to carrier proteins (CBG, SHBG, albumin) — about 5% free and bioactive | Nuclear receptors (intracellular) | Hours (transcription required) | Hours to days | [**Cortisol**](#gl:cortisol), aldosterone, estrogen, testosterone, vitamin D |
 | **Amine — Catecholamines** | Water-soluble | Tyrosine → DOPA → dopamine → norepinephrine → epinephrine; stored in chromaffin granules | Free in plasma; very short half-life | Plasma membrane (α/β adrenergic GPCRs) | Seconds | Seconds to minutes | Epinephrine, norepinephrine, dopamine |
-| **Amine — Thyroid hormones** | Lipid-soluble | Synthesised on iodinated thyroglobulin scaffold in colloid; T4 prohormone converted to T3 peripherally | 99.97% bound to TBG, transthyretin, albumin | Nuclear receptors (TRα, TRβ) | Hours (transcription required) | Days (T4 t½ ~7 d) | T3, T4 |
-| **Eicosanoids** | Lipid-soluble | Generated locally on demand from arachidonic acid; not stored | Diffuse to neighbouring cells (paracrine) | GPCRs and nuclear receptors (PPARs) | Seconds to minutes | Seconds to minutes (rapid degradation) | PGE$_2$, PGI$_2$, TXA$_2$, leukotrienes |
+| **Amine — Thyroid hormones** | Lipid-soluble | Synthesized on iodinated thyroglobulin scaffold in colloid; T4 prohormone converted to T3 peripherally | 99.97% bound to TBG, transthyretin, albumin | Nuclear receptors (TRα, TRβ) | Hours (transcription required) | Days (T4 t½ ~7 d) | T3, T4 |
+| **Eicosanoids** | Lipid-soluble | Generated locally on demand from arachidonic acid; not stored | Diffuse to neighboring cells (paracrine) | GPCRs and nuclear receptors (PPARs) | Seconds to minutes | Seconds to minutes (rapid degradation) | PGE$_2$, PGI$_2$, TXA$_2$, leukotrienes |
 
 #### Hormone table — synthesis location, transport, receptor, half-life
 
+: Hormone table — synthesis location, transport, receptor, half-life: Hormone and Class. {#tbl:unit_IX_endocrine_signaling_hormone_table_synthesis_location_transport_receptor_half_life}
 | Hormone | Class | Synthesis location | Plasma transport | Receptor | Signal duration | Half-life |
 | ------- | ----- | ------------------ | ---------------- | -------- | --------------- | --------- |
 | **Insulin** | Peptide (51 aa) | β-cells, islets of Langerhans | Free | IR (RTK, plasma membrane) | Minutes | ~5 min |
@@ -91,13 +94,13 @@
 
 **Key contrasts:**
 
-- **Speed vs duration trade-off.** Membrane receptor signalling (peptides, catecholamines) is fast but transient: cAMP, IP$_3$, and Ca$^{2+}$ signals decay in seconds when ligand washes away. Nuclear receptor signalling (steroids, T3) is slow but persistent: transcribed mRNAs and translated proteins last hours to days.
-- **Storage vs synthesis.** Peptide hormones are pre-synthesised and stored in granules ready for rapid release — insulin can be released within seconds of glucose elevation. Steroids cannot be stored (lipid-soluble, would diffuse away); they are synthesised on demand, which limits acute response speed.
-- **Carrier proteins as a reservoir.** CBG (cortisol binding globulin), SHBG (sex hormone binding globulin), and TBG (thyroxine binding globulin) bind 95–99% of their target hormones. The bound fraction is biologically inactive but provides a circulating reservoir, buffering plasma levels and extending half-life. Free hormone is in equilibrium with bound; pregnancy elevates oestrogen which raises CBG, increasing total cortisol while free cortisol remains normal.
+- **Speed vs duration trade-off.** Membrane receptor signaling (peptides, catecholamines) is fast but transient: cAMP, IP$_3$, and Ca$^{2+}$ signals decay in seconds when ligand washes away \citep{sutherland1958cyclicamp}. Nuclear receptor signaling (steroids, T3) is slow but persistent: transcribed mRNAs and translated proteins last hours to days.
+- **Storage vs synthesis.** Peptide hormones are pre-synthesized and stored in granules ready for rapid release — insulin can be released within seconds of glucose elevation. Steroids cannot be stored (lipid-soluble, would diffuse away); they are synthesized on demand, which limits acute response speed.
+- **Carrier proteins as a reservoir.** CBG (cortisol binding globulin), SHBG (sex hormone binding globulin), and TBG (thyroxine binding globulin) bind 95–99% of their target hormones. The bound fraction is biologically inactive but provides a circulating reservoir, buffering plasma levels and extending half-life. Free hormone is in equilibrium with bound; pregnancy elevates estrogen which raises CBG, increasing total cortisol while free cortisol remains normal.
 
 ### Quantitative Endocrinology
 
-**Hormone–receptor binding.** The dissociation constant $K_d$ characterises receptor affinity (lower $K_d$ = higher affinity):
+**Hormone–receptor binding.** The dissociation constant $K_d$ characterizes receptor affinity (lower $K_d$ = higher affinity):
 
 \begin{equation}
 K_d = \frac{[\text{H}][\text{R}]}{[\text{HR}]}; \qquad \text{fractional occupancy} = \frac{[\text{H}]}{[\text{H}] + K_d}
@@ -141,7 +144,7 @@ The hypothalamus serves as the master integrator, linking the nervous and endocr
 
 **Anterior pituitary hormones:** ACTH (corticotrophs), TSH (thyrotrophs), GH (somatotrophs), LH and FSH (gonadotrophs), prolactin (lactotrophs).
 
-**Posterior pituitary:** Stores and releases ADH (vasopressin) and oxytocin, which are synthesised in hypothalamic supraoptic and paraventricular nuclei and transported down axons to the posterior pituitary for release.
+**Posterior pituitary:** Stores and releases ADH (vasopressin) and oxytocin, which are synthesized in hypothalamic supraoptic and paraventricular nuclei and transported down axons to the posterior pituitary for release.
 
 ```mermaid
 flowchart TD
@@ -205,7 +208,7 @@ flowchart TD
 
 #### Glucocorticoid receptor (GR) mechanism
 
-Cortisol diffuses freely across the plasma membrane (lipid-soluble) and binds the cytoplasmic GR (NR3C1). In the unliganded state, GR is held in an inactive complex with HSP90, HSP70, and immunophilins. Cortisol binding induces a conformational change, releasing the chaperones and exposing nuclear localisation signals. The activated GR translocates to the nucleus, dimerises, and binds **glucocorticoid response elements (GREs)** in target gene promoters with the consensus sequence 5'-AGAACAnnnTGTTCT-3'.
+Cortisol diffuses freely across the plasma membrane (lipid-soluble) and binds the cytoplasmic GR (NR3C1). In the unliganded state, GR is held in an inactive complex with HSP90, HSP70, and immunophilins. Cortisol binding induces a conformational change, releasing the chaperones and exposing nuclear localization signals. The activated GR translocates to the nucleus, dimerises, and binds **glucocorticoid response elements (GREs)** in target gene promoters with the consensus sequence 5'-AGAACAnnnTGTTCT-3'.
 
 GR has **two transcriptional modes:**
 
@@ -214,11 +217,11 @@ GR has **two transcriptional modes:**
 
 The dual mechanism is therapeutically central. Most classical glucocorticoids (prednisone, dexamethasone) drive both modes — the unwanted metabolic effects (hyperglycaemia, osteoporosis, muscle wasting) come predominantly from transactivation, while the anti-inflammatory benefit comes mostly from transrepression. Pharmaceutical efforts to design "selective GR agonists" (SEGRAs) that drive transrepression preferentially have been an enduring (but largely unrealised) goal.
 
-#### Cortisol effects (anti-inflammatory gene programme)
+#### Cortisol effects (anti-inflammatory gene program)
 
-- **Gluconeogenesis** (transactivation of PEPCK, G6Pase via GR; mobilises amino acids from muscle protein catabolism)
+- **Gluconeogenesis** (transactivation of PEPCK, G6Pase via GR; mobilizes amino acids from muscle protein catabolism)
 - **Immunosuppression** at multiple levels:
-  - Direct: NF-κB inhibition; lymphocyte [**apoptosis**](#gl:apoptosis); suppression of IL-2 transcription; mast-cell stabilisation
+  - Direct: NF-κB inhibition; lymphocyte [**apoptosis**](#gl:apoptosis); suppression of IL-2 transcription; mast-cell stabilization
   - Indirect: induction of IL-10, TGF-β, annexin A1; suppression of leukocyte trafficking by reducing E-selectin and ICAM-1
   - Net cytokine effect: **down** TNF-α, IL-1β, IL-2, IL-6, IFN-γ; **up** IL-10
 - **Lipolysis** in peripheral adipose tissue (with central fat redistribution from chronic excess)
@@ -280,6 +283,7 @@ Acutely high iodide (e.g., from radiocontrast, amiodarone, or seaweed binge) par
 
 T4 is the predominant secreted form (~80%) but is largely a **prohormone**. Three iodothyronine deiodinases activate or inactivate T4 in target tissues:
 
+: T4 → T3 conversion (deiodinases): Deiodinase and Reaction. {#tbl:unit_IX_endocrine_signaling_t4_t3_conversion_deiodinases}
 | Deiodinase | Reaction | Tissue | Function |
 | ---------- | -------- | ------ | -------- |
 | **D1** | T4 → T3 (5'-deiodination) | Liver, kidney, thyroid | Bulk plasma T3 production |
@@ -309,7 +313,7 @@ This dual mechanism explains why hypothyroidism causes such pronounced symptoms:
 
 - **Hypothyroidism:** Low T3/T4, elevated TSH. Hashimoto's thyroiditis (autoimmune; anti-TPO and anti-thyroglobulin antibodies). Features: fatigue, weight gain, cold intolerance, bradycardia, constipation, myxoedema.
 - **Hyperthyroidism:** High T3/T4, suppressed TSH. Graves' disease (autoimmune; TSH receptor-stimulating antibodies — thyroid-stimulating immunoglobulins, TSI). Features: weight loss, heat intolerance, tachycardia/atrial fibrillation, tremor, exophthalmos (due to retro-orbital inflammation), diffuse goitre.
-- **Iodine deficiency:** Most common preventable cause of intellectual disability worldwide; affects approximately 1.9 billion people. Addressed by salt iodisation programmes.
+- **Iodine deficiency:** Most common preventable cause of intellectual disability worldwide; affects approximately 1.9 billion people. Addressed by salt iodisation programs.
 
 ### Worked Example: Thyroid Hormone Negative Feedback and TSH Compensatory Rise
 
@@ -341,14 +345,14 @@ T3 (and to a lesser extent T4) feeds back negatively on both TRH and TSH transcr
 
 3. **Rate-limiting step.** The slow variable governs convergence. Even though TSH responds within hours, the actual T4 distribution re-equilibrates on the order of $3 \tau_{\text{T4}} \approx 30$ days to reach approximately 95% of the new steady state, and approximately $5 \tau_{\text{T4}} \approx 50$ days to reach approximately 99%. *Practical implication:* TSH measured 1–2 weeks after starting levothyroxine replacement is misleading — the T4 pool has not finished re-equilibrating. Clinical guidelines correctly recommend re-checking TSH 6–8 weeks after any dose change.
 
-4. **Sanity check with the loop gain.** Order-of-magnitude: loop gain (sensitivity of TSH to T4) at the operating point is approximately $-2$ (one-log T4 drop → approximately 2-log TSH rise, per the log-linear TSH–T4 relationship that clinicians use at the bedside). Our predicted approximately 10-fold TSH rise for an approximately 2.5-fold T4 drop is consistent with this gain. The same logarithmic logic explains why a small dose of levothyroxine restoring T4 to a near-normal value rapidly normalises TSH — provided one waits a full T4 half-life-set.
+4. **Sanity check with the loop gain.** Order-of-magnitude: loop gain (sensitivity of TSH to T4) at the operating point is approximately $-2$ (one-log T4 drop → approximately 2-log TSH rise, per the log-linear TSH–T4 relationship that clinicians use at the bedside). Our predicted approximately 10-fold TSH rise for an approximately 2.5-fold T4 drop is consistent with this gain. The same logarithmic logic explains why a small dose of levothyroxine restoring T4 to a near-normal value rapidly normalizes TSH — provided one waits a full T4 half-life-set.
 
 **Interpretation.** Hashimoto's hypothyroidism is *biochemically* a textbook negative-feedback restoration problem. The clinical art is timing: lab measurements taken before the T4 pool re-equilibrates will lead to over-dosing. The molecular ledger — TRH at the top, T4 half-life at the bottom — determines that we must wait approximately 6–8 weeks before believing the TSH number.
 
 
 ### HPG Axis and Reproductive Hormones
 
-**GnRH pulsatility is critical:** High-frequency pulses (every 60–90 min) favour LH secretion; low-frequency pulses (every 2–4 h) favour FSH. Continuous GnRH paradoxically suppresses the axis (downregulates GnRH receptors), which is the basis of GnRH agonist therapy for prostate cancer, endometriosis, and precocious puberty.
+**GnRH pulsatility is critical:** High-frequency pulses (every 60–90 min) favor LH secretion; low-frequency pulses (every 2–4 h) favor FSH. Continuous GnRH paradoxically suppresses the axis (downregulates GnRH receptors), which is the basis of GnRH agonist therapy for prostate cancer, endometriosis, and precocious puberty.
 
 **Male reproductive endocrinology:** LH stimulates Leydig cells (testosterone production). FSH + testosterone stimulate Sertoli cells (support spermatogenesis; produce inhibin B, which provides negative feedback on FSH). Testosterone effects: muscle mass, bone density, secondary sexual characteristics, spermatogenesis, libido.
 
@@ -358,7 +362,7 @@ T3 (and to a lesser extent T4) feeds back negatively on both TRH and TSH transcr
 - **Ovulation** (day approximately 14): **Positive feedback** — sustained high oestradiol above a threshold for >36 h switches from negative to positive feedback, triggering an LH surge. The LH surge induces ovulation (follicular rupture, oocyte release).
 - **Luteal phase** (days 14–28): Corpus luteum (remnant of ovulated follicle) produces progesterone + oestradiol. Progesterone prepares the endometrium for implantation (secretory phase). If no implantation occurs, corpus luteum degenerates (luteolysis), progesterone and oestradiol fall, endometrium sheds (menstruation).
 
-**Development and reproduction as endocrine timing problems:** Fertilisation, implantation, placentation, fetal growth, birth, lactation, puberty, and reproductive senescence depend on timed endocrine signals interacting with local tissue cues. Early embryos are initially regulated by maternal transcripts and local morphogen gradients; later development adds fetal-placental endocrine exchange, thyroid-hormone-dependent neurodevelopment, glucocorticoid-driven lung maturation, and sex-steroid-dependent reproductive tract differentiation. Clinically, infertility is diagnosed after 12 months of regular unprotected intercourse without pregnancy (or after 6 months when the female partner is 35 years or older), because reproductive physiology depends on ovulation, sperm production, tubal transport, implantation, uterine receptivity, endocrine timing, and age-dependent gamete quality \citep{cdc2024reproductivehealth}. The organismal point is that reproduction is not one organ system; it is a coordinated life-history transition linking gonads, hypothalamus, pituitary, placenta, metabolism, immune tolerance, and behaviour.
+**Development and reproduction as endocrine timing problems:** Fertilization, implantation, placentation, fetal growth, birth, lactation, puberty, and reproductive senescence depend on timed endocrine signals interacting with local tissue cues. Early embryos are initially regulated by maternal transcripts and local morphogen gradients; later development adds fetal-placental endocrine exchange, thyroid-hormone-dependent neurodevelopment, glucocorticoid-driven lung maturation, and sex-steroid-dependent reproductive tract differentiation. Clinically, infertility is diagnosed after 12 months of regular unprotected intercourse without pregnancy (or after 6 months when the female partner is 35 years or older), because reproductive physiology depends on ovulation, sperm production, tubal transport, implantation, uterine receptivity, endocrine timing, and age-dependent gamete quality \citep{cdc2024reproductivehealth}. The organismal point is that reproduction is not one organ system; it is a coordinated life-history transition linking gonads, hypothalamus, pituitary, placenta, metabolism, immune tolerance, and behavior.
 
 > **Concept Check 1:** Why does continuous GnRH administration paradoxically suppress the HPG axis rather than stimulate it? How is this exploited clinically in prostate cancer treatment, where the goal is to lower testosterone?
 
@@ -368,16 +372,16 @@ T3 (and to a lesser extent T4) feeds back negatively on both TRH and TSH transcr
 
 **Normal fasting blood glucose:** 4.0–5.5 mmol/L (72–99 mg/dL). Post-prandial peak: <7.8 mmol/L (<140 mg/dL).
 
-### Insulin signalling — molecular detail
+### Insulin signaling — molecular detail
 
 **After a meal (high glucose):**
 
 1. Glucose enters β-cells via GLUT2 transporter (high-K$_m$ "glucose sensor")
 2. Glucose metabolism increases the ATP/ADP ratio
-3. ATP-sensitive K$^+$ channels (K$_{ATP}$, SUR1/Kir6.2 subunits) close → membrane depolarisation
+3. ATP-sensitive K$^+$ channels (K$_{ATP}$, SUR1/Kir6.2 subunits) close → membrane depolarization
 4. Voltage-gated L-type Ca$^{2+}$ channels open → Ca$^{2+}$ influx
-5. Ca$^{2+}$ triggers **insulin exocytosis** from dense-core granules (mature insulin = A and B chains held by disulphide bonds; C-peptide co-released as marker)
-6. **Insulin signalling in target cells:**
+5. Ca$^{2+}$ triggers **insulin exocytosis** from dense-core granules (mature insulin = A and B chains held by disulphide bonds; C-peptide co-released as marker) \citep{sanger1955insulin}
+6. **Insulin signaling in target cells:**
    - Insulin binds **insulin receptor (IR)** — an $\alpha_2\beta_2$ tetrameric receptor tyrosine kinase. Each α-subunit is extracellular and binds insulin; β-subunits span the membrane and contain intracellular tyrosine kinase domains.
    - Binding causes conformational change → **trans-autophosphorylation** of β-subunit tyrosine residues (Y1158, Y1162, Y1163 in the activation loop)
    - Phosphotyrosines recruit **IRS1/IRS2** scaffold proteins → IRS phosphorylation
@@ -421,38 +425,38 @@ flowchart TD
     Akt --> FoxO["FoxO1 phosphorylated<br/>→ nuclear export"]
     FoxO --> Gluc["↓ gluconeogenic gene<br/>transcription<br/>(PEPCK, G6Pase)"]
 ```
-<!-- alt: Flowchart showing insulin signalling cascade Insulin binding to IR triggers trans-autophosphorylation, recruitment of IRS, activation of PI3K, generation of PIP_3, and activation of Akt. Akt then drives four parallel branches: GLUT4 translocation, glycogen synthesis, protein synthesis, and suppression of gluconeogenic gene transcription. -->
+<!-- alt: Flowchart showing insulin signaling cascade. Insulin binding to IR triggers trans-autophosphorylation, recruitment of IRS, activation of PI3K, generation of PIP_3, and activation of Akt. Akt drives GLUT4 translocation, glycogen synthesis, protein synthesis, and suppression of gluconeogenic gene transcription. -->
 
-*Insulin signalling cascade. Insulin binding to IR triggers trans-autophosphorylation, recruitment of IRS, activation of PI3K, generation of PIP$_3$, and activation of Akt. Akt drives GLUT4 translocation, glycogen synthesis, protein synthesis, and suppression of gluconeogenic gene transcription.*
+*Insulin signaling cascade. Insulin binding to IR triggers trans-autophosphorylation, recruitment of IRS, activation of PI3K, generation of PIP$_3$, and activation of Akt. Akt drives GLUT4 translocation, glycogen synthesis, protein synthesis, and suppression of gluconeogenic gene transcription.*
 
 ### Worked Example: Postprandial Glucose Clearance and Insulin Dose Scaling
 
-**Problem:** A 70 kg adult absorbs 75 g glucose from a meal. Skeletal muscle stores ~400 g glycogen and can take up glucose at ~8 mg kg$^{-1}$ min$^{-1}$ when insulin is maximal. If peak plasma insulin reaches 80 mU/L and insulin half-life is 5 min, estimate (a) the muscle glucose-uptake capacity over the first 30 min, and (b) whether hepatic glycogen synthesis must also contribute.
+**Problem:** A 70 kg adult absorbs 75 g glucose from a meal. Skeletal muscle stores ~400 g glycogen and can take up glucose at ~8 mg kg$^{-1}$ min$^{-1}$ when insulin is maximal. If peak plasma insulin reaches 80 mU/L and insulin half-life is 5 min, estimate (a) the muscle glucose-uptake capacity over the first 30 min, and (b) whether hepatic glycogen synthesis must also contribute \citep{yalow1959}.
 
 **Solution.**
 
 1. **Muscle uptake capacity.** Rate = $8\,\text{mg kg}^{-1}\text{ min}^{-1} \times 70\,\text{kg} = 560\,\text{mg min}^{-1}$.
    Over 30 min: $560 \times 30 = 16{,}800\,\text{mg} = 16.8\,\text{g}$.
 
-2. **Compare to absorbed load.** Absorbed glucose = 75 g. Muscle alone disposes of roughly 22% of the load in 30 min at this rate, so liver glycogen synthesis and delayed muscle uptake over 2–3 h are required — consistent with the biphasic insulin secretory response and sustained Akt signalling.
+2. **Compare to absorbed load.** Absorbed glucose = 75 g. Muscle alone disposes of roughly 22% of the load in 30 min at this rate, so liver glycogen synthesis and delayed muscle uptake over 2–3 h are required — consistent with the biphasic insulin secretory response and sustained Akt signaling.
 
-3. **Insulin decay check.** With $t_{1/2} = 5$ min, insulin falls to 25 mU/L at 5 min and ~6 mU/L at 15 min ($80 \times 0.5^{15/5}$). GLUT4 translocation tracks Akt activity, so the second-phase insulin pulse (not modelled here) extends disposal beyond the first 30 min.
+3. **Insulin decay check.** With $t_{1/2} = 5$ min, insulin falls to 25 mU/L at 5 min and ~6 mU/L at 15 min ($80 \times 0.5^{15/5}$). GLUT4 translocation tracks Akt activity, so the second-phase insulin pulse (not modeled here) extends disposal beyond the first 30 min.
 
 **Interpretation.** Postprandial normoglycaemia depends on coordinated muscle GLUT4 translocation and hepatic glycogen storage; the numeric comparison shows why isolated muscle uptake is insufficient to clear a 75 g load within half an hour.
 
-#### Glucagon signalling
+#### Glucagon signaling
 
 **During fasting (low glucose):**
 
 1. α-cells release **glucagon** (triggered by low glucose, sympathetic activation, amino acids)
-2. Glucagon binds G$_s$-coupled receptor on hepatocytes
+2. Glucagon binds G$_s$-coupled receptor on hepatocytes \citep{sutherland1958cyclicamp}
 3. cAMP-PKA pathway: phosphorylase kinase activates **glycogen phosphorylase** for **glycogenolysis**
 4. cAMP also activates **CREB** → PEPCK and G6Pase gene transcription → **gluconeogenesis**
-5. PKA phosphorylates and inhibits PFK-2/FBPase-2 (PFKFB1), lowering F2,6BP → favours fructose-1,6-bisphosphatase over PFK-1 → gluconeogenesis dominates
+5. PKA phosphorylates and inhibits PFK-2/FBPase-2 (PFKFB1), lowering F2,6BP → favors fructose-1,6-bisphosphatase over PFK-1 → gluconeogenesis dominates
 
 #### Crosstalk with leptin, adiponectin, and GLP-1
 
-**Leptin** is secreted by adipocytes in proportion to fat mass and acts on hypothalamic neurons (arcuate nucleus POMC and AgRP/NPY neurons) via the leptin receptor (LepR, JAK2/STAT3 signalling) to suppress appetite and increase energy expenditure. Leptin enhances central insulin sensitivity and provides a long-term signal of energy stores. Most obese individuals have high leptin but show **leptin resistance** — impaired hypothalamic LepR signalling and JAK2/STAT3 attenuation, partly via SOCS3 induction.
+**Leptin** is secreted by adipocytes in proportion to fat mass and acts on hypothalamic neurons (arcuate nucleus POMC and AgRP/NPY neurons) via the leptin receptor (LepR, JAK2/STAT3 signaling) to suppress appetite and increase energy expenditure. Leptin enhances central insulin sensitivity and provides a long-term signal of energy stores. Most obese individuals have high leptin but show **leptin resistance** — impaired hypothalamic LepR signaling and JAK2/STAT3 attenuation, partly via SOCS3 induction.
 
 **Adiponectin** is also secreted by adipocytes — but **inversely** with fat mass (higher in lean states). It acts via AdipoR1 and AdipoR2, activating **AMPK** (AMP-activated protein kinase, the cellular "energy sensor"). AMPK activation:
 
@@ -471,7 +475,7 @@ Adiponectin therefore acts as an **insulin sensitiser**. Plasma adiponectin is r
 - Activate hypothalamic anorexigenic circuits → reduce food intake
 - Promote β-cell survival and proliferation (animal studies)
 
-GLP-1 has a very short half-life (~2 min) due to degradation by **DPP-4** (dipeptidyl peptidase-4). Drug strategies: GLP-1 analogues with DPP-4–resistant modifications (semaglutide, liraglutide), or DPP-4 inhibitors (sitagliptin) that prolong endogenous GLP-1.
+GLP-1 has a very short half-life (~2 min) due to degradation by **DPP-4** (dipeptidyl peptidase-4). Drug strategies: GLP-1 analogs with DPP-4–resistant modifications (semaglutide, liraglutide), or DPP-4 inhibitors (sitagliptin) that prolong endogenous GLP-1.
 
 ### Diabetes Mellitus
 
@@ -490,9 +494,9 @@ GLP-1 has a very short half-life (~2 min) due to degradation by **DPP-4** (dipep
 - Progressive β-cell failure (glucotoxicity, lipotoxicity, amyloid deposition) leads to overt hyperglycaemia
 - Treatment: lifestyle modification + metformin (AMPK activation, reduced hepatic glucose production) + GLP-1 receptor agonists (semaglutide) + SGLT2 inhibitors (empagliflozin: blocks renal glucose reabsorption)
 
-> **Clinical Connection:** Semaglutide (Ozempic/Wegovy) has transformed T2DM and obesity management. Clinical trials show 15–20% body weight reduction with semaglutide, plus cardiovascular and renal benefits, by mimicking natural GLP-1 signalling at hypothalamic appetite centres and pancreatic β-cells.
+> **Clinical Connection:** Semaglutide (Ozempic/Wegovy) has transformed T2DM and obesity management. Clinical trials show 15–20% body weight reduction with semaglutide, plus cardiovascular and renal benefits, by mimicking natural GLP-1 signaling at hypothalamic appetite centers and pancreatic β-cells.
 
-> **Concept Check 2:** A type-1 diabetic receives a long-acting insulin analogue (glargine) once daily. Blood glucose is well controlled during the day but the patient develops reactive hyperglycaemia every morning ("dawn phenomenon"). Given that cortisol, GH, and glucagon most rise in the pre-waking hours, explain *which* counter-regulatory hormones are responsible for the morning rise and *why* glargine's 24-hour profile is insufficient to cover it. What feature of a more modern analogue (e.g. degludec, with ~42-h half-life) addresses this?
+> **Concept Check 2:** A type-1 diabetic receives a long-acting insulin analog (glargine) once daily. Blood glucose is well controlled during the day but the patient develops reactive hyperglycaemia every morning ("dawn phenomenon"). Given that cortisol, GH, and glucagon most rise in the pre-waking hours, explain *which* counter-regulatory hormones are responsible for the morning rise and *why* glargine's 24-hour profile is insufficient to cover it. What feature of a more modern analog (e.g. degludec, with ~42-h half-life) addresses this?
 
 ### Adrenal Gland — Zonal Architecture
 
@@ -546,7 +550,7 @@ GH from anterior pituitary somatotrophs: pulsatile release (peaks during deep sl
 
 ## Prostaglandins and Eicosanoids
 
-**Eicosanoids** are 20-carbon paracrine signalling lipids derived from membrane phospholipids. Unlike conventional hormones, they are not stored, are synthesised on demand, act locally (paracrine/autocrine), and are rapidly inactivated.
+**Eicosanoids** are 20-carbon paracrine signaling lipids derived from membrane phospholipids. Unlike conventional hormones, they are not stored, are synthesized on demand, act locally (paracrine/autocrine), and are rapidly inactivated.
 
 ### Synthesis from arachidonic acid
 
@@ -592,6 +596,7 @@ flowchart TD
 
 ### COX-1 vs COX-2 — distinct physiology
 
+: COX-1 vs COX-2 — distinct physiology: Feature and COX-1. {#tbl:unit_IX_endocrine_signaling_cox_1_vs_cox_2_distinct_physiology}
 | Feature | **COX-1** | **COX-2** |
 | ------- | --------- | --------- |
 | Expression | Constitutive (most tissues) | Inducible (inflammation, growth factors); constitutive in kidney, brain, vascular endothelium |
@@ -599,10 +604,11 @@ flowchart TD
 | Knockout phenotype | Gastric ulcers; reduced platelet aggregation | Reduced inflammation; renal abnormalities; fertility defects |
 | Selective inhibitor | (none in clinical use) | Celecoxib, etoricoxib, parecoxib |
 
-**Selective COX-2 inhibitors (coxibs)** were developed to spare COX-1 (preserving gastric prostaglandins and reducing GI bleeding). Initial successes (Vioxx/rofecoxib, Bextra/valdecoxib) were tempered by cardiovascular concerns: selective COX-2 inhibition reduces endothelial PGI$_2$ (antiplatelet, vasodilator) without reducing platelet TXA$_2$ (made by COX-1) — shifting the haemostatic balance toward thrombosis. Rofecoxib was withdrawn in 2004; celecoxib remains in use with cardiovascular labelling.
+**Selective COX-2 inhibitors (coxibs)** were developed to spare COX-1 (preserving gastric prostaglandins and reducing GI bleeding). Initial successes (Vioxx/rofecoxib, Bextra/valdecoxib) were tempered by cardiovascular concerns: selective COX-2 inhibition reduces endothelial PGI$_2$ (antiplatelet, vasodilator) without reducing platelet TXA$_2$ (made by COX-1) — shifting the haemostatic balance toward thrombosis. Rofecoxib was withdrawn in 2004; celecoxib remains in use with cardiovascular labeling.
 
 ### Pharmacological targets
 
+: Pharmacological targets: Drug and Target. {#tbl:unit_IX_endocrine_signaling_pharmacological_targets}
 | Drug | Target | Mechanism | Use |
 | ---- | ------ | --------- | --- |
 | **Glucocorticoids** | Phospholipase A$_2$ (indirectly via annexin A1) | Block most eicosanoid synthesis at the source | Inflammation (broad effect) |
@@ -611,8 +617,8 @@ flowchart TD
 | **Celecoxib** | COX-2 selective | Reversible | Reduced GI toxicity (COX-1 spared in gastric mucosa); slight ↑ thrombotic risk (PGI$_2$ ↓ without TXA$_2$ ↓) |
 | **Montelukast** | CysLT$_1$ receptor | LT receptor antagonist | Asthma, allergic rhinitis |
 | **Zileuton** | 5-lipoxygenase | Direct enzyme inhibition | Asthma |
-| **Misoprostol** | PGE$_1$ analogue | Synthetic prostaglandin | Gastric protection, induction of labour |
-| **Latanoprost** | PGF$_{2\alpha}$ analogue | Increases uveoscleral outflow | Glaucoma (lowers IOP) |
+| **Misoprostol** | PGE$_1$ analog | Synthetic prostaglandin | Gastric protection, induction of labor |
+| **Latanoprost** | PGF$_{2\alpha}$ analog | Increases uveoscleral outflow | Glaucoma (lowers IOP) |
 
 > **Clinical Connection — The aspirin paradox:** Low-dose aspirin (75–100 mg/day) selectively inhibits platelet COX-1 (anucleate platelets cannot regenerate the enzyme; 7-day duration) but primarily transiently inhibits endothelial COX-2 (nucleated cells continuously resynthesise). Result: net antiplatelet effect with preserved endothelial PGI$_2$ → reduced thrombotic risk. High-dose aspirin loses this selectivity.
 
@@ -636,22 +642,23 @@ flowchart TD
 
 **Mechanism:**
 
-- Weak agonist at classical nuclear oestrogen receptors (ERα, ERβ; affinity ~10,000× lower than oestradiol)
-- High-affinity agonist at the membrane-bound G-protein–coupled oestrogen receptor (GPER, formerly GPR30)
+- Weak agonist at classical nuclear estrogen receptors (ERα, ERβ; affinity ~10,000× lower than oestradiol)
+- High-affinity agonist at the membrane-bound G-protein–coupled estrogen receptor (GPER, formerly GPR30)
 - Binds androgen receptor as antagonist
 - Binds thyroid hormone receptor as antagonist
 - Activates pregnane X receptor (xenobiotic metabolism)
 
 The combination of multiple low-affinity but high-prevalence interactions makes BPA a "low-dose" disruptor — its non-monotonic dose–response curve (effects at very low doses absent at higher doses) violates the classical toxicological assumption that "the dose makes the poison."
 
-**Effects** (animal and observational human studies): altered pubertal timing, reduced sperm count and quality, increased risk of breast and prostate cancers, metabolic dysfunction (obesity, diabetes), neurodevelopmental and behavioural effects in children. Regulatory responses have lowered BPA exposure limits and led to bans in baby bottles in the EU, Canada, and US — though substitutes (BPS, BPF) appear to share similar disrupting profiles ("regrettable substitution").
+**Effects** (animal and observational human studies): altered pubertal timing, reduced sperm count and quality, increased risk of breast and prostate cancers, metabolic dysfunction (obesity, diabetes), neurodevelopmental and behavioral effects in children. Regulatory responses have lowered BPA exposure limits and led to bans in baby bottles in the EU, Canada, and US — though substitutes (BPS, BPF) appear to share similar disrupting profiles ("regrettable substitution").
 
 ### Phthalates, PFAS, and other major EDCs
 
 **Phthalates** (DEHP, DBP, BBzP) are plasticisers added to PVC to confer flexibility; also used in personal-care products as solvents/fragrance carriers. Dietary intake is the main route. Mechanism: act as **anti-androgens** via reduced testosterone synthesis (suppression of StAR and CYP17A1) and AR antagonism in the developing male reproductive tract. Animal exposures during the male sex-differentiation window produce the **"phthalate syndrome"**: cryptorchidism, hypospadias, reduced anogenital distance, decreased sperm count. Human cohort studies link prenatal phthalate exposure to similar genitourinary endpoints.
 
-**PFAS (per- and polyfluoroalkyl substances)** — the so-called "**forever chemicals**" (e.g., PFOA, PFOS, GenX) — are characterised by C–F bonds that resist environmental and biological breakdown. Half-lives in humans range from years to decades. Sources: non-stick cookware (Teflon), water-repellent textiles, firefighting foams (AFFF), food packaging. Mechanisms include PPARα activation (fatty-acid metabolism disruption), thyroid hormone displacement from carrier proteins, and dose-dependent immunosuppression (reduced antibody response to childhood vaccines documented in Faroe Islands cohort studies). The C8 Health Project (West Virginia) linked high-dose occupational PFOA exposure to elevated risks of testicular cancer, kidney cancer, ulcerative colitis, thyroid disease, hypercholesterolaemia, and pregnancy-induced hypertension.
+**PFAS (per- and polyfluoroalkyl substances)** — the so-called "**forever chemicals**" (e.g., PFOA, PFOS, GenX) — are characterized by C–F bonds that resist environmental and biological breakdown. Half-lives in humans range from years to decades. Sources: non-stick cookware (Teflon), water-repellent textiles, firefighting foams (AFFF), food packaging. Mechanisms include PPARα activation (fatty-acid metabolism disruption), thyroid hormone displacement from carrier proteins, and dose-dependent immunosuppression (reduced antibody response to childhood vaccines documented in Faroe Islands cohort studies). The C8 Health Project (West Virginia) linked high-dose occupational PFOA exposure to elevated risks of testicular cancer, kidney cancer, ulcerative colitis, thyroid disease, hypercholesterolaemia, and pregnancy-induced hypertension.
 
+: Phthalates, PFAS, and other major EDCs: EDC and Source. {#tbl:unit_IX_endocrine_signaling_phthalates_pfas_and_other_major_edcs}
 | EDC | Source | Targets | Effects |
 | --- | ------ | ------- | ------- |
 | **Phthalates** (DEHP, DBP) | Plasticisers in PVC, cosmetics | AR antagonism; PPARα, PPARγ activation; ↓ testosterone synthesis | Anti-androgenic effects on male reproductive development |
@@ -713,7 +720,8 @@ flowchart LR
     F --> H["Allostatic load"]
     G --> H
 ```
-<!-- alt: Allostatic-load map linking repeated stressors, HPA-axis dynamics, immune tone, metabolic allocation, and disease risk. -->
+<!-- alt: Flowchart showing physiology is often adaptive over short time scales and costly over long time scales, so baseline, perturbation, compensation, and pathology must be distinguished. -->
+
 *Physiology is often adaptive over short time scales and costly over long time scales, so baseline, perturbation, compensation, and pathology must be distinguished.*
 
 ## Summary
@@ -721,7 +729,7 @@ flowchart LR
 - **Endocrine system:** Hierarchical hypothalamic-pituitary-target gland axes with negative feedback. Three hormone classes: peptide (surface receptors, second messengers), steroid (nuclear receptors, transcription), amino acid derivatives (variable).
 - **HPA / HPT / HPG axes:** Stress, thyroid, and reproductive control via CRH–ACTH–cortisol, TRH–TSH–T4/T3, and GnRH–LH/FSH cascades with circadian and feedback regulation.
 - **Glucose homeostasis:** Insulin and glucagon balance uptake, glycogen metabolism, and gluconeogenesis; leptin, adiponectin, and GLP-1 provide long-term and incretin modulation.
-- **Eicosanoids and disruption:** Arachidonic-acid derivatives mediate inflammation; glucocorticoids and NSAIDs target PLA$_2$ and COX; EDCs perturb hormone signalling during development.
+- **Eicosanoids and disruption:** Arachidonic-acid derivatives mediate inflammation; glucocorticoids and NSAIDs target PLA$_2$ and COX; EDCs perturb hormone signaling during development.
 - **Connections:** See \cref{sec:unit_IX_immune_system_defense} for immune-endocrine coupling and \cref{sec:unit_III_metabolic_integration} for metabolic integration.
 
 ## Further Reading and Source Notes: Endocrine Signaling and Homeostasis
@@ -739,6 +747,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Endocrine Signaling and Homeostasis. {#tbl:unit_IX_endocrine_signaling_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/physiology/physiology.py` (`homeostasis_response`) | Compare hormone feedback and inflammatory regulation as control problems. |

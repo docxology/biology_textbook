@@ -8,6 +8,7 @@ from typing import Literal
 
 CrossRefProblem = Literal[
     "missing_id",
+    "missing_caption",
     "unresolved",
     "duplicate",
     "prose_xref",
@@ -49,6 +50,10 @@ class CrossRefReport:
     @property
     def missing(self) -> list[CrossRefIssue]:
         return [issue for issue in self.issues if issue.problem == "missing_id"]
+
+    @property
+    def missing_captions(self) -> list[CrossRefIssue]:
+        return [issue for issue in self.issues if issue.problem == "missing_caption"]
 
     @property
     def unresolved(self) -> list[CrossRefIssue]:

@@ -1,6 +1,4 @@
-# Appendix A — Curriculum Map {.unnumbered}
-
-\label{sec:appendix_curriculum_map}
+# Appendix A — Curriculum Map {#sec:appendix_curriculum_map .unnumbered}
 
 This appendix is generated from `src/biology/curriculum.py` and
 `src/biology/alignment.py`. It links each chapter to its companion lab,
@@ -14,8 +12,8 @@ course formats without losing pedagogical coherence.
 ### — Systems Science and the Logic of Emergence {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_0_systems_science}.
-- **Lab:** \cref{sec:lab_unit_0_systems_science}.
-- **Question bank:** \cref{sec:q_unit_0_systems_science}.
+- **Lab:** \nameref{sec:lab_unit_0_systems_science}.
+- **Question bank:** \nameref{sec:q_unit_0_systems_science}.
 - **Big idea:** Biological explanation improves when parts, interactions, feedback, and scale are kept in view together.
 - **Core concepts:** systems boundaries, feedback, emergence, state variables.
 - **Framework alignment:** Vision & Change: Systems, Structure and function; AP Biology: Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
@@ -27,8 +25,8 @@ course formats without losing pedagogical coherence.
 ### — Complex Adaptive Systems {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_0_complex_adaptive_systems}.
-- **Lab:** \cref{sec:lab_unit_0_complex_adaptive_systems}.
-- **Question bank:** \cref{sec:q_unit_0_complex_adaptive_systems}.
+- **Lab:** \nameref{sec:lab_unit_0_complex_adaptive_systems}.
+- **Question bank:** \nameref{sec:q_unit_0_complex_adaptive_systems}.
 - **Big idea:** Local rules can generate population-level patterns without a central controller.
 - **Core concepts:** nonlinearity, self-organization, attractors, power laws.
 - **Framework alignment:** Vision & Change: Systems, Structure and function; AP Biology: Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
@@ -40,8 +38,8 @@ course formats without losing pedagogical coherence.
 ### — Active Inference and the Free Energy Principle {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_0_active_inference}.
-- **Lab:** \cref{sec:lab_unit_0_active_inference}.
-- **Question bank:** \cref{sec:q_unit_0_active_inference}.
+- **Lab:** \nameref{sec:lab_unit_0_active_inference}.
+- **Question bank:** \nameref{sec:q_unit_0_active_inference}.
 - **Big idea:** Living systems reduce uncertainty by acting on the world as well as by updating internal models.
 - **Core concepts:** prediction error, Bayesian updating, policy selection, homeostasis.
 - **Framework alignment:** Vision & Change: Systems, Structure and function; AP Biology: Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
@@ -53,8 +51,8 @@ course formats without losing pedagogical coherence.
 ### — History and Philosophy of Biology {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_0_history_philosophy_biology}.
-- **Lab:** \cref{sec:lab_unit_0_history_philosophy_biology}.
-- **Question bank:** \cref{sec:q_unit_0_history_philosophy_biology}.
+- **Lab:** \nameref{sec:lab_unit_0_history_philosophy_biology}.
+- **Question bank:** \nameref{sec:q_unit_0_history_philosophy_biology}.
 - **Big idea:** Biology is a changing evidence practice: its concepts of life, function, species, inheritance, and self are revised by new observations, instruments, models, and social values.
 - **Core concepts:** biological explanation, historical evidence, function, species concepts, values in science.
 - **Framework alignment:** Vision & Change: Systems, Structure and function; AP Biology: Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
@@ -69,8 +67,8 @@ course formats without losing pedagogical coherence.
 ### — Atoms, Molecules, and Chemical Bonds {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_I_atoms_molecules}.
-- **Lab:** \cref{sec:lab_unit_I_atoms_molecules}.
-- **Question bank:** \cref{sec:q_unit_I_atoms_molecules}.
+- **Lab:** \nameref{sec:lab_unit_I_atoms_molecules}.
+- **Question bank:** \nameref{sec:q_unit_I_atoms_molecules}.
 - **Big idea:** Atomic structure constrains the bonds, charges, and geometries that make biological molecules possible.
 - **Core concepts:** valence, electronegativity, formal charge, isotopes.
 - **Framework alignment:** Vision & Change: Structure and function, Pathways and transformations of energy and matter; AP Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and Energy in Organisms and Ecosystems, Structure and Function.
@@ -82,8 +80,8 @@ course formats without losing pedagogical coherence.
 ### — Water — The Molecule of Life {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_I_water_and_life}.
-- **Lab:** \cref{sec:lab_unit_I_water_and_life}.
-- **Question bank:** \cref{sec:q_unit_I_water_and_life}.
+- **Lab:** \nameref{sec:lab_unit_I_water_and_life}.
+- **Question bank:** \nameref{sec:q_unit_I_water_and_life}.
 - **Big idea:** Water's polarity, hydrogen bonding, and ionization make cells physically possible.
 - **Core concepts:** hydrogen bonding, cohesion, pH, buffers.
 - **Framework alignment:** Vision & Change: Structure and function, Pathways and transformations of energy and matter; AP Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and Energy in Organisms and Ecosystems, Structure and Function.
@@ -95,8 +93,8 @@ course formats without losing pedagogical coherence.
 ### — Biological Macromolecules {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_I_macromolecules}.
-- **Lab:** \cref{sec:lab_unit_I_macromolecules}.
-- **Question bank:** \cref{sec:q_unit_I_macromolecules}.
+- **Lab:** \nameref{sec:lab_unit_I_macromolecules}.
+- **Question bank:** \nameref{sec:q_unit_I_macromolecules}.
 - **Big idea:** Macromolecule structure links monomer chemistry to biological function and information storage.
 - **Core concepts:** polymers, dehydration synthesis, protein structure, nucleic acids.
 - **Framework alignment:** Vision & Change: Structure and function, Pathways and transformations of energy and matter; AP Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and Energy in Organisms and Ecosystems, Structure and Function.
@@ -108,8 +106,8 @@ course formats without losing pedagogical coherence.
 ### — Enzymes and the Kinetics of Catalysis {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_I_enzymes_and_kinetics}.
-- **Lab:** \cref{sec:lab_unit_I_enzymes_and_kinetics}.
-- **Question bank:** \cref{sec:q_unit_I_enzymes_and_kinetics}.
+- **Lab:** \nameref{sec:lab_unit_I_enzymes_and_kinetics}.
+- **Question bank:** \nameref{sec:q_unit_I_enzymes_and_kinetics}.
 - **Big idea:** Enzymes accelerate reactions by stabilizing transition states without changing thermodynamic endpoints.
 - **Core concepts:** activation energy, Michaelis-Menten kinetics, inhibition, allostery.
 - **Framework alignment:** Vision & Change: Structure and function, Pathways and transformations of energy and matter; AP Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and Energy in Organisms and Ecosystems, Structure and Function.
@@ -124,8 +122,8 @@ course formats without losing pedagogical coherence.
 ### — Cell Theory and Cell Types {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_II_cell_theory}.
-- **Lab:** \cref{sec:lab_unit_II_cell_theory}.
-- **Question bank:** \cref{sec:q_unit_II_cell_theory}.
+- **Lab:** \nameref{sec:lab_unit_II_cell_theory}.
+- **Question bank:** \nameref{sec:q_unit_II_cell_theory}.
 - **Big idea:** Cells are bounded, evolving systems whose size and organization reflect physical constraints.
 - **Core concepts:** cell theory, surface area, microscopy, prokaryote/eukaryote comparison.
 - **Framework alignment:** Vision & Change: Structure and function, Systems, Information flow, exchange, and storage; AP Biology: Systems Interactions, Information Storage and Transmission; NGSS-style topics: Structure and Function.
@@ -137,8 +135,8 @@ course formats without losing pedagogical coherence.
 ### — Cell Structure and Organelles {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_II_cell_structure}.
-- **Lab:** \cref{sec:lab_unit_II_cell_structure}.
-- **Question bank:** \cref{sec:q_unit_II_cell_structure}.
+- **Lab:** \nameref{sec:lab_unit_II_cell_structure}.
+- **Question bank:** \nameref{sec:q_unit_II_cell_structure}.
 - **Big idea:** Organelle structure partitions work, traffic, information, and energy inside eukaryotic cells.
 - **Core concepts:** organelles, endomembrane system, cytoskeleton, motor proteins.
 - **Framework alignment:** Vision & Change: Structure and function, Systems, Information flow, exchange, and storage; AP Biology: Systems Interactions, Information Storage and Transmission; NGSS-style topics: Structure and Function.
@@ -150,8 +148,8 @@ course formats without losing pedagogical coherence.
 ### — Membrane Structure and Transport {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_II_membrane_transport}.
-- **Lab:** \cref{sec:lab_unit_II_membrane_transport}.
-- **Question bank:** \cref{sec:q_unit_II_membrane_transport}.
+- **Lab:** \nameref{sec:lab_unit_II_membrane_transport}.
+- **Question bank:** \nameref{sec:q_unit_II_membrane_transport}.
 - **Big idea:** Membranes convert gradients, permeability, and selective transport into cellular physiology.
 - **Core concepts:** bilayers, diffusion, osmosis, electrochemical gradients.
 - **Framework alignment:** Vision & Change: Structure and function, Systems, Information flow, exchange, and storage; AP Biology: Systems Interactions, Information Storage and Transmission; NGSS-style topics: Structure and Function.
@@ -160,11 +158,11 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Equilibrium does not mean equal concentration; charge and permeability matter.
 - **Transfer task:** Transfer gradient logic to neurons, kidneys, roots, and mitochondrial membranes.
 
-### — Cell Signalling and Communication {.unnumbered}
+### — Cell Signaling and Communication {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_II_cell_signaling}.
-- **Lab:** \cref{sec:lab_unit_II_cell_signaling}.
-- **Question bank:** \cref{sec:q_unit_II_cell_signaling}.
+- **Lab:** \nameref{sec:lab_unit_II_cell_signaling}.
+- **Question bank:** \nameref{sec:q_unit_II_cell_signaling}.
 - **Big idea:** Cells communicate by converting external signals into regulated intracellular decisions.
 - **Core concepts:** receptors, second messengers, signal amplification, feedback.
 - **Framework alignment:** Vision & Change: Structure and function, Systems, Information flow, exchange, and storage; AP Biology: Systems Interactions, Information Storage and Transmission; NGSS-style topics: Structure and Function.
@@ -179,8 +177,8 @@ course formats without losing pedagogical coherence.
 ### — Bioenergetics and Cellular Respiration {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_III_bioenergetics_and_respiration}.
-- **Lab:** \cref{sec:lab_unit_III_bioenergetics_and_respiration}.
-- **Question bank:** \cref{sec:q_unit_III_bioenergetics_and_respiration}.
+- **Lab:** \nameref{sec:lab_unit_III_bioenergetics_and_respiration}.
+- **Question bank:** \nameref{sec:q_unit_III_bioenergetics_and_respiration}.
 - **Big idea:** Cells harvest free energy by coupling redox chemistry to phosphoryl transfer and ion gradients.
 - **Core concepts:** free energy, redox, glycolysis, oxidative phosphorylation.
 - **Framework alignment:** Vision & Change: Pathways and transformations of energy and matter, Systems; AP Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and Energy in Organisms and Ecosystems.
@@ -192,8 +190,8 @@ course formats without losing pedagogical coherence.
 ### — Photosynthesis {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_III_photosynthesis}.
-- **Lab:** \cref{sec:lab_unit_III_photosynthesis}.
-- **Question bank:** \cref{sec:q_unit_III_photosynthesis}.
+- **Lab:** \nameref{sec:lab_unit_III_photosynthesis}.
+- **Question bank:** \nameref{sec:q_unit_III_photosynthesis}.
 - **Big idea:** Photosynthesis couples light-driven electron flow to carbon fixation and planetary productivity.
 - **Core concepts:** photosystems, electron transport, Calvin cycle, photorespiration.
 - **Framework alignment:** Vision & Change: Pathways and transformations of energy and matter, Systems; AP Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and Energy in Organisms and Ecosystems.
@@ -205,8 +203,8 @@ course formats without losing pedagogical coherence.
 ### — Metabolic Integration and Regulation {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_III_metabolic_integration}.
-- **Lab:** \cref{sec:lab_unit_III_metabolic_integration}.
-- **Question bank:** \cref{sec:q_unit_III_metabolic_integration}.
+- **Lab:** \nameref{sec:lab_unit_III_metabolic_integration}.
+- **Question bank:** \nameref{sec:q_unit_III_metabolic_integration}.
 - **Big idea:** Metabolism is a regulated network that reallocates flux across tissues, time, and nutrient states.
 - **Core concepts:** flux, energy charge, hormonal control, fed/fasted states.
 - **Framework alignment:** Vision & Change: Pathways and transformations of energy and matter, Systems; AP Biology: Energetics, Systems Interactions; NGSS-style topics: Matter and Energy in Organisms and Ecosystems.
@@ -221,8 +219,8 @@ course formats without losing pedagogical coherence.
 ### — DNA Replication and the Cell Cycle {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
-- **Lab:** \cref{sec:lab_unit_IV_dna_replication_and_cell_cycle}.
-- **Question bank:** \cref{sec:q_unit_IV_dna_replication_and_cell_cycle}.
+- **Lab:** \nameref{sec:lab_unit_IV_dna_replication_and_cell_cycle}.
+- **Question bank:** \nameref{sec:q_unit_IV_dna_replication_and_cell_cycle}.
 - **Big idea:** Genome copying is accurate because chemistry, enzyme proofreading, and checkpoints cooperate.
 - **Core concepts:** semiconservative replication, polymerase, proofreading, checkpoints.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
@@ -234,8 +232,8 @@ course formats without losing pedagogical coherence.
 ### — Gene Expression — Transcription and Translation {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IV_gene_expression}.
-- **Lab:** \cref{sec:lab_unit_IV_gene_expression}.
-- **Question bank:** \cref{sec:q_unit_IV_gene_expression}.
+- **Lab:** \nameref{sec:lab_unit_IV_gene_expression}.
+- **Question bank:** \nameref{sec:q_unit_IV_gene_expression}.
 - **Big idea:** Gene expression translates sequence information into regulated RNA and protein products.
 - **Core concepts:** transcription, translation, codons, RNA processing.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
@@ -247,8 +245,8 @@ course formats without losing pedagogical coherence.
 ### — Mutations, CRISPR, and Genomics {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IV_mutations_and_genomics}.
-- **Lab:** \cref{sec:lab_unit_IV_mutations_and_genomics}.
-- **Question bank:** \cref{sec:q_unit_IV_mutations_and_genomics}.
+- **Lab:** \nameref{sec:lab_unit_IV_mutations_and_genomics}.
+- **Question bank:** \nameref{sec:q_unit_IV_mutations_and_genomics}.
 - **Big idea:** Genomic variation becomes biological consequence through sequence context, repair, and selection.
 - **Core concepts:** mutation classes, DNA repair, CRISPR, genome analysis.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
@@ -260,8 +258,8 @@ course formats without losing pedagogical coherence.
 ### — Chromatin and Epigenetic Mechanisms {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}.
-- **Lab:** \cref{sec:lab_unit_IV_chromatin_and_epigenetic_mechanisms}.
-- **Question bank:** \cref{sec:q_unit_IV_chromatin_and_epigenetic_mechanisms}.
+- **Lab:** \nameref{sec:lab_unit_IV_chromatin_and_epigenetic_mechanisms}.
+- **Question bank:** \nameref{sec:q_unit_IV_chromatin_and_epigenetic_mechanisms}.
 - **Big idea:** Cells create stable yet reversible expression states through chromatin, DNA marks, and regulatory circuits.
 - **Core concepts:** chromatin, methylation, histone modification, enhancers.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
@@ -273,9 +271,9 @@ course formats without losing pedagogical coherence.
 ### — Epigenetic Inheritance and Disease {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
-- **Lab:** \cref{sec:lab_unit_IV_epigenetic_inheritance_and_disease}.
-- **Question bank:** \cref{sec:q_unit_IV_epigenetic_inheritance_and_disease}.
-- **Big idea:** Three-dimensional genome organisation and epigenetic inheritance link regulatory architecture to disease phenotypes.
+- **Lab:** \nameref{sec:lab_unit_IV_epigenetic_inheritance_and_disease}.
+- **Question bank:** \nameref{sec:q_unit_IV_epigenetic_inheritance_and_disease}.
+- **Big idea:** Three-dimensional genome organization and epigenetic inheritance link regulatory architecture to disease phenotypes.
 - **Core concepts:** 3D genome, phase separation, imprinting, epigenetic inheritance.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
 - **Practice cadence:** Concept Explanation, Questions and Methods, Argumentation.
@@ -289,8 +287,8 @@ course formats without losing pedagogical coherence.
 ### — Mendelian Principles and Probability {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_V_mendelian_principles}.
-- **Lab:** \cref{sec:lab_unit_V_mendelian_principles}.
-- **Question bank:** \cref{sec:q_unit_V_mendelian_principles}.
+- **Lab:** \nameref{sec:lab_unit_V_mendelian_principles}.
+- **Question bank:** \nameref{sec:q_unit_V_mendelian_principles}.
 - **Big idea:** Mendelian segregation and probability explain inheritance when alleles assort independently.
 - **Core concepts:** segregation, independent assortment, Punnett squares, probability.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
@@ -302,21 +300,21 @@ course formats without losing pedagogical coherence.
 ### — Mendelian Extensions and Human Genetics {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_V_mendelian_extensions_and_human_genetics}.
-- **Lab:** \cref{sec:lab_unit_V_mendelian_extensions_and_human_genetics}.
-- **Question bank:** \cref{sec:q_unit_V_mendelian_extensions_and_human_genetics}.
+- **Lab:** \nameref{sec:lab_unit_V_mendelian_extensions_and_human_genetics}.
+- **Question bank:** \nameref{sec:q_unit_V_mendelian_extensions_and_human_genetics}.
 - **Big idea:** Extensions to Mendelian ratios and human pedigree analysis reveal when simple dominance fails.
 - **Core concepts:** incomplete dominance, epistasis, pedigrees, penetrance.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
 - **Practice cadence:** Statistical Tests and Data Analysis, Representing and Describing Data.
 - **Model/data skill:** Pedigree, epistasis, and multi-locus probability calculations. Infer inheritance mode and extension mechanism from family or cross data.
-- **Misconception probe:** A single-gene model is a starting hypothesis, not always sufficient by itself.
+- **Misconception probe:** A single-gene model is a starting hypothesis, not the default for every trait.
 - **Transfer task:** Transfer extension reasoning to counseling, GWAS interpretation, and breeding.
 
 ### — Chromosomal Inheritance and Linkage {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_V_chromosomal_inheritance}.
-- **Lab:** \cref{sec:lab_unit_V_chromosomal_inheritance}.
-- **Question bank:** \cref{sec:q_unit_V_chromosomal_inheritance}.
+- **Lab:** \nameref{sec:lab_unit_V_chromosomal_inheritance}.
+- **Question bank:** \nameref{sec:q_unit_V_chromosomal_inheritance}.
 - **Big idea:** Genes travel on chromosomes, so linkage, recombination, and chromosome structure shape inheritance.
 - **Core concepts:** linkage, recombination, sex linkage, chromosomal rearrangements.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
@@ -328,8 +326,8 @@ course formats without losing pedagogical coherence.
 ### — Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_V_population_genetics}.
-- **Lab:** \cref{sec:lab_unit_V_population_genetics}.
-- **Question bank:** \cref{sec:q_unit_V_population_genetics}.
+- **Lab:** \nameref{sec:lab_unit_V_population_genetics}.
+- **Question bank:** \nameref{sec:q_unit_V_population_genetics}.
 - **Big idea:** Allele frequencies change when assumptions about random mating, population size, and fitness are violated.
 - **Core concepts:** Hardy-Weinberg, selection, mutation, genetic drift.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
@@ -344,8 +342,8 @@ course formats without losing pedagogical coherence.
 ### — Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VI_evolution_and_selection}.
-- **Lab:** \cref{sec:lab_unit_VI_evolution_and_selection}.
-- **Question bank:** \cref{sec:q_unit_VI_evolution_and_selection}.
+- **Lab:** \nameref{sec:lab_unit_VI_evolution_and_selection}.
+- **Question bank:** \nameref{sec:q_unit_VI_evolution_and_selection}.
 - **Big idea:** Natural selection is differential reproductive success acting on heritable variation in context.
 - **Core concepts:** variation, fitness, adaptation, selection coefficient.
 - **Framework alignment:** Vision & Change: Evolution, Systems; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Natural Selection and Evolution, Interdependent Relationships in Ecosystems.
@@ -357,8 +355,8 @@ course formats without losing pedagogical coherence.
 ### — Genetic Drift, Gene Flow, and Speciation {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VI_genetic_drift_and_speciation}.
-- **Lab:** \cref{sec:lab_unit_VI_genetic_drift_and_speciation}.
-- **Question bank:** \cref{sec:q_unit_VI_genetic_drift_and_speciation}.
+- **Lab:** \nameref{sec:lab_unit_VI_genetic_drift_and_speciation}.
+- **Question bank:** \nameref{sec:q_unit_VI_genetic_drift_and_speciation}.
 - **Big idea:** Chance, population structure, and barriers to gene flow can generate divergence even without adaptive change.
 - **Core concepts:** drift, effective population size, gene flow, speciation.
 - **Framework alignment:** Vision & Change: Evolution, Systems; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Natural Selection and Evolution, Interdependent Relationships in Ecosystems.
@@ -370,8 +368,8 @@ course formats without losing pedagogical coherence.
 ### — Phylogenetics and the Tree of Life {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VI_phylogenetics}.
-- **Lab:** \cref{sec:lab_unit_VI_phylogenetics}.
-- **Question bank:** \cref{sec:q_unit_VI_phylogenetics}.
+- **Lab:** \nameref{sec:lab_unit_VI_phylogenetics}.
+- **Question bank:** \nameref{sec:q_unit_VI_phylogenetics}.
 - **Big idea:** Phylogenies are evidence-based hypotheses about ancestry, not ladders of progress.
 - **Core concepts:** homology, tree topology, parsimony, molecular clocks.
 - **Framework alignment:** Vision & Change: Evolution, Systems; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Natural Selection and Evolution, Interdependent Relationships in Ecosystems.
@@ -386,8 +384,8 @@ course formats without losing pedagogical coherence.
 ### — Bacteria, Archaea, and Viruses {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VII_bacteria_archaea_viruses}.
-- **Lab:** \cref{sec:lab_unit_VII_bacteria_archaea_viruses}.
-- **Question bank:** \cref{sec:q_unit_VII_bacteria_archaea_viruses}.
+- **Lab:** \nameref{sec:lab_unit_VII_bacteria_archaea_viruses}.
+- **Question bank:** \nameref{sec:q_unit_VII_bacteria_archaea_viruses}.
 - **Big idea:** Microbial diversity reflects different cell architectures, genomes, metabolisms, and evolutionary histories.
 - **Core concepts:** prokaryotic structure, archaea, viruses, horizontal gene transfer.
 - **Framework alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
@@ -399,8 +397,8 @@ course formats without losing pedagogical coherence.
 ### — Microbial Ecology and the Microbiome {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VII_microbial_ecology}.
-- **Lab:** \cref{sec:lab_unit_VII_microbial_ecology}.
-- **Question bank:** \cref{sec:q_unit_VII_microbial_ecology}.
+- **Lab:** \nameref{sec:lab_unit_VII_microbial_ecology}.
+- **Question bank:** \nameref{sec:q_unit_VII_microbial_ecology}.
 - **Big idea:** Microbes organize communities, cycles, and host physiology through interactions and metabolism.
 - **Core concepts:** microbiomes, symbiosis, diversity, biogeochemical cycling.
 - **Framework alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
@@ -412,8 +410,8 @@ course formats without losing pedagogical coherence.
 ### — Host Immunity and Vaccines {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VII_host_immunity_and_vaccines}.
-- **Lab:** \cref{sec:lab_unit_VII_host_immunity_and_vaccines}.
-- **Question bank:** \cref{sec:q_unit_VII_host_immunity_and_vaccines}.
+- **Lab:** \nameref{sec:lab_unit_VII_host_immunity_and_vaccines}.
+- **Question bank:** \nameref{sec:q_unit_VII_host_immunity_and_vaccines}.
 - **Big idea:** Host immunity and vaccination reshape pathogen transmission by changing susceptible fractions.
 - **Core concepts:** innate immunity, adaptive immunity, vaccination, herd immunity.
 - **Framework alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
@@ -425,14 +423,14 @@ course formats without losing pedagogical coherence.
 ### — Antimicrobial Resistance and Epidemiology {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-- **Lab:** \cref{sec:lab_unit_VII_antimicrobial_resistance_and_epidemiology}.
-- **Question bank:** \cref{sec:q_unit_VII_antimicrobial_resistance_and_epidemiology}.
+- **Lab:** \nameref{sec:lab_unit_VII_antimicrobial_resistance_and_epidemiology}.
+- **Question bank:** \nameref{sec:q_unit_VII_antimicrobial_resistance_and_epidemiology}.
 - **Big idea:** Antimicrobial resistance and epidemic dynamics emerge from pathogen evolution and transmission networks.
 - **Core concepts:** antibiotic resistance, R0, transmission, surveillance.
 - **Framework alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
 - **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
 - **Model/data skill:** R0, resistance-mechanism, and outbreak-trajectory calculations. Interpret resistance assays and outbreak curves.
-- **Misconception probe:** R0 is not a fixed property of a pathogen alone; it depends on host behaviour and environment.
+- **Misconception probe:** R0 is not a fixed property of a pathogen alone; it depends on host behavior and environment.
 - **Transfer task:** Transfer resistance and epidemiology reasoning to stewardship and public-health policy.
 
 
@@ -441,8 +439,8 @@ course formats without losing pedagogical coherence.
 ### — Plant Structure, Water Relations, and Transport {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VIII_plant_structure_and_water}.
-- **Lab:** \cref{sec:lab_unit_VIII_plant_structure_and_water}.
-- **Question bank:** \cref{sec:q_unit_VIII_plant_structure_and_water}.
+- **Lab:** \nameref{sec:lab_unit_VIII_plant_structure_and_water}.
+- **Question bank:** \nameref{sec:q_unit_VIII_plant_structure_and_water}.
 - **Big idea:** Plant form is an engineering solution to water movement, support, gas exchange, and growth.
 - **Core concepts:** xylem, phloem, water potential, transpiration.
 - **Framework alignment:** Vision & Change: Structure and function, Pathways and transformations of energy and matter, Systems; AP Biology: Energetics, Systems Interactions; NGSS-style topics: Structure and Function, Matter and Energy in Organisms and Ecosystems.
@@ -454,8 +452,8 @@ course formats without losing pedagogical coherence.
 ### — Plant Reproduction and Development {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VIII_plant_reproduction}.
-- **Lab:** \cref{sec:lab_unit_VIII_plant_reproduction}.
-- **Question bank:** \cref{sec:q_unit_VIII_plant_reproduction}.
+- **Lab:** \nameref{sec:lab_unit_VIII_plant_reproduction}.
+- **Question bank:** \nameref{sec:q_unit_VIII_plant_reproduction}.
 - **Big idea:** Plant reproduction integrates life cycles, development, dispersal, and environmental timing.
 - **Core concepts:** alternation of generations, flowers, seeds, development.
 - **Framework alignment:** Vision & Change: Structure and function, Pathways and transformations of energy and matter, Systems; AP Biology: Energetics, Systems Interactions; NGSS-style topics: Structure and Function, Matter and Energy in Organisms and Ecosystems.
@@ -467,8 +465,8 @@ course formats without losing pedagogical coherence.
 ### — Plant Responses to the Environment {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VIII_plant_responses}.
-- **Lab:** \cref{sec:lab_unit_VIII_plant_responses}.
-- **Question bank:** \cref{sec:q_unit_VIII_plant_responses}.
+- **Lab:** \nameref{sec:lab_unit_VIII_plant_responses}.
+- **Question bank:** \nameref{sec:q_unit_VIII_plant_responses}.
 - **Big idea:** Plants sense environmental signals and respond through growth, hormones, and physiological regulation.
 - **Core concepts:** tropisms, hormones, photoperiodism, stress responses.
 - **Framework alignment:** Vision & Change: Structure and function, Pathways and transformations of energy and matter, Systems; AP Biology: Energetics, Systems Interactions; NGSS-style topics: Structure and Function, Matter and Energy in Organisms and Ecosystems.
@@ -483,8 +481,8 @@ course formats without losing pedagogical coherence.
 ### — Circulation, Respiration, and Homeostasis {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IX_circulation_respiration_homeostasis}.
-- **Lab:** \cref{sec:lab_unit_IX_circulation_respiration_homeostasis}.
-- **Question bank:** \cref{sec:q_unit_IX_circulation_respiration_homeostasis}.
+- **Lab:** \nameref{sec:lab_unit_IX_circulation_respiration_homeostasis}.
+- **Question bank:** \nameref{sec:q_unit_IX_circulation_respiration_homeostasis}.
 - **Big idea:** Animal transport systems maintain gradients that let cells exchange gases, nutrients, heat, and wastes.
 - **Core concepts:** cardiac output, gas exchange, homeostasis, feedback.
 - **Framework alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
@@ -493,12 +491,12 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Homeostasis is dynamic regulation, not an unchanging internal state.
 - **Transfer task:** Transfer homeostatic reasoning to exercise, altitude, hemorrhage, fever, and shock.
 
-### — Nervous System and Neural Signalling {.unnumbered}
+### — Nervous System and Neural Signaling {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IX_nervous_system}.
-- **Lab:** \cref{sec:lab_unit_IX_nervous_system}.
-- **Question bank:** \cref{sec:q_unit_IX_nervous_system}.
-- **Big idea:** Nervous systems compute with cells whose structure shapes information flow and behaviour.
+- **Lab:** \nameref{sec:lab_unit_IX_nervous_system}.
+- **Question bank:** \nameref{sec:q_unit_IX_nervous_system}.
+- **Big idea:** Nervous systems compute with cells whose structure shapes information flow and behavior.
 - **Core concepts:** neurons, glia, circuits, sensory processing.
 - **Framework alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
 - **Practice cadence:** Visual Representations, Statistical Tests and Data Analysis, Argumentation.
@@ -509,8 +507,8 @@ course formats without losing pedagogical coherence.
 ### — Action Potentials and Synaptic Transmission {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IX_action_potential_synapses}.
-- **Lab:** \cref{sec:lab_unit_IX_action_potential_synapses}.
-- **Question bank:** \cref{sec:q_unit_IX_action_potential_synapses}.
+- **Lab:** \nameref{sec:lab_unit_IX_action_potential_synapses}.
+- **Question bank:** \nameref{sec:q_unit_IX_action_potential_synapses}.
 - **Big idea:** Electrical excitability and synaptic transmission convert ion gradients into rapid communication.
 - **Core concepts:** action potentials, ion channels, synapses, plasticity.
 - **Framework alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
@@ -522,8 +520,8 @@ course formats without losing pedagogical coherence.
 ### — Endocrine Signaling and Homeostasis {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IX_endocrine_signaling}.
-- **Lab:** \cref{sec:lab_unit_IX_endocrine_signaling}.
-- **Question bank:** \cref{sec:q_unit_IX_endocrine_signaling}.
+- **Lab:** \nameref{sec:lab_unit_IX_endocrine_signaling}.
+- **Question bank:** \nameref{sec:q_unit_IX_endocrine_signaling}.
 - **Big idea:** Hormone feedback loops coordinate long-range physiological homeostasis.
 - **Core concepts:** hormones, feedback, receptors, homeostasis.
 - **Framework alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
@@ -535,8 +533,8 @@ course formats without losing pedagogical coherence.
 ### — Immune System Architecture and Defense {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IX_immune_system_defense}.
-- **Lab:** \cref{sec:lab_unit_IX_immune_system_defense}.
-- **Question bank:** \cref{sec:q_unit_IX_immune_system_defense}.
+- **Lab:** \nameref{sec:lab_unit_IX_immune_system_defense}.
+- **Question bank:** \nameref{sec:q_unit_IX_immune_system_defense}.
 - **Big idea:** Innate and adaptive immunity integrate recognition, effector function, tolerance, and memory.
 - **Core concepts:** innate immunity, adaptive immunity, tolerance, immunotherapy.
 - **Framework alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
@@ -551,8 +549,8 @@ course formats without losing pedagogical coherence.
 ### — Population Ecology and Growth Models {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_X_population_ecology}.
-- **Lab:** \cref{sec:lab_unit_X_population_ecology}.
-- **Question bank:** \cref{sec:q_unit_X_population_ecology}.
+- **Lab:** \nameref{sec:lab_unit_X_population_ecology}.
+- **Question bank:** \nameref{sec:q_unit_X_population_ecology}.
 - **Big idea:** Population change reflects births, deaths, movement, age structure, and density dependence.
 - **Core concepts:** exponential growth, logistic growth, life tables, population viability.
 - **Framework alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
@@ -564,8 +562,8 @@ course formats without losing pedagogical coherence.
 ### — Community Interactions and Succession {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_X_community_interactions}.
-- **Lab:** \cref{sec:lab_unit_X_community_interactions}.
-- **Question bank:** \cref{sec:q_unit_X_community_interactions}.
+- **Lab:** \nameref{sec:lab_unit_X_community_interactions}.
+- **Question bank:** \nameref{sec:q_unit_X_community_interactions}.
 - **Big idea:** Communities are structured by pairwise species interactions and successional change.
 - **Core concepts:** competition, predation, mutualism, succession.
 - **Framework alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
@@ -577,8 +575,8 @@ course formats without losing pedagogical coherence.
 ### — Biodiversity, Food Webs, and Biogeography {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_X_biodiversity_and_food_webs}.
-- **Lab:** \cref{sec:lab_unit_X_biodiversity_and_food_webs}.
-- **Question bank:** \cref{sec:q_unit_X_biodiversity_and_food_webs}.
+- **Lab:** \nameref{sec:lab_unit_X_biodiversity_and_food_webs}.
+- **Question bank:** \nameref{sec:q_unit_X_biodiversity_and_food_webs}.
 - **Big idea:** Biodiversity patterns, food webs, and island biogeography scale from local interactions to landscape structure.
 - **Core concepts:** food webs, keystone species, species-area, diversity indices.
 - **Framework alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
@@ -590,8 +588,8 @@ course formats without losing pedagogical coherence.
 ### — Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_X_ecosystem_ecology}.
-- **Lab:** \cref{sec:lab_unit_X_ecosystem_ecology}.
-- **Question bank:** \cref{sec:q_unit_X_ecosystem_ecology}.
+- **Lab:** \nameref{sec:lab_unit_X_ecosystem_ecology}.
+- **Question bank:** \nameref{sec:q_unit_X_ecosystem_ecology}.
 - **Big idea:** Ecosystems couple energy flow and matter cycling across organisms, environments, and time.
 - **Core concepts:** primary productivity, trophic efficiency, nutrient cycles, decomposition.
 - **Framework alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
@@ -603,8 +601,8 @@ course formats without losing pedagogical coherence.
 ### — Biomes and Conservation Biology {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_X_biomes_and_conservation}.
-- **Lab:** \cref{sec:lab_unit_X_biomes_and_conservation}.
-- **Question bank:** \cref{sec:q_unit_X_biomes_and_conservation}.
+- **Lab:** \nameref{sec:lab_unit_X_biomes_and_conservation}.
+- **Question bank:** \nameref{sec:q_unit_X_biomes_and_conservation}.
 - **Big idea:** Biodiversity patterns and conservation decisions emerge from climate, history, disturbance, and human choice.
 - **Core concepts:** biomes, biodiversity, extinction risk, conservation planning.
 - **Framework alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.

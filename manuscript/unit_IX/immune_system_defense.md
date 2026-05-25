@@ -7,7 +7,7 @@
 
 ## Learning Objectives
 
-1. Distinguish innate and adaptive immunity, including PRRs and downstream signalling pathways.
+1. Distinguish innate and adaptive immunity, including PRRs and downstream signaling pathways.
 2. Explain the complement system, phagocytosis, and antigen presentation.
 3. Describe T and B cell development, activation, and immunological memory.
 4. Explain tolerance, autoimmunity, hypersensitivity, and immunotherapy approaches.
@@ -20,7 +20,7 @@
 
 ## Immune System Architecture and Effector Logic
 
-The immune system protects against pathogens and tumour cells while preserving tolerance to self. It comprises two integrated arms: **innate immunity** (rapid, non-specific, germline-encoded) and **adaptive immunity** (slow, antigen-specific, somatically generated).
+The immune system protects against pathogens and tumor cells while preserving tolerance to self \citep{chaplin2010immuneresponse}. It comprises two integrated arms: **innate immunity** (rapid, non-specific, germline-encoded) and **adaptive immunity** (slow, antigen-specific, somatically generated).
 
 ### Innate Immunity
 
@@ -34,7 +34,7 @@ graph TD
         B3["Phagocytes<br/>Neutrophils (first responders)<br/>Macrophages (tissue resident)<br/>Dendritic cells (APCs)"]
         B4["NK Cells<br/>Kill virus-infected cells<br/>Missing-self recognition<br/>(KIR checks for MHC I)"]
         B5["Inflammation<br/>Histamine, prostaglandins<br/>Vasodilation, permeability up<br/>Neutrophil recruitment"]
-        B6["Interferons<br/>Type I (IFN-α/β): antiviral<br/>Induce ISG expression<br/>in neighbouring cells"]
+        B6["Interferons<br/>Type I (IFN-α/β): antiviral<br/>Induce ISG expression<br/>in neighboring cells"]
         B7["Fever<br/>PGE2 raises hypothalamic<br/>set point<br/>Enhances immune function"]
     end
 
@@ -47,25 +47,26 @@ graph TD
     Pathogen --> B6
     B3 --> |"Antigen presentation<br/>to adaptive immunity"| Adaptive["Adaptive Immune<br/>Response (7-10 days)"]
 ```
-<!-- alt: Graph showing components of innate immunity Physical barriers form the first line of defence. When breached, inflammation recruits phagocytes, complement activates, NK cells kill infected cells, and interferons establish an antiviral state. Antigen-presenting cells bridge innate to adaptive immunity. -->
+<!-- alt: Graph showing components of innate immunity Physical barriers form the first line of defense. When breached, inflammation recruits phagocytes, complement activates, NK cells kill infected cells, and interferons establish an antiviral state. Antigen-presenting cells bridge innate to adaptive immunity. -->
 
-*Components of innate immunity Physical barriers form the first line of defence. When breached, inflammation recruits phagocytes, complement activates, NK cells kill infected cells, and interferons establish an antiviral state. Antigen-presenting cells bridge innate to adaptive immunity.*
+*Components of innate immunity Physical barriers form the first line of defense. When breached, inflammation recruits phagocytes, complement activates, NK cells kill infected cells, and interferons establish an antiviral state. Antigen-presenting cells bridge innate to adaptive immunity.*
 
 **Key innate immune cells:**
 
+: Innate Immunity: Cell Type and Function. {#tbl:unit_IX_immune_system_defense_innate_immunity}
 | Cell Type | Function | Key Features |
 | --------- | -------- | ------------ |
 | **Neutrophils** | First responders; phagocytosis; NETs; oxidative burst | Most abundant WBC (60–70%); short-lived (hours) |
 | **Macrophages** | Phagocytosis; antigen presentation; cytokine production | Tissue-resident (Kupffer cells in liver, microglia in brain, alveolar macrophages in lung) |
 | **Dendritic cells** | Professional APCs; bridge innate and adaptive | Most potent antigen presenters |
-| **NK cells** | Kill virus-infected and tumour cells | "Missing self" detection via KIR receptors |
-| **Mast cells** | Histamine release; IgE-mediated degranulation | Allergy; [**parasite**](#gl:parasite) defence |
-| **Eosinophils** | Parasite defence; allergic inflammation | Major basic protein toxic to helminths |
+| **NK cells** | Kill virus-infected and tumor cells | "Missing self" detection via KIR receptors |
+| **Mast cells** | Histamine release; IgE-mediated degranulation | Allergy; [**parasite**](#gl:parasite) defense |
+| **Eosinophils** | Parasite defense; allergic inflammation | Major basic protein toxic to helminths |
 | **Basophils** | Histamine; IL-4 production | Rarest WBC (<1%) |
 
 ### Pattern Recognition Receptors (PRRs)
 
-Innate immune cells detect pathogens through germline-encoded **PRRs** that recognise conserved molecular signatures unique to pathogens — **pathogen-associated molecular patterns (PAMPs)** — or signals of cellular damage — **damage-associated molecular patterns (DAMPs)**. PRRs fall into four major families based on cellular location and ligand class.
+Innate immune cells detect pathogens through germline-encoded **PRRs** that recognize conserved molecular signatures unique to pathogens — **pathogen-associated molecular patterns (PAMPs)** — or signals of cellular damage — **damage-associated molecular patterns (DAMPs)** \citep{medzhitov2007recognition}. PRRs fall into four major families based on cellular location and ligand class.
 
 #### Toll-like receptors (TLRs)
 
@@ -73,6 +74,7 @@ Membrane-bound (plasma membrane or endosomal). Humans express 10 TLRs.
 
 Species specificity matters here. Human TLR1--TLR10 are not a comprehensive mammalian template: mice lack a direct functional equivalent of human TLR10 but retain TLR11--TLR13, which detect microbial ligands such as profilin-like proteins and bacterial RNA. TLR10 itself remains less mechanistically settled than TLR4, TLR7/8, or TLR9. When comparing innate-immunity experiments across humans, mice, and cell lines, students should ask whether the receptor repertoire and ligand preparation actually match the claimed pathogen-sensing pathway.
 
+: Toll-like receptors (TLRs): TLR and Location. {#tbl:unit_IX_immune_system_defense_toll_like_receptors_tlrs}
 | TLR | Location | Ligand | Pathogen class |
 | --- | -------- | ------ | -------------- |
 | TLR1/2 | Plasma membrane | Triacyl lipopeptides | Bacteria (mycobacteria) |
@@ -132,7 +134,7 @@ flowchart TD
 
 #### TLR3/TRIF → IRF3 → IFN-β pathway (antiviral response)
 
-A parallel branch is engaged by TLR3 (endosomal dsRNA) and the late-endosome pool of TLR4. The adaptor **TRIF** recruits TBK1, which phosphorylates **IRF3**. Phospho-IRF3 dimerises, enters the nucleus, and drives transcription of **type I interferons (IFN-α/β)**. IFN-β released into the extracellular space binds IFNAR on neighbouring cells, activating JAK1/TYK2 → STAT1/STAT2 → ISGF3 → induction of hundreds of **interferon-stimulated genes (ISGs)** that establish an antiviral state. The MyD88/NF-κB vs TRIF/IRF3 dichotomy explains why bacterial LPS produces fever and inflammation while viral dsRNA produces an interferon-driven antiviral state.
+A parallel branch is engaged by TLR3 (endosomal dsRNA) and the late-endosome pool of TLR4. The adaptor **TRIF** recruits TBK1, which phosphorylates **IRF3**. Phospho-IRF3 dimerises, enters the nucleus, and drives transcription of **type I interferons (IFN-α/β)**. IFN-β released into the extracellular space binds IFNAR on neighboring cells, activating JAK1/TYK2 → STAT1/STAT2 → ISGF3 → induction of hundreds of **interferon-stimulated genes (ISGs)** that establish an antiviral state. The MyD88/NF-κB vs TRIF/IRF3 dichotomy explains why bacterial LPS produces fever and inflammation while viral dsRNA produces an interferon-driven antiviral state.
 
 #### NOD-like receptors (NLRs) and the NLRP3 inflammasome
 
@@ -155,16 +157,16 @@ Cytosolic RNA sensors detecting viral replication.
 
 - **RIG-I:** detects 5'-triphosphate RNA (host RNA is capped; viral RNA is not).
 - **MDA5:** detects long dsRNA.
-- Signal via **MAVS** (mitochondrial antiviral signalling protein) → IRF3/IRF7 → type I interferons.
+- Signal via **MAVS** (mitochondrial antiviral signaling protein) → IRF3/IRF7 → type I interferons.
 
 #### cGAS–STING pathway (cytosolic DNA sensing)
 
-The **cGAS–STING** axis is the principal sensor for cytosolic DNA — a hallmark of intracellular bacterial or viral infection (and, problematically, mislocalised mitochondrial or self DNA).
+The **cGAS–STING** axis is the principal sensor for cytosolic DNA — a hallmark of intracellular bacterial or viral infection (and, problematically, mislocalized mitochondrial or self DNA).
 
 - **cGAS (cyclic GMP–AMP synthase)** binds dsDNA non-sequence-specifically through a phase-separation-like condensation. Activated cGAS catalyses synthesis of the cyclic dinucleotide **2'3'-cGAMP** from ATP and GTP.
 - **STING (stimulator of interferon genes)**, an ER-resident transmembrane protein, binds 2'3'-cGAMP, undergoes a major conformational change, traffics from ER to ERGIC/Golgi, and recruits **TBK1**, which phosphorylates **IRF3** → type I interferon transcription. STING also activates NF-κB via a parallel branch.
 
-The cGAS–STING pathway is essential for control of HSV-1, vaccinia, and many cytosolic bacteria. **Dysregulation drives autoimmunity:** mutations causing constitutive STING activation produce **SAVI (STING-associated vasculopathy with onset in infancy)**, an interferonopathy. Aicardi-Goutières syndrome arises when defective DNases (TREX1, RNASEH2) cannot clear cytoplasmic nucleic acids, chronically engaging cGAS-STING. Pharmacologically, STING agonists (ADU-S100) are being trialled as cancer adjuvants because tumour-induced type I IFN can boost antitumour immunity.
+The cGAS–STING pathway is essential for control of HSV-1, vaccinia, and many cytosolic bacteria. **Dysregulation drives autoimmunity:** mutations causing constitutive STING activation produce **SAVI (STING-associated vasculopathy with onset in infancy)**, an interferonopathy. Aicardi-Goutières syndrome arises when defective DNases (TREX1, RNASEH2) cannot clear cytoplasmic nucleic acids, chronically engaging cGAS-STING. Pharmacologically, STING agonists (ADU-S100) are being trialled as cancer adjuvants because tumor-induced type I IFN can boost antitumour immunity.
 
 ```mermaid
 flowchart LR
@@ -185,9 +187,9 @@ flowchart LR
     IRF --> IFN["Type I interferons<br/>(IFN-α/β):<br/>antiviral state"]
     Inflam --> Damage["Tissue damage,<br/>lytic death"]
 ```
-<!-- alt: Flowchart showing PRR signalling pathways TLRs, NLRs, RLRs, and cGAS converge on transcription factors NF-κB (inflammation), IRF3/7 (interferons), and the inflammasome (IL-1β, pyroptosis). Different pathogen classes preferentially engage different sensors. -->
+<!-- alt: Flowchart showing PRR signaling pathways TLRs, NLRs, RLRs, and cGAS converge on transcription factors NF-κB (inflammation), IRF3/7 (interferons), and the inflammasome (IL-1β, pyroptosis). Different pathogen classes preferentially engage different sensors. -->
 
-*PRR signalling pathways TLRs, NLRs, RLRs, and cGAS converge on transcription factors NF-κB (inflammation), IRF3/7 (interferons), and the inflammasome (IL-1β, pyroptosis). Different pathogen classes preferentially engage different sensors.*
+*PRR signaling pathways TLRs, NLRs, RLRs, and cGAS converge on transcription factors NF-κB (inflammation), IRF3/7 (interferons), and the inflammasome (IL-1β, pyroptosis). Different pathogen classes preferentially engage different sensors.*
 
 ### Complement System Overview
 
@@ -195,25 +197,26 @@ The complement system comprises ~30 plasma proteins that amplify innate response
 
 #### Three activation pathways
 
+: Three activation pathways: Pathway and Trigger. {#tbl:unit_IX_immune_system_defense_three_activation_pathways}
 | Pathway | Trigger | Initiation step | Convergence |
 | ------- | ------- | --------------- | ----------- |
 | **Classical** | Antibody (IgM, IgG) bound to antigen on pathogen | C1q binds Fc → activates C1r → C1s → cleaves C4 + C2 | C3 convertase = C4b2a |
 | **Lectin** | Pathogen surface mannose / GlcNAc | MBL or ficolins bind sugars → MASP1/MASP2 (analogous to C1r/C1s) → cleave C4 + C2 | C3 convertase = C4b2a |
-| **Alternative** | Spontaneous "tick-over" hydrolysis of C3; amplified on pathogen surfaces lacking complement regulators | C3(H$_2$O) + factor B + factor D → C3(H$_2$O)Bb (initial fluid-phase convertase) → deposits C3b on surface → C3bBb (surface convertase, stabilised by properdin) | C3 convertase = C3bBb |
+| **Alternative** | Spontaneous "tick-over" hydrolysis of C3; amplified on pathogen surfaces lacking complement regulators | C3(H$_2$O) + factor B + factor D → C3(H$_2$O)Bb (initial fluid-phase convertase) → deposits C3b on surface → C3bBb (surface convertase, stabilized by properdin) | C3 convertase = C3bBb |
 
 #### C3 convertase, C5 convertase, MAC
 
 The classical, lectin, and alternative pathways each generate a **C3 convertase** (C4b2a or C3bBb) that cleaves **C3 → C3a + C3b**. C3b is deposited on the pathogen surface; binding of an additional C3b to the existing C3 convertase yields the **C5 convertase** (C4b2aC3b or C3bBbC3b) that cleaves **C5 → C5a + C5b**.
 
-C5b initiates the **terminal pathway**: C5b → C5b-C6 → C5b-C6-C7 (membrane-inserting) → C5b-C6-C7-C8 → addition of multiple C9 monomers polymerising into the **membrane attack complex (MAC, C5b-9)**. The MAC forms a 10 nm transmembrane pore that lyses the target cell. Gram-negative bacteria are particularly vulnerable; encapsulated bacteria (*Neisseria*) require complement for clearance, which is why C5–C9 deficiencies present with recurrent meningococcal infection.
+C5b initiates the **terminal pathway**: C5b → C5b-C6 → C5b-C6-C7 (membrane-inserting) → C5b-C6-C7-C8 → addition of multiple C9 monomers polymerizing into the **membrane attack complex (MAC, C5b-9)**. The MAC forms a 10 nm transmembrane pore that lyses the target cell. Gram-negative bacteria are particularly vulnerable; encapsulated bacteria (*Neisseria*) require complement for clearance, which is why C5–C9 deficiencies present with recurrent meningococcal infection.
 
 #### Effector functions
 
-- **Opsonisation:** C3b coats pathogen → recognised by phagocyte receptors **CR1** (C3b/C4b), **CR3** (iC3b), **CR4**. Opsonised particles are 1000-fold more efficiently phagocytosed.
-- **Membrane attack complex (MAC):** C5b-9 polymerises in target membrane, forming a 10 nm pore.
+- **Opsonisation:** C3b coats pathogen → recognized by phagocyte receptors **CR1** (C3b/C4b), **CR3** (iC3b), **CR4**. Opsonised particles are 1000-fold more efficiently phagocytosed.
+- **Membrane attack complex (MAC):** C5b-9 polymerizes in target membrane, forming a 10 nm pore.
 - **Anaphylatoxins (chemotaxis and inflammation):** C3a and **C5a** (the most potent) recruit neutrophils, activate mast cells, increase vascular permeability, and amplify local inflammation.
 - **Immune complex clearance:** CR1 on erythrocytes binds C3b-coated immune complexes and ferries them to liver/spleen for disposal.
-- **B cell co-stimulation:** C3d coupled to antigen lowers the BCR signalling threshold ~10,000 fold via CR2 (CD21).
+- **B cell co-stimulation:** C3d coupled to antigen lowers the BCR signaling threshold ~10,000 fold via CR2 (CD21).
 
 #### Amplification dynamics and regulation
 
@@ -228,6 +231,7 @@ The **alternative pathway amplification loop** is positive: each new C3b binds f
 
 Regulators confine the cascade to pathogen surfaces:
 
+: Amplification dynamics and regulation: Regulator and Location. {#tbl:unit_IX_immune_system_defense_amplification_dynamics_and_regulation}
 | Regulator | Location | Function |
 | --------- | -------- | -------- |
 | **DAF (CD55)** | GPI-anchored on host cells | Accelerates C3/C5 convertase decay |
@@ -237,16 +241,16 @@ Regulators confine the cascade to pathogen surfaces:
 | **C1-INH (C1 esterase inhibitor)** | Soluble | Inhibits C1r/C1s and MASPs |
 | **CR1 (CD35)** | Erythrocytes, lymphocytes | Cofactor for factor I; immune complex clearance |
 
-Patients with **paroxysmal nocturnal hemoglobinuria (PNH)** lack the GPI anchor that tethers DAF and CD59 to RBCs → uncontrolled complement activation → haemolysis. Treated with **eculizumab** (anti-C5 monoclonal antibody; blocks C5 cleavage and MAC formation). **C1-INH deficiency** causes **hereditary angioedema** (uncontrolled C1 → bradykinin generation via the kinin–kallikrein system → sudden tissue swelling).
+Patients with **paroxysmal nocturnal hemoglobinuria (PNH)** lack the GPI anchor that tethers DAF and CD59 to RBCs → uncontrolled complement activation → hemolysis. Treated with **eculizumab** (anti-C5 monoclonal antibody; blocks C5 cleavage and MAC formation). **C1-INH deficiency** causes **hereditary angioedema** (uncontrolled C1 → bradykinin generation via the kinin–kallikrein system → sudden tissue swelling).
 
 ### Adaptive Immunity Overview
 
-[**Adaptive immunity**](#gl:adaptive-immunity) is slower (7–10 days for primary response) but provides **specificity** (each lymphocyte recognises a unique antigen) and **memory** (faster, stronger response on re-exposure — basis of vaccination).
+[**Adaptive immunity**](#gl:adaptive-immunity) is slower (7–10 days for primary response) but provides **specificity** (each lymphocyte recognizes a unique antigen) and **memory** (faster, stronger response on re-exposure — basis of vaccination) \citep{iwasaki2015innateadaptive}.
 
 **Two arms:**
 
 - **Cell-mediated:** T cells (CD8+ cytotoxic kill infected cells; CD4+ helper coordinate response)
-- **Humoral:** B cells produce antibodies that neutralise pathogens, opsonise, activate complement
+- **Humoral:** B cells produce antibodies that neutralize pathogens, opsonise, activate complement
 
 **Antigen presentation via MHC:**
 
@@ -262,11 +266,12 @@ T cell precursors leave the bone marrow as immature CD4$^-$CD8$^-$ "double-negat
 
 Within the thymic cortex, double-negative thymocytes pass through four sequential stages defined by surface CD44 and CD25 expression:
 
+: Double-negative (DN1–DN4) staging: Stage and CD44. {#tbl:unit_IX_immune_system_defense_double_negative_dn1_dn4_staging}
 | Stage | CD44 | CD25 | Major event |
 | ----- | ---- | ---- | ----------- |
 | **DN1** | + | − | Early thymic progenitor; multipotent (T/NK/myeloid) |
 | **DN2** | + | + | Lineage commitment; TCR β/γ/δ rearrangement begins |
-| **DN3** | − | + | TCR β rearrangement complete; **β-selection checkpoint** (primarily cells with productive TCR β survive, via signalling from pre-TCR with surrogate α chain pTα) |
+| **DN3** | − | + | TCR β rearrangement complete; **β-selection checkpoint** (primarily cells with productive TCR β survive, via signaling from pre-TCR with surrogate α chain pTα) |
 | **DN4** | − | − | Proliferative burst; transition to double-positive (CD4+CD8+) |
 
 Cells then become **double-positive (CD4+CD8+)** and rearrange TCR α. With both TCR chains expressed, they undergo **positive** then **negative** selection.
@@ -279,7 +284,7 @@ Like immunoglobulin loci, the T cell receptor (TCR) loci undergo **V(D)J recombi
 - TCR α chain: V–J recombination (~70 V × ~61 J segments → ~4,300 combinations)
 - **Junctional diversity:** TdT (terminal deoxynucleotidyl transferase) adds non-templated N-nucleotides at junctions
 - **Combinatorial diversity:** αβ pairing creates ~6 × 10$^6$ unique receptors before junctional diversity
-- **With junctional diversity:** the theoretical TCR repertoire exceeds 10$^{18}$, far larger than the ~10$^{11}$ T cells in the human body — most TCRs are rarely realised.
+- **With junctional diversity:** the theoretical TCR repertoire exceeds 10$^{18}$, far larger than the ~10$^{11}$ T cells in the human body — most TCRs are rarely realized.
 
 Rough calculation: $1{,}400 \times 4{,}300 \approx 6 \times 10^6$ V(D)J combinations × ~10$^{12}$ junctional possibilities ≈ 10$^{18}$ theoretical receptors.
 
@@ -292,7 +297,7 @@ In the thymic cortex, double-positive (CD4+CD8+) thymocytes encounter **cortical
 - TCR engagement of MHC I → CD8+ single-positive T cell
 - TCR engagement of MHC II → CD4+ single-positive T cell
 
-Positive selection ensures the surviving repertoire is **MHC-restricted** — primarily recognises antigen presented in the context of self MHC.
+Positive selection ensures the surviving repertoire is **MHC-restricted** — primarily recognizes antigen presented in the context of self MHC.
 
 #### Negative selection (medulla) — AIRE and Treg generation
 
@@ -306,19 +311,19 @@ Surviving thymocytes migrate to the medulla and encounter **medullary thymic epi
 
 1. **Antigen encounter.** Naïve B cell in lymphoid follicle encounters cognate antigen (in soluble form, or displayed on subcapsular sinus macrophages and follicular dendritic cells).
 2. **BCR cross-linking.** Multivalent antigen cross-links several BCRs → tyrosine phosphorylation of Igα/Igβ ITAMs by Lyn/Fyn → recruitment of Syk → activation of PI3K, PLCγ2, Ras/MAPK cascades.
-3. **Antigen internalisation.** B cell internalises antigen via BCR, processes peptides in MHC class II compartment.
+3. **Antigen internalization.** B cell internalises antigen via BCR, processes peptides in MHC class II compartment.
 4. **Migration to T-B border.** Activated B cell upregulates CCR7, migrates to T-cell zone of lymph node.
-5. **T cell help.** Cognate Tfh (follicular helper T cell) recognises B cell-presented peptide on MHC II. Engagement of **CD40L (Tfh) – CD40 (B cell)** plus cytokines (IL-4, IL-21) provides "second signal."
-6. **Outcome:** B cells either differentiate into **short-lived extrafollicular plasmablasts** (rapid IgM, low affinity) or enter the germinal centre.
+5. **T cell help.** Cognate Tfh (follicular helper T cell) recognizes B cell-presented peptide on MHC II. Engagement of **CD40L (Tfh) – CD40 (B cell)** plus cytokines (IL-4, IL-21) provides "second signal."
+6. **Outcome:** B cells either differentiate into **short-lived extrafollicular plasmablasts** (rapid IgM, low affinity) or enter the germinal center.
 
 #### B cell activation modes
 
-- **T-independent (TI) responses:** Polysaccharide and repetitive antigens cross-link many BCRs simultaneously. Produces predominantly IgM, no germinal centre, no affinity maturation, weak memory. Important for encapsulated bacteria (*Streptococcus pneumoniae*, *Haemophilus influenzae*); explains why polysaccharide vaccines work poorly in children <2 years.
-- **T-dependent (TD) responses:** Protein antigens. B cell internalises antigen via BCR, processes it, presents peptide on MHC II, is recognised by cognate CD4+ T helper cell (specifically Tfh — follicular helper T cell). T:B interaction at the T-B border activates the B cell to enter the **germinal centre reaction**. Produces high-affinity, class-switched antibodies and long-lived memory.
+- **T-independent (TI) responses:** Polysaccharide and repetitive antigens cross-link many BCRs simultaneously. Produces predominantly IgM, no germinal center, no affinity maturation, weak memory. Important for encapsulated bacteria (*Streptococcus pneumoniae*, *Haemophilus influenzae*); explains why polysaccharide vaccines work poorly in children <2 years.
+- **T-dependent (TD) responses:** Protein antigens. B cell internalises antigen via BCR, processes it, presents peptide on MHC II, is recognized by cognate CD4+ T helper cell (specifically Tfh — follicular helper T cell). T:B interaction at the T-B border activates the B cell to enter the **germinal center reaction**. Produces high-affinity, class-switched antibodies and long-lived memory.
 
-#### Germinal centre reaction — somatic hypermutation and affinity maturation
+#### Germinal center reaction — somatic hypermutation and affinity maturation
 
-In secondary lymphoid organs (lymph nodes, spleen, Peyer's patches), activated B cells form **germinal centres** with two zones:
+In secondary lymphoid organs (lymph nodes, spleen, Peyer's patches), activated B cells form **germinal centers** with two zones:
 
 - **Dark zone (centroblasts):** Rapid proliferation. **Activation-induced cytidine deaminase (AID)** introduces somatic point mutations into the variable regions of immunoglobulin genes — **somatic hypermutation (SHM)**, ~10$^{-3}$ mutations per base per generation (~10$^6$ × normal mutation rate).
 - **Light zone (centrocytes):** B cells re-encounter antigen displayed on follicular dendritic cells (FDCs). Cells whose mutated BCR has improved antigen affinity capture more antigen, internalise it, present more peptide on MHC II, and receive stronger Tfh help → survival and re-cycling. Cells with reduced affinity die by apoptosis. This is **affinity maturation** — Darwinian selection at the cellular level, driving 1000-fold increases in antibody affinity over weeks.
@@ -326,16 +331,17 @@ In secondary lymphoid organs (lymph nodes, spleen, Peyer's patches), activated B
 Light-zone cells differentiate into:
 
 - **Plasma cells** (long-lived in bone marrow, secrete antibodies for years/decades)
-- **Memory B cells** (rapidly mobilised on antigen re-encounter)
+- **Memory B cells** (rapidly mobilized on antigen re-encounter)
 
 #### Class switch recombination (CSR)
 
 Initially B cells produce IgM (default isotype). Cytokines from Tfh cells direct **class switching** to IgG, IgA, or IgE by recombining the heavy chain constant region (the variable region — and thus antigen specificity — is preserved). At the molecular level, **AID** deaminates cytidines in switch (S) regions upstream of each constant-region gene; subsequent base-excision repair generates double-strand breaks that are joined by NHEJ to produce switch recombination, deleting intervening DNA.
 
+: Class switch recombination (CSR): Cytokine and Switch to. {#tbl:unit_IX_immune_system_defense_class_switch_recombination_csr}
 | Cytokine | Switch to | Function |
 | -------- | --------- | -------- |
 | IFN-γ | IgG1, IgG3 | Opsonisation, complement, intracellular pathogens |
-| IL-4 | IgG4, IgE | Allergy, helminth defence |
+| IL-4 | IgG4, IgE | Allergy, helminth defense |
 | TGF-β | IgA | Mucosal immunity |
 | IL-21 | IgG1, IgG3 | Synergises with other switches |
 
@@ -343,53 +349,56 @@ Defects in AID cause **hyper-IgM syndrome** (HIGM2 — failure of class switchin
 
 #### Antibody isotypes
 
+: Antibody isotypes: Class and Form. {#tbl:unit_IX_immune_system_defense_antibody_isotypes}
 | Class | Form | Half-life | Function |
 | ----- | ---- | --------- | -------- |
 | **IgM** | Pentamer | ~5 d | Primary response; complement activation |
 | **IgG** | Monomer | ~21 d | Secondary response; opsonisation; placental transfer; complement |
 | **IgA** | Dimer (mucosal) | ~6 d | Mucosal immunity (gut, respiratory, breast milk) |
-| **IgE** | Monomer | ~2 d (3 weeks bound to FcεR on mast cells) | Allergy; helminth defence |
+| **IgE** | Monomer | ~2 d (3 weeks bound to FcεR on mast cells) | Allergy; helminth defense |
 | **IgD** | Monomer | ~3 d | B cell receptor (function unclear) |
 
 ### Cytokine Network Reference
 
-Cytokines are small (~15–25 kDa) signalling proteins that coordinate immune cell function. They act locally (paracrine/autocrine) at very low concentrations (pM–nM) via JAK/STAT or other receptor families.
+Cytokines are small (~15–25 kDa) signaling proteins that coordinate immune cell function. They act locally (paracrine/autocrine) at very low concentrations (pM–nM) via JAK/STAT or other receptor families.
 
-| Cytokine | Major Source | Major Targets | Receptor / Signalling | Key effects |
+: Cytokine Network Reference: Cytokine and Major Source. {#tbl:unit_IX_immune_system_defense_cytokine_network_reference}
+| Cytokine | Major Source | Major Targets | Receptor / Signaling | Key effects |
 | -------- | ------------ | ------------- | --------------------- | ----------- |
 | **IL-1 (α/β)** | Macrophages, DCs (NLRP3 inflammasome for IL-1β) | Endothelium, hypothalamus, T cells | IL-1R / MyD88 → NF-κB | Fever (PGE$_2$), endothelial activation, T cell co-stimulation |
 | **IL-2** | Activated CD4+ T cells | T cells, NK cells, Tregs | IL-2R (αβγ) / JAK1/3 → STAT5 | T cell proliferation; Treg survival (Treg uses IL-2 as 'sink') |
-| **IL-4** | Th2 cells, mast cells, basophils | B cells, Th2 polarisation | IL-4R / JAK1/3 → STAT6 | IgE class switch; Th2 differentiation; allergy |
+| **IL-4** | Th2 cells, mast cells, basophils | B cells, Th2 polarization | IL-4R / JAK1/3 → STAT6 | IgE class switch; Th2 differentiation; allergy |
 | **IL-5** | Th2 cells, ILC2 | Eosinophils | IL-5R / JAK2 → STAT5 | Eosinophil growth/activation (helminths, allergy) |
 | **IL-6** | Macrophages, T cells, hepatocytes | Liver, B cells, T cells | IL-6R/gp130 / JAK1/2 → STAT3 | Acute phase response (CRP, fibrinogen); Th17 differentiation; B cell maturation |
 | **IL-7** | Stromal cells (BM, thymus) | Naïve and memory T cells | IL-7R / JAK1/3 → STAT5 | T cell development and homeostatic survival |
 | **IL-8 (CXCL8)** | Macrophages, endothelium | Neutrophils | CXCR1/CXCR2 (G$_i$ GPCRs) | Neutrophil chemotaxis |
 | **IL-10** | Tregs, macrophages, B cells | Macrophages, T cells | IL-10R / JAK1/TYK2 → STAT3 | **Anti-inflammatory** — suppresses Th1 and macrophage activation |
 | **IL-12** | Macrophages, DCs | NK cells, T cells | IL-12R / TYK2/JAK2 → STAT4 | Th1 differentiation; IFN-γ induction |
-| **IL-13** | Th2, ILC2, mast cells | B cells, smooth muscle, epithelium | IL-13Rα1/IL-4Rα / STAT6 | Allergy/asthma; goblet cell mucus; tissue remodelling; target of dupilumab |
+| **IL-13** | Th2, ILC2, mast cells | B cells, smooth muscle, epithelium | IL-13Rα1/IL-4Rα / STAT6 | Allergy/asthma; goblet cell mucus; tissue remodeling; target of dupilumab |
 | **IL-15** | DCs, monocytes | NK, memory CD8+ T cells | IL-15R / JAK1/3 → STAT5 | NK and memory T cell maintenance |
-| **IL-17** | Th17 cells, γδ T cells | Epithelium, neutrophils | IL-17R / Act1 → NF-κB | Mucocutaneous defence (fungi, extracellular bacteria); psoriasis, IBD when dysregulated |
-| **IL-21** | Tfh cells | B cells, T cells | IL-21R / JAK1/3 → STAT3 | Germinal centre reactions, class switching |
-| **IL-22** | Th17, Th22, ILC3 | Epithelium | IL-22R / JAK1/2 → STAT3 | Mucosal barrier defence; antimicrobial peptide production |
-| **IL-23** | Macrophages, DCs | Th17 cells | IL-23R / JAK2/TYK2 → STAT3 | Th17 stabilisation; target of ustekinumab/risankizumab in psoriasis/IBD |
-| **TNF-α** | Macrophages, T cells | Endothelium, tumour cells | TNFR1/2 → NF-κB / apoptosis | Inflammation, septic shock, apoptosis; target of anti-TNF biologics |
+| **IL-17** | Th17 cells, γδ T cells | Epithelium, neutrophils | IL-17R / Act1 → NF-κB | Mucocutaneous defense (fungi, extracellular bacteria); psoriasis, IBD when dysregulated |
+| **IL-21** | Tfh cells | B cells, T cells | IL-21R / JAK1/3 → STAT3 | Germinal center reactions, class switching |
+| **IL-22** | Th17, Th22, ILC3 | Epithelium | IL-22R / JAK1/2 → STAT3 | Mucosal barrier defense; antimicrobial peptide production |
+| **IL-23** | Macrophages, DCs | Th17 cells | IL-23R / JAK2/TYK2 → STAT3 | Th17 stabilization; target of ustekinumab/risankizumab in psoriasis/IBD |
+| **TNF-α** | Macrophages, T cells | Endothelium, tumor cells | TNFR1/2 → NF-κB / apoptosis | Inflammation, septic shock, apoptosis; target of anti-TNF biologics |
 | **IFN-α/β (Type I)** | Most cells (esp. plasmacytoid DCs) | Most nucleated cells | IFNAR1/2 / JAK1/TYK2 → STAT1/2 → ISGF3 | Antiviral state (induces hundreds of ISGs); MHC I upregulation |
-| **IFN-γ (Type II)** | Th1 cells, NK cells, CD8+ | Macrophages, most cells | IFNGR1/2 / JAK1/2 → STAT1 | Macrophage activation; MHC upregulation; intracellular pathogen defence |
+| **IFN-γ (Type II)** | Th1 cells, NK cells, CD8+ | Macrophages, most cells | IFNGR1/2 / JAK1/2 → STAT1 | Macrophage activation; MHC upregulation; intracellular pathogen defense |
 | **TGF-β** | Tregs, many cells | Many | TβR-I/II / SMAD2/3 | Treg induction; tissue repair; wound healing; oncogenic in late cancer |
 | **GM-CSF** | T cells, macrophages, endothelium | Myeloid progenitors | CSF2R / JAK2 → STAT5 | Granulocyte/macrophage growth; DC differentiation; therapeutic in neutropenia |
 
-**Th polarisation:**
+**Th polarization:**
 
 - **Th1** (driven by IL-12; produces IFN-γ): intracellular pathogens, viruses, autoimmunity (MS, T1DM)
 - **Th2** (driven by IL-4; produces IL-4/5/13): helminths, allergy, asthma
 - **Th17** (driven by IL-6 + TGF-β; produces IL-17): extracellular bacteria, fungi; psoriasis, IBD
 - **Treg** (driven by TGF-β; FoxP3+): peripheral tolerance, suppression
-- **Tfh** (in germinal centres; produces IL-21): B cell help
+- **Tfh** (in germinal centers; produces IL-21): B cell help
 
 ### Immunological Memory — Why Memory Cells Respond Faster
 
 After antigen clearance, ~95% of effector T and B cells die by apoptosis (contraction phase). The remaining 5% become long-lived memory cells. Memory cells respond to re-exposure 100–1000× faster and stronger than naïve cells:
 
+: Immunological Memory — Why Memory Cells Respond Faster: Property and Naïve cell. {#tbl:unit_IX_immune_system_defense_immunological_memory_why_memory_cells_respond_faster}
 | Property | Naïve cell | Memory cell |
 | -------- | ---------- | ----------- |
 | **Frequency for given antigen** | ~1 in 10$^6$ | 100–1000-fold higher (clonal expansion preserved) |
@@ -398,16 +407,16 @@ After antigen clearance, ~95% of effector T and B cells die by apoptosis (contra
 | **Tissue distribution** | Recirculate through 2° lymphoid organs | T$_{CM}$ recirculate; T$_{EM}$/T$_{RM}$ patrol peripheral and barrier tissues |
 | **Homeostatic maintenance** | None | Tonic IL-7 + IL-15; long lifespan (decades for some clones) |
 
-The signalling determinants of effector vs memory differentiation include:
+The signaling determinants of effector vs memory differentiation include:
 
-- **Strong, prolonged TCR signalling + IL-2** → effector (terminally differentiated, short-lived, KLRG1$^{hi}$)
-- **Brief TCR signalling + IL-7, IL-15** → memory precursors (CD127$^{hi}$, CD62L$^+$)
+- **Strong, prolonged TCR signaling + IL-2** → effector (terminally differentiated, short-lived, KLRG1$^{hi}$)
+- **Brief TCR signaling + IL-7, IL-15** → memory precursors (CD127$^{hi}$, CD62L$^+$)
 - **Memory subsets:**
   - **Central memory (T$_{CM}$):** CCR7$^+$, CD62L$^+$; recirculate through lymph nodes; high proliferative potential
   - **Effector memory (T$_{EM}$):** CCR7$^-$; patrol peripheral tissues; immediate effector function
   - **Tissue-resident memory (T$_{RM}$):** CD69$^+$, CD103$^+$; reside in barrier tissues (skin, gut, lung); first to detect re-infection
 
-Memory persistence depends on tonic IL-7 and IL-15 cytokine signalling and homeostatic proliferation, not antigen re-stimulation. This is why vaccine immunity can last decades despite no reinfection — and why immunosuppressive therapies that cripple homeostatic cytokines (e.g., IL-7 axis blockade) reduce memory.
+Memory persistence depends on tonic IL-7 and IL-15 cytokine signaling and homeostatic proliferation, not antigen re-stimulation. This is why vaccine immunity can last decades despite no reinfection — and why immunosuppressive therapies that cripple homeostatic cytokines (e.g., IL-7 axis blockade) reduce memory.
 
 > **Concept Check (Synthesis --- Cross-Unit Connection):** The immune system can be reframed as an active inference agent. The adaptive immune system maintains a generative model of self (MHC-presented peptides) and non-self (pathogen-associated patterns). B and T cell clonal selection = model updating; clonal expansion = precision-weighting of high-evidence hypotheses; immunological memory = compressed posterior over past pathogens; autoimmunity = failure of the self/non-self model. (a) In Bayesian terms, what does the MHC-peptide-TCR recognition step represent --- the likelihood, the prior, or the posterior? Justify. (b) Vaccination trains the immune system's generative model with attenuated antigen: in FEP terms, why does repeated low-dose exposure (prime-boost) produce stronger immunity than a single high-dose exposure? (c) Tolerance to commensal gut bacteria requires the immune system to hold stable priors despite constant microbial exposure --- identify the cellular mechanism that maintains this prior and predict what happens when it fails (as in IBD).
 
@@ -445,6 +454,7 @@ Failures of tolerance produce autoimmunity through several archetypal mechanisms
 - **Loss of regulatory T cells:** FoxP3 mutations cause IPEX syndrome (Immunodysregulation Polyendocrinopathy Enteropathy X-linked) — fatal multi-organ autoimmunity in infancy.
 - **Defective apoptosis:** Fas / FasL mutations (autoimmune lymphoproliferative syndrome, ALPS) prevent AICD → accumulation of self-reactive lymphocytes.
 
+: Mechanisms of autoimmunity: Autoimmune disease and Target tissue. {#tbl:unit_IX_immune_system_defense_mechanisms_of_autoimmunity}
 | Autoimmune disease | Target tissue | Type | Mechanism |
 | ----------------- | ------------- | ---- | --------- |
 | Type 1 diabetes | β-cells | Cell-mediated (CD8+) | Anti-GAD65, anti-IA-2 antibodies; T cell destruction; epitope spreading |
@@ -458,12 +468,13 @@ Failures of tolerance produce autoimmunity through several archetypal mechanisms
 
 ### Hypersensitivity Reactions (Gell-Coombs Classification)
 
-The four-tier Gell-Coombs classification organises immune-mediated hypersensitivity by mechanism, time course, and treatment.
+The four-tier Gell-Coombs classification organizes immune-mediated hypersensitivity by mechanism, time course, and treatment.
 
+: Hypersensitivity Reactions (Gell-Coombs Classification): Type and Mechanism. {#tbl:unit_IX_immune_system_defense_hypersensitivity_reactions_gell_coombs_classification}
 | Type | Mechanism | Onset | Examples | Treatment |
 | ---- | --------- | ----- | -------- | --------- |
 | **Type I (immediate)** | IgE-mediated; mast cell degranulation; histamine, leukotrienes, tryptase | Minutes | Anaphylaxis, allergic asthma, food allergy, hay fever | Epinephrine (anaphylaxis), antihistamines (H1 blockers — diphenhydramine, cetirizine), inhaled corticosteroids, cromolyn (mast cell stabiliser), allergen immunotherapy (gradual desensitisation), anti-IgE (omalizumab) |
-| **Type II (cytotoxic)** | IgG/IgM antibody against cell-surface antigen → complement, ADCC | Hours | Autoimmune haemolytic anaemia, transfusion reaction, Goodpasture's, Graves' (stimulating) | Plasmapheresis, IVIG, immunosuppression (rituximab anti-CD20 for ITP/AIHA) |
+| **Type II (cytotoxic)** | IgG/IgM antibody against cell-surface antigen → complement, ADCC | Hours | Autoimmune hemolytic anemia, transfusion reaction, Goodpasture's, Graves' (stimulating) | Plasmapheresis, IVIG, immunosuppression (rituximab anti-CD20 for ITP/AIHA) |
 | **Type III (immune complex)** | Soluble antigen-antibody complexes deposit in tissues → complement, neutrophils | Hours to days | SLE, serum sickness, post-streptococcal glomerulonephritis, hypersensitivity pneumonitis | Corticosteroids, cyclophosphamide, removal of antigen source, plasmapheresis |
 | **Type IV (delayed/cell-mediated)** | T cell-mediated; no antibody | 24–72 h | Contact dermatitis (poison ivy, nickel), tuberculin/PPD test, Type 1 diabetes onset, MS, contact allergy to nickel | Topical/systemic corticosteroids, calcineurin inhibitors (tacrolimus), allergen avoidance |
 
@@ -473,7 +484,7 @@ Sensitisation: First encounter with allergen → APCs prime Th2 → IL-4 drives 
 
 Effector: Re-encounter with allergen cross-links mast cell-bound IgE → degranulation within seconds: **histamine** (vasodilation, vascular leak, smooth muscle contraction, pruritus), **tryptase** (tissue damage), **leukotrienes (C4, D4, E4)** (delayed bronchoconstriction), **prostaglandins**, **TNF**, **IL-4/IL-5/IL-13** (late phase, 4–8 h: eosinophil and Th2 recruitment).
 
-Clinical spectrum: localised (allergic rhinitis, urticaria) → systemic (anaphylaxis with hypotension, bronchospasm, laryngeal oedema). Treatment of anaphylaxis: **intramuscular epinephrine** (α$_1$ vasoconstriction reverses hypotension; β$_2$ bronchodilates; β$_2$ stabilises mast cells), oxygen, fluids, antihistamines, corticosteroids, possible airway management. **Allergen immunotherapy (AIT)** gradually shifts the response from Th2/IgE toward Th1/IgG4 ("blocking antibodies") and induces Tregs — the primary disease-modifying therapy for allergy.
+Clinical spectrum: localized (allergic rhinitis, urticaria) → systemic (anaphylaxis with hypotension, bronchospasm, laryngeal edema). Treatment of anaphylaxis: **intramuscular epinephrine** (α$_1$ vasoconstriction reverses hypotension; β$_2$ bronchodilates; β$_2$ stabilizes mast cells), oxygen, fluids, antihistamines, corticosteroids, possible airway management. **Allergen immunotherapy (AIT)** gradually shifts the response from Th2/IgE toward Th1/IgG4 ("blocking antibodies") and induces Tregs — the primary disease-modifying therapy for allergy.
 
 ### Immunotherapy
 
@@ -481,7 +492,7 @@ Modern oncology has been transformed by therapies that release brakes on antitum
 
 #### Immune checkpoint inhibitors — PD-1/PD-L1 and CTLA-4 biology
 
-**PD-1 (programmed death 1)** is an inhibitory receptor expressed on activated T cells (and B cells, NK cells, Tregs). Its ligand **PD-L1** is widely expressed under inflammatory conditions and constitutively on many tumours; **PD-L2** is more restricted to APCs. PD-1 engagement recruits the SHP-2 phosphatase to the immune synapse, dephosphorylating proximal TCR-signalling components (CD3ζ, ZAP70) — this functionally "exhausts" chronically activated T cells and limits collateral damage. Tumours hijack this brake by upregulating PD-L1 (often in response to local IFN-γ from infiltrating T cells — a paradoxical "adaptive resistance"), tonically inhibiting tumour-infiltrating T cells. Current drug examples and approved-use language should be checked against NCI or regulatory pages before publication because checkpoint indications change by tumour type, biomarker, and line of therapy \citep{nci2026checkpointinhibitors}.
+**PD-1 (programmed death 1)** is an inhibitory receptor expressed on activated T cells (and B cells, NK cells, Tregs). Its ligand **PD-L1** is widely expressed under inflammatory conditions and constitutively on many tumors; **PD-L2** is more restricted to APCs. PD-1 engagement recruits the SHP-2 phosphatase to the immune synapse, dephosphorylating proximal TCR-signaling components (CD3ζ, ZAP70) — this functionally "exhausts" chronically activated T cells and limits collateral damage. Tumors hijack this brake by upregulating PD-L1 (often in response to local IFN-γ from infiltrating T cells — a paradoxical "adaptive resistance"), tonically inhibiting tumor-infiltrating T cells. Current drug examples and approved-use language should be checked against NCI or regulatory pages before publication because checkpoint indications change by tumor type, biomarker, and line of therapy \citep{nci2026checkpointinhibitors}.
 
 **CTLA-4 (cytotoxic T-lymphocyte-associated 4, CD152)** is also inhibitory but acts at the priming stage in lymph nodes. Resting T cells receive co-stimulation when CD28 binds B7-1/B7-2 (CD80/CD86) on APCs. Upon activation, CTLA-4 is upregulated and translocates to the immune synapse, where it binds B7 with much higher affinity than CD28 and trans-endocytoses B7 from the APC — depriving CD28 of its co-stimulus. CTLA-4 is also constitutively expressed on Tregs, contributing to their suppressive function. CTLA-4 blockade therefore acts earlier and more broadly than PD-1 blockade, with stronger autoimmune toxicity.
 
@@ -494,25 +505,26 @@ flowchart LR
         T1 -.->|"CTLA-4 outcompetes CD28<br/>after activation"| APC1
     end
 
-    subgraph Tumor ["Tumour evasion"]
-        Tum["Tumour cell<br/>(MHC I + PD-L1)"]
+    subgraph Tumor ["Tumor evasion"]
+        Tum["Tumor cell<br/>(MHC I + PD-L1)"]
         T2["T cell<br/>(TCR + PD-1)"]
-        Tum -.->|"PD-L1 binds PD-1<br/>→ inhibits TCR signalling<br/>→ T cell exhaustion"| T2
+        Tum -.->|"PD-L1 binds PD-1<br/>→ inhibits TCR signaling<br/>→ T cell exhaustion"| T2
     end
 
     subgraph Therapy ["Checkpoint inhibitor therapy"]
-        Tum2["Tumour cell<br/>(MHC I + PD-L1)"]
+        Tum2["Tumor cell<br/>(MHC I + PD-L1)"]
         T3["T cell<br/>(TCR + PD-1)"]
         Ab["Anti-PD-1<br/>(pembrolizumab,<br/>nivolumab)<br/>or anti-PD-L1<br/>(atezolizumab)"]
         Ab -->|"blocks<br/>PD-1/PD-L1<br/>interaction"| Tum2
         Tum2 -.->|"PD-L1 → PD-1<br/>BLOCKED"| T3
-        T3 -->|"unimpaired TCR signalling<br/>→ tumour killing"| Tum2
+        T3 -->|"unimpaired TCR signaling<br/>→ tumor killing"| Tum2
     end
 ```
-<!-- alt: Flowchart showing immune checkpoint blockade Normal T cells use CTLA-4 and PD-1 as brakes to prevent over-activation. Tumours exploit PD-L1 to suppress local T cells. Anti-PD-1 antibodies (pembrolizumab) and anti-CTLA-4 antibodies (ipilimumab) block these interactions, releasing the immune brake on antitumour T cells. -->
+<!-- alt: Flowchart showing immune checkpoint blockade Normal T cells use CTLA-4 and PD-1 as brakes to prevent over-activation. Tumors exploit PD-L1 to suppress local T cells. Anti-PD-1 antibodies (pembrolizumab) and anti-CTLA-4 antibodies (ipilimumab) block these interactions, releasing the immune brake on antitumour T cells. -->
 
-*Immune checkpoint blockade Normal T cells use CTLA-4 and PD-1 as brakes to prevent over-activation. Tumours exploit PD-L1 to suppress local T cells. Anti-PD-1 antibodies (pembrolizumab) and anti-CTLA-4 antibodies (ipilimumab) block these interactions, releasing the immune brake on antitumour T cells.*
+*Immune checkpoint blockade Normal T cells use CTLA-4 and PD-1 as brakes to prevent over-activation. Tumors exploit PD-L1 to suppress local T cells. Anti-PD-1 antibodies (pembrolizumab) and anti-CTLA-4 antibodies (ipilimumab) block these interactions, releasing the immune brake on antitumour T cells.*
 
+: Immune checkpoint inhibitors — PD-1/PD-L1 and CTLA-4 biology: Drug and Target. {#tbl:unit_IX_immune_system_defense_immune_checkpoint_inhibitors_pd_1_pd_l1_and_ctla_4_biology}
 | Drug | Target | Approved indications | Approx. response rate |
 | ---- | ------ | -------------------- | --------------------- |
 | **Ipilimumab** | CTLA-4 | Melanoma, RCC (combined with nivolumab) | ~10–15% monotherapy, ~50% with anti-PD-1 |
@@ -521,19 +533,20 @@ flowchart LR
 | **Relatlimab** | LAG-3 | Melanoma (combined with nivolumab) | Combination effect; LAG-3 alone modest |
 | **Tislelizumab, cemiplimab** | PD-1 | NSCLC, cutaneous SCC | Variable |
 
-The 2018 Nobel Prize in Physiology or Medicine was awarded to James Allison (CTLA-4) and Tasuku Honjo (PD-1) for the discoveries underlying this field. Response rates vary widely by tumour type, biomarker status, line of therapy, and combination regimen; the table's approximate ranges are orientation values, not patient-level predictions. A key qualitative pattern remains **durable remissions** in some responders (the "tail of the curve"). Side effects: **immune-related adverse events (irAEs)** — colitis, pneumonitis, hypophysitis, thyroiditis, hepatitis, dermatitis — reflecting the breaking of self-tolerance. Management: corticosteroids; if severe, infliximab (anti-TNF) for colitis.
+The 2018 Nobel Prize in Physiology or Medicine was awarded to James Allison (CTLA-4) and Tasuku Honjo (PD-1) for the discoveries underlying this field. Response rates vary widely by tumor type, biomarker status, line of therapy, and combination regimen; the table's approximate ranges are orientation values, not patient-level predictions. A key qualitative pattern remains **durable remissions** in some responders (the "tail of the curve"). Side effects: **immune-related adverse events (irAEs)** — colitis, pneumonitis, hypophysitis, thyroiditis, hepatitis, dermatitis — reflecting the breaking of self-tolerance. Management: corticosteroids; if severe, infliximab (anti-TNF) for colitis.
 
 #### CAR-T cell therapy — design and clinical outcomes
 
 **Chimeric antigen receptor T cells:** Patient T cells are removed by leukapheresis, genetically engineered ex vivo (lentiviral or retroviral vector) to express a synthetic receptor combining:
 
-- **Extracellular antigen-binding domain:** Single-chain variable fragment (scFv) derived from a tumour-specific monoclonal antibody (e.g., anti-CD19 scFv from FMC63 antibody).
+- **Extracellular antigen-binding domain:** Single-chain variable fragment (scFv) derived from a tumor-specific monoclonal antibody (e.g., anti-CD19 scFv from FMC63 antibody).
 - **Hinge and transmembrane:** From CD8α or IgG.
 - **Co-stimulatory domain:** CD28 (rapid effector function, shorter persistence) or 4-1BB/CD137 (slower expansion, longer persistence).
 - **Activation domain:** CD3ζ (TCR-derived ITAMs).
 
-Modified T cells are expanded in vitro and infused back into the patient. The CAR-T cells recognise the surface antigen (e.g., CD19 on B-cell malignancies) **without MHC restriction**, which enables recognition of MHC-low tumours that escape conventional T cells.
+Modified T cells are expanded in vitro and infused back into the patient. The CAR-T cells recognize the surface antigen (e.g., CD19 on B-cell malignancies) **without MHC restriction**, which enables recognition of MHC-low tumors that escape conventional T cells.
 
+: CAR-T cell therapy — design and clinical outcomes: Product and Target. {#tbl:unit_IX_immune_system_defense_car_t_cell_therapy_design_and_clinical_outcomes}
 | Product | Target | Approved indication | Co-stim | Remission rate |
 | ------- | ------ | ------------------- | ------- | --------------- |
 | **Tisagenlecleucel (Kymriah)** | CD19 | Pediatric/young adult B-cell acute lymphoblastic leukaemia | 4-1BB | ~80% at 3 months |
@@ -545,13 +558,13 @@ Modified T cells are expanded in vitro and infused back into the patient. The CA
 **Toxicity:**
 
 - **Cytokine release syndrome (CRS):** fever, hypotension, hypoxia within hours-to-days from massive cytokine release (esp. IL-6, IFN-γ, TNF) — graded 1–4. Treatment: **tocilizumab** (anti-IL-6R), corticosteroids if severe.
-- **Immune effector cell-associated neurotoxicity syndrome (ICANS):** confusion, aphasia, seizures, cerebral oedema; treated with corticosteroids.
+- **Immune effector cell-associated neurotoxicity syndrome (ICANS):** confusion, aphasia, seizures, cerebral edema; treated with corticosteroids.
 - **B cell aplasia:** Anti-CD19 CAR-T kills normal B cells too; long-term IVIG replacement may be needed.
 - **Second-malignancy surveillance:** FDA required boxed-warning language for T-cell malignancies after BCMA-directed or CD19-directed autologous CAR-T products in 2024, making long-term follow-up part of the source-governance burden for any current CAR-T table \citep{fda2024cartwarning}.
 
 > **Concept Check 4:** A patient on pembrolizumab (anti-PD-1) for metastatic melanoma develops new-onset hyperthyroidism with elevated free T4 and undetectable TSH. Explain mechanistically why checkpoint blockade can trigger autoimmune endocrinopathy. What does this teach us about the normal role of PD-1 in maintaining peripheral tolerance to thyroid antigens?
 
-> **Concept Check 5:** Why do polysaccharide vaccines (e.g., the original 23-valent pneumococcal vaccine) fail in children younger than 2 years, while conjugate vaccines (PCV13 — same polysaccharides covalently linked to a carrier protein) work well? Connect your answer to T-dependent vs T-independent B cell activation and germinal centre formation.
+> **Concept Check 5:** Why do polysaccharide vaccines (e.g., the original 23-valent pneumococcal vaccine) fail in children younger than 2 years, while conjugate vaccines (PCV13 — same polysaccharides covalently linked to a carrier protein) work well? Connect your answer to T-dependent vs T-independent B cell activation and germinal center formation.
 
 > **Concept Check 6:** A patient with Type 1 diabetes is found to have autoantibodies against multiple islet antigens (GAD65, IA-2, ZnT8) in addition to the originally targeted insulin. Explain this observation in terms of **epitope spreading** and discuss why early immunomodulatory therapy (before extensive β-cell destruction) might be more effective than later intervention.
 
@@ -563,10 +576,10 @@ Modified T cells are expanded in vitro and infused back into the patient. The CA
 
 > **Concept Check 10 (Analyze) — Complement cascade, MAC, and capsule resistance.** The classical pathway proceeds C1q (antibody-antigen) $\rightarrow$ C4b2a (C3 convertase) $\rightarrow$ C3b deposition + C5 convertase (C4b2a3b) $\rightarrow$ C5b–9 (MAC) — a 10 nm transmembrane pore that lyses the target. The alternative pathway loops back through factor B and properdin to amplify C3b deposition on any surface lacking host regulators. (a) Trace the molecular requirements for MAC formation on a Gram-negative bacterial surface and identify the single most rate-limiting step (C3b deposition density on the surface). (b) *Neisseria meningitidis* has a polysaccharide capsule but is famously vulnerable to MAC-mediated lysis — explaining why C5–C9 complement deficiencies present as recurrent meningococcal infection. *Klebsiella pneumoniae*, also encapsulated, *resists* MAC by binding host factor H to its capsule, accelerating C3 convertase decay locally. Analyze (i) what biochemical feature of the *Klebsiella* capsule allows factor H recruitment, (ii) why *Neisseria* lacks this property, and (iii) why repeated meningococcal disease in young adults should trigger a complement-component screen (CH50, AH50) rather than an immunoglobulin work-up.
 
-> **Concept Check 11 (Evaluate) — Checkpoint inhibitors, response heterogeneity, and rational combinations.** Anti-PD-1 (pembrolizumab, nivolumab) blocks the PD-1/PD-L1 brake on T-cell exhaustion and produces durable remissions in approximately 20–40% of patients across many solid tumours. Anti-CTLA-4 (ipilimumab) acts earlier, at T-cell priming, with stronger autoimmune toxicity. (a) Evaluate why monotherapy fails the *majority* of patients despite high target expression, drawing on at least three biological factors (low tumour mutational burden; loss of MHC-I presentation; T-cell exhaustion irreversibility; immunosuppressive tumour microenvironment). (b) Propose three biomarkers — tumour mutational burden (TMB), PD-L1 immunohistochemistry score, and tumour-infiltrating lymphocyte (TIL) density — and rank them by predictive power per available evidence; identify which biomarker has the strongest mechanistic justification and which is the most commercially deployed. (c) Evaluate two combination strategies expected to convert non-responders into responders: anti-CTLA-4 + anti-PD-1 (broader brake release) and anti-VEGF + anti-PD-1 (normalising tumour vasculature so T cells can infiltrate). For each combination, identify the most likely mechanism of synergy, the principal toxicity risk, and one tumour type where the combination is now standard of care.
+> **Concept Check 11 (Evaluate) — Checkpoint inhibitors, response heterogeneity, and rational combinations.** Anti-PD-1 (pembrolizumab, nivolumab) blocks the PD-1/PD-L1 brake on T-cell exhaustion and produces durable remissions in approximately 20–40% of patients across many solid tumors. Anti-CTLA-4 (ipilimumab) acts earlier, at T-cell priming, with stronger autoimmune toxicity. (a) Evaluate why monotherapy fails the *majority* of patients despite high target expression, drawing on at least three biological factors (low tumor mutational burden; loss of MHC-I presentation; T-cell exhaustion irreversibility; immunosuppressive tumor microenvironment). (b) Propose three biomarkers — tumor mutational burden (TMB), PD-L1 immunohistochemistry score, and tumor-infiltrating lymphocyte (TIL) density — and rank them by predictive power per available evidence; identify which biomarker has the strongest mechanistic justification and which is the most commercially deployed. (c) Evaluate two combination strategies expected to convert non-responders into responders: anti-CTLA-4 + anti-PD-1 (broader brake release) and anti-VEGF + anti-PD-1 (normalizing tumor vasculature so T cells can infiltrate). For each combination, identify the most likely mechanism of synergy, the principal toxicity risk, and one tumor type where the combination is now standard of care.
 
 
-> **Concept Check 10:** Why do anti-IL-17 (secukinumab) and anti-IL-23 (risankizumab) biologics treat psoriasis but exacerbate Crohn's disease in some patients? Connect your answer to the dual role of Th17 in barrier defence and pathological inflammation.
+> **Concept Check 10:** Why do anti-IL-17 (secukinumab) and anti-IL-23 (risankizumab) biologics treat psoriasis but exacerbate Crohn's disease in some patients? Connect your answer to the dual role of Th17 in barrier defense and pathological inflammation.
 
 ---
 
@@ -580,8 +593,8 @@ Modified T cells are expanded in vitro and infused back into the patient. The CA
 - **Data skill:** Interpret immune titers, cytokine profiles, or perturbation data.
 - **Practice cadence:** Visual Representations, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** Immunity is not just attack; recognition, tolerance, memory, and regulation are equally central.
-- **Primary lab:** \cref{sec:lab_unit_IX_immune_system_defense}.
-- **Question bank:** \cref{sec:q_unit_IX_immune_system_defense}.
+- **Primary lab:** \nameref{sec:lab_unit_IX_immune_system_defense}.
+- **Question bank:** \nameref{sec:q_unit_IX_immune_system_defense}.
 - **Transfer task:** Transfer immunity reasoning to vaccination, autoimmunity, infection, and cancer therapy.
 - **Bridge to computation:** `biology.physiology.physiology.homeostasis_response`.
 <!-- curriculum-scaffold-end -->
@@ -598,7 +611,7 @@ Modified T cells are expanded in vitro and infused back into the patient. The CA
 
 **Solution:**
 
-**Step 1.** Recognise that pregnancy elevates oestrogen, which increases hepatic CBG synthesis ~2-fold. Total cortisol rises in parallel with CBG, but **free cortisol** — the biologically active fraction — remains in the normal range.
+**Step 1.** Recognize that pregnancy elevates estrogen, which increases hepatic CBG synthesis ~2-fold. Total cortisol rises in parallel with CBG, but **free cortisol** — the biologically active fraction — remains in the normal range.
 
 **Step 2.** Estimate baseline free cortisol fraction. With normal CBG, 5% of total cortisol is free. With doubled CBG, the free fraction drops because more cortisol is sequestered:
 
@@ -623,7 +636,7 @@ This illustrates a fundamental principle: **for protein-bound hormones, total pl
 
 ## Worked Example: Clonal Expansion
 
-**Problem:** During a T-dependent germinal-centre response, an antigen-specific B-cell clone proliferates in the dark zone with a doubling time of $t_d = 6$ h. Starting from $N_0 = 100$ antigen-specific cells, calculate the fold expansion and the absolute clone size after $t = 72$ h (3 days). Compare the result with the 100--1000-fold higher precursor frequency that defines an established memory pool.
+**Problem:** During a T-dependent germinal-center response, an antigen-specific B-cell clone proliferates in the dark zone with a doubling time of $t_d = 6$ h. Starting from $N_0 = 100$ antigen-specific cells, calculate the fold expansion and the absolute clone size after $t = 72$ h (3 days). Compare the result with the 100--1000-fold higher precursor frequency that defines an established memory pool.
 
 **Solution:**
 
@@ -637,7 +650,7 @@ $$\frac{N}{N_0} = 2^{72/6} = 2^{12} = 4096 \label{eq:unit_IX_endocrine_and_immun
 
 **Step 3.** Compute the absolute clone size: $N = 100 \times 4096 = 4.10 \times 10^{5}$ cells --- a roughly 4000-fold expansion in three days.
 
-**Answer:** A 6-hour doubling time yields 12 doublings in 72 h, expanding the clone ~4096-fold (from 100 to ~4.1 × 10$^5$ cells). This magnitude matches the chapter's account of dark-zone proliferation and explains how a naive precursor frequency of ~1 in 10$^6$ can be driven up to the 100--1000-fold higher frequency that characterises an established memory pool. The same $N = N_0 \cdot 2^{\,t/t_d}$ relation predicts that even a one-hour increase in doubling time markedly slows the response --- which is why memory cells, with their lower activation threshold and shorter effective doubling time, clear a re-challenge far faster than naive cells.
+**Answer:** A 6-hour doubling time yields 12 doublings in 72 h, expanding the clone ~4096-fold (from 100 to ~4.1 × 10$^5$ cells). This magnitude matches the chapter's account of dark-zone proliferation and explains how a naive precursor frequency of ~1 in 10$^6$ can be driven up to the 100--1000-fold higher frequency that characterizes an established memory pool. The same $N = N_0 \cdot 2^{\,t/t_d}$ relation predicts that even a one-hour increase in doubling time markedly slows the response --- which is why memory cells, with their lower activation threshold and shorter effective doubling time, clear a re-challenge far faster than naive cells.
 
 ---
 
@@ -689,25 +702,26 @@ flowchart LR
     F --> H["Allostatic load"]
     G --> H
 ```
-<!-- alt: Allostatic-load map linking repeated stressors, HPA-axis dynamics, immune tone, metabolic allocation, and disease risk. -->
+<!-- alt: Flowchart showing physiology is often adaptive over short time scales and costly over long time scales, so baseline, perturbation, compensation, and pathology must be distinguished. -->
+
 *Physiology is often adaptive over short time scales and costly over long time scales, so baseline, perturbation, compensation, and pathology must be distinguished.*
 
 ## Summary
 
 - **Innate immunity:** Immediate, non-specific. Physical barriers, complement (opsonisation, MAC, chemotaxis with positive amplification feedback), phagocytes (neutrophils, macrophages, DCs), NK cells (missing self), inflammation, interferons, fever. PRRs: TLRs (membrane; TLR4→MyD88→NF-κB or TLR3→TRIF→IRF3→IFN-β); NLRs (cytosolic; NLRP3 inflammasome → caspase-1 → IL-1β + pyroptosis); RLRs (viral RNA); cGAS-STING (cytosolic DNA → IFN-β).
 - **Complement:** Three pathways converge on C3 convertase → C5 convertase → MAC. Effector functions: opsonisation (C3b), MAC (C5b-9), anaphylatoxins (C3a, C5a). Regulators (DAF, CD59, factor H, C1-INH) confine to pathogen surfaces. PNH, hereditary angioedema, eculizumab.
-- **Adaptive immunity:** Specific, slow (7–10 days), memory. MHC I (endogenous) → CD8+ CTL. MHC II (exogenous) → CD4+ Th. T cell development DN1→DN4→DP→positive selection (cTECs)→negative selection (mTECs/AIRE/Tregs). Th polarisation: Th1, Th2, Th17, Treg, Tfh.
-- **B cells:** T-dependent vs T-independent activation. Germinal centre reaction: SHM (AID) → affinity maturation; CSR → IgG/IgA/IgE. Antibody isotypes: IgM (primary), IgG (secondary, opsonisation, placenta), IgA (mucosal), IgE (allergy).
+- **Adaptive immunity:** Specific, slow (7–10 days), memory. MHC I (endogenous) → CD8+ CTL. MHC II (exogenous) → CD4+ Th. T cell development DN1→DN4→DP→positive selection (cTECs)→negative selection (mTECs/AIRE/Tregs). Th polarization: Th1, Th2, Th17, Treg, Tfh.
+- **B cells:** T-dependent vs T-independent activation. Germinal center reaction: SHM (AID) → affinity maturation; CSR → IgG/IgA/IgE. Antibody isotypes: IgM (primary), IgG (secondary, opsonisation, placenta), IgA (mucosal), IgE (allergy).
 - **Cytokine network:** IL-1/IL-6/TNF (inflammation), IL-2 (T cell expansion), IL-4 (Th2/IgE), IL-17 (Th17/barrier), IFN-γ (Th1/macrophage activation), IL-10/TGF-β (anti-inflammatory).
 - **Memory:** T$_{CM}$ (recirculating), T$_{EM}$ (peripheral), T$_{RM}$ (tissue-resident); maintained by IL-7/IL-15. Pre-existing antigen-specific cells, lower activation threshold, pre-armed effector machinery explain the rapid recall response.
 - **Tolerance and autoimmunity:** Central (thymic/BM deletion, AIRE) and peripheral (Treg, anergy, PD-1, CTLA-4). Mechanisms of failure: molecular mimicry, bystander activation, epitope spreading, defective Tregs/apoptosis. Diseases: SLE, RA, T1DM, MS. Hypersensitivity I–IV.
-- **Immunotherapy:** Checkpoint inhibitors (anti-PD-1, anti-CTLA-4, anti-LAG-3) — 2018 Nobel Prize; response rates vary by tumour, biomarker, line of therapy, and combination strategy, with durable "tail of the curve" remissions in some responders. CAR-T for haematological malignancies (anti-CD19 for B-cell acute lymphoblastic leukaemia and DLBCL; anti-BCMA for myeloma); CRS managed by tocilizumab.
+- **Immunotherapy:** Checkpoint inhibitors (anti-PD-1, anti-CTLA-4, anti-LAG-3) — 2018 Nobel Prize; response rates vary by tumor, biomarker, line of therapy, and combination strategy, with durable "tail of the curve" remissions in some responders. CAR-T for haematological malignancies (anti-CD19 for B-cell acute lymphoblastic leukaemia and DLBCL; anti-BCMA for myeloma); CRS managed by tocilizumab.
 - **Connections:** See \cref{sec:unit_III_metabolic_integration} for insulin/glucagon integration, \cref{sec:unit_VII_host_immunity_and_vaccines} for PAMP recognition, and \cref{sec:unit_IX_circulation_respiration_homeostasis} for stress axes.
 ---
 
 ## Review Questions
 
-1. Compare peptide and steroid hormone signalling in terms of synthesis, transport, receptor location, signalling speed, and duration. Why do steroid hormones have longer-lasting effects despite similar half-lives?
+1. Compare peptide and steroid hormone signaling in terms of synthesis, transport, receptor location, signaling speed, and duration. Why do steroid hormones have longer-lasting effects despite similar half-lives?
 
 2. Explain cortisol synthesis from cholesterol, including the role of StAR. Which enzyme deficiency causes the most common form of congenital adrenal hyperplasia, and why does it produce both glucocorticoid deficiency and androgen excess?
 
@@ -721,7 +735,7 @@ flowchart LR
 
 7. Explain how leptin signals body energy stores to the brain and why most obese individuals have leptin resistance. How does adiponectin act as a complementary signal? Why doesn't exogenous leptin work for obesity?
 
-8. Describe TLR4 signalling in response to bacterial LPS. Compare with the TRIF-IRF3 branch and the cGAS-STING pathway. Why does septic shock result from massive cytokine release, and what is the mechanism of action of "anti-TNF" therapeutics like infliximab?
+8. Describe TLR4 signaling in response to bacterial LPS. Compare with the TRIF-IRF3 branch and the cGAS-STING pathway. Why does septic shock result from massive cytokine release, and what is the mechanism of action of "anti-TNF" therapeutics like infliximab?
 
 9. Explain how the alternative complement pathway amplifies its own activation. Describe the formation of C3 convertase, C5 convertase, and the MAC. Why is complement activity restricted to pathogen surfaces and not host cells? What goes wrong in PNH, and how does eculizumab work?
 
@@ -729,7 +743,7 @@ flowchart LR
 
 11. Compare T-dependent and T-independent B cell responses. Why are conjugate vaccines (PCV13, Hib) more effective in young children than pure polysaccharide vaccines? Trace the steps from naïve B cell antigen encounter to long-lived plasma cell.
 
-12. Explain the molecular basis of affinity maturation in the germinal centre. How does AID-mediated somatic hypermutation combined with antigen-driven selection produce 1000-fold increases in antibody affinity?
+12. Explain the molecular basis of affinity maturation in the germinal center. How does AID-mediated somatic hypermutation combined with antigen-driven selection produce 1000-fold increases in antibody affinity?
 
 13. Compare the four types of hypersensitivity reactions. Identify a clinical example and treatment for each. Explain the difference in time course between Type I and Type IV.
 
@@ -737,9 +751,9 @@ flowchart LR
 
 15. A patient on pembrolizumab develops new-onset hypothyroidism, vitiligo, and colitis. Explain mechanistically why anti-PD-1 therapy causes these immune-related adverse events. What does this reveal about the normal role of PD-1?
 
-16. Describe the design of an anti-CD19 CAR-T cell — antigen recognition domain, hinge, transmembrane, co-stimulatory, and activation domains. Why does CAR-T therapy frequently cause cytokine release syndrome, and how does anti-IL-6R tocilizumab treat CRS without compromising tumour killing?
+16. Describe the design of an anti-CD19 CAR-T cell — antigen recognition domain, hinge, transmembrane, co-stimulatory, and activation domains. Why does CAR-T therapy frequently cause cytokine release syndrome, and how does anti-IL-6R tocilizumab treat CRS without compromising tumor killing?
 
-17. Bisphenol A binds oestrogen receptors with much lower affinity than oestradiol. Explain the concept of non-monotonic dose-response curves and why low-dose endocrine disruption can have greater developmental impact than high-dose adult exposure.
+17. Bisphenol A binds estrogen receptors with much lower affinity than oestradiol. Explain the concept of non-monotonic dose-response curves and why low-dose endocrine disruption can have greater developmental impact than high-dose adult exposure.
 
 18. Aspirin and ibuprofen both inhibit cyclooxygenase, but primarily aspirin permanently inhibits platelet COX-1. Explain the molecular and cellular basis of this difference and its therapeutic significance. Why did selective COX-2 inhibitors like rofecoxib increase cardiovascular risk?
 
@@ -752,13 +766,14 @@ flowchart LR
 ## Further Reading and Source Notes: Immune System Architecture and Defense
 
 - Sterling & Eyer (1988). Allostasis: a new paradigm to explain arousal pathology. In *Handbook of Life Stress, Cognition and Health* \citep{sterling1988}.
-- Sterling (2015). Principles of allostasis: optimal design, predictive regulation, pathophysiology, and rational therapeutics \citep{sterling2015}.
+- Sterling (2012). Allostasis: A model of predictive regulation. *Physiology \& Behavior*, 106(1), 5–15 \citep{sterling2015}.
 - Cannon (1932). *The Wisdom of the Body*. W. W. Norton.
 
 ---
 
 ## Key Terms
 
+: Current Evidence Map: Allostasis and Immune-Endocrine Coupling: Term and Definition. {#tbl:unit_IX_immune_system_defense_current_evidence_map_allostasis_and_immune_endocrine_coupling}
 | Term | Definition |
 | ---- | ---------- |
 | **Hormone** | Chemical signal secreted into blood; acts at distant target via specific receptor |
@@ -774,7 +789,7 @@ flowchart LR
 | **Adiponectin** | Adipocyte hormone; insulin sensitiser via AMPK |
 | **GLP-1** | Incretin from intestinal L-cells; potentiates glucose-stimulated insulin |
 | **PRR** | Pattern recognition receptor (TLR, NLR, RLR, cGAS) |
-| **TLR4** | Recognises LPS; signals via MyD88 → NF-κB |
+| **TLR4** | Recognizes LPS; signals via MyD88 → NF-κB |
 | **NLRP3** | Cytosolic inflammasome; activates caspase-1 → IL-1β + pyroptosis |
 | **cGAS-STING** | Cytosolic DNA sensor → type I interferons |
 | **Complement** | Cascade producing opsonisation (C3b), MAC (C5b-9), anaphylatoxins (C3a, C5a) |
@@ -783,11 +798,11 @@ flowchart LR
 | **MHC I/II** | Antigen-presenting molecules to CD8+/CD4+ T cells |
 | **AIRE** | Thymic transcription factor enabling expression of tissue-specific antigens for negative selection |
 | **AID** | Activation-induced cytidine deaminase; somatic hypermutation and class switching |
-| **Germinal centre** | Lymphoid microenvironment for affinity maturation and class switching |
+| **Germinal center** | Lymphoid microenvironment for affinity maturation and class switching |
 | **Treg** | FoxP3+ regulatory T cell; peripheral tolerance |
-| **PD-1 / PD-L1** | Inhibitory checkpoint exploited by tumours; target of pembrolizumab |
+| **PD-1 / PD-L1** | Inhibitory checkpoint exploited by tumors; target of pembrolizumab |
 | **CTLA-4** | Inhibitory checkpoint on activated T cells; target of ipilimumab |
-| **CAR-T cell** | Engineered T cell with synthetic antigen receptor for tumour killing |
+| **CAR-T cell** | Engineered T cell with synthetic antigen receptor for tumor killing |
 | **Hypersensitivity I–IV** | Allergy/anaphylaxis (IgE), cytotoxic, immune complex, delayed cell-mediated |
 | **Molecular mimicry** | Pathogen antigen resembles self; triggers cross-reactive autoimmunity |
 | **Epitope spreading** | Autoimmune response broadens from one self-antigen to many over time |
@@ -801,6 +816,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Immune System Architecture and Defense. {#tbl:unit_IX_immune_system_defense_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/physiology/physiology.py` (`homeostasis_response`) | Compare hormone feedback and inflammatory regulation as control problems. |

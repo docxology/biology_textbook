@@ -1,23 +1,22 @@
-# Unit 0 — Systems Science and the Biology of Complexity: Introduction {.unnumbered}
+# Unit 0 — Systems Science and the Biology of Complexity: Introduction {#sec:unit_0_unit_intro .unnumbered}
 
 
-\label{sec:unit_0_unit_intro}
 **\nameref{sec:unit_0_unit_intro} · Introduction**
 
 ---
 
 ## Why This Unit Matters {.unnumbered}
 
-The modern study of biology began by reducing living phenomena to their smallest parts — cells, molecules, genes. This reductionist strategy yielded extraordinary insight. Yet the more we learned about individual components, the clearer it became that biology cannot be explained by parts alone: a neuron firing is not a thought, a gene is not a behaviour, a metabolic pathway is not a cell. What emerges from the *interaction* of parts — properties no single component possesses in isolation — is the subject of **systems science**.
+The modern study of biology began by reducing living phenomena to their smallest parts — cells, molecules, genes. This reductionist strategy yielded extraordinary insight. Yet the more we learned about individual components, the clearer it became that biology cannot be explained by parts alone: a neuron firing is not a thought, a gene is not a behavior, a metabolic pathway is not a cell. What emerges from the *interaction* of parts — properties no single component possesses in isolation — is the subject of **systems science**.
 
 \nameref{sec:unit_0_unit_intro} introduces four interlocking frameworks that recur in every subsequent unit:
 
-1. **Systems science** — the general theory of organised complexity: how hierarchical systems form, how feedback governs their behaviour, how new properties emerge.
-2. **Complex adaptive systems** — how populations of agents with local rules give rise to robust, evolvable, collective behaviour.
+1. **Systems science** — the general theory of organized complexity: how hierarchical systems form, how feedback governs their behavior, how new properties emerge.
+2. **Complex adaptive systems** — how populations of agents with local rules give rise to robust, evolvable, collective behavior.
 3. **Active inference and the free energy principle** — a mathematically grounded account of how living agents maintain themselves by predicting and acting on their environments.
 4. **History and philosophy of biology** — the source-critical practice of asking where biological concepts came from, what they assume, and how evidence and values revise them.
 
-Reading \nameref{sec:unit_0_unit_intro} is optional but recommended: it supplies the vocabulary of emergence, attractors, bifurcations, allostasis, and precision that makes \nameref{sec:unit_I_unit_intro} through \nameref{sec:unit_X_unit_intro} fit together as a single coherent theory of living organisation.
+Reading \nameref{sec:unit_0_unit_intro} is optional but recommended: it supplies the vocabulary of emergence, attractors, bifurcations, allostasis, and precision that makes \nameref{sec:unit_I_unit_intro} through \nameref{sec:unit_X_unit_intro} fit together as a single coherent theory of living organization.
 
 ---
 
@@ -25,15 +24,15 @@ Reading \nameref{sec:unit_0_unit_intro} is optional but recommended: it supplies
 
 | Year | Contribution | Significance |
 | ---- | ------------ | ------------ |
-| 1867 | Hermann von Helmholtz — *Handbook of Physiological Optics* | First framing of perception as unconscious inference |
-| 1932 | Walter Cannon — *The Wisdom of the Body* | Coined *homeostasis*; proposed regulated internal milieu |
-| 1948 | Norbert Wiener — *Cybernetics* | Formalised feedback control; bridged engineering and biology |
-| 1968 | Ludwig von Bertalanffy — *General System Theory* | Articulated open systems and hierarchy across disciplines |
-| 1977 | Ilya Prigogine — Nobel in Chemistry | Dissipative structures and non-equilibrium self-organisation |
-| 1987 | Per Bak, Tang & Wiesenfeld — *Phys. Rev. Lett.* | Self-organised criticality and power-law scaling in CAS |
-| 1992 | John Holland — *Adaptation in Natural and Artificial Systems* | Genetic algorithms; formal CAS framework |
-| 2010 | Karl Friston — *Nature Rev. Neurosci.* | Free energy principle as a unified theory of brain function |
-| 2015 | Peter Sterling — *Allostasis* | Proactive predictive regulation, contrasting homeostasis |
+| 1867 | Hermann von Helmholtz — \citep{helmholtz1867handbook} | First framing of perception as unconscious inference |
+| 1932 | Walter Cannon — \citep{cannon1932} | Coined *homeostasis*; proposed regulated internal milieu |
+| 1948 | Norbert Wiener — \citep{wiener1948} | Formalised feedback control; bridged engineering and biology |
+| 1968 | Ludwig von Bertalanffy — \citep{bertalanffy1968} | Articulated open systems and hierarchy across disciplines |
+| 1977 | Ilya Prigogine and Grégoire Nicolis — \citep{prigogine1977} | Dissipative structures and non-equilibrium self-organization |
+| 1987 | Per Bak, Tang & Wiesenfeld — \citep{bak1987} | Self-organized criticality and power-law scaling in CAS |
+| 1992 | John Holland — \citep{holland1992} | Genetic algorithms; formal CAS framework |
+| 2010 | Karl Friston — \citep{friston2010} | Free energy principle as a unified theory of brain function |
+| 2012 | Peter Sterling — \citep{sterling2015} | Predictive allostasis, contrasting error-correction homeostasis |
 
 ---
 
@@ -41,13 +40,13 @@ Reading \nameref{sec:unit_0_unit_intro} is optional but recommended: it supplies
 
 - **System** — a set of interacting components forming an integrated whole; open systems exchange matter and energy with their environment.
 - **Emergence** — properties of a system that cannot be explained solely by properties of its components (e.g., consciousness emerges from neural circuits; life emerges from biochemistry).
-- **Feedback** — output fed back as input, shaping future behaviour; negative feedback stabilises, positive feedback amplifies.
+- **Feedback** — output fed back as input, shaping future behavior; negative feedback stabilizes, positive feedback amplifies.
 - **Attractor** — a region of phase space toward which trajectories converge; phase transitions move a system between attractors.
-- **Complex adaptive system (CAS)** — a system of adaptive agents whose collective behaviour self-organises without central control.
-- **Free energy** — a variational upper bound on surprise; minimising it unifies perception, action, and learning.
+- **Complex adaptive system (CAS)** — a system of adaptive agents whose collective behavior self-organizes without central control.
+- **Free energy** — a variational upper bound on surprise; minimizing it unifies perception, action, and learning.
 - **Homeostasis vs. allostasis** — passive correction to a fixed set-point vs. predictive adjustment of set-points based on context.
 
-These ideas are deliberately general: every subsequent unit of the textbook re-encounters them. Feedback appears in enzyme regulation (\nameref{sec:unit_I_unit_intro}), in signalling cascades (\nameref{sec:unit_II_unit_intro}), in metabolic flux (\nameref{sec:unit_III_unit_intro}), in population dynamics (\nameref{sec:unit_X_unit_intro}), and in neural control (\nameref{sec:unit_IX_unit_intro}). Attractors describe cell-fate decisions (\nameref{sec:unit_II_unit_intro}), bistable genetic switches (\nameref{sec:unit_IV_unit_intro}), and ecosystem stable states (\nameref{sec:unit_X_unit_intro}). Active inference recurs as the unifying framework for physiology (\nameref{sec:unit_IX_unit_intro}) and behaviour.
+These ideas are deliberately general: every subsequent unit of the textbook re-encounters them. Feedback appears in enzyme regulation (\nameref{sec:unit_I_unit_intro}), in signaling cascades (\nameref{sec:unit_II_unit_intro}), in metabolic flux (\nameref{sec:unit_III_unit_intro}), in population dynamics (\nameref{sec:unit_X_unit_intro}), and in neural control (\nameref{sec:unit_IX_unit_intro}). Attractors describe cell-fate decisions (\nameref{sec:unit_II_unit_intro}), bistable genetic switches (\nameref{sec:unit_IV_unit_intro}), and ecosystem stable states (\nameref{sec:unit_X_unit_intro}). Active inference recurs as the unifying framework for physiology (\nameref{sec:unit_IX_unit_intro}) and behavior.
 
 ---
 
@@ -82,8 +81,8 @@ graph LR
 
 | Chapter | Core question | Key tools |
 | ------- | ------------- | --------- |
-| 0.1 Systems Science | *How does organisation arise from interaction?* | Feedback, hierarchy, Hill equation, delay oscillation |
-| 0.2 Complex Adaptive Systems | *How do simple local rules produce robust global behaviour?* | Phase space, bifurcation, fitness landscape, power laws |
+| 0.1 Systems Science | *How does organization arise from interaction?* | Feedback, hierarchy, Hill equation, delay oscillation |
+| 0.2 Complex Adaptive Systems | *How do simple local rules produce robust global behavior?* | Phase space, bifurcation, fitness landscape, power laws |
 | 0.3 Active Inference | *How do living agents maintain themselves against disorder?* | Bayesian inference, free energy, precision, allostasis |
 | 0.4 History and Philosophy of Biology | *How did biology's concepts, evidence practices, and values become what they are?* | Source analysis, mechanism/function, individuality, model critique |
 
@@ -92,7 +91,7 @@ graph LR
 ## Connections Across the Textbook {.unnumbered}
 
 - **\nameref{sec:unit_I_unit_intro} — Chemistry of Life**: thermodynamic gradients (\cref{sec:unit_0_systems_science}) explain why proteins fold spontaneously; catalysis is a feedback-regulated modular system.
-- **\nameref{sec:unit_II_unit_intro} — The Cell**: organelles are modules; the fluid-mosaic membrane is a self-organised phase; signalling cascades are hierarchical feedback loops.
+- **\nameref{sec:unit_II_unit_intro} — The Cell**: organelles are modules; the fluid-mosaic membrane is a self-organized phase; signaling cascades are hierarchical feedback loops.
 - **\nameref{sec:unit_III_unit_intro} — Energy and Metabolism**: glycolysis and the TCA cycle are classic examples of allosteric feedback and feed-forward control.
 - **\nameref{sec:unit_IV_unit_intro}–V — Genetics**: regulatory networks, bistable switches, and epigenetic memory are CAS par excellence.
 - **\nameref{sec:unit_VI_unit_intro} — Evolution**: fitness landscapes from \cref{sec:unit_0_complex_adaptive_systems} are the formal substrate of selection.
@@ -107,7 +106,7 @@ graph LR
 The four \nameref{sec:unit_0_unit_intro} chapters are conceptual rather than algorithmic, but they motivate every piece of code and evidence check used later:
 
 - **Hill cooperative binding:** cell-biology helpers, especially `hill_equation()`.
-- **Receptor occupancy:** cell-signalling helpers for ligand binding and response.
+- **Receptor occupancy:** cell-signaling helpers for ligand binding and response.
 - **Logistic dynamics:** ecology helpers for growth under carrying capacity.
 - **Lotka–Volterra oscillation:** ecology helpers for predator–prey cycles.
 - **Bayesian update:** neuroscience-style posterior inference, illustrated in \cref{sec:unit_0_active_inference}.

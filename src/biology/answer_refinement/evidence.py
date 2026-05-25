@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import logging
-import re
 from pathlib import Path
 
 from biology.answer_refinement.classification import (
@@ -122,7 +121,7 @@ def fallback_evidence(category: str) -> tuple[str, str]:
             "A strong answer names the molecular machine or variant, predicts a molecular outcome, and states what evidence would confirm it.",
         ),
         "cell": (
-            "Cell biology explanations should locate the process in a cell type, compartment, membrane, organelle, or signalling step before predicting an outcome.",
+            "Cell biology explanations should locate the process in a cell type, compartment, membrane, organelle, or signaling step before predicting an outcome.",
             "A strong answer identifies the measurement scale and avoids treating static structures as if they explain dynamics by themselves.",
         ),
         "biochemistry": (
@@ -152,7 +151,7 @@ def pitfall_for(kind: str, category: str) -> str:
         "microbiology": "Pitfall to avoid: conflating exposure, colonization, infection, immunity, and transmission.",
         "botany": "Pitfall to avoid: explaining the trait without the water, hormone, carbon, or developmental tradeoff.",
         "molecular_genetics": "Pitfall to avoid: moving from a DNA change to a phenotype without expression, protein, or assay evidence.",
-        "cell": "Pitfall to avoid: naming a structure without locating the transport, signalling, or compartment process.",
+        "cell": "Pitfall to avoid: naming a structure without locating the transport, signaling, or compartment process.",
         "biochemistry": "Pitfall to avoid: naming a molecule without the reaction direction, energetic term, or kinetic consequence.",
         "general": "Pitfall to avoid: listing parts without specifying interactions and feedback.",
     }
@@ -196,7 +195,7 @@ _TIER_CLOSE = {
     ("Recall", "evolution_genetics"):   "Ground the answer in \\cref{{{r}}} with a named organism, population, allele, or lineage.",
     ("Recall", "microbiology"):         "Ground the answer in \\cref{{{r}}} with a named microbial taxon, virus, resistance marker, or infection context.",
     ("Recall", "botany"):               "Ground the answer in \\cref{{{r}}} with a plant tissue, hormone, water-relation variable, or ecological setting.",
-    ("Recall", "cell"):                 "Ground the answer in \\cref{{{r}}} with a cell type, organelle, membrane process, or signalling component.",
+    ("Recall", "cell"):                 "Ground the answer in \\cref{{{r}}} with a cell type, organelle, membrane process, or signaling component.",
     ("Recall", "biochemistry"):         "Ground the answer in \\cref{{{r}}} with a representative molecule, reaction, equation, or energetic value.",
     ("Recall", "general"):              "Ground the answer in \\cref{{{r}}} with one named biological example.",
     ("Application", "ecology"):         "Use \\cref{{{r}}} to interpret the result as coexistence, extinction risk, biodiversity change, or resource limitation.",
@@ -232,7 +231,7 @@ def chapter_method(category: str) -> str:
         "microbiology": "identify the taxon or pathogen, growth/transmission mechanism, and diagnostic or surveillance evidence",
         "botany": "name the tissue, water or hormone variable, environmental driver, and growth-reproduction tradeoff",
         "molecular_genetics": "separate sequence, expression, variant evidence, assay, and clinical or evolutionary interpretation",
-        "cell": "tie the answer to cell type, compartment, membrane process, signalling step, or measurement scale",
+        "cell": "tie the answer to cell type, compartment, membrane process, signaling step, or measurement scale",
         "biochemistry": "include molecule, reaction, energetic direction, kinetic term, pH/pKa, or pathway flux as appropriate",
         "general": "name the biological scale, mechanism, evidence, and boundary condition",
     }

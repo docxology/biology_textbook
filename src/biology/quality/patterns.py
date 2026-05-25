@@ -59,7 +59,7 @@ QUESTION_GENERIC_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("generic-answer-extend-cref", re.compile(r"Extend \\cref")),
     ("generic-answer-biological-players", re.compile(r"Name the biological players")),
     ("generic-answer-one-limitation", re.compile(r"name one limitation or counterexample")),
-    ("generic-answer-boundary-condition", re.compile(r"boundary condition that prevents overgeneralising")),
+    ("generic-answer-boundary-condition", re.compile(r"boundary condition that prevents overgeneralizing")),
     ("generic-answer-carry-values", re.compile(r"Carry through these values:")),
     ("generic-answer-named-items", re.compile(r"Use these named items explicitly:")),
     ("generic-answer-current-define", re.compile(r"Define \*")),
@@ -151,7 +151,7 @@ GENERIC_MERMAID_METADATA = (
     "flowchart depicting biological process or pathway",
     "network graph showing biological relationships",
     "sequence diagram showing step-by-step molecular or cellular interactions",
-    "mermaid directed graph summarising a conceptual relationship described in the surrounding text",
+    "mermaid directed graph summarizing a conceptual relationship described in the surrounding text",
 )
 
 FIGURE_METADATA_ARTIFACT_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
@@ -178,7 +178,7 @@ HEADING_ARTIFACT_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ),
     (
         "inflated-comprehensive-heading",
-        re.compile(r"^#{2,5}\s+.*\bComprehensive(?:\s+(?:Overview|Reference|Table|Mechanism|Catalogue))?\b"),
+        re.compile(r"^#{2,5}\s+.*\bComprehensive(?:\s+(?:Overview|Reference|Table|Mechanism|Catalog))?\b"),
     ),
     ("ascii-dash-heading", re.compile(r"^#{2,5}\s+.*\s-\s.*")),
     ("uncommon-homeostasis-heading", re.compile(r"^#{2,5}\s+.*\bHomoeostasis\b")),

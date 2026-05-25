@@ -1,10 +1,9 @@
-# Appendix D — Units, Physical Constants, and Biological Ranges {.unnumbered}
+# Appendix D — Units, Physical Constants, and Biological Ranges {#sec:appendix_units_and_constants .unnumbered}
 
-\label{sec:appendix_units_and_constants}
 
 
 <!-- chapter-metadata-badge -->
-> **\cref{sec:appendix_units_and_constants}** · Level 1/3 · 20 min read · Prerequisites: none · Use as reference
+> **\nameref{sec:appendix_units_and_constants}** · Level 1/3 · 20 min read · Prerequisites: none · Use as reference
 
 A compact reference for units, constants, and characteristic magnitudes encountered throughout the textbook. Use it during worked problems to sanity-check dimensional analysis, convert between unit systems, and verify that numerical answers fall in biologically plausible ranges.
 
@@ -14,7 +13,7 @@ A compact reference for units, constants, and characteristic magnitudes encounte
 
 | Quantity | SI unit | Symbol | In base units |
 | -------- | ------- | ------ | ------------- |
-| Length | metre | m | — |
+| Length | meter | m | — |
 | Mass | kilogram | kg | — |
 | Time | second | s | — |
 | Amount of substance | mole | mol | — |
@@ -172,7 +171,7 @@ Molarity of water: $M_{H_2O} = 1000 \text{ g L}^{-1} / 18 \text{ g mol}^{-1} = 5
 | Renal excretion | Adult kidneys filter plasma continuously and adjust urine concentration | Filtration, tubular reabsorption, secretion, and collecting-duct water handling set volume, electrolyte, pH, and nitrogen-waste balance \citep{niddk2024kidneys}. |
 | Skeletal muscle | Sarcomere force depends on actin-myosin overlap and cross-bridge cycling | Sliding-filament physiology links molecular geometry to organismal movement \citep{huxley1954sliding}. |
 | Somatosensation | Receptor density sets spatial resolution | Mechanoreceptor subtype, receptive-field size, and cortical magnification jointly shape touch discrimination \citep{abraira2013somatosensory}. |
-| Behaviour | Four explanatory levels | Mechanism, development, function, and phylogeny answer different questions about the same behaviour \citep{tinbergen1963aims}. |
+| Behavior | Four explanatory levels | Mechanism, development, function, and phylogeny answer different questions about the same behavior \citep{tinbergen1963aims}. |
 | Reproduction | Infertility triage starts after 12 months, or 6 months at age 35+ | Evaluation separates ovulation, sperm production, anatomy, implantation, endocrine timing, and age-dependent gamete quality \citep{cdc2024reproductivehealth}. |
 
 ---
@@ -187,7 +186,7 @@ Molarity of water: $M_{H_2O} = 1000 \text{ g L}^{-1} / 18 \text{ g mol}^{-1} = 5
 | Blood pH | 7.35–7.45 | Tightly regulated |
 | Arterial pCO₂ | ~40 mmHg | Regulated by respiration |
 | Body-water content | 60 % of body mass | Total body water |
-| Haemoglobin O₂ capacity | 1.34 mL O₂ / g Hb | Full saturation |
+| Hemoglobin O₂ capacity | 1.34 mL O₂ / g Hb | Full saturation |
 | Blood volume | ~5 L in adult | 7 % of body mass |
 | Body surface area (adult) | ~1.8 m² | DuBois formula |
 | Mitochondrial membrane potential | ≈ −180 mV | Drives ATP synthesis |

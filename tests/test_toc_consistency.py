@@ -6,9 +6,10 @@ import importlib.util
 import re
 import sys
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import yaml
+import pytest
 
 from biology.toc import BookToc, load_toc
 
@@ -149,9 +150,36 @@ def test_preface_scope_table_matches_toc_builder() -> None:
 
 def test_unit_intro_section_labels_present() -> None:
     book_toc = load_toc(PROJECT)
+    standalone = re.compile(r"^\\label\{sec:[^}]+\}\s*$", re.MULTILINE)
     for unit in book_toc.units:
         text = unit.intro_path.read_text(encoding="utf-8")
-        assert f"\\label{{{unit.section_label}}}" in text
+        first_h1 = next((line for line in text.splitlines() if line.startswith("# ")), "")
+        assert f"{{#{unit.section_label}" in first_h1, unit.intro_path
+        assert standalone.search(text) is None, unit.intro_path
+
+
+def test_pandoc_binds_unnumbered_h1_identifier_to_section_label() -> None:
+    """Guard ``\\nameref`` support: Pandoc must emit ``\\section*{{…}}\\label{{sec:…}}``."""
+    import shutil
+    import subprocess
+
+    pandoc = shutil.which("pandoc")
+    if pandoc is None:
+        pytest.skip("pandoc not installed")
+    sample = (
+        "# Unit I — Chemistry of Life: Introduction {#sec:unit_I_unit_intro .unnumbered}\n\n"
+        "## Why This Unit Matters {.unnumbered}\n"
+    )
+    result = subprocess.run(
+        [pandoc, "-f", "markdown", "-t", "latex"],
+        input=sample,
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    latex = result.stdout.replace("\n", " ")
+    assert "\\section*{Unit I --- Chemistry of Life: Introduction}\\label{sec:unit_I_unit_intro}" in latex
+    assert "\\subsection*{Why This Unit Matters}" in latex
 
 
 def test_generated_appendix_headings_match_reference_config_titles() -> None:
@@ -202,7 +230,7 @@ def test_render_injection_resets_section_numbering_after_unit_zero() -> None:
         book_toc.units_by_id["unit_I"].intro_path,
         book_toc.chapters_by_id["unit_I_atoms_molecules"].path,
     ]
-    ordered_paths = [item.path if hasattr(item, "path") else item for item in ordered]
+    ordered_paths = cast(list[Path], [item.path if hasattr(item, "path") else item for item in ordered])
     directives = _section_numbering_directives(ordered_paths)
     assert r"\renewcommand{\thesection}{0.\arabic{section}}" in directives[
         book_toc.chapters_by_id["unit_0_systems_science"].path.resolve()

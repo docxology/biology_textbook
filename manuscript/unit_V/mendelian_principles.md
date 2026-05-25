@@ -25,7 +25,7 @@
 \label{fig:unit_V_punnett_square}
 \end{figure}
 
-<!-- alt: Two-by-two Punnett square labelled with Aa times Aa showing four offspring: one AA homozygous dominant, two Aa heterozygous, one aa homozygous recessive. -->
+<!-- alt: Two-by-two Punnett square labeled with Aa times Aa showing four offspring: one AA homozygous dominant, two Aa heterozygous, one aa homozygous recessive. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -37,8 +37,8 @@
 - **Data skill:** Use cross data to infer genotype probabilities.
 - **Practice cadence:** Statistical Tests and Data Analysis, Representing and Describing Data.
 - **Common misconception to repair:** Dominant does not mean common, stronger, or better.
-- **Primary lab:** \cref{sec:lab_unit_V_mendelian_principles}.
-- **Question bank:** \cref{sec:q_unit_V_mendelian_principles}.
+- **Primary lab:** \nameref{sec:lab_unit_V_mendelian_principles}.
+- **Question bank:** \nameref{sec:q_unit_V_mendelian_principles}.
 - **Transfer task:** Transfer Mendelian probability to model organisms and introductory human genetics.
 - **Bridge to computation:** `biology.genetics.genetics.chi_squared_test`.
 <!-- curriculum-scaffold-end -->
@@ -47,14 +47,15 @@
 
 > **Opening Vignette — The Forgotten Friar and the Laws of Inheritance**
 > 
-> Gregor Mendel spent eight years (1856–1863) growing and cross-pollinating nearly 28,000 pea plants in the garden of St. Thomas's Abbey in Brno, recording data with statistical rigour unprecedented in biology at the time. He presented his findings to the Brno Natural History Society in 1865, and published them in the society's journal in 1866. The audience of 40 scientists was politely unenthusiastic. For 35 years, his paper languished in obscurity — unread, uncited, misunderstood. Then in 1900, three botanists working independently — Hugo de Vries, Carl Correns, and Erich von Tschermak — each rediscovered the same ratios Mendel had documented and, searching the literature, found his paper. Overnight, an unknown friar's meticulous garden statistics became the foundation of modern genetics. Mendel rarely knew he had founded a science.
+> Gregor Mendel spent eight years (1856–1863) growing and cross-pollinating nearly 28,000 pea plants in the garden of St. Thomas's Abbey in Brno, recording data with statistical rigour unprecedented in biology at the time. He presented his findings to the Brno Natural History Society in 1865, and published them in the society's journal in 1866 \citep{mendel1866}. The audience of 40 scientists was politely unenthusiastic. For 35 years, his paper languished in obscurity — unread, uncited, misunderstood. Then in 1900, three botanists working independently — Hugo de Vries, Carl Correns, and Erich von Tschermak — each rediscovered the same ratios Mendel had documented and, searching the literature, found his paper. Overnight, an unknown friar's meticulous garden statistics became the foundation of modern genetics. Mendel rarely knew he had founded a science.
 
 ## Mendel's Experiments: Historical Context
 
-Gregor Johann Mendel (1822-1884), an Augustinian friar and physics-trained scientist, conducted breeding experiments on garden peas (*Pisum sativum*) from 1856 to 1863 in the monastery garden at Brno (now Czech Republic). His 1866 paper, "Versuche uber Pflanzen-Hybriden" (Experiments on Plant Hybrids), was largely ignored until 1900 when it was independently "rediscovered" by de Vries, Correns, and von Tschermak.
+Gregor Johann Mendel (1822-1884), an Augustinian friar and physics-trained scientist, conducted breeding experiments on garden peas (*Pisum sativum*) from 1856 to 1863 in the monastery garden at Brno (now Czech Republic). His 1866 paper, "Versuche uber Pflanzen-Hybriden" (Experiments on Plant Hybrids), was largely ignored until 1900 when it was independently "rediscovered" by de Vries, Correns, and von Tschermak \citep{mendel1866}.
 
 **Why peas were ideal:**
 
+: Study Blueprint: Advantage and Significance. {#tbl:unit_V_mendelian_principles_study_blueprint}
 | Advantage | Significance |
 |-----------|-------------|
 | Distinct, discontinuous traits | 7 characters with clear dominant/recessive forms (no blending) |
@@ -66,6 +67,7 @@ Gregor Johann Mendel (1822-1884), an Augustinian friar and physics-trained scien
 
 **Mendel's seven characters:**
 
+: Study Blueprint: Character and Dominant. {#tbl:unit_V_mendelian_principles_study_blueprint_2}
 | Character | Dominant | Recessive |
 |-----------|----------|-----------|
 | Seed shape | Round | Wrinkled |
@@ -76,7 +78,7 @@ Gregor Johann Mendel (1822-1884), an Augustinian friar and physics-trained scien
 | Pod color | Green | Yellow |
 | Stem length | Tall | Short |
 
-Mendel's genius was **quantitative**: he counted offspring in each class and applied **binomial probability** reasoning -- the first application of statistics to biology. He analyzed ~28,000 pea plants over 8 years.
+Mendel's genius was **quantitative**: he counted offspring in each class and applied **binomial probability** reasoning -- the first application of statistics to biology. He analyzed ~28,000 pea plants over 8 years \citep{mendel1866}.
 
 ---
 
@@ -84,7 +86,7 @@ Mendel's genius was **quantitative**: he counted offspring in each class and app
 
 ### Law of Segregation (Mendel's First Law)
 
-**Statement**: Each organism possesses two alleles for each [**gene**](#gl:gene). These alleles **segregate** (separate) during [**gamete**](#gl:gamete) formation, such that each gamete receives exactly one allele. Upon fertilization, the diploid state is restored.
+**Statement**: Each organism possesses two alleles for each [**gene**](#gl:gene). These alleles **segregate** (separate) during [**gamete**](#gl:gamete) formation, such that each gamete receives exactly one allele. Upon fertilization, the diploid state is restored \citep{mendel1866}.
 
 **Molecular basis**: Separation of homologous [**chromosomes**](#gl:chromosome) during **[anaphase I of meiosis](#gl:anaphase)**. The two alleles of a gene reside on homologous chromosomes; when homologs are pulled to opposite poles, each gamete receives one allele.
 
@@ -117,6 +119,7 @@ flowchart TD
 
 Mendel formulated his laws in 1866 without any knowledge of chromosomes, meiosis, or DNA. He treated alleles as abstract "factors" — discrete particles that combined and segregated according to mathematical rules. The chromosomal interpretation came nearly four decades later, when Walter \citet{sutton1902} and Theodor Boveri independently noticed that chromosomes in meiosis behaved exactly the way Mendel's factors had to behave for his laws to hold:
 
+: The Molecular Basis of Mendel's Laws: From Bivalents to Binomials: Mendel's abstract law and Chromosomal mechanism. {#tbl:unit_V_mendelian_principles_the_molecular_basis_of_mendel_s_laws_from_bivalents_to_binomials}
 | Mendel's abstract law | Chromosomal mechanism |
 |-----------------------|------------------------|
 | Each individual has two factors per trait | Diploid cells have two homologs per chromosome |
@@ -124,7 +127,7 @@ Mendel formulated his laws in 1866 without any knowledge of chromosomes, meiosis
 | Factors at different loci assort independently | Non-homologous bivalents orient independently at metaphase I |
 | Factors are particulate, not blended | Chromosomes maintain integrity across generations (apart from crossing over) |
 
-The synthesis of Mendel's laws with the chromosome theory of inheritance — completed by Thomas Hunt Morgan's *Drosophila* work between 1910 and 1915 — is one of the central convergences in biology. Every Punnett square is, at heart, a model of homologous-chromosome behavior in meiosis (\cref{sec:unit_V_chromosomal_inheritance}). The 3:1 ratio is not a numerical coincidence; it is the inevitable algebraic shadow of two homologs segregating independently into haploid gametes that then unite at fertilization. When meiosis fails — non-disjunction, translocation, or imprinting errors — Mendelian ratios fail predictably with it.
+The synthesis of Mendel's laws with the chromosome theory of inheritance — completed by Thomas Hunt Morgan's *Drosophila* work between 1910 and 1915 — is one of the central convergences in biology \citep{morgan1910}. Every Punnett square is, at heart, a model of homologous-chromosome behavior in meiosis (\cref{sec:unit_V_chromosomal_inheritance}). The 3:1 ratio is not a numerical coincidence; it is the inevitable algebraic shadow of two homologs segregating independently into haploid gametes that then unite at fertilization. When meiosis fails — non-disjunction, translocation, or imprinting errors — Mendelian ratios fail predictably with it.
 
 ### Law of Independent Assortment (Mendel's Second Law)
 
@@ -132,7 +135,7 @@ The synthesis of Mendel's laws with the chromosome theory of inheritance — com
 
 **Molecular basis**: Random orientation of non-homologous bivalents at **metaphase I**. Each bivalent can orient with either homolog facing either pole, and this orientation is independent of the other bivalents.
 
-**Important exception**: This law applies only to genes on **different chromosomes** (or very far apart on the same chromosome, >50 cM). Genes on the same chromosome that are close together exhibit **[linkage](#gl:linkage)** and violate independent assortment (see *Chromosomal Inheritance and Linkage*).
+**Important exception**: This law applies only to genes on **different chromosomes** (or very far apart on the same chromosome, >50 cM). Genes on the same chromosome that are close together exhibit **[linkage](#gl:linkage)** and violate independent assortment, the logic that made chromosome mapping possible \citep{sturtevant1913} (see *Chromosomal Inheritance and Linkage*).
 
 **Concept Check 16.1**
 
@@ -165,6 +168,7 @@ F_1 \times F_1: \quad Yy \times Yy
 
 **Punnett square:**
 
+: The Standard Monohybrid Cross. {#tbl:unit_V_mendelian_principles_the_standard_monohybrid_cross}
 |  | **Y** | **y** |
 |---|-------|-------|
 | **Y** | YY | Yy |
@@ -172,7 +176,7 @@ F_1 \times F_1: \quad Yy \times Yy
 
 **F$_2$ genotype ratio**: $\frac{1}{4}$ YY : $\frac{2}{4}$ Yy : $\frac{1}{4}$ yy = **1:2:1**
 
-**F$_2$ [**phenotype**](#gl:phenotype) ratio**: $\frac{3}{4}$ yellow : $\frac{1}{4}$ green = **3:1**, the canonical heterozygote-cross outcome visualised in \cref{fig:unit_V_punnett_square}, where the 3:1 phenotype ratio falls out directly from the underlying 1:2:1 genotype ratio.
+**F$_2$ [**phenotype**](#gl:phenotype) ratio**: $\frac{3}{4}$ yellow : $\frac{1}{4}$ green = **3:1**, the canonical heterozygote-cross outcome visualized in \cref{fig:unit_V_punnett_square}, where the 3:1 phenotype ratio falls out directly from the underlying 1:2:1 genotype ratio.
 
 ### The Testcross as a Genotype-Revealing Cross
 
@@ -306,6 +310,7 @@ P(\text{homozygous at most 3}) = \frac{1}{2} \times \frac{1}{2} \times \frac{1}{
 > **Concept Check (Evaluation):** Genome-wide association studies (GWAS) identify thousands of SNPs associated with complex traits like height, BMI, and schizophrenia — but each SNP has tiny effect size (odds ratio 1.01-1.10) and explains <0.1% of trait variance. Yet the identified SNPs together explain <50% of heritability for most traits — the "missing heritability" problem. (a) Evaluate four possible explanations for missing heritability: (i) rare variants with large effects (not detected by GWAS), (ii) gene-gene interactions (epistasis), (iii) overestimated heritability from twin studies, (iv) epigenetic variants not captured by SNP arrays. For each, predict what experimental approach would resolve it. (b) Polygenic risk scores (PRS) aggregate genome-wide SNP effects. A PRS for coronary artery disease has a population AUC of 0.64. Explain what this means clinically and why population-level prediction does not translate to individual risk certainty.
 
 ---
+
 ## Current Evidence and Frontier Biology: Mendelian Principles and Probability
 
 For **Mendelian Principles and Probability**, frontier biology belongs inside the evidence logic of
@@ -351,6 +356,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Mendelian Principles and Probability. {#tbl:unit_V_mendelian_principles_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/genetics/genetics.py` (`punnett_square`, `hardy_weinberg`, `chi_squared_test`) | Reproduce inheritance ratios, equilibrium expectations, and goodness-of-fit tests. |

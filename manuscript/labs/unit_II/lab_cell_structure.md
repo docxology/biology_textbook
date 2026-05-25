@@ -1,6 +1,5 @@
-# Lab — Cell Structure and Organelles {.unnumbered}
+# Lab — Cell Structure and Organelles {#sec:lab_unit_II_cell_structure .unnumbered}
 
-\label{sec:lab_unit_II_cell_structure}
 
 ## Learning Objectives {.unnumbered}
 
@@ -40,17 +39,18 @@
 
 ## Lab Context: Cell Structure and Organelles {.unnumbered}
 
-Eukaryotic cells are organised into membrane-bounded compartments (organelles) that divide labour: the nucleus stores and expresses DNA; the rough ER synthesises membrane and secretory proteins; the Golgi receives, modifies, and sorts vesicle cargo; mitochondria generate ATP via oxidative phosphorylation. The type and abundance of organelles reflects a cell's function — liver hepatocytes are rich in rough ER (secretory proteins) and smooth ER (lipid metabolism); muscle cells are packed with mitochondria; leaf mesophyll cells contain hundreds of chloroplasts.
+Eukaryotic cells are organized into membrane-bounded compartments (organelles) that divide labor: the nucleus stores and expresses DNA; the rough ER synthesizes membrane and secretory proteins; the Golgi receives, modifies, and sorts vesicle cargo; mitochondria generate ATP via oxidative phosphorylation. The type and abundance of organelles reflects a cell's function — liver hepatocytes are rich in rough ER (secretory proteins) and smooth ER (lipid metabolism); muscle cells are packed with mitochondria; leaf mesophyll cells contain hundreds of chloroplasts.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_II_cell_structure_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Cell Structure and Organelles: cell-atlas or imaging source card: sample, assay, cell-state call, perturbation evidence, and uncertainty | 1 |
 | Transmission electron micrograph (TEM) print packet: plant cell, animal cell, secretory cell, mitochondrion close-up, chloroplast close-up | 1 set |
 | Ruler (mm) | 1 |
 | Scale bar calculator worksheet | 1 |
-| Coloured pencils (10 colours) | 1 set |
+| Colored pencils (10 colors) | 1 set |
 | Printed light-microscopy image cards: onion root tip and pancreas | 1 set |
 | Cell function card deck (instructor-supplied: 20 cards) | 1 per group |
 
@@ -71,6 +71,7 @@ Eukaryotic cells are organised into membrane-bounded compartments (organelles) t
 
 ## Data Recording {.unnumbered}
 
+: Part E — Scale-Bar Arithmetic in Action: Organelle and TEM image (tick). {#tbl:unit_II_cell_structure_part_e_scale_bar_arithmetic_in_action}
 | Organelle | TEM image (tick) | Function (in own words) | Cell types where most abundant |
 | --------- | ---------------- | ----------------------- | ------------------------------ |
 | Nucleus | | | |
@@ -84,6 +85,7 @@ Eukaryotic cells are organised into membrane-bounded compartments (organelles) t
 
 Size calculations:
 
+: Part E — Scale-Bar Arithmetic in Action: Structure and Scale bar (mm) = (µm). {#tbl:unit_II_cell_structure_part_e_scale_bar_arithmetic_in_action_2}
 | Structure | Scale bar (mm) = (µm) | Measured size (mm) | Real size (µm) |
 | --------- | --------------------- | ------------------- | -------------- |
 | Nucleus | | | |
@@ -107,6 +109,7 @@ Size calculations:
 Before answering the analysis questions, annotate the paper dataset for
 **Cell Structure and Organelles** with a reproducibility pass:
 
+: Part E — Scale-Bar Arithmetic in Action: Evidence check and Student action. {#tbl:unit_II_cell_structure_part_e_scale_bar_arithmetic_in_action_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -138,7 +141,7 @@ Bacterium, r = 1 μm:
 
 The bacterium has an SA:V about 10× larger than the eukaryotic cell (3.0 vs 0.30 μm⁻¹), matching the 10× ratio of their radii — as predicted by SA:V = 3/r for a sphere.
 
-**Interpretation:** A small bacterium can move nutrients, gases, and wastes across its plasma membrane fast enough to support whole-cell metabolism by diffusion alone. The 20 μm eukaryotic cell has roughly one-tenth as much membrane per unit volume, so simple plasma-membrane diffusion is insufficient. Eukaryotes recover lost exchange surface by sub-dividing the cytoplasm into membrane-bound organelles (mitochondria, ER, Golgi), each of which contributes its own internal membrane area. Compartmentalisation is partly a geometric response to the diffusion limit on cell size.
+**Interpretation:** A small bacterium can move nutrients, gases, and wastes across its plasma membrane fast enough to support whole-cell metabolism by diffusion alone. The 20 μm eukaryotic cell has roughly one-tenth as much membrane per unit volume, so simple plasma-membrane diffusion is insufficient. Eukaryotes recover lost exchange surface by sub-dividing the cytoplasm into membrane-bound organelles (mitochondria, ER, Golgi), each of which contributes its own internal membrane area. Compartmentalization is partly a geometric response to the diffusion limit on cell size.
 
 
 ### Source-Governance Checkpoint {.unnumbered}
@@ -147,7 +150,7 @@ Complete the source-governance card for Cell Structure and Organelles before wri
 
 ## Analysis Questions {.unnumbered}
 
-1. Describe the path taken by a newly synthesised digestive enzyme (e.g., lipase) from its gene in the nucleus to its secretion from a pancreatic acinar cell. Name every organelle involved in sequence.
+1. Describe the path taken by a newly synthesized digestive enzyme (e.g., lipase) from its gene in the nucleus to its secretion from a pancreatic acinar cell. Name every organelle involved in sequence.
 2. A cell type has an unusually large number of mitochondria and virtually no rough ER. Propose two cell types that fit this description and explain the functional logic.
 3. Using your size calculations, how many mitochondria could fit side-by-side across the diameter of the nucleus in your animal cell TEM? Show your arithmetic.
 4. Chloroplasts and mitochondria are both double-membrane organelles with their own DNA. What does this suggest about their evolutionary origin? Name and explain the theory.
@@ -156,10 +159,10 @@ Complete the source-governance card for Cell Structure and Organelles before wri
 
 ## Post-Lab Synthesis {.unnumbered}
 
-> **Concept Check (Synthesis):** Compartmentalisation is one of the defining features of eukaryotic cells. Using your worked-example SA:V calculation, your observations of the cell-structure cards, and the chapter on cell organisation:
+> **Concept Check (Synthesis):** Compartmentalization is one of the defining features of eukaryotic cells. Using your worked-example SA:V calculation, your observations of the cell-structure cards, and the chapter on cell organization:
 >
-> (a) Argue from geometry and biochemistry why compartmentalisation enables eukaryotic cells to support metabolism that prokaryotes cannot — refer specifically to (i) localised pH or redox environments and (ii) co-localisation of sequential enzymes.
-> (b) Some prokaryotes (e.g. certain cyanobacteria) approach 10 μm in size and possess specialised internal membrane systems. Use your SA:V reasoning to predict whether such organisms would be expected to use membrane-bounded sub-compartments, and what functional pressure would drive that adaptation.
+> (a) Argue from geometry and biochemistry why compartmentalization enables eukaryotic cells to support metabolism that prokaryotes cannot — refer specifically to (i) localized pH or redox environments and (ii) co-localization of sequential enzymes.
+> (b) Some prokaryotes (e.g. certain cyanobacteria) approach 10 μm in size and possess specialized internal membrane systems. Use your SA:V reasoning to predict whether such organisms would be expected to use membrane-bounded sub-compartments, and what functional pressure would drive that adaptation.
 > (c) Identify one experimental observation from the cell-structure investigation that, on its own, would be insufficient to assign a cell as prokaryotic or eukaryotic, and one observation that would be much stronger evidence — and justify your ranking.
 
 ## Extension Analysis Questions {.unnumbered}
@@ -189,7 +192,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -208,5 +211,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_II_cell_structure}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

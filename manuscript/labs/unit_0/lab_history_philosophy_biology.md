@@ -1,6 +1,5 @@
-# Lab D — History and Philosophy of Biology {.unnumbered}
+# Lab D — History and Philosophy of Biology {#sec:lab_unit_0_history_philosophy_biology .unnumbered}
 
-\label{sec:lab_unit_0_history_philosophy_biology}
 
 *This activity accompanies \cref{sec:unit_0_history_philosophy_biology} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -45,7 +44,7 @@ This lab is a paper-based source and evidence analysis. You will work with sourc
 - Timeline strip with blank event cards.
 - Concept-boundary worksheet with columns for unit, mechanism, function, model, and value.
 - Explanation-level cards for molecular, developmental, evolutionary, ecological, and social/ethical claims.
-- Coloured pens or pencils.
+- Colored pens or pencils.
 - Sticky notes for uncertainty and value annotations.
 
 - Source-governance card for History and Philosophy of Biology: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
@@ -53,10 +52,11 @@ This lab is a paper-based source and evidence analysis. You will work with sourc
 
 The instructor should provide short paraphrased cards or public-domain excerpts representing at least these cases:
 
+: Source-card packet: Card and Practice emphasis. {#tbl:unit_0_history_philosophy_biology_source_card_packet}
 | Card | Practice emphasis | Prompt |
 | --- | --- | --- |
 | Aristotle | Functional anatomy | What does the part do for the organism? |
-| Ibn Sina / materia medica | Medical classification | How are body, remedy, and illness organised? |
+| Ibn Sina / materia medica | Medical classification | How are body, remedy, and illness organized? |
 | Linnaeus | Classification | What makes names portable across observers? |
 | Harvey | Experiment and quantification | What intervention distinguishes circulation from flow-through production? |
 | Hooke | Instrument-mediated observation | What can be claimed once microscopy changes the visible scale? |
@@ -75,6 +75,7 @@ Sort each source card into one primary evidence practice: observation, experimen
 
 ### Part 2 — Build an Evidence Map {.unnumbered}
 
+: Part 2 — Build an Evidence Map: Evidence-map field and Student entry. {#tbl:unit_0_history_philosophy_biology_part_2_build_an_evidence_map}
 | Evidence-map field | Student entry |
 | --- | --- |
 | Biological unit | |
@@ -95,6 +96,7 @@ Choose one pair: Aristotle and a modern mechanistic account; Harvey and descript
 
 Choose one claim from the evidence map and rewrite it at two different levels: molecular/cellular, developmental, evolutionary/historical, ecological, or social/ethical. For each version, state the evidence that would make that version stronger and the evidence that would weaken it.
 
+: Sample data for Part 4 — Check the Explanation Level. {#tbl:unit_0_history_philosophy_biology_part_4_check_the_explanation_level}
 | Claim version | Level | What it explains | What it leaves out | Revision test |
 | --- | --- | --- | --- | --- |
 | | | | | |
@@ -106,6 +108,7 @@ Apply the evidence-map checklist to a microbiome health claim, a conservation de
 
 ## Data Tables {.unnumbered}
 
+: Part 5 — Modern Transfer Case: Source card and Evidence practice. {#tbl:unit_0_history_philosophy_biology_part_5_modern_transfer_case}
 | Source card | Evidence practice | Biological unit | Claim | Uncertainty |
 | --- | --- | --- | --- | --- |
 | Aristotle | | | | |
@@ -123,6 +126,7 @@ Apply the evidence-map checklist to a microbiome health claim, a conservation de
 
 Choose one source card and connect it to the four prelude chapters.
 
+: Part 6 — Prelude Capstone Matrix: Prelude lens and Question to answer. {#tbl:unit_0_history_philosophy_biology_part_6_prelude_capstone_matrix}
 | Prelude lens | Question to answer |
 | --- | --- |
 | Systems science | What boundary and variables define the system? |
@@ -137,7 +141,7 @@ The evidence upgrade for this lab is the source-card audit trail. For every card
 <!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
 
-- **Primary evidence goal:** Analyse historical source cards and build an evidence map for a disputed biological claim.
+- **Primary evidence goal:** Analyze historical source cards and build an evidence map for a disputed biological claim.
 - **Data skill to practice:** Classify source excerpts as observation, experiment, model, mechanism, or value-laden inference.
 - **BioSkills emphasis:** Modeling and simulation, Process of science, Quantitative reasoning.
 - **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.

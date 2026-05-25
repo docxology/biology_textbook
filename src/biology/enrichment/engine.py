@@ -17,12 +17,31 @@ from biology.enrichment.catalog import (
     _COMPANION_SECTION_RE,
     _INLINE_COMPANION_NOTE_RE,
 )
-from pathlib import Path
 
+from biology.citations import citation_command_count
 from biology.enrichment.models import ChapterRecord
 from biology.enrichment.paths import DOCS, MANUSCRIPT, PROJECT
 from biology.maintenance.text_normalize import normalize_text
 from textbook_io import write_text_atomic
+
+
+def _companion_source_table_caption(record: ChapterRecord) -> str:
+    tbl_id = f"{record.unit_id}_{record.stem}_companion_source_surfaces"
+    return f": Companion source surfaces for {record.title}. {{#tbl:{tbl_id}}}"
+
+
+def _caption_companion_source_table(record: ChapterRecord, body: str) -> str:
+    """Add the stable pandoc caption expected by table-crossref checks."""
+    lines = body.splitlines()
+    for idx, line in enumerate(lines):
+        if not line.lstrip().startswith("|"):
+            continue
+        previous = lines[idx - 1].strip() if idx else ""
+        if previous.startswith(":") and "{#tbl:" in previous:
+            return body
+        lines.insert(idx, _companion_source_table_caption(record))
+        return "\n".join(lines)
+    return body
 
 
 def companion_source_section(record: ChapterRecord) -> str:
@@ -42,6 +61,7 @@ def companion_source_section(record: ChapterRecord) -> str:
         "| `src/biology/` | Connect the chapter concept to a tested model or data structure. |\n\n"
         "**Reproducibility check:** name the input, output, assumption, and evidence limit before using code as support.",
     )
+    body = _caption_companion_source_table(record, body)
     return f"""
 ---
 
@@ -128,11 +148,14 @@ the chapter. {unit_claim} The core reading question is this: {focus}
 """
 
 
-_FRONTIER_SECTION_RE = re.compile(
+FRONTIER_SECTION_PATTERN = re.compile(
     r"^## Current Evidence and Frontier Biology(?::[^\n]+)?\n.*?"
     r"(?=^## (?:Summary|Key Terms|Further Reading|Companion Source Module)(?::|\s|\{|$)|\Z)",
     flags=re.DOTALL | re.MULTILINE,
 )
+
+# Backward-compatible alias for in-repo maintenance scripts.
+_FRONTIER_SECTION_RE = FRONTIER_SECTION_PATTERN
 
 
 UNIT_THREAD_BY_UNIT: dict[str, str] = {
@@ -622,7 +645,7 @@ def write_audit_matrix(records: list[ChapterRecord], dry_run: bool) -> int:
     for record in records:
         chapter_text = record.chapter_path.read_text(encoding="utf-8")
         h2_count = count_pattern(chapter_text, r"^##\s+")
-        citation_count = count_pattern(chapter_text, r"\\cite[tp]?\{")
+        citation_count = citation_command_count(chapter_text)
         mermaid_count = count_pattern(chapter_text, r"^```mermaid")
         chapter_evidence = (
             f"{len(chapter_text):,} chars; "

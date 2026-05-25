@@ -1,6 +1,5 @@
-# Questions — DNA Replication and the Cell Cycle {.unnumbered}
+# Questions — DNA Replication and the Cell Cycle {#sec:q_unit_IV_dna_replication_and_cell_cycle .unnumbered}
 
-\label{sec:q_unit_IV_dna_replication_and_cell_cycle}
 
 <!-- question-coverage-start -->
 ## Instructor Use and Coverage Notes {.unnumbered}
@@ -31,7 +30,7 @@ SOLUTION -->
 **Answer (Q2, Recall).** Helicase unwinds the double helix at the fork; single-strand binding (SSB) proteins keep the strands apart; topoisomerase/gyrase relieves the supercoiling ahead of the fork; primase lays down RNA primers; DNA polymerase (Pol III in bacteria; Pol δ/ε in eukaryotes) extends DNA and proofreads; a sliding clamp (β-clamp/PCNA) confers processivity; and DNA ligase seals the nicks between fragments. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
 SOLUTION -->
 <!-- assess: LO=LO3; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-3. Why does DNA polymerase require a primer? Who synthesises the primer?
+3. Why does DNA polymerase require a primer? Who synthesizes the primer?
 
 <!-- SOLUTION
 **Answer (Q3, Recall).** DNA polymerase can only extend a pre-existing 3'-OH end and cannot start a strand de novo, so it needs a primer to provide that 3'-OH. The RNA primer is synthesized by primase, a specialized RNA polymerase (part of the primosome in bacteria; the Pol α–primase complex in eukaryotes). See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
@@ -67,7 +66,7 @@ SOLUTION -->
 **Answer (Q8, Recall).** A checkpoint is a surveillance mechanism that halts cell-cycle progression until specific conditions are met, preventing propagation of damage. The G1/S (restriction) checkpoint verifies cell size, nutrients, and DNA integrity before S phase; the G2/M checkpoint confirms DNA is fully and correctly replicated before mitosis; and the spindle-assembly (M) checkpoint blocks anaphase until all kinetochores are properly attached to the spindle. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
 SOLUTION -->
 <!-- assess: LO=LO9; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-9. What does the tumour suppressor protein p53 do when DNA damage is detected?
+9. What does the tumor suppressor protein p53 do when DNA damage is detected?
 
 <!-- SOLUTION
 **Answer (Q9, Recall).** DNA damage activates ATM/ATR kinases that stabilize p53 by blocking its MDM2-mediated degradation. p53 then acts as a transcription factor, inducing p21 to inhibit cyclin-CDK complexes and arrest the cycle for repair; if damage is irreparable, p53 drives apoptosis or senescence, which is why it is called the guardian of the genome. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
@@ -76,13 +75,13 @@ SOLUTION -->
 10. What is telomerase? Why do most somatic cells lack telomerase activity?
 
 <!-- SOLUTION
-**Answer (Q10, Recall).** Telomerase is a ribonucleoprotein reverse transcriptase that uses its own RNA template to add TTAGGG repeats to chromosome 3' ends, offsetting the end-replication problem. Most somatic cells repress the catalytic subunit hTERT, so telomeres shorten ~50–200 bp per division until critical shortening triggers senescence — a tumour-suppressive limit on proliferation. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
+**Answer (Q10, Recall).** Telomerase is a ribonucleoprotein reverse transcriptase that uses its own RNA template to add TTAGGG repeats to chromosome 3' ends, offsetting the end-replication problem. Most somatic cells repress the catalytic subunit hTERT, so telomeres shorten ~50–200 bp per division until critical shortening triggers senescence — a tumor-suppressive limit on proliferation. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
 SOLUTION -->
 
 ## Questions 11–20: Application and Analysis {.unnumbered}
 
 <!-- assess: LO=LO1; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-11. Using the Meselson-Stahl data: if ¹⁵N/¹⁵N-labelled DNA is allowed to replicate for two rounds in ¹⁴N medium, what densities of DNA are expected and in what proportions? Show your reasoning with a diagram.
+11. Using the Meselson-Stahl data: if ¹⁵N/¹⁵N-labeled DNA is allowed to replicate for two rounds in ¹⁴N medium, what densities of DNA are expected and in what proportions? Show your reasoning with a diagram.
 
 <!-- SOLUTION
 **Answer (Q11, Application).** After two rounds of replication in $^{14}$N medium the original two $^{15}$N strands are conserved, each now paired with a new light strand, giving two hybrid (intermediate-density) molecules. The other two molecules are fully light ($^{14}$N/$^{14}$N). So the expectation is a 1:1 ratio of intermediate to light density and no fully heavy DNA, which is the diagnostic signature of semiconservative replication. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
@@ -100,10 +99,10 @@ SOLUTION -->
 **Answer (Q13, Application).** As Pol δ extends one Okazaki fragment into the RNA primer of the downstream fragment, it displaces that primer as a single-stranded 5' flap. FEN1 cleaves the displaced flap precisely at the base, leaving a nick with a 3'-OH and 5'-phosphate, and DNA ligase I then seals the nick with a phosphodiester bond, joining adjacent fragments into a continuous lagging strand. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
 SOLUTION -->
 <!-- assess: LO=LO4; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-14. The G₁/S checkpoint (restriction point) ensures cells don't enter S phase with insufficient resources or DNA damage. Explain the molecular mechanism: how does mitogen (growth factor) signalling lead to Rb phosphorylation → release of E2F transcription factor → S-phase gene expression? At what step does p16 (CDKN2A tumour suppressor) block this pathway?
+14. The G₁/S checkpoint (restriction point) ensures cells don't enter S phase with insufficient resources or DNA damage. Explain the molecular mechanism: how does mitogen (growth factor) signaling lead to Rb phosphorylation → release of E2F transcription factor → S-phase gene expression? At what step does p16 (CDKN2A tumor suppressor) block this pathway?
 
 <!-- SOLUTION
-**Answer (Q14, Application).** Mitogen signalling activates Cyclin D–CDK4/6, which partially phosphorylates Rb; Cyclin E–CDK2 then hyperphosphorylates Rb, releasing E2F transcription factors that drive expression of S-phase genes (cyclin E, DNA polymerase, etc.), committing the cell past the restriction point. The p16 (CDKN2A) tumour suppressor blocks this upstream by inhibiting CDK4/6, so Rb stays hypophosphorylated and E2F remains sequestered. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
+**Answer (Q14, Application).** Mitogen signaling activates Cyclin D–CDK4/6, which partially phosphorylates Rb; Cyclin E–CDK2 then hyperphosphorylates Rb, releasing E2F transcription factors that drive expression of S-phase genes (cyclin E, DNA polymerase, etc.), committing the cell past the restriction point. The p16 (CDKN2A) tumor suppressor blocks this upstream by inhibiting CDK4/6, so Rb stays hypophosphorylated and E2F remains sequestered. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
 SOLUTION -->
 <!-- assess: LO=LO5; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
 15. Aphidicolin blocks DNA polymerase α and δ, arresting cells at the G₁/S boundary. Hydroxyurea (HU) depletes dNTP pools. Compare the effects of each drug on: (a) replication fork speed; (b) fork stalling vs collapse; (c) activation of ATR checkpoint kinase; (d) cell cycle arrest phase.
@@ -133,7 +132,7 @@ SOLUTION -->
 19. Oncogenes often bypass cell cycle checkpoints. Compare how Ras (constitutively active mutant) vs Myc (overexpressed) each drive cell cycle progression: through which cyclin-CDK pair(s) do they act, and why do cells with oncogenic mutations often also need to lose p53 or Rb to become fully cancerous?
 
 <!-- SOLUTION
-**Answer (Q19, Application).** Ras (constitutively active) sustains MAPK signalling that upregulates Cyclin D, activating CDK4/6 to drive the G1/S transition; Myc (overexpressed) transcriptionally boosts cyclins, CDKs, and E2F targets while repressing CDK inhibitors, also accelerating G1/S. These growth signals trigger oncogene-induced senescence or apoptosis via the p53 and Rb pathways, so cells must additionally lose p53 or Rb to disable that fail-safe and proliferate unchecked. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
+**Answer (Q19, Application).** Ras (constitutively active) sustains MAPK signaling that upregulates Cyclin D, activating CDK4/6 to drive the G1/S transition; Myc (overexpressed) transcriptionally boosts cyclins, CDKs, and E2F targets while repressing CDK inhibitors, also accelerating G1/S. These growth signals trigger oncogene-induced senescence or apoptosis via the p53 and Rb pathways, so cells must additionally lose p53 or Rb to disable that fail-safe and proliferate unchecked. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
 SOLUTION -->
 <!-- assess: LO=LO10; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 20. Yeast two-hybrid screens identified that geminin (overexpressed in many cancers) inhibits Cdt1, preventing re-licensing of origins of replication. Explain: (a) what origin licensing means; (b) why re-replication would be catastrophic; (c) how overexpression of geminin PREVENTS re-replication by preventing MCM loading even after S phase begins.
@@ -145,7 +144,7 @@ SOLUTION -->
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 
 <!-- assess: LO=LO1; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-21. Evaluate the precision of the S-phase checkpoint: ATR kinase is activated by RPA-coated single-stranded DNA (from stalled forks). How does this trigger CHK1 activation → Cdc25A phosphorylation → degradation → CDK2 inactivation → fork stabilisation? What happens if ATR is constitutively inactive (as in a mutation)?
+21. Evaluate the precision of the S-phase checkpoint: ATR kinase is activated by RPA-coated single-stranded DNA (from stalled forks). How does this trigger CHK1 activation → Cdc25A phosphorylation → degradation → CDK2 inactivation → fork stabilization? What happens if ATR is constitutively inactive (as in a mutation)?
 
 <!-- SOLUTION
 **Answer (Q21, Synthesis).** Stalled forks expose RPA-coated ssDNA, which recruits and activates ATR. ATR phosphorylates and activates CHK1, which phosphorylates Cdc25A, targeting it for degradation; loss of Cdc25A leaves CDK2 inhibitory phosphates in place, so CDK2 stays inactive, suppressing late origin firing and stabilizing existing forks for restart. If ATR is constitutively inactive, forks collapse into double-strand breaks, late origins fire inappropriately, and the cell accumulates genomic instability — ATR loss is generally lethal. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
@@ -160,7 +159,7 @@ SOLUTION -->
 23. DNA replication is not 100% accurate — polymerase error rate is ~1 in 10⁷. After mismatch repair (MMR), the rate drops to ~1 in 10⁹. Evaluate: (a) the molecular mechanism of MMR (MutS, MutL, excision, resynthesis); (b) why MMR deficiency causes microsatellite instability (MSI); (c) why MSI cancers respond better to immune checkpoint inhibitors (PD-1 blockade).
 
 <!-- SOLUTION
-**Answer (Q23, Synthesis).** (a) MMR uses MutS (MSH2/MSH6) to recognize mismatches and MutL (MLH1/PMS2) to coordinate excision of the error-containing nascent strand, followed by resynthesis and ligation. (b) MMR deficiency leaves slippage errors in repetitive tracts uncorrected, producing microsatellite instability (MSI). (c) MSI tumours accumulate many frameshift mutations and neoantigens, making them highly immunogenic, so they respond well to PD-1 immune checkpoint blockade. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
+**Answer (Q23, Synthesis).** (a) MMR uses MutS (MSH2/MSH6) to recognize mismatches and MutL (MLH1/PMS2) to coordinate excision of the error-containing nascent strand, followed by resynthesis and ligation. (b) MMR deficiency leaves slippage errors in repetitive tracts uncorrected, producing microsatellite instability (MSI). (c) MSI tumors accumulate many frameshift mutations and neoantigens, making them highly immunogenic, so they respond well to PD-1 immune checkpoint blockade. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
 SOLUTION -->
 <!-- assess: LO=LO4; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 24. Evaluate origin-of-replication usage in cancer: cancer cells often show replication stress (RFS — replication fork stalling) due to premature S-phase entry driven by oncogenes. Propose how elevated RFS leads to: (a) DSB (double-strand break) formation at stalled forks; (b) inappropriate NHEJ repair causing chromosomal translocations; (c) selection pressure for p53 loss (cells that could normally checkpoint-arrest now instead die, so p53 loss allows survival).
@@ -196,7 +195,7 @@ SOLUTION -->
 29. Evaluate the hypothesis that cancer is fundamentally a disease of the cell cycle: most hallmarks of cancer (unlimited proliferation, evasion of apoptosis, invasion) result from failure of cell cycle checkpoints rather than from any particular oncogenic mutation. Construct the best argument for and against this view using specific molecular examples.
 
 <!-- SOLUTION
-**Answer (Q29, Synthesis).** For: nearly all cancer hallmarks converge on the cell-cycle machinery — Rb/E2F deregulation enables unchecked proliferation, p53 loss disables damage arrest and apoptosis, and checkpoint failure permits aneuploidy, so checkpoint loss is the common final pathway. Against: oncogene-specific effects matter beyond cycling — Ras alters metabolism and invasion, angiogenesis and immune evasion are not checkpoint phenomena, and identical checkpoint lesions yield different tumours, so the cell cycle is necessary but not a complete explanation. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
+**Answer (Q29, Synthesis).** For: nearly all cancer hallmarks converge on the cell-cycle machinery — Rb/E2F deregulation enables unchecked proliferation, p53 loss disables damage arrest and apoptosis, and checkpoint failure permits aneuploidy, so checkpoint loss is the common final pathway. Against: oncogene-specific effects matter beyond cycling — Ras alters metabolism and invasion, angiogenesis and immune evasion are not checkpoint phenomena, and identical checkpoint lesions yield different tumors, so the cell cycle is necessary but not a complete explanation. See \cref{sec:unit_IV_dna_replication_and_cell_cycle}.
 SOLUTION -->
 <!-- assess: LO=LO10; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 30. Critically evaluate the kinetics of DNA repair: NHEJ (non-homologous end joining, fast, ~30 min) and HR (homologous recombination, slow, requires sister chromatid, restricted to S/G2). Predict the consequences for genomic integrity if NHEJ were the primary repair pathway available in a cell. Why is NHEJ "error-prone" at the molecular level, and what types of mutations does it introduce?

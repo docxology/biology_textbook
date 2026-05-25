@@ -81,7 +81,7 @@ ORGANELLES: list[Organelle] = [
         "Cell Wall", True, True, False, False, "Structural support; cellulose in plants, peptidoglycan in bacteria"
     ),
     Organelle("Plasma Membrane", True, True, True, False, "Selective permeability; phospholipid bilayer"),
-    Organelle("Centriole", False, False, True, True, "Organises mitotic spindle"),
+    Organelle("Centriole", False, False, True, True, "Organizes mitotic spindle"),
     Organelle("Peroxisome", False, True, True, True, "Oxidative reactions; fatty acid β-oxidation"),
 ]
 
@@ -96,7 +96,7 @@ def get_organelles_by_cell_type(cell_type: str) -> list[Organelle]:
         List of Organelle objects present in that cell type.
 
     Raises:
-        ValueError: If cell_type is not recognised.
+        ValueError: If cell_type is not recognized.
     """
     cell_type = cell_type.lower()
     if cell_type == "prokaryote":
@@ -324,7 +324,7 @@ def compute_all_nernst_potentials(
 
 
 # ---------------------------------------------------------------------------
-# Receptor-Ligand Binding and Signalling
+# Receptor-Ligand Binding and Signaling
 # ---------------------------------------------------------------------------
 
 

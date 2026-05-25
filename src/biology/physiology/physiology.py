@@ -38,7 +38,7 @@ class BloodFlowResult:
 
 @dataclass
 class RespiratoryResult:
-    """Oxygen-haemoglobin dissociation curve point."""
+    """Oxygen-hemoglobin dissociation curve point."""
 
     pO2_mmHg: float
     saturation: float  # SaO2 in [0,1]
@@ -109,7 +109,7 @@ def poiseuille_flow(
 
 
 # ---------------------------------------------------------------------------
-# Oxygen–Haemoglobin Dissociation (Hill Equation)
+# Oxygen–Hemoglobin Dissociation (Hill Equation)
 # ---------------------------------------------------------------------------
 
 
@@ -118,7 +118,7 @@ def oxygen_saturation(
     p50_mmHg: float = 26.0,
     hill_coefficient: float = 2.7,
 ) -> RespiratoryResult:
-    """Compute haemoglobin oxygen saturation via the Hill equation.
+    """Compute hemoglobin oxygen saturation via the Hill equation.
 
     SaO2 = pO2ⁿ / (p50ⁿ + pO2ⁿ)
 
@@ -239,11 +239,11 @@ ORGAN_SYSTEMS: dict[str, dict] = {
     },
     "Endocrine": {
         "organs": ["Hypothalamus", "Pituitary", "Thyroid", "Adrenal glands", "Pancreas", "Gonads"],
-        "function": "Hormonal signalling; metabolic regulation",
+        "function": "Hormonal signaling; metabolic regulation",
     },
     "Immune": {
         "organs": ["Bone marrow", "Thymus", "Lymph nodes", "Spleen"],
-        "function": "Defence against pathogens; immune memory",
+        "function": "Defense against pathogens; immune memory",
     },
     "Musculoskeletal": {
         "organs": ["Skeletal muscles (~640)", "Bones (206)", "Joints", "Tendons", "Ligaments"],
@@ -262,6 +262,6 @@ ORGAN_SYSTEMS: dict[str, dict] = {
     },
     "Reproductive": {
         "organs": ["Gonads", "Accessory glands", "Ducts"],
-        "function": "Production of gametes; fertilisation; gestation",
+        "function": "Production of gametes; fertilization; gestation",
     },
 }

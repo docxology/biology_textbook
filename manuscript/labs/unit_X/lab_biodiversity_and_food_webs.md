@@ -1,4 +1,4 @@
-# Lab — Biodiversity, Food Webs, and Biogeography {.unnumbered}
+# Lab — Biodiversity, Food Webs, and Biogeography {#sec:lab_unit_X_biodiversity_and_food_webs .unnumbered}
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
@@ -10,7 +10,6 @@
 - **Chapter LO coverage:** LO1, LO2, LO3, LO4
 - **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
 <!-- lab-alignment-end -->
-\label{sec:lab_unit_X_biodiversity_and_food_webs}
 
 *This activity accompanies \cref{sec:unit_X_biodiversity_and_food_webs} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -20,6 +19,7 @@ This extension lab applies island biogeography, food-web structure, and biodiver
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_X_biodiversity_and_food_webs_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Biodiversity, Food Webs, and Biogeography: conservation-assessment source card: index versus census, assessment version, value judgment, and monitoring trigger | 1 |
@@ -34,7 +34,7 @@ This extension lab applies island biogeography, food-web structure, and biodiver
 
 **Part C — Keystone Predator Analysis**
 
-6. Read the starfish removal experiment data (Paine, 1966, summarised): count species richness before and after sea star (*Pisaster*) removal from an intertidal zone. Explain how removing one species reduced diversity.
+6. Read the starfish removal experiment data (Paine, 1966, summarized): count species richness before and after sea star (*Pisaster*) removal from an intertidal zone. Explain how removing one species reduced diversity.
 
 **Part D — Succession Mapping**
 
@@ -44,6 +44,7 @@ This extension lab applies island biogeography, food-web structure, and biodiver
 
 Species competition (from dataset):
 
+: Alignment and Rubric Map: Day and N₁ (monoculture). {#tbl:unit_X_biodiversity_and_food_webs_alignment_and_rubric_map_2}
 | Day | N₁ (monoculture) | N₁ (mixed) | N₂ (monoculture) | N₂ (mixed) |
 | --- | ---------------- | ----------- | ---------------- | ----------- |
 | 0 | | | | |
@@ -53,6 +54,7 @@ Species competition (from dataset):
 
 Food web energy pyramid:
 
+: Alignment and Rubric Map: Trophic level and Energy (kJ). {#tbl:unit_X_biodiversity_and_food_webs_alignment_and_rubric_map_3}
 | Trophic level | Energy (kJ) | # Humans supported |
 | ------------- | ----------- | ------------------- |
 | Producers | 10,000 | — |
@@ -81,6 +83,7 @@ Ecosystem-service tradeoff most improved by succession: ___; tradeoff most reduc
 Before answering the analysis questions, annotate the paper dataset for
 **Community Ecology and Species Interactions** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_X_biodiversity_and_food_webs_alignment_and_rubric_map_4}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -111,7 +114,7 @@ equipment version belongs only in an optional extension.
 
 ## Post-Lab Synthesis {.unnumbered}
 
-> **Concept Check (Synthesis):** The removal of grey wolves from Yellowstone National Park has been linked to a trophic cascade that reshaped riparian plant communities and stream morphology, and their reintroduction is associated with partial recovery of those systems.
+> **Concept Check (Synthesis):** The removal of gray wolves from Yellowstone National Park has been linked to a trophic cascade that reshaped riparian plant communities and stream morphology, and their reintroduction is associated with partial recovery of those systems.
 >
 > (a) Trace the cascade from predator removal to plant community change: identify the immediate prey-population response, the resulting change in herbivory pressure on willows and aspens, and the downstream consequence for riparian vegetation. Distinguish direct effects (predator on prey) from indirect effects (predator on plants via herbivory).
 > (b) Predict at least one effect on soil stability or stream geomorphology that would plausibly follow from the vegetation change in part (a). Identify one observational measurement that ecologists could use to test whether your predicted effect is operating, and one alternative explanation (for example, climate or hydrological change) that the measurement would need to discriminate against.
@@ -137,7 +140,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -156,5 +159,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_X_biodiversity_and_food_webs}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

@@ -1,6 +1,5 @@
-# Questions — Phylogenetics and the Tree of Life {.unnumbered}
+# Questions — Phylogenetics and the Tree of Life {#sec:q_unit_VI_phylogenetics .unnumbered}
 
-\label{sec:q_unit_VI_phylogenetics}
 
 <!-- question-coverage-start -->
 ## Instructor Use and Coverage Notes {.unnumbered}
@@ -37,7 +36,7 @@ SOLUTION -->
 **Answer (Q3, Recall).** A synapomorphy is a shared derived character inherited from the most recent common ancestor of a clade and used to diagnose it. A plesiomorphy is an ancestral character shared more broadly; only synapomorphies (not shared ancestral traits) define clades. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO4; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-4. What is parsimony in phylogenetics? What does the most parsimonious tree minimise?
+4. What is parsimony in phylogenetics? What does the most parsimonious tree minimize?
 
 <!-- SOLUTION
 **Answer (Q4, Recall).** Parsimony selects the tree requiring the fewest evolutionary changes (character-state transitions) to explain the data, invoking the minimum of independent origins/reversals (homoplasy). See \cref{sec:unit_VI_phylogenetics}.
@@ -58,7 +57,7 @@ SOLUTION -->
 7. What is an outgroup? How is it used to root a phylogenetic tree?
 
 <!-- SOLUTION
-**Answer (Q7, Recall).** An outgroup is a taxon known to lie outside the clade of interest. It polarises characters and roots the tree: the point where the ingroup attaches to the outgroup is the root, defining ancestral vs derived states. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q7, Recall).** An outgroup is a taxon known to lie outside the clade of interest. It polarizes characters and roots the tree: the point where the ingroup attaches to the outgroup is the root, defining ancestral vs derived states. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO8; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
 8. What is horizontal gene transfer (HGT)? In which domains of life is it most common?
@@ -124,7 +123,7 @@ SOLUTION -->
 **Answer (Q16, Application).** A significantly positive D (ABBA > BABA) indicates gene flow/admixture between P3 and one of P1/P2 beyond that expected from incomplete lineage sorting under the (((P1,P2),P3),O) topology. Excess shared derived alleles between non-African humans (P2) and Neanderthal (P3) versus African humans (P1) revealed Neanderthal–modern-human introgression. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO8; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-17. Biogeographic analysis shows that the freshwater fish genus *Nannoperca* is distributed across southwestern Australia (isolated from other parts by arid zones). How would you distinguish between: (a) vicariance (ancient populations separated by geological changes); (b) long-distance dispersal (a single colonisation event across an unsuitable barrier)?
+17. Biogeographic analysis shows that the freshwater fish genus *Nannoperca* is distributed across southwestern Australia (isolated from other parts by arid zones). How would you distinguish between: (a) vicariance (ancient populations separated by geological changes); (b) long-distance dispersal (a single colonization event across an unsuitable barrier)?
 
 <!-- SOLUTION
 **Answer (Q17, Application).** Distinguish by dating divergence relative to barrier age and comparing area cladograms: vicariance predicts divergence times matching the geological/aridification event and concordant patterns across co-distributed taxa; long-distance dispersal predicts divergence younger than the barrier and idiosyncratic, taxon-specific timing inconsistent with a shared vicariant event. See \cref{sec:unit_VI_phylogenetics}.
@@ -142,7 +141,7 @@ SOLUTION -->
 **Answer (Q19, Application).** Incomplete lineage sorting is the persistence of ancestral polymorphism through successive speciation events, so a gene's coalescence predates speciation and its tree differs from the species tree. It is likelier with short internodal branches (rapid successive speciation) because there is little time for lineages to coalesce/sort between divergence events. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-20. The "long branch attraction" (LBA) artefact occurs when rapidly evolving lineages with many changes falsely cluster together in parsimony or distance analysis. Explain the mechanism of LBA and propose two strategies to avoid it (taxon sampling, model-based methods).
+20. The "long branch attraction" (LBA) artifact occurs when rapidly evolving lineages with many changes falsely cluster together in parsimony or distance analysis. Explain the mechanism of LBA and propose two strategies to avoid it (taxon sampling, model-based methods).
 
 <!-- SOLUTION
 **Answer (Q20, Application).** Long-branch attraction: rapidly evolving (long) branches accumulate many independent changes, some matching by chance (homoplasy), which parsimony/distance methods misread as shared ancestry, clustering the long branches together regardless of true relationships. Mitigate by adding taxa to break long branches and by using model-based (ML/Bayesian) methods that correct for multiple substitutions. See \cref{sec:unit_VI_phylogenetics}.
@@ -199,10 +198,10 @@ SOLUTION -->
 **Answer (Q28, Evaluation).** Total-evidence (tip) dating places fossils as dated terminal taxa with morphological characters, jointly estimating topology and timescale and using the fossilised-birth–death process, which propagates uncertainty better than fixing node ages. If the morphological model (e.g., Mk) is misspecified, morphological branch lengths and hence inferred rates and divergence times are biased, distorting the time tree. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO2; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
-29. Horizontal gene transfer in cancer (somatic HGT from tumour microenvironment bacteria into human cells) has been reported but remains controversial. Evaluate the evidence: (a) what sequencing artefacts can mimic bacterial HGT; (b) what controls are needed to rule out contamination; (c) if real, what functional consequences might cancer-incorporated bacterial genes have?
+29. Horizontal gene transfer in cancer (somatic HGT from tumor microenvironment bacteria into human cells) has been reported but remains controversial. Evaluate the evidence: (a) what sequencing artifacts can mimic bacterial HGT; (b) what controls are needed to rule out contamination; (c) if real, what functional consequences might cancer-incorporated bacterial genes have?
 
 <!-- SOLUTION
-**Answer (Q29, Evaluation).** (a) Bacterial reads can arise from index-hopping, reference contamination, or chimeric assembly mimicking HGT. (b) Needed controls: matched blanks, multiple independent libraries, paired-end reads spanning human–bacterial junctions, and orthogonal validation (PCR/FISH). (c) If real, integrated bacterial genes could alter host gene expression or metabolism in tumour cells, but the bar for evidence is high given pervasive artefact risk. See \cref{sec:unit_VI_phylogenetics}.
+**Answer (Q29, Evaluation).** (a) Bacterial reads can arise from index-hopping, reference contamination, or chimeric assembly mimicking HGT. (b) Needed controls: matched blanks, multiple independent libraries, paired-end reads spanning human–bacterial junctions, and orthogonal validation (PCR/FISH). (c) If real, integrated bacterial genes could alter host gene expression or metabolism in tumor cells, but the bar for evidence is high given pervasive artifact risk. See \cref{sec:unit_VI_phylogenetics}.
 SOLUTION -->
 <!-- assess: LO=LO3; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
 30. Critically assess whether a "tree of life" can be reconstructed from extant biodiversity alone, without fossil calibration. What information is intrinsically lost when primarily the tips (extant species) and not the internal nodes (extinct ancestors) are known? Use the concept of incomplete ancestry and the "big-bang" topology problem of rapid early diversification as a specific example.

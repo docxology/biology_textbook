@@ -16,9 +16,9 @@ By the end of this chapter, students will be able to:
 2. Describe positive and negative feedback loops and give biological examples of each.
 3. Explain what emergence is and why it cannot be predicted from component-level analysis alone.
 4. Apply the concepts of hierarchy, modularity, and scale to cellular and organismal biology.
-5. Distinguish between linear and nonlinear system behaviour.
-6. Analyse delayed feedback loops and predict whether they will damp, oscillate, or destabilise.
-7. Recognise hub-heavy network structure in biological data, test scale-free claims cautiously, and explain functional implications.
+5. Distinguish between linear and nonlinear system behavior.
+6. Analyze delayed feedback loops and predict whether they will damp, oscillate, or destabilise.
+7. Recognize hub-heavy network structure in biological data, test scale-free claims cautiously, and explain functional implications.
 8. Apply the Hill equation, the chemostat equations, and simple oscillator models to quantitative problems.
 
 <!-- curriculum-scaffold-start -->
@@ -31,8 +31,8 @@ By the end of this chapter, students will be able to:
 - **Data skill:** Translate a verbal biological system into variables, links, and testable predictions.
 - **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
 - **Common misconception to repair:** A system is not just a list of parts; the interactions are part of the explanation.
-- **Primary lab:** \cref{sec:lab_unit_0_systems_science}.
-- **Question bank:** \cref{sec:q_unit_0_systems_science}.
+- **Primary lab:** \nameref{sec:lab_unit_0_systems_science}.
+- **Question bank:** \nameref{sec:q_unit_0_systems_science}.
 - **Transfer task:** Apply the same feedback map to a cell, organism, and ecosystem, then name what changes at each scale.
 - **Bridge to computation:** `biology.crossref_validator.validate`.
 <!-- curriculum-scaffold-end -->
@@ -41,9 +41,9 @@ By the end of this chapter, students will be able to:
 
 ## Opening Vignette: The Birth of Systems Thinking
 
-In 1948, Norbert Wiener published *Cybernetics: or Control and Communication in the Animal and the Machine*, arguing that the same mathematical principles of feedback and self-regulation govern thermostats, servomechanisms, and the human nervous system. Two decades later, Ludwig von Bertalanffy's *General System Theory* (1968) \citep{bertalanffy1968} proposed that most complex phenomena — from a cell to a city — share comprehensive organisational laws: openness, hierarchy, equifinality, and emergent order.
+In 1948, Norbert Wiener published *Cybernetics: or Control and Communication in the Animal and the Machine*, arguing that the same mathematical principles of feedback and self-regulation govern thermostats, servomechanisms, and the human nervous system. Two decades later, Ludwig von Bertalanffy's *General System Theory* (1968) \citep{bertalanffy1968} proposed that most complex phenomena — from a cell to a city — share general organizational laws: openness, hierarchy, equifinality, and emergent order.
 
-Their insight was radical: biology cannot be understood by dissecting organisms into parts and studying each in isolation. Instead, one must study *relationships* — the flows of matter, energy, and information that connect components and give rise to behaviour no component possesses alone. When Walter Cannon coined **[homeostasis](#gl:homeostasis)** in 1932 \citep{cannon1932}, he was describing a systems-level property: the blood glucose concentration of 5 mM is not a property of any single cell but an emergent steady-state of millions of feedback interactions between pancreatic β-cells, hepatocytes, skeletal myocytes, and adipocytes.
+Their insight was radical: biology cannot be understood by dissecting organisms into parts and studying each in isolation. Instead, one must study *relationships* — the flows of matter, energy, and information that connect components and give rise to behavior no component possesses alone. When Walter Cannon coined **[homeostasis](#gl:homeostasis)** in 1932 \citep{cannon1932}, he was describing a systems-level property: the blood glucose concentration of 5 mM is not a property of any single cell but an emergent steady-state of millions of feedback interactions between pancreatic β-cells, hepatocytes, skeletal myocytes, and adipocytes.
 
 This chapter introduces the core vocabulary and conceptual toolkit of systems science — the intellectual scaffolding that unifies every subsequent chapter in this textbook. We will move from definitions (what is a system?) through dynamics (feedback, delay, oscillation, chaos) to architecture (hierarchy, modularity, hub-heavy networks), then close with information, entropy, and the practical implications of a systems perspective for biomedicine.
 
@@ -51,7 +51,7 @@ This chapter introduces the core vocabulary and conceptual toolkit of systems sc
 
 ## What Is a System?
 
-A **system** is a set of components that interact to produce collective behaviour. Three elements define any system:
+A **system** is a set of components that interact to produce collective behavior. Three elements define any system:
 
 - **Components** — the identifiable parts (atoms, molecules, cells, organisms, species).
 - **Relationships** — the interactions and constraints between components (chemical bonds, metabolic pathways, predator–prey links).
@@ -59,6 +59,7 @@ A **system** is a set of components that interact to produce collective behaviou
 
 ### Isolated, Closed, and Open Systems
 
+: Isolated, Closed, and Open Systems: Type and Energy exchange. {#tbl:unit_0_systems_science_isolated_closed_and_open_systems}
 | Type | Energy exchange | Matter exchange | Biological occurrence |
 | ---- | --------------- | --------------- | --------------------- |
 | Isolated | None | None | Idealised primarily — not found in nature |
@@ -69,7 +70,7 @@ Most living systems are open systems. They import free energy and matter (food, 
 
 ### Equifinality and Multifinality
 
-Bertalanffy emphasised that open systems often display **equifinality**: the same final state can be reached from different starting conditions and along different trajectories. A vertebrate embryo robustly produces the species-typical body plan despite considerable variation in initial cell positions, ploidy, or even surgical perturbation. Conversely, **multifinality** describes the same starting condition giving rise to different outcomes — identical twins acquiring distinct microbiomes, for example. Both properties contradict naive linear cause-and-effect intuition and motivate the systems-level vocabulary that follows.
+Bertalanffy emphasized that open systems often display **equifinality**: the same final state can be reached from different starting conditions and along different trajectories. A vertebrate embryo robustly produces the species-typical body plan despite considerable variation in initial cell positions, ploidy, or even surgical perturbation. Conversely, **multifinality** describes the same starting condition giving rise to different outcomes — identical twins acquiring distinct microbiomes, for example. Both properties contradict naive linear cause-and-effect intuition and motivate the systems-level vocabulary that follows.
 
 > **Concept Check 1:** A surgeon removes part of an early sea-urchin embryo. The remaining cells reorganise to produce a smaller but otherwise normal larva. Identify which open-system property (equifinality, multifinality, or neither) this illustrates, and explain why a watch — a non-living complicated system — would not behave this way.
 
@@ -77,9 +78,9 @@ Bertalanffy emphasised that open systems often display **equifinality**: the sam
 
 ## Feedback: The Grammar of Self-Regulation
 
-**Feedback** occurs when a fraction of a system's output is returned as input, altering subsequent behaviour. Biological regulation is almost entirely feedback-based.
+**Feedback** occurs when a fraction of a system's output is returned as input, altering subsequent behavior. Biological regulation is almost entirely feedback-based.
 
-### Negative (Stabilising) Feedback
+### Negative (Stabilizing) Feedback
 
 Negative feedback opposes deviations from a set point. It is the mechanistic basis of **homeostasis**.
 
@@ -129,7 +130,7 @@ Positive feedback amplifies deviations. It underlies rapid, switch-like biologic
 
 **Examples:**
 
-- [**Action potential**](#gl:action-potential) initiation — sodium influx depolarises membrane, opening more Na⁺ channels (Hodgkin cycle).
+- [**Action potential**](#gl:action-potential) initiation — sodium influx depolarizes membrane, opening more Na⁺ channels (Hodgkin cycle).
 - Childbirth contraction — oxytocin stimulates contractions, which stimulate more oxytocin release.
 - [**Apoptosis**](#gl:apoptosis) — executioner [**caspase**](#gl:caspase)s activate upstream caspases, accelerating cell death.
 - Blood-clotting cascade — thrombin generates more thrombin via factor V and factor VIII activation, producing exponential burst once a threshold is crossed.
@@ -155,7 +156,7 @@ graph LR
 
 ### Feedback With Delay: Period and Damping
 
-Real biology is rarely instantaneous. Gene expression requires [**transcription**](#gl:transcription) and [**translation**](#gl:translation) (minutes to hours); vascular responses require perfusion (seconds); neural reflexes require axonal conduction (milliseconds). A delay τ between detecting a perturbation and responding to it fundamentally changes feedback behaviour:
+Real biology is rarely instantaneous. Gene expression requires [**transcription**](#gl:transcription) and [**translation**](#gl:translation) (minutes to hours); vascular responses require perfusion (seconds); neural reflexes require axonal conduction (milliseconds). A delay τ between detecting a perturbation and responding to it fundamentally changes feedback behavior:
 
 \begin{equation}
 \frac{dx}{dt} = -k\,x(t - \tau)
@@ -192,10 +193,11 @@ Feed-forward without feedback is brittle — any mis-prediction persists uncorre
 
 ### Levels of Biological Emergence
 
+: Levels of Biological Emergence: Level and Emergent properties. {#tbl:unit_0_systems_science_levels_of_biological_emergence}
 | Level | Emergent properties | Components |
 | ----- | ------------------- | ---------- |
 | Molecular | Enzyme catalysis, membrane fluidity | Atoms and bonds |
-| Cellular | Metabolism, replication, signalling | [**Organelle**](#gl:organelle)s and molecules |
+| Cellular | Metabolism, replication, signaling | [**Organelle**](#gl:organelle)s and molecules |
 | Tissue | Contractility, conductance, secretion | Cells |
 | Organism | Consciousness, immunity, homeostasis | Tissues and organs |
 | Colony / social group | Task allocation, swarm choice, nest climate regulation | Related or interacting organisms plus signals and modified habitat |
@@ -211,7 +213,7 @@ Philosophers distinguish:
 - **Weak emergence** — properties are novel relative to component-level description but *in principle* derivable from it (e.g., liquidity from molecular interactions).
 - **Strong emergence** — properties that cannot, even in principle, be reduced to component interaction (consciousness remains a contested candidate).
 
-For practical biology, the key insight is that *explaining components is not the same as explaining the system*. A complete molecular catalogue of a neuron does not explain perception; a complete genome does not specify the body plan without the cytoplasmic and developmental context that interprets it.
+For practical biology, the key insight is that *explaining components is not the same as explaining the system*. A complete molecular catalog of a neuron does not explain perception; a complete genome does not specify the body plan without the cytoplasmic and developmental context that interprets it.
 
 > **Concept Check 3:** Liquidity is often given as a paradigm of weak emergence: it is not a property of any single H₂O molecule but is in principle derivable from the molecular interaction Hamiltonian. Identify *one* biological property that is plausibly weakly emergent and *one* that is contested as possibly strongly emergent. What would it take to upgrade the contested property from "we cannot yet derive it" to "it is in principle underivable"?
 
@@ -219,7 +221,7 @@ For practical biology, the key insight is that *explaining components is not the
 
 ## Hierarchy and Scale
 
-Biological organisation is **hierarchical**. Each level exhibits emergent properties relative to the level below, and is *nested* within levels above.
+Biological organization is **hierarchical**. Each level exhibits emergent properties relative to the level below, and is *nested* within levels above.
 
 ```mermaid
 graph TD
@@ -234,13 +236,13 @@ graph TD
     I --> J["Ecosystem"]
     J --> K["Biosphere"]
 ```
-<!-- alt: Graph showing nested hierarchy of biological organisation, from atoms and molecules up through cells and organisms to the biosphere, each level emergent from the one below. -->
+<!-- alt: Graph showing nested hierarchy of biological organization, from atoms and molecules up through cells and organisms to the biosphere, each level emergent from the one below. -->
 
-*Nested hierarchy of biological organisation, from atoms and molecules up through cells and organisms to the biosphere, each level emergent from the one below.*
+*Nested hierarchy of biological organization, from atoms and molecules up through cells and organisms to the biosphere, each level emergent from the one below.*
 
 ### Cross-Scale Constraints
 
-Higher-level organisation *constrains* lower-level behaviour (downward causation), while lower-level mechanisms *generate* higher-level properties (upward causation). For example:
+Higher-level organization *constrains* lower-level behavior (downward causation), while lower-level mechanisms *generate* higher-level properties (upward causation). For example:
 
 - A cell's membrane potential (tissue-level context) constrains which genes are expressed.
 - A mutation (molecular level) can alter the organismal [**phenotype**](#gl:phenotype) and hence population fitness.
@@ -257,16 +259,17 @@ Living systems are modular — composed of semi-independent subsystems with defi
 > **Concept Check 4:** The MAPK cascade (Ras → Raf → MEK → ERK) is often described as a module with a well-defined input (Ras activation) and output (ERK phosphorylation). List two biological consequences of this modularity — one that is *evolutionarily* useful (robust to rewiring) and one that is *clinically* worrisome (a single drug target that blocks many cell types).
 
 > **Applied Systems / Clinical Connection — multimorbidity as boundary choice.**
-> A patient with heart failure, chronic kidney disease, and type 2 diabetes is poorly represented as three isolated "organ problems." Diuretics improve pulmonary congestion but change renal perfusion and electrolyte balance; SGLT2 inhibitors alter renal glucose handling and intravascular volume; beta-blockers reshape autonomic feedback. A systems map makes the first modelling decision explicit: where is the boundary? A cardiology-focused boundary may optimise ejection fraction while missing renal compensation; a whole-patient boundary treats drug choice as intervention on coupled feedback loops. This is the practical clinical meaning of emergence, hierarchy, and allostatic regulation \citep{cannon1932,sterling2015}.
+> A patient with heart failure, chronic kidney disease, and type 2 diabetes is poorly represented as three isolated "organ problems." Diuretics improve pulmonary congestion but change renal perfusion and electrolyte balance; SGLT2 inhibitors alter renal glucose handling and intravascular volume; beta-blockers reshape autonomic feedback. A systems map makes the first modeling decision explicit: where is the boundary? A cardiology-focused boundary may optimize ejection fraction while missing renal compensation; a whole-patient boundary treats drug choice as intervention on coupled feedback loops. This is the practical clinical meaning of emergence, hierarchy, and allostatic regulation \citep{cannon1932,sterling2015}.
 
 ---
 
 ## Nonlinearity and Thresholds
 
-Simple systems obey *linear* relationships: double the input, double the output. Most biological systems are **nonlinear** — small changes can produce large effects, or large changes may produce negligible effects.
+Simple systems obey *linear* relationships: double the input, double the output. Most biological systems are **nonlinear** — small changes can produce large effects, or large changes may produce negligible effects. Population growth illustrates bounded nonlinearity: density-dependent feedback bends exponential rise toward a carrying capacity (\cref{fig:unit_X_logistic_growth}; full treatment in \nameref{sec:unit_X_population_ecology}).
 
 Key nonlinear phenomena in biology:
 
+: Modular Organization and Evolvable Interfaces: Phenomenon and Description. {#tbl:unit_0_systems_science_modular_organization_and_evolvable_interfaces}
 | Phenomenon | Description | Example |
 | ---------- | ----------- | ------- |
 | Threshold effects | Response absent below a critical input, present above | Action potential firing threshold (~−55 mV) |
@@ -277,7 +280,7 @@ Key nonlinear phenomena in biology:
 
 ### A Simple Nonlinear Equation: The Hill Function
 
-Cooperative binding (e.g., haemoglobin–oxygen, transcription factors) follows the **Hill equation**:
+Cooperative binding (e.g., hemoglobin–oxygen, transcription factors) follows the **Hill equation**:
 
 \begin{equation}
 \theta = \frac{[L]^n}{K_d^n + [L]^n}
@@ -328,7 +331,7 @@ For $n > 1$ and balanced production rates $\alpha_1 \approx \alpha_2$, the syste
 
 ## Nonlinear Dynamics: Bifurcations, Limit Cycles, and Chaos
 
-The earlier feedback and bistability examples hinted at oscillations and alternative stable states. Nonlinear dynamics \citep{strogatz2018} provides the formal vocabulary for these and other behaviours.
+The earlier feedback and bistability examples hinted at oscillations and alternative stable states. Nonlinear dynamics \citep{strogatz2018} provides the formal vocabulary for these and other behaviors.
 
 ### Phase Space and Trajectories
 
@@ -344,7 +347,7 @@ A **bifurcation** is a qualitative change in the structure of phase space as a c
 
 ### Limit Cycles and Biological Oscillators
 
-A **limit cycle** is a closed trajectory toward which neighbouring trajectories converge. Biological oscillators that are robustly limit-cycle:
+A **limit cycle** is a closed trajectory toward which neighboring trajectories converge. Biological oscillators that are robustly limit-cycle:
 
 - **Circadian clocks** (~24 h period) — TTFLs (transcription–translation feedback loops) involving *CLOCK/BMAL1* and *PER/CRY* in mammals; *KaiABC* in cyanobacteria — the latter operates without transcription, demonstrating that a phosphorylation cycle alone can implement a biological clock.
 - **Cardiac pacemaker** (~1 s) — sino-atrial node cells use HCN ("funny") current and Ca²⁺ cycling; their limit cycle is robust to ±20 % perturbations of any single ionic conductance.
@@ -369,7 +372,7 @@ Biological chaos is documented (with varying confidence) in:
 - Population cycles of the Canadian lynx and Soay sheep, modulated by weather and density-dependent disease.
 - Single-neuron interspike intervals in some cortical recordings.
 
-> **Connection (clinical) — defibrillation as state-space reset.** Ventricular fibrillation can be modelled as the heart's pacemaker leaving its limit cycle and entering a chaotic regime in which thousands of small re-entrant circuits prevent coordinated contraction. A defibrillator delivers a brief, high-energy shock that depolarises essentially every myocyte simultaneously, "resetting" the system to the basin of attraction of the normal sinus-rhythm limit cycle. The intervention is a phase-space *kick*, not a chemical correction — pure dynamical-systems medicine.
+> **Connection (clinical) — defibrillation as state-space reset.** Ventricular fibrillation can be modeled as the heart's pacemaker leaving its limit cycle and entering a chaotic regime in which thousands of small re-entrant circuits prevent coordinated contraction. A defibrillator delivers a brief, high-energy shock that depolarizes essentially every myocyte simultaneously, "resetting" the system to the basin of attraction of the normal sinus-rhythm limit cycle. The intervention is a phase-space *kick*, not a chemical correction — pure dynamical-systems medicine.
 
 > **Concept Check 6:** A phase-plane portrait shows a stable spiral that, as a parameter μ is increased past a critical value $\mu_c$, becomes encircled by a small closed orbit. (a) Name the bifurcation. (b) Predict whether the resulting oscillation amplitude depends linearly or quadratically on $\mu - \mu_c$ near the bifurcation. (c) Name one cardiac or circadian disorder consistent with a Hopf bifurcation gone wrong.
 
@@ -381,7 +384,7 @@ Biological oscillators are textbook applications of delayed negative feedback (\
 
 ### The Circadian Clock
 
-The mammalian circadian clock is a **transcription–translation feedback loop** (TTFL). CLOCK and BMAL1 heterodimerise and activate transcription of *Per1*, *Per2*, *Cry1*, and *Cry2*. PER and CRY proteins accumulate, translocate to the nucleus, and inhibit CLOCK/BMAL1, closing a negative-feedback loop with a delay set by transcription, translation, dimerisation, and post-translational modification (notably casein-kinase-1ε phosphorylation of PER). Mutations that alter CK1ε or PER2 phosphorylation sites shift the clock's period from the wild-type ~24 h to as little as 20 h or as much as 28 h, providing molecular evidence for the delay-period relationship of \cref{eq:unit_0_delay}.
+The mammalian circadian clock is a **transcription–translation feedback loop** (TTFL). CLOCK and BMAL1 heterodimerise and activate transcription of *Per1*, *Per2*, *Cry1*, and *Cry2*. PER and CRY proteins accumulate, translocate to the nucleus, and inhibit CLOCK/BMAL1, closing a negative-feedback loop with a delay set by transcription, translation, dimerization, and post-translational modification (notably casein-kinase-1ε phosphorylation of PER). Mutations that alter CK1ε or PER2 phosphorylation sites shift the clock's period from the wild-type ~24 h to as little as 20 h or as much as 28 h, providing molecular evidence for the delay-period relationship of \cref{eq:unit_0_delay}.
 
 ### The Cardiac Pacemaker
 
@@ -393,6 +396,7 @@ In rapidly dividing cells the cyclin–CDK system is the master oscillator. M-cy
 
 ### Shared Feedback Architecture of Biological Oscillators
 
+: Shared Feedback Architecture of Biological Oscillators: Oscillator and Period. {#tbl:unit_0_systems_science_shared_feedback_architecture_of_biological_oscillators}
 | Oscillator | Period | Mechanism class |
 | ---------- | ------ | --------------- |
 | Circadian (PER/CRY) | ~24 h | Delayed transcriptional negative feedback |
@@ -422,10 +426,11 @@ Biologically validated examples include:
 Two mechanisms can generate scale-free-like or hub-heavy architecture:
 
 1. **Preferential attachment** — new nodes preferentially connect to already-popular nodes (Barabási-Albert model). In biology this maps onto **gene duplication**: a duplicated gene inherits its parent's interaction partners, so highly-connected proteins beget more highly-connected proteins.
-2. **Optimisation under cost-and-benefit** — connections have wiring cost; a few high-degree hubs minimise total path length while limiting cost.
+2. **Optimization under cost-and-benefit** — connections have wiring cost; a few high-degree hubs minimize total path length while limiting cost.
 
 ### Functional Consequences of Hub-Dominated Networks
 
+: Functional Consequences of Hub-Dominated Networks: Property and Random network. {#tbl:unit_0_systems_science_functional_consequences_of_hub_dominated_networks}
 | Property | Random network | Scale-free network |
 | -------- | -------------- | ------------------ |
 | Robustness to random failure | Fragile | Robust (random hits usually miss hubs) |
@@ -439,7 +444,7 @@ This has direct biomedical implications. *Random* genetic perturbations (backgro
 
 ---
 
-## Information, Entropy, and Self-Organisation
+## Information, Entropy, and Self-organization
 
 Living systems process **information**: they detect signals (genetic, chemical, mechanical, photonic) and use that information to generate ordered responses. From a thermodynamic perspective:
 
@@ -448,7 +453,7 @@ Living systems process **information**: they detect signals (genetic, chemical, 
 \label{eq:unit_0_gibbs}
 \end{equation}
 
-Life builds local order (decreases local entropy) by doing work, and in so doing increases entropy of the surroundings. Self-organisation — spontaneous formation of ordered structures — occurs when energy dissipation enables pattern formation (e.g., Bénard cells, Turing patterns in morphogenesis, the spiral waves of slime-mould aggregation).
+Life builds local order (decreases local entropy) by doing work, and in so doing increases entropy of the surroundings. Self-organization — spontaneous formation of ordered structures — occurs when energy dissipation enables pattern formation (e.g., Bénard cells, Turing patterns in morphogenesis, the spiral waves of slime-mould aggregation).
 
 ### Shannon Information and Biological Signal Content
 
@@ -459,9 +464,9 @@ H(X) = -\sum_{i} p_i \log_2 p_i
 \label{eq:unit_0_shannon}
 \end{equation}
 
-with units of bits when the logarithm is base 2. A signalling pathway that distinguishes "ligand absent" from "ligand present" carries at most one bit; a four-state developmental switch carries at most two; a transcription factor that selects among 1000 target promoters carries up to ~10 bits. Empirical studies of cytokine signalling pathways suggest mammalian cells extract on the order of 1 bit per pathway from ligand concentration — far less than the upper bound, because biological noise eats most of the channel capacity.
+with units of bits when the logarithm is base 2. A signaling pathway that distinguishes "ligand absent" from "ligand present" carries at most one bit; a four-state developmental switch carries at most two; a transcription factor that selects among 1000 target promoters carries up to ~10 bits. Empirical studies of cytokine signaling pathways suggest mammalian cells extract on the order of 1 bit per pathway from ligand concentration — far less than the upper bound, because biological noise eats most of the channel capacity.
 
-### Mutual Information and Signalling Fidelity
+### Mutual Information and Signaling Fidelity
 
 The **mutual information** $I(X; Y) = H(Y) - H(Y \mid X)$ measures how much knowing the input $X$ reduces uncertainty about output $Y$. For a noisy biological channel,
 
@@ -470,7 +475,7 @@ I(X; Y) = \frac{1}{2} \log_2 \!\left( 1 + \frac{\sigma_{\mathrm{signal}}^{2}}{\s
 \label{eq:unit_0_mutual_info}
 \end{equation}
 
-Doubling the signal-to-noise ratio adds about half a bit. The diminishing returns of this expression explain why cells often build *parallel* signalling channels (multiple receptor tyrosine kinases, multiple cytokine receptors) rather than refining one channel indefinitely — additional channels add capacity additively, not logarithmically.
+Doubling the signal-to-noise ratio adds about half a bit. The diminishing returns of this expression explain why cells often build *parallel* signaling channels (multiple receptor tyrosine kinases, multiple cytokine receptors) rather than refining one channel indefinitely — additional channels add capacity additively, not logarithmically.
 
 > **Concept Check 7:** A yeast cell at steady state maintains an intracellular K⁺ concentration of 140 mM against an extracellular concentration of 5 mM. From the perspective of the second law of [**thermodynamics**](#gl:thermodynamics), is this local concentration gradient a violation of entropy increase? Identify the ultimate entropy source and the thermodynamic machinery (at least two molecular components) that sustains the gradient.
 
@@ -480,6 +485,7 @@ Doubling the signal-to-noise ratio adds about half a bit. The diminishing return
 
 ## Systems Thinking in Biology: Practical Implications
 
+: Mutual Information and Signaling Fidelity: Principle and Biomedical implication. {#tbl:unit_0_systems_science_mutual_information_and_signalling_fidelity}
 | Principle | Biomedical implication |
 | --------- | ---------------------- |
 | Emergence | Drug targets must be evaluated in system context, not in isolation |
@@ -491,7 +497,7 @@ Doubling the signal-to-noise ratio adds about half a bit. The diminishing return
 
 ### From Hill kinetics to a computational switch
 
-The earlier nonlinear-threshold discussion introduced the **Hill equation** as a model of cooperative binding. The same mathematics appears when transcription factors bind clustered sites, when oxygen binds haemoglobin, and when receptors oligomerise. Running the project code makes the **threshold** tangible:
+The earlier nonlinear-threshold discussion introduced the **Hill equation** as a model of cooperative binding. The same mathematics appears when transcription factors bind clustered sites, when oxygen binds hemoglobin, and when receptors oligomerise. Running the project code makes the **threshold** tangible:
 
 ```python
 from biology.cell.cell_biology import hill_equation
@@ -506,7 +512,7 @@ For **n > 1**, a narrow concentration band separates "mostly off" from "mostly o
 
 ### Feed-forward and feedback motifs in gene networks
 
-Beyond simple loops, **network motifs** \citep{alon2019} recur in transcriptional regulation: **coherent feed-forward loops** (two parallel paths to the same target, both activating or both repressing) can filter noise and enforce delays; **incoherent feed-forward loops** can generate pulses or adaptation. These motifs appear thousands of times in *E. coli* and yeast regulatory graphs. Recognising them helps you predict how a drug that blocks one edge may reroute flux through another — the **compensatory feedback** that often limits single-target therapy. Tyson, Chen and Novak \citep{tyson2003} catalogue the recurring "sniffers, buzzers, toggles and blinkers" of cell biology, each of which corresponds to a small network motif with a stereotyped temporal signature.
+Beyond simple loops, **network motifs** \citep{alon2019} recur in transcriptional regulation: **coherent feed-forward loops** (two parallel paths to the same target, both activating or both repressing) can filter noise and enforce delays; **incoherent feed-forward loops** can generate pulses or adaptation. These motifs appear thousands of times in *E. coli* and yeast regulatory graphs. Recognizing them helps you predict how a drug that blocks one edge may reroute flux through another — the **compensatory feedback** that often limits single-target therapy. Tyson, Chen and Novak \citep{tyson2003} catalog the recurring "sniffers, buzzers, toggles and blinkers" of cell biology, each of which corresponds to a small network motif with a stereotyped temporal signature.
 
 ### Why systems biology is not "fancy reductionism"
 
@@ -555,20 +561,20 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 - A system is defined by components, relationships, and boundary; equifinality and multifinality distinguish living open systems from contrived isolated ones.
 - Most living systems are open systems that import free energy and export entropy.
-- Negative feedback achieves homeostasis; positive feedback generates rapid transitions; delay turns stabilising loops into oscillators.
+- Negative feedback achieves homeostasis; positive feedback generates rapid transitions; delay turns stabilizing loops into oscillators.
 - Emergent properties arise from patterns of interaction and cannot be reduced to component properties alone.
 - Emergence also appears at colony scale: social-insect colonies can regulate nest climate, food discovery, or collective choice through worker interactions and environmental signals.
-- Biological organisation is hierarchical, modular, predominantly nonlinear, and often hub-heavy; strict scale-free claims require explicit statistical tests.
-- Bifurcations classify how qualitative dynamical behaviour changes — saddle-node (catastrophes), Hopf (oscillation onset), pitchfork (symmetry-breaking commitment).
-- Biological oscillators (circadian, cardiac, cell-cycle) realise delayed-feedback limit cycles; chaos appears in some cardiac and population dynamics.
+- Biological organization is hierarchical, modular, predominantly nonlinear, and often hub-heavy; strict scale-free claims require explicit statistical tests.
+- Bifurcations classify how qualitative dynamical behavior changes — saddle-node (catastrophes), Hopf (oscillation onset), pitchfork (symmetry-breaking commitment).
+- Biological oscillators (circadian, cardiac, cell-cycle) realize delayed-feedback limit cycles; chaos appears in some cardiac and population dynamics.
 - Hill-type cooperativity implements sharp molecular thresholds; the toggle switch implements bistable cell-fate decisions; network motifs (feed-forward loops) shape dynamics and compensation under perturbation.
-- Information theory bounds how much a noisy biological channel can convey, motivating parallel rather than refined signalling architecture.
+- Information theory bounds how much a noisy biological channel can convey, motivating parallel rather than refined signaling architecture.
 
 ---
 
 ## Key Terms
 
-**system** · **emergence** · **negative feedback** · **positive feedback** · **homeostasis** · **allostasis** · **hierarchy** · **modularity** · **nonlinearity** · **bistability** · **bifurcation** · **limit cycle** · **chaos** · **Lyapunov exponent** · **scale-free network** · **hub** · **self-organisation** · **superorganism** · **Hill equation** · **toggle switch** · **open system** · **network motif** · **feed-forward loop** · **mutual information** · **equifinality**
+**system** · **emergence** · **negative feedback** · **positive feedback** · **homeostasis** · **allostasis** · **hierarchy** · **modularity** · **nonlinearity** · **bistability** · **bifurcation** · **limit cycle** · **chaos** · **Lyapunov exponent** · **scale-free network** · **hub** · **self-organization** · **superorganism** · **Hill equation** · **toggle switch** · **open system** · **network motif** · **feed-forward loop** · **mutual information** · **equifinality**
 
 ---
 
@@ -580,15 +586,15 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 3. The bacterium *E. coli* regulates the *lac* operon with a bistable switch: cells either fully express or fully repress the operon, with very few in intermediate states. Why might bistability be advantageous compared to a graded (linear) response? Under what physiological contexts might a graded response be preferred?
 
-4. A patient takes a drug that blocks a key kinase in an oncogenic signalling pathway. Initial tumour regression is observed, but within months the tumour re-grows. Propose at least two systems-level mechanisms (feedback compensation, alternative pathway activation, or selection) that could explain this relapse. How would systems science inform rational combination therapy?
+4. A patient takes a drug that blocks a key kinase in an oncogenic signaling pathway. Initial tumor regression is observed, but within months the tumor re-grows. Propose at least two systems-level mechanisms (feedback compensation, alternative pathway activation, or selection) that could explain this relapse. How would systems science inform rational combination therapy?
 
-5. Turing patterns — periodic spatial self-organisation arising from reaction–diffusion kinetics — have been proposed to explain animal coat markings, digit spacing, and hair follicle arrangement. What does the existence of Turing patterns in biology suggest about the relationship between physics, chemistry, and life?
+5. Turing patterns — periodic spatial self-organization arising from reaction–diffusion kinetics — have been proposed to explain animal coat markings, digit spacing, and hair follicle arrangement. What does the existence of Turing patterns in biology suggest about the relationship between physics, chemistry, and life?
 
 6. Sketch the glucose–insulin–glucagon feedback graph. Annotate where metformin, GLP-1 receptor agonists, and SGLT2 inhibitors act. Why might adding a second drug class outperform doubling the dose of one class?
 
 7. Using the Hill equation with $n = 4$ and $K_d = 8\,\mu\text{M}$, estimate θ at $[L] = 4\,\mu\text{M}$ and at $[L] = 16\,\mu\text{M}$. How does cooperativity sharpen the transition compared with $n = 1$?
 
-8. Explain how a delay τ in a negative-feedback loop with gain $k$ can convert a stable equilibrium into a sustained oscillation. Use the conditions $k\tau \ll 1$, $k\tau \approx 1/2$, and $k\tau > \pi/2$ to predict three qualitatively different behaviours and give a biological example of each.
+8. Explain how a delay τ in a negative-feedback loop with gain $k$ can convert a stable equilibrium into a sustained oscillation. Use the conditions $k\tau \ll 1$, $k\tau \approx 1/2$, and $k\tau > \pi/2$ to predict three qualitatively different behaviors and give a biological example of each.
 
 9. Protein–protein interaction networks often contain hubs, even when a strict scale-free law is not established. Why can hub-heavy architecture make cells robust to many random gene losses yet vulnerable to perturbations that target hub proteins (e.g., adenovirus E1B targeting p53)? How would you design an antiviral that exploits this asymmetry without overclaiming the network model?
 
@@ -604,7 +610,7 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 3. Contrast negative and positive feedback by sign and biological role. For one positive-feedback process (action potential, childbirth, or the clotting cascade), identify the explicit bounding mechanism and explain why unbounded positive feedback would be lethal.
 
-4. Using the delayed-feedback equation $dx/dt = -k\,x(t-\tau)$, predict the qualitative behaviour for $k\tau \ll 1$, $k\tau \approx 1/2$, and $k\tau > \pi/2$. Explain why biological clocks (circadian, cardiac, cell-cycle) live in the last regime and how shortening PER stability shortens the circadian period.
+4. Using the delayed-feedback equation $dx/dt = -k\,x(t-\tau)$, predict the qualitative behavior for $k\tau \ll 1$, $k\tau \approx 1/2$, and $k\tau > \pi/2$. Explain why biological clocks (circadian, cardiac, cell-cycle) live in the last regime and how shortening PER stability shortens the circadian period.
 
 5. Using the Hill equation with $K_d = 5$ nM and a dimeric ($n=2$) transcription factor at $[L]=10$ nM, compute fractional occupancy, then recompute for $n=1$. Explain quantitatively how cooperativity sharpens a dose–response curve into a switch.
 
@@ -614,7 +620,7 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 8. Explain why hub-heavy protein-interaction networks can be robust to random gene loss but fragile to targeted hub attack. Use this asymmetry to explain why TP53, MYC, and KRAS are potent cancer drivers and to propose the logic of a hub-exploiting antiviral.
 
-9. Evaluate, using the mutual-information expression $I = \tfrac12\log_2(1 + \sigma^2_{\text{signal}}/\sigma^2_{\text{noise}})$, why a single cytokine pathway conveying ~1 bit cannot reliably distinguish "low/medium/high" concentrations, and why evolution favours parallel signalling channels over ever-finer measurement of one channel.
+9. Evaluate, using the mutual-information expression $I = \tfrac12\log_2(1 + \sigma^2_{\text{signal}}/\sigma^2_{\text{noise}})$, why a single cytokine pathway conveying ~1 bit cannot reliably distinguish "low/medium/high" concentrations, and why evolution favors parallel signaling channels over ever-finer measurement of one channel.
 
 10. Synthesis: the chapter argues systems biology is "not fancy reductionism." Defend or challenge this claim by identifying at least three system-level metrics (e.g. gain, delay, basin depth, Lyapunov exponent, mutual information) that acquire meaning primarily at the assembled-system level, and give a concrete question that no amount of better single-component data could answer.
 
@@ -624,7 +630,7 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 - Bertalanffy, L. von (1968). *General System Theory* \citep{bertalanffy1968}. Braziller.
 - Strogatz, S. H. (2018). *Nonlinear Dynamics and Chaos* (2nd ed.) \citep{strogatz2018}. Westview Press.
-- Tyson, J. J., Chen, K. C., & Novak, B. (2003). Sniffers, buzzers, toggles and blinkers: dynamics of regulatory and signalling pathways in the cell \citep{tyson2003}. *Current Opinion in Cell Biology*, 15(2), 221–231.
+- Tyson, J. J., Chen, K. C., & Novak, B. (2003). Sniffers, buzzers, toggles and blinkers: dynamics of regulatory and signaling pathways in the cell \citep{tyson2003}. *Current Opinion in Cell Biology*, 15(2), 221–231.
 - Alon, U. (2019). *An Introduction to Systems Biology: Design Principles of Biological Circuits* (2nd ed.) \citep{alon2019}. CRC Press.
 - Cannon, W. B. (1932). *The Wisdom of the Body* \citep{cannon1932}. W. W. Norton.
 - Mitchell, P. (1961). Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism \citep{mitchell1961}. *Nature*, 191, 144–148. *(A worked example of a feedback motif powering metabolism.)*
@@ -638,9 +644,10 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Systems Science and the Logic of Emergence. {#tbl:unit_0_systems_science_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
-| `src/biology/cell/cell_biology.py` (`hill_equation`, `receptor_occupancy`, `signal_amplification`) | Turn feedback, thresholds, and signalling gain into inspectable calculations. |
+| `src/biology/cell/cell_biology.py` (`hill_equation`, `receptor_occupancy`, `signal_amplification`) | Turn feedback, thresholds, and signaling gain into inspectable calculations. |
 | `src/biology/ecology/ecology.py` (`logistic_growth`) | Compare linear intuition with bounded growth and carrying-capacity dynamics. |
 | `src/biology/biochemistry/biochemistry.py` (`reaction_free_energy`) | Connect system directionality to thermodynamic constraints. |
 | `src/visualization/plots.py` (`plot_logistic_growth`) and `src/mermaid/biology_diagrams.py` (`population_growth_stages_diagram`) | Check whether graphical summaries preserve the same model assumptions. |

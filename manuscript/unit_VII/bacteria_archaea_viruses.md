@@ -31,8 +31,8 @@ By the end of this chapter, you should be able to:
 - **Data skill:** Interpret microbial observations from growth, sequence, or structural evidence.
 - **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
 - **Common misconception to repair:** Viruses are not simply tiny bacteria; they use fundamentally different replication logic.
-- **Primary lab:** \cref{sec:lab_unit_VII_bacteria_archaea_viruses}.
-- **Question bank:** \cref{sec:q_unit_VII_bacteria_archaea_viruses}.
+- **Primary lab:** \nameref{sec:lab_unit_VII_bacteria_archaea_viruses}.
+- **Question bank:** \nameref{sec:q_unit_VII_bacteria_archaea_viruses}.
 - **Transfer task:** Apply microbial diversity reasoning to antibiotics, biotechnology, ecology, and outbreaks.
 - **Bridge to computation:** `biology.microbiology.microbiology.bacterial_growth_curve`.
 <!-- curriculum-scaffold-end -->
@@ -70,6 +70,7 @@ The 16S rRNA gene (in prokaryotes) and 18S rRNA gene (in [**eukaryote**](#gl:euk
 
 Bacteria and Archaea share the prokaryotic cell plan, which differs fundamentally from the eukaryotic organization:
 
+: Prokaryotic Cell Features: Feature and Prokaryotes. {#tbl:unit_VII_bacteria_archaea_viruses_prokaryotic_cell_features}
 | Feature | Prokaryotes | Eukaryotes |
 |---------|-------------|------------|
 | Nucleus | No membrane-bound nucleus; nucleoid region | Membrane-bound nucleus with nuclear pores |
@@ -116,6 +117,7 @@ flowchart TB
 
 *Cytoplasm-to-periplasm peptidoglycan biosynthesis with five major antibiotic targets — fosfomycin (MurA), D-cycloserine (D-Ala–D-Ala ligase / Alr), bacitracin (C55 carrier recycling), vancomycin (D-Ala–D-Ala terminus of Lipid II), and β-lactams (PBP transpeptidation).*
 
+: Peptidoglycan Biosynthesis: A Step-by-Step Antibiotic Atlas: Step and Enzyme / process. {#tbl:unit_VII_bacteria_archaea_viruses_peptidoglycan_biosynthesis_a_step_by_step_antibiotic_atlas}
 | Step | Enzyme / process | Drug | Mechanism of inhibition | Spectrum |
 |------|------------------|------|-------------------------|----------|
 | 1 | MurA (UDP-GlcNAc enolpyruvyl transferase) | **Fosfomycin** | Phosphoenolpyruvate analog; covalently inhibits MurA active-site Cys via epoxide ring opening | Broad (UTIs, *E. coli*, *Enterococcus*) |
@@ -133,7 +135,7 @@ flowchart TB
 **Resistance recapitulates the pathway.** Each drug elicits a corresponding resistance trick: VanA-type vancomycin resistance in enterococci (VRE) replaces D-Ala-D-Ala with D-Ala-D-Lac, abolishing one of the five hydrogen bonds that vancomycin exploits (≥ 1000-fold MIC increase; the binding free-energy loss is ~12 kJ/mol per H-bond); MRSA expresses **PBP2a** (encoded by *mecA*) with low β-lactam affinity (K$_i$ rises ~ 1000×); β-lactamases hydrolyse the β-lactam ring before it reaches its PBP target, with extended-spectrum β-lactamases (ESBLs) and carbapenemases (KPC, NDM, OXA-48) progressively defeating each new generation of β-lactams. The pathway thus serves as a unifying framework — biosynthetic step, drug, and resistance mechanism are three views of the same chemistry.
 
 > **Clinical Connection: Why Vancomycin Stopped Working — and How Daptomycin Took Over**
-> Vancomycin was introduced in 1958 and remained dependable for almost 30 years. The first VRE isolates appeared in 1986–1988 in European and US hospitals, driven by agricultural use of avoparcin (a glycopeptide growth promoter in livestock); by the early 2000s VRE had spread globally. The molecular trick is elegant: a single ester linkage (D-Ala-D-Lac instead of the D-Ala-D-Ala amide) costs the bacterium nothing but eliminates one of the five H-bonds anchoring vancomycin. Daptomycin (FDA-approved 2003) bypasses the resistance entirely — it inserts into the cell membrane in a Ca$^{2+}$-dependent manner, depolarising it without requiring a peptidoglycan binding site. Daptomycin resistance is now emerging too (mprF and yycG mutations alter membrane charge), continuing the arms race.
+> Vancomycin was introduced in 1958 and remained dependable for almost 30 years. The first VRE isolates appeared in 1986–1988 in European and US hospitals, driven by agricultural use of avoparcin (a glycopeptide growth promoter in livestock); by the early 2000s VRE had spread globally. The molecular trick is elegant: a single ester linkage (D-Ala-D-Lac instead of the D-Ala-D-Ala amide) costs the bacterium nothing but eliminates one of the five H-bonds anchoring vancomycin. Daptomycin (FDA-approved 2003) bypasses the resistance entirely — it inserts into the cell membrane in a Ca$^{2+}$-dependent manner, depolarizing it without requiring a peptidoglycan binding site. Daptomycin resistance is now emerging too (mprF and yycG mutations alter membrane charge), continuing the arms race.
 
 ### Gram Staining: The Foundational Diagnostic Test
 
@@ -174,7 +176,7 @@ When Gram-negative bacteria lyse during infection, released LPS triggers massive
 > A clinical microbiology lab tests a bacterial isolate against six wall-targeted antibiotics. The isolate is resistant to vancomycin (MIC > 256 μg/mL) but susceptible to ampicillin, fosfomycin, and bacitracin. Sequencing reveals a *vanA* operon. Using the peptidoglycan biosynthesis pathway, explain (a) which step is altered, (b) why vancomycin fails, and (c) why ampicillin still works.
 
 > **Concept Check 1c:**
-> Fosfomycin is a phosphoenolpyruvate (PEP) analog that covalently inactivates MurA. *Pseudomonas aeruginosa* is intrinsically resistant to fosfomycin despite having a functional MurA. Hypothesise two non-target-based resistance mechanisms (think about how the drug enters the cell) and propose an experiment using a *P. aeruginosa* MurA-knockout complemented with the *E. coli* allele to test whether MurA is responsible.
+> Fosfomycin is a phosphoenolpyruvate (PEP) analog that covalently inactivates MurA. *Pseudomonas aeruginosa* is intrinsically resistant to fosfomycin despite having a functional MurA. Hypothesize two non-target-based resistance mechanisms (think about how the drug enters the cell) and propose an experiment using a *P. aeruginosa* MurA-knockout complemented with the *E. coli* allele to test whether MurA is responsible.
 
 ---
 
@@ -184,6 +186,7 @@ When Gram-negative bacteria lyse during infection, released LPS triggers massive
 
 Bacterial cells exhibit characteristic shapes that aid in identification:
 
+: Morphology and Arrangement: Shape and Description. {#tbl:unit_VII_bacteria_archaea_viruses_morphology_and_arrangement}
 | Shape | Description | Examples |
 |-------|-------------|----------|
 | Coccus | Spherical | *Staphylococcus aureus*, *Streptococcus pyogenes* |
@@ -219,6 +222,7 @@ Bacteria exhibit unparalleled metabolic diversity -- far exceeding that of eukar
 
 **Heterotrophs** (the vast majority) obtain carbon from organic compounds. They are further classified by oxygen relationship:
 
+: Metabolic Diversity and Energy Harvesting: Type and O_2 Requirement. {#tbl:unit_VII_bacteria_archaea_viruses_metabolic_diversity_and_energy_harvesting}
 | Type | O$_2$ Requirement | Example |
 |------|-------------------|---------|
 | Obligate aerobe | Requires O$_2$ | *Mycobacterium tuberculosis* |
@@ -229,6 +233,7 @@ Bacteria exhibit unparalleled metabolic diversity -- far exceeding that of eukar
 
 ### Major Pathogenic Groups
 
+: Major Pathogenic Groups: Phylum and Key Pathogens. {#tbl:unit_VII_bacteria_archaea_viruses_major_pathogenic_groups}
 | Phylum | Key Pathogens | Gram Stain | Clinical Significance |
 |--------|---------------|------------|----------------------|
 | Proteobacteria | *E. coli*, *Salmonella*, *Helicobacter*, *Vibrio*, *Neisseria*, *Pseudomonas* | Gram-negative | UTIs, enteric infections, peptic ulcers, cholera, meningitis, nosocomial infections |
@@ -243,7 +248,7 @@ Bacteria exhibit unparalleled metabolic diversity -- far exceeding that of eukar
 
 ---
 
-## Bacterial Genetics, Signalling and Sociality
+## Bacterial Genetics, Signaling and Sociality
 
 ### Binary Fission and Exponential Growth
 
@@ -292,6 +297,7 @@ After 2 hours, the population will reach **25,600 cells**. The rapid doubling of
 **Problem:**
 A microbiology student grows *E. coli* in LB broth at 37 °C and reads optical density at 600 nm ($\mathrm{OD}_{600}$) every 30 minutes:
 
+: Inferring Generation Time from an OD Growth Curve. {#tbl:unit_VII_bacteria_archaea_viruses_worked_example_inferring_generation_time_from_an_od_growth_curve}
 | Time (min) | 0 | 30 | 60 | 90 | 120 | 150 |
 |------------|---|----|----|----|-----|-----|
 | $\mathrm{OD}_{600}$ | 0.05 | 0.10 | 0.20 | 0.40 | 0.80 | 1.60 |
@@ -334,6 +340,7 @@ While binary fission produces clonal offspring, **horizontal gene transfer (HGT)
 
 ### Plasmids and Mobile Genetic Elements
 
+: Plasmids and Mobile Genetic Elements: Plasmid Type and Example. {#tbl:unit_VII_bacteria_archaea_viruses_plasmids_and_mobile_genetic_elements}
 | Plasmid Type | Example | Significance |
 |--------------|---------|--------------|
 | R-plasmids | NDM-1 (New Delhi metallo-β-lactamase) | Carbapenem resistance; global spread |
@@ -364,6 +371,7 @@ flowchart LR
 
 The two-component circuit is therefore a **molecular switch** with three states (off / phosphorylated / phosphatase-reset), tunable by the relative kinase versus phosphatase activities of the HK. Some HKs ("classical" HKs like EnvZ and PhoQ) act as kinase under stimulus and phosphatase otherwise — a single protein computing both ON and OFF, with the stimulus ratio shifting the equilibrium. This bifunctionality makes the steady-state level of RR~P a near-linear readout of the input — exactly what is wanted for analog signal processing inside a cell.
 
+: Two-Component Signal Transduction: Two-component system and Stimulus. {#tbl:unit_VII_bacteria_archaea_viruses_two_component_signal_transduction}
 | Two-component system | Stimulus | Output | Clinical/biological significance |
 |----------------------|----------|--------|----------------------------------|
 | **EnvZ–OmpR** (*E. coli*) | Osmolarity | Switches porin expression OmpC ↔ OmpF | Outer-membrane permeability; β-lactam entry |
@@ -394,11 +402,12 @@ flowchart LR
 
 - **Exopolysaccharides** (PIA in *S. aureus*; alginate, Pel, Psl in *P. aeruginosa*; cellulose and PNAG in enterics) — provide structural cohesion and protection.
 - **Extracellular DNA (eDNA)** — released by autolysis; a major load-bearing component and a substrate for horizontal gene transfer at frequencies up to 1000× higher than in planktonic cells.
-- **Matrix proteins** — amyloid-like curli fibres (*E. coli*), Bap proteins, type IV pili.
-- **Lipids and outer-membrane vesicles** — concentrate hydrolytic enzymes and signalling molecules.
+- **Matrix proteins** — amyloid-like curli fibers (*E. coli*), Bap proteins, type IV pili.
+- **Lipids and outer-membrane vesicles** — concentrate hydrolytic enzymes and signaling molecules.
 
 **Quorum sensing molecules.**
 
+: Biofilms and Quorum Sensing: QS class and Signal molecule. {#tbl:unit_VII_bacteria_archaea_viruses_biofilms_and_quorum_sensing}
 | QS class | Signal molecule | Producers | Receptor | Output |
 |----------|-----------------|-----------|----------|--------|
 | **AHLs** | N-acyl-homoserine-lactones (e.g., 3-oxo-C₁₂-HSL) | Gram-negatives (*P. aeruginosa* LasI/LasR, *V. fischeri* LuxI/LuxR) | LuxR-family TF | Bioluminescence, virulence, biofilm |
@@ -407,9 +416,9 @@ flowchart LR
 | **PQS** | Pseudomonas quinolone signal (2-heptyl-3-hydroxy-4-quinolone) | *P. aeruginosa* | PqsR | Iron acquisition, virulence |
 | **DSF** | cis-2-unsaturated fatty acids | *Xanthomonas*, *Burkholderia* | RpfC HK | Biofilm dispersal, virulence |
 
-**Why biofilms matter clinically.** The CDC estimates that **~65–80 % of chronic and device-associated human infections involve biofilms**. They are 10–1000× more antibiotic tolerant than planktonic cells because of (1) reduced antibiotic penetration through EPS — vancomycin diffusion can be retarded by 100×; (2) **persister cells** — metabolically dormant subpopulations not killed by growth-dependent antibiotics, comprising 0.001–1 % of biofilm cells; (3) localised enzyme accumulation (e.g., β-lactamase concentrated 100–1000× in matrix); and (4) anaerobic interior microenvironments where aminoglycosides (which require an electrochemical gradient for uptake) are inactive. Canonical clinical biofilms include cystic fibrosis lung infections (*P. aeruginosa* alginate biofilms), prosthetic joint and heart-valve infections (*S. aureus*, *S. epidermidis*), catheter-associated UTIs (*E. coli*, *P. mirabilis*), chronic wounds, and dental plaque (*Streptococcus*, *Porphyromonas*, *Fusobacterium*).
+**Why biofilms matter clinically.** The CDC estimates that **~65–80 % of chronic and device-associated human infections involve biofilms**. They are 10–1000× more antibiotic tolerant than planktonic cells because of (1) reduced antibiotic penetration through EPS — vancomycin diffusion can be retarded by 100×; (2) **persister cells** — metabolically dormant subpopulations not killed by growth-dependent antibiotics, comprising 0.001–1 % of biofilm cells; (3) localized enzyme accumulation (e.g., β-lactamase concentrated 100–1000× in matrix); and (4) anaerobic interior microenvironments where aminoglycosides (which require an electrochemical gradient for uptake) are inactive. Canonical clinical biofilms include cystic fibrosis lung infections (*P. aeruginosa* alginate biofilms), prosthetic joint and heart-valve infections (*S. aureus*, *S. epidermidis*), catheter-associated UTIs (*E. coli*, *P. mirabilis*), chronic wounds, and dental plaque (*Streptococcus*, *Porphyromonas*, *Fusobacterium*).
 
-**Quorum quenching as therapy.** Because most virulence factors are quorum-regulated, blocking QS *attenuates* virulence without killing bacteria — sidestepping the strong selection for resistance that lytic antibiotics impose. Strategies include: **(1)** lactonases (AiiA from *Bacillus*, AhlD) and acylases that hydrolyse AHLs; **(2)** synthetic AIP analogs that competitively inhibit AgrC; **(3)** halogenated furanones (originally from the seaweed *Delisea pulchra*) that destabilise LuxR-family receptors; **(4)** PqsR antagonists (e.g., M64); **(5)** c-di-GMP signalling disruptors. Several are in early clinical trials (notably for *P. aeruginosa* in cystic fibrosis), though "anti-virulence" compounds face the challenge that they do not directly clear infection — they must work synergistically with antibiotics or host immunity.
+**Quorum quenching as therapy.** Because most virulence factors are quorum-regulated, blocking QS *attenuates* virulence without killing bacteria — sidestepping the strong selection for resistance that lytic antibiotics impose. Strategies include: **(1)** lactonases (AiiA from *Bacillus*, AhlD) and acylases that hydrolyse AHLs; **(2)** synthetic AIP analogs that competitively inhibit AgrC; **(3)** halogenated furanones (originally from the seaweed *Delisea pulchra*) that destabilise LuxR-family receptors; **(4)** PqsR antagonists (e.g., M64); **(5)** c-di-GMP signaling disruptors. Several are in early clinical trials (notably for *P. aeruginosa* in cystic fibrosis), though "anti-virulence" compounds face the challenge that they do not directly clear infection — they must work synergistically with antibiotics or host immunity.
 
 ### Endospores and Dormancy Under Stress
 
@@ -437,6 +446,7 @@ Certain Firmicutes -- primarily *Bacillus* (central or subterminal spores) and *
 
 Archaea are prokaryotes that were long classified with bacteria but differ fundamentally at the molecular level:
 
+: Distinguishing Archaeal Features: Feature and Bacteria. {#tbl:unit_VII_bacteria_archaea_viruses_distinguishing_archaeal_features}
 | Feature | Bacteria | Archaea | Eukarya |
 |---------|----------|---------|---------|
 | Membrane lipids | Ester-linked fatty acids | **Ether-linked isoprenoid (phytanyl) chains**; some form tetraether monolayers | Ester-linked fatty acids |
@@ -485,6 +495,7 @@ Quantitatively: a typical bacterial membrane fluidizes (loses lipid order) above
 
 **Eukaryotic signature proteins (ESPs).** What makes Asgard archaea revolutionary is that they encode an unprecedented cluster of proteins previously thought to be eukaryote-specific:
 
+: Asgard Archaea: The Closest Living Relatives of Eukaryotes: ESP class and Asgard homolog. {#tbl:unit_VII_bacteria_archaea_viruses_asgard_archaea_the_closest_living_relatives_of_eukaryotes}
 | ESP class | Asgard homolog | Eukaryotic role |
 |-----------|----------------|-----------------|
 | **Actin** | Lokiactin (~ 60 % identity to eukaryotic actin) | Cytoskeleton, cell shape |
@@ -499,7 +510,7 @@ Quantitatively: a typical bacterial membrane fluidizes (loses lipid order) above
 
 **Cultivation breakthrough.** In 2020, *Candidatus Prometheoarchaeum syntrophicum* — the first cultured Asgard archaeon — was reported by Imachi *et al.* (*Nature*) after 12 years of effort using extremely slow-growth bioreactor cultures fed with peptides and hydrogen. The organism grows obligately syntrophically with *Halodesulfovibrio* (sulfate-reducing) and a methanogenic archaeon (consuming H$_2$ produced by *Prometheoarchaeum*). Its doubling time is ~ 14–25 days; cells are tiny (~ 0.5 μm) and **extend long branching tentacle-like protrusions** thought to deliver hydrogen to syntrophic partners. The remarkable observation is that those tentacles morphologically resemble what one might predict for an archaeal cell preparing to engulf a bacterial endosymbiont — the **"E$^3$ model" of eukaryogenesis** (Entangle, Engulf, Endogenise) directly suggested by *Prometheoarchaeum* morphology.
 
-**Implications.** The discovery of Asgard archaea has narrowed the "evolutionary gap" between prokaryotes and eukaryotes from a vast unbridgeable distance to a graded continuum. Many of the molecular machines once thought to be uniquely eukaryotic (membrane-trafficking ESCRTs, actin cytoskeleton, ubiquitin signalling) were already present in the archaeal common ancestor of eukaryotes. Eukaryogenesis was a *combinatorial* event: pre-existing archaeal ESPs + acquisition of a mitochondrion + nucleus + later innovations. Two outstanding questions remain: (1) how exactly did the first eukaryotic cell engulf the proto-mitochondrion (phagocytosis-first, syntrophy-first, or virus-mediated?); (2) which Asgard subgroup is the closest living relative — Heimdallarchaeota (current consensus) or a yet-undiscovered lineage?
+**Implications.** The discovery of Asgard archaea has narrowed the "evolutionary gap" between prokaryotes and eukaryotes from a vast unbridgeable distance to a graded continuum. Many of the molecular machines once thought to be uniquely eukaryotic (membrane-trafficking ESCRTs, actin cytoskeleton, ubiquitin signaling) were already present in the archaeal common ancestor of eukaryotes. Eukaryogenesis was a *combinatorial* event: pre-existing archaeal ESPs + acquisition of a mitochondrion + nucleus + later innovations. Two outstanding questions remain: (1) how exactly did the first eukaryotic cell engulf the proto-mitochondrion (phagocytosis-first, syntrophy-first, or virus-mediated?); (2) which Asgard subgroup is the closest living relative — Heimdallarchaeota (current consensus) or a yet-undiscovered lineage?
 
 ### Archaeal Biotechnology and Thermostable Enzymes
 
@@ -519,7 +530,7 @@ Archaeal enzymes, evolved for extreme conditions, have enormous biotechnological
 > **Concept Check 3c:**
 > Asgard archaea encode actin homologs that function in vitro indistinguishably from eukaryotic actin. If the proto-eukaryote inherited actin from an archaeal ancestor, what testable prediction does this make about the timing of cytoskeletal evolution relative to the mitochondrial endosymbiosis? Design a comparative-genomic experiment that could distinguish between the alternatives.
 
-> **Concept Check (Evaluate — Hyperthermophile Genome Stability and PCR Enzymes):** *Thermococcus kodakarensis* grows optimally at **85 °C** (vs. ~37 °C for *E. coli*) and its **KOD DNA polymerase** has a $T_{\text{opt}}$ near 80 °C — well above the temperature at which *E. coli* DNA polymerase III denatures. (a) Evaluate the structural features that stabilise the *T. kodakarensis* genome and its DNA replication machinery against thermal denaturation: **positively-charged surface residue enrichment** (higher Lys/Arg content reducing repulsive surface interactions and increasing salt-bridge density), **thermophilic DNA gyrase** (introducing negative supercoils that stabilise the duplex against melting), and **reverse gyrase** (a Type I topoisomerase unique to hyperthermophiles that introduces *positive* supercoils, raising the melting temperature of duplex DNA). (b) Compare these features quantitatively: *T. kodakarensis* genomic DNA has $T_m \approx 95$ °C, vs. *E. coli* genomic DNA $T_m \approx 87$ °C — a difference traceable to elevated G+C content, reverse-gyrase-mediated positive supercoiling, and bound histone-like proteins. (c) Evaluate **why these same features make archaeal DNA polymerases industrially useful for PCR**: thermostability at 95 °C (the denaturation step in PCR), proofreading 3'→5' exonuclease activity (lower error rate than Taq — Pfu and KOD achieve ~ $10^{-6}$ errors/base vs. Taq's $10^{-5}$), and the ability to amplify high-G+C templates that Taq stalls on. (d) Predict what would happen biochemically if you attempted to use *E. coli* DNA polymerase III in a standard PCR cycle, and explain why this was a fundamental barrier to molecular biology before the discovery of *Thermus aquaticus* and the archaeal hyperthermophiles.
+> **Concept Check (Evaluate — Hyperthermophile Genome Stability and PCR Enzymes):** *Thermococcus kodakarensis* grows optimally at **85 °C** (vs. ~37 °C for *E. coli*) and its **KOD DNA polymerase** has a $T_{\text{opt}}$ near 80 °C — well above the temperature at which *E. coli* DNA polymerase III denatures. (a) Evaluate the structural features that stabilize the *T. kodakarensis* genome and its DNA replication machinery against thermal denaturation: **positively-charged surface residue enrichment** (higher Lys/Arg content reducing repulsive surface interactions and increasing salt-bridge density), **thermophilic DNA gyrase** (introducing negative supercoils that stabilize the duplex against melting), and **reverse gyrase** (a Type I topoisomerase unique to hyperthermophiles that introduces *positive* supercoils, raising the melting temperature of duplex DNA). (b) Compare these features quantitatively: *T. kodakarensis* genomic DNA has $T_m \approx 95$ °C, vs. *E. coli* genomic DNA $T_m \approx 87$ °C — a difference traceable to elevated G+C content, reverse-gyrase-mediated positive supercoiling, and bound histone-like proteins. (c) Evaluate **why these same features make archaeal DNA polymerases industrially useful for PCR**: thermostability at 95 °C (the denaturation step in PCR), proofreading 3'→5' exonuclease activity (lower error rate than Taq — Pfu and KOD achieve ~ $10^{-6}$ errors/base vs. Taq's $10^{-5}$), and the ability to amplify high-G+C templates that Taq stalls on. (d) Predict what would happen biochemically if you attempted to use *E. coli* DNA polymerase III in a standard PCR cycle, and explain why this was a fundamental barrier to molecular biology before the discovery of *Thermus aquaticus* and the archaeal hyperthermophiles.
 
 ---
 
@@ -539,6 +550,7 @@ A complete virus particle (virion) consists of:
 
 David Baltimore (Nobel Prize 1975) classified viruses by genome type and replication strategy into seven classes:
 
+: Baltimore Classification by Genome Type and Replication Strategy: Class and Genome. {#tbl:unit_VII_bacteria_archaea_viruses_baltimore_classification_by_genome_type_and_replication_strategy}
 | Class | Genome | Replication Strategy | Examples |
 |-------|--------|---------------------|----------|
 | I | dsDNA | DNA -> mRNA (host RNA Pol) | Herpesviruses, adenoviruses, poxviruses, bacteriophage T4 |
@@ -597,7 +609,7 @@ stateDiagram-v2
 - Upon DNA damage (UV exposure, mitomycin C), the SOS response activates **RecA**, which stimulates CI repressor autocleavage, derepressing lytic genes and initiating the lytic cycle
 - Imprecise excision during induction can produce specialized transducing phage carrying *gal* or *bio* genes
 
-> **Concept Check (Analysis — Bacteriophage λ as a Bistable Genetic Switch):** The λ lysis–lysogeny decision is governed by a competition between two regulators — **CI (λ repressor)** and **Cro** — that bind cooperatively to three operator sites ($O_R 1$, $O_R 2$, $O_R 3$) within the right operator region. CI has highest affinity for $O_R 1$ and represses transcription of *cro* (favouring lysogeny); Cro has highest affinity for $O_R 3$ and represses transcription of *cI* (favouring lysis). (a) Analyse why this mutual-repression architecture creates a **bistable switch** with two stable steady states (CI-dominant lysogeny vs. Cro-dominant lysis) and a metastable unstable point in between. (b) Multiplicity of infection (MOI) biases the initial conditions: at **low MOI** few CII protein molecules are produced and CII is rapidly degraded by FtsH protease, so the system settles into the **Cro-dominant lytic state**; at **high MOI** CII accumulates above the FtsH degradation threshold and activates the $P_{RE}$ promoter to produce a burst of CI, pushing the system into the **lysogenic state**. Explain why this MOI-dependence is **evolutionarily adaptive** for the phage. (c) Predict what happens to the population dynamics if a host expresses a **constitutively active CI variant** (resistant to RecA-mediated autocleavage) under a low-copy plasmid promoter immediately after infection. Consider both the immediate fate of the infecting phage and the long-term stability of the lysogen against UV induction. (d) Connect this to **synthetic biology**: bistable switches built from CI/Cro analogues (Gardner, Cantor & Collins, *Nature* 2000) were among the first engineered genetic circuits — what does this reveal about the relationship between natural evolution and synthetic design?
+> **Concept Check (Analysis — Bacteriophage λ as a Bistable Genetic Switch):** The λ lysis–lysogeny decision is governed by a competition between two regulators — **CI (λ repressor)** and **Cro** — that bind cooperatively to three operator sites ($O_R 1$, $O_R 2$, $O_R 3$) within the right operator region. CI has highest affinity for $O_R 1$ and represses transcription of *cro* (favoring lysogeny); Cro has highest affinity for $O_R 3$ and represses transcription of *cI* (favoring lysis). (a) Analyze why this mutual-repression architecture creates a **bistable switch** with two stable steady states (CI-dominant lysogeny vs. Cro-dominant lysis) and a metastable unstable point in between. (b) Multiplicity of infection (MOI) biases the initial conditions: at **low MOI** few CII protein molecules are produced and CII is rapidly degraded by FtsH protease, so the system settles into the **Cro-dominant lytic state**; at **high MOI** CII accumulates above the FtsH degradation threshold and activates the $P_{RE}$ promoter to produce a burst of CI, pushing the system into the **lysogenic state**. Explain why this MOI-dependence is **evolutionarily adaptive** for the phage. (c) Predict what happens to the population dynamics if a host expresses a **constitutively active CI variant** (resistant to RecA-mediated autocleavage) under a low-copy plasmid promoter immediately after infection. Consider both the immediate fate of the infecting phage and the long-term stability of the lysogen against UV induction. (d) Connect this to **synthetic biology**: bistable switches built from CI/Cro analogs (Gardner, Cantor & Collins, *Nature* 2000) were among the first engineered genetic circuits — what does this reveal about the relationship between natural evolution and synthetic design?
 
 ### Animal Virus Replication
 
@@ -627,6 +639,7 @@ HIV (human immunodeficiency virus) is a Class VI retrovirus with a complex life 
 
 **Antiretroviral therapy (ART)** targets multiple steps:
 
+: The HIV Life Cycle: Drug Class and Target. {#tbl:unit_VII_bacteria_archaea_viruses_the_hiv_life_cycle}
 | Drug Class | Target | Examples |
 |-----------|--------|----------|
 | NRTIs (nucleoside RT inhibitors) | Reverse transcriptase | Tenofovir, emtricitabine, zidovudine (AZT) |
@@ -666,6 +679,7 @@ Phage therapy was discovered by Félix d'Hérelle in 1917, deployed widely in th
 
 **Clinical milestones (2016–2026):**
 
+: Phage Therapy: A Pre-Antibiotic Idea Returns to the Clinic: Year and Patient / trial. {#tbl:unit_VII_bacteria_archaea_viruses_phage_therapy_a_pre_antibiotic_idea_returns_to_the_clinic}
 | Year | Patient / trial | Pathogen | Outcome |
 |------|-----------------|----------|---------|
 | 2016 | Tom Patterson (UCSD/IPATH compassionate use) | Pan-resistant *Acinetobacter baumannii* | Recovery; first US success |
@@ -745,9 +759,9 @@ flowchart LR
         R6["Enzymatic modification:\naminoglycoside acetyl-,\nphospho-, nucleotidyl-\ntransferases"]
     end
 ```
-<!-- alt: Flowchart showing antibiotic targets organised by cellular process (cell-wall synthesis, protein synthesis, nucleic-acid synthesis, membrane disruption) alongside the principal resistance mechanisms. -->
+<!-- alt: Flowchart showing antibiotic targets organized by cellular process (cell-wall synthesis, protein synthesis, nucleic-acid synthesis, membrane disruption) alongside the principal resistance mechanisms. -->
 
-*Antibiotic targets organised by cellular process (cell-wall synthesis, protein synthesis, nucleic-acid synthesis, membrane disruption) alongside the principal resistance mechanisms.*
+*Antibiotic targets organized by cellular process (cell-wall synthesis, protein synthesis, nucleic-acid synthesis, membrane disruption) alongside the principal resistance mechanisms.*
 
 ### Selective Toxicity and Therapeutic Index
 
@@ -794,8 +808,9 @@ flowchart TD
 
 ### WHO Priority Pathogens (ESKAPE)
 
-The WHO 2024 Bacterial Priority Pathogens List keeps AMR triage grounded in public-health burden, resistance trend, transmissibility, treatability, and pipeline scarcity \citep{who2024bppl}. The **ESKAPE** mnemonic remains a useful bedside memory aid, but the WHO list is broader: it separately prioritises carbapenem-resistant *Acinetobacter baumannii*, carbapenem- or third-generation-cephalosporin-resistant Enterobacterales, drug-resistant *Mycobacterium tuberculosis*, and other pathogen-resistance pairs.
+The WHO 2024 Bacterial Priority Pathogens List keeps AMR triage grounded in public-health burden, resistance trend, transmissibility, treatability, and pipeline scarcity \citep{who2024bppl}. The **ESKAPE** mnemonic remains a useful bedside memory aid, but the WHO list is broader: it separately prioritizes carbapenem-resistant *Acinetobacter baumannii*, carbapenem- or third-generation-cephalosporin-resistant Enterobacterales, drug-resistant *Mycobacterium tuberculosis*, and other pathogen-resistance pairs.
 
+: WHO Priority Pathogens (ESKAPE): Pathogen and Key Resistance. {#tbl:unit_VII_bacteria_archaea_viruses_who_priority_pathogens_eskape}
 | Pathogen | Key Resistance | Clinical Setting |
 |----------|---------------|-----------------|
 | *Enterococcus faecium* | VRE (vancomycin-resistant) | Bloodstream infections, UTIs |
@@ -854,18 +869,19 @@ When a bacterium survives phage infection, the **Cas1-Cas2 integrase complex** c
 The CRISPR array is transcribed as a long pre-CRISPR RNA (pre-crRNA). Repeat sequences are cleaved by:
 
 - **Type I and III**: The *Cas6* endoribonuclease (recognizes stem-loop structure in repeats)
-- **Type II**: RNase III + *tracrRNA* (trans-activating crRNA) hybridises with the repeat; Cas9 is then loaded with a single-guide RNA (sgRNA = crRNA + tracrRNA scaffold)
+- **Type II**: RNase III + *tracrRNA* (trans-activating crRNA) hybridizes with the repeat; Cas9 is then loaded with a single-guide RNA (sgRNA = crRNA + tracrRNA scaffold)
 
 ### Stage 3 — Interference (Targeting)
 
-The crRNA guides the effector complex to matching sequences in foreign nucleic acid. The CRISPR-Cas systems are now classified into 6 types (I–VI) and over 30 subtypes; the three most important types are summarised below:
+The crRNA guides the effector complex to matching sequences in foreign nucleic acid. The CRISPR-Cas systems are now classified into 6 types (I–VI) and over 30 subtypes; the three most important types are summarized below:
 
+: Stage 3 — Interference (Targeting): Feature and Type I. {#tbl:unit_VII_bacteria_archaea_viruses_stage_3_interference_targeting}
 | Feature | **Type I** | **Type II** | **Type III** |
 | ------- | ---------- | ----------- | ------------ |
 | Effector | Multi-subunit **Cascade** complex (Cas5–Cas8) + Cas3 helicase-nuclease | Single **Cas9** nuclease | **Cas10**-Csm/Cmr complex |
 | Target | dsDNA | dsDNA | ssRNA + transcribed DNA |
-| Cleavage mechanism | Cas3 unwinds and **degrades dsDNA processively** | Cas9 makes blunt-ended **double-strand break** 3 bp upstream of PAM | Co-transcriptional ssRNA cleavage by Csm/Cmr; signalling output |
-| PAM requirement | Yes (recognised by Cas8 of Cascade) | Yes (NGG for SpCas9; varies by ortholog) | None for RNA target; protospacer-flanking-sequence (PFS) for DNA |
+| Cleavage mechanism | Cas3 unwinds and **degrades dsDNA processively** | Cas9 makes blunt-ended **double-strand break** 3 bp upstream of PAM | Co-transcriptional ssRNA cleavage by Csm/Cmr; signaling output |
+| PAM requirement | Yes (recognized by Cas8 of Cascade) | Yes (NGG for SpCas9; varies by ortholog) | None for RNA target; protospacer-flanking-sequence (PFS) for DNA |
 | Guide RNA | crRNA primarily | crRNA + tracrRNA (or fused sgRNA) | crRNA primarily |
 | Signal molecule | — | — | **cyclic oligoadenylate (cA₄, cA₆)** activates non-specific RNase Csm6 |
 | Genome distribution | ~ 50 % of CRISPR-bearing genomes | ~ 5 % | ~ 25 % |
@@ -873,7 +889,7 @@ The crRNA guides the effector complex to matching sequences in foreign nucleic a
 | Anti-CRISPR susceptibility | Yes (AcrIF, AcrIE families) | Yes (AcrIIA, AcrIIC families) | Yes (AcrIIIA, anti-cA₄) |
 | Clinical / biotech use | Cas3 large-deletion editing; phage therapy design (Locus crPhage) | **Genome editing (Cas9)**; base editors; prime editors | Biosensing (cA₄ readout); SHERLOCK-style RNA detection |
 
-**Type II (Cas9)** was repurposed for genome editing by Doudna, Charpentier, and colleagues in 2012 (*Science* 2012), work recognised with the 2020 Nobel Prize in Chemistry. A synthetic sgRNA directs Cas9 to any genomic target (specified by a 20-nt spacer sequence + NGG PAM), where it makes a site-specific DSB. The cell repairs the break by NHEJ (creating indels — gene knockout) or HDR (with a provided template — precise edit). Variants now include base editors (cytosine → thymine, adenine → guanine without DSBs), prime editors (programmable insertions/deletions guided by an extended pegRNA), and Cas12/Cas13 systems for DNA/RNA targeting respectively. The same RNA-guided programmability that powers genome editing also underlies the **RNA-interference-like** specificity by which bacteria neutralize phage genomes — a striking parallel to eukaryotic small-RNA defense systems first dissected with C. elegans \citep{fire1998}.
+**Type II (Cas9)** was repurposed for genome editing by Doudna, Charpentier, and colleagues in 2012 (*Science* 2012), work recognized with the 2020 Nobel Prize in Chemistry. A synthetic sgRNA directs Cas9 to any genomic target (specified by a 20-nt spacer sequence + NGG PAM), where it makes a site-specific DSB. The cell repairs the break by NHEJ (creating indels — gene knockout) or HDR (with a provided template — precise edit). Variants now include base editors (cytosine → thymine, adenine → guanine without DSBs), prime editors (programmable insertions/deletions guided by an extended pegRNA), and Cas12/Cas13 systems for DNA/RNA targeting respectively. The same RNA-guided programmability that powers genome editing also underlies the **RNA-interference-like** specificity by which bacteria neutralize phage genomes — a striking parallel to eukaryotic small-RNA defense systems first dissected with C. elegans \citep{fire1998}.
 
 ### Anti-CRISPR Proteins
 
@@ -884,7 +900,7 @@ Phages have evolved **anti-CRISPR (Acr)** proteins that counteract bacterial CRI
 - **AcrIIIA4**: Degrades the cA₄ second messenger; blocks Csm6 activation
 
 > **Clinical Connection: CRISPR-Based Therapies (2023–2026)**
-> The first CRISPR-based medicines have now been approved. **Casgevy** (exagamglogene autotemcel), developed by Vertex and CRISPR Therapeutics, received FDA approval in December 2023 for sickle cell disease and January 2024 approval for transfusion-dependent β-thalassemia; FDA's 2026 product page lists both indications for patients 12 years of age and older \citep{fda2023casgevy,fda2024casgevythalassemia,fda2026casgevy}. The ex vivo approach edits patient HSCs to reactivate fetal haemoglobin (HbF) by disrupting the BCL11A erythroid enhancer, compensating for defective adult haemoglobin. Simultaneously, Bluebird Bio's lentiviral gene therapy Lyfgenia was approved for SCD; its FDA product page should be treated as regulatory evidence distinct from ClinicalTrials.gov trial status and from the Casgevy editing mechanism \citep{clinicaltrials2026,fda2026lyfgenia}. By 2026, CRISPR therapies for transthyretin amyloidosis (intellia NTLA-2001, in vivo hepatic editing) and [**heterozygous**](#gl:heterozygous) familial hypercholesterolaemia are in Phase III trials.
+> The first CRISPR-based medicines have now been approved. **Casgevy** (exagamglogene autotemcel), developed by Vertex and CRISPR Therapeutics, received FDA approval in December 2023 for sickle cell disease and January 2024 approval for transfusion-dependent β-thalassemia; FDA's 2026 product page lists both indications for patients 12 years of age and older \citep{fda2023casgevy,fda2024casgevythalassemia,fda2026casgevy}. The ex vivo approach edits patient HSCs to reactivate fetal hemoglobin (HbF) by disrupting the BCL11A erythroid enhancer, compensating for defective adult hemoglobin. Simultaneously, Bluebird Bio's lentiviral gene therapy Lyfgenia was approved for SCD; its FDA product page should be treated as regulatory evidence distinct from ClinicalTrials.gov trial status and from the Casgevy editing mechanism \citep{clinicaltrials2026,fda2026lyfgenia}. By 2026, CRISPR therapies for transthyretin amyloidosis (intellia NTLA-2001, in vivo hepatic editing) and [**heterozygous**](#gl:heterozygous) familial hypercholesterolaemia are in Phase III trials.
 
 **Concept Check 6:**
 > A Type II CRISPR-Cas9 system fails to cleave a target sequence despite perfect spacer-target complementarity. List three molecular explanations for this failure, relating each to a specific step in the CRISPR mechanism (adaptation, biogenesis, or interference).
@@ -906,7 +922,7 @@ Phages have evolved **anti-CRISPR (Acr)** proteins that counteract bacterial CRI
 
    **Protospacer (genomic): `CTG ACG TAA GCA TGC AAT C`** (20 nt)
 
-2. **Guide RNA design.** The 20-nt **spacer** of the sgRNA is the same sequence as the protospacer (with T → U for RNA): `5'-CUG ACG UAA GCA UGC AAU C-3'`. This is fused to the **tracrRNA scaffold** (~80 nt) that engages Cas9. The PAM itself is **not** included in the sgRNA — it is recognised by Cas9 in the target DNA.
+2. **Guide RNA design.** The 20-nt **spacer** of the sgRNA is the same sequence as the protospacer (with T → U for RNA): `5'-CUG ACG UAA GCA UGC AAU C-3'`. This is fused to the **tracrRNA scaffold** (~80 nt) that engages Cas9. The PAM itself is **not** included in the sgRNA — it is recognized by Cas9 in the target DNA.
 
 3. **Seed region.** The 12 nucleotides proximal to the PAM (positions 8–20 of the spacer, counted from the PAM-distal 5' end; equivalently the last 12 nt before the PAM in the protospacer) form the **seed region** critical for target engagement. Mismatches here disproportionately disrupt cleavage.
 
@@ -923,7 +939,7 @@ Phages have evolved **anti-CRISPR (Acr)** proteins that counteract bacterial CRI
 
 6. **Mismatch-tolerance asymmetry.** PAM-distal mismatches (positions 1–7 of the spacer) reduce cleavage modestly (often less than 2-fold per mismatch). Seed mismatches (positions 8–20, including the 12 nt closest to the PAM) reduce cleavage 10–100-fold each. This asymmetry is **exploited by anti-CRISPR proteins** (which often block the seed-loading step) and **by engineered high-fidelity variants** (eSpCas9, SpCas9-HF1, evoCas9) that introduce contacts disrupted by mismatch-induced structural strain, raising the discrimination threshold.
 
-**Interpretation.** A 100:1 on:off ratio is acceptable for many research applications but **inadequate for clinical genome editing** in non-dividing cells where even rare off-target cuts can drive oncogenic translocations. Modern clinical Cas9 designs (Casgevy, NTLA-2001) use ratios > 10,000:1, achieved by combining sequence-optimised gRNAs with high-fidelity Cas9 variants and base editors (which avoid double-strand breaks entirely).
+**Interpretation.** A 100:1 on:off ratio is acceptable for many research applications but **inadequate for clinical genome editing** in non-dividing cells where even rare off-target cuts can drive oncogenic translocations. Modern clinical Cas9 designs (Casgevy, NTLA-2001) use ratios > 10,000:1, achieved by combining sequence-optimized gRNAs with high-fidelity Cas9 variants and base editors (which avoid double-strand breaks entirely).
 
 
 ---
@@ -945,9 +961,9 @@ print(curve.populations[-1] > curve.populations[0])
 
 ### SARS-CoV-2 Variant Evolution: Real-Time Darwin in a Global Population
 
-The four-year trajectory of SARS-CoV-2 (late 2019 – present) is the best-documented example of **adaptive viral evolution** in biological history. Public sequencing through GISAID now archives > 16 million viral genomes, enabling phylogenetic tracking at daily resolution. The lineage diversification follows a textbook evolutionary pattern: **(1) a narrow founder bottleneck** (Wuhan-Hu-1 reference, December 2019); **(2) geographic diffusion** with local [**founder effect**](#gl:founder-effect)s (D614G rose to global dominance by June 2020, conferring ~20 % higher infectivity via an allosteric receptor-binding-domain (RBD) "open" state); **(3) escape-driven positive selection** as population immunity accumulated, favouring RBD mutations that evade neutralising antibodies without compromising ACE2 binding.
+The four-year trajectory of SARS-CoV-2 (late 2019 – present) is the best-documented example of **adaptive viral evolution** in biological history. Public sequencing through GISAID now archives > 16 million viral genomes, enabling phylogenetic tracking at daily resolution. The lineage diversification follows a textbook evolutionary pattern: **(1) a narrow founder bottleneck** (Wuhan-Hu-1 reference, December 2019); **(2) geographic diffusion** with local [**founder effect**](#gl:founder-effect)s (D614G rose to global dominance by June 2020, conferring ~20 % higher infectivity via an allosteric receptor-binding-domain (RBD) "open" state); **(3) escape-driven positive selection** as population immunity accumulated, favoring RBD mutations that evade neutralizing antibodies without compromising ACE2 binding.
 
-Five variants of concern (VOCs) illustrate distinct evolutionary forces. **Alpha (B.1.1.7, late 2020)** carried N501Y — a single RBD mutation increasing ACE2 affinity ~10×. **Beta (B.1.351)** and **Gamma (P.1)** added E484K, which partially escapes antibodies. **Delta (B.1.617.2, mid-2021)** carried L452R + T478K and doubled transmissibility. **Omicron (B.1.1.529, November 2021)** was the punctuated-evolution event of the pandemic — **32 spike mutations at once**, not a gradual lineage from Delta but a sudden saltation, likely from a long-term infection in an immunocompromised host (a natural "mutator" environment). Omicron escaped most pre-existing neutralising antibodies but attenuated lung tropism via reduced TMPRSS2-mediated entry, shifting the disease toward upper respiratory infection. Subsequent sub-lineages (BA.2, BA.5, XBB, JN.1, KP.3) follow continuous antigenic drift — the **"influenza-like future"** of SARS-CoV-2 is now the expected trajectory.
+Five variants of concern (VOCs) illustrate distinct evolutionary forces. **Alpha (B.1.1.7, late 2020)** carried N501Y — a single RBD mutation increasing ACE2 affinity ~10×. **Beta (B.1.351)** and **Gamma (P.1)** added E484K, which partially escapes antibodies. **Delta (B.1.617.2, mid-2021)** carried L452R + T478K and doubled transmissibility. **Omicron (B.1.1.529, November 2021)** was the punctuated-evolution event of the pandemic — **32 spike mutations at once**, not a gradual lineage from Delta but a sudden saltation, likely from a long-term infection in an immunocompromised host (a natural "mutator" environment). Omicron escaped most pre-existing neutralizing antibodies but attenuated lung tropism via reduced TMPRSS2-mediated entry, shifting the disease toward upper respiratory infection. Subsequent sub-lineages (BA.2, BA.5, XBB, JN.1, KP.3) follow continuous antigenic drift — the **"influenza-like future"** of SARS-CoV-2 is now the expected trajectory.
 
 Quantitatively: **Ka/Ks ratios** on the RBD exceed 1.5 across the pandemic (positive selection), versus ~0.1 for housekeeping ORFs (purifying selection); **estimated substitution rate** is ~2 × 10⁻³ per site per year (2× SARS-CoV-1), consistent with RNA-virus fidelity limits and increased by population-scale chronic infections. Public-health surveillance now runs phylogenetic tools (Nextstrain, Pango) in near-real-time; [**vaccine**](#gl:vaccine) reformulation (WHO TAG-CO-VAC) follows the influenza-flu-shot paradigm. The pandemic has transformed biology teaching: evolution is no longer a fossil-record inference but a live, observable process with weekly GenBank updates.
 
@@ -1009,6 +1025,7 @@ flowchart LR
 
 ## Key Terms
 
+: Current Evidence Map: AMR Movement Across One Health: Term and Definition. {#tbl:unit_VII_bacteria_archaea_viruses_current_evidence_map_amr_movement_across_one_health}
 | Term | Definition |
 |------|-----------|
 | **Peptidoglycan** | Bacterial cell wall polymer of NAG-NAM glycan strands cross-linked by tetrapeptide chains; target of beta-lactam antibiotics |
@@ -1093,10 +1110,11 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Bacteria, Archaea, and Viruses. {#tbl:unit_VII_bacteria_archaea_viruses_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/microbiology/microbiology.py` (`bacterial_growth_curve`, `doubling_time`, `ViralReplicationResult`) | Check growth, doubling, and viral-replication assumptions. |
 | `src/visualization/plots.py` (`plot_bacterial_growth`) | Inspect growth phases and axis scaling. |
 | `src/mermaid/biology_diagrams.py` (`viral_replication_cycle_diagram`) | Link genome strategy to replication cycle. |
 
-**Reproducibility check:** specify taxon, environment, growth phase, genome type, and measurement method before generalising microbial claims. **Cross-reference:** connect with \cref{sec:unit_VII_microbial_ecology} and \cref{sec:unit_VII_host_immunity_and_vaccines,sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Reproducibility check:** specify taxon, environment, growth phase, genome type, and measurement method before generalizing microbial claims. **Cross-reference:** connect with \cref{sec:unit_VII_microbial_ecology} and \cref{sec:unit_VII_host_immunity_and_vaccines,sec:unit_VII_antimicrobial_resistance_and_epidemiology}.

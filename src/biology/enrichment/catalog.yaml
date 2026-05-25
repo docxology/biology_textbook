@@ -38,7 +38,7 @@ FRONTIER_BY_UNIT:
   unit_VIII:
   - Plant biology links molecular regulation to climate stress, water limitation, crop resilience, phenology, and ecosystem
     feedbacks.
-  - Name the tissue, signal, environmental driver, measurable trait, and growth-reproduction-defence-water tradeoff.
+  - Name the tissue, signal, environmental driver, measurable trait, and growth-reproduction-defense-water tradeoff.
   unit_IX:
   - Physiology now blends mechanism with allostasis, immune-endocrine-neural coupling, wearable data, and individualized risk
     without reducing bodies to simple machines.
@@ -111,7 +111,7 @@ FOCUS_BY_STEM:
   cell_structure: organelle function is dynamic, contact-mediated, and context-dependent rather than a fixed list of compartments.
   membrane_transport: transport claims require gradients, permeability, electrochemical driving force, gating, and energy
     coupling.
-  cell_signaling: signalling explanations should include receptor context, dose, timing, feedback, crosstalk, and cellular
+  cell_signaling: signaling explanations should include receptor context, dose, timing, feedback, crosstalk, and cellular
     state.
   bioenergetics_and_respiration: respiration claims should track electrons, protons, redox poise, ATP yield, and uncoupling.
   photosynthesis: photosynthesis claims should distinguish light capture, carbon fixation, photorespiration, water stress,
@@ -144,7 +144,7 @@ FOCUS_BY_STEM:
     tradeoff.
   circulation_respiration_homeostasis: homeostasis claims should connect flow, diffusion, control loops, reserve capacity,
     and measurement limits.
-  nervous_system: neural explanations should separate circuit architecture, glial support, plasticity, behaviour, and evidence
+  nervous_system: neural explanations should separate circuit architecture, glial support, plasticity, behavior, and evidence
     scale.
   action_potential_synapses: synaptic claims require ion-channel timing, driving force, transmitter release, receptor dynamics,
     and plasticity.
@@ -200,12 +200,12 @@ FIGURE_BY_STEM:
   - Condensates should be taught as regulatable cellular organization, not as a replacement for membrane-bound organelles
     or as proof of causality by appearance alone.
   cell_signaling:
-  - Spatial Single-Cell Signalling Evidence
+  - Spatial Single-Cell Signaling Evidence
   - "flowchart LR\n    A[\"Tissue sample\"] --> B[\"Spatial transcriptomics\"]\n    A --> C[\"Perturbation assay\"]\n    B\
-    \ --> D[\"Cell-state map\"]\n    C --> E[\"Changed pathway activity\"]\n    D --> F[\"Neighbour context\"]\n    E -->\
-    \ F\n    F --> G[\"Causal signalling model\"]"
-  - How spatial transcriptomics and perturbation evidence combine to support a cell-signalling model.
-  - A signalling claim is stronger when receptor state, ligand source, cell neighbourhood, and perturbation response point
+    \ --> D[\"Cell-state map\"]\n    C --> E[\"Changed pathway activity\"]\n    D --> F[\"Neighbor context\"]\n    E -->\
+    \ F\n    F --> G[\"Causal signaling model\"]"
+  - How spatial transcriptomics and perturbation evidence combine to support a cell-signaling model.
+  - A signaling claim is stronger when receptor state, ligand source, cell neighborhood and perturbation response point
     to the same mechanism.
   membrane_transport:
   - Transporter Structure to Function
@@ -278,10 +278,10 @@ FIGURE_BY_STEM:
     as simple stress resistance.
   plant_responses:
   - Plant Stress Response Decision
-  - "flowchart TD\n    A[\"Stress cue\"] --> B[\"Sensor and hormone network\"]\n    B --> C[\"ABA or defence signal\"]\n \
+  - "flowchart TD\n    A[\"Stress cue\"] --> B[\"Sensor and hormone network\"]\n    B --> C[\"ABA or defense signal\"]\n \
     \   C --> D[\"Gene-expression change\"]\n    D --> E[\"Trait response\"]\n    E --> F[\"Growth cost\"]\n    E --> G[\"\
     Survival benefit\"]\n    F --> H[\"Fitness outcome\"]\n    G --> H"
-  - Plant stress-response map connecting cue perception, hormone signalling, gene expression, trait response, growth cost,
+  - Plant stress-response map connecting cue perception, hormone signaling, gene expression, trait response, growth cost,
     and survival benefit.
   - 'Stress tolerance is not free: the same response that improves survival can reduce growth or reproduction depending on
     timing and environment.'
@@ -382,7 +382,7 @@ COMPANION_SOURCE_BY_STEM:
     | --- | --- |
 
     | `src/biology/cell/cell_biology.py` (`hill_equation`, `receptor_occupancy`, `signal_amplification`) | Turn feedback,
-    thresholds, and signalling gain into inspectable calculations. |
+    thresholds, and signaling gain into inspectable calculations. |
 
     | `src/biology/ecology/ecology.py` (`logistic_growth`) | Compare linear intuition with bounded growth and carrying-capacity
     dynamics. |
@@ -468,7 +468,7 @@ COMPANION_SOURCE_BY_STEM:
     with clear axes and units. |
 
 
-    **Reproducibility check:** state temperature, solute identity, concentration, and membrane permeability before generalising
+    **Reproducibility check:** state temperature, solute identity, concentration, and membrane permeability before generalizing
     a water-property claim. **Cross-reference:** connect molecular water properties to \cref{sec:unit_VIII_plant_structure_and_water}
     and \cref{sec:unit_II_membrane_transport}.'
   macromolecules: '| Surface | Use it for |
@@ -738,7 +738,7 @@ COMPANION_SOURCE_BY_STEM:
     | `src/mermaid/biology_diagrams.py` (`viral_replication_cycle_diagram`) | Link genome strategy to replication cycle. |
 
 
-    **Reproducibility check:** specify taxon, environment, growth phase, genome type, and measurement method before generalising
+    **Reproducibility check:** specify taxon, environment, growth phase, genome type, and measurement method before generalizing
     microbial claims. **Cross-reference:** connect with \cref{sec:unit_VII_microbial_ecology} and \cref{sec:unit_VII_host_immunity_and_vaccines,sec:unit_VII_antimicrobial_resistance_and_epidemiology}.'
   microbial_ecology: '| Surface | Use it for |
 
@@ -782,7 +782,7 @@ COMPANION_SOURCE_BY_STEM:
     | `src/biology/genetics/genetics.py` (`punnett_square`, `chi_squared_test`) | Connect inheritance evidence to breeding
     and reproductive outcomes. |
 
-    | `src/mermaid/biology_diagrams.py` (`hormone_signaling_diagram`) | Link developmental timing to hormone signalling. |
+    | `src/mermaid/biology_diagrams.py` (`hormone_signaling_diagram`) | Link developmental timing to hormone signaling. |
 
 
     **Reproducibility check:** state pollination mechanism, developmental stage, genetic model, and environmental filter before
@@ -814,7 +814,7 @@ COMPANION_SOURCE_BY_STEM:
     | `src/visualization/plots.py` (`plot_oxygen_dissociation`) | Inspect shifts in oxygen loading and unloading. |
 
 
-    **Reproducibility check:** state vessel radius, pressure gradient, haemoglobin state, tissue demand, and feedback variable
+    **Reproducibility check:** state vessel radius, pressure gradient, hemoglobin state, tissue demand, and feedback variable
     before interpreting homeostasis. **Cross-reference:** connect with \cref{sec:unit_IX_endocrine_signaling,sec:unit_IX_immune_system_defense}
     and \cref{sec:unit_III_bioenergetics_and_respiration}.'
   nervous_system: '| Surface | Use it for |
@@ -830,7 +830,7 @@ COMPANION_SOURCE_BY_STEM:
     feedback distinct. |
 
 
-    **Reproducibility check:** specify cell type, circuit level, recording method, and behavioural readout before linking
+    **Reproducibility check:** specify cell type, circuit level, recording method, and behavioral readout before linking
     neural mechanism to outcome. **Cross-reference:** use \cref{sec:unit_IX_action_potential_synapses} and \cref{sec:unit_0_active_inference}.'
   action_potential_synapses: '| Surface | Use it for |
 

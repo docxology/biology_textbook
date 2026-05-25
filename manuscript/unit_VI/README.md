@@ -8,7 +8,7 @@
 
 **Module:** `src/biology/evolution/evolution.py`
 
-**Key concepts:** Darwin's four postulates · Directional/stabilising/disruptive selection · Fitness landscape · Convergent evolution · Genetic drift · Bottleneck effect · Allopatric/sympatric speciation · BDM incompatibilities · Parsimony · Maximum likelihood · Bayesian phylogenetic inference
+**Key concepts:** Darwin's four postulates · Directional/stabilizing/disruptive selection · Fitness landscape · Convergent evolution · Genetic drift · Bottleneck effect · Allopatric/sympatric speciation · BDM incompatibilities · Parsimony · Maximum likelihood · Bayesian phylogenetic inference
 
 ## Authoring Notes
 

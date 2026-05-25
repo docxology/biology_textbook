@@ -16,15 +16,19 @@ The philosophy is: **understand biology by computing biology**.
 
 ## Five Big Ideas in Biology {.unnumbered}
 
-Biology is a vast and diverse science, but five core concepts unify its every subdiscipline. These
-ideas — drawn from the AAAS *Vision and Change in Undergraduate Biology Education* \citep{visionandchange2011} — are
-introduced here as orienting themes that recur across the units that follow.
+Biology is a vast and diverse science, but a small set of orienting themes recurs across its subdisciplines.
+This book groups them as **Five Big Ideas** (Evolution; Information; Structure and function; Systems and emergence; Cells).
+They map pedagogically to the five **core concepts** in AAAS *Vision and Change in Undergraduate Biology Education* \citep{visionandchange2011};
+that report also defines six **core competencies** (quantitative reasoning, modeling, data interpretation, and related practice skills),
+which this text addresses through labs, models, and inquiry—not as a sixth numbered “big idea” heading.
+\nameref{sec:unit_0_unit_intro} adds an optional systems orientation: active inference and the free energy principle are graduate-depth lenses for connecting feedback, prediction, and behavior \citep{friston2017,parr2022activeinference}, not part of the introductory-biology canon that Vision & Change defines for the core undergraduate sequence.
+The themes below recur across the units that follow.
 
 ### Evolution: the unifying theory of life {.unnumbered}
 
 *\"Nothing in biology makes sense except in the light of evolution.\"* — Theodosius \citet{dobzhansky1973}
 
-Evolution by natural selection explains the origin of species, the genetic code being nearly comprehensive,
+Evolution by natural selection explains the origin of species, the genetic code being nearly universal,
 the homology between a human arm and a bat wing, and why influenza vaccines must be redesigned every
 year. \nameref{sec:unit_VI_unit_intro}, \nameref{sec:unit_V_unit_intro}, and \nameref{sec:unit_IV_unit_intro} develop this idea from population
 genetics algorithms to phylogenetic tree reconstruction.
@@ -32,14 +36,14 @@ genetics algorithms to phylogenetic tree reconstruction.
 ### Structure and function are inseparable {.unnumbered}
 
 A phospholipid bilayer is 7 nm thick and amphipathic — and those two structural facts explain every
-property of biological membranes (\nameref{sec:unit_I_unit_intro} and \nameref{sec:unit_II_unit_intro}). The α-helix of haemoglobin's subunits explains its
+property of biological membranes (\nameref{sec:unit_I_unit_intro} and \nameref{sec:unit_II_unit_intro}). The α-helix of hemoglobin's subunits explains its
 cooperativity and the Bohr effect (\nameref{sec:unit_I_unit_intro} and \nameref{sec:unit_IX_unit_intro}). The T-shaped architecture of the mitochondrial
 ATP synthase explains rotary catalysis (\nameref{sec:unit_III_unit_intro}). In biology, whenever you ask *how*, the answer is
 typically embedded in *shape*.
 
 ### Information — storage, transfer, expression {.unnumbered}
 
-DNA is not merely a chemical; it is a **code**. An alphabet of four nucleotides encodes a programme
+DNA is not merely a chemical; it is a **code**. An alphabet of four nucleotides encodes a program
 of 20 amino acids, creating an effectively unlimited diversity of proteins. \nameref{sec:unit_IV_unit_intro} (Molecular Genetics)
 examines the molecular machinery that reads this code — from DNA helicases to ribosomes — and how
 errors in the code drive disease and evolution. \nameref{sec:unit_V_unit_intro} (Classical Genetics) examines how the code is
@@ -50,7 +54,7 @@ host cells.
 
 A single neuron can fire or remain silent. A brain can think. A single predator can collapse an entire
 intertidal community (\nameref{sec:unit_X_unit_intro}). A slight imbalance in NAD⁺/NADH ratio shunts metabolism from aerobic
-to anaerobic (\nameref{sec:unit_III_unit_intro}). Emergence — complex behaviour arising from simple rules — is everywhere in
+to anaerobic (\nameref{sec:unit_III_unit_intro}). Emergence — complex behavior arising from simple rules — is everywhere in
 biology, and understanding it requires systems thinking: tracking flows, feedback loops, and
 nonlinear dynamics, not just cataloguing parts.
 
@@ -58,7 +62,7 @@ nonlinear dynamics, not just cataloguing parts.
 
 Every living organism is composed of one or more cells, sharing a common molecular toolkit:
 phospholipid membranes, DNA, ribosomes, ATP. \nameref{sec:unit_II_unit_intro} examines the cell as a physical and computational
-system. \nameref{sec:unit_VII_unit_intro} through \nameref{sec:unit_IX_unit_intro} extend this to specialised cells: bacteria, plant cells, neurons, immune cells.
+system. \nameref{sec:unit_VII_unit_intro} through \nameref{sec:unit_IX_unit_intro} extend this to specialized cells: bacteria, plant cells, neurons, immune cells.
 Understanding the cell is not a module to be completed — it is a perspective to carry through every
 subsequent chapter.
 
@@ -73,11 +77,11 @@ important as knowing what is currently accepted.
 **The hypothetico-deductive method.** A hypothesis is a testable, falsifiable prediction. Barry
 Marshall and Robin Warren's hypothesis that bacteria cause peptic ulcers (not stress) was so contrary
 to medical consensus that Marshall famously drank a *Helicobacter pylori* culture to demonstrate the
-relationship \citep{marshall1984}. Their Nobel Prize-winning work illustrates how a single decisive
+relationship \citep{marshall1985koch}. Their Nobel Prize-winning work illustrates how a single decisive
 experiment can overturn decades of received wisdom.
 
 **Models and computation as scientific tools.** Modern biology is inseparable from mathematical
-modelling. The Michaelis-Menten equation (1913) is a model. The Hardy-Weinberg principle is a model.
+modeling. The Michaelis-Menten equation (1913) is a model. The Hardy-Weinberg principle is a model.
 The Hodgkin-Huxley equations (1952) were Nobel Prize-winning models. A model is not a simplification
 that sacrifices truth; it is a commitment to precision — stating *exactly* what you are and are not
 claiming. The Python modules in this textbook implement these models so that you can inspect their
@@ -112,7 +116,7 @@ fits is before you lose sight of the box.
 
 ---
 
-## Scope and Organisation {.unnumbered}
+## Scope and Organization {.unnumbered}
 
 The textbook proceeds from atoms to ecosystems, following the standard introductory course arc.
 The table below is generated from `manuscript/config.yaml`; unit and chapter titles are
@@ -142,7 +146,7 @@ semantic references resolved from the canonical manuscript labels.
 | ---- | -------------- | ------------------- |
 | **Exam / course survey** | Unit intros + chapter summaries + the companion question bank that follows each chapter | Answer odd-numbered questions first; check module footers for `biology.*` imports. |
 | **Wet-lab or clinical bridge** | \nameref{sec:unit_II_unit_intro}, \nameref{sec:unit_IV_unit_intro}, \nameref{sec:unit_VII_unit_intro}, and \nameref{sec:unit_IX_unit_intro} | Read boxed clinical / systems notes; pair with labs in the same unit. |
-| **Modelling / CS** | \nameref{sec:unit_0_unit_intro}, then any unit’s “Bridge to computation” | Run examples with `uv run python` from the project root; regenerate figures with `scripts/generate_figures.py`. |
+| **Modeling / CS** | \nameref{sec:unit_0_unit_intro}, then any unit’s “Bridge to computation” | Run examples with `uv run python` from the project root; regenerate figures with `scripts/generate_figures.py`. |
 | **Ecology / field biology** | \nameref{sec:unit_VI_unit_intro} and \nameref{sec:unit_X_unit_intro}, plus \cref{sec:unit_III_photosynthesis} | Focus on `ecology.py` functions cited in chapter footers; work Lotka–Volterra and logistic examples by hand then in Python. |
 
 ---
@@ -173,9 +177,9 @@ The project’s biology code is organized by domain:
 ```text
 src/biology/
 ├── biochemistry/    — Enzyme kinetics, macromolecule analysis
-├── cell/            — Membrane biophysics, signalling, organelles
+├── cell/            — Membrane biophysics, signaling, organelles
 ├── genetics/        — Mendelian ratios, Hardy-Weinberg, linkage mapping
-├── physiology/      — Homeostasis, haemoglobin, cardiac models
+├── physiology/      — Homeostasis, hemoglobin, cardiac models
 ├── ecology/         — Population dynamics, community models
 ├── evolution/       — Drift simulation, fitness landscapes
 ├── microbiology/    — Growth curves, MIC, viral cycles

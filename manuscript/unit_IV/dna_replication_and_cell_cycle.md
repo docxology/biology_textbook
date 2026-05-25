@@ -29,8 +29,8 @@
 - **Data skill:** Interpret replication or cell-cycle data from timing, labeling, or checkpoint perturbations.
 - **Practice cadence:** Concept Explanation, Questions and Methods, Argumentation.
 - **Common misconception to repair:** High fidelity is not automatic; it is built from multiple partially redundant safeguards.
-- **Primary lab:** \cref{sec:lab_unit_IV_dna_replication_and_cell_cycle}.
-- **Question bank:** \cref{sec:q_unit_IV_dna_replication_and_cell_cycle}.
+- **Primary lab:** \nameref{sec:lab_unit_IV_dna_replication_and_cell_cycle}.
+- **Question bank:** \nameref{sec:q_unit_IV_dna_replication_and_cell_cycle}.
 - **Transfer task:** Transfer replication logic to cancer, aging, viral replication, or antibiotic targets.
 - **Bridge to computation:** `biology.genetics.genetics.dna_complement`.
 <!-- curriculum-scaffold-end -->
@@ -39,15 +39,15 @@
 
 > **Opening Vignette — The Double Helix's Debt to a Woman Scientist**
 > 
-> In 1952, Rosalind Franklin produced the sharpest X-ray diffraction photograph of DNA ever captured — "Photo 51." The image was obtained without her permission by Maurice Wilkins and shown to James Watson. Recognising in an instant that the helical periodicity and the 3.4 Å spacing implied a double helix, Watson and Crick used this insight to complete their landmark 1953 *Nature* paper. Franklin, who died of ovarian cancer in 1958 at age 37, rarely received the Nobel Prize awarded to Watson, Crick, and Wilkins in 1962. Yet her replication studies — painstakingly mapping how DNA unwinds, is copied semiconservatively, and repairs itself — anticipated the entire field of cell-cycle biology. Every chapter covering DNA replication and the cell cycle is, in part, her story.
+> In 1952, Rosalind Franklin produced the sharpest X-ray diffraction photograph of DNA ever captured — "Photo 51." The image was obtained without her permission by Maurice Wilkins and shown to James Watson. Recognizing in an instant that the helical periodicity and the 3.4 Å spacing implied a double helix, Watson and Crick used this insight to complete their landmark 1953 *Nature* paper \citep{watson1953}. Franklin, who died of ovarian cancer in 1958 at age 37, rarely received the Nobel Prize awarded to Watson, Crick, and Wilkins in 1962. Yet her replication studies — painstakingly mapping how DNA unwinds, is copied semiconservatively, and repairs itself — anticipated the entire field of cell-cycle biology. Every chapter covering DNA replication and the cell cycle is, in part, her story.
 
 ## DNA as the Genetic Material
 
-The Avery-MacLeod-McCarty experiment (1944) demonstrated that DNA (not [**protein**](#gl:protein)) carries genetic information by showing that purified DNA from virulent *Streptococcus pneumoniae* could transform non-virulent strains. The Hershey-Chase blender experiment (1952) confirmed this with radioactively labelled T4 phage: $^{32}$P-labelled DNA (not $^{35}$S-labelled protein) entered bacterial cells during infection.
+The Avery-MacLeod-McCarty experiment (1944) demonstrated that DNA (not [**protein**](#gl:protein)) carries genetic information by showing that purified DNA from virulent *Streptococcus pneumoniae* could transform non-virulent strains \citep{avery1944}. The Hershey-Chase blender experiment (1952) confirmed this with radioactively labeled T4 phage: $^{32}$P-labeled DNA (not $^{35}$S-labeled protein) entered bacterial cells during infection.
 
 ### DNA Double Helix Structure
 
-Watson and Crick's 1953 model of the B-form DNA helix, built on Rosalind Franklin's X-ray diffraction data (Photo 51) and Chargaff's base-pairing rules:
+Watson and Crick's 1953 model of the B-form DNA helix, built on Rosalind Franklin's X-ray diffraction data (Photo 51) and Chargaff's base-pairing rules \citep{watson1953}:
 
 - **Antiparallel complementary strands** running 5' to 3' and 3' to 5'
 - **Base pairing**: A-T (2 [**hydrogen bond**](#gl:hydrogen-bond)s), G-C (3 hydrogen bonds)
@@ -59,6 +59,7 @@ The phosphodiester backbone runs 5' to 3' and carries two negative charges per [
 
 **Alternative DNA conformations:**
 
+: DNA Double Helix Structure: Form and Helix. {#tbl:unit_IV_dna_replication_and_cell_cycle_dna_double_helix_structure}
 | Form | Helix | bp/turn | Diameter | Conditions |
 |------|-------|---------|----------|------------|
 | B-DNA | Right-handed | 10.5 | 2.0 nm | Physiological; most common |
@@ -78,7 +79,7 @@ Replication is **semiconservative** -- each daughter double helix retains one pa
 
 ### Origins of Replication and Licensing
 
-Replication begins at specific genomic sites called **origins of replication (ori)**:
+Replication begins at specific genomic sites called **origins of replication (ori)** \citep{bell2002eukreplication}:
 
 - **Prokaryotes**: *E. coli* has a single origin (*oriC*), a 245-bp sequence containing five 9-bp DnaA-binding sites (DnaA boxes) and three AT-rich 13-mer repeats that melt first upon initiation
 - **Eukaryotes**: Human genome contains approximately 30,000-50,000 origins; yeast origins are called **autonomously replicating sequences (ARS)**, each approximately 150 bp containing an 11-bp ARS consensus sequence (ACS)
@@ -151,6 +152,7 @@ flowchart TD
 
 ### Replication Fork Enzymes and Their Roles
 
+: Replication Fork Enzymes and Their Roles: Enzyme and Prokaryote. {#tbl:unit_IV_dna_replication_and_cell_cycle_replication_fork_enzymes_and_their_roles}
 | Enzyme | Prokaryote | Eukaryote | Function |
 |--------|-----------|-----------|----------|
 | Helicase | DnaB (5' to 3') | MCM2-7/CMG (3' to 5') | Unwinds double helix; uses ATP hydrolysis (~500-1000 bp/s in *E. coli*, ~50 bp/s in humans) |
@@ -323,16 +325,17 @@ The error rate of replication is remarkably low: approximately 1 error per $10^{
 
 **The shelterin complex — six-protein architecture and function:**
 
+: Telomeres and Telomerase: Subunit and DNA binding specificity. {#tbl:unit_IV_dna_replication_and_cell_cycle_telomeres_and_telomerase}
 | Subunit | DNA binding specificity | Function |
 | ------- | ----------------------- | -------- |
 | **TRF1** (telomeric repeat factor 1) | dsDNA TTAGGG (Myb domain) | Negatively regulates telomerase access; controls telomere length |
-| **TRF2** | dsDNA TTAGGG (Myb domain) | Stabilises T-loop; suppresses ATM-mediated DNA damage signalling at telomeres |
-| **TIN2** | TRF1, TRF2 partner (no DNA binding) | Bridge protein, stabilises whole complex |
+| **TRF2** | dsDNA TTAGGG (Myb domain) | Stabilizes T-loop; suppresses ATM-mediated DNA damage signaling at telomeres |
+| **TIN2** | TRF1, TRF2 partner (no DNA binding) | Bridge protein, stabilizes whole complex |
 | **RAP1** | TRF2 partner | NF-κB pathway crosstalk; chromatin contacts |
 | **TPP1** | TIN2 partner; binds POT1 | Recruits telomerase via TEL patch |
 | **POT1** | ssDNA TTAGGG-overhang (OB-fold domain) | Suppresses ATR; protects 3′ overhang |
 
-**T-loop formation in detail.** The 3′ G-rich overhang (150–200 nt) folds back and invades the upstream duplex, displacing one strand and forming a D-loop (displacement loop) within the T-loop. TRF2 wraps the DNA, inducing the strand exchange. The structure has been visualised by electron microscopy and STORM super-resolution. Shelterin coats the entire telomere — about ~1 shelterin per 100 bp.
+**T-loop formation in detail.** The 3′ G-rich overhang (150–200 nt) folds back and invades the upstream duplex, displacing one strand and forming a D-loop (displacement loop) within the T-loop. TRF2 wraps the DNA, inducing the strand exchange. The structure has been visualized by electron microscopy and STORM super-resolution. Shelterin coats the entire telomere — about ~1 shelterin per 100 bp.
 
 **Shelterin's six functions in protecting chromosome ends:**
 1. **Suppress ATM kinase** at telomeres (TRF2-dependent)
@@ -344,11 +347,11 @@ The error rate of replication is remarkably low: approximately 1 error per $10^{
 
 **Telomere replication problem in detail.** Two distinct issues:
 1. **Lagging-strand end-replication**: The very 5′ end of the lagging strand cannot be replicated because there is no upstream template for primer placement. After RNA primer removal, ~50–100 nt are lost from the 5′ end of the lagging-strand-complement.
-2. **Leading-strand end-resection**: The leading strand is synthesised continuously to the chromosome end, but specialised exonucleases then resect the 5′ end to generate the 3′ overhang necessary for T-loop formation.
+2. **Leading-strand end-resection**: The leading strand is synthesized continuously to the chromosome end, but specialized exonucleases then resect the 5′ end to generate the 3′ overhang necessary for T-loop formation.
 
 Result: each replication cycle, ~50–200 bp of TTAGGG repeats are lost from telomeres in the absence of telomerase.
 
-**G-quadruplex regulation.** The G-rich telomere sequence can fold into intramolecular G-quadruplexes (four G's stacked via Hoogsteen bonds). G-quadruplexes are stabilised by K⁺ but inhibit telomerase access. Drugs that stabilise telomeric G-quadruplexes (e.g., RHPS4, telomestatin, BRACO19) cause progressive telomere shortening and senescence in cancer cells — they are anti-cancer leads but limited by toxicity in normal stem cells.
+**G-quadruplex regulation.** The G-rich telomere sequence can fold into intramolecular G-quadruplexes (four G's stacked via Hoogsteen bonds). G-quadruplexes are stabilized by K⁺ but inhibit telomerase access. Drugs that stabilize telomeric G-quadruplexes (e.g., RHPS4, telomestatin, BRACO19) cause progressive telomere shortening and senescence in cancer cells — they are anti-cancer leads but limited by toxicity in normal stem cells.
 
 **G-quadruplexes**: The G-rich telomeric sequence can fold into **G-quadruplex** structures -- stacked tetrads of four guanines connected by Hoogsteen hydrogen bonds, stabilized by monovalent cations (K$^+$). G-quadruplexes inhibit telomerase and are targets for anti-cancer drug development.
 
@@ -378,7 +381,7 @@ Result: each replication cycle, ~50–200 bp of TTAGGG repeats are lost from tel
 
 ## The Cell Cycle
 
-The **cell cycle** is the ordered series of events by which a cell duplicates its contents and divides. In a typical mammalian cell, the cycle takes approximately 24 hours.
+The **cell cycle** is the ordered series of events by which a cell duplicates its contents and divides \citep{nurse2000cellcycle}. In a typical mammalian cell, the cycle takes approximately 24 hours.
 
 ```mermaid
 stateDiagram-v2
@@ -417,6 +420,7 @@ stateDiagram-v2
 
 ### Cell Cycle Phases
 
+: Cell Cycle Phases: Phase and Duration (typical). {#tbl:unit_IV_dna_replication_and_cell_cycle_cell_cycle_phases}
 | Phase | Duration (typical) | Key Events |
 |-------|-------------------|------------|
 | **G1** (Gap 1) | 8-12 h | Cell growth; [**organelle**](#gl:organelle) duplication; assessment of extracellular signals (mitogens, growth factors); passage through the **restriction point (R)** commits the cell to divide |
@@ -427,8 +431,9 @@ stateDiagram-v2
 
 ### Cyclin-CDK Complexes: The Cell Cycle Engine
 
-The cell cycle is driven by the sequential activation and destruction of **cyclin-CDK (cyclin-dependent kinase)** complexes:
+The cell cycle is driven by the sequential activation and destruction of **cyclin-CDK (cyclin-dependent kinase)** complexes, with checkpoint controls preserving the order of replication and division events \citep{hartwell1989checkpoints}:
 
+: Cyclin-CDK Complexes: The Cell Cycle Engine: Phase and Cyclin-CDK Complex. {#tbl:unit_IV_dna_replication_and_cell_cycle_cyclin_cdk_complexes_the_cell_cycle_engine}
 | Phase | Cyclin-CDK Complex | Key Substrates | Function |
 |-------|-------------------|----------------|----------|
 | G1 (early) | Cyclin D - CDK4/6 | RB (retinoblastoma protein) | Partial phosphorylation of RB; releases E2F to transcribe S-phase genes |
@@ -446,6 +451,7 @@ The cell cycle is driven by the sequential activation and destruction of **cycli
 
 **Quantitative CDK activity through the cell cycle.** Single-cell biosensor measurements have provided a quantitative picture of CDK activity dynamics:
 
+: Cyclin-CDK Complexes: The Cell Cycle Engine: Cell-cycle phase and Total CDK activity. {#tbl:unit_IV_dna_replication_and_cell_cycle_cyclin_cdk_complexes_the_cell_cycle_engine_2}
 | Cell-cycle phase | Total CDK activity | Active complexes | Approximate timing (mammalian, 24-h cycle) |
 | ---------------- | ------------------ | ---------------- | ------------------------------------------ |
 | Early G1 (mitogen-stimulated) | ~5 % of peak | Cyclin D-CDK4/6 (low) | 0–4 h post-mitosis |
@@ -469,35 +475,36 @@ Cancer is essentially a disease of cell-cycle deregulation. Key checkpoint mutat
 - Normal: hypophosphorylated RB binds E2F → E2F cannot transcribe S-phase genes (DNA Pol α, PCNA, MCM, thymidine kinase)
 - Cancer: biallelic RB1 mutations or deletions (retinoblastoma; small-cell lung cancer; bladder; osteosarcoma)
 - Consequence: constitutive E2F activity; cells enter S phase regardless of mitogen status
-- Therapeutic relevance: **CDK4/6 inhibitors (palbociclib, ribociclib, abemaciclib) are ineffective in RB-null tumours** because the entire downstream pathway is already deregulated.
+- Therapeutic relevance: **CDK4/6 inhibitors (palbociclib, ribociclib, abemaciclib) are ineffective in RB-null tumors** because the entire downstream pathway is already deregulated.
 
 **(2) p53 loss (G1/S and G2/M checkpoints failure)**
 - Normal: p53 senses DNA damage → induces p21 → arrests CDK2 (G1/S) and CDK1 (G2/M); also induces apoptosis (BAX, PUMA, NOXA)
-- Cancer: ~50 % of cancers carry p53 mutations (most frequent mutated gene); often dominant-negative (mutant p53 oligomerises with wild-type to inactivate it) or gain-of-function (p53^R175H^, p53^R273H^ stabilise oncogenic chromatin states)
+- Cancer: ~50 % of cancers carry p53 mutations (most frequent mutated gene); often dominant-negative (mutant p53 oligomerises with wild-type to inactivate it) or gain-of-function (p53^R175H^, p53^R273H^ stabilize oncogenic chromatin states)
 - Consequence: cells with damaged DNA continue dividing; aneuploidy; centrosome amplification; chromosomal instability
-- Therapeutic relevance: PRIMA-1, APR-246 (eprenetapopt) re-fold mutant p53 conformations; HDM2 inhibitors (idasanutlin, milademetan) re-stabilise wild-type p53 in tumours where p53 is wild-type but suppressed by HDM2 amplification.
+- Therapeutic relevance: PRIMA-1, APR-246 (eprenetapopt) re-fold mutant p53 conformations; HDM2 inhibitors (idasanutlin, milademetan) re-stabilize wild-type p53 in tumors where p53 is wild-type but suppressed by HDM2 amplification.
 
 **(3) WEE1/CDC25 deregulation (G2/M checkpoint failure)**
 - Normal: Wee1 phosphorylates CDK1 (Tyr15) → inactive; Cdc25 dephosphorylates → activates; balance controls mitotic entry timing.
 - Cancer-relevant deregulation:
-  - **CDC25 amplification** in many tumours (breast, lung, pancreatic) → premature CDK1 activation → DNA-damaged cells enter mitosis prematurely → mitotic catastrophe (paradoxically anti-tumour in some contexts).
-  - **WEE1 inhibition (adavosertib/MK-1775)** is being trialled in p53-mutant tumours: without p53 (the G1/S guard), the cell relies on Wee1-mediated G2/M arrest; inhibiting Wee1 forces entry into mitosis with damaged DNA → mitotic catastrophe. This is **synthetic lethality** with p53 loss.
+  - **CDC25 amplification** in many tumors (breast, lung, pancreatic) → premature CDK1 activation → DNA-damaged cells enter mitosis prematurely → mitotic catastrophe (paradoxically anti-tumor in some contexts).
+  - **WEE1 inhibition (adavosertib/MK-1775)** is being trialled in p53-mutant tumors: without p53 (the G1/S guard), the cell relies on Wee1-mediated G2/M arrest; inhibiting Wee1 forces entry into mitosis with damaged DNA → mitotic catastrophe. This is **synthetic lethality** with p53 loss.
 
 **(4) APC/C-Cdc20 / SAC failures**
 - Normal: SAC (mitotic checkpoint complex MCC: Mad2 + BubR1 + Bub3) prevents anaphase until kinetochores are properly attached.
 - Cancer: **BUB1B (BubR1)** loss-of-function causes mosaic variegated aneuploidy syndrome (childhood cancers, microcephaly).
-- Tumour-targeting drugs:
-  - **Taxanes (paclitaxel, docetaxel)** stabilise microtubules → triggering SAC arrest → mitotic catastrophe + apoptosis
+- Tumor-targeting drugs:
+  - **Taxanes (paclitaxel, docetaxel)** stabilize microtubules → triggering SAC arrest → mitotic catastrophe + apoptosis
   - **Vincristine, vinblastine, vinorelbine** depolymerise microtubules → SAC arrest
 
 **(5) MCM helicase / replication-stress tolerance**
 - Normal: ATR activates Chk1 in response to stalled forks → suppresses dormant origin firing under stress
-- Cancer: tumours often have constitutively elevated replication stress (driven by oncogenic *MYC* or *RAS*); this provides a vulnerability:
+- Cancer: tumors often have constitutively elevated replication stress (driven by oncogenic *MYC* or *RAS*); this provides a vulnerability:
   - **ATR inhibitors (berzosertib, ceralasertib)** block the cancer cell's ability to manage replication stress → genome catastrophe
   - **CHK1 inhibitors (LY2603618, prexasertib)** similarly target the replication-stress response
 
 **Summary table — checkpoint failures and therapeutic targeting:**
 
+: Specific Checkpoint Failures in Cancer: Checkpoint failure and Cancer. {#tbl:unit_IV_dna_replication_and_cell_cycle_specific_checkpoint_failures_in_cancer}
 | Checkpoint failure | Cancer | Therapeutic strategy |
 | ------------------ | ------ | -------------------- |
 | RB1 loss (G1/S) | Retinoblastoma; SCLC; bladder | CDK4/6 inhibitors INEFFECTIVE (downstream); requires alternative |
@@ -587,6 +594,7 @@ p53 is the most frequently mutated gene in human cancers (approximately 50% of c
 
 Cancer is fundamentally a disease of uncontrolled cell cycle progression. Key deregulated pathways:
 
+: Cancer and the Cell Cycle: Gene/Pathway and Normal Function. {#tbl:unit_IV_dna_replication_and_cell_cycle_cancer_and_the_cell_cycle}
 | Gene/Pathway | Normal Function | Cancer Alteration | Associated Cancer |
 |-------------|----------------|-------------------|-------------------|
 | RB1 | G1/S checkpoint | Loss-of-function mutations | Retinoblastoma (childhood eye cancer); also lung, bladder |
@@ -610,7 +618,7 @@ Cancer is fundamentally a disease of uncontrolled cell cycle progression. Key de
 
 > **Worked Example — Telomere Length and Hayflick Limit:** Human somatic cells lose ~50-200 bp per cell division from chromosome ends. Starting telomere length: ~10,000 bp. Minimum functional telomere: ~2,000 bp (below this, TRF2/POT1 cannot form T-loop, triggering p53-dependent arrest). Maximum divisions before arrest: (10,000 - 2,000)/100 bp loss/division = 80 divisions — matching the Hayflick limit of ~40-70 divisions for most human cells. Cancer cells upregulate telomerase (TERT + TERC + DKC1), maintaining telomere length at 5,000-8,000 bp, enabling unlimited division. Telomere length heterogeneity: standard deviation ≈ 1,500 bp. Cells first approach arrest when the shortest telomere (mean - 2 SD ≈ 10,000 - 3,000 = 7,000 bp minus divisions × 100) becomes critical — predicting that arrest begins at ~50 divisions (earlier than mean estimate), matching the wide observed Hayflick range.
 
-> **Concept Check (Evaluation):** CDK4/6 inhibitors (palbociclib, ribociclib) are FDA-approved for HR+/HER2− breast cancer. They inhibit CDK4 and CDK6, preventing Rb phosphorylation and blocking G1/S transition. (a) Using the restriction point model, explain why Rb-deficient tumour cells are intrinsically resistant to CDK4/6 inhibitors. (b) Why do CDK4/6 inhibitors cause reversible cell-cycle arrest (cytostatic) rather than killing (cytotoxic) in normal cells, and what property of cancer cells makes them vulnerable to subsequent CDK4/6 inhibitor-induced senescence? (c) Acquired resistance to palbociclib often involves amplification of cyclin E (CCNE1), which activates CDK2. Design a combination therapy that would overcome this resistance mechanism and explain the sequential mechanistic logic.
+> **Concept Check (Evaluation):** CDK4/6 inhibitors (palbociclib, ribociclib) are FDA-approved for HR+/HER2− breast cancer. They inhibit CDK4 and CDK6, preventing Rb phosphorylation and blocking G1/S transition. (a) Using the restriction point model, explain why Rb-deficient tumor cells are intrinsically resistant to CDK4/6 inhibitors. (b) Why do CDK4/6 inhibitors cause reversible cell-cycle arrest (cytostatic) rather than killing (cytotoxic) in normal cells, and what property of cancer cells makes them vulnerable to subsequent CDK4/6 inhibitor-induced senescence? (c) Acquired resistance to palbociclib often involves amplification of cyclin E (CCNE1), which activates CDK2. Design a combination therapy that would overcome this resistance mechanism and explain the sequential mechanistic logic.
 
 ---
 
@@ -620,6 +628,7 @@ Mitosis distributes one copy of each duplicated chromosome to each daughter cell
 
 **Stages of mitosis -- molecular detail:**
 
+: Cancer and the Cell Cycle: Phase and Duration. {#tbl:unit_IV_dna_replication_and_cell_cycle_cancer_and_the_cell_cycle_2}
 | Phase | Duration | Molecular Events |
 |-------|----------|-----------------|
 | **Prophase** | ~25 min | Condensin I/II complexes compact chromosomes (~10,000-fold); centrosomes (duplicated in S phase) begin migrating to opposite poles; Aurora A kinase activates centrosome maturation |
@@ -643,6 +652,7 @@ Meiosis produces haploid (n) [**gamete**](#gl:gamete)s from [**diploid (2n)**](#
 
 ### Meiosis I (Reductive Division)
 
+: Meiosis I (Reductive Division): Stage and Key Events. {#tbl:unit_IV_dna_replication_and_cell_cycle_meiosis_i_reductive_division}
 | Stage | Key Events |
 |-------|-----------|
 | **Prophase I** | The longest and most complex stage; subdivided into: leptotene (chromosomes condense; telomeres attach to nuclear envelope forming "bouquet"), zygotene (homologous chromosomes pair by synapsis via the **synaptonemal complex**), pachytene (crossing over occurs; **Spo11** makes programmed DSBs; **Dmc1** and **Rad51** mediate strand invasion; ~1-3 crossovers per chromosome), diplotene (synaptonemal complex disassembles; homologs connected primarily at **chiasmata**), diakinesis (further condensation; nuclear envelope breaks down) |
@@ -674,6 +684,7 @@ DNA sustains approximately 10,000-100,000 lesions per cell per day from endogeno
 
 ### Types of DNA Damage
 
+: Types of DNA Damage: Damage Type and Source. {#tbl:unit_IV_dna_replication_and_cell_cycle_types_of_dna_damage}
 | Damage Type | Source | Frequency (per cell per day) |
 |-------------|--------|------------------------------|
 | Depurination (AP sites) | Spontaneous hydrolysis | ~5,000-10,000 |
@@ -740,7 +751,7 @@ The choice between NHEJ and HR is regulated by **53BP1** (favors NHEJ) versus **
 
 \begin{equation}\Delta L = 60 \text{ divisions} \times 100 \text{ bp/division} = 6{,}000 \text{ bp}\label{eq:telomere_total_loss}\end{equation}
 
-The predicted $60$ divisions sits squarely within the measured Hayflick limit of $\approx 50$--$70$ divisions for human fibroblasts, showing how the end-replication problem imposes a built-in replicative clock that limits the proliferative capacity of somatic cells and acts as a tumour-suppressive barrier.
+The predicted $60$ divisions sits squarely within the measured Hayflick limit of $\approx 50$--$70$ divisions for human fibroblasts, showing how the end-replication problem imposes a built-in replicative clock that limits the proliferative capacity of somatic cells and acts as a tumor-suppressive barrier.
 
 
 ## Worked Example: Replication Fork Dynamics
@@ -872,6 +883,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for DNA Replication and the Cell Cycle. {#tbl:unit_IV_dna_replication_and_cell_cycle_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/genetics/genetics.py` (`dna_complement`, `hamming_distance`) | Test strand complementarity and sequence-change reasoning. |

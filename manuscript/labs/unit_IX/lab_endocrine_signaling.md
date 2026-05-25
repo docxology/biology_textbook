@@ -1,6 +1,5 @@
-# Lab — Endocrine Signaling and Homeostasis {.unnumbered}
+# Lab — Endocrine Signaling and Homeostasis {#sec:lab_unit_IX_endocrine_signaling .unnumbered}
 
-\label{sec:lab_unit_IX_endocrine_signaling}
 
 *This activity accompanies \cref{sec:unit_IX_endocrine_signaling} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -9,7 +8,7 @@
 *This activity accompanies \cref{sec:unit_IX_endocrine_signaling} of the textbook — review that chapter before attempting the exercises below.*
 
 - Interpret blood hormone panels to diagnose endocrine disorders (hypo- vs hyperthyroidism, diabetes, Cushing's)
-- Analyse a cytokine profile to determine the type and severity of an inflammatory response
+- Analyze a cytokine profile to determine the type and severity of an inflammatory response
 - Model the HPT axis feedback loop using a paper-based regulatory diagram
 - Evaluate innate immune pattern recognition using TLR ligand-response data
 
@@ -28,8 +27,8 @@
 
 *Answer these before starting the investigation — they activate knowledge from the parent chapter.*
 
-1. Sketch the hypothalamic–pituitary–thyroid axis, labelling TRH, TSH, T3, and T4. In two to three sentences, describe how negative feedback from circulating T3/T4 onto the hypothalamus and pituitary tends to stabilise thyroid hormone levels in a healthy adult.
-2. Distinguish how B cells and T cells recognise antigen: identify which cell type binds soluble antigen directly through a surface receptor, and which requires antigen presentation via MHC molecules. Include one functional consequence of this difference.
+1. Sketch the hypothalamic–pituitary–thyroid axis, labeling TRH, TSH, T3, and T4. In two to three sentences, describe how negative feedback from circulating T3/T4 onto the hypothalamus and pituitary tends to stabilize thyroid hormone levels in a healthy adult.
+2. Distinguish how B cells and T cells recognize antigen: identify which cell type binds soluble antigen directly through a surface receptor, and which requires antigen presentation via MHC molecules. Include one functional consequence of this difference.
 3. Contrast a steroid hormone (e.g., cortisol) with a peptide hormone (e.g., insulin) in terms of receptor location and typical timescale of cellular response, and predict which one's effects would persist longer after a brief secretion pulse.
 
 ## Lab Context: Endocrine Signaling and Homeostasis {.unnumbered}
@@ -38,6 +37,7 @@ The endocrine system uses hormones (chemical messengers released into the bloods
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IX_endocrine_signaling_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Endocrine Signaling and Homeostasis: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
@@ -76,11 +76,12 @@ Complete the source-governance card for Endocrine Signaling and Homeostasis befo
 - **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
 <!-- lab-evidence-checklist-end -->
 
-## Paper-Based Evidence Upgrade
+## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
 **Endocrine Signaling and Homeostasis** with a reproducibility pass:
 
+: Source-Governance Checkpoint: Evidence check and Student action. {#tbl:unit_IX_endocrine_signaling_source_governance_checkpoint}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |

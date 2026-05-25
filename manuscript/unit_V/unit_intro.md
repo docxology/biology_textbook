@@ -1,7 +1,6 @@
-# Unit V — Classical Genetics and Heredity: Introduction {.unnumbered}
+# Unit V — Classical Genetics and Heredity: Introduction {#sec:unit_V_unit_intro .unnumbered}
 
 
-\label{sec:unit_V_unit_intro}
 ## Why This Unit Matters {.unnumbered}
 
 In 1866, an Augustinian friar in Brno published a mathematical analysis of 29,000 pea plants he had
@@ -9,8 +8,8 @@ grown in the monastery garden. Gregor Mendel showed that heritable traits are pa
 offspring in discrete, predictable ratios — 3:1 for monohybrid crosses, 9:3:3:1 for dihybrid crosses.
 His paper, \"Versuche über Pflanzenhybriden,\" went unread for 34 years. When it was rediscovered
 simultaneously by de Vries, Correns, and Tschermak in 1900, it ignited a revolution: the laws of
-segregation and independent assortment described the behaviour of something that Mendel had rarely
-seen — chromosomes, structures not visualised until the 1880s, and connected to genes primarily by Thomas
+segregation and independent assortment described the behavior of something that Mendel had rarely
+seen — chromosomes, structures not visualized until the 1880s, and connected to genes primarily by Thomas
 Hunt Morgan's fruit fly experiments in 1910.
 
 The synthesis of Mendel's mathematical laws with chromosomal theory, and later with population
@@ -32,13 +31,13 @@ and apply the Hardy-Weinberg equations to natural populations.
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| Gregor Mendel | 1866 | *Verh. naturf. Vereines Brünn* | Laws of segregation and independent assortment | Mathematical foundation of genetics; rediscovered 1900 |
-| Walther Flemming | 1882 | *Zellsubstanz, Kern und Zelltheilung* | Chromosomes during mitosis (\"chromatin\") | First visualisation of chromosomal segregation |
-| Thomas Hunt Morgan | 1910 | *Science* | Sex-linked inheritance in *Drosophila* | Proved genes reside on chromosomes; Nobel Prize 1933 |
-| Alfred Sturtevant | 1913 | *J. Exp. Zool.* | First genetic map (6 X-linked *Drosophila* genes) | Showed recombination frequency ∝ map distance |
-| Barbara McClintock | 1950 | *Proc. Natl. Acad. Sci.* | Transposable elements (\"jumping genes\") | Showed genomes are dynamic; Nobel Prize 1983 |
-| Hardy & Weinberg | 1908 | *Science; Jahreshefte d. Ver. f. Vaterländ. Naturk.* | Population genetic equilibrium | Allele frequencies stable without evolution; quantitative tool for deviations |
-| Human Genome Project Consortium | 2001 | *Nature* | Draft human genome sequence | ~3.2 Gb; ~20,000 protein-coding genes; foundation for GWAS |
+| Gregor Mendel | 1866 | \citep{mendel1866} | Laws of segregation and independent assortment | Mathematical foundation of genetics; rediscovered 1900 |
+| Walther Flemming | 1882 | \citep{flemming1882} | Chromosomes during mitosis (\"chromatin\") | First visualization of chromosomal segregation |
+| Thomas Hunt Morgan | 1910 | \citep{morgan1910} | Sex-linked inheritance in *Drosophila* | Proved genes reside on chromosomes; Nobel Prize 1933 |
+| Alfred Sturtevant | 1913 | \citep{sturtevant1913} | First genetic map (6 X-linked *Drosophila* genes) | Showed recombination frequency ∝ map distance |
+| Barbara McClintock | 1950 | \citep{mcclintock1950} | Transposable elements (\"jumping genes\") | Showed genomes are dynamic; Nobel Prize 1983 |
+| Hardy & Weinberg | 1908 | \citep{weinberg1908} | Population genetic equilibrium | Allele frequencies stable without evolution; quantitative tool for deviations |
+| Human Genome Project Consortium | 2001 | \citep{lander2001humangenome} | Draft human genome sequence | ~3.2 Gb; ~20,000 protein-coding genes; foundation for GWAS |
 
 ---
 

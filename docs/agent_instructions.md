@@ -126,7 +126,7 @@ When writing or editing manuscript chapters:
 2. **Citation format:** author(s) year in parentheses for inline (e.g. *(Hodgkin & Huxley, 1952)*); use full journal name in landmark tables.
 3. **LaTeX math:** `$...$` for inline, `$$...$$` for display. Prefer descriptive names: `$K_m$` not just `$K$`. See [manuscript_guide.md#equations](manuscript_guide.md#equations) for the cross-reference decision tree.
 4. **Figures (LaTeX):** raw `\begin{figure}...\end{figure}` with `\caption{...}` and `\label{fig:unit_X_<descriptor>}`; refer in prose with `\cref{fig:...}`. **Do not** hand-type "Figure 4.2" in prose. After each figure block, an `<!-- alt: ... -->` HTML comment is **required** ([test_accessibility.py](../tests/test_accessibility.py)).
-5. **Figures (Mermaid):** after each ` ```mermaid ` block, include exactly one `<!-- alt: ... -->` comment and one *italic* descriptive caption; no hand-numbered "Figure N.M" in prose. The manuscript currently contains 193 inline Mermaid fences, including 18 current-evidence maps; keep captions specific enough that a reader can interpret the figure without color.
+5. **Figures (Mermaid):** after each ` ```mermaid ` block, include exactly one `<!-- alt: ... -->` comment and one *italic* descriptive caption; no hand-numbered "Figure N.M" in prose. The manuscript currently contains 196 inline Mermaid fences, including current-evidence maps; keep captions specific enough that a reader can interpret the figure without color.
 6. **Mermaid types:** `flowchart LR` (pathways), `sequenceDiagram` (signal cascades), `flowchart TD` / `graph TD` (hierarchies). Node labels in sentence case, < 30 characters; wrap labels with parentheses or colons in `"..."`.
 7. **Clinical Connection:** blockquote `> **Clinical Connection:**`. One per major section. Reference drug names with class, mechanism, and approval status.
 8. **Concept Check:** one per major section (not per subsection). Format: `> **Concept Check:** \<integrative question\>`.
@@ -172,10 +172,10 @@ The Opening Vignette is a **historically grounded narrative** (**150–300 words
 > In the summer of 1949, Alan Hodgkin and Andrew Huxley returned to the Marine
 > Biological Association laboratory in Plymouth, three years after war work had
 > interrupted their pre-war experiments. Their target was the giant axon of the
-> squid *Loligo forbesii* — a single nerve fibre nearly half a millimetre thick,
+> squid *Loligo forbesii* — a single nerve fiber nearly half a millimetre thick,
 > wide enough to thread with a thin glass capillary electrode.
 >
-> The puzzle was sharp: nerve impulses propagated faithfully over metres, but
+> The puzzle was sharp: nerve impulses propagated faithfully over meters, but
 > nobody knew how a cell membrane could *generate* the brief reversal of voltage
 > that constituted a spike. Was the membrane simply leaking, or was it actively
 > driving current?
@@ -184,7 +184,7 @@ The Opening Vignette is a **historically grounded narrative** (**150–300 words
 > at a chosen value while measuring the current required to do so. Across hundreds
 > of trials they isolated two ionic conductances — one fast and inward, one slow
 > and outward — that obeyed kinetics they could fit with a few coupled
-> differential equations \citep{hodgkin1952}. The fit was so precise that the
+> differential equations \citep{hodgkin1952quantitative}. The fit was so precise that the
 > equations could *predict* the action potential's shape from first principles.
 >
 > Within a decade, this framework reshaped neurophysiology, electrocardiology,
@@ -209,13 +209,13 @@ A **Concept Check** is a short integrative question that asks the reader to *app
 
 ### Cognitive levels to span across a chapter
 
-A chapter's three Concept Checks should not all sit at the same Bloom level. Aim for at least one at **Apply** and one at **Analyse**, with optional **Evaluate** or **Synthesis** on capstone sections. See [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md) for the verb tables.
+A chapter's three Concept Checks should not all sit at the same Bloom level. Aim for at least one at **Apply** and one at **Analyze**, with optional **Evaluate** or **Synthesis** on capstone sections. See [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md) for the verb tables.
 
 | Level | Concept-check archetype | Example stem |
 | ----- | ----------------------- | ------------ |
 | **Recall** (rare; usually too shallow) | "List…", "Name…" | "List the four nucleotide bases." (avoid as a Concept Check) |
 | **Apply** | "Compute…", "Predict…", "Use … to calculate…" | "Given $K_m$ and $V_{\max}$, compute $v_0$ at $[S]$ = 0.5 mM." |
-| **Analyse** | "Identify which term…", "Distinguish…", "Diagram…" | "Identify which Goldman-equation term drives a 20 mV depolarisation." |
+| **Analyze** | "Identify which term…", "Distinguish…", "Diagram…" | "Identify which Goldman-equation term drives a 20 mV depolarization." |
 | **Evaluate / synthesis** | "Justify…", "Choose between…", "Sketch and explain…" | "Two species share intrinsic growth rate but differ in $K$. Sketch their trajectories and identify the time of maximal divergence." |
 
 ### Good question design
@@ -348,7 +348,7 @@ Every chapter must have, in this order:
 | Subsection | `###` under chapter sections | `### CpG islands` |
 | Cross-references (chapter) | `\cref{sec:unit_X_<stem>}` — `stem` matches chapter filename stem | `see \cref{sec:unit_VI_evolution_and_selection}` |
 | Cross-references (figure / equation / table) | `\cref{fig:…}` / `\cref{eq:…}` / `\cref{tbl:…}` | `as shown in \cref{fig:unit_I_michaelis_menten}` |
-| Citations | `\citep{…}` (parenthetical) or `\citet{…}` (textual), natbib | `\citet{darwin1858}` / `\citep{hodgkin1952}` |
+| Citations | Prefer `\citep{…}` (parenthetical) or `\citet{…}` (textual); documented natbib rare forms and optional arguments are parsed by the same citation helper | `\citet{darwin1858}` / `\citep{hodgkin1952quantitative}` |
 | Glossary term on first use | `[**term**](#gl:term-slug)` | `[**chemiosmosis**](#gl:chemiosmosis)` |
 | Vignette block | `> **Opening Vignette — ...**` using `>` blockquote | — |
 | Terms on first use | **Bold** | "**chromatin**" |

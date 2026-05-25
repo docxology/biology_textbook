@@ -1,6 +1,5 @@
-# Lab — Plant Structure, Water Relations, and Transport {.unnumbered}
+# Lab — Plant Structure, Water Relations, and Transport {#sec:lab_unit_VIII_plant_structure_and_water .unnumbered}
 
-\label{sec:lab_unit_VIII_plant_structure_and_water}
 
 *This activity accompanies \cref{sec:unit_VIII_plant_structure_and_water} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -52,6 +51,7 @@ Vascular plants have three tissue systems: dermal (epidermis, cuticle, guard cel
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VIII_plant_structure_and_water_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Plant Structure, Water Relations, and Transport: plant evidence source card: tissue, driver, field context, breeding/adoption boundary, and refresh trigger | 1 |
@@ -75,7 +75,7 @@ Vascular plants have three tissue systems: dermal (epidermis, cuticle, guard cel
    - Dependent variable: Tissue arrangement and identification
    - Controlled variables: image source, scale-bar calibration, diagram resolution, tissue orientation, scoring key, and blind-card order.
 
-3. **Set Up Controls**: Why is it important for the diagram packet to include a labelled reference image and an unlabelled image from the same species? What other controls could you include to ensure accurate tissue identification?
+3. **Set Up Controls**: Why is it important for the diagram packet to include a labeled reference image and an unlabelled image from the same species? What other controls could you include to ensure accurate tissue identification?
 
 4. **Data Collection**:
    - Use the printed stem cross-section diagram to identify and label: epidermis, cortex (parenchyma), vascular bundles (xylem = larger, thick-walled; phloem = smaller, thin-walled), pith.
@@ -111,6 +111,7 @@ print("transpiration flux:", round(flux.flux_mmol_m2_s, 2), "mmol m^-2 s^-1")
 
 ## Data Recording {.unnumbered}
 
+: Part 3: Transpiration Dataset and Model Check: Structure and Observed in stem?. {#tbl:unit_VIII_plant_structure_and_water_part_3_transpiration_dataset_and_model_check}
 | Structure | Observed in stem? | Observed in root? | Function |
 | --------- | ----------------- | ----------------- | -------- |
 | Epidermis | | | |
@@ -119,6 +120,7 @@ print("transpiration flux:", round(flux.flux_mmol_m2_s, 2), "mmol m^-2 s^-1")
 | Endodermis | | | |
 | Pith | | | |
 
+: Part 3: Transpiration Dataset and Model Check: Condition and Mean water loss (g). {#tbl:unit_VIII_plant_structure_and_water_part_3_transpiration_dataset_and_model_check_2}
 | Condition | Mean water loss (g) | Time (min) | Transpiration rate (g/min) | Transpiration (g/m²/min) |
 | --------- | -------------- | ---------- | ------------------------- | ------------------------ |
 | Dim light, still | | | | |
@@ -145,6 +147,7 @@ Diagram evidence for xylem pathway: feature 1: ___; feature 2: ___; feature 3: _
 Before answering the analysis questions, annotate the paper dataset for
 **Plant Structure, Water Relations, and Transport** with a reproducibility pass:
 
+: Part 3: Transpiration Dataset and Model Check: Evidence check and Student action. {#tbl:unit_VIII_plant_structure_and_water_part_3_transpiration_dataset_and_model_check_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -244,7 +247,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_VIII_plant_structure_and_water} that your data either confirmed or complicated. Cite the specific passage.
 

@@ -17,6 +17,8 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from biology.citations import bib_keys, citation_keys
+
 
 MANUSCRIPT = Path(__file__).resolve().parent.parent / "manuscript"
 PROJECT = MANUSCRIPT.parent
@@ -43,16 +45,69 @@ def test_every_chapter_has_section_label() -> None:
 
 
 def test_every_lab_and_question_has_section_label() -> None:
+    from biology.curriculum_sync.sync_blocks import STANDALONE_SEC_LABEL_RE
+
+    h1_identifier = re.compile(r"^#\s+.*\{#sec:[^}\s]+")
     for subtree, glob in (("labs", "lab_*.md"), ("questions", "questions_*.md")):
         missing: list[Path] = []
+        standalone_offenders: list[Path] = []
         for f in (MANUSCRIPT / subtree).rglob(glob):
             text = f.read_text(encoding="utf-8")
-            if re.search(r"\\label\{sec:[^}]+\}", text) is None:
+            first_h1 = next((line for line in text.splitlines() if line.startswith("# ")), "")
+            if not h1_identifier.match(first_h1):
                 missing.append(f)
-        assert not missing, f"Missing section labels in {subtree}: {missing}"
+            h1_id_match = re.search(r"\{#(sec:[^}\s]+)", first_h1)
+            canonical = h1_id_match.group(1) if h1_id_match else ""
+            for line in text.splitlines():
+                standalone = STANDALONE_SEC_LABEL_RE.match(line.strip())
+                if standalone and standalone.group(1) == canonical:
+                    standalone_offenders.append(f)
+                    break
+        assert not missing, f"Missing H1 section identifiers in {subtree}: {missing}"
+        assert not standalone_offenders, (
+            f"Standalone canonical sec labels remain in {subtree}: {standalone_offenders}"
+        )
 
 
-def test_every_chapter_has_metadata_badge() -> None:
+def test_unnumbered_surfaces_use_h1_identifiers() -> None:
+    """Unit intros and reference appendices must bind ``sec:`` ids to ``\\section*`` H1s."""
+    from biology.curriculum_sync.sync_blocks import STANDALONE_SEC_LABEL_RE
+    from biology.toc import load_toc
+
+    book_toc = load_toc(PROJECT)
+    h1_identifier = re.compile(r"^#\s+.*\{#sec:[^}\s]+")
+    offenders: list[str] = []
+    labeled_paths: list[tuple[Path, str]] = [
+        *((unit.intro_path, unit.section_label) for unit in book_toc.units),
+        *((reference.path, reference.section_label) for reference in book_toc.references),
+    ]
+    for path, canonical in labeled_paths:
+        text = path.read_text(encoding="utf-8")
+        first_h1 = next((line for line in text.splitlines() if line.startswith("# ")), "")
+        if not h1_identifier.match(first_h1):
+            offenders.append(f"{path.relative_to(MANUSCRIPT)}: missing H1 identifier")
+        if f"{{#{canonical}" not in first_h1:
+            offenders.append(f"{path.relative_to(MANUSCRIPT)}: expected {{#{canonical}}}")
+        for line in text.splitlines():
+            standalone = STANDALONE_SEC_LABEL_RE.match(line.strip())
+            if standalone and standalone.group(1) == canonical:
+                offenders.append(f"{path.relative_to(MANUSCRIPT)}: standalone \\label{{{canonical}}}")
+                break
+    assert not offenders, offenders
+
+
+def test_unnumbered_sections_use_nameref_not_cref() -> None:
+    """``\\cref`` on starred ``\\section*`` labels resolves to a shared counter."""
+    bad = re.compile(r"\\cref\{(sec:(?:lab_|q_|appendix_|glossary)|sec:unit_[^}]*_unit_intro)\}")
+    offenders: list[str] = []
+    skip = {"preamble.md", "AGENTS.md", "README.md"}
+    for path in MANUSCRIPT.rglob("*.md"):
+        if path.name in skip:
+            continue
+        for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            if bad.search(line):
+                offenders.append(f"{path.relative_to(MANUSCRIPT)}:{line_no}")
+    assert not offenders, offenders[:10]
     missing: list[Path] = []
     for unit_dir in sorted(MANUSCRIPT.glob("unit_*")):
         for ch in sorted(unit_dir.glob("*.md")):
@@ -135,14 +190,12 @@ def test_every_figure_label_has_prose_cref() -> None:
 def test_bibliography_closed() -> None:
     """Every BibTeX entry is cited; every citation resolves."""
     bib = (MANUSCRIPT / "references.bib").read_text(encoding="utf-8")
-    defined = set(re.findall(r"@\w+\{([^,\s]+),", bib))
+    defined = bib_keys(bib)
     cited: set[str] = set()
     for md in MANUSCRIPT.rglob("*.md"):
         if md.name in {"README.md", "AGENTS.md"}:
             continue
-        for m in re.finditer(r"\\cite[pt]?\*?\{([^}]+)\}", md.read_text(encoding="utf-8")):
-            for k in m.group(1).split(","):
-                cited.add(k.strip())
+        cited.update(citation_keys(md.read_text(encoding="utf-8")))
     assert cited - defined == set(), f"Dangling citations: {cited - defined}"
     assert defined - cited == set(), f"Orphan entries: {defined - cited}"
 

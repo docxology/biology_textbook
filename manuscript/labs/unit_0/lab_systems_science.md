@@ -1,6 +1,5 @@
-# Lab A — Systems Science and the Logic of Emergence {.unnumbered}
+# Lab A — Systems Science and the Logic of Emergence {#sec:lab_unit_0_systems_science .unnumbered}
 
-\label{sec:lab_unit_0_systems_science}
 
 *This activity accompanies \cref{sec:unit_0_systems_science} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -11,8 +10,8 @@
 ## Learning Objectives {.unnumbered}
 
 - Identify the three canonical elements of a system (components, interactions, boundary) in concrete biological examples.
-- Diagram negative- and positive-feedback loops for real physiological systems and predict their stabilising or amplifying behaviour.
-- Compute response curves from the Hill equation and relate the Hill coefficient $n$ to cooperativity and switch-like behaviour.
+- Diagram negative- and positive-feedback loops for real physiological systems and predict their stabilizing or amplifying behavior.
+- Compute response curves from the Hill equation and relate the Hill coefficient $n$ to cooperativity and switch-like behavior.
 - Reason about the difference between a complicated machine and a complex system using a worked example.
 
 ---
@@ -39,14 +38,14 @@
 
 ## Lab Context: Systems Science and the Logic of Emergence {.unnumbered}
 
-A **system** is a set of interacting components, bounded against its surroundings, whose behaviour depends on the interactions as much as on the parts. The central mathematical tool for stability is the **Hill equation**:
+A **system** is a set of interacting components, bounded against its surroundings, whose behavior depends on the interactions as much as on the parts. The central mathematical tool for stability is the **Hill equation**:
 
 \begin{equation}
 \theta \;=\; \frac{[L]^n}{K_d^n + [L]^n}
 \label{eq:lab_a_hill}
 \end{equation}
 
-where θ is the fraction of receptors bound, $[L]$ the ligand concentration, $K_d$ the dissociation constant, and $n$ the Hill coefficient. For $n = 1$ the curve is hyperbolic (graded response); for $n = 4$ it is steep and switch-like (as in haemoglobin's O$_2$ binding).
+where θ is the fraction of receptors bound, $[L]$ the ligand concentration, $K_d$ the dissociation constant, and $n$ the Hill coefficient. For $n = 1$ the curve is hyperbolic (graded response); for $n = 4$ it is steep and switch-like (as in hemoglobin's O$_2$ binding).
 
 Today's lab trains three intuitions: what counts as "the system", how feedback loops behave, and how cooperativity converts graded chemistry into binary biology.
 
@@ -64,7 +63,7 @@ Today's lab trains three intuitions: what counts as "the system", how feedback l
 
 - Graph paper (2 sheets per student).
 - Calculator.
-- Coloured pens.
+- Colored pens.
 - Source-governance card for Systems Science and the Logic of Emergence: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
 - Worksheet with blank feedback diagrams and Hill-curve axes.
 
@@ -84,13 +83,13 @@ For each of the following, identify: (a) the components, (b) the key interaction
 
 ### Part 2 — Feedback Loop Diagrams {.unnumbered}
 
-For each system below, diagram the feedback loop and classify it as positive or negative. Predict the steady-state behaviour (stable fixed point, oscillation, or runaway).
+For each system below, diagram the feedback loop and classify it as positive or negative. Predict the steady-state behavior (stable fixed point, oscillation, or runaway).
 
 1. Blood pressure → baroreceptor firing → vagal tone → heart rate → blood pressure.
-2. Oxytocin → uterine contraction → stretch receptor → oxytocin (during labour).
+2. Oxytocin → uterine contraction → stretch receptor → oxytocin (during labor).
 3. Luteinising hormone → ovarian oestradiol → hypothalamic GnRH (follicular phase).
 4. Luteinising hormone → ovarian oestradiol → hypothalamic GnRH (ovulatory phase).
-5. Depolarising Na$^+$ current → more open Na$^+$ channels → depolarisation (action potential upstroke).
+5. Depolarizing Na$^+$ current → more open Na$^+$ channels → depolarization (action potential upstroke).
 
 Why do loops 3 and 4 have different signs, and what does the switch imply for the dynamics of the menstrual cycle?
 
@@ -104,6 +103,7 @@ Why do loops 3 and 4 have different signs, and what does the switch imply for th
 
 A wristwatch and a live cell both contain many interacting components. Yet one is **complicated** and the other **complex**. In a table, contrast:
 
+: Part 4 — Complicated vs. Complex: Feature and Wristwatch. {#tbl:unit_0_systems_science_part_4_complicated_vs_complex}
 | Feature | Wristwatch | Live cell |
 | ------- | ---------- | --------- |
 | Component count | ~100 | ~10⁹ molecules |
@@ -119,6 +119,7 @@ Discuss in your group one additional feature that distinguishes complex from com
 
 ## Data Tables {.unnumbered}
 
+: Part 4 — Complicated vs. Complex: System and Components. {#tbl:unit_0_systems_science_part_4_complicated_vs_complex_2}
 | System | Components | Interactions | Boundary | Input | Output |
 | ------ | ---------- | ------------ | -------- | ----- | ------ |
 | Mitochondrion | | | | | |
@@ -127,7 +128,8 @@ Discuss in your group one additional feature that distinguishes complex from com
 | Biofilm | | | | | |
 | Axon hillock | | | | | |
 
-| Feedback loop | +/− | Predicted behaviour |
+: Part 4 — Complicated vs. Complex: Feedback loop and +/−. {#tbl:unit_0_systems_science_part_4_complicated_vs_complex_3}
+| Feedback loop | +/− | Predicted behavior |
 | ------------- | --- | ------------------- |
 | Baroreceptor reflex | | |
 | Oxytocin-uterus | | |
@@ -135,6 +137,7 @@ Discuss in your group one additional feature that distinguishes complex from com
 | GnRH ovulatory | | |
 | Na$^+$ action potential | | |
 
+: Hill-response sample values for ligand concentration and fractional occupancy. {#tbl:unit_0_systems_science_part_4_complicated_vs_complex_4}
 | $[L]\,(\mu\mathrm{M})$ | θ at $n=1$ | θ at $n=2.8$ | θ at $n=4$ |
 | ---------------------- | ----------------- | ------------------- | ----------------- |
 | 1 | | | |
@@ -164,6 +167,7 @@ Discuss in your group one additional feature that distinguishes complex from com
 Before answering the analysis questions, annotate the paper dataset for
 **Systems Science and the Logic of Emergence** with a reproducibility pass:
 
+: Part 4 — Complicated vs. Complex: Evidence check and Student action. {#tbl:unit_0_systems_science_part_4_complicated_vs_complex_5}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -195,25 +199,25 @@ Complete the source-governance card for Systems Science and the Logic of Emergen
 
 ## Analysis Questions {.unnumbered}
 
-1. For haemoglobin ($n \approx 2.8$), compute the difference in O$_2$ saturation between lung capillaries ($[\mathrm{O}_2] = 100\,\mathrm{mmHg}$) and active muscle capillaries ($[\mathrm{O}_2] = 20\,\mathrm{mmHg}$). Why is the steepness of the Hill curve a life-preserving property?
+1. For hemoglobin ($n \approx 2.8$), compute the difference in O$_2$ saturation between lung capillaries ($[\mathrm{O}_2] = 100\,\mathrm{mmHg}$) and active muscle capillaries ($[\mathrm{O}_2] = 20\,\mathrm{mmHg}$). Why is the steepness of the Hill curve a life-preserving property?
 2. In Part 2, the ovarian-pituitary loop reverses sign across the menstrual cycle. What does this imply for the stability of the overall system, and what biological mechanism produces the sign reversal?
 3. Modular design makes biological systems easier to evolve (new modules can be added without breaking old ones). Give one counter-example — a domain where modularity *constrains* evolution rather than freeing it.
 4. The textbook notes that biological delays destabilise feedback. A surgical patient on a mechanical ventilator has a CO$_2$-sensing feedback loop with a built-in 10-second measurement lag. Predict what happens as you increase the loop gain; suggest one design fix.
-5. Design a paper-based experiment to test whether a bacterial-population model exhibits emergent collective behaviour distinct from isolated-cell behaviour. What is the null hypothesis and what observation card would refute it?
+5. Design a paper-based experiment to test whether a bacterial-population model exhibits emergent collective behavior distinct from isolated-cell behavior. What is the null hypothesis and what observation card would refute it?
 
 ## Post-Lab Synthesis {.unnumbered}
 
 > **Concept Check (Synthesis):** A regional hospital network observes that emergency-department wait times rise sharply during winter respiratory-virus seasons. Administrators propose adding bed capacity; clinicians propose a faster discharge pathway to free beds; the public-health team proposes upstream vaccination outreach.
 >
 > (a) Draw a causal loop sketch (in words) of the stocks and flows linking community infections, hospital admissions, available beds, and wait times. Mark each proposed intervention with the leverage point category from the parent chapter that best matches it (for example, parameter change, feedback strength, system goal).
-> (b) Predict the qualitative behaviour of the system under each proposed intervention over one winter season, and explain which intervention is most likely to shift the long-run behaviour rather than the immediate symptom. Ground the prediction in the dominant feedback loops you sketched.
+> (b) Predict the qualitative behavior of the system under each proposed intervention over one winter season, and explain which intervention is most likely to shift the long-run behavior rather than the immediate symptom. Ground the prediction in the dominant feedback loops you sketched.
 > (c) Design a short measurement plan (three variables to track and one indicator of unintended consequences) that would tell the administration whether the chosen intervention reduced wait times without shifting the burden to a downstream subsystem such as primary care or home recovery.
 
 ---
 
 ## Discussion Questions {.unnumbered}
 
-1. A reductionist insists that knowing everything about every molecule in a cell is sufficient to understand cellular behaviour. Where does systems science push back?
+1. A reductionist insists that knowing everything about every molecule in a cell is sufficient to understand cellular behavior. Where does systems science push back?
 2. Are there systems in biology that are *not* adaptive? Propose a candidate and defend your choice.
 3. The Covid-19 pandemic exposed how hospital systems behave under extreme input. Which systems-science principles explain why ICU capacity failed in some cities and not others?
 
@@ -221,6 +225,6 @@ Complete the source-governance card for Systems Science and the Logic of Emergen
 
 ## Safety and Ethics Notes {.unnumbered}
 
-Paper-based lab — no reagents or instruments, no physical risk. Discussion of the menstrual cycle, labour, and ventilator management should be inclusive and accurate; seek clarification from the instructor if terminology feels unfamiliar. The Covid-19 example should be grounded in public-health data rather than anecdote.
+Paper-based lab — no reagents or instruments, no physical risk. Discussion of the menstrual cycle, labor, and ventilator management should be inclusive and accurate; seek clarification from the instructor if terminology feels unfamiliar. The Covid-19 example should be grounded in public-health data rather than anecdote.
 
 *Module: `src/biology/cell/cell_biology.py` (`hill_equation`, `receptor_occupancy`); `src/biology/ecology/ecology.py` (`logistic_growth`).*

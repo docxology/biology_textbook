@@ -23,7 +23,7 @@ By the end of this chapter, you should be able to:
 2. Calculate and interpret alpha and beta diversity metrics for microbial communities, including Shannon entropy, Simpson and inverse-Simpson indices, and Chao1 richness estimation.
 3. Distinguish OTU (operational taxonomic unit at 97% identity) from ASV (exact sequence variant) approaches and explain the role of rarefaction curves in normalizing diversity comparisons.
 4. Describe the composition and functional roles of the human [**microbiome**](#gl:microbiome) across body sites, with emphasis on the gut microbiome and its core/variable components.
-5. Explain microbiome-host interactions through pattern recognition receptors and short-chain fatty acid signalling.
+5. Explain microbiome-host interactions through pattern recognition receptors and short-chain fatty acid signaling.
 6. Explain the relationship between dysbiosis and disease, including obesity, inflammatory bowel disease, and colorectal cancer.
 7. Describe microbial roles in biogeochemical cycles (nitrogen, sulfur, carbon), including the gene markers used to track each transformation, and explain kill-the-winner dynamics in ocean phage-host systems.
 8. Describe the roles of microorganisms in [**biofilm**](#gl:biofilm) formation, quorum sensing, and bioremediation.
@@ -38,8 +38,8 @@ By the end of this chapter, you should be able to:
 - **Data skill:** Compute or interpret community metrics from abundance data.
 - **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
 - **Common misconception to repair:** A microbiome is not automatically beneficial; context determines the effect.
-- **Primary lab:** \cref{sec:lab_unit_VII_microbial_ecology}.
-- **Question bank:** \cref{sec:q_unit_VII_microbial_ecology}.
+- **Primary lab:** \nameref{sec:lab_unit_VII_microbial_ecology}.
+- **Question bank:** \nameref{sec:q_unit_VII_microbial_ecology}.
 - **Transfer task:** Transfer microbial ecology to soils, oceans, digestion, disease, and climate feedbacks.
 - **Bridge to computation:** `biology.ecology.ecology.biodiversity_indices`.
 <!-- curriculum-scaffold-end -->
@@ -48,7 +48,7 @@ By the end of this chapter, you should be able to:
 
 > **Opening Vignette — You Are Mostly Not You**
 > 
-> For decades, textbooks cited the figure that the human body contains ten times more bacterial cells than human cells. In 2016, Sender, Fuchs, and Milo published a careful recalculation: the ratio is approximately 1:1, with roughly 38 trillion bacteria and 30 trillion human cells \citep{sender2016cells}. But the bacteria contribute only about 0.2 kg of body mass, compared to 70 kg of self. What changed science was not the ratio but the Human Microbiome Project (2007–2016), which used 16S rRNA sequencing and shotgun metagenomics to map healthy human-associated microbial communities across body sites \citep{hmp2012structure}. The project revealed that gut microbiome composition influences immunity, metabolism, neurotransmitter production, and drug efficacy — and differs between individuals as distinctly as a fingerprint. The microbiome is now recognised as an additional organ, and its disruption (dysbiosis) is linked to inflammatory bowel disease, obesity, depression, and antibiotic-associated colitis. We are ecosystems, not individuals.
+> For decades, textbooks cited the figure that the human body contains ten times more bacterial cells than human cells. In 2016, Sender, Fuchs, and Milo published a careful recalculation: the ratio is approximately 1:1, with roughly 38 trillion bacteria and 30 trillion human cells \citep{sender2016cells}. But the bacteria contribute only about 0.2 kg of body mass, compared to 70 kg of self. What changed science was not the ratio but the Human Microbiome Project (2007–2016), which used 16S rRNA sequencing and shotgun metagenomics to map healthy human-associated microbial communities across body sites \citep{hmp2012structure}. The project revealed that gut microbiome composition influences immunity, metabolism, neurotransmitter production, and drug efficacy — and differs between individuals as distinctly as a fingerprint. The microbiome is now recognized as an additional organ, and its disruption (dysbiosis) is linked to inflammatory bowel disease, obesity, depression, and antibiotic-associated colitis. We are ecosystems, not individuals.
 
 ## Measuring Microbial Communities Across Scales
 
@@ -120,6 +120,7 @@ flowchart LR
 
 **Region selection.** Different V regions perform differently:
 
+: The 16S rRNA Amplicon Pipeline: From Sample to ASV Table: Region and Length. {#tbl:unit_VII_microbial_ecology_the_16s_rrna_amplicon_pipeline_from_sample_to_asv_table}
 | Region | Length | Strengths | Weaknesses |
 |--------|--------|-----------|-----------|
 | V1–V3 | ~ 480 bp | Good genus resolution; *Staphylococcus*-friendly | Misses some Bifidobacterium |
@@ -131,7 +132,7 @@ flowchart LR
 **Workflow.**
 
 1. **DNA extraction** — bead beating (mechanical lysis of Gram-positives, fungi, spores) plus a column-based purification (e.g., DNeasy PowerSoil). Extraction kit choice introduces bias of up to ± 30 % in relative abundances and is now considered a major reproducibility issue.
-2. **PCR amplification** — universal primers (515F/806R for V4, 341F/805R for V3–V4) plus barcoded adapters allow multiplexing. **PCR cycles should be minimised (≤ 25)** to reduce chimera formation; high-fidelity polymerases (Q5, Phusion) reduce error.
+2. **PCR amplification** — universal primers (515F/806R for V4, 341F/805R for V3–V4) plus barcoded adapters allow multiplexing. **PCR cycles should be minimized (≤ 25)** to reduce chimera formation; high-fidelity polymerases (Q5, Phusion) reduce error.
 3. **Library preparation and sequencing** — Illumina MiSeq 2 × 300 bp is standard; ~ 100 000 reads/sample is typical for diversity analyses, with ~ 10 × that needed to detect rare taxa.
 4. **Quality filtering** — trim adapters and primers; discard reads with average Q < 25 or expected errors > 1.
 5. **OTU clustering vs ASV inference** — see comparison below.
@@ -144,6 +145,7 @@ Taxonomy itself is now a versioned data product. GTDB release R10-RS226 organize
 
 For ~ 15 years (2007–2017), microbiome studies clustered reads into **operational taxonomic units (OTUs)** at a ≥ 97 % identity threshold (corresponding roughly to genus-level groupings). Around 2017, a methodological revolution replaced this with **amplicon sequence variants (ASVs)** — exact, error-corrected sequences resolved at single-nucleotide precision. The contrast:
 
+: OTU vs ASV: A Decade-Long Methodological Shift: Property and OTUs (de novo, closed-reference). {#tbl:unit_VII_microbial_ecology_otu_vs_asv_a_decade_long_methodological_shift}
 | Property | **OTUs (de novo, closed-reference)** | **ASVs (DADA2, Deblur, UNOISE3)** |
 |----------|--------------------------------------|------------------------------------|
 | Clustering | Group reads at 97 % identity | Statistical denoising; each unique error-corrected sequence is its own ASV |
@@ -156,10 +158,10 @@ For ~ 15 years (2007–2017), microbiome studies clustered reads into **operatio
 
 The Callahan *et al.* (2017, *ISME Journal*) "Exact sequence variants should replace OTUs" argument has been broadly adopted: ASVs are reproducible across studies and labs, allow meta-analyses across datasets, and resolve closely related taxa that 97 %-clustering would merge. Closed-reference OTU pipelines (clustering to a fixed reference database) remain useful for very large meta-analyses but are increasingly being supplanted.
 
-**Rarefaction and normalisation.** Different samples are sequenced to different depths, which artificially inflates richness in deeply sequenced samples (you see more rare taxa simply because you looked harder). Two approaches address this:
+**Rarefaction and normalization.** Different samples are sequenced to different depths, which artificially inflates richness in deeply sequenced samples (you see more rare taxa simply because you looked harder). Two approaches address this:
 
 - **Rarefaction** — randomly subsample every sample down to the minimum library size before computing diversity. Plotting richness as a function of subsample size yields a **rarefaction curve**: a curve that plateaus indicates sufficient sampling depth; one still rising indicates undersampling.
-- **Normalisation by total-sum scaling, CSS (cumulative-sum scaling), or DESeq2-style geometric means** — preserves the original count data with a statistical correction.
+- **Normalization by total-sum scaling, CSS (cumulative-sum scaling), or DESeq2-style geometric means** — preserves the original count data with a statistical correction.
 
 Modern best practice: report results from both approaches, confirm robustness, and rarely compare unrarefied richness across samples of unequal depth.
 
@@ -184,7 +186,7 @@ Quantifying microbial community diversity requires mathematical frameworks borro
 
 - **Observed ASVs/OTUs**: Simple count of distinct taxa; sensitive to sequencing depth.
 - **Shannon entropy**: weights both richness and evenness logarithmically.
-- **Simpson index** and its **inverse**: dominance-weighted; emphasises common taxa.
+- **Simpson index** and its **inverse**: dominance-weighted; emphasizes common taxa.
 - **Chao1 estimator**: extrapolates from observed singletons/doubletons to estimate true richness.
 - **Faith's phylogenetic diversity (PD)**: Sum of branch lengths in the phylogenetic tree connecting most observed taxa; incorporates evolutionary relationships.
 
@@ -212,6 +214,7 @@ A gut microbiome sample contains five dominant species with the following observ
 
 3. **Compute $-p_i \ln p_i$ term-by-term:**
 
+: Computing Shannon Diversity for Five Species: Species and p_i. {#tbl:unit_VII_microbial_ecology_worked_example_computing_shannon_diversity_for_five_species}
    | Species | $p_i$ | $\ln p_i$ | $-p_i \ln p_i$ |
    |---------|-------|-----------|-----------------|
    | *Bacteroides* | 0.500 | $-0.693$ | 0.347 |
@@ -238,7 +241,7 @@ For the example above, $\lambda = 0.500^2 + 0.300^2 + 0.100^2 + 0.060^2 + 0.040^
 - **Gini–Simpson** $D = 1 - \lambda = 0.645$ — probability that two random individuals are *different* species.
 - **Inverse Simpson** $1/\lambda = 1/0.355 \approx 2.82$ — the effective number of species under Simpson weighting.
 
-Compare with the Shannon effective number ($e^{H'} = 3.44$): Simpson weights are more dominance-sensitive, so its effective number is smaller because dominant species count more heavily. Reporting both Shannon and Simpson is now standard because they emphasise different aspects of community structure: Shannon weights most species roughly logarithmically; Simpson is dominated by abundant taxa and is less sensitive to rare taxa or sequencing errors.
+Compare with the Shannon effective number ($e^{H'} = 3.44$): Simpson weights are more dominance-sensitive, so its effective number is smaller because dominant species count more heavily. Reporting both Shannon and Simpson is now standard because they emphasize different aspects of community structure: Shannon weights most species roughly logarithmically; Simpson is dominated by abundant taxa and is less sensitive to rare taxa or sequencing errors.
 
 ### Worked Example: Estimating Species Richness using Chao1
 
@@ -325,6 +328,7 @@ The gastrointestinal tract represents the densest microbial habitat on the human
 
 **[Dominant](#gl:dominant) phyla in healthy adults:**
 
+: Gut Microbiome Gradients and Functional Guilds: Phylum and Relative Abundance. {#tbl:unit_VII_microbial_ecology_gut_microbiome_gradients_and_functional_guilds}
 | Phylum | Relative Abundance | Key Genera | Functional Roles |
 |--------|-------------------|------------|-----------------|
 | Firmicutes | ~60-65% | *Faecalibacterium*, *Roseburia*, *Eubacterium*, *Ruminococcus*, *Lactobacillus* | Major butyrate producers; fiber [**fermentation**](#gl:fermentation) |
@@ -390,23 +394,24 @@ Host-microbiome interaction is mediated by three classes of molecular interface:
 
 **Pattern recognition receptors (PRRs).** The intestinal epithelium and lamina propria express a rich repertoire of PRRs that read the local microbial milieu in real time:
 
-- **TLR2** (with TLR1 or TLR6 heterodimers) — recognises Gram-positive lipoteichoic acid, lipopeptides, and *B. fragilis* polysaccharide A (PSA). PSA is a remarkable case: it is a microbial ligand that activates *anti-inflammatory* Treg responses via TLR2, demonstrating that PRR signalling is not uniformly pro-inflammatory but tunable by ligand.
-- **TLR4** — recognises Gram-negative lipid A; in healthy gut TLR4 is low-expressed apically and signals are dampened by negative regulators (A20, SIGIRR). Loss of this dampening (e.g., increased TLR4 in IBD) drives chronic inflammation.
-- **TLR5** — flagellin sensor; intestinal expression is **basolateral primarily**, so commensal flagellated bacteria in the lumen do not trigger inflammation, but invading flagellated pathogens that cross the epithelium do. A beautiful example of spatial PRR localisation as a discrimination strategy.
+- **TLR2** (with TLR1 or TLR6 heterodimers) — recognizes Gram-positive lipoteichoic acid, lipopeptides, and *B. fragilis* polysaccharide A (PSA). PSA is a remarkable case: it is a microbial ligand that activates *anti-inflammatory* Treg responses via TLR2, demonstrating that PRR signaling is not uniformly pro-inflammatory but tunable by ligand.
+- **TLR4** — recognizes Gram-negative lipid A; in healthy gut TLR4 is low-expressed apically and signals are dampened by negative regulators (A20, SIGIRR). Loss of this dampening (e.g., increased TLR4 in IBD) drives chronic inflammation.
+- **TLR5** — flagellin sensor; intestinal expression is **basolateral primarily**, so commensal flagellated bacteria in the lumen do not trigger inflammation, but invading flagellated pathogens that cross the epithelium do. A beautiful example of spatial PRR localization as a discrimination strategy.
 - **TLR9** — unmethylated CpG DNA; engaged by bacterial DNA in endosomes.
 - **NOD1, NOD2** — cytosolic peptidoglycan fragment sensors; NOD2 mutations are the strongest single genetic risk for Crohn's disease, illustrating how loss of microbial sensing predisposes to dysbiosis.
 - **AhR (aryl hydrocarbon receptor)** — sensor for tryptophan-derived microbial metabolites (indoles, IPA, indole-3-aldehyde from *Lactobacillus*); upregulates IL-22, mucin, and antimicrobial peptide production by intestinal cells.
 
-**Short-chain fatty acid (SCFA) signalling.** SCFAs are not only fuel but signalling molecules with three identified receptors and one direct enzymatic mechanism:
+**Short-chain fatty acid (SCFA) signaling.** SCFAs are not only fuel but signaling molecules with three identified receptors and one direct enzymatic mechanism:
 
+: Microbiome–Host Molecular Communication: Receptor / target and Ligand preference. {#tbl:unit_VII_microbial_ecology_microbiome_host_molecular_communication}
 | Receptor / target | Ligand preference | Cell type | Effect |
 |---|---|---|---|
 | **GPR41 (FFAR3)** | Propionate > butyrate ≫ acetate | Enteroendocrine L-cells; sympathetic neurons | PYY, GLP-1 release; sympathetic activation |
 | **GPR43 (FFAR2)** | Acetate ≈ propionate > butyrate | L-cells; adipocytes; neutrophils | GLP-1; lipogenesis regulation; neutrophil chemotaxis |
 | **GPR109A (HCAR2)** | Butyrate (also niacin) | Colonocytes; macrophages; dendritic cells | Treg induction; anti-inflammatory cascade |
-| **HDAC inhibition** | Butyrate (mM concentrations in the colon) | Colonocytes; immune cells | Hyperacetylation of histones; epigenetic anti-inflammatory programmes |
+| **HDAC inhibition** | Butyrate (mM concentrations in the colon) | Colonocytes; immune cells | Hyperacetylation of histones; epigenetic anti-inflammatory programs |
 
-Butyrate has been called a "molecular bridge" between microbiome and host because it can engage four mechanisms simultaneously: G-protein-coupled signalling (GPR41/43/109A), epigenetic regulation (HDAC inhibition), mitochondrial fuel (β-oxidation provides ~ 70 % of colonocyte ATP), and Treg differentiation (via GPR109A and HDAC-dependent FoxP3 upregulation). Butyrate concentrations in the colonic lumen reach 10–20 mM — 1000× higher than in serum, justifying the local-action interpretation.
+Butyrate has been called a "molecular bridge" between microbiome and host because it can engage four mechanisms simultaneously: G-protein-coupled signaling (GPR41/43/109A), epigenetic regulation (HDAC inhibition), mitochondrial fuel (β-oxidation provides ~ 70 % of colonocyte ATP), and Treg differentiation (via GPR109A and HDAC-dependent FoxP3 upregulation). Butyrate concentrations in the colonic lumen reach 10–20 mM — 1000× higher than in serum, justifying the local-action interpretation.
 
 ### Metabolic Functions of Microbial Communities
 
@@ -590,16 +595,17 @@ Microbial diversity in environmental systems dwarfs that of multicellular life. 
 
 **Soil.** Containing ~ $10^8$ bacteria per gram and often ~ $10^4$–$10^5$ ASVs per gram in deep sequencing studies, soil is one of the largest reservoirs of microbial diversity. Globally, soil holds ~ $2.6 \times 10^{29}$ microbial cells. The dominant phyla — Proteobacteria, Acidobacteria, Actinobacteria, Bacteroidetes, Verrucomicrobia, Firmicutes — vary continuously with pH, moisture, and organic matter. Acidobacteria, in particular, are abundant in molecular surveys but remain under-cultured relative to their environmental abundance, which is why metagenomics, single-cell genomics, and enrichment culture are most needed to connect sequence diversity to physiology.
 
-**Deep biosphere.** A relatively recent realisation is that the **subsurface biosphere** (rocks, sediments, and aquifers below ~ 100 m depth) contains an estimated $10^{29}$ cells — comparable to or exceeding most surface marine biomass. These extremely slow-growing chemolithotrophs (doubling times of years to centuries) couple H$_2$ from rock-water reactions to CO$_2$ fixation, sustaining ecosystems that have been functionally isolated from surface life for ~ Ma timescales. The deep biosphere now constitutes one of the largest reservoirs of unstudied microbial diversity on the planet.
+**Deep biosphere.** A relatively recent realization is that the **subsurface biosphere** (rocks, sediments, and aquifers below ~ 100 m depth) contains an estimated $10^{29}$ cells — comparable to or exceeding most surface marine biomass. These extremely slow-growing chemolithotrophs (doubling times of years to centuries) couple H$_2$ from rock-water reactions to CO$_2$ fixation, sustaining ecosystems that have been functionally isolated from surface life for ~ Ma timescales. The deep biosphere now constitutes one of the largest reservoirs of unstudied microbial diversity on the planet.
 
 **Hydrothermal vents.** Chemolithoautotrophic communities at hydrothermal vents form the base of food webs completely independent of sunlight. Sulfur-oxidizing bacteria (*Thiomicrospira*, *Beggiatoa*) and hydrogen-oxidizing archaea (*Methanopyrus*) sustain ecosystems including tube worms (*Riftia pachyptila*, which lack a digestive system and rely entirely on endosymbiotic sulfur-oxidizing bacteria housed in a specialized organ called the trophosome).
 
 ### Microbial Biogeochemistry in Carbon, Nitrogen, and Sulfur Cycles
 
-Microbes catalyse virtually every redox transformation of nitrogen, sulfur, and carbon at the global scale. The key enzymatic steps are now well-characterised, each linked to a marker gene that ecologists use to track the corresponding flux in environmental DNA.
+Microbes catalyse virtually every redox transformation of nitrogen, sulfur, and carbon at the global scale. The key enzymatic steps are now well-characterized, each linked to a marker gene that ecologists use to track the corresponding flux in environmental DNA.
 
 **Nitrogen cycle.** The biogeochemical nitrogen cycle is a quasi-closed loop of microbially-catalysed redox reactions, every step of which has a diagnostic gene:
 
+: Microbial Biogeochemistry in Carbon, Nitrogen, and Sulfur Cycles: Transformation and Reaction. {#tbl:unit_VII_microbial_ecology_microbial_biogeochemistry_in_carbon_nitrogen_and_sulfur_cycles}
 | Transformation | Reaction | Organisms | Marker gene |
 |---|---|---|---|
 | **Nitrogen fixation** | N$_2$ → NH$_3$ | *Rhizobium*, *Azotobacter*, cyanobacteria, *Nostoc* | *nifH* (Fe protein subunit of nitrogenase) |
@@ -611,12 +617,13 @@ Microbes catalyse virtually every redox transformation of nitrogen, sulfur, and 
 | **Anammox** (anaerobic ammonia oxidation, 1995 discovery) | NH$_4^+$ + NO$_2^-$ → N$_2$ | *Brocadia*, *Kuenenia* (*Planctomycetes*) | *hzsA, hzsB* (hydrazine synthase) |
 | **DNRA** (dissimilatory NO$_3^-$ → NH$_4^+$) | NO$_3^-$ → NH$_4^+$ | *E. coli*, *Salmonella*, sulfate reducers | *nrfA* |
 
-Two transformations deserve special attention. **Nitrogen fixation** by nitrogenase ($N_2 + 8H^+ + 8e^- + 16$ATP $\rightarrow 2$NH$_3 + $H$_2 + 16$ADP $+ 16$P$_i$) is irreversibly inactivated by oxygen, presenting a paradox for [**aerobic**](#gl:aerobic) diazotrophs. Solutions include *Rhizobium*-legume symbiosis (root nodules contain **leghemoglobin** delivering O$_2$ to bacteroid respiration while keeping free O$_2$ below the threshold for nitrogenase inactivation, ~ 10 nM); cyanobacterial **heterocysts** (specialised thick-walled cells lacking photosystem II, expressing nitrogenase, connected to vegetative cells by microplasmodesmata); and free-living *Azotobacter vinelandii* using respiratory protection (extremely high respiration rate consumes O$_2$ before it reaches nitrogenase) plus conformational protection (FeSII protein binds nitrogenase in O$_2$ presence).
+Two transformations deserve special attention. **Nitrogen fixation** by nitrogenase ($N_2 + 8H^+ + 8e^- + 16$ATP $\rightarrow 2$NH$_3 + $H$_2 + 16$ADP $+ 16$P$_i$) is irreversibly inactivated by oxygen, presenting a paradox for [**aerobic**](#gl:aerobic) diazotrophs. Solutions include *Rhizobium*-legume symbiosis (root nodules contain **leghemoglobin** delivering O$_2$ to bacteroid respiration while keeping free O$_2$ below the threshold for nitrogenase inactivation, ~ 10 nM); cyanobacterial **heterocysts** (specialized thick-walled cells lacking photosystem II, expressing nitrogenase, connected to vegetative cells by microplasmodesmata); and free-living *Azotobacter vinelandii* using respiratory protection (extremely high respiration rate consumes O$_2$ before it reaches nitrogenase) plus conformational protection (FeSII protein binds nitrogenase in O$_2$ presence).
 
 **Anammox** — anaerobic ammonia oxidation — was a stunning 1995 discovery (Mulder *et al.*) showing that *Planctomycetes* couple NH$_4^+$ oxidation to NO$_2^-$ reduction, producing N$_2$ via the toxic intermediate hydrazine (N$_2$H$_4$, rocket fuel). Anammox is responsible for ~ 30–50 % of marine N$_2$ production globally and is now used industrially in wastewater nitrogen removal (~ 90 % less aeration energy than conventional nitrification + denitrification).
 
 **Sulfur cycle.** Parallel redox cycle:
 
+: Microbial Biogeochemistry in Carbon, Nitrogen, and Sulfur Cycles: Transformation and Marker gene. {#tbl:unit_VII_microbial_ecology_microbial_biogeochemistry_in_carbon_nitrogen_and_sulfur_cycles_2}
 | Transformation | Marker gene | Organisms |
 |---|---|---|
 | **Sulfate reduction** (SO$_4^{2-}$ → H$_2$S) | *dsrA* (dissimilatory sulfite reductase) | *Desulfovibrio*, *Desulfobacter* |
@@ -695,10 +702,11 @@ sequenceDiagram
     Note over Lux: + BLUE-GREEN LIGHT (490 nm)
     Note over Lux: Squid counterillumination camouflage
 ```
-<!-- alt: Sequence diagram showing quorum sensing in *Vibrio fischeri*: at low cell density LuxI-synthesised AHL diffuses away; once a quorum is reached AHL accumulates, binds LuxR, and triggers the *luxCDABE* operon producing bioluminescence — used for counterillumination camouflage in the bobtail squid. -->
+<!-- alt: Sequence diagram showing quorum sensing in *Vibrio fischeri*: at low cell density LuxI-synthesized AHL diffuses away; once a quorum is reached AHL accumulates, binds LuxR, and triggers the *luxCDABE* operon producing bioluminescence — used for counterillumination camouflage in the bobtail squid. -->
 
-*Quorum sensing in *Vibrio fischeri*: at low cell density LuxI-synthesised AHL diffuses away; once a quorum is reached AHL accumulates, binds LuxR, and triggers the *luxCDABE* operon producing bioluminescence — used for counterillumination camouflage in the bobtail squid.*
+*Quorum sensing in *Vibrio fischeri*: at low cell density LuxI-synthesized AHL diffuses away; once a quorum is reached AHL accumulates, binds LuxR, and triggers the *luxCDABE* operon producing bioluminescence — used for counterillumination camouflage in the bobtail squid.*
 
+: Quorum Sensing and Density-Dependent Gene Regulation: QS System and Signal. {#tbl:unit_VII_microbial_ecology_quorum_sensing_and_density_dependent_gene_regulation}
 | QS System | Signal | Organisms | Regulated Functions |
 |-----------|--------|-----------|-------------------|
 | LuxI/LuxR | N-acyl homoserine lactones (AHLs) | Gram-negatives (*V. fischeri*, *P. aeruginosa*) | Bioluminescence, biofilm, [**virulence**](#gl:virulence) factors |
@@ -718,12 +726,12 @@ Microorganisms can be harnessed to degrade environmental pollutants:
 > **Concept Check 4:**
 > *Pseudomonas aeruginosa* uses quorum sensing to coordinate virulence factor production. A pharmaceutical company designs a drug that blocks AHL binding to the LuxR-type receptor (LasR) without killing the bacteria. Explain the therapeutic rationale for this "quorum quenching" approach compared to traditional antibiotics, and predict a potential limitation.
 
-> **Concept Check (Analysis — Hierarchical Quorum Sensing as a Threshold Detection Mechanism):** *Pseudomonas aeruginosa* uses **hierarchically nested** quorum-sensing systems: the **Las** system (LasI synthase → 3-oxo-C₁₂-HSL autoinducer → LasR receptor) activates the **Rhl** system (RhlI → C₄-HSL → RhlR), which in turn induces a cascade of virulence factors (elastase, rhamnolipid, pyocyanin) and biofilm maturation. (a) Analyse why this **two-tier hierarchy** is functionally different from a single QS system at a higher signal threshold. Specifically, evaluate how the requirement for *both* Las and Rhl signals to exceed thresholds creates an **AND gate** that filters out spurious signals and prevents premature virulence-factor expression. (b) Predict how a **synthetic 3-oxo-C₁₂-HSL analog** delivered at **sub-threshold concentrations** (e.g., 10 % of the natural threshold) would affect biofilm biomass. The analog binds LasR competitively but does not activate it — it occupies the receptor without triggering downstream transcription. Trace the consequences: (i) reduced las-system activation despite normal natural AHL accumulation; (ii) failure to activate the rhl downstream system; (iii) impaired biofilm maturation; (iv) attenuated virulence in a clinical infection model. (c) Quantitative analysis: if the natural threshold for LasR activation is $[3O\text{-}C_{12}\text{-HSL}] = 1\,\mu$M and the analog has affinity equal to the natural signal but is delivered at 0.1 μM, derive the fractional receptor occupancy and predict the fractional reduction in downstream gene expression. (d) Connect this to **anti-virulence drug design**: why does competitive antagonism at the QS receptor avoid the strong evolutionary selection for resistance that growth-inhibitory antibiotics produce? What is the residual selection pressure?
+> **Concept Check (Analysis — Hierarchical Quorum Sensing as a Threshold Detection Mechanism):** *Pseudomonas aeruginosa* uses **hierarchically nested** quorum-sensing systems: the **Las** system (LasI synthase → 3-oxo-C₁₂-HSL autoinducer → LasR receptor) activates the **Rhl** system (RhlI → C₄-HSL → RhlR), which in turn induces a cascade of virulence factors (elastase, rhamnolipid, pyocyanin) and biofilm maturation. (a) Analyze why this **two-tier hierarchy** is functionally different from a single QS system at a higher signal threshold. Specifically, evaluate how the requirement for *both* Las and Rhl signals to exceed thresholds creates an **AND gate** that filters out spurious signals and prevents premature virulence-factor expression. (b) Predict how a **synthetic 3-oxo-C₁₂-HSL analog** delivered at **sub-threshold concentrations** (e.g., 10 % of the natural threshold) would affect biofilm biomass. The analog binds LasR competitively but does not activate it — it occupies the receptor without triggering downstream transcription. Trace the consequences: (i) reduced las-system activation despite normal natural AHL accumulation; (ii) failure to activate the rhl downstream system; (iii) impaired biofilm maturation; (iv) attenuated virulence in a clinical infection model. (c) Quantitative analysis: if the natural threshold for LasR activation is $[3O\text{-}C_{12}\text{-HSL}] = 1\,\mu$M and the analog has affinity equal to the natural signal but is delivered at 0.1 μM, derive the fractional receptor occupancy and predict the fractional reduction in downstream gene expression. (d) Connect this to **anti-virulence drug design**: why does competitive antagonism at the QS receptor avoid the strong evolutionary selection for resistance that growth-inhibitory antibiotics produce? What is the residual selection pressure?
 
 > **Concept Check 4b:**
 > Marine *Prochlorococcus* populations oscillate with their cyanophages on a ~ 5–7 day cycle, while their Shannon diversity (~ 1.5 nats) is approximately constant. Use the kill-the-winner framework to (a) explain why high overall diversity is maintained despite a single species dominating numerically, (b) predict what happens to phage population during a *Prochlorococcus* crash, and (c) describe how a metagenomic time-series experiment could test these predictions.
 
-> **Concept Check (Synthesis — Syntrophic Coupling and Obligate Cooperation):** In anaerobic sediments, **acetate oxidation** to CO$_2$ and H$_2$ has a standard Gibbs free energy of $\Delta G^{\circ\prime} = +104$ kJ/mol — strongly **endergonic** under standard conditions. The reaction therefore cannot proceed unless **H$_2$ is kept at extremely low partial pressures** (typically below ~10 Pa) by a syntrophic partner that consumes it: a **hydrogenotrophic methanogen** (e.g., *Methanobacterium*) catalysing CO$_2$ + 4 H$_2$ → CH$_4$ + 2 H$_2$O ($\Delta G^{\circ\prime} = -131$ kJ/mol). The two reactions coupled give a small but favourable net $\Delta G^{\circ\prime} \approx -27$ kJ/mol, sufficient to drive both partners' metabolism. (a) **Synthesise how this obligate syntrophic coupling parallels eukaryotic intracellular compartmentalisation.** Eukaryotic cells use organelle compartments (mitochondria, peroxisomes) to keep incompatible reactions spatially segregated and pool resources across compartments; syntrophic bacteria and methanogens accomplish the same by **interspecies hydrogen transfer (IHT)** — H$_2$ produced by the bacterium diffuses through a few micrometres of intercellular space and is immediately consumed by the methanogen, the spatial proximity functioning as a "metabolic compartment" without a single-cell boundary. (b) **Quantitatively justify** why ~10 Pa H$_2$ is the threshold: at this pressure, the H$_2$ term in the Nernst-style equation for $\Delta G$ (acetate oxidation) drops below the methanogen H$_2$-consumption $\Delta G$, making the coupled system favourable. (c) **Predict the experimental consequence of inhibiting methanogenesis** with **2-bromoethanesulfonate (BES)** — a structural analog of methyl-CoM that competitively inhibits the methyl-CoM reductase (Mcr) enzyme. Trace through: (i) BES blocks H$_2$ consumption by the methanogen; (ii) H$_2$ partial pressure rises rapidly above 10 Pa; (iii) acetate oxidation becomes thermodynamically infeasible and stops; (iv) the syntrophic bacterium starves; (v) within hours both partners' growth ceases. **Both populations collapse**, not just the methanogen — demonstrating that the cooperation is obligate, not facultative. (d) **Connect to the origin of eukaryotes**: the syntrophy hypothesis of eukaryogenesis (Martin & Müller 1998) proposes that the original endosymbiotic relationship between archaeal host and α-proteobacterial ancestor of mitochondria was exactly this kind of H$_2$ exchange — formalising the parallel between extracellular syntrophy and intracellular metabolic compartmentalisation.
+> **Concept Check (Synthesis — Syntrophic Coupling and Obligate Cooperation):** In anaerobic sediments, **acetate oxidation** to CO$_2$ and H$_2$ has a standard Gibbs free energy of $\Delta G^{\circ\prime} = +104$ kJ/mol — strongly **endergonic** under standard conditions. The reaction therefore cannot proceed unless **H$_2$ is kept at extremely low partial pressures** (typically below ~10 Pa) by a syntrophic partner that consumes it: a **hydrogenotrophic methanogen** (e.g., *Methanobacterium*) catalysing CO$_2$ + 4 H$_2$ → CH$_4$ + 2 H$_2$O ($\Delta G^{\circ\prime} = -131$ kJ/mol). The two reactions coupled give a small but favorable net $\Delta G^{\circ\prime} \approx -27$ kJ/mol, sufficient to drive both partners' metabolism. (a) **Synthesize how this obligate syntrophic coupling parallels eukaryotic intracellular compartmentalization.** Eukaryotic cells use organelle compartments (mitochondria, peroxisomes) to keep incompatible reactions spatially segregated and pool resources across compartments; syntrophic bacteria and methanogens accomplish the same by **interspecies hydrogen transfer (IHT)** — H$_2$ produced by the bacterium diffuses through a few micrometres of intercellular space and is immediately consumed by the methanogen, the spatial proximity functioning as a "metabolic compartment" without a single-cell boundary. (b) **Quantitatively justify** why ~10 Pa H$_2$ is the threshold: at this pressure, the H$_2$ term in the Nernst-style equation for $\Delta G$ (acetate oxidation) drops below the methanogen H$_2$-consumption $\Delta G$, making the coupled system favorable. (c) **Predict the experimental consequence of inhibiting methanogenesis** with **2-bromoethanesulfonate (BES)** — a structural analog of methyl-CoM that competitively inhibits the methyl-CoM reductase (Mcr) enzyme. Trace through: (i) BES blocks H$_2$ consumption by the methanogen; (ii) H$_2$ partial pressure rises rapidly above 10 Pa; (iii) acetate oxidation becomes thermodynamically infeasible and stops; (iv) the syntrophic bacterium starves; (v) within hours both partners' growth ceases. **Both populations collapse**, not just the methanogen — demonstrating that the cooperation is obligate, not facultative. (d) **Connect to the origin of eukaryotes**: the syntrophy hypothesis of eukaryogenesis (Martin & Müller 1998) proposes that the original endosymbiotic relationship between archaeal host and α-proteobacterial ancestor of mitochondria was exactly this kind of H$_2$ exchange — formalising the parallel between extracellular syntrophy and intracellular metabolic compartmentalization.
 
 ---
 
@@ -735,6 +743,7 @@ Microorganisms have been harnessed for food production for millennia, and modern
 
 The current frontier is less about replacing fermentation with a new idea and more about instrumenting it. Genome-scale metabolic models, automated strain engineering, continuous bioreactors, metagenomic enzyme discovery, and precision fermentation now let researchers tune yield, by-product formation, feedstock use, and contamination risk. Claims about "sustainable" biomanufacturing should therefore report substrate source, energy input, purification burden, waste stream, and life-cycle context rather than primarily the engineered microbe.
 
+: Industrial Fermentation and Metabolic Control: Product and Organism. {#tbl:unit_VII_microbial_ecology_industrial_fermentation_and_metabolic_control}
 | Product | Organism | Process | Application |
 |---------|----------|---------|-------------|
 | Ethanol | *Saccharomyces cerevisiae* | Glucose fermentation | Beverages, biofuel |
@@ -832,6 +841,7 @@ flowchart TD
 
 ## Key Terms
 
+: Current Evidence Map: Microbiome Causality Ladder: Term and Definition. {#tbl:unit_VII_microbial_ecology_current_evidence_map_microbiome_causality_ladder}
 | Term | Definition |
 |------|-----------|
 | **Great plate count anomaly** | Observation that <1% of environmental microorganisms grow on standard laboratory culture media |
@@ -890,7 +900,7 @@ flowchart TD
 10. A biofilm-forming *Staphylococcus aureus* strain causes recurrent prosthetic joint infection despite appropriate systemic antibiotic therapy. Explain why biofilm removal (surgical debridement) is often necessary in addition to antibiotic treatment, and describe how persister cells within the biofilm contribute to recurrence.
 11. **Shannon diversity practice.** Compute $H'$ from \cref{eq:unit_VII_shannon} for the community $\{200, 100, 50, 20, 10, 10, 5, 5\}$. Then compute the inverse Simpson index. Interpret which species drive each metric.
 12. Using the bridge counts, compute Simpson diversity manually from $p_i$ and compare to `res.simpson_index`.
-13. Contrast **Faith's PD** with Shannon richness for prioritising conservation of microbial lineages.
+13. Contrast **Faith's PD** with Shannon richness for prioritizing conservation of microbial lineages.
 14. **Marker-gene biogeochemistry.** Describe what biogeochemical inference you can draw from a soil metagenome that contains: (a) abundant *nifH* but very little *amoA*; (b) abundant *amoA* and *nxrA*; (c) *dsrA* and *mcrA* in the same sample. What environmental setting could each combination represent?
 15. **Anammox vs denitrification.** Why has anammox replaced conventional denitrification in many modern wastewater plants? Compute the stoichiometric advantage in O$_2$ demand per mole of N removed.
 16. **Kill-the-winner test.** Design a 30-day metagenomic time-series experiment in a marine mesocosm to test whether *Prochlorococcus* abundance and cyanophage abundance show predator-prey oscillations. Specify sampling frequency, sequencing approach, and the statistical analysis (cross-correlation, lagged regression) you would use.
@@ -915,6 +925,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Microbial Ecology and the Microbiome. {#tbl:unit_VII_microbial_ecology_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/microbiology/microbiology.py` (`bacterial_growth_curve`, `doubling_time`) | Quantify growth constraints for interacting microbial populations. |

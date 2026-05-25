@@ -1,6 +1,5 @@
-# Appendix F — Master Glossary of Biological Terms {.unnumbered}
+# Appendix F — Master Glossary of Biological Terms {#sec:glossary .unnumbered}
 
-\label{sec:glossary}
 
 *Etymology notation: [Gk] = Greek; [L] = Latin; [OFr] = Old French; [Ar] = Arabic.*
 *Cross-references use semantic `\cref{...}` links generated from the canonical table of contents.*
@@ -13,11 +12,11 @@
 
 [**Abiotic**]{#gl:abiotic} [Gk *a* = without + *bios* = life + *-ic* = pertaining to] — Non-living physical and chemical components of an environment (light, temperature, water, minerals). Contrast with **biotic**. → \cref{sec:unit_X_biomes_and_conservation}
 
-[**Actin**]{#gl:actin} [Gk *aktis* = ray or beam] — A 42 kDa globular protein (G-actin) that polymerises into filaments (F-actin); a major component of the cytoskeleton, sarcomeres, and lamellipodia. → \cref{sec:unit_II_cell_structure}
+[**Actin**]{#gl:actin} [Gk *aktis* = ray or beam] — A 42 kDa globular protein (G-actin) that polymerizes into filaments (F-actin); a major component of the cytoskeleton, sarcomeres, and lamellipodia. → \cref{sec:unit_II_cell_structure}
 
 [**Action potential**]{#gl:action-potential} [L *actio* = a doing + *potentia* = power] — A transient, all-or-none reversal of membrane potential (~−70 mV to +40 mV) propagated along neuronal axons; gated by voltage-dependent Na⁺ and K⁺ channels. Described mathematically by the Hodgkin-Huxley equations (1952). → \cref{sec:unit_IX_nervous_system}
 
-[**Adaptive immunity**]{#gl:adaptive-immunity} [L *adaptare* = to fit + *immunis* = exempt] — Antigen-specific defence mediated by B and T lymphocytes. It is slower than innate immunity during a first exposure but generates immunological memory, enabling faster and stronger secondary responses. → \cref{sec:unit_IX_immune_system_defense}
+[**Adaptive immunity**]{#gl:adaptive-immunity} [L *adaptare* = to fit + *immunis* = exempt] — Antigen-specific defense mediated by B and T lymphocytes. It is slower than innate immunity during a first exposure but generates immunological memory, enabling faster and stronger secondary responses. → \cref{sec:unit_IX_immune_system_defense}
 
 [**Adenosine triphosphate (ATP)**]{#gl:adenosine-triphosphate} [Gk *aden* = gland (as in adenine, identified in gland tissue) + *tri* = three + *phosphorus* = light-bearer] — A central phosphoryl-group donor and short-term energy carrier in cells. Hydrolysis to ADP + Pᵢ releases ~30.5 kJ/mol under biochemical standard conditions, while the effective cellular free energy is often larger in magnitude because ATP, ADP, and Pᵢ concentrations are far from equilibrium. → \cref{sec:unit_III_bioenergetics_and_respiration}
 
@@ -29,19 +28,19 @@
 
 [**Allosteric**]{#gl:allosteric} [Gk *allos* = other + *stereos* = solid/space] — Describing a regulatory site on an enzyme or receptor that is spatially distinct from the active site; ligand binding there changes the macromolecule's conformation and activity. → \cref{sec:unit_I_enzymes_and_kinetics}
 
-[**Anaerobic**]{#gl:anaerobic} [Gk *an* = without + *aer* = air + *bios* = life] — Occurring without oxygen. Anaerobic respiration uses alternative electron acceptors (nitrate, sulphate); fermentation regenerates NAD⁺ without any external acceptor. → \cref{sec:unit_III_bioenergetics_and_respiration}
+[**Anaerobic**]{#gl:anaerobic} [Gk *an* = without + *aer* = air + *bios* = life] — Occurring without oxygen. Anaerobic respiration uses alternative electron acceptors (nitrate, sulfate); fermentation regenerates NAD⁺ without any external acceptor. → \cref{sec:unit_III_bioenergetics_and_respiration}
 
-[**Anaphase**]{#gl:anaphase} [Gk *ana* = up/apart + *phasis* = appearance] — The stage of mitosis/meiosis in which sister chromatids (mitosis, meiosis II) or homologous chromosomes (meiosis I) are pulled to opposite poles by spindle fibres. → \cref{sec:unit_IV_dna_replication_and_cell_cycle}
+[**Anaphase**]{#gl:anaphase} [Gk *ana* = up/apart + *phasis* = appearance] — The stage of mitosis/meiosis in which sister chromatids (mitosis, meiosis II) or homologous chromosomes (meiosis I) are pulled to opposite poles by spindle fibers. → \cref{sec:unit_IV_dna_replication_and_cell_cycle}
 
 [**Angiosperm**]{#gl:angiosperm} [Gk *angeion* = vessel/container + *sperma* = seed] — A flowering plant whose seeds are enclosed within a fruit derived from the ovary wall; the dominant plant group (~300,000 species). Contrast: **gymnosperm**. → \cref{sec:unit_VIII_plant_structure_and_water}
 
 [**Anticodon**]{#gl:anticodon} [Gk *anti* = against or opposite + L *codex* = writing block] — The three-nucleotide sequence on a tRNA molecule that base-pairs with the complementary codon on mRNA during translation. → \cref{sec:unit_IV_gene_expression}
 
-[**Apoptosis**]{#gl:apoptosis} [Gk *apo* = away + *ptōsis* = a falling] — Programmed, caspase-mediated cell death characterised by chromatin condensation, DNA fragmentation, and membrane blebbing, without inflammatory response. Contrast: **necrosis**. → \cref{sec:unit_II_cell_signaling}
+[**Apoptosis**]{#gl:apoptosis} [Gk *apo* = away + *ptōsis* = a falling] — Programmed, caspase-mediated cell death characterized by chromatin condensation, DNA fragmentation, and membrane blebbing, without inflammatory response. Contrast: **necrosis**. → \cref{sec:unit_II_cell_signaling}
 
 [**Archaea**]{#gl:archaea} [Gk *archaios* = ancient] — One of three domains of life; prokaryotes with ether-linked isoprenoid membrane lipids, histone-like proteins, and replication/transcription machinery closer to eukaryotes than to bacteria. Discovered by Woese & Fox (1977). → \cref{sec:unit_II_cell_theory,sec:unit_VI_phylogenetics}
 
-[**ATP synthase**]{#gl:atp-synthase} [see ATP + Gk *syn* = together + *thesis* = a placing] — Also Complex V; a rotary F₀F₁ molecular motor driven by the proton-motive force to phosphorylate ADP to ATP. The c-ring rotation of 120° per ATP was directly visualised by Noji et al. (1997). → \cref{sec:unit_III_bioenergetics_and_respiration}
+[**ATP synthase**]{#gl:atp-synthase} [see ATP + Gk *syn* = together + *thesis* = a placing] — Also Complex V; a rotary F₀F₁ molecular motor driven by the proton-motive force to phosphorylate ADP to ATP. The c-ring rotation of 120° per ATP was directly visualized by Noji et al. (1997). → \cref{sec:unit_III_bioenergetics_and_respiration}
 
 [**Autotroph**]{#gl:autotroph} [Gk *autos* = self + *trophe* = nourishment] — An organism that produces its own organic molecules from inorganic carbon (CO₂); either **photoautotroph** (energy from light) or **chemoautotroph** (energy from inorganic chemicals). → \cref{sec:unit_II_cell_theory,sec:unit_X_community_interactions,sec:unit_X_biodiversity_and_food_webs}
 
@@ -57,7 +56,7 @@
 
 [**Biofilm**]{#gl:biofilm} [Gk *bios* = life + L *filum* = thread] — A structured community of microorganisms attached to a surface and enclosed in a self-produced extracellular polysaccharide matrix; regulated by quorum sensing; often up to 1,000-fold more antibiotic tolerant than planktonic cells because matrix diffusion limits, slow growth, stress responses, and persister cells overlap. → \cref{sec:unit_VII_bacteria_archaea_viruses}
 
-[**Biome**]{#gl:biome} [Gk *bios* = life + *-ome* = mass/body] — A large-scale terrestrial or aquatic ecosystem characterised by a distinctive climate, vegetation, and fauna. Classified by Whittaker (1975) primarily by mean annual precipitation (MAP) and mean annual temperature (MAT). → \cref{sec:unit_X_biomes_and_conservation}
+[**Biome**]{#gl:biome} [Gk *bios* = life + *-ome* = mass/body] — A large-scale terrestrial or aquatic ecosystem characterized by a distinctive climate, vegetation, and fauna. Classified by Whittaker (1975) primarily by mean annual precipitation (MAP) and mean annual temperature (MAT). → \cref{sec:unit_X_biomes_and_conservation}
 
 [**Buffer**]{#gl:buffer} [OFr *bufer* = to protect from a blow] — A solution containing a weak acid and its conjugate base that resists changes in pH by absorbing added H⁺ or OH⁻. Effective within ±1 pH unit of pKₐ (Henderson-Hasselbalch). → \cref{sec:unit_I_atoms_molecules}
 
@@ -75,19 +74,19 @@
 
 [**Cardiac output (CO)**]{#gl:cardiac-output} [Gk *kardia* = heart + L *emittere* = to send out] — The volume of blood ejected by the heart per minute: CO = heart rate (HR) × stroke volume (SV). Normal resting CO ≈5.5 L/min; can reach 20–25 L/min during maximal exercise in athletes. Regulated by the Frank-Starling mechanism and neurohumoral factors. → \cref{sec:unit_IX_circulation_respiration_homeostasis}
 
-[**cDNA**]{#gl:cdna} [complementary DNA; L *complementum* = that which fills up] — DNA synthesised from an mRNA template by reverse transcriptase; lacks introns; used in cloning, expression libraries, and RT-PCR diagnostics. → \cref{sec:unit_IV_gene_expression}
+[**cDNA**]{#gl:cdna} [complementary DNA; L *complementum* = that which fills up] — DNA synthesized from an mRNA template by reverse transcriptase; lacks introns; used in cloning, expression libraries, and RT-PCR diagnostics. → \cref{sec:unit_IV_gene_expression}
 
-[**Centromere**]{#gl:centromere} [Gk *kentron* = centre + *meros* = part] — The specialised chromosomal region where kinetochore proteins assemble and spindle microtubules attach during mitosis and meiosis. Required for accurate chromosome segregation. → \cref{sec:unit_IV_dna_replication_and_cell_cycle}
+[**Centromere**]{#gl:centromere} [Gk *kentron* = center + *meros* = part] — The specialized chromosomal region where kinetochore proteins assemble and spindle microtubules attach during mitosis and meiosis. Required for accurate chromosome segregation. → \cref{sec:unit_IV_dna_replication_and_cell_cycle}
 
 [**Chemiosmosis**]{#gl:chemiosmosis} [Gk *chemi* = chemistry + *osmos* = push] — The coupling of electron transport to ATP synthesis via a proton electrochemical gradient across a membrane (proton-motive force). Proposed by Peter Mitchell (1961); Nobel Prize 1978. → \cref{sec:unit_III_bioenergetics_and_respiration}
 
 [**Chirality**]{#gl:chirality} [Gk *cheir* = hand] — The property of a molecule that is non-superimposable on its mirror image, like a hand. Biology is strongly homochiral in its core polymers: proteins mostly use L-amino acids, while nucleic acids and many central metabolites use D-sugars. → \cref{sec:unit_I_atoms_molecules}
 
-[**Chlorophyll**]{#gl:chlorophyll} [Gk *chloros* = green/yellow-green + *phyllon* = leaf] — A porphyrin-ring pigment containing Mg²⁺ at its centre; the primary light-harvesting molecule in photosynthesis. Absorbs strongly at 430 nm (violet/blue) and 680–700 nm (red). → \cref{sec:unit_III_photosynthesis}
+[**Chlorophyll**]{#gl:chlorophyll} [Gk *chloros* = green/yellow-green + *phyllon* = leaf] — A porphyrin-ring pigment containing Mg²⁺ at its center; the primary light-harvesting molecule in photosynthesis. Absorbs strongly at 430 nm (violet/blue) and 680–700 nm (red). → \cref{sec:unit_III_photosynthesis}
 
-[**Chromatin**]{#gl:chromatin} [Gk *chroma* = colour] — The complex of DNA and proteins (primarily histones) that compacts the genome within the nucleus. Exists in two states: **euchromatin** (open, transcriptionally active) and **heterochromatin** (compact, silenced). The fundamental unit is the nucleosome. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
+[**Chromatin**]{#gl:chromatin} [Gk *chroma* = color] — The complex of DNA and proteins (primarily histones) that compacts the genome within the nucleus. Exists in two states: **euchromatin** (open, transcriptionally active) and **heterochromatin** (compact, silenced). The fundamental unit is the nucleosome. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
-[**Chromosome**]{#gl:chromosome} [Gk *chroma* = colour + *soma* = body] — A linear (eukaryotic) or circular (prokaryotic) DNA molecule associated with proteins (histones in eukaryotes) that carries the cell's hereditary information. Humans have 46 chromosomes (23 pairs). → \cref{sec:unit_IV_dna_replication_and_cell_cycle}
+[**Chromosome**]{#gl:chromosome} [Gk *chroma* = color + *soma* = body] — A linear (eukaryotic) or circular (prokaryotic) DNA molecule associated with proteins (histones in eukaryotes) that carries the cell's hereditary information. Humans have 46 chromosomes (23 pairs). → \cref{sec:unit_IV_dna_replication_and_cell_cycle}
 
 [**CpG island**]{#gl:cpg-island} (C = cytosine; p = phosphodiester bond; G = guanine) — A genomic region (~500 bp–2 kb) enriched for CG dinucleotides; observed/expected CpG ratio > 0.6; present at ~70% of vertebrate gene promoters. Normally unmethylated; hypermethylation silences the associated promoter in cancer and differentiation. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
@@ -95,7 +94,7 @@
 
 [**Codon**]{#gl:codon} [L *codex* = block of writing] — A three-nucleotide sequence in mRNA that specifies one amino acid or a stop signal. The genetic code has 64 codons encoding 20 amino acids (and 3 stop codons); most amino acids have multiple synonymous codons (degeneracy). → \cref{sec:unit_IV_gene_expression}
 
-[**Cortisol**]{#gl:cortisol} [L *cortex* = bark, rind] — The primary glucocorticoid secreted by the adrenal cortex (zona fasciculata) in response to ACTH; mobilises glucose (gluconeogenesis, protein catabolism), suppresses immunity (reduces IL-2, PGE2, and T cell activation), and regulates the stress response. Circadian peak at 06:00–08:00. Synthetic analogues (prednisone, dexamethasone) are widely used anti-inflammatory agents. → \cref{sec:unit_IX_immune_system_defense}
+[**Cortisol**]{#gl:cortisol} [L *cortex* = bark, rind] — The primary glucocorticoid secreted by the adrenal cortex (zona fasciculata) in response to ACTH; mobilizes glucose (gluconeogenesis, protein catabolism), suppresses immunity (reduces IL-2, PGE2, and T cell activation), and regulates the stress response. Circadian peak at 06:00–08:00. Synthetic analogs (prednisone, dexamethasone) are widely used anti-inflammatory agents. → \cref{sec:unit_IX_immune_system_defense}
 
 [**Cohesion-tension theory**]{#gl:cohesion-tension-theory} [L *cohaerere* = to stick together + Gk *teinein* = to stretch] — The mechanism by which water ascends xylem vessels in plants: evaporation at the leaf surface creates tension (negative pressure) transmitted through the hydrogen-bonded water column via adhesion to cell walls. Proposed by Dixon & Joly (1894). → \cref{sec:unit_VIII_plant_structure_and_water}
 
@@ -131,15 +130,15 @@
 
 [**Entropy (S)**]{#gl:entropy} [Gk *en* = in + *trope* = transformation] — A thermodynamic state function often described as energy dispersal or the number of accessible microstates. For spontaneous processes in an isolated system, total entropy increases ($\Delta S_{universe} > 0$). Living organisms maintain ordered internal structures by exchanging matter and energy with surroundings. → \cref{sec:unit_III_bioenergetics_and_respiration}
 
-[**Enzyme**]{#gl:enzyme} [Gk *en* = in + *zyme* = leaven/ferment] — A biological catalyst — almost always a protein, sometimes RNA (ribozyme) — that accelerates a reaction by lowering the activation energy without being consumed. Characterised by specificity, saturation kinetics (Michaelis-Menten), and allosteric regulation. → \cref{sec:unit_I_enzymes_and_kinetics}
+[**Enzyme**]{#gl:enzyme} [Gk *en* = in + *zyme* = leaven/ferment] — A biological catalyst — almost always a protein, sometimes RNA (ribozyme) — that accelerates a reaction by lowering the activation energy without being consumed. Characterized by specificity, saturation kinetics (Michaelis-Menten), and allosteric regulation. → \cref{sec:unit_I_enzymes_and_kinetics}
 
 [**Epigenetics**]{#gl:epigenetics} [Gk *epi* = above/upon + *genet-* = birth; coined by Waddington, 1942] — Heritable changes in gene expression that do not alter the underlying DNA sequence. Molecular carriers: CpG methylation, histone post-translational modifications (acetylation, methylation, phosphorylation), and non-coding RNAs (miRNA, lncRNA, piRNA). → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
 [**Epigenome**]{#gl:epigenome} [Gk *epi* = upon + *genos* = origin + *-ome* = total] — The complete set of epigenetic modifications across a cell's genome; cell-type specific and environmentally modifiable, unlike the genome sequence. Mapped by ENCODE and Roadmap Epigenomics projects. → \cref{sec:unit_IV_mutations_and_genomics}
 
-[**Euchromatin**]{#gl:euchromatin} [Gk *eu* = true/good + *chroma* = colour] — Loosely packed chromatin associated with H3K4me3 and H3K27ac histone marks; transcriptionally permissive. Contrast: **heterochromatin**. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
+[**Euchromatin**]{#gl:euchromatin} [Gk *eu* = true/good + *chroma* = color] — Loosely packed chromatin associated with H3K4me3 and H3K27ac histone marks; transcriptionally permissive. Contrast: **heterochromatin**. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
-[**Excitotoxicity**]{#gl:excitotoxicity} [L *excitare* = to rouse + Gk *toxikon* = poison] — Neuronal death caused by excessive glutamate receptor activation (especially NMDA), leading to massive Ca²⁺ influx, mitochondrial dysfunction, caspase activation, and necrosis/apoptosis. The primary mechanism of neuronal death in ischaemic stroke. Target of neuroprotective strategies. → \cref{sec:unit_IX_action_potential_synapses}
+[**Excitotoxicity**]{#gl:excitotoxicity} [L *excitare* = to rouse + Gk *toxikon* = poison] — Neuronal death caused by excessive glutamate receptor activation (especially NMDA), leading to massive Ca²⁺ influx, mitochondrial dysfunction, caspase activation, and necrosis/apoptosis. The primary mechanism of neuronal death in ischemic stroke. Target of neuroprotective strategies. → \cref{sec:unit_IX_action_potential_synapses}
 
 [**Eukaryote**]{#gl:eukaryote} [Gk *eu* = true + *karyon* = nucleus] — An organism whose cells contain a membrane-enclosed nucleus and membrane-bound organelles. Includes protists, fungi, plants, and animals. Contrast: **prokaryote**. → \cref{sec:unit_II_cell_theory}
 
@@ -167,11 +166,11 @@
 
 ## G {.unnumbered}
 
-[**GLP-1 (glucagon-like peptide-1)**]{#gl:glp-1} [L *glucos* = sweet + *lysis* = splitting] — An incretin hormone secreted by intestinal L cells in response to nutrient ingestion; potentiates glucose-dependent insulin secretion (GSIS) from beta cells; suppresses glucagon; delays gastric emptying; reduces appetite via hypothalamic signalling. GLP-1 receptor agonists (semaglutide, tirzepatide) are transformative in treating type 2 diabetes and obesity. → \cref{sec:unit_IX_immune_system_defense}
+[**GLP-1 (glucagon-like peptide-1)**]{#gl:glp-1} [L *glucos* = sweet + *lysis* = splitting] — An incretin hormone secreted by intestinal L cells in response to nutrient ingestion; potentiates glucose-dependent insulin secretion (GSIS) from beta cells; suppresses glucagon; delays gastric emptying; reduces appetite via hypothalamic signaling. GLP-1 receptor agonists (semaglutide, tirzepatide) are transformative in treating type 2 diabetes and obesity. → \cref{sec:unit_IX_immune_system_defense}
 
 [**GLUT4**]{#gl:glut4} [glucose transporter type 4] — The insulin-sensitive glucose transporter expressed in muscle and adipose tissue; stored in intracellular vesicles; translocated to the plasma membrane within minutes of insulin receptor activation (PI3K–Akt–AS160 cascade). Responsible for up to 90% of post-prandial muscle glucose uptake. Impaired GLUT4 trafficking underlies insulin resistance in type 2 diabetes. → \cref{sec:unit_IX_immune_system_defense}
 
-[**Gamete**]{#gl:gamete} [Gk *gamete* = wife; *gametes* = husband; from *gamein* = to marry] — A haploid reproductive cell (sperm or egg) that fuses with another gamete during fertilisation to restore the diploid number. → \cref{sec:unit_V_chromosomal_inheritance}
+[**Gamete**]{#gl:gamete} [Gk *gamete* = wife; *gametes* = husband; from *gamein* = to marry] — A haploid reproductive cell (sperm or egg) that fuses with another gamete during fertilization to restore the diploid number. → \cref{sec:unit_V_chromosomal_inheritance}
 
 [**Gene**]{#gl:gene} [Gk *genos* = birth/origin; coined by Johannsen, 1909] — A heritable unit of information encoded in DNA that typically specifies the sequence of a protein or functional RNA; operationally defined as a sequence occupying a defined chromosomal locus. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
@@ -201,17 +200,17 @@
 
 [**Heterozygous**]{#gl:heterozygous} [Gk *heteros* = different + *zygotos* = yoked] — Possessing two different alleles at a given locus (e.g., *Aa*). Contrast: **homozygous** (*AA* or *aa*). → \cref{sec:unit_V_mendelian_principles}
 
-[**Hill coefficient (n)**]{#gl:hill-coefficient} [named for Archibald Hill, 1910] — A measure of cooperativity in ligand binding. $n = 1$ = no cooperativity; $n > 1$ = positive cooperativity (sigmoidal binding curve). Haemoglobin: $n ≈ 2.8$. → \cref{sec:unit_I_enzymes_and_kinetics}
+[**Hill coefficient (n)**]{#gl:hill-coefficient} [named for Archibald Hill, 1910] — A measure of cooperativity in ligand binding. $n = 1$ = no cooperativity; $n > 1$ = positive cooperativity (sigmoidal binding curve). Hemoglobin: $n ≈ 2.8$. → \cref{sec:unit_I_enzymes_and_kinetics}
 
 [**Homeostasis**]{#gl:homeostasis} [Gk *homoios* = similar + *stasis* = standing/state] — The maintenance of a relatively stable internal environment despite external fluctuations; achieved by negative feedback loops with a sensor, comparator (integrator), and effector. Coined by Walter Cannon (1926, building on Claude Bernard). → \cref{sec:unit_IX_nervous_system}
 
-[**Heterochromatin**]{#gl:heterochromatin} [Gk *heteros* = different + *chroma* = colour] — Densely compacted chromatin bearing repressive histone marks (H3K9me3, H3K27me3) and high DNA methylation; transcriptionally silent. **Constitutive** heterochromatin (centromeres, telomeres) is permanent; **facultative** heterochromatin (e.g., the inactive X chromosome) is cell-type specific. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
+[**Heterochromatin**]{#gl:heterochromatin} [Gk *heteros* = different + *chroma* = color] — Densely compacted chromatin bearing repressive histone marks (H3K9me3, H3K27me3) and high DNA methylation; transcriptionally silent. **Constitutive** heterochromatin (centromeres, telomeres) is permanent; **facultative** heterochromatin (e.g., the inactive X chromosome) is cell-type specific. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
 [**Histone**]{#gl:histone} [Gk *histos* = loom/web] — One of five abundant nuclear proteins (H1, H2A, H2B, H3, H4) that form the nucleosome core and linker. Tails are post-translationally modified by acetylation, methylation, phosphorylation, and ubiquitination to regulate gene expression (histone code). → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
 [**Histone code**]{#gl:histone-code} [Gk *histos* = loom; L *codex* = writing block] — The hypothesis (Strahl & Allis, 2000) that combinations of histone post-translational modifications specify unique chromatin states; 'written' by HATs/HMTs, 'read' by bromodomains/chromodomains, 'erased' by HDACs/KDMs. → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
-[**Holobiont**]{#gl:holobiont} [Gk *holos* = whole + *bios* = life] — The host plus its persistent associated microbiota (and sometimes viruses) treated as an integrated biological system; useful for analysing nutrition, immunity, and niche construction. → \cref{sec:unit_VII_bacteria_archaea_viruses,sec:unit_VII_microbial_ecology}
+[**Holobiont**]{#gl:holobiont} [Gk *holos* = whole + *bios* = life] — The host plus its persistent associated microbiota (and sometimes viruses) treated as an integrated biological system; useful for analyzing nutrition, immunity, and niche construction. → \cref{sec:unit_VII_bacteria_archaea_viruses,sec:unit_VII_microbial_ecology}
 
 [**Hydrogen bond**]{#gl:hydrogen-bond} [Gk *hydor* = water + *genes* = born from (as in generated with water)] — A weak electrostatic attraction (2–40 kJ/mol) between a hydrogen atom covalently bonded to an electronegative atom (N, O, or F) and another electronegative atom. Critical for DNA base-pairing, protein secondary structure, and water's unique properties. → \cref{sec:unit_I_atoms_molecules}
 
@@ -223,7 +222,7 @@
 
 ## I {.unnumbered}
 
-[**Insulin receptor**]{#gl:insulin-receptor} [L *insula* = island, as in islets of Langerhans] — A receptor tyrosine kinase (RTK) composed of two α and two β subunits; insulin binding activates RTK, triggering autophosphorylation and IRS-1/2 phosphorylation; downstream: PI3K–Akt (GLUT4 translocation, glycogen synthesis) and MAPK (gene expression, cell growth). Type 2 diabetes involves insulin receptor signalling resistance. → \cref{sec:unit_IX_immune_system_defense}
+[**Insulin receptor**]{#gl:insulin-receptor} [L *insula* = island, as in islets of Langerhans] — A receptor tyrosine kinase (RTK) composed of two α and two β subunits; insulin binding activates RTK, triggering autophosphorylation and IRS-1/2 phosphorylation; downstream: PI3K–Akt (GLUT4 translocation, glycogen synthesis) and MAPK (gene expression, cell growth). Type 2 diabetes involves insulin receptor signaling resistance. → \cref{sec:unit_IX_immune_system_defense}
 
 [**Independent assortment**]{#gl:independent-assortment} [L *independens* = not hanging upon] — Mendel's second law: genes on non-homologous chromosomes are inherited independently of each other, producing 9:3:3:1 ratios in dihybrid crosses. Applies only to genes on different chromosomes or far apart on the same chromosome. → \cref{sec:unit_V_mendelian_principles}
 
@@ -243,7 +242,7 @@
 
 [**LTP (long-term potentiation)**]{#gl:ltp} [L *longum* = long + *tempus* = time + *potentia* = power] — A persistent (hours to days) increase in synaptic efficacy following high-frequency stimulation; requires NMDA receptor activation → Ca²⁺ influx → CaMKII autophosphorylation → AMPA receptor insertion; the cellular model of learning and memory (Bløndell, Lømo 1973). → \cref{sec:unit_IX_action_potential_synapses}
 
-[**LTD (long-term depression)**]{#gl:ltd} [L *deprimere* = to press down] — A persistent decrease in synaptic efficacy; induced by low-frequency stimulation (1 Hz) or by mGluR/endocannabinoid signalling (“endocannabinoid-mediated LTD”); involves PP1/PP2A phosphatase activation and AMPA receptor internalisation via dynamin-clathrin endocytosis. → \cref{sec:unit_IX_action_potential_synapses}
+[**LTD (long-term depression)**]{#gl:ltd} [L *deprimere* = to press down] — A persistent decrease in synaptic efficacy; induced by low-frequency stimulation (1 Hz) or by mGluR/endocannabinoid signaling (“endocannabinoid-mediated LTD”); involves PP1/PP2A phosphatase activation and AMPA receptor internalization via dynamin-clathrin endocytosis. → \cref{sec:unit_IX_action_potential_synapses}
 
 [**Linkage**]{#gl:linkage} [ON *hlenkr* = chain link] — The tendency of genes located on the same chromosome to be inherited together; the closer the genes, the stronger the linkage (lower recombination frequency). → \cref{sec:unit_V_chromosomal_inheritance}
 
@@ -281,9 +280,9 @@
 
 [**Natural selection**]{#gl:natural-selection} [L *natura* = nature; *selectio* = choosing] — The process by which heritable variations that increase survival or reproduction become more common in a population over generations. Proposed by Darwin & Wallace (1858). → \cref{sec:unit_V_population_genetics}
 
-[**Niche**]{#gl:niche} [OFr *nicher* = to nest] — The totality of an organism's role in its environment, including physical conditions (temperature, pH, resources) it can use and interactions with other species. **Fundamental niche**: possible without competition. **Realised niche**: actual range when competitors are present. → \cref{sec:unit_X_community_interactions}
+[**Niche**]{#gl:niche} [OFr *nicher* = to nest] — The totality of an organism's role in its environment, including physical conditions (temperature, pH, resources) it can use and interactions with other species. **Fundamental niche**: possible without competition. **Realized niche**: actual range when competitors are present. → \cref{sec:unit_X_community_interactions}
 
-[**Nucleosome**]{#gl:nucleosome} [L *nucleus* = nut kernel + Gk *soma* = body] — The fundamental repeating unit of chromatin: 147 bp of DNA wound ~1.65 turns around a histone octamer (H2A, H2B, H3, H4 × 2); diameter 11 nm. First visualised by electron microscopy (Kornberg, 1974; Nobel Prize 2006). → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
+[**Nucleosome**]{#gl:nucleosome} [L *nucleus* = nut kernel + Gk *soma* = body] — The fundamental repeating unit of chromatin: 147 bp of DNA wound ~1.65 turns around a histone octamer (H2A, H2B, H3, H4 × 2); diameter 11 nm. First visualized by electron microscopy (Kornberg, 1974; Nobel Prize 2006). → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 
 [**Nucleotide**]{#gl:nucleotide} [Gk *nucleus* = kernel + L *nucleus* = nut kernel] — The monomer of nucleic acids: a nitrogenous base + pentose sugar + one to three phosphate groups. Adenine, guanine (purines); cytosine, thymine, uracil (pyrimidines). → \cref{sec:unit_IV_dna_replication_and_cell_cycle}
 
@@ -291,7 +290,7 @@
 
 ## O {.unnumbered}
 
-[**Organelle**]{#gl:organelle} [Gk *organon* = tool/instrument + *ella* = diminutive suffix] — A membrane-bound (or in some definitions, functionally discrete) structure within a eukaryotic cell, performing a specialised function. Examples: nucleus, mitochondrion, chloroplast, Golgi apparatus, lysosome. → \cref{sec:unit_II_cell_structure}
+[**Organelle**]{#gl:organelle} [Gk *organon* = tool/instrument + *ella* = diminutive suffix] — A membrane-bound (or in some definitions, functionally discrete) structure within a eukaryotic cell, performing a specialized function. Examples: nucleus, mitochondrion, chloroplast, Golgi apparatus, lysosome. → \cref{sec:unit_II_cell_structure}
 
 [**Osmosis**]{#gl:osmosis} [Gk *osmos* = pushing] — The movement of water across a selectively permeable membrane from a region of lower solute concentration (higher water potential) to a region of higher solute concentration (lower water potential). Van 't Hoff equation: $\pi = iCRT$. → \cref{sec:unit_II_membrane_transport}
 
@@ -301,7 +300,7 @@
 
 ## P {.unnumbered}
 
-[**P₅₀**]{#gl:p} [partial pressure at which haemoglobin is 50% saturated] — A measure of haemoglobin-O₂ affinity; normal P₅₀ = 26–27 mmHg. Rightward shifts (increased P₅₀) = decreased affinity: caused by increased PCO₂, H⁺, temperature, 2,3-BPG (Bohr effect). Leftward shifts = increased affinity: caused by decreased PCO₂, alkalosis, hypothermia, foetal Hb. → \cref{sec:unit_IX_circulation_respiration_homeostasis}
+[**P₅₀**]{#gl:p} [partial pressure at which hemoglobin is 50% saturated] — A measure of hemoglobin-O₂ affinity; normal P₅₀ = 26–27 mmHg. Rightward shifts (increased P₅₀) = decreased affinity: caused by increased PCO₂, H⁺, temperature, 2,3-BPG (Bohr effect). Leftward shifts = increased affinity: caused by decreased PCO₂, alkalosis, hypothermia, foetal Hb. → \cref{sec:unit_IX_circulation_respiration_homeostasis}
 
 [**Pan-genome**]{#gl:pan-genome} [Gk *pan* = all + *genome*] — The union of the collective genes found across a species or clade when many strains are sequenced; comprises a **core** genome (shared) and **accessory** genes (variable). Explains strain-specific virulence and metabolic capabilities in bacteria. → \cref{sec:unit_IV_mutations_and_genomics}
 
@@ -343,7 +342,7 @@
 
 ## S {.unnumbered}
 
-[**Saltatory conduction**]{#gl:saltatory-conduction} [L *saltare* = to jump] — The rapid propagation of action potentials in myelinated axons by jumping from one node of Ranvier to the next; velocity proportional to internodal distance; 5–70 m/s vs 0.5–2 m/s in unmyelinated C fibres. Enabled by high Na⁺ channel density at nodes and insulation by myelin between nodes. → \cref{sec:unit_IX_action_potential_synapses}
+[**Saltatory conduction**]{#gl:saltatory-conduction} [L *saltare* = to jump] — The rapid propagation of action potentials in myelinated axons by jumping from one node of Ranvier to the next; velocity proportional to internodal distance; 5–70 m/s vs 0.5–2 m/s in unmyelinated C fibers. Enabled by high Na⁺ channel density at nodes and insulation by myelin between nodes. → \cref{sec:unit_IX_action_potential_synapses}
 
 [**SNARE complex**]{#gl:snare-complex} [acronym: **S**oluble **N**-ethylmaleimide-sensitive factor **A**ttachment protein **RE**ceptors] — The core vesicle fusion machinery: v-SNARE (synaptobrevin/VAMP-2, on vesicle) + t-SNAREs (syntaxin-1A and SNAP-25, on target membrane) zipper together in a four-helix bundle providing the energy for membrane fusion. Cleaved by clostridial neurotoxins (botulinum toxin cleaves SNAP-25/VAMP; tetanus toxin cleaves VAMP in spinal inhibitory interneurons). → \cref{sec:unit_IX_action_potential_synapses}
 
@@ -391,13 +390,13 @@
 
 ## X {.unnumbered}
 
-[**Xylem**]{#gl:xylem} [Gk *xylon* = wood] — The vascular tissue that conducts water and dissolved minerals from roots to aerial organs; composed of non-living tracheids and vessel members (dead at maturity) plus parenchyma and fibres. Water moves by cohesion-tension mechanism. → \cref{sec:unit_VIII_plant_structure_and_water}
+[**Xylem**]{#gl:xylem} [Gk *xylon* = wood] — The vascular tissue that conducts water and dissolved minerals from roots to aerial organs; composed of non-living tracheids and vessel members (dead at maturity) plus parenchyma and fibers. Water moves by cohesion-tension mechanism. → \cref{sec:unit_VIII_plant_structure_and_water}
 
 ---
 
 ## Z {.unnumbered}
 
-[**Zygote**]{#gl:zygote} [Gk *zygotos* = yoked] — The diploid cell formed by the fusion of two haploid gametes during fertilisation; the first cell of a new organism; undergoes mitotic divisions to form the embryo. → \cref{sec:unit_V_mendelian_principles}
+[**Zygote**]{#gl:zygote} [Gk *zygotos* = yoked] — The diploid cell formed by the fusion of two haploid gametes during fertilization; the first cell of a new organism; undergoes mitotic divisions to form the embryo. → \cref{sec:unit_V_mendelian_principles}
 
 ---
 
@@ -425,13 +424,13 @@
 
 [**Density-dependent regulation**]{#gl:density-dependent-regulation} [L *densus* = thick] — A population regulatory mechanism whose effect (per-capita birth or death rate) changes as a function of population density; resource competition, disease, and predation are density-dependent. Contrast: **density-independent** factors (e.g., floods, fires). → \cref{sec:unit_X_population_ecology}
 
-[**Depolarisation**]{#gl:depolarisation} [L *de* = away from + Gk *polos* = pivot] — A decrease in magnitude of membrane potential (movement toward zero or positive values); in neurons, caused by Na⁺ influx through voltage-gated channels during the rising phase of an action potential. Contrast: **repolarisation**, **hyperpolarisation**. → \cref{sec:unit_IX_nervous_system}
+[**Depolarization**]{#gl:depolarization} [L *de* = away from + Gk *polos* = pivot] — A decrease in magnitude of membrane potential (movement toward zero or positive values); in neurons, caused by Na⁺ influx through voltage-gated channels during the rising phase of an action potential. Contrast: **repolarization**, **hyperpolarization**. → \cref{sec:unit_IX_nervous_system}
 
 ### E (continued) {.unnumbered}
 
 [**Effective population size (Nₑ)**]{#gl:effective-population-size} [Gk *effectivus* = productive] — An idealised census number equivalent to the actual population in terms of rate of genetic drift; typically much smaller than the census size due to unequal sex ratios, variance in reproductive success, and population size fluctuations. σ²(Δp) = pq/2Nₑ. → \cref{sec:unit_VI_genetic_drift_and_speciation}
 
-[**Eusociality**]{#gl:eusociality} [Gk *eu* = good/true + L *socialis* = allied] — Social organisation with cooperative brood care, overlapping generations, and reproductive division of labour, including sterile or weakly reproductive worker castes in ants, many bees and wasps, and termites. → \cref{sec:unit_VI_evolution_and_selection,sec:unit_VI_phylogenetics}
+[**Eusociality**]{#gl:eusociality} [Gk *eu* = good/true + L *socialis* = allied] — Social organization with cooperative brood care, overlapping generations, and reproductive division of labor, including sterile or weakly reproductive worker castes in ants, many bees and wasps, and termites. → \cref{sec:unit_VI_evolution_and_selection,sec:unit_VI_phylogenetics}
 
 [**Epiphyte**]{#gl:epiphyte} [Gk *epi* = upon + *phyton* = plant] — A plant that grows on another plant for physical support without parasitising it; absorbs water and nutrients from rain and air; orchids, bromeliads, and ferns are prominent epiphytes. → \cref{sec:unit_X_biomes_and_conservation}
 
@@ -455,17 +454,17 @@
 
 ### H (continued) {.unnumbered}
 
-[**Haplodiploidy**]{#gl:haplodiploidy} [Gk *haploos* = single + *diploos* = double] — Sex-determination system in which haploid males develop from unfertilised eggs and diploid females from fertilised eggs; important in many Hymenoptera but not sufficient by itself to explain eusociality. → \cref{sec:unit_VI_evolution_and_selection}
+[**Haplodiploidy**]{#gl:haplodiploidy} [Gk *haploos* = single + *diploos* = double] — Sex-determination system in which haploid males develop from unfertilised eggs and diploid females from fertilized eggs; important in many Hymenoptera but not sufficient by itself to explain eusociality. → \cref{sec:unit_VI_evolution_and_selection}
 
 [**Herd immunity**]{#gl:herd-immunity} [ME *herd* = flock + L *immunis* = exempt] — Indirect protection of susceptible individuals when a sufficiently large proportion of the population is immune (vaccinated or recovered), reducing pathogen transmission; threshold: p_c = 1 − 1/R₀. → \cref{sec:unit_VII_bacteria_archaea_viruses}
 
-[**Herbivory**]{#gl:herbivory} [L *herba* = grass + *vorare* = to devour] — Consumption of plant or algal tissue by an animal or other organism; herbivores occupy the second trophic level; plant defences (thorns, secondary metabolites, trichomes) and herbivore counter-adaptations drive coevolution. → \cref{sec:unit_X_community_interactions}
+[**Herbivory**]{#gl:herbivory} [L *herba* = grass + *vorare* = to devour] — Consumption of plant or algal tissue by an animal or other organism; herbivores occupy the second trophic level; plant defenses (thorns, secondary metabolites, trichomes) and herbivore counter-adaptations drive coevolution. → \cref{sec:unit_X_community_interactions}
 
 [**Hormone**]{#gl:hormone} [Gk *hormaein* = to set in motion] — A chemical signal produced in one part of an organism that travels (via blood in animals, phloem in plants) to act on distant target cells bearing specific receptors; plant hormones (phytohormones) include auxin, gibberellin, cytokinin, abscisic acid, and ethylene. → \cref{sec:unit_VIII_plant_reproduction,sec:unit_IX_endocrine_signaling,sec:unit_IX_immune_system_defense}
 
 ### I (continued) {.unnumbered}
 
-[**Innate immunity**]{#gl:innate-immunity} [L *innatus* = inborn] — The non-specific, evolutionarily ancient first-line defence against pathogens; includes physical barriers (skin, mucous membranes), phagocytes (neutrophils, macrophages), complement, and pattern recognition receptors (TLRs detecting PAMPs). Acts within minutes to hours. → \cref{sec:unit_IX_immune_system_defense}
+[**Innate immunity**]{#gl:innate-immunity} [L *innatus* = inborn] — The non-specific, evolutionarily ancient first-line defense against pathogens; includes physical barriers (skin, mucous membranes), phagocytes (neutrophils, macrophages), complement, and pattern recognition receptors (TLRs detecting PAMPs). Acts within minutes to hours. → \cref{sec:unit_IX_immune_system_defense}
 
 [**Inclusive fitness**]{#gl:inclusive-fitness} [L *includere* = to enclose + OE *fit* = suitable] — Total genetic contribution to future generations through both direct reproduction and indirect effects on relatives' reproduction, weighted by relatedness. → \cref{sec:unit_VI_evolution_and_selection}
 
@@ -475,7 +474,7 @@
 
 ### K (continued) {.unnumbered}
 
-[**K-strategist**]{#gl:k-strategist} [see *carrying capacity* + Gk *strategia* = strategy] — An organism with a life history strategy maximising competitive success near carrying capacity: slow growth, long lifespan, large body, few offspring with high parental investment. Contrast: **r-strategist**. → \cref{sec:unit_X_population_ecology}
+[**K-strategist**]{#gl:k-strategist} [see *carrying capacity* + Gk *strategia* = strategy] — An organism with a life history strategy maximizing competitive success near carrying capacity: slow growth, long lifespan, large body, few offspring with high parental investment. Contrast: **r-strategist**. → \cref{sec:unit_X_population_ecology}
 
 ### L (continued) {.unnumbered}
 
@@ -497,7 +496,7 @@
 
 ### N (continued) {.unnumbered}
 
-[**Neuron**]{#gl:neuron} [Gk *neuron* = nerve, sinew] — The basic signalling unit of the nervous system; consists of a cell body (soma), dendrites (input), and an axon (output); classified by function (sensory, motor, interneuron) or morphology; communicates via electrical (action potentials) or chemical (synaptic) signals. → \cref{sec:unit_IX_nervous_system}
+[**Neuron**]{#gl:neuron} [Gk *neuron* = nerve, sinew] — The basic signaling unit of the nervous system; consists of a cell body (soma), dendrites (input), and an axon (output); classified by function (sensory, motor, interneuron) or morphology; communicates via electrical (action potentials) or chemical (synaptic) signals. → \cref{sec:unit_IX_nervous_system}
 
 [**Neutral theory**]{#gl:neutral-theory} [L *neutralis* = neither + Gk *theoria* = view] — Kimura's (1968) theory that the majority of molecular evolutionary change is selectively neutral (neither advantageous nor deleterious); neutral mutations drift to fixation at a rate equal to the mutation rate (u), independent of population size. → \cref{sec:unit_VI_genetic_drift_and_speciation}
 
@@ -507,7 +506,7 @@
 
 ### O (continued) {.unnumbered}
 
-[**Operon**]{#gl:operon} [L *opus* = work] — A prokaryotic gene cluster transcribed as a polycistronic mRNA from a single promoter; regulated by operator/repressor interactions; the *lac* operon (Jacob & Monod, 1961) was the first characterised gene regulatory system; Nobel Prize 1965. → \cref{sec:unit_IV_gene_expression}
+[**Operon**]{#gl:operon} [L *opus* = work] — A prokaryotic gene cluster transcribed as a polycistronic mRNA from a single promoter; regulated by operator/repressor interactions; the *lac* operon (Jacob & Monod, 1961) was the first characterized gene regulatory system; Nobel Prize 1965. → \cref{sec:unit_IV_gene_expression}
 
 ### P (continued) {.unnumbered}
 
@@ -515,7 +514,7 @@
 
 [**Photoperiodism**]{#gl:photoperiodism} [Gk *photos* = light + L *periodus* = cycle] — The response of an organism to the relative duration of day and night (photoperiod); controls flowering (long-day vs. short-day vs. day-neutral plants) via phytochrome, a red/far-red reversible photoreceptor. → \cref{sec:unit_VIII_plant_responses}
 
-[**Phytochrome**]{#gl:phytochrome} [Gk *phyton* = plant + *chroma* = colour] — A plant photoreceptor protein interconvertible between a red-light-absorbing form (Pr, 660 nm) and a far-red-light-absorbing form (Pfr, 730 nm); Pfr is the biologically active form; governs seed germination, shade avoidance, and flowering. → \cref{sec:unit_VIII_plant_responses}
+[**Phytochrome**]{#gl:phytochrome} [Gk *phyton* = plant + *chroma* = color] — A plant photoreceptor protein interconvertible between a red-light-absorbing form (Pr, 660 nm) and a far-red-light-absorbing form (Pfr, 730 nm); Pfr is the biologically active form; governs seed germination, shade avoidance, and flowering. → \cref{sec:unit_VIII_plant_responses}
 
 [**Phytoplankton**]{#gl:phytoplankton} [Gk *phyton* = plant + *planktos* = wandering] — Microscopic photosynthetic organisms (cyanobacteria, diatoms, dinoflagellates) drifting in the photic zone of aquatic ecosystems; responsible for ~50% of Earth's net primary productivity. → \cref{sec:unit_X_ecosystem_ecology}
 
@@ -527,11 +526,11 @@
 
 ### R (continued) {.unnumbered}
 
-[**Reflex arc**]{#gl:reflex-arc} [L *reflectere* = to bend back] — The neural pathway of a reflex response: stimulus → sensory neuron → integration centre (interneuron in spinal cord or brain) → motor neuron → effector; characterised by Sherrington (1906). → \cref{sec:unit_IX_nervous_system}
+[**Reflex arc**]{#gl:reflex-arc} [L *reflectere* = to bend back] — The neural pathway of a reflex response: stimulus → sensory neuron → integration center (interneuron in spinal cord or brain) → motor neuron → effector; characterized by Sherrington (1906). → \cref{sec:unit_IX_nervous_system}
 
 [**Reproductive isolation**]{#gl:reproductive-isolation} [L *reproducere* = to produce again + *isolatus* = set apart] — The existence of biological barriers (prezygotic or postzygotic) preventing interbreeding between populations; the operational criterion for separate species status in the Biological Species Concept (Mayr). → \cref{sec:unit_VI_genetic_drift_and_speciation}
 
-[**r-strategist**]{#gl:r-strategist} [see *r*, rate of increase + Gk *strategia*] — An organism with a life history strategy maximising reproductive rate (r): small body, rapid maturation, large clutch sizes, little parental investment; thrives in unstable, unpredictable environments. Contrast: **K-strategist**. → \cref{sec:unit_X_population_ecology}
+[**r-strategist**]{#gl:r-strategist} [see *r*, rate of increase + Gk *strategia*] — An organism with a life history strategy maximizing reproductive rate (r): small body, rapid maturation, large clutch sizes, little parental investment; thrives in unstable, unpredictable environments. Contrast: **K-strategist**. → \cref{sec:unit_X_population_ecology}
 
 [**Resting potential**]{#gl:resting-potential} [ME *resten* + L *potentialis*] — The stable membrane potential of a non-stimulated neuron (~−70 mV inside relative to outside); maintained by the sodium-potassium pump (3 Na⁺ out, 2 K⁺ in per ATP) and selective membrane permeability. → \cref{sec:unit_IX_nervous_system}
 
@@ -551,9 +550,9 @@
 
 [**Stigmergy**]{#gl:stigmergy} [Gk *stigma* = mark + *ergon* = work] — Coordination by environmental traces, such as pheromone trails or construction cues, through which individual actions modify the environment and guide later actions by others. → \cref{sec:unit_0_complex_adaptive_systems}
 
-[**Stomata**]{#gl:stomata} (sing. stoma) [Gk *stoma* = mouth] — Microscopic pores in the leaf epidermis flanked by guard cells; regulate CO₂ entry for photosynthesis and water vapour exit (transpiration); respond to light, CO₂ concentration, and ABA. → \cref{sec:unit_VIII_plant_structure_and_water}
+[**Stomata**]{#gl:stomata} (sing. stoma) [Gk *stoma* = mouth] — Microscopic pores in the leaf epidermis flanked by guard cells; regulate CO₂ entry for photosynthesis and water vapor exit (transpiration); respond to light, CO₂ concentration, and ABA. → \cref{sec:unit_VIII_plant_structure_and_water}
 
-[**Succession**]{#gl:succession} [L *successio* = a following] — The directional, predictable change in species composition of a community over time from initial colonisation to a relatively stable climax community; driven by facilitation, inhibition, or tolerance mechanisms. → \cref{sec:unit_X_community_interactions}
+[**Succession**]{#gl:succession} [L *successio* = a following] — The directional, predictable change in species composition of a community over time from initial colonization to a relatively stable climax community; driven by facilitation, inhibition, or tolerance mechanisms. → \cref{sec:unit_X_community_interactions}
 
 [**Superorganism**]{#gl:superorganism} [L *super* = above + Gk *organon* = instrument] — A colony-level analogy for tightly integrated societies, especially social insects, in which individuals function like differentiated parts of a larger reproductive and regulatory unit. → \cref{sec:unit_0_complex_adaptive_systems,sec:unit_VI_evolution_and_selection}
 
@@ -567,11 +566,11 @@
 
 [**Telomere**]{#gl:telomere} [Gk *telos* = end + *meros* = part] — Repetitive non-coding DNA sequences (TTAGGG)ₙ capping eukaryotic chromosome ends; protect against exonuclease degradation, end-to-end chromosome fusions, and loss of information-carrying DNA; shortened with each S phase (end-replication problem) unless telomerase is expressed. Nobel Prize 2009 (Blackburn, Greider, Szostak). → \cref{sec:unit_IV_dna_replication_and_cell_cycle}
 
-[**Thermoregulation**]{#gl:thermoregulation} [Gk *therme* = heat + L *regulare* = to rule] — Maintenance of body temperature within a physiological range; **endotherms** (birds, mammals) generate heat metabolically; **ectotherms** (reptiles, fish) rely on behavioural and environmental sources; homeostatic mechanism with hypothalamic 'thermostat'. → \cref{sec:unit_IX_nervous_system}
+[**Thermoregulation**]{#gl:thermoregulation} [Gk *therme* = heat + L *regulare* = to rule] — Maintenance of body temperature within a physiological range; **endotherms** (birds, mammals) generate heat metabolically; **ectotherms** (reptiles, fish) rely on behavioral and environmental sources; homeostatic mechanism with hypothalamic 'thermostat'. → \cref{sec:unit_IX_nervous_system}
 
-[**Toll-like receptor (TLR)**]{#gl:toll-like-receptor} [*Toll* = German interjection of amazement; Toll pathway discovered in *Drosophila* by Christiane Nüsslein-Volhard] — A family of pattern-recognition receptors (TLR1–10 in humans, with additional functional TLRs in other mammals) expressed on innate immune cells; recognise conserved PAMPs and signal via MyD88 and TRIF adaptors to activate NF-κB and IRF3. Dysregulation linked to sepsis and autoimmune disease. Nobel Prize 2011 (Hoffmann, Beutler). → \cref{sec:unit_IX_immune_system_defense}
+[**Toll-like receptor (TLR)**]{#gl:toll-like-receptor} [*Toll* = German interjection of amazement; Toll pathway discovered in *Drosophila* by Christiane Nüsslein-Volhard] — A family of pattern-recognition receptors (TLR1–10 in humans, with additional functional TLRs in other mammals) expressed on innate immune cells; recognize conserved PAMPs and signal via MyD88 and TRIF adaptors to activate NF-κB and IRF3. Dysregulation linked to sepsis and autoimmune disease. Nobel Prize 2011 (Hoffmann, Beutler). → \cref{sec:unit_IX_immune_system_defense}
 
-[**Totipotency**]{#gl:totipotency} [L *totus* = whole + *potens* = powerful] — The ability of a single cell to develop into a complete organism; characterises fertilised eggs and early-cleavage blastomeres; plant cells frequently retain totipotency (basis of tissue culture propagation). → \cref{sec:unit_VIII_plant_structure_and_water}
+[**Totipotency**]{#gl:totipotency} [L *totus* = whole + *potens* = powerful] — The ability of a single cell to develop into a complete organism; characterizes fertilized eggs and early-cleavage blastomeres; plant cells frequently retain totipotency (basis of tissue culture propagation). → \cref{sec:unit_VIII_plant_structure_and_water}
 
 [**Transpiration stream**]{#gl:transpiration-stream} [L *trans* + *spirare* = breathe] — The continuous movement of water from soil through roots, stem, and leaves to the atmosphere; driven by evaporation from mesophyll cell walls; responsible for transport of dissolved minerals throughout the plant. → \cref{sec:unit_VIII_plant_structure_and_water}
 

@@ -1,6 +1,5 @@
-# Lab — Enzymes and the Kinetics of Catalysis {.unnumbered}
+# Lab — Enzymes and the Kinetics of Catalysis {#sec:lab_unit_I_enzymes_and_kinetics .unnumbered}
 
-\label{sec:lab_unit_I_enzymes_and_kinetics}
 
 ## Learning Objectives {.unnumbered}
 
@@ -35,12 +34,13 @@
 
 Enzymes are biological catalysts that lower activation energy. The enzyme catalase converts hydrogen peroxide (H₂O₂) to water and oxygen: **2 H₂O₂ → 2 H₂O + O₂**. This reaction is often monitored by counting O₂ bubbles per minute or by measuring the height of foam produced. Catalase is one of the fastest known enzymes (k_cat ~40,000,000 s⁻¹) and is found in most aerobic organisms.
 
-In this lab you will analyse a paper dataset showing how temperature, pH, substrate concentration, and inhibition affect catalase activity. The goal is to infer mechanism from controlled comparisons rather than to run a wet reaction.
+In this lab you will analyze a paper dataset showing how temperature, pH, substrate concentration, and inhibition affect catalase activity. The goal is to infer mechanism from controlled comparisons rather than to run a wet reaction.
 
 The quantitative DHFR inhibition worked example in the parent chapter (\cref{sec:unit_I_enzymes_and_kinetics}) shows how competitive-inhibitor binding reduces apparent reaction rate: at [MTX] = 10$\times$ its $K_i$, the apparent $K_m$ rises 11-fold, cutting velocity by about 62%. This lab applies the same kinetic reasoning to catalase: students extract a qualitative $K_m$ and predict inhibition from competition.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_I_enzymes_and_kinetics_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Enzymes and the Kinetics of Catalysis: BRENDA enzyme-entry card with EC number, organism, kinetic field, ligand, reference, and release date | 1 |
@@ -72,6 +72,7 @@ The quantitative DHFR inhibition worked example in the parent chapter (\cref{sec
 
 ## Data Recording {.unnumbered}
 
+: Alignment and Rubric Map: Condition and Temperature (°C). {#tbl:unit_I_enzymes_and_kinetics_alignment_and_rubric_map_2}
 | Condition | Temperature (°C) | pH | [H₂O₂] (%) | Simulated O₂ proxy at 60 s |
 | --------- | ----------------- | -- | ----------- | ------------------------- |
 | Ice bath | 0 | 7 | 3 | |
@@ -103,6 +104,7 @@ The quantitative DHFR inhibition worked example in the parent chapter (\cref{sec
 Before answering the analysis questions, annotate the paper dataset for
 **Enzymes and the Kinetics of Catalysis** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_I_enzymes_and_kinetics_alignment_and_rubric_map_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -168,7 +170,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -187,5 +189,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_I_enzymes_and_kinetics}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

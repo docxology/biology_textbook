@@ -1,6 +1,5 @@
-# Lab — Circulation, Respiration, and Homeostasis {.unnumbered}
+# Lab — Circulation, Respiration, and Homeostasis {#sec:lab_unit_IX_circulation_respiration_homeostasis .unnumbered}
 
-\label{sec:lab_unit_IX_circulation_respiration_homeostasis}
 
 ## Learning Objectives {.unnumbered}
 
@@ -9,7 +8,7 @@
 - Analyze resting and post-exercise heart rate and blood pressure datasets and apply the Frank-Starling law
 - Calculate cardiac output and stroke volume from anonymized case data using CO = HR × SV
 - Apply Fick's principle to estimate oxygen consumption from heart rate data
-- Analyse spirometry data to determine tidal volume, IRV, ERV, and FVC
+- Analyze spirometry data to determine tidal volume, IRV, ERV, and FVC
 
 
 <!-- lab-alignment-start -->
@@ -27,7 +26,7 @@
 *Answer these before starting the investigation — they activate knowledge from the parent chapter.*
 
 1. Write the equation that defines cardiac output and identify the units of each term. In two to three sentences, describe the Frank–Starling mechanism and explain why it tends to match ventricular output to venous return over short timescales.
-2. Sketch (or describe) the oxygen–haemoglobin dissociation curve and indicate the direction the curve shifts when blood pH falls. State the physiological reason this Bohr-effect shift is helpful in metabolically active tissues.
+2. Sketch (or describe) the oxygen–hemoglobin dissociation curve and indicate the direction the curve shifts when blood pH falls. State the physiological reason this Bohr-effect shift is helpful in metabolically active tissues.
 3. Define DO₂ (oxygen delivery) and VO₂ (oxygen consumption) in words, and write the Fick equation that relates VO₂ to cardiac output and the arteriovenous O₂ content difference.
 
 ## Lab Context: Circulation, Respiration, and Homeostasis {.unnumbered}
@@ -36,6 +35,7 @@ The cardiovascular system delivers oxygen and removes CO₂ at a rate matched to
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IX_circulation_respiration_homeostasis_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Circulation, Respiration, and Homeostasis: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
@@ -67,6 +67,7 @@ The cardiovascular system delivers oxygen and removes CO₂ at a rate matched to
 
 ## Data Recording {.unnumbered}
 
+: Alignment and Rubric Map: Time (min) and HR (bpm). {#tbl:unit_IX_circulation_respiration_homeostasis_alignment_and_rubric_map_2}
 | Time (min) | HR (bpm) | Estimated SV (mL) | CO (L/min) |
 | ---------- | -------- | ------------------ | ----------- |
 | Rest | | 70 | |
@@ -78,6 +79,7 @@ The cardiovascular system delivers oxygen and removes CO₂ at a rate matched to
 
 Spirometry (from dataset):
 
+: Alignment and Rubric Map: Subject and FVC (L). {#tbl:unit_IX_circulation_respiration_homeostasis_alignment_and_rubric_map_3}
 | Subject | FVC (L) | FEV₁ (L) | FEV₁/FVC (%) | Pattern |
 | ------- | ------- | --------- | ------------- | ------- |
 | Normal | 4.8 | 4.3 | | |
@@ -103,6 +105,7 @@ Reproducibility check: sampling interval used for recovery graph = ___; rule for
 Before answering the analysis questions, annotate the paper dataset for
 **Circulation, Respiration, and Homeostasis** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_IX_circulation_respiration_homeostasis_alignment_and_rubric_map_4}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -118,7 +121,7 @@ equipment version belongs only in an optional extension.
 
 **Problem:** At rest, a healthy adult has heart rate (HR) = 70 bpm and stroke volume (SV) = 70 mL, giving a resting cardiac output (CO) of about 5 L/min. During moderate exercise, HR rises to 140 bpm and SV rises to 100 mL. Arterial O₂ content is 0.20 mL O₂ per mL of blood; mixed venous O₂ content is 0.15 mL O₂ per mL of blood. Calculate (a) exercise CO and (b) oxygen consumption VO₂ using the Fick principle VO₂ = CO × (CaO₂ − CvO₂).
 
-**Solution:** Cardiac output during exercise is CO = HR × SV = 140 bpm × 100 mL = 14,000 mL/min = 14 L/min. The arteriovenous O₂ difference is (0.20 − 0.15) = 0.05 mL O₂ per mL blood, or 50 mL O₂ per litre of blood. Applying Fick: VO₂ = 14 L/min × 50 mL O₂/L = 700 mL O₂/min. Resting VO₂ at the same Ca−Cv difference would be 5 L/min × 50 mL/L = 250 mL O₂/min.
+**Solution:** Cardiac output during exercise is CO = HR × SV = 140 bpm × 100 mL = 14,000 mL/min = 14 L/min. The arteriovenous O₂ difference is (0.20 − 0.15) = 0.05 mL O₂ per mL blood, or 50 mL O₂ per liter of blood. Applying Fick: VO₂ = 14 L/min × 50 mL O₂/L = 700 mL O₂/min. Resting VO₂ at the same Ca−Cv difference would be 5 L/min × 50 mL/L = 250 mL O₂/min.
 
 **Interpretation:** Exercise raised CO by about 2.8-fold (5 → 14 L/min). VO₂ rose roughly in step under the assumed Ca−Cv difference, but in practice the arteriovenous O₂ difference also widens during exercise as tissues extract more O₂, so VO₂ typically scales faster than CO alone. This shows why both CO and extraction matter for matching O₂ supply to demand.
 
@@ -131,16 +134,16 @@ Complete the source-governance card for Circulation, Respiration, and Homeostasi
 1. Why did HR increase during exercise, and why did it remain elevated for several minutes post-exercise? Name the autonomic branch primarily responsible for the exercise-induced HR increase.
 2. A reduced FEV₁/FVC ratio below the age-dependent lower limit of normal supports an obstructive pattern; a fixed 70% cutoff is a screening shortcut, not a comprehensive diagnostic boundary. The asthmatic shows reduced FEV₁ but relatively preserved FVC. Explain the structural difference in the airways that causes obstructive vs restrictive spirometry patterns.
 3. Calculate the difference in cardiac output between rest and peak exercise in your data. Using Fick's principle (VO₂ = CO × (CaO₂ − CvO₂)), estimate oxygen consumption if the arterio-venous O₂ difference increases from 50 mL/L at rest to 150 mL/L during maximal exercise.
-4. A patient with congestive heart failure has chronically elevated ventricular end-diastolic pressure. Explain how this shifts the Frank-Starling curve and contributes to pulmonary oedema (connect to Starling capillary forces).
+4. A patient with congestive heart failure has chronically elevated ventricular end-diastolic pressure. Explain how this shifts the Frank-Starling curve and contributes to pulmonary edema (connect to Starling capillary forces).
 5. At high altitude (3,500 m), PaO₂ drops from 100 to ~60 mmHg. Identify three physiological acclimatisation responses (acute and chronic) and for each, specify the sensing mechanism and the effector system involved.
 6. A dehydrated student eats a salty, high-protein meal. Predict the direction of change for plasma osmolality, ADH, urea production, and urine concentration. Which measurements would distinguish "not enough water intake" from impaired kidney concentrating ability?
 
 
 ## Post-Lab Synthesis {.unnumbered}
 
-> **Concept Check (Synthesis):** Consider a patient with severe anaemia (haemoglobin 5 g/dL versus the typical 15 g/dL) whose tissue O₂ delivery must be maintained.
+> **Concept Check (Synthesis):** Consider a patient with severe anemia (hemoglobin 5 g/dL versus the typical 15 g/dL) whose tissue O₂ delivery must be maintained.
 >
-> (a) Identify the cardiovascular and respiratory compensations the patient is likely to recruit at rest — discuss expected changes in heart rate, stroke volume, 2,3-BPG levels, and the position of the O₂–haemoglobin dissociation curve, and predict the direction of each change with mechanistic reasoning.
+> (a) Identify the cardiovascular and respiratory compensations the patient is likely to recruit at rest — discuss expected changes in heart rate, stroke volume, 2,3-BPG levels, and the position of the O₂–hemoglobin dissociation curve, and predict the direction of each change with mechanistic reasoning.
 > (b) Compare how effective each compensation is at rest versus during moderate exercise. Predict which mechanism reaches its ceiling first and explain how that ceiling shapes exercise tolerance; cite at least one measurement the team could make during the lab to test the prediction.
 
 ## Safety and Ethics Notes {.unnumbered}
@@ -160,7 +163,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -179,5 +182,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_IX_circulation_respiration_homeostasis}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

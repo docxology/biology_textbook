@@ -1,22 +1,21 @@
-# Unit IX — Zoology and Systems Physiology: Introduction {.unnumbered}
+# Unit IX — Zoology and Systems Physiology: Introduction {#sec:unit_IX_unit_intro .unnumbered}
 
 
-\label{sec:unit_IX_unit_intro}
 ## Why This Unit Matters {.unnumbered}
 
 In 1628, William Harvey published *Exercitatio Anatomica de Motu Cordis et Sanguinis in Animalibus*
 (On the Motion of the Heart and Blood in Animals) and overturned nearly 1,500 years of Galenic medicine.
 Harvey demonstrated, through quantitative reasoning alone, that the heart must be a pump recirculating
 the same blood — not a furnace generating new blood from food. He calculated that the heart pushes
-approximately 1.8 litres of blood per minute; if blood flowed outward and were not returned, the entire
-blood volume (about 5 litres) would be exhausted in under 3 minutes. Therefore, it must circulate.
+approximately 1.8 liters of blood per minute; if blood flowed outward and were not returned, the entire
+blood volume (about 5 liters) would be exhausted in under 3 minutes. Therefore, it must circulate.
 This was physiology as computational biology — numbers proving mechanism before any understanding of
 cellular biology existed.
 
 Modern systems physiology is even more mathematical. The Hodgkin-Huxley model (1952) describes the
 action potential as a set of four coupled nonlinear ordinary differential equations and was solved
 numerically before computers capable of doing so efficiently were widely available. Today, the same
-mathematical framework underlies cardiac electrophysiology, pharmacological ion channel modelling, and
+mathematical framework underlies cardiac electrophysiology, pharmacological ion channel modeling, and
 the design of neural prosthetics. Homeostasis — the maintenance of stable internal conditions — is
 formalised as a negative feedback control system: a detector, comparator, and effector maintaining a
 set-point, mathematically identical to engineering control systems.
@@ -34,13 +33,13 @@ from anaphylaxis to Parkinson's disease.
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| William Harvey | 1628 | *Exercitatio Anatomica de Motu Cordis* | Systemic circulation: heart as pump | Quantitative physiology; disproved Galenic humoral theory |
-| Claude Bernard | 1854–1879 | *Leçons de physiologie expérimentale* | Internal milieu and homeostasis | Defined the concept of regulated internal environment |
-| Ernest Starling | 1918 | *J. Physiol.* | Frank-Starling law of the heart | Cardiac output proportional to venous return; basis of heart failure physiology |
-| Alan Hodgkin & Andrew Huxley | 1952 | *J. Physiol.* | Mathematical model of nerve action potential | Four ODEs describing Na⁺/K⁺ conductance; Nobel Prize 1963 |
-| Barry Marshall & Robin Warren | 1984 | *The Lancet* | *Helicobacter pylori* causes peptic ulcers | Disproved \"acid stress\" dogma; Nobel Prize 2005; key discovery in gastrointestinal physiology |
-| Rosalyn Yalow & Solomon Berson | 1959 | *J. Clin. Invest.* | Radioimmunoassay (RIA) for insulin | Enabled measurement of hormone concentrations at picomolar levels; Nobel Prize 1977 |
-| César Milstein & Georges Köhler | 1975 | *Nature* | Monoclonal antibody production (hybridoma) | Foundation of modern immunotherapy, diagnostics, and targeted cancer therapy; Nobel Prize 1984 |
+| William Harvey | 1628 | \citep{harvey1628} | Systemic circulation: heart as pump | Quantitative physiology; disproved Galenic humoral theory |
+| Claude Bernard | 1854–1879 | \citep{bernard1865} | Internal milieu and homeostasis | Defined the concept of regulated internal environment |
+| Ernest Starling | 1918 | \citep{starling1914} | Frank-Starling law of the heart | Cardiac output proportional to venous return; basis of heart failure physiology |
+| Alan Hodgkin & Andrew Huxley | 1952 | \citep{hodgkin1952quantitative} | Mathematical model of nerve action potential | Four ODEs describing Na⁺/K⁺ conductance; Nobel Prize 1963 |
+| Barry Marshall & Robin Warren | 1984 | \citep{marshall1984} | *Helicobacter pylori* causes peptic ulcers | Disproved \"acid stress\" dogma; Nobel Prize 2005; key discovery in gastrointestinal physiology |
+| Rosalyn Yalow & Solomon Berson | 1959 | \citep{yalow1959} | Radioimmunoassay (RIA) for insulin | Enabled measurement of hormone concentrations at picomolar levels; Nobel Prize 1977 |
+| César Milstein & Georges Köhler | 1975 | \citep{milstein1975} | Monoclonal antibody production (hybridoma) | Foundation of modern immunotherapy, diagnostics, and targeted cancer therapy; Nobel Prize 1984 |
 
 ---
 
@@ -57,7 +56,7 @@ graph TD
     AP --> SYN["🔌 Synaptic Transmission<br/>(NT release;<br/>EPSP/IPSP; GPCR)"]
     NERVE --> HOME
 
-    CIRC --> GAS["🩸 Gas Transport<br/>(haemoglobin O₂ binding;<br/>Bohr effect; Hill n≈2.8)"]
+    CIRC --> GAS["🩸 Gas Transport<br/>(hemoglobin O₂ binding;<br/>Bohr effect; Hill n≈2.8)"]
     RESP --> GAS
 
     ENDO --> INS["🍭 Glucose Homeostasis<br/>(insulin/glucagon;<br/>pancreatic β-cells; diabetes)"]
@@ -71,9 +70,9 @@ graph TD
     style IMMUNE fill:#27ae60,color:#fff
     style ENDO fill:#f39c12,color:#fff
 ```
-<!-- alt: Graph showing systems physiology concept map linking homeostasis, circulation, respiration, endocrine signalling, immunity, and neural control through feedback loops. -->
+<!-- alt: Graph showing systems physiology concept map linking homeostasis, circulation, respiration, endocrine signaling, immunity, and neural control through feedback loops. -->
 
-*Systems physiology concept map linking homeostasis, circulation, respiration, endocrine signalling, immunity, and neural control through feedback loops.*
+*Systems physiology concept map linking homeostasis, circulation, respiration, endocrine signaling, immunity, and neural control through feedback loops.*
 
 **\nameref{sec:unit_IX_unit_intro} concept map — Zoology and Systems Physiology.**
 
@@ -92,21 +91,21 @@ paper-based lab decision.
 | Chapter | Title | Core Question | Key Equation / Model |
 | ------- | ----- | ------------- | -------------------- |
 | **28** | Circulation, Respiration, and Homeostasis | How do the cardiovascular and respiratory systems maintain homeostasis? | Fick's principle; Starling equation; $P_{O_2}$/Hb saturation (Hill eq.) |
-| **29** | Nervous System Organisation | How is the nervous system organised from molecular to systems level? | Cable equation; receptor field models |
+| **29** | Nervous System Organization | How is the nervous system organized from molecular to systems level? | Cable equation; receptor field models |
 | **30** | Action Potentials and Synapses | How do neurons generate and transmit electrical signals? | Hodgkin-Huxley: $I = C_m dV/dt + I_{Na} + I_K + I_L$ |
-| **31** | Endocrine and Immune Systems | How do hormones and immune cells maintain internal defence and stability? | Negative feedback oscillator; MHC diversity; clonal selection |
+| **31** | Endocrine and Immune Systems | How do hormones and immune cells maintain internal defense and stability? | Negative feedback oscillator; MHC diversity; clonal selection |
 
 ---
 
 ## Connections Across the Textbook {.unnumbered}
 
 - **Ion channels and membrane potential** (this unit) build directly on membrane transport (\cref{sec:unit_II_membrane_transport}) and electrochemistry (\nameref{sec:unit_I_unit_intro}).
-- **Haemoglobin cooperativity** (Hill equation, $n \approx 2.8$) connects to enzyme allostery (\cref{sec:unit_I_enzymes_and_kinetics}) and protein structure (\cref{sec:unit_I_macromolecules}).
+- **Hemoglobin cooperativity** (Hill equation, $n \approx 2.8$) connects to enzyme allostery (\cref{sec:unit_I_enzymes_and_kinetics}) and protein structure (\cref{sec:unit_I_macromolecules}).
 - **Immune system** connects to \nameref{sec:unit_VII_unit_intro} (innate response to bacteria/viruses) and \nameref{sec:unit_IV_unit_intro} (recombination of V(D)J gene segments in antibody diversity).
 - **Endocrine regulation** (steroid hormones acting on nuclear receptors) links to \nameref{sec:unit_IV_unit_intro} (gene regulation) and \nameref{sec:unit_III_unit_intro} (metabolic regulation by insulin/glucagon vs. AMPK).
 - **Negative feedback homeostasis** is mathematically equivalent to the control theory underlying \nameref{sec:unit_X_unit_intro} (population regulation) and \nameref{sec:unit_III_unit_intro} (metabolic feedback).
 
-> **Key vocabulary introduced here:** homeostasis, action potential, resting membrane potential, ion channel, neurotransmitter, synapse, GPCR, second messenger, cardiac output, stroke volume, preload, afterload, Frank-Starling law, haemoglobin cooperativity, Bohr effect, hormone, receptor tyrosine kinase, antigen, MHC, clonal selection, innate immunity, adaptive immunity.
+> **Key vocabulary introduced here:** homeostasis, action potential, resting membrane potential, ion channel, neurotransmitter, synapse, GPCR, second messenger, cardiac output, stroke volume, preload, afterload, Frank-Starling law, hemoglobin cooperativity, Bohr effect, hormone, receptor tyrosine kinase, antigen, MHC, clonal selection, innate immunity, adaptive immunity.
 
 
 ## Computational Toolbox — Unit IX {.unnumbered}
@@ -137,13 +136,13 @@ print(f"Firing threshold crossed: {'yes' if peak_V > 0 else 'no'}")
 # Firing threshold crossed: yes
 ```
 
-> **Try it yourself:** Reduce `stimulus_current_µA` to 5 µA/cm² — the membrane depolarises
+> **Try it yourself:** Reduce `stimulus_current_µA` to 5 µA/cm² — the membrane depolarizes
 > but may not reach threshold. This illustrates the **most-or-none principle**.
 
 ---
 
 *Source modules: `src/biology/physiology/` and `src/biology/neuroscience/` — `oxygen_saturation()`, `poiseuille_flow()`, `homeostasis_response()`, `action_potential_hh()`.*
-*Figures: `src/visualization/` (action potential traces, haemoglobin saturation curves, hormone feedback oscillators); `src/mermaid/biology_diagrams.py` (nervous system diagrams, immune response cascades).*
+*Figures: `src/visualization/` (action potential traces, hemoglobin saturation curves, hormone feedback oscillators); `src/mermaid/biology_diagrams.py` (nervous system diagrams, immune response cascades).*
 
 ## Cross-Unit Integration {.unnumbered}
 

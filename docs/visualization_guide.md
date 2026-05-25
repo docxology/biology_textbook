@@ -1,4 +1,4 @@
-# Visualisation Guide
+# Visualization Guide
 
 > [!NOTE]
 > **See also:** [composable_authoring.md](composable_authoring.md) for registry rules and `test_every_registered_figure_is_referenced`; [manuscript_guide.md](manuscript_guide.md#figures) for embedding/alt-text rules; [accessibility.md](accessibility.md) for the CVD policy.
@@ -27,9 +27,9 @@ The `biology_textbook` project generates **three types of visual output**:
 
 1. **Matplotlib figures** — 32 quantitative plots from `src/visualization/plots.py` (`ALL_FIGURE_GENERATORS`)
 2. **Registered Mermaid diagrams** — 24 biological pathway/network diagrams from `src/mermaid/biology_diagrams.py` (`ALL_BIOLOGY_DIAGRAMS`), rendered to PNG via the `mmdc` CLI
-3. **Inline Mermaid fences** — 193 manuscript-local diagrams rendered during PDF preprocessing and optional visual-contract review
+3. **Inline Mermaid fences** — 196 manuscript-local diagrams rendered during PDF preprocessing and optional visual-contract review
 
-Matplotlib figures and registered Mermaid diagrams are square-padded after rendering so labels and legends do not change the final canvas shape. The visual-contract audit measures all 249 records and fails `--check` when a normal matplotlib figure falls outside aspect ratio `0.85-1.18`, or a Mermaid PNG falls outside `0.75-1.33`, unless the record carries a reviewed exception reason. Use temporary review roots for verification:
+Matplotlib figures and registered Mermaid diagrams are square-padded after rendering so labels and legends do not change the final canvas shape. The visual-contract audit measures all 252 records and fails `--check` when a normal matplotlib figure falls outside aspect ratio `0.85-1.18`, or a Mermaid PNG falls outside `0.75-1.33`, unless the record carries a reviewed exception reason. Use temporary review roots for verification:
 
 ```bash
 tmp=$(mktemp -d)
@@ -42,7 +42,7 @@ uv run python scripts/audit_visual_contracts.py --figures-root "$tmp/figures" --
 
 ## Six-step checklist for new figures
 
-Use this every time you add a new visualisation. Each step maps to an enforced or advisory test.
+Use this every time you add a new visualization. Each step maps to an enforced or advisory test.
 
 | # | Step | Where | Enforced by |
 | - | ---- | ----- | ----------- |
@@ -91,7 +91,7 @@ All figure generators must follow these rules (enforced by `tests/test_mermaid_a
 | 1 | **Headless backend.** Set `MPLBACKEND=Agg`; never call `plt.show()` in library code. | CI has no display. |
 | 2 | **Font sizes.** Titles 15–18 pt; axis labels 14 pt; tick labels 12 pt; legend 11 pt. | Readable at 2 mm-margin print density. |
 | 3 | **DPI = 150 and square output.** Use `visualization._scaffold._save_figure`; it saves with a tight bounding box, closes the figure, and pads the PNG to a square canvas. | Crisp on screen and print without bloated file size or aspect-ratio drift. |
-| 4 | **CVD palette.** Import from `src/visualization/cvd.py`; never use red and green as the only two-way distinction. | Colour-vision-deficiency safety. |
+| 4 | **CVD palette.** Import from `src/visualization/cvd.py`; never use red and green as the only two-way distinction. | Colorvision-deficiency safety. |
 | 5 | **Legends with handles.** When multiple series appear, pass explicit `handles, labels`. | Avoids fragile auto-legend ordering. |
 | 6 | **Pathlib for I/O.** Use `pathlib.Path`; resolve at call time. | Cross-platform; no hardcoded `/tmp`. |
 | 7 | **Deterministic.** Set `np.random.seed(42)` (or pass `seed=` argument) before any stochastic plot. | Reproducible PNGs across CI runs. |
@@ -148,7 +148,7 @@ The palette is defined in `src/visualization/cvd.py`. **Always import from there
 
 | Symbol | Hex | RGB | Use |
 | ------ | --- | --- | --- |
-| `BAR_POS` | `#1f77b4` | (31, 119, 180) | Positive bars (e.g. depolarising Nernst potentials) |
+| `BAR_POS` | `#1f77b4` | (31, 119, 180) | Positive bars (e.g. depolarizing Nernst potentials) |
 | `BAR_NEG` | `#d62728` | (214, 39, 40) | Negative bars (e.g. hyperpolarising Nernst potentials) |
 | `PUNNETT_DOMINANT` | `#1f77b4` | (31, 119, 180) | Dominant Punnett-square cells (with `//` hatch) |
 | `PUNNETT_RECESSIVE` | `#ff7f0e` | (255, 127, 14) | Recessive Punnett-square cells (with `xx` hatch) |
@@ -162,8 +162,8 @@ The palette is defined in `src/visualization/cvd.py`. **Always import from there
 
 | Situation | Strategy |
 | --------- | -------- |
-| Two overlapping curves | `SERIES2[0]` solid + `SERIES2[1]` dashed — colour **and** line-style |
-| Three overlapping curves | `SERIES3` + line styles `-`, `--`, `:` — never rely on colour alone |
+| Two overlapping curves | `SERIES2[0]` solid + `SERIES2[1]` dashed — color **and** line-style |
+| Three overlapping curves | `SERIES3` + line styles `-`, `--`, `:` — never rely on color alone |
 | Signed bar chart | `BAR_POS` for positive, `BAR_NEG` for negative |
 | Punnett square cells | `PUNNETT_*` constants + hatching (`hatch="//"` / `hatch="xx"`) |
 | Heatmap | `cmap="viridis"` (perceptually uniform). **Never** `cmap="RdYlGn"` without an additional channel. |
@@ -176,7 +176,7 @@ The palette is defined in `src/visualization/cvd.py`. **Always import from there
 
 ## Wong/Okabe-Ito reference palette
 
-For new generators or **mermaid `classDef` styling**, prefer the **Wong/Okabe-Ito 8-colour palette** — the de-facto standard for colour-blind-safe scientific figures (Wong, *Nature Methods* 8, 441, 2011). All eight hues are distinguishable under deuteranopia, protanopia, and tritanopia.
+For new generators or **mermaid `classDef` styling**, prefer the **Wong/Okabe-Ito 8-color palette** — the de-facto standard for colorblind-safe scientific figures (Wong, *Nature Methods* 8, 441, 2011). All eight hues are distinguishable under deuteranopia, protanopia, and tritanopia.
 
 | Name | Hex | RGB | Typical use |
 | ---- | --- | --- | ----------- |
@@ -211,7 +211,7 @@ flowchart LR
 ````
 
 > [!TIP]
-> When you only need **one** colour beyond black, use **Blue (`#0072B2`)**. When you need **two**, add **Orange (`#E69F00`)** — these two hues remain distinct under all common forms of colour vision deficiency. Add **Vermillion (`#D55E00`)** as the third only when red-orange is semantically right (e.g. signalling "stop").
+> When you only need **one** color beyond black, use **Blue (`#0072B2`)**. When you need **two**, add **Orange (`#E69F00`)** — these two hues remain distinct under all common forms of color vision deficiency. Add **Vermillion (`#D55E00`)** as the third only when red-orange is semantically right (e.g. signaling "stop").
 
 ---
 
@@ -355,7 +355,7 @@ When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
 | `plt.savefig("foo.png")` (no path) | File appears in `cwd`, not `output/figures/` | Use the `_save_figure()` helper |
 | Missing `plt.close(fig)` | Memory growth across many figures | Always close after save |
 | Forgetting `MPLBACKEND=Agg` | `tkinter.TclError` on headless CI | Set in `conftest.py` (already done) and `_save_figure` callers |
-| Red+green only colour distinction | Fails accessibility review | Use `cvd.SERIES2` / `cvd.SERIES3` + line styles |
+| Red+green only color distinction | Fails accessibility review | Use `cvd.SERIES2` / `cvd.SERIES3` + line styles |
 | `cmap="RdYlGn"` for heatmap | CVD-unfriendly | Use `cmap="viridis"` |
 | Hand-typed "Figure 4.2" in caption text | Number drifts on chapter reorder | Let cleveref handle: `\cref{fig:...}` in prose only |
 | Forgetting `<!-- alt: ... -->` after `\end{figure}` | `test_accessibility.py` fails | Add a one-sentence visual description immediately after `\end{figure}` |

@@ -8,7 +8,7 @@
 #   authors:     Full author list with affiliations
 #   publication: DOI, repository_url, repository_label, keywords
 #   layout:      Page margins, page size (all configurable here)
-#   typography:  Fonts, link colour, code style
+#   typography:  Fonts, link color, code style
 #   front_matter: Front matter file list and ordering
 #   rendering:   Chapter/figure/equation auto-numbering options
 #   units:       Chapter order and enabling/disabling individual chapters
@@ -82,7 +82,7 @@ typography:
   heading_font: "Linux Biolinum O" # Heading font (sans-serif companion)
   mono_font: "DejaVu Sans Mono" # Code / monospace font
   base_font_size_pt: 9 # Base body size in points (enforced in preamble.md via \normalsize)
-  # Hyperlink colour — RED for all link types
+  # Hyperlink color — RED for all link types
   link_color: "#CC0000" # Red links (internal + external)
   link_color_internal: "#CC0000" # Cross-reference links (same document)
   link_color_external: "#CC0000" # External URL links
@@ -157,7 +157,7 @@ units:
       - file: membrane_transport.md
         title: "Membrane Structure and Transport"
       - file: cell_signaling.md
-        title: "Cell Signalling and Communication"
+        title: "Cell Signaling and Communication"
 
   - id: unit_III
     title: "Energy and Metabolism"
@@ -248,7 +248,7 @@ units:
       - file: circulation_respiration_homeostasis.md
         title: "Circulation, Respiration, and Homeostasis"
       - file: nervous_system.md
-        title: "Nervous System and Neural Signalling"
+        title: "Nervous System and Neural Signaling"
       - file: action_potential_synapses.md
         title: "Action Potentials and Synaptic Transmission"
       - file: endocrine_signaling.md

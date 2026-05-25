@@ -15,7 +15,7 @@ Unit 0 introduces the cross-cutting conceptual framework underlying the entire t
 
 ## Why Unit 0?
 
-Introductory biology is often taught as a sequence of isolated topics. This unit provides the scaffolding to see those topics as interconnected instances of a deeper pattern: living systems are *organised*, *adaptive*, *self-regulating* entities that maintain themselves far from thermodynamic equilibrium. Systems science, complexity theory, and active inference each offer complementary lenses on this central fact.
+Introductory biology is often taught as a sequence of isolated topics. This unit provides the scaffolding to see those topics as interconnected instances of a deeper pattern: living systems are *organized*, *adaptive*, *self-regulating* entities that maintain themselves far from thermodynamic equilibrium. Systems science, complexity theory, and active inference each offer complementary lenses on this central fact.
 
 ## Key Questions
 1. What is a system, and why does emergence arise in complex ones?

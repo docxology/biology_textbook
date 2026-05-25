@@ -1,6 +1,5 @@
-# Lab — Chromatin and Epigenetic Mechanisms {.unnumbered}
+# Lab — Chromatin and Epigenetic Mechanisms {#sec:lab_unit_IV_chromatin_and_epigenetic_mechanisms .unnumbered}
 
-\label{sec:lab_unit_IV_chromatin_and_epigenetic_mechanisms}
 
 *This activity accompanies \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -41,7 +40,7 @@
 
 2. **Experimental Design**: What is the independent variable in an epigenetic diet study? What is the dependent variable? List at least 5 variables that should be controlled to ensure valid results.
 
-3. **Scientific Context**: The Horvath epigenetic clock uses DNA methylation patterns to predict biological age. Why might biological age differ from chronological age? What factors can accelerate epigenetic ageing?
+3. **Scientific Context**: The Horvath epigenetic clock uses DNA methylation patterns to predict biological age. Why might biological age differ from chronological age? What factors can accelerate epigenetic aging?
 
 4. **Quantitative Reasoning**: If a methylation-sensitive PCR shows a 200 bp band in the untreated sample and a 400 bp band in the bisulphite-treated sample, what does this tell you about the methylation status of the gene?
 
@@ -53,14 +52,15 @@ Epigenetic regulation controls gene expression without altering DNA sequence: DN
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IV_chromatin_and_epigenetic_mechanisms_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Chromatin and Epigenetic Mechanisms: genomics/database source card: reference release, sample coverage, version, clinical boundary, and refresh trigger | 1 |
 | MS-PCR gel image (printed: two lanes per sample, bisulphite-treated/untreated) | 1 |
-| ChIP-seq track printout (H3K4me3 signal at BRCA1 promoter: tumour vs normal) | 1 |
+| ChIP-seq track printout (H3K4me3 signal at BRCA1 promoter: tumor vs normal) | 1 |
 | Lac operon gene-expression logic table (worksheet) | 1 per student |
 | "Agouti mouse" case study reading (1 page) | 1 per student |
-| Coloured pens | 3 |
+| Colored pens | 3 |
 | Calculator or optional Python REPL with this project installed | 1 |
 | Epigenetic age calculator worksheet | 1 |
 
@@ -79,7 +79,7 @@ Epigenetic regulation controls gene expression without altering DNA sequence: DN
 
 4. **Data Collection**:
    - Interpret the MS-PCR gel: determine which gene is methylated in cancer vs normal cells.
-   - Analyze the ChIP-seq track: compare H3K4me3 peak height at the BRCA1 promoter between tumour and normal. Does BRCA1 appear silenced in the tumour?
+   - Analyze the ChIP-seq track: compare H3K4me3 peak height at the BRCA1 promoter between tumor and normal. Does BRCA1 appear silenced in the tumor?
    - Complete the lac operon logic table for four conditions.
    - Read and analyze the agouti mouse case study.
 
@@ -116,11 +116,12 @@ Complete the source-governance card for Chromatin and Epigenetic Mechanisms befo
 - **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
 <!-- lab-evidence-checklist-end -->
 
-## Paper-Based Evidence Upgrade
+## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
 **Chromatin and Epigenetic Mechanisms** with a reproducibility pass:
 
+: Source-Governance Checkpoint: Evidence check and Student action. {#tbl:unit_IV_chromatin_and_epigenetic_mechanisms_source_governance_checkpoint}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |

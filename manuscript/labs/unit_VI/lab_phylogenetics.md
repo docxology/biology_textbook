@@ -1,6 +1,5 @@
-# Lab — Phylogenetics and the Tree of Life {.unnumbered}
+# Lab — Phylogenetics and the Tree of Life {#sec:lab_unit_VI_phylogenetics .unnumbered}
 
-\label{sec:lab_unit_VI_phylogenetics}
 
 ## Learning Objectives {.unnumbered}
 
@@ -36,6 +35,7 @@ Phylogenetics reconstructs evolutionary history by identifying shared derived ch
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VI_phylogenetics_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Phylogenetics and the Tree of Life: evolutionary-evidence source card: alternative hypotheses, sampling, calibration, and confidence boundary | 1 |
@@ -61,6 +61,7 @@ Phylogenetics reconstructs evolutionary history by identifying shared derived ch
 
 Character matrix (excerpt — 5 taxa):
 
+: Alignment and Rubric Map: Taxon and Vertebrae. {#tbl:unit_VI_phylogenetics_alignment_and_rubric_map_2}
 | Taxon | Vertebrae | Four limbs | Feathers | Mammary glands | Placenta |
 | ----- | --------- | ---------- | -------- | -------------- | -------- |
 | Lamprey | 1 | 0 | 0 | 0 | 0 |
@@ -96,6 +97,7 @@ Molecular phylogeny notes:
 Before answering the analysis questions, annotate the paper dataset for
 **Phylogenetics and the Tree of Life** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_VI_phylogenetics_alignment_and_rubric_map_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -104,7 +106,7 @@ Before answering the analysis questions, annotate the paper dataset for
 | Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
 | Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
 
-Focus note: in this character-matrix and tree-building lab, justify each clade with a shared derived character (synapomorphy) rather than overall similarity, treat bootstrap percentages as resampling support rather than proof, and flag where horizontal gene transfer or hybridisation would make a strictly bifurcating tree the wrong model. Keep required work paper-based; any material-handling or
+Focus note: in this character-matrix and tree-building lab, justify each clade with a shared derived character (synapomorphy) rather than overall similarity, treat bootstrap percentages as resampling support rather than proof, and flag where horizontal gene transfer or hybridization would make a strictly bifurcating tree the wrong model. Keep required work paper-based; any material-handling or
 equipment version belongs only in an optional extension.
 
 ### Worked Example: UPGMA Tree from a Pairwise Distance Matrix {.unnumbered}
@@ -125,15 +127,15 @@ Complete the source-governance card for Phylogenetics and the Tree of Life befor
 2. Crocodiles share a more recent common ancestor with birds than with lizards, despite looking more like lizards. What does this illustrate about the limits of morphological similarity as an indicator of evolutionary relationship?
 3. A bootstrap value of 95% means that 95% of resampled datasets recover that node. How would you interpret a node with 42% bootstrap support? Should it be included in the published tree?
 4. Horizontal gene transfer (HGT) in bacteria allows genes to jump between unrelated lineages — violating the vertical (parent-to-offspring) assumption of phylogenetics. Explain how HGT would appear as a misleading signal in a molecular phylogeny, and describe one method used to detect it.
-5. The "Tree of Life" analogy implies a bifurcating, hierarchical structure. However, hybridisation (interspecies mating, e.g., in plants) produces reticulate evolution — a network rather than a tree. Name two plant genera where reticulate evolution occurs and describe how allopolyploidy contributes to speciation.
+5. The "Tree of Life" analogy implies a bifurcating, hierarchical structure. However, hybridization (interspecies mating, e.g., in plants) produces reticulate evolution — a network rather than a tree. Name two plant genera where reticulate evolution occurs and describe how allopolyploidy contributes to speciation.
 
 
 ## Post-Lab Synthesis {.unnumbered}
 
-> **Concept Check (Synthesis):** A clade of recently diverged species presents a phylogenetic pattern that could either reflect a true adaptive radiation or be an artefact of incomplete lineage sorting (ILS). Evaluate the additional data — morphological, behavioural, and geographic — that would help discriminate between the two scenarios, and explain why ILS is especially problematic in rapidly diversifying groups.
+> **Concept Check (Synthesis):** A clade of recently diverged species presents a phylogenetic pattern that could either reflect a true adaptive radiation or be an artifact of incomplete lineage sorting (ILS). Evaluate the additional data — morphological, behavioral, and geographic — that would help discriminate between the two scenarios, and explain why ILS is especially problematic in rapidly diversifying groups.
 >
 > (a) Identify the genomic signature of incomplete lineage sorting: discordance among gene trees across loci, with each gene tree retaining a different sampling of ancestral polymorphism. Describe how a coalescent-based species-tree method (such as ASTRAL) or a tool detecting introgression (such as the D-statistic) can summarize this discordance, and note why ILS is more frequent in clades with short internal branches and large effective population sizes — precisely the regime expected during rapid radiation.
-> (b) Describe the morphological, behavioural, and geographic data that would help resolve the ambiguity. Morphological synapomorphies (such as shared adaptive structures) and behavioural traits (such as courtship displays or feeding modes) that consistently track the molecular species tree support a true radiation; mosaic patterns that conflict with the gene-tree majority hint at ILS or introgression. Geographic data — current ranges, fossil localities, paleo-environmental reconstructions — can corroborate plausible isolation events that would have driven divergence.
+> (b) Describe the morphological, behavioral, and geographic data that would help resolve the ambiguity. Morphological synapomorphies (such as shared adaptive structures) and behavioral traits (such as courtship displays or feeding modes) that consistently track the molecular species tree support a true radiation; mosaic patterns that conflict with the gene-tree majority hint at ILS or introgression. Geographic data — current ranges, fossil localities, paleo-environmental reconstructions — can corroborate plausible isolation events that would have driven divergence.
 > (c) Outline a verification plan. Sequence many independent loci from across the genome, build per-locus gene trees, summarize their concordance with a species-tree method, and overlay morphological and biogeographic evidence. Predict that a true radiation will show coherent signal across these data types, while a pattern dominated by ILS will show discordant gene trees with little morphological or geographic alignment. Identify at least one remaining ambiguity — such as ancient introgression between sister lineages — that this plan would not fully resolve and that would require additional approaches (for example, ancestral-state reconstruction or ancient-DNA sampling) to address.
 
 ## Safety and Ethics Notes {.unnumbered}
@@ -153,7 +155,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -172,5 +174,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_VI_phylogenetics}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

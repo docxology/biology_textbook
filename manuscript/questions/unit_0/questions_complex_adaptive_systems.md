@@ -1,6 +1,5 @@
-# Questions — Complex Adaptive Systems {.unnumbered}
+# Questions — Complex Adaptive Systems {#sec:q_unit_0_complex_adaptive_systems .unnumbered}
 
-\label{sec:q_unit_0_complex_adaptive_systems}
 
 *This activity accompanies \cref{sec:unit_0_complex_adaptive_systems} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -24,31 +23,31 @@
 1. Define 'complex adaptive systems' in your own words and provide a biological example.
 
 <!-- SOLUTION
-**Answer (Q1, Recall).** A complex adaptive system is a population of many heterogeneous agents that interact locally, adapt their behaviour from local information, and thereby generate emergent, nonlinear, history-dependent properties that no single agent contains and no central controller imposes. Biological example: an ant colony — individuals follow simple pheromone rules, yet the colony collectively solves foraging, task allocation, and defence (other examples: the immune system, the brain, ecosystems).
+**Answer (Q1, Recall).** A complex adaptive system is a population of many heterogeneous agents that interact locally, adapt their behavior from local information, and thereby generate emergent, nonlinear, history-dependent properties that no single agent contains and no central controller imposes. Biological example: an ant colony — individuals follow simple pheromone rules, yet the colony collectively solves foraging, task allocation, and defense (other examples: the immune system, the brain, ecosystems).
 SOLUTION -->
 <!-- assess: LO=LO2; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
 2. What distinguishes a complex adaptive system from a simple system?
 
 <!-- SOLUTION
-**Answer (Q2, Recall).** A simple system has few components and fixed, predictable input–output relations. A complex adaptive system is a network of many heterogeneous agents that act on local information and adapt, producing emergent, nonlinear, history-dependent behaviour that cannot be predicted from any agent alone (e.g., the immune system, an ant colony, an ecosystem). The defining contrast is adaptation and emergence versus fixed, decomposable mechanism.
+**Answer (Q2, Recall).** A simple system has few components and fixed, predictable input–output relations. A complex adaptive system is a network of many heterogeneous agents that act on local information and adapt, producing emergent, nonlinear, history-dependent behavior that cannot be predicted from any agent alone (e.g., the immune system, an ant colony, an ecosystem). The defining contrast is adaptation and emergence versus fixed, decomposable mechanism.
 SOLUTION -->
 <!-- assess: LO=LO3; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
 3. What is the free energy principle? What does free energy measure?
 
 <!-- SOLUTION
-**Answer (Q3, Recall).** The free energy principle (Friston) states that any system that maintains itself far from equilibrium must act and perceive so as to minimise *variational free energy* — an information-theoretic upper bound on sensory surprise. Free energy measures the mismatch between the organism's internal generative model (its predictions) and the sensory data it actually receives; minimising it keeps the organism within its viable physiological states.
+**Answer (Q3, Recall).** The free energy principle (Friston) states that any system that maintains itself far from equilibrium must act and perceive so as to minimize *variational free energy* — an information-theoretic upper bound on sensory surprise. Free energy measures the mismatch between the organism's internal generative model (its predictions) and the sensory data it actually receives; minimizing it keeps the organism within its viable physiological states.
 SOLUTION -->
 <!-- assess: LO=LO4; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
 4. Describe one biological example of negative feedback and one of positive feedback.
 
 <!-- SOLUTION
-**Answer (Q4, Recall).** Negative feedback: thermoregulation — a rise in core temperature triggers sweating and vasodilation that return temperature toward the set point (stabilising). Positive feedback: the rising phase of the action potential — Na⁺ influx depolarises the membrane, opening more voltage-gated Na⁺ channels and amplifying the depolarisation until channels inactivate (self-reinforcing and self-limiting).
+**Answer (Q4, Recall).** Negative feedback: thermoregulation — a rise in core temperature triggers sweating and vasodilation that return temperature toward the set point (stabilizing). Positive feedback: the rising phase of the action potential — Na⁺ influx depolarizes the membrane, opening more voltage-gated Na⁺ channels and amplifying the depolarization until channels inactivate (self-reinforcing and self-limiting).
 SOLUTION -->
 <!-- assess: LO=LO5; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
 5. What is the difference between homeostasis and allostasis?
 
 <!-- SOLUTION
-**Answer (Q5, Recall).** Homeostasis holds a regulated variable near a *fixed* set point through reactive negative feedback. Allostasis (Sterling) achieves stability *through change*: the brain predictively adjusts set points and mobilises resources in anticipation of demand, so the target itself moves. The decisive difference is reactive constancy versus anticipatory, model-based set-point adjustment.
+**Answer (Q5, Recall).** Homeostasis holds a regulated variable near a *fixed* set point through reactive negative feedback. Allostasis (Sterling) achieves stability *through change*: the brain predictively adjusts set points and mobilizes resources in anticipation of demand, so the target itself moves. The decisive difference is reactive constancy versus anticipatory, model-based set-point adjustment.
 SOLUTION -->
 
 ---
@@ -56,10 +55,10 @@ SOLUTION -->
 ## Application Questions (2 marks each) {.unnumbered}
 
 <!-- assess: LO=LO6; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-6. A drug blocks a key kinase in a signalling cascade, but the tumour eventually regrows. Explain this outcome using the concept of feedback compensation.
+6. A drug blocks a key kinase in a signaling cascade, but the tumor eventually regrows. Explain this outcome using the concept of feedback compensation.
 
 <!-- SOLUTION
-**Answer (Q6, Application).** Blocking one kinase removes a single edge of a signalling network, but negative-feedback nodes the pathway normally suppresses are de-repressed and parallel routes reroute flux to restore downstream signalling (e.g., loss of ERK-mediated feedback reactivates upstream receptor/PI3K input). The network's redundancy and compensatory feedback restore proliferative output, so single-target inhibition is evaded — which is why combination therapy is often required.
+**Answer (Q6, Application).** Blocking one kinase removes a single edge of a signaling network, but negative-feedback nodes the pathway normally suppresses are de-repressed and parallel routes reroute flux to restore downstream signaling (e.g., loss of ERK-mediated feedback reactivates upstream receptor/PI3K input). The network's redundancy and compensatory feedback restore proliferative output, so single-target inhibition is evaded — which is why combination therapy is often required.
 SOLUTION -->
 <!-- assess: LO=LO7; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
 7. Explain why the lac operon switch is described as bistable. What advantage does bistability provide over a graded (linear) response?
@@ -77,13 +76,13 @@ SOLUTION -->
 9. Apply the active inference framework to explain how a fever might be adaptive rather than merely a pathological response.
 
 <!-- SOLUTION
-**Answer (Q9, Application).** Under active inference an organism acts to fulfil its predictions about preferred, viable states. Infection raises the *expected* (set-point) temperature encoded by the hypothalamic generative model; the body then acts — shivering, vasoconstriction — to realise that prediction because elevated temperature accelerates immune kinetics and impairs pathogen replication. Fever is thus a controlled, model-driven allostatic shift rather than a regulatory failure, adaptive up to its metabolic and tissue-stress costs.
+**Answer (Q9, Application).** Under active inference an organism acts to fulfil its predictions about preferred, viable states. Infection raises the *expected* (set-point) temperature encoded by the hypothalamic generative model; the body then acts — shivering, vasoconstriction — to realize that prediction because elevated temperature accelerates immune kinetics and impairs pathogen replication. Fever is thus a controlled, model-driven allostatic shift rather than a regulatory failure, adaptive up to its metabolic and tissue-stress costs.
 SOLUTION -->
 <!-- assess: LO=LO2; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
 10. In evolutionary terms, what is niche construction, and how does it relate to the free energy principle?
 
 <!-- SOLUTION
-**Answer (Q10, Application).** Niche construction is the organism's modification of its own environment (beaver dams, earthworm-altered soil), changing the selection pressures it and its descendants experience. Under the free energy principle, agents minimise surprise not only by updating internal models (perception) but by acting on the world so it matches their expected states — niche construction is free-energy minimisation externalised and inherited across generations, stabilising the organism–environment fit.
+**Answer (Q10, Application).** Niche construction is the organism's modification of its own environment (beaver dams, earthworm-altered soil), changing the selection pressures it and its descendants experience. Under the free energy principle, agents minimize surprise not only by updating internal models (perception) but by acting on the world so it matches their expected states — niche construction is free-energy minimization externalised and inherited across generations, stabilizing the organism–environment fit.
 SOLUTION -->
 
 ---
@@ -91,10 +90,10 @@ SOLUTION -->
 ## Synthesis Questions (4 marks each) {.unnumbered}
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-11. Compare and contrast the immune system and an evolving tumour as complex adaptive systems. In each case, identify (a) the agents, (b) the selection pressures, (c) an emergent property, and (d) a critical vulnerability.
+11. Compare and contrast the immune system and an evolving tumor as complex adaptive systems. In each case, identify (a) the agents, (b) the selection pressures, (c) an emergent property, and (d) a critical vulnerability.
 
 <!-- SOLUTION
-**Answer (Q11, Synthesis).** Both are populations of heritable, variable, selected agents whose adaptive behaviour is emergent. (a) Agents: lymphocyte clones vs tumour subclones. (b) Selection pressures: antigen affinity and self-tolerance vs immune attack, therapy, hypoxia. (c) Emergent property: immunological memory vs collective drug resistance. (d) Critical vulnerability: tolerance breakdown or T-cell exhaustion vs dependence on a driver mutation or shared resource. The decisive contrast: the immune system is selected for host benefit, whereas tumour evolution is selected purely for local proliferative fitness against the host.
+**Answer (Q11, Synthesis).** Both are populations of heritable, variable, selected agents whose adaptive behavior is emergent. (a) Agents: lymphocyte clones vs tumor subclones. (b) Selection pressures: antigen affinity and self-tolerance vs immune attack, therapy, hypoxia. (c) Emergent property: immunological memory vs collective drug resistance. (d) Critical vulnerability: tolerance breakdown or T-cell exhaustion vs dependence on a driver mutation or shared resource. The decisive contrast: the immune system is selected for host benefit, whereas tumor evolution is selected purely for local proliferative fitness against the host.
 SOLUTION -->
 
 <!-- assess: LO=LO4; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -108,16 +107,16 @@ SOLUTION -->
 13. Describe how ecosystem collapse (e.g., coral bleaching, fishery collapse) can be framed as a phase transition in a complex adaptive system. What warning signals might precede the transition? Why is recovery often much harder than the original decline?
 
 <!-- SOLUTION
-**Answer (Q13, Synthesis).** A reef or fishery near a bifurcation has a shallow basin of attraction; a small additional forcing (warming, harvest pressure) pushes it across a tipping point into an alternative stable state (algal-dominated reef, collapsed stock). Early-warning signals are signatures of *critical slowing down* — rising variance, increased autocorrelation, and slower recovery from small disturbances. Recovery is hard because of hysteresis: feedbacks that stabilise the new state (macroalgal dominance, recruitment failure) mean the driver must fall far below the original threshold before the system flips back.
+**Answer (Q13, Synthesis).** A reef or fishery near a bifurcation has a shallow basin of attraction; a small additional forcing (warming, harvest pressure) pushes it across a tipping point into an alternative stable state (algal-dominated reef, collapsed stock). Early-warning signals are signatures of *critical slowing down* — rising variance, increased autocorrelation, and slower recovery from small disturbances. Recovery is hard because of hysteresis: feedbacks that stabilize the new state (macroalgal dominance, recruitment failure) mean the driver must fall far below the original threshold before the system flips back.
 SOLUTION -->
 
 ## Data and Model Interpretation Questions (3 marks each) {.unnumbered}
 
 <!-- assess: LO=LO6; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-14. In an agent-based simulation, changing one local rule from "align with three neighbours" to "align with six neighbours" causes global order to appear faster. Explain why this is an emergent result rather than a command from a central controller.
+14. In an agent-based simulation, changing one local rule from "align with three neighbors" to "align with six neighbors" causes global order to appear faster. Explain why this is an emergent result rather than a command from a central controller.
 
 <!-- SOLUTION
-**Answer (Q14, Analysis).** The global pattern changes because each agent samples more neighbours, increasing local coupling. No agent stores the global pattern or directs the group. The ordered state emerges from repeated local interactions plus boundary conditions.
+**Answer (Q14, Analysis).** The global pattern changes because each agent samples more neighbors, increasing local coupling. No agent stores the global pattern or directs the group. The ordered state emerges from repeated local interactions plus boundary conditions.
 SOLUTION -->
 
 <!-- assess: LO=LO7; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -138,7 +137,7 @@ SOLUTION -->
 17. Explain how a phase transition differs from a gradual linear change. Use one biological example.
 
 <!-- SOLUTION
-**Answer (Q17, Analysis).** A phase transition occurs when a small parameter change near a threshold produces a qualitative state change. Examples include quorum sensing activation, membrane depolarization threshold, ecosystem eutrophication, or protein folding. Linear change lacks that abrupt threshold behaviour.
+**Answer (Q17, Analysis).** A phase transition occurs when a small parameter change near a threshold produces a qualitative state change. Examples include quorum sensing activation, membrane depolarization threshold, ecosystem eutrophication, or protein folding. Linear change lacks that abrupt threshold behavior.
 SOLUTION -->
 
 <!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
@@ -166,21 +165,21 @@ SOLUTION -->
 21. Explain why heterogeneity among agents can make a population more resilient.
 
 <!-- SOLUTION
-**Answer (Q21, Analysis).** Heterogeneity spreads risk. If agents differ in behaviour, physiology, genotype, or location, one stress rarely harms all agents equally. Diversity can preserve function during perturbation, though it can also slow coordinated responses.
+**Answer (Q21, Analysis).** Heterogeneity spreads risk. If agents differ in behavior, physiology, genotype, or location, one stress rarely harms all agents equally. Diversity can preserve function during perturbation, though it can also slow coordinated responses.
 SOLUTION -->
 
 <!-- assess: LO=LO6; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-22. A cancer therapy kills 99% of tumour cells but leaves a small resistant subpopulation. Explain why this can select for relapse.
+22. A cancer therapy kills 99% of tumor cells but leaves a small resistant subpopulation. Explain why this can select for relapse.
 
 <!-- SOLUTION
-**Answer (Q22, Application).** Therapy changes the selection environment. Sensitive cells are removed, reducing competition for resistant cells. If resistant cells survive and replicate, the post-treatment tumour can be enriched for the resistant phenotype even if it was initially rare.
+**Answer (Q22, Application).** Therapy changes the selection environment. Sensitive cells are removed, reducing competition for resistant cells. If resistant cells survive and replicate, the post-treatment tumor can be enriched for the resistant phenotype even if it was initially rare.
 SOLUTION -->
 
 <!-- assess: LO=LO7; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
 23. Distinguish adaptation by natural selection from adaptation by learning within an organism. Why can both be described as adaptive processes?
 
 <!-- SOLUTION
-**Answer (Q23, Analysis).** Natural selection changes population allele or trait frequencies across generations; learning changes behaviour or internal models within a lifetime. Both are adaptive because feedback from the environment alters future performance, but the substrate, inheritance, and time scale differ.
+**Answer (Q23, Analysis).** Natural selection changes population allele or trait frequencies across generations; learning changes behavior or internal models within a lifetime. Both are adaptive because feedback from the environment alters future performance, but the substrate, inheritance, and time scale differ.
 SOLUTION -->
 
 ## Evaluation and Design Questions (4 marks each) {.unnumbered}
@@ -196,14 +195,14 @@ SOLUTION -->
 25. Evaluate the claim: "Because complex systems are unpredictable, modeling them is useless."
 
 <!-- SOLUTION
-**Answer (Q25, Evaluation).** The claim is too strong. Complex systems may be hard to predict exactly, but models can identify thresholds, sensitivities, robust qualitative behaviours, and useful intervention points. The goal is often constrained prediction and mechanistic insight, not perfect point forecasting.
+**Answer (Q25, Evaluation).** The claim is too strong. Complex systems may be hard to predict exactly, but models can identify thresholds, sensitivities, robust qualitative behaviors, and useful intervention points. The goal is often constrained prediction and mechanistic insight, not perfect point forecasting.
 SOLUTION -->
 
 <!-- assess: LO=LO2; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 26. Propose a way to detect whether a community pattern is produced by local interactions or by a shared external gradient.
 
 <!-- SOLUTION
-**Answer (Q26, Create).** Measure or manipulate the external gradient while also mapping local neighbour effects. If the pattern persists after controlling for the gradient, local interactions are implicated. Transplant, removal, or randomized-neighbour experiments can separate neighbour causation from shared environmental forcing.
+**Answer (Q26, Create).** Measure or manipulate the external gradient while also mapping local neighbor effects. If the pattern persists after controlling for the gradient, local interactions are implicated. Transplant, removal, or randomized-neighbor experiments can separate neighbor causation from shared environmental forcing.
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->

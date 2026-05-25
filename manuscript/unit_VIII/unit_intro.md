@@ -1,7 +1,6 @@
-# Unit VIII — Botany — Plant Biology: Introduction {.unnumbered}
+# Unit VIII — Botany — Plant Biology: Introduction {#sec:unit_VIII_unit_intro .unnumbered}
 
 
-\label{sec:unit_VIII_unit_intro}
 ## Why This Unit Matters {.unnumbered}
 
 Plants are the foundation of almost every terrestrial food web, the source of roughly half the oxygen
@@ -13,18 +12,18 @@ chemical bonds, feeding the entire biosphere. Each year, land plants and algae f
 modulates global atmospheric chemistry.
 
 Plant biology is also a discipline of extremes. The tallest trees (coast redwoods, *Sequoia
-sempervirens*, 115 m) move water 115 metres against gravity using primarily cohesion-tension and solar
+sempervirens*, 115 m) move water 115 meters against gravity using primarily cohesion-tension and solar
 energy, achieving flow rates in excess of 1 m/hour. Some desert plants survive total desiccation and
 revive on rehydration. Others flower in response to photoperiod cues measured in the phytochrome
 system with a resolution of minutes. The *Arabidopsis thaliana* genome was the first plant genome
 sequenced (2000), and this small weed has since become the \"*E. coli* of plant biology\" — a model
 organism for the molecular dissection of everything from root development to pathogen resistance.
 
-This unit integrates anatomy (vascular organisation, meristems, root-shoot polarity), physiology
+This unit integrates anatomy (vascular organization, meristems, root-shoot polarity), physiology
 (transpiration, water potential, phloem loading), reproductive biology (alternation of generations,
-angiosperm diversity, seed development), and signalling (phytohormones: auxin, gibberellin, cytokinin,
+angiosperm diversity, seed development), and signaling (phytohormones: auxin, gibberellin, cytokinin,
 abscisic acid, ethylene). The quantitative spine is water potential ($\Psi = \Psi_s + \Psi_p$) and
-transpiration modelled by the van den Honert equation.
+transpiration modeled by the van den Honert equation.
 
 ---
 
@@ -32,13 +31,13 @@ transpiration modelled by the van den Honert equation.
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| Jan Ingenhousz | 1779 | *Experiments upon Vegetables* | Plants produce oxygen in light, CO₂ in dark | Established the light-dependency of photosynthesis |
-| Julius von Sachs | 1862 | *Botanische Zeitung* | Starch as first visible product of photosynthesis | Linked CO₂ fixation to carbohydrate storage in chloroplasts |
-| Frits Went | 1926 | *Recueil des Travaux Botaniques Néerlandais* | Isolation of auxin; phototropism mechanism | First plant hormone identified; explained Darwinian canary grass bending |
-| Henry Dixon & John Joly | 1894 | *Proc. R. Irish Acad.* | Cohesion-tension theory of water ascent | Explained how trees move water 100+ m with no pump |
-| Chailakhyan | 1936 | *C. R. Acad. Sci. URSS* | Florigen hypothesis (day-length controls flowering) | Proposed a systemic flowering stimulus; later identified as FT protein |
-| *Arabidopsis* Genome Initiative | 2000 | *Nature* | First plant genome sequence (125 Mb; ~25,500 genes) | Model organism for molecular plant biology; comparative genomics |
-| Gómez-Roldán et al. | 2008 | *Nature* | Strigolactones: new class of plant hormones | Sixth plant hormone class; regulates branching and mycorrhizal symbiosis |
+| Jan Ingenhousz | 1779 | \citep{ingenhouss1779} | Plants produce oxygen in light, CO₂ in dark | Established the light-dependency of photosynthesis |
+| Julius von Sachs | 1862 | \citep{sachs1862} | Starch as first visible product of photosynthesis | Linked CO₂ fixation to carbohydrate storage in chloroplasts |
+| Frits Went | 1926 | \citep{went1926} | Isolation of auxin; phototropism mechanism | First plant hormone identified; explained Darwinian canary grass bending |
+| Henry Dixon & John Joly | 1894 | \citep{dixon1894} | Cohesion-tension theory of water ascent | Explained how trees move water 100+ m with no pump |
+| Chailakhyan | 1936 | \citep{chailakhyan1936} | Florigen hypothesis (day-length controls flowering) | Proposed a systemic flowering stimulus; later identified as FT protein |
+| *Arabidopsis* Genome Initiative | 2000 | \citep{arabidopsis2000} | First plant genome sequence (125 Mb; ~25,500 genes) | Model organism for molecular plant biology; comparative genomics |
+| Gómez-Roldán et al. | 2008 | \citep{umehara2008strigolactone} | Strigolactones: new class of plant hormones | Sixth plant hormone class; regulates branching and mycorrhizal symbiosis |
 
 ---
 
@@ -61,7 +60,7 @@ graph TD
 
     STRUC --> PHLOEM["🚌 Phloem Transport<br/>(pressure-flow hypothesis;<br/>source-sink sugar loading)"]
 
-    DEF["🛡️ Plant Defence<br/>(secondary metabolites;<br/>jasmonate signalling;<br/>systemic acquired resistance)"] --> STRUC
+    DEF["🛡️ Plant Defense<br/>(secondary metabolites;<br/>jasmonate signaling;<br/>systemic acquired resistance)"] --> STRUC
 
     style PHOTO fill:#27ae60,color:#fff
     style WATER fill:#2980b9,color:#fff
@@ -86,9 +85,9 @@ paper-based lab decision.
 
 | Chapter | Title | Core Question | Key Equation / Model |
 | ------- | ----- | ------------- | -------------------- |
-| **25** | Plant Structure and Water Transport | How is plant body plan organised, and how does water move from roots to leaves? | $\Psi = \Psi_s + \Psi_p$; Poiseuille's law (xylem flow) |
+| **25** | Plant Structure and Water Transport | How is plant body plan organized, and how does water move from roots to leaves? | $\Psi = \Psi_s + \Psi_p$; Poiseuille's law (xylem flow) |
 | **26** | Plant Reproduction | How do plants reproduce sexually and asexually, and how did flowering plant diversity arise? | Alternation of generations; polyploidy speciation rates |
-| **27** | Plant Responses to the Environment | How do phytohormones integrate environmental signals into growth and defence responses? | Auxin polar transport; ethylene activation kinetics |
+| **27** | Plant Responses to the Environment | How do phytohormones integrate environmental signals into growth and defense responses? | Auxin polar transport; ethylene activation kinetics |
 
 ---
 
@@ -96,11 +95,11 @@ paper-based lab decision.
 
 - **Photosynthesis** (\cref{sec:unit_III_photosynthesis}) is the biochemical foundation of plant carbon metabolism; this unit extends it by covering C₄ and CAM pathways and carbon assimilation in leaves.
 - **Water potential and osmosis** (\cref{sec:unit_I_atoms_molecules}; \cref{sec:unit_II_membrane_transport}) directly underlie the transpiration stream model.
-- **Plant hormone receptor signalling** (auxin, ABA) uses the same signalling classes covered in \nameref{sec:unit_II_unit_intro} (cell signalling: receptor kinases, second messengers).
+- **Plant hormone receptor signaling** (auxin, ABA) uses the same signaling classes covered in \nameref{sec:unit_II_unit_intro} (cell signaling: receptor kinases, second messengers).
 - **Plant-pollinator, myrmecochory, and plant-mycorrhizal interactions** connect to \nameref{sec:unit_X_unit_intro} (community ecology, mutualism, co-evolution).
 - **Secondary metabolites as medicines** (alkaloids, terpenoids) link to \nameref{sec:unit_I_unit_intro} (functional groups) and \nameref{sec:unit_VII_unit_intro} (antimicrobial compounds).
 
-> **Key vocabulary introduced here:** meristem, apical dominance, cohesion-tension, water potential (Ψ), transpiration, turgor pressure, phloem, xylem, stomata, guard cell, photoperiodism, phytochrome, auxin, gibberellin, cytokinin, abscisic acid (ABA), ethylene, alternation of generations, angiosperm, gymnosperm, double fertilisation.
+> **Key vocabulary introduced here:** meristem, apical dominance, cohesion-tension, water potential (Ψ), transpiration, turgor pressure, phloem, xylem, stomata, guard cell, photoperiodism, phytochrome, auxin, gibberellin, cytokinin, abscisic acid (ABA), ethylene, alternation of generations, angiosperm, gymnosperm, double fertilization.
 
 
 ## Computational Toolbox — Unit VIII {.unnumbered}
@@ -134,7 +133,7 @@ print(f"Net photosynthesis at PAR 1000 = {photosynthesis_rate(1000):.1f} µmol C
 ---
 
 *Source note: botany helpers support water potential, transpiration, photosynthesis, and C3/C4/CAM pathway comparisons.*
-*Figures: `src/visualization/` (water potential diagrams, transpiration curves); `src/mermaid/biology_diagrams.py` (plant life cycle, hormone signalling diagrams).*
+*Figures: `src/visualization/` (water potential diagrams, transpiration curves); `src/mermaid/biology_diagrams.py` (plant life cycle, hormone signaling diagrams).*
 
 ## Cross-Unit Integration {.unnumbered}
 

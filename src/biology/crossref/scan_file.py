@@ -150,6 +150,17 @@ def scan_file(path: Path) -> tuple[dict[tuple[str, str], int], list[tuple[str, s
                 label_match = RE_LATEX_LABEL.search(block)
                 if label_match and label_match.group("kind") == "tbl":
                     defined[("tbl", label_match.group("id"))] = tbl_start_line
+                    if r"\caption{" not in block:
+                        issues.append(
+                            CrossRefIssue(
+                                file=path,
+                                line=tbl_start_line,
+                                kind="table",
+                                problem="missing_caption",
+                                suggested_id=label_match.group("id"),
+                                context=block.splitlines()[0],
+                            )
+                        )
                 else:
                     issues.append(
                         CrossRefIssue(

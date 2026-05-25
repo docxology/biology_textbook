@@ -13,8 +13,8 @@ By the end of this chapter, you should be able to:
 1. Trace how the cell coordinates catabolic and anabolic pathways through shared cofactors and [**allosteric**](#gl:allosteric) cross-regulation, and predict the metabolic state from cofactor and signal-molecule ratios.
 2. Describe AMPK and mTORC1 as opposing energy-sensing hubs and explain how they toggle the metabolic state of the cell, including the molecular basis of mTOR's role as a nutrient sensor (Rag GTPases, Ragulator).
 3. Describe the metabolic states of fed, post-absorptive, fasting, and starvation, including hormonal control and the timeline of fuel switching.
-4. Explain insulin signalling in detail: the PI3K/Akt/mTOR pathway, [**GLUT4**](#gl:glut4) translocation mechanism, and glycogen synthesis.
-5. Explain glucagon signalling: cAMP/PKA activation of glycogenolysis, gluconeogenesis, and the phosphorylase kinase cascade.
+4. Explain insulin signaling in detail: the PI3K/Akt/mTOR pathway, [**GLUT4**](#gl:glut4) translocation mechanism, and glycogen synthesis.
+5. Explain glucagon signaling: cAMP/PKA activation of glycogenolysis, gluconeogenesis, and the phosphorylase kinase cascade.
 6. Distinguish allosteric from transcriptional metabolic regulation given an [**enzyme**](#gl:enzyme)-activity time-course, using gluconeogenesis bypass-enzyme control as the worked case.
 7. Compare ATP yield and regulation of glucose versus fatty-acid oxidation, and calculate the net ATP yield from palmitoyl-CoA.
 8. Explain ketone body metabolism and its role during starvation.
@@ -36,8 +36,8 @@ By the end of this chapter, you should be able to:
 - **Data skill:** Use pathway evidence to infer which metabolic state or tissue is active.
 - **Practice cadence:** Representing and Describing Data, Statistical Tests and Data Analysis.
 - **Common misconception to repair:** A pathway is not a one-way assembly line; reversibility and regulation define the real route.
-- **Primary lab:** \cref{sec:lab_unit_III_metabolic_integration}.
-- **Question bank:** \cref{sec:q_unit_III_metabolic_integration}.
+- **Primary lab:** \nameref{sec:lab_unit_III_metabolic_integration}.
+- **Question bank:** \nameref{sec:q_unit_III_metabolic_integration}.
 - **Transfer task:** Apply metabolic network reasoning to diabetes, fasting, exercise, or cancer metabolism.
 - **Bridge to computation:** `biology.biochemistry.biochemistry.reaction_free_energy`.
 <!-- curriculum-scaffold-end -->
@@ -51,7 +51,7 @@ By the end of this chapter, you should be able to:
 > it runs almost exclusively on glucose. But glucose stores — maintained as liver glycogen — last
 > only about 12–24 hours of fasting. So how does the brain survive during prolonged starvation?
 >
-> The liver activates a metabolic programme: free fatty acids released from adipose tissue are
+> The liver activates a metabolic program: free fatty acids released from adipose tissue are
 > not completely oxidised within the liver itself. Instead, the liver packages their acetyl-CoA
 > units into **ketone bodies** (acetoacetate and β-hydroxybutyrate) and exports them to the
 > bloodstream. After 1–2 days of fasting, the brain begins importing ketones; after 3–5 days, it
@@ -74,6 +74,7 @@ The two fundamental modes:
 
 These modes are reciprocally regulated because of shared cofactors and master regulatory kinases. The metabolic state is encoded in:
 
+: Study Blueprint: Signal molecule and Fed state (high energy). {#tbl:unit_III_metabolic_integration_study_blueprint}
 | Signal molecule | Fed state (high energy) | Fasted state (low energy) |
 | --------------- | ---------------------- | ------------------------ |
 | AMP/ATP ratio | Low | High |
@@ -132,6 +133,7 @@ flowchart LR
 
 The body switches fuels in a programmed sequence as fasting progresses. The transitions are coordinated by falling insulin and rising glucagon (and later cortisol):
 
+: Fasting Physiology: Fuel Switch Timeline: Time post-meal and Predominant fuel. {#tbl:unit_III_metabolic_integration_fasting_physiology_fuel_switch_timeline}
 | Time post-meal | Predominant fuel | Liver process | Brain fuel | Notes |
 | -------------- | --------------- | ------------- | ---------- | ----- |
 | 0–4 h (absorptive) | Dietary glucose | Glycogenesis, lipogenesis | Glucose | Insulin high, glucagon low |
@@ -148,9 +150,9 @@ This fuel-switching timeline is one of the most elegant examples of metabolic in
 
 ---
 
-## Insulin Signalling: The PI3K/Akt/mTOR Pathway
+## Insulin Signaling: The PI3K/Akt/mTOR Pathway
 
-Insulin is the master anabolic [**hormone**](#gl:hormone), secreted by pancreatic beta-cells in response to elevated blood glucose. Its signalling cascade is one of the most important in metabolic regulation:
+Insulin is the master anabolic [**hormone**](#gl:hormone), secreted by pancreatic beta-cells in response to elevated blood glucose \citep{sanger1955insulin,yalow1959}. Its signaling cascade is one of the most important in metabolic regulation:
 
 \begin{equation}
 \text{Insulin} \to \text{IR (RTK)} \to \text{IRS-1/2} \to \text{PI3K} \to \text{PIP}_3 \to \text{PDK1 + mTORC2} \to \text{Akt (Thr308 + Ser473)}
@@ -207,10 +209,11 @@ flowchart LR
 
 *Insulin receptor activation recruits IRS proteins, PI3K, Akt, and mTOR-linked targets to promote glucose uptake, glycogen synthesis, and anabolic metabolism.*
 
-*Insulin signalling cascade from receptor to downstream metabolic and growth effects (Mermaid).* Akt is the central node, integrating PDK1 (Thr308) and mTORC2 (Ser473) phosphorylations to drive glucose uptake, glycogen synthesis, lipogenesis, and protein synthesis.
+*Insulin signaling cascade from receptor to downstream metabolic and growth effects (Mermaid).* Akt is the central node, integrating PDK1 (Thr308) and mTORC2 (Ser473) phosphorylations to drive glucose uptake, glycogen synthesis, lipogenesis, and protein synthesis.
 
 **Downstream Akt targets:**
 
+: Fasting Physiology: Fuel Switch Timeline: Target and Akt effect. {#tbl:unit_III_metabolic_integration_fasting_physiology_fuel_switch_timeline_2}
 | Target | Akt effect | Metabolic outcome |
 | ------ | ---------- | ----------------- |
 | AS160 (TBC1D4) | Phosphorylation → Rab-GAP inactivated | **GLUT4 vesicle exocytosis** → glucose uptake |
@@ -222,7 +225,7 @@ flowchart LR
 
 **GLUT4 translocation mechanism (in detail):**
 
-1. **Basal state.** GLUT4 is sequestered in specialised intracellular vesicles (GSVs, GLUT4 storage vesicles) ~95% of the time, with about 5% at the plasma membrane. The vesicles are tethered by the inhibitory Rab-GAP **AS160 (TBC1D4)**, which keeps Rab10 in its GDP-bound (inactive) state.
+1. **Basal state.** GLUT4 is sequestered in specialized intracellular vesicles (GSVs, GLUT4 storage vesicles) ~95% of the time, with about 5% at the plasma membrane. The vesicles are tethered by the inhibitory Rab-GAP **AS160 (TBC1D4)**, which keeps Rab10 in its GDP-bound (inactive) state.
 2. **Insulin signal.** Akt phosphorylates AS160 on multiple sites (Thr642 most important), inhibiting its GAP activity.
 3. **Rab10 activation.** With AS160 off, Rab10 accumulates in the GTP-bound active state, promoting vesicle docking at the plasma membrane.
 4. **SNARE-mediated fusion.** Synaptobrevin-2 (VAMP2) on GSVs engages plasma-membrane syntaxin-4 + SNAP-23, driving membrane fusion.
@@ -232,20 +235,20 @@ flowchart LR
 In type 2 diabetes, this cascade is disrupted at multiple levels (see clinical box below) so that GLUT4 translocation is impaired even at high circulating insulin.
 
 > **Clinical Connection: Insulin Resistance and Type 2 Diabetes**
-> In type 2 diabetes, insulin signalling is impaired at multiple levels:
+> In type 2 diabetes, insulin signaling is impaired at multiple levels:
 > 1. **IRS-1 serine phosphorylation** (by JNK, PKC-theta, IKK-beta) prevents tyrosine phosphorylation by the [**insulin receptor**](#gl:insulin-receptor)
 > 2. **Ceramide accumulation** activates PP2A, which dephosphorylates Akt
 > 3. **DAG accumulation** activates PKC-epsilon (liver) and PKC-theta (muscle), which phosphorylate IRS-1 on inhibitory serine residues
 > 4. **ER stress** (from lipid overload) activates JNK → IRS-1 Ser307 phosphorylation
-> The net result: GLUT4 translocation is impaired, glycogen synthesis is reduced, and gluconeogenesis is not suppressed. Metformin (first-line therapy) works partly through AMPK activation and partly through inhibition of mitochondrial Complex I. see \cref{sec:unit_II_cell_signaling} for RTK signalling.
+> The net result: GLUT4 translocation is impaired, glycogen synthesis is reduced, and gluconeogenesis is not suppressed. Metformin (first-line therapy) works partly through AMPK activation and partly through inhibition of mitochondrial Complex I. see \cref{sec:unit_II_cell_signaling} for RTK signaling.
 
 > **Concept Check 2:** Thiazolidinediones (e.g., rosiglitazone) activate PPAR-gamma in adipose tissue, increasing adipocyte differentiation and lipid storage. Explain how increasing fat storage in adipose tissue could paradoxically improve insulin sensitivity in muscle and liver.
 
 ---
 
-## Glucagon Signalling: cAMP/PKA Pathway
+## Glucagon Signaling: cAMP/PKA Pathway
 
-Glucagon is secreted by pancreatic alpha-cells when blood glucose falls. It acts primarily on the **liver** (hepatocytes express glucagon receptors; muscle does not):
+Glucagon is secreted by pancreatic alpha-cells when blood glucose falls. It acts primarily on the **liver** (hepatocytes express glucagon receptors; muscle does not), where cyclic-AMP signaling translates hormone binding into metabolic control \citep{sutherland1958cyclicamp}:
 
 **Glucagon → Glucagon receptor (GPCR) → G$_s$ → Adenylyl cyclase → cAMP → PKA**
 
@@ -273,16 +276,17 @@ flowchart TD
     style GLYR fill:#e6ffe6
     style GNG fill:#e6ffe6
 ```
-<!-- alt: Flowchart showing glucagon and epinephrine activate GPCR-cAMP-PKA signalling, shifting liver metabolism toward glycogen breakdown and gluconeogenesis during fasting or stress. -->
+<!-- alt: Flowchart showing glucagon and epinephrine activate GPCR-cAMP-PKA signaling, shifting liver metabolism toward glycogen breakdown and gluconeogenesis during fasting or stress. -->
 
-*Glucagon and epinephrine activate GPCR-cAMP-PKA signalling, shifting liver metabolism toward glycogen breakdown and gluconeogenesis during fasting or stress.*
+*Glucagon and epinephrine activate GPCR-cAMP-PKA signaling, shifting liver metabolism toward glycogen breakdown and gluconeogenesis during fasting or stress.*
 
-*Glucagon (or epinephrine) signalling cascade in the liver (Mermaid).* The cAMP/PKA cascade simultaneously activates glycogenolysis (via phosphorylase kinase) and gluconeogenesis (via CREB transcription) while suppressing glycolysis (via PFK-2/pyruvate kinase phosphorylation).
+*Glucagon (or epinephrine) signaling cascade in the liver (Mermaid).* The cAMP/PKA cascade simultaneously activates glycogenolysis (via phosphorylase kinase) and gluconeogenesis (via CREB transcription) while suppressing glycolysis (via PFK-2/pyruvate kinase phosphorylation).
 
 ### The Phosphorylase Kinase Cascade — A Signal Amplifier
 
-The chain glucagon → GPCR → cAMP → PKA → **phosphorylase kinase** (PhK) → glycogen phosphorylase is one of biology's most elegant amplification cascades. Each step amplifies the signal:
+The chain glucagon → GPCR → cAMP → PKA → **phosphorylase kinase** (PhK) → glycogen phosphorylase is one of biology's most elegant amplification cascades \citep{sutherland1958cyclicamp}. Each step amplifies the signal:
 
+: The Phosphorylase Kinase Cascade — A Signal Amplifier: Step and Numerical amplification. {#tbl:unit_III_metabolic_integration_the_phosphorylase_kinase_cascade_a_signal_amplifier}
 | Step | Numerical amplification |
 | ---- | ----------------------- |
 | 1 glucagon → 1 receptor (1:1) | 1× |
@@ -298,6 +302,7 @@ A single glucagon binding event releases a burst of ~10$^7$ glucose-1-phosphate 
 
 **PKA targets in the liver:**
 
+: The Phosphorylase Kinase Cascade — A Signal Amplifier: Target and PKA effect. {#tbl:unit_III_metabolic_integration_the_phosphorylase_kinase_cascade_a_signal_amplifier_2}
 | Target | PKA effect | Metabolic outcome |
 | ------ | ---------- | ----------------- |
 | Phosphorylase kinase | Activated | Glycogen phosphorylase activated → **glycogenolysis** |
@@ -312,17 +317,18 @@ A single glucagon binding event releases a burst of ~10$^7$ glucose-1-phosphate 
 
 ## Gluconeogenesis and Fasting Glucose Supply
 
-Gluconeogenesis synthesises glucose from non-carbohydrate precursors (lactate, glycerol, glucogenic amino acids). It occurs primarily in the **liver** and to a lesser extent in the **kidney cortex**.
+Gluconeogenesis synthesizes glucose from non-carbohydrate precursors (lactate, glycerol, glucogenic amino acids). It occurs primarily in the **liver** and to a lesser extent in the **kidney cortex**.
 
 Gluconeogenesis is NOT simply the reverse of glycolysis. Three irreversible glycolytic steps require **bypass enzymes**:
 
+: The Phosphorylase Kinase Cascade — A Signal Amplifier: Glycolytic step (irreversible) and Gluconeogenic bypass. {#tbl:unit_III_metabolic_integration_the_phosphorylase_kinase_cascade_a_signal_amplifier_3}
 | Glycolytic step (irreversible) | Gluconeogenic bypass | Location |
 | ------------------------------ | -------------------- | -------- |
 | Pyruvate kinase (PEP → Pyruvate) | **Pyruvate carboxylase** (Pyruvate → OAA; biotin, ATP) + **PEPCK** (OAA → PEP; GTP) | Mitochondria + cytoplasm |
 | PFK-1 (F6P → F1,6BP) | **Fructose-1,6-bisphosphatase (FBPase-1)** | Cytoplasm |
 | Hexokinase (Glucose → G6P) | **Glucose-6-phosphatase (G6Pase)** | ER membrane (liver, kidney primarily) |
 
-**Cost:** 6 ATP equivalents per glucose synthesised (4 ATP + 2 GTP).
+**Cost:** 6 ATP equivalents per glucose synthesized (4 ATP + 2 GTP).
 
 **Regulation of gluconeogenesis:**
 - **Allosteric:** Pyruvate carboxylase activated by acetyl-CoA; FBPase-1 inhibited by AMP and F2,6BP
@@ -353,7 +359,7 @@ Liver glycogen (~100 g): blood glucose [**buffer**](#gl:buffer). Muscle glycogen
 
 **Glycogen synthase:** Adds UDP-glucose to non-reducing ends (alpha-1,4 linkages). Active when dephosphorylated (GSK3 phosphorylates → inactive; insulin inhibits GSK3 → GS active).
 
-**Branching enzyme:** Transfers ~7-residue segments to create alpha-1,6 branches. Increases solubility and number of non-reducing ends (more rapid mobilisation).
+**Branching enzyme:** Transfers ~7-residue segments to create alpha-1,6 branches. Increases solubility and number of non-reducing ends (more rapid mobilization).
 
 **Debranching enzyme:** Bifunctional: transferase activity moves 3 residues from branch, then alpha-1,6-glucosidase cleaves the branch point, releasing free glucose.
 
@@ -363,7 +369,7 @@ Liver glycogen (~100 g): blood glucose [**buffer**](#gl:buffer). Muscle glycogen
 > | I (von Gierke) | Glucose-6-phosphatase | Severe hypoglycaemia, hepatomegaly, lactic acidosis |
 > | II (Pompe) | Lysosomal alpha-glucosidase | Cardiac/skeletal myopathy; treated by ERT |
 > | V (McArdle) | Muscle glycogen phosphorylase | Exercise intolerance; "second wind" phenomenon |
-> | VII (Tarui) | Muscle PFK | Exercise intolerance, haemolytic anaemia |
+> | VII (Tarui) | Muscle PFK | Exercise intolerance, hemolytic anemia |
 
 ---
 
@@ -383,6 +389,7 @@ Beta-oxidation occurs in the **mitochondrial matrix** and degrades fatty acyl-Co
 
 ### Beta-Oxidation Steps (Each Cycle)
 
+: Beta-Oxidation Steps (Each Cycle): Step and Enzyme. {#tbl:unit_III_metabolic_integration_beta_oxidation_steps_each_cycle}
 | Step | Enzyme | Reaction | Product |
 | ---- | ------ | -------- | ------- |
 | 1 | Acyl-CoA dehydrogenase | Acyl-CoA → trans-enoyl-CoA | **FADH$_2$** |
@@ -398,6 +405,7 @@ Summing the products of complete fatty-acid oxidation makes the "fat is
 energy-dense" claim quantitative. Palmitoyl-CoA (16 carbons) undergoes 7 cycles
 of beta-oxidation:
 
+: ATP Yield from Palmitoyl-CoA (C16:0): Product and Quantity. {#tbl:unit_III_metabolic_integration_atp_yield_from_palmitoyl_coa_c16_0}
 | Product | Quantity | ATP per unit | Total ATP |
 | ------- | -------- | ------------ | --------- |
 | Acetyl-CoA (via TCA) | 8 | 10 (3 NADH x 2.5 + 1 FADH$_2$ x 1.5 + 1 GTP) | 80 |
@@ -417,6 +425,7 @@ Some textbooks report 108 ATP (using older P/O ratios) or 129 ATP (including pal
 
 Fatty acid synthesis occurs in the **cytoplasm** and uses fundamentally different chemistry from beta-oxidation:
 
+: ATP Yield from Palmitoyl-CoA (C16:0): Feature and Beta-oxidation. {#tbl:unit_III_metabolic_integration_atp_yield_from_palmitoyl_coa_c16_0_2}
 | Feature | Beta-oxidation | Fatty acid synthesis |
 | ------- | -------------- | -------------------- |
 | Location | Mitochondrial matrix | Cytoplasm |
@@ -443,7 +452,7 @@ During prolonged fasting (>24--48 h), the liver converts excess acetyl-CoA from 
 4. Acetoacetate → beta-Hydroxybutyrate (beta-hydroxybutyrate DH; uses NADH)
 5. Acetoacetate → Acetone (non-enzymatic decarboxylation; exhaled)
 
-**Utilisation (brain, heart, muscle):**
+**Utilization (brain, heart, muscle):**
 Beta-hydroxybutyrate → acetoacetate → acetoacetyl-CoA (via succinyl-CoA transferase, also called thiophorase) → 2 acetyl-CoA → TCA cycle.
 
 **Key points:**
@@ -462,7 +471,7 @@ Beta-hydroxybutyrate → acetoacetate → acetoacetyl-CoA (via succinyl-CoA tran
 
 ```mermaid
 graph TD
-    A["Energy Stress<br/>(exercise, hypoxia,<br/>starvation, ischaemia)"] --> B["↑ AMP/ATP ratio<br/>↑ ADP/ATP ratio"]
+    A["Energy Stress<br/>(exercise, hypoxia,<br/>starvation, ischemia)"] --> B["↑ AMP/ATP ratio<br/>↑ ADP/ATP ratio"]
     B --> C["AMP/ADP bind<br/>AMPK γ-subunit<br/>(CBS domains)"]
     C --> D["Thr172 phosphorylation<br/>by LKB1 or CaMKKβ"]
     D --> E["AMPK ACTIVE"]
@@ -485,12 +494,13 @@ graph TD
 
 *AMPK as the cellular energy sensor. Low energy activates AMPK, which simultaneously promotes catabolic pathways and inhibits anabolic pathways. High energy inactivates AMPK, allowing mTORC1-driven anabolism.*
 
-> **Concept Check (Analysis --- Cross-Unit Connection):** In biochemistry, "free energy" (Gibbs free energy [**ΔG**](#gl:free-energy)) governs whether a reaction proceeds spontaneously. In \nameref{sec:unit_0_unit_intro}, "variational free energy" in the Free Energy Principle refers to an information-theoretic bound on surprise. These are not coincidentally named: both measure the gap between a system's current state and its expected (equilibrium or predicted) state. (a) Show that ATP hydrolysis (ΔG° ≈ −30 kJ/mol under standard conditions, but ~−50 kJ/mol in a cell where [ADP]/[ATP] ≈ 0.01) reflects the cell maintaining its biochemical states far from equilibrium --- in what sense does AMPK serve as the cell's "prediction error detector" for energy state? (b) Cellular respiration (glucose oxidation) couples a favourable reaction (ΔG ≈ −2880 kJ/mol) to multiple unfavourable ones (ATP synthesis) --- explain this as an example of how living systems use free energy to minimize biological surprise (maintain homeostasis).
+> **Concept Check (Analysis --- Cross-Unit Connection):** In biochemistry, "free energy" (Gibbs free energy [**ΔG**](#gl:free-energy)) governs whether a reaction proceeds spontaneously. In \nameref{sec:unit_0_unit_intro}, "variational free energy" in the Free Energy Principle refers to an information-theoretic bound on surprise. These are not coincidentally named: both measure the gap between a system's current state and its expected (equilibrium or predicted) state. (a) Show that ATP hydrolysis (ΔG° ≈ −30 kJ/mol under standard conditions, but ~−50 kJ/mol in a cell where [ADP]/[ATP] ≈ 0.01) reflects the cell maintaining its biochemical states far from equilibrium --- in what sense does AMPK serve as the cell's "prediction error detector" for energy state? (b) Cellular respiration (glucose oxidation) couples a favorable reaction (ΔG ≈ −2880 kJ/mol) to multiple unfavorable ones (ATP synthesis) --- explain this as an example of how living systems use free energy to minimize biological surprise (maintain homeostasis).
 
 ### AMPK Activation: LKB1 vs CaMKKβ
 
 AMPK is activated when its catalytic α-subunit is phosphorylated at **Thr172**. Two upstream kinases phosphorylate this site under different physiological conditions:
 
+: AMPK Activation: LKB1 vs CaMKKβ: Upstream kinase and Trigger. {#tbl:unit_III_metabolic_integration_ampk_activation_lkb1_vs_camkk}
 | Upstream kinase | Trigger | Tissue distribution | Pathological connection |
 | --------------- | ------- | ------------------- | ---------------------- |
 | **LKB1** (STK11) | Energy stress (high AMP); allosterically primed by AMP binding to AMPK γ | Ubiquitous; constitutively active | Loss-of-function = Peutz-Jeghers syndrome, predisposes to gastrointestinal cancers |
@@ -539,7 +549,7 @@ EC = \frac{5.30}{5.65} = 0.938
 \label{eq:unit_III_metabolic_integration_worked_2}
 \end{equation}
 
-At $EC = 0.938$ the pool sits in the normal resting band of 0.85--0.95 and well above the AMPK-activation window of 0.70--0.85. Predict: AMPK is largely inactive and the cell is in an energy-replete state favouring anabolism. A fall toward $EC \approx 0.80$ (rising AMP) would move the pool into the AMPK-sensitive window and switch the cell toward catabolism.
+At $EC = 0.938$ the pool sits in the normal resting band of 0.85--0.95 and well above the AMPK-activation window of 0.70--0.85. Predict: AMPK is largely inactive and the cell is in an energy-replete state favoring anabolism. A fall toward $EC \approx 0.80$ (rising AMP) would move the pool into the AMPK-sensitive window and switch the cell toward catabolism.
 
 > **Clinical Connection: Metformin and AMPK**
 > Metformin, the most widely prescribed diabetes drug, activates AMPK indirectly by inhibiting mitochondrial Complex I, which raises the AMP/ATP ratio. AMPK activation:
@@ -547,9 +557,9 @@ At $EC = 0.938$ the pool sits in the normal resting band of 0.85--0.95 and well 
 > - Inhibits hepatic gluconeogenesis (via CREB coactivator CRTC2 phosphorylation)
 > - Reduces lipogenesis
 > - May have anti-cancer effects (mTORC1 inhibition)
-> Metformin is also being investigated as an anti-ageing compound (TAME trial). see \cref{sec:unit_III_bioenergetics_and_respiration} for Complex I.
+> Metformin is also being investigated as an anti-aging compound (TAME trial). see \cref{sec:unit_III_bioenergetics_and_respiration} for Complex I.
 
-> **Worked Example --- Adenylate Energy Charge Under Ischaemia:** A hepatocyte under aerobic conditions has: [ATP] = 4.2 mM, [ADP] = 0.85 mM, [AMP] = 0.12 mM. Calculate the adenylate energy charge: $EC = ([\text{ATP}] + 0.5[\text{ADP}]) / ([\text{ATP}] + [\text{ADP}] + [\text{AMP}]) = (4.2 + 0.5 \times 0.85) / (4.2 + 0.85 + 0.12) = (4.2 + 0.425) / 5.17 = 4.625 / 5.17 ≈ 0.894$. This is in the normal resting range (0.85--0.95). During 30 minutes of ischaemia (no O$_2$): [ATP] falls to 0.4 mM, [ADP] rises to 1.8 mM, [AMP] rises to 3.0 mM. New $EC = (0.4 + 0.9) / (0.4 + 1.8 + 3.0) = 1.3/5.2 = 0.250$. AMPK half-maximal activation threshold is approximately $EC < 0.7$ → AMPK is now strongly activated. AMPK phosphorylates ACC (inhibiting fatty-acid synthesis) and promotes GLUT4 translocation. Predict: gluconeogenesis decreases (via PFKFB1/2 reshaping), glycolysis flux increases (PFK-1 is less inhibited by the now-depleted ATP pool), and mitochondrial biogenesis is up-regulated (PGC-1α phosphorylation) --- the cell switches from anabolic to maximally catabolic mode.
+> **Worked Example --- Adenylate Energy Charge Under Ischemia:** A hepatocyte under aerobic conditions has: [ATP] = 4.2 mM, [ADP] = 0.85 mM, [AMP] = 0.12 mM. Calculate the adenylate energy charge: $EC = ([\text{ATP}] + 0.5[\text{ADP}]) / ([\text{ATP}] + [\text{ADP}] + [\text{AMP}]) = (4.2 + 0.5 \times 0.85) / (4.2 + 0.85 + 0.12) = (4.2 + 0.425) / 5.17 = 4.625 / 5.17 ≈ 0.894$. This is in the normal resting range (0.85--0.95). During 30 minutes of ischemia (no O$_2$): [ATP] falls to 0.4 mM, [ADP] rises to 1.8 mM, [AMP] rises to 3.0 mM. New $EC = (0.4 + 0.9) / (0.4 + 1.8 + 3.0) = 1.3/5.2 = 0.250$. AMPK half-maximal activation threshold is approximately $EC < 0.7$ → AMPK is now strongly activated. AMPK phosphorylates ACC (inhibiting fatty-acid synthesis) and promotes GLUT4 translocation. Predict: gluconeogenesis decreases (via PFKFB1/2 reshaping), glycolysis flux increases (PFK-1 is less inhibited by the now-depleted ATP pool), and mitochondrial biogenesis is up-regulated (PGC-1α phosphorylation) --- the cell switches from anabolic to maximally catabolic mode.
 
 > **Concept Check (Synthesis):** During cancer metabolism (the Warburg effect), many cancer cells preferentially use aerobic glycolysis even in the presence of O$_2$, producing large amounts of lactate. (a) The Warburg effect yields a mere ~2 ATP per glucose vs. ~32 by OXPHOS --- why would cancer cells "choose" this seemingly inefficient strategy? Consider: ATP production *rate* (not yield), NADPH supply (via PPP shunt), and anabolic precursor availability (ribose, glycerol-3P, serine). (b) mTORC1 integrates signals from growth factors (Akt → TSC1/2 → Rheb), amino acids (Rag GTPases at the lysosome), and energy status (AMPK). Construct the logical circuit diagram showing how mTORC1 integrates these three inputs (Boolean: growth-factor AND amino-acid AND not-energy-stressed) and predict: what happens to protein synthesis when [glucose] drops 10-fold? (c) Metformin inhibits Complex I of the mitochondrial ETC (and also inhibits mitochondrial glycerophosphate dehydrogenase). Propose the metabolic logic for metformin's anti-cancer effect in terms of energy charge → AMPK → mTORC1 inhibition → reduced anabolic flux.
 
@@ -588,6 +598,7 @@ $$C_{\text{transporter}}^{J} = \frac{0.03}{0.30} = 0.10$$
 
 **mTORC1** (mechanistic Target of Rapamycin Complex 1) integrates amino acid, glucose, oxygen, and growth factor signals:
 
+: Adenylate Energy Charge and Metabolic State: Input and Sensing mechanism. {#tbl:unit_III_metabolic_integration_adenylate_energy_charge_and_metabolic_state}
 | Input | Sensing mechanism | Outcome |
 | ----- | ----------------- | ------- |
 | Amino acids (Leu, Arg) | Rag GTPases (Sestrin2 senses Leu; CASTOR1 senses Arg) recruit mTORC1 to lysosomal surface | mTORC1 ON |
@@ -606,7 +617,7 @@ mTORC1 primarily senses amino acid sufficiency by being **physically positioned*
    - **SLC38A9** senses lysosomal arginine and signals from the lysosomal membrane.
 2. **GATOR1/2 GAP/GEF complex.** GATOR1 is a GAP for the Rag GTPases (turning them off); GATOR2 inhibits GATOR1. When sensors release inhibition of GATOR2, GATOR1 is suppressed, allowing the Rag GTPases to enter their active conformation.
 3. **Active Rag GTPases** (RagA/B-GTP + RagC/D-GDP) bind Raptor (a subunit of mTORC1) and recruit mTORC1 to the lysosomal surface.
-4. **At the lysosome**, mTORC1 encounters Rheb-GTP — provided that growth factor signalling has activated it via Akt → TSC2 inhibition → Rheb-GTP accumulation.
+4. **At the lysosome**, mTORC1 encounters Rheb-GTP — provided that growth factor signaling has activated it via Akt → TSC2 inhibition → Rheb-GTP accumulation.
 5. **Rheb-GTP fully activates mTORC1** kinase activity. Both signals (amino acids → Rag → lysosomal positioning *and* growth factors → Rheb-GTP) must converge.
 
 This dual-input gating is why mTORC1 is sometimes described as a **coincidence detector**: it primarily signals "build" when both raw materials (amino acids) and external commands (insulin/IGF-1) are present.
@@ -619,7 +630,7 @@ This dual-input gating is why mTORC1 is sometimes described as a **coincidence d
 - Activates autophagy
 - Extends lifespan in yeast, worms, flies, and mice (~10–15% extension at low doses)
 
-Rapamycin and analogues (rapalogues: everolimus, temsirolimus) are clinically approved as immunosuppressants (transplant rejection prevention) and anticancer agents (renal cell carcinoma, certain breast cancers). The TAME trial and large-scale rapamycin/metformin studies are testing rapalogues as longevity interventions in humans.
+Rapamycin and analogs (rapalogues: everolimus, temsirolimus) are clinically approved as immunosuppressants (transplant rejection prevention) and anticancer agents (renal cell carcinoma, certain breast cancers). The TAME trial and large-scale rapamycin/metformin studies are testing rapalogues as longevity interventions in humans.
 
 **AMPK and mTORC1 reciprocal inhibition** creates a **bistable metabolic switch:** energy-rich → mTORC1 on, AMPK off → anabolism; energy-depleted → AMPK on, mTORC1 off → catabolism + autophagy.
 
@@ -629,10 +640,10 @@ Rapamycin and analogues (rapalogues: everolimus, temsirolimus) are clinically ap
 
 Proposed by Randle et al. (1963, *The Lancet*), the Randle cycle describes **reciprocal inhibition** between glucose and fatty acid oxidation in heart and skeletal muscle:
 
-**When fatty acids are high → glucose utilisation is suppressed:**
+**When fatty acids are high → glucose utilization is suppressed:**
 1. Beta-oxidation → elevated acetyl-CoA → **PDH kinase (PDK) activated** → PDH phosphorylated/inactivated → less pyruvate oxidation
 2. Beta-oxidation → elevated citrate (exported to cytoplasm) → **PFK-1 allosterically inhibited** → glycolysis slows
-3. Elevated intracellular acyl-CoA → PKC-theta (in muscle) → serine phosphorylation of **IRS-1** → impaired insulin signalling → reduced GLUT4 translocation
+3. Elevated intracellular acyl-CoA → PKC-theta (in muscle) → serine phosphorylation of **IRS-1** → impaired insulin signaling → reduced GLUT4 translocation
 
 **When glucose is high → fatty acid oxidation is suppressed:**
 1. Insulin → ACC activated → malonyl-CoA synthesis increases → **CPT-1 inhibited** → beta-oxidation blocked
@@ -714,6 +725,7 @@ graph LR
 
 *Hormonal coordination of metabolism across organs. Insulin (green) drives anabolic responses; glucagon (red) and [**cortisol**](#gl:cortisol) (blue) drive catabolic responses. Each organ has distinct metabolic roles and receptor expression patterns.*
 
+: Metabolic Flexibility Across Feeding and Fasting: Hormone and Stimulus. {#tbl:unit_III_metabolic_integration_metabolic_flexibility_across_feeding_and_fasting}
 | Hormone | Stimulus | Liver | Muscle | Adipose |
 | ------- | -------- | ----- | ------ | ------- |
 | Insulin | High glucose | Glycogen synthesis; lipogenesis; gluconeogenesis OFF | GLUT4; glycogen synthesis; protein synthesis | GLUT4; lipogenesis; lipolysis OFF |
@@ -747,7 +759,7 @@ Net reaction: ATP → ADP + P$_i$ (energy dissipated as heat)
 \label{eq:unit_III_metabolic_integration_worked_8}
 \end{equation}
 
-When both enzymes run at 50 U/min each and net flux is 1 U/min, a 10% change in PFK produces a 500% change in net flux --- **metabolic rheostat** behaviour. Substrate cycles provide ultrasensitive flux control at the cost of ATP.
+When both enzymes run at 50 U/min each and net flux is 1 U/min, a 10% change in PFK produces a 500% change in net flux --- **metabolic rheostat** behavior. Substrate cycles provide ultrasensitive flux control at the cost of ATP.
 
 **Thermogenic substrate cycles:**
 - **Brown adipose tissue (BAT):** UCP1 short-circuits the ETC proton gradient → heat (non-shivering thermogenesis)
@@ -764,6 +776,7 @@ Metabolic syndrome is a cluster of conditions (central obesity, insulin resistan
 
 The shift in our understanding of adipose tissue — from "passive triglyceride storage depot" to "active endocrine organ" — is one of the most consequential paradigm changes in metabolism research of the last 30 years. **Visceral adipose tissue (VAT)**, the fat depot surrounding intra-abdominal organs, behaves very differently from subcutaneous adipose tissue (SAT):
 
+: Visceral Fat as an Endocrine Organ: Property and Subcutaneous adipose (SAT). {#tbl:unit_III_metabolic_integration_visceral_fat_as_an_endocrine_organ}
 | Property | Subcutaneous adipose (SAT) | Visceral adipose (VAT) |
 | -------- | -------------------------- | ---------------------- |
 | Adipocyte size | Smaller, more uniform | Hypertrophic, heterogeneous |
@@ -778,6 +791,7 @@ The portal-vein drainage means that VAT lipolytic products (FFAs, glycerol) and 
 
 **Key adipokines:**
 
+: Visceral Fat as an Endocrine Organ: Adipokine and Direction in obesity. {#tbl:unit_III_metabolic_integration_visceral_fat_as_an_endocrine_organ_2}
 | Adipokine | Direction in obesity | Effect |
 | --------- | -------------------- | ------ |
 | **Leptin** | ↑ (proportional to fat mass) | Hypothalamic POMC/AgRP signaling — appetite suppression; resistance develops with chronic elevation |
@@ -800,7 +814,7 @@ The portal-vein drainage means that VAT lipolytic products (FFAs, glycerol) and 
 > - Enhance glucose-dependent insulin secretion
 > - Suppress glucagon secretion
 > - Slow gastric emptying (satiety)
-> - Act on hypothalamic appetite centres (weight loss of 15--20%)
+> - Act on hypothalamic appetite centers (weight loss of 15--20%)
 > - Reduce cardiovascular events and NAFLD progression
 > Tirzepatide is a dual GIP/GLP-1 receptor agonist achieving even greater weight loss (~22.5% in trials).
 
@@ -836,6 +850,7 @@ For example, in glycolysis under physiological conditions, the flux control coef
 
 **Metabolomics** is the systematic measurement of small-molecule metabolites — the experimental complement to MCA, since you cannot compute flux control coefficients without measuring concentrations and fluxes.
 
+: Metabolomics: Measuring the Metabolic State: Approach and Sensitivity. {#tbl:unit_III_metabolic_integration_metabolomics_measuring_the_metabolic_state}
 | Approach | Sensitivity | Resolution | Strengths | Weaknesses |
 | -------- | ----------- | ---------- | --------- | ---------- |
 | **NMR** ($^1$H, $^{13}$C, $^{31}$P) | µM–mM (~10$^4$ molecules) | Quantitative; structure-resolving | Non-destructive; absolute quantification; detects isomers | Lower sensitivity than MS; needs ~mg sample; chemical-shift overlap in complex mixtures |
@@ -920,15 +935,15 @@ A strong metabolic-integration claim names the organ, hormone signal, substrate 
 
 2. Derive the energy charge equation (\cref{eq:unit_III_energy_charge}). If [ATP] = 3.5 mM, [ADP] = 0.8 mM, [AMP] = 0.2 mM, calculate EC. Is AMPK likely to be active?
 
-3. Describe the insulin signalling cascade from receptor binding to GLUT4 translocation, including the role of AS160, Rab10, and the SNARE complex. At which steps does insulin resistance develop in type 2 diabetes?
+3. Describe the insulin signaling cascade from receptor binding to GLUT4 translocation, including the role of AS160, Rab10, and the SNARE complex. At which steps does insulin resistance develop in type 2 diabetes?
 
 4. Compare gluconeogenesis with glycolysis. Identify the three bypass reactions and explain why they are necessary.
 
 5. Calculate the ATP yield from complete oxidation of palmitoyl-CoA (C16:0) to CO$_2$ and H$_2$O, showing most sources of ATP.
 
-6. Explain ketone body synthesis and utilisation. Why can the brain use ketone bodies but the liver cannot? Sketch the fuel-switching timeline from fed to 30-day fast.
+6. Explain ketone body synthesis and utilization. Why can the brain use ketone bodies but the liver cannot? Sketch the fuel-switching timeline from fed to 30-day fast.
 
-7. The Randle cycle operates in heart muscle. In a patient with type 2 diabetes and chronically elevated plasma FFA: predict changes in cardiac PDH activity, cardiac efficiency, and susceptibility to ischaemia.
+7. The Randle cycle operates in heart muscle. In a patient with type 2 diabetes and chronically elevated plasma FFA: predict changes in cardiac PDH activity, cardiac efficiency, and susceptibility to ischemia.
 
 8. Compare the amplification advantages of the PFK-1/FBPase-1 substrate cycle in liver with UCP1-mediated thermogenesis in brown adipose tissue.
 
@@ -960,6 +975,7 @@ A strong metabolic-integration claim names the organ, hormone signal, substrate 
 
 ## Key Terms
 
+: Metabolomics: Measuring the Metabolic State: Term and Definition. {#tbl:unit_III_metabolic_integration_metabolomics_measuring_the_metabolic_state_2}
 | Term | Definition |
 | ---- | ---------- |
 | **AMPK** | AMP-activated protein kinase; principal energy-sensing kinase; activated by elevated AMP/ATP via LKB1 or by Ca$^{2+}$ via CaMKKβ |
@@ -992,6 +1008,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Metabolic Integration and Regulation. {#tbl:unit_III_metabolic_integration_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/biochemistry/biochemistry.py` (`glycolysis_summary`, `atp_free_energy`, `reaction_free_energy`) | Connect pathway summaries to energy and redox constraints. |

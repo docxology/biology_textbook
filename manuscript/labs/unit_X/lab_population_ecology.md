@@ -1,6 +1,5 @@
-# Lab — Population Ecology and Growth Models {.unnumbered}
+# Lab — Population Ecology and Growth Models {#sec:lab_unit_X_population_ecology .unnumbered}
 
-\label{sec:lab_unit_X_population_ecology}
 
 ## Learning Objectives {.unnumbered}
 
@@ -28,7 +27,7 @@
 *Answer these before starting the investigation — they activate knowledge from the parent chapter.*
 
 1. Write the logistic growth equation dN/dt = rN(K − N)/K. Define each symbol and describe in two sentences what happens to dN/dt as N approaches K from below and from above.
-2. Distinguish density-dependent from density-independent regulation, giving one biological example of each. State which type of regulation would more plausibly stabilise a population near its carrying capacity over time.
+2. Distinguish density-dependent from density-independent regulation, giving one biological example of each. State which type of regulation would more plausibly stabilize a population near its carrying capacity over time.
 3. Sketch the three classic survivorship curves (Types I, II, III) and identify one organism whose life history matches each. In one sentence per type, explain how the curve's shape reflects the timing of mortality across the life cycle.
 
 ## Lab Context: Population Ecology and Growth Models {.unnumbered}
@@ -39,6 +38,7 @@ The logistic-growth projection worked example in the parent chapter (\cref{sec:u
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_X_population_ecology_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Population Ecology and Growth Models: conservation-assessment source card: index versus census, assessment version, value judgment, and monitoring trigger | 1 |
@@ -73,6 +73,7 @@ The logistic-growth projection worked example in the parent chapter (\cref{sec:u
 
 Logistic yeast data:
 
+: Alignment and Rubric Map: Time (h) and Population (cells/mL). {#tbl:unit_X_population_ecology_alignment_and_rubric_map_2}
 | Time (h) | Population (cells/mL) | ln N |
 | -------- | --------------------- | ----- |
 | 0 | 10 | |
@@ -105,6 +106,7 @@ Second sampling estimate: R = ___; N̂ = ___; percent error from known simulated
 Before answering the analysis questions, annotate the paper dataset for
 **Population Ecology and Growth Models** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_X_population_ecology_alignment_and_rubric_map_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -133,9 +135,9 @@ Complete the source-governance card for Population Ecology and Growth Models bef
 1. Why does the yeast population growth slow as it approaches K? Use the term "intraspecific competition" and identify two specific density-dependent resources that become limiting.
 2. Snowshoe hare populations cycle with ~10-year periodicity (tied to lynx cycles). Is this best explained as: (a) density-dependent predation; (b) density-independent weather events; or (c) a two-species coupled oscillator? Describe the evidence.
 3. Your two mark-recapture estimates probably differed slightly. List three assumptions of the Lincoln-Petersen method and explain which assumption is most likely violated in the printed capture-history simulation.
-4. Invasive species often exhibit exponential growth in new habitats. Name a specific invasive species, identify what density-dependent factor is absent in the new habitat, and predict when/how logistic behaviour will eventually emerge.
+4. Invasive species often exhibit exponential growth in new habitats. Name a specific invasive species, identify what density-dependent factor is absent in the new habitat, and predict when/how logistic behavior will eventually emerge.
 5. Apply a fisheries management scenario: a cod population has K = 500,000 tonnes and r = 0.2/year. Using the maximum sustainable yield formula (MSY = rK/4), calculate the MSY and the population size at MSY (N = K/2). If fishing reduces the population below K/4, explain why the population will continue to decline even if fishing stops.
-6. A newly founded termite or ant colony has a queen and a small worker force. Explain why a colony can show an Allee effect even when each surviving worker is healthy. Which demographic variable would you monitor to distinguish ordinary density dependence from a threshold caused by brood care, foraging, or nest defence?
+6. A newly founded termite or ant colony has a queen and a small worker force. Explain why a colony can show an Allee effect even when each surviving worker is healthy. Which demographic variable would you monitor to distinguish ordinary density dependence from a threshold caused by brood care, foraging, or nest defense?
 
 
 ## Post-Lab Synthesis {.unnumbered}
@@ -162,7 +164,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -181,5 +183,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_X_population_ecology}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

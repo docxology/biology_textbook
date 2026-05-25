@@ -28,6 +28,7 @@ Direct destruction of the drug by hydrolysis or modification.
 
 **β-lactamases** are the most clinically important and most diverse resistance enzymes. They hydrolyse the β-lactam ring (with the active-site serine — a tetrahedral covalent intermediate — or via a metallo-zinc mechanism) before the drug reaches its PBP target. The Ambler classification:
 
+: Mechanism 1: Enzymatic Inactivation: Class and Mechanism. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_mechanism_1_enzymatic_inactivation}
 | Class | Mechanism | Spectrum | Inhibitor sensitivity | Examples |
 |-------|-----------|----------|------------------------|----------|
 | **Class A** (serine) | Active-site serine (Ser70) | Penicillins; ESBL extends to 3GC | Inhibited by clavulanate, sulbactam, tazobactam, avibactam | TEM-1, SHV-1 (penicillinases); CTX-M (the dominant ESBL globally); KPC (carbapenemase) |
@@ -46,6 +47,7 @@ Direct destruction of the drug by hydrolysis or modification.
 
 Altering the drug target so the antibiotic no longer binds.
 
+: Mechanism 2: Target Modification: Antibiotic and Original target. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_mechanism_2_target_modification}
 | Antibiotic | Original target | Modified target | Resistance mechanism |
 |------------|-----------------|------------------|----------------------|
 | **β-lactams** | PBP2 (transpeptidase) | **PBP2a** in MRSA (encoded by *mecA*) | Low-affinity transpeptidase that performs cross-linking even when normal PBPs are inhibited; SCC*mec* cassette mobile element |
@@ -65,6 +67,7 @@ Altering the drug target so the antibiotic no longer binds.
 
 Active export of antibiotics out of the cell, often accomplishing **multi-drug resistance** through a single pump system.
 
+: Mechanism 3: Efflux Pumps: Pump family and Energy source. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_mechanism_3_efflux_pumps}
 | Pump family | Energy source | Drugs effluxed | Examples |
 |-------------|---------------|----------------|----------|
 | **RND (Resistance-Nodulation-Division)** | Proton motive force | β-lactams, fluoroquinolones, tetracyclines, chloramphenicol, macrolides | **AcrAB-TolC** (*E. coli*); **MexAB-OprM**, **MexCD-OprJ**, **MexEF-OprN**, **MexXY-OprM** (*P. aeruginosa*); **AdeABC** (*Acinetobacter*) |
@@ -95,6 +98,7 @@ Producing more target or alternative target to dilute drug action.
 
 A clinical isolate from a 2019 outbreak in a Greek ICU was reported with the following resistance profile:
 
+: Resistance in Action: A Pan-Resistant Klebsiella pneumoniae: Mechanism and Genetic determinant. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_resistance_in_action_a_pan_resistant_klebsiella_pneumoniae}
 | Mechanism | Genetic determinant | Drug class affected |
 |-----------|---------------------|---------------------|
 | **NDM-1** (Class B MBL) | *bla*$_\text{NDM-1}$ on plasmid | Penicillins, cephalosporins, and carbapenems; aztreonam is spared by MBL chemistry but vulnerable to co-produced ESBLs |
@@ -123,9 +127,9 @@ Such isolates may have no reliable standard single-agent option, so treatment de
 - **Model or quantitative lens:** R0, resistance-mechanism, and outbreak-trajectory calculations.
 - **Data skill:** Interpret resistance assays and outbreak curves.
 - **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
-- **Common misconception to repair:** R0 is not a fixed property of a pathogen alone; it depends on host behaviour and environment.
-- **Primary lab:** \cref{sec:lab_unit_VII_antimicrobial_resistance_and_epidemiology}.
-- **Question bank:** \cref{sec:q_unit_VII_antimicrobial_resistance_and_epidemiology}.
+- **Common misconception to repair:** R0 is not a fixed property of a pathogen alone; it depends on host behavior and environment.
+- **Primary lab:** \nameref{sec:lab_unit_VII_antimicrobial_resistance_and_epidemiology}.
+- **Question bank:** \nameref{sec:q_unit_VII_antimicrobial_resistance_and_epidemiology}.
 - **Transfer task:** Transfer resistance and epidemiology reasoning to stewardship and public-health policy.
 - **Bridge to computation:** `biology.microbiology.microbiology.sir_model`.
 <!-- curriculum-scaffold-end -->
@@ -140,6 +144,7 @@ Such isolates may have no reliable standard single-agent option, so treatment de
 
 ### Key Epidemiological Metrics
 
+: Key Epidemiological Metrics: Metric and Definition. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_key_epidemiological_metrics}
 | Metric | Definition | Significance |
 |--------|-----------|-------------|
 | $R_0$ (basic reproduction number) | Mean secondary cases per primary case in fully susceptible population | Determines epidemic potential; $R_0 > 1$ = epidemic growth |
@@ -186,7 +191,7 @@ $$ p_c = 1 - \frac{1}{3.17} = 0.685 \;\rightarrow\; 68.5\,\% \label{eq:unit_VII_
 
    $$ V_{\text{measles}} = \frac{p_c}{\varepsilon} = \frac{0.933}{0.97} \approx 0.962 = 96.2\,\% \label{eq:unit_VII_infectious_disease_worked_herd_2} $$
 
-   To halt sustained measles transmission, **at least 96.2 % of the population must be vaccinated** with a two-dose MMR schedule. This is the most demanding vaccination target for any current vaccine programme.
+   To halt sustained measles transmission, **at least 96.2 % of the population must be vaccinated** with a two-dose MMR schedule. This is the most demanding vaccination target for any current vaccine program.
 
 3. **Herd-immunity threshold for ancestral SARS-CoV-2** ($R_0 = 4$):
 
@@ -201,7 +206,7 @@ $$ p_c = 1 - \frac{1}{3.17} = 0.685 \;\rightarrow\; 68.5\,\% \label{eq:unit_VII_
    - Delta ($R_0 = 6$): $p_c = 0.833$; required coverage at $\varepsilon = 0.85$ (waned immunity vs. Delta) = $0.833/0.85 \approx 98 \%$.
    - Omicron BA.1 ($R_0 = 9$): $p_c = 0.889$; required coverage at $\varepsilon = 0.50$ (waned, immune-escape) = $0.889/0.50 = 1.78$ — i.e., **vaccination alone cannot achieve herd immunity** because the required coverage exceeds 100 %.
 
-**Interpretation.** The herd-immunity calculation is mechanically simple but operationally demanding. **Two structural points emerge: (i) Vaccine efficacy is a multiplier, not an additive cost** — even a modest efficacy reduction (95 % → 85 %) substantially elevates the required coverage. **(ii) When $\varepsilon \times p_c > 1$ is unreachable**, vaccination alone cannot reach the herd-immunity threshold and **complementary interventions** (boosters, ventilation, masking, therapeutics) become essential. The original elimination calculus for measles depended on the combination of $R_0 \approx 15$ with an exceptional $\varepsilon = 0.97$ — and even there, a 1–3 % refusal rate is sufficient to lose herd immunity and trigger localised outbreaks, as observed repeatedly in the 2018–2024 measles resurgences worldwide.
+**Interpretation.** The herd-immunity calculation is mechanically simple but operationally demanding. **Two structural points emerge: (i) Vaccine efficacy is a multiplier, not an additive cost** — even a modest efficacy reduction (95 % → 85 %) substantially elevates the required coverage. **(ii) When $\varepsilon \times p_c > 1$ is unreachable**, vaccination alone cannot reach the herd-immunity threshold and **complementary interventions** (boosters, ventilation, masking, therapeutics) become essential. The original elimination calculus for measles depended on the combination of $R_0 \approx 15$ with an exceptional $\varepsilon = 0.97$ — and even there, a 1–3 % refusal rate is sufficient to lose herd immunity and trigger localized outbreaks, as observed repeatedly in the 2018–2024 measles resurgences worldwide.
 
 
 ### Major antimicrobial resistance and epidemiologys
@@ -214,7 +219,7 @@ $$ p_c = 1 - \frac{1}{3.17} = 0.685 \;\rightarrow\; 68.5\,\% \label{eq:unit_VII_
 - **Granuloma**: Hallmark of TB pathology -- organized aggregate of infected macrophages, epithelioid cells, multinucleated giant cells, and T cells; hypoxic caseous necrotic center; both contains and protects the bacilli
 - Latent TB: 90-95% of infected individuals contain the infection as LTBI (latent TB infection); 5-10% lifetime risk of reactivation, increased by HIV, immunosuppression, malnutrition
 - Treatment: standard drug-susceptible pulmonary TB is treated with a multi-drug rifamycin-based regimen, classically 6 months of isoniazid + rifampicin + pyrazinamide + ethambutol followed by continuation therapy; adherence support matters because metabolically slow bacilli and granuloma drug penetration make undertreatment risky.
-- **MDR/RR-TB** (multidrug-resistant or rifampicin-resistant TB), **pre-XDR-TB** (MDR/RR-TB with fluoroquinolone resistance), and **XDR-TB** (MDR/RR-TB plus resistance to a fluoroquinolone and at least one additional Group A drug such as bedaquiline or linezolid) remain major AMR threats. WHO's consolidated 2025 treatment guidance now prioritises shorter most-oral regimens for eligible patients, including 6-month BPaLM/BPaL-based options, while reserving longer individualized regimens for resistance, toxicity, pregnancy/age limits, extrapulmonary disease, or poor early response \citep{who2025tb}.
+- **MDR/RR-TB** (multidrug-resistant or rifampicin-resistant TB), **pre-XDR-TB** (MDR/RR-TB with fluoroquinolone resistance), and **XDR-TB** (MDR/RR-TB plus resistance to a fluoroquinolone and at least one additional Group A drug such as bedaquiline or linezolid) remain major AMR threats. WHO's consolidated 2025 treatment guidance now prioritizes shorter most-oral regimens for eligible patients, including 6-month BPaLM/BPaL-based options, while reserving longer individualized regimens for resistance, toxicity, pregnancy/age limits, extrapulmonary disease, or poor early response \citep{who2025tb}.
 
 ```mermaid
 flowchart TD
@@ -259,9 +264,9 @@ flowchart LR
     H --> J
     I --> J
 ```
-<!-- alt: Flowchart showing malaria vector-control comparison. Spatial emanators add an indoor airspace tool to nets and spraying, but local programmes still need entomological surveillance, insecticide-resistance monitoring, and equity-aware deployment. -->
+<!-- alt: Flowchart showing malaria vector-control comparison. Spatial emanators add an indoor airspace tool to nets and spraying, but local programs still need entomological surveillance, insecticide-resistance monitoring, and equity-aware deployment. -->
 
-*Malaria vector-control comparison. Spatial emanators add an indoor airspace tool to nets and spraying, but local programmes still need entomological surveillance, insecticide-resistance monitoring, and equity-aware deployment.*
+*Malaria vector-control comparison. Spatial emanators add an indoor airspace tool to nets and spraying, but local programs still need entomological surveillance, insecticide-resistance monitoring, and equity-aware deployment.*
 
 **HIV/AIDS**:
 
@@ -277,7 +282,7 @@ flowchart LR
 - Surface glycoproteins: hemagglutinin (HA, 18 subtypes) and neuraminidase (NA, 11 subtypes); nomenclature: H1N1, H3N2, etc.
 - See "Antigenic Variation" section above for full discussion of drift and shift.
 
-> **Concept Check (Analysis — Influenza Antigenic Drift vs. Shift):** Influenza A hemagglutinin (HA) has **18 subtypes** (H1–H18) and neuraminidase (NA) has **11 subtypes** (N1–N11), giving 198 possible HA/NA combinations (though merely a fraction are observed in nature). Two distinct mechanisms generate antigenic novelty: **antigenic drift** (point mutations in the HA head domain accumulating gradually under positive selection from population immunity) and **antigenic shift** (genome **reassortment** between two influenza strains co-infecting a single host, producing a hybrid virus with a novel HA/NA combination). (a) Analyse why **drift causes seasonal re-infection** (epidemic-scale, requiring annual vaccine reformulation) while **shift causes pandemics** (population-naive, no pre-existing immunity). Use the immune-escape logic to predict the expected $R_e$ trajectory of each. (b) The 1918 **H1N1 pandemic** strain shared HA antigenic identity with the 1957 **H2N2 pandemic** strain at less than 50 % at antibody-neutralising sites — a shift event. The seasonal H3N2 strains evolving since 1968, however, share 80–90 % HA identity year-to-year, requiring annual vaccine updates — drift. Compare the **rates of accumulation** of HA epitope substitutions in drift (~0.5–1 % per year at antigenic sites) vs. shift (instantaneous swap to a completely novel HA). (c) Predict **which HA residues are most selectively constrained** (i.e., highly conserved across subtypes) and which are under strongest positive selection. The receptor-binding pocket residues are constrained because mutation destroys sialic-acid binding; the surface-exposed antigenic loops (Sa, Sb, Ca, Cb sites) are under strongest positive selection because they evade neutralising antibodies. (d) Design a phylogenetic test that distinguishes drift-driven from shift-driven changes in a sampled HA sequence, using the topological signature (clock-like accumulation vs. abrupt change in neighbour identity).
+> **Concept Check (Analysis — Influenza Antigenic Drift vs. Shift):** Influenza A hemagglutinin (HA) has **18 subtypes** (H1–H18) and neuraminidase (NA) has **11 subtypes** (N1–N11), giving 198 possible HA/NA combinations (though merely a fraction are observed in nature). Two distinct mechanisms generate antigenic novelty: **antigenic drift** (point mutations in the HA head domain accumulating gradually under positive selection from population immunity) and **antigenic shift** (genome **reassortment** between two influenza strains co-infecting a single host, producing a hybrid virus with a novel HA/NA combination). (a) Analyze why **drift causes seasonal re-infection** (epidemic-scale, requiring annual vaccine reformulation) while **shift causes pandemics** (population-naive, no pre-existing immunity). Use the immune-escape logic to predict the expected $R_e$ trajectory of each. (b) The 1918 **H1N1 pandemic** strain shared HA antigenic identity with the 1957 **H2N2 pandemic** strain at less than 50 % at antibody-neutralizing sites — a shift event. The seasonal H3N2 strains evolving since 1968, however, share 80–90 % HA identity year-to-year, requiring annual vaccine updates — drift. Compare the **rates of accumulation** of HA epitope substitutions in drift (~0.5–1 % per year at antigenic sites) vs. shift (instantaneous swap to a completely novel HA). (c) Predict **which HA residues are most selectively constrained** (i.e., highly conserved across subtypes) and which are under strongest positive selection. The receptor-binding pocket residues are constrained because mutation destroys sialic-acid binding; the surface-exposed antigenic loops (Sa, Sb, Ca, Cb sites) are under strongest positive selection because they evade neutralizing antibodies. (d) Design a phylogenetic test that distinguishes drift-driven from shift-driven changes in a sampled HA sequence, using the topological signature (clock-like accumulation vs. abrupt change in neighbor identity).
 
 ### One Health and Emerging Pathogens
 
@@ -289,7 +294,7 @@ The **One Health** framework recognizes the interconnection of human, animal, an
 - AMR as a One Health issue: antibiotic exposure in people, food animals, aquaculture, and shared environments selects for resistance genes that can move through water, soil, food chains, plasmids, and mobile genetic elements. Stewardship therefore has to cover prescribing, veterinary practice, sanitation, surveillance, and access to effective treatment \citep{cdc2025antibioticuse,who2024bppl}.
 - Fungal disease also belongs in the AMR frame: the WHO fungal priority pathogens list highlights *Candida auris*, *Aspergillus fumigatus*, *Cryptococcus neoformans*, and other fungi where limited diagnostics, few drug classes, immunocompromised hosts, and agricultural azole exposure make resistance a One Health problem rather than a hospital-confined issue \citep{who2022fungalpriority}. CDC guidance treats *Candida auris* as a healthcare-transmissible yeast that is often multidrug-resistant, can colonise patients without symptoms, persists on surfaces, requires sequencing or mass spectrometry for reliable identification, and should be treated primarily when causing clinical infection; echinocandins remain typical initial adult therapy, but echinocandin-resistant and pan-resistant reports are increasing \citep{cdc2026candidaauris,cdc2024candidaauristreatment}. Mechanistically, the warning is that AMR phenotypes are assembled from enzymes, target changes, efflux, permeability shifts, biofilms, tolerance states, and mobile genetic elements; the same resistance label can hide different treatment constraints.
 
-**Spillover risk factors.** Modern surveillance and modelling have identified several quantifiable predictors of zoonotic spillover risk:
+**Spillover risk factors.** Modern surveillance and modeling have identified several quantifiable predictors of zoonotic spillover risk:
 
 1. **Phylogenetic distance** — viruses from primates spill more easily than viruses from rodents than from invertebrates.
 2. **Receptor compatibility** — ACE2 in bats, civets, and humans is similar enough to permit SARS-CoV-2 cross-species transmission; H5N1 sialic-acid receptor preference shifts (α-2,3 → α-2,6) signal mammalian adaptation.
@@ -319,7 +324,7 @@ $$ P_{\text{spillover}} = f(\text{contact rate}, \text{viral shedding load in re
 2. **Date-palm sap protection** (covering sap-collection pots with bamboo skirts to exclude bats): ~ \$2 per pot, scalable to 100,000 pots per year; demonstrated to reduce contamination by > 80 %; estimated ~ \$50–150 / DALY.
 3. **Pig-farm zoning** (mandating no new farms within 5 km of fruit-bat colonies): regulatory cost is low but politically costly; cost-effectiveness depends on the regulatory baseline.
 
-(d) **Evaluate the limits of intervention.** Even a perfectly executed One Health surveillance programme cannot eliminate spillover risk — it can merely reduce the probability per unit time. The fundamental risk reduction requires **landscape-scale habitat preservation** (preventing the bat–human interface from forming in the first place), which is a slow, politically difficult, and incompletely controllable intervention. Synthesise the spillover-control hierarchy: prevention (habitat) > deterrence (surveillance + barriers) > rapid response (outbreak containment). Each tier accepts a higher residual risk in exchange for tractability.
+(d) **Evaluate the limits of intervention.** Even a perfectly executed One Health surveillance program cannot eliminate spillover risk — it can merely reduce the probability per unit time. The fundamental risk reduction requires **landscape-scale habitat preservation** (preventing the bat–human interface from forming in the first place), which is a slow, politically difficult, and incompletely controllable intervention. Synthesize the spillover-control hierarchy: prevention (habitat) > deterrence (surveillance + barriers) > rapid response (outbreak containment). Each tier accepts a higher residual risk in exchange for tractability.
 
 ---
 
@@ -342,13 +347,13 @@ print(round(series.populations[-1], 2))
 
 Messenger RNA vaccines — once a neglected technology because of mRNA's instability and strong innate-immune activation — became the [**dominant**](#gl:dominant) pandemic response platform between 2020 and 2023. **BNT162b2 (Pfizer–BioNTech) and mRNA-1273 (Moderna)** demonstrated ≥ 94 % efficacy against symptomatic COVID-19 in phase III trials (> 40 000 participants each) within **11 months from pathogen identification** — an unprecedented pace driven entirely by the modularity of the platform: once a lipid-nanoparticle delivery system and a nucleoside-modified mRNA scaffold are validated, swapping the antigen-coding sequence is a matter of days.
 
-Three molecular innovations make mRNA vaccines work. **(1) Nucleoside modification** — substituting uridines with **pseudouridine (Ψ) or 1-methyl-pseudouridine (m1Ψ)** (Karikó & Weissman, Nobel Prize 2023) reduces TLR7/8 activation and blocks 2'-5'-oligoadenylate synthetase / RNase L degradation, so [**translation**](#gl:translation) is 10–100× more efficient and innate-immune activation is manageable. **(2) Lipid nanoparticle (LNP) delivery** — a four-component formulation (ionisable lipid ALC-0315 or SM-102, phospholipid DSPC, cholesterol, PEG-lipid) self-assembles into ~80 nm particles that endocytose into dendritic cells; at endosomal pH ~5 the ionisable lipid becomes cationic, fusing with the endosome and releasing mRNA into the cytoplasm. **(3) Antigen design** — the SARS-CoV-2 spike is locked in the prefusion conformation by two proline substitutions (**2P mutation**) that preserve neutralising epitopes. Manufacturing uses *in vitro* transcription from linear DNA templates (T7 polymerase), capping with CleanCap analogue, and microfluidic LNP assembly — a single ~20 000 L bioreactor run can produce > 1 billion doses. Remaining challenges: cold-chain dependence (though ARCT-154 self-amplifying mRNA vaccines stable at 2–8 °C are in trials), rare myocarditis risk in young males (~1–10 per 100 000 doses, typically mild and self-limiting), and waning antibody titres (6-month boosting needed). The platform is now extending to influenza (mRNA-1010), RSV (mRNA-1345, approved 2024), and personalised cancer neoantigen vaccines (mRNA-4157, phase III for melanoma).
+Three molecular innovations make mRNA vaccines work. **(1) Nucleoside modification** — substituting uridines with **pseudouridine (Ψ) or 1-methyl-pseudouridine (m1Ψ)** (Karikó & Weissman, Nobel Prize 2023) reduces TLR7/8 activation and blocks 2'-5'-oligoadenylate synthetase / RNase L degradation, so [**translation**](#gl:translation) is 10–100× more efficient and innate-immune activation is manageable. **(2) Lipid nanoparticle (LNP) delivery** — a four-component formulation (ionisable lipid ALC-0315 or SM-102, phospholipid DSPC, cholesterol, PEG-lipid) self-assembles into ~80 nm particles that endocytose into dendritic cells; at endosomal pH ~5 the ionisable lipid becomes cationic, fusing with the endosome and releasing mRNA into the cytoplasm. **(3) Antigen design** — the SARS-CoV-2 spike is locked in the prefusion conformation by two proline substitutions (**2P mutation**) that preserve neutralizing epitopes. Manufacturing uses *in vitro* transcription from linear DNA templates (T7 polymerase), capping with CleanCap analog, and microfluidic LNP assembly — a single ~20 000 L bioreactor run can produce > 1 billion doses. Remaining challenges: cold-chain dependence (though ARCT-154 self-amplifying mRNA vaccines stable at 2–8 °C are in trials), rare myocarditis risk in young males (~1–10 per 100 000 doses, typically mild and self-limiting), and waning antibody titres (6-month boosting needed). The platform is now extending to influenza (mRNA-1010), RSV (mRNA-1345, approved 2024), and personalised cancer neoantigen vaccines (mRNA-4157, phase III for melanoma).
 
-### cGAS–STING: Innate Cytosolic DNA Sensing and Anti-Tumour Immunity
+### cGAS–STING: Innate Cytosolic DNA Sensing and Anti-Tumor Immunity
 
-**Cyclic GMP–AMP synthase (cGAS)** is a cytosolic DNA sensor identified in 2013 (Chen lab) that binds double-stranded DNA non-sequence-specifically and, upon DNA engagement, synthesises the second messenger **2'3'-cyclic GMP–AMP (2'3'-cGAMP)** from ATP and GTP. 2'3'-cGAMP binds the ER-resident adaptor **STING (Stimulator of Interferon Genes)**, driving TBK1 phosphorylation of IRF3 and thus **Type I interferon (IFN-α/β)** transcription. Evolutionarily, the pathway detects pathogen-derived or mis-localised self-DNA — cytosolic DNA is otherwise absent in healthy cells.
+**Cyclic GMP–AMP synthase (cGAS)** is a cytosolic DNA sensor identified in 2013 (Chen lab) that binds double-stranded DNA non-sequence-specifically and, upon DNA engagement, synthesizes the second messenger **2'3'-cyclic GMP–AMP (2'3'-cGAMP)** from ATP and GTP. 2'3'-cGAMP binds the ER-resident adaptor **STING (Stimulator of Interferon Genes)**, driving TBK1 phosphorylation of IRF3 and thus **Type I interferon (IFN-α/β)** transcription. Evolutionarily, the pathway detects pathogen-derived or mis-localized self-DNA — cytosolic DNA is otherwise absent in healthy cells.
 
-Three rapid-fire translational applications: **(1) Cancer immunotherapy** — dying tumour cells release DNA that, once dendritic cells endocytose it, activates cGAS–STING, priming CD8⁺ T-cell responses. STING agonists (ADU-S100, MK-1454, diABZI) are in > 30 oncology clinical trials; **radiation therapy** is an accidental STING activator (sub-lethal DNA damage → micronuclei → cytosolic DNA). **(2) Autoimmunity** — gain-of-function STING mutations cause **SAVI (STING-associated vasculopathy)**, a paediatric interferonopathy with pulmonary fibrosis and skin ulcerations; chronic cGAS–STING activation also contributes to **age-related inflammation** as mitochondrial and cytosolic DNA accumulate. **(3) Anti-viral defence** — SARS-CoV-2 ORF9b, HSV-1 ICP27, and HIV-1 capsid most suppress cGAS–STING, demonstrating its evolutionary importance as a front-line sensor. The pathway is now a canonical example of how fundamental discovery (2013) can translate to phase III oncology trials in under a decade.
+Three rapid-fire translational applications: **(1) Cancer immunotherapy** — dying tumor cells release DNA that, once dendritic cells endocytose it, activates cGAS–STING, priming CD8⁺ T-cell responses. STING agonists (ADU-S100, MK-1454, diABZI) are in > 30 oncology clinical trials; **radiation therapy** is an accidental STING activator (sub-lethal DNA damage → micronuclei → cytosolic DNA). **(2) Autoimmunity** — gain-of-function STING mutations cause **SAVI (STING-associated vasculopathy)**, a pediatric interferonopathy with pulmonary fibrosis and skin ulcerations; chronic cGAS–STING activation also contributes to **age-related inflammation** as mitochondrial and cytosolic DNA accumulate. **(3) Anti-viral defense** — SARS-CoV-2 ORF9b, HSV-1 ICP27, and HIV-1 capsid most suppress cGAS–STING, demonstrating its evolutionary importance as a front-line sensor. The pathway is now a canonical example of how fundamental discovery (2013) can translate to phase III oncology trials in under a decade.
 
 ---
 
@@ -383,8 +388,9 @@ flowchart TD
     E --> F["Adherence and equity"]
     F --> G["Surveillance feedback"]
 ```
-<!-- alt: Decision map for infectious-disease intervention choice across transmission, diagnostics, resistance, adherence, equity, and surveillance feedback. -->
-*TB regimens, malaria spatial emanators, lenacapavir PrEP, Candida auris control, and Long COVID mechanisms are cases where intervention choices depend on evidence and setting. \citep{who2025tb,who2025spatialemanators,cdc2025lenacapavirprep,cdc2026candidaauris,longcovid2026mechanisms}*
+<!-- alt: Flowchart showing TB regimens, malaria spatial emanators, lenacapavir PrEP, Candida auris control, and Long COVID mechanisms are cases where intervention choices depend on evidence and setting. -->
+
+*TB regimens, malaria spatial emanators, lenacapavir PrEP, Candida auris control, and Long COVID mechanisms are cases where intervention choices depend on evidence and setting. \citep{who2025tb,who2025spatialemanators,cdc2025lenacapavirprep,cdc2026candidaauris,longcovid2026mechanisms}.*
 
 ## Summary
 
@@ -397,7 +403,7 @@ flowchart TD
 - **Antibiotic resistance** falls into five categories: enzymatic inactivation (β-lactamases — Class A/B/C/D Ambler; AMEs; CAT; ESBLs and carbapenemases KPC/NDM/OXA-48); target modification (PBP2a in MRSA; D-Ala-D-Lac in VRE; 23S methylation in MLS; gyrase QRDR mutations); efflux (RND tripartite pumps AcrAB-TolC, MexAB-OprM, AdeABC); reduced permeability (porin loss); and bypass / target overproduction (Dfr, Sul). Pan-resistant ESKAPE isolates combine multiple mechanisms simultaneously.
 - **Major infectious diseases**: TB (granuloma, phagosome arrest, MDR/XDR crisis), malaria (erythrocyte invasion, PfEMP1 antigenic variation, artemisinin resistance), HIV (CD4 depletion, latent reservoir, ART, PrEP, U=U), influenza (antigenic drift/shift, pandemic potential).
 - **One Health and emerging pathogens**: > 70 % of emerging infections are zoonotic; deforestation, climate change, wildlife trade, and agricultural antibiotic use drive emergence and AMR. PREDICT-style surveillance now catalogs > 10 000 candidate zoonotic viruses for early-warning monitoring.
-- **Connections:** See \cref{sec:unit_VII_bacteria_archaea_viruses} for pathogen biology, \cref{sec:unit_VII_microbial_ecology} for microbiome colonisation resistance, and \cref{sec:unit_X_population_ecology} for demographic models.
+- **Connections:** See \cref{sec:unit_VII_bacteria_archaea_viruses} for pathogen biology, \cref{sec:unit_VII_microbial_ecology} for microbiome colonization resistance, and \cref{sec:unit_X_population_ecology} for demographic models.
 
 ---
 
@@ -442,6 +448,7 @@ flowchart TD
 
 ## Key Terms
 
+: Current Evidence Map: Intervention Choice Across Pathogens: Term and Definition. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_current_evidence_map_intervention_choice_across_pathogens}
 | Term | Definition |
 |------|-----------|
 | **Koch's postulates** | Four criteria for establishing that a specific microorganism causes a specific disease |
@@ -457,7 +464,7 @@ flowchart TD
 | **Factor H** | Soluble alternative-pathway regulator that binds C3b on self surfaces; co-opted by *Neisseria* to evade complement |
 | **NETosis** | Programmed neutrophil death pathway in which decondensed chromatin is extruded as antimicrobial extracellular traps; PAD4-dependent |
 | **Missing-self hypothesis** | Ljunggren-Karre model: NK cells kill cells lacking inhibitory MHC-I signals |
-| **NKG2D** | Activating NK-cell receptor recognising stress-induced ligands (MICA/B, ULBPs); the "induced-self" sensor |
+| **NKG2D** | Activating NK-cell receptor recognizing stress-induced ligands (MICA/B, ULBPs); the "induced-self" sensor |
 | **MHC class I** | Presents endogenous peptides to CD8$^+$ CTLs; expressed on most nucleated cells |
 | **MHC class II** | Presents exogenous peptides to CD4$^+$ T helpers; expressed on professional APCs |
 | **Clonal selection** | Antigen selects and expands primarily the specific lymphocyte clone with matching receptor |
@@ -486,6 +493,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Antimicrobial Resistance and Epidemiology. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/microbiology/microbiology.py` (`basic_reproduction_number`, `sir_model`, `mic_fold_dilution`) | Reproduce transmission and antimicrobial-resistance calculations. |

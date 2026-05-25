@@ -6,12 +6,12 @@ from __future__ import annotations
 import re
 import sys
 
-from _bootstrap import PROJECT, ensure_project_paths
+from _bootstrap import ensure_project_paths
 
 ensure_project_paths()
 
 from biology.enrichment.engine import (  # noqa: E402
-    _FRONTIER_SECTION_RE,
+    FRONTIER_SECTION_PATTERN,
     companion_source_section,
     frontier_section,
     insert_before_anchor,
@@ -266,8 +266,8 @@ def _ensure_concept_check(text: str, title: str) -> str:
 
 def _force_frontier(text: str, record) -> str:
     generated = frontier_section(record).strip() + "\n\n"
-    if _FRONTIER_SECTION_RE.search(text):
-        return _FRONTIER_SECTION_RE.sub(lambda _m: generated, text, count=1)
+    if FRONTIER_SECTION_PATTERN.search(text):
+        return FRONTIER_SECTION_PATTERN.sub(lambda _m: generated, text, count=1)
     return insert_before_anchor(
         text,
         generated,

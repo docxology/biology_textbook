@@ -19,6 +19,7 @@ from biology.curriculum_sync.engine import (
     sync_lab,
     sync_preface_scope_table,
     sync_question,
+    sync_section_reference_commands,
     sync_suggested_reading_paths,
     sync_textbook_concept_map,
     sync_toc_titles,
@@ -78,6 +79,7 @@ def main(argv: list[str] | None = None) -> int:
         report.front_matter_updated = True
     if sync_preface_scope_table(book_toc, dry_run=args.dry_run):
         report.front_matter_updated = True
+    report.section_refs_updated = sync_section_reference_commands(dry_run=args.dry_run)
 
     mode = "DRY RUN" if args.dry_run else "APPLIED"
     print(
@@ -88,7 +90,8 @@ def main(argv: list[str] | None = None) -> int:
         f"instructor_appendix_updated={report.instructor_appendix_updated} "
         f"titles_updated={report.titles_updated} "
         f"heading_titles_updated={report.heading_titles_updated} "
-        f"front_matter_updated={report.front_matter_updated}"
+        f"front_matter_updated={report.front_matter_updated} "
+        f"section_refs_updated={report.section_refs_updated}"
     )
     return 0
 

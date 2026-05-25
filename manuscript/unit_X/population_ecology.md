@@ -38,8 +38,8 @@
 - **Data skill:** Use abundance or age-structure data to estimate growth and risk.
 - **Practice cadence:** Representing and Describing Data, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** Carrying capacity is not a fixed magic number; it changes with resources, interactions, and disturbance.
-- **Primary lab:** \cref{sec:lab_unit_X_population_ecology}.
-- **Question bank:** \cref{sec:q_unit_X_population_ecology}.
+- **Primary lab:** \nameref{sec:lab_unit_X_population_ecology}.
+- **Question bank:** \nameref{sec:q_unit_X_population_ecology}.
 - **Transfer task:** Transfer population models to fisheries, invasive species, epidemiology, and endangered species.
 - **Bridge to computation:** `biology.ecology.ecology.logistic_growth`.
 <!-- curriculum-scaffold-end -->
@@ -66,8 +66,9 @@ A **population** consists of individuals of a single species (conspecifics) inha
 
 ### Population Attributes: Size, Density, and Age Structure
 
-Populations are characterised by several measurable attributes:
+Populations are characterized by several measurable attributes:
 
+: Population Attributes: Size, Density, and Age Structure: Attribute and Symbol. {#tbl:unit_X_population_ecology_population_attributes_size_density_and_age_structure}
 | Attribute | Symbol | Definition | Units |
 | --------- | ------ | ---------- | ----- |
 | Census size | $N$ | Total number of individuals | Individuals |
@@ -92,9 +93,10 @@ For approximate computation: $r \approx \ln(R_0) / T$
 
 Individuals within a population are distributed in one of three spatial patterns:
 
+: Dispersion Patterns Across Space: Pattern and Description. {#tbl:unit_X_population_ecology_dispersion_patterns_across_space}
 | Pattern | Description | Mechanism | Example |
 | ------- | ----------- | --------- | ------- |
-| **Clumped** | Aggregated in patches | Resource heterogeneity, social behaviour, limited dispersal | Schooling fish, herding ungulates, fungi near rotting logs |
+| **Clumped** | Aggregated in patches | Resource heterogeneity, social behavior, limited dispersal | Schooling fish, herding ungulates, fungi near rotting logs |
 | **Uniform** | Evenly spaced | Territoriality, allelopathy, intraspecific competition | Nesting penguins, creosote bush in deserts |
 | **Random** | No predictable pattern | Absence of strong attraction or repulsion | Wind-dispersed seeds in homogeneous habitat |
 
@@ -108,6 +110,7 @@ The **variance-to-mean ratio** ($\sigma^2 / \mu$) of quadrat counts distinguishe
 
 A **cohort life table** (also called a horizontal or dynamic life table) tracks a birth cohort from birth until most members die, recording survival and fecundity at each age:
 
+: Dispersion Patterns Across Space: Age (x) and n_x (alive). {#tbl:unit_X_population_ecology_dispersion_patterns_across_space_2}
 | Age ($x$) | $n_x$ (alive) | $l_x$ (survivorship) | $d_x$ (deaths) | $q_x$ (mortality rate) | $m_x$ (fecundity) | $l_x m_x$ | $x \cdot l_x m_x$ |
 | --------- | -------------- | --------------------- | --------------- | ---------------------- | ------------------ | ---------- | ------------------- |
 | 0 | 1000 | 1.000 | 200 | 0.200 | 0 | 0 | 0 |
@@ -208,6 +211,7 @@ where $\lambda = e^r$ is the **finite rate of increase**.
 
 ### Real-World Examples of Near-Exponential Growth
 
+: Real-World Examples of Near-Exponential Growth: Population and r. {#tbl:unit_X_population_ecology_real_world_examples_of_near_exponential_growth}
 | Population | $r$ | Doubling time | Context |
 | ---------- | --- | ------------- | ------- |
 | *E. coli* (optimal) | 1.7/hr | 24.5 min | Binary fission; unlimited glucose |
@@ -238,7 +242,7 @@ print(f"Predicted (analytic): N = {100 * 2.718**( 0.5*20 ):.0f}")
 
 ## Logistic Growth and Density Dependence
 
-> **Mathematical Background:** Population growth models use differential equations. For a review of exponential and logistic ODEs and their closed-form solutions, see \cref{sec:appendix_math_review}.
+> **Mathematical Background:** Population growth models use differential equations. For a review of exponential and logistic ODEs and their closed-form solutions, see \nameref{sec:appendix_math_review}.
 
 As $N$ approaches the **carrying capacity** ($K$), intraspecific competition for resources reduces the per capita growth rate. The **logistic growth equation** \citep{verhulst1838} incorporates this density dependence:
 
@@ -250,7 +254,7 @@ As $N$ approaches the **carrying capacity** ($K$), intraspecific competition for
 The term $(1 - N/K)$ is the **density-dependence factor** (or unused portion of carrying capacity), and it bends exponential growth into the S-shaped trajectory of \cref{fig:unit_X_logistic_growth} with the following key properties:
 
 - When $N \ll K$: growth is approximately exponential ($dN/dt \approx rN$)
-- When $N = K/2$: $dN/dt$ is **maximised** (inflection point of the sigmoid curve)
+- When $N = K/2$: $dN/dt$ is **maximized** (inflection point of the sigmoid curve)
 - When $N = K$: $dN/dt = 0$ (population is at equilibrium)
 - When $N > K$: $dN/dt < 0$ (population declines toward $K$)
 
@@ -289,6 +293,7 @@ stateDiagram-v2
 
 ### Density-Dependent Factors
 
+: Density-Dependent Factors: Factor and Mechanism. {#tbl:unit_X_population_ecology_density_dependent_factors}
 | Factor | Mechanism | Example |
 | ------ | --------- | ------- |
 | **Intraspecific competition** | Scramble or contest competition for food, space, mates | Flour beetles (*Tribolium*): cannibalism increases at high density |
@@ -392,17 +397,18 @@ where $A$ = **Allee threshold**. Below $A$, the population declines deterministi
 
 ### Mechanisms of Allee Effects
 
+: Mechanisms of Allee Effects: Mechanism and Example. {#tbl:unit_X_population_ecology_mechanisms_of_allee_effects}
 | Mechanism | Example | Effect on fitness |
 | --------- | ------- | ----------------- |
 | **Mate finding** | Ivory-billed woodpecker; many marine invertebrates | Low density → failed mate encounter → reduced reproduction |
 | **Predator satiation** | Mast-seeding trees (oaks, beeches) | Below threshold seed output → disproportionate predation loss |
 | **Cooperative breeding/hunting** | African wild dogs (pack size ≥ 5 for efficient hunting) | Small packs → insufficient prey capture → starvation |
-| **Cooperative defence** | Muskoxen forming defensive circles | Too few adults → predators penetrate defence |
+| **Cooperative defense** | Muskoxen forming defensive circles | Too few adults → predators penetrate defense |
 | **Genetic diversity** | Florida panther (pre-1995, $N_e \approx 25$) | Small $N$ → inbreeding depression → reduced fitness |
 | **Pollination failure** | Rare plants in fragmented meadows | Low density → pollinators don't visit → seed set fails |
 | **Environmental conditioning** | Soil [**microbiome**](#gl:microbiome) enrichment by plant roots | Few plants → soil biota depauperate → poor seedling establishment |
 
-Social insects add a colony-level version of the same logic. In a [**eusocial**](#gl:eusociality) colony, a queen, workers, brood, nest architecture, stored resources, and microbial partners form one demographic unit. A founding queen or tiny fragment may fail even in good habitat because there are too few workers to forage, thermoregulate, defend the nest, rear brood, and maintain the fungus garden or gut-symbiont pathway. Once the worker force crosses a threshold, division of labour and positive feedback can make growth accelerate. The Allee effect therefore applies not only to populations of individuals but also to the minimum viable size of cooperative groups \citep{bourke2011principles}.
+Social insects add a colony-level version of the same logic. In a [**eusocial**](#gl:eusociality) colony, a queen, workers, brood, nest architecture, stored resources, and microbial partners form one demographic unit. A founding queen or tiny fragment may fail even in good habitat because there are too few workers to forage, thermoregulate, defend the nest, rear brood, and maintain the fungus garden or gut-symbiont pathway. Once the worker force crosses a threshold, division of labor and positive feedback can make growth accelerate. The Allee effect therefore applies not only to populations of individuals but also to the minimum viable size of cooperative groups \citep{bourke2011principles}.
 
 Stephens et al. (1999, *Trends Ecol. Evol.*) distinguished the **component Allee effect** (reduction in any fitness component at low density) from the **demographic Allee effect** (reduction in per capita population growth rate). A species may experience component Allee effects in reproduction without a demographic Allee effect if compensating survival increases at low density offset the reproductive reduction.
 
@@ -456,6 +462,7 @@ The **competition coefficient** $\alpha_{12}$ represents the per-capita effect o
 
 **Phase-plane outcomes:**
 
+: Interspecific Competition and Niche Overlap: Condition and Outcome. {#tbl:unit_X_population_ecology_interspecific_competition_and_niche_overlap}
 | Condition | Outcome | Biological interpretation |
 | --------- | ------- | ------------------------- |
 | $K_1 > K_2/\alpha_{12}$ and $K_2 < K_1/\alpha_{21}$ | Species 1 wins; species 2 excluded | Species 1 tolerates competition better |
@@ -465,7 +472,7 @@ The **competition coefficient** $\alpha_{12}$ represents the per-capita effect o
 
 **Chesson's modern coexistence theory** (Chesson 2000, *Annu. Rev. Ecol. Syst.*): Stable coexistence requires that intraspecific competition exceed interspecific competition: $\alpha_{11}\alpha_{22} > \alpha_{12}\alpha_{21}$, or equivalently, niche overlap $< 1$. Two mechanisms enable this:
 
-1. **Stabilising mechanisms** — increase niche differentiation (negative frequency dependence; rare species advantage)
+1. **Stabilizing mechanisms** — increase niche differentiation (negative frequency dependence; rare species advantage)
 2. **Equalising mechanisms** — reduce fitness differences between species (similar competitive abilities)
 
 ### Lotka-Volterra Predator-Prey
@@ -484,6 +491,7 @@ This system produces **neutrally stable oscillations** with period $\approx 2\pi
 
 **Functional responses** \citep{holling1959} describe the per capita predation rate as a function of prey density:
 
+: Lotka-Volterra Predator-Prey: Type and Equation. {#tbl:unit_X_population_ecology_lotka_volterra_predator_prey}
 | Type | Equation | Shape | Example |
 | ---- | -------- | ----- | ------- |
 | **Type I** | $f(V) = aV$ | Linear | Filter feeders (whale sharks, baleen whales) |
@@ -492,7 +500,7 @@ This system produces **neutrally stable oscillations** with period $\approx 2\pi
 
 The Type II functional response is also known as the **Michaelis-Menten** or **disc equation**. The parameter $a$ = attack rate and $h$ = handling time per prey item. Maximum consumption rate = $1/h$.
 
-Type III responses are stabilising because at low prey density, per-capita predation risk is low (predator switching to alternative prey), creating a **low-density refuge**.
+Type III responses are stabilizing because at low prey density, per-capita predation risk is low (predator switching to alternative prey), creating a **low-density refuge**.
 
 **Numerical response:** predator population growth rate as a function of prey density — driven by the functional response but with a time lag (gestation, maturation).
 
@@ -511,7 +519,7 @@ print(f"Predator range: {min(result.predator):.0f}–{max(result.predator):.0f}"
 The snowshoe hare (*Lepus americanus*) and Canada lynx (*Lynx canadensis*) display coupled ~10-year population cycles across boreal Canada, documented from Hudson's Bay Company fur trading records (1845-1935; Keith 1963). Modern analysis reveals the cycle is more complex than simple Lotka-Volterra:
 
 1. **Predation** accounts for ~60% of the cycle driver (Krebs et al. 2001, *Science*)
-2. **Food quality** — at high hare density, overgrazing induces plant chemical defences (phenolic compounds in willow/birch browse), reducing hare food quality (~20% of cycle)
+2. **Food quality** — at high hare density, overgrazing induces plant chemical defenses (phenolic compounds in willow/birch browse), reducing hare food quality (~20% of cycle)
 3. **Stress physiology** — high density and predation risk elevate [**cortisol**](#gl:cortisol), suppressing reproduction (~20% of cycle)
 4. The **tri-trophic interaction** (vegetation-hare-lynx) is necessary to explain the observed amplitude and period
 
@@ -523,6 +531,7 @@ The snowshoe hare (*Lepus americanus*) and Canada lynx (*Lynx canadensis*) displ
 
 \citet{macarthur1967} proposed that [**natural selection**](#gl:natural-selection) shapes life histories along an r-K continuum:
 
+: Lynx-Hare Cycle: A Case Study: Trait and [r-strategist](#gl:r-strategist)s. {#tbl:unit_X_population_ecology_lynx_hare_cycle_a_case_study}
 | Trait | [**r-strategist**](#gl:r-strategist)s | [**K-strategist**](#gl:k-strategist)s |
 | ----- | ------------- | ------------- |
 | Body size | Small | Large |
@@ -563,7 +572,7 @@ The r-K framework has been largely superseded by more nuanced models:
 - High adult mortality → delayed maturation, high reproductive effort per event
 - Variable mortality → bet-hedging strategies
 
-**Bet-hedging** (Philippi & Seger 1989, *Trends Ecol. Evol.*): In variable environments, intermediate-risk reproductive strategies outperform extreme approaches by reducing **variance** in fitness rather than maximising mean fitness:
+**Bet-hedging** (Philippi & Seger 1989, *Trends Ecol. Evol.*): In variable environments, intermediate-risk reproductive strategies outperform extreme approaches by reducing **variance** in fitness rather than maximizing mean fitness:
 - **Conservative bet-hedging:** Low-variance strategy (e.g., typically produce moderate number of offspring)
 - **Diversified bet-hedging:** Produce variable [**phenotype**](#gl:phenotype)s (e.g., desert annual plants with variable seed dormancy — don't germinate most seeds in a single good year)
 
@@ -620,6 +629,7 @@ s_{ij} = \frac{\partial \lambda_1}{\partial a_{ij}} = \frac{v_i w_j}{\langle \ma
 
 where $a_{ij}$ is the matrix entry, $\langle \mathbf{v}, \mathbf{w}\rangle = \sum_x v_x w_x$, and elasticities sum to one ($\sum_{ij} e_{ij} = 1$), making them directly interpretable as proportional contributions.
 
+: Sensitivity and Elasticity Analysis. {#tbl:unit_X_population_ecology_sensitivity_and_elasticity_analysis}
 | Quantity | Interpretation | Use |
 | -------- | -------------- | --- |
 | Sensitivity $s_{ij}$ | Absolute change in $\lambda_1$ per unit change in $a_{ij}$ | Rates measured on different scales (survival 0–1, fecundity 0–$\infty$) — direct comparison misleading |
@@ -631,7 +641,7 @@ where $a_{ij}$ is the matrix entry, $\langle \mathbf{v}, \mathbf{w}\rangle = \su
 
 ### Stage-Structured Generalisations
 
-Many organisms are better classified by **stage** (size, instar, reproductive status) than by age — trees, corals, and indeterminate-growth fish are obvious examples. The **Lefkovitch matrix** generalises Leslie by allowing positive entries on the diagonal (probability of remaining in the same stage) and on multiple sub-diagonals (skipping stages, regression). The eigen-analysis machinery is shared with Leslie models, while the biological interpretation of each entry changes.
+Many organisms are better classified by **stage** (size, instar, reproductive status) than by age — trees, corals, and indeterminate-growth fish are obvious examples. The **Lefkovitch matrix** generalizes Leslie by allowing positive entries on the diagonal (probability of remaining in the same stage) and on multiple sub-diagonals (skipping stages, regression). The eigen-analysis machinery is shared with Leslie models, while the biological interpretation of each entry changes.
 
 ```python
 import numpy as np
@@ -660,19 +670,20 @@ print(f"stable stage distribution = {np.round(w, 3)}")
 Matrix models are deterministic and assume infinite, well-mixed populations. Two regimes break those assumptions and demand a different tool:
 
 1. **Small populations** (conservation contexts) where demographic stochasticity dominates — a population of 30 condors with mean $\lambda_1 = 1.05$ can still go extinct from an unlucky run of male-heavy chicks.
-2. **Heterogeneous individuals** — variation in body size, behaviour, territory quality, or local conditions that cannot be averaged into a mean rate without losing the dynamics.
+2. **Heterogeneous individuals** — variation in body size, behavior, territory quality, or local conditions that cannot be averaged into a mean rate without losing the dynamics.
 
 **Individual-based models (IBMs)**, also called agent-based models, simulate each organism explicitly. Births, deaths, dispersal, and interactions are drawn as random events from probability distributions parameterised by individual attributes. Across many replicate runs, IBMs produce *distributions* of outcomes (extinction probability, time to recovery) rather than single trajectories.
 
+: Stage-Structured Generalisations: Advantage and Why IBMs deliver it. {#tbl:unit_X_population_ecology_stage_structured_generalisations}
 | Advantage | Why IBMs deliver it |
 | --------- | ------------------- |
 | Demographic stochasticity | Discrete birth/death events — no fractional individuals |
 | Individual heterogeneity | Each agent carries its own age, size, genotype, location |
 | Spatial structure | Landscape grids, dispersal kernels, local interactions |
-| Emergent dynamics | Allee effects, [**self-organization**](#gl:self-organization), threshold behaviours arise naturally |
-| Complex behaviours | Mate choice, learning, territoriality without analytical closed form |
+| Emergent dynamics | Allee effects, [**self-organization**](#gl:self-organization), threshold behaviors arise naturally |
+| Complex behaviors | Mate choice, learning, territoriality without analytical closed form |
 
-**Limitations:** IBMs trade analytical clarity for realism. They are computationally expensive (millions of replicates needed for tail-probability estimates), parameter-hungry, and validation is harder than for closed-form models. Best practice: build the simplest model that captures the focal mechanism, then add complexity primarily when justified by data (the **Pattern-Oriented Modelling** philosophy of Grimm & Railsback 2005).
+**Limitations:** IBMs trade analytical clarity for realism. They are computationally expensive (millions of replicates needed for tail-probability estimates), parameter-hungry, and validation is harder than for closed-form models. Best practice: build the simplest model that captures the focal mechanism, then add complexity primarily when justified by data (the **Pattern-Oriented Modeling** philosophy of Grimm & Railsback 2005).
 
 > **Concept Check:** Two black-footed ferret populations both have mean $\lambda_1 = 1.02$. Population A has $N = 500$; population B has $N = 25$. Why does the IBM extinction probability differ vastly between them despite identical mean growth rates? What would a deterministic model predict?
 
@@ -684,6 +695,7 @@ Matrix models are deterministic and assume infinite, well-mixed populations. Two
 
 ### Inputs to a PVA
 
+: Inputs to a PVA: Input and Source. {#tbl:unit_X_population_ecology_inputs_to_a_pva}
 | Input | Source | Why it matters |
 | ----- | ------ | -------------- |
 | Stage- or age-specific vital rates | Mark-recapture, life table | Mean dynamics |
@@ -728,7 +740,7 @@ PVA outputs depend on the model structure, input data, and uncertainty assumptio
 
 A **metapopulation** (Levins 1969; Hanski 1994) is a "population of populations" — a set of spatially separated subpopulations (patches) connected by dispersal. Local extinctions are balanced by recolonisation from other patches.
 
-In conservation practice, the important question is usually whether dispersal is functional, not whether habitat patches are merely drawn on a map. Roads, dams, fences, heat waves, disease, and behavioural avoidance can lower effective colonisation even when patches appear close. Corridor design therefore needs demographic monitoring, genetic connectivity, mortality-risk mapping, and sensitivity analysis for $c$ and $e$, because a corridor that increases movement can still fail if it also increases mortality or spreads disease.
+In conservation practice, the important question is usually whether dispersal is functional, not whether habitat patches are merely drawn on a map. Roads, dams, fences, heat waves, disease, and behavioral avoidance can lower effective colonization even when patches appear close. Corridor design therefore needs demographic monitoring, genetic connectivity, mortality-risk mapping, and sensitivity analysis for $c$ and $e$, because a corridor that increases movement can still fail if it also increases mortality or spreads disease.
 
 ### The Levins Model
 
@@ -739,17 +751,18 @@ In conservation practice, the important question is usually whether dispersal is
 
 where:
 - $p$ = proportion of occupied patches
-- $c$ = colonisation rate
+- $c$ = colonization rate
 - $e$ = extinction rate per patch
 
 At equilibrium: $\hat{p} = 1 - e/c$
 
-The metapopulation persists if $e/c < 1$ (colonisation rate exceeds extinction rate). If habitat patches are destroyed (reducing total patches available), the effective $c$ decreases, potentially pushing $e/c > 1$ and causing **metapopulation collapse**.
+The metapopulation persists if $e/c < 1$ (colonization rate exceeds extinction rate). If habitat patches are destroyed (reducing total patches available), the effective $c$ decreases, potentially pushing $e/c > 1$ and causing **metapopulation collapse**.
 
 ### Source-Sink Dynamics \citep{pulliam1988}
 
 Patches differ in leverage:
 
+: Source and sink patch roles in metapopulation dynamics. {#tbl:unit_X_population_ecology_source_sink_dynamics_citep_pulliam1988}
 | Patch type | Growth rate | Role |
 | ---------- | ----------- | ---- |
 | **Source** | $\lambda > 1$ | Produces surplus individuals; net emigration |
@@ -764,7 +777,7 @@ The **rescue effect** (Brown & Kodric-Brown 1977): immigration from nearby patch
 - Habitat corridors increase connectivity and reduce local extinction
 - Isolation increases both extinction probability and time to recolonisation
 
-> **Concept Check:** A metapopulation has 100 habitat patches with $c = 0.3$ and $e = 0.1$. Calculate the equilibrium proportion of occupied patches. If 40% of patches are destroyed (reducing total to 60 patches), what happens to the metapopulation? (Consider how reduced patch number affects colonisation rate.)
+> **Concept Check:** A metapopulation has 100 habitat patches with $c = 0.3$ and $e = 0.1$. Calculate the equilibrium proportion of occupied patches. If 40% of patches are destroyed (reducing total to 60 patches), what happens to the metapopulation? (Consider how reduced patch number affects colonization rate.)
 
 ---
 
@@ -778,8 +791,8 @@ graph TD
         SinkC["<b>Sink Patch C</b><br/>λ < 1<br/>Poor quality habitat<br/>Net Immigration"]
         SinkD["<b>Sink Patch D</b><br/>λ < 1<br/>Ecological Trap?<br/>Net Immigration"]
         
-        SourceA -->|"Colonisation<br/>(Rescue Effect)"| SinkC
-        SourceB -->|"Colonisation"| SinkD
+        SourceA -->|"Colonization<br/>(Rescue Effect)"| SinkC
+        SourceB -->|"Colonization"| SinkD
         SourceA <-->|"Gene Flow"| SourceB
         SinkC -.->|"Occasional<br/>Extinction"| Ext["[Empty Patch]"]
         Ext -->|"Recolonisation<br/>from Source"| SinkC
@@ -996,6 +1009,7 @@ Select biodiversity and conservation metrics by decision need: abundance, intera
 
 ## Key Terms
 
+: Concept Check (Evaluate) — Leslie Matrix Sensitivity and Where to Manage: Term and Definition. {#tbl:unit_X_population_ecology_concept_check_evaluate_leslie_matrix_sensitivity_and_where_to_manage}
 | Term | Definition |
 | ---- | ---------- |
 | **Carrying capacity ($K$)** | Maximum population size supported by a given environment |
@@ -1017,7 +1031,7 @@ Select biodiversity and conservation metrics by decision need: abundance, intera
 | **Theta-logistic model** | Extension of logistic growth with flexible density-dependence exponent θ |
 | **Survivorship curve** | Plot of proportion surviving ($l_x$) vs. age; Types I (late loss), II (constant), III (early loss) |
 | **Leslie matrix** | Age-structured projection matrix; dominant eigenvalue $= \lambda_1$ |
-| **Sensitivity / Elasticity** | $\partial \lambda_1/\partial a_{ij}$ (absolute) and proportional analogue; identify highest-leverage rate |
+| **Sensitivity / Elasticity** | $\partial \lambda_1/\partial a_{ij}$ (absolute) and proportional analog; identify highest-leverage rate |
 | **Stable age distribution** | Right eigenvector of Leslie matrix; long-run age proportions |
 | **Individual-based model (IBM)** | Stochastic simulation tracking each organism; captures demographic stochasticity and heterogeneity |
 | **Population viability analysis (PVA)** | Stochastic projection of extinction probability over a fixed horizon |
@@ -1037,7 +1051,7 @@ Select biodiversity and conservation metrics by decision need: abundance, intera
 
 5. Compare the lynx-hare cycle with a simple Lotka-Volterra prediction. What additional factors (beyond α, β, δ, γ parameters) are needed to explain the observed 10-year periodicity? Cite at least one primary study.
 
-6. A metapopulation of a rare butterfly occupies 25 of 100 available habitat patches. The colonisation rate is $c = 0.15$ and extinction rate is $e = 0.05$. (a) Calculate the expected equilibrium occupancy. (b) A highway project will destroy 30 patches. Will the metapopulation persist? (c) What colonisation rate would be needed to maintain the same equilibrium occupancy after the loss, with 70 patches remaining?
+6. A metapopulation of a rare butterfly occupies 25 of 100 available habitat patches. The colonization rate is $c = 0.15$ and extinction rate is $e = 0.05$. (a) Calculate the expected equilibrium occupancy. (b) A highway project will destroy 30 patches. Will the metapopulation persist? (c) What colonization rate would be needed to maintain the same equilibrium occupancy after the loss, with 70 patches remaining?
 
 7. You capture 200 salamanders from a pond, mark them, and release them. Two weeks later, you capture 250 salamanders and find that 40 are marked. (a) Estimate the population size using the Lincoln-Petersen method. (b) List three assumptions of this method and describe how violating each would bias your estimate.
 
@@ -1088,9 +1102,9 @@ print(round(ser.populations[-1], 2))
 - **Survivorship curves:** Type I (late loss, K-selected), Type II (constant), Type III (early loss, r-selected). Gompertz law for human mortality.
 - **Logistic growth:** $dN/dt = rN(1 - N/K)$; inflection at $K/2$; MSY $= rK/4$. Extensions: theta-logistic, time-lagged logistic.
 - **Allee effect:** $dN/dt < 0$ below threshold $A$; threatens small surviving populations. Component vs. demographic Allee effects.
-- **LV competition:** stable coexistence requires niche differentiation ($\alpha_{12}\alpha_{21} < 1$); otherwise exclusion or priority effects. Chesson's theory: stabilising + equalising mechanisms.
+- **LV competition:** stable coexistence requires niche differentiation ($\alpha_{12}\alpha_{21} < 1$); otherwise exclusion or priority effects. Chesson's theory: stabilizing + equalising mechanisms.
 - **LV predator-prey:** neutral oscillations; period $\approx 2\pi/\sqrt{\alpha\gamma}$; lynx-hare 10-yr cycle requires tri-trophic explanation.
-- **Functional responses:** Type I (linear), Type II (decelerating, Holling disc equation), Type III (sigmoidal, stabilising).
+- **Functional responses:** Type I (linear), Type II (decelerating, Holling disc equation), Type III (sigmoidal, stabilizing).
 - **Age-structured models:** Leslie matrix $\mathbf{L}$ with fecundities on top row and survivorships on sub-diagonal; dominant eigenvalue $\lambda_1$ = asymptotic growth rate; right and left eigenvectors give stable age distribution and reproductive value. **Sensitivity** $s_{ij} = \partial \lambda_1/\partial a_{ij}$ and **elasticity** $e_{ij}$ identify highest-leverage demographic rates (loggerhead turtle adult survival → TEDs).
 - **Individual-based models (IBMs):** stochastic agent-based simulations capture demographic stochasticity, individual heterogeneity, and emergent dynamics that mean-field models miss.
 - **Population viability analysis (PVA):** integrates matrix and stochastic machinery into extinction-probability forecasts; quasi-extinction threshold $N_{\text{crit}}$; empirical MVPs cluster at 5,000–7,000 adults (Reed et al. 2003), well above the classical $N_e = 500$ rule.
@@ -1109,6 +1123,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Population Ecology and Growth Models. {#tbl:unit_X_population_ecology_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/ecology/ecology.py` (`exponential_growth`, `logistic_growth`, `allee_strong_growth`) | Reproduce density-independent, density-dependent, and Allee-effect scenarios. |

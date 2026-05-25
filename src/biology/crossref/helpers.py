@@ -41,6 +41,39 @@ def suggest_id(kind: str, path: Path, descriptor: str, ordinal: int = 0) -> str:
     return f"{unit}-{stem}-{tail}"
 
 
+def is_unnumbered_section_id(sec_id: str) -> bool:
+    """Return True when a ``sec:…`` id labels an unnumbered ``\\section*`` surface."""
+    if sec_id in {"glossary"}:
+        return True
+    if sec_id.startswith(("lab_", "q_", "appendix_")):
+        return True
+    return sec_id.endswith("_unit_intro")
+
+
+def section_reference(label: str) -> str:
+    """Return ``\\nameref`` for unnumbered sections and ``\\cref`` for numbered chapters."""
+    normalized = label if label.startswith("sec:") else f"sec:{label}"
+    sec_id = normalized.removeprefix("sec:")
+    if is_unnumbered_section_id(sec_id):
+        return f"\\nameref{{{normalized}}}"
+    return f"\\cref{{{normalized}}}"
+
+
+_UNNUMBERED_SEC_CREF_RE = re.compile(r"\\([Cc])ref\{(sec:[^}]+)\}")
+
+
+def normalize_unnumbered_section_crefs(text: str) -> str:
+    """Rewrite ``\\cref{sec:lab_…}`` (etc.) to ``\\nameref`` for starred sections."""
+    def _replace(match: re.Match[str]) -> str:
+        label = match.group(2)
+        sec_id = label.removeprefix("sec:")
+        if is_unnumbered_section_id(sec_id):
+            return f"\\nameref{{{label}}}"
+        return match.group(0)
+
+    return _UNNUMBERED_SEC_CREF_RE.sub(_replace, text)
+
+
 def generated_block_lines(text: str) -> set[int]:
     """Line numbers owned by generated manuscript marker blocks."""
     line_starts: list[int] = []
@@ -61,4 +94,13 @@ def generated_block_lines(text: str) -> set[int]:
     return generated
 
 
-__all__ = ["file_stem", "generated_block_lines", "slugify", "suggest_id", "unit_tag"]
+__all__ = [
+    "file_stem",
+    "generated_block_lines",
+    "is_unnumbered_section_id",
+    "normalize_unnumbered_section_crefs",
+    "section_reference",
+    "slugify",
+    "suggest_id",
+    "unit_tag",
+]

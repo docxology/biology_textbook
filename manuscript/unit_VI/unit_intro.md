@@ -1,7 +1,6 @@
-# Unit VI — Evolution: Introduction {.unnumbered}
+# Unit VI — Evolution: Introduction {#sec:unit_VI_unit_intro .unnumbered}
 
 
-\label{sec:unit_VI_unit_intro}
 ## Why This Unit Matters {.unnumbered}
 
 On 24 November 1859, Charles Darwin published *On the Origin of Species by Means of Natural Selection*.
@@ -32,13 +31,13 @@ maximum-likelihood and Bayesian methods. The tools here are the same used in cli
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| Darwin & Wallace | 1858–59 | *Proc. Linn. Soc.*; *On the Origin of Species* | Natural selection as mechanism of evolution | Provided the first mechanistic explanation for biological diversity |
-| Gregor Mendel (rediscovered) | 1900 | de Vries, Correns, Tschermak | Mendelian inheritance = mechanism for variation | Fused genetics with evolution; launched Modern Synthesis |
-| Ronald Fisher | 1930 | *The Genetical Theory of Natural Selection* | Mathematical synthesis of Darwinism + Mendelism | Fundamental theorem of natural selection; $\Delta q = spq^2/\bar{W}$ |
-| Sewall Wright | 1931 | *Genetics* | Genetic drift and adaptive landscapes | Showed small populations diverge by chance; $\sigma^2(\Delta p) = pq/2N_e$ |
-| Motoo Kimura | 1968 | *Nature* | Neutral theory of molecular evolution | Most amino acid substitutions are selectively neutral; molecular clock |
-| Woese & Fox | 1977 | *Proc. Natl. Acad. Sci.* | Three domains of life (Archaea identified by rRNA) | Completely restructured the comprehensive tree of life |
-| Svante Pääbo et al. | 2010 | *Science* | Neanderthal genome sequencing | Showed interbreeding between modern humans and Neanderthals; Nobel Prize 2022 |
+| Darwin & Wallace | 1858–59 | \citep{darwin1858,darwin1859} | Natural selection as mechanism of evolution | Provided the first mechanistic explanation for biological diversity |
+| Gregor Mendel (rediscovered) | 1900 | \citep{mendel1866} | Mendelian inheritance = mechanism for variation | Fused genetics with evolution; launched Modern Synthesis |
+| Ronald Fisher | 1930 | \citep{fisher1930} | Mathematical synthesis of Darwinism + Mendelism | Fundamental theorem of natural selection; $\Delta q = spq^2/\bar{W}$ |
+| Sewall Wright | 1931 | \citep{wright1931} | Genetic drift and adaptive landscapes | Showed small populations diverge by chance; $\sigma^2(\Delta p) = pq/2N_e$ |
+| Motoo Kimura | 1968 | \citep{kimura1968} | Neutral theory of molecular evolution | Most amino acid substitutions are selectively neutral; molecular clock |
+| Woese & Fox | 1977 | \citep{woese1977} | Three domains of life (Archaea identified by rRNA) | Completely restructured the comprehensive tree of life |
+| Svante Pääbo et al. | 2010 | \citep{paabo2010neanderthal} | Neanderthal genome sequencing | Showed interbreeding between modern humans and Neanderthals; Nobel Prize 2022 |
 
 ---
 
@@ -46,11 +45,11 @@ maximum-likelihood and Bayesian methods. The tools here are the same used in cli
 
 ```mermaid
 graph TD
-    VAR["🎲 Genetic Variation<br/>(mutation, recombination,<br/>gene flow sources)"] --> SEL["🏆 Natural Selection<br/>(Δq = spq²/W̄;<br/>directional, stabilising,<br/>balancing)"]
+    VAR["🎲 Genetic Variation<br/>(mutation, recombination,<br/>gene flow sources)"] --> SEL["🏆 Natural Selection<br/>(Δq = spq²/W̄;<br/>directional, stabilizing,<br/>balancing)"]
     VAR --> DRIFT["🌊 Genetic Drift<br/>(σ²(Δp) = pq/2Nₑ;<br/>bottleneck, founder effect)"]
     VAR --> FLOW["💨 Gene Flow<br/>(p₁' = (1−m)p₁ + mp₂;<br/>homogenises populations)"]
 
-    SEL --> ADAP["🦎 Adaptation<br/>(molecular, morphological,<br/>behavioural)"]
+    SEL --> ADAP["🦎 Adaptation<br/>(molecular, morphological,<br/>behavioral)"]
     DRIFT --> NEUT["⚛️ Neutral Evolution<br/>(molecular clock;<br/>t = d/2μ)"]
 
     SEL --> SPEC["🌿 Speciation<br/>(allopatric, sympatric,<br/>parapatric)"]
@@ -97,7 +96,7 @@ paper-based lab decision.
 
 ## Connections Across the Textbook {.unnumbered}
 
-- **Hardy-Weinberg equilibrium** in \cref{sec:unit_V_population_genetics} is the null model disrupted by the five evolutionary forces analysed here.
+- **Hardy-Weinberg equilibrium** in \cref{sec:unit_V_population_genetics} is the null model disrupted by the five evolutionary forces analyzed here.
 - **Molecular clock** and **Jukes-Cantor distances** connect to \nameref{sec:unit_IV_unit_intro} (mutation rates in DNA replication) and \nameref{sec:unit_VII_unit_intro} (phylogeny of pathogens and antibiotic-resistance evolution).
 - **Speciation** links to \nameref{sec:unit_X_unit_intro} (biogeography, island species-area relationship, MacArthur-Wilson model).
 - **Adaptive evolution** of immune genes connects to \nameref{sec:unit_IX_unit_intro} (MHC diversity and pathogen immunity), and antibiotic resistance evolution motivates the clinical sections of \nameref{sec:unit_VII_unit_intro}.

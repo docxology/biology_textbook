@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from functools import lru_cache
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping, Sequence, cast
 
 import yaml
 
@@ -24,17 +24,17 @@ def _load_raw() -> dict[str, Any]:
     return raw
 
 
-def _tuple_map(raw: dict[str, list[str]]) -> dict[str, tuple[str, ...]]:
-    return {key: tuple(value) for key, value in raw.items()}
+def _pair_map(raw: Mapping[str, Sequence[str]]) -> dict[str, tuple[str, str]]:
+    return {key: (value[0], value[1]) for key, value in raw.items()}
 
 
-def _figure_map(raw: dict[str, list[str]]) -> dict[str, tuple[str, str, str, str]]:
-    return {key: tuple(value) for key, value in raw.items()}  # type: ignore[return-value]
+def _figure_map(raw: Mapping[str, Sequence[str]]) -> dict[str, tuple[str, str, str, str]]:
+    return {key: (value[0], value[1], value[2], value[3]) for key, value in raw.items()}
 
 
 @lru_cache(maxsize=1)
 def frontier_by_unit() -> dict[str, tuple[str, str]]:
-    return _tuple_map(_load_raw()["FRONTIER_BY_UNIT"])  # type: ignore[arg-type]
+    return _pair_map(cast(Mapping[str, Sequence[str]], _load_raw()["FRONTIER_BY_UNIT"]))
 
 
 @lru_cache(maxsize=1)
@@ -54,7 +54,7 @@ def focus_by_stem() -> dict[str, str]:
 
 @lru_cache(maxsize=1)
 def figure_by_stem() -> dict[str, tuple[str, str, str, str]]:
-    return _figure_map(_load_raw()["FIGURE_BY_STEM"])  # type: ignore[arg-type]
+    return _figure_map(cast(Mapping[str, Sequence[str]], _load_raw()["FIGURE_BY_STEM"]))
 
 
 @lru_cache(maxsize=1)
@@ -107,6 +107,18 @@ def __getattr__(name: str) -> Any:
     if name == "_INLINE_COMPANION_NOTE_RE":
         return companion_inline_note_pattern()
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+
+FRONTIER_BY_UNIT = frontier_by_unit()
+SOURCE_PRACTICE_BY_UNIT = source_practice_by_unit()
+EXTRA_FRONTIER_BY_STEM = extra_frontier_by_stem()
+FOCUS_BY_STEM = focus_by_stem()
+FIGURE_BY_STEM = figure_by_stem()
+COMPANION_INTRO_BY_STEM = companion_intro_by_stem()
+COMPANION_SOURCE_BY_STEM = companion_source_by_stem()
+_COMPANION_SECTION_RE = companion_section_pattern()
+_COMPANION_NOTE_LINE_RE = companion_note_line_pattern()
+_INLINE_COMPANION_NOTE_RE = companion_inline_note_pattern()
 
 
 __all__ = [

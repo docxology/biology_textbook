@@ -1,6 +1,5 @@
-# Lab — Gene Expression — Transcription and Translation {.unnumbered}
+# Lab — Gene Expression — Transcription and Translation {#sec:lab_unit_IV_gene_expression .unnumbered}
 
-\label{sec:lab_unit_IV_gene_expression}
 
 ## Learning Objectives {.unnumbered}
 
@@ -8,7 +7,7 @@
 
 - Transcribe and translate a provided DNA template sequence manually to produce an amino acid sequence
 - Identify the effect of point mutations (silent, missense, nonsense) on the final protein
-- Analyse a polysome electron micrograph to determine relative transcription and translation rates
+- Analyze a polysome electron micrograph to determine relative transcription and translation rates
 - Interpret a Northern blot and a Western blot to determine gene expression changes
 
 
@@ -38,6 +37,7 @@ In this lab you will perform manual transcription/translation using codon tables
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IV_gene_expression_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Gene Expression — Transcription and Translation: genomics/database source card: reference release, sample coverage, version, clinical boundary, and refresh trigger | 1 |
@@ -47,7 +47,7 @@ In this lab you will perform manual transcription/translation using codon tables
 | Northern blot image (printed, 2 lanes: untreated vs treated sample) | 1 |
 | Western blot image (printed, 2 lanes: untreated vs treated sample) | 1 |
 | Ruler | 1 |
-| Coloured pens | 3 |
+| Colored pens | 3 |
 
 ## Paper-Based Investigation {.unnumbered}
 
@@ -66,6 +66,7 @@ In this lab you will perform manual transcription/translation using codon tables
 
 ## Data Recording {.unnumbered}
 
+: Alignment and Rubric Map: Card and Mutation type. {#tbl:unit_IV_gene_expression_alignment_and_rubric_map_2}
 | Card | Mutation type | Mutated codon | Amino acid change | Effect on protein |
 | ---- | ------------- | ------------- | ----------------- | ----------------- |
 | A | — | — | — | Normal |
@@ -74,6 +75,7 @@ In this lab you will perform manual transcription/translation using codon tables
 
 mRNA length: ________ mm; Ribosomes counted: ________; Ribosome density: ________ per mm
 
+: Alignment and Rubric Map. {#tbl:unit_IV_gene_expression_alignment_and_rubric_map_3}
 | Sample | Northern band (strong/weak/absent) | Western band | Interpretation |
 | ------ | ----------------------------------- | ------------ | -------------- |
 | Untreated | | | |
@@ -96,6 +98,7 @@ mRNA length: ________ mm; Ribosomes counted: ________; Ribosome density: _______
 Before answering the analysis questions, annotate the paper dataset for
 **Gene Expression — Transcription and Translation** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_IV_gene_expression_alignment_and_rubric_map_4}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -129,7 +132,7 @@ Complete the source-governance card for Gene Expression — Transcription and Tr
 2. Card C introduced a premature stop codon. How does the cell detect and degrade mRNAs with premature stop codons? Name this quality-control pathway.
 3. If Northern blot shows no change in mRNA level, but Western blot shows dramatically reduced protein, at what level is gene expression being regulated? Name two possible regulatory mechanisms.
 4. A gene has 8 ribosomes per mRNA; a second gene's mRNA has 40 ribosomes present. Which gene is being translated more actively? What are two reasons a cell might load one mRNA with more ribosomes than another?
-5. The antibiotic streptomycin causes misreading of the A-site codon by destabilising the decoding centre of the 30S ribosomal subunit. Predict the effect on translation fidelity and which kingdom of organisms would be most affected (hint: consider that streptomycin targets 30S vs 60S subunits).
+5. The antibiotic streptomycin causes misreading of the A-site codon by destabilising the decoding center of the 30S ribosomal subunit. Predict the effect on translation fidelity and which kingdom of organisms would be most affected (hint: consider that streptomycin targets 30S vs 60S subunits).
 
 
 ## Post-Lab Synthesis {.unnumbered}
@@ -156,7 +159,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -175,5 +178,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_IV_gene_expression}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

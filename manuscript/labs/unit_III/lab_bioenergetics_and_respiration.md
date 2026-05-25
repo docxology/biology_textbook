@@ -1,6 +1,5 @@
-# Lab — Bioenergetics and Cellular Respiration {.unnumbered}
+# Lab — Bioenergetics and Cellular Respiration {#sec:lab_unit_III_bioenergetics_and_respiration .unnumbered}
 
-\label{sec:lab_unit_III_bioenergetics_and_respiration}
 
 ## Learning Objectives {.unnumbered}
 
@@ -37,6 +36,7 @@ Cellular respiration converts the chemical energy in organic molecules to ATP. T
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_III_bioenergetics_and_respiration_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Bioenergetics and Cellular Respiration: metabolism source card: organism, compartment, condition, measurement method, and flux boundary | 1 |
@@ -62,6 +62,7 @@ Cellular respiration converts the chemical energy in organic molecules to ATP. T
 
 ## Data Recording {.unnumbered}
 
+: Alignment and Rubric Map: Time (min) and Bottle A. {#tbl:unit_III_bioenergetics_and_respiration_alignment_and_rubric_map_2}
 | Time (min) | Bottle A | Bottle B | Bottle C | Bottle D |
 | ---------- | -------- | -------- | -------- | -------- |
 | 0 | | | | |
@@ -91,6 +92,7 @@ O₂ consumed (glass beads): ______ mL / 10 min
 Before answering the analysis questions, annotate the paper dataset for
 **Bioenergetics and Cellular Respiration** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_III_bioenergetics_and_respiration_alignment_and_rubric_map_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -145,7 +147,7 @@ Complete the source-governance card for Bioenergetics and Cellular Respiration b
 
 > **Concept Check (Synthesis):** Textbook stoichiometry suggests roughly 30–32 ATP per glucose oxidised aerobically, but the actual yield measured in mitochondria is typically lower. Integrating the gas-exchange data from this lab with the chapter:
 >
-> (a) Explain how the P/O ratio (ATP synthesised per oxygen atom reduced) and proton leak across the inner mitochondrial membrane each reduce the realised ATP yield below the textbook maximum. Identify one molecular feature of the mitochondrion that influences each.
+> (a) Explain how the P/O ratio (ATP synthesized per oxygen atom reduced) and proton leak across the inner mitochondrial membrane each reduce the realized ATP yield below the textbook maximum. Identify one molecular feature of the mitochondrion that influences each.
 > (b) During increasing exercise intensity, an athlete transitions from primarily aerobic to mixed aerobic–anaerobic metabolism. Describe the metabolic signals that drive this transition, the resulting change in the RQ measured at the mouth, and the trade-off between ATP yield per glucose and ATP production rate.
 > (c) A respirometer measurement gives RQ ≈ 1.0 for one batch of seeds and RQ ≈ 0.7 for another batch of the same species. Propose two biological explanations for the difference and one paper-based experiment using your existing investigation that would distinguish between them.
 
@@ -170,7 +172,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -189,5 +191,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_III_bioenergetics_and_respiration}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

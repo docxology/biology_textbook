@@ -1,6 +1,5 @@
-# Questions — Mendelian Principles and Probability {.unnumbered}
+# Questions — Mendelian Principles and Probability {#sec:q_unit_V_mendelian_principles .unnumbered}
 
-\label{sec:q_unit_V_mendelian_principles}
 
 <!-- question-coverage-start -->
 ## Instructor Use and Coverage Notes {.unnumbered}
@@ -96,7 +95,7 @@ SOLUTION -->
 11. A black cat (BB) is crossed with a white cat (bb). What is the F₁ phenotype? What is the F₂ ratio if F₁ cats are interbred? If black is incompletely dominant, what is the F₁ phenotype?
 
 <!-- SOLUTION
-**Answer (Q11, Application).** With complete dominance, *BB* × *bb* gives an all-black F₁ (*Bb*). Interbreeding the F₁ (*Bb × Bb*) gives an **F₂ of 3 black : 1 white**. If black is instead *incompletely* dominant, the F₁ heterozygotes (*Bb*) show an **intermediate (grey) phenotype**, and the F₂ would be 1 black : 2 grey : 1 white. See \cref{sec:unit_V_mendelian_principles}.
+**Answer (Q11, Application).** With complete dominance, *BB* × *bb* gives an all-black F₁ (*Bb*). Interbreeding the F₁ (*Bb × Bb*) gives an **F₂ of 3 black : 1 white**. If black is instead *incompletely* dominant, the F₁ heterozygotes (*Bb*) show an **intermediate (gray) phenotype**, and the F₂ would be 1 black : 2 gray : 1 white. See \cref{sec:unit_V_mendelian_principles}.
 SOLUTION -->
 
 <!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
@@ -107,7 +106,7 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-13. Two true-breeding strains of wheat produce red and white kernels. The cross produces medium-red F₁, and F₂ shows a continuous range of colours with frequencies approximately 1:4:6:4:1. This is consistent with two genes each contributing an additive unit of colour. What mode of inheritance does this illustrate?
+13. Two true-breeding strains of wheat produce red and white kernels. The cross produces medium-red F₁, and F₂ shows a continuous range of colors with frequencies approximately 1:4:6:4:1. This is consistent with two genes each contributing an additive unit of color. What mode of inheritance does this illustrate?
 
 <!-- SOLUTION
 **Answer (Q13, Application).** This is **polygenic (quantitative) inheritance** with additive alleles. Two genes each contributing one additive unit of pigment produce 5 phenotypic classes in F₂ with frequencies 1:4:6:4:1 (the binomial expansion of dose 0–4 across 4 alleles), with the medium-red F₁ intermediate between the parental extremes. Environmental variation further blurs the classes into a continuous distribution. See \cref{sec:unit_V_mendelian_principles}.
@@ -121,7 +120,7 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO5; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-15. In coat colour genetics of Labrador retrievers: B is dominant for black pigment; b is recessive (brown/chocolate). E is dominant for coat expression; ee gives yellow regardless of B/b. Set up the dihybrid cross BbEe × BbEe and calculate the expected ratio of black:chocolate:yellow.
+15. In coat color genetics of Labrador retrievers: B is dominant for black pigment; b is recessive (brown/chocolate). E is dominant for coat expression; ee gives yellow regardless of B/b. Set up the dihybrid cross BbEe × BbEe and calculate the expected ratio of black:chocolate:yellow.
 
 <!-- SOLUTION
 **Answer (Q15, Application).** *BbEe × BbEe* gives the standard 9 B\_E\_ : 3 B\_ee : 3 bbE\_ : 1 bbee. Because *ee* is epistatic (yellow regardless of B), the two *ee* classes merge: 9 B\_E\_ = black, 3 bbE\_ = chocolate, and 3 B\_ee + 1 bbee = 4 yellow. Expected ratio = **9 black : 3 chocolate : 4 yellow**. See \cref{sec:unit_V_mendelian_principles}.
@@ -149,7 +148,7 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO9; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-19. Evaluate Mendel's choice of pea traits: several of the seven traits happened to be either not linked or on different chromosomes. If two of Mendel's traits had been tightly linked (say, flower colour and pod colour on the same chromosome), how would the F₂ data have deviated from the 9:3:3:1 ratio, and would Mendel still have discovered independent assortment?
+19. Evaluate Mendel's choice of pea traits: several of the seven traits happened to be either not linked or on different chromosomes. If two of Mendel's traits had been tightly linked (say, flower color and pod color on the same chromosome), how would the F₂ data have deviated from the 9:3:3:1 ratio, and would Mendel still have discovered independent assortment?
 
 <!-- SOLUTION
 **Answer (Q19, Synthesis).** If two traits were tightly linked, their alleles would not assort independently: parental allele combinations would be over-represented and recombinant types rare, so the F₂ would deviate sharply from **9:3:3:1** toward an excess of parental phenotypes (the deviation scaling with map distance / recombination frequency). Mendel could still have discovered segregation and independent assortment from his *other* unlinked traits, but the linked pair alone would have masked independent assortment — historically fortunate that his seven analyzed traits behaved independently. See \cref{sec:unit_V_mendelian_principles}.

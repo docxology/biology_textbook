@@ -1,6 +1,5 @@
-# Lab — Bacteria, Archaea, and Viruses {.unnumbered}
+# Lab — Bacteria, Archaea, and Viruses {#sec:lab_unit_VII_bacteria_archaea_viruses .unnumbered}
 
-\label{sec:lab_unit_VII_bacteria_archaea_viruses}
 
 *This activity accompanies \cref{sec:unit_VII_bacteria_archaea_viruses} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -27,7 +26,7 @@
 
 *Answer these before starting the investigation — they activate knowledge from the parent chapter on prokaryote and viral biology.*
 
-1. Explain how Gram staining differentiates between Gram-positive and Gram-negative bacteria. Reference the role of peptidoglycan thickness and the outer membrane, and describe what colour each type appears after the full stain sequence (crystal violet, iodine, ethanol, safranin).
+1. Explain how Gram staining differentiates between Gram-positive and Gram-negative bacteria. Reference the role of peptidoglycan thickness and the outer membrane, and describe what color each type appears after the full stain sequence (crystal violet, iodine, ethanol, safranin).
 2. Describe the lytic and lysogenic cycles of a temperate bacteriophage. For each cycle, state where the phage genome resides and one molecular event that defines that phase.
 3. Prokaryotes lack membrane-bound organelles. State one process (e.g., respiration, transcription) that occurs in a different cellular location in bacteria compared to eukaryotes, and explain the implication for antibiotic targeting.
 
@@ -51,6 +50,7 @@ Prokaryotes — Bacteria and Archaea — are the most abundant life forms on Ear
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VII_bacteria_archaea_viruses_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Bacteria, Archaea, and Viruses: pathogen-surveillance source card: organism-resistance pair, official guidance date, setting, and intervention limit | 1 |
@@ -74,13 +74,13 @@ Prokaryotes — Bacteria and Archaea — are the most abundant life forms on Ear
 2. **Identify Variables**:
    - Independent variable: Bacterial species
    - Dependent variable: Gram stain result (purple vs pink) and cell morphology
-   - Controlled variables: image source, colour-calibration note, scale label, scoring key, scorer training, and blind-card order.
+   - Controlled variables: image source, colorcalibration note, scale label, scoring key, scorer training, and blind-card order.
 
 3. **Set Up Controls**: Score the known Gram-positive and Gram-negative control cards first. What other controls could you include to ensure accurate identification, such as a mixed-species image, a low-quality image, or a blinded duplicate?
 
 4. **Data Collection**:
    - Classify each blinded image card as Gram-positive, Gram-negative, mixed, or uninterpretable.
-   - Record: colour (purple = Gram+, pink = Gram-), cell shape (coccus, bacillus, spirillum), arrangement (single, pairs, chains, clusters), and confidence score (1-5).
+   - Record: color (purple = Gram+, pink = Gram-), cell shape (coccus, bacillus, spirillum), arrangement (single, pairs, chains, clusters), and confidence score (1-5).
    - Compare independent scorers. Resolve disagreements primarily after recording the original calls.
 
 ### Part 2: Computational Biology Exercise — Bacterial Growth Analysis with Python {.unnumbered}
@@ -111,11 +111,13 @@ print("MIC dilution series:", mic_fold_dilution(128.0, dilution_factor=2, n_tube
 
 ## Data Recording {.unnumbered}
 
+: Sample data for Part 4: AMR Network and Fungal Triage Cards. {#tbl:unit_VII_bacteria_archaea_viruses_part_4_amr_network_and_fungal_triage_cards}
 | Species | Gram stain result | Cell shape | Cell arrangement |
 | ------- | ----------------- | ---------- | ---------------- |
 | *E. coli* | | | |
 | *Bacillus sp.* | | | |
 
+: Part 4: AMR Network and Fungal Triage Cards: Dilution and Colonies counted. {#tbl:unit_VII_bacteria_archaea_viruses_part_4_amr_network_and_fungal_triage_cards_2}
 | Dilution | Colonies counted | CFU/mL |
 | -------- | ---------------- | ------- |
 | 10⁻⁴ | | |
@@ -143,6 +145,7 @@ AMR transfer pathway most supported: _______; *Candida auris* action selected: _
 Before answering the analysis questions, annotate the paper dataset for
 **Bacteria, Archaea, and Viruses** with a reproducibility pass:
 
+: Part 4: AMR Network and Fungal Triage Cards: Evidence check and Student action. {#tbl:unit_VII_bacteria_archaea_viruses_part_4_amr_network_and_fungal_triage_cards_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -238,7 +241,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_VII_bacteria_archaea_viruses} that your data either confirmed or complicated. Cite the specific passage.
 

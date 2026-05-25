@@ -1,6 +1,5 @@
-# Lab — Mendelian Principles and Probability {.unnumbered}
+# Lab — Mendelian Principles and Probability {#sec:lab_unit_V_mendelian_principles .unnumbered}
 
-\label{sec:lab_unit_V_mendelian_principles}
 
 *This activity accompanies \cref{sec:unit_V_mendelian_principles} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -53,10 +52,11 @@ Gregor Mendel's experiments with pea plants (1856–1863) established the laws o
 
 ### Example Pedigree — Autosomal Recessive Trait (Cystic Fibrosis) {.unnumbered}
 
-Below is the three-generation pedigree you will analyse in Part B. Filled squares/circles are affected individuals; half-filled are obligate carriers; empty are unaffected. Use this as a reference for how pedigree symbols encode genotypes.
+Below is the three-generation pedigree you will analyze in Part B. Filled squares/circles are affected individuals; half-filled are obligate carriers; empty are unaffected. Use this as a reference for how pedigree symbols encode genotypes.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Example Pedigree — Autosomal Recessive Trait (Cystic Fibrosis): Item and Quantity. {#tbl:unit_V_mendelian_principles_example_pedigree_autosomal_recessive_trait_cystic_fibrosis}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Mendelian Principles and Probability: inheritance source card: model assumptions, sampling frame, ancestry/context boundary, and uncertainty | 1 |
@@ -65,7 +65,7 @@ Below is the three-generation pedigree you will analyse in Part B. Filled square
 | Coin or random number table (to simulate gamete formation) | 2 |
 | Chi-square table (critical values) | 1 |
 | Calculator | 1 |
-| Coloured counters (2 colours × 20) for simulating gametes | 1 set |
+| Colored counters (2 colors × 20) for simulating gametes | 1 set |
 | Calculator or optional Python REPL with this project installed | 1 |
 | Statistical analysis worksheet | 1 |
 
@@ -122,11 +122,12 @@ Complete the source-governance card for Mendelian Principles and Probability bef
 - **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
 <!-- lab-evidence-checklist-end -->
 
-## Paper-Based Evidence Upgrade
+## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
 **Mendelian Principles and Probability** with a reproducibility pass:
 
+: Source-Governance Checkpoint: Evidence check and Student action. {#tbl:unit_V_mendelian_principles_source_governance_checkpoint}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |

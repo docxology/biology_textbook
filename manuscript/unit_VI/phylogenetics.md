@@ -39,8 +39,8 @@ By the end of this chapter, you should be able to:
 - **Data skill:** Read trees correctly and map traits or sequences onto branches.
 - **Practice cadence:** Visual Representations, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** Living species are cousins, not ancestors of one another.
-- **Primary lab:** \cref{sec:lab_unit_VI_phylogenetics}.
-- **Question bank:** \cref{sec:q_unit_VI_phylogenetics}.
+- **Primary lab:** \nameref{sec:lab_unit_VI_phylogenetics}.
+- **Question bank:** \nameref{sec:q_unit_VI_phylogenetics}.
 - **Transfer task:** Transfer tree thinking to pathogens, conservation units, gene families, and development.
 - **Bridge to computation:** `biology.genetics.genetics.jukes_cantor_distance`.
 <!-- curriculum-scaffold-end -->
@@ -49,7 +49,7 @@ By the end of this chapter, you should be able to:
 
 > **Opening Vignette — The Tree That Changed Everything**
 > 
-> In the 1970s, Carl Woese was alone in his University of Illinois laboratory, painstakingly sequencing ribosomal RNA by subjecting it to nuclease digestion and then separating fragments on two-dimensional electrophoresis gels — an agonisingly laborious technique that took months per organism. When he sequenced methanogens (thought to be unusual bacteria), the rRNA pattern was unlike any bacterium. It was unlike any [**eukaryote**](#gl:eukaryote) too. Woese concluded they formed a third domain of life — the Archaea. His 1977 *PNAS* paper was widely dismissed for nearly a decade: a microbiologist claiming to overturn a century of classification with RNA fingerprints? Yet the phylogenetic evidence was incontrovertible, and by the 1990s the three-domain tree had rearranged most of biology. The lesson: molecular sequence data can reveal evolutionary relationships invisible to morphology, and great paradigm shifts are often dismissed before they are accepted.
+> In the 1970s, Carl Woese was alone in his University of Illinois laboratory, painstakingly sequencing ribosomal RNA by subjecting it to nuclease digestion and then separating fragments on two-dimensional electrophoresis gels — an agonisingly laborious technique that took months per organism. When he sequenced methanogens (thought to be unusual bacteria), the rRNA pattern was unlike any bacterium. It was unlike any [**eukaryote**](#gl:eukaryote) too. Woese concluded they formed a third domain of life — the Archaea \citep{woese1977}. His 1977 *PNAS* paper was widely dismissed for nearly a decade: a microbiologist claiming to overturn a century of classification with RNA fingerprints? Yet the phylogenetic evidence was incontrovertible, and by the 1990s the three-domain tree had rearranged most of biology. The lesson: molecular sequence data can reveal evolutionary relationships invisible to morphology, and great paradigm shifts are often dismissed before they are accepted.
 
 ## What Phylogenetics Reveals About Shared History
 
@@ -172,6 +172,7 @@ A critical skill is reading phylogenetic trees by **topology** (branching patter
 
 Decades of cognitive-science research on student tree-reading reveal a recurring set of errors. Recognizing these misconceptions is the foundation of phylogenetic literacy:
 
+: Common tree-thinking misconceptions: Misconception and Correction. {#tbl:unit_VI_phylogenetics_common_tree_thinking_misconceptions}
 | Misconception | Correction |
 |---------------|-----------|
 | **Ladder thinking**: Trees show a progression from "primitive" tips on one side to "advanced" tips on the other. | Trees can be rotated around any node; tip order has no biological meaning. Every tip is equally distant from the root in time. |
@@ -197,7 +198,7 @@ Decades of cognitive-science research on student tree-reading reveal a recurring
 
 Phylogenies prevent a common social-insect error: treating "ants, bees, and termites" as one natural group because each can form colonies. Ants and bees are hymenopterans, whereas molecular phylogenies place termites within cockroaches (Blattodea), not as a separate insect order outside them \citep{inward2007death}. Their colony organization is therefore a case of convergent social evolution, not simple inheritance from one eusocial ancestor.
 
-Mapping [**eusociality**](#gl:eusociality) onto a tree asks which components are homologous and which are analogous. Cooperative brood care, overlapping generations, and reproductive division of labour define the social syndrome \citep{crespi1995definition}; the genetic and ecological routes differ among ants, bees, wasps, and termites. Haplodiploidy helps explain relatedness patterns in many Hymenoptera, but diploid termites show that ancestry, mating system, nest defence, diet, and symbiosis can produce similar colony-level outcomes through different historical paths \citep{bourke2011principles}.
+Mapping [**eusociality**](#gl:eusociality) onto a tree asks which components are homologous and which are analogous. Cooperative brood care, overlapping generations, and reproductive division of labor define the social syndrome \citep{crespi1995definition}; the genetic and ecological routes differ among ants, bees, wasps, and termites. Haplodiploidy helps explain relatedness patterns in many Hymenoptera, but diploid termites show that ancestry, mating system, nest defense, diet, and symbiosis can produce similar colony-level outcomes through different historical paths \citep{bourke2011principles}.
 
 ---
 
@@ -226,9 +227,9 @@ flowchart TD
     C3 --> C3b["MrBayes, BEAST"]
     C3 --> C3c["Complex model support"]
 ```
-<!-- alt: Flowchart showing phylogenetic reconstruction methods differ in the evidence they optimise: distance methods summarize pairwise divergence, while character-based methods evaluate histories of trait or sequence change. -->
+<!-- alt: Flowchart showing phylogenetic reconstruction methods differ in the evidence they optimize: distance methods summarize pairwise divergence, while character-based methods evaluate histories of trait or sequence change. -->
 
-*Phylogenetic reconstruction methods differ in the evidence they optimise: distance methods summarize pairwise divergence, while character-based methods evaluate histories of trait or sequence change.*
+*Phylogenetic reconstruction methods differ in the evidence they optimize: distance methods summarize pairwise divergence, while character-based methods evaluate histories of trait or sequence change.*
 
 ### Distance-Based Tree Reconstruction: UPGMA and Neighbor-Joining
 
@@ -243,6 +244,7 @@ flowchart TD
 **Problem:**
 Four taxa (A, B, C, D) have the symmetric pairwise distance matrix below (substitutions/site). Perform the first UPGMA clustering step: identify the closest pair, place their common node, and recompute the reduced distance matrix.
 
+: One UPGMA Clustering Step from a Distance Matrix: A and B. {#tbl:unit_VI_phylogenetics_worked_example_one_upgma_clustering_step_from_a_distance_matrix}
 | | A | B | C | D |
 |---|---|---|---|---|
 | **A** | — | 0.10 | 0.40 | 0.42 |
@@ -290,6 +292,7 @@ Four taxa (A, B, C, D) have the symmetric pairwise distance matrix below (substi
 **Problem:**
 Four taxa (A, B, C, D) are scored for four binary morphological characters (state 0 or 1). Using the fixed rooted tree $((A,B),(C,D))$, compute the total parsimony score (minimum number of character-state changes).
 
+: Computing a Parsimony Score for a Small Character Matrix: Taxon and Char 1. {#tbl:unit_VI_phylogenetics_worked_example_computing_a_parsimony_score_for_a_small_character_matrix}
 | Taxon | Char 1 | Char 2 | Char 3 | Char 4 |
 |-------|--------|--------|--------|--------|
 | **A** | 0 | 0 | 1 | 0 |
@@ -333,6 +336,7 @@ where $L$ is the alignment length and θ represents the parameters of the substi
 
 **Substitution models** describe the probability of one [**nucleotide**](#gl:nucleotide) changing to another over a given evolutionary time:
 
+: Maximum Likelihood (ML): Model and Description. {#tbl:unit_VI_phylogenetics_maximum_likelihood_ml}
 | Model | Description | Parameters |
 | ----- | ----------- | ---------- |
 | **JC69** (Jukes-Cantor, 1969) | Most substitutions equally likely; equal base frequencies | 0 free parameters |
@@ -453,7 +457,7 @@ Tools like **DistAL** and reconciliation methods (Notung, Ranger-DTL) systematic
 
 > **Concept Check 3:** Why is long-branch attraction a problem specifically for maximum parsimony but less so for maximum likelihood? (Hint: consider whether each method uses an explicit model of substitution rates.)
 
-> **Concept Check (Synthesis — Phylogenomic Conflict in a Songbird Radiation):** A phylogenomic study of a recent songbird radiation (5 species, divergence times 1–4 Mya) reconstructs both the **nuclear consensus tree** (concatenated 5,000 conserved nuclear loci) and the **mitochondrial tree** (whole mtDNA). The two trees agree at 60 % of nodes but **disagree at 40 % of nodes** — including the basal split of the radiation. (a) Propose **three biological mechanisms** that could generate this nuclear–mitochondrial discordance: incomplete lineage sorting (ILS), ancestral hybridisation and introgression (including mitochondrial capture, where an entire mtDNA lineage is replaced by introgression), and sex-biased dispersal causing differential effective population sizes for nuclear vs. mitochondrial loci. (b) Identify **one technical artefact** that could mimic biological discordance — for example, base-compositional non-stationarity (some lineages drifted to AT-rich mtDNA, attracting unrelated AT-rich lineages under poorly-fitting substitution models). (c) **Design a test that distinguishes ILS from hybridisation** at one specific node using the ABBA–BABA D-statistic: given four populations $((P_1, P_2), P_3, O)$ where $O$ is an outgroup, ILS produces equal frequencies of ABBA and BABA site patterns (D ≈ 0), while introgression from $P_3$ into either $P_1$ or $P_2$ produces an excess of one pattern (D ≠ 0). Specify how to compute D from genome-wide SNP data, what null distribution to use, and what sample size of SNPs is needed for statistical power. (d) If the D-statistic test returns $D = 0.08$ with $|Z| = 6$ — strongly significant — synthesise what this finding means for the species-tree reconstruction: which population received introgression, and how should this be communicated in the published phylogeny?
+> **Concept Check (Synthesis — Phylogenomic Conflict in a Songbird Radiation):** A phylogenomic study of a recent songbird radiation (5 species, divergence times 1–4 Mya) reconstructs both the **nuclear consensus tree** (concatenated 5,000 conserved nuclear loci) and the **mitochondrial tree** (whole mtDNA). The two trees agree at 60 % of nodes but **disagree at 40 % of nodes** — including the basal split of the radiation. (a) Propose **three biological mechanisms** that could generate this nuclear–mitochondrial discordance: incomplete lineage sorting (ILS), ancestral hybridization and introgression (including mitochondrial capture, where an entire mtDNA lineage is replaced by introgression), and sex-biased dispersal causing differential effective population sizes for nuclear vs. mitochondrial loci. (b) Identify **one technical artifact** that could mimic biological discordance — for example, base-compositional non-stationarity (some lineages drifted to AT-rich mtDNA, attracting unrelated AT-rich lineages under poorly-fitting substitution models). (c) **Design a test that distinguishes ILS from hybridization** at one specific node using the ABBA–BABA D-statistic: given four populations $((P_1, P_2), P_3, O)$ where $O$ is an outgroup, ILS produces equal frequencies of ABBA and BABA site patterns (D ≈ 0), while introgression from $P_3$ into either $P_1$ or $P_2$ produces an excess of one pattern (D ≠ 0). Specify how to compute D from genome-wide SNP data, what null distribution to use, and what sample size of SNPs is needed for statistical power. (d) If the D-statistic test returns $D = 0.08$ with $|Z| = 6$ — strongly significant — synthesize what this finding means for the species-tree reconstruction: which population received introgression, and how should this be communicated in the published phylogeny?
 
 ---
 
@@ -549,6 +553,7 @@ Modern molecular clock analyses go beyond simple point estimates of divergence t
 
 Phylogenetic methods, when calibrated against the geological record, reconstruct a deep-time timeline of life on Earth. The major events span four billion years:
 
+: A timeline of major events in life's phylogeny: Era and Approximate date. {#tbl:unit_VI_phylogenetics_a_timeline_of_major_events_in_life_s_phylogeny}
 | Era | Approximate date | Event |
 |-----|------------------|-------|
 | Hadean–Eoarchean | ~4.5–4.0 Ga | Earth forms (~4.54 Ga); oceans condense (~4.4 Ga); abiogenesis events (debated dates) |
@@ -593,7 +598,7 @@ Once an ancestral sequence is reconstructed, it can be **synthesized** as a real
 
 #### Practical applications of ASR
 
-ASR is more than a historical exercise — it is now a **protein-engineering platform**. Resurrected ancestral proteins are routinely **more thermostable** and **more catalytically robust** than their modern descendants — a pattern repeatedly observed across ancestral β-lactamases, EF-Tu elongation factors, alcohol dehydrogenases, and rhodopsins. The hypothesised explanation is that ancestral proteins evolved under broader environmental tolerances (early Earth was warmer; ancestral metabolisms more flexible), and that **modern descendants are specialised but brittle** — selection has pruned away robustness in favor of niche-specific performance. The applied consequence: industrial enzyme engineering increasingly uses ASR to **prospect for thermostable scaffolds**, then optimises the resurrected protein for specific substrate specificity. Ancestral *Bacillus* α-amylases have been engineered into industrial laundry-detergent enzymes that retain function at 60–80 °C; ancestral *Pseudomonas* esterases have been used as starting points for plastic-degrading enzymes (PETase variants); and pharmaceutical biotechnology uses ASR to design more thermostable vaccine antigens (e.g., 
+ASR is more than a historical exercise — it is now a **protein-engineering platform**. Resurrected ancestral proteins are routinely **more thermostable** and **more catalytically robust** than their modern descendants — a pattern repeatedly observed across ancestral β-lactamases, EF-Tu elongation factors, alcohol dehydrogenases, and rhodopsins. The hypothesized explanation is that ancestral proteins evolved under broader environmental tolerances (early Earth was warmer; ancestral metabolisms more flexible), and that **modern descendants are specialized but brittle** — selection has pruned away robustness in favor of niche-specific performance. The applied consequence: industrial enzyme engineering increasingly uses ASR to **prospect for thermostable scaffolds**, then optimizes the resurrected protein for specific substrate specificity. Ancestral *Bacillus* α-amylases have been engineered into industrial laundry-detergent enzymes that retain function at 60–80 °C; ancestral *Pseudomonas* esterases have been used as starting points for plastic-degrading enzymes (PETase variants); and pharmaceutical biotechnology uses ASR to design more thermostable vaccine antigens (e.g., 
 
 The 16S rRNA gene is ideal for deep phylogenetics because it is present in all cellular organisms, contains both highly conserved regions (for universal primer design) and variable regions (for discriminating taxa), and is long enough (about 1,550 bp) for robust phylogenetic inference.
 
@@ -724,6 +729,7 @@ The molecular phylogeny contradicts earlier morphology-based classifications tha
 
 The human fossil record is one of the richest and most intensively studied:
 
+: Fossil Hominins and Mosaic Human Evolution: Species and Approximate dates. {#tbl:unit_VI_phylogenetics_fossil_hominins_and_mosaic_human_evolution}
 | Species | Approximate dates | Key features |
 | ------- | ---------------- | ------------ |
 | *Sahelanthropus tchadensis* | about 7 Mya | Oldest possible hominin; anterior foramen magnum suggests bipedality |
@@ -830,6 +836,7 @@ For phylogenetic claims, separate tree signal, model choice, convergence, sampli
 
 ## Key Terms
 
+: Long-Read Sequencing and Deep-Divergence Phylogenetics: Term and Definition. {#tbl:unit_VI_phylogenetics_long_read_sequencing_and_deep_divergence_phylogenetics}
 | Term | Definition |
 | ---- | ---------- |
 | **Phylogenetics** | The study of evolutionary relationships among organisms, inferred from heritable characters |
@@ -894,6 +901,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Phylogenetics and the Tree of Life. {#tbl:unit_VI_phylogenetics_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/evolution/evolution.py` (`molecular_clock_divergence_time`) | Translate genetic distance and rate assumptions into divergence-time estimates. |

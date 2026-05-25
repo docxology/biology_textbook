@@ -8,7 +8,7 @@
 
 ## Learning Objectives
 
-1. Describe [**chloroplast**](#gl:chloroplast) structure and the organisation of the photosynthetic membrane.
+1. Describe [**chloroplast**](#gl:chloroplast) structure and the organization of the photosynthetic membrane.
 2. Explain the light-harvesting antenna complexes, chlorophyll a/b ratio, and energy transfer mechanisms (FRET, exciton transfer).
 3. Compute the energy of a photon and convert per-molecule values to per-mole values for biological calculations.
 4. Describe Photosystem II, water splitting, and the Kok cycle in detail.
@@ -32,8 +32,8 @@
 - **Data skill:** Interpret light-response and carbon-fixation data.
 - **Practice cadence:** Representing and Describing Data, Statistical Tests and Data Analysis.
 - **Common misconception to repair:** Plants do not eat sunlight; they use light energy to reduce carbon using electrons and enzymes.
-- **Primary lab:** \cref{sec:lab_unit_III_photosynthesis}.
-- **Question bank:** \cref{sec:q_unit_III_photosynthesis}.
+- **Primary lab:** \nameref{sec:lab_unit_III_photosynthesis}.
+- **Question bank:** \nameref{sec:q_unit_III_photosynthesis}.
 - **Transfer task:** Transfer photosynthetic constraints to crops, algae, climate, or ecosystem productivity.
 - **Bridge to computation:** `biology.botany.botany.photosynthesis_rate`.
 <!-- curriculum-scaffold-end -->
@@ -43,10 +43,10 @@
 > **Opening Vignette: Tracing Carbon From Air to Sugar**
 >
 > In 1950, Melvin Calvin's team at the Lawrence Berkeley National Laboratory began exposing algae
-> (*Chlorella*) to ¹⁴CO₂ — carbon dioxide labelled with radioactive carbon-14 — for very brief
+> (*Chlorella*) to ¹⁴CO₂ — carbon dioxide labeled with radioactive carbon-14 — for very brief
 > intervals (as short as 5 seconds), then rapidly killing the cells and separating their compounds
 > by two-dimensional paper chromatography. By tracking which molecules became radioactively
-> labelled first, then in which order, Calvin meticulously traced the path of carbon atoms from
+> labeled first, then in which order, Calvin meticulously traced the path of carbon atoms from
 > atmospheric CO₂ through a cycle of enzymatic reactions to eventually emerge as glucose. The
 > complete cycle — the **Calvin-Benson-Bassham cycle** — was published in 1954, and Calvin
 > received the Nobel Prize in Chemistry alone in 1961.
@@ -85,7 +85,7 @@ The reaction is highly endergonic --- it requires light energy to drive it. Phot
 - **Lumen (thylakoid lumen):** acidified ([**pH**](#gl:ph) ~5) by proton pumping; ~1,000-fold H$^+$ gradient
 - **Stroma:** site of Calvin cycle; contains RuBisCO, enzymes, chloroplast DNA, 70S [**ribosome**](#gl:ribosome)s
 
-Thylakoid membranes are densely packed with protein complexes --- ~70% protein by mass, making them one of the most protein-rich membranes in nature. Each reaction centre is associated with ~250 antenna [**chlorophyll**](#gl:chlorophyll) molecules.
+Thylakoid membranes are densely packed with protein complexes --- ~70% protein by mass, making them one of the most protein-rich membranes in nature. Each reaction center is associated with ~250 antenna [**chlorophyll**](#gl:chlorophyll) molecules.
 
 **Chloroplast [**genome**](#gl:genome):** 120--200 kb circular DNA; encodes ~120 [**gene**](#gl:gene)s including RuBisCO large subunit, photosystem subunits, and ribosomal components. Like mitochondria, chloroplasts originated from [**endosymbiosis**](#gl:endosymbiosis) (cyanobacteria; see \cref{sec:unit_II_cell_theory}).
 
@@ -101,7 +101,7 @@ Chlorophylls absorb light primarily at:
 - **Chlorophyll b:** 450 nm and 640 nm (broader absorption; accessory pigment)
 - **Carotenoids:** 400--500 nm; β-carotene, lutein, zeaxanthin; also transfer energy to Chl a; function as photoprotectants
 
-The **green wavelengths (~500--600 nm)** are reflected --- hence plant colour.
+The **green wavelengths (~500--600 nm)** are reflected --- hence plant color.
 
 ### Photon Energy and Quantum Efficiency
 
@@ -136,16 +136,17 @@ For the Z-scheme: 4 electrons span 1.14 V from H$_2$O to NADPH, requiring ~440 k
 
 ### Antenna Complexes and Light-Harvesting Architecture
 
-Each reaction centre in plants is served by a peripheral antenna of **light-harvesting complexes (LHC)**. LHCII alone is the most abundant membrane protein on Earth (~50% of thylakoid membrane protein).
+Each reaction center in plants is served by a peripheral antenna of **light-harvesting complexes (LHC)**. LHCII alone is the most abundant membrane protein on Earth (~50% of thylakoid membrane protein).
 
 **Chlorophyll a/b ratio:**
 
+: Antenna Complexes and Light-Harvesting Architecture: Complex and Chl a:b ratio. {#tbl:unit_III_photosynthesis_antenna_complexes_and_light_harvesting_architecture}
 | Complex | Chl a:b ratio | Function |
 | ------- | ------------- | -------- |
 | LHCII (peripheral PS II antenna) | ~1.3 | Light harvesting; mobile under state transitions |
 | CP43, CP47 (core PS II antennae) | Most Chl a | Direct excitation transfer to P680 |
 | LHCI (PS I antenna) | ~3.5 | Light harvesting for P700 |
-| Reaction centres (P680, P700) | Most Chl a | Charge separation chromophores |
+| Reaction centers (P680, P700) | Most Chl a | Charge separation chromophores |
 
 The Chl a:b ratio of an entire leaf typically ranges from ~2.5 (sun-adapted) to ~3.5 (shade-adapted leaves invest more in Chl b–rich LHCII to broaden the absorbed spectrum). Chl b's broader 450 nm/640 nm absorption is critical for harvesting green-shifted light filtered through canopy chlorophyll above.
 
@@ -153,8 +154,8 @@ The Chl a:b ratio of an entire leaf typically ranges from ~2.5 (sun-adapted) to 
 
 1. **Light harvesting** in the 450–500 nm range, where Chl absorbs poorly (~30% of the antenna's spectral coverage)
 2. **Triplet quenching:** $^3$Chl* (long-lived triplet state, formed when singlet excitations are not used quickly) is rapidly quenched by carotenoids, preventing $^1$O$_2$ generation
-3. **Singlet oxygen scavenging:** any $^1$O$_2$ that does form is quenched by carotenoids (the *first* line of antioxidant defence)
-4. **Structural stabilisation** of LHC protein folds
+3. **Singlet oxygen scavenging:** any $^1$O$_2$ that does form is quenched by carotenoids (the *first* line of antioxidant defense)
+4. **Structural stabilization** of LHC protein folds
 
 ### Energy Transfer Mechanisms
 
@@ -167,14 +168,14 @@ k_{\text{FRET}} = \frac{1}{\tau_D} \left( \frac{R_0}{r} \right)^6
 
 where $r$ is donor–acceptor separation, $\tau_D$ is the donor's excited-state lifetime, and $R_0$ is the **Förster radius** (typically 5–10 nm in Chl networks). The $r^6$ dependence makes FRET extremely sensitive to distance — doubling separation reduces transfer rate 64-fold. $R_0$ depends on:
 
-- **Spectral overlap integral** $J(\lambda)$: the donor emission must overlap the acceptor absorption (red-shifting toward the reaction centre)
+- **Spectral overlap integral** $J(\lambda)$: the donor emission must overlap the acceptor absorption (red-shifting toward the reaction center)
 - **Orientation factor** $\kappa^2$: relative orientation of donor emission and acceptor absorption transition dipoles (averages to 2/3 in random orientations, but is precisely tuned in the LHCII crystal structure)
 
-**Energy funnel architecture:** Antenna pigments are arranged with higher-energy absorbing pigments at the periphery and lower-energy pigments closer to the reaction centre. Excitation cascades "downhill" toward the reaction centre with each transfer step, achieving ~95% efficiency from initial absorption to charge separation.
+**Energy funnel architecture:** Antenna pigments are arranged with higher-energy absorbing pigments at the periphery and lower-energy pigments closer to the reaction center. Excitation cascades "downhill" toward the reaction center with each transfer step, achieving ~95% efficiency from initial absorption to charge separation.
 
 **Exciton transfer (Dexter mechanism):** When chromophores are within ~1 nm, electronic wavefunctions overlap and excitation transfers as a coherent exciton rather than incoherent FRET hops. Recent 2D electronic spectroscopy (Fleming lab, 2007) revealed that quantum coherence may persist for picoseconds at room temperature, possibly contributing to the high transfer efficiency, though the functional importance remains debated.
 
-> **Concept Check 1:** The antenna complex transfers excitation energy to the reaction centre with ~95% efficiency. If 100 photons are absorbed by the antenna, how many excitations reach the reaction centre? What happens to the energy of the ~5 photons that do not reach the reaction centre?
+> **Concept Check 1:** The antenna complex transfers excitation energy to the reaction center with ~95% efficiency. If 100 photons are absorbed by the antenna, how many excitations reach the reaction center? What happens to the energy of the ~5 photons that do not reach the reaction center?
 
 > **Concept Check 1b:** \cref{eq:unit_III_fret_rate} shows that $k_{\text{FRET}} \propto 1/r^6$. If two chlorophylls separated by 5 nm transfer at $1 \times 10^{10}$ s$^{-1}$, predict the rate at 7.5 nm and at 10 nm. What does this mean for the spatial design of LHC complexes?
 
@@ -186,8 +187,8 @@ where $r$ is donor–acceptor separation, $\tau_D$ is the donor's excited-state 
 
 PS II is located primarily in appressed grana thylakoids. It is a large complex (~350 kDa per monomer; functions as a dimer). Key components:
 
-- **Reaction centre (P680):** Special pair of Chl a molecules that absorb at 680 nm; the primary electron donor
-- **D1 and D2 proteins:** Core reaction centre proteins (homologous to bacterial L and M subunits)
+- **Reaction center (P680):** Special pair of Chl a molecules that absorb at 680 nm; the primary electron donor
+- **D1 and D2 proteins:** Core reaction center proteins (homologous to bacterial L and M subunits)
 - **Pheophytin (Pheo):** Primary electron acceptor (chlorophyll lacking Mg$^{2+}$)
 - **Q$_A$ and Q$_B$:** Plastoquinone molecules; Q$_A$ is tightly bound (one-electron acceptor), Q$_B$ is the two-electron/two-proton mobile acceptor
 - **Water-splitting complex (OEC, oxygen-evolving complex):** Mn$_4$CaO$_5$ cluster; performs the most thermodynamically demanding oxidation in biology
@@ -226,11 +227,11 @@ After PS II, PQH$_2$ is oxidised by the **cytochrome b$_6$f complex**, which pum
 3. Second electron passes to cytochrome b$_6$ (low potential) → cytochrome b$_6$ (high potential) → PQ at the stromal (Q$_n$) site
 4. Net: 2 H$^+$ released to lumen per PQH$_2$ oxidised, plus 2 H$^+$ consumed from stroma per PQ reduced
 
-The b$_6$f complex also produces superoxide as a byproduct, which can trigger signalling cascades for acclimation to changing light conditions.
+The b$_6$f complex also produces superoxide as a byproduct, which can trigger signaling cascades for acclimation to changing light conditions.
 
 ### Photosystem I (PS I)
 
-PS I reaction centre: **P700** (Chl a pair absorbing at 700 nm). PS I is located primarily in non-appressed stroma lamellae and at the margins of grana.
+PS I reaction center: **P700** (Chl a pair absorbing at 700 nm). PS I is located primarily in non-appressed stroma lamellae and at the margins of grana.
 
 **Electron flow through PS I:**
 P700 + photon → P700* → A$_0$ (Chl a) → A$_1$ (phylloquinone) → F$_X$ (Fe-S) → F$_A$/F$_B$ (Fe-S) → **ferredoxin** (Fd, soluble Fe-S protein in stroma) → **ferredoxin-NADP$^+$ reductase (FNR)** → **NADPH**
@@ -271,6 +272,7 @@ sequenceDiagram
 
 **Standard reduction potentials of key photosynthetic carriers:**
 
+: Standard reduction potentials for selected photosynthetic electron carriers. {#tbl:unit_III_photosynthesis_the_z_scheme_standard_electrode_potentials}
 | Couple | $E^{\circ\prime}$ (V, pH 7) | Role |
 | ------ | --------------------------- | ---- |
 | O$_2$/H$_2$O | $+0.82$ | Electron donor (oxidised by S$_4$) |
@@ -282,7 +284,7 @@ sequenceDiagram
 | Q$_B$/QH$_2$ | $0.0$ to $+0.10$ | Mobile plastoquinone pool |
 | Cytochrome f | $+0.36$ | b$_6$f exit point |
 | Plastocyanin (Cu$^{2+}$/Cu$^+$) | $+0.37$ | Lumen carrier to PS I |
-| **P700$^+$/P700 (ground)** | **$+0.45$** | PS I reaction centre |
+| **P700$^+$/P700 (ground)** | **$+0.45$** | PS I reaction center |
 | **P700*/P700 (excited)** | **$\sim -1.3$** | Strongest biological reductant |
 | A$_0$ (Chl a$^-$/Chl a) | $-1.0$ | First PS I acceptor |
 | Ferredoxin (Fe-S$^{2+}$/Fe-S$^+$) | $-0.42$ | Stromal reductant |
@@ -329,7 +331,7 @@ The PMF generated by H$^+$ accumulation in the lumen (from water splitting + PQ 
 
 ### Worked Example: Energy Requirements for Carbon Fixation
 
-*Problem:* Calculate the ATP and NADPH consumed to synthesise one molecule of glucose, and determine how many photons must be absorbed (assuming 8 photons per O$_2$ for linear electron flow).
+*Problem:* Calculate the ATP and NADPH consumed to synthesize one molecule of glucose, and determine how many photons must be absorbed (assuming 8 photons per O$_2$ for linear electron flow).
 
 *Solution:*
 
@@ -353,6 +355,7 @@ This is why the often-cited "48 photons per glucose" is a *lower bound* assuming
 
 *Solution:*
 
+: Calvin Cycle Stoichiometry: Calvin phase and Per CO_2. {#tbl:unit_III_photosynthesis_worked_example_calvin_cycle_stoichiometry}
 | Calvin phase | Per CO$_2$ | Per 6 CO$_2$ | Output | Notes |
 | ------------ | ---------- | ------------ | ------ | ----- |
 | Carboxylation (RuBisCO) | 0 ATP, 0 NADPH | 0, 0 | 12 × 3-PGA | 6 RuBP + 6 CO$_2$ → 12 × 3-PGA |
@@ -434,6 +437,7 @@ S_{c/o} = \tau = \frac{V_c K_o}{V_o K_c}
 
 where $V_c$, $V_o$ are maximal carboxylase/oxygenase rates and $K_c$, $K_o$ are Michaelis constants. Higher S$_{c/o}$ = more selective for CO$_2$ over O$_2$.
 
+: RuBisCO: Structure and Catalytic Mechanism: Organism and S_{c/o} (τ). {#tbl:unit_III_photosynthesis_rubisco_structure_and_catalytic_mechanism}
 | Organism | S$_{c/o}$ (τ) | $k_{\text{cat}}$ (carb., s$^{-1}$) | Note |
 | -------- | --------- | ----------------------------------- | ---- |
 | Higher plants (spinach) | 80–100 | 3.3 | C3 |
@@ -510,9 +514,9 @@ This is remarkably efficient for an energy conversion process. Whole-canopy phot
 
 > **Concept Check 3:** RuBisCO is the most abundant enzyme on Earth, yet it is extremely slow ($k_{cat}$ = 3--10 s$^{-1}$). Why hasn't evolution produced a faster version? Consider the trade-off between speed and specificity (CO$_2$ vs. O$_2$ discrimination) in light of the specificity-factor data above.
 
-> **Concept Check 3b:** Spinach RuBisCO has $\tau \approx 90$. *Galdieria* (red alga) RuBisCO has $\tau \approx 240$ but $k_{\text{cat}} \approx 2.6$ s$^{-1}$ (vs. 3.3 for spinach). At ambient $[\text{CO}_2]/[\text{O}_2]$, which enzyme would maximize CO$_2$ flux per unit enzyme? When (in what environment) does the trade-off favour the *Galdieria* form?
+> **Concept Check 3b:** Spinach RuBisCO has $\tau \approx 90$. *Galdieria* (red alga) RuBisCO has $\tau \approx 240$ but $k_{\text{cat}} \approx 2.6$ s$^{-1}$ (vs. 3.3 for spinach). At ambient $[\text{CO}_2]/[\text{O}_2]$, which enzyme would maximize CO$_2$ flux per unit enzyme? When (in what environment) does the trade-off favor the *Galdieria* form?
 
-> **Concept Check (Analysis):** The Z-scheme describes two photosystems operating in series. Photosystem II (P680*) oxidizes water at $E^{\circ\prime}$ ≈ +0.82 V (the O$_2$/H$_2$O couple); Photosystem I (P700*) reduces NADP⁺ at $E^{\circ\prime}$ ≈ -0.32 V. (a) Calculate the total electrochemical potential difference (ΔE) driving the Z-scheme from H$_2$O to NADP⁺. (b) Using $\Delta G = -nF\Delta E$ with $n=4$ electrons per O$_2$, calculate the maximum free energy stored as NADPH per mole of O$_2$ evolved. Compare with the actual energy stored in 8 ATP + 2 NADPH (i.e., the light-reaction products per O$_2$). (c) Explain why the "antenna complex" of ~200-300 chlorophyll molecules per reaction centre is thermodynamically advantageous: what would happen to photosynthetic flux if the reaction centre had to absorb photons directly without an antenna?
+> **Concept Check (Analysis):** The Z-scheme describes two photosystems operating in series. Photosystem II (P680*) oxidizes water at $E^{\circ\prime}$ ≈ +0.82 V (the O$_2$/H$_2$O couple); Photosystem I (P700*) reduces NADP⁺ at $E^{\circ\prime}$ ≈ -0.32 V. (a) Calculate the total electrochemical potential difference (ΔE) driving the Z-scheme from H$_2$O to NADP⁺. (b) Using $\Delta G = -nF\Delta E$ with $n=4$ electrons per O$_2$, calculate the maximum free energy stored as NADPH per mole of O$_2$ evolved. Compare with the actual energy stored in 8 ATP + 2 NADPH (i.e., the light-reaction products per O$_2$). (c) Explain why the "antenna complex" of ~200-300 chlorophyll molecules per reaction center is thermodynamically advantageous: what would happen to photosynthetic flux if the reaction center had to absorb photons directly without an antenna?
 
 > **Concept Check (Evaluation):** C4 plants (corn, sugarcane) use a *spatial* separation of carbon fixation: mesophyll cells fix CO$_2$ into 4-carbon acids via PEP carboxylase ($K_m$(CO$_2$) ≈ 7 μM, no oxygenase activity), which are then decarboxylated in bundle-sheath cells near RuBisCO. (a) At ambient cytoplasmic [CO$_2$] ≈ 8 μM and [O$_2$] ≈ 250 μM, use C3 RuBisCO kinetic parameters ($K_c$ ≈ 9 μM, $K_o$ ≈ 480 μM, $V_\text{cmax}/V_\text{omax}$ ≈ 3.1) to compute the ratio of carboxylation to oxygenation: $v_c/v_o = (V_{cmax}/V_{omax}) \cdot ([\text{CO}_2]/K_c) / ([\text{O}_2]/K_o)$. (b) How does C4 metabolism raise the effective [CO$_2$] at bundle-sheath RuBisCO to suppress oxygenation? (c) CAM plants (cacti, agaves) separate the two reactions *temporally*. Design a 24-hour metabolic schedule for a CAM plant, including which reactions occur at night vs. day, and explain the stomatal logic (when are stomata open vs. closed, and why).
 
@@ -601,7 +605,7 @@ flowchart LR
 
 **CO$_2$-concentrating mechanism:** CO$_2$ is captured in **mesophyll cells** by PEP carboxylase (no O$_2$ reactivity; $K_m$ for CO$_2$ ~ 2 μM, vs. RuBisCO $K_m$ ~10 μM) as oxaloacetate → malate → transported to **bundle sheath cells** via plasmodesmata → decarboxylated → CO$_2$ concentrated (10x above ambient) → RuBisCO operates at saturating CO$_2$ → negligible photorespiration.
 
-C4 plants (maize, sugarcane, sorghum, millet) require **2 additional ATP per CO$_2$** fixed (total: 5 ATP + 2 NADPH per CO$_2$) but are more efficient at high temperature and high light. Spatial separation of carboxylation (mesophyll) and Calvin cycle (bundle sheath) requires specialised leaf anatomy = **Kranz anatomy** (German: "wreath").
+C4 plants (maize, sugarcane, sorghum, millet) require **2 additional ATP per CO$_2$** fixed (total: 5 ATP + 2 NADPH per CO$_2$) but are more efficient at high temperature and high light. Spatial separation of carboxylation (mesophyll) and Calvin cycle (bundle sheath) requires specialized leaf anatomy = **Kranz anatomy** (German: "wreath").
 
 **C4 subtypes** differ in the decarboxylation enzyme in bundle sheath cells:
 
@@ -631,10 +635,11 @@ The intrinsic WUE depends on the leaf-internal:atmospheric CO$_2$ gradient:
 \label{eq:unit_III_intrinsic_wue}
 \end{equation}
 
-where $c_a$ and $c_i$ are atmospheric and intercellular CO$_2$ concentrations, $e_a$ and $e_i$ are ambient and intercellular water vapour pressures, and 1.6 is the ratio of water-vapour to CO$_2$ diffusivity in air.
+where $c_a$ and $c_i$ are atmospheric and intercellular CO$_2$ concentrations, $e_a$ and $e_i$ are ambient and intercellular water vapor pressures, and 1.6 is the ratio of water-vapor to CO$_2$ diffusivity in air.
 
 **Typical WUE values (mol CO$_2$ fixed / mol H$_2$O transpired):**
 
+: Water-Use Efficiency: Plant type and WUE (×10^{-3}). {#tbl:unit_III_photosynthesis_water_use_efficiency}
 | Plant type | WUE (×10$^{-3}$) | Mechanism |
 | ---------- | ---------------- | --------- |
 | C3 | 1–3 | Standard Calvin cycle; high transpiration |
@@ -645,6 +650,7 @@ CAM is the extreme: by opening stomata at night when air is cool and humid (smal
 
 ### Comparing C3, C4, and CAM Photosynthesis
 
+: Comparing C3, C4, and CAM Photosynthesis: Feature and C3. {#tbl:unit_III_photosynthesis_comparing_c3_c4_and_cam_photosynthesis}
 | Feature | C3 | C4 | CAM |
 | ------- | -- | -- | --- |
 | First stable product | 3-PGA (3C) | Oxaloacetate (4C) | Oxaloacetate (4C) |
@@ -730,7 +736,7 @@ The flux through the Calvin cycle is also acutely sensitive to CO$_2$ supply:
 - At intermediate [CO$_2$], the cycle becomes "RuBP regeneration-limited" — flux limited by the supply of RuBP from the regeneration phase, which in turn depends on the rate of light-dependent ATP/NADPH supply.
 - At very high [CO$_2$] (e.g., > ambient × 2), the cycle can become "P$_i$-limited" — phosphate becomes scarce as triose phosphate is exported.
 
-This three-zone behaviour underlies the classic Farquhar-von Caemmerer-Berry (FvCB) photosynthesis model, the workhorse of crop and ecosystem modelling.
+This three-zone behavior underlies the classic Farquhar-von Caemmerer-Berry (FvCB) photosynthesis model, the workhorse of crop and ecosystem modeling.
 
 ### Stromal pH and Mg$^{2+}$ in the Light
 
@@ -764,6 +770,7 @@ NPQ is operationally defined as fluorescence quenching that does not arise from 
 
 where $F_m$ is maximum fluorescence in the dark-adapted state and $F_m'$ is the maximum fluorescence in the light-adapted state. NPQ has three kinetic components:
 
+: The Three Components of NPQ: Component and Timescale. {#tbl:unit_III_photosynthesis_the_three_components_of_npq}
 | Component | Timescale | Mechanism |
 | --------- | --------- | --------- |
 | **qE (energy quenching)** | seconds | Low lumen pH; PsbS protonation; xanthophyll cycle |
@@ -841,7 +848,7 @@ When PS II is over-excited relative to PS I (e.g., under blue light, which prefe
 
 Photosynthesis has a complex evolutionary history spanning ~3.5 billion years:
 
-1. **Anoxygenic photosynthesis** (~3.5 Ga): Early photosynthetic bacteria (e.g., purple bacteria, green sulfur bacteria) used a single reaction centre (Type I or Type II) and electron donors other than water (H$_2$S, Fe$^{2+}$, H$_2$). No O$_2$ produced.
+1. **Anoxygenic photosynthesis** (~3.5 Ga): Early photosynthetic bacteria (e.g., purple bacteria, green sulfur bacteria) used a single reaction center (Type I or Type II) and electron donors other than water (H$_2$S, Fe$^{2+}$, H$_2$). No O$_2$ produced.
 
 2. **Origin of oxygenic photosynthesis** (~2.7--3.0 Ga): Cyanobacteria evolved the ability to link two photosystems (PS II and PS I) in series (Z-scheme), enabling water as an electron donor. This was the most transformative evolutionary innovation on Earth.
 
@@ -851,7 +858,7 @@ Photosynthesis has a complex evolutionary history spanning ~3.5 billion years:
 
 5. **Secondary and tertiary endosymbiosis:** Algae engulfed other algae, creating organelles with 3--4 membranes (e.g., chloroplasts of brown algae, diatoms, euglenoids). This accounts for the remarkable diversity of photosynthetic pigments and chloroplast structures across algal lineages.
 
-> **Concept Check 7:** The reaction centres of PS II (D1/D2 proteins) and purple bacteria (L/M subunits) share significant structural and sequence homology, yet PS II can oxidise water and purple bacterial reaction centres cannot. What structural innovation in PS II enabled water oxidation?
+> **Concept Check 7:** The reaction centers of PS II (D1/D2 proteins) and purple bacteria (L/M subunits) share significant structural and sequence homology, yet PS II can oxidise water and purple bacterial reaction centers cannot. What structural innovation in PS II enabled water oxidation?
 
 ---
 
@@ -870,7 +877,7 @@ Inspired by natural photosynthesis, researchers are developing artificial system
 **Engineered energy systems.**
 
 - **Silicon photovoltaic (single-junction):** about 22% commercial electricity conversion. It is mature and inexpensive, but electricity is not a fuel and requires downstream storage.
-- **III--V tandem photovoltaics:** about 33% in high-performance laboratory cells. They maximise single-cell photovoltaic efficiency but remain costly and materials-intensive.
+- **III--V tandem photovoltaics:** about 33% in high-performance laboratory cells. They maximize single-cell photovoltaic efficiency but remain costly and materials-intensive.
 - **Photovoltaics plus electrolysis:** about 10--14% solar-to-H$_2$ efficiency. Hydrogen is a storable fuel, but compression, transport, leakage, and end-use infrastructure remain major constraints.
 
 **Hybrid and chemical fuel systems.**
@@ -897,13 +904,13 @@ A silicon solar cell at 22% beats C3 photosynthesis at 1% by an order of magnitu
 4. **Synthetic minimal photosystem:** Recreating the core PS II Mn$_4$Ca water-splitting catalyst in synthetic molecules. The Mn$_4$CaO$_5$ cluster structure (revealed by Shen et al., 2011, *Nature*, at 1.9 Å resolution) guides biomimetic catalyst design.
 
 > **Clinical Connection: Photodynamic Therapy (PDT)**
-> Photodynamic therapy exploits the same photochemistry that plants must protect against. A photosensitiser (e.g., porphyrin derivative) is administered to a patient and preferentially accumulates in tumour tissue. Upon illumination with specific wavelengths, the photosensitiser generates singlet oxygen ($^1$O$_2$), which destroys tumour cells. Understanding the photophysics of chlorophyll-like molecules (energy transfer, intersystem crossing, ROS generation) underpins PDT drug design.
+> Photodynamic therapy exploits the same photochemistry that plants must protect against. A photosensitiser (e.g., porphyrin derivative) is administered to a patient and preferentially accumulates in tumor tissue. Upon illumination with specific wavelengths, the photosensitiser generates singlet oxygen ($^1$O$_2$), which destroys tumor cells. Understanding the photophysics of chlorophyll-like molecules (energy transfer, intersystem crossing, ROS generation) underpins PDT drug design.
 
 ---
 
 ## Computational Bridge
 
-Net leaf CO$_2$ uptake is modelled as a saturating light response minus dark respiration; \cref{fig:unit_III_light_response} shows how net assimilation rises from the light compensation point, climbs steeply at low irradiance, and levels off at light saturation, with the C4 curve saturating at higher photon flux than C3:
+Net leaf CO$_2$ uptake is modeled as a saturating light response minus dark respiration; \cref{fig:unit_III_light_response} shows how net assimilation rises from the light compensation point, climbs steeply at low irradiance, and levels off at light saturation, with the C4 curve saturating at higher photon flux than C3:
 
 \begin{figure}[htbp]
 \centering
@@ -929,9 +936,9 @@ print(round(anet, 2))
 
 Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) is the most abundant protein on Earth, yet it is famously inefficient: $k_{\text{cat}}$ ≈ 3 s⁻¹ and an oxygenation side-reaction that drains 20–50 % of carbon in warm climates through **photorespiration**. Engineering around this rate-limiting step is the central problem of crop productivity. Three complementary strategies have matured between 2019 and 2024.
 
-**(1) Photorespiration bypass.** The Long lab (*Science* 2019) introduced a synthetic glycolate-metabolism pathway into tobacco that shunts glycolate (the toxic product of Rubisco oxygenation) directly to pyruvate in the chloroplast rather than sending it through the peroxisome/mitochondrion loop. Field trials demonstrated a **~40 % biomass yield increase** over 2 years, without compromising photosynthetic rate. The same bypass is being translated into cowpea, soybean, and rice via the Realising Increased Photosynthetic Efficiency (RIPE) consortium. **(2) Cyanobacterial-style carbon-concentrating mechanisms.** Cyanobacteria compartmentalise Rubisco inside **carboxysomes** that concentrate CO₂ locally, suppressing the oxygenation reaction. Expressing the bacterial **BicA** HCO₃⁻ transporter plus carboxysome shell proteins in C₃ plants is a ~10-year synthetic-biology goal; the Price/Long/Hanson labs have cleared the first milestones in *Nicotiana* and *Chlamydomonas*. **(3) Directed evolution of Rubisco itself.** Classical selection inside *E. coli* is limited because bacterial Rubisco is too different from plant Rubisco. The 2024 work by the Savage / Kortemme labs used **ribosome-display directed evolution** with MS-based screening to isolate Rubisco variants with ~2× improved specificity factor (Sc/o = 110 → 220) — approaching the theoretical maximum set by the enzyme's two-step mechanism.
+**(1) Photorespiration bypass.** The Long lab (*Science* 2019) introduced a synthetic glycolate-metabolism pathway into tobacco that shunts glycolate (the toxic product of Rubisco oxygenation) directly to pyruvate in the chloroplast rather than sending it through the peroxisome/mitochondrion loop. Field trials demonstrated a **~40 % biomass yield increase** over 2 years, without compromising photosynthetic rate. The same bypass is being translated into cowpea, soybean, and rice via the Realizing Increased Photosynthetic Efficiency (RIPE) consortium. **(2) Cyanobacterial-style carbon-concentrating mechanisms.** Cyanobacteria compartmentalise Rubisco inside **carboxysomes** that concentrate CO₂ locally, suppressing the oxygenation reaction. Expressing the bacterial **BicA** HCO₃⁻ transporter plus carboxysome shell proteins in C₃ plants is a ~10-year synthetic-biology goal; the Price/Long/Hanson labs have cleared the first milestones in *Nicotiana* and *Chlamydomonas*. **(3) Directed evolution of Rubisco itself.** Classical selection inside *E. coli* is limited because bacterial Rubisco is too different from plant Rubisco. The 2024 work by the Savage / Kortemme labs used **ribosome-display directed evolution** with MS-based screening to isolate Rubisco variants with ~2× improved specificity factor (Sc/o = 110 → 220) — approaching the theoretical maximum set by the enzyme's two-step mechanism.
 
-Quantitative targets put the stakes in context: improving crop photosynthetic efficiency by even 10--20 % in major C3 crops would be agronomically large, but the realised food-security gain would depend on canopy architecture, sink strength, water and nitrogen supply, local climate, post-harvest losses, and access. Molecular agriculture now has the tools -- CRISPR-Cas9 in plants, synthetic biology standardisation, and AI-assisted structural hypotheses for Rubisco and its chaperones -- to test ideas that were largely conceptual a decade ago \citep{abramson2024alphafold3,varadi2024alphafolddb}.
+Quantitative targets put the stakes in context: improving crop photosynthetic efficiency by even 10--20 % in major C3 crops would be agronomically large, but the realized food-security gain would depend on canopy architecture, sink strength, water and nitrogen supply, local climate, post-harvest losses, and access. Molecular agriculture now has the tools -- CRISPR-Cas9 in plants, synthetic biology standardization, and AI-assisted structural hypotheses for Rubisco and its chaperones -- to test ideas that were largely conceptual a decade ago \citep{abramson2024alphafold3,varadi2024alphafolddb}.
 
 ---
 
@@ -980,7 +987,7 @@ flowchart TD
 
 - Light reactions (thylakoid): light → O$_2$ (water splitting) + NADPH + ATP (\cref{eq:unit_III_photosynthesis_overall}, \cref{eq:unit_III_water_splitting}). PS II drives water oxidation (Mn$_4$CaO$_5$ cluster, Kok cycle); cytochrome b$_6$f pumps protons via Q cycle; PS I drives NADP$^+$ reduction.
 - Photon energy is given by $E = hc/\lambda$ (\cref{eq:unit_III_photon_energy}); a 680 nm photon supplies 176 kJ/mol. Quantum yield Φ$_{\text{O}_2}$ ≈ 0.10 corresponds to ~10 photons per O$_2$, close to the theoretical minimum of 8.
-- Antenna complexes (LHCII, LHCI) use FRET (\cref{eq:unit_III_fret_rate}) and exciton transfer to funnel excitation to reaction centres at ~95% efficiency. Chl a/b ratios and carotenoid composition are tuned to spectral and protective demands.
+- Antenna complexes (LHCII, LHCI) use FRET (\cref{eq:unit_III_fret_rate}) and exciton transfer to funnel excitation to reaction centers at ~95% efficiency. Chl a/b ratios and carotenoid composition are tuned to spectral and protective demands.
 - The Z-scheme spans 1.14 V (\cref{eq:unit_III_z_scheme_energy}) from H$_2$O ($+0.82$ V) through P680, P680*, Pheo, PQ, b$_6$f, PC, P700, P700*, A$_0$, Fd to NADPH ($-0.32$ V), driven by two photons per electron.
 - RuBisCO is hexadecameric (L$_8$S$_8$, 8 active sites), requires CO$_2$ + Mg$^{2+}$ for active-site carbamylation, and shows a fundamental specificity-factor / turnover trade-off (\cref{eq:unit_III_specificity_factor}). Plant $S_{c/o} \approx 80$–100; theoretical maximum ~400.
 - Calvin cycle (stroma): 18 ATP + 12 NADPH fix 6 CO$_2$ → 1 glucose. Photorespiration costs C3 plants ~25% of fixed carbon (the carboxylation/oxygenation ratio is set by \cref{eq:unit_III_carb_oxy_ratio}).
@@ -995,7 +1002,7 @@ flowchart TD
 
 ## Review Questions
 
-1. Describe the structure of a chloroplast and explain how the organisation of the thylakoid membrane is adapted for efficient photosynthesis.
+1. Describe the structure of a chloroplast and explain how the organization of the thylakoid membrane is adapted for efficient photosynthesis.
 
 2. Explain the Z-scheme of photosynthetic electron transport. Why are two photosystems needed to move electrons from water to NADP$^+$? Quote at least three intermediate redox potentials in your answer.
 
@@ -1040,10 +1047,11 @@ flowchart TD
 
 ## Key Terms
 
+: Current Evidence Map: Photosynthesis Under Stress: Term and Definition. {#tbl:unit_III_photosynthesis_current_evidence_map_photosynthesis_under_stress}
 | Term | Definition |
 | ---- | ---------- |
-| **Photosystem II (PS II)** | Light-driven water oxidase; P680 reaction centre; O$_2$ evolution via Mn$_4$CaO$_5$ cluster |
-| **Photosystem I (PS I)** | Light-driven NADP$^+$ reductase; P700 reaction centre; produces NADPH via ferredoxin |
+| **Photosystem II (PS II)** | Light-driven water oxidase; P680 reaction center; O$_2$ evolution via Mn$_4$CaO$_5$ cluster |
+| **Photosystem I (PS I)** | Light-driven NADP$^+$ reductase; P700 reaction center; produces NADPH via ferredoxin |
 | **Z-scheme** | Complete electron transport path from H$_2$O ($+0.82$ V) to NADPH ($-0.32$ V) via two photosystems |
 | **RuBisCO** | Ribulose-1,5-bisphosphate carboxylase/oxygenase; L$_8$S$_8$; most abundant enzyme; CO$_2$ fixation |
 | **Specificity factor** ($S_{c/o}$, τ) | $V_c K_o / V_o K_c$; quantifies CO$_2$ vs O$_2$ preference of RuBisCO |
@@ -1054,7 +1062,7 @@ flowchart TD
 | **CAM** | Crassulacean acid metabolism; temporal separation of CO$_2$ fixation (night) and Calvin cycle (day) |
 | **Water-use efficiency (WUE)** | Carbon fixed per water lost; CAM > C4 > C3 |
 | **Kok cycle** | S-state cycle of the OEC; accumulates 4 oxidising equivalents before O$_2$ release |
-| **Antenna complex** | Light-harvesting pigment-protein complex; funnels energy to reaction centre |
+| **Antenna complex** | Light-harvesting pigment-protein complex; funnels energy to reaction center |
 | **FRET** | Förster Resonance Energy Transfer; dipole-dipole energy transfer between pigments; rate ∝ 1/r$^6$ |
 | **Quantum yield** | Molecules of product per photon absorbed; Φ$_{\text{O}_2}$ ≈ 0.10 |
 | **Non-photochemical quenching (NPQ)** | Thermal dissipation of excess light energy; comprises qE, qT, qI components |
@@ -1073,6 +1081,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Photosynthesis. {#tbl:unit_III_photosynthesis_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/botany/botany.py` (`photosynthesis_rate`, `light_response_curve`) | Reproduce light-response and environmental-limitation scenarios. |

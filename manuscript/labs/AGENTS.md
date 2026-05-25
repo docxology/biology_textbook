@@ -2,7 +2,7 @@
 
 ## Role
 
-Paper-based laboratory activities that accompany the textbook, one lab per chapter. **44 labs** total, organised into 11 unit subdirectories (`unit_0/` through `unit_X/`). Labs are rendered as an appendix after the core chapters when `appendices.include_labs: true` in `manuscript/config.yaml`.
+Paper-based laboratory activities that accompany the textbook, one lab per chapter. **44 labs** total, organized into 11 unit subdirectories (`unit_0/` through `unit_X/`). Labs are rendered as an appendix after the core chapters when `appendices.include_labs: true` in `manuscript/config.yaml`.
 
 ## File Names and Mapping
 
@@ -60,13 +60,13 @@ When `appendices.include_labs: true`, each lab file is concatenated in order (as
 
 - [ ] Learning Objectives align with the parent chapter's Learning Objectives
 - [ ] Required materials use paper, printed datasets, image/card packets, graph paper, calculators, and ordinary classroom tools only
-- [ ] Wet-lab, microscope, culture, reagent, specimen, heating, dissection, or specialised-equipment paths appear only inside clearly marked optional extension sections
+- [ ] Wet-lab, microscope, culture, reagent, specimen, heating, dissection, or specialized-equipment paths appear only inside clearly marked optional extension sections
 - [ ] Procedure can reasonably be completed in one 75-min or 100-min lab session (see `src/biology/chapter_metadata.py` `lecture_time_min` for the parent chapter)
 - [ ] Data-recording tables have blank cells for student entries (intentional — not a TODO)
 - [ ] A Paper-Based Evidence Upgrade section names evidence, control/comparison, quantitative reasoning, uncertainty, and reproducibility checks
 - [ ] Analysis questions span recall → application → synthesis
 - [ ] Safety and Ethics section lists hazardous reagents or human-subject considerations (even if "No hazardous materials")
-- [ ] Figures or Mermaid diagrams include descriptive HTML alt comments; colour is never the only cue
+- [ ] Figures or Mermaid diagrams include descriptive HTML alt comments; color is never the only cue
 
 ## See also
 

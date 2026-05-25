@@ -31,6 +31,7 @@ ensure_project_paths()
 
 TEMPLATE_ROOT = discover_template_root(PROJECT)
 MANUSCRIPT = PROJECT / "manuscript"
+PROJECT_PDF_LOG = PROJECT / "output" / "pdf" / "_combined_manuscript.log"
 DEFAULT_REVIEW_ARTIFACT_DIR = Path(tempfile.gettempdir()) / "biology_textbook_publication_readiness"
 
 
@@ -154,7 +155,7 @@ def build_command_steps(*, full: bool, artifact_dir: Path | None = None) -> list
             (
                 sys.executable,
                 "scripts/check_pdf_log.py",
-                str((TEMPLATE_ROOT or PROJECT) / "output" / "biology_textbook" / "pdf" / "_combined_manuscript.log"),
+                str(PROJECT_PDF_LOG),
             ),
             PROJECT,
             full_only=True,

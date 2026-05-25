@@ -33,20 +33,20 @@
 - Life as an open, far-from-equilibrium system exchanging matter/energy with its environment.
 - Hierarchy of biological organization: atoms → molecules → cells → organisms → populations → ecosystems.
 - Feedback loops (negative and positive) and homeostasis as dynamic stability.
-- Complex adaptive systems: emergent behaviour, self-organisation, robustness, and network thinking.
+- Complex adaptive systems: emergent behavior, self-organization, robustness, and network thinking.
 
 **Big ideas:**
 1. Reductionism vs emergence — both are valid lenses.
 2. Biological systems maintain order through constant energy throughput (coupling to metabolism).
-3. Networks are the dominant organisational principle (gene regulatory networks, food webs, signalling cascades).
+3. Networks are the dominant organizational principle (gene regulatory networks, food webs, signaling cascades).
 
 **Key vocabulary:**
 - **System** — a set of interacting parts forming a complex whole.
 - **Boundary** — semi-permeable demarcation between system and environment.
-- **Negative feedback** — response that reduces the initial stimulus (stabilising).
+- **Negative feedback** — response that reduces the initial stimulus (stabilizing).
 - **Positive feedback** — response that amplifies the initial stimulus (destabilising / switching).
 - **Emergence** — properties arising from component interactions not present in parts alone.
-- **Self-organisation** — spontaneous formation of ordered structures from local interactions.
+- **Self-organization** — spontaneous formation of ordered structures from local interactions.
 - **Homeostasis** — maintenance of a stable internal milieu (body temperature, blood glucose).
 - **Open system** — exchanges matter and energy with surroundings (living systems).
 - **Far-from-equilibrium** — steady state maintained by continuous energy input (dissipative structures).
@@ -121,7 +121,7 @@
 **Vocabulary highlights:**
 - **Selective permeability** — membrane allows some substances to cross more easily
 - **Tonicity** — ability of solution to cause water movement
-- **Aquaporin** — channel protein specialised for water
+- **Aquaporin** — channel protein specialized for water
 - **Secondary active transport** — uses electrochemical gradient established by primary active transport
 - **Receptor tyrosine kinase (RTK)** — enzyme-lined receptor phosphorylating tyrosines
 - **Endocytosis / exocytosis** — bulk transport via vesicles
@@ -214,7 +214,7 @@
 - **Pedigree analysis** — inheritance pattern inference
 
 **Study cards:**
-1. Predict X-linked colour-blindness offspring from carrier female × normal male.
+1. Predict X-linked color-blindness offspring from carrier female × normal male.
 2. Explain linkage's effect on 9:3:3:1 and map genes from test crosses.
 3. Define nondisjunction; name two human aneuploidy disorders (Down, Turner).
 
@@ -239,8 +239,8 @@
 4. **Fixation time (neutral):** $t_{\text{fix}} \approx 4N_e$ generations
 
 **Vocabulary highlights:**
-- **Adaptation, fitness landscape** — evolutionary optimisation
-- **Directional / stabilising / disruptive selection** — shifts in trait distribution
+- **Adaptation, fitness landscape** — evolutionary optimization
+- **Directional / stabilizing / disruptive selection** — shifts in trait distribution
 - **Bottleneck / founder effect** — diversity loss
 - **Allopatric / sympatric speciation** — by geographic isolation vs within same area
 - **Prezygotic / postzygotic isolating mechanisms** — reproductive barriers
@@ -294,7 +294,7 @@
 
 1. **Water potential:** $\Psi = \Psi_s + \Psi_p$ (solute negative, pressure positive)
    
-2. **Transpiration:** $E \propto VPD / r$ (vapour pressure deficit, total resistance)
+2. **Transpiration:** $E \propto VPD / r$ (vapor pressure deficit, total resistance)
 
 **Vocabulary highlights:**
 - **Xylem** — water/mineral transport up (dead at maturity)
@@ -305,7 +305,7 @@
 - **Photoperiodism** — response to day length (short-day vs long-day plants)
 - **Phytohormones** — auxin, gibberellin, cytokinin, ethylene, ABA
 - **Alternation of generations** — multicellular haploid + diploid stages
-- **Double fertilisation** — angiosperm-specific: zygote + endosperm
+- **Double fertilization** — angiosperm-specific: zygote + endosperm
 
 **Study cards:**
 1. Cell Ψ_s = -0.8 MPa, Ψ_p = +0.6 MPa; water direction in pure water?
@@ -331,7 +331,7 @@
 
 **Vocabulary highlights:**
 - **Neuron / action potential / saltatory conduction** — nerve impulse basics
-- **Synapse / neurotransmitter / acetylcholinesterase** — chemical signalling
+- **Synapse / neurotransmitter / acetylcholinesterase** — chemical signaling
 - **Sliding filament model** — actin sliding past myosin in muscle; Ca²⁺ regulation
 - **Sarcoplasmic reticulum** — Ca²⁺ store in muscle
 - **Cardiac cycle** — atrial/ventricular systole + diastole
@@ -339,7 +339,7 @@
 - **Negative feedback** — primary homeostatic mechanism
 
 **Study cards:**
-1. Sketch action potential: resting, threshold, depolarisation, repolarisation, after-hyperpolarisation.
+1. Sketch action potential: resting, threshold, depolarization, repolarization, after-hyperpolarization.
 2. Explain how myelination speeds conduction.
 3. Describe sliding filament model + Ca²⁺ role.
 4. Right-shifted Hb curve → interpret condition.

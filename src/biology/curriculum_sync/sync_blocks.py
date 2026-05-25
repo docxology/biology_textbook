@@ -2,16 +2,12 @@
 
 from __future__ import annotations
 
-import importlib
-import importlib.util
 import re
-import sys
-from dataclasses import dataclass
 from pathlib import Path
-from types import ModuleType
-from typing import Any, Mapping
+from typing import Any
 
-from biology.curriculum_sync.paths import MANUSCRIPT, SRC, TEMPLATE_ROOT
+from biology.crossref.helpers import section_reference
+from biology.curriculum_sync.paths import MANUSCRIPT
 from textbook_io import write_text_atomic
 
 
@@ -31,6 +27,7 @@ ALT_COMMENT_THEMATIC_BREAK_RE = re.compile(
     flags=re.DOTALL,
 )
 NONNUMBERED_ATTR = ".unnumbered"
+STANDALONE_SEC_LABEL_RE = re.compile(r"^\\label\{(sec:[A-Za-z0-9_\-]+)\}\s*$")
 SOURCE_SECTION_TITLES = {
     "Current Evidence and Frontier Biology",
     "Further Reading and Source Notes",
@@ -82,22 +79,39 @@ def _write_if_changed(path: Path, text: str, *, dry_run: bool) -> bool:
         write_text_atomic(path, text)
     return True
 
-def _split_heading_attrs(title: str) -> tuple[str, set[str]]:
+def _split_heading_parts(title: str) -> tuple[str, set[str], str | None]:
+    """Return heading title, class attrs, and optional Pandoc identifier (without ``#``)."""
     match = HEADING_ATTR_RE.match(title.strip())
     if match is None:
-        return title.strip(), set()
-    attrs = {part for part in (match.group("attrs") or "").split() if part}
-    return match.group("title").strip(), attrs
+        return title.strip(), set(), None
+    identifier: str | None = None
+    attrs: set[str] = set()
+    for part in (match.group("attrs") or "").split():
+        if part.startswith("#"):
+            identifier = part.lstrip("#")
+        elif part:
+            attrs.add(part)
+    return match.group("title").strip(), attrs, identifier
 
-def _format_heading(title: str, attrs: set[str]) -> str:
+
+def _split_heading_attrs(title: str) -> tuple[str, set[str]]:
+    clean, attrs, _identifier = _split_heading_parts(title)
+    return clean, attrs
+
+
+def _format_heading(title: str, attrs: set[str], identifier: str | None = None) -> str:
     clean_title = title.strip()
-    if not attrs:
-        return clean_title
+    suffix_parts: list[str] = []
+    if identifier:
+        suffix_parts.append(f"#{identifier}")
     ordered = sorted(attrs, key=lambda attr: (attr != NONNUMBERED_ATTR, attr))
-    return f"{clean_title} {{{' '.join(ordered)}}}"
+    suffix_parts.extend(ordered)
+    if not suffix_parts:
+        return clean_title
+    return f"{clean_title} {{{' '.join(suffix_parts)}}}"
 
 def _toc_safe_heading_title(title: str, chapter_title: str | None = None) -> str:
-    clean, attrs = _split_heading_attrs(title)
+    clean, attrs, identifier = _split_heading_parts(title)
     while True:
         match = MANUAL_HEADING_NUMBER_RE.match(clean)
         if match is None:
@@ -118,16 +132,16 @@ def _toc_safe_heading_title(title: str, chapter_title: str | None = None) -> str
         clean = f"{clean}: {chapter_title}"
     if not clean:
         clean = "Additional Island Biogeography Evidence"
-    return _format_heading(clean, attrs)
+    return _format_heading(clean, attrs, identifier)
 
 def _replace_first_h1(text: str, title: str) -> tuple[str, bool]:
     pattern = re.compile(r"^#\s+(.+)$", flags=re.MULTILINE)
     match = pattern.search(text)
     if match is not None:
-        current_title, attrs = _split_heading_attrs(match.group(1))
+        current_title, attrs, identifier = _split_heading_parts(match.group(1))
         if current_title == title:
             return text, False
-        replacement = f"# {_format_heading(title, attrs)}"
+        replacement = f"# {_format_heading(title, attrs, identifier)}"
         new_text = pattern.sub(replacement, text, count=1)
         return new_text, new_text != text
     replacement = f"# {title}"
@@ -138,21 +152,43 @@ def sync_h1(path: Path, title: str, *, dry_run: bool) -> bool:
     replaced, changed = _replace_first_h1(text, title)
     return changed and _write_if_changed(path, replaced, dry_run=dry_run)
 
-def sync_section_label(path: Path, label: str, *, dry_run: bool) -> bool:
-    """Ensure a ``sec:`` label is present immediately below the first H1."""
-    text = path.read_text(encoding="utf-8")
-    label_line = f"\\label{{{label}}}"
-    if label_line in text:
-        return False
+def attach_section_identifier(
+    text: str,
+    label: str,
+    *,
+    unnumbered: bool = True,
+) -> tuple[str, bool]:
+    """Embed ``{#label}`` on the first H1 and remove standalone ``\\label{label}`` lines."""
     lines = text.splitlines()
-    for index, line in enumerate(lines):
-        if line.startswith("# "):
-            insert_at = index + 1
-            while insert_at < len(lines) and lines[insert_at].strip() == "":
-                insert_at += 1
-            new_lines = lines[: insert_at] + ["", label_line] + lines[insert_at:]
-            return _write_if_changed(path, "\n".join(new_lines) + "\n", dry_run=dry_run)
-    return _write_if_changed(path, f"# {path.stem}\n\n{label_line}\n\n{text}", dry_run=dry_run)
+    new_lines: list[str] = []
+    h1_done = False
+
+    for line in lines:
+        standalone = STANDALONE_SEC_LABEL_RE.match(line.strip())
+        if standalone is not None and standalone.group(1) == label:
+            continue
+        if not h1_done and line.startswith("# "):
+            h1_done = True
+            clean, attrs, _existing = _split_heading_parts(line[2:].strip())
+            if unnumbered:
+                attrs.add(NONNUMBERED_ATTR)
+            new_lines.append(f"# {_format_heading(clean, attrs, label)}")
+            continue
+        new_lines.append(line)
+
+    result = "\n".join(new_lines)
+    if text.endswith("\n"):
+        result += "\n"
+    return result, result != text
+
+
+def sync_section_label(path: Path, label: str, *, dry_run: bool, unnumbered: bool = True) -> bool:
+    """Ensure unnumbered ``sec:`` labels live on the H1 Pandoc identifier."""
+    text = path.read_text(encoding="utf-8")
+    updated, changed = attach_section_identifier(text, label, unnumbered=unnumbered)
+    if not changed:
+        return False
+    return _write_if_changed(path, updated, dry_run=dry_run)
 
 def normalize_headings(
     path: Path,
@@ -195,10 +231,10 @@ def normalize_headings(
             lines.append(line)
             continue
         safe_title = _toc_safe_heading_title(raw_title, chapter_title=chapter_title)
-        clean_title, attrs = _split_heading_attrs(safe_title)
+        clean_title, attrs, identifier = _split_heading_parts(safe_title)
         if unnumbered:
             attrs.add(NONNUMBERED_ATTR)
-        lines.append(f"{hashes} {_format_heading(clean_title, attrs)}")
+        lines.append(f"{hashes} {_format_heading(clean_title, attrs, identifier)}")
     normalized = "\n".join(lines)
     if text.endswith("\n"):
         normalized += "\n"
@@ -228,8 +264,8 @@ def _chapter_block(record: Any, alignment: Any) -> str:
             f"- **Data skill:** {record.data_skill}",
             f"- **Practice cadence:** {_join(alignment.ap_science_practices)}.",
             f"- **Common misconception to repair:** {record.common_misconception}",
-            f"- **Primary lab:** \\cref{{{record.lab_label}}}.",
-            f"- **Question bank:** \\cref{{{record.question_label}}}.",
+            f"- **Primary lab:** {section_reference(record.lab_label)}.",
+            f"- **Question bank:** {section_reference(record.question_label)}.",
             f"- **Transfer task:** {record.transfer_task}",
             f"- **Bridge to computation:** `{record.bridge_api}`.",
             CHAPTER_MARKER[1],

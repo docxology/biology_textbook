@@ -1,10 +1,9 @@
-# Appendix C — Mathematical Review for Biology {.unnumbered}
+# Appendix C — Mathematical Review for Biology {#sec:appendix_math_review .unnumbered}
 
-\label{sec:appendix_math_review}
 
 
 <!-- chapter-metadata-badge -->
-> **\cref{sec:appendix_math_review}** · Level 1/3 · 45 min read · Prerequisites: none · Use as reference
+> **\nameref{sec:appendix_math_review}** · Level 1/3 · 45 min read · Prerequisites: none · Use as reference
 
 This appendix collects the mathematics a reader needs to work through the quantitative chapters of this textbook. It is not a course in mathematics — it is a compact reference for the specific tools used in the chapters. Each section is self-contained; dip in as needed.
 
@@ -252,7 +251,7 @@ v = \frac{V_{\max} [S]}{K_m + [S]}
 
 - $\theta$ = fractional saturation; $[L]$ = ligand concentration; $K_d$ = dissociation constant at half-maximal saturation; $n$ = Hill coefficient (cooperativity).
 - $n = 1$: independent (Michaelis-Menten-like, hyperbolic). $n > 1$: positive cooperativity (sigmoidal, switch-like). $n < 1$: negative cooperativity.
-- Haemoglobin: $n \approx 2.8$, $K_d \approx 26$ mmHg (P50). Phosphofructokinase-1: $n \approx 4$ for fructose-6-phosphate.
+- Hemoglobin: $n \approx 2.8$, $K_d \approx 26$ mmHg (P50). Phosphofructokinase-1: $n \approx 4$ for fructose-6-phosphate.
 - **Switch sharpness:** fold-change in $\theta$ from $0.1K_d$ to $10K_d$ is $100^n$; for $n=1$ this is 100-fold; for $n=4$ it is $10^8$-fold — explaining why cooperative enzymes function as on/off switches.
 - First appears in \cref{sec:unit_I_enzymes_and_kinetics}.
 

@@ -1,6 +1,5 @@
-# Lab — Cell Theory and Cell Types {.unnumbered}
+# Lab — Cell Theory and Cell Types {#sec:lab_unit_II_cell_theory .unnumbered}
 
-\label{sec:lab_unit_II_cell_theory}
 
 ## Learning Objectives {.unnumbered}
 
@@ -40,10 +39,11 @@
 
 ## Lab Context: Cell Theory and Cell Types {.unnumbered}
 
-Cell theory, formalised by Schleiden, Schwann, and Virchow (1838–1855), states that: (1) most living things are composed of cells; (2) the cell is the basic unit of life; and (3) most cells arise from pre-existing cells. Two fundamental cell types exist: **prokaryotes** (Bacteria, Archaea — no nucleus, typically 0.5–5 µm) and **eukaryotes** (Eukarya — membrane-bounded nucleus, 10–100 µm). Light microscopy can resolve features above ~200 nm, allowing clear visualisation of cell walls, chloroplasts, and the nucleus, though the electron microscope is needed for ribosomes and membranes.
+Cell theory, formalised by Schleiden, Schwann, and Virchow (1838–1855), states that: (1) most living things are composed of cells; (2) the cell is the basic unit of life; and (3) most cells arise from pre-existing cells. Two fundamental cell types exist: **prokaryotes** (Bacteria, Archaea — no nucleus, typically 0.5–5 µm) and **eukaryotes** (Eukarya — membrane-bounded nucleus, 10–100 µm). Light microscopy can resolve features above ~200 nm, allowing clear visualization of cell walls, chloroplasts, and the nucleus, though the electron microscope is needed for ribosomes and membranes.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_II_cell_theory_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Cell Theory and Cell Types: cell-atlas or imaging source card: sample, assay, cell-state call, perturbation evidence, and uncertainty | 1 |
@@ -64,17 +64,18 @@ Cell theory, formalised by Schleiden, Schwann, and Virchow (1838–1855), states
 
 ### Extension — Microbial Diversity Image Packet {.unnumbered}
 
-6. Use the printed microbial-diversity packet to compare chain-forming cocci and rod-shaped cells. Sketch both and identify the evidence for prokaryotic organisation.
+6. Use the printed microbial-diversity packet to compare chain-forming cocci and rod-shaped cells. Sketch both and identify the evidence for prokaryotic organization.
 7. Estimate cells per field of view from the annotated image grid, then calculate how the estimate would change under a 1:10 dilution. State one counting assumption that affects reproducibility.
 
 ### Part E — Scale Bar Arithmetic {.unnumbered}
 
-8. The instructor will distribute a printed micrograph of a eukaryotic cell with a labelled scale bar of 10 µm. Measure the longest cell diameter with a ruler (mm); convert to true µm using the scale-bar ratio. This is the core arithmetic for every published micrograph: *true size = (measured distance ÷ scale bar length) × scale bar value*.
+8. The instructor will distribute a printed micrograph of a eukaryotic cell with a labeled scale bar of 10 µm. Measure the longest cell diameter with a ruler (mm); convert to true µm using the scale-bar ratio. This is the core arithmetic for every published micrograph: *true size = (measured distance ÷ scale bar length) × scale bar value*.
 
 9. Using the same formula, estimate the total surface area of a spherical epithelial-cell image (diameter ≈ 60 µm): $A = 4\pi r^2 = 4\pi(30)^2 \approx 1.13 \times 10^4$ µm². Compare with a spherical *Bacillus* (diameter 2 µm, $A \approx 12.6$ µm²). Note the ~1000× difference — which cell has a larger surface-to-volume ratio, and why is that biologically important?
 
 ## Data Recording {.unnumbered}
 
+: Part E — Scale Bar Arithmetic: Case and Cell type (Pro/Euk). {#tbl:unit_II_cell_theory_part_e_scale_bar_arithmetic}
 | Case | Cell type (Pro/Euk) | Approx. diameter (µm) | Nucleus | Cell wall | Chloroplasts | Vacuole |
 | -------- | ------------------- | --------------------- | ------- | --------- | ------------ | ------- |
 | Bacillus | | | | | | |
@@ -103,6 +104,7 @@ Sketch each cell type in the boxes below:
 Before answering the analysis questions, annotate the paper dataset for
 **Cell Theory and Cell Types** with a reproducibility pass:
 
+: Part E — Scale Bar Arithmetic: Evidence check and Student action. {#tbl:unit_II_cell_theory_part_e_scale_bar_arithmetic_2}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -116,7 +118,7 @@ equipment version belongs only in an optional extension.
 
 ### Worked Example: Diffusion Time Across a 15 micrometre Cell {.unnumbered}
 
-**Problem:** A roughly spherical cell has radius r = 15 μm = 1.5 × 10⁻⁵ m. A small metabolite has a cytoplasmic diffusion coefficient D ≈ 1 × 10⁻⁹ m²/s. Estimate the characteristic time for the metabolite to diffuse from the plasma membrane to the centre of the cell using the standard 3-D random-walk estimate t ≈ r² / (6D). Compare to a cell ten times larger (r = 150 μm).
+**Problem:** A roughly spherical cell has radius r = 15 μm = 1.5 × 10⁻⁵ m. A small metabolite has a cytoplasmic diffusion coefficient D ≈ 1 × 10⁻⁹ m²/s. Estimate the characteristic time for the metabolite to diffuse from the plasma membrane to the center of the cell using the standard 3-D random-walk estimate t ≈ r² / (6D). Compare to a cell ten times larger (r = 150 μm).
 
 **Solution:**
 
@@ -133,7 +135,7 @@ For r = 150 μm (10× larger):
 
 Diffusion time scales with r², so a 10× increase in radius produces a 100× increase in characteristic diffusion time.
 
-**Interpretation:** A small metabolite crosses a 15 μm cell in tens of milliseconds — fast enough that simple diffusion suffices to homogenise concentrations during ordinary metabolism. At 150 μm the same molecule takes several seconds, which is comparable to or longer than many reaction time scales. This r² scaling is one quantitative reason cells tend to be small, and one reason large cells (oocytes, neurons, plant fibres) adopt strategies such as cytoplasmic streaming, internal compartments, or extreme shape changes (e.g. axonal projections) rather than simple size scaling.
+**Interpretation:** A small metabolite crosses a 15 μm cell in tens of milliseconds — fast enough that simple diffusion suffices to homogenise concentrations during ordinary metabolism. At 150 μm the same molecule takes several seconds, which is comparable to or longer than many reaction time scales. This r² scaling is one quantitative reason cells tend to be small, and one reason large cells (oocytes, neurons, plant fibers) adopt strategies such as cytoplasmic streaming, internal compartments, or extreme shape changes (e.g. axonal projections) rather than simple size scaling.
 
 
 ### Source-Governance Checkpoint {.unnumbered}
@@ -142,8 +144,8 @@ Complete the source-governance card for Cell Theory and Cell Types before writin
 
 ## Analysis Questions {.unnumbered}
 
-1. How does the size of *Bacillus* compare to the onion epidermal cell? Express as a ratio. What structural feature allows eukaryotic cells to be so much larger (hint: internal compartmentalisation)?
-2. The onion image packet includes a starch-localisation annotation. What molecule was detected? Which organelle does this implicate, and why is this unexpected in onion cells that are not green?
+1. How does the size of *Bacillus* compare to the onion epidermal cell? Express as a ratio. What structural feature allows eukaryotic cells to be so much larger (hint: internal compartmentalization)?
+2. The onion image packet includes a starch-localization annotation. What molecule was detected? Which organelle does this implicate, and why is this unexpected in onion cells that are not green?
 3. Both onion and leaf mesophyll cells are plant cells, but mesophyll cells have abundant chloroplasts and onion epidermal cells typically do not. Explain using cell theory and differential gene expression.
 4. A printed pond-water image shows cells with a nucleus but without a cell wall. Is this organism a plant, animal, or fungus? What additional image feature or molecular marker would narrow the identification?
 5. Devise a paper-based study using time-series image cards to test whether temperature affects the rate of cytoplasmic streaming. Identify your independent, dependent, and controlled variables.
@@ -153,7 +155,7 @@ Complete the source-governance card for Cell Theory and Cell Types before writin
 
 > **Concept Check (Synthesis):** Cell theory is one of the most heavily corroborated frameworks in biology, but science remains open in principle to revision when new evidence appears. Drawing on the historical reasoning in this investigation and the chapter:
 >
-> (a) Specify, as precisely as you can, what new observation would force a revision of the tenet "every cell arises from a pre-existing cell." Describe the observation, the controls that would distinguish it from contamination or experimental artefact, and what kind of replication the scientific community would expect before accepting the result.
+> (a) Specify, as precisely as you can, what new observation would force a revision of the tenet "every cell arises from a pre-existing cell." Describe the observation, the controls that would distinguish it from contamination or experimental artifact, and what kind of replication the scientific community would expect before accepting the result.
 > (b) Discuss whether viruses, prions, or syncytia challenge the original tenets of cell theory. For each, decide whether you would regard the entity as a counter-example, an edge case requiring careful re-definition, or a separate category outside the scope of cell theory — and justify.
 > (c) Reflect: if a single laboratory reported one such observation, what professional norms (peer review, replication, methods transparency) would govern how the community responded? Why are those norms part of the epistemology of cell biology rather than optional procedural details?
 
@@ -184,7 +186,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -203,5 +205,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_II_cell_theory}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

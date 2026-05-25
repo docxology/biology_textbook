@@ -3,16 +3,10 @@
 from __future__ import annotations
 
 import hashlib
-import re
-from pathlib import Path
 
 import yaml
 
 from biology.maintenance.manuscript_walker import (
-    configured_chapter_files,
-    configured_chapter_title_by_path,
-    configured_manuscript_surfaces,
-    iter_markdown_headings,
     iter_prose_lines,
     manuscript_markdown_files,
 )
@@ -21,34 +15,7 @@ from biology.quality.models import Finding
 from biology.quality.patterns import (
     ABSOLUTE_LANGUAGE,
     ALLOWED_ADVISORY_CLASSIFICATIONS,
-    BANNED_REQUIRED_LAB_TERMS,
     BENIGN_ABSOLUTE_CONTEXTS,
-    BROKEN_CREF_RE,
-    BROKEN_NAMEREF_RE,
-    BROKEN_NAMEREF_TAIL_RE,
-    COLLAPSED_UNIT_CREF_RE,
-    COMPANION_SOURCE_MODULE_HEADING_RE,
-    CONCEPT_CHECK_RE,
-    COPYEDIT_ARTIFACT_PATTERNS,
-    DOLLAR_TAG_LABEL_RE,
-    EXPECTED_CONFIGURED_SURFACE_COUNTS,
-    FIGURE_METADATA_ARTIFACT_PATTERNS,
-    FRONTIER_BOILERPLATE_PATTERNS,
-    FRONT_MATTER_GENERATED_MARKERS,
-    GENERIC_COMPANION_SOURCE_PATTERNS,
-    GENERIC_MERMAID_METADATA,
-    HARDCODED_REF,
-    HARDCODED_STRUCTURAL_REF,
-    HEADING_ARTIFACT_PATTERNS,
-    INLINE_CIRC_PRIME_RE,
-    LATEX_EQUATION_TAG_RE,
-    OPENING_VIGNETTE_RE,
-    PAPER_EVIDENCE_UPGRADE_HEADING_RE,
-    QUESTION_GENERIC_PATTERNS,
-    RAW_LATEX_RENDERED_REF,
-    STALE_CLAIM_PATTERNS,
-    STUDENT_FACING_AUTHORING_BOILERPLATE,
-    SUMMARY_HEADING_RE,
 )
 
 def audit_absolute_language(findings: list[Finding]) -> None:

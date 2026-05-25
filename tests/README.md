@@ -1,6 +1,6 @@
 # Biology Textbook — Tests
 
-**Domain, visualization, and manuscript-invariant suites · zero mocks.** Run `pytest` from this active project directory for the current test count and line coverage; `pyproject.toml` enforces a **90 %** gate on `src/`.
+**Domain, visualization, and manuscript-invariant suites · zero mocks.** Run `pytest` from this active project directory for the current test count and line coverage; the tree currently ships **41** `test_*.py` modules and `pyproject.toml` enforces a **90 %** gate on `src/`.
 
 ## Running
 
@@ -20,13 +20,13 @@ uv run python -m pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 
 ## Layout
 
-**37** `test_*.py` files: **6** domain modules (exercising `src/biology/*`, mermaid, visualization) + **31** invariant / render-quality / script-quality / bootstrap modules. Plus `conftest.py` (fixtures and path bootstrap, not a test module). Run `uv run python -m pytest tests/ -q` for the current collected count.
+**41** `test_*.py` files: **6** domain modules (exercising `src/biology/*`, mermaid, visualization) + **35** invariant / render-quality / script-quality / bootstrap modules. Plus `conftest.py` (fixtures and path bootstrap, not a test module). Run `uv run python -m pytest tests/ -q` for the current collected count.
 
 ### Domain tests (6 `test_*.py` + `conftest.py`)
 
 | File | Focus |
 | ---- | ----- |
-| `test_cell_biology.py` | Organelles, Nernst/Goldman, transport, signalling |
+| `test_cell_biology.py` | Organelles, Nernst/Goldman, transport, signaling |
 | `test_genetics.py` | DNA/RNA, Punnett, Hardy–Weinberg, related |
 | `test_ecology_evolution_physiology_biochemistry.py` | Cross-domain quantitative models |
 | `test_microbiology_botany_neuroscience.py` | Growth, plants, neural models |
@@ -41,7 +41,7 @@ uv run python -m pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 | `test_atomic_io.py` | Atomic write/replace helpers used by maintenance scripts |
 | `test_audit_v3_and_crossref_gate.py` | Generic-answer v3 and malformed `\cref` detector regressions |
 | `test_build_invariants.py` | Chapter labels, metadata badges, lab/question back-links, figure-generator usage, Course Planning Grid |
-| `test_bibliography_closure.py` | `{cited} == {defined}` in `references.bib`; no mid-word citation artefacts |
+| `test_bibliography_closure.py` | `{cited} == {defined}` in `references.bib`; no mid-word citation artifacts |
 | `test_chapter_metadata.py` | `ChapterMeta` completeness and consistency vs `config.yaml` |
 | `test_chapter_pedagogy_coverage.py` | REVIEW §7 pedagogy locks: worked examples, Concept Checks, Bloom diversity, LO floor |
 | `test_curriculum_metadata.py` | `CurriculumRecord` completeness and chapter/lab/question path closure |
@@ -64,6 +64,6 @@ uv run python -m pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 | `test_textbook_paths.py` | Checkout path discovery and `ensure_project_paths()` bootstrap |
 | `test_textbook_quality_audit.py` | Umbrella textbook-quality audit: stale claims, copyedit artifacts, enrichment presence, and current-source locks |
 
-No mocks for scientific behaviour — real numeric data and file output only.
+No mocks for scientific behavior — real numeric data and file output only.
 
 See [docs/testing_guide.md](../docs/testing_guide.md) for policy detail.

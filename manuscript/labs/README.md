@@ -1,6 +1,6 @@
 # Laboratory Activities
 
-This directory contains **44 paper-based laboratory activities** — one per textbook chapter (including the four Unit 0 orientation chapters) — designed for individual or small-group work (~4 students) without requiring wet-lab access or specialised equipment. The required path uses printed datasets, image/card packets, decision matrices, graphing tasks, control logic, uncertainty analysis, and reproducibility checks. Wet-lab, microscope, culture, reagent, specimen, heating, or dissection variants belong only in clearly marked optional extensions.
+This directory contains **44 paper-based laboratory activities** — one per textbook chapter (including the four Unit 0 orientation chapters) — designed for individual or small-group work (~4 students) without requiring wet-lab access or specialized equipment. The required path uses printed datasets, image/card packets, decision matrices, graphing tasks, control logic, uncertainty analysis, and reproducibility checks. Wet-lab, microscope, culture, reagent, specimen, heating, or dissection variants belong only in clearly marked optional extensions.
 
 ## Lab File Naming Convention
 
@@ -8,7 +8,7 @@ This directory contains **44 paper-based laboratory activities** — one per tex
 lab_{chapter_filename}.md
 ```
 
-Each lab is organised under its unit subdirectory:
+Each lab is organized under its unit subdirectory:
 
 ```
 labs/
@@ -45,7 +45,7 @@ Lab learning-outcome and rubric alignment blocks are synchronized by
 
 - Keep tables wide enough for handwriting; blank cells are intentional student workspace, not incomplete content.
 - Add a descriptive HTML alt comment after any Mermaid block or figure introduced in a lab. `tests/test_accessibility.py` checks lab files as well as chapters.
-- When colour is used in a diagram, pair it with labels, symbols, hatching, or line styles so printed grayscale copies remain usable.
+- When color is used in a diagram, pair it with labels, symbols, hatching, or line styles so printed grayscale copies remain usable.
 
 ## Rendering
 

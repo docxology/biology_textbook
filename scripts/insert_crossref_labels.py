@@ -32,6 +32,8 @@ from _bootstrap import ensure_project_paths
 
 ensure_project_paths(include_scripts=True)
 
+from biology.curriculum_sync.sync_blocks import attach_section_identifier
+
 try:
     from scripts.atomic_io import write_text_atomic
 except ModuleNotFoundError:  # pragma: no cover - direct script execution path
@@ -138,7 +140,7 @@ _TITLE_RE = re.compile(r"^#\s+(?P<title>.+?)\s*$")
 
 
 def insert_label(path: Path, label: str, report: RewriteReport, dry_run: bool = False) -> None:
-    """Ensure `path` has `\\label{label}` on the line after its H1 title."""
+    """Ensure numbered chapter files keep ``\\label{label}`` on the line after H1."""
     if not path.exists():
         print(f"WARN: missing file {path}", file=sys.stderr)
         return
@@ -164,6 +166,27 @@ def insert_label(path: Path, label: str, report: RewriteReport, dry_run: bool = 
             return
     # No H1 found — skip
     print(f"WARN: no H1 title in {path}", file=sys.stderr)
+
+
+def insert_unnumbered_label(
+    path: Path,
+    label: str,
+    report: RewriteReport,
+    dry_run: bool = False,
+) -> None:
+    """Ensure unnumbered surfaces use a Pandoc H1 identifier ``{#label .unnumbered}``."""
+    if not path.exists():
+        print(f"WARN: missing file {path}", file=sys.stderr)
+        return
+    text = path.read_text(encoding="utf-8")
+    updated, changed = attach_section_identifier(text, label, unnumbered=True)
+    if not changed:
+        report.labels_present += 1
+        return
+    if not dry_run:
+        write_text_atomic(path, updated)
+        report.files_touched.append(path)
+    report.labels_inserted += 1
 
 
 # ---------------------------------------------------------------------------
@@ -236,9 +259,9 @@ def main(argv: list[str] | None = None) -> int:
     # 1. Insert chapter labels
     for ch in chapters:
         insert_label(ch.file, ch.label, report, dry_run=dry_run)
-    # 2. Insert lab and question labels too
+    # 2. Insert lab and question labels with Pandoc H1 identifiers
     for path, label, _title in labs + questions:
-        insert_label(path, label, report, dry_run=dry_run)
+        insert_unnumbered_label(path, label, report, dry_run=dry_run)
 
     # 3. Rewrite prose cross-refs in every content file
     for path in list(MANUSCRIPT_ROOT.rglob("*.md")):

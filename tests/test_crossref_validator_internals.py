@@ -134,6 +134,16 @@ def test_latex_table_env_without_label_flagged(v, tmp_path: Path) -> None:
     assert any(i.kind == "table" and i.problem == "missing_id" for i in issues)
 
 
+def test_latex_table_label_without_caption_flagged(v, tmp_path: Path) -> None:
+    f = tmp_path / "tbl3.md"
+    f.write_text(
+        "# T3\n\n\\begin{table}\n\\label{tbl:demo}\n\\end{table}\n",
+        encoding="utf-8",
+    )
+    _, _, issues = v.scan_file(f)
+    assert any(i.kind == "table" and i.problem == "missing_caption" for i in issues)
+
+
 def test_section_with_sec_id_detected(v, tmp_path: Path) -> None:
     f = tmp_path / "s.md"
     f.write_text("# H1\n\n## Sub {#sec:subsection}\n\nhello\n", encoding="utf-8")
@@ -249,3 +259,12 @@ def test_issue_as_row_and_report_summary(v, tmp_path: Path) -> None:
     for i in report.issues:
         row = i.as_row()
         assert set(row.keys()) == {"file", "line", "kind", "problem", "suggested_id", "context"}
+
+
+def test_section_reference_uses_nameref_for_unnumbered_labels() -> None:
+    from biology.crossref.helpers import normalize_unnumbered_section_crefs, section_reference
+
+    assert section_reference("sec:lab_unit_I_atoms_molecules") == "\\nameref{sec:lab_unit_I_atoms_molecules}"
+    assert section_reference("sec:unit_I_atoms_molecules") == "\\cref{sec:unit_I_atoms_molecules}"
+    text = "Primary lab: \\cref{sec:lab_unit_I_atoms_molecules}."
+    assert normalize_unnumbered_section_crefs(text) == "Primary lab: \\nameref{sec:lab_unit_I_atoms_molecules}."

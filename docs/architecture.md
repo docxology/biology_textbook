@@ -23,7 +23,7 @@ biology_textbook/
 │   ├── mermaid/                  # diagram_specs.yaml + diagram_spec_loader (24 diagrams)
 │   └── visualization/            # plots_*.py domain modules + plots.py registry + cvd.py
 ├── tests/                        # domain + invariant tests; zero mocks; ≥90 % coverage on src/ (see pytest)
-├── scripts/                      # 33 Python files — see project [AGENTS.md](../AGENTS.md)
+├── scripts/                      # 36 Python files — see project [AGENTS.md](../AGENTS.md)
 ├── manuscript/                   # config.yaml + 11 units + labs + questions + glossary + references.bib
 ├── docs/                         # guides (this directory; see [README.md](README.md))
 ├── output/                       # Generated (disposable)
@@ -56,7 +56,7 @@ Overall **`src/`** line + branch coverage is enforced at **≥90 %** via `pyproj
 
 ## Manuscript invariants as tests
 
-The [`tests/`](../tests/) suite is **31** `test_*.py` files: domain modules plus manuscript, lab, question, render, current-claim, assessment-alignment, maintenance-engine smoke, and script-quality invariant modules. Authoritative list and failure-to-fix table: [testing_guide.md](testing_guide.md#test-organisation); the same invariant list appears under “Invariant tests (Stage 2 gate-keepers)” in [pipeline_guide.md](pipeline_guide.md).
+The [`tests/`](../tests/) suite is **40** `test_*.py` files: domain modules plus manuscript, lab, question, render, current-claim, assessment-alignment, maintenance-engine smoke, table-caption, and script-quality invariant modules. Authoritative list and failure-to-fix table: [testing_guide.md](testing_guide.md#test-organization); the same invariant list appears under “Invariant tests (Stage 2 gate-keepers)” in [pipeline_guide.md](pipeline_guide.md).
 
 Invariant modules:
 

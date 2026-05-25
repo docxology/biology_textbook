@@ -13,7 +13,7 @@ Unit 0 is a foundational prologue to the textbook, introducing the conceptual, m
 | `history_philosophy_biology.md` | History and Philosophy of Biology |
 
 ## Key Concepts
-- Systems science: hierarchy, feedback, emergence, self-organisation
+- Systems science: hierarchy, feedback, emergence, self-organization
 - Complex adaptive systems: agents, attractors, phase transitions
 - Active inference: free energy principle, Bayesian brain, perception–action loops
 - History and philosophy: evidence practices, mechanism/function, species and individuality, values in science

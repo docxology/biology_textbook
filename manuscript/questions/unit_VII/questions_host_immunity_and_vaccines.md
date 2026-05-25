@@ -1,6 +1,5 @@
-# Questions — Host Immunity and Vaccines {.unnumbered}
+# Questions — Host Immunity and Vaccines {#sec:q_unit_VII_host_immunity_and_vaccines .unnumbered}
 
-\label{sec:q_unit_VII_host_immunity_and_vaccines}
 
 <!-- question-coverage-start -->
 ## Instructor Use and Coverage Notes {.unnumbered}
@@ -61,7 +60,7 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO7; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-7. What are cytotoxic T lymphocytes (CTLs)? What do they recognise and how do they kill target cells?
+7. What are cytotoxic T lymphocytes (CTLs)? What do they recognize and how do they kill target cells?
 
 <!-- SOLUTION
 **Answer (Q7, Recall).** Cytotoxic T lymphocytes (CTLs) are CD8+ effector T cells that recognize foreign or aberrant peptides presented on MHC class I of infected or transformed cells via their T-cell receptor. On engagement they kill the target by two main mechanisms: releasing perforin and granzymes that trigger apoptosis, and engaging Fas (CD95) on the target with FasL to induce caspase-mediated death. See \cref{sec:unit_VII_host_immunity_and_vaccines}.
@@ -138,7 +137,7 @@ SOLUTION -->
 17. Build a paper-based infectious-disease decision matrix for three current interventions: (a) BPaL/BPaLM-style most-oral treatment for rifampicin-resistant tuberculosis; (b) twice-yearly lenacapavir PrEP for people with substantial HIV exposure risk; (c) indoor spatial emanators added to insecticide-treated nets for malaria control. For each, state the biological target, the surveillance or eligibility evidence required, one equity constraint, and one reason the intervention should not be treated as a standalone solution.
 
 <!-- SOLUTION
-**Answer (Q17, Synthesis).** For rifampicin-resistant TB, the target is a bacterial infection requiring susceptibility-guided combination therapy; the decision matrix should include rifampicin resistance, fluoroquinolone susceptibility when BPaLM is considered, contraindications, adherence support, and toxicity monitoring. For lenacapavir PrEP, the target is HIV acquisition before infection; eligibility requires HIV-negative status, ongoing exposure risk, access to injection follow-up, and resistance-aware testing if infection is suspected. For malaria spatial emanators, the target is mosquito biting and indoor host-seeking; local evidence should include transmission setting, net coverage, vector behaviour, insecticide-resistance monitoring, and household acceptability. None is standalone: TB regimens need diagnostics and public-health follow-up, PrEP does not replace testing or treatment access, and spatial emanators complement nets, case management, chemoprevention, and environmental control. Cite \cref{sec:unit_VII_host_immunity_and_vaccines} as the chapter anchor.
+**Answer (Q17, Synthesis).** For rifampicin-resistant TB, the target is a bacterial infection requiring susceptibility-guided combination therapy; the decision matrix should include rifampicin resistance, fluoroquinolone susceptibility when BPaLM is considered, contraindications, adherence support, and toxicity monitoring. For lenacapavir PrEP, the target is HIV acquisition before infection; eligibility requires HIV-negative status, ongoing exposure risk, access to injection follow-up, and resistance-aware testing if infection is suspected. For malaria spatial emanators, the target is mosquito biting and indoor host-seeking; local evidence should include transmission setting, net coverage, vector behavior, insecticide-resistance monitoring, and household acceptability. None is standalone: TB regimens need diagnostics and public-health follow-up, PrEP does not replace testing or treatment access, and spatial emanators complement nets, case management, chemoprevention, and environmental control. Cite \cref{sec:unit_VII_host_immunity_and_vaccines} as the chapter anchor.
 SOLUTION -->
 
 <!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
@@ -179,21 +178,21 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO7; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-23. The "two-signal model" of T cell activation requires: (1) TCR engagement with MHC-peptide and (2) a co-stimulatory signal (CD28-B7). Without signal 2, T cells become anergic (unresponsive). Evaluate how tumours exploit this model to suppress anti-tumour T cells by: (a) expressing PD-L1 (sending an anergy-inducing signal); (b) lacking co-stimulatory molecules; (c) expressing IDO (depleting tryptophan needed for T cell activation). How does CAR-T cell therapy bypass this requirement for co-stimulation?
+23. The "two-signal model" of T cell activation requires: (1) TCR engagement with MHC-peptide and (2) a co-stimulatory signal (CD28-B7). Without signal 2, T cells become anergic (unresponsive). Evaluate how tumors exploit this model to suppress anti-tumor T cells by: (a) expressing PD-L1 (sending an anergy-inducing signal); (b) lacking co-stimulatory molecules; (c) expressing IDO (depleting tryptophan needed for T cell activation). How does CAR-T cell therapy bypass this requirement for co-stimulation?
 
 <!-- SOLUTION
 **Answer (Q23, Synthesis).** Initiating condition: full T-cell activation needs signal 1 (TCR–MHC-peptide) plus signal 2 (CD28–B7 co-stimulation); without signal 2 the T cell becomes anergic. Tumors exploit this: (a) PD-L1 expression delivers a coinhibitory signal that anergizes/exhausts tumor-specific T cells; (b) absence of B7 co-stimulatory molecules on tumor cells gives signal 1 without signal 2, inducing anergy; (c) IDO expression depletes tryptophan and produces kynurenines, starving and suppressing T cells. CAR-T cells bypass this requirement because the chimeric receptor links an antibody-derived antigen-binding domain directly to CD3ζ plus a built-in co-stimulatory domain (CD28 or 4-1BB), so a single MHC-independent antigen contact delivers both activation and co-stimulation. See \cref{sec:unit_VII_host_immunity_and_vaccines}.
 SOLUTION -->
 
 <!-- assess: LO=LO8; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-24. Evaluate the emerging field of "onco-immunology" — the mechanisms by which tumours edit the immune landscape (immunoediting: elimination → equilibrium → escape). Give specific molecular examples of immune editing at each phase, and assess whether the immune equilibrium phase can be maintained indefinitely in any cancer type, or whether escape is inevitable.
+24. Evaluate the emerging field of "onco-immunology" — the mechanisms by which tumors edit the immune landscape (immunoediting: elimination → equilibrium → escape). Give specific molecular examples of immune editing at each phase, and assess whether the immune equilibrium phase can be maintained indefinitely in any cancer type, or whether escape is inevitable.
 
 <!-- SOLUTION
 **Answer (Q24, Synthesis).** Cancer immunoediting proceeds through three phases. Elimination: immunosurveillance by NK cells and CD8+ T cells destroys nascent transformed cells (evidenced by higher cancer rates in immunodeficient hosts). Equilibrium: residual immunogenic clones are held dormant under sustained adaptive pressure (shown by long latency and donor-transmitted tumors in transplant recipients). Escape: surviving clones evade immunity via MHC class I loss, PD-L1 upregulation, antigen loss, and recruitment of Tregs/MDSCs and TGF-β. Equilibrium can persist for years in some cancers but is generally metastable rather than truly indefinite, because ongoing mutation under immune selection makes eventual escape highly likely; the conclusion would change if a cancer were documented in lifelong stable equilibrium without escape. See \cref{sec:unit_VII_host_immunity_and_vaccines}.
 SOLUTION -->
 
 <!-- assess: LO=LO1; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
-25. Critically evaluate the public health ethics of mandatory vaccination programmes. Using the framework of herd immunity thresholds, individual liberty, social contract theory, and harm principle (Mill), construct a utilitarian argument for and a libertarian argument against mandatory vaccination. What vaccination coverage is minimally required for herd immunity against measles (R₀ ≈ 18), and how do vaccine hesitancy and anti-vaccine movements affect public health?
+25. Critically evaluate the public health ethics of mandatory vaccination programs. Using the framework of herd immunity thresholds, individual liberty, social contract theory, and harm principle (Mill), construct a utilitarian argument for and a libertarian argument against mandatory vaccination. What vaccination coverage is minimally required for herd immunity against measles (R₀ ≈ 18), and how do vaccine hesitancy and anti-vaccine movements affect public health?
 
 <!-- SOLUTION
 **Answer (Q25, Synthesis).** Utilitarian (for): mandatory vaccination maximizes aggregate welfare by securing herd immunity, preventing outbreaks, and protecting those who cannot be vaccinated; Mill's harm principle justifies coercion because non-vaccination imposes infection risk on others. Libertarian (against): bodily autonomy and informed consent are paramount; mandates coerce a medical intervention and erode trust, and exemptions/least-restrictive alternatives should be preferred. For measles with R0 ≈ 18, the herd-immunity threshold is pc = 1 − 1/18 ≈ 0.944, so roughly 94–95% immune coverage is required. Vaccine hesitancy and anti-vaccine movements push coverage below this threshold, restoring susceptibility and driving measles resurgences (as seen in 2018–2019). See \cref{sec:unit_VII_host_immunity_and_vaccines}.
@@ -207,7 +206,7 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
-27. Regulatory T cells (Tregs, FOXP3⁺) suppress immune responses and prevent autoimmunity. Explain: (a) how Tregs develop (thymic selection vs peripheral induction); (b) their mechanisms of suppression (IL-10, TGF-β, CTLA-4-mediated antigen-presenting cell suppression); (c) why depleting Tregs in cancer (anti-CTLA-4, ipilimumab) can restore anti-tumour immunity at the cost of autoimmunity.
+27. Regulatory T cells (Tregs, FOXP3⁺) suppress immune responses and prevent autoimmunity. Explain: (a) how Tregs develop (thymic selection vs peripheral induction); (b) their mechanisms of suppression (IL-10, TGF-β, CTLA-4-mediated antigen-presenting cell suppression); (c) why depleting Tregs in cancer (anti-CTLA-4, ipilimumab) can restore anti-tumor immunity at the cost of autoimmunity.
 
 <!-- SOLUTION
 **Answer (Q27, Application).** (a) Natural Tregs arise in the thymus by selection of moderately self-reactive CD4+ cells that upregulate FOXP3; induced Tregs differentiate in the periphery from conventional CD4+ cells under TGF-β. (b) They suppress via inhibitory cytokines (IL-10, TGF-β), consumption of IL-2, and CTLA-4, which strips/blocks CD80/CD86 on antigen-presenting cells to deny co-stimulation. (c) Anti-CTLA-4 (ipilimumab) removes this brake, restoring anti-tumor T-cell responses, but because the same checkpoint enforces self-tolerance, blocking it also causes immune-related autoimmune toxicities. See \cref{sec:unit_VII_host_immunity_and_vaccines}.

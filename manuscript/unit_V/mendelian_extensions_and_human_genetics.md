@@ -42,21 +42,14 @@ A gene can have more than two alleles in a population (though any individual sti
 
 **ABO blood group system** (three alleles: $I^A$, $I^B$, $i$):
 
-\begin{table}[htbp]
-\label{tbl:unit_V_mendelian_genetics_1}
-\centering
-\small
-\begin{tabular}{@{}p{2.8cm}p{0.8cm}p{2.0cm}p{2.6cm}p{2.6cm}p{3.0cm}@{}}
-\toprule
-\textbf{Genotype} & \textbf{Phen.} & \textbf{Antigens} & \textbf{Antibodies} & \textbf{Can Donate To} & \textbf{Can Receive From} \\
-\midrule
-$I^A I^A$ or $I^A i$ & A & A & Anti-B & A, AB & A, O \\
-$I^B I^B$ or $I^B i$ & B & B & Anti-A & B, AB & B, O \\
-$I^A I^B$ & AB & A and B & Neither & AB only & Universal recipient \\
-$ii$ & O & Neither (H antigen only) & Anti-A and Anti-B & Universal donor & O only \\
-\bottomrule
-\end{tabular}
-\end{table}
+: ABO blood group genotypes, antigens, antibodies, and transfusion compatibility. {#tbl:unit_V_mendelian_genetics_1}
+
+| Genotype | Phen. | Antigens | Antibodies | Can Donate To | Can Receive From |
+| -------- | ----- | -------- | ---------- | ------------- | ---------------- |
+| $I^A I^A$ or $I^A i$ | A | A | Anti-B | A, AB | A, O |
+| $I^B I^B$ or $I^B i$ | B | B | Anti-A | B, AB | B, O |
+| $I^A I^B$ | AB | A and B | Neither | AB only | Universal recipient |
+| $ii$ | O | Neither (H antigen only) | Anti-A and Anti-B | Universal donor | O only |
 
 **Rabbit coat color** (4 alleles at the *C* locus): $c^+$ (full color) > $c^{ch}$ (chinchilla) > $c^h$ (Himalayan) > $c$ (albino). Dominance hierarchy gives 10 possible genotypes and 5 phenotypic classes.
 
@@ -108,6 +101,7 @@ Recessive epistasis occurs when **homozygosity at one locus masks the phenotype 
 - **B locus** (Brown): determines whether eumelanin is black ($B$) or brown/chocolate ($b$).
 - **E locus** (Extension): determines whether eumelanin is **deposited at most** in the hair shaft. $E$ alleles deposit pigment; $ee$ homozygotes block deposition entirely, producing yellow coats regardless of B genotype.
 
+: Recessive Epistasis (9:3:4) — Labrador coat color: Genotype and Pigment chemistry. {#tbl:unit_V_mendelian_extensions_and_human_genetics_recessive_epistasis_9_3_4_labrador_coat_color}
 | Genotype | Pigment chemistry | Coat |
 |----------|-------------------|------|
 | B\_E\_ | Black eumelanin deposited | Black |
@@ -128,6 +122,7 @@ $$P(\text{chocolate}) = P(bb) \times P(E\_) = \tfrac{1}{4} \times \tfrac{3}{4} =
 
 Dominant epistasis occurs when **the dominant allele at one locus masks expression at a second locus**. White-fruited summer squash (*Cucurbita pepo*) is a classic case. Allele $W$ produces white fruit and is **dominant** to $w$ (colored fruit). At a second locus, $Y$ produces yellow and $y$ produces green pigment — but primarily when $ww$ allows pigment to develop.
 
+: Dominant Epistasis (12:3:1) — Squash fruit color: Genotype and Phenotype. {#tbl:unit_V_mendelian_extensions_and_human_genetics_dominant_epistasis_12_3_1_squash_fruit_color}
 | Genotype | Phenotype |
 |----------|-----------|
 | W\_Y\_ | White |
@@ -141,6 +136,7 @@ The F$_2$ from WwYy × WwYy yields **12 white : 3 yellow : 1 green**, written 12
 
 Sweet pea (*Lathyrus odoratus*) flower color requires the **complementary action** of two unlinked genes, both encoding biosynthetic enzymes in the anthocyanin pathway. Bateson and Punnett (1905) crossed two pure-breeding white strains and obtained purple F$_1$ offspring — an unexpected result that reflected complementation between the recessive defects in the two parental lines. The F$_2$ ratio is **9 purple : 7 white**.
 
+: Duplicate Recessive Epistasis (9:7) — Sweet pea flower color: Genotype and Both enzymes functional?. {#tbl:unit_V_mendelian_extensions_and_human_genetics_duplicate_recessive_epistasis_9_7_sweet_pea_flower_color}
 | Genotype | Both enzymes functional? | Color |
 |----------|--------------------------|-------|
 | C\_P\_ | Yes — full pathway active | Purple |
@@ -156,6 +152,7 @@ When **either dominant allele alone is sufficient** to produce the phenotype, pr
 
 #### Combinatorics summary
 
+: Combinatorics summary: Modified F_2 ratio and Mechanism. {#tbl:unit_V_mendelian_extensions_and_human_genetics_combinatorics_summary}
 | Modified F$_2$ ratio | Mechanism | Example |
 |---------------------|-----------|---------|
 | 9:3:4 | Recessive epistasis | Labrador coat color (B/E) |
@@ -194,7 +191,7 @@ The remaining $\tfrac{15}{16}$ of offspring have triangular capsules. The 15:1 r
 **Multiple genes** contribute additively to a single continuous (quantitative) trait:
 
 - **Human skin color**: At least 7 genes contribute (SLC24A5, SLC45A2, TYR, TYRP1, OCA2, KITLG, MC1R and others). Each gene has alleles that contribute incrementally to melanin production. The result is a **continuous distribution** (approximately normal/Gaussian) rather than discrete classes.
-- **Human height**: ~700 GWAS loci identified; each has a small effect (1-2 mm per allele). Environmental factors (nutrition, health) also contribute significantly. Heritability ~0.8 in well-nourished populations.
+- **Human height**: the largest common-variant maps now resolve thousands of small-effect loci; a 2022 study of 5.4 million people reported 12,111 independent height-associated SNPs, with prediction still strongest in European-ancestry validation cohorts \citep{yengo2022heightgwas}. Environmental factors (nutrition, health) also contribute significantly, so height remains a model for polygenic inheritance rather than a deterministic genotype readout.
 
 The number of phenotypic classes for n contributing loci (each with two alleles, additive effects) = $2n + 1$.
 
@@ -208,6 +205,7 @@ Mendelian ratios assume that every individual carrying a given genotype displays
 
 #### Disease examples
 
+: Disease examples: Phenomenon and Disorder. {#tbl:unit_V_mendelian_extensions_and_human_genetics_disease_examples}
 | Phenomenon | Disorder | Detail |
 |-----------|----------|--------|
 | Reduced penetrance | **BRCA1/BRCA2** breast/ovarian cancer | ~70–80% lifetime breast cancer risk in BRCA1 carriers; some carriers rarely develop disease |
@@ -222,7 +220,7 @@ Mendelian ratios assume that every individual carrying a given genotype displays
 
 The biological causes of incomplete penetrance and variable expressivity include **modifier genes** (other loci that influence how the primary mutation manifests), **stochastic developmental events** (random fluctuations during embryogenesis), **environmental triggers** (diet, infection, smoking), **epigenetic state** (methylation patterns inherited or established during development), and — for X-linked traits in females — **random X-inactivation patterns** (\cref{sec:unit_V_chromosomal_inheritance}).
 
-For genetic counseling, incomplete penetrance complicates risk prediction: a "negative" family member is not certainly mutation-free, and a "positive" family history is not a assurance of disease. Penetrance estimates are typically reported as age-specific cumulative risks (e.g., "80% by age 70 for BRCA1") rather than single numbers.
+For genetic counseling, incomplete penetrance complicates risk prediction: a "negative" family member is not certainly mutation-free, and a "positive" family history is not an assurance of disease. Penetrance estimates are typically reported as age-specific cumulative risks (e.g., "80% by age 70 for BRCA1") rather than single numbers.
 
 ### Genomic Imprinting and Parent-of-Origin Effects
 
@@ -259,9 +257,9 @@ The **mother's genotype** (not the offspring's) determines the offspring's pheno
 - **Model or quantitative lens:** Pedigree, epistasis, and multi-locus probability calculations.
 - **Data skill:** Infer inheritance mode and extension mechanism from family or cross data.
 - **Practice cadence:** Statistical Tests and Data Analysis, Representing and Describing Data.
-- **Common misconception to repair:** A single-gene model is a starting hypothesis, not always sufficient by itself.
-- **Primary lab:** \cref{sec:lab_unit_V_mendelian_extensions_and_human_genetics}.
-- **Question bank:** \cref{sec:q_unit_V_mendelian_extensions_and_human_genetics}.
+- **Common misconception to repair:** A single-gene model is a starting hypothesis, not the default for every trait.
+- **Primary lab:** \nameref{sec:lab_unit_V_mendelian_extensions_and_human_genetics}.
+- **Question bank:** \nameref{sec:q_unit_V_mendelian_extensions_and_human_genetics}.
 - **Transfer task:** Transfer extension reasoning to counseling, GWAS interpretation, and breeding.
 - **Bridge to computation:** `biology.genetics.genetics.punnett_square`.
 <!-- curriculum-scaffold-end -->
@@ -282,6 +280,7 @@ Human genetics has historically been the inverse of Mendel's pea garden — inst
 
 **Molecular mechanism**: The *HTT* gene contains a polymorphic CAG trinucleotide repeat in its first exon, encoding a polyglutamine (polyQ) tract in the huntingtin protein. The number of CAG repeats determines disease status:
 
+: Autosomal Dominant Disorders: Huntington's Disease and CAG Repeat Expansion: CAG repeats and Disease status. {#tbl:unit_V_mendelian_extensions_and_human_genetics_autosomal_dominant_disorders_huntington_s_disease_and_cag_repeat_expansion}
 | CAG repeats | Disease status |
 |-------------|----------------|
 | ≤ 26 | Normal — no risk; stable inheritance |
@@ -299,7 +298,7 @@ The expanded polyQ tract causes the huntingtin protein to misfold and aggregate,
 
 ### Autosomal Recessive Disorders: PKU and the Logic of Newborn Screening
 
-**Phenylketonuria (PKU)** is an autosomal recessive disorder caused by mutations in the *PAH* gene on chromosome 12q23.2 encoding **phenylalanine hydroxylase**, the liver enzyme that converts phenylalanine to tyrosine. PKU illustrates how a single biochemical defect cascades into multiple phenotypes (pleiotropy) and how early detection plus dietary intervention can prevent the most devastating manifestations.
+**Phenylketonuria (PKU)** is an autosomal recessive disorder caused by mutations in the *PAH* gene on chromosome 12q23.2 encoding **phenylalanine hydroxylase**, the liver enzyme that converts phenylalanine to tyrosine. Archibald Garrod's study of alkaptonuria established the concept of **inborn errors of metabolism** — single-gene biochemical defects with predictable clinical consequences \citep{garrod1902alkaptonuria}. PKU illustrates how a single biochemical defect cascades into multiple phenotypes (pleiotropy) and how early detection plus dietary intervention can prevent the most devastating manifestations.
 
 **Biochemistry**: PAH is a tetrameric enzyme requiring tetrahydrobiopterin (BH4) as cofactor. In its absence, phenylalanine accumulates to toxic concentrations (>20 mg/dL versus normal <2 mg/dL) while tyrosine — the precursor of dopamine, melanin, and thyroid hormone — becomes deficient. The metabolic consequences include:
 
@@ -317,6 +316,7 @@ The expanded polyQ tract causes the huntingtin protein to misfold and aggregate,
 
 ### Other key autosomal disorders
 
+: Other key autosomal disorders: Disorder and Inheritance. {#tbl:unit_V_mendelian_extensions_and_human_genetics_other_key_autosomal_disorders}
 | Disorder | Inheritance | Gene | Mechanism |
 |----------|-------------|------|-----------|
 | **Cystic fibrosis** | AR | *CFTR* | Chloride channel defect; thick mucus; ΔF508 most common |
@@ -331,6 +331,7 @@ The expanded polyQ tract causes the huntingtin protein to misfold and aggregate,
 
 The 2,000+ identified *CFTR* variants are grouped into **six classes** by their effect on protein production and function — a classification that now drives **mutation-specific therapy**:
 
+: CFTR mutation classes — a paradigm for genotype–phenotype maps: Class and Defect. {#tbl:unit_V_mendelian_extensions_and_human_genetics_cftr_mutation_classes_a_paradigm_for_genotype_phenotype_maps}
 | Class | Defect | Examples | Therapy |
 |-------|--------|----------|---------|
 | I | No protein synthesis (premature stop codons) | W1282X, G542X | Read-through agents (ataluren — limited efficacy) |
@@ -359,6 +360,7 @@ Males are hemizygous for X-linked genes (one X, one Y), so a single recessive al
 
 **Hemophilia A** (~1 in 5,000 male births) is caused by mutations in the *F8* gene at Xq28 encoding **coagulation factor VIII**, a 2,332-amino-acid plasma glycoprotein that forms a tenase complex with activated factor IXa to activate factor X in the intrinsic coagulation pathway. The clinical phenotype is dose-dependent on residual factor VIII activity:
 
+: Hemophilia A — F8 and Factor VIII: Severity and Factor VIII activity. {#tbl:unit_V_mendelian_extensions_and_human_genetics_hemophilia_a_f8_and_factor_viii}
 | Severity | Factor VIII activity | Bleeding pattern |
 |----------|----------------------|------------------|
 | Severe | < 1% | Spontaneous joint and muscle hemorrhage; treated prophylactically |
@@ -399,6 +401,7 @@ Female carriers of X-linked recessive disorders are typically clinically normal,
 
 A diagnostic feature of X-linked recessive inheritance is that **carrier frequency in females greatly exceeds affected-female frequency**, even though both sexes draw from the same X-linked allele frequency $q$. The arithmetic follows directly from hemizygosity in males and Hardy-Weinberg expectations in females (\cref{sec:unit_V_population_genetics}):
 
+: Carrier frequency vs. affected-male frequency: a population-genetic asymmetry: Quantity and Formula. {#tbl:unit_V_mendelian_extensions_and_human_genetics_carrier_frequency_vs_affected_male_frequency_a_population_genetic_asymmetry}
 | Quantity | Formula | Reason |
 |----------|---------|--------|
 | Affected males | $q$ | Hemizygous: one mutant allele suffices |
@@ -452,13 +455,13 @@ flowchart TD
 
 ### What GWAS has revealed
 
-Since the first successful GWAS (age-related macular degeneration, 2005), tens of thousands of genome-wide significant associations have been catalogued. Several lessons have emerged:
+Since the first successful GWAS (age-related macular degeneration, 2005), tens of thousands of genome-wide significant associations have been catalogued. Several lessons have emerged \citep{manolio2009missingheritability,yengo2022heightgwas}:
 
 1. **Most common diseases are highly polygenic.** Schizophrenia: >270 loci. Type 2 diabetes: >400 loci. Height: >12,000 contributing variants. The "one-gene, one-disease" Mendelian model rarely applies to common conditions.
 2. **Effect sizes are small.** Individual common variants typically increase disease risk by 1.05–1.3-fold (odds ratios of 1.05–1.3). The largest common-variant effects are typically in immune disorders (HLA region, OR up to 5–10 for specific autoimmune conditions).
 3. **Most GWAS hits are non-coding.** Approximately 90% of GWAS-associated variants lie outside protein-coding regions, in regulatory elements (enhancers, promoters, 3′ UTRs). They alter gene **expression** rather than protein sequence — connecting GWAS to the regulatory biology of \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}.
 4. **Pleiotropy is the rule, not the exception.** Many GWAS loci affect multiple traits. A locus near *FTO* influences both BMI and diabetes risk. A locus near *TCF7L2* affects type 2 diabetes, fasting glucose, and bone mineral density.
-5. **"Missing heritability"** persists — common GWAS variants typically explain 5–25% of trait heritability, far less than twin studies suggest is genetic. The gap reflects rare variants (insufficient power), structural variation (poorly captured by SNP arrays), gene-environment interactions, and non-additive effects (epistasis, dominance).
+5. **"Missing heritability"** persists — for many traits, common GWAS variants explain less variance than family and twin studies imply. The gap reflects many small-effect variants, rare variants, structural variation, gene-environment interactions, and non-additive effects (epistasis, dominance) \citep{manolio2009missingheritability}.
 
 ### Polygenic risk scores (PRS)
 
@@ -508,6 +511,8 @@ A PRS should be treated as a calibrated, ancestry- and context-dependent risk mo
 
 Governance is part of the biological interpretation. Consent should specify secondary use, data retention, reidentification risk, and which relatives might be indirectly implicated. In the United States, GINA addresses health-insurance and employment discrimination, but it does not extend to life, disability, or long-term-care insurance \citep{hhs2009gina}. A genetic-counseling workflow therefore separates what the score estimates from what clinicians, insurers, employers, families, or law-enforcement agencies are permitted to do with it.
 
+Clinical interpretation also separates a family pattern from variant evidence. A sequence change is not simply "the disease gene"; laboratories classify variants by combining population frequency, segregation, computational prediction, functional assays, and previous clinical reports under ACMG/AMP categories such as pathogenic, likely pathogenic, uncertain significance, likely benign, and benign \citep{richards2015variantinterpretation}. ClinVar archives submitted variant-phenotype interpretations and supporting evidence, while OMIM organizes curated gene-phenotype relationships for Mendelian disorders and traits \citep{landrum2014clinvar,clinvar2026,amberger2019omim}.
+
 **Concept Check 16.3**
 
 > 1. Why is the genome-wide significance threshold $p < 5 \times 10^{-8}$ and not the conventional $p < 0.05$?
@@ -541,6 +546,7 @@ Where:
 
 **Critical values:**
 
+: Formula and procedure for chi-square goodness-of-fit testing. {#tbl:unit_V_mendelian_extensions_and_human_genetics_formula_and_procedure}
 | df | $\alpha = 0.05$ | $\alpha = 0.01$ |
 |----|-----------------|-----------------|
 | 1 | 3.841 | 6.635 |
@@ -636,10 +642,11 @@ sequenceDiagram
     A->>R: Dominant vs Recessive
     A->>R: Autosomal vs X-linked vs Mitochondrial
 ```
-<!-- alt: Sequence diagram showing pedigree analysis works as a decision tree: affected relatives across generations, sex bias, and transmission through parents distinguish dominant, recessive, X-linked, mitochondrial, and de novo patterns. -->
+<!-- alt: Sequence diagram showing pedigree analysis works as a decision tree: affected relatives across generations, sex bias, and transmission through parents distinguish dominant, recessive, X-linked, mitochondrial, and de novo patterns. Mitochondrial disease can arise from mitochondrial-DNA or nuclear-DNA variants, and heteroplasmy means maternal transmission can produce variable severity rather than identical outcomes. -->
 
-*Pedigree analysis works as a decision tree: affected relatives across generations, sex bias, and transmission through parents distinguish dominant, recessive, X-linked, mitochondrial, and de novo patterns.*
+*Pedigree analysis works as a decision tree: affected relatives across generations, sex bias, and transmission through parents distinguish dominant, recessive, X-linked, mitochondrial, and de novo patterns. Mitochondrial disease can arise from mitochondrial-DNA or nuclear-DNA variants, and heteroplasmy means maternal transmission can produce variable severity rather than identical outcomes \citep{gorman2016mitochondrialdiseases}.*
 
+: Inheritance Pattern Recognition: Pattern and Key Diagnostic Clues. {#tbl:unit_V_mendelian_extensions_and_human_genetics_inheritance_pattern_recognition}
 | Pattern | Key Diagnostic Clues |
 |---------|---------------------|
 | **Autosomal dominant** | Affected in every generation; unaffected parents produce primarily unaffected children; males and females equally affected; affected individuals have at least one affected parent |
@@ -713,6 +720,7 @@ Using branching:
 - A locus: $\frac{3}{4}$ A\_ (agouti pattern) : $\frac{1}{4}$ aa (black pattern)
 - C locus: $\frac{3}{4}$ C\_ (colored) : $\frac{1}{4}$ cc (albino)
 
+: Worked Pedigree Problem: Genotype and Phenotype. {#tbl:unit_V_mendelian_extensions_and_human_genetics_worked_pedigree_problem}
 | Genotype | Phenotype | Fraction |
 |----------|-----------|----------|
 | A\_C\_ | Agouti | $\frac{9}{16}$ |
@@ -734,7 +742,7 @@ If the question intended Aacc: Among most albino mice ($\frac{4}{16}$), the frac
 
 ## Computational Bridge
 
-Mendelian ratios are enumerated exactly by `punnett_square`:
+Mendelian ratios are enumerated exactly by `punnett_square`; the heterozygote cross in \cref{fig:unit_V_punnett_square} shows the canonical 3:1 phenotype outcome visually.
 
 ```python
 from biology.genetics import punnett_square
@@ -852,6 +860,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Mendelian Extensions and Human Genetics. {#tbl:unit_V_mendelian_extensions_and_human_genetics_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/genetics/genetics.py` (`punnett_square`, `hardy_weinberg`, `chi_squared_test`) | Reproduce inheritance ratios, equilibrium expectations, and goodness-of-fit tests. |

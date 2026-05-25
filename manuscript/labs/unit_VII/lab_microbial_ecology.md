@@ -1,6 +1,5 @@
-# Lab — Microbial Ecology and the Microbiome {.unnumbered}
+# Lab — Microbial Ecology and the Microbiome {#sec:lab_unit_VII_microbial_ecology .unnumbered}
 
-\label{sec:lab_unit_VII_microbial_ecology}
 
 *This activity accompanies \cref{sec:unit_VII_microbial_ecology} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -52,6 +51,7 @@ The human gut microbiome contains ~3.8 × 10¹³ bacteria from hundreds of speci
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VII_microbial_ecology_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Microbial Ecology and the Microbiome: pathogen-surveillance source card: organism-resistance pair, official guidance date, setting, and intervention limit | 1 |
@@ -59,7 +59,7 @@ The human gut microbiome contains ~3.8 × 10¹³ bacteria from hundreds of speci
 | Printed colony-image panel from archived BSL-1 teaching plates | 1 |
 | Printed 16S rRNA OTU table (two samples: healthy gut vs antibiotic-treated gut — 10 taxa, abundance data) | 1 |
 | Calculator | 1 |
-| Coloured pencils | 3 |
+| Colored pencils | 3 |
 | Interaction network diagram template (printed) | 1 |
 | Calculator or optional Python REPL with this project installed | 1 |
 | Replicate read-count table and rarefaction checklist | 1 |
@@ -107,6 +107,7 @@ print("reference domains:", sorted({organism.domain for organism in REFERENCE_OR
 
 ## Data Recording {.unnumbered}
 
+: Part 3: Microbial Interaction Network Analysis: Sample source and Taxon richness. {#tbl:unit_VII_microbial_ecology_part_3_microbial_interaction_network_analysis}
 | Sample source | Taxon richness | Shannon H' | Evenness | Read depth |
 | ------------- | -------------- | ---------- | -------- | ---------- |
 | Soil | | | | |
@@ -114,6 +115,7 @@ print("reference domains:", sorted({organism.domain for organism in REFERENCE_OR
 | Tap water | | | | |
 | Gut | | | | |
 
+: Part 3: Microbial Interaction Network Analysis: Taxon and Healthy sample reads. {#tbl:unit_VII_microbial_ecology_part_3_microbial_interaction_network_analysis_2}
 | Taxon | Healthy sample reads | p_i (healthy) | p_i × ln(p_i) | Antibiotic sample reads | p_i (antibiotic) |
 | ----- | -------------------- | ------------- | ------------- | ----------------------- | ----------------- |
 | | | | | | |
@@ -149,6 +151,7 @@ Rarefaction or exclusion decision: ___; Reproducibility concern: ___
 Before answering the analysis questions, annotate the paper dataset for
 **Microbial Ecology and the Microbiome** with a reproducibility pass:
 
+: Part 3: Microbial Interaction Network Analysis: Evidence check and Student action. {#tbl:unit_VII_microbial_ecology_part_3_microbial_interaction_network_analysis_13}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -178,7 +181,7 @@ Complete the source-governance card for Microbial Ecology and the Microbiome bef
 
 2. Antibiotic treatment usually reduces H'. What does low H' indicate about community stability? Name one specific clinical consequence of reduced microbiome diversity following broad-spectrum antibiotic use.
 
-3. The "great plate count anomaly" refers to the fact that about 1% of environmental microbes form colonies on standard media. Propose three reasons why the remaining 99% are "unculturable" and describe one molecular technique that can characterise them without culturing.
+3. The "great plate count anomaly" refers to the fact that about 1% of environmental microbes form colonies on standard media. Propose three reasons why the remaining 99% are "unculturable" and describe one molecular technique that can characterize them without culturing.
 
 4. *Akkermansia muciniphila* (a gut commensal) degrades mucin and produces acetate and propionate consumed by other bacteria. If *Akkermansia* is lost, predict the cascade effects on adjacent taxa in your interaction network.
 
@@ -244,7 +247,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_VII_microbial_ecology} that your data either confirmed or complicated. Cite the specific passage.
 

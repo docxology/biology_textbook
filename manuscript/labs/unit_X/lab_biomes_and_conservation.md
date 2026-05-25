@@ -1,6 +1,5 @@
-# Lab — Biomes and Conservation Biology {.unnumbered}
+# Lab — Biomes and Conservation Biology {#sec:lab_unit_X_biomes_and_conservation .unnumbered}
 
-\label{sec:lab_unit_X_biomes_and_conservation}
 
 ## Learning Objectives {.unnumbered}
 
@@ -36,6 +35,7 @@ Biomes are large-scale communities determined primarily by climate (temperature 
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_X_biomes_and_conservation_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Biomes and Conservation Biology: conservation-assessment source card comparing GBIF occurrence records, IUCN category evidence, IPBES policy synthesis, assessment version, and monitoring trigger | 1 |
@@ -83,6 +83,7 @@ Biomes are large-scale communities determined primarily by climate (temperature 
 
 Biome classifications:
 
+: Alignment and Rubric Map: Location and MAT (°C). {#tbl:unit_X_biomes_and_conservation_alignment_and_rubric_map_2}
 | Location | MAT (°C) | MAP (mm) | Biome |
 | -------- | --------- | --------- | ----- |
 | 1 | 28 | 2,400 | |
@@ -119,6 +120,7 @@ Coral risk class: _______; assisted-evolution option: _______; food-system trade
 Before answering the analysis questions, annotate the paper dataset for
 **Biomes and Conservation Biology** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_X_biomes_and_conservation_alignment_and_rubric_map_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -146,7 +148,7 @@ Complete the source-governance card for Biomes and Conservation Biology before w
 
 1. Two locations had the same MAT but very different biomes because of different MAP values. What does this demonstrate about the relative importance of temperature vs precipitation in biome determination? Name an example pair from the Whittaker diagram where this contrast is striking.
 2. Your log-log plot of the species-area relationship should be linear. What does the slope (z) represent ecologically? Why do oceanic islands have higher z values (~0.35) than mainland habitat patches (~0.12)?
-3. Predicted species loss from deforestation assumes equilibrium. Explain the concept of "extinction debt" — why the full extinction toll of habitat reduction is primarily realised decades after the habitat loss, and what this implies for urgency in conservation action.
+3. Predicted species loss from deforestation assumes equilibrium. Explain the concept of "extinction debt" — why the full extinction toll of habitat reduction is primarily realized decades after the habitat loss, and what this implies for urgency in conservation action.
 4. The 50/500 rule gives threshold population sizes for genetic viability. Explain: (a) why populations below N_e = 50 suffer inbreeding depression; (b) why populations below N_e = 500 lose the variation needed to adapt to future environmental change. What is the difference between census population size (N_c) and effective population size (N_e)?
 5. Design a conservation reserve for a large mammal (e.g., tiger, Amur leopard) with a home range of 200 km² that requires a minimum viable population of 100 individuals. Calculate the minimum reserve area, explain whether a single large reserve (SLOSS debate: Single Large or Several Small) is preferable in this case, and identify two human activities outside the reserve boundary that would most threaten population persistence.
 6. A reef has high DHW exposure but a recovery window long enough for partial symbiont reshuffling, while a nearby watershed continues to deliver nutrient pollution. Which intervention should be treated as climate adaptation, which as local-stressor reduction, and why would assisted evolution alone be insufficient?
@@ -155,10 +157,10 @@ Complete the source-governance card for Biomes and Conservation Biology before w
 
 ## Post-Lab Synthesis {.unnumbered}
 
-> **Concept Check (Synthesis):** A regional conservation board can fund one of two options for a fragmented forest landscape: (i) a wildlife corridor connecting two isolated forest fragments of about 200 individuals each, or (ii) a captive-breeding programme drawing from one of the fragments.
+> **Concept Check (Synthesis):** A regional conservation board can fund one of two options for a fragmented forest landscape: (i) a wildlife corridor connecting two isolated forest fragments of about 200 individuals each, or (ii) a captive-breeding program drawing from one of the fragments.
 >
 > (a) Using minimum viable population theory and what you know about effective population size, evaluate how each option would influence Ne, gene flow, and the rate of heterozygosity loss across the next several generations. Identify which option is more likely to produce a measurable change in genetic diversity within ten years.
-> (b) Identify one specific risk associated with each option — for example, disease transmission through the corridor or behavioural deficits in captive-bred releases — and propose one monitoring metric that would let the team detect that risk early enough to adjust the strategy.
+> (b) Identify one specific risk associated with each option — for example, disease transmission through the corridor or behavioral deficits in captive-bred releases — and propose one monitoring metric that would let the team detect that risk early enough to adjust the strategy.
 
 ## Safety and Ethics Notes {.unnumbered}
 
@@ -177,7 +179,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -196,5 +198,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_X_biomes_and_conservation}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

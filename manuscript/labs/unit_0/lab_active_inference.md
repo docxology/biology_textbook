@@ -1,6 +1,5 @@
-# Lab C — Active Inference and the Free Energy Principle {.unnumbered}
+# Lab C — Active Inference and the Free Energy Principle {#sec:lab_unit_0_active_inference .unnumbered}
 
-\label{sec:lab_unit_0_active_inference}
 
 *This activity accompanies \cref{sec:unit_0_active_inference} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -39,16 +38,16 @@
 
 ## Lab Context: Active Inference and the Free Energy Principle {.unnumbered}
 
-Active inference proposes that living agents minimise a quantity called **variational free energy** — an upper bound on the "surprise" of observed sensory data given the agent's internal generative model. The core equation (simplified):
+Active inference proposes that living agents minimize a quantity called **variational free energy** — an upper bound on the "surprise" of observed sensory data given the agent's internal generative model. The core equation (simplified):
 
 \begin{equation}
 F \;=\; \mathbb{E}_{Q}[\,\log Q(\mathbf{z}) - \log P(\mathbf{o}, \mathbf{z})\,]
 \label{eq:lab_ai_fe}
 \end{equation}
 
-where $Q(\mathbf{z})$ is the agent's current belief about hidden causes $\mathbf{z}$, and $P(\mathbf{o}, \mathbf{z})$ is the agent's model of how those causes generate observations $\mathbf{o}$. Minimising $F$ is achieved either by **updating beliefs** (perceptual inference) or **changing the world through action** (active inference).
+where $Q(\mathbf{z})$ is the agent's current belief about hidden causes $\mathbf{z}$, and $P(\mathbf{o}, \mathbf{z})$ is the agent's model of how those causes generate observations $\mathbf{o}$. Minimizing $F$ is achieved either by **updating beliefs** (perceptual inference) or **changing the world through action** (active inference).
 
-Today's lab is paper-based: you will work through two hand-computed examples and one behaviour-card classification exercise. No computer is required, though a calculator (or phone app) is useful for the Gaussian arithmetic.
+Today's lab is paper-based: you will work through two hand-computed examples and one behavior-card classification exercise. No computer is required, though a calculator (or phone app) is useful for the Gaussian arithmetic.
 
 ---
 
@@ -64,9 +63,9 @@ Today's lab is paper-based: you will work through two hand-computed examples and
 
 - Source-governance card for Active Inference and the Free Energy Principle: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
 - Printed worksheet with two Bayesian inference problems (provided).
-- Behaviour scenario-card set with ten animal and human examples.
+- Behavior scenario-card set with ten animal and human examples.
 - Calculator or phone.
-- Coloured pens.
+- Colored pens.
 
 ---
 
@@ -74,7 +73,7 @@ Today's lab is paper-based: you will work through two hand-computed examples and
 
 ### Part 1 — Hand-computed Bayesian Update {.unnumbered}
 
-A bird forages for seeds hidden under two snow patches. Its prior belief about the location of food is a Gaussian centred at position $\mu_0 = 10$ m (where food was yesterday) with variance $\sigma_0^2 = 4\,\mathrm{m}^2$. A partial snow melt gives a noisy visual cue that food is at position $o = 16$ m with likelihood variance $\sigma_o^2 = 12\,\mathrm{m}^2$.
+A bird forages for seeds hidden under two snow patches. Its prior belief about the location of food is a Gaussian centered at position $\mu_0 = 10$ m (where food was yesterday) with variance $\sigma_0^2 = 4\,\mathrm{m}^2$. A partial snow melt gives a noisy visual cue that food is at position $o = 16$ m with likelihood variance $\sigma_o^2 = 12\,\mathrm{m}^2$.
 
 1. Compute the **prediction error**: $\varepsilon = o - \mu_0$.
 2. Compute the **Kalman gain**: $K = \sigma_0^2 / (\sigma_0^2 + \sigma_o^2)$.
@@ -90,14 +89,15 @@ A person wakes up cold. Their generative model has a tight prior on body tempera
 2. The posterior free energy is reduced but still positive. List **three actions** the person could take that would drive free energy further toward zero by *changing the observation* rather than the belief.
 3. Argue in one paragraph why active inference is more effective than perceptual inference when the prior precision is tight (small $\sigma_0$) — i.e., when the organism is "committed" to a particular internal state.
 
-### Part 3 — Behaviour Scenario Classification {.unnumbered}
+### Part 3 — Behavior Scenario Classification {.unnumbered}
 
-Use the ten printed behaviour scenario cards. For each behaviour, annotate whether it is perceptual (sampling information) or active (imposing prediction on the environment). Record the evidence phrase that made your classification reproducible. As an optional extension outside class, you may compare the cards with a respectful observation of an animal or consenting human, but the scenario cards are the required dataset.
+Use the ten printed behavior scenario cards. For each behavior, annotate whether it is perceptual (sampling information) or active (imposing prediction on the environment). Record the evidence phrase that made your classification reproducible. As an optional extension outside class, you may compare the cards with a respectful observation of an animal or consenting human, but the scenario cards are the required dataset.
 
 ---
 
 ## Data Tables {.unnumbered}
 
+: Part 3 — Behavior Scenario Classification: Step and Quantity. {#tbl:unit_0_active_inference_part_3_behaviour_scenario_classification}
 | Step | Quantity | Symbol | Computed value | Units |
 | ---- | -------- | ------ | -------------- | ----- |
 | 1 | Prediction error | $\varepsilon$ | | m |
@@ -107,7 +107,8 @@ Use the ten printed behaviour scenario cards. For each behaviour, annotate wheth
 | 5a | $\mu_1$ with very noisy cue | | | m |
 | 5b | $\mu_1$ with very precise cue | | | m |
 
-| Observation # | Behaviour described | Perceptual or active? | Brief reasoning |
+: Part 3 — Behavior Scenario Classification: Observation # and Behavior described. {#tbl:unit_0_active_inference_part_3_behaviour_scenario_classification_2}
+| Observation # | Behavior described | Perceptual or active? | Brief reasoning |
 | ------------- | ------------------- | --------------------- | --------------- |
 | 1 | | | |
 | 2 | | | |
@@ -134,6 +135,7 @@ Use the ten printed behaviour scenario cards. For each behaviour, annotate wheth
 Before answering the analysis questions, annotate the paper dataset for
 **Active Inference and the Free Energy Principle** with a reproducibility pass:
 
+: Part 3 — Behavior Scenario Classification: Evidence check and Student action. {#tbl:unit_0_active_inference_part_3_behaviour_scenario_classification_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -142,7 +144,7 @@ Before answering the analysis questions, annotate the paper dataset for
 | Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
 | Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
 
-Focus note: When you annotate the Bayesian-update and perceptual-versus-active-inference datasets, the load-bearing numbers are the prior variance, the sensory variance, and the resulting Kalman gain: check that the posterior shift is reproducible from those three values alone, and that each behaviour-classification verdict cites the specific prediction-error a sceptic could recompute. Keep required work paper-based; any material-handling or
+Focus note: When you annotate the Bayesian-update and perceptual-versus-active-inference datasets, the load-bearing numbers are the prior variance, the sensory variance, and the resulting Kalman gain: check that the posterior shift is reproducible from those three values alone, and that each behavior-classification verdict cites the specific prediction-error a sceptic could recompute. Keep required work paper-based; any material-handling or
 equipment version belongs only in an optional extension.
 
 ### Source-Governance Checkpoint {.unnumbered}
@@ -167,15 +169,15 @@ Complete the source-governance card for Active Inference and the Free Energy Pri
 1. Explain in one paragraph how the Kalman gain can be read as "precision-weighted uncertainty reduction" — why $K$ depends on the ratio of prior variance to total variance.
 2. The generative model in Part 2 uses a *tight* prior (low variance) on body temperature. How would the calculation change if the prior were loose ($\sigma = 5$ °C)? Which regime corresponds to a pre-homeostatic organism; which to a strictly regulated endotherm?
 3. In humans, chronic anxiety is sometimes described as a "tight prior on safety." Using your computation from Part 2, explain why normal day-to-day sensory noise becomes persistently surprising to an anxious agent and what "widening the prior" (via exposure therapy or pharmacology) is doing mathematically.
-4. Scientists have attempted to build artificial life — robots that minimise free energy with respect to a battery-level sensor. Describe what the agent's **prior** on battery state and **action repertoire** would need to be so that the robot "feels hungry" at low charge and seeks a charging pad.
-5. The textbook chapter notes that evolution itself can be cast as free-energy minimisation at the population scale: organisms whose generative models fail are eliminated. Argue for or against this framing by contrasting it with the Modern Synthesis's emphasis on fitness differentials.
+4. Scientists have attempted to build artificial life — robots that minimize free energy with respect to a battery-level sensor. Describe what the agent's **prior** on battery state and **action repertoire** would need to be so that the robot "feels hungry" at low charge and seeks a charging pad.
+5. The textbook chapter notes that evolution itself can be cast as free-energy minimization at the population scale: organisms whose generative models fail are eliminated. Argue for or against this framing by contrasting it with the Modern Synthesis's emphasis on fitness differentials.
 
 ## Post-Lab Synthesis {.unnumbered}
 
 > **Concept Check (Synthesis):** A neuroscientist studies a deep-sea fish that lives in near-total darkness and rarely encounters novel visual stimuli. The fish has unusually large lateral-line organs (which detect water displacement) and a small optic tectum.
 >
-> (a) Using the active-inference framework, predict which sensory channel will carry the higher precision-weighting in this animal's generative model, and explain how you would test that prediction with a behavioural assay rather than neural recording.
-> (b) A traditional stimulus–response account would describe the fish as "tuned" to mechanical cues by selection. Contrast that explanation with an active-inference account that emphasises ongoing belief updating. Which framework yields the more falsifiable prediction for what happens when the fish is moved into a visually rich tank?
+> (a) Using the active-inference framework, predict which sensory channel will carry the higher precision-weighting in this animal's generative model, and explain how you would test that prediction with a behavioral assay rather than neural recording.
+> (b) A traditional stimulus–response account would describe the fish as "tuned" to mechanical cues by selection. Contrast that explanation with an active-inference account that emphasizes ongoing belief updating. Which framework yields the more falsifiable prediction for what happens when the fish is moved into a visually rich tank?
 > (c) Design one follow-up experiment that would distinguish a population-level adaptation (a fixed generative model shaped by selection) from a within-lifetime adjustment (the animal re-weighting precision as it gathers evidence in the new environment).
 
 ---
@@ -190,6 +192,6 @@ Complete the source-governance card for Active Inference and the Free Energy Pri
 
 ## Safety and Ethics Notes {.unnumbered}
 
-This lab is entirely paper-based and computational — no reagents, no instruments, no risk. Optional observations outside class must not disturb animals. If recording human behaviour, obtain consent and preserve anonymity.
+This lab is entirely paper-based and computational — no reagents, no instruments, no risk. Optional observations outside class must not disturb animals. If recording human behavior, obtain consent and preserve anonymity.
 
 *Module: `src/biology/neuroscience/neuroscience.py` (Bayesian update illustrations).*

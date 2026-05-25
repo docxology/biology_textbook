@@ -26,8 +26,8 @@
 - **Data skill:** Fit or interpret enzyme-rate data and identify which parameter changed.
 - **Practice cadence:** Concept Explanation, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** A catalyst changes rate, not the equilibrium constant or the sign of delta G.
-- **Primary lab:** \cref{sec:lab_unit_I_enzymes_and_kinetics}.
-- **Question bank:** \cref{sec:q_unit_I_enzymes_and_kinetics}.
+- **Primary lab:** \nameref{sec:lab_unit_I_enzymes_and_kinetics}.
+- **Question bank:** \nameref{sec:q_unit_I_enzymes_and_kinetics}.
 - **Transfer task:** Apply enzyme-kinetic reasoning to drug dosing, metabolic control, or diagnostic assays.
 - **Bridge to computation:** `biology.biochemistry.biochemistry.michaelis_menten`.
 <!-- curriculum-scaffold-end -->
@@ -44,7 +44,7 @@
 >
 > The mechanism is not conventional. OMP decarboxylase uses no metal ions, no cofactors, and
 > performs general acid-base catalysis primarily through electrostatic destabilization of the
-> substrate's ground state rather than direct stabilisation of the transition state. Understanding
+> substrate's ground state rather than direct stabilization of the transition state. Understanding
 > how it achieves such a feat challenged enzymologists for decades and continues to inform the
 > design of enzyme inhibitors as antifungal and antiprotozoal drugs. OMP decarboxylase is the
 > essential enzyme in the pyrimidine biosynthesis pathway — block it, and pathogens cannot make
@@ -61,6 +61,7 @@ The free energy change of a reaction ($\Delta G$) dictates whether a reaction is
 
 **Remarkable rate enhancements:**
 
+: Study Blueprint: Enzyme and Uncatalysed t_{1/2}. {#tbl:unit_I_enzymes_and_kinetics_study_blueprint}
 | Enzyme | Uncatalysed $t_{1/2}$ | Catalysed $t_{1/2}$ | Rate Enhancement |
 | ------ | -------------------- | ------------------- | ---------------- |
 | OMP decarboxylase | 78 million years | 25 ms | $10^{23}$ |
@@ -86,14 +87,14 @@ where $A$ is the pre-exponential factor. Lowering $\Delta G^{\ddagger}$ by just 
 **How enzymes lower $\Delta G^{\ddagger}$:**
 
 1. **Proximity and orientation:** Substrates are brought together in optimal geometry at the active site, with the entropic cost already paid during binding. Effective concentration of reactants in the active site can exceed $10^8$ M.
-2. **Transition state stabilisation:** The enzyme active site binds the transition state *more tightly* than either substrate or product (complementarity to TS, not substrate). This is the single most important mechanism.
-3. **General acid-base catalysis:** Amino acid side chains (His, Asp, Glu, Lys) donate/accept protons simultaneously with bond breaking/forming, stabilising developing charges in the TS.
+2. **Transition state stabilization:** The enzyme active site binds the transition state *more tightly* than either substrate or product (complementarity to TS, not substrate). This is the single most important mechanism.
+3. **General acid-base catalysis:** Amino acid side chains (His, Asp, Glu, Lys) donate/accept protons simultaneously with bond breaking/forming, stabilizing developing charges in the TS.
 4. **Covalent catalysis:** Transient covalent enzyme-substrate intermediates (Ser proteases, Cys proteases, Lys in Schiff base enzymes). The covalent intermediate provides a lower-energy pathway.
-5. **Metal ion catalysis:** Metal ions (Zn$^{2+}$, Mg$^{2+}$, Fe$^{2+/3+}$) stabilise negative charges, act as Lewis acids, or enable redox chemistry.
+5. **Metal ion catalysis:** Metal ions (Zn$^{2+}$, Mg$^{2+}$, Fe$^{2+/3+}$) stabilize negative charges, act as Lewis acids, or enable redox chemistry.
 6. **Electrostatic catalysis:** The active site creates a microenvironment with a lower effective dielectric constant, enhancing electrostatic interactions.
 7. **Desolvation:** Stripping water from substrate and active-site residues increases their reactivity (e.g., a "naked" carboxylate is a much stronger base than a hydrated one).
 
-> **Concept Check 1:** Transition state analogues --- molecules that mimic the transition state geometry --- are potent enzyme inhibitors. Why are they typically much tighter binders than the substrate itself? (Hint: Consider what the active site is optimised to bind.)
+> **Concept Check 1:** Transition state analogs --- molecules that mimic the transition state geometry --- are potent enzyme inhibitors. Why are they typically much tighter binders than the substrate itself? (Hint: Consider what the active site is optimized to bind.)
 
 ```mermaid
 graph TD
@@ -104,13 +105,13 @@ graph TD
     end
 
     LK --> LK1["Rigid active site<br/>perfectly complementary<br/>to substrate"]
-    LK --> LK2["Problem: Cannot explain<br/>TS stabilisation or<br/>allosteric regulation"]
+    LK --> LK2["Problem: Cannot explain<br/>TS stabilization or<br/>allosteric regulation"]
 
     IF --> IF1["Substrate binding induces<br/>conformational change<br/>in enzyme"]
     IF --> IF2["Active site moulds<br/>around substrate<br/>Improved complementarity to TS"]
 
     CS --> CS1["Enzyme exists as<br/>ensemble of conformations<br/>in dynamic equilibrium"]
-    CS --> CS2["Substrate selects and<br/>stabilises the optimal<br/>pre-existing conformation"]
+    CS --> CS2["Substrate selects and<br/>stabilizes the optimal<br/>pre-existing conformation"]
     CS --> CS3["Supported by NMR<br/>and single-molecule<br/>experiments"]
 
     LK1 -.->|"Too simple"| IF
@@ -120,9 +121,9 @@ graph TD
     style IF fill:#e67e22,color:#fff
     style CS fill:#2ecc71,color:#fff
 ```
-<!-- alt: Graph showing models of enzyme-substrate binding. Evolution of enzyme-substrate binding models. The lock-and-key model (1894) proposed rigid complementarity. The induced-fit model (1958) introduced conformational change upon binding. The modern conformational selection model recognises that enzymes sample multiple conformations, and substrates select the most complementary one. -->
+<!-- alt: Graph showing models of enzyme-substrate binding. Evolution of enzyme-substrate binding models. The lock-and-key model (1894) proposed rigid complementarity. The induced-fit model (1958) introduced conformational change upon binding. The modern conformational selection model recognizes that enzymes sample multiple conformations, and substrates select the most complementary one. -->
 
-*Models of enzyme--substrate binding. Evolution of enzyme-substrate binding models. The lock-and-key model (1894) proposed rigid complementarity. The induced-fit model (1958) introduced conformational change upon binding. The modern conformational selection model recognises that enzymes sample multiple conformations, and substrates select the most complementary one.*
+*Models of enzyme--substrate binding. Evolution of enzyme-substrate binding models. The lock-and-key model (1894) proposed rigid complementarity. The induced-fit model (1958) introduced conformational change upon binding. The modern conformational selection model recognizes that enzymes sample multiple conformations, and substrates select the most complementary one.*
 
 ### Active Site Architecture
 
@@ -133,7 +134,7 @@ The **active site** occupies roughly 1--10% of the enzyme's total surface but ac
 - **Flexibility:** conformational changes upon substrate binding (induced fit model)
 - **Conserved residues:** catalytic residues are highly conserved across species, even when surrounding sequences diverge
 
-The **lock-and-key model** \citep{fischer1894} viewed the active site as rigid. The **induced-fit model** \citep{koshland1958} recognised that substrate binding induces conformational changes that improve active-site complementarity --- validated by crystallographic structures. The modern **conformational selection model** proposes that the enzyme pre-exists in an ensemble of conformations, and the substrate selects the optimal one, shifting the equilibrium.
+The **lock-and-key model** \citep{fischer1894} viewed the active site as rigid. The **induced-fit model** \citep{koshland1958} recognized that substrate binding induces conformational changes that improve active-site complementarity --- validated by crystallographic structures. The modern **conformational selection model** proposes that the enzyme pre-exists in an ensemble of conformations, and the substrate selects the optimal one, shifting the equilibrium.
 
 **Case study --- Hexokinase:** X-ray crystallography reveals that hexokinase undergoes a dramatic conformational change upon glucose binding: two lobes of the enzyme close around the substrate like a jaw, excluding water from the active site. This prevents the wasteful hydrolysis of ATP (which would occur if water could access the γ-phosphate).
 
@@ -143,6 +144,7 @@ The **lock-and-key model** \citep{fischer1894} viewed the active site as rigid. 
 
 The International Union of Biochemistry and Molecular Biology (IUBMB) classifies enzymes into **seven classes** by reaction type, each with a four-digit EC (Enzyme Commission) number:
 
+: Active Site Architecture: EC Class and Name. {#tbl:unit_I_enzymes_and_kinetics_active_site_architecture}
 | EC Class | Name | Reaction Type | Example | EC Number |
 | -------- | ---- | ------------- | ------- | --------- |
 | 1 | Oxidoreductases | Redox reactions | Lactate dehydrogenase | EC 1.1.1.27 |
@@ -153,7 +155,7 @@ The International Union of Biochemistry and Molecular Biology (IUBMB) classifies
 | 6 | Ligases | Bond formation coupled to ATP/GTP hydrolysis | [**DNA ligase**](#gl:dna-ligase) | EC 6.5.1.1 |
 | 7 | **Translocases** | Movement of ions/molecules across membranes | Na$^+$/K$^+$-ATPase | EC 7.2.2.6 |
 
-The **seventh class (translocases)** was added in 2018, recognising the catalytic nature of active transport. Enzyme names follow the pattern: **Substrate(s) + reaction type + "-ase"** (e.g., pyruvate kinase, lactate dehydrogenase).
+The **seventh class (translocases)** was added in 2018, recognizing the catalytic nature of active transport. Enzyme names follow the pattern: **Substrate(s) + reaction type + "-ase"** (e.g., pyruvate kinase, lactate dehydrogenase).
 
 > **Concept Check 2:** The Na$^+$/K$^+$-ATPase pumps 3 Na$^+$ out and 2 K$^+$ in per ATP hydrolysed. It was traditionally classified as an ATPase (EC 3.6). Why was reclassification to translocase (EC 7) considered more appropriate?
 
@@ -161,7 +163,7 @@ The **seventh class (translocases)** was added in 2018, recognising the catalyti
 
 ## The Michaelis-Menten Equation
 
-> **Mathematical Background:** The Michaelis-Menten equation uses hyperbolic functions and dimensional analysis. For a review of logarithms and rate equations, see \cref{sec:appendix_math_review}.
+> **Mathematical Background:** The Michaelis-Menten equation uses hyperbolic functions and dimensional analysis. For a review of logarithms and rate equations, see \nameref{sec:appendix_math_review}.
 
 ### Deriving the Michaelis-Menten Equation
 
@@ -239,6 +241,7 @@ Special cases:
 
 **Reference kinetic constants:**
 
+: Interpretation of Kinetic Parameters: Enzyme and Substrate. {#tbl:unit_I_enzymes_and_kinetics_interpretation_of_kinetic_parameters}
 | Enzyme | Substrate | $K_m$ (mM) | $k_{cat}$ (s$^{-1}$) | $k_{cat}/K_m$ (M$^{-1}$s$^{-1}$) | Status |
 | ------ | --------- | ---------- | -------------------- | -------------------------------- | ------ |
 | Carbonic anhydrase | CO$_2$ | 12 | $10^6$ | $8.3 \times 10^7$ | Near-perfect |
@@ -281,6 +284,7 @@ The **double-reciprocal (Lineweaver-Burk) plot** of $1/v$ vs. $1/[\text{S}]$ is 
 
 An enzyme is assayed at five substrate concentrations:
 
+: Lineweaver-Burk Analysis: [S] (mM) and v_0 (μmol/min). {#tbl:unit_I_enzymes_and_kinetics_lineweaver_burk_analysis}
 | [S] (mM) | $v_0$ (μmol/min) | 1/[S] (mM$^{-1}$) | $1/v_0$ |
 | --------- | -------------------- | ------------------ | ------- |
 | 0.5 | 1.67 | 2.0 | 0.60 |
@@ -360,6 +364,7 @@ On a Lineweaver-Burk plot: same $y$-intercept ($1/V_{max}$), different slopes. L
 
 **Clinical examples of [**competitive inhibition**](#gl:competitive-inhibition):**
 
+: Competitive Inhibition and Apparent Km: Inhibitor and Target Enzyme. {#tbl:unit_I_enzymes_and_kinetics_competitive_inhibition_and_apparent_km}
 | Inhibitor | Target Enzyme | Clinical Use |
 | --------- | ------------- | ------------ |
 | Methotrexate | Dihydrofolate reductase | Cancer chemotherapy |
@@ -409,6 +414,7 @@ On a Lineweaver-Burk plot: lines intersect to the left of the $y$-axis (not on i
 
 **Irreversible inhibitors** form covalent bonds with enzyme residues, permanently inactivating the enzyme. The enzyme must be replaced by new protein synthesis.
 
+: Irreversible Inhibition and Covalent Inactivation: Inhibitor and Target. {#tbl:unit_I_enzymes_and_kinetics_irreversible_inhibition_and_covalent_inactivation}
 | Inhibitor | Target | Mechanism | Clinical Application |
 | --------- | ------ | --------- | -------------------- |
 | Aspirin (acetylsalicylate) | COX-1 and COX-2 | Acetylates Ser530 | Anti-inflammatory, antiplatelet |
@@ -419,7 +425,7 @@ On a Lineweaver-Burk plot: lines intersect to the left of the $y$-axis (not on i
 
 > **Clinical Connection: Aspirin --- The Oldest Irreversible Enzyme Inhibitor**
 >
-> Aspirin (acetylsalicylic acid) irreversibly acetylates Ser530 in cyclooxygenase (COX), preventing the conversion of arachidonic acid to prostaglandins and thromboxane A$_2$. Because platelets lack a nucleus and cannot synthesise new protein, a single dose of aspirin inhibits platelet COX-1 for the entire platelet lifespan (~10 days). This is why low-dose aspirin (75--100 mg/day) is an effective antiplatelet agent for preventing heart attacks and strokes, despite its short plasma half-life of ~20 minutes.
+> Aspirin (acetylsalicylic acid) irreversibly acetylates Ser530 in cyclooxygenase (COX), preventing the conversion of arachidonic acid to prostaglandins and thromboxane A$_2$. Because platelets lack a nucleus and cannot synthesize new protein, a single dose of aspirin inhibits platelet COX-1 for the entire platelet lifespan (~10 days). This is why low-dose aspirin (75--100 mg/day) is an effective antiplatelet agent for preventing heart attacks and strokes, despite its short plasma half-life of ~20 minutes.
 
 > **Clinical Connection: Penicillin and Bacterial Cell Wall Synthesis**
 >
@@ -427,6 +433,7 @@ On a Lineweaver-Burk plot: lines intersect to the left of the $y$-axis (not on i
 
 ### Lineweaver-Burk Patterns Summary
 
+: Lineweaver-Burk Patterns Summary: Inhibition Type and Apparent K_m. {#tbl:unit_I_enzymes_and_kinetics_lineweaver_burk_patterns_summary}
 | Inhibition Type | Apparent $K_m$ | Apparent $V_{max}$ | L-B Plot Pattern |
 | --------------- | ------------- | ------------------ | ---------------- |
 | Competitive | Increases ($\alpha K_m$) | Unchanged | Same $y$-intercept |
@@ -441,7 +448,7 @@ On a Lineweaver-Burk plot: lines intersect to the left of the $y$-axis (not on i
 
 > **Worked Example --- Competitive vs. Allosteric Inhibition Comparison:** Dihydrofolate reductase (DHFR) is the target of methotrexate (MTX, competitive inhibitor, $K_i = 1$ nM) and trimethoprim (TMP, competitive inhibitor, $K_i = 1$ $\mu$M for bacterial DHFR vs $100$ $\mu$M for human DHFR --- a 100-fold selectivity window). Given $K_m(\text{DHFR}, \text{dihydrofolate}) = 1$ $\mu$M, $V_\text{max} = 10$ nM/s, [substrate] = 5 $\mu$M, and [MTX] = 10 nM. *Without MTX:* $v = 10 \times 5/(1+5) = 8.33$ nM/s. *With MTX:* apparent $K_m' = K_m(1 + [I]/K_i) = 1(1 + 10/1) = 11$ $\mu$M, so $v = 10 \times 5/(11+5) = 3.13$ nM/s --- a 62% reduction at $[\text{MTX}]$ at just 10$\times$ its $K_i$, because the drug competes at nM while substrate is at $\mu$M. This illustrates why tight-binding competitive inhibitors can be more clinically effective than their raw $K_i$ value suggests, especially when substrate concentration is comparable to $K_m$.
 
-> **Concept Check (Synthesis):** Allosteric enzymes like phosphofructokinase-1 (PFK-1) show sigmoidal kinetics with respect to fructose-6-phosphate (F6P). ATP at high concentrations inhibits PFK-1 allosterically (R-state stabilisation by ADP/AMP; T-state stabilisation by ATP). (a) Sketch the velocity vs $[\text{F6P}]$ curves for PFK-1 in the presence of 2 mM ATP, 0.2 mM ATP, and 2 mM AMP. (b) Why does sigmoidal kinetics make PFK-1 a better metabolic switch than a hyperbolic enzyme with the same $V_\text{max}$ and apparent $K_{0.5}$? Quantify using the Hill equation: compare the fold-change in activity when $[\text{F6P}]$ goes from $0.5 K_{0.5}$ to $2 K_{0.5}$ for $n=1$ vs $n=4$. (c) PFK-2 produces fructose-2,6-bisphosphate (F2,6BP), a potent allosteric activator of PFK-1. Draw the control logic connecting insulin signalling, PFK-2 activity, F2,6BP levels, and glycolytic flux.
+> **Concept Check (Synthesis):** Allosteric enzymes like phosphofructokinase-1 (PFK-1) show sigmoidal kinetics with respect to fructose-6-phosphate (F6P). ATP at high concentrations inhibits PFK-1 allosterically (R-state stabilization by ADP/AMP; T-state stabilization by ATP). (a) Sketch the velocity vs $[\text{F6P}]$ curves for PFK-1 in the presence of 2 mM ATP, 0.2 mM ATP, and 2 mM AMP. (b) Why does sigmoidal kinetics make PFK-1 a better metabolic switch than a hyperbolic enzyme with the same $V_\text{max}$ and apparent $K_{0.5}$? Quantify using the Hill equation: compare the fold-change in activity when $[\text{F6P}]$ goes from $0.5 K_{0.5}$ to $2 K_{0.5}$ for $n=1$ vs $n=4$. (c) PFK-2 produces fructose-2,6-bisphosphate (F2,6BP), a potent allosteric activator of PFK-1. Draw the control logic connecting insulin signaling, PFK-2 activity, F2,6BP levels, and glycolytic flux.
 
 ## Multi-substrate Kinetics: Bi-Bi Mechanisms
 
@@ -481,6 +488,7 @@ v_0 = \frac{V_{\max}\,[\text{A}]\,[\text{B}]}{K_b[\text{A}] + K_a[\text{B}] + [\
 
 Notice the absent $K_{ia}K_b$ term in the denominator. **Diagnostic Lineweaver-Burk pattern:** the family of lines is **parallel** --- a clean kinetic signature distinguishing ping-pong from sequential mechanisms.
 
+: Ping-Pong (Double-Displacement) Mechanism: Feature and Sequential (Random or Ordered). {#tbl:unit_I_enzymes_and_kinetics_ping_pong_double_displacement_mechanism}
 | Feature | Sequential (Random or Ordered) | Ping-Pong |
 | ------- | ------------------------------ | --------- |
 | Ternary complex EAB? | Yes | No |
@@ -525,7 +533,7 @@ where **$n$** is the Hill coefficient:
 
 A plot of $\log[\theta/(1-\theta)]$ vs. $\log[\text{S}]$ (the **Hill plot**) gives a straight line with slope $n$ and $x$-intercept at $\log K_{0.5}$.
 
-Haemoglobin (see \cref{sec:unit_IX_circulation_respiration_homeostasis}) has $n \approx 2.8$ (not 4, because cooperativity is imperfect). Sigmoidal kinetics give allosteric enzymes **switch-like** behaviour --- small changes in [S] near $K_{0.5}$ cause large changes in activity.
+Hemoglobin (see \cref{sec:unit_IX_circulation_respiration_homeostasis}) has $n \approx 2.8$ (not 4, because cooperativity is imperfect). Sigmoidal kinetics give allosteric enzymes **switch-like** behavior --- small changes in [S] near $K_{0.5}$ cause large changes in activity.
 
 **Worked example:** For an allosteric enzyme with $K_{0.5}$ = 5 mM and $n$ = 3:
 
@@ -543,7 +551,7 @@ Two models describe the molecular mechanism of cooperativity:
 - Most subunits exist in either the T-state (tense, low affinity) or R-state (relaxed, high affinity)
 - Most subunits transition simultaneously (concerted)
 - Substrate preferentially binds R-state, shifting T$\rightleftharpoons$R equilibrium toward R
-- Activators stabilise R; inhibitors stabilise T
+- Activators stabilize R; inhibitors stabilize T
 
 **Koshland-Nemethy-Filmer (KNF) Sequential Model:**
 - Each subunit can independently switch between T and R
@@ -564,9 +572,9 @@ flowchart TD
 
         T -->|"Substrate binding<br/>shifts equilibrium"| R
 
-        CTP["CTP<br/>(End product)"] -->|"Binds regulatory subunit<br/>Stabilises T-state<br/>FEEDBACK INHIBITION"| T
+        CTP["CTP<br/>(End product)"] -->|"Binds regulatory subunit<br/>Stabilizes T-state<br/>FEEDBACK INHIBITION"| T
 
-        ATP["ATP<br/>(Purine signal)"] -->|"Binds regulatory subunit<br/>Stabilises R-state<br/>ACTIVATION"| R
+        ATP["ATP<br/>(Purine signal)"] -->|"Binds regulatory subunit<br/>Stabilizes R-state<br/>ACTIVATION"| R
 
         R --> PRODUCT["N-carbamoylaspartate<br/>→ → → → CTP"]
     end
@@ -578,9 +586,9 @@ flowchart TD
     style ATP fill:#3498db,color:#fff
     style PRODUCT fill:#9b59b6,color:#fff
 ```
-<!-- alt: Flowchart showing aTCase allostery (CTP and ATP). Allosteric regulation of ATCase. CTP (the end product of the pyrimidine pathway) is a feedback inhibitor that stabilises the T-state. ATP (a purine nucleotide) is an activator that stabilises the R-state, coordinating purine and pyrimidine synthesis. -->
+<!-- alt: Flowchart showing aTCase allostery (CTP and ATP). Allosteric regulation of ATCase. CTP (the end product of the pyrimidine pathway) is a feedback inhibitor that stabilizes the T-state. ATP (a purine nucleotide) is an activator that stabilizes the R-state, coordinating purine and pyrimidine synthesis. -->
 
-*ATCase allostery (CTP and ATP). Allosteric regulation of ATCase. CTP (the end product of the pyrimidine pathway) is a feedback inhibitor that stabilises the T-state. ATP (a purine nucleotide) is an activator that stabilises the R-state, coordinating purine and pyrimidine synthesis.*
+*ATCase allostery (CTP and ATP). Allosteric regulation of ATCase. CTP (the end product of the pyrimidine pathway) is a feedback inhibitor that stabilizes the T-state. ATP (a purine nucleotide) is an activator that stabilizes the R-state, coordinating purine and pyrimidine synthesis.*
 
 ATCase (catalyses the first committed step of pyrimidine biosynthesis) is the textbook allosteric enzyme:
 - **Structure:** 6 catalytic subunits (c$_3$)$_2$ + 6 regulatory subunits (r$_2$)$_3$ = c$_6$r$_6$ (~310 kDa)
@@ -597,6 +605,7 @@ A first-glance question: why has evolution invested in elaborate allosteric mach
 
 Compare a hyperbolic enzyme (Hill coefficient $n = 1$) and a sigmoidal enzyme ($n = 4$) in the small region around $K_{0.5}$. For a 2-fold increase in [S] near $K_{0.5}$:
 
+: Effect of cooperativity on enzyme saturation near half-maximal substrate concentration. {#tbl:unit_I_enzymes_and_kinetics_why_cooperativity_improves_pathway_control}
 | Enzyme | θ at $[S] = 0.5\,K_{0.5}$ | θ at $[S] = 2\,K_{0.5}$ | Sensitivity (ratio) |
 | ------ | --------------------------------- | ------------------------------- | -------------------- |
 | Michaelis-Menten ($n=1$) | 0.33 | 0.67 | 2.0$\times$ |
@@ -608,9 +617,9 @@ An 8-fold increase in Hill coefficient (from n=1 to n=8) gives a 128-fold increa
 
 1. **Steeper response to small signal changes.** Glycolysis can be ramped up rapidly during exercise without requiring 10-fold changes in metabolite concentrations.
 2. **Sharper response thresholds.** Below $K_{0.5}$ the pathway is nearly off; above $K_{0.5}$ nearly fully on. Enables clear "decision-making" at metabolic branch points.
-3. **Insulation from noise.** Random fluctuations in [S] within the low-saturation regime cause much smaller activity changes than under MM kinetics. Stability and switch-like behaviour coexist.
+3. **Insulation from noise.** Random fluctuations in [S] within the low-saturation regime cause much smaller activity changes than under MM kinetics. Stability and switch-like behavior coexist.
 
-The same logic explains why haemoglobin's $n \approx 2.8$ delivers ~25% of bound O$_2$ between arterial (pO$_2$ 100 mmHg) and venous (40 mmHg) blood, whereas hyperbolic myoglobin would deliver about 10% of the same change. Cooperativity is biology's tunable amplifier.
+The same logic explains why hemoglobin's $n \approx 2.8$ delivers ~25% of bound O$_2$ between arterial (pO$_2$ 100 mmHg) and venous (40 mmHg) blood, whereas hyperbolic myoglobin would deliver about 10% of the same change. Cooperativity is biology's tunable amplifier.
 
 > **Concept Check 6:** Phosphofructokinase-1 (PFK-1) is an allosteric enzyme in [**glycolysis**](#gl:glycolysis) that is activated by AMP and inhibited by ATP and citrate. Why does this regulatory pattern make metabolic sense? (Consider the energy charge of the cell.)
 
@@ -647,15 +656,16 @@ For most enzyme reactions, $Q_{10}$ = 1.5--3.0. The $Q_{10}$ rule breaks down ne
 
 ### pH Effects on Active-Site Chemistry
 
-Enzyme catalysis depends on the ionisation state of key active-site residues. Activity-pH curves are typically bell-shaped:
+Enzyme catalysis depends on the ionization state of key active-site residues. Activity-pH curves are typically bell-shaped:
 
+: pH Effects on Active-Site Chemistry: Enzyme and Location. {#tbl:unit_I_enzymes_and_kinetics_ph_effects_on_active_site_chemistry}
 | Enzyme | Location | Optimum pH | Key Catalytic Residue |
 | ------ | -------- | ---------- | -------------------- |
 | Pepsin | Stomach | 1.5--2.5 | Asp (must be protonated) |
 | Salivary amylase | Mouth | 6.7--7.0 | Glu (acid/base catalyst) |
 | Trypsin | Intestine | 7.5--8.5 | His57 (must be deprotonated) |
 | Alkaline phosphatase | Intestine/bone | 8--10 | Ser (phosphorylated intermediate) |
-| Arginase | Liver | 9.5--10.0 | Mn$^{2+}$ (binuclear metal centre) |
+| Arginase | Liver | 9.5--10.0 | Mn$^{2+}$ (binuclear metal center) |
 
 The bell-shaped curve reflects the requirement for specific protonation states: the ascending limb corresponds to deprotonation of one essential residue; the descending limb to deprotonation of another.
 
@@ -663,10 +673,11 @@ The bell-shaped curve reflects the requirement for specific protonation states: 
 
 Many enzymes require non-protein cofactors for activity. The enzyme without its cofactor is the **apoenzyme**; the complete, active enzyme is the **holoenzyme**.
 
+: Cofactors and Coenzymes: Type and Examples. {#tbl:unit_I_enzymes_and_kinetics_cofactors_and_coenzymes}
 | Type | Examples | Function | Dietary Source |
 | ---- | -------- | -------- | ------------- |
 | **Metal ions** | Zn$^{2+}$ (carboxypeptidase) | Lewis acid catalysis | Red meat, shellfish |
-| | Mg$^{2+}$ (kinases) | Stabilise ATP phosphate | Green vegetables |
+| | Mg$^{2+}$ (kinases) | Stabilize ATP phosphate | Green vegetables |
 | | Fe$^{2+/3+}$ (cytochromes) | Electron transfer | Red meat, lentils |
 | | Cu$^{2+}$ (cytochrome c oxidase) | O$_2$ reduction | Liver, nuts |
 | | Mn$^{2+}$ (SOD, arginase) | Redox, hydrolysis | Whole grains |
@@ -680,19 +691,20 @@ Many enzymes require non-protein cofactors for activity. The enzyme without its 
 | | Biotin (B7) | Carboxylation | Eggs, nuts |
 | | Tetrahydrofolate (from folate, B9) | One-carbon transfer | Leafy greens |
 | | 5'-deoxyadenosylcobalamin (from B12) | Rearrangements | Animal products |
-| **Prosthetic groups** | Haem (contains Fe) | O$_2$ binding, electron transfer | Synthesised endogenously |
-| | Lipoic acid | Acyl group transfer | Synthesised endogenously |
+| **Prosthetic groups** | Haem (contains Fe) | O$_2$ binding, electron transfer | Synthesized endogenously |
+| | Lipoic acid | Acyl group transfer | Synthesized endogenously |
 
 Most water-soluble vitamins (B vitamins) function as coenzyme precursors. This is why vitamin deficiencies cause enzyme dysfunction and disease:
 
+: Cofactors and Coenzymes: Vitamin Deficiency and Coenzyme Affected. {#tbl:unit_I_enzymes_and_kinetics_cofactors_and_coenzymes_2}
 | Vitamin Deficiency | Coenzyme Affected | Disease |
 | ------------------- | ----------------- | ------- |
 | B1 (Thiamine) | TPP | Beriberi, Wernicke-Korsakoff syndrome |
 | B2 (Riboflavin) | FAD | Ariboflavinosis (angular stomatitis) |
-| B3 (Niacin) | NAD$^+$ | Pellagra (dermatitis, diarrhoea, dementia) |
+| B3 (Niacin) | NAD$^+$ | Pellagra (dermatitis, diarrhea, dementia) |
 | B6 (Pyridoxine) | PLP | Peripheral neuropathy |
-| B9 (Folate) | THF | Megaloblastic anaemia, neural tube defects |
-| B12 (Cobalamin) | AdoCbl, MeCbl | Pernicious anaemia, neurodegeneration |
+| B9 (Folate) | THF | Megaloblastic anemia, neural tube defects |
+| B12 (Cobalamin) | AdoCbl, MeCbl | Pernicious anemia, neurodegeneration |
 
 > **Clinical Connection: ACE Inhibitors and Zinc-Dependent Catalysis**
 >
@@ -719,6 +731,7 @@ The Cas9 protein from *Streptococcus pyogenes* is an RNA-guided endonuclease:
 
 ### Industrial and Therapeutic Enzyme Applications
 
+: Industrial and Therapeutic Enzyme Applications: Enzyme and Industry. {#tbl:unit_I_enzymes_and_kinetics_industrial_and_therapeutic_enzyme_applications}
 | Enzyme | Industry | Application |
 | ------ | -------- | ----------- |
 | Lipases | Biodiesel, detergents | Transesterification, stain removal |
@@ -740,6 +753,7 @@ The Cas9 protein from *Streptococcus pyogenes* is an RNA-guided endonuclease:
 
 When evaluating an engineered or evolved variant, several quantitative figures of merit are routinely compared against the wild-type enzyme:
 
+: Quantitative Metrics for Engineered Enzymes: Metric and Definition. {#tbl:unit_I_enzymes_and_kinetics_quantitative_metrics_for_engineered_enzymes}
 | Metric | Definition | What it tells you |
 | ------ | ---------- | ----------------- |
 | Fold-improvement in $k_{cat}$ | $k_{cat}^{\text{var}} / k_{cat}^{\text{WT}}$ | Speed-up at saturating [S] |
@@ -767,6 +781,7 @@ v_0 = \frac{100 \times [\text{S}]}{2.0 + [\text{S}]}
 \end{equation}
 
 
+: Quantitative Metrics for Engineered Enzymes: [S] (mM) and v_0 (μmol/min). {#tbl:unit_I_enzymes_and_kinetics_quantitative_metrics_for_engineered_enzymes_2}
 | [S] (mM) | $v_0$ (μmol/min) | % of $V_{max}$ |
 | --------- | -------------------- | -------------- |
 | 0.5 | $100 \times 0.5 / 2.5 = 20.0$ | 20% |
@@ -790,7 +805,7 @@ K_m^{app} = \alpha K_m = 3.0 \times 2.0 = 6.0 \; \text{mM}
 
 $v_0 = V_{max}/2$ when [S] = $K_m^{app}$ = 6.0 mM. The inhibitor triples the substrate concentration needed for half-maximal velocity.
 
-**Problem 3:** The Hill coefficient for haemoglobin is 2.8, and $K_{0.5}$ for O$_2$ is 26 mmHg. Calculate the fractional saturation at:
+**Problem 3:** The Hill coefficient for hemoglobin is 2.8, and $K_{0.5}$ for O$_2$ is 26 mmHg. Calculate the fractional saturation at:
 (a) pO$_2$ = 40 mmHg (venous blood)
 (b) pO$_2$ = 100 mmHg (arterial blood)
 
@@ -813,7 +828,7 @@ $\theta = \frac{30{,}600}{9{,}160 + 30{,}600} = \frac{30{,}600}{39{,}760} = 0.77
 
 $\theta = \frac{396{,}000}{9{,}160 + 396{,}000} = 0.977$ (97.7%)
 
-The difference: haemoglobin loads O$_2$ to 97.7% in the lungs and unloads to 77.0% in tissues, delivering ~20% of its O$_2$ per circuit. During exercise (venous pO$_2$ drops to ~20 mmHg), delivery increases substantially due to the steep part of the sigmoidal curve.
+The difference: hemoglobin loads O$_2$ to 97.7% in the lungs and unloads to 77.0% in tissues, delivering ~20% of its O$_2$ per circuit. During exercise (venous pO$_2$ drops to ~20 mmHg), delivery increases substantially due to the steep part of the sigmoidal curve.
 
 ---
 
@@ -858,7 +873,7 @@ Three lessons follow:
 2. **Targeting the "rate-limiting" enzyme often disappoints.** Doubling PFK-1 primarily doubles flux if $C^J = 1$, which is rarely true. This is why metabolic engineering campaigns to improve product yields often increase one enzyme tenfold for a 1.5-fold flux gain.
 3. **Allosteric regulation tunes the control distribution.** When ATP is high, AMP is low, and ATCase or PFK-1 sit in their T-state, $C^J$ for those enzymes rises toward 1; the cell concentrates control where it can respond quickly to demand changes.
 
-### Enzyme Saturation Modes Determine Pathway Behaviour
+### Enzyme Saturation Modes Determine Pathway Behavior
 
 The local $[\text{S}] / K_m$ ratio for each enzyme determines whether it operates near saturation or far below. Glycolytic enzymes typically operate at $[\text{S}] \approx K_m$ (around half-saturation), where the response to small $[\text{S}]$ changes is approximately linear and control coefficients are large. Enzymes whose substrates are at $\gg K_m$ (saturated) have $C^J \approx 0$ and exert no flux control. Designing a pathway thus means choosing $K_m$ values matched to physiological metabolite concentrations --- a constraint visible in the convergent evolution of glycolytic enzymes across most kingdoms of life.
 
@@ -912,7 +927,7 @@ flowchart LR
 ## Summary
 
 - Enzymes are protein catalysts that lower the activation energy $\Delta G^{\ddagger}$ without altering equilibrium.
-- Rate enhancement mechanisms include proximity/orientation, transition state stabilisation, acid-base catalysis, covalent catalysis, and metal ion catalysis.
+- Rate enhancement mechanisms include proximity/orientation, transition state stabilization, acid-base catalysis, covalent catalysis, and metal ion catalysis.
 - The Michaelis-Menten equation: $v_0 = V_{max}[\text{S}] / (K_m + [\text{S}])$; $K_m$ approximates substrate affinity; $k_{cat}$ = turnover number; $k_{cat}/K_m$ = catalytic efficiency.
 - Enzyme inhibition: competitive (increases apparent $K_m$), uncompetitive (decreases both $K_m$ and $V_{max}$), mixed/noncompetitive ($V_{max}$ decreases), irreversible (covalent inactivation). Each has a characteristic Lineweaver-Burk pattern.
 - Allosteric enzymes exhibit sigmoidal kinetics (Hill equation); key for metabolic feedback control. ATCase is the paradigm for allosteric regulation.
@@ -941,7 +956,7 @@ flowchart LR
 - **Holoenzyme:** Complete enzyme with most cofactors bound
 - **Apoenzyme:** Enzyme protein without its cofactor
 - **EC number:** Four-digit enzyme classification number assigned by IUBMB
-- **Transition state analogue:** Inhibitor that mimics the transition state geometry
+- **Transition state analog:** Inhibitor that mimics the transition state geometry
 - **Directed evolution:** Laboratory technique for engineering improved enzymes
 
 ## Review Questions
@@ -955,7 +970,7 @@ flowchart LR
 7. Why do statins lower blood cholesterol more effectively than simply reducing dietary cholesterol intake? Consider the relative contributions of endogenous synthesis and dietary absorption.
 8. A food scientist wants to use an immobilised enzyme in a continuous-flow reactor. What are three advantages of enzyme immobilisation over using the free enzyme in solution?
 9. CRISPR-Cas9 requires a PAM sequence (5'-NGG-3') adjacent to its target. Explain why this requirement exists and how it affects the enzyme's specificity. How does this relate to the concept of substrate recognition?
-10. Pellagra (deficiency of niacin/vitamin B3) causes the "three Ds": dermatitis, diarrhoea, and dementia. Given that niacin is the precursor to NAD$^+$, explain why this deficiency has such widespread systemic effects.
+10. Pellagra (deficiency of niacin/vitamin B3) causes the "three Ds": dermatitis, diarrhea, and dementia. Given that niacin is the precursor to NAD$^+$, explain why this deficiency has such widespread systemic effects.
 11. Using `michaelis_menten`, compute $v$ at $[S] = K_m/2$, $K_m$, and $2K_m$ for the same $V_\mathrm{max}$. Verify numerically that $v$ is **not** linear in $[S]$ even when $[S] \ll K_m$ is often approximated as linear.
 12. Explain why $k_\mathrm{cat}/K_m$ is a useful upper-bound metric for substrate discrimination under cellular subsaturating conditions, and give one evolutionary scenario where [**natural selection**](#gl:natural-selection) would increase this ratio.
 13. A two-substrate enzyme is studied at varying [A] for several fixed [B]. The Lineweaver-Burk plot reveals **intersecting** lines that meet to the **left of the y-axis**. Use \cref{eq:unit_I_bibi_sequential} and \cref{eq:unit_I_bibi_pingpong} to argue whether the mechanism is sequential or ping-pong.
@@ -980,6 +995,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Enzymes and the Kinetics of Catalysis. {#tbl:unit_I_enzymes_and_kinetics_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/biochemistry/biochemistry.py` (`michaelis_menten`, `competitive_inhibition`, `enzyme_rate_curve`) | Reproduce saturation curves, inhibition shifts, and parameter interpretation. |

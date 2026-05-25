@@ -1,4 +1,4 @@
-# Lab — Mendelian Extensions and Human Genetics {.unnumbered}
+# Lab — Mendelian Extensions and Human Genetics {#sec:lab_unit_V_mendelian_extensions_and_human_genetics .unnumbered}
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
@@ -10,16 +10,16 @@
 - **Chapter LO coverage:** LO1, LO2, LO3, LO4
 - **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
 <!-- lab-alignment-end -->
-\label{sec:lab_unit_V_mendelian_extensions_and_human_genetics}
 
 *This activity accompanies \cref{sec:unit_V_mendelian_extensions_and_human_genetics} of the textbook — review that chapter before attempting the exercises below.*
 
 ## Lab Context: Mendelian Extensions and Human Genetics {.unnumbered}
 
-This extension lab emphasises pedigree analysis, extensions to Mendelian ratios, and human genetics applications using paper-based inheritance scenarios.
+This extension lab emphasizes pedigree analysis, extensions to Mendelian ratios, and human genetics applications using paper-based inheritance scenarios.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_V_mendelian_extensions_and_human_genetics_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Mendelian Extensions and Human Genetics: inheritance source card: model assumptions, sampling frame, ancestry/context boundary, and uncertainty | 1 |
@@ -35,6 +35,7 @@ This extension lab emphasises pedigree analysis, extensions to Mendelian ratios,
 
 ## Data Recording {.unnumbered}
 
+: Alignment and Rubric Map: Cross and Offspring genotype ratio. {#tbl:unit_V_mendelian_extensions_and_human_genetics_alignment_and_rubric_map_2}
 | Cross | Offspring genotype ratio | Offspring phenotype ratio |
 | ----- | ------------------------ | ------------------------- |
 | Aa × Aa | | |
@@ -43,6 +44,7 @@ This extension lab emphasises pedigree analysis, extensions to Mendelian ratios,
 
 Pedigree genotypes:
 
+: Alignment and Rubric Map. {#tbl:unit_V_mendelian_extensions_and_human_genetics_alignment_and_rubric_map_3}
 | | Gen I | Gen II | Gen III |
 |---|---|---|---|
 | Individual | | | |
@@ -66,6 +68,7 @@ Chi-square result: χ² = ___; df = ___; p < 0.05? (Y/N); Conclusion:
 Before answering the analysis questions, annotate the paper dataset for
 **Mendelian Genetics and Heredity** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_V_mendelian_extensions_and_human_genetics_alignment_and_rubric_map_4}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -162,7 +165,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_V_mendelian_extensions_and_human_genetics} that your data either confirmed or complicated. Cite the specific passage.
 

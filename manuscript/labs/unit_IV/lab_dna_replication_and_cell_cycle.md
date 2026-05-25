@@ -1,6 +1,5 @@
-# Lab — DNA Replication and the Cell Cycle {.unnumbered}
+# Lab — DNA Replication and the Cell Cycle {#sec:lab_unit_IV_dna_replication_and_cell_cycle .unnumbered}
 
-\label{sec:lab_unit_IV_dna_replication_and_cell_cycle}
 
 *This activity accompanies \cref{sec:unit_IV_dna_replication_and_cell_cycle} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -47,14 +46,15 @@
 
 ## Lab Context: DNA Replication and the Cell Cycle {.unnumbered}
 
-DNA replication is semiconservative (Meselson–Stahl, 1958): each daughter double helix retains one original strand and one newly synthesised strand. Replication proceeds bidirectionally from origins of replication; DNA polymerase extends DNA in the 5'→3' direction, requiring the lagging strand to be synthesised discontinuously as Okazaki fragments. The cell cycle (G₁ → S → G₂ → M) is driven by cyclin-CDK complexes and monitored by checkpoints (G₁/S, G₂/M, spindle assembly checkpoint). The mitotic index (fraction of cells in mitosis) reflects proliferative activity and is elevated in tumours.
+DNA replication is semiconservative (Meselson–Stahl, 1958): each daughter double helix retains one original strand and one newly synthesized strand. Replication proceeds bidirectionally from origins of replication; DNA polymerase extends DNA in the 5'→3' direction, requiring the lagging strand to be synthesized discontinuously as Okazaki fragments. The cell cycle (G₁ → S → G₂ → M) is driven by cyclin-CDK complexes and monitored by checkpoints (G₁/S, G₂/M, spindle assembly checkpoint). The mitotic index (fraction of cells in mitosis) reflects proliferative activity and is elevated in tumors.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IV_dna_replication_and_cell_cycle_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for DNA Replication and the Cell Cycle: genomics/database source card: reference release, sample coverage, version, clinical boundary, and refresh trigger | 1 |
-| Printed cell-cycle image cards from root tip, embryo, and tumour tissue datasets | 1 set |
+| Printed cell-cycle image cards from root tip, embryo, and tumor tissue datasets | 1 set |
 | Mitotic stage decision key with example features | 1 |
 | Meselson-Stahl simulation dataset (printed) | 1 |
 | Cell cycle timeline diagram (printed) | 1 per student |
@@ -67,7 +67,7 @@ DNA replication is semiconservative (Meselson–Stahl, 1958): each daughter doub
 
 ### Part 1: Mitotic Index Determination from Image Cards {.unnumbered}
 
-1. **Formulate Your Hypothesis**: Based on your pre-lab research, write a hypothesis about how the mitotic index might differ among root tip, embryo, and tumour image datasets.
+1. **Formulate Your Hypothesis**: Based on your pre-lab research, write a hypothesis about how the mitotic index might differ among root tip, embryo, and tumor image datasets.
 
 2. **Identify Variables**:
    - Independent variable: Tissue dataset type
@@ -108,6 +108,7 @@ print("methylation after 3 divisions:", round(cpg_methylation_remaining(0.9, 3, 
 
 ## Data Recording {.unnumbered}
 
+: Part 3: Semiconservative Replication Analysis: Stage and Number of cells. {#tbl:unit_IV_dna_replication_and_cell_cycle_part_3_semiconservative_replication_analysis}
 | Stage | Number of cells | Proportion (%) | Estimated time in stage (min)* |
 | ----- | --------------- | -------------- | ------------------------------ |
 | Interphase | | | |
@@ -140,6 +141,7 @@ Generation 2 Meselson-Stahl prediction (sketch):
 Before answering the analysis questions, annotate the paper dataset for
 **DNA Replication and the Cell Cycle** with a reproducibility pass:
 
+: Part 3: Semiconservative Replication Analysis: Evidence check and Student action. {#tbl:unit_IV_dna_replication_and_cell_cycle_part_3_semiconservative_replication_analysis_2}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -172,13 +174,13 @@ Complete the source-governance card for DNA Replication and the Cell Cycle befor
 
 1. Which stage of mitosis took the longest (highest proportion)? Which was shortest? Explain in terms of the molecular events occurring in each stage.
 
-2. Your mitotic index suggests what fraction of cells are actively dividing. Would you expect a higher or lower mitotic index in: (a) a tumour; (b) a mature neuron; (c) a healing wound? Explain for each.
+2. Your mitotic index suggests what fraction of cells are actively dividing. Would you expect a higher or lower mitotic index in: (a) a tumor; (b) a mature neuron; (c) a healing wound? Explain for each.
 
 3. In the Meselson-Stahl simulation, after two rounds of replication in light medium: (a) what fraction of DNA molecules are hybrid (¹⁵N/¹⁴N)? (b) What fraction are light-light? How do these proportions distinguish semiconservative from conservative replication?
 
 4. DNA polymerase requires a primer and extends DNA in the 5'→3' direction. Explain why the lagging strand is initiated multiple times as Okazaki fragments, and name the enzyme that seals these fragments.
 
-5. A drug (e.g., taxol) stabilises microtubules and prevents spindle disassembly. At which checkpoint would cells arrest, and what specific checkpoint protein detects unattached kinetochores? Why is this drug effective against rapidly dividing cancer cells?
+5. A drug (e.g., taxol) stabilizes microtubules and prevents spindle disassembly. At which checkpoint would cells arrest, and what specific checkpoint protein detects unattached kinetochores? Why is this drug effective against rapidly dividing cancer cells?
 
 
 ## Post-Lab Synthesis {.unnumbered}
@@ -241,7 +243,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_IV_dna_replication_and_cell_cycle} that your data either confirmed or complicated. Cite the specific passage.
 

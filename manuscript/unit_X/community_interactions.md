@@ -9,7 +9,7 @@
 
 By the end of this chapter, you should be able to:
 
-1. Define a community and categorise the six types of biotic interactions with examples.
+1. Define a community and categorize the six types of biotic interactions with examples.
 2. Apply Lotka-Volterra competition equations to predict competitive outcomes and explain the [**competitive exclusion**](#gl:competitive-exclusion) principle and [**niche**](#gl:niche) theory.
 3. Explain [**trophic cascade**](#gl:trophic-cascade)s and keystone \citep{paine1966} species with quantitative examples.
 4. Compare primary and [**secondary succession**](#gl:secondary-succession) and explain the intermediate disturbance \citep{connell1978} hypothesis.
@@ -40,8 +40,8 @@ By the end of this chapter, you should be able to:
 - **Data skill:** Interpret abundance, interaction, or disturbance data from communities.
 - **Practice cadence:** Representing and Describing Data, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** A species interaction is not permanently good or bad; the sign can change with context.
-- **Primary lab:** \cref{sec:lab_unit_X_community_interactions}.
-- **Question bank:** \cref{sec:q_unit_X_community_interactions}.
+- **Primary lab:** \nameref{sec:lab_unit_X_community_interactions}.
+- **Question bank:** \nameref{sec:q_unit_X_community_interactions}.
 - **Transfer task:** Transfer interaction reasoning to restoration, agriculture, and invasion biology.
 - **Bridge to computation:** `biology.ecology.ecology.biodiversity_indices`.
 <!-- curriculum-scaffold-end -->
@@ -50,14 +50,14 @@ By the end of this chapter, you should be able to:
 
 > **Opening Vignette — How Wolves Changed Rivers**
 > 
-> In 1995, 14 gray wolves were reintroduced to Yellowstone National Park after a 70-year absence. What happened next has become one of ecology's most vivid demonstrations of a trophic cascade. With predators back, elk avoided grazing in valleys and riverside areas where they were vulnerable. Vegetation in those areas — willows, aspens, cottonwoods — rebounded within years. With trees stabilising river banks, erosion slowed. Beaver colonies, dependent on willows, increased sixfold. Beaver dams created wetlands that supported fish, otters, ducks, and amphibians. River channels narrowed and meandered, becoming more complex. The wolves, through fear alone — the "landscape of fear" effect documented by William Ripple — had changed the physical geography of the park. The Yellowstone study has been cited thousands of times, popularised by a viral YouTube video with 40 million views, and debated (some effects took decades to show). But it remains the canonical example that removing or restoring apex predators cascades through every [**trophic level**](#gl:trophic-level) of a community.
+> In 1995, 14 gray wolves were reintroduced to Yellowstone National Park after a 70-year absence. What happened next has become one of ecology's most vivid demonstrations of a trophic cascade. With predators back, elk avoided grazing in valleys and riverside areas where they were vulnerable. Vegetation in those areas — willows, aspens, cottonwoods — rebounded within years. With trees stabilizing river banks, erosion slowed. Beaver colonies, dependent on willows, increased sixfold. Beaver dams created wetlands that supported fish, otters, ducks, and amphibians. River channels narrowed and meandered, becoming more complex. The wolves, through fear alone — the "landscape of fear" effect documented by William Ripple — had changed the physical geography of the park. The Yellowstone study has been cited thousands of times, popularised by a viral YouTube video with 40 million views, and debated (some effects took decades to show). But it remains the canonical example that removing or restoring apex predators cascades through every [**trophic level**](#gl:trophic-level) of a community.
 
 ### Chapter Roadmap for Interaction Networks and Biodiversity Metrics
 
 This is a long chapter that covers eight closely-related but distinguishable topics. Read it as *two halves*:
 
 - **Part A — Local interactions between species:** what happens when two or a few species meet. The chapter begins with community definitions, then develops competition, predation and trophic cascades, [**mutualism**](#gl:mutualism), and parasitism.
-- **Part B — Community-scale patterns and assembly:** what emerges when you scale up. Succession, diversity measurement, island biogeography, and food-web network structure become the organising themes.
+- **Part B — Community-scale patterns and assembly:** what emerges when you scale up. Succession, diversity measurement, island biogeography, and food-web network structure become the organizing themes.
 - **Part C — Process-level theory and applications:** neutral theory supplies a null model for biodiversity; trait-based ecology (CSR, leaf economics) predicts ecosystem function; biological control applies the entire chapter to pests and disease vectors.
 
 If you are reading for a one-semester survey, Part A supplies the mechanistic vocabulary and Part B supplies the integrative patterns. Part C provides the modern frameworks and applied translations. Instructors wanting to split the chapter over two lectures can use the Part-A/Part-B boundary; a third lecture can cover Part C.
@@ -70,6 +70,7 @@ An **ecological community** is an assemblage of populations of different species
 
 Communities possess properties that cannot be predicted from studying individual species in isolation:
 
+: Emergent Properties of Communities: Property and Definition. {#tbl:unit_X_community_interactions_emergent_properties_of_communities}
 | Property | Definition | Measurement |
 | -------- | ---------- | ----------- |
 | **Species richness ($S$)** | Number of species present | Count of unique species |
@@ -84,6 +85,7 @@ Communities possess properties that cannot be predicted from studying individual
 
 The distribution of individuals among species in a community follows predictable patterns:
 
+: Rank-Abundance Models: Model and Pattern. {#tbl:unit_X_community_interactions_rank_abundance_models}
 | Model | Pattern | Interpretation | Typical community |
 | ----- | ------- | -------------- | ----------------- |
 | **Geometric series** | Steep, convex | Strong dominance; niche pre-emption | Species-poor, harsh environments |
@@ -91,7 +93,7 @@ The distribution of individuals among species in a community follows predictable
 | **Log-normal** | Moderate, symmetric bell curve on log scale | Most natural communities | Large, undisturbed communities |
 | **Broken stick** | Shallow, even | Resources divided equally | Species-poor, saturated communities |
 
-**Preston's canonical log-normal** (1962): In most large communities, when species are binned by abundance in octaves (doublings), the distribution is approximately log-normal. This has deep connections to the species-area relationship.
+**Preston's canonical log-normal** (1962): In most large communities, when species are binned by abundance in octaves (doublings), the distribution is approximately log-normal. This has deep connections to the species-area relationship (\cref{fig:unit_X_species_area}) and to predator--prey oscillations (\cref{fig:unit_X_lotka_volterra}).
 
 ### Types of Biotic Interactions
 
@@ -114,6 +116,7 @@ graph TD
 
 *Biotic interactions classify fitness effects on participants: mutualism benefits both, parasitism and predation benefit one at a cost to another, and competition harms both.*
 
+: Types of Biotic Interactions: Interaction and Species A effect. {#tbl:unit_X_community_interactions_types_of_biotic_interactions}
 | Interaction | Species A effect | Species B effect | Mechanism | Example |
 | ----------- | --------------- | --------------- | --------- | ------- |
 | Mutualism (+/+) | Benefits | Benefits | Direct reciprocal benefit | Mycorrhizae (+plant, +fungus); fig-wasp pollination; bee pollination; ant-plant seed dispersal |
@@ -131,7 +134,7 @@ graph TD
 
 ### Lotka-Volterra Interspecific Competition
 
-Two competing species $N_1$ and $N_2$ with shared resources are modelled by:
+Two competing species $N_1$ and $N_2$ with shared resources are modeled by:
 
 \begin{equation}
 \frac{dN_1}{dt} = r_1 N_1 \left(1 - \frac{N_1 + \alpha_{12} N_2}{K_1}\right)
@@ -164,7 +167,7 @@ where:
 
 **Fundamental niche** \citep{hutchinson1957}: the n-dimensional hypervolume of environmental conditions and resources permitting a species to maintain $r \geq 0$.
 
-**Realised niche:** the subset of the fundamental niche actually occupied after accounting for interspecific competition, predation, and other biotic interactions. Typically smaller than or equal to the fundamental niche.
+**Realized niche:** the subset of the fundamental niche actually occupied after accounting for interspecific competition, predation, and other biotic interactions. Typically smaller than or equal to the fundamental niche.
 
 \begin{equation}
 \text{Realised niche} = \text{Fundamental niche} - \text{Competitive exclusion zone}
@@ -183,10 +186,10 @@ where:
 
 Coexistence requires that **intraspecific competition > interspecific competition** for both species. This is enabled by two classes of mechanisms:
 
-**Stabilising mechanisms** (niche differences):
+**Stabilizing mechanisms** (niche differences):
 - **Resource partitioning:** different foods, microhabitats, activity times
 - **Janzen-Connell effect:** species-specific enemies concentrate near conspecifics, giving heterospecifics an advantage
-- **Storage effect:** temporal environmental variation favours different species at different times; long-lived adults "store" good years
+- **Storage effect:** temporal environmental variation favors different species at different times; long-lived adults "store" good years
 - **Relative nonlinearity:** species respond differently to resource fluctuations
 
 **Equalising mechanisms** (fitness similarity):
@@ -219,7 +222,7 @@ print(f"Final N1: {result.N1[-1]:.0f}, N2: {result.N2[-1]:.0f}")
 
 > 🔬 **Clinical Connection — Competitive Exclusion in the [**Microbiome**](#gl:microbiome):** The competitive exclusion principle operates within the human gut microbiome. **Clostridium difficile** infection (CDI) typically occurs after antibiotic treatment eliminates normal gut flora, removing competitive exclusion and allowing *C. difficile* to proliferate unopposed. **Fecal [**microbiota**](#gl:microbiota) transplantation (FMT)** restores competitive exclusion by reintroducing a diverse microbial community, achieving ~90% cure rates for recurrent CDI. This is Gause's principle applied to clinical medicine.
 
-> **Concept Check:** Two species of Paramecium (*P. aurelia* and *P. bursaria*) coexist in the same pond. *P. aurelia* feeds on bacteria in open water; *P. bursaria* harbours symbiotic algae and feeds near the bottom. Explain their coexistence using Chesson's framework: what is the stabilising mechanism?
+> **Concept Check:** Two species of Paramecium (*P. aurelia* and *P. bursaria*) coexist in the same pond. *P. aurelia* feeds on bacteria in open water; *P. bursaria* harbors symbiotic algae and feeds near the bottom. Explain their coexistence using Chesson's framework: what is the stabilizing mechanism?
 
 ---
 
@@ -229,17 +232,18 @@ print(f"Final N1: {result.N1[-1]:.0f}, N2: {result.N2[-1]:.0f}")
 
 [**Coevolution**](#gl:coevolution) \citep{ehrlich1964} between predators and prey drives a Red Queen dynamic of escalating adaptations:
 
-**Anti-predator defences:**
+**Anti-predator defenses:**
 
+: Predator-Prey Arms Races: Strategy and Mechanism. {#tbl:unit_X_community_interactions_predator_prey_arms_races}
 | Strategy | Mechanism | Example |
 | -------- | --------- | ------- |
 | **Crypsis** | Match background appearance | *Biston betularia* (peppered moth) — industrial melanism |
-| **Aposematism** | Bright warning colours advertise toxicity | Poison dart frogs (*Dendrobates*) — alkaloid warning |
+| **Aposematism** | Bright warning colors advertise toxicity | Poison dart frogs (*Dendrobates*) — alkaloid warning |
 | **Mullerian mimicry** | Two toxic species converge on same warning signal | *Heliconius* butterflies sharing wing patterns |
 | **Batesian mimicry** | Palatable species mimics toxic model | Viceroy (*Limenitis archippus*) mimics monarch |
-| **Chemical defence** | Toxic compounds deter predators | Monarch butterflies sequester cardenolide glycosides |
-| **Startle display** | Sudden reveal of eyespots or bright colours | Io moth (*Automeris io*) eyespot flash |
-| **Behavioural** | Alarm calls, mobbing, confusion effect | Starling murmurations confuse raptors |
+| **Chemical defense** | Toxic compounds deter predators | Monarch butterflies sequester cardenolide glycosides |
+| **Startle display** | Sudden reveal of eyespots or bright colors | Io moth (*Automeris io*) eyespot flash |
+| **Behavioral** | Alarm calls, mobbing, confusion effect | Starling murmurations confuse raptors |
 | **Morphological** | Spines, shells, armour | Porcupine quills; turtle shells; hedgehog spines |
 
 **Counter-adaptations in predators:**
@@ -268,6 +272,7 @@ A **[keystone species](#gl:keystone-species)** (Paine 1966, 1969) has disproport
 
 **Types of keystone effects:**
 
+: Keystone Species and Disproportionate Community Effects: Type and Mechanism. {#tbl:unit_X_community_interactions_keystone_species_and_disproportionate_community_effects}
 | Type | Mechanism | Example |
 | ---- | --------- | ------- |
 | **Keystone predator** | Prevents competitive exclusion by suppressing dominant prey | *Pisaster ochraceus* (sea star) → prevents mussel monopoly |
@@ -296,7 +301,7 @@ sequenceDiagram
     participant Bio as Biodiversity
 
     W->>E: Predation + landscape of fear
-    Note over E: Elk avoid riverbanks<br/>(behavioural trophic cascade)
+    Note over E: Elk avoid riverbanks<br/>(behavioral trophic cascade)
     E->>V: Reduced browsing
     Note over V: Willows and cottonwoods<br/>recover along streams
     V->>B: Beaver food/dam material returns
@@ -321,7 +326,7 @@ sequenceDiagram
 
 > 🔬 **Clinical Connection — Trophic Cascades and Lyme Disease:** The decline of apex predators in eastern North America has contributed to a trophic cascade affecting human health. Wolf and cougar removal → deer population explosion → increased tick-deer encounters → increased *Borrelia burgdorferi* transmission → Lyme disease incidence increased 25-fold from 1990 to 2020 in the northeastern USA. Deer also browse forest understory, reducing small mammal habitat diversity, which concentrates ticks on the most competent reservoir hosts (white-footed mice), further amplifying transmission. Predator restoration could reduce disease burden — a health-relevant trophic cascade.
 
-> **Concept Check:** In Yellowstone, wolves primarily cause a "behavioural trophic cascade" rather than a purely numerical one. What is the difference? How does the "landscape of fear" concept explain why elk behaviour change (avoiding riverbanks) may be more important than elk population reduction?
+> **Concept Check:** In Yellowstone, wolves primarily cause a "behavioral trophic cascade" rather than a purely numerical one. What is the difference? How does the "landscape of fear" concept explain why elk behavior change (avoiding riverbanks) may be more important than elk population reduction?
 
 ---
 
@@ -336,25 +341,26 @@ sequenceDiagram
 **Mycorrhizal networks:**
 - **Arbuscular mycorrhizae (AM, Glomeromycota):** obligate symbionts; hyphae form arbuscules inside root cortex cells; deliver P and micronutrients; receive up to 30% of plant photosynthate; present in ~80% of land plant species
 - **Ectomycorrhizae (EM, Basidiomycota + Ascomycota):** hyphae form Hartig net around root cells; dominant in temperate/boreal forests (*Pinus*, *Betula*, *Fagus*); provide N via proteolytic [**enzyme**](#gl:enzyme)s
-- **Common mycorrhizal networks (CMNs) — "Wood Wide Web":** CMNs transfer carbon, water, and nutrient signals between plants of same and different species; large "mother trees" supply carbon to understory seedlings (Simard et al. 1997, *Nature*). Contested: whether transfer is truly adaptive signalling or passive diffusion remains debated (Karst et al. 2023, *Nature Ecology & Evolution*)
+- **Common mycorrhizal networks (CMNs) — "Wood Wide Web":** CMNs transfer carbon, water, and nutrient signals between plants of same and different species; large "mother trees" supply carbon to understory seedlings (Simard et al. 1997, *Nature*). Contested: whether transfer is truly adaptive signaling or passive diffusion remains debated (Karst et al. 2023, *Nature Ecology & Evolution*)
 
 ### Pollination, Myrmecochory, and Ant-Plant Mutualisms
 
-Plant-pollinator mutualisms are reciprocal but not symmetric. Flowers pay carbon and nutrient costs to produce nectar, pollen, scent, colour, and shape; pollinators receive food while moving gametes among plants. IPBES treats animal pollination as both biodiversity process and food-system service, and crop syntheses show that wild pollinators can increase fruit set even where managed honey bees are present \citep{ipbes2016pollinators,garibaldi2013wild}. In network terms, a generalist bee can be a hub, while a specialist plant may be vulnerable if its few effective visitors decline.
+Plant-pollinator mutualisms are reciprocal but not symmetric. Flowers pay carbon and nutrient costs to produce nectar, pollen, scent, color, and shape; pollinators receive food while moving gametes among plants. IPBES treats animal pollination as both biodiversity process and food-system service, and crop syntheses show that wild pollinators can increase fruit set even where managed honey bees are present \citep{ipbes2016pollinators,garibaldi2013wild}. In network terms, a generalist bee can be a hub, while a specialist plant may be vulnerable if its few effective visitors decline.
 
-Ant-plant mutualisms span defence, nutrition, and dispersal. Some plants feed or house defensive ants in domatia or extrafloral nectaries; the ants reduce herbivory but may also deter other visitors, so the net sign depends on context. In [**myrmecochory**](#gl:myrmecochory), ants carry elaiosome-bearing seeds, consume the reward, and discard the seed in protected or nutrient-enriched microsites. This creates a dispersal mutualism in which the plant gains directed movement and the ant colony gains food \citep{lengyel2009convergent}. These examples are useful because they show mutualism as a measured fitness balance, not a sentimental label.
+Ant-plant mutualisms span defense, nutrition, and dispersal. Some plants feed or house defensive ants in domatia or extrafloral nectaries; the ants reduce herbivory but may also deter other visitors, so the net sign depends on context. In [**myrmecochory**](#gl:myrmecochory), ants carry elaiosome-bearing seeds, consume the reward, and discard the seed in protected or nutrient-enriched microsites. This creates a dispersal mutualism in which the plant gains directed movement and the ant colony gains food \citep{lengyel2009convergent}. These examples are useful because they show mutualism as a measured fitness balance, not a sentimental label.
 
 ### Parasitism and Disease Ecology
 
 Parasites regulate host populations and can function as keystone species:
 
+: Parasitism and Disease Ecology: Parasite type and Example. {#tbl:unit_X_community_interactions_parasitism_and_disease_ecology}
 | Parasite type | Example | Ecological effect |
 | ------------- | ------- | ----------------- |
 | **Macroparasite** | Intestinal helminths, ticks, lice | Reduce host fitness; can regulate population size |
 | **Microparasite** | *Batrachochytrium dendrobatidis* (Bd) | Chytrid fungus: >90 amphibian species extinctions since 1970 |
 | **Parasitoid** | *Cotesia glomerata* (braconid wasp) | Lays eggs inside caterpillars; larvae consume host |
 | **Social parasite** | Cuckoo (*Cuculus canorus*) | Brood parasitism; reduces host reproductive output |
-| **Manipulative parasite** | *Toxoplasma gondii* | Alters rodent behaviour (decreased fear of cats) to facilitate transmission |
+| **Manipulative parasite** | *Toxoplasma gondii* | Alters rodent behavior (decreased fear of cats) to facilitate transmission |
 
 **The parasite-mediated competition hypothesis:** parasites can determine competitive outcomes between host species, effectively functioning as "hidden" keystone species.
 
@@ -376,6 +382,7 @@ Parasites regulate host populations and can function as keystone species:
 
 Contemporary succession ecology is less deterministic than the classical "march to climax" story. Recovery trajectories depend on surviving legacies, seed banks, dispersal corridors, disturbance severity, herbivory, invasive species, soil microbes, and climate conditions during recovery. The practical question is not only which stage comes next, but which intervention would change the trajectory: protecting refuges, adding propagules, removing barriers, or accepting a novel stable state.
 
+: Facilitation and Positive Species Interactions: Feature and Primary succession. {#tbl:unit_X_community_interactions_facilitation_and_positive_species_interactions}
 | Feature | Primary succession | Secondary succession |
 | ------- | ----------------- | -------------------- |
 | Starting substrate | Bare rock/sterile substrate (no soil) | Disturbed community with soil intact |
@@ -388,9 +395,10 @@ Contemporary succession ecology is less deterministic than the classical "march 
 
 **\citet{connell1977}** proposed three mechanisms:
 
+: Mechanisms of Succession: Model and Mechanism. {#tbl:unit_X_community_interactions_mechanisms_of_succession}
 | Model | Mechanism | Example |
 | ----- | --------- | ------- |
-| **Facilitation** | Early species modify environment to favour later species | Nitrogen-fixing *Alnus* (alder) enriches soil, enabling spruce colonisation (Glacier Bay, Alaska) |
+| **Facilitation** | Early species modify environment to favor later species | Nitrogen-fixing *Alnus* (alder) enriches soil, enabling spruce colonization (Glacier Bay, Alaska) |
 | **Tolerance** | Later species can establish regardless of early species but grow more slowly | Shade-tolerant species slowly replace shade-intolerant pioneers |
 | **Inhibition** | Early colonists resist replacement; succession proceeds primarily when pioneers die | *Cladonia* lichen crusts inhibit vascular plant establishment on sand dunes |
 
@@ -434,7 +442,7 @@ In reality, most successional sequences involve the three mechanisms operating s
 
 **Classical view \citep{clements1916}:** Succession proceeds toward a single, deterministic climax community determined by regional climate (the "organismal" model — community as superorganism).
 
-**Modern view (Gleason 1926; Whittaker 1953):** Communities are assemblages of individually distributed species (the "individualistic" model). Multiple stable endpoints possible; disturbance history, stochastic colonisation, and priority effects most influence trajectory. The concept of a single climax is largely abandoned.
+**Modern view (Gleason 1926; Whittaker 1953):** Communities are assemblages of individually distributed species (the "individualistic" model). Multiple stable endpoints possible; disturbance history, stochastic colonization, and priority effects most influence trajectory. The concept of a single climax is largely abandoned.
 
 ### Intermediate Disturbance Hypothesis (IDH)
 
@@ -442,7 +450,7 @@ In reality, most successional sequences involve the three mechanisms operating s
 
 - **Low disturbance** → competitive exclusion → low diversity (dominant competitor wins)
 - **High disturbance** → primarily r-selected pioneers survive → low diversity
-- **Intermediate** → prevents competitive dominance while enabling diverse colonisation
+- **Intermediate** → prevents competitive dominance while enabling diverse colonization
 
 \begin{equation}
 H' = f(\text{disturbance frequency, intensity})
@@ -451,12 +459,13 @@ H' = f(\text{disturbance frequency, intensity})
 
 **Evidence:** Coral reefs, tropical forests, stream invertebrate communities — moderate disturbance (hurricanes, floods, fires) increases diversity.
 
-**Criticisms:** The IDH has been challenged as overly simplistic (Fox 2013, *Ecology*). Some communities show monotonic diversity-disturbance relationships. The hypothesis also assumes a competition-colonisation trade-off that is not comprehensive.
+**Criticisms:** The IDH has been challenged as overly simplistic (Fox 2013, *Ecology*). Some communities show monotonic diversity-disturbance relationships. The hypothesis also assumes a competition-colonization trade-off that is not comprehensive.
 
 ### Alternative Stable States and Regime Shifts
 
 **Alternative stable states** (Lewontin 1969; Scheffer et al. 2001): Some ecosystems can exist in multiple stable configurations under the same environmental conditions. Transitions between states (**regime shifts**) can be triggered by small perturbations near **tipping points**:
 
+: Alternative Stable States and Regime Shifts: System and State 1. {#tbl:unit_X_community_interactions_alternative_stable_states_and_regime_shifts}
 | System | State 1 | State 2 | Tipping mechanism |
 | ------ | ------- | ------- | ----------------- |
 | Shallow lake | Clear water (macrophytes dominant) | Turbid (algal bloom) | Nutrient loading exceeds P threshold |
@@ -486,6 +495,7 @@ These early warning indicators are being applied to monitor reef, lake, and clim
 
 These scales also clarify what modern biodiversity tools can and cannot show. Environmental DNA, acoustic monitoring, camera traps, remote sensing, and citizen-science records can reveal turnover across space faster than classical plots alone, but each method has detection bias, taxonomic gaps, and scale limits. A credible diversity comparison states the sampling unit, detection method, taxonomic resolution, and whether the result is richness, evenness, composition, or functional change.
 
+: Alpha, Beta, and Gamma Diversity: Scale and Definition. {#tbl:unit_X_community_interactions_alpha_beta_and_gamma_diversity}
 | Scale | Definition | Metric |
 | ----- | ---------- | ------ |
 | **Alpha (α) diversity** | Species richness within a single community/habitat | $H'$, Simpson's, species count |
@@ -529,6 +539,7 @@ $J' = 1$ means most species equally abundant; $J' \to 0$ means dominated by one 
 
 ### Worked Example: Shannon Diversity and Evenness
 
+: Shannon Diversity and Evenness: Species and Abundance. {#tbl:unit_X_community_interactions_worked_example_shannon_diversity_and_evenness}
 | Species | Abundance | $p_i$ | $p_i \ln p_i$ | $p_i^2$ |
 | ------- | --------- | ----- | -------------- | ------- |
 | A | 50 | 0.500 | -0.347 | 0.250 |
@@ -575,6 +586,7 @@ print(f"Evenness J': {result.evenness:.3f}")
 > **Concept Check:** Community X has 4 species with abundances [100, 100, 100, 100]. Community Y has 4 species with abundances [394, 2, 2, 2]. Both have $S = 4$. Calculate $H'$ and $J'$ for each. Which community is more "diverse" and why does evenness matter as much as richness?
 
 ---
+
 ## Current Evidence and Frontier Biology: Community Interactions and Succession
 
 For **Community Interactions and Succession**, frontier biology belongs inside the evidence logic of
@@ -597,7 +609,7 @@ Select biodiversity and conservation metrics by decision need: abundance, intera
 
 ## Summary
 
-- Define a community and categorise the six types of biotic interactions with examples.
+- Define a community and categorize the six types of biotic interactions with examples.
 - Apply Lotka-Volterra competition equations to predict competitive outcomes and explain the **competitive exclusion** principle and **niche** theory.
 - Explain **trophic cascade**s and keystone  species with quantitative examples.
 - Compare primary and **secondary succession** and explain the intermediate disturbance  hypothesis.
@@ -624,6 +636,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Community Interactions and Succession. {#tbl:unit_X_community_interactions_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/ecology/ecology.py` (`lotka_volterra`, `connectance`, `biodiversity_indices`) | Quantify interactions, network structure, and community diversity. |

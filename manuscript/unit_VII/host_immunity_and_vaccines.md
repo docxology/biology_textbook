@@ -15,7 +15,7 @@ By the end of this chapter, you should be able to:
 4. Describe adaptive immunity including V(D)J [**recombination**](#gl:recombination), MHC restriction, T helper cell subsets, cytotoxic T cell killing mechanisms, B cell activation, affinity maturation, and antibody class switching.
 5. Compare the eight major [**vaccine**](#gl:vaccine) platforms (live attenuated, inactivated, subunit, virus-like-particle, toxoid, conjugate, mRNA, viral vector) and apply the [**herd immunity**](#gl:herd-immunity) equation $p_c = 1 - 1/R_0$ to compute thresholds for measles, polio, and COVID-19 variants.
 6. Describe antigenic variation in influenza (drift vs shift) and HIV (reverse-transcriptase quasi-species clouds), and connect this to vaccine reformulation and pandemic risk.
-7. Catalogue the principal antibiotic-resistance mechanisms (β-lactamases including ESBLs and carbapenemases, efflux pumps, target modification including PBP2a in MRSA and 23S rRNA methylation in MLS-resistant streptococci, reduced permeability, bypass pathways) and link each to specific drug classes.
+7. Classify the principal antibiotic-resistance mechanisms (β-lactamases including ESBLs and carbapenemases, efflux pumps, target modification including PBP2a in MRSA and 23S rRNA methylation in MLS-resistant streptococci, reduced permeability, bypass pathways) and link each to specific drug classes.
 8. Describe the epidemiology and pathogenesis of major infectious diseases including tuberculosis, malaria, HIV/AIDS, and influenza, and explain the One Health framework.
 
 <!-- curriculum-scaffold-start -->
@@ -28,8 +28,8 @@ By the end of this chapter, you should be able to:
 - **Data skill:** Interpret antibody, cellular, and vaccine-response evidence.
 - **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
 - **Common misconception to repair:** Immunity is not binary; timing, dose, and variant matter.
-- **Primary lab:** \cref{sec:lab_unit_VII_host_immunity_and_vaccines}.
-- **Question bank:** \cref{sec:q_unit_VII_host_immunity_and_vaccines}.
+- **Primary lab:** \nameref{sec:lab_unit_VII_host_immunity_and_vaccines}.
+- **Question bank:** \nameref{sec:q_unit_VII_host_immunity_and_vaccines}.
 - **Transfer task:** Transfer immunity reasoning to outbreak response and clinical decision-making.
 - **Bridge to computation:** `biology.microbiology.microbiology.sir_model`.
 <!-- curriculum-scaffold-end -->
@@ -53,7 +53,7 @@ By the end of this chapter, you should be able to:
 
 ### Koch's Postulates
 
-In 1884, Robert Koch formalized criteria for establishing that a specific microorganism causes a specific disease. These four postulates remain foundational in infectious disease:
+In 1884, Robert Koch formalized criteria for establishing that a specific microorganism causes a specific disease. These four postulates remain foundational in infectious disease \citep{koch1884}:
 
 1. The microorganism must be found in most cases of the disease but not in healthy individuals
 2. The microorganism must be isolated from the diseased host and grown in pure culture
@@ -110,7 +110,7 @@ Not every exposure leads to colonization, not every colonization leads to infect
 
 ### Virulence Factors and Host-Tissue Damage
 
-Pathogens deploy specific molecular tools to adhere to host tissues, invade cells, obtain nutrients, and evade immune defenses:
+Pathogens deploy specific molecular tools to adhere to host tissues, invade cells, obtain nutrients, and evade immune defenses, while host pattern-recognition systems translate microbial signatures into inflammatory and adaptive responses \citep{medzhitov2007recognition}:
 
 **Adhesins** mediate initial attachment to host surfaces:
 
@@ -129,6 +129,7 @@ Pathogens deploy specific molecular tools to adhere to host tissues, invade cell
 
 **Exotoxins** are secreted proteins with specific mechanisms of action. Many have the A-B structure: the B (binding) subunit binds a host cell receptor, and the A (active) subunit enters the cell to exert its toxic effect:
 
+: Toxins and Molecular Mechanisms of Pathogenesis: Toxin and Organism. {#tbl:unit_VII_host_immunity_and_vaccines_toxins_and_molecular_mechanisms_of_pathogenesis}
 | Toxin | Organism | B-Subunit Target | A-Subunit Activity | Clinical Effect |
 |-------|----------|-------------------|-------------------|----------------|
 | Cholera toxin | *V. cholerae* | GM1 ganglioside | ADP-ribosylates Gsα -> constitutive adenylyl cyclase activation -> cAMP $\uparrow$ | Cl$^-$/H$_2$O secretion -> watery diarrhea (up to 20 L/day) |
@@ -159,6 +160,7 @@ The first line of defense prevents pathogen entry into sterile body compartments
 
 A barrier is not just a wall; it is an active ecological and immunological interface. Skin acidity, mucus flow, antimicrobial peptides, secretory IgA, iron sequestration, and resident microbiota most create selection pressures that pathogens must evade. Barrier failure can therefore come from physical breach, altered chemistry, disrupted microbial competition, or medical devices that bypass normal surfaces.
 
+: Physical and Chemical Barriers: Barrier and Mechanism. {#tbl:unit_VII_host_immunity_and_vaccines_physical_and_chemical_barriers}
 | Barrier | Mechanism | Pathogens That Breach It |
 |---------|-----------|------------------------|
 | **Skin** | Intact keratin layer; low [**pH**](#gl:ph) (~5.5); fatty acids; defensins; commensal [**microbiota**](#gl:microbiota) | Burns, wounds, catheter insertion bypass skin |
@@ -173,6 +175,7 @@ A barrier is not just a wall; it is an active ecological and immunological inter
 
 The innate immune system detects conserved microbial structures -- **pathogen-associated molecular patterns (PAMPs)** -- through germline-encoded PRRs. This system provides immediate recognition without prior exposure:
 
+: Pattern Recognition Receptors (PRRs): PRR and Location. {#tbl:unit_VII_host_immunity_and_vaccines_pattern_recognition_receptors_prrs}
 | PRR | Location | PAMP Recognized | Signaling Pathway | Outcome |
 |-----|----------|----------------|-------------------|---------|
 | **TLR4** | Plasma membrane | LPS (lipid A) | MyD88 -> NF-κB; TRIF -> IRF3 | Pro-inflammatory cytokines + type I IFN |
@@ -226,15 +229,16 @@ flowchart TB
 A second cleavage step generates:
 
 - **C5a** — the strongest neutrophil chemoattractant in plasma (effective at picomolar concentrations); binds C5aR1.
-- **C5b** — initiates the **membrane attack complex (MAC)**: C5b + C6 + C7 + C8 + (10–18 copies of) C9 polymerise into a 10-nm transmembrane pore that lyses the target cell osmotically. The MAC is most effective against Gram-negative bacteria (which lack the thick peptidoglycan barrier of Gram-positives); *Neisseria meningitidis* and *N. gonorrhoeae* are particularly MAC-susceptible — terminal-complement deficiencies (C5–C9) cause recurrent neisserial infections almost exclusively.
+- **C5b** — initiates the **membrane attack complex (MAC)**: C5b + C6 + C7 + C8 + (10–18 copies of) C9 polymerize into a 10-nm transmembrane pore that lyses the target cell osmotically. The MAC is most effective against Gram-negative bacteria (which lack the thick peptidoglycan barrier of Gram-positives); *Neisseria meningitidis* and *N. gonorrhoeae* are particularly MAC-susceptible — terminal-complement deficiencies (C5–C9) cause recurrent neisserial infections almost exclusively.
 
 **Complement regulation.** Self cells avoid complement attack via membrane-bound and soluble regulators:
 
+: The Complement System: Three Pathways, One Cascade: Regulator and Action. {#tbl:unit_VII_host_immunity_and_vaccines_the_complement_system_three_pathways_one_cascade}
 | Regulator | Action | Defect → disease |
 |-----------|--------|-------------------|
-| **CD46 (MCP, membrane cofactor protein)** | Cofactor for Factor I cleavage of C3b/C4b | Atypical haemolytic uraemic syndrome (aHUS) |
+| **CD46 (MCP, membrane cofactor protein)** | Cofactor for Factor I cleavage of C3b/C4b | Atypical hemolytic uremic syndrome (aHUS) |
 | **CD55 (DAF, decay-accelerating factor)** | Accelerates decay of C3 and C5 convertases | Paroxysmal nocturnal haemoglobinuria (PNH; CD55+CD59 GPI loss) |
-| **CD59 (protectin)** | Blocks C9 polymerization (MAC) | PNH (haemolysis) |
+| **CD59 (protectin)** | Blocks C9 polymerization (MAC) | PNH (hemolysis) |
 | **Factor H** | Inhibits alternative pathway on self surfaces | aHUS; age-related macular degeneration (AMD) |
 | **C1 inhibitor** | Blocks C1r/C1s and MASPs | Hereditary angioedema (HAE) |
 
@@ -293,9 +297,9 @@ NETs are evolutionarily ancient (zebrafish neutrophils, *Drosophila* haemocytes,
 
 NK-cell killing is governed by an **integration of inhibitory and activating receptor signals** — the "balance hypothesis." A cell is killed when activating signals exceed inhibitory signals.
 
-**Missing-self hypothesis (Ljunggren and Karre, 1990).** Healthy cells display abundant MHC class I on their surface, presenting peptides for surveillance by CD8$^+$ T cells. NK cells carry **inhibitory KIRs (killer immunoglobulin-like receptors; KIR2DL, KIR3DL)** that recognise self MHC-I. Engagement delivers an **inhibitory signal** through ITIMs (immunoreceptor tyrosine-based inhibitory motifs), suppressing the NK-cell killing programme. Many viruses (CMV, HIV, KSHV) and tumours **downregulate MHC class I** to avoid CD8$^+$ T cell detection — but this loss removes the inhibitory signal to NK cells, unmasking the cell for NK-mediated killing. The strategy has trade-offs: CMV has evolved decoy MHC-I-like proteins (UL18) that bind inhibitory NK receptors to mimic self.
+**Missing-self hypothesis (Ljunggren and Karre, 1990).** Healthy cells display abundant MHC class I on their surface, presenting peptides for surveillance by CD8$^+$ T cells. NK cells carry **inhibitory KIRs (killer immunoglobulin-like receptors; KIR2DL, KIR3DL)** that recognize self MHC-I. Engagement delivers an **inhibitory signal** through ITIMs (immunoreceptor tyrosine-based inhibitory motifs), suppressing the NK-cell killing program. Many viruses (CMV, HIV, KSHV) and tumors **downregulate MHC class I** to avoid CD8$^+$ T cell detection — but this loss removes the inhibitory signal to NK cells, unmasking the cell for NK-mediated killing. The strategy has trade-offs: CMV has evolved decoy MHC-I-like proteins (UL18) that bind inhibitory NK receptors to mimic self.
 
-**Induced-self via NKG2D.** A complementary mechanism detects cellular stress. **NKG2D** is an activating receptor on NK cells (and on subsets of CD8$^+$ T cells, γδ T cells, NKT cells) that recognises **stress-induced ligands**: **MICA, MICB** (MHC class I chain-related), **ULBP1–6** (UL16-binding proteins). These ligands are **absent on healthy cells** but induced by:
+**Induced-self via NKG2D.** A complementary mechanism detects cellular stress. **NKG2D** is an activating receptor on NK cells (and on subsets of CD8$^+$ T cells, γδ T cells, NKT cells) that recognizes **stress-induced ligands**: **MICA, MICB** (MHC class I chain-related), **ULBP1–6** (UL16-binding proteins). These ligands are **absent on healthy cells** but induced by:
 
 - DNA damage (ATR/ATM pathway) — common in transformed cells.
 - Viral infection.
@@ -331,7 +335,7 @@ The cardinal signs of inflammation (rubor, calor, tumor, dolor -- redness, heat,
 
 ## Adaptive Immunity: Antigen Presentation, T Cells, and Clonal Specificity
 
-The adaptive immune system provides antigen-specific responses with immunological memory. Its defining features include:
+The adaptive immune system provides antigen-specific responses with immunological memory. Its defining features include the coordinated innate-to-adaptive handoff that determines which lymphocyte programs are selected \citep{chaplin2010immuneresponse,iwasaki2015innateadaptive}:
 
 - **Specificity**: Each lymphocyte clone bears a unique antigen receptor (TCR or BCR) generated by somatic recombination
 - **Diversity**: $>10^{12}$ possible TCR specificities; $>10^8$ BCR specificities
@@ -419,6 +423,7 @@ sequenceDiagram
 
 **T helper cell subsets**:
 
+: T Cell Activation and Differentiation: Subset and Inducing Cytokines. {#tbl:unit_VII_host_immunity_and_vaccines_t_cell_activation_and_differentiation}
 | Subset | Inducing Cytokines | Master Transcription Factor | Signature Cytokines | Primary Function |
 |--------|-------------------|---------------------------|-------------------|-----------------|
 | Th1 | IL-12, IFN-γ | T-bet | IFN-γ, TNF-α | Macrophage activation; intracellular pathogens |
@@ -470,6 +475,7 @@ An antibody molecule consists of two identical heavy (H) chains and two identica
 
 ### Antibody Classes and Effector Functions
 
+: Antibody Classes and Effector Functions: Isotype and Structure. {#tbl:unit_VII_host_immunity_and_vaccines_antibody_classes_and_effector_functions}
 | Isotype | Structure | Location | Key Functions |
 |---------|-----------|----------|--------------|
 | **IgM** | Pentamer (10 binding sites) | Blood (primary response) | First antibody produced; efficient complement activation via classical pathway; low affinity compensated by high avidity |
@@ -525,14 +531,15 @@ flowchart TB
 
 *Eight vaccine platforms, the immune mechanism each engages, and characteristic clinical responses.*
 
+: Vaccine Platforms: Eight Strategies for Inducing Memory: Platform and Examples. {#tbl:unit_VII_host_immunity_and_vaccines_vaccine_platforms_eight_strategies_for_inducing_memory}
 | Platform | Examples | Antigen form | Strengths | Limitations |
 |----------|----------|--------------|-----------|-------------|
 | **Live attenuated** | MMR, varicella (Varivax), yellow fever 17D, oral polio (OPV), BCG, rotavirus | Weakened replicating organism | Strong T + B memory; often a single dose; mucosal immunity (OPV) | Reversion to virulence (rare; OPV → cVDPV); contraindicated in immunocompromised and pregnancy |
 | **Inactivated / killed** | IPV (Salk), inactivated influenza (IIV), hepatitis A (Havrix), rabies, whole-cell pertussis (legacy) | Chemically/heat-killed whole organism | Safe in immunocompromised; stable | Weaker than live; requires adjuvant + multiple doses |
 | **Subunit / recombinant protein** | Hepatitis B (HBsAg in yeast), acellular pertussis (aP), zoster (Shingrix gE + AS01) | Purified protein antigen + adjuvant | Very safe; no infectious risk | Less immunogenic; adjuvant essential |
 | **Virus-like particles (VLPs)** | HPV (Gardasil, Cervarix), HBV (also classified as subunit) | Self-assembled capsid proteins (no genome) | Particulate, highly immunogenic; structurally identical to virus | Difficult to engineer for some viruses |
-| **Toxoid** | Tetanus (TT), diphtheria (DT, Tdap), botulism toxoid | Formalin-inactivated toxin | Anti-toxin antibodies neutralise the *toxin*, not the bacterium | No antibacterial protection; periodic boosters needed |
-| **Conjugate** | Hib, PCV13, PCV20 (pneumococcal), meningococcal ACWY (Menactra) | Bacterial polysaccharide covalently linked to a protein carrier (CRM197, TT) | Converts T-independent → T-dependent response; enables infant immunisation; affinity-matured response | Carrier-specific T cells diverted; serotype replacement after PCV introduction |
+| **Toxoid** | Tetanus (TT), diphtheria (DT, Tdap), botulism toxoid | Formalin-inactivated toxin | Anti-toxin antibodies neutralize the *toxin*, not the bacterium | No antibacterial protection; periodic boosters needed |
+| **Conjugate** | Hib, PCV13, PCV20 (pneumococcal), meningococcal ACWY (Menactra) | Bacterial polysaccharide covalently linked to a protein carrier (CRM197, TT) | Converts T-independent → T-dependent response; enables infant immunization; affinity-matured response | Carrier-specific T cells diverted; serotype replacement after PCV introduction |
 | **mRNA** | BNT162b2 (Pfizer-BioNTech), mRNA-1273 (Moderna), mRNA-1345 (RSV, 2024); flu mRNA-1010 (trial) | LNP-encapsulated nucleoside-modified mRNA encoding the antigen | Rapid design (48 hr from sequence); strong T + B response; no genome integration | Cold-chain dependent; rare myocarditis; waning antibody titres |
 | **Viral vector** | rVSV-ZEBOV (Ebola), ChAdOx1 (AstraZeneca COVID), Ad26.COV2.S (J&J), gene-therapy AAV vectors | Non-replicating recombinant virus carrying antigen gene | Strong durable response; mucosal IgA achievable | Pre-existing vector immunity (Ad5 in adult populations) reduces efficacy; rare thrombosis (ChAdOx1) |
 
@@ -543,7 +550,7 @@ flowchart TB
 - Lipid nanoparticle (LNP) encapsulation protects the mRNA from extracellular nucleases and facilitates cellular uptake; the four-component LNP (ionisable lipid, phospholipid, cholesterol, PEG-lipid) self-assembles into ~ 80-nm particles.
 - Upon injection, host cells (predominantly muscle and dendritic cells at the injection site) translate the mRNA into spike protein, which is presented on MHC-I (activating CD8$^+$ CTLs) and secreted/surface-displayed (activating B cells and CD4$^+$ T cells).
 - No integration into host DNA occurs — mRNA is degraded within hours to days.
-- Spike is locked in the prefusion conformation by two proline substitutions (**2P mutation**) that preserve neutralising epitopes.
+- Spike is locked in the prefusion conformation by two proline substitutions (**2P mutation**) that preserve neutralizing epitopes.
 
 The platform is now extending to **influenza** (mRNA-1010), **RSV** (mRNA-1345, FDA-approved 2024), **CMV**, and **personalised cancer neoantigen vaccines** (Moderna mRNA-4157 in Phase III for melanoma).
 
@@ -551,8 +558,9 @@ The platform is now extending to **influenza** (mRNA-1010), **RSV** (mRNA-1345, 
 
 The single greatest challenge for vaccine development against many viruses is that the immune target itself **evolves under the selection pressure of the population's own immune response**. Two paradigmatic examples illustrate the strategies and the resulting public-health consequences.
 
-**Influenza A: drift and shift.** Influenza A is a Class V segmented (-)ssRNA virus with 8 genome segments. Its surface glycoproteins **hemagglutinin (HA, 18 subtypes)** and **neuraminidase (NA, 11 subtypes)** are the primary targets of neutralising antibodies. Influenza A undergoes two distinct mechanisms of antigenic change:
+**Influenza A: drift and shift.** Influenza A is a Class V segmented (-)ssRNA virus with 8 genome segments. Its surface glycoproteins **hemagglutinin (HA, 18 subtypes)** and **neuraminidase (NA, 11 subtypes)** are the primary targets of neutralizing antibodies. Influenza A undergoes two distinct mechanisms of antigenic change:
 
+: Antigenic Variation: How Pathogens Outpace Antibody Responses: Feature and Antigenic drift. {#tbl:unit_VII_host_immunity_and_vaccines_antigenic_variation_how_pathogens_outpace_antibody_responses}
 | Feature | **Antigenic drift** | **Antigenic shift** |
 |---|---|---|
 | Mechanism | Point mutations in HA (and NA) accumulating during replication | **Reassortment** of whole genome segments during co-infection of one cell by two influenza A strains (often in pigs as the "mixing vessel") |
@@ -573,8 +581,8 @@ The single greatest challenge for vaccine development against many viruses is th
 Consequences:
 
 1. **Drug resistance is essentially preformed**: any single-target monotherapy fails within weeks because resistant variants pre-exist in the quasi-species cloud. This is why HIV treatment requires **combination ART** (≥ 3 drugs from ≥ 2 classes); the simultaneous probability of a virion carrying mutations conferring resistance to most drugs is astronomically low.
-2. **Antibody escape is continuous**: the env gene (gp120/gp41) evolves rapidly under neutralising-antibody pressure, with the variable loops V1/V2/V3 changing every few weeks within an individual.
-3. **Vaccine difficulty**: a vaccine that elicits primarily narrowly-specific antibodies will fail. Successful HIV vaccine candidates aim for **broadly neutralising antibodies (bNAbs)** that target conserved sites (CD4-binding site, fusion peptide) — but these require unusual germline B cells and prolonged affinity maturation, which most vaccinees do not develop.
+2. **Antibody escape is continuous**: the env gene (gp120/gp41) evolves rapidly under neutralizing-antibody pressure, with the variable loops V1/V2/V3 changing every few weeks within an individual.
+3. **Vaccine difficulty**: a vaccine that elicits primarily narrowly-specific antibodies will fail. Successful HIV vaccine candidates aim for **broadly neutralizing antibodies (bNAbs)** that target conserved sites (CD4-binding site, fusion peptide) — but these require unusual germline B cells and prolonged affinity maturation, which most vaccinees do not develop.
 
 The HIV quasi-species lesson — that within-host evolution can generate resistance faster than therapy can clear the virus — has now been applied to influenza, hepatitis C, and SARS-CoV-2 (the 32-spike-mutation Omicron emergence almost certainly arose from chronic infection of an immunocompromised host, where prolonged replication permitted accumulation of escape mutations).
 
@@ -595,6 +603,7 @@ where $p_c$ is the critical fraction of the population that must be immune and $
 
 **Solution:**
 
+: Calculating Herd Immunity Threshold (Three Pathogens): Pathogen and R_0. {#tbl:unit_VII_host_immunity_and_vaccines_worked_example_calculating_herd_immunity_threshold_three_pathogens}
 | Pathogen | $R_0$ | $p_c = 1 - 1/R_0$ | Realistic vaccine efficacy $E$ | Required coverage $p_v = p_c / E$ |
 |----------|-------|-------------------|--------------------------------|------------------------------------|
 | **Measles** | 15 | $1 - 1/15 = 0.933$ → **93.3 %** | 0.97 (MMR two-dose) | $0.933 / 0.97 = 0.962$ → **96.2 %** |
@@ -612,6 +621,7 @@ The herd-immunity equation also explains why **small reductions in vaccine cover
 
 ### R$_0$ Comparison: Why Pathogens Differ
 
+: R_0 Comparison: Why Pathogens Differ: Pathogen and R_0. {#tbl:unit_VII_host_immunity_and_vaccines_r_0_comparison_why_pathogens_differ}
 | Pathogen | $R_0$ | Herd-immunity threshold | Notes |
 |----------|-------|-------------------------|-------|
 | **Measles** | 12–18 | 92–94 % | Most contagious common pathogen |
@@ -627,7 +637,7 @@ The herd-immunity equation also explains why **small reductions in vaccine cover
 | **SARS-CoV-2 (original)** | 2.5–3 | 60–67 % | Wuhan strain |
 | **SARS-CoV-2 (Delta)** | 5–8 | 80–88 % | L452R + T478K spike |
 | **SARS-CoV-2 (Omicron, BA.5)** | 8–15 | 88–93 % | Immune escape pushes effective threshold higher |
-| **Mpox (clade IIb, 2022)** | 1.0–1.5 | 0–33 % | Sustained MSM transmission; vaccine + behaviour change controlled |
+| **Mpox (clade IIb, 2022)** | 1.0–1.5 | 0–33 % | Sustained MSM transmission; vaccine + behavior change controlled |
 
 ### Adjuvants and Innate Immune Activation
 
@@ -641,7 +651,7 @@ Adjuvants amplify the innate immune response to vaccine antigens, improving adap
 - **AS01** (liposomal MPL + QS-21): Used in Shingrix (zoster) and RTS,S (malaria); strong Th1 response
 
 > **Clinical Connection: SARS-CoV-2 and the COVID-19 Pandemic**
-> SARS-CoV-2 enters cells via its spike protein binding ACE2, with TMPRSS2 protease facilitating membrane fusion. Variants of concern (Alpha, Delta, Omicron) accumulated mutations in the spike protein's receptor-binding domain (RBD) that increased transmissibility and/or enabled immune evasion. Omicron-lineage viruses substantially escaped neutralising antibodies from both vaccination and prior infection, while population immunity and viral evolution shifted severe-disease risk compared with early pandemic waves. mRNA vaccine development demonstrated the power of platform technology -- Moderna designed its vaccine sequence within 48 hours of the viral genome publication, though regulatory approval required 11 months of clinical trials. Long COVID is now defined operationally as a chronic condition present at least 3 months after SARS-CoV-2 infection; prevalence estimates vary by cohort, variant era, vaccination status, and case definition. Mechanistic studies now emphasise persistent immune activation, T-cell exhaustion signatures, metabolic dysregulation, possible viral-antigen persistence, autoimmunity, [**microbiome**](#gl:microbiome) disruption, dysautonomia, and endothelial dysfunction rather than a single cause \citep{cdc2026longcovid,longcovid2025immune}.
+> SARS-CoV-2 enters cells via its spike protein binding ACE2, with TMPRSS2 protease facilitating membrane fusion. Variants of concern (Alpha, Delta, Omicron) accumulated mutations in the spike protein's receptor-binding domain (RBD) that increased transmissibility and/or enabled immune evasion. Omicron-lineage viruses substantially escaped neutralizing antibodies from both vaccination and prior infection, while population immunity and viral evolution shifted severe-disease risk compared with early pandemic waves. mRNA vaccine development demonstrated the power of platform technology -- Moderna designed its vaccine sequence within 48 hours of the viral genome publication, though regulatory approval required 11 months of clinical trials. Long COVID is now defined operationally as a chronic condition present at least 3 months after SARS-CoV-2 infection; prevalence estimates vary by cohort, variant era, vaccination status, and case definition. Mechanistic studies now emphasize persistent immune activation, T-cell exhaustion signatures, metabolic dysregulation, possible viral-antigen persistence, autoimmunity, [**microbiome**](#gl:microbiome) disruption, dysautonomia, and endothelial dysfunction rather than a single cause \citep{cdc2026longcovid,longcovid2025immune}.
 
 ```mermaid
 flowchart TD
@@ -673,6 +683,7 @@ flowchart TD
 > Influenza A viruses can undergo antigenic shift through genomic reassortment, but SARS-CoV-2 (a non-segmented RNA virus) cannot. Despite this, SARS-CoV-2 has generated numerous variants of concern. Explain the mechanism by which SARS-CoV-2 generates antigenic diversity and why its approach, while different from influenza, has still enabled significant immune evasion.
 
 ---
+
 ## Current Evidence and Frontier Biology: Host Immunity and Vaccines
 
 For **Host Immunity and Vaccines**, frontier biology belongs inside the evidence logic of
@@ -704,8 +715,9 @@ flowchart TD
     E --> F["Adherence and equity"]
     F --> G["Surveillance feedback"]
 ```
-<!-- alt: Decision map for infectious-disease intervention choice across transmission, diagnostics, resistance, adherence, equity, and surveillance feedback. -->
-*TB regimens, malaria spatial emanators, lenacapavir PrEP, Candida auris control, and Long COVID mechanisms are cases where intervention choices depend on evidence and setting. \citep{who2025tb,who2025spatialemanators,cdc2025lenacapavirprep,cdc2026candidaauris,longcovid2026mechanisms}*
+<!-- alt: Flowchart showing TB regimens, malaria spatial emanators, lenacapavir PrEP, Candida auris control, and Long COVID mechanisms are cases where intervention choices depend on evidence and setting. -->
+
+*TB regimens, malaria spatial emanators, lenacapavir PrEP, Candida auris control, and Long COVID mechanisms are cases where intervention choices depend on evidence and setting. \citep{who2025tb,who2025spatialemanators,cdc2025lenacapavirprep,cdc2026candidaauris,longcovid2026mechanisms}.*
 
 ## Summary
 
@@ -715,7 +727,7 @@ flowchart TD
 - Describe adaptive immunity including V(D)J **recombination**, MHC restriction, T helper cell subsets, cytotoxic T cell killing mechanisms, B cell activation, affinity maturation, and antibody class switching.
 - Compare the eight major **vaccine** platforms (live attenuated, inactivated, subunit, virus-like-particle, toxoid, conjugate, mRNA, viral vector) and apply the **herd immunity** equation $p_c = 1 - 1/R_0$ to compute thresholds for measles, polio, and COVID-19 variants.
 - Describe antigenic variation in influenza (drift vs shift) and HIV (reverse-transcriptase quasi-species clouds), and connect this to vaccine reformulation and pandemic risk.
-- Catalogue the principal antibiotic-resistance mechanisms (β-lactamases including ESBLs and carbapenemases, efflux pumps, target modification including PBP2a in MRSA and 23S rRNA methylation in MLS-resistant streptococci, reduced permeability, bypass pathways) and link each to specific drug classes.
+- Classify the principal antibiotic-resistance mechanisms (β-lactamases including ESBLs and carbapenemases, efflux pumps, target modification including PBP2a in MRSA and 23S rRNA methylation in MLS-resistant streptococci, reduced permeability, bypass pathways) and link each to specific drug classes.
 - Describe the epidemiology and pathogenesis of major infectious diseases including tuberculosis, malaria, HIV/AIDS, and influenza, and explain the One Health framework.
 
 ## Further Reading and Source Notes: Host Immunity and Vaccines
@@ -733,6 +745,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Host Immunity and Vaccines. {#tbl:unit_VII_host_immunity_and_vaccines_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/microbiology/microbiology.py` (`basic_reproduction_number`, `sir_model`, `mic_fold_dilution`) | Reproduce transmission and antimicrobial-resistance calculations. |

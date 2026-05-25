@@ -10,7 +10,7 @@
 - [Zero-mock policy](#zero-mock-policy)
 - [Running tests](#running-tests)
 - [Coverage standards](#coverage-standards)
-- [Test organisation](#test-organisation)
+- [Test organization](#test-organization)
 - [Authoring mistake → test → fix (consolidated)](#authoring-mistake--test--fix-consolidated)
 - [Failure-to-fix table](#failure-to-fix-table)
 - [Writing new tests](#writing-new-tests)
@@ -102,9 +102,9 @@ Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the
 
 ---
 
-## Test organisation
+## Test organization
 
-**Total: 37 test files** (domain + invariant/quality). The suite is partitioned into **domain tests** (exercising `src/biology/*` models) and **invariant/quality tests** (asserting manuscript, lab, question-bank, table-of-contents, render-log, glossary, current-claim, assessment-alignment, accessibility, standalone bootstrap, and script-level gates).
+**Total: 41 test files** (domain + invariant/quality). The suite is partitioned into **domain tests** (exercising `src/biology/*` models) and **invariant/quality tests** (asserting manuscript, lab, question-bank, table-of-contents, render-log, glossary, current-claim, assessment-alignment, accessibility, standalone bootstrap, and script-level gates).
 
 ### Domain tests (6 `test_*.py` files)
 
@@ -125,7 +125,7 @@ Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the
 | `test_atomic_io.py` | Atomic write/replace helpers used by maintenance scripts |
 | `test_audit_v3_and_crossref_gate.py` | Generic-answer v3 and malformed `\cref` detector regressions |
 | `test_build_invariants.py` | Every chapter has `\label{sec:…}` and a metadata badge; every lab/question `\cref`-links to its parent chapter; every registered figure generator is referenced; every `\label{fig:…}` has prose `\cref`; Course Planning Grid populated |
-| `test_bibliography_closure.py` | `{cited}` == `{defined}` in `references.bib` — no orphans, no dangling citations, no mid-word citation artefacts |
+| `test_bibliography_closure.py` | `{cited}` == `{defined}` in `references.bib` — no orphans, no dangling citations, no mid-word citation artifacts |
 | `test_chapter_metadata.py` | Every `config.yaml` chapter has a `ChapterMeta` record; prerequisites resolve; difficulty ∈ {1, 2, 3}; chapter numbers contiguous 1..N |
 | `test_chapter_pedagogy_coverage.py` | REVIEW §7 pedagogy locks: ≥2 worked examples on 12 quantitative chapters, ≥3 Concept Checks on Unit IX + four named chapters, Bloom diversity on three chapters, ≥7 LOs on all core chapters |
 | `test_curriculum_metadata.py` | Every `config.yaml` chapter has a curriculum record; lab/question companion paths exist and align |
@@ -184,7 +184,7 @@ Use this table when pytest fails. Each row gives the **specific authoring mistak
 | 6a | A chapter, unit intro, lab, question bank, reference appendix, or glossary H1 drifts from `config.yaml` | `test_renderable_h1s_match_canonical_toc` | `uv run python -m pytest tests/test_toc_consistency.py::test_renderable_h1s_match_canonical_toc -v` | Run `scripts/sync_curriculum_materials.py` |
 | 6b | Lab/question entries duplicate derived `title:` strings in `config.yaml` | `test_lab_and_question_config_entries_do_not_duplicate_titles` | `uv run python -m pytest tests/test_toc_consistency.py::test_lab_and_question_config_entries_do_not_duplicate_titles -v` | Delete the duplicated `title:` keys; keep only `file:` |
 | 7 | Citekey in chapter not present in `references.bib` | `test_no_dangling_citations` | `uv run python -m pytest tests/test_bibliography_closure.py::test_no_dangling_citations -v` | Add the BibTeX entry to `references.bib` (`@article{...}`) |
-| 8 | BibTeX entry never cited | `test_no_orphan_bib_entries` | `uv run python -m pytest tests/test_bibliography_closure.py::test_no_orphan_bib_entries -v` | Cite it in the most relevant chapter, or run `scripts/integrate_orphan_citations.py` |
+| 8 | BibTeX entry never cited | `test_no_orphan_bibentries` | `uv run python -m pytest tests/test_bibliography_closure.py::test_no_orphan_bibentries -v` | Cite it in the most relevant chapter, or run `scripts/integrate_orphan_citations.py` |
 | 9 | `\cite{}` glued to a word (`...as\citep{x}shows...`) | `test_no_midword_citations` | `uv run python -m pytest tests/test_bibliography_closure.py::test_no_midword_citations -v` | Add a space before/after the `\citep{}` |
 | 10 | `ChapterMeta` missing for a chapter listed in `config.yaml` | `test_every_config_chapter_has_meta` | `uv run python -m pytest tests/test_chapter_metadata.py::test_every_config_chapter_has_meta -v` | Add a `ChapterMeta(...)` record to `src/biology/chapter_metadata.py` |
 | 11 | `ChapterMeta.prerequisites` references unknown `chapter_id` | `test_prerequisites_resolve` | `uv run python -m pytest tests/test_chapter_metadata.py::test_prerequisites_resolve -v` | Fix typo, or add the missing `ChapterMeta` for the prereq |
@@ -196,7 +196,7 @@ Use this table when pytest fails. Each row gives the **specific authoring mistak
 | 17 | `@fig:foo` referenced but no `{#fig:foo}` defined | `test_no_unresolved_refs` | `uv run python -m pytest tests/test_crossref_validator.py::test_no_unresolved_refs -v` | Define the label, or fix the reference typo |
 | 18 | Same `\label{fig:foo}` defined in two files | `test_no_duplicate_labels` | `uv run python -m pytest tests/test_crossref_validator.py::test_no_duplicate_labels -v` | Make the label globally unique (use the `unit_X_<descriptor>` convention) |
 | 19 | `cleveref` missing from preamble | `test_cleveref_loaded` | `uv run python -m pytest tests/test_crossref_validator.py::test_cleveref_loaded -v` | Add `\usepackage{cleveref}` to `manuscript/preamble.md` after `hyperref` |
-| 20 | Manual equation numbering in renderable manuscript prose | `test_latex_equation_environment_with_tag_is_flagged` | `uv run python -m pytest tests/test_crossref_validator_internals.py::test_latex_equation_environment_with_tag_is_flagged -v` | Use a labelled `equation` or `align` environment; let LaTeX assign the rendered number (see [manuscript_guide.md#equations](manuscript_guide.md#equations)) |
+| 20 | Manual equation numbering in renderable manuscript prose | `test_latex_equation_environment_with_tag_is_flagged` | `uv run python -m pytest tests/test_crossref_validator_internals.py::test_latex_equation_environment_with_tag_is_flagged -v` | Use a labeled `equation` or `align` environment; let LaTeX assign the rendered number (see [manuscript_guide.md#equations](manuscript_guide.md#equations)) |
 | 21 | Markdown image with `{#fig:...}` attribute parses incorrectly | `test_markdown_image_attrs` | `uv run python -m pytest tests/test_crossref_validator_edges.py::test_markdown_image_attrs -v` | Check syntax: `![alt](path){#fig:label}` (no space before `{`) |
 | 22 | Lab Part 2 references a hidden notebook, CSV, pandas import, or display-only `plt.show()` workflow | `test_labs_do_not_reference_missing_computational_artifacts` | `uv run python -m pytest tests/test_lab_integrity.py::test_labs_do_not_reference_missing_computational_artifacts -v` | Run `scripts/normalize_lab_computational_workflows.py`; keep snippets self-contained |
 | 23 | Optional lab snippet imports a module path that does not resolve | `test_lab_python_snippets_execute_against_project_modules` | `uv run python -m pytest tests/test_lab_integrity.py::test_lab_python_snippets_execute_against_project_modules -v` | Fix the `from biology... import ...` line or add/export the missing API in `src/biology` |

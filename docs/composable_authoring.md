@@ -104,7 +104,7 @@ PDF-render failure so diagrams are never silently dropped.
 | `$ … $` | Inline math | No |
 
 > [!WARNING]
-> Do not use manual equation-number tags in manuscript prose. Use labelled `equation` or `align` environments for numbered display equations; use plain `$$ … $$` only for unnumbered display math.
+> Do not use manual equation-number tags in manuscript prose. Use labeled `equation` or `align` environments for numbered display equations; use plain `$$ … $$` only for unnumbered display math.
 
 `pandoc-crossref` attributes like `{#eq:myid}` on display math are validated by [../src/biology/crossref_validator.py](../src/biology/crossref_validator.py).
 
@@ -120,7 +120,7 @@ PDF-render failure so diagrams are never silently dropped.
 | Mechanism | Use in this project |
 | --------- | ------------------- |
 | **cleveref** | `\cref{sec:...}`, `\cref{fig:...}`, `\cref{eq:...}`, `\cref{tbl:...}` in prose (primary) |
-| **natbib** | `\citep{key}`, `\citet{key}`, `\citealt{key}`; all keys in [../manuscript/references.bib](../manuscript/references.bib). See [manuscript_guide.md#citations-and-references](manuscript_guide.md#citations-and-references) for command-by-command guidance. |
+| **natbib** | Prefer `\citep{key}` and `\citet{key}`; documented rare forms include `\citealt`, `\citealp`, `\citeauthor`, `\citeyear`, and optional arguments such as `\citet[p.~12]{key}`. All keys live in [../manuscript/references.bib](../manuscript/references.bib). See [manuscript_guide.md#citations-and-references](manuscript_guide.md#citations-and-references) for command-by-command guidance. |
 | **pandoc-crossref** | `@fig:`, `@eq:`, `@tbl:`, `@sec:` in prose, and `{#fig:...}` / `{#eq:...}` on assets — **must** resolve; [crossref_validator](../src/biology/crossref_validator.py) + tests enforce. |
 
 Raw LaTeX figure/table environments with `\label{fig:...}` are scanned by the validator; markdown images use `![alt](path){#fig:...}` when using crossref-style IDs.
@@ -215,7 +215,7 @@ flowchart LR
 - [../manuscript/AGENTS.md](../manuscript/AGENTS.md) — chapter file contract, allowlists, paths
 - [manuscript_guide.md](manuscript_guide.md) — templates, LaTeX patterns, equation decision tree
 - [pipeline_guide.md](pipeline_guide.md) — full pipeline and maintenance script table
-- [visualisation_guide.md](visualisation_guide.md) — matplotlib and Mermaid conventions
+- [visualization_guide.md](visualization_guide.md) — matplotlib and Mermaid conventions
 - [testing_guide.md](testing_guide.md) — zero-mock policy, "what test catches what mistake"
 - [api_reference.md](api_reference.md) — `ChapterMeta` and `crossref_validator` entry points
 - [accessibility.md](accessibility.md) — `config.yaml` flags advisory vs test-enforced; reader PDF profile

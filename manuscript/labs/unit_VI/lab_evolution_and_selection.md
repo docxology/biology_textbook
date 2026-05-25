@@ -1,6 +1,5 @@
-# Lab — Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
+# Lab — Evolution — Theory, Natural Selection, and Adaptation {#sec:lab_unit_VI_evolution_and_selection .unnumbered}
 
-\label{sec:lab_unit_VI_evolution_and_selection}
 
 *This activity accompanies \cref{sec:unit_VI_evolution_and_selection} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -47,16 +46,17 @@
 
 ## Lab Context: Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
 
-Natural selection operates when three conditions are met: (1) heritable variation exists; (2) variation affects survival/reproduction (fitness); (3) traits are inherited. Over generations, favourable alleles increase in frequency (directional selection), multiple phenotypes are maintained (balancing/disruptive selection), or variation is reduced around an optimum (stabilising selection). The selection coefficient *s* quantifies fitness cost: a lethal allele has s = 1.0; a neutral allele has s = 0.
+Natural selection operates when three conditions are met: (1) heritable variation exists; (2) variation affects survival/reproduction (fitness); (3) traits are inherited. Over generations, favorable alleles increase in frequency (directional selection), multiple phenotypes are maintained (balancing/disruptive selection), or variation is reduced around an optimum (stabilizing selection). The selection coefficient *s* quantifies fitness cost: a lethal allele has s = 1.0; a neutral allele has s = 0.
 
 The breeder's equation ($R = h^2 S$) worked example in the parent chapter (\cref{sec:unit_VI_evolution_and_selection}) provides a quantitative framework for predicting selection response: with $h^2 = 0.4$ and $S = 10$ bristles, the predicted response is roughly 4 bristles per generation, decelerating as additive genetic variance depletes. This lab uses the selection coefficient $s$ to track allele-frequency change — a complementary population-level view of the same process.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VI_evolution_and_selection_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Evolution — Theory, Natural Selection, and Adaptation: evolutionary-evidence source card: alternative hypotheses, sampling, calibration, and confidence boundary | 1 |
-| Coloured paper squares (30 each of: green, red, brown, on green and brown backgrounds) | 1 set |
+| Colored paper squares (30 each of: green, red, brown, on green and brown backgrounds) | 1 set |
 | Forceps (one per student, simulating different beak types) | 4 |
 | 60-second timer | 1 |
 | Ruler | 1 |
@@ -82,9 +82,9 @@ The breeder's equation ($R = h^2 S$) worked example in the parent chapter (\cref
 3. **Set Up Controls**: Why is it important to have a control background (e.g., green prey on green background)? What other controls could you include in a predation simulation?
 
 4. **Data Collection**:
-   - Scatter 90 coloured squares randomly across a green (grassy) background table.
-   - Students "forage" for 30 seconds using forceps, prioritising whatever they can pick up fastest (competitive foraging).
-   - Count survivors in each colour category. Calculate % survival per colour on the green background.
+   - Scatter 90 colored squares randomly across a green (grassy) background table.
+   - Students "forage" for 30 seconds using forceps, prioritizing whatever they can pick up fastest (competitive foraging).
+   - Count survivors in each color category. Calculate % survival per color on the green background.
    - Repeat on a brown paper background.
    - Perform at least 3 replicates for each background type.
 
@@ -112,7 +112,8 @@ print("generations recorded:", len(history))
 
 ## Data Recording {.unnumbered}
 
-| Colour | Starting # | # Surviving (green) | % Survival (green) | # Surviving (brown) | % Survival (brown) |
+: Part 3: Finch Beak Analysis: Color and Starting #. {#tbl:unit_VI_evolution_and_selection_part_3_finch_beak_analysis}
+| Color | Starting # | # Surviving (green) | % Survival (green) | # Surviving (brown) | % Survival (brown) |
 | ------ | ---------- | ------------------- | ------------------- | ------------------- | ------------------- |
 | Green | 30 | | | | |
 | Red | 30 | | | | |
@@ -120,6 +121,7 @@ print("generations recorded:", len(history))
 
 Selection coefficients:
 
+: Part 3: Finch Beak Analysis: Genotype and Habitat A fitness (w). {#tbl:unit_VI_evolution_and_selection_part_3_finch_beak_analysis_2}
 | Genotype | Habitat A fitness (w) | s (A) | Habitat B fitness (w) | s (B) |
 | -------- | --------------------- | ----- | --------------------- | ----- |
 | AA | | | | |
@@ -145,6 +147,7 @@ Finch graph trend description:
 Before answering the analysis questions, annotate the paper dataset for
 **Evolution — Theory, Natural Selection, and Adaptation** with a reproducibility pass:
 
+: Part 3: Finch Beak Analysis: Evidence check and Student action. {#tbl:unit_VI_evolution_and_selection_part_3_finch_beak_analysis_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -153,7 +156,7 @@ Before answering the analysis questions, annotate the paper dataset for
 | Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
 | Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
 
-Focus note: in this background-survival and finch-beak lab, treat each generation's surviving colour or beak counts as a measured fitness differential, and separate selection acting on heritable variation from within-generation plasticity before claiming adaptation. Keep required work paper-based; any material-handling or
+Focus note: in this background-survival and finch-beak lab, treat each generation's surviving color or beak counts as a measured fitness differential, and separate selection acting on heritable variation from within-generation plasticity before claiming adaptation. Keep required work paper-based; any material-handling or
 equipment version belongs only in an optional extension.
 
 ### Worked Example: Allele Frequency Change Under Selection {.unnumbered}
@@ -170,9 +173,9 @@ Complete the source-governance card for Evolution — Theory, Natural Selection,
 
 ## Analysis Questions {.unnumbered}
 
-1. On the green background, which colour survived best? Explain in terms of camouflage and predator visual system. How does this simulate directional selection in a real habitat?
+1. On the green background, which color survived best? Explain in terms of camouflage and predator visual system. How does this simulate directional selection in a real habitat?
 
-2. If the green background was then "burned" and replaced with brown substrate (environmental change), predict how allele frequencies for "green colour" would change over generations. Which type of selection would now operate?
+2. If the green background was then "burned" and replaced with brown substrate (environmental change), predict how allele frequencies for "green color" would change over generations. Which type of selection would now operate?
 
 3. The finch beak data showed that species with deep beaks eat harder seeds. Explain how this pattern could arise through: (a) individual phenotypic plasticity within one generation; (b) natural selection across many generations. How would you distinguish these mechanisms with an experimental test?
 
@@ -231,7 +234,7 @@ This project will span 2-3 lab sessions:
 
 ## Safety and Ethics Notes {.unnumbered}
 
-Forceps (plastic or blunt-tip) are low risk. Ensure fairness in simulation — most students forage simultaneously. Small coloured squares: keep away from young children (swallowing hazard). Antibiotic-resistance work in this lab is paper-based primarily; do not culture bacteria or handle antibiotics. When discussing antibiotic resistance, emphasize following current prescriber instructions, avoiding unnecessary antibiotic starts, using diagnostics when available, and protecting access to effective treatment.
+Forceps (plastic or blunt-tip) are low risk. Ensure fairness in simulation — most students forage simultaneously. Small colored squares: keep away from young children (swallowing hazard). Antibiotic-resistance work in this lab is paper-based primarily; do not culture bacteria or handle antibiotics. When discussing antibiotic resistance, emphasize following current prescriber instructions, avoiding unnecessary antibiotic starts, using diagnostics when available, and protecting access to effective treatment.
 
 ## Debrief and Reflection {.unnumbered}
 
@@ -241,7 +244,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_VI_evolution_and_selection} that your data either confirmed or complicated. Cite the specific passage.
 

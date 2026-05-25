@@ -1,6 +1,5 @@
-# Lab — Chromosomal Inheritance and Linkage {.unnumbered}
+# Lab — Chromosomal Inheritance and Linkage {#sec:lab_unit_V_chromosomal_inheritance .unnumbered}
 
-\label{sec:lab_unit_V_chromosomal_inheritance}
 
 *This activity accompanies \cref{sec:unit_V_chromosomal_inheritance} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -51,13 +50,14 @@ Genes on the same chromosome are linked and tend to be inherited together (viola
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_V_chromosomal_inheritance_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Chromosomal Inheritance and Linkage: inheritance source card: model assumptions, sampling frame, ancestry/context boundary, and uncertainty | 1 |
 | Linkage mapping dataset (3 genes, pairwise recombination frequencies) (printed) | 1 |
 | Karyotype images (4 cases: normal, trisomy 21, Turner syndrome 45,X, translocation) (printed) | 1 set |
 | Scissors and paste (for karyotype sorting exercise) | 1 set |
-| X-linked pedigrees (2 cases: colour blindness, haemophilia) (printed) | 1 |
+| X-linked pedigrees (2 cases: color blindness, haemophilia) (printed) | 1 |
 | Ruler | 1 |
 | Chromosome pair cards (22 homologous pairs, numbered) | 1 set |
 | Calculator or optional Python REPL with this project installed | 1 |
@@ -109,6 +109,7 @@ Linkage map sketch:
 
 `A —[___cM]— B —[___cM]— C`
 
+: Part 3: Karyotype Analysis: Karyotype Case and # chromosomes. {#tbl:unit_V_chromosomal_inheritance_part_3_karyotype_analysis}
 | Karyotype Case | # chromosomes | Abnormality | Syndrome (if any) |
 | -------------- | ------------- | ----------- | ----------------- |
 | 1 | | | |
@@ -118,6 +119,7 @@ Linkage map sketch:
 
 X-linked pedigree genotypes:
 
+: Part 3: Karyotype Analysis: Individual and Phenotype. {#tbl:unit_V_chromosomal_inheritance_part_3_karyotype_analysis_2}
 | Individual | Phenotype | Genotype |
 | ---------- | --------- | -------- |
 | Gen I male | Unaffected | X^B Y |
@@ -142,6 +144,7 @@ X-linked pedigree genotypes:
 Before answering the analysis questions, annotate the paper dataset for
 **Chromosomal Inheritance and Linkage** with a reproducibility pass:
 
+: Part 3: Karyotype Analysis: Evidence check and Student action. {#tbl:unit_V_chromosomal_inheritance_part_3_karyotype_analysis_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -241,7 +244,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_V_chromosomal_inheritance} that your data either confirmed or complicated. Cite the specific passage.
 

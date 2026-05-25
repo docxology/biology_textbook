@@ -13,11 +13,11 @@ By the end of this chapter, you should be able to:
 1. Describe the alternation of generations and explain the evolutionary trend from gametophyte-[**dominant**](#gl:dominant) to sporophyte-dominant life cycles across the plant kingdom.
 2. Compare reproduction in non-vascular plants, seedless vascular plants, gymnosperms, and [**angiosperm**](#gl:angiosperm)s.
 3. Describe angiosperm flower structure and explain the ABCDE model of floral organ identity \citep{coen1991}, including the molecular identities of MADS-box transcription factors.
-4. Describe pollen grain and embryo sac architecture at cellular resolution; trace double fertilisation in detail \citep{nawaschin1898}, including pollen tube chemotropism, synergid degeneration, and sperm cell delivery.
+4. Describe pollen grain and embryo sac architecture at cellular resolution; trace double fertilization in detail \citep{nawaschin1898}, including pollen tube chemotropism, synergid degeneration, and sperm cell delivery.
 5. Explain microsporogenesis, megasporogenesis, and endosperm development (free-nuclear, cellular, PEG-pathway) including the 2m:1p genome dosage.
 6. Compare seed dormancy types (physical, physiological, morphological, morphophysiological, combinatorial) and the molecular basis of germination triggers (stratification, scarification, light via phytochrome).
 7. Describe self-incompatibility (SSI vs GSI), apomixis (sporophytic vs gametophytic), polyploidy, and vegetative propagation strategies.
-8. Explain embryogenesis and meristem organisation (SAM/RAM) including the WUS-CLV3 feedback loop, fruit development, and parthenocarpy.
+8. Explain embryogenesis and meristem organization (SAM/RAM) including the WUS-CLV3 feedback loop, fruit development, and parthenocarpy.
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -29,8 +29,8 @@ By the end of this chapter, you should be able to:
 - **Data skill:** Track ploidy, tissue origin, and reproductive stage from diagrams or observations.
 - **Practice cadence:** Visual Representations, Questions and Methods, Argumentation.
 - **Common misconception to repair:** Pollen, spores, seeds, and gametes are not interchangeable terms.
-- **Primary lab:** \cref{sec:lab_unit_VIII_plant_reproduction}.
-- **Question bank:** \cref{sec:q_unit_VIII_plant_reproduction}.
+- **Primary lab:** \nameref{sec:lab_unit_VIII_plant_reproduction}.
+- **Question bank:** \nameref{sec:q_unit_VIII_plant_reproduction}.
 - **Transfer task:** Transfer reproductive reasoning to agriculture, pollination ecology, and plant evolution.
 - **Bridge to computation:** `biology.botany.botany.plant_biomass_growth`.
 <!-- curriculum-scaffold-end -->
@@ -47,11 +47,11 @@ Plants have a **diphasic life cycle** -- alternating between a diploid **sporoph
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Sporophyte_2n: Fertilisation (syngamy)
+    [*] --> Sporophyte_2n: Fertilization (syngamy)
     Sporophyte_2n --> Spores_n: Meiosis in sporangia
     Spores_n --> Gametophyte_n: Mitotic growth
     Gametophyte_n --> Gametes_n: Mitosis produces gametes
-    Gametes_n --> Sporophyte_2n: Fertilisation
+    Gametes_n --> Sporophyte_2n: Fertilization
 
     note right of Sporophyte_2n
         DIPLOID (2n)
@@ -65,23 +65,24 @@ stateDiagram-v2
         Reduced to few cells in angiosperms
     end note
 ```
-<!-- alt: State diagram showing alternation of generations showing the two phases of the plant life cycle The sporophyte (2n) produces haploid spores by meiosis. Spores develop into the gametophyte (n), which produces gametes by mitosis. Fertilisation restores the diploid sporophyte. -->
+<!-- alt: State diagram showing alternation of generations showing the two phases of the plant life cycle The sporophyte (2n) produces haploid spores by meiosis. Spores develop into the gametophyte (n), which produces gametes by mitosis. Fertilization restores the diploid sporophyte. -->
 
-*Alternation of generations showing the two phases of the plant life cycle The sporophyte (2n) produces haploid spores by [**meiosis**](#gl:meiosis). Spores develop into the gametophyte (n), which produces gametes by [**mitosis**](#gl:mitosis). Fertilisation restores the diploid sporophyte.*
+*Alternation of generations showing the two phases of the plant life cycle The sporophyte (2n) produces haploid spores by [**meiosis**](#gl:meiosis). Spores develop into the gametophyte (n), which produces gametes by [**mitosis**](#gl:mitosis). Fertilization restores the diploid sporophyte.*
 
-| Plant group | Dominant generation | Gametophyte description | Fertilisation requirement |
+: Study Blueprint: Plant group and Dominant generation. {#tbl:unit_VIII_plant_reproduction_study_blueprint}
+| Plant group | Dominant generation | Gametophyte description | Fertilization requirement |
 | ----------- | ------------------- | ----------------------- | ------------------------- |
 | Bryophytes (mosses, liverworts) | **Haploid gametophyte** (the leafy "plant") | Free-living; nutritionally independent | Water required (flagellated sperm swim) |
 | Pteridophytes (ferns, horsetails) | **Diploid sporophyte** | Small, free-living prothallus (~1 cm$^2$); needs moisture | Water required |
 | Gymnosperms (*Pinus*, *Ginkgo*, cycads) | Diploid sporophyte | Reduced; pollen = 4-celled male gametophyte; archegonia in ovule = female gametophyte | Wind pollination; no water needed |
 | Angiosperms (flowering plants) | Diploid sporophyte | Microscopic, dependent: pollen = 3-celled; embryo sac = 7-celled, 8-nuclei | Wind or animal pollination |
 
-**Why does dominance shift to the sporophyte?** Diploid cells can mask deleterious recessive [**mutation**](#gl:mutation)s ([**heterozygous**](#gl:heterozygous) advantage). A diploid sporophyte can accumulate more genetic material enabling structural complexity -- leaves, stems, vascular tissue, seeds -- allowing colonisation of increasingly dry terrestrial habitats. The seed is the key innovation: it encases the embryo and gametophyte within maternal tissue, eliminating dependence on external water for fertilisation.
+**Why does dominance shift to the sporophyte?** Diploid cells can mask deleterious recessive [**mutation**](#gl:mutation)s ([**heterozygous**](#gl:heterozygous) advantage). A diploid sporophyte can accumulate more genetic material enabling structural complexity -- leaves, stems, vascular tissue, seeds -- allowing colonization of increasingly dry terrestrial habitats. The seed is the key innovation: it encases the embryo and gametophyte within maternal tissue, eliminating dependence on external water for fertilization.
 
 ### Worked Example: Tracking Ploidy Through the Angiosperm Life Cycle
 
 **Problem:**
-Maize (*Zea mays*) has a sporophyte chromosome number of $2n = 20$. Track the chromosome number at each stage of alternation of generations, then determine the ploidy of the zygote and the primary endosperm nucleus produced by double fertilisation.
+Maize (*Zea mays*) has a sporophyte chromosome number of $2n = 20$. Track the chromosome number at each stage of alternation of generations, then determine the ploidy of the zygote and the primary endosperm nucleus produced by double fertilization.
 
 **Solution:**
 
@@ -99,7 +100,7 @@ $$ \text{primary endosperm nucleus} = n + n + n = 10 + 10 + 10 = 30 \;\; (3n,\ \
 5. **Genome dosage of the endosperm.** Two of the three genomes are maternal (the polar nuclei) and one is paternal (the sperm):
 $$ \frac{\text{maternal}}{\text{paternal}} = \frac{2n}{1n} = \frac{20}{10} = \frac{2}{1} \label{eq:unit_VIII_plant_reproduction_item_10}$$
 
-**Interpretation:** Meiosis halves $2n = 20$ to $n = 10$ for the gametophyte generation; the two sperm-mediated fusions of double fertilisation then restore a $2n = 20$ embryo and create a distinctive $3n = 30$ endosperm with a fixed 2:1 maternal:paternal dosage — the genetic substrate for the parent-of-origin conflict conserved across flowering plants.
+**Interpretation:** Meiosis halves $2n = 20$ to $n = 10$ for the gametophyte generation; the two sperm-mediated fusions of double fertilization then restore a $2n = 20$ embryo and create a distinctive $3n = 30$ endosperm with a fixed 2:1 maternal:paternal dosage — the genetic substrate for the parent-of-origin conflict conserved across flowering plants.
 
 ---
 
@@ -127,7 +128,7 @@ $$ \frac{\text{maternal}}{\text{paternal}} = \frac{2n}{1n} = \frac{20}{10} = \fr
 - Spores germinate into a small, heart-shaped **prothallus** (the independent gametophyte, ~1 cm)
 - The prothallus bears both antheridia (produce flagellated sperm) and archegonia (produce eggs)
 - Sperm must swim through water to the archegonium -- the limiting step
-- After fertilisation, the new sporophyte grows from the prothallus, which eventually withers
+- After fertilization, the new sporophyte grows from the prothallus, which eventually withers
 
 Horsetails (*Equisetum*) and club mosses (*Lycopodium*, *Selaginella*) are also seedless vascular plants. *Selaginella* shows early heterospory (different-sized spores for male and female gametophytes), a precursor to the seed habit.
 
@@ -136,16 +137,16 @@ Horsetails (*Equisetum*) and club mosses (*Lycopodium*, *Selaginella*) are also 
 Gymnosperms ("naked seed") include conifers (~630 species), cycads (~350), *Ginkgo biloba* (1 species), and gnetophytes (~70). Key reproductive features:
 
 - **Heterospory:** Microsporangia (in pollen cones/microstrobili) produce microspores that develop into pollen grains (male gametophyte). Megasporangia (in ovulate cones) produce megaspores that develop into the female gametophyte (with archegonia).
-- **Pollen eliminates the need for water** for fertilisation. Wind-dispersed pollen lands on the ovule (pollination drop mechanism in many gymnosperms).
-- **Slow fertilisation:** In pines, 12-18 months elapse between pollination and fertilisation. The pollen tube grows slowly through the nucellus to reach the archegonium.
-- **Seeds:** The fertilised ovule develops into a seed containing the embryo, stored food (female gametophyte tissue), and a protective seed coat derived from the integuments. Seeds are "naked" (not enclosed in a fruit).
+- **Pollen eliminates the need for water** for fertilization. Wind-dispersed pollen lands on the ovule (pollination drop mechanism in many gymnosperms).
+- **Slow fertilization:** In pines, 12-18 months elapse between pollination and fertilization. The pollen tube grows slowly through the nucellus to reach the archegonium.
+- **Seeds:** The fertilized ovule develops into a seed containing the embryo, stored food (female gametophyte tissue), and a protective seed coat derived from the integuments. Seeds are "naked" (not enclosed in a fruit).
 
 ### Angiosperms (Flowering Plants)
 
 Angiosperms (~300,000 species) are the most diverse plant group, with several key innovations:
 
-- **Flowers:** Specialised reproductive structures that facilitate pollination (including animal pollination)
-- **Double fertilisation:** Unique to angiosperms, producing both embryo and endosperm
+- **Flowers:** Specialized reproductive structures that facilitate pollination (including animal pollination)
+- **Double fertilization:** Unique to angiosperms, producing both embryo and endosperm
 - **Fruits:** Mature ovary wall enclosing seeds; facilitate dispersal
 - **Reduced gametophytes:** Male gametophyte = 3-celled pollen grain; female gametophyte = 7-celled, 8-nucleate embryo sac
 
@@ -157,16 +158,17 @@ Angiosperms (~300,000 species) are the most diverse plant group, with several ke
 
 Angiosperm flowers are **modified shoots** (shoot lateral organs with determinate growth). A **complete flower** contains four whorls (from outside inward):
 
+: Flower Architecture and Reproductive Organ Identity: Whorl and Name. {#tbl:unit_VIII_plant_reproduction_flower_architecture_and_reproductive_organ_identity}
 | Whorl | Name | Organ | Function |
 | ----- | ---- | ----- | -------- |
 | 1 (outermost) | Calyx | Sepals | Protect flower bud; photosynthetic; sometimes petaloid |
-| 2 | Corolla | Petals | Attract pollinators via colour (UV patterns visible to bees), scent (monoterpenes), oil rewards |
+| 2 | Corolla | Petals | Attract pollinators via color (UV patterns visible to bees), scent (monoterpenes), oil rewards |
 | 3 | Androecium | Stamens (filament + anther) | Pollen production (male gametophyte) |
 | 4 (innermost) | Gynoecium | Carpels (pistil) = stigma + style + ovary | Pollen reception; pollen tube guidance; ovule enclosure |
 
 **Floral symmetry:**
-- **Actinomorphic (radially symmetric):** *Rosa*, *Ranunculus*, most basal angiosperms -- generalised pollinators
-- **Zygomorphic (bilaterally symmetric):** Orchidaceae, Fabaceae, Scrophulariaceae -- specialised pollinators
+- **Actinomorphic (radially symmetric):** *Rosa*, *Ranunculus*, most basal angiosperms -- generalized pollinators
+- **Zygomorphic (bilaterally symmetric):** Orchidaceae, Fabaceae, Scrophulariaceae -- specialized pollinators
 
 **Incomplete flowers** lack one or more whorls. **Imperfect flowers** lack either stamens (pistillate/female flowers) or carpels (staminate/male flowers). Monoecious plants bear both on the same individual (maize); dioecious plants bear them on separate individuals (holly, willow).
 
@@ -174,6 +176,7 @@ Angiosperm flowers are **modified shoots** (shoot lateral organs with determinat
 
 The combinatorial control of floral organ identity by **MADS-box transcription factors** is the foundational discovery of plant evo-devo, and it provides a quantitative framework for understanding floral diversity. The classical ABC model (Coen and Meyerowitz, 1991) was extended by the discovery of D and E classes:
 
+: Floral organ identity in the ABCDE model: whorl, organ, and gene classes. {#tbl:unit_VIII_plant_reproduction_the_abcde_model_and_mads_box_floral_quartets_citep_coen1991}
 | Whorl | Organ | Classes active | [**Gene**](#gl:gene)s (*Arabidopsis*) |
 | ----- | ----- | -------------- | --------------------- |
 | 1 | Sepal | A + E | AP1, AP2, SEP1-4 |
@@ -245,7 +248,7 @@ flowchart LR
 **Pollen wall layers:**
 
 - **Intine (inner):** Cellulose + pectin; uniform thickness; secreted by the gametophyte itself
-- **Exine (outer):** Sporopollenin (oxidatively polymerised phenylpropanoids and fatty acids); deposited by the surrounding sporophytic tapetum. Sporopollenin is among the most chemically inert biopolymers known — it is essentially indestructible by acid, base, or enzymatic attack, allowing pollen to survive millions of years in sediment. Exine sculpturing patterns (colpi, pores, reticulations) are diagnostic for plant families and form the basis of **palynology** (fossil pollen analysis).
+- **Exine (outer):** Sporopollenin (oxidatively polymerized phenylpropanoids and fatty acids); deposited by the surrounding sporophytic tapetum. Sporopollenin is among the most chemically inert biopolymers known — it is essentially indestructible by acid, base, or enzymatic attack, allowing pollen to survive millions of years in sediment. Exine sculpturing patterns (colpi, pores, reticulations) are diagnostic for plant families and form the basis of **palynology** (fossil pollen analysis).
 - **Tryphine and pollenkitt:** Lipid-rich material in exine cavities; contains species-specific recognition factors (S-locus proteins, lipidic adhesins) and is essential for hydration on the stigma surface
 
 **Pollen cell architecture and microsporogenesis:**
@@ -268,13 +271,13 @@ The angiosperm female gametophyte is also drastically reduced — a 7-celled, 8-
 
 **Cell types and their functions:**
 
-- **Egg cell** (1, micropylar): Haploid; becomes the zygote upon fertilisation. Polarised: nucleus near the chalazal end, large vacuole at the micropylar end. Specifies the apical–basal axis of the future embryo.
+- **Egg cell** (1, micropylar): Haploid; becomes the zygote upon fertilization. Polarized: nucleus near the chalazal end, large vacuole at the micropylar end. Specifies the apical–basal axis of the future embryo.
 - **Synergids** (2, micropylar; flank the egg): Haploid. Critical functions:
   - Secrete **LURE peptides** (CRP810 family; species-specific) through the **filiform apparatus** (an elaborate cell-wall labyrinth at the micropylar pole that increases secretory surface area), guiding the pollen tube to the ovule
   - One synergid degenerates (programmed cell death) upon pollen tube arrival, providing the entry channel
   - Express the **FERONIA-LORELEI receptor complex** required for pollen tube reception and rupture
-- **Central cell** (1, large, central): Contains **2 polar nuclei** (which fuse before or during fertilisation to form a diploid secondary nucleus). Becomes the **triploid endosperm** upon fertilisation with one sperm. The canonical 2:1 maternal:paternal genome dosage is widespread across angiosperms and is the substrate for genomic imprinting and parental conflict, as discussed in the genomic-imprinting section.
-- **Antipodal cells** (3, chalazal): Function in nutritive/transfer roles. Highly polyploid (up to 32 n via endoreduplication) in grasses, where they are long-lived; in *Arabidopsis* and most dicots, antipodals degenerate before fertilisation.
+- **Central cell** (1, large, central): Contains **2 polar nuclei** (which fuse before or during fertilization to form a diploid secondary nucleus). Becomes the **triploid endosperm** upon fertilization with one sperm. The canonical 2:1 maternal:paternal genome dosage is widespread across angiosperms and is the substrate for genomic imprinting and parental conflict, as discussed in the genomic-imprinting section.
+- **Antipodal cells** (3, chalazal): Function in nutritive/transfer roles. Highly polyploid (up to 32 n via endoreduplication) in grasses, where they are long-lived; in *Arabidopsis* and most dicots, antipodals degenerate before fertilization.
 
 **Megasporogenesis and Embryo Sac Development:**
 
@@ -283,16 +286,17 @@ The angiosperm female gametophyte is also drastically reduced — a 7-celled, 8-
 3. The functional megaspore undergoes **3 rounds of free nuclear mitosis** (without cytokinesis) producing an 8-nucleate coenocyte. The 8 nuclei migrate to specific positions: 4 nuclei toward each pole.
 4. **Cellularisation:** Cell walls form around the 8 nuclei to establish the 7 cells: 1 egg + 2 synergids + 1 central cell (with 2 polar nuclei, one from each pole) + 3 antipodals = the **mature embryo sac**
 
-**Concept Check 2:** A mutation eliminates the synergids during embryo sac development (synergid-less *gametophyte mutant1*). Predict which steps of fertilisation will fail and why double fertilisation cannot proceed.
+**Concept Check 2:** A mutation eliminates the synergids during embryo sac development (synergid-less *gametophyte mutant1*). Predict which steps of fertilization will fail and why double fertilization cannot proceed.
 
 ---
 
-## Pollination, Pollen-Pistil Interactions, and Double Fertilisation
+## Pollination, Pollen-Pistil Interactions, and Double Fertilization
 
 ### Pollination Systems and Pollen Transfer Strategies
 
 **Transfer of pollen from anther to stigma** occurs by various vectors, each associated with characteristic floral traits (pollination syndromes):
 
+: Pollination Systems and Pollen Transfer Strategies: Vector and Syndrome. {#tbl:unit_VIII_plant_reproduction_pollination_systems_and_pollen_transfer_strategies}
 | Vector | Syndrome | Flower morphology | Plant examples |
 | ------ | -------- | ----------------- | -------------- |
 | Bees (*Apis*, *Bombus*, solitary bees) | Melittophily | Blue/yellow/UV-reflective; landing platform; nectar guide; sometimes vibration-released pollen | *Trifolium*, *Solanum*, *Linaria* |
@@ -330,11 +334,12 @@ The pollen rejection phenotype is determined by the pollen grain's own **haploid
 - **S-locus genes (S-RNase / SLF system):**
   - **S-RNase**: Pistil-expressed; ribonuclease secreted into the style transmitting tract
   - **SLF (S-locus F-box protein)**: Pollen-expressed; multiple SLFs per haplotype, acting collectively
-- **Mechanism (collaborative non-self recognition):** S-RNase enters the growing pollen tube non-specifically. Each SLF can "tag" non-self S-RNases (those whose haplotype does not match the pollen tube's own) for ubiquitination and proteasomal degradation by the SCF^SLF^ complex. **Self S-RNase escapes degradation** because the pollen tube's SLFs cannot recognise the matching S-RNase. Surviving S-RNase enters the cytoplasm and degrades pollen tube ribosomal RNA, halting tube growth before fertilisation.
+- **Mechanism (collaborative non-self recognition):** S-RNase enters the growing pollen tube non-specifically. Each SLF can "tag" non-self S-RNases (those whose haplotype does not match the pollen tube's own) for ubiquitination and proteasomal degradation by the SCF^SLF^ complex. **Self S-RNase escapes degradation** because the pollen tube's SLFs cannot recognize the matching S-RNase. Surviving S-RNase enters the cytoplasm and degrades pollen tube ribosomal RNA, halting tube growth before fertilization.
 - **Genetic consequence:** A cross between *S₁S₂* and *S₁S₃* plants: *S₁* pollen is rejected by both stigmas; *S₂* pollen succeeds on the *S₁S₃* stigma; *S₃* pollen succeeds on the *S₁S₂* stigma. Half the pollen is accepted; offspring genotypes are *S₁S₂*, *S₁S₃*, *S₂S₃* (no homozygotes possible).
 
 **Comparative summary:**
 
+: Pollen-Pistil Interactions: Self-Incompatibility (SI) Systems: Feature and Sporophytic SI (Brassica). {#tbl:unit_VIII_plant_reproduction_pollen_pistil_interactions_self_incompatibility_si_systems}
 | Feature | Sporophytic SI (Brassica) | Gametophytic SI (Solanaceae) |
 | ------- | ------------------------- | ---------------------------- |
 | Determinant of pollen phenotype | Diploid parental tissue (tapetum) | Pollen's own haploid genome |
@@ -343,7 +348,7 @@ The pollen rejection phenotype is determined by the pollen grain's own **haploid
 | Male factor | SCR (pollen coat protein) | SLF (F-box) |
 | Number of S-haplotypes | Often 50–100 | Often 50–200 |
 
-**Evolutionary significance of SI:** Self-incompatibility maintains heterozygosity and avoids inbreeding depression in obligate outbreeders. Its breakdown (typically by loss of S-RNase or SLF function) gives rise to self-compatible lineages, which often go extinct because of genetic load — but occasionally undergo spectacular adaptive radiations (e.g., self-compatible *Arabidopsis thaliana* descended from self-incompatible *A. lyrata*; the loss of SI may have facilitated *A. thaliana*'s colonisation of new habitats by enabling single-individual founder events).
+**Evolutionary significance of SI:** Self-incompatibility maintains heterozygosity and avoids inbreeding depression in obligate outbreeders. Its breakdown (typically by loss of S-RNase or SLF function) gives rise to self-compatible lineages, which often go extinct because of genetic load — but occasionally undergo spectacular adaptive radiations (e.g., self-compatible *Arabidopsis thaliana* descended from self-incompatible *A. lyrata*; the loss of SI may have facilitated *A. thaliana*'s colonization of new habitats by enabling single-individual founder events).
 
 ### Polyploidy and Speciation in Plants
 
@@ -352,7 +357,7 @@ Plants exhibit far higher rates of polyploidy than animals; **~70% of angiosperm
 **Modes of polyploid origin:**
 
 - **Autopolyploidy:** Whole-genome duplication within a single species; chromosomes form quadrivalents at meiosis, often causing reduced fertility initially
-- **Allopolyploidy:** Hybridisation between two species followed by chromosome doubling; chromosomes from each parental genome pair separately as bivalents, restoring fertility. Most cultivated polyploids are allopolyploids.
+- **Allopolyploidy:** Hybridization between two species followed by chromosome doubling; chromosomes from each parental genome pair separately as bivalents, restoring fertility. Most cultivated polyploids are allopolyploids.
 
 **Pathways:**
 
@@ -364,9 +369,9 @@ Plants exhibit far higher rates of polyploidy than animals; **~70% of angiosperm
 
 **Polyploidy promotes speciation** because new polyploids are reproductively isolated from their parental species (triploid offspring of a 2n × 4n cross are sterile), creating an instant reproductive barrier. Polyploids often exhibit **heterosis** (hybrid vigour), enlarged organs (the basis of many crop polyploids), and increased ecological tolerance.
 
-### Double Fertilisation \citep{nawaschin1898}
+### Double Fertilization \citep{nawaschin1898}
 
-Sergei Nawaschin's 1898 discovery of double fertilisation in *Lilium martagon* and *Fritillaria tenella* — observing two simultaneous nuclear fusions in a single ovule — was transformative for plant biology and remains the defining synapomorphy of angiosperms.
+Sergei Nawaschin's 1898 discovery of double fertilization in *Lilium martagon* and *Fritillaria tenella* — observing two simultaneous nuclear fusions in a single ovule — was transformative for plant biology and remains the defining synapomorphy of angiosperms.
 
 ```mermaid
 flowchart TD
@@ -388,9 +393,9 @@ flowchart TD
     style G fill:#b3d9ff
     style H fill:#ffb3b3
 ```
-<!-- alt: Flowchart showing double fertilisation in angiosperms One sperm fuses with the egg to form the diploid zygote (which develops into the embryo). The second sperm fuses with the central cell's two polar nuclei to form the triploid primary endosperm nucleus (which develops into the nutritive endosperm). This process is unique to angiosperms. -->
+<!-- alt: Flowchart showing double fertilization in angiosperms One sperm fuses with the egg to form the diploid zygote (which develops into the embryo). The second sperm fuses with the central cell's two polar nuclei to form the triploid primary endosperm nucleus (which develops into the nutritive endosperm). This process is unique to angiosperms. -->
 
-*Double fertilisation in angiosperms One sperm fuses with the egg to form the diploid [**zygote**](#gl:zygote) (which develops into the embryo). The second sperm fuses with the central cell's two polar nuclei to form the triploid primary endosperm nucleus (which develops into the nutritive endosperm). This process is unique to angiosperms.*
+*Double fertilization in angiosperms One sperm fuses with the egg to form the diploid [**zygote**](#gl:zygote) (which develops into the embryo). The second sperm fuses with the central cell's two polar nuclei to form the triploid primary endosperm nucleus (which develops into the nutritive endosperm). This process is unique to angiosperms.*
 
 1. **Pollen tube germination on the stigma:** Compatible pollen hydrates within minutes on the stigma surface; the **vegetative (tube) cell** extends a callose-walled tube. Tip growth is driven by:
    - A **tip-focused [Ca$^{2+}$] gradient** (~1.5–10 µM at the apex; ~150 nM in the shank)
@@ -407,10 +412,10 @@ flowchart TD
 
 4. **Synergid degeneration:** As the pollen tube approaches the ovule, **one of the two synergids undergoes programmed cell death** (within minutes; the receptive synergid). Loss of synergid integrity:
    - Creates the entry channel into the embryo sac
-   - Releases pre-stored signalling molecules
+   - Releases pre-stored signaling molecules
    - Exposes the **FERONIA (FER)** receptor kinase / **LORELEI (LRE)** GPI-anchored co-receptor complex on the persisting synergid surface
 
-5. **Pollen tube reception and rupture:** FER-LRE signalling, via reactive oxygen species (ROS) generated by RBOH NADPH oxidases and elevated cytosolic [Ca$^{2+}$], triggers explosive rupture of the pollen tube tip, releasing the two sperm cells into the embryo sac. The signalling depends on RALF peptides binding FER. In *fer* mutants, pollen tubes enter the synergid but fail to rupture (continued growth and "supernumerary" pollen tube delivery — the polyspermy phenotype).
+5. **Pollen tube reception and rupture:** FER-LRE signaling, via reactive oxygen species (ROS) generated by RBOH NADPH oxidases and elevated cytosolic [Ca$^{2+}$], triggers explosive rupture of the pollen tube tip, releasing the two sperm cells into the embryo sac. The signaling depends on RALF peptides binding FER. In *fer* mutants, pollen tubes enter the synergid but fail to rupture (continued growth and "supernumerary" pollen tube delivery — the polyspermy phenotype).
 
 6. **Sperm cell delivery and double fusion:**
    - **Sperm 1 + egg cell** → karyogamy → **2n zygote** → embryo
@@ -421,9 +426,9 @@ flowchart TD
 \label{eq:unit_VIII_lre_fer}
 \end{equation}
 
-**Significance of double fertilisation:**
+**Significance of double fertilization:**
 
-- Endosperm provides a "payment on delivery" mechanism — primarily fertilised ovules develop endosperm, ensuring optimal parental investment
+- Endosperm provides a "payment on delivery" mechanism — primarily fertilized ovules develop endosperm, ensuring optimal parental investment
 - Endosperm in cereals: starch (70-80%), storage proteins (gluten in wheat, zein in maize), oils, vitamins — source of ~60% of global human caloric intake
 - Triploid endosperm (2 maternal : 1 paternal genome dose) provides a unique genetic substrate for **parental conflict** (paternally-imprinted genes promote nutrient transfer; maternally-imprinted genes restrict it) — conserved in ratio across most flowering plants
 
@@ -431,7 +436,7 @@ flowchart TD
 
 ### Worked Example: Endosperm Ploidy and Parental Genome Dosage
 
-**Problem:** Compute the genomic dosage of the endosperm under normal angiosperm double fertilisation and under a maternal mutant that has doubled the central-cell genome, and explain why endosperm imprinting makes the dosage shift matter for seed viability.
+**Problem:** Compute the genomic dosage of the endosperm under normal angiosperm double fertilization and under a maternal mutant that has doubled the central-cell genome, and explain why endosperm imprinting makes the dosage shift matter for seed viability.
 
 **Normal case.** A wild-type ovule contains a haploid egg (n) and a central cell with two haploid polar nuclei (n + n = 2n). The pollen delivers two haploid sperm (n each):
 
@@ -454,7 +459,7 @@ Maternal : paternal genome ratio in mutant endosperm $= 4 : 1$.
 3. **Predict the seed phenotype.** In the mutant, maternal "restraint" genes are now in fourfold excess relative to paternal "growth" genes. Endosperm cellularisation is accelerated, nutrient transfer to the embryo is curtailed, and seed size collapses. This is precisely the phenotype seen in interploidy crosses where a tetraploid mother is crossed to a diploid father — the so-called *maternal excess* seed-failure syndrome.
 4. **Symmetric prediction.** A reciprocal cross (diploid mother $\times$ tetraploid father) produces *paternal excess* endosperm ($2:2 \rightarrow$ effective $1:1$ or worse), with the opposite phenotype: delayed cellularisation, overgrown endosperm, and seed abortion from a different failure mode. Together these explain the triploid block — a major reproductive barrier in interploidy crosses and a quantitative test of the parental-conflict theory of imprinting.
 
-**Interpretation.** Double fertilisation is not merely a developmental quirk; it is the substrate on which parental-conflict-driven imprinting plays out. The canonical $2 : 1$ ratio is the genomic ledger that keeps embryo provisioning balanced. Disrupt the ratio and you disrupt the seed.
+**Interpretation.** Double fertilization is not merely a developmental quirk; it is the substrate on which parental-conflict-driven imprinting plays out. The canonical $2 : 1$ ratio is the genomic ledger that keeps embryo provisioning balanced. Disrupt the ratio and you disrupt the seed.
 
 
 ---
@@ -472,7 +477,7 @@ After triple fusion, the primary endosperm cell (3n; typically 2m:1p genome rati
 3. **Helobial endosperm:** The first division separates a small chalazal cell from a large micropylar cell; subsequent divisions are nuclear in the micropylar half and cellular in the chalazal half. Examples: many monocots in Alismatales.
 
 **Seed filling:** During the maturation phase (after cellularisation), endosperm cells accumulate massive amounts of storage compounds:
-- **Starch:** Synthesised from sucrose imported from maternal phloem; deposited in plastids (amyloplasts). Cereal grain starch can reach 60–70% of dry mass.
+- **Starch:** Synthesized from sucrose imported from maternal phloem; deposited in plastids (amyloplasts). Cereal grain starch can reach 60–70% of dry mass.
 - **Storage proteins:** Family-specific (zeins in maize, glutenins/gliadins in wheat, prolamines in rice, globulins in legumes). Stored in protein bodies derived from the ER and vacuole.
 - **Oils:** Triacylglycerols stored in oil bodies (oleosomes); dominant in oilseeds (sunflower, canola, soybean).
 
@@ -489,12 +494,13 @@ The **FIS-PRC2** (FERTILIZATION INDEPENDENT SEED – Polycomb Repressive Complex
 - **MEGs (Maternally Expressed Genes):** Expressed primarily from the maternal allele. MEGs tend to **restrict** endosperm growth.
 - **Imbalance in PEG/MEG dosage** (e.g., crosses between species with different ploidy) causes seed abortion via the **endosperm balance number (EBN)** mechanism. This is why interploidy crosses fail: a 2x × 4x cross produces triploid embryos with imbalanced PEG/MEG expression, triggering seed abortion.
 
-The 2m:1p endosperm dosage thus becomes the principal arena for **parent-of-origin genetic conflict**, with paternally-imprinted PEGs evolutionarily favoured to extract more maternal resources for the offspring, and maternally-imprinted MEGs favoured to ration resources across multiple offspring.
+The 2m:1p endosperm dosage thus becomes the principal arena for **parent-of-origin genetic conflict**, with paternally-imprinted PEGs evolutionarily favored to extract more maternal resources for the offspring, and maternally-imprinted MEGs favored to ration resources across multiple offspring.
 
 ### Seed Dormancy: Five Classes and Triggers
 
-**Seed dormancy** delays germination until conditions favour seedling survival. Baskin and Baskin (2004) classify dormancy into five types:
+**Seed dormancy** delays germination until conditions favor seedling survival. Baskin and Baskin (2004) classify dormancy into five types:
 
+: Seed Dormancy: Five Classes and Triggers: Dormancy type and Cause. {#tbl:unit_VIII_plant_reproduction_seed_dormancy_five_classes_and_triggers}
 | Dormancy type | Cause | Trigger to break | Examples |
 | ------------- | ----- | ---------------- | -------- |
 | **Physical (PY)** | Water-impermeable seed coat (dense palisade of macrosclereids; suberin layers) | Scarification: physical abrasion, fire heat, gut passage, freeze-thaw | Many legumes (clover, *Acacia*); *Convolvulus*; many Malvaceae |
@@ -509,7 +515,7 @@ The 2m:1p endosperm dosage thus becomes the principal arena for **parent-of-orig
 - **Scarification (mechanical or chemical):** Cracks or thins the testa, allowing water and oxygen to enter. Can be achieved naturally by passage through animal digestive tracts (where stomach acid + abrasion abrade the coat), fire (heat scarification of fire-adapted species like *Banksia*), or freeze-thaw cycles. Many savanna acacia seeds germinate primarily after passage through elephant or ungulate guts.
 - **Light (phytochrome-mediated):** Red light (R, 660 nm) converts Pr to active Pfr, promoting germination in light-requiring seeds (lettuce, *Arabidopsis*, many small-seeded weeds). Far-red light (FR, 730 nm) inhibits germination. The R:FR ratio under a leaf canopy is low (chlorophyll absorbs R, transmits FR), so seeds under shade remain dormant until canopy opening — an exquisite mechanism for detecting gaps in vegetation. The Borthwick-Hendricks experiments (1952) on lettuce seeds first demonstrated the R/FR reversibility that defined phytochrome.
 - **Temperature fluctuation:** Diurnal temperature swings (e.g., 40 °C day / 10 °C night, typical of bare soil under sun without insulating vegetation) signal a gap in canopy cover. Many desert and weed species require such fluctuations.
-- **Smoke and karrikins:** Karrikin compounds (KAR1–KAR6) in plant-derived smoke bind the **KAI2 receptor** (a strigolactone-related α/β hydrolase). KAR signalling promotes germination of fire-adapted species and many weeds (KAR2 promotes germination in *Arabidopsis*).
+- **Smoke and karrikins:** Karrikin compounds (KAR1–KAR6) in plant-derived smoke bind the **KAI2 receptor** (a strigolactone-related α/β hydrolase). KAR signaling promotes germination of fire-adapted species and many weeds (KAR2 promotes germination in *Arabidopsis*).
 - **Chemical leaching:** Some desert species require leaching of inhibitory compounds (e.g., NaCl in halophytes; phenolic germination inhibitors) by sufficient rainfall — ensuring germination primarily after enough rain has fallen to support seedling establishment.
 
 ### Germination Physiology — Molecular Framework
@@ -518,7 +524,7 @@ The balance between ABA (dormancy-promoting) and GA (germination-promoting) sign
 
 **ABA pathway (dormancy):**
 
-**DOG1** (DELAY OF GERMINATION 1): A seed-specific RNA-binding-domain protein. DOG1 dosage determines dormancy depth by stabilising ABI3 and ABI5 mRNA — master transcription factors of the ABA response. *DOG1* expression peaks at seed maturation, quantitative trait locus (QTL) responsible for natural variation in dormancy across *Arabidopsis* accessions (Bentsink *et al.*, *PNAS* 2006).
+**DOG1** (DELAY OF GERMINATION 1): A seed-specific RNA-binding-domain protein. DOG1 dosage determines dormancy depth by stabilizing ABI3 and ABI5 mRNA — master transcription factors of the ABA response. *DOG1* expression peaks at seed maturation, quantitative trait locus (QTL) responsible for natural variation in dormancy across *Arabidopsis* accessions (Bentsink *et al.*, *PNAS* 2006).
 
 \begin{equation}
 \text{ABA} + \text{PYR/RCAR} \rightleftharpoons \text{ABA-PYR complex} \xrightarrow{} \text{PP2C inhibition (ABI1/ABI2 released)} \rightarrow \text{SnRK2 kinase active}
@@ -535,12 +541,12 @@ Active SnRK2 phosphorylates **ABF/AREB** transcription factors → dormancy gene
 \end{equation}
 
 DELLA degradation (of RGA, GAI, RGL1-3 in *Arabidopsis*) releases repression of:
-- α-Amylase [**promoter**](#gl:promoter)s (mobilise endosperm starch → maltose → glucose)
-- Lipase genes (mobilise stored triacylglycerols)
-- Protease genes (mobilise globulins and albumins)
+- α-Amylase [**promoter**](#gl:promoter)s (mobilize endosperm starch → maltose → glucose)
+- Lipase genes (mobilize stored triacylglycerols)
+- Protease genes (mobilize globulins and albumins)
 
 **ABA–GA antagonism:**
-- ABA stabilises DELLA proteins (by downregulating GID1 and upregulating PP2C)
+- ABA stabilizes DELLA proteins (by downregulating GID1 and upregulating PP2C)
 - GA degrades DELLA and suppresses ABI5
 - Environmental cues (light via Pfr, cold via DOG1 degradation, smoke via KAI2) tip the balance toward GA-dominated germination competence
 
@@ -548,23 +554,24 @@ DELLA degradation (of RGA, GAI, RGL1-3 in *Arabidopsis*) releases repression of:
 
 **Concept Check 5:** A *dog1* loss-of-function mutant of *Arabidopsis* shows severely reduced primary dormancy: seeds germinate immediately at maturity. Predict the ecological consequence in (a) a Mediterranean climate with hot dry summers, and (b) a tropical evergreen forest understory.
 
-**Concept Check 6 (Analyze) — Pollen-tube guidance and the LURE–PRK6 axis.** Pollen tubes navigate the style by chemotropism, eventually homing on the embryo sac via LURE peptides (defensin-like) secreted from synergid cells. LURE binds the receptor-like kinase PRK6 at the tube tip, biasing a tip-focused Ca$^{2+}$ gradient and actin remodelling toward the source. (a) Diagram the LURE $\rightarrow$ PRK6 $\rightarrow$ Ca$^{2+}$ $\rightarrow$ actin pathway, marking which step is conserved with the FERONIA–RALF system at tube reception. (b) A homozygous *prk6* loss-of-function plant is used as the female parent and crossed to wild-type pollen. Predict the fertilisation phenotype, distinguishing tube *attraction* from tube *reception/rupture*. (c) Design a complementation test that would prove PRK6 acts cell-autonomously on the pollen tube rather than on the synergid producing the LURE cue, and predict the *Torenia* inter-species cross outcome if you swap PRK6 orthologues.
+**Concept Check 6 (Analyze) — Pollen-tube guidance and the LURE–PRK6 axis.** Pollen tubes navigate the style by chemotropism, eventually homing on the embryo sac via LURE peptides (defensin-like) secreted from synergid cells. LURE binds the receptor-like kinase PRK6 at the tube tip, biasing a tip-focused Ca$^{2+}$ gradient and actin remodeling toward the source. (a) Diagram the LURE $\rightarrow$ PRK6 $\rightarrow$ Ca$^{2+}$ $\rightarrow$ actin pathway, marking which step is conserved with the FERONIA–RALF system at tube reception. (b) A homozygous *prk6* loss-of-function plant is used as the female parent and crossed to wild-type pollen. Predict the fertilization phenotype, distinguishing tube *attraction* from tube *reception/rupture*. (c) Design a complementation test that would prove PRK6 acts cell-autonomously on the pollen tube rather than on the synergid producing the LURE cue, and predict the *Torenia* inter-species cross outcome if you swap PRK6 orthologues.
 
-**Concept Check 7 (Evaluate) — Seed dormancy, the ABA : GA ratio, and a warming winter.** ABA-stabilised DELLA proteins enforce dormancy; imbibition plus cold stratification plus light tilts the balance toward GA biosynthesis, DELLA degradation, and germination. Many temperate annuals (e.g., *Arabidopsis* winter-annual accessions, vernalisation-dependent cereals) require weeks of below-$5\,^{\circ}$C exposure to clear dormancy. (a) Use the ABA : GA framework to explain why a *constant* 5 $^{\circ}$C signal is required rather than a single cold shock — what molecular variable is being integrated over weeks (DOG1 protein turnover; FLC chromatin state; VIN3 accumulation)? (b) A climate-change scenario raises mean winter temperatures by 10 $^{\circ}$C, so a planting region that previously averaged 5 $^{\circ}$C now averages 15 $^{\circ}$C. Predict the directional shift in germination timing, percent germination, and seedling synchrony for (i) a vernalisation-dependent winter wheat cultivar and (ii) a Mediterranean summer annual with after-ripening dormancy. (c) Evaluate two breeding strategies that would restore reliable germination — a *dog1* loss-of-function allele vs. a stronger FLC repressor — and identify which carries lower agronomic risk if the climate later cools.
+**Concept Check 7 (Evaluate) — Seed dormancy, the ABA : GA ratio, and a warming winter.** ABA-stabilized DELLA proteins enforce dormancy; imbibition plus cold stratification plus light tilts the balance toward GA biosynthesis, DELLA degradation, and germination. Many temperate annuals (e.g., *Arabidopsis* winter-annual accessions, vernalisation-dependent cereals) require weeks of below-$5\,^{\circ}$C exposure to clear dormancy. (a) Use the ABA : GA framework to explain why a *constant* 5 $^{\circ}$C signal is required rather than a single cold shock — what molecular variable is being integrated over weeks (DOG1 protein turnover; FLC chromatin state; VIN3 accumulation)? (b) A climate-change scenario raises mean winter temperatures by 10 $^{\circ}$C, so a planting region that previously averaged 5 $^{\circ}$C now averages 15 $^{\circ}$C. Predict the directional shift in germination timing, percent germination, and seedling synchrony for (i) a vernalisation-dependent winter wheat cultivar and (ii) a Mediterranean summer annual with after-ripening dormancy. (c) Evaluate two breeding strategies that would restore reliable germination — a *dog1* loss-of-function allele vs. a stronger FLC repressor — and identify which carries lower agronomic risk if the climate later cools.
 
 
 ---
 
-## Embryogenesis and Meristem Organisation
+## Embryogenesis and Meristem Organization
 
 ### Early Embryogenesis and Body-Axis Formation
 
 **Arabidopsis** embryogenesis is the best-studied model:
 
+: Early Embryogenesis and Body-Axis Formation: Stage and Description. {#tbl:unit_VIII_plant_reproduction_early_embryogenesis_and_body_axis_formation}
 | Stage | Description | Key events |
 | ----- | ----------- | ---------- |
 | 1-cell zygote | Polar asymmetric cell | PIN7 (apical) + PIN1 (basal) establish auxin gradient |
-| 2-cell | Asymmetric division: apical cell (embryo) + basal cell (suspensor) | WOX9 signalling |
+| 2-cell | Asymmetric division: apical cell (embryo) + basal cell (suspensor) | WOX9 signaling |
 | Globular | 8-cell through 32-cell globular stage | WOX2 (apical domain), WOX9 (basal) pattern embryo |
 | Heart | Cotyledon primordia emerge; first visible bilateral symmetry | YAB/PIN1 separate cotyledons; ARF5/MP establishes vascular axis |
 | Torpedo | Elongation; hypocotyl + radicle extend | Protoderm, procambium, ground meristem differentiate |
@@ -582,7 +589,7 @@ The SAM maintains a pool of pluripotent stem cells throughout the plant's life:
 
 **WUS-CLV3 negative feedback loop** (the "stem cell thermostat"):
 
-1. **WUSCHEL (WUS)** -- homeodomain transcription factor expressed in the organising centre (below CZ). WUS protein moves to CZ via plasmodesmata. Activates **CLAVATA3 (CLV3)** expression.
+1. **WUSCHEL (WUS)** -- homeodomain transcription factor expressed in the organizing center (below CZ). WUS protein moves to CZ via plasmodesmata. Activates **CLAVATA3 (CLV3)** expression.
 2. **CLV3** -- a secreted CLE peptide (12 amino acids). CLV3 binds the **CLV1/CLV2/CRN receptor kinase** complex in underlying cells, activating a MAPK cascade that represses **WUS** transcription.
 3. **Negative feedback:** WUS activates CLV3; CLV3 represses WUS. This maintains a constant stem cell pool size.
 
@@ -596,7 +603,7 @@ The SAM maintains a pool of pluripotent stem cells throughout the plant's life:
 ### Worked Example: Calculating the Golden Angle in Phyllotaxis
 
 **Problem:**
-The arrangement of leaves on a stem (phyllotaxis) is often determined by the golden angle, which minimises shading of lower leaves by upper leaves. Calculate the exact value of the golden angle in degrees using the golden ratio $\varphi \approx 1.618034$. If a plant produces a new leaf every 5 days, what will be the total angular divergence between the first leaf and a fourth leaf (leaf 1 and leaf 4)?
+The arrangement of leaves on a stem (phyllotaxis) is often determined by the golden angle, which minimizes shading of lower leaves by upper leaves. Calculate the exact value of the golden angle in degrees using the golden ratio $\varphi \approx 1.618034$. If a plant produces a new leaf every 5 days, what will be the total angular divergence between the first leaf and a fourth leaf (leaf 1 and leaf 4)?
 
 **Solution:**
 
@@ -628,7 +635,7 @@ The arrangement of leaves on a stem (phyllotaxis) is often determined by the gol
 ### Root Apical Meristem (RAM)
 
 RAM structure mirrors SAM with distinct anatomy:
-- **Quiescent Centre (QC):** 4-6 slowly dividing cells (divide ~once per 200 h); WOX5 expression maintains surrounding stem cells
+- **Quiescent Center (QC):** 4-6 slowly dividing cells (divide ~once per 200 h); WOX5 expression maintains surrounding stem cells
 - **Initial (stem) cells** directly surrounding QC produce clonal cell files for most root tissues
 - **Root cap/columella:** Rapidly replaced (slough off as root grows); amyloplast-containing statocytes for gravitropism
 - **Casparian strip** in endodermal cells seals apoplastic pathway for selective mineral transport
@@ -639,9 +646,9 @@ RAM structure mirrors SAM with distinct anatomy:
 
 ### Fruit Development: Hormonal Regulation, Parthenocarpy, and Climacteric Ripening
 
-Fruit development is initiated by fertilisation and proceeds through cell division, expansion, and ripening — each phase under distinct hormonal control.
+Fruit development is initiated by fertilization and proceeds through cell division, expansion, and ripening — each phase under distinct hormonal control.
 
-**Phase 1: Fruit set (post-fertilisation initiation):** Auxin from developing seeds and gibberellins from the maternal pericarp suppress the abscission programme that would otherwise drop unfertilised flowers. Without seeds, **parthenocarpy** can be induced — fruit development without fertilisation:
+**Phase 1: Fruit set (post-fertilization initiation):** Auxin from developing seeds and gibberellins from the maternal pericarp suppress the abscission program that would otherwise drop unfertilised flowers. Without seeds, **parthenocarpy** can be induced — fruit development without fertilization:
 - Natural parthenocarpy: cultivated banana (triploid, sterile), pineapple, navel orange, some *Citrus* and *Vitis* cultivars
 - Induced parthenocarpy: exogenous auxin (NAA, 2,4-D) or GA (GA$_3$) sprayed at anthesis. Used commercially in seedless grapes, watermelons, and tomatoes
 - Genetic parthenocarpy: *pin* mutants (pinoid; auxin-overproducing) or *fwf* mutants (FRUIT WITHOUT FERTILIZATION; tomato) develop fruit without seeds
@@ -650,7 +657,7 @@ Fruit development is initiated by fertilisation and proceeds through cell divisi
 
 **Phase 3: Ripening — climacteric vs non-climacteric fruits**
 
-The most studied transition is in **climacteric fruits** (banana, tomato, apple, avocado, peach, mango), characterised by an **autocatalytic burst of ethylene production** at the onset of ripening:
+The most studied transition is in **climacteric fruits** (banana, tomato, apple, avocado, peach, mango), characterized by an **autocatalytic burst of ethylene production** at the onset of ripening:
 
 \begin{equation}
 \text{Methionine} \xrightarrow{\text{SAM synthetase}} \text{SAM} \xrightarrow{\text{ACC synthase (ACS)}} \text{ACC} \xrightarrow{\text{ACC oxidase (ACO), O}_2} \text{Ethylene}
@@ -672,13 +679,13 @@ The most studied transition is in **climacteric fruits** (banana, tomato, apple,
 
 **Non-climacteric fruits** (strawberry, grape, citrus, pineapple, cherry) do not show the ethylene burst; ABA and auxin appear to substitute as the master ripening signals. Strawberries in particular are ABA-responsive: applying ABA accelerates ripening; inhibiting ABA biosynthesis (NDGA) blocks ripening.
 
-> **Clinical Connection:** The commercial fruit industry manipulates ethylene extensively. Bananas are picked green, shipped under ethylene-suppressed conditions (using KMnO$_4$ as an ethylene scrubber or 1-MCP — 1-methylcyclopropene — as an ethylene perception inhibitor that competitively blocks ETR1), and then ripened on demand by ethylene gas treatment at distribution centres. The Flavr Savr tomato (1994) was the first commercial GMO food, with antisense PG suppressing wall softening; ethylene-resistant tomatoes (silenced ACS or ACO) preserve fruit quality during long-distance transport.
+> **Clinical Connection:** The commercial fruit industry manipulates ethylene extensively. Bananas are picked green, shipped under ethylene-suppressed conditions (using KMnO$_4$ as an ethylene scrubber or 1-MCP — 1-methylcyclopropene — as an ethylene perception inhibitor that competitively blocks ETR1), and then ripened on demand by ethylene gas treatment at distribution centers. The Flavr Savr tomato (1994) was the first commercial GMO food, with antisense PG suppressing wall softening; ethylene-resistant tomatoes (silenced ACS or ACO) preserve fruit quality during long-distance transport.
 
 ### Fruit Types and Dispersal
 
 ```mermaid
 flowchart TD
-    OV[Ovary Wall after Fertilisation] --> PC[Pericarp Development]
+    OV[Ovary Wall after Fertilization] --> PC[Pericarp Development]
     PC --> EX[Exocarp<br/>Outer layer]
     PC --> ME[Mesocarp<br/>Middle layer]
     PC --> EN[Endocarp<br/>Inner layer]
@@ -708,6 +715,7 @@ flowchart TD
 
 A **fruit** is the mature ovary wall (**pericarp**: exocarp + mesocarp + endocarp) often incorporating accessory tissues:
 
+: Fruit Types and Dispersal: Fruit type and Structures. {#tbl:unit_VIII_plant_reproduction_fruit_types_and_dispersal}
 | Fruit type | Structures | Example | Dispersal mechanism |
 | ---------- | ---------- | ------- | ------------------- |
 | Drupe | Fleshy mesocarp + hard endocarp (stone) | Cherry, mango, olive, coconut | Endozoochory (animal ingestion); ocean for coconut |
@@ -724,6 +732,7 @@ A **fruit** is the mature ovary wall (**pericarp**: exocarp + mesocarp + endocar
 
 Plants have diverse mechanisms for **vegetative (asexual) reproduction**, each with distinct anatomical and ecological characteristics that have been widely exploited in agriculture and horticulture:
 
+: Vegetative Reproduction: Mechanisms and Practical Applications: Mechanism and Description. {#tbl:unit_VIII_plant_reproduction_vegetative_reproduction_mechanisms_and_practical_applications}
 | Mechanism | Description | Examples | Practical applications |
 | --------- | ----------- | -------- | ---------------------- |
 | **Stolons (runners)** | Horizontal above-ground stems that root and form daughter plants at nodes | Strawberry (*Fragaria*), spider plant (*Chlorophytum*) | Commercial strawberry production: each "mother" plant produces 5–10 daughter plants per season; entire fields propagated clonally from elite cultivars |
@@ -740,7 +749,7 @@ Plants have diverse mechanisms for **vegetative (asexual) reproduction**, each w
 
 ### Apomixis: Sporophytic and Gametophytic Pathways
 
-**Apomixis** is seed formation without fertilisation, producing genetically identical maternal clones in a seed package. Apomixis is a powerful evolutionary "frozen" genotype dispersal mechanism and the holy grail of crop breeding.
+**Apomixis** is seed formation without fertilization, producing genetically identical maternal clones in a seed package. Apomixis is a powerful evolutionary "frozen" genotype dispersal mechanism and the holy grail of crop breeding.
 
 **Types of apomixis:**
 
@@ -751,8 +760,8 @@ Plants have diverse mechanisms for **vegetative (asexual) reproduction**, each w
    - **Diplospory:** Megaspore mother cell skips or modifies meiosis (replacing meiosis with mitosis; "MiMe"), producing an unreduced megaspore that develops into a 2n embryo sac. Examples: dandelion (*Taraxacum*; many dandelion species are obligate apomicts), *Tripsacum* (relative of maize), some *Boechera*
    - In both, the egg cell is unreduced (2n) and develops parthenogenetically into a 2n embryo (matching the mother)
    - **Endosperm formation in gametophytic apomicts:**
-     - **Pseudogamous:** Central cell still requires fertilisation by sperm to form endosperm (typical in apomictic grasses like *Poa*, *Pennisetum*)
-     - **Autonomous:** Central cell develops into endosperm without fertilisation (typical of dandelions and *Hieracium*)
+     - **Pseudogamous:** Central cell still requires fertilization by sperm to form endosperm (typical in apomictic grasses like *Poa*, *Pennisetum*)
+     - **Autonomous:** Central cell develops into endosperm without fertilization (typical of dandelions and *Hieracium*)
 
 **Agricultural significance — clonal seed and the holy grail of breeding:**
 
@@ -787,7 +796,7 @@ Plant pangenomes extend this toolkit beyond single-reference breeding. Crop and 
 
 **Concept Check 8:** Argue for or against this proposition: "Apomixis is evolutionarily dead-end because it eliminates genetic recombination. Hence apomictic species should be short-lived geologically." Cite specific apomictic lineages in your answer (e.g., dandelions are apomictic and remain abundant on multiple continents).
 
-**Concept Check 9:** A tomato cultivar bred for parthenocarpy carries a constitutively active PIN1 transgene driving auxin overproduction in the ovary. Predict fruit set in the absence of pollination, and predict the dormancy and germination behaviour of any seeds that do form (assuming some pollination occurs by accident).
+**Concept Check 9:** A tomato cultivar bred for parthenocarpy carries a constitutively active PIN1 transgene driving auxin overproduction in the ovary. Predict fruit set in the absence of pollination, and predict the dormancy and germination behavior of any seeds that do form (assuming some pollination occurs by accident).
 
 ---
 
@@ -813,6 +822,7 @@ A strong plant-reproduction claim names the tissue, developmental signal, pollin
 
 ## Key Terms
 
+: Plant Biotechnology in Reproduction and Crop Improvement: Term and Definition. {#tbl:unit_VIII_plant_reproduction_plant_biotechnology_in_reproduction_and_crop_improvement}
 | Term | Definition |
 | ---- | ---------- |
 | **Alternation of generations** | Diploid sporophyte (spore-producing) alternates with haploid gametophyte (gamete-producing) |
@@ -827,7 +837,7 @@ A strong plant-reproduction claim names the tissue, developmental signal, pollin
 | **Filiform apparatus** | Cell-wall labyrinth at the synergid micropylar pole; secretes LURE peptides |
 | **Central cell** | Large embryo sac cell containing two polar nuclei; gives rise to endosperm (3n; 2m:1p) |
 | **Antipodal cells** | Three cells at the chalazal end of embryo sac; nutritive function |
-| **Double fertilisation** | Unique to angiosperms: sperm 1 + egg = embryo (2n); sperm 2 + polar nuclei = endosperm (3n) |
+| **Double fertilization** | Unique to angiosperms: sperm 1 + egg = embryo (2n); sperm 2 + polar nuclei = endosperm (3n) |
 | **LURE peptides** | Cysteine-rich defensin-like peptides from synergids; species-specific pollen tube attractants |
 | **FERONIA-LORELEI** | Receptor complex on synergid surface; required for pollen tube rupture |
 | **ABCDE model** | Model of floral organ identity; combinatorial MADS-box TF activity specifies each whorl |
@@ -838,11 +848,11 @@ A strong plant-reproduction claim names the tissue, developmental signal, pollin
 | **Gametophytic SI** | Self-incompatibility where pollen phenotype determined by its own haploid genotype; S-RNase/SLF |
 | **Polyploidy** | Whole-genome duplication; ~70% of angiosperms are paleopolyploids |
 | **Autopolyploid** | Polyploid arising within a single species |
-| **Allopolyploid** | Polyploid arising from interspecific hybridisation followed by chromosome doubling |
+| **Allopolyploid** | Polyploid arising from interspecific hybridization followed by chromosome doubling |
 | **Phyllotaxis** | Arrangement of leaves/organs on stem; golden angle 137.5 degrees; Fibonacci spirals |
 | **WUS-CLV3 circuit** | Negative feedback loop maintaining stem cell population in the SAM |
 | **Karrikins** | Smoke-derived butenolides; activate KAI2 receptor; break seed dormancy after fire |
-| **Apomixis** | Asexual reproduction through seed without fertilisation; produces maternal clones |
+| **Apomixis** | Asexual reproduction through seed without fertilization; produces maternal clones |
 | **Adventive embryony** | Sporophytic apomixis: embryos from nucellar/integument cells |
 | **Apospory** | Gametophytic apomixis with embryo sac from somatic cell |
 | **Diplospory** | Gametophytic apomixis with embryo sac from modified meiosis |
@@ -855,7 +865,7 @@ A strong plant-reproduction claim names the tissue, developmental signal, pollin
 | **Heterospory** | Production of two different spore sizes (micro- and megaspores); precursor to seed habit |
 | **Pericarp** | Mature ovary wall comprising exocarp, mesocarp, and endocarp; forms the fruit |
 | **[Myrmecochory](#gl:myrmecochory)** | Seed dispersal by ants, often mediated by lipid-rich elaiosomes attached to seeds |
-| **Parthenocarpy** | Fruit development without fertilisation; can be natural or induced by auxin/GA |
+| **Parthenocarpy** | Fruit development without fertilization; can be natural or induced by auxin/GA |
 | **Climacteric fruit** | Fruit type with autocatalytic ethylene burst at ripening (banana, tomato, apple) |
 | **System 1/System 2 ethylene** | Basal vs auto-catalytic ripening ethylene biosynthesis |
 | **1-MCP** | Synthetic ethylene perception inhibitor used commercially to delay fruit ripening |
@@ -878,7 +888,7 @@ A strong plant-reproduction claim names the tissue, developmental signal, pollin
 
 5. The goal of introducing synthetic apomixis into hybrid rice is to allow subsistence farmers to save F1 hybrid seed. (a) What genetic modifications are needed to create apomictic seed (cite Wang *et al.* 2022)? (b) What risks might apomictic crops pose to wild relatives via gene flow? (c) Compare the genetic diversity implications of apomixis vs vegetative propagation.
 
-6. Explain why double fertilisation \citep{nawaschin1898} is considered a key evolutionary innovation. What advantage does the triploid endosperm provide over the gymnosperm approach where the female gametophyte tissue serves as the nutritive tissue? Discuss the parental conflict implications via the PEG/MEG mechanism. Why is the canonical 2m:1p genome dosage common, and what kinds of exceptions would challenge an over-simple rule?
+6. Explain why double fertilization \citep{nawaschin1898} is considered a key evolutionary innovation. What advantage does the triploid endosperm provide over the gymnosperm approach where the female gametophyte tissue serves as the nutritive tissue? Discuss the parental conflict implications via the PEG/MEG mechanism. Why is the canonical 2m:1p genome dosage common, and what kinds of exceptions would challenge an over-simple rule?
 
 7. A fruit biologist examines a mystery fruit and finds: fleshy mesocarp, hard endocarp containing a single seed, and thin exocarp. Classify this fruit type. Name three plants that produce this type of fruit and describe the most likely dispersal mechanism. Is this likely a climacteric or non-climacteric fruit?
 
@@ -886,7 +896,7 @@ A strong plant-reproduction claim names the tissue, developmental signal, pollin
 
 9. Run `plant_biomass_growth` from 1 g to 40 g capacity over 60 days. How does the curve differ from unrestricted exponential growth?
 
-10. Why might **endosperm ploidy** (3n) stabilise parent-offspring conflict compared with purely maternal provisioning? Use the FIS-PRC2 mechanism in your answer.
+10. Why might **endosperm ploidy** (3n) stabilize parent-offspring conflict compared with purely maternal provisioning? Use the FIS-PRC2 mechanism in your answer.
 
 11. A breeder wants to create double-flowered carnations (extra petals). Which class of MADS-box gene should be partially inactivated and why? Cite the relevant Coen and Meyerowitz framework \citep{coen1991} and the molecular identity of the gene (AG).
 
@@ -923,10 +933,10 @@ print(round(out.biomass_g[-1], 2))
 ## Summary
 
 - **Alternation of generations:** Sporophyte (2n) produces spores by meiosis; gametophyte (n) produces gametes by mitosis. Evolutionary trend: sporophyte dominant, gametophyte reduced.
-- **Plant group diversity:** Bryophytes (gametophyte dominant, water-dependent fertilisation) through gymnosperms (pollen, seeds, wind pollination) to angiosperms (flowers, double fertilisation, fruits, animal pollination).
+- **Plant group diversity:** Bryophytes (gametophyte dominant, water-dependent fertilization) through gymnosperms (pollen, seeds, wind pollination) to angiosperms (flowers, double fertilization, fruits, animal pollination).
 - **Floral ABCDE model \citep{coen1991}:** A+E = sepal; A+B+E = petal; B+C+E = stamen; C+E = carpel; D+E = ovule. MADS-box TFs (AP1, AP3-PI heterodimer, AG, SEP1-4) form floral quartets binding two CArG boxes simultaneously.
 - **Gametophytes:** Male = 3-cell pollen grain (tube cell + 2 sperm) inside sporopollenin exine; female = 7-cell, 8-nucleate Polygonum-type embryo sac (egg + 2 synergids + central cell with 2 polar nuclei + 3 antipodals). Microsporogenesis: MMC → meiosis → 4 microspores → asymmetric mitosis I → 2-cell pollen; mitosis II yields 2 sperm. Megasporogenesis: MMC → meiosis → 1 functional + 3 degenerating megaspores → 3 free nuclear divisions → 8 nuclei → cellularisation → 7-cell embryo sac.
-- **Double fertilisation \citep{nawaschin1898}:** LURE-LRE-FER signalling triggers pollen tube rupture in synergid; sperm 1 + egg = 2n zygote → embryo; sperm 2 + 2 polar nuclei = 3n primary endosperm. Pollen tube guidance: tip-focused Ca$^{2+}$ gradient + LURE chemotropism; spermatogenesis during tube elongation in bicellular pollen species.
+- **Double fertilization \citep{nawaschin1898}:** LURE-LRE-FER signaling triggers pollen tube rupture in synergid; sperm 1 + egg = 2n zygote → embryo; sperm 2 + 2 polar nuclei = 3n primary endosperm. Pollen tube guidance: tip-focused Ca$^{2+}$ gradient + LURE chemotropism; spermatogenesis during tube elongation in bicellular pollen species.
 - **Endosperm (typically 3n; 2m:1p):** Free-nuclear → cellular development; PEG/MEG imprinting via FIS-PRC2 drives parent-of-origin expression and parental-conflict regulation. Dosage is canonically 2m:1p but varies in some lineages and developmental contexts.
 - **Self-incompatibility:** Sporophytic SI (SRK-SCR-ARC1; *Brassica*) acts at stigma surface; gametophytic SI (S-RNase/SLF; Solanaceae, Rosaceae) acts in style by collaborative non-self recognition.
 - **Polyploidy:** Auto- vs allopolyploids; 70% of angiosperms have paleopolyploid history; major crop genomes (wheat, cotton, strawberry) are polyploid.
@@ -949,10 +959,11 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Plant Reproduction and Development. {#tbl:unit_VIII_plant_reproduction_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/botany/botany.py` (`plant_biomass_growth`) | Explore growth allocation and reproductive tradeoffs. |
 | `src/biology/genetics/genetics.py` (`punnett_square`, `chi_squared_test`) | Connect inheritance evidence to breeding and reproductive outcomes. |
-| `src/mermaid/biology_diagrams.py` (`hormone_signaling_diagram`) | Link developmental timing to hormone signalling. |
+| `src/mermaid/biology_diagrams.py` (`hormone_signaling_diagram`) | Link developmental timing to hormone signaling. |
 
 **Reproducibility check:** state pollination mechanism, developmental stage, genetic model, and environmental filter before interpreting reproductive success. **Cross-reference:** connect with \cref{sec:unit_V_mendelian_principles,sec:unit_V_mendelian_extensions_and_human_genetics} and \cref{sec:unit_VIII_plant_responses}.

@@ -127,7 +127,7 @@ flowchart TD
 | `$ … $` | Inline math. | No |
 
 > [!WARNING]
-> Do not use manual equation-number tags in manuscript prose. Use a labelled equation or align environment when a display equation needs a rendered number or cross-reference.
+> Do not use manual equation-number tags in manuscript prose. Use a labeled equation or align environment when a display equation needs a rendered number or cross-reference.
 
 ### Side-by-side: correct vs incorrect
 
@@ -316,7 +316,7 @@ When the path is wrong, pandoc/xelatex emits `! LaTeX Error: File '..' not found
 
 ## Citations and references
 
-Citations use **natbib** (loaded automatically by pandoc) from the single master `manuscript/references.bib`.
+Citations use **natbib** (loaded automatically by pandoc) from the single master `manuscript/references.bib`. The shared parser used by tests, audits, and maintenance scripts recognizes the commands documented below, including starred forms and one or two optional arguments such as `\citet[p.~12]{key}`. Prefer `\citep{}` and `\citet{}` in ordinary prose; reserve the other forms for the rare cases described here.
 
 ### Which citation command?
 
@@ -347,14 +347,14 @@ The double-helix structure was proposed by \citet{watson1953} in a short *Nature
 overturning earlier triple-helix models \citep{pauling1953triple, sayre1975}.
 Three-domain phylogeny \citep{woese1977} transformed microbial systematics —
 later refined when archaeal-specific lineages were resolved \citep{woese1990, spang2015}.
-The original Hodgkin–Huxley currents (\citealp{hodgkin1952}, p.~520) anchor today's
+The original Hodgkin–Huxley currents (\citealp{hodgkin1952quantitative}, p.~520) anchor today's
 biophysical models.
 ```
 
 ### Closure invariants — what fails when
 
 > [!WARNING]
-> **Every `\cite*{key}` must resolve to an entry in `references.bib`.**
+> **Every documented natbib cite command must resolve to an entry in `references.bib`.**
 > **Every entry in `references.bib` must be cited at least once in the manuscript.**
 > Both directions are enforced by `tests/test_bibliography_closure.py`.
 
@@ -363,7 +363,7 @@ biophysical models.
 | Citekey in chapter but **missing** in `references.bib` | `dangling citation: <key>` | Add a BibTeX entry to `references.bib` |
 | BibTeX entry exists but **never cited** | `orphan bib entry: <key>` | Cite it in the most relevant chapter, or use `scripts/integrate_orphan_citations.py` to weave it in |
 | Citekey typo | `dangling citation: watson1593` | Fix the typo |
-| Mid-word `\citep{}` artefact | `mid-word citation: ...` | Surround citation by spaces or punctuation |
+| Mid-word `\citep{}` artifact | `mid-word citation: ...` | Surround citation by spaces or punctuation |
 
 ### Adding a new entry to `references.bib`
 
@@ -506,7 +506,7 @@ Reference with cleveref:
 | ------ | --------- |
 | `| -------- |` | Left (default) |
 | `| --------:|` | Right |
-| `|:--------:|` | Centre |
+| `|:--------:|` | Center |
 | `|:-------- |` | Left (explicit) |
 
 > [!TIP]
@@ -541,7 +541,7 @@ Mermaid diagrams may be authored **inline** (recommended for fast iteration) or 
 | `flowchart LR` | Pathways and cascades read left-to-right | Glycolysis steps; signal transduction; mRNA → protein flow |
 | `flowchart TD` | Top-down processes; pipelines | Protein synthesis (DNA → mRNA → protein); maturation steps |
 | `graph TD` | Hierarchical classification, taxonomies | Macromolecule classification; eukaryotic supergroups; CYP450 family |
-| `sequenceDiagram` | Time-ordered interactions between actors | Hormone-receptor binding; immune cell signalling; viral entry steps; multi-step enzymatic reactions |
+| `sequenceDiagram` | Time-ordered interactions between actors | Hormone-receptor binding; immune cell signaling; viral entry steps; multi-step enzymatic reactions |
 | `stateDiagram-v2` | Discrete states with transitions | Cell cycle (G1 → S → G2 → M); ion-channel gating states (closed / open / inactivated); enzyme inhibition states; protein conformations |
 | `pie` | Proportional composition | Cell-mass composition; codon redundancy distribution; biome carbon allocation |
 | `gantt` | Time-line activities | Course planning, lab schedules — rarely in textbook prose |
@@ -586,9 +586,9 @@ flowchart LR
 
 | Property | Syntax | Notes |
 | -------- | ------ | ----- |
-| Fill colour | `fill:#1f77b4` | Use CVD-friendly hex (see [visualisation_guide.md](visualisation_guide.md)) |
-| Stroke colour | `stroke:#0b3d91` | Darker shade of fill |
-| Text colour | `color:#fff` | Use `#fff` on dark fills, `#000` on light fills |
+| Fill color | `fill:#1f77b4` | Use CVD-friendly hex (see [visualization_guide.md](visualization_guide.md)) |
+| Stroke color | `stroke:#0b3d91` | Darker shade of fill |
+| Text color | `color:#fff` | Use `#fff` on dark fills, `#000` on light fills |
 | Class application | `class NodeId className` | Apply a `classDef` to specific nodes |
 | Per-node inline style | `style NodeId fill:#hex,color:#hex` | Use sparingly; classes scale better |
 
@@ -688,7 +688,7 @@ The preface's **Five Big Ideas** align with the AAAS *Vision and Change* core co
 | Information (storage, flow, expression) | Units IV–V; parts of Units II, VII |
 | Pathways and transformations of energy and matter | Units I, III, VIII (photosynthesis) |
 | Systems (living systems, interfaces with physical world) | Unit 0; Unit X; Unit III (metabolic networks); Unit IX (integration) |
-| (Cross-cutting) Biology as a research practice; modelling | `src/biology` modules; quant labs |
+| (Cross-cutting) Biology as a research practice; modeling | `src/biology` modules; quant labs |
 
 Use this as a **guide**, not a rigid standard — chapters often touch several ideas.
 
@@ -698,7 +698,7 @@ Use this as a **guide**, not a rigid standard — chapters often touch several i
 
 - [composable_authoring.md](composable_authoring.md) — stable IDs, workflows, validation commands
 - [agent_instructions.md](agent_instructions.md) — editorial voice, vignette construction, clinical boxes
-- [visualisation_guide.md](visualisation_guide.md) — figure generation, CVD palette, mermaid styling
+- [visualization_guide.md](visualization_guide.md) — figure generation, CVD palette, mermaid styling
 - [testing_guide.md](testing_guide.md) — what test catches what mistake
 - [accessibility.md](accessibility.md) — alt text rules, reader-profile recipe
 - [pipeline_guide.md](pipeline_guide.md) — full pipeline and maintenance script table

@@ -1,4 +1,4 @@
-# Cell Signalling and Communication
+# Cell Signaling and Communication
 
 \label{sec:unit_II_cell_signaling}
 
@@ -8,14 +8,14 @@
 
 ## Learning Objectives
 
-1. Classify signalling molecules by their mode of delivery and explain signal amplification logic.
-2. Describe the major families of cell-surface receptors (GPCRs, RTKs, ion channels) and their signalling mechanisms.
+1. Classify signaling molecules by their mode of delivery and explain signal amplification logic.
+2. Describe the major families of cell-surface receptors (GPCRs, RTKs, ion channels) and their signaling mechanisms.
 3. Explain the cAMP, PIP$_2$/DAG/IP$_3$, and RTK-MAP kinase [**signal transduction**](#gl:signal-transduction) cascades in detail.
-4. Describe additional signalling pathways: Wnt/beta-catenin, JAK-STAT, and Notch.
-5. Explain signal termination mechanisms: GTPase activity, phosphodiesterases, phosphatases, and receptor internalisation.
+4. Describe additional signaling pathways: Wnt/beta-catenin, JAK-STAT, and Notch.
+5. Explain signal termination mechanisms: GTPase activity, phosphodiesterases, phosphatases, and receptor internalization.
 6. Describe the stages of [**mitosis**](#gl:mitosis) and the role of CDK-cyclin complexes in [**cell cycle**](#gl:cell-cycle) control.
 7. Explain the mechanisms of [**apoptosis**](#gl:apoptosis) (intrinsic and extrinsic pathways).
-8. Explain cancer as dysregulated signalling and evaluate current targeted therapies.
+8. Explain cancer as dysregulated signaling and evaluate current targeted therapies.
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -27,8 +27,8 @@
 - **Data skill:** Read pathway diagrams and infer the effect of agonists, antagonists, or mutations.
 - **Practice cadence:** Visual Representations, Questions and Methods, Argumentation.
 - **Common misconception to repair:** A pathway diagram is a causal model, not a memorization chart.
-- **Primary lab:** \cref{sec:lab_unit_II_cell_signaling}.
-- **Question bank:** \cref{sec:q_unit_II_cell_signaling}.
+- **Primary lab:** \nameref{sec:lab_unit_II_cell_signaling}.
+- **Question bank:** \nameref{sec:q_unit_II_cell_signaling}.
 - **Transfer task:** Apply signaling logic to hormones, neurotransmitters, immune receptors, or cancer mutations.
 - **Bridge to computation:** `biology.physiology.physiology.homeostasis_response`.
 <!-- curriculum-scaffold-end -->
@@ -41,13 +41,13 @@
 > of the HER2 [**gene**](#gl:gene), which encodes a receptor tyrosine kinase embedded in the plasma membrane
 > \citep{slamon1987her2}. In normal cells, HER2 is transiently activated when it binds
 > its ligand — triggering a cascade of phosphorylation events that ultimately drive cell
-> proliferation and survival. In tumours with HER2 amplification, the [**protein**](#gl:protein) is expressed at 40–100
+> proliferation and survival. In tumors with HER2 amplification, the [**protein**](#gl:protein) is expressed at 40–100
 > times the normal level; even without ligand, HER2 molecules are close enough together to activate
 > each other constantly, delivering an unrelenting "grow and divide" signal.
 >
-> The consequences of understanding this single signalling pathway have been transformative. In 1998,
+> The consequences of understanding this single signaling pathway have been transformative. In 1998,
 > the FDA approved trastuzumab (Herceptin), a monoclonal antibody that binds the extracellular domain
-> of HER2 and blocks its dimerisation and downstream signalling. In HER2-positive breast cancer,
+> of HER2 and blocks its dimerization and downstream signaling. In HER2-positive breast cancer,
 > trastuzumab plus chemotherapy improved time to progression, response rate, and survival in metastatic HER2-overexpressing breast cancer \citep{slamon2001trastuzumab}. Every step in this therapeutic triumph
 > required understanding how cells receive, transduce, and amplify molecular signals — precisely the
 > subject of this chapter.
@@ -57,17 +57,18 @@
 ---
 
 
-Cells receive and interpret thousands of extracellular signals simultaneously. Signalling systems share a general architecture:
+Cells receive and interpret thousands of extracellular signals simultaneously. Signaling systems share a general architecture:
 
 **Signal (ligand) → Receptor (detection) → Transduction cascade (amplification) → Effector → Response → Termination**
 
-### Types of Cell Signalling by Distance
+### Types of Cell Signaling by Distance
 
+: Types of Cell Signaling by Distance: Mode and Description. {#tbl:unit_II_cell_signaling_types_of_cell_signalling_by_distance}
 | Mode | Description | Example | Distance |
 | ---- | ----------- | ------- | -------- |
-| **Endocrine** | [**Hormone**](#gl:hormone)s in bloodstream | Insulin, [**cortisol**](#gl:cortisol) | Metres |
+| **Endocrine** | [**Hormone**](#gl:hormone)s in bloodstream | Insulin, [**cortisol**](#gl:cortisol) | Meters |
 | **Paracrine** | Local diffusion | Growth factors, prostaglandins | <1 mm |
-| **Autocrine** | Self-stimulation | Tumour self-growth signals, IL-2 in T cells | Same cell |
+| **Autocrine** | Self-stimulation | Tumor self-growth signals, IL-2 in T cells | Same cell |
 | **Juxtacrine** | Membrane-bound ligand/receptor | Notch-Delta, ephrin-Eph | Cell contact |
 | **Synaptic** | Neurotransmitter across synapse | Glutamate, GABA, acetylcholine | ~20 nm |
 
@@ -75,13 +76,13 @@ Cells receive and interpret thousands of extracellular signals simultaneously. S
 
 Signal transduction cascades exhibit four fundamental properties:
 
-1. **Amplification:** One activated receptor activates multiple G proteins; each G protein activates multiple adenylyl cyclase molecules; each adenylyl cyclase produces many cAMP molecules. The cAMP second messenger system was established biochemically before G proteins were recognised as the transducers linking receptors to adenylyl cyclase \citep{sutherland1958cyclicamp,gilman1987gproteins}. A single epinephrine molecule can trigger release of ~10$^8$ glucose molecules from glycogen (10$^6$-fold amplification).
+1. **Amplification:** One activated receptor activates multiple G proteins; each G protein activates multiple adenylyl cyclase molecules; each adenylyl cyclase produces many cAMP molecules. The cAMP second messenger system was established biochemically before G proteins were recognized as the transducers linking receptors to adenylyl cyclase \citep{sutherland1958cyclicamp,gilman1987gproteins}. A single epinephrine molecule can trigger release of ~10$^8$ glucose molecules from glycogen (10$^6$-fold amplification).
 
 2. **Specificity:** Different cell types express different receptor subtypes, G proteins, and effectors. Epinephrine causes glycogen breakdown in liver (beta$_2$-adrenergic receptor, G$_s$, cAMP) but smooth muscle relaxation in bronchi (same receptor, same second messenger, different downstream targets).
 
-3. **Integration:** Multiple signals converge on shared effectors. A cell's response reflects the integrated sum of active signalling pathways. For example, cell proliferation requires simultaneous growth factor (RTK), integrin (adhesion), and survival factor signalling.
+3. **Integration:** Multiple signals converge on shared effectors. A cell's response reflects the integrated sum of active signaling pathways. For example, cell proliferation requires simultaneous growth factor (RTK), integrin (adhesion), and survival factor signaling.
 
-4. **Adaptation/desensitisation:** Prolonged stimulation leads to reduced response. Mechanisms include receptor phosphorylation (by GRKs), arrestin binding, receptor internalisation, and negative feedback loops \citep{alon2019}.
+4. **Adaptation/desensitisation:** Prolonged stimulation leads to reduced response. Mechanisms include receptor phosphorylation (by GRKs), arrestin binding, receptor internalization, and negative feedback loops \citep{alon2019}.
 
 ### Signal Amplification Cascades --- A Quantitative Treatment
 
@@ -98,7 +99,7 @@ G_\text{total} = \prod_{i=1}^{n} A_i
 
 This product structure means that *removing one step* of a cascade cuts gain by orders of magnitude, while *adding one step* multiplies it. The classic epinephrine→glycogenolysis cascade has 4 enzymatic amplification steps (receptor → G$_s$ → adenylyl cyclase → PKA → phosphorylase kinase → glycogen phosphorylase), each contributing $A_i \approx 10^{1.5}$, for $G_\text{total} \approx 10^{6}$. A single epinephrine molecule binding a $\beta_2$ receptor releases ~$10^8$ glucose molecules from glycogen — exactly the gain measured in liver perfusion experiments.
 
-**Why so many steps?** A simpler cascade with the same gain — e.g., one step of $A = 10^6$ — would be biologically implausible: few signalling enzymes have $k_\text{cat} > 10^4$ s$^{-1}$ (the diffusion-limited outliers catalase and carbonic anhydrase are exceptions), and no cell could sustain enzyme concentrations giving $10^6$-fold amplification in a single reaction. The cascade architecture solves this by *multiplying* modest gains.
+**Why so many steps?** A simpler cascade with the same gain — e.g., one step of $A = 10^6$ — would be biologically implausible: few signaling enzymes have $k_\text{cat} > 10^4$ s$^{-1}$ (the diffusion-limited outliers catalase and carbonic anhydrase are exceptions), and no cell could sustain enzyme concentrations giving $10^6$-fold amplification in a single reaction. The cascade architecture solves this by *multiplying* modest gains.
 
 **Time delay and adaptation.** Each step also adds a time constant $\tau_i$ (the lifetime of the activated species). The total response time is:
 
@@ -111,7 +112,7 @@ This product structure means that *removing one step* of a cascade cuts gain by 
 For visual transduction (rhodopsin → transducin → PDE6 → cGMP fall): individual $\tau_i$ are ~10 ms, total response ~50 ms. For epinephrine: hundreds of milliseconds to seconds. The cascade thus also serves as a **temporal filter** — fast inputs reach the effector quickly, slow inputs are integrated.
 
 **Cooperativity sharpens the response.** \cref{fig:unit_II_hill_equation} contrasts Hill coefficients that steepen receptor occupancy around $K_d$. A linear cascade has gain but not steepness — the dose–response is hyperbolic (Hill coefficient 1). To make a switch-like response, cells use:
-- *Multiple binding sites* (haemoglobin O$_2$, $n_H = 2.8$).
+- *Multiple binding sites* (hemoglobin O$_2$, $n_H = 2.8$).
 - *Multi-site phosphorylation requiring full occupancy* (ERK requires both Thr and Tyr phosphorylation; effective $n_H \approx 5$ in the MAP kinase cascade).
 - *Positive feedback loops* (ERK → SOS feedback creates bistability).
 
@@ -148,7 +149,7 @@ where $[\text{R}]$ is free receptor concentration, $[\text{L}]$ is free ligand c
 
 When $[\text{L}] = K_d$, exactly 50% of receptors are occupied. Typical $K_d$ values: [**insulin receptor**](#gl:insulin-receptor) ~0.1 nM; epinephrine--beta$_2$ receptor ~1 μM.
 
-**The Hill equation** models cooperative binding and switch-like signalling responses:
+**The Hill equation** models cooperative binding and switch-like signaling responses:
 
 \begin{equation}
 \theta = \frac{[\text{L}]^{n_H}}{K_d^{n_H} + [\text{L}]^{n_H}}
@@ -172,7 +173,7 @@ For the epinephrine--glycogen cascade ($n = 4$ steps, $A_i \approx 10^{1.5}$ per
 
 **Problem:**
 The epidermal growth factor receptor (EGFR) is an RTK with a dissociation constant ($K_d$) for its ligand, EGF, of approximately $2.0 \text{ nM}$ ($2.0 \times 10^{-9} \text{ M}$). 
-Assuming standard non-cooperative binding behaviour ($n_H = 1$), calculate the fractional occupancy (θ) of the EGFR population on a cell surface when the extracellular concentration of EGF is $6.0 \text{ nM}$. What concentration of EGF would be required to achieve 90% receptor occupancy?
+Assuming standard non-cooperative binding behavior ($n_H = 1$), calculate the fractional occupancy (θ) of the EGFR population on a cell surface when the extracellular concentration of EGF is $6.0 \text{ nM}$. What concentration of EGF would be required to achieve 90% receptor occupancy?
 
 **Solution:**
 
@@ -256,16 +257,16 @@ flowchart TD
     L["Signal Termination"] --> M["Gαs GTPase activity<br/>(intrinsic; t₁/₂ ~1 min)"]
     L --> N["PDE hydrolyses<br/>cAMP→5'-AMP"]
     L --> O["Phosphatases (PP1, PP2A)<br/>remove phosphoryl groups"]
-    L --> P["GRK phosphorylates receptor<br/>→ β-arrestin binding<br/>→ receptor internalisation"]
+    L --> P["GRK phosphorylates receptor<br/>→ β-arrestin binding<br/>→ receptor internalization"]
 
     style A fill:#e6f3ff
     style E fill:#fff3e6
     style G fill:#ffe6e6
     style L fill:#e6ffe6
 ```
-<!-- alt: Flowchart showing g_s-cAMP-PKA signalling cascade and its termination mechanisms. Signal amplification occurs at multiple levels: one receptor activates multiple G proteins, each adenylyl cyclase produces ~1,000 cAMP/s, and PKA phosphorylates multiple substrates. -->
+<!-- alt: Flowchart showing g_s-cAMP-PKA signaling cascade and its termination mechanisms. Signal amplification occurs at multiple levels: one receptor activates multiple G proteins, each adenylyl cyclase produces ~1,000 cAMP/s, and PKA phosphorylates multiple substrates. -->
 
-*The G$_s$-cAMP-PKA signalling cascade and its termination mechanisms. Signal amplification occurs at multiple levels: one receptor activates multiple G proteins, each adenylyl cyclase produces ~1,000 cAMP/s, and PKA phosphorylates multiple substrates.*
+*The G$_s$-cAMP-PKA signaling cascade and its termination mechanisms. Signal amplification occurs at multiple levels: one receptor activates multiple G proteins, each adenylyl cyclase produces ~1,000 cAMP/s, and PKA phosphorylates multiple substrates.*
 
 **G$_s$ pathway (stimulatory):**
 Hormone (e.g., epinephrine) → beta$_2$-adrenergic receptor → G$_s$ → **adenylyl cyclase** activated → ATP → **cAMP** → **Protein Kinase A (PKA)** → phosphorylates multiple downstream targets (glycogen phosphorylase kinase, CREB [**transcription**](#gl:transcription) factor, ion channels, etc.) \citep{sutherland1958cyclicamp,gilman1987gproteins}
@@ -277,25 +278,26 @@ Inhibits adenylyl cyclase, reducing cAMP. Examples: opioid receptors (mu, delta,
 Activates **phospholipase C-beta** → cleaves PIP$_2$ → **IP$_3$** (Ca$^{2+}$ release from ER via IP$_3$ receptors) + **DAG** (activates Protein Kinase C, PKC). This dual second messenger system controls smooth muscle contraction, platelet activation, and secretion.
 
 **G$_{12/13}$ pathway:**
-Activates Rho GEFs → Rho GTPase → ROCK (Rho-associated kinase) → cytoskeletal remodelling, cell migration, smooth muscle contraction.
+Activates Rho GEFs → Rho GTPase → ROCK (Rho-associated kinase) → cytoskeletal remodeling, cell migration, smooth muscle contraction.
 
-**cAMP signalling components:**
+**cAMP signaling components:**
 - **PDE (phosphodiesterase):** hydrolyses cAMP to 5'-AMP, terminating the signal. Caffeine and theophylline inhibit PDE → elevated cAMP → CNS stimulation, bronchodilation. Sildenafil (Viagra) inhibits PDE5 (specific for cGMP in penile smooth muscle).
-- **AKAP (A Kinase Anchoring Proteins):** target PKA to specific subcellular locations, providing spatial specificity to cAMP signalling.
-- **GTPase activity of G-alpha:** G-alpha is a self-inactivating molecular switch (built-in GTPase; k$_{\text{cat}}$ ~1 min$^{-1}$). RGS (Regulators of G-protein Signalling) proteins accelerate GTP hydrolysis, shortening signal duration.
+- **AKAP (A Kinase Anchoring Proteins):** target PKA to specific subcellular locations, providing spatial specificity to cAMP signaling.
+- **GTPase activity of G-alpha:** G-alpha is a self-inactivating molecular switch (built-in GTPase; k$_{\text{cat}}$ ~1 min$^{-1}$). RGS (Regulators of G-protein Signaling) proteins accelerate GTP hydrolysis, shortening signal duration.
 
 ### The G-Protein Cycle in Detail
 
 Heterotrimeric G proteins (Gα + Gβγ) are molecular switches that integrate three biochemical events: GDP release, GTP binding, and GTP hydrolysis. The cycle is canonical for most GTPases — Ras, Rho, Rab, Ran, and the heterotrimeric G proteins most follow the same logic, with different specifics.
 
-| State | Composition | Conformation | Signalling |
+: The G-Protein Cycle in Detail: State and Composition. {#tbl:unit_II_cell_signaling_the_g_protein_cycle_in_detail}
+| State | Composition | Conformation | Signaling |
 | ----- | ----------- | ------------ | ---------- |
 | **Inactive (GDP)** | Gα-GDP·Gβγ heterotrimer | "Off" | No effector activation |
 | **Receptor-bound** | Gα-GDP·Gβγ + activated GPCR | GPCR catalyses GDP release | Transient |
 | **Empty** | Gα·Gβγ + GPCR (very brief) | Nucleotide-free | Allows GTP binding |
 | **Active (GTP)** | Gα-GTP + free Gβγ | "On"; conformational change in switch I/II/III | Activates effectors |
 | **Hydrolysing** | Gα-GTP intrinsic GTPase | Slow ($k_\text{cat}$ ~0.05 s$^{-1}$, $t_{1/2}$ ~15 s) | Self-inactivation |
-| **GAP-accelerated** | Gα-GTP + RGS protein | Stabilises transition state | $t_{1/2}$ shortens to ~1 s |
+| **GAP-accelerated** | Gα-GTP + RGS protein | Stabilizes transition state | $t_{1/2}$ shortens to ~1 s |
 | **Reassembly** | Gα-GDP + Gβγ | Heterotrimer reforms | Cycle closes |
 
 **Rate constants and cellular consequences.** For Gα$_s$, the intrinsic GTP hydrolysis rate is ~0.05 s$^{-1}$ (so the active state lasts ~20 s without acceleration). RGS proteins (RGS2, RGS4, RGS9) accelerate this 100–1,000×, shortening the signal to ~50 ms. Disease example: RGS9 deficiency causes **bradyopsia** — a visual disorder where bright lights produce after-images that linger because transducin (the rod photoreceptor Gα) cannot be turned off rapidly.
@@ -305,7 +307,7 @@ Heterotrimeric G proteins (Gα + Gβγ) are molecular switches that integrate th
 - High cellular [GTP]:[GDP] ratio (~10:1, maintained by metabolism);
 - Coupling of GTP hydrolysis to effector dissociation (mass-action irreversibility).
 
-Without metabolic GTP, the cycle would stall. ATP-depleted cells therefore lose most GPCR-mediated signalling — one reason why ischaemic damage propagates so quickly in tissues.
+Without metabolic GTP, the cycle would stall. ATP-depleted cells therefore lose most GPCR-mediated signaling — one reason why ischemic damage propagates so quickly in tissues.
 
 ### GPCR Desensitisation and β-Arrestin
 
@@ -314,28 +316,29 @@ Continuous stimulation of a GPCR rapidly attenuates its response — within seco
 **Three layers of desensitisation:**
 
 1. **Homologous desensitisation (rapid, agonist-specific; seconds).**
-   - Active GPCR is phosphorylated by **GRKs (G-protein-coupled receptor kinases)**, especially GRK2 and GRK3. GRK2 specifically recognises *active* receptor conformation; ligand-free or inactive receptors are not phosphorylated.
+   - Active GPCR is phosphorylated by **GRKs (G-protein-coupled receptor kinases)**, especially GRK2 and GRK3. GRK2 specifically recognizes *active* receptor conformation; ligand-free or inactive receptors are not phosphorylated.
    - Phosphorylated GPCR recruits **β-arrestin** (β-arrestin-1 or -2). β-arrestin binding sterically blocks G-protein coupling — the receptor is now "uncoupled" from G$_s$/G$_q$ but still on the cell surface.
 2. **Heterologous desensitisation (slower, cross-pathway; seconds to minutes).**
-   - PKA and PKC phosphorylate GPCRs at distinct sites, attenuating responses to any agonist that activates that receptor (regardless of whether it's currently bound). This integrates signalling across pathways.
-3. **Receptor internalisation (slow, persistent; minutes to hours).**
+   - PKA and PKC phosphorylate GPCRs at distinct sites, attenuating responses to any agonist that activates that receptor (regardless of whether it's currently bound). This integrates signaling across pathways.
+3. **Receptor internalization (slow, persistent; minutes to hours).**
    - β-arrestin recruits clathrin and AP2 → receptor is internalised in clathrin-coated vesicles → enters the early endosome.
    - From the endosome: receptors can be **recycled** back to the plasma membrane (rapid, restores response within minutes — the path of β$_2$-adrenergic receptor) or sorted to **lysosomes** for **downregulation** (slow, requires hours-to-days for new receptor synthesis to restore response — the path of opioid receptors after chronic agonist exposure).
 
-**Beyond G-protein signalling: β-arrestin as a signalling scaffold.** Originally thought to "merely" terminate G-protein signalling, β-arrestins are now recognised as scaffolds for their own kinase cascades — ERK, JNK, p38 MAPK can be activated by β-arrestin-bound receptors *after* internalisation, generating a second wave of signalling distinct from the initial G-protein wave. Some agonists (called **biased agonists**) preferentially activate one pathway:
-- **Carvedilol** (β-blocker) inhibits G$_s$ but activates β-arrestin signalling — this dual action may underlie its superior efficacy in heart failure compared to other β-blockers.
-- **TRV130 / oliceridine** (μ-opioid agonist, FDA-approved 2020) is biased toward G-protein signalling and away from β-arrestin — this reduces respiratory depression and constipation while preserving analgesia.
+**Beyond G-protein signaling: β-arrestin as a signaling scaffold.** Originally thought to "merely" terminate G-protein signaling, β-arrestins are now recognized as scaffolds for their own kinase cascades — ERK, JNK, p38 MAPK can be activated by β-arrestin-bound receptors *after* internalization, generating a second wave of signaling distinct from the initial G-protein wave. Some agonists (called **biased agonists**) preferentially activate one pathway:
+- **Carvedilol** (β-blocker) inhibits G$_s$ but activates β-arrestin signaling — this dual action may underlie its superior efficacy in heart failure compared to other β-blockers.
+- **TRV130 / oliceridine** (μ-opioid agonist, FDA-approved 2020) is biased toward G-protein signaling and away from β-arrestin — this reduces respiratory depression and constipation while preserving analgesia.
 
-> **Concept Check 1b:** A patient with asthma uses an inhaled β$_2$-agonist (albuterol) every 4 hours for several days. The drug becomes progressively less effective (tachyphylaxis). Explain at the molecular level — which mechanism (homologous, heterologous, internalisation/downregulation) is most likely responsible for each time-scale of tolerance?
+> **Concept Check 1b:** A patient with asthma uses an inhaled β$_2$-agonist (albuterol) every 4 hours for several days. The drug becomes progressively less effective (tachyphylaxis). Explain at the molecular level — which mechanism (homologous, heterologous, internalization/downregulation) is most likely responsible for each time-scale of tolerance?
 
 ### Second Messenger Kinetics
 
-Second messengers are diffusible small molecules that connect receptors to downstream effectors. Their effective signalling depends on three quantitative parameters: production rate, diffusion (and spatial spread), and degradation rate.
+Second messengers are diffusible small molecules that connect receptors to downstream effectors. Their effective signaling depends on three quantitative parameters: production rate, diffusion (and spatial spread), and degradation rate.
 
 **cAMP kinetics.** Adenylyl cyclase produces cAMP at ~1,000 molecules/s per active enzyme. cAMP degradation by **phosphodiesterases (PDEs)** has half-lives ranging from ~50 ms (cardiac muscle, near-membrane PDE3/PDE4 microdomains) to several seconds (cytoplasmic bulk). Diffusion coefficient $D \approx 300$ μm$^2$/s in cytoplasm; diffusion length $\ell = \sqrt{D \tau}$. With $\tau_{1/2} = 100$ ms, $\ell \approx 5$ μm — short enough to create spatial gradients within a single cell. AKAP scaffolds and PDE microdomains create "cAMP nano-domains" of just ~100 nm where local concentrations can be 10–100× the cell average. This explains how a single cell can use cAMP to signal *locally* (e.g., individual ion channels) without flooding the whole cell.
 
 **The PDE family and pharmacology.** Eleven PDE families exist in humans, each with tissue-specific expression:
 
+: Second Messenger Kinetics: PDE family and Substrate. {#tbl:unit_II_cell_signaling_second_messenger_kinetics}
 | PDE family | Substrate | Tissue / function | Inhibitor (drug) | Clinical use |
 | ---------- | --------- | ----------------- | ---------------- | ------------ |
 | PDE3 | cAMP > cGMP | Cardiac, vascular smooth muscle | Milrinone, Cilostazol | Heart failure, claudication |
@@ -346,7 +349,7 @@ Second messengers are diffusible small molecules that connect receptors to downs
 
 **The Viagra story (a quintessential mechanism-to-medicine path).** Pfizer scientists were originally testing sildenafil in 1989 as a treatment for angina (the rationale: PDE5 inhibition → cGMP buildup → vasodilation → coronary blood flow). Its anti-anginal effects were modest, but male patients in trials reported a striking side effect. Pfizer pivoted; sildenafil was approved for erectile dysfunction in 1998 and became a major pharmaceutical product. The mechanism is exquisitely specific: nitric oxide → guanylyl cyclase → cGMP → PKG → relaxation of penile smooth muscle. PDE5 normally degrades cGMP; sildenafil blocks PDE5; cGMP accumulates *primarily where it is being made* (i.e., where NO is released). This "context-conditional" pharmacology — drug effect primarily where the natural signal is active — now informs many other targeted therapies. Tadalafil (Cialis) has a longer half-life (17.5 h vs. 4 h for sildenafil) due to its different binding kinetics in the PDE5 active site.
 
-**IP$_3$ / Ca$^{2+}$ kinetics.** IP$_3$ has a half-life of ~1 second (rapid dephosphorylation by IP$_3$-5-phosphatase); Ca$^{2+}$ signals are buffered by ~99% by cytoplasmic proteins (calbindin, calretinin) and re-sequestered by SERCA in <1 second. Therefore Ca$^{2+}$ "spikes" and "waves" propagate at controllable, intermediate speeds (~10–50 μm/s), enabling spatially organised signalling such as the fertilisation Ca$^{2+}$ wave that sweeps a sea urchin egg in ~15 seconds.
+**IP$_3$ / Ca$^{2+}$ kinetics.** IP$_3$ has a half-life of ~1 second (rapid dephosphorylation by IP$_3$-5-phosphatase); Ca$^{2+}$ signals are buffered by ~99% by cytoplasmic proteins (calbindin, calretinin) and re-sequestered by SERCA in <1 second. Therefore Ca$^{2+}$ "spikes" and "waves" propagate at controllable, intermediate speeds (~10–50 μm/s), enabling spatially organized signaling such as the fertilization Ca$^{2+}$ wave that sweeps a sea urchin egg in ~15 seconds.
 
 ```mermaid
 graph TD
@@ -359,7 +362,7 @@ graph TD
 
     B --> B1["Glycogenolysis<br/>Gene expression (CREB)<br/>Cardiac contractility"]
     C --> C1["Vasodilation<br/>Platelet inhibition<br/>Phototransduction"]
-    D --> D1["Smooth muscle contraction<br/>Fertilisation<br/>Neurotransmitter release"]
+    D --> D1["Smooth muscle contraction<br/>Fertilization<br/>Neurotransmitter release"]
     F --> F1["Muscle contraction<br/>Exocytosis<br/>Synaptic plasticity<br/>Apoptosis"]
     G --> G1["Cell survival (Akt)<br/>Cell growth (mTOR)<br/>Chemotaxis"]
 
@@ -373,12 +376,12 @@ graph TD
 *Major second messenger systems and their downstream effects. Each second messenger activates specific protein kinases or effectors that mediate distinct cellular responses.*
 
 > **Clinical Connection: Cholera and Pertussis Toxins**
-> **Cholera toxin** ADP-ribosylates G$_s$-alpha, preventing GTP hydrolysis. G$_s$ is constitutively active → massive cAMP production in intestinal epithelial cells → CFTR Cl$^-$ channels open → Cl$^-$ and water secretion → severe watery diarrhoea (up to 20 L/day), potentially fatal from dehydration.
+> **Cholera toxin** ADP-ribosylates G$_s$-alpha, preventing GTP hydrolysis. G$_s$ is constitutively active → massive cAMP production in intestinal epithelial cells → CFTR Cl$^-$ channels open → Cl$^-$ and water secretion → severe watery diarrhea (up to 20 L/day), potentially fatal from dehydration.
 > **Pertussis toxin** (whooping cough) ADP-ribosylates G$_i$-alpha, preventing its activation. Without G$_i$ inhibition, adenylyl cyclase is overactive → elevated cAMP in respiratory epithelial cells → impaired mucociliary clearance → persistent cough. see \cref{sec:unit_II_membrane_transport} for CFTR.
 
 ### Receptor Tyrosine Kinases (RTKs)
 
-RTKs are single-pass transmembrane receptors with a cytoplasmic tyrosine kinase domain. Ligand binding (e.g., EGF, PDGF, insulin, FGF, VEGF) → receptor **dimerisation** → **trans-autophosphorylation** of tyrosines → phosphotyrosines recruit adaptor proteins via SH2 and PTB domains.
+RTKs are single-pass transmembrane receptors with a cytoplasmic tyrosine kinase domain. Ligand binding (e.g., EGF, PDGF, insulin, FGF, VEGF) → receptor **dimerization** → **trans-autophosphorylation** of tyrosines → phosphotyrosines recruit adaptor proteins via SH2 and PTB domains.
 
 ```mermaid
 sequenceDiagram
@@ -392,7 +395,7 @@ sequenceDiagram
     participant TF as Transcription Factors
 
     L->>R: EGF binds extracellular domain
-    R->>R: Receptor dimerisation + trans-autophosphorylation
+    R->>R: Receptor dimerization + trans-autophosphorylation
     R->>A: pTyr binds Grb2 SH2 domain; Grb2 recruits SOS (GEF)
     A->>RAS: SOS catalyses GDP→GTP exchange on RAS
     Note over RAS: RAS-GTP = active (molecular switch ON)
@@ -406,34 +409,35 @@ sequenceDiagram
     Note over RAS: SIGNAL OFF: GAPs (NF1) accelerate RAS GTPase → RAS-GDP
     Note over ERK: SIGNAL OFF: MKPs (DUSP) dephosphorylate ERK
 ```
-<!-- alt: Sequence diagram showing RTK/RAS/MAPK signalling cascade. Each step amplifies the signal: one activated EGFR can activate ~100 RAS molecules, producing ~10,000 activated ERK molecules. -->
+<!-- alt: Sequence diagram showing RTK/RAS/MAPK signaling cascade. Each step amplifies the signal: one activated EGFR can activate ~100 RAS molecules, producing ~10,000 activated ERK molecules. -->
 
-*The RTK/RAS/MAPK signalling cascade. Each step amplifies the signal: one activated EGFR can activate ~100 RAS molecules, producing ~10,000 activated ERK molecules.*
+*The RTK/RAS/MAPK signaling cascade. Each step amplifies the signal: one activated EGFR can activate ~100 RAS molecules, producing ~10,000 activated ERK molecules.*
 
 Each step amplifies: one activated EGFR → ~100 RAS → ~10,000 activated ERK molecules.
 
 ### Receptor Tyrosine Kinase Activation in Detail
 
-RTKs are activated by **ligand-induced dimerisation** — and the choreography is more elegant than the cartoon suggests. Different RTK families use different dimerisation strategies:
+RTKs are activated by **ligand-induced dimerization** — and the choreography is more elegant than the cartoon suggests. Different RTK families use different dimerization strategies:
 
 1. **Bivalent ligand** (e.g., PDGF, VEGF, SCF): the ligand is a dimer that bridges two receptor monomers. Binding stoichiometry is 2 ligands : 2 receptors.
-2. **Receptor-mediated dimerisation** (e.g., EGFR, HER2/3/4): the ligand is monomeric but binding induces a conformational change that exposes a "dimerisation arm" on the extracellular domain; two ligand-bound receptors then pair through these arms. Stoichiometry: 2 ligands : 2 receptors.
+2. **Receptor-mediated dimerization** (e.g., EGFR, HER2/3/4): the ligand is monomeric but binding induces a conformational change that exposes a "dimerization arm" on the extracellular domain; two ligand-bound receptors then pair through these arms. Stoichiometry: 2 ligands : 2 receptors.
 3. **Pre-formed dimers** (e.g., insulin receptor, IGF-1R): exist as covalent (α$_2$β$_2$) tetramers held together by disulphide bonds. Ligand binding does not change quaternary structure but does induce a conformational change that brings the two intracellular kinase domains into productive juxtaposition.
 
-**Trans-autophosphorylation.** Upon dimerisation, the two intracellular kinase domains phosphorylate each other on multiple tyrosine residues in trans (kinase A phosphorylates kinase B and vice versa). This serves three purposes:
-- Increases kinase activity ~100-fold by stabilising the active conformation.
+**Trans-autophosphorylation.** Upon dimerization, the two intracellular kinase domains phosphorylate each other on multiple tyrosine residues in trans (kinase A phosphorylates kinase B and vice versa). This serves three purposes:
+- Increases kinase activity ~100-fold by stabilizing the active conformation.
 - Creates docking sites for downstream adaptor proteins.
 - Sets a stoichiometric "code" — different receptors phosphorylate different tyrosine combinations, recruiting different adaptors.
 
-**SH2 and PTB domains: phosphotyrosine readers.** Phosphorylated tyrosines are recognised by two protein-domain types:
-- **SH2 (Src homology 2)** domains, ~100 amino acids, recognise pTyr in a sequence-specific context (the +1 to +3 residues C-terminal to pTyr determine specificity). Each SH2 domain has a characteristic preference (e.g., Grb2 SH2 prefers pYXNX; PI3K-p85 SH2 prefers pYXXM; Src family SH2 prefers pYEEI).
-- **PTB (Phosphotyrosine Binding)** domains recognise the residues *N-terminal* to pTyr. Examples: Shc, IRS-1.
+**SH2 and PTB domains: phosphotyrosine readers.** Phosphorylated tyrosines are recognized by two protein-domain types:
+- **SH2 (Src homology 2)** domains, ~100 amino acids, recognize pTyr in a sequence-specific context (the +1 to +3 residues C-terminal to pTyr determine specificity). Each SH2 domain has a characteristic preference (e.g., Grb2 SH2 prefers pYXNX; PI3K-p85 SH2 prefers pYXXM; Src family SH2 prefers pYEEI).
+- **PTB (Phosphotyrosine Binding)** domains recognize the residues *N-terminal* to pTyr. Examples: Shc, IRS-1.
 
-The combinatorial code of pTyr sites and SH2/PTB readers explains how the same kinase domain (intrinsically not sequence-specific) can produce highly specific signalling outputs.
+The combinatorial code of pTyr sites and SH2/PTB readers explains how the same kinase domain (intrinsically not sequence-specific) can produce highly specific signaling outputs.
 
 **Specific RTK examples:**
 
-| RTK | Ligand | Dimerisation type | Key adaptors recruited |
+: Receptor Tyrosine Kinase Activation in Detail: RTK and Ligand. {#tbl:unit_II_cell_signaling_receptor_tyrosine_kinase_activation_in_detail}
+| RTK | Ligand | Dimerization type | Key adaptors recruited |
 | --- | ------ | ----------------- | ---------------------- |
 | EGFR (HER1) | EGF, TGF-α | Receptor-mediated | Grb2 (→ RAS); PLC-γ (→ DAG/IP$_3$); STAT3 |
 | HER2 | None known | Heterodimerises with HER1/3/4 | Same as above; HER2-HER3 strongest mitogen |
@@ -442,16 +446,17 @@ The combinatorial code of pTyr sites and SH2/PTB readers explains how the same k
 | VEGFR2 | VEGF-A | Bivalent ligand | TSAd; PLC-γ; Shc |
 | Trk receptors | NGF, BDNF | Bivalent (TrkA: 1 NGF dimer / 2 receptors) | Shc; PLC-γ; FRS2 |
 
-> **Clinical Connection: HER2 and Trastuzumab Reconsidered.** Trastuzumab binds the membrane-proximal extracellular subdomain IV of HER2 — *not* the dimerisation arm. So how does it work? Multiple mechanisms: (1) it sterically interferes with HER2-HER2 self-dimerisation in amplified cancers; (2) it triggers **antibody-dependent cellular cytotoxicity (ADCC)** by recruiting NK cells via Fc receptors; (3) it accelerates HER2 internalisation and degradation. Trastuzumab-resistant HER2$^+$ tumours often retain ADCC sensitivity, which is why **trastuzumab-emtansine (T-DM1)** — an antibody–drug conjugate carrying a microtubule poison — works after trastuzumab failure: it exploits residual ADCC and adds direct cytotoxicity. The original trastuzumab trial is a useful evidence anchor because it tied receptor overexpression to a matched intervention and patient outcomes, not just a pathway diagram \citep{slamon2001trastuzumab}.
+> **Clinical Connection: HER2 and Trastuzumab Reconsidered.** Trastuzumab binds the membrane-proximal extracellular subdomain IV of HER2 — *not* the dimerization arm. So how does it work? Multiple mechanisms: (1) it sterically interferes with HER2-HER2 self-dimerization in amplified cancers; (2) it triggers **antibody-dependent cellular cytotoxicity (ADCC)** by recruiting NK cells via Fc receptors; (3) it accelerates HER2 internalization and degradation. Trastuzumab-resistant HER2$^+$ tumors often retain ADCC sensitivity, which is why **trastuzumab-emtansine (T-DM1)** — an antibody–drug conjugate carrying a microtubule poison — works after trastuzumab failure: it exploits residual ADCC and adds direct cytotoxicity. The original trastuzumab trial is a useful evidence anchor because it tied receptor overexpression to a matched intervention and patient outcomes, not just a pathway diagram \citep{slamon2001trastuzumab}.
 
 ### The MAP Kinase Cascade --- Three-Tier Hierarchy
 
-The MAP kinase (MAPK) cascade is the canonical example of a multi-tier signalling cascade. Eukaryotes have multiple parallel MAPK cascades; the best-studied is the **classical (ERK) MAPK cascade**, but JNK and p38 stress-activated cascades follow the same architecture:
+The MAP kinase (MAPK) cascade is the canonical example of a multi-tier signaling cascade. Eukaryotes have multiple parallel MAPK cascades; the best-studied is the **classical (ERK) MAPK cascade**, but JNK and p38 stress-activated cascades follow the same architecture:
 
 1. **MAPKKK (MAP kinase kinase kinase)** — activated by upstream signals (e.g., Ras-GTP for ERK; MEKK1 for JNK; ASK1 for p38).
 2. **MAPKK (MAP kinase kinase)** — phosphorylated and activated by MAPKKK on two serines/threonines; in turn, dual-specificity kinase (Ser/Thr/Tyr) for the next tier.
 3. **MAPK** — phosphorylated by MAPKK on Thr-X-Tyr motif in the activation loop; both phosphorylations required for activity.
 
+: The MAP Kinase Cascade --- Three-Tier Hierarchy: Cascade and MAPKKK. {#tbl:unit_II_cell_signaling_the_map_kinase_cascade_three_tier_hierarchy}
 | Cascade | MAPKKK | MAPKK | MAPK | Activated by | Output |
 | ------- | ------ | ----- | ---- | ------------ | ------ |
 | Classical (ERK) | RAF (A-, B-, C-RAF) | MEK1/2 | ERK1/2 | Growth factors (RTKs); RAS-GTP | Proliferation, differentiation |
@@ -469,6 +474,7 @@ The combination of cascade ultrasensitivity + scaffold insulation + DUSP feedbac
 
 **Key pathway components:**
 
+: The MAP Kinase Cascade --- Three-Tier Hierarchy: Component and Function. {#tbl:unit_II_cell_signaling_the_map_kinase_cascade_three_tier_hierarchy_2}
 | Component | Function | Human disease when mutated |
 | --------- | -------- | ------------------------- |
 | EGFR (ErbB1) | RTK; EGF binding | Non-small cell lung cancer |
@@ -480,11 +486,11 @@ The combination of cascade ultrasensitivity + scaffold insulation + DUSP feedbac
 
 ### Ligand-Gated Ion Channels
 
-Direct coupling of ligand binding to ion flow, bypassing G proteins. Fastest signalling (~ms).
+Direct coupling of ligand binding to ion flow, bypassing G proteins. Fastest signaling (~ms).
 
-- **Nicotinic acetylcholine receptor (nAChR):** pentameric (alpha$_2$-beta-gamma-delta); 2 ACh bind → conformational change → Na$^+$/K$^+$ channel opens → [**depolarisation**](#gl:depolarisation) → muscle contraction
-- **GABA$_A$ receptor:** Cl$^-$ channel; GABA binding → Cl$^-$ influx → hyperpolarisation → inhibition. Target of benzodiazepines (bind [**allosteric**](#gl:allosteric) site → enhanced Cl$^-$ flux → sedation/anxiolysis). Also target of barbiturates, ethanol, and general anaesthetics.
-- **NMDA glutamate receptor:** requires simultaneous glutamate + glycine binding AND membrane depolarisation to remove Mg$^{2+}$ block; Ca$^{2+}$ entry → CaMKII activation → LTP (Learning and memory). Coincidence detector for Hebbian learning.
+- **Nicotinic acetylcholine receptor (nAChR):** pentameric (alpha$_2$-beta-gamma-delta); 2 ACh bind → conformational change → Na$^+$/K$^+$ channel opens → [**depolarization**](#gl:depolarization) → muscle contraction
+- **GABA$_A$ receptor:** Cl$^-$ channel; GABA binding → Cl$^-$ influx → hyperpolarization → inhibition. Target of benzodiazepines (bind [**allosteric**](#gl:allosteric) site → enhanced Cl$^-$ flux → sedation/anxiolysis). Also target of barbiturates, ethanol, and general anaesthetics.
+- **NMDA glutamate receptor:** requires simultaneous glutamate + glycine binding AND membrane depolarization to remove Mg$^{2+}$ block; Ca$^{2+}$ entry → CaMKII activation → LTP (Learning and memory). Coincidence detector for Hebbian learning.
 
 > **Concept Check 2:** Curare blocks nAChRs at the neuromuscular junction. Predict the clinical effects. How does this differ from the effect of an acetylcholinesterase inhibitor (e.g., neostigmine)?
 
@@ -497,7 +503,7 @@ Direct coupling of ligand binding to ion flow, bypassing G proteins. Fastest sig
 
 ## Intracellular Receptors for Lipid-Soluble Signals
 
-Lipophilic signalling molecules (steroid hormones, thyroid hormone, retinoic acid, vitamin D) diffuse through the membrane and bind **cytoplasmic or nuclear receptors** --- ligand-activated transcription factors. The nuclear receptor superfamily includes 48 members in humans.
+Lipophilic signaling molecules (steroid hormones, thyroid hormone, retinoic acid, vitamin D) diffuse through the membrane and bind **cytoplasmic or nuclear receptors** --- ligand-activated transcription factors. The nuclear receptor superfamily includes 48 members in humans.
 
 **Classic glucocorticoid pathway:**
 1. Cortisol crosses membrane (lipophilic)
@@ -531,7 +537,7 @@ Target genes include anti-inflammatory (IkB-alpha, annexin A1), gluconeogenic (P
 
 Cytokine receptors (e.g., IL-6R, IFN receptors, erythropoietin receptor) lack intrinsic kinase activity. Instead, they associate with **Janus kinases (JAK1, JAK2, JAK3, TYK2)**:
 
-1. Cytokine binding → receptor dimerisation
+1. Cytokine binding → receptor dimerization
 2. JAKs trans-phosphorylate each other and the receptor
 3. **STAT** proteins (Signal Transducers and Activators of Transcription) bind phosphotyrosines via SH2 domains
 4. JAKs phosphorylate STATs
@@ -545,7 +551,7 @@ Cytokine receptors (e.g., IL-6R, IFN receptors, erythropoietin receptor) lack in
 
 ### Notch Pathway and Contact-Dependent Cell Fate
 
-Direct cell-cell signalling (juxtacrine):
+Direct cell-cell signaling (juxtacrine):
 1. Delta/Jagged ligand on one cell binds Notch receptor on adjacent cell
 2. Ligand [**endocytosis**](#gl:endocytosis) generates mechanical force
 3. ADAM protease cleaves Notch extracellular domain
@@ -556,38 +562,40 @@ Direct cell-cell signalling (juxtacrine):
 
 ### Signal Termination Mechanisms
 
+: Signal Termination Mechanisms: Mechanism and Target. {#tbl:unit_II_cell_signaling_signal_termination_mechanisms}
 | Mechanism | Target | Example |
 | --------- | ------ | ------- |
 | GTPase activity | G proteins, RAS | Intrinsic GTPase + GAPs (RGS, NF1) |
 | Phosphodiesterases | cAMP, cGMP | PDE4 (lung), PDE5 (smooth muscle) |
 | Protein phosphatases | Phosphoproteins | PP1, PP2A, calcineurin, PTEN, MKPs |
-| Receptor internalisation | Surface receptors | GRK/beta-arrestin → clathrin-mediated endocytosis |
-| Ubiquitin-proteasome | Signalling proteins | c-Cbl ubiquitinates EGFR; SCF targets beta-catenin |
+| Receptor internalization | Surface receptors | GRK/beta-arrestin → clathrin-mediated endocytosis |
+| Ubiquitin-proteasome | Signaling proteins | c-Cbl ubiquitinates EGFR; SCF targets beta-catenin |
 | Negative feedback | Pathway components | SOCS proteins inhibit JAK-STAT; Sprouty inhibits RAS-MAPK |
 
-> **Concept Check 3:** A mutation in NF1 (neurofibromin, a RAS-GAP) causes neurofibromatosis type 1. Explain why loss of a GAP protein leads to tumour formation, and predict the effect on RAS-GTP levels.
+> **Concept Check 3:** A mutation in NF1 (neurofibromin, a RAS-GAP) causes neurofibromatosis type 1. Explain why loss of a GAP protein leads to tumor formation, and predict the effect on RAS-GTP levels.
 
 ---
 
 ## Crosstalk and Signal Integration
 
-Cells rarely respond to a single signal in isolation. Instead, multiple pathways interact through **crosstalk** --- shared components, convergent effectors, or mutual regulation. Signal integration is what allows a cell to make complex decisions (proliferate, differentiate, or die) based on the totality of its signalling environment.
+Cells rarely respond to a single signal in isolation. Instead, multiple pathways interact through **crosstalk** --- shared components, convergent effectors, or mutual regulation. Signal integration is what allows a cell to make complex decisions (proliferate, differentiate, or die) based on the totality of its signaling environment.
 
 ### Convergence and Divergence
 
-**Convergence:** Multiple upstream signals activate the same downstream effector. For example, both RTK/RAS/MAPK and Wnt/beta-catenin pathways converge on cyclin D1 transcription, reinforcing the G1-to-S transition. Both growth factor (PI3K/Akt) and integrin signalling converge on mTORC1 to control cell growth.
+**Convergence:** Multiple upstream signals activate the same downstream effector. For example, both RTK/RAS/MAPK and Wnt/beta-catenin pathways converge on cyclin D1 transcription, reinforcing the G1-to-S transition. Both growth factor (PI3K/Akt) and integrin signaling converge on mTORC1 to control cell growth.
 
 **Divergence:** A single activated receptor triggers multiple downstream cascades simultaneously. EGFR activation simultaneously engages:
 - RAS-MAPK (proliferation)
 - PI3K-Akt (survival)
 - PLC-gamma/IP$_3$/Ca$^{2+}$ (immediate responses)
 - JAK-STAT (gene expression)
-- c-Src (cytoskeletal remodelling)
+- c-Src (cytoskeletal remodeling)
 
-### Scaffold Proteins and Signalling Specificity
+### Scaffold Proteins and Signaling Specificity
 
 Scaffold proteins physically assemble pathway components, ensuring speed, specificity, and prevention of unwanted crosstalk:
 
+: Scaffold Proteins and Signaling Specificity: Scaffold and Pathway. {#tbl:unit_II_cell_signaling_scaffold_proteins_and_signalling_specificity}
 | Scaffold | Pathway | Function |
 | -------- | ------- | -------- |
 | KSR1 | RAS-MAPK | Brings RAF, MEK, and ERK together; promotes efficient cascade activation |
@@ -607,7 +615,7 @@ Scaffold proteins explain how the same MAPK cascade can produce different outcom
 
 **Negative feedback** limits signal duration and creates adaptation:
 - ERK phosphorylates SOS at inhibitory sites (slow negative feedback counteracts fast positive feedback)
-- SOCS proteins induced by JAK-STAT signalling bind JAKs and target them for degradation
+- SOCS proteins induced by JAK-STAT signaling bind JAKs and target them for degradation
 - Sprouty (SPRY) proteins inhibit RAS-MAPK at the level of GRB2-SOS recruitment
 
 > **Concept Check 5:** The MAPK cascade exhibits both positive feedback (ERK activates SOS) and negative feedback (ERK inhibits SOS at different sites). How might the relative timing of these feedbacks create a transient burst of ERK activity followed by adaptation? What would happen if the negative feedback were eliminated by mutation?
@@ -616,7 +624,7 @@ Scaffold proteins explain how the same MAPK cascade can produce different outcom
 
 > **Concept Check 7:** A neuron at rest contains ~10$^{−7}$ M cytoplasmic [Ca$^{2+}$]. Following an action potential, [Ca$^{2+}$] near a synaptic vesicle rises to ~10$^{−5}$ M for ~1 ms before being buffered and pumped back. Synaptotagmin has 2 C2 domains, each binding 2–3 Ca$^{2+}$ ions cooperatively (Hill coefficient ~3). Explain why this molecular architecture produces an essentially "most-or-nothing" exocytotic response to the brief calcium pulse, and how this differs from the sustained calcium signals used in CaMKII-mediated long-term potentiation.
 
-> **Concept Check 8:** A scaffold protein binds both an upstream kinase (RAF) and a downstream substrate (ERK) but does not bind the intermediate kinase (MEK). Predict the qualitative effect on signal transmission. What does this suggest about why the three components must be present on the scaffold for productive signalling?
+> **Concept Check 8:** A scaffold protein binds both an upstream kinase (RAF) and a downstream substrate (ERK) but does not bind the intermediate kinase (MEK). Predict the qualitative effect on signal transmission. What does this suggest about why the three components must be present on the scaffold for productive signaling?
 
 ```mermaid
 graph TD
@@ -648,15 +656,15 @@ graph TD
 
 *Signal integration: multiple pathways converge on key decision nodes. Proliferative signals (RTK, Wnt, cytokines) converge on cyclin D1 transcription. Survival signals (PI3K/Akt) antagonise apoptosis by phosphorylating BAD. The cell's fate (proliferation, growth, or death) depends on the balance of active pathways.*
 
-### Computational Approaches to Signalling Networks
+### Computational Approaches to Signaling Networks
 
-Modern systems biology uses mathematical modelling to understand signalling network behaviour:
+Modern systems biology uses mathematical modeling to understand signaling network behavior:
 
 - **Boolean networks:** model each node as ON/OFF; useful for large networks
 - **Ordinary differential equations (ODEs):** model concentration changes over time; quantitative predictions
-- **Stochastic modelling:** accounts for molecular noise in low-copy-number signalling (important in stem cell fate decisions)
+- **Stochastic modeling:** accounts for molecular noise in low-copy-number signaling (important in stem cell fate decisions)
 
-The Huang-Ferrell model of the MAPK cascade demonstrated that the cascade acts as an ultrasensitive switch: small changes in input (growth factor concentration) produce most-or-none output (ERK activation). This switch-like behaviour arises from the dual phosphorylation requirement for ERK activation.
+The Huang-Ferrell model of the MAPK cascade demonstrated that the cascade acts as an ultrasensitive switch: small changes in input (growth factor concentration) produce most-or-none output (ERK activation). This switch-like behavior arises from the dual phosphorylation requirement for ERK activation.
 
 ---
 
@@ -666,6 +674,7 @@ Cell division is controlled by cyclin-dependent kinases (CDKs) activated by thei
 
 ### Cell-Cycle Phases and CDK-Cyclin Control
 
+: Cell-Cycle Phases and CDK-Cyclin Control: Phase and Event. {#tbl:unit_II_cell_signaling_cell_cycle_phases_and_cdk_cyclin_control}
 | Phase | Event | Duration (typical animal cell) | Key CDK-Cyclin |
 | ----- | ----- | ------------------------------- | --------------- |
 | G1 | Growth; protein synthesis | 6--12 h | CDK4/6-Cyclin D |
@@ -678,7 +687,7 @@ Cell division is controlled by cyclin-dependent kinases (CDKs) activated by thei
 - **G2/M checkpoint:** DNA repair complete? CDK1-Cyclin B (MPF --- maturation-promoting factor) triggers mitotic entry. Activated by CDC25 phosphatase; inhibited by Wee1 kinase.
 - **Spindle assembly checkpoint (SAC):** most kinetochores attached to microtubules? Mad2/BubR1 inhibit [**Anaphase**](#gl:anaphase) Promoting Complex (APC/C) until satisfied. APC/C then ubiquitinates securin → separase released → cleaves cohesin → sister chromatid separation.
 
-### Tumour Suppressors and Checkpoint Control
+### Tumor Suppressors and Checkpoint Control
 
 - **p53:** "guardian of the [**genome**](#gl:genome)"; activated by DNA damage (via ATM/ATR kinases, Chk1/Chk2) → arrests cell cycle (via p21/WAF1 inhibiting CDK2) or triggers apoptosis (via PUMA, NOXA); mutated in ~50% of human cancers. MDM2 is the E3 ubiquitin ligase that normally keeps p53 levels low; MDM2 inhibitors (nutlins) are in clinical trials.
 - **pRB:** binds and represses E2F in G1; CDK4/6 phosphorylation releases E2F → S phase entry; mutated/deleted in retinoblastoma and many cancers. CDK4/6 inhibitors (palbociclib, ribociclib) are used in HR$^+$ breast cancer.
@@ -692,6 +701,7 @@ Cell division is controlled by cyclin-dependent kinases (CDKs) activated by thei
 
 Apoptosis eliminates ~80 billion cells per day in the adult human (equal to approximate cell proliferation). It differs fundamentally from necrosis:
 
+: Tumor Suppressors and Checkpoint Control: Feature and Apoptosis. {#tbl:unit_II_cell_signaling_tumour_suppressors_and_checkpoint_control}
 | Feature | Apoptosis | Necrosis |
 | ------- | --------- | -------- |
 | Initiation | Genetically programmed | Accidental |
@@ -705,7 +715,7 @@ Apoptosis eliminates ~80 billion cells per day in the adult human (equal to appr
 Triggered by DNA damage, oxidative stress, growth factor withdrawal:
 
 1. **BH3-primarily proteins** (Bad, Bid, Puma, NOXA) activated by cellular stress
-2. BH3-primarily proteins neutralise anti-apoptotic Bcl-2/Bcl-xL
+2. BH3-primarily proteins neutralize anti-apoptotic Bcl-2/Bcl-xL
 3. **BAX/BAK** oligomerise in the OMM → form pores (MAC channel)
 4. **Cytochrome c** released from intermembrane space into cytoplasm
 5. Cytochrome c + Apaf-1 + ATP/dATP → **apoptosome** (7-subunit wheel, ~1 MDa)
@@ -721,7 +731,7 @@ Triggered by extracellular death ligands (FasL, TNF-alpha, TRAIL):
 
 1. Ligand binds death receptor (FAS/CD95, TNFR1, DR4/DR5)
 2. Death domain oligomers recruit FADD (Fas-associated death domain protein)
-3. Procaspase-8 recruited → **DISC (Death-Inducing Signalling Complex)**
+3. Procaspase-8 recruited → **DISC (Death-Inducing Signaling Complex)**
 4. Caspase-8 auto-activated
 5. In Type I cells: caspase-8 directly activates caspase-3 (sufficient DISC formation)
 6. In Type II cells: caspase-8 cleaves Bid → tBid → activates mitochondrial pathway (amplification loop)
@@ -732,21 +742,22 @@ Triggered by extracellular death ligands (FasL, TNF-alpha, TRAIL):
 
 Beyond classical apoptosis, several other regulated cell death pathways have been identified:
 
-- **Necroptosis:** Programmed necrosis triggered by TNF when caspase-8 is inhibited. RIPK1 and RIPK3 kinases phosphorylate MLKL, which oligomerises and permeabilises the plasma membrane. Important in host defence against viruses that express caspase inhibitors.
+- **Necroptosis:** Programmed necrosis triggered by TNF when caspase-8 is inhibited. RIPK1 and RIPK3 kinases phosphorylate MLKL, which oligomerises and permeabilises the plasma membrane. Important in host defense against viruses that express caspase inhibitors.
 - **Pyroptosis:** Inflammatory cell death mediated by gasdermin D (GSDMD). Inflammasome activation (NLRP3, NLRC4, AIM2) activates caspase-1, which cleaves GSDMD. The N-terminal fragment forms pores in the plasma membrane, releasing IL-1-beta and IL-18. Critical in [**innate immunity**](#gl:innate-immunity) and sepsis.
-- **Ferroptosis:** Iron-dependent cell death characterised by lipid peroxidation. GPX4 (glutathione peroxidase 4) normally prevents lethal lipid ROS accumulation. GPX4 inhibition or glutathione depletion triggers ferroptosis. Relevant in neurodegeneration, kidney injury, and cancer therapy (some drug-resistant tumours are susceptible to ferroptosis inducers).
+- **Ferroptosis:** Iron-dependent cell death characterized by lipid peroxidation. GPX4 (glutathione peroxidase 4) normally prevents lethal lipid ROS accumulation. GPX4 inhibition or glutathione depletion triggers ferroptosis. Relevant in neurodegeneration, kidney injury, and cancer therapy (some drug-resistant tumors are susceptible to ferroptosis inducers).
 
 > **Clinical Connection: Ferroptosis in Cancer Therapy**
 > Drug-resistant cancer cells that have undergone epithelial-mesenchymal transition (EMT) become highly susceptible to ferroptosis. This vulnerability arises because EMT upregulates polyunsaturated fatty acid (PUFA) incorporation into membrane phospholipids, increasing susceptibility to lipid peroxidation. Ferroptosis-inducing agents (erastin, RSL3) are being investigated as therapies for therapy-resistant cancers. Understanding cell death pathway diversity is critical for developing next-generation anti-cancer strategies.
 
 ---
 
-## Cancer as Dysregulated Signalling
+## Cancer as Dysregulated Signaling
 
-Cancer results from accumulated mutations that activate oncogenes (gain-of-function) and inactivate tumour suppressors (loss-of-function), disrupting normal signalling control.
+Cancer results from accumulated mutations that activate oncogenes (gain-of-function) and inactivate tumor suppressors (loss-of-function), disrupting normal signaling control.
 
 ### Oncogenes and Their Normal Counterparts
 
+: Oncogenes and Their Normal Counterparts: Proto-oncogene and Normal function. {#tbl:unit_II_cell_signaling_oncogenes_and_their_normal_counterparts}
 | Proto-oncogene | Normal function | Oncogenic mutation | Cancer type |
 | -------------- | --------------- | ------------------ | ----------- |
 | RAS (K-RAS, N-RAS) | Small GTPase (MAPK pathway) | Point mutations (G12D, G12V, Q61L) lock in GTP state | Pancreatic, colorectal, lung |
@@ -759,10 +770,11 @@ Cancer results from accumulated mutations that activate oncogenes (gain-of-funct
 
 ### Targeted Cancer Therapies
 
+: Targeted Cancer Therapies: Drug and Target. {#tbl:unit_II_cell_signaling_targeted_cancer_therapies}
 | Drug | Target | Mechanism | Cancer |
 | ---- | ------ | --------- | ------ |
 | **Imatinib** (Gleevec) | BCR-ABL tyrosine kinase | ATP-competitive inhibitor | CML |
-| **Trastuzumab** (Herceptin) | HER2 extracellular domain | Monoclonal antibody; ADCC + signalling block | HER2$^+$ breast cancer |
+| **Trastuzumab** (Herceptin) | HER2 extracellular domain | Monoclonal antibody; ADCC + signaling block | HER2$^+$ breast cancer |
 | **Vemurafenib** | B-RAF V600E | ATP-competitive inhibitor | Melanoma |
 | **Erlotinib/Gefitinib** | EGFR kinase domain | ATP-competitive inhibitor | NSCLC |
 | **Palbociclib** | CDK4/6 | Prevents pRB phosphorylation | HR$^+$ breast cancer |
@@ -771,24 +783,25 @@ Cancer results from accumulated mutations that activate oncogenes (gain-of-funct
 | **Sotorasib** | K-RAS G12C | Covalent inhibitor (first RAS drug) | NSCLC |
 
 > **Clinical Connection: Imatinib --- The Paradigm of Targeted Therapy**
-> Chronic myeloid leukaemia (CML) is caused by the Philadelphia chromosome --- a t(9;22) translocation creating the BCR-ABL fusion protein (constitutively active tyrosine kinase). Before imatinib, 5-year survival was ~30%. Imatinib specifically inhibits BCR-ABL by occupying the ATP-binding site, achieving complete cytogenetic response in >80% of patients and transforming CML into a manageable chronic disease. This "bench-to-bedside" success story (Brian Druker, Nicholas Lydon) demonstrated that understanding signalling pathways at the molecular level can lead to revolutionary therapies.
+> Chronic myeloid leukaemia (CML) is caused by the Philadelphia chromosome --- a t(9;22) translocation creating the BCR-ABL fusion protein (constitutively active tyrosine kinase). Before imatinib, 5-year survival was ~30%. Imatinib specifically inhibits BCR-ABL by occupying the ATP-binding site, achieving complete cytogenetic response in >80% of patients and transforming CML into a manageable chronic disease. This "bench-to-bedside" success story (Brian Druker, Nicholas Lydon) demonstrated that understanding signaling pathways at the molecular level can lead to revolutionary therapies.
 
-### Clinical Pharmacology of Cell Signalling
+### Clinical Pharmacology of Cell Signaling
 
-Cell signalling is the most pharmacologically tractable layer of cellular biology — most major drug classes either activate, inhibit, or compete with components of a signalling cascade. Understanding the molecular logic of signalling therefore translates directly into rational pharmacology. Three case studies illustrate the depth of this connection.
+Cell signaling is the most pharmacologically tractable layer of cellular biology — most major drug classes either activate, inhibit, or compete with components of a signaling cascade. Understanding the molecular logic of signaling therefore translates directly into rational pharmacology. Three case studies illustrate the depth of this connection.
 
 **β-Blockers: from signal blockade to chronic-disease treatment.** Propranolol (1964, James Black, Nobel Prize 1988) was the first β-adrenergic receptor antagonist. It blocks β$_1$ receptors on cardiomyocytes (reducing heart rate and contractility, lowering oxygen demand) and β$_2$ receptors on bronchial smooth muscle (sometimes causing wheeze in asthmatics). Modern β-blockers are graded by selectivity:
 - **Non-selective:** propranolol, carvedilol — block β$_1$, β$_2$, sometimes α$_1$.
 - **β$_1$-selective ("cardioselective"):** metoprolol, atenolol, bisoprolol — preferred when bronchospasm is a concern.
 - **Inverse agonists:** carvedilol — actively reduces basal G-protein activity, not just blocks ligand binding.
-- **Biased agonists/antagonists:** carvedilol, alprenolol — block G$_s$ but activate β-arrestin signalling, possibly explaining superior heart failure outcomes.
+- **Biased agonists/antagonists:** carvedilol, alprenolol — block G$_s$ but activate β-arrestin signaling, possibly explaining superior heart failure outcomes.
 
-The mechanistic depth has grown over 60 years: from "block adrenaline binding" → "reduce cAMP" → "decouple from G-protein" → "biased toward β-arrestin/ERK" → "remodel chronic gene expression patterns in failing heart." A drug class that began as symptomatic therapy for angina is now first-line in heart failure precisely *because* it modulates the chronic-stress signalling fingerprint.
+The mechanistic depth has grown over 60 years: from "block adrenaline binding" → "reduce cAMP" → "decouple from G-protein" → "biased toward β-arrestin/ERK" → "remodel chronic gene expression patterns in failing heart." A drug class that began as symptomatic therapy for angina is now first-line in heart failure precisely *because* it modulates the chronic-stress signaling fingerprint.
 
-**Statins: targeting the substrate of a regulatory cascade.** HMG-CoA reductase catalyses the rate-limiting step of cholesterol biosynthesis. Statins (lovastatin from *Aspergillus* in 1976; simvastatin, atorvastatin, rosuvastatin) are competitive inhibitors with IC$_{50}$ ~10 nM. Lower hepatic cholesterol synthesis → upregulation of LDL receptor (via SREBP-2 transcription factor) → increased LDL clearance from blood → ~30–50% reduction in LDL cholesterol. Beyond cholesterol, statins have **pleiotropic effects** mediated by reduced isoprenoid (farnesyl, geranylgeranyl) production: reduced membrane localisation of Rho/Rac GTPases (anti-inflammatory), reduced platelet aggregation, improved endothelial function. Many of these effects are arguably more important than cholesterol lowering for cardiovascular outcomes — supported by clinical trials showing benefit even in patients with normal LDL.
+**Statins: targeting the substrate of a regulatory cascade.** HMG-CoA reductase catalyses the rate-limiting step of cholesterol biosynthesis. Statins (lovastatin from *Aspergillus* in 1976; simvastatin, atorvastatin, rosuvastatin) are competitive inhibitors with IC$_{50}$ ~10 nM. Lower hepatic cholesterol synthesis → upregulation of LDL receptor (via SREBP-2 transcription factor) → increased LDL clearance from blood → ~30–50% reduction in LDL cholesterol. Beyond cholesterol, statins have **pleiotropic effects** mediated by reduced isoprenoid (farnesyl, geranylgeranyl) production: reduced membrane localization of Rho/Rac GTPases (anti-inflammatory), reduced platelet aggregation, improved endothelial function. Many of these effects are arguably more important than cholesterol lowering for cardiovascular outcomes — supported by clinical trials showing benefit even in patients with normal LDL.
 
 **Imatinib in detail: lessons in resistance.** Imatinib (Gleevec, 2001) binds the inactive ("DFG-out") conformation of the BCR-ABL kinase domain at its ATP-binding site. The drug exploits a structural quirk: the BCR-ABL kinase domain has a hydrophobic pocket that becomes accessible primarily in the inactive conformation; this pocket is *not* present in most other kinases, providing remarkable selectivity. Resistance develops through several mechanisms:
 
+: Clinical Pharmacology of Cell Signaling: Mechanism and Frequency. {#tbl:unit_II_cell_signaling_clinical_pharmacology_of_cell_signalling}
 | Mechanism | Frequency | Example | Solution |
 | --------- | --------- | ------- | -------- |
 | Point mutations in kinase domain | Most common | T315I (gatekeeper residue) | Ponatinib (third-generation, designed against T315I) |
@@ -804,8 +817,8 @@ This pattern — initial dramatic response, eventual development of resistance v
 
 A real cell is not exposed to a single ligand at a time. A hepatocyte receives glucagon, insulin, growth factors, fatty acids, cytokines, and adhesion signals *simultaneously*, and must integrate most of them into a coherent metabolic and proliferative response. Three architectural features make this integration possible:
 
-1. **Shared second messengers.** Many pathways feed into Ca$^{2+}$, cAMP, or phosphoinositides. The cell's "state" is encoded in the time-integrated and spatially-resolved levels of these second messengers, not in any single signalling event.
-2. **Coincidence detection.** Some effectors require *two simultaneous* inputs: **PKC** is fully activated primarily when both DAG (membrane targeting) and Ca$^{2+}$ (cytosolic increase) are present; **NMDA receptor** opens primarily when glutamate binds *and* the membrane is sufficiently depolarised. Coincidence detection prevents false alarms.
+1. **Shared second messengers.** Many pathways feed into Ca$^{2+}$, cAMP, or phosphoinositides. The cell's "state" is encoded in the time-integrated and spatially-resolved levels of these second messengers, not in any single signaling event.
+2. **Coincidence detection.** Some effectors require *two simultaneous* inputs: **PKC** is fully activated primarily when both DAG (membrane targeting) and Ca$^{2+}$ (cytosolic increase) are present; **NMDA receptor** opens primarily when glutamate binds *and* the membrane is sufficiently depolarized. Coincidence detection prevents false alarms.
 3. **Conditional rules (logic gates).** Cells implement Boolean-like decision rules. Cell proliferation in normal epithelia requires growth factor (mitogen) AND adhesion (integrin) AND survival (PI3K/Akt). Loss of any one input causes anoikis (death by detachment) or quiescence. Cancer typically defeats these rules by activating each independently.
 
 **Concrete examples of crosstalk:**
@@ -814,7 +827,7 @@ A real cell is not exposed to a single ligand at a time. A hepatocyte receives g
 - **Growth factor + integrin convergence on mTORC1.** Growth factor → RTK → PI3K → Akt → TSC1/2 inhibition → Rheb-GTP → mTORC1. Integrin → FAK → PI3K → same Akt step. Both inputs are required for full mTORC1 activation; loss of either prevents protein synthesis and cell growth, providing a checkpoint against unanchored proliferation.
 - **Stress → MAPK pathway crosstalk.** TNF-α activates IKK → NF-κB (survival) AND MEKK1 → JNK (apoptosis). The ratio determines outcome: brief TNF → NF-κB dominates → survival; prolonged TNF or with cyclohexamide (NF-κB-blocking) → JNK dominates → apoptosis.
 
-**Computational modelling of integration.** Modern systems biology builds these rules into ordinary differential equations (ODEs) or Boolean networks. A 2009 paper by Janes & Yaffe (*Nature Reviews MCB*) showed that 200+ measurements of signalling components in TNF-treated cells could be reduced to a few **partial least squares (PLS)** components that predicted apoptosis vs. survival outcomes. The lesson: cells appear to combine many inputs in a low-dimensional decision space — a finding that simplifies both basic understanding and drug design (modulate the dominant principal components, not 200 individual proteins).
+**Computational modeling of integration.** Modern systems biology builds these rules into ordinary differential equations (ODEs) or Boolean networks. A 2009 paper by Janes & Yaffe (*Nature Reviews MCB*) showed that 200+ measurements of signaling components in TNF-treated cells could be reduced to a few **partial least squares (PLS)** components that predicted apoptosis vs. survival outcomes. The lesson: cells appear to combine many inputs in a low-dimensional decision space — a finding that simplifies both basic understanding and drug design (modulate the dominant principal components, not 200 individual proteins).
 
 > **Concept Check 4:** Why would a combination of a BRAF inhibitor (vemurafenib) and a MEK inhibitor (trametinib) be more effective than either alone in BRAF V600E melanoma? Consider pathway reactivation mechanisms.
 
@@ -835,20 +848,20 @@ print(round(theta, 4))
 
 ---
 
-### Spatial Transcriptomics: Signalling in Tissue Context
+### Spatial Transcriptomics: Signaling in Tissue Context
 
-Single-cell RNA-sequencing (scRNA-seq) dissociates tissues and so loses the spatial information that is often the point — you can measure what each cell expresses but not **where it sits relative to its neighbours**. **Spatial transcriptomics (ST)** recovers that geometry by coupling *in situ* RNA capture or detection to high-throughput sequencing or imaging.
+Single-cell RNA-sequencing (scRNA-seq) dissociates tissues and so loses the spatial information that is often the point — you can measure what each cell expresses but not **where it sits relative to its neighbors**. **Spatial transcriptomics (ST)** recovers that geometry by coupling *in situ* RNA capture or detection to high-throughput sequencing or imaging.
 
-Two commercial platforms dominate. **10× Genomics Visium** prints a glass slide with ~5000 barcoded spots (55 μm diameter, ~100 μm spacing); a fresh-frozen tissue section is placed on the slide, RNA diffuses into the spots, and each spot's transcriptome is sequenced with its spot barcode. Resolution is sub-cellular to small-cluster (1–10 cells per spot). **MERFISH (Multiplexed Error-Robust FISH)** and **seqFISH+** instead use combinatorial error-correcting fluorescent in situ hybridisation to detect thousands of transcripts at **diffraction-limited (~100 nm) resolution** — true single-molecule, single-cell spatial mapping. **Slide-seq** and **Stereo-seq** push sequencing-based approaches toward 10 μm and 500 nm spot sizes respectively.
+Two commercial platforms dominate. **10× Genomics Visium** prints a glass slide with ~5000 barcoded spots (55 μm diameter, ~100 μm spacing); a fresh-frozen tissue section is placed on the slide, RNA diffuses into the spots, and each spot's transcriptome is sequenced with its spot barcode. Resolution is sub-cellular to small-cluster (1–10 cells per spot). **MERFISH (Multiplexed Error-Robust FISH)** and **seqFISH+** instead use combinatorial error-correcting fluorescent in situ hybridization to detect thousands of transcripts at **diffraction-limited (~100 nm) resolution** — true single-molecule, single-cell spatial mapping. **Slide-seq** and **Stereo-seq** push sequencing-based approaches toward 10 μm and 500 nm spot sizes respectively.
 
-Why this matters for signalling: paracrine and juxtacrine signalling — Notch–Delta, ephrin–Eph, WNT morphogen gradients — depend on cells *being close to each other*. Spatial transcriptomics lets investigators map ligand-expressing cells next to receptor-expressing cells across a whole tissue section and infer **ligand-receptor interaction networks in situ** (tools: CellChat, NicheNet, SpatialCellChat, 2022-2024). In tumour biology, ST reveals [**niches**](#gl:niche) of exhausted T cells in immunologically "cold" regions of the same tumour, motivating spatially-guided immunotherapy combinations. In developmental biology, ST in mouse embryos (Stereo-seq, *Cell* 2022) produced the first cell-resolved, tissue-resolved organogenesis atlas. The technology cost has dropped ~10x every two years; a whole-slide Visium experiment costs ~$2000 in 2024. For the student, ST is the bridge between molecular cell biology ("what genes are on?") and anatomy ("where?") — and it is the platform on which the next decade of in situ discovery will be built.
+Why this matters for signaling: paracrine and juxtacrine signaling — Notch–Delta, ephrin–Eph, WNT morphogen gradients — depend on cells *being close to each other*. Spatial transcriptomics lets investigators map ligand-expressing cells next to receptor-expressing cells across a whole tissue section and infer **ligand-receptor interaction networks in situ** (tools: CellChat, NicheNet, SpatialCellChat, 2022-2024). In tumor biology, ST reveals [**niches**](#gl:niche) of exhausted T cells in immunologically "cold" regions of the same tumor, motivating spatially-guided immunotherapy combinations. In developmental biology, ST in mouse embryos (Stereo-seq, *Cell* 2022) produced the first cell-resolved, tissue-resolved organogenesis atlas. The technology cost has dropped ~10x every two years; a whole-slide Visium experiment costs ~$2000 in 2024. For the student, ST is the bridge between molecular cell biology ("what genes are on?") and anatomy ("where?") — and it is the platform on which the next decade of in situ discovery will be built.
 
 ---
 
-## Current Evidence and Frontier Biology: Cell Signalling and Communication
+## Current Evidence and Frontier Biology: Cell Signaling and Communication
 
-For **Cell Signalling and Communication**, frontier biology belongs inside the evidence logic of
-the chapter. Cell biology is increasingly measured as live, spatial, single-cell, and perturbational data rather than static diagrams alone. The core reading question is this: signalling explanations should include receptor context, dose, timing, feedback, crosstalk, and cellular state.
+For **Cell Signaling and Communication**, frontier biology belongs inside the evidence logic of
+the chapter. Cell biology is increasingly measured as live, spatial, single-cell, and perturbational data rather than static diagrams alone. The core reading question is this: signaling explanations should include receptor context, dose, timing, feedback, crosstalk, and cellular state.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
   would make the claim stronger or weaker.
@@ -861,11 +874,11 @@ the chapter. Cell biology is increasingly measured as live, spatial, single-cell
   the source closest to the measurement and state what has changed since it was
   published.
 
-For signalling claims, identify the ligand, receptor state, second messenger, timescale, and feedback branch before naming a pathway as causal.
+For signaling claims, identify the ligand, receptor state, second messenger, timescale, and feedback branch before naming a pathway as causal.
 
 **Source practice:** Separate live-cell perturbation, phosphoproteomics, reporter assays, and single-cell data before inferring pathway direction or decision logic.
 
-### Current Evidence Map: Spatial Single-Cell Signalling Evidence
+### Current Evidence Map: Spatial Single-Cell Signaling Evidence
 
 ```mermaid
 flowchart LR
@@ -873,32 +886,32 @@ flowchart LR
     A --> C["Perturbation assay"]
     B --> D["Cell-state map"]
     C --> E["Changed pathway activity"]
-    D --> F["Neighbour context"]
+    D --> F["Neighbor context"]
     E --> F
-    F --> G["Causal signalling model"]
+    F --> G["Causal signaling model"]
 ```
-<!-- alt: Flowchart showing a signalling claim is stronger when receptor state, ligand source, cell neighbourhood, and perturbation response point to the same mechanism. -->
+<!-- alt: Flowchart showing a signaling claim is stronger when receptor state, ligand source, cell neighborhood and perturbation response point to the same mechanism. -->
 
-*A signalling claim is stronger when receptor state, ligand source, cell neighbourhood, and perturbation response point to the same mechanism.*
+*A signaling claim is stronger when receptor state, ligand source, cell neighborhood, and perturbation response point to the same mechanism.*
 
 ## Summary
 
-- Cell signalling: ligand → receptor → cascade → response. GPCRs use cAMP or IP$_3$/DAG via heterotrimeric G proteins; RTKs use tyrosine phosphorylation and the RAS-MAPK cascade; ion channels open immediately upon ligand binding.
+- Cell signaling: ligand → receptor → cascade → response. GPCRs use cAMP or IP$_3$/DAG via heterotrimeric G proteins; RTKs use tyrosine phosphorylation and the RAS-MAPK cascade; ion channels open immediately upon ligand binding.
 - Second messengers (cAMP, cGMP, IP$_3$, DAG, Ca$^{2+}$, PIP$_3$) amplify and diversify signals within the cell.
-- Signal termination involves GTPase activity, phosphodiesterases, protein phosphatases, receptor internalisation, and ubiquitin-mediated degradation.
+- Signal termination involves GTPase activity, phosphodiesterases, protein phosphatases, receptor internalization, and ubiquitin-mediated degradation.
 - The Wnt/beta-catenin, JAK-STAT, and Notch pathways control development, immune function, and stem cell maintenance.
-- The cell cycle is governed by CDK-cyclin complexes; checkpoints (G1, G2/M, SAC) ensure fidelity. p53 and pRB are the primary tumour suppressors.
+- The cell cycle is governed by CDK-cyclin complexes; checkpoints (G1, G2/M, SAC) ensure fidelity. p53 and pRB are the primary tumor suppressors.
 - Apoptosis (programmed cell death) proceeds via intrinsic (mitochondrial) or extrinsic (death receptor) pathways, both converging on executioner caspases.
-- Cancer results from dysregulated signalling (oncogenes + tumour suppressor loss); targeted therapies exploit specific pathway dependencies.
-- **Connections:** See \nameref{sec:unit_IV_unit_intro} (growth-factor-driven transcription), \nameref{sec:unit_V_unit_intro} (tumour suppressor [**allele**](#gl:allele)s), \nameref{sec:unit_IX_unit_intro} (endocrine first messengers).
+- Cancer results from dysregulated signaling (oncogenes + tumor suppressor loss); targeted therapies exploit specific pathway dependencies.
+- **Connections:** See \nameref{sec:unit_IV_unit_intro} (growth-factor-driven transcription), \nameref{sec:unit_V_unit_intro} (tumor suppressor [**allele**](#gl:allele)s), \nameref{sec:unit_IX_unit_intro} (endocrine first messengers).
 
 ---
 
 ## Review Questions
 
-1. Draw the complete G$_s$-cAMP-PKA signalling cascade from epinephrine binding to glycogen breakdown. Identify most amplification steps and termination mechanisms.
+1. Draw the complete G$_s$-cAMP-PKA signaling cascade from epinephrine binding to glycogen breakdown. Identify most amplification steps and termination mechanisms.
 
-2. Compare and contrast GPCRs and RTKs in terms of structure, mechanism of activation, downstream signalling, and examples of each.
+2. Compare and contrast GPCRs and RTKs in terms of structure, mechanism of activation, downstream signaling, and examples of each.
 
 3. Explain the RAS-MAPK pathway. Why is RAS one of the most commonly mutated oncogenes in human cancer?
 
@@ -910,18 +923,18 @@ flowchart LR
 
 7. Explain the mechanism of action of imatinib in CML. Why does resistance eventually develop, and how might it be overcome?
 
-8. Describe four mechanisms by which cells terminate signalling responses. For each, give a specific molecular example.
+8. Describe four mechanisms by which cells terminate signaling responses. For each, give a specific molecular example.
 
 9. Explain how CDK4/6 inhibitors (palbociclib) arrest the cell cycle in G1. Why are they used specifically in HR$^+$ breast cancer?
 
 10. Venetoclax is a BH3 mimetic that inhibits Bcl-2. Explain its mechanism of action and why it is effective in cancers that overexpress Bcl-2.
-11. Using `hill_equation`, compare fractional occupancy at $[L] = K_d$ for $n = 1$ vs. $n = 4$. Which curve better matches oxygen binding to haemoglobin, and why?
-12. Sketch how receptor internalisation provides **signal termination** for RTKs; link to one resistance mechanism in targeted cancer therapy.
+11. Using `hill_equation`, compare fractional occupancy at $[L] = K_d$ for $n = 1$ vs. $n = 4$. Which curve better matches oxygen binding to hemoglobin, and why?
+12. Sketch how receptor internalization provides **signal termination** for RTKs; link to one resistance mechanism in targeted cancer therapy.
 
 ---
 
 
-## Further Reading and Source Notes: Cell Signalling and Communication
+## Further Reading and Source Notes: Cell Signaling and Communication
 
 - Alon (2019). *An Introduction to Systems Biology: Design Principles of Biological Circuits*. Chapman and Hall/CRC.
 - Tyson et al. (2003). Sniffers, buzzers, toggles and blinkers: dynamics of regulatory and signaling pathways in the cell. *Current Opinion in Cell Biology*, 15.
@@ -932,6 +945,7 @@ flowchart LR
 
 ## Key Terms
 
+: Current Evidence Map: Spatial Single-Cell Signaling Evidence: Term and Definition. {#tbl:unit_II_cell_signaling_current_evidence_map_spatial_single_cell_signalling_evidence}
 | Term | Definition |
 | ---- | ---------- |
 | **GPCR** | G protein-coupled receptor; 7-TM superfamily; largest receptor family (~800 in humans) |
@@ -940,27 +954,28 @@ flowchart LR
 | **PKA** | Protein kinase A; cAMP-activated Ser/Thr kinase; phosphorylates diverse substrates |
 | **PIP$_2$** | Phosphatidylinositol 4,5-bisphosphate; PLC substrate yielding IP$_3$ + DAG |
 | **IP$_3$** | Inositol 1,4,5-trisphosphate; releases Ca$^{2+}$ from ER via IP$_3$ receptor channels |
-| **RTK** | Receptor tyrosine kinase; dimerisation-activated; autophosphorylation recruits SH2 proteins |
+| **RTK** | Receptor tyrosine kinase; dimerization-activated; autophosphorylation recruits SH2 proteins |
 | **MAP kinase** | Mitogen-activated protein kinase (ERK); activated by dual phosphorylation (Thr/Tyr) |
 | **RAS** | Small GTPase; molecular switch; most commonly mutated oncogene family |
 | **CDK-cyclin** | Cyclin-dependent kinase paired with regulatory cyclin; drives cell cycle progression |
 | **Apoptosome** | Apaf-1/cytochrome c/caspase-9 complex; activates executioner caspases |
 | **Caspase** | Cysteine-aspartate protease; initiator (8, 9, 10) and executioner (3, 6, 7) types |
 | **Bcl-2** | Anti-apoptotic protein; inhibits BAX/BAK pore formation; overexpressed in follicular lymphoma |
-| **Wnt** | Secreted glycoprotein; activates beta-catenin signalling; critical for development and stem cells |
-| **JAK-STAT** | Janus kinase-Signal Transducer and Activator of Transcription; cytokine signalling pathway |
+| **Wnt** | Secreted glycoprotein; activates beta-catenin signaling; critical for development and stem cells |
+| **JAK-STAT** | Janus kinase-Signal Transducer and Activator of Transcription; cytokine signaling pathway |
 | **Oncogene** | Mutated proto-oncogene with gain-of-function; drives uncontrolled cell growth |
-| **p53** | Tumour suppressor transcription factor; "guardian of the genome"; mutated in ~50% of cancers |
+| **p53** | Tumor suppressor transcription factor; "guardian of the genome"; mutated in ~50% of cancers |
 
 ---
 
-## Companion Source Module: Cell Signalling and Communication
+## Companion Source Module: Cell Signaling and Communication
 
-**Cell Signalling and Communication** should leave a reproducible trail from a biological claim to
+**Cell Signaling and Communication** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Cell Signaling and Communication. {#tbl:unit_II_cell_signaling_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/cell/cell_biology.py` (`receptor_occupancy`, `hill_equation`, `signal_amplification`) | Quantify ligand binding, cooperativity, and cascade gain. |

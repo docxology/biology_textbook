@@ -21,6 +21,8 @@ from textbook_paths import discover_template_root  # noqa: E402
 
 TEMPLATE_ROOT = discover_template_root(PROJECT)
 
+from biology.crossref.helpers import section_reference  # noqa: E402
+
 
 def _load_module(name: str, path: Path):
     spec = importlib.util.spec_from_file_location(name, path)
@@ -179,19 +181,28 @@ def test_curriculum_bridge_apis_resolve() -> None:
     assert not missing
 
 
+def _has_section_label(text: str, label: str) -> bool:
+    """Accept LaTeX ``\\label{}`` or Pandoc H1 ``{#label}`` identifiers."""
+    return f"\\label{{{label}}}" in text or f"{{#{label}" in text
+
+
 def test_curriculum_companion_paths_and_labels_exist() -> None:
     curriculum = _curriculum()
     missing: list[str] = []
     for record in curriculum.CURRICULUM:
         for path, label in (
             (_chapter_path(record.chapter_id), f"\\label{{sec:{record.chapter_id}}}"),
-            (_lab_path(record.chapter_id), f"\\label{{{record.lab_label}}}"),
-            (_question_path(record.chapter_id), f"\\label{{{record.question_label}}}"),
+            (_lab_path(record.chapter_id), record.lab_label),
+            (_question_path(record.chapter_id), record.question_label),
         ):
             if not path.exists():
                 missing.append(f"missing file: {path.relative_to(PROJECT)}")
                 continue
-            if label not in path.read_text(encoding="utf-8"):
+            text = path.read_text(encoding="utf-8")
+            if path == _chapter_path(record.chapter_id):
+                if f"\\label{{sec:{record.chapter_id}}}" not in text:
+                    missing.append(f"missing label: {path.relative_to(PROJECT)} -> \\label{{sec:{record.chapter_id}}}")
+            elif not _has_section_label(text, label):
                 missing.append(f"missing label: {path.relative_to(PROJECT)} -> {label}")
     assert not missing
 
@@ -216,9 +227,9 @@ def test_curriculum_appendix_references_every_chapter_lab_and_question_bank() ->
     appendix = (MANUSCRIPT / "appendices" / "appendix_curriculum_map.md").read_text(encoding="utf-8")
     curriculum = _curriculum()
     for record in curriculum.CURRICULUM:
-        assert f"\\cref{{sec:{record.chapter_id}}}" in appendix
-        assert f"\\cref{{{record.lab_label}}}" in appendix
-        assert f"\\cref{{{record.question_label}}}" in appendix
+        assert section_reference(record.chapter_id) in appendix
+        assert section_reference(record.lab_label) in appendix
+        assert section_reference(record.question_label) in appendix
 
 
 def test_chapter_metadata_and_curriculum_share_the_same_ids() -> None:
@@ -274,9 +285,9 @@ def test_curriculum_appendices_include_alignment_and_instructor_orchestration() 
     alignment = _alignment()
     for record in curriculum.CURRICULUM:
         framework = alignment.require(record.chapter_id)
-        assert f"\\cref{{sec:{record.chapter_id}}}" in curriculum_appendix
-        assert f"\\cref{{{record.lab_label}}}" in instructor_appendix
-        assert f"\\cref{{{record.question_label}}}" in instructor_appendix
+        assert section_reference(record.chapter_id) in curriculum_appendix
+        assert section_reference(record.lab_label) in instructor_appendix
+        assert section_reference(record.question_label) in instructor_appendix
         assert framework.spiral_thread in instructor_appendix
         assert "Framework alignment" in curriculum_appendix
 

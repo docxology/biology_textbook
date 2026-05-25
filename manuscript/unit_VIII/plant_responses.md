@@ -11,9 +11,9 @@
 By the end of this chapter, you should be able to:
 
 1. Describe tropisms and how plants sense and respond to directional stimuli, including the molecular pathway for phototropism \citep{went1926}.
-2. Explain the major plant [**hormone**](#gl:hormone)s (auxin, gibberellin, cytokinin, ABA, ethylene, brassinosteroids, jasmonates, salicylate, strigolactones) and their signalling pathways.
-3. Describe photomorphogenesis: phytochrome biochemistry (Pr/Pfr photoconversion), cryptochrome FAD signalling, and shade avoidance.
-4. Explain gravitropism in roots and shoots, including amyloplast settling and PIN [**protein**](#gl:protein) relocalisation.
+2. Explain the major plant [**hormone**](#gl:hormone)s (auxin, gibberellin, cytokinin, ABA, ethylene, brassinosteroids, jasmonates, salicylate, strigolactones) and their signaling pathways.
+3. Describe photomorphogenesis: phytochrome biochemistry (Pr/Pfr photoconversion), cryptochrome FAD signaling, and shade avoidance.
+4. Explain gravitropism in roots and shoots, including amyloplast settling and PIN [**protein**](#gl:protein) relocalization.
 5. Describe [**photoperiodism**](#gl:photoperiodism), the role of [**phytochrome**](#gl:phytochrome), florigen (FT), and the molecular basis of flowering time control via vernalisation (FLC silencing).
 6. Explain the plant circadian clock molecular architecture (morning loop CCA1/LHY/TOC1; evening loop PRR5/7/9) and how it gates growth, flowering, and [**photosynthesis**](#gl:photosynthesis).
 7. Describe drought (ABA pathway), cold (CBF-COR pathway), heat (HSP response), salt, flooding, and [**herbivory**](#gl:herbivory) (jasmonate) stress responses.
@@ -39,8 +39,8 @@ By the end of this chapter, you should be able to:
 - **Data skill:** Interpret plant response data across light, gravity, water, and hormone treatments.
 - **Practice cadence:** Visual Representations, Questions and Methods, Argumentation.
 - **Common misconception to repair:** A plant response is not passive; plants actively regulate development and physiology without neurons.
-- **Primary lab:** \cref{sec:lab_unit_VIII_plant_responses}.
-- **Question bank:** \cref{sec:q_unit_VIII_plant_responses}.
+- **Primary lab:** \nameref{sec:lab_unit_VIII_plant_responses}.
+- **Question bank:** \nameref{sec:q_unit_VIII_plant_responses}.
 - **Transfer task:** Transfer response logic to shade avoidance, drought, flowering, and crop management.
 - **Bridge to computation:** `biology.botany.botany.photosynthesis_rate`.
 <!-- curriculum-scaffold-end -->
@@ -83,24 +83,24 @@ flowchart LR
         P3 --> R3["Phosphorelay<br/>ARR TFs activated"]
         P4 --> R4["PP2C inhibition<br/>SnRK2 activation<br/>Stomatal closure"]
         P5 --> R5["CTR1 inactivated<br/>EIN2 → EIN3<br/>Ethylene genes ON"]
-        P6 --> R6["JAZ degradation<br/>MYC2 release<br/>Defence genes"]
+        P6 --> R6["JAZ degradation<br/>MYC2 release<br/>Defense genes"]
         P7 --> R7["NPR1 monomerises<br/>TGA TFs activated<br/>PR gene expression"]
     end
 ```
-<!-- alt: Flowchart showing overview of major plant hormone signalling pathways from biosynthesis through perception to cellular response Each pathway follows a general scheme: stimulus triggers hormone biosynthesis, the hormone is perceived by a specific receptor, and downstream signalling leads to gene expression changes. -->
+<!-- alt: Flowchart showing overview of major plant hormone signaling pathways from biosynthesis through perception to cellular response Each pathway follows a general scheme: stimulus triggers hormone biosynthesis, the hormone is perceived by a specific receptor, and downstream signaling leads to gene expression changes. -->
 
-*Overview of major plant hormone signalling pathways from biosynthesis through perception to cellular response Each pathway follows a general scheme: stimulus triggers hormone biosynthesis, the hormone is perceived by a specific receptor, and downstream signalling leads to [**gene**](#gl:gene) expression changes.*
+*Overview of major plant hormone signaling pathways from biosynthesis through perception to cellular response Each pathway follows a general scheme: stimulus triggers hormone biosynthesis, the hormone is perceived by a specific receptor, and downstream signaling leads to [**gene**](#gl:gene) expression changes.*
 
 ### Auxin (Indole-3-Acetic Acid, IAA)
 
 **Biosynthesis:** Primarily from tryptophan via the TAA1/YUCCA pathway. Produced in young leaves, shoot apical meristem, and developing embryos.
 
 **Transport:** Auxin moves by **polar auxin transport** (PAT), unique among plant hormones:
-- **PIN efflux carriers** (PIN1-8): Localised to specific faces of the plasma membrane; their polar distribution determines the direction of auxin flow. PIN proteins cycle between plasma membrane and endosomal compartments; their localisation is regulated by phosphorylation (PID kinase) and vesicle trafficking.
+- **PIN efflux carriers** (PIN1-8): Localized to specific faces of the plasma membrane; their polar distribution determines the direction of auxin flow. PIN proteins cycle between plasma membrane and endosomal compartments; their localization is regulated by phosphorylation (PID kinase) and vesicle trafficking.
 - **AUX1/LAX influx carriers:** Import auxin into cells; less polar than PIN proteins
 - Polar transport rate: ~1 cm/h in stems (basipetal in shoots, acropetal in roots)
 
-**Signalling mechanism (TIR1 pathway):**
+**Signaling mechanism (TIR1 pathway):**
 1. Auxin binds TIR1/AFB F-box proteins (nuclear receptors)
 2. Auxin acts as "molecular glue" between TIR1 and Aux/IAA transcriptional repressors
 3. Aux/IAA proteins are ubiquitinated by SCF$^{TIR1}$ complex and degraded by 26S proteasome
@@ -118,7 +118,7 @@ flowchart LR
 
 **Biosynthesis:** From the MEP pathway in plastids; active forms include GA$_1$, GA$_3$, GA$_4$. Produced in young leaves, root tips, and developing seeds.
 
-**Signalling mechanism:**
+**Signaling mechanism:**
 1. GA binds the soluble receptor **GID1**
 2. GA-GID1 complex interacts with **DELLA proteins** (transcriptional repressors: GAI, RGA, RGL1-3 in *Arabidopsis*)
 3. DELLA proteins are ubiquitinated by SCF$^{SLY1}$ E3 ligase and degraded
@@ -126,13 +126,13 @@ flowchart LR
 
 **Key functions:**
 - **Stem elongation:** Promotes internodal elongation; GA-deficient mutants are dwarf plants (basis of "Green Revolution" semi-dwarf wheat: *Rht* gene encodes GA-insensitive DELLA)
-- **Seed germination:** GA induces α-amylase synthesis in cereal aleurone layer, mobilising starch reserves
-- **Fruit development:** Can induce parthenocarpy (seedless fruit production without fertilisation; seedless grapes)
+- **Seed germination:** GA induces α-amylase synthesis in cereal aleurone layer, mobilizing starch reserves
+- **Fruit development:** Can induce parthenocarpy (seedless fruit production without fertilization; seedless grapes)
 - **Flowering:** In some long-day plants, GA can substitute for the long-day photoperiod requirement
 
 ### Cytokinins and Cell Division Signals
 
-**Biosynthesis:** From adenine derivatives via IPT (isopentenyltransferase). Primarily synthesised in **root tips** and transported to shoots via [**xylem**](#gl:xylem).
+**Biosynthesis:** From adenine derivatives via IPT (isopentenyltransferase). Primarily synthesized in **root tips** and transported to shoots via [**xylem**](#gl:xylem).
 
 **Key functions:**
 - **Cell division:** Essential for cytokinesis; cytokinin + auxin together drive cell proliferation
@@ -146,10 +146,10 @@ flowchart LR
 
 **Key functions:**
 - **Stomatal closure:** The primary drought response hormone, detailed in the abscisic-acid discussion.
-- **Seed dormancy:** Maintains dormancy until conditions favour germination; antagonised by GA
+- **Seed dormancy:** Maintains dormancy until conditions favor germination; antagonised by GA
 - **Stress gene expression:** Activates LEA (Late Embryogenesis Abundant) protein genes; dehydrins; osmolyte synthesis
 
-**Signalling:** ABA binds PYR/PYL/RCAR receptors, which inhibit PP2C phosphatases, activating SnRK2 kinases. SnRK2 phosphorylates SLAC1 (stomatal closure), AREB/ABF transcription factors (stress genes), and ion channels.
+**Signaling:** ABA binds PYR/PYL/RCAR receptors, which inhibit PP2C phosphatases, activating SnRK2 kinases. SnRK2 phosphorylates SLAC1 (stomatal closure), AREB/ABF transcription factors (stress genes), and ion channels.
 
 ### Ethylene and Gaseous Stress/Ripening Signals
 
@@ -162,27 +162,27 @@ flowchart LR
 - **Flooding response:** Submerged roots accumulate ACC (cannot oxidise to ethylene without O$_2$); when ACC reaches shoots, aerenchyma formation is triggered (programmed cell death creates air channels)
 - **Abscission:** Ethylene activates cellulase and pectinase in the abscission zone at the leaf petiole base
 
-> **Clinical Connection:** The commercial fruit industry manipulates ethylene extensively. Bananas are picked green, shipped under ethylene-suppressed conditions (using KMnO$_4$ as an ethylene scrubber or 1-MCP as an ethylene perception inhibitor), and then ripened on demand by ethylene gas treatment at distribution centres. This enables global tropical fruit supply chains.
+> **Clinical Connection:** The commercial fruit industry manipulates ethylene extensively. Bananas are picked green, shipped under ethylene-suppressed conditions (using KMnO$_4$ as an ethylene scrubber or 1-MCP as an ethylene perception inhibitor), and then ripened on demand by ethylene gas treatment at distribution centers. This enables global tropical fruit supply chains.
 
-> **Concept Check (Evaluate):** A "hormone network" framework treats phytohormones as nodes in a regulatory network rather than as isolated signals. Ethylene (ET), abscisic acid (ABA), jasmonate (JA), salicylate (SA), auxin (IAA), cytokinin (CK), and brassinosteroid (BR) together populate more than 30 pairwise interaction nodes. (a) Evaluate the adaptive logic of the JA–ET synergism during wounding. Caterpillar feeding induces JA accumulation (the systemic wound signal acting through jasmonoyl-isoleucine) and local ET production at the damaged tissue. Together, the two hormones synergistically induce trypsin-protease-inhibitor expression to a level roughly 10–100× that produced by either signal alone. Why might evolution have favoured a configuration in which two distinct signals must coincide to release the most expensive defence chemistry? (b) BR promotes cell elongation, whereas ET inhibits elongation (the classical triple response: radial swelling, exaggerated apical hook, and shortened hypocotyl). During the emergence of a dark-grown seedling pushing up through soil, propose why their antagonism is adaptive, and outline a plausible molecular mechanism by which elevated ET signalling could attenuate BR responses at the BES1 / BZR1 transcription-factor layer.
+> **Concept Check (Evaluate):** A "hormone network" framework treats phytohormones as nodes in a regulatory network rather than as isolated signals. Ethylene (ET), abscisic acid (ABA), jasmonate (JA), salicylate (SA), auxin (IAA), cytokinin (CK), and brassinosteroid (BR) together populate more than 30 pairwise interaction nodes. (a) Evaluate the adaptive logic of the JA–ET synergism during wounding. Caterpillar feeding induces JA accumulation (the systemic wound signal acting through jasmonoyl-isoleucine) and local ET production at the damaged tissue. Together, the two hormones synergistically induce trypsin-protease-inhibitor expression to a level roughly 10–100× that produced by either signal alone. Why might evolution have favored a configuration in which two distinct signals must coincide to release the most expensive defense chemistry? (b) BR promotes cell elongation, whereas ET inhibits elongation (the classical triple response: radial swelling, exaggerated apical hook, and shortened hypocotyl). During the emergence of a dark-grown seedling pushing up through soil, propose why their antagonism is adaptive, and outline a plausible molecular mechanism by which elevated ET signaling could attenuate BR responses at the BES1 / BZR1 transcription-factor layer.
 
-### Jasmonates (JA) and Wound Defence
+### Jasmonates (JA) and Wound Defense
 
 **Biosynthesis:** From linolenic acid (membrane lipid) via the LOX (lipoxygenase) pathway. The active form is **JA-Ile** (jasmonyl-isoleucine conjugate, produced by JAR1).
 
-**Signalling:** JA-Ile binds **COI1** (F-box protein of the SCF^COI1^ E3 ubiquitin ligase), which recruits **JAZ** (Jasmonate ZIM-domain) repressor proteins into the SCF complex:
+**Signaling:** JA-Ile binds **COI1** (F-box protein of the SCF^COI1^ E3 ubiquitin ligase), which recruits **JAZ** (Jasmonate ZIM-domain) repressor proteins into the SCF complex:
 
 \begin{equation}
 \text{JA-Ile} + \text{COI1-JAZ} \xrightarrow{\text{SCF}^{\text{COI1}}} \text{Ub-JAZ} \xrightarrow{\text{26S proteasome}} \text{MYC2/3/4 activation}
 \label{eq:plant_responses_1}
 \end{equation}
 
-Pre-wounding, JAZ proteins recruit **TOPLESS** corepressor via the **NINJA** adaptor, forming a trimeric JAZ-NINJA-TOPLESS complex that represses MYC2 through [**histone**](#gl:histone) deacetylase recruitment. Post-wounding JA-Ile surge displaces this complex by directing SCF^COI1^ to ubiquitinate JAZ via the **SLY degron** motif (Jas domain). 2024 cryo-EM structures ([**allosteric**](#gl:allosteric) lid closure model) show COI1 undergoes a conformational switch upon JA-Ile binding, with ASK1-CUL1-RBX1 forming the catalytic core (Sheard *et al.*, *Nature* 2010; Xu *et al.*, *bioRxiv* 2024). COI1 paralogs (COI1a/b) fine-tune JAZ subtype specificity across defence/development contexts.
+Pre-wounding, JAZ proteins recruit **TOPLESS** corepressor via the **NINJA** adaptor, forming a trimeric JAZ-NINJA-TOPLESS complex that represses MYC2 through [**histone**](#gl:histone) deacetylase recruitment. Post-wounding JA-Ile surge displaces this complex by directing SCF^COI1^ to ubiquitinate JAZ via the **SLY degron** motif (Jas domain). 2024 cryo-EM structures ([**allosteric**](#gl:allosteric) lid closure model) show COI1 undergoes a conformational switch upon JA-Ile binding, with ASK1-CUL1-RBX1 forming the catalytic core (Sheard *et al.*, *Nature* 2010; Xu *et al.*, *bioRxiv* 2024). COI1 paralogs (COI1a/b) fine-tune JAZ subtype specificity across defense/development contexts.
 
 **Key functions:**
-- **Wound/herbivore defence:** Protease inhibitors, alkaloids (nicotine in tobacco), glucosinolates, terpene volatiles
+- **Wound/herbivore defense:** Protease inhibitors, alkaloids (nicotine in tobacco), glucosinolates, terpene volatiles
 - **UV damage response:** Accumulation of UV-absorbing flavonoids
-- **Mycorrhizal signalling:** JA promotes mycorrhizal colonisation
+- **Mycorrhizal signaling:** JA promotes mycorrhizal colonization
 - **Pollen development:** Required for stamen maturation and pollen release
 
 ### Salicylic Acid (SA)
@@ -190,10 +190,10 @@ Pre-wounding, JAZ proteins recruit **TOPLESS** corepressor via the **NINJA** ada
 **Biosynthesis:** From phenylalanine (PAL pathway) or chorismate (ICS pathway; [**dominant**](#gl:dominant) in *Arabidopsis*).
 
 **Key functions:**
-- **Systemic Acquired Resistance (SAR):** After local pathogen infection, SA signals spread systemically, priming distant tissues for enhanced defence in the plant-immunity response.
+- **Systemic Acquired Resistance (SAR):** After local pathogen infection, SA signals spread systemically, priming distant tissues for enhanced defense in the plant-immunity response.
 - **PR protein induction:** Pathogenesis-related proteins (PR-1, β-1,3-glucanase, thaumatin-like proteins)
 
-**Concept Check:** Aspirin (acetylsalicylic acid) is derived from salicylic acid, originally extracted from willow bark (*Salix*). Why might plants produce SA in response to pathogens, and what does this tell us about the evolutionary age of this defence pathway?
+**Concept Check:** Aspirin (acetylsalicylic acid) is derived from salicylic acid, originally extracted from willow bark (*Salix*). Why might plants produce SA in response to pathogens, and what does this tell us about the evolutionary age of this defense pathway?
 
 ### Strigolactones and Branching/Mycorrhizal Signals
 
@@ -209,13 +209,13 @@ Pre-wounding, JAZ proteins recruit **TOPLESS** corepressor via the **NINJA** ada
 
 ## Phototropism and Auxin-Driven Bending
 
-The molecular pathway for phototropism in *Arabidopsis thaliana* is one of the best-characterised plant signalling cascades:
+The molecular pathway for phototropism in *Arabidopsis thaliana* is one of the best-characterized plant signaling cascades:
 
 1. **Blue light** (390-500 nm) illuminates the shoot asymmetrically
 2. **PHOT1** or **PHOT2** (LOV1/LOV2-domain photoreceptors; LOV = Light Oxygen Voltage) absorbs blue light. Photochemical covalent FMN-cysteine adduct forms, causing conformational change and autophosphorylation (Ser849 of PHOT1, kinase domain released).
 3. PHOT1/2 phosphorylate **NPH3** (Non-Phototropic Hypocotyl 3). NPH3 interacts with ARF7/ARF19 and reorganises.
 4. **Auxin lateral redistribution** (the Cholodny-Went hypothesis, quantified by \citet{went1926} *Avena* coleoptile bioassay):
-   - PHOT1/2 triggers **PIN3** (auxin efflux carrier) relocalisation from the bottom to the lateral face of shoot endodermal cells
+   - PHOT1/2 triggers **PIN3** (auxin efflux carrier) relocalization from the bottom to the lateral face of shoot endodermal cells
    - More auxin (IAA) is transported to the shaded side; less to the illuminated side
 5. **Acid growth hypothesis** \citep{hager1971}:
    - High [IAA] on shaded side activates plasma membrane **H$^+$-ATPase** (AHA1/2). Proton extrusion acidifies the cell wall ([**pH**](#gl:ph) 5.5 to 4.5).
@@ -244,14 +244,14 @@ $$ \theta = \frac{2.0 \text{ mm}}{1.5 \text{ mm}} = 1.33 \text{ rad} = 1.33 \tim
 
 ### Worked Example: Auxin Redistribution Predicts Curvature Rate
 
-**Problem:** A unilaterally illuminated coleoptile reorganises its auxin field by phototropin-driven PIN3 relocalisation. Take measured tissue auxin concentrations as: lit side $[\text{IAA}] = 20 \rightarrow 12$ nM (a 40% drop), shaded side $[\text{IAA}] = 20 \rightarrow 28$ nM (a 40% rise). Within the linear range of the IAA dose-response curve for elongation, growth rate is approximately proportional to $[\text{IAA}]$. Compute the curvature rate and the cumulative bend after 3 h.
+**Problem:** A unilaterally illuminated coleoptile reorganises its auxin field by phototropin-driven PIN3 relocalization. Take measured tissue auxin concentrations as: lit side $[\text{IAA}] = 20 \rightarrow 12$ nM (a 40% drop), shaded side $[\text{IAA}] = 20 \rightarrow 28$ nM (a 40% rise). Within the linear range of the IAA dose-response curve for elongation, growth rate is approximately proportional to $[\text{IAA}]$. Compute the curvature rate and the cumulative bend after 3 h.
 
 **Solution:**
 
 1. **Differential growth rate.** Relative growth on the shaded flank is now $28 / 20 = 1.4 \times$ baseline; on the lit flank, $12 / 20 = 0.6 \times$ baseline. The shaded side therefore elongates $1.4 / 0.6 \approx 2.33$ times as fast as the lit side.
 2. **Curvature per hour.** Empirically, the *Avena* coleoptile assay calibrates such an auxin imbalance to roughly $10\,^{\circ}$ of curvature per hour at room temperature (Went 1926-era data, scale held by modern phototropin work). Treat that as the conversion constant for the present scenario.
 3. **Curvature after 3 h.** Linear extrapolation in the small-angle regime: $\theta(3\,\text{h}) \approx 3 \times 10\,^{\circ} = 30\,^{\circ}$. The small-angle approximation begins to break down beyond $\sim 45\,^{\circ}$, after which the shaded flank's arc length grows nonlinearly with $\theta$ and the rate slows.
-4. **Modern caveat.** Cholodny-Went treats lateral auxin redistribution as the sole cause. The modern molecular picture revises this: blue-light-activated PHOT1/PHOT2 phosphorylate NPH3, triggering PIN3 relocalisation to the lateral face of endodermal cells; the auxin asymmetry that follows is the *output* of this relocalisation, not a primary diffusion event. The geometry, however, is unchanged — curvature still scales with the integrated auxin differential.
+4. **Modern caveat.** Cholodny-Went treats lateral auxin redistribution as the sole cause. The modern molecular picture revises this: blue-light-activated PHOT1/PHOT2 phosphorylate NPH3, triggering PIN3 relocalization to the lateral face of endodermal cells; the auxin asymmetry that follows is the *output* of this relocalization, not a primary diffusion event. The geometry, however, is unchanged — curvature still scales with the integrated auxin differential.
 
 **Interpretation.** Even a modest $\pm 40$% perturbation of tissue $[\text{IAA}]$ produces a $30\,^{\circ}$ reorientation within a few hours, because the elongation response is nonlinearly amplified by acid-growth wall loosening. The Cholodny–Went quantitative form survives even though the mechanism has been re-derived from the molecular up.
 
@@ -265,7 +265,7 @@ graph TD
     subgraph Root_Gravitropism ["Root Gravitropism (Positive)"]
         RG1["Gravity stimulus<br/>Plant tilted sideways"] --> RG2["Amyloplasts (statoliths)<br/>settle to lower side<br/>in columella cells"]
         RG2 --> RG3["Activates mechanosensitive<br/>channels or receptors<br/>(LAZY1 protein involved)"]
-        RG3 --> RG4["PIN3 and PIN7 relocalise<br/>to lower side of<br/>columella cells"]
+        RG3 --> RG4["PIN3 and PIN7 relocalize<br/>to lower side of<br/>columella cells"]
         RG4 --> RG5["Auxin redistributed<br/>to lower side of root"]
         RG5 --> RG6["HIGH auxin on lower side<br/>INHIBITS root cell elongation<br/>(root cells sensitive to high auxin)"]
         RG6 --> RG7["Root bends DOWNWARD<br/>(positive gravitropism)"]
@@ -273,26 +273,26 @@ graph TD
 
     subgraph Shoot_Gravitropism ["Shoot Gravitropism (Negative)"]
         SG1["Gravity stimulus"] --> SG2["Amyloplasts settle<br/>in endodermal cells"]
-        SG2 --> SG3["PIN3 relocalises to<br/>lower side of endodermis"]
+        SG2 --> SG3["PIN3 relocalizes to<br/>lower side of endodermis"]
         SG3 --> SG4["Auxin accumulates<br/>on lower side of shoot"]
         SG4 --> SG5["HIGH auxin on lower side<br/>PROMOTES shoot cell elongation<br/>(shoot cells promoted by auxin)"]
         SG5 --> SG6["Shoot bends UPWARD<br/>(negative gravitropism)"]
     end
 ```
-<!-- alt: Graph showing gravitropism in roots and shoots In both organs, amyloplast settling triggers asymmetric auxin redistribution via PIN protein relocalisation. The critical difference: root cells are INHIBITED by high auxin concentrations (causing the lower side to grow less, bending the root downward), while shoot cells are PROMOTED by high auxin (causing the lower side to grow more, bending the shoot upward). -->
+<!-- alt: Graph showing gravitropism in roots and shoots In both organs, amyloplast settling triggers asymmetric auxin redistribution via PIN protein relocalization. The critical difference: root cells are INHIBITED by high auxin concentrations (causing the lower side to grow less, bending the root downward), while shoot cells are PROMOTED by high auxin (causing the lower side to grow more, bending the shoot upward). -->
 
-*Gravitropism in roots and shoots In both organs, amyloplast settling triggers asymmetric auxin redistribution via PIN protein relocalisation. The critical difference: root cells are INHIBITED by high auxin concentrations (causing the lower side to grow less, bending the root downward), while shoot cells are PROMOTED by high auxin (causing the lower side to grow more, bending the shoot upward).*
+*Gravitropism in roots and shoots In both organs, amyloplast settling triggers asymmetric auxin redistribution via PIN protein relocalization. The critical difference: root cells are INHIBITED by high auxin concentrations (causing the lower side to grow less, bending the root downward), while shoot cells are PROMOTED by high auxin (causing the lower side to grow more, bending the shoot upward).*
 
 **Key molecular details — statoliths and PIN asymmetry:**
 
-- **Statocytes:** Specialised gravity-sensing cells. In roots, these are the **columella cells** of the root cap (a few central cells just behind the meristem). In shoots, they are the **endodermal cells** (starch sheath surrounding the vascular cylinder).
+- **Statocytes:** Specialized gravity-sensing cells. In roots, these are the **columella cells** of the root cap (a few central cells just behind the meristem). In shoots, they are the **endodermal cells** (starch sheath surrounding the vascular cylinder).
 - **Amyloplasts (statoliths):** Starch-filled plastids (1–10 µm diameter) that sediment under gravity within seconds of reorientation. Their settling pulls on the actin cytoskeleton and ER membranes, generating mechanical signals that are transduced via **TOC (translocon of outer chloroplast) complex** to the LAZY1/IGT proteins on the new lower face of the cell.
 - **PIN auxin transporter asymmetry:**
-  - In root columella cells, **PIN3** is initially symmetrically localised at the plasma membrane. Within minutes of gravity stimulation, PIN3 relocalises to the **new lower (now downward-facing) face** of the cell.
-  - In the elongation zone, **PIN2** is permanently localised on the upper face of cortical and epidermal cells; PIN2 is critical for transporting auxin from the root tip back along the upper side of the elongation zone toward the shoot. Relocalisation of PIN3 in columella cells biases auxin export toward the lower side, where PIN2 then carries it acropetally, accumulating auxin on the lower side of the elongation zone.
+  - In root columella cells, **PIN3** is initially symmetrically localized at the plasma membrane. Within minutes of gravity stimulation, PIN3 relocalizes to the **new lower (now downward-facing) face** of the cell.
+  - In the elongation zone, **PIN2** is permanently localized on the upper face of cortical and epidermal cells; PIN2 is critical for transporting auxin from the root tip back along the upper side of the elongation zone toward the shoot. Relocalization of PIN3 in columella cells biases auxin export toward the lower side, where PIN2 then carries it acropetally, accumulating auxin on the lower side of the elongation zone.
 - **Lateral auxin redistribution:** In *Arabidopsis* roots, the asymmetry develops within ~5 min of gravity stimulation; bending is visible by 20 min and complete within 1–2 hours.
-- **LAZY1 protein:** Required for normal gravitropism. *lazy1* mutants show reversed gravitropic responses (shoots grow down, branches grow at unusual angles). LAZY1 relocalises to the lower side of the cell after gravity stimulation and facilitates PIN relocalisation.
-- **Root vs shoot dose-response difference:** The same auxin redistribution (more auxin on the lower side) has opposite effects because root cells have a much **lower optimal auxin concentration** (~$10^{-9}$ M for root elongation) than shoot cells (~$10^{-5}$ M for stem elongation). Above the root optimum, auxin **inhibits** elongation via the stabilisation of Aux/IAA repressors and ethylene production; thus the lower side of the gravity-stimulated root grows less than the upper, and the root bends downward.
+- **LAZY1 protein:** Required for normal gravitropism. *lazy1* mutants show reversed gravitropic responses (shoots grow down, branches grow at unusual angles). LAZY1 relocalizes to the lower side of the cell after gravity stimulation and facilitates PIN relocalization.
+- **Root vs shoot dose-response difference:** The same auxin redistribution (more auxin on the lower side) has opposite effects because root cells have a much **lower optimal auxin concentration** (~$10^{-9}$ M for root elongation) than shoot cells (~$10^{-5}$ M for stem elongation). Above the root optimum, auxin **inhibits** elongation via the stabilization of Aux/IAA repressors and ethylene production; thus the lower side of the gravity-stimulated root grows less than the upper, and the root bends downward.
 
 ---
 
@@ -304,7 +304,7 @@ Plants integrate diverse light signals — wavelength, intensity, direction, dur
 
 Phytochromes are dimeric ~125 kDa chromoproteins. Each monomer carries a bilin chromophore (phytochromobilin) covalently attached to a conserved cysteine in the photosensory module. The chromophore exists in two photointerconvertible forms:
 
-- **Pr (red-absorbing form, $\lambda_{max} = 660$ nm):** Inactive form; synthesised in the dark; primarily cytoplasmic
+- **Pr (red-absorbing form, $\lambda_{max} = 660$ nm):** Inactive form; synthesized in the dark; primarily cytoplasmic
 - **Pfr (far-red-absorbing form, $\lambda_{max} = 730$ nm):** Active form; translocates to the nucleus where it interacts with PIFs (Phytochrome Interacting Factors); triggers physiological responses
 
 **Photoconversion:**
@@ -324,18 +324,18 @@ Red light (660 nm) converts Pr to Pfr; far-red light (730 nm) converts Pfr back 
 
 - **PhyA:** Light-labile (degraded rapidly in light). Mediates very-low-fluence and far-red-high-irradiance responses (FR-HIR). PhyA is the principal sensor for **shade-avoidance under deep shade** (where FR predominates) and for **de-etiolation in dim light**.
 - **PhyB:** Light-stable. Mediates the classic R/FR reversible (low-fluence) responses. PhyB is the **principal sensor of canopy shade** via the **R:FR ratio** (high R:FR = open sun; low R:FR = under leaf canopy because chlorophyll absorbs red and transmits far-red). Loss-of-function *phyB* mutants are constitutively shade-avoiding (elongated, pale, early-flowering).
-- **PhyC, PhyD, PhyE:** Specialised roles in flowering time, leaf angle, and modulating the responses of PhyA/B.
+- **PhyC, PhyD, PhyE:** Specialized roles in flowering time, leaf angle, and modulating the responses of PhyA/B.
 
 **Shade avoidance via R:FR ratio:** Sun-grown plants typically experience R:FR ratios of ~1.2; under a leaf canopy, the ratio drops to 0.1–0.4 because chlorophyll preferentially absorbs red. PhyB Pfr is destabilised under low R:FR (returning to Pr); this releases PIF4/5/7 from PhyB-mediated degradation, activating YUCCA-driven auxin synthesis and triggering hypocotyl elongation, petiole elongation, and accelerated flowering — the **shade avoidance syndrome**.
 
 > **Concept Check (Analysis):** Phytochromes exist in two interconvertible forms: Pr (absorbs red, 660 nm; biologically inactive) and Pfr (absorbs far-red, 730 nm; biologically active). In direct sunlight the Pr/Pfr equilibrium is set by a red-to-far-red (R:FR) ratio of about 1.15; under a closed leaf canopy that ratio falls to roughly 0.1 because chlorophyll absorbs red and transmits far-red. (a) Using the simplified equilibrium expression $\text{Pfr}/(\text{Pfr} + \text{Pr}) = k_R R / (k_R R + k_{FR} FR)$ with $k_R / k_{FR} = 1.0$, calculate the fraction of phytochrome in the Pfr form for an open-canopy plant (R:FR = 1.15) and for the same plant under deep canopy shade (R:FR = 0.1), and comment on the implied physiological state in each case. (b) PhyB dark reversion (Pfr → Pr) proceeds with a half-life of hours, so a brief red-light pulse during the dark period leaves the photoreceptor in the Pfr-active state for several hours afterwards. Predict the effect on flowering in a short-day plant (which requires uninterrupted long nights) of a one-minute red-light pulse delivered at midnight, and then predict whether a subsequent one-minute far-red pulse can reverse the night-break effect.
 
-**Concept Check (Analyze) — Jasmonate–salicylate antagonism in defence.** JA (jasmonate) signalling proceeds through SCF$^{\text{COI1}}$-mediated JAZ degradation, releasing MYC2/3/4 to activate defences against chewing herbivores and necrotrophic pathogens; SA (salicylic acid) signalling proceeds through NPR1-driven TGA transcription factors and *PR* gene induction, principally targeting biotrophic pathogens. The two pathways are *mutually antagonistic*: high NPR1 activity suppresses MYC-branch JA outputs, and high JA signalling represses ICS1-driven SA biosynthesis. (a) Diagram the two pathways and mark the two best-characterised antagonism nodes (NPR1 $\dashv$ COI1 branch; MYC2 $\dashv$ ICS1). (b) A necrotrophic fungus (*Botrytis cinerea*) drives strong host JA accumulation while suppressing SA accumulation. Explain mechanistically why this benefits the pathogen — connect (i) JA-driven cell-death pathways that provide nutrients to a dead-cell-feeding pathogen and (ii) SA suppression that lifts inhibition on the JA branch. (c) Predict, with direction, what happens in a *coi1* loss-of-function plant infected with *Botrytis*: does the plant become more resistant, more susceptible, or neither, and through which surviving branch (camalexin, PR proteins, ROS burst)?
+**Concept Check (Analyze) — Jasmonate–salicylate antagonism in defense.** JA (jasmonate) signaling proceeds through SCF$^{\text{COI1}}$-mediated JAZ degradation, releasing MYC2/3/4 to activate defenses against chewing herbivores and necrotrophic pathogens; SA (salicylic acid) signaling proceeds through NPR1-driven TGA transcription factors and *PR* gene induction, principally targeting biotrophic pathogens. The two pathways are *mutually antagonistic*: high NPR1 activity suppresses MYC-branch JA outputs, and high JA signaling represses ICS1-driven SA biosynthesis. (a) Diagram the two pathways and mark the two best-characterized antagonism nodes (NPR1 $\dashv$ COI1 branch; MYC2 $\dashv$ ICS1). (b) A necrotrophic fungus (*Botrytis cinerea*) drives strong host JA accumulation while suppressing SA accumulation. Explain mechanistically why this benefits the pathogen — connect (i) JA-driven cell-death pathways that provide nutrients to a dead-cell-feeding pathogen and (ii) SA suppression that lifts inhibition on the JA branch. (c) Predict, with direction, what happens in a *coi1* loss-of-function plant infected with *Botrytis*: does the plant become more resistant, more susceptible, or neither, and through which surviving branch (camalexin, PR proteins, ROS burst)?
 
-**Concept Check (Synthesize) — Shade avoidance, phyB, PIFs, and brassinosteroid coupling.** Under canopy shade, the low R:FR ratio drives PhyB into the inactive Pr form; PIF4/5/7 accumulate; YUCCA-mediated auxin synthesis rises; brassinosteroid (BR) signalling potentiates PIF activity through BZR1 cooperation at shared promoter elements; cumulatively the plant elongates internodes, reduces branching, and accelerates flowering — the *shade avoidance syndrome* (SAS). (a) Build a single integrated diagram in which phyB sits at the top, PIF4/5/7 in the middle, and YUCCA/auxin and BZR1/BR converge on the SAUR/expansin/cell-wall acidification output. (b) Predict the field-trial phenotype of a phyB-overexpressing (constitutively active) maize line planted at high density: what happens to plant height, harvest index, lodging risk, and per-plant yield, and how does the population-level grain yield change? (c) Synthesize this with the JA–SA antagonism above: a constitutively shade-avoiding line directs carbon to elongation; argue whether such a line will be more or less vulnerable to a necrotroph epidemic, and identify the single most informative biomarker you would measure in a glasshouse trial to test your prediction.
+**Concept Check (Synthesize) — Shade avoidance, phyB, PIFs, and brassinosteroid coupling.** Under canopy shade, the low R:FR ratio drives PhyB into the inactive Pr form; PIF4/5/7 accumulate; YUCCA-mediated auxin synthesis rises; brassinosteroid (BR) signaling potentiates PIF activity through BZR1 cooperation at shared promoter elements; cumulatively the plant elongates internodes, reduces branching, and accelerates flowering — the *shade avoidance syndrome* (SAS). (a) Build a single integrated diagram in which phyB sits at the top, PIF4/5/7 in the middle, and YUCCA/auxin and BZR1/BR converge on the SAUR/expansin/cell-wall acidification output. (b) Predict the field-trial phenotype of a phyB-overexpressing (constitutively active) maize line planted at high density: what happens to plant height, harvest index, lodging risk, and per-plant yield, and how does the population-level grain yield change? (c) Synthesize this with the JA–SA antagonism above: a constitutively shade-avoiding line directs carbon to elongation; argue whether such a line will be more or less vulnerable to a necrotroph epidemic, and identify the single most informative biomarker you would measure in a glasshouse trial to test your prediction.
 
 
-### Cryptochrome Signalling — Blue Light and FAD
+### Cryptochrome Signaling — Blue Light and FAD
 
 **Cryptochromes (CRY1/CRY2)** are blue/UV-A photoreceptors with two cofactors: a **FAD** (flavin adenine dinucleotide) chromophore for blue light absorption (~450 nm) and an MTHF antenna pigment that broadens absorption.
 
@@ -343,14 +343,14 @@ Red light (660 nm) converts Pr to Pfr; far-red light (730 nm) converts Pfr back 
 1. Blue light reduces FAD from oxidised (FAD$_{ox}$) to neutral semiquinone (FADH•)
 2. Reduction triggers conformational change in the C-terminal extension of CRY
 3. Activated CRY interacts with multiple downstream targets:
-   - **COP1 (CONSTITUTIVE PHOTOMORPHOGENIC 1):** an E3 ubiquitin ligase; CRY binding inhibits COP1, thereby stabilising COP1 substrates (HY5, HFR1, CO, LAF1) — bZIP and bHLH transcription factors that drive photomorphogenic gene expression
+   - **COP1 (CONSTITUTIVE PHOTOMORPHOGENIC 1):** an E3 ubiquitin ligase; CRY binding inhibits COP1, thereby stabilizing COP1 substrates (HY5, HFR1, CO, LAF1) — bZIP and bHLH transcription factors that drive photomorphogenic gene expression
    - **SPA proteins:** COP1 partners; CRY binding disrupts COP1-SPA interaction
    - **PIFs:** CRY can also directly modulate PIF activity
 
 **Key blue-light responses:**
 - **Hypocotyl growth inhibition:** Light-grown seedlings have short hypocotyls; *cry1 cry2* double mutants show etiolated (long-hypocotyl) phenotype in blue light despite normal red light response
 - **Anthocyanin biosynthesis:** Blue light induces phenylpropanoid pathway genes (PAL, CHS, CHI) producing UV-protective and pigment compounds
-- **Photoperiodic flowering:** CRY2 stabilises CONSTANS protein in long days
+- **Photoperiodic flowering:** CRY2 stabilizes CONSTANS protein in long days
 - **Stomatal opening:** Cooperatively with phototropins (covered in \cref{sec:unit_VIII_plant_structure_and_water})
 
 **CRY-COP1-HY5 module:** The COP1/SPA E3 ubiquitin ligase complex is the master "darkness" enforcer. In darkness, COP1-SPA ubiquitinates HY5 and other photomorphogenic TFs, targeting them for degradation. Light activates CRYs and PhyB, which physically interact with COP1 and disrupt the COP1-SPA complex; HY5 accumulates and drives photomorphogenic gene expression (chlorophyll biosynthesis, anthocyanin synthesis, hypocotyl growth arrest). Loss-of-function *cop1* mutants are constitutively photomorphogenic in darkness — confirming the central role of this regulator.
@@ -395,9 +395,9 @@ A defining property of the circadian clock is **temperature compensation**: the 
 The clock gates numerous physiological processes by regulating downstream gene expression:
 - **Stomatal opening:** Anticipatory opening before dawn; controlled by clock-gated H$^+$-ATPase activity
 - **Photosynthesis genes:** CAB (chlorophyll a/b binding protein), Rubisco activase peak at dawn
-- **Flowering:** GI-CO-FT pathway is clock-gated through photoperiodic hormone signalling.
+- **Flowering:** GI-CO-FT pathway is clock-gated through photoperiodic hormone signaling.
 - **Growth:** Hypocotyl elongation peaks in the late night/early morning (gated by PIF4-driven YUCCA expression)
-- **Defence:** Many pathogen resistance genes (e.g., *PR1*) show circadian regulation, anticipating bacterial infections that peak at midday
+- **Defense:** Many pathogen resistance genes (e.g., *PR1*) show circadian regulation, anticipating bacterial infections that peak at midday
 
 ---
 
@@ -433,7 +433,7 @@ stateDiagram-v2
     state ClockGating {
         CCA1_LHY --> TOC1: Morning repression
         TOC1 --> GI: Evening activation
-        GI --> CO_mRNA: GIGANTEA stabilises CO mRNA
+        GI --> CO_mRNA: GIGANTEA stabilizes CO mRNA
     }
 
     ClockGating --> CO_protein: CONSTANS protein
@@ -455,16 +455,16 @@ stateDiagram-v2
 
     CO_degraded --> NoFlowering: No FT production<br/>Vegetative growth continues
 ```
-<!-- alt: State diagram showing molecular pathway of photoperiodic flowering in long-day plants The circadian clock gates CONSTANS (CO) protein stability so that in long days, CO is present in the light (when it is stabilised), activating FLOWERING LOCUS T (FT). FT protein (florigen) moves from leaves to the SAM, triggering flower development. -->
+<!-- alt: State diagram showing molecular pathway of photoperiodic flowering in long-day plants The circadian clock gates CONSTANS (CO) protein stability so that in long days, CO is present in the light (when it is stabilized), activating FLOWERING LOCUS T (FT). FT protein (florigen) moves from leaves to the SAM, triggering flower development. -->
 
-*Molecular pathway of photoperiodic flowering in long-day plants The circadian clock gates CONSTANS (CO) protein stability so that in long days, CO is present in the light (when it is stabilised), activating FLOWERING LOCUS T (FT). FT protein (florigen) moves from leaves to the SAM, triggering flower development.*
+*Molecular pathway of photoperiodic flowering in long-day plants The circadian clock gates CONSTANS (CO) protein stability so that in long days, CO is present in the light (when it is stabilized), activating FLOWERING LOCUS T (FT). FT protein (florigen) moves from leaves to the SAM, triggering flower development.*
 
 **Florigen — FT as the mobile flowering signal:**
 
 1. In long-day plants, the circadian clock ensures that **CONSTANS (CO)** mRNA peaks in the late afternoon
-2. CO protein is stabilised by light (blue light via CRY2; far-red light via PhyA) but degraded in darkness via COP1 ubiquitin ligase
+2. CO protein is stabilized by light (blue light via CRY2; far-red light via PhyA) but degraded in darkness via COP1 ubiquitin ligase
 3. In long days: CO mRNA peaks coincide with daylight, CO protein is stable, CO binds the **FT (FLOWERING LOCUS T)** [**promoter**](#gl:promoter), activating transcription
-4. **FT protein** — the long-sought "florigen" first hypothesised by Chailakhyan in 1937 — is produced in **companion cells of leaf phloem** and moves systemically via sieve tubes to the SAM. FT is a small (~20 kDa) globular protein structurally related to mammalian RAF kinase inhibitors; it is loaded into phloem via plasmodesmata and unloaded at the SAM.
+4. **FT protein** — the long-sought "florigen" first hypothesized by Chailakhyan in 1937 — is produced in **companion cells of leaf phloem** and moves systemically via sieve tubes to the SAM. FT is a small (~20 kDa) globular protein structurally related to mammalian RAF kinase inhibitors; it is loaded into phloem via plasmodesmata and unloaded at the SAM.
 5. At the SAM, FT interacts with **FD** (bZIP transcription factor) to activate **AP1** (floral meristem identity) and **SOC1** (flowering pathway integrator). The FT-FD-14-3-3 floral activation complex (FAC) was crystallographically resolved in 2011 (Taoka *et al.*, *Nature* 2011).
 6. The vegetative meristem transitions irreversibly to a floral meristem — the moment of "evocation"
 
@@ -507,11 +507,11 @@ Prolonged cold exposure (weeks at 4 °C) promotes flowering in winter annuals (*
 
 ### Gravitropism — Statolith and PIN Asymmetry (deep dive)
 
-The detailed molecular mechanism of root gravitropism integrates statolith sedimentation, PIN protein relocalisation, and the dose-response asymmetry between root and shoot:
+The detailed molecular mechanism of root gravitropism integrates statolith sedimentation, PIN protein relocalization, and the dose-response asymmetry between root and shoot:
 
 1. **Gravity perception** by amyloplast sedimentation in columella cells (~30 s after reorientation)
-2. **Mechanical signal transduction** via actin cytoskeleton and ER membrane interactions; LAZY1 family proteins relocalise to the new lower face
-3. **PIN3 asymmetric relocalisation** to the new lower face of columella cells (~3–5 min)
+2. **Mechanical signal transduction** via actin cytoskeleton and ER membrane interactions; LAZY1 family proteins relocalize to the new lower face
+3. **PIN3 asymmetric relocalization** to the new lower face of columella cells (~3–5 min)
 4. **Lateral auxin transport** out the new lower face into the cortex below
 5. **PIN2 acropetal transport** of auxin in the elongation zone, biased toward the lower side
 6. **Differential elongation:** auxin inhibits elongation on the lower side (root); the upper side grows faster, bending the root downward
@@ -528,12 +528,12 @@ Plants respond to mechanical stimuli — wind, rain, animal contact — through 
    - **TCH4 (XTH22):** xyloglucan endotransglucosylase/hydrolase (cell-wall modifier)
 2. **Mechanism:** Mechanical perturbation triggers Ca$^{2+}$ influx via mechanosensitive channels (MCA1, MSL2, OSCA1; piezo-like). Cytosolic [Ca$^{2+}$] rises within seconds.
 3. **Calmodulin (TCH1) and CMLs (TCH2/3)** bind Ca$^{2+}$ and translate the calcium signal to downstream targets — kinases, transcription factors, cell-wall enzymes.
-4. **Jasmonate production:** Mechanical wounding activates JA biosynthesis via the LOX pathway, mobilising defence responses in the herbivory and plant-immunity network.
+4. **Jasmonate production:** Mechanical wounding activates JA biosynthesis via the LOX pathway, mobilizing defense responses in the herbivory and plant-immunity network.
 5. **Phenotypic consequences:** Shorter internodes, thicker stems, increased lignin, smaller leaves. Brushed *Arabidopsis* plants are 30–40% shorter than unbrushed controls; the response is adaptive in windy environments.
 
 **Tendril coiling:** Climbing plants like peas, grapes, and cucumbers produce **tendrils** that exhibit **thigmonastic** coiling on contact with a support. The mechanism involves:
 - Differential elongation: cells on the contact side stop elongating; cells on the opposite side continue
-- Jasmonate signalling: JA mediates the coiling response; *Bryonia* tendrils require JA for coiling
+- Jasmonate signaling: JA mediates the coiling response; *Bryonia* tendrils require JA for coiling
 - Within minutes of contact, tendril coils a complete 360° around the support
 
 ### Hydrotropism, Thigmotropism, and Heliotropism
@@ -546,7 +546,7 @@ Plants respond to mechanical stimuli — wind, rain, animal contact — through 
 
 ## Abiotic Stress Responses
 
-### Drought -- ABA Signalling Cascade
+### Drought -- ABA Signaling Cascade
 
 ABA is the primary drought stress hormone:
 
@@ -554,7 +554,7 @@ ABA is the primary drought stress hormone:
 2. [**Guard cell**](#gl:guard-cell): ABA binds **PYR/PYL/RCAR receptors** (14 paralogs in *Arabidopsis*)
 3. ABA-PYR complex inhibits **PP2C phosphatases** (ABI1, ABI2, HAB1)
 4. **SnRK2 kinases** (especially OST1/SnRK2.6) are freed from PP2C inhibition and phosphorylate:
-   - **SLAC1** anion channel: Cl$^-$ efflux depolarises guard cell membrane
+   - **SLAC1** anion channel: Cl$^-$ efflux depolarizes guard cell membrane
    - **GORK** K$^+$ outward-rectifying channel opens: K$^+$ efflux
    - Water follows osmotically: guard cells shrink, [**stomata**](#gl:stomata) close
    - **AREB/ABF** transcription factors: activate drought-responsive genes (dehydrins, LEA proteins, osmolyte synthesis)
@@ -566,12 +566,12 @@ WUE = \frac{A_{net}}{g_s} = \frac{\text{Net CO}_2 \text{ assimilation}}{\text{st
 \label{eq:plant_responses_4}
 \end{equation}
 
-Plants under water stress maximise WUE by partially closing stomata.
+Plants under water stress maximize WUE by partially closing stomata.
 
 ### Worked Example: Calculating Water Use Efficiency (WUE)
 
 **Problem:**
-An agronomist is evaluating a new drought-tolerant wheat cultivar. Using a portable photosynthesis system, the researcher measures a net CO$_2$ assimilation rate ($A_{net}$) of $15 \mu\text{mol CO}_2 \text{ m}^{-2} \text{ s}^{-1}$. At the same time, the stomatal conductance to water vapour ($g_s$) is measured at $0.15 \text{ mol H}_2\text{O m}^{-2} \text{ s}^{-1}$. 
+An agronomist is evaluating a new drought-tolerant wheat cultivar. Using a portable photosynthesis system, the researcher measures a net CO$_2$ assimilation rate ($A_{net}$) of $15 \mu\text{mol CO}_2 \text{ m}^{-2} \text{ s}^{-1}$. At the same time, the stomatal conductance to water vapor ($g_s$) is measured at $0.15 \text{ mol H}_2\text{O m}^{-2} \text{ s}^{-1}$. 
 1. Calculate the intrinsic Water Use Efficiency (WUE).
 2. If ABA treatment causes the stomata to partially close, decreasing $g_s$ by 50% but primarily decreasing $A_{net}$ by 20%, what is the new WUE?
 
@@ -628,34 +628,34 @@ High soil salinity (NaCl) causes both osmotic stress and ion toxicity:
 - **Vacuolar sequestration:** NHX1 antiporter pumps Na$^+$ into vacuole
 - **Compatible osmolytes:** Proline, glycine betaine, mannitol accumulate to lower $\psi_s$ without enzyme inhibition
 
-### Flooding Response and Low-Oxygen Signalling
+### Flooding Response and Low-Oxygen Signaling
 
 Submergence deprives roots of O$_2$:
-- **ERFVII transcription factors** (RAP2.2, RAP2.12): Stabilised under hypoxia (normally degraded by the N-end rule pathway when O$_2$ is present -- direct O$_2$ sensing)
+- **ERFVII transcription factors** (RAP2.2, RAP2.12): Stabilized under hypoxia (normally degraded by the N-end rule pathway when O$_2$ is present -- direct O$_2$ sensing)
 - ERFVIIs activate **[anaerobic](#gl:anaerobic) genes:** ADH (alcohol dehydrogenase) for [**fermentation**](#gl:fermentation), PDC (pyruvate decarboxylase)
 - **Aerenchyma formation:** Ethylene (accumulates because ACC oxidase requires O$_2$) triggers programmed cell death in cortical cells, creating gas-filled channels for O$_2$ transport from aerial parts to submerged roots
-- **Escape strategy:** Deepwater rice varieties elongate internodes rapidly (up to 25 cm/day) via GA and ethylene signalling to keep leaves above water
+- **Escape strategy:** Deepwater rice varieties elongate internodes rapidly (up to 25 cm/day) via GA and ethylene signaling to keep leaves above water
 
 ---
 
-## Plant Immunity — A Two-Layer Defence System
+## Plant Immunity — A Two-Layer Defense System
 
-Plants lack circulating immune cells but possess a sophisticated cell-autonomous immune system organised into two layers. The Jones–Dangl "zigzag model" (2006) is the canonical framework.
+Plants lack circulating immune cells but possess a sophisticated cell-autonomous immune system organized into two layers. The Jones–Dangl "zigzag model" (2006) is the canonical framework.
 
 ### Layer 1: PAMP-Triggered Immunity (PTI)
 
-Plants recognise broadly conserved molecular signatures of pathogens — **PAMPs** (Pathogen-Associated Molecular Patterns) or **MAMPs** (Microbe-Associated Molecular Patterns) — via cell-surface **pattern recognition receptors (PRRs)**:
+Plants recognize broadly conserved molecular signatures of pathogens — **PAMPs** (Pathogen-Associated Molecular Patterns) or **MAMPs** (Microbe-Associated Molecular Patterns) — via cell-surface **pattern recognition receptors (PRRs)**:
 
-- **FLS2** (Flagellin Sensitive 2): A leucine-rich repeat receptor kinase (LRR-RK) that binds **flg22** (a 22 amino acid epitope of bacterial flagellin). FLS2-flg22 binding recruits **BAK1** co-receptor, activating intracellular kinase signalling.
-- **EFR**: Recognises bacterial elongation factor Tu (epitope **elf18**)
-- **CERK1** and **LYK** receptors: Recognise fungal chitin oligomers (mostly tetra- and pentamers of N-acetylglucosamine)
-- **PEPR1/2**: Recognise plant-derived danger signals (PEPs)
+- **FLS2** (Flagellin Sensitive 2): A leucine-rich repeat receptor kinase (LRR-RK) that binds **flg22** (a 22 amino acid epitope of bacterial flagellin). FLS2-flg22 binding recruits **BAK1** co-receptor, activating intracellular kinase signaling.
+- **EFR**: Recognizes bacterial elongation factor Tu (epitope **elf18**)
+- **CERK1** and **LYK** receptors: Recognize fungal chitin oligomers (mostly tetra- and pentamers of N-acetylglucosamine)
+- **PEPR1/2**: Recognize plant-derived danger signals (PEPs)
 
-**PTI signalling cascade:**
+**PTI signaling cascade:**
 1. PRR ligand binding → BAK1 co-receptor recruitment
 2. **BIK1** receptor-like cytoplasmic kinase activated
 3. **RBOHD** NADPH oxidase produces apoplastic ROS burst (reactive oxygen species; H$_2$O$_2$ within minutes)
-4. **MPK3/MPK6** MAP kinase cascade activated; transcription of defence genes (PR1, WRKY TFs)
+4. **MPK3/MPK6** MAP kinase cascade activated; transcription of defense genes (PR1, WRKY TFs)
 5. **Stomatal closure** via SLAC1 (preventing bacterial entry through stomata)
 6. **Callose deposition** at cell wall (papillae) limiting pathogen ingress
 
@@ -663,7 +663,7 @@ PTI provides broad-spectrum, modest resistance to most non-specialist pathogens.
 
 ### Layer 2: Effector-Triggered Immunity (ETI)
 
-Successful pathogens deliver **effector proteins** into host cells (via type III secretion systems in bacteria, haustoria in fungi/oomycetes) to suppress PTI. Plants in turn evolved intracellular **NBS-LRR proteins** (also called R proteins or NLRs) that recognise these effectors:
+Successful pathogens deliver **effector proteins** into host cells (via type III secretion systems in bacteria, haustoria in fungi/oomycetes) to suppress PTI. Plants in turn evolved intracellular **NBS-LRR proteins** (also called R proteins or NLRs) that recognize these effectors:
 
 - **NBS-LRR** (Nucleotide-Binding Site, Leucine-Rich Repeat): Intracellular immune receptors. *Arabidopsis* has ~150 NBS-LRR genes. Two structural classes: TIR-NLRs (with N-terminal Toll/Interleukin-1 Receptor domain) and CC-NLRs (coiled-coil).
 - **Recognition modes:**
@@ -671,11 +671,11 @@ Successful pathogens deliver **effector proteins** into host cells (via type III
   - **Indirect "guard" model:** R protein guards a host target of effector; effector modification of the target triggers R activation (e.g., RPS2 guards RIN4; *Pseudomonas* AvrRpt2 cleaves RIN4, activating RPS2)
   - **Decoy model:** Plant evolves a non-functional mimic of an effector target as a "decoy" to bait R protein activation
 
-**ETI signalling and the hypersensitive response (HR):**
+**ETI signaling and the hypersensitive response (HR):**
 
 1. NLR activation → oligomerisation (resistosome formation; ZAR1 forms a pentameric "resistosome" channel; Wang *et al.*, *Science* 2019)
 2. Resistosome inserts into plasma membrane and conducts Ca$^{2+}$ → cytosolic [Ca$^{2+}$] surge
-3. **EDS1/PAD4 hub** activates downstream signalling
+3. **EDS1/PAD4 hub** activates downstream signaling
 4. **Hypersensitive response (HR):** Programmed cell death at the infection site; sacrificial necrotic lesion that prevents pathogen spread. HR is morphologically similar to animal apoptosis but molecularly distinct (involves vacuolar processing enzymes, autophagy components, and ROS).
 5. **Salicylic acid (SA) accumulation** locally and systemically
 
@@ -683,7 +683,7 @@ ETI is faster and stronger than PTI — typically resulting in the visible **hyp
 
 ### Systemic Acquired Resistance (SAR)
 
-Local infection triggers a long-lasting, systemic defence priming throughout the plant — **systemic acquired resistance (SAR)**. The mobile signal includes:
+Local infection triggers a long-lasting, systemic defense priming throughout the plant — **systemic acquired resistance (SAR)**. The mobile signal includes:
 - **Methyl salicylate (MeSA)**: volatile, can travel through phloem and air
 - **Pipecolic acid (Pip)** and N-hydroxy-pipecolic acid (NHP): essential systemic mobile signals (Bernsdorff *et al.*, *PNAS* 2016)
 - **Glycerol-3-phosphate (G3P)** and azelaic acid
@@ -700,20 +700,20 @@ In distal tissues, SA accumulates and activates **NPR1** (Non-expressor of PR ge
 
 The two major immune hormones — **salicylic acid (SA)** for biotrophic pathogens and **jasmonic acid (JA)** for chewing herbivores and necrotrophic pathogens — exhibit pervasive **antagonism**:
 
-- **SA suppresses JA:** SA-induced NPR1 represses *MYC2* (master JA TF) and JA-responsive genes; high SA → low JA defences
-- **JA suppresses SA:** JA-induced *WRKY70* and *MYC2* repress SA biosynthesis (ICS1) and PR1; high JA → low SA defences
+- **SA suppresses JA:** SA-induced NPR1 represses *MYC2* (master JA TF) and JA-responsive genes; high SA → low JA defenses
+- **JA suppresses SA:** JA-induced *WRKY70* and *MYC2* repress SA biosynthesis (ICS1) and PR1; high JA → low SA defenses
 
-**Why antagonism?** Different pathogens require different defence chemistries: biotrophs (powdery mildew, rust fungi) feed on living tissue and are best controlled by SA-induced HR; necrotrophs (*Botrytis*, *Pythium*) and herbivores benefit from cell death and are best controlled by JA-induced toxins/proteases. Allocating to both is metabolically expensive; antagonism enables prioritisation.
+**Why antagonism?** Different pathogens require different defense chemistries: biotrophs (powdery mildew, rust fungi) feed on living tissue and are best controlled by SA-induced HR; necrotrophs (*Botrytis*, *Pythium*) and herbivores benefit from cell death and are best controlled by JA-induced toxins/proteases. Allocating to both is metabolically expensive; antagonism enables prioritisation.
 
 **Pathogen exploitation of antagonism:** *Pseudomonas syringae* pv. *tomato* produces **coronatine** (COR), a structural mimic of JA-Ile. COR activates the JA pathway, suppressing the SA pathway and stomatal-closure-mediated immunity. The bacterium uses this to enter through normally-closed stomata. *Arabidopsis coi1* mutants (insensitive to JA) are resistant to COR-mediated stomatal reopening.
 
-> **Concept Check (Synthesis):** Systemic acquired resistance (SAR) and induced systemic resistance (ISR) are both long-distance priming responses, but they differ in inducing agent, signalling pathway, and downstream gene expression. SAR is induced by necrotising pathogens, requires the SA → NPR1 → PR-gene axis, and uses methyl-salicylate as a mobile signal. ISR is induced by beneficial rhizobacteria (for example *Pseudomonas fluorescens*), requires JA/ET signalling, and does not constitutively activate PR genes — instead it leaves distal tissues in a primed state. (a) Design an experiment to determine whether a newly isolated plant-growth-promoting rhizobacterium (PGPR) induces SAR or ISR. Specify which molecular markers (PR1 expression, VSP2 expression, callose deposition upon a secondary challenge) and which functional tests (challenge with a biotrophic vs. a necrotrophic pathogen) you would use, together with the controls needed to interpret the results. (b) Constitutive SAR carries a measurable fitness cost (often a 10–25% reduction in vegetative growth) because SA–JA antagonism dampens growth-promoting JA signalling. Synthesise the conditions under which a plant population would benefit from carrying constitutive SAR (pathogen pressure, resource availability, growth-rate strategy) vs. those under which the cost would outweigh the protection.
+> **Concept Check (Synthesis):** Systemic acquired resistance (SAR) and induced systemic resistance (ISR) are both long-distance priming responses, but they differ in inducing agent, signaling pathway, and downstream gene expression. SAR is induced by necrotising pathogens, requires the SA → NPR1 → PR-gene axis, and uses methyl-salicylate as a mobile signal. ISR is induced by beneficial rhizobacteria (for example *Pseudomonas fluorescens*), requires JA/ET signaling, and does not constitutively activate PR genes — instead it leaves distal tissues in a primed state. (a) Design an experiment to determine whether a newly isolated plant-growth-promoting rhizobacterium (PGPR) induces SAR or ISR. Specify which molecular markers (PR1 expression, VSP2 expression, callose deposition upon a secondary challenge) and which functional tests (challenge with a biotrophic vs. a necrotrophic pathogen) you would use, together with the controls needed to interpret the results. (b) Constitutive SAR carries a measurable fitness cost (often a 10–25% reduction in vegetative growth) because SA–JA antagonism dampens growth-promoting JA signaling. Synthesize the conditions under which a plant population would benefit from carrying constitutive SAR (pathogen pressure, resource availability, growth-rate strategy) vs. those under which the cost would outweigh the protection.
 
 ---
 
-## Herbivory and Wound Defence -- Jasmonate Signalling
+## Herbivory and Wound Defense -- Jasmonate Signaling
 
-Physical insect damage triggers the JA signalling cascade:
+Physical insect damage triggers the JA signaling cascade:
 
 1. Membrane damage releases linolenic acid
 2. **13-LOX** (lipoxygenase) pathway in plastids produces 12-OPDA
@@ -723,9 +723,9 @@ Physical insect damage triggers the JA signalling cascade:
 6. **MYC2/MYC3/MYC4** transcription factors are released, activating:
    - **Protease inhibitors:** Reduce digestibility of plant proteins in insect gut
    - **Alkaloids:** Nicotine in tobacco, glucosinolates in Brassicaceae
-   - **Volatile terpenes:** (E)-β-ocimene, linalool attract predatory insects and parasitic wasps (indirect defence)
+   - **Volatile terpenes:** (E)-β-ocimene, linalool attract predatory insects and parasitic wasps (indirect defense)
 
-> **Clinical Connection:** The wound response in plants is remarkably fast. Within 30 seconds of *Manduca sexta* (tobacco hornworm) feeding on *Nicotiana attenuata*, JA-Ile accumulates. Within 1 hour, systemic protease inhibitor expression is detected. Within 24 hours, volatile terpenoids attract predatory *Geocoris* bugs. This multi-layered defence system has inspired "push-pull" agricultural strategies where companion plants emit volatiles to repel pests and attract their natural enemies.
+> **Clinical Connection:** The wound response in plants is remarkably fast. Within 30 seconds of *Manduca sexta* (tobacco hornworm) feeding on *Nicotiana attenuata*, JA-Ile accumulates. Within 1 hour, systemic protease inhibitor expression is detected. Within 24 hours, volatile terpenoids attract predatory *Geocoris* bugs. This multi-layered defense system has inspired "push-pull" agricultural strategies where companion plants emit volatiles to repel pests and attract their natural enemies.
 
 ---
 
@@ -740,7 +740,7 @@ In canopy shade, the R:FR (red:far-red) ratio decreases because chlorophyll abso
 - Accelerated flowering (via PIF4 activation of FT promoter)
 - Reduced branching, leaf area, and root investment
 
-This shade avoidance syndrome represents a competitive strategy: grow taller to overtop neighbours and reproduce before being shaded out. However, it comes at a cost of reduced root investment and mechanical stability.
+This shade avoidance syndrome represents a competitive strategy: grow taller to overtop neighbors and reproduce before being shaded out. However, it comes at a cost of reduced root investment and mechanical stability.
 
 ---
 
@@ -771,7 +771,7 @@ The strongest applications now combine hormone biology with genotype, microbiome
 
 ### Gibberellin Biology — The Green Revolution
 
-The semi-dwarf wheat varieties that catalysed the Green Revolution carry mutations in **gibberellin signalling**:
+The semi-dwarf wheat varieties that catalysed the Green Revolution carry mutations in **gibberellin signaling**:
 - **Rht-B1b and Rht-D1b** in wheat: encode gain-of-function alleles of *DELLA* genes that produce stable, GA-insensitive DELLA proteins. Plants do not respond to GA → reduced internodal elongation → semi-dwarf stature → no lodging under heavy grain heads.
 - **sd1** in rice (the IR8 "miracle rice" of 1966): loss-of-function mutation in *GA20ox-2* (a GA biosynthesis enzyme) → reduced GA levels → semi-dwarf
 - Both mutations enable plants to support large grain heads, harvest more nitrogen-fertiliser into seed, and resist storm damage. Together they account for >50% of global wheat and rice acreage.
@@ -783,7 +783,7 @@ The semi-dwarf wheat varieties that catalysed the Green Revolution carry mutatio
 
 ### Auxin Herbicides and Synthetic Growth-Regulator Toxicity
 
-**2,4-D (2,4-dichlorophenoxyacetic acid)** and related compounds (dicamba, MCPA) are synthetic auxin analogues used as selective broadleaf herbicides:
+**2,4-D (2,4-dichlorophenoxyacetic acid)** and related compounds (dicamba, MCPA) are synthetic auxin analogs used as selective broadleaf herbicides:
 - Mechanism: synthetic auxins activate the same TIR1-Aux/IAA-ARF pathway as natural IAA, but at much higher and sustained concentrations
 - Sustained activation triggers ethylene biosynthesis, ABA accumulation, and ultimately growth abnormalities and death in dicots
 - Monocots (grasses, including cereal crops) tolerate 2,4-D because they have lower TIR1 binding affinity, faster auxin metabolism, and morphology that limits leaf retention of spray
@@ -793,11 +793,11 @@ The semi-dwarf wheat varieties that catalysed the Green Revolution carry mutatio
 ### Other Hormone-Based Technologies
 
 - **Cytokinin sprays:** maintain green leaves in cut flowers; delay senescence
-- **ABA analogues:** in development for drought-priming of crop seedlings
-- **Strigolactone analogues (e.g., GR24):** induce suicidal germination of *Striga* parasitic weeds in absence of host, reducing field infestation
+- **ABA analogs:** in development for drought-priming of crop seedlings
+- **Strigolactone analogs (e.g., GR24):** induce suicidal germination of *Striga* parasitic weeds in absence of host, reducing field infestation
 - **Plant growth retardants:** uniconazole, paclobutrazol — GA biosynthesis inhibitors used to keep ornamentals compact
 
-> **Clinical Connection:** Plant hormone biology supplies an extraordinary fraction of agricultural innovation. The Green Revolution (semi-dwarf GA-insensitive wheat and rice), modern fruit storage (1-MCP), and the largest herbicide markets (2,4-D, dicamba — synthetic auxins) most derive directly from understanding hormone signalling pathways characterised in *Arabidopsis* and other model species.
+> **Clinical Connection:** Plant hormone biology supplies an extraordinary fraction of agricultural innovation. The Green Revolution (semi-dwarf GA-insensitive wheat and rice), modern fruit storage (1-MCP), and the largest herbicide markets (2,4-D, dicamba — synthetic auxins) most derive directly from understanding hormone signaling pathways characterized in *Arabidopsis* and other model species.
 
 ---
 
@@ -819,7 +819,7 @@ the chapter. Plant biology links molecular regulation to climate stress, water l
 
 A strong plant-response claim names the signal, receptor or hormone, environmental driver, phenotype, and cost of the response \citep{huang2024guardcells}.
 
-**Source practice:** For plant-stress claims, cite tissue-specific assays, field conditions, signalling perturbations, and growth-defence-water tradeoffs \citep{huang2024guardcells}.
+**Source practice:** For plant-stress claims, cite tissue-specific assays, field conditions, signaling perturbations, and growth-defense-water tradeoffs \citep{huang2024guardcells}.
 
 Heat-stress responses should be separated by tissue and developmental stage: protecting vegetative leaves is not the same as preserving male reproductive success, where epigenetic regulation and pollen development can be the limiting failure point \citep{malik2022heatstressmale}. Guard-cell calcium work shows that stomatal dynamics can depend on the count and timing of unitary cytosolic Ca2+ signals, linking ion-channel physiology to whole-plant water tradeoffs without implying plant decision-making is animal-like cognition \citep{huang2024guardcells}.
 
@@ -828,7 +828,7 @@ Heat-stress responses should be separated by tissue and developmental stage: pro
 ```mermaid
 flowchart TD
     A["Stress cue"] --> B["Sensor and hormone network"]
-    B --> C["ABA or defence signal"]
+    B --> C["ABA or defense signal"]
     C --> D["Gene-expression change"]
     D --> E["Trait response"]
     E --> F["Growth cost"]
@@ -842,14 +842,15 @@ flowchart TD
 
 ## Key Terms
 
+: Current Evidence Map: Plant Stress Response Decision: Term and Definition. {#tbl:unit_VIII_plant_responses_current_evidence_map_plant_stress_response_decision}
 | Term | Definition |
 | ---- | ---------- |
 | **Tropism** | Directional growth response to an environmental stimulus |
 | **Phototropin (PHOT1/2)** | Blue-light photoreceptor kinases; LOV domains; autophosphorylate upon blue light absorption |
 | **Auxin (IAA)** | Indole-3-acetic acid; major growth hormone; polar transport via PIN efflux carriers |
-| **PIN proteins** | Auxin efflux carriers; polar localisation determines transport direction; PIN2 for root gravitropism |
+| **PIN proteins** | Auxin efflux carriers; polar localization determines transport direction; PIN2 for root gravitropism |
 | **Acid growth hypothesis** | Auxin activates H$^+$-ATPase, acidifying cell wall, activating expansins, enabling elongation |
-| **DELLA proteins** | Transcriptional repressors degraded by GA-GID1 signalling; growth suppressors |
+| **DELLA proteins** | Transcriptional repressors degraded by GA-GID1 signaling; growth suppressors |
 | **Phytochrome** | Dual R/FR photoreceptors (PhyA-E); Pr (inactive) and Pfr (active) conformers |
 | **Cryptochrome** | Blue/UV-A photoreceptor; FAD chromophore; CRY1/CRY2 in *Arabidopsis* |
 | **COP1** | E3 ubiquitin ligase; "darkness enforcer"; targets HY5, CO, HFR1 for degradation |
@@ -865,18 +866,18 @@ flowchart TD
 | **PRR9/7/5** | Sequential daytime PRRs in evening loop |
 | **Evening Complex (ELF3-ELF4-LUX)** | Repressor complex peaking at ZT12-16; gates early-night growth |
 | **Statolith** | Starch-filled amyloplast in columella cells; sediments under gravity |
-| **LAZY1** | Protein required for normal gravitropism; relocalises to lower face after gravity stimulation |
+| **LAZY1** | Protein required for normal gravitropism; relocalizes to lower face after gravity stimulation |
 | **TCH genes** | Touch-induced genes (CAM2, CML24, CML12, XTH22); calmodulin-related |
 | **Thigmomorphogenesis** | Mechanical-stimulus-induced morphology change (shorter, sturdier plants) |
 | **ABA** | Abscisic acid; stress hormone; PYR/PYL receptors activate SnRK2 kinases |
 | **CBF/DREB** | C-repeat Binding Factors; AP2/ERF TFs; cold-induced, activate COR genes |
 | **JA-Ile** | Jasmonyl-isoleucine conjugate; active jasmonate; ligand for COI1 receptor |
 | **COI1** | Coronatine Insensitive 1; F-box protein; JA-Ile receptor; degrades JAZ repressors |
-| **PTI** | PAMP-Triggered Immunity; first-layer defence via cell-surface PRRs |
-| **ETI** | Effector-Triggered Immunity; second-layer defence via intracellular NBS-LRR proteins |
+| **PTI** | PAMP-Triggered Immunity; first-layer defense via cell-surface PRRs |
+| **ETI** | Effector-Triggered Immunity; second-layer defense via intracellular NBS-LRR proteins |
 | **NBS-LRR (NLR)** | Nucleotide-Binding Site, Leucine-Rich Repeat; intracellular immune receptors |
 | **HR (Hypersensitive Response)** | Programmed cell death at infection site; ETI hallmark |
-| **SAR** | Systemic Acquired Resistance; SA-mediated whole-plant defence priming |
+| **SAR** | Systemic Acquired Resistance; SA-mediated whole-plant defense priming |
 | **NPR1** | SA-induced master regulator of PR gene expression |
 | **Strigolactone** | Carotenoid-derived hormone; suppresses branching; recruits mycorrhizae |
 | **1-MCP** | 1-methylcyclopropene; ethylene receptor antagonist; postharvest storage |
@@ -888,9 +889,9 @@ flowchart TD
 
 1. An *Arabidopsis phot1 phot2* double mutant is grown under asymmetric blue light. Predict the [**phenotype**](#gl:phenotype). Would this mutant show any phototropic response under high-intensity white light? (Hint: consider cryptochromes.)
 
-2. Explain why the same auxin redistribution (accumulation on the lower side) causes opposite growth responses in roots vs shoots during gravitropism. Include the concepts of optimal auxin concentration, dose-response curves, and PIN2 vs PIN3 localisation.
+2. Explain why the same auxin redistribution (accumulation on the lower side) causes opposite growth responses in roots vs shoots during gravitropism. Include the concepts of optimal auxin concentration, dose-response curves, and PIN2 vs PIN3 localization.
 
-3. A farmer notices that long-day wheat varieties flower prematurely when grown near street lights that extend the day length. Explain the molecular mechanism, starting from phytochrome and proceeding through the CO-FT pathway. Include the role of CRY2 in stabilising CO protein.
+3. A farmer notices that long-day wheat varieties flower prematurely when grown near street lights that extend the day length. Explain the molecular mechanism, starting from phytochrome and proceeding through the CO-FT pathway. Include the role of CRY2 in stabilizing CO protein.
 
 4. Compare the ABA-mediated drought response with the CBF-COR cold acclimation pathway. What do they share in common? How do the final cellular protective mechanisms differ?
 
@@ -910,11 +911,11 @@ flowchart TD
 
 12. Distinguish PTI and ETI in the Jones–Dangl zigzag model. What is the role of resistosome formation? How does the SA-NPR1 pathway translate local infection into systemic acquired resistance?
 
-13. Explain why 2,4-D selectively kills broadleaf weeds in cereal crops. At the molecular level, how does sustained synthetic auxin signalling cause death in dicots but not monocots?
+13. Explain why 2,4-D selectively kills broadleaf weeds in cereal crops. At the molecular level, how does sustained synthetic auxin signaling cause death in dicots but not monocots?
 
 14. Trace the *Arabidopsis* circadian clock through one full day starting at dawn (ZT0). Identify which genes are expressed at ZT0, ZT4, ZT8, ZT12, and ZT16, and explain the negative-feedback architecture.
 
-15. Tendril coiling in cucumber requires touch and JA. A *coi1* loss-of-function mutant cucumber is challenged with a thin string. Predict the response, and explain why JA signalling is downstream of mechanical perception.
+15. Tendril coiling in cucumber requires touch and JA. A *coi1* loss-of-function mutant cucumber is challenged with a thin string. Predict the response, and explain why JA signaling is downstream of mechanical perception.
 
 ---
 
@@ -944,23 +945,23 @@ print(round(curve[-1][1], 2))
 
 ## Summary
 
-- **Plant hormones:** Nine major classes (auxin, GA, cytokinin, ABA, ethylene, JA, SA, brassinosteroids, strigolactones) regulate most aspects of growth, development, and stress responses through receptor-mediated signalling pathways.
-- **Phototropism \citep{went1926}:** PHOT1/2 (LOV-domain kinases) trigger asymmetric PIN3 relocalisation, creating a lateral auxin gradient. Acid growth (H$^+$-ATPase to expansins) drives differential elongation \citep{hager1971}.
+- **Plant hormones:** Nine major classes (auxin, GA, cytokinin, ABA, ethylene, JA, SA, brassinosteroids, strigolactones) regulate most aspects of growth, development, and stress responses through receptor-mediated signaling pathways.
+- **Phototropism \citep{went1926}:** PHOT1/2 (LOV-domain kinases) trigger asymmetric PIN3 relocalization, creating a lateral auxin gradient. Acid growth (H$^+$-ATPase to expansins) drives differential elongation \citep{hager1971}.
 - **Photomorphogenesis:** Phytochromes (Pr/Pfr photoconversion at 660/730 nm) sense R:FR ratio for shade avoidance; cryptochromes (CRY1/CRY2 with FAD) sense blue light for photomorphogenesis. PhyA mediates FR-HIR; PhyB is the canopy-shade sensor. CRY-COP1-HY5 module enforces light/dark choice.
 - **Circadian clock molecular architecture:** Morning loop (CCA1/LHY repressors of evening genes; TOC1 activator); evening loop (PRR9/7/5/TOC1 cascade repressing CCA1/LHY); evening complex (ELF3-ELF4-LUX). Temperature-compensated.
 - **Photoperiodism:** Night length is the true signal. Phytochrome (Pr/Pfr) measures dark duration. The CO-FT-AP1 pathway integrates circadian clock and light signals. FT protein moves from leaf companion cells to SAM as the long-sought florigen.
 - **Vernalisation:** Cold-induced VIN3 joins VRN2-PRC2; H3K27me3 deposition at *FLC* silences this MADS-box repressor of flowering. Memory is mitotically stable but reset between generations.
-- **Gravitropism:** Amyloplast settling in statocytes triggers PIN3 relocalisation. Same auxin redistribution causes opposite responses in roots (PIN2 carries auxin acropetally; high auxin inhibits root cells) vs shoots (high auxin promotes shoot cells).
-- **Touch responses:** TCH genes (calmodulins, XTH22) mediate Ca$^{2+}$-driven thigmomorphogenesis; jasmonate links wound perception to defence and tendril coiling.
+- **Gravitropism:** Amyloplast settling in statocytes triggers PIN3 relocalization. Same auxin redistribution causes opposite responses in roots (PIN2 carries auxin acropetally; high auxin inhibits root cells) vs shoots (high auxin promotes shoot cells).
+- **Touch responses:** TCH genes (calmodulins, XTH22) mediate Ca$^{2+}$-driven thigmomorphogenesis; jasmonate links wound perception to defense and tendril coiling.
 - **Drought:** ABA activates PYR-PP2C-SnRK2-SLAC1 cascade for stomatal closure plus AREB/ABF for stress gene expression.
-- **Guard-cell signalling:** stomatal dynamics can depend on the count and timing of unitary cytosolic Ca$^{2+}$ signals, linking channel-level events to whole-plant water-use tradeoffs \citep{huang2024guardcells}.
+- **Guard-cell signaling:** stomatal dynamics can depend on the count and timing of unitary cytosolic Ca$^{2+}$ signals, linking channel-level events to whole-plant water-use tradeoffs \citep{huang2024guardcells}.
 - **Cold:** CBF1/2/3 activated by ICE1 within minutes of cold exposure; COR genes produce dehydrins, desaturases, and cryoprotective proteins.
 - **Flooding:** ERFVII transcription factors sense O$_2$ via the N-end rule; ethylene promotes aerenchyma formation.
-- **Plant immunity (Jones–Dangl zigzag):** PTI via cell-surface PRRs (FLS2/BAK1, CERK1) recognising PAMPs. ETI via intracellular NBS-LRR (NLR) proteins recognising effectors; resistosome formation triggers HR. NPR1-mediated SAR provides systemic broad-spectrum priming via SA. JA-SA antagonism partitions defences; *Pseudomonas* coronatine exploits this.
-- **Herbivory:** JA-Ile triggers COI1-JAZ degradation, releasing MYC2 to activate protease inhibitors, alkaloids, and volatile-mediated indirect defence.
+- **Plant immunity (Jones–Dangl zigzag):** PTI via cell-surface PRRs (FLS2/BAK1, CERK1) recognizing PAMPs. ETI via intracellular NBS-LRR (NLR) proteins recognizing effectors; resistosome formation triggers HR. NPR1-mediated SAR provides systemic broad-spectrum priming via SA. JA-SA antagonism partitions defenses; *Pseudomonas* coronatine exploits this.
+- **Herbivory:** JA-Ile triggers COI1-JAZ degradation, releasing MYC2 to activate protease inhibitors, alkaloids, and volatile-mediated indirect defense.
 - **Shade avoidance:** Low R:FR frees PIF4/5 from PhyB repression, increasing auxin and accelerating flowering.
 - **Agricultural applications:** Ethylene inhibitors (1-MCP for postharvest); GA-insensitive DELLA mutations (*Rht*, *sd1*) underlie Green Revolution semi-dwarf wheat and rice; synthetic auxin herbicides (2,4-D, dicamba) selectively kill broadleaf weeds.
-- **Connections:** See \cref{sec:unit_III_photosynthesis} for light reactions, \cref{sec:unit_II_cell_signaling} for receptor signalling parallels, and \nameref{sec:unit_X_unit_intro} for phenology under climate change.
+- **Connections:** See \cref{sec:unit_III_photosynthesis} for light reactions, \cref{sec:unit_II_cell_signaling} for receptor signaling parallels, and \nameref{sec:unit_X_unit_intro} for phenology under climate change.
 
 ---
 
@@ -971,6 +972,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Plant Responses to the Environment. {#tbl:unit_VIII_plant_responses_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/botany/botany.py` (`photosynthesis_rate`, `light_response_curve`, `transpiration_flux`) | Quantify how light, CO2, water, and temperature shape response curves. |

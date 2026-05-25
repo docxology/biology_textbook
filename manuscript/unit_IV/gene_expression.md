@@ -38,8 +38,8 @@
 - **Data skill:** Convert DNA/RNA sequence data into predicted molecular products.
 - **Practice cadence:** Concept Explanation, Questions and Methods, Argumentation.
 - **Common misconception to repair:** A gene is not simply a protein recipe; context controls when, where, and how much product appears.
-- **Primary lab:** \cref{sec:lab_unit_IV_gene_expression}.
-- **Question bank:** \cref{sec:q_unit_IV_gene_expression}.
+- **Primary lab:** \nameref{sec:lab_unit_IV_gene_expression}.
+- **Question bank:** \nameref{sec:q_unit_IV_gene_expression}.
 - **Transfer task:** Apply expression logic to mutations, biotechnology, development, and disease diagnostics.
 - **Bridge to computation:** `biology.genetics.genetics.translate_mrna`.
 <!-- curriculum-scaffold-end -->
@@ -48,7 +48,7 @@
 
 > **Opening Vignette — Solving the Problem of the Messenger**
 > 
-> In 1961, Francis Crick and colleagues knew that information flowed from DNA to [**protein**](#gl:protein), but the molecular intermediary was a mystery. Working with Sydney Brenner and François Jacob at Cambridge, Matthew Meselson performed a deceptively simple experiment: he mixed radioactively labelled [**ribosome**](#gl:ribosome)s from bacteria infected with T4 phage with unlabelled ribosomes, then centrifuged the extract through a density gradient. The new viral proteins appeared on *old* unlabelled ribosomes — proving that ribosomes are non-specific "machines," and that the specificity must come from a short-lived "messenger" molecule. Brenner named it messenger RNA. Within a decade, the entire transcription and translation apparatus — RNA polymerase, transfer RNA, [**codon**](#gl:codon)s, the genetic code — had been decoded. This vignette illustrates how a single elegant experiment can overturn received wisdom and open an entire research programme.
+> In 1961, Francis Crick and colleagues knew that information flowed from DNA to [**protein**](#gl:protein), but the molecular intermediary was a mystery. Working with Sydney Brenner and François Jacob at Cambridge, Matthew Meselson performed a deceptively simple experiment: he mixed radioactively labeled [**ribosome**](#gl:ribosome)s from bacteria infected with T4 phage with unlabelled ribosomes, then centrifuged the extract through a density gradient. The new viral proteins appeared on *old* unlabelled ribosomes — proving that ribosomes are non-specific "machines," and that the specificity must come from a short-lived "messenger" molecule. Brenner named it messenger RNA. Within a decade, the entire transcription and translation apparatus — RNA polymerase, transfer RNA, [**codon**](#gl:codon)s, the genetic code — had been decoded. This vignette illustrates how a single elegant experiment can overturn received wisdom and open an entire research program.
 
 ## Transcription as RNA Synthesis from DNA
 
@@ -89,6 +89,7 @@ RNA databases make this source-governance problem concrete. RNAcentral in 2026 h
 
 **Three nuclear RNA polymerases:**
 
+: Eukaryotic Transcription and RNA Polymerase Specialization: Feature and RNA Pol I. {#tbl:unit_IV_gene_expression_eukaryotic_transcription_and_rna_polymerase_specialization}
 | Feature | RNA Pol I | RNA Pol II | RNA Pol III |
 |---------|----------|-----------|------------|
 | **Products** | 45S pre-rRNA (18S, 5.8S, 28S rRNA) | Most mRNA; most snRNA, miRNA | tRNA, 5S rRNA, U6 snRNA, 7SL RNA |
@@ -137,6 +138,7 @@ sequenceDiagram
 
 *Assembly of the eukaryotic pre-initiation complex (PIC) at a TATA-containing promoter. TFIID binding initiates an ordered assembly cascade culminating in Pol II CTD phosphorylation and promoter escape.*
 
+: The Pre-Initiation Complex (PIC) Assembly: CTD Modification and Kinase. {#tbl:unit_IV_gene_expression_the_pre_initiation_complex_pic_assembly}
 | CTD Modification | Kinase | Effect |
 |-----------------|--------|--------|
 | Ser5-P | TFIIH (CDK7) | Recruits capping enzyme |
@@ -245,6 +247,7 @@ Alternative splicing generates multiple protein isoforms from a single gene. An 
 
 **Types of alternative splicing**:
 
+: Alternative Splicing and Transcript Diversity: Type and Description. {#tbl:unit_IV_gene_expression_alternative_splicing_and_transcript_diversity}
 | Type | Description | Example |
 |------|------------|---------|
 | Cassette exon (exon skipping) | An exon is included or excluded | Fibronectin: EDA and EDB exons (tissue-specific) |
@@ -266,9 +269,9 @@ Alternative splicing generates multiple protein isoforms from a single gene. An 
 - ***DMD* exon 51 deletion:** removes a frame-essential exon, causing Duchenne muscular dystrophy. Antisense oligonucleotide therapies (eteplirsen, casimersen) restore the reading frame by inducing exon 51 skipping.
 - ***MAPT* IVS10+16C>T:** disrupts the regulatory cis-element controlling tau exon 10 inclusion, causing fronto-temporal dementia with parkinsonism (FTDP-17). Different intronic mutations in *MAPT* alter the 4R/3R tau ratio.
 - ***SMN2* C840T:** weakens an exonic splicing enhancer in *SMN2* exon 7, causing exon 7 skipping in 90 % of *SMN2* transcripts and producing truncated, unstable SMN protein. This is the basis of spinal muscular atrophy when *SMN1* is also lost; nusinersen (an antisense oligonucleotide) restores exon 7 inclusion.
-- ***LMNA* c.1824C>T (Hutchinson–Gilford progeria):** activates a cryptic splice donor in exon 11, producing the truncated lamin-A "progerin" that accumulates at the nuclear envelope, driving accelerated ageing.
+- ***LMNA* c.1824C>T (Hutchinson–Gilford progeria):** activates a cryptic splice donor in exon 11, producing the truncated lamin-A "progerin" that accumulates at the nuclear envelope, driving accelerated aging.
 
-Approximately **15–20 % of disease-causing point mutations** disrupt splicing — either at canonical splice sites (5′ GT, 3′ AG, branch point), in regulatory elements (ESE, ESS, ISE, ISS), or by creating cryptic splice sites. This is much higher than was estimated in the 1990s, when primarily canonical splice-site mutations were recognised.
+Approximately **15–20 % of disease-causing point mutations** disrupt splicing — either at canonical splice sites (5′ GT, 3′ AG, branch point), in regulatory elements (ESE, ESS, ISE, ISS), or by creating cryptic splice sites. This is much higher than was estimated in the 1990s, when primarily canonical splice-site mutations were recognized.
 
 **Regulatory elements controlling alternative splicing**:
 - **Exonic splicing enhancers (ESEs)**: bound by SR proteins (serine/arginine-rich); promote exon inclusion
@@ -296,8 +299,9 @@ NMD degrades ~5-10% of the human transcriptome, including many alternatively spl
 
 ### The Genetic Code
 
-The genetic code maps 64 codons ($4^3 = 64$) to 20 amino acids plus stop signals. \cref{fig:unit_IV_translation_codons} shows amino-acid counts from translating a representative mRNA.
+The genetic code maps 64 codons ($4^3 = 64$) to 20 amino acids plus stop signals \citep{nirenberg1961}. \cref{fig:unit_IV_translation_codons} shows amino-acid counts from translating a representative mRNA.
 
+: The Genetic Code: Property and Description. {#tbl:unit_IV_gene_expression_the_genetic_code}
 | Property | Description |
 |----------|-------------|
 | **Degenerate (redundant)** | Amino acids are encoded by 1-6 synonymous codons; Leu, Ser, Arg each have 6 codons; Met and Trp each have 1 |
@@ -311,6 +315,7 @@ The genetic code maps 64 codons ($4^3 = 64$) to 20 amino acids plus stop signals
 
 **Wobble base pairing** \citep{crick1966}: The third codon position ("wobble position") pairs with the first [**anticodon**](#gl:anticodon) position with relaxed stringency:
 
+: The Genetic Code: Anticodon first position and Pairs with codon third position. {#tbl:unit_IV_gene_expression_the_genetic_code_2}
 | Anticodon first position | Pairs with codon third position |
 |-------------------------|-------------------------------|
 | U | A, G |
@@ -361,6 +366,7 @@ stateDiagram-v2
 
 ### Ribosome Structure and Catalytic RNA
 
+: Ribosome Structure and Catalytic RNA: Feature and Prokaryotic (70S). {#tbl:unit_IV_gene_expression_ribosome_structure_and_catalytic_rna}
 | Feature | Prokaryotic (70S) | Eukaryotic (80S) |
 |---------|-------------------|------------------|
 | Small subunit | 30S (16S rRNA + ~21 proteins) | 40S (18S rRNA + ~33 proteins) |
@@ -418,6 +424,7 @@ While most eukaryotic translation initiates at the 5′ cap (eIF4F-mediated scan
 
 **IRES classes (4 main types in eukaryotic and viral mRNAs):**
 
+: IRES Elements — Cap-Independent Translation Initiation: Class and Example. {#tbl:unit_IV_gene_expression_ires_elements_cap_independent_translation_initiation}
 | Class | Example | Initiation factors required | Mechanism |
 | ----- | ------- | --------------------------- | --------- |
 | Type I | Picornaviruses (poliovirus, coxsackievirus) | Most canonical eIFs except eIF4E | Internal AUG; PCBP2/3 binding |
@@ -425,13 +432,13 @@ While most eukaryotic translation initiates at the 5′ cap (eIF4F-mediated scan
 | Type III | Hepatitis C virus (HCV) | Primarily eIF2, eIF3 (and 40S) — minimal | Direct binding of 40S to a multi-domain RNA structure (domains II, III, IV); IIIc binds 40S like a TBP-equivalent for ribosomes |
 | Type IV | Cricket paralysis virus (CrPV); intergenic IRES | None — no initiator Met-tRNA needed | Pseudoknot mimics tRNA in P site; translation starts at non-AUG codon |
 
-**Hepatitis C IRES — structural mechanism in detail.** HCV IRES is one of the most structurally characterised. The IRES adopts a defined three-domain RNA fold:
+**Hepatitis C IRES — structural mechanism in detail.** HCV IRES is one of the most structurally characterized. The IRES adopts a defined three-domain RNA fold:
 - **Domain II** binds the 40S subunit at the head, positioning the mRNA channel
 - **Domain III** (with sub-domains IIIa, IIIb, IIIc, IIId, IIIe, IIIf) directly contacts ribosomal proteins; IIIabc binds eIF3
 - **Domain IV** contains the AUG start codon, positioned directly in the P site
 - This bypass of cap recognition and scanning means HCV translation continues even when cellular cap-dependent translation is suppressed.
 
-**Cellular IRES elements** drive translation of stress-response mRNAs when cap-dependent translation is inhibited (e.g., during apoptosis when eIF4G is cleaved by caspase-3, or during heat shock when eIF2α is phosphorylated). Examples: **c-Myc, p53, VEGF, BiP/HSPA5, XIAP, DAP5, BCL2.** Stress-induced translation of pro-apoptotic *p53* via its IRES is one of the host's defences against viral infection.
+**Cellular IRES elements** drive translation of stress-response mRNAs when cap-dependent translation is inhibited (e.g., during apoptosis when eIF4G is cleaved by caspase-3, or during heat shock when eIF2α is phosphorylated). Examples: **c-Myc, p53, VEGF, BiP/HSPA5, XIAP, DAP5, BCL2.** Stress-induced translation of pro-apoptotic *p53* via its IRES is one of the host's defenses against viral infection.
 
 **Therapeutic relevance:**
 - **eIF4A inhibitors** (silvestrol, zotatifin) preferentially affect cap-dependent translation of mRNAs with structured 5′ UTRs — bypassed by some IRESes. In trial for AML and CTCL.
@@ -444,12 +451,12 @@ While most eukaryotic translation initiates at the 5′ cap (eIF4F-mediated scan
 **Key insights from ribosome profiling:**
 
 1. **Translation efficiency varies across mRNAs by > 100-fold.** Some mRNAs have many more ribosomes loaded per unit of mRNA than others. This is regulated by 5′ UTR features (length, structure, upstream ORFs), codon usage in the ORF, and 3′ UTR sequences.
-2. **Ribosome stalling on rare codons.** Codons recognised by low-abundance tRNAs (e.g., CGA-Arg, CGG-Arg in mammals) cause ribosome pausing detectable as elevated read density. Stalling can trigger:
+2. **Ribosome stalling on rare codons.** Codons recognized by low-abundance tRNAs (e.g., CGA-Arg, CGG-Arg in mammals) cause ribosome pausing detectable as elevated read density. Stalling can trigger:
    - **Co-translational protein folding signals** — programmed pauses allow N-terminal protein domains to fold before C-terminal segments emerge.
    - **Programmed -1 frameshifts** (e.g., HIV gag-pol, SARS-CoV-2 ORF1ab/RDR-RP).
    - **Ribosome quality control (RQC):** stalled ribosomes are split by Pelota–Hbs1L; the nascent peptide is ubiquitinated by NEMF–LTN1 and degraded.
 3. **Upstream open reading frames (uORFs) regulate ~50 % of mammalian mRNAs.** A short ORF in the 5′ UTR is translated first; the scanning ribosome must reinitiate downstream. uORF translation typically suppresses main-ORF translation. Stress-induced phosphorylation of eIF2α (the integrated stress response) increases scanning past inhibitory uORFs, paradoxically enhancing translation of stress-response mRNAs (e.g., *ATF4, CHOP, GADD34*) that have inhibitory uORFs in their 5′ UTRs.
-4. **Codon-level translation kinetics.** Each codon's average dwell time can be estimated from ribosome density. Codon-optimised mRNAs (e.g., synthetic mRNA vaccines, insulin) have shorter average dwell times and higher translation efficiency.
+4. **Codon-level translation kinetics.** Each codon's average dwell time can be estimated from ribosome density. Codon-optimized mRNAs (e.g., synthetic mRNA vaccines, insulin) have shorter average dwell times and higher translation efficiency.
 5. **Out-of-frame translation.** Ribo-seq has uncovered hidden ORFs (smORFs, 10–100 codons) in regions previously annotated as non-coding — many of which encode functional micropeptides (e.g., MOTS-c from mitochondrial 12S rRNA; HOXB-AS3 micropeptide).
 
 ### Nonsense-Mediated Decay (NMD) — Mechanism in Mechanistic Detail
@@ -458,6 +465,7 @@ NMD destroys mRNAs containing premature termination codons (PTCs), preventing th
 
 **Key molecular components:**
 
+: Nonsense-Mediated Decay (NMD) — Mechanism in Mechanistic Detail: Component and Role. {#tbl:unit_IV_gene_expression_nonsense_mediated_decay_nmd_mechanism_in_mechanistic_detail}
 | Component | Role |
 | --------- | ---- |
 | **EJC (exon junction complex)** | Deposited 20–24 nt upstream of every exon-exon junction during splicing; contains EIF4A3, MAGOH, Y14/RBM8A, MLN51 (CASC3) |
@@ -524,6 +532,7 @@ For a typical ~500-amino acid protein, this error rate predicts ~5 % of nascent 
 
 ### Post-Translational Modifications (PTMs)
 
+: Post-Translational Modifications (PTMs): Modification and Enzymes. {#tbl:unit_IV_gene_expression_post_translational_modifications_ptms}
 | Modification | Enzymes | Target Residues | Function |
 |-------------|---------|-----------------|----------|
 | **Phosphorylation** | Kinases / Phosphatases | Ser, Thr, Tyr | [**Signal transduction**](#gl:signal-transduction); activation/inactivation; ~30% of proteins are phosphorylated |
@@ -587,20 +596,20 @@ This provides fine-tuning: repression gives ~70-fold regulation; attenuation add
 
 **Transcription factor combinatorics**: The human genome encodes ~1,500-2,000 transcription factors. Gene expression is controlled by the combinatorial binding of multiple TFs at enhancers, which together produce richer logic than any single TF in isolation. Three canonical principles:
 
-1. **Synergy:** Two TFs bound at adjacent sites produce more than the sum of their individual effects. Cooperative DNA binding (when one TF stabilises the binding of the next via direct protein–protein contact or by inducing DNA bending) and synergistic activation (when each TF independently recruits a different co-activator) both contribute. The interferon-β enhanceosome shows ~10× synergy: each individual TF drives about 5-fold transcription, but together they drive > 1000-fold induction.
-2. **Quenching:** A repressor TF bound near an activator can inhibit the activator without displacing it (e.g., via histone deacetylation recruitment, or by sequestering coactivators in a non-productive complex). Examples: GAL80 quenches GAL4 in yeast; BCL6 quenches NF-κB in germinal-centre B cells.
+1. **Synergy:** Two TFs bound at adjacent sites produce more than the sum of their individual effects. Cooperative DNA binding (when one TF stabilizes the binding of the next via direct protein–protein contact or by inducing DNA bending) and synergistic activation (when each TF independently recruits a different co-activator) both contribute. The interferon-β enhanceosome shows ~10× synergy: each individual TF drives about 5-fold transcription, but together they drive > 1000-fold induction.
+2. **Quenching:** A repressor TF bound near an activator can inhibit the activator without displacing it (e.g., via histone deacetylation recruitment, or by sequestering coactivators in a non-productive complex). Examples: GAL80 quenches GAL4 in yeast; BCL6 quenches NF-κB in germinal-center B cells.
 3. **Enhanceosome:** A specific stereochemical assembly where the TF binding sites are positioned such that the eight or more factors must bind simultaneously and cooperatively to activate transcription. Spacing between binding sites is critical (loss of even one base-pair spacing destroys cooperative assembly). The IFN-β enhanceosome (3.7 kb upstream): NF-κB (p50/p65), IRF3, IRF7, ATF2/c-Jun, plus the architectural protein HMGA1 wraps the entire 55-bp regulatory region into a defined 3D conformation that primarily forms during viral infection.
 
-**Super-enhancers — the high-output regulatory class.** First operationally defined by Whyte and Young (2013), super-enhancers are unusually large regulatory regions (median ~10 kb, often >50 kb) characterised by:
+**Super-enhancers — the high-output regulatory class.** First operationally defined by Whyte and Young (2013), super-enhancers are unusually large regulatory regions (median ~10 kb, often >50 kb) characterized by:
 - **H3K27ac density:** at least 10-fold higher than typical enhancers, often spanning multiple H3K27ac peaks
 - **BRD4 occupancy:** the BET-family reader concentrates here, as do Mediator and lineage-defining TFs
 - **MED1/MED12 enrichment:** super-enhancers are constructed largely from Mediator-bound elements
-- **Transcriptional output:** drives high-output expression of cell-identity genes (e.g., *MYC* in cancer cell lines, lineage-defining TFs like *SOX2* in ES cells, *PU.1* in haematopoietic cells)
+- **Transcriptional output:** drives high-output expression of cell-identity genes (e.g., *MYC* in cancer cell lines, lineage-defining TFs like *SOX2* in ES cells, *PU.1* in hematopoietic cells)
 - **Phase separation:** super-enhancer condensates concentrate Pol II, BRD4, Mediator, CDK7/9 — see \cref{sec:unit_IV_epigenetic_inheritance_and_disease} for detailed mechanism
 - **Identification:** ROSE (Rank Ordering of Super-Enhancers) algorithm — rank H3K27ac signal across most enhancers; the inflection point distinguishes super-enhancers (top ~3 % of enhancers, accounting for ~30 % of H3K27ac signal) from typical enhancers
-- **Therapeutic implication:** BET inhibitors (JQ1, OTX015, molibresib, mivebresib) preferentially collapse super-enhancer-driven transcription, providing tumour selectivity. CDK7 (THZ1, SY-5609) and CDK9 (AZD4573) inhibitors disrupt the condensate phosphorylation machinery.
+- **Therapeutic implication:** BET inhibitors (JQ1, OTX015, molibresib, mivebresib) preferentially collapse super-enhancer-driven transcription, providing tumor selectivity. CDK7 (THZ1, SY-5609) and CDK9 (AZD4573) inhibitors disrupt the condensate phosphorylation machinery.
 
-The combination of synergy + enhanceosome organisation + super-enhancer condensates explains why a few hundred lineage-defining genes can be expressed at very high levels in each cell type, while the rest of the genome is largely inactive.
+The combination of synergy + enhanceosome organization + super-enhancer condensates explains why a few hundred lineage-defining genes can be expressed at very high levels in each cell type, while the rest of the genome is largely inactive.
 
 ### RNA-Based Regulation
 
@@ -624,6 +633,7 @@ The combination of synergy + enhanceosome organisation + super-enhancer condensa
 
 **Seed sequence rules — quantitative target prediction:**
 
+: RNA-Based Regulation: Seed type and Definition. {#tbl:unit_IV_gene_expression_rna_based_regulation}
 | Seed type | Definition | Approximate target affinity |
 | --------- | ---------- | --------------------------- |
 | 6-mer | Perfect 6-bp seed (positions 2–7) | Weak (10–20 % repression) |
@@ -631,7 +641,7 @@ The combination of synergy + enhanceosome organisation + super-enhancer condensa
 | 7-mer-m8 | Seed + complementary base at position 8 | Moderate (~30 %) |
 | 8-mer | 7-mer-A1 + 7-mer-m8 combined | Strong (~50 %) |
 | 3′ supplementary | Seed + 3′ end pairing (positions 13–16) | Modest extra contribution |
-| Centred site | 11-bp pairing centred on positions 4–14 | Moderate; alternative class |
+| Centered site | 11-bp pairing centered on positions 4–14 | Moderate; alternative class |
 
 Because each miRNA can have hundreds to thousands of targets (TargetScan, miRanda, DIANA-microT predictions), miRNAs typically tune target levels by 20–60 % rather than completely silencing them — they are "regulatory thermostats" rather than on/off switches.
 
@@ -661,6 +671,7 @@ Because each miRNA can have hundreds to thousands of targets (TargetScan, miRand
 
 **The histone code**:
 
+: Epigenetic Regulation of Transcriptional State: Modification and Location. {#tbl:unit_IV_gene_expression_epigenetic_regulation_of_transcriptional_state}
 | Modification | Location | Effect |
 |-------------|----------|--------|
 | H3K4me3 | Promoters | Active transcription |
@@ -703,6 +714,7 @@ Because each miRNA can have hundreds to thousands of targets (TargetScan, miRand
 
 \begin{equation}\text{AUG-UUC-AAG-GAC-UAU-UGC-CCG-UAG-ACU-U}\label{eq:reading_frame}\end{equation}
 
+: Gene Regulation in Development: Hox Genes: Codon and Amino Acid. {#tbl:unit_IV_gene_expression_gene_regulation_in_development_hox_genes}
 | Codon | Amino Acid |
 |-------|-----------|
 | AUG | Met |
@@ -737,7 +749,7 @@ mrna = transcribe_dna_to_mrna("TACGGCTTGTTC")
 print(" ".join(translate_mrna(mrna)[:6]))
 ```
 
-> **Clinical / systems note:** NMD and cap-dependent scanning are therapeutic pressure points: nonsense mutations in tumour suppressors can be targeted with read-through compounds, while eIF4A inhibitors attempt to collapse translation of highly structured oncogenic mRNAs.
+> **Clinical / systems note:** NMD and cap-dependent scanning are therapeutic pressure points: nonsense mutations in tumor suppressors can be targeted with read-through compounds, while eIF4A inhibitors attempt to collapse translation of highly structured oncogenic mRNAs.
 
 ---
 
@@ -833,6 +845,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Gene Expression — Transcription and Translation. {#tbl:unit_IV_gene_expression_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/genetics/genetics.py` (`transcribe_dna_to_mrna`, `translate_mrna`, `gc_content`) | Reproduce transcription, translation, codon lookup, and sequence-composition checks. |

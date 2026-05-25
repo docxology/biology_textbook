@@ -27,7 +27,7 @@
 \label{fig:unit_X_biome_distribution}
 \end{figure}
 
-<!-- alt: Scatter plot with mean annual precipitation on the x-axis and mean annual temperature on the y-axis. Six labelled biome points are sized by net primary productivity. -->
+<!-- alt: Scatter plot with mean annual precipitation on the x-axis and mean annual temperature on the y-axis. Six labeled biome points are sized by net primary productivity. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -39,8 +39,8 @@
 - **Data skill:** Use maps, trend data, and threat categories to justify conservation priorities.
 - **Practice cadence:** Representing and Describing Data, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** Conservation is decision-making under constraints and uncertainty, not only preserving untouched nature.
-- **Primary lab:** \cref{sec:lab_unit_X_biomes_and_conservation}.
-- **Question bank:** \cref{sec:q_unit_X_biomes_and_conservation}.
+- **Primary lab:** \nameref{sec:lab_unit_X_biomes_and_conservation}.
+- **Question bank:** \nameref{sec:q_unit_X_biomes_and_conservation}.
 - **Transfer task:** Transfer conservation reasoning to land use, climate corridors, restoration, and environmental justice.
 - **Bridge to computation:** `biology.ecology.ecology.species_area_relationship`.
 <!-- curriculum-scaffold-end -->
@@ -53,7 +53,7 @@
 
 ## Biomes as Climate-Filtered Ecological Regions
 
-A **biome** is a large-scale ecological zone characterised by climate (principally temperature and precipitation) and the type of vegetation and animal communities adapted to those conditions. Biome distribution follows Whittaker's (1975) climate-vegetation gradient map, subsequently confirmed and refined by MODIS satellite NPP data (Running et al. 2004, *Science*) and updated with machine-learning-enhanced Koppen-Geiger classifications (Monzon-Alvarado et al. 2023, *Glob. Change Biol.*).
+A **biome** is a large-scale ecological zone characterized by climate (principally temperature and precipitation) and the type of vegetation and animal communities adapted to those conditions. Biome distribution follows Whittaker's (1975) climate-vegetation gradient map, subsequently confirmed and refined by MODIS satellite NPP data (Running et al. 2004, *Science*) and updated with machine-learning-enhanced Koppen-Geiger classifications (Monzon-Alvarado et al. 2023, *Glob. Change Biol.*).
 
 ### Climate as the Master Variable
 
@@ -66,20 +66,22 @@ The distribution of biomes is determined primarily by two climate variables:
 
 ### The Nine Major Terrestrial Biomes
 
+: The Nine Major Terrestrial Biomes: Biome and Temperature. {#tbl:unit_X_biomes_and_conservation_the_nine_major_terrestrial_biomes}
 | Biome | Temperature | Precipitation | Characteristic adaptations | NPP (g C/m$^2$/yr) |
 | ----- | ----------- | ------------- | -------------------------- | ------------------- |
 | **Tropical rainforest** | 25-30$^\circ$C year-round | >2,000 mm/yr | Buttress roots, [**epiphyte**](#gl:epiphyte)s, drip tips, fig-wasp [**mutualism**](#gl:mutualism), stratified canopy (emergent/canopy/understory/forest floor) | 1,000-1,750 |
 | **Tropical seasonal forest / savanna** | 25$^\circ$C; distinct dry season | 1,000-2,000 mm/yr | Deciduousness (dry season); fire-adapted grasses (resprouting); ungulate herding; C4 grasses | 450-1,000 |
-| **Desert** | Extreme diurnal range; hot or cold | <250 mm/yr | CAM [**photosynthesis**](#gl:photosynthesis); nocturnal behaviour; waxy cuticles; deep taproots; water storage | 45-125 |
+| **Desert** | Extreme diurnal range; hot or cold | <250 mm/yr | CAM [**photosynthesis**](#gl:photosynthesis); nocturnal behavior; waxy cuticles; deep taproots; water storage | 45-125 |
 | **Temperate grassland / prairie** | 0-25$^\circ$C; large annual range | 300-1,500 mm/yr | Deep root systems (>2 m); C4 grasses in warm areas; burrowing animals; fire-maintained | 250-450 |
 | **Temperate deciduous forest** | 0-20$^\circ$C; 4 distinct seasons | 750-1,500 mm/yr | Autumn leaf senescence (ABA-mediated); arbuscular mycorrhizae; spring ephemerals | 500-1,250 |
 | **Temperate rainforest** | 5-15$^\circ$C; ocean-moderated | >1,500 mm/yr | Tallest trees on Earth (coastal redwood *Sequoia sempervirens*, 115 m); heavy epiphytic moss cover | 750-1,500 |
 | **Boreal forest (taiga)** | -10 to 10$^\circ$C | 300-850 mm/yr (snow) | Conical crown shape (snow shedding); antifreeze [**protein**](#gl:protein)s; permafrost soils; low decomposition | 300-600 |
 | **Tundra (arctic)** | -30 to 10$^\circ$C; short growing season | <250 mm/yr | Cushion plants; freeze-tolerance (cryoprotectants); permafrost (active layer <1 m); lichens | 50-200 |
-| **Mediterranean shrubland (chaparral)** | Mild wet winters; hot dry summers | 300-800 mm/yr | Sclerophyllous leaves (thick cuticle, high fibre); fire-serotinous cones; resprouting lignotubers | 225-650 |
+| **Mediterranean shrubland (chaparral)** | Mild wet winters; hot dry summers | 300-800 mm/yr | Sclerophyllous leaves (thick cuticle, high fiber); fire-serotinous cones; resprouting lignotubers | 225-650 |
 
 ### Five Major Aquatic Biome Types
 
+: Five Major Aquatic Biome Types: Biome and Key features. {#tbl:unit_X_biomes_and_conservation_five_major_aquatic_biome_types}
 | Biome | Key features | Indicator species | NPP (g C/m$^2$/yr) |
 | ----- | ------------ | ----------------- | ------------------- |
 | **Freshwater lakes & rivers** | Salinity <0.5 ppt; thermal stratification (epilimnion/hypolimnion); lotic vs. lentic | Trout, cattails, caddisfly larvae | 50-750 |
@@ -92,6 +94,7 @@ The distribution of biomes is determined primarily by two climate variables:
 
 Temperate lakes exhibit seasonal stratification:
 
+: Lake Stratification and Turnover: Layer and Temperature. {#tbl:unit_X_biomes_and_conservation_lake_stratification_and_turnover}
 | Layer | Temperature | Density | Characteristics |
 | ----- | ----------- | ------- | --------------- |
 | **Epilimnion** | Warm (20-25$^\circ$C) | Low | Surface; mixed by wind; O$_2$-rich, nutrient-depleted |
@@ -129,7 +132,7 @@ flowchart TD
 
 *Coral bleaching responses can test heat-tolerant hosts, symbionts, or microbiomes as local resilience tools, but those interventions remain complements to climate mitigation and reef-water-quality management \citep{noaa2025coralbleaching,strader2022coralheat}.*
 
-> 🔬 **Clinical Connection — Reef-Derived Pharmaceuticals:** Coral reef ecosystems are a source of bioactive compounds for drug development. **Pseudopterosin** (from the Caribbean sea whip *Pseudopterogorgia elisabethae*) has potent anti-inflammatory and analgesic properties and is used in commercial wound-healing formulations. **Discodermolide** (from the deep-sea sponge *Discodermia dissoluta*) shows anti-cancer properties by stabilising microtubules, similar to taxol. The cone snail toxin **ziconotide** (Prialt) is an FDA-approved non-opioid analgesic for severe chronic pain. Reef destruction through bleaching and acidification threatens the loss of undiscovered pharmaceutical compounds before they can be identified — a form of pharmacological extinction debt.
+> 🔬 **Clinical Connection — Reef-Derived Pharmaceuticals:** Coral reef ecosystems are a source of bioactive compounds for drug development. **Pseudopterosin** (from the Caribbean sea whip *Pseudopterogorgia elisabethae*) has potent anti-inflammatory and analgesic properties and is used in commercial wound-healing formulations. **Discodermolide** (from the deep-sea sponge *Discodermia dissoluta*) shows anti-cancer properties by stabilizing microtubules, similar to taxol. The cone snail toxin **ziconotide** (Prialt) is an FDA-approved non-opioid analgesic for severe chronic pain. Reef destruction through bleaching and acidification threatens the loss of undiscovered pharmaceutical compounds before they can be identified — a form of pharmacological extinction debt.
 
 > **Concept Check:** What climatic variables determine whether a region supports tropical rainforest vs. tropical savanna? How does fire interact with precipitation to maintain the savanna biome?
 
@@ -156,6 +159,7 @@ graph TD
 
 ### Key Findings (2023-2025)
 
+: Key Findings (2023-2025): Finding and Study. {#tbl:unit_X_biomes_and_conservation_key_findings_2023_2025}
 | Finding | Study | Key result |
 | ------- | ----- | ---------- |
 | Biome boundaries shifting poleward | Chen et al. (2023, *Nat. Clim. Change*) | 5-10 km/decade poleward; 6 m/decade upslope |
@@ -165,17 +169,18 @@ graph TD
 | Permafrost thaw methane pulse | Turetsky et al. (2024, *Nat. Geosci.*) | Abrupt thaw adds 2-5 Gt C/yr by 2050; omitted from most models |
 | Tree mortality acceleration | McDowell et al. (2024, *Science*) | Global tree mortality rates doubled since 1970s; drought/heat/insects |
 
-### Biome Suitability Modelling
+### Biome Suitability Modeling
 
 \begin{equation}
 S = \sum_i w_i \cdot f_i(T, P)
 \label{eq:biomes_and_conservation_1}
 \end{equation}
 
-where $w_i$ = variable weights (temperature, precipitation, seasonality index), $f_i$ = Gaussian response function centred on optimal conditions.
+where $w_i$ = variable weights (temperature, precipitation, seasonality index), $f_i$ = Gaussian response function centered on optimal conditions.
 
 **Species distribution models (SDMs)** project future range shifts by correlating current distributions with climate variables and projecting onto future climate scenarios:
 
+: Biome Suitability Modeling: Model type and Approach. {#tbl:unit_X_biomes_and_conservation_biome_suitability_modelling}
 | Model type | Approach | Strengths | Limitations |
 | ---------- | -------- | --------- | ----------- |
 | **Bioclimatic envelope** | Correlative (climate → presence) | Simple; good for many species | Ignores dispersal, biotic interactions |
@@ -208,6 +213,7 @@ In flat landscapes (e.g., Amazon basin), spatial gradients are shallow → clima
 
 The **Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services (IPBES)** — analogous to the IPCC for climate — released its first Global Assessment in 2019 and its Transformative Change Assessment in 2024 \citep{ipbes2019global,ipbes2024transformative}. Its findings frame contemporary conservation:
 
+: IPBES Global Assessment: The Quantified Crisis: IPBES finding and Quantitative result. {#tbl:unit_X_biomes_and_conservation_ipbes_global_assessment_the_quantified_crisis}
 | IPBES finding | Quantitative result |
 | ------------- | ------------------- |
 | Species threatened with extinction | ~1,000,000 in the IPBES synthesis \citep{ipbes2019global}; the IUCN Red List provides the tracked assessed-species subset \citep{iucn2025redlist} |
@@ -223,6 +229,7 @@ The **Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Se
 
 IPBES ranked the relative importance of the five direct drivers of biodiversity loss in **terrestrial and freshwater systems**:
 
+: Quantified Drivers (IPBES 2019): Rank and Driver. {#tbl:unit_X_biomes_and_conservation_quantified_drivers_ipbes_2019}
 | Rank | Driver | Approximate contribution |
 | ---- | ------ | ------------------------ |
 | 1 | Land-use change (agriculture, urbanisation, infrastructure) | ~30% |
@@ -243,6 +250,7 @@ Food systems are a useful place to make "transformative change" concrete. FAO, I
 
 Earth currently experiences the **Sixth Mass Extinction** — driven primarily by human activities:
 
+: The Sixth Mass Extinction: Driver and Mechanism. {#tbl:unit_X_biomes_and_conservation_the_sixth_mass_extinction}
 | Driver | Mechanism | Relative contribution |
 | ------ | --------- | -------------------- |
 | **Habitat destruction** | Land-use change, deforestation, urbanisation | ~30% of threatened species |
@@ -262,6 +270,7 @@ Earth currently experiences the **Sixth Mass Extinction** — driven primarily b
 
 ### IUCN Red List Categories (2025 Update)
 
+: IUCN Red List Categories (2025 Update): Category and Code. {#tbl:unit_X_biomes_and_conservation_iucn_red_list_categories_2025_update}
 | Category | Code | Quantitative threshold |
 | -------- | ---- | ---------------------- |
 | **Extinct** | EX | No reasonable doubt that last individual has died |
@@ -310,7 +319,7 @@ flowchart LR
     ACTION --> CAPTIVE["Captive Breeding\n(Ne ≥ 50 short-term)"]
     ACTION --> HABITAT["Habitat Protection\n(Reserve Design)"]
     ACTION --> GENETIC["Genetic Rescue\n(Translocation)"]
-    ACTION --> MONITOR["Population Monitoring\n(PVA Modelling)"]
+    ACTION --> MONITOR["Population Monitoring\n(PVA Modeling)"]
 
     style CR1 fill:#d9534f,color:#fff
     style CR2 fill:#d9534f,color:#fff
@@ -332,6 +341,7 @@ flowchart LR
 
 The **minimum viable population** is the smallest population with at least 95% probability of persistence for at least 100 generations, accounting for four types of stochasticity:
 
+: Minimum Viable Population (MVP): Stochasticity type and Mechanism. {#tbl:unit_X_biomes_and_conservation_minimum_viable_population_mvp}
 | Stochasticity type | Mechanism | Effect on small populations |
 | ------------------ | --------- | -------------------------- |
 | **Demographic** | Random variation in births/deaths | Even when $r > 0$, small $N$ → high extinction probability |
@@ -413,6 +423,7 @@ where $S_{\text{pre-fragmentation}}$ is species richness before habitat loss, $A
 
 ### Case Studies of Delayed Extinction
 
+: Case Studies of Delayed Extinction: System and Debt estimate. {#tbl:unit_X_biomes_and_conservation_case_studies_of_delayed_extinction}
 | System | Debt estimate | Relaxation time | Reference |
 | ------ | ------------- | --------------- | --------- |
 | European calcareous grasslands | 20-50% of plant species | 50-200 years | Lindborg & Eriksson 2004 |
@@ -420,7 +431,7 @@ where $S_{\text{pre-fragmentation}}$ is species richness before habitat loss, $A
 | African tropical forests | 10-30% of endemic species | Ongoing | Brooks et al. 1999 |
 | Belgian forest herbs | 30-40% in fragments <1 ha | 100+ years | Vellend et al. 2006 |
 
-**Conservation implication:** Present-day species richness **overestimates** long-term viability. Conservation assessments based on current presence may be dangerously optimistic. Extinction debt means that the full consequences of today's deforestation will not be realised for decades to centuries.
+**Conservation implication:** Present-day species richness **overestimates** long-term viability. Conservation assessments based on current presence may be dangerously optimistic. Extinction debt means that the full consequences of today's deforestation will not be realized for decades to centuries.
 
 > **Concept Check:** A 10,000-ha forest is fragmented into ten 100-ha patches. Using $S = 20A^{0.25}$, calculate species richness for the intact forest and for each fragment. How many species are "committed" to extinction via extinction debt? How would wildlife corridors between patches modify this prediction?
 
@@ -447,6 +458,7 @@ print(f"Species lost from fragmentation: {((S_large-S_small)/S_large)*100:.0f}%"
 
 ### SLOSS Debate Resolution
 
+: SLOSS Debate Resolution: Design principle and When it applies. {#tbl:unit_X_biomes_and_conservation_sloss_debate_resolution}
 | Design principle | When it applies | Example |
 | --------------- | -------------- | ------- |
 | **Single large** preferred | Area-demanding species; interior habitat specialists; low landscape connectivity | Amazon: large reserves protect jaguar, harpy eagle |
@@ -455,11 +467,12 @@ print(f"Species lost from fragmentation: {((S_large-S_small)/S_large)*100:.0f}%"
 
 ### Diamond's Design Principles (1975, updated)
 
+: Diamond's Design Principles (1975, updated): Principle and Reasoning. {#tbl:unit_X_biomes_and_conservation_diamond_s_design_principles_1975_updated}
 | Principle | Reasoning | Modern status |
 | --------- | --------- | ------------- |
 | Larger is better than smaller | Species-area relationship | Supported |
 | One large > several small of equal total area | More interior habitat; lower extinction | Context-dependent |
-| Close together better than far apart | Higher colonisation rate | Supported |
+| Close together better than far apart | Higher colonization rate | Supported |
 | Clustered better than linear arrangement | More connectivity | Supported |
 | Circular better than elongated | Less edge effect | Supported |
 | Connected by corridors better than isolated | Rescue effect; gene flow | Strongly supported |
@@ -468,9 +481,10 @@ print(f"Species lost from fragmentation: {((S_large-S_small)/S_large)*100:.0f}%"
 
 Habitat edges create microclimatic gradients that penetrate 100-300 m into forest fragments:
 
+: Edge Effects and Fragment Microclimates: Edge effect and Penetration distance. {#tbl:unit_X_biomes_and_conservation_edge_effects_and_fragment_microclimates}
 | Edge effect | Penetration distance | Impact |
 | ----------- | ------------------- | ------ |
-| Increased light | 50-200 m | Favours pioneer species; dries forest interior |
+| Increased light | 50-200 m | Favors pioneer species; dries forest interior |
 | Wind damage | 100-300 m | Increased tree mortality |
 | Elevated temperature | 50-100 m | Shifts microclimate; stresses shade species |
 | Nest predation/parasitism | 200-600 m | Cowbird parasitism and corvid predation increase |
@@ -508,6 +522,7 @@ where $r$ = reserve radius and $d$ = edge penetration distance. For a 10-ha circ
 
 **Three types of rewilding:**
 
+: Rewilding and Trophic Restoration: Type and Approach. {#tbl:unit_X_biomes_and_conservation_rewilding_and_trophic_restoration}
 | Type | Approach | Example |
 | ---- | -------- | ------- |
 | **Trophic rewilding** | Reintroduce apex predators/herbivores to restore cascades | Wolves in Yellowstone (1995); lynx in UK (proposed) |
@@ -515,11 +530,11 @@ where $r$ = reserve radius and $d$ = edge penetration distance. For a 10-ha circ
 | **Passive rewilding** | Remove human disturbance; allow natural regeneration | European farmland abandonment → forest recovery |
 
 **Quantitative outcomes of wolf reintroduction in Yellowstone:**
-- Elk: population reduced ~50% (12,000 → 6,000); behaviour change (avoid riverbanks)
+- Elk: population reduced ~50% (12,000 → 6,000); behavior change (avoid riverbanks)
 - Willows: height increased 5-fold in riparian areas within 15 years
 - Beavers: 0 colonies in 1995 → 12 colonies by 2012
 - Songbirds: 5 species returned to recovering riparian habitat
-- Stream morphology: channels narrowed and deepened as bank vegetation stabilised soil
+- Stream morphology: channels narrowed and deepened as bank vegetation stabilized soil
 - Berry production: increased → grizzly bear diet shifted (consuming 10x more berries)
 
 **Pleistocene Park hypothesis:** Zimov et al. (2012, *Science*): Reintroducing large herbivores to Arctic tundra compacts snow in winter, allowing cold air to freeze soil deeper, **slowing permafrost thaw** by ~80% compared to snow-insulated control plots.
@@ -528,14 +543,15 @@ where $r$ = reserve radius and $d$ = edge penetration distance. For a 10-ha circ
 
 **Whole-[**genome**](#gl:genome) sequencing** of threatened populations enables:
 
-Conservation genomics is strongest when sequencing is tied to a management decision rather than treated as an expensive description. Runs of homozygosity estimate recent inbreeding, allele-frequency outliers can nominate local adaptation, pangenome or long-read approaches can reveal structural variation, and pedigree-aware sampling can separate ancestry from recent bottlenecks. The ethical layer is inseparable: sampling permits, Indigenous data sovereignty, benefit-sharing, and the risk of over-prioritising "genetically interesting" populations most affect whether the genomic evidence should guide action.
+Conservation genomics is strongest when sequencing is tied to a management decision rather than treated as an expensive description. Runs of homozygosity estimate recent inbreeding, allele-frequency outliers can nominate local adaptation, pangenome or long-read approaches can reveal structural variation, and pedigree-aware sampling can separate ancestry from recent bottlenecks. The ethical layer is inseparable: sampling permits, Indigenous data sovereignty, benefit-sharing, and the risk of over-prioritizing "genetically interesting" populations most affect whether the genomic evidence should guide action.
 
+: Conservation Genomics for Diversity and Management: Application and Method. {#tbl:unit_X_biomes_and_conservation_conservation_genomics_for_diversity_and_management}
 | Application | Method | Example |
 | ----------- | ------ | ------- |
 | **Inbreeding assessment** | Runs of homozygosity (ROH) analysis | Cheetah: ~10 Mb average ROH; severe bottleneck |
 | **Adaptive variation** | Genome-wide association (GWAS) for climate-relevant loci | Coral heat tolerance alleles in *Acropora* |
 | **Management units** | Population structure (FST, admixture analysis) | Tiger: 6 subspecies → conservation priorities |
-| **Genetic rescue planning** | Identify source populations maximising heterozygosity | Florida panther × Texas cougar |
+| **Genetic rescue planning** | Identify source populations maximizing heterozygosity | Florida panther × Texas cougar |
 | **Ancient DNA** | Reconstruct historical diversity; identify lost alleles | Woolly mammoth → mammoth de-extinction project |
 
 ```mermaid
@@ -574,8 +590,8 @@ sequenceDiagram
 
 **Assisted migration (managed relocation):** Moving entire species to new locations outside their historical range where future climate is suitable. Controversial due to invasion risk.
 
-**De-extinction:** Using genomic engineering to resurrect functional analogues of extinct species:
-- **Woolly mammoth project** (Colossal Biosciences): Editing Asian elephant genome with mammoth cold-adaptation genes (TRPV3, haemoglobin variants, fat deposition); goal: produce cold-adapted elephants for Arctic rewilding
+**De-extinction:** Using genomic engineering to resurrect functional analogs of extinct species:
+- **Woolly mammoth project** (Colossal Biosciences): Editing Asian elephant genome with mammoth cold-adaptation genes (TRPV3, hemoglobin variants, fat deposition); goal: produce cold-adapted elephants for Arctic rewilding
 - **Thylacine project** (Colossal): Reconstructing thylacine genome from museum specimens
 - **Ethical debates:** Should resources be spent on de-extinction rather than preventing current extinctions?
 
@@ -585,11 +601,12 @@ Traditional conservation aims to preserve historical baselines. **Climate-adapti
 
 The hard part is deciding when to resist change, when to help a system transition, and when to redirect effort toward ecosystem function rather than historical composition. Coral reefs illustrate the tradeoff: assisted gene flow, symbiont management, shading, and local water-quality improvement can raise local resilience, but they do not remove the external heat and acidification drivers. Climate-adaptive management is therefore a portfolio problem, pairing local stress reduction with monitoring, emissions context, social feasibility, and explicit thresholds for changing strategy \citep{noaa2025coralbleaching,ipbes2024transformative}.
 
+: Climate-Adaptive Management: Approach and Strategy. {#tbl:unit_X_biomes_and_conservation_climate_adaptive_management}
 | Approach | Strategy | Example |
 | -------- | -------- | ------- |
-| **Protect climate refugia** | Identify and protect areas where climate change impacts are minimised | Deep canyons, north-facing slopes, groundwater-fed wetlands |
+| **Protect climate refugia** | Identify and protect areas where climate change impacts are minimized | Deep canyons, north-facing slopes, groundwater-fed wetlands |
 | **Increase connectivity** | Corridors for range shifts | Continental-scale corridors (Y2Y, Florida Wildlife Corridor) |
-| **Managed retreat** | Accept loss of some habitats; invest in new ones | Managed realignment of coastal defences; creating new marshland |
+| **Managed retreat** | Accept loss of some habitats; invest in new ones | Managed realignment of coastal defenses; creating new marshland |
 | **Reduce non-climate stressors** | Remove pollution, invasive species to increase resilience | Reducing sediment runoff on coral reefs |
 
 ---
@@ -629,7 +646,7 @@ graph TD
 
 ## Climate Velocity, Refugia, and Species Range Shifts
 
-\citet{ripple2012} and Loarie et al. (2009, *Nature*) established **climate velocity** as the central organising metric for climate-adaptive conservation. The velocity is the speed at which a given thermal envelope moves across the landscape, and species must disperse at least this fast to track their climatic niche.
+\citet{ripple2012} and Loarie et al. (2009, *Nature*) established **climate velocity** as the central organizing metric for climate-adaptive conservation. The velocity is the speed at which a given thermal envelope moves across the landscape, and species must disperse at least this fast to track their climatic niche.
 
 \begin{equation}
 v_{\text{climate}} = \frac{\partial T/\partial t}{|\nabla T|}
@@ -638,6 +655,7 @@ v_{\text{climate}} = \frac{\partial T/\partial t}{|\nabla T|}
 
 The numerator is the rate of climate change at a point (°C/yr); the denominator is the local spatial temperature gradient (°C/km). Rearranging gives velocity in km/yr.
 
+: Visualizing Reserve Design Principles: Landscape and Spatial gradient. {#tbl:unit_X_biomes_and_conservation_visualizing_reserve_design_principles}
 | Landscape | Spatial gradient | Velocity at +0.03 °C/yr |
 | --------- | ---------------- | ----------------------- |
 | Mountain (e.g., Andes) | 5 °C/km vertically | 0.006 km/yr (6 m/yr — slow) |
@@ -650,8 +668,9 @@ The flattest landscapes generate the fastest velocities — exactly where specie
 
 ### Refugia and Their Identification
 
-**Climate refugia** are locations where the local climate changes more slowly than the regional average, providing temporary or permanent havens for species unable to track climate velocity. Recognised refugia types:
+**Climate refugia** are locations where the local climate changes more slowly than the regional average, providing temporary or permanent havens for species unable to track climate velocity. Recognized refugia types:
 
+: Refugia and Their Identification: Type and Mechanism. {#tbl:unit_X_biomes_and_conservation_refugia_and_their_identification}
 | Type | Mechanism | Examples |
 | ---- | --------- | -------- |
 | **Topographic** | Cold-air pooling, north-facing slopes, deep canyons buffer temperature | Klamath-Siskiyou (NW USA); Mediterranean canyons |
@@ -661,7 +680,7 @@ The flattest landscapes generate the fastest velocities — exactly where specie
 | **Coastal upwelling** | Cold-water upwelling buffers warming surface oceans | California Current; Benguela; Peru |
 | **Cryptic / paleo** | Sites that remained inhabitable through Pleistocene glaciations | Many high-biodiversity hotspots map onto past refugia |
 
-Refugia identification is a major effort of climate-adaptive conservation planning: high-resolution climate downscaling (≤ 1 km grids) plus species distribution modelling reveals locations where target species can persist longest, prioritising them for protection. The **Adapt West** initiative (Conservation Biology Institute) maps climate refugia for North American species; analogous tools exist in Australia, Europe, and parts of South America.
+Refugia identification is a major effort of climate-adaptive conservation planning: high-resolution climate downscaling (≤ 1 km grids) plus species distribution modeling reveals locations where target species can persist longest, prioritizing them for protection. The **Adapt West** initiative (Conservation Biology Institute) maps climate refugia for North American species; analogous tools exist in Australia, Europe, and parts of South America.
 
 > **Concept Check:** Two endangered birds occupy similar habitat: species A in the high Andes (5 °C/km gradient) and species B on the Brazilian cerrado (flat). With identical thermal requirements and warming rates, which species faces the greater extinction risk from climate change, and what reserve-design implications follow?
 
@@ -673,13 +692,14 @@ Refugia identification is a major effort of climate-adaptive conservation planni
 
 ### Major EbA Strategies
 
+: Major EbA Strategies: Strategy and Mechanism. {#tbl:unit_X_biomes_and_conservation_major_eba_strategies}
 | Strategy | Mechanism | Co-benefit |
 | -------- | --------- | ---------- |
-| **Mangrove restoration** | Wave attenuation; coastal sediment stabilisation; storm surge buffering (each 100 m of mangrove reduces wave height ~20 %) | Carbon sequestration (3–5 × tropical forest density); fisheries nursery |
+| **Mangrove restoration** | Wave attenuation; coastal sediment stabilization; storm surge buffering (each 100 m of mangrove reduces wave height ~20 %) | Carbon sequestration (3–5 × tropical forest density); fisheries nursery |
 | **Coral reef restoration** | Wave dissipation (reefs reduce wave energy 70–95 %); coastal protection valued at ~\$10,000/km/yr | Tourism; fisheries; biodiversity |
 | **Urban green infrastructure** | Tree canopy reduces urban heat island by 2–5 °C; permeable surfaces reduce flooding | Air quality; mental health; physical activity |
 | **Wetland conservation** | Floodplain water storage; nutrient filtration | Wildlife habitat; recreation |
-| **Reforestation / agroforestry** | Soil retention; rainfall recycling; microclimate stabilisation | Carbon storage; smallholder livelihoods |
+| **Reforestation / agroforestry** | Soil retention; rainfall recycling; microclimate stabilization | Carbon storage; smallholder livelihoods |
 | **Drought-tolerant agroecosystems** | Diverse cropping, perennial roots, soil organic matter | Food security; reduced N$_2$O |
 | **Living shorelines** | Marsh and oyster reef construction replacing seawalls | Habitat; better long-term storm performance than hard infrastructure |
 
@@ -703,7 +723,7 @@ EbA is best understood as one component of a multi-layered adaptation portfolio 
 
 > 🔬 **Clinical Connection — Heat Action Plans and Public Health.** Following the 2003 European heat wave (~70,000 excess deaths) and the 2010 Russian heat wave (~55,000 excess deaths), cities increasingly couple ecological strategies (urban tree planting, cool roofs, restored wetlands and parks) with public health interventions (heat warning systems, cooling shelters, vulnerable-population outreach). Ahmedabad, India implemented South Asia's first Heat Action Plan in 2013 after a 2010 heat wave killed > 1,300 residents; subsequent years saw ~30% reductions in heat-related mortality despite continued warming. Mexico City, Phoenix, and Chicago have similar plans. These One Health interventions integrate biodiversity conservation, urban ecology, and human health — operationalising the EbA framework.
 
-> **Concept Check:** A coastal municipality must spend its limited adaptation budget on protecting 20 km of shoreline from increasing storm surge. (a) Compare the cost-benefit profile of seawall construction vs. mangrove restoration. (b) Why is EbA not always the best choice — what conditions favour hard infrastructure? (c) How does coral bleaching complicate the math?
+> **Concept Check:** A coastal municipality must spend its limited adaptation budget on protecting 20 km of shoreline from increasing storm surge. (a) Compare the cost-benefit profile of seawall construction vs. mangrove restoration. (b) Why is EbA not always the best choice — what conditions favor hard infrastructure? (c) How does coral bleaching complicate the math?
 
 ---
 
@@ -711,6 +731,7 @@ EbA is best understood as one component of a multi-layered adaptation portfolio 
 
 ### Conservation Agreements: CITES, CBD, GBF, and Paris Agreement
 
+: Conservation Agreements: CITES, CBD, GBF, and Paris Agreement: Framework and Year. {#tbl:unit_X_biomes_and_conservation_conservation_agreements_cites_cbd_gbf_and_paris_agreement}
 | Framework | Year | Target | Status (2024) |
 | --------- | ---- | ------ | ------------- |
 | **CITES** | 1975 | Regulate international wildlife trade | Parties and listed taxa change as appendices are amended; cite the live appendices for current counts \citep{cites2026appendices} |
@@ -910,7 +931,7 @@ the chapter. Ecology and conservation decisions increasingly combine field data,
 
 Use conservation metrics carefully: population indices, extinction-risk categories, ecosystem services, and governance targets answer different decisions \citep{ipbes2019global,ipbes2024transformative,wwf2024livingplanet,iucn2025redlist,fao2024sofia}.
 
-Occurrence data answer a different question from extinction-risk categories or policy synthesis. GBIF is open biodiversity occurrence infrastructure: it mobilizes where-and-when records from museums, monitoring programmes, DNA barcodes, and recent observations through shared data standards such as Darwin Core. Use GBIF to ask where a taxon has been recorded; use IUCN and IPBES to ask how risk, drivers, and policy responses have been assessed. A conservation claim should filter date, coordinate uncertainty, taxonomic backbone, duplicates, and sampling bias before treating occurrence points as abundance or range evidence \citep{gbif2026,iucn2025redlist,ipbes2024transformative}.
+Occurrence data answer a different question from extinction-risk categories or policy synthesis. GBIF is open biodiversity occurrence infrastructure: it mobilizes where-and-when records from museums, monitoring programs, DNA barcodes, and recent observations through shared data standards such as Darwin Core. Use GBIF to ask where a taxon has been recorded; use IUCN and IPBES to ask how risk, drivers, and policy responses have been assessed. A conservation claim should filter date, coordinate uncertainty, taxonomic backbone, duplicates, and sampling bias before treating occurrence points as abundance or range evidence \citep{gbif2026,iucn2025redlist,ipbes2024transformative}.
 
 **Source practice:** For conservation decisions, identify whether the evidence is a population index, extinction-risk assessment, ecosystem-service valuation, satellite product, or policy synthesis \citep{ipbes2024transformative,noaa2025coralbleaching,iucn2025redlist,fao2025sofi}.
 
@@ -934,6 +955,7 @@ flowchart TD
 
 ## Key Terms
 
+: Current Evidence Map: Conservation Decision Evidence Chain: Term and Definition. {#tbl:unit_X_biomes_and_conservation_current_evidence_map_conservation_decision_evidence_chain}
 | Term | Definition |
 | ---- | ---------- |
 | **Biome** | Large-scale ecological zone defined by climate and [**dominant**](#gl:dominant) vegetation type |
@@ -953,7 +975,7 @@ flowchart TD
 | **Edge effect** | Microclimatic and biotic changes at habitat fragment boundaries |
 | **Coral bleaching** | Thermal stress-induced expulsion of zooxanthellae; loss of coral energy supply |
 | **30x30** | Target to protect 30% of land and ocean by 2030 (Kunming-Montreal GBF) |
-| **De-extinction** | Using genomic engineering to resurrect functional analogues of extinct species |
+| **De-extinction** | Using genomic engineering to resurrect functional analogs of extinct species |
 | **Novel biome** | Ecosystem with no historical analog, arising from climate change |
 | **IPBES** | Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services; "IPCC for biodiversity" |
 | **Climate refugia** | Locations where local climate changes more slowly than the regional average; havens for slow-dispersing species |
@@ -990,7 +1012,7 @@ flowchart TD
 11. Compute `species_area_relationship` for $A \in \{1, 10, 100\}$ km$^2$ with $c=2$, $z=0.25$; discuss reserve sizing.
 12. Contrast **inbreeding depression** vs. **outbreeding depression** in translocation programs.
 13. The IPBES 2019 Global Assessment ranked land-use change as the dominant terrestrial driver of biodiversity loss (~30 %), with climate change at ~14 % but rising. (a) Why is this *current* ranking expected to invert by 2050? (b) How should conservation priority-setting respond to this projected shift? (c) The Transformative Change Assessment (IPBES 2024) argues that incremental conservation cannot meet biodiversity targets. What three systemic reforms does it recommend, and why are they outside traditional conservation biology?
-14. Compare two endangered birds: species A in the high Andes (5 °C/km gradient) and species B on the Brazilian cerrado (0.005 °C/km gradient), with both facing 0.03 °C/yr warming. (a) Calculate climate velocity for each. (b) Predict their relative extinction risks. (c) How does this calculation re-prioritise conservation funding between the two regions?
+14. Compare two endangered birds: species A in the high Andes (5 °C/km gradient) and species B on the Brazilian cerrado (0.005 °C/km gradient), with both facing 0.03 °C/yr warming. (a) Calculate climate velocity for each. (b) Predict their relative extinction risks. (c) How does this calculation re-prioritize conservation funding between the two regions?
 15. A coastal municipality is choosing between (a) a 20-km concrete seawall (\$2,000/m, 50-yr lifetime, no co-benefits, requires periodic rebuilding) and (b) a 20-km mangrove restoration project (\$94/m initial, low maintenance, multiple co-benefits, but vulnerable to sea-level rise faster than mangrove sediment accretion). Calculate total costs over 50 years for each, and identify under what climate-change scenario each option is preferred.
 16. Explain how the 50/500 rule, conservation genomics (runs of homozygosity, genetic load), and population viability analysis converge to inform genetic rescue decisions for the Florida panther. Why was the 1995 Texas-cougar introduction successful, and what risks (e.g., outbreeding depression) had to be balanced?
 17. Define a climate refugium and list four types (topographic, hydrological, microclimatic, elevational). Why is identifying refugia critical for 21st-century reserve design? What datasets (climate models, species distribution models, paleoecology) does refugium identification require?
@@ -1049,6 +1071,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Biomes and Conservation Biology. {#tbl:unit_X_biomes_and_conservation_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/ecology/ecology.py` (`species_area_relationship`, `biodiversity_indices`, `connectance`) | Reproduce conservation metrics and tradeoff-sensitive summaries. |

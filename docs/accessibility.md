@@ -1,7 +1,7 @@
 # Biology Textbook — Accessibility and Configuration
 
 > [!NOTE]
-> **See also:** [manuscript_guide.md](manuscript_guide.md#figures) for alt-text placement; [visualisation_guide.md](visualisation_guide.md#cvd-friendly-palette-exact-hex) for the CVD palette; [testing_guide.md](testing_guide.md) for the tests that enforce these policies.
+> **See also:** [manuscript_guide.md](manuscript_guide.md#figures) for alt-text placement; [visualization_guide.md](visualization_guide.md#cvd-friendly-palette-exact-hex) for the CVD palette; [testing_guide.md](testing_guide.md) for the tests that enforce these policies.
 
 ---
 
@@ -12,7 +12,7 @@
 - [Alt text writing guide](#alt-text-writing-guide)
 - [Bad → good alt-text rewrites](#bad--good-alt-text-rewrites)
 - [Type-specific alt-text playbook](#type-specific-alt-text-playbook)
-- [Colour-vision-deficiency (CVD) checklist](#colour-vision-deficiency-cvd-checklist)
+- [Colorvision-deficiency (CVD) checklist](#colorvision-deficiency-cvd-checklist)
 - [HTML and PDF limitations](#html-and-pdf-limitations)
 - [Reader / large-type profile (optional)](#reader--large-type-profile-optional)
 - [Related](#related)
@@ -54,7 +54,7 @@
 
 | Key | Status | Notes |
 | --- | ------ | ----- |
-| `include_solutions` | **Implemented in `biology_analysis`** | When `true`, `<!-- SOLUTION ... SOLUTION -->` blocks in question banks are revealed as blockquoted instructor answers; the same behaviour can be forced with `BIOLOGY_INCLUDE_SOLUTIONS=1`. |
+| `include_solutions` | **Implemented in `biology_analysis`** | When `true`, `<!-- SOLUTION ... SOLUTION -->` blocks in question banks are revealed as blockquoted instructor answers; the same behavior can be forced with `BIOLOGY_INCLUDE_SOLUTIONS=1`. |
 | `include_worked_problems` | **Advisory** | |
 | `watermark_instructor` | **Not wired** in project-local scripts | |
 
@@ -81,7 +81,7 @@ Alt text serves screen-reader users, low-bandwidth fallback, and search/indexing
 | **No redundancy** | Do not repeat the figure number, "shown above", or the caption verbatim. |
 | **Mathematical content** | Spell out symbols a screen reader will mispronounce: "K subscript m" instead of "Km"; "V max" instead of `V_{\max}`. |
 | **Spatial words** | "Top-left", "diagonal", "vertical bar at x = 5" help readers reconstruct layout. |
-| **Cite the units** | "millivolts", "kilopascals", "moles per litre" — write them out, not "mV", "kPa", "mol/L". |
+| **Cite the units** | "millivolts", "kilopascals", "moles per liter" — write them out, not "mV", "kPa", "mol/L". |
 
 ### The three-question test before writing
 
@@ -89,7 +89,7 @@ Alt text serves screen-reader users, low-bandwidth fallback, and search/indexing
 > Before writing an alt-text comment, ask yourself:
 >
 > 1. **What kind of figure is it?** (line plot, bar chart, schematic, equation image, photograph)
-> 2. **What is the salient visual feature?** (a peak, a plateau, a crossover, a labelled cluster)
+> 2. **What is the salient visual feature?** (a peak, a plateau, a crossover, a labeled cluster)
 > 3. **What numbers anchor the reader?** (axis range, threshold value, parameter setting)
 >
 > The answers, in one sentence, are your alt text.
@@ -167,28 +167,28 @@ Describe the **shape**, the **axes**, and the **salient features** (peaks, plate
 
 | Bad | Good |
 | --- | ---- |
-| `<!-- alt: Tree of life -->` | `<!-- alt: Three-domain phylogenetic tree with a single root branching into Bacteria on the left, Archaea in the centre, and Eukarya on the right. Eukarya nests within an archaeal sister-group, reflecting the two-domain hypothesis. -->` |
+| `<!-- alt: Tree of life -->` | `<!-- alt: Three-domain phylogenetic tree with a single root branching into Bacteria on the left, Archaea in the center, and Eukarya on the right. Eukarya nests within an archaeal sister-group, reflecting the two-domain hypothesis. -->` |
 
 ### Heatmaps
 
 | Bad | Good |
 | --- | ---- |
-| `<!-- alt: Heatmap of methylation -->` | `<!-- alt: Viridis-coloured heatmap of CpG methylation levels (0 to 1) across one hundred genomic loci on the x-axis and twelve developmental stages on the y-axis, with high methylation (yellow) clustering in the bottom-right quadrant. -->` |
+| `<!-- alt: Heatmap of methylation -->` | `<!-- alt: Viridis-colored heatmap of CpG methylation levels (0 to 1) across one hundred genomic loci on the x-axis and twelve developmental stages on the y-axis, with high methylation (yellow) clustering in the bottom-right quadrant. -->` |
 
 ---
 
-## Colour-vision-deficiency (CVD) checklist
+## Colorvision-deficiency (CVD) checklist
 
 Use this every time you create or review a figure:
 
 - [ ] Two-series plots use `cvd.SERIES2` (blue + orange) **and** different line styles (solid + dashed).
 - [ ] Three-series plots use `cvd.SERIES3` **and** three line styles (`-`, `--`, `:`).
 - [ ] Heatmaps use a perceptually uniform colormap (`viridis`, `plasma`, `cividis`); never `RdYlGn`, `jet`, or `rainbow` without a second channel.
-- [ ] Categorical coding ≥ 4 categories uses `tab10` **plus direct labels** on the chart (no colour-only legend).
+- [ ] Categorical coding ≥ 4 categories uses `tab10` **plus direct labels** on the chart (no color-only legend).
 - [ ] Punnett squares use `cvd.PUNNETT_DOMINANT` / `cvd.PUNNETT_RECESSIVE` **plus** hatch patterns (`//` and `xx`).
 - [ ] Bar charts with positive/negative values use `cvd.BAR_POS` / `cvd.BAR_NEG` **plus** a zero-line and value labels.
 - [ ] No red+green as the only two-way distinction.
-- [ ] Mermaid `classDef` styling uses Wong/Okabe-Ito hex codes (`#0072B2` blue, `#E69F00` orange, `#009E73` teal, `#D55E00` vermillion). See [visualisation_guide.md](visualisation_guide.md#wongokabe-ito-reference-palette).
+- [ ] Mermaid `classDef` styling uses Wong/Okabe-Ito hex codes (`#0072B2` blue, `#E69F00` orange, `#009E73` teal, `#D55E00` vermillion). See [visualization_guide.md](visualization_guide.md#wongokabe-ito-reference-palette).
 
 ---
 
@@ -228,5 +228,5 @@ Document which profile a given PDF build used in release notes or the title page
 - [../manuscript/AGENTS.md](../manuscript/AGENTS.md) — manuscript contract, figure allowlists, print density.
 - [../tests/README.md](../tests/README.md) — which tests map to which policies.
 - [testing_guide.md](testing_guide.md) — no-mock policy, failure triage, "what test catches what mistake".
-- [visualisation_guide.md](visualisation_guide.md) — figures, CVD defaults for matplotlib, palette hex.
+- [visualization_guide.md](visualization_guide.md) — figures, CVD defaults for matplotlib, palette hex.
 - [manuscript_guide.md](manuscript_guide.md#figures) — alt-text placement and formatting.

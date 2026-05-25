@@ -211,13 +211,13 @@ def cable_voltage_attenuation(
     """Compute steady-state voltage attenuation along a passive dendrite.
 
     V(x) = V_0 * exp(-x / λ)
-    λ = sqrt( r_m / (2 * r_i) ) where r_m and r_i are cm-normalised resistances
+    λ = sqrt( r_m / (2 * r_i) ) where r_m and r_i are cm-normalized resistances
 
     Args:
         V0_mV: Voltage at injection site (mV).
         axial_resistance_Ohm_cm: Axial cytoplasmic resistivity (Ω·cm).
         membrane_resistance_kOhm_cm2: Membrane resistance (kΩ·cm²).
-        axon_radius_cm: Fibre radius (cm).
+        axon_radius_cm: Fiber radius (cm).
         max_distance_µm: Maximum distance to compute (µm).
         n_points: Number of spatial points.
 
@@ -311,12 +311,12 @@ def hebbian_weight_update(
     weight_max: float = 1.0,
     weight_min: float = 0.0,
 ) -> float:
-    """Apply Hebb's rule: Δw = η * x_pre * x_post  (normalised BCM variant).
+    """Apply Hebb's rule: Δw = η * x_pre * x_post  (normalized BCM variant).
 
     Args:
         current_weight: Synaptic weight w ∈ [weight_min, weight_max].
-        pre_activity: Presynaptic firing rate (normalised [0,1]).
-        post_activity: Postsynaptic firing rate (normalised [0,1]).
+        pre_activity: Presynaptic firing rate (normalized [0,1]).
+        post_activity: Postsynaptic firing rate (normalized [0,1]).
         learning_rate: η.
         weight_max, weight_min: Clipping bounds.
 
@@ -365,6 +365,6 @@ BRAIN_REGIONS: dict[str, dict] = {
     },
     "Basal Ganglia": {
         "parts": ["Striatum", "Globus pallidus", "Substantia nigra", "Subthalamic nucleus"],
-        "functions": ["action selection", "procedural learning", "reward signalling"],
+        "functions": ["action selection", "procedural learning", "reward signaling"],
     },
 }

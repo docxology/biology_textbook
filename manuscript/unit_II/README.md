@@ -7,7 +7,7 @@
 | `cell_theory.md` | Cell Theory and Cell Types |
 | `cell_structure.md` | Cell Structure and Organelles |
 | `membrane_transport.md` | Membrane Structure and Transport |
-| `cell_signaling.md` | Cell Signalling and Communication |
+| `cell_signaling.md` | Cell Signaling and Communication |
 
 **Module:** `src/biology/cell/cell_biology.py`
 

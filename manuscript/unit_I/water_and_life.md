@@ -17,15 +17,6 @@
 7. Explain colligative properties and their relevance to antifreeze organisms and cryobiology.
 8. Define water activity and explain its importance for food science and microbiology.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=0.85\textwidth]{../figures/osmotic_pressure.png}
-\caption{van 't Hoff osmotic pressure versus solute concentration at 37 °C. Electrolytes with van 't Hoff factor $i>1$ generate proportionally higher osmotic pressure than non-electrolytes at equal molarity.}
-\label{fig:unit_I_osmotic_pressure}
-\end{figure}
-
-<!-- alt: Linear rise of osmotic pressure with concentration for i equals 1 and i equals 2 solutes. -->
-
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
 
@@ -36,8 +27,8 @@
 - **Data skill:** Convert between pH, hydrogen ion concentration, and buffer ratios.
 - **Practice cadence:** Concept Explanation, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** Water is not an inert background; it is an active participant in structure and reaction chemistry.
-- **Primary lab:** \cref{sec:lab_unit_I_water_and_life}.
-- **Question bank:** \cref{sec:q_unit_I_water_and_life}.
+- **Primary lab:** \nameref{sec:lab_unit_I_water_and_life}.
+- **Question bank:** \nameref{sec:q_unit_I_water_and_life}.
 - **Transfer task:** Transfer water-property reasoning to blood buffering, plant transport, or protein folding.
 - **Bridge to computation:** `biology.biochemistry.biochemistry.atp_free_energy`.
 <!-- curriculum-scaffold-end -->
@@ -66,7 +57,7 @@
 ---
 
 
-Among known molecules on Earth, liquid water is unusually well suited as the solvent of life. It is the most abundant molecule in living cells (~70% of cell mass), and metabolism depends on water as solvent, reactant, product, or thermal buffer. The following properties --- each a direct consequence of its molecular structure --- make water biologically hard to substitute.
+Among known molecules on Earth, liquid water is unusually well suited as the solvent of life \citep{ball2008water}. It is the most abundant molecule in living cells (~70% of cell mass), and metabolism depends on water as solvent, reactant, product, or thermal buffer. The following properties --- each a direct consequence of its molecular structure --- make water biologically hard to substitute.
 
 Water is so central to biology that astrobiologists use the mantra "follow the water" when searching for extraterrestrial life. Every known form of life requires liquid water, and the "habitable zone" around a star is defined primarily by the temperature range permitting liquid water on a planet's surface.
 
@@ -76,7 +67,7 @@ Water is so central to biology that astrobiologists use the mantra "follow the w
 
 The water molecule consists of one oxygen atom covalently bonded to two hydrogen atoms. The O--H bond length is 0.096 nm; the H--O--H bond angle is **104.5 degrees** (less than the tetrahedral \citep{henderson1913} 109.5 degrees because the two lone pairs compress the bonding pairs, as predicted by VSEPR theory).
 
-Oxygen's high [**electronegativity**](#gl:electronegativity) (3.44 vs. H = 2.20) generates **partial charges**: $\delta^-$ on oxygen and $\delta^+$ on each hydrogen. The resulting dipole moment (μ = 1.85 Debye) is one of the largest for any small molecule.
+Oxygen's high [**electronegativity**](#gl:electronegativity) (3.44 vs. H = 2.20) generates **partial charges**: $\delta^-$ on oxygen and $\delta^+$ on each hydrogen \citep{pauling1932electronegativity}. The resulting dipole moment (μ = 1.85 Debye) is one of the largest for any small molecule.
 
 Each water molecule can form **up to four hydrogen bonds**: two as a hydrogen-bond donor (through its two O--H hydrogens) and two as a hydrogen-bond acceptor (through its two lone pairs). This tetrahedral hydrogen bonding network gives rise to many of water's exceptional properties.
 
@@ -110,12 +101,13 @@ flowchart TD
 
 ### The Hydrogen Bond Network in Detail
 
-In liquid water at 25 degrees C, each molecule forms an average of ~3.4 hydrogen bonds at any instant (out of a maximum 4). These bonds are dynamic, with a lifetime of approximately 1--20 picoseconds. The entire hydrogen bond network rearranges on a timescale of ~1 ps --- meaning water is simultaneously highly structured and highly dynamic.
+In liquid water at 25 degrees C, each molecule forms an average of ~3.4 hydrogen bonds at any instant (out of a maximum 4) \citep{ball2008water}. These bonds are dynamic, with a lifetime of approximately 1--20 picoseconds. The entire hydrogen bond network rearranges on a timescale of ~1 ps --- meaning water is simultaneously highly structured and highly dynamic.
 
-In ice, the hydrogen bond network is fully realised: every molecule forms exactly 4 hydrogen bonds in a perfect tetrahedral geometry, creating a hexagonal lattice. This explains both the lower density of ice and the hexagonal symmetry of snowflakes.
+In ice, the hydrogen bond network is fully realized: every molecule forms exactly 4 hydrogen bonds in a perfect tetrahedral geometry, creating a hexagonal lattice. This explains both the lower density of ice and the hexagonal symmetry of snowflakes.
 
-**Quantitative dynamics of the H-bond network.** Modern femtosecond infrared spectroscopy has measured several timescales that govern water's behaviour:
+**Quantitative dynamics of the H-bond network.** Modern femtosecond infrared spectroscopy has measured several timescales that govern water's behavior:
 
+: The Hydrogen Bond Network in Detail: Process and Timescale. {#tbl:unit_I_water_and_life_the_hydrogen_bond_network_in_detail}
 | Process | Timescale | Biological relevance |
 | ------- | --------- | -------------------- |
 | O--H stretch vibration | ~10 fs | Vibrational coupling of H-bond network |
@@ -157,6 +149,7 @@ Evaporating water requires breaking the hydrogen bond network. This underlies sw
 
 **Comparison with other solvents:**
 
+: Heat of vaporisation for water and comparison solvents at 37 degrees C. {#tbl:unit_I_water_and_life_high_heat_of_vaporisation_delta_text_vap_h_44_kj_mol_at_37_degrees_c}
 | Solvent | $\Delta_{\text{vap}}H$ (kJ/mol) | Boiling Point (degrees C) | Molecular Weight |
 | ------- | ------------------------------- | ------------------------ | ---------------- |
 | Water | 40.7 | 100 | 18 |
@@ -171,7 +164,7 @@ Water has a disproportionately high heat of vaporisation relative to its molecul
 
 ### High Surface Tension (γ = 72.8 mN/m at 20 degrees C)
 
-Surface molecules have fewer neighbours to form H-bonds with, creating a net inward force. Water's surface tension is among the highest of common liquids (except mercury). This allows:
+Surface molecules have fewer neighbors to form H-bonds with, creating a net inward force. Water's surface tension is among the highest of common liquids (except mercury). This allows:
 
 - Insects (water striders) to walk on water --- their legs distribute body weight across ~2 cm$^2$ of surface area, resulting in pressure below the surface tension threshold
 - Capillary action: water rises in narrow tubes against gravity, critical for tall plants (see \cref{sec:unit_VIII_plant_structure_and_water})
@@ -199,7 +192,7 @@ If ice were denser than water, as is the case for nearly every other substance, 
 
 ### Hydrophilic Interactions and the Hydration Shell
 
-**Hydrophilic** ("water-loving") molecules carry polar groups or charges that interact favourably with water molecules via hydrogen bonding or electrostatic attraction. When ionic compounds dissolve in water, each ion is surrounded by a **hydration shell** of oriented water molecules:
+**Hydrophilic** ("water-loving") molecules carry polar groups or charges that interact favorably with water molecules via hydrogen bonding or electrostatic attraction \citep{ball2008water}. When ionic compounds dissolve in water, each ion is surrounded by a **hydration shell** of oriented water molecules:
 
 - Na$^+$: surrounded by ~6 water molecules (O pointing toward Na$^+$)
 - Cl$^-$: surrounded by ~8 water molecules (H pointing toward Cl$^-$)
@@ -233,9 +226,9 @@ sequenceDiagram
     Note over W1,Bulk: Second hydration<br/>shell is more<br/>disordered
     Note over Ion,Bulk: Complete hydrated ion:<br/>ΔG_solv = −365 kJ/mol<br/>for Na⁺
 ```
-<!-- alt: Sequence diagram showing hydration shells form because polar water molecules orient around ions; oxygen faces cations and hydrogens face anions, stabilising solutes in solution. -->
+<!-- alt: Sequence diagram showing hydration shells form because polar water molecules orient around ions; oxygen faces cations and hydrogens face anions, stabilizing solutes in solution. -->
 
-*Hydration shells form because polar water molecules orient around ions; oxygen faces cations and hydrogens face anions, stabilising solutes in solution.*
+*Hydration shells form because polar water molecules orient around ions; oxygen faces cations and hydrogens face anions, stabilizing solutes in solution.*
 
 ### The Dielectric Constant and Electrostatic Screening
 
@@ -253,7 +246,7 @@ In water, the force between two charges is reduced by a factor of 78.5 compared 
 
 **Hydrophobic** ("water-fearing") molecules carry nonpolar groups (C--H, C--C) that cannot H-bond with water. When forced into aqueous solution, surrounding water molecules form a rigid, ordered cage (**clathrate structure**) to maintain their H-bonding network. This **decreases entropy** ($\Delta S < 0$).
 
-The **hydrophobic effect** is therefore driven by entropy: aggregating nonpolar molecules together minimises the clathrate-ordered water, restoring freedom to bulk water molecules ($\Delta S$ increases). The free energy change is:
+The **hydrophobic effect** is therefore driven by entropy: aggregating nonpolar molecules together minimizes the clathrate-ordered water, restoring freedom to bulk water molecules ($\Delta S$ increases) \citep{dill1990proteinfolding}. The free energy change is:
 
 \begin{equation}
 \Delta G = \Delta H - T\Delta S
@@ -275,8 +268,9 @@ The hydrophobic effect explains:
 
 ### Amphipathic Molecules and Self-Assembly
 
-Molecules with both hydrophilic and hydrophobic regions are **amphipathic** (also called amphiphilic). Their self-assembly behaviour depends on geometry:
+Molecules with both hydrophilic and hydrophobic regions are **amphipathic** (also called amphiphilic). Their self-assembly behavior depends on geometry:
 
+: Amphipathic Molecules and Self-Assembly: Shape and Structure Formed. {#tbl:unit_I_water_and_life_amphipathic_molecules_and_self_assembly}
 | Shape | Structure Formed | Example |
 | ----- | --------------- | ------- |
 | Cone (large head, small tail) | Micelles | Bile salts, SDS |
@@ -288,6 +282,15 @@ The **critical micelle concentration (CMC)** is the concentration above which am
 ---
 
 ## Osmotic Pressure --- The van 't Hoff Equation
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{../figures/osmotic_pressure.png}
+\caption{van 't Hoff osmotic pressure versus solute concentration at 37 °C. Electrolytes with van 't Hoff factor $i>1$ generate proportionally higher osmotic pressure than non-electrolytes at equal molarity.}
+\label{fig:unit_I_osmotic_pressure}
+\end{figure}
+
+<!-- alt: Linear rise of osmotic pressure with concentration for i equals 1 and i equals 2 solutes. -->
 
 \cref{fig:unit_I_osmotic_pressure} plots osmotic pressure versus molarity for non-electrolytes and a 1:1 electrolyte at body temperature.
 
@@ -365,13 +368,13 @@ C = \frac{0.3}{2} = 0.15 \; \text{M} = 0.15 \times 58.44 = 8.77 \; \text{g/L} \a
 
 This is the basis for "normal saline" (0.9% NaCl), almost universally used in clinical settings.
 
-### Tonicity and Cell Behaviour
+### Tonicity and Cell Behavior
 
 ```mermaid
 flowchart LR
     subgraph HYPO["Hypotonic Solution"]
         H1["Solute outside < inside<br/>Water enters cell"]
-        H2["Animal cell: swells → lyses<br/>(haemolysis)"]
+        H2["Animal cell: swells → lyses<br/>(hemolysis)"]
         H3["Plant cell: swells → turgid<br/>(turgor pressure)"]
     end
 
@@ -391,14 +394,15 @@ flowchart LR
     style ISO fill:#2ecc71,color:#fff
     style HYPER fill:#e74c3c,color:#fff
 ```
-<!-- alt: Flowchart showing tonicity and osmotic responses. Osmotic behaviour of animal and plant cells in solutions of different tonicity. Plant cells are protected from lysis by their rigid cell wall, which generates turgor pressure to counterbalance osmotic influx. -->
+<!-- alt: Flowchart showing tonicity and osmotic responses. Osmotic behavior of animal and plant cells in solutions of different tonicity. Plant cells are protected from lysis by their rigid cell wall, which generates turgor pressure to counterbalance osmotic influx. -->
 
-*Tonicity and osmotic responses. Osmotic behaviour of animal and plant cells in solutions of different tonicity. Plant cells are protected from lysis by their rigid cell wall, which generates turgor pressure to counterbalance osmotic influx.*
+*Tonicity and osmotic responses. Osmotic behavior of animal and plant cells in solutions of different tonicity. Plant cells are protected from lysis by their rigid cell wall, which generates turgor pressure to counterbalance osmotic influx.*
 
+: Tonicity and Cell Behavior: Condition and Relative Solute [outside]. {#tbl:unit_I_water_and_life_tonicity_and_cell_behaviour}
 | Condition | Relative Solute [outside] | Red Blood Cell Effect | Plant Cell Effect |
 | --------- | ------------------------- | --------------------- | ----------------- |
 | Isotonic (0.9% NaCl) | = inside | Normal biconcave disc | Flaccid |
-| Hypotonic (distilled water) | < inside | Swells -> lyses (haemolysis) | Turgid (ideal for growth) |
+| Hypotonic (distilled water) | < inside | Swells -> lyses (hemolysis) | Turgid (ideal for growth) |
 | Hypertonic (2.5% NaCl) | > inside | Shrinks (crenation) | Plasmolysis |
 
 > **Clinical Connection: Osmotic Demyelination Syndrome**
@@ -409,7 +413,7 @@ flowchart LR
 
 ---
 
-> **Concept Check (Analysis):** The osmotic pressure equation $\pi = iMRT$ applies to dilute solutions. Red blood cells maintain $[\text{solute}]_\text{in} \approx 285$ mOsm, while blood plasma is also $\approx 285$ mOsm. (a) Calculate the osmotic pressure difference across the RBC membrane if a patient receives hypotonic saline (150 mOsm) at 310 K. (b) If the RBC can withstand a maximum transmembrane pressure of 0.5 atm before lysing, how hypotonic (in mOsm) must the solution be to cause haemolysis? (c) Mountain climbers experience altitude-related changes in blood oxygen. Would a shift in blood osmolarity affect haemoglobin's oxygen affinity via the Bohr effect? Explain the molecular mechanism.
+> **Concept Check (Analysis):** The osmotic pressure equation $\pi = iMRT$ applies to dilute solutions. Red blood cells maintain $[\text{solute}]_\text{in} \approx 285$ mOsm, while blood plasma is also $\approx 285$ mOsm. (a) Calculate the osmotic pressure difference across the RBC membrane if a patient receives hypotonic saline (150 mOsm) at 310 K. (b) If the RBC can withstand a maximum transmembrane pressure of 0.5 atm before lysing, how hypotonic (in mOsm) must the solution be to cause hemolysis? (c) Mountain climbers experience altitude-related changes in blood oxygen. Would a shift in blood osmolarity affect hemoglobin's oxygen affinity via the Bohr effect? Explain the molecular mechanism.
 
 > **Worked Example --- Colligative Properties and Cryoprotection:** Antarctic icefish (*Chaenocephalus aceratus*) survive at $-1.9$ degrees C, the freezing point of seawater, through antifreeze glycoproteins (AFGPs). These molecules lower the freezing point non-colligatively by binding to nascent ice crystals. For comparison, calculate how much NaCl ($i \approx 1.9$ for partial dissociation) would be needed to lower the freezing point by 1.9 degrees C using $\Delta T_f = K_f \cdot m \cdot i$, where $K_f(\text{water}) = 1.86$ degrees C/m. Required molality: $m = 1.9/(1.86 \times 1.9) = 0.538$ mol/kg. At 58.4 g/mol NaCl: $0.538 \times 58.4 \approx 31.4$ g NaCl per kg water --- roughly equivalent to seawater salinity. AFGPs achieve the same protection at about 1/300 of the colligative concentration, demonstrating that their mechanism is adsorption-inhibition (blocking ice-crystal growth kinetics) rather than freezing-point depression --- a qualitatively different physical mechanism.
 
@@ -449,13 +453,14 @@ where $k_B$ is the Boltzmann constant, $T$ is temperature, η is solvent viscosi
 
 **Reference diffusion coefficients at 37 degrees C:**
 
+: The Stokes-Einstein Equation: Molecule and D (m^2 s^{-1}). {#tbl:unit_I_water_and_life_the_stokes_einstein_equation}
 | Molecule | D (m$^2$ s$^{-1}$) | Hydrodynamic Radius (nm) |
 | -------- | ------------------ | ----------------------- |
 | O$_2$ (in water) | $2.1 \times 10^{-9}$ | 0.16 |
 | H$_2$O (self-diffusion) | $2.3 \times 10^{-9}$ | 0.14 |
 | Glucose | $6.7 \times 10^{-10}$ | 0.37 |
 | ATP | $3.7 \times 10^{-10}$ | 0.55 |
-| Haemoglobin | $6.9 \times 10^{-11}$ | 3.1 |
+| Hemoglobin | $6.9 \times 10^{-11}$ | 3.1 |
 | IgG antibody | $3.8 \times 10^{-11}$ | 5.4 |
 | DNA (small [**plasmid**](#gl:plasmid)) | $5.0 \times 10^{-13}$ | ~50 |
 
@@ -474,9 +479,9 @@ This is why multicellular organisms exceeding ~1 mm require **circulatory system
 
 ### Biological Applications of Fick's Law
 
-**Application 1 --- Oxygen delivery to muscle fibres:**
+**Application 1 --- Oxygen delivery to muscle fibers:**
 
-During exercise, the O$_2$ concentration at the capillary wall is approximately 0.13 mM, and at the centre of a muscle fibre (radius 25 μm) it drops to 0.01 mM. The flux across the fibre radius:
+During exercise, the O$_2$ concentration at the capillary wall is approximately 0.13 mM, and at the center of a muscle fiber (radius 25 μm) it drops to 0.01 mM. The flux across the fiber radius:
 
 \begin{equation}
 J = -D\frac{\Delta C}{\Delta x} = -(2.1 \times 10^{-9})\frac{(0.01 - 0.13) \times 10^3}{25 \times 10^{-6}} = 1.0 \times 10^{-2} \; \text{mol m}^{-2}\text{s}^{-1}
@@ -500,7 +505,7 @@ t = \frac{x^2}{2D} = \frac{(20 \times 10^{-9})^2}{2 \times 5 \times 10^{-10}} = 
 
 This submicrosecond diffusion time ensures rapid neurotransmission, far faster than the ~0.5 ms delay of synaptic transmission (which is dominated by vesicle fusion and receptor activation).
 
-> **Concept Check 5:** A single-celled organism is spherical with a radius of 500 μm. Using the diffusion time equation $t = r^2/(6D)$ for three-dimensional diffusion, calculate how long it would take O$_2$ to diffuse from the cell surface to the centre. Is this organism viable if it relies solely on diffusion for O$_2$ supply?
+> **Concept Check 5:** A single-celled organism is spherical with a radius of 500 μm. Using the diffusion time equation $t = r^2/(6D)$ for three-dimensional diffusion, calculate how long it would take O$_2$ to diffuse from the cell surface to the center. Is this organism viable if it relies solely on diffusion for O$_2$ supply?
 
 ---
 
@@ -515,6 +520,7 @@ Whether a solute dissolves in water is governed by the Gibbs free energy of solu
 
 The enthalpy term has three contributions: breaking solute-solute interactions ($\Delta H_1 > 0$), breaking solvent-solvent interactions ($\Delta H_2 > 0$), and forming solute-solvent interactions ($\Delta H_3 < 0$). The sign and magnitude of $\Delta H_{\text{soln}} = \Delta H_1 + \Delta H_2 + \Delta H_3$ depends on which set of interactions wins.
 
+: Solubility Rules and the Thermodynamics of Dissolution: Class and Example. {#tbl:unit_I_water_and_life_solubility_rules_and_the_thermodynamics_of_dissolution}
 | Class | Example | Sign of $\Delta H$ | Sign of $\Delta S$ | Outcome |
 | ----- | ------- | ------------------ | ------------------ | ------- |
 | Salt with high lattice E | NaCl | small (+) | (+) | Soluble, slightly endothermic |
@@ -532,13 +538,14 @@ The **hydrophobic effect** is the principal driving force for protein folding, l
 
 When a nonpolar molecule is forced into water, the surrounding waters cannot form their full complement of H-bonds with it. They preserve their network by reorienting around the solute, sacrificing translational and rotational entropy. The free energy cost is dominated not by enthalpy but by *entropy*:
 
+: Thermodynamic components of the hydrophobic effect. {#tbl:unit_I_water_and_life_the_hydrophobic_effect_quantified}
 | Process | $\Delta H$ (kJ/mol) | $T\Delta S$ at 25 $^\circ$C (kJ/mol) | $\Delta G$ (kJ/mol) |
 | ------- | ------------------- | ------------------------------------ | ------------------- |
 | Transfer 1 mol benzene from oil to water | small (about 0) | $-22$ (entropy lost) | $+22$ |
 | Transfer 1 mol --CH$_2$-- from water to oil | small | $+3.1$ | $-3.1$ (per CH$_2$) |
 | Hydrocarbon aggregation in water (per CH$_2$) | small | $+3.1$ | $-3.1$ |
 
-The entropic origin has a striking signature: the hydrophobic effect *strengthens* with temperature (up to ~70 $^\circ$C) because the $T\Delta S$ term grows. This is why heat denatures proteins partly by *favouring* hydrophobic exposure (the cold-denaturation paradox). A 16-carbon palmitate tail, contributing ~3 kJ/mol per --CH$_2$--, generates ~50 kJ/mol of effective driving force into the membrane interior --- enough to make membrane partitioning essentially irreversible at biological concentrations.
+The entropic origin has a striking signature: the hydrophobic effect *strengthens* with temperature (up to ~70 $^\circ$C) because the $T\Delta S$ term grows. This is why heat denatures proteins partly by *favoring* hydrophobic exposure (the cold-denaturation paradox). A 16-carbon palmitate tail, contributing ~3 kJ/mol per --CH$_2$--, generates ~50 kJ/mol of effective driving force into the membrane interior --- enough to make membrane partitioning essentially irreversible at biological concentrations.
 
 ### Colligative Property: Osmotic Pressure (van 't Hoff)
 
@@ -556,7 +563,7 @@ where $i$ is the van 't Hoff factor, $C$ is the molar solute concentration, $R$ 
 $$\pi = 0.290 \times 8.314\,\text{J mol}^{-1}\text{K}^{-1} \times 310\,\text{K} = 747\,\text{kPa} \approx 7.4\,\text{atm} \label{eq:unit_I_water_and_life_item_16}$$
 
 
-This is the pressure of a vehicle tyre. The lipid bilayer cannot resist such force --- placed in distilled water, a red blood cell swells and lyses (haemolysis) within seconds. Plant cells, protected by their rigid cellulose wall, can sustain similar pressures as turgor; this turgor is what keeps lettuce crisp and what allows plant roots to crack pavement.
+This is the pressure of a vehicle tyre. The lipid bilayer cannot resist such force --- placed in distilled water, a red blood cell swells and lyses (hemolysis) within seconds. Plant cells, protected by their rigid cellulose wall, can sustain similar pressures as turgor; this turgor is what keeps lettuce crisp and what allows plant roots to crack pavement.
 
 ### Water Activity and Biological Processes
 
@@ -573,7 +580,7 @@ Adding solutes lowers $a_w$ below 1 (pure water), which (i) reduces the rate of 
 
 Protons (H$^+$, actually the hydronium ion H$_3$O$^+$) diffuse through water roughly 7$\times$ faster than any other ion of similar size. The reason is that protons do not move as discrete particles; instead, the *charge* hops from one water molecule to the next via a chain of H-bond rearrangements --- the **Grotthuss mechanism** (Theodor von Grotthuss, 1806).
 
-Visualise a chain of H-bonded waters linking a proton donor to a proton acceptor:
+Visualize a chain of H-bonded waters linking a proton donor to a proton acceptor:
 
 $$\text{H}_3\text{O}^+\cdots\text{H--O--H}\cdots\text{H--O--H}\cdots\text{O--H}\cdots\text{A}^- \label{eq:unit_I_water_and_life_item_17}$$
 
@@ -588,7 +595,7 @@ Concerted reorientation of the O--H bonds along the chain (each requiring about 
 
 ### Ice Nucleation and Cryopreservation
 
-Pure liquid water can be **supercooled** to about --40 $^\circ$C before homogeneous ice nucleation forces freezing. In real solutions, **heterogeneous nucleation** (initiated by surfaces, dust, or specialised proteins) usually freezes water far above --40 $^\circ$C. Many bacteria (e.g., *Pseudomonas syringae*) express ice-nucleating proteins that template ice at --2 $^\circ$C, weaponising frost on plant tissues so the bacteria can colonise the resulting wounds.
+Pure liquid water can be **supercooled** to about --40 $^\circ$C before homogeneous ice nucleation forces freezing. In real solutions, **heterogeneous nucleation** (initiated by surfaces, dust, or specialized proteins) usually freezes water far above --40 $^\circ$C. Many bacteria (e.g., *Pseudomonas syringae*) express ice-nucleating proteins that template ice at --2 $^\circ$C, weaponising frost on plant tissues so the bacteria can colonise the resulting wounds.
 
 Cryopreservation of cells (sperm, oocytes, stem cells, organs) exploits this thermodynamics. Two strategies:
 
@@ -608,15 +615,16 @@ While water can slowly permeate lipid bilayers by diffusion, many cell types req
 Aquaporins are homotetramers, with each subunit forming an independent water pore. Key structural features:
 
 - **Hourglass shape:** narrow constriction (2.8 angstroms diameter) allows primarily single-file water passage
-- **Two NPA motifs** (Asn-Pro-Ala): meet at the centre of the channel, creating a positive electrostatic barrier
+- **Two NPA motifs** (Asn-Pro-Ala): meet at the center of the channel, creating a positive electrostatic barrier
 - **Aromatic/arginine (ar/R) selectivity filter:** four residues at the extracellular constriction determine selectivity
 - **Proton exclusion mechanism:** the NPA motifs reorient water molecules mid-channel, breaking the hydrogen-bond "wire" that would allow proton hopping
 
 ### Aquaporin Family and Functions
 
+: Aquaporin Family and Functions: Aquaporin and Primary Location. {#tbl:unit_I_water_and_life_aquaporin_family_and_functions}
 | Aquaporin | Primary Location | Function | Permeability |
 | --------- | --------------- | -------- | ------------ |
-| AQP0 | Eye lens fibre cells | Lens transparency | Low water |
+| AQP0 | Eye lens fiber cells | Lens transparency | Low water |
 | AQP1 | Red blood cells, kidney proximal tubule | Rapid water reabsorption | High water |
 | AQP2 | Kidney collecting duct | ADH-regulated water reabsorption | Regulated |
 | AQP3 | Kidney, skin | Water and glycerol transport | Aquaglyceroporin |
@@ -632,9 +640,9 @@ A single AQP1 channel transports approximately $3 \times 10^9$ water molecules p
 >
 > [**Mutation**](#gl:mutation)s in the AQP2 [**gene**](#gl:gene) cause **nephrogenic diabetes insipidus (NDI)**, a condition where the kidneys cannot concentrate urine despite adequate levels of antidiuretic [**hormone**](#gl:hormone) (ADH/vasopressin). Patients produce up to 20 L of dilute urine per day and must drink enormous quantities of water to avoid dehydration. The most common inherited form involves autosomal recessive mutations that cause AQP2 to misfold and be retained in the endoplasmic reticulum. Acquired NDI can result from lithium therapy (used in bipolar disorder), which downregulates AQP2 expression via mechanisms involving glycogen synthase kinase-3β.
 
-> **Clinical Connection: Cerebral Oedema and AQP4**
+> **Clinical Connection: Cerebral Edema and AQP4**
 >
-> AQP4, the predominant water channel in brain astrocytes, plays a dual role in cerebral oedema. In cytotoxic oedema (e.g., ischaemic stroke), AQP4 facilitates water influx into swelling astrocytes, worsening damage. In vasogenic oedema (e.g., brain tumours), AQP4 helps clear excess extracellular water. AQP4 is also the target of autoantibodies in neuromyelitis optica (NMO/Devic's disease), an autoimmune disorder that mimics multiple sclerosis.
+> AQP4, the predominant water channel in brain astrocytes, plays a dual role in cerebral edema. In cytotoxic edema (e.g., ischemic stroke), AQP4 facilitates water influx into swelling astrocytes, worsening damage. In vasogenic edema (e.g., brain tumors), AQP4 helps clear excess extracellular water. AQP4 is also the target of autoantibodies in neuromyelitis optica (NMO/Devic's disease), an autoimmune disorder that mimics multiple sclerosis.
 
 ---
 
@@ -666,6 +674,7 @@ Clinical osmometers measure this freezing point depression to determine serum os
 
 Many organisms survive sub-zero temperatures using biological antifreeze strategies:
 
+: Antifreeze Proteins and Cryoprotective Adaptations: Organism and Strategy. {#tbl:unit_I_water_and_life_antifreeze_proteins_and_cryoprotective_adaptations}
 | Organism | Strategy | Mechanism |
 | -------- | -------- | --------- |
 | Arctic fish (*Dissostichus*) | Antifreeze glycoproteins (AFGPs) | Bind ice crystal surfaces, inhibit growth |
@@ -676,7 +685,7 @@ Many organisms survive sub-zero temperatures using biological antifreeze strateg
 
 **Antifreeze proteins (AFPs)** do not work by colligative effects. Instead, they bind to specific ice crystal faces via a flat, hydrophobic ice-binding surface, preventing crystal growth. This creates a difference between the melting point and the freezing point called **thermal hysteresis** (typically 1--5 degrees C). Fish AFPs can depress the freezing point of blood to --2.5 degrees C, matching the temperature of polar seawater.
 
-> **Concept Check 7:** The spruce bark beetle accumulates glycerol to ~2 M concentration in its haemolymph. Using the freezing point depression equation with $i = 1$ and $K_f = 1.86$ degrees C/m, estimate the freezing point depression. Why might the observed freezing point be lower than this calculated value?
+> **Concept Check 7:** The spruce bark beetle accumulates glycerol to ~2 M concentration in its hemolymph. Using the freezing point depression equation with $i = 1$ and $K_f = 1.86$ degrees C/m, estimate the freezing point depression. Why might the observed freezing point be lower than this calculated value?
 
 ---
 
@@ -684,7 +693,7 @@ Many organisms survive sub-zero temperatures using biological antifreeze strateg
 
 ### Definition of Water Activity
 
-**Water activity** ($a_w$) is the ratio of the vapour pressure of water in a solution to that of pure water:
+**Water activity** ($a_w$) is the ratio of the vapor pressure of water in a solution to that of pure water:
 
 \begin{equation}
 a_w = \frac{p}{p^{\circ}}
@@ -698,6 +707,7 @@ Pure water has $a_w = 1.0$. Adding solutes lowers $a_w$. For an ideal dilute sol
 
 Microorganisms require a minimum $a_w$ for growth:
 
+: Water Activity and Food Preservation: Organism Type and Minimum a_w. {#tbl:unit_I_water_and_life_water_activity_and_food_preservation}
 | Organism Type | Minimum $a_w$ | Example |
 | ------------- | ------------- | ------- |
 | Most bacteria | 0.91 | *Salmonella*, *E. coli* |
@@ -748,7 +758,7 @@ so that intracellular water rarely freezes.
 
 **Water economy.** A kangaroo rat can survive on metabolic water alone without
 drinking: a nasal countercurrent exchanger recovers most respiratory water
-vapour, and its kidney concentrates urine roughly fivefold above plasma
+vapor, and its kidney concentrates urine roughly fivefold above plasma
 osmolarity. Such osmoregulatory extremes — from halophilic archaea balancing
 molar internal K⁺ against a near-saturated brine exterior, to euryhaline fish
 reversing the direction of their gill ion pumps between fresh and salt water —
@@ -778,6 +788,7 @@ Treat water-structure claims as context-dependent: temperature, solute identity,
 
 ## Quantitative Summary of Water's Physical Properties
 
+: Water Activity and Food Preservation: Property and Value (25 degrees C). {#tbl:unit_I_water_and_life_water_activity_and_food_preservation_2}
 | Property | Value (25 degrees C) | Biological Consequence |
 | -------- | -------------------- | --------------------- |
 | Specific heat | 4.18 J g$^{-1}$ K$^{-1}$ | Thermal buffer; clinical hypothermia therapy |
@@ -813,7 +824,7 @@ pi_pa = osmotic_pressure(0.15, temperature_K=310.0, solute_count=2)
 print(round(pi_pa))  # ~7.7e5 Pa for ~isotonic NaCl (order of several atm)
 ```
 
-> **Clinical / systems note:** Nephrogenic diabetes insipidus from *AQP2* mutations illustrates how loss of selective water permeability breaks the kidney's ability to concentrate urine despite normal vasopressin signalling --- a channel-level failure of the osmotic water flux you model with π and tonicity.
+> **Clinical / systems note:** Nephrogenic diabetes insipidus from *AQP2* mutations illustrates how loss of selective water permeability breaks the kidney's ability to concentrate urine despite normal vasopressin signaling --- a channel-level failure of the osmotic water flux you model with π and tonicity.
 
 ---
 
@@ -821,7 +832,7 @@ print(round(pi_pa))  # ~7.7e5 Pa for ~isotonic NaCl (order of several atm)
 
 - Water's polarity and H-bonding network underlie its high heat capacity, heat of vaporisation, surface tension, and solvent properties.
 - Hydrophilic/hydrophobic dichotomy drives membrane bilayer formation, protein folding, and micelle structure.
-- The hydration shell stabilises ions in solution; water's high dielectric constant screens electrostatic interactions.
+- The hydration shell stabilizes ions in solution; water's high dielectric constant screens electrostatic interactions.
 - Osmotic pressure ($\pi = iCRT$) governs water movement across semipermeable membranes with profound cellular consequences.
 - Fick's First Law ($J = -D \cdot dC/dx$) quantifies passive solute/gas diffusion; slow diffusion over mm distances necessitates circulatory systems.
 - Aquaporins are selective water channels critical for renal function, brain water homeostasis, and lens transparency; mutations cause nephrogenic diabetes insipidus.
@@ -863,7 +874,7 @@ print(round(pi_pa))  # ~7.7e5 Pa for ~isotonic NaCl (order of several atm)
 10. Derive the relationship between the mean diffusion distance and time ($\bar{x} = \sqrt{2Dt}$) starting from the concept of a random walk. Explain why this relationship makes circulatory systems necessary for organisms larger than ~1 mm.
 11. Using `osmotic_pressure`, compare the osmotic pressure (Pa) of 0.30 M glucose ($i=1$) vs. 0.15 M NaCl ($i=2$) at 310 K. Which is closer to human plasma tonicity?
 12. A child with nephrogenic diabetes insipidus excretes large volumes of dilute urine. Link this [**phenotype**](#gl:phenotype) to aquaporin-2 trafficking in collecting ducts and the role of vasopressin (ADH) in increasing epithelial water permeability.
-13. Using \cref{eq:unit_I_dissolution_dG}, predict whether n-octanol (a hydrocarbon-like alcohol) is more soluble in water at 25 $^\circ$C or 60 $^\circ$C. Assume $\Delta H_{\text{soln}} \approx 0$ and the dissolution is dominated by the unfavourable entropy of cage formation. How does this relate to drug partition coefficients ($\log P$)?
+13. Using \cref{eq:unit_I_dissolution_dG}, predict whether n-octanol (a hydrocarbon-like alcohol) is more soluble in water at 25 $^\circ$C or 60 $^\circ$C. Assume $\Delta H_{\text{soln}} \approx 0$ and the dissolution is dominated by the unfavorable entropy of cage formation. How does this relate to drug partition coefficients ($\log P$)?
 14. Explain how the Grotthuss mechanism allows ATP synthase to translocate ~10$^4$ protons per second through its F$_o$ ring without bulk water flow. What would happen if a mutation introduced a single Pro residue that broke the proton wire?
 15. Cryopreservation protocols for human embryos use vitrification (rapid cooling with high cryoprotectant concentrations) rather than slow freezing. Using your understanding of ice nucleation and water activity, explain why vitrification is preferred for delicate cells.
 16. Use \cref{eq:unit_I_water_activity} to quantify the difference in chemical potential of water in pure water ($a_w = 1$) versus a 1 M sucrose solution ($a_w \approx 0.98$) at 310 K. Compare your answer to the corresponding osmotic pressure from \cref{eq:unit_I_vant_hoff}. Are they consistent?
@@ -889,10 +900,11 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Water — The Molecule of Life. {#tbl:unit_I_water_and_life_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/cell/cell_biology.py` (`osmotic_pressure`, `diffusion_flux`) | Translate water potential, solute gradients, and diffusion into quantitative predictions. |
 | `src/biology/botany/botany.py` (`water_potential`, `transpiration_flux`) | Carry water chemistry into plant transport and drought-response scenarios. |
 | `src/visualization/plots.py` (`plot_light_response_curve`) | Use graph reading practice for environmental-response curves with clear axes and units. |
 
-**Reproducibility check:** state temperature, solute identity, concentration, and membrane permeability before generalising a water-property claim. **Cross-reference:** connect molecular water properties to \cref{sec:unit_VIII_plant_structure_and_water} and \cref{sec:unit_II_membrane_transport}.
+**Reproducibility check:** state temperature, solute identity, concentration, and membrane permeability before generalizing a water-property claim. **Cross-reference:** connect molecular water properties to \cref{sec:unit_VIII_plant_structure_and_water} and \cref{sec:unit_II_membrane_transport}.

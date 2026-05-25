@@ -1,6 +1,5 @@
-# Lab — Community Interactions and Succession {.unnumbered}
+# Lab — Community Interactions and Succession {#sec:lab_unit_X_community_interactions .unnumbered}
 
-\label{sec:lab_unit_X_community_interactions}
 
 *This activity accompanies \cref{sec:unit_X_community_interactions} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -9,7 +8,7 @@
 *This activity accompanies \cref{sec:unit_X_community_interactions} of the textbook — review that chapter before attempting the exercises below.*
 
 - Interpret a paper-based competition dataset between two species using Lotka-Volterra predictions
-- Analyse food web data to determine trophic levels and calculate energy transfer efficiency
+- Analyze food web data to determine trophic levels and calculate energy transfer efficiency
 - Evaluate keystone predator effects using a removal/addition case study
 - Apply successional theory to interpret vegetation data from different chronosequences
 
@@ -38,6 +37,7 @@ Community ecology studies how species interact (competition, predation, mutualis
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_X_community_interactions_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Community Interactions and Succession: conservation-assessment source card: index versus census, assessment version, value judgment, and monitoring trigger | 1 |
@@ -72,11 +72,12 @@ Complete the source-governance card for Community Interactions and Succession be
 - **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
 <!-- lab-evidence-checklist-end -->
 
-## Paper-Based Evidence Upgrade
+## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
 **Community Interactions and Succession** with a reproducibility pass:
 
+: Source-Governance Checkpoint: Evidence check and Student action. {#tbl:unit_X_community_interactions_source_governance_checkpoint}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |

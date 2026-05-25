@@ -39,7 +39,7 @@ class TranspirationResult:
     """Water loss through stomata via Fick's law."""
 
     conductance_mol_m2_s: float  # stomatal conductance
-    delta_concentration_mol_m3: float  # vapour concentration gradient
+    delta_concentration_mol_m3: float  # vapor concentration gradient
     flux_mol_m2_s: float  # net transpiration flux
     flux_mmol_m2_s: float
 
@@ -126,8 +126,8 @@ def transpiration_flux(
 
     Args:
         stomatal_conductance_mol_m2_s: Stomatal conductance g (mol m⁻² s⁻¹).
-        internal_vapor_conc_mol_m3: Water vapour inside leaf (mol m⁻³).
-        external_vapor_conc_mol_m3: Water vapour in atmosphere (mol m⁻³).
+        internal_vapor_conc_mol_m3: Water vapor inside leaf (mol m⁻³).
+        external_vapor_conc_mol_m3: Water vapor in atmosphere (mol m⁻³).
 
     Returns:
         TranspirationResult with flux in mol m⁻² s⁻¹ and mmol m⁻² s⁻¹.

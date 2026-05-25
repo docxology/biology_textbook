@@ -7,7 +7,7 @@ Strategy
 For each configured chapter file that does not already contain a further-reading
 or source-notes heading, the script:
 
-1. Parses the chapter prose for all ``\\citep{…}`` / ``\\citet{…}`` keys.
+1. Parses the chapter prose for all documented natbib citation keys.
 2. Parses ``manuscript/references.bib`` for the matching entries.
 3. Selects 4–6 references — prioritising entries already cited in the
    chapter so the Further Reading list is self-consistent; if fewer than
@@ -34,9 +34,11 @@ from _bootstrap import ensure_project_paths
 ensure_project_paths(include_scripts=True)
 
 try:
+    from biology.citations import ordered_citation_keys
     from biology.toc import load_toc
     from scripts.atomic_io import write_text_atomic
 except ModuleNotFoundError:  # pragma: no cover - direct script execution path
+    from biology.citations import ordered_citation_keys
     from biology.toc import load_toc
     from atomic_io import write_text_atomic  # type: ignore[import-not-found,no-redef]
 
@@ -164,7 +166,6 @@ def parse_bib() -> dict[str, BibEntry]:
 # Chapter parsing & injection
 # ---------------------------------------------------------------------------
 
-_CITE_RE = re.compile(r"\\cite[pt]?\*?\{([^}]+)\}")
 _FURTHER_READING_RE = re.compile(
     r"^#+\s*(?:\d+\s+)?(Further|Suggested|Recommended)\s+Reading", re.MULTILINE
 )
@@ -173,13 +174,7 @@ _MODULE_FOOTER_RE = re.compile(r"^\*Module:", re.MULTILINE)
 
 
 def collect_keys(text: str) -> list[str]:
-    keys: list[str] = []
-    for m in _CITE_RE.finditer(text):
-        for k in m.group(1).split(","):
-            k = k.strip()
-            if k and k not in keys:
-                keys.append(k)
-    return keys
+    return ordered_citation_keys(text)
 
 
 def pick_keys(chapter_rel: str, chapter_keys: list[str]) -> list[str]:

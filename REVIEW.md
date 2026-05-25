@@ -205,8 +205,8 @@ uv run ruff check scripts tests && uv run mypy scripts tests/test_enrichment_sub
 ## 7. Tier-2 Pedagogy Pass — 2026-05-18 (user-approved)
 
 The deferred Tier-2 from §6 was explicitly approved and executed. Bloom-aligned
-Learning Objectives on `gene_expression` (3 LOs→Apply/Analyse +3 Concept
-Checks), `metabolic_integration` (5 LOs→Apply/Analyse; Energy-Charge worked
+Learning Objectives on `gene_expression` (3 LOs→Apply/Analyze +3 Concept
+Checks), `metabolic_integration` (5 LOs→Apply/Analyze; Energy-Charge worked
 example expanded to a 3-step solution; flux-control-coefficient example added),
 and `nervous_system` (7→9 LOs incl. Calculate-GHK; GHK resting-potential worked
 example added, Vm≈−70 mV independently re-derived & cross-checked; +2 Concept
@@ -232,7 +232,7 @@ fixes (all gate-verified):
 
 - **Duplicate equation label eliminated.** `unit_VI/genetic_drift_and_speciation.md`
   had two distinct equations (general k-sample TMRCA $4N_e(1-1/k)$ at L308 and
-  pairwise 2-allele TMRCA $2N_e$ at L333) both labelled `eq:unit_VI_tmrca`.
+  pairwise 2-allele TMRCA $2N_e$ at L333) both labeled `eq:unit_VI_tmrca`.
   Renamed the pairwise one to `eq:unit_VI_tmrca_pairwise`; **both are now
   properly `\cref`'d in the surrounding prose** ("the value introduced in
   \cref{eq:unit_VI_tmrca}" / "the pairwise result of
@@ -413,3 +413,94 @@ Research memo and gap matrix: `docs/figure_expansion_research_memo.md`, `docs/fi
 | New invariant | `test_every_figure_label_has_prose_cref` in `tests/test_build_invariants.py` |
 | Chapters with `\includegraphics` | **14 → 28** (14 prior + 14 expansion) |
 | Deferred (documented) | Unit 0 prose chapters; `cell_structure`, `atoms_molecules`, `macromolecules`, `metabolic_integration`, `dna_replication`, `mutations_and_genomics`, `plant_reproduction` |
+
+## 14. Thermo-nuclear review — baseline ledger (2026-05-25)
+
+Pre-remediation snapshot before this pass (project root):
+
+| Gate / metric | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1209 passed**, **~88.2%** coverage (blocker: `table_captions.py`, new `CaptionPolicy`) |
+| `audit_textbook_quality.py --check --max-advisories 0` | FAIL — orphan bibentries (`chaplin2010immuneresponse`, `iwasaki2015innateadaptive`, `medzhitov2007recognition`; epigenetic keys cited in prose but not yet parsed in one audit run) |
+| `sync_assessment_metadata.py --check` | FAIL — LO9 orphan in Unit 0 history questions |
+| `enrich_embedded_textbook.py` (default apply) | `companion_modules=43` pending companion injection |
+| Line-count sentinel (>250 lines) | **0 files >671 lines**; largest: `enrichment/engine.py` (674), `genetics/genetics.py` (646), `ecology/ecology.py` (444) |
+| `references.bib` entries | **333** |
+| `current_claims.yaml` | **45** claims |
+
+## 15. Thermo-nuclear review — Tracks A & B (`src/biology/`)
+
+**Track A — domain methods**
+
+| Finding | Severity | Action |
+| --- | --- | --- |
+| `genetics/genetics.py` (646 lines) bundles linkage, HW, translation, methylation | P1 | Monitor; split only when a fourth independent domain adds coupling — all public APIs remain tested |
+| Shared Euler / parameter-validation loops across ecology, evolution, cell | P2 | Prefer `numerics.py` helpers when next touching those modules |
+| Nernst/Goldman/Hill overlap between `cell_biology.py` and biochemistry | P2 | Document cross-package imports in domain READMEs; no behavior change this pass |
+
+**Track B — maintenance engines**
+
+| Finding | Severity | Action |
+| --- | --- | --- |
+| `_FRONTIER_SECTION_RE` imported from script layer | P0 | **Fixed:** public `FRONTIER_SECTION_PATTERN` in `enrichment/engine.py` |
+| `table_captions.py` scattered overrides + heuristics | P1 | **Fixed:** `CaptionPolicy` + `DEFAULT_CAPTION_POLICY`; `polish_caption_text()` delegates |
+| `scan_file.py` (347 lines) monolithic dispatch | P2 | Defer scanner split until next crossref feature |
+| Five engine modules omitted from 90% floor (`pyproject.toml`) | P3 | Justified while engines are integration-smoke tested; unit tests added for migrated script logic instead |
+
+## 16. Thermo-nuclear review — Track C (`scripts/`)
+
+| Script | Lines | Issue | Remediation |
+| --- | ---: | --- | --- |
+| `normalize_lab_computational_workflows.py` | 349 → **35** | Embedded `LabWorkflow` catalog | **Fixed:** `src/biology/maintenance/lab_workflows.py` + tests |
+| `repair_split_chapter_shells.py` | 347 | Private enrichment import | **Fixed:** uses public `FRONTIER_SECTION_PATTERN` |
+| `integrate_orphan_citations.py` | ~190 | Curated insertion map in script | P2 defer — map stable; orphans closed via targeted `\citep{}` edits |
+| `fill_answer_scaffolds.py` | ~240 | Heuristics in script layer | P2 defer — covered by `answer_refinement` engine tests |
+| `audit_publication_readiness.py` | orchestration | Sequential gates | Acceptable; `--full` runtime dominated by pytest + PDF log |
+
+**Lab catalog path fixes:** renamed targets `lab_epigenetic_inheritance_and_disease.md`, `lab_mendelian_principles.md`, `lab_antimicrobial_resistance_and_epidemiology.md`.
+
+## 17. Thermo-nuclear review — Track D (manuscript) & post-remediation gates
+
+**Manuscript contract**
+
+| Surface | Finding | Action |
+| --- | --- | --- |
+| Assessment LO9 (Unit 0 history) | Orphan assess tag | **Fixed:** Q30 tagged `LO9`; metadata synced |
+| Orphan immune bibentries | Three landmark reviews unused | **Fixed:** `\citep{}` in `immune_system_defense.md` |
+| Orphan `garrod1902alkaptonuria` | Uncited | **Fixed:** cited in mendelian extensions chapter |
+| Table captions (611 examined) | Residual weak captions | Pass 2: **0** updates (`polish_table_captions.py`) |
+| Tier-1 figure gaps | 14 chapters deferred per `docs/figure_gap_matrix.md` | **Already wired** for callable Tier 1/2 APIs (§13); deferred prose-only chapters unchanged |
+| Unit intro landmark tables | Mixed column layouts by unit | All use `\citep{}`; Unit 0 compact table retained as exemplar |
+| Docs drift (`tests/AGENTS.md` said 31) | Stale counts | **Fixed:** 40 tests, 35 scripts, 32 matplotlib generators |
+
+**Gate table (project root — after remediation)**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1225 passed**, **90.08%** coverage |
+| `ruff check src tests scripts` | pass (project scope) |
+| `mypy src tests scripts` | pass |
+| `audit_textbook_quality.py --check --max-advisories 0` | PASS |
+| `audit_current_claims.py --check` | **45** claims, 0 issues |
+| `sync_assessment_metadata.py --check` | synchronized |
+| `audit_visual_contracts.py --check` | 249 records, clean |
+| `polish_table_captions.py` | 611 captions examined, 0 writes |
+| `normalize_lab_computational_workflows.py --dry-run` | labs_normalised=0 |
+| `enrich_embedded_textbook.py` (default) | companion_modules=0 |
+| `audit_publication_readiness.py --check` | PASS |
+| `audit_publication_readiness.py --check --full` | FAIL on `root-pdf-log` (front-matter `\nameref` warnings on page 5 — PDF still renders; see below) |
+
+**Template-root verification (2026-05-25)**
+
+| Stage | Result |
+| --- | --- |
+| `02_run_analysis.py --project biology_textbook` | PASS (32 figure labels, 3/3 analysis scripts) |
+| `03_render_pdf.py --project biology_textbook` | `_combined_manuscript.pdf` **~19 MB** generated; post-step name check expects legacy `{project}_combined.pdf` label |
+| `04_validate_output.py` | PASS with non-critical structure/evidence warnings |
+| `05_copy_outputs.py` | Outputs mirrored to `template/output/biology_textbook/` |
+| `check_pdf_log.py output/pdf/_combined_manuscript.log` | FAIL — 2011 first-pass `\nameref` undefined warnings in front matter (page 5); spot-check PDF: cover metadata, immune citations, Tinbergen tables render |
+
+**New tests this pass:** `test_citations.py`, `test_lab_workflows.py`; expanded `test_table_captions.py` for `CaptionPolicy`, `annotate_manuscript`, and `polish_manuscript_captions`.
+
+**Residual P2 backlog (non-blocking):** move `integrate_orphan_citations.py` insertion map into `citations.py`; optional `genetics.py` split below 400 lines; parallelize `audit_publication_readiness` sub-gates; resolve front-matter `\nameref` ordering for a clean `root-pdf-log` gate.
+

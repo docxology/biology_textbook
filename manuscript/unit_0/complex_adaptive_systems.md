@@ -16,10 +16,10 @@ By the end of this chapter, students will be able to:
 2. Describe how local rules among agents give rise to global order without a central controller.
 3. Explain the roles of selection, variation, and adaptation in biological CAS.
 4. Identify phase transitions and attractors in biological systems.
-5. Recognise CAS dynamics at cellular, organismal, population, and ecosystem levels.
-6. Analyse fitness landscapes using the NK model and predict the consequences of ruggedness.
+5. Recognize CAS dynamics at cellular, organismal, population, and ecosystem levels.
+6. Analyze fitness landscapes using the NK model and predict the consequences of ruggedness.
 7. Apply the logistic map to demonstrate how a single nonlinear equation can generate fixed points, oscillations, and chaos.
-8. Connect biological CAS to engineered analogues such as genetic algorithms, neural networks, and ant-colony optimisation.
+8. Connect biological CAS to engineered analogs such as genetic algorithms, neural networks, and ant-colony optimization.
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -31,8 +31,8 @@ By the end of this chapter, students will be able to:
 - **Data skill:** Distinguish deterministic trends from stochastic variation in repeated simulations.
 - **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
 - **Common misconception to repair:** Emergence is not mysterious; it is a reproducible consequence of interactions plus constraints.
-- **Primary lab:** \cref{sec:lab_unit_0_complex_adaptive_systems}.
-- **Question bank:** \cref{sec:q_unit_0_complex_adaptive_systems}.
+- **Primary lab:** \nameref{sec:lab_unit_0_complex_adaptive_systems}.
+- **Question bank:** \nameref{sec:q_unit_0_complex_adaptive_systems}.
 - **Transfer task:** Compare flocking, immune activation, and microbial biofilms as adaptive systems.
 - **Bridge to computation:** `biology.ecology.ecology.logistic_growth`.
 <!-- curriculum-scaffold-end -->
@@ -41,11 +41,11 @@ By the end of this chapter, students will be able to:
 
 ## Opening Vignette: From Sandpiles to the Santa Fe Institute
 
-In 1987, physicist Per Bak placed grains of sand one-by-one onto a pile and discovered a startling regularity: the pile spontaneously organised itself to a "critical" state where avalanches across a wide size range obeyed a power law — many small, few large, with no characteristic scale. He called this **self-organised criticality** \citep{bak1987} and argued it was a signature of complex adaptive systems throughout nature, from earthquakes to extinction cascades to neural firing patterns (*Physical Review Letters*, 1987).
+In 1987, physicist Per Bak placed grains of sand one-by-one onto a pile and discovered a startling regularity: the pile spontaneously organized itself to a "critical" state where avalanches across a wide size range obeyed a power law — many small, few large, with no characteristic scale. He called this **self-organized criticality** \citep{bak1987} and argued it was a signature of complex adaptive systems throughout nature, from earthquakes to extinction cascades to neural firing patterns (*Physical Review Letters*, 1987).
 
 That same year, the Santa Fe Institute was founded in New Mexico with an audacious charter: to study complex systems across disciplinary boundaries. Economists (W. Brian Arthur), biologists (Stuart Kauffman \citep{kauffman1993}), computer scientists (John Holland \citep{holland1992}), and physicists (Murray Gell-Mann) worked shoulder-to-shoulder, discovering that the same mathematics — agent-based models, fitness landscapes, power-law distributions — described stock markets, immune systems, and ecosystems alike.
 
-The central biological insight: the immune system does not have a commander. The brain does not have a central processor. An ant colony does not have a foreman. In each case, simple agents following local rules generate intelligent collective behaviour — **emergence** without design. This chapter explores how that principle operates from the molecular to the planetary scale, equipping you with tools (fitness landscapes, attractor analysis, power-law diagnostics, agent-based simulation, bifurcation theory) you will use throughout the rest of the textbook.
+The central biological insight: the immune system does not have a commander. The brain does not have a central processor. An ant colony does not have a foreman. In each case, simple agents following local rules generate intelligent collective behavior — **emergence** without design. This chapter explores how that principle operates from the molecular to the planetary scale, equipping you with tools (fitness landscapes, attractor analysis, power-law diagnostics, agent-based simulation, bifurcation theory) you will use throughout the rest of the textbook.
 
 ---
 
@@ -53,8 +53,8 @@ The central biological insight: the immune system does not have a commander. The
 
 A **complex adaptive system (CAS)** is a network of many interacting agents that:
 
-1. **Adapt** — agents alter their behaviour based on experience or selection.
-2. **Self-organise** — ordered collective behaviour emerges from local interactions without central control.
+1. **Adapt** — agents alter their behavior based on experience or selection.
+2. **Self-organize** — ordered collective behavior emerges from local interactions without central control.
 3. **Co-evolve** — the environment of each agent is partly constituted by the other agents; most adapt together.
 4. **Exhibit nonlinear dynamics** — small perturbations can cascade into large effects (or large inputs may have minimal impact).
 
@@ -70,7 +70,7 @@ In a CAS, the fundamental unit is the **agent** — an entity with internal stat
 
 ### Boids and Flocking
 
-Computer scientist Craig \citet{reynolds1987} demonstrated that three simple rules produce realistic flocking behaviour in simulated birds ("boids"):
+Computer scientist Craig \citet{reynolds1987} demonstrated that three simple rules produce realistic flocking behavior in simulated birds ("boids"):
 
 1. **Cohesion** — steer towards the average position of nearby boids.
 2. **Alignment** — steer toward the average heading of nearby boids.
@@ -83,48 +83,48 @@ This principle recurs throughout biology:
 - Quorum sensing in bacteria produces [**biofilm**](#gl:biofilm) formation.
 - Cytokine gradients direct immune cell recruitment.
 - [**Action potential**](#gl:action-potential) propagation in cardiac muscle coordinates the heartbeat.
-- Schooling fish escape predators by aligning with neighbours faster than the predator can re-target.
+- Schooling fish escape predators by aligning with neighbors faster than the predator can re-target.
 
-### Ant-Colony Optimisation and Stigmergy
+### Ant-Colony Optimization and Stigmergy
 
 Ant foraging is a paradigmatic CAS. An ant deposits a pheromone trail as it returns from a food source; subsequent ants probabilistically follow stronger trails and reinforce them. Shorter trails are reinforced faster (more round-trips per unit time), while pheromone evaporation weakens abandoned routes. The colony therefore converges on near-optimal paths through local reinforcement and decay, not through any ant holding a map.
 
-This [**stigmergic**](#gl:stigmergy) mechanism — communication through environmental modification — was named from termite nest-building work and then abstracted into ant-colony-optimisation algorithms for routing, scheduling, and search problems \citep{grasse1959stigmergy,dorigo2004ant}. The lesson is precise: a single ant is noisy and limited, but the colony can act as a distributed solver because the environment stores partial information.
+This [**stigmergic**](#gl:stigmergy) mechanism — communication through environmental modification — was named from termite nest-building work and then abstracted into ant-colony-optimization algorithms for routing, scheduling, and search problems \citep{grasse1959stigmergy,dorigo2004ant}. The lesson is precise: a single ant is noisy and limited, but the colony can act as a distributed solver because the environment stores partial information.
 
 Social insects also make the boundary between organism and collective negotiable. A honeybee swarm deciding where to nest integrates waggle dances, quorum-like thresholds, and inhibitory signals; field tracking confirms that dance-recruited bees fly toward advertised locations rather than merely becoming more active \citep{riley2005flight,seeley2010honeybee}. The colony behaves like a [**superorganism**](#gl:superorganism) as an analogy grounded in task allocation, communication, and colony-level reproduction, not as a claim that the group has a literal brain.
 
 ### Immune Surveillance as Distributed Adaptation
 
-Each lymphocyte carries a single antigen receptor specificity. The immune system as a whole performs continuous surveillance not because any cell is "smart" but because billions of differently-specific cells circulate, sample, and clonally expand on contact with cognate antigen. Negative selection in the thymus removes self-reactive clones; affinity maturation in the germinal centre runs micro-evolution within the lymph node. The system has no commander; collective decision emerges from local rules.
+Each lymphocyte carries a single antigen receptor specificity. The immune system as a whole performs continuous surveillance not because any cell is "smart" but because billions of differently-specific cells circulate, sample, and clonally expand on contact with cognate antigen. Negative selection in the thymus removes self-reactive clones; affinity maturation in the germinal center runs micro-evolution within the lymph node. The system has no commander; collective decision emerges from local rules.
 
 ```mermaid
 graph LR
     A1["Agent 1\n(local state + rules)"] -->|Interaction| A2["Agent 2"]
     A2 -->|Interaction| A3["Agent 3"]
     A3 -->|Interaction| A1
-    A1 & A2 & A3 --> E["Emergent Collective Behaviour"]
+    A1 & A2 & A3 --> E["Emergent Collective Behavior"]
 ```
-<!-- alt: Graph showing local agent interactions and emergent collective behaviour. -->
+<!-- alt: Graph showing local agent interactions and emergent collective behavior. -->
 
-*Local agent interactions and emergent collective behaviour.*
+*Local agent interactions and emergent collective behavior.*
 
-> **Concept Check 1:** A swarm-intelligence start-up wants to control a fleet of drones using boid rules but discovers that during certain wind conditions the flock fragments. Hypothesise which of the three rules (cohesion, alignment, separation) most likely needs reweighting and explain how a change in radius of "nearby" might restore coherence.
+> **Concept Check 1:** A swarm-intelligence start-up wants to control a fleet of drones using boid rules but discovers that during certain wind conditions the flock fragments. Hypothesize which of the three rules (cohesion, alignment, separation) most likely needs reweighting and explain how a change in radius of "nearby" might restore coherence.
 
 ---
 
-## Self-Organisation in Biology
+## Self-organization in Biology
 
 ### Slime Moulds: A Class Example
 
-*Dictyostelium discoideum* (slime mould) spends most of its life as independent amoebae. When starved, individual cells begin secreting cyclic AMP (cAMP), triggering a **collective aggregation** into a multicellular slug and eventually a fruiting body. No single cell plans the fruiting body; the entire developmental programme is orchestrated by local cAMP gradients — a spectacular example of biological self-organisation.
+*Dictyostelium discoideum* (slime mould) spends most of its life as independent amoebae. When starved, individual cells begin secreting cyclic AMP (cAMP), triggering a **collective aggregation** into a multicellular slug and eventually a fruiting body. No single cell plans the fruiting body; the entire developmental program is orchestrated by local cAMP gradients — a spectacular example of biological self-organization.
 
 ### Termite Mounds as Collective Construction
 
-Termites build elaborate mounds by following primarily local construction rules (place, remove, or reinforce soil pellets where cues indicate work). The architecture emerges from millions of local decisions, not from a blueprint read by any individual termite. Modern mound-physics work shows that the structure can couple wind, solar heating, and internal porosity to gas exchange, so "air conditioning" is an emergent physical consequence of collective construction rather than a designed appliance \citep{ocko2017solar}. Termite mounds are therefore a clean bridge between behaviour, architecture, and physiology: local building rules alter the abiotic environment, and that altered environment feeds back on colony survival.
+Termites build elaborate mounds by following primarily local construction rules (place, remove, or reinforce soil pellets where cues indicate work). The architecture emerges from millions of local decisions, not from a blueprint read by any individual termite. Modern mound-physics work shows that the structure can couple wind, solar heating, and internal porosity to gas exchange, so "air conditioning" is an emergent physical consequence of collective construction rather than a designed appliance \citep{ocko2017solar}. Termite mounds are therefore a clean bridge between behavior, architecture, and physiology: local building rules alter the abiotic environment, and that altered environment feeds back on colony survival.
 
-### Embryonic Development as Coordinated Self-Organisation
+### Embryonic Development as Coordinated Self-organization
 
-The body plan of a vertebrate emerges from a single fertilised cell through cell division, migration, and differentiation guided by local chemical gradients (morphogens). The French flag model of positional information — cells adopt different fates depending on the local concentration of a morphogen — captures the CAS logic of development.
+The body plan of a vertebrate emerges from a single fertilized cell through cell division, migration, and differentiation guided by local chemical gradients (morphogens). The French flag model of positional information — cells adopt different fates depending on the local concentration of a morphogen — captures the CAS logic of development.
 
 ### Turing Patterns and Reaction–Diffusion
 
@@ -143,6 +143,7 @@ with $D_v \gg D_u$ (the inhibitor diffuses faster than the activator). Empirical
 
 The concept of an **attractor** is central to understanding CAS dynamics. An attractor is a set of states toward which a system tends to evolve over time.
 
+: Turing Patterns and Reaction–Diffusion: Attractor type and Description. {#tbl:unit_0_complex_adaptive_systems_turing_patterns_and_reaction_diffusion}
 | Attractor type | Description | Biological example |
 | -------------- | ----------- | ------------------ |
 | Fixed point | System converges to a single stable state | Biochemical equilibrium; homeostatic set point |
@@ -154,7 +155,7 @@ The concept of an **attractor** is central to understanding CAS dynamics. An att
 
 ### Basins of Attraction and Landscape Geometry
 
-The **basin of attraction** of an attractor $A$ is the set of states from which trajectories flow to $A$. Basins are separated by **separatrices** — codimension-one manifolds across which a small perturbation flips the system between attractors. In Waddington's classical metaphor for development, the embryo rolls down a "landscape" whose valleys (basins) correspond to differentiated cell types and whose ridges (separatrices) correspond to bistable cell-fate decisions. Modern single-cell RNA-seq data can be used to reconstruct an empirical analogue of this landscape from observed cell-state densities.
+The **basin of attraction** of an attractor $A$ is the set of states from which trajectories flow to $A$. Basins are separated by **separatrices** — codimension-one manifolds across which a small perturbation flips the system between attractors. In Waddington's classical metaphor for development, the embryo rolls down a "landscape" whose valleys (basins) correspond to differentiated cell types and whose ridges (separatrices) correspond to bistable cell-fate decisions. Modern single-cell RNA-seq data can be used to reconstruct an empirical analog of this landscape from observed cell-state densities.
 
 The **depth** of a basin (the energy barrier to escape) determines its noise robustness; the **width** determines the range of initial conditions that converge to it. A deep, narrow basin is robust but inflexible; a shallow, wide basin is flexible but easily perturbed. Cancer cells often inhabit basins that are *wider* than normal (higher phenotypic plasticity) and *shallower* (easier to perturb stochastically), explaining their resistance to single-target therapy.
 
@@ -180,7 +181,7 @@ graph TD
 
 ## Phase Transitions and Criticality
 
-A **phase transition** is a qualitative change in system behaviour at a critical parameter value. In biology:
+A **phase transition** is a qualitative change in system behavior at a critical parameter value. In biology:
 
 - **[Protein](#gl:protein) folding** — a polypeptide transitions from disordered to folded at a critical temperature.
 - **The lac [**operon**](#gl:operon)** — bistable switch with two stable attractors (ON and OFF) separated by an unstable threshold.
@@ -199,7 +200,7 @@ H = -J \sum_{\langle i, j \rangle} s_i s_j - h \sum_{i} s_i
 
 with coupling $J$ and external field $h$. Below a critical temperature $T_c$ the system spontaneously magnetises (most spins agree); above it the system is disordered. Mapping spin-up to "gene ON" and spin-down to "gene OFF" recasts cell-fate commitment as a magnetisation phase transition: at low effective "temperature" (low gene-expression noise), tightly-coupled networks lock into one of a few discrete cell types; at high temperature, expression patterns are disordered. The same mathematics describes binary opinion dynamics in social networks, illustrating how comprehensive these critical phenomena are.
 
-### Power Laws and Scale-Free Behaviour
+### Power Laws and Scale-Free Behavior
 
 Many CAS, especially those poised near a critical phase transition (**critical systems**), display **power-law** distributions:
 
@@ -217,7 +218,7 @@ where α is the scaling exponent. Power-law distributions in biology arise in:
 - Sizes of mass extinctions in the fossil record.
 - Citations of academic papers and population sizes of cities.
 
-The hypothesis of **self-organised criticality** (Bak, Tang & Wiesenfeld, 1987 \citep{bak1987}) proposes that many living systems automatically tune themselves to criticality, because critical systems are maximally responsive and information-transmitting. Critical neural networks have the longest correlation lengths, the highest dynamic range of stimulus encoding, and the maximum mutual information between input and output — most desirable for a brain.
+The hypothesis of **self-organized criticality** (Bak, Tang & Wiesenfeld, 1987 \citep{bak1987}) proposes that many living systems automatically tune themselves to criticality, because critical systems are maximally responsive and information-transmitting. Critical neural networks have the longest correlation lengths, the highest dynamic range of stimulus encoding, and the maximum mutual information between input and output — most desirable for a brain.
 
 ### Worked Example: Scaling in Power-Law Distributions
 
@@ -291,7 +292,7 @@ W(\mathbf{x}) = \frac{1}{N} \sum_{i=1}^{N} w_{i}\!\left(x_{i}, x_{i_{1}}, \ldots
 
 where each locus contribution $w_i$ depends on its own state $x_i$ and on $K$ partner loci. For $K = 0$ each locus is independent, so the global optimum can be found one locus at a time. For $K > 0$ the contributions become entangled, generating the rugged landscape. Empirical fitness landscapes (for HIV-1 protease, the *E. coli* ribosomal protein S6, and *Aspergillus* enzymes) consistently land at intermediate $K$ — rugged enough to trap evolution on local peaks, smooth enough that occasional valleys can be crossed.
 
-Ruggedness predicts why evolution can take several different paths to similar fitness and why identical starting populations (as in the Lenski *E. coli* long-term evolution experiment) reach *different* adaptive solutions. In cancer, the same principle explains why single-agent targeted therapy traps tumours on a local peak; combination therapy shifts the landscape so the old peak is no longer fit, forcing movement into valleys where the tumour is more vulnerable.
+Ruggedness predicts why evolution can take several different paths to similar fitness and why identical starting populations (as in the Lenski *E. coli* long-term evolution experiment) reach *different* adaptive solutions. In cancer, the same principle explains why single-agent targeted therapy traps tumors on a local peak; combination therapy shifts the landscape so the old peak is no longer fit, forcing movement into valleys where the tumor is more vulnerable.
 
 > **Connection (clinical) — antimicrobial cycling.** Hospital antibiotic stewardship sometimes deliberately *cycles* between drug classes, exploiting the fact that resistance mutations to one class may carry fitness costs on another. Each cycle reshapes the fitness landscape; resistance peaks that were locally fit under cefazolin become valleys under ciprofloxacin, evicting the population. The same logic is being explored for cancer ("evolutionary therapy" with adaptive dosing).
 
@@ -313,11 +314,11 @@ Because $N_e s \gg 1$, selection dominates drift. The deleterious intermediate i
 
 > **Concept Check (Analysis):** A population of *E. coli* bacteria in a nutrient gradient follows a fitness landscape with two local maxima: one at [glucose] = 1 mM (metabolic optimum) and one at [glucose] = 0.1 mM (growth-rate optimum in competition). (a) Explain why natural selection alone cannot cross the fitness valley between these peaks. (b) Name two stochastic mechanisms that could move the population across the valley. (c) In which population-size regime ($N_e \ll 1/s$ or $N_e \gg 1/s$) does crossing become more likely, and why?
 
-> **Concept Check (Evaluation):** The sandpile model shows self-organised criticality (SOC): the distribution of avalanche sizes follows a power law $P(s) \sim s^{-\tau}$ with $\tau \approx 1.5$. Cortical neural activity in awake mammals also follows a power law with $\tau \approx 1.5$ for neuronal cascades. (a) What does this quantitative similarity suggest about the operating regime of the cortex? (b) Propose one experimental manipulation that would push the cortex below criticality (subcritical) and one that would push it above (supercritical). (c) What would be the functional cost of each deviation?
+> **Concept Check (Evaluation):** The sandpile model shows self-organized criticality (SOC): the distribution of avalanche sizes follows a power law $P(s) \sim s^{-\tau}$ with $\tau \approx 1.5$. Cortical neural activity in awake mammals also follows a power law with $\tau \approx 1.5$ for neuronal cascades. (a) What does this quantitative similarity suggest about the operating regime of the cortex? (b) Propose one experimental manipulation that would push the cortex below criticality (subcritical) and one that would push it above (supercritical). (c) What would be the functional cost of each deviation?
 
 ### Genetic Algorithms: Evolution in a Computer
 
-John Holland's **genetic algorithm** \citep{holland1992} formalises Darwinian evolution as an optimisation procedure. A population of candidate solutions (each encoded as a "chromosome") is evaluated, the fittest are selected for reproduction, and offspring are produced by crossover (recombining parental chromosomes) and mutation. Genetic algorithms have designed:
+John Holland's **genetic algorithm** \citep{holland1992} formalises Darwinian evolution as an optimization procedure. A population of candidate solutions (each encoded as a "chromosome") is evaluated, the fittest are selected for reproduction, and offspring are produced by crossover (recombining parental chromosomes) and mutation. Genetic algorithms have designed:
 
 - Antenna geometries for NASA satellites that outperform human-designed alternatives.
 - Aerodynamic profiles for racing yachts.
@@ -328,18 +329,18 @@ The *biological* lesson is the inverse: just as artificial evolution solves desi
 
 ### Quorum sensing: a molecular vote without a mayor
 
-Many bacteria secrete **autoinducer** molecules whose extracellular concentration rises with local cell density. Below a threshold, the signal is noise; above it, receptors synchronise gene expression — biofilm formation, bioluminescence (*Vibrio*), or [**virulence**](#gl:virulence) factor deployment (*Staphylococcus*). No cell counts its neighbours; each cell integrates a **local concentration** that *implicitly* encodes population size. Mathematically, positive feedback on autoinducer synthesis once a threshold is crossed is a **bistable switch** — a CAS motif duplicated in synthetic gene circuits. Antibiotics that fail to penetrate biofilms often select for **persister** subpopulations, illustrating how multicellular bacterial collectives occupy a different attractor than planktonic growth.
+Many bacteria secrete **autoinducer** molecules whose extracellular concentration rises with local cell density. Below a threshold, the signal is noise; above it, receptors synchronize gene expression — biofilm formation, bioluminescence (*Vibrio*), or [**virulence**](#gl:virulence) factor deployment (*Staphylococcus*). No cell counts its neighbors; each cell integrates a **local concentration** that *implicitly* encodes population size. Mathematically, positive feedback on autoinducer synthesis once a threshold is crossed is a **bistable switch** — a CAS motif duplicated in synthetic gene circuits. Antibiotics that fail to penetrate biofilms often select for **persister** subpopulations, illustrating how multicellular bacterial collectives occupy a different attractor than planktonic growth.
 
 ### Trophic cascades: top-down reshaping of food webs
 
-Removing an apex predator (wolves from Yellowstone pre-1995 \citep{ripple2012}; large sharks from coral reefs) can trigger **cascading** changes in herbivores, plants, and even geomorphology — not because the predator "controlled" each species, but because the **network of interactions** rewires. Reintroduction experiments show that restoration is not the reverse movie of removal: history and initial conditions matter (**hysteresis**), another CAS signature. Levin's classic argument \citep{levin1998} that ecosystems and the biosphere are themselves complex adaptive systems rests on exactly this combination of nonlinear dynamics, history dependence, and multi-scale interaction.
+Removing an apex predator (wolves from Yellowstone pre-1995 \citep{ripple2012}; large sharks from coral reefs) can trigger **cascading** changes in herbivores, plants, and even geomorphology — not because the predator "controlled" each species, but because the **network of interactions** rewires. The offset prey--predator oscillations in \cref{fig:unit_X_lotka_volterra} are the simplest mathematical caricature of such coupled dynamics. Reintroduction experiments show that restoration is not the reverse movie of removal: history and initial conditions matter (**hysteresis**), another CAS signature. Levin's classic argument \citep{levin1998} that ecosystems and the biosphere are themselves complex adaptive systems rests on exactly this combination of nonlinear dynamics, history dependence, and multi-scale interaction.
 
 ### The Immune System as CAS
 
 The adaptive immune system is perhaps the most striking interorganismal CAS:
 
 - B-cell clonal expansion generates antigen-specific population growth.
-- Affinity maturation (somatic hypermutation + selection) is micro-evolution within the germinal centre.
+- Affinity maturation (somatic hypermutation + selection) is micro-evolution within the germinal center, analogous to the allele-frequency trajectories in \cref{fig:unit_VI_selection_simulation}.
 - Memory is a stable population-level attractor that persists after antigen clearance.
 
 > **Concept Check 3:** A bacterial population is grown for 1000 generations under cycling exposure to drugs A and B. Resistance mutations to A typically reduce growth rate on B and vice versa. Sketch how the population-mean fitness on each drug evolves over time, and explain in CAS vocabulary why the drug-cycling regime keeps the population on a "treadmill" rather than letting it climb a single peak.
@@ -348,7 +349,7 @@ The adaptive immune system is perhaps the most striking interorganismal CAS:
 
 ## Noise, Stochasticity, and Bifurcation
 
-Deterministic CAS models capture the *average* trajectory but miss two crucial features of real biology: **noise** (stochastic fluctuations in component numbers) and **bifurcation** (qualitative changes in system behaviour at parameter boundaries).
+Deterministic CAS models capture the *average* trajectory but miss two crucial features of real biology: **noise** (stochastic fluctuations in component numbers) and **bifurcation** (qualitative changes in system behavior at parameter boundaries).
 
 ### Noise in Genetic Switches
 
@@ -376,7 +377,8 @@ x_{n+1} = r\,x_{n}\,(1 - x_{n})
 
 with $r \in [0, 4]$ and $x \in [0, 1]$ is one of the simplest nonlinear systems and exhibits a complete cascade from order to chaos as $r$ increases:
 
-| Range of $r$ | Long-term behaviour |
+: The Logistic Map: A Worked Bifurcation Diagram: Range of r and Long-term behavior. {#tbl:unit_0_complex_adaptive_systems_the_logistic_map_a_worked_bifurcation_diagram}
+| Range of $r$ | Long-term behavior |
 | ------------ | ------------------- |
 | $0 \le r < 1$ | Population dies out: $x_n \to 0$ |
 | $1 \le r < 3$ | Single stable fixed point $x^{*} = 1 - 1/r$ |
@@ -386,11 +388,11 @@ with $r \in [0, 4]$ and $x \in [0, 1]$ is one of the simplest nonlinear systems 
 | $r \ge r_{\infty}$ | Chaos with periodic windows (notably period-3 near $r = 3.83$) |
 | $r = 4$ | Fully developed chaos on $[0, 1]$ |
 
-The successive period-doubling thresholds approach $r_{\infty}$ at a comprehensive ratio (the **Feigenbaum constant** $\delta \approx 4.6692$) that recurs in any smooth unimodal one-dimensional map and even in measurements of dripping faucets and convection rolls. This **universality** is part of why the logistic map matters: it predicts that systems as different as insect populations and turbulent fluids will display the same quantitative route to chaos.
+The successive period-doubling thresholds approach $r_{\infty}$ at a fixed ratio (the **Feigenbaum constant** $\delta \approx 4.6692$) that recurs in any smooth unimodal one-dimensional map and even in measurements of dripping faucets and convection rolls. This **scale invariance** is part of why the logistic map matters: it predicts that systems as different as insect populations and turbulent fluids will display the same quantitative route to chaos.
 
 **Worked numerical iteration ($r = 3.2$, $x_0 = 0.5$):** $x_1 = 3.2 \cdot 0.5 \cdot 0.5 = 0.800$. $x_2 = 3.2 \cdot 0.8 \cdot 0.2 = 0.512$. $x_3 = 3.2 \cdot 0.512 \cdot 0.488 = 0.799$. $x_4 = 3.2 \cdot 0.799 \cdot 0.201 = 0.514$. The iterates settle into a period-2 oscillation between roughly 0.513 and 0.800 — a discrete-time biological oscillator from one line of code.
 
-> **Connection (ecology) — boom-bust population cycles.** Some insect populations (notably Australian budworm) show empirical period-doubling and chaotic dynamics that are well-modelled by logistic-like equations. Whether populations are "really chaotic" or merely noisy depends on detailed model fitting; the pedagogical point is that *no exotic mechanism* is required to generate complex temporal patterns — a single nonlinear feedback suffices.
+> **Connection (ecology) — boom-bust population cycles.** Some insect populations (notably Australian budworm) show empirical period-doubling and chaotic dynamics that are well-modeled by logistic-like equations. Whether populations are "really chaotic" or merely noisy depends on detailed model fitting; the pedagogical point is that *no exotic mechanism* is required to generate complex temporal patterns — a single nonlinear feedback suffices.
 
 > **Concept Check 4:** Iterate the logistic map by hand for $r = 2.5$, $x_0 = 0.1$, four steps. Predict the long-term value, then iterate a few more steps to confirm. What does this tell you about the basin of attraction of the fixed point?
 
@@ -404,22 +406,23 @@ Biological robustness is achieved through:
 
 - **Redundancy** — multiple components performing similar functions.
 - **Degeneracy** — structurally distinct components can perform the same function in some contexts.
-- **Modularity** — failure in one module is localised.
+- **Modularity** — failure in one module is localized.
 - **Negative feedback** — deviations are automatically opposed.
-- **Distributed encoding** — important information is represented across many components, not localised in one.
+- **Distributed encoding** — important information is represented across many components, not localized in one.
 
-However, the same architectural features that confer robustness to typical perturbations make the system fragile to novel, coordinated, or cross-module perturbations. Antibiotic resistance evolution, autoimmunity, and cancer most reflect such fragility. This trade-off is sometimes called the **robust-yet-fragile** signature of CAS: highly optimised systems are *more* robust to expected perturbations and *more* fragile to unexpected ones. Carlson and Doyle named this "highly optimised tolerance" (HOT), and it explains why mature ecosystems suffer catastrophically when novel invasive species or climate regimes appear.
+However, the same architectural features that confer robustness to typical perturbations make the system fragile to novel, coordinated, or cross-module perturbations. Antibiotic resistance evolution, autoimmunity, and cancer most reflect such fragility. This trade-off is sometimes called the **robust-yet-fragile** signature of CAS: highly optimized systems are *more* robust to expected perturbations and *more* fragile to unexpected ones. Carlson and Doyle named this "highly optimized tolerance" (HOT), and it explains why mature ecosystems suffer catastrophically when novel invasive species or climate regimes appear.
 
-> **Concept Check 5:** Consider a CAS with strong negative feedback, modular organisation, and five-fold redundant sensors. Name one category of perturbation it will handle easily and one category that will nonetheless catastrophically break it. Why do the same architectural features that create robustness also create specific fragilities?
+> **Concept Check 5:** Consider a CAS with strong negative feedback, modular organization, and five-fold redundant sensors. Name one category of perturbation it will handle easily and one category that will nonetheless catastrophically break it. Why do the same architectural features that create robustness also create specific fragilities?
 
 ---
 
 ## CAS Across Biological Scales
 
+: The Logistic Map: A Worked Bifurcation Diagram: Scale and CAS. {#tbl:unit_0_complex_adaptive_systems_the_logistic_map_a_worked_bifurcation_diagram_2}
 | Scale | CAS | Agents | Emergent collective property |
 | ----- | --- | ------ | ---------------------------- |
 | Molecular | Gene regulatory network | Transcription factors, RNAs | Gene expression pattern, cell fate |
-| Cellular | Intracellular signalling | Signal proteins, second messengers | Robust most-or-none responses |
+| Cellular | Intracellular signaling | Signal proteins, second messengers | Robust most-or-none responses |
 | Tissue | Neural network | Neurons | Cognition, memory, perception |
 | Organism | Immune system | B and T cells, innate cells | Adaptive immunity |
 | Population | Evolving population | Individual organisms | Adaptation, speciation |
@@ -450,30 +453,31 @@ graph TD
 
 ### Agent-Based Models Across Biological Scales
 
+: Agent-Based Models Across Biological Scales: Phenomenon and Agents. {#tbl:unit_0_complex_adaptive_systems_agent_based_models_across_biological_scales}
 | Phenomenon | Agents | Local rules | Emergent property |
 | ---------- | ------ | ----------- | ----------------- |
 | Bird flocks | Boids | Cohesion, alignment, separation | Coordinated flight |
 | Ant trails | Ants + pheromone | Deposit, follow, evaporate | Shortest path |
 | Slime mould | *Dictyostelium* | cAMP secretion, chemotaxis | Multicellular fruiting body |
-| Schelling segregation | Households | Move if too few neighbours of "type" | Macroscopic segregation |
-| Game of Life | Cells on grid | Birth/death rules from neighbourhood | Gliders, oscillators, computers |
+| Schelling segregation | Households | Move if too few neighbors of "type" | Macroscopic segregation |
+| Game of Life | Cells on grid | Birth/death rules from neighborhood | Gliders, oscillators, computers |
 | SIR epidemic | S, I, R classes | Contact + recovery probability | Outbreak peak, herd-immunity threshold |
 | T-cell repertoire | Lymphocytes | Random receptor + clonal selection | Adaptive specificity |
 
-The pattern is comprehensive: the rules are absurdly simple, the global behaviour is rich. This is why agent-based modelling has become a standard tool in epidemiology (COVID-19 contact networks), behavioural ecology, and synthetic biology.
+The pattern is comprehensive: the rules are absurdly simple, the global behavior is rich. This is why agent-based modeling has become a standard tool in epidemiology (COVID-19 contact networks), behavioral ecology, and synthetic biology.
 
 ```mermaid
 flowchart LR
-    A[Initialise N agents\nwith random states] --> B[For each agent:\nsense local neighbourhood]
+    A[Initialize N agents\nwith random states] --> B[For each agent:\nsense local neighborhood
     B --> C[Apply local rules\nto update internal state\nand action]
     C --> D[Update environment\n(pheromones, chemicals,\nphysical positions)]
     D --> E{Stop?\n(time / convergence)}
     E -->|No| B
     E -->|Yes| F[Measure global\nemergent properties]
 ```
-<!-- alt: Flowchart showing agent-based modelling loop linking local rules to measured emergent behaviour. -->
+<!-- alt: Flowchart showing agent-based modeling loop linking local rules to measured emergent behavior. -->
 
-*Agent-based modelling loop linking local rules to measured emergent behaviour.*
+*Agent-based modeling loop linking local rules to measured emergent behavior.*
 
 ---
 
@@ -509,14 +513,14 @@ the chapter. Systems models are useful when they expose assumptions, uncertainty
 
 For complexity claims, name the interacting agents, update rule, feedback loop, and attractor or phase-space evidence before treating emergence as more than description.
 
-**Source practice:** Pair simulation or network models with empirical traces of local interaction, perturbation, or time-series behaviour; state what simpler linear model would miss.
+**Source practice:** Pair simulation or network models with empirical traces of local interaction, perturbation, or time-series behavior; state what simpler linear model would miss.
 
 ## Unit 0 Integration: From Systems to Adaptive Agents
 
 \nameref{sec:unit_0_systems_science} defines boundaries, feedback, and dynamics. CAS reasoning adds three commitments:
 
 1. **Agents are heterogeneous.** Cells, organisms, immune clones, microbial taxa, or firms in a food system do not all share the same state, history, or rule set.
-2. **Rules are local.** Global patterns emerge from local sensing, movement, reproduction, death, learning, or signalling.
+2. **Rules are local.** Global patterns emerge from local sensing, movement, reproduction, death, learning, or signaling.
 3. **History matters.** The same perturbation can have different outcomes after a system has crossed a threshold, acquired a mutation, changed a niche, or settled into a new attractor.
 
 These commitments are what let CAS connect evolution, immunity, cancer, neural circuits, microbial ecology, and conservation. They also prevent a common overclaim. A system is not complex-adaptive merely because it has many parts. It becomes CAS-like when local adaptive rules, heterogeneity, and path dependence explain a global pattern better than a single representative-agent model.
@@ -533,8 +537,8 @@ When you meet a later chapter case, ask:
 
 ## Summary
 
-- A complex adaptive system is a collection of interacting agents with adaptive rules that generate emergent collective behaviour.
-- Self-organisation arises from local interactions without central control; Turing patterns and Dictyostelium aggregation are paradigmatic examples.
+- A complex adaptive system is a collection of interacting agents with adaptive rules that generate emergent collective behavior.
+- Self-organization arises from local interactions without central control; Turing patterns and Dictyostelium aggregation are paradigmatic examples.
 - Attractors define the landscape of stable system states; phase transitions separate distinct regimes.
 - Power laws and scale-free properties often signal systems poised near criticality; the Bak sandpile, neuronal avalanches, and earthquakes share statistical signatures.
 - Fitness landscapes (Wright's metaphor; Kauffman's NK formalism) capture the structure of adaptive evolution; ruggedness predicts replicate divergence and resistance evolution.
@@ -546,7 +550,7 @@ When you meet a later chapter case, ask:
 
 ## Key Terms
 
-**complex adaptive system** · **agent** · **stigmergy** · **superorganism** · **self-organisation** · **attractor** · **basin of attraction** · **phase space** · **phase transition** · **critical system** · **power law** · **scale-free** · **fitness landscape** · **NK model** · **genetic algorithm** · **logistic map** · **Feigenbaum constant** · **robustness** · **degeneracy** · **limit cycle** · **strange attractor** · **Turing pattern** · **bistable switch** · **hysteresis**
+**complex adaptive system** · **agent** · **stigmergy** · **superorganism** · **self-organization** · **attractor** · **basin of attraction** · **phase space** · **phase transition** · **critical system** · **power law** · **scale-free** · **fitness landscape** · **NK model** · **genetic algorithm** · **logistic map** · **Feigenbaum constant** · **robustness** · **degeneracy** · **limit cycle** · **strange attractor** · **Turing pattern** · **bistable switch** · **hysteresis**
 
 ---
 
@@ -554,15 +558,15 @@ When you meet a later chapter case, ask:
 
 1. The human gut [**microbiome**](#gl:microbiome) contains ~10¹³ microbial cells from hundreds of species, interacting through metabolic cross-feeding, competition, and quorum sensing. Describe this as a CAS. What are the agents, local rules, and emergent properties? What could perturb the microbiome into a different attractor?
 
-2. Explain why a cancer tumour is itself a CAS. What "selection pressure" drives cancer evolution? Why does targeting a single driver mutation often fail to permanently eliminate a tumour? How might CAS thinking guide combination therapies?
+2. Explain why a cancer tumor is itself a CAS. What "selection pressure" drives cancer evolution? Why does targeting a single driver mutation often fail to permanently eliminate a tumor? How might CAS thinking guide combination therapies?
 
 3. Neural networks in the brain and artificial neural networks in deep learning both exhibit emergent computation from simple local rules. Compare and contrast the biological and artificial cases in terms of (a) learning rules, (b) architecture, (c) energy consumption, and (d) generalisation vs. overfitting.
 
 4. Many ecosystems exhibit hysteresis: a lake may tolerate increasing nutrient loading up to a threshold, then abruptly collapse to a eutrophic state, which cannot be reversed simply by reducing nutrient input to pre-collapse levels. What does this asymmetry imply for conservation management? How does CAS theory explain the hysteresis?
 
-5. The concept of "self-organised criticality" suggests that many biological networks operate near a critical point between order and disorder. What functional advantages might this confer on neural networks? What experimental evidence (e.g., neuronal avalanches \citep{beggs2003}) supports or challenges this hypothesis?
+5. The concept of "self-organized criticality" suggests that many biological networks operate near a critical point between order and disorder. What functional advantages might this confer on neural networks? What experimental evidence (e.g., neuronal avalanches \citep{beggs2003}) supports or challenges this hypothesis?
 
-6. Explain quorum sensing in *Pseudomonas aeruginosa* or *Vibrio fischeri* using CAS vocabulary (agents, local rules, emergent behaviour). How might blocking autoinducer synthesis differ from traditional bactericidal antibiotics in terms of resistance evolution?
+6. Explain quorum sensing in *Pseudomonas aeruginosa* or *Vibrio fischeri* using CAS vocabulary (agents, local rules, emergent behavior). How might blocking autoinducer synthesis differ from traditional bactericidal antibiotics in terms of resistance evolution?
 
 7. After wolf reintroduction in Yellowstone \citep{ripple2012}, willow recovery along streams was attributed partly to reduced elk browsing. What other biotic or [**abiotic**](#gl:abiotic) variables could confound a simple "predator → herbivore → plant" chain? How would you design a study to separate correlation from causation?
 
@@ -572,7 +576,7 @@ When you meet a later chapter case, ask:
 
 ## Review Questions
 
-1. List the four defining properties of a complex adaptive system (adaptation, self-organisation, co-evolution, nonlinear dynamics) and give one biological example that exhibits the complete set simultaneously.
+1. List the four defining properties of a complex adaptive system (adaptation, self-organization, co-evolution, nonlinear dynamics) and give one biological example that exhibits the complete set simultaneously.
 
 2. Explain the chapter's claim that "complexity is endogenous." Using the boids model, describe how three local rules (cohesion, alignment, separation) generate a global flock that no individual agent represents.
 
@@ -580,13 +584,13 @@ When you meet a later chapter case, ask:
 
 4. Apply the basin-of-attraction landscape to cancer therapy. A targeted drug delivers a "kick" that displaces malignant cells from the proliferative basin. Explain, in terms of basin depth and barrier height, why recurrence is likely when the barrier is lower than the kick amplitude, and why combination therapy reshapes rather than merely perturbs the landscape.
 
-5. Iterate the logistic map $x_{n+1}=r x_n(1-x_n)$ by hand for $r=3.2$, $x_0=0.5$ for four steps, and classify the long-term behaviour using the chapter's $r$-regime table. Then explain what the Feigenbaum constant $\delta\approx4.669$ implies about the *universality* of the route to chaos across unrelated systems.
+5. Iterate the logistic map $x_{n+1}=r x_n(1-x_n)$ by hand for $r=3.2$, $x_0=0.5$ for four steps, and classify the long-term behavior using the chapter's $r$-regime table. Then explain what the Feigenbaum constant $\delta\approx4.669$ implies about the *universality* of the route to chaos across unrelated systems.
 
-6. Analyse self-organised criticality: identify the statistical signature (power-law size distributions) and explain, using neuronal avalanches, why a system poised near criticality maximises dynamic range and mutual information. Why is this functionally advantageous for a brain?
+6. Analyze self-organized criticality: identify the statistical signature (power-law size distributions) and explain, using neuronal avalanches, why a system poised near criticality maximizes dynamic range and mutual information. Why is this functionally advantageous for a brain?
 
 7. Using Kauffman's NK model, explain how the epistatic coupling $K$ controls landscape ruggedness. Predict the qualitative outcome of replicate evolution experiments (e.g. the Lenski long-term *E. coli* lines) at $K=0$, intermediate $K$, and $K=N-1$, and connect ruggedness to the failure of single-agent targeted therapy.
 
-8. Distinguish robustness, redundancy, and degeneracy. Then explain the "robust-yet-fragile" (highly-optimised-tolerance) signature: why do the same architectural features that confer robustness to expected perturbations create catastrophic fragility to novel, coordinated ones? Give one clinical or ecological example.
+8. Distinguish robustness, redundancy, and degeneracy. Then explain the "robust-yet-fragile" (highly-optimized-tolerance) signature: why do the same architectural features that confer robustness to expected perturbations create catastrophic fragility to novel, coordinated ones? Give one clinical or ecological example.
 
 9. Evaluate the fold-bifurcation/hysteresis account of lake eutrophication. Why does reducing phosphorus below the original tipping point $P_1$ fail to restore the clear state, and what does the lower threshold $P_2$ imply for the cost asymmetry between prevention and remediation? Identify one other biological system governed by the same mathematics.
 
@@ -597,7 +601,7 @@ When you meet a later chapter case, ask:
 ## Further Reading and Source Notes: Complex Adaptive Systems
 
 - Holland, J. H. (1992). *Adaptation in Natural and Artificial Systems* (2nd ed.) \citep{holland1992}. MIT Press.
-- Kauffman, S. A. (1993). *The Origins of Order: Self-Organisation and Selection in Evolution* \citep{kauffman1993}. Oxford University Press.
+- Kauffman, S. A. (1993). *The Origins of Order: Self-organization and Selection in Evolution* \citep{kauffman1993}. Oxford University Press.
 - Bak, P., Tang, C., & Wiesenfeld, K. (1987). Self-organized criticality \citep{bak1987}. *Physical Review Letters*, 59(4), 381–384.
 - Levin, S. A. (1998). Ecosystems and the biosphere as complex adaptive systems \citep{levin1998}. *Ecosystems*, 1(5), 431–436.
 - Beggs, J. M., & Plenz, D. (2003). Neuronal avalanches in neocortical circuits \citep{beggs2003}. *Journal of Neuroscience*, 23(35), 11167–11177.
@@ -612,6 +616,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Complex Adaptive Systems. {#tbl:unit_0_complex_adaptive_systems_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/ecology/ecology.py` (`lotka_volterra`, `biodiversity_indices`, `logistic_growth`) | Explore feedback, interaction strength, and diversity metrics as emergent summaries. |

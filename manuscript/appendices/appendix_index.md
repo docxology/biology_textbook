@@ -1,6 +1,5 @@
-# Appendix G — Index of Key Terms {.unnumbered}
+# Appendix G — Index of Key Terms {#sec:appendix_index .unnumbered}
 
-\label{sec:appendix_index}
 
 
 <!-- chapter-metadata-badge -->
@@ -70,7 +69,7 @@ The `#gl:slug` anchor is the canonical location defined in the master glossary (
 
 ## D {.unnumbered}
 
-**Depolarisation** (`#gl:depolarisation`) → \cref{sec:unit_IX_nervous_system,sec:unit_IX_action_potential_synapses}
+**Depolarization** (`#gl:depolarization`) → \cref{sec:unit_IX_nervous_system,sec:unit_IX_action_potential_synapses}
 **Dominant** (`#gl:dominant`) → \cref{sec:unit_V_mendelian_principles}
 
 ## E {.unnumbered}
@@ -92,7 +91,7 @@ The `#gl:slug` anchor is the canonical location defined in the master glossary (
 
 **Feedback loop** (`#gl:homeostasis`) → \cref{sec:unit_0_systems_science}
 **Fermentation** (`#gl:fermentation`) → \cref{sec:unit_III_bioenergetics_and_respiration}
-**Fertilisation** (`#gl:zygote`) → \cref{sec:unit_V_chromosomal_inheritance,sec:unit_VIII_plant_reproduction}
+**Fertilization** (`#gl:zygote`) → \cref{sec:unit_V_chromosomal_inheritance,sec:unit_VIII_plant_reproduction}
 **Fitness** (`#gl:fitness`) → \cref{sec:unit_VI_evolution_and_selection}
 **Founder effect** (`#gl:founder-effect`) → \cref{sec:unit_VI_genetic_drift_and_speciation}
 

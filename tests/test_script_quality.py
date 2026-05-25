@@ -28,7 +28,7 @@ GENERIC_OVERVIEW_HEADING_PATHS = [
     PROJECT / "AGENTS.md",
     PROJECT / "docs" / "AGENTS.md",
     PROJECT / "docs" / "pipeline_guide.md",
-    PROJECT / "docs" / "visualisation_guide.md",
+    PROJECT / "docs" / "visualization_guide.md",
     PROJECT / "manuscript" / "README.md",
     PROJECT / "manuscript" / "unit_0" / "AGENTS.md",
     PROJECT / "scripts" / "AGENTS.md",
@@ -150,6 +150,16 @@ def test_publication_readiness_project_tests_gate_uses_module_pytest_entrypoint(
 
     assert commands["project-tests-gate"][:3] == ("uv", "run", "pytest")
     assert "--cov-fail-under=90" in commands["project-tests-gate"]
+
+
+def test_publication_readiness_pdf_log_uses_project_render_output() -> None:
+    namespace = runpy.run_path(str(SCRIPTS / "audit_publication_readiness.py"))
+    build_command_steps = namespace["build_command_steps"]
+    commands = {step.name: step.command for step in build_command_steps(full=True)}
+    pdf_log_command = commands["root-pdf-log"]
+
+    assert str(PROJECT / "output" / "pdf" / "_combined_manuscript.log") in pdf_log_command
+    assert not any("output/biology_textbook/pdf/_combined_manuscript.log" in part for part in pdf_log_command)
 
 
 def test_further_reading_inserter_uses_specialized_source_heading() -> None:

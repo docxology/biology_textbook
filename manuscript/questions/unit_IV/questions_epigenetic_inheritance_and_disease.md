@@ -1,11 +1,10 @@
-# Questions — Epigenetic Inheritance and Disease {.unnumbered}
+# Questions — Epigenetic Inheritance and Disease {#sec:q_unit_IV_epigenetic_inheritance_and_disease .unnumbered}
 
-\label{sec:q_unit_IV_epigenetic_inheritance_and_disease}
 
 <!-- question-coverage-start -->
 ## Instructor Use and Coverage Notes {.unnumbered}
 
-- **Coverage target:** Explain how 3D organisation or inherited marks alter expression and disease risk.
+- **Coverage target:** Explain how 3D organization or inherited marks alter expression and disease risk.
 - **Model/data emphasis:** Chromatin-loop, inheritance, and disease-risk reasoning.
 - **Assessment alignment:** Concept Explanation, Questions and Methods, Argumentation.
 - **Misconception probe:** A chromatin contact map is not proof of function without perturbation.
@@ -19,10 +18,10 @@
 *This activity accompanies \cref{sec:unit_IV_epigenetic_inheritance_and_disease} of the textbook — review that chapter before attempting the exercises below.*
 
 <!-- assess: LO=LO1; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-1. The X-inactivation centre (Xic) on the inactive X chromosome produces Xist lncRNA, which coats the inactive X in cis. Explain: (a) how Xist RNA spreads along the chromosome; (b) how it recruits PRC2 (H3K27me3) and PRC1 (H2AK119ub1) to compact the Xi; (c) why a small region (pseudo-autosomal region, PAR) escapes X-inactivation.
+1. The X-inactivation center (Xic) on the inactive X chromosome produces Xist lncRNA, which coats the inactive X in cis. Explain: (a) how Xist RNA spreads along the chromosome; (b) how it recruits PRC2 (H3K27me3) and PRC1 (H2AK119ub1) to compact the Xi; (c) why a small region (pseudo-autosomal region, PAR) escapes X-inactivation.
 
 <!-- SOLUTION
-**Answer (Q1, Application).** (a) Xist is transcribed only from the future inactive X and spreads in cis along that chromosome by exploiting its 3D proximity, nucleating from the X-inactivation centre. (b) Xist recruits SPEN/HDAC3 and Polycomb complexes so PRC2 deposits H3K27me3 and PRC1 deposits H2AK119ub1, with later DNA methylation, compacting the Xi into a heterochromatic Barr body. (c) Genes in the pseudoautosomal region escape inactivation because they have homologous active partners on the Y chromosome, so dosage must be maintained from both sex chromosomes. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
+**Answer (Q1, Application).** (a) Xist is transcribed only from the future inactive X and spreads in cis along that chromosome by exploiting its 3D proximity, nucleating from the X-inactivation center. (b) Xist recruits SPEN/HDAC3 and Polycomb complexes so PRC2 deposits H3K27me3 and PRC1 deposits H2AK119ub1, with later DNA methylation, compacting the Xi into a heterochromatic Barr body. (c) Genes in the pseudoautosomal region escape inactivation because they have homologous active partners on the Y chromosome, so dosage must be maintained from both sex chromosomes. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
 SOLUTION -->
 
 <!-- assess: LO=LO2; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
@@ -33,10 +32,10 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-3. Transgenerational epigenetic inheritance refers to the transmission of epigenetic marks across generations without DNA sequence change. The agouti mouse model showed that maternal methyl-donor diet changes offspring coat colour and obesity risk via CpG methylation of the Avy allele. What does this imply about the erasure of epigenetic marks between generations (which normally occurs in primordial germ cells)?
+3. Transgenerational epigenetic inheritance refers to the transmission of epigenetic marks across generations without DNA sequence change. The agouti mouse model showed that maternal methyl-donor diet changes offspring coat color and obesity risk via CpG methylation of the Avy allele. What does this imply about the erasure of epigenetic marks between generations (which normally occurs in primordial germ cells)?
 
 <!-- SOLUTION
-**Answer (Q3, Application).** If diet-induced methylation of the Avy allele in one generation alters offspring coat colour and metabolism, then the genome-wide epigenetic reprogramming that normally erases methylation in primordial germ cells (and again after fertilization) is incomplete at certain loci. Some sequences — including metastable epialleles and certain repeat/transposon-associated regions like Avy — escape full erasure, allowing parental environmental information to be transmitted, although such transgenerational inheritance is locus-specific and the magnitude of true germline transmission requires careful controls. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
+**Answer (Q3, Application).** If diet-induced methylation of the Avy allele in one generation alters offspring coat color and metabolism, then the genome-wide epigenetic reprogramming that normally erases methylation in primordial germ cells (and again after fertilization) is incomplete at certain loci. Some sequences — including metastable epialleles and certain repeat/transposon-associated regions like Avy — escape full erasure, allowing parental environmental information to be transmitted, although such transgenerational inheritance is locus-specific and the magnitude of true germline transmission requires careful controls. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
 SOLUTION -->
 
 <!-- assess: LO=LO4; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
@@ -56,17 +55,17 @@ SOLUTION -->
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
 
 <!-- assess: LO=LO6; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-6. Evaluate the claim that cancer is largely an epigenetic disease. Cite evidence from: (a) global hypomethylation and CpG island hypermethylation in cancer; (b) frequent mutations in chromatin remodelling enzymes (ARID1A, SMARCA4, KMT2D) in cancer; (c) the success of HDAC inhibitors and DNMT inhibitors clinically. Under what conditions are purely epigenetic therapies (without targeted mutation correction) appropriate?
+6. Evaluate the claim that cancer is largely an epigenetic disease. Cite evidence from: (a) global hypomethylation and CpG island hypermethylation in cancer; (b) frequent mutations in chromatin remodeling enzymes (ARID1A, SMARCA4, KMT2D) in cancer; (c) the success of HDAC inhibitors and DNMT inhibitors clinically. Under what conditions are purely epigenetic therapies (without targeted mutation correction) appropriate?
 
 <!-- SOLUTION
-**Answer (Q6, Synthesis).** (a) Cancers show genome-wide hypomethylation (activating oncogenes/transposons) alongside focal CpG-island hypermethylation that silences tumour suppressors, an epigenetic phenotype. (b) Frequent loss-of-function mutations in chromatin regulators (ARID1A, SMARCA4, KMT2D) show the chromatin machinery is itself a driver. (c) Clinical efficacy of DNMT inhibitors (azacitidine) and HDAC inhibitors supports reversible epigenetic causation. The claim holds where epigenetic silencing is the dominant lesion (e.g., MDS, IDH-mutant gliomas) and a reactivatable gene exists; purely epigenetic therapy is inappropriate when fixed driver mutations or deletions, not silencing, sustain the tumour. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
+**Answer (Q6, Synthesis).** (a) Cancers show genome-wide hypomethylation (activating oncogenes/transposons) alongside focal CpG-island hypermethylation that silences tumor suppressors, an epigenetic phenotype. (b) Frequent loss-of-function mutations in chromatin regulators (ARID1A, SMARCA4, KMT2D) show the chromatin machinery is itself a driver. (c) Clinical efficacy of DNMT inhibitors (azacitidine) and HDAC inhibitors supports reversible epigenetic causation. The claim holds where epigenetic silencing is the dominant lesion (e.g., MDS, IDH-mutant gliomas) and a reactivatable gene exists; purely epigenetic therapy is inappropriate when fixed driver mutations or deletions, not silencing, sustain the tumor. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
 SOLUTION -->
 
 <!-- assess: LO=LO7; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-7. Design a pharmaceutical strategy to reactivate a silenced tumour suppressor gene in a cancer with promoter hypermethylation. Compare DNMT inhibitors (5-azacitidine, broad demethylation), targeted dCas9-TET1 (site-specific demethylation), and HDAC inhibitors. What are the risks of broad epigenome reprogramming vs targeted approaches?
+7. Design a pharmaceutical strategy to reactivate a silenced tumor suppressor gene in a cancer with promoter hypermethylation. Compare DNMT inhibitors (5-azacitidine, broad demethylation), targeted dCas9-TET1 (site-specific demethylation), and HDAC inhibitors. What are the risks of broad epigenome reprogramming vs targeted approaches?
 
 <!-- SOLUTION
-**Answer (Q7, Synthesis).** Hypothesis: re-expressing the silenced tumour suppressor restores growth control. Compare arms: a DNMT inhibitor (5-azacitidine) causes broad passive demethylation and reactivates many genes but risks global genome instability and off-target reactivation; dCas9-TET1 demethylates only the targeted promoter, giving specificity but limited efficiency and delivery challenges; HDAC inhibitors broadly reopen chromatin but are nonspecific and transient. Measure target re-expression, methylation, growth arrest, with vehicle and catalytically dead controls; the decision rule is restored expression and arrest specifically when the targeted mark is removed. Broad reprogramming risks awakening oncogenes and toxicity; targeted approaches trade efficiency for safety. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
+**Answer (Q7, Synthesis).** Hypothesis: re-expressing the silenced tumor suppressor restores growth control. Compare arms: a DNMT inhibitor (5-azacitidine) causes broad passive demethylation and reactivates many genes but risks global genome instability and off-target reactivation; dCas9-TET1 demethylates only the targeted promoter, giving specificity but limited efficiency and delivery challenges; HDAC inhibitors broadly reopen chromatin but are nonspecific and transient. Measure target re-expression, methylation, growth arrest, with vehicle and catalytically dead controls; the decision rule is restored expression and arrest specifically when the targeted mark is removed. Broad reprogramming risks awakening oncogenes and toxicity; targeted approaches trade efficiency for safety. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
 SOLUTION -->
 
 <!-- assess: LO=LO1; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
@@ -84,7 +83,7 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-10. 3D chromatin organisation (TADs — topologically associating domains) is largely maintained by CTCF and cohesin. Evaluate what would happen to gene regulation if cohesin loading were abolished globally: (a) which enhancer-promoter pairs would become aberrantly activated; (b) what new gene expression states would emerge; (c) is this consistent with the observation that cohesin mutations cause Cornelia de Lange syndrome?
+10. 3D chromatin organization (TADs — topologically associating domains) is largely maintained by CTCF and cohesin. Evaluate what would happen to gene regulation if cohesin loading were abolished globally: (a) which enhancer-promoter pairs would become aberrantly activated; (b) what new gene expression states would emerge; (c) is this consistent with the observation that cohesin mutations cause Cornelia de Lange syndrome?
 
 <!-- SOLUTION
 **Answer (Q10, Synthesis).** TAD boundaries are built by CTCF and cohesin through loop extrusion. (a) Abolishing cohesin loading would eliminate most loops/TADs, so enhancers could aberrantly contact promoters outside their normal domains, switching on genes that are normally insulated. (b) New, dysregulated expression states would emerge, generally with modest, widespread changes rather than wholesale reprogramming, since promoter-proximal control persists. (c) This is consistent with cohesin/NIPBL mutations causing Cornelia de Lange syndrome, a multisystem developmental disorder, because partial loss of cohesin function subtly mis-wires enhancer–promoter contacts genome-wide during development. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
@@ -156,10 +155,10 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO6; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-20. What is chromatin remodelling? Name one chromatin remodelling complex.
+20. What is chromatin remodeling? Name one chromatin remodeling complex.
 
 <!-- SOLUTION
-**Answer (Q20, Recall).** Chromatin remodelling is the ATP-dependent repositioning, ejection, or restructuring of nucleosomes to change DNA accessibility for transcription factors and the replication/repair machinery. One example is the SWI/SNF (BAF) complex, which uses ATP hydrolysis to slide or evict nucleosomes; other families include ISWI, CHD/NuRD, and INO80. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
+**Answer (Q20, Recall).** Chromatin remodeling is the ATP-dependent repositioning, ejection, or restructuring of nucleosomes to change DNA accessibility for transcription factors and the replication/repair machinery. One example is the SWI/SNF (BAF) complex, which uses ATP hydrolysis to slide or evict nucleosomes; other families include ISWI, CHD/NuRD, and INO80. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
 SOLUTION -->
 
 ## Questions 21–30: Synthesis and Evaluation {.unnumbered}
@@ -212,7 +211,7 @@ SOLUTION -->
 27. Polycomb repressive complex 2 (PRC2) trimethylates H3K27 and is overexpressed in many cancers. Explain: (a) the molecular mechanism of H3K27me3-mediated gene silencing; (b) how PRC2 spreads repression across large chromosomal domains; (c) why EZH2 (the catalytic subunit of PRC2) is a therapeutic target (tazemetostat).
 
 <!-- SOLUTION
-**Answer (Q27, Application).** (a) PRC2 trimethylates H3K27 (H3K27me3), which recruits PRC1 to ubiquitinate H2AK119 and compact chromatin, blocking transcription. (b) H3K27me3 is itself read by the PRC2 EED subunit, creating positive feedback that spreads the mark in cis across broad domains. (c) Overactive or mutant EZH2 hyper-represses tumour-suppressor and differentiation genes, so the catalytic EZH2 subunit is druggable; tazemetostat is an FDA-approved EZH2 inhibitor that reactivates these genes. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
+**Answer (Q27, Application).** (a) PRC2 trimethylates H3K27 (H3K27me3), which recruits PRC1 to ubiquitinate H2AK119 and compact chromatin, blocking transcription. (b) H3K27me3 is itself read by the PRC2 EED subunit, creating positive feedback that spreads the mark in cis across broad domains. (c) Overactive or mutant EZH2 hyper-represses tumor-suppressor and differentiation genes, so the catalytic EZH2 subunit is druggable; tazemetostat is an FDA-approved EZH2 inhibitor that reactivates these genes. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
 SOLUTION -->
 
 <!-- assess: LO=LO7; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->

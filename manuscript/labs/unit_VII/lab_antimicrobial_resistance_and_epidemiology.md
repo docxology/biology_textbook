@@ -1,4 +1,4 @@
-# Lab — Antimicrobial Resistance and Epidemiology {.unnumbered}
+# Lab — Antimicrobial Resistance and Epidemiology {#sec:lab_unit_VII_antimicrobial_resistance_and_epidemiology .unnumbered}
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
@@ -10,16 +10,16 @@
 - **Chapter LO coverage:** LO1, LO2, LO3, LO4
 - **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
 <!-- lab-alignment-end -->
-\label{sec:lab_unit_VII_antimicrobial_resistance_and_epidemiology}
 
 *This activity accompanies \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} of the textbook — review that chapter before attempting the exercises below.*
 
 ## Lab Context: Antimicrobial Resistance and Epidemiology {.unnumbered}
 
-This extension lab connects resistance mechanisms, surveillance data, and epidemic modelling using printed case cards and computational templates.
+This extension lab connects resistance mechanisms, surveillance data, and epidemic modeling using printed case cards and computational templates.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Antimicrobial Resistance and Epidemiology: pathogen-surveillance source card: organism-resistance pair, official guidance date, setting, and intervention limit | 1 |
@@ -58,6 +58,7 @@ print("distancing R0:", distancing.r0, "peak infected:", round(max(distancing.in
 
 Epidemic curve: peak at hour ___; attack rate: ___%; estimated incubation: ___ h; R₀ ≈ ___
 
+: Part 4: Current Intervention Decision Matrices: Antibiotic and Zone (mm). {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_part_4_current_intervention_decision_matrices}
 | Antibiotic | Zone (mm) | Interpretation (S/I/R) |
 | ---------- | --------- | ----------------------- |
 | Ampicillin | | |
@@ -68,6 +69,7 @@ Epidemic curve: peak at hour ___; attack rate: ___%; estimated incubation: ___ h
 Replicate zone agreement within ±2 mm? _______; AMR mechanism card selected: _______
 TB regimen path selected: _______; PrEP option justified: _______; malaria control package: _______
 
+: Part 4: Current Intervention Decision Matrices: Disease and R₀. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_part_4_current_intervention_decision_matrices_2}
 | Disease | R₀ | Herd immunity threshold (p_c) |
 | ------- | -- | ------------------------------- |
 | Measles | 15 | |
@@ -93,6 +95,7 @@ TB regimen path selected: _______; PrEP option justified: _______; malaria contr
 Before answering the analysis questions, annotate the paper dataset for
 **Infectious Disease and Immunity** with a reproducibility pass:
 
+: Part 4: Current Intervention Decision Matrices: Evidence check and Student action. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_part_4_current_intervention_decision_matrices_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -123,7 +126,7 @@ equipment version belongs only in an optional extension.
 4. An immunocompromised patient (CD4 T cell count < 200/µL, HIV+ AIDS) contracts measles despite prior vaccination. Explain: (a) why the vaccine may be insufficient; (b) which branch of adaptive immunity (humoral or cellular) is most deficient; (c) what specific viral clearance mechanism is impaired.
 
 5. The O'Neill Review's 10-million-deaths-per-year by 2050 AMR estimate is a historical warning scenario, not a current burden count \citep{oneill2016amr}. Describe three specific mechanisms by which bacteria acquire resistance genes, and evaluate two distinct policy interventions that would slow the spread of AMR at a population level.
-6. A malaria programme already distributes insecticide-treated nets, but household surveys show substantial indoor activity before bedtime. Use the vector-control matrix to decide whether spatial emanators could be an added tool, and state two evidence gaps that would still require local monitoring.
+6. A malaria program already distributes insecticide-treated nets, but household surveys show substantial indoor activity before bedtime. Use the vector-control matrix to decide whether spatial emanators could be an added tool, and state two evidence gaps that would still require local monitoring.
 
 ## Extension Analysis Questions {.unnumbered}
 
@@ -189,7 +192,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} that your data either confirmed or complicated. Cite the specific passage.
 

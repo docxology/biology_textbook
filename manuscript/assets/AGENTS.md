@@ -20,4 +20,4 @@ Binary and static assets consumed by the rendering pipeline. This tree is **not*
 
 - [`README.md`](README.md) — quick reference
 - [`../AGENTS.md`](../AGENTS.md) — manuscript-wide conventions
-- [`../../docs/visualisation_guide.md`](../../docs/visualisation_guide.md) — figure and diagram workflows (matplotlib / Mermaid)
+- [`../../docs/visualization_guide.md`](../../docs/visualization_guide.md) — figure and diagram workflows (matplotlib / Mermaid)

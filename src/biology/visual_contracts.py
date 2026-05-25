@@ -290,10 +290,10 @@ def _inline_stem(index: int, source: str) -> str:
 def _normalise_inline_mermaid_source(source: str) -> str:
     try:
         module = import_module("infrastructure.rendering._pdf_mermaid")
-        normalise = getattr(module, "_normalise_mermaid_source")
+        normalize = getattr(module, "_normalise_mermaid_source")
     except (AttributeError, ImportError):
         return source.replace(r"\n", "<br/>")
-    return str(normalise(source))
+    return str(normalize(source))
 
 
 def _inline_mermaid_sources() -> Iterable[tuple[int, Path, int, str]]:

@@ -155,7 +155,7 @@ def test_render_inline_mermaid_assets_requires_mmdc(monkeypatch: pytest.MonkeyPa
 
 
 def test_write_manifest_round_trip(tmp_path: Path) -> None:
-    from biology.visual_contracts import VisualRecord, write_manifest
+    from biology.visual_contracts import write_manifest
 
     record = _record(asset_path="figures/demo.png")
     path = write_manifest([record], tmp_path / "manifest.json")

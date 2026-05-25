@@ -42,7 +42,7 @@ Student PDFs are built **compact** by default:
 | Subpackage | Typical manuscript topics |
 | ---------- | ------------------------- |
 | `biochemistry/` | Enzyme kinetics, ΔG, pathways |
-| `cell/` | Organelles, Nernst/Goldman, transport, signalling |
+| `cell/` | Organelles, Nernst/Goldman, transport, signaling |
 | `genetics/` | DNA/RNA, Punnett, Hardy–Weinberg, genomics |
 | `evolution/` | Selection, drift, clock, speciation |
 | `ecology/` | Growth models, Lotka–Volterra, diversity |
@@ -150,7 +150,7 @@ biology_textbook/
 │   ├── pad_short_labs.py              # extend very short lab files
 │   ├── refine_generated_answers.py    # rewrites legacy/generated answer scaffolds; --dry-run should be clean
 │   └── sync_assessment_metadata.py     # question-item metadata and lab outcome/rubric alignment
-├── tests/                            # 31 test_*.py modules; run pytest for current count and coverage
+├── tests/                            # 40 test_*.py modules; run pytest for current count and coverage
 │   ├── conftest.py
 │   ├── test_accessibility.py          # alt text + mermaid accessibility contract
 │   ├── test_assessment_metadata.py    # item-level question metadata
@@ -203,7 +203,7 @@ From this project directory:
 uv run python -m pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 ```
 
-Run `uv run python -m pytest tests/ --cov=src --cov-fail-under=90` from this project directory so this `pyproject.toml` applies the 90 % gate (repo-root pytest may use the root config). Zero-mock policy — no `MagicMock`, `mocker.patch`, or `unittest.mock` for behaviour under test. Invariant-style tests for manuscript quality:
+Run `uv run python -m pytest tests/ --cov=src --cov-fail-under=90` from this project directory so this `pyproject.toml` applies the 90 % gate (repo-root pytest may use the root config). Zero-mock policy — no `MagicMock`, `mocker.patch`, or `unittest.mock` for behavior under test. Invariant-style tests for manuscript quality:
 
 - `test_build_invariants.py` — every chapter has `\label{sec:…}` and a metadata badge; every lab and question bank links back via `\cref{}`; every registered figure generator is referenced
 - `test_bibliography_closure.py` — `{cited} == {defined}` in `references.bib`
@@ -238,7 +238,7 @@ Every change that adds or renames a chapter, lab, question bank, figure, or BibT
 | Every `\citep{…}` / `\citet{…}` resolves; every bib entry is cited | `test_bibliography_closure` | `scripts/integrate_orphan_citations.py` |
 | Every figure generator referenced in manuscript | `test_build_invariants.test_every_registered_figure_is_referenced` | `scripts/insert_orphan_figures.py` |
 | Registered Mermaid publication output is PNG, not `.mmd` fallback | manual publication gate / renderer strict mode | `scripts/generate_diagrams.py --strict-png` |
-| 193 inline Mermaid fences each have one alt comment and one italic caption; PDF preprocessing renders them to PNG | `test_accessibility.py` + `test_pdf_opening_and_mermaid.py` | `scripts/add_mermaid_alt_text.py --check` and install `mmdc` |
+| 196 inline Mermaid fences each have one alt comment and one italic caption; PDF preprocessing renders them to PNG | `test_accessibility.py` + `test_pdf_opening_and_mermaid.py` | `scripts/add_mermaid_alt_text.py --check` and install `mmdc` |
 | Visual manifest is derived from figures, registered Mermaid, and inline Mermaid; generated manifest lives under `output/figures/` | `audit_visual_contracts.py --check` / publication readiness | `scripts/audit_visual_contracts.py --check` |
 | Fast-moving claims carry source, anchor, tier, checked date, and refresh trigger | `test_current_claims_ledger.py` | `scripts/audit_current_claims.py --check` and update `manuscript/current_claims.yaml` |
 | Question-bank items and labs carry assessment metadata | `test_assessment_metadata.py` / `test_lab_pedagogy_alignment.py` | `scripts/sync_assessment_metadata.py --dry-run` to preview, then `--check` |
@@ -264,7 +264,7 @@ The LaTeX preamble (`manuscript/preamble.md`) now loads **cleveref** (after `hyp
 - [docs/composable_authoring.md](docs/composable_authoring.md) — stable labels, workflows, validation commands
 - [docs/accessibility.md](docs/accessibility.md) — `config.yaml` vs pytest enforcement; CVD; reader profile
 - [docs/pedagogy_objectives_mapping.md](docs/pedagogy_objectives_mapping.md) — LO ↔ question-bank comments (optional)
-- [docs/README.md](docs/README.md) — documentation index (architecture, pipeline, testing, API, visualisation)
+- [docs/README.md](docs/README.md) — documentation index (architecture, pipeline, testing, API, visualization)
 - [manuscript/AGENTS.md](manuscript/AGENTS.md) — chapter conventions, `plot_*` / `*_diagram()` allowlist
 - [manuscript/README.md](manuscript/README.md) — author quick reference and course pathways
 - [Root AGENTS.md](../../AGENTS.md)

@@ -1,6 +1,5 @@
-# Lab — Mutations, CRISPR, and Genomics {.unnumbered}
+# Lab — Mutations, CRISPR, and Genomics {#sec:lab_unit_IV_mutations_and_genomics .unnumbered}
 
-\label{sec:lab_unit_IV_mutations_and_genomics}
 
 *This activity accompanies \cref{sec:unit_IV_mutations_and_genomics} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -51,6 +50,7 @@ Mutations — heritable changes in DNA sequence — can be neutral (synonymous),
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IV_mutations_and_genomics_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Mutations, CRISPR, and Genomics: ClinVar/dbSNP/RefSeq/MANE source card with variant identifier, transcript accession, review status, reference release, clinical boundary, and refresh trigger | 1 |
@@ -118,6 +118,7 @@ print("Jukes-Cantor distance:", round(jukes_cantor_distance(p_distance), 3))
 
 ## Data Recording {.unnumbered}
 
+: Part 4: Pangenome, Database, and Prime-Editing Decision Cards: Sequence and Nucleotide change. {#tbl:unit_IV_mutations_and_genomics_part_4_pangenome_database_and_prime_editing_decision_cards}
 | Sequence | Nucleotide change | Mutation type | AA change | Functional impact prediction |
 | -------- | ----------------- | ------------- | --------- | ---------------------------- |
 | SNP1 | | | | |
@@ -151,6 +152,7 @@ Ethics summary (2–3 sentences per group position):
 Before answering the analysis questions, annotate the paper dataset for
 **Mutations, CRISPR, and Genomics** with a reproducibility pass:
 
+: Part 4: Pangenome, Database, and Prime-Editing Decision Cards: Evidence check and Student action. {#tbl:unit_IV_mutations_and_genomics_part_4_pangenome_database_and_prime_editing_decision_cards_2}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -182,7 +184,7 @@ Complete the source-governance card for Mutations, CRISPR, and Genomics before w
 
 1. Why does a frameshift mutation typically have a more severe effect on protein function than a missense mutation? Under what circumstance could a frameshift mutation be silent (no effect on protein)?
 
-2. A gRNA with sequence mismatches at positions 1–4 from the PAM distal end is less likely to cause cutting than mismatches at the seed region (positions 1–12 from PAM-proximal end). Why? What does this imply about gRNA design strategy to minimise off-target effects?
+2. A gRNA with sequence mismatches at positions 1–4 from the PAM distal end is less likely to cause cutting than mismatches at the seed region (positions 1–12 from PAM-proximal end). Why? What does this imply about gRNA design strategy to minimize off-target effects?
 
 3. The T7E1 enzyme cleaves primarily at mismatched positions in heteroduplex DNA. Explain why NHEJ-induced indels would create mismatches and thus be detectable by T7E1, whereas HDR edits with perfect template would not be.
 
@@ -250,7 +252,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_IV_mutations_and_genomics} that your data either confirmed or complicated. Cite the specific passage.
 

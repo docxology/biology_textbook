@@ -31,8 +31,8 @@
 - **Data skill:** Infer gene order or chromosomal mechanism from offspring counts.
 - **Practice cadence:** Statistical Tests and Data Analysis, Representing and Describing Data.
 - **Common misconception to repair:** Independent assortment applies to unlinked loci, not to every pair of genes.
-- **Primary lab:** \cref{sec:lab_unit_V_chromosomal_inheritance}.
-- **Question bank:** \cref{sec:q_unit_V_chromosomal_inheritance}.
+- **Primary lab:** \nameref{sec:lab_unit_V_chromosomal_inheritance}.
+- **Question bank:** \nameref{sec:q_unit_V_chromosomal_inheritance}.
 - **Transfer task:** Transfer linkage reasoning to disease mapping, breeding, and genome assemblies.
 - **Bridge to computation:** `biology.genetics.genetics.infer_three_point_order`.
 <!-- curriculum-scaffold-end -->
@@ -41,12 +41,13 @@
 
 > **Opening Vignette — A Fly's White Eye Opens the Chromosome Era**
 > 
-> In 1910, Thomas Hunt Morgan was cultivating thousands of *Drosophila melanogaster* in a "fly room" at Columbia University when he noticed a single male with white eyes among thousands of red-eyed flies. When he crossed this mutant with normal red-eyed females and counted the offspring across two generations, a striking pattern emerged: white eyes appeared almost exclusively in male offspring. Morgan immediately recognized that the white-eye trait was linked to the X chromosome — the first gene mapped to a specific chromosome in any organism. The discovery of sex-linkage validated the chromosome theory of heredity (which Mendel's work alone could not prove), won Morgan the 1933 Nobel Prize, and launched the entire field of chromosome mapping. The humble fruit fly, with its four chromosome pairs, short generation time, and thousands of offspring, remains one of the most productive research organisms in genetics to this day.
+> In 1910, Thomas Hunt Morgan was cultivating thousands of *Drosophila melanogaster* in a "fly room" at Columbia University when he noticed a single male with white eyes among thousands of red-eyed flies. When he crossed this mutant with normal red-eyed females and counted the offspring across two generations, a striking pattern emerged: white eyes appeared almost exclusively in male offspring \citep{morgan1910}. Morgan immediately recognized that the white-eye trait was linked to the X chromosome — the first gene mapped to a specific chromosome in any organism. The discovery of sex-linkage validated the chromosome theory of heredity (which Mendel's work alone could not prove), won Morgan the 1933 Nobel Prize, and launched the entire field of chromosome mapping. The humble fruit fly, with its four chromosome pairs, short generation time, and thousands of offspring, remains one of the most productive research organisms in genetics to this day.
 
 ## The Chromosome Theory of Heredity
 
-In 1902, Walter Sutton (studying grasshopper *Brachystola magna*) and Theodor Boveri (studying sea urchin embryos) independently proposed that chromosomes are the physical carriers of Mendel's "factors" (genes):
+In 1902, Walter Sutton (studying grasshopper *Brachystola magna*) and Theodor Boveri (studying sea urchin embryos) independently proposed that chromosomes are the physical carriers of Mendel's "factors" (genes) \citep{sutton1902}:
 
+: Study Blueprint: Mendel's Observation and Chromosomal Parallel. {#tbl:unit_V_chromosomal_inheritance_study_blueprint}
 | Mendel's Observation | Chromosomal Parallel |
 |---------------------|---------------------|
 | Genes exist in pairs in somatic cells | Chromosomes exist in homologous pairs (diploid) |
@@ -54,7 +55,7 @@ In 1902, Walter Sutton (studying grasshopper *Brachystola magna*) and Theodor Bo
 | Different genes assort independently | Non-homologous chromosomes orient independently at metaphase I |
 | Gametes carry one allele per gene | Gametes are haploid (one chromosome from each pair) |
 
-**Morgan's confirmation (1910-1915)**: Thomas Hunt Morgan's experiments with *Drosophila melanogaster* provided the definitive proof. His discovery of **white-eyed males** (X-linked recessive) demonstrated that a specific gene (white, *w*) segregated with the X chromosome, proving that genes reside on chromosomes. Morgan received the Nobel Prize in Physiology or Medicine in 1933.
+**Morgan's confirmation (1910-1915)**: Thomas Hunt Morgan's experiments with *Drosophila melanogaster* provided the definitive proof. His discovery of **white-eyed males** (X-linked recessive) demonstrated that a specific gene (white, *w*) segregated with the X chromosome, proving that genes reside on chromosomes \citep{morgan1910}. Morgan received the Nobel Prize in Physiology or Medicine in 1933.
 
 ---
 
@@ -83,6 +84,7 @@ The ends of linear eukaryotic chromosomes pose a structural problem: the cell mu
 
 Chromatin is not uniform — it exists in two functionally and structurally distinct states.
 
+: Euchromatin and Heterochromatin: Feature and Euchromatin. {#tbl:unit_V_chromosomal_inheritance_euchromatin_and_heterochromatin}
 | Feature | Euchromatin | Heterochromatin |
 |---------|-------------|------------------|
 | Compaction | Open, accessible | Densely packed |
@@ -112,6 +114,7 @@ Chromatin is not uniform — it exists in two functionally and structurally dist
 
 The chromosomal theory of inheritance rests on a single comparative observation — that **meiosis differs systematically from mitosis** in ways that exactly produce Mendelian segregation. The two programs share machinery (spindle, cohesin, kinetochores) but diverge in chromosome behavior.
 
+: Euchromatin and Heterochromatin: Feature and Mitosis. {#tbl:unit_V_chromosomal_inheritance_euchromatin_and_heterochromatin_2}
 | Feature | Mitosis | Meiosis |
 |---------|---------|---------|
 | **Number of divisions** | One (M phase) | Two (Meiosis I, Meiosis II) |
@@ -247,6 +250,7 @@ flowchart TD
 
 ### Non-Mammalian Sex Determination
 
+: Non-Mammalian Sex Determination: System and Organisms. {#tbl:unit_V_chromosomal_inheritance_non_mammalian_sex_determination}
 | System | Organisms | Male | Female | Key Gene |
 |--------|-----------|------|--------|----------|
 | ZW/ZZ | Birds, snakes, butterflies | ZZ | ZW | DMRT1 (Z-linked; dosage determines sex) |
@@ -254,7 +258,7 @@ flowchart TD
 | Haplodiploidy | Hymenoptera (bees, ants, wasps) | Haploid (n) | [**Diploid (2n)**](#gl:diploid) | CSD locus (complementary sex determiner) |
 | Temperature-dependent | Crocodilians, some turtles | Temperature-dependent | Temperature-dependent | Aromatase (converts testosterone to estradiol) |
 
-Haplodiploidy is a sex-determination mechanism, not a stand-alone explanation for social life. In many Hymenoptera, unfertilised haploid eggs develop as males and fertilised diploid eggs develop as females; complementary sex-determination loci can make some diploid genotypes male instead. This chromosome logic changes relatedness patterns among relatives, which matters for kin-selection models, but eusociality also depends on ecology, colony demography, and mating system. Termites provide a useful contrast: they are diploid cockroach relatives, yet they evolved [**eusociality**](#gl:eusociality) through a different phylogenetic route \citep{bourke2011principles,hughes2008ancestral,inward2007death}.
+Haplodiploidy is a sex-determination mechanism, not a stand-alone explanation for social life. In many Hymenoptera, unfertilised haploid eggs develop as males and fertilized diploid eggs develop as females; complementary sex-determination loci can make some diploid genotypes male instead. This chromosome logic changes relatedness patterns among relatives, which matters for kin-selection models, but eusociality also depends on ecology, colony demography, and mating system. Termites provide a useful contrast: they are diploid cockroach relatives, yet they evolved [**eusociality**](#gl:eusociality) through a different phylogenetic route \citep{bourke2011principles,hughes2008ancestral,inward2007death}.
 
 ---
 
@@ -308,6 +312,7 @@ flowchart TD
 
 ### Dosage Compensation Across Species and Beyond Sex Chromosomes
 
+: Dosage Compensation Across Species and Beyond Sex Chromosomes: Organism and Mechanism. {#tbl:unit_V_chromosomal_inheritance_dosage_compensation_across_species_and_beyond_sex_chromosomes}
 | Organism | Mechanism | Result |
 |----------|-----------|--------|
 | **Mammals** | X-inactivation (XIST) | One X silenced in XX females; equal dosage with XY males |
@@ -341,6 +346,7 @@ For X-linked recessive traits, males are affected more frequently because they a
 
 **Key X-linked recessive conditions:**
 
+: X-Linked Recessive Inheritance: Condition and Gene. {#tbl:unit_V_chromosomal_inheritance_x_linked_recessive_inheritance}
 | Condition | Gene | Location | Frequency | Key Features |
 |-----------|------|----------|-----------|-------------|
 | **Hemophilia A** | *F8* (Factor VIII) | Xq28 | 1/5,000 males | Prolonged bleeding; joint hemorrhages; treated with recombinant Factor VIII |
@@ -354,6 +360,7 @@ For X-linked recessive traits, males are affected more frequently because they a
 
 A carrier woman ($X^HX^h$ for hemophilia) marries an unaffected man ($X^HY$):
 
+: X-Linked Recessive Inheritance. {#tbl:unit_V_chromosomal_inheritance_x_linked_recessive_inheritance_2}
 | | $X^H$ | $Y$ |
 |---|-------|-----|
 | $X^H$ | $X^HX^H$ (normal female) | $X^HY$ (normal male) |
@@ -380,7 +387,7 @@ Among sons primarily: $\frac{1}{2}$ affected. Among daughters primarily: $\frac{
 
 ### Morgan's Experiments
 
-Thomas Hunt Morgan (1910-1915) discovered that some genes do NOT assort independently -- they are **linked** on the same chromosome.
+Thomas Hunt Morgan (1910-1915) discovered that some genes do NOT assort independently -- they are **linked** on the same chromosome \citep{morgan1910,sturtevant1913}.
 
 In a testcross for body color (b: black recessive) and wing type (vg: vestigial recessive) in *Drosophila*:
 
@@ -415,6 +422,7 @@ The three-point test cross determines the order of three linked genes and the di
 
 A triply heterozygous female (dp+ b+ cn+ / dp b cn) is testcrossed to a triply homozygous recessive male (dp b cn / dp b cn). The offspring are:
 
+: Three-Point Test Cross: Phenotype class and Count. {#tbl:unit_V_chromosomal_inheritance_three_point_test_cross}
 | Phenotype class | Count | Classification |
 |----------------|-------|----------------|
 | dp+ b+ cn+ | 350 | Parental |
@@ -618,6 +626,7 @@ This MI/MII distinction is clinically important because:
 
 **Risk factors for non-disjunction**:
 
+: Aneuploidy: Non-Disjunction in Meiosis I vs. Meiosis II: Factor and Effect. {#tbl:unit_V_chromosomal_inheritance_aneuploidy_non_disjunction_in_meiosis_i_vs_meiosis_ii}
 | Factor | Effect | Mechanism |
 |--------|--------|-----------|
 | **Maternal age (>35)** | Strong, exponential increase in non-disjunction risk | Cohesin decay during prolonged dictyate arrest |
@@ -629,6 +638,7 @@ This MI/MII distinction is clinically important because:
 
 **Autosomal trisomies:**
 
+: Aneuploidy: Non-Disjunction in Meiosis I vs. Meiosis II: Condition and Karyotype. {#tbl:unit_V_chromosomal_inheritance_aneuploidy_non_disjunction_in_meiosis_i_vs_meiosis_ii_2}
 | Condition | Karyotype | Key Features | Live Birth Frequency | Survival |
 |-----------|-----------|-------------|---------------------|----------|
 | **Down syndrome** | 47,+21 | Intellectual disability (IQ 25-75); congenital heart defects (40-50%); increased Alzheimer risk (APP gene on chr 21); characteristic facies | 1/700 | Most survive to adulthood (median ~60 years) |
@@ -637,6 +647,7 @@ This MI/MII distinction is clinically important because:
 
 **Sex chromosome aneuploidies:**
 
+: Aneuploidy: Non-Disjunction in Meiosis I vs. Meiosis II: Condition and Karyotype. {#tbl:unit_V_chromosomal_inheritance_aneuploidy_non_disjunction_in_meiosis_i_vs_meiosis_ii_3}
 | Condition | Karyotype | Barr Bodies | Key Features | Frequency |
 |-----------|-----------|-------------|-------------|-----------|
 | **Turner syndrome** | 45,X | 0 | Female; short stature (SHOX haploinsufficiency); webbed neck; coarctation of aorta; streak gonads; infertility | 1/2,500 females |
@@ -646,6 +657,7 @@ This MI/MII distinction is clinically important because:
 
 **Maternal age effect**: Non-disjunction risk for chromosome 21 increases exponentially with maternal age:
 
+: Aneuploidy: Non-Disjunction in Meiosis I vs. Meiosis II: Maternal Age and Risk of Trisomy 21. {#tbl:unit_V_chromosomal_inheritance_aneuploidy_non_disjunction_in_meiosis_i_vs_meiosis_ii_4}
 | Maternal Age | Risk of Trisomy 21 |
 |-------------|-------------------|
 | 20 | ~1/1,500 |
@@ -717,6 +729,7 @@ The Philadelphia chromosome story is one of the great triumphs of molecular targ
 
 A phenotypically normal woman has a Robertsonian translocation rob(14;21), giving her a karyotype 45,XX,rob(14;21). At meiosis, the trivalent formed by chromosome 14, chromosome 21, and the rob(14;21) derivative can segregate in **six** different ways, producing six possible gamete types — three balanced and three unbalanced:
 
+: Robertsonian Translocation Segregation: Gamete and Chromosomes carried. {#tbl:unit_V_chromosomal_inheritance_worked_example_robertsonian_translocation_segregation}
 | Gamete | Chromosomes carried | After fertilization with normal sperm | Outcome |
 |--------|---------------------|---------------------------------------|---------|
 | Normal alternate | normal 14 + normal 21 | 46,XX or 46,XY | Karyotypically normal |
@@ -745,6 +758,7 @@ Like balanced reciprocal translocations, inversion carriers are typically phenot
 
 **Deletions** remove chromosomal material and produce **haploinsufficiency** — one functional copy is not enough for normal function. Some classic deletion syndromes:
 
+: Deletion Syndromes: Syndrome and Deletion. {#tbl:unit_V_chromosomal_inheritance_deletion_syndromes}
 | Syndrome | Deletion | Frequency | Key Features |
 |----------|----------|-----------|--------------|
 | **Cri-du-chat** | 5p15.2 | 1/20,000–50,000 | Distinctive high-pitched mewing cry in infancy (laryngeal abnormalities); microcephaly; severe intellectual disability; characteristic facies; cardiac defects |
@@ -790,6 +804,7 @@ This violates Mendel's assumption because the phenotype now depends on **which p
 
 ### Canonical imprinted regions
 
+: Canonical imprinted regions: Region and Imprinting status. {#tbl:unit_V_chromosomal_inheritance_canonical_imprinted_regions}
 | Region | Imprinting status | Disease (loss of expressed allele) |
 |--------|-------------------|-------------------------------------|
 | **15q11–q13** | Paternal expression of *SNRPN*, *NDN*, *MAGEL2*, others; maternal expression of *UBE3A* in neurons | Loss of paternal expression → **Prader-Willi syndrome**; loss of maternal *UBE3A* → **Angelman syndrome** |
@@ -897,6 +912,7 @@ where $n_1$ and $n_2$ are the number of links from one parent to the common ance
 
 **Problem**: In a testcross, the following offspring are observed from a female heterozygous for three linked genes (A, B, C) crossed with a homozygous recessive male:
 
+: Consequences of Inbreeding: Class and Phenotype. {#tbl:unit_V_chromosomal_inheritance_consequences_of_inbreeding}
 | Class | Phenotype | Count |
 |-------|-----------|-------|
 | 1 | A B C | 412 |
@@ -1065,6 +1081,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Chromosomal Inheritance and Linkage. {#tbl:unit_V_chromosomal_inheritance_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/genetics/genetics.py` (`recombination_frequency`, `genetic_distance`, `infer_three_point_order`) | Convert offspring counts into linkage maps and gene order. |

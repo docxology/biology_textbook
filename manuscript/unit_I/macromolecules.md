@@ -26,8 +26,8 @@
 - **Data skill:** Classify molecules from structural evidence rather than names alone.
 - **Practice cadence:** Concept Explanation, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** Structure is not decoration; small chemical changes can redirect function and recognition.
-- **Primary lab:** \cref{sec:lab_unit_I_macromolecules}.
-- **Question bank:** \cref{sec:q_unit_I_macromolecules}.
+- **Primary lab:** \nameref{sec:lab_unit_I_macromolecules}.
+- **Question bank:** \nameref{sec:q_unit_I_macromolecules}.
 - **Transfer task:** Explain how a mutation, lipid substitution, or glycosylation change propagates to phenotype.
 - **Bridge to computation:** `biology.genetics.genetics.translate_mrna`.
 <!-- curriculum-scaffold-end -->
@@ -47,15 +47,16 @@
 > DNA technology (1982), when the human insulin gene was inserted into *E. coli* to manufacture
 > pharmaceutical insulin for diabetics. Before recombinant insulin, most medical insulin came from
 > pig and cow pancreas, with shortages, immunological reactions, and ethical concerns. Today,
-> nearly 500 million diabetics worldwide who require insulin use a product whose existence
-> depends on understanding the four classes of biological macromolecules this chapter explores.
+> an estimated 589 million adults aged 20--79 with diabetes worldwide \citep{magliano2025idfdiabetesatlas11},
+> including those who require insulin, use a product whose existence depends on understanding the
+> four classes of biological macromolecules this chapter explores.
 >
 > *Primary source: Sanger, F. & Thompson, E. O. P. (1953). The amino-acid sequence in the glycyl chain of insulin. Biochem. J., 53(3), 353–374.*
 
 ---
 
 
-Biological macromolecules fall into four major classes: **carbohydrates**, **lipids**, **proteins**, and **nucleic acids**. The first three are polymers of small repeating units (monomers); lipids are an important exception --- they form assemblies through noncovalent hydrophobic interactions rather than covalent polymerisation.
+Biological macromolecules fall into four major classes: **carbohydrates**, **lipids**, **proteins**, and **nucleic acids**. The first three are polymers of small repeating units (monomers); lipids are an important exception --- they form assemblies through noncovalent hydrophobic interactions rather than covalent polymerization.
 
 ```mermaid
 classDiagram
@@ -76,7 +77,7 @@ classDiagram
     class Lipid {
         +Monomer: Fatty acids / Isoprene
         +Bond: Ester (+ noncovalent assembly)
-        +Roles: Membranes, Energy, Signalling
+        +Roles: Membranes, Energy, Signaling
         +Examples: Phospholipids, Sterols, Waxes
     }
 
@@ -143,6 +144,7 @@ The reverse, **hydrolysis**, uses water to cleave the bond. These reactions requ
 
 **[Thermodynamics](#gl:thermodynamics) of bond formation:**
 
+: Hydrolysis free energies for selected biological bond types. {#tbl:unit_I_macromolecules_condensation_and_hydrolysis}
 | Bond Type | $\Delta G^{\circ'}$ of Hydrolysis (kJ/mol) | Required Energy Source |
 | --------- | ------------------------------------------ | --------------------- |
 | Glycosidic | --15 to --20 | UDP-glucose (activated sugar) |
@@ -150,9 +152,9 @@ The reverse, **hydrolysis**, uses water to cleave the bond. These reactions requ
 | Phosphodiester | --25 | NTP (DNA/RNA polymerase) |
 | Ester (lipid) | --20 | Acyl-CoA (activated fatty acid) |
 
-In each case, the monomers must first be "activated" by coupling to a high-energy carrier molecule. This coupling makes the condensation reaction thermodynamically favourable.
+In each case, the monomers must first be "activated" by coupling to a high-energy carrier molecule. This coupling makes the condensation reaction thermodynamically favorable.
 
-### Worked Example: The Thermodynamics of Polymerisation
+### Worked Example: The Thermodynamics of Polymerization
 
 **Problem:**
 The hydrolysis of a [**peptide bond**](#gl:peptide-bond) releases approximately $\Delta G^{\circ'} = -10 \text{ kJ/mol}$. 
@@ -165,7 +167,7 @@ The hydrolysis of a [**peptide bond**](#gl:peptide-bond) releases approximately 
    Because condensation is the exact reverse of hydrolysis, the standard free energy change has the same magnitude but the opposite sign:
    $$ \Delta G^{\circ'}_{\text{condensation}} = -(\Delta G^{\circ'}_{\text{hydrolysis}}) = -(-10 \text{ kJ/mol}) = +10 \text{ kJ/mol}  \label{eq:unit_I_macromolecules_item_2}$$
 
-   As $\Delta G^{\circ'} > 0$, the formation of a peptide bond is thermodynamically unfavourable (endergonic) and will not occur spontaneously.
+   As $\Delta G^{\circ'} > 0$, the formation of a peptide bond is thermodynamically unfavorable (endergonic) and will not occur spontaneously.
 
 2. **Calculate the coupled reaction thermodynamics:**
    To drive an endergonic reaction forward, the cell couples it to a highly exergonic reaction. During translation elongation, the ribosome couples the formation of a peptide bond to the hydrolysis of GTP down to GDP + P$_i$.
@@ -176,7 +178,7 @@ The hydrolysis of a [**peptide bond**](#gl:peptide-bond) releases approximately 
    $$ \Delta G^{\circ'}_{\text{total}} = (+10 \text{ kJ/mol}) + (-30 \text{ kJ/mol}) = -20 \text{ kJ/mol}  \label{eq:unit_I_macromolecules_item_4}$$
 
 
-By coupling the unfavourable peptide bond formation (+10 kJ/mol) to the favourable hydrolysis of GTP (--30 kJ/mol), the overall coupled reaction becomes highly favourable (--20 kJ/mol), driving protein synthesis forward with near-perfect unidirectionality.
+By coupling the unfavorable peptide bond formation (+10 kJ/mol) to the favorable hydrolysis of GTP (--30 kJ/mol), the overall coupled reaction becomes highly favorable (--20 kJ/mol), driving protein synthesis forward with near-perfect unidirectionality.
 
 > **Concept Check 1:** Hydrolysis reactions are thermodynamically spontaneous ($\Delta G < 0$), yet polymers are kinetically stable in cells. What prevents the spontaneous hydrolysis of your DNA, proteins, and carbohydrates?
 
@@ -192,6 +194,7 @@ The simplest carbohydrates are **monosaccharides** with the empirical formula (C
 
 Common examples:
 
+: Monosaccharides and Ring Chemistry: Sugar and Formula. {#tbl:unit_I_macromolecules_monosaccharides_and_ring_chemistry}
 | Sugar | Formula | n | Type | Role |
 | ----- | ------- | - | ---- | ---- |
 | Glyceraldehyde | C$_3$H$_6$O$_3$ | 3 | Aldotriose | Central metabolite ([**glycolysis**](#gl:glycolysis)) |
@@ -209,19 +212,20 @@ Glucose, galactose, and fructose are **structural isomers** --- identical molecu
 
 Two monosaccharides join via a **glycosidic bond** to form a disaccharide:
 
+: Disaccharides and Polysaccharides: Disaccharide and Monomers. {#tbl:unit_I_macromolecules_disaccharides_and_polysaccharides}
 | Disaccharide | Monomers | Bond | Biological source |
 | ------------ | -------- | ---- | ----------------- |
 | Sucrose | Glucose + Fructose | $\alpha(1\to2)\beta$ | Plants (transport sugar) |
 | Lactose | Glucose + Galactose | $\beta(1\to4)$ | Milk |
 | Maltose | Glucose + Glucose | $\alpha(1\to4)$ | Starch digestion |
-| Trehalose | Glucose + Glucose | $\alpha(1\to1)\alpha$ | Insect haemolymph, desiccation protectant |
+| Trehalose | Glucose + Glucose | $\alpha(1\to1)\alpha$ | Insect hemolymph, desiccation protectant |
 | Cellobiose | Glucose + Glucose | $\beta(1\to4)$ | Cellulose degradation product |
 
 **Polysaccharides** are long chains of monosaccharides serving structural or storage functions:
 
 - **Starch (amylose + amylopectin):** $\alpha(1\to4)$ linkages, branching via $\alpha(1\to6)$ at intervals (~25 residues for amylopectin). Storage in plants.
 - **Glycogen:** Like amylopectin but more heavily branched (every ~10 residues). Glucose storage in animal liver (~100 g) and muscle (~400 g).
-- **Cellulose:** $\beta(1\to4)$ glucose. Structural component of plant cell walls. Humans cannot digest it (no beta-glucosidase), but gut [**microbiota**](#gl:microbiota) can; cellulose is dietary fibre.
+- **Cellulose:** $\beta(1\to4)$ glucose. Structural component of plant cell walls. Humans cannot digest it (no beta-glucosidase), but gut [**microbiota**](#gl:microbiota) can; cellulose is dietary fiber.
 - **Chitin:** $\beta(1\to4)$ N-acetylglucosamine. Structural component of fungal cell walls and arthropod exoskeletons --- the second most abundant biopolymer on Earth after cellulose.
 - **Hyaluronic acid:** alternating $\beta(1\to4)$ glucuronic acid and $\beta(1\to3)$ N-acetylglucosamine. Major component of extracellular matrix and synovial fluid.
 
@@ -245,7 +249,7 @@ flowchart TD
     GLU4 --> ABS
     ABS --> PORTAL["Portal Vein → Liver"]
 
-    CELLULOSE["Cellulose<br/>(β1→4 glucose)"] -.->|"No human β-glucosidase"| COLON["Passes to Colon<br/>(dietary fibre)"]
+    CELLULOSE["Cellulose<br/>(β1→4 glucose)"] -.->|"No human β-glucosidase"| COLON["Passes to Colon<br/>(dietary fiber)"]
     COLON -->|"Gut microbiota<br/>fermentation"| SCFA["Short-Chain Fatty Acids<br/>(butyrate, propionate, acetate)"]
 
     style FOOD fill:#3498db,color:#fff
@@ -259,14 +263,15 @@ flowchart TD
 
 > **Clinical Connection: Lactose Intolerance**
 >
-> Approximately 65--75% of the global adult population has reduced expression of lactase (the brush border enzyme that cleaves lactose) after weaning --- the ancestral state called **lactase non-persistence**. Undigested lactose reaches the colon, where bacterial fermentation produces H$_2$, CO$_2$, and short-chain fatty acids, causing bloating, flatulence, and diarrhoea. **Lactase persistence** (the ability to digest lactose as an adult) evolved independently in pastoral populations in Europe (~7,500 years ago) and East Africa (~3,000 years ago) due to strong selection pressure from dairy farming. This is one of the clearest examples of recent human evolution driven by cultural practices.
+> Approximately 65--75% of the global adult population has reduced expression of lactase (the brush border enzyme that cleaves lactose) after weaning --- the ancestral state called **lactase non-persistence**. Undigested lactose reaches the colon, where bacterial fermentation produces H$_2$, CO$_2$, and short-chain fatty acids, causing bloating, flatulence, and diarrhea. **Lactase persistence** (the ability to digest lactose as an adult) evolved independently in pastoral populations in Europe (~7,500 years ago) and East Africa (~3,000 years ago) due to strong selection pressure from dairy farming. This is one of the clearest examples of recent human evolution driven by cultural practices.
 
-> **Concept Check 2:** Glycogen is more heavily branched than amylopectin (α1->6 branch every ~10 residues vs. every ~25 residues). How does this increased branching benefit an animal that needs rapid glucose mobilisation during a "fight or flight" response?
+> **Concept Check 2:** Glycogen is more heavily branched than amylopectin (α1->6 branch every ~10 residues vs. every ~25 residues). How does this increased branching benefit an animal that needs rapid glucose mobilization during a "fight or flight" response?
 
 ### The Glycosidic Bond: α vs. β
 
 The single greatest source of carbohydrate structural diversity is the **glycosidic bond** geometry. When a hemiacetal hydroxyl (at the anomeric carbon, C1 of the cyclic sugar) condenses with a hydroxyl of another sugar, the resulting linkage can be either **α** (the OH/OR on C1 points down in the standard Haworth projection, *trans* to the C6 substituent) or **β** (OH/OR points up, *cis* to C6).
 
+: The Glycosidic Bond: α vs. β: Linkage and Geometry. {#tbl:unit_I_macromolecules_the_glycosidic_bond_vs}
 | Linkage | Geometry | Polysaccharide example | Conformation | Digestible by humans? |
 | ------- | -------- | ---------------------- | ------------ | --------------------- |
 | $\alpha(1\to4)$ (Glc--Glc) | bent | amylose, glycogen | helix | yes (amylase) |
@@ -281,7 +286,7 @@ The biological consequences of this single stereochemical choice are profound: �
 
 ### Branching, Linkages, and Polymer Diversity
 
-Even within the same monosaccharide and same anomeric configuration, **branching frequency** dramatically alters function. Glycogen (animal storage) has $\alpha(1\to6)$ branches every ~10 residues; amylopectin (plant storage) every ~25 residues. Heavier branching gives glycogen many more non-reducing ends per molecule --- and since both glycogen synthase and glycogen phosphorylase work primarily at non-reducing ends, branching directly accelerates the rate at which glucose can be added to or removed from the polymer. During a "fight or flight" response, a hepatocyte mobilises glucose from glycogen at ~10 mM/s; this rate would be unattainable from a linear polymer with a single non-reducing end.
+Even within the same monosaccharide and same anomeric configuration, **branching frequency** dramatically alters function. Glycogen (animal storage) has $\alpha(1\to6)$ branches every ~10 residues; amylopectin (plant storage) every ~25 residues. Heavier branching gives glycogen many more non-reducing ends per molecule --- and since both glycogen synthase and glycogen phosphorylase work primarily at non-reducing ends, branching directly accelerates the rate at which glucose can be added to or removed from the polymer. During a "fight or flight" response, a hepatocyte mobilizes glucose from glycogen at ~10 mM/s; this rate would be unattainable from a linear polymer with a single non-reducing end.
 
 ### Glycoproteins and Proteoglycans
 
@@ -292,6 +297,7 @@ Many proteins are covalently modified with carbohydrate chains (glycans):
 - **O-linked glycosylation:** to serine (Ser) or threonine (Thr); built up sequentially in the Golgi.
 - **Other linkages:** O-GlcNAc (a single GlcNAc on Ser/Thr; common cytosolic/nuclear signal), C-mannose (on Trp), GPI-anchor glycolipids (link some proteins to the membrane outer leaflet).
 
+: Glycoproteins and Proteoglycans: Feature and N-linked. {#tbl:unit_I_macromolecules_glycoproteins_and_proteoglycans}
 | Feature | N-linked | O-linked |
 | ------- | -------- | -------- |
 | Attachment residue | Asn (in Asn-X-Ser/Thr motif) | Ser, Thr |
@@ -301,10 +307,11 @@ Many proteins are covalently modified with carbohydrate chains (glycans):
 | Examples | Antibodies, integrins, EPO, viral spike | Mucins, blood group antigens, EGF repeats |
 | Disease | Congenital disorders of glycosylation (CDG-I, II) | Tn syndrome (cancer marker) |
 
-Glycoproteins are ubiquitous: antibodies (IgG), blood group antigens (ABO), mucins (airway protection), and many secreted or surface proteins carry glycans. Glycosylation affects protein folding, stability, half-life, and cell-cell recognition. The SARS-CoV-2 spike protein is heavily N-glycosylated, with at least 22 sites; these glycans shield the protein from antibody neutralisation, and their removal is a strategy under exploration for vaccine improvement.
+Glycoproteins are ubiquitous: antibodies (IgG), blood group antigens (ABO), mucins (airway protection), and many secreted or surface proteins carry glycans. Glycosylation affects protein folding, stability, half-life, and cell-cell recognition. The SARS-CoV-2 spike protein is heavily N-glycosylated, with at least 22 sites; these glycans shield the protein from antibody neutralization, and their removal is a strategy under exploration for vaccine improvement.
 
 **Proteoglycans** have very long, unbranched glycosaminoglycan (GAG) chains:
 
+: Glycoproteins and Proteoglycans: GAG and Repeating Unit. {#tbl:unit_I_macromolecules_glycoproteins_and_proteoglycans_2}
 | GAG | Repeating Unit | Location | Function |
 | --- | -------------- | -------- | -------- |
 | Hyaluronic acid | GlcUA-GlcNAc | Synovial fluid, vitreous humour | Lubrication, shock absorption |
@@ -318,12 +325,13 @@ The highly negatively charged GAGs attract enormous amounts of water (via osmoti
 
 ## Lipids, Membranes, and Energy Storage
 
-Lipids are not polymers but are grouped together by their **hydrophobicity** --- they do not form regular covalent polymers, yet their self-assembly into bilayers, vesicles, and membranes is central to cellular life.
+Lipids are not polymers but are grouped together by their **hydrophobicity** --- they do not form regular covalent polymers, yet their self-assembly into bilayers, vesicles, and membranes is central to cellular life \citep{dill1990proteinfolding}.
 
 ### Fatty Acids and Membrane Fluidity
 
 Fatty acids are long-chain carboxylic acids. Food-relevant examples:
 
+: Fatty Acids and Membrane Fluidity: Fatty Acid and Chain. {#tbl:unit_I_macromolecules_fatty_acids_and_membrane_fluidity}
 | Fatty Acid | Chain | Double Bonds | Name | Source |
 | ---------- | ----- | ------------ | ---- | ------ |
 | CH$_3$(CH$_2$)$_{14}$COOH | 16:0 | 0 | Palmitic acid (saturated) | Palm oil, meat |
@@ -337,7 +345,7 @@ Fatty acids are long-chain carboxylic acids. Food-relevant examples:
 
 **Saturated** fatty acids have no double bonds and pack tightly --- solid at room temperature (butter, lard). **Unsaturated** fatty acids have *cis* double bonds introducing kinks that prevent tight packing --- liquid at room temperature (olive oil). **Trans** fats have *trans* double bonds that pack like saturated fats --- they are artificial (from industrial hydrogenation) and have adverse cardiovascular effects.
 
-**Essential fatty acids:** Linoleic acid (ω-6) and α-linolenic acid (ω-3) cannot be synthesised by humans (we lack Δ12 and Δ15 desaturases) and must be obtained from the diet.
+**Essential fatty acids:** Linoleic acid (ω-6) and α-linolenic acid (ω-3) cannot be synthesized by humans (we lack Δ12 and Δ15 desaturases) and must be obtained from the diet.
 
 ```mermaid
 graph TD
@@ -349,7 +357,7 @@ graph TD
     SIMPLE --> WAX["Waxes<br/>(waterproofing,<br/>cuticle, beeswax)"]
 
     COMPLEX --> GPL["Glycerophospholipids<br/>(membrane bilayers)"]
-    COMPLEX --> SPH["Sphingolipids<br/>(myelin, signalling)"]
+    COMPLEX --> SPH["Sphingolipids<br/>(myelin, signaling)"]
     COMPLEX --> GLYCO["Glycolipids<br/>(cell recognition,<br/>blood groups)"]
 
     DERIVED --> STEROL["Sterols<br/>(cholesterol,<br/>hormones)"]
@@ -359,7 +367,7 @@ graph TD
     GPL --> PC["Phosphatidylcholine<br/>(most abundant)"]
     GPL --> PE["Phosphatidylethanolamine<br/>(inner leaflet)"]
     GPL --> PS["Phosphatidylserine<br/>(apoptosis signal)"]
-    GPL --> PI["Phosphatidylinositol<br/>(PI3K signalling)"]
+    GPL --> PI["Phosphatidylinositol<br/>(PI3K signaling)"]
 
     SPH --> SM["Sphingomyelin<br/>(myelin sheath)"]
     SPH --> CER["Ceramide<br/>(apoptosis signal)"]
@@ -370,20 +378,21 @@ graph TD
     style COMPLEX fill:#3498db,color:#fff
     style DERIVED fill:#2ecc71,color:#fff
 ```
-<!-- alt: Graph showing lipid classes and roles. Classification of lipids. Unlike other macromolecules, lipids are classified by solubility (hydrophobicity) rather than by a common monomer structure. Note the diversity of roles: energy storage, membrane structure, signalling, and waterproofing. -->
+<!-- alt: Graph showing lipid classes and roles. Classification of lipids. Unlike other macromolecules, lipids are classified by solubility (hydrophobicity) rather than by a common monomer structure. Note the diversity of roles: energy storage, membrane structure, signaling, and waterproofing. -->
 
-*Lipid classes and roles. Classification of lipids. Unlike other macromolecules, lipids are classified by solubility (hydrophobicity) rather than by a common monomer structure. Note the diversity of roles: energy storage, membrane structure, signalling, and waterproofing.*
+*Lipid classes and roles. Classification of lipids. Unlike other macromolecules, lipids are classified by solubility (hydrophobicity) rather than by a common monomer structure. Note the diversity of roles: energy storage, membrane structure, signaling, and waterproofing.*
 
 ### Glycerophospholipids and Bilayer Architecture
 
 Glycerophospholipids (also called phosphoglycerides) are the most abundant membrane lipids. Their structure: glycerol backbone + 2 fatty acid chains at positions sn-1 and sn-2 + phosphate group at sn-3 + polar head group attached to the phosphate.
 
+: Glycerophospholipids and Bilayer Architecture: Head Group and Phospholipid. {#tbl:unit_I_macromolecules_glycerophospholipids_and_bilayer_architecture}
 | Head Group | Phospholipid | Charge at [**pH**](#gl:ph) 7 | Location/Function |
 | ---------- | ------------ | -------------- | ----------------- |
 | Choline | Phosphatidylcholine (PC) | Zwitterionic | Outer leaflet; most abundant |
 | Ethanolamine | Phosphatidylethanolamine (PE) | Zwitterionic | Inner leaflet; membrane curvature |
 | Serine | Phosphatidylserine (PS) | Net negative | Inner leaflet; flipped to outer in [**apoptosis**](#gl:apoptosis) |
-| Inositol | Phosphatidylinositol (PI) | Net negative | Inner leaflet; PI3K signalling cascade |
+| Inositol | Phosphatidylinositol (PI) | Net negative | Inner leaflet; PI3K signaling cascade |
 
 The **amphipathic** structure spontaneously forms bilayers in water --- a thermodynamic consequence of the hydrophobic effect (see \cref{sec:unit_I_water_and_life}).
 
@@ -391,6 +400,7 @@ The **amphipathic** structure spontaneously forms bilayers in water --- a thermo
 
 The "fluid mosaic" model of Singer and Nicolson (1972) proposed that membranes are 2D fluids in which proteins and lipids diffuse laterally. Quantitative measurements --- especially by fluorescence recovery after photobleaching (FRAP) and single-particle tracking --- have refined this picture into a richer, multi-domain landscape.
 
+: Quantitative Properties of the Lipid Bilayer: Property and Typical value. {#tbl:unit_I_macromolecules_quantitative_properties_of_the_lipid_bilayer}
 | Property | Typical value | Notes |
 | -------- | ------------- | ----- |
 | Bilayer thickness | 4--5 nm | Hydrophobic core ~3 nm; head-group region ~1 nm each |
@@ -408,11 +418,11 @@ The "fluid mosaic" model of Singer and Nicolson (1972) proposed that membranes a
 
 **Lipid asymmetry.** The two leaflets of the plasma membrane have very different compositions: the outer leaflet is enriched in PC, sphingomyelin, and glycolipids; the inner leaflet in PE, PS, and PI. This asymmetry is actively maintained by ATP-dependent flippases (move lipids from outer to inner) and floppases (inner to outer). When PS appears on the outer leaflet --- the result of activated scramblases during apoptosis --- it serves as an "eat-me" signal for macrophages. Loss of asymmetry is also a feature of activated platelets (where PS exposure on the outer leaflet provides a surface for the coagulation cascade).
 
-**Lipid rafts.** Cholesterol and sphingolipids self-segregate into liquid-ordered ($L_o$) microdomains within a sea of liquid-disordered ($L_d$) phospholipids. These ~10--200 nm rafts concentrate specific signalling proteins (GPI-anchored proteins, Src-family kinases) and are now recognised as functional platforms for receptor signalling, virus budding, and immune-cell synapse assembly.
+**Lipid rafts.** Cholesterol and sphingolipids self-segregate into liquid-ordered ($L_o$) microdomains within a sea of liquid-disordered ($L_d$) phospholipids. These ~10--200 nm rafts concentrate specific signaling proteins (GPI-anchored proteins, Src-family kinases) and are now recognized as functional platforms for receptor signaling, virus budding, and immune-cell synapse assembly.
 
 > **Concept Check 7:** A typical phospholipid diffuses ~1 μm/s laterally in a fluid bilayer but flips between leaflets primarily once every several hours unaided. Use the structure of a phospholipid (charged head, hydrocarbon tails) and the energetics of the hydrophobic effect to explain this 10$^{12}$-fold difference. Why must cells expend ATP on flippases to break this asymmetry?
 
-### Sphingolipids in Membranes and Signalling
+### Sphingolipids in Membranes and Signaling
 
 Sphingolipids use **sphingosine** (rather than glycerol) as the backbone. Ceramide (sphingosine + fatty acid) is the core structure:
 
@@ -444,7 +454,7 @@ Cholesterol is the precursor to most steroid [**hormone**](#gl:hormone)s:
 ### Waxes and Other Lipids
 
 - **Waxes:** esters of long-chain fatty acids and long-chain alcohols; waterproofing (plant cuticle, bee honeycomb, whale head oil, ear wax)
-- **Eicosanoids:** signalling lipids derived from arachidonic acid (C20:4); include prostaglandins (inflammation, fever, pain), thromboxanes (platelet aggregation), and leukotrienes (immune response)
+- **Eicosanoids:** signaling lipids derived from arachidonic acid (C20:4); include prostaglandins (inflammation, fever, pain), thromboxanes (platelet aggregation), and leukotrienes (immune response)
 - **Isoprenoids:** built from isoprene units (5C); include terpenes, carotenoids, ubiquinone (CoQ), and dolichol
 
 > **Concept Check 3:** Aspirin (acetylsalicylic acid) irreversibly inhibits cyclooxygenase (COX), the enzyme that converts arachidonic acid to prostaglandins and thromboxanes. Explain why aspirin reduces both pain/inflammation and the risk of heart attacks.
@@ -456,8 +466,8 @@ Cholesterol is the precursor to most steroid [**hormone**](#gl:hormone)s:
 Proteins are the most structurally and functionally diverse macromolecules. They serve as:
 - Structural elements (collagen, keratin, [**actin**](#gl:actin), tubulin)
 - Enzymes (catalysts; see \cref{sec:unit_I_enzymes_and_kinetics})
-- Signalling molecules (growth factors, receptors, G proteins)
-- Transport proteins (haemoglobin, albumin, aquaporins)
+- Signaling molecules (growth factors, receptors, G proteins)
+- Transport proteins (hemoglobin, albumin, aquaporins)
 - Immune molecules (antibodies)
 - Motor proteins (myosin, kinesin, dynein)
 
@@ -477,6 +487,7 @@ The **α-amino group** (pKa ~9.0) and **α-carboxyl group** (pKa ~2.0) flank the
 
 **Classification by R group character:**
 
+: Amino Acid Chemistry and Side-Chain Diversity: Class and Examples. {#tbl:unit_I_macromolecules_amino_acid_chemistry_and_side_chain_diversity}
 | Class | Examples | Side chain | Properties |
 | ----- | -------- | ---------- | ---------- |
 | Nonpolar aliphatic | Ala, Val, Leu, Ile, Met, Pro | Hydrocarbon | Hydrophobic core |
@@ -486,7 +497,7 @@ The **α-amino group** (pKa ~9.0) and **α-carboxyl group** (pKa ~2.0) flank the
 | Negatively charged | Asp, Glu | --COO$^-$ | Salt bridges, metal binding |
 
 **Special amino acids:**
-- **Glycine** (R = H) has no stereogenic centre and maximal conformational flexibility --- often found in tight turns
+- **Glycine** (R = H) has no stereogenic center and maximal conformational flexibility --- often found in tight turns
 - **Proline** has a cyclic side chain bonded to the backbone nitrogen, restricting rotation and introducing kinks in α-helices
 - **Cysteine** can form **disulfide bonds** (--S--S--) with other cysteines under oxidising conditions (ER lumen, extracellular space)
 - **Selenocysteine** (the "21st amino acid") contains selenium instead of sulfur and is encoded by UGA [**codon**](#gl:codon)s with a special stem-loop (SECIS element)
@@ -513,6 +524,7 @@ The polypeptide backbone has three torsional degrees of freedom per residue:
 
 Because each peptide unit is rigid and planar, primarily $\varphi$ and ψ can vary. The 1963 paper of G. N. Ramachandran plotted $\varphi$ vs. ψ for most amino acids in known protein structures; the plot reveals dramatic clustering caused by steric clashes (Pauli repulsion between side chain, carbonyl, and amide atoms when the dihedrals approach forbidden values).
 
+: Allowed backbone dihedral-angle regions in a Ramachandran plot. {#tbl:unit_I_macromolecules_ramachandran_plots_and_backbone_dihedral_angles}
 | Region | Approximate ($\varphi$, ψ) | Secondary structure |
 | ------ | ------------------------------- | -------------------- |
 | Right-handed α-helix | (--60$^\circ$, --45$^\circ$) | α-helix |
@@ -527,7 +539,7 @@ Two amino acids escape the standard restrictions:
 - **Glycine** has primarily an H atom for its side chain --- no steric clash --- and so populates the entire $(\varphi, \psi)$ plane, including the disallowed regions used by left-handed helices.
 - **Proline's** side-chain ring fixes $\varphi \approx -65^\circ$, severely restricting backbone flexibility. Proline cannot occur in a regular α-helix beyond position 4 (no N--H proton available as H-bond donor) and is famous as a "helix breaker."
 
-Real proteins occupy the allowed regions ~98% of the time; deviations into "outlier" regions are validated indicators of either (a) genuine functional constraints (e.g., catalytic glycines in a strained conformation) or (b) modelling errors in low-resolution X-ray structures. Ramachandran statistics are now a standard quality metric for crystallographic and AlphaFold-predicted structures.
+Real proteins occupy the allowed regions ~98% of the time; deviations into "outlier" regions are validated indicators of either (a) genuine functional constraints (e.g., catalytic glycines in a strained conformation) or (b) modeling errors in low-resolution X-ray structures. Ramachandran statistics are now a standard quality metric for crystallographic and AlphaFold-predicted structures.
 
 > **Concept Check 6:** Why does Pro almost rarely occur in the middle of an α-helix, while Gly is over-represented in tight turns and loops? Frame your answer in terms of $(\varphi, \psi)$ allowed regions on the Ramachandran plot.
 
@@ -541,7 +553,7 @@ Real proteins occupy the allowed regions ~98% of the time; deviations into "outl
 - **$3_{10}$-helix:** tighter than α-helix (3 residues/turn), H-bond between $i$ and $i+3$. Less common; often found at helix termini.
 - **Turns and loops:** allow the polypeptide chain to reverse direction; typically on protein surface, often functionally important (e.g., CDR loops in antibodies).
 
-**Tertiary structure:** The complete 3D fold, stabilised by:
+**Tertiary structure:** The complete 3D fold, stabilized by:
 - Hydrophobic core packing ([**dominant**](#gl:dominant) driving force)
 - Disulfide bonds (Cys--S--S--Cys; formed in oxidising compartments like ER lumen)
 - Salt bridges (Asp/Glu with Lys/Arg)
@@ -549,16 +561,17 @@ Real proteins occupy the allowed regions ~98% of the time; deviations into "outl
 
 **Common protein folds:**
 
+: Levels of Protein Structure: Fold and Description. {#tbl:unit_I_macromolecules_levels_of_protein_structure}
 | Fold | Description | Example |
 | ---- | ----------- | ------- |
-| Globin fold | 8 α-helices surrounding a haem pocket | Myoglobin, haemoglobin |
+| Globin fold | 8 α-helices surrounding a haem pocket | Myoglobin, hemoglobin |
 | TIM barrel | 8 alternating $\beta\alpha$ units forming a barrel | Triosephosphate isomerase |
 | β-barrel | β-sheets curved into a closed barrel | Porins, GFP |
 | Immunoglobulin fold | Two β-sheets packed face-to-face | Antibodies, MHC |
 | Leucine-rich repeat | Horseshoe of repeating units | Toll-like receptors |
 
 **Quaternary structure:** Assembly of two or more polypeptide chains (subunits). Examples:
-- **Haemoglobin:** $\alpha_2\beta_2$ tetramer; cooperative O$_2$ binding
+- **Hemoglobin:** $\alpha_2\beta_2$ tetramer; cooperative O$_2$ binding
 - **Collagen:** triple helix of three chains with Gly-X-Y repeats (X often Pro, Y often Hyp)
 - **Immunoglobulin G:** two heavy chains + two light chains; Y-shaped
 - **Ribosome:** RNA + >50 protein subunits
@@ -578,22 +591,23 @@ The total $\Delta G_{\text{fold}}$ for a typical small globular protein is prima
 
 **Decomposing the folding free energy:**
 
+: Thermodynamics of Protein Folding: Contribution and Sign. {#tbl:unit_I_macromolecules_thermodynamics_of_protein_folding}
 | Contribution | Sign | Magnitude (typical) | Origin |
 | ------------ | ---- | ------------------- | ------ |
-| Conformational entropy of backbone | $-T\Delta S < 0$ unfavourable | $+500$ to $+1500$ kJ/mol | Loss of $\varphi$/ψ freedom |
-| Conformational entropy of side chains | unfavourable | $+200$ to $+400$ kJ/mol | Side chains lock in place |
-| Hydrophobic effect | favourable | $-300$ to $-1000$ kJ/mol | Burial of nonpolar surface; entropy of water released |
+| Conformational entropy of backbone | $-T\Delta S < 0$ unfavorable | $+500$ to $+1500$ kJ/mol | Loss of $\varphi$/ψ freedom |
+| Conformational entropy of side chains | unfavorable | $+200$ to $+400$ kJ/mol | Side chains lock in place |
+| Hydrophobic effect | favorable | $-300$ to $-1000$ kJ/mol | Burial of nonpolar surface; entropy of water released |
 | Backbone H-bonds | small | $\pm 0$ to $-100$ kJ/mol | Replace H-bonds to water with intramolecular ones |
-| Van der Waals packing | favourable | $-200$ to $-500$ kJ/mol | Tight core packing |
-| Disulfide bonds (if present) | favourable | $-15$ to $-30$ kJ/mol per S--S | Topology constraint |
-| **Net $\Delta G_{\text{fold}}$** | favourable, marginal | **$-20$ to $-60$ kJ/mol** | Sum of large opposing terms |
+| Van der Waals packing | favorable | $-200$ to $-500$ kJ/mol | Tight core packing |
+| Disulfide bonds (if present) | favorable | $-15$ to $-30$ kJ/mol per S--S | Topology constraint |
+| **Net $\Delta G_{\text{fold}}$** | favorable, marginal | **$-20$ to $-60$ kJ/mol** | Sum of large opposing terms |
 
-**The hydrophobic collapse model.** The dominant driving force is the [**hydrophobic effect**](#gl:hydrophobic-effect) (see \cref{sec:unit_I_water_and_life}). Folding occurs in two stages:
+**The hydrophobic collapse model.** The dominant driving force is the [**hydrophobic effect**](#gl:hydrophobic-effect) (see \cref{sec:unit_I_water_and_life}) \citep{dill1990proteinfolding}. Folding occurs in two stages:
 
 1. **Hydrophobic collapse** (microseconds): Water-exposed nonpolar side chains rapidly aggregate into a "molten globule" --- a compact but loosely packed intermediate with most secondary structure formed but tertiary contacts not yet locked in.
-2. **Specific tertiary contact formation** (milliseconds--seconds): Slow rearrangement to the unique native fold; backbone H-bonds and van der Waals packing optimise.
+2. **Specific tertiary contact formation** (milliseconds--seconds): Slow rearrangement to the unique native fold; backbone H-bonds and van der Waals packing optimize.
 
-The marginal stability of folded proteins ($|\Delta G| \approx$ a few H-bonds' worth) has profound consequences: small mutations can destabilise proteins enough to cause disease (e.g., a single Glu6->Val substitution causes sickle-cell haemoglobin to polymerise), and many proteins exist in a fragile balance with disordered or misfolded states.
+The marginal stability of folded proteins ($|\Delta G| \approx$ a few H-bonds' worth) has profound consequences: small mutations can destabilise proteins enough to cause disease (e.g., a single Glu6->Val substitution causes sickle-cell hemoglobin to polymerize), and many proteins exist in a fragile balance with disordered or misfolded states.
 
 **Levinthal's paradox and the folding funnel.** A 100-residue chain with 3 backbone conformations per residue would have $3^{100} \approx 10^{47}$ possible conformations --- searching them randomly at 10$^{12}$ trials per second would take longer than the age of the universe, yet proteins fold in milliseconds. The resolution is the **folding funnel**: the energy landscape is biased so that energy and conformational entropy *both* decrease as the protein nears the native state. The chain rolls down the funnel via many parallel pathways rather than searching exhaustively. This conceptual breakthrough is now supported by molecular dynamics simulations and by structure-prediction systems. AlphaFold 3 extends the classroom question from "what fold does this protein adopt?" to "what complex does this protein form with DNA, RNA, ligands, ions, or modified residues?" It should be read as a powerful hypothesis generator whose confidence metrics and biochemical context still need experimental validation, especially for dynamics, alternative conformations, and low-confidence interfaces \citep{abramson2024alphafold3}.
 
@@ -613,13 +627,13 @@ flowchart LR
     F --> J["Mutagenesis, binding, kinetics, cryo-EM, X-ray, NMR"]
     J --> G
 ```
-<!-- alt: Flowchart showing AI biomolecular modelling workflow. Predicted structures and complexes are evidence-generating tools; confidence metrics and independent assays determine whether a predicted contact supports a biological mechanism. -->
+<!-- alt: Flowchart showing AI biomolecular modeling workflow. Predicted structures and complexes are evidence-generating tools; confidence metrics and independent assays determine whether a predicted contact supports a biological mechanism. -->
 
-*AI biomolecular modelling workflow. Predicted structures and complexes are evidence-generating tools; confidence metrics and independent assays determine whether a predicted contact supports a biological mechanism.*
+*AI biomolecular modeling workflow. Predicted structures and complexes are evidence-generating tools; confidence metrics and independent assays determine whether a predicted contact supports a biological mechanism.*
 
 > **Concept Check (Evaluation):** Intrinsically disordered proteins (IDPs) lack stable tertiary structure but are functionally critical --- roughly 30% of human proteins are fully disordered, and 70% have disordered regions. (a) Using the hydrophobic effect and entropy arguments, explain why a protein rich in charged (Asp, Glu, Lys, Arg) and polar (Ser, Thr, Gln, Asn) residues would resist folding into a compact globule. (b) IDPs often form transient ordered structures when binding partners --- propose the thermodynamic driving force for this "coupled folding and binding." (c) Why might disorder confer an evolutionary advantage for hub proteins that interact with many partners?
 
-> **Concept Check (Analysis):** The amyloid fibril formed by the Alzheimer's A$\beta$(1--42) peptide consists of antiparallel $\beta$-sheets stacked perpendicular to the fibril axis with $\sim 4.7$ angstrom inter-strand spacing and $\sim 10$ angstrom inter-sheet spacing. (a) Estimate the number of hydrogen bonds per metre of fibril if each strand contributes 2 backbone H-bonds and strands are 4.7 angstrom apart. (b) Why is amyloid kinetically trapped --- why does a cell not simply unfold and refold the fibril? (c) Propose one molecular intervention (small molecule, antibody, or modified peptide) targeting fibril nucleation vs. one targeting fibril elongation, and explain the kinetic difference.
+> **Concept Check (Analysis):** The amyloid fibril formed by the Alzheimer's A$\beta$(1--42) peptide consists of antiparallel $\beta$-sheets stacked perpendicular to the fibril axis with $\sim 4.7$ angstrom inter-strand spacing and $\sim 10$ angstrom inter-sheet spacing. (a) Estimate the number of hydrogen bonds per meter of fibril if each strand contributes 2 backbone H-bonds and strands are 4.7 angstrom apart. (b) Why is amyloid kinetically trapped --- why does a cell not simply unfold and refold the fibril? (c) Propose one molecular intervention (small molecule, antibody, or modified peptide) targeting fibril nucleation vs. one targeting fibril elongation, and explain the kinetic difference.
 
 ### Intrinsically Disordered Proteins (IDPs)
 
@@ -631,7 +645,7 @@ Properties of IDPs/IDRs:
 - Often undergo **coupled folding and binding** --- they fold upon interacting with their binding partner
 
 **Biological advantages of disorder:**
-- **Promiscuous binding:** one IDR can bind multiple partners (hub proteins in signalling networks)
+- **Promiscuous binding:** one IDR can bind multiple partners (hub proteins in signaling networks)
 - **Large interaction surfaces:** extended conformations provide large binding interfaces from a short sequence
 - **Rapid binding kinetics:** "fly-casting" mechanism allows faster association rates
 - **Regulation by post-translational modification:** many phosphorylation sites are in disordered regions
@@ -650,7 +664,7 @@ Key features of LLPS-driven condensates:
 - **Functional consequence:** condensates concentrate biochemical reactants ~100-fold above bulk cytosol, dramatically accelerating reactions.
 - **Disease link:** ALS-causing mutations in FUS and TDP-43 transition liquid condensates into solid amyloid-like aggregates (the "liquid-to-solid" transition). Understanding LLPS is now central to neurodegeneration research.
 
-This discovery transformed cell biology: the nucleus is not a uniform compartment but a phase-organised mosaic of dozens of distinct liquid bodies, each enriching specific molecules without membranes to maintain identity.
+This discovery transformed cell biology: the nucleus is not a uniform compartment but a phase-organized mosaic of dozens of distinct liquid bodies, each enriching specific molecules without membranes to maintain identity.
 
 > **Clinical Connection: Amyloid Diseases and Protein Misfolding**
 >
@@ -660,28 +674,29 @@ This discovery transformed cell biology: the nucleus is not a uniform compartmen
 
 ### Post-Translational Modifications (PTMs)
 
-A typical eukaryotic protein is modified by a "code" of covalent chemistry layered on top of the genetic sequence. Over 400 distinct PTMs are now catalogued; the major ones are summarised below.
+A typical eukaryotic protein is modified by a "code" of covalent chemistry layered on top of the genetic sequence. Over 400 distinct PTMs are now catalogued; the major ones are summarized below.
 
+: Post-Translational Modifications (PTMs): PTM and Adding enzyme. {#tbl:unit_I_macromolecules_post_translational_modifications_ptms}
 | PTM | Adding enzyme | Removing enzyme | Target residue(s) | Functional role |
 | --- | ------------- | --------------- | ----------------- | --------------- |
-| Phosphorylation | Kinases (518 in human) | Phosphatases | Ser, Thr, Tyr (rare on His) | Reversible "switch"; signalling, enzyme activity |
+| Phosphorylation | Kinases (518 in human) | Phosphatases | Ser, Thr, Tyr (rare on His) | Reversible "switch"; signaling, enzyme activity |
 | Acetylation | Acetyltransferases (HATs, GCN5) | Deacetylases (HDACs, sirtuins) | Lys $\varepsilon$-NH$_2$, N-terminus | Chromatin opening (histones); metabolic regulation |
 | Methylation | Methyltransferases (SET domain, PRMT) | Demethylases (KDMs, LSD1) | Lys, Arg, His; DNA at C5 of cytosine | Gene silencing/activation; epigenetic memory |
-| Ubiquitination | E1->E2->E3 cascade | DUBs (deubiquitinases) | Lys $\varepsilon$-NH$_2$ | Protein turnover (proteasome); signalling (K63 chains) |
+| Ubiquitination | E1->E2->E3 cascade | DUBs (deubiquitinases) | Lys $\varepsilon$-NH$_2$ | Protein turnover (proteasome); signaling (K63 chains) |
 | SUMOylation | SUMO E1, E2, E3 | SENPs | Lys (often in ΨKX(D/E) motif) | Nuclear transport; transcription; DNA repair |
 | Glycosylation | Glycosyltransferases | Glycosidases | Asn (N-linked); Ser/Thr (O-linked); Trp (C-mannose) | Protein folding, half-life, recognition |
 | O-GlcNAc | OGT | OGA | Ser, Thr (cytosolic/nuclear) | Reciprocal cross-talk with phosphorylation; nutrient sensing |
 | Hydroxylation | Prolyl/lysyl hydroxylases | --- (irreversible) | Pro, Lys (collagen, HIF-1α) | Collagen stability; oxygen sensing |
 | Lipidation | NMTs, palmitoyltransferases | Acyl-protein thioesterases | N-terminal Gly (myristate); Cys (palmitate, prenyl) | Membrane targeting |
-| ADP-ribosylation | PARPs | PARGs, ARH3 | Glu, Asp, Arg | DNA damage signalling |
+| ADP-ribosylation | PARPs | PARGs, ARH3 | Glu, Asp, Arg | DNA damage signaling |
 | Disulfide | PDI in ER | Reductants | Cys pairs | Structural; secreted protein stability |
 | Proteolytic cleavage | Proteases | (irreversible) | Specific peptide bonds | Activation (zymogens); destruction; signal release |
 
-**Phosphorylation** is the most-studied PTM: ~30% of human proteins are phosphorylated on at least one residue at some point in their life cycle, controlled by 518 kinases and ~150 phosphatases. A single phosphate group adds two negative charges and ~30 kJ/mol of binding energy with phospho-recognition domains (SH2, 14-3-3, FHA), enabling switch-like regulation of activity, localisation, or partnerships. **Histone PTMs** (acetylation of Lys, methylation of Lys/Arg, phosphorylation of Ser/Thr) write the "histone code" that organises chromatin into transcriptionally active and silent states (see \nameref{sec:unit_IV_unit_intro}).
+**Phosphorylation** is the most-studied PTM: ~30% of human proteins are phosphorylated on at least one residue at some point in their life cycle, controlled by 518 kinases and ~150 phosphatases. A single phosphate group adds two negative charges and ~30 kJ/mol of binding energy with phospho-recognition domains (SH2, 14-3-3, FHA), enabling switch-like regulation of activity, localization, or partnerships. **Histone PTMs** (acetylation of Lys, methylation of Lys/Arg, phosphorylation of Ser/Thr) write the "histone code" that organizes chromatin into transcriptionally active and silent states (see \nameref{sec:unit_IV_unit_intro}).
 
-**Ubiquitin** is itself a small (76-residue) protein that is covalently attached to other proteins, usually through an isopeptide bond between its C-terminal Gly76 and a Lys $\varepsilon$-NH$_2$ on the substrate. Polyubiquitin chains can grow on any of ubiquitin's seven Lys residues (or its own N-terminus), creating different chain topologies with different fates: K48 chains target proteins for proteasomal destruction; K63 chains regulate signalling and DNA repair; M1 (linear) chains regulate NF-κB inflammation. The 2004 Nobel Prize in Chemistry recognised Aaron Ciechanover, Avram Hershko, and Irwin Rose for discovering this regulated proteolysis system.
+**Ubiquitin** is itself a small (76-residue) protein that is covalently attached to other proteins, usually through an isopeptide bond between its C-terminal Gly76 and a Lys $\varepsilon$-NH$_2$ on the substrate. Polyubiquitin chains can grow on any of ubiquitin's seven Lys residues (or its own N-terminus), creating different chain topologies with different fates: K48 chains target proteins for proteasomal destruction; K63 chains regulate signaling and DNA repair; M1 (linear) chains regulate NF-κB inflammation. The 2004 Nobel Prize in Chemistry recognized Aaron Ciechanover, Avram Hershko, and Irwin Rose for discovering this regulated proteolysis system.
 
-> **Concept Check 8:** Phosphorylation of a Ser residue adds two negative charges and ~80 Da of mass --- a tiny chemical change. Yet kinase signalling cascades transmit information through millions of phosphorylation events per second across thousands of substrates. Identify two structural features of phosphate (charge, geometry, H-bond capacity) that make it an ideal "switch" molecule for biology, and contrast with why methylation (a smaller, neutral modification) is used for slower, longer-lived regulation.
+> **Concept Check 8:** Phosphorylation of a Ser residue adds two negative charges and ~80 Da of mass --- a tiny chemical change. Yet kinase signaling cascades transmit information through millions of phosphorylation events per second across thousands of substrates. Identify two structural features of phosphate (charge, geometry, H-bond capacity) that make it an ideal "switch" molecule for biology, and contrast with why methylation (a smaller, neutral modification) is used for slower, longer-lived regulation.
 
 ---
 
@@ -712,6 +727,7 @@ DNA (deoxyribonucleic acid) is a double-stranded helix discovered by Watson and 
 
 **Structural forms of DNA:**
 
+: DNA Structure, Base Pairing, and Helical Geometry: Feature and A-form. {#tbl:unit_I_macromolecules_dna_structure_base_pairing_and_helical_geometry}
 | Feature | A-form | B-form | Z-form |
 | ------- | ------ | ------ | ------ |
 | Helix direction | Right-handed | Right-handed | Left-handed |
@@ -726,10 +742,11 @@ The **B-form** is the biologically dominant form at physiological ionic strength
 - Right-handed helix; 10.5 base pairs/turn; rise 0.34 nm/bp; pitch ≈3.6 nm; diameter 2.0 nm
 - Major groove (wide, ~1.2 nm) and minor groove (~0.6 nm) --- proteins bind these grooves
 
-**Base stacking:** Beyond hydrogen bonding between complementary bases, the flat aromatic rings of adjacent bases stack on top of each other via π-π interactions and [**van der Waals forces**](#gl:van-der-waals-forces). These stacking interactions contribute more to duplex stability than hydrogen bonding. This is why DNA melting temperature ($T_m$) increases with GC content (three H-bonds + stronger stacking) and with ionic strength (cations neutralise backbone charges).
+**Base stacking:** Beyond hydrogen bonding between complementary bases, the flat aromatic rings of adjacent bases stack on top of each other via π-π interactions and [**van der Waals forces**](#gl:van-der-waals-forces). These stacking interactions contribute more to duplex stability than hydrogen bonding. This is why DNA melting temperature ($T_m$) increases with GC content (three H-bonds + stronger stacking) and with ionic strength (cations neutralize backbone charges).
 
-**Quantitative base-stacking energies.** Nearest-neighbour stacking energies (the contribution of each adjacent base-pair *step*, not each individual base) have been calibrated from melting curves and computational chemistry:
+**Quantitative base-stacking energies.** Nearest-neighbor stacking energies (the contribution of each adjacent base-pair *step*, not each individual base) have been calibrated from melting curves and computational chemistry:
 
+: DNA base-stacking enthalpy for selected nearest-neighbor steps. {#tbl:unit_I_macromolecules_dna_structure_base_pairing_and_helical_geometry_2}
 | Step (5'->3' top strand) | Stacking $\Delta H$ (kJ/mol) | Stacking $\Delta S$ (J mol$^{-1}$ K$^{-1}$) | $\Delta G$ at 37 $^\circ$C (kJ/mol) |
 | --------------------------- | ---------------------------- | -------------------------------------------- | ----------------------------------- |
 | AA / TT | --33.1 | --92.9 | --4.3 |
@@ -743,7 +760,7 @@ The **B-form** is the biologically dominant form at physiological ionic strength
 | GC / GC | --41.0 | --102.1 | --9.4 |
 | GG / CC | --33.5 | --83.3 | --7.7 |
 
-Notice that **GC steps have the strongest stacking** (and therefore highest melting temperature) --- this is why GC-rich regions (CpG islands, gene promoters) require greater thermal energy to denature, and why PCR primers are usually designed to be ~50% GC. The total free energy of a duplex is summed over most $n - 1$ stacking steps in an $n$-base-pair duplex, plus initiation/end corrections; this nearest-neighbour model (Santa Lucia, 1998) predicts $T_m$ values within ~2 $^\circ$C of measurement and is the basis of every PCR primer design tool.
+Notice that **GC steps have the strongest stacking** (and therefore highest melting temperature) --- this is why GC-rich regions (CpG islands, gene promoters) require greater thermal energy to denature, and why PCR primers are usually designed to be ~50% GC. The total free energy of a duplex is summed over most $n - 1$ stacking steps in an $n$-base-pair duplex, plus initiation/end corrections; this nearest-neighbor model (Santa Lucia, 1998) predicts $T_m$ values within ~2 $^\circ$C of measurement and is the basis of every PCR primer design tool.
 
 **A-, B-, and Z-DNA in detail.** The three structural forms differ in geometry and biological occurrence:
 
@@ -786,6 +803,7 @@ RNA folds on itself via intramolecular base pairing, forming complex secondary a
 
 **RNA secondary structure elements:**
 
+: RNA Structure and Diversity: Element and Description. {#tbl:unit_I_macromolecules_rna_structure_and_diversity}
 | Element | Description | Function |
 | ------- | ----------- | -------- |
 | Stem-loop (hairpin) | Complementary bases form a stem; unpaired bases form a loop | Most common motif; regulatory elements |
@@ -793,16 +811,17 @@ RNA folds on itself via intramolecular base pairing, forming complex secondary a
 | Bulge | Unpaired nucleotides on one strand of a stem | Flexibility, protein recognition |
 | Pseudoknot | Loop base-pairs with downstream sequence | Ribosome frameshifting, telomerase |
 | G-quadruplex | Four guanines form a planar quartet via Hoogsteen H-bonds | [**Telomere**](#gl:telomere)s, oncogene regulation |
-| Kissing loop | Two hairpin loops interact via complementary sequences | Viral RNA dimerisation |
+| Kissing loop | Two hairpin loops interact via complementary sequences | Viral RNA dimerization |
 
 **Pseudoknots** illustrate the topological complexity unique to RNA. After a hairpin loop forms, *unpaired* loop bases pair with a complementary sequence located *downstream*, creating a second helix that threads through the first. The HIV-1 frameshift element is a pseudoknot that pauses the ribosome, forcing a --1 frameshift to translate the *gag-pol* polyprotein. Telomerase contains a pseudoknot in its RNA template that is essential for catalysis; mutations in this pseudoknot cause dyskeratosis congenita (a hereditary bone-marrow failure syndrome).
 
-**RNA secondary structure prediction.** Whether a given RNA sequence will adopt a particular fold can be predicted computationally using thermodynamic models. The free energy of a fold is the sum of nearest-neighbour stacking energies (similar to the DNA table above) minus penalties for loops, bulges, and unpaired regions. The Zuker algorithm finds the minimum-free-energy structure in $O(n^3)$ time for a sequence of length $n$. Modern tools (RNAfold, ViennaRNA, NUPACK) extend this to ensembles of suboptimal structures, base-pairing probabilities, and pseudoknot prediction. Predicted folds are now routinely used to design siRNAs, mRNA vaccines (e.g., the Pfizer/Moderna COVID-19 mRNAs were sequence-optimised to favour stable secondary structures and avoid immunogenic motifs), and guide RNAs for CRISPR systems.
+**RNA secondary structure prediction.** Whether a given RNA sequence will adopt a particular fold can be predicted computationally using thermodynamic models. The free energy of a fold is the sum of nearest-neighbor stacking energies (similar to the DNA table above) minus penalties for loops, bulges, and unpaired regions. The Zuker algorithm finds the minimum-free-energy structure in $O(n^3)$ time for a sequence of length $n$. Modern tools (RNAfold, ViennaRNA, NUPACK) extend this to ensembles of suboptimal structures, base-pairing probabilities, and pseudoknot prediction. Predicted folds are now routinely used to design siRNAs, mRNA vaccines (e.g., the Pfizer/Moderna COVID-19 mRNAs were sequence-optimized to favor stable secondary structures and avoid immunogenic motifs), and guide RNAs for CRISPR systems.
 
 **Ribozymes revisited --- 3D structure shapes catalysis.** The hammerhead ribozyme (~40 nt, the smallest known) folds into three coaxially stacked helices that position a 2'-OH for nucleophilic attack on the adjacent phosphodiester, cleaving the backbone via an in-line mechanism. The hepatitis delta ribozyme uses a cytosine as a general acid catalyst with shifted pKa --- demonstrating that RNA bases can perform acid-base chemistry analogous to enzyme side chains.
 
 **RNA types and functions:**
 
+: RNA Structure and Diversity: RNA type and Abbreviation. {#tbl:unit_I_macromolecules_rna_structure_and_diversity_2}
 | RNA type | Abbreviation | Function |
 | -------- | ------------ | -------- |
 | Messenger RNA | mRNA | Carries protein-coding sequence |
@@ -823,6 +842,7 @@ The **ribozymes** --- catalytically active RNAs --- demonstrate that RNA was lik
 
 **Known ribozymes:**
 
+: Ribozymes: Catalytic RNA: Ribozyme and Reaction. {#tbl:unit_I_macromolecules_ribozymes_catalytic_rna}
 | Ribozyme | Reaction | Significance |
 | -------- | -------- | ------------ |
 | Group I intron | Phosphoester transfer (self-splicing) | First discovered ribozyme |
@@ -846,6 +866,7 @@ The discovery that the ribosome's peptidyl transferase activity resides in rRNA 
 
 ### The Four Macromolecule Classes Compared
 
+: The Four Macromolecule Classes Compared: Feature and Carbohydrates. {#tbl:unit_I_macromolecules_the_four_macromolecule_classes_compared}
 | Feature | Carbohydrates | Lipids | Proteins | Nucleic Acids |
 | ------- | ------------- | ------ | -------- | ------------- |
 | **Monomer** | Monosaccharide | Fatty acid / isoprene | Amino acid | Nucleotide |
@@ -858,6 +879,7 @@ The discovery that the ribosome's peptidyl transferase activity resides in rRNA 
 
 ### Storage vs. Structural Polysaccharides
 
+: Storage vs. Structural Polysaccharides: Feature and Starch/Glycogen (Storage). {#tbl:unit_I_macromolecules_storage_vs_structural_polysaccharides}
 | Feature | Starch/Glycogen (Storage) | Cellulose/Chitin (Structural) |
 | ------- | ------------------------- | ----------------------------- |
 | Bond type | α-glycosidic | β-glycosidic |
@@ -879,7 +901,7 @@ seq = "ATGCGCGCATAA"
 print(round(gc_content(seq), 3))  # 0.583
 ```
 
-> **Clinical / systems note:** Antisense oligonucleotide and siRNA therapies rely on predictable hybridisation thermodynamics (GC content, length, salt) to avoid off-target binding while silencing disease [**allele**](#gl:allele)s --- the same sequence statistics you summarise with $G{+}C$ fraction.
+> **Clinical / systems note:** Antisense oligonucleotide and siRNA therapies rely on predictable hybridization thermodynamics (GC content, length, salt) to avoid off-target binding while silencing disease [**allele**](#gl:allele)s --- the same sequence statistics you summarize with $G{+}C$ fraction.
 
 ---
 
@@ -930,7 +952,7 @@ flowchart LR
 - DNA exists in A, B, and Z forms; B-form dominates under physiological conditions. RNA forms complex secondary structures including pseudoknots and G-quadruplexes.
 - DNA's double helix uses complementary A--T and G--C pairing; this complementarity is the structural basis of heredity and information transfer.
 - Ribozymes (catalytic RNAs) demonstrate RNA's dual role as information carrier and catalyst, supporting the RNA World hypothesis. The ribosome itself is a ribozyme.
-- **Connections:** See \cref{sec:unit_IV_dna_replication_and_cell_cycle} and \cref{sec:unit_IV_gene_expression} for replication, [**transcription**](#gl:transcription), and translation; \cref{sec:unit_V_mendelian_principles} for segregation of alleles; and \cref{sec:unit_I_enzymes_and_kinetics} for enzymes that polymerise and hydrolyse these macromolecules.
+- **Connections:** See \cref{sec:unit_IV_dna_replication_and_cell_cycle} and \cref{sec:unit_IV_gene_expression} for replication, [**transcription**](#gl:transcription), and translation; \cref{sec:unit_V_mendelian_principles} for segregation of alleles; and \cref{sec:unit_I_enzymes_and_kinetics} for enzymes that polymerize and hydrolyse these macromolecules.
 
 ## Key Terms
 
@@ -942,7 +964,7 @@ flowchart LR
 - **Proteoglycan:** Protein with long glycosaminoglycan chains
 - **Amphipathic:** Having both hydrophilic and hydrophobic regions
 - **Sphingolipid:** Lipid built on a sphingosine backbone
-- **Eicosanoid:** Signalling lipid derived from arachidonic acid
+- **Eicosanoid:** Signaling lipid derived from arachidonic acid
 - **Peptide bond:** Amide bond between amino acids; partial double-bond character
 - **Ramachandran plot:** Map of allowed backbone dihedral angles φ and ψ
 - **Denaturing:** Loss of higher-order protein structure
@@ -970,7 +992,7 @@ flowchart LR
 12. Compare **one** way lipids and proteins each contribute to membrane curvature generation during vesicular trafficking. Tie your answer to amphipathic molecular architecture.
 13. Use \cref{eq:unit_I_protein_folding_dG} and the table of folding contributions to estimate the change in $\Delta G_{\text{fold}}$ when a single buried Ile (~140 \AA{}$^2$ of nonpolar surface) is mutated to Ala (~70 \AA{}$^2$). Take 0.10 kJ mol$^{-1}$ \AA{}$^{-2}$ as the cost of exposing nonpolar surface. Predict whether the mutant will be folded at body temperature.
 14. Sketch a Ramachandran plot showing the two main allowed regions (α and β) for a non-Gly, non-Pro residue. Mark where collagen's polyproline-II helix appears and explain why α-helix is forbidden after a proline.
-15. Two sequences of equal length differ in GC content: 30% vs. 70%. Using the nearest-neighbour stacking table above, predict which has the higher melting temperature and estimate the difference in $\Delta G$ (37 $^\circ$C) per 10 base-pair stretch.
+15. Two sequences of equal length differ in GC content: 30% vs. 70%. Using the nearest-neighbor stacking table above, predict which has the higher melting temperature and estimate the difference in $\Delta G$ (37 $^\circ$C) per 10 base-pair stretch.
 16. Liquid--liquid phase separation forms the nucleolus, P-bodies, and stress granules. Explain why **multivalent** weak interactions are essential and why a protein with a single high-affinity binding site for its partner does not phase separate.
 17. List three reasons why cells use post-translational modifications (PTMs) rather than relying solely on transcription/translation to regulate protein activity. Include time scales, energetic cost, and reversibility in your answer.
 
@@ -993,6 +1015,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Biological Macromolecules. {#tbl:unit_I_macromolecules_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/biochemistry/biochemistry.py` (`reaction_free_energy`, `glycolysis_summary`) | Relate polymer chemistry and hydrolysis to energy flow. |

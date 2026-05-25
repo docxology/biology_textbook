@@ -8,7 +8,6 @@ from biology.answer_refinement.classification import (
     classify_question,
     is_v1_generated,
     prompt_specific_anchor,
-    subject_phrase,
     tier_for,
 )
 from biology.answer_refinement.evidence import (

@@ -8,7 +8,7 @@ Domain computation and manuscript metadata live here. The package has nine domai
 | ---- | ---- |
 | `biochemistry/` | Enzyme kinetics, free energy, ATP, glycolysis summaries |
 | `botany/` | Water potential, transpiration, photosynthesis, plant growth |
-| `cell/` | Organelles, membrane potentials, transport, signalling |
+| `cell/` | Organelles, membrane potentials, transport, signaling |
 | `ecology/` | Population growth, Lotka-Volterra, food webs, diversity |
 | `evolution/` | Selection, drift, fitness landscapes, isolation, molecular clocks |
 | `genetics/` | DNA/RNA, translation, crosses, Hardy-Weinberg, linkage, epigenetic helpers |

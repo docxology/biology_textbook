@@ -1,7 +1,6 @@
-# Unit IV — Molecular Genetics: Introduction {.unnumbered}
+# Unit IV — Molecular Genetics: Introduction {#sec:unit_IV_unit_intro .unnumbered}
 
 
-\label{sec:unit_IV_unit_intro}
 ## Why This Unit Matters {.unnumbered}
 
 In 1944, Oswald Avery, Colin MacLeod, and Maclyn McCarty performed one of the most transformative
@@ -12,7 +11,7 @@ primarily four nucleotide bases, arranged in an apparently monotonous double hel
 encode the almost infinite variety of life?
 
 The answer, revealed over the next three decades, is linguistic in structure: a four-letter alphabet
-(A, T, G, C) organised into three-letter codons, read in a linear sequence, encoding twenty amino acids,
+(A, T, G, C) organized into three-letter codons, read in a linear sequence, encoding twenty amino acids,
 assembled by ribosomes into an effectively unlimited number of proteins. This is the molecular logic
 of life: **information flows from DNA to RNA to protein**, and control is exerted at every step. The
 central dogma, articulated by Francis Crick in 1958, has been refined but rarely overturned.
@@ -22,7 +21,7 @@ You will study the multiprotein complexes that replicate DNA with an error rate 
 mistake per 10⁹ base pairs, the RNA polymerases that transcribe genes in a regulated, stimulus-responsive
 manner, and the ribosome — a 2.5 MDa ribonucleoprotein machine that interprets the genetic code at
 ~15 amino acids per second. You will also examine how mutations drive evolution and disease, how the
-genome is structurally organised, and how CRISPR-Cas9 has made precise genome editing a clinical
+genome is structurally organized, and how CRISPR-Cas9 has made precise genome editing a clinical
 reality \citep{doudna2014}.
 
 ---
@@ -31,13 +30,13 @@ reality \citep{doudna2014}.
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| Avery, MacLeod & McCarty | 1944 | *J. Exp. Med.* | DNA is the genetic material | Overturned protein hypothesis; opened molecular genetics |
-| Watson & Crick | 1953 | *Nature* | Double-helix structure of DNA | Anti-parallel complementary strands implied replication mechanism |
-| Meselson & Stahl | 1958 | *Proc. Natl. Acad. Sci.* | Semi-conservative DNA replication | Definitive proof of how DNA is copied; used ¹⁵N density-gradient experiment |
-| Nirenberg & Matthaei | 1961 | *Proc. Natl. Acad. Sci.* | Deciphering the genetic code | Used cell-free translation of poly-U to show UUU = phenylalanine; cracked the codon table |
-| Jacob & Monod | 1961 | *J. Mol. Biol.* | *lac* operon — gene regulatory model | First demonstration of gene circuit logic; inducer-repressor-operator model |
-| Alec Jeffreys | 1984 | *Nature* | DNA fingerprinting (RFLP-based) | Transformed forensic science, paternity testing, and population genetics |
-| Doudna & Charpentier | 2012 | *Science* | CRISPR-Cas9 programmable genome editing | Created a precise molecular \"scissors\" for any target sequence; Nobel Prize 2020 |
+| Avery, MacLeod & McCarty | 1944 | \citep{avery1944} | DNA is the genetic material | Overturned protein hypothesis; opened molecular genetics |
+| Watson & Crick | 1953 | \citep{watson1953} | Double-helix structure of DNA | Anti-parallel complementary strands implied replication mechanism |
+| Meselson & Stahl | 1958 | \citep{meselson1958} | Semi-conservative DNA replication | Definitive proof of how DNA is copied; used ¹⁵N density-gradient experiment |
+| Nirenberg & Matthaei | 1961 | \citep{nirenberg1961} | Deciphering the genetic code | Used cell-free translation of poly-U to show UUU = phenylalanine; cracked the codon table |
+| Jacob & Monod | 1961 | \citep{jacob1961} | *lac* operon — gene regulatory model | First demonstration of gene circuit logic; inducer-repressor-operator model |
+| Alec Jeffreys | 1984 | \citep{jeffreys1984} | DNA fingerprinting (RFLP-based) | Transformed forensic science, paternity testing, and population genetics |
+| Doudna & Charpentier | 2012 | \citep{doudna2012} | CRISPR-Cas9 programmable genome editing | Created a precise molecular \"scissors\" for any target sequence; Nobel Prize 2020 |
 
 ---
 
@@ -61,7 +60,7 @@ graph TD
 
     DNA --> CRISPR["✂️ CRISPR-Cas9<br/>(sgRNA-guided;<br/>DSB → HDR or NHEJ)"]
 
-    DNA --> GENOME["📚 Genome Organisation<br/>(chromatin, nucleosomes,<br/>topoisomers, repetitive DNA)"]
+    DNA --> GENOME["📚 Genome Organization<br/>(chromatin, nucleosomes,<br/>topoisomers, repetitive DNA)"]
 
     style DNA fill:#2c3e50,color:#fff
     style CRISPR fill:#e74c3c,color:#fff
@@ -97,7 +96,7 @@ paper-based lab decision.
 
 - **DNA replication** directly links to \nameref{sec:unit_V_unit_intro} (meiosis and crossing-over in \cref{sec:unit_V_chromosomal_inheritance}) and \nameref{sec:unit_VI_unit_intro} (molecular clock calculations using sequence divergence).
 - **Gene regulation** (operons, TFs, miRNA) reappears in \nameref{sec:unit_VIII_unit_intro} (plant hormone signal transduction) and \nameref{sec:unit_IX_unit_intro} (endocrine control of gene expression via steroid receptors).
-- **Mutations and DNA repair** are essential context for \nameref{sec:unit_VI_unit_intro} (evolution as mutation + selection) and oncogene/tumour-suppressor biology in \nameref{sec:unit_II_unit_intro} and \nameref{sec:unit_IX_unit_intro}.
+- **Mutations and DNA repair** are essential context for \nameref{sec:unit_VI_unit_intro} (evolution as mutation + selection) and oncogene/tumor-suppressor biology in \nameref{sec:unit_II_unit_intro} and \nameref{sec:unit_IX_unit_intro}.
 - **CRISPR-Cas9** appears in clinical connection boxes throughout — gene therapy (\nameref{sec:unit_V_unit_intro}), antibiotic resistance (\nameref{sec:unit_VII_unit_intro}), and plant engineering (\nameref{sec:unit_VIII_unit_intro}).
 
 > **Key vocabulary introduced here:** nucleotide, base pair, template strand, coding strand, codon, anticodon, spliceosome, intron, exon, promoter, enhancer, transcription factor, epigenome, proto-oncogene, restriction enzyme, CRISPR.

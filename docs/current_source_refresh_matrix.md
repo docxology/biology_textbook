@@ -48,8 +48,8 @@ direct official or peer-reviewed verification before they enter prose,
   alt text were tightened where they were generic, duplicative, or missing
   decision provenance.
 - **Diagram-count reconciliation:** the renderable manuscript surface contains
-  193 inline Mermaid fences when README/AGENTS files are excluded; this pass
-  does not write a 194-diagram claim.
+  196 inline Mermaid fences when README/AGENTS files are excluded; this pass
+  keeps visual-manifest totals derived from the live figure and diagram scan.
 
 ## 2026-05-22 Completion Pass
 
@@ -79,9 +79,9 @@ direct official or peer-reviewed verification before they enter prose,
 | --- | ---: | --- | --- |
 | Front matter and preface | 2 | Reader contract, source-governed claims, semantic navigation | No new current-science claim needed; retain generated navigation checks. |
 | Unit intros | 11 | Current Evidence Thread language, cross-unit references, Mermaid metadata | Retain evidence-thread structure; Mermaid metadata normalized by `scripts/add_mermaid_alt_text.py --check`. |
-| Core chapters | 39 | Fast-moving examples, citation closure, current-claim ledger anchors | Add the 2026 NAR database issue plus targeted RNAcentral, GTDB, plant-pangenome, and brain-cell-atlas anchors; retain already refreshed pangenome, AlphaFold, AMR, malaria, IUCN, CITES, climate, and conservation claims. |
-| Labs | 39 | Paper-based evidence work, source cards, no hidden data/notebook dependency | Add a database-status evidence card to the genomics lab where it directly supports variant/database interpretation. |
-| Question banks | 39 | Chapter-grounded answers, no generated scaffolds, current-source transfer | Add one natural assessment transfer for each adopted completion lane without changing the 30-question invariant. |
+| Core chapters | 44 | Fast-moving examples, citation closure, current-claim ledger anchors | Retain refreshed pangenome, AlphaFold, AMR, malaria, IUCN, CITES, climate, conservation, RNAcentral, GTDB, plant-pangenome, brain-cell-atlas, and human-genetics evidence lanes. |
+| Labs | 44 | Paper-based evidence work, source cards, no hidden data/notebook dependency | Keep source-governance cards and table captions synchronized with the chapter evidence lanes. |
+| Question banks | 44 | Chapter-grounded answers, no generated scaffolds, current-source transfer | Keep assessment transfer grounded in chapter evidence without changing the 30-question invariant. |
 | Reference appendices | 7 | Glossary/index links, semantic appendix references, no hard-coded rendered numbers | No content refresh needed; keep `link_glossary.py --check` and crossref gates authoritative. |
 
 ## Directly Verified Priority Sources
@@ -97,6 +97,7 @@ direct official or peer-reviewed verification before they enter prose,
 | Homeostasis concepts | Situating homeostasis in organisms (`10.1113/JP286883`) | Unit IX homeostasis prose now frames set points as shorthand within organism-level regulation; no dated current-claim row needed. |
 | Global photosynthesis measurement | Terrestrial photosynthesis inferred from plant carbonyl sulfide uptake (`10.1038/s41586-024-08050-3`) | Unit III photosynthesis now distinguishes leaf, canopy, and planetary carbon-flux evidence; no numeric GPP estimate adopted, so no current-claim row needed. |
 | Brain cell atlases | NIH BRAIN/BICCN mouse-brain atlas and Nature whole-mouse-brain atlas (`10.1038/s41586-023-06812-z`) | New Unit IX atlas-as-release paragraph, nervous-system question-bank reasoning, BibTeX entries, and current-claim ledger row. |
+| Human genetic interpretation | Saturated height-GWAS map (`10.1038/s41586-022-05275-y`), ACMG/AMP variant-interpretation guidance (`10.1038/gim.2015.30`), ClinVar (`10.1093/nar/gkt1113` plus NCBI), OMIM (`10.1093/nar/gky1151`) | Unit V human-genetics prose now separates polygenic maps, variant classification, public clinical archives, and curated Mendelian gene-phenotype resources; the height-GWAS count is tracked in `current_claims.yaml`. |
 | Pangenomics | Human Pangenome Reference Consortium Data Release 2 page | Existing Unit IV pangenome prose and claim ledger retained, with the Release II URL and evidence date aligned to the direct release page. |
 | Protein resources | AlphaFold DB 2025 NAR update plus 2026 EMBL-EBI complex announcement | Existing Unit I protein-modeling prose and claim ledger retained, with the complex-release URL aligned to the direct EMBL-EBI article. |
 | AMR and pathogens | WHO BPPL 2024 and existing CDC/WHO clinical pages | Existing Unit VII AMR/current-claim coverage retained. |

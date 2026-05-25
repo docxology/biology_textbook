@@ -1,6 +1,5 @@
-# Lab — Metabolic Integration and Regulation {.unnumbered}
+# Lab — Metabolic Integration and Regulation {#sec:lab_unit_III_metabolic_integration .unnumbered}
 
-\label{sec:lab_unit_III_metabolic_integration}
 
 *This activity accompanies \cref{sec:unit_III_metabolic_integration} of the textbook — review that chapter before attempting the exercises below.*
 
@@ -54,6 +53,7 @@ In this data-analysis lab you will interpret simulated glucose tolerance test da
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_III_metabolic_integration_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Metabolic Integration and Regulation: metabolism source card: organism, compartment, condition, measurement method, and flux boundary | 1 |
@@ -61,7 +61,7 @@ In this data-analysis lab you will interpret simulated glucose tolerance test da
 | Graph paper or laptop with spreadsheet software | 1 |
 | Calculator | 1 |
 | PFK-1 activity vs [fructose-2,6-BP] graph (provided) | 1 |
-| Coloured pencils (3 colours) | 1 set |
+| Colored pencils (3 colors) | 1 set |
 | Calculator or optional Python REPL with this project installed | 1 |
 | Ruler | 1 |
 
@@ -102,12 +102,13 @@ print("ATP hydrolysis ΔG:", round(atp, 2))
 ```
 ### Part 3: Allosteric Regulation Modeling {.unnumbered}
 
-5. **Design an Alternative Data Study**: Instead of just analysing provided data, design a paper experiment to test how different concentrations of fructose-2,6-bisphosphate affect PFK-1 activity. What hypothesis would you test? What concentrations would you request in the dataset?
+5. **Design an Alternative Data Study**: Instead of just analyzing provided data, design a paper experiment to test how different concentrations of fructose-2,6-bisphosphate affect PFK-1 activity. What hypothesis would you test? What concentrations would you request in the dataset?
 
 6. **Hypothesis**: Predict the shape of the dose-response curve. Would it be linear, sigmoidal, or something else? Why?
 
 ## Data Recording {.unnumbered}
 
+: Part 3: Allosteric Regulation Modeling: Time (min) and Subject A BG (mM). {#tbl:unit_III_metabolic_integration_part_3_allosteric_regulation_modeling}
 | Time (min) | Subject A BG (mM) | Subject B BG (mM) | Subject C BG (mM) |
 | ---------- | ----------------- | ----------------- | ----------------- |
 | 0 | 4.5 | 5.7 | 7.0 |
@@ -139,6 +140,7 @@ PFK-1 at 0 µM fructose-2,6-BP: _____; K₀.₅: _____; at 10 µM: _____
 Before answering the analysis questions, annotate the paper dataset for
 **Metabolic Integration and Regulation** with a reproducibility pass:
 
+: Part 3: Allosteric Regulation Modeling: Evidence check and Student action. {#tbl:unit_III_metabolic_integration_part_3_allosteric_regulation_modeling_2}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -174,7 +176,7 @@ Step 4 — Time supported at rest by fat stores:
 
 Step 5 — Ratio: fat reserves contain roughly 135,000 / 400 ≈ 340 times more energy than liver glycogen.
 
-**Interpretation:** Liver glycogen would support a small fraction of one day at rest. This is why a 24-hour fast forces the liver to switch substantially toward gluconeogenesis (using lactate, glycerol, glucogenic amino acids) and why adipose lipolysis and ketogenesis become quantitatively important within roughly a day of food deprivation. Tissue-specific glucose dependence (notably the brain, which uses about 20% of BMR and prefers glucose) is what compels the body to defend blood glucose by mobilising every substrate that can feed gluconeogenesis or ketogenesis once glycogen is depleted.
+**Interpretation:** Liver glycogen would support a small fraction of one day at rest. This is why a 24-hour fast forces the liver to switch substantially toward gluconeogenesis (using lactate, glycerol, glucogenic amino acids) and why adipose lipolysis and ketogenesis become quantitatively important within roughly a day of food deprivation. Tissue-specific glucose dependence (notably the brain, which uses about 20% of BMR and prefers glucose) is what compels the body to defend blood glucose by mobilizing every substrate that can feed gluconeogenesis or ketogenesis once glycogen is depleted.
 
 
 ### Source-Governance Checkpoint {.unnumbered}
@@ -255,7 +257,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_III_metabolic_integration} that your data either confirmed or complicated. Cite the specific passage.
 

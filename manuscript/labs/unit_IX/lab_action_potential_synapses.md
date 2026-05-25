@@ -1,12 +1,11 @@
-# Lab — Action Potentials and Synaptic Transmission {.unnumbered}
+# Lab — Action Potentials and Synaptic Transmission {#sec:lab_unit_IX_action_potential_synapses .unnumbered}
 
-\label{sec:lab_unit_IX_action_potential_synapses}
 
 ## Learning Objectives {.unnumbered}
 
 *This activity accompanies \cref{sec:unit_IX_action_potential_synapses} of the textbook — review that chapter before attempting the exercises below.*
 
-- Analyse a compound action potential (CAP) recording from a nerve preparation to distinguish A, B, and C fibre types
+- Analyze a compound action potential (CAP) recording from a nerve preparation to distinguish A, B, and C fiber types
 - Simulate quantal neurotransmitter release and calculate mean quantal content
 - Model the effect of GABA-A receptor modulation by benzodiazepines vs barbiturates
 - Evaluate synaptic plasticity mechanisms using an LTP induction protocol dataset
@@ -38,10 +37,11 @@ The quantal-analysis worked example in the parent chapter (\cref{sec:unit_IX_act
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IX_action_potential_synapses_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Action Potentials and Synaptic Transmission: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
-| Compound action potential trace (printed: 3 peaks corresponding to Aα, Aδ, C fibres with time and conduction velocity axes) | 1 |
+| Compound action potential trace (printed: 3 peaks corresponding to Aα, Aδ, C fibers with time and conduction velocity axes) | 1 |
 | Quantal release dataset (printed: 100 stimulus trials, number of quanta released each trial, count of failures) | 1 |
 | GABA-A receptor pharmacology worksheet | 1 |
 | LTP induction dataset (EPSP slope before/after high-frequency stimulation; two conditions: control and AP5-treated) | 1 |
@@ -52,7 +52,7 @@ The quantal-analysis worked example in the parent chapter (\cref{sec:unit_IX_act
 
 **Part A — Compound Action Potential Analysis**
 
-1. From the CAP trace, identify the three peaks (Aα, Aδ, C fibre). Measure the latency of each peak from the stimulus artefact.
+1. From the CAP trace, identify the three peaks (Aα, Aδ, C fiber). Measure the latency of each peak from the stimulus artifact.
 2. Given the distance from electrode to nerve (30 mm), calculate conduction velocity for each peak (velocity = distance/time).
 3. Compare your calculated values to known conduction velocities (Aα: 70–120 m/s; Aδ: 5–30 m/s; C: 0.5–2 m/s).
 
@@ -74,7 +74,8 @@ The quantal-analysis worked example in the parent chapter (\cref{sec:unit_IX_act
 
 ## Data Recording {.unnumbered}
 
-| Fibre type | Latency (ms) | Conduction velocity (m/s) | Expected range |
+: Alignment and Rubric Map: Fiber type and Latency (ms). {#tbl:unit_IX_action_potential_synapses_alignment_and_rubric_map_2}
+| Fiber type | Latency (ms) | Conduction velocity (m/s) | Expected range |
 | ---------- | ------------ | -------------------------- | -------------- |
 | Peak 1 (Aα) | | | 70–120 m/s |
 | Peak 2 (Aδ) | | | 5–30 m/s |
@@ -106,6 +107,7 @@ Reproducibility check: baseline window = ___; post-HFS window = ___; outlier rul
 Before answering the analysis questions, annotate the paper dataset for
 **Action Potentials and Synaptic Transmission** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_IX_action_potential_synapses_alignment_and_rubric_map_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -114,7 +116,7 @@ Before answering the analysis questions, annotate the paper dataset for
 | Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
 | Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
 
-Focus note: in this lab, treat each excitability or transmission claim as a timing argument: ask which trace, latency, or quantal statistic supports it, and whether the conduction-velocity or release estimate would survive a change in fibre type, temperature, or release-probability heterogeneity. Keep required work paper-based; any material-handling or
+Focus note: in this lab, treat each excitability or transmission claim as a timing argument: ask which trace, latency, or quantal statistic supports it, and whether the conduction-velocity or release estimate would survive a change in fiber type, temperature, or release-probability heterogeneity. Keep required work paper-based; any material-handling or
 equipment version belongs only in an optional extension.
 
 ### Worked Example: Nernst Potential for Na+ at 37 C {.unnumbered}
@@ -131,7 +133,7 @@ Complete the source-governance card for Action Potentials and Synaptic Transmiss
 
 ## Analysis Questions {.unnumbered}
 
-1. C fibres (unmyelinated) have much slower conduction velocities than Aα fibres (myelinated). Using your cable property knowledge from Lab 29, explain the molecular basis for this difference.
+1. C fibers (unmyelinated) have much slower conduction velocities than Aα fibers (myelinated). Using your cable property knowledge from Lab 29, explain the molecular basis for this difference.
 2. The two methods for calculating m̄ gave similar but not identical answers. Which method is more reliable when there is heterogeneity in release probabilities across synapses? Explain the statistical assumption violated by each method.
 3. A patient given a benzodiazepine (e.g., diazepam) overdose can be treated with flumazenil (a competitive benzodiazepine antagonist). Explain why flumazenil doesn't cause seizures on its own even though it fully blocks GABA-A modulation, while complete GABA-A inhibition by bicuculline does cause seizures.
 4. AP5 (an NMDA receptor antagonist) blocked LTP induction. Explain the molecular events from NMDA receptor opening to CaMKII autophosphorylation to AMPA receptor insertion (at least 5 steps).
@@ -140,7 +142,7 @@ Complete the source-governance card for Action Potentials and Synaptic Transmiss
 
 ## Post-Lab Synthesis {.unnumbered}
 
-> **Concept Check (Synthesis):** Evaluate how a toxin that prevents voltage-gated K⁺ channels from opening during the repolarization phase would reshape neuronal signalling.
+> **Concept Check (Synthesis):** Evaluate how a toxin that prevents voltage-gated K⁺ channels from opening during the repolarization phase would reshape neuronal signaling.
 >
 > (a) Predict how the action potential waveform itself would change — describe expected effects on peak amplitude, repolarization rate, and absolute refractory period, and tie each prediction to the underlying conductance change.
 > (b) Trace the downstream consequence at a chemical synapse: how would prolonged depolarization at the presynaptic terminal affect voltage-gated Ca²⁺ channel inactivation, vesicle release probability, and the magnitude of the postsynaptic response? Identify one prediction that could be empirically tested with the lab's quantal-analysis approach.
@@ -162,7 +164,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -181,5 +183,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_IX_action_potential_synapses}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

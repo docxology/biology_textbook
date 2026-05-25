@@ -39,8 +39,8 @@
 - **Data skill:** Estimate genotype or allele frequencies from population data.
 - **Practice cadence:** Statistical Tests and Data Analysis, Representing and Describing Data.
 - **Common misconception to repair:** Hardy-Weinberg is a null model, not a claim that populations do not evolve.
-- **Primary lab:** \cref{sec:lab_unit_V_population_genetics}.
-- **Question bank:** \cref{sec:q_unit_V_population_genetics}.
+- **Primary lab:** \nameref{sec:lab_unit_V_population_genetics}.
+- **Question bank:** \nameref{sec:q_unit_V_population_genetics}.
 - **Transfer task:** Apply population-genetic reasoning to screening, conservation, and pathogen evolution.
 - **Bridge to computation:** `biology.genetics.genetics.hardy_weinberg`.
 <!-- curriculum-scaffold-end -->
@@ -59,7 +59,7 @@ The chapter is long because it bridges three levels of time and scale — read i
 - **Four forces that perturb it.** Selection, drift, gene flow, and mutation. Each is a named violation of an HWE assumption.
 - **Consequences at the [**genome**](#gl:genome) scale.** Neutral theory and molecular evolution, F-statistics and population structure, coalescent theory and molecular clocks.
 
-If you are reading for the core Mendelian-genetics course, prioritise the Hardy-Weinberg model and the four evolutionary forces. The genome-scale extensions connect population genetics to molecular evolution (\nameref{sec:unit_VI_unit_intro}) and are helpful but optional.
+If you are reading for the core Mendelian-genetics course, prioritize the Hardy-Weinberg model and the four evolutionary forces. The genome-scale extensions connect population genetics to molecular evolution (\nameref{sec:unit_VI_unit_intro}) and are helpful but optional.
 
 \begin{figure}[htbp]
 \centering
@@ -127,9 +127,9 @@ Check: $p + q = 0.60 + 0.40 = 1.00$ (correct).
 
 ## Hardy-Weinberg Equilibrium
 
-> **Mathematical Background:** Hardy-Weinberg calculations use basic probability and algebra. For a review of probability rules and their biological applications, see \cref{sec:appendix_math_review}.
+> **Mathematical Background:** Hardy-Weinberg calculations use basic probability and algebra. For a review of probability rules and their biological applications, see \nameref{sec:appendix_math_review}.
 
-The **Hardy-Weinberg principle** (G.H. Hardy and Wilhelm Weinberg, 1908) states: in a large, randomly mating population with no evolutionary forces acting, allele frequencies and genotype frequencies remain constant from generation to generation.
+The **Hardy-Weinberg principle** (G.H. Hardy and Wilhelm Weinberg, 1908) states: in a large, randomly mating population with no evolutionary forces acting, allele frequencies and genotype frequencies remain constant from generation to generation \citep{weinberg1908}.
 
 ### Deriving Hardy-Weinberg Genotype Frequencies
 
@@ -203,6 +203,7 @@ selection, no drift, no migration, no mutation — is violated.
 
 MN blood group data for codominant alleles M and N in a population of 1,000:
 
+: MN Blood Group Equilibrium: Genotype and Observed. {#tbl:unit_V_population_genetics_worked_example_mn_blood_group_equilibrium}
 | Genotype | Observed | Allele Frequency |
 |----------|----------|-----------------|
 | MM | 298 | |
@@ -308,6 +309,8 @@ Genotype frequencies under HWE:
 
 ## Natural Selection and Allele-Frequency Change
 
+Directional, stabilizing, and disruptive selection shift genotype frequencies over generations; \cref{fig:unit_VI_selection_simulation} plots representative allele-frequency trajectories under different fitness regimes (\nameref{sec:unit_VI_evolution_and_selection}).
+
 ### Fitness and Selection
 
 **Absolute [**fitness (w)**](#gl:fitness)**: Expected number of offspring produced by an individual with a given genotype.
@@ -318,6 +321,7 @@ Genotype frequencies under HWE:
 
 **Dominance coefficient (h)**: Describes the fitness of the heterozygote relative to the two homozygotes:
 
+: Fitness and Selection: Genotype and Fitness. {#tbl:unit_V_population_genetics_fitness_and_selection}
 | Genotype | Fitness |
 |----------|---------|
 | AA | $w_{AA} = 1$ |
@@ -501,6 +505,7 @@ stateDiagram-v2
 
 $N_e$ is usually **much smaller** than census size $N$ because:
 
+: Effective Population Size (N_e): Factor and Effect on N_e. {#tbl:unit_V_population_genetics_effective_population_size_n_e}
 | Factor | Effect on $N_e$ | Formula |
 |--------|-----------------|---------|
 | Unequal sex ratio | Reduces $N_e$ | $N_e = \frac{4N_mN_f}{N_m + N_f}$ |
@@ -618,6 +623,7 @@ F_{ST} = \frac{H_T - H_S}{H_T}
 
 where $H_T$ = expected heterozygosity in the total population and $H_S$ = average expected heterozygosity within subpopulations.
 
+: Measuring Population Differentiation: F_{ST}: F_{ST} Value and Interpretation. {#tbl:unit_V_population_genetics_measuring_population_differentiation_f_st}
 | $F_{ST}$ Value | Interpretation |
 |---------------|---------------|
 | 0 | No differentiation (panmixia) |
@@ -636,6 +642,7 @@ where $H_T$ = expected heterozygosity in the total population and $H_S$ = averag
 
 Continental-scale $F_{ST}$ values from the 1000 Genomes and HGDP projects illustrate the typical magnitudes:
 
+: Pairwise F_{ST} between human populations: Population pair and Approximate F_{ST}. {#tbl:unit_V_population_genetics_pairwise_f_st_between_human_populations}
 | Population pair | Approximate $F_{ST}$ |
 |----------------|---------------------|
 | West African vs. East Asian | 0.10–0.15 |
@@ -731,6 +738,7 @@ Tomoko \citet{ohta1973} extended neutral theory: mutations with selection coeffi
 
 The ratio of nonsynonymous (amino acid-changing, Ka or dN) to synonymous (silent, Ks or dS) substitution rates:
 
+: Ka/Ks (dN/dS) Ratio: Ka/Ks and Interpretation. {#tbl:unit_V_population_genetics_ka_ks_dn_ds_ratio}
 | Ka/Ks | Interpretation | Example |
 |-------|---------------|---------|
 | << 1 | **Purifying (negative) selection** | Most genes; [**histone**](#gl:histone)s (Ka/Ks ~ 0.005) |
@@ -814,6 +822,7 @@ t = \frac{0.01004}{2 \times 2 \times 10^{-9}} = \frac{0.01004}{4 \times 10^{-9}}
 
 **Calibrated molecular clocks using fossil data:**
 
+: Molecular Clocks in Population Genetics: Comparison and Estimated Divergence. {#tbl:unit_V_population_genetics_molecular_clocks_in_population_genetics}
 | Comparison | Estimated Divergence |
 |-----------|---------------------|
 | Human-Chimpanzee | 6-7 Ma |
@@ -839,6 +848,7 @@ t = \frac{0.01004}{2 \times 2 \times 10^{-9}} = \frac{0.01004}{4 \times 10^{-9}}
 
 **Problem**: In a population of 10,000 grasshoppers, you observe the following genotype counts at a color locus with codominant alleles:
 
+: Molecular Clocks in Population Genetics: Genotype and Count. {#tbl:unit_V_population_genetics_molecular_clocks_in_population_genetics_2}
 | Genotype | Count |
 |----------|-------|
 | RR (red) | 4,200 |
@@ -1004,6 +1014,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Population Genetics and Hardy-Weinberg Equilibrium. {#tbl:unit_V_population_genetics_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/genetics/genetics.py` (`hardy_weinberg`, `chi_squared_test`, `jukes_cantor_distance`) | Test equilibrium, goodness of fit, and molecular-distance assumptions. |

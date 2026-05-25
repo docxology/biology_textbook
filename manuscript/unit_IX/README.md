@@ -3,7 +3,7 @@
 | File | Title |
 | ---- | ----- |
 | `circulation_respiration_homeostasis.md` | Circulation, Respiration, and Homeostasis |
-| `nervous_system.md` | Nervous System and Neural Signalling |
+| `nervous_system.md` | Nervous System and Neural Signaling |
 | `action_potential_synapses.md` | Action Potentials and Synaptic Transmission |
 | `endocrine_and_immune.md` | Endocrine and Immune Systems |
 

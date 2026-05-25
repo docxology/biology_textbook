@@ -313,7 +313,7 @@ def punnett_square(parent1: str, parent2: str) -> PunnettSquareResult:
     for geno, w in zip(offspring, weights):
         counts[geno] = counts.get(geno, 0.0) + w
 
-    # Normalise
+    # Normalize
     total = sum(counts.values())
     genotype_ratios = {k: v / total for k, v in counts.items()}
 
@@ -523,7 +523,7 @@ def infer_three_point_order(distances_cM: dict[tuple[str, str], float]) -> Linka
     if len(distances_cM) != 3:
         raise ValueError("Exactly three pairwise distances are required.")
 
-    normalised: dict[frozenset[str], float] = {}
+    normalized: dict[frozenset[str], float] = {}
     genes: set[str] = set()
     for pair, distance in distances_cM.items():
         if len(pair) != 2 or pair[0] == pair[1]:
@@ -531,15 +531,15 @@ def infer_three_point_order(distances_cM: dict[tuple[str, str], float]) -> Linka
         if distance < 0:
             raise ValueError("Distances must be non-negative.")
         pair_key = frozenset(pair)
-        if pair_key in normalised:
+        if pair_key in normalized:
             raise ValueError(f"Duplicate unordered gene pair: {pair!r}")
-        normalised[pair_key] = float(distance)
+        normalized[pair_key] = float(distance)
         genes.update(pair)
 
     if len(genes) != 3:
         raise ValueError("Distances must describe exactly three distinct genes.")
 
-    max_pair, span = max(normalised.items(), key=lambda item: item[1])
+    max_pair, span = max(normalized.items(), key=lambda item: item[1])
     outside = tuple(sorted(max_pair))
     middle_candidates = genes - set(outside)
     if len(middle_candidates) != 1:
@@ -547,8 +547,8 @@ def infer_three_point_order(distances_cM: dict[tuple[str, str], float]) -> Linka
     middle = next(iter(middle_candidates))
     left, right = outside
 
-    left_distance = normalised[frozenset((left, middle))]
-    right_distance = normalised[frozenset((middle, right))]
+    left_distance = normalized[frozenset((left, middle))]
+    right_distance = normalized[frozenset((middle, right))]
     return LinkageMapResult(
         order=(left, middle, right),
         adjacent_distances_cM=(left_distance, right_distance),

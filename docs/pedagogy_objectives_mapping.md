@@ -52,14 +52,14 @@ The 2001 revision of Bloom's Taxonomy (Anderson, Krathwohl, et al.) names six co
 | Level | Name | Cognitive demand | Biology example |
 | ----- | ---- | ---------------- | --------------- |
 | 1 | **Remember** | Recall facts and concepts | "List the four nucleotide bases in DNA." |
-| 2 | **Understand** | Explain ideas; summarise; classify | "Explain why the genetic code is degenerate." |
+| 2 | **Understand** | Explain ideas; summarize; classify | "Explain why the genetic code is degenerate." |
 | 3 | **Apply** | Use a procedure or model in a new situation | "Calculate $K_m$ given $V_{\max}$ and $v_0$ at three substrate concentrations." |
-| 4 | **Analyse** | Differentiate parts; identify relationships | "Compare the energy yields of aerobic and anaerobic respiration; identify the bottleneck." |
+| 4 | **Analyze** | Differentiate parts; identify relationships | "Compare the energy yields of aerobic and anaerobic respiration; identify the bottleneck." |
 | 5 | **Evaluate** | Justify a decision; critique; check | "Given two competing models for prion propagation, which is more consistent with these published data?" |
 | 6 | **Create** | Generate new patterns; design; produce | "Design an experiment to distinguish chromatin-mediated from sequence-mediated silencing." |
 
 > [!TIP]
-> Most biology textbook content sits at levels **2–4** (understand / apply / analyse). Levels 1 and 5–6 should appear, but in proportion. A chapter built entirely from level-1 recall is too shallow; one built entirely from level-6 design questions is impossible to assess in a 90-minute exam.
+> Most biology textbook content sits at levels **2–4** (understand / apply / analyze). Levels 1 and 5–6 should appear, but in proportion. A chapter built entirely from level-1 recall is too shallow; one built entirely from level-6 design questions is impossible to assess in a 90-minute exam.
 
 ---
 
@@ -71,11 +71,11 @@ The 2001 revision of Bloom's Taxonomy (Anderson, Krathwohl, et al.) names six co
 | Level | Action verbs (use these) | Banned verbs (replace) |
 | ----- | ------------------------ | ---------------------- |
 | **Remember** | List, Name, Identify, Define, Recall, Recite, State, Label, Match | "Know", "Memorise" (vague) |
-| **Understand** | Describe, Explain, Summarise, Classify, Compare, Contrast, Paraphrase, Interpret, Outline | "Understand", "Be aware of" |
+| **Understand** | Describe, Explain, Summarize, Classify, Compare, Contrast, Paraphrase, Interpret, Outline | "Understand", "Be aware of" |
 | **Apply** | Calculate, Compute, Predict, Solve, Implement, Use, Apply, Demonstrate, Estimate | "Try to", "Attempt" |
-| **Analyse** | Differentiate, Distinguish, Examine, Decompose, Diagram, Trace, Deconstruct, Categorise | "Look at", "Consider" |
-| **Evaluate** | Justify, Critique, Argue, Defend, Judge, Assess, Validate, Prioritise, Recommend | "Think about", "Discuss" (vague) |
-| **Create** | Design, Construct, Develop, Formulate, Propose, Hypothesise, Synthesise, Generate, Devise | "Make up", "Come up with" |
+| **Analyze** | Differentiate, Distinguish, Examine, Decompose, Diagram, Trace, Deconstruct, Categorize | "Look at", "Consider" |
+| **Evaluate** | Justify, Critique, Argue, Defend, Judge, Assess, Validate, Prioritize, Recommend | "Think about", "Discuss" (vague) |
+| **Create** | Design, Construct, Develop, Formulate, Propose, Hypothesize, Synthesize, Generate, Devise | "Make up", "Come up with" |
 
 ### Section-type → recommended Bloom level mapping
 
@@ -83,11 +83,11 @@ The 2001 revision of Bloom's Taxonomy (Anderson, Krathwohl, et al.) names six co
 | ------------ | ------------------- | --- |
 | Opening Vignette | n/a (narrative) | Sets context; not assessed directly |
 | First section after vignette (introductory) | Remember + Understand | Reader needs vocabulary before applying it |
-| Middle sections (the chapter's core) | Apply + Analyse | Where the textbook earns its keep |
+| Middle sections (the chapter's core) | Apply + Analyze | Where the textbook earns its keep |
 | Worked examples | Apply (with full solution shown) | Models the reasoning explicitly |
-| Concept Checks | Apply or Analyse (mostly) | Spot-check, not recall |
+| Concept Checks | Apply or Analyze (mostly) | Spot-check, not recall |
 | Clinical Connection | Apply | Connects mechanism to a real case |
-| End-of-chapter Review Questions | Mixed (Remember → Analyse), 8–10 items | Ensures coverage at multiple levels |
+| End-of-chapter Review Questions | Mixed (Remember → Analyze), 8–10 items | Ensures coverage at multiple levels |
 | Capstone / Unit X chapters | Add Evaluate + Create | Synthesis across the whole unit |
 | Question-bank items (30 per chapter) | See [Recommended mix](#recommended-mix-for-question-banks-30-items-per-chapter) | Spans the full taxonomy |
 
@@ -112,12 +112,12 @@ For a typical chapter with 7–9 Learning Objectives, distribute across cognitiv
 | Remember | 10–15% | 1 |
 | Understand | 25–35% | 2–3 |
 | Apply | 25–35% | 2–3 |
-| Analyse | 15–25% | 1–2 |
+| Analyze | 15–25% | 1–2 |
 | Evaluate | 5–10% | 0–1 |
 | Create | 0–5% | 0–1 |
 
 > [!TIP]
-> **Quantitative chapters** (biochemistry, genetics, ecology models) should skew toward Apply/Analyse. **Survey chapters** (organelle inventory, biome distribution) may skew toward Understand. **Capstone chapters** (Unit X, integrative neuroscience) should include at least one Evaluate or Create objective.
+> **Quantitative chapters** (biochemistry, genetics, ecology models) should skew toward Apply/Analyze. **Survey chapters** (organelle inventory, biome distribution) may skew toward Understand. **Capstone chapters** (Unit X, integrative neuroscience) should include at least one Evaluate or Create objective.
 
 ---
 
@@ -127,11 +127,11 @@ Each chapter has multiple "question surfaces":
 
 | Surface | Where it appears | Typical Bloom level | Authoring goal |
 | ------- | ---------------- | ------------------- | -------------- |
-| **Concept Check** | After each major `##` section in the chapter body | Apply or Analyse | Diagnostic; spot-check that the section's idea was internalised |
+| **Concept Check** | After each major `##` section in the chapter body | Apply or Analyze | Diagnostic; spot-check that the section's idea was internalised |
 | **Worked Example** | Numbered, in-line with the chapter content | Apply (with full solution shown) | Model the reasoning; calibrate the difficulty |
-| **Review Questions** (end-of-chapter) | `## Review Questions` block | Mixed (Remember → Analyse) | 8–10 items spanning the LOs |
-| **Question bank** | `manuscript/questions/unit_X/questions_<chapter_stem>.md` | Mixed (mostly Apply / Analyse / Evaluate) | 30 items per chapter; instructors draw from these for exams |
-| **Lab worksheet** | `manuscript/labs/unit_X/lab_<chapter_stem>.md` | Apply / Analyse / Create (procedural) | Hands-on or pen-and-paper procedure |
+| **Review Questions** (end-of-chapter) | `## Review Questions` block | Mixed (Remember → Analyze) | 8–10 items spanning the LOs |
+| **Question bank** | `manuscript/questions/unit_X/questions_<chapter_stem>.md` | Mixed (mostly Apply / Analyze / Evaluate) | 30 items per chapter; instructors draw from these for exams |
+| **Lab worksheet** | `manuscript/labs/unit_X/lab_<chapter_stem>.md` | Apply / Analyze / Create (procedural) | Hands-on or pen-and-paper procedure |
 
 ### Recommended mix for question banks (30 items per chapter)
 
@@ -140,7 +140,7 @@ Each chapter has multiple "question surfaces":
 | Remember | 4–6 | Multiple-choice; matching; fill-in |
 | Understand | 6–8 | Short-answer; "explain in 2–3 sentences" |
 | Apply | 8–10 | Numerical calculation; case-based application; predict-and-justify |
-| Analyse | 4–6 | Compare-contrast; data-interpretation; figure analysis |
+| Analyze | 4–6 | Compare-contrast; data-interpretation; figure analysis |
 | Evaluate | 1–3 | Critique a claim; choose between competing models with rationale |
 | Create | 0–2 | Design an experiment; write a hypothesis with predictions |
 
@@ -181,7 +181,7 @@ and by what fold?
 <!-- bloom: apply -->
 ```
 
-### Level 4 — Analyse
+### Level 4 — Analyze
 
 ```markdown
 **Q18.** A patient's resting membrane potential is $-50$ mV instead of
@@ -190,7 +190,7 @@ ionic-permeability changes that could each independently produce this
 shift, and explain how you would distinguish them experimentally.
 
 <!-- LO:5,6 -->
-<!-- bloom: analyse -->
+<!-- bloom: analyze -->
 ```
 
 ### Level 5 — Evaluate
@@ -231,7 +231,7 @@ In each chapter, objectives are numbered `1.`, `2.`, … under `## Learning Obje
 | `<!-- LO:2 -->` | This question maps to Learning Objective 2 of the chapter |
 | `<!-- LO:1,3 -->` | Maps to multiple objectives |
 | `<!-- maps-to: ch objective 2 -->` | Verbose form (equivalent) |
-| `<!-- bloom: apply -->` | Cognitive level (one of `remember`, `understand`, `apply`, `analyse`, `evaluate`, `create`) |
+| `<!-- bloom: apply -->` | Cognitive level (one of `remember`, `understand`, `apply`, `analyze`, `evaluate`, `create`) |
 | `<!-- difficulty: medium -->` | Optional: `easy` \| `medium` \| `hard` |
 | `<!-- estimated-time: 5 min -->` | Optional: time for a typical student |
 

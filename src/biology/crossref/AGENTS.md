@@ -10,6 +10,7 @@ Package split from the former monolithic `crossref_validator.py`. Public API is 
 | `patterns.py` | Regex catalogs for labels, refs, figures, equations, tables |
 | `helpers.py` | Shared parsing helpers and fence-state utilities |
 | `scan_file.py` | Per-file scan orchestration (replaces 300+ line monolith) |
+| `table_captions.py` | Caption insertion for chapter/lab pipe tables (`scripts/annotate_table_captions.py`) |
 | `validator.py` | `scan_directory`, `validate`, `suggest_id`, report assembly |
 | `__init__.py` | Re-exports public surface |
 

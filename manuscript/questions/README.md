@@ -8,7 +8,7 @@ This directory contains **44 comprehensive question banks** — one per textbook
 questions_{chapter_filename}.md
 ```
 
-Organised under unit subdirectories:
+Organized under unit subdirectories:
 
 ```
 questions/
@@ -23,7 +23,7 @@ questions/
 | Questions | Tier | Bloom's Level |
 | --------- | ---- | ------------- |
 | 1–10 | **Recall and Comprehension** | Remember, Understand |
-| 11–20 | **Application and Analysis** | Apply, Analyse |
+| 11–20 | **Application and Analysis** | Apply, Analyze |
 | 21–30 | **Synthesis and Evaluation** | Evaluate, Create |
 
 ## Structural Conventions

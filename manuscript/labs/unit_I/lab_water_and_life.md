@@ -1,6 +1,5 @@
-# Lab — Water — The Molecule of Life {.unnumbered}
+# Lab — Water — The Molecule of Life {#sec:lab_unit_I_water_and_life .unnumbered}
 
-\label{sec:lab_unit_I_water_and_life}
 
 ## Learning Objectives {.unnumbered}
 
@@ -35,10 +34,11 @@
 
 Water's extraordinary properties arise from its bent molecular geometry (104.5° H–O–H bond angle) and the resulting network of hydrogen bonds. Each water molecule can form up to four hydrogen bonds — two through lone pairs (O as H-bond acceptor) and two through O–H groups (H-bond donor). This network gives water its high specific heat (4.18 J/g·°C), high surface tension (72 mN/m), strong cohesion/adhesion, and the ability to dissolve ionic and polar solutes. Most of these properties are exploited by living organisms.
 
-In this lab you will analyse heat-absorption data for water and oil, interpret capillary-rise diagrams, and track osmotic movement in a model membrane dataset. The required work is paper-based so the scientific reasoning is centred on controls, units, gradients, and reproducible interpretation.
+In this lab you will analyze heat-absorption data for water and oil, interpret capillary-rise diagrams, and track osmotic movement in a model membrane dataset. The required work is paper-based so the scientific reasoning is centered on controls, units, gradients, and reproducible interpretation.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_I_water_and_life_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Water — The Molecule of Life: molecular-structure source card: experimental method, prediction confidence, assay validation, and release date | 1 |
@@ -70,6 +70,7 @@ In this lab you will analyse heat-absorption data for water and oil, interpret c
 
 ## Data Recording {.unnumbered}
 
+: Alignment and Rubric Map: Time (min) and Water Temp (°C). {#tbl:unit_I_water_and_life_alignment_and_rubric_map_2}
 | Time (min) | Water Temp (°C) | Oil Temp (°C) |
 | ---------- | --------------- | ------------- |
 | 0 | | |
@@ -81,6 +82,7 @@ In this lab you will analyse heat-absorption data for water and oil, interpret c
 
 Capillary rise — water: ______ mm; oil: ______ mm
 
+: Alignment and Rubric Map: Time (min) and Dialysis tubing mass (g). {#tbl:unit_I_water_and_life_alignment_and_rubric_map_3}
 | Time (min) | Dialysis tubing mass (g) | ΔMass (g) |
 | ---------- | ----------------------- | --------- |
 | 0 | | — |
@@ -91,7 +93,7 @@ Capillary rise — water: ______ mm; oil: ______ mm
 <!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
 
-- **Primary evidence goal:** Measure surface tension, polarity, and buffering behaviour.
+- **Primary evidence goal:** Measure surface tension, polarity, and buffering behavior.
 - **Data skill to practice:** Convert between pH, hydrogen ion concentration, and buffer ratios.
 - **BioSkills emphasis:** Quantitative reasoning, Interdisciplinary nature of science.
 - **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
@@ -105,6 +107,7 @@ Capillary rise — water: ______ mm; oil: ______ mm
 Before answering the analysis questions, annotate the paper dataset for
 **Water — The Molecule of Life** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_I_water_and_life_alignment_and_rubric_map_4}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -118,7 +121,7 @@ equipment version belongs only in an optional extension.
 
 ### Worked Example: Temperature rise of a desert organism using q = m c ΔT {.unnumbered}
 
-**Problem:** A small desert lizard has body mass 2.0 kg and an effective composition of 70% water by mass. During a midday basking interval it absorbs a net 840 J of heat that is distributed through the water-rich tissue. Treating the effective heat capacity as that of water (c = 4.18 J·g⁻¹·°C⁻¹), compute the temperature rise of the water fraction. Then repeat the computation for a hypothetical organism of the same mass at 40% water (with the non-water fraction modelled at c = 1.5 J·g⁻¹·°C⁻¹) and contrast the two.
+**Problem:** A small desert lizard has body mass 2.0 kg and an effective composition of 70% water by mass. During a midday basking interval it absorbs a net 840 J of heat that is distributed through the water-rich tissue. Treating the effective heat capacity as that of water (c = 4.18 J·g⁻¹·°C⁻¹), compute the temperature rise of the water fraction. Then repeat the computation for a hypothetical organism of the same mass at 40% water (with the non-water fraction modeled at c = 1.5 J·g⁻¹·°C⁻¹) and contrast the two.
 
 **Solution:** Apply ΔT = q / (m c).
 
@@ -128,7 +131,7 @@ equipment version belongs only in an optional extension.
 - Heat capacity of the body ≈ (800 × 4.18) + (1200 × 1.5) = 3344 + 1800 = 5144 J·°C⁻¹.
 - ΔT ≈ 840 / 5144 ≈ 0.163 °C — a noticeably larger rise for the drier organism.
 
-**Interpretation:** The lizard's high water fraction buffers temperature changes: the same 840 J that warms the water-rich body by about 0.14 °C warms a drier body of the same mass by closer to 0.16 °C. Over an hour-long basking bout, with heat loads in the kilojoule range, that difference compounds and helps explain why high-water tissues stabilise core temperature against fluctuating environmental loads. Real organisms also dissipate heat by evaporation and conduction, so the calculation is an upper bound on the temperature rise rather than a complete thermal model.
+**Interpretation:** The lizard's high water fraction buffers temperature changes: the same 840 J that warms the water-rich body by about 0.14 °C warms a drier body of the same mass by closer to 0.16 °C. Over an hour-long basking bout, with heat loads in the kilojoule range, that difference compounds and helps explain why high-water tissues stabilize core temperature against fluctuating environmental loads. Real organisms also dissipate heat by evaporation and conduction, so the calculation is an upper bound on the temperature rise rather than a complete thermal model.
 
 
 ### Source-Governance Checkpoint {.unnumbered}
@@ -149,7 +152,7 @@ Complete the source-governance card for Water — The Molecule of Life before wr
 >
 > (a) Predict, using the q = m c ΔT framework from the worked example, how the two lizards' core-temperature trajectories would differ over a one-hour basking interval if other heat-exchange routes (conduction, evaporation) are held constant. Compute the expected temperature rise for a representative heat load of 4.2 kJ deposited in each animal (use 2 kg body mass for both), and interpret the biological consequence for homeostasis.
 > (b) Evaluate the trade-off between water content and thermal buffering. Identify one biological cost of a high-water tissue strategy (for example, dehydration risk during prolonged heat exposure) and one cost of the low-water strategy. Explain why each animal's strategy can still be adaptive in its own habitat without claiming one strategy dominates the other.
-> (c) Design a paper-data extension to this lab that would let students compare the predicted ΔT of a 70%-water and a 55%-water organism across a graded series of heat loads (for example, 0.5, 1, 2, and 4 kJ). Specify the controls, the threshold at which a difference becomes biologically meaningful (for instance, ΔT large enough to trigger a documented thermoregulatory behaviour), and the conclusion you would draw from a graph that crosses or fails to cross that threshold.
+> (c) Design a paper-data extension to this lab that would let students compare the predicted ΔT of a 70%-water and a 55%-water organism across a graded series of heat loads (for example, 0.5, 1, 2, and 4 kJ). Specify the controls, the threshold at which a difference becomes biologically meaningful (for instance, ΔT large enough to trigger a documented thermoregulatory behavior), and the conclusion you would draw from a graph that crosses or fails to cross that threshold.
 
 ## Optional Hands-On Extension {.unnumbered}
 
@@ -172,7 +175,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -191,5 +194,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_I_water_and_life}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

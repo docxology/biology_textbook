@@ -10,6 +10,7 @@ from pathlib import Path
 from types import ModuleType
 from typing import Any
 
+from biology.crossref.helpers import normalize_unnumbered_section_crefs
 from biology.curriculum_sync.appendices import (
     build_appendix,
     build_front_matter_navigation,
@@ -62,6 +63,7 @@ __all__ = [
     "sync_lab",
     "sync_preface_scope_table",
     "sync_question",
+    "sync_section_reference_commands",
     "sync_suggested_reading_paths",
     "sync_textbook_concept_map",
     "sync_toc_titles",
@@ -80,6 +82,10 @@ class SyncReport:
     titles_updated: int = 0
     heading_titles_updated: int = 0
     front_matter_updated: bool = False
+    section_refs_updated: int = 0
+
+
+_SECTION_REF_SKIP = frozenset({"preamble.md", "AGENTS.md", "README.md"})
 
 
 def _load_module(name: str, path: Path) -> ModuleType:
@@ -145,7 +151,7 @@ def sync_preface_scope_table(book_toc: Any, *, dry_run: bool) -> bool:
         replaced, _changed = _replace_block(text, PREFACE_SCOPE_MARKER, block)
         return _write_if_changed(path, replaced, dry_run=dry_run)
 
-    heading = "## Scope and Organisation {.unnumbered}"
+    heading = "## Scope and Organization {.unnumbered}"
     next_divider = "\n---"
     heading_pos = text.find(heading)
     divider_pos = text.find(next_divider, heading_pos + len(heading))
@@ -196,11 +202,21 @@ def sync_toc_titles(book_toc: Any, *, dry_run: bool) -> int:
     for lab in book_toc.labs:
         if sync_h1(lab.path, lab.title, dry_run=dry_run):
             updates += 1
+        lab_label = f"sec:lab_{lab.unit_id}_{Path(lab.file).stem.removeprefix('lab_')}"
+        if sync_section_label(lab.path, lab_label, dry_run=dry_run):
+            updates += 1
     for question in book_toc.questions:
         if sync_h1(question.path, question.title, dry_run=dry_run):
             updates += 1
+        question_label = (
+            f"sec:q_{question.unit_id}_{Path(question.file).stem.removeprefix('questions_')}"
+        )
+        if sync_section_label(question.path, question_label, dry_run=dry_run):
+            updates += 1
     for reference in book_toc.references:
         if sync_h1(reference.path, reference.title, dry_run=dry_run):
+            updates += 1
+        if sync_section_label(reference.path, reference.section_label, dry_run=dry_run):
             updates += 1
     return updates
 
@@ -225,5 +241,18 @@ def sync_heading_titles(book_toc: Any, *, dry_run: bool) -> int:
             dry_run=dry_run,
             chapter_title=chapter_titles.get(path),
         ):
+            updates += 1
+    return updates
+
+
+def sync_section_reference_commands(*, dry_run: bool) -> int:
+    """Rewrite ``\\cref`` to ``\\nameref`` for unnumbered lab/question/appendix labels."""
+    updates = 0
+    for path in sorted(MANUSCRIPT.rglob("*.md")):
+        if path.name in _SECTION_REF_SKIP:
+            continue
+        text = path.read_text(encoding="utf-8")
+        normalized = normalize_unnumbered_section_crefs(text)
+        if normalized != text and _write_if_changed(path, normalized, dry_run=dry_run):
             updates += 1
     return updates

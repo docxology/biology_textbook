@@ -19,7 +19,7 @@
 9. Compare substrate-level and [**oxidative phosphorylation**](#gl:oxidative-phosphorylation) quantitatively across yield, speed, sustainability, and physiological niche.
 10. Describe [**fermentation**](#gl:fermentation) pathways, the Cori cycle, and the glucose-alanine cycle as inter-organ shuttles.
 11. Explain gluconeogenesis (four bypass enzymes) and its reciprocal regulation with glycolysis.
-12. Quantify reactive oxygen species (ROS) production at the ETC and the antioxidant defences that constrain it.
+12. Quantify reactive oxygen species (ROS) production at the ETC and the antioxidant defenses that constrain it.
 13. Distinguish anaplerotic and cataplerotic flux through the TCA cycle in the context of inter-organ metabolism.
 14. Explain physiological (UCP1, brown adipose) and pharmacological (DNP) uncoupling at a molecular level.
 15. Compute the thermodynamic efficiency of glucose oxidation from standard free energies of formation.
@@ -43,8 +43,8 @@
 - **Data skill:** Track carbon, electrons, and ATP across a pathway.
 - **Practice cadence:** Representing and Describing Data, Statistical Tests and Data Analysis.
 - **Common misconception to repair:** ATP is not stored energy in a vague sense; it is a coupling currency with defined reaction chemistry.
-- **Primary lab:** \cref{sec:lab_unit_III_bioenergetics_and_respiration}.
-- **Question bank:** \cref{sec:q_unit_III_bioenergetics_and_respiration}.
+- **Primary lab:** \nameref{sec:lab_unit_III_bioenergetics_and_respiration}.
+- **Question bank:** \nameref{sec:q_unit_III_bioenergetics_and_respiration}.
 - **Transfer task:** Transfer energy accounting to exercise, fermentation, hypoxia, and mitochondrial disease.
 - **Bridge to computation:** `biology.biochemistry.biochemistry.glycolysis_summary`.
 <!-- curriculum-scaffold-end -->
@@ -74,7 +74,7 @@
 
 ## Thermodynamics of Life
 
-> **Mathematical Background:** Bioenergetics uses logarithms and thermodynamic equations. For a review of logarithmic functions and their biological applications, see \cref{sec:appendix_math_review}.
+> **Mathematical Background:** Bioenergetics uses logarithms and thermodynamic equations. For a review of logarithmic functions and their biological applications, see \nameref{sec:appendix_math_review}.
 
 ### First and Second Laws
 
@@ -133,6 +133,7 @@ The relationship between $\Delta G^{\circ\prime}$ and the equilibrium constant:
 
 **Standard versus physiological $\Delta G^{\circ\prime}$ for key hydrolysis reactions** (37 °C, pH 7.0, 1 mM Mg$^{2+}$):
 
+: Standard and physiological free energy changes for selected hydrolysis reactions. {#tbl:unit_III_bioenergetics_and_respiration_standard_free_energy_and_actual_free_energy}
 | Reaction | $\Delta G^{\circ\prime}$ (kJ/mol) | Cellular $\Delta G$ (kJ/mol) | Notes |
 | -------- | --------------------------------- | ---------------------------- | ----- |
 | Phosphoenolpyruvate (PEP) → Pyruvate + P$_i$ | $-61.9$ | about $-65$ | Highest-energy phosphate bond in cells |
@@ -143,7 +144,7 @@ The relationship between $\Delta G^{\circ\prime}$ and the equilibrium constant:
 | Glucose-1-P → Glucose + P$_i$ | $-20.9$ | $-21$ | Low-energy ester |
 | Glucose-6-P → Glucose + P$_i$ | $-13.8$ | $-14$ | Low-energy phosphate ester |
 
-**Key insight:** ATP sits in the *middle* of this spectrum. It is energetically capable of phosphorylating many low-energy compounds (glucose, F6P) but can itself be re-synthesised from higher-energy intermediates such as PEP and 1,3-BPG. This intermediate position is what makes ATP an effective "energy currency" rather than the highest-potential molecule in the cell.
+**Key insight:** ATP sits in the *middle* of this spectrum. It is energetically capable of phosphorylating many low-energy compounds (glucose, F6P) but can itself be re-synthesized from higher-energy intermediates such as PEP and 1,3-BPG. This intermediate position is what makes ATP an effective "energy currency" rather than the highest-potential molecule in the cell.
 
 **Why cells maintain far-from-equilibrium conditions:** At equilibrium, $\Delta G = 0$ and no net work can be done. Cells maintain metabolite concentrations far from equilibrium ($Q \neq K_{eq}$), keeping $\Delta G$ strongly negative for exergonic reactions. This is why cells must continuously consume nutrients --- to maintain the far-from-equilibrium state that enables life.
 
@@ -202,11 +203,11 @@ The remaining ~44% is dissipated as heat — useful for mammals to maintain body
 
 ### ATP as Energy Currency
 
-ATP (adenosine triphosphate) is the cell's central short-term energy carrier and phosphoryl-group donor for many endergonic reactions. The phrase "energy currency" is useful shorthand, but the cell also uses ion gradients, redox cofactors such as NADH/NADPH, thioesters such as acetyl-CoA, and activated carriers such as UDP-glucose.
+ATP (adenosine triphosphate) is the cell's central short-term energy carrier and phosphoryl-group donor for many endergonic reactions \citep{boyer1997}. The phrase "energy currency" is useful shorthand, but the cell also uses ion gradients, redox cofactors such as NADH/NADPH, thioesters such as acetyl-CoA, and activated carriers such as UDP-glucose.
 
 The high negative $\Delta G$ of ATP hydrolysis under cellular conditions ($-50$ to $-54$ kJ/mol; $\Delta G^{\circ\prime} = -30.5$ kJ/mol) arises from:
 1. **Electrostatic repulsion** between closely spaced negative charges on the gamma-phosphate (relieved on hydrolysis)
-2. **Resonance stabilisation** of inorganic phosphate (P$_i$) product --- P$_i$ has more resonance forms than the terminal phosphate of ATP
+2. **Resonance stabilization** of inorganic phosphate (P$_i$) product --- P$_i$ has more resonance forms than the terminal phosphate of ATP
 3. **Hydration** (solvation enthalpy) of P$_i$ and ADP --- products are better hydrated than reactants
 4. **Entropy increase** --- one molecule becomes two
 
@@ -222,7 +223,7 @@ ATP couples exergonic reactions to endergonic ones via **phosphoryl group transf
 
 ## Glycolysis as Cytosolic Glucose Oxidation
 
-\cref{fig:unit_III_glycolysis_summary} summarises net ATP and NADH yields across the ten glycolytic steps, separating the investment and payoff phases.
+\cref{fig:unit_III_glycolysis_summary} summarizes net ATP and NADH yields across the ten glycolytic steps, separating the investment and payoff phases.
 
 Glycolysis (Greek: *glykys* = sweet; *lysis* = splitting) converts one glucose (6C) to two pyruvate (3C), netting 2 ATP and 2 NADH. It occurs in the **[cytoplasm](#gl:cytoplasm)** of most cells and does not require oxygen.
 
@@ -251,6 +252,7 @@ flowchart TD
 
 ### Ten Enzymatic Steps
 
+: Ten Enzymatic Steps: Step and Enzyme. {#tbl:unit_III_bioenergetics_and_respiration_ten_enzymatic_steps}
 | Step | Enzyme | Reaction | $\Delta G$ (kJ/mol) | Notes |
 | ---- | ------ | -------- | ------------------- | ----- |
 | 1 | Hexokinase | Glucose + ATP → G6P + ADP | $-16.7$ | Traps glucose in cell |
@@ -268,6 +270,7 @@ flowchart TD
 
 **PFK-1 is the master regulator** of glycolysis. It integrates energy status, biosynthetic needs, and hormonal signals \citep{atkinson1968}:
 
+: Regulation of Glycolysis: Activators and Inhibitors. {#tbl:unit_III_bioenergetics_and_respiration_regulation_of_glycolysis}
 | Activators | Inhibitors |
 | ---------- | ---------- |
 | AMP (low energy) | ATP (high energy, [**allosteric**](#gl:allosteric) at regulatory site) |
@@ -284,15 +287,15 @@ Net output from 1 glucose:
 - 2 NADH (from step 6; each NADH worth ~2.5 ATP via oxidative phosphorylation in [**aerobic**](#gl:aerobic) conditions)
 
 > **Clinical Connection: The Warburg Effect**
-> Cancer cells often exhibit the **Warburg effect** --- high rates of glycolysis even in the presence of oxygen ("aerobic glycolysis"). Rather than fully oxidising glucose to CO$_2$ via the TCA cycle and ETC, cancer cells convert most glucose to lactate. This seems wasteful (2 ATP vs. 30--32 ATP per glucose), but it provides rapid ATP production and generates biosynthetic precursors (G6P for pentose phosphate pathway, 3PG for serine biosynthesis) needed for rapid cell division. PET scanning exploits this by detecting tumour uptake of $^{18}$F-fluorodeoxyglucose (FDG). see \cref{sec:unit_III_metabolic_integration} for metabolic integration.
+> Cancer cells often exhibit the **Warburg effect** --- high rates of glycolysis even in the presence of oxygen ("aerobic glycolysis"). Rather than fully oxidising glucose to CO$_2$ via the TCA cycle and ETC, cancer cells convert most glucose to lactate. This seems wasteful (2 ATP vs. 30--32 ATP per glucose), but it provides rapid ATP production and generates biosynthetic precursors (G6P for pentose phosphate pathway, 3PG for serine biosynthesis) needed for rapid cell division. PET scanning exploits this by detecting tumor uptake of $^{18}$F-fluorodeoxyglucose (FDG). see \cref{sec:unit_III_metabolic_integration} for metabolic integration.
 
-> **Concept Check 2:** Steps 4 and 5 of glycolysis have very positive $\Delta G^{\circ\prime}$ values (+23.8 and +7.5 kJ/mol). How do these reactions proceed in vivo despite being thermodynamically unfavourable under standard conditions?
+> **Concept Check 2:** Steps 4 and 5 of glycolysis have very positive $\Delta G^{\circ\prime}$ values (+23.8 and +7.5 kJ/mol). How do these reactions proceed in vivo despite being thermodynamically unfavorable under standard conditions?
 
 ---
 
 ## Gluconeogenesis: Reverse But Not the Reverse
 
-Gluconeogenesis is *not* glycolysis run backwards. Three glycolytic steps (hexokinase, PFK-1, pyruvate kinase) are **physiologically irreversible** in the forward direction --- their cellular $\Delta G$ values are too negative. Gluconeogenesis bypasses each of these three steps with dedicated enzymes that use different chemistry, often paying additional ATP/GTP to make the reverse direction thermodynamically favourable.
+Gluconeogenesis is *not* glycolysis run backwards. Three glycolytic steps (hexokinase, PFK-1, pyruvate kinase) are **physiologically irreversible** in the forward direction --- their cellular $\Delta G$ values are too negative. Gluconeogenesis bypasses each of these three steps with dedicated enzymes that use different chemistry, often paying additional ATP/GTP to make the reverse direction thermodynamically favorable.
 
 ### The Four Bypass Reactions
 
@@ -327,18 +330,20 @@ flowchart TD
 
 **4. Glucose-6-phosphatase (G6Pase):** A 9-transmembrane-helix protein whose catalytic site faces the **lumen of the endoplasmic reticulum**, accessed by a phosphate transporter (SLC37A4) and a glucose efflux transporter (GLUT2). Critically, G6Pase is expressed almost exclusively in **liver and renal cortex** — muscle and brain lack it, which is why these tissues cannot release free glucose to the blood even though they produce G6P internally. Mutations in G6Pase cause **von Gierke disease (GSD I)**: severe fasting hypoglycaemia with hepatomegaly.
 
+: The Four Bypass Enzymes in Detail: Glycolytic step (irreversible) and Gluconeogenic bypass. {#tbl:unit_III_bioenergetics_and_respiration_the_four_bypass_enzymes_in_detail}
 | Glycolytic step (irreversible) | Gluconeogenic bypass | Energy cost | Compartment |
 | ------------------------------ | -------------------- | ----------- | ----------- |
 | Pyruvate kinase | **Pyruvate carboxylase** + **PEPCK** | +1 ATP + 1 GTP per pyruvate | Mitochondrion + cytoplasm |
 | PFK-1 | **Fructose-1,6-bisphosphatase (FBPase-1)** | None (hydrolysis is exergonic) | Cytoplasm |
 | Hexokinase | **Glucose-6-phosphatase (G6Pase)** | None (hydrolysis is exergonic) | ER lumen (liver, kidney primarily) |
 
-**Net cost:** Synthesising one glucose from two pyruvate consumes **6 ATP equivalents** (2 ATP at pyruvate carboxylase × 2, 2 GTP at PEPCK × 2, 2 ATP at PGK × 2 in the reverse direction). This is why gluconeogenesis is restricted to tissues with substantial ATP-generating capacity (liver, renal cortex).
+**Net cost:** Synthesizing one glucose from two pyruvate consumes **6 ATP equivalents** (2 ATP at pyruvate carboxylase × 2, 2 GTP at PEPCK × 2, 2 ATP at PGK × 2 in the reverse direction). This is why gluconeogenesis is restricted to tissues with substantial ATP-generating capacity (liver, renal cortex).
 
 ### Reciprocal Regulation of Glycolysis and Gluconeogenesis
 
 The same allosteric and hormonal signals that activate glycolysis inhibit gluconeogenesis, ensuring the two pathways do not run as a futile cycle:
 
+: Reciprocal Regulation of Glycolysis and Gluconeogenesis: Signal and Glycolysis (PFK-1). {#tbl:unit_III_bioenergetics_and_respiration_reciprocal_regulation_of_glycolysis_and_gluconeogenesis}
 | Signal | Glycolysis (PFK-1) | Gluconeogenesis (FBPase-1) |
 | ------ | ------------------ | -------------------------- |
 | Fructose-2,6-bisphosphate | Strong activator | Strong inhibitor |
@@ -356,7 +361,7 @@ Glucagon-driven phosphorylation of PFK-2/FBPase-2 simultaneously turns *off* PFK
 
 ## The Cori Cycle and the Glucose-Alanine Cycle
 
-Inter-organ metabolism allows tissues to specialise: muscle generates ATP rapidly via glycolysis, while liver shoulders the gluconeogenic burden. Two complementary inter-organ shuttles dominate fasting and exercise physiology.
+Inter-organ metabolism allows tissues to specialize: muscle generates ATP rapidly via glycolysis, while liver shoulders the gluconeogenic burden. Two complementary inter-organ shuttles dominate fasting and exercise physiology.
 
 ### The Cori Cycle (Lactate Shuttle)
 
@@ -449,6 +454,7 @@ Catalysed by PDC --- a 9.5 MDa multienzyme complex with three catalytic componen
 
 **PDC regulation:**
 
+: Pyruvate Dehydrogenase Complex (PDC): Condition and PDC activity. {#tbl:unit_III_bioenergetics_and_respiration_pyruvate_dehydrogenase_complex_pdc}
 | Condition | PDC activity | Mechanism |
 | --------- | ------------ | --------- |
 | High acetyl-CoA, NADH, ATP | Inhibited | PDH kinase (PDK) phosphorylates E1 → inactive |
@@ -461,7 +467,7 @@ Catalysed by PDC --- a 9.5 MDa multienzyme complex with three catalytic componen
 
 ### TCA Cycle (Krebs Cycle / Citric Acid Cycle)
 
-The TCA cycle occurs in the mitochondrial matrix. It oxidises acetyl-CoA to CO$_2$, generating reduced cofactors (NADH, FADH$_2$) that feed the ETC.
+The TCA cycle occurs in the mitochondrial matrix. It oxidises acetyl-CoA to CO$_2$, generating reduced cofactors (NADH, FADH$_2$) that feed the ETC \citep{krebs1937}.
 
 ```mermaid
 flowchart LR
@@ -491,6 +497,7 @@ flowchart LR
 
 **Eight steps with details:**
 
+: TCA Cycle (Krebs Cycle / Citric Acid Cycle): Step and Enzyme. {#tbl:unit_III_bioenergetics_and_respiration_tca_cycle_krebs_cycle_citric_acid_cycle}
 | Step | Enzyme | Reaction | Products |
 | ---- | ------ | -------- | -------- |
 | 1 | Citrate synthase | Acetyl-CoA + OAA → Citrate + CoA | -- |
@@ -502,7 +509,7 @@ flowchart LR
 | 7 | Fumarase | Fumarate + H$_2$O → Malate | -- |
 | 8 | Malate dehydrogenase | Malate → OAA | **NADH** |
 
-**Carbon tracking:** The two carbons entering as acetyl-CoA are NOT the same two carbons lost as CO$_2$ in the first turn --- they are released in subsequent turns. This can be demonstrated using $^{14}$C-labelled acetyl-CoA.
+**Carbon tracking:** The two carbons entering as acetyl-CoA are NOT the same two carbons lost as CO$_2$ in the first turn --- they are released in subsequent turns. This can be demonstrated using $^{14}$C-labeled acetyl-CoA.
 
 **Net per turn:** 3 NADH + 1 FADH$_2$ + 1 GTP + 2 CO$_2$
 
@@ -510,6 +517,7 @@ flowchart LR
 
 **TCA cycle regulation:**
 
+: TCA Cycle (Krebs Cycle / Citric Acid Cycle): Enzyme and Activators. {#tbl:unit_III_bioenergetics_and_respiration_tca_cycle_krebs_cycle_citric_acid_cycle_2}
 | Enzyme | Activators | Inhibitors |
 | ------ | ---------- | ---------- |
 | Citrate synthase | OAA, acetyl-CoA (substrates) | ATP, NADH, succinyl-CoA, citrate |
@@ -522,6 +530,7 @@ The TCA cycle is not a closed loop in vivo — intermediates flow in and out for
 
 **Major anaplerotic inputs:**
 
+: Anaplerotic and Cataplerotic Reactions: Reaction and Enzyme. {#tbl:unit_III_bioenergetics_and_respiration_anaplerotic_and_cataplerotic_reactions}
 | Reaction | Enzyme | Cofactor | Tissue | Function |
 | -------- | ------ | -------- | ------ | -------- |
 | Pyruvate + CO$_2$ + ATP → OAA | **Pyruvate carboxylase** | Biotin (vitamin B$_7$) | Liver, kidney | Replenishes OAA; primary anaplerotic source |
@@ -536,6 +545,7 @@ Pyruvate carboxylase is **allosterically activated by acetyl-CoA**. This is biol
 
 **Major cataplerotic outflows:**
 
+: Anaplerotic and Cataplerotic Reactions: Intermediate withdrawn and Destination pathway. {#tbl:unit_III_bioenergetics_and_respiration_anaplerotic_and_cataplerotic_reactions_2}
 | Intermediate withdrawn | Destination pathway | Example product |
 | ---------------------- | ------------------- | --------------- |
 | α-Ketoglutarate | Glutamate / glutamine biosynthesis; collagen hydroxylation | Glu, Gln, hydroxyproline |
@@ -551,7 +561,7 @@ Pyruvate carboxylase is **allosterically activated by acetyl-CoA**. This is biol
 
 ## Oxidative Phosphorylation and Proton-Motive Force
 
-Oxidative phosphorylation (OxPhos) accounts for ~90% of ATP production in aerobic organisms. It takes place at the inner mitochondrial membrane.
+Oxidative phosphorylation (OxPhos) accounts for ~90% of ATP production in aerobic organisms. It takes place at the inner mitochondrial membrane, where reconstitution experiments helped establish proton-gradient-driven ATP formation \citep{racker1974}.
 
 ### Electron Transport Chain (ETC)
 
@@ -584,13 +594,13 @@ sequenceDiagram
 
     Note over CV: PMF drives H⁺ through F₀ channel
     Note over CV: γ-subunit rotates 120° per ATP
-    Note over CV: ~3 H⁺ per ATP synthesised
+    Note over CV: ~3 H⁺ per ATP synthesized
 ```
 <!-- alt: Sequence diagram showing electron transport passes reducing equivalents from NADH and FADH2 through complexes I-IV to oxygen, with proton pumping by complexes I, III, and IV building the gradient for ATP synthase. -->
 
 *Electron transport passes reducing equivalents from NADH and FADH2 through complexes I-IV to oxygen, with proton pumping by complexes I, III, and IV building the gradient for ATP synthase.*
 
-*Electron flow through the ETC complexes I--IV and proton pumping that generates the proton motive force (Mermaid).* ATP synthase (Complex V) uses this PMF to synthesise ATP via rotary catalysis.
+*Electron flow through the ETC complexes I--IV and proton pumping that generates the proton motive force (Mermaid).* ATP synthase (Complex V) uses this PMF to synthesize ATP via rotary catalysis.
 
 **Complex I (NADH:ubiquinone oxidoreductase):**
 - Largest ETC complex (~46 subunits in mammals, ~1 MDa)
@@ -615,7 +625,7 @@ sequenceDiagram
 - Inhibited by **antimycin A** (Q$_i$ site) and **myxothiazol** (Q$_o$ site)
 
 **Complex IV (cytochrome c oxidase):**
-- Contains Cu$_A$, heme a, heme a$_3$-Cu$_B$ centres
+- Contains Cu$_A$, heme a, heme a$_3$-Cu$_B$ centers
 - Transfers 4 electrons to O$_2$: $\text{O}_2 + 4\text{e}^- + 4\text{H}^+_{\text{matrix}} \rightarrow 2\text{H}_2\text{O}$
 - Pumps **2 H$^+$ per 2 electrons** (plus 2 H$^+$ consumed in water formation)
 - Inhibited by **cyanide** (CN$^-$), **carbon monoxide** (CO), and **azide** (N$_3^-$) --- most bind heme a$_3$-Cu$_B$
@@ -623,12 +633,13 @@ sequenceDiagram
 > **Clinical Connection: Cyanide Poisoning**
 > Cyanide irreversibly inhibits Complex IV by binding to the Fe$^{3+}$ of heme a$_3$. Most electron flow stops, the proton gradient collapses, and ATP synthesis ceases. Cells switch to [**anaerobic**](#gl:anaerobic) glycolysis, producing lactic acid. Death results from inability to produce sufficient ATP, especially in the brain and heart. Treatment: hydroxocobalamin (vitamin B$_{12a}$) chelates cyanide, or sodium thiosulphate converts it to less toxic thiocyanate.
 
-### Reactive Oxygen Species and Antioxidant Defence
+### Reactive Oxygen Species and Antioxidant Defense
 
 The ETC's job is to deliver four electrons safely onto O$_2$ to produce water — but ~0.1–2% of electrons "leak" prematurely, producing **reactive oxygen species (ROS)**.
 
 **Sites of ROS production in the ETC:**
 
+: Reactive Oxygen Species and Antioxidant Defense: Site and Primary ROS. {#tbl:unit_III_bioenergetics_and_respiration_reactive_oxygen_species_and_antioxidant_defence}
 | Site | Primary ROS | Mechanism | Inhibitor that *increases* ROS |
 | ---- | ----------- | --------- | ------------------------------ |
 | Complex I (FMN, Fe-S clusters) | Superoxide (O$_2^{\bullet-}$) into matrix | Reverse electron transfer when ETC is reduced; FMNH$_2$ donates 1e$^-$ to O$_2$ | Rotenone |
@@ -645,9 +656,10 @@ The ETC's job is to deliver four electrons safely onto O$_2$ to produce water �
 
 The Fenton reaction (last step) is particularly dangerous: hydroxyl radicals (HO$^\bullet$) are the most reactive biological oxidants and damage essentially any nearby molecule (DNA, lipids, proteins).
 
-**Antioxidant defence enzymes:**
+**Antioxidant defense enzymes:**
 
-| Enzyme | Reaction | Cofactor | Localisation |
+: Reactive Oxygen Species and Antioxidant Defense: Enzyme and Reaction. {#tbl:unit_III_bioenergetics_and_respiration_reactive_oxygen_species_and_antioxidant_defence_2}
+| Enzyme | Reaction | Cofactor | Localization |
 | ------ | -------- | -------- | ------------ |
 | Superoxide dismutase (SOD1, cytosolic) | 2 O$_2^{\bullet-}$ + 2 H$^+$ → H$_2$O$_2$ + O$_2$ | Cu, Zn | Cytoplasm, IMS |
 | Superoxide dismutase (SOD2, mitochondrial) | 2 O$_2^{\bullet-}$ + 2 H$^+$ → H$_2$O$_2$ + O$_2$ | Mn | Mitochondrial matrix |
@@ -661,8 +673,8 @@ The Fenton reaction (last step) is particularly dangerous: hydroxyl radicals (HO
 **Clinical relevance:**
 
 - **Mitochondrial diseases:** Complex I and III deficiencies often present with elevated lactate AND elevated ROS damage markers (8-oxoguanine in mtDNA, malondialdehyde in lipids).
-- **Aging (mitochondrial free-radical theory):** Cumulative mtDNA damage from ROS may underlie age-related mitochondrial decline. Modern data suggests ROS are also signalling molecules, complicating the simple "oxidative damage = aging" model.
-- **Reperfusion injury:** During ischaemia, ETC carriers become highly reduced. Upon reoxygenation, a burst of ROS is released — paradoxically, the *return* of oxygen causes the worst tissue damage in stroke and heart attack.
+- **Aging (mitochondrial free-radical theory):** Cumulative mtDNA damage from ROS may underlie age-related mitochondrial decline. Modern data suggests ROS are also signaling molecules, complicating the simple "oxidative damage = aging" model.
+- **Reperfusion injury:** During ischemia, ETC carriers become highly reduced. Upon reoxygenation, a burst of ROS is released — paradoxically, the *return* of oxygen causes the worst tissue damage in stroke and heart attack.
 - **ALS:** Mutations in SOD1 cause ~20% of familial amyotrophic lateral sclerosis. The pathology is gain-of-function (toxic SOD1 aggregates), not simple loss of antioxidant activity.
 
 > **Concept Check 4b:** Antimycin A blocks the Q$_i$ site of Complex III. Predict the effects on (a) electron flow upstream (Complexes I, II), (b) downstream (Complex IV), (c) PMF magnitude, and (d) ROS production. Explain why this combination of effects makes antimycin A particularly cytotoxic.
@@ -707,7 +719,7 @@ So pumping ~3.67 H$^+$ to make one ATP requires ~64 kJ/mol of stored gradient en
 
 **Stoichiometry:** If the c-ring has 10 subunits, then 10 H$^+$ per revolution, producing 3 ATP, so ~3.3 H$^+$ per ATP. With 8 c-subunits (yeast), ~2.7 H$^+$ per ATP.
 
-Paul Boyer (binding change mechanism) and John Walker (crystal structure of F$_1$) shared the Nobel Prize in Chemistry, 1997. The rotation of the gamma subunit was directly visualised by Yoshida and colleagues using fluorescent [**actin**](#gl:actin) filaments attached to gamma --- one of the most beautiful experiments in biochemistry.
+Paul Boyer (binding change mechanism) and John Walker (crystal structure of F$_1$) shared the Nobel Prize in Chemistry, 1997. The rotation of the gamma subunit was directly visualized by Yoshida and colleagues using fluorescent [**actin**](#gl:actin) filaments attached to gamma --- one of the most beautiful experiments in biochemistry.
 
 ### How the "30–32 ATP" Number Is Calculated: P/O Ratios
 
@@ -715,6 +727,7 @@ The classical undergraduate value of 38 ATP/glucose came from *assumed* round-nu
 
 **Proton pumping per substrate:**
 
+: How the "30–32 ATP" Number Is Calculated: P/O Ratios. {#tbl:unit_III_bioenergetics_and_respiration_how_the_30_32_atp_number_is_calculated_p_o_ratios}
 | Substrate | Complex I | Complex III | Complex IV | Total H$^+$ pumped |
 | --------- | --------- | ----------- | ---------- | ------------------ |
 | 1 NADH (matrix) | 4 | 4 | 2 | **10 H$^+$** |
@@ -743,6 +756,7 @@ The classical undergraduate value of 38 ATP/glucose came from *assumed* round-nu
 
 (if cytoplasmic NADH uses the malate-aspartate shuttle; ~30 ATP if the glycerol-3-P shuttle is used in muscle and brain).
 
+: How the "30–32 ATP" Number Is Calculated: P/O Ratios: Stage and NADH. {#tbl:unit_III_bioenergetics_and_respiration_how_the_30_32_atp_number_is_calculated_p_o_ratios_2}
 | Stage | NADH | FADH$_2$ | ATP direct | ATP via OxPhos | Subtotal |
 | ----- | ---- | -------- | ---------- | -------------- | -------- |
 | Glycolysis | 2 | 0 | 2 | 2 × 2.5 = 5* | 7 |
@@ -764,6 +778,7 @@ The classical undergraduate value of 38 ATP/glucose came from *assumed* round-nu
 
 *Solution:*
 
+: Total ATP Yield: Source and Quantity. {#tbl:unit_III_bioenergetics_and_respiration_worked_example_total_atp_yield}
 | Source | Quantity | ATP per unit | ATP |
 | ------ | -------- | ------------ | --- |
 | Glycolysis substrate-level | 2 ATP | 1 | 2 |
@@ -791,6 +806,7 @@ Using the more realistic *cellular* $\Delta G$ of $-50$ kJ/mol, efficiency rises
 
 ## Substrate-Level vs. Oxidative Phosphorylation: A Quantitative Comparison
 
+: Total ATP Yield: Feature and Substrate-level phosphorylation. {#tbl:unit_III_bioenergetics_and_respiration_worked_example_total_atp_yield_2}
 | Feature | Substrate-level phosphorylation | Oxidative phosphorylation |
 | ------- | ------------------------------- | ------------------------- |
 | Location | Cytoplasm (glycolysis), matrix (TCA) | Inner mitochondrial membrane |
@@ -839,15 +855,15 @@ In exercising muscle, lactate is exported to the blood, taken up by the liver, a
 **Pasteur Effect:** In the presence of oxygen, yeast switches from fermentation to aerobic respiration, dramatically reducing glucose consumption (because 32 ATP/glucose aerobically vs. 2 ATP/glucose by fermentation --- 16x more efficient).
 
 > **Clinical Connection: Lactic Acidosis**
-> Lactic acidosis occurs when lactate production exceeds clearance. **Type A** (most common): tissue hypoxia (shock, cardiac arrest, severe anaemia) forces reliance on glycolysis. **Type B**: metabolic causes (liver failure preventing lactate clearance, metformin in renal impairment, thiamine deficiency preventing PDC function, mitochondrial diseases). Blood lactate >4 mmol/L with pH <7.35 indicates lactic acidosis. Treatment focuses on addressing the underlying cause and restoring tissue oxygenation.
+> Lactic acidosis occurs when lactate production exceeds clearance. **Type A** (most common): tissue hypoxia (shock, cardiac arrest, severe anemia) forces reliance on glycolysis. **Type B**: metabolic causes (liver failure preventing lactate clearance, metformin in renal impairment, thiamine deficiency preventing PDC function, mitochondrial diseases). Blood lactate >4 mmol/L with pH <7.35 indicates lactic acidosis. Treatment focuses on addressing the underlying cause and restoring tissue oxygenation.
 
 > **Clinical Connection: Mitochondrial Complex Disorders**
 > [**Mutation**](#gl:mutation)s in nuclear or mitochondrial [**gene**](#gl:gene)s encoding ETC complex subunits cause a spectrum of diseases:
-> - **Complex I deficiency:** Most common ETC disorder (~30% of paediatric mitochondrial disease); Leigh syndrome (necrotising encephalopathy), optic atrophy, cardiomyopathy
-> - **Complex II deficiency:** Rare; associated with paragangliomas and pheochromocytomas (SDH mutations are tumour suppressors)
+> - **Complex I deficiency:** Most common ETC disorder (~30% of pediatric mitochondrial disease); Leigh syndrome (necrotising encephalopathy), optic atrophy, cardiomyopathy
+> - **Complex II deficiency:** Rare; associated with paragangliomas and pheochromocytomas (SDH mutations are tumor suppressors)
 > - **Complex III deficiency:** Exercise intolerance, lactic acidosis
 > - **Complex IV (COX) deficiency:** Leigh syndrome, cardiomyopathy; reversible COX deficiency in infants
-> Most are characterised by lactic acidosis, neurological dysfunction, and exercise intolerance --- tissues with high energy demands (brain, heart, muscle) are most affected.
+> Most are characterized by lactic acidosis, neurological dysfunction, and exercise intolerance --- tissues with high energy demands (brain, heart, muscle) are most affected.
 
 > **Concept Check 6:** A patient with a mitochondrial Complex I mutation has reduced NADH oxidation. Would you expect succinate-linked respiration (via Complex II) to be normal or impaired in this patient? Explain.
 
@@ -889,14 +905,15 @@ flowchart LR
     style HEAT fill:#ffe6e6
     style BIO fill:#e6ffe6
 ```
-<!-- alt: Flowchart showing cold-triggered sympathetic signalling activates brown-adipose UCP1, allowing proton flow to produce heat instead of ATP. -->
+<!-- alt: Flowchart showing cold-triggered sympathetic signaling activates brown-adipose UCP1, allowing proton flow to produce heat instead of ATP. -->
 
-*Cold-triggered sympathetic signalling activates brown-adipose UCP1, allowing proton flow to produce heat instead of ATP.*
+*Cold-triggered sympathetic signaling activates brown-adipose UCP1, allowing proton flow to produce heat instead of ATP.*
 
 *Sympathetic activation of brown adipose thermogenesis (Mermaid).* Norepinephrine binds β$_3$-adrenergic receptors → cAMP → PKA → simultaneous lipolysis (acute fuel) and PGC-1α transcription (chronic mitochondrial biogenesis). UCP1 short-circuits the proton gradient, releasing energy as heat.
 
 ### Physiological Roles of Lactate
 
+: Physiological Roles of Lactate: Setting and Role of UCP1 / brown fat. {#tbl:unit_III_bioenergetics_and_respiration_physiological_roles_of_lactate}
 | Setting | Role of UCP1 / brown fat |
 | ------- | ------------------------ |
 | **Neonates** | Critical for non-shivering thermogenesis; lack effective shivering due to small muscle mass; ~5% body weight is BAT |
@@ -909,12 +926,12 @@ flowchart LR
 
 - **UCP2**: ubiquitously expressed; modest uncoupling activity; thought to attenuate ROS and modulate insulin secretion.
 - **UCP3**: skeletal muscle and BAT; possible role in lipid handling; debated thermogenic relevance.
-- **Plant UCPs** (PUMPs): present in mitochondria of e.g. *Arum* species, where they generate the heat (~46 °C) that volatilises odours to attract pollinator insects.
+- **Plant UCPs** (PUMPs): present in mitochondria of e.g. *Arum* species, where they generate the heat (~46 °C) that volatilises odors to attract pollinator insects.
 
 > **Clinical Connection: DNP — A Cautionary Tale**
 > 2,4-Dinitrophenol (DNP) is a synthetic chemical uncoupler that dissipates PMF as heat, mimicking UCP1 across most tissues. In the 1930s, DNP was sold as a weight-loss drug — patients lost ~1 kg/week as their basal metabolic rate increased ~50%. But the therapeutic window is dangerously narrow: at slightly higher doses, body temperature rises to >40 °C (fatal hyperthermia), and unregulated tissue uncoupling causes cataracts, neuropathy, and sudden death. DNP was banned in 1938 but remains a recurrent source of bodybuilding deaths today. The takeaway: physiological uncoupling is *regulated* (UCP1 activated primarily in BAT, primarily on demand) — pharmacological uncoupling is unregulated and potentially lethal.
 
-> **Concept Check 6b:** A 3-month-old infant is brought to the ED in mild hypothermia after exposure to cold. Imaging reveals normal BAT volume and PET activity. Predict (a) whether shivering or non-shivering thermogenesis dominates the infant's response, (b) the role of β$_3$-AR signalling, and (c) the metabolic consequences of repeated cold exposures.
+> **Concept Check 6b:** A 3-month-old infant is brought to the ED in mild hypothermia after exposure to cold. Imaging reveals normal BAT volume and PET activity. Predict (a) whether shivering or non-shivering thermogenesis dominates the infant's response, (b) the role of β$_3$-AR signaling, and (c) the metabolic consequences of repeated cold exposures.
 
 ---
 
@@ -924,12 +941,13 @@ Understanding the ETC and oxidative phosphorylation has been greatly advanced by
 
 ### Electron-Transport Chain Inhibitors
 
+: Electron-Transport Chain Inhibitors: Inhibitor and Target. {#tbl:unit_III_bioenergetics_and_respiration_electron_transport_chain_inhibitors}
 | Inhibitor | Target | Effect |
 | --------- | ------ | ------ |
 | **Rotenone** | Complex I (NADH dehydrogenase) | Blocks electron transfer from Fe-S clusters to ubiquinone; NADH-linked respiration stops; used as fish poison and pesticide |
 | **Antimycin A** | Complex III (Q$_i$ site) | Blocks electron transfer at the Q$_i$ site of the Q cycle; generates superoxide |
 | **Cyanide (CN$^-$)** | Complex IV (CuB/a$_3$) | Binds Fe$^{3+}$ in cytochrome a$_3$, blocking O$_2$ reduction; rapidly fatal |
-| **Carbon monoxide (CO)** | Complex IV (haem a$_3$) | Competes with O$_2$ for binding; also binds haemoglobin (200x affinity vs O$_2$) |
+| **Carbon monoxide (CO)** | Complex IV (haem a$_3$) | Competes with O$_2$ for binding; also binds hemoglobin (200x affinity vs O$_2$) |
 | **Hydrogen sulfide (H$_2$S)** | Complex IV | Similar to cyanide; binds haem iron; toxic at >50 ppm in air |
 
 ### Uncouplers and Proton Leak
@@ -1005,7 +1023,7 @@ flowchart LR
 ## Summary
 
 - $\Delta G = \Delta H - T\Delta S$ (\cref{eq:unit_III_gibbs_free_energy}); cellular reactions are coupled to ATP hydrolysis ($\Delta G \approx -54$ kJ/mol) to drive endergonic processes. Cells maintain far-from-equilibrium conditions.
-- ATP turnover is ~40 kg/day; the high $\Delta G$ of hydrolysis arises from charge repulsion, resonance stabilisation, and hydration of products. ATP sits in the *middle* of the phosphoryl-transfer hierarchy, between very high (PEP, 1,3-BPG) and very low (glucose-6-P).
+- ATP turnover is ~40 kg/day; the high $\Delta G$ of hydrolysis arises from charge repulsion, resonance stabilization, and hydration of products. ATP sits in the *middle* of the phosphoryl-transfer hierarchy, between very high (PEP, 1,3-BPG) and very low (glucose-6-P).
 - Glucose oxidation has a standard free energy of $\approx -2{,}870$ kJ/mol; cells capture ~56% of this as ATP, dissipating the rest as heat.
 - Glycolysis: 10 cytoplasmic steps; net 2 ATP + 2 NADH per glucose; regulated by PFK-1 (activated by AMP, F2,6BP; inhibited by ATP, citrate).
 - Gluconeogenesis: not the reverse of glycolysis — uses four bypass enzymes (pyruvate carboxylase, PEPCK, FBPase-1, G6Pase) at a cost of 6 ATP equivalents per glucose; reciprocally regulated with glycolysis via F2,6BP.
@@ -1026,7 +1044,7 @@ flowchart LR
 
 2. Describe the 10 steps of glycolysis. Which three steps are irreversible and why are these the regulatory control points?
 
-3. Compare the four bypass enzymes of gluconeogenesis with the three irreversible glycolytic steps they replace. Why is each bypass thermodynamically favourable in the gluconeogenic direction?
+3. Compare the four bypass enzymes of gluconeogenesis with the three irreversible glycolytic steps they replace. Why is each bypass thermodynamically favorable in the gluconeogenic direction?
 
 4. Explain the structure and regulation of the pyruvate dehydrogenase complex. Why does it require five cofactors?
 
@@ -1070,6 +1088,7 @@ flowchart LR
 
 ## Key Terms
 
+: Current Evidence Map: Respiration Evidence Accounting: Term and Definition. {#tbl:unit_III_bioenergetics_and_respiration_current_evidence_map_respiration_evidence_accounting}
 | Term | Definition |
 | ---- | ---------- |
 | **Gibbs free energy ($\Delta G$)** | Thermodynamic quantity predicting reaction spontaneity; $\Delta G < 0$ = spontaneous |
@@ -1083,7 +1102,7 @@ flowchart LR
 | **Cataplerotic reaction** | Reaction removing TCA intermediates for biosynthesis (e.g., citrate → acetyl-CoA for FA synthesis) |
 | **Electron transport chain** | Complexes I--IV on IMM; transfers electrons from NADH/FADH$_2$ to O$_2$, pumping H$^+$ |
 | **Q cycle** | Complex III mechanism doubling H$^+$ pumping efficiency per electron pair |
-| **ATP synthase** | F$_0$F$_1$ rotary motor using PMF to synthesise ATP; ~3.67 H$^+$/ATP including P$_i$ import |
+| **ATP synthase** | F$_0$F$_1$ rotary motor using PMF to synthesize ATP; ~3.67 H$^+$/ATP including P$_i$ import |
 | **Proton motive force (PMF)** | Electrochemical gradient of H$^+$ across IMM; $\approx 180$ mV; drives ATP synthesis |
 | **P/O ratio** | ATP molecules produced per oxygen atom reduced; ~2.5 for NADH, ~1.5 for FADH$_2$ |
 | **Reactive oxygen species (ROS)** | O$_2^{\bullet-}$, H$_2$O$_2$, HO$^\bullet$ produced by electron leak; constrained by SOD, catalase, GPx |
@@ -1103,6 +1122,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Bioenergetics and Cellular Respiration. {#tbl:unit_III_bioenergetics_and_respiration_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/biochemistry/biochemistry.py` (`reaction_free_energy`, `atp_free_energy`, `glycolysis_summary`) | Track energy accounting across glycolysis, respiration, and ATP coupling. |

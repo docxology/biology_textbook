@@ -17,7 +17,7 @@ By the end of this chapter, you should be able to:
 5. Distinguish microevolution from macroevolution and evaluate punctuated equilibrium versus phyletic gradualism.
 6. Describe coevolutionary dynamics including arms races and the Red Queen hypothesis.
 7. Calculate a selection coefficient from observed allele-frequency change and predict the phenotypic response to selection using the breeder's equation $R = h^2 S$.
-8. Analyse direct observations of evolution in real time — the *E. coli* long-term evolution experiment, Galápagos finch beak shifts, and cane-toad spatial sorting — and explain how each demonstrates measurable change within human timescales.
+8. Analyze direct observations of evolution in real time — the *E. coli* long-term evolution experiment, Galápagos finch beak shifts, and cane-toad spatial sorting — and explain how each demonstrates measurable change within human timescales.
 9. Evaluate the ethical responsibilities raised when evolutionary theory becomes a design framework, including gain-of-function research, gene drives, and heritable genome editing.
 
 <!-- curriculum-scaffold-start -->
@@ -30,8 +30,8 @@ By the end of this chapter, you should be able to:
 - **Data skill:** Interpret fitness data and distinguish selection from other forces.
 - **Practice cadence:** Visual Representations, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** Evolution is not goal-directed progress; it is local change in populations under constraints.
-- **Primary lab:** \cref{sec:lab_unit_VI_evolution_and_selection}.
-- **Question bank:** \cref{sec:q_unit_VI_evolution_and_selection}.
+- **Primary lab:** \nameref{sec:lab_unit_VI_evolution_and_selection}.
+- **Question bank:** \nameref{sec:q_unit_VI_evolution_and_selection}.
 - **Transfer task:** Transfer selection reasoning to antibiotics, pesticide resistance, cancer, or climate adaptation.
 - **Bridge to computation:** `biology.evolution.evolution.simulate_selection`.
 <!-- curriculum-scaffold-end -->
@@ -183,7 +183,7 @@ Molecular data provide the most quantitative and testable evidence for evolution
 \caption{Natural selection simulation: allele-frequency change over generations under directional selection, balancing selection via heterozygote advantage, and disruptive selection via heterozygote disadvantage.}
 \label{fig:unit_VI_selection_simulation}
 \end{figure}
-<!-- alt: Three-panel line plot of allele A frequency over generations. Directional selection increases the favoured allele, balancing selection trajectories converge toward an intermediate frequency, and disruptive underdominance trajectories move away from the intermediate threshold. -->
+<!-- alt: Three-panel line plot of allele A frequency over generations. Directional selection increases the favored allele, balancing selection trajectories converge toward an intermediate frequency, and disruptive underdominance trajectories move away from the intermediate threshold. -->
 
 
 ### Fitness as Reproductive Success in Context
@@ -236,7 +236,7 @@ This theorem implies that natural selection typically increases mean fitness (th
 
 ### Directional Selection and Trait-Mean Shifts
 
-Directional selection shifts the mean [**phenotype**](#gl:phenotype) toward one extreme. The population's phenotype distribution moves in one direction across generations, in contrast to the stabilising and disruptive regimes whose divergent allele-frequency trajectories are simulated in \cref{fig:unit_VI_selection_simulation}.
+Directional selection shifts the mean [**phenotype**](#gl:phenotype) toward one extreme. The population's phenotype distribution moves in one direction across generations, in contrast to the stabilizing and disruptive regimes whose divergent allele-frequency trajectories are simulated in \cref{fig:unit_VI_selection_simulation}.
 
 **Industrial melanism in *Biston betularia***: Before the Industrial Revolution, the typical peppered moth was light-colored, camouflaged against lichen-covered tree bark. The melanic (dark) form, controlled by a [**dominant**](#gl:dominant) allele at the *cortex* locus, increased from approximately 1% in 1848 to 98% in Manchester by 1898 as industrial soot darkened tree trunks. Light moths were conspicuous to bird predators on dark bark. Following the Clean Air Act (1956), lichen recovered, and the light form returned to dominance -- a textbook example of directional selection reversing direction.
 
@@ -314,7 +314,7 @@ Consider a single-locus, two-allele model with heterozygote advantage. Starting 
    $$\hat{p} = \frac{w_{12} - w_{22}}{2 w_{12} - w_{11} - w_{22}} = \frac{1.0 - 0.7}{2.0 - 0.8 - 0.7} = \frac{0.3}{0.5} = 0.6, \qquad \hat{q} = 0.4.$$
 
 **Interpretation:**
-In the first generation, $p$ falls from 0.9 toward the equilibrium value $\hat{p} = 0.6$ — a balanced polymorphism is maintained because both homozygotes have reduced fitness relative to the heterozygote. This dynamic mirrors the maintenance of the sickle haemoglobin allele in malaria-endemic regions: HbAS heterozygotes carry the highest fitness, HbAA homozygotes pay a malaria-susceptibility cost, and HbSS homozygotes pay a severe anaemia cost. The equilibrium frequency of HbS in such populations is the empirical analogue of the $\hat{q}$ computed here.
+In the first generation, $p$ falls from 0.9 toward the equilibrium value $\hat{p} = 0.6$ — a balanced polymorphism is maintained because both homozygotes have reduced fitness relative to the heterozygote. This dynamic mirrors the maintenance of the sickle hemoglobin allele in malaria-endemic regions: HbAS heterozygotes carry the highest fitness, HbAA homozygotes pay a malaria-susceptibility cost, and HbSS homozygotes pay a severe anemia cost. The equilibrium frequency of HbS in such populations is the empirical analog of the $\hat{q}$ computed here.
 
 
 ### Sexual Selection and Mating Success
@@ -390,7 +390,7 @@ Coefficients of relatedness:
 - First cousins: $r = 0.125$
 - Parent–offspring: $r = 0.5$
 
-**[Eusociality](#gl:eusociality) in insects**: Eusocial societies combine cooperative brood care, overlapping generations, and a reproductive division of labour in which some individuals reproduce little or do not reproduce \citep{crespi1995definition,bourke2011principles}. In [**haplodiploid**](#gl:haplodiploidy) Hymenoptera (many ants, bees, and wasps), females are diploid and males are haploid. Full sisters can share $r = 0.75$ (the full paternal genome plus, on average, half of the maternal genome), so helping a mother produce sisters can satisfy Hamilton's rule more easily than producing one's own offspring. The honeybee genome made this a concrete genomic system for studying sociality, chemical communication, immunity, and caste biology \citep{honeybeeGenome2006}.
+**[Eusociality](#gl:eusociality) in insects**: Eusocial societies combine cooperative brood care, overlapping generations, and a reproductive division of labor in which some individuals reproduce little or do not reproduce \citep{crespi1995definition,bourke2011principles}. In [**haplodiploid**](#gl:haplodiploidy) Hymenoptera (many ants, bees, and wasps), females are diploid and males are haploid. Full sisters can share $r = 0.75$ (the full paternal genome plus, on average, half of the maternal genome), so helping a mother produce sisters can satisfy Hamilton's rule more easily than producing one's own offspring. The honeybee genome made this a concrete genomic system for studying sociality, chemical communication, immunity, and caste biology \citep{honeybeeGenome2006}.
 
 Haplodiploidy is a useful entry point but not a sufficient explanation. Many haplodiploid insects are solitary, while termites are diploid and nevertheless evolved eusocial colonies. Comparative evidence points to ancestral monogamy, kin structure, defensible nests, progressive brood provisioning, and ecological risks of independent nesting as interacting conditions that make helping profitable \citep{hughes2008ancestral,bourke2011principles}. Termites are especially important because phylogenetic work places them within cockroaches, showing that eusociality evolved independently outside Hymenoptera \citep{inward2007death}.
 
@@ -400,6 +400,7 @@ Evolutionary game theory analyzes situations in which an individual's payoff dep
 
 The classic example is the **Hawk–Dove game**. Two individuals contest a resource of value $V$. A "Hawk" escalates the contest, risking injury at cost $C$ if it loses. A "Dove" displays but retreats from escalation. The expected payoffs:
 
+: Evolutionary Game Theory: Hawk–Dove and the ESS. {#tbl:unit_VI_evolution_and_selection_evolutionary_game_theory_hawk_dove_and_the_ess}
 | Opponent → | Hawk | Dove |
 |----------:|:----:|:----:|
 | **Hawk plays** | $\frac{V-C}{2}$ | $V$ |
@@ -470,7 +471,7 @@ A classic *Drosophila melanogaster* selection experiment measures abdominal bris
 
 1. **Predicted response per generation**: $R = h^2 \cdot S = 0.4 \times 10 = 4$ bristles. After one generation the offspring mean is predicted at $\bar{z}_1 = 40 + 4 = 44$ bristles.
 2. **Response after 5 generations of unrelaxed selection** (assuming constant $h^2$ and constant $S$): $\bar{z}_5 \approx \bar{z}_0 + 5R = 40 + 5 \times 4 = 60$ bristles — a 50 % gain over the base mean.
-3. **Plateau dynamics**: Real *Drosophila* bristle-number experiments (Mather & Harrison 1949; Clayton, Morris & Robertson 1957) confirm linear gains for ~15–25 generations followed by a plateau as additive variance is depleted. When selection is relaxed, populations often partially regress toward the base mean — evidence that some response was achieved through linkage disequilibrium of mildly deleterious alleles dragged along with the favoured variants. New mutational input refills $V_A$ on a timescale of $4N_e$ generations (the neutral coalescent time), so very long-term experiments can show a second slower phase of response sustained by mutation–selection balance.
+3. **Plateau dynamics**: Real *Drosophila* bristle-number experiments (Mather & Harrison 1949; Clayton, Morris & Robertson 1957) confirm linear gains for ~15–25 generations followed by a plateau as additive variance is depleted. When selection is relaxed, populations often partially regress toward the base mean — evidence that some response was achieved through linkage disequilibrium of mildly deleterious alleles dragged along with the favored variants. New mutational input refills $V_A$ on a timescale of $4N_e$ generations (the neutral coalescent time), so very long-term experiments can show a second slower phase of response sustained by mutation–selection balance.
 
 This worked example illustrates **why agricultural breeders monitor $V_A$ erosion**: the breeder's equation is exact in expectation but predicts the rate of variance depletion as well as the rate of mean gain. Once $V_A$ approaches zero, response approaches zero regardless of how strongly the breeder selects.
 
@@ -543,7 +544,7 @@ When buffering is overwhelmed — by extreme environmental stress, by a chaperon
 
 > **Concept Check (Evaluate — Genetic Load):** A deleterious recessive allele has selection coefficient $s = 0.01$ against homozygotes and mutation rate $\mu = 10^{-5}$ per generation. At mutation–selection balance, the equilibrium frequency is $\hat{q} = \sqrt{\mu/s} = \sqrt{10^{-3}} \approx 0.032$. (a) Explain why purifying selection alone cannot eliminate every copy of this allele from the population, even given infinite time. (b) If medical intervention reduces $s$ to $0.001$ (a tenfold relaxation), predict the new equilibrium frequency and estimate how many generations are needed to approach it. (c) Articulate the genetic-load concept this illustrates and evaluate the population-level cost of carrying a non-zero frequency of mildly deleterious alleles.
 
-> **Concept Check (Synthesis — Industrial Melanism Revisited):** The classical peppered-moth story (rise of *carbonaria* during the Industrial Revolution; recovery of *typica* after the Clean Air Act) is sometimes told as pure directional selection on a single locus. Re-synthesise the case as follows: (a) why did the *carbonaria* allele not reach 100 % even at peak pollution, given the apparent strong selection — what role might **heterozygote dynamics**, frequency-dependent predation, or microhabitat heterogeneity play? (b) The selection coefficient reversed direction within ~50 years (industrialisation → Clean Air Act); design an **evolutionary rescue experiment** in the laboratory that uses *Biston betularia* or a comparable lepidopteran to test whether the trait can re-evolve when the environment shifts again. Specify the population sizes, selection intensities, and number of generations needed to detect a response above noise.
+> **Concept Check (Synthesis — Industrial Melanism Revisited):** The classical peppered-moth story (rise of *carbonaria* during the Industrial Revolution; recovery of *typica* after the Clean Air Act) is sometimes told as pure directional selection on a single locus. Re-synthesize the case as follows: (a) why did the *carbonaria* allele not reach 100 % even at peak pollution, given the apparent strong selection — what role might **heterozygote dynamics**, frequency-dependent predation, or microhabitat heterogeneity play? (b) The selection coefficient reversed direction within ~50 years (industrialisation → Clean Air Act); design an **evolutionary rescue experiment** in the laboratory that uses *Biston betularia* or a comparable lepidopteran to test whether the trait can re-evolve when the environment shifts again. Specify the population sizes, selection intensities, and number of generations needed to detect a response above noise.
 
 
 ### Balancing Selection and Maintained Polymorphism
@@ -693,6 +694,7 @@ The **Modern Synthesis** (1930s--1950s) unified Darwinian natural selection with
 
 The status of the EES is actively debated. Laland *et al.* (2015, *Nature*) argued that the EES has distinctive empirical content because plasticity, inclusive inheritance, and niche construction cause biased variation, motivate organisms as agents, and make evolution more predictable than random mutation and selection alone. Wray *et al.* (2014, *Evolution*) and others contested that the original Modern Synthesis already has sufficient conceptual flexibility to accommodate these phenomena within its mathematical framework. Pigliucci & Müller (2010, *Cambridge University Press*) provided the most comprehensive EES framework.
 
+: The Modern Extended Evolutionary Synthesis: Dimension and Classic Modern Synthesis (MS). {#tbl:unit_VI_evolution_and_selection_the_modern_extended_evolutionary_synthesis}
 | Dimension | Classic Modern Synthesis (MS) | Extended Evolutionary Synthesis (EES) |
 | --------- | ----------------------------- | -------------------------------------- |
 | **Mechanism focus** | Selection on random genetic mutations | Plus: developmental bias, niche construction, [**epigenetics**](#gl:epigenetics), learning |
@@ -766,6 +768,7 @@ Meanwhile, native predators in newly colonized areas have evolved rapidly in res
 
 The choice between **punctuated equilibrium** and **phyletic gradualism** is not strictly either/or — both modes are observed in different lineages, and the empirical signatures of each differ:
 
+: Punctuated Equilibrium versus Phyletic Gradualism: Empirical Signatures: Feature and Phyletic gradualism. {#tbl:unit_VI_evolution_and_selection_punctuated_equilibrium_versus_phyletic_gradualism_empirical_signatures}
 | Feature | Phyletic gradualism | Punctuated equilibrium |
 |---------|--------------------|--------------------------|
 | **Tempo** | Slow, continuous change | Long stasis interrupted by rapid bursts |
@@ -799,7 +802,7 @@ These examples of real-time evolution are important not only as scientific confi
 
 > **Clinical Connection — Antibiotic resistance as natural selection in hospital time.** *Staphylococcus aureus* isolates from UK hospitals have been genome-sequenced longitudinally since 1960. Each new β-lactam antibiotic introduced (penicillin → methicillin → vancomycin → linezolid → daptomycin) triggered the spread of resistance alleles within 2–15 years, driven by [**plasmid**](#gl:plasmid)-borne *mecA*, *vanA*, or chromosomal mutations. This is directional selection with an imposed fitness landscape whose peaks move with every new drug. Combination therapy (two antibiotics targeting different molecular machinery) slows resistance because a bacterium now requires two simultaneous mutations — the product of two low probabilities. The same Fisherian selection mathematics that describes pepper-moth evolution quantitatively predicts multi-drug regimen design in infectious disease and cancer.
 
-> **Clinical Connection — Darwinian oncology.** A tumour is a population of cells with heritable genetic variation and differential reproductive success under treatment pressure — a Darwinian system. Classic cytotoxic chemotherapy selects rapidly-dividing cells; the surviving slow-cyclers (the *persister* population) become the seed for relapse. Modern "adaptive therapy" exploits frequency-dependent selection: by intermittently *withholding* drug once the tumour shrinks, a sensitive subpopulation is kept alive to competitively suppress resistant clones. Trials in metastatic prostate cancer (abiraterone cycling) show median progression-free survival gains of 10–18 months versus continuous dosing, directly derived from evolutionary game theory.
+> **Clinical Connection — Darwinian oncology.** A tumor is a population of cells with heritable genetic variation and differential reproductive success under treatment pressure — a Darwinian system. Classic cytotoxic chemotherapy selects rapidly-dividing cells; the surviving slow-cyclers (the *persister* population) become the seed for relapse. Modern "adaptive therapy" exploits frequency-dependent selection: by intermittently *withholding* drug once the tumor shrinks, a sensitive subpopulation is kept alive to competitively suppress resistant clones. Trials in metastatic prostate cancer (abiraterone cycling) show median progression-free survival gains of 10–18 months versus continuous dosing, directly derived from evolutionary game theory.
 
 ---
 
@@ -815,13 +818,13 @@ w_bar = fitness_landscape_1d(p_vals, fitness_AA=1.0, fitness_Aa=0.95, fitness_aa
 print([round(w, 4) for w in w_bar])
 ```
 
-> **Clinical / systems note:** Antimicrobial stewardship explicitly manipulates $s$ and $N_e$ (host population colonisation load) to keep resistance alleles from fixing --- the same selection algebra taught for moths and finches.
+> **Clinical / systems note:** Antimicrobial stewardship explicitly manipulates $s$ and $N_e$ (host population colonization load) to keep resistance alleles from fixing --- the same selection algebra taught for moths and finches.
 
 ---
 
 ### Evolution in the Synthetic Age: CRISPR Gain-of-Function Research and Evolutionary Ethics
 
-The same experimental tools that make evolution a tractable laboratory science — CRISPR-Cas9 genome engineering, directed evolution via phage-assisted continuous evolution (PACE), and *in silico* fitness-landscape modelling — have forced evolutionary biologists into ethics that Darwin rarely anticipated. The 2011–2012 **H5N1 gain-of-function experiments** (Fouchier lab, Kawaoka lab) demonstrated that primarily a handful of spike-protein mutations were needed to make avian influenza airborne-transmissible in ferrets — effectively *running a natural experiment in the laboratory* on a pathogen that kills ~60 % of infected humans. The dual-use research of concern (DURC) framework that emerged from the ensuing moratorium (2012–2014, 2017–present) now governs any research whose foreseeable output is "enhanced potential pandemic pathogens."
+The same experimental tools that make evolution a tractable laboratory science — CRISPR-Cas9 genome engineering, directed evolution via phage-assisted continuous evolution (PACE), and *in silico* fitness-landscape modeling — have forced evolutionary biologists into ethics that Darwin rarely anticipated. The 2011–2012 **H5N1 gain-of-function experiments** (Fouchier lab, Kawaoka lab) demonstrated that primarily a handful of spike-protein mutations were needed to make avian influenza airborne-transmissible in ferrets — effectively *running a natural experiment in the laboratory* on a pathogen that kills ~60 % of infected humans. The dual-use research of concern (DURC) framework that emerged from the ensuing moratorium (2012–2014, 2017–present) now governs any research whose foreseeable output is "enhanced potential pandemic pathogens."
 
 Beyond viruses, the ethical landscape expands rapidly: **gene drives** (Crisanti lab, *Nat. Biotechnol.* 2018) use CRISPR-Cas9 to bias inheritance toward a designed allele at rates approaching 99 % — demonstrated in caged *Anopheles gambiae* populations eradicated in 7–11 generations. Gene drives could plausibly eliminate malaria, but also represent an irrevocable alteration of an evolutionary trajectory involving an entire species. **CRISPR germline editing** in humans (He Jiankui, 2018) targeting CCR5 to confer HIV resistance produced two living children (Lulu and Nana) with off-target effects in the same gene of unknown phenotypic consequence, and generated a unanimous international moratorium on heritable genome editing. **Resurrection biology** (Colossal Biosciences woolly-mammoth project, 2024) uses Asian-elephant fibroblast editing to re-create approximations of extinct phenotypes, provoking debate about whether a mammoth is "brought back" or "created anew."
 
@@ -864,6 +867,7 @@ For selection claims, separate fitness differences from storytelling by naming t
 
 ## Key Terms
 
+: Evolution in the Synthetic Age: CRISPR Gain-of-Function Research and Evolutionary Ethics: Term and Definition. {#tbl:unit_VI_evolution_and_selection_evolution_in_the_synthetic_age_crispr_gain_of_function_research_and_evolutionary_ethics}
 | Term | Definition |
 | ---- | ---------- |
 | **Natural selection** | Differential survival and reproduction of individuals based on heritable variation in fitness-related traits |
@@ -873,8 +877,8 @@ For selection claims, separate fitness differences from storytelling by naming t
 | **Disruptive selection** | Selection favoring both phenotypic extremes at the expense of intermediates |
 | **Sexual selection** | Selection arising from variation in mating success; includes intersexual (mate choice) and intrasexual (competition) components |
 | **Kin selection** | Natural selection favoring altruistic behaviors toward genetic relatives, governed by Hamilton's rule ($rB > C$) |
-| **[Eusociality](#gl:eusociality)** | Social system with cooperative brood care, overlapping generations, and reproductive division of labour |
-| **[Haplodiploidy](#gl:haplodiploidy)** | Sex-determination system in which haploid males develop from unfertilised eggs and diploid females from fertilised eggs |
+| **[Eusociality](#gl:eusociality)** | Social system with cooperative brood care, overlapping generations, and reproductive division of labor |
+| **[Haplodiploidy](#gl:haplodiploidy)** | Sex-determination system in which haploid males develop from unfertilised eggs and diploid females from fertilized eggs |
 | **Frequency-dependent selection** | Fitness of a phenotype depends on its frequency in the population; negative form maintains polymorphism |
 | **Adaptation** | A heritable trait shaped by natural selection that increases fitness in the current environment |
 | **Exaptation** | A trait originally shaped by selection for one function that has been co-opted for a different function |
@@ -918,13 +922,13 @@ For selection claims, separate fitness differences from storytelling by naming t
 9. Define coevolution and provide an example of a coevolutionary arms race. How does the Red Queen hypothesis explain the maintenance of sexual reproduction in the face of its twofold cost?
 
 10. The Extended Evolutionary Synthesis proposes mechanisms beyond those in the Modern Synthesis. Choose one (developmental plasticity, epigenetic inheritance, niche construction, or cultural evolution) and explain how it might influence evolutionary trajectories in ways not captured by standard population genetics models.
-11. At which $p$ is $\bar W$ maximised for the fitness set in the bridge code? Relate to equilibrium under one-locus selection.
-12. Give one example where **kin selection** predicts a behaviour that violates individual fitness maximisation yet spreads in haplodiploid hymenoptera.
+11. At which $p$ is $\bar W$ maximized for the fitness set in the bridge code? Relate to equilibrium under one-locus selection.
+12. Give one example where **kin selection** predicts a behavior that violates individual fitness maximization yet spreads in haplodiploid hymenoptera.
 ## Further Reading and Source Notes: Evolution — Theory, Natural Selection, and Adaptation
 
 - Darwin & Wallace (1858). On the Tendency of Species to form Varieties. *Journal of the Proceedings of the Linnean Society: Zoology*, 3.
 - Williams (1966). *Adaptation and Natural Selection*. Princeton University Press.
-- Hamilton (1964). The genetical evolution of social behaviour I and II. *Journal of Theoretical Biology*.
+- Hamilton (1964). The genetical evolution of social behavior I and II. *Journal of Theoretical Biology*.
 - Crespi & Yanega (1995). The definition of eusociality. *Behavioral Ecology*.
 - Bourke (2011). *Principles of Social Evolution*. Oxford University Press.
 - Karn & Penrose (1951). Birth weight and gestation time in relation to maternal age, parity and infant survival. *Annals of Eugenics*, 16.
@@ -941,6 +945,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Evolution — Theory, Natural Selection, and Adaptation. {#tbl:unit_VI_evolution_and_selection_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/evolution/evolution.py` (`selection_one_generation`, `simulate_selection`, `fitness_landscape_1d`) | Reproduce selection trajectories and landscape reasoning. |

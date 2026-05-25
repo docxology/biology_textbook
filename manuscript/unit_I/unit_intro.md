@@ -1,11 +1,10 @@
-# Unit I — Chemistry of Life: Introduction {.unnumbered}
+# Unit I — Chemistry of Life: Introduction {#sec:unit_I_unit_intro .unnumbered}
 
 
-\label{sec:unit_I_unit_intro}
 ## Why This Unit Matters {.unnumbered}
 
 Every organism on Earth — a bacterium dividing in a hydrothermal vent, a redwood drawing water through
-100 metres of trunk, a neuron firing in your brain right now — is made of the same ~25 elements obeying
+100 meters of trunk, a neuron firing in your brain right now — is made of the same ~25 elements obeying
 the same quantum-mechanical rules identified over the last two centuries. Chemistry is not merely a
 prerequisite for biology; it **is** biology at its most fundamental level. Understanding the electron
 orbitals of carbon explains why proteins fold. Understanding electronegativity explains why DNA holds its
@@ -31,13 +30,13 @@ which life has been shaped by evolution.
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| Friedrich Wöhler | 1828 | *Annalen der Physik* | Synthesis of urea from inorganic ammonium cyanate | Disproved vitalism; showed organic compounds obey the same chemistry as inorganic ones |
-| Linus Pauling & Robert Corey | 1951 | *Proc. Natl. Acad. Sci.* | α-helix and β-sheet structures of proteins | Established that protein secondary structure is stabilised by H-bonds; first use of electronegativity to predict biological structure |
-| James Watson & Francis Crick | 1953 | *Nature* | Double-helix structure of DNA | Anti-parallel, complementary base-pairing via H-bonds; immediately suggested replication mechanism |
-| Frederic Sanger | 1955 | *Biochemical Journal* | Complete amino acid sequence of bovine insulin | Proved proteins are defined covalent sequences, not random polymers; introduced sequence concept |
-| Leonor Michaelis & Maud Menten | 1913 | *Biochemische Zeitschrift* | Enzyme-substrate saturation kinetics | Derived $v = V_{max}[S]/(K_m + [S])$; quantitative foundation of enzymology |
-| Daniel Koshland | 1958 | *Proc. Natl. Acad. Sci.* | Induced-fit model of enzyme catalysis | Replaced lock-and-key; explained conformational changes in enzyme-substrate interaction |
-| Jacques Monod, Jeffries Wyman & Jean-Pierre Changeux | 1965 | *J. Mol. Biol.* | MWC model of allosteric regulation | Showed enzymes have distinct regulatory and catalytic sites; explains cooperative binding |
+| Friedrich Wöhler | 1828 | \citep{wohler1828} | Synthesis of urea from inorganic ammonium cyanate | Disproved vitalism; showed organic compounds obey the same chemistry as inorganic ones |
+| Linus Pauling & Robert Corey | 1951 | \citep{pauling1951helix} | α-helix and β-sheet structures of proteins | Established that protein secondary structure is stabilized by H-bonds; first use of electronegativity to predict biological structure |
+| James Watson & Francis Crick | 1953 | \citep{watson1953} | Double-helix structure of DNA | Anti-parallel, complementary base-pairing via H-bonds; immediately suggested replication mechanism |
+| Frederic Sanger | 1955 | \citep{sanger1955insulin} | Complete amino acid sequence of bovine insulin | Proved proteins are defined covalent sequences, not random polymers; introduced sequence concept |
+| Leonor Michaelis & Maud Menten | 1913 | \citep{michaelis1913} | Enzyme-substrate saturation kinetics | Derived $v = V_{max}[S]/(K_m + [S])$; quantitative foundation of enzymology |
+| Daniel Koshland | 1958 | \citep{koshland1958} | Induced-fit model of enzyme catalysis | Replaced lock-and-key; explained conformational changes in enzyme-substrate interaction |
+| Jacques Monod, Jeffries Wyman & Jean-Pierre Changeux | 1965 | \citep{monod1965} | MWC model of allosteric regulation | Showed enzymes have distinct regulatory and catalytic sites; explains cooperative binding |
 
 ---
 
@@ -62,9 +61,9 @@ graph TD
     style J fill:#e67e22,color:#fff
     style K fill:#d35400,color:#fff
 ```
-<!-- alt: Graph showing chemistry-of-life concept map — arrows show conceptual dependencies; colour groups: blue = atomic/molecular; orange = enzyme function. -->
+<!-- alt: Graph showing chemistry-of-life concept map — arrows show conceptual dependencies; color groups: blue = atomic/molecular; orange = enzyme function. -->
 
-*Chemistry-of-life concept map — arrows show conceptual dependencies; colour groups: blue = atomic/molecular; orange = enzyme function.*
+*Chemistry-of-life concept map — arrows show conceptual dependencies; color groups: blue = atomic/molecular; orange = enzyme function.*
 
 ---
 
@@ -82,7 +81,7 @@ paper-based lab decision.
 | ------- | ----- | ------------- | -------------------- |
 | **1** | Atoms, Molecules, and Chemical Bonds | Why do atoms bond, and how does bond type determine biological function? | $\Delta G^{\circ\prime} = -nF\Delta E^{\circ\prime}$ |
 | **2** | Water — The Molecule of Life | What makes water anomalous, and why is that anomaly essential for life? | $\pi = iCRT$ (osmotic pressure) |
-| **3** | Biological Macromolecules | How do four classes of polymer encode and carry out life's functions? | Molecular weight, degree of polymerisation |
+| **3** | Biological Macromolecules | How do four classes of polymer encode and carry out life's functions? | Molecular weight, degree of polymerization |
 | **4** | Enzymes and the Kinetics of Catalysis | How do enzymes lower activation energy, and how is their activity regulated? | $v = V_{max}[S]/(K_m + [S])$ |
 
 ---
@@ -92,7 +91,7 @@ paper-based lab decision.
 \nameref{sec:unit_I_unit_intro} establishes the chemical vocabulary for the entire textbook:
 
 - The **bond energies and functional groups** introduced here reappear in \nameref{sec:unit_III_unit_intro} (energy released by glucose oxidation), \nameref{sec:unit_IV_unit_intro} (phosphodiester bonds of DNA), and \nameref{sec:unit_V_unit_intro} (crossing-over in chromatin).
-- **Enzyme kinetics** (\cref{sec:unit_I_enzymes_and_kinetics}) reappears in \nameref{sec:unit_III_unit_intro} (PFK-1 allosteric regulation), \nameref{sec:unit_VII_unit_intro} (antibiotic targets on bacterial enzymes), and \nameref{sec:unit_IX_unit_intro} (haemoglobin co-operativity).
+- **Enzyme kinetics** (\cref{sec:unit_I_enzymes_and_kinetics}) reappears in \nameref{sec:unit_III_unit_intro} (PFK-1 allosteric regulation), \nameref{sec:unit_VII_unit_intro} (antibiotic targets on bacterial enzymes), and \nameref{sec:unit_IX_unit_intro} (hemoglobin co-operativity).
 - **pH and buffers** link directly to \nameref{sec:unit_II_unit_intro} (lysosomal pH 4.5 vs. cytoplasmic pH 7.2), \nameref{sec:unit_III_unit_intro} (mitochondrial proton gradient), and \nameref{sec:unit_IX_unit_intro} (blood acid-base balance in clinical contexts).
 - **Chirality** of L-amino acids and D-sugars reappears in \nameref{sec:unit_VII_unit_intro} (D-amino acids in bacterial cell walls) and \nameref{sec:unit_V_unit_intro} (enzyme specificity in DNA repair).
 

@@ -1,4 +1,4 @@
-# Lab — Epigenetic Inheritance and Disease {.unnumbered}
+# Lab — Epigenetic Inheritance and Disease {#sec:lab_unit_IV_epigenetic_inheritance_and_disease .unnumbered}
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
@@ -10,16 +10,16 @@
 - **Chapter LO coverage:** LO1, LO2, LO3, LO4
 - **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
 <!-- lab-alignment-end -->
-\label{sec:lab_unit_IV_epigenetic_inheritance_and_disease}
 
 *This activity accompanies \cref{sec:unit_IV_epigenetic_inheritance_and_disease} of the textbook — review that chapter before attempting the exercises below.*
 
 ## Lab Context: Epigenetic Inheritance and Disease {.unnumbered}
 
-This extension lab focuses on three-dimensional genome organisation, transgenerational inheritance claims, and disease-linked epigenetic dysregulation using printed datasets rather than live database queries.
+This extension lab focuses on three-dimensional genome organization, transgenerational inheritance claims, and disease-linked epigenetic dysregulation using printed datasets rather than live database queries.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IV_epigenetic_inheritance_and_disease_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Epigenetic Inheritance and Disease: genomics/database source card: reference release, sample coverage, version, clinical boundary, and refresh trigger | 1 |
@@ -35,6 +35,7 @@ This extension lab focuses on three-dimensional genome organisation, transgenera
 
 ## Data Recording {.unnumbered}
 
+: Alignment and Rubric Map: Condition and Repressor bound to operator?. {#tbl:unit_IV_epigenetic_inheritance_and_disease_alignment_and_rubric_map_2}
 | Condition | Repressor bound to operator? | CAP-cAMP at promoter? | lac genes expressed? |
 | --------- | ---------------------------- | --------------------- | -------------------- |
 | No lactose, no glucose | Yes | No | No |
@@ -64,6 +65,7 @@ Agouti mouse case study: Methyl donor involved: ___; Epigenetic enzyme: ___; Phe
 Before answering the analysis questions, annotate the paper dataset for
 **Epigenetics and Gene Regulation** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_IV_epigenetic_inheritance_and_disease_alignment_and_rubric_map_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -92,9 +94,9 @@ equipment version belongs only in an optional extension.
 
 2. In catabolite repression, high glucose causes low cAMP because glucose inhibits adenylate cyclase. Trace: high glucose → [cAMP] → CAP-cAMP binding → lac promoter activity. Why does the cell preferentially use glucose over lactose?
 
-3. A cancer cell has methylation of a tumour suppressor gene promoter but no mutation in the coding sequence. Is this a genetic or epigenetic mutation? Why is this clinically important for therapy selection (hint: methyltransferase inhibitors vs traditional chemotherapy)?
+3. A cancer cell has methylation of a tumor suppressor gene promoter but no mutation in the coding sequence. Is this a genetic or epigenetic mutation? Why is this clinically important for therapy selection (hint: methyltransferase inhibitors vs traditional chemotherapy)?
 
-4. The agouti mouse model showed that maternal diet (methyl-group-rich foods) changes offspring coat colour and obesity risk through epigenetic marks. Name the methyl donors involved (from diet) and the epigenetic writing enzyme that places the mark on CpG islands.
+4. The agouti mouse model showed that maternal diet (methyl-group-rich foods) changes offspring coat color and obesity risk through epigenetic marks. Name the methyl donors involved (from diet) and the epigenetic writing enzyme that places the mark on CpG islands.
 
 5. Design an experiment using induced pluripotent stem cell (iPSC) technology to test whether erasing epigenetic marks (global demethylation) is sufficient to reprogram a differentiated skin fibroblast. What control groups would you include?
 
@@ -112,7 +114,7 @@ equipment version belongs only in an optional extension.
 
 7. Transgenerational epigenetic inheritance in humans remains controversial. What *specific* molecular evidence would convince you it is real? (Address confounding: shared environment, germline reprogramming.)
 
-8. The textbook introduces CRISPR-dCas9 epigenome editing. Design a dCas9-based experiment to re-activate the silenced tumour-suppressor gene you identified in the ChIP-seq analysis, and predict one off-target risk.
+8. The textbook introduces CRISPR-dCas9 epigenome editing. Design a dCas9-based experiment to re-activate the silenced tumor-suppressor gene you identified in the ChIP-seq analysis, and predict one off-target risk.
 
 9. **Statistical Analysis**: If you performed three replicates of an MS-PCR experiment, how would you analyze the variation in methylation status? What statistical test would you use to determine if differences between groups are significant?
 
@@ -165,7 +167,7 @@ After you finish the practical work, spend 5–10 minutes in your small group co
 
 2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
 
-3. **One-sentence headline** — each student composes a single sentence summarising the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
+3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
 
 4. **Connection back to the textbook** — identify one section of \cref{sec:unit_IV_epigenetic_inheritance_and_disease} that your data either confirmed or complicated. Cite the specific passage.
 

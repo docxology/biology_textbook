@@ -2,7 +2,7 @@
 
 ## Unit Overview
 
-Unit II covers cell theory, prokaryotic and eukaryotic cell structure, membrane transport including the Nernst and Goldman equations, and cell signalling cascades and the cell cycle.
+Unit II covers cell theory, prokaryotic and eukaryotic cell structure, membrane transport including the Nernst and Goldman equations, and cell signaling cascades and the cell cycle.
 
 ## Source Module
 
@@ -19,7 +19,7 @@ Unit II covers cell theory, prokaryotic and eukaryotic cell structure, membrane 
 1. `cell_theory.md` — Cell Theory and Cell Types
 2. `cell_structure.md` — Cell Structure and Organelles
 3. `membrane_transport.md` — Membrane Structure and Transport
-4. `cell_signaling.md` — Cell Signalling and Communication
+4. `cell_signaling.md` — Cell Signaling and Communication
 
 ## Key Equations
 

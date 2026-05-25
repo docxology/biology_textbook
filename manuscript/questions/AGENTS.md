@@ -2,7 +2,7 @@
 
 ## Role
 
-Question banks that accompany the textbook, one per chapter. **44 question banks** total, **30 questions each** (10 recall + 10 application + 10 synthesis), organised into 11 unit subdirectories (`unit_0/` through `unit_X/`). Rendered as an appendix when `appendices.include_questions: true` in `manuscript/config.yaml`.
+Question banks that accompany the textbook, one per chapter. **44 question banks** total, **30 questions each** (10 recall + 10 application + 10 synthesis), organized into 11 unit subdirectories (`unit_0/` through `unit_X/`). Rendered as an appendix when `appendices.include_questions: true` in `manuscript/config.yaml`.
 
 ## File Names and Mapping
 
@@ -35,7 +35,7 @@ Every question-bank file **must** contain:
 
 4. **Exactly 30 questions** in three tiers:
    - Questions 1–10: recall & comprehension (Remember, Understand)
-   - Questions 11–20: application & analysis (Apply, Analyse)
+   - Questions 11–20: application & analysis (Apply, Analyze)
    - Questions 21–30: synthesis & evaluation (Evaluate, Create)
 
 ## Student vs instructor edition

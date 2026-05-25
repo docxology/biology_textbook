@@ -20,14 +20,14 @@ Rendering through the template pipeline uses `infrastructure.project.discovery.r
 | Author / ORCID | `config.yaml` → `book`, `authors[]` |
 | Cover image | `config.yaml` → `book.cover.image`; regenerate with `uv run python scripts/generate_cover_art.py` |
 | Margins / body size | `config.yaml` → `layout.margin_*_mm`, `typography.base_font_size_pt`, `layout.line_height` **and** the matching `geometry`, `\normalsize`, `\setstretch` block in `preamble.md` |
-| Link colour | `config.yaml` → `typography.link_color` |
+| Link color | `config.yaml` → `typography.link_color` |
 | Toggle front matter | `config.yaml` → `front_matter.include_front_matter` |
 | Navigation / scope blocks | `front_matter.md` and `preface.md` generated markers — edit `config.yaml`, then rerun `uv run python scripts/sync_curriculum_materials.py` |
 | Course Planning Grid | Auto-generated in `front_matter.md` between `<!-- course-planning-grid-start -->` and `<!-- course-planning-grid-end -->` markers — edit `config.yaml` titles/order and `../src/biology/chapter_metadata.py`, then rerun `../scripts/insert_chapter_metadata.py` |
 | Glossary | `glossary.md` — each term is a bracketed span `` [**Term**]{#gl:<slug>} `` (PDF ``\label{gl:…}``); link on first use with `` `[**term**](#gl:<slug>)` `` |
-| Generate figures | From project root: `uv run python scripts/generate_figures.py` (32 square-padded matplotlib; uses `src/visualization/cvd.py` for CVD-friendly colours) |
+| Generate figures | From project root: `uv run python scripts/generate_figures.py` (32 square-padded matplotlib; uses `src/visualization/cvd.py` for CVD-friendly colors) |
 | Accessibility, config vs tests | [../docs/accessibility.md](../docs/accessibility.md) |
-| Generate registered Mermaid PNGs | `uv run python scripts/generate_diagrams.py --strict-png` for publication checks (24 registry diagrams); the 193 inline Mermaid fences render during PDF preprocessing |
+| Generate registered Mermaid PNGs | `uv run python scripts/generate_diagrams.py --strict-png` for publication checks (24 registry diagrams); the 196 inline Mermaid fences render during PDF preprocessing |
 | Check current claims | `uv run python scripts/audit_current_claims.py --check`; source data lives in `current_claims.yaml` |
 | Check assessment metadata | `uv run python scripts/sync_assessment_metadata.py --dry-run` to preview drift; `uv run python scripts/sync_assessment_metadata.py --check` gates question items and lab alignment |
 | Render PDF | From repo root: `uv run python scripts/03_render_pdf.py --project biology_textbook` |
@@ -45,7 +45,7 @@ After large bibliography or glossary edits, refresh any documented counts with `
 - Every chapter carries a `<!-- chapter-metadata-badge -->` blockquote
 - Every lab and question bank `\cref`-links back to its parent chapter
 - Lab and question-bank entries in `config.yaml` store only `file:` names; do not add duplicated `title:` strings there
-- Every `\citep{…}` / `\citet{…}` resolves to an entry in `references.bib`; no entry is orphaned
+- Every documented natbib cite command resolves to an entry in `references.bib`; no entry is orphaned
 - All invariants are asserted by `../tests/test_toc_consistency.py`, `../tests/test_build_invariants.py`, `../tests/test_bibliography_closure.py`, `../tests/test_chapter_metadata.py`, `../tests/test_curriculum_metadata.py`, `../tests/test_accessibility.py`, `../tests/test_crossref_validator*.py`, `../tests/test_lab_integrity.py`, `../tests/test_question_answer_refinement.py`, `../tests/test_chapter_pedagogy_coverage.py`, and `../tests/test_script_quality.py`
 
 ## Course pathways

@@ -30,7 +30,7 @@ claims:
     file: manuscript/unit_IV/mutations_and_genomics.md
     source_path: manuscript/unit_IV/mutations_and_genomics.md
     anchor_text: "A 2025 *Blood* study used prime-editing guide RNAs"
-    claim_text: "Prime-editing studies can rewrite fetal-haemoglobin regulatory promoters but remain early translational evidence rather than approved therapy."
+    claim_text: "Prime-editing studies can rewrite fetal-hemoglobin regulatory promoters but remain early translational evidence rather than approved therapy."
     topic: genome-editing therapy
     source_tier: scholarly_primary
     citekey: chalumeau2025primeediting
@@ -38,7 +38,7 @@ claims:
     url_or_citekey: chalumeau2025primeediting
     evidence_date: 2025-01-01
     checked_as_of: 2026-05-20
-    refresh_trigger: "New prime-editing clinical trial, FDA/EMA application, or haematopoietic stem-cell editing outcome update."
+    refresh_trigger: "New prime-editing clinical trial, FDA/EMA application, or hematopoietic stem-cell editing outcome update."
   - claim_id: crispr-diagnostics-collateral-cleavage
     file: manuscript/unit_IV/mutations_and_genomics.md
     source_path: manuscript/unit_IV/mutations_and_genomics.md
@@ -186,7 +186,7 @@ claims:
     file: manuscript/unit_II/cell_theory.md
     source_path: manuscript/unit_II/cell_theory.md
     anchor_text: "Single-cell atlases are most useful when they clarify the sampled tissue"
-    claim_text: "Single-cell and spatial atlas claims should be framed as evidence about cell states and neighbourhoods that still require validation."
+    claim_text: "Single-cell and spatial atlas claims should be framed as evidence about cell states and neighborhoods that still require validation."
     topic: single-cell and spatial biology
     source_tier: scholarly_primary
     citekey: pan2024singlecellatlas
@@ -250,8 +250,8 @@ claims:
   - claim_id: checkpoint-indications-2026
     file: manuscript/unit_IX/immune_system_defense.md
     source_path: manuscript/unit_IX/immune_system_defense.md
-    anchor_text: "checkpoint indications change by tumour type"
-    claim_text: "Checkpoint inhibitor indications and examples are current clinical claims that change by tumour type, biomarker, and line of therapy."
+    anchor_text: "checkpoint indications change by tumor type"
+    claim_text: "Checkpoint inhibitor indications and examples are current clinical claims that change by tumor type, biomarker, and line of therapy."
     topic: immunotherapy
     source_tier: official_summary
     citekey: nci2026checkpointinhibitors
@@ -381,7 +381,7 @@ claims:
     file: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     source_path: manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     anchor_text: "shorter most-oral regimens for eligible patients"
-    claim_text: "WHO 2025 TB guidance prioritises shorter most-oral regimens for eligible MDR/RR-TB patients while preserving individualized regimens for exclusions."
+    claim_text: "WHO 2025 TB guidance prioritizes shorter most-oral regimens for eligible MDR/RR-TB patients while preserving individualized regimens for exclusions."
     topic: tuberculosis
     source_tier: official_primary
     citekey: who2025tb
@@ -398,7 +398,7 @@ claims:
     topic: malaria
     source_tier: official_primary
     citekey: who2025malaria
-    url: https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025
+    url: https://www.who.int/teams/global-malaria-program/reports/world-malaria-report-2025
     url_or_citekey: who2025malaria
     evidence_date: 2025-12-01
     checked_as_of: 2026-05-20
@@ -411,7 +411,7 @@ claims:
     topic: malaria
     source_tier: official_primary
     citekey: who2025malaria
-    url: https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025
+    url: https://www.who.int/teams/global-malaria-program/reports/world-malaria-report-2025
     url_or_citekey: who2025malaria
     evidence_date: 2025-12-01
     checked_as_of: 2026-05-20
@@ -546,6 +546,19 @@ claims:
     evidence_date: 2019-03-29
     checked_as_of: 2026-05-20
     refresh_trigger: "New cross-ancestry PRS benchmark, clinical guidance, FDA/NIH policy, or large multi-ancestry GWAS update."
+  - claim_id: height-gwas-saturated-map-2022
+    file: manuscript/unit_V/mendelian_extensions_and_human_genetics.md
+    source_path: manuscript/unit_V/mendelian_extensions_and_human_genetics.md
+    anchor_text: "a 2022 study of 5.4 million people reported 12,111 independent height-associated SNPs"
+    claim_text: "Human height is framed as a highly polygenic trait whose current common-variant maps report thousands of associated loci and ancestry-dependent prediction strength."
+    topic: polygenic height genetics
+    source_tier: scholarly_primary
+    citekey: yengo2022heightgwas
+    url: https://doi.org/10.1038/s41586-022-05275-y
+    url_or_citekey: yengo2022heightgwas
+    evidence_date: 2022-10-12
+    checked_as_of: 2026-05-23
+    refresh_trigger: "New large height GWAS, cross-ancestry prediction benchmark, or major common-variant saturation update."
   - claim_id: synthetic-apomixis-rice-frequency-2022
     file: manuscript/unit_VIII/plant_reproduction.md
     source_path: manuscript/unit_VIII/plant_reproduction.md
@@ -585,3 +598,42 @@ claims:
     evidence_date: 2016-02-26
     checked_as_of: 2026-05-23
     refresh_trigger: "New IPBES pollinator assessment, FAO crop-pollination synthesis, or major pollinator-risk/status update."
+  - claim_id: us-fdg-pet-annual-volume
+    file: manuscript/unit_I/atoms_molecules.md
+    source_path: manuscript/unit_I/atoms_molecules.md
+    anchor_text: "two million times per year in the United States alone"
+    claim_text: "Roughly two million PET/CT studies are performed annually in the United States, with FDG accounting for the majority of clinical PET scans."
+    topic: nuclear medicine utilization
+    source_tier: scholarly_primary
+    citekey: indrakanti2022multiplefdgpet
+    url: https://doi.org/10.1259/bjr.20211225
+    url_or_citekey: indrakanti2022multiplefdgpet
+    evidence_date: 2022-05-05
+    checked_as_of: 2026-05-23
+    refresh_trigger: "New IMV PET census, CMS procedure-volume update, or peer-reviewed U.S. PET utilization benchmark."
+  - claim_id: global-diabetes-prevalence-2024
+    file: manuscript/unit_I/macromolecules.md
+    source_path: manuscript/unit_I/macromolecules.md
+    anchor_text: "589 million adults aged 20--79"
+    claim_text: "IDF Diabetes Atlas 11th edition estimates 589 million adults aged 20--79 lived with diabetes worldwide in 2024."
+    topic: diabetes epidemiology
+    source_tier: official_primary
+    citekey: magliano2025idfdiabetesatlas11
+    url: https://doi.org/10.1016/S2213-8587(24)00380-7
+    url_or_citekey: magliano2025idfdiabetesatlas11
+    evidence_date: 2025-02-01
+    checked_as_of: 2026-05-23
+    refresh_trigger: "New IDF Diabetes Atlas edition or Lancet companion prevalence update."
+  - claim_id: master-glossary-term-count
+    file: manuscript/front_matter.md
+    source_path: manuscript/front_matter.md
+    anchor_text: "226 terms with etymology and chapter cross-references"
+    claim_text: "The master glossary documents 226 indexed terms with {#gl:…} anchors in manuscript/glossary.md."
+    topic: textbook metadata
+    source_tier: official_summary
+    citekey: ""
+    url: https://github.com/docxology/biology_textbook/blob/main/manuscript/glossary.md
+    url_or_citekey: manuscript/glossary.md
+    evidence_date: 2026-05-23
+    checked_as_of: 2026-05-23
+    refresh_trigger: "Regenerate after glossary additions or removals; verify with rg -c '{#gl:' manuscript/glossary.md."

@@ -8,7 +8,7 @@
 ## Learning Objectives
 
 1. Apply island biogeography and species-area relationships to habitat fragments.
-2. Analyse food-web structure, keystone species, and trophic cascades.
+2. Analyze food-web structure, keystone species, and trophic cascades.
 3. Calculate Shannon diversity and interpret evenness versus richness.
 4. Evaluate biodiversity-ecosystem function and conservation tradeoffs.
 
@@ -22,7 +22,7 @@
 
 ### MacArthur-Wilson Equilibrium Model
 
-**\citet{macarthur1967}:** *The Theory of Island Biogeography* — equilibrium species richness on islands balances immigration (colonisation) rate and extinction rate:
+**\citet{macarthur1967}:** *The Theory of Island Biogeography* — equilibrium species richness on islands balances immigration (colonization) rate and extinction rate:
 
 - **Immigration rate** decreases as $S$ increases (fewer uncolonised species remain in the mainland pool)
 - **Extinction rate** increases as $S$ increases (more species present means more potential extinctions)
@@ -30,10 +30,11 @@
 
 **Effects of island characteristics:**
 
+: Effects of island characteristics on MacArthur-Wilson equilibrium richness. {#tbl:unit_X_biodiversity_and_food_webs_macarthur_wilson_equilibrium_model}
 | Factor | Effect on $\hat{S}$ | Mechanism |
 | ------ | ------------------- | --------- |
 | **Larger area** | Higher $\hat{S}$ | Lower extinction rate (larger populations, more habitats) |
-| **Closer to mainland** | Higher $\hat{S}$ | Higher immigration rate (easier colonisation) |
+| **Closer to mainland** | Higher $\hat{S}$ | Higher immigration rate (easier colonization) |
 | **Small + far** | Lowest $\hat{S}$ | High extinction, low immigration |
 | **Large + near** | Highest $\hat{S}$ | Low extinction, high immigration |
 
@@ -85,6 +86,7 @@ S = cA^z
 
 Log-transformed: $\log S = \log c + z \log A$
 
+: Species-Area Relationship: Context and Typical z. {#tbl:unit_X_biodiversity_and_food_webs_species_area_relationship}
 | Context | Typical $z$ | Interpretation |
 | ------- | ----------- | -------------- |
 | True islands | 0.20-0.35 | Higher $z$ because islands are more isolated |
@@ -108,12 +110,13 @@ for area_ha in [1, 10, 100, 1000, 10000]:
 
 - **Post-Krakatoa recolonisation** (1883-1983): After complete sterilisation by eruption, species accumulated toward equilibrium; initial overshoot then relaxation \citep{whittaker1975}
 - **Florida Keys experiment** \citep{simberloff1969}: Fumigated small mangrove islands → recolonisation to predicted equilibrium within 2 years; confirmed immigration-extinction dynamics
-- **Habitat fragments as islands:** Biological Dynamics of Forest Fragments Project (BDFFP, Amazonia; Laurance et al. 2011) — 40 years of data on isolated 1-100 ha fragments showing predictable species loss following species-area relationship
+- **Habitat fragments as islands:** Biological Dynamics of Forest Fragments Project (BDFFP, Amazonia; Laurance et al. 2011) — 40 years of data on isolated 1-100 ha fragments showing predictable species loss following the species-area curve in \cref{fig:unit_X_species_area}
 
 ### SLOSS Debate in Reserve Design
 
-**Single Large Or Several Small** — for conservation, which reserve design maximises biodiversity?
+**Single Large Or Several Small** — for conservation, which reserve design maximizes biodiversity?
 
+: SLOSS Debate in Reserve Design. {#tbl:unit_X_biodiversity_and_food_webs_sloss_debate_in_reserve_design}
 | Design | Advantages | Disadvantages |
 | ------ | ---------- | ------------- |
 | **Single large** | Lower edge-to-interior ratio; larger MVPs; protects area-demanding species | Vulnerability to single catastrophe; may miss regional habitat diversity |
@@ -149,9 +152,9 @@ A patchwork of habitat fragments connected by dispersal — local extinctions of
 \label{eq:community_ecology_14}
 \end{equation}
 
-where $e$ = extinction rate per patch, $c$ = colonisation rate; metapopulation persists if $e/c < 1$.
+where $e$ = extinction rate per patch, $c$ = colonization rate; metapopulation persists if $e/c < 1$.
 
-**Hanski's incidence function model** extends this by incorporating patch area (affects extinction rate) and isolation (affects colonisation rate):
+**Hanski's incidence function model** extends this by incorporating patch area (affects extinction rate) and isolation (affects colonization rate):
 
 \begin{equation}
 J_i = \frac{1}{1 + (e_i/c_i)^2}
@@ -176,8 +179,8 @@ where $J_i$ = probability that patch $i$ is occupied, $e_i \propto A_i^{-x}$, an
 - **Data skill:** Interpret food-web, richness, or biogeography datasets.
 - **Practice cadence:** Representing and Describing Data, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** Richness alone does not equal functional stability.
-- **Primary lab:** \cref{sec:lab_unit_X_biodiversity_and_food_webs}.
-- **Question bank:** \cref{sec:q_unit_X_biodiversity_and_food_webs}.
+- **Primary lab:** \nameref{sec:lab_unit_X_biodiversity_and_food_webs}.
+- **Question bank:** \nameref{sec:q_unit_X_biodiversity_and_food_webs}.
 - **Transfer task:** Transfer biodiversity reasoning to conservation planning and habitat fragmentation.
 - **Bridge to computation:** `biology.ecology.ecology.species_area_relationship`.
 <!-- curriculum-scaffold-end -->
@@ -192,16 +195,17 @@ where $J_i$ = probability that patch $i$ is occupied, $e_i \propto A_i^{-x}$, an
 
 ### Food Web Topology
 
-Food webs are network representations of feeding relationships in communities — a graph where nodes are species (or trophic units) and directed edges encode "$i$ eats $j$." Treating the community as a graph unlocks the entire toolbox of network science (degree distributions, clustering, modularity, motif analysis), which has reshaped community ecology over the past two decades. Key metrics:
+Food webs are network representations of feeding relationships in communities — a graph where nodes are species (or trophic units) and directed edges encode "$i$ eats $j$." At the simplest scale, a two-species predator--prey pair produces the closed cycles in \cref{fig:unit_X_lotka_volterra}; food webs extend that picture to many interacting nodes. Treating the community as a graph unlocks the entire toolbox of network science (degree distributions, clustering, modularity, motif analysis), which has reshaped community ecology over the past two decades. Key metrics:
 
+: Food Web Topology: Metric and Definition. {#tbl:unit_X_biodiversity_and_food_webs_food_web_topology}
 | Metric | Definition | Typical value |
 | ------ | ---------- | ------------- |
-| **Connectance ($C$)** | $C = L/S^2$ (or $L/[S(S-1)/2]$); fraction of possible links realised | 0.05-0.30 |
+| **Connectance ($C$)** | $C = L/S^2$ (or $L/[S(S-1)/2]$); fraction of possible links realized | 0.05-0.30 |
 | **Links per species ($L/S$)** | Average number of trophic links per species | ~2 for most food webs |
 | **Chain length** | Number of links from base to top | 3-5 typically |
 | **Omnivory** | Fraction of species feeding at >1 trophic level | ~50% in many webs |
 | **Mean trophic level** | Average path length from primary producers | 2.5–3.5 typical |
-| **Generality** | Mean number of resources per consumer | Skewed: most consumers specialised |
+| **Generality** | Mean number of resources per consumer | Skewed: most consumers specialized |
 | **Vulnerability** | Mean number of consumers per resource | Skewed: most prey have few predators |
 | **Nestedness** | Specialists' diets are subsets of generalists' diets | High in mutualistic networks |
 
@@ -225,6 +229,7 @@ print(web_stats(example))
 
 Food webs are not just descriptive: their topology predicts how perturbations propagate. Removal experiments (real or simulated) reveal three classes of network response:
 
+: Cascade Effects and Robustness: Response and Mechanism. {#tbl:unit_X_biodiversity_and_food_webs_cascade_effects_and_robustness}
 | Response | Mechanism | Topological signature |
 | -------- | --------- | --------------------- |
 | **Bottom-up cascade** | Loss of a producer ripples upward through consumers | Few generalist consumers; long chains |
@@ -237,19 +242,19 @@ Food webs are not just descriptive: their topology predicts how perturbations pr
 - **Most-connected-first removal: collapse after about 20% of species removed** — hubs (highly connected generalists) are disproportionately important
 - Rarest-first: minimal cascade — rare species are weakly embedded
 
-This is a striking parallel to the **scale-free network** robustness literature (Barabási & Albert 1999): tolerance to random failure but vulnerability to targeted attack. For conservation, hub species are ecological-network analogues of keystone species, identifiable from topology alone.
+This is a striking parallel to the **scale-free network** robustness literature (Barabási & Albert 1999): tolerance to random failure but vulnerability to targeted attack. For conservation, hub species are ecological-network analogs of keystone species, identifiable from topology alone.
 
 ### Complexity-Stability Debate
 
 **May (1972, *Nature*):** Mathematical analysis of random community matrices showed that complexity (high $S$, high $C$, strong interaction strengths) **destabilises** communities — contradicting the intuitive "diversity begets stability" hypothesis. The May criterion: a random Jacobian is locally stable primarily if $\sigma\sqrt{SC} < 1$ (with σ = standard deviation of interaction strengths).
 
 **Resolution (McCann 2000, *Nature*; Allesina & Tang 2012, *Nature*):**
-- Weak interactions stabilise food webs (dampen oscillations)
+- Weak interactions stabilize food webs (dampen oscillations)
 - Non-random interaction structure (modularity, nestedness) promotes stability
 - Real food webs are not random — they have specific architectures that enhance stability
 - **Weak-interaction dominance:** most interactions are weak; few are strong. The many weak links act as stabilisers.
 
-**Modularity:** food webs are organised into modules (compartments) with strong within-module interactions and weak between-module interactions. This structure limits the spread of perturbations — a forest pathogen outbreak in one module rarely cascades into the aquatic module of the same landscape food web.
+**Modularity:** food webs are organized into modules (compartments) with strong within-module interactions and weak between-module interactions. This structure limits the spread of perturbations — a forest pathogen outbreak in one module rarely cascades into the aquatic module of the same landscape food web.
 
 ---
 
@@ -283,14 +288,14 @@ The metacommunity size is $J_M$. Together, θ and $m$ predict species abundance 
 
 UNTB predicts:
 - **Species abundance distribution** follows a zero-sum multinomial (very close to the rank-abundance pattern introduced earlier, but with a heavier tail of rare species)
-- **Species–area relationships** with $z \approx 0.20$–0.30 (matching empirical island values, \cref{eq:community_ecology_12})
+- **Species–area relationships** with $z \approx 0.20$–0.30 (matching empirical island values, \cref{fig:unit_X_species_area}, and \cref{eq:community_ecology_12})
 - **Beta diversity** declines with geographic distance even in homogeneous habitat (purely from limited dispersal)
 
 Hubbell's analysis of the Barro Colorado Island 50-ha forest plot (Panama, > 200 tree species) showed UNTB fit the species abundance distribution as well as niche-based models. Volkov et al. (2003, *Nature*) confirmed neutral fits across forests in Panama, Ecuador, India, and Malaysia.
 
 ### Limits and Synthesis
 
-UNTB has been heavily criticised: real species are *not* equivalent (massive trait variation; clear niche differences in measured demographic rates), and dynamic predictions (e.g., extinction times) often fail. The modern view, following Adler, HilleRisLambers & Levine (2007, *Ecol. Lett.*), is that **niche and neutral processes co-occur**: Chesson-style niche differences stabilise coexistence, while neutral drift adds stochastic variation in relative abundance. UNTB is the null model — if your data look neutral, you have not yet found the ecology that distinguishes species.
+UNTB has been heavily criticised: real species are *not* equivalent (massive trait variation; clear niche differences in measured demographic rates), and dynamic predictions (e.g., extinction times) often fail. The modern view, following Adler, HilleRisLambers & Levine (2007, *Ecol. Lett.*), is that **niche and neutral processes co-occur**: Chesson-style niche differences stabilize coexistence, while neutral drift adds stochastic variation in relative abundance. UNTB is the null model — if your data look neutral, you have not yet found the ecology that distinguishes species.
 
 > **Concept Check:** Two tropical forest plots have nearly identical species-abundance distributions. The first sits in a homogeneous lowland habitat; the second spans a steep elevation gradient. Why is the *neutral* explanation of the species-abundance pattern more plausible for the first plot than the second, and what additional data would discriminate the two hypotheses?
 
@@ -304,6 +309,7 @@ Counting species ignores that a 1 mm aphid and a 10 m oak both add "+1" to richn
 
 Grime's CSR scheme (1977, 2001) classifies plant strategies along two stress axes — disturbance and stress (resource limitation) — yielding three primary strategies and the gradients between them:
 
+: Grime's CSR Triangle: Strategy and Conditions. {#tbl:unit_X_biodiversity_and_food_webs_grime_s_csr_triangle}
 | Strategy | Conditions | Trait syndrome | Examples |
 | -------- | ---------- | -------------- | -------- |
 | **C — Competitor** | Low stress, low disturbance | Tall, fast-growing, high biomass, deep roots; leaves long-lived but expensive | Mature forest dominants (oak, beech, *Eucalyptus*) |
@@ -314,8 +320,9 @@ Most species fall along intermediates (CR, CS, SR, CSR). Crucially, the CSR axes
 
 ### The Leaf Economics Spectrum
 
-Wright et al. (2004, *Nature*) analysed > 2,500 plant species globally and uncovered a stunningly tight axis along which leaf traits co-vary — the **leaf economics spectrum (LES)**:
+Wright et al. (2004, *Nature*) analyzed > 2,500 plant species globally and uncovered a stunningly tight axis along which leaf traits co-vary — the **leaf economics spectrum (LES)**:
 
+: The Leaf Economics Spectrum: Acquisitive (fast) end and Conservative (slow) end. {#tbl:unit_X_biodiversity_and_food_webs_the_leaf_economics_spectrum}
 | Acquisitive (fast) end | Conservative (slow) end |
 | ---------------------- | ----------------------- |
 | High specific leaf area (SLA, m$^2$ kg$^{-1}$) | Low SLA (thick, dense leaves) |
@@ -331,7 +338,7 @@ The LES is widely observed across biomes — tropical pioneer trees and desert a
 Trait data enable **functional diversity** indices (functional richness, evenness, divergence; Villéger, Mason & Mouillot 2008, *Ecology*) that detect community assembly mechanisms invisible to species lists:
 
 - **Functional clustering** (traits more similar than expected by chance) → *environmental filtering* (primarily some strategies tolerate the local abiotic conditions)
-- **Functional overdispersion** (traits more different than expected) → *competitive exclusion* via limiting similarity and Chesson-style stabilising mechanisms.
+- **Functional overdispersion** (traits more different than expected) → *competitive exclusion* via limiting similarity and Chesson-style stabilizing mechanisms.
 
 A community of 30 alpine cushion plants and a community of 30 tropical canopy trees both have $S = 30$, but their trait spreads on the LES are wildly different — and that difference predicts ecosystem function (productivity, decomposition, drought response) far better than richness alone.
 
@@ -347,11 +354,12 @@ Invasive ants illustrate why social insects are high-stakes community actors. Ar
 
 ### Three Classical Strategies
 
+: Three Classical Strategies: Strategy and Approach. {#tbl:unit_X_biodiversity_and_food_webs_three_classical_strategies}
 | Strategy | Approach | Time scale | Risk profile |
 | -------- | -------- | ---------- | ------------ |
 | **Classical (importation)** | Import a specialist natural enemy from the pest's native range; expect it to establish and self-perpetuate | Years to decades; one-shot release | High — non-target effects if enemy is not specialist enough |
 | **Augmentative** | Mass-rear and release natural enemies repeatedly to suppress current outbreak | Weeks to months; greenhouse, glasshouse | Low — released organisms typically fail to overwinter |
-| **Conservation** | Modify habitat to favour resident natural enemies (hedgerows, beetle banks, insectary plants, reduced pesticide use) | Continuous | Lowest — uses native species |
+| **Conservation** | Modify habitat to favor resident natural enemies (hedgerows, beetle banks, insectary plants, reduced pesticide use) | Continuous | Lowest — uses native species |
 
 ### Classical Successes and Failures
 
@@ -367,12 +375,12 @@ After the cane-toad era, regulatory frameworks (e.g., the FAO **Code of Conduct 
 
 1. **Host-specificity testing** — quarantine trials against native non-target species
 2. **Climate matching** — does the agent's native climate predict its spread in the target range?
-3. **Population modelling** — Lotka–Volterra or matrix projection of agent and target dynamics; predicted suppression vs. escape
+3. **Population modeling** — Lotka–Volterra or matrix projection of agent and target dynamics; predicted suppression vs. escape
 4. **Reversibility analysis** — can the agent be eradicated if it causes damage? (Almost typically: no.)
 
-Modern programs increasingly favour **conservation biological control**, which avoids introducing non-native species entirely. Field margins of insectary plants (e.g., *Phacelia*, *Fagopyrum*) increase syrphid and parasitoid wasp populations that suppress aphids in adjacent crops by 30–50 % (Tscharntke et al. 2007, *Biol. Control*). This connects directly to ecosystem-services valuation (\cref{sec:unit_X_ecosystem_ecology}).
+Modern programs increasingly favor **conservation biological control**, which avoids introducing non-native species entirely. Field margins of insectary plants (e.g., *Phacelia*, *Fagopyrum*) increase syrphid and parasitoid wasp populations that suppress aphids in adjacent crops by 30–50 % (Tscharntke et al. 2007, *Biol. Control*). This connects directly to ecosystem-services valuation (\cref{sec:unit_X_ecosystem_ecology}).
 
-> 🔬 **Clinical Connection — *Wolbachia* and Mosquito-Borne Disease.** Conservation biological control extends to public health. *Wolbachia* is an intracellular bacterium that, when introduced into *Aedes aegypti* mosquitoes, blocks dengue, Zika, and chikungunya virus transmission. Field trials in Yogyakarta (Indonesia) and Niterói (Brazil) released *Wolbachia*-carrying mosquitoes that spread the bacterium through the wild population via cytoplasmic incompatibility. Within 27 months of release in Yogyakarta, dengue incidence dropped 77% in treated neighbourhoods (Utarini et al. 2021, *N. Engl. J. Med.*). This is biological control of disease vectors via a manipulative endosymbiont — community ecology in service of pandemic prevention.
+> 🔬 **Clinical Connection — *Wolbachia* and Mosquito-Borne Disease.** Conservation biological control extends to public health. *Wolbachia* is an intracellular bacterium that, when introduced into *Aedes aegypti* mosquitoes, blocks dengue, Zika, and chikungunya virus transmission. Field trials in Yogyakarta (Indonesia) and Niterói (Brazil) released *Wolbachia*-carrying mosquitoes that spread the bacterium through the wild population via cytoplasmic incompatibility. Within 27 months of release in Yogyakarta, dengue incidence dropped 77% in treated neighborhoods (Utarini et al. 2021, *N. Engl. J. Med.*). This is biological control of disease vectors via a manipulative endosymbiont — community ecology in service of pandemic prevention.
 
 > **Concept Check:** A regulator must approve or reject a proposed classical biocontrol release of a parasitoid wasp against an invasive moth pest. (a) What three host-specificity tests would you require? (b) Why is "the agent attacks the target moth in the lab" insufficient evidence for safety? (c) How does a sound elasticity analysis (\cref{eq:unit_X_sensitivity_elasticity}) of the *target's* matrix model help you predict whether the release will succeed?
 
@@ -497,13 +505,13 @@ Select biodiversity and conservation metrics by decision need: abundance, intera
 ## Summary
 
 - **Biotic interactions:** mutualism (+/+), commensalism (+/0), parasitism (+/-), predation (+/-), competition (-/-), amensalism (0/-) — shape community composition and evolution.
-- **Competition:** Lotka-Volterra equations; competitive exclusion if niches overlap completely; stable coexistence if intraspecific > interspecific effects. Modern coexistence theory \citep{chesson2000}: stabilising + equalising mechanisms.
-- **Niche theory:** Hutchinson's n-dimensional hypervolume; fundamental vs. realised niche; paradox of the plankton resolved by non-equilibrium dynamics and niche partitioning.
-- **Trophic cascades:** keystone predators suppress herbivores → plant biomass increases (wolves→elk→willows; sea otters→urchins→kelp). Behavioural cascades via "landscape of fear."
-- **Succession:** primary (bare substrate, slow) vs. secondary (disturbed community, faster); facilitation/tolerance/inhibition mechanisms; IDH: intermediate disturbance maximises diversity; alternative stable states and regime shifts with hysteresis.
+- **Competition:** Lotka-Volterra equations; competitive exclusion if niches overlap completely; stable coexistence if intraspecific > interspecific effects. Modern coexistence theory \citep{chesson2000}: stabilizing + equalising mechanisms.
+- **Niche theory:** Hutchinson's n-dimensional hypervolume; fundamental vs. realized niche; paradox of the plankton resolved by non-equilibrium dynamics and niche partitioning.
+- **Trophic cascades:** keystone predators suppress herbivores → plant biomass increases (wolves→elk→willows; sea otters→urchins→kelp). Behavioral cascades via "landscape of fear."
+- **Succession:** primary (bare substrate, slow) vs. secondary (disturbed community, faster); facilitation/tolerance/inhibition mechanisms; IDH: intermediate disturbance maximizes diversity; alternative stable states and regime shifts with hysteresis.
 - **Diversity indices:** $H'$ (Shannon) combines richness + evenness; Simpson $1-D$ = probability of inter-specific encounter; $J'$ (evenness) = $H'/\ln S$. Alpha, beta, gamma diversity at different spatial scales.
-- **Island biogeography:** $S = cA^z$; equilibrium balances colonisation and extinction; SLOSS debate resolved toward core-corridor-matrix design; extinction debt warns of delayed species loss.
-- **Food web structure:** connectance, modularity, weak-interaction dominance stabilise complex communities. **Network robustness** under targeted (most-connected-first) deletion collapses faster than under random deletion — hub species are topological keystones.
+- **Island biogeography:** $S = cA^z$; equilibrium balances colonization and extinction; SLOSS debate resolved toward core-corridor-matrix design; extinction debt warns of delayed species loss.
+- **Food web structure:** connectance, modularity, weak-interaction dominance stabilize complex communities. **Network robustness** under targeted (most-connected-first) deletion collapses faster than under random deletion — hub species are topological keystones.
 - **Neutral theory (UNTB):** Hubbell's per-capita-equivalence framework; two parameters θ and $m$ predict species-abundance distributions and species–area relationships from drift, dispersal, and speciation alone. Best treated as a null model that niche-based theory must beat.
 - **Trait-based ecology:** Grime's CSR triangle; the leaf economics spectrum (LES) is a widely observed acquisitive↔conservative axis with local exceptions. Functional diversity diagnoses assembly mechanisms (clustering = environmental filtering; overdispersion = limiting similarity) that species lists miss.
 - **Biological control and invasion:** classical importation (vedalia beetle success; cane toad disaster), augmentative releases, and conservation biological control. Social insects add network-scale cases: invasive ants can restructure mutualisms, seed dispersal, pest protection, and nutrient cycling, while pollinator conservation depends on protecting whole interaction networks. *Wolbachia*-loaded *Aedes aegypti* extends the framework to vector-borne disease.
@@ -513,7 +521,7 @@ Select biodiversity and conservation metrics by decision need: abundance, intera
 
 ## Review Questions
 
-1. Two warbler species (*Dendroica castanea* and *D. fusca*) share a boreal spruce tree habitat. MacArthur (1958) showed they coexist by partitioning the tree into feeding zones. Using Chesson's modern coexistence theory: (a) Which of Chesson's two mechanisms (equalising vs. stabilising) enables their coexistence? (b) Write [**Lotka-Volterra equations**](#gl:lotka-volterra-equations) and specify the condition for stable coexistence in terms of $\alpha_{12}$ and $\alpha_{21}$.
+1. Two warbler species (*Dendroica castanea* and *D. fusca*) share a boreal spruce tree habitat. MacArthur (1958) showed they coexist by partitioning the tree into feeding zones. Using Chesson's modern coexistence theory: (a) Which of Chesson's two mechanisms (equalising vs. stabilizing) enables their coexistence? (b) Write [**Lotka-Volterra equations**](#gl:lotka-volterra-equations) and specify the condition for stable coexistence in terms of $\alpha_{12}$ and $\alpha_{21}$.
 
 2. A trophic cascade operates in Yellowstone: wolves → elk → willows → beavers → altered stream morphology. (a) Is this a bottom-up or top-down cascade? (b) Predict what happens to each level if chronic wasting disease eliminates 90% of the elk population. (c) How does the "landscape of fear" concept modify purely density-mediated cascade predictions?
 
@@ -567,19 +575,20 @@ lv = lotka_volterra(40.0, 9.0, 0.5, 0.02, 0.01, 0.2, t_end=80.0)
 print(len(lv.times), round(lv.prey[-1], 2))
 ```
 
-> **Clinical / systems note:** FMT restores diversity and colonisation resistance --- an ecological intervention for a microbiome community treated as a competitive network.
+> **Clinical / systems note:** FMT restores diversity and colonization resistance --- an ecological intervention for a microbiome community treated as a competitive network.
 
 ---
 
 ## Key Terms
 
+: Concept Check (Evaluate) — Biotic Resistance and Invasive Species: Term and Definition. {#tbl:unit_X_biodiversity_and_food_webs_concept_check_evaluate_biotic_resistance_and_invasive_species}
 | Term | Definition |
 | ---- | ---------- |
 | **Competitive exclusion principle** | Two species cannot stably coexist if they occupy the exact same niche; the superior competitor excludes the other |
 | **Keystone species** | Species with disproportionately large effects on community structure relative to its abundance |
 | **Trophic cascade** | Indirect effect of apex predator on plant biomass via suppressing herbivores; top-down regulation |
 | **Succession** | Directional change in community composition over time; primary (bare substrate) or secondary (after disturbance) |
-| **Intermediate Disturbance Hypothesis** | Moderate disturbance frequency/intensity maximises species diversity by preventing competitive exclusion |
+| **Intermediate Disturbance Hypothesis** | Moderate disturbance frequency/intensity maximizes species diversity by preventing competitive exclusion |
 | **Shannon diversity ($H'$)** | $H' = -\sum p_i \ln p_i$; quantifies species richness and evenness simultaneously |
 | **Simpson index ($1-D$)** | Probability that two random individuals are from different species; weighted toward dominant species |
 | **Species-area relationship** | $S = cA^z$; species richness increases with area; $z \approx 0.25$ for habitat islands |
@@ -589,8 +598,8 @@ print(len(lv.times), round(lv.prey[-1], 2))
 | **Alternative stable states** | Multiple stable community configurations under the same environmental conditions; regime shifts between states |
 | **Niche differentiation** | Process by which competing species evolve to use different resources, reducing niche overlap |
 | **Fundamental niche** | Full range of environmental conditions where a species can maintain $r \geq 0$ (Hutchinson) |
-| **Realised niche** | Subset of fundamental niche actually occupied after biotic interactions |
-| **Connectance** | Proportion of possible trophic links that are realised in a food web |
+| **Realized niche** | Subset of fundamental niche actually occupied after biotic interactions |
+| **Connectance** | Proportion of possible trophic links that are realized in a food web |
 | **Facilitation** | One species improves survival or reproduction of another; mechanism of succession |
 | **Beta diversity** | Species turnover between communities; measured by Jaccard or Bray-Curtis indices |
 | **Neutral theory (UNTB)** | Hubbell's framework: per-capita demographic equivalence; biodiversity arises from drift, dispersal, and speciation |
@@ -599,7 +608,7 @@ print(len(lv.times), round(lv.prey[-1], 2))
 | **Leaf economics spectrum (LES)** | Comprehensive axis from acquisitive (high SLA, short-lived leaves) to conservative (thick, long-lived) leaves |
 | **Functional diversity** | Trait-based diversity metric; clustering vs. overdispersion diagnoses assembly mechanism |
 | **Classical biological control** | Importation of a specialist natural enemy from a pest's native range |
-| **Conservation biological control** | Habitat modification to favour resident natural enemies; lowest-risk strategy |
+| **Conservation biological control** | Habitat modification to favor resident natural enemies; lowest-risk strategy |
 | **Network robustness** | Resilience of a food web to species removal; collapses fastest under most-connected-first deletion |
 
 ---
@@ -611,6 +620,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Biodiversity, Food Webs, and Biogeography. {#tbl:unit_X_biodiversity_and_food_webs_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/ecology/ecology.py` (`lotka_volterra`, `connectance`, `biodiversity_indices`) | Quantify interactions, network structure, and community diversity. |

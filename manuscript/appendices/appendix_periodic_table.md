@@ -1,12 +1,11 @@
-# Appendix E — A Periodic Table for Biology {.unnumbered}
+# Appendix E — A Periodic Table for Biology {#sec:appendix_periodic_table .unnumbered}
 
-\label{sec:appendix_periodic_table}
 
 
 <!-- chapter-metadata-badge -->
 > **Appendix E** · Level 1/3 · 15 min read · Prerequisites: \cref{sec:unit_I_atoms_molecules}
 
-Only about 25 of the 118 known elements are biologically essential. This appendix summarises what each essential element does, what the classic pathologies of deficiency and excess look like, and where to encounter each in the textbook.
+Only about 25 of the 118 known elements are biologically essential. This appendix summarizes what each essential element does, what the classic pathologies of deficiency and excess look like, and where to encounter each in the textbook.
 
 ---
 
@@ -31,7 +30,7 @@ Together these account for ~99 % of a human's mass.
 | ------- | ------ | ----------- | ---- | ---------- | ------ |
 | Sodium | Na | Na⁺ | Principal extracellular cation; action potential upstroke | Hyponatraemia → seizures | Hypernatraemia → dehydration |
 | Potassium | K | K⁺ | Principal intracellular cation; resting potential | Hypokalaemia → arrhythmia, muscle weakness | Hyperkalaemia → cardiac arrest |
-| Calcium | Ca | Ca²⁺ | Bone matrix; signalling; coagulation; muscle contraction | Hypocalcaemia → tetany | Hypercalcaemia → stones, constipation |
+| Calcium | Ca | Ca²⁺ | Bone matrix; signaling; coagulation; muscle contraction | Hypocalcaemia → tetany | Hypercalcaemia → stones, constipation |
 | Magnesium | Mg | Mg²⁺ | ATP co-factor; enzyme cofactor; ribosome structure | Hypomagnesaemia → arrhythmia, tetany | Rare; laxative effect |
 | Chloride | Cl | Cl⁻ | Major anion; gastric HCl; GABA-A/glycine receptors | Loss with vomiting | Acidosis |
 | Phosphate | P | HPO₄²⁻ | Energy transfer (ATP); DNA backbone; bone mineralisation | Muscle weakness | Soft tissue calcification (CKD) |
@@ -45,11 +44,11 @@ Each is essential at mg day⁻¹ to μg day⁻¹ scale — too much or too littl
 
 | Element | Role | Pathology of deficiency | Pathology of excess |
 | ------- | ---- | ----------------------- | ------------------- |
-| Iron (Fe) | Haemoglobin, cytochromes, Fe-S clusters | Anaemia, fatigue | Hereditary haemochromatosis (iron overload) |
+| Iron (Fe) | Hemoglobin, cytochromes, Fe-S clusters | Anemia, fatigue | Hereditary haemochromatosis (iron overload) |
 | Copper (Cu) | Cytochrome c oxidase, tyrosinase, lysyl oxidase | Menkes disease (curly hair, neurodegeneration) | Wilson disease (Cu deposition in liver, brain) |
 | Zinc (Zn) | >300 enzymes; zinc finger transcription factors | Impaired growth, taste, immunity | Interferes with Cu absorption |
 | Manganese (Mn) | Superoxide dismutase, glutamine synthetase | Rare; impaired connective tissue | Parkinson-like syndrome (welders) |
-| Cobalt (Co) | Vitamin B₁₂ core | Megaloblastic anaemia, neuropathy | Rare cardiomyopathy (beer cobalt in 1960s) |
+| Cobalt (Co) | Vitamin B₁₂ core | Megaloblastic anemia, neuropathy | Rare cardiomyopathy (beer cobalt in 1960s) |
 | Molybdenum (Mo) | Xanthine oxidase, sulfite oxidase, nitrate reductase | Rare; sulfite oxidase deficiency | Gout-like syndrome |
 | Selenium (Se) | Glutathione peroxidase (GPX); thyroid deiodinase | Keshan disease (cardiomyopathy) | Selenosis (hair loss, nail brittleness) |
 | Iodine (I) | Thyroid hormones (T3, T4) | Hypothyroidism, goiter, cretinism | Thyrotoxicosis |

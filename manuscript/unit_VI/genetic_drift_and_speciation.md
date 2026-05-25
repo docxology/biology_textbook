@@ -39,8 +39,8 @@ By the end of this chapter, you should be able to:
 - **Data skill:** Distinguish stochastic from directional change in allele-frequency data.
 - **Practice cadence:** Visual Representations, Statistical Tests and Data Analysis, Argumentation.
 - **Common misconception to repair:** Random does not mean patternless; stochastic processes have predictable distributions.
-- **Primary lab:** \cref{sec:lab_unit_VI_genetic_drift_and_speciation}.
-- **Question bank:** \cref{sec:q_unit_VI_genetic_drift_and_speciation}.
+- **Primary lab:** \nameref{sec:lab_unit_VI_genetic_drift_and_speciation}.
+- **Question bank:** \nameref{sec:q_unit_VI_genetic_drift_and_speciation}.
 - **Transfer task:** Apply drift reasoning to endangered populations, founder effects, and island radiations.
 - **Bridge to computation:** `biology.evolution.evolution.simulate_drift`.
 <!-- curriculum-scaffold-end -->
@@ -55,13 +55,13 @@ By the end of this chapter, you should be able to:
 
 ### Genetic Drift as Sampling Error in Finite Populations
 
-**Genetic drift** is the random change in [**allele**](#gl:allele) frequencies across generations that results from the sampling error inherent in finite populations. \cref{fig:unit_VI_fitness_landscape} contrasts mean-fitness landscapes that shape whether selection fixes, balances, or disruptively sorts alleles — the selective backdrop against which drift operates. Unlike [**natural selection**](#gl:natural-selection), drift is **undirected** -- it is equally likely to increase or decrease the frequency of any allele, regardless of its effect on fitness. Drift is a consequence of probability, not adaptation.
+**Genetic drift** is the random change in [**allele**](#gl:allele) frequencies across generations that results from the sampling error inherent in finite populations \citep{wright1931}. \cref{fig:unit_VI_fitness_landscape} contrasts mean-fitness landscapes that shape whether selection fixes, balances, or disruptively sorts alleles — the selective backdrop against which drift operates. Unlike [**natural selection**](#gl:natural-selection), drift is **undirected** -- it is equally likely to increase or decrease the frequency of any allele, regardless of its effect on fitness. Drift is a consequence of probability, not adaptation.
 
 The power of drift is inversely proportional to population size. In large populations, the law of large numbers ensures that actual allele frequencies closely match expected frequencies. In small populations, random sampling can cause dramatic, unpredictable fluctuations -- and ultimately, the fixation or loss of alleles.
 
 ### Wright-Fisher Sampling Mathematics
 
-Under the **Wright-Fisher model**, a population of $N$ diploid individuals contains $2N$ gene copies at each locus. Each generation, the new population is formed by randomly sampling $2N$ alleles (with replacement) from the current generation's gene pool.
+Under the **Wright-Fisher model**, a population of $N$ diploid individuals contains $2N$ gene copies at each locus. Each generation, the new population is formed by randomly sampling $2N$ alleles (with replacement) from the current generation's gene pool \citep{wright1931}.
 
 If the current frequency of allele $A$ is $p$, the number of $A$ alleles in the next generation follows a binomial distribution:
 
@@ -116,7 +116,7 @@ stateDiagram-v2
 
 ### Effective Population Size
 
-> **Mathematical Background:** Effective population size calculations use basic probability. For a review of variance and probability relevant to genetic drift, see \cref{sec:appendix_math_review}.
+> **Mathematical Background:** Effective population size calculations use basic probability. For a review of variance and probability relevant to genetic drift, see \nameref{sec:appendix_math_review}.
 
 The **effective population size** ($N_e$) is the size of an ideal Wright-Fisher population that would experience the same magnitude of genetic drift as the actual population. In nearly every real population, $N_e$ is substantially smaller than the census size $N$ because of:
 
@@ -171,9 +171,9 @@ The harmonic mean is dominated by the smallest values. A single generation bottl
 
 ### The Neutral Theory and Nearly Neutral Theory
 
-Motoo Kimura's **[neutral theory](#gl:neutral-theory) of molecular evolution** (1968) proposed that the majority of substitutions observed at the molecular level are selectively neutral -- neither advantageous nor deleterious. Under neutrality, the rate of substitution equals the mutation rate ($k = \mu$), independent of population size. This seemingly paradoxical result arises because, while drift fixes neutral alleles more slowly in large populations ($\bar{t}_{\text{fix}} = 4N_e$), more neutral mutations arise per generation in large populations ($2N_e \mu$). These effects cancel exactly.
+Motoo Kimura's **[neutral theory](#gl:neutral-theory) of molecular evolution** (1968) proposed that the majority of substitutions observed at the molecular level are selectively neutral -- neither advantageous nor deleterious \citep{kimura1968}. Under neutrality, the rate of substitution equals the mutation rate ($k = \mu$), independent of population size. This seemingly paradoxical result arises because, while drift fixes neutral alleles more slowly in large populations ($\bar{t}_{\text{fix}} = 4N_e$), more neutral mutations arise per generation in large populations ($2N_e \mu$). These effects cancel exactly.
 
-Tomoko Ohta extended this to the **nearly neutral theory** (1973), which recognizes that most mutations are slightly deleterious. The fate of a slightly deleterious mutation depends on population size: if $\lvert s\rvert < 1/(2N_e)$, selection is too weak to overcome drift, and the mutation behaves effectively as neutral. In small populations, more mutations fall into this "nearly neutral" category, leading to faster accumulation of slightly deleterious substitutions. This predicts that species with small $N_e$ (e.g., large-bodied vertebrates) should accumulate more slightly deleterious mutations than species with large $N_e$ (e.g., bacteria) -- a prediction confirmed by comparative genomics.
+Tomoko Ohta extended this to the **nearly neutral theory** (1973), which recognizes that most mutations are slightly deleterious \citep{ohta1973}. The fate of a slightly deleterious mutation depends on population size: if $\lvert s\rvert < 1/(2N_e)$, selection is too weak to overcome drift, and the mutation behaves effectively as neutral. In small populations, more mutations fall into this "nearly neutral" category, leading to faster accumulation of slightly deleterious substitutions. This predicts that species with small $N_e$ (e.g., large-bodied vertebrates) should accumulate more slightly deleterious mutations than species with large $N_e$ (e.g., bacteria) -- a prediction confirmed by comparative genomics.
 
 ### Bottleneck Effect and Loss of Variation
 
@@ -198,10 +198,11 @@ A **population bottleneck** occurs when a population undergoes a dramatic, tempo
 >
 > The cheetah illustrates why genetic diversity matters for species survival. With minimal MHC variation, a single pathogen could potentially devastate the entire species -- every individual lacks the immune diversity that protects genetically variable populations. Conservation geneticists use molecular markers to assess genetic health of endangered populations, guide captive breeding programs to maximize $N_e$, and identify genetically distinct populations that should be managed separately. The Florida panther recovery program successfully increased genetic diversity by introducing Texas pumas -- a controversial but effective genetic rescue. Similar approaches are being considered for cheetahs, using the more genetically diverse East African populations to supplement Southern African populations.
 
-### Founder Effect and Colonisation History
+### Founder Effect and Colonization History
 
 The **founder effect** occurs when a small number of individuals establish a new population, carrying primarily a non-representative sample of the source population's genetic variation. Unlike bottlenecks, founder effects involve colonization of new territory, and the resulting population may remain small for many generations.
 
+: Founder Effect and Colonization History: Case and Founding event. {#tbl:unit_VI_genetic_drift_and_speciation_founder_effect_and_colonisation_history}
 | Case | Founding event | Genetic consequence |
 | ---- | -------------- | ------------------- |
 | **Ellis-van Creveld syndrome in Amish** | One couple (Samuel King and wife) emigrated from Europe to Lancaster County, Pennsylvania, about 1744 | Frequency of EVS allele: 1 in 8 ([**heterozygous**](#gl:heterozygous) carriers) vs. 1 in 60,000 in general population |
@@ -575,7 +576,7 @@ An estimated 15% of [**angiosperm**](#gl:angiosperm) speciation events involve p
 
 ---
 
-## Reproductive Isolation Before and After Fertilisation
+## Reproductive Isolation Before and After Fertilization
 
 Reproductive isolation is the hallmark of speciation under the BSC. Barriers to reproduction are classified as **prezygotic** (preventing formation of a hybrid [**zygote**](#gl:zygote)) or **postzygotic** (reducing fitness of hybrid offspring).
 
@@ -589,8 +590,9 @@ Reproductive isolation is the hallmark of speciation under the BSC. Barriers to 
 
 Haldane's rule has been confirmed across a broad range of animal taxa examined, making it one of the most robust generalizations in speciation biology.
 
-### Prezygotic Barriers to Mating or Fertilisation
+### Prezygotic Barriers to Mating or Fertilization
 
+: Prezygotic Barriers to Mating or Fertilization: Barrier type and Mechanism. {#tbl:unit_VI_genetic_drift_and_speciation_prezygotic_barriers_to_mating_or_fertilisation}
 | Barrier type | Mechanism | Example |
 | ------------ | --------- | ------- |
 | **Temporal** | Different breeding seasons or times of day | Two species of field cricket: *Gryllus veletis* breeds in spring; *G. pennsylvanicus* breeds in fall |
@@ -599,7 +601,7 @@ Haldane's rule has been confirmed across a broad range of animal taxa examined, 
 | **Mechanical** | Incompatible reproductive structures | *Salvia* flower species: bee-pollinated species have different petal structures than hummingbird-pollinated species, preventing pollen transfer |
 | **Gametic** | Sperm-egg recognition molecules are species-specific | Sea urchin bindin [**protein**](#gl:protein): species-specific sperm-egg binding prevents cross-fertilization |
 
-Pollinator-mediated isolation often combines mechanical, behavioural, and ecological barriers. A floral shift from bee visitation to bird visitation can change flower shape, colour, nectar volume, pollen placement, and the timing or habitat of effective pollen transfer. If pollen is regularly moved within each floral form but rarely between forms, divergent selection on plant traits reduces gene flow even before hybrids are tested. The pollinator side also matters: managed honeybees, bumblebees, solitary bees, birds, and moths do not sample flowers in identical ways, so a speciation claim should measure effective pollen transfer rather than treating "pollinator" as a single interchangeable agent \citep{garibaldi2013wild,ipbes2016pollinators}.
+Pollinator-mediated isolation often combines mechanical, behavioral, and ecological barriers. A floral shift from bee visitation to bird visitation can change flower shape, color, nectar volume, pollen placement, and the timing or habitat of effective pollen transfer. If pollen is regularly moved within each floral form but rarely between forms, divergent selection on plant traits reduces gene flow even before hybrids are tested. The pollinator side also matters: managed honeybees, bumblebees, solitary bees, birds, and moths do not sample flowers in identical ways, so a speciation claim should measure effective pollen transfer rather than treating "pollinator" as a single interchangeable agent \citep{garibaldi2013wild,ipbes2016pollinators}.
 
 ### Postzygotic Barriers to Hybrid Fitness
 
@@ -634,7 +636,7 @@ Recent evidence also suggests introgression from an unknown "ghost lineage" into
 
 > **Concept Check 4:** A horse ($2n = 64$) crossed with a donkey ($2n = 62$) produces a mule ($2n = 63$). Explain, in terms of meiosis, why the mule is sterile. What type of reproductive barrier does this represent?
 
-> **Concept Check (Evaluate — Reinforcement vs. Fusion on Secondary Contact):** Two allopatric populations of field crickets have evolved different male calling songs over ~50,000 years of geographic isolation. Female crickets locate mates by phonotaxis to species-specific calling songs. When the geographic barrier breaks down and the two populations come back into sympatry, song features differ by ~70 % (pulse rate, carrier frequency, syllable duration). (a) Outline the two extreme evolutionary outcomes — **reinforcement** (further divergence in song to complete reproductive isolation) versus **fusion** (homogenisation back to a single species) — and identify which is favoured if hybrid offspring are largely viable and fertile versus largely inviable. (b) Apply the tension-zone framework: if the dispersal scale $\sigma$ across the contact zone is ~5 km/generation and selection against hybrids is $s$, derive the zone width $w \approx \sigma / \sqrt{s}$ for $s = 0.01$, $0.1$, and $0.5$, and interpret what each width implies for whether reinforcement can complete. (c) Evaluate the role of **female mate preference variance** — if females in the contact zone are genetically variable in their preferences, does this accelerate or slow reinforcement? (d) Design a single field experiment that could distinguish reinforcement from sensory drift as the source of post-contact song divergence.
+> **Concept Check (Evaluate — Reinforcement vs. Fusion on Secondary Contact):** Two allopatric populations of field crickets have evolved different male calling songs over ~50,000 years of geographic isolation. Female crickets locate mates by phonotaxis to species-specific calling songs. When the geographic barrier breaks down and the two populations come back into sympatry, song features differ by ~70 % (pulse rate, carrier frequency, syllable duration). (a) Outline the two extreme evolutionary outcomes — **reinforcement** (further divergence in song to complete reproductive isolation) versus **fusion** (homogenisation back to a single species) — and identify which is favored if hybrid offspring are largely viable and fertile versus largely inviable. (b) Apply the tension-zone framework: if the dispersal scale $\sigma$ across the contact zone is ~5 km/generation and selection against hybrids is $s$, derive the zone width $w \approx \sigma / \sqrt{s}$ for $s = 0.01$, $0.1$, and $0.5$, and interpret what each width implies for whether reinforcement can complete. (c) Evaluate the role of **female mate preference variance** — if females in the contact zone are genetically variable in their preferences, does this accelerate or slow reinforcement? (d) Design a single field experiment that could distinguish reinforcement from sensory drift as the source of post-contact song divergence.
 
 ---
 
@@ -705,7 +707,7 @@ The extinction of non-avian dinosaurs 66 Mya released enormous ecological space.
 
 > **Clinical Connection — Founder effects and Mendelian disease in isolated populations.** Ashkenazi Jews (~500-year bottleneck, $N_e \approx 250-400$), Finns (isolation since the Neolithic), Amish, and French Canadians carry elevated frequencies of specific recessive alleles (Tay-Sachs *HEXA*, BRCA1/2 185delAG, Canavan disease *ASPA*, phenylketonuria *PAH*). In many cases these alleles rose from a single founder chromosome, detectable as a shared haplotype. Modern targeted screens (e.g. the Ashkenazi panel) are possible precisely *because* drift + bottleneck has concentrated a handful of distinctive alleles; in outbred populations, the allelic heterogeneity for the same gene is often too great for panel-based screening to be useful.
 
-> **Clinical Connection — Speciation of SARS-CoV-2 variants.** Allopatric speciation analogues appear in real time during pandemics. A single index case seeding a geographic region generates a local founder population; drift plus selection for transmissibility produce variants (Alpha, Delta, Omicron) that then contact and partially displace each other. Phylogenetic analysis of >15 million SARS-CoV-2 genomes has documented exactly the processes this chapter formalises — drift at low incidence, bottleneck at importation, selection under [**vaccine**](#gl:vaccine) pressure — on timescales of weeks rather than millennia, making clinical virology the fastest-moving evolutionary laboratory in human history.
+> **Clinical Connection — Speciation of SARS-CoV-2 variants.** Allopatric speciation analogs appear in real time during pandemics. A single index case seeding a geographic region generates a local founder population; drift plus selection for transmissibility produce variants (Alpha, Delta, Omicron) that then contact and partially displace each other. Phylogenetic analysis of >15 million SARS-CoV-2 genomes has documented exactly the processes this chapter formalises — drift at low incidence, bottleneck at importation, selection under [**vaccine**](#gl:vaccine) pressure — on timescales of weeks rather than millennia, making clinical virology the fastest-moving evolutionary laboratory in human history.
 
 ---
 
@@ -774,6 +776,7 @@ For speciation claims, separate drift, gene flow, selection, geography, and repr
 
 ## Key Terms
 
+: Kimura's Neutral Fixation Probability: Term and Definition. {#tbl:unit_VI_genetic_drift_and_speciation_worked_example_kimura_s_neutral_fixation_probability}
 | Term | Definition |
 | ---- | ---------- |
 | **Genetic drift** | Random change in allele frequencies due to sampling error in finite populations |
@@ -834,6 +837,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Genetic Drift, Gene Flow, and Speciation. {#tbl:unit_VI_genetic_drift_and_speciation_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/evolution/evolution.py` (`wright_fisher_drift`, `simulate_drift`, `isolation_index`) | Compare stochastic drift, bottlenecks, and isolation measures. |

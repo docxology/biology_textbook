@@ -1,6 +1,5 @@
-# Lab — Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
+# Lab — Population Genetics and Hardy-Weinberg Equilibrium {#sec:lab_unit_V_population_genetics .unnumbered}
 
-\label{sec:lab_unit_V_population_genetics}
 
 ## Learning Objectives {.unnumbered}
 
@@ -36,10 +35,11 @@ The Hardy-Weinberg principle states that in a large, randomly mating population 
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_V_population_genetics_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Population Genetics and Hardy-Weinberg Equilibrium: inheritance source card: model assumptions, sampling frame, ancestry/context boundary, and uncertainty | 1 |
-| Two colours of beads (representing A and a alleles): 50 of each colour | 100 total |
+| Two colors of beads (representing A and a alleles): 50 of each color | 100 total |
 | Opaque bag or cup (for random sampling) | 2 |
 | Population genetics data table (printed: real MN blood group data) | 1 |
 | Calculator | 1 |
@@ -68,6 +68,7 @@ The Hardy-Weinberg principle states that in a large, randomly mating population 
 
 MN blood group HWE test (observed counts from the *n* = 1000 sample: MM = 298, MN = 489, NN = 213; source: classic combined US-Caucasian MN blood-group survey reproduced in standard population-genetics texts):
 
+: Alignment and Rubric Map: Genotype and Observed. {#tbl:unit_V_population_genetics_alignment_and_rubric_map_2}
 | Genotype | Observed | p or q | Expected | (O−E)²/E |
 | -------- | -------- | ------ | -------- | --------- |
 | MM | 298 | p² = | | |
@@ -81,6 +82,7 @@ Fill the *Expected* column using your calculated *p* and *q* (Part A), then χ²
 
 Drift simulation:
 
+: Alignment and Rubric Map: Generation and p (N=10 group). {#tbl:unit_V_population_genetics_alignment_and_rubric_map_3}
 | Generation | p (N=10 group) | p (N=50 group) |
 | ---------- | -------------- | -------------- |
 | 0 | 0.5 | 0.5 |
@@ -107,6 +109,7 @@ Drift simulation:
 Before answering the analysis questions, annotate the paper dataset for
 **Population Genetics and Hardy-Weinberg Equilibrium** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_V_population_genetics_alignment_and_rubric_map_4}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -135,7 +138,7 @@ Complete the source-governance card for Population Genetics and Hardy-Weinberg E
 1. Was the MN blood group population in HWE? Which of the HWE assumptions might be violated in a real human population, and how would each violation shift allele frequencies over generations?
 2. Was there more variation in allele frequency across generations in the N=10 or N=50 group? Define genetic drift in terms of sampling error and explain why population size affects drift magnitude.
 3. Founder effect: a group of 20 individuals colonises a new island. By chance, the founding group contains no aa individuals. Even without selection against aa, will this condition persist? Explain using HWE and the concept that mutation-selection equilibrium is absent if frequency starts at zero.
-4. Heterozygote advantage: sickle-cell anaemia (aa) is lethal, but carriers (Aa) are more resistant to malaria than AA homozygotes. With the heterozygote Aa as the fittest genotype, let *s* be the selection coefficient against AA and *t* the selection coefficient against aa (relative fitnesses 1−*s* : 1 : 1−*t*). The stable equilibrium allele frequency of *a* is **q̂ = s / (s + t)**. For a malarious region with *s* = 0.2 (AA disadvantage) and *t* = 1 (aa lethal), compute q̂ and interpret why the *a* allele persists in the population despite being lethal in homozygotes.
+4. Heterozygote advantage: sickle-cell anemia (aa) is lethal, but carriers (Aa) are more resistant to malaria than AA homozygotes. With the heterozygote Aa as the fittest genotype, let *s* be the selection coefficient against AA and *t* the selection coefficient against aa (relative fitnesses 1−*s* : 1 : 1−*t*). The stable equilibrium allele frequency of *a* is **q̂ = s / (s + t)**. For a malarious region with *s* = 0.2 (AA disadvantage) and *t* = 1 (aa lethal), compute q̂ and interpret why the *a* allele persists in the population despite being lethal in homozygotes.
 5. A conservation biologist studying a population of 25 cheetahs finds they are almost completely genetically homogeneous (very low heterozygosity). Explain two consequences of this for: (a) short-term disease resistance; (b) long-term adaptive capacity. What management intervention would restore genetic variation?
 
 
@@ -164,7 +167,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -183,5 +186,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_V_population_genetics}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

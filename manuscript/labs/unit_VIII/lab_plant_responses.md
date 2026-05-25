@@ -1,6 +1,5 @@
-# Lab — Plant Responses to the Environment {.unnumbered}
+# Lab — Plant Responses to the Environment {#sec:lab_unit_VIII_plant_responses .unnumbered}
 
-\label{sec:lab_unit_VIII_plant_responses}
 
 ## Learning Objectives {.unnumbered}
 
@@ -33,10 +32,11 @@
 
 ## Lab Context: Plant Responses to the Environment {.unnumbered}
 
-Plants integrate environmental signals and respond through photoreceptors and hormone signalling. Auxin (IAA) is produced in the shoot apex and promotes elongation at low concentrations but inhibits at high concentrations (biphasic response). Gibberellins (GAs) promote stem elongation and seed germination by targeting DELLA protein degradation. Phototropism (bending toward light) results from asymmetric auxin distribution driven by the PIN auxin efflux carriers. Phytochrome Pr (inactive, absorbs red 660 nm) ↔ Pfr (active, absorbs far-red 730 nm) provides a light quality sensor — Pfr promotes seed germination and flowering.
+Plants integrate environmental signals and respond through photoreceptors and hormone signaling. Auxin (IAA) is produced in the shoot apex and promotes elongation at low concentrations but inhibits at high concentrations (biphasic response). Gibberellins (GAs) promote stem elongation and seed germination by targeting DELLA protein degradation. Phototropism (bending toward light) results from asymmetric auxin distribution driven by the PIN auxin efflux carriers. Phytochrome Pr (inactive, absorbs red 660 nm) ↔ Pfr (active, absorbs far-red 730 nm) provides a light quality sensor — Pfr promotes seed germination and flowering.
 
 ## Paper-Based Materials {.unnumbered}
 
+: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VIII_plant_responses_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Plant Responses to the Environment: plant evidence source card: tissue, driver, field context, breeding/adoption boundary, and refresh trigger | 1 |
@@ -71,6 +71,7 @@ Plants integrate environmental signals and respond through photoreceptors and ho
 
 Phototropism: angle of curvature toward light = ___°; dark control = ___°
 
+: Alignment and Rubric Map: IAA concentration (µM) and Angle of curvature (°). {#tbl:unit_VIII_plant_responses_alignment_and_rubric_map_2}
 | IAA concentration (µM) | Angle of curvature (°) |
 | ---------------------- | ----------------------- |
 | 0 (lanolin primarily) | |
@@ -81,6 +82,7 @@ Phototropism: angle of curvature toward light = ___°; dark control = ___°
 
 Gibberellin — dwarf pea stem length (mm):
 
+: Alignment and Rubric Map: Day and Water control. {#tbl:unit_VIII_plant_responses_alignment_and_rubric_map_3}
 | Day | Water control | +GA₃ |
 | --- | ------------- | ---- |
 | 0 | | |
@@ -89,6 +91,7 @@ Gibberellin — dwarf pea stem length (mm):
 
 Phytochrome germination results:
 
+: Alignment and Rubric Map: Treatment and Germinated (of 20). {#tbl:unit_VIII_plant_responses_alignment_and_rubric_map_4}
 | Treatment | Germinated (of 20) | % germination |
 | --------- | ------------------ | ------------- |
 | Dark primarily | | |
@@ -116,6 +119,7 @@ Reproducibility check: treatment with largest mean response = ___; treatment wit
 Before answering the analysis questions, annotate the paper dataset for
 **Plant Responses to the Environment** with a reproducibility pass:
 
+: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_VIII_plant_responses_alignment_and_rubric_map_5}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -125,7 +129,7 @@ Before answering the analysis questions, annotate the paper dataset for
 | Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
 | Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
 
-Focus note: in this environmental-response lab, trace each conclusion along the perception-to-phenotype path — name the stimulus, the photoreceptor or hormone, the downstream gene-expression or signalling step, and the growth-versus-defence tradeoff it implies — before treating any response as causal. Keep required work paper-based; any material-handling or
+Focus note: in this environmental-response lab, trace each conclusion along the perception-to-phenotype path — name the stimulus, the photoreceptor or hormone, the downstream gene-expression or signaling step, and the growth-versus-defense tradeoff it implies — before treating any response as causal. Keep required work paper-based; any material-handling or
 equipment version belongs only in an optional extension.
 
 ### Worked Example: Photoperiodism and Night Length {.unnumbered}
@@ -175,7 +179,7 @@ contribute at least one observation before moving to the next prompt:
    procedure that would sharpen the measurement or extend the result to a
    new biological context, and predict what you would observe.
 3. **One-sentence headline** — each student composes a single sentence
-   summarising the lab's take-home message, suitable for a tweet. Compare
+   summarizing the lab's take-home message, suitable for a tweet. Compare
    sentences across groups; good headlines are short, quantitative, and
    mechanistic.
 4. **Connection back to the textbook** — identify one section of
@@ -194,5 +198,5 @@ contribute at least one observation before moving to the next prompt:
   chapter's "Bridge to Computation" subsection.
 
 *Module footer: parent chapter `\cref{sec:unit_VIII_plant_responses}`; all numerical
-quantities in this lab use SI units — see \cref{sec:appendix_units_and_constants} for
+quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
 unit conversions and biological-scale reference values.*

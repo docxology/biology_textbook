@@ -28,8 +28,8 @@
 - **Data skill:** Interpret transport data from gradients, rates, and membrane potentials.
 - **Practice cadence:** Visual Representations, Questions and Methods, Argumentation.
 - **Common misconception to repair:** Equilibrium does not mean equal concentration; charge and permeability matter.
-- **Primary lab:** \cref{sec:lab_unit_II_membrane_transport}.
-- **Question bank:** \cref{sec:q_unit_II_membrane_transport}.
+- **Primary lab:** \nameref{sec:lab_unit_II_membrane_transport}.
+- **Question bank:** \nameref{sec:q_unit_II_membrane_transport}.
 - **Transfer task:** Transfer gradient logic to neurons, kidneys, roots, and mitochondrial membranes.
 - **Bridge to computation:** `biology.cell.cell_biology.nernst_potential`.
 <!-- curriculum-scaffold-end -->
@@ -40,13 +40,13 @@
 \caption{Goldman--Hodgkin--Katz permeability sensitivity. Membrane potential is plotted as relative sodium permeability increases while potassium permeability is held fixed and chloride permeability is varied.}
 \label{fig:unit_II_ghk_permeability}
 \end{figure}
-<!-- alt: Semilog plot of GHK membrane potential in millivolts versus relative sodium permeability. Increasing sodium permeability depolarises the membrane, while separate line styles show how different chloride permeabilities shift the voltage. -->
+<!-- alt: Semilog plot of GHK membrane potential in millivolts versus relative sodium permeability. Increasing sodium permeability depolarizes the membrane, while separate line styles show how different chloride permeabilities shift the voltage. -->
 
 ---
 
 > **Opening Vignette: The Membrane Pump That Makes Cancer Cells Immortal**
 >
-> In 1976, July Ling and colleagues at MIT discovered that some tumour cells were extraordinarily
+> In 1976, July Ling and colleagues at MIT discovered that some tumor cells were extraordinarily
 > difficult to kill with chemotherapy drugs because they expressed unusual amounts of a 170 kDa
 > membrane protein — later named **P-glycoprotein** (P-gp) — that used ATP hydrolysis to actively
 > export cytotoxic drugs from the cell interior (Juliano & Ling, 1976, *Biochimica et Biophysica
@@ -66,12 +66,13 @@
 ---
 
 
-In 1972, Singer and Nicolson proposed the **fluid mosaic model**: the plasma membrane is a lipid bilayer in which proteins float like icebergs in a sea of lipids. Both the lipid and protein components can diffuse laterally within the membrane plane (**fluid** component), while the asymmetric distribution of lipids and proteins across the two leaflets generates **mosaic** heterogeneity.
+In 1972, Singer and Nicolson proposed the **fluid mosaic model**: the plasma membrane is a lipid bilayer in which proteins float like icebergs in a sea of lipids \citep{singer1972fluidmosaic}. Both the lipid and protein components can diffuse laterally within the membrane plane (**fluid** component), while the asymmetric distribution of lipids and proteins across the two leaflets generates **mosaic** heterogeneity.
 
 ### Membrane Lipid Composition
 
 The plasma membrane is not a homogeneous bilayer but contains distinct regions of varying composition:
 
+: Membrane Lipid Composition: Lipid Class and % of membrane (animal). {#tbl:unit_II_membrane_transport_membrane_lipid_composition}
 | Lipid Class | % of membrane (animal) | Location preference |
 | ----------- | ---------------------- | ------------------- |
 | Phosphatidylcholine (PC) | 25--30 | Outer leaflet |
@@ -79,9 +80,9 @@ The plasma membrane is not a homogeneous bilayer but contains distinct regions o
 | Phosphatidylserine (PS) | 10 | Inner leaflet (negatively charged) |
 | Sphingomyelin (SM) | 15 | Outer leaflet (rafts) |
 | Cholesterol | 20--50 | Both leaflets (condenses rafts) |
-| Phosphatidylinositol (PI) | 5 | Inner leaflet (signalling: PIP$_2$, PIP$_3$) |
+| Phosphatidylinositol (PI) | 5 | Inner leaflet (signaling: PIP$_2$, PIP$_3$) |
 
-**Lipid asymmetry** is maintained by **flippases** (ATP-dependent; P4-ATPases; move PS and PE to the inner leaflet) and **floppases** (ATP-dependent; ABC transporters; move lipids to the outer leaflet). **Scramblases** (Ca$^{2+}$-activated; TMEM16F) randomise asymmetry during [**apoptosis**](#gl:apoptosis) --- externalised phosphatidylserine (PS) is the "eat me" signal recognised by phagocyte receptors (TIM-4, BAI-1, Stabilin-2).
+**Lipid asymmetry** is maintained by **flippases** (ATP-dependent; P4-ATPases; move PS and PE to the inner leaflet) and **floppases** (ATP-dependent; ABC transporters; move lipids to the outer leaflet). **Scramblases** (Ca$^{2+}$-activated; TMEM16F) randomize asymmetry during [**apoptosis**](#gl:apoptosis) --- externalised phosphatidylserine (PS) is the "eat me" signal recognized by phagocyte receptors (TIM-4, BAI-1, Stabilin-2).
 
 **Membrane fluidity** depends on lipid composition:
 \begin{equation}
@@ -96,8 +97,8 @@ Cholesterol has a biphasic effect: at low temperature, it disrupts crystalline p
 
 **Lipid rafts** are dynamic, cholesterol- and sphingolipid-enriched microdomains (10--200 nm) in the outer leaflet that preferentially recruit certain proteins:
 - **GPI-anchored proteins** partition into rafts
-- **Signalling receptors** (e.g., T cell receptor, B cell receptor) cluster in rafts upon ligand binding
-- **Caveolins** (caveolae) represent a specialised, stable form of lipid raft
+- **Signaling receptors** (e.g., T cell receptor, B cell receptor) cluster in rafts upon ligand binding
+- **Caveolins** (caveolae) represent a specialized, stable form of lipid raft
 
 **Controversy:** The existence and functional significance of lipid rafts has been debated. Single-molecule tracking studies reveal that raft-like domains are transient (~10--20 ms lifetime), small (~10--20 nm), and form/dissolve dynamically. STED super-resolution microscopy (Eggeling et al., 2009, *Nature*) confirmed that sphingolipids and GPI-anchored proteins are transiently confined in nanoscale membrane domains, supporting a dynamic raft model.
 
@@ -129,6 +130,7 @@ Since 1972, several refinements have been made:
 
 ### Functions of Membrane Proteins
 
+: Functions of Membrane Proteins: Function and Examples. {#tbl:unit_II_membrane_transport_functions_of_membrane_proteins}
 | Function | Examples |
 | -------- | -------- |
 | Transport (channel) | Aquaporins, K$^+$ channels, Cl$^-$ channels, mechanosensitive channels |
@@ -201,7 +203,7 @@ The thermodynamic driving force is the difference in **water chemical potential*
 \end{equation}
 
 
-where $a_w$ is water activity (≈ mole fraction in dilute solution) and $\bar{V}_w$ is the partial molar volume of water (~18 mL/mol). Each dissolved solute particle reduces $a_w$ proportionally — this is the molecular origin of colligative properties (boiling-point elevation, freezing-point depression, vapour-pressure lowering). Setting $\mu_w$ equal on both sides of a semi-permeable membrane and solving for the pressure required to balance a solute gradient yields **van't Hoff's law**:
+where $a_w$ is water activity (≈ mole fraction in dilute solution) and $\bar{V}_w$ is the partial molar volume of water (~18 mL/mol). Each dissolved solute particle reduces $a_w$ proportionally — this is the molecular origin of colligative properties (boiling-point elevation, freezing-point depression, vapor-pressure lowering). Setting $\mu_w$ equal on both sides of a semi-permeable membrane and solving for the pressure required to balance a solute gradient yields **van't Hoff's law**:
 
 \begin{equation}
 \Pi = i M R T
@@ -224,9 +226,9 @@ This drives water into the cell at a flux of $J_w = p_f \cdot \Delta C$, where $
 (b) At osmotic equilibrium, water content adjusts to make intracellular osmolarity = 200 mOsm/L. If initial intracellular osmolyte content is $V_0 \cdot C_0 = 90 \cdot 290 = 26{,}100$ μmol·μm$^3$/L, the new equilibrium volume is:
 $$ V_\text{new} = V_0 \cdot \frac{C_0}{C_\text{new}} = 90 \cdot \frac{290}{200} = 130.5 \, \mu\text{m}^3  \label{eq:unit_II_membrane_transport_item_5}$$
 
-A 45% volume increase. RBCs reach a critical volume of ~150 μm$^3$ before haemolysis (membrane area cannot accommodate further sphere expansion), so the cell is on the brink of lysis.
+A 45% volume increase. RBCs reach a critical volume of ~150 μm$^3$ before hemolysis (membrane area cannot accommodate further sphere expansion), so the cell is on the brink of lysis.
 
-**Tonicity terms (clinical):** Hypotonic solutions cause cells to swell (haemolysis if severe). Isotonic solutions (e.g., 0.9% NaCl, 5% dextrose, lactated Ringer's) preserve volume. Hypertonic solutions cause cells to shrink (crenation in RBCs). Aquaporin defects cause major fluid balance disorders: **AQP2 mutations** cause nephrogenic diabetes insipidus (water reabsorption fails despite vasopressin); **AQP4 autoantibodies** cause neuromyelitis optica (astrocyte water-handling fails, edema and demyelination). The osmotic pressure of plasma proteins (mostly albumin, ~25 mmHg) is the **oncotic pressure** that retains fluid in the vasculature — its loss in nephrotic syndrome and liver failure causes generalised oedema.
+**Tonicity terms (clinical):** Hypotonic solutions cause cells to swell (hemolysis if severe). Isotonic solutions (e.g., 0.9% NaCl, 5% dextrose, lactated Ringer's) preserve volume. Hypertonic solutions cause cells to shrink (crenation in RBCs). Aquaporin defects cause major fluid balance disorders: **AQP2 mutations** cause nephrogenic diabetes insipidus (water reabsorption fails despite vasopressin); **AQP4 autoantibodies** cause neuromyelitis optica (astrocyte water-handling fails, edema and demyelination). The osmotic pressure of plasma proteins (mostly albumin, ~25 mmHg) is the **oncotic pressure** that retains fluid in the vasculature — its loss in nephrotic syndrome and liver failure causes generalized edema.
 
 > **Concept Check 1b:** A patient with severe burns receives 4 L of 0.45% NaCl ("half-normal saline") rapidly. Calculate the tonicity relative to plasma (290 mOsm/L) and predict the consequence for red blood cells.
 
@@ -247,7 +249,7 @@ A 45% volume increase. RBCs reach a critical volume of ~150 μm$^3$ before haemo
 - **Light-gated:** opened by photons; channelrhodopsin ChR2 is the standard optogenetic example.
 
 **Selectivity filter of K$^+$ channels** (MacKinnon, Nobel Prize 2003):
-The selectivity filter contains the signature sequence TVGYG. Four carbonyl oxygens from each of the four subunits line the pore, precisely mimicking the hydration shell of K$^+$ (radius 1.33 angstroms). Na$^+$ (radius 0.95 angstroms) is too small to be coordinated effectively --- the energetic cost of dehydrating Na$^+$ without compensating coordination makes Na$^+$ passage unfavourable. This elegant size-exclusion mechanism achieves 10,000:1 selectivity for K$^+$ over Na$^+$.
+The selectivity filter contains the signature sequence TVGYG. Four carbonyl oxygens from each of the four subunits line the pore, precisely mimicking the hydration shell of K$^+$ (radius 1.33 angstroms). Na$^+$ (radius 0.95 angstroms) is too small to be coordinated effectively --- the energetic cost of dehydrating Na$^+$ without compensating coordination makes Na$^+$ passage unfavorable. This elegant size-exclusion mechanism achieves 10,000:1 selectivity for K$^+$ over Na$^+$.
 
 **Aquaporins (AQP):** Facilitate water transport (not solutes). AQP1 (Peter Agre, Nobel Prize 2003) channels ~3 x 10$^8$ water molecules/s while excluding protons (the Grotthuss mechanism is interrupted by a critical asparagine residue in the channel pore, and the electrostatic field of the NPA motif reorients water molecules, preventing H$_3$O$^+$ passage).
 
@@ -260,13 +262,13 @@ The structural basis of selectivity is exquisite. Each AQP monomer is a hexa-hel
 
 The water permeability coefficient ($p_f$, the **osmotic permeability**) for a single AQP1 channel is ~$3 \times 10^{-14}$ cm$^3$/s, corresponding to ~3 × 10$^9$ water molecules/s under typical osmotic gradients. A red blood cell expressing ~200,000 AQP1 channels can therefore exchange its entire water volume in <100 ms — the basis of erythrocyte swelling/shrinking responses.
 
-**Clinical aquaporins.** Loss-of-function mutations in AQP2 cause **nephrogenic diabetes insipidus** (kidneys cannot concentrate urine despite normal vasopressin). Autoantibodies against AQP4 cause **neuromyelitis optica (Devic's disease)**, a demyelinating disorder distinct from MS. AQP1 is upregulated in many tumours and is being explored as a target in glioma therapy.
+**Clinical aquaporins.** Loss-of-function mutations in AQP2 cause **nephrogenic diabetes insipidus** (kidneys cannot concentrate urine despite normal vasopressin). Autoantibodies against AQP4 cause **neuromyelitis optica (Devic's disease)**, a demyelinating disorder distinct from MS. AQP1 is upregulated in many tumors and is being explored as a target in glioma therapy.
 
 **Clinical Connection: Channelopathies.** Ion channel [**mutation**](#gl:mutation)s cause a wide range of diseases:
 
-- **Long QT syndrome:** Mutations in cardiac potassium or sodium channels prolong repolarisation and can trigger fatal arrhythmias. Drug-development screens therefore test for hERG channel block.
+- **Long QT syndrome:** Mutations in cardiac potassium or sodium channels prolong repolarization and can trigger fatal arrhythmias. Drug-development screens therefore test for hERG channel block.
 - **Cystic fibrosis:** Mutations in CFTR disrupt chloride transport. The common deltaF508 variant causes misfolding and ER retention; modulator combinations such as lumacaftor/ivacaftor and elexacaftor/tezacaftor/ivacaftor partly restore channel function.
-- **Malignant hyperthermia:** RyR1 mutations cause uncontrolled Ca$^{2+}$ release from sarcoplasmic reticulum after exposure to volatile anaesthetics. See \cref{sec:unit_II_cell_signaling} for calcium signalling.
+- **Malignant hyperthermia:** RyR1 mutations cause uncontrolled Ca$^{2+}$ release from sarcoplasmic reticulum after exposure to volatile anaesthetics. See \cref{sec:unit_II_cell_signaling} for calcium signaling.
 
 > **Concept Check 2:** Tetrodotoxin (TTX, from pufferfish) blocks voltage-gated Na$^+$ channels by binding the selectivity filter from the extracellular side. Predict the effects of TTX on (a) [**action potential**](#gl:action-potential) generation, (b) nerve conduction, and (c) skeletal muscle contraction.
 
@@ -279,7 +281,7 @@ I = N \cdot P_o \cdot \gamma \cdot (V_m - E_\text{rev})
 \label{eq:unit_II_macroscopic_current}
 \end{equation}
 
-where $V_m$ is the membrane potential and $E_\text{rev}$ is the reversal potential (for a perfectly selective channel, $E_\text{rev} = E_\text{ion}$). This decomposition is one of the most powerful in biophysics: drugs can change channel function by altering $N$ (channel expression/internalisation), $P_o$ (gating modulators, allosteric drugs), or γ (pore-block, modifications of selectivity filter), and each can be measured separately.
+where $V_m$ is the membrane potential and $E_\text{rev}$ is the reversal potential (for a perfectly selective channel, $E_\text{rev} = E_\text{ion}$). This decomposition is one of the most powerful in biophysics: drugs can change channel function by altering $N$ (channel expression/internalization), $P_o$ (gating modulators, allosteric drugs), or γ (pore-block, modifications of selectivity filter), and each can be measured separately.
 
 **Single-channel conductances of representative channels (in pS):**
 
@@ -299,7 +301,7 @@ P_o(V) = \frac{1}{1 + \exp\left(-\frac{z_g F (V - V_{1/2})}{RT}\right)}
 \end{equation}
 
 
-where $V_{1/2}$ is the half-activation voltage. This sigmoidal curve is steep (~5–10 mV per e-fold change) — small voltage perturbations cause large changes in $P_o$, the basis of the action potential's switch-like behaviour. For ligand-gated channels with $n$ binding sites and Hill coefficient $h$:
+where $V_{1/2}$ is the half-activation voltage. This sigmoidal curve is steep (~5–10 mV per e-fold change) — small voltage perturbations cause large changes in $P_o$, the basis of the action potential's switch-like behavior. For ligand-gated channels with $n$ binding sites and Hill coefficient $h$:
 
 \begin{equation}
 P_o([L]) = \frac{[L]^h}{[L]^h + K_d^h}
@@ -313,6 +315,7 @@ For the muscle nAChR, $h \approx 1.5$ and $K_d \approx 30$ μM for ACh: half-max
 
 Whether a transporter contributes net charge to the membrane potential depends on the **stoichiometry of the transport cycle**.
 
+: Electroneutral vs. Electrogenic Transport: Transporter and Stoichiometry. {#tbl:unit_II_membrane_transport_electroneutral_vs_electrogenic_transport}
 | Transporter | Stoichiometry | Net charge moved per cycle | Electrogenic? |
 | ----------- | ------------- | -------------------------- | ------------- |
 | Na$^+$/K$^+$-ATPase | 3 Na$^+$ out / 2 K$^+$ in / 1 ATP | +1 outward | Yes |
@@ -339,6 +342,7 @@ For a 100× concentration gradient and 100 mV opposing voltage: $\Delta G \appro
 
 **GLUT transporters** (SLC2A family; 14 isoforms in humans) facilitate glucose diffusion:
 
+: Facilitated Diffusion via Carriers (Uniporters): Transporter and Tissue. {#tbl:unit_II_membrane_transport_facilitated_diffusion_via_carriers_uniporters}
 | Transporter | Tissue | $K_m$ (mM) | Regulation |
 | ----------- | ------ | ---------- | ---------- |
 | GLUT1 | Erythrocytes, brain endothelium, placenta | 1.5 | Constitutive |
@@ -417,7 +421,7 @@ This maintains:
 
 **ATP-Binding Cassette (ABC) transporters** are a superfamily of ~48 members in humans. They use ATP hydrolysis to transport diverse substrates across membranes:
 
-- **MDR1/P-glycoprotein (ABCB1):** Broad-specificity drug efflux pump; exports hydrophobic compounds from the cell. Overexpressed in many cancers, causing **multidrug resistance** --- tumour cells pump out chemotherapy drugs before they can act. Substrates include taxol, doxorubicin, vincristine.
+- **MDR1/P-glycoprotein (ABCB1):** Broad-specificity drug efflux pump; exports hydrophobic compounds from the cell. Overexpressed in many cancers, causing **multidrug resistance** --- tumor cells pump out chemotherapy drugs before they can act. Substrates include taxol, doxorubicin, vincristine.
 - **CFTR (ABCC7):** Unique ABC transporter that functions as a Cl$^-$ channel. Mutations cause **cystic fibrosis** (see Clinical Connection above).
 - **ABCA1:** Cholesterol and phospholipid efflux to apoA-I; critical for HDL formation. Loss-of-function mutations cause **Tangier disease** (very low HDL, cholesterol deposition in tissues).
 - **TAP1/TAP2 (ABCB2/3):** Transport antigenic peptides from cytoplasm into ER lumen for MHC class I loading and immune presentation.
@@ -430,7 +434,7 @@ Uses the Na$^+$ electrochemical gradient (generated by the primary pump) to driv
 - **Antiport (exchange, opposite directions):** NCX (Na$^+$/Ca$^{2+}$ exchanger): 3 Na$^+$ in, 1 Ca$^{2+}$ out; critical for cardiac Ca$^{2+}$ [**homeostasis**](#gl:homeostasis). NHE (Na$^+$/H$^+$ exchanger): Na$^+$ in, H$^+$ out; regulates intracellular pH.
 
 > **Clinical Connection: SGLT2 Inhibitors in Diabetes and Heart Failure**
-> SGLT2 inhibitors (empagliflozin, dapagliflozin, canagliflozin) block glucose reabsorption in the kidney proximal tubule, causing glucosuria (glucose loss in urine) and lowering blood glucose. Remarkably, these drugs also reduce cardiovascular death and heart failure hospitalisations, even in non-diabetic patients --- likely through natriuresis, osmotic diuresis, and favourable metabolic effects. They represent a rare case where a simple transport mechanism becomes a blockbuster drug target. see \cref{sec:unit_III_metabolic_integration} (Metabolic Integration) for insulin signalling.
+> SGLT2 inhibitors (empagliflozin, dapagliflozin, canagliflozin) block glucose reabsorption in the kidney proximal tubule, causing glucosuria (glucose loss in urine) and lowering blood glucose. Remarkably, these drugs also reduce cardiovascular death and heart failure hospitalisations, even in non-diabetic patients --- likely through natriuresis, osmotic diuresis, and favorable metabolic effects. They represent a rare case where a simple transport mechanism becomes a blockbuster drug target. see \cref{sec:unit_III_metabolic_integration} (Metabolic Integration) for insulin signaling.
 
 > **Concept Check 3:** The antibiotic gramicidin forms a channel in bacterial membranes that allows monovalent cations (Na$^+$, K$^+$) to flow freely. Predict how gramicidin would affect (a) the bacterial membrane potential, (b) the proton motive force, and (c) bacterial ATP synthesis.
 
@@ -512,10 +516,11 @@ E_{Ca} = 13.35 \; \text{mV} \times \ln(25,000) = 13.35 \times 10.13 = +135 \; \t
 \end{equation}
 
 
-The strongly positive $E_{Ca}$ means that Ca$^{2+}$ has a massive driving force to enter cells. Brief Ca$^{2+}$ channel openings can therefore cause significant signalling events.
+The strongly positive $E_{Ca}$ means that Ca$^{2+}$ has a massive driving force to enter cells. Brief Ca$^{2+}$ channel openings can therefore cause significant signaling events.
 
 **Nernst potentials of key ions:**
 
+: Derivation of the Nernst Equation: Ion and [inside] (mM). {#tbl:unit_II_membrane_transport_derivation_of_the_nernst_equation}
 | Ion | [inside] (mM) | [outside] (mM) | $E_i$ (mV, 37 degrees C) |
 | --- | ------------- | --------------- | ----------------------- |
 | K$^+$ | 140 | 5 | -89 |
@@ -536,7 +541,7 @@ E_i = \frac{RT}{z_i F} \ln \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}}
 
 *Sodium (z = +1):* $E_{Na} = 61.5 \cdot \log_{10}(145/12) = 61.5 \cdot \log_{10}(12.08) = 61.5 \cdot 1.082 = +66.6 \text{ mV}$. (Tabulated values vary 63–67 mV depending on the assumed concentrations.) Na$^+$ is concentrated outside, so equilibrium drives Na$^+$ inward; the equilibrium potential is strongly positive. The resting membrane potential is *very far* from $E_{Na}$ — meaning Na$^+$ has a massive electrochemical force driving it inward, restrained primarily by the low resting Na$^+$ permeability.
 
-*Chloride (z = −1):* $E_{Cl} = (61.5 / -1) \cdot \log_{10}(110/4) = -61.5 \cdot \log_{10}(27.5) = -61.5 \cdot 1.439 = -88.5 \text{ mV}$. (Tabulated values vary 80–90 mV depending on cell type — neurons have higher [Cl$^-$]$_i$ than skeletal muscle.) Note the *negative* sign on $z_\text{Cl}$ inverts the ratio's effect: a higher [Cl$^-$]$_o$ than [Cl$^-$]$_i$ yields a *negative* equilibrium potential, the opposite of K$^+$. In adult neurons, $E_\text{Cl}$ sits near $V_m$, so Cl$^-$ is essentially at equilibrium and small Cl$^-$ permeability changes (e.g., GABA$_A$-receptor opening) cause primarily modest hyperpolarisation by stabilising $V_m$ near $E_\text{Cl}$. In neonatal neurons, [Cl$^-$]$_i$ is higher (~25 mM) due to immature KCC2 expression, $E_\text{Cl}$ becomes ~−40 mV, and GABA is *depolarising* — a fact with major implications for early brain development and neonatal seizures.
+*Chloride (z = −1):* $E_{Cl} = (61.5 / -1) \cdot \log_{10}(110/4) = -61.5 \cdot \log_{10}(27.5) = -61.5 \cdot 1.439 = -88.5 \text{ mV}$. (Tabulated values vary 80–90 mV depending on cell type — neurons have higher [Cl$^-$]$_i$ than skeletal muscle.) Note the *negative* sign on $z_\text{Cl}$ inverts the ratio's effect: a higher [Cl$^-$]$_o$ than [Cl$^-$]$_i$ yields a *negative* equilibrium potential, the opposite of K$^+$. In adult neurons, $E_\text{Cl}$ sits near $V_m$, so Cl$^-$ is essentially at equilibrium and small Cl$^-$ permeability changes (e.g., GABA$_A$-receptor opening) cause primarily modest hyperpolarization by stabilizing $V_m$ near $E_\text{Cl}$. In neonatal neurons, [Cl$^-$]$_i$ is higher (~25 mM) due to immature KCC2 expression, $E_\text{Cl}$ becomes ~−40 mV, and GABA is *depolarizing* — a fact with major implications for early brain development and neonatal seizures.
 
 These three numbers — $E_K \approx -89$, $E_{Na} \approx +63$, $E_{Cl} \approx -82$ — together with the relative permeabilities $P_K : P_{Na} : P_{Cl}$ generate the entire repertoire of resting and action potentials in excitable cells.
 
@@ -568,7 +573,7 @@ I_i = z_i F P_i \frac{z_i F V_m / RT}{1 - \exp(-z_i F V_m / RT)} \left( [C_i]_\t
 \end{equation}
 
 
-At the resting membrane potential, the *net* current must be zero: $\sum_i I_i = 0$. Solving this for K$^+$, Na$^+$, and Cl$^-$ (and treating Cl$^-$ as monovalent anion) algebraically yields the GHK voltage equation \cref{eq:unit_II_ghk}. \cref{fig:unit_II_ghk_permeability} shows how depolarisation tracks relative Na$^+$ permeability when K$^+$ permeability is held fixed and Cl$^-$ permeability is varied. The key conceptual takeaways are: (i) the membrane potential is a *weighted log average* of the Nernst potentials, with weights set by permeability; (ii) the ion with the highest permeability dominates; (iii) shifts in permeability ratios (e.g., during the action potential) produce predictable shifts in $V_m$.
+At the resting membrane potential, the *net* current must be zero: $\sum_i I_i = 0$. Solving this for K$^+$, Na$^+$, and Cl$^-$ (and treating Cl$^-$ as monovalent anion) algebraically yields the GHK voltage equation \cref{eq:unit_II_ghk}. \cref{fig:unit_II_ghk_permeability} shows how depolarization tracks relative Na$^+$ permeability when K$^+$ permeability is held fixed and Cl$^-$ permeability is varied. The key conceptual takeaways are: (i) the membrane potential is a *weighted log average* of the Nernst potentials, with weights set by permeability; (ii) the ion with the highest permeability dominates; (iii) shifts in permeability ratios (e.g., during the action potential) produce predictable shifts in $V_m$.
 
 ## Worked Example: Goldman Equation
 
@@ -598,7 +603,7 @@ This is close to the experimentally measured [**resting potential**](#gl:resting
 
 > **Concept Check 4:** During an action potential, the permeability to Na$^+$ increases ~500-fold (from $P_{Na}/P_K$ = 0.04 to ~20). Using the Goldman equation, predict what happens to $V_m$. Why does the membrane potential approach but not quite reach $E_{Na}$?
 
-> **Worked Example --- Electrochemical Gradient and Transport Energetics:** The Na⁺/K⁺-ATPase pumps 3 Na⁺ out and 2 K⁺ in per ATP hydrolyzed. Given: [Na⁺]_out = 145 mM, [Na⁺]_in = 12 mM, [K⁺]_out = 4 mM, [K⁺]_in = 140 mM, V_m = -70 mV, T = 37°C. Calculate the free energy for transporting 3 Na⁺ out: ΔG(Na⁺, 3 ions) = 3[RT ln([Na⁺]_in/[Na⁺]_out) + zFV_m] = 3[8.314 × 310 × ln(12/145) + 1 × 96485 × (-0.070)] = 3[(-6250) + (-6754)] = 3 × (-13004) ≈ -39 kJ/mol summed for the inward (downhill) electrochemical drop --- equivalently, the *uphill* cost of pushing 3 Na⁺ out against this gradient is +39 kJ/mol. For 2 K⁺ in: ΔG(K⁺, 2 ions) = 2[RT ln([K⁺]_out/[K⁺]_in) + zFV_m] = 2[8.314 × 310 × ln(4/140) + (-6754)] = 2[(-9510) + (-6754)] = 2 × (-16264) ≈ -32.5 kJ/mol downhill, so the uphill cost of importing 2 K⁺ is +32.5 kJ/mol. Total uphill work per cycle: 39 + 32.5 = 71.5 kJ/mol. ATP hydrolysis under cellular conditions yields ΔG ≈ -50 to -60 kJ/mol --- which barely covers the work. Resolution: the textbook stoichiometry (3 Na⁺/2 K⁺/1 ATP) is precisely matched to keep the pump near thermodynamic balance under physiological gradients, so small rises in [Na⁺]_in (or membrane depolarization that reduces V_m's contribution to Na⁺ extrusion) dramatically slow or reverse the pump --- the basis of cardiac glycoside toxicity and ischaemic Na⁺ overload.
+> **Worked Example --- Electrochemical Gradient and Transport Energetics:** The Na⁺/K⁺-ATPase pumps 3 Na⁺ out and 2 K⁺ in per ATP hydrolyzed. Given: [Na⁺]_out = 145 mM, [Na⁺]_in = 12 mM, [K⁺]_out = 4 mM, [K⁺]_in = 140 mM, V_m = -70 mV, T = 37°C. Calculate the free energy for transporting 3 Na⁺ out: ΔG(Na⁺, 3 ions) = 3[RT ln([Na⁺]_in/[Na⁺]_out) + zFV_m] = 3[8.314 × 310 × ln(12/145) + 1 × 96485 × (-0.070)] = 3[(-6250) + (-6754)] = 3 × (-13004) ≈ -39 kJ/mol summed for the inward (downhill) electrochemical drop --- equivalently, the *uphill* cost of pushing 3 Na⁺ out against this gradient is +39 kJ/mol. For 2 K⁺ in: ΔG(K⁺, 2 ions) = 2[RT ln([K⁺]_out/[K⁺]_in) + zFV_m] = 2[8.314 × 310 × ln(4/140) + (-6754)] = 2[(-9510) + (-6754)] = 2 × (-16264) ≈ -32.5 kJ/mol downhill, so the uphill cost of importing 2 K⁺ is +32.5 kJ/mol. Total uphill work per cycle: 39 + 32.5 = 71.5 kJ/mol. ATP hydrolysis under cellular conditions yields ΔG ≈ -50 to -60 kJ/mol --- which barely covers the work. Resolution: the textbook stoichiometry (3 Na⁺/2 K⁺/1 ATP) is precisely matched to keep the pump near thermodynamic balance under physiological gradients, so small rises in [Na⁺]_in (or membrane depolarization that reduces V_m's contribution to Na⁺ extrusion) dramatically slow or reverse the pump --- the basis of cardiac glycoside toxicity and ischemic Na⁺ overload.
 
 > **Concept Check (Synthesis):** The CFTR channel, mutated in cystic fibrosis, is a Cl⁻ channel gated by ATP binding/hydrolysis --- making it unique among ion channels. The ΔF508 mutation (deletion of Phe508 in NBD1) causes protein misfolding and ER retention. (a) CFTR gating requires ATP binding to two nucleotide-binding domains (NBDs) --- the channel opens when two ATP molecules are bound and closes when one is hydrolyzed. Sketch the thermodynamic cycle of gating and identify which step is rate-limiting for channel open time. (b) Potentiators (e.g., ivacaftor) increase channel open probability; correctors (e.g., lumacaftor) improve folding. For ΔF508 patients, why is a combination therapy superior to either alone? (c) At the mucosal surface of the lung: if Cl⁻ secretion through CFTR is reduced by 50%, predict the directional change in airway surface liquid (ASL) volume and explain why this promotes *Pseudomonas* biofilm colonization.
 
@@ -613,13 +618,13 @@ While the Nernst and Goldman equations describe resting membrane potential, the 
 
 1. **Resting state** ($V_m$ ~ -70 mV): Voltage-gated Na$^+$ and K$^+$ channels are closed. K$^+$ leak channels (K2P family) maintain the resting potential near $E_K$.
 
-2. **[Depolarisation](#gl:depolarisation) to threshold** (~-55 mV): Graded potentials (e.g., from synaptic input) depolarise the membrane. If threshold is reached, voltage-gated Na$^+$ channels (Na$_V$1.x) open rapidly (activation gate).
+2. **[Depolarization](#gl:depolarization) to threshold** (~-55 mV): Graded potentials (e.g., from synaptic input) depolarize the membrane. If threshold is reached, voltage-gated Na$^+$ channels (Na$_V$1.x) open rapidly (activation gate).
 
-3. **Rising phase** (depolarisation): Na$^+$ influx drives $V_m$ toward $E_{Na}$ (+63 mV). Positive feedback: depolarisation opens more Na$^+$ channels. This is the Hodgkin-Huxley regenerative cycle.
+3. **Rising phase** (depolarization): Na$^+$ influx drives $V_m$ toward $E_{Na}$ (+63 mV). Positive feedback: depolarization opens more Na$^+$ channels. This is the Hodgkin-Huxley regenerative cycle.
 
 4. **Overshoot:** $V_m$ briefly exceeds 0 mV (typically reaches +30 to +40 mV but does not reach $E_{Na}$ because Na$^+$ channel inactivation begins).
 
-5. **Repolarisation:** Na$^+$ channel inactivation (ball-and-chain mechanism, h-gate) closes channels within ~1 ms. Voltage-gated K$^+$ channels (K$_V$, delayed rectifier) open slowly, allowing K$^+$ efflux, driving $V_m$ back toward $E_K$.
+5. **Repolarization:** Na$^+$ channel inactivation (ball-and-chain mechanism, h-gate) closes channels within ~1 ms. Voltage-gated K$^+$ channels (K$_V$, delayed rectifier) open slowly, allowing K$^+$ efflux, driving $V_m$ back toward $E_K$.
 
 6. **Undershoot (afterhyperpolarisation):** K$^+$ channels remain open transiently, overshooting below resting potential (~ -80 mV). K$^+$ channels then close, and $V_m$ returns to rest.
 
@@ -639,12 +644,12 @@ where $m$ = Na$^+$ activation variable, $h$ = Na$^+$ inactivation variable, $n$ 
 
 ### Saltatory Conduction Along Myelinated Axons
 
-In myelinated axons, myelin sheaths (formed by Schwann cells in PNS, oligodendrocytes in CNS) insulate the axon, reducing membrane capacitance. Action potentials "jump" between **nodes of Ranvier** (gaps in myelin where Na$^+$ channels are concentrated at ~1,000/um$^2$). This increases conduction velocity from ~1 m/s (unmyelinated C fibres) to ~120 m/s (large myelinated A-alpha fibres).
+In myelinated axons, myelin sheaths (formed by Schwann cells in PNS, oligodendrocytes in CNS) insulate the axon, reducing membrane capacitance. Action potentials "jump" between **nodes of Ranvier** (gaps in myelin where Na$^+$ channels are concentrated at ~1,000/um$^2$). This increases conduction velocity from ~1 m/s (unmyelinated C fibers) to ~120 m/s (large myelinated A-alpha fibers).
 
 > **Clinical Connection: Multiple Sclerosis and Demyelination**
 > Multiple sclerosis (MS) is an autoimmune disease in which T cells and antibodies attack CNS myelin. Demyelination exposes K$^+$ channels normally under the myelin sheath, causing K$^+$ leakage and conduction block. Symptoms include visual disturbances, motor weakness, and sensory abnormalities. The drug 4-aminopyridine (dalfampridine) blocks exposed K$^+$ channels and partially restores conduction, improving walking ability in MS patients.
 
-> **Concept Check 6:** Local anaesthetics (e.g., lidocaine) block voltage-gated Na$^+$ channels by entering the channel pore from the intracellular side in their uncharged form, then becoming protonated and trapped. Why do local anaesthetics preferentially block small-diameter pain fibres before large motor fibres?
+> **Concept Check 6:** Local anaesthetics (e.g., lidocaine) block voltage-gated Na$^+$ channels by entering the channel pore from the intracellular side in their uncharged form, then becoming protonated and trapped. Why do local anaesthetics preferentially block small-diameter pain fibers before large motor fibers?
 
 ---
 
@@ -686,7 +691,7 @@ sequenceDiagram
 *SNARE-mediated vesicle fusion during regulated exocytosis. The v-SNARE on the vesicle (VAMP/synaptobrevin) and t-SNAREs on the target membrane (syntaxin + SNAP-25) form a tight four-helix bundle that drives membrane fusion. [**Synaptotagmin**](#gl:synaptotagmin) acts as the Ca$^{2+}$ sensor that triggers fusion in <1 ms.*
 
 - **Synaptic vesicle fusion:** Ca$^{2+}$ entry through voltage-gated Ca$^{2+}$ channels triggers synaptotagmin, fusion occurs in <0.2 ms (fastest biological membrane fusion)
-- **Insulin secretion:** glucose metabolism raises ATP/ADP ratio, closes K$_{ATP}$ channels, depolarisation opens Ca$^{2+}$ channels, Ca$^{2+}$ triggers insulin granule exocytosis
+- **Insulin secretion:** glucose metabolism raises ATP/ADP ratio, closes K$_{ATP}$ channels, depolarization opens Ca$^{2+}$ channels, Ca$^{2+}$ triggers insulin granule exocytosis
 
 > **Clinical Connection: Botulinum Toxin and Tetanus Toxin**
 > Both botulinum toxin (Botox) and tetanus toxin are zinc metalloproteases that cleave SNARE proteins:
@@ -699,6 +704,7 @@ The SNARE hypothesis (Rothman, Schekman, Südhof — 2013 Nobel Prize in Physiol
 
 **Compartment-specific SNARE pairs** ensure that each vesicle fuses primarily with its correct target:
 
+: SNARE Mechanism in Detail: Compartment pair and v-SNARE. {#tbl:unit_II_membrane_transport_snare_mechanism_in_detail}
 | Compartment pair | v-SNARE | t-SNAREs |
 | ---------------- | ------- | -------- |
 | Synaptic vesicle → presynaptic membrane | VAMP2 (synaptobrevin) | Syntaxin-1 + SNAP-25 |
@@ -719,6 +725,7 @@ The SNARE hypothesis (Rothman, Schekman, Südhof — 2013 Nobel Prize in Physiol
 
 Three major coat systems shape the secretory and endocytic pathways: **COPII**, **COPI**, and **clathrin**. Each is built around a small GTPase (Sar1 for COPII, Arf1 for COPI and clathrin) that anchors to the membrane upon GDP→GTP exchange and recruits coat subunits. Membrane curvature is generated by the geometry of the coat itself.
 
+: Vesicle Coat Proteins in Detail: Coat and GTPase. {#tbl:unit_II_membrane_transport_vesicle_coat_proteins_in_detail}
 | Coat | GTPase | Inner layer | Outer layer | Cargo selection | Vesicle size |
 | ---- | ------ | ----------- | ----------- | --------------- | ------------ |
 | **COPII** | Sar1 | Sec23/24 (Sec24 is cargo selector via DXE/FF motifs) | Sec13/31 (cuboctahedral cage) | Anterograde ER→Golgi | 60–80 nm |
@@ -729,7 +736,7 @@ Three major coat systems shape the secretory and endocytic pathways: **COPII**, 
 
 **Vesicle traffic in numbers.** A typical mammalian cell sustains ~10$^4$ exocytic events and ~10$^4$ endocytic events per minute. The plasma membrane area equivalent of one entire cell is internalised every ~30 minutes — meaning the membrane is in dynamic flux, with steady-state composition maintained by precise SNARE-coupled bidirectional traffic. A typical secretory neuron at full activity can fuse ~1000 synaptic vesicles per second.
 
-### Endocytosis and Cargo Internalisation
+### Endocytosis and Cargo Internalization
 
 **Clathrin-mediated endocytosis (CME):**
 1. Cargo receptors cluster in clathrin-coated pits (adaptor AP2 links receptors to clathrin triskelions)
@@ -742,7 +749,7 @@ Three major coat systems shape the secretory and endocytic pathways: **COPII**, 
 **Caveolar endocytosis:**
 - 50--80 nm flask-shaped invaginations rich in cholesterol and sphingolipids
 - Coated with caveolin-1 (integral membrane protein with hairpin topology)
-- Functions: transcytosis across endothelial cells, lipid homeostasis, signalling compartmentalisation
+- Functions: transcytosis across endothelial cells, lipid homeostasis, signaling compartmentalization
 
 **Phagocytosis:**
 - Professional phagocytes (macrophages, neutrophils, dendritic cells)
@@ -753,7 +760,7 @@ Three major coat systems shape the secretory and endocytic pathways: **COPII**, 
 **Macropinocytosis:**
 - Non-specific uptake of large volumes of extracellular fluid
 - Actin-driven membrane ruffles collapse back onto the cell surface, trapping fluid in large vesicles (0.2--5 μm)
-- Important for antigen sampling by dendritic cells and for nutrient acquisition by cancer cells (exploited by RAS-mutant tumours)
+- Important for antigen sampling by dendritic cells and for nutrient acquisition by cancer cells (exploited by RAS-mutant tumors)
 
 > **Concept Check 5:** Familial hypercholesterolaemia (FH) can be caused by mutations in the LDL receptor, the adaptor protein ARH, or the PCSK9 protease. For each, explain how the mutation leads to elevated blood LDL cholesterol. Which type responds to statin therapy?
 
@@ -827,7 +834,7 @@ flowchart LR
 
 ## Summary
 
-- The plasma membrane is a fluid mosaic bilayer with asymmetric lipid distribution maintained by flippases. Lipid rafts are dynamic cholesterol-sphingolipid microdomains with signalling roles.
+- The plasma membrane is a fluid mosaic bilayer with asymmetric lipid distribution maintained by flippases. Lipid rafts are dynamic cholesterol-sphingolipid microdomains with signaling roles.
 - Ion channels achieve selectivity through precise selectivity filters (K$^+$ channel: carbonyl oxygen coordination) and are gated by voltage, ligands, mechanical force, or temperature.
 - Mechanosensitive channel interpretation should connect membrane force, channel architecture, disease mutation, and functional assay; TMEM63 channelopathy work illustrates how structural rearrangements can be linked to altered gating \citep{zheng2025tmem63channelopathies}.
 - The Na$^+$/K$^+$-ATPase maintains ionic gradients essential for membrane potential, cell volume, and secondary active transport, consuming ~25% of cellular ATP.
@@ -835,7 +842,7 @@ flowchart LR
 - The Nernst equation gives the equilibrium potential of each ion; the Goldman equation gives the actual membrane potential for multiple ions simultaneously.
 - SNARE proteins mediate membrane fusion in exocytosis; synaptotagmin is the Ca$^{2+}$ sensor for regulated secretion.
 - Endocytosis types (clathrin-mediated, caveolar, phagocytosis, macropinocytosis) internalise specific cargo or bulk fluid.
-- **Connections:** See \cref{sec:unit_I_water_and_life} for water and [**osmosis**](#gl:osmosis), \nameref{sec:unit_IX_unit_intro} for excitable tissues, and \cref{sec:unit_II_cell_signaling} for receptor-mediated signalling.
+- **Connections:** See \cref{sec:unit_I_water_and_life} for water and [**osmosis**](#gl:osmosis), \nameref{sec:unit_IX_unit_intro} for excitable tissues, and \cref{sec:unit_II_cell_signaling} for receptor-mediated signaling.
 
 ---
 
@@ -880,10 +887,11 @@ flowchart LR
 
 ## Key Terms
 
+: Current Evidence Map: Transporter Structure to Function: Term and Definition. {#tbl:unit_II_membrane_transport_current_evidence_map_transporter_structure_to_function}
 | Term | Definition |
 | ---- | ---------- |
 | **Fluid mosaic model** | Singer-Nicolson model of the membrane as a lipid bilayer sea with floating protein icebergs |
-| **Lipid raft** | Dynamic cholesterol/sphingolipid-enriched microdomain that concentrates signalling proteins |
+| **Lipid raft** | Dynamic cholesterol/sphingolipid-enriched microdomain that concentrates signaling proteins |
 | **Flippase** | ATP-dependent enzyme maintaining lipid asymmetry by moving PS/PE to the inner leaflet |
 | **Aquaporin** | Water-selective channel; excludes protons via electrostatic mechanism |
 | **GLUT** | Glucose transporter family (SLC2A); 14 isoforms with tissue-specific expression and $K_m$ |
@@ -908,6 +916,7 @@ the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
+: Companion source surfaces for Membrane Structure and Transport. {#tbl:unit_II_membrane_transport_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/cell/cell_biology.py` (`nernst_potential`, `goldman_equation`, `osmotic_pressure`, `diffusion_flux`) | Reproduce electrochemical, osmotic, and diffusive driving forces. |

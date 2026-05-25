@@ -1,6 +1,5 @@
-# Questions — Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
+# Questions — Ecosystem Ecology and Biogeochemical Cycles {#sec:q_unit_X_ecosystem_ecology .unnumbered}
 
-\label{sec:q_unit_X_ecosystem_ecology}
 
 <!-- question-coverage-start -->
 ## Instructor Use and Coverage Notes {.unnumbered}
@@ -187,13 +186,13 @@ SOLUTION -->
 **Answer (Q27, Synthesis).** (a) Aerobic decomposition in drained thawed soils releases CO2; anaerobic decomposition in waterlogged thaw ponds releases CH4 (higher per-molecule GWP). (b) The permafrost carbon feedback is the self-amplifying loop warming to thaw to gas release to more warming, adding on the order of 0.2 to 0.4 degC extra warming this century (large uncertainty) beyond standard projections. (c) It behaves as a slow-onset, effectively irreversible tipping element on human timescales; whether there is one sharp global threshold versus gradual region-by-region loss is debated. See \cref{sec:unit_X_ecosystem_ecology}.
 SOLUTION -->
 <!-- assess: LO=LO4; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
-28. Evaluate the concept of "novel ecosystems" — ecosystems with no historical analogue, arising from human activity (urban ecosystems, post-mining landscapes, invasive-dominated habitats). Should conservation efforts attempt to restore historical ecosystems or manage novel ecosystems for desired functions? Use a specific example to argue both sides.
+28. Evaluate the concept of "novel ecosystems" — ecosystems with no historical analog, arising from human activity (urban ecosystems, post-mining landscapes, invasive-dominated habitats). Should conservation efforts attempt to restore historical ecosystems or manage novel ecosystems for desired functions? Use a specific example to argue both sides.
 
 <!-- SOLUTION
-**Answer (Q28, Synthesis).** Novel ecosystems are human-created assemblages with no historical analogue (urban systems, post-mining land, invasive-dominated habitats) that will not return to a historical baseline without continuous intervention. Restore-historical view (removing invasive Tamarisk from a riparian system): historical states preserve native biodiversity and coevolved interactions; abandoning baselines risks shifting-baseline syndrome. Manage-for-function view (same system): if hydrology and climate changed irreversibly, full restoration is infeasible, so managing for functions (erosion control, carbon, habitat) yields more value. The defensible answer is context-dependent. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q28, Synthesis).** Novel ecosystems are human-created assemblages with no historical analog (urban systems, post-mining land, invasive-dominated habitats) that will not return to a historical baseline without continuous intervention. Restore-historical view (removing invasive Tamarisk from a riparian system): historical states preserve native biodiversity and coevolved interactions; abandoning baselines risks shifting-baseline syndrome. Manage-for-function view (same system): if hydrology and climate changed irreversibly, full restoration is infeasible, so managing for functions (erosion control, carbon, habitat) yields more value. The defensible answer is context-dependent. See \cref{sec:unit_X_ecosystem_ecology}.
 SOLUTION -->
 <!-- assess: LO=LO5; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
-29. Evaluate geoengineering approaches targeting biogeochemical cycles: (a) ocean iron fertilisation (stimulating phytoplankton growth to increase biological pump CO₂ sequestration); (b) enhanced weathering (grinding silicate rocks to accelerate CO₂ consumption); (c) bioenergy with carbon capture and storage (BECCS). For each, evaluate the scale of CO₂ removal, the ecological risks, and the technological readiness.
+29. Evaluate geoengineering approaches targeting biogeochemical cycles: (a) ocean iron fertilization (stimulating phytoplankton growth to increase biological pump CO₂ sequestration); (b) enhanced weathering (grinding silicate rocks to accelerate CO₂ consumption); (c) bioenergy with carbon capture and storage (BECCS). For each, evaluate the scale of CO₂ removal, the ecological risks, and the technological readiness.
 
 <!-- SOLUTION
 **Answer (Q29, Synthesis).** (a) Ocean iron fertilization stimulates phytoplankton and the biological pump, but trials show weak, uncertain, short-lived net export with bloom and hypoxia risks; low readiness and confidence. (b) Enhanced weathering: ground silicate consumes CO2 as bicarbonate, potentially large and long-lived but energy- and land-intensive with trace-metal risks; moderate potential, early readiness. (c) BECCS: grow biomass, use for energy, store CO2 geologically; most mature and scalable but competes for land, water, and biodiversity and needs secure storage. None substitutes for emissions cuts. See \cref{sec:unit_X_ecosystem_ecology}.
