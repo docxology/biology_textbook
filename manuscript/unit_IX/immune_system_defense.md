@@ -633,11 +633,11 @@ $$a_{\text{pathogen}} = 100, \qquad a_{\text{host}} = 1000 \times 0.0005 = 0.5 <
 
 **Step 1.** State the exponential-growth relation for a clone dividing with a fixed doubling time. Each doubling multiplies cell number by 2, and the number of doublings in time $t$ is $t/t_d$:
 
-$$N = N_0 \cdot 2^{\,t/t_d} \label{eq:unit_IX_endocrine_and_immune_clonal_1}$$
+$$N = N_0 \cdot 2^{\,t/t_d} \label{eq:unit_IX_immune_system_defense_clonal_1}$$
 
 **Step 2.** Substitute the measured values. With $t = 72$ h and $t_d = 6$ h, the number of doublings is $t/t_d = 72/6 = 12$. The fold expansion is therefore $2^{12}$:
 
-$$\frac{N}{N_0} = 2^{72/6} = 2^{12} = 4096 \label{eq:unit_IX_endocrine_and_immune_clonal_2}$$
+$$\frac{N}{N_0} = 2^{72/6} = 2^{12} = 4096 \label{eq:unit_IX_immune_system_defense_clonal_2}$$
 
 **Step 3.** Compute the absolute clone size: $N = 100 \times 4096 = 4.10 \times 10^{5}$ cells --- a roughly 4000-fold expansion in three days.
 
