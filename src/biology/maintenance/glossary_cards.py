@@ -53,15 +53,15 @@ def write_glossary_cards(
     output.parent.mkdir(parents=True, exist_ok=True)
     if card_format == "anki":
         with output.open("w", newline="", encoding="utf-8") as handle:
-            writer = csv.writer(handle, delimiter="\t")
+            tsv_writer = csv.writer(handle, delimiter="\t")
             for entry in entries:
-                writer.writerow([entry.term, entry.definition])
+                tsv_writer.writerow([entry.term, entry.definition])
         return
     with output.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["Term", "Definition"])
-        writer.writeheader()
+        dict_writer = csv.DictWriter(handle, fieldnames=["Term", "Definition"])
+        dict_writer.writeheader()
         for entry in entries:
-            writer.writerow({"Term": entry.term, "Definition": entry.definition})
+            dict_writer.writerow({"Term": entry.term, "Definition": entry.definition})
 
 
 __all__ = [
