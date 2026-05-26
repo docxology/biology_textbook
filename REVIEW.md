@@ -911,7 +911,7 @@ Closed the nine-script P2 boundary debt from §24 by extracting business logic i
 
 Publication closure: transient outputs purged, §25 commits landed on `main`, full project gates, template core pipeline re-render, Stage 10 executable bundle, thermo-nuclear re-review, and GitHub release `v1.0.0` with PDF + bundle assets. Zenodo deposit (`10.5281/zenodo.20286478`) deferred — manual follow-up.
 
-**Source commit:** `7c75f4e` (`fix: mypy writer types in glossary_cards export`)
+**Source commit:** `46bd23b` (`docs: append REVIEW §26 v1.0 GitHub release closure`)
 
 **Gate table (project root)**
 
@@ -945,7 +945,9 @@ cd template && rm -f .coverage.project
 | Executable bundle zip | `template/output/biology_textbook/biology_textbook_v1.0.0_executable_bundle.zip` | **27,021,061 bytes** |
 | LaTeX log gate | `check_pdf_log.py` on `_combined_manuscript.log` | **PASS** (`--max-overfull-pt 2500 --allow-missing-glyphs`) |
 
-**GitHub release:** `v1.0.0` — assets: combined PDF + executable bundle zip. Zenodo upload manual when ready.
+**GitHub release:** [v1.0.0](https://github.com/docxology/biology_textbook/releases/tag/v1.0.0) — assets: combined PDF + executable bundle zip. Zenodo upload manual when ready.
+
+**Source commit (tag):** `46bd23b`
 
 **Residual (non-blocking)**
 
