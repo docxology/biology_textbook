@@ -445,21 +445,12 @@ def test_course_planning_grid_contains_hyperref_links() -> None:
 
 
 def test_course_planning_grid_uses_wide_unit_columns() -> None:
-    import importlib.util
-    import sys
-
-    script_path = PROJECT / "scripts" / "insert_chapter_metadata.py"
-    spec = importlib.util.spec_from_file_location("insert_chapter_metadata", script_path)
-    assert spec is not None and spec.loader is not None
-    module = importlib.util.module_from_spec(spec)
-    sys.modules.setdefault("insert_chapter_metadata", module)
-    spec.loader.exec_module(module)
-
+    from biology.maintenance.chapter_badges import COURSE_GRID_COLUMN_SPEC, build_grid
     from biology.toc import load_toc
 
-    block = module.build_grid(load_toc(PROJECT))
+    block = build_grid(load_toc(PROJECT))
     assert r"\begin{tabular}" in block
-    assert module._COURSE_GRID_COLUMN_SPEC in block
+    assert COURSE_GRID_COLUMN_SPEC in block
     assert r"p{0.34\textwidth}" in block
     assert r"p{0.31\textwidth}" in block
     assert r"p{0.05\textwidth}" in block

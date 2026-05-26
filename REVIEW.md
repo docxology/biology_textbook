@@ -758,4 +758,47 @@ Follow-up after §18–§21: moderate chapter title tightening (`manuscript/conf
 - Template `tests/regression/` has a `biology_textbook.json` scaffold but no collected pytest modules yet — claim-binding tests for HW/mutation pins are future work.
 - Mermaid aspect-ratio advisories in `macromolecules.md` remain outside the visual-contract square gate; accessibility pytest suite passes.
 
+## 23. Thermo-nuclear P1/P2 closure — script extractions and module splits (2026-05-25)
+
+Follow-up to §20–§22: close all thermo-nuclear **P1/P2** maintainability debt before the Instructor Edition v1.0 re-render.
+
+**P1 — script boundary leaks**
+
+| Item | Destination |
+| --- | --- |
+| `sync_assessment_metadata.py` writers | `src/biology/assessment_sync.py` |
+| Orphan citation injection | `src/biology/citations.py` (`inject_orphan_citations`) |
+| Chapter badges + course grid | `src/biology/maintenance/chapter_badges.py` |
+| Answer scaffold insertion | `src/biology/answer_refinement/solution_scaffolds.py` |
+| `visual_contracts.py` (563 lines) | `src/biology/visual_contracts/` package (`models`, `helpers`, `scan`, `render`, `manifest`, `audit`) |
+| WIP resolver inline gate | `src/biology/quality/wip_resolver_smoke.py` |
+
+**P2 — module splits and doc sync**
+
+| Item | Destination |
+| --- | --- |
+| `curriculum.py` (610 lines) | `src/biology/curriculum/` unit subpackage (11 unit modules + `models`, `_factory`) |
+| `quality/patterns.py` (453 lines) | `src/biology/quality/patterns/` (`assessment.py`, `audit_manuscript.py`) |
+| Doc drift guards | `docs/README.md`, `docs/visualization_guide.md`, `tests/AGENTS.md`; extended `tests/test_script_quality.py` `DOC_PATHS` |
+
+**Live inventory (post-remediation)**
+
+| Metric | Count |
+| --- | --- |
+| `scripts/*.py` | 36 |
+| `tests/test_*.py` | 62 |
+| Registered matplotlib figures | 42 |
+| Visual manifest records | 262 |
+| Question bank items | 1320 |
+
+**Gate table (project root — post P1/P2)**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1377 passed**, **90.24%** coverage |
+| `ruff check src scripts tests --ignore E402` | PASS |
+| `mypy src scripts tests` | PASS |
+| `audit_publication_readiness.py --check --full --workers 4` | **PASS** (~597 s wall) |
+
+**Template deliverable:** `template/output/biology_textbook/pdf/biology_textbook_combined.pdf` (core pipeline re-render after gates pass).
 

@@ -15,21 +15,28 @@ uv run python -m pytest tests/ --cov=src --cov-fail-under=90
 
 ## Files
 
-**58** `test_*.py` files + `conftest.py` — see [../docs/testing_guide.md](../docs/testing_guide.md#test-organization) for the same split.
+**62** `test_*.py` files + `conftest.py` — see [../docs/testing_guide.md](../docs/testing_guide.md#test-organization) for the same split.
 
-### Domain tests (6 modules + conftest)
+### Domain tests (13 modules + conftest)
 
 | Module | Scope |
 | ------ | ----- |
 | `conftest.py` | `MPLBACKEND=Agg`; `sys.path` for `src/` and template root |
 | `test_cell_biology.py` | Membrane biophysics, organelles, signaling helpers |
-| `test_genetics.py` | DNA/RNA, crosses, population genetics |
+| `test_genetics_mendelian.py` | Mendelian crosses and inheritance |
+| `test_genetics_population.py` | Hardy–Weinberg and population genetics |
+| `test_genetics_linkage.py` | Linkage and recombination |
+| `test_genetics_mutation.py` | Mutation models and rates |
+| `test_genetics_epigenetics.py` | Epigenetic inheritance patterns |
+| `test_genetics_distance.py` | Genetic distance metrics |
+| `test_genetics_replication.py` | DNA replication mechanics |
+| `test_genetics_sequence.py` | Sequence analysis helpers |
 | `test_ecology_evolution_physiology_biochemistry.py` | Multi-domain models |
 | `test_microbiology_botany_neuroscience.py` | Growth, plants, neurons |
 | `test_mermaid_and_visualization.py` | Diagram renderer and PNG outputs |
 | `test_coverage_gap.py` | Error paths and low-coverage branches |
 
-### Invariant and quality tests (25 modules)
+### Invariant and quality tests (28 modules)
 
 | Module | Scope |
 | ------ | ----- |
@@ -41,6 +48,7 @@ uv run python -m pytest tests/ --cov=src --cov-fail-under=90
 | `test_curriculum_metadata.py` | Every `config.yaml` chapter has a `CurriculumRecord`; lab/question paths exist and align to curriculum metadata |
 | `test_current_claims_ledger.py` | `manuscript/current_claims.yaml` has source tiers, checked dates, refresh triggers, anchors, and stale-phrase coverage |
 | `test_assessment_metadata.py` | Every question-bank item has LO/Bloom/difficulty/format/minutes metadata |
+| `test_assessment_sync.py` | Assessment metadata sync helpers and dry-run orchestration |
 | `test_lab_pedagogy_alignment.py` | Every lab maps to measurable outcomes, chapter LOs, and rubric dimensions |
 | `test_toc_consistency.py` | Renderable H1s, front-matter navigation, reference appendices, and Course Planning Grid titles match `biology.toc`; lab/question config entries do not duplicate derived titles |
 | `test_accessibility.py` | LaTeX figures have nearby alt text; inline Mermaid has one alt comment and one italic caption per [../manuscript/AGENTS.md](../manuscript/AGENTS.md) |
@@ -56,6 +64,9 @@ uv run python -m pytest tests/ --cov=src --cov-fail-under=90
 | `test_maintenance_engine_smoke.py` | Smoke imports for extracted maintenance engines under `src/biology/` |
 | `test_textbook_paths.py` | Checkout path discovery, `ensure_project_paths()`, and template-root resolution |
 | `test_chapter_pedagogy_coverage.py` | REVIEW §7 pedagogy locks: worked-example floor, Concept-Check density, Bloom diversity, LO count |
+| `test_chapter_badges.py` | Course-planning grid and chapter metadata badge idempotency |
+| `test_solution_scaffolds.py` | Instructor answer-scaffold insertion preserves assess markers |
+| `test_wip_resolver_smoke.py` | Template WIP resolver finds `biology_textbook` through infrastructure |
 | `test_script_quality.py` | Scripts parse cleanly and avoid hard-coded local checkout paths or obsolete clones |
 | `test_textbook_quality_audit.py` | Umbrella textbook-quality audit: stale claims, copyedit artifacts, enrichment presence, and current-source locks |
 

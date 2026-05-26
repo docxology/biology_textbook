@@ -118,19 +118,19 @@ def test_check_records_flags_mermaid_low_contrast(monkeypatch: pytest.MonkeyPatc
         def search(line: str) -> FakeMatch | None:
             return FakeMatch() if "style" in line else None
 
-    monkeypatch.setattr("biology.visual_contracts._STYLE_COLOR_RE", FakeStyleRe)
+    monkeypatch.setattr("biology.visual_contracts.audit._STYLE_COLOR_RE", FakeStyleRe)
     monkeypatch.setattr(
-        "biology.visual_contracts._mermaid_sources",
+        "biology.visual_contracts.audit.mermaid_sources",
         lambda: [("manuscript/unit_I/demo.md", 2, "flowchart TD\n  style A fill:#aaa,stroke:#bbb")],
     )
-    monkeypatch.setattr("biology.visual_contracts._contrast_ratio", lambda _a, _b: 1.5)
+    monkeypatch.setattr("biology.visual_contracts.audit.contrast_ratio", lambda _a, _b: 1.5)
     findings = check_records([])
     assert any(f.code == "mermaid-low-contrast" for f in findings)
 
 
 def test_mermaid_newline_escape_finding(monkeypatch: pytest.MonkeyPatch) -> None:
     monkeypatch.setattr(
-        "biology.visual_contracts._mermaid_sources",
+        "biology.visual_contracts.audit.mermaid_sources",
         lambda: [("src/mermaid/biology_diagrams.py", 1, "flowchart TD\\n  A-->B")],
     )
     findings = check_records([])
@@ -141,7 +141,7 @@ def test_normalise_inline_mermaid_without_infrastructure(monkeypatch: pytest.Mon
     def broken_import(_name: str):
         raise ImportError("no infrastructure in unit test")
 
-    monkeypatch.setattr("biology.visual_contracts.import_module", broken_import)
+    monkeypatch.setattr("biology.visual_contracts.scan.import_module", broken_import)
     result = _normalise_inline_mermaid_source("flowchart TD\\n  A-->B")
     assert "<br/>" in result
 
@@ -149,7 +149,7 @@ def test_normalise_inline_mermaid_without_infrastructure(monkeypatch: pytest.Mon
 def test_render_inline_mermaid_assets_requires_mmdc(monkeypatch: pytest.MonkeyPatch) -> None:
     from biology.visual_contracts import render_inline_mermaid_assets
 
-    monkeypatch.setattr("biology.visual_contracts.shutil.which", lambda _name: None)
+    monkeypatch.setattr("biology.visual_contracts.render.shutil.which", lambda _name: None)
     with pytest.raises(RuntimeError, match="mmdc"):
         render_inline_mermaid_assets()
 

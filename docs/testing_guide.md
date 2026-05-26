@@ -104,7 +104,7 @@ Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the
 
 ## Test organization
 
-**Total: 58 test files** (domain + invariant/quality). The suite is partitioned into **domain tests** (exercising `src/biology/*` models) and **invariant/quality tests** (asserting manuscript, lab, question-bank, table-of-contents, render-log, glossary, current-claim, assessment-alignment, accessibility, standalone bootstrap, publication gate, and script-level gates).
+**Total: 62 test files** (domain + invariant/quality). The suite is partitioned into **domain tests** (exercising `src/biology/*` models) and **invariant/quality tests** (asserting manuscript, lab, question-bank, table-of-contents, render-log, glossary, current-claim, assessment-alignment, accessibility, standalone bootstrap, publication gate, and script-level gates).
 
 ### Domain tests (13 `test_*.py` files)
 

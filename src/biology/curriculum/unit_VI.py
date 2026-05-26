@@ -1,0 +1,40 @@
+from biology.curriculum._factory import _r
+
+RECORDS = (
+    _r(
+        "unit_VI_evolution_and_selection",
+        "Natural selection is differential reproductive success acting on heritable variation in context.",
+        ("variation", "fitness", "adaptation", "selection coefficient"),
+        "Selection coefficient and allele-frequency trajectory calculations.",
+        "Interpret fitness data and distinguish selection from other forces.",
+        "Simulate selection across generations under alternative fitness assumptions.",
+        "Evolution is not goal-directed progress; it is local change in populations under constraints.",
+        "Estimate selection strength from data and explain why the result is context dependent.",
+        "Transfer selection reasoning to antibiotics, pesticide resistance, cancer, or climate adaptation.",
+        "biology.evolution.evolution.simulate_selection",
+    ),
+    _r(
+        "unit_VI_genetic_drift_and_speciation",
+        "Chance, population structure, and barriers to gene flow can generate divergence even without adaptive change.",
+        ("drift", "effective population size", "gene flow", "speciation"),
+        "Fixation probability, effective population size, and migration-selection balance.",
+        "Distinguish stochastic from directional change in allele-frequency data.",
+        "Model drift and speciation scenarios with repeated trials.",
+        "Random does not mean patternless; stochastic processes have predictable distributions.",
+        "Predict how population size or isolation changes divergence and fixation risk.",
+        "Apply drift reasoning to endangered populations, founder effects, and island radiations.",
+        "biology.evolution.evolution.simulate_drift",
+    ),
+    _r(
+        "unit_VI_phylogenetics",
+        "Phylogenies are evidence-based hypotheses about ancestry, not ladders of progress.",
+        ("homology", "tree topology", "parsimony", "molecular clocks"),
+        "Tree-distance, parsimony, and molecular-clock calculations.",
+        "Read trees correctly and map traits or sequences onto branches.",
+        "Infer relationships from character or sequence evidence.",
+        "Living species are cousins, not ancestors of one another.",
+        "Use a tree to infer shared ancestry, character transitions, or divergence time.",
+        "Transfer tree thinking to pathogens, conservation units, gene families, and development.",
+        "biology.genetics.genetics.jukes_cantor_distance",
+    ),
+)

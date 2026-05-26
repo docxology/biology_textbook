@@ -50,7 +50,7 @@ def _question_path(chapter_id: str) -> Path:
 
 
 def _curriculum():
-    return _load_module("curriculum", PROJECT / "src" / "biology" / "curriculum.py")
+    return importlib.import_module("biology.curriculum")
 
 
 def _chapter_metadata():

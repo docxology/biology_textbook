@@ -1,0 +1,40 @@
+from biology.curriculum._factory import _r
+
+RECORDS = (
+    _r(
+        "unit_III_bioenergetics_and_respiration",
+        "Cells harvest free energy by coupling redox chemistry to phosphoryl transfer and ion gradients.",
+        ("free energy", "redox", "glycolysis", "oxidative phosphorylation"),
+        "Delta G, ATP yield, and electron-carrier accounting.",
+        "Track carbon, electrons, and ATP across a pathway.",
+        "Estimate energy yield under aerobic and anaerobic conditions.",
+        "ATP is not stored energy in a vague sense; it is a coupling currency with defined reaction chemistry.",
+        "Calculate an energy yield or redox consequence and connect it to cellular work.",
+        "Transfer energy accounting to exercise, fermentation, hypoxia, and mitochondrial disease.",
+        "biology.biochemistry.biochemistry.glycolysis_summary",
+    ),
+    _r(
+        "unit_III_photosynthesis",
+        "Photosynthesis couples light-driven electron flow to carbon fixation and planetary productivity.",
+        ("photosystems", "electron transport", "Calvin cycle", "photorespiration"),
+        "Photon, ATP/NADPH, and Calvin-cycle stoichiometry.",
+        "Interpret light-response and carbon-fixation data.",
+        "Measure or model photosynthetic rate under changing light or carbon conditions.",
+        "Plants do not eat sunlight; they use light energy to reduce carbon using electrons and enzymes.",
+        "Compute carbon-fixation requirements and explain a limiting factor.",
+        "Transfer photosynthetic constraints to crops, algae, climate, or ecosystem productivity.",
+        "biology.botany.botany.photosynthesis_rate",
+    ),
+    _r(
+        "unit_III_metabolic_integration",
+        "Metabolism is a regulated network that reallocates flux across tissues, time, and nutrient states.",
+        ("flux", "energy charge", "hormonal control", "fed/fasted states"),
+        "Energy charge, control points, and pathway-flux comparisons.",
+        "Use pathway evidence to infer which metabolic state or tissue is active.",
+        "Compare metabolic responses across nutrient and hormone conditions.",
+        "A pathway is not a one-way assembly line; reversibility and regulation define the real route.",
+        "Predict how a change in substrate, hormone, or enzyme activity redirects flux.",
+        "Apply metabolic network reasoning to diabetes, fasting, exercise, or cancer metabolism.",
+        "biology.biochemistry.biochemistry.reaction_free_energy",
+    ),
+)

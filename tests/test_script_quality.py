@@ -6,7 +6,6 @@ import ast
 from pathlib import Path
 import re
 import runpy
-import sys
 
 
 PROJECT = Path(__file__).resolve().parent.parent
@@ -16,6 +15,7 @@ DOC_PATHS = [
     PROJECT / "AGENTS.md",
     PROJECT / "REVIEW.md",
     PROJECT / "docs" / "README.md",
+    PROJECT / "docs" / "visualization_guide.md",
     PROJECT / "docs" / "architecture.md",
     PROJECT / "docs" / "pipeline_guide.md",
     PROJECT / "docs" / "testing_guide.md",
@@ -182,10 +182,7 @@ def test_further_reading_inserter_uses_specialized_source_heading() -> None:
 
 
 def test_assessment_sync_dry_run_path_does_not_write(tmp_path: Path) -> None:
-    if str(SCRIPTS) not in sys.path:
-        sys.path.insert(0, str(SCRIPTS))
-    namespace = runpy.run_path(str(SCRIPTS / "sync_assessment_metadata.py"))
-    write_or_record = namespace["_write_or_record"]
+    from biology.assessment_sync import write_or_record
     target = tmp_path / "lab.md"
     target.write_text("original\n", encoding="utf-8")
 
@@ -250,6 +247,11 @@ def test_documented_project_counts_match_live_inventory() -> None:
         r"32 `\*\.py` files",
         r"\b1170 questions\b",
         r"39 banks × 30",
+        r"\b51 `test_",
+        r"\b51 test",
+        r"\b252 records\b",
+        r"\b252-record\b",
+        r"all 252 records",
     )
     offenders: list[str] = []
     for path in DOC_PATHS:
@@ -261,7 +263,7 @@ def test_documented_project_counts_match_live_inventory() -> None:
             offenders.append(f"{rel} missing live 44-chapter count")
         if rel == "manuscript/README.md" and "**44**" not in text:
             offenders.append(f"{rel} missing live 44-chapter total in unit map")
-        if rel in {"README.md", "docs/testing_guide.md", "tests/README.md"} and str(test_count) not in text:
+        if rel in {"README.md", "docs/testing_guide.md", "tests/README.md", "docs/README.md", "tests/AGENTS.md"} and str(test_count) not in text:
             offenders.append(f"{rel} missing live test count {test_count}")
         if rel == "README.md" and "test_chapter_pedagogy_coverage" not in text:
             offenders.append(f"{rel} missing pedagogy regression test signpost")

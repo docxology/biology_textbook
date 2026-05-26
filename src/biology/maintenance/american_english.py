@@ -20,6 +20,8 @@ SKIP_RELATIVE_PATHS = frozenset(
         "src/biology/maintenance/american_english.py",
         "src/biology/maintenance/data/british_to_american.yaml",
         "src/biology/quality/patterns.py",
+        "src/biology/quality/patterns/assessment.py",
+        "src/biology/quality/patterns/audit_manuscript.py",
     }
 )
 

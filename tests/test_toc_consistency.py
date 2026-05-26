@@ -29,11 +29,17 @@ def _load_script_module(name: str):
     return module
 
 
-_metadata_script = _load_script_module("insert_chapter_metadata")
+from biology.maintenance.chapter_badges import (
+    BADGE_MARKER,
+    GRID_END,
+    GRID_START,
+    build_grid,
+    format_badge,
+)
+
 _sync_script = _load_script_module("sync_curriculum_materials")
-_GRID_END = _metadata_script._GRID_END
-_GRID_START = _metadata_script._GRID_START
-build_grid = _metadata_script.build_grid
+_GRID_END = GRID_END
+_GRID_START = GRID_START
 CONCEPT_MAP_MARKER = _sync_script.CONCEPT_MAP_MARKER
 NAV_MARKER = _sync_script.NAV_MARKER
 PREFACE_SCOPE_MARKER = _sync_script.PREFACE_SCOPE_MARKER
@@ -247,11 +253,11 @@ def test_chapter_badges_match_canonical_format() -> None:
     chapter_map = book_toc.chapters_by_id
     mismatches: list[str] = []
     badge_pattern = re.compile(
-        re.escape(_metadata_script._BADGE_MARKER) + r"\n> .*(?=\n|$)",
+        re.escape(BADGE_MARKER) + r"\n> .*(?=\n|$)",
         flags=re.MULTILINE,
     )
     for chapter in book_toc.chapters:
-        expected = _metadata_script._format_badge(chapter, chapter_map)
+        expected = format_badge(chapter, chapter_map)
         text = chapter.path.read_text(encoding="utf-8")
         match = badge_pattern.search(text)
         if match is None:

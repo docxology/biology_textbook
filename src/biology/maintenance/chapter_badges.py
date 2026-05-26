@@ -1,0 +1,199 @@
+"""Insert pedagogical metadata badges and refresh the course planning grid."""
+
+from __future__ import annotations
+
+import re
+import sys
+from dataclasses import dataclass
+from pathlib import Path
+
+from biology.toc import load_toc
+from textbook_io import write_text_atomic
+
+BADGE_MARKER = "<!-- chapter-metadata-badge -->"
+GRID_START = "<!-- course-planning-grid-start -->"
+GRID_END = "<!-- course-planning-grid-end -->"
+
+COURSE_GRID_COLUMN_SPEC = (
+    r">{\raggedright\arraybackslash}p{0.34\textwidth}"
+    r">{\centering\arraybackslash}p{0.05\textwidth}"
+    r">{\raggedright\arraybackslash}p{0.31\textwidth}"
+    r">{\centering\arraybackslash}p{0.10\textwidth}"
+    r">{\centering\arraybackslash}p{0.10\textwidth}"
+    r">{\centering\arraybackslash}p{0.10\textwidth}"
+)
+
+
+@dataclass
+class InsertReport:
+    badges_inserted: int = 0
+    badges_updated: int = 0
+    badges_already_present: int = 0
+    grid_updated: bool = False
+
+
+def format_badge(chapter, chapter_map) -> str:
+    meta = chapter.meta
+    prereq_links: list[str] = []
+    for pid in meta.prerequisites:
+        target = chapter_map.get(pid)
+        if target is None:
+            continue
+        prereq_links.append(f"\\cref{{sec:{pid}}}")
+    prereqs = ", ".join(prereq_links) if prereq_links else "none"
+    return (
+        f"{BADGE_MARKER}\n"
+        f"> {meta.difficulty_label} · "
+        f"{meta.reading_time_min} min read · "
+        f"{meta.lecture_time_min} min lecture · "
+        f"Prerequisites: {prereqs}"
+    )
+
+
+def insert_badge(path: Path, badge_text: str, report: InsertReport, *, dry_run: bool = False) -> None:
+    if not path.exists():
+        print(f"WARN: missing chapter file {path}", file=sys.stderr)
+        return
+    text = path.read_text(encoding="utf-8")
+    if BADGE_MARKER in text:
+        pattern = re.compile(
+            re.escape(BADGE_MARKER) + r"\n> .*(?=\n|$)",
+            flags=re.MULTILINE,
+        )
+        new_text, replacements = pattern.subn(lambda _match: badge_text, text, count=1)
+        if replacements and new_text != text:
+            if not dry_run:
+                write_text_atomic(path, new_text)
+            report.badges_updated += 1
+        else:
+            report.badges_already_present += 1
+        return
+    lines = text.splitlines()
+    for index, line in enumerate(lines):
+        if line.strip().startswith("\\label{sec:"):
+            insert_at = index + 1
+            while insert_at < len(lines) and lines[insert_at].strip() == "":
+                insert_at += 1
+            new_lines = lines[:insert_at] + [""] + badge_text.splitlines() + [""] + lines[insert_at:]
+            if not dry_run:
+                write_text_atomic(path, "\n".join(new_lines) + "\n")
+            report.badges_inserted += 1
+            return
+    print(f"WARN: no \\label{{sec:}} anchor in {path}", file=sys.stderr)
+
+
+def build_course_planning_grid(book_toc) -> str:
+    units_by_id = book_toc.units_by_id
+    lines = [
+        r"\begin{table}[htbp]",
+        r"\centering",
+        r"\footnotesize",
+        r"\setlength{\tabcolsep}{2pt}",
+        r"\renewcommand{\arraystretch}{1.12}",
+        rf"\begin{{tabular}}{{{COURSE_GRID_COLUMN_SPEC}}}",
+        r"\hline",
+        r"\textbf{Unit} & \textbf{Number} & \textbf{Chapter} & \textbf{Difficulty} & "
+        r"\textbf{Reading} & \textbf{Lecture} \\",
+        r"\hline",
+    ]
+    for chapter in book_toc.chapters:
+        chapter_meta = chapter.meta
+        unit = units_by_id[chapter.unit_id]
+        lines.append(
+            f"{unit.hyperlink_ref} & {chapter.grid_number} & {chapter.hyperlink_ref} & "
+            f"{chapter_meta.difficulty_label} & {chapter_meta.reading_time_min} min & "
+            f"{chapter_meta.lecture_time_min} min \\\\"
+        )
+    totals_reading = sum(chapter.meta.reading_time_min for chapter in book_toc.chapters)
+    totals_lecture = sum(chapter.meta.lecture_time_min for chapter in book_toc.chapters)
+    hours = totals_reading // 60
+    lecture_hours = totals_lecture // 60
+    lines.extend(
+        [
+            r"\hline",
+            f" & & \\textbf{{Totals}} & & \\textbf{{{totals_reading} min ({hours} h)}} & "
+            f"\\textbf{{{totals_lecture} min ({lecture_hours} h)}} \\\\",
+            r"\hline",
+            r"\end{tabular}",
+            r"\end{table}",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def update_front_matter_grid(
+    front_matter: Path,
+    grid_md: str,
+    report: InsertReport,
+    *,
+    dry_run: bool = False,
+) -> None:
+    text = front_matter.read_text(encoding="utf-8")
+    grid_section = (
+        "\n\n## Course Planning Grid {.unnumbered}\n\n"
+        "The table below provides a per-chapter difficulty rating (Level 1/3 to Level 3/3), an\n"
+        "estimated student reading time, and a suggested lecture allotment. Unit and chapter\n"
+        "cells list canonical titles from ``manuscript/config.yaml`` as clickable "
+        "``\\hyperref`` links to each section. The grid is\n"
+        "auto-generated by ``scripts/insert_chapter_metadata.py`` from the\n"
+        "canonical table of contents in ``manuscript/config.yaml`` plus\n"
+        "``src/biology/chapter_metadata.py`` — edit those sources and re-run the\n"
+        "script to refresh this grid.\n\n"
+        f"{GRID_START}\n{grid_md}\n{GRID_END}"
+    )
+    if GRID_START in text and GRID_END in text:
+        marker_start = text.index(GRID_START)
+        marker_end = text.index(GRID_END) + len(GRID_END)
+        heading_start = text.rfind("## Course Planning Grid {.unnumbered}", 0, marker_start)
+        if heading_start == -1:
+            pattern = re.compile(re.escape(GRID_START) + r".*?" + re.escape(GRID_END), re.DOTALL)
+            new_text = pattern.sub(f"{GRID_START}\n{grid_md}\n{GRID_END}", text)
+        else:
+            new_text = f"{text[:heading_start].rstrip()}{grid_section}{text[marker_end:]}"
+    else:
+        insert_pos = text.rfind("\\newpage")
+        if insert_pos == -1:
+            new_text = text + f"{grid_section}\n\n\\newpage\n"
+        else:
+            new_text = text[:insert_pos] + f"{grid_section}\n\n\\newpage\n" + text[insert_pos:]
+    if new_text != text and not dry_run:
+        write_text_atomic(front_matter, new_text)
+    if new_text != text:
+        report.grid_updated = True
+
+
+def apply_chapter_metadata(project_root: Path, *, dry_run: bool = False) -> InsertReport:
+    """Insert badges and refresh the course planning grid."""
+    manuscript = project_root / "manuscript"
+    book_toc = load_toc(project_root)
+    report = InsertReport()
+    chapter_map = book_toc.chapters_by_id
+
+    for chapter in book_toc.chapters:
+        insert_badge(chapter.path, format_badge(chapter, chapter_map), report, dry_run=dry_run)
+
+    update_front_matter_grid(
+        manuscript / "front_matter.md",
+        build_course_planning_grid(book_toc),
+        report,
+        dry_run=dry_run,
+    )
+    return report
+
+
+build_grid = build_course_planning_grid
+
+
+__all__ = [
+    "BADGE_MARKER",
+    "COURSE_GRID_COLUMN_SPEC",
+    "GRID_END",
+    "GRID_START",
+    "InsertReport",
+    "apply_chapter_metadata",
+    "build_course_planning_grid",
+    "build_grid",
+    "format_badge",
+    "insert_badge",
+    "update_front_matter_grid",
+]

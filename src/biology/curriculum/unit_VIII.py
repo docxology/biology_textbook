@@ -1,0 +1,40 @@
+from biology.curriculum._factory import _r
+
+RECORDS = (
+    _r(
+        "unit_VIII_plant_structure_and_water",
+        "Plant form is an engineering solution to water movement, support, gas exchange, and growth.",
+        ("xylem", "phloem", "water potential", "transpiration"),
+        "Water-potential and transpiration-flux calculations.",
+        "Interpret plant-water data from pressure, solute, and humidity measurements.",
+        "Measure or model water movement through plant tissues.",
+        "Water does not move because plants pull with intention; it follows potential gradients and cohesion.",
+        "Calculate water potential and predict the direction of water movement.",
+        "Transfer plant-water reasoning to drought, irrigation, forest physiology, and crop breeding.",
+        "biology.botany.botany.water_potential",
+    ),
+    _r(
+        "unit_VIII_plant_reproduction",
+        "Plant reproduction integrates life cycles, development, dispersal, and environmental timing.",
+        ("alternation of generations", "flowers", "seeds", "development"),
+        "Life-cycle accounting and phyllotaxis/growth-pattern calculations.",
+        "Track ploidy, tissue origin, and reproductive stage from diagrams or observations.",
+        "Compare reproductive structures and developmental outcomes.",
+        "Pollen, spores, seeds, and gametes are not interchangeable terms.",
+        "Trace a plant life cycle and predict the consequence of disrupting one stage.",
+        "Transfer reproductive reasoning to agriculture, pollination ecology, and plant evolution.",
+        "biology.botany.botany.plant_biomass_growth",
+    ),
+    _r(
+        "unit_VIII_plant_responses",
+        "Plants sense environmental signals and respond through growth, hormones, and physiological regulation.",
+        ("tropisms", "hormones", "photoperiodism", "stress responses"),
+        "Dose-response, water-use-efficiency, and hormone-interaction reasoning.",
+        "Interpret plant response data across light, gravity, water, and hormone treatments.",
+        "Test plant response predictions under controlled environmental cues.",
+        "A plant response is not passive; plants actively regulate development and physiology without neurons.",
+        "Predict a plant response from a signal and identify the likely hormone or pathway.",
+        "Transfer response logic to shade avoidance, drought, flowering, and crop management.",
+        "biology.botany.botany.photosynthesis_rate",
+    ),
+)

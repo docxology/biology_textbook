@@ -150,7 +150,7 @@ biology_textbook/
 │   ├── pad_short_labs.py              # extend very short lab files
 │   ├── refine_generated_answers.py    # rewrites legacy/generated answer scaffolds; --dry-run should be clean
 │   └── sync_assessment_metadata.py     # question-item metadata and lab outcome/rubric alignment
-├── tests/                            # 58 test_*.py modules; run pytest for current count and coverage
+├── tests/                            # 62 test_*.py modules; run pytest for current count and coverage
 │   ├── conftest.py
 │   ├── test_accessibility.py          # alt text + mermaid accessibility contract
 │   ├── test_assessment_metadata.py    # item-level question metadata

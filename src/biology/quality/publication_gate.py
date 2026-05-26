@@ -114,19 +114,7 @@ def build_command_steps(*, full: bool, artifact_dir: Path | None = None) -> list
                 "run",
                 "python",
                 "-c",
-                (
-                    "from pathlib import Path; "
-                    "import sys; "
-                    "sys.path.insert(0, str(Path('src').resolve())); "
-                    "from textbook_paths import discover_template_root; "
-                    "root=discover_template_root(Path.cwd()); "
-                    "assert root is not None, 'template infrastructure not found'; "
-                    "sys.path.insert(0, str(root)); "
-                    "from infrastructure.project.discovery import resolve_project_root; "
-                    "p=resolve_project_root(root, 'biology_textbook'); "
-                    "assert p.is_dir() and p.name == 'biology_textbook'; "
-                    "print(p)"
-                ),
+                "from biology.quality.wip_resolver_smoke import main; main()",
             ),
             PROJECT,
         ),

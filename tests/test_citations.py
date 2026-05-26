@@ -2,10 +2,15 @@
 
 from __future__ import annotations
 
+from pathlib import Path
+
 from biology.citations import (
     bib_keys,
     citation_command_count,
     citation_keys,
+    inject_citation_after_anchor,
+    inject_orphan_citations,
+    is_skippable_citation_context,
     iter_citations,
     iter_midword_citations,
     ordered_citation_keys,
@@ -53,3 +58,34 @@ def test_orphan_citation_insertion_count_is_stable() -> None:
     from biology.maintenance.models import PROJECT
 
     assert len(orphan_citation_insertions(PROJECT)) == 32
+
+
+def test_is_skippable_citation_context_skips_headings_and_fences() -> None:
+    text = "# Heading with Darwin\n\n```\nDarwin\n```\n\nBody Darwin text."
+    heading_pos = text.index("Darwin")
+    fence_pos = text.index("Darwin", heading_pos + 1)
+    body_pos = text.rindex("Darwin")
+    assert is_skippable_citation_context(text, heading_pos)
+    assert is_skippable_citation_context(text, fence_pos)
+    assert not is_skippable_citation_context(text, body_pos)
+
+
+def test_inject_citation_after_anchor_is_idempotent_on_repeat() -> None:
+    text = "Mendel studied inheritance patterns in peas."
+    updated, ok = inject_citation_after_anchor(text, "Mendel", "mendel1866")
+    assert ok
+    assert "\\citep{mendel1866}" in updated
+    again, ok2 = inject_citation_after_anchor(updated, "Mendel", "mendel1866")
+    assert not ok2
+    assert again == updated
+
+
+def test_inject_orphan_citations_dry_run_does_not_write(tmp_path: Path) -> None:
+    manuscript = tmp_path / "manuscript" / "unit_V"
+    manuscript.mkdir(parents=True)
+    target = manuscript / "mendelian_principles.md"
+    original = "Mendel established particulate inheritance.\n"
+    target.write_text(original, encoding="utf-8")
+    report = inject_orphan_citations(tmp_path, dry_run=True, write=False)
+    assert target.read_text(encoding="utf-8") == original
+    assert report.total >= 1
