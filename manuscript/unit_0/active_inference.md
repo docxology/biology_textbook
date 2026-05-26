@@ -1,4 +1,4 @@
-# Active Inference and the Free Energy Principle
+# Active Inference and Free Energy
 
 \label{sec:unit_0_active_inference}
 
@@ -88,9 +88,9 @@ graph LR
     style M fill:#3498db,color:#fff
     style Act fill:#2ecc71,color:#fff
 ```
-<!-- alt: Graph showing agent–environment loop under active inference. -->
+<!-- alt: Graph showing active-inference loop linking environment, internal model, and action selection through sensory updates and motor output. -->
 
-*Agent–environment loop under active inference.*
+*Active-inference loop linking environment, internal model, and action selection through sensory updates and motor output.*
 
 ---
 
@@ -301,9 +301,9 @@ graph TD
     style H3 fill:#e74c3c,color:#fff
     style A4 fill:#2ecc71,color:#fff
 ```
-<!-- alt: Graph showing reactive homeostasis versus predictive allostasis. -->
+<!-- alt: Graph showing reactive homeostasis corrects measured error after deviation; allostasis shifts set points proactively from a generative model. -->
 
-*Reactive homeostasis versus predictive allostasis.*
+*Reactive homeostasis corrects measured error after deviation; allostasis shifts set points proactively from a generative model.*
 
 ### Worked Example — Free Energy Minimization via Action
 
@@ -482,7 +482,7 @@ The FEP is useful as a **design principle**: selected living systems can be mode
 
 ---
 
-## Current Evidence and Frontier Biology: Active Inference and the Free Energy Principle
+## Current Evidence and Frontier Biology: Active Inference and Free Energy
 
 For **Active Inference and the Free Energy Principle**, frontier biology belongs inside the evidence logic of
 the chapter. Systems models are useful when they expose assumptions, uncertainty, and failure modes rather than merely producing elegant diagrams. The core reading question is this: active-inference explanations must connect hidden states, sensory evidence, action, and measurable prediction error.
@@ -581,7 +581,7 @@ If a case lacks action, active inference may reduce to perceptual inference or B
 
 ---
 
-## Further Reading and Source Notes: Active Inference and the Free Energy Principle
+## Further Reading and Source Notes: Active Inference and Free Energy
 
 - Friston, K. (2010). The free-energy principle: A unified brain theory? \citep{friston2010} *Nature Reviews Neuroscience*, 11(2), 127–138.
 - Friston, K., FitzGerald, T., Rigoli, F., Schwartenbeck, P., & Pezzulo, G. (2017). Active inference: A process theory \citep{friston2017}. *Neural Computation*, 29(1), 1–49.
@@ -592,14 +592,14 @@ If a case lacks action, active inference may reduce to perceptual inference or B
 
 ---
 
-## Companion Source Module: Active Inference and the Free Energy Principle
+## Companion Source Module: Active Inference and Free Energy
 
-**Active Inference and the Free Energy Principle** should leave a reproducible trail from a biological claim to
+**Active Inference and Free Energy** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
-: Companion source surfaces for Active Inference and the Free Energy Principle. {#tbl:unit_0_active_inference_companion_source_surfaces}
+: Companion source surfaces for Active Inference and Free Energy. {#tbl:unit_0_active_inference_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/neuroscience/neuroscience.py` (`action_potential_hh`, `hebbian_weight_update`) | Connect prediction, update, and plasticity to measurable neural variables. |

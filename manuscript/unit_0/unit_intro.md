@@ -1,4 +1,4 @@
-# Unit 0 — Systems Science and the Biology of Complexity: Introduction {#sec:unit_0_unit_intro .unnumbered}
+# Unit 0 — Systems Science for Biology: Introduction {#sec:unit_0_unit_intro .unnumbered}
 
 
 **\nameref{sec:unit_0_unit_intro} · Introduction**

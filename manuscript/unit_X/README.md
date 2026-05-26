@@ -4,7 +4,7 @@
 | ---- | ----- |
 | `population_ecology.md` | Population Ecology and Growth Models |
 | `community_ecology.md` | Community Ecology and Species Interactions |
-| `ecosystem_ecology.md` | Ecosystem Ecology and Biogeochemical Cycles |
+| `ecosystem_ecology.md` | Ecosystem Ecology |
 | `biomes_and_conservation.md` | Biomes and Conservation Biology |
 
 **Module:** `src/biology/ecology/ecology.py`

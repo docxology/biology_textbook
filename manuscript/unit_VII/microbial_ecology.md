@@ -3,11 +3,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/mic_dilution_series.png}
-\caption{Serial two-fold broth dilution series for minimum inhibitory concentration (MIC) testing. Antibiotic concentration halves in each successive tube from the starting stock.}
+\caption{Two-fold serial broth dilution for minimum inhibitory concentration (MIC) testing. Antibiotic concentration halves in each successive tube; the first tube with no visible growth marks the MIC used to compare susceptibility.}
 \label{fig:unit_VII_mic_dilution_series}
 \end{figure}
 
-<!-- alt: Log-scaled bar chart of antibiotic concentration across eight serial dilution tubes. -->
+<!-- alt: Eight ordered tubes or bars with antibiotic concentration dropping by half each step on a logarithmic scale; the last tube showing visible growth marks the MIC boundary. -->
 
 \label{sec:unit_VII_microbial_ecology}
 

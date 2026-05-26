@@ -66,3 +66,33 @@ def test_command_steps_are_typed() -> None:
     for step in build_command_steps(full=True):
         assert isinstance(step, CommandStep)
         assert isinstance(step.command, tuple)
+
+
+def test_figure_pipeline_steps_have_dependencies() -> None:
+    steps = {step.name: step for step in build_command_steps(full=False)}
+    assert steps["diagrams-strict"].depends_on == frozenset({"figures-strict"})
+    assert steps["visual-contracts"].depends_on == frozenset({"diagrams-strict"})
+
+
+def test_full_render_chain_has_dependencies() -> None:
+    steps = {step.name: step for step in build_command_steps(full=True)}
+    assert steps["root-render"].depends_on == frozenset({"root-setup"})
+    assert steps["root-validate-output"].depends_on == frozenset({"root-render"})
+    assert steps["root-pdf-log"].depends_on == frozenset({"root-validate-output"})
+
+
+def test_artifact_counts_waits_for_visual_contracts() -> None:
+    steps = {step.name: step for step in build_python_steps(full=False)}
+    assert steps["artifact-counts"].depends_on == frozenset({"visual-contracts"})
+
+
+def test_ready_step_names_respects_dependencies() -> None:
+    from biology.quality.publication_gate import ready_step_names
+
+    command_steps = build_command_steps(full=False)
+    ready = set(ready_step_names(command_steps, completed=set()))
+    assert "figures-strict" in ready
+    assert "diagrams-strict" not in ready
+    after_figures = set(ready_step_names(command_steps, completed={"figures-strict"}))
+    assert "diagrams-strict" in after_figures
+    assert "figures-strict" not in after_figures

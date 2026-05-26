@@ -1,4 +1,4 @@
-# Systems Science and the Logic of Emergence
+# Systems Science and Emergence
 
 \label{sec:unit_0_systems_science}
 
@@ -157,9 +157,9 @@ graph LR
     style E fill:#e74c3c,color:#fff
     style O fill:#e67e22,color:#fff
 ```
-<!-- alt: Graph showing canonical positive-feedback loop driving rapid state transitions. -->
+<!-- alt: Graph showing positive-feedback loop in which detector output amplifies the effector, driving rapid state change until a limit or refractory bound applies. -->
 
-*Canonical positive-feedback loop driving rapid state transitions.*
+*Positive-feedback loop in which detector output amplifies the effector, driving rapid state change until a limit or refractory bound applies.*
 
 > **Concept Check 2:** Childbirth and the action potential are both positive-feedback processes, yet neither runs away forever. Identify the *bounding* mechanism in each case (anatomical, refractory, or chemical) and explain why pure positive feedback without an explicit bound would be lethal.
 
@@ -529,7 +529,7 @@ A naive reading of systems biology is that it builds bigger models of more parts
 
 ---
 
-## Current Evidence and Frontier Biology: Systems Science and the Logic of Emergence
+## Current Evidence and Frontier Biology: Systems Science and Emergence
 
 For **Systems Science and the Logic of Emergence**, frontier biology belongs inside the evidence logic of
 the chapter. Systems models are useful when they expose assumptions, uncertainty, and failure modes rather than merely producing elegant diagrams. The core reading question is this: system boundary choice, feedback sign, and scale determine whether a model explains or hides the biology.
@@ -635,7 +635,7 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 ---
 
-## Further Reading and Source Notes: Systems Science and the Logic of Emergence
+## Further Reading and Source Notes: Systems Science and Emergence
 
 - Bertalanffy, L. von (1968). *General System Theory* \citep{bertalanffy1968}. Braziller.
 - Strogatz, S. H. (2018). *Nonlinear Dynamics and Chaos* (2nd ed.) \citep{strogatz2018}. Westview Press.
@@ -646,14 +646,14 @@ A systems explanation is weak when it merely renames complexity. "Everything is 
 
 ---
 
-## Companion Source Module: Systems Science and the Logic of Emergence
+## Companion Source Module: Systems Science and Emergence
 
-**Systems Science and the Logic of Emergence** should leave a reproducible trail from a biological claim to
+**Systems Science and Emergence** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
-: Companion source surfaces for Systems Science and the Logic of Emergence. {#tbl:unit_0_systems_science_companion_source_surfaces}
+: Companion source surfaces for Systems Science and Emergence. {#tbl:unit_0_systems_science_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/cell/cell_biology.py` (`hill_equation`, `receptor_occupancy`, `signal_amplification`) | Turn feedback, thresholds, and signaling gain into inspectable calculations. |

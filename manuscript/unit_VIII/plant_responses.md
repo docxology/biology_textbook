@@ -87,9 +87,9 @@ flowchart LR
         P7 --> R7["NPR1 monomerises<br/>TGA TFs activated<br/>PR gene expression"]
     end
 ```
-<!-- alt: Flowchart showing overview of major plant hormone signaling pathways from biosynthesis through perception to cellular response Each pathway follows a general scheme: stimulus triggers hormone biosynthesis, the hormone is perceived by a specific receptor, and downstream signaling leads to gene expression changes. -->
+<!-- alt: Flowchart showing major plant hormone pathways from biosynthesis through receptor perception to cellular response. Each route follows stimulus-driven hormone production, specific receptor binding, and regulated gene expression. -->
 
-*Overview of major plant hormone signaling pathways from biosynthesis through perception to cellular response Each pathway follows a general scheme: stimulus triggers hormone biosynthesis, the hormone is perceived by a specific receptor, and downstream signaling leads to [**gene**](#gl:gene) expression changes.*
+*Major plant hormone pathways from biosynthesis through receptor perception to cellular response. Each route follows stimulus-driven hormone production, specific receptor binding, and regulated gene expression.*
 
 ### Auxin (Indole-3-Acetic Acid, IAA)
 

@@ -1,4 +1,4 @@
-# Lab A — Systems Science and the Logic of Emergence {#sec:lab_unit_0_systems_science .unnumbered}
+# Lab A — Systems Science and Emergence {#sec:lab_unit_0_systems_science .unnumbered}
 
 
 *This activity accompanies \cref{sec:unit_0_systems_science} of the textbook — review that chapter before attempting the exercises below.*
@@ -21,7 +21,7 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Systems Science and the Logic of Emergence.
+- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Systems Science and Emergence.
 - **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
 - **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
 - **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
@@ -36,7 +36,7 @@
 2. A bedroom thermostat raises the heater output when the room cools and lowers it when the room warms. Classify the dominant feedback loop in this control system and identify the variable whose deviation drives the corrective action.
 3. Compare a stock (a quantity with accumulated history) and a flow (a rate that changes a stock per unit time) for the case of a small lake's water budget. Give one biological stock and one biological flow that would be appropriate to include in a model of that lake's ecology.
 
-## Lab Context: Systems Science and the Logic of Emergence {.unnumbered}
+## Lab Context: Systems Science and Emergence {.unnumbered}
 
 A **system** is a set of interacting components, bounded against its surroundings, whose behavior depends on the interactions as much as on the parts. The central mathematical tool for stability is the **Hill equation**:
 
@@ -64,7 +64,7 @@ Today's lab trains three intuitions: what counts as "the system", how feedback l
 - Graph paper (2 sheets per student).
 - Calculator.
 - Colored pens.
-- Source-governance card for Systems Science and the Logic of Emergence: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
+- Source-governance card for Systems Science and Emergence: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
 - Worksheet with blank feedback diagrams and Hill-curve axes.
 
 ---
@@ -165,7 +165,7 @@ Discuss in your group one additional feature that distinguishes complex from com
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
-**Systems Science and the Logic of Emergence** with a reproducibility pass:
+**Systems Science and Emergence** with a reproducibility pass:
 
 : Part 4 — Complicated vs. Complex: Evidence check and Student action. {#tbl:unit_0_systems_science_part_4_complicated_vs_complex_5}
 | Evidence check | Student action |
@@ -181,7 +181,7 @@ equipment version belongs only in an optional extension.
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Systems Science and the Logic of Emergence before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+Complete the source-governance card for Systems Science and Emergence before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ### Worked Example: Stock-and-flow projection of a small mammal population {.unnumbered}
 

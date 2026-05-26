@@ -44,24 +44,30 @@ def _default_writer() -> _WriteFn:
 
 
 # Curated supplementary reading per chapter (citekeys from references.bib).
-# These are canonical entry points even when the prose does not yet cite them.
+# Keys must exist in references.bib; paths must match configured chapter files.
 SUPPLEMENT: dict[str, list[str]] = {
-    "unit_I/atoms_molecules.md": ["linus1960", "henderson1913"],
+    "unit_0/systems_science.md": ["bertalanffy1968", "strogatz2018"],
+    "unit_0/complex_adaptive_systems.md": ["bak1987", "holland1992", "kauffman1993"],
+    "unit_0/active_inference.md": ["friston2010", "friston2017", "sterling2015"],
+    "unit_0/history_philosophy_biology.md": ["darwin1858"],
+    "unit_I/atoms_molecules.md": ["pauling1932electronegativity", "henderson1913"],
     "unit_I/water_and_life.md": ["henderson1913"],
-    "unit_I/macromolecules.md": ["linus1960"],
+    "unit_I/macromolecules.md": ["pauling1932electronegativity"],
     "unit_I/enzymes_and_kinetics.md": ["fischer1894", "koshland1958"],
     "unit_II/cell_theory.md": ["hooke1665", "schleiden1838", "schwann1839", "virchow1855"],
     "unit_II/cell_structure.md": ["margulis1967"],
-    "unit_II/membrane_transport.md": ["singer1972", "mitchell1961"],
+    "unit_II/membrane_transport.md": ["singer1972fluidmosaic", "mitchell1961"],
     "unit_II/cell_signaling.md": ["alon2019", "tyson2003"],
     "unit_III/bioenergetics_and_respiration.md": ["mitchell1961", "atkinson1968"],
     "unit_III/photosynthesis.md": ["calvin1961", "mitchell1961"],
     "unit_III/metabolic_integration.md": ["atkinson1968"],
     "unit_IV/dna_replication_and_cell_cycle.md": ["watson1953", "meselson1958"],
     "unit_IV/gene_expression.md": ["crick1958", "crick1966", "jacob1961"],
-    "unit_IV/mutations_and_genomics.md": ["jinek2012", "doudna2014"],
-    "unit_IV/epigenetics_and_gene_regulation.md": ["waddington1942", "fire1998"],
-    "unit_V/mendelian_genetics.md": ["mendel1866"],
+    "unit_IV/mutations_and_genomics.md": ["doudna2012", "doudna2014"],
+    "unit_IV/chromatin_and_epigenetic_mechanisms.md": ["fire1998"],
+    "unit_IV/epigenetic_inheritance_and_disease.md": ["fire1998"],
+    "unit_V/mendelian_principles.md": ["mendel1866"],
+    "unit_V/mendelian_extensions_and_human_genetics.md": ["mendel1866"],
     "unit_V/chromosomal_inheritance.md": ["morgan1910", "sturtevant1913"],
     "unit_V/population_genetics.md": ["weinberg1908", "wright1931", "kimura1968"],
     "unit_VI/evolution_and_selection.md": ["darwin1858", "dobzhansky1973", "williams1966"],
@@ -69,18 +75,21 @@ SUPPLEMENT: dict[str, list[str]] = {
     "unit_VI/phylogenetics.md": ["woese1977", "zuckerkandl1965", "saitou1987"],
     "unit_VII/bacteria_archaea_viruses.md": ["woese1977", "margulis1967"],
     "unit_VII/microbial_ecology.md": ["woese1977"],
-    "unit_VII/infectious_disease.md": ["ewald1994"],
+    "unit_VII/host_immunity_and_vaccines.md": ["chaplin2010immuneresponse", "iwasaki2015innateadaptive"],
+    "unit_VII/antimicrobial_resistance_and_epidemiology.md": ["who2024bppl", "murray2022amr"],
     "unit_VIII/plant_structure_and_water.md": ["dixon1894"],
-    "unit_VIII/plant_reproduction.md": ["darwin1877"],
-    "unit_VIII/plant_responses.md": ["darwin1880"],
-    "unit_IX/circulation_respiration_homeostasis.md": ["canon1932", "starling1914"],
-    "unit_IX/nervous_system.md": ["sherrington1906", "hodgkin1952"],
-    "unit_IX/action_potential_synapses.md": ["hodgkin1952", "katz1969", "frey1997"],
-    "unit_IX/endocrine_and_immune.md": ["canon1932"],
+    "unit_VIII/plant_reproduction.md": ["darwin1859"],
+    "unit_VIII/plant_responses.md": ["darwin1859"],
+    "unit_IX/circulation_respiration_homeostasis.md": ["cannon1932", "starling1914"],
+    "unit_IX/nervous_system.md": ["sherrington1906", "hodgkin1952quantitative"],
+    "unit_IX/action_potential_synapses.md": ["hodgkin1952quantitative", "frey1997"],
+    "unit_IX/endocrine_signaling.md": ["cannon1932"],
+    "unit_IX/immune_system_defense.md": ["chaplin2010immuneresponse", "medzhitov2007recognition"],
     "unit_X/population_ecology.md": ["lotka1925", "volterra1926", "hutchinson1957"],
-    "unit_X/community_ecology.md": ["paine1966", "connell1978", "ehrlich1964", "macarthur1967"],
-    "unit_X/ecosystem_ecology.md": ["bormann1967", "odum1969", "levin1998"],
-    "unit_X/biomes_and_conservation.md": ["wilson1988", "ehrlich1981"],
+    "unit_X/community_interactions.md": ["paine1966", "connell1978", "ehrlich1964", "macarthur1967"],
+    "unit_X/biodiversity_and_food_webs.md": ["macarthur1967"],
+    "unit_X/ecosystem_ecology.md": ["bormann1967", "odum1953", "levin1998"],
+    "unit_X/biomes_and_conservation.md": ["ehrlich1964", "macarthur1967"],
 }
 
 
@@ -156,6 +165,21 @@ def parse_bib(bib_path: Path = BIB) -> dict[str, BibEntry]:
                 setattr(entry, name, value)
         out[key] = entry
     return out
+
+
+def validate_supplement(*, project_root: Path = PROJECT, bib_path: Path = BIB) -> list[str]:
+    """Return issues when supplement paths or citekeys drift from config or bib."""
+    issues: list[str] = []
+    bib = parse_bib(bib_path)
+    toc = load_toc(project_root)
+    configured = {f"{chapter.path.parent.name}/{chapter.path.name}" for chapter in toc.chapters}
+    for rel, keys in SUPPLEMENT.items():
+        if rel not in configured:
+            issues.append(f"unknown chapter path in SUPPLEMENT: {rel}")
+        for key in keys:
+            if key not in bib:
+                issues.append(f"unknown citekey {key} in SUPPLEMENT[{rel!r}]")
+    return issues
 
 
 # ---------------------------------------------------------------------------
@@ -281,4 +305,5 @@ __all__ = [
     "parse_bib",
     "pick_keys",
     "render_section",
+    "validate_supplement",
 ]

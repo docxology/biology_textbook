@@ -12,6 +12,7 @@ from biology.maintenance.manuscript_walker import (
 )
 from biology.quality import paths
 from biology.quality.models import Finding
+from biology.crossref.helpers import strip_canonical_plain_refs
 from biology.quality.audits.helpers import (
     _generated_block_line_numbers,
 )
@@ -55,7 +56,8 @@ def audit_references(findings: list[Finding]) -> None:
                 findings.append(Finding("error", "hardcoded-equation-tag", path, line_no, line.strip()))
             if INLINE_CIRC_PRIME_RE.search(line):
                 findings.append(Finding("error", "unsafe-inline-circ-prime", path, line_no, line.strip()))
-            if HARDCODED_STRUCTURAL_REF.search(line):
+            stripped = strip_canonical_plain_refs(line)
+            if HARDCODED_STRUCTURAL_REF.search(stripped):
                 findings.append(
                     Finding(
                         "error",

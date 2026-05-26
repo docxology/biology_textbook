@@ -67,28 +67,28 @@ cellular, organismal, evolutionary, and ecological scales. The entries below
 are generated from `manuscript/config.yaml` so navigation stays aligned with
 the rendered table of contents.
 
-- **Unit 0 — Systems Science and the Biology of Complexity:** Systems Science and the Logic of Emergence; Complex Adaptive Systems; Active Inference and the Free Energy Principle; History and Philosophy of Biology.
-- **Unit I — Chemistry of Life:** Atoms, Molecules, and Chemical Bonds; Water — The Molecule of Life; Biological Macromolecules; Enzymes and the Kinetics of Catalysis.
-- **Unit II — The Cell:** Cell Theory and Cell Types; Cell Structure and Organelles; Membrane Structure and Transport; Cell Signaling and Communication.
-- **Unit III — Energy and Metabolism:** Bioenergetics and Cellular Respiration; Photosynthesis; Metabolic Integration and Regulation.
-- **Unit IV — Molecular Genetics:** DNA Replication and the Cell Cycle; Gene Expression — Transcription and Translation; Mutations, CRISPR, and Genomics; Chromatin and Epigenetic Mechanisms; Epigenetic Inheritance and Disease.
-- **Unit V — Classical Genetics and Heredity:** Mendelian Principles and Probability; Mendelian Extensions and Human Genetics; Chromosomal Inheritance and Linkage; Population Genetics and Hardy-Weinberg Equilibrium.
-- **Unit VI — Evolution:** Evolution — Theory, Natural Selection, and Adaptation; Genetic Drift, Gene Flow, and Speciation; Phylogenetics and the Tree of Life.
-- **Unit VII — Microbiology:** Bacteria, Archaea, and Viruses; Microbial Ecology and the Microbiome; Host Immunity and Vaccines; Antimicrobial Resistance and Epidemiology.
-- **Unit VIII — Botany — Plant Biology:** Plant Structure, Water Relations, and Transport; Plant Reproduction and Development; Plant Responses to the Environment.
-- **Unit IX — Zoology and Systems Physiology:** Circulation, Respiration, and Homeostasis; Nervous System and Neural Signaling; Action Potentials and Synaptic Transmission; Endocrine Signaling and Homeostasis; Immune System Architecture and Defense.
-- **Unit X — Ecology:** Population Ecology and Growth Models; Community Interactions and Succession; Biodiversity, Food Webs, and Biogeography; Ecosystem Ecology and Biogeochemical Cycles; Biomes and Conservation Biology.
+- **\hyperref[sec:unit_0_unit_intro]{Unit 0 — Systems Science for Biology}:** \hyperref[sec:unit_0_systems_science]{Systems Science and Emergence}; \hyperref[sec:unit_0_complex_adaptive_systems]{Complex Adaptive Systems}; \hyperref[sec:unit_0_active_inference]{Active Inference and Free Energy}; \hyperref[sec:unit_0_history_philosophy_biology]{History and Philosophy of Biology}.
+- **\hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life}:** \hyperref[sec:unit_I_atoms_molecules]{Atoms, Molecules, and Chemical Bonds}; \hyperref[sec:unit_I_water_and_life]{Water — The Molecule of Life}; \hyperref[sec:unit_I_macromolecules]{Biological Macromolecules}; \hyperref[sec:unit_I_enzymes_and_kinetics]{Enzymes and the Kinetics of Catalysis}.
+- **\hyperref[sec:unit_II_unit_intro]{Unit II — The Cell}:** \hyperref[sec:unit_II_cell_theory]{Cell Theory and Cell Types}; \hyperref[sec:unit_II_cell_structure]{Cell Structure and Organelles}; \hyperref[sec:unit_II_membrane_transport]{Membrane Structure and Transport}; \hyperref[sec:unit_II_cell_signaling]{Cell Signaling and Communication}.
+- **\hyperref[sec:unit_III_unit_intro]{Unit III — Energy and Metabolism}:** \hyperref[sec:unit_III_bioenergetics_and_respiration]{Bioenergetics and Cellular Respiration}; \hyperref[sec:unit_III_photosynthesis]{Photosynthesis}; \hyperref[sec:unit_III_metabolic_integration]{Metabolic Integration and Regulation}.
+- **\hyperref[sec:unit_IV_unit_intro]{Unit IV — Molecular Genetics}:** \hyperref[sec:unit_IV_dna_replication_and_cell_cycle]{DNA Replication and the Cell Cycle}; \hyperref[sec:unit_IV_gene_expression]{Gene Expression}; \hyperref[sec:unit_IV_mutations_and_genomics]{Mutations, CRISPR, and Genomics}; \hyperref[sec:unit_IV_chromatin_and_epigenetic_mechanisms]{Chromatin and Epigenetic Mechanisms}; \hyperref[sec:unit_IV_epigenetic_inheritance_and_disease]{Epigenetic Inheritance and Disease}.
+- **\hyperref[sec:unit_V_unit_intro]{Unit V — Classical Genetics and Heredity}:** \hyperref[sec:unit_V_mendelian_principles]{Mendelian Principles and Probability}; \hyperref[sec:unit_V_mendelian_extensions_and_human_genetics]{Mendelian Extensions and Human Genetics}; \hyperref[sec:unit_V_chromosomal_inheritance]{Chromosomal Inheritance and Linkage}; \hyperref[sec:unit_V_population_genetics]{Population Genetics}.
+- **\hyperref[sec:unit_VI_unit_intro]{Unit VI — Evolution}:** \hyperref[sec:unit_VI_evolution_and_selection]{Natural Selection and Adaptation}; \hyperref[sec:unit_VI_genetic_drift_and_speciation]{Genetic Drift, Gene Flow, and Speciation}; \hyperref[sec:unit_VI_phylogenetics]{Phylogenetics and the Tree of Life}.
+- **\hyperref[sec:unit_VII_unit_intro]{Unit VII — Microbiology}:** \hyperref[sec:unit_VII_bacteria_archaea_viruses]{Bacteria, Archaea, and Viruses}; \hyperref[sec:unit_VII_microbial_ecology]{Microbial Ecology and the Microbiome}; \hyperref[sec:unit_VII_host_immunity_and_vaccines]{Host Immunity and Vaccines}; \hyperref[sec:unit_VII_antimicrobial_resistance_and_epidemiology]{Antimicrobial Resistance and Epidemiology}.
+- **\hyperref[sec:unit_VIII_unit_intro]{Unit VIII — Botany — Plant Biology}:** \hyperref[sec:unit_VIII_plant_structure_and_water]{Plant Structure and Water Relations}; \hyperref[sec:unit_VIII_plant_reproduction]{Plant Reproduction and Development}; \hyperref[sec:unit_VIII_plant_responses]{Plant Responses to the Environment}.
+- **\hyperref[sec:unit_IX_unit_intro]{Unit IX — Zoology and Systems Physiology}:** \hyperref[sec:unit_IX_circulation_respiration_homeostasis]{Circulation and Respiration}; \hyperref[sec:unit_IX_nervous_system]{Nervous System and Neural Signaling}; \hyperref[sec:unit_IX_action_potential_synapses]{Action Potentials and Synaptic Transmission}; \hyperref[sec:unit_IX_endocrine_signaling]{Endocrine Signaling and Homeostasis}; \hyperref[sec:unit_IX_immune_system_defense]{Immune System Architecture}.
+- **\hyperref[sec:unit_X_unit_intro]{Unit X — Ecology}:** \hyperref[sec:unit_X_population_ecology]{Population Ecology and Growth Models}; \hyperref[sec:unit_X_community_interactions]{Community Interactions and Succession}; \hyperref[sec:unit_X_biodiversity_and_food_webs]{Biodiversity and Food Webs}; \hyperref[sec:unit_X_ecosystem_ecology]{Ecosystem Ecology}; \hyperref[sec:unit_X_biomes_and_conservation]{Biomes and Conservation Biology}.
 - **Laboratory activities:** one companion lab follows each chapter in the
 same canonical order.
 - **Question banks:** one 30-item question bank follows each chapter in the
 same canonical order.
-- **Appendix A — Curriculum Map:** reference material generated or ordered from the same manifest.
-- **Appendix B — Instructor Orchestration Guide:** reference material generated or ordered from the same manifest.
-- **Appendix C — Mathematical Review for Biology:** reference material generated or ordered from the same manifest.
-- **Appendix D — Units, Physical Constants, and Biological Ranges:** reference material generated or ordered from the same manifest.
-- **Appendix E — A Periodic Table for Biology:** reference material generated or ordered from the same manifest.
-- **Appendix F — Master Glossary of Biological Terms:** reference material generated or ordered from the same manifest.
-- **Appendix G — Index of Key Terms:** reference material generated or ordered from the same manifest.
+- **\hyperref[sec:appendix_curriculum_map]{Appendix A — Curriculum Map}:** reference material generated or ordered from the same manifest.
+- **\hyperref[sec:appendix_instructor_orchestration]{Appendix B — Instructor Orchestration Guide}:** reference material generated or ordered from the same manifest.
+- **\hyperref[sec:appendix_math_review]{Appendix C — Mathematical Review for Biology}:** reference material generated or ordered from the same manifest.
+- **\hyperref[sec:appendix_units_and_constants]{Appendix D — Units, Physical Constants, and Biological Ranges}:** reference material generated or ordered from the same manifest.
+- **\hyperref[sec:appendix_periodic_table]{Appendix E — A Periodic Table for Biology}:** reference material generated or ordered from the same manifest.
+- **\hyperref[sec:glossary]{Appendix F — Master Glossary of Biological Terms}:** reference material generated or ordered from the same manifest.
+- **\hyperref[sec:appendix_index]{Appendix G — Index of Key Terms}:** reference material generated or ordered from the same manifest.
 - **Source modules:** `src/biology/<domain>/` contains the tested Python
 implementations for the quantitative models used throughout the book.
 <!-- toc-navigation-end -->
@@ -98,10 +98,10 @@ implementations for the quantitative models used throughout the book.
 <!-- suggested-reading-paths-start -->
 | Path | Emphasis | Notes |
 | ---- | -------- | ----- |
-| **AP / first-year survey** | \nameref{sec:unit_I_unit_intro}; \nameref{sec:unit_II_unit_intro}; \nameref{sec:unit_III_unit_intro}; selected genetics/evolution chapters; \nameref{sec:unit_X_unit_intro} | Skim the systems orientation; prioritize metabolism and genetics core narratives. |
-| **Pre-health / majors** | \nameref{sec:unit_I_unit_intro} through \nameref{sec:unit_IX_unit_intro}; \nameref{sec:unit_X_unit_intro}; systems orientation as setup | Add labs for quantitative skills; pair each physiology chapter with its Python bridge. |
-| **Ecology / environmental focus** | \nameref{sec:unit_I_unit_intro} and \nameref{sec:unit_II_unit_intro} as review; \nameref{sec:unit_III_photosynthesis}; \nameref{sec:unit_VI_unit_intro}; \nameref{sec:unit_VII_unit_intro}; \nameref{sec:unit_X_unit_intro} | Emphasize population models, biogeochemistry, conservation metrics in `ecology.py`. |
-| **Computation-first** | \nameref{sec:unit_0_unit_intro} plus any later unit | Read “Bridge to computation” blocks first, then narrative; run `scripts/generate_figures.py`. |
+| **AP / first-year survey** | \hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction}; \hyperref[sec:unit_II_unit_intro]{Unit II — The Cell: Introduction}; \hyperref[sec:unit_III_unit_intro]{Unit III — Energy and Metabolism: Introduction}; selected genetics/evolution chapters; \hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction} | Skim the systems orientation; prioritize metabolism and genetics core narratives. |
+| **Pre-health / majors** | \hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction} through \hyperref[sec:unit_IX_unit_intro]{Unit IX — Zoology and Systems Physiology: Introduction}; \hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction}; systems orientation as setup | Add labs for quantitative skills; pair each physiology chapter with its Python bridge. |
+| **Ecology / environmental focus** | \hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction} and \hyperref[sec:unit_II_unit_intro]{Unit II — The Cell: Introduction} as review; \hyperref[sec:unit_III_photosynthesis]{Photosynthesis}; \hyperref[sec:unit_VI_unit_intro]{Unit VI — Evolution: Introduction}; \hyperref[sec:unit_VII_unit_intro]{Unit VII — Microbiology: Introduction}; \hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction} | Emphasize population models, biogeochemistry, conservation metrics in `ecology.py`. |
+| **Computation-first** | \hyperref[sec:unit_0_unit_intro]{Unit 0 — Systems Science for Biology: Introduction} plus any later unit | Read “Bridge to computation” blocks first, then narrative; run `scripts/generate_figures.py`. |
 <!-- suggested-reading-paths-end -->
 
 ### Notation and conventions {.unnumbered}
@@ -110,7 +110,7 @@ implementations for the quantitative models used throughout the book.
 - **Concentrations:** square brackets $[X]$ denote molarity unless a chapter states otherwise.
 - **Genetics:** italic gene symbols (*lacZ*); protein products often Roman with capital initial (LacZ) where conventional.
 - **Units:** SI base units; physiology at 37 °C, pH 7.4, sea level unless noted.
-- **Glossary and cross-link numbering** in the glossary and cross-links match the PDF table of contents (sequential numbering from `config.yaml`, including \nameref{sec:unit_0_unit_intro} when present).
+- **Glossary and cross-link numbering** in the glossary and cross-links match the PDF table of contents (sequential numbering from `config.yaml`, including Unit 0 — Systems Science for Biology: Introduction when present).
 
 ### Scholarship and source practice {.unnumbered}
 
@@ -143,7 +143,7 @@ below shows primary dependency paths and integrative threads.
 
 ```mermaid
 graph TD
-    U0["Unit 0 — Systems Science and the Biology of Complexity<br/>feedback, emergence,<br/>active inference, history"]
+    U0["Unit 0 — Systems Science for Biology<br/>feedback, emergence,<br/>active inference, history"]
     I["Unit I — Chemistry of Life<br/>atoms, bonds, water,<br/>macromolecules, enzymes"]
     II["Unit II — The Cell<br/>organelles, membranes,<br/>signaling, transport"]
     III["Unit III — Energy and Metabolism<br/>respiration, photosynthesis,<br/>ATP, chemiosmosis"]
@@ -212,60 +212,71 @@ Text is licensed **CC BY 4.0**; source code is **Apache-2.0** (see `manuscript/c
 
 The table below provides a per-chapter difficulty rating (Level 1/3 to Level 3/3), an
 estimated student reading time, and a suggested lecture allotment. Unit and chapter
-cells are semantic references resolved at render time. The grid is
+cells list canonical titles from ``manuscript/config.yaml`` as clickable ``\hyperref`` links to each section. The grid is
 auto-generated by ``scripts/insert_chapter_metadata.py`` from the
 canonical table of contents in ``manuscript/config.yaml`` plus
 ``src/biology/chapter_metadata.py`` — edit those sources and re-run the
 script to refresh this grid.
 
 <!-- course-planning-grid-start -->
-| Unit | Number | Chapter | Difficulty | Reading | Lecture |
-|------|--------|---------|------------|---------|---------|
-| \nameref{sec:unit_0_unit_intro} | 0.1 | \nameref{sec:unit_0_systems_science} | Level 2/3 | 35 min | 50 min |
-| \nameref{sec:unit_0_unit_intro} | 0.2 | \nameref{sec:unit_0_complex_adaptive_systems} | Level 2/3 | 35 min | 50 min |
-| \nameref{sec:unit_0_unit_intro} | 0.3 | \nameref{sec:unit_0_active_inference} | Level 3/3 | 45 min | 75 min |
-| \nameref{sec:unit_0_unit_intro} | 0.4 | \nameref{sec:unit_0_history_philosophy_biology} | Level 2/3 | 80 min | 100 min |
-| \nameref{sec:unit_I_unit_intro} | 1 | \nameref{sec:unit_I_atoms_molecules} | Level 1/3 | 40 min | 50 min |
-| \nameref{sec:unit_I_unit_intro} | 2 | \nameref{sec:unit_I_water_and_life} | Level 1/3 | 40 min | 50 min |
-| \nameref{sec:unit_I_unit_intro} | 3 | \nameref{sec:unit_I_macromolecules} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_I_unit_intro} | 4 | \nameref{sec:unit_I_enzymes_and_kinetics} | Level 3/3 | 60 min | 75 min |
-| \nameref{sec:unit_II_unit_intro} | 5 | \nameref{sec:unit_II_cell_theory} | Level 1/3 | 45 min | 50 min |
-| \nameref{sec:unit_II_unit_intro} | 6 | \nameref{sec:unit_II_cell_structure} | Level 2/3 | 50 min | 75 min |
-| \nameref{sec:unit_II_unit_intro} | 7 | \nameref{sec:unit_II_membrane_transport} | Level 2/3 | 50 min | 75 min |
-| \nameref{sec:unit_II_unit_intro} | 8 | \nameref{sec:unit_II_cell_signaling} | Level 3/3 | 55 min | 75 min |
-| \nameref{sec:unit_III_unit_intro} | 9 | \nameref{sec:unit_III_bioenergetics_and_respiration} | Level 3/3 | 60 min | 100 min |
-| \nameref{sec:unit_III_unit_intro} | 10 | \nameref{sec:unit_III_photosynthesis} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_III_unit_intro} | 11 | \nameref{sec:unit_III_metabolic_integration} | Level 3/3 | 60 min | 100 min |
-| \nameref{sec:unit_IV_unit_intro} | 12 | \nameref{sec:unit_IV_dna_replication_and_cell_cycle} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_IV_unit_intro} | 13 | \nameref{sec:unit_IV_gene_expression} | Level 2/3 | 60 min | 100 min |
-| \nameref{sec:unit_IV_unit_intro} | 14 | \nameref{sec:unit_IV_mutations_and_genomics} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_IV_unit_intro} | 15 | \nameref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} | Level 3/3 | 28 min | 40 min |
-| \nameref{sec:unit_IV_unit_intro} | 16 | \nameref{sec:unit_IV_epigenetic_inheritance_and_disease} | Level 3/3 | 28 min | 40 min |
-| \nameref{sec:unit_V_unit_intro} | 17 | \nameref{sec:unit_V_mendelian_principles} | Level 2/3 | 35 min | 55 min |
-| \nameref{sec:unit_V_unit_intro} | 18 | \nameref{sec:unit_V_mendelian_extensions_and_human_genetics} | Level 2/3 | 35 min | 55 min |
-| \nameref{sec:unit_V_unit_intro} | 19 | \nameref{sec:unit_V_chromosomal_inheritance} | Level 2/3 | 60 min | 75 min |
-| \nameref{sec:unit_V_unit_intro} | 20 | \nameref{sec:unit_V_population_genetics} | Level 3/3 | 75 min | 100 min |
-| \nameref{sec:unit_VI_unit_intro} | 21 | \nameref{sec:unit_VI_evolution_and_selection} | Level 2/3 | 60 min | 75 min |
-| \nameref{sec:unit_VI_unit_intro} | 22 | \nameref{sec:unit_VI_genetic_drift_and_speciation} | Level 3/3 | 60 min | 75 min |
-| \nameref{sec:unit_VI_unit_intro} | 23 | \nameref{sec:unit_VI_phylogenetics} | Level 3/3 | 60 min | 100 min |
-| \nameref{sec:unit_VII_unit_intro} | 24 | \nameref{sec:unit_VII_bacteria_archaea_viruses} | Level 2/3 | 65 min | 75 min |
-| \nameref{sec:unit_VII_unit_intro} | 25 | \nameref{sec:unit_VII_microbial_ecology} | Level 2/3 | 60 min | 75 min |
-| \nameref{sec:unit_VII_unit_intro} | 26 | \nameref{sec:unit_VII_host_immunity_and_vaccines} | Level 2/3 | 30 min | 40 min |
-| \nameref{sec:unit_VII_unit_intro} | 27 | \nameref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} | Level 2/3 | 35 min | 45 min |
-| \nameref{sec:unit_VIII_unit_intro} | 28 | \nameref{sec:unit_VIII_plant_structure_and_water} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_VIII_unit_intro} | 29 | \nameref{sec:unit_VIII_plant_reproduction} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_VIII_unit_intro} | 30 | \nameref{sec:unit_VIII_plant_responses} | Level 2/3 | 55 min | 75 min |
-| \nameref{sec:unit_IX_unit_intro} | 31 | \nameref{sec:unit_IX_circulation_respiration_homeostasis} | Level 3/3 | 60 min | 100 min |
-| \nameref{sec:unit_IX_unit_intro} | 32 | \nameref{sec:unit_IX_nervous_system} | Level 3/3 | 55 min | 75 min |
-| \nameref{sec:unit_IX_unit_intro} | 33 | \nameref{sec:unit_IX_action_potential_synapses} | Level 3/3 | 55 min | 100 min |
-| \nameref{sec:unit_IX_unit_intro} | 34 | \nameref{sec:unit_IX_endocrine_signaling} | Level 2/3 | 30 min | 40 min |
-| \nameref{sec:unit_IX_unit_intro} | 35 | \nameref{sec:unit_IX_immune_system_defense} | Level 2/3 | 30 min | 40 min |
-| \nameref{sec:unit_X_unit_intro} | 36 | \nameref{sec:unit_X_population_ecology} | Level 3/3 | 75 min | 100 min |
-| \nameref{sec:unit_X_unit_intro} | 37 | \nameref{sec:unit_X_community_interactions} | Level 2/3 | 45 min | 55 min |
-| \nameref{sec:unit_X_unit_intro} | 38 | \nameref{sec:unit_X_biodiversity_and_food_webs} | Level 2/3 | 40 min | 50 min |
-| \nameref{sec:unit_X_unit_intro} | 39 | \nameref{sec:unit_X_ecosystem_ecology} | Level 2/3 | 65 min | 75 min |
-| \nameref{sec:unit_X_unit_intro} | 40 | \nameref{sec:unit_X_biomes_and_conservation} | Level 2/3 | 70 min | 75 min |
-| | | **Totals** | | **2256 min (37 h)** | **3110 min (51 h)** |
+\begin{table}[htbp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.34\textwidth}>{\centering\arraybackslash}p{0.05\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}>{\centering\arraybackslash}p{0.10\textwidth}>{\centering\arraybackslash}p{0.10\textwidth}>{\centering\arraybackslash}p{0.10\textwidth}}
+\hline
+\textbf{Unit} & \textbf{Number} & \textbf{Chapter} & \textbf{Difficulty} & \textbf{Reading} & \textbf{Lecture} \\
+\hline
+\hyperref[sec:unit_0_unit_intro]{Unit 0 — Systems Science for Biology: Introduction} & 0.1 & \hyperref[sec:unit_0_systems_science]{Systems Science and Emergence} & Level 2/3 & 35 min & 50 min \\
+\hyperref[sec:unit_0_unit_intro]{Unit 0 — Systems Science for Biology: Introduction} & 0.2 & \hyperref[sec:unit_0_complex_adaptive_systems]{Complex Adaptive Systems} & Level 2/3 & 35 min & 50 min \\
+\hyperref[sec:unit_0_unit_intro]{Unit 0 — Systems Science for Biology: Introduction} & 0.3 & \hyperref[sec:unit_0_active_inference]{Active Inference and Free Energy} & Level 3/3 & 45 min & 75 min \\
+\hyperref[sec:unit_0_unit_intro]{Unit 0 — Systems Science for Biology: Introduction} & 0.4 & \hyperref[sec:unit_0_history_philosophy_biology]{History and Philosophy of Biology} & Level 2/3 & 80 min & 100 min \\
+\hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction} & 1 & \hyperref[sec:unit_I_atoms_molecules]{Atoms, Molecules, and Chemical Bonds} & Level 1/3 & 40 min & 50 min \\
+\hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction} & 2 & \hyperref[sec:unit_I_water_and_life]{Water — The Molecule of Life} & Level 1/3 & 40 min & 50 min \\
+\hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction} & 3 & \hyperref[sec:unit_I_macromolecules]{Biological Macromolecules} & Level 2/3 & 55 min & 75 min \\
+\hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction} & 4 & \hyperref[sec:unit_I_enzymes_and_kinetics]{Enzymes and the Kinetics of Catalysis} & Level 3/3 & 60 min & 75 min \\
+\hyperref[sec:unit_II_unit_intro]{Unit II — The Cell: Introduction} & 5 & \hyperref[sec:unit_II_cell_theory]{Cell Theory and Cell Types} & Level 1/3 & 45 min & 50 min \\
+\hyperref[sec:unit_II_unit_intro]{Unit II — The Cell: Introduction} & 6 & \hyperref[sec:unit_II_cell_structure]{Cell Structure and Organelles} & Level 2/3 & 50 min & 75 min \\
+\hyperref[sec:unit_II_unit_intro]{Unit II — The Cell: Introduction} & 7 & \hyperref[sec:unit_II_membrane_transport]{Membrane Structure and Transport} & Level 2/3 & 50 min & 75 min \\
+\hyperref[sec:unit_II_unit_intro]{Unit II — The Cell: Introduction} & 8 & \hyperref[sec:unit_II_cell_signaling]{Cell Signaling and Communication} & Level 3/3 & 55 min & 75 min \\
+\hyperref[sec:unit_III_unit_intro]{Unit III — Energy and Metabolism: Introduction} & 9 & \hyperref[sec:unit_III_bioenergetics_and_respiration]{Bioenergetics and Cellular Respiration} & Level 3/3 & 60 min & 100 min \\
+\hyperref[sec:unit_III_unit_intro]{Unit III — Energy and Metabolism: Introduction} & 10 & \hyperref[sec:unit_III_photosynthesis]{Photosynthesis} & Level 2/3 & 55 min & 75 min \\
+\hyperref[sec:unit_III_unit_intro]{Unit III — Energy and Metabolism: Introduction} & 11 & \hyperref[sec:unit_III_metabolic_integration]{Metabolic Integration and Regulation} & Level 3/3 & 60 min & 100 min \\
+\hyperref[sec:unit_IV_unit_intro]{Unit IV — Molecular Genetics: Introduction} & 12 & \hyperref[sec:unit_IV_dna_replication_and_cell_cycle]{DNA Replication and the Cell Cycle} & Level 2/3 & 55 min & 75 min \\
+\hyperref[sec:unit_IV_unit_intro]{Unit IV — Molecular Genetics: Introduction} & 13 & \hyperref[sec:unit_IV_gene_expression]{Gene Expression} & Level 2/3 & 60 min & 100 min \\
+\hyperref[sec:unit_IV_unit_intro]{Unit IV — Molecular Genetics: Introduction} & 14 & \hyperref[sec:unit_IV_mutations_and_genomics]{Mutations, CRISPR, and Genomics} & Level 2/3 & 55 min & 75 min \\
+\hyperref[sec:unit_IV_unit_intro]{Unit IV — Molecular Genetics: Introduction} & 15 & \hyperref[sec:unit_IV_chromatin_and_epigenetic_mechanisms]{Chromatin and Epigenetic Mechanisms} & Level 3/3 & 28 min & 40 min \\
+\hyperref[sec:unit_IV_unit_intro]{Unit IV — Molecular Genetics: Introduction} & 16 & \hyperref[sec:unit_IV_epigenetic_inheritance_and_disease]{Epigenetic Inheritance and Disease} & Level 3/3 & 28 min & 40 min \\
+\hyperref[sec:unit_V_unit_intro]{Unit V — Classical Genetics and Heredity: Introduction} & 17 & \hyperref[sec:unit_V_mendelian_principles]{Mendelian Principles and Probability} & Level 2/3 & 35 min & 55 min \\
+\hyperref[sec:unit_V_unit_intro]{Unit V — Classical Genetics and Heredity: Introduction} & 18 & \hyperref[sec:unit_V_mendelian_extensions_and_human_genetics]{Mendelian Extensions and Human Genetics} & Level 2/3 & 35 min & 55 min \\
+\hyperref[sec:unit_V_unit_intro]{Unit V — Classical Genetics and Heredity: Introduction} & 19 & \hyperref[sec:unit_V_chromosomal_inheritance]{Chromosomal Inheritance and Linkage} & Level 2/3 & 60 min & 75 min \\
+\hyperref[sec:unit_V_unit_intro]{Unit V — Classical Genetics and Heredity: Introduction} & 20 & \hyperref[sec:unit_V_population_genetics]{Population Genetics} & Level 3/3 & 75 min & 100 min \\
+\hyperref[sec:unit_VI_unit_intro]{Unit VI — Evolution: Introduction} & 21 & \hyperref[sec:unit_VI_evolution_and_selection]{Natural Selection and Adaptation} & Level 2/3 & 60 min & 75 min \\
+\hyperref[sec:unit_VI_unit_intro]{Unit VI — Evolution: Introduction} & 22 & \hyperref[sec:unit_VI_genetic_drift_and_speciation]{Genetic Drift, Gene Flow, and Speciation} & Level 3/3 & 60 min & 75 min \\
+\hyperref[sec:unit_VI_unit_intro]{Unit VI — Evolution: Introduction} & 23 & \hyperref[sec:unit_VI_phylogenetics]{Phylogenetics and the Tree of Life} & Level 3/3 & 60 min & 100 min \\
+\hyperref[sec:unit_VII_unit_intro]{Unit VII — Microbiology: Introduction} & 24 & \hyperref[sec:unit_VII_bacteria_archaea_viruses]{Bacteria, Archaea, and Viruses} & Level 2/3 & 65 min & 75 min \\
+\hyperref[sec:unit_VII_unit_intro]{Unit VII — Microbiology: Introduction} & 25 & \hyperref[sec:unit_VII_microbial_ecology]{Microbial Ecology and the Microbiome} & Level 2/3 & 60 min & 75 min \\
+\hyperref[sec:unit_VII_unit_intro]{Unit VII — Microbiology: Introduction} & 26 & \hyperref[sec:unit_VII_host_immunity_and_vaccines]{Host Immunity and Vaccines} & Level 2/3 & 30 min & 40 min \\
+\hyperref[sec:unit_VII_unit_intro]{Unit VII — Microbiology: Introduction} & 27 & \hyperref[sec:unit_VII_antimicrobial_resistance_and_epidemiology]{Antimicrobial Resistance and Epidemiology} & Level 2/3 & 35 min & 45 min \\
+\hyperref[sec:unit_VIII_unit_intro]{Unit VIII — Botany — Plant Biology: Introduction} & 28 & \hyperref[sec:unit_VIII_plant_structure_and_water]{Plant Structure and Water Relations} & Level 2/3 & 55 min & 75 min \\
+\hyperref[sec:unit_VIII_unit_intro]{Unit VIII — Botany — Plant Biology: Introduction} & 29 & \hyperref[sec:unit_VIII_plant_reproduction]{Plant Reproduction and Development} & Level 2/3 & 55 min & 75 min \\
+\hyperref[sec:unit_VIII_unit_intro]{Unit VIII — Botany — Plant Biology: Introduction} & 30 & \hyperref[sec:unit_VIII_plant_responses]{Plant Responses to the Environment} & Level 2/3 & 55 min & 75 min \\
+\hyperref[sec:unit_IX_unit_intro]{Unit IX — Zoology and Systems Physiology: Introduction} & 31 & \hyperref[sec:unit_IX_circulation_respiration_homeostasis]{Circulation and Respiration} & Level 3/3 & 60 min & 100 min \\
+\hyperref[sec:unit_IX_unit_intro]{Unit IX — Zoology and Systems Physiology: Introduction} & 32 & \hyperref[sec:unit_IX_nervous_system]{Nervous System and Neural Signaling} & Level 3/3 & 55 min & 75 min \\
+\hyperref[sec:unit_IX_unit_intro]{Unit IX — Zoology and Systems Physiology: Introduction} & 33 & \hyperref[sec:unit_IX_action_potential_synapses]{Action Potentials and Synaptic Transmission} & Level 3/3 & 55 min & 100 min \\
+\hyperref[sec:unit_IX_unit_intro]{Unit IX — Zoology and Systems Physiology: Introduction} & 34 & \hyperref[sec:unit_IX_endocrine_signaling]{Endocrine Signaling and Homeostasis} & Level 2/3 & 30 min & 40 min \\
+\hyperref[sec:unit_IX_unit_intro]{Unit IX — Zoology and Systems Physiology: Introduction} & 35 & \hyperref[sec:unit_IX_immune_system_defense]{Immune System Architecture} & Level 2/3 & 30 min & 40 min \\
+\hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction} & 36 & \hyperref[sec:unit_X_population_ecology]{Population Ecology and Growth Models} & Level 3/3 & 75 min & 100 min \\
+\hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction} & 37 & \hyperref[sec:unit_X_community_interactions]{Community Interactions and Succession} & Level 2/3 & 45 min & 55 min \\
+\hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction} & 38 & \hyperref[sec:unit_X_biodiversity_and_food_webs]{Biodiversity and Food Webs} & Level 2/3 & 40 min & 50 min \\
+\hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction} & 39 & \hyperref[sec:unit_X_ecosystem_ecology]{Ecosystem Ecology} & Level 2/3 & 65 min & 75 min \\
+\hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction} & 40 & \hyperref[sec:unit_X_biomes_and_conservation]{Biomes and Conservation Biology} & Level 2/3 & 70 min & 75 min \\
+\hline
+ & & \textbf{Totals} & & \textbf{2256 min (37 h)} & \textbf{3110 min (51 h)} \\
+\hline
+\end{tabular}
+\end{table}
 <!-- course-planning-grid-end -->
 
 \newpage

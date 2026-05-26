@@ -1,4 +1,4 @@
-# Questions — Evolution — Theory, Natural Selection, and Adaptation {#sec:q_unit_VI_evolution_and_selection .unnumbered}
+# Questions — Natural Selection and Adaptation {#sec:q_unit_VI_evolution_and_selection .unnumbered}
 
 
 <!-- question-coverage-start -->

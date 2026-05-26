@@ -1,4 +1,4 @@
-# Lab — Plant Structure, Water Relations, and Transport {#sec:lab_unit_VIII_plant_structure_and_water .unnumbered}
+# Lab — Plant Structure and Water Relations {#sec:lab_unit_VIII_plant_structure_and_water .unnumbered}
 
 
 *This activity accompanies \cref{sec:unit_VIII_plant_structure_and_water} of the textbook — review that chapter before attempting the exercises below.*
@@ -16,7 +16,7 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Plant Structure, Water Relations, and Transport.
+- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Plant Structure and Water Relations.
 - **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
 - **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
 - **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
@@ -45,7 +45,7 @@
 
 5. **Real-World Application**: Drought stress affects crop yields. How does understanding transpiration help in developing drought-resistant crops? What traits would you select for?
 
-## Lab Context: Plant Structure, Water Relations, and Transport {.unnumbered}
+## Lab Context: Plant Structure and Water Relations {.unnumbered}
 
 Vascular plants have three tissue systems: dermal (epidermis, cuticle, guard cells), ground (parenchyma, collenchyma, sclerenchyma), and vascular (xylem for water/mineral transport upward; phloem for sugar/assimilate transport, bidirectional). Transpiration — evaporation of water from stomata — drives the cohesion-tension mechanism that pulls water from root to leaf. Environmental factors (light, humidity, temperature, wind) modulate transpiration rate by affecting stomatal aperture.
 
@@ -54,7 +54,7 @@ Vascular plants have three tissue systems: dermal (epidermis, cuticle, guard cel
 : Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VIII_plant_structure_and_water_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
-| Source-governance card for Plant Structure, Water Relations, and Transport: plant evidence source card: tissue, driver, field context, breeding/adoption boundary, and refresh trigger | 1 |
+| Source-governance card for Plant Structure and Water Relations: plant evidence source card: tissue, driver, field context, breeding/adoption boundary, and refresh trigger | 1 |
 | Printed dicot stem and root cross-section diagrams with scale bars | 1 packet |
 | Transpiration dataset for four environmental treatments, with three replicates each | 1 |
 | Leaf-area and stomatal-density data cards for broadleaf, needleleaf, and succulent plants | 1 set |
@@ -145,7 +145,7 @@ Diagram evidence for xylem pathway: feature 1: ___; feature 2: ___; feature 3: _
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
-**Plant Structure, Water Relations, and Transport** with a reproducibility pass:
+**Plant Structure and Water Relations** with a reproducibility pass:
 
 : Part 3: Transpiration Dataset and Model Check: Evidence check and Student action. {#tbl:unit_VIII_plant_structure_and_water_part_3_transpiration_dataset_and_model_check_3}
 | Evidence check | Student action |
@@ -169,7 +169,7 @@ equipment version belongs only in an optional extension.
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Plant Structure, Water Relations, and Transport before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+Complete the source-governance card for Plant Structure and Water Relations before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

@@ -402,7 +402,7 @@ uv run python scripts/02_run_analysis.py --project biology_textbook
 uv run python scripts/03_render_pdf.py --project biology_textbook
 
 # Regenerate figures / diagrams directly (from project directory)
-uv run python scripts/generate_figures.py       # 32 square-padded matplotlib generators
+uv run python scripts/generate_figures.py       # 42 square-padded matplotlib generators
 uv run python scripts/generate_diagrams.py      # 24 mermaid diagrams
 
 # Manuscript maintenance (idempotent; each supports --dry-run)

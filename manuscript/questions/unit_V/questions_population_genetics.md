@@ -1,4 +1,4 @@
-# Questions — Population Genetics and Hardy-Weinberg Equilibrium {#sec:q_unit_V_population_genetics .unnumbered}
+# Questions — Population Genetics {#sec:q_unit_V_population_genetics .unnumbered}
 
 
 <!-- question-coverage-start -->

@@ -1,4 +1,4 @@
-# Questions — Gene Expression — Transcription and Translation {#sec:q_unit_IV_gene_expression .unnumbered}
+# Questions — Gene Expression {#sec:q_unit_IV_gene_expression .unnumbered}
 
 
 <!-- question-coverage-start -->

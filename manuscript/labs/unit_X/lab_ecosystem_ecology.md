@@ -1,4 +1,4 @@
-# Lab — Ecosystem Ecology and Biogeochemical Cycles {#sec:lab_unit_X_ecosystem_ecology .unnumbered}
+# Lab — Ecosystem Ecology {#sec:lab_unit_X_ecosystem_ecology .unnumbered}
 
 
 ## Learning Objectives {.unnumbered}
@@ -15,7 +15,7 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Ecosystem Ecology and Biogeochemical Cycles.
+- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Ecosystem Ecology.
 - **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
 - **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
 - **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
@@ -30,7 +30,7 @@
 2. Explain why energy transfer efficiency between adjacent trophic levels averages around 10% rather than being much higher. Identify two energy losses (for example, respiration and heat) that limit the fraction passed upward.
 3. Sketch the nitrogen cycle at the level of a grassland ecosystem and identify two processes that move nitrogen from the soil into living biomass and two processes that move it back to soil or atmosphere.
 
-## Lab Context: Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
+## Lab Context: Ecosystem Ecology {.unnumbered}
 
 Ecosystems are characterized by flows of energy (one-way, lost as heat at each step) and cycles of matter (recycled through biogeochemical pathways). **Gross primary productivity (GPP)** is total photosynthesis; **net primary productivity (NPP) = GPP − respiration**. The nitrogen cycle includes fixation (N₂ → NH₃ by nitrogenase), nitrification (NH₃ → NO₂⁻ → NO₃⁻ by *Nitrosomonas*, *Nitrobacter*), denitrification (NO₃⁻ → N₂ by anaerobic bacteria), and assimilation (NH₄⁺/NO₃⁻ → amino acids by plants).
 
@@ -41,7 +41,7 @@ Termites and ants add a useful animal-mediated layer to this cycle picture. Term
 : Alignment and Rubric Map: Item and Quantity. {#tbl:unit_X_ecosystem_ecology_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
-| Source-governance card for Ecosystem Ecology and Biogeochemical Cycles: conservation-assessment source card: index versus census, assessment version, value judgment, and monitoring trigger | 1 |
+| Source-governance card for Ecosystem Ecology: conservation-assessment source card: index versus census, assessment version, value judgment, and monitoring trigger | 1 |
 | Light-dark bottle dissolved oxygen dataset with three replicates per treatment | 1 |
 | Nitrogen cycle blank diagram (for annotation) | 1 |
 | Global carbon budget data (IPCC AR6 summary values, printed) | 1 |
@@ -107,7 +107,7 @@ Eutrophication indicators (day 3-5): chlorophyll-a change: ___; DO change: ___; 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
-**Ecosystem Ecology and Biogeochemical Cycles** with a reproducibility pass:
+**Ecosystem Ecology** with a reproducibility pass:
 
 : Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_X_ecosystem_ecology_alignment_and_rubric_map_3}
 | Evidence check | Student action |
@@ -131,7 +131,7 @@ equipment version belongs only in an optional extension.
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Ecosystem Ecology and Biogeochemical Cycles before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+Complete the source-governance card for Ecosystem Ecology before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

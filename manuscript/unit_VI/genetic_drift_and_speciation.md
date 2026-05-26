@@ -3,11 +3,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/fitness_landscape.png}
-\caption{One-locus mean fitness landscapes under directional selection, heterozygote advantage, and underdominance. The shape of $\bar W(p)$ predicts whether allele frequency moves toward fixation, an interior equilibrium, or disruptive thresholds.}
+\caption{Mean population fitness as a function of allele frequency $p$ under three selection regimes: directional selection (fitness rises toward one allele), heterozygote advantage (interior peak at intermediate $p$), and underdominance (fitness trough that can split the population).}
 \label{fig:unit_VI_fitness_landscape}
 \end{figure}
 
-<!-- alt: Three mean-fitness curves over allele frequency p illustrating different selection modes. -->
+<!-- alt: Three curves of mean fitness versus allele frequency p: one rising to fixation, one with a central peak at intermediate p, and one with a valley that drops at both extremes. -->
 
 \label{sec:unit_VI_genetic_drift_and_speciation}
 

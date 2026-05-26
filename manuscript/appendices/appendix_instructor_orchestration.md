@@ -23,7 +23,7 @@ evidence, reasoning, and uncertainty statement.
 
 ### Unit 0 {.unnumbered}
 
-#### — Systems Science and the Logic of Emergence {.unnumbered}
+#### — Systems Science and Emergence {.unnumbered}
 
 - **Core thread:** Use systems diagrams, uncertainty, and feedback as recurring sense-making tools.
 - **Instructor move:** Launch from a phenomenon, have students model it with Box-and-arrow causal models with explicit inputs, outputs, and feedback signs, then test the model through data.
@@ -41,7 +41,7 @@ evidence, reasoning, and uncertainty statement.
 - **Lab/question pair:** \nameref{sec:lab_unit_0_complex_adaptive_systems}; \nameref{sec:q_unit_0_complex_adaptive_systems}.
 - **External alignment:** Vision & Change: Systems, Structure and function; AP Biology: Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
 
-#### — Active Inference and the Free Energy Principle {.unnumbered}
+#### — Active Inference and Free Energy {.unnumbered}
 
 - **Core thread:** Use systems diagrams, uncertainty, and feedback as recurring sense-making tools.
 - **Instructor move:** Launch from a phenomenon, have students model it with Bayesian belief updating and expected-free-energy-style policy comparison, then test the model through data.
@@ -179,7 +179,7 @@ evidence, reasoning, and uncertainty statement.
 - **Lab/question pair:** \nameref{sec:lab_unit_IV_dna_replication_and_cell_cycle}; \nameref{sec:q_unit_IV_dna_replication_and_cell_cycle}.
 - **External alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
 
-#### — Gene Expression — Transcription and Translation {.unnumbered}
+#### — Gene Expression {.unnumbered}
 
 - **Core thread:** Connect sequence, regulation, genome integrity, and phenotype through evidence.
 - **Instructor move:** Launch from a phenomenon, have students model it with Reading-frame, codon, and expression-output calculations, then test the model through data.
@@ -245,7 +245,7 @@ evidence, reasoning, and uncertainty statement.
 - **Lab/question pair:** \nameref{sec:lab_unit_V_chromosomal_inheritance}; \nameref{sec:q_unit_V_chromosomal_inheritance}.
 - **External alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
 
-#### — Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
+#### — Population Genetics {.unnumbered}
 
 - **Core thread:** Use probability and population reasoning to connect inheritance to evolution.
 - **Instructor move:** Launch from a phenomenon, have students model it with Hardy-Weinberg and allele-frequency recurrence calculations, then test the model through data.
@@ -257,7 +257,7 @@ evidence, reasoning, and uncertainty statement.
 
 ### Unit VI {.unnumbered}
 
-#### — Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
+#### — Natural Selection and Adaptation {.unnumbered}
 
 - **Core thread:** Return to variation, evidence, and historical inference across evolutionary scales.
 - **Instructor move:** Launch from a phenomenon, have students model it with Selection coefficient and allele-frequency trajectory calculations, then test the model through data.
@@ -326,7 +326,7 @@ evidence, reasoning, and uncertainty statement.
 
 ### Unit VIII {.unnumbered}
 
-#### — Plant Structure, Water Relations, and Transport {.unnumbered}
+#### — Plant Structure and Water Relations {.unnumbered}
 
 - **Core thread:** Read plant form as an engineered compromise among transport, energy, and reproduction.
 - **Instructor move:** Launch from a phenomenon, have students model it with Water-potential and transpiration-flux calculations, then test the model through data.
@@ -356,7 +356,7 @@ evidence, reasoning, and uncertainty statement.
 
 ### Unit IX {.unnumbered}
 
-#### — Circulation, Respiration, and Homeostasis {.unnumbered}
+#### — Circulation and Respiration {.unnumbered}
 
 - **Core thread:** Spiral homeostasis from organ systems to neural, endocrine, and immune decisions.
 - **Instructor move:** Launch from a phenomenon, have students model it with Cardiac-output, diffusion, oxygen-saturation, and feedback calculations, then test the model through data.
@@ -392,7 +392,7 @@ evidence, reasoning, and uncertainty statement.
 - **Lab/question pair:** \nameref{sec:lab_unit_IX_endocrine_signaling}; \nameref{sec:q_unit_IX_endocrine_signaling}.
 - **External alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
 
-#### — Immune System Architecture and Defense {.unnumbered}
+#### — Immune System Architecture {.unnumbered}
 
 - **Core thread:** Spiral homeostasis from organ systems to neural, endocrine, and immune decisions.
 - **Instructor move:** Launch from a phenomenon, have students model it with Immune-memory, cytokine, and recognition reasoning, then test the model through data.
@@ -422,7 +422,7 @@ evidence, reasoning, and uncertainty statement.
 - **Lab/question pair:** \nameref{sec:lab_unit_X_community_interactions}; \nameref{sec:q_unit_X_community_interactions}.
 - **External alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
 
-#### — Biodiversity, Food Webs, and Biogeography {.unnumbered}
+#### — Biodiversity and Food Webs {.unnumbered}
 
 - **Core thread:** Use ecological models to connect populations, interactions, matter, climate, and decisions.
 - **Instructor move:** Launch from a phenomenon, have students model it with Shannon, species-area, and network connectance reasoning, then test the model through data.
@@ -431,7 +431,7 @@ evidence, reasoning, and uncertainty statement.
 - **Lab/question pair:** \nameref{sec:lab_unit_X_biodiversity_and_food_webs}; \nameref{sec:q_unit_X_biodiversity_and_food_webs}.
 - **External alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
 
-#### — Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
+#### — Ecosystem Ecology {.unnumbered}
 
 - **Core thread:** Use ecological models to connect populations, interactions, matter, climate, and decisions.
 - **Instructor move:** Launch from a phenomenon, have students model it with Energy-flow, productivity, and nutrient-budget calculations, then test the model through data.

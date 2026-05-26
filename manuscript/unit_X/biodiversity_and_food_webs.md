@@ -1,4 +1,4 @@
-# Biodiversity, Food Webs, and Biogeography
+# Biodiversity and Food Webs
 
 \label{sec:unit_X_biodiversity_and_food_webs}
 
@@ -187,7 +187,7 @@ where $J_i$ = probability that patch $i$ is occupied, $e_i \propto A_i^{-x}$, an
 
 ---
 
-> **Opening Vignette — Biodiversity, Food Webs, and Biogeography**
+> **Opening Vignette — Biodiversity and Food Webs**
 >
 > This chapter connects biodiversity, food webs, and biogeography to measurable evidence: models, datasets, and experiments that can strengthen or weaken each claim.
 
@@ -482,9 +482,9 @@ Elton's diversity-resistance hypothesis predicts that high-diversity communities
 
 ---
 
-## Current Evidence and Frontier Biology: Biodiversity, Food Webs, and Biogeography
+## Current Evidence and Frontier Biology: Biodiversity and Food Webs
 
-For **Biodiversity, Food Webs, and Biogeography**, frontier biology belongs inside the evidence logic of
+For **Biodiversity and Food Webs**, frontier biology belongs inside the evidence logic of
 the chapter. Ecology and conservation decisions increasingly combine field data, remote sensing, community knowledge, model uncertainty, and explicit values. The core reading question is this: community claims should identify interaction type, network position, disturbance regime, and observational limits.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
@@ -553,7 +553,7 @@ Select biodiversity and conservation metrics by decision need: abundance, intera
 
 ---
 
-## Further Reading and Source Notes: Biodiversity, Food Webs, and Biogeography
+## Further Reading and Source Notes: Biodiversity and Food Webs
 
 - Paine (1966). Food Web Complexity and Species Diversity. *The American Naturalist*, 100.
 - Connell (1978). Diversity in tropical rain forests and coral reefs. *Science*, 199.
@@ -613,14 +613,14 @@ print(len(lv.times), round(lv.prey[-1], 2))
 
 ---
 
-## Companion Source Module: Biodiversity, Food Webs, and Biogeography
+## Companion Source Module: Biodiversity and Food Webs
 
-**Biodiversity, Food Webs, and Biogeography** should leave a reproducible trail from a biological claim to
+**Biodiversity and Food Webs** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
-: Companion source surfaces for Biodiversity, Food Webs, and Biogeography. {#tbl:unit_X_biodiversity_and_food_webs_companion_source_surfaces}
+: Companion source surfaces for Biodiversity and Food Webs. {#tbl:unit_X_biodiversity_and_food_webs_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/ecology/ecology.py` (`lotka_volterra`, `connectance`, `biodiversity_indices`) | Quantify interactions, network structure, and community diversity. |

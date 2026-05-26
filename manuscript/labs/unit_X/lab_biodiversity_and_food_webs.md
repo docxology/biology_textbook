@@ -1,9 +1,9 @@
-# Lab — Biodiversity, Food Webs, and Biogeography {#sec:lab_unit_X_biodiversity_and_food_webs .unnumbered}
+# Lab — Biodiversity and Food Webs {#sec:lab_unit_X_biodiversity_and_food_webs .unnumbered}
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Biodiversity, Food Webs, and Biogeography.
+- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Biodiversity and Food Webs.
 - **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
 - **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
 - **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
@@ -13,7 +13,7 @@
 
 *This activity accompanies \cref{sec:unit_X_biodiversity_and_food_webs} of the textbook — review that chapter before attempting the exercises below.*
 
-## Lab Context: Biodiversity, Food Webs, and Biogeography {.unnumbered}
+## Lab Context: Biodiversity and Food Webs {.unnumbered}
 
 This extension lab applies island biogeography, food-web structure, and biodiversity indices to printed ecological datasets and conservation scenarios.
 
@@ -22,7 +22,7 @@ This extension lab applies island biogeography, food-web structure, and biodiver
 : Alignment and Rubric Map: Item and Quantity. {#tbl:unit_X_biodiversity_and_food_webs_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
-| Source-governance card for Biodiversity, Food Webs, and Biogeography: conservation-assessment source card: index versus census, assessment version, value judgment, and monitoring trigger | 1 |
+| Source-governance card for Biodiversity and Food Webs: conservation-assessment source card: index versus census, assessment version, value judgment, and monitoring trigger | 1 |
 | Printed datasets, cards, and worksheets referenced below | 1 set per group |
 | Graph paper or plain paper for diagrams | 1 |
 | Calculator | 1 |
@@ -125,7 +125,7 @@ No live organisms or ecological specimens are required. Optional living-culture 
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Biodiversity, Food Webs, and Biogeography before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+Complete the source-governance card for Biodiversity and Food Webs before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Debrief and Reflection {.unnumbered}
 

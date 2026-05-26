@@ -14,7 +14,8 @@
 
 1. `bacteria_archaea_viruses.md` — Bacteria, Archaea, and Viruses
 2. `microbial_ecology.md` — Microbial Ecology and the Microbiome
-3. `infectious_disease.md` — Infectious Disease and Immunity
+3. `host_immunity_and_vaccines.md` — Host Immunity and Vaccines
+4. `antimicrobial_resistance_and_epidemiology.md` — Antimicrobial Resistance and Epidemiology
 
 ## Key Equations
 

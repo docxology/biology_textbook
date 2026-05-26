@@ -1,4 +1,4 @@
-# Unit 0: Systems Science and the Biology of Complexity — AGENTS.md
+# Unit 0: Systems Science for Biology — AGENTS.md
 
 ## Unit 0 Authoring Contract
 Unit 0 is a foundational prologue to the textbook, introducing the conceptual, mathematical, historical, and philosophical frameworks that underpin all subsequent units. It situates biology within systems science, complexity theory, active inference, and source-critical history/philosophy of biology.
@@ -7,9 +7,9 @@ Unit 0 is a foundational prologue to the textbook, introducing the conceptual, m
 
 | File | Chapter Title |
 | ---- | ------------- |
-| `systems_science.md` | Systems Science and the Logic of Emergence |
+| `systems_science.md` | Systems Science and Emergence |
 | `complex_adaptive_systems.md` | Complex Adaptive Systems |
-| `active_inference.md` | Active Inference and the Free Energy Principle |
+| `active_inference.md` | Active Inference and Free Energy |
 | `history_philosophy_biology.md` | History and Philosophy of Biology |
 
 ## Key Concepts

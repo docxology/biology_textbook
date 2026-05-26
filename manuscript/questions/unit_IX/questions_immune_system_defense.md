@@ -1,4 +1,4 @@
-# Questions — Immune System Architecture and Defense {#sec:q_unit_IX_immune_system_defense .unnumbered}
+# Questions — Immune System Architecture {#sec:q_unit_IX_immune_system_defense .unnumbered}
 
 
 <!-- question-coverage-start -->

@@ -63,6 +63,18 @@ class ChapterTocItem:
         return f"\\nameref{{{self.section_label}}}"
 
     @property
+    def plain_ref(self) -> str:
+        """Return the chapter title for forward references in early front matter."""
+        return self.title
+
+    @property
+    def hyperlink_ref(self) -> str:
+        """Return a clickable PDF link to this chapter."""
+        from biology.crossref.helpers import section_hyperlink
+
+        return section_hyperlink(self.section_label, self.title)
+
+    @property
     def lab_prefix(self) -> str:
         """Return the lab prefix for Unit 0 prelude labs (alpha-indexed)."""
         if self.meta.number > 0:
@@ -107,6 +119,25 @@ class UnitTocItem:
         """Return a LaTeX reference that renders the current unit title."""
         return f"\\nameref{{{self.section_label}}}"
 
+    @property
+    def plain_ref(self) -> str:
+        """Return the unit introduction title for forward references in early front matter."""
+        return self.intro_title
+
+    @property
+    def hyperlink_ref(self) -> str:
+        """Return a clickable PDF link to this unit introduction."""
+        from biology.crossref.helpers import section_hyperlink
+
+        return section_hyperlink(self.section_label, self.plain_ref)
+
+    @property
+    def hyperlink_display_title(self) -> str:
+        """Return a clickable PDF link using the unit display title."""
+        from biology.crossref.helpers import section_hyperlink
+
+        return section_hyperlink(self.section_label, self.display_title)
+
 
 @dataclass(frozen=True)
 class CompanionTocItem:
@@ -139,6 +170,18 @@ class ReferenceTocItem:
     def name_ref(self) -> str:
         """Return a LaTeX reference that renders the current appendix title."""
         return f"\\nameref{{{self.section_label}}}"
+
+    @property
+    def plain_ref(self) -> str:
+        """Return the appendix title for forward references in early front matter."""
+        return self.title
+
+    @property
+    def hyperlink_ref(self) -> str:
+        """Return a clickable PDF link to this reference appendix."""
+        from biology.crossref.helpers import section_hyperlink
+
+        return section_hyperlink(self.section_label, self.title)
 
 
 @dataclass(frozen=True)

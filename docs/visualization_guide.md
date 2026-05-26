@@ -25,7 +25,7 @@
 
 The `biology_textbook` project generates **three types of visual output**:
 
-1. **Matplotlib figures** — 32 quantitative plots from `src/visualization/plots.py` (`ALL_FIGURE_GENERATORS`)
+1. **Matplotlib figures** — 42 quantitative plots from `src/visualization/plots.py` (`ALL_FIGURE_GENERATORS`)
 2. **Registered Mermaid diagrams** — 24 biological pathway/network diagrams from `src/mermaid/biology_diagrams.py` (`ALL_BIOLOGY_DIAGRAMS`), rendered to PNG via the `mmdc` CLI
 3. **Inline Mermaid fences** — 196 manuscript-local diagrams rendered during PDF preprocessing and optional visual-contract review
 

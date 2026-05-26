@@ -22,11 +22,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/logistic_growth.png}
-\caption{Logistic growth of a population with carrying capacity K. Population size follows dN/dt = rN(1 - N/K); the S-shaped curve asymptotes at K after an inflection at N = K/2.}
+\caption{Logistic growth toward carrying capacity $K$. Population size follows $dN/dt = rN(1 - N/K)$; the S-shaped curve inflects near $N = K/2$ and asymptotes at $K$.}
 \label{fig:unit_X_logistic_growth}
 \end{figure}
 
-<!-- alt: Sigmoid population growth curve rising from a small initial size to a plateau at the carrying capacity K. -->
+<!-- alt: Sigmoid population-size curve rising from a low initial abundance, inflecting near half the carrying capacity K, then leveling at K on the horizontal axis. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint

@@ -24,11 +24,11 @@ By the end of this chapter, you should be able to:
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/biodiversity_indices.png}
-\caption{Shannon and Simpson diversity indices compared for an even meadow assemblage and a dominant-species grassland. Evenness raises Shannon $H'$ and Simpson $1-D$ relative to skewed abundance distributions.}
+\caption{Shannon $H'$ and Simpson $1-D$ for two communities with the same species richness but different evenness. Higher evenness raises both indices relative to a skewed dominance distribution dominated by one grassland species.}
 \label{fig:unit_X_biodiversity_indices}
 \end{figure}
 
-<!-- alt: Bar chart comparing Shannon and Simpson indices for two communities with different evenness. -->
+<!-- alt: Side-by-side bars for Shannon and Simpson indices in an even meadow versus a grassland dominated by one species; the even community shows higher bars for both metrics. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint

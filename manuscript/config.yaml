@@ -118,16 +118,16 @@ front_matter:
 
 units:
   - id: unit_0
-    title: "Systems Science and the Biology of Complexity"
+    title: "Systems Science for Biology"
     label: "0"
     directory: unit_0
     chapters:
       - file: systems_science.md
-        title: "Systems Science and the Logic of Emergence"
+        title: "Systems Science and Emergence"
       - file: complex_adaptive_systems.md
         title: "Complex Adaptive Systems"
       - file: active_inference.md
-        title: "Active Inference and the Free Energy Principle"
+        title: "Active Inference and Free Energy"
       - file: history_philosophy_biology.md
         title: "History and Philosophy of Biology"
 
@@ -179,7 +179,7 @@ units:
       - file: dna_replication_and_cell_cycle.md
         title: "DNA Replication and the Cell Cycle"
       - file: gene_expression.md
-        title: "Gene Expression — Transcription and Translation"
+        title: "Gene Expression"
       - file: mutations_and_genomics.md
         title: "Mutations, CRISPR, and Genomics"
       - file: chromatin_and_epigenetic_mechanisms.md
@@ -200,7 +200,7 @@ units:
       - file: chromosomal_inheritance.md
         title: "Chromosomal Inheritance and Linkage"
       - file: population_genetics.md
-        title: "Population Genetics and Hardy-Weinberg Equilibrium"
+        title: "Population Genetics"
 
   - id: unit_VI
     title: "Evolution"
@@ -208,7 +208,7 @@ units:
     directory: unit_VI
     chapters:
       - file: evolution_and_selection.md
-        title: "Evolution — Theory, Natural Selection, and Adaptation"
+        title: "Natural Selection and Adaptation"
       - file: genetic_drift_and_speciation.md
         title: "Genetic Drift, Gene Flow, and Speciation"
       - file: phylogenetics.md
@@ -234,7 +234,7 @@ units:
     directory: unit_VIII
     chapters:
       - file: plant_structure_and_water.md
-        title: "Plant Structure, Water Relations, and Transport"
+        title: "Plant Structure and Water Relations"
       - file: plant_reproduction.md
         title: "Plant Reproduction and Development"
       - file: plant_responses.md
@@ -246,7 +246,7 @@ units:
     directory: unit_IX
     chapters:
       - file: circulation_respiration_homeostasis.md
-        title: "Circulation, Respiration, and Homeostasis"
+        title: "Circulation and Respiration"
       - file: nervous_system.md
         title: "Nervous System and Neural Signaling"
       - file: action_potential_synapses.md
@@ -254,7 +254,7 @@ units:
       - file: endocrine_signaling.md
         title: "Endocrine Signaling and Homeostasis"
       - file: immune_system_defense.md
-        title: "Immune System Architecture and Defense"
+        title: "Immune System Architecture"
 
   - id: unit_X
     title: "Ecology"
@@ -266,9 +266,9 @@ units:
       - file: community_interactions.md
         title: "Community Interactions and Succession"
       - file: biodiversity_and_food_webs.md
-        title: "Biodiversity, Food Webs, and Biogeography"
+        title: "Biodiversity and Food Webs"
       - file: ecosystem_ecology.md
-        title: "Ecosystem Ecology and Biogeochemical Cycles"
+        title: "Ecosystem Ecology"
       - file: biomes_and_conservation.md
         title: "Biomes and Conservation Biology"
 
@@ -505,5 +505,5 @@ chapter_metadata:
 # ---------------------------------------------------------------------------
 export:
   include_solutions: true
-  include_worked_problems: true
-  watermark_instructor: true
+  include_worked_problems: false
+  watermark_instructor: false

@@ -1,9 +1,9 @@
-# Lab — Immune System Architecture and Defense {#sec:lab_unit_IX_immune_system_defense .unnumbered}
+# Lab — Immune System Architecture {#sec:lab_unit_IX_immune_system_defense .unnumbered}
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Immune System Architecture and Defense.
+- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Immune System Architecture.
 - **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
 - **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
 - **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
@@ -13,7 +13,7 @@
 
 *This activity accompanies \cref{sec:unit_IX_immune_system_defense} of the textbook — review that chapter before attempting the exercises below.*
 
-## Lab Context: Immune System Architecture and Defense {.unnumbered}
+## Lab Context: Immune System Architecture {.unnumbered}
 
 This extension lab emphasizes innate and adaptive immune readouts, cytokine interpretation, and pattern-recognition pathways using printed clinical-style datasets.
 
@@ -22,7 +22,7 @@ This extension lab emphasizes innate and adaptive immune readouts, cytokine inte
 : Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IX_immune_system_defense_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
-| Source-governance card for Immune System Architecture and Defense: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
+| Source-governance card for Immune System Architecture: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
 | Printed datasets, cards, and worksheets referenced below | 1 set per group |
 | Graph paper or plain paper for diagrams | 1 |
 | Calculator | 1 |
@@ -125,7 +125,7 @@ Data-analysis primarily. Most patient case data should be anonymised/fictional. 
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Immune System Architecture and Defense before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+Complete the source-governance card for Immune System Architecture before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Debrief and Reflection {.unnumbered}
 

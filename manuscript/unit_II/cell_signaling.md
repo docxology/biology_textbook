@@ -119,11 +119,11 @@ For visual transduction (rhodopsin → transducin → PDE6 → cGMP fall): indiv
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/hill_equation.png}
-\caption{Hill-equation receptor occupancy for cooperative binding. Higher Hill coefficients steepen the dose-response curve around the dissociation constant $K_d$.}
+\caption{Hill-equation receptor occupancy for cooperative binding. Higher Hill coefficients steepen the sigmoid dose--response curve around the dissociation constant $K_d$, so a small ligand increase can switch occupancy from low to high when cooperativity is strong.}
 \label{fig:unit_II_hill_equation}
 \end{figure}
 
-<!-- alt: Sigmoid occupancy curves for Hill coefficients n equals 1, 2, and 4 on a log-scaled ligand axis. -->
+<!-- alt: Three sigmoid occupancy curves versus ligand concentration on a logarithmic horizontal axis; Hill coefficient one rises gradually, while coefficients two and four steepen the transition near the dissociation constant. -->
 
 The Huang–Ferrell analysis of the MAPK cascade showed mathematically that *three sequential switches* (each with $n_H = 1.7$ from its dual phosphorylation requirement) compose to give an overall Hill coefficient near 5 — converting a graded growth-factor input into an essentially digital ERK output. This is the molecular substrate of the cell's "decision making" between proliferation and quiescence.
 

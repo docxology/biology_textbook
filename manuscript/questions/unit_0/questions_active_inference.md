@@ -1,4 +1,4 @@
-# Questions — Active Inference and the Free Energy Principle {#sec:q_unit_0_active_inference .unnumbered}
+# Questions — Active Inference and Free Energy {#sec:q_unit_0_active_inference .unnumbered}
 
 
 ## Questions 1–10: Recall and Comprehension {.unnumbered}

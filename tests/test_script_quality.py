@@ -23,6 +23,8 @@ DOC_PATHS = [
     PROJECT / "tests" / "README.md",
     PROJECT / "tests" / "AGENTS.md",
     PROJECT / "scripts" / "AGENTS.md",
+    PROJECT / "scripts" / "README.md",
+    PROJECT / "src" / "AGENTS.md",
 ]
 GENERIC_OVERVIEW_HEADING_PATHS = [
     PROJECT / "AGENTS.md",
@@ -241,6 +243,13 @@ def test_documented_project_counts_match_live_inventory() -> None:
         r"\b18 plots\b",
         r"568 passed",
         r"92\.33%",
+        r"\b32 generators\b",
+        r"\b32 matplotlib generators\b",
+        r"\b32 registered matplotlib\b",
+        r"\b33 Python files\b",
+        r"32 `\*\.py` files",
+        r"\b1170 questions\b",
+        r"39 banks × 30",
     )
     offenders: list[str] = []
     for path in DOC_PATHS:

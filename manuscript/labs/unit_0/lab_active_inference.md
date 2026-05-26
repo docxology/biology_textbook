@@ -1,4 +1,4 @@
-# Lab C — Active Inference and the Free Energy Principle {#sec:lab_unit_0_active_inference .unnumbered}
+# Lab C — Active Inference and Free Energy {#sec:lab_unit_0_active_inference .unnumbered}
 
 
 *This activity accompanies \cref{sec:unit_0_active_inference} of the textbook — review that chapter before attempting the exercises below.*
@@ -21,7 +21,7 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Active Inference and the Free Energy Principle.
+- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Active Inference and Free Energy.
 - **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
 - **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
 - **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
@@ -36,7 +36,7 @@
 2. A foraging mouse has a prior expectation that food is at burrow A. It sees a faint scent cue pointing to burrow B. Apply the idea of prediction error to explain how the mouse should update its belief, and identify which sensor property determines how much the cue moves the belief.
 3. Compare perceptual inference (updating beliefs to match observations) with active inference (acting on the environment so observations match beliefs). Give one biological situation where each is the more efficient route to reducing prediction error.
 
-## Lab Context: Active Inference and the Free Energy Principle {.unnumbered}
+## Lab Context: Active Inference and Free Energy {.unnumbered}
 
 Active inference proposes that living agents minimize a quantity called **variational free energy** — an upper bound on the "surprise" of observed sensory data given the agent's internal generative model. The core equation (simplified):
 
@@ -61,7 +61,7 @@ Today's lab is paper-based: you will work through two hand-computed examples and
 
 ## Paper-Based Materials {.unnumbered}
 
-- Source-governance card for Active Inference and the Free Energy Principle: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
+- Source-governance card for Active Inference and Free Energy: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
 - Printed worksheet with two Bayesian inference problems (provided).
 - Behavior scenario-card set with ten animal and human examples.
 - Calculator or phone.
@@ -133,7 +133,7 @@ Use the ten printed behavior scenario cards. For each behavior, annotate whether
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
-**Active Inference and the Free Energy Principle** with a reproducibility pass:
+**Active Inference and Free Energy** with a reproducibility pass:
 
 : Part 3 — Behavior Scenario Classification: Evidence check and Student action. {#tbl:unit_0_active_inference_part_3_behaviour_scenario_classification_3}
 | Evidence check | Student action |
@@ -149,7 +149,7 @@ equipment version belongs only in an optional extension.
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Active Inference and the Free Energy Principle before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+Complete the source-governance card for Active Inference and Free Energy before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ### Worked Example: Bayesian update of a discrete food-location belief {.unnumbered}
 

@@ -1,4 +1,4 @@
-# Lab — Gene Expression — Transcription and Translation {#sec:lab_unit_IV_gene_expression .unnumbered}
+# Lab — Gene Expression {#sec:lab_unit_IV_gene_expression .unnumbered}
 
 
 ## Learning Objectives {.unnumbered}
@@ -14,7 +14,7 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Gene Expression — Transcription and Translation.
+- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Gene Expression.
 - **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
 - **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
 - **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
@@ -29,7 +29,7 @@
 2. Distinguish transcriptional regulation from post-transcriptional regulation. Give one concrete molecular example of each, and explain which step of the DNA → mRNA → protein flow each example acts on.
 3. Predict the effect on steady-state mRNA level if (a) the transcription initiation rate doubles while mRNA degradation stays constant, and (b) the transcription rate stays constant while the mRNA half-life is cut in half. Justify each prediction quantitatively before doing any arithmetic.
 
-## Lab Context: Gene Expression — Transcription and Translation {.unnumbered}
+## Lab Context: Gene Expression {.unnumbered}
 
 Gene expression flows from DNA → mRNA (transcription, in the nucleus) → protein (translation, by ribosomes in the cytoplasm). The genetic code is triplet (3 nucleotides = 1 codon), non-overlapping, comprehensive, and degenerate (multiple codons = one amino acid). A **polysome** (polyribosome) consists of multiple ribosomes simultaneously translating the same mRNA; the number of ribosomes per mRNA is proportional to protein production demand and mRNA length.
 
@@ -40,7 +40,7 @@ In this lab you will perform manual transcription/translation using codon tables
 : Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IV_gene_expression_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
-| Source-governance card for Gene Expression — Transcription and Translation: genomics/database source card: reference release, sample coverage, version, clinical boundary, and refresh trigger | 1 |
+| Source-governance card for Gene Expression: genomics/database source card: reference release, sample coverage, version, clinical boundary, and refresh trigger | 1 |
 | DNA template sequence cards (instructor-provided: 3 sequences — original, missense mutant, nonsense mutant) | 1 set |
 | mRNA codon table (standard genetic code) | 1 per student |
 | Polysome TEM image (printed) | 1 |
@@ -96,7 +96,7 @@ mRNA length: ________ mm; Ribosomes counted: ________; Ribosome density: _______
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
-**Gene Expression — Transcription and Translation** with a reproducibility pass:
+**Gene Expression** with a reproducibility pass:
 
 : Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_IV_gene_expression_alignment_and_rubric_map_4}
 | Evidence check | Student action |
@@ -124,7 +124,7 @@ equipment version belongs only in an optional extension.
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Gene Expression — Transcription and Translation before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+Complete the source-governance card for Gene Expression before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

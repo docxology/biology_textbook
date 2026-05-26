@@ -11,7 +11,7 @@ labs/unit_<X>/lab_<chapter_stem>.md
 ```
 
 - `<X>` is the unit id from `config.yaml` (`unit_0`, `unit_I`, …, `unit_X`)
-- `<chapter_stem>` matches the parent chapter's filename (without `.md`). For example, `manuscript/unit_V/mendelian_genetics.md` → `manuscript/labs/unit_V/lab_mendelian_genetics.md`.
+- `<chapter_stem>` matches the parent chapter's filename (without `.md`). For example, `manuscript/unit_V/mendelian_principles.md` → `manuscript/labs/unit_V/lab_mendelian_principles.md`.
 
 Every lab file is registered in `manuscript/config.yaml` under `appendices.labs[]`.
 Each lab also carries an assessment-alignment block maintained by

@@ -1,8 +1,8 @@
 # Biology Textbook Scripts
 
-## Quick Reference — 32 `*.py` files
+## Quick Reference — 36 `*.py` files
 
-**32** Python files: **3** Stage-2 orchestrators, **17** structural / build-quality utilities (labels, metadata, curriculum, citations, figures, labs, typography, lab computation, cover art, PDF-log checks, quality audit, current-claim audit, assessment metadata, visual-contract audit, publication-readiness audit), **9** optional pedagogy/content helpers, `_bootstrap.py`, `atomic_io.py`, and `__init__.py`. Details: [AGENTS.md](AGENTS.md).
+**36** Python files: **3** Stage-2 orchestrators, **17** structural / build-quality utilities (labels, metadata, curriculum, citations, figures, labs, typography, lab computation, cover art, PDF-log checks, quality audit, current-claim audit, assessment metadata, visual-contract audit, publication-readiness audit), **9** optional pedagogy/content helpers, `_bootstrap.py`, `atomic_io.py`, and `__init__.py`. Details: [AGENTS.md](AGENTS.md).
 
 ### Stage-2 orchestrators (called by the pipeline)
 
@@ -10,7 +10,7 @@
 | ------ | ----------- | ------ |
 | `biology_analysis.py` | `uv run python scripts/biology_analysis.py` | `output/manuscript/*.md` (134 files: front matter + preface + unit intros + chapters + labs + question banks + reference appendices; per-section Beamer skipped), plus live `config.yaml`, `references.bib`, `preamble.md`, and cover assets for the PDF renderer |
 | `generate_diagrams.py` | `uv run python scripts/generate_diagrams.py` | 24 PNGs (via `mmdc`) or 24 `.mmd` fallbacks in `output/figures/mermaid/`; add `--strict-png` for publication gates so non-PNG output fails |
-| `generate_figures.py` | `uv run python scripts/generate_figures.py` | 32 square-padded PNGs in `output/figures/` |
+| `generate_figures.py` | `uv run python scripts/generate_figures.py` | 42 square-padded PNGs in `output/figures/` |
 
 These three scripts are called automatically by `../../scripts/02_run_analysis.py --project biology_textbook` via the `analysis.scripts` allowlist in `manuscript/config.yaml`; maintenance utilities stay manual and never run as part of Stage 02.
 

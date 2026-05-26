@@ -55,8 +55,8 @@
 | Key | Status | Notes |
 | --- | ------ | ----- |
 | `include_solutions` | **Implemented in `biology_analysis`** | When `true`, `<!-- SOLUTION ... SOLUTION -->` blocks in question banks are revealed as blockquoted instructor answers; the same behavior can be forced with `BIOLOGY_INCLUDE_SOLUTIONS=1`. |
-| `include_worked_problems` | **Advisory** | |
-| `watermark_instructor` | Injected into `output/manuscript/preamble.md` when `export.include_solutions: true` | `draftwatermark` “INSTRUCTOR EDITION” |
+| `include_worked_problems` | **Advisory** | Not read by `biology_analysis.py`; keep `false` until a build hook is implemented. |
+| `watermark_instructor` | **Implemented in `biology_analysis`** | Optional diagonal overlay when both `export.watermark_instructor` and `export.include_solutions` are true (`instructor_preamble_text` in `biology.pipeline.injection`). Default publication build keeps instructor answers with `watermark_instructor: false`. |
 
 ### `chapter_metadata` (`config.yaml` section)
 

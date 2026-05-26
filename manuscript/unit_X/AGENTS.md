@@ -13,7 +13,7 @@
 
 1. `population_ecology.md` — Population Ecology and Growth Models
 2. `community_ecology.md` — Community Ecology and Species Interactions
-3. `ecosystem_ecology.md` — Ecosystem Ecology and Biogeochemical Cycles
+3. `ecosystem_ecology.md` — Ecosystem Ecology
 4. `biomes_and_conservation.md` — Biomes and Conservation Biology
 
 ## Key Equations

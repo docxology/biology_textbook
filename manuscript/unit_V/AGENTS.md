@@ -13,9 +13,10 @@
 
 ## Chapters
 
-1. `mendelian_genetics.md` — Mendelian Genetics and Heredity
-2. `chromosomal_inheritance.md` — Chromosomal Inheritance and Linkage
-3. `population_genetics.md` — Population Genetics and Hardy-Weinberg Equilibrium
+1. `mendelian_principles.md` — Mendelian Principles and Probability
+2. `mendelian_extensions_and_human_genetics.md` — Mendelian Extensions and Human Genetics
+3. `chromosomal_inheritance.md` — Chromosomal Inheritance and Linkage
+4. `population_genetics.md` — Population Genetics
 
 ## Key Equations
 

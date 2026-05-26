@@ -1,4 +1,4 @@
-# Circulation, Respiration, and Homeostasis
+# Circulation and Respiration
 
 \label{sec:unit_IX_circulation_respiration_homeostasis}
 
@@ -21,11 +21,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/poiseuille_flow.png}
-\caption{Hagen-Poiseuille flow versus vessel radius. Volumetric flow scales with $r^4$, so small radius reductions sharply reduce perfusion at fixed pressure gradient.}
+\caption{Hagen--Poiseuille law: volumetric blood flow versus vessel radius at fixed pressure gradient. Because flow scales with radius to the fourth power, halving radius reduces flow sixteenfold---a key reason arteriolar constriction controls tissue perfusion.}
 \label{fig:unit_IX_poiseuille_flow}
 \end{figure}
 
-<!-- alt: Curve showing blood flow increasing steeply with vessel radius under Poiseuille law. -->
+<!-- alt: Curve rising steeply with vessel radius on the horizontal axis and volumetric flow on the vertical axis; halving radius cuts flow by a factor of sixteen at fixed pressure gradient. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -860,9 +860,9 @@ print(round(curve[4].saturation, 3))
 
 ---
 
-## Current Evidence and Frontier Biology: Circulation, Respiration, and Homeostasis
+## Current Evidence and Frontier Biology: Circulation and Respiration
 
-For **Circulation, Respiration, and Homeostasis**, frontier biology belongs inside the evidence logic of
+For **Circulation and Respiration**, frontier biology belongs inside the evidence logic of
 the chapter. Physiology now blends mechanism with allostasis, immune-endocrine-neural coupling, wearable data, and individualized risk without reducing bodies to simple machines. The core reading question is this: homeostasis claims should connect flow, diffusion, control loops, reserve capacity, and measurement limits.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
@@ -949,7 +949,7 @@ Interpret circulation and gas-exchange data by separating baseline set point, pe
 ---
 
 
-## Further Reading and Source Notes: Circulation, Respiration, and Homeostasis
+## Further Reading and Source Notes: Circulation and Respiration
 
 - Starling (1918). The Linacre Lecture on the Law of the Heart. *Longmans, Green and Co.*.
 - Cannon (1932). *The Wisdom of the Body*. W. W. Norton.
@@ -959,14 +959,14 @@ Interpret circulation and gas-exchange data by separating baseline set point, pe
 
 ---
 
-## Companion Source Module: Circulation, Respiration, and Homeostasis
+## Companion Source Module: Circulation and Respiration
 
-**Circulation, Respiration, and Homeostasis** should leave a reproducible trail from a biological claim to
+**Circulation and Respiration** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
-: Companion source surfaces for Circulation, Respiration, and Homeostasis. {#tbl:unit_IX_circulation_respiration_homeostasis_companion_source_surfaces}
+: Companion source surfaces for Circulation and Respiration. {#tbl:unit_IX_circulation_respiration_homeostasis_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/physiology/physiology.py` (`poiseuille_flow`, `oxygen_saturation`, `oxygen_dissociation_curve`, `homeostasis_response`) | Reproduce flow, gas transport, and regulatory response claims. |

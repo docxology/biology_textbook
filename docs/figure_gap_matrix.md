@@ -25,12 +25,12 @@ the unit_0/unit_I/unit_II/unit_III/unit_IV/unit_VIII figure pass landed on
 | `unit_V/population_genetics.md` | 1 | Hardy–Weinberg curves + drift | `biology.genetics.hardy_weinberg`, `biology.evolution.simulate_drift` | wired |
 | `unit_VI/genetic_drift_and_speciation.md` | 1 | Mean fitness landscape | `biology.evolution.fitness_landscape_1d` | wired |
 | `unit_VI/phylogenetics.md` | 1 | Molecular clock divergence | `biology.evolution.molecular_clock_divergence_time` | wired |
-| `unit_VII/infectious_disease.md` | 1 | SIR compartment curves | `biology.microbiology.sir_model` | wired |
+| `unit_VII/host_immunity_and_vaccines.md` | 1 | SIR compartment curves | `biology.microbiology.sir_model` | wired |
 | `unit_VII/microbial_ecology.md` | 2 | MIC serial dilution | `biology.microbiology.mic_fold_dilution` | wired |
 | `unit_VIII/plant_responses.md` | 1 | Net photosynthesis vs PAR | `biology.botany.photosynthesis_rate` | wired |
 | `unit_VIII/plant_reproduction.md` | 2 | Pollen-tube growth curve | `biology.botany.pollen_tube_growth` | wired (`fig:unit_VIII_pollen_tube_growth`) |
 | `unit_IX/circulation_respiration_homeostasis.md` | 1 | Poiseuille flow vs radius | `biology.physiology.poiseuille_flow` | wired |
-| `unit_IX/endocrine_and_immune.md` | 2 | Homeostasis error correction | `biology.physiology.homeostasis_response` | wired |
+| `unit_IX/endocrine_signaling.md` | 2 | Homeostasis error correction | `biology.physiology.homeostasis_response` | wired |
 | `unit_X/community_ecology.md` | 1 | Shannon/Simpson comparison | `biology.ecology.biodiversity_indices` | wired |
 | `unit_X/ecosystem_ecology.md` | 2 | Food-web trophic levels | `biology.ecology.food_web_trophic_levels` | wired |
 

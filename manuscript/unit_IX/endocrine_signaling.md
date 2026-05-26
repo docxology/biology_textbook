@@ -324,11 +324,11 @@ This dual mechanism explains why hypothyroidism causes such pronounced symptoms:
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/homeostasis_feedback.png}
-\caption{Proportional negative-feedback correction of a temperature deviation toward a set point. Each iteration applies a corrective response proportional to the measured error.}
+\caption{Generic proportional negative feedback toward a set point (temperature shown as an example). Each correction is proportional to the measured error, so large deviations trigger stronger responses and the system converges without indefinite overshoot---the same logic applies to hormone axes such as the thyroid loop below.}
 \label{fig:unit_IX_homeostasis_feedback}
 \end{figure}
 
-<!-- alt: Line plot of measured temperature converging toward set point with overlaid corrective responses. -->
+<!-- alt: Line plot of measured value approaching a horizontal set-point line across iterations; corrective responses shrink as the error decreases, illustrating proportional negative feedback. -->
 
 $$\text{TRH (hypothalamus)} \longrightarrow \text{TSH (anterior pituitary)} \longrightarrow \text{T4 (thyroid)} \xrightarrow{\text{D1/D2}} \text{T3 (active)}.$$
 

@@ -12,7 +12,7 @@
 
 ## Chapters
 
-1. `evolution_and_selection.md` — Theory, Natural Selection, and Adaptation
+1. `evolution_and_selection.md` — Natural Selection and Adaptation
 2. `genetic_drift_and_speciation.md` — Genetic Drift, Gene Flow, and Speciation
 3. `phylogenetics.md` — Phylogenetics and the Tree of Life
 

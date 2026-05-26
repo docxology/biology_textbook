@@ -2,7 +2,7 @@
 
 | File | Title |
 | ---- | ----- |
-| `plant_structure_and_water.md` | Plant Structure, Water Relations, and Transport |
+| `plant_structure_and_water.md` | Plant Structure and Water Relations |
 | `plant_reproduction.md` | Plant Reproduction and Development |
 | `plant_responses.md` | Plant Responses to the Environment |
 

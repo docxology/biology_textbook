@@ -45,12 +45,16 @@
 
 ## `biology.genetics`
 
+Package layout: `sequence`, `mendelian`, `population`, `linkage`, `distance`, `epigenetics`, `mutation`, `replication` (import via `biology.genetics` or legacy `biology.genetics.genetics` shim).
+
 | Function | Arguments | Returns | Description |
 | -------- | --------- | ------- | ----------- |
 | `punnett_square(parent1, parent2)` | str, str | `PunnettSquareResult` | Genotype/phenotype distributions |
+| `gametes(genotype)` | str | tuple[str, ...] | Gamete strings from a diploid genotype (alias of internal gamete helper) |
 | `translate_mrna(mrna)` | str | list[str] | mRNA → amino-acid names until stop codon |
 | `transcribe_dna_to_mrna(dna)` | str | str | DNA template → mRNA |
 | `dna_complement(sequence)` | str | str | 5'→3' complement |
+| `gc_content(sequence)` | str | float | GC fraction for a DNA/RNA sequence |
 | `hardy_weinberg(p, q=None, dominant_homozygous_freq=None, recessive_homozygous_freq=None)` | floats | `HardyWeinbergResult` | Genotype frequencies at HW eq. |
 | `chi_squared_test(observed, expected, alpha=0.05)` | lists, float | `ChiSquaredResult` | χ² statistic + p-value via `scipy.stats.chi2.sf` |
 | `recombination_frequency(recombinants, total)` | ints | float | Recombination fraction, 0–1 |
@@ -60,6 +64,9 @@
 | `jukes_cantor_distance(observed_divergence)` | float | float | JC69 corrected distance |
 | `cpg_methylation_remaining(initial_methylation, divisions, maintenance_efficiency)` | floats, int | float | Maintenance methylation across cell divisions |
 | `histone_modification_state(mark)` | str | str | Interpret common histone marks |
+| `synthetic_methylation_beta_matrix(...)` | ints/floats | ndarray | Deterministic CpG methylation β matrix for figures |
+| `mutation_rate_spectrum()` | — | tuple[MutationClassRate, ...] | Canonical germline mutation-rate classes (sorted) |
+| `replication_fork_progression(...)` | floats, int | `ReplicationForkProfile` | Bidirectional fork progression profile |
 | `GENETIC_CODE` | — | dict | Codon → amino acid mapping |
 
 ## `biology.evolution`
@@ -129,6 +136,27 @@
 | `synaptic_current(reversal_potential_mV, membrane_potential_mV, peak_conductance_nS, synapse_type="excitatory")` | floats, str | `SynapticResult` | Driving force and peak synaptic current |
 | `hebbian_weight_update(current_weight, pre_activity, post_activity, learning_rate=0.01, weight_max=1.0, weight_min=0.0)` | floats | float | Clipped Hebbian synaptic-weight update |
 | `BRAIN_REGIONS` | — | dict | Brain-region inventory and functions |
+
+## `biology.foundations`
+
+Unit 0 and foundational Unit I tables (no random state, no package I/O). Re-exported from `biology.foundations`.
+
+| Symbol | Kind | Description |
+| ------ | ---- | ----------- |
+| `BIOLOGY_MILESTONES` | tuple | Historical milestones with era, year, and significance |
+| `milestones_by_era(era)` | function | Filter milestones by era label |
+| `ATOM_ELECTRONEGATIVITIES`, `BIOLOGICAL_BOND_ENERGIES` | tuples | Reference electronegativity and bond-energy records |
+| `electronegativity_difference(atom_a, atom_b)` | function | Absolute ΔEN between two element symbols |
+| `bond_polarity_class(delta_en)` | function | Covalent / polar covalent / ionic classification |
+| `MACROMOLECULE_TIERS` | tuple | Polymer hierarchy tiers (monomer → macromolecule) |
+| `polymer_hierarchy_levels()` | function | Ordered tier labels for plots and prose |
+| `poisson_degree_distribution(mean_degree, n_nodes)` | function | Random-graph degree histogram |
+| `powerlaw_degree_distribution(exponent, n_nodes, k_min=1)` | function | Scale-free degree histogram |
+| `scale_free_vs_random(n_nodes, mean_degree, exponent=2.5)` | function | Side-by-side Poisson vs power-law comparison |
+| `prediction_error_precision_curve(...)` | function | Active-inference precision vs prediction-error curve |
+| `active_inference_profile(...)` | function | `ActiveInferenceProfile` summary for Unit 0 prose |
+
+Tests: `tests/test_foundations*.py`, plot coverage via `tests/test_visualization_registry.py`.
 
 ## `biology.toc`
 
@@ -235,6 +263,24 @@ Fast-moving fact ledger for `manuscript/current_claims.yaml`. Gate script: `scri
 | `validate_current_claims(claims, today=None, max_checked_age_days=180)` | function | Structural, link, and freshness checks |
 
 Tests: `tests/test_current_claims_ledger.py`.
+
+## `biology.citations`
+
+Natbib parsing helpers and the curated orphan-citation insertion map for `scripts/integrate_orphan_citations.py`.
+
+| Symbol | Kind | Description |
+| ------ | ---- | ----------- |
+| `Citation` | frozen dataclass | One `\cite*` command with citekeys and span |
+| `OrphanCitationInsertion` | frozen dataclass | Maps one BibTeX key to chapter path + anchor text |
+| `iter_citations(text)` | function | Yield documented natbib commands |
+| `citation_keys(text)` | function | Set of citekeys referenced in prose |
+| `ordered_citation_keys(text)` | function | De-duplicated citekeys in first-seen order |
+| `strip_citations(text, strip_incomplete_tail=False)` | function | Remove natbib commands from prose |
+| `bib_keys(bib_text)` | function | Parse `@type{key,` keys from a `.bib` body |
+| `orphan_citation_insertions(manuscript_root)` | function | **32** curated insertions for bibliography closure |
+| `validate_orphan_citation_insertions(manuscript_root)` | function | Fail when targets or citekeys are invalid |
+
+Tests: `tests/test_citations.py`.
 
 ## `biology.quality`
 
@@ -407,3 +453,13 @@ Color defaults come from [`visualization.cvd`](#visualizationcvd) when multiple 
 | `allee_threshold_dynamics` | `plot_allee_threshold_dynamics` | `allee_threshold_dynamics.png` |
 | `biodiversity_indices` | `plot_biodiversity_indices` | `biodiversity_indices.png` |
 | `food_web_trophic_levels` | `plot_food_web_trophic_levels` | `food_web_trophic_levels.png` |
+| `network_degree_distribution` | `plot_network_degree_distribution` | `network_degree_distribution.png` |
+| `prediction_error_precision` | `plot_prediction_error_precision` | `prediction_error_precision.png` |
+| `biology_milestones` | `plot_biology_milestones` | `biology_milestones.png` |
+| `electronegativity_bond_energy` | `plot_electronegativity_bond_energy` | `electronegativity_bond_energy.png` |
+| `polymer_hierarchy` | `plot_polymer_hierarchy` | `polymer_hierarchy.png` |
+| `organelle_size_scale` | `plot_organelle_size_scale` | `organelle_size_scale.png` |
+| `atp_yield_comparison` | `plot_atp_yield_comparison` | `atp_yield_comparison.png` |
+| `replication_fork_progression` | `plot_replication_fork_progression` | `replication_fork_progression.png` |
+| `mutation_rate_spectrum` | `plot_mutation_rate_spectrum` | `mutation_rate_spectrum.png` |
+| `pollen_tube_growth` | `plot_pollen_tube_growth` | `pollen_tube_growth.png` |

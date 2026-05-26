@@ -27,11 +27,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/glycolysis_summary.png}
-\caption{Glycolysis energetics by pathway step. Net ATP and NADH yields per reaction summarise the investment and payoff phases of the ten-step pathway.}
+\caption{Net ATP and NADH balance across the ten glycolysis steps. Bars distinguish the two ATP-investment steps, the four ATP-yielding payoff steps, and NADH formation at steps 6 and 9; the pathway sums to net 2 ATP and 2 NADH per glucose.}
 \label{fig:unit_III_glycolysis_summary}
 \end{figure}
 
-<!-- alt: Grouped bar chart of ATP and NADH yield for each glycolysis step. -->
+<!-- alt: Grouped vertical bars for each glycolysis step showing ATP investment as negative bars in the first half, ATP production and NADH gains in the payoff half, totaling net two ATP and two NADH per glucose. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint

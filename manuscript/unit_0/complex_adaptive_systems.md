@@ -113,9 +113,9 @@ graph LR
     A3 -->|Interaction| A1
     A1 & A2 & A3 --> E["Emergent Collective Behavior"]
 ```
-<!-- alt: Graph showing local agent interactions and emergent collective behavior. -->
+<!-- alt: Graph showing three locally interacting agents exchange signals in a ring; their combined dynamics produce emergent collective behavior not visible in any single agent. -->
 
-*Local agent interactions and emergent collective behavior.*
+*Three locally interacting agents exchange signals in a ring; their combined dynamics produce emergent collective behavior not visible in any single agent.*
 
 > **Concept Check 1:** A swarm-intelligence start-up wants to control a fleet of drones using boid rules but discovers that during certain wind conditions the flock fragments. Hypothesize which of the three rules (cohesion, alignment, separation) most likely needs reweighting and explain how a change in radius of "nearby" might restore coherence.
 
@@ -180,9 +180,9 @@ graph TD
     style A1 fill:#2ecc71,color:#fff
     style A2 fill:#e74c3c,color:#fff
 ```
-<!-- alt: Graph showing conceptual phase space with disjoint attractor basins. -->
+<!-- alt: Graph showing phase-space landscape with separate attractor basins for health and disease states, linked by trajectories and a high barrier between basins. -->
 
-*Conceptual phase space with disjoint attractor basins.*
+*Phase-space landscape with separate attractor basins for health and disease states, linked by trajectories and a high barrier between basins.*
 
 > **Concept Check 2:** Both cancer cells and healthy cells inhabit a [**gene**](#gl:gene)-expression phase space with multiple attractors (proliferative, quiescent, senescent, apoptotic). Many targeted therapies try to push malignant cells out of the proliferative basin. Why does this often fail — what does the landscape analogy predict about recurrence when the basin barrier is lower than the therapy's "kick" amplitude? Propose a CAS-aware rationale for drug *combinations* rather than single agents.
 
@@ -456,9 +456,9 @@ graph TD
     Pop -.->|"Downward Causation\n(Selection pressure)"| Org
     Org -.->|"Downward Causation\n(Metabolic constraints)"| Cell
 ```
-<!-- alt: Graph showing cross-scale interactions: upward emergence and downward causation. -->
+<!-- alt: Graph showing cell, organ, and population levels linked by upward emergence and downward causation through selection pressure and metabolic constraints. -->
 
-*Cross-scale interactions: upward emergence and downward causation.*
+*Cell, organ, and population levels linked by upward emergence and downward causation through selection pressure and metabolic constraints.*
 
 ### Agent-Based Models Across Biological Scales
 

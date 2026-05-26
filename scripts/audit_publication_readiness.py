@@ -34,10 +34,20 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Include expensive root setup/test/render/validation and coverage.",
     )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=1,
+        help="Parallel audit workers for independent gate steps (default: 1).",
+    )
     args = parser.parse_args(argv)
 
     with tempfile.TemporaryDirectory(prefix="biology_textbook_readiness_") as tmpdir:
-        failures = run_publication_gate(full=args.full, artifact_dir=Path(tmpdir))
+        failures = run_publication_gate(
+            full=args.full,
+            artifact_dir=Path(tmpdir),
+            max_workers=max(1, args.workers),
+        )
 
     status = "PASS" if failures == 0 else "FAIL"
     depth = "full" if args.full else "default"

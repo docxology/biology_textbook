@@ -146,8 +146,8 @@ def build_front_matter_navigation(book_toc: Any) -> str:
         "",
     ]
     for unit in book_toc.units:
-        chapter_list = "; ".join(chapter.title for chapter in unit.chapters)
-        lines.append(f"- **{unit.display_title}:** {chapter_list}.")
+        chapter_list = "; ".join(chapter.hyperlink_ref for chapter in unit.chapters)
+        lines.append(f"- **{unit.hyperlink_display_title}:** {chapter_list}.")
     lines.extend(
         [
             "- **Laboratory activities:** one companion lab follows each chapter in the",
@@ -158,7 +158,7 @@ def build_front_matter_navigation(book_toc: Any) -> str:
     )
     for reference in book_toc.references:
         lines.append(
-            f"- **{reference.title}:** reference material generated or ordered from the same manifest."
+            f"- **{reference.hyperlink_ref}:** reference material generated or ordered from the same manifest."
         )
     lines.extend(
         [
@@ -170,10 +170,10 @@ def build_front_matter_navigation(book_toc: Any) -> str:
     return "\n".join(lines)
 
 def _unit_ref(book_toc: Any, unit_id: str) -> str:
-    return book_toc.units_by_id[unit_id].name_ref
+    return book_toc.units_by_id[unit_id].hyperlink_ref
 
 def _chapter_ref(book_toc: Any, chapter_id: str) -> str:
-    return book_toc.chapters_by_id[chapter_id].name_ref
+    return book_toc.chapters_by_id[chapter_id].hyperlink_ref
 
 def build_suggested_reading_paths(book_toc: Any) -> str:
     """Return the generated suggested reading paths table."""
@@ -219,8 +219,8 @@ def build_preface_scope_table(book_toc: Any) -> str:
         "| ---- | ------------- |",
     ]
     for unit in book_toc.units:
-        chapter_list = "; ".join(chapter.name_ref for chapter in unit.chapters)
-        lines.append(f"| **{unit.name_ref}** | {chapter_list} |")
+        chapter_list = "; ".join(chapter.hyperlink_ref for chapter in unit.chapters)
+        lines.append(f"| **{unit.hyperlink_ref}** | {chapter_list} |")
     lines.append(PREFACE_SCOPE_MARKER[1])
     return "\n".join(lines)
 

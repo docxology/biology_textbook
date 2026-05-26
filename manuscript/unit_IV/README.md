@@ -3,7 +3,7 @@
 | File | Title |
 | ---- | ----- |
 | `dna_replication_and_cell_cycle.md` | DNA Replication and the Cell Cycle |
-| `gene_expression.md` | Gene Expression — Transcription and Translation |
+| `gene_expression.md` | Gene Expression |
 | `mutations_and_genomics.md` | Mutations, CRISPR, and Genomics |
 | `epigenetics_and_gene_regulation.md` | Epigenetics and Gene Regulation |
 

@@ -1,6 +1,6 @@
 # Biology Textbook — Tests
 
-**Domain, visualization, and manuscript-invariant suites · zero mocks.** Run `pytest` from this active project directory for the current test count and line coverage; the tree currently ships **51** `test_*.py` files + `conftest.py` — run `uv run python -m pytest tests/ -q` for the current collected count; `pyproject.toml` enforces a **90 %** gate on `src/`.
+**Domain, visualization, and manuscript-invariant suites · zero mocks.** Run `pytest` from this active project directory for the current test count and line coverage; the tree currently ships **58** `test_*.py` files + `conftest.py` — run `uv run python -m pytest tests/ -q` for the current collected count; `pyproject.toml` enforces a **90 %** gate on `src/`.
 
 ## Running
 
@@ -20,14 +20,21 @@ uv run python -m pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 
 ## Layout
 
-**51** `test_*.py` files: **7** domain modules (exercising `src/biology/*`, mermaid, visualization) + **44** invariant / render-quality / script-quality / bootstrap modules. Plus `conftest.py` (fixtures and path bootstrap, not a test module). Run `uv run python -m pytest tests/ -q` for the current collected count.
+**58** `test_*.py` files: **13** domain modules (eight genetics topic files plus cell, ecology bundle, microbiology bundle, mermaid/visualization, coverage gap) + **45** invariant / render-quality / script-quality / bootstrap modules. Plus `conftest.py` (fixtures and path bootstrap, not a test module). Run `uv run python -m pytest tests/ -q` for the current collected count.
 
-### Domain tests (6 `test_*.py` + `conftest.py`)
+### Domain tests (13 `test_*.py` + `conftest.py`)
 
 | File | Focus |
 | ---- | ----- |
 | `test_cell_biology.py` | Organelles, Nernst/Goldman, transport, signaling |
-| `test_genetics.py` | DNA/RNA, Punnett, Hardy–Weinberg, related |
+| `test_genetics_sequence.py` | Genetic code, transcription, translation |
+| `test_genetics_mendelian.py` | Punnett squares, gametes |
+| `test_genetics_population.py` | Hardy–Weinberg, χ² |
+| `test_genetics_linkage.py` | Recombination maps |
+| `test_genetics_distance.py` | Sequence distances |
+| `test_genetics_epigenetics.py` | Methylation and histone helpers |
+| `test_genetics_mutation.py` | Mutation-rate spectrum |
+| `test_genetics_replication.py` | Replication-fork profiles |
 | `test_ecology_evolution_physiology_biochemistry.py` | Cross-domain quantitative models |
 | `test_microbiology_botany_neuroscience.py` | Growth, plants, neural models |
 | `test_mermaid_and_visualization.py` | Renderer and figure generators |

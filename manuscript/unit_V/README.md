@@ -4,7 +4,7 @@
 | ---- | ----- |
 | `mendelian_genetics.md` | Mendelian Genetics and Heredity |
 | `chromosomal_inheritance.md` | Chromosomal Inheritance and Linkage |
-| `population_genetics.md` | Population Genetics and Hardy-Weinberg Equilibrium |
+| `population_genetics.md` | Population Genetics |
 
 **Module:** `src/biology/genetics/genetics.py`
 

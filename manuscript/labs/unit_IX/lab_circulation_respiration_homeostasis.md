@@ -1,4 +1,4 @@
-# Lab — Circulation, Respiration, and Homeostasis {#sec:lab_unit_IX_circulation_respiration_homeostasis .unnumbered}
+# Lab — Circulation and Respiration {#sec:lab_unit_IX_circulation_respiration_homeostasis .unnumbered}
 
 
 ## Learning Objectives {.unnumbered}
@@ -14,7 +14,7 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Circulation, Respiration, and Homeostasis.
+- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Circulation and Respiration.
 - **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
 - **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
 - **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
@@ -29,7 +29,7 @@
 2. Sketch (or describe) the oxygen–hemoglobin dissociation curve and indicate the direction the curve shifts when blood pH falls. State the physiological reason this Bohr-effect shift is helpful in metabolically active tissues.
 3. Define DO₂ (oxygen delivery) and VO₂ (oxygen consumption) in words, and write the Fick equation that relates VO₂ to cardiac output and the arteriovenous O₂ content difference.
 
-## Lab Context: Circulation, Respiration, and Homeostasis {.unnumbered}
+## Lab Context: Circulation and Respiration {.unnumbered}
 
 The cardiovascular system delivers oxygen and removes CO₂ at a rate matched to tissue demand. Cardiac output (CO) = stroke volume (SV) × heart rate (HR). The Frank-Starling law states that greater ventricular filling (preload) stretches sarcomeres to a more optimal myosin–actin overlap, increasing stroke volume. Spirometry measures lung volumes: tidal volume (TV ~500 mL), inspiratory reserve (IRV ~3,000 mL), expiratory reserve (ERV ~1,200 mL), and FVC = (TV + IRV + ERV) for healthy adults.
 
@@ -38,7 +38,7 @@ The cardiovascular system delivers oxygen and removes CO₂ at a rate matched to
 : Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IX_circulation_respiration_homeostasis_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
-| Source-governance card for Circulation, Respiration, and Homeostasis: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
+| Source-governance card for Circulation and Respiration: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
 | Calculator | 1 |
 | Graph paper or spreadsheet template | 1 |
 | Cardiovascular response dataset with rest, exercise, recovery, and heart-failure cases | 1 |
@@ -103,7 +103,7 @@ Reproducibility check: sampling interval used for recovery graph = ___; rule for
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
-**Circulation, Respiration, and Homeostasis** with a reproducibility pass:
+**Circulation and Respiration** with a reproducibility pass:
 
 : Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_IX_circulation_respiration_homeostasis_alignment_and_rubric_map_4}
 | Evidence check | Student action |
@@ -127,7 +127,7 @@ equipment version belongs only in an optional extension.
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Circulation, Respiration, and Homeostasis before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+Complete the source-governance card for Circulation and Respiration before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

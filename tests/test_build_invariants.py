@@ -406,3 +406,61 @@ def test_course_planning_grid_populated() -> None:
     assert "<!-- course-planning-grid-end -->" in front
     # The generated grid must contain every chapter title keyword.
     assert "Totals" in front
+
+
+def _generated_block(text: str, start_marker: str, end_marker: str) -> str:
+    start = text.index(start_marker) + len(start_marker)
+    end = text.index(end_marker)
+    return text[start:end]
+
+
+def test_front_matter_navigation_contains_hyperref_links() -> None:
+    front = (MANUSCRIPT / "front_matter.md").read_text(encoding="utf-8")
+    block = _generated_block(front, "<!-- toc-navigation-start -->", "<!-- toc-navigation-end -->")
+    assert "\\hyperref[sec:unit_I_unit_intro]" in block
+    assert "\\hyperref[sec:unit_I_atoms_molecules]" in block
+    assert "\\hyperref[sec:glossary]" in block or "\\hyperref[sec:appendix_" in block
+
+
+def test_suggested_reading_paths_contains_hyperref_links() -> None:
+    front = (MANUSCRIPT / "front_matter.md").read_text(encoding="utf-8")
+    block = _generated_block(
+        front,
+        "<!-- suggested-reading-paths-start -->",
+        "<!-- suggested-reading-paths-end -->",
+    )
+    assert "\\hyperref[sec:unit_I_unit_intro]" in block
+    assert "\\hyperref[sec:unit_III_photosynthesis]" in block
+
+
+def test_course_planning_grid_contains_hyperref_links() -> None:
+    front = (MANUSCRIPT / "front_matter.md").read_text(encoding="utf-8")
+    block = _generated_block(
+        front,
+        "<!-- course-planning-grid-start -->",
+        "<!-- course-planning-grid-end -->",
+    )
+    assert "\\hyperref[sec:unit_I_unit_intro]" in block
+    assert "\\hyperref[sec:unit_I_atoms_molecules]" in block
+
+
+def test_course_planning_grid_uses_wide_unit_columns() -> None:
+    import importlib.util
+    import sys
+
+    script_path = PROJECT / "scripts" / "insert_chapter_metadata.py"
+    spec = importlib.util.spec_from_file_location("insert_chapter_metadata", script_path)
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    sys.modules.setdefault("insert_chapter_metadata", module)
+    spec.loader.exec_module(module)
+
+    from biology.toc import load_toc
+
+    block = module.build_grid(load_toc(PROJECT))
+    assert r"\begin{tabular}" in block
+    assert module._COURSE_GRID_COLUMN_SPEC in block
+    assert r"p{0.34\textwidth}" in block
+    assert r"p{0.31\textwidth}" in block
+    assert r"p{0.05\textwidth}" in block
+    assert "| Unit |" not in block

@@ -11,7 +11,7 @@
 
 ## Chapters
 
-1. `plant_structure_and_water.md` — Plant Structure, Water Relations, and Transport
+1. `plant_structure_and_water.md` — Plant Structure and Water Relations
 2. `plant_reproduction.md` — Plant Reproduction and Development
 3. `plant_responses.md` — Plant Responses to the Environment
 

@@ -118,11 +118,10 @@ def test_course_planning_grid_uses_exact_config_chapter_titles() -> None:
     assert front == expected_grid
     for chapter in book_toc.chapters:
         unit = book_toc.units_by_id[chapter.unit_id]
-        assert chapter.name_ref in front
-        assert unit.name_ref in front
-        assert chapter.title not in front
-    assert "Water — The Molecule of Life" not in front
-    assert "Water And Life" not in front
+        assert unit.plain_ref in front
+        assert chapter.plain_ref in front
+        assert chapter.name_ref not in front
+    assert "Water — The Molecule of Life" in front
 
 
 def test_front_matter_navigation_lists_every_unit_and_reference_once() -> None:

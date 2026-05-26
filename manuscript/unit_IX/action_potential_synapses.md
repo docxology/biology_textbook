@@ -418,7 +418,7 @@ Synthesized from dopamine by dopamine β-hydroxylase (DBH). Locus coeruleus (bra
 
 ---
 
-## AI and Computational Neuroscience: Modeling the Brain with Data and Algorithms
+## Computational Neuroscience and AI Models
 
 ```mermaid
 flowchart LR

@@ -36,7 +36,7 @@ biology_textbook/
 | ---------- | ----------- | ----- |
 | `biology.biochemistry` | `michaelis_menten`, `glycolysis_summary`, `atp_free_energy` | `test_ecology_evolution_physiology_biochemistry.py`, `test_coverage_gap.py` |
 | `biology.cell` | `nernst_potential`, `goldman_equation`, `diffusion_flux`, `ORGANELLES` | `test_cell_biology.py`, `test_coverage_gap.py` |
-| `biology.genetics` | `punnett_square`, `translate_mrna`, `hardy_weinberg`, `recombination_frequency`, `infer_three_point_order` | `test_genetics.py`, `test_coverage_gap.py` |
+| `biology.genetics` | `punnett_square`, `translate_mrna`, `hardy_weinberg`, `mutation_rate_spectrum`, `replication_fork_progression` | `test_genetics_{sequence,mendelian,population,linkage,distance,epigenetics,mutation,replication}.py`, `test_coverage_gap.py` |
 | `biology.evolution` | `simulate_selection`, `simulate_drift`, `molecular_clock_divergence_time` | `test_ecology_evolution_physiology_biochemistry.py` |
 | `biology.ecology` | `lotka_volterra`, `logistic_growth`, `allee_strong_growth`, `species_area_relationship`, `biodiversity_indices` | `test_ecology_evolution_physiology_biochemistry.py` |
 | `biology.physiology` | `poiseuille_flow`, `oxygen_saturation`, `homeostasis_response` | `test_ecology_evolution_physiology_biochemistry.py` |
@@ -56,7 +56,7 @@ Overall **`src/`** line + branch coverage is enforced at **≥90 %** via `pyproj
 
 ## Manuscript invariants as tests
 
-The [`tests/`](../tests/) suite is **40** `test_*.py` files: domain modules plus manuscript, lab, question, render, current-claim, assessment-alignment, maintenance-engine smoke, table-caption, and script-quality invariant modules. Authoritative list and failure-to-fix table: [testing_guide.md](testing_guide.md#test-organization); the same invariant list appears under “Invariant tests (Stage 2 gate-keepers)” in [pipeline_guide.md](pipeline_guide.md).
+The [`tests/`](../tests/) suite is **58** `test_*.py` files: domain modules plus manuscript, lab, question, render, current-claim, assessment-alignment, maintenance-engine smoke, table-caption, publication-gate, and script-quality invariant modules. Authoritative list and failure-to-fix table: [testing_guide.md](testing_guide.md#test-organization); the same invariant list appears under “Invariant tests (Stage 2 gate-keepers)” in [pipeline_guide.md](pipeline_guide.md).
 
 Invariant modules:
 

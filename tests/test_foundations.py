@@ -249,50 +249,6 @@ class TestATPYields:
 
 
 # ---------------------------------------------------------------------------
-# genetics.mutation_rate_spectrum + replication_fork_progression
-# ---------------------------------------------------------------------------
-
-
-class TestGeneticsExtensions:
-    def test_mutation_rate_spectrum_has_positive_rates(self):
-        from biology.genetics import mutation_rate_spectrum
-
-        rows = list(mutation_rate_spectrum())
-        assert rows
-        for row in rows:
-            assert row.rate_per_site_per_generation > 0
-
-    def test_mutation_rate_spectrum_includes_canonical_classes(self):
-        from biology.genetics import mutation_rate_spectrum
-
-        names = {row.mutation_class.lower() for row in mutation_rate_spectrum()}
-        assert any("substitution" in name for name in names)
-        assert any("microsatellite" in name for name in names)
-
-    def test_replication_fork_progression_monotonic(self):
-        from biology.genetics import replication_fork_progression
-
-        profile = replication_fork_progression(
-            velocity_bp_per_s=1000.0, duration_s=600.0, origins=1, steps=60
-        )
-        bases = profile.bases_replicated
-        assert all(b_next >= b_prev for b_prev, b_next in zip(bases, bases[1:]))
-
-    def test_parallel_origins_scale_linearly(self):
-        from biology.genetics import replication_fork_progression
-
-        single = replication_fork_progression(
-            velocity_bp_per_s=1000.0, duration_s=600.0, origins=1, steps=30
-        )
-        many = replication_fork_progression(
-            velocity_bp_per_s=1000.0, duration_s=600.0, origins=10, steps=30
-        )
-        assert many.bases_replicated[-1] == pytest.approx(
-            single.bases_replicated[-1] * 10, rel=1e-6
-        )
-
-
-# ---------------------------------------------------------------------------
 # botany.pollen_tube_growth
 # ---------------------------------------------------------------------------
 

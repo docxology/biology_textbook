@@ -23,11 +23,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/biome_distribution.png}
-\caption{Representative biome positions in temperature-precipitation space. Point area scales with net primary productivity, making tropical rainforest, temperate forest, savanna/grassland, desert, tundra, and marine reference conditions visually comparable.}
+\caption{Terrestrial biomes in mean annual temperature--precipitation space (Whittaker-style classification). Point area reflects net primary productivity so tropical rainforest, temperate forest, savanna, desert, tundra, and marine reference sites are visually comparable.}
 \label{fig:unit_X_biome_distribution}
 \end{figure}
 
-<!-- alt: Scatter plot with mean annual precipitation on the x-axis and mean annual temperature on the y-axis. Six labeled biome points are sized by net primary productivity. -->
+<!-- alt: Scatter plot with mean annual precipitation on the horizontal axis and mean annual temperature on the vertical axis; six labeled biome points differ in size by net primary productivity. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint

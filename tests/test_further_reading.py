@@ -12,6 +12,7 @@ from biology.maintenance.further_reading import (
     parse_bib,
     pick_keys,
     render_section,
+    validate_supplement,
 )
 
 
@@ -94,3 +95,8 @@ def test_inject_skips_chapters_with_existing_further_reading(tmp_path: Path) -> 
     chapter.write_text("# Demo\n\n## Further Reading\n\n- existing\n", encoding="utf-8")
     bib = {"k": BibEntry(key="k", entry_type="article", author="A", year="2024", title="t", journal="j")}
     assert not inject(chapter, bib, "Demo", manuscript_root=manuscript)
+
+
+def test_supplement_map_paths_and_citekeys_are_valid() -> None:
+    issues = validate_supplement()
+    assert not issues, issues

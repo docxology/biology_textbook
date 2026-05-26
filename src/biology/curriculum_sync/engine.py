@@ -10,7 +10,7 @@ from pathlib import Path
 from types import ModuleType
 from typing import Any
 
-from biology.crossref.helpers import normalize_unnumbered_section_crefs
+from biology.crossref.helpers import normalize_unnumbered_section_crefs, replace_namerefs_with_plain_titles
 from biology.curriculum_sync.appendices import (
     build_appendix,
     build_front_matter_navigation,
@@ -64,6 +64,7 @@ __all__ = [
     "sync_preface_scope_table",
     "sync_question",
     "sync_section_reference_commands",
+    "sync_forward_namerefs",
     "sync_suggested_reading_paths",
     "sync_textbook_concept_map",
     "sync_toc_titles",
@@ -161,7 +162,7 @@ def sync_preface_scope_table(book_toc: Any, *, dry_run: bool) -> bool:
         f"{heading}\n\n"
         "The textbook proceeds from atoms to ecosystems, following the standard introductory course arc.\n"
         "The table below is generated from `manuscript/config.yaml`; unit and chapter titles are\n"
-        "semantic references resolved from the canonical manuscript labels.\n\n"
+        "plain TOC titles from the canonical manifest.\n\n"
         f"{block}"
     )
     replaced = f"{text[:heading_pos].rstrip()}\n\n{replaced_section}{text[divider_pos:]}"
@@ -256,3 +257,22 @@ def sync_section_reference_commands(*, dry_run: bool) -> int:
         if normalized != text and _write_if_changed(path, normalized, dry_run=dry_run):
             updates += 1
     return updates
+
+
+_FORWARD_NAMEREF_PATHS = (
+    MANUSCRIPT / "front_matter.md",
+    MANUSCRIPT / "preface.md",
+)
+
+
+def sync_forward_namerefs(book_toc: Any, *, dry_run: bool) -> bool:
+    """Replace forward ``\\nameref`` calls in early front matter with plain TOC titles."""
+    changed = False
+    for path in _FORWARD_NAMEREF_PATHS:
+        if not path.exists():
+            continue
+        text = path.read_text(encoding="utf-8")
+        replaced = replace_namerefs_with_plain_titles(text, book_toc)
+        if _write_if_changed(path, replaced, dry_run=dry_run):
+            changed = True
+    return changed

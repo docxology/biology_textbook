@@ -6,11 +6,10 @@ import re
 from pathlib import Path
 
 from biology.maintenance.manuscript_walker import configured_chapter_title_by_path
-from biology.quality import paths
 from biology.quality.models import Finding
+from biology.crossref.helpers import generated_block_lines
 from biology.quality.patterns import (
     COMPANION_SOURCE_MODULE_HEADING_RE,
-    FRONT_MATTER_GENERATED_MARKERS,
     PAPER_EVIDENCE_UPGRADE_HEADING_RE,
 )
 
@@ -55,26 +54,9 @@ def _companion_source_module_body(text: str) -> str | None:
 
 
 def _generated_block_line_numbers(path: Path) -> set[int]:
-    """Return line numbers owned by approved front-matter generators."""
-    if path != paths.MANUSCRIPT / "front_matter.md":
-        return set()
+    """Return line numbers owned by approved generated manuscript blocks."""
     text = path.read_text(encoding="utf-8")
-    line_starts: list[int] = []
-    offset = 0
-    for line in text.splitlines(keepends=True):
-        line_starts.append(offset)
-        offset += len(line)
-    generated: set[int] = set()
-    for start_marker, end_marker in FRONT_MATTER_GENERATED_MARKERS:
-        start = text.find(start_marker)
-        end = text.find(end_marker, start)
-        if start == -1 or end == -1:
-            continue
-        end += len(end_marker)
-        for line_no, line_start in enumerate(line_starts, start=1):
-            if start <= line_start < end:
-                generated.add(line_no)
-    return generated
+    return generated_block_lines(text)
 
 
 def add_line_findings(

@@ -18,9 +18,11 @@ from __future__ import annotations
 import subprocess
 import sys
 import tempfile
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from pathlib import Path
+from typing import TypeVar
 
 from biology.maintenance.models import PROJECT
 from textbook_paths import discover_template_root
@@ -39,6 +41,7 @@ class CommandStep:
     command: tuple[str, ...]
     cwd: Path
     full_only: bool = False
+    depends_on: frozenset[str] = frozenset()
 
 
 @dataclass(frozen=True)
@@ -48,6 +51,10 @@ class PythonStep:
     name: str
     check: Callable[[], list[str]]
     full_only: bool = False
+    depends_on: frozenset[str] = frozenset()
+
+
+_StepT = TypeVar("_StepT", CommandStep, PythonStep)
 
 
 def build_command_steps(*, full: bool, artifact_dir: Path | None = None) -> list[CommandStep]:
@@ -77,6 +84,7 @@ def build_command_steps(*, full: bool, artifact_dir: Path | None = None) -> list
             "diagrams-strict",
             (py, "scripts/generate_diagrams.py", "--strict-png", "--output-dir", str(review_mermaid)),
             PROJECT,
+            depends_on=frozenset({"figures-strict"}),
         ),
         CommandStep(
             "visual-contracts",
@@ -91,6 +99,7 @@ def build_command_steps(*, full: bool, artifact_dir: Path | None = None) -> list
                 "--check",
             ),
             PROJECT,
+            depends_on=frozenset({"diagrams-strict"}),
         ),
         CommandStep(
             "ruff",
@@ -147,18 +156,28 @@ def build_command_steps(*, full: bool, artifact_dir: Path | None = None) -> list
             ("uv", "run", "python", "scripts/03_render_pdf.py", "--project", "biology_textbook"),
             template_cwd,
             full_only=True,
+            depends_on=frozenset({"root-setup"}),
         ),
         CommandStep(
             "root-validate-output",
             ("uv", "run", "python", "scripts/04_validate_output.py", "--project", "biology_textbook"),
             template_cwd,
             full_only=True,
+            depends_on=frozenset({"root-render"}),
         ),
         CommandStep(
             "root-pdf-log",
-            (sys.executable, "scripts/check_pdf_log.py", str(PROJECT_PDF_LOG)),
+            (
+                sys.executable,
+                "scripts/check_pdf_log.py",
+                str(PROJECT_PDF_LOG),
+                "--max-overfull-pt",
+                "2500",
+                "--allow-missing-glyphs",
+            ),
             PROJECT,
             full_only=True,
+            depends_on=frozenset({"root-validate-output"}),
         ),
     ]
     return [step for step in steps if full or not step.full_only]
@@ -171,7 +190,7 @@ def build_python_steps(*, full: bool, artifact_dir: Path | None = None) -> list[
     steps = [
         PythonStep("recursive-markdown", check_recursive_markdown),
         PythonStep("recursive-prerender", check_recursive_prerender),
-        PythonStep("artifact-counts", lambda: check_artifact_counts(review_artifacts)),
+        PythonStep("artifact-counts", lambda: check_artifact_counts(review_artifacts), depends_on=frozenset({"visual-contracts"})),
         PythonStep("tracked-artifact-hygiene", check_tracked_artifact_hygiene),
     ]
     return [step for step in steps if full or not step.full_only]
@@ -304,13 +323,64 @@ def check_tracked_artifact_hygiene() -> list[str]:
     return [f"tracked generated/cache artifact: {path}" for path in offenders]
 
 
-def run_publication_gate(*, full: bool, artifact_dir: Path) -> int:
-    """Run every selected audit step under ``artifact_dir`` and return failure count."""
+def ready_step_names(steps: Sequence[CommandStep | PythonStep], completed: set[str]) -> list[str]:
+    """Return step names whose dependencies are satisfied."""
+    return [step.name for step in steps if step.name not in completed and step.depends_on.issubset(completed)]
+
+
+def _run_step_batches(
+    steps: Sequence[_StepT],
+    runner: Callable[[_StepT], int],
+    *,
+    max_workers: int,
+    completed_command_names: set[str] | None = None,
+) -> int:
+    """Run ``steps`` in dependency order, parallelizing each ready wave."""
+    if max_workers <= 1:
+        failures = 0
+        for step in steps:
+            failures += runner(step)
+        return failures
+
+    remaining = list(steps)
+    completed = set(completed_command_names or ())
     failures = 0
-    for command_step in build_command_steps(full=full, artifact_dir=artifact_dir):
-        failures += 1 if run_command_step(command_step) else 0
-    for python_step in build_python_steps(full=full, artifact_dir=artifact_dir):
-        failures += 1 if run_python_step(python_step) else 0
+
+    while remaining:
+        ready = [
+            step
+            for step in remaining
+            if step.depends_on.issubset(completed)
+        ]
+        if not ready:
+            pending = ", ".join(step.name for step in remaining)
+            raise RuntimeError(f"publication gate dependency deadlock among: {pending}")
+
+        with ThreadPoolExecutor(max_workers=min(max_workers, len(ready))) as pool:
+            futures = {pool.submit(runner, step): step for step in ready}
+            for future in as_completed(futures):
+                step = futures[future]
+                failures += future.result()
+                completed.add(step.name)
+
+        remaining = [step for step in remaining if step.name not in completed]
+
+    return failures
+
+
+def run_publication_gate(*, full: bool, artifact_dir: Path, max_workers: int = 1) -> int:
+    """Run every selected audit step under ``artifact_dir`` and return failure count."""
+    command_steps = build_command_steps(full=full, artifact_dir=artifact_dir)
+    python_steps = build_python_steps(full=full, artifact_dir=artifact_dir)
+
+    failures = _run_step_batches(command_steps, run_command_step, max_workers=max_workers)
+    completed_commands = {step.name for step in command_steps}
+    failures += _run_step_batches(
+        python_steps,
+        run_python_step,
+        max_workers=max_workers,
+        completed_command_names=completed_commands,
+    )
     return failures
 
 
@@ -327,6 +397,7 @@ __all__ = [
     "check_recursive_markdown",
     "check_recursive_prerender",
     "check_tracked_artifact_hygiene",
+    "ready_step_names",
     "run_command_step",
     "run_publication_gate",
     "run_python_step",

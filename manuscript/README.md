@@ -25,7 +25,7 @@ Rendering through the template pipeline uses `infrastructure.project.discovery.r
 | Navigation / scope blocks | `front_matter.md` and `preface.md` generated markers — edit `config.yaml`, then rerun `uv run python scripts/sync_curriculum_materials.py` |
 | Course Planning Grid | Auto-generated in `front_matter.md` between `<!-- course-planning-grid-start -->` and `<!-- course-planning-grid-end -->` markers — edit `config.yaml` titles/order and `../src/biology/chapter_metadata.py`, then rerun `../scripts/insert_chapter_metadata.py` |
 | Glossary | `glossary.md` — each term is a bracketed span `` [**Term**]{#gl:<slug>} `` (PDF ``\label{gl:…}``); link on first use with `` `[**term**](#gl:<slug>)` `` |
-| Generate figures | From project root: `uv run python scripts/generate_figures.py` (32 square-padded matplotlib; uses `src/visualization/cvd.py` for CVD-friendly colors) |
+| Generate figures | From project root: `uv run python scripts/generate_figures.py` (42 square-padded matplotlib; uses `src/visualization/cvd.py` for CVD-friendly colors) |
 | Accessibility, config vs tests | [../docs/accessibility.md](../docs/accessibility.md) |
 | Generate registered Mermaid PNGs | `uv run python scripts/generate_diagrams.py --strict-png` for publication checks (24 registry diagrams); the 196 inline Mermaid fences render during PDF preprocessing |
 | Check current claims | `uv run python scripts/audit_current_claims.py --check`; source data lives in `current_claims.yaml` |
@@ -73,7 +73,7 @@ Counts are **body chapters** per `config.yaml` (excluding labs/questions appendi
 
 | Unit | Title | Chapters |
 | ---- | ----- | -------- |
-| 0 | Systems Science and the Biology of Complexity | 4 |
+| 0 | Systems Science for Biology | 4 |
 | I | Chemistry of Life | 4 |
 | II | The Cell | 4 |
 | III | Energy and Metabolism | 3 |

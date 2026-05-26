@@ -54,7 +54,7 @@ From the active project root:
 ### Core generators (run before PDF render)
 
 ```bash
-uv run python scripts/generate_figures.py        # 32 matplotlib PNGs into output/figures/
+uv run python scripts/generate_figures.py        # 42 matplotlib PNGs into output/figures/
 uv run python scripts/generate_diagrams.py       # 24 mermaid diagrams (PNG via mmdc or .mmd fallback)
 uv run python scripts/biology_analysis.py        # inject chapters + references.bib + preamble.md into output/manuscript/
 ```
@@ -79,7 +79,7 @@ These scripts are **idempotent**; running any of them twice leaves the manuscrip
 
 Each helper supports `--dry-run`.
 
-**Full script inventory** (32 `*.py` files: orchestrators, structural maintenance, build-quality helpers, and optional pedagogy utilities): [../scripts/AGENTS.md](../scripts/AGENTS.md).
+**Full script inventory** (36 `*.py` files: orchestrators, structural maintenance, build-quality helpers, and optional pedagogy utilities): [../scripts/AGENTS.md](../scripts/AGENTS.md).
 
 ### Suggested order when changing structure
 

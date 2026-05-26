@@ -286,11 +286,11 @@ The **critical micelle concentration (CMC)** is the concentration above which am
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/osmotic_pressure.png}
-\caption{van 't Hoff osmotic pressure versus solute concentration at 37 °C. Electrolytes with van 't Hoff factor $i>1$ generate proportionally higher osmotic pressure than non-electrolytes at equal molarity.}
+\caption{van 't Hoff osmotic pressure versus solute concentration at 37\,$^\circ$C. A non-electrolyte ($i=1$) and a fully dissociating electrolyte ($i=2$) produce linear rises with concentration; doubling $i$ doubles osmotic pressure at equal molarity, explaining why saline solutions exert stronger osmotic stress than urea at the same concentration.}
 \label{fig:unit_I_osmotic_pressure}
 \end{figure}
 
-<!-- alt: Linear rise of osmotic pressure with concentration for i equals 1 and i equals 2 solutes. -->
+<!-- alt: Two straight lines of osmotic pressure increasing with solute concentration on the horizontal axis; the steeper line marks an electrolyte with van t Hoff factor two at body temperature, doubling the pressure of a non-electrolyte at equal molarity. -->
 
 \cref{fig:unit_I_osmotic_pressure} plots osmotic pressure versus molarity for non-electrolytes and a 1:1 electrolyte at body temperature.
 

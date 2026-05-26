@@ -61,7 +61,7 @@ uv run python -m pytest tests/ --cov=src --cov-report=term-missing
 uv run python -m pytest tests/test_cell_biology.py -v
 
 # Run a single test function
-uv run python -m pytest tests/test_genetics.py::test_punnett_square_monohybrid -v
+uv run python -m pytest tests/test_genetics_mendelian.py::TestPunnettSquare::test_monohybrid -v
 
 # Run all tests matching a name pattern
 uv run python -m pytest tests/ -k "punnett" -v
@@ -104,14 +104,21 @@ Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the
 
 ## Test organization
 
-**Total: 51 test files** (domain + invariant/quality). The suite is partitioned into **domain tests** (exercising `src/biology/*` models) and **invariant/quality tests** (asserting manuscript, lab, question-bank, table-of-contents, render-log, glossary, current-claim, assessment-alignment, accessibility, standalone bootstrap, and script-level gates).
+**Total: 58 test files** (domain + invariant/quality). The suite is partitioned into **domain tests** (exercising `src/biology/*` models) and **invariant/quality tests** (asserting manuscript, lab, question-bank, table-of-contents, render-log, glossary, current-claim, assessment-alignment, accessibility, standalone bootstrap, publication gate, and script-level gates).
 
-### Domain tests (6 `test_*.py` files)
+### Domain tests (13 `test_*.py` files)
 
 | Test file | What it covers |
 | --------- | -------------- |
 | `test_cell_biology.py` | Organelles, Nernst, Goldman, osmotic pressure, diffusion |
-| `test_genetics.py` | DNA, translation, Punnett squares, HW equilibrium, χ², genetic distance |
+| `test_genetics_sequence.py` | Genetic code, transcription, translation, GC content |
+| `test_genetics_mendelian.py` | Punnett squares, gametes, diploid genotypes |
+| `test_genetics_population.py` | Hardy–Weinberg, χ² goodness-of-fit |
+| `test_genetics_linkage.py` | Recombination frequency, map distance, three-point order |
+| `test_genetics_distance.py` | Hamming and Jukes–Cantor distances |
+| `test_genetics_epigenetics.py` | CpG methylation decay, histone marks, synthetic β matrices |
+| `test_genetics_mutation.py` | Mutation-rate spectrum reference data |
+| `test_genetics_replication.py` | Replication-fork progression profiles |
 | `test_ecology_evolution_physiology_biochemistry.py` | Lotka-Volterra, selection, drift, glycolysis, Michaelis-Menten, Poiseuille |
 | `test_microbiology_botany_neuroscience.py` | Bacterial growth, MIC, water potential, Hodgkin-Huxley, synaptic transmission, LTP |
 | `test_mermaid_and_visualization.py` | Mermaid renderer, `ALL_BIOLOGY_DIAGRAMS`, matplotlib `ALL_FIGURE_GENERATORS` |
@@ -147,6 +154,7 @@ Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the
 | `test_script_quality.py` | Scripts parse as Python, avoid hard-coded local checkout paths, and keep retired duplicate helpers removed |
 | `test_textbook_paths.py` | Checkout path discovery, `ensure_project_paths()`, and template-root resolution |
 | `test_textbook_quality_audit.py` | Umbrella textbook-quality audit: stale claims, copyedit artifacts, enrichment presence, and current-source locks |
+| `test_publication_gate.py` | Publication gate step graph, dependency ordering, and parallel worker invariants |
 
 ### Textbook quality audit
 

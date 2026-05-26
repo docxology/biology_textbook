@@ -2,7 +2,7 @@
 
 | File | Title |
 | ---- | ----- |
-| `evolution_and_selection.md` | Evolution: Theory, Natural Selection, and Adaptation |
+| `evolution_and_selection.md` | Natural Selection and Adaptation |
 | `genetic_drift_and_speciation.md` | Genetic Drift, Gene Flow, and Speciation |
 | `phylogenetics.md` | Phylogenetics and the Tree of Life |
 

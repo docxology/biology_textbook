@@ -9,7 +9,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit 0 {.unnumbered}
 
-### — Systems Science and the Logic of Emergence {.unnumbered}
+### — Systems Science and Emergence {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_0_systems_science}.
 - **Lab:** \nameref{sec:lab_unit_0_systems_science}.
@@ -35,7 +35,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Emergence is not mysterious; it is a reproducible consequence of interactions plus constraints.
 - **Transfer task:** Compare flocking, immune activation, and microbial biofilms as adaptive systems.
 
-### — Active Inference and the Free Energy Principle {.unnumbered}
+### — Active Inference and Free Energy {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_0_active_inference}.
 - **Lab:** \nameref{sec:lab_unit_0_active_inference}.
@@ -229,7 +229,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** High fidelity is not automatic; it is built from multiple partially redundant safeguards.
 - **Transfer task:** Transfer replication logic to cancer, aging, viral replication, or antibiotic targets.
 
-### — Gene Expression — Transcription and Translation {.unnumbered}
+### — Gene Expression {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IV_gene_expression}.
 - **Lab:** \nameref{sec:lab_unit_IV_gene_expression}.
@@ -323,7 +323,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Independent assortment applies to unlinked loci, not to every pair of genes.
 - **Transfer task:** Transfer linkage reasoning to disease mapping, breeding, and genome assemblies.
 
-### — Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
+### — Population Genetics {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_V_population_genetics}.
 - **Lab:** \nameref{sec:lab_unit_V_population_genetics}.
@@ -339,7 +339,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit VI {.unnumbered}
 
-### — Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
+### — Natural Selection and Adaptation {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VI_evolution_and_selection}.
 - **Lab:** \nameref{sec:lab_unit_VI_evolution_and_selection}.
@@ -436,7 +436,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit VIII {.unnumbered}
 
-### — Plant Structure, Water Relations, and Transport {.unnumbered}
+### — Plant Structure and Water Relations {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_VIII_plant_structure_and_water}.
 - **Lab:** \nameref{sec:lab_unit_VIII_plant_structure_and_water}.
@@ -478,7 +478,7 @@ course formats without losing pedagogical coherence.
 
 ## Unit IX {.unnumbered}
 
-### — Circulation, Respiration, and Homeostasis {.unnumbered}
+### — Circulation and Respiration {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IX_circulation_respiration_homeostasis}.
 - **Lab:** \nameref{sec:lab_unit_IX_circulation_respiration_homeostasis}.
@@ -530,7 +530,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** A hormone surge is not always pathological; context and set-point matter.
 - **Transfer task:** Transfer endocrine reasoning to metabolism, stress, and development.
 
-### — Immune System Architecture and Defense {.unnumbered}
+### — Immune System Architecture {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_IX_immune_system_defense}.
 - **Lab:** \nameref{sec:lab_unit_IX_immune_system_defense}.
@@ -572,7 +572,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** A species interaction is not permanently good or bad; the sign can change with context.
 - **Transfer task:** Transfer interaction reasoning to restoration, agriculture, and invasion biology.
 
-### — Biodiversity, Food Webs, and Biogeography {.unnumbered}
+### — Biodiversity and Food Webs {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_X_biodiversity_and_food_webs}.
 - **Lab:** \nameref{sec:lab_unit_X_biodiversity_and_food_webs}.
@@ -585,7 +585,7 @@ course formats without losing pedagogical coherence.
 - **Misconception probe:** Richness alone does not equal functional stability.
 - **Transfer task:** Transfer biodiversity reasoning to conservation planning and habitat fragmentation.
 
-### — Ecosystem Ecology and Biogeochemical Cycles {.unnumbered}
+### — Ecosystem Ecology {.unnumbered}
 
 - **Chapter:** \cref{sec:unit_X_ecosystem_ecology}.
 - **Lab:** \nameref{sec:lab_unit_X_ecosystem_ecology}.

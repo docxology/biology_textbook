@@ -1,4 +1,4 @@
-# Lab — Evolution — Theory, Natural Selection, and Adaptation {#sec:lab_unit_VI_evolution_and_selection .unnumbered}
+# Lab — Natural Selection and Adaptation {#sec:lab_unit_VI_evolution_and_selection .unnumbered}
 
 
 *This activity accompanies \cref{sec:unit_VI_evolution_and_selection} of the textbook — review that chapter before attempting the exercises below.*
@@ -15,7 +15,7 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Evolution — Theory, Natural Selection, and Adaptation.
+- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Natural Selection and Adaptation.
 - **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
 - **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
 - **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
@@ -44,7 +44,7 @@
 
 5. **Real-World Application**: Antibiotic resistance is a classic example of natural selection. How does the overuse of antibiotics create selection pressure for resistant bacteria? What can be done to slow this process?
 
-## Lab Context: Evolution — Theory, Natural Selection, and Adaptation {.unnumbered}
+## Lab Context: Natural Selection and Adaptation {.unnumbered}
 
 Natural selection operates when three conditions are met: (1) heritable variation exists; (2) variation affects survival/reproduction (fitness); (3) traits are inherited. Over generations, favorable alleles increase in frequency (directional selection), multiple phenotypes are maintained (balancing/disruptive selection), or variation is reduced around an optimum (stabilizing selection). The selection coefficient *s* quantifies fitness cost: a lethal allele has s = 1.0; a neutral allele has s = 0.
 
@@ -55,7 +55,7 @@ The breeder's equation ($R = h^2 S$) worked example in the parent chapter (\cref
 : Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VI_evolution_and_selection_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
-| Source-governance card for Evolution — Theory, Natural Selection, and Adaptation: evolutionary-evidence source card: alternative hypotheses, sampling, calibration, and confidence boundary | 1 |
+| Source-governance card for Natural Selection and Adaptation: evolutionary-evidence source card: alternative hypotheses, sampling, calibration, and confidence boundary | 1 |
 | Colored paper squares (30 each of: green, red, brown, on green and brown backgrounds) | 1 set |
 | Forceps (one per student, simulating different beak types) | 4 |
 | 60-second timer | 1 |
@@ -145,7 +145,7 @@ Finch graph trend description:
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
-**Evolution — Theory, Natural Selection, and Adaptation** with a reproducibility pass:
+**Natural Selection and Adaptation** with a reproducibility pass:
 
 : Part 3: Finch Beak Analysis: Evidence check and Student action. {#tbl:unit_VI_evolution_and_selection_part_3_finch_beak_analysis_3}
 | Evidence check | Student action |
@@ -169,7 +169,7 @@ equipment version belongs only in an optional extension.
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Evolution — Theory, Natural Selection, and Adaptation before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+Complete the source-governance card for Natural Selection and Adaptation before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

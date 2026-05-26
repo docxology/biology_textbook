@@ -12,9 +12,10 @@
 ## Chapters
 
 1. `dna_replication_and_cell_cycle.md` — DNA Replication and the Cell Cycle
-2. `gene_expression.md` — Gene Expression — Transcription and Translation
+2. `gene_expression.md` — Gene Expression
 3. `mutations_and_genomics.md` — Mutations, CRISPR, and Genomics
-4. `epigenetics_and_gene_regulation.md` — Epigenetics and Gene Regulation
+4. `chromatin_and_epigenetic_mechanisms.md` — Chromatin and Epigenetic Mechanisms
+5. `epigenetic_inheritance_and_disease.md` — Epigenetic Inheritance and Disease
 
 ## Key Equations
 

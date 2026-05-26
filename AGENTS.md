@@ -120,7 +120,7 @@ biology_textbook/
 ├── pyproject.toml
 ├── .puppeteer.json          # optional; for mmdc + system Chrome
 ├── src/                     # biology, mermaid, visualization
-├── scripts/                          # 33 Python files — core build vs. content maintenance
+├── scripts/                          # 36 Python files — core build vs. content maintenance
 │   ├── add_mermaid_alt_text.py        # audit/normalize Mermaid alt text + captions; --check gate
 │   ├── atomic_io.py                   # atomic write/replace helper for mutating scripts
 │   ├── audit_current_claims.py        # current-claims ledger and stale-phrase gate
@@ -150,7 +150,7 @@ biology_textbook/
 │   ├── pad_short_labs.py              # extend very short lab files
 │   ├── refine_generated_answers.py    # rewrites legacy/generated answer scaffolds; --dry-run should be clean
 │   └── sync_assessment_metadata.py     # question-item metadata and lab outcome/rubric alignment
-├── tests/                            # 40 test_*.py modules; run pytest for current count and coverage
+├── tests/                            # 58 test_*.py modules; run pytest for current count and coverage
 │   ├── conftest.py
 │   ├── test_accessibility.py          # alt text + mermaid accessibility contract
 │   ├── test_assessment_metadata.py    # item-level question metadata

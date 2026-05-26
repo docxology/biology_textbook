@@ -90,7 +90,7 @@ paper-based lab decision.
 
 | Chapter | Title | Core Question | Key Equation / Model |
 | ------- | ----- | ------------- | -------------------- |
-| **28** | Circulation, Respiration, and Homeostasis | How do the cardiovascular and respiratory systems maintain homeostasis? | Fick's principle; Starling equation; $P_{O_2}$/Hb saturation (Hill eq.) |
+| **28** | Circulation and Respiration | How do the cardiovascular and respiratory systems maintain homeostasis? | Fick's principle; Starling equation; $P_{O_2}$/Hb saturation (Hill eq.) |
 | **29** | Nervous System Organization | How is the nervous system organized from molecular to systems level? | Cable equation; receptor field models |
 | **30** | Action Potentials and Synapses | How do neurons generate and transmit electrical signals? | Hodgkin-Huxley: $I = C_m dV/dt + I_{Na} + I_K + I_L$ |
 | **31** | Endocrine and Immune Systems | How do hormones and immune cells maintain internal defense and stability? | Negative feedback oscillator; MHC diversity; clonal selection |

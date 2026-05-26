@@ -1,4 +1,4 @@
-# Ecosystem Ecology and Biogeochemical Cycles
+# Ecosystem Ecology
 
 \label{sec:unit_X_ecosystem_ecology}
 
@@ -26,11 +26,11 @@ By the end of this chapter, you should be able to:
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/food_web_trophic_levels.png}
-\caption{Trophic levels inferred by breadth-first search from producer species in a simple aquatic food web. Each consumer is one level above its prey.}
+\caption{Trophic levels assigned from phytoplankton producers upward in a simplified aquatic food web. Each consumer sits one level above its prey; apex predators occupy the highest bar in this linear chain.}
 \label{fig:unit_X_food_web_trophic_levels}
 \end{figure}
 
-<!-- alt: Horizontal bar chart assigning trophic levels from phytoplankton through apex predator. -->
+<!-- alt: Horizontal bars ordered from producer at level one through herbivore, secondary consumer, and apex predator at level four in a linear aquatic food chain. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -969,9 +969,9 @@ Costanza et al. (1997) estimated the annual value of global ecosystem services a
 
 ---
 
-## Current Evidence and Frontier Biology: Ecosystem Ecology and Biogeochemical Cycles
+## Current Evidence and Frontier Biology: Ecosystem Ecology
 
-For **Ecosystem Ecology and Biogeochemical Cycles**, frontier biology belongs inside the evidence logic of
+For **Ecosystem Ecology**, frontier biology belongs inside the evidence logic of
 the chapter. Ecology and conservation decisions increasingly combine field data, remote sensing, community knowledge, model uncertainty, and explicit values. The core reading question is this: ecosystem claims should track stocks, fluxes, residence times, boundaries, and coupled cycles.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
@@ -1079,7 +1079,7 @@ flowchart LR
 ---
 
 
-## Further Reading and Source Notes: Ecosystem Ecology and Biogeochemical Cycles
+## Further Reading and Source Notes: Ecosystem Ecology
 
 - Levin (1998). Ecosystems and the Biosphere as Complex Adaptive Systems. *Ecosystems*, 1.
 - Bormann & Likens (1967). Nutrient cycling. *Science*, 155.
@@ -1126,14 +1126,14 @@ print(food_web_trophic_levels(web))
 
 ---
 
-## Companion Source Module: Ecosystem Ecology and Biogeochemical Cycles
+## Companion Source Module: Ecosystem Ecology
 
-**Ecosystem Ecology and Biogeochemical Cycles** should leave a reproducible trail from a biological claim to
+**Ecosystem Ecology** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
-: Companion source surfaces for Ecosystem Ecology and Biogeochemical Cycles. {#tbl:unit_X_ecosystem_ecology_companion_source_surfaces}
+: Companion source surfaces for Ecosystem Ecology. {#tbl:unit_X_ecosystem_ecology_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/ecology/ecology.py` (`food_web_trophic_levels`, `connectance`, `biodiversity_indices`) | Translate ecosystem structure into trophic, network, and diversity calculations. |

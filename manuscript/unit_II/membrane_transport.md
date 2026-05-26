@@ -37,7 +37,7 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/ghk_permeability.png}
-\caption{Goldman--Hodgkin--Katz permeability sensitivity. Membrane potential is plotted as relative sodium permeability increases while potassium permeability is held fixed and chloride permeability is varied.}
+\caption{Goldman--Hodgkin--Katz (GHK) membrane potential as relative sodium permeability increases with potassium permeability held fixed. Rising sodium conductance depolarizes the cell; separate curves show how different chloride permeabilities shift the resting potential toward more negative or positive values.}
 \label{fig:unit_II_ghk_permeability}
 \end{figure}
 <!-- alt: Semilog plot of GHK membrane potential in millivolts versus relative sodium permeability. Increasing sodium permeability depolarizes the membrane, while separate line styles show how different chloride permeabilities shift the voltage. -->

@@ -268,3 +268,31 @@ def test_section_reference_uses_nameref_for_unnumbered_labels() -> None:
     assert section_reference("sec:unit_I_atoms_molecules") == "\\cref{sec:unit_I_atoms_molecules}"
     text = "Primary lab: \\cref{sec:lab_unit_I_atoms_molecules}."
     assert normalize_unnumbered_section_crefs(text) == "Primary lab: \\nameref{sec:lab_unit_I_atoms_molecules}."
+
+
+def test_section_hyperlink_emits_hyperref_with_label() -> None:
+    from biology.crossref.helpers import escape_hyperref_text, section_hyperlink
+
+    link = section_hyperlink("sec:unit_I_unit_intro", "Unit I — Chemistry of Life: Introduction")
+    assert link == (
+        "\\hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction}"
+    )
+    assert section_hyperlink("unit_I_water_and_life", "Water — The Molecule of Life") == (
+        "\\hyperref[sec:unit_I_water_and_life]{Water — The Molecule of Life}"
+    )
+    assert escape_hyperref_text("A & B") == r"A \& B"
+
+
+def test_replace_namerefs_with_plain_titles_uses_toc_titles() -> None:
+    from biology.crossref.helpers import replace_namerefs_with_plain_titles
+    from biology.toc import load_toc
+
+    book_toc = load_toc(PROJECT)
+    unit = book_toc.units_by_id["unit_I"]
+    chapter = book_toc.chapters_by_id["unit_I_water_and_life"]
+    text = f"Start at {unit.name_ref}, then read {chapter.name_ref}."
+    replaced = replace_namerefs_with_plain_titles(text, book_toc)
+    assert unit.plain_ref in replaced
+    assert chapter.plain_ref in replaced
+    assert "\\nameref" not in replaced
+    # Note: curriculum sync no longer applies this to front matter; helper remains for audits.

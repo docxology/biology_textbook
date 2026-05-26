@@ -1,4 +1,4 @@
-# Immune System Architecture and Defense
+# Immune System Architecture
 
 \label{sec:unit_IX_immune_system_defense}
 
@@ -601,7 +601,7 @@ Modified T cells are expanded in vitro and infused back into the patient. The CA
 
 ---
 
-> **Opening Vignette — Immune System Architecture and Defense**
+> **Opening Vignette — Immune System Architecture**
 >
 > This chapter connects immune system architecture and defense to measurable evidence: models, datasets, and experiments that can strengthen or weaken each claim.
 
@@ -660,9 +660,9 @@ print(round(h.corrective_response, 3), h.is_within_tolerance)
 
 ---
 
-## Current Evidence and Frontier Biology: Immune System Architecture and Defense
+## Current Evidence and Frontier Biology: Immune System Architecture
 
-For **Immune System Architecture and Defense**, frontier biology belongs inside the evidence logic of
+For **Immune System Architecture**, frontier biology belongs inside the evidence logic of
 the chapter. Immunology is moving fast: single-cell and spatial atlases now resolve immune-cell states in situ, structural vaccinology and mRNA platforms have compressed antigen-design timelines, checkpoint inhibitors and engineered cell therapies (CAR-T, TCR-T) are redrawing oncology, and neoantigen prediction couples immunology to genomics. The core reading question is this: immune claims should specify the arm (innate vs adaptive), the effector mechanism, the readout (titer, cytotoxicity, protection), and the evidence scale from single molecule to randomized trial.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
@@ -754,7 +754,7 @@ flowchart LR
 
 ---
 
-## Further Reading and Source Notes: Immune System Architecture and Defense
+## Further Reading and Source Notes: Immune System Architecture
 
 - Medzhitov & Janeway (1997). Innate immunity: the virtues of a nonclonal system of recognition. *Cell*, 91.
 - Tonegawa (1983). Somatic generation of antibody diversity. *Nature*, 302.
@@ -802,14 +802,14 @@ flowchart LR
 
 ---
 
-## Companion Source Module: Immune System Architecture and Defense
+## Companion Source Module: Immune System Architecture
 
-**Immune System Architecture and Defense** should leave a reproducible trail from a biological claim to
+**Immune System Architecture** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
-: Companion source surfaces for Immune System Architecture and Defense. {#tbl:unit_IX_immune_system_defense_companion_source_surfaces}
+: Companion source surfaces for Immune System Architecture. {#tbl:unit_IX_immune_system_defense_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/physiology/physiology.py` (`homeostasis_response`) | Compare hormone feedback and inflammatory regulation as control problems. |

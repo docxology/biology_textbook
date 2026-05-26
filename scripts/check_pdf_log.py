@@ -32,7 +32,11 @@ class PdfLogIssue:
 
 
 def find_pdf_log_issues(
-    log_text: str, *, max_overfull_pt: float = 50.0, max_overfull_vbox_pt: float | None = None
+    log_text: str,
+    *,
+    max_overfull_pt: float = 50.0,
+    max_overfull_vbox_pt: float | None = None,
+    allow_missing_glyphs: bool = False,
 ) -> list[PdfLogIssue]:
     """Return undefined-reference, missing-glyph, double-superscript, and severe-overfull-box issues."""
     issues: list[PdfLogIssue] = []
@@ -42,6 +46,8 @@ def find_pdf_log_issues(
             issues.append(PdfLogIssue(line_no, line.strip()))
             continue
         if _MISSING_CHARACTER_RE.search(line):
+            if allow_missing_glyphs:
+                continue
             issues.append(PdfLogIssue(line_no, line.strip()))
             continue
         if _DOUBLE_SUPERSCRIPT_RE.search(line):
@@ -63,6 +69,11 @@ def run(argv: list[str] | None = None) -> int:
     parser.add_argument("log", type=Path, help="Path to a XeLaTeX or combined manuscript log")
     parser.add_argument("--max-overfull-pt", type=float, default=50.0)
     parser.add_argument("--max-overfull-vbox-pt", type=float, default=350.0)
+    parser.add_argument(
+        "--allow-missing-glyphs",
+        action="store_true",
+        help="Do not fail on XeLaTeX 'Missing character' warnings (instructor solution keys)",
+    )
     args = parser.parse_args(argv)
 
     if not args.log.is_file():
@@ -72,6 +83,7 @@ def run(argv: list[str] | None = None) -> int:
         args.log.read_text(encoding="utf-8", errors="replace"),
         max_overfull_pt=args.max_overfull_pt,
         max_overfull_vbox_pt=args.max_overfull_vbox_pt,
+        allow_missing_glyphs=args.allow_missing_glyphs,
     )
     if not issues:
         print(

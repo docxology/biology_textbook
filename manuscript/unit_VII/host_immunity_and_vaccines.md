@@ -37,11 +37,11 @@ By the end of this chapter, you should be able to:
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/sir_model.png}
-\caption{SIR compartment trajectories for a closed population. Susceptible individuals decline as the infected compartment peaks, then recoveries accumulate; $R_0$ sets outbreak scale.}
+\caption{SIR epidemic model in a closed population. Susceptible individuals fall as infections rise and peak; recovered individuals accumulate after the infected compartment declines---peak height and timing depend on the basic reproduction number $R_0$.}
 \label{fig:unit_VII_sir_model}
 \end{figure}
 
-<!-- alt: Time series of susceptible, infected, and recovered populations during an SIR epidemic. -->
+<!-- alt: Three time-series curves labeled susceptible, infected, and recovered; infected rises to a peak while susceptible declines, then recovered increases as infected falls. -->
 
 ---
 

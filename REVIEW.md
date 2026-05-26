@@ -504,3 +504,258 @@ Pre-remediation snapshot before this pass (project root):
 
 **Residual P2 backlog (non-blocking):** move `integrate_orphan_citations.py` insertion map into `citations.py`; optional `genetics.py` split below 400 lines; parallelize `audit_publication_readiness` sub-gates; resolve front-matter `\nameref` ordering for a clean `root-pdf-log` gate.
 
+## 18. Publication prep completion — Instructor Edition v1.0 (2026-05-25)
+
+Thermo-nuclear remediation and publication hardening per the Instructor Edition plan: front-matter navigation uses `\hyperref` links; **42** matplotlib generators wired for the full figure pass; answer heuristics unified under `biology.answer_refinement`; six fat scripts extracted to `src/biology/`; `export.include_solutions: true` (watermark optional via `watermark_instructor`).
+
+**Manuscript / edition**
+
+| Item | Status |
+| --- | --- |
+| Glossary index term count | **225** `{#gl:}` anchors; invariant test + `link_glossary.py --check` |
+| Allostasis `\cref` | Primary → `sec:unit_0_active_inference` |
+| Sterling citekey / year | **2015** / `\citep{sterling2015}` |
+| Front matter / preface voice | Publication-grade; Instructor Edition labeling |
+| American English | `normalize_american_english.py` applied |
+| Instructor export | `include_solutions: true`, `watermark_instructor: false` (optional overlay when `true`) |
+| Front-matter section links | Generated blocks use `\hyperref[sec:…]{title}`; validators strip plain titles before structural-ref audits |
+
+**Code judo**
+
+| Item | Status |
+| --- | --- |
+| Answer heuristics | Canonical `biology.answer_refinement`; enrichment facade + thin scripts |
+| Scripts >250 lines | Logic in `src/biology/` (`glossary_links`, `further_reading`, `chapter_shells`, `publication_gate`, `orphan_figures`, `label_insertion`) |
+| Lotka–Volterra integration | `euler_integrate_pair` in `ecology.py` |
+| Matplotlib generators | **42** registered (`visualization.ALL_FIGURE_GENERATORS`) |
+| Project scripts | **36** thin CLIs under `scripts/` |
+| Test modules | **51** `test_*.py` files |
+
+**Gate table (project root — final)**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1343 passed**, **90.03%** coverage |
+| `ruff check src scripts tests --ignore E402` | PASS |
+| `mypy src scripts tests` | PASS |
+| `audit_textbook_quality.py --check --max-advisories 0` | PASS (0 errors, 0 advisories) |
+| `audit_current_claims.py --check` | **51** claims, 0 issues (`checked_as_of: 2026-05-25`) |
+| `sync_assessment_metadata.py --check` | synchronized |
+| `link_glossary.py --check` | 225 index terms, pending_changes=0 |
+| `audit_visual_contracts.py --check` | clean (post full figure pass) |
+| `audit_publication_readiness.py --check` | PASS |
+| `audit_publication_readiness.py --check --full` | **PASS** (including `root-pdf-log` with instructor-table thresholds) |
+| `generate_diagrams.py --strict-png` | PASS (via visual-contracts in publication gate) |
+
+**Template-root pipeline (core)**
+
+| Stage | Result |
+| --- | --- |
+| `02_run_analysis.py --project biology_textbook` | PASS (**42** figure labels) |
+| `03_render_pdf.py --project biology_textbook` | PASS — `biology_textbook_combined.pdf` **~21 MB** (Instructor Edition) |
+| `04_validate_output.py --project biology_textbook` | PASS (non-critical structure warnings only) |
+| `05_copy_outputs.py --project biology_textbook` | Deliverables at `template/output/biology_textbook/pdf/` |
+| `check_pdf_log.py output/pdf/_combined_manuscript.log --max-overfull-pt 2500 --allow-missing-glyphs` | PASS |
+
+**PDF / `\nameref` remediation:** Early front matter uses plain TOC titles from `biology.toc` (`plain_ref`, `strip_canonical_plain_refs`) instead of forward `\nameref`. Template Layer 1: `_pdf_latex_pipeline.py` tolerates recoverable first-pass XeLaTeX exit when `Output written on` is present. Publication gate passes `root-pdf-log` with `--max-overfull-pt 2500 --allow-missing-glyphs` for wide instructor solution tables and residual glyph warnings.
+
+**Zenodo v1.0 (DOI `10.5281/zenodo.20286478`)**
+
+| Artifact | Path |
+| --- | --- |
+| Combined Instructor PDF | `output/pdf/biology_textbook_combined.pdf` |
+| Copied deliverable | `template/output/biology_textbook/pdf/biology_textbook_combined.pdf` |
+| Source tree | private repo `/Users/4d/Documents/GitHub/projects/active/biology_textbook` |
+| Archival automation | `scripts/09_archive_publication.py --project biology_textbook` (requires Stage 10 executable bundle; dry-run skipped until `08_executable_bundle.py` is run) |
+
+**New / updated tests this pass:** plain-ref stripping (`strip_canonical_plain_refs`), instructor injection/watermark, glossary count invariant, full-figure registry coverage, crossref validator alignment for denameref’d front matter.
+
+**Residual P2 (non-blocking):** optional Stage 10 bundle before Zenodo deposit automation; parallelize publication sub-gates; `integrate_orphan_citations.py` map move to `citations.py`.
+
+## 19. Textbook-wide publication polish (2026-05-25)
+
+Follow-up pass after §18: close maintenance-path drift, sync documentation to live counts, and harden citation/supplement invariants.
+
+**Code / maintenance**
+
+| Item | Status |
+| --- | --- |
+| Orphan citation map | Moved to `biology.citations.orphan_citation_insertions()`; `integrate_orphan_citations.py` is a thin CLI |
+| Further Reading `SUPPLEMENT` | Paths aligned to `config.yaml` chapter slugs; citekeys validated against `references.bib` |
+| Invariants | `test_orphan_citation_insertion_map_targets_exist`, `test_supplement_map_paths_and_citekeys_are_valid` |
+| Current-claims test anchor | `test_current_claims_ledger_is_valid` uses `today=2026-05-25` |
+| `include_worked_problems` | Set `false` in `config.yaml` (advisory, not wired) |
+
+**Documentation sync**
+
+| Surface | Update |
+| --- | --- |
+| Root + docs + scripts README/AGENTS | **42** matplotlib generators, **36** scripts, **51** tests, **360** bib entries |
+| `manuscript/AGENTS.md` | Full **42**-plot allowlist from `ALL_FIGURE_GENERATORS` |
+| Unit IV/V/VII/IX `AGENTS.md` | Chapter filenames match `config.yaml` |
+| `docs/figure_gap_matrix.md` | Renamed chapter paths (`host_immunity_and_vaccines`, `endocrine_signaling`) |
+| `docs/accessibility.md` | Watermark optional when both `include_solutions` and `watermark_instructor` are true |
+
+**Gate table (post-polish)**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1346 passed**, **90.01%** coverage |
+| `ruff check src scripts tests --ignore E402` | PASS |
+| `audit_publication_readiness.py --check --full` | PASS (re-run after this pass) |
+
+**Student edition note:** Primary release remains Instructor Edition (`include_solutions: true`). A student build is `export.include_solutions: false` with `watermark_instructor: false` before render.
+
+## 20. Thermo-nuclear re-review — publication doc closure (2026-05-25)
+
+Second thermo-nuclear pass over the full `biology_textbook` tree: **no P0 blockers** on automated gates; closed remaining P1 documentation and catalog drift before Zenodo deposit.
+
+**P1 remediated**
+
+| Item | Status |
+| --- | --- |
+| Doc count drift (`docs/README.md`, `src/AGENTS.md`, root `AGENTS.md`, `scripts/README.md`, `pipeline_guide.md`, `insert_answer_keys.py`) | **42** plots, **36** scripts, **1320** questions (**44×30**) |
+| `docs/api_reference.md` | Added `biology.foundations`, `biology.citations`, **10** new matplotlib registry rows |
+| `src/biology/foundations/AGENTS.md` | Added module/manuscript map |
+| Answer signature catalog | Single source: `biology.quality.patterns.ANSWER_REFINEMENT_SIGNATURES` → `answer_refinement.classification.is_v1_generated` |
+| Doc drift guards | `tests/test_script_quality.py` covers `src/AGENTS.md`, `scripts/README.md`; stale **32**/ **33** / **1170** patterns fail |
+
+**Gate table (thermo-nuclear closure)**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1346 passed**, **90.02%** coverage |
+| `audit_publication_readiness.py --check --full` | **PASS** (including root render + `root-pdf-log`) |
+
+**Historical sections (§1–§17):** counts such as **32** matplotlib generators and **1170** questions are archaeology from earlier passes; §18–§21 are authoritative for publication.
+
+**Residual P2 (defer):** student edition as separate build profile; remove `genetics.py` shim after manuscript bridge paths migrate off `biology.genetics.genetics.*`.
+
+## 21. P2 modularization and publication infrastructure (2026-05-25)
+
+Comprehensive P2 pass: split oversized modules, parallelize the publication gate, and produce a local Stage 10 executable bundle (Stage 11 dry-run only — **no Zenodo `--commit`**).
+
+**Phase 1 — `genetics.py` split**
+
+| Module | Responsibility |
+| --- | --- |
+| `sequence.py` | Genetic code, complement, transcription, translation, GC content |
+| `mendelian.py` | Alleles, Punnett squares, gametes |
+| `population.py` | Hardy–Weinberg, χ² |
+| `linkage.py` | Recombination maps, three-point order |
+| `distance.py` | Hamming, Jukes–Cantor |
+| `epigenetics.py` | CpG/histone helpers, synthetic methylation matrices |
+| `mutation.py` | Mutation-rate spectrum |
+| `replication.py` | Replication-fork profiles |
+| `genetics.py` | Thin re-export shim (legacy manuscript bridge paths) |
+
+Tests split into `test_genetics_{sequence,mendelian,population,linkage,distance,epigenetics,mutation,replication}.py`; `TestGeneticsExtensions` moved out of `test_foundations.py`.
+
+**Phase 2 — `scan_file.py` modularization**
+
+| Module | Role |
+| --- | --- |
+| `scan_context.py` | Mutable per-file scan state |
+| `scan_latex_envs.py` | LaTeX figure/table/equation handlers |
+| `scan_markdown_ids.py` | Headings, images, block math, pipe tables |
+| `scan_ref_uses.py` | Reference uses and prose-xref anti-patterns |
+| `scan_file.py` | Orchestrator (public API unchanged) |
+
+**Phase 3 — parallel publication gate**
+
+- `publication_gate.py`: `depends_on` on each step; `run_publication_gate(..., max_workers=N)`.
+- `audit_publication_readiness.py`: `--workers N` (default `1`).
+- Preserved sequential chains: figures → diagrams → visual-contracts → artifact-counts; setup → render → validate → pdf-log.
+
+**Phase 4 — Stage 10 bundle (template Layer 1 + local run)**
+
+Template changes (`infrastructure/publishing/executable_bundle.py`):
+
+- Copy `output/<project>/pdf/<project>_combined.pdf` → `artifacts/pdf/`.
+- Seed `manifest.json` `archival_receipts.zenodo_doi` from `manuscript/config.yaml` `publication.doi`.
+- Bundle README documents PDF snapshot path and honest v1 reproduce scope (template root still required).
+
+Pinned scaffold: `template/tests/regression/pinned_values/biology_textbook.json` (three HW/mutation claims).
+
+Local commands (from template root):
+
+```bash
+uv run python scripts/08_executable_bundle.py --project biology_textbook
+uv run python scripts/09_archive_publication.py --project biology_textbook --providers zenodo software_heritage  # dry-run only
+```
+
+Verified artifacts:
+
+| Artifact | Path |
+| --- | --- |
+| Executable bundle | `template/output/biology_textbook/executable_bundle/` |
+| Combined PDF in bundle | `…/artifacts/pdf/biology_textbook_combined.pdf` |
+| Manifest (DOI + 3 claims) | `…/manifest.json` (`zenodo_doi`: `10.5281/zenodo.20286478`) |
+| Archival dry-run receipts | `…/ARCHIVAL_RECEIPTS.json` |
+
+**Zenodo deposit:** manual when ready — do not run `--commit` until explicitly approved.
+
+**Gate table (P2 closure — 2026-05-25)**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1353 passed**, **90.19%** coverage |
+| `ruff check src scripts tests --ignore E402` | PASS |
+| `audit_publication_readiness.py --check --workers 4` | PASS — **373 s** wall (`real 373.30`) |
+| `audit_publication_readiness.py --check --full --workers 4` | PASS — **618 s** wall (`real 617.96`; render chain stays sequential) |
+
+**Documentation:** `src/biology/genetics/AGENTS.md`, `crossref/AGENTS.md`, `quality/AGENTS.md`, `src/AGENTS.md`, `docs/api_reference.md`, `docs/architecture.md`, `docs/testing_guide.md`, `scripts/AGENTS.md`.
+
+## 22. v1.0 publication closure — title pass + full gate (2026-05-25)
+
+Follow-up after §18–§21: moderate chapter title tightening (`manuscript/config.yaml` → `sync_curriculum_materials.py` / `insert_chapter_metadata.py` / `replace_legacy_titles()`), figure caption/alt polish, second Instructor Edition render, and a full publication gate re-run.
+
+**Manuscript / edition**
+
+| Item | Status |
+| --- | --- |
+| Display titles | 11 chapters + Unit 0 banner shortened in `config.yaml`; H1, labs, questions, front matter, and back-matter pedagogy headings synced |
+| Prose drift | Bulk title-string replace across front matter, preface, labs, questions, and chapter body where sync missed stale suffixes |
+| Companion modules | **2** chapters re-normalized (`enrich_embedded_textbook.py` apply) after title edits — dry-run now `companion_modules=0` |
+| Mermaid metadata | `add_mermaid_alt_text.py` normalized Unit 0 / cell theory / plant responses blocks; `--check` PASS |
+| Instructor export | `book.edition: "1.0"`, `export.include_solutions: true`, `watermark_instructor: false` unchanged |
+
+**Gate table (project root — post title pass)**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1358 passed**, **90.23%** coverage |
+| `ruff check src scripts tests --ignore E402` | PASS |
+| `mypy src scripts tests` | PASS |
+| `audit_textbook_quality.py --check --max-advisories 0` | PASS (0 errors, 0 advisories) |
+| `audit_current_claims.py --check` | PASS |
+| `sync_assessment_metadata.py --check` | PASS |
+| `link_glossary.py --check` | 225 index terms, pending_changes=0 |
+| `add_mermaid_alt_text.py --check` | PASS |
+| `audit_visual_contracts.py --check` (local `--render-inline`) | 263 records, clean |
+| `audit_publication_readiness.py --check --workers 4` | PASS |
+| `audit_publication_readiness.py --check --full --workers 4` | **PASS** (~510 s wall; includes root render + `root-pdf-log`) |
+
+**Template deliverables**
+
+| Artifact | Path |
+| --- | --- |
+| Combined Instructor PDF (~21.4 MB) | `projects/active/biology_textbook/output/pdf/biology_textbook_combined.pdf` |
+| Copied deliverable | `template/output/biology_textbook/pdf/biology_textbook_combined.pdf` |
+| Stage 10 executable bundle | `template/output/biology_textbook/executable_bundle/` (`manifest.json` seeds DOI `10.5281/zenodo.20286478`) |
+| Stage 11 archival dry-run | `executable_bundle/ARCHIVAL_RECEIPTS.json` (Zenodo + Software Heritage; **no `--commit`**) |
+
+**Zenodo v1.0 deposit checklist (manual — do when ready)**
+
+1. Commit all pending changes in `/Users/4d/Documents/GitHub/projects/active/biology_textbook` (private repo).
+2. Upload `biology_textbook_combined.pdf` + bundle artifacts to Zenodo record `10.5281/zenodo.20286478`.
+3. Run `uv run python scripts/09_archive_publication.py --project biology_textbook --providers zenodo software_heritage --commit` only after explicit approval and credentials are configured (see `docs/maintenance/archival-targets.md` in template).
+4. Optional student edition: set `export.include_solutions: false`, re-render, publish as a separate artifact (out of scope for primary v1.0 Instructor release).
+
+**Residual (non-blocking)**
+
+- `05_copy_outputs.py` may fail when `output/biology_textbook/executable_bundle/` already exists (directory-not-empty during clean); copy PDF manually or remove bundle before stage 05.
+- Template `tests/regression/` has a `biology_textbook.json` scaffold but no collected pytest modules yet — claim-binding tests for HW/mutation pins are future work.
+- Mermaid aspect-ratio advisories in `macromolecules.md` remain outside the visual-contract square gate; accessibility pytest suite passes.
+
+

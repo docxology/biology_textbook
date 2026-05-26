@@ -149,6 +149,11 @@
 \renewcommand{\cftsubsubsecleader}{\cftdotfill{\cftdotsep}}
 
 % -----------------------------------------------------------------------
+% TABLE COLUMN HELPERS (Course Planning Grid and other p-column layouts)
+% -----------------------------------------------------------------------
+\usepackage{array}
+
+% -----------------------------------------------------------------------
 % FIGURE / TABLE CAPTIONS
 % -----------------------------------------------------------------------
 \usepackage[font=footnotesize,labelfont=bf,labelsep=period]{caption}
@@ -169,4 +174,17 @@
 \fancyhead[R]{\footnotesize\sffamily Introduction to Biology}
 \fancyfoot[C]{\footnotesize\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
+
+% -----------------------------------------------------------------------
+% UNICODE FALLBACKS (instructor solution keys and prose symbols)
+% -----------------------------------------------------------------------
+\usepackage{newunicodechar}
+\newunicodechar{≤}{$\leq$}
+\newunicodechar{≲}{$\lesssim$}
+\newunicodechar{∝}{$\propto$}
+\newunicodechar{⇌}{$\rightleftharpoons$}
+\newunicodechar{⋅}{$\cdot$}
+\newunicodechar{∘}{$\circ$}
+\newunicodechar{𝜑}{$\varphi$}
+\newunicodechar{𝜌}{$\rho$}
 ```

@@ -47,13 +47,13 @@ insertions:
     target: unit_X/population_ecology.md
     anchor: logistic
     caption: >-
-      Logistic growth of a population with carrying capacity K. Population size
-      follows dN/dt = rN(1 - N/K); the S-shaped curve asymptotes at K after an
-      inflection at N = K/2.
+      Logistic growth toward carrying capacity K. Population size follows dN/dt
+      equals rN times one minus N over K; the S-shaped curve inflects near N equals
+      K over two and asymptotes at K.
     label: fig:unit_X_logistic_growth
     alt: >-
-      Sigmoid population growth curve rising from a small initial size to a
-      plateau at the carrying capacity K.
+      Sigmoid population-size curve rising from a low initial abundance, inflecting
+      near half the carrying capacity K, then leveling at K on the horizontal axis.
   - png: species_area_relationship
     target: unit_X/biomes_and_conservation.md
     anchor: species-area
@@ -70,14 +70,15 @@ insertions:
     target: unit_X/biomes_and_conservation.md
     anchor: terrestrial biome
     caption: >-
-      Whittaker biome classification in temperature-precipitation space.
-      Tropical rainforest, savanna, desert, temperate forest, tundra, and ten
-      other biomes occupy characteristic climate envelopes; the diagonals define
-      the major biome boundaries.
+      Terrestrial biomes in mean annual temperature-precipitation space
+      (Whittaker-style classification). Point area reflects net primary
+      productivity so tropical rainforest, temperate forest, savanna, desert,
+      tundra, and marine reference sites are visually comparable.
     label: fig:unit_X_biome_distribution
     alt: >-
-      Two-axis plot of mean annual temperature against precipitation with
-      colored polygons denoting biome classes.
+      Scatter plot with mean annual precipitation on the horizontal axis and mean
+      annual temperature on the vertical axis; six labeled biome points differ in
+      size by net primary productivity.
   - png: hardy_weinberg
     target: unit_V/population_genetics.md
     anchor: Hardy-Weinberg equilibrium
@@ -94,75 +95,91 @@ insertions:
     anchor: Hill coefficient
     caption: >-
       Hill-equation receptor occupancy for cooperative binding. Higher Hill
-      coefficients steepen the dose-response curve around the dissociation
-      constant $K_d$.
+      coefficients steepen the sigmoid dose-response curve around the dissociation
+      constant Kd, so a small ligand increase can switch occupancy from low to high
+      when cooperativity is strong.
     label: fig:unit_II_hill_equation
     alt: >-
-      Sigmoid occupancy curves for Hill coefficients n equals 1, 2, and 4 on a
-      log-scaled ligand axis.
+      Three sigmoid occupancy curves versus ligand concentration on a logarithmic
+      horizontal axis; Hill coefficient one rises gradually, while coefficients two
+      and four steepen the transition near the dissociation constant.
   - png: sir_model
     target: unit_VII/host_immunity_and_vaccines.md
     anchor: SIR trajectory
     caption: >-
-      SIR compartment trajectories for a closed population. Susceptible
-      individuals decline as the infected compartment peaks, then recoveries
-      accumulate; $R_0$ sets outbreak scale.
+      SIR epidemic model in a closed population. Susceptible individuals fall as
+      infections rise and peak; recovered individuals accumulate after the infected
+      compartment declines—peak height and timing depend on the basic reproduction
+      number R zero.
     label: fig:unit_VII_sir_model
     alt: >-
-      Time series of susceptible, infected, and recovered populations during an
-      SIR epidemic.
+      Three time-series curves labeled susceptible, infected, and recovered;
+      infected rises to a peak while susceptible declines, then recovered increases
+      as infected falls.
   - png: glycolysis_summary
     target: unit_III/bioenergetics_and_respiration.md
     anchor: glycolysis
     caption: >-
-      Glycolysis energetics by pathway step. Net ATP and NADH yields per
-      reaction summarize the investment and payoff phases of the ten-step
-      pathway.
+      Net ATP and NADH balance across the ten glycolysis steps. Bars distinguish
+      the two ATP-investment steps, the four ATP-yielding payoff steps, and NADH
+      formation at steps 6 and 9; the pathway sums to net 2 ATP and 2 NADH per
+      glucose.
     label: fig:unit_III_glycolysis_summary
-    alt: Grouped bar chart of ATP and NADH yield for each glycolysis step.
+    alt: >-
+      Grouped vertical bars for each glycolysis step showing ATP investment as
+      negative bars in the first half, ATP production and NADH gains in the payoff
+      half, totaling net two ATP and two NADH per glucose.
   - png: poiseuille_flow
     target: unit_IX/circulation_respiration_homeostasis.md
     anchor: Poiseuille
     caption: >-
-      Hagen-Poiseuille flow versus vessel radius. Volumetric flow scales with
-      $r^4$, so small radius reductions sharply reduce perfusion at fixed
-      pressure gradient.
+      Hagen-Poiseuille law: volumetric blood flow versus vessel radius at fixed
+      pressure gradient. Because flow scales with radius to the fourth power,
+      halving radius reduces flow sixteenfold—a key reason arteriolar constriction
+      controls tissue perfusion.
     label: fig:unit_IX_poiseuille_flow
-    alt: Curve showing blood flow increasing steeply with vessel radius under Poiseuille law.
+    alt: >-
+      Curve rising steeply with vessel radius on the horizontal axis and volumetric
+      flow on the vertical axis; halving radius cuts flow by a factor of sixteen at
+      fixed pressure gradient.
   - png: fitness_landscape
     target: unit_VI/genetic_drift_and_speciation.md
     anchor: Genetic drift
     caption: >-
-      One-locus mean fitness landscapes under directional selection,
-      heterozygote advantage, and underdominance. The shape of $\bar W(p)$
-      predicts whether allele frequency moves toward fixation, an interior
-      equilibrium, or disruptive thresholds.
+      Mean population fitness as a function of allele frequency p under three
+      selection regimes: directional selection (fitness rises toward one allele),
+      heterozygote advantage (interior peak at intermediate p), and underdominance
+      (fitness trough that can split the population).
     label: fig:unit_VI_fitness_landscape
     alt: >-
-      Three mean-fitness curves over allele frequency p illustrating different
-      selection modes.
+      Three curves of mean fitness versus allele frequency p: one rising to
+      fixation, one with a central peak at intermediate p, and one with a valley
+      that drops at both extremes.
   - png: molecular_clock
     target: unit_VI/phylogenetics.md
     anchor: molecular clock
     caption: >-
-      Molecular-clock divergence estimates from substitution rate and sequence
-      divergence ($t = d / 2\mu$). Faster-evolving lineages and larger
-      divergences yield shorter inferred times when rates are held constant.
+      Molecular-clock divergence times from t equals d divided by two mu. Larger
+      sequence divergence or slower substitution rates lengthen the inferred branch;
+      faster-evolving genes or smaller divergences yield shorter estimates when the
+      rate mu is held constant.
     label: fig:unit_VI_molecular_clock
     alt: >-
-      Horizontal bar chart of estimated divergence times in million years for
-      four example taxon pairs.
+      Horizontal bars comparing estimated divergence times in millions of years for
+      four taxon pairs; longer bars correspond to larger divergence or slower
+      evolutionary rates.
   - png: biodiversity_indices
-    target: unit_X/biodiversity_and_food_webs.md
+    target: unit_X/community_interactions.md
     anchor: Shannon
     caption: >-
-      Shannon and Simpson diversity indices compared for an even meadow
-      assemblage and a dominant-species grassland. Evenness raises Shannon $H'$
-      and Simpson $1-D$ relative to skewed abundance distributions.
+      Shannon H prime and Simpson one minus D for two communities with the same
+      species richness but different evenness. Higher evenness raises both indices
+      relative to a skewed dominance distribution dominated by one grassland species.
     label: fig:unit_X_biodiversity_indices
     alt: >-
-      Bar chart comparing Shannon and Simpson indices for two communities with
-      different evenness.
+      Side-by-side bars for Shannon and Simpson indices in an even meadow versus a
+      grassland dominated by one species; the even community shows higher bars for
+      both metrics.
   - png: photosynthesis_rate
     target: unit_VIII/plant_responses.md
     anchor: photosynthesis
@@ -176,47 +193,64 @@ insertions:
     target: unit_I/water_and_life.md
     anchor: osmotic
     caption: >-
-      van 't Hoff osmotic pressure versus solute concentration at 37 °C.
-      Electrolytes with van 't Hoff factor $i>1$ generate proportionally higher
-      osmotic pressure than non-electrolytes at equal molarity.
+      van 't Hoff osmotic pressure versus solute concentration at 37 degrees Celsius.
+      A non-electrolyte (i equals 1) and a fully dissociating electrolyte (i equals 2)
+      produce linear rises with concentration; doubling i doubles osmotic pressure at
+      equal molarity.
     label: fig:unit_I_osmotic_pressure
     alt: >-
-      Linear rise of osmotic pressure with concentration for i equals 1 and
-      i equals 2 solutes.
+      Two straight lines of osmotic pressure increasing with solute concentration on
+      the horizontal axis; the steeper line marks an electrolyte with van t Hoff
+      factor two at body temperature, doubling the pressure of a non-electrolyte at
+      equal molarity.
   - png: translation_codons
     target: unit_IV/gene_expression.md
     anchor: translation
     caption: >-
-      Translation output for a representative mRNA. Codon parsing yields an
-      amino-acid count profile summarizing peptide composition from the genetic
-      code.
+      Amino-acid composition after in silico translation of a sample mRNA. Bar
+      height counts each residue type in the reading frame, showing how codon
+      usage and sequence length shape peptide composition under the standard
+      genetic code.
     label: fig:unit_IV_translation_codons
-    alt: Bar chart of amino-acid counts produced from translating a sample mRNA sequence.
+    alt: >-
+      Vertical bars ranking the twenty amino acids by count after translating a
+      sample messenger RNA sequence in the standard reading frame; the tallest
+      bars mark the most frequent residues in the encoded peptide.
   - png: mic_dilution_series
     target: unit_VII/microbial_ecology.md
     anchor: MIC
     caption: >-
-      Serial two-fold broth dilution series for minimum inhibitory
-      concentration (MIC) testing. Antibiotic concentration halves in each
-      successive tube from the starting stock.
+      Two-fold serial broth dilution for minimum inhibitory concentration (MIC)
+      testing. Antibiotic concentration halves in each successive tube; the first
+      tube with no visible growth marks the MIC used to compare susceptibility.
     label: fig:unit_VII_mic_dilution_series
-    alt: Log-scaled bar chart of antibiotic concentration across eight serial dilution tubes.
+    alt: >-
+      Eight ordered tubes or bars with antibiotic concentration dropping by half
+      each step on a logarithmic scale; the last tube showing visible growth
+      marks the MIC boundary.
   - png: homeostasis_feedback
     target: unit_IX/endocrine_signaling.md
     anchor: homeostasis
     caption: >-
-      Proportional negative-feedback correction of a temperature deviation
-      toward a set point. Each iteration applies a corrective response
-      proportional to the measured error.
+      Generic proportional negative feedback toward a set point (temperature shown
+      as an example). Each correction is proportional to the measured error, so
+      large deviations trigger stronger responses and the system converges without
+      indefinite overshoot—the same logic applies to hormone axes such as the
+      thyroid loop below.
     label: fig:unit_IX_homeostasis_feedback
     alt: >-
-      Line plot of measured temperature converging toward set point with
-      overlaid corrective responses.
+      Line plot of measured value approaching a horizontal set-point line across
+      iterations; corrective responses shrink as the error decreases, illustrating
+      proportional negative feedback.
   - png: food_web_trophic_levels
     target: unit_X/ecosystem_ecology.md
     anchor: trophic
     caption: >-
-      Trophic levels inferred by breadth-first search from producer species in a
-      simple aquatic food web. Each consumer is one level above its prey.
+      Trophic levels assigned from phytoplankton producers upward in a simplified
+      aquatic food web. Each consumer sits one level above its prey; apex predators
+      occupy the highest bar in this linear chain.
     label: fig:unit_X_food_web_trophic_levels
-    alt: Horizontal bar chart assigning trophic levels from phytoplankton through apex predator.
+    alt: >-
+      Horizontal bars ordered from producer at level one through herbivore,
+      secondary consumer, and apex predator at level four in a linear aquatic food
+      chain.

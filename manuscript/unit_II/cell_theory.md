@@ -314,9 +314,9 @@ flowchart TD
     style C fill:#ffe6e6
     style D fill:#e6ffe6
 ```
-<!-- alt: Flowchart showing overview of microscopy techniques used in cell biology, categorized by resolution capability. -->
+<!-- alt: Flowchart showing microscopy methods grouped by resolving power: light techniques for live and stained cells, electron microscopy for ultrastructure, and super-resolution methods that beat the diffraction limit. -->
 
-*Overview of microscopy techniques used in cell biology, categorized by resolution capability.*
+*Microscopy methods grouped by resolving power: light techniques for live and stained cells, electron microscopy for ultrastructure, and super-resolution methods that beat the diffraction limit.*
 
 ### Light Microscopy, Contrast, and Resolution
 

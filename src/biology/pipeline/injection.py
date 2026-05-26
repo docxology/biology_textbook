@@ -27,6 +27,24 @@ INSTRUCTOR_WATERMARK_LATEX = """
 \\SetWatermarkColor[gray]{0.88}
 """
 
+_UNICODE_MATH_FOR_LATEX = {
+    "≤": r"$\leq$",
+    "≲": r"$\lesssim$",
+    "∝": r"$\propto$",
+    "⇌": r"$\rightleftharpoons$",
+    "⋅": r"$\cdot$",
+    "∘": r"$\circ$",
+    "𝜑": r"$\varphi$",
+    "𝜌": r"$\rho$",
+}
+
+
+def normalize_unicode_math_for_latex(text: str) -> str:
+    """Replace common Unicode math symbols with inline LaTeX for XeLaTeX body text."""
+    for char, latex in _UNICODE_MATH_FOR_LATEX.items():
+        text = text.replace(char, latex)
+    return text
+
 
 def instructor_preamble_text(preamble: str, *, watermark_instructor: bool) -> str:
     """Return preamble text, optionally appending the instructor watermark block."""
@@ -34,10 +52,13 @@ def instructor_preamble_text(preamble: str, *, watermark_instructor: bool) -> st
         return preamble
     if "draftwatermark" in preamble:
         return preamble
-    marker = "```latex"
-    if marker not in preamble:
+    block_start = preamble.find("```latex\n")
+    if block_start == -1:
         return preamble + INSTRUCTOR_WATERMARK_LATEX
-    return preamble.replace(marker, marker + INSTRUCTOR_WATERMARK_LATEX, 1)
+    block_end = preamble.find("\n```", block_start + 1)
+    if block_end == -1:
+        return preamble
+    return preamble[:block_end] + INSTRUCTOR_WATERMARK_LATEX + preamble[block_end:]
 
 
 def clear_stale_slide_artifacts() -> None:
@@ -57,7 +78,7 @@ def reveal_solutions(text: str) -> str:
     """Reveal instructor solution blocks as blockquoted markdown."""
 
     def repl(match: re.Match[str]) -> str:
-        body = match.group(1).strip("\n")
+        body = normalize_unicode_math_for_latex(match.group(1).strip("\n"))
         return "\n".join(f"> {line}" if line.strip() else ">" for line in body.splitlines())
 
     return SOLUTION_BLOCK_RE.sub(repl, text)
@@ -82,6 +103,7 @@ def inject_chapters_for_rendering(
         content = src.read_text(encoding="utf-8")
         if include_solutions:
             content = reveal_solutions(content)
+            content = normalize_unicode_math_for_latex(content)
         directive = numbering_directives.get(src.resolve())
         if directive is not None:
             content = f"{directive}\n\n{content}"
@@ -123,5 +145,6 @@ __all__ = [
     "clear_stale_slide_artifacts",
     "inject_chapters_for_rendering",
     "instructor_preamble_text",
+    "normalize_unicode_math_for_latex",
     "reveal_solutions",
 ]

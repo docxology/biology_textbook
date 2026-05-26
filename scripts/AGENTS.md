@@ -39,7 +39,7 @@ the matching script is the canonical fix.
 | `audit_textbook_quality.py` | `test_textbook_quality_audit.py` | Umbrella quality gate for generic answers, current-claim drift, wet-lab defaults, hard-coded rendered references, glossary/citation closure, embedded-enrichment coverage, and `manuscript/quality_advisories.yaml` triage |
 | `audit_current_claims.py` | `test_current_claims_ledger.py` | Validates `manuscript/current_claims.yaml` source tiers, checked dates, refresh triggers, anchors, and stale-phrase locks |
 | `audit_visual_contracts.py` | publication-readiness gate | Generates/checks a visual manifest and review matrix from raw figure blocks, registered Mermaid factories, inline Mermaid fences, asset dimensions, alt text, captions, generator names, action taken, exceptions, and square-ish aspect policy |
-| `audit_publication_readiness.py` | aggregate gate | Runs quality, current-claim, assessment, Mermaid alt, strict figure/diagram, lint, mypy, WIP resolver, artifact-count, and tracked-artifact checks using temporary visual artifacts; `--full` adds root setup/test/render/validate |
+| `audit_publication_readiness.py` | aggregate gate | Runs quality, current-claim, assessment, Mermaid alt, strict figure/diagram, lint, mypy, WIP resolver, artifact-count, and tracked-artifact checks using temporary visual artifacts; `--full` adds root setup/test/render/validate; `--workers N` parallelizes independent gate steps (default `1`) |
 | `sync_assessment_metadata.py` | `test_assessment_metadata.py` + `test_lab_pedagogy_alignment.py` | Inserts/verifies question-item metadata and lab outcome/LO/rubric alignment blocks from `biology.assessment` / `biology.toc` surfaces; `--dry-run` previews drift without writing |
 
 ## Pedagogy and content utilities (optional)
@@ -133,7 +133,7 @@ cd /path/to/biology_textbook
 # Stage-2 orchestrators
 uv run python scripts/generate_diagrams.py                    # 24 mermaid diagrams
 uv run python scripts/generate_diagrams.py --output-dir /custom/path
-uv run python scripts/generate_figures.py                     # 32 square-padded matplotlib figures
+uv run python scripts/generate_figures.py                     # 42 square-padded matplotlib figures
 uv run python scripts/generate_figures.py --output-dir /custom/path
 uv run python scripts/biology_analysis.py                     # collect chapters + live config/references/preamble/cover assets
 uv run python scripts/generate_cover_art.py                    # refresh text-free cover montage asset
@@ -143,7 +143,7 @@ uv run python scripts/audit_current_claims.py --check          # current-claim l
 uv run python scripts/sync_assessment_metadata.py --dry-run    # preview assessment metadata drift
 uv run python scripts/sync_assessment_metadata.py --check      # assessment metadata gate
 uv run python scripts/audit_visual_contracts.py --figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check # visual manifest gate
-uv run python scripts/audit_publication_readiness.py --check   # aggregate local gate; visual artifacts go to temp
+uv run python scripts/audit_publication_readiness.py --check --workers 4   # aggregate local gate; parallel waves when N>1
 
 # Manuscript maintenance (each supports --dry-run)
 uv run python scripts/insert_crossref_labels.py

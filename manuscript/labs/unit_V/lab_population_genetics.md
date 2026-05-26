@@ -1,4 +1,4 @@
-# Lab — Population Genetics and Hardy-Weinberg Equilibrium {#sec:lab_unit_V_population_genetics .unnumbered}
+# Lab — Population Genetics {#sec:lab_unit_V_population_genetics .unnumbered}
 
 
 ## Learning Objectives {.unnumbered}
@@ -14,7 +14,7 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Population Genetics and Hardy-Weinberg Equilibrium.
+- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Population Genetics.
 - **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
 - **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
 - **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
@@ -29,7 +29,7 @@
 2. Define effective population size (N_e) and explain how it differs from the census size (N). Identify at least two demographic factors — such as unequal sex ratios, variance in reproductive success, or fluctuations across generations — that tend to make N_e smaller than N.
 3. Distinguish the inbreeding coefficient F from the heterozygosity H. State how the two quantities are related under the simple model F = 1 − (H_observed / H_expected), and predict the direction of change in F after a population goes through a severe bottleneck.
 
-## Lab Context: Population Genetics and Hardy-Weinberg Equilibrium {.unnumbered}
+## Lab Context: Population Genetics {.unnumbered}
 
 The Hardy-Weinberg principle states that in a large, randomly mating population with no selection, mutation, migration, or drift, allele frequencies (p, q) and genotype frequencies (p², 2pq, q²) remain constant across generations. Deviations from HWE indicate one or more of these forces is acting. Genetic drift — random changes in allele frequency — is most powerful in small populations, causing loss of variation and potentially fixing or eliminating alleles by chance alone.
 
@@ -38,7 +38,7 @@ The Hardy-Weinberg principle states that in a large, randomly mating population 
 : Alignment and Rubric Map: Item and Quantity. {#tbl:unit_V_population_genetics_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
-| Source-governance card for Population Genetics and Hardy-Weinberg Equilibrium: inheritance source card: model assumptions, sampling frame, ancestry/context boundary, and uncertainty | 1 |
+| Source-governance card for Population Genetics: inheritance source card: model assumptions, sampling frame, ancestry/context boundary, and uncertainty | 1 |
 | Two colors of beads (representing A and a alleles): 50 of each color | 100 total |
 | Opaque bag or cup (for random sampling) | 2 |
 | Population genetics data table (printed: real MN blood group data) | 1 |
@@ -107,7 +107,7 @@ Drift simulation:
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
-**Population Genetics and Hardy-Weinberg Equilibrium** with a reproducibility pass:
+**Population Genetics** with a reproducibility pass:
 
 : Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_V_population_genetics_alignment_and_rubric_map_4}
 | Evidence check | Student action |
@@ -131,7 +131,7 @@ equipment version belongs only in an optional extension.
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Population Genetics and Hardy-Weinberg Equilibrium before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+Complete the source-governance card for Population Genetics before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
 
 ## Analysis Questions {.unnumbered}
 

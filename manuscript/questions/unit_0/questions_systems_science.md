@@ -1,4 +1,4 @@
-# Questions — Systems Science and the Logic of Emergence {#sec:q_unit_0_systems_science .unnumbered}
+# Questions — Systems Science and Emergence {#sec:q_unit_0_systems_science .unnumbered}
 
 
 ## Questions 1–10: Recall and Comprehension {.unnumbered}

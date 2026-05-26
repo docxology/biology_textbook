@@ -32,20 +32,14 @@ def test_reveal_solutions_blockquotes_answer() -> None:
     assert "<!-- SOLUTION" not in result
 
 
-def test_inject_chapters_adds_skip_beamer_marker(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    source = tmp_path / "sample.md"
-    source.write_text("# Sample\n\nBody.\n", encoding="utf-8")
-    output = tmp_path / "output" / "manuscript"
-    monkeypatch.setattr("biology.pipeline.injection.OUTPUT_DIR", output)
-    monkeypatch.setattr("biology.pipeline.injection.MANUSCRIPT_DIR", tmp_path)
-    monkeypatch.setattr("biology.pipeline.injection.PROJECT_ROOT", tmp_path)
-
-    inject_chapters_for_rendering([source])
-
-    injected = next(output.glob("*.md"))
-    content = injected.read_text(encoding="utf-8")
-    assert content.startswith("<!-- render:skip-beamer -->")
-    assert "# Sample" in content
+def test_reveal_solutions_normalizes_unicode_math_symbols() -> None:
+    text = "<!-- SOLUTION\nATP ⇌ ADP + Pi and 𝜑 ≤ 1.\nSOLUTION -->"
+    result = reveal_solutions(text)
+    assert r"$\rightleftharpoons$" in result
+    assert r"$\leq$" in result
+    assert r"$\varphi$" in result
+    assert "⇌" not in result
+    assert "𝜑" not in result
 
 
 def test_section_numbering_directives_for_unit_zero_and_main() -> None:
@@ -189,6 +183,13 @@ def test_inject_chapters_reveals_solutions_and_copies_aux(tmp_path: Path, monkey
     assert (output / "assets" / "cover" / "cover.png").exists()
 
 
+def test_instructor_preamble_text_inserts_before_closing_fence() -> None:
+    text = "header\n```latex\n\\usepackage{geometry}\n```\n"
+    patched = instructor_preamble_text(text, watermark_instructor=True)
+    assert patched.index("draftwatermark") > patched.index("\\usepackage{geometry}")
+    assert patched.endswith("```\n")
+
+
 def test_instructor_preamble_text_appends_when_no_latex_fence() -> None:
     preamble = instructor_preamble_text("plain preamble\n", watermark_instructor=True)
     assert "draftwatermark" in preamble
@@ -225,7 +226,7 @@ def test_load_config_include_solutions_enabled_for_instructor_edition() -> None:
     config = load_config()
     export = config.get("export", {})
     assert export.get("include_solutions") is True
-    assert export.get("watermark_instructor") is True
+    assert export.get("watermark_instructor") is False
 
 
 def test_inject_preserves_existing_skip_beamer_marker(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:

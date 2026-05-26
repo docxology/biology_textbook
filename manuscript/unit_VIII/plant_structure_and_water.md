@@ -1,4 +1,4 @@
-# Plant Structure, Water Relations, and Transport
+# Plant Structure and Water Relations
 
 \label{sec:unit_VIII_plant_structure_and_water}
 
@@ -37,7 +37,7 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/water_potential_transpiration.png}
-\caption{Plant water-potential and transpiration calculations. The left panel shows solute and total water potential as solute concentration changes; the right panel shows Fick-law transpiration flux as the external vapour gradient and stomatal conductance vary.}
+\caption{Plant water relations in two panels. Left: solute potential grows more negative with concentration while turgor pressure raises total water potential. Right: transpiration flux falls as external vapour approaches leaf interior and rises with stomatal conductance.}
 \label{fig:unit_VIII_water_potential_transpiration}
 \end{figure}
 <!-- alt: Two-panel plant-water figure. The water-potential panel shows solute potential becoming more negative with concentration and total water potential offset by turgor pressure; the transpiration panel shows flux decreasing as outside vapor concentration approaches the leaf interior, with higher conductance producing higher flux. -->
@@ -837,9 +837,9 @@ print(round(psi.water_potential_MPa, 4))
 
 ---
 
-## Current Evidence and Frontier Biology: Plant Structure, Water Relations, and Transport
+## Current Evidence and Frontier Biology: Plant Structure and Water Relations
 
-For **Plant Structure, Water Relations, and Transport**, frontier biology belongs inside the evidence logic of
+For **Plant Structure and Water Relations**, frontier biology belongs inside the evidence logic of
 the chapter. Plant biology links molecular regulation to climate stress, water limitation, crop resilience, phenology, and ecosystem feedbacks. The core reading question is this: plant-water claims require water potential, hydraulic pathway, stomatal control, tissue anatomy, and stress context.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
@@ -967,21 +967,21 @@ flowchart LR
 ---
 
 
-## Further Reading and Source Notes: Plant Structure, Water Relations, and Transport
+## Further Reading and Source Notes: Plant Structure and Water Relations
 
 - \citet{dixon1894} — On the ascent of sap. *Philosophical Transactions of the Royal Society B*, 186.
 - \citet{munch1930} — Die Stoffbewegungen in der Pflanze. *Gustav Fischer Verlag*.
 
 ---
 
-## Companion Source Module: Plant Structure, Water Relations, and Transport
+## Companion Source Module: Plant Structure and Water Relations
 
-**Plant Structure, Water Relations, and Transport** should leave a reproducible trail from a biological claim to
+**Plant Structure and Water Relations** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
-: Companion source surfaces for Plant Structure, Water Relations, and Transport. {#tbl:unit_VIII_plant_structure_and_water_companion_source_surfaces}
+: Companion source surfaces for Plant Structure and Water Relations. {#tbl:unit_VIII_plant_structure_and_water_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/botany/botany.py` (`water_potential`, `transpiration_flux`) | Reproduce plant-water calculations and hydraulic tradeoffs. |

@@ -5,84 +5,14 @@ from __future__ import annotations
 import logging
 import re
 
+from biology.quality.patterns import ANSWER_REFINEMENT_SIGNATURES
+
 
 logger = logging.getLogger(__name__)
 
-# ---------------------------------------------------------------------------
-# generated-answer signature phrases — identify non-hand-written answers
-# ---------------------------------------------------------------------------
-
-_V1_SIGNATURES = (
-    "This question asks for a definition or factual statement about:",
-    "Construct a side-by-side contrast of",
-    "This is a numerical problem. Begin by stating the formula",
-    "Give a mechanistic explanation for *",
-    "Outline an experimental or design response to the prompt on *",
-    "Take a position on *",
-    "Apply the chapter's framework to the specific scenario:",
-    "Give the canonical definition of *",
-    "Contrast the items in *",
-    "Numerical problem on *",
-    "Build a mechanistic answer to *",
-    "Propose an experimental or engineering response to *",
-    "Apply the chapter's principles to the scenario:",
-    "Expected answer for *",
-    "Prompt cues to cover:",
-    "Source standard:",
-    "Common pitfall:",
-    "Chapter lens:",
-    "boundary condition that prevents overgeneralizing it",
-    "Answer every requested clause rather than only the opening phrase",
-    "Ground the answer in \\cref{",
-    "Use \\cref{",
-    "Extend \\cref{",
-    "Carry through these values:",
-    "Use these named items explicitly:",
-    "set up the governing equation",
-    "state a defensible judgment",
-    "support it with two chapter-specific observations",
-    "Name the biological players",
-    "Ground the answer in \\cref",
-    "Use \\cref",
-    "Extend \\cref",
-    "Define *",
-    "Compare *",
-    "Solve *",
-    "Explain *",
-    "Design the test for *",
-    "Evaluate *",
-    "Apply the chapter principle to *",
-    "Required clauses:",
-    "Use the stated values explicitly:",
-    "Named evidence to include:",
-    "Do not stop at the first noun phrase",
-    "Anchor the response to \\cref",
-    "A complete response should",
-    "Expected reasoning:",
-    "Scoring focus:",
-    "Trace *",
-    "Give a precise account of *",
-    "Set *",
-    "Write the model for *",
-    "Turn *",
-    "Assess *",
-    "Use the chapter principle with *",
-    "Reference point: \\cref",
-    "Key answer:",
-    "Comparison answer:",
-    "Calculation answer:",
-    "Mechanistic answer:",
-    "Design answer:",
-    "Evaluation answer:",
-    "Application answer:",
-    "Chapter evidence:",
-    "Recent and numeric claims should remain tied to authoritative sources",
-)
-
-
 
 def is_v1_generated(body: str) -> bool:
-    return any(sig in body for sig in _V1_SIGNATURES)
+    return any(sig in body for sig in ANSWER_REFINEMENT_SIGNATURES)
 
 
 # ---------------------------------------------------------------------------

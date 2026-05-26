@@ -23,11 +23,11 @@ By the end of this chapter, you should be able to:
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/molecular_clock.png}
-\caption{Molecular-clock divergence estimates from substitution rate and sequence divergence ($t = d / 2\mu$). Faster-evolving lineages and larger divergences yield shorter inferred times when rates are held constant.}
+\caption{Molecular-clock divergence times from $t = d / (2\mu)$. Larger sequence divergence or slower substitution rates lengthen the inferred branch; faster-evolving genes or smaller divergences yield shorter estimates when the rate $\mu$ is held constant.}
 \label{fig:unit_VI_molecular_clock}
 \end{figure}
 
-<!-- alt: Horizontal bar chart of estimated divergence times in million years for four example taxon pairs. -->
+<!-- alt: Horizontal bars comparing estimated divergence times in millions of years for four taxon pairs; longer bars correspond to larger divergence or slower evolutionary rates. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint

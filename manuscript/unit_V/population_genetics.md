@@ -1,4 +1,4 @@
-# Population Genetics and Hardy-Weinberg Equilibrium
+# Population Genetics
 
 \begin{figure}[htbp]
 \centering
@@ -906,9 +906,9 @@ print(round(traj[-1].p, 4))
 
 ---
 
-## Current Evidence and Frontier Biology: Population Genetics and Hardy-Weinberg Equilibrium
+## Current Evidence and Frontier Biology: Population Genetics
 
-For **Population Genetics and Hardy-Weinberg Equilibrium**, frontier biology belongs inside the evidence logic of
+For **Population Genetics**, frontier biology belongs inside the evidence logic of
 the chapter. Classical genetics remains essential, but modern interpretation adds penetrance, polygenicity, structural variation, ancestry-aware inference, and uncertainty in risk prediction. The core reading question is this: allele-frequency explanations should name the force, parameter values, assumptions, and data needed to distinguish forces.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
@@ -974,7 +974,7 @@ flowchart LR
 ---
 
 
-## Further Reading and Source Notes: Population Genetics and Hardy-Weinberg Equilibrium
+## Further Reading and Source Notes: Population Genetics
 
 - Weinberg (1908). {\"U}ber den Nachweis der Vererbung beim Menschen. *Jahreshefte des Vereins f{\"u}r vaterl{\"a}ndische Naturkunde in W{\"u}rttemberg*, 64.
 - Kimura (1968). Evolutionary Rate at the Molecular Level. *Nature*, 217.
@@ -1007,14 +1007,14 @@ flowchart LR
 
 ---
 
-## Companion Source Module: Population Genetics and Hardy-Weinberg Equilibrium
+## Companion Source Module: Population Genetics
 
-**Population Genetics and Hardy-Weinberg Equilibrium** should leave a reproducible trail from a biological claim to
+**Population Genetics** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
-: Companion source surfaces for Population Genetics and Hardy-Weinberg Equilibrium. {#tbl:unit_V_population_genetics_companion_source_surfaces}
+: Companion source surfaces for Population Genetics. {#tbl:unit_V_population_genetics_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/genetics/genetics.py` (`hardy_weinberg`, `chi_squared_test`, `jukes_cantor_distance`) | Test equilibrium, goodness of fit, and molecular-distance assumptions. |

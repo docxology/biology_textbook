@@ -9,6 +9,8 @@ from biology.citations import (
     iter_citations,
     iter_midword_citations,
     ordered_citation_keys,
+    orphan_citation_insertions,
+    validate_orphan_citation_insertions,
 )
 
 
@@ -38,3 +40,16 @@ def test_iter_midword_citations_detects_glued_citations() -> None:
     matches = list(iter_midword_citations(text))
     assert len(matches) == 1
     assert r"\citep{bad}" in matches[0].group(0)
+
+
+def test_orphan_citation_insertion_map_targets_exist() -> None:
+    from biology.maintenance.models import PROJECT
+
+    issues = validate_orphan_citation_insertions(PROJECT)
+    assert not issues, issues
+
+
+def test_orphan_citation_insertion_count_is_stable() -> None:
+    from biology.maintenance.models import PROJECT
+
+    assert len(orphan_citation_insertions(PROJECT)) == 32

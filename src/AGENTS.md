@@ -19,10 +19,14 @@ src/
 │   ├── cell/cell_biology.py
 │   ├── ecology/ecology.py
 │   ├── evolution/evolution.py
-│   ├── genetics/genetics.py
+│   ├── genetics/                      # eight topic modules + genetics.py shim
+│   │   ├── sequence.py, mendelian.py, population.py, linkage.py
+│   │   ├── distance.py, epigenetics.py, mutation.py, replication.py
+│   │   └── genetics.py                # legacy re-export shim (manuscript bridge paths)
 │   ├── microbiology/microbiology.py
 │   ├── neuroscience/neuroscience.py
 │   ├── physiology/physiology.py
+│   ├── foundations/                   # Unit 0 + Unit I foundational tables (no I/O)
 │   ├── chapter_metadata.py        # per-chapter difficulty / reading time / lecture time / prereqs
 │   ├── toc.py                     # canonical units/chapters/labs/questions/reference appendices
 │   ├── current_claims.py          # current-claim ledger loader and validator
@@ -44,8 +48,8 @@ src/
 │   └── biology_diagrams.py        # ALL_BIOLOGY_DIAGRAMS (24 diagrams)
 └── visualization/
     ├── __init__.py                # ALL_FIGURE_GENERATORS registry
-    ├── plots.py                   # aggregator + registry (32 generators)
-    ├── plots_{cell,genetics,ecology,evolution,physiology,botany,microbiology}.py
+    ├── plots.py                   # aggregator + registry (42 generators)
+    ├── plots_{cell,genetics,ecology,evolution,physiology,botany,microbiology,foundations}.py
     ├── _scaffold.py               # shared matplotlib scaffolding
     └── cvd.py                     # colour-vision–friendly palette defaults
 ```
@@ -58,13 +62,14 @@ Each subpackage exposes frozen result dataclasses (`EnzymeKineticsResult`, `Punn
 | ---------- | ----- | ------------------------ |
 | `biochemistry` | Enzyme kinetics, bioenergetics | `michaelis_menten`, `glycolysis_summary`, `atp_free_energy` |
 | `cell` | Membrane biophysics, organelles | `nernst_potential`, `goldman_equation`, `osmotic_pressure`, `ORGANELLES` |
-| `genetics` | DNA/RNA, crosses, population genetics | `punnett_square`, `translate_mrna`, `hardy_weinberg`, `GENETIC_CODE` |
+| `genetics` | DNA/RNA, crosses, population genetics | `punnett_square`, `translate_mrna`, `hardy_weinberg`, `mutation_rate_spectrum`, `replication_fork_progression` — package: `biology.genetics.{sequence,mendelian,population,…}` |
 | `evolution` | Selection, drift, speciation | `simulate_selection`, `simulate_drift`, `molecular_clock_divergence_time` |
 | `ecology` | Growth models, diversity | `logistic_growth`, `lotka_volterra`, `biodiversity_indices`, `BIOME_DATA` |
 | `physiology` | Circulation, gas exchange | `poiseuille_flow`, `oxygen_saturation`, `homeostasis_response` |
 | `microbiology` | Growth curves, MIC, transmission | `bacterial_growth_curve`, `mic_fold_dilution`, `sir_model` |
 | `botany` | Water relations, photosynthesis | `water_potential`, `transpiration_flux`, `photosynthesis_rate` |
 | `neuroscience` | Action potentials, passive cables, synapses | `action_potential_hh`, `cable_voltage_attenuation`, `synaptic_current` |
+| `foundations` | Unit 0 CAS/active inference; Unit I atoms/macromolecules | `BIOLOGY_MILESTONES`, `poisson_degree_distribution`, `electronegativity_difference`, `polymer_hierarchy_levels` |
 
 ## `biology/chapter_metadata.py`
 
@@ -113,7 +118,7 @@ Exports `CrossRefIssue`, `CrossRefReport`, `scan_file`, `scan_directory`, `valid
 
 - `biology/current_claims.py` loads `manuscript/current_claims.yaml` as `CurrentClaim` records and validates source tier, source URL, checked date, refresh trigger, anchor text, and stale-phrase coverage. The script gate is `../scripts/audit_current_claims.py --check`; the test gate is `../tests/test_current_claims_ledger.py`.
 - `biology/assessment.py` parses question-bank item metadata comments and lab alignment blocks as `QuestionBankAssessment`, `QuestionAssessment`, and `LabAlignment`. Keep it in sync with `../scripts/sync_assessment_metadata.py`; tests are `../tests/test_assessment_metadata.py` and `../tests/test_lab_pedagogy_alignment.py`.
-- `biology/quality/` — umbrella audit engine behind `../scripts/audit_textbook_quality.py`; see `biology/quality/AGENTS.md`.
+- `biology/quality/` — umbrella audit engine and `publication_gate.py` aggregate orchestrator; see `biology/quality/AGENTS.md`.
 - `biology/enrichment/` — embedded frontier/companion catalog and apply engine; see `biology/enrichment/AGENTS.md`.
 - `biology/answer_refinement/` — heuristic question-bank answer upgrades; see `biology/answer_refinement/AGENTS.md`.
 - `biology/curriculum_sync/` — Study Blueprint and appendix curriculum sync; see `biology/curriculum_sync/AGENTS.md`.

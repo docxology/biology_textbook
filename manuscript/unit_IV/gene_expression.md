@@ -1,13 +1,13 @@
-# Gene Expression — Transcription and Translation
+# Gene Expression
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/translation_codons.png}
-\caption{Translation output for a representative mRNA. Codon parsing yields an amino-acid count profile summarising peptide composition from the genetic code.}
+\caption{Amino-acid composition after in silico translation of a sample mRNA. Bar height counts each residue type in the reading frame, showing how codon usage and sequence length shape peptide composition under the standard genetic code.}
 \label{fig:unit_IV_translation_codons}
 \end{figure}
 
-<!-- alt: Bar chart of amino-acid counts produced from translating a sample mRNA sequence. -->
+<!-- alt: Vertical bars ranking the twenty amino acids by count after translating a sample messenger RNA sequence in the standard reading frame; the tallest bars mark the most frequent residues in the encoded peptide. -->
 
 \label{sec:unit_IV_gene_expression}
 
@@ -753,9 +753,9 @@ print(" ".join(translate_mrna(mrna)[:6]))
 
 ---
 
-## Current Evidence and Frontier Biology: Gene Expression — Transcription and Translation
+## Current Evidence and Frontier Biology: Gene Expression
 
-For **Gene Expression — Transcription and Translation**, frontier biology belongs inside the evidence logic of
+For **Gene Expression**, frontier biology belongs inside the evidence logic of
 the chapter. Frontier work on expression is increasingly structural and quantitative: cryo-EM now captures RNA polymerase II in successive elongation states, transcription is understood to occur in phase-separated condensates of Mediator and co-activators, ribosome profiling reads translation genome-wide at codon resolution, and single-molecule and long-read methods resolve alternative splicing and isoform diversity directly. The core reading question is this: expression claims should separate transcription, RNA processing, translation, localization, degradation, and feedback.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
@@ -806,7 +806,7 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 ---
 
 
-## Further Reading and Source Notes: Gene Expression — Transcription and Translation
+## Further Reading and Source Notes: Gene Expression
 
 - Crick (1958). On protein synthesis. *Symposia of the Society for Experimental Biology*, 12.
 - Crick (1966). The genetic code --- yesterday, today and tomorrow. *Cold Spring Harbor Symposia on Quantitative Biology*, 31.
@@ -841,14 +841,14 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 
 ---
 
-## Companion Source Module: Gene Expression — Transcription and Translation
+## Companion Source Module: Gene Expression
 
-**Gene Expression — Transcription and Translation** should leave a reproducible trail from a biological claim to
+**Gene Expression** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
-: Companion source surfaces for Gene Expression — Transcription and Translation. {#tbl:unit_IV_gene_expression_companion_source_surfaces}
+: Companion source surfaces for Gene Expression. {#tbl:unit_IV_gene_expression_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/genetics/genetics.py` (`transcribe_dna_to_mrna`, `translate_mrna`, `gc_content`) | Reproduce transcription, translation, codon lookup, and sequence-composition checks. |

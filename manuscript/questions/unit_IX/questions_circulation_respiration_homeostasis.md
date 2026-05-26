@@ -1,4 +1,4 @@
-# Questions — Circulation, Respiration, and Homeostasis {#sec:q_unit_IX_circulation_respiration_homeostasis .unnumbered}
+# Questions — Circulation and Respiration {#sec:q_unit_IX_circulation_respiration_homeostasis .unnumbered}
 
 
 <!-- question-coverage-start -->

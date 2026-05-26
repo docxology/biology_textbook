@@ -1,4 +1,4 @@
-# Evolution — Theory, Natural Selection, and Adaptation
+# Natural Selection and Adaptation
 
 \label{sec:unit_VI_evolution_and_selection}
 
@@ -832,9 +832,9 @@ The common thread: the tools of evolutionary biology are now potent enough that 
 
 ---
 
-## Current Evidence and Frontier Biology: Evolution — Theory, Natural Selection, and Adaptation
+## Current Evidence and Frontier Biology: Natural Selection and Adaptation
 
-For **Evolution — Theory, Natural Selection, and Adaptation**, frontier biology belongs inside the evidence logic of
+For **Natural Selection and Adaptation**, frontier biology belongs inside the evidence logic of
 the chapter. Evolutionary claims are strongest when they combine mechanism, comparative evidence, population process, and explicit uncertainty. The core reading question is this: selection claims need fitness components, ecological context, genetic variation, and alternative hypotheses.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
@@ -924,7 +924,7 @@ For selection claims, separate fitness differences from storytelling by naming t
 10. The Extended Evolutionary Synthesis proposes mechanisms beyond those in the Modern Synthesis. Choose one (developmental plasticity, epigenetic inheritance, niche construction, or cultural evolution) and explain how it might influence evolutionary trajectories in ways not captured by standard population genetics models.
 11. At which $p$ is $\bar W$ maximized for the fitness set in the bridge code? Relate to equilibrium under one-locus selection.
 12. Give one example where **kin selection** predicts a behavior that violates individual fitness maximization yet spreads in haplodiploid hymenoptera.
-## Further Reading and Source Notes: Evolution — Theory, Natural Selection, and Adaptation
+## Further Reading and Source Notes: Natural Selection and Adaptation
 
 - Darwin & Wallace (1858). On the Tendency of Species to form Varieties. *Journal of the Proceedings of the Linnean Society: Zoology*, 3.
 - Williams (1966). *Adaptation and Natural Selection*. Princeton University Press.
@@ -938,14 +938,14 @@ For selection claims, separate fitness differences from storytelling by naming t
 
 ---
 
-## Companion Source Module: Evolution — Theory, Natural Selection, and Adaptation
+## Companion Source Module: Natural Selection and Adaptation
 
-**Evolution — Theory, Natural Selection, and Adaptation** should leave a reproducible trail from a biological claim to
+**Natural Selection and Adaptation** should leave a reproducible trail from a biological claim to
 the code, figure, diagram, or paper-based activity that can test it. Use the
 surfaces below to inspect the chapter's assumptions, rerun the relevant model,
 or compare the manuscript explanation with companion labs and figures.
 
-: Companion source surfaces for Evolution — Theory, Natural Selection, and Adaptation. {#tbl:unit_VI_evolution_and_selection_companion_source_surfaces}
+: Companion source surfaces for Natural Selection and Adaptation. {#tbl:unit_VI_evolution_and_selection_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
 | `src/biology/evolution/evolution.py` (`selection_one_generation`, `simulate_selection`, `fitness_landscape_1d`) | Reproduce selection trajectories and landscape reasoning. |

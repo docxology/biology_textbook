@@ -1,4 +1,4 @@
-# Unit 0 — Systems Science and the Biology of Complexity
+# Unit 0 — Systems Science for Biology
 
 **A Generative Approach to Biology** (Unit 0 prelude; four registered chapters in `config.yaml`)
 
@@ -8,9 +8,9 @@ Unit 0 introduces the cross-cutting conceptual framework underlying the entire t
 
 | File | Title |
 | ---- | ----- |
-| `systems_science.md` | Systems Science and the Logic of Emergence |
+| `systems_science.md` | Systems Science and Emergence |
 | `complex_adaptive_systems.md` | Complex Adaptive Systems |
-| `active_inference.md` | Active Inference and the Free Energy Principle |
+| `active_inference.md` | Active Inference and Free Energy |
 | `history_philosophy_biology.md` | History and Philosophy of Biology |
 
 ## Why Unit 0?
