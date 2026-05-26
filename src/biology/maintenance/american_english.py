@@ -53,60 +53,20 @@ def british_spelling_pattern() -> re.Pattern[str]:
     return re.compile(r"\b(" + "|".join(british) + r")\b", flags=re.IGNORECASE)
 
 
-PROTECTED_FENCE_LANGS = frozenset(
-    {
-        "python",
-        "py",
-        "yaml",
-        "yml",
-        "json",
-        "bash",
-        "sh",
-        "shell",
-        "r",
-        "sql",
-        "javascript",
-        "js",
-        "typescript",
-        "ts",
-    }
+from biology.maintenance.manuscript_spans import (
+    AMERICAN_ENGLISH_SPAN_OPTIONS,
+    in_protected,
+    protected_spans,
 )
 
 
 def _protected_spans(text: str) -> list[tuple[int, int]]:
     """Return spans that must not be rewritten (code, math)."""
-    spans: list[tuple[int, int]] = []
-    fence_re = re.compile(r"```([a-zA-Z0-9_-]*)\s*\n.*?\n```", re.DOTALL)
-    for match in fence_re.finditer(text):
-        lang = match.group(1).strip().lower()
-        if lang in PROTECTED_FENCE_LANGS:
-            spans.append(match.span())
-    for match in re.finditer(r"\$\$.*?\$\$", text, re.DOTALL):
-        spans.append(match.span())
-    for env in ("equation", "align", "gather", "multline", "figure", "table"):
-        for match in re.finditer(
-            rf"\\begin\{{{env}\*?\}}.*?\\end\{{{env}\*?\}}", text, re.DOTALL
-        ):
-            spans.append(match.span())
-    for match in re.finditer(r"(?<!\$)\$[^$\n]+\$", text):
-        spans.append(match.span())
-    for match in re.finditer(r"`[^`\n]+`", text):
-        spans.append(match.span())
-    for match in re.finditer(r"https?://[^\s)>\]}]+", text):
-        spans.append(match.span())
-    front_matter = re.match(r"\A---\n.*?\n---\n", text, re.DOTALL)
-    if front_matter:
-        spans.append(front_matter.span())
-    return sorted(spans)
+    return protected_spans(text, options=AMERICAN_ENGLISH_SPAN_OPTIONS)
 
 
 def _is_protected(pos: int, spans: list[tuple[int, int]]) -> bool:
-    for start, end in spans:
-        if start <= pos < end:
-            return True
-        if start > pos:
-            return False
-    return False
+    return in_protected(pos, spans)
 
 
 def _apply_case(source: str, replacement: str) -> str:

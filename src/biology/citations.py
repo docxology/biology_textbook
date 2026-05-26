@@ -119,53 +119,9 @@ class OrphanCitationInsertion:
 
 def orphan_citation_insertions(manuscript_root: Path) -> tuple[OrphanCitationInsertion, ...]:
     """Return the curated orphan-citation insertion map for ``manuscript_root``."""
-    manuscript = manuscript_root / "manuscript"
-    return (
-        OrphanCitationInsertion("alon2019", manuscript / "unit_II/cell_signaling.md", "feedback loop"),
-        OrphanCitationInsertion("bak1987", manuscript / "unit_0/complex_adaptive_systems.md", "self-organi"),
-        OrphanCitationInsertion("beggs2003", manuscript / "unit_IX/nervous_system.md", "critical period"),
-        OrphanCitationInsertion("bertalanffy1968", manuscript / "unit_0/systems_science.md", "General System"),
-        OrphanCitationInsertion("bormann1967", manuscript / "unit_X/ecosystem_ecology.md", "nutrient cycling"),
-        OrphanCitationInsertion(
-            "connell1978",
-            manuscript / "unit_X/community_interactions.md",
-            "intermediate disturbance",
-        ),
-        OrphanCitationInsertion("darwin1858", manuscript / "unit_VI/evolution_and_selection.md", "Darwin"),
-        OrphanCitationInsertion("dixon1894", manuscript / "unit_VIII/plant_structure_and_water.md", "cohesion-tension"),
-        OrphanCitationInsertion("ehrlich1964", manuscript / "unit_X/community_interactions.md", "coevolution"),
-        OrphanCitationInsertion(
-            "fire1998",
-            manuscript / "unit_IV/chromatin_and_epigenetic_mechanisms.md",
-            "miRNA",
-        ),
-        OrphanCitationInsertion("frey1997", manuscript / "unit_IX/action_potential_synapses.md", "long-term potentiation"),
-        OrphanCitationInsertion("friston2010", manuscript / "unit_0/active_inference.md", "free energy principle"),
-        OrphanCitationInsertion("friston2017", manuscript / "unit_0/active_inference.md", "active inference"),
-        OrphanCitationInsertion("henderson1913", manuscript / "unit_I/water_and_life.md", "tetrahedral"),
-        OrphanCitationInsertion("holland1992", manuscript / "unit_0/complex_adaptive_systems.md", "John Holland"),
-        OrphanCitationInsertion("jacob1961", manuscript / "unit_IV/gene_expression.md", "lac operon"),
-        OrphanCitationInsertion("kauffman1993", manuscript / "unit_0/complex_adaptive_systems.md", "Stuart Kauffman"),
-        OrphanCitationInsertion("levin1998", manuscript / "unit_X/ecosystem_ecology.md", "ecosystem"),
-        OrphanCitationInsertion("lotka1925", manuscript / "unit_X/population_ecology.md", "Lotka"),
-        OrphanCitationInsertion("margulis1967", manuscript / "unit_II/cell_theory.md", "endosymbio"),
-        OrphanCitationInsertion("mendel1866", manuscript / "unit_V/mendelian_principles.md", "Mendel"),
-        OrphanCitationInsertion("mitchell1961", manuscript / "unit_III/bioenergetics_and_respiration.md", "chemiosmo"),
-        OrphanCitationInsertion("paine1966", manuscript / "unit_X/community_interactions.md", "keystone"),
-        OrphanCitationInsertion("sherrington1906", manuscript / "unit_IX/nervous_system.md", "integrative action"),
-        OrphanCitationInsertion(
-            "starling1914",
-            manuscript / "unit_IX/circulation_respiration_homeostasis.md",
-            "Frank-Starling",
-        ),
-        OrphanCitationInsertion("sterling2015", manuscript / "unit_0/active_inference.md", "allosta"),
-        OrphanCitationInsertion("strogatz2018", manuscript / "unit_0/systems_science.md", "nonlinear dynamics"),
-        OrphanCitationInsertion("tyson2003", manuscript / "unit_II/cell_signaling.md", "bistab"),
-        OrphanCitationInsertion("volterra1926", manuscript / "unit_X/population_ecology.md", "Volterra"),
-        OrphanCitationInsertion("weinberg1908", manuscript / "unit_V/population_genetics.md", "Weinberg"),
-        OrphanCitationInsertion("williams1966", manuscript / "unit_VI/evolution_and_selection.md", "natural selection"),
-        OrphanCitationInsertion("woese1977", manuscript / "unit_VII/bacteria_archaea_viruses.md", "three domain"),
-    )
+    from biology.pipeline.orphan_citations import load_orphan_citation_insertions
+
+    return load_orphan_citation_insertions(manuscript_root=manuscript_root / "manuscript")
 
 
 def validate_orphan_citation_insertions(manuscript_root: Path) -> list[str]:

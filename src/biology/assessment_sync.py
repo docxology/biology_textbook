@@ -64,22 +64,24 @@ def sync_question_bank(path: Path, lo_ids: tuple[str, ...]) -> str:
     return "\n".join(new_lines) + "\n"
 
 
+_BLOOM_LADDER: tuple[tuple[int, str, str, int], ...] = (
+    (5, "Remember", "Recall", 2),
+    (10, "Understand", "Recall", 2),
+    (15, "Apply", "Application", 4),
+    (20, "Analyze", "Application", 5),
+    (24, "Analyze", "Synthesis", 7),
+    (27, "Evaluate", "Synthesis", 8),
+    (30, "Create", "Synthesis", 9),
+)
+
+
 def assessment_comment(number: int, lo_ids: tuple[str, ...]) -> str:
     lo_id = lo_ids[(number - 1) % len(lo_ids)]
-    if number <= 5:
-        bloom, difficulty, minutes = "Remember", "Recall", 2
-    elif number <= 10:
-        bloom, difficulty, minutes = "Understand", "Recall", 2
-    elif number <= 15:
-        bloom, difficulty, minutes = "Apply", "Application", 4
-    elif number <= 20:
-        bloom, difficulty, minutes = "Analyze", "Application", 5
-    elif number <= 24:
-        bloom, difficulty, minutes = "Analyze", "Synthesis", 7
-    elif number <= 27:
-        bloom, difficulty, minutes = "Evaluate", "Synthesis", 8
-    else:
-        bloom, difficulty, minutes = "Create", "Synthesis", 9
+    bloom, difficulty, minutes = _BLOOM_LADDER[-1][1:]
+    for max_number, tier_bloom, tier_difficulty, tier_minutes in _BLOOM_LADDER:
+        if number <= max_number:
+            bloom, difficulty, minutes = tier_bloom, tier_difficulty, tier_minutes
+            break
     return (
         "<!-- assess: "
         f"LO={lo_id}; bloom={bloom}; difficulty={difficulty}; format=short-answer; minutes={minutes} "

@@ -15,7 +15,7 @@ uv run python -m pytest tests/ --cov=src --cov-fail-under=90
 
 ## Files
 
-**62** `test_*.py` files + `conftest.py` — see [../docs/testing_guide.md](../docs/testing_guide.md#test-organization) for the same split.
+**70** `test_*.py` files + `conftest.py` — see [../docs/testing_guide.md](../docs/testing_guide.md#test-organization) for the same split.
 
 ### Domain tests (13 modules + conftest)
 

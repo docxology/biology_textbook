@@ -1,0 +1,100 @@
+# Orphan citation insertions: pair each BibTeX key with the chapter file and
+# anchor substring for ``integrate_orphan_citations.py``. Loader:
+# ``src/biology/pipeline/orphan_citations.py``.
+insertions:
+  - citekey: alon2019
+    target: unit_II/cell_signaling.md
+    anchor: feedback loop
+  - citekey: bak1987
+    target: unit_0/complex_adaptive_systems.md
+    anchor: self-organi
+  - citekey: beggs2003
+    target: unit_IX/nervous_system.md
+    anchor: critical period
+  - citekey: bertalanffy1968
+    target: unit_0/systems_science.md
+    anchor: General System
+  - citekey: bormann1967
+    target: unit_X/ecosystem_ecology.md
+    anchor: nutrient cycling
+  - citekey: connell1978
+    target: unit_X/community_interactions.md
+    anchor: intermediate disturbance
+  - citekey: darwin1858
+    target: unit_VI/evolution_and_selection.md
+    anchor: Darwin
+  - citekey: dixon1894
+    target: unit_VIII/plant_structure_and_water.md
+    anchor: cohesion-tension
+  - citekey: ehrlich1964
+    target: unit_X/community_interactions.md
+    anchor: coevolution
+  - citekey: fire1998
+    target: unit_IV/chromatin_and_epigenetic_mechanisms.md
+    anchor: miRNA
+  - citekey: frey1997
+    target: unit_IX/action_potential_synapses.md
+    anchor: long-term potentiation
+  - citekey: friston2010
+    target: unit_0/active_inference.md
+    anchor: free energy principle
+  - citekey: friston2017
+    target: unit_0/active_inference.md
+    anchor: active inference
+  - citekey: henderson1913
+    target: unit_I/water_and_life.md
+    anchor: tetrahedral
+  - citekey: holland1992
+    target: unit_0/complex_adaptive_systems.md
+    anchor: John Holland
+  - citekey: jacob1961
+    target: unit_IV/gene_expression.md
+    anchor: lac operon
+  - citekey: kauffman1993
+    target: unit_0/complex_adaptive_systems.md
+    anchor: Stuart Kauffman
+  - citekey: levin1998
+    target: unit_X/ecosystem_ecology.md
+    anchor: ecosystem
+  - citekey: lotka1925
+    target: unit_X/population_ecology.md
+    anchor: Lotka
+  - citekey: margulis1967
+    target: unit_II/cell_theory.md
+    anchor: endosymbio
+  - citekey: mendel1866
+    target: unit_V/mendelian_principles.md
+    anchor: Mendel
+  - citekey: mitchell1961
+    target: unit_III/bioenergetics_and_respiration.md
+    anchor: chemiosmo
+  - citekey: paine1966
+    target: unit_X/community_interactions.md
+    anchor: keystone
+  - citekey: sherrington1906
+    target: unit_IX/nervous_system.md
+    anchor: integrative action
+  - citekey: starling1914
+    target: unit_IX/circulation_respiration_homeostasis.md
+    anchor: Frank-Starling
+  - citekey: sterling2015
+    target: unit_0/active_inference.md
+    anchor: allosta
+  - citekey: strogatz2018
+    target: unit_0/systems_science.md
+    anchor: nonlinear dynamics
+  - citekey: tyson2003
+    target: unit_II/cell_signaling.md
+    anchor: bistab
+  - citekey: volterra1926
+    target: unit_X/population_ecology.md
+    anchor: Volterra
+  - citekey: weinberg1908
+    target: unit_V/population_genetics.md
+    anchor: Weinberg
+  - citekey: williams1966
+    target: unit_VI/evolution_and_selection.md
+    anchor: natural selection
+  - citekey: woese1977
+    target: unit_VII/bacteria_archaea_viruses.md
+    anchor: three domain

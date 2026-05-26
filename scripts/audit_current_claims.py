@@ -4,24 +4,15 @@
 from __future__ import annotations
 
 import argparse
-import re
 
 from _bootstrap import PROJECT, ensure_project_paths
 
 ensure_project_paths(include_scripts=True)
 
-from biology.current_claims import load_current_claims, validate_current_claims
-
-
-STALE_OR_UNQUALIFIED_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
-    ("casgevy-scd-transfusion-endpoint", re.compile(r"In SCD, ~94% of patients achieved transfusion independence")),
-    ("old-un-2100-population", re.compile(r"UN median projection ~10\.4 billion by 2100")),
-    (
-        "oneill-as-current-burden",
-        re.compile(r"AMR is projected to cause 10 million deaths per year by 2050 \(O'Neill Report, 2016\)"),
-    ),
-    ("unqualified-high-co2-2100", re.compile(r"Atmospheric CO₂ levels are projected to reach 800-1000 ppm by 2100")),
-    ("stale-covid-700m-infections", re.compile(r"SARS-CoV-2 infected ~700 million people globally")),
+from biology.current_claims import (
+    load_current_claims,
+    scan_stale_manuscript_phrases,
+    validate_current_claims,
 )
 
 
@@ -35,26 +26,13 @@ def main() -> int:
         issue.format()
         for issue in validate_current_claims(claims, references_path=PROJECT / "manuscript" / "references.bib")
     ]
-    issues.extend(_scan_stale_phrases())
+    issues.extend(scan_stale_manuscript_phrases(PROJECT / "manuscript", project_root=PROJECT))
     for issue in issues:
         print(issue)
     print(f"current_claims: claims={len(claims)} issues={len(issues)}")
     if args.check and issues:
         return 1
     return 0
-
-
-def _scan_stale_phrases() -> list[str]:
-    issues: list[str] = []
-    manuscript = PROJECT / "manuscript"
-    for path in sorted(manuscript.rglob("*.md")):
-        text = path.read_text(encoding="utf-8")
-        for code, pattern in STALE_OR_UNQUALIFIED_PATTERNS:
-            for match in pattern.finditer(text):
-                line = text.count("\n", 0, match.start()) + 1
-                rel = path.relative_to(PROJECT)
-                issues.append(f"{code} {rel}:{line}: stale or unqualified fast-moving claim")
-    return issues
 
 
 if __name__ == "__main__":

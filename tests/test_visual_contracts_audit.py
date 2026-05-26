@@ -6,14 +6,15 @@ from pathlib import Path
 
 import pytest
 
-from biology.visual_contracts import (
-    VisualRecord,
-    _contrast_ratio,
-    _normalise_inline_mermaid_source,
-    _review_action,
-    check_records,
-    write_review_matrix,
+from biology.visual_contracts import VisualRecord, check_records, write_review_matrix
+from biology.visual_contracts.audit import contrast_ratio as _contrast_ratio
+from biology.visual_contracts.helpers import (
+    dimensions as _dimensions,
+    first_alt_after as _first_alt_after,
+    first_caption_after_mermaid as _first_caption_after_mermaid,
 )
+from biology.visual_contracts.manifest import review_action as _review_action
+from biology.visual_contracts.scan import normalise_inline_mermaid_source as _normalise_inline_mermaid_source
 
 
 def _record(**overrides: object) -> VisualRecord:
@@ -164,14 +165,10 @@ def test_write_manifest_round_trip(tmp_path: Path) -> None:
 
 
 def test_dimensions_returns_fallback_for_missing_asset() -> None:
-    from biology.visual_contracts import _dimensions
-
     assert _dimensions("../figures/missing.png", fallback=(10, 20)) == (10, 20)
 
 
 def test_first_alt_and_caption_after_mermaid_fence() -> None:
-    from biology.visual_contracts import _first_alt_after, _first_caption_after_mermaid
-
     text = "\n".join(
         [
             "```mermaid",

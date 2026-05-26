@@ -65,6 +65,29 @@ def test_scripts_parse_as_python_modules() -> None:
     assert not failures
 
 
+_LEGACY_THIN_SCRIPTS = (
+    "bold_glossary_first_use.py",
+    "normalize_typography.py",
+    "fix_greek_math_prose.py",
+    "link_labs_to_chapters.py",
+    "pad_short_labs.py",
+    "check_pdf_log.py",
+    "extract_glossary_cards.py",
+    "audit_current_claims.py",
+    "generate_cover_art.py",
+)
+
+
+def test_legacy_maintenance_scripts_stay_thin_orchestrators() -> None:
+    offenders: list[str] = []
+    for name in _LEGACY_THIN_SCRIPTS:
+        path = SCRIPTS / name
+        line_count = len(path.read_text(encoding="utf-8").splitlines())
+        if line_count > 45:
+            offenders.append(f"{name}: {line_count} lines")
+    assert not offenders
+
+
 def test_no_legacy_mermaid_alt_maintenance_clones() -> None:
     names = {script.name for script in _script_files()}
     assert "add_mermaid_alt_text.py" in names
@@ -191,18 +214,6 @@ def test_assessment_sync_dry_run_path_does_not_write(tmp_path: Path) -> None:
     assert changed == [target]
     assert target.read_text(encoding="utf-8") == "original\n"
 
-
-def test_extract_glossary_cards_parser_matches_live_glossary() -> None:
-    """Glossary-card export should parse the current bracketed-span glossary format."""
-    namespace = runpy.run_path(str(SCRIPTS / "extract_glossary_cards.py"))
-    parse_glossary = namespace["parse_glossary"]
-
-    entries = parse_glossary(PROJECT / "manuscript" / "glossary.md")
-
-    assert len(entries) > 100
-    assert entries[0]["term"] == "Abiotic"
-    assert entries[0]["slug"] == "abiotic"
-    assert "\\cref" not in entries[0]["definition"]
 
 
 def test_documentation_headings_avoid_generic_overview() -> None:

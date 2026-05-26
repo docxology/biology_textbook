@@ -11,11 +11,7 @@ from biology.maintenance.models import PROJECT
 GLOSSARY = PROJECT / "manuscript" / "glossary.md"
 INDEX = PROJECT / "manuscript" / "appendices" / "appendix_index.md"
 
-_TERM_RE = re.compile(
-    r"^\[\*\*(?P<term>[^*]+?)\*\*\]"
-    r"(?P<anchor>\{#gl:[^}]+\})"
-    r"(?P<body>.*)$",
-)
+from biology.maintenance.glossary_cards import GLOSSARY_TERM_LINE_RE
 _GLOSSARY_CHAPTER_REF_RE = re.compile(r"→\s*Chapters?\s+(?P<refs>[0-9][0-9.,\s]*)")
 _INDEX_CHAPTER_REF_RE = re.compile(r"→\s*Ch\s+(?P<refs>[0-9][0-9.,\s]*(?:,\s*Ch\s+[0-9][0-9.,\s]*)*)")
 _CREF_CH_TAIL_RE = re.compile(
@@ -124,7 +120,7 @@ def parse_glossary_index_entries(glossary_text: str) -> list[GlossaryIndexEntry]
     """Parse glossary lines into appendix index rows."""
     entries: list[GlossaryIndexEntry] = []
     for line in glossary_text.splitlines():
-        match = _TERM_RE.match(line)
+        match = GLOSSARY_TERM_LINE_RE.match(line)
         if not match:
             continue
         term = match.group("term").strip()
@@ -251,7 +247,7 @@ def rewrite_glossary(text: str, ref_map: dict[str, str]) -> tuple[str, int, int,
     bad_refs: list[str] = []
 
     for line in text.splitlines():
-        match = _TERM_RE.match(line)
+        match = GLOSSARY_TERM_LINE_RE.match(line)
         if not match:
             new_lines.append(line)
             continue

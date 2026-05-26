@@ -21,7 +21,12 @@ for path in (TEMPLATE_ROOT, SRC):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
-from biology.current_claims import CurrentClaim, load_current_claims, validate_current_claims  # noqa: E402
+from biology.current_claims import (  # noqa: E402
+    CurrentClaim,
+    load_current_claims,
+    scan_stale_manuscript_phrases,
+    validate_current_claims,
+)
 
 
 def test_current_claims_ledger_is_valid() -> None:
@@ -134,16 +139,7 @@ def test_current_claims_cover_required_fast_moving_topics() -> None:
 
 
 def test_removed_stale_current_claim_phrases_do_not_return() -> None:
-    manuscript = PROJECT / "manuscript"
-    text = "\n".join(path.read_text(encoding="utf-8") for path in manuscript.rglob("*.md"))
-    stale_phrases = (
-        "In SCD, ~94% of patients achieved transfusion independence",
-        "UN median projection ~10.4 billion by 2100",
-        "AMR is projected to cause 10 million deaths per year by 2050 (O'Neill Report, 2016)",
-        "Atmospheric CO₂ levels are projected to reach 800-1000 ppm by 2100",
-        "SARS-CoV-2 infected ~700 million people globally",
-    )
-    assert not [phrase for phrase in stale_phrases if phrase in text]
+    assert scan_stale_manuscript_phrases(PROJECT / "manuscript", project_root=PROJECT) == []
 
 
 def test_current_claim_sources_do_not_use_known_bad_targets() -> None:

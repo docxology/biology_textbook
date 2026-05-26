@@ -802,3 +802,108 @@ Follow-up to §20–§22: close all thermo-nuclear **P1/P2** maintainability deb
 
 **Template deliverable:** `template/output/biology_textbook/pdf/biology_textbook_combined.pdf` (core pipeline re-render after gates pass).
 
+## 24. Full verification + re-render (2026-05-26)
+
+Independent re-run of the complete verification stack at commit `64226f4` (no new code changes; confirms §23 gates and deliverables remain green after P1/P2 closure).
+
+**Pre-flight**
+
+| Step | Result |
+| --- | --- |
+| `uv sync` (project root) | OK |
+| `rm -f template/.coverage.project` | Cleared stale union coverage before pipeline |
+| `enrich_embedded_textbook.py --dry-run` | `companion_modules=0` |
+| `refine_generated_answers.py --dry-run` | `refined=0` |
+| `sync_assessment_metadata.py --dry-run` | OK |
+
+**Gate table (project root — authoritative)**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1377 passed**, **90.24%** coverage |
+| `ruff check src scripts tests --ignore E402` | PASS |
+| `mypy src scripts tests` | PASS (257 files) |
+| `audit_publication_readiness.py --check --full --workers 4` | **PASS** (`failures=0`, ~551 s wall; includes `root-pdf-log` with instructor thresholds) |
+
+**Template core pipeline**
+
+```bash
+cd template && rm -f .coverage.project
+./run.sh --project biology_textbook --pipeline --core-only --skip-infra
+```
+
+| Stage | Result |
+| --- | --- |
+| Full core DAG (Stages 0–9) | **PIPELINE COMPLETE** (~652 s wall) |
+| Markdown validation (`infrastructure.validation.cli markdown`) | No issues found |
+
+**Deliverables**
+
+| Artifact | Path | Size / timestamp |
+| --- | --- | --- |
+| Combined Instructor PDF | `projects/active/biology_textbook/output/pdf/biology_textbook_combined.pdf` | **22,377,514 bytes** (May 26 06:26) |
+| Copied deliverable | `template/output/biology_textbook/pdf/biology_textbook_combined.pdf` | same |
+| LaTeX log gate | `check_pdf_log.py` on `template/output/.../pdf/_combined_manuscript.log` | **PASS** (`--max-overfull-pt 2500 --allow-missing-glyphs`) |
+
+**Thermo-nuclear re-review @ `64226f4`**
+
+| Check | Result |
+| --- | --- |
+| Verdict | **PASS** (P1/P2 closure scope) |
+| P0 / P1 regressions | None |
+| `src/biology/` max file size | 443 lines (`ecology/ecology.py`); none >500 or >1000 |
+| Watch-only crossref | `table_captions.py` 377, `label_insertion.py` 309 |
+| P1 remediated scripts | All thin orchestrators (≤39 lines) |
+| Targeted P1/P2 tests | 40 passed |
+
+**Residual (non-blocking)**
+
+- `05_copy_outputs.py` may fail when `executable_bundle/` already exists — copy PDF manually or remove bundle before stage 05 (see §22).
+- Stale `template/.coverage.project` drops combined coverage to ~89% and fails Stage 3 — remove before pipeline.
+- Mermaid renderer tests may timeout under load; re-run once or raise `PYTEST_TIMEOUT` for that module only.
+- Mermaid aspect-ratio advisories in `macromolecules.md` remain outside the visual-contract square gate.
+
+## 25. Legacy script boundary remediation (2026-05-26)
+
+Closed the nine-script P2 boundary debt from §24 by extracting business logic into tested `src/biology/` modules; all nine scripts are thin orchestrators (≤40 lines).
+
+**Extractions**
+
+| Script | Destination |
+| --- | --- |
+| `check_pdf_log.py` | `src/biology/quality/pdf_log.py` |
+| `audit_current_claims.py` (stale scan) | `src/biology/current_claims.py` (`scan_stale_manuscript_phrases`) |
+| `extract_glossary_cards.py` | `src/biology/maintenance/glossary_cards.py` |
+| `bold_glossary_first_use.py` | `src/biology/maintenance/glossary_first_use.py` |
+| `normalize_typography.py` + `fix_greek_math_prose.py` | `src/biology/maintenance/typography.py` |
+| `link_labs_to_chapters.py` | `src/biology/crossref/parent_chapter_links.py` |
+| `pad_short_labs.py` | `src/biology/maintenance/lab_padding.py` |
+| `generate_cover_art.py` | `src/biology/assets/cover_art.py` |
+
+**Shared foundation:** `src/biology/maintenance/manuscript_spans.py` (unified protected-span scanning; `american_english.py` delegates).
+
+**Code-judo (same pass):** Bloom ladder lookup table in `assessment_sync.py`; orphan citations moved to `pipeline/orphan_citations.yaml` + loader; `visual_contracts/__init__.py` exports public symbols only.
+
+**Gate table (project root)**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1400 passed**, **90.01%** coverage |
+| `ruff check src scripts tests --ignore E402` | PASS |
+| `mypy src scripts tests` | PASS (275 files) |
+| `audit_publication_readiness.py --check --full --workers 4` | **PASS** (~626 s wall; `failures=0`) |
+| Thermo-nuclear re-review | **PASS** (nine legacy scripts thin; no P0/P1) |
+
+**Live inventory**
+
+| Metric | Count |
+| --- | --- |
+| `scripts/*.py` | 36 |
+| `tests/test_*.py` | 70 |
+
+**Residual (non-blocking)**
+
+- `05_copy_outputs.py` / `executable_bundle/` copy workaround (§22).
+- Stale `template/.coverage.project` before pipeline (§24).
+- Mermaid renderer flake under load; macromolecules aspect advisories unchanged.
+

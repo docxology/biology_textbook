@@ -44,6 +44,17 @@ REQUIRED_CLAIM_IDS = {
 
 DEFAULT_MAX_CHECKED_AGE_DAYS = 180
 
+STALE_OR_UNQUALIFIED_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
+    ("casgevy-scd-transfusion-endpoint", re.compile(r"In SCD, ~94% of patients achieved transfusion independence")),
+    ("old-un-2100-population", re.compile(r"UN median projection ~10\.4 billion by 2100")),
+    (
+        "oneill-as-current-burden",
+        re.compile(r"AMR is projected to cause 10 million deaths per year by 2050 \(O'Neill Report, 2016\)"),
+    ),
+    ("unqualified-high-co2-2100", re.compile(r"Atmospheric CO₂ levels are projected to reach 800-1000 ppm by 2100")),
+    ("stale-covid-700m-infections", re.compile(r"SARS-CoV-2 infected ~700 million people globally")),
+)
+
 
 @dataclass(frozen=True)
 class CurrentClaim:
@@ -164,6 +175,24 @@ def validate_current_claims(
                     "citekey must appear in the same paragraph or table block as anchor_text",
                 )
             )
+    return issues
+
+
+def scan_stale_manuscript_phrases(
+    manuscript_root: Path,
+    *,
+    project_root: Path | None = None,
+) -> list[str]:
+    """Return issue strings when banned stale phrases appear in manuscript markdown."""
+    root = project_root or PROJECT
+    issues: list[str] = []
+    for path in sorted(manuscript_root.rglob("*.md")):
+        text = path.read_text(encoding="utf-8")
+        for code, pattern in STALE_OR_UNQUALIFIED_PATTERNS:
+            for match in pattern.finditer(text):
+                line = text.count("\n", 0, match.start()) + 1
+                rel = path.relative_to(root)
+                issues.append(f"{code} {rel}:{line}: stale or unqualified fast-moving claim")
     return issues
 
 
