@@ -1,7 +1,7 @@
 # Comprehensive Review: `biology_textbook`
 
 **Date:** 2026-05-14  
-**Status:** Active WIP project; pytest/coverage, Ruff, mypy, markdown, and prerender gates are expected gates for each publication pass.
+**Status:** v1.0 published — Instructor Edition (`book.edition: "1.0"`, GitHub release `v1.0.0`); pytest/coverage, Ruff, mypy, markdown, and prerender gates remain the publication pass contract.
 
 ## 1. Current Architecture
 
@@ -906,4 +906,50 @@ Closed the nine-script P2 boundary debt from §24 by extracting business logic i
 - `05_copy_outputs.py` / `executable_bundle/` copy workaround (§22).
 - Stale `template/.coverage.project` before pipeline (§24).
 - Mermaid renderer flake under load; macromolecules aspect advisories unchanged.
+
+## 26. v1.0 GitHub release — Instructor Edition (2026-05-26)
+
+Publication closure: transient outputs purged, §25 commits landed on `main`, full project gates, template core pipeline re-render, Stage 10 executable bundle, thermo-nuclear re-review, and GitHub release `v1.0.0` with PDF + bundle assets. Zenodo deposit (`10.5281/zenodo.20286478`) deferred — manual follow-up.
+
+**Source commit:** `7c75f4e` (`fix: mypy writer types in glossary_cards export`)
+
+**Gate table (project root)**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1405 passed**, **90.16%** coverage |
+| `ruff check src scripts tests --ignore E402` | PASS |
+| `mypy src scripts tests` | PASS (275 files) |
+| Preflight dry-runs (`enrich`, `refine`, `assessment`) | clean |
+| `audit_publication_readiness.py --check --full --workers 4` | FAIL on first pass (empty `output/` — `root-render` / `root-pdf-log`); **core pipeline re-render is authoritative** |
+| Thermo-nuclear re-review (`27a4c9d`→`7c75f4e`) | **PASS** — no P0/P1 |
+
+**Template core pipeline**
+
+```bash
+cd template && rm -f .coverage.project
+./run.sh --project biology_textbook --pipeline --core-only --skip-infra
+```
+
+| Stage | Result |
+| --- | --- |
+| Full core DAG (Stages 0–9) | **PIPELINE COMPLETE** (~627 s wall) |
+| Stage 10 executable bundle | `template/output/biology_textbook/executable_bundle/` |
+
+**Deliverables**
+
+| Artifact | Path | Size / checksum |
+| --- | --- | --- |
+| Combined Instructor PDF | `output/pdf/biology_textbook_combined.pdf` | **22,377,476 bytes**; SHA-256 `79fe889ab05dc92c4580f8b1701fea12716a221045ddf9adc72a711f4f297f7e` |
+| Copied deliverable | `template/output/biology_textbook/pdf/biology_textbook_combined.pdf` | same |
+| Executable bundle zip | `template/output/biology_textbook/biology_textbook_v1.0.0_executable_bundle.zip` | **27,021,061 bytes** |
+| LaTeX log gate | `check_pdf_log.py` on `_combined_manuscript.log` | **PASS** (`--max-overfull-pt 2500 --allow-missing-glyphs`) |
+
+**GitHub release:** `v1.0.0` — assets: combined PDF + executable bundle zip. Zenodo upload manual when ready.
+
+**Residual (non-blocking)**
+
+- `audit_publication_readiness --full` `root-render` fails when project `output/` is empty before analysis; run core pipeline first or ensure Stage 02 analysis artifacts exist.
+- Seven pre-existing scripts still exceed 45 lines (P2 backlog; thermo-nuclear non-blocking).
+- Bundle `manifest.json` `commit_hash` reflects template workspace snapshot (`ac79f6c0…`), not the private-repo tag SHA — verify via `source/` snapshot inside the zip.
 
