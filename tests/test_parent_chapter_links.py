@@ -31,3 +31,21 @@ def test_apply_parent_chapter_cref_writes_file(tmp_path) -> None:
     path.write_text("\\label{sec:lab_unit_I_atoms}\n\nBody.\n", encoding="utf-8")
     assert apply_parent_chapter_cref(path) is True
     assert "\\cref{sec:unit_I_atoms}" in path.read_text(encoding="utf-8")
+
+
+def test_derive_parent_section_label_returns_none_without_unit() -> None:
+    assert derive_parent_section_label(Path("manuscript/labs/lab_orphan.md")) is None
+
+
+def test_insert_parent_chapter_cref_skips_without_section_label() -> None:
+    path = Path("manuscript/labs/unit_I/lab_atoms_molecules.md")
+    assert insert_parent_chapter_cref("No label here.\n", path) is None
+
+
+def test_apply_parent_chapter_cref_respects_write_false(tmp_path) -> None:
+    path = tmp_path / "manuscript" / "labs" / "unit_0" / "lab_systems.md"
+    path.parent.mkdir(parents=True)
+    original = "\\label{sec:lab_unit_0_systems}\n\nBody.\n"
+    path.write_text(original, encoding="utf-8")
+    assert apply_parent_chapter_cref(path, write=False) is True
+    assert path.read_text(encoding="utf-8") == original

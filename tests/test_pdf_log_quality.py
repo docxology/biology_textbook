@@ -47,3 +47,17 @@ def test_run_pdf_log_check_returns_zero_on_clean_log(tmp_path) -> None:
     log_path = tmp_path / "clean.log"
     log_path.write_text("No issues here.\n", encoding="utf-8")
     assert run_pdf_log_check(log_path) == 0
+
+
+def test_run_pdf_log_check_missing_log_returns_two(tmp_path) -> None:
+    from biology.quality.pdf_log import run_pdf_log_check
+
+    assert run_pdf_log_check(tmp_path / "missing.log") == 2
+
+
+def test_run_pdf_log_check_returns_one_when_issues_present(tmp_path) -> None:
+    from biology.quality.pdf_log import run_pdf_log_check
+
+    log_path = tmp_path / "bad.log"
+    log_path.write_text("LaTeX Warning: Reference `fig:missing' on page 1 undefined\n", encoding="utf-8")
+    assert run_pdf_log_check(log_path) == 1
