@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass
+from pathlib import Path
 
 _UNDEFINED_RE = re.compile(
     r"(undefined references|Reference [`'][^`']+[''] on page \d+ undefined|"
