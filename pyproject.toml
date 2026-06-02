@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "biology_textbook"
 version = "1.0.0"
-description = "Comprehensive introductory biology textbook with tested computational modules and Mermaid diagram generation"
+description = "Open instructor-edition introductory biology textbook (44 chapters) with tested Python models and reproducible figures"
 authors = [
     {name = "Daniel Ari Friedman", email = "daniel@activeinference.institute"}
 ]
