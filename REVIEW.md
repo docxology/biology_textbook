@@ -955,3 +955,92 @@ cd template && rm -f .coverage.project
 - Seven pre-existing scripts still exceed 45 lines (P2 backlog; thermo-nuclear non-blocking).
 - Bundle `manifest.json` `commit_hash` reflects template workspace snapshot (`ac79f6c0…`), not the private-repo tag SHA — verify via `source/` snapshot inside the zip.
 
+## 27. Verified current-source refresh + backlog re-probe (2026-07-10)
+
+Multi-agent Workflow review (6 research lenses × 6 adversarial verifiers,
+12 agents total) of every current-claims lane plus the §22/§24/§25/§26
+residual backlog, live re-probed against HEAD `f264e7a` (~6.5 weeks after
+the last refresh). Full findings: [`docs/current_source_refresh_matrix.md`
+§2026-07-10](docs/current_source_refresh_matrix.md#2026-07-10-verified-refresh-pass).
+
+**Baseline finding (pre-existing, not introduced this pass):** full
+`pytest` on HEAD `f264e7a` showed **3 failures**, not the 0 implied by
+§26 — `test_script_quality.py::test_documented_project_counts_match_live_inventory`
+(README/docs test-count drift: 58/51 documented vs. 70 live), and two
+environment-coupled failures (`test_pdf_opening_and_mermaid.py`,
+`test_wip_resolver_smoke.py`) that only reproduce when a sibling
+`docxology/template` checkout is adjacent but missing its
+`projects/active/biology_textbook` subtree — an artifact of this
+checkout's location, not a biology_textbook regression; not fixed here
+(would require changing the sibling `template` repository, out of
+scope for this push).
+
+**Content/ledger changes (all Science-hypothesis-verified against a live
+primary source before adoption):** Casgevy age-eligibility expansion
+(12+→2+, FDA 2026-07-01), GTDB R10-RS226→R11-RS232, IUCN Red List
+2025-2→2026-1, BRENDA evidence-date bump to Release 2026.1, one hedged
+UniProtKB restructuring caveat. Five other lanes were checked and the
+staleness hypothesis was **falsified** — recorded, not silently dropped
+(see refresh matrix).
+
+**Fixed:**
+
+- README.md / docs/README.md test-count and visual-manifest-count drift
+  (58/51/262/196 → live 70/70/263/197).
+- `tests/test_current_claims_ledger.py` hardcoded `today=date(2026, 5, 25)`,
+  permanently freezing the ledger freshness gate to the v1.0 release date
+  — changed to `date.today()` to match the production script's own
+  default and restore the gate's actual purpose.
+
+**Backlog re-probed, not touched (risk/scope-bounded):**
+
+- Seven-script P2 backlog: still exactly the same 7 files, unchanged
+  since §26 — deferred a third time; extraction work is real but
+  out of proportion to this pass's scope.
+- Mermaid square-canvas aspect gate: root-caused precisely this time —
+  `src/biology/visual_contracts/render.py:23` forces every inline
+  diagram onto a fixed 1200×1200 canvas before the aspect-ratio check
+  ever runs, so the 0.75–1.33 tolerance band is structurally
+  unfalsifiable for inline Mermaid. Confirmed via
+  `audit_visual_contracts.py --check --render-inline` (196 diagrams
+  rendered). Not fixed — would require redesigning canvas sizing across
+  196 inline diagrams and re-validating true proportions, out of
+  proportion to this pass.
+- `05_copy_outputs.py` executable_bundle footgun: **downgraded** — not
+  reproducible against current `template/infrastructure/core/files/`
+  code (`dirs_exist_ok=True` copytree has predated the §22 report itself);
+  synthetic repro succeeds cleanly. Recommend striking this residual on
+  the next `template` pass; left as-is here since fixing it belongs to
+  the `template` repository, not this one.
+
+**Render:** `scripts/generate_diagrams.py --strict-png` (24/24 diagrams,
+no `.mmd` fallback) and `scripts/generate_figures.py` (42/42 figures)
+both regenerated clean. The combined-PDF assembly stage could **not**
+be re-run: `cd template && ./run.sh --project biology_textbook
+--pipeline --core-only --skip-infra` fails immediately with `project
+'biology_textbook' not found` — this hum-docxology clone of the public
+`docxology/template` repository has only its generic `templates/
+template_*` exemplars, not the private `projects/active/` tree the
+orchestrator resolves against (the same root cause as the
+`test_wip_resolver_smoke` failure above). No PDF asset was rebuilt or
+committed this pass; the v1.0.0 release PDF remains the published
+artifact. `scripts/03_render_pdf.py` referenced in the project README's
+quick-start is likewise a template-hosted stage script, not present in
+this standalone checkout.
+
+**Gate table (project root, this checkout):**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1403 passed, 2 failed** (both pre-existing/environment-coupled, see above), **90.21%** coverage |
+| `mypy src scripts tests` | **PASS** (0 errors; installed into the project venv so numpy/matplotlib/PIL resolve) |
+| `ruff check src scripts tests --ignore E402` | **NON-REGRESSION PROVEN, absolute PASS not verifiable** — no ruff version pin exists in `pyproject.toml`; the latest release (0.15.21) surfaces 312 pre-existing findings (`RUF022`/`RUF100`/`I001`) repo-wide. Proved via `git stash` baseline diff: 312 errors on HEAD `f264e7a` before this pass's edits, 312 after — byte-identical count, zero new findings introduced. Recommend pinning `ruff`+`mypy` as dev dependencies in a follow-up so this gate is reproducible independent of whatever version happens to be on the runner. |
+| `audit_current_claims.py --check` | **PASS** (claims=51, issues=0) |
+| `audit_textbook_quality.py --check --max-advisories 0` | **PASS** (0 errors, 0 advisories) |
+| `audit_visual_contracts.py --check` | **PASS** (263 records) |
+| `sync_assessment_metadata.py --dry-run` | **PASS** (synchronized) |
+
+**Cross-vendor review:** Cato/Forge unavailable this session (`codex`
+ChatGPT-account auth rejects GPT-5.x — Gate H). Substituted an inline
+RedTeam QuickAttack pass in VERIFY per Algorithm Rule 2a.
+

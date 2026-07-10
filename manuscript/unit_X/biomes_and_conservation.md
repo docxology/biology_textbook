@@ -282,7 +282,7 @@ Earth currently experiences the **Sixth Mass Extinction** — driven primarily b
 | **Least Concern** | LC | Widespread and abundant |
 | **Data Deficient** | DD | Insufficient data to assess |
 
-The IUCN Red List is a tracked subset of assessed species, not a census of global biodiversity. Version 2025-2 listed 172,620 assessed species, with 48,646 classified as threatened (Vulnerable, Endangered, or Critically Endangered), about 28% of assessed species \citep{iucn2025redlist}. Counts change with new assessments and reassessments, so the category logic is more durable than any single annual total.
+The IUCN Red List is a tracked subset of assessed species, not a census of global biodiversity. Version 2026-1 listed 175,909 assessed species, with 49,505 classified as threatened (Vulnerable, Endangered, or Critically Endangered), about 28% of assessed species \citep{iucn2025redlist}. Counts change with new assessments and reassessments, so the category logic is more durable than any single annual total.
 
 **Criteria for listing** (IUCN uses 5 criteria, any one sufficient):
 - **A:** Population reduction (quantitative decline thresholds)
@@ -1052,7 +1052,7 @@ for a in (1.0, 10.0, 100.0):
 - **IPBES findings:** ~1 million species threatened (12.5%); 85% of wetlands lost since 1700; 50% coral reef loss since 1870. Drivers ranked: land-use change > exploitation > climate change (rising fast) > pollution > invasives. Transformative Change Assessment (2024) argues incremental conservation insufficient.
 - **Climate velocity** $v = (\partial T/\partial t)/|\nabla T|$: fast in flat tropical and temperate plains (6–10 km/yr), slow in mountains (6 m/yr); refugia (topographic, hydrological, microclimatic, elevational) are the key targets for climate-adaptive reserve design.
 - **Ecosystem-based adaptation (EbA):** mangroves, coral reefs, urban green infrastructure, wetlands, agroforestry. Often outperforms hard infrastructure on cost ($94/m vs. $2,000/m for coastal protection) and provides co-benefits, but cannot substitute for emissions reduction.
-- **IUCN Red List:** CR = at least 80% population decline under Criterion A; version 2025-2 listed 48,646 threatened species among 172,620 assessed, and totals change as assessments expand \citep{iucn2025redlist}.
+- **IUCN Red List:** CR = at least 80% population decline under Criterion A; version 2026-1 listed 49,505 threatened species among 175,909 assessed, and totals change as assessments expand \citep{iucn2025redlist}.
 - **MVP:** 50/500 rule (Franklin); revised 100/1000 \citep{frankham2014}; PVA accounts for most stochasticity types. $N_e/N$ ratio typically 0.10-0.25.
 - **Extinction debt:** fragmented species committed to extinction with 50-500 yr lags; current surveys overestimate long-term viability.
 - **Reserve design:** core-corridor-matrix; edge effects penetrate 100-300 m; corridors increase movement 50%; 30x30 target.

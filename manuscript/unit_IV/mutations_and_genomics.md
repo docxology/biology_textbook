@@ -414,7 +414,7 @@ flowchart LR
 
 ### Therapeutic Applications (2024-2025)
 
-**Casgevy (exagamglogene autotemcel)**: First CRISPR-based therapy approved by FDA for sickle cell disease (December 2023) and later for transfusion-dependent beta-thalassaemia (January 2024), with EMA authorization following in 2024. FDA's 2026 product page lists exa-cel for sickle cell disease and transfusion-dependent beta-thalassaemia in patients 12 years of age and older, with updated approval documentation \citep{fda2023casgevy,fda2024casgevythalassemia,fda2026casgevy}.
+**Casgevy (exagamglogene autotemcel)**: First CRISPR-based therapy approved by FDA for sickle cell disease (December 2023) and later for transfusion-dependent beta-thalassaemia (January 2024), with EMA authorization following in 2024. A July 2026 supplemental approval expanded the eligible population from 12 years and older to **2 years and older**, the first gene therapy cleared for sickle cell disease patients this young \citep{fda2023casgevy,fda2024casgevythalassemia,fda2026casgevy}.
 
 - **Indication**: Sickle cell disease (SCD) and transfusion-dependent beta-thalassemia
 - **Mechanism**: Ex vivo CRISPR editing of patient hematopoietic stem cells (HSCs) to disrupt the *BCL11A* erythroid enhancer. BCL11A is a repressor of fetal hemoglobin (HbF, alpha2-gamma2). Disrupting its erythroid enhancer reactivates HbF production, which does not sickle and compensates for defective HbS.

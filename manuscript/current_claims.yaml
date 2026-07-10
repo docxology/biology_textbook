@@ -1,4 +1,7 @@
 # Fast-moving claims that require source-date review before publication.
+# claim_id is a stable identifier assigned at first tracking — it does not
+# get renamed when a row's content is refreshed to a newer release/version.
+# Read evidence_date/checked_as_of/claim_text for the CURRENT tracked state.
 claims:
   - claim_id: casgevy-endpoints-2026
     file: manuscript/unit_IV/mutations_and_genomics.md
@@ -8,10 +11,10 @@ claims:
     topic: genome-editing therapy
     source_tier: official_primary
     citekey: fda2026casgevy
-    url: https://www.fda.gov/vaccines-blood-biologics/casgevy
+    url: https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapy-young-children-sickle-cell-disease
     url_or_citekey: fda2026casgevy
-    evidence_date: 2026-03-26
-    checked_as_of: 2026-05-25
+    evidence_date: 2026-07-01
+    checked_as_of: 2026-07-10
     refresh_trigger: "FDA label, EMA EPAR, or pivotal-trial endpoint update."
   - claim_id: casgevy-long-followup-2026
     file: manuscript/unit_IV/mutations_and_genomics.md
@@ -21,10 +24,10 @@ claims:
     topic: genome-editing therapy
     source_tier: official_primary
     citekey: fda2026casgevy
-    url: https://www.fda.gov/vaccines-blood-biologics/casgevy
+    url: https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapy-young-children-sickle-cell-disease
     url_or_citekey: fda2026casgevy
-    evidence_date: 2026-03-26
-    checked_as_of: 2026-05-25
+    evidence_date: 2026-07-01
+    checked_as_of: 2026-07-10
     refresh_trigger: "FDA label, long-term follow-up guidance, or postmarketing safety update."
   - claim_id: prime-editing-hbf-2025
     file: manuscript/unit_IV/mutations_and_genomics.md
@@ -140,8 +143,8 @@ claims:
     citekey: hauenstein2026brenda
     url: https://doi.org/10.1093/nar/gkaf1113
     url_or_citekey: hauenstein2026brenda
-    evidence_date: 2026-01-06
-    checked_as_of: 2026-05-25
+    evidence_date: 2026-03-04
+    checked_as_of: 2026-07-10
     refresh_trigger: "New BRENDA publication, database release, license/access change, or enzyme-resource curation update."
   - claim_id: nar-database-issue-2026
     file: manuscript/unit_IV/gene_expression.md
@@ -315,15 +318,15 @@ claims:
   - claim_id: gtdb-r10-rs226-2025
     file: manuscript/unit_VII/microbial_ecology.md
     source_path: manuscript/unit_VII/microbial_ecology.md
-    anchor_text: "GTDB release R10-RS226 organized 715,230 bacterial and 17,245 archaeal genomes"
-    claim_text: "GTDB R10-RS226 is framed as a release-specific genome taxonomy resource for reproducible bacterial, archaeal, isolate, SAG, and MAG classification."
+    anchor_text: "GTDB release R11-RS232 organized 878,998 bacterial and 22,343 archaeal genomes"
+    claim_text: "GTDB R11-RS232 is framed as a release-specific genome taxonomy resource for reproducible bacterial, archaeal, isolate, SAG, and MAG classification."
     topic: microbial taxonomy
     source_tier: scholarly_primary
     citekey: parks2026gtdb
-    url: https://doi.org/10.1093/nar/gkaf1040
+    url: https://gtdb.ecogenomic.org/
     url_or_citekey: parks2026gtdb
-    evidence_date: 2025-10-22
-    checked_as_of: 2026-05-25
+    evidence_date: 2026-04-15
+    checked_as_of: 2026-07-10
     refresh_trigger: "New GTDB release, species-cluster revision, NCBI RefSeq synchronization, or GTDB-Tk classification-policy update."
   - claim_id: oneill-amr-warning-scenario
     file: manuscript/labs/unit_VII/lab_antimicrobial_resistance_and_epidemiology.md
@@ -445,15 +448,15 @@ claims:
   - claim_id: iucn-red-list-2025-2
     file: manuscript/unit_X/biomes_and_conservation.md
     source_path: manuscript/unit_X/biomes_and_conservation.md
-    anchor_text: "Version 2025-2 listed 172,620 assessed species"
-    claim_text: "IUCN 2025-2 counts are a tracked assessed-species subset and should not be treated as a census of all biodiversity."
+    anchor_text: "Version 2026-1 listed 175,909 assessed species"
+    claim_text: "IUCN 2026-1 counts are a tracked assessed-species subset and should not be treated as a census of all biodiversity."
     topic: conservation status
     source_tier: official_summary
     citekey: iucn2025redlist
-    url: https://nc.iucnredlist.org/redlist/content/attachment_files/2025-2_RL_Table1a.pdf
+    url: https://nrl.iucnredlist.org/resources/summary-statistics
     url_or_citekey: iucn2025redlist
-    evidence_date: 2025-10-10
-    checked_as_of: 2026-05-25
+    evidence_date: 2026-07-09
+    checked_as_of: 2026-07-10
     refresh_trigger: "New IUCN Red List version or summary-statistics table."
   - claim_id: cites-appendices-live-2026
     file: manuscript/unit_X/biomes_and_conservation.md

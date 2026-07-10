@@ -7,6 +7,66 @@ appendices. Perplexity may be used for discovery, but adopted claims require
 direct official or peer-reviewed verification before they enter prose,
 `references.bib`, or `current_claims.yaml`.
 
+## 2026-07-10 Verified Refresh Pass
+
+Multi-lens review (six independent research agents, each adversarially
+re-verified by a second agent) checking every tracked lane against live
+primary sources ~6.5 weeks after the 2026-05-24 pass. Every "material
+change" below was independently confirmed by a re-check pass before
+being adopted; several hypotheses were explicitly **falsified** (checked,
+found unchanged) and are recorded as such, not silently dropped.
+
+**Adopted (material change, verified against a live primary source):**
+
+- **Casgevy age-eligibility expansion** — FDA supplemental approval
+  (2026-07-01) extended exa-cel from 12+ to **2 years and older** for SCD
+  and transfusion-dependent β-thalassemia. Updated
+  `manuscript/unit_IV/mutations_and_genomics.md`,
+  `manuscript/unit_VII/bacteria_archaea_viruses.md`, `references.bib`
+  (`fda2026casgevy`), and both `casgevy-*` ledger rows.
+- **GTDB R10-RS226 → R11-RS232** (15 Apr 2026) — genome/species/genus
+  counts in `manuscript/unit_VII/microbial_ecology.md` and the
+  `gtdb-r10-rs226-2025` ledger row updated to the live release figures
+  (901,341 total genomes; 878,998 bacterial / 22,343 archaeal).
+- **IUCN Red List 2025-2 → 2026-1** (9 Jul 2026) — assessed/threatened
+  counts in `manuscript/unit_X/biomes_and_conservation.md` (two sites)
+  and the `iucn-red-list-2025-2` ledger row updated (172,620→175,909
+  assessed; 48,646→49,505 threatened); `references.bib` `iucn2025redlist`
+  entry re-pointed to the live summary-statistics page.
+- **BRENDA Release 2026.1** (4 Mar 2026) — `brenda-2026-enzyme-resource`
+  ledger row's `evidence_date`/`checked_as_of` bumped; prose makes no
+  version-specific claim so was left untouched (nothing to correct).
+- **UniProtKB reference-proteome restructuring** (underway, release
+  2026_02) — added one hedged caveat sentence to
+  `manuscript/unit_I/macromolecules.md` noting the restructuring without
+  asserting the unconfirmed completion date or accession counts a first
+  draft of this finding claimed (adversarial re-check downgraded
+  "finalized... 253M→141M" to "in progress, magnitude unverified" — the
+  corrected, hedged version is what shipped).
+
+**Checked and falsified (hypothesis explicitly rejected — no edit):**
+AlphaFold DB complexes, wwPDB/PDBe/EMDB entry counts, WHO BPPL 2024, WHO
+GLASS 2025, CITES CoP20 (already covered by evidence_date), IPBES
+(2016 pollinator + 2019 global) estimates, Lyfgenia, HPRC Release 3
+(not yet published), RNAcentral release 26, NAR Database Issue 2026,
+ClinVar/dbSNP/RefSeq/MANE, ACMG/AMP (Richards 2015), KEGG and BioCyc
+(newer releases exist but no version-specific manuscript claim to
+correct).
+
+**Process gaps found, not remediated this pass (recorded for a
+follow-up, not invented as new ledger scope today):** ClinVar/dbSNP/
+RefSeq/MANE/ACMG-AMP variant-interpretation claims and GBIF have no
+dedicated `current_claims.yaml` rows — only bibliography "accessed"
+dates — so future drift on those lanes has nothing to diff against.
+
+**Test-infrastructure fix (root cause, not content):**
+`tests/test_current_claims_ledger.py::test_current_claims_ledger_is_valid`
+hardcoded `today=date(2026, 5, 25)`, freezing the freshness gate to the
+v1.0 release date so it could never again detect real staleness. Changed
+to `today=date.today()`, matching the production script's own default
+(`scripts/audit_current_claims.py` already called
+`validate_current_claims()` with no `today` override).
+
 ## 2026-05-24 Section-Title and Scholarship Pass
 
 - **Source-section heading contract tightened:** all 44 configured chapters now

@@ -33,7 +33,7 @@ def test_current_claims_ledger_is_valid() -> None:
     claims = load_current_claims(project_root=PROJECT)
     issues = validate_current_claims(
         claims,
-        today=date(2026, 5, 25),
+        today=date.today(),
         references_path=PROJECT / "manuscript" / "references.bib",
     )
     assert not [issue.format() for issue in issues]

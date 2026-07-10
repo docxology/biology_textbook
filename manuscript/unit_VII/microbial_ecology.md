@@ -139,7 +139,7 @@ flowchart LR
 6. **Taxonomic assignment** — match representative sequences against reference databases (SILVA 138.2, Greengenes2, RDP) using naive Bayes (RDP classifier) or k-mer methods (VSEARCH); confidence threshold typically 80 % \citep{chuvochina2025silva2026}.
 7. **Diversity analyses and statistics** — alpha (within-sample) and beta (between-sample) diversity, with multiple-comparison correction.
 
-Taxonomy itself is now a versioned data product. GTDB release R10-RS226 organized 715,230 bacterial and 17,245 archaeal genomes into 136,646 bacterial and 6,968 archaeal species clusters, using average nucleotide identity for species and relative evolutionary divergence on marker-gene trees for higher ranks \citep{parks2026gtdb}. That makes a microbial name an evidence claim: reports should state the database and release used, especially when MAGs or uncultured lineages drive the biological conclusion.
+Taxonomy itself is now a versioned data product. GTDB release R11-RS232 organized 878,998 bacterial and 22,343 archaeal genomes into 189,801 bacterial and 10,122 archaeal species (34,834 bacterial and 2,669 archaeal genera), using average nucleotide identity for species and relative evolutionary divergence on marker-gene trees for higher ranks \citep{parks2026gtdb}. That makes a microbial name an evidence claim: reports should state the database and release used, especially when MAGs or uncultured lineages drive the biological conclusion.
 
 ### OTU vs ASV: A Decade-Long Methodological Shift
 
