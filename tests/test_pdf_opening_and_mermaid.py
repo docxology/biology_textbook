@@ -25,10 +25,13 @@ def test_book_metadata_drives_pdf_opening_title() -> None:
     preamble = generate_title_page_preamble(MANUSCRIPT)
     body = generate_title_page_body(MANUSCRIPT)
 
+    # The subtitle renders on the title page body, not inside \title{} metadata
+    # (infrastructure.rendering._pdf_title_page's documented contract — see
+    # test_subtitle_not_embedded_in_title_command in the template repo).
     assert "Introduction to Biology" in preamble
-    assert "A Generative Approach" in preamble
     assert "Research Paper" not in preamble
     assert "Introduction to Biology" in body
+    assert "A Generative Approach" in body
     assert "Publishing Information" in body
     assert "Research Paper" not in body
 

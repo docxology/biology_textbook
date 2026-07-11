@@ -4,13 +4,14 @@ project: biology_textbook
 effort: E4
 effort_source: classifier
 phase: complete
-progress: 54/58
+progress: 69/71
 mode: interactive
 started: 2026-07-10T00:00:00Z
-updated: 2026-07-10T20:35:00Z
+updated: 2026-07-10T22:15:00Z
 git_head_at_start: f264e7ae8efe4873cd33fb82a9291c1ee06cc19e
 git_status_at_start: clean
-git_head_at_push: d96efadba258068f7792aa20e1170da3aaa63be7
+git_head_at_push: 6211ec6a61be3b52c559a735628d46b0743a23b1
+iteration: 2
 ---
 
 ## Problem
@@ -121,7 +122,7 @@ and push the resulting commit(s) to `origin/main`.
 - [x] ISC-33: `uv run python -m pytest tests/test_accessibility.py -q` passes unchanged (covered by full-suite run)
 - [x] ISC-34: Full pytest suite re-run post-change exits 0 with coverage ≥90% — [PARTIAL: 1403/1405 pass, 90.21% coverage; 2 pre-existing env-coupled failures, see Verification]
 - [x] ISC-35: `uv run ruff check` and `uv run mypy` re-run post-change both exit 0 — [mypy: yes. ruff: non-regression proven, see ISC-4]
-- [ ] ISC-36: [DEFERRED-VERIFY] `uv run python scripts/audit_publication_readiness.py --check --full` not re-run post-change — follow-up: re-run once template render is available (see ISC-39)
+- [x] ISC-36: `uv run python scripts/audit_publication_readiness.py --check --full` re-run in iteration 2 — `FAIL (full, failures=1)`, solely on the same pre-existing ruff version-pin gap (ISC-4); every other sub-check (setup, root-render, validate-output, pdf-log, markdown, prerender, artifact-counts, tracked-artifact-hygiene) PASS
 - [x] ISC-37: Mermaid diagrams regenerated: `uv run python scripts/generate_diagrams.py --strict-png` exits 0 with no `.mmd`-fallback diagrams (24/24)
 - [x] ISC-38: Matplotlib figures regenerated: `uv run python scripts/generate_figures.py` exits 0, all 42 generators produce output
 - [ ] ISC-39: [DEFERRED-VERIFY] Combined PDF re-render — NOT POSSIBLE in this checkout: `template` core pipeline fails (`project 'biology_textbook' not found` — this hum-docxology clone of the public `docxology/template` repo lacks the private `projects/active/` tree the orchestrator resolves against); `scripts/03_render_pdf.py` doesn't exist standalone either. Follow-up: re-render from an environment with the full private template tree.
@@ -144,6 +145,22 @@ and push the resulting commit(s) to `origin/main`.
 - [x] ISC-56: Advisor called at the commitment boundary before BUILD begins on the refresh implementation — [invoked via `Inference.ts --mode advisor --auto-state`; `--auto-state` resolved an unrelated prior session's ISA, so its state-specific claims were disregarded, but its generic guidance (prove ruff non-regression before push; confirm PDF isn't a stale committed artifact; re-confirm push authorization) was actioned — see Decisions]
 - [x] ISC-57: Deliverable manifest (review, additions/improvements, re-render, push) cross-checked against shipped work at VERIFY
 - [x] ISC-58: Reflection JSONL written at LEARN
+
+**Iteration 2 (2026-07-10, user-directed render + further comprehensive additions):**
+
+- [x] ISC-59: Private-projects sidecar created (`active/biology_textbook` symlink to the standalone checkout) so `template`'s `resolve_project_root` can find it
+- [x] ISC-60: Template's link-sync recognizes `biology_textbook` (verified via `link-projects --dry-run`: `1 created` → `projects/active/biology_textbook`)
+- [x] ISC-61: Template core pipeline `--project biology_textbook --pipeline --core-only --skip-infra` runs to completion — **PIPELINE COMPLETE**, all 7 core stages passed (Stage 5 PDF Rendering 2487.4s, Stage 6 Copy Outputs 902.0s)
+- [x] ISC-62: Combined PDF artifact produced with a sane size — 22,491,902 bytes, `%PDF-1.7` magic bytes confirmed, v1.0 baseline was 22,377,476–22,377,514 bytes (same order of magnitude)
+- [x] ISC-63: `check_pdf_log.py --max-overfull-pt 2500 --allow-missing-glyphs` passes on the fresh render log
+- [x] ISC-64: ClinVar/dbSNP/RefSeq/MANE variant-interpretation lane gets `current_claims.yaml` rows (the coverage gap flagged and deferred in iteration 1), each anchor_text co-located with its citekey (4 rows: dbsnp, clinvar, refseq/MANE, ACMG/AMP Richards 2015)
+- [x] ISC-65: GBIF gets a `current_claims.yaml` row (same deferred gap)
+- [x] ISC-66: `audit_current_claims.py --check` passes after the new rows (`claims=56 issues=0`)
+- [x] ISC-67: Full pytest suite still green after all iteration-2 additions — **exceeded**: went from 1403/2-failing to **1405 passed, 0 failed** (the two iteration-1 "environment-coupled" failures were actually root-cause fixable — see Decisions)
+- [x] ISC-68: `REVIEW.md` gets a new dated §28 entry documenting the render + ledger additions
+- [ ] ISC-69: `git push origin main` succeeds; remote SHA confirmed matching local HEAD — pending commit
+- [x] ISC-70: Anti: sidecar setup does not modify any git-tracked file inside `template/` (symlinks land only in gitignored `projects/*`; confirmed `git status --short` clean in template repo before and after)
+- [x] ISC-71: Anti: no config.yaml chapter/lab/question-bank count changes anywhere in this iteration's diff
 
 ## Test Strategy
 
@@ -232,8 +249,98 @@ and push the resulting commit(s) to `origin/main`.
   CLAUDE.md's stated guardrail policy ("a missing tool must not block a
   correct, reviewed edit — surface it, don't silently block or fake it").
   Marked `[DEFERRED-VERIFY]` with a concrete follow-up trigger.
+- 2026-07-10 (iteration 2, user-directed): User pointed at the real
+  `template` render repo location and asked to render + push
+  comprehensively. Set up a private-projects sidecar
+  (`_template_private_sidecar/active/biology_textbook` → symlink to the
+  standalone checkout) and `TEMPLATE_PRIVATE_PROJECTS_ROOT` so
+  `template`'s `resolve_project_root` finds biology_textbook — this is
+  the officially-documented mechanism (`infrastructure/project/linking.py`),
+  not a workaround; confirmed no git-tracked file in `template/` changed
+  (`projects/*` is gitignored there).
+- 2026-07-10: Found a real, pre-existing bug in `template`'s shared
+  `infrastructure/rendering/_pdf_title_page.py` (missing subtitle in the
+  LaTeX preamble) while unblocking Stage 3. First attempted a one-line
+  fix there — but `template`'s OWN test suite has a dedicated test,
+  `test_subtitle_not_embedded_in_title_command`, whose docstring states
+  the DELIBERATE contract: "Subtitle renders on the title page body, not
+  inside `\title{}` metadata." My fix broke 3 template tests built on
+  that contract. Per user instruction ("fix it to be functional and most
+  general") and the discovery that `_book_cover_body` (the body-render
+  path biology_textbook's book-style config actually uses) ALREADY
+  emits the subtitle correctly, the *actually correct, most general* fix
+  was in **biology_textbook's own test**
+  (`test_book_metadata_drives_pdf_opening_title`), which incorrectly
+  asserted the subtitle in `preamble` instead of `body`. Fully reverted
+  the `template/` edit (confirmed zero diff), fixed biology_textbook's
+  test to check `body`, verified empirically
+  (`generate_title_page_body(MANUSCRIPT)` contains "A Generative
+  Approach"; `generate_title_page_preamble` does not — matches the
+  documented contract exactly). Result: went from the iteration-1
+  baseline of 2 "environment-coupled" failures to a genuinely clean
+  1405/1405 pytest run. Lesson generalizes: an "obviously correct"
+  one-line fix in someone else's shared infrastructure can silently
+  violate a documented design contract two dedicated tests already
+  enforce — always run the FULL relevant test suite of code you're
+  about to touch, not just the one failing test that motivated the
+  change, before concluding a fix is safe.
+- 2026-07-10: Found and fixed a second, genuinely general robustness bug
+  while getting the render working: `infrastructure/core/files/
+  coverage_cleanup.py::clean_coverage_files` used
+  `file_path.relative_to(repo_root)` to build a log label, which raises
+  `ValueError` whenever `scope_dir` resolves outside `repo_root`'s
+  ancestry — exactly the case for ANY legitimately private-sidecar
+  project whose real target lives on a separate filesystem path (the
+  documented, intended use of `TEMPLATE_PRIVATE_PROJECTS_ROOT`). Fixed
+  by reusing the repo's own existing `relative_or_self` helper
+  (`infrastructure/core/files/serialization.py`), already used
+  elsewhere for exactly this fallback pattern — no new abstraction
+  invented. Added a regression test
+  (`test_scope_dir_outside_repo_root_does_not_raise`) to `template`'s
+  own `tests/infra_tests/core/test_coverage_cleanup.py`. Verified: 41
+  existing tests + 1 new test all pass; import graph has no circularity
+  (`infrastructure.core.files.serialization` has no reverse dependency
+  on `coverage_cleanup`). This fix, unlike the subtitle one, has no
+  competing documented contract — it's a pure crash-on-valid-input bug,
+  general to every out-of-tree private-sidecar project, not
+  biology_textbook-specific. Left uncommitted in `template/` pending the
+  user's decision on whether to commit+push it there (separate repo,
+  separate review/release cycle — out of scope for "push [biology_textbook]
+  to main").
+- 2026-07-10: With both code-level blockers fixed, the pipeline reached
+  Stage 5 (PDF Rendering) and failed on a genuine local-machine gap:
+  `cleveref.sty` not present in this TeX Live install. Also proactively
+  checked `multirow`/`doi`/`newunicodechar` (the exact three packages
+  `template`'s own CLAUDE.md troubleshooting section names) — all three
+  also missing. System-level `sudo tlmgr install` wasn't available
+  (no passwordless sudo in this session), so used `tlmgr init-usertree`
+  + `tlmgr install --usermode` instead — installs into
+  `~/Library/texmf/` (a per-user tree), no system/root changes, fully
+  reversible (`rm -rf ~/Library/texmf`). Confirmed via `template`'s own
+  `infrastructure.rendering.latex_package_validator`: all 12 required
+  packages now resolve.
 
 ## Changelog
+
+- **Conjectured:** `test_book_metadata_drives_pdf_opening_title`'s
+  expectation that the book subtitle appears in
+  `generate_title_page_preamble`'s output was correct, and the shared
+  `template` renderer was simply missing subtitle support.
+  **Refuted by:** `template`'s own test suite already has
+  `test_subtitle_not_embedded_in_title_command`, whose docstring
+  documents the actual, deliberate design: subtitle belongs on the
+  title-page *body*, not in the `\title{}` LaTeX *metadata* command.
+  Empirically confirmed: `generate_title_page_body(MANUSCRIPT)` already
+  contains "A Generative Approach"; the preamble correctly does not.
+  **Learned:** when a cross-project shared dependency's behavior
+  contradicts a local test's expectation, the shared dependency having
+  its OWN dedicated, docstring-explained test for that exact behavior is
+  strong evidence the local test's assumption is the wrong one — check
+  the dependency's test suite before "fixing" the dependency.
+  **Criterion now:** `test_book_metadata_drives_pdf_opening_title`
+  asserts the subtitle is in `body`, matching the documented,
+  doubly-tested `template` contract; `template/infrastructure/rendering/
+  _pdf_title_page.py` is unchanged.
 
 - **Conjectured:** `tests/test_current_claims_ledger.py`'s hardcoded
   `today=date(2026, 5, 25)` was a deliberate, still-valid freeze of the

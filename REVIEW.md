@@ -1044,3 +1044,88 @@ this standalone checkout.
 ChatGPT-account auth rejects GPT-5.x — Gate H). Substituted an inline
 RedTeam QuickAttack pass in VERIFY per Algorithm Rule 2a.
 
+## 28. Successful re-render via `template` + additional current-claims coverage (2026-07-10)
+
+Follow-up to §27, same day. User pointed at the real `template` render
+repository location and asked for a genuine render plus further
+comprehensive additions.
+
+**Additional ledger coverage.** Added six `current_claims.yaml` rows
+closing the "coverage gap" flagged (not remediated) in §27: dbSNP,
+ClinVar, RefSeq/MANE (three rows, all anchored in the shared
+`mutations_and_genomics.md:845` paragraph), ACMG/AMP variant
+classification (Richards 2015, `mendelian_extensions_and_human_genetics.md`),
+and GBIF (`biomes_and_conservation.md`). All anchor_text co-located with
+citekey; `audit_current_claims.py --check` → `claims=56 issues=0`.
+
+**Render — now genuinely achieved.** §27 recorded the combined-PDF
+render as environmentally unavailable in this checkout. That was
+correct at the time, but not the true final state — the real fix was to
+use `template`'s own documented private-projects-sidecar mechanism
+(`TEMPLATE_PRIVATE_PROJECTS_ROOT`, `infrastructure/project/linking.py`)
+rather than treating "no `projects/active/` tree" as terminal. Created a
+sidecar (`_template_private_sidecar/active/biology_textbook` → symlink
+to this checkout) and re-ran `./run.sh --project biology_textbook
+--pipeline --core-only --skip-infra`. Three real, distinct blockers
+surfaced and were fixed along the way, in order:
+
+1. **Stray coverage artifacts** (`.coverage`, `coverage_project.json` —
+   leftovers from this session's own standalone `pytest --cov` runs)
+   crashed `template`'s Stage 2 (Environment Setup) because
+   `infrastructure/core/files/coverage_cleanup.py::clean_coverage_files`
+   used `Path.relative_to(repo_root)` for a log label, which raises when
+   the resolved project path lies outside `repo_root`'s ancestry — true
+   for any legitimately external private-sidecar project. **Fixed** (in
+   `template/`, currently uncommitted — see below) by reusing the
+   repo's own existing `relative_or_self` fallback helper
+   (`infrastructure/core/files/serialization.py`); added a regression
+   test. This is a general robustness fix, not book/paper-specific, with
+   no competing test to conflict with.
+2. **A genuine biology_textbook test defect.**
+   `test_book_metadata_drives_pdf_opening_title` asserted the book
+   subtitle ("A Generative Approach") appears in
+   `generate_title_page_preamble`'s output. First attempted the "obvious"
+   fix in `template`'s shared `_pdf_title_page.py` — but `template`'s
+   own test suite has a dedicated, docstring-documented test
+   (`test_subtitle_not_embedded_in_title_command`) proving that's a
+   deliberate design contract: the subtitle belongs on the title-page
+   *body*, not the `\title{}` LaTeX metadata. Reverted the `template/`
+   change entirely (confirmed zero diff) and fixed the actually-wrong
+   assertion in biology_textbook's own test instead — verified
+   empirically that `generate_title_page_body(MANUSCRIPT)` already
+   contains the subtitle correctly. Full suite went from 1403/2-failing
+   to **1405 passed, 0 failed**.
+3. **Missing local LaTeX packages** (`cleveref`, `multirow`, `doi`,
+   `newunicodechar`, `titlesec`, `tocloft`) — installed via
+   `tlmgr init-usertree` + `tlmgr install --usermode` (no sudo, no
+   system-level change, fully reversible via `rm -rf ~/Library/texmf`).
+
+**Result:** `PIPELINE COMPLETE` — all 7 core stages passed (Stage 5 PDF
+Rendering ~41 min, Stage 6 Copy Outputs ~15 min). Combined PDF:
+`output/pdf/biology_textbook_combined.pdf`, **22,491,902 bytes**
+(`%PDF-1.7`), same order of magnitude as the v1.0.0 baseline (22.4 MB).
+`check_pdf_log.py --max-overfull-pt 2500 --allow-missing-glyphs` →
+**PASS**. `04_validate_output.py` → PDF validation PASS, Markdown
+validation PASS, one non-critical "Evidence registry" warning (generic
+template-level heuristic flags physical constants/reference-appendix
+numbers as "unsupported" — pre-existing template behavior, not a
+biology_textbook defect, out of scope here).
+
+**Gate table (post-render, full aggregate):**
+
+| Gate | Result |
+| --- | --- |
+| `pytest tests/ --cov=src --cov-fail-under=90` | **1405 passed, 0 failed**, 90.16% coverage |
+| `mypy src scripts tests` | PASS |
+| `ruff check src scripts tests --ignore E402` | FAIL — same pre-existing, non-regression-proven gap from §27 (no version pin; confirmed the one Python file touched this iteration is itself clean) |
+| `audit_current_claims.py --check` | PASS (claims=56, issues=0) |
+| `audit_textbook_quality.py --check --max-advisories 0` | PASS |
+| `audit_visual_contracts.py --check --render-inline` | PASS (263 records) |
+| `audit_publication_readiness.py --check --full` | FAIL — solely on the ruff item above; every other sub-check (setup, render, validate-output, pdf-log, markdown, prerender, artifact-counts, tracked-artifact-hygiene) PASS |
+
+**Uncommitted, out-of-scope-here:** the `coverage_cleanup.py` fix lives
+in `template/` (a separate repository with its own review/release
+cycle) and was intentionally left uncommitted pending an explicit
+decision on that repo — not pushed as part of this biology_textbook
+change.
+

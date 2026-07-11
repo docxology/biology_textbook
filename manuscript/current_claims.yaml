@@ -666,3 +666,68 @@ claims:
     evidence_date: 2026-05-23
     checked_as_of: 2026-05-25
     refresh_trigger: "Regenerate after glossary additions or removals; verify with rg -c '{#gl:' manuscript/glossary.md."
+  - claim_id: dbsnp-variant-identifier-resource-2026
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "dbSNP is useful for submitted sequence variation identifiers"
+    claim_text: "dbSNP is a live NCBI resource for submitted sequence-variation identifiers (rsIDs); it is not itself a clinical-significance archive."
+    topic: clinical variant interpretation
+    source_tier: official_primary
+    citekey: dbsnp2026
+    url: https://www.ncbi.nlm.nih.gov/snp/
+    url_or_citekey: dbsnp2026
+    evidence_date: 2026-05-24
+    checked_as_of: 2026-07-10
+    refresh_trigger: "dbSNP portal restructuring, rsID assignment-policy change, or deprecation notice."
+  - claim_id: clinvar-variant-disease-archive-2026
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "ClinVar aggregates assertions about variant-disease relationships"
+    claim_text: "ClinVar is a live NCBI archive of submitted variant-phenotype interpretations and supporting evidence; report-ready claims should cite its Variation ID and review status, not just 'listed variant'."
+    topic: clinical variant interpretation
+    source_tier: official_primary
+    citekey: clinvar2026
+    url: https://www.ncbi.nlm.nih.gov/clinvar/
+    url_or_citekey: clinvar2026
+    evidence_date: 2026-05-24
+    checked_as_of: 2026-07-10
+    refresh_trigger: "ClinVar submission-model, review-status taxonomy, or aggregation-policy update."
+  - claim_id: refseq-mane-transcript-reference-2026
+    file: manuscript/unit_IV/mutations_and_genomics.md
+    source_path: manuscript/unit_IV/mutations_and_genomics.md
+    anchor_text: "RefSeq and the MANE collaboration stabilize the transcript and protein reference"
+    claim_text: "RefSeq and the NCBI/EMBL-EBI MANE collaboration stabilize the transcript/protein reference used for HGVS variant nomenclature; report-ready claims should cite the specific RefSeq/MANE accession used."
+    topic: clinical variant interpretation
+    source_tier: official_primary
+    citekey: refseq2026
+    url: https://www.ncbi.nlm.nih.gov/refseq/MANE/
+    url_or_citekey: refseq2026
+    evidence_date: 2026-02-19
+    checked_as_of: 2026-07-10
+    refresh_trigger: "New RefSeq release or MANE Select/Plus Clinical transcript-set update."
+  - claim_id: acmg-amp-variant-classification-2015
+    file: manuscript/unit_V/mendelian_extensions_and_human_genetics.md
+    source_path: manuscript/unit_V/mendelian_extensions_and_human_genetics.md
+    anchor_text: "under ACMG/AMP categories such as pathogenic, likely pathogenic, uncertain significance, likely benign, and benign"
+    claim_text: "Laboratories classify sequence variants under the 2015 ACMG/AMP joint consensus five-tier framework (pathogenic/likely pathogenic/VUS/likely benign/benign); this remains the standard as of 2026, with ClinGen SVI Bayesian refinements still in specification/expert-panel form rather than a superseding joint guideline."
+    topic: clinical variant interpretation
+    source_tier: scholarly_primary
+    citekey: richards2015variantinterpretation
+    url: https://doi.org/10.1038/gim.2015.30
+    url_or_citekey: richards2015variantinterpretation
+    evidence_date: 2015-05-01
+    checked_as_of: 2026-07-10
+    refresh_trigger: "A formally published joint ACMG/AMP/ClinGen guideline superseding the 2015 five-tier framework."
+  - claim_id: gbif-occurrence-infrastructure-2026
+    file: manuscript/unit_X/biomes_and_conservation.md
+    source_path: manuscript/unit_X/biomes_and_conservation.md
+    anchor_text: "GBIF is open biodiversity occurrence infrastructure"
+    claim_text: "GBIF mobilizes where-and-when occurrence records via Darwin Core; a conservation claim built on GBIF data should filter date, coordinate uncertainty, taxonomic backbone, duplicates, and sampling bias before treating occurrence points as abundance/range evidence."
+    topic: biodiversity occurrence data
+    source_tier: official_summary
+    citekey: gbif2026
+    url: https://www.gbif.org/what-is-gbif
+    url_or_citekey: gbif2026
+    evidence_date: 2026-05-24
+    checked_as_of: 2026-07-10
+    refresh_trigger: "GBIF data-standard revision, Darwin Core schema change, or major occurrence-record milestone."

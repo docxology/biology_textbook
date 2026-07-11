@@ -7,6 +7,30 @@ appendices. Perplexity may be used for discovery, but adopted claims require
 direct official or peer-reviewed verification before they enter prose,
 `references.bib`, or `current_claims.yaml`.
 
+## 2026-07-10 Coverage-Gap Closure (same-day follow-up)
+
+Closed the "process gap, not remediated" note from the pass below:
+ClinVar, dbSNP, RefSeq/MANE, and GBIF previously had only bibliography
+"accessed" dates with no `current_claims.yaml` row to diff future drift
+against. Added six rows total:
+
+- `dbsnp-variant-identifier-resource-2026`, `clinvar-variant-disease-archive-2026`,
+  `refseq-mane-transcript-reference-2026` — all anchored in the shared
+  `manuscript/unit_IV/mutations_and_genomics.md:845` paragraph (the
+  sentence already names each resource individually).
+- `acmg-amp-variant-classification-2015` — anchored in
+  `manuscript/unit_V/mendelian_extensions_and_human_genetics.md:514`,
+  tracking the 2015 ACMG/AMP five-tier framework as the current standard
+  (ClinGen SVI Bayesian work remains in specification/expert-panel form,
+  not a superseding joint guideline, as of this check).
+- `gbif-occurrence-infrastructure-2026` — anchored in
+  `manuscript/unit_X/biomes_and_conservation.md:934`.
+
+No new prose claims were introduced beyond what the existing sentences
+already stated; this pass only gave those existing claims a tracked
+evidence_date/checked_as_of/refresh_trigger they lacked before.
+`audit_current_claims.py --check` → `claims=56 issues=0`.
+
 ## 2026-07-10 Verified Refresh Pass
 
 Multi-lens review (six independent research agents, each adversarially
