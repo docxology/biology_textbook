@@ -158,7 +158,7 @@ and push the resulting commit(s) to `origin/main`.
 - [x] ISC-66: `audit_current_claims.py --check` passes after the new rows (`claims=56 issues=0`)
 - [x] ISC-67: Full pytest suite still green after all iteration-2 additions — **exceeded**: went from 1403/2-failing to **1405 passed, 0 failed** (the two iteration-1 "environment-coupled" failures were actually root-cause fixable — see Decisions)
 - [x] ISC-68: `REVIEW.md` gets a new dated §28 entry documenting the render + ledger additions
-- [ ] ISC-69: `git push origin main` succeeds; remote SHA confirmed matching local HEAD — pending commit
+- [x] ISC-69: `git push origin main` succeeded (`6211ec6..f16e113`); `git rev-parse HEAD origin/main` both return `f16e1133727f068cc8322b5f32c4aa0c266526de`
 - [x] ISC-70: Anti: sidecar setup does not modify any git-tracked file inside `template/` (symlinks land only in gitignored `projects/*`; confirmed `git status --short` clean in template repo before and after)
 - [x] ISC-71: Anti: no config.yaml chapter/lab/question-bank count changes anywhere in this iteration's diff
 
