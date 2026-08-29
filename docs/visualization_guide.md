@@ -313,7 +313,7 @@ graph LR
 When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
 
 ```markdown
-![Glycolysis pathway: glucose to pyruvate via 10 enzymatic steps.](../figures/mermaid/glycolysis_pathway.png)
+![Glycolysis pathway: glucose to pyruvate via 10 enzymatic steps.](<figures/mermaid/glycolysis_pathway.png>)  <!-- path placeholder: no pre-rendered PNG exists in-tree; figures render from Mermaid source -->
 ```
 
 ### Captioning conventions

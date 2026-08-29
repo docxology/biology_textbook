@@ -370,7 +370,7 @@ Manuscript-wide pandoc-crossref / LaTeX `\label{}` validator. Consumed by manusc
 
 **When to use:** after bulk-editing chapters, adding `@fig:` / `@eq:` references, or changing `{#fig:...}` / `\label{...}` — run `validate(manuscript_root)` in a small script or rely on `pytest tests/test_crossref_validator*.py`. Same logical checks as infrastructure `prerender` for undefined citations, plus label graph integrity.
 
-Detects raw-LaTeX figure environments (`\begin{figure}…\label{fig:…}…\end{figure}`), LaTeX equation environments, inline `$$…$$` display math, table captions (`Table: … {#tbl:…}`), markdown images (`![alt](…){#fig:…}`), section labels (`## Heading {#sec:…}`), and cross-references (`@fig:`, `@eq:`, `@tbl:`, `@sec:`). Manual equation-number tags are rejected so rendered numbering stays LaTeX-assigned. Details: [composable_authoring.md](composable_authoring.md).
+Detects raw-LaTeX figure environments (`\begin{figure}…\label{fig:…}…\end{figure}`), LaTeX equation environments, inline `$$…$$` display math, table captions (`Table: … {#tbl:…}`), markdown images (`![alt](path){#fig:…}`), section labels (`## Heading {#sec:…}`), and cross-references (`@fig:`, `@eq:`, `@tbl:`, `@sec:`). Manual equation-number tags are rejected so rendered numbering stays LaTeX-assigned. Details: [composable_authoring.md](composable_authoring.md).
 
 ## `visualization.cvd`
 

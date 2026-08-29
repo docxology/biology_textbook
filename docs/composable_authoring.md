@@ -134,7 +134,7 @@ Raw LaTeX figure/table environments with `\label{fig:...}` are scanned by the va
 1. Create `manuscript/unit_<X>/<stem>.md` (descriptive `stem`, no chapter number in filename).
 2. Add chapter entry under the correct `units[]` in [../manuscript/config.yaml](../manuscript/config.yaml).
 3. Add `ChapterMeta("unit_<X>_<stem>", ...)` in [../src/biology/chapter_metadata.py](../src/biology/chapter_metadata.py) (order follows `config.yaml`).
-4. Add `CurriculumRecord` data in [../src/biology/curriculum.py](../src/biology/curriculum.py) with a real `bridge_api` from `src/biology`.
+4. Add `CurriculumRecord` data in [../src/biology/curriculum/](../src/biology/curriculum/) with a real `bridge_api` from `src/biology`.
 5. Check [../src/biology/alignment.py](../src/biology/alignment.py) unit defaults. If the new chapter needs a different standards/skills profile than its unit, add an override or update the unit alignment deliberately.
 6. Add lab + question files if required by your appendices plan; list only their `file:` names under `config.yaml` `appendices.labs/questions`. Their H1 titles are derived by `biology.toc`.
 7. Run idempotent scripts (from project directory):

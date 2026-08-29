@@ -617,7 +617,7 @@ When a chapter needs a guaranteed-stable PNG (e.g. for print-only editions), reg
 3. Reference the resulting PNG with standard markdown image syntax:
 
    ```markdown
-   ![Glycolysis pathway: glucose to pyruvate via 10 enzymatic steps.](../figures/mermaid/glycolysis_pathway.png)
+   ![Glycolysis pathway: glucose to pyruvate via 10 enzymatic steps.](visualization_guide.md)
    ```
 
 ---
