@@ -1238,3 +1238,41 @@ Post-fix module status: `tests/test_pdf_opening_and_mermaid.py` 10/10,
 and mypy-clean. Full-suite re-run in progress at addendum time; all other
 publication gates listed above are live-verified green.
 
+
+### Documentation accuracy pass — 2026-08-30 (same lane, follow-up)
+
+User-requested accuracy sweep of all `AGENTS.md`/`README.md`/docs against the
+live tree. Every claimed count was re-measured, not trusted. Verified correct
+as-is: 44 chapters / 44 labs / 44 question banks in `config.yaml`, 36 scripts,
+42 figure generators, 24 Mermaid diagrams, 263-record visual manifest (README
+and docs/README), 56 current claims. Fixed drift (commit `d4d1e74`):
+
+- `docs/testing_guide.md` — invariant/quality table said 25 files but listed 26
+  rows and omitted **31 module tests** (`test_numerics`, `test_citations`,
+  `test_typography`, `test_pipeline`, `test_wip_resolver_smoke`, etc.);
+  section retitled 26 files, all 31 rows added. Totals now sum to 70.
+- `docs/pipeline_guide.md` — "41 test files" stage row and "40 test_*.py
+  modules" → 70 (two places).
+- `docs/architecture.md` — "58 test_*.py files" → 70.
+- `docs/AGENTS.md` — architecture.md row "40 test_*.py modules" → 70.
+- Inline Mermaid fence counts 193/196 → 197 total (196 outside README/AGENTS
+  documentation files; per-file recount) in `AGENTS.md`,
+  `docs/agent_instructions.md`, `docs/AGENTS.md`, `docs/README.md`,
+  `docs/visualization_guide.md`, `manuscript/AGENTS.md`.
+- `docs/visualization_guide.md` — visual-contract audit "262 records" → 263
+  (matches `output/figures/visual_manifest.json`).
+- `scripts/AGENTS.md` + root `AGENTS.md` — four maintenance scripts
+  undocumented: `annotate_table_captions.py`, `polish_table_captions.py`,
+  `normalize_american_english.py`, `repair_split_chapter_shells.py`; rows added
+  with their guarding tests.
+- Root `AGENTS.md` tests tree — stale `test_genetics.py` entry (split into the
+  eight `test_genetics_*.py` modules long ago) removed; 40 missing test modules
+  added to the tree listing (now 70/70, verified by diff against disk).
+- Root `AGENTS.md` see-also — two broken relative links to template-root paths
+  (`../../infrastructure/AGENTS.md`, `../../projects/template_code_project/…`)
+  rewritten as prose pointers; link audit of all project docs now reports zero
+  broken `.md` links.
+
+Functional re-verification after edits: `refine_generated_answers.py --dry-run`
+→ `refined=0`; `normalize_lab_computational_workflows.py --dry-run` →
+`labs_normalised=0`; both exit 0. No code paths touched — docs only.
