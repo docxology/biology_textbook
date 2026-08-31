@@ -93,25 +93,30 @@ def test_analysis_injection_copies_live_config_for_cover_metadata(
     assert (output / "assets" / "cover" / "test_cover.png").read_bytes() == b"cover image"
 
 
+def _fake_render_mermaid(*, mmdc: str, output_dir: Path, stem: str, source: str, puppeteer_config: Path | None) -> Path:
+    """Stand-in matching infrastructure _render_mermaid's contract (no subprocess)."""
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir / f"{stem}.mmd").write_text(source + "\n", encoding="utf-8")
+    png_path = output_dir / f"{stem}.png"
+    png_path.write_bytes(b"png")
+    return png_path
+
+
+def _enable_inline_mermaid_render_stub_only(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """mmdc resolvable + _render_mermaid stubbed; renderer-side side effects intact."""
+    pdf_mermaid = pytest.importorskip("infrastructure.rendering._pdf_mermaid")
+    (tmp_path / ".puppeteer.json").write_text("{}", encoding="utf-8")
+    monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
+    monkeypatch.setattr(pdf_mermaid, "_render_mermaid", _fake_render_mermaid)
+
+
 def test_inline_mermaid_is_rendered_to_png_reference(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     """A rendered Mermaid block becomes an image reference, not stripped text."""
     manuscript_dir = tmp_path / "manuscript"
     manuscript_dir.mkdir()
     (tmp_path / ".puppeteer.json").write_text("{}", encoding="utf-8")
 
-    def fake_run(cmd: list[str], **_kwargs: object):
-        output = Path(cmd[cmd.index("--output") + 1])
-        output.write_bytes(b"png")
-
-        class Result:
-            returncode = 0
-            stdout = ""
-            stderr = ""
-
-        return Result()
-
-    monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
-    monkeypatch.setattr("subprocess.run", fake_run)
+    _enable_inline_mermaid_render_stub_only(tmp_path, monkeypatch)
 
     content = """Before
 ```mermaid
@@ -130,7 +135,7 @@ After
     assert result.mermaid_blocks_processed == 1
     assert "```mermaid" not in result.content
     assert "../figures/mermaid_inline/inline_mermaid_0001_" in result.content
-    assert "\\includegraphics[width=0.82\\linewidth,height=4.2in,keepaspectratio]" in result.content
+    assert "\\includegraphics[width=0.82\\linewidth,height=4.2in,keepaspectratio,alt=" in result.content
     assert "\\caption{A concise visible Mermaid caption.}" in result.content
     assert "*A concise visible Mermaid caption.*" not in result.content
     assert (tmp_path / "output" / "figures" / "mermaid_inline").is_dir()
@@ -141,19 +146,7 @@ def _enable_inline_mermaid_render(tmp_path: Path, monkeypatch: pytest.MonkeyPatc
     """Provide puppeteer config + mmdc so inline Mermaid renders to PNG in tests."""
     (tmp_path / ".puppeteer.json").write_text("{}", encoding="utf-8")
 
-    def fake_run(cmd: list[str], **_kwargs: object):
-        output = Path(cmd[cmd.index("--output") + 1])
-        output.write_bytes(b"png")
-
-        class Result:
-            returncode = 0
-            stdout = ""
-            stderr = ""
-
-        return Result()
-
-    monkeypatch.setattr("shutil.which", lambda name: "/usr/bin/mmdc" if name == "mmdc" else None)
-    monkeypatch.setattr("subprocess.run", fake_run)
+    _enable_inline_mermaid_render_stub_only(tmp_path, monkeypatch)
 
 
 def test_inline_mermaid_output_directory_is_cleaned_before_render(
@@ -224,7 +217,7 @@ def test_inline_mermaid_requires_renderer_when_pdf_rendering(tmp_path: Path, mon
     manuscript_dir.mkdir()
     monkeypatch.setattr("shutil.which", lambda _name: None)
     pdf_mermaid = pytest.importorskip("infrastructure.rendering._pdf_mermaid")
-    monkeypatch.setattr(pdf_mermaid, "_resolve_chrome_executable", lambda: None)
+    monkeypatch.setattr(pdf_mermaid, "_resolve_chrome_executable", lambda **_kwargs: None)
 
     result = preprocess_combined_markdown("```mermaid\ngraph TD\nA-->B\n```", manuscript_dir=manuscript_dir)
 
