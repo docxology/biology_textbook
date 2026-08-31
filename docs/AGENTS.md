@@ -11,7 +11,7 @@ This `docs/` directory documents the active standalone `biology_textbook` checko
 | `AGENTS.md` | This file — documentation hub overview and conventions |
 | `README.md` | Quick navigation index for docs/ |
 | `composable_authoring.md` | Stable `\label` / `\cref` schema, end-to-end workflows (chapter, figure, diagram, API), validation commands, test pointers |
-| `architecture.md` | System architecture: src/, tests/ (40 `test_*.py` modules), scripts/, manuscript/ relationships |
+| `architecture.md` | System architecture: src/, tests/ (70 `test_*.py` modules), scripts/, manuscript/ relationships |
 | `accessibility.md` | Which `config.yaml` flags are advisory vs test/code; reader PDF profile; CVD / alt-text policy |
 | `absolute_language_triage.md` | Advisory absolute-language categories: valid scientific absolutes, needed qualifiers, copyedit artifacts |
 | `embedded_enrichment_audit_matrix.md` | Section-by-section audit matrix for embedded chapter, lab, question-bank, glossary, and appendix enrichment |
@@ -31,7 +31,7 @@ This `docs/` directory documents the active standalone `biology_textbook` checko
 - `api_reference.md` is a **curated** list of manuscript-facing and test-exercised entry points (not an auto-generated dump); after substantive module changes, run `rg '^\s*def ' src/biology` and add or update rows for any new public API you expect authors to call
 - Current-claim workflow docs must point to `manuscript/current_claims.yaml`, `src/biology/current_claims.py`, `scripts/audit_current_claims.py --check`, and `tests/test_current_claims_ledger.py`.
 - Assessment workflow docs must point to `src/biology/assessment.py`, `scripts/sync_assessment_metadata.py --check`, `tests/test_assessment_metadata.py`, `tests/test_lab_pedagogy_alignment.py`, and `tests/test_chapter_pedagogy_coverage.py`.
-- Visual workflow docs must distinguish registered Mermaid PNGs (`scripts/generate_diagrams.py --strict-png` for publication), 196 inline Mermaid fences rendered strictly during PDF preprocessing or `audit_visual_contracts.py --render-inline`, 42 matplotlib figures registered in `ALL_FIGURE_GENERATORS`, and the derived visual manifest/review matrix checked by `scripts/audit_visual_contracts.py --figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check`.
+- Visual workflow docs must distinguish registered Mermaid PNGs (`scripts/generate_diagrams.py --strict-png` for publication), 197 inline Mermaid fences rendered strictly during PDF preprocessing or `audit_visual_contracts.py --render-inline`, 42 matplotlib figures registered in `ALL_FIGURE_GENERATORS`, and the derived visual manifest/review matrix checked by `scripts/audit_visual_contracts.py --figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check`.
 - Every pipeline stage must be documented in `pipeline_guide.md`
 - All testing patterns (and any exceptions to the zero-mock policy) must appear in `testing_guide.md`
 - Manuscript conventions (naming, numbering, figures, equations) are defined in `manuscript_guide.md` and `composable_authoring.md` (workflows)

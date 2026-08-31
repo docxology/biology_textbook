@@ -125,6 +125,10 @@ biology_textbook/
 │   ├── atomic_io.py                   # atomic write/replace helper for mutating scripts
 │   ├── audit_current_claims.py        # current-claims ledger and stale-phrase gate
 │   ├── audit_publication_readiness.py # project-local publication-readiness gate
+├── annotate_table_captions.py         # insert Table: … {#tbl:…} captions before pipe tables
+├── polish_table_captions.py           # polish existing pandoc table captions
+├── normalize_american_english.py      # British → American spelling normalizer
+├── repair_split_chapter_shells.py     # repair pedagogy shells on split chapters
 │   ├── audit_textbook_quality.py       # umbrella manuscript/lab/question/current-claim quality gate; --check gate plus quality_advisories.yaml
 │   ├── audit_visual_contracts.py       # visual manifest gate
 │   ├── biology_analysis.py            # config-driven full-textbook collect + analysis JSON; copies references.bib + preamble → output/manuscript/
@@ -168,7 +172,6 @@ biology_textbook/
 │   ├── test_curriculum_metadata.py
 │   ├── test_ecology_evolution_physiology_biochemistry.py
 │   ├── test_enrichment_substance_gate.py # boilerplate/duplicate enrichment detector regressions
-│   ├── test_genetics.py
 │   ├── test_lab_integrity.py
 │   ├── test_lab_pedagogy_alignment.py
 │   ├── test_mermaid_and_visualization.py
@@ -182,6 +185,46 @@ biology_textbook/
 │   ├── test_script_quality.py
 │   ├── test_textbook_paths.py           # checkout path discovery + bootstrap helpers
 │   ├── test_textbook_quality_audit.py # umbrella stale-claim/copyedit/enrichment quality audit
+│   ├── test_american_english.py            # American English spelling gate
+│   ├── test_answer_refinement_modules.py   # answer-refinement helper modules
+│   ├── test_answer_scaffolds.py            # answer scaffold filling + enrichment answer keys
+│   ├── test_assessment_sync.py             # biology.assessment_sync
+│   ├── test_chapter_badges.py              # biology.maintenance.chapter_badges
+│   ├── test_chapter_shells.py              # biology.maintenance.chapter_shells
+│   ├── test_citations.py                   # shared natbib citation parsing helpers
+│   ├── test_cover_art.py                   # cover art generation
+│   ├── test_crossref_label_insertion.py    # biology.crossref.label_insertion
+│   ├── test_diagram_spec_loader.py         # declarative Mermaid diagram specs
+│   ├── test_enrichment_catalog_loader.py   # enrichment catalog YAML loader
+│   ├── test_foundations.py                 # biology.foundations domain helpers
+│   ├── test_further_reading.py             # biology.maintenance.further_reading
+│   ├── test_genetics_distance.py           # Hamming + Jukes–Cantor distances
+│   ├── test_genetics_epigenetics.py        # CpG methylation decay, histone marks
+│   ├── test_genetics_linkage.py            # recombination, map distance, three-point order
+│   ├── test_genetics_mendelian.py          # Punnett squares, gametes
+│   ├── test_genetics_mutation.py           # mutation-rate spectrum reference data
+│   ├── test_genetics_population.py         # Hardy–Weinberg, χ²
+│   ├── test_genetics_replication.py        # replication-fork progression
+│   ├── test_genetics_sequence.py           # genetic code, transcription, translation, GC
+│   ├── test_glossary_cards.py              # glossary card parsing
+│   ├── test_glossary_first_use.py          # first-use glossary linking
+│   ├── test_lab_padding.py                 # short-lab debrief padding
+│   ├── test_lab_workflows.py               # lab computational workflow normalisation
+│   ├── test_manuscript_spans.py            # protected-span scanning
+│   ├── test_numerics.py                    # shared numerical integration helpers
+│   ├── test_orphan_citations.py            # orphan citation YAML loader
+│   ├── test_orphan_figures.py              # biology.pipeline.orphan_figures
+│   ├── test_parent_chapter_links.py        # parent-chapter cross-reference insertion
+│   ├── test_pipeline.py                    # biology.pipeline manuscript injection/numbering
+│   ├── test_publication_gate.py            # publication gate step graph
+│   ├── test_solution_scaffolds.py          # biology.answer_refinement.solution_scaffolds
+│   ├── test_table_captions.py              # table caption annotation helpers
+│   ├── test_text_normalize.py              # shared Mermaid metadata normalization
+│   ├── test_textbook_io.py                 # shared textbook_io helpers
+│   ├── test_textbook_visuals.py            # shared figure post-processing helpers
+│   ├── test_typography.py                  # manuscript typography normalization
+│   ├── test_visual_contracts_audit.py      # visual contract audit helpers
+│   ├── test_wip_resolver_smoke.py          # template WIP resolver smoke gate
 │   └── test_toc_consistency.py
 ├── manuscript/
 │   ├── config.yaml            # single source of truth for order and units
@@ -238,7 +281,7 @@ Every change that adds or renames a chapter, lab, question bank, figure, or BibT
 | Every `\citep{…}` / `\citet{…}` resolves; every bib entry is cited | `test_bibliography_closure` | `scripts/integrate_orphan_citations.py` |
 | Every figure generator referenced in manuscript | `test_build_invariants.test_every_registered_figure_is_referenced` | `scripts/insert_orphan_figures.py` |
 | Registered Mermaid publication output is PNG, not `.mmd` fallback | manual publication gate / renderer strict mode | `scripts/generate_diagrams.py --strict-png` |
-| 196 inline Mermaid fences each have one alt comment and one italic caption; PDF preprocessing renders them to PNG | `test_accessibility.py` + `test_pdf_opening_and_mermaid.py` | `scripts/add_mermaid_alt_text.py --check` and install `mmdc` |
+| 197 inline Mermaid fences (196 outside README/AGENTS docs) each have one alt comment and one italic caption; PDF preprocessing renders them to PNG | `test_accessibility.py` + `test_pdf_opening_and_mermaid.py` | `scripts/add_mermaid_alt_text.py --check` and install `mmdc` |
 | Visual manifest is derived from figures, registered Mermaid, and inline Mermaid; generated manifest lives under `output/figures/` | `audit_visual_contracts.py --check` / publication readiness | `scripts/audit_visual_contracts.py --check` |
 | Fast-moving claims carry source, anchor, tier, checked date, and refresh trigger | `test_current_claims_ledger.py` | `scripts/audit_current_claims.py --check` and update `manuscript/current_claims.yaml` |
 | Question-bank items and labs carry assessment metadata | `test_assessment_metadata.py` / `test_lab_pedagogy_alignment.py` | `scripts/sync_assessment_metadata.py --dry-run` to preview, then `--check` |
@@ -268,5 +311,5 @@ The LaTeX preamble (`manuscript/preamble.md`) now loads **cleveref** (after `hyp
 - [manuscript/AGENTS.md](manuscript/AGENTS.md) — chapter conventions, `plot_*` / `*_diagram()` allowlist
 - [manuscript/README.md](manuscript/README.md) — author quick reference and course pathways
 - [Root AGENTS.md](../../AGENTS.md)
-- [projects/template_code_project/AGENTS.md](../../projects/template_code_project/AGENTS.md) — canonical code-project exemplar layout
-- [infrastructure/AGENTS.md](../../infrastructure/AGENTS.md)
+- Template exemplar layout: `projects/templates/template_code_project/` in the template repository (this standalone checkout does not embed those paths)
+- Template infrastructure: `infrastructure/` in the template repository (`uv run python -m infrastructure.validation.cli …` when run from the template root)

@@ -27,9 +27,9 @@ The `biology_textbook` project generates **three types of visual output**:
 
 1. **Matplotlib figures** — 42 quantitative plots from `src/visualization/plots.py` (`ALL_FIGURE_GENERATORS`)
 2. **Registered Mermaid diagrams** — 24 biological pathway/network diagrams from `src/mermaid/biology_diagrams.py` (`ALL_BIOLOGY_DIAGRAMS`), rendered to PNG via the `mmdc` CLI
-3. **Inline Mermaid fences** — 196 manuscript-local diagrams rendered during PDF preprocessing and optional visual-contract review
+3. **Inline Mermaid fences** — 197 manuscript-local diagrams (196 outside README/AGENTS docs) rendered during PDF preprocessing and optional visual-contract review
 
-Matplotlib figures and registered Mermaid diagrams are square-padded after rendering so labels and legends do not change the final canvas shape. The visual-contract audit measures all 262 records and fails `--check` when a normal matplotlib figure falls outside aspect ratio `0.85-1.18`, or a Mermaid PNG falls outside `0.75-1.33`, unless the record carries a reviewed exception reason. Use temporary review roots for verification:
+Matplotlib figures and registered Mermaid diagrams are square-padded after rendering so labels and legends do not change the final canvas shape. The visual-contract audit measures all 263 records and fails `--check` when a normal matplotlib figure falls outside aspect ratio `0.85-1.18`, or a Mermaid PNG falls outside `0.75-1.33`, unless the record carries a reviewed exception reason. Use temporary review roots for verification:
 
 ```bash
 tmp=$(mktemp -d)

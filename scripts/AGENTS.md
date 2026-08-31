@@ -40,6 +40,10 @@ the matching script is the canonical fix.
 | `audit_current_claims.py` | `test_current_claims_ledger.py` | Validates `manuscript/current_claims.yaml` source tiers, checked dates, refresh triggers, anchors, and stale-phrase locks |
 | `audit_visual_contracts.py` | publication-readiness gate | Generates/checks a visual manifest and review matrix from raw figure blocks, registered Mermaid factories, inline Mermaid fences, asset dimensions, alt text, captions, generator names, action taken, exceptions, and square-ish aspect policy |
 | `audit_publication_readiness.py` | aggregate gate | Runs quality, current-claim, assessment, Mermaid alt, strict figure/diagram, lint, mypy, WIP resolver, artifact-count, and tracked-artifact checks using temporary visual artifacts; `--full` adds root setup/test/render/validate; `--workers N` parallelizes independent gate steps (default `1`) |
+| `annotate_table_captions.py` | `test_table_captions.py` | Inserts `Table: … {#tbl:…}` captions before chapter and lab pipe tables missing them |
+| `polish_table_captions.py` | `test_table_captions.py` | Polishes existing pandoc table captions across the manuscript (thin CLI for `biology.maintenance.table_captions`) |
+| `normalize_american_english.py` | `test_american_english.py` | Rewrites British spellings to American English in manuscript and docs |
+| `repair_split_chapter_shells.py` | `test_chapter_shells.py` | Repairs pedagogy shells on chapters created by the Phase 5 mega-chapter split (thin CLI for `biology.maintenance.chapter_shells`) |
 | `sync_assessment_metadata.py` | `test_assessment_metadata.py` + `test_lab_pedagogy_alignment.py` | Inserts/verifies question-item metadata and lab outcome/LO/rubric alignment blocks from `biology.assessment` / `biology.toc` surfaces; `--dry-run` previews drift without writing |
 
 ## Pedagogy and content utilities (optional)

@@ -56,7 +56,7 @@ Overall **`src/`** line + branch coverage is enforced at **≥90 %** via `pyproj
 
 ## Manuscript invariants as tests
 
-The [`tests/`](../tests/) suite is **58** `test_*.py` files: domain modules plus manuscript, lab, question, render, current-claim, assessment-alignment, maintenance-engine smoke, table-caption, publication-gate, and script-quality invariant modules. Authoritative list and failure-to-fix table: [testing_guide.md](testing_guide.md#test-organization); the same invariant list appears under “Invariant tests (Stage 2 gate-keepers)” in [pipeline_guide.md](pipeline_guide.md).
+The [`tests/`](../tests/) suite is **70** `test_*.py` files: domain modules plus manuscript, lab, question, render, current-claim, assessment-alignment, maintenance-engine smoke, table-caption, publication-gate, and script-quality invariant modules. Authoritative list and failure-to-fix table: [testing_guide.md](testing_guide.md#test-organization); the same invariant list appears under “Invariant tests (Stage 2 gate-keepers)” in [pipeline_guide.md](pipeline_guide.md).
 
 Invariant modules:
 

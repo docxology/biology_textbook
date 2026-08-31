@@ -22,7 +22,7 @@ uv run python scripts/05_copy_outputs.py --project biology_textbook
 | # | Stage | Script | Description |
 |---|-------|--------|-------------|
 | 1 | Setup | `00_setup_environment.py` | Verify Python version, uv, mmdc (Mermaid CLI), LaTeX |
-| 2 | Tests | `01_run_tests.py` | Project test suite (41 test files in-tree); fails if `src/` coverage < 90 % |
+| 2 | Tests | `01_run_tests.py` | Project test suite (70 test files in-tree); fails if `src/` coverage < 90 % |
 | 3 | Analysis | `02_run_analysis.py` | Runs `analysis.scripts` from `manuscript/config.yaml` (`generate_figures.py`, `generate_diagrams.py`, `biology_analysis.py`) → figures and the full ordered textbook are injected into `output/`, `output/analysis_report.json` written |
 | 4 | PDF Render | `03_render_pdf.py` | Pandoc: Markdown → LaTeX → PDF; uses `manuscript/config.yaml`; loads `cleveref` via preamble; invokes `pandoc-crossref` if on PATH. **When `output/manuscript/` is populated, render reads the injected copy, not live `manuscript/` edits — run Stage 3 (`biology_analysis.py`) after manuscript changes before render.**
 | 5 | Validate | `04_validate_output.py` | Checks PDF for `??` unresolved refs, word count, page count |
@@ -150,7 +150,7 @@ Because numbers are assigned at render time:
 
 ## Invariant tests (Stage 2 gate-keepers)
 
-The current suite has **40** `test_*.py` modules, including domain and invariant/quality tests — see [testing_guide.md](testing_guide.md#test-organization). They fail the pipeline if manuscript, lab, question, render, or script quality regresses:
+The current suite has **70** `test_*.py` modules, including domain and invariant/quality tests — see [testing_guide.md](testing_guide.md#test-organization). They fail the pipeline if manuscript, lab, question, render, or script quality regresses:
 
 - `test_build_invariants.py` — every chapter labeled, every lab/question `\cref`-linked, every figure generator referenced
 - `test_bibliography_closure.py` — `{cited}` == `{defined}` in `references.bib`

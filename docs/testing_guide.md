@@ -125,7 +125,7 @@ Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the
 | `test_coverage_gap.py` | Deliberately closes residual branches in existing modules |
 | `conftest.py` | `MPLBACKEND=Agg`, `ensure_project_paths()` bootstrap, `COVERAGE_RCFILE` + early cov-config hook for direct pytest |
 
-### Invariant and quality tests (25 files)
+### Invariant and quality tests (26 files)
 
 | Test file | What it guards |
 | --------- | -------------- |
@@ -155,6 +155,37 @@ Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the
 | `test_textbook_paths.py` | Checkout path discovery, `ensure_project_paths()`, and template-root resolution |
 | `test_textbook_quality_audit.py` | Umbrella textbook-quality audit: stale claims, copyedit artifacts, enrichment presence, and current-source locks |
 | `test_publication_gate.py` | Publication gate step graph, dependency ordering, and parallel worker invariants |
+| `test_american_english.py` | American English spelling gate for manuscript and docs |
+| `test_answer_refinement_modules.py` | Answer-refinement classification, evidence, and generation helpers |
+| `test_answer_scaffolds.py` | Answer scaffold filling and enrichment answer keys |
+| `test_assessment_sync.py` | `biology.assessment_sync` metadata synchronization |
+| `test_chapter_badges.py` | `biology.maintenance.chapter_badges` metadata-badge maintenance |
+| `test_chapter_shells.py` | `biology.maintenance.chapter_shells` chapter-shell repair |
+| `test_citations.py` | Shared natbib citation parsing helpers |
+| `test_cover_art.py` | Cover art generation |
+| `test_crossref_label_insertion.py` | `biology.crossref.label_insertion` section-label insertion |
+| `test_diagram_spec_loader.py` | Declarative Mermaid diagram specs (`diagram_specs.yaml`) |
+| `test_enrichment_catalog_loader.py` | Enrichment catalog YAML loader |
+| `test_foundations.py` | `biology.foundations` and related domain helpers |
+| `test_further_reading.py` | `biology.maintenance.further_reading` maintenance |
+| `test_glossary_cards.py` | Glossary card parsing |
+| `test_glossary_first_use.py` | First-use glossary linking |
+| `test_lab_padding.py` | Short-lab debrief padding |
+| `test_lab_workflows.py` | Lab computational workflow normalisation |
+| `test_manuscript_spans.py` | Protected-span scanning |
+| `test_numerics.py` | Shared numerical integration helpers |
+| `test_orphan_citations.py` | Orphan citation YAML loader |
+| `test_orphan_figures.py` | `biology.pipeline.orphan_figures` |
+| `test_parent_chapter_links.py` | Parent-chapter cross-reference insertion |
+| `test_pipeline.py` | `biology.pipeline` manuscript injection and numbering |
+| `test_solution_scaffolds.py` | `biology.answer_refinement.solution_scaffolds` |
+| `test_table_captions.py` | Table caption annotation helpers |
+| `test_text_normalize.py` | Shared Mermaid metadata normalization |
+| `test_textbook_io.py` | Shared `textbook_io` helpers |
+| `test_textbook_visuals.py` | Shared figure post-processing helpers |
+| `test_typography.py` | Manuscript typography normalization |
+| `test_visual_contracts_audit.py` | Visual contract audit helpers and `check_records` branches |
+| `test_wip_resolver_smoke.py` | Template WIP resolver smoke gate |
 
 ### Textbook quality audit
 
