@@ -1,7 +1,7 @@
 # Current Source Refresh Matrix
 
 This matrix records the config-driven source sweep for the renderable
-manuscript surface defined by `manuscript/config.yaml`: 2 front-matter files,
+manuscript surface defined by `docs/manuscript/config.yaml`: 2 front-matter files,
 11 unit intros, 44 chapters, 44 labs, 44 question banks, and 7 reference
 appendices. Perplexity may be used for discovery, but adopted claims require
 direct official or peer-reviewed verification before they enter prose,
@@ -16,15 +16,15 @@ against. Added six rows total:
 
 - `dbsnp-variant-identifier-resource-2026`, `clinvar-variant-disease-archive-2026`,
   `refseq-mane-transcript-reference-2026` — all anchored in the shared
-  `manuscript/unit_IV/mutations_and_genomics.md:845` paragraph (the
+  `docs/manuscript/unit_IV/mutations_and_genomics.md:845` paragraph (the
   sentence already names each resource individually).
 - `acmg-amp-variant-classification-2015` — anchored in
-  `manuscript/unit_V/mendelian_extensions_and_human_genetics.md:514`,
+  `docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:514`,
   tracking the 2015 ACMG/AMP five-tier framework as the current standard
   (ClinGen SVI Bayesian work remains in specification/expert-panel form,
   not a superseding joint guideline, as of this check).
 - `gbif-occurrence-infrastructure-2026` — anchored in
-  `manuscript/unit_X/biomes_and_conservation.md:934`.
+  `docs/manuscript/unit_X/biomes_and_conservation.md:934`.
 
 No new prose claims were introduced beyond what the existing sentences
 already stated; this pass only gave those existing claims a tracked
@@ -45,15 +45,15 @@ found unchanged) and are recorded as such, not silently dropped.
 - **Casgevy age-eligibility expansion** — FDA supplemental approval
   (2026-07-01) extended exa-cel from 12+ to **2 years and older** for SCD
   and transfusion-dependent β-thalassemia. Updated
-  `manuscript/unit_IV/mutations_and_genomics.md`,
-  `manuscript/unit_VII/bacteria_archaea_viruses.md`, `references.bib`
+  `docs/manuscript/unit_IV/mutations_and_genomics.md`,
+  `docs/manuscript/unit_VII/bacteria_archaea_viruses.md`, `references.bib`
   (`fda2026casgevy`), and both `casgevy-*` ledger rows.
 - **GTDB R10-RS226 → R11-RS232** (15 Apr 2026) — genome/species/genus
-  counts in `manuscript/unit_VII/microbial_ecology.md` and the
+  counts in `docs/manuscript/unit_VII/microbial_ecology.md` and the
   `gtdb-r10-rs226-2025` ledger row updated to the live release figures
   (901,341 total genomes; 878,998 bacterial / 22,343 archaeal).
 - **IUCN Red List 2025-2 → 2026-1** (9 Jul 2026) — assessed/threatened
-  counts in `manuscript/unit_X/biomes_and_conservation.md` (two sites)
+  counts in `docs/manuscript/unit_X/biomes_and_conservation.md` (two sites)
   and the `iucn-red-list-2025-2` ledger row updated (172,620→175,909
   assessed; 48,646→49,505 threatened); `references.bib` `iucn2025redlist`
   entry re-pointed to the live summary-statistics page.
@@ -62,7 +62,7 @@ found unchanged) and are recorded as such, not silently dropped.
   version-specific claim so was left untouched (nothing to correct).
 - **UniProtKB reference-proteome restructuring** (underway, release
   2026_02) — added one hedged caveat sentence to
-  `manuscript/unit_I/macromolecules.md` noting the restructuring without
+  `docs/manuscript/unit_I/macromolecules.md` noting the restructuring without
   asserting the unconfirmed completion date or accession counts a first
   draft of this finding claimed (adversarial re-check downgraded
   "finalized... 253M→141M" to "in progress, magnitude unverified" — the

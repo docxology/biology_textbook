@@ -2,15 +2,15 @@
 
 ## Location and pipeline status
 
-This project is currently maintained as an active standalone checkout; run project-local commands from this directory so `pyproject.toml` applies. Template-hosted render entry points still use `--project biology_textbook` and resolve the project through the template infrastructure when available. **Publication:** `manuscript/config.yaml` → `publication.doi` and `publication.repository_url` (Zenodo + GitHub).
+This project is currently maintained as an active standalone checkout; run project-local commands from this directory so `pyproject.toml` applies. Template-hosted render entry points still use `--project biology_textbook` and resolve the project through the template infrastructure when available. **Publication:** `docs/manuscript/config.yaml` → `publication.doi` and `publication.repository_url` (Zenodo + GitHub).
 
-Work here uses the same patterns as active template projects: thin orchestrators in `scripts/`, computation in `src/`, manuscript in `manuscript/`, tests in `tests/` (zero mocks, ≥90% line coverage on `src/`).
+Work here uses the same patterns as active template projects: thin orchestrators in `scripts/`, computation in `src/`, manuscript in `docs/manuscript/`, tests in `tests/` (zero mocks, ≥90% line coverage on `src/`).
 
 **Composable authoring (stable `sec:` / `fig:` / `eq:` IDs, script order, which tests fail when):** [docs/composable_authoring.md](docs/composable_authoring.md). **Editorial** style for agents: [docs/agent_instructions.md](docs/agent_instructions.md). **Accessibility / config enforcement vs advisory:** [docs/accessibility.md](docs/accessibility.md). **Doc index:** [docs/README.md](docs/README.md).
 
 ## Manuscript Source Contract
 
-Introductory biology textbook content is driven by **`manuscript/config.yaml`**: unit ordering, chapter files, front matter, appendices (labs and question banks), and render metadata. Nine domain subpackages under `src/biology/` implement quantitative models. Mermaid diagrams are declared in **`src/mermaid/diagram_specs.yaml`** and built via `src/mermaid/diagram_spec_loader.py`; matplotlib figures live in **`src/visualization/plots_*.py`** modules and register through `plots.py` → `ALL_FIGURE_GENERATORS`.
+Introductory biology textbook content is driven by **`docs/manuscript/config.yaml`**: unit ordering, chapter files, front matter, appendices (labs and question banks), and render metadata. Nine domain subpackages under `src/biology/` implement quantitative models. Mermaid diagrams are declared in **`src/mermaid/diagram_specs.yaml`** and built via `src/mermaid/diagram_spec_loader.py`; matplotlib figures live in **`src/visualization/plots_*.py`** modules and register through `plots.py` → `ALL_FIGURE_GENERATORS`.
 
 Canonical chapter counts and filenames are **only** in `config.yaml` (currently Unit 0 plus Units I–X, **44 core chapter files**, 44 paper-based labs, and 44 question banks of 30 questions each). All 44 chapters carry:
 
@@ -18,7 +18,7 @@ Canonical chapter counts and filenames are **only** in `config.yaml` (currently 
 - A `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites
 - An Opening Vignette, Learning Objectives, and a Summary block
 
-Current-claim and assessment surfaces are first-class maintenance workflows: `manuscript/current_claims.yaml` is parsed by `src/biology/current_claims.py` and checked by `scripts/audit_current_claims.py --check`; question-bank item metadata and lab outcome/rubric alignment are parsed by `src/biology/assessment.py`, synchronized by `scripts/sync_assessment_metadata.py` (`--dry-run` previews drift; `--check` gates), and checked by `tests/test_assessment_metadata.py` plus `tests/test_lab_pedagogy_alignment.py`.
+Current-claim and assessment surfaces are first-class maintenance workflows: `docs/manuscript/current_claims.yaml` is parsed by `src/biology/current_claims.py` and checked by `scripts/audit_current_claims.py --check`; question-bank item metadata and lab outcome/rubric alignment are parsed by `src/biology/assessment.py`, synchronized by `scripts/sync_assessment_metadata.py` (`--dry-run` previews drift; `--check` gates), and checked by `tests/test_assessment_metadata.py` plus `tests/test_lab_pedagogy_alignment.py`.
 
 ---
 
@@ -26,14 +26,14 @@ Current-claim and assessment surfaces are first-class maintenance workflows: `ma
 
 Student PDFs are built **compact** by default:
 
-| Setting | `manuscript/config.yaml` | `manuscript/preamble.md` (LaTeX) |
+| Setting | `docs/manuscript/config.yaml` | `docs/manuscript/preamble.md` (LaTeX) |
 | ------- | ------------------------ | -------------------------------- |
 | Margins | `layout.margin_*_mm` → **2** | `geometry` → **2 mm** all sides, `headheight=12pt` |
 | Body size | `typography.base_font_size_pt` → **9** | `\renewcommand{\normalsize}{...9}{10.8}...` |
 | Line spacing | `layout.line_height` → **1.28** | `\setstretch{1.28}` |
 | Headings / captions | (metadata only) | `titlesec` sizes; `caption` → `footnotesize`; header/footer → `footnotesize` |
 
-**Rule:** Changing density requires editing **both** files so YAML comments and the rendered PDF stay aligned. Full authoring rules (figure/diagram allowlists, footers) are in [manuscript/AGENTS.md](manuscript/AGENTS.md).
+**Rule:** Changing density requires editing **both** files so YAML comments and the rendered PDF stay aligned. Full authoring rules (figure/diagram allowlists, footers) are in [docs/manuscript/AGENTS.md](docs/manuscript/AGENTS.md).
 
 ---
 
@@ -129,7 +129,7 @@ biology_textbook/
 ├── polish_table_captions.py           # polish existing pandoc table captions
 ├── normalize_american_english.py      # British → American spelling normalizer
 ├── repair_split_chapter_shells.py     # repair pedagogy shells on split chapters
-│   ├── audit_textbook_quality.py       # umbrella manuscript/lab/question/current-claim quality gate; --check gate plus quality_advisories.yaml
+│   ├── audit_textbook_quality.py       # umbrella docs/manuscript/lab/question/current-claim quality gate; --check gate plus quality_advisories.yaml
 │   ├── audit_visual_contracts.py       # visual manifest gate
 │   ├── biology_analysis.py            # config-driven full-textbook collect + analysis JSON; copies references.bib + preamble → output/manuscript/
 │   ├── bold_glossary_first_use.py     # bold + link glossary terms on first use in chapters
@@ -226,7 +226,7 @@ biology_textbook/
 │   ├── test_visual_contracts_audit.py      # visual contract audit helpers
 │   ├── test_wip_resolver_smoke.py          # template WIP resolver smoke gate
 │   └── test_toc_consistency.py
-├── manuscript/
+├── docs/manuscript/
 │   ├── config.yaml            # single source of truth for order and units
 │   ├── front_matter.md, preface.md, preamble.md, glossary.md, references.bib
 │   ├── unit_0/ … unit_X/
@@ -283,17 +283,17 @@ Every change that adds or renames a chapter, lab, question bank, figure, or BibT
 | Registered Mermaid publication output is PNG, not `.mmd` fallback | manual publication gate / renderer strict mode | `scripts/generate_diagrams.py --strict-png` |
 | 197 inline Mermaid fences (196 outside README/AGENTS docs) each have one alt comment and one italic caption; PDF preprocessing renders them to PNG | `test_accessibility.py` + `test_pdf_opening_and_mermaid.py` | `scripts/add_mermaid_alt_text.py --check` and install `mmdc` |
 | Visual manifest is derived from figures, registered Mermaid, and inline Mermaid; generated manifest lives under `output/figures/` | `audit_visual_contracts.py --check` / publication readiness | `scripts/audit_visual_contracts.py --check` |
-| Fast-moving claims carry source, anchor, tier, checked date, and refresh trigger | `test_current_claims_ledger.py` | `scripts/audit_current_claims.py --check` and update `manuscript/current_claims.yaml` |
+| Fast-moving claims carry source, anchor, tier, checked date, and refresh trigger | `test_current_claims_ledger.py` | `scripts/audit_current_claims.py --check` and update `docs/manuscript/current_claims.yaml` |
 | Question-bank items and labs carry assessment metadata | `test_assessment_metadata.py` / `test_lab_pedagogy_alignment.py` | `scripts/sync_assessment_metadata.py --dry-run` to preview, then `--check` |
 | Glossary terms carry `{#gl:<slug>}` anchors and semantic `\cref{sec:…}` back-references | `test_build_invariants.test_glossary_and_index_use_semantic_chapter_links` + `scripts/link_glossary.py --check` | `scripts/link_glossary.py` |
 | Prose uses `\cref{sec:…}` not hand-typed chapter / figure / equation / section numbers | `test_crossref_validator.py::test_no_plain_text_numbered_crossrefs` | `scripts/insert_crossref_labels.py` |
 | No ASCII `-->` in prose (use `→`), no `$\greek$` in table cells | (re-run normalizers) | `scripts/normalize_typography.py`, `scripts/fix_greek_math_prose.py` |
 
-The LaTeX preamble (`manuscript/preamble.md`) now loads **cleveref** (after `hyperref` and `amsmath`) so `\cref{sec:foo}` renders as "section 3" and `\Cref{fig:foo}` as "Figure 3.2". Do **not** re-declare `\bibliographystyle{plainnat}` in the preamble — pandoc auto-injects it and a double declaration aborts bibtex.
+The LaTeX preamble (`docs/manuscript/preamble.md`) now loads **cleveref** (after `hyperref` and `amsmath`) so `\cref{sec:foo}` renders as "section 3" and `\Cref{fig:foo}` as "Figure 3.2". Do **not** re-declare `\bibliographystyle{plainnat}` in the preamble — pandoc auto-injects it and a double declaration aborts bibtex.
 
 ## Protocol for AI agents
 
-1. For **new chapters, new `plot_*` / `*_diagram()` registrations, or cross-reference refactors**, read [docs/composable_authoring.md](docs/composable_authoring.md) first, then [manuscript/AGENTS.md](manuscript/AGENTS.md).
+1. For **new chapters, new `plot_*` / `*_diagram()` registrations, or cross-reference refactors**, read [docs/composable_authoring.md](docs/composable_authoring.md) first, then [docs/manuscript/AGENTS.md](docs/manuscript/AGENTS.md).
 2. Read [docs/agent_instructions.md](docs/agent_instructions.md) for editorial voice and chapter structure targets.
 3. Read [docs/testing_guide.md](docs/testing_guide.md) before changing tests.
 4. Read [docs/architecture.md](docs/architecture.md) before changing `scripts/` vs `src/` boundaries.
@@ -308,8 +308,8 @@ The LaTeX preamble (`manuscript/preamble.md`) now loads **cleveref** (after `hyp
 - [docs/accessibility.md](docs/accessibility.md) — `config.yaml` vs pytest enforcement; CVD; reader profile
 - [docs/pedagogy_objectives_mapping.md](docs/pedagogy_objectives_mapping.md) — LO ↔ question-bank comments (optional)
 - [docs/README.md](docs/README.md) — documentation index (architecture, pipeline, testing, API, visualization)
-- [manuscript/AGENTS.md](manuscript/AGENTS.md) — chapter conventions, `plot_*` / `*_diagram()` allowlist
-- [manuscript/README.md](manuscript/README.md) — author quick reference and course pathways
+- [docs/manuscript/AGENTS.md](docs/manuscript/AGENTS.md) — chapter conventions, `plot_*` / `*_diagram()` allowlist
+- [docs/manuscript/README.md](docs/manuscript/README.md) — author quick reference and course pathways
 - [Root AGENTS.md](../../AGENTS.md)
 - Template exemplar layout: `projects/templates/template_code_project/` in the template repository (this standalone checkout does not embed those paths)
 - Template infrastructure: `infrastructure/` in the template repository (`uv run python -m infrastructure.validation.cli …` when run from the template root)

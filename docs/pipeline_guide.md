@@ -23,8 +23,8 @@ uv run python scripts/05_copy_outputs.py --project biology_textbook
 |---|-------|--------|-------------|
 | 1 | Setup | `00_setup_environment.py` | Verify Python version, uv, mmdc (Mermaid CLI), LaTeX |
 | 2 | Tests | `01_run_tests.py` | Project test suite (70 test files in-tree); fails if `src/` coverage < 90 % |
-| 3 | Analysis | `02_run_analysis.py` | Runs `analysis.scripts` from `manuscript/config.yaml` (`generate_figures.py`, `generate_diagrams.py`, `biology_analysis.py`) → figures and the full ordered textbook are injected into `output/`, `output/analysis_report.json` written |
-| 4 | PDF Render | `03_render_pdf.py` | Pandoc: Markdown → LaTeX → PDF; uses `manuscript/config.yaml`; loads `cleveref` via preamble; invokes `pandoc-crossref` if on PATH. **When `output/manuscript/` is populated, render reads the injected copy, not live `manuscript/` edits — run Stage 3 (`biology_analysis.py`) after manuscript changes before render.**
+| 3 | Analysis | `02_run_analysis.py` | Runs `analysis.scripts` from `docs/manuscript/config.yaml` (`generate_figures.py`, `generate_diagrams.py`, `biology_analysis.py`) → figures and the full ordered textbook are injected into `output/`, `output/analysis_report.json` written |
+| 4 | PDF Render | `03_render_pdf.py` | Pandoc: Markdown → LaTeX → PDF; uses `docs/manuscript/config.yaml`; loads `cleveref` via preamble; invokes `pandoc-crossref` if on PATH. **When `output/manuscript/` is populated, render reads the injected copy, not live `docs/manuscript/` edits — run Stage 3 (`biology_analysis.py`) after manuscript changes before render.**
 | 5 | Validate | `04_validate_output.py` | Checks PDF for `??` unresolved refs, word count, page count |
 | 6 | Copy outputs | `05_copy_outputs.py` | Copies to root `output/biology_textbook/` |
 
@@ -36,7 +36,7 @@ biological claims. It catches generic answer-key prose, `Expected reasoning:`,
 `Key answer:`, and `Mechanistic answer:` scaffolds, stale current-science
 claims, student-facing source boilerplate, required wet-lab drift, hard-coded
 rendered references, glossary and citation closure, weak figure metadata,
-ledger-backed absolute-language triage in `manuscript/quality_advisories.yaml`,
+ledger-backed absolute-language triage in `docs/manuscript/quality_advisories.yaml`,
 and embedded-enrichment coverage.
 
 Run `uv run python scripts/enrich_embedded_textbook.py --dry-run` before a
@@ -97,7 +97,7 @@ After you add, rename, or reorder chapters; register new figure or diagram gener
 
 Then run pytest and (from repo root) `infrastructure.validation.cli` `markdown` + `prerender` on the manuscript path. Full step-by-step: [composable_authoring.md](composable_authoring.md).
 
-## manuscript/config.yaml — Rendering Configuration
+## docs/manuscript/config.yaml — Rendering Configuration
 
 Front matter and preface toggles live under **`front_matter`** (not `rendering`):
 
@@ -118,7 +118,7 @@ rendering:
   auto_number_tables: true
 ```
 
-The PDF renderer reads `manuscript/config.yaml` to discover chapter file paths and ordering. It then:
+The PDF renderer reads `docs/manuscript/config.yaml` to discover chapter file paths and ordering. It then:
 1. Concatenates chapters in order
 2. Resolves cross-references (`\cref{sec:…}`, `\cref{fig:…}`, `\cref{eq:…}` via `cleveref`; natbib `\citep{…}` / `\citet{…}` via bibtex)
 3. Inserts auto-generated chapter and figure numbers
@@ -130,7 +130,7 @@ Lab and question-bank entries under `appendices.labs/questions` store only
 `scripts/sync_curriculum_materials.py`.
 
 Book-style PDF opening metadata lives under `book` in
-`manuscript/config.yaml`. The renderer uses `book.title`, `book.subtitle`,
+`docs/manuscript/config.yaml`. The renderer uses `book.title`, `book.subtitle`,
 `authors[]`, and `book.cover.image` to create page 1 as the cover, page 2 as
 publishing information, and page 3 as the detailed table of contents. Keep
 cover art text-free; title and author typography are injected by LaTeX.
@@ -156,7 +156,7 @@ The current suite has **70** `test_*.py` modules, including domain and invariant
 - `test_bibliography_closure.py` — `{cited}` == `{defined}` in `references.bib`
 - `test_chapter_metadata.py` — `ChapterMeta` records cover every `config.yaml` chapter with valid difficulty and prerequisites
 - `test_toc_consistency.py` — renderable H1s, unit-intro labels, front-matter/preface generated blocks, appendices, and Course Planning Grid match `biology.toc`
-- `test_accessibility.py` — LaTeX figures and inline Mermaid meet alt/caption rules ([manuscript/AGENTS.md](../manuscript/AGENTS.md))
+- `test_accessibility.py` — LaTeX figures and inline Mermaid meet alt/caption rules ([docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md))
 - `test_crossref_validator.py`, `test_crossref_validator_edges.py`, `test_crossref_validator_internals.py` — pandoc-crossref / cleveref resolution
 - `test_lab_integrity.py` — optional lab computation snippets resolve project modules and do not require hidden notebooks, CSVs, pandas, or display-only plotting
 - `test_pdf_log_quality.py` — PDF-log checker rejects undefined references and severe overfull boxes
@@ -169,7 +169,7 @@ The current suite has **70** `test_*.py` modules, including domain and invariant
 | Gotcha | Symptom | Fix |
 | ------ | ------- | --- |
 | `\bibliographystyle{plainnat}` declared in `preamble.md` | bibtex aborts: "Illegal, another `\bibstyle` command" | **Remove** the line. Pandoc auto-injects it; a double declaration is fatal. |
-| `\includegraphics{output/figures/foo.png}` (absolute-style path) | xelatex: `! LaTeX Error: File '...' not found.` | Use `../figures/foo.png` — paths are relative to `output/manuscript/`, not the source `manuscript/` tree. |
+| `\includegraphics{output/figures/foo.png}` (absolute-style path) | xelatex: `! LaTeX Error: File '...' not found.` | Use `../figures/foo.png` — paths are relative to `output/manuscript/`, not the source `docs/manuscript/` tree. |
 | Bare `$\alpha$` / `$\beta$` etc. in pipe-table cells | Pandoc emits `\(\alpha)` without closing `\)`; xelatex aborts on the table | Run `scripts/fix_greek_math_prose.py` to replace with Unicode in prose contexts. |
 | Manual equation numbering on a `$$…$$` line | xelatex errors or numbering drift | Use a labeled `equation` or `align` environment for numbered display equations; use plain `$$…$$` only for unnumbered display math. See [manuscript_guide.md#equations](manuscript_guide.md#equations). |
 | Hand-typed "Figure 4.2" / "Chapter 11" / "Equation 5.7" in chapter prose | Number drifts when chapters are reordered | Use `\cref{fig:unit_X_<descriptor>}`, `\cref{sec:unit_X_<stem>}`, or `\cref{eq:unit_X_<descriptor>}`; `cleveref` injects the right number and the cross-reference validator rejects hard-coded rendered numbers. |

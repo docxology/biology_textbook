@@ -24,7 +24,7 @@
 | Mechanism | Role |
 | --------- | ---- |
 | **Pytest invariants** (`tests/test_*.py`) | **Authoritative**: alt text proximity and quality heuristics, build invariants, bibliography, cross-refs, chapter metadata. |
-| **`manuscript/config.yaml` — most keys** | Authoring contract and rendering inputs (layout, typography, units, `front_matter`, `appendices`, `rendering`, `llm`). Values must stay aligned with `preamble.md` where the AGENTS table says so. |
+| **`docs/manuscript/config.yaml` — most keys** | Authoring contract and rendering inputs (layout, typography, units, `front_matter`, `appendices`, `rendering`, `llm`). Values must stay aligned with `preamble.md` where the AGENTS table says so. |
 | **`config.yaml` — `accessibility`, `content_notes`, `export`, parts of `chapter_metadata`** | See [Status](#configyaml-keys--status) below. Some are **advisory** (documentation intent); figure generation follows **`src/visualization/cvd.py`** (CVD-friendly palette), which **implements** the intent of `accessibility.color_blindness_safe: true` for matplotlib outputs. |
 
 > [!IMPORTANT]
@@ -40,7 +40,7 @@
 | --- | ------ | ----- |
 | `alt_text_required` | **Advisory (policy)** | **Tests** (`test_accessibility.py`) are the enforcer, not a YAML consumer in the template renderer. |
 | `color_blindness_safe` | **Partially implemented** | Matplotlib figures use **`src/visualization/cvd.py`** (distinct hues + line styles / edges / hatch where needed). Mermaid theming in PNG export is not centrally styled here. |
-| `dyslexia_friendly_font` | **Not wired** | If set to `true`, authors must also change **`typography.body_font`** in `config.yaml` and the matching `\setmainfont` / `\newfontfamily` in **`manuscript/preamble.md`** to an installed OpenDyslexic (or other) family — same "dual edit" rule as other typography changes. No automated swap yet. |
+| `dyslexia_friendly_font` | **Not wired** | If set to `true`, authors must also change **`typography.body_font`** in `config.yaml` and the matching `\setmainfont` / `\newfontfamily` in **`docs/manuscript/preamble.md`** to an installed OpenDyslexic (or other) family — same "dual edit" rule as other typography changes. No automated swap yet. |
 
 ### `content_notes`
 
@@ -201,7 +201,7 @@ Use this every time you create or review a figure:
 
 ## Reader / large-type profile (optional)
 
-Default PDF uses compact settings (see [AGENTS.md](../AGENTS.md)). For a more legible print profile, **edit `manuscript/config.yaml` and `manuscript/preamble.md` together** (layout margins, `base_font_size_pt`, `line_height`, and the matching `\geometry`, `\normalsize`, `\setstretch`).
+Default PDF uses compact settings (see [AGENTS.md](../AGENTS.md)). For a more legible print profile, **edit `docs/manuscript/config.yaml` and `docs/manuscript/preamble.md` together** (layout margins, `base_font_size_pt`, `line_height`, and the matching `\geometry`, `\normalsize`, `\setstretch`).
 
 > [!TIP]
 > Suggested starting point for a "reader" profile (adjust to taste):
@@ -225,7 +225,7 @@ Document which profile a given PDF build used in release notes or the title page
 
 ## Related
 
-- [../manuscript/AGENTS.md](../manuscript/AGENTS.md) — manuscript contract, figure allowlists, print density.
+- [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) — manuscript contract, figure allowlists, print density.
 - [../tests/README.md](../tests/README.md) — which tests map to which policies.
 - [testing_guide.md](testing_guide.md) — no-mock policy, failure triage, "what test catches what mistake".
 - [visualization_guide.md](visualization_guide.md) — figures, CVD defaults for matplotlib, palette hex.

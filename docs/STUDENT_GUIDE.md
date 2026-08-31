@@ -433,7 +433,7 @@ Answer in 2–3 sentences without consulting text. Struggle → review that chap
 
 ## 📚 GLOSSARY A–Z TOP 50
 
-(matching {#gl:slug} anchors — full definitions in `manuscript/glossary.md`)
+(matching {#gl:slug} anchors — full definitions in `docs/manuscript/glossary.md`)
 
 1. active transport | 2. allele | 3. autotroph | 4. biodiversity | 5. carbohydrate
 6. carrying capacity ($K$) | 7. cell theory | 8. chromosome | 9. codominance | 10. commensalism

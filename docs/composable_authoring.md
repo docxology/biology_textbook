@@ -1,7 +1,7 @@
 # Composable Authoring: Stable IDs, Modules, and References
 
 > [!NOTE]
-> This document is the **structural** counterpart to [agent_instructions.md](agent_instructions.md) (editorial voice) and [../manuscript/AGENTS.md](../manuscript/AGENTS.md) (enforced manuscript contract). It describes **stable identifiers**, **workflows** for adding content without breaking invariants, and **which tests** catch common mistakes. For LaTeX patterns and the equation-form decision tree, see [manuscript_guide.md](manuscript_guide.md).
+> This document is the **structural** counterpart to [agent_instructions.md](agent_instructions.md) (editorial voice) and [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) (enforced manuscript contract). It describes **stable identifiers**, **workflows** for adding content without breaking invariants, and **which tests** catch common mistakes. For LaTeX patterns and the equation-form decision tree, see [manuscript_guide.md](manuscript_guide.md).
 
 ---
 
@@ -21,7 +21,7 @@
 
 | Layer | Role |
 | ----- | ---- |
-| [../manuscript/AGENTS.md](../manuscript/AGENTS.md) | Path conventions, allowlists, cross-ref rules |
+| [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) | Path conventions, allowlists, cross-ref rules |
 | [../tests/test_build_invariants.py](../tests/test_build_invariants.py) | Chapters, badges, labs, figure generators |
 | [../tests/test_chapter_metadata.py](../tests/test_chapter_metadata.py) | `config.yaml` ↔ `ChapterMeta` |
 | [../tests/test_curriculum_metadata.py](../tests/test_curriculum_metadata.py) | `config.yaml` ↔ `CurriculumRecord` / `AlignmentRecord` ↔ chapter/lab/question/appendix blocks |
@@ -36,7 +36,7 @@
 
 ## Identifier schema
 
-Chapters, figures, equations, and tables use **semantic** labels. Rendered "Chapter 12" / "Figure 3.2" numbers are assigned at PDF build from [../manuscript/config.yaml](../manuscript/config.yaml) order — **never** encode them in filenames or in prose as hard-coded ordinals.
+Chapters, figures, equations, and tables use **semantic** labels. Rendered "Chapter 12" / "Figure 3.2" numbers are assigned at PDF build from [../docs/manuscript/config.yaml](../docs/manuscript/config.yaml) order — **never** encode them in filenames or in prose as hard-coded ordinals.
 
 ### Chapters
 
@@ -51,7 +51,7 @@ Chapters, figures, equations, and tables use **semantic** labels. Rendered "Chap
 
 **Title and curriculum metadata:** `src/biology/toc.py` derives unit-intro,
 chapter, lab, question-bank, reference appendix, front-matter navigation, and
-Course Planning Grid display names from `manuscript/config.yaml` plus
+Course Planning Grid display names from `docs/manuscript/config.yaml` plus
 `ChapterMeta`. Do not hand-maintain lab or question titles in `config.yaml`;
 list only their `file:` entries. In `src/biology/curriculum.py`, each
 `CurriculumRecord` uses the same `chapter_id` to align a chapter with its lab,
@@ -69,7 +69,7 @@ intros, labs, question banks, and reference appendices are synchronized as
 unnumbered ToC entries.
 
 **PDF opening and cover:** the cover title, subtitle, author block, publishing
-page, and page-3 Contents are generated from `manuscript/config.yaml`.
+page, and page-3 Contents are generated from `docs/manuscript/config.yaml`.
 `book.cover.image` points to a text-free reusable image asset. Regenerate the
 current integrated biology montage with `uv run python scripts/generate_cover_art.py`.
 
@@ -120,7 +120,7 @@ PDF-render failure so diagrams are never silently dropped.
 | Mechanism | Use in this project |
 | --------- | ------------------- |
 | **cleveref** | `\cref{sec:...}`, `\cref{fig:...}`, `\cref{eq:...}`, `\cref{tbl:...}` in prose (primary) |
-| **natbib** | Prefer `\citep{key}` and `\citet{key}`; documented rare forms include `\citealt`, `\citealp`, `\citeauthor`, `\citeyear`, and optional arguments such as `\citet[p.~12]{key}`. All keys live in [../manuscript/references.bib](../manuscript/references.bib). See [manuscript_guide.md#citations-and-references](manuscript_guide.md#citations-and-references) for command-by-command guidance. |
+| **natbib** | Prefer `\citep{key}` and `\citet{key}`; documented rare forms include `\citealt`, `\citealp`, `\citeauthor`, `\citeyear`, and optional arguments such as `\citet[p.~12]{key}`. All keys live in [../docs/manuscript/references.bib](../docs/manuscript/references.bib). See [manuscript_guide.md#citations-and-references](manuscript_guide.md#citations-and-references) for command-by-command guidance. |
 | **pandoc-crossref** | `@fig:`, `@eq:`, `@tbl:`, `@sec:` in prose, and `{#fig:...}` / `{#eq:...}` on assets — **must** resolve; [crossref_validator](../src/biology/crossref_validator.py) + tests enforce. |
 
 Raw LaTeX figure/table environments with `\label{fig:...}` are scanned by the validator; markdown images use `![alt](path){#fig:...}` when using crossref-style IDs.
@@ -131,8 +131,8 @@ Raw LaTeX figure/table environments with `\label{fig:...}` are scanned by the va
 
 ### 1) New core chapter
 
-1. Create `manuscript/unit_<X>/<stem>.md` (descriptive `stem`, no chapter number in filename).
-2. Add chapter entry under the correct `units[]` in [../manuscript/config.yaml](../manuscript/config.yaml).
+1. Create `docs/manuscript/unit_<X>/<stem>.md` (descriptive `stem`, no chapter number in filename).
+2. Add chapter entry under the correct `units[]` in [../docs/manuscript/config.yaml](../docs/manuscript/config.yaml).
 3. Add `ChapterMeta("unit_<X>_<stem>", ...)` in [../src/biology/chapter_metadata.py](../src/biology/chapter_metadata.py) (order follows `config.yaml`).
 4. Add `CurriculumRecord` data in [../src/biology/curriculum/](../src/biology/curriculum/) with a real `bridge_api` from `src/biology`.
 5. Check [../src/biology/alignment.py](../src/biology/alignment.py) unit defaults. If the new chapter needs a different standards/skills profile than its unit, add an override or update the unit alignment deliberately.
@@ -149,11 +149,11 @@ Raw LaTeX figure/table environments with `\label{fig:...}` are scanned by the va
 
 8. Run gates (see [Validation commands](#validation-commands)).
 
-Details match [../manuscript/AGENTS.md — Adding a New Chapter](../manuscript/AGENTS.md#adding-a-new-chapter).
+Details match [../manuscript/AGENTS.md — Adding a New Chapter](../docs/manuscript/AGENTS.md#adding-a-new-chapter).
 
 ### 2) New `plot_*` figure
 
-1. Implement generator in [../src/visualization/plots.py](../src/visualization/plots.py) and register in `ALL_FIGURE_GENERATORS` (naming on [../manuscript/AGENTS.md allowlist](../manuscript/AGENTS.md)).
+1. Implement generator in [../src/visualization/plots.py](../src/visualization/plots.py) and register in `ALL_FIGURE_GENERATORS` (naming on [../manuscript/AGENTS.md allowlist](../docs/manuscript/AGENTS.md)).
 2. `uv run python scripts/generate_figures.py` (from project directory).
 3. Add `\begin{figure}...\includegraphics{../figures/...}\caption{...}\label{fig:unit_X_...}\end{figure}` in the chapter; reference with `\cref{fig:...}`.
 4. Add `<!-- alt: ... -->` HTML comment immediately after `\end{figure}` (see [accessibility.md#alt-text-writing-guide](accessibility.md#alt-text-writing-guide)).
@@ -161,7 +161,7 @@ Details match [../manuscript/AGENTS.md — Adding a New Chapter](../manuscript/A
 
 ### 3) New registered Mermaid diagram
 
-1. Add factory in [../src/mermaid/biology_diagrams.py](../src/mermaid/biology_diagrams.py) and list in `ALL_BIOLOGY_DIAGRAMS` (naming on allowlist in [../manuscript/AGENTS.md](../manuscript/AGENTS.md)).
+1. Add factory in [../src/mermaid/biology_diagrams.py](../src/mermaid/biology_diagrams.py) and list in `ALL_BIOLOGY_DIAGRAMS` (naming on allowlist in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md)).
 2. `uv run python scripts/generate_diagrams.py`.
 3. [../tests/test_mermaid_and_visualization.py](../tests/test_mermaid_and_visualization.py) covers registry and renderer.
 
@@ -212,7 +212,7 @@ flowchart LR
 ## See also
 
 - [../AGENTS.md](../AGENTS.md) — project root: validation CLI, invariant table, AI protocol
-- [../manuscript/AGENTS.md](../manuscript/AGENTS.md) — chapter file contract, allowlists, paths
+- [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) — chapter file contract, allowlists, paths
 - [manuscript_guide.md](manuscript_guide.md) — templates, LaTeX patterns, equation decision tree
 - [pipeline_guide.md](pipeline_guide.md) — full pipeline and maintenance script table
 - [visualization_guide.md](visualization_guide.md) — matplotlib and Mermaid conventions

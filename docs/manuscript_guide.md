@@ -25,7 +25,7 @@
 ## File naming convention
 
 > [!IMPORTANT]
-> Chapter files must use **descriptive names with no numeric prefix**. Numbers are assigned at render time from `manuscript/config.yaml`.
+> Chapter files must use **descriptive names with no numeric prefix**. Numbers are assigned at render time from `docs/manuscript/config.yaml`.
 
 | Status | Filename |
 | ------ | -------- |
@@ -96,7 +96,7 @@ Content...
 ```
 
 > [!TIP]
-> Both the `\label{sec:…}` and the metadata badge are inserted **automatically** by `scripts/insert_crossref_labels.py` and `scripts/insert_chapter_metadata.py` once the chapter file is added to `manuscript/config.yaml` and a matching `ChapterMeta(…)` record is added to `src/biology/chapter_metadata.py`. The test `tests/test_build_invariants.py::test_every_chapter_has_section_label` enforces their presence.
+> Both the `\label{sec:…}` and the metadata badge are inserted **automatically** by `scripts/insert_crossref_labels.py` and `scripts/insert_chapter_metadata.py` once the chapter file is added to `docs/manuscript/config.yaml` and a matching `ChapterMeta(…)` record is added to `src/biology/chapter_metadata.py`. The test `tests/test_build_invariants.py::test_every_chapter_has_section_label` enforces their presence.
 
 ---
 
@@ -288,7 +288,7 @@ If you register a new figure in `src/visualization/plots.py` (`ALL_FIGURE_GENERA
 ### Path conventions and what fails when they are wrong
 
 > [!WARNING]
-> `\includegraphics{}` paths are **relative to `output/manuscript/`** (where chapters are concatenated at render time) — **not** relative to the source `manuscript/` tree.
+> `\includegraphics{}` paths are **relative to `output/manuscript/`** (where chapters are concatenated at render time) — **not** relative to the source `docs/manuscript/` tree.
 
 | Status | Path | Outcome |
 | ------ | ---- | ------- |
@@ -316,7 +316,7 @@ When the path is wrong, pandoc/xelatex emits `! LaTeX Error: File '..' not found
 
 ## Citations and references
 
-Citations use **natbib** (loaded automatically by pandoc) from the single master `manuscript/references.bib`. The shared parser used by tests, audits, and maintenance scripts recognizes the commands documented below, including starred forms and one or two optional arguments such as `\citet[p.~12]{key}`. Prefer `\citep{}` and `\citet{}` in ordinary prose; reserve the other forms for the rare cases described here.
+Citations use **natbib** (loaded automatically by pandoc) from the single master `docs/manuscript/references.bib`. The shared parser used by tests, audits, and maintenance scripts recognizes the commands documented below, including starred forms and one or two optional arguments such as `\citet[p.~12]{key}`. Prefer `\citep{}` and `\citet{}` in ordinary prose; reserve the other forms for the rare cases described here.
 
 ### Which citation command?
 
@@ -642,7 +642,7 @@ print(f"Rate = {result.reaction_rate:.2f}")  # Real computed output: 7.14
 
 Letter PDFs use:
 
-| Setting | `manuscript/config.yaml` | `manuscript/preamble.md` |
+| Setting | `docs/manuscript/config.yaml` | `docs/manuscript/preamble.md` |
 | ------- | ------------------------ | ------------------------ |
 | Margins | `layout.margin_*_mm: 2` | `geometry: 2mm` all sides |
 | Body size | `typography.base_font_size_pt: 9` | `\renewcommand{\normalsize}{...9}{10.8}...` |
@@ -651,13 +651,13 @@ Letter PDFs use:
 > [!WARNING]
 > Changing density requires editing **both files** so YAML comments and the rendered PDF stay aligned. See [accessibility.md](accessibility.md) for the alternative "reader profile" recipe (10–12 mm margins, 10.5–11 pt body).
 
-Authoritative allowlists for `plot_*` and `*_diagram()` names live in [manuscript/AGENTS.md](../manuscript/AGENTS.md).
+Authoritative allowlists for `plot_*` and `*_diagram()` names live in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md).
 
 ---
 
 ## Chapter checklist
 
-- [ ] H1 title matches `manuscript/config.yaml` and is followed by `\label{sec:unit_X_<stem>}` (automatable: `scripts/sync_curriculum_materials.py` + `scripts/insert_crossref_labels.py`)
+- [ ] H1 title matches `docs/manuscript/config.yaml` and is followed by `\label{sec:unit_X_<stem>}` (automatable: `scripts/sync_curriculum_materials.py` + `scripts/insert_crossref_labels.py`)
 - [ ] `<!-- chapter-metadata-badge -->` with difficulty / time / prereqs (automatable: `scripts/insert_chapter_metadata.py`)
 - [ ] Learning Objectives listed (7–9 per chapter, each starting with an action verb)
 - [ ] Opening Vignette (150–300 words, historically grounded)
@@ -671,7 +671,7 @@ Authoritative allowlists for `plot_*` and `*_diagram()` names live in [manuscrip
 - [ ] Summary section at end (one bullet per major section)
 - [ ] Key Terms list at end (glossary terms linked via `[**term**](#gl:term-slug)`)
 - [ ] Module/Figure/Diagram footer at very end
-- [ ] Corresponding lab and question bank exist in `manuscript/labs/unit_X/` and `manuscript/questions/unit_X/`, both `\cref`-linking back
+- [ ] Corresponding lab and question bank exist in `docs/manuscript/labs/unit_X/` and `docs/manuscript/questions/unit_X/`, both `\cref`-linking back
 - [ ] A `ChapterMeta(…)` record is added to `src/biology/chapter_metadata.py`
 - [ ] `tests/test_toc_consistency.py`, `tests/test_build_invariants.py`, `tests/test_chapter_metadata.py`, and `tests/test_bibliography_closure.py` all pass
 
@@ -702,4 +702,4 @@ Use this as a **guide**, not a rigid standard — chapters often touch several i
 - [testing_guide.md](testing_guide.md) — what test catches what mistake
 - [accessibility.md](accessibility.md) — alt text rules, reader-profile recipe
 - [pipeline_guide.md](pipeline_guide.md) — full pipeline and maintenance script table
-- [../manuscript/AGENTS.md](../manuscript/AGENTS.md) — manuscript contract (allowlists, paths, invariants)
+- [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) — manuscript contract (allowlists, paths, invariants)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Extract glossary terms from manuscript/glossary.md and produce Anki/Quizlet CSV."""
+"""Extract glossary terms from docs/manuscript/glossary.md and produce Anki/Quizlet CSV."""
 
 from __future__ import annotations
 

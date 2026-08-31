@@ -41,7 +41,7 @@ independently checked against a primary source first.
 ## Out of Scope
 
 - No new chapters, labs, question banks, or figure/diagram registrations —
-  `manuscript/config.yaml`'s 44/44/44 counts are fixed invariants (AGENTS.md).
+  `docs/manuscript/config.yaml`'s 44/44/44 counts are fixed invariants (AGENTS.md).
 - No rewriting prose that isn't flagged by an audit script or a verified
   stale claim — this is a refresh pass, not a stylistic rewrite.
 - No relaxing any existing gate threshold (90% coverage, `--max-advisories 0`,

@@ -1,6 +1,6 @@
 """Biology Textbook: Chapter Collector and Analysis Script.
 
-Reads manuscript/config.yaml, runs all biology analysis modules, then copies
+Reads docs/manuscript/config.yaml, runs all biology analysis modules, then copies
 all ordered chapter files into output/manuscript/ for the generic rendering
 pipeline (scripts/03_render_pdf.py checks that directory first).
 

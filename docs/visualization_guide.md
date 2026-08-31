@@ -47,9 +47,9 @@ Use this every time you add a new visualization. Each step maps to an enforced o
 | # | Step | Where | Enforced by |
 | - | ---- | ----- | ----------- |
 | 1 | **Implement** the generator: `plot_<descriptor>(*, output_path: Path) -> Path` | `src/visualization/plots.py` | Coverage gate (≥ 90 %) — `test_mermaid_and_visualization.py` |
-| 2 | **Register** the generator in `ALL_FIGURE_GENERATORS` (key matches allowlist) | `src/visualization/plots.py` | Allowlist in [manuscript/AGENTS.md](../manuscript/AGENTS.md) |
+| 2 | **Register** the generator in `ALL_FIGURE_GENERATORS` (key matches allowlist) | `src/visualization/plots.py` | Allowlist in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) |
 | 3 | **Generate** the PNG: `uv run python scripts/generate_figures.py` | from project dir | Inspect `output/figures/<file>.png`; square padding is applied by `_save_figure` |
-| 4 | **Embed** the figure in the chapter using raw-LaTeX `\begin{figure}…\label{fig:unit_X_<descriptor>}…\end{figure}` and an `<!-- alt: … -->` comment **immediately after** `\end{figure}` | `manuscript/unit_<X>/<chapter>.md` | `test_accessibility.py`, `test_build_invariants.py` |
+| 4 | **Embed** the figure in the chapter using raw-LaTeX `\begin{figure}…\label{fig:unit_X_<descriptor>}…\end{figure}` and an `<!-- alt: … -->` comment **immediately after** `\end{figure}` | `docs/manuscript/unit_<X>/<chapter>.md` | `test_accessibility.py`, `test_build_invariants.py` |
 | 5 | **Cross-reference** the figure from prose with `\cref{fig:unit_X_<descriptor>}` (no hand-typed "Figure 4.2") | same chapter or any other | `test_crossref_validator.py` |
 | 6 | **Validate**: `uv run python -m pytest tests/test_build_invariants.py tests/test_accessibility.py -v` and run the temp-root visual-contract audit above | from project dir | CI gate |
 
@@ -170,7 +170,7 @@ The palette is defined in `src/visualization/cvd.py`. **Always import from there
 | Categorical (≥4 categories) | `cmap="tab10"` is acceptable but include direct labels on the plot |
 
 > [!WARNING]
-> **Never** use red and green as the only two-way distinction. ~8 % of biological-male readers and ~0.5 % of biological-female readers cannot reliably distinguish them. The CVD palette and line-style/hatch redundancy implements `accessibility.color_blindness_safe: true` from `manuscript/config.yaml`. See [accessibility.md](accessibility.md).
+> **Never** use red and green as the only two-way distinction. ~8 % of biological-male readers and ~0.5 % of biological-female readers cannot reliably distinguish them. The CVD palette and line-style/hatch redundancy implements `accessibility.color_blindness_safe: true` from `docs/manuscript/config.yaml`. See [accessibility.md](accessibility.md).
 
 ---
 
@@ -291,7 +291,7 @@ enzyme rate follows \cref{fig:unit_I_michaelis_menten}
 ```
 
 > [!WARNING]
-> **Path is relative to `output/manuscript/`**, not `manuscript/`. Use `../figures/<name>.png`. See [manuscript_guide.md](manuscript_guide.md#path-conventions-and-what-fails-when-they-are-wrong) for the failure messages produced by wrong paths.
+> **Path is relative to `output/manuscript/`**, not `docs/manuscript/`. Use `../figures/<name>.png`. See [manuscript_guide.md](manuscript_guide.md#path-conventions-and-what-fails-when-they-are-wrong) for the failure messages produced by wrong paths.
 
 ### Mermaid (inline)
 
@@ -371,7 +371,7 @@ When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
 
 ### Adding a new matplotlib figure (`plot_*`)
 
-1. Implement `plot_<descriptor>(output_dir: Path, ...)` in [src/visualization/plots.py](../src/visualization/plots.py) and register it in `ALL_FIGURE_GENERATORS`. Name must appear on the allowlist in [manuscript/AGENTS.md](../manuscript/AGENTS.md).
+1. Implement `plot_<descriptor>(output_dir: Path, ...)` in [src/visualization/plots.py](../src/visualization/plots.py) and register it in `ALL_FIGURE_GENERATORS`. Name must appear on the allowlist in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md).
 2. From the project directory: `uv run python scripts/generate_figures.py`.
 3. Embed in the chapter with raw LaTeX `\begin{figure}…\includegraphics{../figures/<file>.png}…\label{fig:unit_X_<descriptor>}…\end{figure}` and an `<!-- alt: … -->` comment.
 4. Reference with `\cref{fig:...}` in prose.
@@ -379,7 +379,7 @@ When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
 
 ### Adding a new registered Mermaid diagram
 
-1. Add a factory `*_diagram()` in [src/mermaid/biology_diagrams.py](../src/mermaid/biology_diagrams.py) and register it in `ALL_BIOLOGY_DIAGRAMS`. Allowlist in [manuscript/AGENTS.md](../manuscript/AGENTS.md).
+1. Add a factory `*_diagram()` in [src/mermaid/biology_diagrams.py](../src/mermaid/biology_diagrams.py) and register it in `ALL_BIOLOGY_DIAGRAMS`. Allowlist in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md).
 2. From the project directory: `uv run python scripts/generate_diagrams.py`.
 3. `tests/test_mermaid_and_visualization.py` exercises the registry.
 4. Reference the diagram from manuscript as required by your chapter. Inline fences need one `<!-- alt: ... -->` comment plus one italic caption; static PNGs need descriptive markdown image alt text.
@@ -393,4 +393,4 @@ When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
 - [manuscript_guide.md](manuscript_guide.md) — embedding, alt text, equations, citations
 - [accessibility.md](accessibility.md) — CVD policy, alt text rules, reader-profile recipe
 - [api_reference.md](api_reference.md) — full list of `plot_*` and `*_diagram()` registered names
-- [../manuscript/AGENTS.md](../manuscript/AGENTS.md) — allowlist of figure and diagram names
+- [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) — allowlist of figure and diagram names

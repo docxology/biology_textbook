@@ -2,7 +2,7 @@
 
 ## Two-Layer Architecture
 
-Relative to the **template** repository: generic infrastructure lives in `infrastructure/` and `scripts/` (Layer 1). The biology textbook tree is **project Layer 2**: domain code in `src/`, content in `manuscript/`, and thin orchestrators in this project's `scripts/`.
+Relative to the **template** repository: generic infrastructure lives in `infrastructure/` and `scripts/` (Layer 1). The biology textbook tree is **project Layer 2**: domain code in `src/`, content in `docs/manuscript/`, and thin orchestrators in this project's `scripts/`.
 
 ```text
 biology_textbook/
@@ -24,7 +24,7 @@ biology_textbook/
 │   └── visualization/            # plots_*.py domain modules + plots.py registry + cvd.py
 ├── tests/                        # domain + invariant tests; zero mocks; ≥90 % coverage on src/ (see pytest)
 ├── scripts/                      # 36 Python files — see project [AGENTS.md](../AGENTS.md)
-├── manuscript/                   # config.yaml + 11 units + labs + questions + glossary + references.bib
+├── docs/manuscript/                   # config.yaml + 11 units + labs + questions + glossary + references.bib
 ├── docs/                         # guides (this directory; see [README.md](README.md))
 ├── output/                       # Generated (disposable)
 └── pyproject.toml
@@ -65,7 +65,7 @@ Invariant modules:
 - `test_chapter_metadata.py` — every `config.yaml` chapter has a `ChapterMeta` record
 - `test_curriculum_metadata.py` — every `config.yaml` chapter has curriculum metadata and aligned companion paths
 - `test_toc_consistency.py` — renderable H1s, front-matter navigation, reference appendices, and Course Planning Grid titles match `biology.toc`
-- `test_accessibility.py` — alt-text quality and near-block rules for LaTeX figures and Mermaid in chapters, labs, and questions ([../manuscript/AGENTS.md](../manuscript/AGENTS.md), [accessibility.md](accessibility.md))
+- `test_accessibility.py` — alt-text quality and near-block rules for LaTeX figures and Mermaid in chapters, labs, and questions ([docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md), [accessibility.md](accessibility.md))
 - `test_crossref_validator.py`, `test_crossref_validator_edges.py`, `test_crossref_validator_internals.py` — pandoc-crossref + cleveref + `\label` consistency
 - `test_lab_integrity.py` — lab computation sections are self-contained and executable against `src/biology`
 - `test_pdf_log_quality.py` — PDF log checker catches undefined references and severe overfull boxes
@@ -106,7 +106,7 @@ Composable authoring depends on a few **bidirectional** links between content an
 
 | Anchor | Manuscript / config | Code / tests |
 | ------ | ------------------- | ------------ |
-| Chapter order & titles | [manuscript/config.yaml](../manuscript/config.yaml) `units[].chapters[]` | [src/biology/chapter_metadata.py](../src/biology/chapter_metadata.py) `CHAPTERS` / `ChapterMeta` — must match; [tests/test_chapter_metadata.py](../tests/test_chapter_metadata.py) |
+| Chapter order & titles | [docs/manuscript/config.yaml](../docs/manuscript/config.yaml) `units[].chapters[]` | [src/biology/chapter_metadata.py](../src/biology/chapter_metadata.py) `CHAPTERS` / `ChapterMeta` — must match; [tests/test_chapter_metadata.py](../tests/test_chapter_metadata.py) |
 | Section cross-refs | `\label{sec:unit_X_<stem>}` / `\cref{sec:...}` | `chapter_id` in `ChapterMeta` equals `unit_X_<stem>`; prerequisites tuple lists other `chapter_id` values (resolved to `\cref` in badges) |
 | Matplotlib figures | `\includegraphics{../figures/...}` + `\label{fig:...}` in chapters | [src/visualization/plots.py](../src/visualization/plots.py) + domain `plots_*.py` modules; [cvd.py](../src/visualization/cvd.py) palette |
 | Mermaid diagrams | Inline fences and/or generated PNGs | [src/mermaid/biology_diagrams.py](../src/mermaid/biology_diagrams.py) `ALL_BIOLOGY_DIAGRAMS`; [tests/test_mermaid_and_visualization.py](../tests/test_mermaid_and_visualization.py) |

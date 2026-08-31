@@ -12,7 +12,7 @@
 | `generate_diagrams.py` | `uv run python scripts/generate_diagrams.py` | 24 PNGs (via `mmdc`) or 24 `.mmd` fallbacks in `output/figures/mermaid/`; add `--strict-png` for publication gates so non-PNG output fails |
 | `generate_figures.py` | `uv run python scripts/generate_figures.py` | 42 square-padded PNGs in `output/figures/` |
 
-These three scripts are called automatically by `../../scripts/02_run_analysis.py --project biology_textbook` via the `analysis.scripts` allowlist in `manuscript/config.yaml`; maintenance utilities stay manual and never run as part of Stage 02.
+These three scripts are called automatically by `../../scripts/02_run_analysis.py --project biology_textbook` via the `analysis.scripts` allowlist in `docs/manuscript/config.yaml`; maintenance utilities stay manual and never run as part of Stage 02.
 
 ### Manuscript maintenance and build-quality helpers
 
@@ -35,7 +35,7 @@ their CLI help says otherwise. Non-mutating quality gates such as
 | `generate_cover_art.py` | Regenerates the reusable, text-free `book.cover.image` montage asset | `test_pdf_opening_and_mermaid.py` |
 | `check_pdf_log.py` | Fails on undefined LaTeX references and severe overfull boxes above the configured point threshold | `test_pdf_log_quality.py` |
 | `audit_textbook_quality.py` | Reports generic answer keys, stale/current claims, student-facing authoring boilerplate, wet-lab drift, hard-coded references, glossary/citation closure, embedded-enrichment coverage, and ledger-backed absolute-language triage; `--check --max-advisories 0` is the blocking gate | `test_textbook_quality_audit.py` |
-| `audit_current_claims.py` | Validates `manuscript/current_claims.yaml` and stale fast-moving claim phrases | `test_current_claims_ledger.py` |
+| `audit_current_claims.py` | Validates `docs/manuscript/current_claims.yaml` and stale fast-moving claim phrases | `test_current_claims_ledger.py` |
 | `audit_publication_readiness.py` | Umbrella publication gate; `--check` runs project-local audits with temporary visual artifacts and `--full` adds root setup/test/render/validation plus coverage | `test_script_quality.py` |
 | `audit_visual_contracts.py` | Generates/checks a visual manifest and review matrix from raw figures, registered Mermaid, inline Mermaid fences, dimensions, alt text, captions, action taken, exceptions, and square-ish aspect policy; use `--figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check` for disposable review assets | publication-readiness gate |
 | `sync_assessment_metadata.py` | Inserts/verifies item-level question metadata and lab LO/rubric alignment blocks; `--dry-run` previews drift without writing | `test_assessment_metadata.py` / `test_lab_pedagogy_alignment.py` |
@@ -77,20 +77,20 @@ python3 scripts/generate_figures.py  --output-dir /tmp/figures
 - **Add registered Mermaid diagram:** `src/mermaid/biology_diagrams.py` → `ALL_BIOLOGY_DIAGRAMS`
 - **Add inline Mermaid diagram:** write a fenced `mermaid` block followed by one `<!-- alt: ... -->` comment and one italic caption; PDF rendering converts it strictly to `output/figures/mermaid_inline/*.png` and fails if `mmdc` cannot render it. The manuscript currently has 193 inline Mermaid fences. Run `uv run python scripts/add_mermaid_alt_text.py --check` after edits.
 - **Add matplotlib figure:** `src/visualization/plots.py` → `ALL_FIGURE_GENERATORS`, then run `scripts/insert_orphan_figures.py` or reference it manually in a chapter
-- **Update current claims:** edit `manuscript/current_claims.yaml`, then run `uv run python scripts/audit_current_claims.py --check` and `uv run python -m pytest tests/test_current_claims_ledger.py -v`.
+- **Update current claims:** edit `docs/manuscript/current_claims.yaml`, then run `uv run python scripts/audit_current_claims.py --check` and `uv run python -m pytest tests/test_current_claims_ledger.py -v`.
 - **Update assessment metadata:** run `uv run python scripts/sync_assessment_metadata.py --dry-run` to preview drift, run without flags to write updates, then run `uv run python scripts/sync_assessment_metadata.py --check` and verify `tests/test_assessment_metadata.py tests/test_lab_pedagogy_alignment.py`.
 - **Update visual manifest:** run `uv run python scripts/audit_visual_contracts.py --figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check`; the manifest and review matrix should be re-derived rather than hand-authored.
-- **Add/reorder chapters:** `manuscript/config.yaml` → `units[].chapters[]`, then add a matching `ChapterMeta(…)` in `src/biology/chapter_metadata.py`, a matching `CurriculumRecord` in `src/biology/curriculum.py`, confirm the unit alignment in `src/biology/alignment.py`, list companion lab/question files without `title:` fields, and run `scripts/insert_crossref_labels.py` + `scripts/sync_curriculum_materials.py` + `scripts/insert_chapter_metadata.py`
-- **Add a citation:** new `@entry{}` in `manuscript/references.bib`, then either write `\citep{key}` in a chapter or add it to `scripts/integrate_orphan_citations.py` `INSERTIONS`
+- **Add/reorder chapters:** `docs/manuscript/config.yaml` → `units[].chapters[]`, then add a matching `ChapterMeta(…)` in `src/biology/chapter_metadata.py`, a matching `CurriculumRecord` in `src/biology/curriculum.py`, confirm the unit alignment in `src/biology/alignment.py`, list companion lab/question files without `title:` fields, and run `scripts/insert_crossref_labels.py` + `scripts/sync_curriculum_materials.py` + `scripts/insert_chapter_metadata.py`
+- **Add a citation:** new `@entry{}` in `docs/manuscript/references.bib`, then either write `\citep{key}` in a chapter or add it to `scripts/integrate_orphan_citations.py` `INSERTIONS`
 - **Run an embedded enrichment pass:** `uv run python scripts/enrich_embedded_textbook.py --dry-run`, inspect the reported counts, then run without `--dry-run` if it only touches expected chapter/lab/question surfaces.
 
 ## See Also
 
 - [`AGENTS.md`](AGENTS.md) — detailed architecture, stage documentation, invariants
-- [`../manuscript/config.yaml`](../manuscript/config.yaml) — book configuration
+- [`../docs/manuscript/config.yaml`](../docs/manuscript/config.yaml) — book configuration
 - [`../src/biology/chapter_metadata.py`](../src/biology/chapter_metadata.py) — per-chapter difficulty / time / prereqs
 - [`../src/biology/toc.py`](../src/biology/toc.py) — canonical ToC and derived lab/question/reference titles
-- [`../src/biology/curriculum.py`](../src/biology/curriculum.py) — per-chapter pedagogy, model/data skill, lab/question alignment
+- [`../src/biology/curriculum/`](../src/biology/curriculum/) — per-chapter pedagogy, model/data skill, lab/question alignment (`CurriculumRecord` in `models.py`)
 - [`../src/biology/alignment.py`](../src/biology/alignment.py) — standards, skills, and instructor orchestration alignment
 - [`../src/biology/crossref_validator.py`](../src/biology/crossref_validator.py) — label/crossref scanner
 - [`../src/mermaid/`](../src/mermaid/) — diagram source definitions

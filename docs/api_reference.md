@@ -161,7 +161,7 @@ Tests: `tests/test_foundations*.py`, plot coverage via `tests/test_visualization
 ## `biology.toc`
 
 Canonical table-of-contents API consumed by maintenance scripts. It reads
-`manuscript/config.yaml` and `biology.chapter_metadata` to derive renderable
+`docs/manuscript/config.yaml` and `biology.chapter_metadata` to derive renderable
 display titles for units, chapters, labs, question banks, reference appendices,
 front-matter navigation, and the Course Planning Grid.
 
@@ -253,7 +253,7 @@ Tests: `tests/test_assessment_metadata.py`, `tests/test_lab_pedagogy_alignment.p
 
 ## `biology.current_claims`
 
-Fast-moving fact ledger for `manuscript/current_claims.yaml`. Gate script: `scripts/audit_current_claims.py --check`.
+Fast-moving fact ledger for `docs/manuscript/current_claims.yaml`. Gate script: `scripts/audit_current_claims.py --check`.
 
 | Symbol | Kind | Description |
 | ------ | ---- | ----------- |
@@ -374,7 +374,7 @@ Detects raw-LaTeX figure environments (`\begin{figure}…\label{fig:…}…\end{
 
 ## `visualization.cvd`
 
-Constants for **colorvision–friendly** matplotlib styling (blue/orange/teal, Punnett hatching, line styles for overlapping series). Consumed by `src/visualization/plots.py`. Aligns with `manuscript/config.yaml` → `accessibility.color_blindness_safe: true` — see [accessibility.md](accessibility.md) and [visualization_guide.md](visualization_guide.md).
+Constants for **colorvision–friendly** matplotlib styling (blue/orange/teal, Punnett hatching, line styles for overlapping series). Consumed by `src/visualization/plots.py`. Aligns with `docs/manuscript/config.yaml` → `accessibility.color_blindness_safe: true` — see [accessibility.md](accessibility.md) and [visualization_guide.md](visualization_guide.md).
 
 | Symbol | Role |
 | ------ | ---- |
@@ -417,7 +417,7 @@ Diagram structure is declared in `src/mermaid/diagram_specs.yaml` and loaded by 
 
 Plot entry points are split across `src/visualization/plots_{cell,genetics,ecology,evolution,physiology,botany,microbiology}.py` and registered in `plots.py` → `ALL_FIGURE_GENERATORS`. Each `plot_*` function takes a required `output_dir: Path` and optional numeric parameters; each returns `Path` to a PNG.
 
-Color defaults come from [`visualization.cvd`](#visualizationcvd) when multiple series or sign categories are shown. **Allowlist** names (what the manuscript may cite) are in [../manuscript/AGENTS.md](../manuscript/AGENTS.md).
+Color defaults come from [`visualization.cvd`](#visualizationcvd) when multiple series or sign categories are shown. **Allowlist** names (what the manuscript may cite) are in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md).
 
 | Registry key | `plot_*` / callable | Output filename (typical) |
 | ------------ | -------------------- | --------------------------- |

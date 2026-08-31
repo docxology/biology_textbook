@@ -4,13 +4,13 @@
 
 This directory contains **36** Python files. **Three** are Stage-2 **orchestrators** called by the root pipeline; **seventeen** are idempotent **structural / build-quality** utilities (labels, metadata, curriculum, bib, labs, figures, typography, lab computation, cover art, PDF-log checks, manuscript-quality audits, current-claim audits, assessment metadata, visual-contract audit, publication-readiness audit) that keep invariants in `tests/test_build_invariants.py` and related tests satisfied; **nine** are **optional pedagogy / content** helpers (glossary linking, embedded enrichment, question-bank answers, labs, further reading, Mermaid alt text, glossary-card export) used during content iteration. `_bootstrap.py` centralizes `sys.path` setup; `atomic_io.py` re-exports `src/textbook_io.write_text_atomic`; `__init__.py` marks the package.
 
-All scientific computation resides in `../src/`; orchestrators only coordinate I/O, path resolution, and module invocation. Utilities parse and rewrite markdown/bib/yaml source. The root Stage 02 runner reads `analysis.scripts` in `../manuscript/config.yaml` and runs only the three build-producing scripts below; maintenance utilities stay manual.
+All scientific computation resides in `../src/`; orchestrators only coordinate I/O, path resolution, and module invocation. Utilities parse and rewrite markdown/bib/yaml source. The root Stage 02 runner reads `analysis.scripts` in `../docs/manuscript/config.yaml` and runs only the three build-producing scripts below; maintenance utilities stay manual.
 
 ## Scripts — Stage-2 orchestrators
 
 | Script | Purpose |
 | ------ | ------- |
-| `biology_analysis.py` | Reads `manuscript/config.yaml`, runs all biology src modules, collects the full ordered textbook into `output/manuscript/` (front matter, unit intros, chapters, labs, question banks, reference appendices), marks injected files to skip per-section Beamer slide derivation, and copies live `config.yaml`, `references.bib`, `preamble.md`, and cover assets alongside so the PDF renderer can find book metadata and images |
+| `biology_analysis.py` | Reads `docs/manuscript/config.yaml`, runs all biology src modules, collects the full ordered textbook into `output/manuscript/` (front matter, unit intros, chapters, labs, question banks, reference appendices), marks injected files to skip per-section Beamer slide derivation, and copies live `config.yaml`, `references.bib`, `preamble.md`, and cover assets alongside so the PDF renderer can find book metadata and images |
 | `generate_diagrams.py` | Renders 24 diagrams in `ALL_BIOLOGY_DIAGRAMS` to PNG via `mmdc` when available; fallback `.mmd` → `output/figures/mermaid/` |
 | `generate_figures.py` | Generates 42 square-padded matplotlib figures via `src/visualization/ALL_FIGURE_GENERATORS` (`cvd.py` palette when `config.yaml` has `color_blindness_safe: true`); logs policy; output → `output/figures/` |
 
@@ -25,7 +25,7 @@ the matching script is the canonical fix.
 | Script | Guards | What it does |
 | ------ | ------ | ------------ |
 | `insert_crossref_labels.py` | `test_build_invariants.test_every_chapter_has_section_label` + `test_every_lab_and_question_has_section_label` | Inserts `\label{sec:unit_X_<stem>}` after every H1 and rewrites legacy chapter-number prose to `\cref{sec:…}` when a canonical chapter target exists |
-| `insert_chapter_metadata.py` | `test_build_invariants.test_every_chapter_has_metadata_badge` + `test_course_planning_grid_populated` | Renders per-chapter difficulty / time / prereq badge from `src/biology/chapter_metadata.py` and refreshes the Course Planning Grid from `biology.toc` in `manuscript/front_matter.md` |
+| `insert_chapter_metadata.py` | `test_build_invariants.test_every_chapter_has_metadata_badge` + `test_course_planning_grid_populated` | Renders per-chapter difficulty / time / prereq badge from `src/biology/chapter_metadata.py` and refreshes the Course Planning Grid from `biology.toc` in `docs/manuscript/front_matter.md` |
 | `sync_curriculum_materials.py` | `test_curriculum_metadata.py` + `test_toc_consistency.py` | Renders canonical H1s/front-matter navigation, per-chapter Study Blueprint blocks, lab Evidence and Reproducibility checklists, question-bank Instructor Use notes, Appendix A's curriculum map, and Appendix B's instructor guide from `biology.toc`, `src/biology/curriculum.py`, and `src/biology/alignment.py` |
 | `integrate_orphan_citations.py` | `test_bibliography_closure.test_no_orphan_bibentries` | Hand-curated map of BibTeX citekey → target chapter + anchor phrase; injects `\citep{key}` after the first safe occurrence (skips headings, code, LaTeX macro arguments) |
 | `link_glossary.py` | `test_build_invariants.test_glossary_and_index_use_semantic_chapter_links` + `--check` | Maintains `{#gl:<slug>}` anchors, rewrites legacy glossary/index chapter back-references to canonical `\cref{sec:…}` labels, and fails on unresolved glossary links or duplicate anchors |
@@ -34,10 +34,10 @@ the matching script is the canonical fix.
 | `insert_orphan_figures.py` | `test_build_invariants.test_every_registered_figure_is_referenced` | Creates `\begin{figure}\includegraphics\caption\label\end{figure}` blocks for `ALL_FIGURE_GENERATORS` entries not yet used in any chapter |
 | `normalize_typography.py` | (cosmetic; HTML-comment-aware) | Converts ASCII `-->` to `→` in prose; skips fenced code, `$…$` and `$$…$$` math, raw-LaTeX environments, HTML comments, YAML front matter, and `preamble.md` |
 | `fix_greek_math_prose.py` | (works around pandoc quirk) | Replaces `$\greek$` in prose (outside code / math / LaTeX environments) with the Unicode code point — prevents pandoc emitting `\(\greek)` without a closing `\)` inside pipe-table cells |
-| `generate_cover_art.py` | `test_pdf_opening_and_mermaid.py::test_configured_cover_asset_exists` | Regenerates the text-free cover montage asset referenced by `book.cover.image` in `manuscript/config.yaml` |
+| `generate_cover_art.py` | `test_pdf_opening_and_mermaid.py::test_configured_cover_asset_exists` | Regenerates the text-free cover montage asset referenced by `book.cover.image` in `docs/manuscript/config.yaml` |
 | `check_pdf_log.py` | `test_pdf_log_quality.py` | Fails on undefined LaTeX references and severe overfull boxes above the configured point threshold |
-| `audit_textbook_quality.py` | `test_textbook_quality_audit.py` | Umbrella quality gate for generic answers, current-claim drift, wet-lab defaults, hard-coded rendered references, glossary/citation closure, embedded-enrichment coverage, and `manuscript/quality_advisories.yaml` triage |
-| `audit_current_claims.py` | `test_current_claims_ledger.py` | Validates `manuscript/current_claims.yaml` source tiers, checked dates, refresh triggers, anchors, and stale-phrase locks |
+| `audit_textbook_quality.py` | `test_textbook_quality_audit.py` | Umbrella quality gate for generic answers, current-claim drift, wet-lab defaults, hard-coded rendered references, glossary/citation closure, embedded-enrichment coverage, and `docs/manuscript/quality_advisories.yaml` triage |
+| `audit_current_claims.py` | `test_current_claims_ledger.py` | Validates `docs/manuscript/current_claims.yaml` source tiers, checked dates, refresh triggers, anchors, and stale-phrase locks |
 | `audit_visual_contracts.py` | publication-readiness gate | Generates/checks a visual manifest and review matrix from raw figure blocks, registered Mermaid factories, inline Mermaid fences, asset dimensions, alt text, captions, generator names, action taken, exceptions, and square-ish aspect policy |
 | `audit_publication_readiness.py` | aggregate gate | Runs quality, current-claim, assessment, Mermaid alt, strict figure/diagram, lint, mypy, WIP resolver, artifact-count, and tracked-artifact checks using temporary visual artifacts; `--full` adds root setup/test/render/validate; `--workers N` parallelizes independent gate steps (default `1`) |
 | `annotate_table_captions.py` | `test_table_captions.py` | Inserts `Table: … {#tbl:…}` captions before chapter and lab pipe tables missing them |
@@ -68,7 +68,7 @@ Idempotent unless noted. Support `--dry-run` where implemented in each script.
 
 ```text
 scripts/biology_analysis.py          ← orchestrator (config reading, file I/O)
-    └── reads:  manuscript/config.yaml
+    └── reads:  docs/manuscript/config.yaml
     └── calls:  src/biology/*        (scientific modules)
     └── copies: chapter .md files → output/manuscript/
 
@@ -121,7 +121,7 @@ This registry, together with `ALL_BIOLOGY_DIAGRAMS`, is the visual manifest: reg
 
 ## Config Integration
 
-`biology_analysis.py` reads `manuscript/config.yaml` for:
+`biology_analysis.py` reads `docs/manuscript/config.yaml` for:
 
 - `front_matter.include_front_matter` + `front_matter.files` — prepends front-matter source after the generated book opening and table of contents (preface appears only when listed there and allowed by `front_matter.include_preface`)
 - `units[].chapters[].file` — ordered chapter list (`enabled: false` skips an entry)
@@ -180,6 +180,6 @@ no `MagicMock`, no patched file I/O). Tests live in `../tests/`.
 
 - `../src/mermaid/biology_diagrams.py` — diagram definitions
 - `../src/visualization/` — figure generators
-- `../manuscript/config.yaml` — all layout, typography, and chapter configuration
+- `../docs/manuscript/config.yaml` — all layout, typography, and chapter configuration
 - `../../scripts/02_run_analysis.py` — generic pipeline orchestrator that calls these scripts
 - `../../scripts/03_render_pdf.py` — PDF renderer that reads layout/typography config

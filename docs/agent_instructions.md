@@ -1,7 +1,7 @@
 # Agent Instructions (biology_textbook)
 
 > [!NOTE]
-> **See also:** [manuscript_guide.md](manuscript_guide.md) for LaTeX patterns; [composable_authoring.md](composable_authoring.md) for stable IDs and workflows; [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md) for objective-question mapping. **This file is editorial** (voice, narrative arc, clinical boxes); the structural contract is in [../manuscript/AGENTS.md](../manuscript/AGENTS.md).
+> **See also:** [manuscript_guide.md](manuscript_guide.md) for LaTeX patterns; [composable_authoring.md](composable_authoring.md) for stable IDs and workflows; [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md) for objective-question mapping. **This file is editorial** (voice, narrative arc, clinical boxes); the structural contract is in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md).
 
 ---
 
@@ -28,7 +28,7 @@
 These instructions apply when modifying the active `biology_textbook` project directory. Template-hosted render and validation entry points still use `--project biology_textbook` when the template infrastructure is available.
 
 > [!IMPORTANT]
-> **Source of truth (mechanical rules):** If anything here disagrees with [../manuscript/AGENTS.md](../manuscript/AGENTS.md) or the test suite, **the manuscript contract and tests win** — especially for `\label` / `\cref` naming, figure paths, and cross-references. This file is **editorial** (voice, structure, teaching style); [../manuscript/AGENTS.md](../manuscript/AGENTS.md) and [composable_authoring.md](composable_authoring.md) are **composable / structural** (how to add chapters, modules, and figures without breaking the build).
+> **Source of truth (mechanical rules):** If anything here disagrees with [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) or the test suite, **the manuscript contract and tests win** — especially for `\label` / `\cref` naming, figure paths, and cross-references. This file is **editorial** (voice, structure, teaching style); [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) and [composable_authoring.md](composable_authoring.md) are **composable / structural** (how to add chapters, modules, and figures without breaking the build).
 
 End-to-end checklists: [composable_authoring.md](composable_authoring.md).
 
@@ -323,7 +323,7 @@ Every chapter must have, in this order:
 - [ ] At least 3 `> **Clinical Connection:**` boxes
 - [ ] At least 2 `> **Concept Check:**` questions
 - [ ] `## Summary` — bullet list of all key points, one bullet per major section
-- [ ] `## Key Terms` — markdown table with two columns: Term (bold) | Definition. Terms that appear in `manuscript/glossary.md` should be linked on first use as `[**term**](#gl:term-slug)`
+- [ ] `## Key Terms` — markdown table with two columns: Term (bold) | Definition. Terms that appear in `docs/manuscript/glossary.md` should be linked on first use as `[**term**](#gl:term-slug)`
 - [ ] `## Review Questions` — 8–10 numbered questions mixing quantitative calculation, conceptual explanation, and clinical application
 - [ ] Module reference footer: ``*Module: `src/biology/<domain>/<file>.py` (functions: ...)*``
 
@@ -365,8 +365,8 @@ Every chapter must have, in this order:
 - Read `AGENTS.md` (project overview and module boundaries).
 - If changing tests: read [testing_guide.md](testing_guide.md).
 - If changing pipeline flow: read [pipeline_guide.md](pipeline_guide.md).
-- If adding/editing chapters: read [../manuscript/AGENTS.md](../manuscript/AGENTS.md), [composable_authoring.md](composable_authoring.md), and this file.
-- Confirm the chapter file is listed in `manuscript/config.yaml` under the correct unit.
+- If adding/editing chapters: read [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md), [composable_authoring.md](composable_authoring.md), and this file.
+- Confirm the chapter file is listed in `docs/manuscript/config.yaml` under the correct unit.
 
 ---
 
@@ -436,4 +436,4 @@ Four chapters were sampled against the **Chapter Structure Checklist** above: `u
 - [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md) — Bloom's taxonomy, objective-question mapping
 - [testing_guide.md](testing_guide.md) — what test catches what mistake
 - [accessibility.md](accessibility.md) — alt-text writing guide, CVD checklist
-- [../manuscript/AGENTS.md](../manuscript/AGENTS.md) — manuscript contract
+- [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) — manuscript contract

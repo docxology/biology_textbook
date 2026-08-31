@@ -26,7 +26,7 @@ Two complementary goals:
 1. **Author-facing**: a shared cognitive-level vocabulary so every chapter's Learning Objectives, Concept Checks, Worked Examples, and Review Questions span the same range — recall, application, and synthesis — instead of clustering at one level.
 2. **Instructor-facing**: a lightweight mapping from chapter Learning Objectives to appendix question banks so a course coordinator can trace coverage without a database.
 
-This is **documentation and optional HTML comments** in `manuscript/questions/`; it does not change PDF numbering and does not introduce new tests.
+This is **documentation and optional HTML comments** in `docs/manuscript/questions/`; it does not change PDF numbering and does not introduce new tests.
 
 The project now also has a tested curriculum and standards spine:
 
@@ -130,8 +130,8 @@ Each chapter has multiple "question surfaces":
 | **Concept Check** | After each major `##` section in the chapter body | Apply or Analyze | Diagnostic; spot-check that the section's idea was internalised |
 | **Worked Example** | Numbered, in-line with the chapter content | Apply (with full solution shown) | Model the reasoning; calibrate the difficulty |
 | **Review Questions** (end-of-chapter) | `## Review Questions` block | Mixed (Remember → Analyze) | 8–10 items spanning the LOs |
-| **Question bank** | `manuscript/questions/unit_X/questions_<chapter_stem>.md` | Mixed (mostly Apply / Analyze / Evaluate) | 30 items per chapter; instructors draw from these for exams |
-| **Lab worksheet** | `manuscript/labs/unit_X/lab_<chapter_stem>.md` | Apply / Analyze / Create (procedural) | Hands-on or pen-and-paper procedure |
+| **Question bank** | `docs/manuscript/questions/unit_X/questions_<chapter_stem>.md` | Mixed (mostly Apply / Analyze / Evaluate) | 30 items per chapter; instructors draw from these for exams |
+| **Lab worksheet** | `docs/manuscript/labs/unit_X/lab_<chapter_stem>.md` | Apply / Analyze / Create (procedural) | Hands-on or pen-and-paper procedure |
 
 ### Recommended mix for question banks (30 items per chapter)
 
@@ -224,7 +224,7 @@ negative control.
 
 ## Objective-question mapping convention
 
-In each chapter, objectives are numbered `1.`, `2.`, … under `## Learning Objectives`. In the matching question file `manuscript/questions/unit_*/questions_<chapter_stem>.md`, optional **HTML comments** above each question record:
+In each chapter, objectives are numbered `1.`, `2.`, … under `## Learning Objectives`. In the matching question file `docs/manuscript/questions/unit_*/questions_<chapter_stem>.md`, optional **HTML comments** above each question record:
 
 | Comment | Meaning |
 | ------- | ------- |
@@ -253,7 +253,7 @@ $K_m = 0.5$ mM. Calculate the initial velocity at $[S] = 0.1$ mM ...
 - When chapter objectives are renumbered or split, update the `<!-- LO:N -->` comments in the question file for that chapter.
 - When a chapter's model, data skill, misconception, lab emphasis, or transfer task changes, update `src/biology/curriculum.py` and rerun `scripts/sync_curriculum_materials.py`.
 - This convention does **not** replace invariant tests; it is for **curriculum review** and instructor editions.
-- Bulk editing: `rg "<!-- LO:" manuscript/questions/` lists every mapped question.
+- Bulk editing: `rg "<!-- LO:" docs/manuscript/questions/` lists every mapped question.
 - For instructor editions where solutions appear, see `export.include_solutions` in [accessibility.md](accessibility.md#export).
 
 ---

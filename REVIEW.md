@@ -5,7 +5,7 @@
 
 ## 1. Current Architecture
 
-The project remains aligned with the template's two-layer contract: scientific and pedagogical behavior lives in `src/`, manuscript source lives in `manuscript/`, and `scripts/` are thin orchestration or idempotent maintenance utilities.
+The project remains aligned with the template's two-layer contract: scientific and pedagogical behavior lives in `src/`, manuscript source lives in `docs/manuscript/`, and `scripts/` are thin orchestration or idempotent maintenance utilities.
 
 | Area | Current state |
 | ---- | ------------- |
@@ -591,7 +591,7 @@ Follow-up pass after §18: close maintenance-path drift, sync documentation to l
 | Surface | Update |
 | --- | --- |
 | Root + docs + scripts README/AGENTS | **42** matplotlib generators, **36** scripts, **51** tests, **360** bib entries |
-| `manuscript/AGENTS.md` | Full **42**-plot allowlist from `ALL_FIGURE_GENERATORS` |
+| `docs/manuscript/AGENTS.md` | Full **42**-plot allowlist from `ALL_FIGURE_GENERATORS` |
 | Unit IV/V/VII/IX `AGENTS.md` | Chapter filenames match `config.yaml` |
 | `docs/figure_gap_matrix.md` | Renamed chapter paths (`host_immunity_and_vaccines`, `endocrine_signaling`) |
 | `docs/accessibility.md` | Watermark optional when both `include_solutions` and `watermark_instructor` are true |
@@ -672,7 +672,7 @@ Tests split into `test_genetics_{sequence,mendelian,population,linkage,distance,
 Template changes (`infrastructure/publishing/executable_bundle.py`):
 
 - Copy `output/<project>/pdf/<project>_combined.pdf` → `artifacts/pdf/`.
-- Seed `manifest.json` `archival_receipts.zenodo_doi` from `manuscript/config.yaml` `publication.doi`.
+- Seed `manifest.json` `archival_receipts.zenodo_doi` from `docs/manuscript/config.yaml` `publication.doi`.
 - Bundle README documents PDF snapshot path and honest v1 reproduce scope (template root still required).
 
 Pinned scaffold: `template/tests/regression/pinned_values/biology_textbook.json` (three HW/mutation claims).
@@ -708,7 +708,7 @@ Verified artifacts:
 
 ## 22. v1.0 publication closure — title pass + full gate (2026-05-25)
 
-Follow-up after §18–§21: moderate chapter title tightening (`manuscript/config.yaml` → `sync_curriculum_materials.py` / `insert_chapter_metadata.py` / `replace_legacy_titles()`), figure caption/alt polish, second Instructor Edition render, and a full publication gate re-run.
+Follow-up after §18–§21: moderate chapter title tightening (`docs/manuscript/config.yaml` → `sync_curriculum_materials.py` / `insert_chapter_metadata.py` / `replace_legacy_titles()`), figure caption/alt polish, second Instructor Edition render, and a full publication gate re-run.
 
 **Manuscript / edition**
 
@@ -1144,7 +1144,7 @@ of §17.
 | `pytest tests/ --cov=src --cov-fail-under=90` (project root, `--extra dev` venv) | **1401 passed, 4 failed → resolved below**; **90.16% coverage — gate met** |
 | `ruff check src tests scripts --ignore E402` | All checks passed (53 pre-existing E402 only, consistent with historical gate) |
 | `mypy src tests scripts` | **Success: no issues found in 275 source files** |
-| `infrastructure.validation.cli markdown manuscript/` (template root) | **No issues found** |
+| `infrastructure.validation.cli markdown docs/manuscript/` (template root) | **No issues found** |
 | `infrastructure.validation.cli prerender manuscript --repo-root .` (template root) | **No render-blocking pitfalls or undefined citations** |
 | `scripts/audit_current_claims.py --check` | **56 claims, 0 issues** |
 | `scripts/sync_assessment_metadata.py --check` | **synchronized** |
@@ -1165,7 +1165,7 @@ of §17.
 ### Content-quality review (Manuscript Source Contract)
 
 Mechanical sweep of all 44 chapters, 44 labs, 44 question banks (verified against
-`manuscript/config.yaml`: 11 units, 44 chapters all present on disk, 44 lab +
+`docs/manuscript/config.yaml`: 11 units, 44 chapters all present on disk, 44 lab +
 44 question appendix entries all resolving):
 
 - Every chapter: `\label{sec:unit_X_<stem>}` ✓, `chapter-metadata-badge` ✓,
@@ -1258,7 +1258,7 @@ and docs/README), 56 current claims. Fixed drift (commit `d4d1e74`):
 - Inline Mermaid fence counts 193/196 → 197 total (196 outside README/AGENTS
   documentation files; per-file recount) in `AGENTS.md`,
   `docs/agent_instructions.md`, `docs/AGENTS.md`, `docs/README.md`,
-  `docs/visualization_guide.md`, `manuscript/AGENTS.md`.
+  `docs/visualization_guide.md`, `docs/manuscript/AGENTS.md`.
 - `docs/visualization_guide.md` — visual-contract audit "262 records" → 263
   (matches `output/figures/visual_manifest.json`).
 - `scripts/AGENTS.md` + root `AGENTS.md` — four maintenance scripts
