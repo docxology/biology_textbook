@@ -171,7 +171,7 @@ Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the
 | `test_glossary_cards.py` | Glossary card parsing |
 | `test_glossary_first_use.py` | First-use glossary linking |
 | `test_lab_padding.py` | Short-lab debrief padding |
-| `test_lab_workflows.py` | Lab computational workflow normalisation |
+| `test_lab_workflows.py` | Lab computational workflow normalization |
 | `test_manuscript_spans.py` | Protected-span scanning |
 | `test_numerics.py` | Shared numerical integration helpers |
 | `test_orphan_citations.py` | Orphan citation YAML loader |

@@ -209,7 +209,7 @@ biology_textbook/
 │   ├── test_glossary_cards.py              # glossary card parsing
 │   ├── test_glossary_first_use.py          # first-use glossary linking
 │   ├── test_lab_padding.py                 # short-lab debrief padding
-│   ├── test_lab_workflows.py               # lab computational workflow normalisation
+│   ├── test_lab_workflows.py               # lab computational workflow normalization
 │   ├── test_manuscript_spans.py            # protected-span scanning
 │   ├── test_numerics.py                    # shared numerical integration helpers
 │   ├── test_orphan_citations.py            # orphan citation YAML loader
