@@ -11,7 +11,7 @@ ensure_project_paths()
 
 from biology.maintenance.glossary_first_use import apply_glossary_first_use, load_glossary_terms
 
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 SKIP_NAMES = frozenset({"README.md", "AGENTS.md", "unit_intro.md"})
 
 

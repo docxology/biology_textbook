@@ -24,7 +24,7 @@ def main() -> int:
     )
     parser.add_argument("--format", choices=["anki", "quizlet"], default="anki")
     args = parser.parse_args()
-    entries = parse_glossary_cards(PROJECT / "manuscript" / "glossary.md")
+    entries = parse_glossary_cards(PROJECT / "docs" / "manuscript" / "glossary.md")
     if not entries:
         print("No entries parsed", file=sys.stderr)
         return 1

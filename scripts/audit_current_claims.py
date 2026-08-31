@@ -24,9 +24,9 @@ def main() -> int:
     claims = load_current_claims(project_root=PROJECT)
     issues = [
         issue.format()
-        for issue in validate_current_claims(claims, references_path=PROJECT / "manuscript" / "references.bib")
+        for issue in validate_current_claims(claims, references_path=PROJECT / "docs" / "manuscript" / "references.bib")
     ]
-    issues.extend(scan_stale_manuscript_phrases(PROJECT / "manuscript", project_root=PROJECT))
+    issues.extend(scan_stale_manuscript_phrases(PROJECT / "docs" / "manuscript", project_root=PROJECT))
     for issue in issues:
         print(issue)
     print(f"current_claims: claims={len(claims)} issues={len(issues)}")

@@ -17,7 +17,7 @@ import pytest
 from biology.citations import bib_keys, citation_keys, iter_midword_citations
 
 
-MANUSCRIPT = Path(__file__).resolve().parent.parent / "manuscript"
+MANUSCRIPT = Path(__file__).resolve().parent.parent / "docs" / "manuscript"
 BIB = MANUSCRIPT / "references.bib"
 
 

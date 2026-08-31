@@ -22,7 +22,7 @@ import yaml
 
 from biology.maintenance.models import PROJECT
 
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 CATALOG_PATH = Path(__file__).resolve().parent / "orphan_figures.yaml"
 
 _REQUIRED_FIELDS = ("png", "target", "anchor", "caption", "label", "alt")

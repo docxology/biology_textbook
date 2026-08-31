@@ -13,7 +13,7 @@ from pathlib import Path
 
 import pytest
 
-MANUSCRIPT = Path(__file__).resolve().parent.parent / "manuscript"
+MANUSCRIPT = Path(__file__).resolve().parent.parent / "docs" / "manuscript"
 
 
 def _manuscript_markdown_files() -> list[Path]:

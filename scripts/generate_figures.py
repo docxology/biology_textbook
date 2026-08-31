@@ -15,7 +15,7 @@ from _bootstrap import PROJECT as PROJECT_DIR, ensure_project_paths
 
 ensure_project_paths()
 
-CONFIG_FILE = PROJECT_DIR / "manuscript" / "config.yaml"
+CONFIG_FILE = PROJECT_DIR / "docs" / "manuscript" / "config.yaml"
 
 
 def main() -> int:

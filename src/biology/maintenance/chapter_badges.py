@@ -164,7 +164,7 @@ def update_front_matter_grid(
 
 def apply_chapter_metadata(project_root: Path, *, dry_run: bool = False) -> InsertReport:
     """Insert badges and refresh the course planning grid."""
-    manuscript = project_root / "manuscript"
+    manuscript = project_root / "docs" / "manuscript"
     book_toc = load_toc(project_root)
     report = InsertReport()
     chapter_map = book_toc.chapters_by_id

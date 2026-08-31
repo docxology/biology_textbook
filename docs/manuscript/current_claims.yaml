@@ -664,7 +664,7 @@ claims:
     url: docs/manuscript/glossary.md
     url_or_citekey: docs/manuscript/glossary.md
     evidence_date: 2026-05-23
-    checked_as_of: 2026-05-25
+    checked_as_of: 2026-08-31
     refresh_trigger: "Regenerate after glossary additions or removals; verify with rg -c '{#gl:' docs/manuscript/glossary.md."
   - claim_id: dbsnp-variant-identifier-resource-2026
     file: docs/manuscript/unit_IV/mutations_and_genomics.md

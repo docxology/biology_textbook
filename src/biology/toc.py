@@ -244,7 +244,7 @@ def load_toc(project_root: str | Path | None = None) -> BookToc:
         reference appendices in render order.
     """
     root = Path(project_root).resolve() if project_root is not None else Path(__file__).resolve().parents[2]
-    manuscript = root / "manuscript"
+    manuscript = root / "docs" / "manuscript"
     config_path = manuscript / "config.yaml"
     config = _load_config(config_path)
     metadata = {record.chapter_id: record for record in CHAPTERS}

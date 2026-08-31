@@ -12,7 +12,7 @@ from biology.quality.patterns import QUESTION_GENERIC_PATTERNS
 
 
 PROJECT = Path(__file__).resolve().parent.parent
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 SCRIPT = PROJECT / "scripts" / "audit_textbook_quality.py"
 
 spec = importlib.util.spec_from_file_location("audit_textbook_quality", SCRIPT)

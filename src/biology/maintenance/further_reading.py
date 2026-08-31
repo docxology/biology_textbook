@@ -29,7 +29,7 @@ from biology.citations import ordered_citation_keys
 from biology.maintenance.models import PROJECT
 from biology.toc import load_toc
 
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 BIB = MANUSCRIPT / "references.bib"
 
 

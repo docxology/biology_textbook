@@ -8,8 +8,8 @@ from pathlib import Path
 
 from biology.maintenance.models import PROJECT
 
-GLOSSARY = PROJECT / "manuscript" / "glossary.md"
-INDEX = PROJECT / "manuscript" / "appendices" / "appendix_index.md"
+GLOSSARY = PROJECT / "docs" / "manuscript" / "glossary.md"
+INDEX = PROJECT / "docs" / "manuscript" / "appendices" / "appendix_index.md"
 
 from biology.maintenance.glossary_cards import GLOSSARY_TERM_LINE_RE
 _GLOSSARY_CHAPTER_REF_RE = re.compile(r"→\s*Chapters?\s+(?P<refs>[0-9][0-9.,\s]*)")
@@ -35,7 +35,7 @@ class GlossaryIndexEntry:
 def _manuscript_markdown_files() -> list[Path]:
     return [
         path
-        for path in sorted((PROJECT / "manuscript").rglob("*.md"))
+        for path in sorted((PROJECT / "docs" / "manuscript").rglob("*.md"))
         if path.name not in {"README.md", "AGENTS.md"}
     ]
 

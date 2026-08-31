@@ -8,7 +8,7 @@ from pathlib import Path
 import pytest
 
 PROJECT = Path(__file__).resolve().parent.parent
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 
 WORKED_EXAMPLE_HEADING_RE = re.compile(
     r"^#{2,5}\s+Worked Examples?(?:\s|:|\s*$)",

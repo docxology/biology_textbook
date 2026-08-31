@@ -40,7 +40,7 @@ def mod():
 
 
 def test_every_config_chapter_has_metadata(mod) -> None:
-    cfg = yaml.safe_load((PROJECT / "manuscript" / "config.yaml").read_text())
+    cfg = yaml.safe_load((PROJECT / "docs" / "manuscript" / "config.yaml").read_text())
     expected: set[str] = set()
     for u in cfg["units"]:
         for ch in u.get("chapters", []):

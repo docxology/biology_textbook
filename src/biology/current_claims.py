@@ -13,7 +13,7 @@ import yaml
 
 
 PROJECT = Path(__file__).resolve().parents[2]
-DEFAULT_LEDGER = PROJECT / "manuscript" / "current_claims.yaml"
+DEFAULT_LEDGER = PROJECT / "docs" / "manuscript" / "current_claims.yaml"
 
 ALLOWED_SOURCE_TIERS = {
     "official_primary",
@@ -89,7 +89,7 @@ def load_current_claims(path: Path | None = None, project_root: Path | None = No
     """Load ``manuscript/current_claims.yaml`` as typed claim records."""
 
     root = project_root or PROJECT
-    ledger = path or root / "manuscript" / "current_claims.yaml"
+    ledger = path or root / "docs" / "manuscript" / "current_claims.yaml"
     raw = yaml.safe_load(ledger.read_text(encoding="utf-8")) or {}
     records = raw.get("claims", [])
     if not isinstance(records, list):
@@ -111,7 +111,7 @@ def validate_current_claims(
     seen: set[str] = set()
     claim_ids = {claim.claim_id for claim in claims}
     bibliography_keys = _bib_keys(references_path) if references_path else None
-    source_root = references_path.parent.parent if references_path else PROJECT
+    source_root = references_path.parent.parent.parent if references_path else PROJECT
 
     for required_id in sorted(REQUIRED_CLAIM_IDS - claim_ids):
         issues.append(ClaimIssue(required_id, "missing-required-claim", "required high-velocity topic is absent"))

@@ -9,7 +9,7 @@ import yaml
 
 from biology.maintenance.models import ManuscriptSurface, PROJECT
 
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 
 __all__ = [
     "configured_chapter_files",

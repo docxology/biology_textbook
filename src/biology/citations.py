@@ -121,13 +121,13 @@ def orphan_citation_insertions(manuscript_root: Path) -> tuple[OrphanCitationIns
     """Return the curated orphan-citation insertion map for ``manuscript_root``."""
     from biology.pipeline.orphan_citations import load_orphan_citation_insertions
 
-    return load_orphan_citation_insertions(manuscript_root=manuscript_root / "manuscript")
+    return load_orphan_citation_insertions(manuscript_root=manuscript_root / "docs" / "manuscript")
 
 
 def validate_orphan_citation_insertions(manuscript_root: Path) -> list[str]:
     """Return human-readable issues when insertion targets or keys are invalid."""
     issues: list[str] = []
-    bib = bib_keys((manuscript_root / "manuscript" / "references.bib").read_text(encoding="utf-8"))
+    bib = bib_keys((manuscript_root / "docs" / "manuscript" / "references.bib").read_text(encoding="utf-8"))
     for insertion in orphan_citation_insertions(manuscript_root):
         if not insertion.target.exists():
             issues.append(f"missing target for {insertion.citekey}: {insertion.target}")

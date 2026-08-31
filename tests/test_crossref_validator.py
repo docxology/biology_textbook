@@ -48,7 +48,7 @@ def _load_validator():
 @pytest.fixture(scope="module")
 def report():
     v = _load_validator()
-    manuscript_root = Path(__file__).resolve().parent.parent / "manuscript"
+    manuscript_root = Path(__file__).resolve().parent.parent / "docs" / "manuscript"
     return v.validate(manuscript_root)
 
 
@@ -90,7 +90,7 @@ def test_all_latex_figures_labeled(report) -> None:
 
 def test_all_textual_equation_labels_are_collected(report) -> None:
     """The validator must collect one-line and multi-line equation labels."""
-    manuscript = Path(__file__).resolve().parent.parent / "manuscript"
+    manuscript = Path(__file__).resolve().parent.parent / "docs" / "manuscript"
     expected: dict[str, Path] = {}
     for md in manuscript.rglob("*.md"):
         if md.name in {"AGENTS.md", "README.md", "preamble.md"}:
@@ -112,7 +112,7 @@ def test_all_textual_equation_labels_are_collected(report) -> None:
 
 def test_chapter_and_lab_section_labels_present() -> None:
     """Chapters use post-H1 ``\\label{sec:…}``; labs/questions use H1 ``{#sec:…}``."""
-    manuscript = Path(__file__).resolve().parent.parent / "manuscript"
+    manuscript = Path(__file__).resolve().parent.parent / "docs" / "manuscript"
     h1_identifier = re.compile(r"^#\s+.*\{#sec:[^}\s]+")
     missing: list[Path] = []
     for subtree in ("unit_I", "unit_II", "unit_III", "unit_IV", "unit_V",
@@ -139,7 +139,7 @@ def test_chapter_and_lab_section_labels_present() -> None:
 
 def test_cleveref_loaded_in_preamble() -> None:
     """The cleveref package must be loaded so ``\\cref`` works."""
-    preamble = (Path(__file__).resolve().parent.parent / "manuscript" / "preamble.md").read_text(
+    preamble = (Path(__file__).resolve().parent.parent / "docs" / "manuscript" / "preamble.md").read_text(
         encoding="utf-8"
     )
     assert "cleveref" in preamble, "cleveref must be loaded in preamble.md"
@@ -165,7 +165,7 @@ def test_config_chapter_count_matches_preface() -> None:
     """
     import yaml
     cfg = yaml.safe_load(
-        (Path(__file__).resolve().parent.parent / "manuscript" / "config.yaml").read_text()
+        (Path(__file__).resolve().parent.parent / "docs" / "manuscript" / "config.yaml").read_text()
     )
     total = sum(len(u.get("chapters", [])) for u in cfg["units"])
     assert total == 44, f"Expected 44 chapters, found {total}"

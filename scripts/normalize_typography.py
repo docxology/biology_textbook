@@ -11,7 +11,7 @@ ensure_project_paths()
 
 from biology.maintenance.typography import normalize_arrows_in_file
 
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 SKIP_NAMES = frozenset({"README.md", "AGENTS.md", "preamble.md"})
 
 

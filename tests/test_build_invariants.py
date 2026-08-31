@@ -20,7 +20,7 @@ from pathlib import Path
 from biology.citations import bib_keys, citation_keys
 
 
-MANUSCRIPT = Path(__file__).resolve().parent.parent / "manuscript"
+MANUSCRIPT = Path(__file__).resolve().parent.parent / "docs" / "manuscript"
 PROJECT = MANUSCRIPT.parent
 
 

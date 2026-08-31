@@ -18,7 +18,7 @@ def main() -> int:
     parser.add_argument(
         "--manuscript",
         type=Path,
-        default=Path(__file__).resolve().parents[1] / "manuscript",
+        default=Path(__file__).resolve().parents[1] / "docs" / "manuscript",
         help="Manuscript root (default: projects/biology_textbook/manuscript)",
     )
     parser.add_argument(

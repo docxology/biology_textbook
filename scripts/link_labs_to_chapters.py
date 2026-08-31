@@ -11,7 +11,7 @@ ensure_project_paths()
 
 from biology.crossref.parent_chapter_links import apply_parent_chapter_cref
 
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 
 
 def main(argv: list[str] | None = None) -> int:

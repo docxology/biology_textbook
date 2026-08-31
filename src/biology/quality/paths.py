@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parents[3]
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 QUALITY_ADVISORIES = MANUSCRIPT / "quality_advisories.yaml"
 
 __all__ = ["MANUSCRIPT", "PROJECT", "QUALITY_ADVISORIES"]

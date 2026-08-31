@@ -233,14 +233,14 @@ def test_blank_pipe_rows_are_not_separator_rows(tmp_path: Path) -> None:
 
 
 def test_configured_manuscript_has_no_unlabeled_pipe_tables() -> None:
-    manuscript = Path(__file__).resolve().parents[1] / "manuscript"
+    manuscript = Path(__file__).resolve().parents[1] / "docs" / "manuscript"
     results, changed = annotate_manuscript(manuscript, write=False)
     assert changed == 0
     assert not results
 
 
 def test_configured_table_captions_are_not_inside_pipe_tables() -> None:
-    manuscript = Path(__file__).resolve().parents[1] / "manuscript"
+    manuscript = Path(__file__).resolve().parents[1] / "docs" / "manuscript"
     offenders: list[str] = []
     for md in sorted(manuscript.rglob("*.md")):
         if md.name in {"README.md", "AGENTS.md"}:
@@ -266,7 +266,7 @@ def test_generated_companion_source_module_has_stable_table_caption() -> None:
 
 
 def test_configured_manuscript_table_captions_are_pdf_safe() -> None:
-    manuscript = Path(__file__).resolve().parents[1] / "manuscript"
+    manuscript = Path(__file__).resolve().parents[1] / "docs" / "manuscript"
     offenders: list[str] = []
     for path in sorted(manuscript.rglob("*.md")):
         if path.name in {"README.md", "AGENTS.md"}:

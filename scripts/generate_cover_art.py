@@ -12,7 +12,7 @@ ensure_project_paths()
 
 from biology.assets.cover_art import DEFAULT_HEIGHT, DEFAULT_WIDTH, generate_cover
 
-DEFAULT_OUTPUT = PROJECT / "manuscript" / "assets" / "cover" / "biology_textbook_cover.png"
+DEFAULT_OUTPUT = PROJECT / "docs" / "manuscript" / "assets" / "cover" / "biology_textbook_cover.png"
 
 
 def main(argv: list[str] | None = None) -> int:

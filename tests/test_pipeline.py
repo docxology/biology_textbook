@@ -57,7 +57,7 @@ def test_section_numbering_directives_for_unit_zero_and_main() -> None:
 
 def test_pipeline_paths_resolve_to_project_root() -> None:
     assert PROJECT_ROOT.name == "biology_textbook" or PROJECT_ROOT.is_dir()
-    assert MANUSCRIPT_DIR == PROJECT_ROOT / "manuscript"
+    assert MANUSCRIPT_DIR == PROJECT_ROOT / "docs" / "manuscript"
     assert OUTPUT_DIR == PROJECT_ROOT / "output" / "manuscript"
 
 

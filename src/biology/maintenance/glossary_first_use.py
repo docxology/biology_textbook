@@ -14,7 +14,7 @@ from biology.maintenance.manuscript_spans import (
 )
 from biology.maintenance.models import PROJECT
 
-GLOSSARY = PROJECT / "manuscript" / "glossary.md"
+GLOSSARY = PROJECT / "docs" / "manuscript" / "glossary.md"
 
 
 @dataclass(frozen=True)

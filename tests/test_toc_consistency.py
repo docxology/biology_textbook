@@ -15,7 +15,7 @@ from biology.toc import BookToc, load_toc
 
 
 PROJECT = Path(__file__).resolve().parent.parent
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 
 
 def _load_script_module(name: str):

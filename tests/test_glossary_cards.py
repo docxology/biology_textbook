@@ -10,7 +10,7 @@ PROJECT = Path(__file__).resolve().parent.parent
 
 
 def test_parse_glossary_cards_matches_live_glossary() -> None:
-    entries = parse_glossary_cards(PROJECT / "manuscript" / "glossary.md")
+    entries = parse_glossary_cards(PROJECT / "docs" / "manuscript" / "glossary.md")
     assert len(entries) > 100
     assert entries[0].term == "Abiotic"
     assert entries[0].slug == "abiotic"

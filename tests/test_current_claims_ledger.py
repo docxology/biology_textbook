@@ -34,7 +34,7 @@ def test_current_claims_ledger_is_valid() -> None:
     issues = validate_current_claims(
         claims,
         today=date.today(),
-        references_path=PROJECT / "manuscript" / "references.bib",
+        references_path=PROJECT / "docs" / "manuscript" / "references.bib",
     )
     assert not [issue.format() for issue in issues]
 
@@ -97,10 +97,10 @@ def test_current_claims_require_citekey_to_resolve_when_bibliography_is_checked(
 
 
 def test_current_claims_require_local_source_urls_to_exist(tmp_path: Path) -> None:
-    source = tmp_path / "manuscript" / "chapter.md"
-    source.parent.mkdir()
+    source = tmp_path / "docs" / "manuscript" / "chapter.md"
+    source.parent.mkdir(parents=True)
     source.write_text("The claim anchor cites source-key.", encoding="utf-8")
-    references = tmp_path / "manuscript" / "references.bib"
+    references = tmp_path / "docs" / "manuscript" / "references.bib"
     references.write_text(
         "@article{source-key,\n"
         "  author = {Example, A.},\n"
@@ -110,7 +110,7 @@ def test_current_claims_require_local_source_urls_to_exist(tmp_path: Path) -> No
         "}\n",
         encoding="utf-8",
     )
-    claim = _claim(source, checked_as_of=date(2026, 1, 2), url="manuscript/missing.md")
+    claim = _claim(source, checked_as_of=date(2026, 1, 2), url="docs/manuscript/missing.md")
 
     issues = validate_current_claims((claim,), today=date(2026, 5, 21), references_path=references)
 
@@ -139,11 +139,11 @@ def test_current_claims_cover_required_fast_moving_topics() -> None:
 
 
 def test_removed_stale_current_claim_phrases_do_not_return() -> None:
-    assert scan_stale_manuscript_phrases(PROJECT / "manuscript", project_root=PROJECT) == []
+    assert scan_stale_manuscript_phrases(PROJECT / "docs" / "manuscript", project_root=PROJECT) == []
 
 
 def test_current_claim_sources_do_not_use_known_bad_targets() -> None:
-    text = (PROJECT / "manuscript" / "current_claims.yaml").read_text(encoding="utf-8")
+    text = (PROJECT / "docs" / "manuscript" / "current_claims.yaml").read_text(encoding="utf-8")
     bad_targets = (
         "blood.2024027657",
         "9789240114708",

@@ -11,7 +11,7 @@ ensure_project_paths()
 
 from biology.maintenance.lab_padding import apply_lab_debrief
 
-LABS = PROJECT / "manuscript" / "labs"
+LABS = PROJECT / "docs" / "manuscript" / "labs"
 
 
 def main(argv: list[str] | None = None) -> int:

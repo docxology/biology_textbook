@@ -28,7 +28,7 @@ from biology.maintenance.text_normalize import (  # noqa: E402
     normalize_text,
 )
 
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 
 __all__ = [
     "FileResult",

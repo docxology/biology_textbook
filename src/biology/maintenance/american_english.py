@@ -11,7 +11,7 @@ import yaml
 
 from biology.maintenance.models import PROJECT
 
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 DATA_FILE = Path(__file__).resolve().parent / "data" / "british_to_american.yaml"
 
 SKIP_FILENAMES = frozenset({"references.bib", "preamble.md"})
@@ -117,7 +117,7 @@ def _should_normalize(path: Path, root: Path) -> bool:
 def iter_target_files(root: Path) -> list[Path]:
     """Return project files that should use American English."""
     files: list[Path] = []
-    manuscript = root / "manuscript"
+    manuscript = root / "docs" / "manuscript"
     if manuscript.exists():
         for path in sorted(manuscript.rglob("*")):
             if not path.is_file() or path.name in SKIP_FILENAMES:

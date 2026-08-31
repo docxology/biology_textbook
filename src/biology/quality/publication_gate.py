@@ -28,7 +28,7 @@ from biology.maintenance.models import PROJECT
 from textbook_paths import discover_template_root
 
 TEMPLATE_ROOT = discover_template_root(PROJECT)
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 PROJECT_PDF_LOG = PROJECT / "output" / "pdf" / "_combined_manuscript.log"
 DEFAULT_REVIEW_ARTIFACT_DIR = Path(tempfile.gettempdir()) / "biology_textbook_publication_readiness"
 

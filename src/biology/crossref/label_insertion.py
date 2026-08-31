@@ -24,7 +24,7 @@ import yaml
 from biology.curriculum_sync.sync_blocks import attach_section_identifier
 from biology.maintenance.models import PROJECT
 
-MANUSCRIPT_ROOT = PROJECT / "manuscript"
+MANUSCRIPT_ROOT = PROJECT / "docs" / "manuscript"
 CONFIG_PATH = MANUSCRIPT_ROOT / "config.yaml"
 
 

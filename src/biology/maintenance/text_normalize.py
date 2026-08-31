@@ -10,7 +10,7 @@ from biology.citations import strip_citations
 from biology.maintenance.models import PROJECT
 from textbook_io import write_text_atomic
 
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 
 MERMAID_BLOCK_RE = re.compile(
     r"^```mermaid\s*\n(?P<source>.*?)^```\s*$",

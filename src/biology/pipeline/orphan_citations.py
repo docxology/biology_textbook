@@ -16,7 +16,7 @@ _REQUIRED_FIELDS = ("citekey", "target", "anchor")
 def load_orphan_citation_insertions(
     catalog_path: Path = CATALOG_PATH,
     *,
-    manuscript_root: Path = PROJECT / "manuscript",
+    manuscript_root: Path = PROJECT / "docs" / "manuscript",
 ) -> tuple[OrphanCitationInsertion, ...]:
     """Parse the YAML catalog into ``OrphanCitationInsertion`` records."""
     raw = yaml.safe_load(catalog_path.read_text(encoding="utf-8"))

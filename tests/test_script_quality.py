@@ -19,7 +19,7 @@ DOC_PATHS = [
     PROJECT / "docs" / "architecture.md",
     PROJECT / "docs" / "pipeline_guide.md",
     PROJECT / "docs" / "testing_guide.md",
-    PROJECT / "manuscript" / "README.md",
+    PROJECT / "docs" / "manuscript" / "README.md",
     PROJECT / "tests" / "README.md",
     PROJECT / "tests" / "AGENTS.md",
     PROJECT / "scripts" / "AGENTS.md",
@@ -31,8 +31,8 @@ GENERIC_OVERVIEW_HEADING_PATHS = [
     PROJECT / "docs" / "AGENTS.md",
     PROJECT / "docs" / "pipeline_guide.md",
     PROJECT / "docs" / "visualization_guide.md",
-    PROJECT / "manuscript" / "README.md",
-    PROJECT / "manuscript" / "unit_0" / "AGENTS.md",
+    PROJECT / "docs" / "manuscript" / "README.md",
+    PROJECT / "docs" / "manuscript" / "unit_0" / "AGENTS.md",
     PROJECT / "scripts" / "AGENTS.md",
 ]
 

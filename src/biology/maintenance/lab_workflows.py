@@ -8,7 +8,7 @@ from pathlib import Path
 
 from textbook_paths import PROJECT
 
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 
 @dataclass(frozen=True)
 class LabWorkflow:

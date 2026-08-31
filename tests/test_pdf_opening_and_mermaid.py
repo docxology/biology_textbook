@@ -15,7 +15,7 @@ generate_title_page_preamble = _pdf_latex_helpers.generate_title_page_preamble
 
 
 PROJECT = Path(__file__).resolve().parent.parent
-MANUSCRIPT = PROJECT / "manuscript"
+MANUSCRIPT = PROJECT / "docs" / "manuscript"
 
 
 from biology.pipeline import injection as pipeline_injection
