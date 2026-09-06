@@ -21,7 +21,7 @@ def main(argv: list[str] | None = None) -> int:
     for lab in sorted(LABS.rglob("lab_*.md")):
         if apply_lab_debrief(lab, write=not dry_run):
             touched += 1
-            print(f"  [{'D' if dry_run else '+'}] {lab.relative_to(PROJECT / 'manuscript')}: +Debrief block")
+            print(f"  [{'D' if dry_run else '+'}] {lab.relative_to(LABS)}: +Debrief block")
     mode = "DRY RUN" if dry_run else "APPLIED"
     print(f"\n[{mode}] labs_padded={touched}")
     return 0

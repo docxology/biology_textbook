@@ -2,7 +2,7 @@
 
 ## Quick Reference — 36 `*.py` files
 
-**36** Python files: **3** Stage-2 orchestrators, **17** structural / build-quality utilities (labels, metadata, curriculum, citations, figures, labs, typography, lab computation, cover art, PDF-log checks, quality audit, current-claim audit, assessment metadata, visual-contract audit, publication-readiness audit), **9** optional pedagogy/content helpers, `_bootstrap.py`, `atomic_io.py`, and `__init__.py`. Details: [AGENTS.md](AGENTS.md).
+**36** Python files: **3** Stage-2 orchestrators, **21** structural / build-quality utilities (labels, metadata, curriculum, citations, figures, labs, typography, lab computation, table captions, spelling normalization, chapter-shell repair, cover art, PDF-log checks, quality audit, current-claim audit, assessment metadata, visual-contract audit, publication-readiness audit), **9** optional pedagogy/content helpers, `_bootstrap.py`, `atomic_io.py`, and `__init__.py`. Details: [AGENTS.md](AGENTS.md).
 
 ### Stage-2 orchestrators (called by the pipeline)
 
@@ -12,7 +12,7 @@
 | `generate_diagrams.py` | `uv run python scripts/generate_diagrams.py` | 24 PNGs (via `mmdc`) or 24 `.mmd` fallbacks in `output/figures/mermaid/`; add `--strict-png` for publication gates so non-PNG output fails |
 | `generate_figures.py` | `uv run python scripts/generate_figures.py` | 42 square-padded PNGs in `output/figures/` |
 
-These three scripts are called automatically by `../../scripts/02_run_analysis.py --project biology_textbook` via the `analysis.scripts` allowlist in `docs/manuscript/config.yaml`; maintenance utilities stay manual and never run as part of Stage 02.
+These three scripts are called automatically by the template repository's Stage-02 pipeline runner (`02_run_analysis.py --project biology_textbook`) via the `analysis.scripts` allowlist in `docs/manuscript/config.yaml`; maintenance utilities stay manual and never run as part of Stage 02.
 
 ### Manuscript maintenance and build-quality helpers
 
@@ -38,6 +38,10 @@ their CLI help says otherwise. Non-mutating quality gates such as
 | `audit_current_claims.py` | Validates `docs/manuscript/current_claims.yaml` and stale fast-moving claim phrases | `test_current_claims_ledger.py` |
 | `audit_publication_readiness.py` | Umbrella publication gate; `--check` runs project-local audits with temporary visual artifacts and `--full` adds root setup/test/render/validation plus coverage | `test_script_quality.py` |
 | `audit_visual_contracts.py` | Generates/checks a visual manifest and review matrix from raw figures, registered Mermaid, inline Mermaid fences, dimensions, alt text, captions, action taken, exceptions, and square-ish aspect policy; use `--figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check` for disposable review assets | publication-readiness gate |
+| `annotate_table_captions.py` | Inserts `Table: … {#tbl:…}` captions before chapter and lab pipe tables missing them | `test_table_captions.py` |
+| `polish_table_captions.py` | Polishes existing pandoc table captions across the manuscript (thin CLI for `biology.crossref.table_captions`) | `test_table_captions.py` |
+| `normalize_american_english.py` | Rewrites British spellings to American English in manuscript and docs | `test_american_english.py` |
+| `repair_split_chapter_shells.py` | Repairs pedagogy shells on chapters created by the Phase 5 mega-chapter split (thin CLI for `biology.maintenance.chapter_shells`) | `test_chapter_shells.py` |
 | `sync_assessment_metadata.py` | Inserts/verifies item-level question metadata and lab LO/rubric alignment blocks; `--dry-run` previews drift without writing | `test_assessment_metadata.py` / `test_lab_pedagogy_alignment.py` |
 
 ### Pedagogy and content (optional; mostly idempotent)

@@ -2,7 +2,7 @@
 
 ## Script Roles
 
-This directory contains **36** Python files. **Three** are Stage-2 **orchestrators** called by the root pipeline; **seventeen** are idempotent **structural / build-quality** utilities (labels, metadata, curriculum, bib, labs, figures, typography, lab computation, cover art, PDF-log checks, manuscript-quality audits, current-claim audits, assessment metadata, visual-contract audit, publication-readiness audit) that keep invariants in `tests/test_build_invariants.py` and related tests satisfied; **nine** are **optional pedagogy / content** helpers (glossary linking, embedded enrichment, question-bank answers, labs, further reading, Mermaid alt text, glossary-card export) used during content iteration. `_bootstrap.py` centralizes `sys.path` setup; `atomic_io.py` re-exports `src/textbook_io.write_text_atomic`; `__init__.py` marks the package.
+This directory contains **36** Python files. **Three** are Stage-2 **orchestrators** called by the root pipeline; **twenty-one** are idempotent **structural / build-quality** utilities (labels, metadata, curriculum, bib, labs, figures, typography, lab computation, table captions, spelling normalization, chapter-shell repair, cover art, PDF-log checks, manuscript-quality audits, current-claim audits, assessment metadata, visual-contract audit, publication-readiness audit) that keep invariants in `tests/test_build_invariants.py` and related tests satisfied; **nine** are **optional pedagogy / content** helpers (glossary linking, embedded enrichment, question-bank answers, labs, further reading, Mermaid alt text, glossary-card export) used during content iteration. `_bootstrap.py` centralizes `sys.path` setup; `atomic_io.py` re-exports `src/textbook_io.write_text_atomic`; `__init__.py` marks the package.
 
 All scientific computation resides in `../src/`; orchestrators only coordinate I/O, path resolution, and module invocation. Utilities parse and rewrite markdown/bib/yaml source. The root Stage 02 runner reads `analysis.scripts` in `../docs/manuscript/config.yaml` and runs only the three build-producing scripts below; maintenance utilities stay manual.
 
@@ -41,7 +41,7 @@ the matching script is the canonical fix.
 | `audit_visual_contracts.py` | publication-readiness gate | Generates/checks a visual manifest and review matrix from raw figure blocks, registered Mermaid factories, inline Mermaid fences, asset dimensions, alt text, captions, generator names, action taken, exceptions, and square-ish aspect policy |
 | `audit_publication_readiness.py` | aggregate gate | Runs quality, current-claim, assessment, Mermaid alt, strict figure/diagram, lint, mypy, WIP resolver, artifact-count, and tracked-artifact checks using temporary visual artifacts; `--full` adds root setup/test/render/validate; `--workers N` parallelizes independent gate steps (default `1`) |
 | `annotate_table_captions.py` | `test_table_captions.py` | Inserts `Table: … {#tbl:…}` captions before chapter and lab pipe tables missing them |
-| `polish_table_captions.py` | `test_table_captions.py` | Polishes existing pandoc table captions across the manuscript (thin CLI for `biology.maintenance.table_captions`) |
+| `polish_table_captions.py` | `test_table_captions.py` | Polishes existing pandoc table captions across the manuscript (thin CLI for `biology.crossref.table_captions`) |
 | `normalize_american_english.py` | `test_american_english.py` | Rewrites British spellings to American English in manuscript and docs |
 | `repair_split_chapter_shells.py` | `test_chapter_shells.py` | Repairs pedagogy shells on chapters created by the Phase 5 mega-chapter split (thin CLI for `biology.maintenance.chapter_shells`) |
 | `sync_assessment_metadata.py` | `test_assessment_metadata.py` + `test_lab_pedagogy_alignment.py` | Inserts/verifies question-item metadata and lab outcome/LO/rubric alignment blocks from `biology.assessment` / `biology.toc` surfaces; `--dry-run` previews drift without writing |
@@ -52,7 +52,7 @@ Idempotent unless noted. Support `--dry-run` where implemented in each script.
 
 | Script | Role | Related tests / notes |
 | ------ | ---- | --------------------- |
-| `add_mermaid_alt_text.py` | Audits inline Mermaid `<!-- alt: … -->` comments and italic captions; `--check` fails on drift and the tool refuses to insert generic filler | Supports [../tests/test_accessibility.py](../tests/test_accessibility.py) / [../manuscript/AGENTS.md](../manuscript/AGENTS.md) |
+| `add_mermaid_alt_text.py` | Audits inline Mermaid `<!-- alt: … -->` comments and italic captions; `--check` fails on drift and the tool refuses to insert generic filler | Supports [../tests/test_accessibility.py](../tests/test_accessibility.py) / [../docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) |
 | `bold_glossary_first_use.py` | Bold+link first glossary-term occurrence per chapter to `#gl:` anchors | Works with `link_glossary.py` |
 | `extract_glossary_cards.py` | Exports glossary entries into card-style study/review data | Content utility; not a structural gate |
 | `insert_further_reading.py` | Adds `## Further Reading and Source Notes: <Chapter Title>` from configured chapter `\cite` keys + `references.bib` | Content quality; not a structural gate |
@@ -181,5 +181,5 @@ no `MagicMock`, no patched file I/O). Tests live in `../tests/`.
 - `../src/mermaid/biology_diagrams.py` — diagram definitions
 - `../src/visualization/` — figure generators
 - `../docs/manuscript/config.yaml` — all layout, typography, and chapter configuration
-- `../../scripts/02_run_analysis.py` — generic pipeline orchestrator that calls these scripts
-- `../../scripts/03_render_pdf.py` — PDF renderer that reads layout/typography config
+- `02_run_analysis.py` — generic Stage-02 pipeline orchestrator in the template repository's `scripts/` that calls these scripts (template-hosted runs use `--project biology_textbook`)
+- PDF rendering — template-hosted pipeline stage `03_render_pdf.py` via `./run.sh --project biology_textbook`; see `../docs/pipeline_guide.md`

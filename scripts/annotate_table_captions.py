@@ -20,7 +20,7 @@ def main(argv: list[str] | None = None) -> int:
         "--manuscript",
         type=Path,
         default=Path(__file__).resolve().parent.parent / "docs" / "manuscript",
-        help="Manuscript root (default: projects/biology_textbook/manuscript)",
+        help="Manuscript root (default: <project>/docs/manuscript)",
     )
     parser.add_argument(
         "--write",
