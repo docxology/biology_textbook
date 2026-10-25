@@ -76,10 +76,10 @@ uv run python scripts/audit_visual_contracts.py --check   # visual manifest, alt
 Validate Markdown (from a template repository root with infrastructure available):
 
 ```bash
-uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/manuscript/
+uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/docs/manuscript/
 ```
 
-Render the combined PDF (from repository root, works with the in-progress path as well):
+Render the combined PDF (from the template repository root — the render stage lives in the template, not in this checkout):
 
 ```bash
 uv run python scripts/03_render_pdf.py --project biology_textbook

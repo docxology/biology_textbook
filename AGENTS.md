@@ -263,8 +263,8 @@ Run `uv run python -m pytest tests/ --cov=src --cov-fail-under=90` from this pro
 From a template repository root with infrastructure available, pass the current manuscript path:
 
 ```bash
-uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/manuscript/
-uv run python -m infrastructure.validation.cli prerender /path/to/biology_textbook/manuscript/ --repo-root .
+uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/docs/manuscript/
+uv run python -m infrastructure.validation.cli prerender /path/to/biology_textbook/docs/manuscript/ --repo-root .
 ```
 
 Use `markdown` after bulk edits; add `prerender` before relying on a clean PDF (same gate as the renderer’s source check).

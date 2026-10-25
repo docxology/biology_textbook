@@ -183,8 +183,8 @@ uv run python -m pytest tests/ --cov=src --cov-fail-under=90
 From **template repository root**:
 
 ```bash
-uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/manuscript/
-uv run python -m infrastructure.validation.cli prerender /path/to/biology_textbook/manuscript/ --repo-root .
+uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/docs/manuscript/
+uv run python -m infrastructure.validation.cli prerender /path/to/biology_textbook/docs/manuscript/ --repo-root .
 ```
 
 > [!TIP]

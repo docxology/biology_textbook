@@ -1,4 +1,4 @@
-# AGENTS — biology_textbook/manuscript/assets/cover
+# AGENTS — biology_textbook/docs/manuscript/assets/cover
 
 Status: REAL (doc fleet, 2026-08-30)
 

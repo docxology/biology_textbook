@@ -61,8 +61,8 @@ uv run python scripts/refine_generated_answers.py --dry-run               # refi
 Manuscript validation from the template repository root:
 
 ```bash
-uv run python -m infrastructure.validation.cli markdown projects/biology_textbook/manuscript/  # no issues
-uv run python -m infrastructure.validation.cli prerender projects/biology_textbook/manuscript/ --repo-root .  # no render-blocking issues
+uv run python -m infrastructure.validation.cli markdown projects/biology_textbook/docs/manuscript/  # no issues
+uv run python -m infrastructure.validation.cli prerender projects/biology_textbook/docs/manuscript/ --repo-root .  # no render-blocking issues
 ```
 
 ## 4. Residual Notes
@@ -286,8 +286,8 @@ uv run ruff check scripts/audit_textbook_quality.py tests/test_textbook_quality_
 uv run mypy scripts/audit_textbook_quality.py tests/test_textbook_quality_audit.py        # clean
 uv run python scripts/refine_generated_answers.py --dry-run    # refined=0; hand_written_preserved=1140
 uv run python scripts/normalize_lab_computational_workflows.py --dry-run  # labs_normalised=0
-uv run python -m infrastructure.validation.cli prerender projects/biology_textbook/manuscript --repo-root .  # clean
-uv run python -m infrastructure.validation.cli markdown projects/biology_textbook/manuscript  # exit 0; non-informative link-text advisories only
+uv run python -m infrastructure.validation.cli prerender projects/biology_textbook/docs/manuscript --repo-root .  # clean
+uv run python -m infrastructure.validation.cli markdown projects/biology_textbook/docs/manuscript  # exit 0; non-informative link-text advisories only
 ```
 
 ## 10. Current-Claims + Assessment Metadata Pass — 2026-05-20
@@ -387,8 +387,8 @@ After LO edits: `sync_assessment_metadata.py` + `--check` pass.
 
 ```bash
 cd /Users/4d/Documents/GitHub/template
-uv run python -m infrastructure.validation.cli markdown projects/biology_textbook/manuscript/
-uv run python -m infrastructure.validation.cli prerender projects/biology_textbook/manuscript --repo-root .
+uv run python -m infrastructure.validation.cli markdown projects/biology_textbook/docs/manuscript/
+uv run python -m infrastructure.validation.cli prerender projects/biology_textbook/docs/manuscript --repo-root .
 uv run python scripts/02_run_analysis.py --project biology_textbook
 uv run python scripts/03_render_pdf.py --project biology_textbook
 uv run python scripts/04_validate_output.py --project biology_textbook

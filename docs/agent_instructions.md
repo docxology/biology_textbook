@@ -392,10 +392,10 @@ Every chapter must have, in this order:
 uv run python -m pytest tests/ --cov=src --cov-fail-under=90        # full suite + coverage gate
 
 # Validate manuscript markdown (from template repository root)
-uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/manuscript/
+uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/docs/manuscript/
 
 # Strict source gate (template root): same pitfalls + undefined citations as the PDF prerender
-uv run python -m infrastructure.validation.cli prerender /path/to/biology_textbook/manuscript/ --repo-root .
+uv run python -m infrastructure.validation.cli prerender /path/to/biology_textbook/docs/manuscript/ --repo-root .
 
 # Full analysis + render (template root)
 uv run python scripts/02_run_analysis.py --project biology_textbook

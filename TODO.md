@@ -19,7 +19,9 @@ Mark items `- [x]` when done; keep this file the single backlog home.
 
 ## Major
 
-- [ ] UNCOMMITTED TREE MIGRATION (pre-existing at 2026-08-31 dispatch, not this pass): `manuscript/` files are deleted on disk and the full tree now lives in untracked `docs/manuscript/`. Prose references were updated in tracked files, but a fresh clone of HEAD still has the old layout. A future commit must stage the `manuscript/` deletions + `docs/manuscript/` additions as one atomic move (owner decision; not done here to avoid committing files this pass did not author).
+- [x] TREE MIGRATION LANDED: the `manuscript/` → `docs/manuscript/` move was staged and committed atomically (223 files, 250 renames), and
+  hard-coded path constants in source and tests were updated in the same series. A fresh clone of HEAD now has the new layout; no further
+  action is required. (Resolved after the 2026-08-31 dispatch note that flagged it as uncommitted.)
 
 - [x] Entry-doc orientation ladder: README now has a Status section (verified 2026-08-31 via pytest) and Next actions pointing at this TODO.md and docs/composable_authoring.md.
 
