@@ -19,7 +19,7 @@ book:
   subtitle: "A Generative Approach"
   author: "Daniel Ari Friedman"
   orcid: "0000-0001-6232-9096" # Author ORCID identifier
-  edition: "1.0"
+  edition: "1.1"
   year: 2026
   language: "en"
   license: "CC BY 4.0"
@@ -36,7 +36,10 @@ authors:
     corresponding: true
 
 publication:
-  doi: "10.5281/zenodo.20286478"
+  doi: ""
+  doi_status: "Not deposited for edition 1.1"
+  # This DOI identifies the earlier edition, not this working manuscript.
+  prior_edition_doi: "10.5281/zenodo.20286478"
   repository_url: "https://github.com/docxology/biology_textbook"
   repository_label: "Source repository"
   keywords:

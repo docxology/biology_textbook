@@ -242,7 +242,7 @@ Directional selection shifts the mean [**phenotype**](#gl:phenotype) toward one 
 
 **Antibiotic resistance**: Random mutations conferring resistance arise at low frequency in bacterial populations. In the presence of antibiotics, resistant bacteria have enormous selective advantage ($s \approx 0.1$--$1.0$). With generation times of 20--30 minutes, resistance alleles can reach fixation within days -- evolution observable within a single clinical episode. Multiple mechanisms confer resistance: target modification (altered penicillin-binding proteins in MRSA), enzymatic degradation (beta-lactamases that hydrolyze penicillin), efflux pumps (that actively export antibiotics from the cell), and membrane permeability changes (reduced porin expression in Gram-negative bacteria).
 
-The selection coefficient can be estimated from the rate of allele frequency change:
+For a sufficiently short interval and weak selection, a local slope approximation is:
 
 \begin{equation}
 s \approx \frac{\Delta p}{p(1-p)} \cdot \frac{1}{\Delta t}
@@ -260,16 +260,16 @@ A novel antibiotic resistance allele in a hospital population of *Staphylococcus
    $$ \Delta p = p' - p = 0.06 - 0.01 = 0.05  \label{eq:unit_VI_evolution_and_selection_item_1}$$
 
 
-2. **Calculate the selection coefficient using the approximation formula:**
-   Substitute the initial frequency $p = 0.01$, the change $\Delta p = 0.05$, and the time $\Delta t = 50$ generations:
-   $$ s \approx \frac{0.05}{0.01(1 - 0.01)} \cdot \frac{1}{50}  \label{eq:unit_VI_evolution_and_selection_item_2}$$
+2. **Fit a specified haploid recurrence rather than extrapolate the local slope:**
+   Let resistant relative fitness be $1+s$ and sensitive fitness1. Then odds multiply by $1+s$ each generation, so fit the change in log odds:
+   $$\ell=\frac{\ln[(0.06/0.94)/(0.01/0.99)]}{50}\approx0.03687\quad\label{eq:unit_VI_evolution_and_selection_item_2}$$
 
-   $$ s \approx \frac{0.05}{0.0099} \cdot 0.02  \label{eq:unit_VI_evolution_and_selection_item_3}$$
+   $$1+s=e^\ell\approx1.03756\quad\label{eq:unit_VI_evolution_and_selection_item_3}$$
 
-   $$ s \approx 5.0505 \cdot 0.02 \approx 0.101  \label{eq:unit_VI_evolution_and_selection_item_4}$$
+   $$p_{50}=\frac{0.01(1+s)^{50}}{0.99+0.01(1+s)^{50}}=0.06\quad\label{eq:unit_VI_evolution_and_selection_item_4}$$
 
    
-The selection coefficient is approximately **0.10**. This means the resistant bacteria have a roughly 10% fitness advantage over the sensitive bacteria in the presence of the antibiotic, allowing the resistance allele to rapidly sweep through the population.
+The fitted resistant advantage is about 3.76% under this haploid constant-fitness convention. The local-slope estimate 0.101 is invalid over this sixfold change. A diploid model, gene transfer, changing drug exposure or migration requires a different recurrence; fitting two endpoints does not demonstrate selection as their cause.
 
 In the absence of antibiotics, resistance alleles often carry a **fitness cost** (the resistant genotype grows more slowly than the sensitive genotype). This predicts that resistance frequencies should decline when antibiotic use is reduced. However, compensatory mutations can eliminate the fitness cost of resistance without eliminating resistance itself -- making resistance effectively irreversible in many clinical settings.
 
@@ -293,7 +293,7 @@ Stabilizing selection favors intermediate phenotypes, reducing variance without 
 
 Disruptive selection favors both phenotypic extremes at the expense of intermediate forms, potentially producing a bimodal distribution.
 
-**Black-bellied seedcracker (*Pyrenestes ostrinus*)**: In Cameroon, this finch exhibits a striking bimodal distribution of bill sizes. Small-billed birds efficiently crack soft sedge seeds; large-billed birds crack hard sedge seeds. Intermediate-billed birds perform poorly on both seed types and have lower fitness. Remarkably, this polymorphism is controlled by a single locus with large effect on bill width, demonstrating that major adaptive variation can have a simple genetic basis. Disruptive selection in this system maintains the polymorphism because heterozygotes (with intermediate bills) have lower fitness than either homozygote -- the opposite of heterozygote advantage.
+**Disruptive selection and underdominance are not equivalent.** Ecological selection can favor two phenotypic extremes in different niches. But in a one-locus randomly mating model with heterozygote disadvantage alone, the interior allele-frequency equilibrium is unstable: perturbations drive toward one homozygote. Stable coexistence requires an additional specified mechanism such as negative frequency dependence, habitat structure or assortative mating; it cannot be inferred merely from lower intermediate fitness.
 
 Disruptive selection is of particular evolutionary interest because, if strong enough and accompanied by assortative mating (large-billed birds preferring to mate with other large-billed birds, and vice versa), it can drive **[sympatric speciation](#gl:sympatric-speciation)** -- the formation of new species without geographic isolation (see \cref{sec:unit_VI_genetic_drift_and_speciation}).
 
@@ -339,9 +339,9 @@ In intersexual selection, members of one sex (typically females) choose among di
 
 #### Honest signaling (Zahavi handicap principle)
 
-Amotz Zahavi (1975) proposed that **costly ornaments are honest signals of male quality** precisely because they are costly. A male who can survive the metabolic, predation, and parasite-related costs of an elaborate tail must have superior underlying genetic quality (immunity, foraging ability, parasite resistance). Females that select males with the most extravagant ornaments preferentially choose mates who carry "good genes" — the genes their offspring will inherit.
+Amotz Zahavi (1975) proposed costly ornaments as signals of quality. Honest signaling requires specified quality-dependent costs or benefits; an ornament's cost alone neither proves honesty nor guarantees superior genetic quality in a surviving bearer. Environmental condition and nonheritable advantages must be distinguished from heritable viability benefits to offspring.
 
-The handicap principle predicts that **ornaments should be condition-dependent**: primarily individuals in good condition can produce the most extreme display. \citet{hamilton1982} extended this with the **parasite-mediated sexual selection hypothesis**: bright male coloration in birds, bright tail color in fish, and similar ornaments depend on physiological condition that itself depends on parasite resistance. Female choice based on ornament brilliance is therefore choice for parasite-resistance alleles.
+Condition-dependent signaling predicts a relationship between display and bearer condition under a specified model. The parasite-mediated sexual-selection hypothesis links display to parasite resistance \citep{hamilton1982}; testing inherited resistance requires more than an ornament–parasite correlation.
 
 **Empirical support**: In the satin bowerbird (*Ptilonorhynchus violaceus*), males build elaborate bowers and decorate them with blue objects to attract females. Males with brighter plumage and more extensive bowers also have lower parasite loads — consistent with the handicap principle. In barn swallows (*Hirundo rustica*), males with longer outer tail feathers (a sexually selected trait) carry fewer feather mites.
 
@@ -359,17 +359,17 @@ Runaway is balanced eventually by natural selection against the ornament becomin
 
 #### Good genes model
 
-The **good genes model** is closely related to but distinguishable from the handicap principle. The handicap requires that the ornament itself be costly and condition-dependent. The good genes model primarily requires that some heritable component of male quality (immunity, growth rate, viability, foraging skill) be correlated with the trait females prefer. The female who chooses a higher-quality male produces higher-quality offspring through both **autosomal good genes** (offspring inherit advantageous viability alleles) and **viability genes**.
+The **good genes model** requires a heritable viability component correlated with the preferred trait. This differs from Fisherian trait–preference feedback and from an honesty model based on quality-dependent signaling costs. These mechanisms can interact; a costly ornament does not alone establish any one of them or guarantee fitter offspring.
 
 Empirical tests are difficult because they require demonstrating heritable variance in fitness correlated with the trait — a very high data bar.
 
 #### Worked scenario: peacock tail evolution
 
-Imagine an ancestral peafowl population in which a small subset of females have a slight genetic preference for males with longer tails ("preference allele" frequency = 0.05). Long-tailed males are 5% more likely to be mated than short-tailed males, but they pay a 10% survival cost from increased predation. The genetic correlation between preference and trait builds over generations — initially weakly, but accelerating once the correlation becomes substantial. After ~100 generations of runaway, both preference frequency and tail length have escalated dramatically. The system reaches equilibrium when the survival cost (10% per unit tail length) balances the mating advantage (5% × tail length), producing tail lengths far beyond what natural selection alone would favor.
+In a synthetic one-generation comparison, long-tail survival is 0.90 of baseline and mating success 1.05, giving combined relative reproductive success 0.945. These numbers predict a disadvantage, not runaway. A 100-generation claim requires a specified inheritance model for ornament/preference, their genetic covariance and time-dependent fitness; none follows from multiplying a 5% gain and 10% cost.
 
-**The peacock's tail thus is** simultaneously: (a) an honest signal of genetic quality (Zahavi handicap), (b) the equilibrium of a Fisherian runaway between preference and trait, and (c) a marker for "good genes" (parasite resistance) \citep{hamilton1982}. The three mechanisms can operate together. Modern empirical work emphasizes that real peacock tail evolution — and most sexual ornaments — combines these forces in proportions that vary across species and contexts.
+Sexual ornaments may reflect condition dependence, preference–trait feedback and heritable viability correlations, but these are competing or interacting hypotheses, not three conclusions established by the preceding arithmetic \citep{hamilton1982}.
 
-> **Concept Check (Synthesis):** Zahavian handicap theory proposes that elaborate ornaments (peacock tail, elk antlers) are honest signals of genetic quality precisely because they are costly to produce and maintain. A male with poor parasite resistance would struggle to bear the cost of a large peacock tail without paying a survival penalty — so females who prefer larger tails are selecting indirectly for the immune-gene variants that permit them. (a) Formalize this with a two-locus toy model: an ornament allele $O$ (cost $c$, viability $1 - c$) paired with a resistance allele $R$ (benefit $b$, viability $1 + b$). Under what condition (relationship between $b$ and $c$, allowing for the genetic correlation between $O$ and $R$ that female preference generates) does the female preference for $O$ spread? (b) Fisher's *sexy sons* (runaway) mechanism is an alternative: female preference and male ornament become genetically correlated and co-evolve as a positive-feedback loop, independent of any signal honesty. Contrast the predictions of the two models for what happens when parasites are experimentally removed from a population — which model predicts that ornament size declines, and which predicts that ornament size remains high (or continues to drift upward) for several generations after the parasite pressure is lifted?
+> **Concept Check (Synthesis):** Compare a quality-dependent signaling hypothesis with Fisherian runaway. In a toy comparison an ornament has viability factor $1-c$ and a resistance allele factor $1+b$. Explain why their product alone cannot predict spread of a preference allele without mating success, inheritance and trait–preference covariance. Design a parasite-removal comparison with environmental and pedigree controls, and state why the direction of ornament change is model-dependent rather than a universal diagnostic of either mechanism.
 
 
 ### Kin Selection and Inclusive Fitness
@@ -473,25 +473,25 @@ A classic *Drosophila melanogaster* selection experiment measures abdominal bris
 2. **Response after 5 generations of unrelaxed selection** (assuming constant $h^2$ and constant $S$): $\bar{z}_5 \approx \bar{z}_0 + 5R = 40 + 5 \times 4 = 60$ bristles — a 50 % gain over the base mean.
 3. **Plateau dynamics**: Real *Drosophila* bristle-number experiments (Mather & Harrison 1949; Clayton, Morris & Robertson 1957) confirm linear gains for ~15–25 generations followed by a plateau as additive variance is depleted. When selection is relaxed, populations often partially regress toward the base mean — evidence that some response was achieved through linkage disequilibrium of mildly deleterious alleles dragged along with the favored variants. New mutational input refills $V_A$ on a timescale of $4N_e$ generations (the neutral coalescent time), so very long-term experiments can show a second slower phase of response sustained by mutation–selection balance.
 
-This worked example illustrates **why agricultural breeders monitor $V_A$ erosion**: the breeder's equation is exact in expectation but predicts the rate of variance depletion as well as the rate of mean gain. Once $V_A$ approaches zero, response approaches zero regardless of how strongly the breeder selects.
+This worked example illustrates why breeders monitor additive variance. The breeder’s equation predicts a mean response conditional on heritability and the selection differential; it does not by itself predict the rate of variance depletion. A separate inheritance/variance model is required to project how heritability changes over generations.
 
 ### Worked Example: Response to Selection Over Multiple Generations
 
 **Problem:**
-A wild population of medium ground finch has mean beak depth $\mu_0 = 100$ mm and narrow-sense heritability $h^2 = 0.45$. Each generation, parents are selected whose mean beak depth is $\mu_{\text{parents}} = 110$ mm, giving selection differential $S = 10$ mm. (a) Project the population mean for three generations under the constant-$h^2$ form of the breeder's equation. (b) Now relax constancy: assume additive genetic variance $V_A$ erodes by 5% per generation, so $h^2$ in generation $t$ is $h^2_t = 0.45 \times (0.95)^t$. Recompute the response $R_3$ and the projected mean at generation 3.
+This synthetic quantitative-trait exercise uses a beak-depth index (10indexunits=1mm), initially $\mu_0=100$indexunits, with fixed selected-parent mean110 and $h^2=.45$. Project three generations using $\mu_t=\mu_{t-1}+h_t^2(110-\mu_{t-1})$. Then use stipulated $h_t^2=.45(.95)^{t-1}$ for responses from generation$t-1$ to$t$. These are not field measurements.
 
 **Solution:**
 
 1. **Constant-$h^2$ projection:**
-   - Response per generation: $R = h^2 S = 0.45 \times 10 = 4.5$ mm.
-   - $\mu_1 = 100 + 4.5 = 104.5$ mm.
-   - $\mu_2 = 104.5 + 4.5 = 109.0$ mm.
-   - $\mu_3 = 109.0 + 4.5 = 113.5$ mm.
+   - First transition response: $R_1=.45(110-100)=4.5$ index units; subsequent selection differentials change when the selected-parent mean stays fixed.
+   - $\mu_1=100+4.5=104.5$ index units (10.45 mm on the stipulated scale).
+   - $\mu_2=104.5+.45(110-104.5)=106.975$ index units.
+   - $\mu_3=106.975+.45(110-106.975)=108.33625$ index units.
 
 2. **Variance-eroding projection:**
-   - Heritability at generation 3: $h^2_3 = 0.45 \times (0.95)^3 \approx 0.45 \times 0.857 \approx 0.386$.
-   - Response in generation 3: $R_3 = 0.386 \times 10 = 3.86$ mm.
-   - Projected mean (summing the eroded responses): $\mu_3 \approx 100 + 4.50 + 4.28 + 4.06 \approx 112.8$ mm.
+   - Heritabilities for the three transitions are 0.45,0.4275,0.406125; the selection differential must be recomputed each time.
+   - Means are 104.5,106.85125,108.13003609375 index units; third response is 1.27878609375 index units.
+   - In the distinct constant-differential model, parents would instead be selected 10 index units above each current mean; only that model gives constant 4.5-unit responses when heritability is fixed.
 
 **Interpretation:**
 The constant-$h^2$ projection over-predicts the gain because it ignores variance depletion. Real long-term artificial-selection responses decelerate for this reason: directional selection consumes additive variance faster than mutation replenishes it. The pattern connects to Galton's regression toward the mean, to the plateaus observed in long-term *Drosophila* bristle and Illinois corn protein–oil experiments, and to the agricultural rule of thumb that gains slow once a single trait has been pushed for many generations on a closed gene pool.
@@ -659,19 +659,19 @@ Key innovations often trigger **adaptive radiations** (see \cref{sec:unit_VI_gen
 timeline
     title Major Events in the History of Life
     4500 Mya : Earth forms
-    3800 Mya : First evidence of life (stromatolites)
+    3500 Mya : Widely accepted stromatolite and microbial ecosystem evidence; older claims debated
     2400 Mya : Great Oxidation Event
     540 Mya : Cambrian Explosion
-    445 Mya : End-Ordovician extinction (85% species lost)
-    375 Mya : Late Devonian extinction (75% species lost)
-    252 Mya : End-Permian extinction (96% species lost)
-    201 Mya : End-Triassic extinction (80% species lost)
-    66 Mya : End-Cretaceous KPg extinction (75% species lost)
-    0.01 Mya : Holocene -- 6th mass extinction ongoing
+    445 Mya : End-Ordovician extinction
+    375 Mya : Late Devonian extinction interval
+    252 Mya : End-Permian extinction
+    201 Mya : End-Triassic extinction
+    66 Mya : End-Cretaceous KPg extinction
+    Present : Elevated anthropogenic extinction risk; magnitude and timescale require explicit assessment
 ```
-<!-- alt: Diagram showing geological timeline of life's major milestones and the five mass extinctions, with the proportion of species lost at each event. -->
+<!-- alt: Diagram showing a broad geological timeline, with older-life claims distinguished from widely accepted approximately 3.5-Ga microbial evidence. Extinction percentages are omitted because estimates depend on taxonomic group and method. -->
 
-*Geological timeline of life's major milestones and the five mass extinctions, with the proportion of species lost at each event.*
+*A broad geological timeline, with older-life claims distinguished from widely accepted approximately 3.5-Ga microbial evidence. Extinction percentages are omitted because estimates depend on taxonomic group and method.*
 
 Five major mass extinctions punctuate the history of life:
 
@@ -722,10 +722,10 @@ Plasticity matters for evolution because **plastic responses can later be assimi
 
 #### Epigenetic inheritance across generations
 
-Most epigenetic marks are reset during gametogenesis and embryogenesis, but documented examples of **transgenerational epigenetic inheritance** (TEI) exist:
+Most epigenetic marks are reset during gametogenesis and embryogenesis. Distinguish evidence for inherited epigenetic states from associations in directly exposed offspring; not every multigenerational observation establishes **transgenerational epigenetic inheritance** (TEI):
 
 - ***A. thaliana FWA*** epi-allele: an unmethylated state at the *FWA* locus produces flowering-time variation that is heritable across many generations without DNA sequence change.
-- **Dutch Hunger Winter cohort**: Individuals exposed prenatally to severe famine (1944–1945) showed altered DNA methylation patterns at *IGF2* and other loci, and increased risk of metabolic disease in adulthood. Limited evidence suggests these patterns may persist into the next generation.
+- **Direct-exposure boundary — Dutch Hunger Winter cohort:** Heijmans and colleagues observed lower blood *IGF2* methylation decades later in people exposed prenatally to the 1944–1945 famine compared with their unexposed same-sex siblings. This observational association in directly exposed offspring does not show that methylation caused adult metabolic disease or that the measured pattern was transmitted to an unexposed generation \citep{heijmans2008famine}.
 - ***C. elegans*** small-RNA inheritance: Specific small RNAs can be transmitted across generations in *C. elegans*, where they have been documented to silence target genes for over 80 generations under some conditions.
 - **Mammalian paramutation**: At a few loci (*Kit* in mice, *agouti viable yellow*), parental phenotypes influence offspring phenotypes through epigenetic mechanisms despite identical DNA sequences.
 - **Rodent transgenerational stress and odor-conditioning**: In the Dias & Ressler (2014) experiments, male mice conditioned to fear acetophenone odor produced F1 and F2 offspring (rarely themselves exposed) with elevated startle to that specific odor and detectable changes in the olfactory bulb glomerular map. The effect attenuates by F3, consistent with **2–3 generations of detectable transgenerational transmission** in rodents — a pattern recurring across stress, dietary-restriction, and toxin-exposure paradigms in the rodent transgenerational literature.
@@ -800,7 +800,7 @@ Whether species selection is a genuinely separate force from cumulative individu
 
 These examples of real-time evolution are important not only as scientific confirmations but also as pedagogical tools: they demonstrate that evolution is not merely a historical narrative about the distant past but a present, ongoing, and experimentally testable process.
 
-> **Clinical Connection — Antibiotic resistance as natural selection in hospital time.** *Staphylococcus aureus* isolates from UK hospitals have been genome-sequenced longitudinally since 1960. Each new β-lactam antibiotic introduced (penicillin → methicillin → vancomycin → linezolid → daptomycin) triggered the spread of resistance alleles within 2–15 years, driven by [**plasmid**](#gl:plasmid)-borne *mecA*, *vanA*, or chromosomal mutations. This is directional selection with an imposed fitness landscape whose peaks move with every new drug. Combination therapy (two antibiotics targeting different molecular machinery) slows resistance because a bacterium now requires two simultaneous mutations — the product of two low probabilities. The same Fisherian selection mathematics that describes pepper-moth evolution quantitatively predicts multi-drug regimen design in infectious disease and cancer.
+> **Clinical Connection — Resistance and selection.** Antibiotic exposure can favor resistant variants, including acquired mobile elements and pre-existing or sequential mutations. Combining active drugs can suppress replication and narrow viable escape routes, but multiplying two independent mutation probabilities is justified only under stated independence, absence-of-standing-resistance and simultaneous-acquisition assumptions. Plasmid co-resistance and sequential evolution violate those assumptions; stewardship requires organism–drug susceptibility and clinical evidence rather than a guaranteed two-mutation story.
 
 > **Clinical Connection — Darwinian oncology.** A tumor is a population of cells with heritable genetic variation and differential reproductive success under treatment pressure — a Darwinian system. Classic cytotoxic chemotherapy selects rapidly-dividing cells; the surviving slow-cyclers (the *persister* population) become the seed for relapse. Modern "adaptive therapy" exploits frequency-dependent selection: by intermittently *withholding* drug once the tumor shrinks, a sensitive subpopulation is kept alive to competitively suppress resistant clones. Trials in metastatic prostate cancer (abiraterone cycling) show median progression-free survival gains of 10–18 months versus continuous dosing, directly derived from evolutionary game theory.
 
@@ -824,7 +824,7 @@ print([round(w, 4) for w in w_bar])
 
 ### Evolution in the Synthetic Age: CRISPR Gain-of-Function Research and Evolutionary Ethics
 
-The same experimental tools that make evolution a tractable laboratory science — CRISPR-Cas9 genome engineering, directed evolution via phage-assisted continuous evolution (PACE), and *in silico* fitness-landscape modeling — have forced evolutionary biologists into ethics that Darwin rarely anticipated. The 2011–2012 **H5N1 gain-of-function experiments** (Fouchier lab, Kawaoka lab) demonstrated that primarily a handful of spike-protein mutations were needed to make avian influenza airborne-transmissible in ferrets — effectively *running a natural experiment in the laboratory* on a pathogen that kills ~60 % of infected humans. The dual-use research of concern (DURC) framework that emerged from the ensuing moratorium (2012–2014, 2017–present) now governs any research whose foreseeable output is "enhanced potential pandemic pathogens."
+The2011–2012 avian influenza H5N1 studies examined mammalian adaptation/transmission in ferrets, including hemagglutinin (HA), not coronavirus spike. A ferret-transmission result is not a direct human-transmission or human infection-fatality estimate. High fatality among detected human H5N1 cases uses a reported-case denominator, not all infections. Dual-use evaluation must state the experimental system, endpoints, uncertainties and dated jurisdiction-specific governance framework.
 
 Beyond viruses, the ethical landscape expands rapidly: **gene drives** (Crisanti lab, *Nat. Biotechnol.* 2018) use CRISPR-Cas9 to bias inheritance toward a designed allele at rates approaching 99 % — demonstrated in caged *Anopheles gambiae* populations eradicated in 7–11 generations. Gene drives could plausibly eliminate malaria, but also represent an irrevocable alteration of an evolutionary trajectory involving an entire species. **CRISPR germline editing** in humans (He Jiankui, 2018) targeting CCR5 to confer HIV resistance produced two living children (Lulu and Nana) with off-target effects in the same gene of unknown phenotypic consequence, and generated a unanimous international moratorium on heritable genome editing. **Resurrection biology** (Colossal Biosciences woolly-mammoth project, 2024) uses Asian-elephant fibroblast editing to re-create approximations of extinct phenotypes, provoking debate about whether a mammoth is "brought back" or "created anew."
 

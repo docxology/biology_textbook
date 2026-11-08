@@ -7,7 +7,7 @@ Curriculum metadata records for the textbook units (the canonical unit roster).
 ## Layout
 - `models.py` — frozen dataclass `CurriculumRecord`.
 - `_factory.py` — `_r(...)` record factory helper.
-- `unit_0.py`, `unit_I.py` ... `unit_IX.py` (+ `unit_X.py` on disk) — per-unit `RECORDS` tuples.
+- `unit_0.py`, `unit_i.py` … `unit_x.py` — per-unit `RECORDS` tuples; authored config IDs remain `unit_I` … `unit_X`.
 - `__init__.py` — aggregates all unit RECORDS into the package-level registry.
 
 ## Invariants

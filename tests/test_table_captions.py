@@ -4,49 +4,13 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from biology.crossref.patterns import RE_PIPE_TABLE_ROW, RE_TBL_CAPTION
 from biology.crossref.table_captions import (
-    CaptionPolicy,
     annotate_manuscript,
     apply_annotations,
-    build_caption_text,
     find_table_annotations,
-    polish_caption_text,
     polish_manuscript_captions,
 )
-from biology.crossref.patterns import RE_PIPE_TABLE_ROW, RE_TBL_CAPTION
-
-
-def test_build_caption_text_uses_heading_and_headers() -> None:
-    caption = build_caption_text("Michaelis-Menten parameters", ["Enzyme", "k_cat"], data_rows=5)
-    assert caption == "Michaelis-Menten parameters: Enzyme and k_cat."
-
-
-def test_build_caption_text_marks_small_tables_as_worked_examples() -> None:
-    caption = build_caption_text("Lineweaver-Burk plot", ["[S] (mM)", "v0"], data_rows=2)
-    assert caption == "Worked example: Lineweaver-Burk plot."
-
-
-def test_polish_caption_text_strips_citep_and_redundancy() -> None:
-    raw = "Worked example data for Source-Sink Dynamics \\citep{pulliam1988}."
-    assert polish_caption_text(raw, tbl_id="unit_X_population_ecology_source_sink_dynamics_citep_pulliam1988") == (
-        "Source and sink patch roles in metapopulation dynamics."
-    )
-    assert polish_caption_text("Worked example data for Worked Example: Kimura's Neutral Fixation Probability.") == (
-        "Worked example: Kimura's Neutral Fixation Probability."
-    )
-
-
-def test_caption_policy_part_prefix_and_period() -> None:
-    policy = CaptionPolicy(overrides={})
-    assert policy.resolve("Worked example data for Part 2: Controls.", tbl_id="") == (
-        "Sample data for Part 2: Controls."
-    )
-    assert policy.resolve("Summary table", tbl_id="") == "Summary table."
-
-
-def test_build_caption_text_handles_part_sections() -> None:
-    caption = build_caption_text("Part 3: Network Analysis", ["Node", "Edge"], data_rows=2)
-    assert caption == "Sample data for Part 3: Network Analysis."
 
 
 def test_collect_existing_tbl_ids_reads_latex_labels(tmp_path: Path) -> None:
@@ -56,14 +20,6 @@ def test_collect_existing_tbl_ids_reads_latex_labels(tmp_path: Path) -> None:
     md.write_text(r"\label{tbl:demo_latex_label}", encoding="utf-8")
     assert "demo_latex_label" in collect_existing_tbl_ids(tmp_path)
 
-    policy = CaptionPolicy(overrides={"demo_table": "Custom caption."})
-    assert policy.resolve("ignored", tbl_id="demo_table") == "Custom caption."
-
-
-def test_build_caption_text_summary_variants() -> None:
-    assert build_caption_text("", ["Gene", "Effect"], data_rows=5) == "Summary table: Gene and Effect."
-    assert build_caption_text("Drug classes", ["Class"], data_rows=4) == "Drug classes: Class and related columns."
-    assert build_caption_text("", ["A"], data_rows=3) == "Summary table: A."
 
 
 def test_in_scope_files_includes_labs(tmp_path: Path) -> None:
@@ -82,17 +38,9 @@ def test_polish_manuscript_captions_rewrites_weak_captions(tmp_path: Path) -> No
     manuscript.mkdir(parents=True)
     target = manuscript / "demo.md"
     target.write_text(
-        "\n".join(
-            [
-                "### Demo",
-                "",
-                ": Worked example data for Demo table. {#tbl:unit_I_demo_demo}",
-                "| A | B |",
-                "| - | - |",
-                "| 1 | 2 |",
-                "",
-            ]
-        ),
+        "### Demo\n\n"
+        ": Worked example data for Demo table. {#tbl:unit_I_demo_demo}\n"
+        "| A | B |\n| - | - |\n| 1 | 2 |\n",
         encoding="utf-8",
     )
     changed, examined = polish_manuscript_captions(tmp_path / "manuscript", write=True)
@@ -115,17 +63,9 @@ def test_collect_existing_tbl_ids_and_in_scope_files(tmp_path: Path) -> None:
     unit.mkdir(parents=True)
     chapter = unit / "demo.md"
     chapter.write_text(
-        "\n".join(
-            [
-                "# Demo",
-                "",
-                ": Existing {#tbl:unit_I_demo_existing}",
-                "| A | B |",
-                "| - | - |",
-                "| 1 | 2 |",
-                "",
-            ]
-        ),
+        "# Demo\n\n"
+        ": Existing {#tbl:unit_I_demo_existing}\n"
+        "| A | B |\n| - | - |\n| 1 | 2 |\n",
         encoding="utf-8",
     )
     ids = collect_existing_tbl_ids(manuscript)
@@ -144,17 +84,8 @@ def test_annotate_manuscript_inserts_missing_captions(tmp_path: Path) -> None:
     unit.mkdir(parents=True)
     chapter = unit / "metrics.md"
     chapter.write_text(
-        "\n".join(
-            [
-                "### Growth rates",
-                "",
-                "| Time | Rate |",
-                "| ---- | ---- |",
-                "| 0 | 1 |",
-                "| 1 | 2 |",
-                "",
-            ]
-        ),
+        "### Growth rates\n\n"
+        "| Time | Rate |\n| ---- | ---- |\n| 0 | 1 |\n| 1 | 2 |\n",
         encoding="utf-8",
     )
     results, changed = annotate_manuscript(manuscript, write=True)
@@ -169,18 +100,8 @@ def test_find_table_annotations_inserts_caption_before_pipe_table(tmp_path: Path
     md = tmp_path / "unit_I" / "demo.md"
     md.parent.mkdir()
     md.write_text(
-        "\n".join(
-            [
-                "### Rate constants",
-                "",
-                "| Enzyme | Rate |",
-                "| ------ | ---- |",
-                "| A | 1 |",
-                "| B | 2 |",
-                "| C | 3 |",
-                "",
-            ]
-        ),
+        "### Rate constants\n\n"
+        "| Enzyme | Rate |\n| ------ | ---- |\n| A | 1 |\n| B | 2 |\n| C | 3 |\n",
         encoding="utf-8",
     )
     result = find_table_annotations(md, used_ids=set())
@@ -193,16 +114,7 @@ def test_apply_annotations_is_idempotent(tmp_path: Path) -> None:
     md = tmp_path / "unit_I" / "demo.md"
     md.parent.mkdir()
     md.write_text(
-        "\n".join(
-            [
-                "### Demo",
-                "",
-                "| A | B |",
-                "| - | - |",
-                "| 1 | 2 |",
-                "",
-            ]
-        ),
+        "### Demo\n\n| A | B |\n| - | - |\n| 1 | 2 |\n",
         encoding="utf-8",
     )
     first = find_table_annotations(md, used_ids=set())
@@ -215,17 +127,8 @@ def test_blank_pipe_rows_are_not_separator_rows(tmp_path: Path) -> None:
     md = tmp_path / "unit_I" / "blank_rows.md"
     md.parent.mkdir()
     md.write_text(
-        "\n".join(
-            [
-                "### Blank worksheet rows",
-                "",
-                "| Taxon | Reads | p_i |",
-                "| ----- | ----- | --- |",
-                "| | | |",
-                "| | | |",
-                "",
-            ]
-        ),
+        "### Blank worksheet rows\n\n"
+        "| Taxon | Reads | p_i |\n| ----- | ----- | --- |\n| | | |\n| | | |\n",
         encoding="utf-8",
     )
     result = find_table_annotations(md, used_ids=set())
@@ -254,16 +157,6 @@ def test_configured_table_captions_are_not_inside_pipe_tables() -> None:
     assert offenders == []
 
 
-def test_generated_companion_source_module_has_stable_table_caption() -> None:
-    from biology.enrichment.engine import companion_source_section
-    from biology.enrichment.records import chapter_records
-
-    record = chapter_records()[0]
-    section = companion_source_section(record)
-
-    assert f"{{#tbl:{record.unit_id}_{record.stem}_companion_source_surfaces}}" in section
-    assert section.index("{#tbl:") < section.index("| Surface | Use it for |")
-
 
 def test_configured_manuscript_table_captions_are_pdf_safe() -> None:
     manuscript = Path(__file__).resolve().parents[1] / "docs" / "manuscript"
@@ -277,3 +170,20 @@ def test_configured_manuscript_table_captions_are_pdf_safe() -> None:
                 offenders.append(f"{path.relative_to(manuscript)}:{line_no}: {match.group('caption')}")
 
     assert not offenders
+
+
+def test_annotation_preserves_unpublished_examples_and_numbers_rendered_solution(tmp_path: Path) -> None:
+    path = tmp_path / "unit_I/demo.md"
+    path.parent.mkdir()
+    example = "| Example | Value |\n| --- | --- |\n| 1 | 2 |\n"
+    protected = "~~~markdown\n" + example + "~~~\n\n<!-- ordinary comment\n" + example + "-->\n"
+    rendered = "| Condition | Rate |\n| --- | --- |\n| A | 1 |\n| B | 2 |\n| C | 3 |\n"
+    original = "# Demo\n\n### Old context\n\n" + protected + "\n<!-- SOLUTION\n## Recorded kinetics {.unnumbered}\n\n" + rendered + "SOLUTION -->\n"
+    path.write_text(original)
+    result = find_table_annotations(path, used_ids=set())
+    assert [annotation.tbl_id for annotation in result.annotations] == ["unit_I_demo_recorded_kinetics"]
+    apply_annotations(path, result.annotations)
+    updated = path.read_text()
+    assert protected in updated
+    assert updated.index("{#tbl:unit_I_demo_recorded_kinetics}") > updated.index("<!-- SOLUTION")
+    assert rendered in updated

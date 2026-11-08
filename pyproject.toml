@@ -1,37 +1,52 @@
-# Biology Textbook Project Configuration
-# Inherits workspace settings from root pyproject.toml
+# Standalone biology textbook and quantitative model package.
 
 [build-system]
-requires = ["setuptools>=61.0"]
+requires = ["setuptools==84.2.1"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "biology_textbook"
-version = "1.0.0"
+version = "2.0.0"
 description = "Open instructor-edition introductory biology textbook (44 chapters) with tested Python models and reproducible figures"
+readme = "README.md"
 authors = [
     {name = "Daniel Ari Friedman", email = "daniel@activeinference.institute"}
 ]
 requires-python = ">=3.11"
+license = "Apache-2.0 AND CC-BY-4.0"
+license-files = ["LICENSE", "LICENSE-CONTENT"]
 dependencies = [
     "numpy>=1.24.0",
     "scipy>=1.10.0",
     "matplotlib>=3.7.0",
     "pyyaml>=6.0",
-    # 13.0.0 is the first Pillow release with no open advisory. Do not lower this floor.
+    # Retain the reviewed security floor; recheck published advisories before changing it.
     "pillow>=13.0.0",
     "networkx>=3.0",
+    # Required by the frozen PDF renderer's SOURCE_DATE_EPOCH canonicalization path.
+    "pypdf>=6.21.4",
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=7.4.0",
     "pytest-cov>=4.1.0",
+    "ruff==0.17.3",
+    "mypy==2.4.1",
+    "setuptools==84.2.1",
 ]
-diagrams = [
-    # mmdc (Mermaid CLI) is installed separately: npm install -g @mermaid-js/mermaid-cli
-    # pillow is already in core deps for PNG handling
-]
+
+[tool.setuptools]
+py-modules = ["textbook_io", "textbook_logging", "textbook_paths", "textbook_visuals"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+mermaid = ["diagram_specs.yaml"]
+"biology.enrichment" = ["catalog.yaml"]
+"biology.pipeline" = ["*.yaml"]
+"biology.maintenance" = ["data/*.yaml"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src", "."]
@@ -85,7 +100,7 @@ exclude_lines = [
 ]
 
 [tool.mypy]
-mypy_path = ["src", "typings", "../.."]
+mypy_path = ["src", "typings"]
 explicit_package_bases = true
 
 [[tool.mypy.overrides]]
@@ -107,6 +122,3 @@ disable_error_code = ["attr-defined"]
 [[tool.mypy.overrides]]
 module = "tests.test_mermaid_and_visualization"
 disable_error_code = ["attr-defined"]
-
-[tool.uv]
-# Inherits workspace settings from root pyproject.toml

@@ -11,22 +11,25 @@ SRC = PROJECT / "src"
 SCRIPTS_DIR = PROJECT / "scripts"
 
 
-def ensure_project_paths(*, include_scripts: bool = False) -> Path:
-    """Insert ``src/``, optional ``scripts/``, and template root on ``sys.path``."""
+def ensure_project_paths(*, include_scripts: bool = False, include_template: bool = True) -> Path:
+    """Keep local imports first; optionally discover the integration dependency.
+
+    Receipt-owning entry points defer integration discovery until their running
+    evidence is persisted by passing ``include_template=False`` during startup.
+    """
+    selected_paths = [str(SRC)]
     if include_scripts:
-        scripts_str = str(SCRIPTS_DIR)
-        if scripts_str not in sys.path:
-            sys.path.insert(0, scripts_str)
+        selected_paths.append(str(SCRIPTS_DIR))
+    for path in reversed(selected_paths):
+        while path in sys.path:
+            sys.path.remove(path)
+        sys.path.insert(0, path)
 
-    src_str = str(SRC)
-    if src_str not in sys.path:
-        sys.path.insert(0, src_str)
-
-    template_root = discover_template_root(PROJECT)
+    template_root = discover_template_root(PROJECT) if include_template else None
     if template_root is not None:
         template_str = str(template_root)
         if template_str not in sys.path:
-            sys.path.insert(0, template_str)
+            sys.path.append(template_str)
 
     return PROJECT
 
@@ -45,34 +48,42 @@ def is_template_root(path: Path) -> bool:
 
 
 def discover_template_root(start: Path) -> Path | None:
-    """Find a nearby template root without assuming a fixed checkout layout."""
+    """Find an enclosing template or an explicit integration dependency.
+
+    Unrelated neighboring repositories never participate in import resolution.
+    An invalid explicit selection is an error, not permission to choose another.
+    """
     env_value = os.environ.get("BIOLOGY_TEXTBOOK_TEMPLATE_ROOT")
     if env_value:
         env_path = Path(env_value).expanduser().resolve()
-        if is_template_root(env_path):
-            return env_path
-
+        if not is_template_root(env_path):
+            raise ValueError(f"Invalid BIOLOGY_TEXTBOOK_TEMPLATE_ROOT: {env_path}")
+        return env_path
     current = start.resolve()
     if current.is_file():
         current = current.parent
-
-    visited: set[Path] = set()
     for ancestor in (current, *current.parents):
-        if ancestor in visited:
-            continue
-        visited.add(ancestor)
         if is_template_root(ancestor):
             return ancestor
-        try:
-            children = sorted(path for path in ancestor.iterdir() if path.is_dir())
-        except OSError:
-            children = []
-        for child in children:
-            if child in visited:
-                continue
-            visited.add(child)
-            if is_template_root(child):
-                return child
-        if ancestor == ancestor.home():
-            break
     return None
+
+
+def require_project_output_directory(project_root: Path, directory: Path) -> Path:
+    """Admit only independent directories beneath the project's output root.
+
+    Inspect lexical ancestors before resolving them: an output symlink must
+    never turn artifact replacement or stale-file cleanup into source deletion.
+    This check creates nothing and rejects aliases even within the project.
+    """
+    root = project_root.resolve()
+    output = root / "output"
+    target = Path(os.path.abspath(directory))
+    if not target.is_relative_to(output):
+        raise ValueError(f"Generated output must remain beneath {output}: {directory}")
+    current = output
+    for component in (None, *target.relative_to(output).parts):
+        if component is not None:
+            current = current / component
+        if current.is_symlink() or (current.exists() and not current.is_dir()):
+            raise ValueError(f"Generated output has an aliased or non-directory ancestor: {current}")
+    return target

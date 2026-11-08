@@ -1,29 +1,29 @@
 """Microbiology subpackage."""
 
 from .microbiology import (
+    REFERENCE_ORGANISMS,
+    VIRAL_REPLICATION_CYCLES,
     GrowthCurveResult,
-    ViralReplicationResult,
-    SIRResult,
     MicrobialOrganism,
+    SIRResult,
+    ViralReplicationResult,
     bacterial_growth_curve,
+    basic_reproduction_number,
     doubling_time,
     mic_fold_dilution,
-    basic_reproduction_number,
     sir_model,
-    VIRAL_REPLICATION_CYCLES,
-    REFERENCE_ORGANISMS,
 )
 
 __all__ = [
+    "REFERENCE_ORGANISMS",
+    "VIRAL_REPLICATION_CYCLES",
     "GrowthCurveResult",
-    "ViralReplicationResult",
-    "SIRResult",
     "MicrobialOrganism",
+    "SIRResult",
+    "ViralReplicationResult",
     "bacterial_growth_curve",
+    "basic_reproduction_number",
     "doubling_time",
     "mic_fold_dilution",
-    "basic_reproduction_number",
     "sir_model",
-    "VIRAL_REPLICATION_CYCLES",
-    "REFERENCE_ORGANISMS",
 ]

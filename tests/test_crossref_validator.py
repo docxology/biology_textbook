@@ -25,7 +25,6 @@ from pathlib import Path
 
 import pytest
 
-
 # ---------------------------------------------------------------------------
 # Dynamic import of the validator — conftest already puts src/ on sys.path
 # but the validator module must also be importable by its short name when

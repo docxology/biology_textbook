@@ -5,11 +5,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/replication_fork_progression.png}
-\caption{Bases replicated over time for a single fast prokaryotic replication fork (1000 bp/s, one origin) versus many slow eukaryotic forks (50 bp/s, 200 origins). The product of velocity and origin count places the eukaryotic curve well above the prokaryotic curve within an S phase, even though each individual fork is twenty times slower.}
+\caption{Idealized replication from simultaneously active origins, with two diverging forks per origin. One origin with forks moving at 1000 bp/s is compared with 200 origins with forks moving at 50 bp/s. The model uses bases replicated = $2\times\text{origins}\times\text{fork velocity}\times\text{time}$, giving 4.8 versus 48 Mb after 40 minutes. It does not model fork collisions or a finite genome-length cap.}
 \label{fig:unit_IV_replication_fork_progression}
 \end{figure}
 
-<!-- alt: Two-curve line plot of bases replicated in megabases versus time in minutes. The fast single-origin prokaryotic curve rises linearly. The eukaryotic curve uses many slow origins but climbs much faster because of parallelism. -->
+<!-- alt: Two straight lines show replicated sequence in megabases versus time in minutes. The single-origin case has two fast forks; the 200-origin case has 400 slower forks and a tenfold greater total replication rate. -->
 
 
 <!-- chapter-metadata-badge -->
@@ -46,9 +46,9 @@
 
 ---
 
-> **Opening Vignette — The Double Helix's Debt to a Woman Scientist**
-> 
-> In 1952, Rosalind Franklin produced the sharpest X-ray diffraction photograph of DNA ever captured — "Photo 51." The image was obtained without her permission by Maurice Wilkins and shown to James Watson. Recognizing in an instant that the helical periodicity and the 3.4 Å spacing implied a double helix, Watson and Crick used this insight to complete their landmark 1953 *Nature* paper \citep{watson1953}. Franklin, who died of ovarian cancer in 1958 at age 37, rarely received the Nobel Prize awarded to Watson, Crick, and Wilkins in 1962. Yet her replication studies — painstakingly mapping how DNA unwinds, is copied semiconservatively, and repairs itself — anticipated the entire field of cell-cycle biology. Every chapter covering DNA replication and the cell cycle is, in part, her story.
+> **Opening Vignette — From Structure to a Testable Copying Model**
+>
+> Watson and Crick's 1953 double-helix model proposed complementary base pairing as a possible copying mechanism \citep{watson1953}. X-ray work by Rosalind Franklin and Raymond Gosling, and by Maurice Wilkins and colleagues, constrained the structural interpretation; Franklin's work should not be relabeled as an experimental demonstration of semiconservative replication or DNA repair. Those are distinct historical claims. In 1958, Meselson and Stahl used nitrogen-isotope labeling and density separation to distinguish replication models \citep{meselson1958}. One generation in light medium yielded hybrid-density DNA; the second yielded hybrid and light DNA. The distinction matters: a plausible structure suggests a mechanism, but a discriminating experiment tests it.
 
 ## DNA as the Genetic Material
 
@@ -64,7 +64,7 @@ Watson and Crick's 1953 model of the B-form DNA helix, built on Rosalind Frankli
 - **Minor groove**: narrow (~12 angstroms) -- bound by certain drugs (e.g., netropsin, distamycin) and architectural proteins (e.g., HMG-box proteins, TBP)
 - **Right-handed helix**, 10.5 bp per turn, rise 0.34 nm/bp, pitch ≈3.6 nm, diameter 2.0 nm
 
-The phosphodiester backbone runs 5' to 3' and carries two negative charges per [**nucleotide**](#gl:nucleotide) at physiological [**pH**](#gl:ph) ($pK_a < 1$). This negative charge means DNA repels other nucleic acids and requires cationic counterions (Mg$^{2+}$, [**histone**](#gl:histone)s, polyamines) for compaction and stability.
+The phosphodiester backbone runs 5' to 3' and carries approximately one negative charge per internal [**nucleotide**](#gl:nucleotide) at physiological [**pH**](#gl:ph) ($pK_a < 1$). This negative charge means DNA repels other nucleic acids and requires cationic counterions (Mg$^{2+}$, [**histone**](#gl:histone)s, polyamines) for compaction and stability.
 
 **Alternative DNA conformations:**
 
@@ -75,7 +75,7 @@ The phosphodiester backbone runs 5' to 3' and carries two negative charges per [
 | A-DNA | Right-handed | 11 | 2.6 nm | Dehydrated; RNA-DNA hybrids |
 | Z-DNA | Left-handed | 12 | 1.8 nm | Alternating purine-pyrimidine; may regulate transcription |
 
-**Information capacity:** The human haploid [**genome**](#gl:genome) contains approximately 3.1 billion base pairs, equivalent to roughly 725 megabytes of digital data (2 bits per base). If fully stretched, the DNA in a single cell would extend approximately 2 meters, yet it is compacted into a nucleus approximately 6 micrometers in diameter. This compaction is achieved through a hierarchy of packaging: 147 bp of DNA wraps around each histone octamer to form a [**nucleosome**](#gl:nucleosome) (the "beads on a string"), which further compacts into the 30-nm [**chromatin**](#gl:chromatin) fiber, loop domains (anchored by CTCF and cohesin), and ultimately the mitotic [**chromosome**](#gl:chromosome).
+**Information capacity and packaging:** The human haploid [**genome**](#gl:genome) contains approximately 3.1 billion base pairs. At a stipulated two bits per base, a sequence-only encoding requires about 775 million bytes (775 MB, or 739 MiB), excluding annotations and other molecular information. A diploid cell contains roughly twice that DNA; stretched end to end it spans approximately 2 meters, yet fits within a micrometer-scale nucleus. About 147 bp wraps around each histone octamer to form a [**nucleosome**](#gl:nucleosome). Nucleosome chains form dynamic loops, domains and variably packed [**chromatin**](#gl:chromatin), with further reorganization in the mitotic [**chromosome**](#gl:chromosome). Regular 30-nm fibers can form under particular experimental conditions but are not an obligatory in-vivo packaging intermediate; ChromEMT of human interphase and mitotic cells instead revealed disordered chromatin chains with variable packing \citep{ou2017chromemt}.
 
 > **Clinical Connection: Z-DNA and Autoimmunity**
 > Antibodies against Z-DNA are found in patients with systemic lupus erythematosus (SLE). Z-DNA forms transiently behind moving RNA polymerase due to negative supercoiling, and [**mutation**](#gl:mutation)s in the Z-DNA binding protein ADAR1 cause Aicardi-Goutieres syndrome, a severe autoinflammatory disorder. Z-DNA-binding proteins such as ZBP1 (DAI) also function as innate immune sensors, recognizing viral Z-form nucleic acids.
@@ -95,28 +95,28 @@ Replication begins at specific genomic sites called **origins of replication (or
 
 The throughput consequence of this contrast is the subject of \cref{fig:unit_IV_replication_fork_progression}: a fast single prokaryotic fork is overtaken in absolute base output by many slow eukaryotic forks once origin count is in the hundreds.
 
-**Origin licensing** ensures each origin fires primarily once per S phase:
+**Origin licensing** and firing controls normally limit a licensed origin to firing at most once during S phase; many licensed origins remain dormant:
 
 1. In late M/early G1, the **Origin Recognition Complex (ORC)** binds origins constitutively (in yeast) or dynamically (in metazoans)
 2. **Cdc6** and **Cdt1** load the **MCM2-7 helicase** (a hexameric ring) onto DNA as a double hexamer -- this is the "licensed" pre-replicative complex (pre-RC)
-3. At the G1/S transition, **CDK** (S-CDK = cyclin A-CDK2) and **DDK** (Cdc7-Dbf4) phosphorylate MCM, activating the helicase and converting pre-RC to pre-initiation complex (pre-IC)
-4. Re-licensing is prevented by CDK-mediated phosphorylation of Cdc6 (targeting it for degradation) and by geminin binding to Cdt1
+3. During S-phase entry, **DDK** (Cdc7-Dbf4) and **S-CDK** promote firing through distinct regulatory substrates. In budding yeast, DDK phosphorylates MCM, whereas essential S-CDK phosphorylation of **Sld2/Sld3** promotes their interactions with Dpb11 and assembly of firing machinery; this is not a claim that both kinases activate origins by directly phosphorylating the same target \citep{sld2007firing}. Metazoan firing regulators and cyclin-CDK combinations differ.
+4. Controls limiting relicensing differ among organisms and cell-cycle phases. In human-cell examples, Cdt1 degradation, geminin binding and inhibitory Cdt1 hyperphosphorylation overlap but are not universally interchangeable safeguards \citep{cdt12020phosphorylation}.
 
-**MCM licensing — molecular detail.** The pre-RC formation involves a precisely choreographed sequence:
+**MCM licensing — selected eukaryotic examples.** The following assembly scheme includes metazoan inhibitor controls; individual components and firing regulators differ among organisms:
 
 1. **ORC binding (G1):** ORC1–6 heterohexamer binds origins. ORC1 contains an ATP-binding AAA+ ATPase fold; ATP hydrolysis triggers loading. In humans ORC1 levels oscillate (peaks late M/early G1; degraded in S/G2) — ensuring temporal restriction of licensing.
 2. **Cdc6 recruitment:** Cdc6 (also AAA+ ATPase) joins ORC, forming an ORC–Cdc6 complex that wraps DNA into a left-handed superhelix.
 3. **Cdt1–MCM2-7 loading:** Cdt1 (the licensing factor) binds MCM2-7 and chaperones it to the ORC–Cdc6–origin complex. ATP hydrolysis by ORC and Cdc6 drives the MCM2-7 ring open at the MCM2/MCM5 interface, allowing dsDNA to thread through.
 4. **Double hexamer assembly:** A second Cdt1–MCM2-7 is loaded in the opposite orientation, creating a head-to-head MCM2-7 double hexamer encircling dsDNA. The double hexamer is the licensed pre-RC.
-5. **CDT1 destruction in S phase:** Once MCM is loaded, S-CDK phosphorylates Cdt1 → ubiquitin ligase SCF^Skp2^ → proteasomal degradation. **CRL4^CDT2^** also targets Cdt1 for degradation when bound to chromatin (PCNA-coupled mechanism).
+5. **Cdt1 destruction in mammalian S phase:** Cdt1 bound to DNA-loaded PCNA is targeted by **CRL4^CDT2^** for ubiquitin-dependent degradation. Cyclin A-CDK2 phosphorylation also creates a recognition site for **SCF^Skp2^**, contributing to degradation. These controls respond to replication and cell-cycle state, rather than simply to completion of MCM loading \citep{cdt12020phosphorylation}.
 6. **Geminin sequesters Cdt1:** Geminin is an inhibitor that binds Cdt1, preventing it from re-licensing origins during S/G2/M. Geminin levels rise from S phase, peaking in M, and are degraded at anaphase by APC/C-Cdc20.
-7. **Re-replication prevention is therefore three-fold:**
-   - CDK-dependent Cdc6 export from nucleus and degradation
-   - CDK-dependent Cdt1 degradation
-   - Geminin-mediated Cdt1 sequestration
-   - Loss of any of these (e.g., siRNA against geminin) causes catastrophic re-replication, DNA damage, and apoptosis.
+7. **Overlapping, phase-specific barriers to relicensing:**
+   - Replication-coupled Cdt1 destruction dominates early S phase; SCF^Skp2^-dependent destruction and geminin inhibition contribute as S phase progresses.
+   - Cdt1 can reaccumulate in late S/G2. In studied human cells, Cyclin A-CDK1-dependent Cdt1 hyperphosphorylation impairs Cdt1-MCM binding independently of degradation or geminin binding, providing a late-cycle barrier \citep{cdt12020phosphorylation}.
+   - Regulation of ORC, Cdc6, MCM and chromatin also restricts licensing outside G1; the relative contributions depend on the organism and cell state.
+   - Loss of selected barriers can increase rereplication risk but does not guarantee MCM reloading, origin refiring, gene amplification or death. Remaining licensing controls and firing competence matter. Increased bulk DNA content alone does not establish refiring: phase-resolved MCM loading and evidence of renewed synthesis of already-replicated DNA within the same cell cycle are needed, with failed division and altered ploidy excluded.
 
-8. **Origin firing in S phase:** A subset of licensed origins fires (~10 % per cell-cycle round in human cells); the remainder are dormant backups. Activation requires **DDK (Cdc7-Dbf4)** phosphorylation of MCM2-MCM4-MCM6 + **S-CDK** phosphorylation of Sld2/Sld3 → recruitment of **Cdc45** and **GINS** to form the **CMG helicase** (Cdc45-MCM-GINS) — the active replicative helicase.
+8. **Origin firing in S phase:** A subset of licensed origins fires; many remain dormant backups, and the fraction depends on the organism, cell state and counting method. In the budding-yeast activation scheme, **DDK (Cdc7-Dbf4)** phosphorylation of MCM and **S-CDK** phosphorylation of Sld2/Sld3 are distinct inputs. Phosphorylated Sld2/Sld3 bind Dpb11, facilitating interactions among firing proteins, including **Cdc45** and **GINS**, that assemble the **CMG helicase** (Cdc45-MCM-GINS) \citep{sld2007firing}. Metazoan firing regulators differ; the shared outcome is activation of the licensed helicase, not an identical regulator or direct-substrate list in every eukaryote.
 
 **Replication timing domains.** Origin firing is not random in time. Each ~1 Mb region has a characteristic **replication timing**:
 - **Early-replicating domains** (S phase first 1–3 hours): gene-rich, euchromatic, transcriptionally active, A-compartment, marked by H3K27ac, H3K4me3, high accessibility
@@ -129,7 +129,7 @@ Replication timing correlates with chromatin state and is reprogrammed during ce
 - Number of origins per genome: ~30,000–50,000 (~one per 50–100 kb)
 - MCM2-7 loaded per origin: 2 (head-to-head double hexamer)
 - Total MCM2-7 in nucleus: ~10–20-fold excess over origins → MCM "paradox"
-- Origins fired per cell cycle: ~15,000 (about 30 % of licensed origins)
+- Licensed versus fired origins: these are different populations; a firing fraction requires a defined cell type, condition and assay denominator, rather than one universal percentage.
 - Dormant origins: provide backup if a fork stalls or fails — mutation in ATR (which suppresses dormant-origin firing under stress) causes Seckel syndrome (microcephaly, growth failure)
 
 > **Clinical Connection: Meier-Gorlin Syndrome**
@@ -139,7 +139,9 @@ Replication timing correlates with chromatin state and is reprogrammed during ce
 
 ```mermaid
 flowchart TD
-    A[Origin of Replication Fires] --> B[MCM Helicase Unwinds dsDNA]
+    Licensed["Licensed MCM double hexamer"] --> Kinases["Budding-yeast firing: distinct cooperating inputs<br/>DDK phosphorylates MCM<br/>S-CDK phosphorylates Sld2/Sld3"]
+    Kinases --> A["CMG Assembles and Origin Fires"]
+    A --> B["CMG Helicase Unwinds DNA"]
     B --> C[Topoisomerase Relieves Supercoiling Ahead]
     B --> D[SSB/RPA Stabilizes ssDNA]
     D --> E[Primase Synthesizes RNA Primer]
@@ -157,9 +159,9 @@ flowchart TD
     style F fill:#f0ad4e,color:#000
     style M fill:#5cb85c,color:#fff
 ```
-<!-- alt: Flowchart showing eukaryotic DNA replication machinery at the replication fork. The leading strand is synthesized continuously, while the lagging strand requires repeated priming and ligation of Okazaki fragments. -->
+<!-- alt: Flowchart showing eukaryotic replication-fork machinery, preceded by a budding-yeast firing example: DDK acts on MCM, while S-CDK acts on Sld2/Sld3 to promote firing-complex assembly. Metazoan firing regulators differ. CMG unwinds DNA; the leading strand is synthesized continuously, while the lagging strand requires repeated priming and ligation of Okazaki fragments. -->
 
-*Eukaryotic DNA replication machinery at the replication fork. The leading strand is synthesized continuously, while the lagging strand requires repeated priming and ligation of Okazaki fragments.*
+*Eukaryotic replication-fork machinery, preceded by a budding-yeast firing example: DDK acts on MCM, while S-CDK acts on Sld2/Sld3 to promote firing-complex assembly \citep{sld2007firing}. Metazoan firing regulators differ. CMG unwinds DNA; the leading strand is synthesized continuously, while the lagging strand requires repeated priming and ligation of Okazaki fragments.*
 
 ### Replication Fork Enzymes and Their Roles
 
@@ -181,25 +183,28 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A["Design 2,000-2,500 nt mRNA Sequence Encoding Viral Antigen (e.g., SARS-CoV-2 Spike) with 5' Cap and 3' Poly-A Tail"] --> B["In Vitro Transcription (IVT) from DNA Template Using T7 RNA Polymerase"]
+    A["Design mRNA encoding antigen: full spike requires 3,819 coding nt plus stop, UTRs, cap and poly-A"] --> B["In Vitro Transcription (IVT) from DNA Template Using T7 RNA Polymerase"]
     B --> C["Cap-1 Capping and Poly-A Tailing"]
     C --> D["Purification (DNase Treatment, HPLC) and Formulation into Lipid Nanoparticles (LNPs)"]
     D --> E["Intramuscular Injection"]
-    E --> F["LNP Fuses with Muscle Cell Membrane; mRNA Released into Cytoplasm"]
-    F --> G["Host Ribosome Translates mRNA into Antigen Protein"]
-    G --> H["Antigen Processed and Presented on MHC II to Helper T Cells"]
-    H --> I["B Cells Activated; Differentiate into Plasma Cells"]
-    I --> J["Secrete Neutralizing Antibodies Against Antigen"]
-    G --> K["Antigen Degraded by Proteasome; Peptides Presented on MHC I"]
-    K --> L["Cytotoxic T Cells Activated; Kill Infected Cells"]
-    J --> M["Immune Memory Established"]
+    E --> F["LNP uptake by endocytosis<br/>in muscle cells and local APCs"]
+    F --> Escape["Endosomal escape<br/>mRNA reaches cytosol"]
+    Escape --> G["Host ribosome translates antigen"]
+    G --> DC["Dendritic-cell antigen acquisition<br/>or direct antigen expression"]
+    DC --> H["MHC-II presentation + costimulation<br/>primes naive CD4 T cells"]
+    H --> I["Helper T cells support antigen-specific<br/>B-cell activation and plasma cells"]
+    I --> J["Antigen-specific antibodies"]
+    DC --> K["MHC-I presentation / cross-presentation<br/>+ costimulation primes naive CD8 T cells"]
+    K --> L["CD8 effector and memory responses"]
+    J --> M["Immune memory established"]
     L --> M
+    M -.->|"Upon later infection"| Eff["Recall responses; cytotoxic T cells<br/>can kill infected target cells"]
     style A fill:#4a90d9,color:#fff
     style M fill:#5cb85c,color:#fff
 ```
-<!-- alt: Flowchart showing mechanism of mRNA vaccines. Synthetic mRNA encoding a viral antigen is delivered to host cells, where it is translated into protein. The protein is processed and presented to both helper T cells (via MHC II) and cytotoxic T cells (via MHC I), generating both antibody and cellular immune responses. -->
+<!-- alt: Flowchart showing mRNA-vaccine delivery and immune priming. Endocytosis and endosomal escape precede translation; professional antigen-presenting cells provide presentation and costimulation for naive T-cell priming. Killing infected targets is a later effector response, not a vaccine-delivery step. -->
 
-*Mechanism of mRNA vaccines. Synthetic mRNA encoding a viral antigen is delivered to host cells, where it is translated into protein. The protein is processed and presented to both helper T cells (via MHC II) and cytotoxic T cells (via MHC I), generating both antibody and cellular immune responses.*
+*mRNA-vaccine delivery and immune priming. Endocytosis and endosomal escape precede translation; professional antigen-presenting cells provide presentation and costimulation for naive T-cell priming. Killing infected targets is a later effector response, not a vaccine-delivery step.*
 
 **Molecular design**:
 
@@ -217,7 +222,7 @@ flowchart TD
 **Cellular uptake and translation**:
 
 1. **Injection**: mRNA-LNP suspension is injected intramuscularly (typically deltoid). The injection site contains antigen-presenting cells (APCs) like dendritic cells and macrophages, as well as muscle cells.
-2. **Uptake**: LNPs fuse with cell membranes or are endocytosed. In the endosome, the ionizable lipid becomes protonated, causing endosomal membrane disruption and release of mRNA into the cytoplasm.
+2. **Uptake**: LNPs enter cells by endocytosis. Endosomal membrane interactions allow a fraction of the mRNA cargo to escape into the cytoplasm.
 3. **Translation**: Host ribosomes bind to the 5' cap and translate the mRNA into the antigen protein. The protein may be secreted (if signal peptide included) or remain intracellular.
 4. **Processing and presentation**:
    - **MHC class II pathway**: Exogenous antigen taken up by APCs is degraded in lysosomes and presented on MHC II to CD4+ helper T cells.
@@ -241,47 +246,18 @@ flowchart TD
 Modern mRNA vaccine design relies heavily on computational tools:
 
 ```python
-import numpy as np
-from Bio import SeqIO
-from collections import Counter
+from biology.genetics import GENETIC_CODE, gc_content, translate_mrna
 
-# Example: Analyze GC content and codon usage of an mRNA sequence
-def analyze_mrna_sequence(seq):
-    """Analyze key features of an mRNA vaccine candidate."""
-    gc_content = (seq.count('G') + seq.count('C')) / len(seq) * 100
-    # Count codon frequencies
-    codon_table = {}
-    for i in range(0, len(seq)-2, 3):
-        codon = seq[i:i+3]
-        if codon in codon_table:
-            codon_table[codon] += 1
-        else:
-            codon_table[codon] = 1
-    return {
-        'length': len(seq),
-        'gc_content': round(gc_content, 2),
-        'codon_counts': codon_table
-    }
-
-# Example: Codon optimization for human expression
-def optimize_codon_usage(seq, codon_usage_table):
-    """Replace rare codons with optimal human-preferred codons."""
-    optimized = []
-    for i in range(0, len(seq)-2, 3):
-        codon = seq[i:i+3]
-        amino_acid = translate_codon(codon)  # Assume a translation function
-        # Choose the most frequent codon for this amino acid in human cells
-        optimal_codon = max(codon_usage_table[amino_acid],
-                           key=codon_usage_table[amino_acid].get)
-        optimized.append(optimal_codon)
-    return ''.join(optimized)
-
-# Example: Predict secondary structure (simplified)
-def predict_secondary_structure(seq):
-    """Calculate minimum free energy using a simplified nearest-neighbor model."""
-    # In practice, tools such as RNAfold (ViennaRNA) or NUPACK
-    return "-10.5 kcal/mol"  # illustrative fixed value for the textbook example
+# A complete short teaching ORF; this is sequence analysis, not vaccine design.
+mrna = "AUGUUUGAAUAA"
+print(gc_content(mrna))
+print(translate_mrna(mrna))
+# Synonymous change UUU -> UUC preserves phenylalanine.
+changed = "AUGUUC GAAUAA".replace(" ", "")
+print(translate_mrna(changed))
 ```
+
+Codon substitution must preserve the intended reading frame and stop while considering cell-specific expression and RNA regulation; the most frequent codon is not universally optimal. RNA folding requires an actual thermodynamic method and stated temperature/ionic assumptions (for example, an external RNAfold calculation). No folding energy is calculated or supplied by this example.
 
 **Clinical impact**: The Pfizer-BioNTech BNT162b2 and Moderna mRNA-1273 vaccines were developed in under a year from viral sequence release to emergency use authorization, demonstrating the power of this technology. Beyond COVID-19, mRNA vaccines are in development for influenza, HIV, Zika, and personalized cancer vaccines.
 
@@ -297,7 +273,7 @@ def predict_secondary_structure(seq):
 
 ### Leading and Lagging Strands
 
-DNA polymerase primarily adds nucleotides to the 3'-OH of an existing primer, and can primarily synthesize in the 5' to 3' direction. Therefore:
+The conventional replicative DNA polymerases considered here extend an existing primer 3′-OH and synthesize DNA 5′→3′. Primase supplies RNA primers in the described replication machinery. Therefore:
 
 - **Leading strand**: synthesized continuously 5' to 3' in the same direction as fork movement. Requires primarily a single priming event. In eukaryotes, primarily synthesized by DNA Pol epsilon.
 - **Lagging strand**: synthesized discontinuously as **Okazaki fragments** (1,000-2,000 nt in prokaryotes; 100-200 nt in eukaryotes). Each fragment requires a new RNA primer laid down by primase. After extension by DNA Pol delta, the primers are removed by a multi-step process:
@@ -317,20 +293,20 @@ PCNA is a homotrimeric ring (three identical subunits) that encircles double-str
 
 ### DNA Proofreading and Fidelity
 
-The error rate of replication is remarkably low: approximately 1 error per $10^{9}$-$10^{10}$ base pairs copied. This fidelity results from three layers:
+Replication fidelity depends on polymerase, sequence, cell state and the assay endpoint. The following order-of-magnitude bookkeeping is an illustrative model of errors per incorporated nucleotide per replication, not universal measured constants:
 
-1. **Base selection by polymerase** (~$10^{-5}$ error rate): The polymerase active site preferentially binds correctly paired nucleotides based on geometry and hydrogen bonding
-2. **3' to 5' exonuclease proofreading** (~$10^{-2}$ improvement): If a mismatch is incorporated, the polymerase pauses; the 3' to 5' exonuclease domain excises the incorrect nucleotide and the polymerase re-extends
-3. **Mismatch repair (MMR)** (~$10^{-3}$ improvement): Post-replicative scanning by MutS (MSH2/MSH6 in humans), which detects mismatches and small insertion/deletion loops
+1. **Base selection by polymerase**: assume an initial error probability of $10^{-5}$; active-site geometry and chemistry favor correct incorporation.
+2. **3′ to 5′ exonuclease proofreading**: assume that $10^{-2}$ of those errors remain, giving a post-proofreading probability of $10^{-7}$.
+3. **Mismatch repair (MMR)**: assume that $10^{-3}$ of post-proofreading errors remain. MutS-family complexes recognize mismatches and small insertion/deletion loops, and downstream machinery excises and resynthesizes the affected nascent strand.
 
-\begin{equation}\text{Overall error rate} \approx 10^{-5} \times 10^{-2} \times 10^{-3} = 10^{-10} \text{ per bp per replication}\label{eq:error_rate}\end{equation}
+\begin{equation}\text{Model error probability} = 10^{-5} \times 10^{-2} \times 10^{-3} = 10^{-10} \text{ per nucleotide per replication}\label{eq:error_rate}\end{equation}
 
 > **Clinical Connection: Lynch Syndrome (HNPCC)**
-> Germline mutations in MMR [**gene**](#gl:gene)s (*MLH1*, *MSH2*, *MSH6*, *PMS2*) cause Lynch syndrome (hereditary non-polyposis colorectal cancer). Affected individuals have a 50-80% lifetime risk of colorectal cancer and increased risk of endometrial, ovarian, and gastric cancers. The hallmark is **microsatellite instability (MSI)** -- expansion or contraction of short tandem repeats due to uncorrected replication slippage. MSI-high tumors respond well to immune checkpoint inhibitors (anti-PD-1), making Lynch syndrome diagnosis therapeutically important.
+> Germline pathogenic variants in MMR [**gene**](#gl:gene)s (*MLH1*, *MSH2*, *MSH6*, *PMS2*) can cause Lynch syndrome (hereditary non-polyposis colorectal cancer), with elevated colorectal, endometrial and other cancer risks that vary by gene and clinical context. Tumor MMR deficiency can produce **microsatellite instability (MSI)** — expansion or contraction of short tandem repeats after uncorrected replication slippage. MSI/dMMR can enrich response to anti-PD-1 therapy, partly through increased mutation and neoantigen burden, but does not guarantee benefit: antigen presentation and other immune-resistance mechanisms matter. In the phase-2 study by \citet{le2015mmrpd1}, objective responses occurred in 4/10 dMMR colorectal cases versus 0/18 proficient colorectal cases and 5/7 dMMR noncolorectal cases.
 
 ### Telomeres and Telomerase
 
-**The end-replication problem**: Linear eukaryotic chromosomes cannot replicate the very 5' end of the lagging strand (no upstream sequence to place a primer). This means 50-200 bp of telomeric DNA are lost with each cell division.
+**The end-replication problem**: After removal of the terminal lagging-strand RNA primer, conventional replicative polymerases lack an upstream primer 3′-OH from which to fill that terminal gap. End processing and damage also affect net telomere loss. There is no universal number of base pairs lost per cell division.
 
 **Telomere structure**: Human telomeres consist of 5-15 kb of the hexameric repeat TTAGGG, ending in a 150-200 nt single-stranded 3' overhang. This overhang invades the upstream duplex to form a **T-loop** (telomere loop), which is stabilized by the **shelterin complex** (TRF1, TRF2, RAP1, TIN2, TPP1, POT1). The T-loop hides the chromosome end from the DNA damage response, which would otherwise recognize it as a double-strand break.
 
@@ -357,10 +333,10 @@ The error rate of replication is remarkably low: approximately 1 error per $10^{
 6. **Mediate semi-conservative replication** through telomeres (CST complex with shelterin)
 
 **Telomere replication problem in detail.** Two distinct issues:
-1. **Lagging-strand end-replication**: The very 5′ end of the lagging strand cannot be replicated because there is no upstream template for primer placement. After RNA primer removal, ~50–100 nt are lost from the 5′ end of the lagging-strand-complement.
+1. **Lagging-strand end-replication**: Removal of the terminal RNA primer leaves a gap that conventional replicative polymerases cannot fill without an upstream primer 3′-OH. The resulting loss depends on primer placement and subsequent processing.
 2. **Leading-strand end-resection**: The leading strand is synthesized continuously to the chromosome end, but specialized exonucleases then resect the 5′ end to generate the 3′ overhang necessary for T-loop formation.
 
-Result: each replication cycle, ~50–200 bp of TTAGGG repeats are lost from telomeres in the absence of telomerase.
+Result: without sufficient maintenance, telomeres can shorten through replication, end processing and damage. Net loss depends on the cell and environment. For example, \citet{vonzglinicki1995hyperoxia} measured approximately 90 bp per population doubling under normoxia versus more than 500 bp under hyperoxia in WI-38 fibroblast cultures; those rates and that preparation's arrest length are not universal human-cell constants.
 
 **G-quadruplex regulation.** The G-rich telomere sequence can fold into intramolecular G-quadruplexes (four G's stacked via Hoogsteen bonds). G-quadruplexes are stabilized by K⁺ but inhibit telomerase access. Drugs that stabilize telomeric G-quadruplexes (e.g., RHPS4, telomestatin, BRACO19) cause progressive telomere shortening and senescence in cancer cells — they are anti-cancer leads but limited by toxicity in normal stem cells.
 
@@ -376,7 +352,7 @@ Result: each replication cycle, ~50–200 bp of TTAGGG repeats are lost from tel
 - **TERC** (telomerase RNA component): 451-nt RNA containing the template sequence (in humans, 5'-CUAACCCUAAC-3') used to add TTAGGG repeats
 - After TERT extends the 3' overhang, conventional DNA Pol alpha/primase synthesizes the complementary C-rich strand
 
-**Telomeres, aging, and cancer**: Somatic cells lack telomerase activity and undergo progressive telomere shortening, eventually reaching a critically short length that triggers replicative senescence (the Hayflick limit, ~50-70 divisions for human fibroblasts). This is a tumor-suppressive mechanism. However, approximately 85% of cancers reactivate telomerase (often through TERT [**promoter**](#gl:promoter) mutations, especially C228T and C250T), and approximately 15% use **ALT (alternative lengthening of telomeres)** via [**recombination**](#gl:recombination) between telomeres (associated with ATRX/DAXX mutations, with C-circles as biomarkers).
+**Telomeres, aging, and cancer**: Many differentiated somatic cells have low or undetectable telomerase activity, although some somatic stem and activated immune cells retain activity. Progressive shortening or loss of end protection can activate replicative senescence, a tumor-suppressive barrier whose timing depends on the cell, culture conditions and individual telomeres rather than one mean-length cutoff. Proliferation after senescence barriers are bypassed can lead to telomere crisis; sustained escape may involve telomerase reactivation or **ALT (alternative lengthening of telomeres)** through [**recombination**](#gl:recombination)-associated processes. Telomere maintenance can support replicative immortality without by itself establishing malignant transformation, as shown in telomerase-immortalized human fibroblasts \citep{morales1999telomerase}. TERT [**promoter**](#gl:promoter) mutations and ATRX/DAXX alterations are associated with particular maintenance mechanisms in some tumors, not universal requirements.
 
 > **Clinical Connection: Telomere Biology Disorders**
 > Mutations in TERT, TERC, DKC1, or other telomere maintenance genes cause **dyskeratosis congenita** (DC), characterized by bone marrow failure, pulmonary fibrosis, and mucosal leukoplakia. Patients have critically short telomeres and premature aging features. Related conditions include idiopathic pulmonary fibrosis and aplastic anemia, forming a spectrum called **telomere biology disorders (TBDs)**.
@@ -454,7 +430,7 @@ The cell cycle is driven by the sequential activation and destruction of **cycli
 
 **Regulation of CDK activity:**
 
-- **Cyclin binding**: CDKs are inactive monomers without their cyclin partner
+- **Cyclin binding**: Canonical cell-cycle CDKs require cyclin association for normal activity; this is not an exceptionless rule for every CDK-family member, and binding alone does not specify the complete activation state.
 - **Activating phosphorylation**: CAK (CDK-activating kinase) phosphorylates the T-loop
 - **Inhibitory phosphorylation**: Wee1 kinase phosphorylates CDK1 at Tyr15 and Thr14 (inactive); Cdc25 phosphatase removes these (activates)
 - **CKI (CDK inhibitors)**: p21$^{CIP1}$ (induced by p53), p27$^{KIP1}$, p16$^{INK4a}$ bind and inactivate specific cyclin-CDK complexes
@@ -528,30 +504,30 @@ Cancer is essentially a disease of cell-cycle deregulation. Key checkpoint mutat
 
 ### Cell Cycle Checkpoints
 
-Checkpoints are surveillance mechanisms that halt the cell cycle if conditions are not met:
+Checkpoint signaling can delay cell-cycle transitions in response to particular damage, replication or attachment signals; passage does not certify an error-free genome. Distinguish these responses from mitogen-dependent proliferative commitment:
 
-**G1/S Checkpoint (Restriction Point)**:
+**Restriction point (mitogen-dependent G1 commitment)**:
 - The **RB-E2F pathway** is the molecular switch. In early G1, hypophosphorylated RB binds and inhibits E2F transcription factors. Mitogenic signals activate cyclin D-CDK4/6, which partially phosphorylates RB. Cyclin E-CDK2 completes RB hyperphosphorylation, releasing E2F to transcribe genes for DNA replication (DNA Pol alpha, PCNA, MCM, thymidine kinase).
-- This is the "point of no return": once past R, the cell will complete S phase even if mitogens are withdrawn.
+- Passage reduces dependence on continued mitogen stimulation in the canonical model. G1/S DNA-damage control is distinct: damage signaling through pathways including p53–p21 can still delay progression.
 
 **Intra-S Checkpoint**:
 - Monitors replication fork stalling and DNA damage during S phase
-- Stalled forks activate **ATR kinase** (via RPA-coated ssDNA), which phosphorylates **Chk1** kinase
-- Chk1 inhibits Cdc25A phosphatase, preventing activation of cyclin A-CDK2 and cyclin E-CDK2
-- Slows origin firing to prevent catastrophic fork collapse
+- Replication stress can recruit and activate **ATR kinase** through RPA-coated ssDNA and associated machinery; downstream responses depend on stress and cell context.
+- One branch activates **Chk1**, promoting Cdc25A inhibition/degradation and reducing cyclin E/A–CDK2 activation and new origin firing. Restraining initiation can indirectly support ongoing replication.
+- ATR also protects ongoing forks through parallel outputs. Moderate slowing in studied human cells can require ATR protection without substantial Chk1 activation \citep{koundrioukoff2013atr}; origin control is not the entire fork-protection mechanism, and stalling need not imply collapse.
 
 **G2/M Checkpoint**:
-- Prevents entry into mitosis with damaged or incompletely replicated DNA
+- Can delay mitotic entry in response to damaged or incompletely replicated DNA; it does not certify perfect replication.
 - **ATM** (activated by DSBs) and **ATR** (activated by ssDNA/stalled forks) phosphorylate **Chk2** and **Chk1** respectively
 - Chk1/Chk2 phosphorylate Cdc25C, creating a 14-3-3 binding site that sequesters Cdc25C in the [**cytoplasm**](#gl:cytoplasm), preventing it from activating cyclin B-CDK1 (MPF)
 - Simultaneously, p53 induces p21, which directly inhibits cyclin B-CDK1
 
 **Spindle Assembly Checkpoint (SAC)**:
-- Prevents anaphase until most kinetochores are properly attached to spindle microtubules
+- Delays anaphase in response to unattached kinetochore signaling; low tension can promote attachment correction and detachment through related mechanisms.
 - Unattached kinetochores catalyze formation of the **mitotic checkpoint complex (MCC)**: Mad2, BubR1, Bub3, and Cdc20
 - MCC binds and inhibits **Cdc20**, preventing activation of APC/C
 - A single unattached kinetochore is sufficient for complete arrest (Rieder et al. 1995)
-- Once most kinetochores achieve bipolar attachment with tension, SAC is silenced; Cdc20 activates APC/C, which ubiquitinates securin and cyclin B
+- As attachment-dependent checkpoint signaling falls, Cdc20 activates APC/C, which ubiquitinates securin and cyclin B. Checkpoint silencing does not guarantee correct bi-orientation of every chromosome.
 - Securin degradation releases **separase**, which cleaves cohesin (Scc1/Rad21 subunit) -- triggering anaphase
 
 ### The DNA Damage Response: ATM/ATR and p53
@@ -584,6 +560,8 @@ flowchart TD
 <!-- alt: Flowchart showing DNA damage response pathway. ATM responds to double-strand breaks; ATR responds to replication stress and single-stranded DNA. Both converge on p53, which decides between cell cycle arrest (allowing repair), apoptosis, or senescence depending on damage severity. -->
 
 *The DNA damage response pathway. ATM responds to double-strand breaks; ATR responds to replication stress and single-stranded DNA. Both converge on p53, which decides between cell cycle arrest (allowing repair), [**apoptosis**](#gl:apoptosis), or senescence depending on damage severity.*
+
+For the LO7 prediction, specify the cell-cycle starting state. A DSB introduced in G1 normally engages ATM-dependent signaling to CHK2/p53 and p21-mediated inhibition of CDKs before S-phase entry. ATM loss can therefore weaken the upcoming G1/S damage-induced delay \citep{khanna1995checkpoint}. It does not abolish every checkpoint or every p53 response: ATR can respond to ssDNA generated by resection or subsequent replication, and the spindle checkpoint senses a different problem. Without the G1 stipulation, there is no universal first transition to fail.
 
 **p53: Guardian of the Genome**
 
@@ -627,7 +605,7 @@ Cancer is fundamentally a disease of uncontrolled cell cycle progression. Key de
 
 > **Concept Check (Analysis):** The replication fork in E. coli moves at ~1,000 bp/s. The human genome is 3.2 × 10⁹ bp with ~50,000 origins of replication, and S phase takes ~8 hours. (a) Calculate the average replicon size (distance between origins) and the time to replicate each replicon. (b) If origins fire stochastically with an average firing rate, how does increasing origin density affect replication timing precision and the risk of replication fork collapse? (c) Topoisomerase II resolves catenated daughter chromosomes after replication — if cells are treated with ICRF-193 (a catalytic Topo II inhibitor that traps the closed clamp form), predict the cell-cycle arrest point and explain the checkpoint mechanism activated.
 
-> **Worked Example — Telomere Length and Hayflick Limit:** Human somatic cells lose ~50-200 bp per cell division from chromosome ends. Starting telomere length: ~10,000 bp. Minimum functional telomere: ~2,000 bp (below this, TRF2/POT1 cannot form T-loop, triggering p53-dependent arrest). Maximum divisions before arrest: (10,000 - 2,000)/100 bp loss/division = 80 divisions — matching the Hayflick limit of ~40-70 divisions for most human cells. Cancer cells upregulate telomerase (TERT + TERC + DKC1), maintaining telomere length at 5,000-8,000 bp, enabling unlimited division. Telomere length heterogeneity: standard deviation ≈ 1,500 bp. Cells first approach arrest when the shortest telomere (mean - 2 SD ≈ 10,000 - 3,000 = 7,000 bp minus divisions × 100) becomes critical — predicting that arrest begins at ~50 divisions (earlier than mean estimate), matching the wide observed Hayflick range.
+> **Worked Example — A Linear Telomere Model and Heterogeneity:** Assume an artificial tracked telomere starts at 10,000 bp, loses exactly 100 bp per division and reaches a stipulated stopping threshold of 2,000 bp. The model gives (10,000 − 2,000)/(100 bp/division) = 80 divisions; this is not a measured Hayflick limit or a universal shelterin threshold. To illustrate heterogeneity, instead supply four tracked ends of 7,000, 9,000, 11,000 and 13,000 bp, all following that same loss rule. If the artificial cell stops when its shortest tracked end reaches 2,000 bp, it stops after 50 divisions, while the mean would predict 80. A mean and standard deviation alone do not determine a minimum. Real cells have many chromosome ends, variable processing and maintenance, and checkpoint-dependent responses; neither example establishes senescence or crisis in a particular culture.
 
 > **Concept Check (Evaluation):** CDK4/6 inhibitors (palbociclib, ribociclib) are FDA-approved for HR+/HER2− breast cancer. They inhibit CDK4 and CDK6, preventing Rb phosphorylation and blocking G1/S transition. (a) Using the restriction point model, explain why Rb-deficient tumor cells are intrinsically resistant to CDK4/6 inhibitors. (b) Why do CDK4/6 inhibitors cause reversible cell-cycle arrest (cytostatic) rather than killing (cytotoxic) in normal cells, and what property of cancer cells makes them vulnerable to subsequent CDK4/6 inhibitor-induced senescence? (c) Acquired resistance to palbociclib often involves amplification of cyclin E (CCNE1), which activates CDK2. Design a combination therapy that would overcome this resistance mechanism and explain the sequential mechanistic logic.
 
@@ -679,7 +657,7 @@ Essentially a mitotic division of each Meiosis I product. Sister chromatids sepa
 
 1. **Independent assortment**: $2^{23}$ = approximately 8.4 million possible chromosome combinations for humans
 2. **Crossing over**: generates novel recombinant haplotypes; average 1-3 crossovers per chromosome pair per meiosis = approximately 30-50 total crossovers per meiosis
-3. **Fertilization**: $2 \times 8.4 \times 10^6$ combinations, further diversified by crossing over
+3. **Fertilization**: $2^{23}\times2^{23}=2^{46}\approx7.0\times10^{13}$ combinations, further diversified by crossing over
 
 **Concept Check 11.3**
 
@@ -691,20 +669,20 @@ Essentially a mitotic division of each Meiosis I product. Sister chromatids sepa
 
 ## DNA Damage and Repair
 
-DNA sustains approximately 10,000-100,000 lesions per cell per day from endogenous (hydrolysis, oxidation, replication errors) and exogenous (UV, chemicals, radiation) sources.
+DNA damage can arise from hydrolysis, oxidation, copying-associated processes and environmental exposure. Formation rate, unrepaired burden and a fixed mutation are different quantities; no single per-cell daily lesion count is imposed across tissues or exposure conditions.
 
 ### Types of DNA Damage
 
 : Types of DNA Damage: Damage Type and Source. {#tbl:unit_IV_dna_replication_and_cell_cycle_types_of_dna_damage}
-| Damage Type | Source | Frequency (per cell per day) |
-|-------------|--------|------------------------------|
-| Depurination (AP sites) | Spontaneous hydrolysis | ~5,000-10,000 |
-| Deamination (C to U) | Spontaneous hydrolysis | ~100-500 |
-| Oxidized bases (8-oxoG) | Reactive oxygen species (ROS) | ~10,000 |
-| Single-strand breaks | ROS, topoisomerase failure | ~20,000-40,000 |
-| Double-strand breaks | Ionizing radiation, replication fork collapse | ~10-50 |
-| Pyrimidine dimers (CPD) | UV light (280-320 nm) | Variable (sun exposure dependent) |
-| Alkylated bases | Endogenous S-adenosylmethionine; alkylating agents | ~3,000 |
+| Damage type | Source or mechanism | Measurement context needed |
+| ----------- | ------------------- | -------------------------- |
+| Depurination / abasic sites | Hydrolysis; some abasic sites are repair intermediates | Cell type, genome amount and formation-versus-burden distinction |
+| Deamination (C → U) | Hydrolytic conversion | Base context, interval and repair opportunity |
+| Oxidized bases (8-oxoG) | Oxidative chemistry | Product identity and sample-processing controls |
+| Single-strand breaks | Backbone damage, trapped intermediates or repair | Assay sensitivity to true breaks versus alkali-labile sites |
+| Double-strand breaks | Radiation, enzymatic cleavage or some collapsed forks | Cell-cycle state, exposure and direct-versus-surrogate detection |
+| Pyrimidine dimers (CPDs) | UV exposure | Wavelength, fluence, tissue depth and repair interval |
+| Alkylated bases | Endogenous or exogenous alkyl donors | Defined adduct, exposure and residual burden |
 
 ### DNA Repair Pathways and Cell-Cycle Context
 
@@ -731,8 +709,8 @@ DNA sustains approximately 10,000-100,000 lesions per cell per day from endogeno
 - Exonuclease 1 degrades the error-containing strand; DNA Pol delta resynthesizes
 
 **Double-strand break repair**:
-- **NHEJ** (active throughout cell cycle): Ku70/Ku80 bind broken ends; DNA-PKcs recruited; Artemis processes overhangs; XRCC4-Ligase IV seals. Fast but error-prone.
-- **Homologous recombination (HR)** (active in S/G2): MRN complex resects 5' ends; RPA coats 3' ssDNA; BRCA2 loads RAD51; strand invasion into sister chromatid; error-free repair.
+- **NHEJ** (available throughout the cell cycle): Ku70/Ku80 bind broken ends; DNA-PKcs and associated factors coordinate processing when needed, and XRCC4–Ligase IV seals ends. Compatible ends can be rejoined accurately; processing or misjoining can create indels or rearrangements.
+- **Homologous recombination (HR)** (favored when suitable templates are available, commonly S/G2): resection exposes 3′ ssDNA; BRCA2 promotes RAD51 loading and strand invasion into homologous DNA, often the sister chromatid. Template use supports high-fidelity repair but does not guarantee an error-free outcome.
 
 The choice between NHEJ and HR is regulated by **53BP1** (favors NHEJ) versus **BRCA1** (promotes resection for HR). In S/G2, CDK phosphorylation activates CtIP to promote resection.
 
@@ -741,7 +719,7 @@ The choice between NHEJ and HR is regulated by **53BP1** (favors NHEJ) versus **
 
 **Concept Check 11.4**
 
-> 1. Why is NHEJ considered error-prone while HR is high-fidelity?
+> 1. Under what end/template conditions can NHEJ be accurate, and why can HR also generate sequence changes or rearrangements?
 > 2. Explain the concept of synthetic lethality as it applies to PARP inhibitor therapy.
 > 3. A patient with xeroderma pigmentosum develops melanoma at age 12. What repair pathway is deficient, and what type of DNA damage accumulates?
 > 4. Compare BER and NER in terms of the type of damage repaired and the size of DNA removed.
@@ -750,11 +728,11 @@ The choice between NHEJ and HR is regulated by **53BP1** (favors NHEJ) versus **
 
 ## Worked Example: Telomere Shortening and the Hayflick Limit
 
-**Problem**: A human fibroblast is born with telomeres of $10{,}000 \text{ bp}$ of TTAGGG repeats. In the absence of telomerase it loses $100 \text{ bp}$ of telomeric DNA per division (within the stated $50$--$200 \text{ bp}$ end-replication range). Replicative senescence is triggered once telomeres reach a critically short length of $\approx 4{,}000 \text{ bp}$.
+**Problem**: In a separate artificial linear model, stipulate a tracked telomere length of $10{,}000 \text{ bp}$, loss of exactly $100 \text{ bp}$ per division and a stopping threshold of $4{,}000 \text{ bp}$. These are supplied assumptions, not empirical constants for human fibroblasts; the different threshold from the earlier example is deliberate.
 
-(a) How many divisions can this cell undergo before senescence?
+(a) How many divisions reach this model's stopping threshold?
 
-**Solution**: The expendable telomere reserve is the starting length minus the senescence threshold; the number of divisions is that reserve divided by the loss per division:
+**Solution**: Divide the stipulated reserve by the constant loss per division:
 
 \begin{equation}n = \frac{10{,}000 \text{ bp} - 4{,}000 \text{ bp}}{100 \text{ bp/division}} = \frac{6{,}000 \text{ bp}}{100 \text{ bp/division}} = 60 \text{ divisions}\label{eq:telomere_shortening_divisions}\end{equation}
 
@@ -762,7 +740,7 @@ The choice between NHEJ and HR is regulated by **53BP1** (favors NHEJ) versus **
 
 \begin{equation}\Delta L = 60 \text{ divisions} \times 100 \text{ bp/division} = 6{,}000 \text{ bp}\label{eq:telomere_total_loss}\end{equation}
 
-The predicted $60$ divisions sits squarely within the measured Hayflick limit of $\approx 50$--$70$ divisions for human fibroblasts, showing how the end-replication problem imposes a built-in replicative clock that limits the proliferative capacity of somatic cells and acts as a tumor-suppressive barrier.
+The result is $60$ model divisions and $6{,}000 \text{ bp}$ lost from the tracked end. This arithmetic does not independently validate a biological lifespan or establish agreement with a measured culture. Actual senescence depends on individual short or unprotected ends, damage, cell state and checkpoint function; crisis additionally involves continued proliferation after earlier barriers are bypassed.
 
 
 ## Worked Example: Replication Fork Dynamics
@@ -783,7 +761,7 @@ The predicted $60$ divisions sits squarely within the measured Hayflick limit of
 
 \begin{equation}t = \frac{3.2 \times 10^9}{2 \times 50} = 3.2 \times 10^7 \text{ s} \approx 370 \text{ days}\label{eq:replication_time_euk}\end{equation}
 
-This is why eukaryotes require approximately 30,000-50,000 origins to complete replication in approximately 8 hours.
+The single-origin model shows why a large nuclear genome needs many origins. Actual S-phase duration also depends on asynchronous firing, origin spacing, fork speeds and stalls; the origin count needed in a specified time must follow from those assumptions rather than from genome size alone.
 
 ---
 
@@ -826,10 +804,11 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 ## Summary
 
 - **DNA structure**: B-form double helix with antiparallel strands; major groove allows sequence-specific protein binding; negative backbone charge requires cationic neutralization.
-- **Replication**: Semiconservative, bidirectional from licensed origins; leading strand continuous (Pol epsilon), lagging strand as Okazaki fragments (Pol delta); fidelity maintained by polymerase selectivity, 3' to 5' proofreading, and MMR (approximately $10^{-10}$ error rate).
-- **Telomeres**: TTAGGG repeats protected by shelterin and T-loops; telomerase (TERT + TERC) extends 3' overhang in germ/stem cells; reactivated in most cancers; ALT pathway in approximately 15%.
-- **Cell cycle**: G1-S-G2-M driven by sequential cyclin-CDK activation; checkpoints (G1/S restriction point, intra-S, G2/M, SAC) ensure fidelity; p53 integrates damage signals to decide between arrest, senescence, and apoptosis.
-- **Mitosis**: Prophase through cytokinesis; cohesin holds sister chromatids; separase cleaves at anaphase; SAC ensures bipolar attachment via MCC-mediated APC/C inhibition.
+- **Replication**: Semiconservative, bidirectional from licensed origins; leading strand continuous (Pol epsilon), lagging strand as Okazaki fragments (Pol delta); polymerase selectivity, proofreading and MMR provide successive fidelity layers. The displayed $10^{-10}$ probability is the result of the stipulated model, not a universal mutation constant.
+- **Licensing and firing**: MCM loading licenses origins; many remain dormant. In budding yeast, DDK phosphorylation of MCM and S-CDK phosphorylation of Sld2/Sld3 provide distinct firing inputs. Human-cell relicensing barriers include phase-specific Cdt1 degradation, geminin inhibition and inhibitory Cdt1 hyperphosphorylation; loss of selected barriers increases risk conditionally, not a guarantee of refiring or amplification \citep{sld2007firing,cdt12020phosphorylation}.
+- **Telomeres**: TTAGGG repeats protected by shelterin and T-loops; telomerase (TERT + TERC) extends the 3′ overhang in cells where it is active. Telomerase and ALT can support tumor telomere maintenance, but maintenance is not itself malignant transformation, and shortening rates or arrest thresholds are context-dependent.
+- **Cell cycle**: G1-S-G2-M is driven by sequential cyclin-CDK activity. Mitogen-dependent restriction-point commitment is distinct from DNA-damage checkpoints; intra-S, G2/M and spindle signals can delay progression but do not guarantee fidelity. p53 contributes to damage-dependent arrest, senescence and apoptosis.
+- **Mitosis**: Prophase through cytokinesis; cohesin holds sister chromatids and separase cleaves it at anaphase. Unattached kinetochore signaling promotes MCC-mediated APC/C inhibition, without certifying correct bi-orientation when the signal falls.
 - **Meiosis**: Meiosis I (reductive: homolog separation, crossing over at chiasmata) + Meiosis II (equational: sister chromatid separation) produce 4 haploid gametes; independent assortment and crossing over generate diversity.
 - **DNA repair**: BER (damaged bases), NER (bulky adducts), MMR (mismatches), NHEJ and HR (DSBs); defects cause cancer predisposition syndromes (Lynch, XP, BRCA-mutant cancers, Li-Fraumeni).
 - **Connections:** See \cref{sec:unit_IV_gene_expression} for gene expression downstream of replicated DNA, \nameref{sec:unit_V_unit_intro} for segregation of sister chromatids, and \nameref{sec:unit_VII_unit_intro} for bacterial replication timing.
@@ -839,8 +818,8 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 ## Review Questions
 
 1. Compare the roles of DnaA/DnaB in *E. coli* and ORC/MCM2-7 in eukaryotes during replication initiation.
-2. Explain how the licensing system prevents re-replication. What happens if geminin is depleted?
-3. Describe the three layers of replication fidelity and calculate the expected number of mutations per human cell division (3.2 Gb genome, error rate $10^{-10}$ per bp).
+2. Explain how licensing and firing are separated. In a proliferating human cell, how could the consequences of geminin depletion differ between S phase and G2, depending on remaining licensing controls? What evidence would distinguish origin refiring from increased DNA content after failed division?
+3. Describe the three fidelity layers and calculate the expected errors remaining after replication of a stipulated 3.2 Gb of DNA at the model probability $10^{-10}$ per incorporated nucleotide. State the modeled DNA amount and distinguish this expectation from mutations measured in surviving cells.
 4. A cell line has homozygous loss of RB1. Predict the effect on G1/S checkpoint function. Would CDK4/6 inhibitors be effective?
 5. Compare the substrates and outcomes of APC/C-Cdc20 versus APC/C-Cdh1 in mitotic exit.
 6. Explain why crossing over in meiosis I is essential for proper chromosome segregation (beyond generating diversity).
@@ -882,7 +861,7 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 13. **Synaptonemal complex** -- protein scaffold mediating homologous chromosome synapsis in meiosis I prophase
 14. **Chiasma** -- physical connection between homologs at a crossover site during meiosis
 15. **Mismatch repair (MMR)** -- post-replicative repair of base-base mismatches and small loops; defects cause Lynch syndrome
-16. **Homologous recombination (HR)** -- error-free DSB repair using sister chromatid as template; requires BRCA1/2 and RAD51
+16. **Homologous recombination (HR)** -- template-directed DSB repair, commonly using a sister chromatid in S/G2; BRCA1/2 and RAD51 contribute, but template use does not guarantee error-free products.
 17. **Synthetic lethality** -- cell death resulting from simultaneous loss of two compensatory pathways (basis for PARP inhibitor therapy)
 
 ---

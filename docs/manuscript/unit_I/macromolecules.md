@@ -5,11 +5,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{../figures/polymer_hierarchy.png}
-\caption{Hierarchy of biological macromolecules from monomer to polymer to assembly. Each row groups a polymer family (proteins, nucleic acids, carbohydrates, lipids) and the four columns expose the same four-step pattern: monomer, polymer, assembly, and example function. Arrows show the monomer-to-polymer-to-assembly direction; the function column anchors the chemistry to a recognisable biological role.}
+\caption{Four comparison rows relate biological building blocks, molecules or assemblies, and functions; the columns are not one universal synthesis pathway. Proteins, nucleic acids, and polysaccharides include covalent polymers. The lipid row uses a glycerophospholipid example with glycerol and fatty-acid components, a nonpolymer lipid molecule, and membrane self-assembly; not every lipid contains glycerol.}
 \label{fig:unit_I_polymer_hierarchy}
 \end{figure}
 
-<!-- alt: Schematic grid of biological macromolecule families. Each row labels one family (proteins, nucleic acids, carbohydrates, lipids) along the left edge and contains four colored cells (monomer, polymer, assembly, function) connected by left-to-right arrows. -->
+<!-- alt: Wrapped four-column comparison table with rows for proteins, nucleic acids, carbohydrates, and lipids. Columns compare building blocks, molecules, assemblies, and functions. A glycerophospholipid example distinguishes nonpolymer lipid molecules from membrane self-assembly; the rows are not universal synthesis arrows. -->
 
 
 <!-- chapter-metadata-badge -->
@@ -43,36 +43,36 @@
 
 ---
 
-> **Opening Vignette: The Protein That Won Two Nobel Prizes**
+> **Opening Vignette: From Insulin Structure to Recombinant Therapy**
 >
-> In 1955, Frederick Sanger published the complete amino acid sequence of bovine insulin: 51 amino
-> acids in two chains (A and B) linked by two disulfide bonds. It had taken him 10 years and was
-> considered one of the most technically difficult achievements in biochemistry at the time. The
-> revelation was not just the sequence itself, but what it implied: proteins are not random polymers
-> — they are precisely specified sequences, encoded in [**gene**](#gl:gene)s, determining unique three-dimensional
-> structures. This work earned Sanger his first Nobel Prize in Chemistry (1958).
+> By 1955, Sanger and collaborators had established the complete covalent structure of bovine insulin:
+> 51 amino acids in two chains, with two interchain disulfide bonds and one within the A chain.
+> The work showed that a protein has a defined sequence and covalent connectivity, rather than
+> being a random polymer \citep{sanger1955insulin}. Sequence constrains folding and function in context;
+> it does not guarantee one unique structure regardless of environment or modification.
+> Sanger received the 1958 Nobel Prize in Chemistry for his work on protein structure.
 >
-> The same molecule — insulin — would later become the first human protein produced by recombinant
-> DNA technology (1982), when the human insulin gene was inserted into *E. coli* to manufacture
-> pharmaceutical insulin for diabetics. Before recombinant insulin, most medical insulin came from
-> pig and cow pancreas, with shortages, immunological reactions, and ethical concerns. Today,
-> an estimated 589 million adults aged 20--79 with diabetes worldwide \citep{magliano2025idfdiabetesatlas11},
-> including those who require insulin, use a product whose existence depends on understanding the
-> four classes of biological macromolecules this chapter explores.
+> Recombinant human insulin was produced experimentally in 1978; FDA approval of Humulin followed
+> on October 28, 1982, making it the first approved medical product derived from recombinant-DNA
+> technology \citep{fda2024insulinhistory}. Production and approval are different milestones.
+> Before recombinant insulin, medical supplies largely came from pig and cow pancreases.
+> The IDF estimated 589 million adults aged 20–79 with diabetes worldwide in 2024 \citep{idf2025atlas11,magliano2025idfdiabetesatlas11},
+> not all of whom require insulin. Recombinant insulin illustrates how understanding protein
+> chemistry and gene expression can support treatment; prevalence is not a product-use count.
 >
-> *Primary source: Sanger, F. & Thompson, E. O. P. (1953). The amino-acid sequence in the glycyl chain of insulin. Biochem. J., 53(3), 353–374.*
+> *Primary structural source:* \citet{sanger1955insulin}; the original paper identifies the insulin disulfide connections, not a clinical efficacy trial.
 
 ---
 
 
-Biological macromolecules fall into four major classes: **carbohydrates**, **lipids**, **proteins**, and **nucleic acids**. The first three are polymers of small repeating units (monomers); lipids are an important exception --- they form assemblies through noncovalent hydrophobic interactions rather than covalent polymerization. \cref{fig:unit_I_polymer_hierarchy} lays out the monomer-to-polymer-to-assembly progression family by family so the same chemistry is recognizable across the four classes.
+Biological macromolecules fall into four major classes: **carbohydrates**, **lipids**, **proteins**, and **nucleic acids**. Proteins, nucleic acids, and polysaccharides include covalent polymers; lipids are not one repeating-monomer polymer class. Many lipids form noncovalent assemblies through hydrophobic interactions. \cref{fig:unit_I_polymer_hierarchy} distinguishes building blocks, polymers, and assemblies across the four families.
 
 ```mermaid
 classDiagram
     class Macromolecule {
         <<abstract>>
         +String type
-        +String monomer
+        +String building_blocks
         +String bond_type
     }
 
@@ -84,8 +84,10 @@ classDiagram
     }
 
     class Lipid {
-        +Monomer: Fatty acids / Isoprene
-        +Bond: Ester (+ noncovalent assembly)
+        +Building blocks: fatty acids and glycerol
+        +Or: isoprenoid precursors
+        +No common repeating monomer
+        +Ester bonds in many lipids, not sterols
         +Roles: Membranes, Energy, Signaling
         +Examples: Phospholipids, Sterols, Waxes
     }
@@ -117,7 +119,8 @@ classDiagram
     class AminoAcid {
         +Core: NH2-CHR-COOH
         +Types: 20 canonical
-        +Chirality: L-configuration
+        +Chiral canonical residues: L
+        +Glycine: achiral
     }
 
     class Nucleotide {
@@ -133,11 +136,11 @@ classDiagram
     Carbohydrate --> Monosaccharide : composed of
     Protein --> AminoAcid : composed of
     NucleicAcid --> Nucleotide : composed of
-    Lipid --> FattyAcid : contains
+    Lipid --> FattyAcid : many contain
 ```
-<!-- alt: Diagram showing four biological macromolecule families — carbohydrates, lipids, proteins, and nucleic acids — with their monomers, characteristic bonds, and cellular roles. -->
+<!-- alt: Diagram showing four biological macromolecule families, their building blocks, characteristic linkages or assemblies, and cellular roles. -->
 
-*The four biological macromolecule families — carbohydrates, lipids, proteins, and nucleic acids — with their monomers, characteristic bonds, and cellular roles.*
+*The four biological macromolecule families, their building blocks, characteristic linkages or assemblies, and cellular roles.*
 
 ### Condensation and Hydrolysis
 
@@ -157,7 +160,7 @@ The reverse, **hydrolysis**, uses water to cleave the bond. These reactions requ
 | Bond Type | $\Delta G^{\circ'}$ of Hydrolysis (kJ/mol) | Required Energy Source |
 | --------- | ------------------------------------------ | --------------------- |
 | Glycosidic | --15 to --20 | UDP-glucose (activated sugar) |
-| Peptide | --8 to --16 | GTP (ribosomal [**translation**](#gl:translation)) |
+| Peptide | --8 to --16 | Activated aminoacyl/peptidyl-tRNA ester, established by ATP-dependent charging |
 | Phosphodiester | --25 | NTP (DNA/RNA polymerase) |
 | Ester (lipid) | --20 | Acyl-CoA (activated fatty acid) |
 
@@ -168,7 +171,7 @@ In each case, the monomers must first be "activated" by coupling to a high-energ
 **Problem:**
 The hydrolysis of a [**peptide bond**](#gl:peptide-bond) releases approximately $\Delta G^{\circ'} = -10 \text{ kJ/mol}$. 
 1. What is the standard free energy change ($\Delta G^{\circ'}$) for the condensation reaction to form a single peptide bond?
-2. Why does the cell require the hydrolysis of high-energy bonds (like GTP, where $\Delta G^{\circ'} \approx -30 \text{ kJ/mol}$) to drive this reaction during protein synthesis in the [**ribosome**](#gl:ribosome)?
+2. How does amino-acid activation on tRNA allow peptide synthesis, and why is it distinct from GTP-driven delivery and translocation?
 
 **Solution:**
 
@@ -179,15 +182,15 @@ The hydrolysis of a [**peptide bond**](#gl:peptide-bond) releases approximately 
    As $\Delta G^{\circ'} > 0$, the formation of a peptide bond is thermodynamically unfavorable (endergonic) and will not occur spontaneously.
 
 2. **Calculate the coupled reaction thermodynamics:**
-   To drive an endergonic reaction forward, the cell couples it to a highly exergonic reaction. During translation elongation, the ribosome couples the formation of a peptide bond to the hydrolysis of GTP down to GDP + P$_i$.
+   Peptidyl transfer uses the activated ester linkage on aminoacyl/peptidyl-tRNA, established by ATP-dependent charging. GTP supports factor-mediated delivery, proofreading and translocation, not direct chemical coupling to peptidyl transfer. For bookkeeping only, suppose an abstract activation contribution is -30 kJ/mol: a synthetic energy example, not a measured tRNA value.
    
    Summing the free energy changes:
-   $$ \Delta G^{\circ'}_{\text{total}} = \Delta G^{\circ'}_{\text{condensation}} + \Delta G^{\circ'}_{\text{GTP\_hydrolysis}}  \label{eq:unit_I_macromolecules_item_3}$$
+   $$ \Delta G^{\circ'}_{\text{total}} = \Delta G^{\circ'}_{\text{condensation}} + \Delta G^{\circ'}_{\text{activation contribution}}  \label{eq:unit_I_macromolecules_item_3}$$
 
    $$ \Delta G^{\circ'}_{\text{total}} = (+10 \text{ kJ/mol}) + (-30 \text{ kJ/mol}) = -20 \text{ kJ/mol}  \label{eq:unit_I_macromolecules_item_4}$$
 
 
-By coupling the unfavorable peptide bond formation (+10 kJ/mol) to the favorable hydrolysis of GTP (--30 kJ/mol), the overall coupled reaction becomes highly favorable (--20 kJ/mol), driving protein synthesis forward with near-perfect unidirectionality.
+The illustrative sum is -20 kJ/mol, showing coupling logic only. Actual translation energetics require activated substrates and factor cycles to be accounted for separately; the sum does not establish fidelity or perfect unidirectionality.
 
 > **Concept Check 1:** Hydrolysis reactions are thermodynamically spontaneous ($\Delta G < 0$), yet polymers are kinetically stable in cells. What prevents the spontaneous hydrolysis of your DNA, proteins, and carbohydrates?
 
@@ -215,7 +218,7 @@ Common examples:
 | Fructose | C$_6$H$_{12}$O$_6$ | 6 | Ketohexose | Fruit sugar, sweetest natural sugar |
 | Mannose | C$_6$H$_{12}$O$_6$ | 6 | Aldohexose | Glycoprotein glycans |
 
-Glucose, galactose, and fructose are **structural isomers** --- identical molecular formulas, different atom arrangements. In solution, glucose exists primarily in the **ring form** (pyranose, ~99%) rather than the open-chain aldehyde form. The two ring anomers, α-D-glucose and β-D-glucose, differ primarily in the orientation of the C1 hydroxyl group, but this distinction has enormous biochemical significance --- enzymes discriminate exquisitely between them.
+Glucose and galactose are C4 epimers (stereoisomers with the same connectivity). Glucose and fructose are constitutional isomers with different carbonyl connectivity. In solution, glucose exists primarily in the **ring form** (pyranose, ~99%) rather than the open-chain aldehyde form. The two ring anomers, α-D-glucose and β-D-glucose, differ primarily in the orientation of the C1 hydroxyl group, but this distinction has enormous biochemical significance --- enzymes discriminate exquisitely between them.
 
 ### Disaccharides and Polysaccharides
 
@@ -242,21 +245,17 @@ The difference between starch and cellulose --- both glucose polymers --- lies s
 
 ```mermaid
 flowchart TD
-    FOOD["Dietary Carbohydrates"] --> MOUTH["Mouth"]
-    MOUTH -->|"Salivary α-amylase<br/>(pH 6.7, cleaves α1→4)"| MOUTH_P["Starch → Maltose + Maltotriose<br/>+ α-Limit dextrins"]
-    MOUTH_P --> STOMACH["Stomach<br/>(pH 1.5–3.5)"]
-    STOMACH -->|"Acid inactivates<br/>salivary amylase"| SI["Small Intestine"]
-    SI -->|"Pancreatic α-amylase<br/>(pH 7–8)"| SI_P["Maltose + Isomaltose<br/>+ Limit dextrins"]
-    SI_P --> BRUSH["Brush Border Enzymes"]
-    BRUSH -->|"Maltase"| GLU1["Glucose"]
-    BRUSH -->|"Isomaltase<br/>(cleaves α1→6)"| GLU2["Glucose"]
-    BRUSH -->|"Lactase<br/>(cleaves β1→4)"| GLU3["Glucose + Galactose"]
-    BRUSH -->|"Sucrase"| GLU4["Glucose + Fructose"]
-    GLU1 --> ABS["Absorption via<br/>SGLT1 (Na⁺ co-transport)<br/>+ GLUT2 (facilitated)"]
-    GLU2 --> ABS
+    FOOD["Dietary starch"] -->|"Salivary and pancreatic<br/>α-amylases"| SI_P["Maltose, maltotriose<br/>and limit dextrins"]
+    SI_P -->|"Brush-border maltase<br/>and isomaltase"| GLU1["Glucose"]
+    LAC["Dietary lactose"] -->|"Lactase: β1→4 hydrolysis"| GLU3["Glucose + galactose"]
+    SUC["Dietary sucrose"] -->|"Sucrase"| GLU4["Glucose + fructose"]
+    GLU1 --> ABS["Apical SGLT1<br/>glucose and galactose<br/>Na⁺ cotransport"]
     GLU3 --> ABS
-    GLU4 --> ABS
-    ABS --> PORTAL["Portal Vein → Liver"]
+    GLU4 -->|"Glucose"| ABS
+    GLU4 -->|"Fructose"| GLUT5["Apical GLUT5"]
+    ABS --> ENTERO["Enterocyte monosaccharides"]
+    GLUT5 --> ENTERO
+    ENTERO -->|"Basolateral GLUT2"| PORTAL["Portal blood → liver"]
 
     CELLULOSE["Cellulose<br/>(β1→4 glucose)"] -.->|"No human β-glucosidase"| COLON["Passes to Colon<br/>(dietary fiber)"]
     COLON -->|"Gut microbiota<br/>fermentation"| SCFA["Short-Chain Fatty Acids<br/>(butyrate, propionate, acetate)"]
@@ -266,9 +265,9 @@ flowchart TD
     style CELLULOSE fill:#e74c3c,color:#fff
     style SCFA fill:#e67e22,color:#fff
 ```
-<!-- alt: Flowchart showing digestible alpha-linked carbohydrates pass through amylase, brush-border enzymes, and portal absorption, while beta-linked cellulose bypasses human enzymes and reaches microbial fermentation in the colon. -->
+<!-- alt: Flowchart showing digestible carbohydrates use substrate-specific hydrolases and transporters; cellulose escapes human digestion and reaches microbial fermentation in the colon. -->
 
-*Digestible alpha-linked carbohydrates pass through amylase, brush-border enzymes, and portal absorption, while beta-linked cellulose bypasses human enzymes and reaches microbial [**fermentation**](#gl:fermentation) in the colon.*
+*Digestible carbohydrates use substrate-specific hydrolases and transporters; cellulose escapes human digestion and reaches microbial [**fermentation**](#gl:fermentation) in the colon.*
 
 > **Clinical Connection: Lactose Intolerance**
 >
@@ -429,7 +428,7 @@ The "fluid mosaic" model of Singer and Nicolson (1972) proposed that membranes a
 
 **Lipid rafts.** Cholesterol and sphingolipids self-segregate into liquid-ordered ($L_o$) microdomains within a sea of liquid-disordered ($L_d$) phospholipids. These ~10--200 nm rafts concentrate specific signaling proteins (GPI-anchored proteins, Src-family kinases) and are now recognized as functional platforms for receptor signaling, virus budding, and immune-cell synapse assembly.
 
-> **Concept Check 7:** A typical phospholipid diffuses ~1 μm/s laterally in a fluid bilayer but flips between leaflets primarily once every several hours unaided. Use the structure of a phospholipid (charged head, hydrocarbon tails) and the energetics of the hydrophobic effect to explain this 10$^{12}$-fold difference. Why must cells expend ATP on flippases to break this asymmetry?
+> **Concept Check 7:** Suppose a phospholipid has lateral diffusion coefficient $D=1\,\mu\mathrm{m}^2/\mathrm{s}$ and mean spontaneous flip waiting time 4 h. Using $\langle r^2\rangle=4Dt$ for two-dimensional diffusion, calculate the time for a 1 μm root-mean-square lateral displacement (0.25 s), then compare it with the flip waiting time (14,400 s): their time ratio is 57,600 for these stated conventions, not a universal rate ratio. Explain why moving a polar head through the hydrophobic core is costly and how ATP-dependent flippases maintain nonequilibrium leaflet asymmetry.
 
 ### Sphingolipids in Membranes and Signaling
 
@@ -554,7 +553,7 @@ Real proteins occupy the allowed regions ~98% of the time; deviations into "outl
 
 ### Levels of Protein Structure
 
-**Primary structure:** The amino acid sequence --- the covalent backbone. Written conventionally from N-terminus to C-terminus. Primary structure is encoded by genes and determines most higher levels of structure (Anfinsen's dogma).
+**Primary structure:** The amino-acid sequence, conventionally written from N-terminus to C-terminus, is linked by the covalent peptide backbone. Sequence constrains higher structure, while solvent, partners and modifications help determine the realized ensemble. Anfinsen-style refolding results require specified conditions and do not imply one unique fold for every protein.
 
 **Secondary structure:** Local regular patterns of backbone H-bonds:
 - **α-Helix:** 3.6 residues/turn, rise 0.15 nm/residue, H-bond between residue $i$ and $i+4$. 100% right-handed in natural proteins. Helix dipole (N-terminus δ+; C-terminus δ-) affects function. Helix-breaking residues: Pro (kinks), Gly (too flexible).
@@ -581,7 +580,7 @@ Real proteins occupy the allowed regions ~98% of the time; deviations into "outl
 
 **Quaternary structure:** Assembly of two or more polypeptide chains (subunits). Examples:
 - **Hemoglobin:** $\alpha_2\beta_2$ tetramer; cooperative O$_2$ binding
-- **Collagen:** triple helix of three chains with Gly-X-Y repeats (X often Pro, Y often Hyp)
+- **Collagen:** triple-helical domains contain three chains with Gly-X-Y repeats (X often Pro, Y often hydroxyproline, Hyp). Gly permits tight packing; Hyp contributes conformational stabilization, including stereoelectronic effects. Highly stable fluoroproline mimics challenge an explanation based solely on hydroxyl-mediated hydrogen bonding \citep{holmgren1999collagen}. Ascorbate deficiency impairs collagen hydroxylation and tissue integrity rather than necessarily eliminating all modification.
 - **Immunoglobulin G:** two heavy chains + two light chains; Y-shaped
 - **Ribosome:** RNA + >50 protein subunits
 
@@ -603,7 +602,7 @@ The total $\Delta G_{\text{fold}}$ for a typical small globular protein is prima
 : Thermodynamics of Protein Folding: Contribution and Sign. {#tbl:unit_I_macromolecules_thermodynamics_of_protein_folding}
 | Contribution | Sign | Magnitude (typical) | Origin |
 | ------------ | ---- | ------------------- | ------ |
-| Conformational entropy of backbone | $-T\Delta S < 0$ unfavorable | $+500$ to $+1500$ kJ/mol | Loss of $\varphi$/ψ freedom |
+| Conformational entropy of backbone | $\Delta S<0$, so $-T\Delta S>0$ unfavorable | $+500$ to $+1500$ kJ/mol | Loss of $\varphi$/ψ freedom |
 | Conformational entropy of side chains | unfavorable | $+200$ to $+400$ kJ/mol | Side chains lock in place |
 | Hydrophobic effect | favorable | $-300$ to $-1000$ kJ/mol | Burial of nonpolar surface; entropy of water released |
 | Backbone H-bonds | small | $\pm 0$ to $-100$ kJ/mol | Replace H-bonds to water with intramolecular ones |
@@ -640,40 +639,40 @@ flowchart LR
 
 *AI biomolecular modeling workflow. Predicted structures and complexes are evidence-generating tools; confidence metrics and independent assays determine whether a predicted contact supports a biological mechanism.*
 
-> **Concept Check (Evaluation):** Intrinsically disordered proteins (IDPs) lack stable tertiary structure but are functionally critical --- roughly 30% of human proteins are fully disordered, and 70% have disordered regions. (a) Using the hydrophobic effect and entropy arguments, explain why a protein rich in charged (Asp, Glu, Lys, Arg) and polar (Ser, Thr, Gln, Asn) residues would resist folding into a compact globule. (b) IDPs often form transient ordered structures when binding partners --- propose the thermodynamic driving force for this "coupled folding and binding." (c) Why might disorder confer an evolutionary advantage for hub proteins that interact with many partners?
+> **Concept Check (Evaluation):** Intrinsically disordered regions (IDRs) lack a single stable tertiary structure under the specified conditions. (a) Explain how sequence composition, solvation and conformational entropy can oppose compact folding. (b) Propose a free-energy balance for coupled folding and binding, while allowing some complexes to remain disordered. (c) Give a context in which disorder could support a signaling hub, and state the organism, predictor and length threshold needed for a prevalence estimate.
 
 > **Concept Check (Analysis):** The amyloid fibril formed by the Alzheimer's A$\beta$(1--42) peptide consists of antiparallel $\beta$-sheets stacked perpendicular to the fibril axis with $\sim 4.7$ angstrom inter-strand spacing and $\sim 10$ angstrom inter-sheet spacing. (a) Estimate the number of hydrogen bonds per meter of fibril if each strand contributes 2 backbone H-bonds and strands are 4.7 angstrom apart. (b) Why is amyloid kinetically trapped --- why does a cell not simply unfold and refold the fibril? (c) Propose one molecular intervention (small molecule, antibody, or modified peptide) targeting fibril nucleation vs. one targeting fibril elongation, and explain the kinetic difference.
 
 ### Intrinsically Disordered Proteins (IDPs)
 
-A revolutionary modern discovery challenged the classical "structure = function" paradigm: approximately 30--50% of eukaryotic proteins contain **intrinsically disordered regions** (IDRs) --- segments that do not adopt a fixed 3D structure under physiological conditions.
+Many eukaryotic proteins contain **intrinsically disordered regions** (IDRs), whose conformational ensembles challenge a universal sequence→unique-fold→function rule. Prevalence depends on proteome, predictor and minimum region length. For example, an early prediction study found segments at least 50 residues long in 25–41% of sequences across five eukaryotic proteomes, not that this fraction of all proteins was wholly disordered \citep{dunker2000disorder}.
 
 Properties of IDPs/IDRs:
 - Enriched in charged and polar residues (Lys, Arg, Glu, Ser, Pro, Gly); depleted in hydrophobic residues
 - Exist as dynamic ensembles of rapidly interconverting conformations
-- Often undergo **coupled folding and binding** --- they fold upon interacting with their binding partner
+- May undergo **coupled folding and binding**, while other regions retain disorder in complexes
 
-**Biological advantages of disorder:**
+**Context-dependent functional possibilities of disorder:**
 - **Promiscuous binding:** one IDR can bind multiple partners (hub proteins in signaling networks)
 - **Large interaction surfaces:** extended conformations provide large binding interfaces from a short sequence
-- **Rapid binding kinetics:** "fly-casting" mechanism allows faster association rates
+- **Binding kinetics:** extended ensembles can affect association pathways; a proposed "fly-casting" mechanism is not a guarantee of faster binding
 - **Regulation by post-translational modification:** many phosphorylation sites are in disordered regions
 
 **Examples:**
 - **p53 transactivation domain:** disordered; folds into a helix upon binding MDM2
-- **Tau protein:** intrinsically disordered; pathological aggregation into neurofibrillary tangles causes Alzheimer's disease
+- **Tau protein:** intrinsically disordered; pathological aggregation and other tau changes are implicated in Alzheimer's disease, without uniquely explaining its causation
 - **Nucleoporin FG repeats:** disordered regions form the permeability barrier of nuclear pores
 - **α-Synuclein:** disordered; aggregation into Lewy bodies is the hallmark of Parkinson's disease
 
-**IDPs and biomolecular condensates --- liquid--liquid phase separation (LLPS).** A revolutionary insight of the 2010s: many cellular compartments have no membrane. The nucleolus, P-bodies, stress granules, the centrosome, heterochromatin domains, and synaptic puncta are **biomolecular condensates** formed by liquid--liquid phase separation. The driving force is multivalent, weak interactions between IDR-containing proteins and/or RNAs. Above a threshold concentration, the polymer-rich solution demixes into a dense droplet phase coexisting with a dilute phase, much like oil droplets in a vinaigrette.
+**IDPs and biomolecular condensates.** A biomolecular condensate is a concentrated macromolecular assembly without a delimiting membrane; the name alone does not establish that it is liquid or formed by liquid–liquid phase separation (LLPS). LLPS produces coexisting dense and dilute liquid phases under suitable composition and solution conditions. Studies support liquid-like nucleolar subcompartments in Xenopus oocytes and particular P-body preparations, whereas budding-yeast stress granules can be solid-like. Pericentric heterochromatin in mouse fibroblasts can instead behave as compacted chromatin globules, not a separated HP1 liquid pool \citep{feric2016nucleolus,kroschwald2015granules,erdel2020chromatin}.
 
-Key features of LLPS-driven condensates:
-- **Multivalency** (multiple weak interaction modules) is required; single-site interactions give simple complexes, not phases.
-- **Aromatic (π--π) and electrostatic ($+$/$-$)** interactions between IDR residues (especially Arg, Tyr, Phe, Glu, Asp) drive demixing.
-- **Functional consequence:** condensates concentrate biochemical reactants ~100-fold above bulk cytosol, dramatically accelerating reactions.
-- **Disease link:** ALS-causing mutations in FUS and TDP-43 transition liquid condensates into solid amyloid-like aggregates (the "liquid-to-solid" transition). Understanding LLPS is now central to neurodegeneration research.
+Mechanism, function and disease claims require separate evidence:
+- **Interaction networks:** Repeated binding sites can promote networks involving folded domains, IDRs and/or nucleic acids. In the specified modular SH3/PRM model, multivalency promotes assembly; one exclusive pairwise interaction cannot by itself build that crosslinked network. This is not a requirement that every recruited client contain multiple interaction modules \citep{li2012multivalent}.
+- **Molecular contacts:** Aromatic, electrostatic and other contacts contribute differently in different systems; an IDR label does not determine material state or establish one universal demixing mechanism.
+- **Reaction output:** In an engineered in-vitro SUMOylation system, recruitment enhanced some substrate reactions but inhibited another. Enrichment, phase-specific rate and total reaction output are different measurements; there is no universal concentration or acceleration factor \citep{peeples2021rates}.
+- **Disease models:** Patient-derived FUS mutations accelerated droplet-to-aggregate conversion in an in-vitro aging experiment. Isolated TDP-43 domain variants altered phase separation and aggregation in different ways. These studies do not establish an obligatory liquid-to-amyloid pathway in every ALS case \citep{patel2015fus,conicella2016tdp43}.
 
-This discovery transformed cell biology: the nucleus is not a uniform compartment but a phase-organized mosaic of dozens of distinct liquid bodies, each enriching specific molecules without membranes to maintain identity.
+Cells can enrich molecules through LLPS, binding to nucleic-acid scaffolds and other mechanisms. A punctum, molecular exchange or lack of a membrane is not sufficient to distinguish them: repeated DNA binding explained tested Pol II enrichment in HSV1 replication compartments without establishing a universal negative claim about LLPS \citep{mcswiggen2019compartments}.
 
 > **Clinical Connection: Amyloid Diseases and Protein Misfolding**
 >
@@ -683,29 +682,29 @@ This discovery transformed cell biology: the nucleus is not a uniform compartmen
 
 ### Post-Translational Modifications (PTMs)
 
-A typical eukaryotic protein is modified by a "code" of covalent chemistry layered on top of the genetic sequence. Over 400 distinct PTMs are now catalogued; the major ones are summarized below.
+Protein modifications diversify the chemistry and interactions of polypeptides. Selected classes are summarized below; substrate identity and reaction chemistry distinguish a protein PTM from a modification of DNA.
 
 : Post-Translational Modifications (PTMs): PTM and Adding enzyme. {#tbl:unit_I_macromolecules_post_translational_modifications_ptms}
 | PTM | Adding enzyme | Removing enzyme | Target residue(s) | Functional role |
-| --- | ------------- | --------------- | ----------------- | --------------- |
-| Phosphorylation | Kinases (518 in human) | Phosphatases | Ser, Thr, Tyr (rare on His) | Reversible "switch"; signaling, enzyme activity |
+| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
+| Phosphorylation | Protein kinases | Protein phosphatases | Ser, Thr, Tyr and other residue-specific chemistries | Context-dependent changes in interactions and activity |
 | Acetylation | Acetyltransferases (HATs, GCN5) | Deacetylases (HDACs, sirtuins) | Lys $\varepsilon$-NH$_2$, N-terminus | Chromatin opening (histones); metabolic regulation |
-| Methylation | Methyltransferases (SET domain, PRMT) | Demethylases (KDMs, LSD1) | Lys, Arg, His; DNA at C5 of cytosine | Gene silencing/activation; epigenetic memory |
+| Protein methylation | SET-domain enzymes, PRMTs and other substrate-specific methyltransferases | Mark-specific; lysine KDM examples include LSD1, not a common eraser for every listed residue | Lys, Arg, His; actin His73 is a documented SETD3 substrate \citep{dai2019setd3} | Protein interactions/activity; histone and chromatin regulation |
 | Ubiquitination | E1->E2->E3 cascade | DUBs (deubiquitinases) | Lys $\varepsilon$-NH$_2$ | Protein turnover (proteasome); signaling (K63 chains) |
 | SUMOylation | SUMO E1, E2, E3 | SENPs | Lys (often in ΨKX(D/E) motif) | Nuclear transport; transcription; DNA repair |
 | Glycosylation | Glycosyltransferases | Glycosidases | Asn (N-linked); Ser/Thr (O-linked); Trp (C-mannose) | Protein folding, half-life, recognition |
 | O-GlcNAc | OGT | OGA | Ser, Thr (cytosolic/nuclear) | Reciprocal cross-talk with phosphorylation; nutrient sensing |
 | Hydroxylation | Prolyl/lysyl hydroxylases | --- (irreversible) | Pro, Lys (collagen, HIF-1α) | Collagen stability; oxygen sensing |
-| Lipidation | NMTs, palmitoyltransferases | Acyl-protein thioesterases | N-terminal Gly (myristate); Cys (palmitate, prenyl) | Membrane targeting |
+| Selected lipidations | NMTs: N-myristoylation; DHHC acyltransferases: S-palmitoylation; prenyltransferases: prenylation | Acyl-protein thioesterases reverse selected S-palmitoyl linkages, not a common reversal chemistry for all three | N-terminal Gly: myristoyl; Cys: S-palmitoyl or prenyl, with different linkages | Membrane targeting and regulation of interactions |
 | ADP-ribosylation | PARPs | PARGs, ARH3 | Glu, Asp, Arg | DNA damage signaling |
 | Disulfide | PDI in ER | Reductants | Cys pairs | Structural; secreted protein stability |
 | Proteolytic cleavage | Proteases | (irreversible) | Specific peptide bonds | Activation (zymogens); destruction; signal release |
 
-**Phosphorylation** is the most-studied PTM: ~30% of human proteins are phosphorylated on at least one residue at some point in their life cycle, controlled by 518 kinases and ~150 phosphatases. A single phosphate group adds two negative charges and ~30 kJ/mol of binding energy with phospho-recognition domains (SH2, 14-3-3, FHA), enabling switch-like regulation of activity, localization, or partnerships. **Histone PTMs** (acetylation of Lys, methylation of Lys/Arg, phosphorylation of Ser/Thr) write the "histone code" that organizes chromatin into transcriptionally active and silent states (see \nameref{sec:unit_IV_unit_intro}).
+**Phosphorylation** adds an ionizable group whose charge depends on pH and local environment; it does not supply a fixed binding-energy increment. Phosphorylated c-Src preparations show environment-dependent phosphate ionization \citep{lang2023phosphate}. Reader recognition also depends on the amino acid, surrounding sequence and structure: SH2 domains generally recognize phosphotyrosine motifs, 14-3-3 proteins commonly recognize phosphoserine/phosphothreonine motifs, and FHA domains preferentially recognize phosphothreonine motifs \citep{waksman1992sh2,yaffe1997reader,durocher2000fha}. **Histone PTMs** contribute to context-dependent chromatin regulation, rather than a deterministic active/silent code (see \nameref{sec:unit_IV_unit_intro}). DNA cytosine-C5 methylation is a nucleic-acid modification, not a protein PTM. Lipidation likewise groups different reactions: purified-enzyme studies distinguish N-myristoylation, prenylation, DHHC-mediated S-palmitoylation and removal of selected thioacyl groups \citep{towler1987nmt,reiss1990prenyl,lobo2002palmitoyl,duncan1998thioesterase}.
 
 **Ubiquitin** is itself a small (76-residue) protein that is covalently attached to other proteins, usually through an isopeptide bond between its C-terminal Gly76 and a Lys $\varepsilon$-NH$_2$ on the substrate. Polyubiquitin chains can grow on any of ubiquitin's seven Lys residues (or its own N-terminus), creating different chain topologies with different fates: K48 chains target proteins for proteasomal destruction; K63 chains regulate signaling and DNA repair; M1 (linear) chains regulate NF-κB inflammation. The 2004 Nobel Prize in Chemistry recognized Aaron Ciechanover, Avram Hershko, and Irwin Rose for discovering this regulated proteolysis system.
 
-> **Concept Check 8:** Phosphorylation of a Ser residue adds two negative charges and ~80 Da of mass --- a tiny chemical change. Yet kinase signaling cascades transmit information through millions of phosphorylation events per second across thousands of substrates. Identify two structural features of phosphate (charge, geometry, H-bond capacity) that make it an ideal "switch" molecule for biology, and contrast with why methylation (a smaller, neutral modification) is used for slower, longer-lived regulation.
+> **Concept Check 8:** Phosphorylation of a Ser residue adds approximately 80 Da and an ionizable phosphate group. Explain how two features—charge, geometry or hydrogen-bonding capacity—can alter conformation or partner recognition. Why must a reader distinguish the phosphorylated residue and sequence context, rather than phosphate alone? Contrast this with Lys methylation, and explain why modification identity alone cannot determine binding affinity or regulatory lifetime.
 
 ---
 
@@ -730,7 +729,7 @@ The **nucleoside** is base + sugar. The **nucleotide** is nucleoside + phosphate
 
 DNA (deoxyribonucleic acid) is a double-stranded helix discovered by Watson and Crick in 1953, guided by X-ray diffraction data from Franklin and Wilkins and Chargaff's rules:
 
-- **Chargaff's rules:** [A] = [T]; [G] = [C] in any double-stranded DNA
+- **Chargaff's composition relations:** For a fully paired canonical complementary DNA duplex, totals across both strands obey $n_A=n_T$ and $n_G=n_C$; these equalities need not hold within an individual strand.
 - **Complementary base pairs:** A--T (2 [**hydrogen bond**](#gl:hydrogen-bond)s) and G--C (3 hydrogen bonds)
 - **Antiparallel strands:** one runs 5'->3', its complement runs 3'->5'
 
@@ -779,28 +778,28 @@ Notice that **GC steps have the strongest stacking** (and therefore highest melt
 
 The conformational equilibrium B $\rightleftharpoons$ Z is sensitive to negative supercoiling generated behind a transcribing RNA polymerase; transient Z-DNA tracts have been observed at active promoters and are believed to participate in transcription regulation.
 
-Human [**genome**](#gl:genome): $3.2 \times 10^9$ base pairs; if laid end-to-end, 2.2 m long but compressed into 6 μm nucleus via [**nucleosome**](#gl:nucleosome) packaging (DNA wound around [**histone**](#gl:histone) octamers in 147 bp segments).
+A haploid human [**genome**](#gl:genome) of $3.2 \times 10^9$ base pairs spans about 1.09 m at 0.34 nm/bp; diploid DNA spans about 2.18 m. Nuclear DNA is compacted via [**nucleosome**](#gl:nucleosome) packaging (DNA wound around [**histone**](#gl:histone) octamers in 147 bp segments).
 
 
 ### Worked Example: DNA Melting Temperature from %GC
 
 **Problem:**
 A laboratory amplifies a $100$-bp segment of a CpG island whose G+C content is $50\%$, in a buffer of $[\text{Na}^+] = 50 \text{ mM}$. Using the length-corrected empirical relation
-$$ T_m = 81.5 + 0.41\,(\%GC) - \frac{675}{N}  \label{eq:unit_I_macromolecules_item_6}$$
+$$ T_m = 81.5 + 16.6\log_{10}([\mathrm{Na}^+]/1\,\mathrm M) + 0.41\,(\%GC) - \frac{675}{N}  \label{eq:unit_I_macromolecules_item_6}$$
 
 estimate the melting temperature $T_m$. Then repeat for a GC-rich variant of the same length with $\%GC = 70$, and interpret the difference.
 
 **Solution:**
 
 1. **Substitute the $50\%$-GC duplex** ($\%GC = 50$, $N = 100$, $[\text{Na}^+] = 50 \text{ mM}$):
-   $$ T_m = 81.5 + 0.41 \times 50 - \frac{675}{100} = 81.5 + 20.5 - 6.75  \label{eq:unit_I_macromolecules_item_7}$$
+   $$ T_m = 81.5 + 16.6\log_{10}(0.050) + 0.41 \times 50 - \frac{675}{100}  \label{eq:unit_I_macromolecules_item_7}$$
 
-   $$ T_m = 95.25\ ^\circ\text{C}  \label{eq:unit_I_macromolecules_item_8}$$
+   $$ T_m = 73.65\ ^\circ\text{C}  \label{eq:unit_I_macromolecules_item_8}$$
 
 2. **Substitute the $70\%$-GC duplex** (same $N = 100$, same $[\text{Na}^+]$):
-   $$ T_m = 81.5 + 0.41 \times 70 - \frac{675}{100} = 81.5 + 28.7 - 6.75 = 103.45\ ^\circ\text{C}  \label{eq:unit_I_macromolecules_item_9}$$
+   $$ T_m = 81.5 + 16.6\log_{10}(0.050) + 0.41 \times 70 - \frac{675}{100} = 81.85\ ^\circ\text{C}  \label{eq:unit_I_macromolecules_item_9}$$
 
-   The $20$-percentage-point rise in G+C raises $T_m$ by $103.45 - 95.25 = 8.20\ ^\circ\text{C}$.
+   The $20$-percentage-point rise in G+C raises $T_m$ by $81.85 - 73.65 = 8.20\ ^\circ\text{C}$.
 
 Because every G--C pair contributes three hydrogen bonds and stronger base-stacking than an A--T pair, a more GC-rich duplex of the same length resists thermal denaturation more strongly --- which is why GC-rich promoters and CpG islands melt last, and why PCR primers are designed around predictable $T_m$ values.
 
@@ -907,7 +906,7 @@ Base composition of nucleic acids feeds directly into melting temperature and PC
 from biology.genetics import gc_content
 
 seq = "ATGCGCGCATAA"
-print(round(gc_content(seq), 3))  # 0.583
+print(round(gc_content(seq), 3))  # 0.500
 ```
 
 > **Clinical / systems note:** Antisense oligonucleotide and siRNA therapies rely on predictable hybridization thermodynamics (GC content, length, salt) to avoid off-target binding while silencing disease [**allele**](#gl:allele)s --- the same sequence statistics you summarize with $G{+}C$ fraction.
@@ -932,7 +931,7 @@ the chapter. Chemistry-of-life claims now connect classical bonding and thermody
 
 Use AI biomolecular models as hypotheses about folding, contact, or complex formation; compare confidence, conservation, solvent exposure, and assay evidence before treating them as structure \citep{abramson2024alphafold3}.
 
-Protein evidence now has a provenance stack. UniProt stabilizes protein names, accessions, isoforms, sequence features, and curated functional annotations — though UniProtKB is mid-restructuring toward reference-proteome coverage, with non-reference entries moving to UniParc, so an accession's continued presence in UniProtKB itself is worth confirming rather than assumed; the wwPDB archive and PDBe entry pages connect atomic coordinates to deposition metadata, methods, ligands, and validation reports; EMDB supplies the density-map layer for cryo-EM structures. A defensible macromolecule claim should name the UniProt accession, PDB identifier or EMDB map when available, and whether the structural support is experimental, predicted, or an experimentally constrained model \citep{uniprot2025,wwpdb2026,pdbe2026,emdb2026}.
+Protein evidence now has a provenance stack. UniProt stabilizes protein names, accessions, isoforms, sequence features, and curated functional annotations — the announced reference-proteome transition was scheduled for release 2026_02, with important-data exceptions and non-reference proteomes retained in UniParc, so record the actual release and archive; the wwPDB archive and PDBe entry pages connect atomic coordinates to deposition metadata, methods, ligands, and validation reports; EMDB supplies the density-map layer for cryo-EM structures. A defensible macromolecule claim should name the UniProt accession, PDB identifier or EMDB map when available, and whether the structural support is experimental, predicted, or an experimentally constrained model \citep{uniprot2025,wwpdb2026,pdbe2026,emdb2026}.
 
 **Source practice:** For macromolecular structure claims, prefer experimental structures when available and validate predictions with confidence metrics, conservation, mutagenesis, binding, or cryo-EM/X-ray/NMR evidence \citep{abramson2024alphafold3,velankar2026alphafolddb2025,emblebi2026alphafoldcomplexes}.
 
@@ -979,7 +978,7 @@ flowchart LR
 - **Denaturing:** Loss of higher-order protein structure
 - **Intrinsically disordered protein (IDP):** Protein lacking fixed tertiary structure
 - **Amyloid fibril:** Ordered cross-β aggregate of misfolded protein
-- **Chargaff's rules:** [A] = [T] and [G] = [C] in double-stranded DNA
+- **Chargaff's composition relations:** $n_A=n_T$ and $n_G=n_C$ for totals across both strands of an ideally complementary canonical DNA duplex
 - **Base stacking:** π-π interactions between adjacent bases in nucleic acids
 - **Ribozyme:** Catalytic RNA molecule
 - **RNA World:** Hypothesis that RNA preceded DNA and proteins in early life
@@ -1002,7 +1001,7 @@ flowchart LR
 13. Use \cref{eq:unit_I_protein_folding_dG} and the table of folding contributions to estimate the change in $\Delta G_{\text{fold}}$ when a single buried Ile (~140 \AA{}$^2$ of nonpolar surface) is mutated to Ala (~70 \AA{}$^2$). Take 0.10 kJ mol$^{-1}$ \AA{}$^{-2}$ as the cost of exposing nonpolar surface. Predict whether the mutant will be folded at body temperature.
 14. Sketch a Ramachandran plot showing the two main allowed regions (α and β) for a non-Gly, non-Pro residue. Mark where collagen's polyproline-II helix appears and explain why α-helix is forbidden after a proline.
 15. Two sequences of equal length differ in GC content: 30% vs. 70%. Using the nearest-neighbor stacking table above, predict which has the higher melting temperature and estimate the difference in $\Delta G$ (37 $^\circ$C) per 10 base-pair stretch.
-16. Liquid--liquid phase separation forms the nucleolus, P-bodies, and stress granules. Explain why **multivalent** weak interactions are essential and why a protein with a single high-affinity binding site for its partner does not phase separate.
+16. In a specified multivalent scaffold model, explain how repeated binding sites can build an intermolecular network and why one exclusive pairwise interaction cannot build that network on its own. What additional evidence would distinguish LLPS from local recruitment or aggregation in a cell?
 17. List three reasons why cells use post-translational modifications (PTMs) rather than relying solely on transcription/translation to regulate protein activity. Include time scales, energetic cost, and reversibility in your answer.
 
 ## Further Reading and Source Notes: Biological Macromolecules

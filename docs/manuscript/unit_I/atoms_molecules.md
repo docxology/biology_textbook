@@ -56,11 +56,8 @@ By the end of this chapter, you should be able to:
 > with their vastly elevated glucose consumption (the **Warburg effect**, first described by Otto
 > Warburg in 1924 \citep{warburg1924carcinomzelle}), accumulate it at concentrations 2–10× higher than surrounding normal tissue.
 >
-> Today, PET (positron emission tomography) scanning---mostly with $^{18}$F-FDG---is performed roughly
-> two million times per year in the United States alone \citep{indrakanti2022multiplefdgpet,imv2024pet},
-> guiding cancer diagnosis, staging, and treatment response assessment. None of it would be possible without understanding the atomic and subatomic
-> physics of radioactive decay, the electronegativity that distinguishes O–H from C–H bonds, and
-> the biochemistry of glucose transport — precisely the subjects of this chapter.
+> PET with fluorine-18 FDG supports cancer staging and treatment-response assessment. A single-center study is not a census of national annual scan volume; no national count is inferred here \citep{indrakanti2022multiplefdgpet}. FDG uptake is not cancer-specific, so inflammation and tissue-specific metabolism also affect interpretation.
+> Interpreting the tracer therefore requires radioactive-decay physics, chemical identity and the biochemistry of glucose transport — the connected subjects of this chapter.
 >
 > *Primary sources: Warburg's tumor-metabolism report \citep{warburg1924carcinomzelle}, the first labeled FDG chemistry \citep{ido1978fdg}, and human PET validation with FDG \citep{phelps1979fdg}.*
 
@@ -183,10 +180,10 @@ The Pauling **electronegativity** (χ) of an element predicts how strongly it pu
 Three observations follow:
 
 1. **C--H bonds are nearly nonpolar** ($\Delta\chi$ = 0.35), which is why the saturated tails of phospholipids and the methyl groups of valine/leucine/isoleucine drive the [**hydrophobic effect**](#gl:hydrophobic-effect).
-2. **O--H and N--H bonds are strongly polar** ($\Delta\chi$ = 1.24 and 0.84), creating the partial charges that allow water, alcohols, and amides to form [**hydrogen bond**](#gl:hydrogen-bond)s and to dissolve in aqueous environments.
+2. **O--H and N--H bonds are strongly polar** ($\Delta\chi$ = 1.24 and 0.84), permitting conventional [**hydrogen bond**](#gl:hydrogen-bond) donation in suitable molecular environments. Acceptance requires an available electron-rich site: amide carbonyl O can accept, but amide N is not an ordinary acceptor. Polar groups favor hydration without making every alcohol or amide water-soluble; the rest of the molecule and conditions matter \citep{arunan2011hydrogenbond}.
 3. **C=O is more polar than C--O** because in the carbonyl the π electrons pile up on oxygen; this polarity makes the carbonyl carbon electrophilic --- the site attacked by serine in trypsin, by water in [**hydrolysis**](#gl:hydrolysis), and by amine nucleophiles in transamination.
 
-The peptide bond's polarity (carbonyl O is $\delta^-$, amide H is $\delta^+$) is what enables the regular hydrogen bond pattern of α-helices and β-sheets. Without the electronegativity difference between O and C, there would be no protein secondary structure.
+Peptide carbonyl O and N--H can form the backbone hydrogen-bond patterns that help stabilize usual α-helices and β-sheets. This donor/acceptor distinction does not make amide N an acceptor or reduce every form of protein secondary structure to a single interaction.
 
 ---
 
@@ -240,7 +237,7 @@ A **covalent bond** forms when two atoms share one or more pairs of electrons. T
 - **Polar covalent:** $0.5 \le \Delta\chi < 1.7$ (e.g., O--H, N--H, C--O). Partial charges (δ+ and δ−) arise. Critical for hydrogen bonding.
 - **Ionic:** $\Delta\chi \ge 1.7$ (e.g., Na$^+$Cl$^-$). One atom effectively captures the electron(s). In solution, ionic compounds dissociate.
 
-**Worked example:** Water (H$_2$O). Oxygen's electronegativity (3.44) vs. hydrogen's (2.20) gives $\Delta\chi$ = 1.24 --- a polar covalent bond. The two O--H bonds create a partial negative charge on oxygen (δ− = −0.834 in formal charge terms) and partial positive charges on each hydrogen (δ+ = +0.417 each). This polarity drives water's exceptional biological properties (see \cref{sec:unit_I_water_and_life}).
+**Worked example:** Water has polar O–H bonds because oxygen is more electronegative than hydrogen. The familiar -0.834e oxygen and +0.417e hydrogen values are partial charges in a particular water force-field model, not formal charges; all three atoms have zero formal charge in the usual Lewis structure.
 
 ### Ionic Interactions in Biological Solutes
 
@@ -288,7 +285,7 @@ Optimal: D--H$\cdots$A angle about 180 degrees; H$\cdots$A distance about 1.8--2
 | ---- | ----- | -------- | ------- |
 | N--H$\cdots$O | Peptide N--H | Peptide C=O | α-helix backbone |
 | O--H$\cdots$O | Water O--H | Carbonyl C=O | Hydration shells |
-| N--H$\cdots$N | Adenine N--H | Thymine N | A--T base pair |
+| N--H$\cdots$O | Adenine exocyclic N--H | Thymine carbonyl O | One A--T hydrogen bond |
 | O--H$\cdots$N | Serine O--H | Histidine N | Enzyme active sites |
 
 ### Van der Waals Forces and Lipid Packing
@@ -319,14 +316,14 @@ graph TD
     FG --> CO["Carbonyl C=O"]
     FG --> COOH["Carboxyl –COOH"]
     FG --> NH2["Amino –NH₂"]
-    FG --> PO4["Phosphate –OPO₃²⁻"]
+    FG --> PO4["Phosphate group<br/>charge varies with esterification"]
     FG --> SH["Sulfhydryl –SH"]
 
     OH --> OH1["H-bond donor/acceptor<br/>Sugars, Serine, Threonine<br/>Polar, hydrophilic"]
     CO --> CO1["H-bond acceptor<br/>Aldehydes, Ketones<br/>Peptide bond carbonyl"]
     COOH --> COOH1["Ionisable pKa ~4–5<br/>Asp, Glu, Fatty acids<br/>Negative at pH 7"]
     NH2 --> NH21["Weak base pKa ~9–10<br/>Lys, N-terminus<br/>Positive at pH 7"]
-    PO4 --> PO41["Highly charged at pH 7<br/>DNA/RNA, ATP, signaling<br/>Two negative charges"]
+    PO4 --> PO41["Charge depends on pH and esterification<br/>Phosphomonoesters often −2<br/>DNA/RNA phosphodiesters −1<br/>per linkage at physiological pH"]
     SH --> SH1["Oxidisable → disulfide<br/>Cysteine, CoA<br/>Redox-sensitive"]
 
     style FG fill:#34495e,color:#fff
@@ -348,10 +345,10 @@ graph TD
 | Carbonyl | C=O | Polar, H-bond acceptor | Ketones, aldehydes, amide bonds |
 | Carboxyl | --COOH | Polar, ionisable (pKa~4--5) | Amino acids, fatty acids |
 | Amino | --NH$_2$ | Polar, weak base, H-bond donor | Amino acids, [**nucleotide**](#gl:nucleotide)s, ATP |
-| Phosphate | --OPO$_3^{2-}$ | Highly polar, charged at pH 7 | DNA/RNA backbone, ATP, signaling |
+| Phosphate | Monoester or diester phosphate | Charge depends on esterification and pH | DNA/RNA backbone, ATP, signaling |
 | Sulfhydryl | --SH | Polar, oxidisable | Cysteine disulfide bridges |
 
-The **phosphate group** deserves special attention in biochemistry. At physiological pH, phosphate groups carry two negative charges. In ATP (adenosine triphosphate), the three sequential phosphate groups are electrostatically repulsed, storing energy that is released upon hydrolysis (~30.5 kJ/mol under standard conditions; ~50 kJ/mol under cellular conditions; see \cref{sec:unit_III_bioenergetics_and_respiration}).
+The **phosphate group** deserves special attention in biochemistry. Charge depends on esterification and pH: phosphomonoesters often carry approximately two negative charges, whereas DNA/RNA phosphodiesters carry one per linkage at physiological pH. ATP hydrolysis has a negative standard transformed free-energy change (approximately $-30.5$ kJ/mol); cellular values depend on concentrations and other conditions. The favorable net reaction reflects stabilization of products relative to reactants, not energy released simply by breaking a repulsive bond (see \cref{sec:unit_III_bioenergetics_and_respiration}).
 
 **Additional functional groups encountered in biochemistry:**
 
@@ -497,7 +494,7 @@ The major electron carriers in metabolism are:
 
 > **Concept Check (Analysis):** Selenium (Se) is an essential trace element with electronegativity 2.55 (the same as carbon), but it replaces the sulfur in cysteine to form selenocysteine --- the 21st amino acid, encoded by UGA (normally a stop codon). (a) Given the near-identical electronegativities of Se and S, explain what chemical property makes Se(II) a superior nucleophile for glutathione peroxidase's catalytic mechanism. (b) Why would replacing selenocysteine with cysteine reduce catalytic efficiency by $\sim 100$-fold? (c) Selenium forms diselenide bonds (Se--Se) analogous to disulfide bonds but with a reduction potential of approximately $-0.39$ V vs $-0.23$ V for S--S. What does this tell you about selenoprotein redox function?
 
-> **Worked Example --- Radioactive Decay Kinetics in Medicine:** Technetium-99m ($^{99\mathrm{m}}$Tc, $t_{1/2} = 6.0$ h) is used in bone scans. A patient receives 740 MBq (20 mCi) at 8:00 AM for a scan at 11:00 AM (3 h later); biological clearance follows first-order kinetics with biological half-life $t_{\text{biol}} = 24$ h. The effective half-life is $1/t_{\text{eff}} = 1/t_{\text{phys}} + 1/t_{\text{biol}} = 1/6 + 1/24 = 5/24 \Rightarrow t_{\text{eff}} = 4.8$ h. Activity at scan time: $A = 740 \times (1/2)^{3/4.8} = 740 \times (1/2)^{0.625} = 740 \times 0.648 \approx 480$ MBq. Cumulated activity (integrating over $\sim 10$ effective half-lives): $\tilde{A} = A_0 \times t_{\text{eff}}/\ln 2 = 480 \times 4.8/0.693 \approx 3320$ MBq$\cdot$h. With a bone $S$-value of 0.0067 mGy/(MBq$\cdot$h), the absorbed dose is $3320 \times 0.0067 \approx 22$ mGy --- within accepted diagnostic limits (<50 mGy) while delivering adequate image quality. This illustrates how dose planning combines physical and biological half-lives.
+> **Worked Example — Radioactive decay:** For a synthetic one-compartment dose calculation, administer 740 MBq at $t=0$, with physical half-life 6 h and biological half-life 24 h. Effective half-life is 4.8 h; after 3 h activity is about 480 MBq. Integrating from administration to infinity gives $740(4.8)/\ln 2 = 5124.45$ MBq h. With the supplied illustrative source-to-target S value 0.0067 mGy/(MBq h), this gives 34.33 mGy. Integrating only from $t=3$ h to infinity gives 3322.80 MBq h and 22.26 mGy. These integration boundaries must not be mixed. Actual organ dosimetry needs organ-specific uptake, clearance and geometry; the arithmetic does not establish a universal safe diagnostic-dose limit.
 
 ---
 
@@ -546,24 +543,24 @@ Water autoionises:
 \end{equation}
 
 
-with the equilibrium constant at 25 degrees C: $K_w = [\text{H}^+][\text{OH}^-] = 10^{-14} \, \text{M}^2$.
+In the ideal dilute-solution concentration approximation at 25 degrees C, $K_{w,c}\approx[\mathrm{H}^+][\mathrm{OH}^-]=10^{-14}\,\mathrm{M}^2$. Thermodynamic equilibrium constants instead use dimensionless activities.
 
-The **pH** is defined as:
+The **pH** is defined using dimensionless hydrogen-ion activity $a_{\mathrm{H}^+}$ \citep{buck2002phdefinition}:
 
 \begin{equation}
-\text{pH} = -\log_{10}[\text{H}^+]
+\text{pH} = -\log_{10}a_{\mathrm{H}^+}
 \label{eq:unit_I_atoms_molecules_item_7}
 \end{equation}
 
 
-At 37 degrees C (body temperature), $K_w \approx 2.4 \times 10^{-14}$, so neutral pH is about 6.81. The slight shift is physiologically meaningful.
+The familiar approximation is $a_{\mathrm{H}^+}\approx[\mathrm{H}^+]/c^\circ$, with $c^\circ=1\,\mathrm{mol\,L^{-1}}$ and activity coefficient near one. A pH change determines the same concentration ratio only if that coefficient is unchanged or its change is accounted for. Using the chapter's supplied 37 degrees C concentration-model value $K_{w,c}\approx2.4\times10^{-14}\,\mathrm{M}^2$ gives neutral pH about 6.81, not a universal cellular setpoint.
 
 **Key physiological pH values:**
 
 : The pH Scale: Compartment and pH. {#tbl:unit_I_atoms_molecules_the_ph_scale}
 | Compartment | pH | Significance |
 | ----------- | -- | ------------ |
-| Blood plasma | 7.35--7.45 | Tight regulation; acidosis/alkalosis outside this range |
+| Blood plasma | 7.35--7.45 | Illustrative arterial reference range; pH alone does not identify the cause of a disturbance |
 | Lysosomes | 4.5--5.0 | Acid hydrolases active |
 | Gastric juice | 1.5--3.5 | Pepsin active; kills pathogens |
 | [**Cytoplasm**](#gl:cytoplasm) (liver) | 7.2 | Most enzyme optima |
@@ -576,28 +573,28 @@ At 37 degrees C (body temperature), $K_w \approx 2.4 \times 10^{-14}$, so neutra
 
 ### Henderson-Hasselbalch Equation
 
-For a weak acid HA with dissociation constant $K_a$:
+For $\mathrm{HA}\rightleftharpoons\mathrm{H}^++\mathrm{A}^-$, the activity form is $\mathrm{pH}=\mathrm{p}K_a+\log_{10}(a_{\mathrm{A}^-}/a_{\mathrm{HA}})$. The concentration-ratio form below is an ideal dilute approximation, or uses an apparent pKa appropriate to the specified medium and conditions:
 
 \begin{equation}
-\text{pH} = \text{pK}_a + \log\frac{[\text{A}^-]}{[\text{HA}]}
+\text{pH} = \text{pK}_a + \log_{10}\frac{[\text{A}^-]}{[\text{HA}]}
 \label{eq:unit_I_henderson_hasselbalch}
 \end{equation}
 
-A buffer resists pH change when [A$^-$]/[HA] is near 1 (i.e., pH is about pK$_a$). The effective buffer range is typically pK$_a \pm$ 1. Outside this range, one component is depleted and buffer capacity drops sharply.
+At fixed total concentration, a simple conjugate pair has greatest buffer-pair capacity near pH=pKa. The conventional pKa $\pm1$ working range describes changing proportions of the two forms, not a sharp boundary at which buffering vanishes. Available concentration and the conditions of the system also matter.
 
 ### Buffer Capacity in Physiological Fluids
 
-The **buffer capacity** β measures how much strong acid or base a buffer can absorb before pH shifts appreciably. Formally, β is the moles of strong base added per liter per unit pH increase:
+The **buffer capacity** $\beta$ is the differential strong-base concentration added per unit pH increase. The equation below describes an ideal closed monoprotic buffer at fixed temperature and dissociation conditions, including water's contribution; it is not a complete model of an open physiological compartment:
 
 \begin{equation}
 \beta = \frac{dC_b}{d\text{pH}} = 2.303\left([\text{H}^+] + [\text{OH}^-] + \frac{C_T \, K_a [\text{H}^+]}{(K_a + [\text{H}^+])^2}\right)
 \label{eq:unit_I_buffer_capacity}
 \end{equation}
 
-where $C_T = [\text{HA}] + [\text{A}^-]$ is the total buffer concentration. The third term peaks when $\mathrm{H}^+ = K_a$ (i.e., pH = pKa), where it reaches its maximum value of $\beta_{\max} = 2.303 \cdot C_T / 4 \approx 0.576\, C_T$. Two practical consequences follow:
+Here $C_T=[\mathrm{HA}]+[\mathrm{A}^-]$. The buffer-pair term, excluding the water terms, peaks at pH=pKa, giving $\beta_{\mathrm{pair,max}}\approx2.303C_T/4$. This distinction prevents the pair's maximum from being mistaken for a complete physiological buffer budget \citep{walter1999muscleatp,swietach2010rbcph}.
 
-1. **Buffer capacity scales linearly with total buffer concentration.** A 0.1 M phosphate buffer has 10$\times$ the capacity of a 0.01 M phosphate buffer.
-2. **Capacity is maximal at pH = pKa and falls off rapidly outside pKa $\pm$ 1.** This is why the bicarbonate buffer (pKa = 6.1) is theoretically a poor blood buffer at pH 7.4 --- it is rescued primarily because the system is *open* (CO$_2$ is exhaled).
+1. **The buffer-pair contribution scales with concentration at the same pH and dissociation conditions.** A 0.1 M pair contributes ten times as much as a 0.01 M pair under those matched conditions.
+2. **Proximity to pKa alone cannot rank physiological buffers.** A CO$_2$/bicarbonate system that exchanges CO$_2$ has a different capacity constraint from a closed fixed-total pair; exchange, bicarbonate availability, transport and observation time must be specified.
 
 **Worked buffer problem.** A biochemist needs to prepare 1.0 L of 0.1 M Tris buffer (pKa = 8.1) at pH 7.6 for an enzyme assay, starting from solid Tris base ($\text{A}^-$, MW 121) and 1 M HCl. How much of each is required?
 
@@ -610,22 +607,20 @@ Dissolve 0.10 mol $\times$ 121 g/mol = **12.1 g of Tris base** in ~800 mL water,
 
 ```mermaid
 flowchart LR
-    CO2["CO₂<br/>(from metabolism<br/>or respiration)"] -->|"carbonic<br/>anhydrase"| H2CO3["H₂CO₃<br/>(carbonic acid)"]
-    H2CO3 -->|"pKa₁ = 6.1<br/>rapid"| HCO3["H⁺ + HCO₃⁻<br/>(bicarbonate)"]
-    HCO3 -->|"pKa₂ = 10.3<br/>not physiological"| CO3["H⁺ + CO₃²⁻"]
+    CO2["CO₂(aq) + H₂O"] <-->|"Lumped reversible equilibrium<br/>apparent pKa ≈ 6.1<br/>physiological conditions"| HCO3["H⁺ + HCO₃⁻"]
 
     LUNGS["Lungs<br/>(exhale CO₂)"] -.->|"shifts left<br/>raises pH"| CO2
     KIDNEYS["Kidneys<br/>(excrete H⁺<br/>reabsorb HCO₃⁻)"] -.->|"shifts right<br/>adjusts pH"| HCO3
 
     style CO2 fill:#3498db,color:#fff
-    style H2CO3 fill:#e67e22,color:#fff
+    linkStyle 0 stroke-width:2px
     style HCO3 fill:#2ecc71,color:#fff
     style LUNGS fill:#95a5a6,color:#fff
     style KIDNEYS fill:#95a5a6,color:#fff
 ```
-<!-- alt: Flowchart showing bicarbonate buffer system. The bicarbonate buffer system. CO_2 produced by metabolism combines with water (catalysed by carbonic anhydrase) to form carbonic acid, which dissociates to bicarbonate and H^+. The lungs and kidneys regulate the two ends of the equilibrium. -->
+<!-- alt: Flowchart showing bicarbonate buffer is shown as a lumped reversible equilibrium, not the isolated acid dissociation of pure H_2CO_3. Its physiological apparent pKa is approximately 6.1. -->
 
-*Bicarbonate buffer system. The bicarbonate buffer system. CO$_2$ produced by metabolism combines with water (catalysed by carbonic anhydrase) to form carbonic acid, which dissociates to bicarbonate and H$^+$. The lungs and kidneys regulate the two ends of the equilibrium.*
+*The bicarbonate buffer is shown as a lumped reversible equilibrium, not the isolated acid dissociation of pure H$_2$CO$_3$. Its physiological apparent pKa is approximately 6.1.*
 
 The **bicarbonate buffer system** in blood operates at pH 7.4 with:
 
@@ -635,27 +630,27 @@ The **bicarbonate buffer system** in blood operates at pH 7.4 with:
 \end{equation}
 
 
-where pKa$_1$ = 6.1. Despite the pH/pKa offset of ~1.3 units, the bicarbonate system is effective because CO$_2$ can be rapidly exhaled to shift the equilibrium (an **open system**). The normal ratio of [HCO$_3^-$]/[CO$_2$] is approximately 20:1.
+Here approximately 6.1 is an **apparent pKa of the lumped dissolved-CO$_2$/bicarbonate system**, not the dissociation pKa of intact H$_2$CO$_3$ \citep{pines2016carbonicacid}. Under the specified physiological approximation, pH 7.4 corresponds to a bicarbonate/dissolved-CO$_2$ ratio near 20. Exchange with blood and lungs can affect buffering, but does not imply that rapidly contracting muscle is held at fixed intracellular CO$_2$.
 
-The **phosphate buffer** (H$_2$PO$_4^-$ / HPO$_4^{2-}$; pKa = 6.8) buffers intracellular pH and is crucial in renal pH regulation.
+The **inorganic phosphate pair** H$_2$PO$_4^-$/HPO$_4^{2-}$ contributes to intracellular and urinary buffering. Apparent pKa near 6.8 is useful for this chapter's illustrative calculations; the contribution depends on conditions and the inorganic phosphate pool, which varies with compartment and metabolic state \citep{walter1999muscleatp,vinnakota2006muscleph}.
 
-**Protein buffers** --- particularly histidine residues (imidazole pKa = 6.0) --- provide significant intracellular buffering. Hemoglobin alone accounts for ~60% of the buffering capacity of blood because it contains 38 histidine residues per tetramer.
+**Protein buffers** include protonatable histidine groups whose pKa values depend on their molecular environments. Hemoglobin is an important intrinsic buffer within red blood cells. Residue count alone does not determine effective titratable-site concentration or a universal percentage of whole-blood buffering \citep{swietach2010rbcph}.
 
 ### Comparison of Biological pH Buffering Systems
 
 : Comparison of Biological pH Buffering Systems: System and Conjugate pair. {#tbl:unit_I_atoms_molecules_comparison_of_biological_ph_buffering_systems}
-| System | Conjugate pair | pKa (37 $^\circ$C) | Concentration | Compartment | Special features |
+| System | Conjugate pair | Representative/apparent pKa | Concentration or site abundance | Compartment | Special features |
 | ------ | -------------- | ------------------ | ------------- | ----------- | ---------------- |
-| Bicarbonate | H$_2$CO$_3$ / HCO$_3^-$ | 6.10 (apparent) | ~24 mM | Plasma, ECF | Open system: CO$_2$ exhaled by lungs |
-| Phosphate | H$_2$PO$_4^-$ / HPO$_4^{2-}$ | 6.86 | 1--2 mM (plasma); 100 mM (cells) | ICF, urine | Major intracellular buffer |
-| Imidazole (His) | His-H$^+$ / His | 6.00 | 38 sites/Hb tetramer | RBC | Biggest blood buffer; Bohr effect |
+| Bicarbonate | CO$_2$(aq) + H$_2$O / HCO$_3^-$ | About 6.1 in the specified physiological approximation | About 24 mM bicarbonate in the chapter's plasma illustration | Extracellular fluid; also present within cells | Depends on CO$_2$ exchange and bicarbonate availability |
+| Inorganic phosphate | H$_2$PO$_4^-$ / HPO$_4^{2-}$ | About 6.8 in the illustrative model | Varies with cell type, compartment and metabolic state | Intracellular fluid and urine | Contribution depends on inorganic phosphate concentration and pH |
+| Histidine imidazole | HisH$^+$ / His | Site-dependent; 6.0 is a simple illustrative value | Protein concentration and effective titratable sites | Cytoplasm, including hemoglobin in red cells | Site titration, not residue count alone, determines contribution |
 | Ammonia | NH$_4^+$ / NH$_3$ | 9.25 | Variable | Renal tubule | H$^+$ excretion in acidosis |
-| Carbonyl/amide | --COOH / --COO$^-$ | 4--5 | Many sites | Proteins | Side-chain buffering |
+| Carboxyl groups | --COOH / --COO$^-$ | Environment-dependent; commonly illustrated around 4--5 | Depends on available sites | Proteins and other molecules | Side-chain protonation is conditional on pH |
 | Sulfonate | --SO$_3$H / --SO$_3^-$ | < 1 | Glycosaminoglycans | ECM | Typically ionized at cellular pH |
 
-The blood buffering hierarchy: **bicarbonate (~75% of capacity) > hemoglobin (~24%) > plasma proteins/phosphate (~1%)**. Despite its inferior pKa, bicarbonate dominates because (i) it is at high concentration and (ii) it is the main *open* system, with CO$_2$ disposal by lungs (minutes timescale) and HCO$_3^-$ disposal/regeneration by kidneys (hours-to-days timescale). This three-compartment design --- a chemistry buffer coupled to two organ-system control loops --- is the body's solution to the problem that any closed buffer will eventually be titrated to exhaustion.
+Blood and tissue buffers cannot be assigned universal percentage shares without defining compartment, pH, composition and CO$_2$-exchange conditions. Bicarbonate chemistry is coupled to ventilation and renal acid--base handling; hemoglobin and other protonatable groups also contribute. Immediate proton binding and subsequent regulation are distinct: exchange replenishes or removes components but does not make capacity infinite \citep{swietach2010rbcph,bangsbo1997protonexchange}.
 
-> **Concept Check 6:** A patient is hyperventilating after a panic attack. Their pCO$_2$ falls from 40 mmHg to 25 mmHg while [HCO$_3^-$] is briefly unchanged at 24 mM. Use \cref{eq:unit_I_henderson_hasselbalch} to predict the resulting blood pH. Will this be respiratory acidosis or alkalosis? Why does breathing into a paper bag help?
+> **Concept Check 6:** With bicarbonate briefly fixed at 24 mM, use pH=6.1+log10([HCO3-]/(0.03 pCO2)) to compare pCO2 40 and 25 mmHg. The predicted values are about 7.40 and 7.61: respiratory alkalosis. Hyperventilation requires assessment of its cause and oxygenation; paper-bag rebreathing is not recommended because it can cause hypoxemia \citep{bts2017oxygen}.
 
 > **Concept Check 7:** You are designing a buffer for an enzyme that has its optimum at pH 6.5. Two candidates are available: 100 mM MES (pKa 6.15) and 100 mM HEPES (pKa 7.55). Using \cref{eq:unit_I_buffer_capacity}, decide which provides greater buffer capacity at pH 6.5 and explain your reasoning.
 
@@ -692,7 +687,7 @@ The **isoelectric point** (pI) is the pH at which the amino acid carries zero ne
 \end{equation}
 
 
-**Problem 2:** What fraction of histidine's imidazole group (pKa = 6.0) is protonated at pH 7.0?
+**Problem 2:** Assume a histidine imidazole site has pKa=6.0 under the stated conditions. What fraction is protonated at pH 7.0? Do not transfer this stipulated pKa to every protein site.
 
 *Solution:*
 \begin{equation}
@@ -717,7 +712,7 @@ The **isoelectric point** (pI) is the pH at which the amino acid carries zero ne
 
 This large negative $\Delta G^{\circ'}$ drives [**oxidative phosphorylation**](#gl:oxidative-phosphorylation), ultimately producing ~2.5 ATP per NADH (see \cref{sec:unit_III_bioenergetics_and_respiration}).
 
-**Problem 4:** A patient's arterial blood shows [HCO$_3^-$] = 12 mM and pCO$_2$ = 40 mmHg. Using the Henderson-Hasselbalch equation with [CO$_2$] = 0.03 $\times$ pCO$_2$ mM and pKa = 6.1, calculate the blood pH. Is this acidosis or alkalosis?
+**Problem 4:** A stipulated blood-buffer calculation uses [HCO$_3^-$]=12 mM, pCO$_2$=40 mmHg, [CO$_2$(aq)]=0.03 pCO$_2$ mM and apparent pKa=6.1. Calculate pH and compare it with the stated arterial reference range. Do not infer a complete physiological diagnosis from this calculation.
 
 *Solution:*
 \begin{equation}
@@ -731,13 +726,13 @@ This large negative $\Delta G^{\circ'}$ drives [**oxidative phosphorylation**](#
 \end{equation}
 
 
-The pH of 7.1 is below the normal range of 7.35--7.45, indicating **metabolic acidosis** (low bicarbonate with normal pCO$_2$). Normal [HCO$_3^-$] is 24 mM; this patient's value is halved.
+The stipulated model gives pH 7.1, below the stated arterial reference range 7.35--7.45. This checks an acid--base relationship, not the cause, compensation or full clinical condition.
 
-**Problem 5:** The Ka of lactic acid is $1.38 \times 10^{-4}$. Calculate the pKa. If a muscle cell produces lactic acid during intense exercise, what percentage is ionized at intracellular pH 6.8?
+**Problem 5:** For an illustrative lactic-acid/lactate equilibrium, use concentration-form $K_{a,c}=1.38\times10^{-4}\,\mathrm{mol\,L^{-1}}$. Calculate pKa. Under the same ideal concentration approximation, what fraction of the total acid-plus-lactate pool is lactate at pH 6.8?
 
 *Solution:*
 \begin{equation}
-\text{pK}_a = -\log(1.38 \times 10^{-4}) = 3.86
+\text{pK}_a = -\log_{10}(K_{a,c}/c^\circ) = -\log_{10}(1.38\times10^{-4}) \approx 3.86
 \label{eq:unit_I_atoms_molecules_item_16}
 \end{equation}
 
@@ -747,12 +742,12 @@ The pH of 7.1 is below the normal range of 7.35--7.45, indicating **metabolic ac
 \end{equation}
 
 \begin{equation}
-\text{Fraction ionised} = \frac{871}{1 + 871} = 0.9989 = 99.9\%
+\text{Fraction ionized} = \frac{871}{1 + 871} \approx 0.9989 = 99.9\%
 \label{eq:unit_I_atoms_molecules_item_18}
 \end{equation}
 
 
-At physiological pH, the Henderson-Hasselbalch relationship predicts that the ionized form (lactate$^-$) strongly dominates over protonated lactic acid. This is why we typically refer to "lactate" rather than "lactic acid" in biological contexts.
+This is equilibrium speciation, not net proton generation. Lactate dominates the stipulated pool, but its accumulation does not establish acid production by lactic-acid dissociation. The usual LDH reference reaction consumes H$^+$ when pyruvate is reduced to lactate; the net pH effect depends on coupled reactions, buffering and transport \citep{vinnakota2006muscleph,bangsbo1997protonexchange}.
 
 ---
 
@@ -775,11 +770,11 @@ At physiological pH, the Henderson-Hasselbalch relationship predicts that the io
 Cellular [**thermodynamics**](#gl:thermodynamics) uses the same $\Delta G = \Delta G^\circ + RT\ln Q$ form as introductory chemistry. The project implements the concentration correction explicitly:
 
 ```python
-from biology.biochemistry import reaction_free_energy
+from biology.biochemistry import atp_free_energy
 
-# ATP hydrolysis: ΔG°' ≈ -30.5 kJ/mol; equal 1 mM pools → Q = 1, so ΔG = ΔG°'
-dg = reaction_free_energy(-30.5, product_conc=1e-3, reactant_conc=1e-3)
-print(round(dg, 2))  # -30.5
+# Ideal dilute activities, 1 M standard state: Q=(0.001*0.001)/0.001=0.001.
+dg = atp_free_energy(atp_conc_mM=1.0, adp_conc_mM=1.0, pi_conc_mM=1.0, temperature_K=310.0)
+print(round(dg, 2))  # approximately -48.30 kJ/mol
 ```
 
 > **Clinical / systems note:** Arterial blood gas interpretation in critical care applies the same logarithmic definition of pH and buffer ratios you use with the Henderson–Hasselbalch equation; the machine-reported bicarbonate and CO$_2$ tension are coupled through an open buffer system analogous to the models in this chapter.
@@ -835,16 +830,16 @@ Treat biomolecular predictions as constrained hypotheses: compare confidence, co
 - **Reduction:** Gain of electrons
 - **Reduction potential ($E^{\circ'}$):** Tendency of a half-reaction to gain electrons
 - **Molarity:** Concentration in moles per liter
-- **pH:** Negative log of hydrogen ion concentration
+- **pH:** Negative base-10 logarithm of dimensionless hydrogen-ion activity; its concentration form is a stated approximation
 - **Buffer:** Solution that resists pH change
-- **Henderson-Hasselbalch equation:** pH = pKa + log([A$^-$]/[HA])
+- **Henderson-Hasselbalch equation:** Activity-ratio relation; concentration ratios require ideal dilute behavior or an appropriate apparent pKa
 - **pI (isoelectric point):** pH at which a molecule has zero net charge
 
 ## Review Questions
 
 1. Draw electron-dot structures for CH$_4$, NH$_3$, and H$_2$O. Predict the bond angles using VSEPR theory and explain any deviations from ideal tetrahedral geometry.
 2. Why does the boiling point of water (100 degrees C) far exceed that of H$_2$S (--60 degrees C), despite both having similar molecular masses?
-3. A patient's blood pH is measured at 7.25. Is this acidosis or alkalosis? Using the Henderson-Hasselbalch equation, calculate the [HCO$_3^-$]/[CO$_2$] ratio this implies.
+3. For a stipulated buffer pH of 7.25 and apparent pKa=6.1, calculate [HCO$_3^-$]/[CO$_2$(aq)]. State what the ratio does and does not establish about the underlying physiological processes.
 4. Explain why phosphate groups in DNA confer structural stability while also making DNA polyanionic.
 5. Carbon-11 ($^{11}$C) has a half-life of 20.4 minutes. Why is this isotope useful for PET imaging of brain metabolism but impractical for studies lasting several hours?
 6. Explain why the peptide bond is planar. Include the concept of resonance in your answer, and describe how this planarity constrains protein structure.
@@ -853,10 +848,10 @@ Treat biomolecular predictions as constrained hypotheses: compare confidence, co
 9. Calculate the pI of aspartate (pKa$_1$ = 2.09, pKa$_R$ = 3.86, pKa$_2$ = 9.82). At pH 7.4, what is the net charge on aspartate?
 10. A buffer is prepared with 0.1 M NaH$_2$PO$_4$ and 0.1 M Na$_2$HPO$_4$ (pKa = 6.8). Calculate the pH. If 10 mL of 1 M HCl is added to 1 L of this buffer, what is the new pH?
 11. Using `reaction_free_energy` with ΔG°' = -30.5 kJ/mol, compute ΔG when [ADP][Pi]/[ATP] = 0.1 vs. 2.0 (take concentrations in a consistent molar basis). Which condition better matches a working muscle fiber?
-12. Compare how a **closed** phosphate buffer in a test tube and the **open** HCO$_3^-$/CO$_2$ system in blood respond to a bolus of strong acid. Which system restores pH faster in vivo, and which organ systems do the work?
+12. Compare immediate proton binding in a closed phosphate buffer with a CO$_2$/bicarbonate system that can exchange CO$_2$ with blood and lungs. Which concentrations, transport conditions and observation times are needed to compare their pH changes or recovery rates?
 13. Using the formal-charge formula \cref{eq:unit_I_formal_charge}, draw a Lewis structure for the carboxylate ion --COO$^-$ and assign the formal charge on each atom. Explain how resonance equalises the two C--O bond lengths.
 14. Sort C--C, C=C, O--H, N--H, and C--H bonds by polarity using the Pauling electronegativity table. For each bond, predict whether the H atom (where present) can serve as a hydrogen bond donor.
-15. Use \cref{eq:unit_I_buffer_capacity} to compare the buffer capacity at pH 7.4 of (a) 25 mM bicarbonate (pKa 6.1) and (b) 25 mM phosphate (pKa 6.8). Why does the actual buffering importance of bicarbonate in blood far exceed what this calculation predicts?
+15. Using the ideal closed-buffer model in \cref{eq:unit_I_buffer_capacity}, compare the buffer-pair contributions at pH 7.4 for 25 mM total concentration with apparent pKa 6.1 versus 6.8. Why cannot this fixed-total calculation alone predict the contribution of a physiological CO$_2$-exchanging system?
 
 ---
 

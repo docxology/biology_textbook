@@ -41,11 +41,11 @@ A compact reference for units, constants, and characteristic magnitudes encounte
 | nano- | n | 10⁻⁹ | nm bond length; nM receptor ligand |
 | pico- | p | 10⁻¹² | pN molecular motor force; pM low-abundance hormone |
 | femto- | f | 10⁻¹⁵ | fmol amount in a single cell |
-| atto- | a | 10⁻¹⁸ | amol; approaches single-molecule detection |
+| atto- | a | 10⁻¹⁸ | 1 amol corresponds to approximately 6.022 × 10⁵ molecules, not one molecule |
 
 ---
 
-## D.2 Universal Physical Constants {.unnumbered}
+## D.2 Physical Constants and Reference Conditions {.unnumbered}
 
 | Constant | Symbol | Value |
 | -------- | ------ | ----- |
@@ -58,10 +58,10 @@ A compact reference for units, constants, and characteristic magnitudes encounte
 | Planck constant | $h$ | $6.626 \times 10^{-34}$ J s |
 | Permittivity of free space | $\varepsilon_0$ | $8.854 \times 10^{-12}$ F m⁻¹ |
 | Standard atmospheric pressure | $P_{\text{atm}}$ | 101,325 Pa = 760 Torr |
-| Body temperature | $T_{\text{body}}$ | 310.15 K = 37.00 °C |
-| Thermal energy at body T | $k_B T$ | $4.28 \times 10^{-21}$ J ≈ 0.027 eV = 2.57 kJ mol⁻¹ |
+| Selected human reference temperature (not a universal constant) | $T$ | 310.15 K = 37.00 °C |
+| Thermal energy at that temperature | $k_B T$ per particle; $RT$ per mole | $4.28 \times 10^{-21}$ J ≈ 0.027 eV per particle; 2.58 kJ mol⁻¹ |
 
-The rule "$k_B T \approx \tfrac{1}{40}$ eV $\approx \tfrac{2.5}{1000}$ kJ mol⁻¹ at room temperature" is useful: hydrogen bonds (~20 kJ mol⁻¹) are ~8 $k_B T$, so they survive thermal fluctuations; van der Waals contacts (~1 kJ mol⁻¹) are ~0.4 $k_B T$, so each one is barely stable but collectively numerous contacts summate.
+At room temperature, $k_B T \approx 1/40$ eV per particle corresponds to $RT \approx 2.5$ kJ mol⁻¹. An interaction energy of 20 kJ mol⁻¹ is therefore about $8k_B T$ per interacting pair, not 8,000. These energy comparisons alone do not determine a bond's lifetime: solvent, entropy, activation barriers, and the surrounding molecular environment also matter.
 
 ---
 
@@ -76,13 +76,13 @@ The rule "$k_B T \approx \tfrac{1}{40}$ eV $\approx \tfrac{2.5}{1000}$ kJ mol⁻
 | 1 eV | kJ mol⁻¹ | 96.485 |
 | 1 kJ mol⁻¹ | eV | 0.01036 |
 | 1 J | kg⋅m² s⁻² | 1 (definition) |
-| 1 $k_B T$ at 37 °C | kJ mol⁻¹ | 2.577 |
+| $RT$ at 37 °C | kJ mol⁻¹ | 2.579 |
 
 ### ATP hydrolysis benchmarks {.unnumbered}
 
 - Standard ΔG°′ for ATP → ADP + P$_i$: **−30.5 kJ mol⁻¹**.
-- Cellular ΔG (physiological [ATP]/[ADP]): **−57 kJ mol⁻¹**, roughly 22 $k_B T$.
-- Number of ATP hydrolyses required to lift a 1 kg mass 1 m: ~300,000 — illustrating why muscle needs 10⁸ ATP molecules consumed per second.
+- Cellular ATP-hydrolysis ΔG depends on reactant and product activities, temperature, pH and Mg²⁺ conditions; **−57 kJ mol⁻¹** is an illustrative value, not a universal constant. Standard transformed values and reaction quotients must use consistent conventions.
+- At an assumed 100% conversion of 57 kJ mol⁻¹ into mechanical work, lifting 1 kg by 1 m requires $mgh = 9.81$ J and $9.81N_A/57{,}000 \approx 1.04 \times 10^{20}$ ATP hydrolyses (0.172 mmol). Real coupling losses increase that requirement; this is an ideal work budget, not a measured muscle turnover rate.
 
 ---
 
@@ -108,11 +108,11 @@ The rule "$k_B T \approx \tfrac{1}{40}$ eV $\approx \tfrac{2.5}{1000}$ kJ mol⁻
 | ------------- | ------- |
 | pM ($10^{-12}$ M) | Circulating hormones (insulin, oxytocin) |
 | nM ($10^{-9}$ M) | Vitamin B₁₂, transcription factor at a target site |
-| μM ($10^{-6}$ M) | Glucose in blood (5 × 10⁻³ M = 5 mM, upper end) |
-| mM ($10^{-3}$ M) | Major intracellular ions (Na⁺, K⁺), ATP (~5 mM) |
+| μM ($10^{-6}$ M) | 1 μM = 0.001 mM (unit conversion) |
+| mM ($10^{-3}$ M) | Blood glucose near 5 mM; major intracellular ions and ATP are also commonly expressed in mM |
 | M | Cytoplasm water (55 M); seawater NaCl (0.5 M) |
 
-Molarity of water: $M_{H_2O} = 1000 \text{ g L}^{-1} / 18 \text{ g mol}^{-1} = 55.5$ M. This is why [H₂O] is treated as constant in biological equilibrium expressions.
+Molarity of water at the assumed density 1000 g L⁻¹: $M_{H_2O}=1000\ \mathrm{g\ L}^{-1}/18\ \mathrm{g\ mol}^{-1}\approx55.5$ M. In dilute aqueous solutions, solvent-water activity is often approximated as 1 and incorporated into the equilibrium convention; this does not mean that water concentration or activity is invariant in every biological solution.
 
 ---
 
@@ -123,10 +123,10 @@ Molarity of water: $M_{H_2O} = 1000 \text{ g L}^{-1} / 18 \text{ g mol}^{-1} = 5
 | Event | Time |
 | ----- | ---- |
 | Bond vibration | 10⁻¹⁴ s |
-| Enzyme turnover ($k_{cat}$) | 10⁻³ – 10⁻⁶ s |
+| Enzyme turnover time ($1/k_{\mathrm{cat}}$, not $k_{\mathrm{cat}}$) | 10⁻³ – 10⁻⁶ s for the illustrative fast-enzyme range |
 | Action potential | 10⁻³ s |
 | Synaptic transmission | 10⁻³ s |
-| Ribosome peptide-bond formation | 0.1 s (5 aa s⁻¹ per ribosome) |
+| Ribosome elongation at an illustrative 5 amino acids s⁻¹ | 0.2 s per amino acid |
 | Protein folding | 10⁻³ – 1 s |
 | Mitosis | 1 h |
 | Cell cycle (dividing human cell) | 1 d |
@@ -158,9 +158,9 @@ Molarity of water: $M_{H_2O} = 1000 \text{ g L}^{-1} / 18 \text{ g mol}^{-1} = 5
 | Hydrogen bond | ~20 kJ mol⁻¹ |
 | C–C covalent bond | ~350 kJ mol⁻¹ |
 | ATP hydrolysis (standard) | −30.5 kJ mol⁻¹ |
-| ATP hydrolysis (cellular) | −57 kJ mol⁻¹ |
-| Glucose complete oxidation | −2870 kJ mol⁻¹ |
-| Photosynthesis per photon (680 nm) | 176 kJ mol⁻¹ |
+| ATP hydrolysis (illustrative cellular value; see D.3) | −57 kJ mol⁻¹ |
+| Glucose complete oxidation (approximate standard free-energy change) | −2870 kJ mol⁻¹ |
+| Photon energy at 680 nm ($N_Ahc/\lambda$) | 176 kJ mol⁻¹ of photons; not all converted into chemical work |
 | Daily human basal energy | 7000 kJ d⁻¹ (≈1700 kcal d⁻¹) |
 
 ### Organismal physiology reference scales {.unnumbered}
@@ -176,12 +176,14 @@ Molarity of water: $M_{H_2O} = 1000 \text{ g L}^{-1} / 18 \text{ g mol}^{-1} = 5
 
 ---
 
-## D.7 Fundamental Biological Constants {.unnumbered}
+## D.7 Selected Biological Reference Values {.unnumbered}
+
+Unlike physical constants, these values depend on population, cell type, preparation, and measurement conditions. They are approximate reference magnitudes, not universal ranges or diagnostic thresholds.
 
 | Parameter | Value | Source / context |
 | --------- | ----- | ---------------- |
-| Resting cell membrane potential | ≈ −70 mV | Neurons, muscle cells |
-| Intracellular [Na⁺] / [K⁺] | ~10 / 140 mM | Maintained by Na⁺/K⁺-ATPase |
+| Selected neuronal resting potential | ≈ −70 mV | Not a reference value for every neuron or muscle cell |
+| Intracellular [Na⁺] / [K⁺] in the ion-model reference set | ~12 / 140 mM | Matches `PHYSIOLOGICAL_IONS` in `biology.cell.cell_biology`; not a measured universal cytoplasm |
 | Extracellular [Na⁺] / [K⁺] | ~145 / 5 mM | Plasma |
 | Blood pH | 7.35–7.45 | Tightly regulated |
 | Arterial pCO₂ | ~40 mmHg | Regulated by respiration |
@@ -193,9 +195,11 @@ Molarity of water: $M_{H_2O} = 1000 \text{ g L}^{-1} / 18 \text{ g mol}^{-1} = 5
 | Proton gradient ΔpH across inner mito membrane | ~1 unit | Chemiosmosis |
 | Genome size (human) | 3 × 10⁹ bp | Haploid |
 | Protein-coding genes (human) | ~20,000 | ENCODE estimate |
-| Cells in the adult human body | ~3.7 × 10¹³ | Bianconi et al. 2013 |
-| Bacteria in human gut | ~10¹⁴ | ~equal to human cell count |
-| Species described on Earth | ~2 × 10⁶ | Estimated 10–30× more undescribed |
+| Human cells in a 70 kg reference man | ~3.0 × 10¹³ | Paired estimate from Sender et al. (2016), including blood cells; not a universal adult count \citep{sender2016cells} |
+| Bacteria in the same reference man | ~3.8 × 10¹³ | Whole-body estimate dominated by the colon; bacterial/human ratio ~1.3, not the older 10:1 estimate \citep{sender2016cells} |
+| Modeled global eukaryotic species richness | ~8.7 ± 1.3 million (SE) | Mora et al. (2011), [higher-taxon extrapolation](https://doi.org/10.1371/journal.pbio.1001127) \citep{mora2011eukaryotes}; not a present-day species census or a total for all microbes |
+
+The paired cell estimates refer to a reference man aged 20–30 years, 70 kg and 170 cm. Sender et al. report bacterial-count uncertainty of about 25% and population variation of about 52% SD among 70 kg men; unquantified systematic errors remain. Their reported human-cell uncertainty is smaller but may underestimate systematic errors. Body size, age, sex, health, antibiotics, and bowel preparation limit generalization; these are estimates, not fixed biological constants \citep{sender2016cells}.
 
 ---
 

@@ -1,22 +1,33 @@
 """Tests for microbiology, botany, and neuroscience modules — Units VII/VIII/IX."""
 
 import math
+
 import pytest
 
-from biology.microbiology import (
-    bacterial_growth_curve, doubling_time, mic_fold_dilution,
-    basic_reproduction_number, sir_model,
-    VIRAL_REPLICATION_CYCLES, REFERENCE_ORGANISMS,
-)
 from biology.botany import (
-    water_potential, transpiration_flux, photosynthesis_rate,
-    light_response_curve, PHOTOSYNTHESIS_PATHWAYS, plant_biomass_growth,
+    PHOTOSYNTHESIS_PATHWAYS,
+    light_response_curve,
+    photosynthesis_rate,
+    plant_biomass_growth,
+    transpiration_flux,
+    water_potential,
+)
+from biology.microbiology import (
+    REFERENCE_ORGANISMS,
+    VIRAL_REPLICATION_CYCLES,
+    bacterial_growth_curve,
+    basic_reproduction_number,
+    doubling_time,
+    mic_fold_dilution,
+    sir_model,
 )
 from biology.neuroscience import (
-    action_potential_hh, cable_voltage_attenuation,
-    synaptic_current, hebbian_weight_update, BRAIN_REGIONS,
+    BRAIN_REGIONS,
+    action_potential_hh,
+    cable_voltage_attenuation,
+    hebbian_weight_update,
+    synaptic_current,
 )
-
 
 # ===========================================================================
 # MICROBIOLOGY TESTS
@@ -137,15 +148,15 @@ class TestWaterPotential:
 
 class TestTranspiration:
     def test_flux_direction(self):
-        result = transpiration_flux(0.2, internal_vapor_conc_mol_m3=0.5, external_vapor_conc_mol_m3=0.3)
+        result = transpiration_flux(0.2, internal_vapor_mole_fraction=0.0125, external_vapor_mole_fraction=0.0075)
         assert result.flux_mol_m2_s > 0  # outward
 
     def test_invalid_conductance_raises(self):
         with pytest.raises(ValueError):
-            transpiration_flux(0.0, 0.5, 0.3)
+            transpiration_flux(0.0, 0.0125, 0.0075)
 
     def test_mmol_equals_1000x_mol(self):
-        result = transpiration_flux(0.2, 0.5, 0.3)
+        result = transpiration_flux(0.2, 0.0125, 0.0075)
         assert abs(result.flux_mmol_m2_s - result.flux_mol_m2_s * 1000) < 1e-9
 
 
@@ -168,7 +179,7 @@ class TestPhotosynthesis:
         c4 = next(p for p in PHOTOSYNTHESIS_PATHWAYS if p.pathway == "C4")
         assert c4.light_saturation_point_µmol_m2_s > c3.light_saturation_point_µmol_m2_s
 
-    def test_cam_no_photorespiration(self):
+    def test_cam_simplified_pathway_flag(self):
         cam = next(p for p in PHOTOSYNTHESIS_PATHWAYS if p.pathway == "CAM")
         assert not cam.photorespiration
 

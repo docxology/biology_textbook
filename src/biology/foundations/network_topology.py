@@ -33,10 +33,14 @@ class DegreeDistribution:
 
 
 def _validate(k_min: int, k_max: int) -> None:
+    if isinstance(k_min, bool) or not isinstance(k_min, int):
+        raise TypeError("k_min must be an integer at least 1.")
     if k_min < 1:
-        raise ValueError("k_min must be at least 1 (degree zero is degenerate).")
+        raise ValueError("k_min must be an integer at least 1.")
+    if isinstance(k_max, bool) or not isinstance(k_max, int):
+        raise TypeError("k_max must be an integer exceeding k_min.")
     if k_max <= k_min:
-        raise ValueError("k_max must exceed k_min.")
+        raise ValueError("k_max must be an integer exceeding k_min.")
 
 
 def poisson_degree_distribution(
@@ -60,8 +64,8 @@ def poisson_degree_distribution(
     Raises:
         ValueError: If ``mean_degree`` is non-positive or the range is invalid.
     """
-    if mean_degree <= 0:
-        raise ValueError("mean_degree must be positive.")
+    if not math.isfinite(mean_degree) or mean_degree <= 0:
+        raise ValueError("mean_degree must be finite and positive.")
     _validate(k_min, k_max)
 
     degrees = tuple(range(k_min, k_max + 1))
@@ -106,15 +110,14 @@ def powerlaw_degree_distribution(
     Raises:
         ValueError: If ``gamma`` is non-positive or the range is invalid.
     """
-    if gamma <= 0:
-        raise ValueError("gamma must be positive.")
+    if not math.isfinite(gamma) or gamma <= 0:
+        raise ValueError("gamma must be finite and positive.")
     _validate(k_min, k_max)
 
     degrees = tuple(range(k_min, k_max + 1))
-    raw = tuple(float(k) ** (-gamma) for k in degrees)
-    total = sum(raw)
-    if total <= 0:
-        raise ValueError("power-law normalization yielded non-positive total.")
+    # Relative log weights: the minimum degree always has weight 1.
+    raw = tuple(math.exp(-gamma * math.log(k / k_min)) for k in degrees)
+    total = math.fsum(raw)
     probs = tuple(value / total for value in raw)
     mean = sum(k * p for k, p in zip(degrees, probs))
     logger.debug(

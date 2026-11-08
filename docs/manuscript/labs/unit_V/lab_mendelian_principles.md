@@ -1,140 +1,81 @@
 # Lab — Mendelian Principles and Probability {#sec:lab_unit_V_mendelian_principles .unnumbered}
 
-
-*This activity accompanies \cref{sec:unit_V_mendelian_principles} of the textbook — review that chapter before attempting the exercises below.*
-
-*This activity accompanies \cref{sec:unit_V_mendelian_principles} of the textbook — review that chapter before attempting the exercises below.*
+*This activity accompanies \cref{sec:unit_V_mendelian_principles}.*
 
 ## Learning Objectives {.unnumbered}
-
-- Design and evaluate genetic cross simulations to determine inheritance patterns
-- Formulate testable hypotheses about dominance, recessiveness, and linkage
-- Identify independent, dependent, and controlled variables in genetic experiments
-- Analyze experimental data using chi-square tests and statistical methods
-- Write a brief scientific report with hypothesis, methods, results, and conclusion
-
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Mendelian Principles and Probability.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO3):** Derive monohybrid and trihybrid genotype and phenotype probabilities.
+- **Outcome 2 (LO6):** Compute a fixed-ratio chi-square test and distinguish consistency from proof.
+- **Outcome 3 (LO7):** Infer obligate carriers and conditional recurrence risk from the printed pedigree.
+- **Chapter LO coverage:** LO3, LO6, LO7
+- **Rubric (20 points):** Score the following categories separately; preserve the distinction between fixed-ratio testing and conditional family risk.
+  - **Evidence (8 points; LO3, LO6, LO7):** Award 2 for P1 expected counts, chi-square and correct comparison with 3.841; 1 for P4's binomial probability; 3 for T's eight probabilities summing to 1, 27 genotype classes and n≥320 with df7 (1 each); 2 for a correctly connected Family F drawing/genotypes and the pre-birth 1/6 risk with its 2/3 conditional denominator (1 each).
+  - **Controls (3 points; LO3, LO6):** Award 1 each for explaining P2's dominance reference and P3's recessive scoring control; award 1 for stating that those controls do not establish independent assortment at T's three loci. Naming the cards without their roles earns no control credit.
+  - **Uncertainty (3 points; LO3, LO6):** Award 1 for interpreting P1 as failure to reject rather than proof; 1 for using P4 to explain finite-sample variation under a 1:1 model; 1 for distinguishing T's minimum expected-count rule from adequate power or guaranteed model validity.
+  - **Mechanism (4 points; LO3, LO7):** Award 1 for deriving 3:1 phenotypes from 1:2:1 genotypes; 1 for multiplying unlinked-locus probabilities in T; 1 for showing why unaffected II-2 excludes aa but retains AA and Aa; 1 for explaining that III-1's unaffected phenotype does not prove II-2 is AA.
+  - **Transfer (2 points; LO7):** In the analysis prompt, award 1 for updating II-2's carrier probability to 3/5 after III-1 is known unaffected and 1 for the next-child risk 3/20, explicitly distinguished from pre-birth 1/6. Repeating 1/6 without recognizing the new conditioning earns no transfer credit.
 <!-- lab-alignment-end -->
-## Pre-Lab Concept Questions {.unnumbered}
-
-*Answer these before starting the investigation — they activate knowledge from the parent chapter.*
-
-1. State Mendel's law of segregation in your own words, then connect the law to the cellular events of meiosis. At which stage do the two alleles of a heterozygous parent physically separate into different gametes, and why does this generate the 1:1 gamete ratio that underlies a 3:1 monohybrid offspring ratio?
-2. Distinguish incomplete dominance from codominance, and give a concrete biological example of each. In your explanation, describe how the molecular product of each allele combines in the heterozygote to produce the observed phenotype, and identify a test cross or phenotypic assay that could differentiate the two patterns.
-3. Define the chi-squared test in the context of testing a Mendelian ratio. Identify the null hypothesis, the role of the degrees of freedom, and the meaning of a p-value below 0.05 for a hypothesized 9:3:3:1 dihybrid ratio.
-
-## Pre-Lab Inquiry Questions {.unnumbered}
-
-*Complete these questions before coming to lab. Use your textbook and additional research to inform your hypotheses.*
-
-1. **Hypothesis Formation**: Based on your understanding of Mendelian inheritance, predict the outcome of a test cross between a dominant phenotype individual (unknown genotype) and a homozygous recessive individual. What phenotypic ratio would you expect if the dominant individual is homozygous vs heterozygous?
-
-2. **Experimental Design**: What is the independent variable in a Mendelian inheritance experiment? What is the dependent variable? List at least 5 variables that should be controlled to ensure valid results.
-
-3. **Scientific Context**: The chi-square test is used to determine if observed ratios fit expected Mendelian ratios. Why is this test important in genetics? What does a significant deviation from expected ratios tell you?
-
-4. **Quantitative Reasoning**: If you perform a monohybrid cross (Aa × Aa) and observe 450 round seeds and 130 wrinkled seeds (total 580), what is the χ² value? With 1 degree of freedom, is this significantly different from the expected 3:1 ratio at p = 0.05?
-
-5. **Real-World Application**: Many human genetic disorders are recessive. Why are recessive disorders more common than dominant disorders? What are the implications for genetic counseling?
 
 ## Lab Context: Mendelian Principles and Probability {.unnumbered}
 
-Gregor Mendel's experiments with pea plants (1856–1863) established the laws of segregation (allele pairs separate during gamete formation) and independent assortment (non-linked genes assort independently). Monohybrid crosses between heterozygotes (Aa × Aa) produce 3:1 phenotype ratios; dihybrid crosses produce 9:3:3:1 ratios. Deviations from these ratios suggest linkage, incomplete dominance, codominance, or epistasis.
-
-### Example Pedigree — Autosomal Recessive Trait (Cystic Fibrosis) {.unnumbered}
-
-Below is the three-generation pedigree you will analyze in Part B. Filled squares/circles are affected individuals; half-filled are obligate carriers; empty are unaffected. Use this as a reference for how pedigree symbols encode genotypes.
+Segregation predicts probability distributions, not exact ratios in each small family. Independent assortment and complete penetrance are stipulated unless a card says otherwise.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Example Pedigree — Autosomal Recessive Trait (Cystic Fibrosis): Item and Quantity. {#tbl:unit_V_mendelian_principles_example_pedigree_autosomal_recessive_trait_cystic_fibrosis}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Mendelian Principles and Probability: inheritance source card: model assumptions, sampling frame, ancestry/context boundary, and uncertainty | 1 |
-| Punnett square worksheets (3: monohybrid, dihybrid, incomplete dominance) | 1 set |
-| Pedigree chart (printed: 3-generation autosomal recessive trait) | 1 |
-| Coin or random number table (to simulate gamete formation) | 2 |
-| Chi-square table (critical values) | 1 |
-| Calculator | 1 |
-| Colored counters (2 colors × 20) for simulating gametes | 1 set |
-| Calculator or optional Python REPL with this project installed | 1 |
-| Statistical analysis worksheet | 1 |
+This printed packet, paper, pencil and a calculator are sufficient. No culture, image download, volunteer family survey, database access or Python execution is required. All newly stipulated observations below are **synthetic teaching data**, not empirical measurements or clinical decision rules. Replicates and denominators are given explicitly; do not treat technical repeats as independent biological samples.
+
+## Printed Evidence Packet {.unnumbered}
+
+: Cross observations and reference controls. {#tbl:unit_V_mendelian_principles_example_pedigree_autosomal_recessive_trait_cystic_fibrosis}
+| Card | Cross | Observations | Sample |
+| --- | --- | --- | --- |
+| P1 | Aa×Aa |450 dominant,130 recessive |580 independent offspring |
+| P2 | AA×aa |40 dominant,0 recessive |40 offspring; dominance reference |
+| P3 | aa×aa |0 dominant,40 recessive |40 offspring; recessive scoring control |
+| P4 | Rr×rr |3 round,1 wrinkled |4 offspring |
+
+: Three-generation recessive pedigree and supplied decision constants. {#tbl:unit_V_mendelian_principles_source_governance_checkpoint}
+| Card | Printed evidence |
+| --- | --- |
+| Family F | I-1 unaffected male and I-2 unaffected female have II-1 affected daughter and II-2 unaffected son. II-2 mates with II-3, a molecularly confirmed Aa carrier; their III-1 child is unaffected. Affected=aa; complete penetrance; no new mutation. |
+| T | AaBbCc×AaBbCc; unlinked loci, complete dominance; no viability differences. |
+| C | Chi-square=sum(O−E)^2/E; fixed2-class df1 critical3.841 atα=.05; fixed8-class df7. Binomial P(k)=choose(n,k)p^k(1−p)^(n−k). |
 
 ## Paper-Based Investigation {.unnumbered}
 
-### Part 1: Punnett Square Analysis {.unnumbered}
+1. Compute P1 expectations and chi-square; use P2/P3 to explain what scoring/dominance controls establish. For P4 calculate the probability of 3 round under 1:1.
+2. For T list eight phenotype probabilities, count genotype classes, and find n for the rarest expected phenotype count≥5. State df and approximation limits.
+3. Draw Family F using its IDs. Infer generation-I genotypes, II-2 carrier probability conditional on being unaffected, and the pre-birth affected risk for a child of II-2×II-3. Explain why an unaffected III-1 does not remove future risk.
 
-1. **Formulate Your Hypothesis**: Based on your pre-lab research, write a hypothesis about how the inheritance pattern of a specific trait (e.g., pea seed shape) follows Mendelian ratios.
+## Data Recording {.unnumbered}
 
-2. **Identify Variables**:
-   - Independent variable: Parental genotypes
-   - Dependent variable: Offspring genotype/phenotype ratios
-   - Controlled variables: Cross design, counting method, environmental conditions, etc.
-
-3. **Set Up Controls**: Why is it important to use true-breeding parental lines? What other controls could you include in a Mendelian inheritance experiment?
-
-4. **Data Collection**:
-   - Complete monohybrid crosses: Aa × Aa; AA × Aa; Aa × aa. Record genotype and phenotype ratios.
-   - Complete a dihybrid cross: AaBb × AaBb. Record the 9:3:3:1 phenotype ratio.
-   - Complete an incomplete dominance cross: R₁R₁ (red) × R₂R₂ (white). What is the F₁ phenotype? F₂ ratios?
-
-### Part 2: Computational Biology Exercise — Statistical Analysis with Python {.unnumbered}
-
-*Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
-
-Validate the paper Punnett-square and chi-square calculations.
-
-```python
-from biology.genetics import chi_squared_test, punnett_square
-
-cross = punnett_square("Aa", "Aa")
-observed = [450.0, 130.0]
-expected = [0.75 * sum(observed), 0.25 * sum(observed)]
-chi = chi_squared_test(observed, expected)
-
-print("genotype ratios:", cross.genotype_ratios)
-print("phenotype ratios:", cross.phenotype_ratios)
-print("χ²:", round(chi.chi_squared, 2), "reject?", chi.reject_null)
-```
-
-### Source-Governance Checkpoint {.unnumbered}
-
-Complete the source-governance card for Mendelian Principles and Probability before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Solve monohybrid and dihybrid crosses and test expected ratios.
-- **Data skill to practice:** Use cross data to infer genotype probabilities.
-- **BioSkills emphasis:** Quantitative reasoning, Process of science.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+For each task record the case/replicate identifier, supplied inputs with units, equation or classification rule, intermediate calculation, result and one alternative explanation. Keep the printed evidence unchanged and mark any proposed exclusion with a reason.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Mendelian Principles and Probability** with a reproducibility pass:
+**Printed source card:** Mendel1866 reports controlled pea crosses; the packet uses newly stipulated counts to teach those probability models, not a transcription of his raw observations. The inference assumes correctly identified parents, complete penetrance, independent offspring and no differential viability. Refresh the model if a controlled testcross shows reproducible genotype-specific survival or scoring errors. Source-card tasks: identify which observations are synthetic and which statements summarize published evidence; record the publication date and endpoint/model; name a refresh trigger. A live source lookup is not required to answer this packet.
 
-: Source-Governance Checkpoint: Evidence check and Student action. {#tbl:unit_V_mendelian_principles_source_governance_checkpoint}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
+## Analysis Questions {.unnumbered}
 
-Focus note: Mendelian patterns are starting models that must be qualified by penetrance, linkage, environment, and sampling. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
+Explain why P2/P3 cannot rule out linkage in T and identify a model assumption the P1 test does not verify. Then transfer Family F's calculation to the next-child question: after observing unaffected III-1, weight the AA and Aa possibilities for II-2 by their likelihood of producing an unaffected child with Aa II-3. Normalize those weights and compute the next-child affected risk. Explain why this differs from the original pre-birth question without making successive conceptions causally dependent.
+
+<!-- SOLUTION
+## Instructor Worked Results and Scoring Expectations {.unnumbered}
+
+Task 1: P1 expects 435,145; χ²=60/29≈2.069<3.841, so do not reject. P2/P3 check scoring under stipulated genotype controls, not linkage across all loci. P4 probability=4/16=.25; a 3:1 four-child sample is possible under 1:1.
+Task 2: probabilities are 27/64 for A_B_C_; 9/64 each for aaB_C_,A_bbC_,A_B_cc; 3/64 each for aabbC_,aaB_cc,A_bbcc; 1/64 aabbcc. Sum=1; 27 genotypes, 8 phenotypes; n≥320; df=7. The expected-count criterion is not a power guarantee.
+Task3: I-1/I-2 are Aa. II-2 has P(Aa|unaffected)=2/3, giving child affected risk(2/3)(1/4)=1/6 before conditioning on any child's outcome. III-1's unaffected status does not prove a parent's genotype. If that child's outcome is used to update the next-child risk, P(II-2=Aa|III-1 unaffected)=[(2/3)(3/4)]/[(2/3)(3/4)+(1/3)]=3/5, giving 3/20 affected risk for the next child; distinguish that posterior question from the requested pre-birth 1/6. Credit a correctly connected three-generation drawing and conditional denominator.
+
+Transfer benchmark: Prior weights AA=1/3 and Aa=2/3 become (1/3)×1 and (2/3)×3/4 after an unaffected child. Normalizing gives carrier probability 3/5 and next-child affected risk (3/5)×1/4=3/20. The observation updates uncertainty about the parent's fixed genotype; it does not change Mendelian transmission probabilities conditional on that genotype.
+SOLUTION -->
+
+## Safety and Ethics {.unnumbered}
+
+Paper only: no hazardous materials or human-subject recruitment. Synthetic pedigrees and clinical cases are not diagnoses. Use person-first language, do not infer identity, parentage or ancestry from the examples, and distinguish equitable access and informed consent from the biological calculation.
+
+## Optional Extension {.unnumbered}
+
+Design, on paper, one additional controlled comparison and predict its result under each competing explanation. Actual wet or clinical work requires appropriate supervision and approval and is not part of this activity.

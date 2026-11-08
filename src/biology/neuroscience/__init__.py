@@ -1,25 +1,25 @@
 """Neuroscience subpackage."""
 
 from .neuroscience import (
-    NeuronProperties,
+    BRAIN_REGIONS,
     ActionPotentialResult,
-    SynapticResult,
     CableResult,
+    NeuronProperties,
+    SynapticResult,
     action_potential_hh,
     cable_voltage_attenuation,
-    synaptic_current,
     hebbian_weight_update,
-    BRAIN_REGIONS,
+    synaptic_current,
 )
 
 __all__ = [
-    "NeuronProperties",
+    "BRAIN_REGIONS",
     "ActionPotentialResult",
-    "SynapticResult",
     "CableResult",
+    "NeuronProperties",
+    "SynapticResult",
     "action_potential_hh",
     "cable_voltage_attenuation",
-    "synaptic_current",
     "hebbian_weight_update",
-    "BRAIN_REGIONS",
+    "synaptic_current",
 ]

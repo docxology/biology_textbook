@@ -37,10 +37,10 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/ghk_permeability.png}
-\caption{Goldman--Hodgkin--Katz (GHK) membrane potential as relative sodium permeability increases with potassium permeability held fixed. Rising sodium conductance depolarizes the cell; separate curves show how different chloride permeabilities shift the resting potential toward more negative or positive values.}
+\caption{Goldman--Hodgkin--Katz voltage sensitivity for selected monovalent-ion conditions at 310 K. Inside/outside concentrations are K$^+$ 140/5, Na$^+$ 12/145 and Cl$^-$ 4/110 mM, matching the worked example. Relative sodium permeability varies at fixed potassium permeability; separate curves vary chloride permeability. Dotted guides identify the computed reference at $P_K:P_{Na}:P_{Cl}=1:0.04:0.45$, not a universal resting voltage.}
 \label{fig:unit_II_ghk_permeability}
 \end{figure}
-<!-- alt: Semilog plot of GHK membrane potential in millivolts versus relative sodium permeability. Increasing sodium permeability depolarizes the membrane, while separate line styles show how different chloride permeabilities shift the voltage. -->
+<!-- alt: Semilog GHK model plot at 310 K with selected K, Na and Cl concentrations matching the worked example. Sodium permeability changes the voltage, with separate chloride-permeability curves; dotted guides mark the model reference near −72.5 mV at sodium-to-potassium permeability 0.04. -->
 
 ---
 
@@ -146,7 +146,7 @@ Since 1972, several refinements have been made:
 
 ## Passive Transport Down Electrochemical Gradients
 
-Passive transport requires no energy input --- molecules move down their electrochemical gradient.
+Passive transport dissipates an electrochemical gradient without direct coupling to a metabolic energy source. It is not thermodynamically energy-free: the gradient supplies the driving free energy.
 
 ```mermaid
 flowchart LR
@@ -187,7 +187,7 @@ Membrane permeability:
 - **High:** small nonpolar molecules (O$_2$, CO$_2$, N$_2$, ethanol, benzene)
 - **Moderate:** small polar uncharged (water, glycerol, urea)
 - **Low:** large polar (glucose, amino acids)
-- **Very low/none:** ions (Na$^+$, K$^+$, Cl$^-$, Ca$^{2+}$) --- require protein channels
+- **Very low:** ions (Na$^+$, K$^+$, Cl$^-$, Ca$^{2+}$) face strong bilayer barriers; physiologically rapid flux commonly requires transport proteins, not literally zero possible passage
 
 The **partition coefficient** ($K_{\text{oil/water}}$) is the strongest predictor of simple diffusion rate. Overton's rule (1899): membrane permeability correlates with oil/water partition coefficient.
 
@@ -212,7 +212,7 @@ where $a_w$ is water activity (≈ mole fraction in dilute solution) and $\bar{V
 
 where Π is the **osmotic pressure** (in atm or Pa), $M$ is the solute molar concentration, $R$ is the gas constant, $T$ is absolute temperature, and $i$ is the **van't Hoff factor** — the number of effective particles produced per formula unit (1 for glucose; 2 for NaCl; 3 for CaCl$_2$ at full dissociation).
 
-In SI units with $R = 0.0821$ L·atm/mol/K and 37 °C ($T = 310$ K), 1 mM of an ideal solute generates $\Pi = 1 \cdot 0.001 \cdot 0.0821 \cdot 310 = 0.0254$ atm ≈ 25 mmHg. Plasma is ~290 mOsm/L, generating ~7,500 mmHg of total osmotic pressure — but cells don't burst because they are surrounded by isotonic interstitial fluid, and primarily the *difference* matters.
+At T=310 K, 1 mM ideal osmolar concentration gives Pi=0.001(0.0821)(310)=0.02545 atm=19.34 mmHg. Thus 290 mOsm/L gives about 5609 mmHg total osmotic pressure, not 7500; the transmembrane difference and solute permeability determine water movement. R=0.0821 L atm mol^-1 K^-1 is the conventional liter-atmosphere form; SI calculations use 8.314 J mol^-1 K^-1 with mol/m^3.
 
 **Worked Example: Osmotic swelling of a red blood cell.**
 
@@ -221,14 +221,14 @@ A red blood cell is placed in a hypotonic solution (200 mOsm/L; plasma is 290 mO
 (a) The osmotic pressure gradient is:
 $$ \Delta \Pi = (290 - 200) \times 10^{-3} \cdot 0.0821 \cdot 310 = 0.0900 \cdot 25.45 = 2.29 \text{ atm} \approx 1{,}740 \text{ mmHg}  \label{eq:unit_II_membrane_transport_item_4}$$
 
-This drives water into the cell at a flux of $J_w = p_f \cdot \Delta C$, where $p_f \approx 0.02$ cm/s for an AQP1-rich erythrocyte. For a typical cell ($A \approx 140 \, \mu\text{m}^2$, $V \approx 90 \, \mu\text{m}^3$), volume doubling occurs in roughly 200 ms — fast enough to be visible in a microscope as the cell swells from biconcave disc to sphere.
+For volumetric osmotic water permeability p_f (length/time), volume flux per area is J_v=p_f Vbar_w deltaC, with Vbar_w approximately 18 cm^3/mol and deltaC in mol/cm^3. A flux cannot be calculated by multiplying p_f by a molar concentration without this volume conversion. The driving gradient falls during swelling; no doubling time follows from the equilibrium calculation alone.
 
 (b) At osmotic equilibrium, water content adjusts to make intracellular osmolarity = 200 mOsm/L. If initial intracellular osmolyte content is $V_0 \cdot C_0 = 90 \cdot 290 = 26{,}100$ μmol·μm$^3$/L, the new equilibrium volume is:
 $$ V_\text{new} = V_0 \cdot \frac{C_0}{C_\text{new}} = 90 \cdot \frac{290}{200} = 130.5 \, \mu\text{m}^3  \label{eq:unit_II_membrane_transport_item_5}$$
 
 A 45% volume increase. RBCs reach a critical volume of ~150 μm$^3$ before hemolysis (membrane area cannot accommodate further sphere expansion), so the cell is on the brink of lysis.
 
-**Tonicity terms (clinical):** Hypotonic solutions cause cells to swell (hemolysis if severe). Isotonic solutions (e.g., 0.9% NaCl, 5% dextrose, lactated Ringer's) preserve volume. Hypertonic solutions cause cells to shrink (crenation in RBCs). Aquaporin defects cause major fluid balance disorders: **AQP2 mutations** cause nephrogenic diabetes insipidus (water reabsorption fails despite vasopressin); **AQP4 autoantibodies** cause neuromyelitis optica (astrocyte water-handling fails, edema and demyelination). The osmotic pressure of plasma proteins (mostly albumin, ~25 mmHg) is the **oncotic pressure** that retains fluid in the vasculature — its loss in nephrotic syndrome and liver failure causes generalized edema.
+**Tonicity:** Nonpenetrating external solutes determine sustained volume effects. Normal saline is approximately isotonic in the usual extracellular comparison. A 5% dextrose bag is approximately isoosmolar, but glucose uptake/metabolism leaves an effectively free-water load; it is not persistently isotonic in the body. Hypertonic media shrink cells, hypotonic media swell them. AQP2 defects impair renal water reabsorption; AQP4 autoimmunity is a distinct astrocyte-targeting disease mechanism.
 
 > **Concept Check 1b:** A patient with severe burns receives 4 L of 0.45% NaCl ("half-normal saline") rapidly. Calculate the tonicity relative to plasma (290 mOsm/L) and predict the consequence for red blood cells.
 
@@ -319,7 +319,7 @@ Whether a transporter contributes net charge to the membrane potential depends o
 | Transporter | Stoichiometry | Net charge moved per cycle | Electrogenic? |
 | ----------- | ------------- | -------------------------- | ------------- |
 | Na$^+$/K$^+$-ATPase | 3 Na$^+$ out / 2 K$^+$ in / 1 ATP | +1 outward | Yes |
-| Ca$^{2+}$-ATPase (SERCA) | 2 Ca$^{2+}$ in (to ER) / 2 H$^+$ out / 1 ATP | 0 | No (electroneutral) |
+| Ca$^{2+}$-ATPase (SERCA), specified 2H countertransport model | 2 Ca$^{2+}$ into ER / 2 H$^+$ out / 1 ATP | +2 into ER | Yes for this stoichiometry; proton coupling depends on conditions |
 | H$^+$/K$^+$-ATPase (gastric) | 1 H$^+$ out / 1 K$^+$ in / 1 ATP | 0 | No |
 | NCX (Na$^+$/Ca$^{2+}$ exchanger) | 3 Na$^+$ in / 1 Ca$^{2+}$ out | +1 inward | Yes |
 | NHE1 (Na$^+$/H$^+$ exchanger) | 1 Na$^+$ in / 1 H$^+$ out | 0 | No |
@@ -329,12 +329,12 @@ Whether a transporter contributes net charge to the membrane potential depends o
 **Energetic consequences.** Electroneutral transporters move solutes "for free" with respect to the membrane potential — their thermodynamic feasibility depends primarily on chemical concentration gradients. Electrogenic transporters, by contrast, are driven by *both* concentration and voltage. The Na$^+$/K$^+$-ATPase, for example, would still hydrolyse ATP if Na$^+$ and K$^+$ concentrations were equalised, because moving net positive charge against the membrane potential (interior negative) costs additional energy: the **electrochemical gradient** is the relevant thermodynamic quantity:
 
 \begin{equation}
-\Delta G_\text{ion} = RT \ln \frac{[C]_\text{out}}{[C]_\text{in}} + z F V_m
+\Delta G_{\mathrm{outward}}=RT\ln\frac{[C]_{\mathrm{out}}}{[C]_{\mathrm{in}}}-zFV_m,\qquad V_m=\psi_{\mathrm{in}}-\psi_{\mathrm{out}}
 \label{eq:unit_II_membrane_transport_item_8}
 \end{equation}
 
 
-For a 100× concentration gradient and 100 mV opposing voltage: $\Delta G \approx +12 + 9.6 = 21.6$ kJ/mol. ATP hydrolysis releases ~50 kJ/mol under cellular conditions, so a single ATP can drive ~2 ions of net charge against this combined gradient — exactly the stoichiometry observed in the Na$^+$/K$^+$-ATPase (3 Na$^+$ out – 2 K$^+$ in = +1 net per ATP, with margin for irreversibility).
+For a monovalent ion facing a 100-fold chemical gradient and 100 mV opposing voltage, work is about 11.9+9.65=21.5 kJ/mol at 310 K. This illustrative per-ion sum does not derive a pump's stoichiometry: calculate each transported species in its actual direction before summing a cycle.
 
 > **Clinical Connection: Channelopathy diagnostics.** When a patient presents with arrhythmia, episodic weakness, or seizures, modern diagnostics include **gene panels** (sequencing known channel genes) followed by **functional reconstitution** of variants in HEK293 or oocyte expression systems. Patch-clamp measurements decompose the disease-causing change into $N$, $P_o$, and γ effects: for example, the cystic fibrosis ΔF508 mutation reduces $N$ at the membrane (trafficking defect, fixed by lumacaftor); G551D reduces $P_o$ (gating defect, fixed by ivacaftor). The combination drug Orkambi addresses both — a triumph of mechanism-guided pharmacology.
 
@@ -523,10 +523,10 @@ The strongly positive $E_{Ca}$ means that Ca$^{2+}$ has a massive driving force 
 : Derivation of the Nernst Equation: Ion and [inside] (mM). {#tbl:unit_II_membrane_transport_derivation_of_the_nernst_equation}
 | Ion | [inside] (mM) | [outside] (mM) | $E_i$ (mV, 37 degrees C) |
 | --- | ------------- | --------------- | ----------------------- |
-| K$^+$ | 140 | 5 | -89 |
-| Na$^+$ | 12 | 145 | +63 |
-| Ca$^{2+}$ | 0.0001 | 2.5 | +135 |
-| Cl$^-$ | 4 | 110 | -82 |
+| K$^+$ | 140 | 5 | -89.0 |
+| Na$^+$ | 12 | 145 | +66.6 |
+| Ca$^{2+}$ | 0.0001 | 2.5 | +135.2 |
+| Cl$^-$ | 4 | 110 | -88.5 |
 
 **Worked Example: Nernst Potentials for K$^+$, Na$^+$, and Cl$^-$.**
 
@@ -539,11 +539,11 @@ E_i = \frac{RT}{z_i F} \ln \frac{[C_i]_{\text{out}}}{[C_i]_{\text{in}}}
 
 *Potassium (z = +1):* $E_K = 61.5 \cdot \log_{10}(5/140) = 61.5 \cdot \log_{10}(0.0357) = 61.5 \cdot (-1.447) = -89.0 \text{ mV}$. K$^+$ is concentrated inside, so equilibrium drives K$^+$ outward; the equilibrium potential is negative (interior must be ~89 mV more negative to halt K$^+$ efflux). The resting membrane potential ($V_m \approx -70$ mV) is therefore *less negative* than $E_K$ — meaning K$^+$ continues to leak slowly outward at rest.
 
-*Sodium (z = +1):* $E_{Na} = 61.5 \cdot \log_{10}(145/12) = 61.5 \cdot \log_{10}(12.08) = 61.5 \cdot 1.082 = +66.6 \text{ mV}$. (Tabulated values vary 63–67 mV depending on the assumed concentrations.) Na$^+$ is concentrated outside, so equilibrium drives Na$^+$ inward; the equilibrium potential is strongly positive. The resting membrane potential is *very far* from $E_{Na}$ — meaning Na$^+$ has a massive electrochemical force driving it inward, restrained primarily by the low resting Na$^+$ permeability.
+*Sodium (z=+1):* $E_{Na}=61.5\log_{10}(145/12)=+66.6$ mV for these fixed inputs. At $V_m=-70$ mV, the electrochemical gradient favors Na$^+$ entry, with flux limited by Na$^+$ permeability. Other concentrations would define a different calculation, not a correction to this row.
 
-*Chloride (z = −1):* $E_{Cl} = (61.5 / -1) \cdot \log_{10}(110/4) = -61.5 \cdot \log_{10}(27.5) = -61.5 \cdot 1.439 = -88.5 \text{ mV}$. (Tabulated values vary 80–90 mV depending on cell type — neurons have higher [Cl$^-$]$_i$ than skeletal muscle.) Note the *negative* sign on $z_\text{Cl}$ inverts the ratio's effect: a higher [Cl$^-$]$_o$ than [Cl$^-$]$_i$ yields a *negative* equilibrium potential, the opposite of K$^+$. In adult neurons, $E_\text{Cl}$ sits near $V_m$, so Cl$^-$ is essentially at equilibrium and small Cl$^-$ permeability changes (e.g., GABA$_A$-receptor opening) cause primarily modest hyperpolarization by stabilizing $V_m$ near $E_\text{Cl}$. In neonatal neurons, [Cl$^-$]$_i$ is higher (~25 mM) due to immature KCC2 expression, $E_\text{Cl}$ becomes ~−40 mV, and GABA is *depolarizing* — a fact with major implications for early brain development and neonatal seizures.
+*Chloride (z=−1):* $E_{Cl}=-61.5\log_{10}(110/4)=-88.5$ mV for these fixed inputs. The negative valence reverses the sign relative to a cation with the same concentration ratio. Channel opening tends to drive $V_m$ toward $E_{Cl}$; whether it depolarizes, hyperpolarizes or mainly shunts depends on the starting $V_m$ and cell-specific chloride gradient.
 
-These three numbers — $E_K \approx -89$, $E_{Na} \approx +63$, $E_{Cl} \approx -82$ — together with the relative permeabilities $P_K : P_{Na} : P_{Cl}$ generate the entire repertoire of resting and action potentials in excitable cells.
+These fixed-input values — $E_K\approx-89.0$, $E_{Na}\approx+66.6$, $E_{Cl}\approx-88.5$ mV — define this reference example. Resting-potential predictions additionally require relative permeabilities; action-potential trajectories require time-dependent channel kinetics.
 
 The resting membrane potential (-70 mV) lies close to $E_K$ because the resting cell membrane is ~25x more permeable to K$^+$ than Na$^+$. K$^+$ "leaks" out through K2P (two-pore domain) leak channels; uncovered negative charges on impermeable intracellular proteins (Donnan effect) and the electrogenic Na$^+$/K$^+$ pump (net export of +1 charge per cycle) contribute the remainder.
 
@@ -573,28 +573,28 @@ I_i = z_i F P_i \frac{z_i F V_m / RT}{1 - \exp(-z_i F V_m / RT)} \left( [C_i]_\t
 \end{equation}
 
 
-At the resting membrane potential, the *net* current must be zero: $\sum_i I_i = 0$. Solving this for K$^+$, Na$^+$, and Cl$^-$ (and treating Cl$^-$ as monovalent anion) algebraically yields the GHK voltage equation \cref{eq:unit_II_ghk}. \cref{fig:unit_II_ghk_permeability} shows how depolarization tracks relative Na$^+$ permeability when K$^+$ permeability is held fixed and Cl$^-$ permeability is varied. The key conceptual takeaways are: (i) the membrane potential is a *weighted log average* of the Nernst potentials, with weights set by permeability; (ii) the ion with the highest permeability dominates; (iii) shifts in permeability ratios (e.g., during the action potential) produce predictable shifts in $V_m$.
+For the specified passive monovalent-ion model, the constant-field current relations and zero summed current yield \cref{eq:unit_II_ghk}; no additional electrogenic pump current is included. The voltage is the logarithm of a ratio of permeability-weighted concentration sums, with the chloride concentrations reversed relative to cations. It is not a permeability-weighted average of individual Nernst voltages, and permeability is not conductance. Both concentrations and permeability ratios matter. \cref{fig:unit_II_ghk_permeability} varies those ratios under the stated reference conditions rather than predicting every cell's resting or action-potential voltage.
 
 ## Worked Example: Goldman Equation
 
-*Problem:* Calculate $V_m$ at 37 degrees C given relative permeabilities $P_K : P_{Na} : P_{Cl}$ = 1.0 : 0.04 : 0.45 and the ion concentrations in the table above.
+*Problem:* Calculate $V_m$ at 310 K (36.85 °C, approximately 37 °C) given relative permeabilities $P_K:P_{Na}:P_{Cl}=1.0:0.04:0.45$ and the ion concentrations in the table above. Use the source model's rounded constants $R=8.314$ J mol$^{-1}$ K$^{-1}$ and $F=96485$ C mol$^{-1}$.
 
 *Solution:*
 
 \begin{equation}
-V_m = 26.7 \; \text{mV} \times \ln \frac{(1.0)(5) + (0.04)(145) + (0.45)(4)}{(1.0)(140) + (0.04)(12) + (0.45)(110)}
+V_m = \frac{RT}{F}\times1000\ln\frac{(1.0)(5)+(0.04)(145)+(0.45)(4)}{(1.0)(140)+(0.04)(12)+(0.45)(110)}\;\text{mV}
 \label{eq:unit_II_membrane_transport_item_22}
 \end{equation}
 
 
 \begin{equation}
-V_m = 26.7 \times \ln \frac{5.0 + 5.8 + 1.8}{140 + 0.48 + 49.5} = 26.7 \times \ln \frac{12.6}{190.0}
+V_m = \frac{(8.314)(310)}{96485}\times1000\ln\frac{5.0+5.8+1.8}{140+0.48+49.5}=\frac{(8.314)(310)}{96485}\times1000\ln\frac{12.6}{189.98}\;\text{mV}
 \label{eq:unit_II_membrane_transport_item_23}
 \end{equation}
 
 
 \begin{equation}
-V_m = 26.7 \times \ln(0.0663) = 26.7 \times (-2.71) = -72.4 \; \text{mV}
+V_m\approx-72.48\;\text{mV}\approx-72.5\;\text{mV}\quad\text{(rounding only at the end)}
 \label{eq:unit_II_membrane_transport_item_24}
 \end{equation}
 
@@ -603,7 +603,7 @@ This is close to the experimentally measured [**resting potential**](#gl:resting
 
 > **Concept Check 4:** During an action potential, the permeability to Na$^+$ increases ~500-fold (from $P_{Na}/P_K$ = 0.04 to ~20). Using the Goldman equation, predict what happens to $V_m$. Why does the membrane potential approach but not quite reach $E_{Na}$?
 
-> **Worked Example --- Electrochemical Gradient and Transport Energetics:** The Na⁺/K⁺-ATPase pumps 3 Na⁺ out and 2 K⁺ in per ATP hydrolyzed. Given: [Na⁺]_out = 145 mM, [Na⁺]_in = 12 mM, [K⁺]_out = 4 mM, [K⁺]_in = 140 mM, V_m = -70 mV, T = 37°C. Calculate the free energy for transporting 3 Na⁺ out: ΔG(Na⁺, 3 ions) = 3[RT ln([Na⁺]_in/[Na⁺]_out) + zFV_m] = 3[8.314 × 310 × ln(12/145) + 1 × 96485 × (-0.070)] = 3[(-6250) + (-6754)] = 3 × (-13004) ≈ -39 kJ/mol summed for the inward (downhill) electrochemical drop --- equivalently, the *uphill* cost of pushing 3 Na⁺ out against this gradient is +39 kJ/mol. For 2 K⁺ in: ΔG(K⁺, 2 ions) = 2[RT ln([K⁺]_out/[K⁺]_in) + zFV_m] = 2[8.314 × 310 × ln(4/140) + (-6754)] = 2[(-9510) + (-6754)] = 2 × (-16264) ≈ -32.5 kJ/mol downhill, so the uphill cost of importing 2 K⁺ is +32.5 kJ/mol. Total uphill work per cycle: 39 + 32.5 = 71.5 kJ/mol. ATP hydrolysis under cellular conditions yields ΔG ≈ -50 to -60 kJ/mol --- which barely covers the work. Resolution: the textbook stoichiometry (3 Na⁺/2 K⁺/1 ATP) is precisely matched to keep the pump near thermodynamic balance under physiological gradients, so small rises in [Na⁺]_in (or membrane depolarization that reduces V_m's contribution to Na⁺ extrusion) dramatically slow or reverse the pump --- the basis of cardiac glycoside toxicity and ischemic Na⁺ overload.
+> **Worked Example — Pump work:** Define Vm=psi_in-psi_out=-0.070 V, T=310 K, Na_out/in=145/12 mM and K_in/out=140/4 mM. For one Na outward, work=RT ln(145/12)-FVm, about 13.18 kJ/mol. For one K inward, work=RT ln(140/4)+FVm, about 2.41 kJ/mol. Summing three Na and two K using unrounded terms gives about 44.35 kJ/mol per cycle, below a supplied ATP hydrolysis magnitude of 50–60 kJ/mol. Net outward charge is +1, but chemical work includes all five ions. Reversal depends on ATP/ADP/Pi activities and both gradients; this arithmetic alone does not explain glycoside toxicity.
 
 > **Concept Check (Synthesis):** The CFTR channel, mutated in cystic fibrosis, is a Cl⁻ channel gated by ATP binding/hydrolysis --- making it unique among ion channels. The ΔF508 mutation (deletion of Phe508 in NBD1) causes protein misfolding and ER retention. (a) CFTR gating requires ATP binding to two nucleotide-binding domains (NBDs) --- the channel opens when two ATP molecules are bound and closes when one is hydrolyzed. Sketch the thermodynamic cycle of gating and identify which step is rate-limiting for channel open time. (b) Potentiators (e.g., ivacaftor) increase channel open probability; correctors (e.g., lumacaftor) improve folding. For ΔF508 patients, why is a combination therapy superior to either alone? (c) At the mucosal surface of the lung: if Cl⁻ secretion through CFTR is reduced by 50%, predict the directional change in airway surface liquid (ASL) volume and explain why this promotes *Pseudomonas* biofilm colonization.
 
@@ -620,11 +620,11 @@ While the Nernst and Goldman equations describe resting membrane potential, the 
 
 2. **[Depolarization](#gl:depolarization) to threshold** (~-55 mV): Graded potentials (e.g., from synaptic input) depolarize the membrane. If threshold is reached, voltage-gated Na$^+$ channels (Na$_V$1.x) open rapidly (activation gate).
 
-3. **Rising phase** (depolarization): Na$^+$ influx drives $V_m$ toward $E_{Na}$ (+63 mV). Positive feedback: depolarization opens more Na$^+$ channels. This is the Hodgkin-Huxley regenerative cycle.
+3. **Rising phase** (depolarization): Na$^+$ entry drives $V_m$ toward $E_{Na}$ (+66.6 mV for the fixed concentrations above). Positive feedback: depolarization opens more Na$^+$ channels. This is the Hodgkin–Huxley regenerative cycle.
 
 4. **Overshoot:** $V_m$ briefly exceeds 0 mV (typically reaches +30 to +40 mV but does not reach $E_{Na}$ because Na$^+$ channel inactivation begins).
 
-5. **Repolarization:** Na$^+$ channel inactivation (ball-and-chain mechanism, h-gate) closes channels within ~1 ms. Voltage-gated K$^+$ channels (K$_V$, delayed rectifier) open slowly, allowing K$^+$ efflux, driving $V_m$ back toward $E_K$.
+5. **Repolarization:** Fast Na$^+$-channel inactivation reduces inward current; the Hodgkin–Huxley $h$ variable is phenomenological, not a literal pore-blocking ball. Structural and electrophysiological work supports IFM-linked conformational gating in mammalian Na$_V$ channels \citep{liu2023inactivation}. Delayed-rectifier K$^+$ channels open more slowly, allowing K$^+$ efflux and driving $V_m$ back toward $E_K$.
 
 6. **Undershoot (afterhyperpolarisation):** K$^+$ channels remain open transiently, overshooting below resting potential (~ -80 mV). K$^+$ channels then close, and $V_m$ returns to rest.
 
@@ -644,7 +644,7 @@ where $m$ = Na$^+$ activation variable, $h$ = Na$^+$ inactivation variable, $n$ 
 
 ### Saltatory Conduction Along Myelinated Axons
 
-In myelinated axons, myelin sheaths (formed by Schwann cells in PNS, oligodendrocytes in CNS) insulate the axon, reducing membrane capacitance. Action potentials "jump" between **nodes of Ranvier** (gaps in myelin where Na$^+$ channels are concentrated at ~1,000/um$^2$). This increases conduction velocity from ~1 m/s (unmyelinated C fibers) to ~120 m/s (large myelinated A-alpha fibers).
+In myelinated axons, Schwann cells in the PNS or oligodendrocytes in the CNS provide sheaths that increase membrane resistance and reduce effective internodal capacitance. Propagating spikes regenerate at nodes of Ranvier, where voltage-gated Na$^+$ channels are concentrated, while current spreads through intervening internodes. Numerical density and velocity comparisons need a specified preparation rather than being universal consequences of myelination. See \cref{sec:unit_IX_action_potential_synapses}.
 
 > **Clinical Connection: Multiple Sclerosis and Demyelination**
 > Multiple sclerosis (MS) is an autoimmune disease in which T cells and antibodies attack CNS myelin. Demyelination exposes K$^+$ channels normally under the myelin sheath, causing K$^+$ leakage and conduction block. Symptoms include visual disturbances, motor weakness, and sensory abnormalities. The drug 4-aminopyridine (dalfampridine) blocks exposed K$^+$ channels and partially restores conduction, improving walking ability in MS patients.

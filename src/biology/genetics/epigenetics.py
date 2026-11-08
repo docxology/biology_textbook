@@ -2,16 +2,29 @@
 
 from __future__ import annotations
 
+import math
+
 
 def cpg_methylation_remaining(
     initial_methylation: float,
     divisions: int,
     maintenance_efficiency: float,
 ) -> float:
-    """Return CpG methylation remaining after ``divisions`` cell cycles."""
+    """Fraction of methylated cytosines after semiconservative replication.
+
+    Each old methylated cytosine is retained and its new partner is methylated
+    with the given efficiency. No de-novo methylation or active removal:
+    f[n+1] = f[n] * (1 + efficiency) / 2.
+    """
+    if isinstance(divisions, bool) or not isinstance(divisions, int):
+        raise TypeError("divisions must be a non-negative integer.")
     if divisions < 0:
-        raise ValueError("Number of divisions cannot be negative.")
-    return initial_methylation * (maintenance_efficiency**divisions)
+        raise ValueError("divisions must be a non-negative integer.")
+    if not math.isfinite(initial_methylation) or not 0 <= initial_methylation <= 1:
+        raise ValueError("initial_methylation must be finite and in [0, 1].")
+    if not math.isfinite(maintenance_efficiency) or not 0 <= maintenance_efficiency <= 1:
+        raise ValueError("maintenance_efficiency must be finite and in [0, 1].")
+    return initial_methylation * ((1.0 + maintenance_efficiency) / 2.0) ** divisions
 
 
 def histone_modification_state(mark: str) -> str:

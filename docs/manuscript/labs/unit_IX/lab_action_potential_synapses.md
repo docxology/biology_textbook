@@ -1,187 +1,108 @@
 # Lab — Action Potentials and Synaptic Transmission {#sec:lab_unit_IX_action_potential_synapses .unnumbered}
 
+*This activity accompanies \cref{sec:unit_IX_action_potential_synapses}.*
 
 ## Learning Objectives {.unnumbered}
 
-*This activity accompanies \cref{sec:unit_IX_action_potential_synapses} of the textbook — review that chapter before attempting the exercises below.*
-
-- Analyze a compound action potential (CAP) recording from a nerve preparation to distinguish A, B, and C fiber types
-- Simulate quantal neurotransmitter release and calculate mean quantal content
-- Model the effect of GABA-A receptor modulation by benzodiazepines vs barbiturates
-- Evaluate synaptic plasticity mechanisms using an LTP induction protocol dataset
-
+- Compute CAP conduction velocities.
+- Compare empirical quantal statistics with specified models.
+- Calculate GABA conductance currents and shunting.
+- Evaluate replicated input-specific plasticity.
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Action Potentials and Synaptic Transmission.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO4):** Compute CAP conduction velocities.
+- **Outcome 2 (LO5):** Compare empirical quantal statistics with specified models.
+- **Outcome 3 (LO6):** Calculate GABA conductance currents and shunting.
+- **Outcome 4 (LO7):** Evaluate replicated input-specific plasticity.
+
+
+
+: Alignment and evidence-specific scoring. {#tbl:unit_IX_action_potential_synapses_alignment_and_rubric_map}
+| Dimension | 4-point evidence requirement |
+| --- | --- |
+| Evidence | velocity/quantal/current/LTP computations |
+| Controls | blank, paired pathway, AP5 and no-HFS controls |
+| Uncertainty | release assumptions, threshold and three-slice limitations |
+| Mechanism | driving force, conductance and NMDA-receptor plasticity mechanisms |
+| Transfer | timing-specific experiment and evidence-limited safety argument |
+
+Each dimension is worth 4 points (total 20): award 4 for a correct supported response, 2 for a partially correct response with an important omission, 1 for a relevant but unsupported assertion, and 0 for absent/incorrect work. The evidence column states the actual product required, not a generic participation criterion.
 <!-- lab-alignment-end -->
-## Pre-Lab Concept Questions {.unnumbered}
 
-*Answer these before starting the investigation — they activate knowledge from the parent chapter.*
+## Lab Context {.unnumbered}
 
-1. Using the Nernst equation E = (RT/zF) ln([ion]out/[ion]in), calculate the equilibrium potential for K⁺ at body temperature (T = 310 K, R = 8.314 J/mol·K, F = 96485 C/mol, z = +1) given [K⁺]in = 140 mM and [K⁺]out = 5 mM. Show the sign of the result and explain in one sentence why a resting neuron sits near (but not exactly at) this value.
-2. During the rising phase of an action potential, which ion's membrane permeability changes most, and in which direction? Describe in two sentences how voltage-gated channel kinetics produce this change.
-3. State one functional difference between an EPSP and an IPSP at the level of postsynaptic membrane conductance, and predict how each would shift the probability of reaching threshold at the axon hillock.
-
-## Lab Context: Action Potentials and Synaptic Transmission {.unnumbered}
-
-Synaptic transmission involves vesicle fusion (Ca²⁺-triggered SNARE complex assembly), neurotransmitter diffusion across the synaptic cleft, and receptor binding on the postsynaptic membrane. Release is quantal: the minimum unit is the vesicle (one quantum, ~5,000 molecules). The mean quantal content (m̄) can be estimated by the Poisson failure method: m̄ = ln(N/F₀) where N = total trials and F₀ = failures. Long-term potentiation (LTP) at Schaffer collateral → CA1 synapses requires NMDA receptor-mediated Ca²⁺ influx and CaMKII autophosphorylation.
-
-The quantal-analysis worked example in the parent chapter (\cref{sec:unit_IX_action_potential_synapses}) derives quantal content $m = \bar{\text{EPP}} / \bar{\text{mEPP}}$ and uses Poisson statistics to compute failure probability: at $m = 2$, $P(\text{failure}) = e^{-2} \approx 13.5\%$. This lab dataset provides quantal-release trials from which students compute $m$ using both the ratio method and the Poisson failure method and then compare the two.
+All recordings below are synthetic. CAPs are population signals; release models have distinct assumptions.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IX_action_potential_synapses_alignment_and_rubric_map}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Action Potentials and Synaptic Transmission: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
-| Compound action potential trace (printed: 3 peaks corresponding to Aα, Aδ, C fibers with time and conduction velocity axes) | 1 |
-| Quantal release dataset (printed: 100 stimulus trials, number of quanta released each trial, count of failures) | 1 |
-| GABA-A receptor pharmacology worksheet | 1 |
-| LTP induction dataset (EPSP slope before/after high-frequency stimulation; two conditions: control and AP5-treated) | 1 |
-| Calculator | 1 |
-| Graph paper or spreadsheet template | 1 |
+Print this entire packet including its supplied tables; use paper, pencil and a calculator. Graph paper is optional. Everything needed for the core investigation is printed below. Optional code or literature links are not required observations.
+
+## Supplied Evidence Packet {.unnumbered}
+
+
+: CAP and quantal packet. {#tbl:unit_IX_action_potential_synapses_alignment_and_rubric_map_2}
+| Record | Data | Control |
+| --- | --- | --- |
+| Electrode separation | 30 mm | common stimulus/recording delay subtracted |
+| Fast peak | 0.29/0.30/0.31 ms in independent preparations | saline blank lacks a peak |
+| Intermediate | 2.9/3/3.1 ms | same geometry |
+| Slow | 29/30/31 ms | same geometry |
+| Histogram | quanta 0, 1, 2, 3, 4, 5; counts 8, 20, 30, 25, 12, 5 | 100 independent stimuli, stable detection |
+| Sites | $n=15$ identical independent sites hypothesized; $q=0.5$ mV | linear summation assumed |
+
+
+: GABA current inputs. {#tbl:unit_IX_action_potential_synapses_alignment_and_rubric_map_3}
+| Condition | Conductance (nS) | Vm (mV) | ECl (mV) |
+| --- | --- | --- | --- |
+| Control | 10 | -60 | -70 |
+| Benzodiazepine illustration | 15 | -60 | -70 |
+| Barbiturate illustration | 20 | -60 | -70 |
+| At reversal | 20 | -70 | -70 |
+| Depolarized chloride gradient | 10 | -70 | -50 |
+
+
+: LTP normalized fEPSP slopes. {#tbl:unit_IX_action_potential_synapses_packet_4}
+| Group | Baseline at −10/−5 min | At 30 min, slices 1/2/3 | At 45 min | At 60 min |
+| --- | --- | --- | --- | --- |
+| HFS pathway | 100/100 | 145/150/155 | 143/148/153 | 140/145/150 |
+| Unstimulated pathway, same slices | 100/100 | 99/100/101 | 100/101/99 | 100/99/101 |
+| HFS plus AP5, independent slices | 100/100 | 99/100/101 | 98/100/102 | 99/100/101 |
+| No HFS, independent slices | 100/100 | 100/101/99 | 99/100/101 | 98/100/102 |
+
+Reference rules: speed = distance/latency. Larger myelinated fibers generally conduct faster than small unmyelinated fibers, but CAP speed alone does not identify a unique species-specific fiber class. For histogram value $k$ with count $n_k$, use mean $=\sum k n_k/100$ and population variance $=\sum k^2 n_k/100-\mathrm{mean}^2$. Poisson has mean $m$ and $P_0=\exp(-m)$; a homogeneous finite-binomial model has mean $15p$ and $P_0=(1-p)^{15}$. A Hebbian timing rule potentiates a specified input when presynaptic activity precedes postsynaptic firing; an anti-Hebbian rule reverses that sign under the same timing protocol. Flumazenil antagonizes benzodiazepine-site effects but can precipitate seizures in dependence or certain mixed/cyclic-antidepressant overdoses; absence of co-ingestion and dependence evidence does not establish universal rescue safety. No dose or administration follows from this card.
 
 ## Paper-Based Investigation {.unnumbered}
 
-**Part A — Compound Action Potential Analysis**
-
-1. From the CAP trace, identify the three peaks (Aα, Aδ, C fiber). Measure the latency of each peak from the stimulus artifact.
-2. Given the distance from electrode to nerve (30 mm), calculate conduction velocity for each peak (velocity = distance/time).
-3. Compare your calculated values to known conduction velocities (Aα: 70–120 m/s; Aδ: 5–30 m/s; C: 0.5–2 m/s).
-
-**Part B — Quantal Analysis Simulation**
-
-4. From the dataset (100 trials, F₀ = 8 failures): calculate m̄ by Poisson failure method (m̄ = ln(100/8) = ln(12.5)).
-5. Also calculate m̄ by direct count method (m̄ = total quanta released / 100 trials).
-6. Estimate release probability: p̄ = m̄/n (where n = total available release sites, given as 15).
-
-**Part C — GABA-A Pharmacology**
-
-7. From the worksheet, benzodiazepines increase the **frequency** of Cl⁻ channel opening; barbiturates increase **duration** of Cl⁻ channel opening (at low concentration) and open channels directly (at high concentration). On the I-V plot provided, annotate the effect of each drug class on Cl⁻ current.
-
-**Part D — LTP Dataset**
-
-8. Plot EPSP slope (% baseline) vs time (minutes) for control and AP5-treated groups before and after high-frequency stimulation (HFS at t=0).
-9. Calculate the LTP magnitude: (mean EPSP slope 30–60 min post-HFS / mean EPSP slope 10 min pre-HFS) × 100%.
-10. Reproducibility check: record the baseline window, post-HFS window, and any outlier rule before calculating LTP magnitude.
+1. Compute speeds at mean latencies and means of individual speeds; explain their difference. Relate peaks to fiber classes with species/diameter qualifications.
+2. Calculate histogram mean, population variance and failure fraction. Compare the empirical mean with Poisson $m=-\ln P_0$. For 15 sites, report empirical $p=\mathrm{mean}/15$ and the Poisson-based approximation $p=m/15$; contrast these with exact binomial $p=1-P_0^{1/15}$. Evaluate heterogeneity, detection and independence alternatives rather than declaring a best model from one mismatch.
+3. Calculate outward-positive $I=g(V_m-E_{Cl})$ in pA. Explain zero current versus nonzero conductance and shunting. Effective conductance values are illustrative, not drug doses or unique kinetic signatures.
+4. Calculate the 60-min LTP mean and sample SD. Compare the paired unstimulated pathway, AP5 and no-HFS controls. Design a pre/post timing-order test distinguishing Hebbian from anti-Hebbian plasticity; acute LTD is not chronic homeostatic scaling.
+5. Evaluate a proposed universal flumazenil rescue in mixed overdose: identify dependence/co-ingestion evidence and seizure risk. No dosing or administration.
 
 ## Data Recording {.unnumbered}
 
-: Alignment and Rubric Map: Fiber type and Latency (ms). {#tbl:unit_IX_action_potential_synapses_alignment_and_rubric_map_2}
-| Fiber type | Latency (ms) | Conduction velocity (m/s) | Expected range |
-| ---------- | ------------ | -------------------------- | -------------- |
-| Peak 1 (Aα) | | | 70–120 m/s |
-| Peak 2 (Aδ) | | | 5–30 m/s |
-| Peak 3 (C) | | | 0.5–2 m/s |
-
-Quantal analysis: F₀ = 8; N = 100
-m̄ (Poisson) = ln(100/8) = ___
-m̄ (direct count) from data = ___
-p̄ = m̄/n (n=15) = ___
-
-LTP magnitude: Control = ___%; AP5-treated = ___%
-
-Reproducibility check: baseline window = ___; post-HFS window = ___; outlier rule = ___
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Model excitability and synaptic response under changed ion or channel conditions.
-- **Data skill to practice:** Interpret voltage traces, conductance changes, and synaptic perturbations.
-- **BioSkills emphasis:** Modeling and simulation, Quantitative reasoning, Science and society.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+For each task record: given inputs with units; equation/assumption; intermediate arithmetic; result with units; replicate identifier; comparison/control; and one limitation. Draw graphs with labeled axes and retain individual observations rather than only a fitted line. Report range or sample SD where replicates are supplied; do not invent confidence intervals from absent data.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Action Potentials and Synaptic Transmission** with a reproducibility pass:
+For n=10 and q=.5 mV, EPSP≥6 mV is impossible because the finite maximum is 5 mV. Check this before any Poisson or Gaussian approximation.
 
-: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_IX_action_potential_synapses_alignment_and_rubric_map_3}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
+## Analysis and Submission {.unnumbered}
 
-Focus note: in this lab, treat each excitability or transmission claim as a timing argument: ask which trace, latency, or quantal statistic supports it, and whether the conduction-velocity or release estimate would survive a change in fiber type, temperature, or release-probability heterogeneity. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
+Submit labeled diagrams and calculations for every numbered investigation task, a concise results table or graph, and a claim–evidence–mechanism paragraph. Close with the strongest alternative explanation, a discriminating control, and a transfer decision whose assumptions are explicit. Clearly distinguish synthetic observations from cited biological mechanisms.
 
-### Worked Example: Nernst Potential for Na+ at 37 C {.unnumbered}
+## Safety and Ethics {.unnumbered}
 
-**Problem:** A neuron rests near -70 mV. During the rising phase of an action potential, voltage-gated Na⁺ channels open and Na⁺ conductance rises roughly 500-fold relative to K⁺ conductance. Using the Nernst equation E = (RT/zF) ln([ion]out/[ion]in), calculate the equilibrium potential for Na⁺ given [Na⁺]in = 15 mM, [Na⁺]out = 145 mM, T = 310 K, R = 8.314 J/mol·K, F = 96485 C/mol, z = +1. Then explain in Goldman-equation terms why peak depolarization approaches — but does not quite reach — E_Na.
+This is a paper-only exercise. Do not collect human/animal specimens, administer drugs, conduct stimulation or release organisms. Synthetic clinical-style patterns are not diagnoses or treatment advice. Respect source attribution, participant privacy, local rights and ecological uncertainty.
 
-**Solution:** The prefactor RT/F at 310 K equals (8.314 × 310)/96485 ≈ 0.0267 V, or about 26.7 mV. The natural log of (145/15) is ln(9.667) ≈ 2.269. Multiplying gives E_Na ≈ 26.7 mV × 2.269 ≈ 60.6 mV. Reported as approximately +60 to +62 mV depending on rounding.
+<!-- SOLUTION
+### Instructor Worked Key {.unnumbered}
 
-**Interpretation:** The Goldman–Hodgkin–Katz equation weights each ion's contribution to Vm by its relative permeability. When Na⁺ permeability dominates, Vm shifts toward E_Na; residual K⁺ and Cl⁻ permeabilities pull Vm back somewhat, so peak depolarization typically reaches roughly +30 to +40 mV rather than +60 mV. Membrane voltage approaches the equilibrium potential of the dominant ion, weighted by the other permeabilities that remain non-zero.
+Speeds at mean latencies are 100, 10 and 1 m/s. Mean quantal count is 2.28, $E[k^2]=6.82$ and population variance is 1.6216 (sample variance approximately 1.6380). $P_0=0.08$ gives Poisson $m=2.52573$ and $p=m/15=0.168382$, versus empirical $p=0.152$. Currents are 100, 150, 200, 0 and −200 pA. Reversal removes driving force, not conductance. The HFS 60-min mean is 145%, with sample SD 5 percentage points; other means are 100%. A slice is the independent replicate; pathways within it are paired. Poisson requires small independent release probabilities; a finite-binomial model at larger $p$ has a finite bound and variance $np(1-p)$. Flumazenil can precipitate seizures with benzodiazepine dependence or certain mixed/cyclic-antidepressant overdoses; clinical indication and label warnings matter \citep{fda2025flumazenil}.
 
-### Source-Governance Checkpoint {.unnumbered}
+Means of the three individual speeds are approximately 100.0742, 10.00742, 1.000742 m/s, slightly above speeds at mean latency because inversion is nonlinear. The failure-based exact binomial p=1−.08^(1/15) is distinct from the Poisson approximation. At empirical p=.152, the homogeneous-binomial variance 15p(1−p)=1.93344 exceeds the observed 1.6216; this discrepancy alone does not select a unique explanation. HFS raises the 60 min slope by 45 percentage points above 100% baseline; AP5 blocks that effect in this synthetic comparison but does not prove every form of plasticity requires NMDARs.
 
-Complete the source-governance card for Action Potentials and Synaptic Transmission before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
-
-## Analysis Questions {.unnumbered}
-
-1. C fibers (unmyelinated) have much slower conduction velocities than Aα fibers (myelinated). Using your cable property knowledge from Lab 29, explain the molecular basis for this difference.
-2. The two methods for calculating m̄ gave similar but not identical answers. Which method is more reliable when there is heterogeneity in release probabilities across synapses? Explain the statistical assumption violated by each method.
-3. A patient given a benzodiazepine (e.g., diazepam) overdose can be treated with flumazenil (a competitive benzodiazepine antagonist). Explain why flumazenil doesn't cause seizures on its own even though it fully blocks GABA-A modulation, while complete GABA-A inhibition by bicuculline does cause seizures.
-4. AP5 (an NMDA receptor antagonist) blocked LTP induction. Explain the molecular events from NMDA receptor opening to CaMKII autophosphorylation to AMPA receptor insertion (at least 5 steps).
-5. Ketamine is an NMDA receptor open-channel blocker used as an anaesthetic and, at sub-anaesthetic doses, as a rapid antidepressant. Propose a mechanism by which blocking NMDA receptors could relieve depression — consider what happens to synaptic strength in GABAergic interneurons when their NMDA receptors are blocked.
-
-
-## Post-Lab Synthesis {.unnumbered}
-
-> **Concept Check (Synthesis):** Evaluate how a toxin that prevents voltage-gated K⁺ channels from opening during the repolarization phase would reshape neuronal signaling.
->
-> (a) Predict how the action potential waveform itself would change — describe expected effects on peak amplitude, repolarization rate, and absolute refractory period, and tie each prediction to the underlying conductance change.
-> (b) Trace the downstream consequence at a chemical synapse: how would prolonged depolarization at the presynaptic terminal affect voltage-gated Ca²⁺ channel inactivation, vesicle release probability, and the magnitude of the postsynaptic response? Identify one prediction that could be empirically tested with the lab's quantal-analysis approach.
-
-## Safety and Ethics Notes {.unnumbered}
-
-Data-analysis and simulation primarily — no chemical or biological hazards. Discussions of neuropharmacology (drug mechanisms) should be factual and clinical in tone.
-
-## Debrief and Reflection {.unnumbered}
-
-After you finish the practical work, spend 5–10 minutes in your small group
-comparing results and discussing the following prompts. Each member should
-contribute at least one observation before moving to the next prompt:
-
-1. **What did your measurements show** — compare the group's results to
-   the textbook's predictions. Where they diverge, suggest at least one
-   mechanistic explanation before concluding "experimental error."
-2. **What would change the outcome** — propose one modification to the
-   procedure that would sharpen the measurement or extend the result to a
-   new biological context, and predict what you would observe.
-3. **One-sentence headline** — each student composes a single sentence
-   summarizing the lab's take-home message, suitable for a tweet. Compare
-   sentences across groups; good headlines are short, quantitative, and
-   mechanistic.
-4. **Connection back to the textbook** — identify one section of
-   \cref{sec:unit_IX_action_potential_synapses} that your data either confirmed or
-   complicated. Cite the specific passage.
-
-## Further Reading (Lab) {.unnumbered}
-
-- Revisit the parent chapter \cref{sec:unit_IX_action_potential_synapses} for the theoretical
-  foundations on which this lab is built.
-- Look up any **bolded glossary term** introduced in the textbook chapter
-  (each has a `#gl:term-slug` link in the text) — its master
-  definition is in `docs/manuscript/glossary.md`.
-- Explore the appended `src/` module that implements the corresponding
-  quantitative model (when applicable) — referenced in the parent
-  chapter's "Bridge to Computation" subsection.
-
-*Module footer: parent chapter `\cref{sec:unit_IX_action_potential_synapses}`; all numerical
-quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
-unit conversions and biological-scale reference values.*
+Accept equivalent correctly bounded reasoning. Check the complete working, units, control logic and uncertainty—not agreement with a preferred narrative.
+-->

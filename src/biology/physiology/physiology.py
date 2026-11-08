@@ -71,6 +71,9 @@ def poiseuille_flow(
 
     Q = π r⁴ ΔP / (8 η L)
 
+    Assumes steady laminar Newtonian flow in a rigid straight circular tube.
+    A turbulent flag marks an extrapolation of this law, not a turbulent solver.
+
     Args:
         pressure_difference_Pa: ΔP across vessel length (Pa).
         radius_m: Vessel radius (m).
@@ -83,6 +86,8 @@ def poiseuille_flow(
     Raises:
         ValueError: If radius or length are non-positive, or viscosity ≤ 0.
     """
+    if not all(math.isfinite(v) for v in (pressure_difference_Pa, radius_m, length_m, viscosity_Pa_s)):
+        raise ValueError("Flow parameters must be finite.")
     if radius_m <= 0:
         raise ValueError("radius_m must be positive.")
     if length_m <= 0:
@@ -96,7 +101,7 @@ def poiseuille_flow(
     # Reynolds number: Re = ρ v D / η; mean velocity v = Q / (π r²)
     density_kg_m3 = 1060.0  # blood density
     mean_velocity = Q / (math.pi * radius_m**2) if radius_m > 0 else 0.0
-    Re = (density_kg_m3 * mean_velocity * 2 * radius_m) / viscosity_Pa_s
+    Re = (density_kg_m3 * abs(mean_velocity) * 2 * radius_m) / viscosity_Pa_s
 
     regime = "laminar" if Re < 2300 else "turbulent"
     logger.debug(f"Poiseuille: Q={Q_mL_min:.2f} mL/min, Re={Re:.1f}, {regime}")
@@ -133,6 +138,8 @@ def oxygen_saturation(
     Raises:
         ValueError: If pO2 < 0 or p50 ≤ 0 or n ≤ 0.
     """
+    if not all(math.isfinite(v) for v in (pO2_mmHg, p50_mmHg, hill_coefficient)):
+        raise ValueError("Oxygen-binding parameters must be finite.")
     if pO2_mmHg < 0:
         raise ValueError("pO2_mmHg must be non-negative.")
     if p50_mmHg <= 0:
@@ -144,9 +151,11 @@ def oxygen_saturation(
         return RespiratoryResult(pO2_mmHg=0.0, saturation=0.0, p50_mmHg=p50_mmHg)
 
     n = hill_coefficient
-    pO2_n = pO2_mmHg**n
-    p50_n = p50_mmHg**n
-    sat = pO2_n / (p50_n + pO2_n)
+    if pO2_mmHg <= p50_mmHg:
+        ratio_n = (pO2_mmHg / p50_mmHg) ** n
+        sat = ratio_n / (1.0 + ratio_n)
+    else:
+        sat = 1.0 / (1.0 + (p50_mmHg / pO2_mmHg) ** n)
     logger.debug(f"O2 sat at pO2={pO2_mmHg}: {sat:.4f}")
     return RespiratoryResult(pO2_mmHg=pO2_mmHg, saturation=sat, p50_mmHg=p50_mmHg)
 
@@ -166,6 +175,10 @@ def oxygen_dissociation_curve(
     Returns:
         List of RespiratoryResult.
     """
+    if not isinstance(n_points, int) or isinstance(n_points, bool):
+        raise TypeError("n_points must be a positive integer.")
+    if not math.isfinite(max_pO2) or max_pO2 < 0:
+        raise ValueError("max_pO2 must be finite and non-negative.")
     if n_points <= 0:
         raise ValueError("n_points must be positive.")
     step = max_pO2 / n_points
@@ -196,6 +209,10 @@ def homeostasis_response(
     Returns:
         HomeostasisResult with error and corrective response.
     """
+    if not all(math.isfinite(v) for v in (set_point, measured_value, gain, tolerance)):
+        raise ValueError("Controller parameters must be finite.")
+    if gain < 0 or tolerance < 0:
+        raise ValueError("gain and tolerance must be non-negative.")
     error = measured_value - set_point
     correction = -gain * error
     within = abs(error) <= tolerance

@@ -61,7 +61,7 @@ paper-based lab decision.
 ## Chapter Roadmap {.unnumbered}
 
 ```mermaid
-graph LR
+graph TD
     C1["Systems Science<br/>and the Logic<br/>of Emergence"] --> C2["Complex Adaptive<br/>Systems"]
     C2 --> C3["Active Inference<br/>and the Free<br/>Energy Principle"]
     C3 --> C4["History and Philosophy<br/>of Biology"]
@@ -121,4 +121,4 @@ Each concrete chapter later in the textbook either uses one of these helpers or 
 
 ## Cross-Unit Integration {.unnumbered}
 
-\nameref{sec:unit_0_unit_intro} closes by foreshadowing the chemistry to come. The thermodynamic gradients, feedback regulation, and emergent-property arguments you just met are not abstract — they will reappear in \nameref{sec:unit_I_unit_intro} as the physical reason why proteins fold spontaneously, why enzymes shift activation-energy landscapes without changing equilibria, and why membrane lipids self-assemble into bilayers without any genetic "instruction." The free-energy minimization framework that organized this unit's discussion of active inference is the same Gibbs free energy that determines whether a covalent bond forms or hydrolyzes. When you encounter \nameref{sec:unit_I_unit_intro}'s chemistry, read it not as a separate vocabulary but as the molecular substrate where the systems principles of \nameref{sec:unit_0_unit_intro} are first realized in matter.
+Gradients, feedback and emergence reappear in \nameref{sec:unit_I_unit_intro} as chemical mechanisms. Gibbs free energy has energy units and determines chemical equilibrium under specified conditions. Variational free energy in active inference is an information-theoretic functional, commonly expressed in nats; its minimization is not the same physical process. The shared name permits a qualified analogy, not an identity or proof that organisms implement a particular inference scheme.

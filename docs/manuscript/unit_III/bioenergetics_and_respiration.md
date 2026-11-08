@@ -27,7 +27,7 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/glycolysis_summary.png}
-\caption{Net ATP and NADH balance across the ten glycolysis steps. Bars distinguish the two ATP-investment steps, the four ATP-yielding payoff steps, and NADH formation at steps 6 and 9; the pathway sums to net 2 ATP and 2 NADH per glucose.}
+\caption{ATP investment occurs at steps 1 and 3; ATP production at steps 7 and 10 occurs twice per glucose. NADH forms at step 6, also twice per glucose. Net yield is 2 ATP and 2 NADH per glucose.}
 \label{fig:unit_III_glycolysis_summary}
 \end{figure}
 
@@ -115,42 +115,42 @@ This is profound: a quantity that depends primarily on the *system* (not the sur
 
 ### Standard Free Energy and Actual Free Energy
 
-The standard free energy change ($\Delta G^{\circ\prime}$) is measured under biochemical standard conditions (1 M concentrations for reactants except H$^+$, [**pH**](#gl:ph) 7.0, 25 degrees C, 1 atm, and water at unit activity). Under cellular conditions (not standard state), $\Delta G$ differs from $\Delta G^{\circ\prime}$:
+The **standard transformed reaction Gibbs energy** $\Delta G^{\circ\prime}$ describes a biochemical reaction at specified temperature, pressure, pH, ionic strength and metal-ion treatment. Names such as ATP denote the corresponding sums of protonation and metal-binding species. pH 7 and approximately 25°C are common reference choices, not the definition of every standard state or universal cellular conditions. Standard values can be inferred from apparent equilibrium constants or thermodynamic formation data; they need not be measured in an actual mixture containing every reactant at 1 M \citep{goldberg2023equilibrium}.
 
 \begin{equation}
 \Delta G = \Delta G^{\circ\prime} + RT \ln Q
 \label{eq:unit_III_bioenergetics_and_respiration_worked_3}
 \end{equation}
 
-where $Q$ = [products]/[reactants] (mass action ratio, reaction quotient).
+Here $Q$ abbreviates the dimensionless apparent biochemical quotient $Q'=\prod_i(c_i/c^\circ)^{\nu_i}$, with $c^\circ=1$ mol/L and positive stoichiometric numbers for products, negative for reactants. Concentrations are the biochemical totals defined by the chosen transformation; the conditional standard energy must match its pH, free-metal treatment and ionic strength. Buffered H$^+$ and metal ions held fixed by that transformation are not independent quotient factors; solvent water is omitted when its activity is approximated as unity. For ATP hydrolysis, $Q=(c_{\mathrm{ADP}}/c^\circ)(c_{\mathrm{P_i}}/c^\circ)/(c_{\mathrm{ATP}}/c^\circ)$. A simple product/reactant ratio applies only to an appropriate 1:1 reaction. For individual chemical species, activities instead have the form $a_j=\gamma_jc_j/c^\circ$; do not apply those activity corrections again to an unmatched concentration-defined apparent constant.
 
-The relationship between $\Delta G^{\circ\prime}$ and the equilibrium constant:
+At equilibrium $Q=K_{eq}$, where $K_{eq}$ here abbreviates the apparent biochemical constant $K'$ under the same concentration convention. All terms must refer to the same temperature and transformation:
 
 \begin{equation}
 \Delta G^{\circ\prime} = -RT \ln K_{eq}
 \label{eq:unit_III_bioenergetics_and_respiration_worked_4}
 \end{equation}
 
-**Standard versus physiological $\Delta G^{\circ\prime}$ for key hydrolysis reactions** (37 °C, pH 7.0, 1 mM Mg$^{2+}$):
+**Selected conventional standard hydrolysis reference values.** These rounded values at pH 7 and approximately 298 K are compiled from earlier reference sources \citep[Table~2]{bettendorff2026transfer}—not seven new measurements or one matched-condition dataset. The compilation does not establish a common ionic strength or free-Mg$^{2+}$ condition. Do not relabel them as cellular $\Delta G$ or use them as a precise state-resolved database. Each shorthand reaction below consumes one H$_2$O, omitted because solvent water is taken at unit activity.
 
-: Standard and physiological free energy changes for selected hydrolysis reactions. {#tbl:unit_III_bioenergetics_and_respiration_standard_free_energy_and_actual_free_energy}
-| Reaction | $\Delta G^{\circ\prime}$ (kJ/mol) | Cellular $\Delta G$ (kJ/mol) | Notes |
-| -------- | --------------------------------- | ---------------------------- | ----- |
-| Phosphoenolpyruvate (PEP) → Pyruvate + P$_i$ | $-61.9$ | about $-65$ | Highest-energy phosphate bond in cells |
-| 1,3-Bisphosphoglycerate → 3-PG + P$_i$ | $-49.3$ | about $-52$ | Drives ATP synthesis at glycolysis step 7 |
-| Phosphocreatine → Creatine + P$_i$ | $-43.0$ | about $-47$ | Muscle ATP buffer (phosphagen) |
-| **ATP → ADP + P$_i$** | **$-30.5$** | **$-50$ to $-54$** | The "energy currency benchmark" |
-| ATP → AMP + PP$_i$ | $-45.6$ | about $-50$ | PP$_i$ further hydrolysed (irreversibility) |
-| Glucose-1-P → Glucose + P$_i$ | $-20.9$ | $-21$ | Low-energy ester |
-| Glucose-6-P → Glucose + P$_i$ | $-13.8$ | $-14$ | Low-energy phosphate ester |
+: Reference hydrolysis energies and biological context, not measured cellular free energies. {#tbl:unit_III_bioenergetics_and_respiration_standard_free_energy_and_actual_free_energy}
+| Reaction | Approximate $\Delta G^{\circ\prime}$ (kJ/mol) | Context |
+| ------------------ | ------------------ | ------------------ |
+| Phosphoenolpyruvate (PEP) → Pyruvate + P$_i$ | $-61.9$ | Phosphoryl-group donor in the pyruvate kinase reaction; hydrolysis free energy is not the energy of breaking one bond |
+| 1,3-Bisphosphoglycerate → 3-PG + P$_i$ | $-49.4$ | Phosphoryl-group donor in the phosphoglycerate kinase reaction |
+| Phosphocreatine → Creatine + P$_i$ | $-43.1$ | Muscle ATP buffer (phosphagen) |
+| **ATP → ADP + P$_i$** | **$-30.5$** | Intermediate standard-state transfer potential in this comparison |
+| ATP → AMP + PP$_i$ | $-45.6$ | α,β hydrolysis/diphosphoryl transfer, not terminal phosphoryl transfer; subsequent PP$_i$ hydrolysis can favor the coupled reaction under appropriate conditions |
+| Glucose-1-P → Glucose + P$_i$ | $-20.9$ | Phosphate-ester reference |
+| Glucose-6-P → Glucose + P$_i$ | $-13.8$ | Phosphate-ester reference |
 
-**Key insight:** ATP sits in the *middle* of this spectrum. It is energetically capable of phosphorylating many low-energy compounds (glucose, F6P) but can itself be re-synthesized from higher-energy intermediates such as PEP and 1,3-BPG. This intermediate position is what makes ATP an effective "energy currency" rather than the highest-potential molecule in the cell.
+**Key insight:** For terminal phosphoryl transfer in this reference comparison, ATP is intermediate between PEP/1,3-BPG and glucose phosphate esters. This permits ATP to donate phosphoryl groups to suitable acceptors while being regenerated through coupling to higher-potential donors. ATP-to-AMP diphosphoryl transfer is a different transferred-group comparison, not another terminal-phosphoryl rank.
 
 **Why cells maintain far-from-equilibrium conditions:** At equilibrium, $\Delta G = 0$ and no net work can be done. Cells maintain metabolite concentrations far from equilibrium ($Q \neq K_{eq}$), keeping $\Delta G$ strongly negative for exergonic reactions. This is why cells must continuously consume nutrients --- to maintain the far-from-equilibrium state that enables life.
 
 ### Worked Example: Free Energy and Equilibrium
 
-*Problem:* The $\Delta G^{\circ\prime}$ for glucose-6-phosphate isomerase (G6P to F6P) is +1.7 kJ/mol. Calculate $K_{eq}$ at 37 degrees C. Is this reaction spontaneous under standard conditions?
+*Problem:* For this constructed example, suppose the standard transformed energy for G6P → F6P is +1.7 kJ/mol at 310 K under the specified reference convention. Calculate $K_{eq}$. Is the forward reaction favorable at unit normalized reactant/product concentrations?
 
 *Solution:*
 
@@ -174,13 +174,13 @@ K_{eq} = e^{-0.660} = 0.517
 \label{eq:unit_III_bioenergetics_and_respiration_worked_8}
 \end{equation}
 
-Under standard conditions, this reaction is slightly non-spontaneous ($\Delta G^{\circ\prime} > 0$). However, in the cell, the mass action ratio $Q$ is kept well below $K_{eq}$ because F6P is rapidly consumed by PFK-1, making the actual $\Delta G$ negative.
+For the stipulated example, the unit-quotient forward reaction is unfavorable because $\Delta G^{\circ\prime}>0$. Forward reaction becomes favorable when $Q=c_{\mathrm{F6P}}/c_{\mathrm{G6P}}<K_{eq}$. Consumption of F6P can help maintain that condition, but the actual cellular quotient must be established rather than assumed from the standard value.
 
 ### Worked Example: Complete Glucose Oxidation
 
 *Problem:* Calculate the standard free energy of complete glucose oxidation (glucose + 6 O$_2$ → 6 CO$_2$ + 6 H$_2$O) from tabulated standard free energies of formation, and compare it with the energy harvested as ATP.
 
-*Solution:* Using $\Delta G^{\circ}_f$ values (kJ/mol) at 25 °C — glucose: $-910.4$; CO$_2$ (aq): $-394.4$; H$_2$O (l): $-237.1$; O$_2$: 0:
+*Solution:* Using $\Delta G^{\circ}_f$ values (kJ/mol) at 25 °C — glucose: $-910.4$; CO$_2$ (g): $-394.4$; H$_2$O (l): $-237.1$; O$_2$: 0:
 
 \begin{equation}
 \Delta G^{\circ\prime}_{\text{rxn}} = \sum \Delta G^{\circ}_f(\text{products}) - \sum \Delta G^{\circ}_f(\text{reactants})
@@ -192,32 +192,31 @@ Under standard conditions, this reaction is slightly non-spontaneous ($\Delta G^
 \label{eq:unit_III_bioenergetics_and_respiration_worked_10}
 \end{equation}
 
-If 32 ATP are produced per glucose at a cellular hydrolysis $\Delta G$ of $-50$ kJ/mol, the energy captured as ATP is $32 \times 50 = 1{,}600$ kJ/mol. The thermodynamic efficiency of glucose oxidation in cells is therefore:
+Using the illustrative yield of 32 ATP and a conventional standard transformed ATP-synthesis cost of 30.5 kJ/mol gives $32\times30.5=976$ kJ/mol glucose. The corresponding approximate standard-state accounting fraction is:
 
 \begin{equation}
-\eta = \frac{1{,}600}{2{,}870} \approx 56\%
+\eta = \frac{976}{2{,}870} \approx 34\%
 \label{eq:unit_III_bioenergetics_and_respiration_worked_11}
 \end{equation}
 
-The remaining ~44% is dissipated as heat — useful for mammals to maintain body temperature, but ultimately a payment to the second law. For comparison: a modern combined-cycle gas turbine power plant achieves ~60% thermal efficiency at >800 K, while an automobile engine averages ~25%. A 56%-efficient isothermal energy converter operating at 310 K is, by any engineering standard, remarkable.
+This standard-state budget is not a measured cellular efficiency. A cellular calculation requires ATP synthesis and glucose oxidation at matched temperature, pH and reactant/product activities, with a compatible ATP yield. Substituting only a cellular ATP value into this ratio would mix thermodynamic states; a free-energy remainder is not directly calorimetric heat.
 
 ### ATP as Energy Currency
 
 ATP (adenosine triphosphate) is the cell's central short-term energy carrier and phosphoryl-group donor for many endergonic reactions \citep{boyer1997}. The phrase "energy currency" is useful shorthand, but the cell also uses ion gradients, redox cofactors such as NADH/NADPH, thioesters such as acetyl-CoA, and activated carriers such as UDP-glucose.
 
-The high negative $\Delta G$ of ATP hydrolysis under cellular conditions ($-50$ to $-54$ kJ/mol; $\Delta G^{\circ\prime} = -30.5$ kJ/mol) arises from:
+ATP hydrolysis has a negative conventional standard transformed free energy. Product stabilization contributes to this difference; free energy is not released by bond breaking alone \citep{bettendorff2026transfer}. Relevant contributions include:
 1. **Electrostatic repulsion** between closely spaced negative charges on the gamma-phosphate (relieved on hydrolysis)
 2. **Resonance stabilization** of inorganic phosphate (P$_i$) product --- P$_i$ has more resonance forms than the terminal phosphate of ATP
 3. **Hydration** (solvation enthalpy) of P$_i$ and ADP --- products are better hydrated than reactants
-4. **Entropy increase** --- one molecule becomes two
 
-ATP couples exergonic reactions to endergonic ones via **phosphoryl group transfer**. The cell maintains a very high ATP/ADP ratio (~10 in most cells; ATP ~3--5 mM, ADP ~0.5 mM), keeping the cellular $\Delta G$ of hydrolysis more negative than $\Delta G^{\circ\prime}$.
+ATP couples exergonic and endergonic reactions through group-transfer chemistry. Actual cellular hydrolysis free energy additionally depends on the reactant/product quotient and specified conditions. High ATP relative to both ADP and P$_i$ can favor hydrolysis, but ATP:ADP alone does not determine $\Delta G$.
 
 **Daily ATP turnover:** A resting adult uses ~40 kg of ATP per day (body contains about 50 g at any time, so each ATP molecule is recycled ~800 times/day). During vigorous exercise, ATP turnover can reach ~0.5 kg/min — roughly the body's mass in ATP equivalents flowing through the adenylate pool every two hours.
 
-> **Concept Check 1:** The $\Delta G^{\circ\prime}$ of ATP hydrolysis is $-30.5$ kJ/mol, but the actual cellular $\Delta G$ is approximately $-54$ kJ/mol. Using the equation $\Delta G = \Delta G^{\circ\prime} + RT \ln Q$, calculate the mass action ratio $Q$ = [ADP][P$_i$]/[ATP] in the cell at 37 degrees C.
+> **Concept Check 1:** In the constructed ideal-dilute model used by `atp_free_energy`, hold the standard-energy parameter at $-30.5$ kJ/mol and take $T=310$ K, ATP = 3 mM, ADP = 1 mM and P$_i$ = 10 mM. Calculate dimensionless $Q$ using $c^\circ=1$ M, then calculate model $\Delta G$. Explain why this is not a measured or universal cellular value.
 
-> **Concept Check 1b:** A cell experiences a sudden drop in ATP (from 4 mM to 1 mM) without changes in ADP or P$_i$. Predict the qualitative effect on (a) the cellular $\Delta G$ of ATP hydrolysis, (b) the ATP/ADP ratio, and (c) the activity of AMPK.
+> **Concept Check 1b:** A cell experiences a sudden drop in ATP (from 4 mM to 1 mM) without changes in ADP or P$_i$. Predict the qualitative effect on (a) ATP-hydrolysis $\Delta G$ and (b) ATP:ADP. (c) Why does this information alone not specify AMPK activity? Name additional nucleotide and phosphorylation measurements.
 
 ---
 
@@ -229,56 +228,56 @@ Glycolysis (Greek: *glykys* = sweet; *lysis* = splitting) converts one glucose (
 
 ```mermaid
 flowchart TD
-    G["Glucose (6C)<br/>C₆H₁₂O₆"] -->|"Step 1: Hexokinase<br/>ATP→ADP<br/>ΔG = −16.7 kJ/mol<br/>⚡ IRREVERSIBLE"| G6P["Glucose-6-phosphate"]
-    G6P -->|"Step 2: Phosphoglucose isomerase<br/>ΔG = +1.7"| F6P["Fructose-6-phosphate"]
-    F6P -->|"Step 3: PFK-1<br/>ATP→ADP<br/>ΔG = −14.2 kJ/mol<br/>⚡ IRREVERSIBLE<br/>COMMITTED STEP"| F16BP["Fructose-1,6-bisphosphate"]
-    F16BP -->|"Step 4: Aldolase<br/>ΔG = +23.8"| TwoC3["DHAP + G3P<br/>(2 × triose phosphates)"]
-    TwoC3 -->|"Step 5: TPI<br/>DHAP→G3P<br/>ΔG = +7.5"| G3Px2["2 × G3P"]
-    G3Px2 -->|"Step 6: GAPDH<br/>2 NAD⁺→2 NADH<br/>2 Pᵢ incorporated<br/>ΔG = −6.3"| BPG["2 × 1,3-BPG"]
-    BPG -->|"Step 7: PGK<br/>2 ADP→2 ATP<br/>ΔG = −18.5<br/>💰 Substrate-level phosphorylation"| PG3["2 × 3-PG"]
-    PG3 -->|"Step 8: PGM<br/>ΔG = +4.4"| PG2["2 × 2-PG"]
-    PG2 -->|"Step 9: Enolase<br/>2 H₂O released<br/>ΔG = +1.8"| PEP["2 × PEP"]
-    PEP -->|"Step 10: Pyruvate kinase<br/>2 ADP→2 ATP<br/>ΔG = −31.4 kJ/mol<br/>⚡ IRREVERSIBLE<br/>💰 Substrate-level phosphorylation"| PYR["2 × Pyruvate (3C)"]
+    G["Glucose (6C)<br/>C₆H₁₂O₆"] -->|"Step 1: Hexokinase<br/>ATP→ADP<br/>ΔG°′ = −16.7 kJ/mol<br/>⚡ IRREVERSIBLE"| G6P["Glucose-6-phosphate"]
+    G6P -->|"Step 2: Phosphoglucose isomerase<br/>ΔG°′ = +1.67"| F6P["Fructose-6-phosphate"]
+    F6P -->|"Step 3: PFK-1<br/>ATP→ADP<br/>ΔG°′ = −14.2 kJ/mol<br/>⚡ IRREVERSIBLE<br/>COMMITTED STEP"| F16BP["Fructose-1,6-bisphosphate"]
+    F16BP -->|"Step 4: Aldolase<br/>ΔG°′ = +23.9"| TwoC3["DHAP + G3P<br/>(2 × triose phosphates)"]
+    TwoC3 -->|"Step 5: TPI<br/>DHAP→G3P<br/>ΔG°′ = +7.56"| G3Px2["2 × G3P"]
+    G3Px2 -->|"Step 6: GAPDH<br/>2 NAD⁺→2 NADH<br/>2 Pᵢ incorporated<br/>ΔG°′ = +6.30"| BPG["2 × 1,3-BPG"]
+    BPG -->|"Step 7: PGK<br/>2 ADP→2 ATP<br/>ΔG°′ = −18.9<br/>💰 Substrate-level phosphorylation"| PG3["2 × 3-PG"]
+    PG3 -->|"Step 8: PGM<br/>ΔG°′ = +4.4"| PG2["2 × 2-PG"]
+    PG2 -->|"Step 9: Enolase<br/>2 H₂O released<br/>ΔG°′ = +1.8"| PEP["2 × PEP"]
+    PEP -->|"Step 10: Pyruvate kinase<br/>2 ADP→2 ATP<br/>ΔG°′ = −31.7 kJ/mol<br/>⚡ IRREVERSIBLE<br/>💰 Substrate-level phosphorylation"| PYR["2 × Pyruvate (3C)"]
 
     style G fill:#e6f3ff
     style F16BP fill:#fff3e6
     style PYR fill:#ffe6e6
 ```
-<!-- alt: Flowchart showing glycolysis commits glucose through ATP-investment steps, harvests reducing power, and conserves energy as ATP and pyruvate; irreversible steps mark the main regulatory checkpoints. -->
+<!-- alt: Flowchart showing glycolysis consumes 2 ATP then produces 4 ATP and 2 NADH per glucose. Energy labels are standard transformed values per reaction; steps 6–10 occur twice per glucose. Cellular irreversibility depends on the reaction quotient, not the sign of the standard value alone. -->
 
-*Glycolysis commits glucose through ATP-investment steps, harvests reducing power, and conserves energy as ATP and pyruvate; irreversible steps mark the main regulatory checkpoints.*
-
-*The 10 steps of glycolysis (Mermaid).* The energy investment phase (steps 1--5) consumes 2 ATP. The energy payoff phase (steps 6--10) produces 4 ATP and 2 NADH. The three irreversible steps (1, 3, 10) are the regulatory control points.
+*Glycolysis consumes 2 ATP then produces 4 ATP and 2 NADH per glucose. Energy labels are standard transformed values per reaction; steps 6–10 occur twice per glucose. Cellular irreversibility depends on the reaction quotient, not the sign of the standard value alone.*
 
 ### Ten Enzymatic Steps
 
-: Ten Enzymatic Steps: Step and Enzyme. {#tbl:unit_III_bioenergetics_and_respiration_ten_enzymatic_steps}
-| Step | Enzyme | Reaction | $\Delta G$ (kJ/mol) | Notes |
-| ---- | ------ | -------- | ------------------- | ----- |
-| 1 | Hexokinase | Glucose + ATP → G6P + ADP | $-16.7$ | Traps glucose in cell |
-| 2 | Phosphoglucose isomerase | G6P → F6P | $+1.7$ | Aldose to ketose |
-| 3 | **PFK-1** | F6P + ATP → F1,6BP + ADP | $-14.2$ | **Committed step; rate-limiting** |
-| 4 | Aldolase | F1,6BP → DHAP + G3P | $+23.8$ | Pulled forward by step 5 |
-| 5 | Triose phosphate isomerase | DHAP → G3P | $+7.5$ | "Perfect enzyme" ($k_{cat}/K_m$ near diffusion limit) |
-| 6 | GAPDH | G3P + P$_i$ + NAD$^+$ → 1,3BPG + NADH | $-6.3$ | First NADH production |
-| 7 | Phosphoglycerate kinase | 1,3BPG + ADP → 3PG + ATP | $-18.5$ | First ATP production |
-| 8 | Phosphoglycerate mutase | 3PG → 2PG | $+4.4$ | Phosphate shift |
-| 9 | Enolase | 2PG → PEP + H$_2$O | $+1.8$ | Dehydration |
-| 10 | Pyruvate kinase | PEP + ADP → Pyruvate + ATP | $-31.4$ | Largest energy release |
+: Standard transformed free energies per reaction (teaching values, not cellular measurements). {#tbl:unit_III_bioenergetics_and_respiration_ten_enzymatic_steps}
+| Step | Enzyme | Reaction | $\Delta G^{\circ\prime}$ (kJ/mol reaction) | Reactions/glucose |
+| --- | --- | --- | --- | --- |
+| 1 | Hexokinase | Glucose + ATP → G6P + ADP | -16.7 | 1 |
+| 2 | Phosphoglucose isomerase | G6P → F6P | +1.67 | 1 |
+| 3 | PFK-1 | F6P + ATP → F1,6BP + ADP | -14.2 | 1 |
+| 4 | Aldolase | F1,6BP → G3P + DHAP | +23.9 | 1 |
+| 5 | Triose phosphate isomerase | DHAP → G3P | +7.56 | 1 |
+| 6 | GAPDH | G3P + Pi + NAD+ → 1,3BPG + NADH + H+ | +6.30 | 2 |
+| 7 | Phosphoglycerate kinase | 1,3BPG + ADP → 3PG + ATP | -18.9 | 2 |
+| 8 | Phosphoglycerate mutase | 3PG → 2PG | +4.4 | 2 |
+| 9 | Enolase | 2PG → PEP + water | +1.8 | 2 |
+| 10 | Pyruvate kinase | PEP + ADP → pyruvate + ATP | -31.7 | 2 |
+
+The UC Davis BIS2A teaching table distinguishes standard transformed energies from cellular energies \citep{ucdavis2022glycolysis}. Weighting steps 6–10 twice, but triose phosphate isomerase once, gives $-73.97$ kJ/mol glucose. Actual cellular $\Delta G$ requires each reaction quotient and need not equal this sum.
 
 ### Regulation of Glycolysis
 
-**PFK-1 is the master regulator** of glycolysis. It integrates energy status, biosynthetic needs, and hormonal signals \citep{atkinson1968}:
+**PFK-1 is a regulated glycolytic step, not a universal master controller.** Its response to metabolites depends on isoform and assay conditions. Local control of pathway flux is a network property and can be distributed across steps \citep{torres1986flux}:
 
 : Regulation of Glycolysis: Activators and Inhibitors. {#tbl:unit_III_bioenergetics_and_respiration_regulation_of_glycolysis}
 | Activators | Inhibitors |
 | ---------- | ---------- |
 | AMP (low energy) | ATP (high energy, [**allosteric**](#gl:allosteric) at regulatory site) |
-| Fructose-2,6-bisphosphate (F2,6BP, most potent) | Citrate (TCA cycle intermediate = adequate supply) |
-| ADP | H$^+$ (low pH; prevents excessive lactate acidosis) |
+| Fructose-2,6-bisphosphate (F2,6BP) | Citrate (context-dependent feedback) |
+| ADP (isoform/condition dependent) | H$^+$ (pH sensitivity depends on isoform and conditions) |
 | P$_i$ | |
 
-**Fructose-2,6-bisphosphate (F2,6BP)** is the most potent activator of PFK-1 (lowers $K_m$ for F6P by 50-fold). It is produced by **PFK-2** (a bifunctional enzyme with both kinase and phosphatase domains). Insulin activates PFK-2 kinase activity (producing F2,6BP, stimulating glycolysis). Glucagon (via PKA) activates PFK-2 phosphatase activity (destroying F2,6BP, inhibiting glycolysis in liver).
+**Fructose-2,6-bisphosphate (F2,6BP)** can increase PFK-1 activity and apparent affinity for F6P; no universal 50-fold shift is assigned. The bifunctional PFK-2/FBPase-2 enzyme synthesizes and hydrolyzes F2,6BP. In the classical hepatic isoform, glucagon/PKA phosphorylation favors the phosphatase direction and lowers F2,6BP, whereas dephosphorylation favors kinase activity. This phosphorylation logic must not be transferred unchanged to cardiac or other PFKFB isoforms. Rat-hepatocyte experiments linked glucose/glucagon-dependent changes in PFK activity to a low-molecular-weight effector \citep{vanschaftingen1980pfk}.
 
 ### ATP and Reducing-Equivalent Accounting
 
@@ -337,7 +336,7 @@ flowchart TD
 | PFK-1 | **Fructose-1,6-bisphosphatase (FBPase-1)** | None (hydrolysis is exergonic) | Cytoplasm |
 | Hexokinase | **Glucose-6-phosphatase (G6Pase)** | None (hydrolysis is exergonic) | ER lumen (liver, kidney primarily) |
 
-**Net cost:** Synthesizing one glucose from two pyruvate consumes **6 ATP equivalents** (2 ATP at pyruvate carboxylase × 2, 2 GTP at PEPCK × 2, 2 ATP at PGK × 2 in the reverse direction). This is why gluconeogenesis is restricted to tissues with substantial ATP-generating capacity (liver, renal cortex).
+**Net cost:** Per pyruvate, the route consumes 1 ATP at pyruvate carboxylase, 1 GTP at PEPCK and 1 ATP at reverse PGK. Doubling once for two pyruvate gives **4 ATP + 2 GTP = 6 ATP equivalents per glucose**, with 2 NADH also required. This is why gluconeogenesis depends on tissues with substantial energy-generating capacity (principally liver and renal cortex).
 
 ### Reciprocal Regulation of Glycolysis and Gluconeogenesis
 
@@ -681,7 +680,7 @@ The Fenton reaction (last step) is particularly dangerous: hydroxyl radicals (HO
 
 > **Concept Check (Synthesis):** Mitochondrial diseases such as Leigh syndrome arise from mutations in ETC subunits (SURF1 in Complex IV, NDUFS4 in Complex I). (a) A patient with a Complex I mutation has 80% reduction in Complex I activity. Predict the quantitative consequences for: (i) NADH/NAD⁺ ratio, (ii) proton-motive force (pmf), (iii) ATP/ADP ratio, and (iv) ROS production. (b) Why are brain and muscle affected most severely (not liver), even though every cell has mitochondria? (c) The "threshold effect" --- tissues tolerate mitochondrial dysfunction until heteroplasmy exceeds ~60-80%. Explain the mechanistic basis: why does a small reserve of normal mitochondria protect function?
 
-> **Worked Example --- P/O Ratio Calculation from Modern Stoichiometry:** Using current best estimates: NADH provides electrons that pump ~10 H⁺ across the inner membrane (4 at Complex I, 4 at III, 2 at IV). FADH₂ pumps ~6 H⁺ (0 at Complex I, 4 at III, 2 at IV). ATP synthase requires ~8/3 ≈ 2.67 H⁺ per ATP (mammalian c-ring with 8 subunits, 3 ATP per full c-ring rotation), plus ~1/3 H⁺ per ATP returned via the Pi/H⁺ symporter, giving a *whole-cycle* cost of 8/3 + 1/3 = 3 H⁺ per ATP exported to the cytosol. Thus: P/O(NADH) = 10/3 ≈ 3.3 (theoretical); empirically ~2.5 (thermodynamic and proton-leak losses). P/O(FADH₂) = 6/3 = 2.0 theoretical, ~1.5 empirical. Per glucose: 10 NADH × 2.5 + 2 FADH₂ × 1.5 + 4 substrate-level ATP (2 from glycolysis, 2 GTP from TCA) = 25 + 3 + 4 = **32 ATP**. This reconciles the modern "30-32 ATP" range with the older "36-38" figure by showing that the legacy textbook assumed 3.0 ATP/NADH and 2.0 ATP/FADH₂ --- an overestimate by ~15-20% relative to measured P/O ratios in mammalian mitochondria.
+> **Worked Example — Ideal versus effective P/O:** Ten protons are pumped per matrix NADH and six per electron pair entering at ubiquinone. A mammalian c8 ring uses 8/3 protons per ATP at the rotor. An illustrative whole-system transport allowance of one additional proton-motive equivalent per ATP gives 11/3: ideal yields are 30/11 = 2.73 and 18/11 = 1.64. Effective teaching P/O values 2.5 and 1.5 are lower because coupling, transport, and leak are not ideal. They are not the quotients 10/3.67 and 6/3.67.
 
 
 ### ATP Synthase --- the Rotary Nanomotor
@@ -702,7 +701,7 @@ The free energy stored per mole of protons translocated against this PMF is:
 \label{eq:unit_III_bioenergetics_and_respiration_worked_13}
 \end{equation}
 
-So pumping ~3.67 H$^+$ to make one ATP requires ~64 kJ/mol of stored gradient energy — the budget that funds an ATP whose cellular hydrolysis $\Delta G \approx -54$ kJ/mol. The ~10 kJ/mol surplus is the thermodynamic driving force that keeps net ATP synthesis flowing forward and sets the response time of the system to ATP demand.
+At 180 mV, one mole of protons moving down the electrochemical gradient supplies about 17.4 kJ. An illustrative 11/3 proton-motive equivalents per ATP supplies about 63.7 kJ/mol ATP. This is a thermodynamic budget under stated assumptions, not a universal measured surplus or response-time prediction.
 
 **ATP synthase (Complex V)** is a molecular rotary motor:
 
@@ -713,11 +712,11 @@ So pumping ~3.67 H$^+$ to make one ATP requires ~64 kJ/mol of stored gradient en
 - 120-degree rotation of gamma converts O→L→T→O
 
 **F$_0$ (membrane-spanning proton channel):**
-- Subunit a (proton channel) + c-ring (c$_{10-15}$, varies by species)
+- Subunit a (proton channel) + c-ring (c$_{8-15}$, varies by species)
 - Each c-subunit binds one H$^+$ from IMS, rotates, releases H$^+$ to matrix
 - Full c-ring rotation (360 degrees) produces 3 ATP
 
-**Stoichiometry:** If the c-ring has 10 subunits, then 10 H$^+$ per revolution, producing 3 ATP, so ~3.3 H$^+$ per ATP. With 8 c-subunits (yeast), ~2.7 H$^+$ per ATP.
+**Stoichiometry:** A yeast c10 ring translocates 10 protons per revolution, or 10/3 per ATP. A mammalian c8 ring uses 8/3. Ring size is species-dependent; transport and proton leak alter the effective system-level yield.
 
 Paul Boyer (binding change mechanism) and John Walker (crystal structure of F$_1$) shared the Nobel Prize in Chemistry, 1997. The rotation of the gamma subunit was directly visualized by Yoshida and colleagues using fluorescent [**actin**](#gl:actin) filaments attached to gamma --- one of the most beautiful experiments in biochemistry.
 
@@ -735,15 +734,15 @@ The classical undergraduate value of 38 ATP/glucose came from *assumed* round-nu
 
 **Mammalian mitochondrial c-ring:** 8 subunits (recent cryo-EM data).
 **ATP synthase stoichiometry:** 8 H$^+$ per full revolution → 3 ATP per revolution → **2.67 H$^+$/ATP**.
-**Add P$_i$ transport:** importing P$_i$ via the phosphate carrier costs **1 additional H$^+$** per ATP. So the *effective* H$^+$ cost per ATP is approximately **3.67 H$^+$/ATP**.
+**Transport allowance:** Represent phosphate import and nucleotide exchange together as an illustrative extra proton-motive equivalent per ATP. This simplifying allowance gives an ideal 11/3 equivalents per ATP; the electrical and chemical costs should not be double-counted as separate full protons.
 
 \begin{equation}
-\text{P/O ratio (NADH)} = \frac{10\;\text{H}^+}{3.67\;\text{H}^+/\text{ATP}} \approx 2.5\;\text{ATP per NADH}
+\text{Ideal P/O (NADH)} = \frac{10}{11/3} = 2.73;\qquad \text{effective teaching P/O}\approx 2.5
 \label{eq:unit_III_po_ratio_nadh}
 \end{equation}
 
 \begin{equation}
-\text{P/O ratio (FADH}_2\text{)} = \frac{6\;\text{H}^+}{3.67\;\text{H}^+/\text{ATP}} \approx 1.5\;\text{ATP per FADH}_2
+\text{Ideal P/O (Q-linked electron pair)} = \frac{6}{11/3} = 1.64;\qquad \text{effective teaching P/O}\approx 1.5
 \label{eq:unit_III_po_ratio_fadh2}
 \end{equation}
 
@@ -789,14 +788,14 @@ The classical undergraduate value of 38 ATP/glucose came from *assumed* round-nu
 | TCA FADH$_2$ | 2 FADH$_2$ | 1.5 | 3 |
 | **Total** | | | **32** |
 
-The thermodynamic efficiency:
+An illustrative standard-state free-energy accounting fraction (using the stated 32-ATP yield) is:
 
 \begin{equation}
 \eta = \frac{32 \times 30.5}{2{,}870} \times 100\% = 34\%
 \label{eq:unit_III_bioenergetics_and_respiration_worked_14}
 \end{equation}
 
-Using the more realistic *cellular* $\Delta G$ of $-50$ kJ/mol, efficiency rises to ~56%, comparable to the best internal combustion engines and considerably better than most human-engineered energy converters.
+Using 50 kJ/mol for cellular ATP synthesis would give the arithmetic ratio $32\times50/2870=55.7\%$, but this mixes a cellular numerator with a standard-state glucose-oxidation denominator and is **not a determined cellular thermodynamic efficiency**. A cellular efficiency calculation requires both free-energy changes under matched temperature, pH and reactant/product activities, as well as a compatible ATP yield; no engine-performance comparison follows from this mixed-state ratio.
 
 > **Concept Check 5:** Why does FADH$_2$ yield fewer ATP than NADH? Trace the difference back to the ETC entry point and proton pumping stoichiometry.
 
@@ -822,12 +821,12 @@ Using the more realistic *cellular* $\Delta G$ of $-50$ kJ/mol, efficiency rises
 
 **Quantitative leverage:** Although substrate-level phosphorylation contributes roughly 12.5% of total ATP in this accounting, it is critical in two scenarios:
 
-1. **Anaerobic conditions:** It is the *primarily* source of ATP, so 4 ATP/glucose is everything.
+1. **Anaerobic conditions:** It is the *primarily* source of ATP, so 2 net ATP/glucose from glycolysis is the fermentation yield; the TCA cycle does not add another two in this scenario.
 2. **Sprint exercise:** It can produce ATP in milliseconds, before mitochondrial respiration ramps up; the phosphocreatine system extends this further.
 
 This illustrates why metabolic systems are layered: fast-but-low-yield substrate-level phosphorylation handles transients while slow-but-high-yield OxPhos handles steady state.
 
-**Numerical leverage at the organism level.** A 70 kg adult at rest uses ~1,400 kcal/day, equivalent to ~250 mol ATP turned over. If primarily substrate-level phosphorylation operated, with ~4 ATP/glucose, the body would need to oxidise ~62 mol glucose/day (= 11 kg). Aerobic OxPhos at ~32 ATP/glucose reduces the requirement to ~8 mol = 1.4 kg glucose/day — a more achievable dietary intake. The 8-fold yield improvement of OxPhos is precisely what enables active multicellular life on a planet with bulk-food-supply constraints.
+**Organism-scale bookkeeping (illustrative).** A 1,400 kcal/day energy budget is 5,858 kJ/day. If 40% becomes ATP free energy and ATP hydrolysis supplies 50 kJ/mol, turnover is about 46.9 mol ATP/day. At 32 ATP/glucose this requires 1.46 mol (264 g) glucose-equivalent; at 2 ATP/glucose it requires 23.4 mol (4.22 kg). These are conditional energy/yield calculations, not measured dietary requirements: humans use mixed fuels, and the same efficiency cannot be assumed for both physiological states.
 
 ---
 
@@ -847,7 +846,7 @@ Without O$_2$ (or in cells that lack mitochondria), pyruvate is not oxidised aer
 \label{eq:unit_III_bioenergetics_and_respiration_worked_16}
 \end{equation}
 
-Both pathways yield primarily **2 ATP per glucose** (from glycolysis alone).
+In these illustrated lactate and ethanol pathways, the terminal NADH-reoxidation steps add no ATP; the net **2 ATP per glucose** comes from glycolysis. This is not an ATP-yield rule for every fermentative metabolic pathway.
 
 **The Cori Cycle:**
 In exercising muscle, lactate is exported to the blood, taken up by the liver, and converted back to glucose via **gluconeogenesis** at the cost of 6 ATP. This glucose returns to the muscle via the blood. The Cori cycle shifts the metabolic burden of gluconeogenesis from the oxygen-limited muscle to the well-oxygenated liver.
@@ -971,7 +970,7 @@ Understanding the ETC and oxidative phosphorylation has been greatly advanced by
 
 ## Computational Bridge
 
-Cellular ATP hydrolysis free energy is adjusted by the mass-action ratio $Q = [\mathrm{ADP}][\mathrm{P_i}]/[\mathrm{ATP}]$:
+The following ideal-dilute teaching model fixes the standard-energy parameter at $-30.5$ kJ/mol. It normalizes the supplied mM concentrations to the 1-M standard state before forming the dimensionless ATP-hydrolysis quotient; it does not resolve cellular pH/Mg speciation:
 
 ```python
 from biology.biochemistry import atp_free_energy
@@ -1022,16 +1021,16 @@ flowchart LR
 
 ## Summary
 
-- $\Delta G = \Delta H - T\Delta S$ (\cref{eq:unit_III_gibbs_free_energy}); cellular reactions are coupled to ATP hydrolysis ($\Delta G \approx -54$ kJ/mol) to drive endergonic processes. Cells maintain far-from-equilibrium conditions.
+- $\Delta G = \Delta H - T\Delta S$ (\cref{eq:unit_III_gibbs_free_energy}); cellular reactions couple to ATP hydrolysis whose actual free energy depends on reactant/product state and conditions, not one fixed cellular value. Cells maintain far-from-equilibrium conditions.
 - ATP turnover is ~40 kg/day; the high $\Delta G$ of hydrolysis arises from charge repulsion, resonance stabilization, and hydration of products. ATP sits in the *middle* of the phosphoryl-transfer hierarchy, between very high (PEP, 1,3-BPG) and very low (glucose-6-P).
-- Glucose oxidation has a standard free energy of $\approx -2{,}870$ kJ/mol; cells capture ~56% of this as ATP, dissipating the rest as heat.
+- Glucose oxidation has a standard free energy of $\approx -2{,}870$ kJ/mol; 32 ATP at standard 30.5 kJ/mol corresponds to about 34% of this free-energy magnitude; cellular efficiency requires matched nonstandard conditions.
 - Glycolysis: 10 cytoplasmic steps; net 2 ATP + 2 NADH per glucose; regulated by PFK-1 (activated by AMP, F2,6BP; inhibited by ATP, citrate).
 - Gluconeogenesis: not the reverse of glycolysis — uses four bypass enzymes (pyruvate carboxylase, PEPCK, FBPase-1, G6Pase) at a cost of 6 ATP equivalents per glucose; reciprocally regulated with glycolysis via F2,6BP.
 - The Cori cycle and glucose-alanine cycle distribute metabolic burden between muscle and liver, supporting hypoxic tissues at a 4-ATP-per-glucose net cost to the organism.
 - PDC links glycolysis to TCA; regulated by phosphorylation/dephosphorylation; deficiency causes lactic acidosis.
 - TCA cycle: 8 mitochondrial matrix steps; 6 NADH + 2 FADH$_2$ + 2 GTP per glucose; regulated by isocitrate DH and α-KG DH; anaplerotic (pyruvate carboxylase, glutamate dehydrogenase) and cataplerotic flux balance the cycle.
 - ETC: Complex I (4 H$^+$), II (0 H$^+$), III (4 H$^+$ via Q cycle), IV (2 H$^+$); final electron acceptor = O$_2$. Modest electron leak produces ROS (\cref{eq:unit_III_ros_cascade}); SOD, catalase, GPx, and peroxiredoxins constrain damage.
-- ATP synthase: F$_0$F$_1$ rotary motor; binding change mechanism; ~3.67 H$^+$ per ATP (including phosphate import). Proton-motive force ≈ 180 mV (\cref{eq:unit_III_proton_motive_force}).
+- ATP synthase: F$_0$F$_1$ rotary motor; binding change mechanism; 8/3 rotor H$^+$/ATP in mammals; system transport/leak lowers effective P/O. Proton-motive force ≈ 180 mV (\cref{eq:unit_III_proton_motive_force}).
 - Modern ATP yield: ~30–32 ATP per glucose aerobically (\cref{eq:unit_III_atp_yield}, \cref{eq:unit_III_po_ratio_nadh}, \cref{eq:unit_III_po_ratio_fadh2}); 2 ATP per glucose anaerobically.
 - Uncoupling proteins (UCP1) regulate physiological thermogenesis in brown adipose tissue; pharmacological uncouplers (DNP) dissipate the same PMF unregulated and are dangerous.
 - **Connections:** See \cref{sec:unit_III_photosynthesis} for light-driven phosphorylation, \cref{sec:unit_III_metabolic_integration} for hormonal integration, and \nameref{sec:unit_X_unit_intro} for ecosystem productivity and reduced carbon.
@@ -1072,7 +1071,7 @@ flowchart LR
 
 16. Using `glycolysis_summary()` from the same module, state the net ATP and NADH from one glucose without writing the ten steps.
 
-17. Using $\Delta G^{\circ\prime}$ values for ATP and PEP hydrolysis, compute the standard free energy change of pyruvate kinase (PEP + ADP → pyruvate + ATP). Compare with the cellular $\Delta G$ and explain the irreversibility.
+17. Using the reference hydrolysis values, estimate standard transformed $\Delta G$ for PEP + ADP → pyruvate + ATP. Write the dimensionless reaction quotient and identify the metabolite measurements and thermodynamic state information needed to calculate cellular $\Delta G$ and assess distance from equilibrium.
 
 18. Compute the proton motive force from $\Delta\Psi = -160$ mV and $\Delta\text{pH} = 0.6$ at 37 °C using \cref{eq:unit_III_proton_motive_force}. Convert to free energy per mole of protons.
 
@@ -1082,7 +1081,7 @@ flowchart LR
 ## Further Reading and Source Notes: Bioenergetics and Cellular Respiration
 
 - Mitchell (1961). Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism. *Nature*, 191 \citep{mitchell1961}.
-- Atkinson (1968). The regulation of enzyme activity in metabolism. *Biochemical Journal*, 108 \citep{atkinson1968}.
+- \citet{atkinson1968} — the adenylate energy-charge framework, distinct from later work on fructose-2,6-bisphosphate regulation.
 - Krebs & Johnson (1937). The role of citric acid in intermediate metabolism in animal tissues. *Enzymologia*, 4.
 - Boyer (1997). The ATP synthase --- a splendid molecular machine. *Annual Review of Biochemistry*, 66.
 - Rich (2003). The molecular machinery of Keilin's respiratory chain. *Biochemical Society Transactions*, 31.
@@ -1095,7 +1094,7 @@ flowchart LR
 | Term | Definition |
 | ---- | ---------- |
 | **Gibbs free energy ($\Delta G$)** | Thermodynamic quantity predicting reaction spontaneity; $\Delta G < 0$ = spontaneous |
-| **ATP** | Adenosine triphosphate; central phosphoryl-group donor and short-term energy carrier; $\Delta G$ hydrolysis $\approx -54$ kJ/mol (cellular) |
+| **ATP** | Adenosine triphosphate; central group-transfer and short-term energy carrier; $-30.5$ kJ/mol is a conventional standard hydrolysis reference, not a cellular constant |
 | **Glycolysis** | 10-step cytoplasmic pathway converting glucose to 2 pyruvate + 2 ATP + 2 NADH |
 | **Gluconeogenesis** | Synthesis of glucose from non-carbohydrate precursors using four bypass enzymes; 6 ATP equivalents per glucose |
 | **PFK-1** | Phosphofructokinase-1; committed step of glycolysis; allosterically regulated |
@@ -1105,7 +1104,7 @@ flowchart LR
 | **Cataplerotic reaction** | Reaction removing TCA intermediates for biosynthesis (e.g., citrate → acetyl-CoA for FA synthesis) |
 | **Electron transport chain** | Complexes I--IV on IMM; transfers electrons from NADH/FADH$_2$ to O$_2$, pumping H$^+$ |
 | **Q cycle** | Complex III mechanism doubling H$^+$ pumping efficiency per electron pair |
-| **ATP synthase** | F$_0$F$_1$ rotary motor using PMF to synthesize ATP; ~3.67 H$^+$/ATP including P$_i$ import |
+| **ATP synthase** | F$_0$F$_1$ rotary motor using PMF to synthesize ATP; 8/3 rotor H$^+$/ATP for a mammalian c8 ring; transport/leak affects effective P/O |
 | **Proton motive force (PMF)** | Electrochemical gradient of H$^+$ across IMM; $\approx 180$ mV; drives ATP synthesis |
 | **P/O ratio** | ATP molecules produced per oxygen atom reduced; ~2.5 for NADH, ~1.5 for FADH$_2$ |
 | **Reactive oxygen species (ROS)** | O$_2^{\bullet-}$, H$_2$O$_2$, HO$^\bullet$ produced by electron leak; constrained by SOD, catalase, GPx |

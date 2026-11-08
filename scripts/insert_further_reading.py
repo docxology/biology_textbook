@@ -20,7 +20,7 @@ from biology.maintenance.further_reading import (
     render_section,
 )
 
-__all__ = ["BibEntry", "MANUSCRIPT", "apply_further_reading", "main", "render_section"]
+__all__ = ["MANUSCRIPT", "BibEntry", "apply_further_reading", "main", "render_section"]
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -1,261 +1,109 @@
 # Lab — Microbial Ecology and the Microbiome {#sec:lab_unit_VII_microbial_ecology .unnumbered}
 
-
-*This activity accompanies \cref{sec:unit_VII_microbial_ecology} of the textbook — review that chapter before attempting the exercises below.*
+*This activity accompanies \cref{sec:unit_VII_microbial_ecology}.*
 
 ## Learning Objectives {.unnumbered}
-
-- Design and evaluate a microbial community analysis using printed culture-independent datasets
-- Formulate testable hypotheses about how environmental factors affect microbial diversity
-- Identify independent, dependent, and controlled variables in microbial ecology experiments
-- Analyze experimental data using diversity indices and network analysis
-- Write a brief scientific report with hypothesis, methods, results, and conclusion
-
-
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Microbial Ecology and the Microbiome.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO2):** Compute diversity from the supplied ten-taxon counts and compare independent source replicates.
+- **Outcome 2 (LO3):** Apply the printed subsampling manifest and distinguish read-depth control from bias correction.
+- **Outcome 3 (LO2):** Contrast community richness and connectance changes with measured product output to delimit diversity-based functional claims.
+- **Chapter LO coverage:** LO2, LO3
+- **Coverage limit:** The network provides a composition-versus-function comparison for interpreting diversity. It supplies no biofilm, quorum-sensing or bioremediation observations and therefore does not claim LO8 coverage.
+- **Rubric (20 points):** Score the following categories separately; composition, relative reads and product flux are different observables.
+  - **Evidence (8 points; LO2, LO3):** Award 3 for richness/H/inverse-Simpson values across all 12 source rows, source means and a stated replicate-variability summary (1 each); 1 for the H-versus-A diversity contrast; 2 for the 7:1:1:1 subsample and its proportions/diversity (1 each); 2 for baseline/removal connectance and the three product means with units (1 each).
+  - **Controls (3 points; LO2, LO3):** Award 1 for equal read depth/taxon scoring across source rows while retaining three biological replicates per source; 1 for using the extraction blank and defined community to distinguish contamination checks from demonstrated composition bias; 1 for comparing removal with both baseline and A rescue at the same measured product endpoint.
+  - **Uncertainty (3 points; LO2, LO3):** Award 1 for recognizing that 100 reads are not 100 biological samples; 1 for limiting the manifest result to one realized draw rather than an expected rarefaction curve; 1 for identifying an unmeasured manipulation effect or absent H/A functional endpoint that prevents a broader causal/function claim.
+  - **Mechanism (4 points; LO2, LO3):** Award 1 for explaining why richness can stay 10 while H/evenness falls; 1 for explaining why equalizing read depth cannot correct the defined-community measurement bias; 1 for distinguishing 1% cell-to-colony recovery from a fraction of species; 1 for interpreting A removal/rescue as function-specific evidence, not a causal claim from a co-occurrence edge.
+  - **Transfer (2 points; LO2):** In the analysis prompt, award 1 for rejecting unchanged connectance as evidence of unchanged function and 1 for using the product/rescue comparison while withholding an H/A functional conclusion. A diversity ranking alone earns no transfer credit.
 <!-- lab-alignment-end -->
-## Pre-Lab Concept Questions {.unnumbered}
-
-*Answer these before starting the investigation — they activate knowledge from the parent chapter.*
-
-1. Why is the 16S rRNA gene used to identify and classify bacteria rather than a protein-coding gene?
-2. Describe nitrogen fixation — what chemical transformation occurs, which type of organisms perform it, and why is this process ecologically important?
-3. Define the Shannon diversity index H′ and explain what a higher value indicates about a microbial community.
-
-## Pre-Lab Inquiry Questions {.unnumbered}
-
-*Complete these questions before coming to lab. Use your textbook and additional research to inform your hypotheses.*
-
-1. **Hypothesis Formation**: Based on your understanding of microbial ecology, predict which provided community dataset (soil, skin, tap water, or gut) will have the highest microbial diversity. Write a clear, testable hypothesis.
-
-2. **Experimental Design**: What is the independent variable in a microbial diversity study? What is the dependent variable? List at least 5 variables that should be controlled to ensure valid results.
-
-3. **Scientific Context**: The Shannon diversity index (H') incorporates both richness and evenness. Why is this measure important in microbial ecology? How does it differ from simply counting species?
-
-4. **Quantitative Reasoning**: If a community has three species with relative abundances of 0.5, 0.3, and 0.2, what is its Shannon diversity index? Show your calculation.
-
-5. **Real-World Application**: The human gut microbiome is linked to health and disease. How might antibiotic treatment reduce microbial diversity, and what are the potential health consequences of this reduction?
 
 ## Lab Context: Microbial Ecology and the Microbiome {.unnumbered}
 
-The human gut microbiome contains ~3.8 × 10¹³ bacteria from hundreds of species; the ratio of microbial to human cells is approximately 1:1 (revised from earlier overestimates). Culture-based methods recover about 1% of environmental microbes (the "great plate count anomaly"). Metagenomics and 16S rRNA gene sequencing (amplifying the hypervariable V3–V4 region) now allow culture-independent assessment of community composition. The **Shannon diversity index H' = −Σ(p_i × ln p_i)** integrates species richness and evenness.
+Composition, richness, function and causal interaction are different quantities. All four source labels below are synthetic teaching conditions, not claims about the typical ranking of real habitats.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VII_microbial_ecology_alignment_and_rubric_map}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Microbial Ecology and the Microbiome: pathogen-surveillance source card: organism-resistance pair, official guidance date, setting, and intervention limit | 1 |
-| Printed community case packet (soil, skin, tap water, gut) with metadata cards | 1 |
-| Printed colony-image panel from archived BSL-1 teaching plates | 1 |
-| Printed 16S rRNA OTU table (two samples: healthy gut vs antibiotic-treated gut — 10 taxa, abundance data) | 1 |
-| Calculator | 1 |
-| Colored pencils | 3 |
-| Interaction network diagram template (printed) | 1 |
-| Calculator or optional Python REPL with this project installed | 1 |
-| Replicate read-count table and rarefaction checklist | 1 |
+This printed packet, paper, pencil and a calculator are sufficient. No culture, image download, volunteer family survey, database access or Python execution is required. All newly stipulated observations below are **synthetic teaching data**, not empirical measurements or clinical decision rules. Replicates and denominators are given explicitly; do not treat technical repeats as independent biological samples.
+
+## Printed Evidence Packet {.unnumbered}
+
+: Ten-taxon source counts,100 reads per independent biological teaching replicate; columnsT1–T10 have identical scoring definitions across rows. {#tbl:unit_VII_microbial_ecology_alignment_and_rubric_map}
+| Sample | T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | T9 | T10 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Soil1 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+| Soil2 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 | 10 |
+| Soil3 | 19 | 9 | 9 | 9 | 9 | 9 | 9 | 9 | 9 | 9 |
+| Skin1 | 91 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 | 1 |
+| Skin2 | 82 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+| Skin3 | 73 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+| Water1 | 50 | 50 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Water2 | 60 | 40 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Water3 | 70 | 30 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Gut1 | 40 | 30 | 20 | 10 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Gut2 | 25 | 25 | 25 | 25 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Gut3 | 70 | 10 | 10 | 10 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+: Paired host perturbation benchmark and controls, separate from habitat samples. {#tbl:unit_VII_microbial_ecology_part_3_microbial_interaction_network_analysis}
+| Card | Complete evidence |
+| --- | --- |
+| Healthy H | T1–T10 counts10 each, n100; newly authored benchmark |
+| Antibiotic A | T1 count91, T2–T10 count1 each, n100; newly authored matched benchmark |
+| Extraction blank | Zero amplified reads after threshold; does not rule out all contamination |
+| Defined community | Four taxa expected 25% each; observed 40, 30, 20, 10 of 100 reads; indicates measurement bias despite known composition |
+| Culture comparison | From 1000 microscopically counted cells only 10 colonies grow under one medium condition; no claim that each cell is a distinct taxon |
+
+: Finite subsampling exercise with its complete20-read library and draw manifest. {#tbl:unit_VII_microbial_ecology_part_3_microbial_interaction_network_analysis_2}
+| Object | Printed values |
+| --- | --- |
+| Read labels1–20 | A,A,A,A,A,A,A,A,A,A,A,A,A,A,B,B,C,C,D,D |
+| Illustrative without-replacement permutation | 2,4,6,8,10,12,14,16,18,20,1,3,5,7,9,11,13,15,17,19 |
+| Rule | Use the first10 indices, count taxa and calculate proportions. This one realized draw is not an expected rarefaction curve; multiple draws would quantify subsampling uncertainty. |
+| Formulas | H=−Σp ln p,0ln0=0;inverseSimpson=1/Σp²;evenness=H/lnS forS>1 |
+
+: Directed metabolic network and perturbation observations. {#tbl:unit_VII_microbial_ecology_part_3_microbial_interaction_network_analysis_13}
+| Condition | Printed edges and endpoint |
+| --- | --- |
+| Baseline | NodesA,B,C,D; edgesA→B,A→C,B→D,C→D; no self-links; n3 microcosms, product9,10,11µmol/day |
+| Remove A | Remaining nodesB,C,D; edgesB→D,C→D; n3 microcosms, product1,2,3µmol/day |
+| Rescue A | Original nodes/edges restored; n3 microcosms, product8,10,12µmol/day |
+| Definitions | Directed connectance=L/[S(S−1)]; these edges are stipulated metabolite transfers, not inferred correlations |
+
 
 ## Paper-Based Investigation {.unnumbered}
 
-### Part 1: Community Diversity from Case Packets {.unnumbered}
-
-1. **Formulate Your Hypothesis**: Based on your pre-lab research, write a hypothesis about how the provided community datasets will differ in microbial diversity.
-
-2. **Identify Variables**:
-   - Independent variable: Community source represented in the case packet
-   - Dependent variable: Taxon richness, Shannon diversity index, and network connectance
-   - Controlled variables: sequencing depth, primer region, read-quality threshold, rarefaction rule, metadata completeness, and replicate count.
-
-3. **Set Up Controls**: Why is it important to use the same sequencing-depth rule for most samples? What other controls could you include, such as a mock community, a blank extraction control, or a duplicate sample?
-
-4. **Data Collection**:
-   - Use the printed OTU table to calculate total reads, relative abundance, richness, Shannon diversity, and evenness for each sample.
-   - Use the archived colony-image panel primarily as a comparison for why morphology underestimates molecular diversity.
-   - Check whether each sample has enough reads for fair comparison; if not, apply the rarefaction rule provided in the case packet.
-   - Compare at least three replicate rows per sample type before drawing conclusions.
-
-### Part 2: Computational Biology Exercise — Diversity Analysis with Python {.unnumbered}
-
-*Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
-
-Calculate diversity from table counts and compare named reference organisms.
-
-```python
-from biology.ecology import biodiversity_indices
-from biology.microbiology import REFERENCE_ORGANISMS
-
-counts = [42, 18, 15, 9, 6]
-diversity = biodiversity_indices(counts)
-print("Shannon:", round(diversity.shannon_index, 3))
-print("evenness:", round(diversity.evenness, 3))
-print("reference domains:", sorted({organism.domain for organism in REFERENCE_ORGANISMS}))
-```
-### Part 3: Microbial Interaction Network Analysis {.unnumbered}
-
-5. **Design an Alternative Investigation**: Instead of collecting microbiome samples, design a paper-based analysis to test how antibiotic treatment affects microbial interaction networks. What hypothesis would you test? How would you construct the network from co-occurrence or time-series data?
-
-6. **Hypothesis**: Predict how the connectance (number of interactions) in a microbial network would change with reduced diversity. Would you expect more or fewer interactions? Why?
+1. Calculate richness, H and inverse Simpson for every row, then report source means and variability. Compare H versus A and distinguish a functional prediction from measured function.
+2. Apply the finite subsampling manifest. Explain why equalizing read depth does not remove the defined-community bias or turn relative reads into absolute cell counts; interpret the culture comparison.
+3. Calculate baseline/removal connectance and product means, then evaluate A's role using removal and rescue. State which causal conclusions would fail if the edges were only co-occurrence correlations.
 
 ## Data Recording {.unnumbered}
 
-: Part 3: Microbial Interaction Network Analysis: Sample source and Taxon richness. {#tbl:unit_VII_microbial_ecology_part_3_microbial_interaction_network_analysis}
-| Sample source | Taxon richness | Shannon H' | Evenness | Read depth |
-| ------------- | -------------- | ---------- | -------- | ---------- |
-| Soil | | | | |
-| Skin | | | | |
-| Tap water | | | | |
-| Gut | | | | |
-
-: Part 3: Microbial Interaction Network Analysis: Taxon and Healthy sample reads. {#tbl:unit_VII_microbial_ecology_part_3_microbial_interaction_network_analysis_2}
-| Taxon | Healthy sample reads | p_i (healthy) | p_i × ln(p_i) | Antibiotic sample reads | p_i (antibiotic) |
-| ----- | -------------------- | ------------- | ------------- | ----------------------- | ----------------- |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-
-H' (healthy): ____; H' (antibiotic): ____
-
-Keystone taxon in network: ___; Rationale: ___
-Rarefaction or exclusion decision: ___; Reproducibility concern: ___
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Compare microbial communities and infer interaction hypotheses.
-- **Data skill to practice:** Compute or interpret community metrics from abundance data.
-- **BioSkills emphasis:** Science and society, Process of science, Modeling and simulation.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+For each task record the case/replicate identifier, supplied inputs with units, equation or classification rule, intermediate calculation, result and one alternative explanation. Keep the printed evidence unchanged and mark any proposed exclusion with a reason.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Microbial Ecology and the Microbiome** with a reproducibility pass:
-
-: Part 3: Microbial Interaction Network Analysis: Evidence check and Student action. {#tbl:unit_VII_microbial_ecology_part_3_microbial_interaction_network_analysis_13}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
-
-Focus note: in this lab, separate community-composition correlations from mechanistic claims by recording the diversity index or count, the host or environmental context, and the perturbation, and state the experiment that would be needed to move a correlation toward causation. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
-
-### Worked Example: Shannon Diversity Index for a Microbial Community {.unnumbered}
-
-**Problem:** A soil sample yields four bacterial genera with the following relative abundances: Genus A = 45%, B = 30%, C = 15%, D = 10%. Calculate H′ = −Σ(pᵢ ln pᵢ).
-
-**Solution:** H′ = −[(0.45 × ln 0.45) + (0.30 × ln 0.30) + (0.15 × ln 0.15) + (0.10 × ln 0.10)] = −[(0.45 × −0.799) + (0.30 × −1.204) + (0.15 × −1.897) + (0.10 × −2.303)] = −[−0.360 − 0.361 − 0.285 − 0.230] = 1.236. Maximum possible H′ for 4 equally abundant taxa = ln(4) = 1.386.
-
-**Interpretation:** H′ = 1.236 out of a maximum 1.386, giving evenness J = 1.236/1.386 = 0.892. The community is moderately uneven — dominated by genera A and B — but retains relatively high diversity compared to its species-rich potential.
-
-### Source-Governance Checkpoint {.unnumbered}
-
-Complete the source-governance card for Microbial Ecology and the Microbiome before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+**Printed source card:** Sorg/Sonenshein 2008 (DOI 10.1128/JB.01765-07 \citep{sorg2008bilesalts}) experimentally distinguished bile-acid effects on spore germination and vegetative growth; deoxycholate could stimulate the former and inhibit the latter. The current GTDB R11-RS232 snapshot is April 15, 2026; a release 10 publication alone does not substantiate release 11 counts. This packet's taxa/counts/network are synthetic. Revise conclusions with extraction controls, functional assays or a changed taxonomy version, not by silently updating labels. Source-card tasks: identify which observations are synthetic and which statements summarize published evidence; record the publication date and endpoint/model; name a refresh trigger. A live source lookup is not required to answer this packet.
 
 ## Analysis Questions {.unnumbered}
 
-1. The soil dataset likely shows higher richness than the skin or tap-water dataset. Why are soils among the most microbially diverse environments on Earth? What physical and chemical habitat heterogeneity drives this?
+Explain what the blank, defined community and equal-depth comparison each control, and name a bias they do not remove. Then assess the proposed transfer “Because connectance remains 1/3 after A removal, product function is unchanged, and antibiotic A's lower diversity proves the same product loss in the host.” Use the network's measured products/rescue and the separate H/A composition cards to separate supported from unsupported conclusions. No host product assay is stipulated.
 
-2. Antibiotic treatment usually reduces H'. What does low H' indicate about community stability? Name one specific clinical consequence of reduced microbiome diversity following broad-spectrum antibiotic use.
+<!-- SOLUTION
+## Instructor Worked Results and Scoring Expectations {.unnumbered}
 
-3. The "great plate count anomaly" refers to the fact that about 1% of environmental microbes form colonies on standard media. Propose three reasons why the remaining 99% are "unculturable" and describe one molecular technique that can characterize them without culturing.
+Task 1: H values: Soil 1/2=2.302585, Soil 3=2.265975; Skin 1=.500288, Skin 2=.866894, Skin 3=1.176509; Water=.693147, .673012, .610864; Gut=1.279854, 1.386294, .940448. Source means are approximately 2.290382, .847897, .659008, 1.202199 nats. Inverse-Simpson values in the same row order are: Soil 10, 10, 9.174312; Skin 1.206273, 1.479290, 1.848429; Water 2, 1.923077, 1.724138; Gut 3.333333, 4, 1.923077. Richness is 10 for soil/skin, 2 for water and 4 for gut; evenness is each H divided by the natural log of its richness. Report three biological replicates per condition rather than treating 100 reads as 100 independent habitats. H versus A retains richness 10 but loses evenness: H 2.302585→.500288; inverse Simpson 10→1.206273. No SCFA endpoint is supplied for that pair.
+Task2: the ten selected reads contain7A,1B,1C,1D, proportions.7,.1,.1,.1; H=.940448 and inverse Simpson1.923077. The defined-community distortion remains despite n100. Culture recovery10/1000=1% describes this medium's cell-to-colony recovery, not the fraction of species existing or a universal unculturable fraction.
+Task3: baseline connectance4/12=1/3; removal2/6=1/3. Edge number falls but connectance need not. Product means10,2,10µmol/day support a function-specific role forA with rescue, subject to manipulation controls. Do not infer that all diversity loss proportionally lowers function or that a correlation network establishes directed metabolite transfer.
 
-4. *Akkermansia muciniphila* (a gut commensal) degrades mucin and produces acetate and propionate consumed by other bacteria. If *Akkermansia* is lost, predict the cascade effects on adjacent taxa in your interaction network.
+Transfer benchmark: Connectance remains 4/12=2/6=1/3, but mean product changes 10→2→10 µmol/day across baseline/removal/rescue. Constant connectance therefore does not imply constant function. This supports A's role for that product under the stated manipulation, subject to manipulation controls; it does not establish universal diversity–function scaling. H/A supplies a composition/evenness contrast without a product or SCFA endpoint, so the network's functional effect cannot be assigned to that host comparison.
+SOLUTION -->
 
-5. A patient receives a faecal microbiota transplant (FMT) to treat recurrent *C. difficile* infection. Using the concept of competitive exclusion and microbiome diversity, explain the mechanism by which FMT suppresses *C. difficile* and describe what the ideal donor microbiome looks like.
+## Safety and Ethics {.unnumbered}
 
-## Extension Analysis Questions {.unnumbered}
+Paper only: no hazardous materials or human-subject recruitment. Synthetic pedigrees and clinical cases are not diagnoses. Use person-first language, do not infer identity, parentage or ancestry from the examples, and distinguish equitable access and informed consent from the biological calculation.
 
-6. **Statistical Analysis**: If the dataset includes three replicate OTU tables per source, how would you analyze the variation in Shannon diversity? What statistical test would you use to determine if differences between sample types are significant?
+## Optional Extension {.unnumbered}
 
-7. **Experimental Error Analysis**: What are three potential sources of error in microbial diversity measurements? How could you modify the procedure to reduce each source of error?
-
-8. **Experimental Design**: If you wanted to test whether a specific environmental factor (e.g., pH, moisture) affects microbial diversity, how would you design the experiment? What data would you collect? How would you analyze it?
-
-## Group Project Extension (Multi-Session) {.unnumbered}
-
-**Design a Study of Microbiome and Health**
-
-This project will span 2-3 lab sessions:
-
-**Session 1**: Research Question and Hypothesis
-- How does diet affect gut microbiome diversity?
-- Formulate a hypothesis about the relationship between fiber intake and microbial diversity
-- Design a study plan using dietary data and public microbiome datasets
-
-**Session 2**: Data Collection and Analysis
-- Use dietary surveys and public microbiome datasets
-- Analyze 16S rRNA sequencing data to calculate diversity indices
-- Compare diversity across different diet groups
-
-**Session 3**: Data Interpretation and Presentation
-- Correlate diversity with specific dietary components
-- Discuss the implications for human health
-- Create a scientific poster or presentation
-
-## Real-World Problem Solving: Microbial Ethics {.unnumbered}
-
-**Case Study: Microbiome Biobanks**
-
-1. **Research Task**: Investigate the ethical, legal, and social implications (ELSI) of collecting and storing human microbiome samples. What privacy concerns exist? How is microbiome data different from genetic data?
-
-2. **Ethical Consideration**: Should individuals have property rights over their microbiome? What are the potential benefits and risks of commercialising microbiome-based therapies?
-
-3. **Policy Proposal**: Design a policy for the ethical collection and use of human microbiome samples. Consider: informed consent, data privacy, benefit-sharing, and commercialisation.
-
-
-## Post-Lab Synthesis {.unnumbered}
-
-> **Concept Check (Synthesis):** A broad-spectrum antibiotic course dramatically reduces gut microbial diversity from H′ ≈ 3.2 to H′ ≈ 0.8.
->
-> (a) Predict how reduced microbial diversity would affect short-chain fatty acid (SCFA) production, specifically butyrate, propionate, and acetate, and explain the downstream effects on colonocyte metabolism.
-> (b) Evaluate whether the nitrogen-cycling functions of the gut microbiome would be disrupted proportionally to the diversity loss — consider functional redundancy among taxa.
-> (c) Propose two ecological principles (from community ecology) that predict how and when microbial community recovery might occur after the antibiotic course ends.
-
-## Safety and Ethics Notes {.unnumbered}
-
-Default lab work uses printed OTU tables, archived colony images, metadata cards, and network diagrams primarily. No environmental sampling, swabbing, agar plates, incubation, or culturing is required. Optional sampling demonstrations must be instructor-supervised and follow local biosafety rules. When discussing microbiome data, respect participant privacy and follow data protection guidelines.
-
-## Debrief and Reflection {.unnumbered}
-
-After you finish the practical work, spend 5–10 minutes in your small group comparing results and discussing the following prompts. Each member should contribute at least one observation before moving to the next prompt:
-
-1. **What did your measurements show** — compare the group's results to the textbook's predictions. Where they diverge, suggest at least one mechanistic explanation before concluding "experimental error."
-
-2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
-
-3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
-
-4. **Connection back to the textbook** — identify one section of \cref{sec:unit_VII_microbial_ecology} that your data either confirmed or complicated. Cite the specific passage.
-
-5. **Experimental Design Reflection**: What was the strongest aspect of your experimental design? What would you change if you could repeat the experiment?
-
-## Further Reading (Lab) {.unnumbered}
-
-- Revisit the parent chapter \cref{sec:unit_VII_microbial_ecology} for the theoretical foundations on which this lab is built.
-- Look up any **bolded glossary term** introduced in the textbook chapter (each has a `#gl:term-slug` link in the text) — its master definition is in `docs/manuscript/glossary.md`.
-- Explore the Python code in `src/biology/microbiology/microbiology.py` for microbial ecology calculations.
-- Use the self-contained Part 2 snippet as the computational template; it runs against tested project modules without external notebooks or CSV files.
+Design, on paper, one additional controlled comparison and predict its result under each competing explanation. Actual wet or clinical work requires appropriate supervision and approval and is not part of this activity.

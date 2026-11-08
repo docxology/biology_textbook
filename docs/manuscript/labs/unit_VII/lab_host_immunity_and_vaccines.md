@@ -1,123 +1,104 @@
 # Lab — Host Immunity and Vaccines {#sec:lab_unit_VII_host_immunity_and_vaccines .unnumbered}
 
-
-*This activity accompanies \cref{sec:unit_VII_host_immunity_and_vaccines} of the textbook — review that chapter before attempting the exercises below.*
-
-*This activity accompanies \cref{sec:unit_VII_host_immunity_and_vaccines} of the textbook — review that chapter before attempting the exercises below.*
+*This activity accompanies \cref{sec:unit_VII_host_immunity_and_vaccines}.*
 
 ## Learning Objectives {.unnumbered}
-
-- Design and evaluate an epidemic investigation dataset to determine transmission dynamics
-- Formulate testable hypotheses about how immunity affects disease spread
-- Identify independent, dependent, and controlled variables in epidemiological studies
-- Analyze experimental data using epidemic curves and herd immunity calculations
-- Write a brief scientific report with hypothesis, methods, results, and conclusion
-
-
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Host Immunity and Vaccines.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO8):** Plot the complete outbreak curve and compute exposure-specific attack rates without overidentifying R0.
+- **Outcome 2 (LO5):** Separate disease protection from transmission efficacy in vaccine-coverage calculations.
+- **Outcome 3 (LO7):** Interpret replicate susceptibility observations under explicitly synthetic breakpoints and relate them to mechanism evidence.
+- **Chapter LO coverage:** LO8, LO5, LO7
+- **Rubric (20 points):** Score the following categories separately; keep disease, neutralization, transmission and susceptibility endpoints explicit.
+  - **Evidence (8 points; LO8, LO5, LO7):** Award 2 for all 36 onset bins/24–28 h highest bins and the four attack-rate comparisons (1 each); 3 for pc=.75, V1 Re=4 and V2 Re=2.2 with unattainable Vc=1.5 (1 per group); 3 for all X/Y disk categories, the ≤2 mm within-pair differences and unchanged replicate categories (1 each). Show attendee/exposure denominators and label technical repeats.
+  - **Controls (3 points; LO8, LO5, LO7):** Award 1 for comparing food eaters with other attendees while distinguishing the nonrandom external comparison; 1 for using baseline/placebo titers to interpret the vaccine-associated neutralization rise; 1 for explaining why growing no-drug lawns and a clear sterile control support assay interpretation but do not establish clinical breakpoints.
+  - **Uncertainty (3 points; LO8, LO5, LO7):** Award 1 for a compatible, not proven, point source and missing secondary-transmission/generation-interval evidence for R0; 1 for the lack of an observed infection/transmission endpoint or validated titer threshold; 1 for distinguishing technical-repeat agreement from clinical validation or independent patient replication.
+  - **Mechanism (4 points; LO5, LO7, LO8):** Award 1 for explaining why ET=0 cannot reduce Re despite disease protection; 1 for separating the Re=1 equality boundary from declining transmission; 1 for linking Y's ampicillin phenotype specifically to hydrolysis plus bla rather than assigning that mechanism to all drugs; 1 for correctly connecting each source-card intervention to its printed broad mechanism without supplying doses or unsupported efficacy.
+  - **Transfer (2 points; LO7):** In the analysis prompt, award 1 for rejecting clinical application of the teaching cutoffs alone and 1 for naming organism/method/drug/current-breakpoint and exposure evidence required. A proposed patient regimen earns no transfer credit.
 <!-- lab-alignment-end -->
-## Pre-Lab Concept Questions {.unnumbered}
-
-*Answer these before starting the investigation — they activate knowledge from the parent chapter.*
-
-1. State Koch's four postulates for demonstrating that a specific microorganism causes a specific disease.
-2. Define R₀ (basic reproductive number). What does R₀ = 1 mean for an outbreak? What does R₀ > 1 predict?
-3. Distinguish direct contact transmission from airborne transmission — give one biological example of each.
-
-## Pre-Lab Inquiry Questions {.unnumbered}
-
-*Complete these questions before coming to lab. Use your textbook and additional research to inform your hypotheses.*
-
-1. **Hypothesis Formation**: Based on your understanding of epidemic curves, predict what shape the curve would take for a point-source exposure (e.g., contaminated food) versus person-to-person transmission (e.g., influenza). Write a clear, testable hypothesis.
-
-2. **Experimental Design**: What is the independent variable in an epidemic investigation? What is the dependent variable? List at least 5 variables that should be controlled to ensure valid results.
-
-3. **Scientific Context**: The basic reproduction number (R₀) is a key metric in epidemiology. Why is R₀ important for understanding disease spread? How does it relate to the concept of herd immunity?
-
-4. **Quantitative Reasoning**: If a disease has an R₀ of 5, what fraction of the population needs to be immune to achieve herd immunity? Show your calculation using the formula p_c = 1 - (1/R₀).
-
-5. **Real-World Application**: Antibiotic resistance is a major public health concern. How does the overuse of antibiotics in medicine and agriculture contribute to the evolution of resistant bacteria? What policies could help address this issue?
 
 ## Lab Context: Host Immunity and Vaccines {.unnumbered}
 
-Epidemiology uses epidemic curves (cases vs time), attack rates, secondary attack rates, and reproductive numbers (R₀) to characterize outbreaks. R₀ is the average number of secondary cases generated by one infected individual in a fully susceptible population; herd immunity is achieved when the fraction vaccinated exceeds the threshold **p_c = 1 − (1/R₀)**. Antimicrobial susceptibility datasets often report disc-diffusion zones of inhibition from Kirby-Bauer assays — larger zone = more susceptible pathogen — but this lab interprets printed data primarily.
+Protection against symptomatic disease, infection and onward transmission are different endpoints. Epidemic curves and susceptibility assays likewise require their own denominators and controls.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VII_host_immunity_and_vaccines_alignment_and_rubric_map}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Host Immunity and Vaccines: pathogen-surveillance source card: organism-resistance pair, official guidance date, setting, and intervention limit | 1 |
-| Epidemic curve dataset (printed: hypothetical norovirus outbreak, 72-hour window, 150 cases) | 1 |
-| Disc diffusion data (printed: zones of inhibition for 5 antibiotics against 2 bacterial strains) | 1 |
-| Printed disc-diffusion plate images with blinded replicate labels | 1 set |
-| AMR mechanism cards (enzyme, target modification, efflux, permeability) | 1 set |
-| TB regimen decision cards: drug-susceptible, MDR/RR-TB, fluoroquinolone-resistant, toxicity-risk, and adherence-support scenarios | 1 set |
-| HIV PrEP comparison card: oral PrEP, cabotegravir, and twice-yearly lenacapavir attributes | 1 |
-| Malaria vector-control comparison card: bed nets, indoor residual spraying, spatial emanators, vaccine, and chemoprevention | 1 |
-| Calculator | 1 |
-| Ruler (mm) | 1 |
-| Herd immunity R₀ worksheet | 1 |
-| Calculator or optional Python REPL with this project installed | 1 |
-| Epidemic simulation worksheet | 1 |
+This printed packet, paper, pencil and a calculator are sufficient. No culture, image download, volunteer family survey, database access or Python execution is required. All newly stipulated observations below are **synthetic teaching data**, not empirical measurements or clinical decision rules. Replicates and denominators are given explicitly; do not treat technical repeats as independent biological samples.
+
+## Printed Evidence Packet {.unnumbered}
+
+: Complete 72-hour synthetic norovirus-like curve; intervals are left-closed 2-hour bins; all 500 event attendees were exposed at hour 0 and followed completely. {#tbl:unit_VII_host_immunity_and_vaccines_alignment_and_rubric_map}
+| Bin numbers (bin j spans 2j to 2j+2 hours) | New cases in bin order |
+| --- | --- |
+|0–7|0,0,0,0,0,0,0,0|
+|8–17|5,10,15,20,25,25,20,15,10,5|
+|18–35|0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0|
+| Food comparison within event | Food A eaters: 140/400 cases; other attendees: 10/100 cases; total: 150/500 |
+| External comparison |3/100 nonattendees meet the same symptom definition; not randomized |
+
+: Vaccine model and immune-response evidence, all synthetic and endpoint-specific. {#tbl:unit_VII_host_immunity_and_vaccines_source_governance_checkpoint}
+| Card | Supplied evidence |
+| --- | --- |
+| V1 | R0=4; coverage V=0.90; vaccine efficacy against disease is 95%, with zero effect on infection/infectiousness |
+| V2 | Same R0 and V; stipulated transmission-blocking efficacy ET=0.50, with no waning or mixing heterogeneity |
+| Immune response | Three vaccinated individuals have baseline/4-week neutralization titers of 0/80, 0/160 and 0/80; three placebo participants have 0/0, 0/0 and 0/0. No infection or transmission outcome was observed. |
+| Formula | $R_e=R_0(1-VE_T)$; $p_c=1-1/R_0$ and $V_c=p_c/E_T$ mark $R_e=1$ under homogeneous durable transmission protection. Declining transmission requires exceeding the boundary; disease efficacy cannot replace $E_T$. |
+
+: Synthetic disk-diffusion measurements (mm); two technical repeats per strain, not two patients. Teaching cutoffs are S ≥20 mm, I 15–19 mm and R ≤14 mm; these are not clinical breakpoints. {#tbl:unit_VII_host_immunity_and_vaccines_packet_3}
+| Drug | Strain X repeats | Strain Y repeats |
+| --- | --- | --- |
+| Ampicillin |22,24|10,12|
+| Kanamycin |25,24|23,22|
+| Tetracycline |18,17|13,12|
+| Chloramphenicol |21,22|16,17|
+| Ciprofloxacin |27,26|11,13|
+| Controls |No-drug lawns grow for both|Sterile control clear; organism/drug clinical breakpoint not supplied|
+| Mechanism card | Y has a functional beta-lactam hydrolysis assay and a bla determinant | No mechanistic assay supplied for other drugs |
+
+: Printed intervention/source comparison cards (paraphrases, not treatment instructions). {#tbl:unit_VII_host_immunity_and_vaccines_packet_4}
+| Context | Evidence needed and limits |
+| --- | --- |
+| TB | WHO 2025: RR/MDR treatment selection uses susceptibility and eligibility. Fluoroquinolone resistance must not route to moxifloxacin-containing BPaLM; BPaL or alternatives require their own review. |
+| HIV PrEP |Oral options require regimen-specific eligibility/adherence; long-acting cabotegravir and twice-yearly lenacapavir reduce daily pill demands but require testing, follow-up and access. Suspected established infection is not a routine prevention-only decision. |
+| Malaria | WHO August 2025: indoor spatial emanators can supplement insecticide-treated nets in appropriate ongoing-transmission settings; not an outdoor or standalone substitute. Monitor vector behavior/resistance. |
+
+Mechanism reference for the intervention task: TB drugs target bacterial processes, with susceptibility determining whether a drug remains active; HIV PrEP prevents establishment of infection when an eligible HIV-negative person has protective drug exposure; nets and spatial emanators reduce indoor mosquito contact through physical and insecticide-mediated protection. These broad mechanisms do not supply a dose, regimen or efficacy for a particular person. If an exact source date or product-specific eligibility criterion is absent from a card, mark it as not supplied and name the evidence needed rather than inventing it.
+
 
 ## Paper-Based Investigation {.unnumbered}
 
-### Part 1: Epidemic Curve Analysis {.unnumbered}
+1. Plot all 36 bins, identify the highest bins and compute overall, food-specific and external attack rates. State whether the curve is compatible with point-source exposure and whether R0 is identifiable from this curve alone.
+2. Compute $p_c$ and $R_e$ for V1/V2; identify the equality boundary versus $R_e<1$ and distinguish neutralization from disease protection or transmission. For the source cards name one mechanism, eligibility evidence and equity constraint for each intervention.
+3. Classify every disk result using the printed teaching cutoffs, compare technical-repeat agreement and decide which resistance mechanism is actually supported. Explain what clinical information would be needed before translating the synthetic cutoffs to patient care.
 
-1. **Formulate Your Hypothesis**: Based on your pre-lab research, write a hypothesis about the transmission dynamics of the norovirus outbreak.
+## Data Recording {.unnumbered}
 
-2. **Identify Variables**:
-   - Independent variable: Time (hours since exposure)
-   - Dependent variable: Number of new cases
-   - Controlled variables: Population size, exposure source, reporting methods, etc.
-
-3. **Set Up Controls**: Why is it important to have accurate case reporting? What other controls could you include in an epidemic investigation to ensure valid conclusions?
-
-4. **Data Collection**:
-   - Plot the epidemic curve (cases per 2-hour interval).
-   - Identify the single peak (suggesting point-source exposure) or multiple waves (suggesting person-to-person spread).
-   - Calculate: (a) attack rate = (cases / total exposed) × 100%; (b) approximate incubation period from the peak; (c) R₀ from the growth rate during exponential phase using the provided formula.
-   - Compare two blinded disc-diffusion image replicates, measure zone diameters from the printed scale, and classify each antibiotic as susceptible, intermediate, or resistant using the provided breakpoint table.
-
-### Source-Governance Checkpoint {.unnumbered}
-
-Complete the source-governance card for Host Immunity and Vaccines before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Compare immune mechanisms and vaccination scenarios.
-- **Data skill to practice:** Interpret antibody, cellular, and vaccine-response evidence.
-- **BioSkills emphasis:** Science and society, Process of science, Modeling and simulation.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+For each task record the case/replicate identifier, supplied inputs with units, equation or classification rule, intermediate calculation, result and one alternative explanation. Keep the printed evidence unchanged and mark any proposed exclusion with a reason.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Host Immunity and Vaccines** with a reproducibility pass:
+**Printed source card:** CDC Pink Book poliomyelitis chapter, May 1, 2024, distinguishes IPV protection against paralytic disease from intestinal immunity and stool shedding. Therefore a paralysis-protection percentage cannot establish a transmission-coverage threshold. The intervention cards summarize WHO 2025 TB/vector guidance and CDC 2025 lenacapavir-PrEP guidance discussed in the parent chapter; none substitutes for current patient-specific care. All numeric observations here are synthetic; refresh guidance and endpoint definitions when official recommendations change. Source-card tasks: identify which observations are synthetic and which statements summarize published evidence; record the publication date and endpoint/model; name a refresh trigger. A live source lookup is not required to answer this packet.
 
-: Source-Governance Checkpoint: Evidence check and Student action. {#tbl:unit_VII_host_immunity_and_vaccines_source_governance_checkpoint}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
+## Analysis Questions {.unnumbered}
 
-Focus note: infectious-disease reasoning should connect pathogen biology, transmission, immunity, diagnostics, interventions, and equity. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
+Explain which controls support the titer and disk observations and why neither establishes transmission protection or patient benefit. Then assess the proposed transfer “Strain Y is clinically resistant to ciprofloxacin because both teaching zones are ≤14 mm.” State the conclusion allowed within the packet, the organism/method/drug/exposure and current-breakpoint information needed before patient interpretation, and why Y's beta-lactam hydrolysis result does not supply a ciprofloxacin mechanism.
+
+<!-- SOLUTION
+## Instructor Worked Results and Scoring Expectations {.unnumbered}
+
+Task 1: 150 cases/500 attendees=30%; Food A 140/400=35%, others 10/100=10%, external 3/100=3%. Peak bins 12 and 13 cover 24–28 h, with 25 cases each; a midpoint estimate is 26 h, not an exact individual incubation time. A common source is compatible with this evidence, not proven. A point-source onset curve does not identify R0 without secondary-transmission and generation-interval evidence.
+Task 2: $p_c=.75$ is the $R_e=1$ boundary, not guaranteed elimination. V1 has $R_e=4$ at every coverage because $E_T=0$; V2 has $R_e=4(1-.9\times.5)=2.2$. V2 would need $V_c=.75/.5=1.5$, unattainable even at equality. Neutralization rises after vaccination, but no supplied titer threshold or outcome trial converts it into 95% infection prevention. TB review needs resistance/eligibility; PrEP needs HIV testing and feasible follow-up; malaria needs indoor vector/exposure evidence. Credit one specific access barrier per case, such as diagnostic access, clinic travel or equitable net/emanator distribution.
+Task 3: X results are S, S, I, S, S; Y results are R, S, R, I, R in the listed drug order. Each technical pair differs by at most 2 mm and retains its category. Ampicillin hydrolysis plus bla supports enzymatic inactivation for Y, but does not identify mechanisms for its other phenotypes. Clinical interpretation requires organism, method, drug, dose/exposure context and a current breakpoint standard.
+
+Transfer benchmark: Y's 11/13 mm ciprofloxacin zones are R only under the stipulated synthetic rule. Clinical interpretation needs the identified organism, standardized method/quality assurance, drug and exposure context, and a current applicable breakpoint standard. Ampicillin hydrolysis plus bla supports beta-lactam inactivation, not a ciprofloxacin mechanism or a treatment choice. Concordant technical repeats do not close these evidence gaps.
+SOLUTION -->
+
+## Safety and Ethics {.unnumbered}
+
+Paper only: no hazardous materials or human-subject recruitment. Synthetic pedigrees and clinical cases are not diagnoses. Use person-first language, do not infer identity, parentage or ancestry from the examples, and distinguish equitable access and informed consent from the biological calculation.
+
+## Optional Extension {.unnumbered}
+
+Design, on paper, one additional controlled comparison and predict its result under each competing explanation. Actual wet or clinical work requires appropriate supervision and approval and is not part of this activity.

@@ -2,9 +2,9 @@
 
 ## Location and pipeline status
 
-This project is currently maintained as an active standalone checkout; run project-local commands from this directory so `pyproject.toml` applies. Template-hosted render entry points still use `--project biology_textbook` and resolve the project through the template infrastructure when available. **Publication:** `docs/manuscript/config.yaml` → `publication.doi` and `publication.repository_url` (Zenodo + GitHub).
+This is an active standalone checkout. Run project-local commands so its `pyproject.toml` and output custody apply. Rendering uses `scripts/render_textbook.py` with an explicitly selected read-only template library; do not run template-root stage wrappers. **Publication:** `docs/manuscript/config.yaml` separates the current edition from the prior-release archive DOI.
 
-Work here uses the same patterns as active template projects: thin orchestrators in `scripts/`, computation in `src/`, manuscript in `docs/manuscript/`, tests in `tests/` (zero mocks, ≥90% line coverage on `src/`).
+Use thin orchestrators in `scripts/`, computation in `src/`, manuscript in `docs/manuscript/`, and tests in `tests/`. The configured coverage gate is 90% of the branch-enabled reported total with explicit omissions, not separate line/branch floors. Scientific behavior uses real algorithms; filesystem/environment/failure isolation is documented in [docs/testing_guide.md](docs/testing_guide.md).
 
 **Composable authoring (stable `sec:` / `fig:` / `eq:` IDs, script order, which tests fail when):** [docs/composable_authoring.md](docs/composable_authoring.md). **Editorial** style for agents: [docs/agent_instructions.md](docs/agent_instructions.md). **Accessibility / config enforcement vs advisory:** [docs/accessibility.md](docs/accessibility.md). **Doc index:** [docs/README.md](docs/README.md).
 
@@ -61,10 +61,16 @@ Maintenance packages (logic in `src/`, thin CLIs in `scripts/`):
 | `quality/` | `audit_textbook_quality.py` | Umbrella quality audit + advisory ledger |
 | `enrichment/` | `enrich_embedded_textbook.py` | Frontier boxes, companion modules, audit matrix |
 | `answer_refinement/` | `refine_generated_answers.py` | Question-bank answer heuristics |
-| `curriculum_sync/` | `sync_curriculum_materials.py` | Curriculum scaffolds + front matter |
+| `curriculum_sync/` | `sync_curriculum_materials.py` | Canonical headings, blueprints, navigation and generated appendices; preserves authored assessment bodies |
 | `visual_contracts.py` | `audit_visual_contracts.py` | Figure/diagram manifest gate |
 
 Root I/O: `textbook_io.py` (`write_text_atomic`); `textbook_paths.py` for shared path helpers.
+
+Curriculum synchronization must not generate lab procedures, question prompts or
+keys, rubrics, or coverage notes. Former lab/question body sync functions and
+ownership markers are retired. Preserve authored assessment content; validate
+semantic mappings with `sync_assessment_metadata.py`, and use the native repeated
+CLI regression for byte/mtime/inode stability rather than success counters.
 
 ---
 
@@ -246,7 +252,7 @@ From this project directory:
 uv run python -m pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 ```
 
-Run `uv run python -m pytest tests/ --cov=src --cov-fail-under=90` from this project directory so this `pyproject.toml` applies the 90 % gate (repo-root pytest may use the root config). Zero-mock policy — no `MagicMock`, `mocker.patch`, or `unittest.mock` for behavior under test. Invariant-style tests for manuscript quality:
+Run the command here so this project's coverage configuration applies. Do not mock scientific behavior; narrowly scoped filesystem/environment/failure isolation does not prove native-tool success. Follow [docs/testing_guide.md](docs/testing_guide.md) for the actual coverage and isolation contracts. Invariant-style tests for manuscript quality:
 
 - `test_build_invariants.py` — every chapter has `\label{sec:…}` and a metadata badge; every lab and question bank links back via `\cref{}`; every registered figure generator is referenced
 - `test_bibliography_closure.py` — `{cited} == {defined}` in `references.bib`

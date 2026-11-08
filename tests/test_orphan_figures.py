@@ -112,3 +112,30 @@ def test_apply_orphan_figures_dry_run_skips_writes(tmp_path: Path) -> None:
     assert result.inserted == 1
     assert result.total == 1
     assert writes == []
+
+
+@pytest.mark.parametrize("mention", [
+    "The companion generator writes `punnett_AaxAa.png`.",
+    "<!-- \\includegraphics{../figures/punnett_AaxAa.png} -->",
+    "```latex\n\\includegraphics{../figures/punnett_AaxAa.png}\n```",
+    "[Download source image](../figures/punnett_AaxAa.png)",
+])
+def test_filename_mentions_are_not_embedded_figures(tmp_path: Path, mention: str) -> None:
+    chapter = tmp_path / "chapter.md"
+    chapter.write_text("# Chapter\n\nPunnett Square evidence.\n\n" + mention + "\n", encoding="utf-8")
+    ins = FigureInsertion("punnett_AaxAa", chapter, "Punnett Square", "A cross.", "fig:cross", "Four offspring cells.")
+    assert inject(chapter, ins)
+    after = chapter.read_text(encoding="utf-8")
+    assert mention in after
+    assert after.count("\\label{fig:cross}") == 1
+    assert not inject(chapter, ins)
+    assert chapter.read_text(encoding="utf-8") == after
+
+
+def test_markdown_image_is_an_existing_embed(tmp_path: Path) -> None:
+    chapter = tmp_path / "chapter.md"
+    original = "# Chapter\n\nPunnett Square.\n\n![Four cells](../figures/punnett_AaxAa.png)\n"
+    chapter.write_text(original, encoding="utf-8")
+    ins = FigureInsertion("punnett_AaxAa", chapter, "Punnett Square", "A cross.", "fig:cross", "Four cells.")
+    assert not inject(chapter, ins)
+    assert chapter.read_text(encoding="utf-8") == original

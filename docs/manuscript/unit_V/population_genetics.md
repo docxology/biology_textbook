@@ -32,7 +32,7 @@
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
 
-- **Big idea:** Allele frequencies change when assumptions about random mating, population size, and fitness are violated.
+- **Big idea:** Selection, drift, mutation, and gene flow can change allele frequencies; mating patterns can redistribute genotype frequencies without necessarily changing allele frequencies.
 - **Core concepts:** Hardy-Weinberg, selection, mutation, genetic drift.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
 - **Model or quantitative lens:** Hardy-Weinberg and allele-frequency recurrence calculations.
@@ -121,7 +121,7 @@ Check: $p + q = 0.60 + 0.40 = 1.00$ (correct).
 
 **Concept Check 18.5**
 
-> 1. A population of 1{,}000 has 250 AA, 500 Aa, and 250 aa: show that although $p = q = 0.5$, the genotype counts are not those Hardy-Weinberg predicts, and decide from the direction of the heterozygote discrepancy whether inbreeding or heterozygote advantage is the more likely cause.
+> 1. A population has250 AA,500 Aa,250 aa. Calculate $p,q$ and HWE expected counts. Why does the exact match ($\chi^2=0$) neither demonstrate absence of evolution nor identify a particular force?
 
 ---
 
@@ -503,35 +503,35 @@ stateDiagram-v2
 
 ### Effective Population Size ($N_e$)
 
-$N_e$ is usually **much smaller** than census size $N$ because:
+Effective population size $N_e$ is the size of an idealized reference population matching a specified rate of drift or inbreeding. It is not a head count, and different effective-size definitions or time windows can yield different estimates. The following formulas describe restricted demographic models, not universal corrections to census size.
 
 : Effective Population Size (N_e): Factor and Effect on N_e. {#tbl:unit_V_population_genetics_effective_population_size_n_e}
 | Factor | Effect on $N_e$ | Formula |
 |--------|-----------------|---------|
-| Unequal sex ratio | Reduces $N_e$ | $N_e = \frac{4N_mN_f}{N_m + N_f}$ |
-| Fluctuating population size | Reduces $N_e$ | $N_e = $ harmonic mean of $N$ over generations |
-| Variance in reproductive success | Reduces $N_e$ | High variance (few individuals produce most offspring) reduces $N_e$ |
+| Unequal breeding-sex numbers | Can reduce $N_e$ relative to matched equal-sex breeding | $N_e=4N_mN_f/(N_m+N_f)$ under the stated assumptions |
+| Fluctuating generation sizes | Small generations strongly influence the interval estimate | Harmonic mean of positive per-generation effective sizes, or idealized breeding counts |
+| Reproductive-success variance | Depends on variance relative to the reference model | Excess variance can reduce $N_e$; unusually equal contributions can increase it |
 
-The three workhorse formulas for $N_e$ are presented below — each corresponds to a distinct biological scenario, and conservation geneticists routinely combine them to estimate $N_e$ from real demographic data \citep{frankham1995, frankham2014}.
+Each approximation below isolates a mechanism. For real populations, specify the effective-size definition, generation interval, sampling window and estimator. Combining sex-ratio, temporal and family-size effects requires a joint demographic model rather than multiplying these formulas as independent correction factors \citep{frankham1995}.
 
 #### Sex-ratio $N_e$ formula
 
-When the breeding population has unequal numbers of males ($N_m$) and females ($N_f$), the effective population size is governed by the rarer sex because each offspring receives one allele from each:
+For positive numbers of diploid male and female breeders in a discrete-generation, random-mating model with equal expected contributions and random reproductive sampling within each sex—not exactly fixed realized family sizes—the sex-ratio approximation is:
 
 \begin{equation}
 N_e = \frac{4 N_m N_f}{N_m + N_f}
 \label{eq:unit_V_ne_sex}
 \end{equation}
 
-**Worked example — sex-biased breeding:** Consider a herd of 100 elk consisting of 10 breeding males and 90 breeding females (a strongly female-biased operational sex ratio common in harem-forming ungulates):
+**Worked example — idealized sex-biased breeding:** Stipulate 100 contributing diploid breeders: 10 males and 90 females, with the within-sex assumptions above. These are constructed teaching inputs, not an observed elk herd:
 
 $$N_e = \frac{4 \times 10 \times 90}{10 + 90} = \frac{3{,}600}{100} = 36 \label{eq:unit_V_population_genetics_item_1}$$
 
-Despite a census size of 100, the effective population size is primarily **36** — barely a third of the count. The intuition: every offspring's paternal allele must come from one of just 10 males, so 90% of females are functionally redundant for tracking allelic diversity through paternal lineages. This asymmetry is why captive-breeding programs aggressively manage sex ratios and why studbook software optimizes founder representation rather than census numbers. If the same population had 50 males and 50 females, $N_e$ would equal 100 — the full census size.
+The model gives $N_e=36$, compared with 100 contributing breeders. Both maternal and paternal lineages matter; the rarer breeding sex constrains shared ancestry, but the females are not genetically redundant. Under the same idealized assumptions, 50 male and 50 female breeders give $N_e=100$. These calculations alone do not establish the effective size of a real managed herd.
 
 #### Bottleneck $N_e$ formula
 
-For a population that experiences a single-generation bottleneck of size $N_b$ embedded within $t$ generations of size $N_0$, the effective population size over the entire interval is the **harmonic mean** of generation sizes:
+For $t$ discrete generations with positive generation-specific effective sizes $N_i$, the usual interval approximation is the harmonic mean. Replacing those effective sizes by breeding head counts additionally assumes idealized drift within each generation:
 
 \begin{equation}
 \frac{1}{N_e} = \frac{1}{t} \sum_{i=1}^{t} \frac{1}{N_i}
@@ -545,35 +545,35 @@ N_e = \frac{t}{\sum_{i=1}^{t} \frac{1}{N_i}}
 \label{eq:unit_V_ne_harmonic}
 \end{equation}
 
-Because the harmonic mean is dominated by the smallest term, **a single bottleneck generation can drag $N_e$ far below the long-term arithmetic mean of population size**. As an example: 99 generations of $N_0 = 10{,}000$ plus one generation of $N_b = 10$ yields:
+Small generation sizes make large contributions to the reciprocal sum and can strongly lower its harmonic mean. For a constructed sequence of 99 generations at $N_0=10{,}000$ and one at $N_b=10$:
 
 $$N_e = \frac{100}{99/10{,}000 + 1/10} = \frac{100}{0.0099 + 0.1} = \frac{100}{0.1099} \approx 910 \label{eq:unit_V_population_genetics_item_2}$$
 
-— not the arithmetic mean of ~9,901. **One bad generation undoes a century of large population size**, and this asymmetry is precisely why bottleneck events leave such durable genetic signatures.
+The arithmetic mean is about 9,901, but the drift-relevant harmonic approximation is about 910. This does not mean one small generation erases all diversity or determines every later evolutionary outcome; the actual loss also depends on the allele and demographic model.
 
 #### $N_e$ for fluctuating populations
 
-For populations that vary cyclically (boom-bust dynamics in microbes, seasonally migrating species, populations with cyclic predator-prey dynamics):
+The same harmonic relationship applies to stipulated boom--bust sequences. Weight sizes by the number of generations spent in each state, not automatically by equal calendar seasons:
 
 \begin{equation}
 N_e \approx \frac{1}{\frac{1}{T}\sum_{i=1}^{T}\frac{1}{N_i}}
 \label{eq:unit_V_population_Ne_fluctuating}
 \end{equation}
 
-Drosophila in seasonal climates oscillate between $N_b \approx 10^3$ in winter and $N_0 \approx 10^7$ in summer — and the harmonic mean yields $N_e$ close to $4 \times N_b$, not anywhere near the summer maximum.
+For a separate constructed two-state example with equal numbers of generations at 100 and 10,000, $N_e\approx2/(1/100+1/10{,}000)\approx198$. When the large state is much larger, this equal-generation two-state mean approaches twice the small state, not a universal factor of four. Real species require their actual generation counts and demographic assumptions.
 
 #### $N_e$ with variance in reproductive success
 
-When the variance in offspring number ($V_k$) exceeds the mean ($\bar{k} = 2$ for a stable population), $N_e$ is reduced:
+For a stable, random-mating diploid population with nonoverlapping generations, mean offspring number $\bar{k}=2$, and the corresponding family-size assumptions, a variance-effective-size approximation is:
 
 \begin{equation}
 N_e \approx \frac{4N - 2}{V_k + 2}
 \label{eq:unit_V_population_Ne_variance}
 \end{equation}
 
-In species with extreme reproductive skew — elephant seals (one beachmaster male sires nearly the offspring), salmon (a few females spawn the majority of fertilized eggs), or hierarchical primates — $N_e$ may be 10–100× smaller than census size. **Conservation programs that calculate $N_e$ from stud-book pedigree data routinely find $N_e \ll N$**, with significant implications for genetic-rescue planning.
+Here $N$ counts contributing diploid breeders and $V_k$ is the specified offspring-number variance. Excess reproductive variance can lower the estimate; if contributions are more equal than the reference model, the estimate can exceed $N$. This formula by itself supplies neither an empirical species-wide ratio nor a guaranteed outcome of a conservation intervention.
 
-**Human $N_e$**: Despite ~8 billion people alive today, human $N_e$ estimated from genetic diversity is about 10,000-15,000, reflecting an ancient bottleneck ~70,000 years ago (possibly associated with the Toba supervolcanic eruption, though this is debated). The harmonic-mean nature of $N_e$ explains why such a long-ago bottleneck still dominates the genetic diversity calculation despite billions of intervening generations of population growth.
+**Human effective size:** A genetic-diversity estimate is conditional on its mutation model, ancestry, structure and historical time window; it is not the contemporary census population. For example, the constant-size neutral diploid relation $\theta=4N_e\mu$ defines a reference model, not a unique reconstruction of a dated bottleneck. A single effective-size estimate cannot identify a Toba-related cause or replace a demographic analysis.
 
 ### Bottleneck and Founder Effects
 
@@ -610,7 +610,7 @@ p_1' = (1-m)p_1 + mp_2
 \label{eq:population_genetics_29}
 \end{equation}
 
-Gene flow **homogenizes** populations -- reducing differentiation. Even a small amount of gene flow ($Nm > 1$ migrant per generation) is sufficient to prevent populations from diverging by drift alone.
+Gene flow can reduce allele-frequency differences in the specified migration model. A universal one-migrant threshold does not follow: equilibrium island-model approximations depend on neutrality, symmetric structure, effective size and demographic history, and cannot alone identify observed migration or prevent all divergence.
 
 ### Measuring Population Differentiation: $F_{ST}$
 
@@ -714,7 +714,7 @@ Since selection acts on heterozygotes (who are much more common than rare homozy
 
 > **Concept Check (Synthesis):** The neutral theory of molecular evolution (Kimura 1968) proposes that most molecular variation is neutral or nearly neutral, with evolution driven by genetic drift rather than selection. (a) The neutral substitution rate equals the neutral mutation rate μ, independent of population size. Explain why: K = μ × (probability of fixation) = μ × (1/2N) × 2N = μ. (b) Now consider a deleterious mutation with selection coefficient s = 0.001 (nearly neutral). In a small population (N = 100), would this mutation behave neutrally? Use the criterion Ns < 1. In a large population (N = 10,000)? (c) The nearly neutral theory (Ohta) predicts that effectively neutral mutations ($\lvert s\rvert < 1/(4N)$) accumulate faster in small populations. Predict the direction of difference in synonymous vs. non-synonymous substitution rates between an island endemic species (small N) and its mainland relative (large N), and name the metric dN/dS that captures this.
 
-> **Worked Example — Balancing Selection at MHC:** The MHC (HLA) locus in humans shows extraordinarily high polymorphism: HLA-A has >7,000 known alleles. Under neutrality, expected heterozygosity He = 1 - Σpᵢ² ≈ 1 when many equally common alleles exist. Observed He at HLA ≈ 0.95-0.99. For comparison, a neutral locus in a population of size 10⁶ with μ = 10⁻⁸ has expected He ≈ 4Nμ/(1+4Nμ) = 0.04/(1.04) ≈ 0.038 — vastly lower. MHC heterozygosity ≈ 25× higher than neutral expectation. Balancing selection mechanisms maintaining this diversity: (1) Heterozygote advantage (overdominance) — each MHC combination presents different peptides, and heterozygotes present broader pathogen coverage. (2) Frequency-dependent selection — rare alleles confer advantages against pathogens that have evolved to evade common alleles (Red Queen dynamics). The Tajima's D statistic at MHC is strongly positive (+3 to +5), indicating an excess of intermediate-frequency alleles — the signature of balancing selection.
+> **Worked Example — Diversity and Balancing-Selection Inference at MHC:** Consider two **synthetic four-allele populations**, with stipulated frequencies (0.4, 0.3, 0.2, 0.1) and (0.7, 0.1, 0.1, 0.1). Under random mating, expected heterozygosity is $H_e=1-\sum_i p_i^2$: 0.70 and 0.48, respectively. These are not measured HLA frequencies, observed genotype proportions or a selection-effect estimate. The MHC's allele-dependent peptide presentation motivates hypotheses about heterozygote advantage and pathogen-dependent selection, but a diversity difference alone does not identify the evolutionary process. Compare specified loci, sampled populations, mutation models and demographic histories. Positive Tajima's D describes an excess of intermediate-frequency variants relative to its null; neither a fixed MHC-wide range nor balancing selection follows from the sign alone. Test competing demographic explanations and functional/fitness endpoints rather than dividing an unmatched MHC observation by an arbitrary neutral expectation \citep{tajima1989neutrality,nielsen2005selection}.
 
 ---
 
@@ -727,7 +727,7 @@ Motoo Kimura's **neutral theory of molecular evolution** proposes that most mole
 **Key predictions:**
 1. The rate of neutral substitution = the neutral mutation rate $\mu_n$, **independent of population size**
    - Proof: Rate of new neutral mutations = $2N \times \mu_n$; probability each fixes = $\frac{1}{2N}$; substitution rate = $2N\mu_n \times \frac{1}{2N} = \mu_n$
-2. Heterozygosity at equilibrium = $\frac{4N_e\mu}{1 + 4N_e\mu}$ (for diploid, biallelic loci)
+2. Heterozygosity at equilibrium = $\frac{4N_e\mu}{1 + 4N_e\mu}$ (under a neutral diploid infinite-alleles mutation model, not a biallelic model)
 3. Synonymous substitution rate ($K_S$) should be approximately constant across genes (molecular clock)
 
 ### The Nearly Neutral Theory
@@ -806,19 +806,19 @@ The factor of 2 accounts for divergence along both lineages since the split.
 
 ## Worked Example: Molecular Clock Estimate
 
-Human-chimpanzee cytochrome c has roughly 1% sequence divergence; use a neutral mutation rate for this gene of approximately $2 \times 10^{-9}$ substitutions/site/year.
+Two hypothetical taxa have a supplied nucleotide alignment differing at 10 of 1000 homologous sites (no gaps). Assume a strict, equally calibrated two-lineage substitution rate of $2 \times 10^{-9}$ substitutions/site/year.
 
 \begin{equation}
-d_{JC} = -\frac{3}{4}\ln\left(1 - \frac{4(0.01)}{3}\right) = -0.75 \times \ln(0.9867) = -0.75 \times (-0.01339) = 0.01004
+d_{JC}=-\frac34\ln(1-4(0.01)/3)\approx0.01006727
 \label{eq:population_genetics_38}
 \end{equation}
 
 \begin{equation}
-t = \frac{0.01004}{2 \times 2 \times 10^{-9}} = \frac{0.01004}{4 \times 10^{-9}} = 2.51 \times 10^6 \text{ years} \approx 2.5 \text{ Ma}
+t=\frac{0.01006727}{2(2\times10^{-9})}\approx2.5168\times10^6\text{ years}
 \label{eq:population_genetics_39}
 \end{equation}
 
-(Note: The actual human-chimp divergence is estimated at 6-7 Ma using whole-genome data and calibrated clocks with fossil constraints. Cytochrome c evolves slowly and gives an underestimate.)
+These are synthetic nucleotide data, not an empirical human–chimp date. A slower correctly matched rate makes $t=d/(2\mu)$ older, not younger; a conserved gene is not inherently biased toward young dates. With stipulated rate sensitivity $\mu=1$–$3\times10^{-9}$, dates span approximately5.034–1.678Ma; that range is not a statistical confidence interval.
 
 **Calibrated molecular clocks using fossil data:**
 
@@ -1020,5 +1020,7 @@ or compare the manuscript explanation with companion labs and figures.
 | `src/biology/genetics/genetics.py` (`hardy_weinberg`, `chi_squared_test`, `jukes_cantor_distance`) | Test equilibrium, goodness of fit, and molecular-distance assumptions. |
 | `src/biology/evolution/evolution.py` (`simulate_selection`, `wright_fisher_drift`, `molecular_clock_divergence_time`) | Compare deterministic and stochastic allele-frequency change. |
 | `src/visualization/plots.py` (`plot_selection_simulation`) | Inspect trajectories and sampling effects. |
+
+**Statistical API boundary:** For HWE with allele frequency estimated from the same three genotype counts, call `chi_squared_test(observed, expected, alpha=0.05, ddof=1)` so df=3−1−1=1. For fixed Mendelian ratios retain the default `ddof=0` and df=k−1; alpha controls the survival-probability decision. For example20,60,20 against estimated HWE25,50,25 gives χ²=4 and p≈.0455, not the df2 p≈.1353.
 
 **Reproducibility check:** state population size, mating model, selection coefficient, migration, mutation, and sampling uncertainty before attributing allele-frequency change. **Cross-reference:** connect with \cref{sec:unit_V_mendelian_principles,sec:unit_V_mendelian_extensions_and_human_genetics}, \cref{sec:unit_VI_evolution_and_selection}, and \cref{sec:unit_VI_genetic_drift_and_speciation}.

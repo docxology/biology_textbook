@@ -2,7 +2,7 @@
 
 ## Two-Layer Architecture
 
-Relative to the **template** repository: generic infrastructure lives in `infrastructure/` and `scripts/` (Layer 1). The biology textbook tree is **project Layer 2**: domain code in `src/`, content in `docs/manuscript/`, and thin orchestrators in this project's `scripts/`.
+This standalone project owns src, scripts, manuscript and output. A compatible template supplies read-only validation/rendering library code, selected by BIOLOGY_TEXTBOOK_TEMPLATE_ROOT or a genuine enclosing template. Invalid explicit selection fails; ambient neighbors are ignored and local imports win. Rendering and validation entry points remain project-local.
 
 ```text
 biology_textbook/
@@ -22,8 +22,8 @@ biology_textbook/
 │   ├── textbook_logging.py       # infrastructure-aware logging fallback
 │   ├── mermaid/                  # diagram_specs.yaml + diagram_spec_loader (24 diagrams)
 │   └── visualization/            # plots_*.py domain modules + plots.py registry + cvd.py
-├── tests/                        # domain + invariant tests; zero mocks; ≥90 % coverage on src/ (see pytest)
-├── scripts/                      # 36 Python files — see project [AGENTS.md](../AGENTS.md)
+├── tests/                        # real computation, fixtures, invariant/native integration contracts
+├── scripts/                      # project-local thin orchestrators
 ├── docs/manuscript/                   # config.yaml + 11 units + labs + questions + glossary + references.bib
 ├── docs/                         # guides (this directory; see [README.md](README.md))
 ├── output/                       # Generated (disposable)
@@ -43,7 +43,7 @@ biology_textbook/
 | `biology.microbiology` | `bacterial_growth_curve`, `mic_fold_dilution`, `basic_reproduction_number`, `sir_model` | `test_microbiology_botany_neuroscience.py` |
 | `biology.botany` | `water_potential`, `transpiration_flux`, `photosynthesis_rate` | `test_microbiology_botany_neuroscience.py` |
 | `biology.neuroscience` | `action_potential_hh`, `cable_voltage_attenuation`, `synaptic_current`, `hebbian_weight_update` | `test_microbiology_botany_neuroscience.py` |
-| `biology.chapter_metadata` | `CHAPTERS` list of `ChapterMeta(difficulty, reading_time_min, lecture_time_min, prerequisites)` | `test_chapter_metadata.py` |
+| `biology.chapter_metadata` | ChapterMeta(chapter_id, number, unit, difficulty, reading_time_min, lecture_time_min, prerequisites), CHAPTERS | test_chapter_metadata.py |
 | `biology.toc` | `load_toc()` canonical units, chapters, companion-material titles, and reference appendices | `test_toc_consistency.py` |
 | `biology.curriculum` | `CurriculumRecord`, learning objectives, curriculum scaffold | `test_curriculum_metadata.py` |
 | `biology.assessment` | Question-bank and lab assessment metadata parsers | `test_assessment_metadata.py`, `test_lab_pedagogy_alignment.py` |
@@ -52,11 +52,11 @@ biology_textbook/
 | `biology.enrichment` | Embedded frontier/companion enrichment catalog | `test_enrichment_substance_gate.py`, `test_textbook_quality_audit.py` |
 | `biology.crossref_validator` | `validate()`, `scan_file()`, `scan_directory()`, `CrossRefReport` | `test_crossref_validator{,_edges,_internals}.py` |
 
-Overall **`src/`** line + branch coverage is enforced at **≥90 %** via `pyproject.toml` (`fail_under = 90`). Run `uv run python -m pytest tests/ --cov=src` from the project directory for the live report.
+Coverage enables branches and applies a 90% threshold to the reported overall total with explicit omissions in pyproject.toml, not separate line/branch or per-package floors. Tests include narrow monkeypatch isolation/failure injection; synthetic fixtures are not empirical data. See testing_guide.md for limits.
 
 ## Manuscript invariants as tests
 
-The [`tests/`](../tests/) suite is **70** `test_*.py` files: domain modules plus manuscript, lab, question, render, current-claim, assessment-alignment, maintenance-engine smoke, table-caption, publication-gate, and script-quality invariant modules. Authoritative list and failure-to-fix table: [testing_guide.md](testing_guide.md#test-organization); the same invariant list appears under “Invariant tests (Stage 2 gate-keepers)” in [pipeline_guide.md](pipeline_guide.md).
+Domain and invariant tests cover manuscript, lab, assessment, rendering and maintenance contracts. See [testing_guide.md](testing_guide.md#test-organization); no current passing count is asserted here.
 
 Invariant modules:
 
@@ -70,7 +70,7 @@ Invariant modules:
 - `test_lab_integrity.py` — lab computation sections are self-contained and executable against `src/biology`
 - `test_pdf_log_quality.py` — PDF log checker catches undefined references and severe overfull boxes
 - `test_pdf_opening_and_mermaid.py` — book opening metadata, cover asset, and inline Mermaid rendering contract
-- `test_question_answer_refinement.py` — generated answer refinement remains idempotent and preserves hand-written answers
+- `test_question_answer_refinement.py` — preserve authored solutions and refuse unsupported repair without writing
 - `test_script_quality.py` — scripts parse cleanly and avoid hard-coded local checkout paths or obsolete clones
 
 ## Thin Orchestrator Pattern
@@ -79,6 +79,7 @@ Scripts in `scripts/` are **thin orchestrators** — they import from `src/biolo
 
 ```python
 # GOOD: thin orchestrator
+import json
 from biology.biochemistry import michaelis_menten
 result = michaelis_menten(substrate_conc=5.0, Vmax=10.0, Km=2.0)
 print(json.dumps(result.__dict__))
@@ -90,13 +91,15 @@ def michaelis_menten_inline(S, Vmax, Km):  # don't do this in scripts
 
 ## Module Import Pattern
 
-All `src/biology/` modules use explicit imports. The user-facing `biology` package is importable from the project root after `uv sync`:
+The user-facing biology package is importable after uv sync --frozen --extra dev from this checkout:
 
 ```python
 from biology.cell import nernst_potential, IonConcentration
 from biology.genetics import punnett_square
 from biology.ecology import lotka_volterra, logistic_growth
 ```
+
+The project-local render adapter validates selected configuration and atomically replaces complete staging on every render, then renders fresh source-identified inline PNGs through the read-only template library. Publication uses dependency-aware checks, actual PNG decoding and strict PDF-log validation; output remains in this checkout. Curated semantic assessment records and finite printed lab packets are source content, not generated ordinal scaffolds. See [pipeline_guide.md](pipeline_guide.md) and [api_reference.md](api_reference.md) for breaking 2.0.0 scientific/API contracts. Current proof requires exact-source receipts and separate PDF inspection, not this architectural description.
 
 Tests and scripts both import this way — see `pyproject.toml` for `pythonpath = ["src"]`.
 

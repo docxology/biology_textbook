@@ -8,9 +8,11 @@ from pathlib import Path
 
 from biology.crossref.helpers import file_stem, generated_block_lines, slugify, unit_tag
 from biology.crossref.patterns import RE_PIPE_TABLE_ROW, RE_TBL_CAPTION, RE_TBL_ID
+from biology.crossref.source import visible_text
+from biology.maintenance.manuscript_walker import manuscript_markdown_files
 
 TABLE_SEP_RE = re.compile(r"^\|(?=[\s\-:|]*-)[\s\-:|]+\|$")
-HEADING_RE = re.compile(r"^#{3,6}\s+(?P<title>.+?)(?:\s+\{[^}]*\})?\s*$")
+HEADING_RE = re.compile(r"^#{1,6}\s+(?P<title>.+?)(?:\s+\{[^}]*\})?\s*$")
 SKIP_NAMES = frozenset({"README.md", "AGENTS.md", "unit_intro.md"})
 
 
@@ -32,27 +34,21 @@ class AnnotationResult:
 
 def in_scope_files(manuscript_root: Path) -> list[Path]:
     """Return chapter and lab markdown files eligible for table numbering."""
-    files: list[Path] = []
-    for unit_dir in sorted(manuscript_root.glob("unit_*")):
-        if not unit_dir.is_dir():
-            continue
-        for md in sorted(unit_dir.glob("*.md")):
-            if md.name not in SKIP_NAMES:
-                files.append(md)
-    labs_root = manuscript_root / "labs"
-    if labs_root.is_dir():
-        for md in sorted(labs_root.rglob("*.md")):
-            if md.name not in SKIP_NAMES:
-                files.append(md)
-    return files
+    return [
+        path for path in manuscript_markdown_files(manuscript_root)
+        if path.name not in SKIP_NAMES
+        and (
+            (len(path.relative_to(manuscript_root).parts) == 2
+             and path.relative_to(manuscript_root).parts[0].startswith("unit_"))
+            or path.relative_to(manuscript_root).parts[0] == "labs"
+        )
+    ]
 
 
 def collect_existing_tbl_ids(manuscript_root: Path) -> set[str]:
     """Collect every ``tbl:…`` id already present under ``manuscript/``."""
     ids: set[str] = set()
-    for md in manuscript_root.rglob("*.md"):
-        if md.name in {"README.md", "AGENTS.md"}:
-            continue
+    for md in manuscript_markdown_files(manuscript_root):
         text = md.read_text(encoding="utf-8")
         for match in RE_TBL_ID.finditer(text):
             ids.add(match.group("id"))
@@ -95,9 +91,7 @@ def _has_caption(lines: list[str], header_index: int) -> bool:
         stripped = lines[idx].strip()
         if not stripped:
             continue
-        if RE_TBL_CAPTION.match(stripped):
-            return True
-        return False
+        return bool(RE_TBL_CAPTION.match(stripped))
     return False
 
 
@@ -255,19 +249,12 @@ def find_table_annotations(
 ) -> AnnotationResult:
     """Return caption insertions required for unlabeled pipe tables in ``path``."""
     text = path.read_text(encoding="utf-8")
-    lines = text.splitlines()
+    lines = visible_text(text).splitlines()
     generated = generated_block_lines(text)
     annotations: list[TableAnnotation] = []
     low_confidence: list[int] = []
 
-    in_fence = False
     for idx, line in enumerate(lines):
-        stripped = line.strip()
-        if stripped.startswith("```"):
-            in_fence = not in_fence
-            continue
-        if in_fence:
-            continue
         if idx + 1 >= len(lines) or not RE_PIPE_TABLE_ROW.match(line):
             continue
         if not TABLE_SEP_RE.match(lines[idx + 1].strip()):
@@ -313,9 +300,7 @@ def polish_manuscript_captions(
     """Rewrite existing ``: … {#tbl:…}`` captions; return (changed, examined)."""
     changed = 0
     examined = 0
-    for md in sorted(manuscript_root.rglob("*.md")):
-        if md.name in {"README.md", "AGENTS.md"}:
-            continue
+    for md in manuscript_markdown_files(manuscript_root):
         text = md.read_text(encoding="utf-8")
         lines = text.splitlines()
         file_changed = False
@@ -354,17 +339,16 @@ def annotate_manuscript(
         result = find_table_annotations(path, used_ids=used_ids)
         if result.annotations:
             results.append(result)
-            if write:
-                if apply_annotations(path, result.annotations):
-                    changed += 1
+            if write and apply_annotations(path, result.annotations):
+                changed += 1
     return results, changed
 
 
 __all__ = [
-    "AnnotationResult",
     "CAPTION_OVERRIDES",
-    "CaptionPolicy",
     "DEFAULT_CAPTION_POLICY",
+    "AnnotationResult",
+    "CaptionPolicy",
     "TableAnnotation",
     "annotate_manuscript",
     "apply_annotations",

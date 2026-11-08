@@ -30,6 +30,8 @@
 > [!IMPORTANT]
 > `accessibility.alt_text_required` is **not** read at PDF build time to fail the build. Alt text is **enforced by tests** (`test_accessibility.py`) and by editorial convention. The YAML flag records the same policy for humans and tools.
 
+Source alt comments and palette checks do not establish PDF tagging, screen-reader navigation, color perception or readable physical print. Exact-source gate results and selected PDF inspection must be recorded separately, with their limits. The visual gate checks real decoded PNGs and declared contrast; it cannot replace human accessibility review or PDF/UA certification.
+
 ---
 
 ## `config.yaml` keys — status
@@ -54,9 +56,9 @@
 
 | Key | Status | Notes |
 | --- | ------ | ----- |
-| `include_solutions` | **Implemented in `biology_analysis`** | When `true`, `<!-- SOLUTION ... SOLUTION -->` blocks in question banks are revealed as blockquoted instructor answers; the same behavior can be forced with `BIOLOGY_INCLUDE_SOLUTIONS=1`. |
+| `include_solutions` | **Implemented in staging for analysis and project-local render** | Reveal authored SOLUTION blocks when true or BIOLOGY_INCLUDE_SOLUTIONS=1; no answer text is generated. |
 | `include_worked_problems` | **Advisory** | Not read by `biology_analysis.py`; keep `false` until a build hook is implemented. |
-| `watermark_instructor` | **Implemented in `biology_analysis`** | Optional diagonal overlay when both `export.watermark_instructor` and `export.include_solutions` are true (`instructor_preamble_text` in `biology.pipeline.injection`). Default publication build keeps instructor answers with `watermark_instructor: false`. |
+| `watermark_instructor` | **Implemented in staging** | Adds instructor overlay when solutions are included and watermark is enabled; disabling watermark does not hide answers. |
 
 ### `chapter_metadata` (`config.yaml` section)
 
@@ -201,7 +203,7 @@ Use this every time you create or review a figure:
 
 ## Reader / large-type profile (optional)
 
-Default PDF uses compact settings (see [AGENTS.md](../AGENTS.md)). For a more legible print profile, **edit `docs/manuscript/config.yaml` and `docs/manuscript/preamble.md` together** (layout margins, `base_font_size_pt`, `line_height`, and the matching `\geometry`, `\normalsize`, `\setstretch`).
+Current source defaults are 9 pt, 2 mm margins and 1.28 line spacing; they are not a readability finding. For a larger-type experiment, edit config.yaml and preamble.md together (margins, body size, line height and matching LaTeX). Inspect the actual output before distribution; the following values are suggestions, not a validated accessibility profile.
 
 > [!TIP]
 > Suggested starting point for a "reader" profile (adjust to taste):
@@ -213,10 +215,11 @@ Default PDF uses compact settings (see [AGENTS.md](../AGENTS.md)). For a more le
 > | Body font size | 9 pt | 10.5–11 pt |
 > | Line spacing | 1.28 | 1.35–1.4 |
 
-Re-run from the repository root:
+Re-render from the project root after locked setup and selecting a read-only template library (see pipeline_guide.md):
 
 ```bash
-uv run python scripts/03_render_pdf.py --project biology_textbook
+uv run --frozen --extra dev python scripts/render_textbook.py
+uv run --frozen --extra dev python scripts/audit_publication_readiness.py --check --full
 ```
 
 Document which profile a given PDF build used in release notes or the title page if you distribute multiple editions.

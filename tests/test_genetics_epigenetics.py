@@ -11,7 +11,7 @@ from biology.genetics import (
 
 class TestEpigeneticUtilities:
     def test_cpg_methylation_decay(self):
-        assert cpg_methylation_remaining(0.8, divisions=2, maintenance_efficiency=0.9) == pytest.approx(0.648)
+        assert cpg_methylation_remaining(0.8, divisions=2, maintenance_efficiency=0.9) == pytest.approx(0.722)
 
     def test_histone_mark_lookup(self):
         assert histone_modification_state("H3K27me3") == "repressed"

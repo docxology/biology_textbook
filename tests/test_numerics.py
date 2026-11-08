@@ -2,49 +2,42 @@
 
 from __future__ import annotations
 
+import math
+from itertools import pairwise
+
 import pytest
 
-from biology.ecology.ecology import lotka_volterra, logistic_growth
 from biology.numerics import euler_integrate_pair, euler_integrate_scalar
 
 
-def test_euler_integrate_scalar_logistic_matches_ecology_helper() -> None:
-    direct_times, direct_values = euler_integrate_scalar(
-        10.0,
-        5.0,
-        100,
-        lambda n: 0.5 * n * (1.0 - n / 100.0),
-    )
-    result = logistic_growth(N0=10.0, r=0.5, K=100.0, t_end=5.0, steps=100)
-    assert direct_times == result.times
-    assert direct_values == result.populations
+def test_euler_scalar_converges_to_exponential_solution() -> None:
+    errors = []
+    for steps in (20, 40, 80):
+        times, values = euler_integrate_scalar(1.0, 1.0, steps, lambda y: y)
+        assert times[0] == 0.0
+        assert times[-1] == 1.0
+        assert all(a < b for a, b in pairwise(times))
+        errors.append(abs(values[-1] - math.e))
+    assert errors[1] < 0.55 * errors[0]
+    assert errors[2] < 0.55 * errors[1]
 
 
 def test_euler_integrate_scalar_rejects_nonpositive_horizon() -> None:
-    with pytest.raises(ValueError, match="t_end"):
+    with pytest.raises(ValueError):
         euler_integrate_scalar(1.0, 0.0, 10, lambda y: y)
 
 
-def test_euler_integrate_pair_lotka_volterra_matches_ecology_helper() -> None:
-    times, prey, predators = euler_integrate_pair(
-        (40.0, 9.0),
-        10.0,
-        200,
-        lambda n, p: (0.1 * n - 0.02 * n * p, 0.01 * n * p - 0.1 * p),
-    )
-    result = lotka_volterra(
-        prey0=40.0,
-        predator0=9.0,
-        alpha=0.1,
-        beta=0.02,
-        delta=0.01,
-        gamma=0.1,
-        t_end=10.0,
-        steps=200,
-    )
-    assert times == result.times
-    assert prey == result.prey
-    assert predators == result.predator
+def test_euler_pair_converges_to_independent_decay_solutions() -> None:
+    errors = []
+    for steps in (40, 80, 160):
+        times, first, second = euler_integrate_pair(
+            (1.0, 2.0), 1.0, steps, lambda x, y: (-x, -2 * y)
+        )
+        assert len(times) == len(first) == len(second) == steps + 1
+        assert times[-1] == 1.0
+        errors.append(abs(first[-1] - math.exp(-1)) + abs(second[-1] - 2 * math.exp(-2)))
+    assert errors[1] < 0.55 * errors[0]
+    assert errors[2] < 0.55 * errors[1]
 
 
 def test_euler_integrate_scalar_can_allow_negative_values() -> None:

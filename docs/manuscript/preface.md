@@ -2,13 +2,13 @@
 
 ## A Textbook Built With Code {.unnumbered}
 
-Welcome to *Introduction to Biology: A Generative Approach* — **Instructor Edition** with visible model answers in the question-bank appendices — an open-source textbook covering introductory biology across **Unit 0 — Systems Science for Biology: Introduction**, the thematic sequence from **Unit I — Chemistry of Life: Introduction** through **Unit X — Ecology: Introduction**, and **44 core chapters**, plus optional **laboratories** and **question banks** in the appendices. Where this text uses quantitative models, the corresponding computations are implemented as tested Python modules.
+Welcome to *Introduction to Biology: A Generative Approach* — **Instructor Edition** with visible model answers in the question-bank appendices — an open-source textbook covering introductory biology across **Unit 0 — Systems Science for Biology: Introduction**, the thematic sequence from **Unit I — Chemistry of Life: Introduction** through **Unit X — Ecology: Introduction**, and **44 core chapters**, plus optional **laboratories** and **question banks** in the appendices. Selected quantitative models have corresponding tested Python implementations; not every calculation, biological mechanism or empirical claim is implemented by the package.
 
-Whether we examine Michaelis–Menten enzyme kinetics, Lotka–Volterra predator–prey dynamics, or Hodgkin–Huxley action potentials, the underlying mathematical model exists as a working module in the accompanying codebase. Many figures are generated programmatically. Process diagrams are expressed using Mermaid where it improves clarity. For instructors and independent learners, this supports inspection, extension, and reproducible re-generation of results.
+The accompanying package implements selected models, including Michaelis–Menten kinetics, Lotka–Volterra predator–prey dynamics, and Hodgkin–Huxley action potentials. Their assumptions, units, and numerical schemes matter as much as the formulas. Many figures are generated from these models; illustrative simulations are not empirical measurements or validated clinical predictors. Paper laboratories remain usable without running Python.
 
 The philosophy is: **understand biology by computing biology**.
 
-**How to read this book digitally:** The reference build is a compact **PDF** with LaTeX typesetting. Not all screen readers handle mathematical notation the same way in PDF; the same sources also produce **HTML** for some workflows. The [biology textbook source repository](https://github.com/docxology/biology_textbook) contains the manuscript, figures, tests, and code; the [Zenodo archival DOI record](https://doi.org/10.5281/zenodo.20286478) identifies a fixed edition snapshot. If you need larger type or margins, a **reader** typography profile is documented (paired edits to `docs/manuscript/config.yaml` and `docs/manuscript/preamble.md` — see `docs/accessibility.md` in the project tree). The book does not re-express every formula in natural language; where precision matters, work through the worked examples and the linked `src/biology` modules.
+**How to read this book digitally:** The reference build is a **PDF** with LaTeX typesetting. Screen-reader handling of PDF mathematics varies; alt text and captions do not by themselves establish PDF/UA conformance. The [biology textbook source repository](https://github.com/docxology/biology_textbook) contains the manuscript, figures, tests, and code. The [Zenodo record](https://doi.org/10.5281/zenodo.20286478) archives the earlier manuscript edition 1.0/software 1.0.0; it is not a deposition of edition 1.1/software 2.0.0. Larger-type settings require paired edits to `docs/manuscript/config.yaml` and `docs/manuscript/preamble.md`, as described in `docs/accessibility.md`.
 
 **Accessible formats:** The compact PDF is optimized for print density, not for every reader. For screen-reader review, HTML/MathJax workflows usually preserve reading order and mathematical navigation better than a dense PDF. Figures and Mermaid diagrams include alt text plus captions, and the large-type reader profile increases margins, font size, and line spacing without changing chapter order or cross-reference IDs.
 
@@ -35,11 +35,7 @@ genetics algorithms to phylogenetic tree reconstruction.
 
 ### Structure and function are inseparable {.unnumbered}
 
-A phospholipid bilayer is 7 nm thick and amphipathic — and those two structural facts explain every
-property of biological membranes (Unit I — Chemistry of Life: Introduction and Unit II — The Cell: Introduction). The α-helix of hemoglobin's subunits explains its
-cooperativity and the Bohr effect (Unit I — Chemistry of Life: Introduction and Unit IX — Zoology and Systems Physiology: Introduction). The T-shaped architecture of the mitochondrial
-ATP synthase explains rotary catalysis (Unit III — Energy and Metabolism: Introduction). In biology, whenever you ask *how*, the answer is
-typically embedded in *shape*.
+A phospholipid bilayer's amphipathy helps explain compartment formation, but membrane proteins, lipid composition, and electrochemical gradients also determine membrane behavior (\cref{sec:unit_II_membrane_transport}). Hemoglobin cooperativity depends on quaternary conformational changes, while protonation and other ligands contribute to the Bohr effect (\cref{sec:unit_IX_circulation_respiration_homeostasis}). ATP synthase couples a rotor and stator to cyclic catalytic-site changes; its outline alone does not explain the mechanism (\cref{sec:unit_III_bioenergetics_and_respiration}). Structure constrains function, but a mechanistic account also needs interactions, energetics, and context.
 
 ### Information — storage, transfer, expression {.unnumbered}
 
@@ -52,11 +48,7 @@ host cells.
 
 ### Emergent properties: the whole exceeds the parts {.unnumbered}
 
-A single neuron can fire or remain silent. A brain can think. A single predator can collapse an entire
-intertidal community (Unit X — Ecology: Introduction). A slight imbalance in NAD⁺/NADH ratio shunts metabolism from aerobic
-to anaerobic (Unit III — Energy and Metabolism: Introduction). Emergence — complex behavior arising from simple rules — is everywhere in
-biology, and understanding it requires systems thinking: tracking flows, feedback loops, and
-nonlinear dynamics, not just cataloguing parts.
+A single neuron can fire or remain silent, while interacting neural circuits support behavior. Predator effects can propagate through food webs without determining every community outcome (\cref{sec:unit_X_community_interactions}). Metabolism likewise couples pathways: lactate formation regenerates NAD⁺ to sustain glycolysis when respiratory NADH oxidation is limited (\cref{sec:unit_III_bioenergetics_and_respiration}), rather than a slight redox-ratio change universally switching all metabolism between two modes. Systems thinking follows these interactions, feedback loops, and constraints across scales.
 
 ### Cells: the universal unit of life {.unnumbered}
 
@@ -74,11 +66,7 @@ This textbook presents science not as a collection of established facts but as a
 process of inquiry. Understanding how scientific knowledge is generated, tested, and revised is as
 important as knowing what is currently accepted.
 
-**The hypothetico-deductive method.** A hypothesis is a testable, falsifiable prediction. Barry
-Marshall and Robin Warren's hypothesis that bacteria cause peptic ulcers (not stress) was so contrary
-to medical consensus that Marshall famously drank a *Helicobacter pylori* culture to demonstrate the
-relationship \citep{marshall1985koch}. Their Nobel Prize-winning work illustrates how a single decisive
-experiment can overturn decades of received wisdom.
+**The hypothetico-deductive method.** A hypothesis proposes a testable explanation from which predictions can be derived. In Marshall's self-infection experiment, ingestion of a bacterial culture was followed by histologically documented acute gastritis, not demonstrated peptic ulceration \citep{marshall1985koch}. The experiment supported a causal role in acute gastritis; it did not by itself establish the causes of peptic ulcers. The lesson is to distinguish the endpoint actually observed from a broader hypothesis that requires further evidence.
 
 **Models and computation as scientific tools.** Modern biology is inseparable from mathematical
 modeling. The Michaelis-Menten equation (1913) is a model. The Hardy-Weinberg principle is a model.
@@ -87,17 +75,9 @@ that sacrifices truth; it is a commitment to precision — stating *exactly* wha
 claiming. The Python modules in this textbook implement these models so that you can inspect their
 assumptions, vary their parameters, and see where they break.
 
-**Primary literature vs. textbook synthesis.** This textbook cites primary papers at point of use.
-When you see \"(Author et al., Year, *Journal*)\" inline, that citation points to the experiment or
-calculation that established the claim. Science journalism, textbooks, and Wikipedia involve more
-layers of interpretation. Primary papers are the ultimate authority — and learning to read them is a
-core competency this textbook aims to develop.
+**Primary literature and synthesis.** Citations identify the evidence or synthesis used for a claim. Primary papers bring readers closer to methods and observations, but they remain open to error, reanalysis, and failed replication. Reviews and institutional guidance serve different purposes. Evidence strength depends on design, measurement, scope, and corroboration—not on a source label alone.
 
-**Revision is not failure.** Every chapter in this book contains examples of ideas revised or
-overturned: the flat earth was replaced by a spherical one; Lamarckian inheritance was replaced by
-Darwinian selection; the DNA double helix replaced protein as the genetic material; the \"lock-and-key\"
-enzyme model was replaced by \"induced fit\". A willingness to revise beliefs on evidence is not
-weakness — it is the engine of scientific progress.
+**Revision is not failure.** Replication, new measurements, and better models can revise explanations. Evidence that DNA carries hereditary information and evidence for its double-helical structure answer different questions; one did not simply replace a “protein helix” model. Enzyme binding likewise includes both conformational selection and induced-fit mechanisms rather than one universal replacement story. Scientific revision should identify which claim changed, which evidence changed it, and which conclusions remain supported.
 
 ---
 
@@ -144,10 +124,10 @@ plain TOC titles from the canonical manifest.
 
 | Goal | Where to start | How to use the code |
 | ---- | -------------- | ------------------- |
-| **Exam / course survey** | Unit intros + chapter summaries + the companion question bank that follows each chapter | Answer odd-numbered questions first; check module footers for `biology.*` imports. |
+| **Exam / course survey** | Unit intros + chapter summaries + the companion question banks in their separate appendix sequence | Answer odd-numbered questions first; check module footers for `biology.*` imports. |
 | **Wet-lab or clinical bridge** | Unit II — The Cell: Introduction, Unit IV — Molecular Genetics: Introduction, Unit VII — Microbiology: Introduction, and Unit IX — Zoology and Systems Physiology: Introduction | Read boxed clinical / systems notes; pair with labs in the same unit. |
 | **Modeling / CS** | Unit 0 — Systems Science for Biology: Introduction, then any unit’s “Bridge to computation” | Run examples with `uv run python` from the project root; regenerate figures with `scripts/generate_figures.py`. |
-| **Ecology / field biology** | Unit VI — Evolution: Introduction and Unit X — Ecology: Introduction, plus Photosynthesis | Focus on `ecology.py` functions cited in chapter footers; work Lotka–Volterra and logistic examples by hand then in Python. |
+| **Ecology / field biology** | Unit VI — Evolution: Introduction and Unit X — Ecology: Introduction, plus Photosynthesis | Focus on `biology.ecology.ecology` functions cited in chapter footers; work Lotka–Volterra and logistic examples by hand then in Python. |
 
 ---
 
@@ -158,12 +138,12 @@ Each chapter is designed for introductory biology learners and can be read in tw
 1. **Concept-first**: Read the narrative, work the examples, and do the questions.
 2. **Model-first**: Run the companion modules and treat the text as interpretation of model behavior.
 
-**For each concept, the integrated approach is:**
+**Across the book, the integrated approach combines:**
 
 1. **Conceptual narrative** — the biological story and mechanism in plain language with precise vocabulary.
 2. **Quantitative framework** — equations, derivations, and worked numerical examples.
 3. **Primary citations** — key papers (author, year, journal) supporting mechanisms; citations are included where used.
-4. **Python source** — model code in the project’s biology modules (importable and runnable).
+4. **Python source** — executable implementations of selected models, with explicit assumptions and units; not every biological concept has a computational implementation.
 5. **Figures** — generated by `src/visualization/plots.py` (`ALL_FIGURE_GENERATORS`) and `src/mermaid/biology_diagrams.py`.
 6. **Clinical connections** — boxed examples connecting molecular mechanisms to human disease, therapy, and public health.
 7. **Review and discussion questions** — a 30-item companion question bank per chapter, plus end-of-chapter review questions, from calculation to synthesis (Unit 0 — Systems Science for Biology: Introduction uses discussion prompts; other units mix numeric and conceptual items).
@@ -207,7 +187,7 @@ Most code conforms to the project’s **no-mocks policy**: tests use real comput
 - Concentrations in mol/L (M) or mmol/L (mM) as context requires
 - Reaction rates in M·s⁻¹ or μmol·min⁻¹·mg protein⁻¹
 - Genetic distances in centimorgans (cM)
-- Most physiological parameters indexed to standard conditions (37 °C, pH 7.4, sea level) unless stated
+- Physiological parameters accompanied by their organism, preparation, and physical conditions; human body-temperature examples do not define universal physiological standards
 
 **Primary citations** follow the format Author (year), *Journal*, and are embedded inline. They are selective: landmark results and a small number of current references where they materially clarify the consensus.
 
@@ -225,9 +205,3 @@ The entire textbook — source markdown files, Python modules, figure scripts, a
 
 This textbook was developed as part of the Research Project Template infrastructure for open, reproducible science education. Gratitude to the open-source communities behind [Pandoc](https://pandoc.org/), [LaTeX](https://www.latex-project.org/), [Mermaid](https://mermaid.js.org/), and [matplotlib](https://matplotlib.org/).
 
----
-
-*Author:* **Daniel Ari Friedman**, Active Inference Institute
-*ORCID:* [0000-0001-6232-9096](https://orcid.org/0000-0001-6232-9096)
-*Edition 1.0, 2026*
-*Licence: CC BY 4.0 (content) · Apache-2.0 (code)*

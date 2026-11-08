@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+from dataclasses import replace
 
 import yaml
 
@@ -18,6 +19,7 @@ from biology.quality.patterns import (
     BENIGN_ABSOLUTE_CONTEXTS,
 )
 
+
 def audit_absolute_language(findings: list[Finding]) -> None:
     """Advisory scan: broad terms can be correct, but deserve review."""
     for path in manuscript_markdown_files():
@@ -29,10 +31,10 @@ def audit_absolute_language(findings: list[Finding]) -> None:
                 findings.append(Finding("advisory", "absolute-language-review", path, line_no, line.strip()))
 
 def quality_advisory_id(finding: Finding) -> str:
-    """Return a stable identifier for an advisory finding."""
+    """Bind a review to one exact source occurrence and excerpt."""
     rel = finding.path.relative_to(paths.PROJECT).as_posix()
     digest = hashlib.sha1(finding.message.encode("utf-8")).hexdigest()[:12]
-    return f"{finding.code}:{rel}:{digest}"
+    return f"{finding.code}:{rel}:{finding.line}:{digest}"
 
 def _ledger_error(code: str, message: str) -> Finding:
     return Finding("error", code, paths.QUALITY_ADVISORIES, 1, message)
@@ -73,12 +75,16 @@ def load_quality_advisory_ledger() -> tuple[dict[str, dict[str, object]], list[F
                     f"{advisory_id} classification={classification!r}",
                 )
             )
-        if not isinstance(source_path, str) or not source_path.startswith("manuscript/"):
+        if not isinstance(source_path, str) or not source_path.startswith("docs/manuscript/"):
             errors.append(_ledger_error("invalid-quality-advisory-source", advisory_id))
-        if not isinstance(line, int) or line < 1:
+        if type(line) is not int or line < 1:
             errors.append(_ledger_error("invalid-quality-advisory-line", advisory_id))
         if not isinstance(excerpt, str) or not excerpt.strip():
             errors.append(_ledger_error("invalid-quality-advisory-excerpt", advisory_id))
+        if classification == "valid_scientific_absolute" and (
+            not isinstance(entry.get("rationale"), str) or not str(entry["rationale"]).strip()
+        ):
+            errors.append(_ledger_error("missing-quality-advisory-rationale", advisory_id))
         ledger[advisory_id] = entry
     return ledger, errors
 
@@ -115,6 +121,17 @@ def audit_quality_advisory_ledger(findings: list[Finding]) -> None:
                     f"{advisory_id} remains but is classified {entry.get('classification')!r}",
                 )
             )
+            continue
+        if (
+            entry.get("source_path") != finding.path.relative_to(paths.PROJECT).as_posix()
+            or entry.get("line") != finding.line
+            or entry.get("excerpt") != finding.message
+        ):
+            findings.append(_ledger_error("mismatched-quality-advisory-binding", advisory_id))
+            continue
+        # Keep the candidate visible, but a justified review is no longer outstanding.
+        index = findings.index(finding)
+        findings[index] = replace(finding, severity="reviewed")
 
     for advisory_id, entry in sorted(ledger.items()):
         if entry.get("classification") == "valid_scientific_absolute" and advisory_id not in current_ids:

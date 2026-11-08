@@ -14,7 +14,6 @@ from pathlib import Path
 
 import pytest
 
-
 MOD_PATH = Path(__file__).resolve().parent.parent / "src" / "biology" / "crossref_validator.py"
 
 
@@ -97,7 +96,7 @@ def test_heading_with_duplicate_sec_id(v, tmp_path: Path) -> None:
 
 def test_missing_file_flagged_gracefully(v, tmp_path: Path) -> None:
     f = tmp_path / "never.md"
-    defined, refs, issues = v.scan_file(f)
+    _, _, issues = v.scan_file(f)
     # Unreadable file yields a single "file" issue, not a crash.
     assert any(i.kind == "file" for i in issues)
 
@@ -113,3 +112,18 @@ def test_report_grouping_helpers(v, tmp_path: Path) -> None:
     _ = report.prose
     summary = report.summary()
     assert "missing=" in summary
+
+
+@pytest.mark.parametrize("marker", ["```", "~~~", "`"])
+def test_wrapped_reference_after_comment_marker_keeps_real_locator(v, tmp_path: Path, marker: str) -> None:
+    source = tmp_path / "boundary.md"
+    source.write_text(
+        "# Chapter {#sec:present}\n<!-- draft\n" + marker + "\n-->\n"
+        + "See \\cref{\nsec:present,\nsec:missing\n}.\n",
+        encoding="utf-8",
+    )
+    report = v.scan_directory(tmp_path)
+    assert [(issue.suggested_id, issue.line) for issue in report.unresolved] == [("missing", 5)]
+    assert {(kind, target, line) for kind, target, _path, line in report.references} == {
+        ("sec", "present", 5), ("sec", "missing", 5),
+    }

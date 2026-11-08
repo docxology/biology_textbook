@@ -2,17 +2,16 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import re
 import sys
-
+from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parent.parent
 SRC = PROJECT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from textbook_paths import discover_template_root  # noqa: E402
+from textbook_paths import discover_template_root
 
 TEMPLATE_ROOT = discover_template_root(PROJECT)
 for path in (TEMPLATE_ROOT, SRC):
@@ -21,13 +20,13 @@ for path in (TEMPLATE_ROOT, SRC):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
-from biology.assessment import (  # noqa: E402
+from biology.assessment import (
     ALLOWED_BLOOM_LEVELS,
     ALLOWED_DIFFICULTIES,
     chapter_learning_objectives,
     parse_question_bank,
 )
-from biology.toc import load_toc  # noqa: E402
+from biology.toc import load_toc
 
 
 def test_all_question_bank_items_have_assessment_metadata() -> None:
@@ -47,6 +46,7 @@ def test_each_chapter_learning_objective_is_assessed() -> None:
         expected_los = set(chapter_learning_objectives(question.chapter.path))
         bank = parse_question_bank(question.path)
         assert expected_los <= bank.assessed_los, question.path
+        assert bank.assessed_los <= expected_los, f"{question.path}: nonexistent objective IDs"
 
 
 def test_question_bank_metadata_has_auditable_bloom_and_difficulty_mix() -> None:

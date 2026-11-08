@@ -88,12 +88,13 @@ paper-based lab decision.
 
 ## Chapter Roadmap {.unnumbered}
 
-| Chapter | Title | Core Question | Key Equation / Model |
-| ------- | ----- | ------------- | -------------------- |
-| **28** | Circulation and Respiration | How do the cardiovascular and respiratory systems maintain homeostasis? | Fick's principle; Starling equation; $P_{O_2}$/Hb saturation (Hill eq.) |
-| **29** | Nervous System Organization | How is the nervous system organized from molecular to systems level? | Cable equation; receptor field models |
-| **30** | Action Potentials and Synapses | How do neurons generate and transmit electrical signals? | Hodgkin-Huxley: $I = C_m dV/dt + I_{Na} + I_K + I_L$ |
-| **31** | Endocrine and Immune Systems | How do hormones and immune cells maintain internal defense and stability? | Negative feedback oscillator; MHC diversity; clonal selection |
+| Chapter | Central question | Quantitative lens |
+| --- | --- | --- |
+| \cref{sec:unit_IX_circulation_respiration_homeostasis} | How are flow, gas exchange, and fluid balance regulated? | Cardiac output, Fick principle, oxygen content |
+| \cref{sec:unit_IX_nervous_system} | How do circuits integrate sensory and motor signals? | GHK and passive cable attenuation |
+| \cref{sec:unit_IX_action_potential_synapses} | How do spikes and synapses encode signals? | HH dynamics and release statistics |
+| \cref{sec:unit_IX_endocrine_signaling} | How do hormone axes coordinate physiology? | Clearance and feedback models |
+| \cref{sec:unit_IX_immune_system_defense} | How do recognition, selection, and tolerance organize defense? | Controlled immune readouts and endpoint comparisons |
 
 ---
 
@@ -122,22 +123,22 @@ print(f"Arterial SO2  (PO2=100 mmHg): {arterial.saturation:.1%}")
 print(f"Venous   SO2  (PO2=40  mmHg): {venous.saturation:.1%}")
 print(f"O2 extraction ratio: {(arterial.saturation - venous.saturation) / arterial.saturation:.1%}")
 # Expected:
-# Arterial SO2:  97.0%
+# Arterial SO2:  97.4%
 # Venous   SO2:  76.2%
-# O2 extraction: 21.7%  (about 5 mL O2 per 100 mL blood at rest)
+# O2 extraction: 21.8%  (about 5 mL O2 per 100 mL blood at rest)
 
 # Hodgkin-Huxley action potential simulation (10 µA/cm² stimulus, 50 ms)
 hh = action_potential_hh(stimulus_current_µA=10.0, t_end_ms=50.0)
 peak_V = max(hh.voltage_mV)
 print(f"Peak membrane voltage: {peak_V:.1f} mV")
-print(f"Firing threshold crossed: {'yes' if peak_V > 0 else 'no'}")
+print(f"Firing threshold crossed: {hh.fired}")
 # Expected:
-# Peak membrane voltage: ~+48.0 mV (overshoot above 0 mV)
-# Firing threshold crossed: yes
+# The computed peak and hh.fired are model outputs, not clinical thresholds.
+# Repeat with a finer time grid before interpreting peak amplitude.
 ```
 
 > **Try it yourself:** Reduce `stimulus_current_µA` to 5 µA/cm² — the membrane depolarizes
-> but may not reach threshold. This illustrates the **most-or-none principle**.
+> but may not reach threshold. Compare the model’s threshold flag and peak under matched pulse duration and finer resolution; this probes the **all-or-none principle**, not a fixed universal current threshold.
 
 ---
 

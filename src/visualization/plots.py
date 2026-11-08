@@ -21,8 +21,8 @@ from visualization.plots_cell import (
 )
 from visualization.plots_ecology import (
     plot_allee_threshold_dynamics,
-    plot_biome_distribution,
     plot_biodiversity_indices,
+    plot_biome_distribution,
     plot_food_web_trophic_levels,
     plot_logistic_growth,
     plot_lotka_volterra,

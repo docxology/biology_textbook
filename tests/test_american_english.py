@@ -24,18 +24,13 @@ def test_manuscript_and_docs_use_american_english() -> None:
 
 
 def test_american_english_normalization_is_idempotent() -> None:
-    sample = "\n".join(
-        [
-            "## Signalling and behaviour",
-            "",
-            "Germinal centres organise tumour defence and colour vision.",
-            "",
-            "url: https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health",
-            "",
-            "```python",
-            "colour = '#0072B2'  # keep code unchanged",
-            "```",
-        ]
+    sample = (
+        "## Signalling and behaviour\n\n"
+        "Germinal centres organise tumour defence and colour vision.\n\n"
+        "url: https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health\n\n"
+        "```python\n"
+        "colour = '#0072B2'  # keep code unchanged\n"
+        "```"
     )
     once, count = normalize_text(sample)
     twice, _ = normalize_text(once)

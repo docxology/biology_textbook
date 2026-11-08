@@ -3,9 +3,9 @@
 
 ## Why This Unit Matters {.unnumbered}
 
-Life is, at its core, an ongoing argument with the second law of thermodynamics. The second law
-demands that disorder increases in any closed system; living organisms are ordered, and they maintain
-that order at the price of consuming energy and exporting entropy to their surroundings. A resting human
+Life maintains local organization without violating the second law of thermodynamics. Total entropy
+cannot decrease in an isolated system. A closed system can exchange heat and decrease its own entropy;
+living organisms are open systems that maintain organization while exporting entropy to their surroundings. A resting human
 adult dissipates approximately 80 watts — the same as an incandescent light bulb — in the form of body
 heat, CO₂, and metabolic waste. Every breath you take, every protein you synthesize, every ion you pump
 against its gradient, uses energy extracted from the oxidation of food.
@@ -43,7 +43,7 @@ same principle operates in both mitochondria and chloroplasts.
 
 ```mermaid
 graph TD
-    THERMO["Thermodynamics<br/>(ΔG = ΔH − TΔS;<br/>1st & 2nd Laws)"] --> ATP["ATP<br/>(central energy carrier;<br/>ΔG ≈ −54 kJ/mol cellular)"]
+    THERMO["Thermodynamics<br/>(ΔG = ΔH − TΔS;<br/>1st & 2nd Laws)"] --> ATP["ATP<br/>(central group-transfer carrier;<br/>cellular hydrolysis ΔG is state-dependent)"]
 
     ATP --> GLYC["🍬 Glycolysis<br/>(10 steps; cytoplasm;<br/>2 ATP + 2 NADH/glucose)"]
     GLYC --> PDC["🔗 Pyruvate Dehydrogenase<br/>(5 cofactors;<br/>GlycolysisTCA bridge)"]
@@ -85,9 +85,9 @@ paper-based lab decision.
 
 | Chapter | Title | Core Question | Key Equation / Model |
 | ------- | ----- | ------------- | -------------------- |
-| **9** | Bioenergetics and Cellular Respiration | How do cells extract and convert chemical energy from glucose? | $\Delta G = \Delta G^{\circ\prime} + RT\ln Q$; P/O ratios |
-| **10** | Photosynthesis | How do plants capture solar energy and fix CO₂? | Light-harvesting cross-section; Z-scheme; Calvin cycle stoichiometry |
-| **11** | Metabolic Integration | How do hormones and allosteric signals coordinate anabolic and catabolic pathways? | AMPK activation; insulin/glucagon signaling logic |
+| \cref{sec:unit_III_bioenergetics_and_respiration} | Bioenergetics and Cellular Respiration | How do cells extract and convert chemical energy from glucose? | $\Delta G = \Delta G^{\circ\prime} + RT\ln Q$; P/O ratios |
+| \cref{sec:unit_III_photosynthesis} | Photosynthesis | How do plants capture solar energy and fix CO₂? | Light-harvesting cross-section; Z-scheme; Calvin cycle stoichiometry |
+| \cref{sec:unit_III_metabolic_integration} | Metabolic Integration | How do hormones and allosteric signals coordinate anabolic and catabolic pathways? | AMPK activation; insulin/glucagon signaling logic |
 
 ---
 
@@ -106,27 +106,27 @@ paper-based lab decision.
 ```python
 from biology.biochemistry import atp_free_energy, glycolysis_summary
 
-# ATP hydrolysis free energy under physiological conditions
+# Selected ideal-dilute 1-M standard-state model, not measured cellular activities
 delta_g = atp_free_energy(atp_conc_mM=3.0, adp_conc_mM=1.0, pi_conc_mM=10.0)
 print(f"ΔG (ATP hydrolysis) = {delta_g:.1f} kJ/mol")
 # Expected: ΔG (ATP hydrolysis) ≈ -45.2 kJ/mol
-# (Standard ΔG°' = -30.5 kJ/mol; physiological conditions make it more negative
-#  due to low [ADP][Pi] and high [ATP] in active cells)
+# Fixed standard ΔG°' = -30.5 kJ/mol; the supplied mass-action ratio changes ΔG.
+# The function does not model full pH/Mg speciation.
 
 # Comparing aerobic vs anaerobic ATP yield
 aerobic = glycolysis_summary()
 print(f"Glycolysis only: {aerobic.net_atp} ATP per glucose")
-# 2 ATP (substrate-level only); aerobic adds ~32 more via oxidative phosphorylation
+# 2 ATP (substrate-level only); complete aerobic oxidation adds 2 TCA substrate-level ATP plus about 26–28 oxidative ATP
 
-# The complete aerobic yield
-total_aerobic_atp = aerobic.net_atp + 2 + 10*2.5 + 2*1.5  # GTP + NADH + FADH2
-print(f"Aerobic total (estimate): ~{total_aerobic_atp:.0f} ATP per glucose")
-# Expected: Aerobic total (estimate): ~32 ATP per glucose
+# Two explicitly different cytosolic-NADH transfer budgets, using the stated P/O values:
+total_nadh_shuttle = aerobic.net_atp + 2 + 10*2.5 + 2*1.5
+total_q_shuttle = aerobic.net_atp + 2 + 8*2.5 + 4*1.5
+print(f"NADH-producing shuttle illustration: {total_nadh_shuttle:.0f} ATP/glucose")
+print(f"Q-linked shuttle illustration: {total_q_shuttle:.0f} ATP/glucose")
+# 32 versus 30: two cytosolic electron pairs enter at different coupling levels.
 ```
 
-> **Try it yourself:** The P/O ratio (ATP per oxygen atom) is 2.5 for NADH and 1.5 for
-> FADH₂. Calculate the theoretical maximum yield from one glucose:
-> 10 NADH × 2.5 + 2 FADH₂ × 1.5 + 4 substrate-level = __?
+> **Try it yourself:** Under P/O assumptions 2.5 for mitochondrial NADH and 1.5 for Q-linked electron pairs, identify the two cytosolic pairs reassigned between these budgets. Why is 32 a conditional accounting result rather than a universal theoretical maximum, and why must shuttle adjustment not be subtracted twice?
 
 ---
 

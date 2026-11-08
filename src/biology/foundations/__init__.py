@@ -9,27 +9,27 @@ mocks, no random state, and no I/O outside what the calling plot helper does.
 """
 
 from .active_inference import (
-    PredictionPrecisionPoint,
     ActiveInferenceProfile,
-    prediction_error_precision_curve,
+    PredictionPrecisionPoint,
     active_inference_profile,
+    prediction_error_precision_curve,
 )
 from .atoms_molecules import (
-    AtomElectronegativity,
-    BondEnergy,
     ATOM_ELECTRONEGATIVITIES,
     BIOLOGICAL_BOND_ENERGIES,
-    electronegativity_difference,
+    AtomElectronegativity,
+    BondEnergy,
     bond_polarity_class,
+    electronegativity_difference,
 )
 from .history_of_biology import (
-    BiologyMilestone,
     BIOLOGY_MILESTONES,
+    BiologyMilestone,
     milestones_by_era,
 )
 from .macromolecules_hierarchy import (
-    MacromoleculeTier,
     MACROMOLECULE_TIERS,
+    MacromoleculeTier,
     polymer_hierarchy_levels,
 )
 from .network_topology import (
@@ -40,15 +40,15 @@ from .network_topology import (
 )
 
 __all__ = [
-    "ActiveInferenceProfile",
     "ATOM_ELECTRONEGATIVITIES",
-    "AtomElectronegativity",
     "BIOLOGICAL_BOND_ENERGIES",
     "BIOLOGY_MILESTONES",
+    "MACROMOLECULE_TIERS",
+    "ActiveInferenceProfile",
+    "AtomElectronegativity",
     "BiologyMilestone",
     "BondEnergy",
     "DegreeDistribution",
-    "MACROMOLECULE_TIERS",
     "MacromoleculeTier",
     "PredictionPrecisionPoint",
     "active_inference_profile",

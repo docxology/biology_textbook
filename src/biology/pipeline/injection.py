@@ -5,17 +5,21 @@ from __future__ import annotations
 import logging
 import re
 import shutil
+import tempfile
 from pathlib import Path
 
-from textbook_io import write_text_atomic
-
+from biology.crossref.source import visible_text
+from biology.maintenance.manuscript_spans import protected_spans
+from biology.maintenance.manuscript_walker import require_manuscript_source
 from biology.pipeline.numbering import section_numbering_directives
 from biology.pipeline.paths import MANUSCRIPT_DIR, OUTPUT_DIR, PROJECT_ROOT
+from textbook_io import write_text_atomic
+from textbook_paths import require_project_output_directory
 
 logger = logging.getLogger(__name__)
 
 SOLUTION_BLOCK_RE = re.compile(
-    r"<!--\s*SOLUTION\s*\n(.*?)\n\s*SOLUTION\s*-->",
+    r"<!--[ \t]*SOLUTION[ \t]*\n(.*?)\n[ \t]*SOLUTION[ \t]*-->",
     re.DOTALL,
 )
 
@@ -23,7 +27,8 @@ INSTRUCTOR_WATERMARK_LATEX = """
 % Instructor edition watermark (injected by biology_analysis.py when export.watermark_instructor is true)
 \\usepackage{draftwatermark}
 \\SetWatermarkText{INSTRUCTOR EDITION}
-\\SetWatermarkScale{1.5}
+\\SetWatermarkFontSize{32pt}
+\\SetWatermarkScale{1.0}
 \\SetWatermarkColor[gray]{0.88}
 """
 
@@ -40,10 +45,26 @@ _UNICODE_MATH_FOR_LATEX = {
 
 
 def normalize_unicode_math_for_latex(text: str) -> str:
-    """Replace common Unicode math symbols with inline LaTeX for XeLaTeX body text."""
+    """Normalize prose symbols without changing equations, code, or diagrams."""
+    spans = protected_spans(text)
+    parts: list[str] = []
+    cursor = 0
+    for start, end in spans:
+        if start < cursor:
+            if end > cursor:
+                parts.append(text[cursor:end])
+                cursor = end
+            continue
+        prose = text[cursor:start]
+        for char, latex in _UNICODE_MATH_FOR_LATEX.items():
+            prose = prose.replace(char, latex)
+        parts.extend((prose, text[start:end]))
+        cursor = end
+    prose = text[cursor:]
     for char, latex in _UNICODE_MATH_FOR_LATEX.items():
-        text = text.replace(char, latex)
-    return text
+        prose = prose.replace(char, latex)
+    parts.append(prose)
+    return "".join(parts)
 
 
 def instructor_preamble_text(preamble: str, *, watermark_instructor: bool) -> str:
@@ -63,7 +84,7 @@ def instructor_preamble_text(preamble: str, *, watermark_instructor: bool) -> st
 
 def clear_stale_slide_artifacts() -> None:
     """Remove stale generated slide files before a fresh WIP render."""
-    slides_dir = PROJECT_ROOT / "output" / "slides"
+    slides_dir = require_project_output_directory(PROJECT_ROOT, PROJECT_ROOT / "output" / "slides")
     slides_dir.mkdir(parents=True, exist_ok=True)
     removed = 0
     for path in slides_dir.iterdir():
@@ -75,13 +96,45 @@ def clear_stale_slide_artifacts() -> None:
 
 
 def reveal_solutions(text: str) -> str:
-    """Reveal instructor solution blocks as blockquoted markdown."""
+    """Reveal real answer blocks without changing examples or adjacent questions."""
+    parts: list[str] = []
+    cursor = 0
+    for match in SOLUTION_BLOCK_RE.finditer(visible_text(text)):
+        parts.append(text[cursor:match.start()])
+        body = normalize_unicode_math_for_latex(text[match.start(1):match.end(1)].strip("\n"))
+        quoted = "\n".join(f"> {line}" if line.strip() else ">" for line in body.splitlines())
+        # A following metadata comment otherwise becomes a lazy continuation of
+        # this quote, absorbing the next numbered question into the answer.
+        parts.append(f"\n\n{quoted}\n\n")
+        cursor = match.end()
+    parts.append(text[cursor:])
+    return "".join(parts)
 
-    def repl(match: re.Match[str]) -> str:
-        body = normalize_unicode_math_for_latex(match.group(1).strip("\n"))
-        return "\n".join(f"> {line}" if line.strip() else ">" for line in body.splitlines())
 
-    return SOLUTION_BLOCK_RE.sub(repl, text)
+def _cover_members(cover: Path) -> list[Path]:
+    """Admit every recursive cover member before any source bytes are copied."""
+    members: list[Path] = []
+
+    def visit(path: Path, ancestors: frozenset[Path]) -> None:
+        require_manuscript_source(path, MANUSCRIPT_DIR, project_root=PROJECT_ROOT)
+        if path.is_dir():
+            resolved = path.resolve()
+            if resolved in ancestors:
+                raise ValueError(f"Cyclic cover directory alias: {path}")
+            members.append(path)
+            for child in sorted(path.iterdir()):
+                visit(child, ancestors | {resolved})
+        elif path.is_file():
+            members.append(path)
+        else:
+            raise ValueError(f"Cover member is not a regular file or directory: {path}")
+
+    require_manuscript_source(cover, MANUSCRIPT_DIR, project_root=PROJECT_ROOT)
+    if cover.exists():
+        if not cover.is_dir():
+            raise ValueError(f"Cover source is not a directory: {cover}")
+        visit(cover, frozenset())
+    return members
 
 
 def inject_chapters_for_rendering(
@@ -90,53 +143,79 @@ def inject_chapters_for_rendering(
     include_solutions: bool = False,
     watermark_instructor: bool = False,
 ) -> None:
-    """Copy all chapters into OUTPUT_DIR with sequential numeric prefixes."""
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    for existing in OUTPUT_DIR.glob("*.md"):
-        existing.unlink()
+    """Stage a complete fresh tree before replacing the previous injection."""
+    if not chapters:
+        raise ValueError("Cannot inject an empty manuscript")
+    require_project_output_directory(PROJECT_ROOT, OUTPUT_DIR)
+    source_root = MANUSCRIPT_DIR.resolve()
+    if OUTPUT_DIR.resolve().is_relative_to(source_root) or source_root.is_relative_to(OUTPUT_DIR.resolve()):
+        raise ValueError(f"Injection destination overlaps manuscript sources: {OUTPUT_DIR}")
+    for source in chapters:
+        require_manuscript_source(source, MANUSCRIPT_DIR, project_root=PROJECT_ROOT)
+        if not source.is_file():
+            raise FileNotFoundError(f"Selected manuscript source is missing: {source}")
+    if len({source.resolve() for source in chapters}) != len(chapters):
+        raise ValueError("Cannot inject duplicate manuscript sources")
 
-    prefix_width = max(2, len(str(len(chapters))))
-    numbering_directives = section_numbering_directives(chapters)
+    auxiliary: list[Path] = []
+    for name in ("config.yaml", "references.bib", "preamble.md"):
+        source = require_manuscript_source(MANUSCRIPT_DIR / name, MANUSCRIPT_DIR, project_root=PROJECT_ROOT)
+        if source.exists():
+            if not source.is_file():
+                raise ValueError(f"Auxiliary source is not a regular file: {source}")
+            auxiliary.append(source)
+    cover_members = _cover_members(MANUSCRIPT_DIR / "assets" / "cover")
 
-    for index, src in enumerate(chapters, start=1):
-        dest = OUTPUT_DIR / f"{index:0{prefix_width}d}_{src.name}"
-        content = src.read_text(encoding="utf-8")
-        if include_solutions:
-            content = reveal_solutions(content)
-            content = normalize_unicode_math_for_latex(content)
-        directive = numbering_directives.get(src.resolve())
-        if directive is not None:
-            content = f"{directive}\n\n{content}"
-        if "<!-- render:skip-beamer -->" not in content:
-            content = "<!-- render:skip-beamer -->\n\n" + content
-        write_text_atomic(dest, content)
-        shutil.copystat(src, dest)
-        logger.info("  Injected [%02d] %s → %s", index, src.name, dest.name)
+    OUTPUT_DIR.parent.mkdir(parents=True, exist_ok=True)
+    stage = Path(tempfile.mkdtemp(prefix=".manuscript-stage-", dir=OUTPUT_DIR.parent))
+    backup = stage.with_name(stage.name + ".previous")
+    try:
+        prefix_width = max(2, len(str(len(chapters))))
+        directives = section_numbering_directives(chapters)
+        for index, source in enumerate(chapters, start=1):
+            destination = stage / f"{index:0{prefix_width}d}_{source.name}"
+            content = normalize_unicode_math_for_latex(source.read_text(encoding="utf-8"))
+            if include_solutions:
+                content = reveal_solutions(content)
+            directive = directives.get(source.resolve())
+            if directive is not None:
+                content = f"{directive}\n\n{content}"
+            if "<!-- render:skip-beamer -->" not in content:
+                content = "<!-- render:skip-beamer -->\n\n" + content
+            write_text_atomic(destination, content)
+            shutil.copystat(source, destination)
 
-    for aux in ("config.yaml", "references.bib"):
-        src = MANUSCRIPT_DIR / aux
-        if src.exists():
-            shutil.copy2(src, OUTPUT_DIR / aux)
-            logger.info("  Copied auxiliary file: %s", aux)
+        for source in auxiliary:
+            if source.name == "preamble.md":
+                write_text_atomic(
+                    stage / source.name,
+                    instructor_preamble_text(
+                        source.read_text(encoding="utf-8"),
+                        watermark_instructor=watermark_instructor and include_solutions,
+                    ),
+                )
+            else:
+                shutil.copy2(source, stage / source.name)
+        for source in cover_members:
+            destination = stage / source.relative_to(MANUSCRIPT_DIR)
+            if source.is_dir():
+                destination.mkdir(parents=True, exist_ok=True)
+            else:
+                shutil.copy2(source, destination)
 
-    preamble_src = MANUSCRIPT_DIR / "preamble.md"
-    if preamble_src.exists():
-        preamble_text = instructor_preamble_text(
-            preamble_src.read_text(encoding="utf-8"),
-            watermark_instructor=watermark_instructor and include_solutions,
-        )
-        write_text_atomic(OUTPUT_DIR / "preamble.md", preamble_text)
-        logger.info("  Copied auxiliary file: preamble.md")
-
-    cover_assets = MANUSCRIPT_DIR / "assets" / "cover"
-    if cover_assets.exists():
-        dest_assets = OUTPUT_DIR / "assets" / "cover"
-        dest_assets.mkdir(parents=True, exist_ok=True)
-        for src in cover_assets.iterdir():
-            if src.is_file():
-                shutil.copy2(src, dest_assets / src.name)
-        logger.info("  Copied cover assets: %s → %s", cover_assets, dest_assets)
-
+        if OUTPUT_DIR.exists():
+            OUTPUT_DIR.rename(backup)
+        try:
+            stage.rename(OUTPUT_DIR)
+        except BaseException:
+            if backup.exists() and not OUTPUT_DIR.exists():
+                backup.rename(OUTPUT_DIR)
+            raise
+        if backup.exists():
+            shutil.rmtree(backup)
+    finally:
+        if stage.exists():
+            shutil.rmtree(stage)
     edition = "instructor" if include_solutions else "student"
     logger.info("Injected %d chapter files into %s (%s edition)", len(chapters), OUTPUT_DIR, edition)
 

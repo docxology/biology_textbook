@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pytest
+
 from biology.citations import (
     bib_keys,
     citation_command_count,
@@ -14,7 +16,6 @@ from biology.citations import (
     iter_citations,
     iter_midword_citations,
     ordered_citation_keys,
-    orphan_citation_insertions,
     validate_orphan_citation_insertions,
 )
 
@@ -40,6 +41,15 @@ def test_citation_command_count_and_bib_keys() -> None:
     assert bib_keys(bib) == {"one", "two"}
 
 
+def test_bib_keys_rejects_ambiguous_duplicate_documents() -> None:
+    bibliography = (
+        "@misc{therapy, title={Approval announcement}, year={2023}}\n"
+        "@misc{therapy, title={Prescribing information}, year={2023}}\n"
+    )
+    with pytest.raises(ValueError):
+        bib_keys(bibliography)
+
+
 def test_iter_midword_citations_detects_glued_citations() -> None:
     text = r"word\citep{bad}ing is invalid but fine\citep{ok}'s suffix."
     matches = list(iter_midword_citations(text))
@@ -54,10 +64,6 @@ def test_orphan_citation_insertion_map_targets_exist() -> None:
     assert not issues, issues
 
 
-def test_orphan_citation_insertion_count_is_stable() -> None:
-    from biology.maintenance.models import PROJECT
-
-    assert len(orphan_citation_insertions(PROJECT)) == 32
 
 
 def test_is_skippable_citation_context_skips_headings_and_fences() -> None:
@@ -81,11 +87,14 @@ def test_inject_citation_after_anchor_is_idempotent_on_repeat() -> None:
 
 
 def test_inject_orphan_citations_dry_run_does_not_write(tmp_path: Path) -> None:
-    manuscript = tmp_path / "manuscript" / "unit_V"
+    manuscript = tmp_path / "docs" / "manuscript" / "unit_V"
     manuscript.mkdir(parents=True)
     target = manuscript / "mendelian_principles.md"
     original = "Mendel established particulate inheritance.\n"
     target.write_text(original, encoding="utf-8")
-    report = inject_orphan_citations(tmp_path, dry_run=True, write=False)
+    report = inject_orphan_citations(tmp_path, dry_run=True)
     assert target.read_text(encoding="utf-8") == original
-    assert report.total >= 1
+    assert report.inserted == 1
+    applied = inject_orphan_citations(tmp_path)
+    assert applied.inserted == 1
+    assert target.read_text(encoding="utf-8") == "Mendel \\citep{mendel1866} established particulate inheritance.\n"

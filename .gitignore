@@ -2,6 +2,9 @@
 .venv/
 venv/
 env/
+node_modules/
+build/
+dist/
 
 # Python caches
 __pycache__/

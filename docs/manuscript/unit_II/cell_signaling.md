@@ -39,8 +39,8 @@
 >
 > In 1987, Dennis Slamon's team at UCLA reported that about 25% of breast cancers showed amplification
 > of the HER2 [**gene**](#gl:gene), which encodes a receptor tyrosine kinase embedded in the plasma membrane
-> \citep{slamon1987her2}. In normal cells, HER2 is transiently activated when it binds
-> its ligand — triggering a cascade of phosphorylation events that ultimately drive cell
+> \citep{slamon1987her2}. HER2 has no known direct ligand. In normal signaling it can
+> partner with ligand-bound EGFR, HER3 or HER4, triggering phosphorylation events that drive cell
 > proliferation and survival. In tumors with HER2 amplification, the [**protein**](#gl:protein) is expressed at 40–100
 > times the normal level; even without ligand, HER2 molecules are close enough together to activate
 > each other constantly, delivering an unrelenting "grow and divide" signal.
@@ -76,7 +76,7 @@ Cells receive and interpret thousands of extracellular signals simultaneously. S
 
 Signal transduction cascades exhibit four fundamental properties:
 
-1. **Amplification:** One activated receptor activates multiple G proteins; each G protein activates multiple adenylyl cyclase molecules; each adenylyl cyclase produces many cAMP molecules. The cAMP second messenger system was established biochemically before G proteins were recognized as the transducers linking receptors to adenylyl cyclase \citep{sutherland1958cyclicamp,gilman1987gproteins}. A single epinephrine molecule can trigger release of ~10$^8$ glucose molecules from glycogen (10$^6$-fold amplification).
+1. **Amplification:** One occupied receptor can activate multiple G proteins over time, and activated adenylyl cyclase can produce many cAMP molecules. The cAMP second messenger system was established biochemically before G proteins were recognized as the transducers linking receptors to adenylyl cyclase \citep{sutherland1958cyclicamp,gilman1987gproteins}. Quantitative gain requires a defined input count, output count, observation window and available substrate pool; a count gain is not a concentration ratio.
 
 2. **Specificity:** Different cell types express different receptor subtypes, G proteins, and effectors. Epinephrine causes glycogen breakdown in liver (beta$_2$-adrenergic receptor, G$_s$, cAMP) but smooth muscle relaxation in bronchi (same receptor, same second messenger, different downstream targets).
 
@@ -88,7 +88,7 @@ Signal transduction cascades exhibit four fundamental properties:
 
 Signal amplification is the architectural reason a single hormone molecule can drive a macroscopic physiological response. Three concepts make the amplification quantitative: gain per step, overall gain, and dynamic range.
 
-**Gain per step.** Each level of a cascade has a gain $A_i$ defined as the number of activated downstream molecules per active upstream molecule (per unit time). For example, a single G$_s$α-GTP activates ~10 adenylyl cyclase molecules during its ~1 minute lifetime; each adenylyl cyclase produces ~1,000 cAMP per second, so over 30 s the gain at this step is roughly $10 \times 30{,}000 = 3 \times 10^5$.
+**Gain per step:** Define A_i as output molecules per input molecule over one explicit observation window, not a mixture of counts and per-second rates. A synthetic enzyme producing 1000 molecules/s for 30 s yields 30,000 product molecules per enzyme during that window, provided substrate is not limiting.
 
 **Overall gain.** For an $n$-step cascade, the total amplification is the product of step gains:
 
@@ -97,35 +97,33 @@ G_\text{total} = \prod_{i=1}^{n} A_i
 \label{eq:unit_II_signaling_total_gain}
 \end{equation}
 
-This product structure means that *removing one step* of a cascade cuts gain by orders of magnitude, while *adding one step* multiplies it. The classic epinephrine→glycogenolysis cascade has 4 enzymatic amplification steps (receptor → G$_s$ → adenylyl cyclase → PKA → phosphorylase kinase → glycogen phosphorylase), each contributing $A_i \approx 10^{1.5}$, for $G_\text{total} \approx 10^{6}$. A single epinephrine molecule binding a $\beta_2$ receptor releases ~$10^8$ glucose molecules from glycogen — exactly the gain measured in liver perfusion experiments.
+In an illustrative cascade, four dimensionless stage gains of 10^1.5 give total gain 10^6. This is not by itself evidence that one bound hormone produces 10^8 glucose molecules in a perfused liver. Additional turnover, time, receptor number and output definitions must be specified; finite substrate pools and deactivation limit simple multiplication.
 
-**Why so many steps?** A simpler cascade with the same gain — e.g., one step of $A = 10^6$ — would be biologically implausible: few signaling enzymes have $k_\text{cat} > 10^4$ s$^{-1}$ (the diffusion-limited outliers catalase and carbonic anhydrase are exceptions), and no cell could sustain enzyme concentrations giving $10^6$-fold amplification in a single reaction. The cascade architecture solves this by *multiplying* modest gains.
-
-**Time delay and adaptation.** Each step also adds a time constant $\tau_i$ (the lifetime of the activated species). The total response time is:
+**Delay and dispersion:** For a linear cascade whose normalized impulse response is the convolution of independent first-order stages, mean delay and temporal dispersion are distinct:
 
 \begin{equation}
-\tau_\text{total} \approx \sqrt{\sum_i \tau_i^2}
+\mu_t=\sum_i\tau_i,\qquad \sigma_t=\sqrt{\sum_i\tau_i^2}
 \label{eq:unit_II_cell_signaling_item_1}
 \end{equation}
 
 
-For visual transduction (rhodopsin → transducin → PDE6 → cGMP fall): individual $\tau_i$ are ~10 ms, total response ~50 ms. For epinephrine: hundreds of milliseconds to seconds. The cascade thus also serves as a **temporal filter** — fast inputs reach the effector quickly, slow inputs are integrated.
+For four illustrative stages with tau=10 ms, the mean delay is 40 ms and dispersion 20 ms. Such activation cascades are low-pass filters: they attenuate rapid fluctuations and follow or integrate slower inputs. Adaptation or a high-pass response requires additional circuit structure, not this convolution alone.
 
-**Cooperativity sharpens the response.** \cref{fig:unit_II_hill_equation} contrasts Hill coefficients that steepen receptor occupancy around $K_d$. A linear cascade has gain but not steepness — the dose–response is hyperbolic (Hill coefficient 1). To make a switch-like response, cells use:
-- *Multiple binding sites* (hemoglobin O$_2$, $n_H = 2.8$).
-- *Multi-site phosphorylation requiring full occupancy* (ERK requires both Thr and Tyr phosphorylation; effective $n_H \approx 5$ in the MAP kinase cascade).
-- *Positive feedback loops* (ERK → SOS feedback creates bistability).
+**Ultrasensitivity sharpens a response.** \cref{fig:unit_II_hill_equation} compares stipulated Hill occupancy curves at a common half-occupancy concentration $K_{1/2}$, not a generally identifiable microscopic $K_d$. A linear gain changes response magnitude without creating a sigmoid. Mechanisms that can produce steep responses include:
+- *Cooperative binding*, as in oxygen binding to hemoglobin under specified conditions.
+- *Multisite phosphorylation and enzyme saturation within a cascade*. ERK activation involves both threonine and tyrosine phosphorylation, but two sites alone do not fix an effective Hill slope \citep{huang1996mapkultrasensitivity}.
+- *Positive feedback*. A loop can support bistability in appropriate parameter regimes; neither the loop motif nor a steep dose-response alone establishes it.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/hill_equation.png}
-\caption{Hill-equation receptor occupancy for cooperative binding. Higher Hill coefficients steepen the sigmoid dose--response curve around the dissociation constant $K_d$, so a small ligand increase can switch occupancy from low to high when cooperativity is strong.}
+\caption{Stipulated phenomenological Hill occupancy curves with a common half-response. Increasing the Hill coefficient steepens the local dose--response around $K_{1/2}$; these curves do not identify microscopic binding constants, site count, or multiple stable states.}
 \label{fig:unit_II_hill_equation}
 \end{figure}
 
-<!-- alt: Three sigmoid occupancy curves versus ligand concentration on a logarithmic horizontal axis; Hill coefficient one rises gradually, while coefficients two and four steepen the transition near the dissociation constant. -->
+<!-- alt: Three model occupancy curves against free ligand concentration on a logarithmic axis. All reach one-half at the stipulated concentration ten; coefficients two and four have steeper transitions than coefficient one. The curves do not establish microscopic affinity or bistability. -->
 
-The Huang–Ferrell analysis of the MAPK cascade showed mathematically that *three sequential switches* (each with $n_H = 1.7$ from its dual phosphorylation requirement) compose to give an overall Hill coefficient near 5 — converting a graded growth-factor input into an essentially digital ERK output. This is the molecular substrate of the cell's "decision making" between proliferation and quiescence.
+Huang and Ferrell numerically modeled the MAPK cascade without assuming cooperatively regulated enzymes, then measured activation in *Xenopus* oocyte extracts. The measured stimulus-response steepness was comparable to a Hill coefficient of 4–5 \citep{huang1996mapkultrasensitivity}. This is a specified model-and-extract result, not a theorem that three stages each have coefficient 1.7 or that their coefficients simply multiply or add. A fitted functional slope is distinct from molecular binding cooperativity and does not alone prove bistability.
 
 > **Concept Check 1a:** A six-step cascade has a gain of 10 per step. What is the total gain? If a single step is removed (now five steps), by what factor does the total gain change?
 
@@ -167,7 +165,7 @@ G_{\text{total}} = \prod_{i=1}^{n} A_i = A_1 \times A_2 \times \cdots \times A_n
 \end{equation}
 
 
-For the epinephrine--glycogen cascade ($n = 4$ steps, $A_i \approx 10^{1.5}$ per step): $G_{\text{total}} \approx 10^6$, explaining how one hormone molecule triggers release of $\sim 10^8$ glucose molecules.
+For a synthetic four-stage cascade with dimensionless gains $A_i=10^{1.5}$, the product is $10^6$ output counts per input count over the stipulated accounting window. Producing $10^8$ outputs would instead require 100 such inputs or an explicitly justified additional factor of 100. This algebra is not a measured per-hormone glycogenolysis yield.
 
 ### Worked Example: Receptor Fractional Occupancy
 
@@ -347,7 +345,7 @@ Second messengers are diffusible small molecules that connect receptors to downs
 | PDE6 | cGMP | Photoreceptors | None therapeutic | (Mutated in retinitis pigmentosa) |
 | PDE9, PDE10 | cAMP, cGMP | Brain, smooth muscle | Various | Cognitive disorders (trial) |
 
-**The Viagra story (a quintessential mechanism-to-medicine path).** Pfizer scientists were originally testing sildenafil in 1989 as a treatment for angina (the rationale: PDE5 inhibition → cGMP buildup → vasodilation → coronary blood flow). Its anti-anginal effects were modest, but male patients in trials reported a striking side effect. Pfizer pivoted; sildenafil was approved for erectile dysfunction in 1998 and became a major pharmaceutical product. The mechanism is exquisitely specific: nitric oxide → guanylyl cyclase → cGMP → PKG → relaxation of penile smooth muscle. PDE5 normally degrades cGMP; sildenafil blocks PDE5; cGMP accumulates *primarily where it is being made* (i.e., where NO is released). This "context-conditional" pharmacology — drug effect primarily where the natural signal is active — now informs many other targeted therapies. Tadalafil (Cialis) has a longer half-life (17.5 h vs. 4 h for sildenafil) due to its different binding kinetics in the PDE5 active site.
+**PDE5 inhibition and cGMP signaling.** Sildenafil reduces PDE5-mediated cGMP degradation and can potentiate NO–soluble-guanylyl-cyclase signaling and smooth-muscle relaxation. The response depends on cGMP production, compartmentation and other clearance pathways; PDE5 inhibition neither creates cGMP nor restricts all accumulation to sites of ongoing NO synthesis. Drug exposure and tissue context are needed to predict physiological effects.
 
 **IP$_3$ / Ca$^{2+}$ kinetics.** IP$_3$ has a half-life of ~1 second (rapid dephosphorylation by IP$_3$-5-phosphatase); Ca$^{2+}$ signals are buffered by ~99% by cytoplasmic proteins (calbindin, calretinin) and re-sequestered by SERCA in <1 second. Therefore Ca$^{2+}$ "spikes" and "waves" propagate at controllable, intermediate speeds (~10–50 μm/s), enabling spatially organized signaling such as the fertilization Ca$^{2+}$ wave that sweeps a sea urchin egg in ~15 seconds.
 
@@ -409,18 +407,18 @@ sequenceDiagram
     Note over RAS: SIGNAL OFF: GAPs (NF1) accelerate RAS GTPase → RAS-GDP
     Note over ERK: SIGNAL OFF: MKPs (DUSP) dephosphorylate ERK
 ```
-<!-- alt: Sequence diagram showing RTK/RAS/MAPK signaling cascade. Each step amplifies the signal: one activated EGFR can activate ~100 RAS molecules, producing ~10,000 activated ERK molecules. -->
+<!-- alt: Sequence diagram showing RTK/RAS/MAPK signaling cascade. Catalytic steps can amplify signaling; the diagram specifies pathway relationships, not a measured number of RAS or ERK molecules per receptor. -->
 
-*The RTK/RAS/MAPK signaling cascade. Each step amplifies the signal: one activated EGFR can activate ~100 RAS molecules, producing ~10,000 activated ERK molecules.*
+*The RTK/RAS/MAPK signaling cascade. Catalytic steps can amplify signaling; the diagram specifies pathway relationships, not a measured number of RAS or ERK molecules per receptor.*
 
-Each step amplifies: one activated EGFR → ~100 RAS → ~10,000 activated ERK molecules.
+An end-to-end numerical gain requires integrated activation/deactivation counts over a stated window and finite RAS/ERK pools; pathway arrows alone do not supply it.
 
 ### Receptor Tyrosine Kinase Activation in Detail
 
 RTKs are activated by **ligand-induced dimerization** — and the choreography is more elegant than the cartoon suggests. Different RTK families use different dimerization strategies:
 
 1. **Bivalent ligand** (e.g., PDGF, VEGF, SCF): the ligand is a dimer that bridges two receptor monomers. Binding stoichiometry is 2 ligands : 2 receptors.
-2. **Receptor-mediated dimerization** (e.g., EGFR, HER2/3/4): the ligand is monomeric but binding induces a conformational change that exposes a "dimerization arm" on the extracellular domain; two ligand-bound receptors then pair through these arms. Stoichiometry: 2 ligands : 2 receptors.
+2. **ErbB receptor pairing:** Ligand binding to EGFR, HER3 or HER4 can favor an activating dimer configuration. HER2 has no known direct ligand and is an important heterodimer partner; its extracellular structure is poised for receptor interaction without direct ligand binding \citep{Cho2003HER2}. Ligand occupancy and dimer stoichiometry depend on the particular pair.
 3. **Pre-formed dimers** (e.g., insulin receptor, IGF-1R): exist as covalent (α$_2$β$_2$) tetramers held together by disulphide bonds. Ligand binding does not change quaternary structure but does induce a conformational change that brings the two intracellular kinase domains into productive juxtaposition.
 
 **Trans-autophosphorylation.** Upon dimerization, the two intracellular kinase domains phosphorylate each other on multiple tyrosine residues in trans (kinase A phosphorylates kinase B and vice versa). This serves three purposes:
@@ -490,13 +488,13 @@ Direct coupling of ligand binding to ion flow, bypassing G proteins. Fastest sig
 
 - **Nicotinic acetylcholine receptor (nAChR):** pentameric (alpha$_2$-beta-gamma-delta); 2 ACh bind → conformational change → Na$^+$/K$^+$ channel opens → [**depolarization**](#gl:depolarization) → muscle contraction
 - **GABA$_A$ receptor:** Cl$^-$ channel; GABA binding → Cl$^-$ influx → hyperpolarization → inhibition. Target of benzodiazepines (bind [**allosteric**](#gl:allosteric) site → enhanced Cl$^-$ flux → sedation/anxiolysis). Also target of barbiturates, ethanol, and general anaesthetics.
-- **NMDA glutamate receptor:** requires simultaneous glutamate + glycine binding AND membrane depolarization to remove Mg$^{2+}$ block; Ca$^{2+}$ entry → CaMKII activation → LTP (Learning and memory). Coincidence detector for Hebbian learning.
+- **NMDA glutamate receptor:** under physiological Mg$^{2+}$, glutamate and glycine/D-serine occupancy together with sufficient depolarization favor current. The resulting Ca$^{2+}$ signal can contribute to plasticity, but paired activity does not universally induce CaMKII-dependent LTP.
 
 > **Concept Check 2:** Curare blocks nAChRs at the neuromuscular junction. Predict the clinical effects. How does this differ from the effect of an acetylcholinesterase inhibitor (e.g., neostigmine)?
 
 > **Concept Check (Analysis):** Receptor tyrosine kinases (RTKs) activate Ras through the SOS-GEF mechanism. The Ras-GTP → Ras-GDP step is intrinsically slow ($k_\text{cat} \sim 10^{-4}$ s$^{-1}$) but is ~10$^5$-fold accelerated by GAPs (GTPase-Activating Proteins). (a) Why does the cell need both intrinsic GTPase activity and GAP acceleration --- what would happen to Ras signaling if GAPs were absent? (b) Oncogenic Ras mutations (G12V, Q61L) abolish GAP sensitivity while retaining GTP binding --- calculate how long Ras-GTP would persist in a cell with [GTP] = 0.5 mM if solely intrinsic GTPase operates ($t_{1/2} = \ln 2 / k_\text{cat} \approx 7000$ s ≈ 2 h). (c) The drug sotorasib (AMG-510) covalently targets KRAS G12C specifically. Explain the chemical basis of this selectivity (G12C introduces a cysteine near the switch-II/GTPase active site, accessible to a Michael-acceptor warhead) and why this approach cannot work for G12V or G12D mutations.
 
-> **Worked Example --- cAMP Cascade Amplification:** Epinephrine at [Epi] = 1 nM binds β-adrenergic receptors ($K_d$ = 0.3 nM; fractional occupancy = $1/(1 + K_d/[\text{Epi}])$ = $1/(1+0.3) \approx 0.77$, or 77%). Each occupied receptor activates ~100 G$\alpha_s$ molecules over its active lifetime (~10 s at ~10 activations/s). Each active G$\alpha_s$ activates one adenylyl cyclase for ~10 s, producing ~1,000 cAMP molecules. Each PKA molecule, once activated by 2 cAMP, phosphorylates ~100 substrate molecules per minute. Cascade amplification per 1 receptor: 1 × 100 G$\alpha_s$ × 1,000 cAMP × 100 substrates ≈ 10$^7$. Starting from a single hormone molecule and 77% receptor occupancy across the cell-surface receptor population, the integrated amplification factor reaches ~10$^8$--10$^9$ phosphorylated glycogen-phosphorylase molecules per bound hormone. This is why a single epinephrine release event can produce a measurable physiological response (heart-rate, glycogenolysis) within ~30 seconds.
+> **Worked Example — Defined cascade accounting (synthetic):** A cell has 1000 independent receptors with Kd=0.3 nM at free ligand 1 nM, so expected occupied receptors=1000/1.3=769.2. Over a fixed 10 s window, suppose each occupied receptor yields 100 active G proteins and each yields 1000 cAMP molecules: output=7.692e7 cAMP molecules/cell/10 s, or 1e5 per occupied receptor per window. Do not multiply occupancy into a per-single-ligand gain. Converting cAMP to substrate phosphorylation requires an explicit PKA activation and catalytic-time model; four cAMP-binding sites occur in the canonical PKA holoenzyme. These invented stage counts illustrate bookkeeping, not measured glycogenolysis.
 
 
 ---
@@ -818,7 +816,7 @@ This pattern — initial dramatic response, eventual development of resistance v
 A real cell is not exposed to a single ligand at a time. A hepatocyte receives glucagon, insulin, growth factors, fatty acids, cytokines, and adhesion signals *simultaneously*, and must integrate most of them into a coherent metabolic and proliferative response. Three architectural features make this integration possible:
 
 1. **Shared second messengers.** Many pathways feed into Ca$^{2+}$, cAMP, or phosphoinositides. The cell's "state" is encoded in the time-integrated and spatially-resolved levels of these second messengers, not in any single signaling event.
-2. **Coincidence detection.** Some effectors require *two simultaneous* inputs: **PKC** is fully activated primarily when both DAG (membrane targeting) and Ca$^{2+}$ (cytosolic increase) are present; **NMDA receptor** opens primarily when glutamate binds *and* the membrane is sufficiently depolarized. Coincidence detection prevents false alarms.
+2. **Coincidence detection.** Conventional Ca$^{2+}$-dependent PKC isoforms integrate DAG and Ca$^{2+}$, while other PKC classes have different requirements. NMDA receptors integrate agonist/co-agonist occupancy and voltage-dependent Mg$^{2+}$ block. Such conditional responses can confer coincidence sensitivity, not guaranteed exclusion of every inappropriate signal.
 3. **Conditional rules (logic gates).** Cells implement Boolean-like decision rules. Cell proliferation in normal epithelia requires growth factor (mitogen) AND adhesion (integrin) AND survival (PI3K/Akt). Loss of any one input causes anoikis (death by detachment) or quiescence. Cancer typically defeats these rules by activating each independently.
 
 **Concrete examples of crosstalk:**
@@ -852,7 +850,7 @@ print(round(theta, 4))
 
 Single-cell RNA-sequencing (scRNA-seq) dissociates tissues and so loses the spatial information that is often the point — you can measure what each cell expresses but not **where it sits relative to its neighbors**. **Spatial transcriptomics (ST)** recovers that geometry by coupling *in situ* RNA capture or detection to high-throughput sequencing or imaging.
 
-Two commercial platforms dominate. **10× Genomics Visium** prints a glass slide with ~5000 barcoded spots (55 μm diameter, ~100 μm spacing); a fresh-frozen tissue section is placed on the slide, RNA diffuses into the spots, and each spot's transcriptome is sequenced with its spot barcode. Resolution is sub-cellular to small-cluster (1–10 cells per spot). **MERFISH (Multiplexed Error-Robust FISH)** and **seqFISH+** instead use combinatorial error-correcting fluorescent in situ hybridization to detect thousands of transcripts at **diffraction-limited (~100 nm) resolution** — true single-molecule, single-cell spatial mapping. **Slide-seq** and **Stereo-seq** push sequencing-based approaches toward 10 μm and 500 nm spot sizes respectively.
+Platform generation matters. Original Visium uses approximately 55 micrometer capture spots with roughly 100 micrometer spacing; spots often contain material from multiple cells and are not subcellular pixels. Newer high-density products have different capture geometries and must be named separately. MERFISH/seqFISH localize individual labeled transcripts by imaging, with resolution, segmentation and decoding limits distinct from capture-spot diameter. No single resolution value or cost trend describes every spatial platform.
 
 Why this matters for signaling: paracrine and juxtacrine signaling — Notch–Delta, ephrin–Eph, WNT morphogen gradients — depend on cells *being close to each other*. Spatial transcriptomics lets investigators map ligand-expressing cells next to receptor-expressing cells across a whole tissue section and infer **ligand-receptor interaction networks in situ** (tools: CellChat, NicheNet, SpatialCellChat, 2022-2024). In tumor biology, ST reveals [**niches**](#gl:niche) of exhausted T cells in immunologically "cold" regions of the same tumor, motivating spatially-guided immunotherapy combinations. In developmental biology, ST in mouse embryos (Stereo-seq, *Cell* 2022) produced the first cell-resolved, tissue-resolved organogenesis atlas. The technology cost has dropped ~10x every two years; a whole-slide Visium experiment costs ~$2000 in 2024. For the student, ST is the bridge between molecular cell biology ("what genes are on?") and anatomy ("where?") — and it is the platform on which the next decade of in situ discovery will be built.
 
@@ -928,7 +926,7 @@ flowchart LR
 9. Explain how CDK4/6 inhibitors (palbociclib) arrest the cell cycle in G1. Why are they used specifically in HR$^+$ breast cancer?
 
 10. Venetoclax is a BH3 mimetic that inhibits Bcl-2. Explain its mechanism of action and why it is effective in cancers that overexpress Bcl-2.
-11. Using `hill_equation`, compare fractional occupancy at $[L] = K_d$ for $n = 1$ vs. $n = 4$. Which curve better matches oxygen binding to hemoglobin, and why?
+11. Using `hill_equation`, compare occupancy at the stipulated half-response $[L]=K_{1/2}$ for $n=1$ and $n=4$. Compare their local slopes. What data would be needed to fit hemoglobin binding, and why would a fitted exponent not establish microscopic site count?
 12. Sketch how receptor internalization provides **signal termination** for RTKs; link to one resistance mechanism in targeted cancer therapy.
 
 ---

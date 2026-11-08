@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import re
-import sys
 from pathlib import Path
 
 from PIL import Image
@@ -13,19 +12,12 @@ from biology.visual_contracts.models import (
     _ITALIC_CAPTION_RE,
     _STOPWORDS,
 )
-from biology.visual_contracts_paths import (
-    OUTPUT_FIGURES,
-    PROJECT_ROOT,
-    SRC_DIR,
-    TEMPLATE_ROOT,
-)
+from biology.visual_contracts_paths import OUTPUT_FIGURES, PROJECT_ROOT
+from textbook_paths import ensure_project_paths
 
 
 def ensure_import_paths() -> None:
-    for path in (SRC_DIR, TEMPLATE_ROOT):
-        path_str = str(path)
-        if path_str not in sys.path:
-            sys.path.insert(0, path_str)
+    ensure_project_paths()
 
 
 def relative(path: Path) -> str:
@@ -89,16 +81,21 @@ def dimensions(
     asset_path: str,
     *,
     figures_root: Path = OUTPUT_FIGURES,
-    fallback: tuple[int, int] = (0, 0),
 ) -> tuple[int, int]:
     resolved = resolve_asset(asset_path, figures_root)
     if not resolved.exists():
-        return fallback
+        return (0, 0)
     try:
         with Image.open(resolved) as image:
-            return int(image.width), int(image.height)
-    except OSError:
-        return fallback
+            if image.format != "PNG":
+                return (0, 0)
+            size = int(image.width), int(image.height)
+            image.verify()
+        with Image.open(resolved) as image:
+            image.load()
+        return size
+    except (OSError, SyntaxError, ValueError):
+        return (0, 0)
 
 
 def raw_generator_for_asset(asset_path: str) -> str:

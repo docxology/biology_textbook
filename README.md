@@ -4,92 +4,76 @@
 
 *Introduction to Biology: A Generative Approach* is an open instructor-edition textbook covering introductory biology across forty-four chapters from systems science and chemical foundations through cells, metabolism, molecular and classical genetics, evolution, microbiology, plant and animal physiology, and ecology. Organized as Unit 0 plus Units I–X, the text presents biology as an evidence-bound discipline in which mechanisms, measurements, and simple models are developed together, so readers can move between narrative explanation and the quantitative constraints that shape biological claims. Five recurring themes—evolution, information, structure and function, systems and emergence, and the cell—provide orientation across scales and align with mainstream undergraduate biology competencies; Unit 0 adds an optional systems lens (feedback, emergence, and prediction) without replacing the core molecular-to-ecological sequence.
 
-Where the curriculum is quantitative, corresponding computations live in tested Python modules organized by domain (biochemistry, cell biology, genetics, physiology, ecology, evolution, microbiology, botany, and neuroscience), and many figures and process diagrams are generated programmatically rather than supplied as static artwork alone. The edition pairs each chapter with a paper-based laboratory activity and a thirty-item question bank that progresses from recall to synthesis; model answers are visible in this instructor build. Primary literature is cited inline, a master glossary and curriculum-mapping appendices support course design, and the manuscript is maintained as a reproducible open-science artifact (source on [GitHub](https://github.com/docxology/biology_textbook); archived at DOI [10.5281/zenodo.20286478](https://doi.org/10.5281/zenodo.20286478)). Text is released under Creative Commons Attribution 4.0; accompanying source code under Apache-2.0.
+Quantitative teaching models live in domain Python packages, and figures/process diagrams are generated programmatically. Each configured chapter is paired with a finite paper-based lab packet and a thirty-item bank with authored solutions and semantic mappings. Synthetic output is not empirical validation, and citation metadata is not full-text source verification. Source is on [GitHub](https://github.com/docxology/biology_textbook). DOI [10.5281/zenodo.20286478](https://doi.org/10.5281/zenodo.20286478) identifies prior release 1.0.0 only; edition 1.1 has no new deposition claimed. Text is licensed CC BY 4.0; code Apache-2.0.
 
 Canonical copy for Zenodo and other metadata fields: [docs/publication_abstract.md](docs/publication_abstract.md).
 
 Manuscript-driven introductory biology (44 chapters across Units 0-X, 44 paper-based labs, 44 question banks of 30 questions each) with tested Python models (kinetics, population genetics, neural signaling, ecology, and related topics). Registered diagrams use Mermaid through `src/mermaid/`; publication builds use PNG output. Figures use matplotlib from `src/visualization/plots.py`.
 
-## Status (verified 2026-08-31)
+## Status
 
-- Tests/coverage: 70 test modules, gate ≥90% on `src/` — verify: `uv run python -m pytest tests/ --cov=src --cov-fail-under=90 -q` from this directory (slow, external drive; allow several minutes).
-- Publication gate: `uv run python scripts/audit_publication_readiness.py --check`.
-- Backlog / next work: [TODO.md](TODO.md) — the single authoritative list.
-- Counts in this README and AGENTS.md are point-in-time (2026-08-31); re-derive with the commands shown rather than editing by hand.
+Software **2.0.0** and manuscript edition **1.1** are release candidates, not a published release. Current proof requires an exact-source full-gate receipt and separate inspection of the resulting PDF; historical reports are not current proof. Publication, tagging and deposition are separate states. See [CHANGELOG.md](CHANGELOG.md).
 
-## Next actions
-
-1. Untriaged findings live in [TODO.md](TODO.md); add new ones there, never in review logs.
-2. For content edits, start at [docs/composable_authoring.md](docs/composable_authoring.md) (structural contract) and [docs/agent_instructions.md](docs/agent_instructions.md) (editorial voice).
-3. Before pushing, run the fast gate above; the aggregate gate is `uv run python scripts/audit_publication_readiness.py --check`.
+For content edits, start at [docs/composable_authoring.md](docs/composable_authoring.md) and [docs/agent_instructions.md](docs/agent_instructions.md). Run the project-local publication gate before release; its default mode is not the full test/PDF proof.
 
 ## Source and citation
 
 | | |
 | --- | --- |
 | **Repository** | [biology textbook source repository](https://github.com/docxology/biology_textbook) |
-| **DOI (Zenodo)** | [10.5281/zenodo.20286478](https://doi.org/10.5281/zenodo.20286478) |
-| **Text license** | CC BY 4.0 (`docs/manuscript/config.yaml` → `book.license`) |
-| **Code license** | Apache-2.0 (`book.code_license`) |
+| **Prior-release DOI only (1.0.0)** | [10.5281/zenodo.20286478](https://doi.org/10.5281/zenodo.20286478); no new deposition is claimed for edition 1.1 |
+| **Text license** | [CC BY 4.0](LICENSE-CONTENT) (`docs/manuscript/config.yaml` → `book.license`) |
+| **Code license** | [Apache-2.0](LICENSE) (`book.code_license`) |
 
-**Build health:** tests and the ≥90% `src/` coverage gate — verify with `uv run python -m pytest tests/ --cov=src --cov-fail-under=90 -q` from this directory (slow on external drives; allow 15+ minutes). Current state: 70 test modules, 36 script files (as of 2026-08-31, verified by `ls tests/test_*.py | wc -l` and `ls scripts/*.py | wc -l`).
+The configured coverage threshold is 90% of the reported, branch-enabled coverage total, with explicit exclusions in `pyproject.toml`; this is not separate 90% line and branch guarantees. Current counts and passing results must come from a fresh run.
 
-Gates, each with its command:
+Software distributions include both notices: executable code remains Apache-2.0,
+embedded teaching text remains CC BY 4.0. Their aggregate package expression does
+not relicense either component. Python's project pin is 3.15.2; the declared
+minimum Python support is not itself proof of a tested multi-version matrix.
 
-- **Test + coverage:** `uv run python -m pytest tests/ --cov=src --cov-fail-under=90 -q`
-- **Aggregate publication readiness:** `uv run python scripts/audit_publication_readiness.py --check` (uses temporary visual artifacts; add `--full` before release)
-- **Manuscript/lab/question/current-claim quality:** `uv run python scripts/audit_textbook_quality.py --check --max-advisories 0`
-- **Fast-moving claim ledger:** `uv run python scripts/audit_current_claims.py --check`
-- **Question-bank scaffolds:** `uv run python scripts/refine_generated_answers.py --dry-run` (must be clean; rejects `Expected reasoning:` / `Key answer:` / `Mechanistic answer:` style scaffolds)
-- **Assessment metadata:** `uv run python scripts/sync_assessment_metadata.py --check`
-- **Visual manifest (42 figures, 24 registered diagrams, 197 inline fences as of 2026-08-31):** `uv run python scripts/audit_visual_contracts.py --check`
+- **Full publication proof:** `uv run --frozen --extra dev python scripts/audit_publication_readiness.py --check --full`
+- **Default publication gate:** `uv run --frozen --extra dev python scripts/audit_publication_readiness.py --check`
+- **Source quality:** `uv run --frozen --extra dev python scripts/audit_textbook_quality.py --check --max-advisories 0`
+- **Current-claim ledger:** `uv run --frozen --extra dev python scripts/audit_current_claims.py --check`
+- **Curated assessment metadata:** `uv run --frozen --extra dev python scripts/sync_assessment_metadata.py --check`
+
+Answer-generation commands cannot supply scientifically defensible keys: unsupported generated answers are refused without writing. Author and review question-specific answers and semantic mappings directly.
+
+Curriculum synchronization updates navigation, blueprints and generated appendices;
+it does not regenerate authored lab procedures, question keys, rubrics or coverage
+notes. Approval announcements and prescribing labels are distinct source records.
+Duplicate bibliography keys fail rather than merging different documents.
 
 Invariants (bibliography closure, glossary, chapter pedagogy locks, script hygiene) are enforced by named test modules — see the conventions table in [AGENTS.md](AGENTS.md) rather than a duplicated list here.
 
-Regenerate the combined PDF to refresh file size and layout.
+## Standalone quick start
 
-## Location
-
-This tree is currently maintained as an active standalone checkout. Run project-local commands from this directory; when using the template pipeline, invoke entry points from the template repository root with `--project biology_textbook` so the resolver can locate the active project tree.
-
-## Quick start
+Run from this checkout. Install the locked development extra and locked Node dependencies (Node >=22.13.0); do not install an unpinned global Mermaid CLI.
 
 ```bash
-cd /path/to/biology_textbook
-
-uv sync
-uv run python -m pytest tests/ --cov=src --cov-fail-under=90 -v     # run from this directory for the 90% gate
-
-uv run python scripts/generate_diagrams.py                # 24 mermaid diagrams
-uv run python scripts/generate_diagrams.py --strict-png   # publication gate: reject .mmd fallbacks
-uv run python scripts/generate_figures.py                 # 42 square-padded matplotlib figures
-uv run python scripts/biology_analysis.py                 # injects full textbook + copies live config, references, preamble, and cover assets
-uv run python scripts/enrich_embedded_textbook.py --dry-run # audit embedded enrichment coverage without editing
-uv run python scripts/refine_generated_answers.py --dry-run # verify answer keys need no generated-scaffold rewrite
-uv run python scripts/audit_textbook_quality.py --check --max-advisories 0 # docs/manuscript/lab/question/current-claim quality gate
-uv run python scripts/audit_current_claims.py --check     # fast-moving claim ledger
-uv run python scripts/sync_assessment_metadata.py --dry-run # preview question/lab metadata drift
-uv run python scripts/sync_assessment_metadata.py --check   # question-item and lab-alignment metadata gate
-uv run python scripts/audit_visual_contracts.py --check   # visual manifest, alt/caption, and aspect contract
+uv sync --frozen --extra dev
+npm ci
+export PATH="$PWD/node_modules/.bin:$PATH"
+# Select an existing compatible template checkout as a read-only library:
+export BIOLOGY_TEXTBOOK_TEMPLATE_ROOT=/path/to/template
+uv run --frozen --extra dev python scripts/generate_figures.py
+uv run --frozen --extra dev python scripts/generate_diagrams.py --strict-png
+uv run --frozen --extra dev python scripts/audit_publication_readiness.py --check
+uv run --frozen --extra dev python scripts/render_textbook.py
+# Release proof includes tests, analysis, fresh render and strict PDF-log checks:
+uv run --frozen --extra dev python scripts/audit_publication_readiness.py --check --full
 ```
 
-Validate Markdown (from a template repository root with infrastructure available):
+Rendering also requires Pandoc, XeLaTeX and a working browser for Mermaid CLI **12.2.0**. Review the project-local `.puppeteer.json` for host compatibility; no host configuration change is implied here. Template discovery accepts the explicit environment selection or a genuine enclosing template, never an ambient neighboring checkout. Invalid explicit selection fails. Local source/scripts take precedence; template-root scripts are not entry points for this project.
 
-```bash
-uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/docs/manuscript/
-```
-
-Render the combined PDF (from the template repository root — the render stage lives in the template, not in this checkout):
-
-```bash
-uv run python scripts/03_render_pdf.py --project biology_textbook
-```
+`scripts/render_textbook.py` validates and freshly stages the live configured manuscript for every render, binds inline Mermaid PNGs to canonical source identities, and writes only to this project's `output/`. Complete staging replaces the prior source tree atomically. Missing/corrupt PNGs fail; `.mmd` source is not a publication substitute. See [docs/pipeline_guide.md](docs/pipeline_guide.md) for validation and artifact paths.
 
 ## Manuscript structure
 
 Authoritative ordering: **`docs/manuscript/config.yaml`**. It defines Unit 0 (systems / complexity prelude), Units I – X (**44** core chapter files across unit directories), front matter, and optional appendices (`labs/`, `questions/`). Chapter numbers are assigned at render time; filenames are descriptive slugs.
 
-Supporting files in `docs/manuscript/`: `preamble.md` (LaTeX geometry, body size, and `cleveref` — keep in sync with `config.yaml` layout/typography), `references.bib` (360 entries, fully closed), `glossary.md` (225 terms with `{#gl:…}` anchors), `front_matter.md` (includes auto-generated Course Planning Grid), `preface.md`.
+Supporting files in `docs/manuscript/`: `preamble.md` (keep layout/typography paired with `config.yaml`), `references.bib`, `glossary.md`, `front_matter.md`, and `preface.md`. Bibliography closure is a software invariant, not full-text verification of every cited claim.
 
 ### Manuscript-wide conventions
 
@@ -98,13 +82,13 @@ Supporting files in `docs/manuscript/`: `preamble.md` (LaTeX geometry, body size
 - Every lab and question bank `\cref`-links back to its parent chapter
 - Every BibTeX entry is cited at least once; every citation resolves (enforced by `tests/test_bibliography_closure.py`)
 - Current or fast-moving claims are tracked in `docs/manuscript/current_claims.yaml` and checked by `scripts/audit_current_claims.py --check` plus `tests/test_current_claims_ledger.py`
-- Absolute-language advisories are triaged in `docs/manuscript/quality_advisories.yaml`; `scripts/audit_textbook_quality.py --check --max-advisories 0` is the current zero-advisory gate and fails on new untriaged advisories or unresolved `needs_qualifier` / `copyedit_artifact` entries.
-- Question-bank item metadata and lab learning-objective/rubric alignment are synchronized by `scripts/sync_assessment_metadata.py`; use `--dry-run` to preview drift, `--check` for the gate, and `tests/test_assessment_metadata.py` plus `tests/test_lab_pedagogy_alignment.py` for invariant coverage.
+- Absolute-language candidates are source-bound reviews in `docs/manuscript/quality_advisories.yaml`. `--max-advisories 0` still permits no outstanding advisories: accepted definitions remain explicitly `reviewed`, while missing rationales, wrong path/line/excerpt, untriaged/unresolved and stale entries fail. See [the triage contract](docs/absolute_language_triage.md).
+- Question-item objective mappings and lab rubrics are curated semantic records. `scripts/sync_assessment_metadata.py --dry-run` previews drift and `--check` validates it; preserve reviewed mappings rather than regenerate them from item position.
 - Structural locks are asserted in `tests/test_build_invariants.py`
 
 ### Compact PDF defaults
 
-The built textbook PDF uses **9 pt** body text, **2 mm** margins, and **1.28** line spacing for dense letter-size output. To change print density, edit **`docs/manuscript/config.yaml`** and the matching **`docs/manuscript/preamble.md`** blocks together (see [AGENTS.md](AGENTS.md) table).
+Current source defaults are **9 pt** body, **2 mm** margins and **1.28** line spacing. These are configuration values, not a readability claim; release print inspection remains required. Change `config.yaml` and `preamble.md` together.
 
 ### Optional reader (large-type) profile
 
@@ -115,9 +99,9 @@ For more legible print or on-screen reading, use a second build with larger marg
 ```text
 ├── src/biology/       # 9 domain subpackages + chapter_metadata.py + crossref_validator.py
 ├── src/mermaid/       # diagram definitions + renderer
-├── src/visualization/ # __init__.py (ALL_FIGURE_GENERATORS, 42 plots) + cvd.py (palette)
-├── scripts/           # 36 Python files — see [AGENTS.md](AGENTS.md) (core build + content maintenance)
-├── tests/             # 70 test modules (as of 2026-08-31; count: `ls tests/test_*.py | wc -l`), ≥90% line+branch on `src/`, no mocks
+├── src/visualization/ # registered quantitative figures and CVD palette
+├── scripts/           # project-local thin orchestrators
+├── tests/             # numerical, source, maintenance and integration contracts
 ├── docs/manuscript/        # config.yaml drives unit/chapter/lab/question order
 └── docs/              # composable authoring, architecture, pipeline, testing, API, guides
 ```
@@ -131,8 +115,8 @@ For more legible print or on-screen reading, use a second build with larger marg
 - [docs/README.md](docs/README.md) — full doc index
 - [docs/agent_instructions.md](docs/agent_instructions.md) — editorial style and structure targets
 - [docs/pipeline_guide.md](docs/pipeline_guide.md) — pipeline stages and maintenance scripts
-- [docs/testing_guide.md](docs/testing_guide.md) — zero-mock policy, failure-to-fix table
+- [docs/testing_guide.md](docs/testing_guide.md) — real-computation policy, isolation exceptions and coverage limits
 - [docs/architecture.md](docs/architecture.md) — `src/`, tests, manuscript–code contract
 - [docs/api_reference.md](docs/api_reference.md) — public `biology.*` and manuscript utilities
-- [docs/accessibility.md](docs/accessibility.md) — config vs tests, alt text, CVD figures, reader PDF profile
-- [docs/pedagogy_objectives_mapping.md](docs/pedagogy_objectives_mapping.md) — optional LO ↔ question-bank mapping
+- [docs/accessibility.md](docs/accessibility.md) — config versus enforcement, alt text, CVD figures and unvalidated reader-profile suggestions
+- [docs/pedagogy_objectives_mapping.md](docs/pedagogy_objectives_mapping.md) — curated semantic LO/Bloom mappings and lab rubrics

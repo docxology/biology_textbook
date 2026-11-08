@@ -124,7 +124,11 @@ def run_domain_smoke() -> SmokeReport:
     logger.info("Physiology analysis complete.")
     results.append(DomainSmokeResult("physiology", {"organ_systems": len(ORGAN_SYSTEMS)}))
 
-    from biology.microbiology.microbiology import REFERENCE_ORGANISMS, bacterial_growth_curve, mic_fold_dilution
+    from biology.microbiology.microbiology import (
+        REFERENCE_ORGANISMS,
+        bacterial_growth_curve,
+        mic_fold_dilution,
+    )
 
     logger.info("Running microbiology analysis...")
     _gc = bacterial_growth_curve(N0=1e6, doubling_time_hr=0.75, t_end_hr=6.0)
@@ -133,14 +137,19 @@ def run_domain_smoke() -> SmokeReport:
     logger.info("Microbiology analysis complete.")
     results.append(DomainSmokeResult("microbiology", {"reference_organisms": len(REFERENCE_ORGANISMS)}))
 
-    from biology.botany.botany import PHOTOSYNTHESIS_PATHWAYS, photosynthesis_rate, transpiration_flux, water_potential
+    from biology.botany.botany import (
+        PHOTOSYNTHESIS_PATHWAYS,
+        photosynthesis_rate,
+        transpiration_flux,
+        water_potential,
+    )
 
     logger.info("Running botany analysis...")
     _psi = water_potential(solute_concentration_M=0.2, turgor_pressure_MPa=0.5)
     _E = transpiration_flux(
         stomatal_conductance_mol_m2_s=0.2,
-        internal_vapor_conc_mol_m3=0.5,
-        external_vapor_conc_mol_m3=0.4,
+        internal_vapor_mole_fraction=0.0125,
+        external_vapor_mole_fraction=0.0100,
     )
     _A = photosynthesis_rate(photon_flux_µmol_m2_s=800.0)
     _require_nonempty("PHOTOSYNTHESIS_PATHWAYS", PHOTOSYNTHESIS_PATHWAYS)

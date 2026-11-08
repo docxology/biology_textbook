@@ -3,19 +3,19 @@
 import pytest
 
 from biology.cell import (
+    ORGANELLES,
     IonConcentration,
-    ORGANELLES, get_organelles_by_cell_type,
-    count_membrane_bound_organelles,
-    nernst_potential,
-    goldman_equation,
-    osmotic_pressure,
-    diffusion_flux,
     compute_all_nernst_potentials,
+    count_membrane_bound_organelles,
+    diffusion_flux,
+    get_organelles_by_cell_type,
+    goldman_equation,
     hill_equation,
+    nernst_potential,
+    osmotic_pressure,
     receptor_occupancy,
     signal_amplification,
 )
-
 
 # ---------------------------------------------------------------------------
 # Organelle inventory

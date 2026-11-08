@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 
 
@@ -26,12 +27,17 @@ def recombination_frequency(recombinant_offspring: int, total_offspring: int) ->
 
 
 def genetic_distance(recombinant_offspring: int, total_offspring: int) -> float:
-    """Return map distance in centimorgans from recombinant progeny counts."""
+    """Short-interval approximation ``100*r`` cM, not a general mapping function."""
     return 100.0 * recombination_frequency(recombinant_offspring, total_offspring)
 
 
 def infer_three_point_order(distances_cM: dict[tuple[str, str], float]) -> LinkageMapResult:
-    """Infer gene order from three pairwise map distances."""
+    """Infer an exact additive map (rel_tol=1e-9, abs_tol=1e-9 cM).
+
+    Reversal is arbitrary. Co-located markers admit multiple equivalent
+    orders; the lexicographically first orientation is returned. No noisy
+    recombination-distance fit or uncertainty estimate is performed.
+    """
     if len(distances_cM) != 3:
         raise ValueError("Exactly three pairwise distances are required.")
 
@@ -40,8 +46,8 @@ def infer_three_point_order(distances_cM: dict[tuple[str, str], float]) -> Linka
     for pair, distance in distances_cM.items():
         if len(pair) != 2 or pair[0] == pair[1]:
             raise ValueError(f"Invalid gene pair: {pair!r}")
-        if distance < 0:
-            raise ValueError("Distances must be non-negative.")
+        if not math.isfinite(distance) or distance < 0:
+            raise ValueError("Distances must be finite and non-negative.")
         pair_key = frozenset(pair)
         if pair_key in normalized:
             raise ValueError(f"Duplicate unordered gene pair: {pair!r}")
@@ -51,18 +57,17 @@ def infer_three_point_order(distances_cM: dict[tuple[str, str], float]) -> Linka
     if len(genes) != 3:
         raise ValueError("Distances must describe exactly three distinct genes.")
 
-    max_pair, span = max(normalized.items(), key=lambda item: item[1])
-    outside = tuple(sorted(max_pair))
-    middle_candidates = genes - set(outside)
-    if len(middle_candidates) != 1:
-        raise ValueError("Could not identify a unique middle gene.")
-    middle = next(iter(middle_candidates))
-    left, right = outside
+    # Enumerate exact orders, including legitimate co-located-marker ties.
+    from itertools import permutations
 
-    left_distance = normalized[frozenset((left, middle))]
-    right_distance = normalized[frozenset((middle, right))]
-    return LinkageMapResult(
-        order=(left, middle, right),
-        adjacent_distances_cM=(left_distance, right_distance),
-        span_cM=span,
-    )
+    for left, middle, right in permutations(sorted(genes)):
+        left_distance = normalized[frozenset((left, middle))]
+        right_distance = normalized[frozenset((middle, right))]
+        span = normalized[frozenset((left, right))]
+        if math.isclose(left_distance + right_distance, span, rel_tol=1e-9, abs_tol=1e-9):
+            return LinkageMapResult(
+                order=(left, middle, right),
+                adjacent_distances_cM=(left_distance, right_distance),
+                span_cM=span,
+            )
+    raise ValueError("Pairwise distances do not define an additive three-point map.")

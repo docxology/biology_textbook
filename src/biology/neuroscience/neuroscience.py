@@ -73,7 +73,7 @@ def _alpha_m(voltage_mV: float) -> float:
     d_v = voltage_mV - (-40.0)
     if abs(d_v) < 1e-7:
         return 1.0
-    return 0.1 * d_v / (1.0 - math.exp(-d_v / 10.0))
+    return 0.1 * d_v / -math.expm1(-d_v / 10.0)
 
 
 def _beta_m(voltage_mV: float) -> float:
@@ -92,7 +92,7 @@ def _alpha_n(voltage_mV: float) -> float:
     d_v = voltage_mV - (-55.0)
     if abs(d_v) < 1e-7:
         return 0.1
-    return 0.01 * d_v / (1.0 - math.exp(-d_v / 10.0))
+    return 0.01 * d_v / -math.expm1(-d_v / 10.0)
 
 
 def _beta_n(voltage_mV: float) -> float:
@@ -117,12 +117,16 @@ def action_potential_hh(
 ) -> ActionPotentialResult:
     """Run a simplified Hodgkin-Huxley action potential simulation.
 
-    Uses the full HH ODEs with m, n, h gating variables and Euler integration.
+    Uses simultaneous forward Euler at the old voltage/gates. Pulse charge is
+    integrated over each interval's exact overlap with the stimulus. Nonfinite
+    voltages or gates outside [0,1] raise ValueError; reduce dt rather than
+    interpreting an unstable trajectory. Assess accuracy by grid refinement;
+    the standard parameters are intended for dt about 0.01 ms or smaller.
 
     Args:
         stimulus_current_µA: Injected current amplitude (µA/cm²).
         t_end_ms: Simulation duration (ms).
-        steps: Number of Euler integration steps.
+        steps: Positive integer Euler step count; t_end_ms/steps must be representable.
         V_rest_mV: Resting membrane potential (mV).
         V_threshold_mV: Approximate firing threshold (mV).
         V_Na_mV, V_K_mV, V_L_mV: Reversal potentials (mV).
@@ -135,20 +139,40 @@ def action_potential_hh(
         ActionPotentialResult with voltage time course.
 
     Raises:
-        ValueError: If t_end_ms ≤ 0 or steps ≤ 0.
+        TypeError: If steps is not an integer (excluding bool).
+        ValueError: If parameters are outside the finite simulation domain.
     """
+    if not all(math.isfinite(v) for v in (
+        stimulus_current_µA, t_end_ms, V_rest_mV, V_threshold_mV,
+        V_Na_mV, V_K_mV, V_L_mV, g_Na_mS, g_K_mS, g_L_mS,
+        C_m_µF, stimulus_start_ms, stimulus_duration_ms
+    )):
+        raise ValueError("HH parameters must be finite.")
+    if C_m_µF <= 0:
+        raise ValueError("C_m_µF must be positive.")
+    if min(g_Na_mS, g_K_mS, g_L_mS) < 0:
+        raise ValueError("Conductances must be non-negative.")
+    if stimulus_start_ms < 0 or stimulus_duration_ms < 0:
+        raise ValueError("Stimulus onset and duration must be non-negative.")
+    if not isinstance(steps, int) or isinstance(steps, bool):
+        raise TypeError("steps must be a positive integer.")
     if t_end_ms <= 0:
         raise ValueError("t_end_ms must be positive.")
     if steps <= 0:
         raise ValueError("steps must be positive.")
 
     dt = t_end_ms / steps
+    if dt <= 0 or steps > t_end_ms / math.ulp(t_end_ms):
+        raise ValueError("HH time step is not representable; reduce steps or increase t_end_ms.")
 
-    # Initial conditions at rest (V ≈ V_rest)
+    # Initial voltage and voltage-dependent steady-state gate values.
     V = V_rest_mV
-    m = _alpha_m(V) / (_alpha_m(V) + _beta_m(V))
-    h = _alpha_h(V) / (_alpha_h(V) + _beta_h(V))
-    n = _alpha_n(V) / (_alpha_n(V) + _beta_n(V))
+    try:
+        m = _alpha_m(V) / (_alpha_m(V) + _beta_m(V))
+        h = _alpha_h(V) / (_alpha_h(V) + _beta_h(V))
+        n = _alpha_n(V) / (_alpha_n(V) + _beta_n(V))
+    except OverflowError as exc:
+        raise ValueError("Initial voltage is outside the finite HH rate domain.") from exc
 
     times = []
     voltages = []
@@ -156,29 +180,34 @@ def action_potential_hh(
     fired = False
 
     for i in range(steps):
-        t = i * dt
+        t = (i / steps) * t_end_ms
         times.append(t)
         voltages.append(V)
 
-        # Stimulus
-        I_stim = stimulus_current_µA if stimulus_start_ms <= t <= (stimulus_start_ms + stimulus_duration_ms) else 0.0
+        # Mean current preserves injected charge, including off-grid endpoints.
+        interval_end = t_end_ms if i == steps - 1 else ((i + 1) / steps) * t_end_ms
+        pulse_end = stimulus_start_ms + stimulus_duration_ms
+        overlap = max(0.0, min(interval_end, pulse_end) - max(t, stimulus_start_ms))
+        I_stim = stimulus_current_µA * (overlap / dt)
 
         # Ionic currents
         I_Na = g_Na_mS * (m**3) * h * (V - V_Na_mV)
         I_K = g_K_mS * (n**4) * (V - V_K_mV)
         I_L = g_L_mS * (V - V_L_mV)
 
-        # Membrane equation
+        # All derivatives use the same old state (explicit Euler).
         dV_dt = (I_stim - I_Na - I_K - I_L) / C_m_µF
-        V = V + dV_dt * dt
+        try:
+            dm = _alpha_m(V) * (1 - m) - _beta_m(V) * m
+            dh = _alpha_h(V) * (1 - h) - _beta_h(V) * h
+            dn = _alpha_n(V) * (1 - n) - _beta_n(V) * n
+        except OverflowError as exc:
+            raise ValueError("Unsafe HH Euler state; increase steps.") from exc
+        V, m, h, n = V + dV_dt * dt, m + dm * dt, h + dh * dt, n + dn * dt
+        if not math.isfinite(V) or any(not math.isfinite(g) or not 0 <= g <= 1 for g in (m, h, n)):
+            raise ValueError("Unsafe HH Euler state; increase steps.")
 
-        # Update gates
-        m = m + (_alpha_m(V) * (1 - m) - _beta_m(V) * m) * dt
-        h = h + (_alpha_h(V) * (1 - h) - _beta_h(V) * h) * dt
-        n = n + (_alpha_n(V) * (1 - n) - _beta_n(V) * n) * dt
-
-        if V > peak_V:
-            peak_V = V
+        peak_V = max(peak_V, V)
         if V > V_threshold_mV and not fired:
             fired = True
 
@@ -211,22 +240,33 @@ def cable_voltage_attenuation(
     """Compute steady-state voltage attenuation along a passive dendrite.
 
     V(x) = V_0 * exp(-x / λ)
-    λ = sqrt( r_m / (2 * r_i) ) where r_m and r_i are cm-normalized resistances
+    λ = sqrt(R_m * a / (2 * R_i)), with specific R_m in Ω cm² and R_i in Ω cm.
+    V is displacement from rest in a uniform semi-infinite passive cable.
 
     Args:
         V0_mV: Voltage at injection site (mV).
         axial_resistance_Ohm_cm: Axial cytoplasmic resistivity (Ω·cm).
         membrane_resistance_kOhm_cm2: Membrane resistance (kΩ·cm²).
         axon_radius_cm: Fiber radius (cm).
-        max_distance_µm: Maximum distance to compute (µm).
-        n_points: Number of spatial points.
+        max_distance_µm: Non-negative endpoint (µm), returned exactly.
+        n_points: Positive interval count; positive ranges require a nonzero step.
 
     Returns:
         CableResult with distance array and voltage array.
 
     Raises:
-        ValueError: If any parameter is non-positive.
+        TypeError: If n_points is not an integer (excluding bool).
+        ValueError: If parameters are outside the finite cable-model domain.
     """
+    if not all(math.isfinite(v) for v in (
+        V0_mV, axial_resistance_Ohm_cm, membrane_resistance_kOhm_cm2,
+        axon_radius_cm, max_distance_µm
+    )):
+        raise ValueError("Cable parameters must be finite.")
+    if max_distance_µm < 0:
+        raise ValueError("max_distance_µm must be non-negative.")
+    if not isinstance(n_points, int) or isinstance(n_points, bool):
+        raise TypeError("n_points must be a positive integer.")
     if V0_mV == 0:
         raise ValueError("V0_mV must be non-zero.")
     if axial_resistance_Ohm_cm <= 0:
@@ -246,7 +286,12 @@ def cable_voltage_attenuation(
     lambda_cm = math.sqrt((R_m * r) / (2 * R_i))
     lambda_µm = lambda_cm * 1e4
 
-    distances = [i * max_distance_µm / n_points for i in range(n_points + 1)]
+    if max_distance_µm > 0 and n_points > max_distance_µm / math.ulp(max_distance_µm):
+        raise ValueError("Distance step is not representable; reduce n_points.")
+    distances = [
+        max_distance_µm if i == n_points else (i / n_points) * max_distance_µm
+        for i in range(n_points + 1)
+    ]
     voltages = [V0_mV * math.exp(-d * 1e-4 / lambda_cm) for d in distances]
 
     logger.debug(f"Cable equation: λ={lambda_µm:.1f} µm")
@@ -280,6 +325,10 @@ def synaptic_current(
     Raises:
         ValueError: If peak_conductance ≤ 0.
     """
+    if not all(math.isfinite(v) for v in (
+        reversal_potential_mV, membrane_potential_mV, peak_conductance_nS
+    )):
+        raise ValueError("Synaptic parameters must be finite.")
     if peak_conductance_nS <= 0:
         raise ValueError("peak_conductance_nS must be positive.")
 
@@ -311,7 +360,10 @@ def hebbian_weight_update(
     weight_max: float = 1.0,
     weight_min: float = 0.0,
 ) -> float:
-    """Apply Hebb's rule: Δw = η * x_pre * x_post  (normalized BCM variant).
+    """Apply clipped additive Hebb: Δw = η*x_pre*x_post, not BCM.
+
+    No sliding threshold, normalization, or activity-dependent depression is
+    represented. Activities are non-negative normalized rates in [0,1].
 
     Args:
         current_weight: Synaptic weight w ∈ [weight_min, weight_max].
@@ -326,6 +378,16 @@ def hebbian_weight_update(
     Raises:
         ValueError: If learning_rate is non-positive.
     """
+    if not all(math.isfinite(v) for v in (
+        current_weight, pre_activity, post_activity, learning_rate, weight_min, weight_max
+    )):
+        raise ValueError("Hebbian parameters must be finite.")
+    if weight_min > weight_max:
+        raise ValueError("weight_min must not exceed weight_max.")
+    if not weight_min <= current_weight <= weight_max:
+        raise ValueError("current_weight must lie within the weight bounds.")
+    if not 0 <= pre_activity <= 1 or not 0 <= post_activity <= 1:
+        raise ValueError("Activities must be in [0, 1].")
     if learning_rate <= 0:
         raise ValueError("learning_rate must be positive.")
     delta_w = learning_rate * pre_activity * post_activity

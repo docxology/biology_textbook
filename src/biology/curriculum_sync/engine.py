@@ -10,7 +10,10 @@ from pathlib import Path
 from types import ModuleType
 from typing import Any
 
-from biology.crossref.helpers import normalize_unnumbered_section_crefs, replace_namerefs_with_plain_titles
+from biology.crossref.helpers import (
+    normalize_unnumbered_section_crefs,
+    replace_namerefs_with_plain_titles,
+)
 from biology.curriculum_sync.appendices import (
     build_appendix,
     build_front_matter_navigation,
@@ -19,14 +22,12 @@ from biology.curriculum_sync.appendices import (
     build_suggested_reading_paths,
     build_textbook_concept_map,
 )
-from biology.curriculum_sync.paths import MANUSCRIPT, SRC, TEMPLATE_ROOT
+from biology.curriculum_sync.paths import MANUSCRIPT
 from biology.curriculum_sync.sync_blocks import (
     CHAPTER_MARKER,
     CONCEPT_MAP_MARKER,
-    LAB_MARKER,
     NAV_MARKER,
     PREFACE_SCOPE_MARKER,
-    QUESTION_MARKER,
     READING_PATHS_MARKER,
     _chapter_path,
     _lab_path,
@@ -36,18 +37,15 @@ from biology.curriculum_sync.sync_blocks import (
     normalize_headings,
     sync_chapter,
     sync_h1,
-    sync_lab,
-    sync_question,
     sync_section_label,
 )
+from textbook_paths import ensure_project_paths
 
 __all__ = [
     "CHAPTER_MARKER",
     "CONCEPT_MAP_MARKER",
-    "LAB_MARKER",
     "NAV_MARKER",
     "PREFACE_SCOPE_MARKER",
-    "QUESTION_MARKER",
     "READING_PATHS_MARKER",
     "SyncReport",
     "_chapter_path",
@@ -58,13 +56,11 @@ __all__ = [
     "build_appendix",
     "build_instructor_appendix",
     "sync_chapter",
+    "sync_forward_namerefs",
     "sync_front_matter_navigation",
     "sync_heading_titles",
-    "sync_lab",
     "sync_preface_scope_table",
-    "sync_question",
     "sync_section_reference_commands",
-    "sync_forward_namerefs",
     "sync_suggested_reading_paths",
     "sync_textbook_concept_map",
     "sync_toc_titles",
@@ -76,8 +72,6 @@ class SyncReport:
     """Counts of files changed by the synchronization pass."""
 
     chapters_updated: int = 0
-    labs_updated: int = 0
-    questions_updated: int = 0
     appendix_updated: bool = False
     instructor_appendix_updated: bool = False
     titles_updated: int = 0
@@ -100,9 +94,7 @@ def _load_module(name: str, path: Path) -> ModuleType:
 
 
 def _load_biology_module(name: str) -> ModuleType:
-    for path in (SRC, TEMPLATE_ROOT):
-        if str(path) not in sys.path:
-            sys.path.insert(0, str(path))
+    ensure_project_paths()
     return importlib.import_module(f"biology.{name}")
 
 
@@ -161,7 +153,7 @@ def sync_preface_scope_table(book_toc: Any, *, dry_run: bool) -> bool:
     replaced_section = (
         f"{heading}\n\n"
         "The textbook proceeds from atoms to ecosystems, following the standard introductory course arc.\n"
-        "The table below is generated from `manuscript/config.yaml`; unit and chapter titles are\n"
+        "The table below is generated from `docs/manuscript/config.yaml`; unit and chapter titles are\n"
         "plain TOC titles from the canonical manifest.\n\n"
         f"{block}"
     )

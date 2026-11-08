@@ -4,7 +4,8 @@ from __future__ import annotations
 
 import re
 
-
+from biology.crossref.patterns import RE_HEADING
+from biology.crossref.source import visible_text
 from biology.maintenance.manuscript_walker import (
     configured_chapter_files,
     configured_chapter_title_by_path,
@@ -14,11 +15,11 @@ from biology.maintenance.manuscript_walker import (
     manuscript_markdown_files,
 )
 from biology.quality import paths
-from biology.quality.models import Finding
 from biology.quality.audits.helpers import (
-    add_line_findings,
     _generated_block_line_numbers,
+    add_line_findings,
 )
+from biology.quality.models import Finding
 from biology.quality.patterns import (
     BANNED_REQUIRED_LAB_TERMS,
     CONCEPT_CHECK_RE,
@@ -43,6 +44,15 @@ BARE_SOURCE_SECTION_HEADING_RE = re.compile(
     r"^## (?:Current Evidence and Frontier Biology|Further Reading and Source Notes|Companion Source Module)$",
     flags=re.MULTILINE,
 )
+_PRINTED_PACKET_TITLE = re.compile(r"^Printed (?:Evidence|Data) Packets?\b", re.IGNORECASE)
+_PHYSICAL_ACTION = re.compile(
+    r"\b(?:obtain|prepare|collect|add|incubate|mix|stain|place|pipette|swab|dissect)\b"
+    r"|\buse\s+(?:it|them|this|that|these|those)\b",
+    re.IGNORECASE,
+)
+_PHYSICAL_USE = re.compile(r"\buse\b", re.IGNORECASE)
+_PACKET_CLAUSE_BREAK = re.compile(r"(?<!e\.g\.)(?<!i\.e\.)(?<=[.!?;])\s+", re.IGNORECASE)
+
 
 def audit_question_answers(findings: list[Finding]) -> None:
     for path in sorted((paths.MANUSCRIPT / "questions").rglob("questions_*.md")):
@@ -81,14 +91,33 @@ def audit_stale_claims(findings: list[Finding]) -> None:
             )
 
 def audit_lab_defaults(findings: list[Finding]) -> None:
-    for path in sorted((paths.MANUSCRIPT / "labs").rglob("lab_*.md")):
+    """Reject physical requirements, not descriptive assay names in printed data."""
+    for path in manuscript_markdown_files(paths.MANUSCRIPT / "labs", project_root=paths.PROJECT):
+        if not path.match("lab_*.md"):
+            continue
         text = path.read_text(encoding="utf-8")
         default_text = re.split(r"## Optional (?:Material|Wet-Lab)", text, maxsplit=1)[0]
         default_text = default_text.split("## Safety and Ethics Notes", 1)[0]
         default_text = default_text.split("## Debrief and Reflection", 1)[0]
         default_text = default_text.split("## Analysis Questions", 1)[0]
-        for line_no, line in enumerate(default_text.splitlines(), start=1):
-            if BANNED_REQUIRED_LAB_TERMS.search(line):
+        packet_depth: int | None = None
+        for line_no, line in enumerate(visible_text(default_text).splitlines(), start=1):
+            heading = RE_HEADING.fullmatch(line.strip())
+            if heading:
+                depth = len(heading.group("hashes"))
+                if packet_depth is not None and depth <= packet_depth:
+                    packet_depth = None
+                if _PRINTED_PACKET_TITLE.match(heading.group("title")):
+                    packet_depth = depth
+            if BANNED_REQUIRED_LAB_TERMS.search(line) and (
+                packet_depth is None
+                or _PHYSICAL_ACTION.search(line)
+                # Reading instructions cannot borrow an assay name from another sentence.
+                or any(
+                    _PHYSICAL_USE.search(clause) and BANNED_REQUIRED_LAB_TERMS.search(clause)
+                    for clause in _PACKET_CLAUSE_BREAK.split(line)
+                )
+            ):
                 findings.append(
                     Finding("error", "required-wet-lab-language", path, line_no, line.strip())
                 )

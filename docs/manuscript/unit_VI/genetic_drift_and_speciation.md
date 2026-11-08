@@ -3,11 +3,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/fitness_landscape.png}
-\caption{Mean population fitness as a function of allele frequency $p$ under three selection regimes: directional selection (fitness rises toward one allele), heterozygote advantage (interior peak at intermediate $p$), and underdominance (fitness trough that can split the population).}
+\caption{One-locus mean fitness as a function of allele A frequency $p$ for three specified genotype-fitness regimes. Directional selection produces increasing mean fitness, heterozygote advantage produces an interior maximum, and underdominance produces an interior minimum with higher mean fitness at either fixation. These curves alone do not demonstrate population splitting or speciation.}
 \label{fig:unit_VI_fitness_landscape}
 \end{figure}
 
-<!-- alt: Three curves of mean fitness versus allele frequency p: one rising to fixation, one with a central peak at intermediate p, and one with a valley that drops at both extremes. -->
+<!-- alt: Three curves show mean fitness versus allele frequency. Directional selection rises toward p equals one; heterozygote advantage peaks at p equals one half; underdominance has a trough at one half and rises toward both endpoints. -->
 
 \label{sec:unit_VI_genetic_drift_and_speciation}
 
@@ -49,7 +49,7 @@ By the end of this chapter, you should be able to:
 
 > **Opening Vignette — [**Speciation**](#gl:speciation) on the Underground**
 > 
-> Beneath London's streets, in the tunnels of the Underground railway system, a mosquito silently diverged from its surface relatives. *Culex pipiens pipiens* lives above ground, hibernates through winter, and feeds on birds. Its descendant, *Culex pipiens molestus*, rarely hibernates, bites mammals, and can breed without a blood meal — perfectly adapted to the warm, mammal-rich tunnels of the Tube. Genetic analysis published in 1999 confirmed that the two are reproductively isolated, despite sharing the same city. The London Underground mosquito has become a textbook example of parapatric speciation without geographic separation — showing that [**reproductive isolation**](#gl:reproductive-isolation) can evolve from a founder event and novel selection pressures even within a few kilometers and a few hundred years. Tube passengers helped document evolution in progress every time they got bitten.
+> **Opening Vignette — Revising an Underground Origin Story.** Underground Culex pipiens molestus mosquitoes were long presented as a recent London-subway divergence. Haba and colleagues’ 2025 whole-genome analysis of roughly 350 modern and historical samples instead supports older aboveground adaptation in the Mediterranean/Middle East over more than 1000 years. This revises the origin narrative, not the observation that underground populations differ ecologically. Geographic isolation is a hypothesis to test with population history, not something a compelling setting establishes (Science 2025, DOI: 10.1126/science.ady4515 \citep{haba2025mosquito}).
 
 ## Genetic Drift as Random Allele-Frequency Change
 
@@ -93,7 +93,7 @@ H_t = H_0 \left(1 - \frac{1}{2N_e}\right)^t
 \label{eq:genetic_drift_and_speciation_3}
 \end{equation}
 
-The half-life of heterozygosity is $t_{1/2} = N_e \ln 2 \approx 0.693 N_e$ generations.
+The exact half-life is $t_{1/2}=\ln(1/2)/\ln[1-1/(2N_e)]\approx2N_e\ln2$. For $N_e=36$, it is approximately 49.56 generations. The approximation retains the factor of 2 from diploid gene-copy sampling.
 
 ```mermaid
 stateDiagram-v2
@@ -219,7 +219,7 @@ The **founder effect** occurs when a small number of individuals establish a new
 **French Canadians of Quebec.** Quebec was colonized between 1608 and 1759 by approximately **8,500 French settlers** — a small founding population that subsequently expanded to ~6 million descendants while remaining geographically and culturally isolated from broader European-descent populations through mid-twentieth century. This combination of a small founder population, large subsequent expansion, and limited gene flow produced one of the world's best-studied founder populations. Specific recessive disorders enriched among French Canadians include:
 
 - **Tay-Sachs disease**: A different *HEXA* mutation than the Ashkenazi founder allele — the French Canadian variant (a 7.6-kb deletion) reaches a carrier frequency of ~1/14 in some Quebec subpopulations, comparable to the Ashkenazi rate.
-- **Tyrosinemia type I**: Caused by a *FAH* (fumarylacetoacetate hydrolase) splice-site mutation, with a carrier frequency of ~1/14 in the Saguenay-Lac-Saint-Jean region (vs. ~1/100,000 worldwide). The single Quebec founder was traced to a Norman settler from the 1600s.
+- **Tyrosinemia type I**: An autosomal-recessive disorder caused by pathogenic *FAH* variants. MedlinePlus reports approximately 1 affected person per 1,846 people in Saguenay–Lac-Saint-Jean versus 1 per 100,000 worldwide \citep{medlineplustyrosinemia}. These are affected-person frequencies with the same denominator type, not carrier frequencies or a contemporary global carrier survey. Geographic ascertainment and population structure limit direct comparison. Illustratively, treating $10^{-5}$ as $q^2$ in one homogeneous Hardy–Weinberg population gives $q=0.003162$ and $2q(1-q)=0.006305$ (about 1 carrier in 159); that assumption-based conversion is not an observed worldwide carrier estimate.
 - **Autosomal recessive spastic ataxia of Charlevoix-Saguenay (ARSACS)**: A neurodegenerative disorder reaching ~1/1,500 in the Charlevoix region, caused by a specific *SACS* mutation absent elsewhere.
 - **Hereditary fructose intolerance, congenital lactic acidosis, oculopharyngeal muscular dystrophy**: Most show elevated frequencies in specific French Canadian subpopulations traceable to identifiable founder events.
 
@@ -284,14 +284,14 @@ F_{ST} \approx \frac{1}{1 + 4N_e m}
 \label{eq:unit_VI_fst_nm}
 \end{equation}
 
-where $m$ is the proportion of each subpopulation composed of migrants per generation. This compact relationship — equating differentiation to the inverse of the **scaled migration rate** $4N_em$ — is one of the most-used results in molecular ecology. It reveals a striking insight: even very low migration rates ($m$) can prevent substantial differentiation. $N_em = 1$ (just one migrant per generation) yields $F_{ST} = 0.20$; $N_em = 4$ yields $F_{ST} = 0.06$. **One migrant per generation is the rule of thumb for keeping populations from drifting apart**, regardless of population size — because the homogenizing effect of migration scales with $m \cdot N_e$ while the diverging effect of drift scales with $1/N_e$, leaving the dimensionless product $N_em$ as the controlling parameter.
+Here $m$ is the migrant proportion per generation under the equilibrium symmetric neutral island approximation. $N_em=1$ gives $F_{ST}\approx.20$ and $N_em=4$ gives $F_{ST}\approx.059$ within that model. These are conditional effective parameters, not universal divergence thresholds; selection, asymmetric structure and nonequilibrium history can change the relationship.
 
-The relationship can be inverted for empirical use: given a measured $F_{ST}$, the implied number of migrants per generation is
+The relationship can be inverted to calculate a model-implied effective gene-flow parameter, not directly measure migrant numbers:
 
 $$N_em \approx \frac{1 - F_{ST}}{4 F_{ST}}. \label{eq:unit_VI_genetic_drift_and_speciation_item_4}$$
 
 
-For $F_{ST} = 0.05$ (moderate human population structure), $N_em \approx 4.75$ — about five effective migrants between subpopulations per generation, sufficient to keep differentiation modest.
+For a stipulated $F_{ST}=.05$, the inversion gives $N_em\approx4.75$. Without evidence for the model assumptions, this is neither a measured migrant count nor proof that gene flow prevents speciation.
 
 ### Isolation by Distance
 
@@ -404,9 +404,9 @@ where μ is the mutation rate and $s$ is the selection coefficient against the h
 >
 > The same mutational processes that drive evolution also drive cancer. Somatic mutations accumulate in cells throughout an organism's lifetime at rates of approximately $0.5$--$5 \times 10^{-9}$ per nucleotide per cell division. Larger and longer-lived organisms should, by simple probability, experience more cancer -- yet elephants (with 100 times more cells than humans) have lower cancer rates than humans. This is **Peto's paradox**. The resolution involves the evolution of enhanced cancer suppression mechanisms: elephants carry approximately 20 copies of the *TP53* tumor suppressor gene (humans have one), and their cells are hypersensitive to DNA damage, triggering [**apoptosis**](#gl:apoptosis) rather than attempting repair. This represents an evolutionary adaptation to large body size.
 
-> **Concept Check 2:** Using Wright's island model, calculate the equilibrium $F_{ST}$ for two populations with $N_e = 500$ and $m = 0.005$. How many migrants per generation does this represent? Would you consider these populations significantly differentiated?
+> **Concept Check 2:** Under the equilibrium symmetric neutral island approximation, use $N_e=500$ and $m=0.005$ to calculate $F_{ST}$ and $N_em$. Why is the resulting effective gene-flow parameter not a directly counted number of migrants or a test of species status?
 
-> **Concept Check (Analysis — Interpreting $F_{ST}$ on a Sliding Scale):** Three pairs of populations have measured $F_{ST}$ values of $0.05$, $0.15$, and $0.35$. (a) For each, calculate the implied number of effective migrants per generation using $N_e m \approx (1 - F_{ST}) / (4 F_{ST})$. (b) Interpret the three regimes biologically: which corresponds to ongoing extensive gene flow, which to weak structure, and which to substantially differentiated populations approaching reproductive isolation? (c) Critically evaluate the assumption-set behind the island-model conversion — what would change if the populations exchange migrants asymmetrically, or if migration is recent rather than at equilibrium? (d) For the $F_{ST} = 0.15$ pair, what fraction of total genetic variation is **between** populations versus **within** populations? Connect this back to the $F_{ST}$ definition $F_{ST} = (H_T - H_S) / H_T$.
+> **Concept Check (Analysis — Interpreting $F_{ST}$):** Three population pairs have measured $F_{ST}$ values of $0.05$, $0.15$ and $0.35$. (a) Calculate model-implied $N_em$ using $(1-F_{ST})/(4F_{ST})$. (b) Rank relative differentiation without treating any value as a reproductive-isolation cutoff. (c) Explain how asymmetric migration, selection or nonequilibrium history could invalidate the island-model conversion, and identify additional evidence needed to assess reproductive barriers. (d) For $F_{ST}=0.15$ under $(H_T-H_S)/H_T$, interpret $0.15$ and $0.85$ as relative gene-diversity components rather than a complete partition of every kind of biological variation.
 
 ---
 
@@ -559,18 +559,18 @@ flowchart TD
     B --> F["B. napus (n=19, AACC)<br/>rapeseed, canola"]
     C --> F
 
-    style A fill:#fadbd8,stroke:#E74C3C
-    style B fill:#fef9e7,stroke:#F4D03F
-    style C fill:#d4efdf,stroke:#27AE60
-    style D fill:#d6eaf8,stroke:#3498DB
-    style E fill:#d6eaf8,stroke:#3498DB
-    style F fill:#d6eaf8,stroke:#3498DB
+    style A fill:#fadbd8,stroke:#333333,color:#111111
+    style B fill:#fef9e7,stroke:#333333,color:#111111
+    style C fill:#d4efdf,stroke:#333333,color:#111111
+    style D fill:#d6eaf8,stroke:#333333,color:#111111
+    style E fill:#d6eaf8,stroke:#333333,color:#111111
+    style F fill:#d6eaf8,stroke:#333333,color:#111111
 ```
 <!-- alt: Flowchart showing triangle of U: three diploid Brassica species (corners) and the three allotetraploid species (sides) formed by their pairwise hybridizations and chromosome doublings. Each allopolyploid carries the chromosome complements of its two diploid ancestors. -->
 
 *The Triangle of U: three diploid Brassica species (corners) and the three allotetraploid species (sides) formed by their pairwise hybridizations and chromosome doublings. Each allopolyploid carries the chromosome complements of its two diploid ancestors.*
 
-Each diploid ancestor contributes its full chromosome set to the corresponding allotetraploid; the resulting hexaploid is reproductively isolated from most parents. The Triangle of U accounts for cabbage (*B. oleracea*, CC), turnip (*B. rapa*, AA), and mustard (*B. nigra*, BB) plus their three allotetraploid descendants — canola (*B. napus*, AACC), brown mustard (*B. juncea*, AABB), and Ethiopian mustard (*B. carinata*, BBCC). The triangle forms one of the most important agricultural-genetic systems in the world; understanding the polyploid relationships drives breeding programs and resistance-gene transfer between species.
+Each diploid ancestor contributes its full chromosome set to the corresponding allotetraploid; the resulting allotetraploid is reproductively isolated from most parents. The Triangle of U accounts for cabbage (*B. oleracea*, CC), turnip (*B. rapa*, AA), and mustard (*B. nigra*, BB) plus their three allotetraploid descendants — canola (*B. napus*, AACC), brown mustard (*B. juncea*, AABB), and Ethiopian mustard (*B. carinata*, BBCC). The triangle forms one of the most important agricultural-genetic systems in the world; understanding the polyploid relationships drives breeding programs and resistance-gene transfer between species.
 
 An estimated 15% of [**angiosperm**](#gl:angiosperm) speciation events involve polyploidy, and up to 70% of grass genomes show evidence of ancient polyploid ancestry — including the deep polyploidy events that gave rise to the cereals (rice, maize, wheat, barley) that feed the human species.
 
@@ -663,9 +663,9 @@ sequenceDiagram
     SC->>RI: Hybrids have reduced fitness
     Note over RI: If reinforcement occurs, prezygotic barriers strengthen
 ```
-<!-- alt: Sequence diagram showing adaptive radiation begins when one lineage enters new ecological opportunity, then populations diverge across habitats and traits into multiple descendant species. -->
+<!-- alt: Sequence diagram showing allopatric divergence: geographic isolation allows independent substitutions; secondary contact tests reproductive isolation, and reinforcement can strengthen prezygotic barriers. -->
 
-*Adaptive radiation begins when one lineage enters new ecological opportunity, then populations diverge across habitats and traits into multiple descendant species.*
+*Allopatric divergence: geographic isolation allows independent substitutions; secondary contact tests reproductive isolation, and reinforcement can strengthen prezygotic barriers.*
 
 ### Hawaiian Honeycreepers as Island Adaptive Radiation
 
@@ -705,7 +705,7 @@ The extinction of non-avian dinosaurs 66 Mya released enormous ecological space.
 
 > **Concept Check 7:** Bread wheat (*Triticum aestivum*) is an allohexaploid (AABBDD). Cultivated tobacco is an allotetraploid (SSTT). Cultivated upland cotton is an allotetraploid (AADD). For each, identify (i) how many parental species contributed, (ii) why the immediate F1 hybrid was likely sterile before chromosome doubling, and (iii) why the polyploid is reproductively isolated from each diploid parent. Why is the analogous story for **autopolyploidy** less common as a route to speciation in animals than in plants?
 
-> **Clinical Connection — Founder effects and Mendelian disease in isolated populations.** Ashkenazi Jews (~500-year bottleneck, $N_e \approx 250-400$), Finns (isolation since the Neolithic), Amish, and French Canadians carry elevated frequencies of specific recessive alleles (Tay-Sachs *HEXA*, BRCA1/2 185delAG, Canavan disease *ASPA*, phenylketonuria *PAH*). In many cases these alleles rose from a single founder chromosome, detectable as a shared haplotype. Modern targeted screens (e.g. the Ashkenazi panel) are possible precisely *because* drift + bottleneck has concentrated a handful of distinctive alleles; in outbred populations, the allelic heterogeneity for the same gene is often too great for panel-based screening to be useful.
+> **Clinical Connection — Founder effects and inheritance modes.** Founder effects can raise frequencies of recessive disease alleles such as specific HEXA,ASPA orPAH variants and dominant cancer-predisposition variants in BRCA1/2. The latter are not recessive inherited predispositions, even though somatic loss of a remaining functional tumor-suppressor copy may matter in tumors. Founder panels are variant-specific; ancestry is not a substitute for consent, family history or comprehensive testing when indicated.
 
 > **Clinical Connection — Speciation of SARS-CoV-2 variants.** Allopatric speciation analogs appear in real time during pandemics. A single index case seeding a geographic region generates a local founder population; drift plus selection for transmissibility produce variants (Alpha, Delta, Omicron) that then contact and partially displace each other. Phylogenetic analysis of >15 million SARS-CoV-2 genomes has documented exactly the processes this chapter formalises — drift at low incidence, bottleneck at importation, selection under [**vaccine**](#gl:vaccine) pressure — on timescales of weeks rather than millennia, making clinical virology the fastest-moving evolutionary laboratory in human history.
 
@@ -735,7 +735,7 @@ $$u_{\text{neutral}} = \dfrac{1}{2N_e} \label{eq:unit_VI_genetic_drift_and_speci
 
 **Worked example.** In a diploid population of $N_e = 10^4$, a new neutral mutation has a fixation probability of $u = 1/(2 \times 10^4) = 5 \times 10^{-5}$ — one in 20 000. Of the mutations that do fix, the mean time to fixation is $\bar{t}_{\text{fix}} = 4N_e = 40\,000$ generations; *most* neutral mutations in fact go extinct within ~$2N_e$ generations.
 
-At the molecular level, the **neutral substitution rate** equals the per-individual-per-generation mutation rate μ (remarkable: substitution rate is *independent of population size* for neutral alleles, because ${\rm rate} = 2N\mu \times u = 2N\mu \times 1/(2N) = \mu$). This is the molecular clock's theoretical basis: if a site evolves neutrally, the rate of divergence between lineages is constant regardless of their $N_e$ histories. For **slightly deleterious** mutations, Ohta's near-neutral theory modifies this to $u \approx \dfrac{1 - e^{-2s}}{1 - e^{-4N_e s}}$, which for $|4N_e s| < 1$ reduces to the neutral result but for $|4N_e s| > 1$ predicts sharp selection-dominated fixation or loss. **Biological significance**: the 1 % sequence divergence between human and chimpanzee at synonymous sites (~6 million years of separation, ~$6 \times 10^5$ generations) gives $\mu \approx 1.6 \times 10^{-8}$ per site per generation — consistent with pedigree-based mutation rate estimates from trio whole-genome sequencing (deCODE 2012, 2023). Kimura's simple formula thus *quantitatively anchors* the molecular clock to the fossil record.
+At a neutral site the substitution rate equals its neutral mutation rate: $(2N\mu)[1/(2N)]=\mu$. Keep denominators per site per generation throughout. In a synthetic two-lineage calibration with pairwise divergence 0.01 and 600,000 generations per lineage, $\mu=0.01/(2\times600000)=8.333\times10^{-9}$ per site per generation. If the split is 6 Ma, this stipulates 10 years/generation. This arithmetic is not empirical agreement with a human-trio estimate and does not establish a constant rate across lineages.
 
 ---
 
@@ -843,7 +843,7 @@ or compare the manuscript explanation with companion labs and figures.
 : Companion source surfaces for Genetic Drift, Gene Flow, and Speciation. {#tbl:unit_VI_genetic_drift_and_speciation_companion_source_surfaces}
 | Surface | Use it for |
 | --- | --- |
-| `src/biology/evolution/evolution.py` (`wright_fisher_drift`, `simulate_drift`, `isolation_index`) | Compare stochastic drift, bottlenecks, and isolation measures. |
+| `src/biology/evolution/evolution.py` (`wright_fisher_drift`, `simulate_drift`, `isolation_index`) | Compare stochastic drift and bottlenecks. `isolation_index` is only the unvalidated mu/(mu+m) heuristic, not FST or measured reproductive isolation; both rates zero is undefined. |
 | `src/mermaid/biology_diagrams.py` (`speciation_diagram`, `phylogenetic_tree_diagram`) | Connect reproductive isolation to lineage divergence. |
 
 **Reproducibility check:** report effective population size, migration, selection possibility, and time scale before assigning divergence to drift or speciation. **Cross-reference:** compare with \cref{sec:unit_V_population_genetics}, \cref{sec:unit_VI_evolution_and_selection}, and \cref{sec:unit_VI_phylogenetics}.

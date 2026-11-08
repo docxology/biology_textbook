@@ -13,6 +13,8 @@ import re
 from pathlib import Path
 from typing import Protocol
 
+from biology.crossref.patterns import RE_HEADING
+from biology.crossref.source import visible_text
 from biology.enrichment.engine import (
     FRONTIER_SECTION_PATTERN,
     companion_source_section,
@@ -113,10 +115,6 @@ def dedupe_badges(text: str) -> str:
     )
 
 
-def _canonical_back_matter_order(section_map: dict[str, str]) -> str:
-    order = ("frontier", "summary", "review", "further", "key_terms", "companion")
-    blocks = [section_map[key].strip() for key in order if key in section_map]
-    return "\n\n".join(blocks) + "\n" if blocks else ""
 
 
 def _classify_back_matter_section(heading: str) -> str | None:
@@ -135,21 +133,25 @@ def _classify_back_matter_section(heading: str) -> str | None:
 
 
 def reorder_back_matter(text: str) -> str:
-    """Sort back-matter sections into the canonical order."""
+    """Stably order sections without dropping duplicates or accumulating separators."""
     matches = list(_BACK_MATTER_SECTION_RES.finditer(text))
     if len(matches) < 2:
         return text
-    first = matches[0].start()
-    body = text[:first].rstrip()
-    section_map: dict[str, str] = {}
+    order = {name: index for index, name in enumerate(
+        ("frontier", "summary", "review", "further", "key_terms", "companion")
+    )}
+    blocks: list[tuple[int, str]] = []
     for match in matches:
         block = match.group(0).strip()
-        heading = block.splitlines()[0]
-        key = _classify_back_matter_section(heading)
-        if key and key not in section_map:
-            section_map[key] = block
-    ordered = _canonical_back_matter_order(section_map)
-    return body + "\n\n---\n\n" + ordered if ordered else text
+        key = _classify_back_matter_section(block.splitlines()[0])
+        if key is None:
+            return text
+        blocks.append((order[key], block))
+    ordered = sorted(blocks, key=lambda item: item[0])
+    if ordered == blocks:
+        return text
+    body = text[:matches[0].start()].rstrip()
+    return body + "\n\n" + "\n\n".join(block for _rank, block in ordered) + "\n"
 
 
 def replace_legacy_titles(text: str, *, title: str) -> str:
@@ -169,17 +171,20 @@ def replace_legacy_titles(text: str, *, title: str) -> str:
 
 
 def insert_opening_vignette(text: str, title: str) -> str:
-    """Add a one-paragraph opening vignette if none is already present."""
+    """Add a missing vignette after the curriculum block, or before the first section."""
     if OPENING_VIGNETTE_RE.search(text):
         return text
     anchor = text.find(_CURRICULUM_END)
-    if anchor == -1:
-        anchor = text.find("\n---\n")
-    if anchor == -1:
-        return text
-    insert_at = text.find("\n", anchor)
-    if insert_at == -1:
-        return text
+    if anchor >= 0:
+        newline = text.find("\n", anchor)
+        insert_at = newline + 1 if newline >= 0 else len(text)
+    else:
+        insert_at = 0
+        for line in visible_text(text).splitlines(keepends=True):
+            heading = RE_HEADING.fullmatch(line.rstrip("\r\n"))
+            if heading and len(heading.group("hashes")) == 2:
+                break
+            insert_at += len(line)
     block = (
         "\n\n---\n\n"
         f"> **Opening Vignette — {title}**\n"
@@ -187,7 +192,7 @@ def insert_opening_vignette(text: str, title: str) -> str:
         f"> This chapter connects {title.lower()} to measurable evidence: models, datasets, "
         "and experiments that can strengthen or weaken each claim.\n"
     )
-    return text[: insert_at + 1] + block + text[insert_at + 1 :]
+    return text[:insert_at].rstrip() + block + "\n" + text[insert_at:].lstrip("\n")
 
 
 def _summary_from_objectives(text: str, title: str) -> str:
@@ -272,11 +277,11 @@ def ensure_concept_check(text: str, title: str) -> str:
     return text[:anchor].rstrip() + "\n\n" + check + "\n" + text[anchor:]
 
 
-def force_frontier(text: str, record: ChapterRecord) -> str:
-    """Regenerate the Current-Evidence frontier block from the catalog."""
-    generated = frontier_section(record).strip() + "\n\n"
+def ensure_frontier(text: str, record: ChapterRecord) -> str:
+    """Create a missing frontier; never replace reviewed scientific content."""
     if FRONTIER_SECTION_PATTERN.search(text):
-        return FRONTIER_SECTION_PATTERN.sub(lambda _m: generated, text, count=1)
+        return text
+    generated = frontier_section(record).strip() + "\n\n"
     return insert_before_anchor(text, generated, _BACK_MATTER_ANCHORS)
 
 
@@ -298,12 +303,12 @@ def repair_record(record: ChapterRecord, *, dry_run: bool = False, write_fn: _Wr
     text = original
     text = dedupe_badges(text)
     text = replace_legacy_titles(text, title=record.title)
-    text = insert_opening_vignette(text, record.title)
-    text = force_frontier(text, record)
+    text = ensure_frontier(text, record)
     text = ensure_summary(text, stem=record.stem, title=record.title)
     text = ensure_concept_check(text, record.title)
     text = ensure_companion(text, record)
     text = reorder_back_matter(text)
+    text = insert_opening_vignette(text, record.title)
     text = re.sub(r"\\newpage\s*$", "", text.rstrip()) + "\n"
     if text == original:
         return False
@@ -351,8 +356,8 @@ __all__ = [
     "dedupe_badges",
     "ensure_companion",
     "ensure_concept_check",
+    "ensure_frontier",
     "ensure_summary",
-    "force_frontier",
     "insert_opening_vignette",
     "reorder_back_matter",
     "repair_lab",

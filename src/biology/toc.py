@@ -8,7 +8,7 @@ and planning grids cannot drift independently.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
@@ -232,12 +232,17 @@ class BookToc:
         return {unit.unit_id: unit for unit in self.units}
 
 
-def load_toc(project_root: str | Path | None = None) -> BookToc:
+def load_toc(
+    project_root: str | Path | None = None,
+    *,
+    config: dict[str, Any] | None = None,
+) -> BookToc:
     """Load the canonical table of contents for the project.
 
     Args:
         project_root: Optional project root. Defaults to the repository project
             containing this module.
+        config: Optional already-loaded configuration snapshot.
 
     Returns:
         A :class:`BookToc` containing units, chapters, companion materials, and
@@ -246,12 +251,15 @@ def load_toc(project_root: str | Path | None = None) -> BookToc:
     root = Path(project_root).resolve() if project_root is not None else Path(__file__).resolve().parents[2]
     manuscript = root / "docs" / "manuscript"
     config_path = manuscript / "config.yaml"
-    config = _load_config(config_path)
+    if config is None:
+        config = _load_config(config_path)
     metadata = {record.chapter_id: record for record in CHAPTERS}
 
     units: list[UnitTocItem] = []
     chapters: list[ChapterTocItem] = []
     chapters_by_unit_stem: dict[tuple[str, str], ChapterTocItem] = {}
+    disabled: set[tuple[str, str]] = set()
+    main_number = 0
 
     for unit in config.get("units", []):
         unit_id = str(unit["id"])
@@ -259,14 +267,20 @@ def load_toc(project_root: str | Path | None = None) -> BookToc:
         unit_title = str(unit.get("title", unit_id))
         unit_dir = str(unit["directory"])
         unit_chapters: list[ChapterTocItem] = []
-        for ordinal, chapter in enumerate(unit.get("chapters", []), start=1):
+        for chapter in unit.get("chapters", []):
             file_name = str(chapter["file"])
             stem = Path(file_name).stem
             chapter_id = f"{unit_id}_{stem}"
+            if not chapter.get("enabled", True):
+                disabled.add((unit_id, stem))
+                continue
             try:
                 meta = metadata[chapter_id]
             except KeyError as exc:
                 raise KeyError(f"Missing ChapterMeta for configured chapter {chapter_id}") from exc
+            if meta.number > 0:
+                main_number += 1
+                meta = replace(meta, number=main_number)
             item = ChapterTocItem(
                 chapter_id=chapter_id,
                 unit_id=unit_id,
@@ -276,7 +290,7 @@ def load_toc(project_root: str | Path | None = None) -> BookToc:
                 title=str(chapter["title"]),
                 path=manuscript / unit_dir / file_name,
                 meta=meta,
-                ordinal_in_unit=ordinal,
+                ordinal_in_unit=len(unit_chapters) + 1,
             )
             unit_chapters.append(item)
             chapters.append(item)
@@ -299,12 +313,14 @@ def load_toc(project_root: str | Path | None = None) -> BookToc:
         manuscript=manuscript,
         bundles=appendices.get("labs", []),
         chapters_by_unit_stem=chapters_by_unit_stem,
+        disabled=disabled,
     )
     questions = _companions(
         kind="question",
         manuscript=manuscript,
         bundles=appendices.get("questions", []),
         chapters_by_unit_stem=chapters_by_unit_stem,
+        disabled=disabled,
     )
     references = tuple(
         ReferenceTocItem(
@@ -337,6 +353,7 @@ def _companions(
     manuscript: Path,
     bundles: list[dict[str, Any]],
     chapters_by_unit_stem: dict[tuple[str, str], ChapterTocItem],
+    disabled: set[tuple[str, str]],
 ) -> tuple[CompanionTocItem, ...]:
     items: list[CompanionTocItem] = []
     prefix = "lab_" if kind == "lab" else "questions_"
@@ -346,6 +363,8 @@ def _companions(
         for entry in bundle.get("files", []):
             file_name = str(entry["file"])
             stem = Path(file_name).stem.removeprefix(prefix)
+            if (unit_id, stem) in disabled:
+                continue
             try:
                 chapter = chapters_by_unit_stem[(unit_id, stem)]
             except KeyError as exc:

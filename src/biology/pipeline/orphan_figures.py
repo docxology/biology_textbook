@@ -20,6 +20,8 @@ from typing import Protocol
 
 import yaml
 
+from biology.crossref.patterns import RE_IMG, RE_LATEX_INCLUDE
+from biology.crossref.source import visible_text
 from biology.maintenance.models import PROJECT
 
 MANUSCRIPT = PROJECT / "docs" / "manuscript"
@@ -101,7 +103,13 @@ def inject(
         print(f"WARN: missing {path}", file=sys.stderr)
         return False
     text = path.read_text(encoding="utf-8")
-    if f"{ins.png}.png" in text:
+    visible = visible_text(text)
+    filename = f"{ins.png}.png"
+    if any(
+        Path(match.group("path")).name == filename
+        for pattern in (RE_LATEX_INCLUDE, RE_IMG)
+        for match in pattern.finditer(visible)
+    ):
         return False
     idx = text.lower().find(ins.anchor.lower())
     if idx < 0:
@@ -141,8 +149,8 @@ def apply_orphan_figures(
 
 __all__ = [
     "CATALOG_PATH",
-    "FigureInsertion",
     "MANUSCRIPT",
+    "FigureInsertion",
     "OrphanFigureResult",
     "apply_orphan_figures",
     "inject",

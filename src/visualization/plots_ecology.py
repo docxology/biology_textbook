@@ -40,7 +40,9 @@ def plot_lotka_volterra(
     """
     from biology.ecology import lotka_volterra
 
-    result = lotka_volterra(prey0, predator0, alpha, beta, delta, gamma, t_end)
+    # Fine fixed Euler grid reduces, but does not eliminate, invariant drift.
+    # The ODE's closed orbit is not an exact property of this discretization.
+    result = lotka_volterra(prey0, predator0, alpha, beta, delta, gamma, t_end, steps=100000)
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5))
 
@@ -58,7 +60,7 @@ def plot_lotka_volterra(
     ax2.scatter([result.prey[0]], [result.predator[0]], color=ORANGE, zorder=5, s=80, label="Start")
     ax2.set_xlabel("Prey Population", fontsize=14)
     ax2.set_ylabel("Predator Population", fontsize=14)
-    ax2.set_title("Phase Plane (Prey vs Predator)", fontsize=15)
+    ax2.set_title("Phase Plane (Euler approximation)", fontsize=15)
     ax2.legend(fontsize=12)
     ax2.tick_params(labelsize=12)
 
@@ -128,10 +130,10 @@ def plot_species_area_relationship(
 def plot_biome_distribution(
     output_dir: Path,
 ) -> Path:
-    """Whittaker-style temperature-precipitation biome space from ``BIOMES``."""
+    """Illustrative terrestrial climate coordinates; exclude inapplicable rainfall."""
     from biology.ecology import BIOMES
 
-    names = list(BIOMES.keys())
+    names = [name for name, data in BIOMES.items() if data["annual_precipitation_mm"] is not None]
     temps = [float(BIOMES[b]["mean_annual_temp_C"]) for b in names]
     precip = [float(BIOMES[b]["annual_precipitation_mm"]) for b in names]
     npp = np.array([float(BIOMES[b]["NPP_g_m2_yr"]) for b in names])
@@ -151,7 +153,7 @@ def plot_biome_distribution(
         )
     ax.set_xlabel("Mean annual precipitation (mm yr^-1)", fontsize=13)
     ax.set_ylabel("Mean annual temperature (deg C)", fontsize=13)
-    ax.set_title("Representative Biomes in Temperature-Precipitation Space", fontsize=14)
+    ax.set_title("Illustrative Terrestrial Biome Climate Coordinates", fontsize=14)
     ax.grid(True, color="#dddddd", linewidth=0.6, alpha=0.7)
     ax.tick_params(labelsize=11)
     fig.tight_layout()
@@ -191,7 +193,7 @@ def plot_allee_threshold_dynamics(
 def plot_biodiversity_indices(
     output_dir: Path,
 ) -> Path:
-    """Compare Shannon and Simpson indices for two sample communities."""
+    """Compare Shannon and Simpson indices for two hand-entered teaching scenarios."""
     from biology.ecology import biodiversity_indices
 
     communities = {
@@ -210,7 +212,7 @@ def plot_biodiversity_indices(
     ax.set_xticks(x)
     ax.set_xticklabels(labels, fontsize=11)
     ax.set_ylabel("Index value", fontsize=13)
-    ax.set_title("Biodiversity Indices — Even vs Dominant Communities", fontsize=14)
+    ax.set_title("Illustrative Biodiversity — Even vs Dominant Communities", fontsize=14)
     ax.legend(fontsize=10, frameon=False)
     ax.tick_params(labelsize=11)
     fig.tight_layout()

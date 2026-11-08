@@ -16,13 +16,13 @@ from biology.maintenance.manuscript_walker import (
     manuscript_markdown_files,
     reference_appendix_path,
 )
-from biology.maintenance.models import Finding, ManuscriptSurface, PROJECT
+from biology.maintenance.models import PROJECT, Finding, ManuscriptSurface
 
 __all__ = [
+    "PROJECT",
     "BibEntry",
     "Finding",
     "ManuscriptSurface",
-    "PROJECT",
     "apply_further_reading",
     "configured_chapter_files",
     "configured_chapter_title_by_path",

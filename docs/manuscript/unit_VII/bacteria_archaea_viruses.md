@@ -49,10 +49,10 @@ By the end of this chapter, you should be able to:
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/bacterial_growth.png}
-\caption{Bacterial growth curve: four phases (lag, exponential, stationary, death) plotted as $\log(\text{cell number})$ versus time.}
+\caption{Continuous piecewise bacterial growth: lag, exponential increase and a stationary plateau at the population reached at the specified onset (or an earlier capacity ceiling). The illustrated model does not include death or a logistic transition.}
 \label{fig:unit_VII_bacterial_growth}
 \end{figure}
-<!-- alt: Semi-log plot of bacterial cell number (log y-axis) against time (x-axis), showing four distinct phases: flat lag phase, linear exponential growth, plateau at stationary phase, and declining death phase. -->
+<!-- alt: Bacterial cell number versus time shows a flat lag, continuous exponential growth and a plateau without an instantaneous jump; no death phase is modeled. -->
 
 
 ### The Three Domains of Life
@@ -385,7 +385,7 @@ Key features that make TCSs central to bacterial biology: they are **modular** (
 
 ### Biofilms and Quorum Sensing
 
-Most bacteria in nature do not live as solitary planktonic cells; they live in **biofilms** — surface-attached, matrix-encased communities that behave more like a tissue than a free-swimming population. Biofilm formation proceeds through a stereotyped life cycle, coordinated by **quorum sensing (QS)** — cell-density-dependent communication via diffusible **autoinducers** (AHLs in Gram-negatives, AIPs in Gram-positives, AI-2 across species).
+**Biofilms** are surface-associated, matrix-encased microbial communities. The diagram illustrates attachment, growth and dispersal, not an obligatory cycle for every bacterium. **Quorum sensing (QS)** responds to autoinducer concentrations shaped by production, transport and degradation as well as population density; additional environmental and regulatory inputs affect biofilm and virulence phenotypes.
 
 ```mermaid
 flowchart LR
@@ -418,7 +418,7 @@ flowchart LR
 
 **Why biofilms matter clinically.** The CDC estimates that **~65–80 % of chronic and device-associated human infections involve biofilms**. They are 10–1000× more antibiotic tolerant than planktonic cells because of (1) reduced antibiotic penetration through EPS — vancomycin diffusion can be retarded by 100×; (2) **persister cells** — metabolically dormant subpopulations not killed by growth-dependent antibiotics, comprising 0.001–1 % of biofilm cells; (3) localized enzyme accumulation (e.g., β-lactamase concentrated 100–1000× in matrix); and (4) anaerobic interior microenvironments where aminoglycosides (which require an electrochemical gradient for uptake) are inactive. Canonical clinical biofilms include cystic fibrosis lung infections (*P. aeruginosa* alginate biofilms), prosthetic joint and heart-valve infections (*S. aureus*, *S. epidermidis*), catheter-associated UTIs (*E. coli*, *P. mirabilis*), chronic wounds, and dental plaque (*Streptococcus*, *Porphyromonas*, *Fusobacterium*).
 
-**Quorum quenching as therapy.** Because most virulence factors are quorum-regulated, blocking QS *attenuates* virulence without killing bacteria — sidestepping the strong selection for resistance that lytic antibiotics impose. Strategies include: **(1)** lactonases (AiiA from *Bacillus*, AhlD) and acylases that hydrolyse AHLs; **(2)** synthetic AIP analogs that competitively inhibit AgrC; **(3)** halogenated furanones (originally from the seaweed *Delisea pulchra*) that destabilise LuxR-family receptors; **(4)** PqsR antagonists (e.g., M64); **(5)** c-di-GMP signaling disruptors. Several are in early clinical trials (notably for *P. aeruginosa* in cystic fibrosis), though "anti-virulence" compounds face the challenge that they do not directly clear infection — they must work synergistically with antibiotics or host immunity.
+**Quorum quenching as a therapeutic hypothesis.** Lactonases/acylases can reduce active AHL, receptor antagonists can alter signal response, and other circuit perturbations can change specified virulence phenotypes. Reduced direct killing does not guarantee weak resistance selection: resistance to an antivirulence quorum-quenching compound was demonstrated experimentally in *Pseudomonas aeruginosa* \citep{maeda2012quorumresistance}. Signal stability also depends on pH, temperature and chain chemistry \citep{yates2002ahllactonolysis}. Measure signal, growth, phenotype and resistance; clinical stage or benefit requires a named compound, trial and endpoint, none supplied for a class-wide claim here.
 
 ### Endospores and Dormancy Under Stress
 
@@ -436,7 +436,7 @@ Certain Firmicutes -- primarily *Bacillus* (central or subterminal spores) and *
 > A research lab knocks out the *agrA* gene (response regulator of the Agr quorum-sensing TCS) in *S. aureus*. The mutant forms thicker, more persistent biofilms in vitro but is dramatically less virulent in a mouse skin-abscess model. Reconcile these two observations using the AgrA on/off switch between biofilm and toxin production.
 
 > **Concept Check 2c:**
-> A patient develops a *Pseudomonas aeruginosa* bloodstream infection following indwelling-catheter placement. Blood cultures show vancomycin-susceptible cells with MIC = 1 μg/mL, yet the patient fails 4 weeks of intravenous vancomycin while the catheter remains in place. Explain — using biofilm penetration kinetics, persister biology, and oxygen gradients — why the planktonic MIC is a poor predictor of clinical efficacy in catheter-associated infection. What therapeutic action almost typically succeeds where antibiotic monotherapy fails?
+> A synthetic catheter-associated *Staphylococcus aureus* infection has planktonic vancomycin MIC 1 µg/mL but persists with a retained device. Explain why biofilm growth, physiological gradients, persisters and source control complicate interpretation of a planktonic MIC. Distinguish tolerance from a heritable MIC increase. Do not substitute *Pseudomonas aeruginosa*, whose Gram-negative envelope intrinsically excludes vancomycin, or infer a guaranteed clinical cure from catheter removal alone.
 
 ---
 
@@ -566,7 +566,7 @@ David Baltimore (Nobel Prize 1975) classified viruses by genome type and replica
 ```mermaid
 stateDiagram-v2
     [*] --> Adsorption: Phage binds host receptor
-    Adsorption --> DNA_Injection: Tail sheath contracts
+    Adsorption --> DNA_Injection: Lambda noncontractile tail delivers DNA
     DNA_Injection --> Decision: Phage DNA enters host
 
     state Decision <<choice>>
@@ -594,10 +594,12 @@ stateDiagram-v2
 
 *State diagram of the phage lambda lytic / lysogenic decision and the SOS-induced switch from lysogeny to lytic growth.*
 
-1. **Adsorption**: Tail fibers (long tail fibers recognize LPS; short tail fibers make irreversible contact) bind the surface of *E. coli*
+**Separate lytic example — T4 (not lambda):** The following seven steps describe a contractile-tailed, obligately lytic T4 phage; the preceding decision diagram describes temperate lambda.
+
+1. **Adsorption**: T4 tail fibers bind host surface receptors on *E. coli*.
 2. **DNA injection**: The tail sheath contracts like a syringe, driving the tail tube through the outer membrane and injecting ~169 kb of linear dsDNA
 3. **Early gene expression**: Host RNA polymerase is hijacked; phage-encoded anti-sigma factors redirect [**transcription**](#gl:transcription); host DNA is degraded by phage nucleases (recycling [**nucleotide**](#gl:nucleotide)s)
-4. **DNA replication**: Phage DNA replicates using phage-encoded DNA polymerase; hydroxymethylcytosine replaces cytosine (protecting phage DNA from its own restriction enzymes)
+4. **DNA replication**: Phage DNA replicates using phage-encoded DNA polymerase; hydroxymethylcytosine replaces cytosine (subsequent glycosylation of modified cytosines helps protect T4 DNA against host restriction)
 5. **Late gene expression**: Structural proteins (head, tail, tail fibers, baseplate) are synthesized
 6. **Assembly**: Heads are filled with DNA (headful packaging); tails are assembled separately; components join spontaneously
 7. **Lysis**: Holin creates pores in the inner membrane; endolysin (lysozyme) degrades peptidoglycan; ~100-200 progeny phage released per cell; entire cycle takes ~25 minutes
@@ -629,7 +631,7 @@ Animal viruses follow a general replication strategy with virus-specific variati
 
 HIV (human immunodeficiency virus) is a Class VI retrovirus with a complex life cycle and multiple drug targets:
 
-1. **Attachment and fusion**: gp120 binds CD4 on T helper cells, then undergoes conformational change to bind coreceptor (CCR5 in early infection, CXCR4 in late infection); gp41 mediates membrane fusion
+1. **Attachment and fusion:** gp120 binds CD4 and a coreceptor matched to the viral variant, CCR5 or CXCR4; gp41 mediates fusion. CCR5 use is common in transmission, but CXCR4 use does not follow a universal late-stage schedule.
 2. **Reverse transcription**: ssRNA genome -> dsDNA via reverse transcriptase (RT); RT lacks proofreading ($\sim 10^{-4}$ errors per base per cycle), generating enormous genetic diversity
 3. **Nuclear import**: Pre-integration complex enters nucleus through nuclear pores
 4. **Integration**: Integrase inserts viral dsDNA into host chromosome, creating the **provirus** -- a permanent part of the host genome; preferentially integrates into actively transcribed regions
@@ -680,26 +682,26 @@ Phage therapy was discovered by Félix d'Hérelle in 1917, deployed widely in th
 **Clinical milestones (2016–2026):**
 
 : Phage Therapy: A Pre-Antibiotic Idea Returns to the Clinic: Year and Patient / trial. {#tbl:unit_VII_bacteria_archaea_viruses_phage_therapy_a_pre_antibiotic_idea_returns_to_the_clinic}
-| Year | Patient / trial | Pathogen | Outcome |
-|------|-----------------|----------|---------|
-| 2016 | Tom Patterson (UCSD/IPATH compassionate use) | Pan-resistant *Acinetobacter baumannii* | Recovery; first US success |
-| 2019 | Cystic fibrosis lung transplant rescue | *Mycobacterium abscessus* | Survival; engineered phage cocktail |
-| 2020–2024 | CYPHY, Phagoburn-2, Tailor-X | *P. aeruginosa* burn / UTI | Mixed efficacy; safety established |
-| 2023 | Compassionate-use registry > 200 patients | Multiple ESKAPE | ~70 % response in salvage settings |
-| 2024–26 | Locus Biosciences crPhage (CRISPR-Cas3 phage) | *E. coli* UTI | Phase II/III readouts |
+| Evidence object | Organism/context | Observed endpoint | What it cannot establish |
+| --- | --- | --- | --- |
+| Ferry et al., 2022, DOI 10.1038/s41467-022-31837-9 | One patient with pandrug-resistant spinal Pseudomonas infection | Healing after surgery, antibiotics and personalized local/intravenous phages | A phage-alone effect or population response rate |
+| Matched-isolate testing | Patient isolate versus candidate phages | In-vitro susceptibility and escape | Clinical efficacy or safety by itself |
+| A future comparative trial | Prespecified population, comparator and registration required | Named efficacy and adverse-event endpoints | No result is asserted here without an identified trial report |
+
+The previously asserted registry percentages and composite trial milestones lacked matching identifiers and denominators and are not used as evidence. A case report supports feasibility of adjunctive treatment, not routine standalone efficacy.
 
 **Phage pharmacokinetics — why they break the small-molecule rules.** Conventional antibiotics follow first-order pharmacokinetics: $C(t) = C_0 e^{-k_e t}$, with linear AUC/dose relationships. Phages do the opposite. The phage population grows where bacterial density is high (auto-dosing) and crashes when the bacteria are gone (auto-clearance). The simplest model is a Lotka–Volterra-like coupled ODE:
 
 $$ \frac{dB}{dt} = rB - kBP, \qquad \frac{dP}{dt} = bkBP - mP  \label{eq:unit_VII_bacteria_archaea_viruses_item_8}$$
 
 
-where $B$ = bacterial density, $P$ = phage density, $r$ = bacterial growth rate, $k$ = adsorption rate constant (typically $10^{-9}$–$10^{-7}$ mL min⁻¹), $b$ = burst size (50–500), $m$ = phage clearance rate. The system has a **proliferation threshold** at $B^* = m / (bk)$: above $B^*$, phage replicate faster than they are cleared and amplify; below $B^*$, they are diluted out. This means low-dose phage **will not work** against a sub-threshold infection — clinicians must dose above the minimum proliferating concentration. It also means a single phage dose can clear orders-of-magnitude more bacteria than its initial titer, making "dose" a misleading concept.
+Here $B$ is bacterial density, $P$ phage density, $k$ adsorption coefficient, $b$ burst parameter and $m$ clearance rate. For this specified toy ODE, $dP/dt=(bkB-m)P$ and $B^*=m/(bk)$. At $B=0.5B^*$ the phage population declines; at $B=2B^*$ it grows. Raising initial $P$ does not change that sign, although passive killing can still depend on dose. A bacterial proliferation threshold is not a minimum phage concentration or proof of therapeutic success; adsorption, immunity and host heterogeneity require additional data.
 
 **Pharmacokinetic and regulatory challenges that distinguish phages from small molecules:**
 
 1. **Bacterial resistance is rapid** — phage receptors mutate at $10^{-6}$–$10^{-8}$ per cell per generation. Cocktails of 3–5 phages targeting non-overlapping receptors slow this; estimated escape probability $\approx \prod_i 10^{-7} = 10^{-21}$ for a 3-phage cocktail with independent receptors.
 2. **Immune neutralization** — IgG against phage capsid emerges within ~10 days, lowering blood titres and limiting repeated systemic dosing.
-3. **Pharmacokinetics are non-linear** — phage concentration depends on bacterial density (replication > clearance below threshold; opposite above) — classical AUC/MIC concepts do not apply.
+3. **Pharmacokinetics are non-linear** — phage concentration depends on bacterial density (replication > clearance above the bacterial-density threshold; opposite below) — classical AUC/MIC concepts do not apply.
 4. **Manufacturing & regulation** — purified, endotoxin-free phage preparations require GMP processes designed for biologicals; the FDA has issued personalized/compassionate-use pathways while broad regulatory frameworks are still developing.
 5. **Lysogenic phages can transduce virulence/resistance genes** (Shiga toxin in STEC came from a lambdoid phage); therapeutic phages must be obligately lytic and toxin-free.
 
@@ -910,7 +912,7 @@ Phages have evolved **anti-CRISPR (Acr)** proteins that counteract bacterial CRI
 
 ### Worked Example: Designing a CRISPR-Cas9 Guide RNA for Targeted Cleavage
 
-**Problem:** Design a *Streptococcus pyogenes* Cas9 (SpCas9) guide RNA to cleave gene X at nucleotide position 450, and quantify the predicted on-target vs. off-target activity given a candidate off-target site that differs from the on-target site by **2 mismatches within the 12-nt PAM-proximal seed region**. Assume measured SpCas9 on-target cleavage efficiency = 60 % and that 2 seed-mismatches reduce cleavage probability by roughly **100-fold**.
+**Problem:** Design a *Streptococcus pyogenes* Cas9 (SpCas9) guide RNA adjacent to a PAM beginning at nucleotide 451, and locate the approximate cut, and quantify the predicted on-target vs. off-target activity given a candidate off-target site that differs from the on-target site by **2 mismatches within the 12-nt PAM-proximal seed region**. Assume measured SpCas9 on-target cleavage efficiency = 60 % and that 2 seed-mismatches reduce cleavage probability by roughly **100-fold**.
 
 **Design and quantitative analysis:**
 
@@ -920,11 +922,11 @@ Phages have evolved **anti-CRISPR (Acr)** proteins that counteract bacterial CRI
 
    The `CGG` trinucleotide at positions 451–453 is an NGG PAM. The corresponding 20-nt protospacer occupies positions 431–450 (the 20 nt immediately 5' of the PAM):
 
-   **Protospacer (genomic): `CTG ACG TAA GCA TGC AAT C`** (20 nt)
+   **Protospacer (PAM-bearing genomic strand, positions 431–450): `TGCTGACGTAAGCATGCAAT`** (20 nt)
 
-2. **Guide RNA design.** The 20-nt **spacer** of the sgRNA is the same sequence as the protospacer (with T → U for RNA): `5'-CUG ACG UAA GCA UGC AAU C-3'`. This is fused to the **tracrRNA scaffold** (~80 nt) that engages Cas9. The PAM itself is **not** included in the sgRNA — it is recognized by Cas9 in the target DNA.
+2. **Guide RNA design.** The 20-nt **spacer** of the sgRNA is the same sequence as the protospacer (with T → U for RNA): `5'-UGCUGACGUAAGCAUGCAAU-3'`. This is fused to the **tracrRNA scaffold** (~80 nt) that engages Cas9. The PAM itself is **not** included in the sgRNA — it is recognized by Cas9 in the target DNA.
 
-3. **Seed region.** The 12 nucleotides proximal to the PAM (positions 8–20 of the spacer, counted from the PAM-distal 5' end; equivalently the last 12 nt before the PAM in the protospacer) form the **seed region** critical for target engagement. Mismatches here disproportionately disrupt cleavage.
+3. **Seed region.** The 12 nucleotides proximal to the PAM (positions 9–20 of the spacer, counted from the PAM-distal 5' end; equivalently the last 12 nt before the PAM in the protospacer) form the **seed region** critical for target engagement. Mismatches here disproportionately disrupt cleavage.
 
 4. **On-target vs. off-target ratio.** Given the assumptions:
 
@@ -937,16 +939,16 @@ Phages have evolved **anti-CRISPR (Acr)** proteins that counteract bacterial CRI
 
 5. **Specificity scoring tools.** In practice, gRNA design uses computational off-target predictors — e.g., **CFD (Cutting Frequency Determination)** scores, the **MIT specificity score**, **CRISPOR**, or **Benchling**. These tools enumerate genome-wide off-target candidates (allowing up to 4 mismatches and NAG-permissive PAMs) and combine per-position mismatch penalties into an aggregate specificity score. A well-designed gRNA typically achieves a CFD/MIT score ≥ 70 and shows no off-targets with fewer than 3 mismatches in the seed.
 
-6. **Mismatch-tolerance asymmetry.** PAM-distal mismatches (positions 1–7 of the spacer) reduce cleavage modestly (often less than 2-fold per mismatch). Seed mismatches (positions 8–20, including the 12 nt closest to the PAM) reduce cleavage 10–100-fold each. This asymmetry is **exploited by anti-CRISPR proteins** (which often block the seed-loading step) and **by engineered high-fidelity variants** (eSpCas9, SpCas9-HF1, evoCas9) that introduce contacts disrupted by mismatch-induced structural strain, raising the discrimination threshold.
+6. **Mismatch-tolerance asymmetry.** PAM-distal mismatches (positions 1–7 of the spacer) reduce cleavage modestly (often less than 2-fold per mismatch). Seed mismatches (positions 9–20, including the 12 nt closest to the PAM) reduce cleavage 10–100-fold each. This asymmetry is **exploited by anti-CRISPR proteins** (which often block the seed-loading step) and **by engineered high-fidelity variants** (eSpCas9, SpCas9-HF1, evoCas9) that introduce contacts disrupted by mismatch-induced structural strain, raising the discrimination threshold.
 
-**Interpretation.** A 100:1 on:off ratio is acceptable for many research applications but **inadequate for clinical genome editing** in non-dividing cells where even rare off-target cuts can drive oncogenic translocations. Modern clinical Cas9 designs (Casgevy, NTLA-2001) use ratios > 10,000:1, achieved by combining sequence-optimized gRNAs with high-fidelity Cas9 variants and base editors (which avoid double-strand breaks entirely).
+**Interpretation.** SpCas9 typically cleaves approximately three base pairs upstream of the PAM, here near the bond between positions 447 and 448, not automatically at position 450. The stipulated probabilities yield 100:1, but mismatch effects depend on sequence, nuclease, cell type and assay; no universal clinical acceptance ratio follows. High-fidelity nucleases and base editors are different modalities, and the named Cas9 therapies should not be described as base editing. Genome-wide off-target and rearrangement assays must be product- and context-specific.
 
 
 ---
 
 ## Computational Bridge
 
-Batch culture kinetics follow the logistic-like curve encoded in `bacterial_growth_curve`:
+The `bacterial_growth_curve` helper samples continuous piecewise lag/exponential/plateau growth, not a logistic ODE. A stationary onset freezes the population then reached; a capacity can cap growth earlier. For the figure parameters N0=10,000, doubling 0.5 h, lag 1 h, onset 7 h, the plateau is 40,960,000 cells, not an instantaneous jump to 5 billion. Death is not included:
 
 ```python
 from biology.microbiology import bacterial_growth_curve
@@ -1082,7 +1084,7 @@ flowchart LR
 9. A hospital laboratory reports that a *Klebsiella pneumoniae* isolate is resistant to meropenem (a carbapenem) with an MIC of 32 μg/mL. The resistance is mediated by a plasmid-borne KPC-2 carbapenemase. Describe three infection control measures that should be implemented immediately, and explain why carbapenem resistance is considered a "sentinel event" in infectious disease.
 
 10. Compare the replication strategies of influenza virus (Class V, segmented (-)ssRNA) and SARS-CoV-2 (Class IV, non-segmented (+)ssRNA). Explain why influenza can undergo antigenic shift through reassortment while coronaviruses cannot, and discuss the implications for pandemic preparedness.
-11. **Growth-curve calculation.** Apply \cref{eq:unit_VII_bacterial_growth}: a culture of *Streptococcus pneumoniae* ($t_d = 30$ min) starts at $N_0 = 5 \times 10^3$ CFU/mL. (a) After how many minutes will the density reach $10^9$ CFU/mL — the typical density at which sepsis becomes hemodynamically significant? (b) If the patient receives a single dose of ceftriaxone that reduces the population by 4 log$_{10}$ instantly, and if the residual bacteria resume growth at the same rate 1 hour later, when does the density return to $10^9$?
+11. **Synthetic culture calculation.** With $t_d=30$ min and $N_0=5\times10^3$ CFU/mL, calculate time to a stipulated culture target $10^9$ CFU/mL. Then model a hypothetical instantaneous four-log reduction and a 60-minute lag before regrowth. These are artificial culture assumptions, not a clinical dosing model: sepsis is not defined by a universal circulating CFU threshold.
 12. Estimate phage amplification after three rounds if burst size $B=150$ and every virion infects --- relate to the logistic assumptions that break down in real cultures.
 13. Why are archaeal antibiotics rare compared with bacterial antibiotics, given clinical need?
 14. **Peptidoglycan pathway integration.** Place fosfomycin, D-cycloserine, bacitracin, vancomycin, and ampicillin on the peptidoglycan biosynthesis pathway and explain why a single resistance mutation generally confers resistance to a single of them — but VanA-type vancomycin resistance and PBP2a (mecA) MRSA evade two by altering different parts of the same step.

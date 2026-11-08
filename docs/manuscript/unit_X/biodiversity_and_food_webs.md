@@ -130,18 +130,19 @@ for area_ha in [1, 10, 100, 1000, 10000]:
 
 ### Extinction Debt After Habitat Loss
 
-**Extinction debt** (Tilman et al. 1994, *Nature*): Species currently present in degraded/fragmented habitats may be committed to future extinction — but the extinction is **delayed** by decades to centuries as existing individuals slowly die without replacement.
+**Extinction debt** describes delayed losses after past habitat change if adverse conditions persist. Current presence need not imply long-term persistence, but restoration or changing conditions can alter outcomes; no universal delay follows from species longevity alone.
 
 \begin{equation}
-\text{Species committed to extinction} = S_{\text{pre-fragmentation}} - c \cdot A_{\text{remaining}}^z
+\text{Conditional estimated debt} = S_{\text{currently present}} - S_{\text{expected future equilibrium}}
 \label{eq:community_ecology_13}
 \end{equation}
 
+A positive difference is meaningful only with a justified future-equilibrium estimate for the same assemblage. A species–area curve can supply one conditional model, but separate patch richnesses cannot simply be added without species-overlap information.
+
 **Implications:**
-- Present-day species richness **overestimates** long-term viability
-- Conservation assessments based on current presence may be dangerously optimistic
-- European calcareous grasslands: 20-50% of plant species face committed extinction due to historical fragmentation \citep{lindborg2004}
-- Amazon deforestation: 25-year extinction debt means current biodiversity surveys underestimate eventual losses
+- Present-day richness can overstate persistence when recruitment or habitat quality is inadequate; longitudinal occupancy and demographic evidence are needed.
+- Lindborg and Eriksson (2004) examine historical landscape connectivity and present plant diversity. A matched full-text basis for the previously stated 20–50% debt fraction is unavailable here, so that percentage is not established \citep{lindborg2004}.
+- Delayed loss is not a universal 25-year clock for Amazon forests. Fragment size, edge effects, matrix change, disturbance and management must be specified before estimating a horizon; compare the study-specific evidence in \cref{sec:unit_X_biomes_and_conservation}.
 
 ### Metapopulation Dynamics (Levins, 1969; Hanski, 1994)
 
@@ -510,7 +511,7 @@ Select biodiversity and conservation metrics by decision need: abundance, intera
 - **Trophic cascades:** keystone predators suppress herbivores → plant biomass increases (wolves→elk→willows; sea otters→urchins→kelp). Behavioral cascades via "landscape of fear."
 - **Succession:** primary (bare substrate, slow) vs. secondary (disturbed community, faster); facilitation/tolerance/inhibition mechanisms; IDH: intermediate disturbance maximizes diversity; alternative stable states and regime shifts with hysteresis.
 - **Diversity indices:** $H'$ (Shannon) combines richness + evenness; Simpson $1-D$ = probability of inter-specific encounter; $J'$ (evenness) = $H'/\ln S$. Alpha, beta, gamma diversity at different spatial scales.
-- **Island biogeography:** $S = cA^z$; equilibrium balances colonization and extinction; SLOSS debate resolved toward core-corridor-matrix design; extinction debt warns of delayed species loss.
+- **Island biogeography:** $S = cA^z$; equilibrium balances colonization and extinction; SLOSS outcomes depend on overlap, viability, threats, and connectivity; no area-only universal resolution; extinction debt warns of delayed species loss.
 - **Food web structure:** connectance, modularity, weak-interaction dominance stabilize complex communities. **Network robustness** under targeted (most-connected-first) deletion collapses faster than under random deletion — hub species are topological keystones.
 - **Neutral theory (UNTB):** Hubbell's per-capita-equivalence framework; two parameters θ and $m$ predict species-abundance distributions and species–area relationships from drift, dispersal, and speciation alone. Best treated as a null model that niche-based theory must beat.
 - **Trait-based ecology:** Grime's CSR triangle; the leaf economics spectrum (LES) is a widely observed acquisitive↔conservative axis with local exceptions. Functional diversity diagnoses assembly mechanisms (clustering = environmental filtering; overdispersion = limiting similarity) that species lists miss.
@@ -535,7 +536,7 @@ Select biodiversity and conservation metrics by decision need: abundance, intera
 
 5. Explain Hutchinson's "paradox of the plankton." Why does the coexistence of hundreds of phytoplankton species apparently violate competitive exclusion, and what are three mechanisms that resolve the paradox?
 
-6. The Biological Dynamics of Forest Fragments Project (BDFFP) in Amazonia found that 1-ha fragments lost 50% of their bird species within 15 years, while 100-ha fragments lost 10%. (a) Calculate $z$ from these two data points. (b) Predict the species richness of a 10-ha fragment relative to a 100-ha fragment. (c) What role do edge effects play beyond the simple species-area prediction?
+6. Synthetic fragment cards have initial richness 20 species at 1 ha and 100 at 100 ha, with 50% and 10% lost respectively. Calculate postfragmentation richness (10 and 90), fit $z=\ln(90/10)/\ln100\approx0.4771$, and predict $S(10)/S(100)=10^{-z}=1/3$. Explain why the loss percentages alone, without those baseline richnesses, do not identify $z$; these are teaching data, not reported BDFFP observations.
 
 7. A shallow lake in the Netherlands exists in a clear-water state with abundant macrophytes. Nutrient loading from agriculture gradually increases. Describe the regime shift to the turbid, algal-dominated state using the framework of alternative stable states. Why is reducing nutrients back to the original level insufficient to restore the clear-water state (hysteresis)?
 
@@ -571,7 +572,7 @@ Predator--prey cycles from the chapter are reproduced by numerical integration:
 ```python
 from biology.ecology import lotka_volterra
 
-lv = lotka_volterra(40.0, 9.0, 0.5, 0.02, 0.01, 0.2, t_end=80.0)
+lv = lotka_volterra(40.0, 9.0, 0.5, 0.02, 0.01, 0.2, t_end=80.0, steps=100_000)
 print(len(lv.times), round(lv.prey[-1], 2))
 ```
 

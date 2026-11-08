@@ -249,4 +249,4 @@ def by_unit(unit: str) -> list[ChapterMeta]:
     return [c for c in CHAPTERS if c.unit == unit]
 
 
-__all__ = ["ChapterMeta", "CHAPTERS", "CHAPTERS_BY_ID", "by_id", "by_unit"]
+__all__ = ["CHAPTERS", "CHAPTERS_BY_ID", "ChapterMeta", "by_id", "by_unit"]

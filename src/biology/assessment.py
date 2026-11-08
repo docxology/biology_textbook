@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+import re
 from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-import re
 
+from biology.crossref.source import visible_text
 
 ASSESSMENT_RE = re.compile(r"^<!--\s*assess:\s*(?P<body>.*?)\s*-->\s*$")
 QUESTION_RE = re.compile(r"^(?P<number>\d+)\.\s+")
@@ -71,7 +72,7 @@ def parse_question_bank(path: Path) -> QuestionBankAssessment:
     """Parse all ``<!-- assess: ... -->`` comments in a question bank."""
 
     text = path.read_text(encoding="utf-8")
-    lines = text.splitlines()
+    lines = visible_text(text, keep_comments=("SOLUTION", "assess")).splitlines()
     items: list[QuestionAssessment] = []
     pending: dict[str, str] | None = None
     in_solution = False
@@ -85,57 +86,90 @@ def parse_question_bank(path: Path) -> QuestionBankAssessment:
             continue
         assessment_match = ASSESSMENT_RE.match(line)
         if assessment_match:
+            if pending is not None:
+                raise ValueError(f"Unattached assessment metadata in {path}; author one mapping per question")
             pending = _parse_assessment_fields(assessment_match.group("body"))
             continue
         question_match = QUESTION_RE.match(line)
         if question_match:
             number = int(question_match.group("number"))
-            if 1 <= number <= 30:
-                if pending is None:
-                    raise ValueError(f"Missing assessment metadata before question {number} in {path}")
-                items.append(_question_assessment(number, pending, path))
-                pending = None
+            if not 1 <= number <= 30:
+                raise ValueError(f"Unexpected question number {number} in {path}; expected 1–30")
+            if pending is None:
+                raise ValueError(f"Missing assessment metadata before question {number} in {path}")
+            items.append(_question_assessment(number, pending, path))
+            pending = None
+    if in_solution:
+        raise ValueError(f"Unclosed SOLUTION block in {path}")
+    if pending is not None:
+        raise ValueError(f"Unattached assessment metadata in {path}")
+    numbers = [item.number for item in items]
+    if not numbers or len(numbers) != len(set(numbers)):
+        raise ValueError(f"Missing or duplicate question items in {path}")
     return QuestionBankAssessment(path=path, items=tuple(items))
 
 
 def parse_lab_alignment(path: Path) -> LabAlignment:
-    """Parse the lab alignment block produced by ``sync_assessment_metadata``."""
+    """Parse one author-owned block of reviewed lab outcomes and criteria."""
 
     text = path.read_text(encoding="utf-8")
-    match = LAB_ALIGNMENT_RE.search(text)
-    if not match:
-        raise ValueError(f"Missing lab alignment block in {path}")
-    body = match.group("body")
+    matches = list(LAB_ALIGNMENT_RE.finditer(text))
+    if len(matches) != 1:
+        raise ValueError(f"Author exactly one reviewed lab alignment block in {path}")
+    body = matches[0].group("body")
     outcomes = tuple(
         line.strip()
         for line in body.splitlines()
-        if re.match(r"- \*\*Outcome \d+ \(LO\d+\):\*\*", line.strip())
+        if re.fullmatch(r"- \*\*Outcome [1-9]\d* \(LO[1-9]\d*\):\*\*\s+\S.*", line.strip())
     )
+    outcome_rows = [line for line in body.splitlines() if re.match(r"- \*\*Outcome\b", line.strip())]
+    outcome_numbers = [int(line.split()[2]) for line in outcomes]
+    if len(outcome_rows) != len(outcomes) or outcome_numbers != list(range(1, len(outcomes) + 1)):
+        raise ValueError(f"Author consecutive, nonempty, valid LO-mapped lab outcomes in {path}")
     lo_ids = tuple(dict.fromkeys(re.findall(r"\bLO\d+\b", body)))
-    rubric_terms = tuple(term for term in REQUIRED_LAB_RUBRIC_TERMS if re.search(rf"\b{term}\b", body, re.I))
+    rubric_terms = tuple(term for term in REQUIRED_LAB_RUBRIC_TERMS if re.search(rf"\b{term}\b", body, re.IGNORECASE))
+    if not 3 <= len(outcomes) <= 4 or not lo_ids:
+        raise ValueError(f"Author 3–4 measurable LO-mapped lab outcomes in {path}")
+    if rubric_terms != REQUIRED_LAB_RUBRIC_TERMS:
+        raise ValueError(f"Author evidence, controls, uncertainty, mechanism and transfer scoring criteria in {path}")
     return LabAlignment(path=path, outcomes=outcomes, lo_ids=lo_ids, rubric_terms=rubric_terms)
 
 
 def chapter_learning_objectives(path: Path) -> tuple[str, ...]:
     """Return stable LO IDs derived from the chapter's Learning Objectives list."""
 
-    text = path.read_text(encoding="utf-8")
-    match = re.search(r"^## Learning Objectives.*?\n(?P<body>.*?)(?=^##\s|\Z)", text, re.MULTILINE | re.DOTALL)
+    text = visible_text(path.read_text(encoding="utf-8"))
+    match = re.search(
+        r"^## Learning Objectives[^\n]*\n(?P<body>.*?)(?=^#{1,6}\s|\Z)",
+        text, re.MULTILINE | re.DOTALL,
+    )
     if not match:
         raise ValueError(f"Missing Learning Objectives section in {path}")
-    objective_numbers = re.findall(r"^\d+\.\s+", match.group("body"), re.MULTILINE)
-    if not objective_numbers:
-        raise ValueError(f"Learning Objectives section has no numbered items in {path}")
-    return tuple(f"LO{index}" for index in range(1, len(objective_numbers) + 1))
+    numbers: list[int] = []
+    started = False
+    for line in match.group("body").splitlines():
+        objective = re.match(r"^(\d+)\.\s+\S", line)
+        if objective:
+            numbers.append(int(objective.group(1)))
+            started = True
+        elif started and line.strip() and not line[:1].isspace():
+            break
+    if not numbers or numbers != list(range(1, len(numbers) + 1)):
+        raise ValueError(f"Author one consecutively numbered Learning Objectives list in {path}")
+    return tuple(f"LO{number}" for number in numbers)
 
 
 def _parse_assessment_fields(body: str) -> dict[str, str]:
     fields: dict[str, str] = {}
     for part in body.split(";"):
         if "=" not in part:
-            continue
-        key, value = part.split("=", 1)
-        fields[key.strip()] = value.strip()
+            raise ValueError(f"Malformed assessment metadata field: {part!r}")
+        key, value = (value.strip() for value in part.split("=", 1))
+        if key in fields:
+            raise ValueError(f"Duplicate assessment metadata field: {key}")
+        if not value:
+            raise ValueError(f"Empty assessment metadata field: {key}")
+        fields[key] = value
     return fields
 
 
@@ -144,6 +178,13 @@ def _question_assessment(number: int, fields: dict[str, str], path: Path) -> Que
     missing = required - set(fields)
     if missing:
         raise ValueError(f"Question {number} in {path} missing metadata fields: {sorted(missing)}")
+    unknown = set(fields) - required
+    if unknown:
+        raise ValueError(f"Question {number} in {path} has unknown metadata fields: {sorted(unknown)}")
+    if not re.fullmatch(r"LO[1-9]\d*", fields["LO"]):
+        raise ValueError(f"Question {number} in {path} has invalid LO identifier {fields['LO']!r}")
+    if fields["format"] != "short-answer":
+        raise ValueError(f"Question {number} in {path} requires format=short-answer")
     if fields["bloom"] not in ALLOWED_BLOOM_LEVELS:
         raise ValueError(
             f"Question {number} in {path} has invalid bloom level {fields['bloom']!r}; "
@@ -158,6 +199,8 @@ def _question_assessment(number: int, fields: dict[str, str], path: Path) -> Que
         minutes = int(fields["minutes"])
     except ValueError as exc:
         raise ValueError(f"Question {number} in {path} has non-integer minutes") from exc
+    if minutes <= 0:
+        raise ValueError(f"Question {number} in {path} requires positive minutes")
     return QuestionAssessment(
         number=number,
         lo=fields["LO"],
@@ -179,10 +222,10 @@ def _count_by(values: Iterable[object]) -> dict[str, int]:
 __all__ = [
     "ALLOWED_BLOOM_LEVELS",
     "ALLOWED_DIFFICULTIES",
+    "REQUIRED_LAB_RUBRIC_TERMS",
+    "LabAlignment",
     "QuestionAssessment",
     "QuestionBankAssessment",
-    "LabAlignment",
-    "REQUIRED_LAB_RUBRIC_TERMS",
     "chapter_learning_objectives",
     "parse_lab_alignment",
     "parse_question_bank",

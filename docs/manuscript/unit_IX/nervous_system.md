@@ -10,8 +10,8 @@
 
 1. Describe the organization of the vertebrate nervous system (CNS, PNS) and the roles of glial cells.
 2. Explain [**neuron**](#gl:neuron) structure and classify neuron types by function and morphology.
-3. **Analyze** how the [**axon hillock**](#gl:axon-hillock) integrates competing excitatory and inhibitory synaptic inputs to determine whether the neuron fires.
-4. Describe graded potentials, synaptic summation, and how the [**axon hillock**](#gl:axon-hillock) integrates inputs.
+3. **Analyze** how competing excitatory and inhibitory synaptic inputs influence spike initiation at the axon initial segment (AIS) in the cortical-pyramidal-cell example.
+4. Describe graded potentials and synaptic summation, and distinguish the [**axon hillock**](#gl:axon-hillock) from the specialized AIS.
 5. Compare the sympathetic and parasympathetic divisions of the autonomic nervous system.
 6. Describe the major brain regions and their functions.
 7. Describe sensory systems and neural plasticity.
@@ -47,7 +47,7 @@ The human nervous system comprises approximately **86 billion neurons** and ~85 
 ```mermaid
 graph TD
     NS[Nervous System] --> CNS[Central Nervous System<br/>Brain + Spinal Cord]
-    NS --> PNS[Peripheral Nervous System<br/>Cranial + Spinal Nerves]
+    NS --> PNS[Peripheral Nervous System<br/>Peripheral nerves and ganglia]
 
     CNS --> Brain[Brain]
     CNS --> SC[Spinal Cord]
@@ -60,25 +60,25 @@ graph TD
     Brain --> BS["Brainstem<br/>Medulla, pons, midbrain"]
     Brain --> Limbic["Limbic System<br/>Hippocampus, amygdala"]
 
-    PNS --> Somatic["Somatic NS<br/>(Voluntary)"]
-    PNS --> Auto["Autonomic NS<br/>(Involuntary)"]
-
-    Somatic --> Aff["Afferent (Sensory)<br/>Pseudounipolar neurons"]
-    Somatic --> Eff["Efferent (Motor)<br/>ACh at NMJ"]
+    PNS --> Aff["Sensory afferents<br/>Somatic and visceral inputs"]
+    PNS --> Eff["Motor efferents"]
+    Eff --> Somatic["Somatic motor output<br/>Skeletal muscle, including reflexes"]
+    Eff --> Auto["Autonomic motor output<br/>Visceral targets"]
+    Somatic --> NMJ["Direct motor-neuron innervation<br/>ACh at skeletal NMJ"]
 
     Auto --> Symp["Sympathetic<br/>T1-L2 preganglionic<br/>Fight or flight<br/>NE at target organs"]
     Auto --> Para["Parasympathetic<br/>CN III,VII,IX,X + S2-S4<br/>Rest and digest<br/>ACh at target organs"]
     Auto --> Ent["Enteric NS<br/>~500 million neurons<br/>Intrinsic gut regulation"]
 ```
-<!-- alt: Graph showing organization of the vertebrate nervous system. The CNS (brain and spinal cord) integrates information. The PNS (somatic and autonomic divisions) connects the CNS to the body. The autonomic NS has sympathetic, parasympathetic, and enteric subdivisions. -->
+<!-- alt: Graph showing nervous-system organization distinguishes sensory input from somatic and autonomic motor output. The PNS includes peripheral nerves/ganglia, with cranial-nerve exceptions such as the optic nerve's CNS character; enteric circuits include local sensory and interneuron components as well as motor output. -->
 
-*Organization of the vertebrate nervous system. The CNS (brain and spinal cord) integrates information. The PNS (somatic and autonomic divisions) connects the CNS to the body. The autonomic NS has sympathetic, parasympathetic, and enteric subdivisions.*
+*Nervous-system organization distinguishes sensory input from somatic and autonomic motor output. The PNS includes peripheral nerves/ganglia, with cranial-nerve exceptions such as the optic nerve's CNS character; enteric circuits include local sensory and interneuron components as well as motor output.*
 
 - Blood-brain barrier (BBB): Tight junctions between endothelial cells + astrocyte endfeet
 - Three meningeal layers: dura mater (tough outer), arachnoid mater (middle; CSF-filled subarachnoid space), pia mater (thin; adheres to brain surface)
 - Bone: Cranium and vertebral column
 
-**Peripheral nervous system (PNS):** Most nervous tissue outside the CNS. Includes 12 cranial nerves and 31 spinal nerve pairs.
+**Peripheral nervous system (PNS):** Peripheral nerves and ganglia connect the CNS to the body. Spinal nerves have sensory and motor components; the cranial-nerve classification has exceptions, notably the optic nerve as a CNS extension. Somatic/autonomic motor divisions do not exhaust peripheral sensory organization.
 
 ---
 
@@ -103,7 +103,7 @@ A typical neuron comprises:
 
 - **Soma (cell body):** Contains nucleus, rough ER (Nissl substance), Golgi apparatus. Site of most [**protein**](#gl:protein) synthesis and metabolic activity. Diameter: 5-100 um.
 - **Dendrites:** Receive synaptic inputs. Dendritic spines (0.5-2 um protrusions) increase surface area and compartmentalise Ca$^{2+}$ signals. A single cortical pyramidal neuron may have 10,000-30,000 dendritic spines.
-- **Axon hillock:** Junction between soma and axon. Highest density of voltage-gated Na$^+$ channels (~800-1200/um$^2$). Lowest threshold for action potential initiation. The "decision-making" node.
+- **Axon hillock and initial segment:** The hillock is the transition from soma to axon. It is not synonymous with the AIS, a specialized axonal region supporting spike initiation in cortical pyramidal neurons. Kole et al. combined staining, voltage clamp, sodium imaging and modeling to support high AIS sodium-channel density in that preparation; this does not establish one initiation site or density for every neuron \citep{kole2008ais}.
 - **Axon:** Signal conduction pathway. Myelinated or unmyelinated. Can extend >1 m (motor neurons to foot muscles). Axoplasmic transport: fast anterograde (kinesin, 200-400 mm/day for vesicles), slow anterograde (0.5-5 mm/day for cytoskeletal proteins), fast retrograde (dynein, 200-300 mm/day for recycled materials and trophic signals).
 - **Axon terminal (bouton):** Contains synaptic vesicles (40-50 nm diameter, each containing ~5,000-10,000 neurotransmitter molecules). Active zone: specialized region of presynaptic membrane where vesicles dock and fuse.
 
@@ -116,7 +116,7 @@ A typical neuron comprises:
 | ---------- | -------- | ------------ |
 | **Astrocytes** | CNS | Metabolic support (lactate shuttle to neurons); BBB construction; K$^+$ spatial buffering; glutamate-glutamine recycling; tripartite synapse (modulate synaptic transmission); scar formation after injury |
 | **Oligodendrocytes** | CNS | Myelination (one cell can myelinate segments on up to 50 axons simultaneously) |
-| **Schwann cells** | PNS | Myelination (one cell per axon segment, ~1 mm internode); nerve repair via Bands of Bungner |
+| **Schwann cells** | PNS | Each myelinating cell forms one axon internode; nerve repair via Bands of Bungner |
 | **Microglia** | CNS | Resident macrophages; synaptic pruning (complement C1q/C3-tagged synapses phagocytosed); neuroinflammation; activated in Alzheimer's, TBI, MS |
 | **Ependymal cells** | CNS | Line ventricles; ciliated surface moves CSF; produce CSF (together with choroid plexus; 450-500 mL/day; total CSF volume ~150 mL, replaced ~3 times/day) |
 | **Radial glia** | Developing CNS | Neural stem cells; scaffold for neuronal migration (inside-out cortical layering); give rise to both neurons and glia |
@@ -124,7 +124,7 @@ A typical neuron comprises:
 
 Modern brain-cell atlases turn this table into a data problem rather than a final classification. The NIH BRAIN Initiative reported a 2023 whole-mouse-brain atlas covering more than 32 million cells, and the companion Nature atlas organized about 4.0 million quality-controlled single-cell transcriptomes plus spatial MERFISH data into 34 classes, 338 subclasses, 1,201 supertypes, and 5,322 clusters \citep{nimh2023mousebrainatlas,yao2023mousebrainatlas}. Those categories are powerful reference maps, but they remain release- and method-dependent: a cell type claim should state the atlas, species, region, assay, and annotation level.
 
-> **Clinical Connection:** Microglia-mediated synaptic pruning is essential during development (eliminating ~50% of synapses during adolescence). Dysregulated pruning has been linked to schizophrenia: the complement component C4A [**gene**](#gl:gene) is the strongest genetic risk factor for schizophrenia (Sekar et al., 2016, *Nature*). Individuals with high C4A expression show excessive synaptic pruning in prefrontal cortex during adolescence, correlating with symptom onset.
+> **Clinical Connection:** Complement biology links human genetic association to experimental synapse-remodeling mechanisms. In the 2016 study, C4 structural alleles associated with schizophrenia risk in proportion to their predicted effect on brain C4A expression, helping explain part of the MHC-locus association. Human C4 protein localized at neuronal synapses; separate experiments in the developing mouse visual system showed that C4 contributes to synapse elimination \citep{sekar2016c4}. These findings do not establish C4A as the strongest of all genetic risk factors, a universal adolescent pruning percentage, or direct observation of excessive prefrontal pruning in high-C4A adolescents at symptom onset.
 
 ### Astrocytes — More Than Glue
 
@@ -135,8 +135,8 @@ Astrocytes were once considered passive support cells but are now recognized as 
 - **K$^+$ spatial buffering:** Following synaptic activity, extracellular K$^+$ rises locally. Astrocytes express high densities of inwardly-rectifying Kir4.1 channels and aquaporin-4 (AQP4) at endfeet on capillaries. K$^+$ enters astrocytes locally and exits at sites of low K$^+$ via the panastrocytic syncytium (gap junctions formed by connexin 43/30) — preventing extracellular K$^+$ accumulation that would depolarize neurons and disrupt firing.
 - **Glutamate clearance:** EAAT1 and EAAT2 transporters (the "glutamate-aspartate transporters") on astrocytes clear ~90% of synaptically released glutamate. EAAT2/GLT-1 dysfunction is implicated in ALS (mutations) and excitotoxicity in stroke.
 - **Glutamate-glutamine cycle:** Astrocytes convert glutamate to glutamine via glutamine synthetase, then export glutamine to neurons, where neurons reconvert it back to glutamate via glutaminase. This metabolically traps glutamate within neurons (glutamate is itself a metabolic intermediate that cannot be allowed to accumulate in extracellular space).
-- **Astrocyte-neuron lactate shuttle:** Astrocytes preferentially perform glycolysis (express PFK1 and LDH-A) and export lactate. Active neurons take up lactate via MCT2 and use it as a major energy substrate during sustained activity. This "ANLS hypothesis" (Pellerin and Magistretti, 1994) explains the glucose-lactate metabolic coupling underlying fMRI BOLD signals.
-- **Gliotransmission:** Activated astrocytes release glutamate, ATP, D-serine (an NMDA receptor co-agonist), and other transmitters via Ca$^{2+}$-dependent vesicle exocytosis or channel-mediated release — modulating synaptic transmission and plasticity.
+- **Astrocyte-neuron lactate shuttle:** The ANLS hypothesis proposes activity-linked astrocytic glycolysis and lactate delivery to neurons; it is not a universal ranking of neuronal fuel sources. Cultured-astrocyte experiments showed that glutamate uptake stimulated glucose utilization and lactate production \citep{pellerin1994glycolysis}. BOLD fMRI is an indirect blood-oxygenation readout, not a direct measurement of lactate flux: simultaneous recordings in monkey visual cortex found animal- and site-specific relationships between neural signals and the hemodynamic response \citep{logothetis2001bold}.
+- **Gliotransmission:** Preparation-specific experiments support astrocytic release and modulation, but transmitter source, physiological relevance and subcellular calcium signals require separate tests. IP3R2-knockout mice retain substantial process/endfoot calcium activity despite reduced prominent somatic signals \citep{srinivasan2015astrocyteip3r2}; this knockout cannot exclude every calcium-dependent astrocyte contribution.
 - **Reactive astrogliosis:** After CNS injury, astrocytes hypertrophy, upregulate GFAP, and form glial scars. This both contains damage and inhibits axonal regeneration (chondroitin sulfate proteoglycans). Modulating reactive astrogliosis is a target for spinal cord injury therapeutics.
 
 ### Oligodendrocytes and Myelin
@@ -185,10 +185,10 @@ The **blood-brain barrier (BBB)** is a selective barrier between blood and brain
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/action_potential.png}
-\caption{Hodgkin--Huxley action-potential simulation showing a simulated membrane-voltage trace crossing threshold, spiking, and returning through after-hyperpolarisation as voltage-gated conductances change.}
+\caption{Illustrative Hodgkin--Huxley membrane-voltage simulation with a 10 microampere/cm$^2$ current pulse during 5--6 ms. The model starts at $-70$ mV with voltage-dependent gates initialized at their steady values at that voltage; this initial voltage is not a verified zero-current equilibrium. Reference guides mark the initial voltage and an illustrative threshold, not measured patient values.}
 \label{fig:unit_IX_action_potential}
 \end{figure}
-<!-- alt: Time-course plot of neuronal membrane potential in millivolts, rising rapidly from rest to a positive spike, repolarising below rest, and returning toward resting voltage with threshold and resting-potential reference lines. -->
+<!-- alt: Simulated membrane voltage in millivolts versus time in milliseconds under a brief injected-current pulse. Guides identify the initial voltage of minus 70 millivolts and an illustrative threshold; the initial voltage is not certified as the model's resting equilibrium. -->
 
 
 ### Ion Distribution and the Nernst Equation
@@ -231,7 +231,7 @@ The resting potential is dominated by **K$^+$** (highest resting conductance via
 
 ## Cable Properties and Passive Signal Spread
 
-Before a graded potential can trigger an action potential at the axon hillock, it must travel electrotonically from the synapse. This passive spread is governed by the **cable properties** of the dendrite, modeled as a leaky electrical cable.
+Synaptic voltage changes spread through dendrites and soma toward the spike-initiation region, illustrated here by the cortical-pyramidal-cell AIS. Passive spread is governed by **cable properties**, modeled below as a leaky electrical cable; active dendritic conductances add further complexity.
 
 ### Length Constant (λ) and Spatial Attenuation
 
@@ -264,18 +264,18 @@ At distance $x = \lambda$, the voltage has decayed to $V_0/e \approx 37\%$ of it
 **Key determinants of λ:**
 - **Myelin** increases $r_m$ ~100-fold (reduces current leak) → λ increases ~10-fold
 - **Larger diameter** reduces $r_i$ (more conducting cross-section) → λ increases
-- **GABA$_A$ receptor activation** opens Cl$^-$ channels, reducing $r_m$ → λ decreases — a quantitative mechanism for **shunting inhibition** (nearby inhibitory synapses drastically reduce the effective length constant, terminating EPSP integration before reaching the hillock)
+- **GABA$_A$ receptor activation** increases anion conductance, reducing local membrane resistance and, in the passive approximation, length constant. This can shunt excitatory input before it influences the spike-initiation region; it need not eliminate transmission or hyperpolarize the membrane.
 
 ### Time Constant (τ_m)
 
 The **membrane time constant** determines how fast the membrane voltage changes in response to a current:
 
 \begin{equation}
-\tau_m = r_m \cdot C_m
+\tau_m = R_m C_m = r_m c_m
 \label{eq:nervous_system_5}
 \end{equation}
 
-where $C_m \approx 1$ µF/cm² (specific membrane capacitance — nearly constant across cell types). Typical $\tau_m \approx 10$–$20$ ms for neurons.
+where $R_m$ is specific membrane resistance (Ω·cm²), $C_m$ is specific capacitance (F/cm²), $r_m=R_m/(2\pi a)$ has units Ω·cm, and $c_m=2\pi a C_m$ has units F/cm. Thus both products have units seconds. For $R_m=20{,}000$ Ω·cm² and $C_m=1$ µF/cm², $\tau_m=20$ ms.
 
 \begin{equation}
 V(t) = V_\infty \left(1 - e^{-t/\tau_m}\right)\quad \text{(voltage rising in response to a step current)}
@@ -286,14 +286,14 @@ V(t) = V_\infty \left(1 - e^{-t/\tau_m}\right)\quad \text{(voltage rising in res
 
 ## Worked Example: Dendritic Length Constant
 
-A cortical pyramidal neuron has $r_m = 40{,}000\;\Omega\text{·cm}$ and $r_i = 200\;\Omega/\text{cm}$ for a typical basal dendrite (diameter ~1 µm). What is the length constant?
+Consider an illustrative cylindrical dendrite of radius $a=0.5\,\mu$m, specific membrane resistance $R_m=20{,}000$ Ω·cm² and cytoplasmic resistivity $R_i=100$ Ω·cm. Determine $\lambda$ using the same geometry and parameters throughout.
 
 \begin{equation}
-\lambda = \sqrt{\frac{40{,}000}{200}} = \sqrt{200} \approx 14.1\;\text{cm?}
+\lambda=\sqrt{\frac{R_m a}{2R_i}}=\sqrt{\frac{20{,}000(5\times10^{-5})}{200}}\;\mathrm{cm}=0.07071\;\mathrm{cm}
 \label{eq:nervous_system_7}
 \end{equation}
 
-Wait — the formula uses *specific* membrane resistance per unit **length** for a cylinder. For a dendrite of radius $a$:
+Convert the specific quantities into the per-length cable parameters for this cylinder:
 
 \begin{equation}
 r_m(\text{per unit length}) = \frac{R_m}{2\pi a}, \quad r_i(\text{per unit length}) = \frac{R_i}{\pi a^2}
@@ -303,7 +303,7 @@ r_m(\text{per unit length}) = \frac{R_m}{2\pi a}, \quad r_i(\text{per unit lengt
 where $R_m$ = specific membrane resistance (~20{,}000 Ω·cm²) and $R_i$ = cytoplasmic resistivity (~100 Ω·cm). For $a = 0.5\;\mu$m $= 0.5 \times 10^{-4}$ cm:
 
 \begin{equation}
-r_m = \frac{20{,}000}{2\pi \times 5 \times 10^{-5}} \approx 6.37 \times 10^7\;\Omega/\text{cm}
+r_m = \frac{20{,}000}{2\pi \times 5 \times 10^{-5}} \approx 6.37 \times 10^7\;\Omega\text{·cm}
 \label{eq:nervous_system_9}
 \end{equation}
 
@@ -317,13 +317,13 @@ r_i = \frac{100}{\pi \times (5 \times 10^{-5})^2} \approx 1.27 \times 10^{10}\;\
 \label{eq:nervous_system_11}
 \end{equation}
 
-This means a synapse on a thin distal dendrite 1.4 mm from the soma delivers primarily $e^{-2} \approx 13.5\%$ of its peak voltage to the hillock — illustrating how **dendritic location profoundly affects synaptic efficacy**, and why proximal synapses (closer to the hillock) have disproportionate influence.
+In this passive cable example, a synapse 1.4 mm from the soma delivers $e^{-2}\approx13.5\%$ of its local steady voltage change to the soma. That calculation illustrates location-dependent attenuation; it does not independently locate spike initiation or resolve the soma-to-AIS transfer.
 
 > **Clinical Connection:** Peripheral neuropathy (e.g., from diabetes, chemotherapy, or Guillain-Barré syndrome) reduces $r_m$ in peripheral axons by disrupting myelin or causing axonal damage. The resulting decrease in λ causes voltage signals to decay faster along the axon, slowing conduction and reducing EPSP efficacy at nerve-muscle junctions — producing the characteristic distal-to-proximal weakness and sensory loss of a length-dependent neuropathy.
 
 ### Worked Example: EPSP Attenuation from Distal vs Proximal Synapses
 
-**Problem:** A pyramidal-cell dendrite has length constant $\lambda \approx 200\;\mu\text{m}$. A glutamatergic synapse fires, producing a local EPSP of $V_0 = 5$ mV at the synaptic site. Compute the EPSP amplitude that arrives at the axon hillock under three placement scenarios and rank them by impact on threshold.
+**Problem:** A simplified pyramidal-cell cable model has length constant $\lambda\approx200\;\mu\mathrm{m}$. A glutamatergic input produces a local EPSP of $V_0=5$ mV. Treat the cable's output as a lumped spike-trigger compartment representing the AIS, with an illustrative 15-mV gap to threshold. Compute the attenuated amplitudes at three distances and rank their effects within this model. This approximation omits distinct soma and AIS geometries.
 
 **Setup.** Passive electrotonic decay along a uniform cable obeys $V(x) = V_0 \, e^{-x/\lambda}$.
 
@@ -341,7 +341,7 @@ $$V(50) = 5 \cdot e^{-0.25} = 5 \cdot 0.779 \approx 3.89\;\text{mV}$$
 
 **Solution and interpretation:**
 
-1. **Per-synapse efficacy at the hillock.** Proximal $\approx 5.7 \times$ more effective than distal in driving the hillock toward threshold, for an identical local EPSP amplitude.
+1. **Per-synapse efficacy at the model output.** The proximal input delivers approximately $5.7$ times the distal voltage change to the lumped trigger compartment for identical local EPSP amplitudes.
 2. **Spatial summation arithmetic.** Five distal synapses firing simultaneously deliver $5 \times 0.68 \approx 3.4$ mV — still less than a *single* proximal synapse at 50 $\mu$m. Five proximal synapses deliver $5 \times 3.89 \approx 19.5$ mV — enough by itself to cross a 15 mV threshold gap (from $-70$ to $-55$ mV).
 3. **Active boosting.** Real dendrites are not purely passive: dendritic Na$^+$ and NMDA-receptor-mediated regenerative spikes can boost distal EPSPs locally, partly compensating for electrotonic loss. Boosting is gated by prior depolarization, so distal inputs that arrive *after* proximal inputs benefit more than ones arriving first — the basis of a fast/slow coincidence-detection scheme in cortical pyramidal cells.
 
@@ -356,9 +356,9 @@ $$V(50) = 5 \cdot e^{-0.25} = 5 \cdot 0.779 \approx 3.89\;\text{mV}$$
 
 **Excitatory postsynaptic potentials (EPSPs):** Depolarizing events (typically caused by Na$^+$ or mixed cation influx through ionotropic receptors like AMPA). Amplitude proportional to stimulus strength. Decay with distance (electrotonic spread governed by the length constant λ).
 
-**Inhibitory postsynaptic potentials (IPSPs):** Hyperpolarising events (Cl$^-$ influx through GABA$_A$ receptors or K$^+$ efflux through GABA$_B$-activated K$^+$ channels). Shunting inhibition: even if IPSP does not change $V_m$ much, opening Cl$^-$ channels increases membrane conductance, reducing the effectiveness of nearby EPSPs.
+**Inhibitory postsynaptic potentials (IPSPs):** Inhibitory input reduces firing probability under the specified conditions. GABA$_A$ and glycine receptors increase anion conductance; GABA$_B$ signaling can activate K$^+$ conductance. Voltage moves toward the relevant reversal potential, so chloride flow and voltage polarity depend on driving force rather than on a universal influx rule. Increased conductance can shunt nearby excitatory input with little voltage change or even during depolarization. Depolarizing GABA inhibited network activity in the specific P3–4 mouse neocortex preparation studied by Kirmse et al.; this is not a universal developmental rule \citep{kirmse2015gaba}.
 
-### Summation at the Axon Hillock
+### Synaptic Integration and AIS Spike Initiation
 
 ```mermaid
 flowchart TD
@@ -371,22 +371,22 @@ flowchart TD
 
     subgraph Integration ["Synaptic Integration"]
         TS["TEMPORAL SUMMATION<br/>Rapid successive EPSPs<br/>from same synapse<br/>accumulate if interval < tau_m"]
-        SS["SPATIAL SUMMATION<br/>Simultaneous EPSPs from<br/>different synapses sum<br/>at axon hillock"]
-        TS --> AH["Axon Hillock<br/>Sum of all EPSPs and IPSPs<br/>Threshold = -55 mV"]
+        SS["SPATIAL SUMMATION<br/>Concurrent inputs at<br/>different locations<br/>interact across the cell"]
+        TS --> AH["AIS example<br/>Voltage and conductance integration<br/>Illustrative threshold: -55 mV"]
         SS --> AH
         AH --> |"Net > threshold"| AP["ACTION POTENTIAL<br/>All-or-none<br/>Propagates along axon"]
         AH --> |"Net < threshold"| No["No AP<br/>Signal decays"]
     end
 ```
-<!-- alt: Flowchart showing neural circuit types and synaptic integration. Convergence allows integration of multiple inputs; divergence allows signal distribution. At the axon hillock, temporal and spatial summation of EPSPs and IPSPs determine whether threshold is reached. -->
+<!-- alt: Flowchart showing neural circuit types and synaptic integration. The simplified cortical-pyramidal-cell example represents spike initiation at the AIS, distinct from hillock morphology. Voltage and conductance interactions determine threshold crossing; −55 mV is illustrative, not universal. -->
 
-*Neural circuit types and synaptic integration. Convergence allows integration of multiple inputs; divergence allows signal distribution. At the axon hillock, temporal and spatial summation of EPSPs and IPSPs determine whether threshold is reached.*
+*Neural circuit types and synaptic integration. The simplified cortical-pyramidal-cell example represents spike initiation at the AIS, distinct from hillock morphology. Voltage and conductance interactions determine threshold crossing; −55 mV is illustrative, not universal.*
 
-If the net depolarization at the axon hillock exceeds threshold (~$-55$ mV), an most-or-none action potential is generated, with the stereotyped Na$^+$- and K$^+$-driven waveform of rise, peak, and hyperpolarization shown in \cref{fig:unit_IX_action_potential}. The axon hillock has the highest density of Nav1.2 and Nav1.6 channels, making it the lowest-threshold site.
+In the cortical-pyramidal-cell example, synaptic integration influences whether the AIS reaches spike threshold, producing an all-or-none action potential with a sodium- and potassium-conductance-dependent waveform (\cref{fig:unit_IX_action_potential}). The morphological hillock is not a substitute name for the AIS, and neither a fixed channel density nor a universal −55-mV threshold follows for all neurons \citep{kole2008ais}.
 
-**Strategic placement of inhibition:** Inhibitory synapses (GABA$_A$) are preferentially located on the soma and proximal dendrites, positioned to maximally dampen axon hillock depolarization.
+**Location of inhibition:** Somatic, dendritic and axonal inhibitory inputs can affect different components of integration. Their influence on AIS firing depends on location, timing, conductance and reversal potential; proximity alone does not guarantee maximal inhibition.
 
-**Concept Check (Analyze) — Axon hillock integration and AIS biophysics.** The axon initial segment (AIS) concentrates Nav1.6 channels at densities ~50-fold above the soma, placing the spike-initiation threshold near $-55$ mV. (a) Compute the net depolarization delivered to the AIS by *five* proximal EPSPs of 4 mV each vs. *five* distal EPSPs of 4 mV each that have attenuated to $\sim 0.7$ mV by the time they reach the AIS (use the cable-theory result above). Which configuration crosses a 15 mV threshold gap from $-70$ mV? (b) A myelin-associated glycoprotein (MAG) mutation reported in human peripheral neuropathy shortens the AIS by approximately 30%. Predict the directional effect on Nav1.6 channel number, spike-initiation threshold, and high-frequency firing fidelity. (c) Distinguish two failure modes — *increased excitability* (more spontaneous spikes) and *decreased fidelity* (broken phase-locking at $> 100$ Hz) — and identify which is more clinically disabling for a motor neuron driving rapid finger movements.
+**Concept Check (Analyze) — AIS integration and biophysics.** Kole et al.'s cortical-pyramidal-cell evidence supports high AIS sodium-channel density, not a universal threshold or a hillock-specific maximum \citep{kole2008ais}. (a) In a separate linear-summation exercise, five proximal inputs each deliver 4 mV to a lumped AIS compartment, while five distal inputs each deliver 0.7 mV after attenuation. Compare the totals with a stipulated 15-mV threshold gap from −70 to −55 mV. (b) If AIS length decreases while diameter and channel density are held fixed, what happens to total channel number? Why do channel kinetics, axial coupling and other conductances prevent inferring a unique firing threshold from length alone? (c) Design measurements separating spontaneous excitability from spike-timing fidelity during a specified high-frequency stimulation protocol. No particular MAG mutation or clinical disability ranking is established by these assumptions.
 
 **Concept Check (Evaluate) — Astrocyte glutamate handling, ischemia, and excitotoxicity.** Astrocytes terminate excitatory synaptic transmission by clearing glutamate via the electrogenic transporter GLT-1 (EAAT2), which couples one glutamate uptake to the inward movement of three Na$^+$ and one H$^+$ and the outward movement of one K$^+$. Glutamate is then converted to glutamine by glutamine synthetase and shuttled back to neurons. (a) Compute the energetic cost: how much ATP must the Na$^+$/K$^+$-ATPase consume to maintain the gradient that powers one round of GLT-1 transport? (b) During the first minutes of ischemic stroke, intracellular ATP drops, the Na$^+$/K$^+$-ATPase stalls, intracellular Na$^+$ rises, and GLT-1 begins to run in *efflux* mode (the thermodynamic gradient flips). Predict the local extracellular glutamate concentration trajectory and the consequent fraction of nearby NMDA receptors that lose their Mg$^{2+}$ block. (c) Evaluate why NMDA-receptor antagonists (memantine, low-affinity uncompetitive blockers) have been shown to be more clinically tolerated than high-affinity blockers (MK-801) as neuroprotectants — connect on/off kinetics to the difference between pathological tonic activation and physiological phasic activation.
 
@@ -441,7 +441,7 @@ graph LR
         BG2["BASAL GANGLIA<br/>Direct pathway (Go)<br/>Indirect pathway (NoGo)<br/>Dopamine modulation<br/>Parkinson's: SNc loss"]
         TH["THALAMUS<br/>Sensory relay<br/>(except olfaction)<br/>LGN → V1 (vision)<br/>MGN → A1 (auditory)<br/>VPL → S1 (somatosensory)"]
         HT["HYPOTHALAMUS<br/>13+ nuclei<br/>Temperature, hunger, thirst<br/>Circadian (SCN)<br/>Pituitary connection"]
-        HC["HIPPOCAMPUS<br/>Memory consolidation<br/>Spatial navigation<br/>Place cells, grid cells<br/>Adult neurogenesis"]
+        HC["HIPPOCAMPAL–ENTORHINAL<br/>NAVIGATION SYSTEM<br/>Hippocampus: place cells,<br/>episodic/spatial memory<br/>Medial entorhinal cortex: grid cells"]
         AM["AMYGDALA<br/>Fear conditioning<br/>Emotional memory<br/>Threat detection"]
     end
 
@@ -477,7 +477,7 @@ The basal ganglia (caudate, putamen, globus pallidus, subthalamic nucleus, subst
 
 **Cerebellum:** Contains more neurons than the rest of the brain combined (~70 billion granule cells). Functions: motor coordination, error correction (compares intended vs actual movement), timing, motor learning, balance. Damage causes ataxia (uncoordinated movement) but not paralysis.
 
-**Hippocampus:** Essential for consolidating declarative (episodic and semantic) memories from short-term to long-term storage. Contains place cells (fire at specific locations; O'Keefe, Nobel 2014) and grid cells (fire in a hexagonal spatial pattern; Moser and Moser, Nobel 2014). One of few brain regions with confirmed adult neurogenesis (dentate gyrus).
+**Hippocampal–entorhinal navigation system:** The hippocampus supports declarative-memory consolidation and contains canonical place cells. The canonical grid-cell discovery localized periodic spatial firing to dorsocaudal medial entorhinal cortex \citep{hafting2005grid}. This distinction is not a claim that grid-like signals can never occur elsewhere.
 
 **Hypothalamus:** Homeostatic control center with 13+ nuclei controlling: temperature, hunger/satiety, thirst, circadian rhythms (suprachiasmatic nucleus, SCN), autonomic output, and endocrine function (connects to pituitary via the hypothalamo-hypophyseal portal system).
 
@@ -560,7 +560,7 @@ Clinical EEG is the bedside tool for diagnosing **epilepsy** (interictal spikes;
 
 ### Neural Prosthetics and Brain-Computer Interfaces
 
-Brain-computer interfaces (BCIs) and neural prosthetics convert neural activity into an external action or stimulation pattern. The strongest current speech demonstrations are still experimental implants, not consumer mind-reading devices: 2023 intracortical speech neuroprostheses decoded attempted speech into text or avatar control at high performance in single-participant research settings \citep{willett2023speechneuroprosthesis,metzger2023avatarneuroprosthesis}. The scientific claim is therefore bounded: motor and speech cortices contain decodable intention signals, but clinical translation requires stable implants, calibration, infection and tissue-response management, privacy safeguards, and evidence that performance generalizes beyond highly supported trials.
+Brain-computer interfaces (BCIs) and neural prosthetics convert neural activity into an external action or stimulation pattern. These 2023 speech demonstrations used experimental implants, not consumer mind-reading devices: an intracortical microelectrode system decoded attempted speech into text (Willett), while a separate surface electrocorticography system supported text, speech and avatar output (Metzger), each in a single-participant research setting \citep{willett2023speechneuroprosthesis,metzger2023avatarneuroprosthesis}. The experiments demonstrate task-specific decoding in those participants, not a strongest-current-performance ranking. Broader clinical translation requires stable implants, calibration, management of infection and tissue responses, privacy safeguards and evidence beyond highly supported trials.
 
 ---
 
@@ -643,7 +643,7 @@ Sleep occurs when Process C (low) coincides with Process S (high). Disruption of
 3. CaMKII phosphorylates AMPA receptors (increased conductance) and promotes AMPA receptor insertion into synapse
 4. Structural plasticity: Dendritic spine enlargement, new spine formation
 
-**Long-term depression (LTD):** Opposite of LTP. Low-frequency stimulation activates protein phosphatases (PP1, calcineurin) that dephosphorylate AMPA receptors and promote their [**endocytosis**](#gl:endocytosis). Weakens synaptic connections.
+**Long-term depression (LTD):** A lasting reduction in synaptic efficacy. In a conventional hippocampal NMDA-dependent example, low-frequency stimulation recruits phosphatases (PP1, calcineurin) and AMPA-receptor [**endocytosis**](#gl:endocytosis). This is not a universal calcium rule: at cerebellar parallel-fiber–Purkinje-cell synapses, a large calcium signal and PKC-dependent signaling can instead induce LTD. Mechanisms and calcium thresholds must be tied to the named synapse and protocol.
 
 **Homeostatic plasticity:** Synaptic scaling adjusts the overall strength of most synapses on a neuron to maintain a stable firing rate. If a neuron's activity is chronically reduced, it scales up most synaptic strengths; if chronically increased, it scales them down. This prevents runaway excitation or silencing.
 
@@ -749,8 +749,8 @@ Interpret neural data by separating baseline excitability, stimulus perturbation
 | **Nernst potential** | Voltage at which net flux of a single ion species = 0 |
 | **GHK equation** | Multi-ion extension of Nernst; weights each ion by membrane permeability |
 | **EPSP** | Excitatory postsynaptic potential: depolarization toward threshold |
-| **IPSP** | Inhibitory postsynaptic potential: hyperpolarization or shunting inhibition |
-| **Axon hillock** | Lowest threshold region; highest Nav channel density; AP initiation site |
+| **IPSP** | Inhibitory postsynaptic response: reduces firing under specified conditions; may hyperpolarize or shunt, including during depolarization |
+| **Axon hillock / AIS** | Hillock: soma–axon transition; AIS: specialized spike-initiation region in the named cortical-pyramidal-cell example |
 | **Tripartite synapse** | Presynaptic + postsynaptic + astrocyte glial process |
 | **Sympathetic NS** | Thoracolumbar outflow; fight or flight; NE on adrenergic receptors |
 | **Parasympathetic NS** | Craniosacral outflow; rest and digest; ACh on muscarinic receptors |
@@ -782,7 +782,7 @@ Interpret neural data by separating baseline excitability, stimulus perturbation
 
 7. Compare ionotropic and metabotropic receptors in terms of structure, speed, ionic selectivity, and role in modulating synaptic gain. Give one clinical example for each class.
 
-8. Explain why inhibitory synapses are strategically placed on the soma and proximal dendrites rather than on distal dendrites. How does the concept of shunting inhibition differ from hyperpolarising inhibition?
+8. Compare inhibitory input at somatic, proximal and distal dendritic locations. How do reversal potential, conductance and timing affect shunting versus hyperpolarizing inhibition? Why need an inhibitory response not move voltage farther from threshold?
 
 9. A dendrite has specific membrane resistance $R_m = 25{,}000\;\Omega\text{·cm}^2$, cytoplasmic resistivity $R_i = 80\;\Omega\text{·cm}$, and radius $a = 1\;\mu$m. Calculate the length constant λ. If a synapse is located 2 mm from the soma, what fraction of the original EPSP amplitude reaches the soma? How would myelination of the dendrite change your answer qualitatively?
 
@@ -812,7 +812,7 @@ c = cable_voltage_attenuation(2.0, max_distance_µm=800.0, n_points=20)
 print(round(c.lambda_µm, 2))
 ```
 
-> **Clinical / systems note:** Local anaesthetics shorten the depolarization segment that electrotonic spread must bridge --- functionally shrinking λ until synaptic input fails to reach threshold.
+> **Clinical / systems note:** Local anesthetics block voltage-gated Na$^+$ channels and reduce regenerative excitability and conduction safety factor. This does not by itself change the passive leak resistance or $\lambda$; passive attenuation and spike regeneration are distinct mechanisms.
 
 ---
 
@@ -822,16 +822,16 @@ Until 2005, neuroscience had two experimental tools for probing neural circuits:
 
 The core tools: **Channelrhodopsin-2 (ChR2)**, a blue-light-gated non-selective cation channel from the green alga *Chlamydomonas reinhardtii*, opens in ~1 ms on 470 nm illumination and drives neurons to fire action potentials with up to 40 Hz fidelity. **Halorhodopsin (NpHR)** from *Natronomonas pharaonis* is a yellow-light-driven inward Cl⁻ pump that hyperpolarises neurons and silences firing. **Archaerhodopsin (Arch)** is a green-light-driven outward H⁺ pump with similar inhibitory effect. Transgene expression via AAV with cell-type-specific [**promoter**](#gl:promoter)s (Thy1 for cortical pyramidal neurons, PV-Cre × ChR2 for parvalbumin interneurons, DAT-Cre for dopamine neurons) delivers the channel primarily to genetically defined populations. Combined with implanted optical fibers (for deep structures) or surface-mounted LEDs (for cortex), the experimenter can turn specific cell types on or off in milliseconds.
 
-Landmark findings enabled by optogenetics: **(1) Memory engrams** — Tonegawa and colleagues (*Nature* 2012, *Science* 2014) showed that optogenetic reactivation of the specific hippocampal neurons active during fear conditioning is sufficient to recall the fear memory in a neutral context, proving engram cells are *the* physical substrate of memory. **(2) Parkinson's disease circuit dissection** — Kravitz et al. (*Nature* 2010) showed that direct-pathway (D1) striatal neuron optogenetic activation rescues motor deficits in parkinsonian mice, while indirect-pathway (D2) activation mimics them, confirming the 1990s pharmacological model. **(3) Basis of deep brain stimulation** — optogenetic DBS mimics in rodents has clarified which STN cell types produce the therapeutic benefit in Parkinson's patients. **Clinical [**translation**](#gl:translation)**: RST-001 (jSAM for retinitis pigmentosa, GenSight Biologics) uses ChrimsonR delivered by AAV to retinal ganglion cells and specialized goggles to convert images to patterned light. A 2021 *Nature Medicine* report documented partial restoration of visual function in a blind patient — optogenetics' first human therapeutic success.
+**Interpreting optogenetic perturbations:** Reactivating a tagged population can evoke a measured behavior, while inhibition can test its contribution during a specified task phase. Neither manipulation alone identifies a complete memory substrate or makes necessity/sufficiency tests unique to optogenetics. Light/heat, targeting, sensory, motor and arousal controls distinguish circuit-specific effects from alternatives; rodent circuit experiments do not themselves establish patient benefit. For clinical translation, \citet{sahel2021optogeneticvision} reported partial visual function in one patient after ChrimsonR delivery combined with engineered goggles, not general visual restoration or a current approval.
 
 ---
 
 ## Summary
 
 - **NS organization:** CNS (brain + spinal cord) + PNS (somatic + autonomic + enteric). 86 billion neurons; glia provide myelin, BBB, metabolic support, immune surveillance.
-- **Neuron types:** Sensory (afferent, pseudounipolar), motor (efferent, multipolar), interneurons (integration). Axon hillock has highest Nav channel density.
+- **Neuron types:** Sensory (afferent, pseudounipolar), motor (efferent, multipolar) and interneurons (integration). Hillock morphology differs from AIS specialization; high AIS sodium-channel density supports spike initiation in the cortical-pyramidal-cell example.
 - **Resting potential:** E$_K$ = $-89$ mV dominates; Na$^+$/K$^+$-ATPase maintains gradients; GHK equation weights by permeabilities; $V_m \approx -70$ mV.
-- **Synaptic integration:** EPSPs (depolarizing) and IPSPs (hyperpolarising/shunting) summate temporally and spatially at the axon hillock. Threshold at ~$-55$ mV triggers most-or-none AP.
+- **Synaptic integration:** Excitatory and inhibitory inputs interact over time and space; inhibitory conductance can shunt excitation without obligatory hyperpolarization. Reversal potential, conductance, location and timing determine effects on firing. Reaching spike threshold (illustratively about −55 mV) initiates an all-or-none action potential.
 - **ANS:** Sympathetic (T1-L2, NE, fight-or-flight) vs parasympathetic (craniosacral, ACh, rest-and-digest). Enteric NS: semi-autonomous gut control.
 - **Brain:** Cortex (4 lobes, motor/sensory homunculi, language areas); basal ganglia (direct/indirect pathways, dopamine); thalamus (sensory relay); hippocampus (memory, place cells); hypothalamus (homeostasis); cerebellum (coordination); brainstem (vital functions).
 - **Sensory systems:** Mechanoreceptors (Meissner, Pacinian, Ruffini, Merkel), nociceptors (A-delta, C fibers), proprioceptors; visual pathway (retina to LGN to V1 to dorsal/ventral streams).

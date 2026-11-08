@@ -8,7 +8,7 @@ from tempfile import NamedTemporaryFile
 
 
 def write_text_atomic(path: Path, text: str, *, encoding: str = "utf-8") -> None:
-    """Write text through a same-directory temporary file, then replace atomically."""
+    """Replace via a same-directory temp, cleaning it after write/encoding/rename failure."""
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp_path: Path | None = None
     try:
@@ -20,8 +20,8 @@ def write_text_atomic(path: Path, text: str, *, encoding: str = "utf-8") -> None
             suffix=".tmp",
             delete=False,
         ) as handle:
-            handle.write(text)
             tmp_path = Path(handle.name)
+            handle.write(text)
         os.replace(tmp_path, path)
     finally:
         if tmp_path is not None and tmp_path.exists():

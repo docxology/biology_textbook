@@ -27,7 +27,7 @@ RECORDS = (
     ),
     _r(
         "unit_VII_host_immunity_and_vaccines",
-        "Host immunity and vaccination reshape pathogen transmission by changing susceptible fractions.",
+        "Host immunity and vaccination can change individual disease risk and, when they affect infection or infectiousness, population transmission.",
         ("innate immunity", "adaptive immunity", "vaccination", "herd immunity"),
         "Herd-immunity threshold and basic immunological reasoning.",
         "Interpret antibody, cellular, and vaccine-response evidence.",

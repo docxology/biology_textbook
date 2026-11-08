@@ -45,7 +45,7 @@ maximum-likelihood and Bayesian methods. The tools here are the same used in cli
 
 ```mermaid
 graph TD
-    VAR["🎲 Genetic Variation<br/>(mutation, recombination,<br/>gene flow sources)"] --> SEL["🏆 Natural Selection<br/>(Δq = spq²/W̄;<br/>directional, stabilizing,<br/>balancing)"]
+    VAR["🎲 Genetic Variation<br/>(mutation, recombination,<br/>gene flow sources)"] --> SEL["Natural selection<br/>Against recessive a:<br/>Δq = −spq²/W̄<br/>wAA = wAa = 1; waa = 1−s"]
     VAR --> DRIFT["🌊 Genetic Drift<br/>(σ²(Δp) = pq/2Nₑ;<br/>bottleneck, founder effect)"]
     VAR --> FLOW["💨 Gene Flow<br/>(p₁' = (1−m)p₁ + mp₂;<br/>homogenises populations)"]
 
@@ -86,11 +86,11 @@ paper-based lab decision.
 
 ## Chapter Roadmap {.unnumbered}
 
-| Chapter | Title | Core Question | Key Equation / Model |
-| ------- | ----- | ------------- | -------------------- |
-| **19** | Evolution and Natural Selection | How does natural selection change allele frequencies, and how fast? | $\Delta q = -spq^2/\bar{W}$; fitness surface; selection coefficient |
-| **20** | Genetic Drift and Speciation | How do chance events in small populations lead to divergence and new species? | $\sigma^2(\Delta p) = pq/2N_e$; isolation index; speciation models |
-| **21** | Phylogenetics and the Tree of Life | How do we reconstruct evolutionary history from molecular data? | Jukes-Cantor correction; molecular clock: $t = d_{JC}/2\mu$ |
+| Chapter | Core question | Quantitative lens |
+| --- | --- | --- |
+| \cref{sec:unit_VI_evolution_and_selection} | How does inherited variation change under selection? | Specified fitness recurrences; breeder's equation |
+| \cref{sec:unit_VI_genetic_drift_and_speciation} | How do chance and barriers affect divergence? | Diploid Wright–Fisher sampling; measured reproductive barriers |
+| \cref{sec:unit_VI_phylogenetics} | What history does the evidence support? | Rooted topologies, substitution models and calibrated clocks |
 
 ---
 
@@ -119,16 +119,15 @@ print(f"Generation 100: p = {trajectory[99].p:.4f}")
 print(f"Generation 200: p = {trajectory[199].p:.4f}")
 
 # Genetic drift: small population bottleneck (Ne=50) vs. large (Ne=1000)
-import random; random.seed(42)
-small_pop = simulate_drift(p=0.5, N=50, generations=200)
-large_pop = simulate_drift(p=0.5, N=1000, generations=200)
+# Local RNG seeds are explicit; external random.seed does not seed this API.
+small_pop = simulate_drift(p=0.5, N=50, generations=200, rng_seed=42)
+large_pop = simulate_drift(p=0.5, N=1000, generations=200, rng_seed=43)
 print(f"Ne=50  terminal p:  {small_pop[-1]:.3f}  (fixed={'yes' if small_pop[-1] in (0,1) else 'no'})")
 print(f"Ne=1000 terminal p: {large_pop[-1]:.3f}")
 # Small populations show large random fluctuations; large populations stay near 0.5.
 ```
 
-> **Try it yourself:** Run `simulate_drift` 100 times with `N=20` and count how many
-> runs fix the allele (p=1.0) versus lose it (p=0.0). Theory predicts fixation = p₀ = 0.5.
+> **Try it yourself:** Use explicit `rng_seed=1000+i` for replicates `i=0,...,99`, each with `p=.5,N=20,generations=200`. Count fixed, lost and still-polymorphic runs separately. Identical seeds replay one trajectory, not independent replication. Eventual fixation probability is 0.5 under neutrality; finite-horizon fixation among all runs need not be 0.5.
 
 ---
 

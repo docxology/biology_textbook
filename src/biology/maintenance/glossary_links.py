@@ -6,12 +6,18 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
+from biology.crossref.source import visible_text
+from biology.maintenance.manuscript_walker import (
+    manuscript_markdown_files,
+    require_manuscript_source,
+)
 from biology.maintenance.models import PROJECT
 
 GLOSSARY = PROJECT / "docs" / "manuscript" / "glossary.md"
 INDEX = PROJECT / "docs" / "manuscript" / "appendices" / "appendix_index.md"
 
 from biology.maintenance.glossary_cards import GLOSSARY_TERM_LINE_RE
+
 _GLOSSARY_CHAPTER_REF_RE = re.compile(r"→\s*Chapters?\s+(?P<refs>[0-9][0-9.,\s]*)")
 _INDEX_CHAPTER_REF_RE = re.compile(r"→\s*Ch\s+(?P<refs>[0-9][0-9.,\s]*(?:,\s*Ch\s+[0-9][0-9.,\s]*)*)")
 _CREF_CH_TAIL_RE = re.compile(
@@ -22,6 +28,12 @@ _CREF_RE = re.compile(r"\\cref\{(?P<labels>[^}]+)\}")
 _GLOSSARY_LINK_RE = re.compile(r"\]\(#(?P<slug>gl:[A-Za-z0-9_-]+)\)")
 _GLOSSARY_ANCHOR_RE = re.compile(r"\{#(?P<slug>gl:[A-Za-z0-9_-]+)\}")
 
+# Reviewed destinations survive regeneration; keys use canonical term slugs.
+GLOSSARY_CHAPTER_LABELS: dict[str, tuple[str, ...]] = {
+    slug: ("sec:unit_IX_endocrine_signaling",)
+    for slug in ("cortisol", "glp-1", "glut4", "hpa-axis", "hpg-axis", "hpt-axis", "insulin-receptor")
+}
+
 
 @dataclass(frozen=True)
 class GlossaryIndexEntry:
@@ -30,14 +42,6 @@ class GlossaryIndexEntry:
     term: str
     slug: str
     backref: str
-
-
-def _manuscript_markdown_files() -> list[Path]:
-    return [
-        path
-        for path in sorted((PROJECT / "docs" / "manuscript").rglob("*.md"))
-        if path.name not in {"README.md", "AGENTS.md"}
-    ]
 
 
 def slug_from_term(term: str) -> str:
@@ -52,6 +56,10 @@ def slug_from_term(term: str) -> str:
 def _chapter_ref_map() -> dict[str, str]:
     from biology.toc import load_toc
 
+    require_manuscript_source(
+        PROJECT / "docs" / "manuscript" / "config.yaml",
+        PROJECT / "docs" / "manuscript", project_root=PROJECT,
+    )
     book_toc = load_toc(PROJECT)
     refs: dict[str, str] = {}
     for chapter in book_toc.chapters:
@@ -145,9 +153,11 @@ def build_appendix_index(glossary_text: str) -> str:
         "<!-- chapter-metadata-badge -->",
         "> **Appendix G** · Level 1/3 · Use as reference",
         "",
-        f"An index of the {count} glossary terms, each with the chapter(s) where the term is "
-        "introduced, bolded, or discussed at length. Terms marked in **bold** appear as section "
-        "headings somewhere in the textbook; the glossary entry carries the full definition.",
+        (
+            f"An index of the {count} glossary terms, each with the chapter(s) where the term is "
+            "introduced or discussed at length. Boldface distinguishes entries for scanning; "
+            "the glossary entry carries the full definition."
+        ),
         "",
         "Each entry follows the pattern:",
         "",
@@ -155,12 +165,16 @@ def build_appendix_index(glossary_text: str) -> str:
         "**Term** (`#gl:slug`) with semantic chapter links",
         "```",
         "",
-        "The `#gl:slug` anchor is the canonical location defined in the master glossary "
-        "(`manuscript/glossary.md`). Full-text search for the slug string finds every cross-reference.",
+        (
+            "The `#gl:slug` anchor is the canonical location defined in the master glossary "
+            "(`docs/manuscript/glossary.md`). Full-text search for the slug string finds every cross-reference."
+        ),
         "",
-        "> **Note on maintenance.** This index is maintained by `scripts/link_glossary.py` from the "
-        "glossary file and canonical ToC labels. To verify after editing `glossary.md`, run "
-        "`uv run python scripts/link_glossary.py --check`.",
+        (
+            "> **Note on maintenance.** This index is maintained by `scripts/link_glossary.py` from the "
+            "glossary file and canonical ToC labels. To verify after editing `glossary.md`, run "
+            "`uv run python scripts/link_glossary.py --check`."
+        ),
         "",
         "---",
         "",
@@ -183,11 +197,13 @@ def build_appendix_index(glossary_text: str) -> str:
             "",
             "---",
             "",
-            "> **Using the index.** When a term appears as a bolded, `#gl:`-linked first use in a "
-            "chapter (see \\nameref{sec:unit_I_unit_intro} onward), clicking the term jumps to the "
-            "canonical entry in the master glossary. This appendix provides an author- and "
-            "instructor-facing overview of which chapter establishes each concept first, useful "
-            "for lecture planning and term-by-term syllabus design.",
+            (
+                "> **Using the index.** When a term appears as a bolded, `#gl:`-linked first use in a "
+                "chapter (see \\nameref{sec:unit_I_unit_intro} onward), clicking the term jumps to the "
+                "canonical entry in the master glossary. This appendix provides an author- and "
+                "instructor-facing overview of reviewed chapter destinations associated with each glossary entry, useful "
+                "for lecture planning and term-by-term syllabus design."
+            ),
             "",
             "*Module: reference only (no code)*",
             "",
@@ -197,33 +213,41 @@ def build_appendix_index(glossary_text: str) -> str:
 
 
 def collect_glossary_anchors(text: str | None = None) -> set[str]:
-    source = text if text is not None else GLOSSARY.read_text(encoding="utf-8")
-    return set(_GLOSSARY_ANCHOR_RE.findall(source))
+    source = text if text is not None else require_manuscript_source(
+        GLOSSARY, PROJECT / "docs" / "manuscript", project_root=PROJECT,
+    ).read_text(encoding="utf-8")
+    return set(_GLOSSARY_ANCHOR_RE.findall(visible_text(source)))
 
 
 def find_duplicate_glossary_anchors(text: str | None = None) -> dict[str, int]:
-    source = text if text is not None else GLOSSARY.read_text(encoding="utf-8")
+    source = text if text is not None else require_manuscript_source(
+        GLOSSARY, PROJECT / "docs" / "manuscript", project_root=PROJECT,
+    ).read_text(encoding="utf-8")
     counts: dict[str, int] = {}
-    for slug in _GLOSSARY_ANCHOR_RE.findall(source):
+    for slug in _GLOSSARY_ANCHOR_RE.findall(visible_text(source)):
         counts[slug] = counts.get(slug, 0) + 1
     return {slug: count for slug, count in sorted(counts.items()) if count > 1}
 
 
-def collect_manuscript_glossary_links() -> dict[str, list[str]]:
+def collect_manuscript_glossary_links(
+    candidates: dict[Path, str] | None = None,
+) -> dict[str, list[str]]:
     links: dict[str, list[str]] = {}
-    for path in _manuscript_markdown_files():
-        text = path.read_text(encoding="utf-8")
-        for line_no, line in enumerate(text.splitlines(), start=1):
+    for path in manuscript_markdown_files(PROJECT / "docs" / "manuscript", project_root=PROJECT):
+        text = candidates[path] if candidates and path in candidates else path.read_text(encoding="utf-8")
+        for line_no, line in enumerate(visible_text(text).splitlines(), start=1):
             for match in _GLOSSARY_LINK_RE.finditer(line):
                 links.setdefault(match.group("slug"), []).append(
-                    f"{path.relative_to(PROJECT / 'manuscript')}:{line_no}"
+                    f"{path.relative_to(PROJECT / 'docs' / 'manuscript')}:{line_no}"
                 )
     return links
 
 
-def find_dangling_glossary_links() -> dict[str, list[str]]:
-    anchors = collect_glossary_anchors()
-    links = collect_manuscript_glossary_links()
+def find_dangling_glossary_links(
+    glossary_text: str | None = None, candidates: dict[Path, str] | None = None,
+) -> dict[str, list[str]]:
+    anchors = collect_glossary_anchors(glossary_text)
+    links = collect_manuscript_glossary_links(candidates)
     return {slug: locations for slug, locations in sorted(links.items()) if slug not in anchors}
 
 
@@ -231,7 +255,7 @@ def validate_cref_labels(texts: list[tuple[Path, str]], ref_map: dict[str, str])
     known_labels = set(ref_map.values())
     bad: list[str] = []
     for path, text in texts:
-        for line_no, line in enumerate(text.splitlines(), start=1):
+        for line_no, line in enumerate(visible_text(text).splitlines(), start=1):
             for match in _CREF_RE.finditer(line):
                 for label in match.group("labels").split(","):
                     label = label.strip()
@@ -260,6 +284,13 @@ def rewrite_glossary(text: str, ref_map: dict[str, str]) -> tuple[str, int, int,
         body, n_rewrites, bad = _rewrite_backrefs(body, _GLOSSARY_CHAPTER_REF_RE, ref_map)
         refs_rewritten += n_rewrites
         bad_refs.extend(f"{term}: {token}" for token in bad)
+        reviewed_labels = GLOSSARY_CHAPTER_LABELS.get(slug_from_term(term))
+        if reviewed_labels is not None:
+            revised_body = re.sub(r"\s*→\s*\\(?:cref|nameref)\{[^}]*\}\s*$", "", body).rstrip()
+            revised_body += " " + _format_cref(list(reviewed_labels))
+            if revised_body != body:
+                refs_rewritten += 1
+                body = revised_body
 
         new_line = f"[**{term}**]{desired_anchor}{body}"
         if anchor != desired_anchor:
@@ -279,6 +310,8 @@ def run_glossary_sync(*, dry_run: bool = False, check: bool = False) -> tuple[in
     """Normalize glossary anchors and rebuild the appendix index."""
     from textbook_io import write_text_atomic
 
+    for path in (GLOSSARY, INDEX):
+        require_manuscript_source(path, PROJECT / "docs" / "manuscript", project_root=PROJECT)
     ref_map = _chapter_ref_map()
     glossary_text = GLOSSARY.read_text(encoding="utf-8")
     glossary_out, anchors_updated, glossary_refs_rewritten, bad_chapter_refs = rewrite_glossary(
@@ -289,9 +322,6 @@ def run_glossary_sync(*, dry_run: bool = False, check: bool = False) -> tuple[in
         not INDEX.exists() or INDEX.read_text(encoding="utf-8") != index_out
     )
 
-    if pending_changes and not dry_run and not check:
-        write_text_atomic(GLOSSARY, glossary_out)
-        write_text_atomic(INDEX, index_out)
 
     duplicate_anchors = find_duplicate_glossary_anchors(glossary_out)
     hardcoded = [
@@ -300,7 +330,9 @@ def run_glossary_sync(*, dry_run: bool = False, check: bool = False) -> tuple[in
         for line_no, line in enumerate(source.splitlines(), start=1)
         if _HARD_CODED_BACKREF_RE.search(line)
     ]
-    dangling_links = find_dangling_glossary_links()
+    dangling_links = find_dangling_glossary_links(
+        glossary_out, {GLOSSARY: glossary_out, INDEX: index_out},
+    )
     bad_crefs = validate_cref_labels([(GLOSSARY, glossary_out), (INDEX, index_out)], ref_map)
 
     failed = (
@@ -311,6 +343,9 @@ def run_glossary_sync(*, dry_run: bool = False, check: bool = False) -> tuple[in
         or bool(dangling_links)
         or bool(bad_crefs)
     )
+    if pending_changes and not failed and not dry_run and not check:
+        write_text_atomic(GLOSSARY, glossary_out)
+        write_text_atomic(INDEX, index_out)
     stats: dict[str, int | bool] = {
         "anchors_updated": anchors_updated,
         "glossary_refs_rewritten": glossary_refs_rewritten,
@@ -323,6 +358,7 @@ def run_glossary_sync(*, dry_run: bool = False, check: bool = False) -> tuple[in
 
 __all__ = [
     "GLOSSARY",
+    "GLOSSARY_CHAPTER_LABELS",
     "INDEX",
     "GlossaryIndexEntry",
     "build_appendix_index",

@@ -151,11 +151,14 @@ where:
 - $\alpha_{21}$ = competitive effect of species 1 on species 2
 - $K_1$, $K_2$ = carrying capacities of each species
 
-**Isocline analysis:** Four outcomes depending on isocline intersections:
-1. **Species 1 wins:** $K_1 > K_2/\alpha_{12}$ AND $K_1/\alpha_{21} > K_2$
-2. **Species 2 wins:** $K_2 > K_1/\alpha_{21}$ AND $K_2/\alpha_{12} > K_1$ (symmetric case)
-3. **Unstable equilibrium (priority effect):** $K_1 > K_2/\alpha_{12}$ AND $K_2 > K_1/\alpha_{21}$ — whoever starts higher wins
-4. **Stable coexistence:** $K_1 < K_2/\alpha_{12}$ AND $K_2 < K_1/\alpha_{21}$ — interspecific competition weaker than intraspecific
+**Isocline analysis:** Let $u=K_1-\alpha_{12}K_2$ and $v=K_2-\alpha_{21}K_1$. Species 1 invading $(0,K_2)$ has per-capita rate $r_1u/K_1$; species 2 invading $(K_1,0)$ has rate $r_2v/K_2$. For positive $r_i,K_i$ and nonnegative competition coefficients, strict signs determine the four regimes:
+
+1. $u>0,v<0$: species 1 excludes species 2.
+2. $u<0,v>0$: species 2 excludes species 1.
+3. $u<0,v<0$: priority effect; an interior saddle separates basins, so “whoever starts higher” is not a general rule.
+4. $u>0,v>0$: stable coexistence; both invade when rare.
+
+If either invasion margin is zero, analyze the boundary separately. If $1-\alpha_{12}\alpha_{21}\ne0$, the interior candidate is $(u,v)/(1-\alpha_{12}\alpha_{21})$; retain it only when both coordinates are positive. Coincident isoclines ($\alpha_{12}\alpha_{21}=1$ with compatible capacities) give a continuum, not an isolated stable equilibrium.
 
 ### Competitive Exclusion Principle (Gause's Law)
 
@@ -205,20 +208,20 @@ The mathematical condition for coexistence is:
 
 where ρ = niche overlap (0 to 1) and $\kappa_i/\kappa_j$ = fitness ratio. Lower ρ (more niche differentiation) allows greater fitness inequality.
 
-```python
-from biology.ecology.ecology import lotka_volterra
+### Worked Example: Competition Without a False Solver
 
-result = lotka_volterra(
-    N1_0=100, N2_0=100,
-    r1=0.5, r2=0.5,
-    K1=500, K2=500,
-    alpha12=0.6,   # species 2 slightly suppresses species 1
-    alpha21=0.8,   # species 1 strongly suppresses species 2
-    t_end=100
-)
-print(f"Final N1: {result.N1[-1]:.0f}, N2: {result.N2[-1]:.0f}")
-# Expected: species 1 wins (lower alpha12 means less impact from competitor)
+For $K_1=K_2=500$, $\alpha_{12}=0.6$, $\alpha_{21}=0.8$, both invasion margins are positive: $u=200,v=100$. The positive equilibrium is $(384.615,192.308)$, not competitive exclusion. Substitute into both isoclines: $384.615+0.6(192.308)=500$ and $192.308+0.8(384.615)=500$. With positive growth rates, the Jacobian has negative trace and positive determinant, so this interior equilibrium is locally stable. The project’s `lotka_volterra` API is predator–prey only; it must not be called as a competition solver.
+
+```python
+K1, K2, a12, a21 = 500.0, 500.0, 0.6, 0.8
+u, v = K1 - a12 * K2, K2 - a21 * K1
+denominator = 1 - a12 * a21
+N1, N2 = u / denominator, v / denominator
+print("invasion margins:", u, v)
+print("coexistence:", N1, N2)
+print("isocline residuals:", N1 + a12*N2-K1, N2 + a21*N1-K2)
 ```
+
 
 > 🔬 **Clinical Connection — Competitive Exclusion in the [**Microbiome**](#gl:microbiome):** The competitive exclusion principle operates within the human gut microbiome. **Clostridium difficile** infection (CDI) typically occurs after antibiotic treatment eliminates normal gut flora, removing competitive exclusion and allowing *C. difficile* to proliferate unopposed. **Fecal [**microbiota**](#gl:microbiota) transplantation (FMT)** restores competitive exclusion by reintroducing a diverse microbial community, achieving ~90% cure rates for recurrent CDI. This is Gause's principle applied to clinical medicine.
 
@@ -260,11 +263,9 @@ print(f"Final N1: {result.N1[-1]:.0f}, N2: {result.N2[-1]:.0f}")
 \label{eq:community_ecology_5}
 \end{equation}
 
-The cycle is driven by multiple feedback loops:
-1. **Predation** (~60% of cycle) — lynx consumption drives hare decline
-2. **Food quality** (~20%) — hare overgrazing induces phenolic toughening of willow/birch browse
-3. **Stress physiology** (~20%) — predation risk elevates [**cortisol**](#gl:cortisol), suppressing reproduction
-4. True cycles require **tri-trophic** feedbacks; purely Lotka-Volterra predation alone is insufficient (Krebs et al. 2001, *Science*)
+An eight-year factorial experiment in the Yukon manipulated supplemental food and mammalian predator exclusion on 1-km² areas \citep{krebs1995hare}. During the cyclic peak and decline, predator exclusion approximately doubled hare density, food addition tripled it, and their combination increased density eleven-fold relative to untreated controls. Fertilization increased plant growth but not hare density.
+
+On a control-density baseline of 1, the separate increments (+1 and +2) predict 4 under an additive model, whereas the combined treatment gives 11; the additive-scale interaction contrast is 11−2−3+1 = 7. These density ratios do not measure percentages of the cycle attributable to independent causes. Predation, food and reproductive physiology can interact; stress can mediate predator effects instead of forming a separate causal slice. The interventions suggest three-trophic-level interactions in this setting, not a unique mechanism or an exhaustive causal partition for all hare cycles. The elementary equations above are a conceptual comparison, not a fit to the factorial experiment.
 
 ### Keystone Species and Disproportionate Community Effects
 
@@ -300,33 +301,27 @@ sequenceDiagram
     participant S as Stream Morphology
     participant Bio as Biodiversity
 
-    W->>E: Predation + landscape of fear
-    Note over E: Elk avoid riverbanks<br/>(behavioral trophic cascade)
-    E->>V: Reduced browsing
-    Note over V: Willows and cottonwoods<br/>recover along streams
-    V->>B: Beaver food/dam material returns
-    Note over B: Beaver population increases<br/>Dam building resumes
-    B->>S: Dam pools, channel complexity
-    Note over S: Stream morphology transforms<br/>Deeper pools, slower flow
-    S->>Bio: Habitat diversity increases
-    Note over Bio: Songbirds, fish, amphibians,<br/>insects all increase
+    Note over W,Bio: Conditional trophic-cascade hypothesis/example<br/>not a universal single-cause chain
+    W->>E: Predation and possible behavioral responses
+    Note over E: Browsing intensity and habitat use<br/>vary among sites and times
+    E->>V: Reduced browsing can favor woody plants
+    Note over V: Recovery also depends on hydrology,<br/>water tables, and site history
+    V->>B: Where suitable, woody growth can<br/>supply beaver food and dam material
+    B->>S: Where beavers establish, dams can<br/>alter pools and channel complexity
+    S->>Bio: Habitat changes can affect taxa differently
+    Note over Bio: Responses vary by species, site, and time<br/>no universal increase in all taxa
 ```
-<!-- alt: Sequence diagram showing trophic cascades track indirect effects: predator recovery can reduce herbivory, allowing plant communities and ecosystem engineers to rebound. -->
+<!-- alt: Sequence diagram showing a conditional Yellowstone trophic-cascade example, not a deterministic chain. A decade-long experiment found that reduced browsing alone did not restore small-stream willow communities; hydrological conditions also constrained recovery. -->
 
-*Trophic cascades track indirect effects: predator recovery can reduce herbivory, allowing plant communities and ecosystem engineers to rebound.*
+*A conditional Yellowstone trophic-cascade example, not a deterministic chain. A decade-long experiment found that reduced browsing alone did not restore small-stream willow communities; hydrological conditions also constrained recovery \citep{marshall2013hydrology}.*
 
-**Quantitative trophic cascade — Sea Otter example:**
-- 1 sea otter consumes ~10 kg sea urchin/day
-- Each urchin removed protects ~1 m$^2$ of kelp
-- Kelp productivity: ~300 g C/m$^2$/yr
-- Therefore: 1 otter → ~3,650 m$^2$ kelp protected → ~1,095 kg C/yr sequestered
-- Kelp forests also attenuate wave energy by 60-70%, providing coastal protection valued at about \$10,000/km/yr
+**Worked Example — Conditional sea-otter carbon accounting (synthetic teaching assumptions):** An otter consumes 10 kg urchins/day. With assumed mean urchin mass 0.1 kg, this is 100 urchins/day or 36,500/year. If, additionally, each removal protects a distinct 0.1 m² for the whole year, the protected area is 3,650 m². At assumed kelp NPP 300 g C m$^{-2}$ yr$^{-1}$, associated production is 1,095 kg C/year. This is neither measured area nor durable sequestration: repeated grazing, replacement urchins, spatial overlap, respiration, export, and retained storage must be measured. A hypothetical 5% retained storage fraction would give 54.75 kg C/year; without that fraction no stored-carbon answer follows.
 
 **Mesopredator release:** removal of apex predators → explosion of medium-sized predators → disproportionate prey decline. Example: coyote increase after wolf removal → ground-nesting bird decline in North America.
 
 > 🔬 **Clinical Connection — Trophic Cascades and Lyme Disease:** The decline of apex predators in eastern North America has contributed to a trophic cascade affecting human health. Wolf and cougar removal → deer population explosion → increased tick-deer encounters → increased *Borrelia burgdorferi* transmission → Lyme disease incidence increased 25-fold from 1990 to 2020 in the northeastern USA. Deer also browse forest understory, reducing small mammal habitat diversity, which concentrates ticks on the most competent reservoir hosts (white-footed mice), further amplifying transmission. Predator restoration could reduce disease burden — a health-relevant trophic cascade.
 
-> **Concept Check:** In Yellowstone, wolves primarily cause a "behavioral trophic cascade" rather than a purely numerical one. What is the difference? How does the "landscape of fear" concept explain why elk behavior change (avoiding riverbanks) may be more important than elk population reduction?
+> **Concept Check:** Distinguish numerical and behavioral trophic effects of wolves on elk. Which observations or experiments would separate browsing effects from hydrology, site history, and other co-determinants of willow recovery?
 
 ---
 
@@ -547,9 +542,9 @@ $J' = 1$ means most species equally abundant; $J' \to 0$ means dominated by one 
 | C | 15 | 0.150 | -0.285 | 0.023 |
 | D | 4 | 0.040 | -0.129 | 0.002 |
 | E | 1 | 0.010 | -0.046 | 0.000 |
-| **Total** | **100** | **1.000** | **-1.167** | **0.364** |
+| **Total** | **100** | **1.000** | **-1.169** | **0.364** |
 
-$H' = 1.167$; $H'_{max} = \ln 5 = 1.609$; $J' = 1.167/1.609 = 0.725$
+$H'\approx1.169$; $H'_{max}=\ln5\approx1.609$; $J'\approx0.727$.
 
 Simpson's $D = 0.364$; Simpson's diversity $= 1 - 0.364 = 0.636$
 

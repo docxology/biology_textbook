@@ -6,7 +6,6 @@ from dataclasses import dataclass
 
 from textbook_logging import get_logger
 
-
 logger = get_logger(__name__)
 
 
@@ -48,6 +47,8 @@ def _gametes(genotype: str) -> list[str]:
     if len(genotype) != 2:
         raise ValueError(f"Genotype must be 2 characters, got '{genotype}'")
     a1, a2 = genotype[0], genotype[1]
+    if not all(allele.isascii() and allele.isalpha() for allele in (a1, a2)) or a1.lower() != a2.lower():
+        raise ValueError("A monohybrid genotype must use one letter/locus in upper/lower case.")
     if a1 == a2:
         return [a1]
     return [a1, a2]
@@ -57,6 +58,8 @@ def punnett_square(parent1: str, parent2: str) -> PunnettSquareResult:
     """Perform a monohybrid Punnett square cross."""
     g1 = _gametes(parent1)
     g2 = _gametes(parent2)
+    if parent1[0].lower() != parent2[0].lower():
+        raise ValueError("Both parents must describe the same monohybrid locus.")
 
     offspring: list[str] = []
     for a in g1:

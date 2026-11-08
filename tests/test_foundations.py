@@ -9,9 +9,9 @@ is covered separately in :mod:`tests.test_mermaid_and_visualization`.
 from __future__ import annotations
 
 import math
+from itertools import pairwise
 
 import pytest
-
 
 # ---------------------------------------------------------------------------
 # foundations.network_topology
@@ -93,7 +93,7 @@ class TestActiveInference:
         # The dataclass holds a sequence of named precision/error pairs.
         assert profile.points, "profile must contain points"
         precisions = [p.sensory_precision for p in profile.points]
-        assert all(p_a < p_b for p_a, p_b in zip(precisions, precisions[1:]))
+        assert all(p_a < p_b for p_a, p_b in pairwise(precisions))
 
 
 # ---------------------------------------------------------------------------
@@ -161,7 +161,10 @@ class TestAtomsAndBonds:
         assert cov_median > non_median * 5
 
     def test_electronegativity_difference_classification(self):
-        from biology.foundations import bond_polarity_class, electronegativity_difference
+        from biology.foundations import (
+            bond_polarity_class,
+            electronegativity_difference,
+        )
 
         diff_oh = electronegativity_difference("O", "H")
         assert diff_oh > 0.5
@@ -182,8 +185,8 @@ class TestMacromoleculeHierarchy:
 
         levels = polymer_hierarchy_levels()
         assert tuple(level.lower() for level in levels) == (
-            "monomer",
-            "polymer",
+            "building blocks",
+            "molecule",
             "assembly",
             "function",
         )
@@ -261,7 +264,7 @@ class TestPollenTubeGrowth:
             max_length_um=2000.0, growth_rate_um_per_min=20.0
         )
         lengths = result.lengths_um
-        assert all(b >= a for a, b in zip(lengths, lengths[1:]))
+        assert all(b >= a for a, b in pairwise(lengths))
 
     def test_pollen_tube_saturates_below_max(self):
         from biology.botany import pollen_tube_growth

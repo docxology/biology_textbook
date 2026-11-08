@@ -53,6 +53,18 @@ GENERATED_BLOCK_MARKERS: tuple[tuple[str, str], ...] = (
     ("<!-- preface-scope-start -->", "<!-- preface-scope-end -->"),
 )
 
+
+def reference_key(target: str) -> tuple[str, str]:
+    """Use the same identity for raw LaTeX and Pandoc reference spellings."""
+    kind, separator, identifier = target.partition(":")
+    return (kind, identifier) if separator else ("label", target)
+
+
+RE_LATEX_REF_USE = re.compile(
+    r"\\(?:[cC]ref|nameref|eqref|ref|autoref)\*?\s*\{(?P<targets>[^}]*)\}"
+    r"|\\hyperref\s*\[(?P<hyper>[^]]*)\]"
+)
+
 __all__ = [
     "GENERATED_BLOCK_MARKERS",
     "RE_DISPLAY_EQ_OPEN",

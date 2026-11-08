@@ -328,13 +328,10 @@ FIGURE_BY_STEM:
   - An epigenetic mark is not automatically a cause; causal claims need perturbation, timing, cell-type specificity, expression
     readout, and rescue or orthogonal evidence.
   epigenetic_inheritance_and_disease:
-  - Epigenetic Causality Ladder
-  - "flowchart TD\n    A[\"Chromatin mark observed\"] --> B[\"Cell-type context\"]\n    B --> C[\"Perturb writer or eraser\"\
-    ]\n    C --> D[\"Expression change\"]\n    D --> E[\"Phenotype or cell state\"]\n    E --> F[\"Rescue or orthogonal assay\"\
-    ]\n    F --> G[\"Causal epigenetic claim\"]"
-  - Evidence ladder for moving from an observed chromatin mark to a causal epigenetic claim.
-  - An epigenetic mark is not automatically a cause; causal claims need perturbation, timing, cell-type specificity, expression
-    readout, and rescue or orthogonal evidence.
+  - Testing Transgenerational Inheritance
+  - "flowchart TD\n    A[\"F0 exposure and its timing\"] --> B[\"Maternal gestational exposure: F1 fetus and F2-generating germ cells\"]\n    B --> C[\"Test the first unexposed generation: F3\"]\n    A --> D[\"Paternal preconception exposure: test F2\"]\n    C --> E[\"Exclude genetic, environmental, and cultural transmission\"]\n    D --> E\n    E --> F[\"Perturbation, rescue, and independent replication\"]\n    F --> G[\"Bounded inheritance claim\"]"
+  - Schematic inheritance-control map distinguishing direct exposure from unexposed generations.
+  - The first unexposed generation depends on exposure timing and route; persistence alone does not establish a germline mechanism or human transgenerational inheritance.
   host_immunity_and_vaccines:
   - Intervention Choice Across Pathogens
   - "flowchart TD\n    A[\"Pathogen and setting\"] --> B[\"Transmission route\"]\n    B --> C[\"Diagnostic evidence\"]\n \
@@ -362,9 +359,9 @@ COMPANION_SOURCE_BY_STEM:
     | --- | --- |
 
     | `src/biology/toc.py` (`load_toc`) | Inspect how chapter order, companion labels, and display numbers are derived from
-    `manuscript/config.yaml`. |
+    `docs/manuscript/config.yaml`. |
 
-    | `src/biology/curriculum.py` (`CURRICULUM`) | Connect historical and philosophical concepts to lab, question-bank, misconception,
+    | `src/biology/curriculum/` (`CURRICULUM`) | Connect historical and philosophical concepts to lab, question-bank, misconception,
     and transfer records. |
 
     | `src/biology/alignment.py` (`ALIGNMENTS`) | Compare biology-as-practice ideas with course standards and skills frameworks.

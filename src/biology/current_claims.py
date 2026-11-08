@@ -2,15 +2,17 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
-import re
 from typing import Any
 from urllib.parse import urlparse
 
 import yaml
 
+from biology.citations import bib_keys
+from biology.maintenance.manuscript_walker import require_manuscript_source
 
 PROJECT = Path(__file__).resolve().parents[2]
 DEFAULT_LEDGER = PROJECT / "docs" / "manuscript" / "current_claims.yaml"
@@ -90,10 +92,11 @@ def load_current_claims(path: Path | None = None, project_root: Path | None = No
 
     root = project_root or PROJECT
     ledger = path or root / "docs" / "manuscript" / "current_claims.yaml"
+    ledger = require_manuscript_source(ledger, root, project_root=root)
     raw = yaml.safe_load(ledger.read_text(encoding="utf-8")) or {}
     records = raw.get("claims", [])
     if not isinstance(records, list):
-        raise ValueError("current_claims.yaml must contain a top-level 'claims' list")
+        raise TypeError("current_claims.yaml must contain a top-level 'claims' list")
     return tuple(_claim_from_mapping(record, root) for record in records)
 
 
@@ -110,8 +113,20 @@ def validate_current_claims(
     issues: list[ClaimIssue] = []
     seen: set[str] = set()
     claim_ids = {claim.claim_id for claim in claims}
-    bibliography_keys = _bib_keys(references_path) if references_path else None
-    source_root = references_path.parent.parent.parent if references_path else PROJECT
+    bibliography_keys = None
+    source_root = PROJECT
+    if references_path is not None:
+        # Only the canonical docs/manuscript layout implies a project two levels up.
+        # Explicit fixture bibliographies otherwise use their containing directory.
+        source_root = (
+            references_path.parent.parent.parent
+            if references_path.parent.name == "manuscript" and references_path.parent.parent.name == "docs"
+            else references_path.parent
+        )
+        references_path = require_manuscript_source(
+            references_path, references_path.parent, project_root=source_root,
+        )
+        bibliography_keys = bib_keys(references_path.read_text(encoding="utf-8"))
 
     for required_id in sorted(REQUIRED_CLAIM_IDS - claim_ids):
         issues.append(ClaimIssue(required_id, "missing-required-claim", "required high-velocity topic is absent"))
@@ -184,9 +199,11 @@ def scan_stale_manuscript_phrases(
     project_root: Path | None = None,
 ) -> list[str]:
     """Return issue strings when banned stale phrases appear in manuscript markdown."""
+    from biology.maintenance.manuscript_walker import manuscript_markdown_files
+
     root = project_root or PROJECT
     issues: list[str] = []
-    for path in sorted(manuscript_root.rglob("*.md")):
+    for path in manuscript_markdown_files(manuscript_root, project_root=root):
         text = path.read_text(encoding="utf-8")
         for code, pattern in STALE_OR_UNQUALIFIED_PATTERNS:
             for match in pattern.finditer(text):
@@ -205,15 +222,6 @@ def _claim_local_context(text: str, anchor_index: int) -> str:
     return text[start:end]
 
 
-def _bib_keys(path: Path) -> set[str]:
-    """Return BibTeX entry keys from ``path``."""
-
-    return {
-        match.group(1).strip()
-        for match in re.finditer(r"@\w+\s*\{\s*([^,\s]+)\s*,", path.read_text(encoding="utf-8"))
-    }
-
-
 def _is_external_url(value: str) -> bool:
     parsed = urlparse(value)
     return parsed.scheme in {"http", "https", "doi"}
@@ -221,10 +229,14 @@ def _is_external_url(value: str) -> bool:
 
 def _claim_from_mapping(record: Any, project_root: Path) -> CurrentClaim:
     if not isinstance(record, dict):
-        raise ValueError("Each current claim must be a mapping")
+        raise TypeError("Each current claim must be a mapping")
+    source_file = _project_bound_path(project_root, str(record["file"]))
+    source_url = str(record["url"]) if record.get("url") else None
+    if source_url and not _is_external_url(source_url):
+        _project_bound_path(project_root, source_url)
     return CurrentClaim(
         claim_id=str(record["claim_id"]),
-        file=project_root / str(record["file"]),
+        file=source_file,
         anchor_text=str(record["anchor_text"]),
         claim_text=str(record["claim_text"]),
         topic=str(record["topic"]),
@@ -233,5 +245,14 @@ def _claim_from_mapping(record: Any, project_root: Path) -> CurrentClaim:
         checked_as_of=date.fromisoformat(str(record["checked_as_of"])),
         refresh_trigger=str(record["refresh_trigger"]),
         citekey=str(record["citekey"]) if record.get("citekey") else None,
-        url=str(record["url"]) if record.get("url") else None,
+        url=source_url,
     )
+
+
+def _project_bound_path(project_root: Path, value: str) -> Path:
+    """Refuse absolute, relative, or symlink escapes from the selected project."""
+    root = project_root.resolve()
+    candidate = (root / value).resolve()
+    if not candidate.is_relative_to(root):
+        raise ValueError(f"current-claim path escapes the selected project: {value!r}")
+    return candidate

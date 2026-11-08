@@ -5,11 +5,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/pollen_tube_growth.png}
-\caption{Pollen-tube length versus time for two contrasting growth profiles: a fast tube (lily-like, $\sim$20\,$\mu$m/min, $\sim$2\,mm saturation) and a slow tube (Arabidopsis-like, $\sim$8\,$\mu$m/min, $\sim$1\,mm saturation). Both follow a saturating logistic curve in which growth rate falls as the tube approaches its maximum length, mirroring the depletion of tip-localised secretory vesicles. The dashed line marks the upper saturation asymptote of the fast tube.}
+\caption{Illustrative pollen-tube lengths for $v=20\,\mu$m/min, $L_{\max}=2000\,\mu$m and $v=8\,\mu$m/min, $L_{\max}=1000\,\mu$m. The model is saturating-linear: $dL/dt=v(1-L/L_{\max})$, hence $L=L_{\max}-(L_{\max}-L_0)e^{-vt/L_{\max}}$. Slopes decrease monotonically; these are not logistic trajectories or evidence of vesicle depletion, and the parameter sets are not species measurements.}
 \label{fig:unit_VIII_pollen_tube_growth}
 \end{figure}
 
-<!-- alt: Two saturating-growth curves of pollen-tube length in micrometers versus time in minutes. The lily-like curve climbs rapidly toward a 2000 micrometer asymptote; the Arabidopsis-like curve climbs more slowly and saturates near 1000 micrometers. -->
+<!-- alt: Illustrative pollen-tube lengths under the saturating-linear model, in micrometers versus time in minutes. Solid fast and dashed slow curves have decreasing slopes toward 2000 and 1000 micrometer limits. The parameter sets are synthetic, not species measurements. -->
 
 
 <!-- chapter-metadata-badge -->
@@ -200,7 +200,7 @@ The combinatorial control of floral organ identity by **MADS-box transcription f
 - **B class (AP3 and PI):** Both are MADS-box genes; AP3 and PI form an obligate heterodimer (AP3-PI). This heterodimer is required for petal (with A) and stamen (with C) specification. *ap3* or *pi* single mutants lose petals and stamens.
 - **C class (AG = AGAMOUS):** A MADS-box gene that specifies stamen identity (with B) and carpel identity (alone, with E). AG also enforces floral meristem determinacy: in *ag* mutants, the floral meristem proliferates indefinitely, generating extra petals in place of stamens and a new flower in place of a carpel — the genetic basis of "double flowers" in cultivated roses, carnations, and chrysanthemums.
 - **D class (STK, SHP1, SHP2):** MADS-box genes specifying ovule identity within whorl 4. Loss of D-class function converts ovules to leaf-like structures.
-- **E class (SEP1, SEP2, SEP3, SEP4):** SEPALLATA MADS-box genes; required for combinatorial action of A, B, C, D. *sep1 sep2 sep3 sep4* quadruple mutants produce primarily sepal-like organs in most whorls.
+- **E class (SEP1, SEP2, SEP3, SEP4):** SEPALLATA MADS-box genes; required for combinatorial action of A, B, C, D. *sep1 sep2 sep3 sep4* quadruple mutants produce leaf-like organs; the *sep1 sep2 sep3* triple mutant produces sepal-like organs. These distinct genotypes must not be conflated \citep{ditta2004sep4}.
 
 **The MADS-box and the floral quartet model:**
 
@@ -218,13 +218,13 @@ The **MADS-box** is a 56-amino-acid DNA-binding domain (named for MCM1, AGAMOUS,
 
 **Key predictions and experimental validation:**
 
-- Removing A class (*ap1*/*ap2* mutants) results in carpels in whorls 1 and 2 (C class spreads to fill most whorls)
+- Removing A function in the idealized classical ABC model permits C to expand outward: carpel, stamen, stamen, carpel. Individual *ap1* and *ap2* alleles can have additional meristem and organ-specific effects; the truth table is not a complete description of every A-class mutant.
 - Removing B class (*ap3*/*pi* mutants): sepals in whorls 1 and 2; carpels in whorls 3 and 4
 - Removing C class (*ag* mutant): petals instead of stamens (whorl 3) and further petals indefinitely instead of carpel (whorl 4); produces double-petalled "full" flowers — the classic phenotype of cultivated double roses, carnations, and chrysanthemums
-- Removing E class (*sep1 sep2 sep3 sep4* quadruple mutant): most whorls produce sepal-like organs, demonstrating SEP genes are required for B, C, and D function
+- Removing all four E-class SEP genes produces leaf-like floral organs; loss of SEP1/2/3 with SEP4 retained yields sepal-like organs \citep{ditta2004sep4}.
 - **Quintuple ABCDE mutant:** Most whorls produce leaf-like organs — confirming the molecular interpretation of Goethe's 1790 metamorphosis hypothesis that most floral organs are modified leaves
 
-> **Clinical Connection:** Understanding the ABCDE model has practical applications in crop breeding. Manipulating floral organ identity genes can create male-sterile lines (essential for hybrid seed production in rice and wheat) by silencing the B class to convert stamens to petals. Conversely, increasing petal number in ornamental varieties relies on partial loss-of-function *ag* alleles. The multi-billion dollar cut flower industry relies directly on MADS-box gene variants for double-flowered roses, carnations, and chrysanthemums.
+> **Clinical Connection:** Understanding the ABCDE model has practical applications in crop breeding. Manipulating floral organ identity genes can create male-sterile lines (essential for hybrid seed production in rice and wheat) by perturbing stamen identity. Under the classical ABC model, B-class loss converts stamens to carpels (and petals to sepals), not to petals. Conversely, increasing petal number in ornamental varieties relies on partial loss-of-function *ag* alleles. The multi-billion dollar cut flower industry relies directly on MADS-box gene variants for double-flowered roses, carnations, and chrysanthemums.
 
 See \cref{eq:unit_VIII_floral_quartet} for the combinatorial logic; the empirical demonstration in *Antirrhinum* and *Arabidopsis* is the foundational work of \citet{coen1991}.
 
@@ -336,9 +336,9 @@ The pollen rejection phenotype is determined by the **diploid** sporophytic tiss
 - **Mechanism:** When SRK on the stigma encounters its matching SCR on the incoming pollen (i.e., self-pollen sharing the same S-haplotype as the stigma), SRK autophosphorylates and recruits **ARC1** (E3 ubiquitin ligase). ARC1 ubiquitinates **Exo70A1**, a key component of the secretion exocyst required for pollen hydration. The pollen fails to hydrate and is rejected at the stigma surface — before pollen tube germination.
 - **Genetic consequence:** Because pollen carries the diploid parental S-genotype, most pollen from a heterozygous *S₁S₂* plant is rejected by *S₁S₂*, *S₁S₃*, and *S₂S₃* stigmas.
 
-**Gametophytic SI (GSI)** — Solanaceae (*Petunia*, *Nicotiana*, tomato), Rosaceae (apple, pear, almond), Papaveraceae
+**Gametophytic SI (GSI)** determines pollen rejection by its haploid S-genotype. The following illustrates S-RNase-based systems in selected Solanaceae/Rosaceae; other GSI mechanisms, including Papaver recognition, differ.
 
-The pollen rejection phenotype is determined by the pollen grain's own **haploid** S-genotype.
+Mechanistic details vary among lineages; the collaborative non-self-recognition description below is a specified S-RNase/F-box example, not every apple or gametophytic mechanism.
 
 - **S-locus genes (S-RNase / SLF system):**
   - **S-RNase**: Pistil-expressed; ribonuclease secreted into the style transmitting tract
@@ -357,7 +357,7 @@ The pollen rejection phenotype is determined by the pollen grain's own **haploid
 | Male factor | SCR (pollen coat protein) | SLF (F-box) |
 | Number of S-haplotypes | Often 50–100 | Often 50–200 |
 
-**Evolutionary significance of SI:** Self-incompatibility maintains heterozygosity and avoids inbreeding depression in obligate outbreeders. Its breakdown (typically by loss of S-RNase or SLF function) gives rise to self-compatible lineages, which often go extinct because of genetic load — but occasionally undergo spectacular adaptive radiations (e.g., self-compatible *Arabidopsis thaliana* descended from self-incompatible *A. lyrata*; the loss of SI may have facilitated *A. thaliana*'s colonization of new habitats by enabling single-individual founder events).
+**Evolutionary significance of SI:** Rejection of compatible-with-self S types can promote outcrossing and reduce some inbreeding effects, but does not eliminate genetic load or guarantee fruit set. Breakdown can permit reproductive assurance while changing genetic risks; lineage persistence and ecological expansion require evidence beyond mating-system state alone.
 
 ### Polyploidy and Speciation in Plants
 
@@ -391,7 +391,9 @@ flowchart TD
     D --> F[Sperm 2 + Central Cell<br/>with 2 polar nuclei]
     E --> G[Zygote<br/>DIPLOID 2n]
     F --> H[Primary Endosperm Nucleus<br/>TRIPLOID 3n]
-    G --> I[Embryo Development<br/>Suspensor → Embryo proper<br/>Cotyledon formation]
+    G --> Div["Asymmetric zygote division<br/>Arabidopsis developmental example"]
+    Div --> I["Apical lineage: embryo proper<br/>patterning and cotyledon formation"]
+    Div --> Susp["Basal lineage: suspensor<br/>supports embryo development"]
     H --> J[Endosperm Development<br/>Free-nuclear → Cellular<br/>Starch, protein, oils]
     I --> K[Mature Seed]
     J --> K
@@ -431,15 +433,15 @@ flowchart TD
    - **Sperm 2 + 2 polar nuclei (central cell)** → triple fusion → **3n primary endosperm nucleus** → endosperm
 
 \begin{equation}
-\text{LURE} \xrightarrow{\text{LRE-FER complex}} \text{tube rupture} \rightarrow 2 \text{ sperm released}
+\text{LURE--PRK6 attraction}\ ;\quad \text{FER--LRE reception} \rightarrow \text{tube rupture} \rightarrow 2\text{ sperm released}
 \label{eq:unit_VIII_lre_fer}
 \end{equation}
 
 **Significance of double fertilization:**
 
-- Endosperm provides a "payment on delivery" mechanism — primarily fertilized ovules develop endosperm, ensuring optimal parental investment
+- Endosperm initiation is commonly coupled to fertilization, a possible resource-allocation advantage, not a guarantee of optimal investment or viable seeds. Triploidy alone does not enforce coupling: Arabidopsis MEDEA mutants can initiate endosperm without fertilization \citep{kiyosue1999medea}.
 - Endosperm in cereals: starch (70-80%), storage proteins (gluten in wheat, zein in maize), oils, vitamins — source of ~60% of global human caloric intake
-- Triploid endosperm (2 maternal : 1 paternal genome dose) provides a unique genetic substrate for **parental conflict** (paternally-imprinted genes promote nutrient transfer; maternally-imprinted genes restrict it) — conserved in ratio across most flowering plants
+- Triploid endosperm (2 maternal : 1 paternal genome dose) provides a unique genetic substrate for **parental conflict** (many paternally expressed genes promote nutrient transfer, while some maternally expressed genes restrict it; expression and silenced-parent terminology must be distinguished) — conserved in ratio across most flowering plants
 
 > **Clinical Connection:** Understanding pollen tube guidance has implications for crop fertility. In interspecific crosses (e.g., wheat × rye to produce triticale), pollen tube guidance often fails because LURE peptides are species-specific. Genetic engineering of LURE receptors could enable wider crosses for crop improvement.
 
@@ -454,21 +456,21 @@ flowchart TD
 
 Maternal : paternal genome ratio in normal endosperm $= 2 : 1$.
 
-**Mutant case (maternal *4n* central cell — e.g., from a polyploid maternal lineage; assume each polar nucleus is 2n instead of n).** Same haploid pollen.
+**Mutant case (central-cell-specific doubling to *4n* in an otherwise diploid mother; assume each polar nucleus doubles to 2n while the egg remains n).** Same haploid pollen.
 
 - Sperm 1 (n) + egg (n) $\rightarrow$ zygote 2n (unchanged)
 - Sperm 2 (n) + central cell (2n + 2n = 4n) $\rightarrow$ **endosperm 5n**
 
-Maternal : paternal genome ratio in mutant endosperm $= 4 : 1$.
+Maternal : paternal genome ratio in mutant endosperm $= 4 : 1$. This is not a whole-plant tetraploid cross: a normal 4x mother produces a 2x egg, so with 1x sperm the embryo is 3x and endosperm 5x.
 
 **Solution:**
 
 1. **Compute the dosage shift.** From $2:1$ (normal) to $4:1$ (mutant) doubles the maternal contribution per paternal copy.
-2. **Map the shift onto imprinting.** Endosperm carries strong parent-of-origin imprinting. Maternally-expressed imprinted genes (MEGs; e.g., *FIS2*, *MEDEA*) restrict endosperm growth and nutrient transfer; paternally-expressed imprinted genes (PEGs; e.g., *PHE1*) drive endosperm proliferation and nutrient pull. The $2:1$ ratio sets the canonical balance.
-3. **Predict the seed phenotype.** In the mutant, maternal "restraint" genes are now in fourfold excess relative to paternal "growth" genes. Endosperm cellularisation is accelerated, nutrient transfer to the embryo is curtailed, and seed size collapses. This is precisely the phenotype seen in interploidy crosses where a tetraploid mother is crossed to a diploid father — the so-called *maternal excess* seed-failure syndrome.
-4. **Symmetric prediction.** A reciprocal cross (diploid mother $\times$ tetraploid father) produces *paternal excess* endosperm ($2:2 \rightarrow$ effective $1:1$ or worse), with the opposite phenotype: delayed cellularisation, overgrown endosperm, and seed abortion from a different failure mode. Together these explain the triploid block — a major reproductive barrier in interploidy crosses and a quantitative test of the parental-conflict theory of imprinting.
+2. **Map the shift onto imprinting.** Endosperm has parent-of-origin gene expression. MEGs such as *FIS2* and *MEDEA* and PEGs such as *PHE1* illustrate developmental regulation in Arabidopsis; the labels identify the expressed parent, not the growth effect of every gene.
+3. **Separate dosage arithmetic from phenotype.** The stipulated central-cell-specific doubling gives a $4:1$ ratio, but does not by itself measure gene expression, cellularization or seed viability. Maternal-excess interploidy crosses in studied Arabidopsis backgrounds can advance endosperm cellularization; this is a mechanistic comparison, not proof that this hypothetical mutant must have an identical phenotype.
+4. **Compare the reciprocal cross.** A diploid mother $\times$ tetraploid father with ordinary reduced gametes produces a 3x embryo and 4x endosperm ($2:2$ maternal:paternal). Paternal excess can delay cellularization and impair seed development in studied backgrounds, but the severity and survival depend on genotype and cross.
 
-**Interpretation.** Double fertilization is not merely a developmental quirk; it is the substrate on which parental-conflict-driven imprinting plays out. The canonical $2 : 1$ ratio is the genomic ledger that keeps embryo provisioning balanced. Disrupt the ratio and you disrupt the seed.
+**Interpretation.** The $2:1$ ratio is canonical, not an invariant guarantee of viable seed. Dosage perturbations test developmental regulation and parent-of-origin conflict hypotheses; they do not prove that every departure causes seed abortion or that a paternal genome is always required for endosperm initiation.
 
 
 ---
@@ -492,18 +494,18 @@ After triple fusion, the primary endosperm cell (3n; typically 2m:1p genome rati
 
 **The PEG/MEG pathway and parental conflict:**
 
-The **FIS-PRC2** (FERTILIZATION INDEPENDENT SEED – Polycomb Repressive Complex 2) complex — comprising MEDEA (MEA), FIS2, FIE, and MSI1 — is the master regulator of endosperm initiation and parental conflict resolution:
+In Arabidopsis, the **FIS-PRC2** (FERTILIZATION INDEPENDENT SEED – Polycomb Repressive Complex 2) complex — comprising MEDEA (MEA), FIS2, FIE, and MSI1 — participates in repression before fertilization and endosperm imprinting. MEDEA-mutant ovules can initiate autonomous endosperm without fertilization, demonstrating a bypass of wild-type coupling, not normal mature seed formation without a paternal contribution \citep{kiyosue1999medea}. One regulatory relationship is illustrated below:
 
 \begin{equation}
-\text{Maternal MEA-FIE-FIS2-MSI1} \xrightarrow{\text{H3K27me3}} \text{repression of paternally-imprinted genes (PEGs)}
+\text{Maternal MEA-FIE-FIS2-MSI1} \xrightarrow{\text{H3K27me3}} \text{repression of maternal alleles of paternally expressed genes (PEGs)}
 \label{eq:unit_VIII_peg_pathway}
 \end{equation}
 
-- **PEGs (Paternally Expressed Genes):** Expressed primarily from the paternal allele in endosperm (the maternal allele is silenced by H3K27me3 deposited by FIS-PRC2). Examples: *PHE1*, *YUC10*, *AHL10*. PEGs tend to **promote** endosperm growth and nutrient transfer to the embryo.
-- **MEGs (Maternally Expressed Genes):** Expressed primarily from the maternal allele. MEGs tend to **restrict** endosperm growth.
-- **Imbalance in PEG/MEG dosage** (e.g., crosses between species with different ploidy) causes seed abortion via the **endosperm balance number (EBN)** mechanism. This is why interploidy crosses fail: a 2x × 4x cross produces triploid embryos with imbalanced PEG/MEG expression, triggering seed abortion.
+- **PEGs (Paternally Expressed Genes):** Expressed primarily from the paternal allele in endosperm. FIS-PRC2-mediated H3K27me3 represses maternal alleles at regulated loci. Examples include *PHE1*, *YUC10*, and *AHL10*; some PEGs promote endosperm growth, but expressed parent does not define every gene's function.
+- **MEGs (Maternally Expressed Genes):** Expressed primarily from the maternal allele. Some have growth-restricting roles; maternal expression alone does not establish such a role.
+- **Parental dosage imbalance** can disrupt endosperm regulation and contribute to seed failure in particular interploidy or interspecific crosses. Endosperm balance number is an operational compatibility concept, not a universal PEG/MEG ratio or proof that all 2x × 4x crosses abort.
 
-The 2m:1p endosperm dosage thus becomes the principal arena for **parent-of-origin genetic conflict**, with paternally-imprinted PEGs evolutionarily favored to extract more maternal resources for the offspring, and maternally-imprinted MEGs favored to ration resources across multiple offspring.
+The 2m:1p endosperm dosage thus becomes the principal arena for **parent-of-origin genetic conflict**, with some paternally expressed PEGs promoting resource transfer and some maternally expressed MEGs limiting it; this conflict framework does not determine every imprinted gene’s function.
 
 ### Seed Dormancy: Five Classes and Triggers
 
@@ -520,8 +522,8 @@ The 2m:1p endosperm dosage thus becomes the principal arena for **parent-of-orig
 
 **Germination triggers (sensory inputs):**
 
-- **Stratification (cold, moist):** Cold treatment (1–5 °C, weeks to months) progressively degrades **ABA** and induces **GA biosynthesis** genes, shifting the ABA/GA balance toward germination. Required by many temperate tree seeds. Mechanism involves cold-induced demethylation of GA-biosynthesis gene promoters.
-- **Scarification (mechanical or chemical):** Cracks or thins the testa, allowing water and oxygen to enter. Can be achieved naturally by passage through animal digestive tracts (where stomach acid + abrasion abrade the coat), fire (heat scarification of fire-adapted species like *Banksia*), or freeze-thaw cycles. Many savanna acacia seeds germinate primarily after passage through elephant or ungulate guts.
+- **Stratification (cold, moist):** In species requiring it, cold-moist treatment (illustratively 1–5 °C for weeks to months) can shift dormancy regulation, including ABA/GA interactions, toward germination. Requirements vary; temperate origin alone does not imply an obligatory winter treatment.
+- **Scarification:** Physical or chemical disruption can permit water entry through an impermeable coat. Heat, abrasion or digestive passage can act in particular species; heat scarification and smoke/karrikin signaling are different mechanisms, not universal fire-adapted-seed requirements.
 - **Light (phytochrome-mediated):** Red light (R, 660 nm) converts Pr to active Pfr, promoting germination in light-requiring seeds (lettuce, *Arabidopsis*, many small-seeded weeds). Far-red light (FR, 730 nm) inhibits germination. The R:FR ratio under a leaf canopy is low (chlorophyll absorbs R, transmits FR), so seeds under shade remain dormant until canopy opening — an exquisite mechanism for detecting gaps in vegetation. The Borthwick-Hendricks experiments (1952) on lettuce seeds first demonstrated the R/FR reversibility that defined phytochrome.
 - **Temperature fluctuation:** Diurnal temperature swings (e.g., 40 °C day / 10 °C night, typical of bare soil under sun without insulating vegetation) signal a gap in canopy cover. Many desert and weed species require such fluctuations.
 - **Smoke and karrikins:** Karrikin compounds (KAR1–KAR6) in plant-derived smoke bind the **KAI2 receptor** (a strigolactone-related α/β hydrolase). KAR signaling promotes germination of fire-adapted species and many weeds (KAR2 promotes germination in *Arabidopsis*).
@@ -533,7 +535,7 @@ The balance between ABA (dormancy-promoting) and GA (germination-promoting) sign
 
 **ABA pathway (dormancy):**
 
-**DOG1** (DELAY OF GERMINATION 1): A seed-specific RNA-binding-domain protein. DOG1 dosage determines dormancy depth by stabilizing ABI3 and ABI5 mRNA — master transcription factors of the ABA response. *DOG1* expression peaks at seed maturation, quantitative trait locus (QTL) responsible for natural variation in dormancy across *Arabidopsis* accessions (Bentsink *et al.*, *PNAS* 2006).
+**DOG1** (DELAY OF GERMINATION 1) is a major regulator of seed dormancy. Née and colleagues demonstrated DOG1 interaction with AHG1/AHG3 PP2C phosphatases and genetic epistasis: *ahg1 ahg3* remains strongly dormant even with *dog1* loss. Their evidence places DOG1 upstream of these phosphatases, linking DOG1 and ABA pathways; it does not establish direct binding and stabilization of ABI3/ABI5 mRNAs \citep{nee2017dog1}.
 
 \begin{equation}
 \text{ABA} + \text{PYR/RCAR} \rightleftharpoons \text{ABA-PYR complex} \xrightarrow{} \text{PP2C inhibition (ABI1/ABI2 released)} \rightarrow \text{SnRK2 kinase active}
@@ -565,7 +567,7 @@ DELLA degradation (of RGA, GAI, RGL1-3 in *Arabidopsis*) releases repression of:
 
 **Concept Check 6 (Analyze) — Pollen-tube guidance and the LURE–PRK6 axis.** Pollen tubes navigate the style by chemotropism, eventually homing on the embryo sac via LURE peptides (defensin-like) secreted from synergid cells. LURE binds the receptor-like kinase PRK6 at the tube tip, biasing a tip-focused Ca$^{2+}$ gradient and actin remodeling toward the source. (a) Diagram the LURE $\rightarrow$ PRK6 $\rightarrow$ Ca$^{2+}$ $\rightarrow$ actin pathway, marking which step is conserved with the FERONIA–RALF system at tube reception. (b) A homozygous *prk6* loss-of-function plant is used as the female parent and crossed to wild-type pollen. Predict the fertilization phenotype, distinguishing tube *attraction* from tube *reception/rupture*. (c) Design a complementation test that would prove PRK6 acts cell-autonomously on the pollen tube rather than on the synergid producing the LURE cue, and predict the *Torenia* inter-species cross outcome if you swap PRK6 orthologues.
 
-**Concept Check 7 (Evaluate) — Seed dormancy, the ABA : GA ratio, and a warming winter.** ABA-stabilized DELLA proteins enforce dormancy; imbibition plus cold stratification plus light tilts the balance toward GA biosynthesis, DELLA degradation, and germination. Many temperate annuals (e.g., *Arabidopsis* winter-annual accessions, vernalisation-dependent cereals) require weeks of below-$5\,^{\circ}$C exposure to clear dormancy. (a) Use the ABA : GA framework to explain why a *constant* 5 $^{\circ}$C signal is required rather than a single cold shock — what molecular variable is being integrated over weeks (DOG1 protein turnover; FLC chromatin state; VIN3 accumulation)? (b) A climate-change scenario raises mean winter temperatures by 10 $^{\circ}$C, so a planting region that previously averaged 5 $^{\circ}$C now averages 15 $^{\circ}$C. Predict the directional shift in germination timing, percent germination, and seedling synchrony for (i) a vernalisation-dependent winter wheat cultivar and (ii) a Mediterranean summer annual with after-ripening dormancy. (c) Evaluate two breeding strategies that would restore reliable germination — a *dog1* loss-of-function allele vs. a stronger FLC repressor — and identify which carries lower agronomic risk if the climate later cools.
+**Concept Check 7 (Evaluate) — Cold cues at two life stages.** A synthetic Arabidopsis experiment records radicle emergence in 70/100 cold-stratified seeds versus 15/100 unstratified seeds. A separate winter-annual experiment records flowering in 80/100 vernalized plants versus 10/100 nonvernalized plants. (a) Identify the germination and flowering endpoints and their controls. (b) Explain why ABA/GA/DOG1 dormancy regulation and VIN3/PRC2-mediated FLC repression cannot be inferred interchangeably from these counts. (c) Predict the effect of stronger FLC expression on flowering and propose a separate test of germination; the supplied counts alone do not identify either molecular mechanism.
 
 
 ---
@@ -606,7 +608,7 @@ The SAM maintains a pool of pluripotent stem cells throughout the plant's life:
 - Each leaf primordium is initiated where PIN1 (auxin efflux carrier) creates a local auxin maximum
 - The established primordium depletes local auxin from surrounding cells
 - The next primordium arises at the position of the next auxin maximum
-- Mathematical result: primordia arise at **137.5 degrees divergence angle** (the "golden angle" = 360 degrees $\times$ (1 $-$ 1/$\varphi^2$) where $\varphi$ = golden ratio 1.618)
+- Mathematical result: primordia arise at **137.5 degrees divergence angle** (the "golden angle" = 360 degrees $/\varphi^2$ where $\varphi$ = golden ratio 1.618)
 - This produces Fibonacci spirals (1, 1, 2, 3, 5, 8, 13...) visible in pine cones, sunflower heads, and succulent leaf arrangements
 
 ### Worked Example: Calculating the Golden Angle in Phyllotaxis
@@ -617,7 +619,7 @@ The arrangement of leaves on a stem (phyllotaxis) is often determined by the gol
 **Solution:**
 
 1. **Calculate the golden angle:**
-   Using the formula given: Angle $= 360^\circ \cdot (1 - \frac{1}{\varphi^2})$
+   Using the formula given: Angle $= 360^\circ/\varphi^2$
    First, calculate $\varphi^2$:
    $$ 1.618034^2 \approx 2.618034  \label{eq:unit_VIII_plant_reproduction_item_1}$$
 
@@ -625,9 +627,9 @@ The arrangement of leaves on a stem (phyllotaxis) is often determined by the gol
    $$ \frac{1}{2.618034} \approx 0.381966  \label{eq:unit_VIII_plant_reproduction_item_2}$$
 
    Apply to the angle formula:
-   $$ \text{Angle} = 360^\circ \cdot (1 - 0.381966) = 360^\circ \cdot 0.618034 \approx 222.49^\circ  \label{eq:unit_VIII_plant_reproduction_item_3}$$
+   $$ \text{Angle}=360^\circ\cdot0.381966\approx137.51^\circ \label{eq:unit_VIII_plant_reproduction_item_3}$$
 
-   However, angles are typically measured by the shorter path around the circle, so we subtract from $360^\circ$:
+   The complementary rotation describes the same spiral with opposite orientation:
    $$ 360^\circ - 222.49^\circ = 137.51^\circ  \label{eq:unit_VIII_plant_reproduction_item_4}$$
 
    This is the **golden angle (~137.5°)**.
@@ -731,7 +733,7 @@ A **fruit** is the mature ovary wall (**pericarp**: exocarp + mesocarp + endocar
 | Berry (true) | Entire pericarp fleshy | Tomato, grape, blueberry, capsicum, banana | Endozoochory |
 | Achene | Dry, indehiscent; one seed; pericarp free from seed coat | Sunflower, dandelion (+ pappus) | Wind (dandelion); gravity |
 | Samara | Achene-like + wing of pericarp tissue | Maple (*Acer*), ash (*Fraxinus*) | Wind (autorotation; helicoid flight) |
-| Legume | Dehiscent pod; two valves split along two sutures | Pea, bean, soybean | Explosive hygroscopic dehiscence |
+| Legume | Pod often opening along two sutures, with lineage/cultivar variation | Pea, bean, soybean | Dehiscence can aid dispersal; explosive release is not universal |
 | Capsule | Dry; multiple septa; dehisces by pores or valves | Cotton, poppy, *Arabidopsis* | Wind-shaken; gravity |
 | Bur | Achene with hooks or spines | Burdock (*Arctium*), cocklebur (*Xanthium*) | Epizoochory (animal fur/feathers) |
 
@@ -776,11 +778,12 @@ Plants have diverse mechanisms for **vegetative (asexual) reproduction**, each w
 
 The dream of apomixis in major crops: capture the **hybrid vigour (heterosis)** of an elite F1 hybrid in a self-perpetuating apomictic seed, eliminating the need to re-create the hybrid each generation. Currently, F1 hybrid maize, rice, and sorghum require expensive annual production crosses (typically requiring ~2–3 isolated hectares of cytoplasmic male sterile mother lines and pollen donor lines). If apomixis could be engineered into rice or maize, subsistence farmers could save F1 seed indefinitely and continue to capture hybrid vigour.
 
-**Synthetic apomixis breakthrough:** Synthetic apomixis studies in rice combine apomeiosis with parthenogenesis triggers to produce clonal seed from hybrid plants. High-frequency systems in hybrid rice reported many lines with >80% clonal seeds and selected lines above 95%, while subsequent transgenerational work found largely stable clonal inheritance with rare aneuploid progeny that still require monitoring \citep{vernet2022highfrequencyapomixis,liu2023syntheticapomixis}. The mechanism combines three modifications:
+**Synthetic apomixis breakthrough:** Vernet and colleagues combined MiMe with egg-cell expression of BBM1 in F1 hybrid rice; selected lines produced more than 95% clonal seeds over multiple generations \citep{vernet2022highfrequencyapomixis,liu2023syntheticapomixis}. The Vernet system combines two functional modules:
 
 1. **MiMe** (Mitosis instead of Meiosis): triple knockout of *OSD1*, *PAIR1*, *REC8* converts meiosis into mitosis, producing unreduced gametes
-2. **MTL** (MATRILINEAL): pollen-specific phospholipase knockout enabling haploid induction — sperm cannot complete fusion with the egg
-3. **BBML** or **DMP** transgenes inducing parthenogenesis — egg cells initiate embryogenesis without sperm contribution
+2. **Egg-cell BBM1 expression:** initiates embryo development without paternal genome incorporation. Central-cell fertilization still supports endosperm formation.
+
+MiMe plus *MTL* disruption is a distinct strategy involving haploid induction/paternal genome elimination, not a required extra component of the high-frequency BBM1 system. *DMP* perturbation is likewise not interchangeable with an egg-cell BBM1 transgene.
 
 The combination yields rice plants that produce maternal clones in seed form across multiple generations — a foundational step toward apomictic crops at scale. Field translation remains conditional: breeders must quantify seed-set frequency, transgene segregation, rare chromosome loss, fitness under local climates, containment of gene flow to wild relatives, and whether farmers would gain durable access rather than new seed-locking arrangements.
 
@@ -854,7 +857,7 @@ A strong plant-reproduction claim names the tissue, developmental signal, pollin
 | **AP1, AP3, PI, AG, SEP** | MADS-box gene families: A, B, B, C, E classes respectively |
 | **Floral quartet** | Tetrameric MADS-box complex specifying organ identity by binding two CArG boxes |
 | **Sporophytic SI** | Self-incompatibility where pollen [**phenotype**](#gl:phenotype) determined by diploid tapetum; SRK-SCR system |
-| **Gametophytic SI** | Self-incompatibility where pollen phenotype determined by its own haploid genotype; S-RNase/SLF |
+| **Gametophytic SI** | Pollen rejection determined by its haploid genotype; S-RNase/F-box recognition is one mechanistic family |
 | **Polyploidy** | Whole-genome duplication; ~70% of angiosperms are paleopolyploids |
 | **Autopolyploid** | Polyploid arising within a single species |
 | **Allopolyploid** | Polyploid arising from interspecific hybridization followed by chromosome doubling |
@@ -866,7 +869,7 @@ A strong plant-reproduction claim names the tissue, developmental signal, pollin
 | **Apospory** | Gametophytic apomixis with embryo sac from somatic cell |
 | **Diplospory** | Gametophytic apomixis with embryo sac from modified meiosis |
 | **MiMe** | Mitosis-instead-of-Meiosis triple knockout (OSD1, PAIR1, REC8); basis of synthetic apomixis |
-| **Endosperm** | Triploid (3n; 2m:1p) nutritive tissue in angiosperm seeds; stores starch, protein, oils |
+| **Endosperm** | Angiosperm seed nutritive tissue, typically 3n and 2m:1p in the canonical example; developmental exceptions occur |
 | **Free-nuclear endosperm** | Endosperm form with multiple nuclei in shared cytoplasm before cellularisation |
 | **PEG (Paternally Expressed Gene)** | Gene expressed primarily from paternal allele in endosperm |
 | **MEG (Maternally Expressed Gene)** | Gene expressed primarily from maternal allele in endosperm |
@@ -945,15 +948,15 @@ print(round(out.biomass_g[-1], 2))
 - **Plant group diversity:** Bryophytes (gametophyte dominant, water-dependent fertilization) through gymnosperms (pollen, seeds, wind pollination) to angiosperms (flowers, double fertilization, fruits, animal pollination).
 - **Floral ABCDE model \citep{coen1991}:** A+E = sepal; A+B+E = petal; B+C+E = stamen; C+E = carpel; D+E = ovule. MADS-box TFs (AP1, AP3-PI heterodimer, AG, SEP1-4) form floral quartets binding two CArG boxes simultaneously.
 - **Gametophytes:** Male = 3-cell pollen grain (tube cell + 2 sperm) inside sporopollenin exine; female = 7-cell, 8-nucleate Polygonum-type embryo sac (egg + 2 synergids + central cell with 2 polar nuclei + 3 antipodals). Microsporogenesis: MMC → meiosis → 4 microspores → asymmetric mitosis I → 2-cell pollen; mitosis II yields 2 sperm. Megasporogenesis: MMC → meiosis → 1 functional + 3 degenerating megaspores → 3 free nuclear divisions → 8 nuclei → cellularisation → 7-cell embryo sac.
-- **Double fertilization \citep{nawaschin1898}:** LURE-LRE-FER signaling triggers pollen tube rupture in synergid; sperm 1 + egg = 2n zygote → embryo; sperm 2 + 2 polar nuclei = 3n primary endosperm. Pollen tube guidance: tip-focused Ca$^{2+}$ gradient + LURE chemotropism; spermatogenesis during tube elongation in bicellular pollen species.
+- **Double fertilization \citep{nawaschin1898}:** LURE–PRK6 guides attraction; FER–LRE mediates reception and tube rupture in the synergid; sperm 1 + egg = 2n zygote → embryo; sperm 2 + 2 polar nuclei = 3n primary endosperm. Pollen tube guidance: tip-focused Ca$^{2+}$ gradient + LURE chemotropism; spermatogenesis during tube elongation in bicellular pollen species.
 - **Endosperm (typically 3n; 2m:1p):** Free-nuclear → cellular development; PEG/MEG imprinting via FIS-PRC2 drives parent-of-origin expression and parental-conflict regulation. Dosage is canonically 2m:1p but varies in some lineages and developmental contexts.
-- **Self-incompatibility:** Sporophytic SI (SRK-SCR-ARC1; *Brassica*) acts at stigma surface; gametophytic SI (S-RNase/SLF; Solanaceae, Rosaceae) acts in style by collaborative non-self recognition.
+- **Self-incompatibility:** Brassica sporophytic SI and selected S-RNase-based gametophytic systems illustrate different recognition logic. Other GSI mechanisms differ; outcrossing does not eliminate all genetic load or guarantee fruit set.
 - **Polyploidy:** Auto- vs allopolyploids; 70% of angiosperms have paleopolyploid history; major crop genomes (wheat, cotton, strawberry) are polyploid.
 - **Fruit and seed dispersal:** Diverse adaptations for dispersal include endozoochory, anemochory, explosive dehiscence, epizoochory, and ant-mediated myrmecochory. Climacteric fruits (banana, tomato, apple) ripen via System 2 autocatalytic ethylene burst — controlled commercially with 1-MCP. Parthenocarpy can be induced by auxin/GA (seedless grapes, watermelons).
-- **Seed dormancy:** Five classes (PD, PY, MD, MPD, combinational); broken by stratification, scarification, light (Pfr), smoke-karrikins (KAI2), or temperature fluctuation. Germination: GA degrades DELLA, releasing α-amylase transcription; ABA-DOG1-PP2C-SnRK2 axis maintains dormancy.
+- **Seed dormancy:** Dormancy classes and ABA/GA/DOG1 regulation interact with species-specific cues such as stratification, scarification, light or smoke. No common winter/fire treatment applies to every temperate or fire-associated seed.
 - **Vegetative reproduction:** Stolons, rhizomes, bulbs, corms, tubers, adventitious roots/plantlets, fragmentation, layering, grafting. Foundation of clonal crop production (banana, potato, garlic, grape).
 - **Apomixis:** Sporophytic (adventive embryony, e.g., citrus nucellar) vs gametophytic (apospory in *Hieracium*, diplospory in *Taraxacum*; pseudogamous vs autonomous endosperm). Wang *et al.* 2022 synthetic apomixis in rice via MiMe + MTL/BBML.
-- **Meristems:** SAM (WUS-CLV3 feedback, PIN1-auxin phyllotaxis at golden angle); RAM (QC + initials). Both maintain lifelong growth.
+- **Meristems:** SAM and RAM maintain stem-cell populations supporting much organized growth, while proliferation, regeneration and expansion can also occur outside pre-existing meristems.
 - **Biotechnology:** Tissue culture exploits totipotency; *Agrobacterium* Ti plasmid enables genetic transformation; Bt crops, golden rice.
 - **Connections:** See \nameref{sec:unit_IV_unit_intro} for meiosis and life cycle, \cref{sec:unit_VIII_plant_structure_and_water} for water and growth, and \cref{sec:unit_III_photosynthesis} for photosynthate partitioning.
 

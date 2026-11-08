@@ -9,12 +9,12 @@ from _bootstrap import ensure_project_paths
 
 ensure_project_paths(include_scripts=True)
 
-from biology.maintenance.american_english import (  # noqa: E402
+from biology.maintenance.american_english import (
     MANUSCRIPT,
     iter_target_files,
     normalize_file,
 )
-from biology.maintenance.models import PROJECT  # noqa: E402
+from biology.maintenance.models import PROJECT
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -14,16 +14,16 @@ from biology.crossref.scan_latex_envs import (
 )
 from biology.crossref.scan_markdown_ids import (
     process_block_display_equation,
-    process_code_fence,
-    process_heading,
     process_markdown_images,
     process_pipe_table_caption,
 )
 from biology.crossref.scan_ref_uses import (
     process_hardcoded_equation_tag,
+    process_latex_ref_uses,
     process_prose_xrefs,
     process_ref_uses,
 )
+from biology.crossref.source import visible_text
 
 from .scan_context import ScanContext
 
@@ -47,12 +47,14 @@ def scan_file(path: Path) -> tuple[dict[tuple[str, str], int], list[tuple[str, s
             ],
         )
 
-    lines = text.splitlines()
+    visible = visible_text(text)
+    lines = visible.splitlines()
     ctx = ScanContext(path=path, lines=lines, generated_lines=generated_block_lines(text))
+    ctx.record_definitions(visible)
+    process_latex_ref_uses(ctx, visible)
 
     for line_no, line in enumerate(lines, start=1):
-        if process_code_fence(ctx, line):
-            continue
+        process_ref_uses(ctx, line_no, line)
 
         process_hardcoded_equation_tag(ctx, line_no, line)
 
@@ -63,7 +65,6 @@ def scan_file(path: Path) -> tuple[dict[tuple[str, str], int], list[tuple[str, s
         if process_inline_display_equation(ctx, line_no, line):
             continue
 
-        process_heading(ctx, line_no, line)
         process_markdown_images(ctx, line_no, line)
 
         if process_block_display_equation(ctx, line_no, line):
@@ -72,7 +73,6 @@ def scan_file(path: Path) -> tuple[dict[tuple[str, str], int], list[tuple[str, s
             continue
 
         process_pipe_table_caption(ctx, line_no, line)
-        process_ref_uses(ctx, line_no, line)
         process_prose_xrefs(ctx, line_no, line)
 
     return ctx.defined, ctx.references, ctx.issues

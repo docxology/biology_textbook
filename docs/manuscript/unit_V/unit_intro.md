@@ -49,7 +49,7 @@ graph TD
     MEND --> DI["📊 Dihybrid Cross<br/>(9:3:3:1;<br/>two unlinked genes)"]
 
     CHROM["🧵 Chromosomal Theory<br/>(genes on chromosomes;<br/>Morgan 1910)"] --> LINK["🔗 Genetic Linkage<br/>(recombination frequency;<br/>Morgan map units = cM)"]
-    LINK --> MAP["🗺️ Genetic Maps<br/>(Sturtevant 1913;<br/>θ = RF / 50)"]
+    LINK --> MAP["🗺️ Genetic Maps<br/>(Sturtevant 1913;<br/>θ = RF / 100)"]
 
     MEND --> NONM["⚡ Non-Mendelian Inheritance<br/>(incomplete dominance,<br/>codominance, epistasis,<br/>polygenic traits)"]
 
@@ -84,11 +84,12 @@ paper-based lab decision.
 
 ## Chapter Roadmap {.unnumbered}
 
-| Chapter | Title | Core Question | Key Equation / Model |
-| ------- | ----- | ------------- | -------------------- |
-| **16** | Mendelian Genetics | How do Mendel's laws explain the inheritance of discrete traits? | Binomial expansion; chi-square test for goodness of fit |
-| **17** | Chromosomal Inheritance | How do chromosomes carry genes, and what happens when chromosomal segregation errors occur? | Recombination frequency θ; map function; trisomy probability |
-| **18** | Population Genetics | How do allele frequencies change — or not change — in populations? | Hardy-Weinberg: $p^2 + 2pq + q^2 = 1$; $\Delta p$ under selection; $F_{ST}$ |
+| Chapter | Core question | Quantitative lens |
+| --- | --- | --- |
+| \cref{sec:unit_V_mendelian_principles} | How does segregation generate cross probabilities? | Product and binomial rules; fixed-ratio chi-square |
+| \cref{sec:unit_V_mendelian_extensions_and_human_genetics} | What changes genotype-to-phenotype predictions? | Epistasis, penetrance, conditional pedigree risk |
+| \cref{sec:unit_V_chromosomal_inheritance} | How does phase determine linkage evidence? | Labeled haplotypes and three-point maps |
+| \cref{sec:unit_V_population_genetics} | What does a population sample establish? | HWE expectations, drift, selection and clocks |
 
 ---
 
@@ -107,16 +108,16 @@ paper-based lab decision.
 ```python
 from biology.genetics import hardy_weinberg, hamming_distance, chi_squared_test
 
-# Hardy-Weinberg equilibrium: cystic fibrosis (autosomal recessive)
-# Carrier frequency q ≈ 1/22 in Northern Europeans → q ≈ 0.045, p ≈ 0.955
+# Synthetic autosomal-recessive teaching population (not a CF prevalence estimate)
+# q is the allele frequency, not the carrier frequency; carriers have frequency 2pq.
 hw = hardy_weinberg(p=0.955, q=0.045)
 print(f"AA (unaffected non-carrier): {hw.p_squared:.4f} = {hw.p_squared*100:.1f}%")
 print(f"Aa (carrier):               {hw.two_pq:.4f} = {hw.two_pq*100:.1f}%")
 print(f"aa (affected):              {hw.q_squared:.5f} = 1 in {1/hw.q_squared:.0f}")
 # Expected:
 # AA (unaffected non-carrier): 0.9120 = 91.2%
-# Aa (carrier):               0.0860 = 8.6%  (≈ 1 in 23 — matches observed carrier rate)
-# aa (affected):              0.00203 = 1 in 493
+# Aa (carrier):               0.0860 = 8.6%  (≈ 1 in 11.63)
+# aa (affected):              0.00203 = 1 in 494
 
 # Sequence distance between two short alleles
 dist = hamming_distance("ATGCTAGC", "ATGATAGT")
@@ -129,8 +130,7 @@ print(f"χ² = {chi.chi_squared:.2f}, p ≈ {chi.p_value_approx:.3f}")
 # Expected: χ² ≈ 1.33, p ≈ 0.25 (not significant; consistent with 3:1)
 ```
 
-> **Try it yourself:** Change carrier frequency to `q = 0.02` (rare disease).
-> What fraction of affected individuals are born to two carrier parents?
+> **Try it yourself:** Set allele frequency `q = 0.02` and `p = 0.98`. Compute carriers ($2pq=0.0392$) and affected homozygotes ($q^2=0.0004$). For a stipulated carrier fraction of 1/22, solve $2q(1-q)=1/22$ for the rare-allele root rather than assigning $q=1/22$.
 
 ---
 

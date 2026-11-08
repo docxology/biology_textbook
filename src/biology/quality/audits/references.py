@@ -4,18 +4,18 @@ from __future__ import annotations
 
 import re
 
-
 from biology.citations import bib_keys, citation_keys
+from biology.crossref.helpers import strip_canonical_plain_refs
 from biology.maintenance.manuscript_walker import (
     iter_prose_lines,
     manuscript_markdown_files,
+    require_manuscript_source,
 )
 from biology.quality import paths
-from biology.quality.models import Finding
-from biology.crossref.helpers import strip_canonical_plain_refs
 from biology.quality.audits.helpers import (
     _generated_block_line_numbers,
 )
+from biology.quality.models import Finding
 from biology.quality.patterns import (
     BROKEN_CREF_RE,
     BROKEN_NAMEREF_RE,
@@ -28,6 +28,7 @@ from biology.quality.patterns import (
     LATEX_EQUATION_TAG_RE,
     RAW_LATEX_RENDERED_REF,
 )
+
 
 def audit_broken_crossrefs(findings: list[Finding]) -> None:
     for path in manuscript_markdown_files():
@@ -69,18 +70,24 @@ def audit_references(findings: list[Finding]) -> None:
                 )
 
 def audit_glossary_and_citations(findings: list[Finding]) -> None:
-    bib = (paths.MANUSCRIPT / "references.bib").read_text(encoding="utf-8")
-    defined = bib_keys(bib)
-    cited: set[str] = set()
-    for path in manuscript_markdown_files():
-        text = path.read_text(encoding="utf-8")
-        cited.update(citation_keys(text))
-    for key in sorted(cited - defined):
-        findings.append(Finding("error", "dangling-citation", paths.MANUSCRIPT / "references.bib", 1, key))
-    for key in sorted(defined - cited):
-        findings.append(Finding("error", "orphan-bibentry", paths.MANUSCRIPT / "references.bib", 1, key))
+    bib_path = require_manuscript_source(paths.MANUSCRIPT / "references.bib", paths.MANUSCRIPT, project_root=paths.PROJECT)
+    bib = bib_path.read_text(encoding="utf-8")
+    try:
+        defined = bib_keys(bib)
+    except ValueError as exc:
+        findings.append(Finding("error", "invalid-bibliography", bib_path, 1, str(exc)))
+    else:
+        cited: set[str] = set()
+        for path in manuscript_markdown_files():
+            text = path.read_text(encoding="utf-8")
+            cited.update(citation_keys(text))
+        for key in sorted(cited - defined):
+            findings.append(Finding("error", "dangling-citation", paths.MANUSCRIPT / "references.bib", 1, key))
+        for key in sorted(defined - cited):
+            findings.append(Finding("error", "orphan-bibentry", paths.MANUSCRIPT / "references.bib", 1, key))
 
-    glossary = (paths.MANUSCRIPT / "glossary.md").read_text(encoding="utf-8")
+    glossary_path = require_manuscript_source(paths.MANUSCRIPT / "glossary.md", paths.MANUSCRIPT, project_root=paths.PROJECT)
+    glossary = glossary_path.read_text(encoding="utf-8")
     anchors = re.findall(r"\{#(gl:[A-Za-z0-9_-]+)\}", glossary)
     duplicates = sorted({anchor for anchor in anchors if anchors.count(anchor) > 1})
     for anchor in duplicates:

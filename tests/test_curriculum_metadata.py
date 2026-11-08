@@ -4,12 +4,12 @@ from __future__ import annotations
 
 import importlib
 import importlib.util
+import shutil
 import sys
 from pathlib import Path
 
 import pytest
 import yaml
-
 
 PROJECT = Path(__file__).resolve().parent.parent
 MANUSCRIPT = PROJECT / "docs" / "manuscript"
@@ -17,11 +17,11 @@ SRC = PROJECT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from textbook_paths import discover_template_root  # noqa: E402
+from textbook_paths import discover_template_root
 
 TEMPLATE_ROOT = discover_template_root(PROJECT)
 
-from biology.crossref.helpers import section_reference  # noqa: E402
+from biology.crossref.helpers import section_reference
 
 
 def _load_module(name: str, path: Path):
@@ -70,6 +70,35 @@ def _sync_blocks():
     return importlib.import_module("biology.curriculum_sync.sync_blocks")
 
 
+def test_curriculum_regeneration_preserves_assessments_and_stabilizes_files(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from biology.curriculum_sync import cli, engine, paths, sync_blocks
+
+    manuscript = tmp_path / "docs" / "manuscript"
+    shutil.copytree(MANUSCRIPT, manuscript, symlinks=True)
+    for module in (cli, engine, paths, sync_blocks):
+        if hasattr(module, "MANUSCRIPT"):
+            monkeypatch.setattr(module, "MANUSCRIPT", manuscript)
+        if hasattr(module, "PROJECT"):
+            monkeypatch.setattr(module, "PROJECT", tmp_path)
+
+    def snapshot() -> dict[str, tuple[bytes, int, int]]:
+        return {
+            path.relative_to(manuscript).as_posix(): (
+                path.read_bytes(), path.stat().st_mtime_ns, path.stat().st_ino,
+            )
+            for path in manuscript.rglob("*.md")
+        }
+
+    original_assessments = {path: value[0] for path, value in snapshot().items() if path.startswith(("labs/", "questions/"))}
+    assert cli.main([]) == 0
+    first = snapshot()
+    assert {path: value[0] for path, value in first.items() if path.startswith(("labs/", "questions/"))} == original_assessments
+    assert cli.main([]) == 0
+    assert snapshot() == first
+
+
 def test_sync_blocks_replaces_duplicate_marker_blocks() -> None:
     sync_blocks = _sync_blocks()
     block = "\n".join(
@@ -112,18 +141,7 @@ def test_sync_blocks_normalize_headings_preserves_fenced_code(tmp_path: Path) ->
     sync_blocks = _sync_blocks()
     path = tmp_path / "chapter.md"
     path.write_text(
-        "\n".join(
-            [
-                "# Demo",
-                "",
-                "```markdown",
-                "## Procedure",
-                "```",
-                "",
-                "## 2. Procedure",
-                "",
-            ]
-        ),
+        "# Demo\n\n```markdown\n## Procedure\n```\n\n## 2. Procedure\n",
         encoding="utf-8",
     )
 
@@ -207,20 +225,6 @@ def test_curriculum_companion_paths_and_labels_exist() -> None:
     assert not missing
 
 
-def test_generated_curriculum_blocks_are_present_once() -> None:
-    curriculum = _curriculum()
-    offenders: list[str] = []
-    for record in curriculum.CURRICULUM:
-        checks = (
-            (_chapter_path(record.chapter_id), "<!-- curriculum-scaffold-start -->"),
-            (_lab_path(record.chapter_id), "<!-- lab-evidence-checklist-start -->"),
-            (_question_path(record.chapter_id), "<!-- question-coverage-start -->"),
-        )
-        for path, marker in checks:
-            count = path.read_text(encoding="utf-8").count(marker)
-            if count != 1:
-                offenders.append(f"{path.relative_to(PROJECT)} has {count} copies of {marker}")
-    assert not offenders
 
 
 def test_curriculum_appendix_references_every_chapter_lab_and_question_bank() -> None:

@@ -1,30 +1,29 @@
-"""Answer refinement engine."""
+"""Prompt classification and authoritative generic-answer detection."""
 
 from __future__ import annotations
 
-import logging
 import re
 
-from biology.quality.patterns import ANSWER_REFINEMENT_SIGNATURES
-
-
-logger = logging.getLogger(__name__)
+from biology.quality.patterns import (
+    ANSWER_REFINEMENT_SIGNATURES,
+    QUESTION_GENERIC_PATTERNS,
+)
 
 
 def is_v1_generated(body: str) -> bool:
-    return any(sig in body for sig in ANSWER_REFINEMENT_SIGNATURES)
+    return any(sig in body for sig in ANSWER_REFINEMENT_SIGNATURES) or any(
+        pattern.search(body) for _, pattern in QUESTION_GENERIC_PATTERNS
+    )
 
 
 # ---------------------------------------------------------------------------
 # Parsing
 # ---------------------------------------------------------------------------
 
-_TIER_HDR = re.compile(
-    r"^##\s+Questions\s+(\d+)[–-](\d+):",
-    re.IGNORECASE,
+_LABEL_RE = re.compile(
+    r"(?:\\label\{sec:q_|^# [^\n]*\{#sec:q_)(unit_[0-9IVX]+)_([a-z0-9_]+)(?=[}\s])",
+    re.MULTILINE,
 )
-_QUESTION_LINE = re.compile(r"^(\d{1,2})\.\s+(.+?)\s*$")
-_LABEL_RE = re.compile(r"\\label\{sec:q_(unit_[0-9IVX]+)_([a-z_]+)\}")
 
 def tier_for(q_num: int) -> str:
     if q_num <= 10:
@@ -279,148 +278,3 @@ def prompt_specific_anchor(text: str) -> str:
     return "Tie the conclusion back to the scenario, interpretation, or consequence requested in the prompt."
 
 
-# ---------------------------------------------------------------------------
-# Extractive chapter evidence
-# ---------------------------------------------------------------------------
-
-_STOPWORDS = {
-    "about",
-    "after",
-    "again",
-    "against",
-    "also",
-    "because",
-    "before",
-    "between",
-    "biology",
-    "chapter",
-    "could",
-    "describe",
-    "does",
-    "during",
-    "each",
-    "explain",
-    "from",
-    "give",
-    "have",
-    "into",
-    "make",
-    "more",
-    "most",
-    "name",
-    "only",
-    "other",
-    "should",
-    "show",
-    "state",
-    "than",
-    "that",
-    "their",
-    "then",
-    "there",
-    "these",
-    "this",
-    "through",
-    "using",
-    "what",
-    "when",
-    "where",
-    "which",
-    "while",
-    "with",
-    "would",
-    "your",
-}
-
-_SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])\s+(?=[A-Z0-9(*`])")
-_MARKDOWN_LINK_RE = re.compile(r"\[([^\]]+)\]\([^)]+\)")
-_INLINE_FORMAT_RE = re.compile(r"[*_`]+")
-_LATEX_INLINE_PROTECT_RE = re.compile(r"\\(?:cref|label|citep|citet|cite)\{[^}]*\}")
-_COMMENT_RE = re.compile(r"<!--.*?-->", re.DOTALL)
-_FENCE_RE = re.compile(r"```.*?```", re.DOTALL)
-_MARKDOWN_HEADING_RE = re.compile(r"^(#{1,6})\s+(.*?)\s*$")
-_CITATION_TAIL_RE = re.compile(r"^[A-Z]\., \d")
-
-def _tokens(text: str) -> set[str]:
-    return {
-        tok
-        for tok in re.findall(r"[A-Za-z][A-Za-z0-9+-]{2,}", text.lower())
-        if tok not in _STOPWORDS and len(tok) > 3
-    }
-
-def _clean_sentence(sentence: str) -> str:
-    sentence = _MARKDOWN_LINK_RE.sub(r"\1", sentence)
-    protected_tokens: dict[str, str] = {}
-
-    def protect(match: re.Match[str]) -> str:
-        token_index = len(protected_tokens)
-        placeholder = f"XLATEXPROTECT{token_index}X"
-        while placeholder in sentence or placeholder in protected_tokens:
-            token_index += 1
-            placeholder = f"XLATEXPROTECT{token_index}X"
-        protected_tokens[placeholder] = match.group(0)
-        return placeholder
-
-    sentence = _LATEX_INLINE_PROTECT_RE.sub(protect, sentence)
-    sentence = _INLINE_FORMAT_RE.sub("", sentence)
-    sentence = re.sub(r"\s+", " ", sentence).strip()
-    sentence = sentence.strip(" -")
-    for placeholder, original in protected_tokens.items():
-        sentence = sentence.replace(placeholder, original)
-    return sentence
-
-def _candidate_sentences(chapter_text: str) -> list[str]:
-    text = _FENCE_RE.sub(" ", chapter_text)
-    text = _COMMENT_RE.sub(" ", text)
-    lines: list[str] = []
-    skip_heading_level: int | None = None
-    in_curriculum_scaffold = False
-    for raw in text.splitlines():
-        line = raw.strip()
-        if not line:
-            continue
-        if in_curriculum_scaffold:
-            if "-->" in line:
-                in_curriculum_scaffold = False
-            continue
-        if "<!-- curriculum-scaffold" in line:
-            if "-->" not in line:
-                in_curriculum_scaffold = True
-            continue
-        heading_match = _MARKDOWN_HEADING_RE.match(line)
-        if heading_match:
-            heading_level = len(heading_match.group(1))
-            heading_title = heading_match.group(2).strip().lower()
-            if skip_heading_level is not None and heading_level <= skip_heading_level:
-                skip_heading_level = None
-            if heading_title in {"learning objectives", "study blueprint"}:
-                skip_heading_level = heading_level
-                continue
-        # If no equal-or-higher heading appears, this conservative skip region runs to EOF.
-        if skip_heading_level is not None:
-            continue
-        if line.startswith("> "):
-            continue
-        if line.startswith(("#", "|", "!", "$$", "\\", "{", "}", ":::")):
-            continue
-        if line.startswith(("-", "*")) and len(line) < 90:
-            continue
-        if line.startswith("Figure") or line.startswith("Table"):
-            continue
-        lines.append(line)
-
-    joined = " ".join(lines)
-    sentences: list[str] = []
-    for sentence in _SENTENCE_SPLIT_RE.split(joined):
-        cleaned = _clean_sentence(sentence)
-        if not 70 <= len(cleaned) <= 320:
-            continue
-        lowered = cleaned.lower()
-        if any(skip in lowered for skip in ("learning objectives", "source code module", "further reading")):
-            continue
-        if any(skip in cleaned for skip in ("?", "Problem:", "Concept Check", "Why might", "What does this imply")):
-            continue
-        if ">" in cleaned or "Primary source:" in cleaned or _CITATION_TAIL_RE.match(cleaned):
-            continue
-        sentences.append(cleaned)
-    return sentences

@@ -33,7 +33,7 @@ which life has been shaped by evolution.
 | Friedrich Wöhler | 1828 | \citep{wohler1828} | Synthesis of urea from inorganic ammonium cyanate | Disproved vitalism; showed organic compounds obey the same chemistry as inorganic ones |
 | Linus Pauling & Robert Corey | 1951 | \citep{pauling1951helix} | α-helix and β-sheet structures of proteins | Established that protein secondary structure is stabilized by H-bonds; first use of electronegativity to predict biological structure |
 | James Watson & Francis Crick | 1953 | \citep{watson1953} | Double-helix structure of DNA | Anti-parallel, complementary base-pairing via H-bonds; immediately suggested replication mechanism |
-| Frederic Sanger | 1955 | \citep{sanger1955insulin} | Complete amino acid sequence of bovine insulin | Proved proteins are defined covalent sequences, not random polymers; introduced sequence concept |
+| Frederick Sanger and collaborators | 1955 | \citep{sanger1955insulin} | Complete covalent structure of bovine insulin | Defined amino-acid chains and disulfide connectivity; sequence constrains folding in its physical context |
 | Leonor Michaelis & Maud Menten | 1913 | \citep{michaelis1913} | Enzyme-substrate saturation kinetics | Derived $v = V_{max}[S]/(K_m + [S])$; quantitative foundation of enzymology |
 | Daniel Koshland | 1958 | \citep{koshland1958} | Induced-fit model of enzyme catalysis | Replaced lock-and-key; explained conformational changes in enzyme-substrate interaction |
 | Jacques Monod, Jeffries Wyman & Jean-Pierre Changeux | 1965 | \citep{monod1965} | MWC model of allosteric regulation | Showed enzymes have distinct regulatory and catalytic sites; explains cooperative binding |
@@ -81,7 +81,7 @@ paper-based lab decision.
 | ------- | ----- | ------------- | -------------------- |
 | **1** | Atoms, Molecules, and Chemical Bonds | Why do atoms bond, and how does bond type determine biological function? | $\Delta G^{\circ\prime} = -nF\Delta E^{\circ\prime}$ |
 | **2** | Water — The Molecule of Life | What makes water anomalous, and why is that anomaly essential for life? | $\pi = iCRT$ (osmotic pressure) |
-| **3** | Biological Macromolecules | How do four classes of polymer encode and carry out life's functions? | Molecular weight, degree of polymerization |
+| **3** | Biological Macromolecules | How do major biomolecule classes build structures and carry out life's functions? | Molecular size, polymerization where applicable, and lipid assembly |
 | **4** | Enzymes and the Kinetics of Catalysis | How do enzymes lower activation energy, and how is their activity regulated? | $v = V_{max}[S]/(K_m + [S])$ |
 
 ---
@@ -106,12 +106,12 @@ generate figures and worked examples throughout \nameref{sec:unit_I_unit_intro}.
 ```python
 from biology.biochemistry import michaelis_menten, glycolysis_summary
 
-# Michaelis-Menten kinetics: lactate dehydrogenase (LDH)
-# Vmax = 12.0 mM/s, Km = 0.8 mM (pyruvate as substrate)
+# Stipulated Michaelis-Menten teaching parameters, not an enzyme assay fit:
+# Vmax = 12.0 µmol/min, Km = 0.8 µM, substrate = 2.0 µM.
 result = michaelis_menten(substrate_conc=2.0, Vmax=12.0, Km=0.8)
-print(f"Reaction rate at [S]=2 mM: {result.reaction_rate:.2f} mM/s")
-# Expected: Reaction rate at [S]=2 mM: 8.57 mM/s
-# (= 12.0 × 2.0 / (0.8 + 2.0); Vmax/2 occurs at [S]=Km=0.8 mM)
+print(f"Reaction rate at [S]=2 µM: {result.reaction_rate:.2f} µmol/min")
+# Expected: Reaction rate at [S]=2 µM: 8.57 µmol/min
+# (= 12.0 × 2.0 / (0.8 + 2.0); Vmax/2 occurs at [S]=Km=0.8 µM)
 
 # Glycolysis summary: net products per glucose
 summary = glycolysis_summary()

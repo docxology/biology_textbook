@@ -60,13 +60,19 @@ question bank, model/data skill, misconception probe, and transfer task.
 concepts/competencies, AP Biology big ideas/practices, NGSS-style topics,
 BioSkills categories, and instructor orchestration moves. Run
 `scripts/sync_curriculum_materials.py` after changing title, curriculum, or
-alignment sources; it rewrites renderable H1s, chapter Study Blueprints, lab
-evidence checklists, question-bank coverage notes, front-matter navigation,
-Appendix A's curriculum map, Appendix B's instructor orchestration guide, and
+alignment sources; it rewrites renderable H1s, chapter Study Blueprints,
+front-matter navigation, Appendix A's curriculum map, Appendix B's instructor
+orchestration guide, and
 ToC-safe heading attributes. Do not hand-prefix headings with section numbers;
 Pandoc/LaTeX supplies numbering for body chapters, while front matter, unit
 intros, labs, question banks, and reference appendices are synchronized as
 unnumbered ToC entries.
+
+Lab procedures, question prompts/keys, rubrics and coverage notes are authored
+content, not curriculum-generator output. The retired lab/question body sync
+functions and their ownership markers are removed. Review these bodies and their
+semantic assessment records directly; unchanged native synchronization preserves
+their bytes, mtimes and inodes.
 
 **PDF opening and cover:** the cover title, subtitle, author block, publishing
 page, and page-3 Contents are generated from `docs/manuscript/config.yaml`.
@@ -101,10 +107,12 @@ PDF-render failure so diagrams are never silently dropped.
 | `\begin{equation}\label{eq:unit_X_<descriptor>}…\end{equation}` | Anything you `\cref{...}` | **Yes** |
 | `\begin{align}\label{eq:unit_X_<descriptor>}…\end{align}` | Multi-line cross-referenced derivation | **Yes** |
 | `$$ … $$` (plain) | Display math without numbering or reference | No |
-| `$ … $` | Inline math | No |
+| `$…$` | Inline math, without whitespace immediately inside the delimiters | No |
 
 > [!WARNING]
 > Do not use manual equation-number tags in manuscript prose. Use labeled `equation` or `align` environments for numbered display equations; use plain `$$ … $$` only for unnumbered display math.
+
+The actual PDF reader uses dollar-delimited math; do not author `\(...\)` or `\[...\]` delimiters. Write literal concentration notation as `$[\mathrm{S}]$`, not bare `[S]`: Pandoc can interpret the latter as an implicit link to an alphabet-index heading and drop its brackets. Escape non-mathematical literal brackets, for example `benzo\[a\]pyrene` or etymological `\[L\]`. Keep outer pipe-table cells spaced (`| value | next |`), and leave a blank line before a table caption so it cannot become ordinary paragraph text.
 
 `pandoc-crossref` attributes like `{#eq:myid}` on display math are validated by [../src/biology/crossref_validator.py](../src/biology/crossref_validator.py).
 
@@ -167,28 +175,24 @@ Details match [../manuscript/AGENTS.md — Adding a New Chapter](../docs/manuscr
 
 ### 4) New `src/biology` API used in a chapter
 
-- Imports use `from biology.<pkg> import ...` with **real** signatures; code blocks are exercised by tests indirectly via coverage expectations — add or extend tests in `tests/test_*.py` when you add public functions.
+- Use actual public signatures. Coverage alone does not prove printed snippets execute or validate a model; add direct snippet/numerical tests and distinguish synthetic output from observations.
 - Reconcile [api_reference.md](api_reference.md) so the new function appears in the appropriate table.
 
 ---
 
 ## Validation commands
 
-From the active project root:
+From this project root after [locked setup](../README.md#standalone-quick-start):
 
 ```bash
-uv run python -m pytest tests/ --cov=src --cov-fail-under=90
+uv run --frozen --extra dev python scripts/audit_publication_readiness.py --check
+uv run --frozen --extra dev python scripts/audit_publication_readiness.py --check --full
+uv run --frozen --extra dev python scripts/render_textbook.py
 ```
 
-From **template repository root**:
+These project-local commands use a read-only template library selected by BIOLOGY_TEXTBOOK_TEMPLATE_ROOT or genuine enclosing template; invalid explicit selection fails and ambient neighbors are ignored. Every render validates and atomically stages the complete live source set, requires fresh canonical source-matched inline PNGs and writes under project output. Full proof includes tests, analysis, render and strict PDF-log checks; default review is not full release proof.
 
-```bash
-uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/docs/manuscript/
-uv run python -m infrastructure.validation.cli prerender /path/to/biology_textbook/docs/manuscript/ --repo-root .
-```
-
-> [!TIP]
-> Run `markdown` after every bulk edit; add `prerender` before relying on a clean PDF (same gate as the renderer's source check).
+Assessment mappings and lab rubrics are author-owned semantic records. Validate with scripts/sync_assessment_metadata.py --check, never regenerate positionally. Unsupported automatic answer repair refuses without writing. Required labs must supply finite printed datasets and tasks.
 
 ---
 

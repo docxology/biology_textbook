@@ -18,7 +18,7 @@ from visualization._scaffold import (
 def plot_light_response_curve(
     output_dir: Path,
 ) -> Path:
-    """Plot photosynthesis light-response curves for C3, C4, and CAM plants.
+    """Plot illustrative C3-, C4- and CAM-labeled hyperbolic parameter sets.
 
     Args:
         output_dir: Directory to save PNG.
@@ -44,7 +44,7 @@ def plot_light_response_curve(
     ax.axhline(0, color="black", linewidth=0.8, linestyle="--")
     ax.set_xlabel("Photon Flux Density, PAR (µmol m⁻² s⁻¹)", fontsize=14)
     ax.set_ylabel("Net Photosynthesis A_net (µmol CO₂ m⁻² s⁻¹)", fontsize=14)
-    ax.set_title("Photosynthesis Light-Response Curves: C3, C4, CAM", fontsize=15)
+    ax.set_title("Illustrative Light Responses: C3-, C4-, CAM-Labeled Parameters", fontsize=15)
     ax.legend(fontsize=12)
     ax.tick_params(labelsize=12)
     fig.tight_layout()
@@ -69,7 +69,7 @@ def plot_photosynthesis_rate(
     ax.axhline(0, color=GRAY, linestyle=":", linewidth=1.0)
     ax.set_xlabel("PAR (µmol m⁻² s⁻¹)", fontsize=13)
     ax.set_ylabel("Net photosynthesis (µmol CO₂ m⁻² s⁻¹)", fontsize=13)
-    ax.set_title("Net Photosynthesis Light-Response Curves", fontsize=15)
+    ax.set_title("Illustrative Net Photosynthesis Light-Response Curves", fontsize=15)
     ax.legend(fontsize=10, frameon=False)
     ax.tick_params(labelsize=11)
     fig.tight_layout()
@@ -90,7 +90,7 @@ def plot_water_potential_transpiration(
         psi_s.append(result.osmotic_potential_MPa)
         psi_total.append(result.water_potential_MPa)
 
-    external_vapor = np.linspace(0.30, 0.50, 90)
+    external_vapor = np.linspace(0.0075, 0.0125, 90)
     conductances = [0.10, 0.20, 0.35]
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.5, 5))
@@ -106,13 +106,13 @@ def plot_water_potential_transpiration(
         flux = [
             transpiration_flux(
                 stomatal_conductance_mol_m2_s=conductance,
-                internal_vapor_conc_mol_m3=0.52,
-                external_vapor_conc_mol_m3=float(external),
+                internal_vapor_mole_fraction=0.013,
+                external_vapor_mole_fraction=float(external),
             ).flux_mmol_m2_s
             for external in external_vapor
         ]
         ax2.plot(external_vapor, flux, color=color, linestyle=linestyle, linewidth=2.2, label=f"g = {conductance:g}")
-    ax2.set_xlabel("External water vapor concentration (mol m^-3)", fontsize=12)
+    ax2.set_xlabel("External water vapor mole fraction (mol/mol)", fontsize=12)
     ax2.set_ylabel("Transpiration flux (mmol m^-2 s^-1)", fontsize=12)
     ax2.set_title("Fick-Law Transpiration Gradient", fontsize=13)
     ax2.legend(title="Conductance", fontsize=9, title_fontsize=9, frameon=False)
@@ -129,7 +129,8 @@ def plot_pollen_tube_growth(output_dir: Path) -> Path:
 
     Two illustrative growth profiles share the panel: a fast tube (lily-like,
     20 um/min, 2000 um saturation) and a slow tube (Arabidopsis-like,
-    8 um/min, 1000 um saturation). Both follow a saturating logistic curve.
+    8 um/min, 1000 um saturation). Both follow a saturating-linear law,
+    sampled analytically; parameters are illustrative, not species estimates.
 
     Args:
         output_dir: Directory to save PNG.
@@ -149,7 +150,7 @@ def plot_pollen_tube_growth(output_dir: Path) -> Path:
         color=SERIES2[0],
         linewidth=2.4,
         linestyle="-",
-        label="Fast (lily-like, 20 um/min)",
+        label="Fast illustrative tube (20 um/min)",
     )
     ax.plot(
         slow.times_min,
@@ -157,7 +158,7 @@ def plot_pollen_tube_growth(output_dir: Path) -> Path:
         color=SERIES2[1],
         linewidth=2.4,
         linestyle="--",
-        label="Slow (Arabidopsis-like, 8 um/min)",
+        label="Slow illustrative tube (8 um/min)",
     )
     ax.axhline(
         fast.saturation_length_um,

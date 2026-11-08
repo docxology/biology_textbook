@@ -21,6 +21,7 @@ EXPECTED_CONFIGURED_SURFACE_COUNTS = {
 
 
 QUESTION_GENERIC_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
+    ("generic-answer-response-on", re.compile(r"The response on \*[^*\n]+\* should use the ")),
     ("generic-answer-define", re.compile(r"Give the canonical definition of")),
     ("generic-answer-define-broad", re.compile(r"Give the canonical definition")),
     ("generic-answer-mechanism", re.compile(r"Build a mechanistic answer")),
@@ -42,14 +43,12 @@ QUESTION_GENERIC_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("generic-answer-judgment", re.compile(r"make a justified judgment")),
     ("generic-answer-vocab-pitfall", re.compile(r"giving a vocabulary-only answer")),
     ("generic-answer-name-term", re.compile(r"Name the term in ")),
-    ("generic-answer-evidence-anchor", re.compile(r"Evidence anchor:")),
     ("generic-answer-credit-requires", re.compile(r"Credit requires an explicit mechanism")),
     ("generic-answer-prompt-linked", re.compile(r"prompt-linked evidence")),
     ("generic-answer-core-response", re.compile(r"Core response for \*")),
     ("generic-answer-expected-answer", re.compile(r"Expected answer for \*")),
     ("generic-answer-prompt-cues", re.compile(r"Prompt cues to cover:")),
     ("generic-answer-source-standard", re.compile(r"Source standard:")),
-    ("generic-answer-common-pitfall", re.compile(r"Common pitfall:")),
     ("generic-answer-chapter-lens", re.compile(r"Chapter lens:")),
     ("generic-answer-governing-equation", re.compile(r"set up the governing equation")),
     ("generic-answer-defensible-judgment", re.compile(r"state a defensible judgment")),
@@ -132,7 +131,6 @@ ANSWER_REFINEMENT_SIGNATURES: tuple[str, ...] = (
     "Expected answer for *",
     "Prompt cues to cover:",
     "Source standard:",
-    "Common pitfall:",
     "Chapter lens:",
     "boundary condition that prevents overgeneralizing it",
     "Answer every requested clause rather than only the opening phrase",

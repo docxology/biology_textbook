@@ -39,7 +39,7 @@ RECORDS = (
     ),
     _r(
         "unit_V_population_genetics",
-        "Allele frequencies change when assumptions about random mating, population size, and fitness are violated.",
+        "Selection, drift, mutation, and gene flow can change allele frequencies; mating patterns can redistribute genotype frequencies without necessarily changing allele frequencies.",
         ("Hardy-Weinberg", "selection", "mutation", "genetic drift"),
         "Hardy-Weinberg and allele-frequency recurrence calculations.",
         "Estimate genotype or allele frequencies from population data.",

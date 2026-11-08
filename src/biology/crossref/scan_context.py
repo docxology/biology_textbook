@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
 from biology.crossref.helpers import suggest_id
 from biology.crossref.models import CrossRefIssue
-from biology.crossref.patterns import RE_LATEX_LABEL
+from biology.crossref.patterns import RE_LATEX_LABEL, reference_key
 
 
 @dataclass
@@ -33,15 +34,38 @@ class ScanContext:
     eq_ordinal: int = 0
     fig_ordinal: int = 0
     tbl_ordinal: int = 0
-    in_code_fence: bool = False
-    code_fence_lang: str = ""
+
+    def record_definitions(self, text: str) -> None:
+        """Index all rendered raw/Pandoc definitions, retaining duplicates."""
+        cursor = 0
+        line_no = 1
+        for match in re.finditer(
+            r"\\label\s*\{([^{}]*)\}|\{[^{}\n]*?#([^\s{}]+)[^{}\n]*\}", text,
+        ):
+            line_no += text.count("\n", cursor, match.start())
+            cursor = match.start()
+            line = self.lines[line_no - 1]
+            raw = match.group(1) if match.group(1) is not None else match.group(2)
+            target = raw.strip()
+            if not target:
+                self.issues.append(CrossRefIssue(
+                    file=self.path, line=line_no, kind="ref", problem="missing_id", context=line,
+                ))
+                continue
+            key = reference_key(target)
+            if key in self.defined:
+                self.issues.append(CrossRefIssue(
+                    file=self.path, line=line_no,
+                    kind={"sec": "section", "fig": "figure", "eq": "equation", "tbl": "table"}.get(key[0], key[0]),
+                    problem="duplicate", suggested_id=target, context=line,
+                ))
+            else:
+                self.defined[key] = line_no
 
     def record_latex_equation_block(self, block: str, start_line: int) -> None:
         self.eq_ordinal += 1
         label_match = RE_LATEX_LABEL.search(block)
-        if label_match and label_match.group("kind") == "eq":
-            self.defined[("eq", label_match.group("id"))] = start_line
-        else:
+        if not label_match or label_match.group("kind") != "eq":
             self.issues.append(
                 CrossRefIssue(
                     file=self.path,
@@ -53,6 +77,3 @@ class ScanContext:
                 )
             )
 
-    @property
-    def visible_for_xref_check(self) -> bool:
-        return not self.in_code_fence or self.code_fence_lang == "mermaid"

@@ -2,7 +2,11 @@
 
 from __future__ import annotations
 
-from biology.maintenance.typography import normalize_arrows_in_file, normalize_arrows_in_text, replace_greek_math_in_text
+from biology.maintenance.typography import (
+    normalize_arrows_in_file,
+    normalize_arrows_in_text,
+    replace_greek_math_in_text,
+)
 
 
 def test_normalize_arrows_skips_fenced_code() -> None:

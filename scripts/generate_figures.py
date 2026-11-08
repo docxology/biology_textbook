@@ -10,8 +10,8 @@ import argparse
 from pathlib import Path
 
 import yaml
-
-from _bootstrap import PROJECT as PROJECT_DIR, ensure_project_paths
+from _bootstrap import PROJECT as PROJECT_DIR
+from _bootstrap import ensure_project_paths
 
 ensure_project_paths()
 
@@ -47,7 +47,7 @@ def main() -> int:
             logger.info(f"Generated: {path}")
             print(f"  ✓ {path.name}")
             success += 1
-        except (ImportError, OSError, RuntimeError, ValueError) as e:
+        except (ImportError, OSError, RuntimeError, TypeError, ValueError) as e:
             logger.error(f"Failed to generate '{name}': {e}")
             print(f"  ✗ {name}: {e}")
             failures.append(name)

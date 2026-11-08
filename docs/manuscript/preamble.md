@@ -21,7 +21,7 @@
 ]{geometry}
 
 % -----------------------------------------------------------------------
-% HYPERLINK COLOURS — red links regardless of pandoc hidelinks.
+% HYPERLINK COLORS — red links regardless of pandoc hidelinks.
 %
 % Strategy: PassOptionsToPackage fires BEFORE hyperref is loaded by Pandoc,
 % so colorlinks=true wins over hidelinks.  AtBeginDocument then re-applies
@@ -134,6 +134,9 @@
 \titleformat{\subsubsection}{\normalfont\small\bfseries\sffamily}{\thesubsubsection}{0.85em}{}
 \titlespacing*{\section}{0pt}{10pt plus 2pt minus 2pt}{4pt plus 1pt}
 \titlespacing*{\subsection}{0pt}{8pt plus 2pt minus 2pt}{3pt plus 1pt}
+% Starred lab/question headings must not inherit the previous chapter's mark.
+\AddToHook{cmd/section/before}{\markboth{}{}}
+\AddToHook{cmd/tableofcontents/after}{\clearpage\markboth{}{}}
 
 % -----------------------------------------------------------------------
 % TABLE OF CONTENTS

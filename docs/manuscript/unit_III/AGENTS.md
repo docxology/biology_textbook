@@ -8,9 +8,9 @@ This unit covers cellular bioenergetics (thermodynamics, glycolysis, TCA cycle, 
 
 `src/biology/biochemistry/biochemistry.py`:
 - `glycolysis_summary()` — 10-step pathway; net ATP, NADH, total ΔG
-- `atp_free_energy()` — ΔG of ATP hydrolysis (cellular conditions)
+- `atp_free_energy()` — fixed-standard ideal-dilute ATP-hydrolysis teaching model, not a pH/Mg-resolved cellular measurement
 - `michaelis_menten()` — for enzyme regulation discussions
-- `reaction_free_energy()` — any ΔG°' + Q calculation
+- `reaction_free_energy()` — specified 1:1 ideal-dilute product/reactant quotient; arbitrary stoichiometric quotients must be constructed separately
 
 `src/biology/botany/botany.py`:
 - `photosynthesis_rate()` — Michaelis-Menten O₂ evolution
@@ -27,8 +27,8 @@ This unit covers cellular bioenergetics (thermodynamics, glycolysis, TCA cycle, 
 
 - Gibbs free energy: ΔG = ΔH − TΔS
 - Actual ΔG: ΔG = ΔG°' + RT ln Q
-- ATP hydrolysis: ΔG°' = −30.5 kJ/mol (cellular ≈ −54 kJ/mol)
-- Z-scheme: 2 × 1.82 eV photon energy drives electrons from H₂O to NADPH
+- ATP hydrolysis: −30.5 kJ/mol is a conventional standard transformed reference; cellular ΔG depends on the normalized quotient and matching thermodynamic conditions
+- Idealized linear electron transfer uses one PSII and one PSI excitation per electron (four photons per NADPH); a stipulated 680-nm photon carries about 1.82 eV. Additional cyclic flow and losses require separate assumptions.
 - Calvin cycle: 18 ATP + 12 NADPH → fix 6 CO₂ (1 net hexose)
 
 ## Figures and Diagrams
@@ -41,6 +41,6 @@ This unit covers cellular bioenergetics (thermodynamics, glycolysis, TCA cycle, 
 All chapter files in this unit carry (inserted automatically by the scripts):
 
 - `\label{sec:unit_III_<stem>}` on the line after the H1 — cross-reference with `\cref{sec:unit_III_<stem>}`
-- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../src/biology/chapter_metadata.py`)
+- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../../src/biology/chapter_metadata.py`)
 
-See [../AGENTS.md](../AGENTS.md) and [../../docs/manuscript_guide.md](../../docs/manuscript_guide.md) for the full set of invariants.
+See [../AGENTS.md](../AGENTS.md) and [../../manuscript_guide.md](../../manuscript_guide.md) for the full set of invariants.

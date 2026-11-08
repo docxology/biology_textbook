@@ -80,21 +80,23 @@ def _apply_case(source: str, replacement: str) -> str:
 def normalize_text(text: str) -> tuple[str, int]:
     """Rewrite British spellings in ``text`` outside protected spans."""
     protected = _protected_spans(text)
+    mapping = {british.casefold(): american for british, american in _load_mapping()}
     replacements: list[tuple[int, int, str]] = []
-    for british, american in _load_mapping():
-        pattern = re.compile(rf"\b{re.escape(british)}\b", flags=re.IGNORECASE)
-        for match in pattern.finditer(text):
-            if _is_protected(match.start(), protected):
-                continue
-            replacements.append(
-                (match.start(), match.end(), _apply_case(match.group(0), american))
-            )
+    for match in british_spelling_pattern().finditer(text):
+        if any(start < match.end() and match.start() < end for start, end in protected):
+            continue
+        replacements.append(
+            (match.start(), match.end(), _apply_case(match.group(), mapping[match.group().casefold()]))
+        )
     if not replacements:
         return text, 0
-    out = text
-    for start, end, american in sorted(replacements, key=lambda item: item[0], reverse=True):
-        out = out[:start] + american + out[end:]
-    return out, len(replacements)
+    pieces: list[str] = []
+    cursor = 0
+    for start, end, american in replacements:
+        pieces.extend((text[cursor:start], american))
+        cursor = end
+    pieces.append(text[cursor:])
+    return "".join(pieces), len(replacements)
 
 
 def normalize_file(path: Path, *, write: bool) -> NormalizeResult:
@@ -111,7 +113,7 @@ def normalize_file(path: Path, *, write: bool) -> NormalizeResult:
 
 def _should_normalize(path: Path, root: Path) -> bool:
     rel = path.resolve().relative_to(root.resolve()).as_posix()
-    return rel not in SKIP_RELATIVE_PATHS
+    return path.name not in SKIP_FILENAMES and rel not in SKIP_RELATIVE_PATHS
 
 
 def iter_target_files(root: Path) -> list[Path]:

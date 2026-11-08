@@ -1,195 +1,115 @@
 # Lab — Bioenergetics and Cellular Respiration {#sec:lab_unit_III_bioenergetics_and_respiration .unnumbered}
 
+*This activity accompanies \cref{sec:unit_III_bioenergetics_and_respiration} of the textbook.*
 
 ## Learning Objectives {.unnumbered}
 
-*This activity accompanies \cref{sec:unit_III_bioenergetics_and_respiration} of the textbook — review that chapter before attempting the exercises below.*
-
-- Interpret CO₂ and O₂ datasets as indicators of cellular respiration rate
-- Compare aerobic respiration, fermentation, and the effect of substrate type on respiration rate
-- Calculate respiration rate (mL CO₂ per minute per gram of tissue)
-- Distinguish the contributions of glycolysis, pyruvate oxidation, and the Krebs cycle to overall ATP yield
-
-
+- Compute net glycolytic ATP and NADH from reaction stoichiometry.
+- Calculate corrected oxygen-use rates and explain why the 30–32 ATP reference yields cannot be inferred from gas flux alone.
+- Use substrate and killed-cell controls to interpret fermentation.
+- Discriminate uncoupling from electron-chain inhibition using paired readouts.
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Bioenergetics and Cellular Respiration.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO3):** Compute net glycolytic ATP and NADH from reaction stoichiometry.
+- **Outcome 2 (LO8):** Calculate corrected oxygen-use rates and explain why the 30–32 ATP reference yields cannot be inferred from gas flux alone.
+- **Outcome 3 (LO10):** Use substrate and killed-cell controls to interpret fermentation.
+- **Outcome 4 (LO14):** Discriminate uncoupling from electron-chain inhibition using paired readouts.
+- **Chapter LO coverage:** LO3, LO8, LO10, LO14
+- **Rubric (20 points total):**
+  - **Evidence — 7 points (LO3, LO8, LO10):** Award 2 for mean and bottle-specific fermentation slopes with mL/min units, 3 for bead-corrected active/dormant rates with both time and tissue-mass denominators plus the separate 4+26/4+28 ATP bookkeeping, and 2 for glycolytic ATP investment/production and NADH totals. Preserve setup credit after an arithmetic slip; uncorrected displacement is not a respiration rate per gram.
+  - **Controls — 4 points (LO8, LO10, LO14):** Award 1 each for explaining the live-no-sugar and heat-killed-glucose fermentation comparisons, 1 for the bead drift subtraction under the same chamber conditions, and 1 for matched viable preparations and dose/vehicle controls in the proposed mitochondrial rescue. Each control must name the rival explanation it addresses.
+  - **Uncertainty — 3 points (LO8, LO10):** Award 1 for treating bottles/chambers rather than repeated times as independent n, 1 for explaining why equal sugar mass is not equal available fermentable substrate, and 1 for explaining why CO2 collection or O2 displacement alone cannot determine ATP yield/P/O, identifying a missing ATP or coupling measurement.
+  - **Mechanism — 4 points (LO3, LO10, LO14):** Award 1 for NAD+ regeneration without extra fermentation ATP, 2 for classifying X/Y from the joint O2/potential/ATP pattern rather than one readout, and 1 for predicting that an uncoupler can relieve ATP-synthase backpressure on oxygen flow but not bypass a terminal chain blockade. A rescue proposal without different predicted outcomes earns no rescue-mechanism point.
+  - **Transfer — 2 points (LO10):** For the lactate paper case, award 1 for predicting net 2 glycolytic ATP with no CO2 release and 1 for a paired lactate/ATP readout that would distinguish it from absent glycolytic flux. Zero collected CO2 is not by itself evidence of zero ATP production.
 <!-- lab-alignment-end -->
-## Pre-Lab Concept Questions {.unnumbered}
-
-*Answer these before starting the investigation — they activate knowledge from the parent chapter.*
-
-1. Write the balanced overall equation for the complete aerobic oxidation of one glucose molecule, including ATP yield. Identify which stage of respiration consumes O₂ and which stage releases CO₂.
-2. Define respiratory quotient (RQ) as a ratio of gas-exchange rates, and give the theoretical RQ values for carbohydrate, lipid, and protein substrates.
-3. A germinating pea seedling and a dormant pea seed of the same mass sit in identical respirometers at the same temperature. Predict which would show a greater O₂ consumption rate and explain the metabolic basis of the prediction.
 
 ## Lab Context: Bioenergetics and Cellular Respiration {.unnumbered}
 
-Cellular respiration converts the chemical energy in organic molecules to ATP. The complete aerobic pathway — glycolysis → pyruvate oxidation → Krebs cycle → oxidative phosphorylation — yields a theoretical maximum of ~30 ATP per glucose. The overall equation is: **C₆H₁₂O₆ + 6 O₂ → 6 CO₂ + 6 H₂O + ~30 ATP**. CO₂ production rate and O₂ consumption rate can serve as proxies for metabolic rate. In this lab, printed datasets provide model evidence for comparing aerobic respiration, fermentation, and substrate effects.
+All numeric observations and sequence/assay cards below are **synthetic teaching evidence**, not patient results or empirical measurements, unless a card explicitly names an official or primary source. No external packet, live lookup, equipment, or software is required.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_III_bioenergetics_and_respiration_alignment_and_rubric_map}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Bioenergetics and Cellular Respiration: metabolism source card: organism, compartment, condition, measurement method, and flux boundary | 1 |
-| Fermentation CO₂ dataset by substrate type | 1 |
-| Respirometry O₂-consumption dataset for active, dormant, and volume-control cases | 1 |
-| Pathway carbon-and-electron tracing cards | 1 set |
-| Calibration and control worksheet | 1 |
-| Calculator and graph paper | 1 each |
+Print this complete activity; use pencil, ruler, graph paper, and calculator. Work in pairs but record independent conclusions.
+
+## Printed Evidence Packet {.unnumbered}
+
+### Fermentation trajectories {.unnumbered}
+
+Yeast model: equal cell mass, 25°C, sealed anaerobic bottles, 1% sugar by mass; three independently prepared bottles per condition. Values are collected CO2 in mL at 0, 20, 40 min. Entries in the same list position follow the same bottle through time; bottle IDs 1–3 identify independent preparations, while times within a bottle are repeated observations.
+
+: Fermentation trajectories {#tbl:unit_III_bioenergetics_and_respiration_alignment_and_rubric_map}
+| Condition | 0 min | 20 min | 40 min |
+| --- | --- | --- | --- |
+| Glucose | 0,0,0 | 4,5,6 | 8,10,12 |
+| Sucrose | 0,0,0 | 3,4,5 | 6,8,10 |
+| Starch, no added amylase | 0,0,0 | 0,0,0 | 0,1,2 |
+| Glucose, heat-killed yeast | 0,0,0 | 0,0,0 | 0,0,0 |
+| Live yeast, no sugar | 0,0,0 | 0,0,0 | 0,0,0 |
+
+### Respirometer and pathway cards {.unnumbered}
+
+At 25°C each chamber contains 2.0 g model tissue. Displacement over 10 min is reported as mL oxygen-equivalent after CO2 absorption. Independent chambers:
+
+: Respirometer and pathway cards {#tbl:unit_III_bioenergetics_and_respiration_alignment_and_rubric_map_2}
+| Chamber | Replicate 1 | Replicate 2 | Replicate 3 |
+| --- | --- | --- | --- |
+| Active germinating seeds | 0.60 | 0.64 | 0.68 |
+| Dormant seeds | 0.12 | 0.14 | 0.16 |
+| Inert equal-volume beads | 0.04 | 0.04 | 0.04 |
+
+Pathway cards per glucose: hexokinase -1 ATP, PFK -1 ATP, PGK +2 ATP, pyruvate kinase +2 ATP, GAPDH +2 NADH; ethanol formation consumes 2 NADH, produces 2 CO2, and adds zero ATP. Aerobic reference: 4 substrate-level ATP + 26 oxidative ATP =30 using the glycerol-3-phosphate shuttle; 4+28=32 using malate–aspartate.
+
+Lactate comparison card: pyruvate reduction regenerates NAD+ from NADH without releasing CO2; glycolysis followed by lactate formation still gives net 2 ATP per glucose. No lactate measurement is supplied here.
+
+### Perturbation readouts {.unnumbered}
+
+Independent mitochondrial preparations (n=3/condition), paired rates summarized as the three values. Oxygen-use units: nmol/min/mg protein; membrane potential magnitude mV; ATP synthesis nmol/min/mg.
+
+: Perturbation readouts {#tbl:unit_III_bioenergetics_and_respiration_alignment_and_rubric_map_3}
+| Condition | O2 | Potential | ATP |
+| --- | --- | --- | --- |
+| Vehicle | 20,21,19 | 160,162,158 | 90,94,86 |
+| Compound X | 35,36,34 | 80,82,78 | 30,32,28 |
+| Compound Y | 1,1,1 | 20,22,18 | 2,2,2 |
 
 ## Paper-Based Investigation {.unnumbered}
 
-**Part A — Yeast Fermentation by Substrate Type**
+1. Calculate mean 0–40 min fermentation slopes and the range of bottle-specific slopes. Explain why equal sugar mass does not equal equal fermentable monosaccharide availability.
 
-1. Plot the provided CO₂ proxy data for four model conditions: sucrose, glucose, starch, and no-enzyme negative control.
-2. Calculate the rate of CO₂ increase for each condition between 0 and 40 minutes.
-3. Identify the negative control, the fastest substrate condition, and one alternative explanation that the design rules out.
+2. Subtract the bead drift from each seed reading, divide by 10 min and 2 g, and compare active versus dormant means.
+Use the two aerobic reference cards to show how 30 versus 32 ATP is obtained. Explain which additional measurement would be needed before assigning either yield to the seed gas-flux observations.
 
-**Part B — Active vs Dormant Tissue Model**
+3. Reconstruct glycolytic net ATP and NADH regeneration; distinguish CO2-producing ethanol fermentation from lactate fermentation.
+For a viable glucose-fed preparation that instead follows the printed lactate pathway, predict whether net glycolytic ATP can be produced with zero CO2 release. Name a paired product/energy measurement that would distinguish this from no glycolytic flux; use only the supplied pathway stoichiometry, not an invented measured result.
 
-4. Use the printed O₂-consumption dataset for active seed tissue, dormant seed tissue, and an inert volume control.
-5. Correct the active and dormant readings by subtracting the volume-control displacement.
-6. Convert the corrected values to mL O₂ per minute per gram and connect the result to oxidative phosphorylation.
+4. Classify X and Y, explain the oxygen/ATP dissociation, and propose one rescue experiment distinguishing chain blockade from ATP synthase inhibition.
 
 ## Data Recording {.unnumbered}
 
-: Alignment and Rubric Map: Time (min) and Bottle A. {#tbl:unit_III_bioenergetics_and_respiration_alignment_and_rubric_map_2}
-| Time (min) | Bottle A | Bottle B | Bottle C | Bottle D |
-| ---------- | -------- | -------- | -------- | -------- |
-| 0 | | | | |
-| 10 | | | | |
-| 20 | | | | |
-| 30 | | | | |
-| 40 | | | | |
-
-O₂ consumed (germinating peas): ______ mL / 10 min
-O₂ consumed (dry peas): ______ mL / 10 min
-O₂ consumed (glass beads): ______ mL / 10 min
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Estimate energy yield under aerobic and anaerobic conditions.
-- **Data skill to practice:** Track carbon, electrons, and ATP across a pathway.
-- **BioSkills emphasis:** Quantitative reasoning, Modeling and simulation.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+Record each calculation with units, the comparison/control, and one alternative explanation. Show intermediate steps; use a separate column for observed card evidence versus inferred mechanism.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Bioenergetics and Cellular Respiration** with a reproducibility pass:
-
-: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_III_bioenergetics_and_respiration_alignment_and_rubric_map_3}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
-
-Focus note: in a respiration dataset, follow the electrons and protons explicitly — ask which step the measured rate (O₂ uptake, ATP, Δp) actually constrains, and whether the reported P/O or ATP yield holds once shuttle use and proton leak are stated. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
-
-### Worked Example: ATP Yield and Gas-Exchange Proxies {.unnumbered}
-
-**Problem:** A respirometer containing germinating peas with total mass 15.3 g shows a fluid displacement equivalent to 0.85 mL of O₂ consumed over 10 minutes. A control respirometer containing glass beads of identical volume shows 0.04 mL of displacement over the same 10 minutes (a thermobaric drift correction). The lab is at 25 °C and 1 atm. (a) Compute the corrected O₂ consumption rate in mL O₂ per minute per gram of pea tissue. (b) Convert that rate into mmol O₂ per minute per gram using the ideal gas law.
-
-**Solution:**
-
-(a) Corrected O₂ volume over 10 min = 0.85 − 0.04 = 0.81 mL
-
-Rate per minute = 0.81 / 10 = 0.081 mL O₂ / min
-
-Mass-specific rate = 0.081 / 15.3 ≈ 0.00529 mL O₂ / (min·g) ≈ 5.29 × 10⁻³ mL O₂ / (min·g)
-
-(b) Use the ideal gas law in the form n = PV / (RT):
-
-- P = 1 atm
-- V = 0.081 mL = 8.1 × 10⁻⁵ L (per minute)
-- R = 0.0821 L·atm·mol⁻¹·K⁻¹
-- T = 25 + 273.15 = 298.15 K
-
-n / min = (1 × 8.1 × 10⁻⁵) / (0.0821 × 298.15) ≈ 3.31 × 10⁻⁶ mol O₂ / min
-
-Per gram: 3.31 × 10⁻⁶ / 15.3 ≈ 2.16 × 10⁻⁷ mol O₂ / (min·g) ≈ 0.216 μmol O₂ / (min·g) ≈ 2.16 × 10⁻⁴ mmol O₂ / (min·g)
-
-**Interpretation:** The glass-bead control subtracts apparent gas-volume change that is not biological — thermal expansion, slow leaks, capillary creep. Without it, the measurement would overstate respiration by about 5%, which would matter when comparing treatments. Mass-specific rates (per gram of tissue) let students compare seeds of different sizes on equal footing, and converting to molar units lets them connect the measurement to stoichiometric equations for glucose oxidation — for example, predicting CO₂ production from a known RQ.
-
-
-### Source-Governance Checkpoint {.unnumbered}
-
-Complete the source-governance card for Bioenergetics and Cellular Respiration before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+CO2 collection misses dissolved gas and does not measure ATP. Seed displacement depends on temperature/drift and CO2 absorption; gas flux alone cannot determine P/O. Synthetic n=3 demonstrates variability, not population-level biological inference. Source card: teaching model, whole yeast/seed or mitochondrial compartment, fixed 25°C; revise the causal conclusion if controls drift or ATP/O2 responses differ.
 
 ## Analysis Questions {.unnumbered}
 
-1. Which substrate model produced the fastest CO₂ increase — sucrose or glucose? Explain using the concept of hydrolysis and substrate entry into glycolysis.
-2. Why did the starch treatment model produce less CO₂ than sucrose? How does this relate to enzyme availability for substrate breakdown?
-3. The active-tissue model showed higher O₂ consumption than the dormant-tissue model. Explain at which stage of respiration this O₂ is consumed and write the half-reaction involved.
-4. Facultative anaerobe models can continue producing CO₂ with little O₂ available. Predict whether CO₂ production would stop, slow, or continue in a no-O₂ scenario. Explain using fermentation pathways and the role of NAD⁺ regeneration.
-5. A marathon runner transitions from aerobic to anaerobic metabolism past ~80% VO₂max. Explain what metabolic shift occurs in muscle cells, what molecule accumulates (not lactic acid — what is the actual molecule?), and why fatigue results.
+Explain which result supports the proposed mechanism, which result would falsify it, and what additional measurement would discriminate the strongest alternative. Apply the mechanism to a new tissue, genotype, or condition without treating synthetic observations as clinical evidence.
 
+> **Concept Check:** If oxygen use rises while ATP synthesis falls, why is an uncoupler more plausible than improved energetic efficiency, and what control could distinguish it from toxicity?
 
-## Post-Lab Synthesis {.unnumbered}
+## Instructor Key and Scoring Expectations {.unnumbered}
 
-> **Concept Check (Synthesis):** Textbook stoichiometry suggests roughly 30–32 ATP per glucose oxidised aerobically, but the actual yield measured in mitochondria is typically lower. Integrating the gas-exchange data from this lab with the chapter:
->
-> (a) Explain how the P/O ratio (ATP synthesized per oxygen atom reduced) and proton leak across the inner mitochondrial membrane each reduce the realized ATP yield below the textbook maximum. Identify one molecular feature of the mitochondrion that influences each.
-> (b) During increasing exercise intensity, an athlete transitions from primarily aerobic to mixed aerobic–anaerobic metabolism. Describe the metabolic signals that drive this transition, the resulting change in the RQ measured at the mouth, and the trade-off between ATP yield per glucose and ATP production rate.
-> (c) A respirometer measurement gives RQ ≈ 1.0 for one batch of seeds and RQ ≈ 0.7 for another batch of the same species. Propose two biological explanations for the difference and one paper-based experiment using your existing investigation that would distinguish between them.
+### Worked Results and Interpretation {.unnumbered}
 
-## Optional Demonstration Extension {.unnumbered}
+<!-- SOLUTION
+Glucose mean slope=10/40=0.250 mL/min (range0.20–0.30); sucrose0.200 (0.15–0.25); starch0.025 (0–0.05); both negative controls0. Active corrected mean=(0.64-0.04)/(10×2)=0.030 mL O2/min/g; dormant=(0.14-0.04)/20=0.005. Do not count three time points as n=3: independent bottles/chambers supply n. Glycolysis invests2 and produces4, net2 ATP plus2 NADH; ethanol oxidation of NADH regenerates2 NAD+ without additional ATP. X is compatible with uncoupling (higher O2 but lower potential and ATP); Y with chain inhibition, but paired controls/rescue are needed for localization. An uncoupler can restore oxygen flow blocked by ATP synthase inhibition but not by a terminal chain poison. Award rescue credit only with matched viable preparations and dose/vehicle controls. See \cref{sec:unit_III_bioenergetics_and_respiration}.
+SOLUTION -->
 
-An instructor may demonstrate fermentation or respirometry with approved materials, but the required lab uses printed datasets. Treat any demonstration as a calibration or validation exercise rather than the source of required evidence.
+**Additional paper-case benchmarks:** The reference totals are 4+26=30 and 4+28=32 ATP per glucose under the stated shuttle assumptions, not rates derived from seed displacement. ATP synthesis/substrate use and coupling information would be needed to attach a yield to gas flux. Lactate formation can regenerate NAD+ with no CO2 and still support net 2 glycolytic ATP per glucose; paired lactate production and ATP-synthesis measurements would test that explanation. A standing ATP pool alone need not report ATP-production flux.
 
 ## Safety and Ethics Notes {.unnumbered}
 
-Paper-based lab — no live cultures, balloons, indicators, seeds, or sealed respirometers are required. Optional demonstrations require instructor supervision and standard classroom safety procedures.
-
-## Debrief and Reflection {.unnumbered}
-
-After you finish the practical work, spend 5–10 minutes in your small group
-comparing results and discussing the following prompts. Each member should
-contribute at least one observation before moving to the next prompt:
-
-1. **What did your measurements show** — compare the group's results to
-   the textbook's predictions. Where they diverge, suggest at least one
-   mechanistic explanation before concluding "experimental error."
-2. **What would change the outcome** — propose one modification to the
-   procedure that would sharpen the measurement or extend the result to a
-   new biological context, and predict what you would observe.
-3. **One-sentence headline** — each student composes a single sentence
-   summarizing the lab's take-home message, suitable for a tweet. Compare
-   sentences across groups; good headlines are short, quantitative, and
-   mechanistic.
-4. **Connection back to the textbook** — identify one section of
-   \cref{sec:unit_III_bioenergetics_and_respiration} that your data either confirmed or
-   complicated. Cite the specific passage.
-
-## Further Reading (Lab) {.unnumbered}
-
-- Revisit the parent chapter \cref{sec:unit_III_bioenergetics_and_respiration} for the theoretical
-  foundations on which this lab is built.
-- Look up any **bolded glossary term** introduced in the textbook chapter
-  (each has a `#gl:term-slug` link in the text) — its master
-  definition is in `docs/manuscript/glossary.md`.
-- Explore the appended `src/` module that implements the corresponding
-  quantitative model (when applicable) — referenced in the parent
-  chapter's "Bridge to Computation" subsection.
-
-*Module footer: parent chapter `\cref{sec:unit_III_bioenergetics_and_respiration}`; all numerical
-quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
-unit conversions and biological-scale reference values.*
+Required work is paper-only: no cultures, reagents, biological samples, medical decisions, or participant data collection. Optional wet/equipment extensions require institutional protocols and separate approval; they are not needed to complete or score this activity.

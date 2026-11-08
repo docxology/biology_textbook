@@ -95,14 +95,14 @@ cover, copyright, author metadata, or hand-maintained unit-title lists inside
 
 ## Render workflow (injected manuscript)
 
-The template PDF stage prefers `projects/biology_textbook/output/manuscript/` when that directory contains markdown files. Edits under `docs/manuscript/` alone do **not** change the combined PDF until analysis refreshes the injection.
+Run from the standalone project root. `render_textbook.py` validates and freshly hydrates the complete live source graph into this project's `output/manuscript/` on every render; stale staging cannot substitute for source edits. The selected template is a read-only library, never a template-root launch/output destination.
 
 ```bash
-cd projects/biology_textbook
-uv run python scripts/sync_curriculum_materials.py   # after scaffold/label/title edits
-uv run python scripts/biology_analysis.py            # copies ordered manuscript → output/manuscript/
-cd ../..  # template root
-uv run python scripts/03_render_pdf.py --project biology_textbook
+uv run --frozen --extra dev python scripts/sync_curriculum_materials.py --dry-run
+uv run --frozen --extra dev python scripts/audit_current_claims.py --check
+uv run --frozen --extra dev python scripts/sync_assessment_metadata.py --check
+uv run --frozen --extra dev python scripts/render_textbook.py
+uv run --frozen --extra dev python scripts/audit_publication_readiness.py --check --full
 ```
 
 Run `uv run python scripts/audit_textbook_quality.py --check --max-advisories 0` before render when chapters, labs, question banks, or biological claims changed.

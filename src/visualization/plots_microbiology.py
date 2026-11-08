@@ -34,7 +34,7 @@ def plot_bacterial_growth(
         steps=300,
         lag_phase_hr=1.0,
         stationary_phase_start_hr=7.0,
-        carrying_capacity=5e9,
+        carrying_capacity=4.096e7,
     )
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
@@ -98,7 +98,7 @@ def plot_mic_dilution_series(
     ax.set_yscale("log")
     ax.set_ylabel("Antibiotic concentration (µg mL⁻¹)", fontsize=13)
     ax.set_xlabel("Serial dilution tube", fontsize=13)
-    ax.set_title("MIC Broth Dilution Series (2-fold)", fontsize=15)
+    ax.set_title("Illustrative Twofold Antibiotic Concentrations (No Growth Data)", fontsize=15)
     ax.tick_params(labelsize=10)
     fig.tight_layout()
     return _save_figure(fig, output_dir, "mic_dilution_series.png")

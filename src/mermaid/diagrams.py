@@ -9,8 +9,9 @@ from __future__ import annotations
 
 import re
 
-from .renderer import MermaidDiagram
 from textbook_logging import get_logger
+
+from .renderer import MermaidDiagram
 
 logger = get_logger(__name__)
 

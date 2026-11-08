@@ -26,7 +26,7 @@
 \label{fig:unit_X_logistic_growth}
 \end{figure}
 
-<!-- alt: Sigmoid population-size curve rising from a low initial abundance, inflecting near half the carrying capacity K, then leveling at K on the horizontal axis. -->
+<!-- alt: Population size on the vertical axis rises sigmoidally with time on the horizontal axis, inflects near half the carrying capacity, and approaches the horizontal population reference K. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -151,9 +151,9 @@ graph TD
         B["<b>Type II — Constant Loss</b><br/>Equal probability of death<br/>at every age<br/>e.g., Songbirds, rodents,<br/>some reptiles, hydra"]
         C["<b>Type III — Early Loss</b><br/>Massive juvenile mortality<br/>Survivors live long<br/>e.g., Oysters, oak trees,<br/>marine fish, sea turtles"]
     end
-    A --> D["Convex curve on log plot"]
+    A --> D["Concave-down log survivorship<br/>late decline"]
     B --> E["Straight line on log plot"]
-    C --> F["Concave curve on log plot"]
+    C --> F["Concave-up log survivorship<br/>steep early decline"]
     D --> G["Strategy: High parental<br/>investment, few offspring,<br/>K-selected traits"]
     E --> H["Strategy: Intermediate;<br/>constant hazard rate"]
     F --> I["Strategy: Many offspring,<br/>minimal parental care,<br/>r-selected traits"]
@@ -164,11 +164,11 @@ graph TD
 
 **Mathematical representation of survivorship:**
 
-For Type I: $l_x \approx e^{-bx^n}$ where $n > 1$ (Gompertz-Makeham law for human mortality)
+For Type I, one schematic is $l_x=e^{-bx^n}$ with $b>0$ and $n>1$ (a Weibull-type survivorship function, not the Gompertz–Makeham law).
 
 For Type II: $l_x = e^{-\mu x}$ (constant hazard rate μ)
 
-For Type III: $l_x \approx e^{-bx^n}$ where $n < 1$
+For Type III, the same schematic with $b>0$ and $0<n<1$ gives $l_x=e^{-bx^n}$ and a steep early decline.
 
 > 🔬 **Clinical Connection — Actuarial Science and Human Survivorship:** Human survivorship curves have shifted dramatically over the past 200 years. In 1800, human survivorship resembled a Type II curve due to high infant and childhood mortality from infectious disease. Modern medicine, sanitation, and nutrition have transformed the human curve to an extreme Type I, with ~99% survival to age 50 in high-income countries. The **Gompertz law of mortality** states that human death rate doubles approximately every 8 years after age 30: $\mu(x) = \alpha e^{\beta x}$. This principle underlies life insurance actuarial tables and pension fund projections.
 
@@ -183,7 +183,7 @@ v_x = \frac{e^{rx}}{l_x} \sum_{y=x}^{\omega} e^{-ry} l_y m_y
 \label{eq:population_ecology_5}
 \end{equation}
 
-Reproductive value peaks at the age of first reproduction in growing populations and declines thereafter. This concept is critical for conservation: protecting age classes with highest $v_x$ yields the greatest impact on population recovery. For sea turtles, subadult and adult females have the highest reproductive value — hence **Turtle Excluder Devices (TEDs)** in fishing nets target this life stage.
+Reproductive value depends on the specified life table or stage model; its peak is not universal. Management impact additionally depends on which vital rate an intervention changes, by how much, and at what cost and feasibility. Type III survivorship or a one-for-one recruit calculation alone cannot rank adult protection against egg protection; turtle-excluder and nesting-beach measures need population- and intervention-specific evidence.
 
 ---
 
@@ -227,13 +227,10 @@ from biology.ecology import logistic_growth
 
 # Exponential phase (K → ∞ approximation)
 result = logistic_growth(
-    initial_population=100,
-    growth_rate=0.5,
-    carrying_capacity=1e12,   # effectively unlimited
-    time_steps=20
+    N0=100, r=0.5, K=1e12, t_end=20, steps=20_000
 )
-print(f"After 20 time steps: N = {result.trajectory[-1]:.0f}")
-print(f"Predicted (analytic): N = {100 * 2.718**( 0.5*20 ):.0f}")
+print(f"After 20 time units (Euler): N = {result.populations[-1]:.0f}")
+print(f"Predicted (analytic): N = {100 * __import__("math").exp(0.5 * 20):.0f}")
 ```
 
 > **Concept Check:** If a bacterial culture starts with 500 cells and has $r = 1.4$/hr, how many cells will be present after 6 hours? What assumptions does this calculation require?
@@ -267,29 +264,20 @@ N(t) = \frac{K}{1 + \left(\frac{K - N_0}{N_0}\right)e^{-rt}}
 
 ```mermaid
 stateDiagram-v2
-    [*] --> LagPhase: N₀ << K
-    LagPhase --> ExponentialPhase: Growth accelerates
-    ExponentialPhase --> DecelerationPhase: N approaches K/2
-    DecelerationPhase --> InflectionPoint: N = K/2, max dN/dt
-    InflectionPoint --> Deceleration: Growth rate slows
-    Deceleration --> StationaryPhase: N ≈ K
-    StationaryPhase --> Equilibrium: dN/dt = 0
-
-    note right of InflectionPoint
-        Maximum growth rate
-        dN/dt = rK/4
-        MSY harvested here
-    end note
-
-    note right of Equilibrium
-        Carrying capacity K
-        Birth rate = Death rate
-        Stable equilibrium
-    end note
+    [*] --> LowN: Positive r; initial N positive and below K/2
+    LowN: Low N<br/>approximately exponential
+    Accelerating: Accelerating absolute growth<br/>N below K/2
+    Inflection: Inflection<br/>N equals K/2
+    Decelerating: Decelerating absolute growth<br/>N above K/2
+    NearK: Approaches K<br/>asymptotically
+    LowN --> Accelerating: Density increases
+    Accelerating --> Inflection: Maximum dN/dt = rK/4
+    Inflection --> Decelerating: Absolute growth slows
+    Decelerating --> NearK: dN/dt approaches zero
 ```
-<!-- alt: State diagram showing logistic growth accelerates when population size is far below carrying capacity, reaches maximum growth near K/2, and slows as density-dependent limits dominate. -->
+<!-- alt: State diagram showing constant-K logistic growth for r>0 and 0<N_0<K/2: absolute growth peaks at N=K/2, then declines toward zero as N approaches K. The equation does not include a physiological lag phase. -->
 
-*Logistic growth accelerates when population size is far below carrying capacity, reaches maximum growth near K/2, and slows as density-dependent limits dominate.*
+*Constant-$K$ logistic growth for $r>0$ and $0<N_0<K/2$: absolute growth peaks at $N=K/2$, then declines toward zero as $N$ approaches $K$. The equation does not include a physiological lag phase.*
 
 ### Density-Dependent Factors
 
@@ -334,15 +322,13 @@ Fisheries and wildlife management use MSY to set harvest quotas. However, MSY ha
 from biology.ecology import logistic_growth
 
 result = logistic_growth(
-    initial_population=10,
-    growth_rate=0.8,
-    carrying_capacity=1000,
-    time_steps=30
+    N0=10, r=0.8, K=1000, t_end=30, steps=30_000
 )
-# Find maximum per-capita growth (should be near K/2 = 500)
-growth_rates = [result.trajectory[i+1] - result.trajectory[i]
-                for i in range(len(result.trajectory)-1)]
-peak_N = result.trajectory[growth_rates.index(max(growth_rates))]
+# Find maximum total growth increment on the fixed Euler grid (near K/2).
+# Per-capita growth is greatest at low N, not at K/2.
+growth_rates = [result.populations[i+1] - result.populations[i]
+                for i in range(len(result.populations)-1)]
+peak_N = result.populations[growth_rates.index(max(growth_rates))]
 print(f"Peak growth at N ≈ {peak_N:.0f} (expect K/2 = 500)")
 ```
 
@@ -437,7 +423,7 @@ print(f"Above A: N_final ≈ {above.populations[-1]:.1f}")
 \caption{Lotka--Volterra predator--prey dynamics: oscillating population cycles of prey and predator plotted over time and as a phase-plane portrait.}
 \label{fig:unit_X_lotka_volterra}
 \end{figure}
-<!-- alt: Two-panel figure — left panel: time series of prey and predator population sizes showing offset oscillating cycles (predator peak lags prey peak); right panel: phase-plane plot of predator vs prey densities tracing a closed counter-clockwise orbit around the coexistence equilibrium. -->
+<!-- alt: Two-panel figure — left panel: time series of prey and predator population sizes showing offset oscillating cycles (predator peak lags prey peak); right panel: phase-plane plot of predator vs prey densities approximating a counter-clockwise orbit (Euler introduces numerical drift) around the coexistence equilibrium. -->
 
 
 ### Interspecific Competition and Niche Overlap
@@ -462,13 +448,18 @@ The **competition coefficient** $\alpha_{12}$ represents the per-capita effect o
 
 **Phase-plane outcomes:**
 
+Let $u=K_1-\alpha_{12}K_2$ and $v=K_2-\alpha_{21}K_1$. Species 1 invading $(0,K_2)$ has per-capita rate $r_1u/K_1$; species 2 invading $(K_1,0)$ has rate $r_2v/K_2$. For positive $r_i,K_i$ and nonnegative competition coefficients, strict signs determine the four regimes:
+
+
 : Interspecific Competition and Niche Overlap: Condition and Outcome. {#tbl:unit_X_population_ecology_interspecific_competition_and_niche_overlap}
 | Condition | Outcome | Biological interpretation |
 | --------- | ------- | ------------------------- |
-| $K_1 > K_2/\alpha_{12}$ and $K_2 < K_1/\alpha_{21}$ | Species 1 wins; species 2 excluded | Species 1 tolerates competition better |
-| $K_2 > K_1/\alpha_{21}$ and $K_1 < K_2/\alpha_{12}$ | Species 2 wins; species 1 excluded | Species 2 tolerates competition better |
-| $K_1 < K_2/\alpha_{12}$ and $K_2 < K_1/\alpha_{21}$ | **Stable coexistence** | Intraspecific > interspecific competition (niche differentiation) |
-| $K_1 > K_2/\alpha_{12}$ and $K_2 > K_1/\alpha_{21}$ | **Unstable equilibrium** (priority effect) | Interspecific > intraspecific; winner depends on initial $N$ |
+| $u>0,\ v<0$ | Species 1 excludes species 2 | Only species 1 invades the other’s monoculture |
+| $u<0,\ v>0$ | Species 2 excludes species 1 | Only species 2 invades |
+| $u>0,\ v>0$ | Stable coexistence | Both species recover when rare |
+| $u<0,\ v<0$ | Priority effect | Neither invades; the interior equilibrium is a saddle |
+
+Equality ($u=0$ or $v=0$) is a nonhyperbolic boundary, not one of the strict regimes; if $\alpha_{12}\alpha_{21}=1$ and isoclines coincide there is a continuum of equilibria. Otherwise the interior solution is $N_1^*=u/(1-\alpha_{12}\alpha_{21})$, $N_2^*=v/(1-\alpha_{12}\alpha_{21})$, meaningful only when both are positive. At a positive equilibrium, the Jacobian has negative trace and determinant proportional to $1-\alpha_{12}\alpha_{21}$, giving stable coexistence or a saddle accordingly.
 
 **Chesson's modern coexistence theory** (Chesson 2000, *Annu. Rev. Ecol. Syst.*): Stable coexistence requires that intraspecific competition exceed interspecific competition: $\alpha_{11}\alpha_{22} > \alpha_{12}\alpha_{21}$, or equivalently, niche overlap $< 1$. Two mechanisms enable this:
 
@@ -487,7 +478,7 @@ The **competition coefficient** $\alpha_{12}$ represents the per-capita effect o
 \label{eq:population_ecology_17}
 \end{equation}
 
-This system produces **neutrally stable oscillations** with period $\approx 2\pi/\sqrt{\alpha\gamma}$ and amplitude that depends on initial conditions, tracing the offset prey--predator cycles and closed phase-plane orbit shown in \cref{fig:unit_X_lotka_volterra}.
+This system produces **neutrally stable oscillations** with small-amplitude period near equilibrium $\approx 2\pi/\sqrt{\alpha\gamma}$ and amplitude that depends on initial conditions, tracing the offset prey--predator cycles and closed phase-plane orbit shown in \cref{fig:unit_X_lotka_volterra}.
 
 **Functional responses** \citep{holling1959} describe the per capita predation rate as a function of prey density:
 
@@ -508,7 +499,7 @@ Type III responses are stabilizing because at low prey density, per-capita preda
 from biology.ecology import lotka_volterra
 
 result = lotka_volterra(
-    100.0, 20.0, 1.0, 0.1, 0.075, 1.5, t_end=30.0, steps=300,
+    100.0, 20.0, 1.0, 0.1, 0.075, 1.5, t_end=30.0, steps=100_000,
 )
 print(f"Prey range: {min(result.prey):.0f}–{max(result.prey):.0f}")
 print(f"Predator range: {min(result.predator):.0f}–{max(result.predator):.0f}")
@@ -518,10 +509,10 @@ print(f"Predator range: {min(result.predator):.0f}–{max(result.predator):.0f}"
 
 The snowshoe hare (*Lepus americanus*) and Canada lynx (*Lynx canadensis*) display coupled ~10-year population cycles across boreal Canada, documented from Hudson's Bay Company fur trading records (1845-1935; Keith 1963). Modern analysis reveals the cycle is more complex than simple Lotka-Volterra:
 
-1. **Predation** accounts for ~60% of the cycle driver (Krebs et al. 2001, *Science*)
-2. **Food quality** — at high hare density, overgrazing induces plant chemical defenses (phenolic compounds in willow/birch browse), reducing hare food quality (~20% of cycle)
-3. **Stress physiology** — high density and predation risk elevate [**cortisol**](#gl:cortisol), suppressing reproduction (~20% of cycle)
-4. The **tri-trophic interaction** (vegetation-hare-lynx) is necessary to explain the observed amplitude and period
+1. **Factorial evidence.** In an eight-year Yukon experiment on 1-km² areas, mammalian predator exclusion approximately doubled hare density during the cyclic peak and decline; supplemental food approximately tripled it; their combination increased it about eleven-fold relative to untreated controls \citep{krebs1995hare}.
+2. **Interaction, not causal shares.** Normalize control density to 1: the separate increments are +1 and +2, giving an additive prediction of 4, not the observed combined ratio of 11. The illustrative additive-scale interaction contrast is 11−2−3+1 = 7 control-density units. These are treatment effects on density, not percentages of cycle amplitude, mortality or causation.
+3. **Mechanistic limits.** Fertilization increased plant growth but not hare density. The results support interacting food and predation effects in this setting, not an exhaustive partition into independent predation, food-quality and stress components. Stress may mediate predator effects rather than constitute a separate additive share.
+4. **Model scope.** These interventions suggest three-trophic-level interactions; they do not identify one uniquely necessary mechanism for every boreal cycle or reproduce all features of the historical fur-trade series.
 
 > **Concept Check:** In the basic Lotka-Volterra predator-prey model, the oscillations are neutrally stable. What modification to the model would produce damped oscillations converging to a stable equilibrium? (Hint: consider what happens when you add density dependence to the prey equation.)
 
@@ -588,14 +579,16 @@ The scalar growth models treat most individuals as demographically identical. Re
 
 ### Leslie Matrix Construction
 
-A **Leslie matrix** $\mathbf{L}$ is a square non-negative matrix that projects an age-classified population vector $\mathbf{n}(t) = (n_0, n_1, \ldots, n_\omega)^T$ from time $t$ to $t+1$:
+A **Leslie matrix** $\mathbf{L}$ projects a female-only, equal-age-class population at annual pre-breeding censuses. Census t occurs immediately before a synchronous birth pulse. Here $n_x(t)$ counts females of age $x+1$ years for $x=0,\ldots,\omega$: class 0 is the youngest pre-breeding class, not newborns. Age $\omega+1$ is terminal, with no adult survival beyond the final class. This convention projects $\mathbf{n}(t)=(n_0,\ldots,n_\omega)^T$ to the same census phase one year later:
 
 \begin{equation}
 \mathbf{n}(t+1) = \mathbf{L}\,\mathbf{n}(t)
 \label{eq:unit_X_leslie_projection}
 \end{equation}
 
-For a population with maximum age ω, the Leslie matrix has age-specific fecundities $F_x = l_x m_x / l_{x-1}$ on the top row and survival probabilities $P_x = l_{x+1}/l_x$ on the sub-diagonal:
+Let $b_x$ be daughters born per female in census class x at the pulse immediately after census t, and let $s_b$ be their survival probability from birth to the first pre-breeding census at t+1. Then the first-row recruitment coefficient is $F_x=s_b b_x$, including x=0 (which may have $b_0=0$ if immature). Let $l_x$ be cohort survivorship to census class x, conditional on entry into class 0 ($l_0=1$); for occupied classes with $l_x>0$, $P_x=l_{x+1}/l_x$ for $x=0,\ldots,\omega-1$. Each F has daughters recruited per census female per interval; each P is a dimensionless conditional survival probability. A post-breeding census requires differently timed fertility entries and must not reuse these coefficients without conversion.
+
+For a concrete conversion of the earlier birth-cohort table, stipulate that its ages are years, that its $m_a$ are daughters born per surviving female at annual pulses, and that newborns first enter the pre-breeding census at age 1. Then $s_b=0.8$, the census survivorship vector conditional on age-1 entry is $(1,0.75,0.25,0.025)$, $b=(0.5,1.2,1.0,0)$, $F=(0.4,0.96,0.8,0)$ and the subdiagonal probabilities are $(0.75,1/3,0.1)$. Thus no undefined $l_{-1}$ is needed; birth age a corresponds to census index x = a−1 here.
 
 \begin{equation}
 \mathbf{L} = \begin{pmatrix}
@@ -609,14 +602,14 @@ P_0 & 0   & 0   & \cdots & 0           & 0 \\
 \label{eq:unit_X_leslie_matrix}
 \end{equation}
 
-By the **Perron–Frobenius theorem**, $\mathbf{L}$ has a unique positive dominant eigenvalue $\lambda_1$ — this is the **asymptotic finite rate of increase**. The associated right eigenvector $\mathbf{w}$ gives the **stable age distribution** (the proportions $n_x/N$ to which the population converges) and the left eigenvector $\mathbf{v}$ gives the **age-specific reproductive value** $v_x$ (\cref{eq:population_ecology_5}, but now read off the matrix directly).
+If the fixed nonnegative matrix is **primitive** (some positive integer power has all entries positive; equivalently irreducible and aperiodic), the **Perron–Frobenius theorem** gives a simple positive eigenvalue $\lambda_1$ strictly larger in modulus than the others. For any nonzero nonnegative initial population, normalized proportions converge to the right eigenvector $\mathbf{w}$, the **stable age distribution**; the left eigenvector $\mathbf{v}$ gives relative **reproductive value** under this census convention. Without primitivity, such convergence is not guaranteed. For example $L=\begin{pmatrix}0&2\\0.5&0\end{pmatrix}$ has eigenvalues +1 and −1 and $L^2=I$: starting at $(1,0)^T$ gives $(0,0.5)^T$ then $(1,0)^T$, so proportions alternate. Reducible matrices can also retain initial-condition dependence.
 
 \begin{equation}
 \mathbf{L}\mathbf{w} = \lambda_1 \mathbf{w}, \qquad \mathbf{v}^T \mathbf{L} = \lambda_1 \mathbf{v}^T
 \label{eq:unit_X_leslie_eigen}
 \end{equation}
 
-The Euler-Lotka equation (\cref{eq:population_ecology_1}) is the characteristic polynomial of $\mathbf{L}$ — every demographic statement made in the life-table and survivorship discussion is recoverable from the matrix.
+The finite-age Euler–Lotka relation can be derived from the characteristic equation using survival and reproduction timed to the same census. Mixing newborn life-table indices with pre-breeding recruitment coefficients does not give a valid projection. The eigenvector equations above describe the primitive case; periodic schedules require explicit transient analysis.
 
 ### Sensitivity and Elasticity Analysis
 
@@ -875,10 +868,10 @@ The **total fertility rate** is the average number of children born to a woman o
 
 ## Worked Examples: Leslie Matrices and Population Growth
 
-### Worked Example: Leslie Matrix Projection
+### Worked Example: Stage-Matrix Projection
 
 **Problem:**
-A 3-age-class population (juvenile, subadult, adult) has Leslie matrix
+A 3-stage population (juvenile, subadult, adult) has stage-transition matrix
 $$\mathbf{L} = \begin{pmatrix} 0 & 1.2 & 3.0 \\ 0.4 & 0 & 0 \\ 0 & 0.6 & 0.7 \end{pmatrix} \label{eq:unit_X_population_ecology_item_1}$$
 
 with initial vector $\mathbf{n}(0) = (40, 20, 10)^T$. (a) Project the population one time step. (b) Compute $\lambda_1$ and decide whether the population is growing, stable, or declining.
@@ -893,13 +886,13 @@ $\mathbf{n}(1) = \mathbf{L}\mathbf{n}(0)$
 - Total: $N(1) = 89$ vs. $N(0) = 70$ — apparent growth, but transient.
 
 **Step 2. Characteristic polynomial.** The asymptotic rate $\lambda_1$ solves
-$\det(\mathbf{L} - \lambda \mathbf{I}) = 0 \;\Rightarrow\; -\lambda^3 + 0.7\lambda^2 + 0.48\lambda + 0.72 = 0$
+$\det(\mathbf{L} - \lambda \mathbf{I}) = 0 \;\Rightarrow\; -\lambda^3 + 0.7\lambda^2 + 0.48\lambda + 0.384 = 0$
 
-Numerical root-finding gives $\lambda_1 \approx 1.094$.
+The dominant root is approximately $\lambda_1=1.298$. An eigenvector is proportional to $(1,0.4/\lambda_1,0.24/[\lambda_1(\lambda_1-0.7)])$, about $(1,0.308,0.309)$; normalized stage proportions are approximately $(0.618,0.191,0.191)$. Adult survival on the diagonal makes this a stage-transition (Lefkovitch-type) matrix rather than a strict age-only Leslie matrix.
 
-**Step 3. Interpretation.** Because $\lambda_1 > 1$, the population grows asymptotically at $\sim 9.4\%$ per time step once it converges to its stable age distribution. The transient ratio $89/70 = 1.27$ overstates long-run growth because the initial vector is juvenile-heavy.
+**Step 3. Interpretation.** This stage matrix is primitive: positive fecundity and survival connect all stages, and adult retention supplies a self-loop. Thus the nonzero starting population converges to stable stage proportions. Because $\lambda_1>1$, the asymptotic increase is about 29.8% per time step. The transient ratio $89/70=1.27$ differs because initial stage composition is not yet stable.
 
-**Answer:** $\lambda_1 \approx 1.09$; the population is **growing** in the long run.
+**Answer:** $\lambda_1 \approx 1.298$; the population is **growing** in the long run.
 
 ---
 
@@ -951,13 +944,13 @@ $$N(t) = \frac{1000}{1 + 9 e^{-0.2 t}}$$
 **Step 2. Evaluate at $t = 10$ and $t = 20$.**
 
 - $t = 10$: $e^{-2} \approx 0.135$, so $N(10) = 1000 / (1 + 9 \times 0.135) = 1000 / 2.215 \approx 451$ individuals (population is near the inflection point at $K/2 = 500$).
-- $t = 20$: $e^{-4} \approx 0.0183$, so $N(20) = 1000 / (1 + 9 \times 0.0183) = 1000 / 1.165 \approx 858$ individuals. After $\sim 30$ yr the population approaches $K$ asymptotically (recomputing gives $N(30) \approx 943$).
+- $t = 20$: $e^{-4} \approx 0.0183$, so $N(20) = 1000 / (1 + 9 \times 0.0183) = 1000 / 1.165 \approx 858$ individuals. After $\sim 30$ yr the population approaches $K$ asymptotically (recomputing gives $N(30) \approx 978.18$).
 
 **Step 3. Compare strategist vulnerability.**
 
-The r-strategist ($r = 2.0$, $K = 200$) projected from $N_0 = 50$ reaches $K$ in roughly $\ln 3 / r \approx 0.55$ yr — fast numerical recovery, but the absolute headcount is small and the small $K$ makes it stochastically fragile. The K-strategist ($r = 0.1$, $K = 1000$) takes $\ln 19 / r \approx 29$ yr to approach $K$ from the same $N_0$, so even after the demographic causes of collapse are removed it remains depressed for decades — exactly the regime where demographic stochasticity, Allee effects, and inbreeding depression compound.
+The r-strategist ($r = 2.0$, $K = 200$) projected from $N_0 = 50$ reaches $K/2$ in $\ln 3 / r \approx 0.55$ yr — fast numerical recovery, but the absolute headcount is small and the small $K$ makes it stochastically fragile. The K-strategist ($r = 0.1$, $K = 1000$) takes $\ln 19 / r \approx 29.44$ yr to reach $K/2$ from the same $N_0$, so even after the demographic causes of collapse are removed it remains depressed for decades — exactly the regime where demographic stochasticity, Allee effects, and inbreeding depression compound.
 
-**Answer:** $N(10) \approx 451$, $N(20) \approx 858$. K-strategists are disproportionately vulnerable in conservation because their slow $r$ leaves them stranded in the low-$N$ regime far longer, regardless of whether the original threat has been mitigated.
+**Answer:** $N(10) \approx 451$, $N(20) \approx 858$. Under these stipulated constant-rate scenarios, the low-$r$ population takes longer to recover to $K/2$. This deterministic model does not quantify extinction risk or establish a universal conservation-risk ranking. Continuous unharvested logistic growth is positive at every $0<N<K$ and approaches $K$ only asymptotically; it does not alone produce delayed crashes or chaos.
 
 ---
 
@@ -1055,7 +1048,7 @@ Select biodiversity and conservation metrics by decision need: abundance, intera
 
 7. You capture 200 salamanders from a pond, mark them, and release them. Two weeks later, you capture 250 salamanders and find that 40 are marked. (a) Estimate the population size using the Lincoln-Petersen method. (b) List three assumptions of this method and describe how violating each would bias your estimate.
 
-8. Using the concept of reproductive value, explain why protecting adult female sea turtles (through Turtle Excluder Devices in fishing nets) is more effective for population recovery than protecting eggs on nesting beaches.
+8. Compare adult-female protection by turtle-excluder devices with nesting-beach egg protection. Which life-history matrix, intervention effects, costs and uncertainty are needed to rank their population-recovery impacts, and why are survivorship type and reproductive value alone insufficient?
 
 9. Japan has a current population of 125 million and $r \approx -0.006$/yr. Assuming constant $r$, project the population in 2050, 2075, and 2100. What demographic, economic, and social challenges does population decline create?
 

@@ -1,5 +1,5 @@
 ---
-# Front matter metadata — read by biology_analysis.py and scripts/03_render_pdf.py
+# Front matter metadata — collected by biology_analysis.py and render_textbook.py
 # This file is rendered before the Preface and all chapters.
 front_matter: true
 page_break_after: true
@@ -25,6 +25,8 @@ The author gratefully acknowledges many contributions, learnings, and sources of
 
 **Open science.** This textbook is open source and open access. The source code is licensed under the Apache-2.0 license, and the text is licensed under the Creative Commons Attribution 4.0 International license. Sources, figures, tests, and rendered outputs are maintained in the [biology textbook repository](https://github.com/docxology/biology_textbook). The work builds on, and contributes to, the open-science community whose code, data, lifeways, and scholarship have made this work freely available, computationally grounded, and broadly accessible.
 
+**Edition and archive provenance.** This source identifies manuscript edition **1.1** and software **2.0.0**. The [published Zenodo record](https://doi.org/10.5281/zenodo.20286478) contains the earlier manuscript edition 1.0/software 1.0.0. No new Zenodo deposition is asserted for this edition; the current configuration therefore leaves its DOI unset.
+
 **Open educational resources.** Open textbook adoption in U.S. and Canadian higher education has grown from roughly 1-in-400 classes in 2013 to about 1-in-80 by 2023, measured from syllabus-assigned titles rather than download counts \citep{opensyllabus2023oer}. At the University of Georgia, courses that switched to OpenStax materials---including introductory biology---showed improved grade distributions and lower D/F/W rates compared with prior commercial-textbook terms \citep{colvard2018oer}. This book treats [OpenStax Biology 2e](https://openstax.org/details/books/biology-2e) as conceptual inspiration and a public reference point, not as a derivative work.
 
 **Biology education.** This textbook supports introductory through upper-division biology courses—survey, majors, pre-health, and computation-first reading paths—with active learning, companion labs, and question banks aligned to each chapter. Suggested reading paths in the navigation section below map units to common course designs.
@@ -40,24 +42,19 @@ The author gratefully acknowledges many contributions, learnings, and sources of
 ### Computational Philosophy {.unnumbered}
 
 This *Introduction to Biology: A Generative Approach* integrates biological narrative explanation and conceptual elaboration, with formalisms, models, computational connections, and empirical studies.
-When a chapter introduces a model (enzyme kinetics, predator–prey dynamics, action
-potentials), the corresponding computation is implemented in the accompanying Python
-modules and used to generate figures where appropriate. Every aspect of this textbook is designed to help students move between mechanisms, measurements, and models: what a system does, how we know, and what a simple quantitative model can predict (and where it breaks).
+Selected models, including enzyme kinetics, predator–prey dynamics, and action potentials, have accompanying Python implementations and model-generated figures. Not every model or empirical mechanism in the text is implemented. The aim is to help students move between mechanisms, measurements, and models: what a system does, how it is measured, and what a specified quantitative model can predict.
 
 ### What Makes This Textbook Different {.unnumbered}
 
-| Feature | This Textbook | Traditional Textbook |
-| ------- | ---------------- | ----------------- |
-| **Figures** | Generated from mathematical models; reproducible | Static graphics |
-| **Equations** | Derived and numerically validated | Stated without derivation |
-| **Code** | Python modules for every major model | Absent |
-| **Diagrams** | Mermaid process diagrams; automatically rendered | Hand-drawn |
-| **Opening vignettes** | Landmark experiment narrative opening each chapter | Absent |
-| **Curriculum map** | Generated chapter/lab/question/standards alignment | Usually external |
-| **Master glossary** | 225 terms with etymology and chapter cross-references | Chapter-end lists |
-| **Instructor edition** | Question-bank model answers rendered as blockquotes (`export.include_solutions: true`) | Student edition hides solutions |
-| **Open access** | CC BY 4.0; fully open source | Copyright restricted |
-| **Citations** | Inline, with year and journal | Often chapter-end primarily |
+| Surface | Reading contract |
+| ------- | ---------------- |
+| **Figures and equations** | Inspect model inputs, units, assumptions, and provenance; synthetic examples are not measurements. |
+| **Code** | Selected quantitative models have executable implementations; a passing calculation does not establish empirical validity. |
+| **Diagrams** | Process maps have captions and alt text; an arrow alone does not quantify a causal effect. |
+| **Curriculum and assessment** | Authored question/LO/Bloom mappings and task-specific lab rubrics support course design; structural validation does not replace teaching judgment. |
+| **Glossary and index** | Definitions link to biological context without duplicating unstable chapter numbers. |
+| **Instructor edition** | Reviewed question-bank solutions are visible; well-supported alternative reasoning can earn credit. |
+| **Sources and licensing** | Claims distinguish primary evidence, synthesis, and dated guidance; text is CC BY 4.0 and code is Apache-2.0. |
 
 ### How to Navigate This Book {.unnumbered}
 
@@ -78,10 +75,10 @@ the rendered table of contents.
 - **\hyperref[sec:unit_VIII_unit_intro]{Unit VIII — Botany — Plant Biology}:** \hyperref[sec:unit_VIII_plant_structure_and_water]{Plant Structure and Water Relations}; \hyperref[sec:unit_VIII_plant_reproduction]{Plant Reproduction and Development}; \hyperref[sec:unit_VIII_plant_responses]{Plant Responses to the Environment}.
 - **\hyperref[sec:unit_IX_unit_intro]{Unit IX — Zoology and Systems Physiology}:** \hyperref[sec:unit_IX_circulation_respiration_homeostasis]{Circulation and Respiration}; \hyperref[sec:unit_IX_nervous_system]{Nervous System and Neural Signaling}; \hyperref[sec:unit_IX_action_potential_synapses]{Action Potentials and Synaptic Transmission}; \hyperref[sec:unit_IX_endocrine_signaling]{Endocrine Signaling and Homeostasis}; \hyperref[sec:unit_IX_immune_system_defense]{Immune System Architecture}.
 - **\hyperref[sec:unit_X_unit_intro]{Unit X — Ecology}:** \hyperref[sec:unit_X_population_ecology]{Population Ecology and Growth Models}; \hyperref[sec:unit_X_community_interactions]{Community Interactions and Succession}; \hyperref[sec:unit_X_biodiversity_and_food_webs]{Biodiversity and Food Webs}; \hyperref[sec:unit_X_ecosystem_ecology]{Ecosystem Ecology}; \hyperref[sec:unit_X_biomes_and_conservation]{Biomes and Conservation Biology}.
-- **Laboratory activities:** one companion lab follows each chapter in the
-same canonical order.
-- **Question banks:** one 30-item question bank follows each chapter in the
-same canonical order.
+- **Laboratory activities:** the laboratory appendix collects one companion lab per chapter
+in the chapters' canonical order, after the core chapter sequence.
+- **Question banks:** a separate question-bank appendix collects one 30-item bank per chapter
+in the same canonical order, after the laboratory sequence.
 - **\hyperref[sec:appendix_curriculum_map]{Appendix A — Curriculum Map}:** reference material generated or ordered from the same manifest.
 - **\hyperref[sec:appendix_instructor_orchestration]{Appendix B — Instructor Orchestration Guide}:** reference material generated or ordered from the same manifest.
 - **\hyperref[sec:appendix_math_review]{Appendix C — Mathematical Review for Biology}:** reference material generated or ordered from the same manifest.
@@ -100,7 +97,7 @@ implementations for the quantitative models used throughout the book.
 | ---- | -------- | ----- |
 | **AP / first-year survey** | \hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction}; \hyperref[sec:unit_II_unit_intro]{Unit II — The Cell: Introduction}; \hyperref[sec:unit_III_unit_intro]{Unit III — Energy and Metabolism: Introduction}; selected genetics/evolution chapters; \hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction} | Skim the systems orientation; prioritize metabolism and genetics core narratives. |
 | **Pre-health / majors** | \hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction} through \hyperref[sec:unit_IX_unit_intro]{Unit IX — Zoology and Systems Physiology: Introduction}; \hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction}; systems orientation as setup | Add labs for quantitative skills; pair each physiology chapter with its Python bridge. |
-| **Ecology / environmental focus** | \hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction} and \hyperref[sec:unit_II_unit_intro]{Unit II — The Cell: Introduction} as review; \hyperref[sec:unit_III_photosynthesis]{Photosynthesis}; \hyperref[sec:unit_VI_unit_intro]{Unit VI — Evolution: Introduction}; \hyperref[sec:unit_VII_unit_intro]{Unit VII — Microbiology: Introduction}; \hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction} | Emphasize population models, biogeochemistry, conservation metrics in `ecology.py`. |
+| **Ecology / environmental focus** | \hyperref[sec:unit_I_unit_intro]{Unit I — Chemistry of Life: Introduction} and \hyperref[sec:unit_II_unit_intro]{Unit II — The Cell: Introduction} as review; \hyperref[sec:unit_III_photosynthesis]{Photosynthesis}; \hyperref[sec:unit_VI_unit_intro]{Unit VI — Evolution: Introduction}; \hyperref[sec:unit_VII_unit_intro]{Unit VII — Microbiology: Introduction}; \hyperref[sec:unit_X_unit_intro]{Unit X — Ecology: Introduction} | Emphasize population models, biogeochemistry, and conservation metrics in `biology.ecology.ecology`. |
 | **Computation-first** | \hyperref[sec:unit_0_unit_intro]{Unit 0 — Systems Science for Biology: Introduction} plus any later unit | Read “Bridge to computation” blocks first, then narrative; run `scripts/generate_figures.py`. |
 <!-- suggested-reading-paths-end -->
 
@@ -109,7 +106,7 @@ implementations for the quantitative models used throughout the book.
 - **Logarithms:** $\ln$ = natural log; $\log_{10}$ used where orders of magnitude matter (pH, viral titre, doubling time).
 - **Concentrations:** square brackets $[X]$ denote molarity unless a chapter states otherwise.
 - **Genetics:** italic gene symbols (*lacZ*); protein products often Roman with capital initial (LacZ) where conventional.
-- **Units:** SI base units; physiology at 37 °C, pH 7.4, sea level unless noted.
+- **Units and conditions:** SI units and conventional biological units are identified at point of use. Temperature, pH, pressure, organism, and preparation are model- or measurement-specific; 37 °C, pH 7.4, and sea level are not defaults for all physiology.
 - **Glossary and cross-link numbering** in the glossary and cross-links match the PDF table of contents (sequential numbering from `config.yaml`, including Unit 0 — Systems Science for Biology: Introduction when present).
 
 ### Scholarship and source practice {.unnumbered}
@@ -201,22 +198,18 @@ graph TD
 | Resource | Location |
 | -------- | -------- |
 | **Living source (Git)** | [biology textbook source repository](https://github.com/docxology/biology_textbook) — manuscript Markdown, `src/biology/` modules, maintenance scripts, and tests |
-| **Archival citation (DOI)** | [Zenodo archival DOI record](https://doi.org/10.5281/zenodo.20286478) — cite this record for a fixed edition snapshot |
-| **Combined PDF / HTML** | Build from the repository with `uv run python scripts/03_render_pdf.py --project biology_textbook` (from the template root) or the project’s `biology_analysis.py` workflow |
-| **Figures and diagrams** | `scripts/generate_figures.py` (matplotlib) and `scripts/generate_diagrams.py` (registered Mermaid); inline Mermaid in chapters renders during PDF preprocessing |
+| **Earlier archival citation (DOI)** | [Zenodo record](https://doi.org/10.5281/zenodo.20286478) — manuscript edition 1.0/software 1.0.0, not the present edition 1.1/software 2.0.0 |
+| **Combined instructor PDF** | From this project directory, install the locked dependencies and pinned Mermaid CLI described in the repository README, select the read-only template library with `BIOLOGY_TEXTBOOK_TEMPLATE_ROOT`, then run `uv run --locked --extra dev python scripts/render_textbook.py`. `biology_analysis.py` stages sources and analysis; it does not render the PDF. |
+| **Figures and diagrams** | `scripts/generate_figures.py` (matplotlib) and `scripts/generate_diagrams.py --strict-png` (registered Mermaid); the project-local PDF renderer also regenerates source-identified inline PNGs and rejects text fallbacks |
 | **Corrections and extensions** | Open an issue or pull request on the book repository; substantive edits should keep chapter `\cref` labels and `config.yaml` ordering in sync |
 
 Text is licensed **CC BY 4.0**; source code is **Apache-2.0** (see `docs/manuscript/config.yaml` → `book`).
 
 ## Course Planning Grid {.unnumbered}
 
-The table below provides a per-chapter difficulty rating (Level 1/3 to Level 3/3), an
-estimated student reading time, and a suggested lecture allotment. Unit and chapter
-cells list canonical titles from ``docs/manuscript/config.yaml`` as clickable ``\hyperref`` links to each section. The grid is
-auto-generated by ``scripts/insert_chapter_metadata.py`` from the
-canonical table of contents in ``docs/manuscript/config.yaml`` plus
-``src/biology/chapter_metadata.py`` — edit those sources and re-run the
-script to refresh this grid.
+The grid lists each chapter's difficulty level, estimated reading time and suggested
+lecture allotment in the book's canonical order. Unit and chapter titles link to
+their sections. These are course-planning estimates, not measured learning outcomes.
 
 <!-- course-planning-grid-start -->
 \begin{table}[htbp]
@@ -224,7 +217,7 @@ script to refresh this grid.
 \footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.12}
-\begin{tabular}{>{\raggedright\arraybackslash}p{0.34\textwidth}>{\centering\arraybackslash}p{0.05\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}>{\centering\arraybackslash}p{0.10\textwidth}>{\centering\arraybackslash}p{0.10\textwidth}>{\centering\arraybackslash}p{0.10\textwidth}}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr0.33\textwidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr0.06\textwidth-2\tabcolsep\relax}>{\raggedright\arraybackslash}p{\dimexpr0.31\textwidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr0.10\textwidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr0.10\textwidth-2\tabcolsep\relax}>{\centering\arraybackslash}p{\dimexpr0.10\textwidth-2\tabcolsep\relax}}
 \hline
 \textbf{Unit} & \textbf{Number} & \textbf{Chapter} & \textbf{Difficulty} & \textbf{Reading} & \textbf{Lecture} \\
 \hline

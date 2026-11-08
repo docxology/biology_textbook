@@ -7,7 +7,14 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-from visualization._scaffold import BAR_POS, GRAY, ORANGE, SERIES2, SERIES3, _save_figure
+from visualization._scaffold import (
+    BAR_POS,
+    GRAY,
+    ORANGE,
+    SERIES2,
+    SERIES3,
+    _save_figure,
+)
 
 
 def plot_fitness_landscape(
@@ -59,7 +66,7 @@ def plot_molecular_clock(
     colors = [BAR_POS, SERIES2[0], SERIES2[1], ORANGE]
     ax.barh(labels, times_myr, color=colors, edgecolor="black", linewidth=0.8)
     ax.set_xlabel("Estimated divergence time (million years)", fontsize=13)
-    ax.set_title("Molecular Clock Divergence Estimates", fontsize=15)
+    ax.set_title("Illustrative Two-Lineage Molecular Clock Calculations", fontsize=15)
     ax.tick_params(labelsize=11)
     fig.tight_layout()
     return _save_figure(fig, output_dir, "molecular_clock.png")

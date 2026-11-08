@@ -11,11 +11,14 @@ Usage:
 
 from __future__ import annotations
 
-import subprocess  # nosec B404 - wrapper invokes the local Mermaid CLI with fixed arguments.
+import os
 import shutil
+import subprocess  # nosec B404 - wrapper invokes the local Mermaid CLI with fixed arguments.
+import tempfile
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+
+from PIL import Image
 
 from textbook_io import write_text_atomic
 from textbook_logging import get_logger
@@ -23,20 +26,11 @@ from textbook_visuals import pad_png_to_square
 
 logger = get_logger(__name__)
 
-def _find_puppeteer_config() -> Optional[Path]:
-    """Walk up from this file's directory to find a .puppeteer.json config.
-
-    Returns the first .puppeteer.json found in the directory tree, or None.
-    This allows the renderer to point mmdc at a system Chrome installation
-    rather than requiring the puppeteer browser download.
-    """
-    candidate = Path(__file__).resolve()
-    for _ in range(10):  # search up to 10 levels
-        candidate = candidate.parent
-        config = candidate / ".puppeteer.json"
-        if config.exists():
-            return config
-    return None
+def _find_puppeteer_config(project_root: Path | None = None) -> Path | None:
+    """Use only this project's config, never an unrelated ancestor's config."""
+    root = project_root if project_root is not None else Path(__file__).resolve().parents[2]
+    config = root / ".puppeteer.json"
+    return config if config.is_file() else None
 
 
 @dataclass
@@ -50,8 +44,7 @@ class MermaidDiagram:
     def render(
         self,
         output_dir: Path,
-        width: int = 1200,
-        height: int = 1200,
+        size: int = 1200,
         background_color: str = "white",
         square: bool = True,
     ) -> Path:
@@ -59,9 +52,8 @@ class MermaidDiagram:
 
         Args:
             output_dir: Directory to write the PNG (or .mmd) into.
-            width: Output image width in pixels.
-            height: Output image height in pixels.
-            background_color: Background colour (hex or name).
+            size: Maximum PNG dimension in CSS pixels (Mermaid CLI 12.2).
+            background_color: Background color (hex or name).
             square: Pad PNG output to a square canvas when rendering succeeds.
 
         Returns:
@@ -71,8 +63,7 @@ class MermaidDiagram:
         return renderer.render(
             self.name,
             self.source,
-            width=width,
-            height=height,
+            size=size,
             background_color=background_color,
             square=square,
         )
@@ -96,7 +87,7 @@ class MermaidRenderer:
         self.output_dir = Path(output_dir)
         self.strict_png = strict_png
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        self._mmdc_available: Optional[bool] = None
+        self._mmdc_available: bool | None = None
 
     def _check_mmdc(self) -> bool:
         if self._mmdc_available is None:
@@ -111,8 +102,7 @@ class MermaidRenderer:
         self,
         name: str,
         source: str,
-        width: int = 1200,
-        height: int = 1200,
+        size: int = 1200,
         background_color: str = "white",
         square: bool = True,
     ) -> Path:
@@ -121,21 +111,30 @@ class MermaidRenderer:
         Args:
             name: Output file stem (no extension).
             source: Mermaid diagram source code.
-            width: PNG width in pixels (only used if mmdc available).
-            height: PNG height in pixels.
+            size: Positive maximum PNG dimension in CSS pixels.
             background_color: Background color.
             square: Pad PNG output to a square canvas when rendering succeeds.
 
         Returns:
             Path to the generated file (.png or .mmd).
+
+        Raises:
+            TypeError: If size is not an integer, including bool.
+            ValueError: If size is nonpositive or a name/source is invalid.
         """
         if not name:
             raise ValueError("Diagram name must not be empty.")
+        if Path(name).name != name or name in {".", ".."} or "\\" in name:
+            raise ValueError("Diagram name must be a single portable filename stem.")
         if not source.strip():
             raise ValueError(f"Mermaid source for '{name}' must not be empty.")
+        if isinstance(size, bool) or not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        if size <= 0:
+            raise ValueError("size must be positive")
 
         if self._check_mmdc():
-            return self._render_with_mmdc(name, source, width, height, background_color, square)
+            return self._render_with_mmdc(name, source, size, background_color, square)
         if self.strict_png:
             raise RuntimeError("Mermaid CLI 'mmdc' is required when strict_png=True")
         return self._write_mmd_source(name, source)
@@ -150,8 +149,7 @@ class MermaidRenderer:
         self,
         name: str,
         source: str,
-        width: int,
-        height: int,
+        size: int,
         background_color: str,
         square: bool,
     ) -> Path:
@@ -161,6 +159,9 @@ class MermaidRenderer:
         write_text_atomic(mmd_path, source)
 
         png_path = self.output_dir / f"{name}.png"
+        fd, temporary_name = tempfile.mkstemp(prefix=f".{name}-", suffix=".png", dir=self.output_dir)
+        os.close(fd)
+        temporary_png = Path(temporary_name)
 
         # Locate puppeteer config (project-level .puppeteer.json points to system Chrome)
         puppeteer_config = _find_puppeteer_config()
@@ -170,11 +171,9 @@ class MermaidRenderer:
             "--input",
             str(mmd_path),
             "--output",
-            str(png_path),
-            "--width",
-            str(width),
-            "--height",
-            str(height),
+            str(temporary_png),
+            "--size",
+            str(size),
             "--backgroundColor",
             background_color,
             "--quiet",
@@ -185,9 +184,11 @@ class MermaidRenderer:
         try:
             result = subprocess.run(  # nosec B603 - command is fixed; only local temp/output paths vary.
                 cmd,
+                check=False,
                 capture_output=True,
                 text=True,
                 timeout=60,
+                stdin=subprocess.DEVNULL,
             )
             if result.returncode != 0:
                 message = (
@@ -200,8 +201,15 @@ class MermaidRenderer:
                     f"{message}. Falling back to .mmd."
                 )
                 return mmd_path
+            with Image.open(temporary_png) as image:
+                if image.format != "PNG":
+                    raise OSError("Mermaid output is not PNG")
+                image.verify()
+            with Image.open(temporary_png) as image:
+                image.load()
             if square:
-                pad_png_to_square(png_path)
+                pad_png_to_square(temporary_png)
+            temporary_png.replace(png_path)
             logger.info(f"Rendered Mermaid PNG: {png_path}")
             return png_path
         except subprocess.TimeoutExpired:
@@ -209,11 +217,13 @@ class MermaidRenderer:
                 raise RuntimeError(f"mmdc timed out for '{name}'") from None
             logger.warning(f"mmdc timed out for '{name}'. Falling back to .mmd.")
             return mmd_path
-        except OSError as e:
+        except (OSError, SyntaxError, ValueError) as e:
             if self.strict_png:
                 raise RuntimeError(f"mmdc OSError for '{name}': {e}") from e
             logger.warning(f"mmdc OSError for '{name}': {e}. Falling back to .mmd.")
             return mmd_path
+        finally:
+            temporary_png.unlink(missing_ok=True)
 
     def render_all(self, diagrams: list[MermaidDiagram], **kwargs) -> list[Path]:
         """Render a list of MermaidDiagram objects.
@@ -231,7 +241,7 @@ class MermaidRenderer:
             try:
                 path = self.render(diagram.name, diagram.source, **kwargs)
                 paths.append(path)
-            except (OSError, ValueError) as e:
+            except (OSError, TypeError, ValueError) as e:
                 logger.error(f"Failed to render '{diagram.name}': {e}")
                 failures.append(f"{diagram.name}: {e}")
         logger.info(f"Rendered {len(paths)}/{len(diagrams)} Mermaid diagrams.")

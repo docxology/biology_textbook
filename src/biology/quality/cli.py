@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import argparse
 
+from biology.quality import paths
 from biology.quality.engine import collect_findings, print_report
 from biology.quality.models import Finding
-from biology.quality import paths
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -16,7 +16,7 @@ def main(argv: list[str] | None = None) -> int:
         "--max-advisories",
         type=int,
         default=0,
-        help="Number of advisory findings to print and enforce in --check mode.",
+        help="Outstanding advisory budget (default zero); precisely bound, justified scientific reviews remain visible separately.",
     )
     args = parser.parse_args(argv)
 

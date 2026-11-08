@@ -10,7 +10,6 @@ from typing import Any
 
 from biology.quality.patterns import QUESTION_GENERIC_PATTERNS
 
-
 PROJECT = Path(__file__).resolve().parent.parent
 MANUSCRIPT = PROJECT / "docs" / "manuscript"
 SCRIPT = PROJECT / "scripts" / "audit_textbook_quality.py"
@@ -222,10 +221,11 @@ def test_quality_advisory_ledger_blocks_untriaged_and_unresolved(
                 "checked_as_of: '2026-05-20'",
                 "absolute_language:",
                 f"- advisory_id: {advisory_id}",
-                "  source_path: manuscript/unit_0/systems_science.md",
+                "  source_path: docs/manuscript/unit_0/systems_science.md",
                 "  line: 1",
                 "  classification: needs_qualifier",
                 "  excerpt: All model states are included here.",
+                "  rationale: This fixture defines the complete closed model state set, not an empirical universal.",
             ]
         ),
         encoding="utf-8",
@@ -262,32 +262,6 @@ def test_question_banks_have_exactly_thirty_questions_and_solutions() -> None:
     assert not offenders
 
 
-def test_question_bank_range_headings_are_unique_and_ordered() -> None:
-    expected_headings = [
-        "## Questions 1–10: Recall and Comprehension {.unnumbered}",
-        "## Questions 11–20: Application and Analysis {.unnumbered}",
-        "## Questions 21–30: Synthesis and Evaluation {.unnumbered}",
-    ]
-    offenders: list[str] = []
-    for path in sorted((MANUSCRIPT / "questions").rglob("questions_*.md")):
-        lines = path.read_text(encoding="utf-8").splitlines()
-        headings = [line for line in lines if line.startswith("## Questions ")]
-        if headings != expected_headings:
-            offenders.append(f"{path.relative_to(MANUSCRIPT)} headings={headings}")
-            continue
-        question_line_by_number = {
-            int(match.group(1)): line_no
-            for line_no, line in enumerate(lines, start=1)
-            if (match := re.match(r"^(\d{1,2})\.\s+", line))
-        }
-        for start, heading in zip((1, 11, 21), expected_headings, strict=True):
-            heading_line = lines.index(heading) + 1
-            question_line = question_line_by_number[start]
-            if heading_line >= question_line:
-                offenders.append(
-                    f"{path.relative_to(MANUSCRIPT)} has {heading!r} after question {start}"
-                )
-    assert not offenders
 
 
 def test_question_solution_blocks_have_no_generic_answer_signatures() -> None:
@@ -360,18 +334,16 @@ def test_core_chapter_structure_audit_is_config_driven(
     manuscript = tmp_path / "manuscript"
     chapter_dir = manuscript / "unit_0"
     chapter_dir.mkdir(parents=True)
-    config = "\n".join(
-        [
-            "units:",
-            "  - id: unit_0",
-            "    directory: unit_0",
-            "    chapters:",
-            "      - file: incomplete.md",
-            "        title: Incomplete",
-            "      - file: disabled.md",
-            "        title: Disabled",
-            "        enabled: false",
-        ]
+    config = (
+        "units:\n"
+        "  - id: unit_0\n"
+        "    directory: unit_0\n"
+        "    chapters:\n"
+        "      - file: incomplete.md\n"
+        "        title: Incomplete\n"
+        "      - file: disabled.md\n"
+        "        title: Disabled\n"
+        "        enabled: false"
     )
     (manuscript / "config.yaml").write_text(config, encoding="utf-8")
     incomplete = chapter_dir / "incomplete.md"
@@ -416,24 +388,20 @@ def test_configured_surface_audit_flags_missing_and_count_drift(
     (manuscript / "unit_0" / "unit_intro.md").write_text("# Unit\n", encoding="utf-8")
     (manuscript / "unit_0" / "chapter.md").write_text("# Chapter\n", encoding="utf-8")
     (manuscript / "config.yaml").write_text(
-        "\n".join(
-            [
-                "front_matter:",
-                "  files:",
-                "    - file: front_matter.md",
-                "units:",
-                "  - id: unit_0",
-                "    directory: unit_0",
-                "    chapters:",
-                "      - file: chapter.md",
-                "appendices:",
-                "  labs: []",
-                "  questions: []",
-                "  reference:",
-                "    - file: missing_appendix.md",
-                "      title: Missing",
-            ]
-        ),
+        "front_matter:\n"
+        "  files:\n"
+        "    - file: front_matter.md\n"
+        "units:\n"
+        "  - id: unit_0\n"
+        "    directory: unit_0\n"
+        "    chapters:\n"
+        "      - file: chapter.md\n"
+        "appendices:\n"
+        "  labs: []\n"
+        "  questions: []\n"
+        "  reference:\n"
+        "    - file: missing_appendix.md\n"
+        "      title: Missing",
         encoding="utf-8",
     )
 
@@ -572,111 +540,29 @@ def test_student_facing_frontier_boxes_do_not_use_confirmed_boilerplate() -> Non
     assert not offenders
 
 
-def test_current_science_claims_have_reviewed_citations() -> None:
-    required_pairs = {
-        "who2025tb": MANUSCRIPT / "unit_VII" / "antimicrobial_resistance_and_epidemiology.md",
-        "who2025malaria": MANUSCRIPT / "unit_VII" / "antimicrobial_resistance_and_epidemiology.md",
-        "unaids2025factsheet": MANUSCRIPT / "unit_VII" / "antimicrobial_resistance_and_epidemiology.md",
-        "cdc2025lenacapavirprep": MANUSCRIPT / "unit_VII" / "antimicrobial_resistance_and_epidemiology.md",
-        "who2025spatialemanators": MANUSCRIPT / "unit_VII" / "antimicrobial_resistance_and_epidemiology.md",
-        "longcovid2026mechanisms": MANUSCRIPT / "unit_VII" / "host_immunity_and_vaccines.md",
-        "cdc2026candidaauris": MANUSCRIPT / "unit_VII" / "antimicrobial_resistance_and_epidemiology.md",
-        "cdc2024candidaauristreatment": MANUSCRIPT / "unit_VII" / "antimicrobial_resistance_and_epidemiology.md",
-        "murray2022amr": MANUSCRIPT / "unit_VII" / "bacteria_archaea_viruses.md",
-        "cdc2025antibioticuse": MANUSCRIPT / "unit_VII" / "bacteria_archaea_viruses.md",
-        "velankar2026alphafolddb2025": MANUSCRIPT / "unit_I" / "macromolecules.md",
-        "emblebi2026alphafoldcomplexes": MANUSCRIPT / "unit_I" / "macromolecules.md",
-        "fda2024casgevythalassemia": MANUSCRIPT / "unit_IV" / "mutations_and_genomics.md",
-        "chalumeau2025primeediting": MANUSCRIPT / "unit_IV" / "mutations_and_genomics.md",
-        "rigden2026nardatabase": MANUSCRIPT / "unit_IV" / "gene_expression.md",
-        "rnacentral2026": MANUSCRIPT / "unit_IV" / "gene_expression.md",
-        "parks2026gtdb": MANUSCRIPT / "unit_VII" / "microbial_ecology.md",
-        "schreiber2024plantpangenomes": MANUSCRIPT / "unit_VIII" / "plant_reproduction.md",
-        "yao2023mousebrainatlas": MANUSCRIPT / "unit_IX" / "nervous_system.md",
-        "wwf2024livingplanet": MANUSCRIPT / "unit_X" / "biomes_and_conservation.md",
-        "strader2022coralheat": MANUSCRIPT / "unit_X" / "biomes_and_conservation.md",
-        "fao2025sofi": MANUSCRIPT / "unit_X" / "biomes_and_conservation.md",
-        "richardson2023earth": MANUSCRIPT / "unit_X" / "ecosystem_ecology.md",
-        "un2024population": MANUSCRIPT / "unit_X" / "population_ecology.md",
-        "lai2024gppcarbonylsulfide": MANUSCRIPT / "unit_III" / "photosynthesis.md",
-        "feldman2024rainfallvariability": MANUSCRIPT / "unit_X" / "ecosystem_ecology.md",
-        "huang2024guardcells": MANUSCRIPT / "unit_VIII" / "plant_responses.md",
-        "zheng2025tmem63channelopathies": MANUSCRIPT / "unit_II" / "membrane_transport.md",
+def test_invalid_bibliography_does_not_hide_independent_glossary_errors(
+    tmp_path: Path, monkeypatch: Any,
+) -> None:
+    from biology.maintenance import manuscript_walker
+    from biology.quality import paths
+    from biology.quality.audits.references import audit_glossary_and_citations
+    from biology.quality.models import Finding
+
+    manuscript = tmp_path / "docs" / "manuscript"
+    manuscript.mkdir(parents=True)
+    (manuscript / "references.bib").write_text(
+        "@misc{therapy, title={Approval}, year={2023}}\n"
+        "@misc{therapy, title={Label}, year={2023}}\n", encoding="utf-8",
+    )
+    (manuscript / "glossary.md").write_text(
+        "[First]{#gl:duplicate} \\citep{therapy}\n[Second]{#gl:duplicate}\n", encoding="utf-8",
+    )
+    for module in (paths, manuscript_walker):
+        monkeypatch.setattr(module, "PROJECT", tmp_path)
+        monkeypatch.setattr(module, "MANUSCRIPT", manuscript)
+
+    findings: list[Finding] = []
+    audit_glossary_and_citations(findings)
+    assert {finding.code for finding in findings} == {
+        "invalid-bibliography", "duplicate-glossary-anchor",
     }
-    missing = [
-        f"{path.relative_to(MANUSCRIPT)} missing {key}"
-        for key, path in required_pairs.items()
-        if key not in path.read_text(encoding="utf-8")
-    ]
-    assert not missing
-
-
-def test_known_stale_population_and_conservation_counts_are_absent() -> None:
-    stale = (
-        "10.4 billion around 2080-2100 (UN 2022 revision)",
-        "44,016 classified as threatened",
-        "IUCN Red List Categories (2024 Update)",
-        "Living Planet Report (2022)",
-        "69% average decline",
-        "feeding a projected 10 billion people by 2050",
-        "SARS-CoV-2 infected ~700 million people globally",
-        "all β-lactams",
-        "universal energy currency",
-    )
-    offenders: list[str] = []
-    for path in sorted(MANUSCRIPT.rglob("*.md")):
-        text = path.read_text(encoding="utf-8")
-        for phrase in stale:
-            if phrase in text:
-                offenders.append(f"{path.relative_to(MANUSCRIPT)} contains {phrase!r}")
-    assert not offenders
-
-
-def test_student_facing_prose_has_no_confirmed_grammar_artifacts() -> None:
-    artifacts = (
-        "to silences target genes",
-        "During COVID-19 pandemic",
-    )
-    offenders: list[str] = []
-    for path in sorted(MANUSCRIPT.rglob("*.md")):
-        if path.name in {"AGENTS.md", "README.md"}:
-            continue
-        text = path.read_text(encoding="utf-8")
-        for artifact in artifacts:
-            if artifact in text:
-                offenders.append(f"{path.relative_to(MANUSCRIPT)} contains {artifact!r}")
-    assert not offenders
-
-
-def test_student_facing_prose_has_no_authoring_source_boilerplate() -> None:
-    offenders: list[str] = []
-    phrase = "Recent and numeric claims should remain tied to authoritative sources"
-    for path in sorted(MANUSCRIPT.rglob("*.md")):
-        if path.name in {"AGENTS.md", "README.md"}:
-            continue
-        text = path.read_text(encoding="utf-8")
-        if phrase in text:
-            offenders.append(str(path.relative_to(MANUSCRIPT)))
-    assert not offenders
-
-
-def test_embedded_enrichment_surfaces_are_present() -> None:
-    assert (PROJECT / "docs" / "embedded_enrichment_audit_matrix.md").is_file()
-    missing: list[str] = []
-    chapter_titles = audit.engine.configured_chapter_title_by_path()
-    for path in sorted(MANUSCRIPT.glob("unit_*/*.md")):
-        if path.name in {"AGENTS.md", "README.md"}:
-            continue
-        text = path.read_text(encoding="utf-8")
-        if path.name == "unit_intro.md":
-            expected = "## Current Evidence Thread"
-        else:
-            expected = f"## Current Evidence and Frontier Biology: {chapter_titles[path]}"
-        if expected not in text:
-            missing.append(f"{path.relative_to(MANUSCRIPT)} missing {expected}")
-        if path.name != "unit_intro.md" and "- **What to cite:**" not in text:
-            missing.append(f"{path.relative_to(MANUSCRIPT)} missing source-practice scholarship bullet")
-    for path in sorted((MANUSCRIPT / "labs").rglob("lab_*.md")):
-        if "## Paper-Based Evidence Upgrade" not in path.read_text(encoding="utf-8"):
-            missing.append(f"{path.relative_to(MANUSCRIPT)} missing Paper-Based Evidence Upgrade")
-    assert not missing

@@ -27,4 +27,4 @@ class ManuscriptSurface:
     path: Path
 
 
-__all__ = ["Finding", "ManuscriptSurface", "PROJECT"]
+__all__ = ["PROJECT", "Finding", "ManuscriptSurface"]

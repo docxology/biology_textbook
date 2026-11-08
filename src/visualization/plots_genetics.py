@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
 import numpy as np
 
 from visualization._scaffold import (
@@ -312,9 +312,9 @@ def plot_translation_codons(
 def plot_replication_fork_progression(output_dir: Path) -> Path:
     """Bases-replicated over time for one vs many active replication origins.
 
-    Single-origin (prokaryotic) and 200-origin (eukaryotic) curves on the same
-    axes show why eukaryotic chromosomes can be replicated within an S phase
-    even though the per-fork velocity is slower.
+    Idealized single-origin and 200-origin cases have two diverging forks
+    per origin. All origins start simultaneously, with no fork collisions
+    or finite genome-length cap; these are not measured replication profiles.
 
     Args:
         output_dir: Directory to save PNG.
@@ -338,7 +338,7 @@ def plot_replication_fork_progression(output_dir: Path) -> Path:
         color=SERIES2[0],
         linewidth=2.4,
         linestyle="-",
-        label="Prokaryotic: 1 origin, 1000 bp/s",
+        label="1 origin, 2 forks at 1000 bp/s each",
     )
     ax.plot(
         np.array(eukaryote.times_s) / 60.0,
@@ -346,7 +346,7 @@ def plot_replication_fork_progression(output_dir: Path) -> Path:
         color=SERIES2[1],
         linewidth=2.4,
         linestyle="--",
-        label="Eukaryotic: 200 origins, 50 bp/s",
+        label="200 origins, 400 forks at 50 bp/s each",
     )
     ax.set_xlabel("Time (minutes)", fontsize=13)
     ax.set_ylabel("Bases replicated (Mb)", fontsize=13)
@@ -359,44 +359,36 @@ def plot_replication_fork_progression(output_dir: Path) -> Path:
 
 
 def plot_mutation_rate_spectrum(output_dir: Path) -> Path:
-    """Log-scale horizontal bars for per-site mutation rates by class.
+    """Show source-scoped mutation estimates on separate measurement axes.
 
-    Each bar shows the canonical per-site, per-generation mutation rate for
-    one variant class in the human germline. The log axis spans roughly four
-    orders of magnitude so the rare large-structural-variant class is still
-    legible alongside microsatellite slippage.
-
-    Args:
-        output_dir: Directory to save PNG.
-
-    Returns:
-        Path to the saved PNG.
+    No common per-base axis, ordering by rate, or genomic burden is implied.
+    Unverified small-indel/CpG numbers are explicitly absent.
     """
     from biology.genetics import mutation_rate_spectrum
 
-    rows = list(mutation_rate_spectrum())
-    labels = [row.mutation_class for row in rows]
-    rates = np.array([row.rate_per_site_per_generation for row in rows])
-
-    fig, ax = plt.subplots(figsize=(10, 5.5))
-    y_positions = np.arange(len(rows))
-    ax.barh(y_positions, rates, color=SERIES2[0], edgecolor="black", linewidth=0.6)
-    for idx, rate in enumerate(rates):
-        ax.text(
-            rate * 1.15,
-            idx,
-            f"{rate:.1e}",
-            va="center",
-            fontsize=9,
-            color=GRAY,
-        )
-    ax.set_yticks(y_positions)
-    ax.set_yticklabels(labels, fontsize=10)
-    ax.set_xscale("log")
-    ax.set_xlabel("Rate per site per generation (log scale)", fontsize=13)
-    ax.set_title("Mutation Rate Spectrum in the Human Germline", fontsize=14)
-    ax.grid(True, which="both", axis="x", color="#dddddd", linewidth=0.6, alpha=0.7)
-    ax.tick_params(labelsize=10)
-    fig.tight_layout()
+    rows = mutation_rate_spectrum()
+    fig, axes = plt.subplots(3, 2, figsize=(13, 10))
+    for ax, row in zip(axes.flat, rows):
+        ax.set_title(row.mutation_class, fontsize=11)
+        ax.set_yticks([])
+        if row.rate_range is None:
+            ax.text(0.5, 0.55, "No verified numeric estimate supplied",
+                    transform=ax.transAxes, ha="center", fontsize=10)
+            ax.set_xticks([])
+            ax.set_xlabel(row.target, fontsize=9)
+        else:
+            low, high = row.rate_range
+            ax.set_xscale("log")
+            ax.set_xlim(low / 3, high * 3)
+            ax.plot([low, high], [0.5, 0.5], marker="o", color=SERIES2[0])
+            ax.set_ylim(0, 1)
+            label = f"~{low:.3g}" if low == high else f"~{low:.3g}–{high:.3g}"
+            ax.text(0.5, 0.75, label, transform=ax.transAxes, ha="center", fontsize=11)
+            ax.set_xlabel(f"Events / {row.target} / {row.time_basis}", fontsize=9)
+        ax.text(0.5, 0.08, f"{row.organism}\n{row.source_label}",
+                transform=ax.transAxes, ha="center", fontsize=8)
+    fig.suptitle("Mutation Evidence: Different Targets and Time Bases\n"
+                 "Separate axes — not comparable rates or a burden ranking", fontsize=13)
+    fig.tight_layout(rect=(0, 0, 1, 0.93))
     return _save_figure(fig, output_dir, "mutation_rate_spectrum.png", aspect="landscape")
 

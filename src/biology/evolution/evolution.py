@@ -7,13 +7,30 @@ All computations are real mathematical models — no mock methods.
 
 from __future__ import annotations
 
+import math
 import random
 from dataclasses import dataclass, field
-from typing import Optional
 
 from textbook_logging import get_logger
 
 logger = get_logger(__name__)
+
+
+def _frequency(p: float) -> None:
+    if not math.isfinite(p) or not 0.0 <= p <= 1.0:
+        raise ValueError("Allele frequencies must be finite and in [0, 1].")
+
+
+def _positive_integer(value: int, name: str) -> None:
+    if not isinstance(value, int) or isinstance(value, bool):
+        raise TypeError(f"{name} must be a positive integer.")
+    if value <= 0:
+        raise ValueError(f"{name} must be a positive integer.")
+
+
+def _fitnesses(*values: float) -> None:
+    if any(not math.isfinite(v) or v < 0 for v in values):
+        raise ValueError("Genotype fitnesses must be finite and non-negative.")
 
 
 # ---------------------------------------------------------------------------
@@ -34,6 +51,9 @@ class Population:
 
     def __post_init__(self) -> None:
         """Validate that allele frequencies sum to 1."""
+        _frequency(self.p)
+        _frequency(self.q)
+        _fitnesses(self.fitness_AA, self.fitness_Aa, self.fitness_aa)
         if abs(self.p + self.q - 1.0) > 1e-9:
             raise ValueError(f"p + q must equal 1, got {self.p + self.q}")
 
@@ -59,7 +79,7 @@ class PhylogeneticNode:
     """A node in a phylogenetic tree."""
 
     name: str
-    parent: Optional[str] = None
+    parent: str | None = None
     branch_length: float = 0.0
     children: list[str] = field(default_factory=list)
 
@@ -84,8 +104,9 @@ def selection_one_generation(pop: Population) -> Population:
     Raises:
         ValueError: If mean fitness is zero.
     """
+    pop.__post_init__()
     W = pop.mean_fitness
-    if W <= 0:
+    if not math.isfinite(W) or W <= 0:
         raise ValueError("Mean fitness W-bar must be positive.")
 
     p_new = (pop.p**2 * pop.fitness_AA + pop.p * pop.q * pop.fitness_Aa) / W
@@ -118,8 +139,8 @@ def simulate_selection(
     Raises:
         ValueError: If generations ≤ 0.
     """
-    if generations <= 0:
-        raise ValueError("generations must be positive.")
+    _positive_integer(generations, "generations")
+    initial_pop.__post_init__()
 
     pop = initial_pop
     results: list[SelectionResult] = []
@@ -165,10 +186,8 @@ def wright_fisher_drift(
     Raises:
         ValueError: If p not in [0,1] or N ≤ 0.
     """
-    if not (0.0 <= p <= 1.0):
-        raise ValueError(f"p must be in [0, 1], got {p}.")
-    if N <= 0:
-        raise ValueError("N must be positive.")
+    _frequency(p)
+    _positive_integer(N, "N")
 
     rng = random.Random(rng_seed)  # nosec B311 - deterministic teaching simulation, not cryptography.
     return _wright_fisher_one_generation(p, N, rng)
@@ -190,6 +209,11 @@ def simulate_drift(
 ) -> list[float]:
     """Simulate genetic drift over multiple generations.
 
+    The local RNG is recreated from rng_seed on each call. For reproducible
+    independent replicates use distinct seeds, e.g. range(100), rather than
+    repeatedly calling the default seed. Finite-horizon histories may remain
+    unfixed; report fixed, lost and unresolved counts separately.
+
     Args:
         p: Initial allele frequency.
         N: Effective population size.
@@ -202,8 +226,9 @@ def simulate_drift(
     Raises:
         ValueError: If inputs are invalid.
     """
-    if generations <= 0:
-        raise ValueError("generations must be positive.")
+    _frequency(p)
+    _positive_integer(N, "N")
+    _positive_integer(generations, "generations")
 
     rng = random.Random(rng_seed)  # nosec B311 - deterministic teaching simulation, not cryptography.
     history = [p]
@@ -232,8 +257,10 @@ def fitness_landscape_1d(
     Returns:
         List of mean fitness values corresponding to each p.
     """
+    _fitnesses(fitness_AA, fitness_Aa, fitness_aa)
     results = []
     for p in allele_freqs:
+        _frequency(p)
         q = 1.0 - p
         W = p**2 * fitness_AA + 2 * p * q * fitness_Aa + q**2 * fitness_aa
         results.append(W)
@@ -249,25 +276,30 @@ def isolation_index(
     gene_flow_rate: float,
     mutation_rate: float,
 ) -> float:
-    """Estimate isolation index I = 1 / (1 + 4 * N * m) as a proxy for speciation.
+    """Return the unvalidated teaching ratio mu / (mu + m).
 
-    For simplicity uses the relative magnitudes of mutation and gene flow.
+    This dimensionless heuristic is not F_ST, reproductive isolation, or a
+    speciation probability. It has no population-size parameter or calibrated
+    biological interpretation. At two zero rates, the ratio is undefined.
 
     Args:
         gene_flow_rate: Rate of gene flow between populations (m).
         mutation_rate: Background mutation rate (μ).
 
     Returns:
-        Isolation index in [0, 1]; values close to 1 indicate strong isolation.
+        Relative mutation share in [0, 1] for a positive sum of rates.
 
     Raises:
-        ValueError: If either rate is negative.
+        ValueError: If rates are nonfinite, negative, or both zero.
     """
-    if gene_flow_rate < 0 or mutation_rate < 0:
-        raise ValueError("Rates must be non-negative.")
-    if gene_flow_rate + mutation_rate == 0:
-        return 1.0
-    return mutation_rate / (mutation_rate + gene_flow_rate)
+    if any(not math.isfinite(v) or v < 0 for v in (gene_flow_rate, mutation_rate)):
+        raise ValueError("Rates must be finite and non-negative.")
+    scale = max(gene_flow_rate, mutation_rate)
+    if scale == 0:
+        raise ValueError("At least one rate must be positive; the zero/zero ratio is undefined.")
+    mu = mutation_rate / scale
+    m = gene_flow_rate / scale
+    return mu / (mu + m)
 
 
 # ---------------------------------------------------------------------------
@@ -285,19 +317,32 @@ def molecular_clock_divergence_time(
 
     Args:
         substitution_rate_per_site_per_year: Known substitution rate.
-        sequence_divergence: Observed fractional sequence divergence.
+        sequence_divergence: Pairwise substitutions per site; apply any needed
+            multiple-hit correction before calling. No correction is implicit.
 
     Returns:
         Estimated divergence time in years.
 
     Raises:
-        ValueError: If rate or divergence is non-positive.
+        ValueError: For invalid inputs or an unrepresentable positive time.
     """
+    if not all(math.isfinite(v) for v in (substitution_rate_per_site_per_year, sequence_divergence)):
+        raise ValueError("Rate and divergence must be finite.")
     if substitution_rate_per_site_per_year <= 0:
         raise ValueError("substitution_rate must be positive.")
     if sequence_divergence < 0:
         raise ValueError("sequence_divergence must be non-negative.")
-    t = sequence_divergence / (2.0 * substitution_rate_per_site_per_year)
+    divergence_mantissa, divergence_exponent = math.frexp(sequence_divergence)
+    rate_mantissa, rate_exponent = math.frexp(substitution_rate_per_site_per_year)
+    try:
+        t = math.ldexp(
+            divergence_mantissa / rate_mantissa,
+            divergence_exponent - rate_exponent - 1,
+        )
+    except OverflowError as exc:
+        raise ValueError("Divergence time exceeds the finite model range.") from exc
+    if sequence_divergence > 0 and t <= 0:
+        raise ValueError("Positive divergence time is not representable.")
     logger.debug(
         "Molecular clock: divergence=%s, rate=%s → t=%.2e years",
         sequence_divergence,

@@ -16,9 +16,7 @@ from biology.curriculum_sync.engine import (
     sync_chapter,
     sync_front_matter_navigation,
     sync_heading_titles,
-    sync_lab,
     sync_preface_scope_table,
-    sync_question,
     sync_section_reference_commands,
     sync_suggested_reading_paths,
     sync_textbook_concept_map,
@@ -28,7 +26,7 @@ from biology.curriculum_sync.paths import MANUSCRIPT, PROJECT
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Synchronize curriculum scaffolds across manuscript surfaces.")
+    parser = argparse.ArgumentParser(description="Synchronize chapter blueprints, navigation, and curriculum appendices; preserve authored assessments.")
     parser.add_argument("--dry-run", action="store_true", help="Report changes without writing files")
     args = parser.parse_args(argv)
 
@@ -51,10 +49,6 @@ def main(argv: list[str] | None = None) -> int:
                 raise FileNotFoundError(path)
         if sync_chapter(chapter, record, alignment, dry_run=args.dry_run):
             report.chapters_updated += 1
-        if sync_lab(lab, record, alignment, dry_run=args.dry_run):
-            report.labs_updated += 1
-        if sync_question(question, record, alignment, dry_run=args.dry_run):
-            report.questions_updated += 1
 
     appendix = MANUSCRIPT / "appendices" / "appendix_curriculum_map.md"
     if _write_if_changed(
@@ -84,8 +78,6 @@ def main(argv: list[str] | None = None) -> int:
     mode = "DRY RUN" if args.dry_run else "APPLIED"
     print(
         f"[{mode}] chapters_updated={report.chapters_updated} "
-        f"labs_updated={report.labs_updated} "
-        f"questions_updated={report.questions_updated} "
         f"appendix_updated={report.appendix_updated} "
         f"instructor_appendix_updated={report.instructor_appendix_updated} "
         f"titles_updated={report.titles_updated} "

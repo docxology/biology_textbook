@@ -119,7 +119,7 @@ Modern cell biology has expanded the original three postulates:
 > **Clinical Connection: Virchow and the Origin of Cancer Biology**
 > Virchow's principle *omnis cellula e cellula* had a profound clinical implication: if most cells come from pre-existing cells, then cancer cells must also arise from normal cells through transformation. Virchow himself applied this reasoning to pathology, founding the field of cellular pathology. Today, cancer biology rests on the understanding that [**mutation**](#gl:mutation)s accumulate in somatic cells, transforming them into malignant clones --- a direct intellectual descendant of Virchow's third postulate. see \cref{sec:unit_II_cell_signaling} (Cell Signaling) for oncogenes and tumor suppressors.
 
-> **Concept Check 1:** Viruses are not considered "alive" by cell theory standards. List three properties of viruses that exclude them from cell theory, and one property that challenges the boundary between living and non-living.
+> **Concept Check 1:** Distinguish viral acellularity and dependence on host translation from the definition-dependent question of whether viruses are alive. Which viral properties are life-like, and which would a definition requiring autonomous cellular reproduction exclude?
 
 ---
 
@@ -210,7 +210,7 @@ t = \frac{x^2}{2D}
 \label{eq:unit_II_cell_theory_worked_8}
 \end{equation}
 
-where $D$ is the diffusion coefficient. For a small molecule ($D \approx 10^{-9}$ m$^2$/s) to diffuse across a 1 μm cell takes ~0.5 ms. Across a 1 mm cell, it takes ~500 s (over 8 minutes). This places an absolute upper limit on cell size for diffusion-dependent processes.
+where $D$ is the diffusion coefficient. For a small molecule ($D\approx10^{-9}$ m$^2$/s), the one-dimensional estimate is about 0.5 ms over 1 μm and 500 s over 1 mm. These scales constrain diffusion-dependent supply, but do not set a universal maximum cell size without transport geometry and metabolic demand.
 
 ### Exceptions to Small Cell Size
 
@@ -221,9 +221,9 @@ where $D$ is the diffusion coefficient. For a small molecule ($D \approx 10^{-9}
 - **Cytoplasmic streaming:** in giant plant cells (e.g., *Chara* internodal cells, >10 cm), [**actin**](#gl:actin)-myosin-driven streaming circulates [**cytoplasm**](#gl:cytoplasm) at ~60 μm/s, overcoming diffusion limitations
 - **Multinucleation:** skeletal muscle fibers (up to 30 cm long) contain hundreds of nuclei, each governing a local cytoplasmic domain
 
-> **Concept Check 2:** *Thiomargarita namibiensis* is a bacterium with a diameter of ~750 μm --- visible to the naked eye. How does it survive despite having an $A/V$ ratio of about 0.008 μm$^{-1}$? (Hint: consider what fills >95% of its volume.)
+> **Concept Check 2:** Model a *Thiomargarita namibiensis* cell as a 750 μm-diameter sphere, giving $A/V\approx0.008$ μm$^{-1}$. How does its large nitrate-storage vacuole reduce active cytoplasmic volume and transport distances? Explain why geometry alone cannot establish whether exchange meets demand.
 
-### The Cube Law and Why Giant Cells Are Impossible
+### The Cube Law and Conditional Cell-Size Constraints
 
 The surface-to-volume problem can be sharpened into what physiologists call the **cube law of metabolism**. If we model a cell as a sphere of radius $r$, mass $m$, and uniform density ρ, then:
 
@@ -266,20 +266,20 @@ Prokaryotes and eukaryotes occupy fundamentally different scales of organization
 | -------- | ----------------------- | --------------------- | ---------------- |
 | Length / diameter | 2 μm × 0.5 μm | ~20 μm | ~10–40 × |
 | Volume | ~1 μm$^3$ | ~4,000 μm$^3$ | ~4,000 × |
-| Surface area | ~6 μm$^2$ | ~5,000 μm$^2$ | ~830 × |
-| $A/V$ | ~6 μm$^{-1}$ | ~1.25 μm$^{-1}$ | 0.21 × (lower) |
-| Genome size | 4.6 Mbp | 6.4 Gbp (diploid) | ~1,400 × |
+| Surface area | ~6 μm$^2$ | ~1,257 μm$^2$ for a smooth r=10 μm sphere | ~210 × |
+| $A/V$ | ~6 μm$^{-1}$ | ~0.30 μm$^{-1}$ | 0.05 × |
+| Genome size | 4.6 Mbp | 6.4 Gbp for an illustrative diploid human cell, not an exact HeLa karyotype | ~1,400 × |
 | Protein number | ~3 × 10$^6$ | ~2 × 10$^{10}$ | ~7,000 × |
 | Doubling time | 20 min (rich media) | ~24 h | 70 × slower |
 | ATP turnover (molecules/s) | ~10$^9$ | ~10$^{10}$ | ~10 × |
 
-**Worked Example: Why eukaryotes need internal membranes.** A HeLa cell with $r = 10$ μm has about 1.25 μm$^{-1}$ surface-to-volume — about 5-fold less than *E. coli*. Yet the eukaryotic cell sustains roughly 10× higher absolute metabolic flux. The arithmetic closes if the eukaryote *adds internal membrane surface area* equivalent to the plasma membrane's deficit. Indeed, the inner mitochondrial membrane in a single hepatocyte provides ~$3 \times 10^4$ μm$^2$ of additional respiratory surface — roughly 6× the plasma membrane area. Compartmentalization is therefore not optional aesthetics: it is the topological solution to the cube-law constraint on a body plan that contains 1,000× more cytoplasm than a bacterium.
+**Worked Example — Different membrane constraints:** A smooth sphere of radius 10 μm has A/V=3/r=0.30 μm^-1. Internal mitochondrial cristae increase respiratory reaction area but do not add plasma-membrane exchange area. Surface uptake, intracellular diffusion and respiratory capacity impose distinct constraints; extra internal membrane does not automatically solve all three.
 
 > **Concept Check 3b:** A spherical eukaryotic cell with $r = 10$ μm has plasma-membrane area $A_\text{PM} \approx 1{,}260$ μm$^2$. If respiratory demand scales with cytoplasmic volume and the cell needs 6× the plasma-membrane area to support its metabolism, estimate the total inner membrane area its mitochondria must provide.
 
 > **Concept Check (Analysis):** A spherical bacterial cell has radius r = 1 μm; a giant squid neuron axon has radius r = 500 μm. (a) Calculate the surface-area-to-volume (SA/V) ratio for each. (b) Diffusion of ATP from the cell center to the periphery takes time t ∝ r²/D where D(ATP) = 300 μm²/s. Calculate the diffusion time for each cell. (c) The squid axon uses active axonal transport (kinesin at 1 μm/s) rather than diffusion for cargo delivery. At what axon length does active transport become strictly necessary (say, when diffusion time exceeds 1 hour)?
 
-> **Worked Example --- Surface-Area-to-Volume Limits on Cell Size:** Consider a cell approximated as a sphere of radius r. Metabolic rate scales with volume V = (4/3)πr³, while nutrient/waste exchange scales with surface area SA = 4πr². Oxygen diffusion flux across the membrane: J_O2 = P × ΔCO2, where P = permeability × SA. If the cell's O2 consumption rate is q per unit volume, the cell can grow provided J_O2 > q × V, i.e., P × SA/V > q. For a typical eukaryotic cell: P(O2) ≈ 0.04 cm/s, q ≈ 10⁻¹⁰ mol/s per cell (radius 10 μm). Verify: SA/V = 3/r = 3/(10 × 10⁻⁴ cm) = 300 cm⁻¹. J = P × SA/V × ΔCO2 = 0.04 × 300 × 200 μM = 2400 μM·cm/s --- exceeds q. Now scale to r = 1 mm: SA/V = 3/0.1 = 30 cm⁻¹; J = 0.04 × 30 × 200 = 240 μM·cm/s --- still OK at periphery, but the center is now O2-limited, explaining why cells >200 μm in avascular tissue become hypoxic and die.
+> **Worked Example — Dimensionally consistent uptake:** Let membrane permeability P=0.04 cm/s, concentration difference deltaC=200 micromolar=2e-7 mol/cm^3 and spherical radius r=10 micrometers=0.001 cm. A=4pi r^2=1.257e-5 cm^2 and V=4pi r^3/3=4.189e-9 cm^3. Flux density P deltaC=8e-9 mol cm^-2 s^-1, so whole-cell uptake P A deltaC=1.005e-13 mol/s. A proposed consumption of 1e-10 mol/s would exceed this by about 995-fold and is incompatible with these inputs. Equivalently, uptake per volume is P(3/r)deltaC=2.4e-5 mol cm^-3 s^-1; compare only with consumption expressed per volume. At fixed consumption density, increasing radius worsens uptake per volume as 1/r. Internal oxygen diffusion can add another limitation; this calculation does not model it.
 
 
 ---
@@ -473,7 +473,7 @@ The discovery of Archaea by \citet{woese1977} as a separate domain transformed o
 : Detailed Comparison: Bacteria vs. Archaea: Feature and Bacteria. {#tbl:unit_II_cell_theory_detailed_comparison_bacteria_vs_archaea}
 | Feature | Bacteria | Archaea | Functional / clinical note |
 | ------- | -------- | ------- | -------------------------- |
-| Cell wall | Peptidoglycan (N-acetylmuramic acid + N-acetylglucosamine, beta-1,4 linked, peptide cross-bridges) | Pseudopeptidoglycan (NAG + N-acetyltalosaminuronic acid, beta-1,3 linked) or S-layer or polysaccharide | Penicillins/vancomycin target NAM and D-Ala-D-Ala — both absent in archaea |
+| Cell wall | Typical peptidoglycan has NAG–NAM chains and peptide cross-links | Pseudopeptidoglycan, S-layers or other polymers, without bacterial peptidoglycan | Beta-lactams inhibit susceptible cross-linking enzymes; vancomycin binds appropriate D-Ala-D-Ala precursors. Target access and resistance also determine susceptibility |
 | Membrane lipids | Glycerol-3-phosphate ester-linked to straight-chain fatty acids | Glycerol-1-phosphate ether-linked to branched isoprenoids (phytanyl); often tetraether monolayers | Stereochemistry of glycerol backbone is opposite (G3P vs G1P) — the "lipid divide" |
 | Membrane topology | Bilayer | Bilayer or monolayer (tetraether) | Monolayer membranes are heat-stable to 113 °C |
 | RNA polymerase | 4–5 subunits ($\alpha_2\beta\beta'\omega$); rifampicin-sensitive | 12+ subunits, eukaryote-like; rifampicin-resistant | Drug development implication |
@@ -539,8 +539,8 @@ Lynn Margulis formalised the **endosymbiotic theory** (1967): mitochondria and c
 
 1. **Double membranes:** Both organelles have inner (bacterial plasma membrane) and outer (phagocytic membrane) bilayers.
 2. **Circular DNA:** Mitochondrial and chloroplast genomes are circular, like bacterial chromosomes.
-3. **70S ribosomes:** Organelle ribosomes are structurally bacterial-type; sensitive to antibacterials (chloramphenicol, erythromycin) that inhibit 70S, not eukaryotic 80S ribosomes.
-4. **Binary fission:** Organelles divide by binary fission, independently of nuclear cell division, using FtsZ-related proteins.
+3. **Bacterial-derived translation:** Organelle ribosomes retain evidence of bacterial ancestry, but sedimentation coefficients vary: mammalian mitoribosomes are about 55S, whereas chloroplast ribosomes are typically 70S. Antibiotic sensitivity is drug- and organelle-specific.
+4. **Division machinery:** Organelle division is coordinated with the host. Many plastids retain FtsZ-based components; mammalian mitochondrial fission instead uses host dynamin-related DRP1 machinery. FtsZ is not universal in mitochondria.
 5. **Phylogenetics:** rRNA sequences of mitochondria are most similar to **alpha-proteobacteria** (e.g., *Rickettsia*); chloroplasts to **cyanobacteria**.
 6. **Transfer of genes:** ~1,500 mitochondrial-origin genes now live in the nuclear genome (gene transfer to nucleus over evolutionary time).
 7. **Cardiolipin:** The inner mitochondrial membrane contains cardiolipin, a lipid characteristic of bacterial membranes.
@@ -556,13 +556,13 @@ Lynn Margulis formalised the **endosymbiotic theory** (1967): mitochondria and c
 
 ### LUCA: The Last Universal Common Ancestor
 
-If cell theory is correct that most cells descend from pre-existing cells \citep{virchow1855}, then the lineages of bacteria, archaea, and eukaryotes converge backward in time on a single ancestral population: the **Last Comprehensive Common Ancestor (LUCA)**. LUCA is not a fossil — it is a *reconstruction* assembled from comparative molecular data. Three classes of evidence let us infer its properties.
+LUCA means the **Last Universal Common Ancestor**, more accurately an inferred ancestral population shared by surviving lineages. It is reconstructed from comparative evidence, not directly observed; it need not have been the first life.
 
-1. **Almost universally conserved genes (the LUCA core).** Genes shared by Bacteria *and* Archaea — and absent from horizontally transferred outliers — are candidates for LUCA inheritance. Modern reconstructions (Weiss et al. 2016, *Nature Microbiology*) identify ~355 such ancient gene families. LUCA almost certainly possessed: a fully fledged DNA→RNA→protein machinery (DNA polymerase, RNA polymerase, ribosome with rRNA, ~20 aminoacyl-tRNA synthetases), the [**genetic code**](#gl:genetic-code), Wood–Ljungdahl-pathway-like CO$_2$ fixation, [Fe–S] and [Ni–Fe] metalloenzymes, ATP synthase (rotor/stator architecture), and a chemiosmotic membrane.
+1. **Conserved core:** Broadly shared translation components and the genetic code strongly constrain ancestral reconstructions. A proposed set of ancient gene families depends on sampling, phylogenetic criteria and horizontal-transfer assumptions; it is not a complete observed LUCA genome.
 
-2. **Geochemistry-constrained habitat.** The metalloenzyme inventory (Ni, Fe, Mo, Co, W in unusual valences) suggests LUCA inhabited an **anaerobic, hydrothermal, alkaline environment** — most parsimoniously interpreted as a serpentinising hydrothermal vent system on the early ocean floor (~3.8 Ga). Dependence on natural proton gradients across thin inorganic membranes (FeS micropores in vent chimneys) preceded the modern membrane-spanning ATP synthase, suggesting LUCA was not yet a fully autonomous cell but a *pre-cellular* metabolic unit (Lane & Martin 2012).
+2. **Habitat hypotheses:** Metalloenzymes and metabolic reconstructions motivate hydrothermal/anaerobic hypotheses, but these are model-dependent inferences rather than uniquely established habitat or membrane architecture.
 
-3. **The DNA replication anomaly.** Bacterial and archaeal DNA polymerases (Family A vs. Family B) share *no* sequence similarity in their catalytic cores, despite both performing the same chemistry. The simplest explanation is that LUCA used **RNA-genome replication** and DNA replication evolved twice independently *after* the bacterial–archaeal split. This argues that LUCA was a late RNA-world organism with a stable genetic code and ribosomes but was still transitioning from RNA to DNA storage.
+3. **Replication uncertainty:** The principal bacterial replicase Pol III is Family C; archaeal replicases include Families B and D. Different modern replication machinery motivates hypotheses about ancient replacement and the origin of DNA replication, but does not prove an RNA-genome LUCA or two independent inventions of DNA. Separate the strongly conserved translation core from contested genome-chemistry reconstructions.
 
 The reconstruction has profound implications. LUCA was not the first cell — it was the last common one. Earlier lineages may have existed but left no descendants. The vast biochemical diversity of modern life (oxygenic photosynthesis, methanogenesis, eukaryotic compartmentalization) most evolved *after* LUCA, layered onto its conserved core.
 
@@ -570,7 +570,7 @@ The reconstruction has profound implications. LUCA was not the first cell — it
 
 ### Viral Replication: Lytic vs. Lysogenic Cycles
 
-Viruses are not cells (no membranes of their own metabolism, no ribosomes, no autonomous reproduction) and so are excluded from cell theory by definition. But viruses are cellular *parasites*, and their replication strategies illuminate what cells must do to maintain integrity. Bacteriophages — viruses that infect bacteria — provide the textbook example.
+Viruses are acellular entities that depend on host cells for productive replication and lack an autonomous ribosomal translation system. Virions may include enzymes, other proteins and lipids beyond genome and capsid. Their classification as alive depends on the chosen criteria; their replication strategies illuminate host-cell requirements. Bacteriophages—viruses that infect bacteria—provide the following examples.
 
 **Lytic cycle (e.g., T4 bacteriophage):**
 1. **Attachment:** tail fibers bind specific surface receptors (e.g., LPS, OmpC) — defines host range.
@@ -598,15 +598,15 @@ The lysogenic cycle has profound consequences. **Specialized transduction** carr
 
 ## The Minimal Cell: JCVI-syn3.0
 
-In 2016, Craig Venter's team at the J. Craig Venter Institute created **JCVI-syn3.0**, a synthetic organism with the smallest genome of any self-replicating cell: **473 genes** (531 kb). This was achieved by systematically deleting genes from *Mycoplasma mycoides* until primarily essential genes remained.
+In 2016, researchers produced **JCVI-syn3.0**, a top-down genome-minimization result with **473 genes** in 531 kb, using cycles of design, synthesis and testing based on *Mycoplasma mycoides* \citep{venter2016syn3}. The cells retained existing cellular machinery and required a supportive culture environment; the result was not an autonomous bottom-up protocell assembled from simple chemicals.
 
 Key findings:
-- Of the 473 genes, **149 (31.5%) have unknown function** --- we do not understand why they are essential
+- The 2016 study reported **149 genes (31.5%) with unknown biological functions**; this historical count is not a statement that all remain uncharacterized
 - The minimal gene set includes genes for DNA replication, transcription, translation, membrane synthesis, and central metabolism
 - No genes for cell wall synthesis, stress responses, or secondary metabolism were required under laboratory conditions
 - JCVI-syn3.0 grows more slowly than its parent organism, with a doubling time of ~3 hours
 
-This work defines the boundary between chemistry and life and raises profound questions: What is the minimal instruction set for a living system? Can we understand life by building it from scratch?
+This work tests which genome functions support replication in a particular cellular and culture context, not a universal boundary between chemistry and life. RNA-catalyzed propagation and selection of hammerhead RNA supplies a different module-level result, not an integrated self-replicating protocell or autonomous polymerase replication \citep{papastavrou2024rna}.
 
 > **Clinical Connection: Synthetic Biology and Minimal Cells**
 > The minimal cell concept has direct applications in biotechnology. Engineered minimal cells could serve as "chassis" organisms for producing pharmaceuticals, biofuels, or industrial chemicals with predictable behavior and reduced metabolic complexity. Understanding essential gene sets also identifies new antibiotic targets --- genes essential for bacterial survival that have no human homologues.
@@ -621,7 +621,7 @@ Extremophiles are organisms (primarily archaea, but also some bacteria and eukar
 
 : Extremophile Cell Strategies: Type and Environment. {#tbl:unit_II_cell_theory_extremophile_cell_strategies}
 | Type | Environment | Example organism | Cellular adaptation |
-| ---- | ----------- | ---------------- | ------------------- |
+| ------------------ | ------------------ | ------------------ | ------------------ |
 | Thermophile | >60 degrees C | *Thermus aquaticus* (source of Taq polymerase) | Reverse gyrase; saturated membrane lipids |
 | Hyperthermophile | >80 degrees C | *Pyrolobus fumarii* (113 degrees C) | Tetraether monolayer membranes; thermostable proteins |
 | Psychrophile | <15 degrees C | *Psychrobacter* | Unsaturated membrane lipids; cold-active enzymes |
@@ -650,7 +650,7 @@ Extremophiles expand our understanding of habitable environments in the solar sy
 
 : Nutritional Classification by Carbon and Energy Source: Type and Carbon source. {#tbl:unit_II_cell_theory_nutritional_classification_by_carbon_and_energy_source}
 | Type | Carbon source | Energy source | Examples |
-| ---- | ------------- | ------------- | -------- |
+| ------------------ | ------------------ | ------------------ | ------------------ |
 | Photoautotroph | CO$_2$ | Light | Plants, cyanobacteria, algae |
 | Photoheterotroph | Organic carbon | Light | Purple non-sulfur bacteria |
 | Chemoautotroph | CO$_2$ | Inorganic chemicals | Nitrifiers, sulfur oxidisers |
@@ -713,7 +713,7 @@ Single-cell atlases are most useful when they clarify the sampled tissue, donor 
 - Microscopy techniques span light (bright-field, phase-contrast, DIC, fluorescence, confocal, TIRF), electron (TEM, SEM, cryo-EM), and super-resolution (STED, STORM, PALM) methods, with resolutions from ~200 nm to sub-nanometre.
 - Prokaryotes (Bacteria + Archaea) lack membrane-bound organelles; Gram staining discriminates based on cell wall structure. Archaea share molecular features with eukaryotes.
 - Eukaryotic organelles carry out compartmentalised functions; mitochondria and chloroplasts arose by endosymbiosis of bacterial ancestors.
-- The minimal cell (JCVI-syn3.0, 473 genes) defines the boundary of cellular life; extremophiles demonstrate life's adaptability to extreme environments.
+- JCVI-syn3.0 (473 genes in the 2016 study) demonstrates context-dependent genome minimization, not the universal lower boundary of life; extremophiles demonstrate diverse cellular adaptations.
 - **Connections:** See \cref{sec:unit_II_cell_structure} for organelle inventory, \nameref{sec:unit_VII_unit_intro} for prokaryotic diversity, and \nameref{sec:unit_VI_unit_intro} for common ancestry and LUCA reasoning.
 
 ---
@@ -752,11 +752,11 @@ Single-cell atlases are most useful when they clarify the sampled tissue, donor 
 
 These questions have no single correct answer — they are designed to provoke debate, integrate concepts across sections, and connect cell biology to broader scientific and ethical questions.
 
-1. **Defining life.** Is JCVI-syn3.0 alive? It self-replicates, contains a genome, performs metabolism, and responds to its environment — but every component was designed by humans. If the answer is "yes," does that mean we have created life? If "no," what definition excludes it that does not also exclude obligate intracellular pathogens like *Rickettsia* (which depend on host metabolism just as syn3.0 depends on enriched media)?
+1. **Defining life.** JCVI-syn3.0 replicates using a synthetic minimized genome in pre-existing cellular machinery and supportive medium. What does this establish about genome design, and what would additionally be needed to claim bottom-up construction of an autonomous cell? Distinguish these experimental questions from a definition of life.
 
 2. **Cell theory under stress.** Cell theory states that most cells come from pre-existing cells. But somatic-cell nuclear transfer (cloning), induced pluripotent stem cells (iPSCs from skin fibroblasts), and now in-vitro-generated organoids (mini-brains, mini-livers) push this principle. Are organoids "organisms"? Do they have moral status if they begin to exhibit coordinated electrical activity?
 
-3. **The 149-gene mystery.** JCVI-syn3.0 has 149 essential genes of unknown function. Choose one approach (CRISPR screening, AlphaFold structural prediction, evolutionary co-occurrence analysis, or chemical biology) and argue why it is most likely to crack this set first. What ethical or biosafety considerations follow from understanding the minimal genome?
+3. **The 149-gene mystery.** The 2016 JCVI-syn3.0 study reported 149 genes of unknown biological function. Choose a functional-screening, structural, evolutionary or chemical-biology approach and explain how it could test a proposed function, rather than treating prediction as confirmation. What ethical or biosafety considerations follow?
 
 4. **Astrobiology and the biosignature problem.** If life on Mars or Europa derives from a separate origin, it might lack DNA, ribosomes, and ATP — making it invisible to instruments designed around terrestrial biochemistry. How might cell theory be revised if we discovered non-cellular life elsewhere? Conversely, what *cellular* features might be comprehensive across any biochemistry (compartmentalization? polymer-based information storage? membranes?) and why?
 
@@ -795,7 +795,7 @@ These questions have no single correct answer — they are designed to provoke d
 | **Nucleoid** | Condensed DNA-containing region of prokaryotic cells, not bounded by a membrane |
 | **Peptidoglycan** | Polymer of NAG-NAM cross-linked by peptide bridges; structural component of bacterial cell walls |
 | **Cryo-EM** | Electron microscopy of vitrified (flash-frozen) specimens; near-atomic resolution without staining |
-| **JCVI-syn3.0** | Minimal synthetic cell with 473 genes; defines the lower boundary of self-replicating life |
+| **JCVI-syn3.0** | Top-down minimized synthetic genome with 473 genes in the 2016 study; replication depends on its cellular and culture context |
 | **Extremophile** | Organism thriving in extreme environments (temperature, pH, salinity, pressure, radiation) |
 | **Diffusion limit** | Physical constraint on cell size imposed by the relationship $t = x^2/2D$ |
 | **Compartmentalization** | Segregation of biochemical processes into membrane-bound organelles; a defining eukaryotic feature |

@@ -21,26 +21,14 @@ def test_normalise_lab_replaces_stale_notebook_block(tmp_path, monkeypatch) -> N
     lab_path = tmp_path / lab_rel
     lab_path.parent.mkdir(parents=True)
     lab_path.write_text(
-        "\n".join(
-            [
-                "# Demo",
-                "",
-                "| Computer with Python/Jupyter Notebook | 1 |",
-                "",
-                "### Part 2: Computational extension",
-                "",
-                "*Complete this section using the provided Jupyter Notebook: demo.ipynb*",
-                "",
-                "- Investigate the Jupyter notebook `demo.ipynb` for the full workflow.",
-                "",
-                "### Part 3: Wrap-up",
-                "",
-                "Reference module: src/biology/genetics.py",
-                "",
-                "Done.",
-                "",
-            ]
-        ),
+        "# Demo\n\n"
+        "| Computer with Python/Jupyter Notebook | 1 |\n\n"
+        "### Part 2: Computational extension\n\n"
+        "*Complete this section using the provided Jupyter Notebook: demo.ipynb*\n\n"
+        "- Investigate the Jupyter notebook `demo.ipynb` for the full workflow.\n\n"
+        "### Part 3: Wrap-up\n\n"
+        "Reference module: src/biology/genetics.py\n\n"
+        "Done.\n",
         encoding="utf-8",
     )
     from biology.maintenance.lab_workflows import LabWorkflow, normalise_lab

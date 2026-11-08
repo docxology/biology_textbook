@@ -200,7 +200,7 @@ The molecular specifics matter because **mutations in many of these genes cause 
 ```mermaid
 flowchart TD
     A[Sex Determination Systems] --> B["XX/XY System (Mammals)"]
-    A --> C["ZW/ZZ System (Birds, Reptiles, Butterflies)"]
+    A --> C["ZW/ZZ systems<br/>birds and some reptiles or insects"]
     A --> D["XX/XO System (Grasshoppers, some insects)"]
     A --> E["Haplodiploidy (Hymenoptera: bees, ants, wasps)"]
     A --> F["Environmental (Temperature-dependent: reptiles)"]
@@ -212,7 +212,8 @@ flowchart TD
     B1 --> B5["Without SRY: Default Ovary Development"]
 
     C --> C1["ZZ = Male; ZW = Female"]
-    C1 --> C2["DMRT1 on Z: Dosage-dependent Male Determination"]
+    C1 --> C2["Chicken example:<br/>DMRT1 Z dosage contributes<br/>to male determination"]
+    C1 --> Lep["Silkworm Bombyx mori example:<br/>W-derived Fem piRNA represses Masc<br/>not a universal DMRT1 mechanism"]
 
     D --> D1["XX = Female; XO = Male (no Y chromosome)"]
 
@@ -220,14 +221,14 @@ flowchart TD
     E1 --> E2["Males Develop from Unfertilized Eggs"]
 
     F --> F1["Incubation Temperature Determines Sex"]
-    F1 --> F2["e.g., Alligators: <30C = Female, >34C = Male"]
+    F1 --> F2["Alligators: females at low and high<br/>incubation temperatures; males<br/>predominate at intermediate temperatures<br/>thresholds depend on species/protocol"]
 
     style A fill:#4a90d9,color:#fff
     style B2 fill:#5cb85c,color:#fff
 ```
-<!-- alt: Flowchart showing sex determination systems across organisms. The XX/XY system is used by mammals, with the SRY gene on the Y chromosome being the master switch. Other organisms use ZW, XO, haplodiploidy, or temperature-dependent systems. -->
+<!-- alt: Flowchart showing examples of sex-determination systems, not universal rules for every member of a taxon. Chicken DMRT1 dosage and silkworm Fem–Masc regulation illustrate distinct ZW mechanisms; alligator temperature dependence follows a female–male–female pattern. -->
 
-*Sex determination systems across organisms. The XX/XY system is used by mammals, with the SRY gene on the Y chromosome being the master switch. Other organisms use ZW, XO, haplodiploidy, or temperature-dependent systems.*
+*Examples of sex-determination systems, not universal rules for every member of a taxon. Chicken DMRT1 dosage and silkworm Fem–Masc regulation illustrate distinct ZW mechanisms; alligator temperature dependence follows a female–male–female pattern \citep{kiuchi2014female,lang1994alligator}.*
 
 ### Mammalian Sex Determination (XX/XY)
 
@@ -241,7 +242,7 @@ flowchart TD
 **Pseudoautosomal regions (PARs)**:
 - **PAR1** (2.6 Mb at Xp/Yp tips): contains ~24 genes; mandatory crossover during male meiosis ensures proper X-Y segregation
 - **PAR2** (320 kb at Xq/Yq tips): smaller; crossover not required
-- Genes in PARs escape X-inactivation (expressed from both X chromosomes in females)
+- Many PAR1 genes escape X-inactivation, but escape is locus-, tissue- and individual-dependent; pseudoautosomal location alone does not establish a universal expression rule.
 - **SHOX gene** (in PAR1): Short stature homeobox; haploinsufficiency causes short stature in Turner syndrome; extra copies cause tall stature in sex chromosome polysomies
 
 **Evidence for SRY as the master switch**:
@@ -266,7 +267,7 @@ Haplodiploidy is a sex-determination mechanism, not a stand-alone explanation fo
 
 ### Lyon Hypothesis and X-Inactivation
 
-Mary \citet{lyon1961} proposed that in each female somatic cell, one of the two X chromosomes is randomly inactivated early in embryonic development (~day 5.5 in mouse, ~day 12-16 in human). This inactivation is:
+Mary \citet{lyon1961} proposed random X-inactivation as an explanation for mammalian somatic mosaicism. Establishment occurs during early development, but timing and the relationship between XIST expression and stable chromosome silencing depend on species and stage; a universal human or mammalian onset day is not assigned here. In the random somatic model, inactivation is:
 
 - **Random**: Either the maternal or paternal X can be inactivated in any given cell
 - **Clonal**: Once established, most daughter cells maintain the same inactive X
@@ -274,17 +275,17 @@ Mary \citet{lyon1961} proposed that in each female somatic cell, one of the two 
 
 ```mermaid
 flowchart TD
-    A["Early Embryo: Both X Chromosomes Active"] --> B["~Day 12-16: Random X-Inactivation Initiated"]
-    B --> C["XIST RNA Transcribed from Future Inactive X (Xi)"]
+    A["Early embryonic development<br/>XX cells"] --> B["Establishment of X-inactivation<br/>species- and stage-dependent timing"]
+    B --> C["XIST RNA expression and silencing<br/>relationship depends on species/stage"]
     C --> D["XIST RNA Coats Xi in cis (Spreads Along Chromosome)"]
     D --> E["XIST Recruits PRC2 (Polycomb Repressive Complex 2)"]
     E --> F["PRC2 Trimethylates H3K27 (H3K27me3 = Repressive Mark)"]
     F --> G["SMCHD1 Compacts Xi Further"]
     G --> H["DNA Methylation at CpG Islands Locks Silencing"]
     H --> I["Xi Condenses into Barr Body (Visible at Nuclear Periphery)"]
-    I --> J["Stable Silencing Maintained Through All Subsequent Divisions"]
-    J --> K["~15% of X-linked Genes Escape Inactivation"]
-    K --> L["Escapees Include PAR Genes and Some Others"]
+    I --> J["Silencing usually maintained in somatic lineages"]
+    J --> K["Escape varies by gene, tissue and individual"]
+    K --> L["Escape occurs inside and outside PARs"]
 
     style A fill:#4a90d9,color:#fff
     style I fill:#5cb85c,color:#fff
@@ -302,9 +303,9 @@ flowchart TD
 5. **DNA methylation** at [**CpG island**](#gl:cpg-island)s provides stable, long-term silencing
 6. The silenced X is visible as a **Barr body** at the nuclear periphery (sex chromatin test)
 
-**Escape from X-inactivation**: ~15% of X-linked genes "escape" inactivation and are expressed from both the active and inactive X. These include genes in the pseudoautosomal regions and some genes with Y-chromosome homologs. Escape genes explain some phenotypic features of X-chromosome aneuploidy.
+**Escape from X-inactivation** is incomplete silencing measured as expression from the inactive X. Escape occurs inside and outside pseudoautosomal regions and varies by locus, tissue and individual \citep{tukiainen2017xci}. It contributes to sex-linked dosage differences and some aneuploidy phenotypes; it does not imply exact chromosome-wide dosage equality.
 
-**Barr body count** = number of X chromosomes minus 1:
+**Expected inactive-X count in the usual differentiated somatic-cell model** = number of X chromosomes minus 1; cytological visibility depends on preparation and cell state, and escape prevents interpreting the count as complete gene silencing:
 - 46,XX: 1 Barr body
 - 47,XXX: 2 Barr bodies
 - 45,X (Turner): 0 Barr bodies
@@ -330,7 +331,7 @@ flowchart TD
 The core insight is that **gene dosage is itself a regulated variable**, defended by multiple parallel mechanisms. X-inactivation is the most spectacular example because an entire chromosome is silenced, but it is one strategy among many.
 
 > **Clinical Connection: Calico Cats and X-Inactivation**
-> The calico coat pattern in cats is a visible demonstration of X-inactivation. The *O* gene (orange) is X-linked: $X^O$ produces orange pigment; $X^o$ produces black pigment. [**Heterozygous**](#gl:heterozygous) females ($X^OX^o$) are mosaics -- patches of orange (cells with $X^o$ inactivated) and black (cells with $X^O$ inactivated). White patches come from a separate autosomal spotting gene. Calico cats are overwhelmingly female; rare calico males are usually 47,XXY (Klinefelter).
+> The calico coat pattern in cats is a visible demonstration of X-inactivation. The *O* gene (orange) is X-linked: $X^O$ produces orange pigment; $X^o$ produces black pigment. [**Heterozygous**](#gl:heterozygous) females ($X^OX^o$) are mosaics -- patches of orange (cells with $X^o$ inactivated) and black (cells with $X^O$ inactivated). White patches come from a separate autosomal spotting gene. Calico cats are overwhelmingly female; rare calico males can be 39,XXY (the typical domestic cat has 38 chromosomes).
 
 ---
 
@@ -371,7 +372,7 @@ Results: $\frac{1}{4}$ normal daughters, $\frac{1}{4}$ carrier daughters, $\frac
 Among sons primarily: $\frac{1}{2}$ affected. Among daughters primarily: $\frac{1}{2}$ carriers.
 
 > **Clinical Connection: Duchenne Muscular Dystrophy and [**Exon**](#gl:exon) Skipping**
-> The *DMD* gene (2.4 Mb, 79 exons) is a frequent target of deletions. Out-of-frame deletions cause Duchenne (no dystrophin); in-frame deletions cause Becker (partial dystrophin). **Exon-skipping therapy** uses antisense oligonucleotides (ASOs) to mask specific exons during splicing, converting an out-of-frame deletion to an in-frame deletion (Duchenne to Becker phenotype). **Eteplirsen** (FDA-approved 2016) targets exon 51; applicable to ~13% of DMD patients. Newer ASOs target other exons.
+> Frame-disrupting *DMD* deletions often cause Duchenne, while some in-frame deletions permit a shorter, partly functional Becker-like dystrophin; the reading-frame rule has exceptions. Exon-skipping ASOs target an existing exon only in mutation-amenable genotypes where the resulting splice junction restores frame. Eteplirsen targets exon 51; other products target different exons. Restored frame or dystrophin detection alone does not guarantee a Becker clinical course or cure.
 
 **Concept Check 17.5**
 
@@ -409,7 +410,7 @@ RF = \frac{\text{number of recombinant offspring}}{\text{total offspring}} \time
 
 - RF < 50%: genes are **linked** (on the same chromosome)
 - RF = 50%: genes are **unlinked** (on different chromosomes OR so far apart on the same chromosome that at least one crossover typically occurs between them)
-- RF can rarely exceed 50% because a single crossover between two loci produces 50% recombinant and 50% parental gametes (two chromatids involved out of four)
+- The expected pairwise RF cannot exceed50% under ordinary Mendelian sampling; finite observed samples can exceed50%. A single crossover involves two of four chromatids; repeated crossovers make distant markers approach independent assortment
 
 ### Three-Point Test Cross
 
@@ -420,17 +421,17 @@ The three-point test cross determines the order of three linked genes and the di
 - b (black body): recessive
 - cn (cinnabar eyes): recessive
 
-A triply heterozygous female (dp+ b+ cn+ / dp b cn) is testcrossed to a triply homozygous recessive male (dp b cn / dp b cn). The offspring are:
+In this synthetic teaching dataset, a triply heterozygous female (dp+ b+ cn+ / dp b cn) is testcrossed to a triply homozygous recessive male (dp b cn / dp b cn). The offspring are:
 
 : Three-Point Test Cross: Phenotype class and Count. {#tbl:unit_V_chromosomal_inheritance_three_point_test_cross}
 | Phenotype class | Count | Classification |
 |----------------|-------|----------------|
 | dp+ b+ cn+ | 350 | Parental |
 | dp b cn | 345 | Parental |
-| dp+ b cn | 62 | Single crossover (region II) |
-| dp b+ cn+ | 58 | Single crossover (region II) |
-| dp+ b+ cn | 40 | Single crossover (region I) |
-| dp b cn+ | 38 | Single crossover (region I) |
+| dp+ b cn | 62 | Single crossover (region I: dp–b) |
+| dp b+ cn+ | 58 | Single crossover (region I: dp–b) |
+| dp+ b+ cn | 40 | Single crossover (region II: b–cn) |
+| dp b cn+ | 38 | Single crossover (region II: b–cn) |
 | dp+ b cn+ | 5 | Double crossover |
 | dp b+ cn | 2 | Double crossover |
 | **Total** | **900** | |
@@ -446,24 +447,24 @@ The b gene has switched relative to dp and cn. Therefore, the gene order is: **d
 **Step 2: Calculate map distances.**
 
 \begin{equation}
-\text{Distance dp-b} = \frac{40 + 38 + 5 + 2}{900} \times 100 = \frac{85}{900} \times 100 = 9.4 \text{ cM}
+\text{Distance dp-b} = \frac{62 + 58 + 5 + 2}{900} \times 100 = 14.111\text{ cM}
 \label{eq:unit_V_chromosomal_inheritance_worked_1}
 \end{equation}
 
 \begin{equation}
-\text{Distance b-cn} = \frac{62 + 58 + 5 + 2}{900} \times 100 = \frac{127}{900} \times 100 = 14.1 \text{ cM}
+\text{Distance b-cn} = \frac{40 + 38 + 5 + 2}{900} \times 100 = 9.444\text{ cM}
 \label{eq:unit_V_chromosomal_inheritance_worked_2}
 \end{equation}
 
 \begin{equation}
-\text{Total map distance dp-cn} = 9.4 + 14.1 = 23.5 \text{ cM}
+\text{Total map distance dp-cn}=\frac{127+85}{900}\times100=23.5556\text{ cM}
 \label{eq:unit_V_chromosomal_inheritance_worked_3}
 \end{equation}
 
 **Step 3: Calculate interference.**
 
 \begin{equation}
-\text{Expected double crossovers} = 0.094 \times 0.141 \times 900 = 11.9
+\text{Expected double crossovers}=900\left(\frac{127}{900}\right)\left(\frac{85}{900}\right)=11.9944
 \label{eq:unit_V_chromosomal_inheritance_worked_4}
 \end{equation}
 
@@ -473,22 +474,22 @@ The b gene has switched relative to dp and cn. Therefore, the gene order is: **d
 \end{equation}
 
 \begin{equation}
-\text{Coefficient of coincidence (CoC)} = \frac{\text{observed}}{\text{expected}} = \frac{7}{11.9} = 0.59
+\text{Coefficient of coincidence (CoC)}=\frac7{11.9944}\approx0.583604
 \label{eq:unit_V_chromosomal_inheritance_worked_6}
 \end{equation}
 
 \begin{equation}
-\text{Interference (I)} = 1 - \text{CoC} = 1 - 0.59 = 0.41
+\text{Interference (I)}=1-0.583604\approx0.416396
 \label{eq:unit_V_chromosomal_inheritance_worked_7}
 \end{equation}
 
-An interference of 0.41 means that 41% of expected double crossovers did not occur -- a crossover in one region partially suppresses crossovers in the adjacent region (**positive interference**).
+An interference estimate of about 0.416 means that the observed DCO count is about 41.6% below the independent-interval expectation, a positive-interference sample summary. Establishing a general causal suppression mechanism requires more than this single comparison.
 
 ### Mapping Functions and Recombination Interference
 
 Simple RF underestimates true genetic distance because multiple crossovers between distant loci are undetectable (double crossovers restore parental configuration).
 
-**Haldane mapping function** (1919, assumes no chromatid interference):
+**Haldane mapping function** (1919, assumes a Poisson crossover process with no crossover interference and random chromatid participation):
 
 \begin{equation}
 m = -\frac{1}{2}\ln(1 - 2\theta) \quad \text{(morgans)}
@@ -540,9 +541,9 @@ The pronounced sex difference in recombination rate has several proposed explana
 3. **Selection for accuracy in oogenesis**: Because errors during the long oocyte arrest are catastrophic, female meiosis may have evolved higher recombination rates to ensure **at least one chiasma per bivalent**. Achiasmate bivalents segregate randomly, producing aneuploid gametes — the female reproductive system tolerates this poorly because each oocyte represents irreplaceable investment.
 4. **Sexually antagonistic selection on chromosome conformation**: Some authors propose that male and female germlines have different optima for genome stability, with selection acting in opposite directions on regulators of recombination.
 
-#### Haldane's rule and recombination
+#### Hybrid-sex effects versus sex-specific recombination
 
-Haldane's classic 1922 observation extends beyond sex-determination biology to recombination patterns: in many species the **homogametic sex** (XX females in mammals; ZZ males in birds) shows higher recombination rates than the heterogametic sex. In *Drosophila*, the asymmetry is extreme — males have **no meiotic recombination at most**, while females have normal crossover-mediated recombination. In humans, the pattern is muted but present, with females having ~1.6× the male map length. The **achiasmate male meiosis** of *Drosophila* and several other dipterans is supported by alternative bivalent-tethering mechanisms (the *Mnm* complex) that maintain homolog pairing without crossovers. The mammalian intermediate pattern reflects partial achiasmatism — males still recombine, but with reduced rate and biased localization to telomeres. Why these sex differences evolved remains an open question and is one of the most robust empirical generalizations in the genetics of meiosis.
+Haldane’s 1922 rule concerns hybrid inviability or sterility disproportionately affecting the heterogametic sex, not a rule that the homogametic sex always recombines more. Sex differences in recombination are termed heterochiasmy. Male Drosophila normally lack meiotic crossing over, whereas human males do recombine. Neither ordinary human male recombination nor its shorter map should be described as partial achiasmatism.
 
 **Concept Check 17.1**
 
@@ -604,20 +605,20 @@ flowchart TD
     B["Meiosis I Non-Disjunction"] --> B1["MI: BOTH homologs go to same pole"]
     B1 --> B2["MII: Sisters separate normally"]
     B2 --> B3["2 gametes n+1 (both homologs)<br/>2 gametes n-1 (no homolog)"]
-    B3 --> B4["Trisomic offspring inherit BOTH<br/>maternal AND paternal homolog<br/>(heterozygous at centromere)"]
+    B3 --> B4["n+1 gamete: both homologs<br/>of the affected meiotic parent<br/>fertilization adds the other parent's copy"]
 
     C["Meiosis II Non-Disjunction"] --> C1["MI: Homologs separate normally"]
     C1 --> C2["MII: Sisters of ONE chromatid pair fail to separate"]
     C2 --> C3["1 gamete n+1 (two sister copies)<br/>1 gamete n-1<br/>2 normal gametes"]
-    C3 --> C4["Trisomic offspring inherit two IDENTICAL copies<br/>of one parental homolog<br/>(homozygous at centromere)"]
+    C3 --> C4["Two sister-derived copies<br/>typically identical at centromeric markers<br/>distal regions may differ after recombination"]
 
     style A fill:#4a90d9,color:#fff
     style B fill:#f0ad4e,color:#000
     style C fill:#d9534f,color:#fff
 ```
-<!-- alt: Flowchart showing two distinct molecular failure modes of meiotic non-disjunction. MI errors produce trisomic gametes carrying both parental homologs; MII errors produce trisomic gametes carrying two sister copies of a single homolog. Centromere-region marker analysis distinguishes the two — clinically important because they have different mechanisms and risk factors. -->
+<!-- alt: Flowchart showing meiotic nondisjunction produces disomic (n+1), not trisomic, gametes. The additional chromosome in a trisomic zygote comes from fertilization. Centromeric markers help distinguish homolog-derived meiosis-I errors from sister-derived meiosis-II errors. -->
 
-*Two distinct molecular failure modes of meiotic non-disjunction. MI errors produce trisomic gametes carrying both parental homologs; MII errors produce trisomic gametes carrying two sister copies of a single homolog. Centromere-region marker analysis distinguishes the two — clinically important because they have different mechanisms and risk factors.*
+*Meiotic nondisjunction produces disomic ($n+1$), not trisomic, gametes. The additional chromosome in a trisomic zygote comes from fertilization. Centromeric markers help distinguish homolog-derived meiosis-I errors from sister-derived meiosis-II errors.*
 
 This MI/MII distinction is clinically important because:
 - **~75% of trisomy 21 cases originate in maternal meiosis I** (the cohesin-decay mechanism described below).
@@ -655,7 +656,7 @@ This MI/MII distinction is clinically important because:
 | **Triple-X** | 47,XXX | 2 | Female; usually tall; mild learning difficulties; fertile | 1/1,000 females |
 | **Jacobs syndrome** | 47,XYY | 0 | Male; tall; usually normal phenotype and fertility | 1/1,000 males |
 
-**Maternal age effect**: Non-disjunction risk for chromosome 21 increases exponentially with maternal age:
+**Maternal age effect**: Trisomy-21 risk rises with maternal age. The following rounded values illustrate the trend, not individualized risk or a calibrated exponential fit:
 
 : Aneuploidy: Non-Disjunction in Meiosis I vs. Meiosis II: Maternal Age and Risk of Trisomy 21. {#tbl:unit_V_chromosomal_inheritance_aneuploidy_non_disjunction_in_meiosis_i_vs_meiosis_ii_4}
 | Maternal Age | Risk of Trisomy 21 |
@@ -689,14 +690,14 @@ flowchart LR
 
 #### Quantitative model of the maternal age curve
 
-The empirical risk of trisomy 21 with maternal age is well fit by an exponential function:
+For a deliberately synthetic mathematical sensitivity exercise, suppose risk follows an exponential function. This is not a fit to the preceding illustrative table or a clinical screening calculator:
 
 \begin{equation}
 P(\text{T21} \mid \text{age } a) \approx P_0 \, e^{k(a - a_0)}
 \label{eq:unit_V_maternal_age_risk}
 \end{equation}
 
-with $P_0 \approx 6.7 \times 10^{-4}$ at age $a_0 = 20$ and $k \approx 0.18$ per year for ages 30–45. This corresponds to a **doubling of risk every ~4 years** in the late 30s and early 40s. Between ages 45 and 49, the curve rises even more steeply as the oocyte pool nears exhaustion. Because the underlying mechanism — cohesin decay during dictyate arrest — accumulates throughout reproductive life, the exponential form reflects compounding error rates per oocyte rather than a sudden threshold. Reproductive endocrinology uses this curve to set screening recommendations; many countries trigger non-invasive prenatal testing offers automatically at maternal ages above 35.
+Use stipulated $P_0=0.00067$, $a_0=20$ years and $k=0.18\ \mathrm{year}^{-1}$ only for this toy example. It predicts age-40 risk $0.00067e^{3.6}\approx0.02452$, unlike the table’s 0.01; at age 45 it gives about 0.06031, unlike 0.02. Clinical estimates require a cited cohort, gestational endpoint, calendar period and screening context. Cohesin loss motivates investigating age dependence but does not calibrate this equation.
 
 Approximately 90% of trisomy 21 conceptions and 99% of trisomy 18 conceptions arise in maternal meiosis; paternal contributions are minor. The asymmetry reflects the fundamental difference between oogenesis (limited oocyte pool, decades-long arrest, gradual cohesin decay) and spermatogenesis (continuous stem-cell division, no arrest, robust quality control through germ-cell apoptosis).
 
@@ -785,7 +786,7 @@ Duplications (extra copies of chromosomal segments) typically produce **gain-of-
 The reciprocal relationship between deletion and duplication phenotypes confirms gene dosage as the proximate cause and reinforces the dosage-sensitivity principle developed in the chromosomal-rearrangements section.
 
 > **Clinical Connection: Prenatal Screening for Chromosomal Abnormalities**
-> **Cell-free fetal DNA (cfDNA) testing** (NIPT -- non-invasive prenatal testing): Analyzes fetal DNA fragments circulating in maternal blood (from ~10 weeks gestation). Detects trisomies 21, 18, 13 and sex chromosome aneuploidies with >99% sensitivity and >99.5% specificity for trisomy 21. Has largely replaced first-trimester combined screening (nuchal translucency + biochemical markers) as the primary screening tool. Diagnostic confirmation still requires amniocentesis or chorionic villus sampling (CVS) for karyotyping or chromosomal microarray. **Chromosomal microarray (CMA)** is now the first-line test for fetal abnormalities or developmental delay, detecting copy-number changes at sub-megabase resolution.
+> **Cell-free DNA testing (NIPT)** screens maternal plasma, whose pregnancy-associated signal is predominantly placental, for specified chromosome abnormalities. Screening sensitivity, specificity and positive predictive value depend on the condition, assay and population; a positive screen requires diagnostic evaluation rather than treatment as a fetal karyotype. Diagnostic sampling and test choice depend on indication and counseling. CMA detects copy-number changes with platform-dependent resolution and mosaic sensitivity, generally not balanced rearrangements. For specified pediatric congenital-anomaly/DD/ID populations, the 2021 ACMG guideline recommends considering ES/GS as first- or second-tier \citep{manickam2021esgs}; this is not a blanket prenatal testing rule.
 
 ---
 
@@ -808,7 +809,7 @@ This violates Mendel's assumption because the phenotype now depends on **which p
 | Region | Imprinting status | Disease (loss of expressed allele) |
 |--------|-------------------|-------------------------------------|
 | **15q11–q13** | Paternal expression of *SNRPN*, *NDN*, *MAGEL2*, others; maternal expression of *UBE3A* in neurons | Loss of paternal expression → **Prader-Willi syndrome**; loss of maternal *UBE3A* → **Angelman syndrome** |
-| **11p15.5** | Paternal expression of *IGF2*; maternal expression of *H19* and *CDKN1C* | Disrupted imprinting → **Beckwith-Wiedemann syndrome** (overgrowth, Wilms tumor risk); reciprocal disruption → **Russell-Silver syndrome** (growth restriction) |
+| **11p15.5** | Paternal *IGF2* expression from specified imprinted promoters; biallelic promoter usage also occurs, including adult human liver. *H19* and *CDKN1C* show maternal expression in their canonical models. | Distinct imprinting-domain lesions contribute to subsets of **Beckwith–Wiedemann** and **Silver–Russell** syndromes; specify the lesion rather than equate every case with IGF2 dosage alone. |
 | **14q32** | *DLK1, MEG3* imprinted | Maternal UPD14 → Temple syndrome; paternal UPD14 → Kagami-Ogata syndrome |
 
 ### Mechanisms causing imprinting disorders
@@ -821,9 +822,9 @@ Imprinting disorders arise through several distinct mechanisms — and a key cli
    **Isodisomy vs. heterodisomy.** UPD comes in two genetically distinct flavors that depend on *when* the meiotic error occurred:
 
    - **Heterodisomy** — both inherited copies derive from **different homologs** of the parent (the two copies are heterozygous for parental polymorphisms). Heterodisomy arises from **meiosis I non-disjunction** followed by trisomy rescue. The two homologs of one parent are inherited together, and the offspring is heterozygous at centromeric markers from that parent.
-   - **Isodisomy** — both inherited copies are **identical** sister-chromatid copies of a single parental homolog. Isodisomy arises from **meiosis II non-disjunction** plus trisomy rescue, or from a postzygotic mitotic error. The offspring is **homozygous along the entire chromosome** for the parent-of-origin's allele.
+   - **Isodisomy** — both inherited copies are **identical** sister-chromatid copies of a single parental homolog. Isodisomy arises from **meiosis II non-disjunction** plus trisomy rescue, or from a postzygotic mitotic error. The offspring is isodisomic at the centromere, but can retain distal heterodisomy after crossing over in prophase I.
 
-   Isodisomy is clinically important because it can **unmask recessive alleles**: if the contributing parent is a carrier for a recessive disease on the affected chromosome, isodisomy produces homozygosity for the recessive allele and the offspring is affected — even though a single parent was a carrier. Documented examples include cystic fibrosis from maternal isodisomy 7 and rod monochromacy from paternal isodisomy 14. Mixed UPD (heterodisomy at the centromere with isodisomic distal regions) reflects a meiosis I error followed by a crossover; the relative proportions of iso- and heterodisomic regions trace the meiotic crossover that occurred in the parent's germline.
+   Isodisomy is clinically important because it can **unmask recessive alleles**: if the contributing parent is a carrier for a recessive disease on the affected chromosome, isodisomy produces homozygosity for the recessive allele and the offspring is affected — even though a single parent was a carrier. Documented examples include cystic fibrosis from maternal isodisomy 7 and rod monochromacy from paternal isodisomy 14. Mixed UPD (heterodisomy at the centromere with isodisomic distal regions) can reflect crossing over in prophase I followed by a meiosis I error; the relative proportions of iso- and heterodisomic regions trace the meiotic crossover that occurred in the parent's germline.
 3. **Imprinting center mutations** (~1–2% of cases). Mutations in the imprinting control regions disrupt the establishment or maintenance of methylation marks, producing functional UPD without sequence changes elsewhere.
 4. ***UBE3A* point mutations** (~10% of Angelman cases). Mutations in the *UBE3A* gene itself, which is expressed primarily from the maternal allele in neurons, cause Angelman syndrome.
 
@@ -859,7 +860,7 @@ However, this ratio varies dramatically:
 
 **Concept Check 17.4**
 
-> 1. From a three-point testcross of 1{,}000 progeny you score 440 + 435 parentals, 48 + 45 single crossovers in one region, 14 + 12 single crossovers in the other, and 4 + 2 double crossovers: use the double-crossover class to fix the gene order, then compute both map distances and explain why the directly summed parental-to-parental distance underestimates the true physical separation.
+> 1. In a synthetic testcross, ABC=440,abc=435,Abc=48,aBC=45,ABc=14,abC=12,AbC=4,aBc=2 ($n=1000$). Determine order from parental versus DCO haplotypes; calculate both interval frequencies and the outer-marker frequency. Explain why genetic map length is not physical distance.
 
 ---
 
@@ -910,7 +911,7 @@ where $n_1$ and $n_2$ are the number of links from one parent to the common ance
 
 ## Worked Example: Linkage Analysis
 
-**Problem**: In a testcross, the following offspring are observed from a female heterozygous for three linked genes (A, B, C) crossed with a homozygous recessive male:
+**Problem**: The following synthetic testcross offspring counts are stipulated for a female heterozygous for three linked genes (A, B, C) crossed with a homozygous recessive male:
 
 : Consequences of Inbreeding: Class and Phenotype. {#tbl:unit_V_chromosomal_inheritance_consequences_of_inbreeding}
 | Class | Phenotype | Count |
@@ -931,29 +932,29 @@ Parental classes: 1 and 2 (most frequent); DCO classes: 7 and 8 (least frequent)
 
 Compare: Parental = A B C / a b c; DCO = A b c / a B C.
 
-The **B** gene has switched relative to A and C. Gene order: **A -- B -- C**.
+The **A** allele switches when each DCO is matched to the parental haplotype with the same outer B/C alleles. Gene order: **B -- A -- C** (or its reverse). The AbC/aBc classes are B–A single crossovers; ABc/abC are A–C single crossovers.
 
 (b) Calculate map distances.
 
 \begin{equation}
-d_{A-B} = \frac{82 + 78 + 3 + 2}{1042} \times 100 = \frac{165}{1042} \times 100 = 15.8 \text{ cM}
+d_{B-A} = \frac{82 + 78 + 3 + 2}{1042} \times 100 = \frac{165}{1042} \times 100 = 15.8 \text{ cM}
 \label{eq:unit_V_chromosomal_inheritance_worked_8}
 \end{equation}
 
 \begin{equation}
-d_{B-C} = \frac{32 + 28 + 3 + 2}{1042} \times 100 = \frac{65}{1042} \times 100 = 6.2 \text{ cM}
+d_{A-C} = \frac{32 + 28 + 3 + 2}{1042} \times 100 = \frac{65}{1042} \times 100 = 6.2 \text{ cM}
 \label{eq:unit_V_chromosomal_inheritance_worked_9}
 \end{equation}
 
 (c) Calculate interference.
 
 \begin{equation}
-\text{Expected DCO} = 0.158 \times 0.062 \times 1042 = 10.2
+\text{Expected DCO}=1042\left(\frac{165}{1042}\right)\left(\frac{65}{1042}\right)\approx10.2927
 \label{eq:unit_V_chromosomal_inheritance_worked_10}
 \end{equation}
 
 \begin{equation}
-\text{CoC} = \frac{5}{10.2} = 0.49; \quad I = 1 - 0.49 = 0.51
+\text{CoC}=\frac5{10.2927}\approx0.485781;\quad I\approx0.514219
 \label{eq:unit_V_chromosomal_inheritance_worked_11}
 \end{equation}
 
@@ -1015,8 +1016,8 @@ A good genetics answer separates the Mendelian transmission model from the evide
 
 1. Explain Morgan's evidence that the *white* gene is on the X chromosome. What cross results would differ if *white* were autosomal recessive?
 2. Describe the role of XIST RNA in X-inactivation. Why do ~15% of genes escape inactivation, and what are the phenotypic consequences?
-3. A woman is a carrier for both hemophilia A (F8, Xq28) and red-green color blindness (OPN1LW, Xq28). These genes are ~6 cM apart. What proportion of her sons will have both conditions? A single? Neither?
-4. Perform a three-point test cross analysis given the following data: [provide data if assigned]
+3. A woman carries recessive h and c alleles at two X-linked loci, with recombination fraction0.06. Calculate the fractions of sons with both, either single condition, and neither for cis phase $hc/HC$, then for trans phase $hC/Hc$.
+4. Reanalyze the eight labeled haplotypes in the worked linkage example (ABC412,abc405,AbC82,aBc78,ABc32,abC28,Abc3,aBC2): derive the middle locus before calculating distances and interference.
 5. Explain the maternal age effect on non-disjunction. What molecular mechanism has been proposed?
 6. Why is trisomy 21 the most common viable autosomal trisomy? (Hint: consider chromosome 21 gene content.)
 7. Describe the BCR-ABL1 fusion and explain why imatinib was a breakthrough in cancer therapy. What is the T315I resistance mutation?

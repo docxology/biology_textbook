@@ -19,7 +19,10 @@ ensure_project_paths(include_scripts=True)
 
 from biology.pipeline.analysis_smoke import run_domain_smoke
 from biology.pipeline.collection import collect_ordered_chapters, load_config
-from biology.pipeline.injection import clear_stale_slide_artifacts, inject_chapters_for_rendering
+from biology.pipeline.injection import (
+    clear_stale_slide_artifacts,
+    inject_chapters_for_rendering,
+)
 from biology.pipeline.paths import OUTPUT_ROOT
 from biology.pipeline.registries import write_figure_registry, write_visual_manifest
 from biology.pipeline.report import build_analysis_report, write_analysis_report
@@ -73,7 +76,9 @@ def run_analysis() -> None:
 
 
 # Backward-compatible re-exports for tests that load this module by path.
-from biology.pipeline.numbering import section_numbering_directives as _section_numbering_directives
+from biology.pipeline.numbering import (
+    section_numbering_directives as _section_numbering_directives,
+)
 from biology.pipeline.paths import MANUSCRIPT_DIR, OUTPUT_DIR, PROJECT_ROOT
 
 __all__ = [

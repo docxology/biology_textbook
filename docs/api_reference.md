@@ -4,11 +4,27 @@
 
 **Maintenance:** This file lists the main public entry points used from manuscript and tests. It is not an exhaustive dump of every `def` in `src/biology/` (helpers and module-private functions are omitted). After adding a user-facing function, add a row here; for a quick audit run `rg '^\s*def ' src/biology` and reconcile new names.
 
+Software 2.0.0 is a breaking release candidate, not fresh runtime proof. Numerical inputs must meet finite-domain constraints. Synthetic examples are teaching models, not empirical measurements or clinical validation.
+
+Existing explicit count/container guards now raise `TypeError` for invalid Python
+types (including bool or float-as-count), while admissible numeric types outside
+their domain raise `ValueError`. This applies to Euler/ODE steps, replication
+origins, CpG divisions, chi-square ddof, network/connectance counts, MIC dilution,
+SIR counts and the existing claim/catalog/config/diagram container checks. It is
+not a claim that every API performs blanket type validation. NaN/inf abundance
+remains a numeric-domain `ValueError`; no new abundance-container restriction was added.
+
+`biology.citations.bib_keys(text)` returns the defined key set and raises
+`ValueError` on duplicate identities; it never silently merges two source records.
+Quality and orphan-insertion consumers report an invalid bibliography explicitly
+while continuing independent diagnostics. Citation closure is not proof of the
+scientific meaning or full text of a source.
+
 ## `biology.numerics`
 
 | Function | Arguments | Returns | Description |
 | -------- | --------- | ------- | ----------- |
-| `euler_integrate_scalar(f, y0, t_end, steps)` | callable, float, float, int | `tuple[list[float], list[float]]` | Fixed-step Euler integration for scalar ODEs |
+| `euler_integrate_scalar(f, y0, t_end, steps)` | callable, float, float, int | `tuple[list[float], list[float]]` | Fixed-step explicit Euler; finite states and valid resolution required; no automatic accuracy guarantee |
 
 ## `biology.constants`
 
@@ -25,21 +41,21 @@
 | `michaelis_menten(substrate_conc, Vmax, Km)` | floats | `EnzymeKineticsResult` | Reaction rate v by MM equation |
 | `competitive_inhibition(substrate_conc, Vmax, Km, inhibitor_conc, Ki)` | floats | `EnzymeKineticsResult` | Apparent-Km shift under competitive inhibition |
 | `enzyme_rate_curve(Vmax, Km, n_points=50, max_conc=None)` | floats, int | `list[EnzymeKineticsResult]` | Michaelis-Menten curve samples |
-| `reaction_free_energy(delta_G_standard_kJ, product_conc, reactant_conc, temperature_K=310.0)` | floats | float | Actual ΔG from ΔG° and reaction quotient |
-| `atp_free_energy(atp_conc_mM=3.0, adp_conc_mM=1.0, pi_conc_mM=10.0, temperature_K=310.0)` | floats | float | Cellular ΔG of ATP hydrolysis |
-| `glycolysis_summary()` | — | `GlycolysisResult` | ATP yield, NADH, pyruvate, and pathway steps |
+| `reaction_free_energy(delta_G_standard_kJ, product_conc, reactant_conc, temperature_K=310.0)` | floats | float | Specified 1:1 ideal-dilute quotient; supply the standard energy for matching temperature/convention, not arbitrary stoichiometry or pH/Mg speciation |
+| `atp_free_energy(atp_conc_mM=3.0, adp_conc_mM=1.0, pi_conc_mM=10.0, temperature_K=310.0)` | floats | float (kJ/mol) | Ideal-dilute 1-M standard-state model with fixed ΔG°′=-30.5 kJ/mol; not a pH/Mg-speciation model or an AMPK measurement |
+| `glycolysis_summary()` | — | `GlycolysisResult` | Per-reaction standard energies with multiplicity; total about -73.97 kJ/mol glucose, not cellular ΔG |
 
 ## `biology.cell`
 
 | Function | Arguments | Returns | Description |
 | -------- | --------- | ------- | ----------- |
 | `nernst_potential(ion)` | `IonConcentration` | float (mV) | Equilibrium potential |
-| `goldman_equation(ions, permeabilities)` | lists | float (mV) | Resting membrane potential |
+| `goldman_equation(ions, permeabilities)` | lists | float (mV) | GHK for monovalent ions only; divalent ions rejected |
 | `osmotic_pressure(concentration_mOsm)` | float | float (Pa) | van't Hoff osmotic pressure |
 | `diffusion_flux(permeability, area, concentration_out, concentration_in)` | floats | `MembraneTransportResult` | Passive membrane flux and direction |
 | `compute_all_nernst_potentials()` | — | dict[str, float] | Reference Nernst potentials for physiological ions |
-| `receptor_occupancy(ligand_conc, Kd)` | floats | float | Fractional receptor occupancy |
-| `hill_equation(ligand_conc, Kd, hill_coefficient)` | floats | float | Cooperative ligand response |
+| `receptor_occupancy(ligand_concentration, kd)` | floats | float | One-site binding occupancy; `kd` is the dissociation constant |
+| `hill_equation(ligand_concentration, kd, hill_coefficient)` | floats | float | Phenomenological occupancy; `kd` supplies the half-response, not generally a microscopic affinity |
 | `signal_amplification(initial_signal, amplification_factor, steps)` | floats, int | list[float] | Multiplicative signal cascade |
 | `ORGANELLES` | — | dict | Organelle inventory with functions |
 
@@ -56,18 +72,20 @@ Package layout: `sequence`, `mendelian`, `population`, `linkage`, `distance`, `e
 | `dna_complement(sequence)` | str | str | 5'→3' complement |
 | `gc_content(sequence)` | str | float | GC fraction for a DNA/RNA sequence |
 | `hardy_weinberg(p, q=None, dominant_homozygous_freq=None, recessive_homozygous_freq=None)` | floats | `HardyWeinbergResult` | Genotype frequencies at HW eq. |
-| `chi_squared_test(observed, expected, alpha=0.05)` | lists, float | `ChiSquaredResult` | χ² statistic + p-value via `scipy.stats.chi2.sf` |
+| `chi_squared_test(observed, expected, alpha=0.05, *, ddof=0)` | lists, float, keyword-only int | `ChiSquaredResult` | Equal-total Pearson χ²; df = categories - 1 - ddof; decision honors alpha. Fitted biallelic HWE uses ddof=1; fixed Mendelian ratios use 0; not a small-sample exact test |
 | `recombination_frequency(recombinants, total)` | ints | float | Recombination fraction, 0–1 |
 | `genetic_distance(recombinants, total)` | ints | float (cM) | Map distance in centimorgans |
 | `infer_three_point_order(distances_cM)` | dict[tuple[str, str], float] | `LinkageMapResult` | Simple three-marker gene-order inference |
 | `hamming_distance(seq1, seq2)` | strings | int | Count mismatched positions |
 | `jukes_cantor_distance(observed_divergence)` | float | float | JC69 corrected distance |
-| `cpg_methylation_remaining(initial_methylation, divisions, maintenance_efficiency)` | floats, int | float | Maintenance methylation across cell divisions |
+| `cpg_methylation_remaining(initial_methylation, divisions, maintenance_efficiency)` | floats, int | float | Semiconservative maintenance: f_next = f*(1+p)/2 |
 | `histone_modification_state(mark)` | str | str | Interpret common histone marks |
 | `synthetic_methylation_beta_matrix(...)` | ints/floats | ndarray | Deterministic CpG methylation β matrix for figures |
-| `mutation_rate_spectrum()` | — | tuple[MutationClassRate, ...] | Canonical germline mutation-rate classes (sorted) |
+| `mutation_rate_spectrum()` | — | `tuple[MutationRateEvidence, ...]` | Unsorted source-scoped MUTATION_RATE_EVIDENCE catalog, not a burden ranking |
 | `replication_fork_progression(...)` | floats, int | `ReplicationForkProfile` | Bidirectional fork progression profile |
 | `GENETIC_CODE` | — | dict | Codon → amino acid mapping |
+
+`MutationRateEvidence` fields: `mutation_class`, `rate_range` (interval or `None`), `target`, `time_basis`, `organism`, `source_url`, `source_label`, `ascertainment`. Compare only compatible targets, time bases and ascertainment. `None` means unquantified, not zero; no automatic cross-class ranking or unit conversion.
 
 ## `biology.evolution`
 
@@ -79,7 +97,7 @@ Package layout: `sequence`, `mendelian`, `population`, `linkage`, `distance`, `e
 | `simulate_drift(p, N, generations, rng_seed=42)` | float, int | list[float] | Stochastic drift trajectory |
 | `fitness_landscape_1d(allele_freqs, fitness_AA, fitness_Aa, fitness_aa)` | list[float], floats | list[float] | Mean fitness across allele frequencies |
 | `molecular_clock_divergence_time(substitution_rate_per_site_per_year, sequence_divergence)` | floats | float | Divergence time in years |
-| `isolation_index(gene_flow_rate, mutation_rate)` | floats | float | Isolation proxy from gene flow and mutation |
+| `isolation_index(gene_flow_rate, mutation_rate)` | floats | float | mu/(mu+m), an unvalidated teaching heuristic, not an empirical reproductive-isolation estimator |
 
 ## `biology.ecology`
 
@@ -93,7 +111,7 @@ Package layout: `sequence`, `mendelian`, `population`, `linkage`, `distance`, `e
 | `species_area_relationship(A, c, z)` | floats | float | $S = c A^z$ |
 | `food_web_trophic_levels(adjacency)` | dict[str, list[str]] | dict[str, int] | BFS trophic levels from producers |
 | `connectance(num_species, num_links)` | ints | float | $L/S^2$ |
-| `BIOME_DATA` | — | dict | Biome NPP metadata for figures |
+| `BIOMES`, `BIOME_DATA` | — | dict | Illustrative climate/NPP metadata, not calibrated biome boundaries; marine `annual_precipitation_mm` is `None` (not zero) and excluded from terrestrial precipitation plots |
 
 ## `biology.physiology`
 
@@ -109,11 +127,11 @@ Package layout: `sequence`, `mendelian`, `population`, `linkage`, `distance`, `e
 
 | Function | Arguments | Returns | Description |
 | -------- | --------- | ------- | ----------- |
-| `bacterial_growth_curve(N0, doubling_time_hr, t_end_hr, steps=200, lag_phase_hr=1.0, stationary_phase_start_hr=None, carrying_capacity=None)` | nums | `GrowthCurveResult` | Exponential bacterial growth with lag/stationary phases |
+| `bacterial_growth_curve(N0, doubling_time_hr, t_end_hr, steps=200, lag_phase_hr=1.0, stationary_phase_start_hr=None, carrying_capacity=None)` | nums | `GrowthCurveResult` | Lag/exponential/stationary teaching trajectory with continuous stationary transition |
 | `doubling_time(N0, Nt, elapsed_time_hr)` | floats | float | Doubling time from population counts |
 | `mic_fold_dilution(starting_concentration_ug_mL, dilution_factor, n_tubes)` | floats, ints | list[float] | Antibiotic concentrations across serial dilution |
 | `basic_reproduction_number(beta_per_day, gamma_per_day)` | floats | float | SIR R0 = β/γ |
-| `sir_model(population, initial_infected, beta_per_day, gamma_per_day, days, steps_per_day=4)` | ints/floats | `SIRResult` | Closed-population SIR outbreak trajectory |
+| `sir_model(population, initial_infected, beta_per_day, gamma_per_day, days, steps_per_day=4)` | ints/floats | `SIRResult` | Conservative closed-population SIR; inadequate explicit-Euler resolution rejected |
 | `REFERENCE_ORGANISMS` | — | list | Reference bacteria/archaea metadata |
 
 ## `biology.botany`
@@ -121,7 +139,7 @@ Package layout: `sequence`, `mendelian`, `population`, `linkage`, `distance`, `e
 | Function | Arguments | Returns | Description |
 | -------- | --------- | ------- | ----------- |
 | `water_potential(solute_concentration_M, turgor_pressure_MPa, temperature_K=298.0)` | floats | `WaterPotentialResult` | ψ = ψs + ψp |
-| `transpiration_flux(stomatal_conductance_mol_m2_s, internal_vapor_conc_mol_m3, external_vapor_conc_mol_m3)` | floats | `TranspirationResult` | E = g_s · ΔC |
+| `transpiration_flux(stomatal_conductance_mol_m2_s, internal_vapor_mole_fraction, external_vapor_mole_fraction)` | floats | `TranspirationResult` | E = g_s Δx; x in mol/mol, g_s in mol m^-2 s^-1; fields conductance_mol_m2_s, delta_mole_fraction, flux_mol_m2_s, flux_mmol_m2_s |
 | `photosynthesis_rate(photon_flux_µmol_m2_s, max_rate_µmol_CO2_m2_s=20.0, light_saturation_point=800.0, dark_respiration_µmol_CO2_m2_s=1.5)` | floats | float | Net photosynthesis light-response rate |
 | `light_response_curve(max_rate=20.0, light_saturation_point=800.0, dark_respiration=1.5, n_points=50, max_par=2000.0)` | floats, int | `list[tuple[float, float]]` | PAR vs net photosynthesis curve |
 | `plant_biomass_growth(initial_biomass_g, relative_growth_rate, carrying_capacity_g, duration_days, steps=100)` | floats, int | `PlantGrowthResult` | Logistic biomass accumulation |
@@ -131,10 +149,10 @@ Package layout: `sequence`, `mendelian`, `population`, `linkage`, `distance`, `e
 
 | Function | Arguments | Returns | Description |
 | -------- | --------- | ------- | ----------- |
-| `action_potential_hh(stimulus_current_µA=10.0, t_end_ms=30.0, steps=3000, ...)` | floats, int | `ActionPotentialResult` | Simplified Hodgkin-Huxley voltage trace |
+| `action_potential_hh(stimulus_current_µA=10.0, t_end_ms=30.0, steps=3000, ...)` | floats, int | `ActionPotentialResult` | Simplified Hodgkin–Huxley; voltage/gates advance from one simultaneous prior state |
 | `cable_voltage_attenuation(V0_mV, axial_resistance_Ohm_cm=100.0, membrane_resistance_kOhm_cm2=50.0, axon_radius_cm=5e-4, ...)` | floats | `CableResult` | Passive voltage decay along a dendrite/axon cable |
 | `synaptic_current(reversal_potential_mV, membrane_potential_mV, peak_conductance_nS, synapse_type="excitatory")` | floats, str | `SynapticResult` | Driving force and peak synaptic current |
-| `hebbian_weight_update(current_weight, pre_activity, post_activity, learning_rate=0.01, weight_max=1.0, weight_min=0.0)` | floats | float | Clipped Hebbian synaptic-weight update |
+| `hebbian_weight_update(current_weight, pre_activity, post_activity, learning_rate=0.01, weight_max=1.0, weight_min=0.0)` | floats | float | Clipped Hebbian rule, not BCM |
 | `BRAIN_REGIONS` | — | dict | Brain-region inventory and functions |
 
 ## `biology.foundations`
@@ -144,17 +162,16 @@ Unit 0 and foundational Unit I tables (no random state, no package I/O). Re-expo
 | Symbol | Kind | Description |
 | ------ | ---- | ----------- |
 | `BIOLOGY_MILESTONES` | tuple | Historical milestones with era, year, and significance |
-| `milestones_by_era(era)` | function | Filter milestones by era label |
+| `milestones_by_era()` | function | Group milestones by era into a dictionary |
 | `ATOM_ELECTRONEGATIVITIES`, `BIOLOGICAL_BOND_ENERGIES` | tuples | Reference electronegativity and bond-energy records |
-| `electronegativity_difference(atom_a, atom_b)` | function | Absolute ΔEN between two element symbols |
-| `bond_polarity_class(delta_en)` | function | Covalent / polar covalent / ionic classification |
-| `MACROMOLECULE_TIERS` | tuple | Polymer hierarchy tiers (monomer → macromolecule) |
-| `polymer_hierarchy_levels()` | function | Ordered tier labels for plots and prose |
-| `poisson_degree_distribution(mean_degree, n_nodes)` | function | Random-graph degree histogram |
-| `powerlaw_degree_distribution(exponent, n_nodes, k_min=1)` | function | Scale-free degree histogram |
-| `scale_free_vs_random(n_nodes, mean_degree, exponent=2.5)` | function | Side-by-side Poisson vs power-law comparison |
-| `prediction_error_precision_curve(...)` | function | Active-inference precision vs prediction-error curve |
-| `active_inference_profile(...)` | function | `ActiveInferenceProfile` summary for Unit 0 prose |
+| `electronegativity_difference(symbol_a, symbol_b, *, table=ATOM_ELECTRONEGATIVITIES)` | function | Absolute ΔEN between symbols |
+| `bond_polarity_class(symbol_a, symbol_b, *, table=ATOM_ELECTRONEGATIVITIES)` | function | Classify bond between symbols |
+| `MACROMOLECULE_TIERS` | tuple | MacromoleculeTier(family, building_blocks, molecule, assembly, example_function, is_polymer); lipids are not polymers |
+| `polymer_hierarchy_levels()` | function | Building blocks, Molecule, Assembly, Function |
+| `poisson_degree_distribution(mean_degree, k_min=1, k_max=30)` | function | Discrete Poisson degree distribution |
+| `powerlaw_degree_distribution(gamma=2.5, k_min=1, k_max=200)` | function | Discrete power-law degree distribution |
+| `scale_free_vs_random(mean_degree=4.0, gamma=2.5, k_min=1, k_max=200)` | function | Pair on common degree support |
+| `prediction_error_precision_curve(prior_mean=0.0, prior_precision=1.0, observation=1.0, precisions=...)` | function | Gaussian precision sweep returning ActiveInferenceProfile; not empirical validation |
 
 Tests: `tests/test_foundations*.py`, plot coverage via `tests/test_visualization_registry.py`.
 
@@ -202,6 +219,11 @@ Per-chapter curriculum spine consumed by `scripts/sync_curriculum_materials.py`.
 Each record connects a chapter to its lab, question bank, model/data skill,
 misconception probe, transfer task, and bridge API.
 
+Implementation modules are `unit_i` through `unit_x` (plus `unit_0`); uppercase
+Roman Python module paths were removed. Authored unit/chapter IDs remain unchanged.
+Build distributions from a clean source export after case-only cutovers: stale
+generated `*.egg-info/SOURCES.txt` can otherwise retain old casing on macOS.
+
 | Symbol | Kind | Description |
 | ------ | ---- | ----------- |
 | `CurriculumRecord(...)` | frozen dataclass | One instructional record per chapter |
@@ -239,6 +261,8 @@ framework labels, instructional completeness, and generated Appendix B links.
 ## `biology.assessment`
 
 Question-bank and lab assessment metadata parsers. Consumed by `scripts/sync_assessment_metadata.py` and pedagogy invariant tests.
+
+Mappings and rubrics are curated from question/lab meaning. `sync_assessment_metadata.py` validates and preserves reviewed records, not ordinal assignments.
 
 | Symbol | Kind | Description |
 | ------ | ---- | ----------- |
@@ -315,14 +339,14 @@ Tests: `tests/test_enrichment_substance_gate.py`, `tests/test_textbook_quality_a
 
 ## `biology.answer_refinement`
 
-Generated-answer heuristics for question banks (CLI: `scripts/refine_generated_answers.py`).
+Answer validation and explicit nonwriting refusal (CLI: `scripts/refine_generated_answers.py`).
 
 | Symbol | Kind | Description |
 | ------ | ---- | ----------- |
 | `classify_question(text)` | function | Categorize a question stem for refinement |
 | `is_v1_generated(body)` | function | Detect legacy generated-answer signatures |
-| `generate_answer(...)` | function | Build a refined answer from chapter evidence |
-| `process_bank(path, dry_run=False)` | function | Refine one question-bank file in place |
+| `generate_answer(...)` | function | Raises UnsupportedAnswerRepair; prompt-specific authored answers required |
+| `process_bank(path, dry_run=False)` | function | Preserve authored solutions or raise without writing; both modes refuse unsupported repair |
 | `main(argv)` | function | CLI entry |
 
 Tests: `tests/test_question_answer_refinement.py`.
@@ -348,9 +372,9 @@ Checkout bootstrap and atomic I/O helpers at `src/` root (not under `biology/`).
 
 | Symbol | Kind | Description |
 | ------ | ---- | ----------- |
-| `ensure_project_paths(include_scripts=False)` | function | Insert `src/`, optional `scripts/`, and template root on `sys.path` |
-| `discover_template_root(start)` | function | Find template repo for symlinked checkouts |
-| `template_root()` | function | Cached template root or `None` |
+| `ensure_project_paths(*, include_scripts=False, include_template=True)` | function | Local src/scripts first; optional read-only integration discovery. Publication startup uses local-only bootstrap until its previous receipt is invalidated |
+| `discover_template_root(start)` | function | Explicit BIOLOGY_TEXTBOOK_TEMPLATE_ROOT or genuine enclosing template; invalid explicit root raises; no ambient neighbors |
+| `template_root()` | function | Discover selected root or None |
 | `write_text_atomic(path, text, encoding="utf-8")` | function | Atomic text write via temp file + replace |
 
 Tests: `tests/test_textbook_paths.py`, `tests/test_atomic_io.py`. Used by `tests/conftest.py` and maintenance scripts.
@@ -381,6 +405,23 @@ Constants for **colorvision–friendly** matplotlib styling (blue/orange/teal, P
 | `BAR_POS`, `BAR_NEG` | Signed bar charts (e.g. Nernst) |
 | `PUNNETT_DOMINANT`, `PUNNETT_RECESSIVE` | Punnett cells (with hatch patterns in the square plot) |
 | `SERIES2`, `SERIES3` | Default multi-line series colors |
+
+## `mermaid.renderer`
+
+`MermaidRenderer(output_dir, *, strict_png=False).render(name, source, size=1200, background_color="white", square=True)` and `MermaidDiagram.render(output_dir, size=1200, background_color="white", square=True)` use one positive integer size, not width/height arguments. Publication requires `strict_png=True` and real PNG decoding; non-strict `.mmd` output is authoring source only. Mermaid CLI is pinned to 12.2.0; use `scripts/generate_diagrams.py --size 1200 --strict-png`.
+
+## `biology.pipeline.rendering`
+
+`render_textbook() -> Path` (CLI `scripts/render_textbook.py`) freshly stages validated configured sources and strict inline PNGs, checks source/asset identity and calls the read-only template library. Outputs remain project-local. See [pipeline_guide.md](pipeline_guide.md).
+
+## `biology.pipeline.release_assets`
+
+`build_release_assets(project, destination, renderer_root, *, receipt=None)` exports
+clean, validated main into a new project-local output directory. It requires the
+same source/tree, frozen renderer manifest and PDF hashes as a completed passing
+full gate; link escapes, changed input bytes and occupied outputs fail. The ZIP's
+independent main-only Git bundle excludes unrelated private refs. The native CLI
+is `scripts/build_release_assets.py`; see the [release workflow](pipeline_guide.md#source-bound-native-release-assets).
 
 ## `mermaid.biology_diagrams`
 

@@ -15,12 +15,16 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Membrane Structure and Transport.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO1):** Compare leakage trajectories without equating fluidity with membrane rupture.
+- **Outcome 2 (LO3):** Score finite cell cards and calculate plasmolysis frequencies and osmolarity.
+- **Outcome 3 (LO3):** Identify solute-permeability, pressure and sampling assumptions in water-flow inference.
+- **Chapter LO coverage:** LO1, LO3
+- **Rubric dimensions (10 points total):**
+  - **Evidence — 3 points (LO1, LO3):** Award 1 for leakage means/ranges and the 60–80°C largest sampled increase, 1 for applying the printed gap rule to all twenty cells per field and obtaining 0/10/50/80/95% with the sampled half-response at 1%, and 1 for converting that dose through molarity to 0.3422 Osm/L and −0.848 MPa with the mol/m³ conversion shown. Credit correct setup separately from arithmetic.
+  - **Controls — 2 points (LO1):** Award 1 for distinguishing the solvent blank, 20°C tissue baseline and fully disrupted reference by their assay roles; award 1 for explaining why matched cutting, rinsing and exposure time are needed to separate surface-cut leakage from temperature effects. A blank alone does not control tissue damage.
+  - **Uncertainty — 2 points (LO1, LO3):** Award 1 for reporting dose spacing and shared-field dependence rather than treating twenty cells as independent treated tissues; award 1 for explaining that leakage brackets an integrity change, not a unique fluidity transition, and that the osmotic proxy depends on ideal dissociation, near-zero turgor and solute impermeability.
+  - **Mechanism — 2 points (LO1, LO3):** Award 1 for initial outward flow in the worked example using total Ψcell=−0.3 versus Ψbath=−0.4 MPa and the resulting turgor decrease; award 1 for explaining unsaturation/saturation effects on ordering and cholesterol's temperature-dependent buffering without equating any of them with a unique rupture temperature.
+  - **Transfer — 1 point (LO3):** Compare the printed plant-cell response with an animal cell in the same hypertonic medium: both lose water, but a protoplast retracts within a persistent wall whereas the non-walled cell shrinks. Half credit for the correct direction alone; do not infer an exact animal-cell volume or zero pressure potential from absence of a wall.
 <!-- lab-alignment-end -->
 ## Pre-Lab Concept Questions {.unnumbered}
 
@@ -38,7 +42,7 @@ In this lab you will use printed datasets to investigate how temperature damages
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_II_membrane_transport_alignment_and_rubric_map}
+: Printed materials for leakage, plasmolysis and osmotic models. {#tbl:unit_II_membrane_transport_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Membrane Structure and Transport: cell-atlas or imaging source card: sample, assay, cell-state call, perturbation evidence, and uncertainty | 1 |
@@ -54,7 +58,7 @@ In this lab you will use printed datasets to investigate how temperature damages
 
 1. Plot the provided absorbance-at-530-nm dataset for model membrane leakage across temperatures.
 2. Identify the baseline condition, the sharpest change in leakage, and one confound that a real wet assay would need to control.
-3. Use the membrane-composition cards to predict how cholesterol or unsaturated fatty acids would shift the curve.
+3. Use MT4 to predict ordering changes from chain composition and cholesterol. Explain why these predictions do not uniquely determine a thermal leakage curve.
 
 **Part B — Osmosis and Plasmolysis in Onion**
 
@@ -64,16 +68,16 @@ In this lab you will use printed datasets to investigate how temperature damages
 
 ## Data Recording {.unnumbered}
 
-: Alignment and Rubric Map: Temperature (°C) and Absorbance at 530 nm. {#tbl:unit_II_membrane_transport_alignment_and_rubric_map_2}
-| Temperature (°C) | Absorbance at 530 nm | Qualitative color of water |
-| ----------------- | --------------------- | ---------------------------- |
+: Mean leakage absorbance and replicate-range worksheet. {#tbl:unit_II_membrane_transport_alignment_and_rubric_map_2}
+| Temperature (°C) | Mean A530 (dimensionless) | Replicate range |
+| ---------------- | ------------------------- | --------------- |
 | 20 | | |
 | 40 | | |
 | 60 | | |
 | 80 | | |
 | 100 | | |
 
-: Alignment and Rubric Map: [NaCl] (%) and Cells plasmolysed (of 20). {#tbl:unit_II_membrane_transport_alignment_and_rubric_map_3}
+: Plasmolysis counts and percentages from twenty-cell annotation strings. {#tbl:unit_II_membrane_transport_alignment_and_rubric_map_3}
 | [NaCl] (%) | Cells plasmolysed (of 20) | % Plasmolysis |
 | ---------- | ------------------------- | ------------- |
 | 0 | | |
@@ -82,7 +86,6 @@ In this lab you will use printed datasets to investigate how temperature damages
 | 1.5 | | |
 | 2.0 | | |
 
-<!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
 
 - **Primary evidence goal:** Test osmosis and transport mechanisms with simple cell or model-membrane observations.
@@ -92,14 +95,13 @@ In this lab you will use printed datasets to investigate how temperature damages
 - **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
 - **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
 - **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
 **Membrane Structure and Transport** with a reproducibility pass:
 
-: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_II_membrane_transport_alignment_and_rubric_map_4}
+: Evidence and reproducibility decisions for membrane models. {#tbl:unit_II_membrane_transport_alignment_and_rubric_map_4}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -113,7 +115,7 @@ equipment version belongs only in an optional extension.
 
 ### Worked Example: Predicting Water Movement from Water-Potential Components {.unnumbered}
 
-**Problem:** A plant cell is equilibrated with a bathing solution. Inside the cell, the solute potential is Ψs = −0.6 MPa and the pressure potential (turgor) is Ψp = +0.3 MPa. The bathing solution has Ψsolution = −0.4 MPa (pure-solute solution, so Ψp ≈ 0 and Ψsolution = Ψs of the solution). (a) Calculate the cell's total water potential Ψcell. (b) Determine the direction of net water movement between the cell and the bathing solution. (c) Predict, qualitatively, how Ψp would change as the system approaches equilibrium.
+**Problem:** A plant cell initially has solute potential -0.6 MPa and pressure +0.3 MPa; its bathing solution has total water potential -0.4 MPa. It is not initially equilibrated. Calculate the initial direction of water flow and predict how turgor changes.
 
 **Solution:**
 
@@ -128,19 +130,39 @@ Therefore water moves **out of the cell into the bathing solution** until potent
 
 (c) As water leaves the cell, the cell's volume decreases, the cell wall pushes inward less, and Ψp drops toward 0. Ψs becomes slightly more negative as cytoplasmic solutes concentrate. The new Ψcell becomes more negative; the system reaches equilibrium when Ψcell = Ψsolution = −0.4 MPa.
 
-**Interpretation:** Direction of water movement is set by the sign of (Ψcell − Ψsolution), not by solute concentrations alone. Pressure potential lets walled cells (plants, fungi, many algae) maintain positive Ψp even when their Ψs is strongly negative — this is the molecular basis of turgor pressure, plant rigidity, and the wilting response when soil Ψ drops. Animal cells, which lack a rigid wall, cannot generate positive Ψp and so rely on isotonic environments (or active volume regulation) to avoid lysis or crenation.
+**Interpretation:** Initial water movement depends on total water-potential difference, not concentration alone. A wall permits substantial turgor, but animal cells can also sustain hydrostatic pressure differences through membrane and cortical tension. Lack of a wall is not a general proof of zero pressure potential.
 
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Membrane Structure and Transport before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+**Printed packet MT — synthetic teaching observations, not measured onion or beetroot experiments.** No living material is required.
+
+**MT1 leakage:** Three independent model tissue preparations at each temperature, same mass, surface cutting, rinse and 10 min exposure; absorbance A530 is dimensionless with resolution 0.01. Triples at 20,40,60,80,100 degrees C are (0.04,0.05,0.06), (0.09,0.10,0.11), (0.29,0.30,0.31), (0.74,0.75,0.76), (0.89,0.90,0.91). Solvent blank=0.00 in all three; fully disrupted reference=1.00,1.00,1.00. Leakage reports compartment integrity, not a direct fluidity measurement. Largest adjacent mean increase is 0.45 from 60 to 80; failure temperature is only bracketed by sampled conditions.
+
+**MT2 finite cell cards:** Each NaCl condition has 20 cells, numbered left-to-right 1–20. P means a visible continuous gap between wall and retracted protoplast on at least half the perimeter; T means no qualifying gap. These are schematic annotations, not microscopy photographs.
+
+```text
+0.0%  TTTTT TTTTT TTTTT TTTTT
+0.5%  PPTTT TTTTT TTTTT TTTTT
+1.0%  PPPPP PPPPP TTTTT TTTTT
+1.5%  PPPPP PPPPP PPPPP PTTTT
+2.0%  PPPPP PPPPP PPPPP PPPPT
+```
+
+Counts are 0,2,10,16,19 of 20, hence 0,10,50,80,95%. One field per concentration, no independent biological replicate: cells sharing a field are not twenty independently treated tissues. At 50%, a naive binomial SE is sqrt(0.5 times 0.5/20)=0.112, but shared-field dependence can make that underestimate uncertainty.
+
+**MT3 solution cards:** NaCl % is g/100 mL, molar mass 58.44 g/mol, ideal i=2, T=298 K, R=8.314 J mol^-1 K^-1. Thus 1%=10/58.44=0.1711 M, ideal osmolarity 0.3422 Osm/L and Psi_s=-0.848 MPa. The half-plasmolysis concentration is a population proxy under near-zero turgor/permeability assumptions, not an exact solute potential of every cell. Ideal ion dissociation neglects activity coefficients.
+
+**Composition cards MT4:** U increases cis-unsaturated acyl chains; S increases saturated chains at matched length; C adds cholesterol. U usually lowers ordering-transition temperature relative to S. Cholesterol is not a saturated fatty acid and buffers ordering differently above versus below a transition. Thermal leakage also depends on protein damage and assay geometry; no unique rupture-temperature ranking follows from fluidity alone.
+
+**Instructor key:** Graph means 0.05,0.10,0.30,0.75,0.90 and ranges 0.02; use 20-degree and blank controls separately. MT2 gives half response at 1.0% among sampled doses; report sampling and dose-spacing limits. Osmosis key in the worked example: cell -0.3 versus bath -0.4 MPa means initial outward water flow, reducing turgor. Transfer: animal cells shrink without walls; plant protoplasts retract within walls. Governance: authored MT model packet; revise if solute permeability, tissue age, exposure time or pressure differs.
 
 ## Analysis Questions {.unnumbered}
 
-1. Plot absorbance vs temperature. At approximately what temperature did membrane integrity fail dramatically (sharp increase in absorbance)? What happened to the phospholipid bilayer at this temperature?
-2. Plot % plasmolysed cells vs [NaCl]. At what concentration does 50% plasmolysis occur (incipient plasmolysis)? This approximates the osmotic potential of the onion cell cytoplasm — what is your estimate in osmol/L?
+1. Plot mean A530 and its replicate range versus temperature. Identify the largest sampled increase and bracket it by the two temperatures. Explain why leakage alone does not reveal a unique bilayer phase transition or a precisely measured failure temperature.
+2. Plot plasmolysis percentage versus NaCl concentration. Identify the sampled 50% point, convert its concentration to ideal osmolarity (Osm/L), then calculate $\Psi_s=-iCRT$ in MPa using MT3 and mol/m³ (1 M=1000 mol/m³). Distinguish osmolarity from potential and state the permeability, pressure and sampling limits of treating this as a population cytoplasm proxy.
 3. In a real beetroot assay, why would rinsing cut discs matter? What confound would exist if the dataset mixed surface-cut leakage with temperature-induced leakage?
-4. Predict how results would differ if you used a saturated fat membrane (e.g., modeled by adding cholesterol to a liposome) vs a polyunsaturated fat membrane. Which would show damage at a lower temperature?
+4. Compare MT4's saturated-chain, unsaturated-chain and cholesterol modifications. Explain why an ordering-temperature prediction is not automatically a prediction of irreversible thermal leakage or rupture.
 5. Red blood cells placed in 2% NaCl would crenate. Compare this to the plant cell response in 2% NaCl. Why do plant cells plasmolysis (shrink away from the cell wall) instead of simply shrinking like animal cells?
 
 

@@ -3,7 +3,11 @@
 from __future__ import annotations
 
 from biology.visual_contracts.audit import check_records
-from biology.visual_contracts.manifest import build_manifest, write_manifest, write_review_matrix
+from biology.visual_contracts.manifest import (
+    build_manifest,
+    write_manifest,
+    write_review_matrix,
+)
 from biology.visual_contracts.models import Finding, VisualRecord
 from biology.visual_contracts.render import render_inline_mermaid_assets
 from biology.visual_contracts.scan import (

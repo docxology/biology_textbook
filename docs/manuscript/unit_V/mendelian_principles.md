@@ -86,7 +86,7 @@ Mendel's genius was **quantitative**: he counted offspring in each class and app
 
 ### Law of Segregation (Mendel's First Law)
 
-**Statement**: Each organism possesses two alleles for each [**gene**](#gl:gene). These alleles **segregate** (separate) during [**gamete**](#gl:gamete) formation, such that each gamete receives exactly one allele. Upon fertilization, the diploid state is restored \citep{mendel1866}.
+**Statement**: In the diploid single-autosomal-locus model, each individual carries two alleles for the [**gene**](#gl:gene). These alleles **segregate** (separate) during [**gamete**](#gl:gamete) formation, such that each gamete receives exactly one allele. Upon fertilization, the diploid state is restored \citep{mendel1866}.
 
 **Molecular basis**: Separation of homologous [**chromosomes**](#gl:chromosome) during **[anaphase I of meiosis](#gl:anaphase)**. The two alleles of a gene reside on homologous chromosomes; when homologs are pulled to opposite poles, each gamete receives one allele.
 
@@ -135,7 +135,7 @@ The synthesis of Mendel's laws with the chromosome theory of inheritance — com
 
 **Molecular basis**: Random orientation of non-homologous bivalents at **metaphase I**. Each bivalent can orient with either homolog facing either pole, and this orientation is independent of the other bivalents.
 
-**Important exception**: This law applies only to genes on **different chromosomes** (or very far apart on the same chromosome, >50 cM). Genes on the same chromosome that are close together exhibit **[linkage](#gl:linkage)** and violate independent assortment, the logic that made chromosome mapping possible \citep{sturtevant1913} (see *Chromosomal Inheritance and Linkage*).
+**Important exception**: This law applies only to genes on **different chromosomes** (or sufficiently far apart on the same chromosome for the recombination fraction to approach0.5; a map length merely exceeding50cM is not an exact independence criterion). Genes on the same chromosome that are close together exhibit **[linkage](#gl:linkage)** and violate independent assortment, the logic that made chromosome mapping possible \citep{sturtevant1913} (see *Chromosomal Inheritance and Linkage*).
 
 **Concept Check 16.1**
 
@@ -157,7 +157,7 @@ P: \quad YY \text{ (yellow)} \times yy \text{ (green)}
 \end{equation}
 
 \begin{equation}
-F_1: \quad Yy \text{ (most yellow -- Y is dominant)}
+F_1: \quad Yy \text{ (all yellow under complete dominance)}
 \label{eq:unit_V_mendelian_f1}
 \end{equation}
 
@@ -300,12 +300,12 @@ P = \frac{2}{4} \times \frac{2}{4} \times \frac{2}{4} = \frac{8}{64} = \frac{1}{
 Each locus has probability $\frac{1}{4}$ + $\frac{1}{4}$ = $\frac{1}{2}$ of being homozygous (either AA or aa).
 
 \begin{equation}
-P(\text{homozygous at most 3}) = \frac{1}{2} \times \frac{1}{2} \times \frac{1}{2} = \frac{1}{8}
+P(\text{homozygous at all 3 loci}) = \frac{1}{2} \times \frac{1}{2} \times \frac{1}{2} = \frac{1}{8}
 \label{eq:unit_V_mendelian_genetics_item_11}
 \end{equation}
 
 
-> **Worked Example — Trihybrid Cross Probability:** A dihybrid cross AaBbCc × AaBbCc produces offspring. Calculate the probability of the genotype AaBbCc (triple heterozygote). Since each locus is independent: P(Aa) = 2/4 = 0.5; P(Bb) = 0.5; P(Cc) = 0.5. P(AaBbCc) = 0.5³ = 0.125 = 12.5%. Extended: in a trihybrid cross, the 27 distinct phenotypic classes (when alleles show simple dominance) occur with probabilities following (3/4 + 1/4)³ expansion: dominant at each of three loci occurs (3/4)³ = 27/64 ≈ 42.2%; recessive at each of three occurs (1/4)³ = 1/64 ≈ 1.6%. For a class with specific genotype aaB_C_: P(aa) × P(B_) × P(C_) = (1/4)(3/4)(3/4) = 9/64. Chi-squared test with 8 df would require at least 8 expected class sizes of ≥5, meaning a minimum sample size of 8 × 5/(1/64) = 2,560 offspring for the rarest class to have expected count ≥5.
+> **Worked Example — Trihybrid Cross Probability:** In AaBbCc × AaBbCc with independent loci and complete dominance, $P(AaBbCc)=(1/2)^3=1/8$. There are 27 distinct genotypes but eight phenotype classes, with ratio 27:9:9:9:3:3:3:1. For example, $P(aaB\_C\_)=(1/4)(3/4)(3/4)=9/64$, and $P(aabbcc)=1/64$. A goodness-of-fit test of this fixed eight-class ratio has $df=8-1=7$; no parameters are estimated. To make even the rarest expected count at least five requires $n/64\geq5$, or $n\geq320$, not 2,560. Expected-count rules concern the approximation, not a guarantee of test power.
 
 > **Concept Check (Evaluation):** Genome-wide association studies (GWAS) identify thousands of SNPs associated with complex traits like height, BMI, and schizophrenia — but each SNP has tiny effect size (odds ratio 1.01-1.10) and explains <0.1% of trait variance. Yet the identified SNPs together explain <50% of heritability for most traits — the "missing heritability" problem. (a) Evaluate four possible explanations for missing heritability: (i) rare variants with large effects (not detected by GWAS), (ii) gene-gene interactions (epistasis), (iii) overestimated heritability from twin studies, (iv) epigenetic variants not captured by SNP arrays. For each, predict what experimental approach would resolve it. (b) Polygenic risk scores (PRS) aggregate genome-wide SNP effects. A PRS for coronary artery disease has a population AUC of 0.64. Explain what this means clinically and why population-level prediction does not translate to individual risk certainty.
 
@@ -332,6 +332,37 @@ the chapter. Classical genetics remains essential, but modern interpretation add
 A good genetics answer separates the Mendelian transmission model from the evidence needed to use it in a population, family, or clinical setting.
 
 **Source practice:** For genetics claims, separate model assumptions from sampling, ancestry representation, penetrance, linkage, and environment.
+
+## Evaluating Ratios and Human Inheritance
+
+A cross prediction has two layers: allele transmission and the genotype-to-phenotype rule. **Penetrance** is the fraction of a specified genotype class expressing a defined phenotype at a stated age and environment; **expressivity** describes its degree among expressers. A **phenocopy** resembles a genetic condition but has another cause. These alter phenotype interpretation without necessarily changing segregation.
+
+### Worked Example: Testing a Fixed Ratio
+
+For a synthetic Aa×Aa cross with complete dominance, 450 round and 130 wrinkled offspring give n=580. Under 3:1, expected counts are 435 and 145. The goodness-of-fit statistic is $\chi^2=(450-435)^2/435+(130-145)^2/145=60/29\approx2.069$. With a fixed two-class ratio, df=1 and a 5% critical value 3.841, the model is not rejected. That is compatibility, not proof that segregation is the sole mechanism or that chance actually caused the deviation. Genotype-dependent survival, scoring bias and linkage in multi-locus crosses require separate evidence.
+
+### Worked Example: A Small Recessive Pedigree
+
+In a synthetic fully penetrant autosomal-recessive model, unaffected parents have an affected aa child and an unaffected sibling. Both parents must be Aa; the unaffected sibling has carrier probability $(1/2)/(3/4)=2/3$. With a known Aa partner, the pre-birth risk of an affected child is $(2/3)(1/4)=1/6$. Unaffected phenotype is not the same as a known noncarrier genotype. For X-linked inheritance, a father transmits his X to daughters and Y to sons; affected father/son co-occurrence therefore does not demonstrate paternal X transmission.
+
+At the molecular level, a recessive loss-of-function allele can leave sufficient activity in a heterozygote, whereas haploinsufficiency makes one functional copy inadequate. Dominance concerns this dosage response, not preferential transmission. Polygenic traits extend the model to many contributing loci and environments; GWAS associations do not by themselves establish causal variants, and a PRS requires external calibration rather than interpretation as a Mendelian diagnosis.
+
+> **Concept Check:** In a true Rr×rr testcross, three of four offspring are round. Calculate $\binom43(1/2)^4=1/4$. Why does this possible sample not change the expected 1:1 ratio or establish contamination?
+
+## Review Questions
+
+1. Which features of pea cultivation make controlled crosses more informative than uncontrolled observations?
+2. Connect homolog separation and independent bivalent orientation to Mendel's two laws; identify where linkage changes the second prediction.
+3. Derive all eight phenotype probabilities for an independent trihybrid self-cross and distinguish them from 27 genotype classes.
+4. Why does an all-round finite testcross support but not prove a homozygous dominant parent?
+5. Recompute the 450:130 goodness-of-fit statistic and explain the role of the fixed-ratio degrees of freedom.
+6. Compare penetrance, expressivity and phenocopy without treating each as a failure of meiosis.
+7. Derive the 2/3 unaffected-sibling carrier probability and the 1/6 subsequent child risk under the stated model.
+8. What evidence would be needed to move from a GWAS association to a causal allele or clinically calibrated PRS?
+
+## Key Terms
+
+**Segregation:** separation of alleles into gametes. **Independent assortment:** independent transmission at unlinked loci. **Testcross:** mating to a homozygous recessive individual. **Dominance:** the phenotype relationship between alleles in a heterozygote. **Epistasis:** genotype-dependent interaction between loci. **Penetrance:** phenotype frequency within a specified genotype class. **Expressivity:** degree of phenotype. **Conditional probability:** probability after restricting the eligible outcome set. **Goodness of fit:** comparison of observed counts with model expectations. **Polygenic inheritance:** variation influenced by many loci, often alongside environmental effects.
 
 ## Summary
 

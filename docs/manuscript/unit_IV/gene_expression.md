@@ -7,7 +7,7 @@
 \label{fig:unit_IV_translation_codons}
 \end{figure}
 
-<!-- alt: Vertical bars ranking the twenty amino acids by count after translating a sample messenger RNA sequence in the standard reading frame; the tallest bars mark the most frequent residues in the encoded peptide. -->
+<!-- alt: Vertical bars count the amino-acid types present after translating a synthetic example messenger RNA with the standard genetic code. Met, Phe, Gly, His, and Trp appear in first-occurrence order, not ranked order; amino acids absent from the peptide are not plotted. -->
 
 \label{sec:unit_IV_gene_expression}
 
@@ -134,9 +134,9 @@ sequenceDiagram
     Med->>PolII: Mediator bridges enhancer-bound activators to PIC
     Note over Med: Mediator complex: ~30 subunits, 1.4 MDa
 ```
-<!-- alt: Sequence diagram showing assembly of the eukaryotic pre-initiation complex (PIC) at a TATA-containing promoter. TFIID binding initiates an ordered assembly cascade culminating in Pol II CTD phosphorylation and promoter escape. -->
+<!-- alt: Sequence diagram showing canonical pre-initiation complex assembly at a TATA-containing promoter. This illustrates factor interactions, not an identical obligatory inventory at every promoter or under every assay condition; TAF-containing and TAF-lacking transcriptional complexes differ in promoter usage. In tested yeast, classical general factors were required while substantial transcription was TAF-independent. -->
 
-*Assembly of the eukaryotic pre-initiation complex (PIC) at a TATA-containing promoter. TFIID binding initiates an ordered assembly cascade culminating in Pol II CTD phosphorylation and promoter escape.*
+*Canonical pre-initiation complex assembly at a TATA-containing promoter. This illustrates factor interactions, not an identical obligatory inventory at every promoter or under every assay condition; TAF-containing and TAF-lacking transcriptional complexes differ in promoter usage. In tested yeast, classical general factors were required while substantial transcription was TAF-independent \citep{petrenko2019pic}.*
 
 : The Pre-Initiation Complex (PIC) Assembly: CTD Modification and Kinase. {#tbl:unit_IV_gene_expression_the_pre_initiation_complex_pic_assembly}
 | CTD Modification | Kinase | Effect |
@@ -157,18 +157,21 @@ sequenceDiagram
 ```mermaid
 flowchart LR
     A["Pre-mRNA Transcription Begins"] --> B["5' Capping (m7G cap added at ~20-30 nt)"]
-    B --> C["Intron Recognition by U1 snRNP at 5' Splice Site"]
+    A --> C["Intron recognition by U1 snRNP<br/>at 5' splice site"]
     C --> D["Spliceosome Assembly (U1, U2, U4/U6, U5)"]
     D --> E["First Transesterification: Branch Point A Attacks 5' SS"]
     E --> F["Second Transesterification: Exon Ligation + Lariat Release"]
-    F --> G["3' Cleavage at AAUAAA Signal by CPSF/CstF"]
-    G --> H["Poly-A Polymerase Adds ~200-250 A Residues"]
-    H --> I["PABP Binds Poly-A Tail"]
-    I --> J["Quality Control: EJC Marks Splice Junctions"]
-    J --> K{Passes NMD Surveillance?}
-    K -->|Yes| L["Nuclear Export via NXF1/NXT1 Through NPC"]
-    K -->|No, PTC detected| M["Nonsense-Mediated Decay: mRNA Degraded"]
-    L --> N["Mature mRNA in Cytoplasm Ready for Translation"]
+    F --> J["EJCs deposited during splicing"]
+    A --> G["CPSF/CstF recognition of polyadenylation signals<br/>cleavage 10–30 nt downstream of AAUAAA"]
+    G --> H["Poly-A polymerase extends tail"]
+    H --> I["Poly-A-binding protein binds tail"]
+    B --> Ready["Processed messenger RNP<br/>pathways overlap during transcription"]
+    J --> Ready
+    I --> Ready
+    Ready --> L["Nuclear export via NXF1/NXT1"]
+    L --> K{"Translation-dependent NMD trigger?"}
+    K -->|Yes| M["NMD: mRNA degraded"]
+    K -->|No| N["mRNA available for translation"]
 
     style A fill:#4a90d9,color:#fff
     style N fill:#5cb85c,color:#fff
@@ -266,7 +269,7 @@ Alternative splicing generates multiple protein isoforms from a single gene. An 
 
 **Disease-causing splice site mutations — clinical examples:**
 - ***BRCA1* IVS5+1G>A:** disrupts the consensus 5′ splice site (GT > AT), causing exon 5 skipping and frameshift; pathogenic for hereditary breast/ovarian cancer.
-- ***DMD* exon 51 deletion:** removes a frame-essential exon, causing Duchenne muscular dystrophy. Antisense oligonucleotide therapies (eteplirsen, casimersen) restore the reading frame by inducing exon 51 skipping.
+- ***DMD* frame-disrupting deletions:** Exon-skipping strategies can restore the reading frame in amenable, mutation-specific genotypes. Eteplirsen targets an existing exon 51; casimersen targets an existing exon 45. An already deleted exon cannot itself be skipped.
 - ***MAPT* IVS10+16C>T:** disrupts the regulatory cis-element controlling tau exon 10 inclusion, causing fronto-temporal dementia with parkinsonism (FTDP-17). Different intronic mutations in *MAPT* alter the 4R/3R tau ratio.
 - ***SMN2* C840T:** weakens an exonic splicing enhancer in *SMN2* exon 7, causing exon 7 skipping in 90 % of *SMN2* transcripts and producing truncated, unstable SMN protein. This is the basis of spinal muscular atrophy when *SMN1* is also lost; nusinersen (an antisense oligonucleotide) restores exon 7 inclusion.
 - ***LMNA* c.1824C>T (Hutchinson–Gilford progeria):** activates a cryptic splice donor in exon 11, producing the truncated lamin-A "progerin" that accumulates at the nuclear envelope, driving accelerated aging.
@@ -282,7 +285,7 @@ Approximately **15–20 % of disease-causing point mutations** disrupt splicing 
 
 NMD is an mRNA surveillance pathway that degrades transcripts containing **premature termination codons (PTCs)**. This protects the cell from producing truncated, potentially [**dominant**](#gl:dominant)-negative proteins.
 
-**Mechanism**: During the first ("pioneer") round of translation, the ribosome encounters each exon junction complex (EJC). If translation terminates >50-55 nt upstream of an EJC, the ribosome cannot displace the EJC. The interaction of release factors (eRF1/eRF3) with UPF1, followed by UPF1 interaction with the downstream EJC-bound UPF2/UPF3, triggers UPF1 phosphorylation, mRNA decapping, deadenylation, and degradation.
+**Mechanism:** In the canonical mammalian EJC-dependent rule, termination more than about 50–55 nucleotides upstream of a downstream exon–exon junction can trigger NMD. EJCs are deposited roughly 20–24 nucleotides upstream of junctions and normally displaced by translating ribosomes. Remaining downstream EJCs help recruit UPF factors and decay machinery. The junction distance is not the same as the EJC distance; exceptions and EJC-independent NMD exist.
 
 NMD degrades ~5-10% of the human transcriptome, including many alternatively spliced isoforms with PTCs (regulated unproductive splicing and translation, or RUST).
 
@@ -346,7 +349,7 @@ stateDiagram-v2
         [*] --> Decoding: aa-tRNA in eEF1A-GTP enters A site
         Decoding --> Proofreading: GTP hydrolysis; kinetic proofreading
         Proofreading --> PeptideBond: Peptidyl transferase (28S rRNA) forms bond
-        PeptideBond --> Translocation: eEF2-GTP translocates ribosome 3 codons
+        PeptideBond --> Translocation: eEF2-GTP translocates ribosome 3 nucleotides, one codon
         Translocation --> Decoding: tRNAs shift A to P to E; cycle repeats
     }
 
@@ -482,7 +485,7 @@ NMD destroys mRNAs containing premature termination codons (PTCs), preventing th
 2. **Ribosome translates from cap to first stop codon.** Each EJC encountered by the elongating ribosome is dislodged. EJCs deposited downstream of the actual stop codon (in the 3′ UTR) are NOT dislodged.
 3. **Stop codon recognition.** eRF1 + eRF3-GTP enter the A site; eRF3 hydrolyses GTP; nascent peptide is released by hydrolysis of the peptidyl-tRNA ester bond.
 4. **UPF1 recruitment.** eRF3 (after release-factor function) recruits UPF1 to the terminating ribosome.
-5. **EJC-distal proximity check.** UPF1 scans the 3′ UTR; if it encounters an EJC within ~50 nt downstream, EJC-bound UPF2/UPF3B contact UPF1, activating NMD.
+5. **Downstream-junction rule.** A stop more than approximately 50–55 nt upstream of a downstream exon–exon junction can leave a downstream EJC able to support UPF-dependent NMD; an EJC within 50 nt is not the defining rule.
 6. **SMG1 phosphorylation of UPF1** at numerous Ser/Thr-Q sites — generates the "phospho-UPF1" signal.
 7. **Decay execution:**
    - **SMG6 endonuclease** cleaves the mRNA near the PTC, exposing both fragments to exonucleases (XRN1 from 5′; exosome from 3′).
@@ -491,9 +494,9 @@ NMD destroys mRNAs containing premature termination codons (PTCs), preventing th
 
 **Clinical NMD exploitation — three therapeutic strategies:**
 
-1. **Read-through compounds** (e.g., **ataluren/Translarna**) promote ribosomal mis-decoding at PTCs (especially UGA), allowing partial production of full-length protein. Approved in EU for nonsense-mutation Duchenne muscular dystrophy (cmDMD).
+1. **Read-through compounds** promote near-cognate tRNA decoding at premature termination codons. Their efficacy and regulatory status are compound-, genotype-, jurisdiction-, and date-specific; readthrough is not restored normal sequence.
 2. **NMD inhibition** (e.g., NMDI-1, SMG1 inhibitors in development) prolongs the half-life of PTC-containing mRNAs, increasing the substrate pool for read-through compounds.
-3. **Antisense oligonucleotides for exon skipping** (e.g., eteplirsen for DMD, nusinersen for SMA): exclude the PTC-containing exon, restoring the reading frame.
+3. **Splice-modifying ASOs:** Eteplirsen skips an existing DMD exon 51 in amenable genotypes to restore frame; nusinersen instead promotes SMN2 exon 7 inclusion. These opposite splice changes address different molecular defects.
 
 NMD also has homeostatic functions beyond pathogen detection: it degrades a large fraction of physiological alternatively-spliced isoforms that contain PTCs (regulated unproductive splicing and translation, RUST), particularly in neurons and during development. NMD perturbation in flies and mice produces brain phenotypes consistent with this regulatory role.
 
@@ -503,13 +506,13 @@ Translation fidelity is achieved through multiple kinetic checkpoints, each cont
 
 1. **Aminoacyl-tRNA charging fidelity** by aminoacyl-tRNA synthetases (aaRS): each aaRS has high specificity for its cognate amino acid (10⁻³–10⁻⁴ error in pre-transfer step). Many aaRSs (e.g., IleRS, LeuRS, ValRS, AlaRS, PheRS, ProRS, ThrRS, MetRS) have **post-transfer editing domains** that hydrolyse mischarged tRNAs (e.g., Val-tRNA^Ile is edited by IleRS's editing domain, achieving 10⁻⁵–10⁻⁶ overall error). The "double-sieve" mechanism: synthetic site selects amino acids that fit *or are smaller than* the cognate; editing site rejects amino acids smaller than the cognate.
 2. **Initial codon-anticodon recognition** (in the 30S/40S A site): Watson-Crick pairing at codon positions 1 and 2 (the wobble at position 3 is intentionally relaxed); A-form helix geometry sensing by 16S rRNA (in bacteria: A1492, A1493, G530 — the "monitor bases"). Initial selection error rate ~10⁻³.
-3. **EF-Tu / eEF1A conformational proofreading** (kinetic proofreading via GTP hydrolysis): EF-Tu (in bacteria) or eEF1A (in eukaryotes) brings aa-tRNA to the A site; correct codon-anticodon pairing accelerates GTP hydrolysis. Incorrect pairings have time to dissociate before GTP is hydrolysed (an irreversible step). After GTP hydrolysis, a second selection step ("accommodation") allows further discrimination. This adds ~10⁻³ to ~10⁻⁴ improvement.
+3. **EF-Tu/eEF1A kinetic selection and proofreading** discriminate at initial recognition and after GTP hydrolysis. Correct pairing accelerates GTPase activation; near-cognate substrates can still hydrolyze GTP and be rejected afterward, as measured in bacterial experiments \citep{gromadski2004fidelity}. An illustrative mismatch probability of 10^-3 followed by conditional acceptance of 10^-2 yields 10^-5 decoding error for that route; charging errors are separate, not another mandatory multiplicative factor.
 4. **Peptidyl transferase activity-coupled fidelity**: the rate of peptide bond formation depends on whether the tRNA is correctly accommodated; incorrect tRNAs have slower peptide-bond chemistry, providing another opportunity for dissociation.
 5. **Quality control after translation**: misfolded proteins are degraded by the proteasome; ribosomes stalling on damaged mRNAs trigger ribosome-associated quality control (RQC) via Pelota-Hbs1L splitting and NEMF-LTN1-mediated nascent-peptide ubiquitination.
 
-\begin{equation}\text{Overall translation error} \approx 10^{-3} \times 10^{-3} \times \text{(post-transfer editing)} \approx 10^{-4}\text{ to }10^{-5}\label{eq:translation_fidelity}\end{equation}
+\begin{equation}p_{\mathrm{total}}\approx p_{\mathrm{charging}}+p_{\mathrm{decoding}},\qquad p_{\mathrm{decoding}}=p_{\mathrm{initial\ mismatch}}p_{\mathrm{accepted\mid mismatch}}\label{eq:translation_fidelity}\end{equation}
 
-For a typical ~500-amino acid protein, this error rate predicts ~5 % of nascent polypeptides contain at least one misincorporation. Most are tolerated; a few drive cellular dysfunction in aging or disease (statin-induced muscle damage from low-fidelity translation; age-related aggregation diseases). Sub-cohort of mistranslated proteins are degraded by the proteasome before causing problems.
+For an assumed per-residue error probability $p=10^{-5}$ to $10^{-4}$, a 500-residue chain has probability $1-(1-p)^{500}\approx0.50\%$ to $4.88\%$ of at least one error. This assumes independent, uniform errors; it is not evidence that every error causes dysfunction.
 
 **Clinical translation:** Aminoglycosides (gentamicin, paromomycin) bind 16S rRNA monitor bases, distorting the codon-recognition geometry and increasing translation error rate (~100-fold). This explains both their bactericidal mechanism (catastrophic protein synthesis errors) and their toxicities (cochlear hair-cell apoptosis from mitochondrial mistranslation, especially in patients with the A1555G 12S rRNA variant).
 
@@ -592,7 +595,7 @@ This provides fine-tuning: repression gives ~70-fold regulation; attenuation add
 **Chromatin level**:
 - **SWI/SNF complexes** (BAF/PBAF in mammals): ATP-dependent chromatin remodelers that slide, eject, or restructure [**nucleosome**](#gl:nucleosome)s to expose or occlude regulatory sequences
 - **HATs** (histone acetyltransferases, e.g., p300/CBP, PCAF): acetylate histone tails (primarily H3K9, H3K14, H3K27, H4K16), neutralizing positive charge, weakening histone-DNA interaction, and recruiting bromodomain-containing factors -- associated with active transcription
-- **HDACs** (histone deacetylases): remove acetyl groups -- associated with gene silencing; HDAC inhibitors (vorinostat, romidepsin) are approved for T-cell lymphoma
+- **HDACs** (histone deacetylases): remove acetyl groups and often participate in gene silencing. Vorinostat and romidepsin have U.S. CTCL indications; romidepsin's separate PTCL accelerated approval was withdrawn July 30, 2021, not its CTCL indication \citep{fda2026withdrawncancer}.
 
 **Transcription factor combinatorics**: The human genome encodes ~1,500-2,000 transcription factors. Gene expression is controlled by the combinatorial binding of multiple TFs at enhancers, which together produce richer logic than any single TF in isolation. Three canonical principles:
 
@@ -616,7 +619,7 @@ The combination of synergy + enhanceosome organization + super-enhancer condensa
 **[microRNA (miRNA)](#gl:microrna)**:
 - ~22 nt single-stranded RNAs; ~2,000 in the human genome; regulate ~60% of protein-coding genes
 - Biogenesis: pri-miRNA (transcribed by Pol II) → Drosha/DGCR8 cleave in nucleus to pre-miRNA (hairpin) → Exportin-5 exports → **Dicer** cleaves to ~22 nt duplex → one strand loaded into **RISC** (RNA-induced silencing complex, containing Argonaute protein)
-- Mechanism: miRNA guides RISC to complementary sites (typically in the 3' UTR; seed sequence = positions 2-8); partial complementarity → translational repression + mRNA deadenylation and decay; perfect complementarity → mRNA cleavage (rare in animals)
+- Mechanism: guide–target pairing, often involving seed positions 2–8 in a 3′ UTR, can promote translational repression and deadenylation/decay; extensive pairing can permit Ago2 slicing. Measure RNA abundance and protein production separately: \citet{guo2010mirna} found that reduced mRNA explained most reduced protein production in the mammalian systems tested, not a universal translation-only miRNA effect.
 
 **The miRNA pathway in mechanistic detail (mammalian):**
 
@@ -643,7 +646,7 @@ The combination of synergy + enhanceosome organization + super-enhancer condensa
 | 3′ supplementary | Seed + 3′ end pairing (positions 13–16) | Modest extra contribution |
 | Centered site | 11-bp pairing centered on positions 4–14 | Moderate; alternative class |
 
-Because each miRNA can have hundreds to thousands of targets (TargetScan, miRanda, DIANA-microT predictions), miRNAs typically tune target levels by 20–60 % rather than completely silencing them — they are "regulatory thermostats" rather than on/off switches.
+Predicted target counts do not establish measured repression strength. Effects vary with target, guide abundance, site context and time; neither an RNA-class label nor a seed match alone gives a universal percentage or a ranking of miRNA versus siRNA silencing.
 
 **siRNA (small interfering RNA)**:
 - 21 nt; derived from long dsRNA (exogenous: viral, experimental; endogenous: transposons)
@@ -832,7 +835,7 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 11. **Kozak sequence** -- consensus context around eukaryotic AUG start codon (RCCAUGG)
 12. **Peptidyl transferase** -- ribosomal RNA-based catalytic activity forming peptide bonds
 13. **Ubiquitin-proteasome system** -- pathway for targeted protein degradation via polyubiquitination
-14. **miRNA** -- ~22 nt non-coding RNA guiding RISC to target mRNAs for translational repression
+14. **miRNA** -- ~22 nt noncoding RNA guiding Argonaute-containing complexes to targets, often reducing mRNA abundance as well as translation.
 15. **Epigenetics** -- heritable changes in gene expression without alterations to DNA sequence
 16. **CpG island** -- GC-rich genomic region; methylation status controls gene activity
 17. **Histone code** -- combinatorial histone modifications that regulate chromatin state and gene expression

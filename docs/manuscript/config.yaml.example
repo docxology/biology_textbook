@@ -23,7 +23,7 @@ book:
   subtitle: "A Generative Approach"
   author: "Daniel Ari Friedman"
   orcid: "0000-0001-6232-9096" # Author ORCID identifier
-  edition: "1.0"
+  edition: "1.1"
   year: 2026
   language: "en"
   license: "CC BY 4.0"
@@ -33,14 +33,16 @@ book:
     alt: "Integrated biology montage spanning molecules, cells, organisms, networks, and ecosystems."
 
 authors:
-  - name: "TODO-OWNER: author name"
-    orcid: ""
-    email: "TODO-OWNER: author email"
-    affiliation: "TODO-OWNER: affiliation"
+  - name: "Daniel Ari Friedman"
+    orcid: "0000-0001-6232-9096"
+    email: "daniel@activeinference.institute"
+    affiliation: "Active Inference Institute"
     corresponding: true
 
 publication:
   doi: ""
+  doi_status: "Not deposited for edition 1.1"
+  prior_edition_doi: "10.5281/zenodo.20286478"
   repository_url: "https://github.com/docxology/biology_textbook"
   repository_label: "Source repository"
   keywords:

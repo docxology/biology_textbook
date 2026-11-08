@@ -6,10 +6,9 @@ import json
 from pathlib import Path
 from typing import Any
 
-from textbook_io import write_text_atomic
-
 from biology.pipeline.analysis_smoke import SmokeReport
 from biology.pipeline.paths import OUTPUT_ROOT, PROJECT_ROOT
+from textbook_io import write_text_atomic
 
 
 def build_analysis_report(

@@ -30,7 +30,7 @@ By the end of this chapter, you should be able to:
 \label{fig:unit_X_food_web_trophic_levels}
 \end{figure}
 
-<!-- alt: Horizontal bars ordered from producer at level one through herbivore, secondary consumer, and apex predator at level four in a linear aquatic food chain. -->
+<!-- alt: Horizontal bars ordered from producer at level one through herbivore, secondary consumer, and tertiary consumer and apex predator at level five in a linear aquatic food chain. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -112,26 +112,32 @@ The **Millennium Ecosystem Assessment** (2005; 1,300 scientists from 95 countrie
 ```mermaid
 graph TD
     subgraph "Energy Flow Through Trophic Levels"
-        SUN["Solar Energy<br/>1,000,000 kJ"] -->|"~1-2% captured<br/>(photosynthesis)"| P["Producers<br/>10,000 kJ NPP"]
-        P -->|"~10% efficiency<br/>(Lindeman)"| H["Herbivores<br/>1,000 kJ"]
+        SUN["Solar energy<br/>illustrative input"] -->|"Photosynthetic capture"| GPP
+        P["Producers<br/>10,000 kJ NPP"] -->|"~10% efficiency<br/>(Lindeman)"| H["Herbivores<br/>1,000 kJ"]
         H -->|"~10%"| C1["Secondary Consumers<br/>100 kJ"]
         C1 -->|"~10%"| C2["Tertiary Consumers<br/>10 kJ"]
         C2 -->|"~10%"| APEX["Apex Predators<br/>1 kJ"]
 
-        P -->|"~90% lost"| R1["Respiration<br/>+ Not consumed<br/>+ Detritus"]
-        H -->|"~90% lost"| R2["Respiration<br/>+ Feces<br/>+ Detritus"]
-        C1 -->|"~90% lost"| R3["Respiration<br/>+ Detritus"]
-
-        R1 --> DEC["Decomposers<br/>(bacteria, fungi)"]
-        R2 --> DEC
-        R3 --> DEC
-        DEC -->|"Mineralisation"| NUT["Inorganic nutrients<br/>recycled to producers"]
-        NUT --> P
+        P -->|"Unconsumed organic matter"| DET["Organic detritus<br/>including dead tissue and feces"]
+        H --> DET
+        C1 --> DET
+        C2 --> DET
+        APEX --> DET
+        H -->|"Respiration"| HEAT["Dissipated heat<br/>not recycled"]
+        C1 -->|"Respiration"| HEAT
+        C2 -->|"Respiration"| HEAT
+        APEX -->|"Respiration"| HEAT
+        DET --> DEC["Decomposers<br/>bacteria and fungi"]
+        DEC -->|"Respiration"| HEAT
+        DEC -.->|"Matter: mineralization"| NUT["Inorganic nutrients"]
+        NUT -.->|"Matter: nutrient uptake"| P
+        GPP["Producer gross fixation"] -->|"Autotrophic respiration"| HEAT
+        GPP -->|"After producer respiration"| P
     end
 ```
-<!-- alt: Graph showing energy transfer narrows across trophic levels because respiration, heat loss, and unconsumed biomass leave a limited fraction of producer energy for higher consumers. -->
+<!-- alt: Graph showing illustrative trophic production declines tenfold per step; those efficiencies are not universal. Solid arrows trace organic energy transfers or respiratory heat dissipation; dashed arrows show matter recycling by mineralization and uptake. Producer NPP is net of autotrophic respiration, shown separately from the NPP budget. -->
 
-*Energy transfer narrows across trophic levels because respiration, heat loss, and unconsumed biomass leave a limited fraction of producer energy for higher consumers.*
+*Illustrative trophic production declines tenfold per step; those efficiencies are not universal. Solid arrows trace organic energy transfers or respiratory heat dissipation; dashed arrows show matter recycling by mineralization and uptake. Producer NPP is net of autotrophic respiration, shown separately from the NPP budget.*
 
 The **trophic efficiency** (10% rule, Lindeman 1942, *Ecology*) describes the fraction of energy at trophic level $n$ transferred to level $n+1$:
 
@@ -236,7 +242,7 @@ small relative to GPP.
 | Open ocean | 50-150 | 332 | ~45% of global NPP |
 | Coastal/upwelling | 200-600 | 27 | |
 | Coral reefs | 500-2,000 | 0.6 | High per area, small total |
-| **Global total** | — | — | **about 120 Pg C/yr (land) + 90 Pg C/yr (ocean)** |
+| **Global total** | — | — | **approximately 50–60 Pg C/yr land plus about 50 Pg C/yr ocean NPP; do not confuse these with gross photosynthesis** |
 
 ### Factors Limiting GPP
 
@@ -262,7 +268,7 @@ Different methods access different components of NPP and apply across different 
 | **Eddy covariance** | Hectares (canopy footprint) | Tower-mounted sonic anemometer + IRGA measure CO$_2$ flux 10–20 Hz; partition NEP → GPP, $R_e$ | NEP at half-hourly resolution; 24/7/365 | Primarily the tower footprint; tall tower needed for forests |
 | **Remote sensing** | Regional / global | MODIS NDVI → fAPAR (fraction absorbed PAR) → light-use-efficiency NPP models (e.g., MOD17) | Continental and global scales | Hidden BNPP; saturation in dense canopies; cloud occlusion |
 | **$^{14}$C uptake** | Aquatic, bottle | Add NaH$^{14}$CO$_3$; incubate; filter and count $^{14}$C in cells | Phytoplankton primary production | Mostly net (some respired $^{14}$C lost); bottle effects |
-| **O$_2$ light/dark bottles** | Aquatic | Incubate paired bottles; light = NPP, dark = respiration; sum = GPP | GPP and NPP simultaneously | Sensitive to incubation duration |
+| **O$_2$ light/dark bottles** | Aquatic community | Light change = net community production; dark loss = total community respiration | GPP inferred if light and dark respiration match | NPP not isolated unless heterotrophic respiration is excluded or independently corrected; divide by incubation time |
 | **Litterfall traps + stem increment** | Forest plot | Annual leaf and twig fall + dendrometer band; sum = ANPP | Long-term forest dynamics | Belowground; understory |
 | **Minirhizotrons / ingrowth cores** | Plot, root-specific | Image roots through transparent tubes or harvest from buried mesh cores | BNPP estimates | Disturbance artifacts; coarse roots underrepresented |
 
@@ -287,7 +293,7 @@ Globally, BNPP is roughly half of total NPP — meaning *half* of the planet's p
 
 > **Concept Check:** A grassland and a forest both report ANPP = 400 g C/m$^2$/yr. Which ecosystem has higher *total* NPP, and why does this matter for policy (e.g., carbon-credit accounting under REDD+)?
 
-> **Concept Check:** A tropical rainforest has GPP = 3,000 g C/m$^2$/yr. If autotrophic respiration consumes 50% and heterotrophic respiration consumes 80% of NPP, calculate NPP and NEP. Is this ecosystem a net carbon sink?
+> **Concept Check:** A tropical rainforest has GPP = 3,000 g C/m$^2$/yr. Autotrophic respiration consumes 50% and heterotrophic respiration consumes 80% of NPP. Calculate NPP and NEP. What additional export/disturbance information is required to determine net carbon storage? Compare D = 0 with D = 400 g C/m$^2$/yr using NBP = NEP − D.
 
 ---
 
@@ -301,13 +307,15 @@ Globally, BNPP is roughly half of total NPP — meaning *half* of the planet's p
 | Atmosphere | ~860 (2024) | Years | 421 ppm CO$_2$ (Keeling Curve) |
 | Vegetation | ~560 | Decades | Mainly tropical forests |
 | Soil organic carbon | 1,500-2,400 | Decades-millennia | Largest terrestrial reservoir |
-| Permafrost | ~1,700 | Millennia | Vulnerable to thaw |
+| Northern circumpolar permafrost-region soil organic carbon | ~1,300 (uncertainty ~1,100–1,500); ~800 perennially frozen | Stock, not an emission timescale | Hugelius et al. (2014); overlaps soil carbon rather than adding a disjoint reservoir \citep{hugelius2014carbon} |
 | Ocean surface | ~900 | Months | Rapid exchange with atmosphere |
 | Ocean deep | ~37,000 | Centuries-millennia | Largest active reservoir |
 | Lithosphere (fossil fuels) | ~3,700 (recoverable) | Geological timescales | Being transferred to atmosphere |
 | Marine sediments (carbonate) | >60,000,000 | Millions of years | Long-term geological storage |
 
-### Annual Carbon Fluxes (2020s)
+### Annual Carbon Fluxes: A Conserved Teaching Budget
+
+The diagram uses a synthetic, rounded annual budget in Pg C/yr, authored for accounting practice, not a dated empirical global assessment. Positive flux into the atmosphere is a source. Land GPP=120, autotrophic respiration=60, and heterotrophic respiration=56.5 imply net land uptake=3.5. Gross ocean uptake=92 and outgassing=89.1 imply net ocean uptake=2.9. With fossil emissions=10 and land-use emissions=1.5, atmospheric accumulation is 5.1. Use either gross or net accounting, never both. Permafrost respiration is not added again as an independent flow in this closed record.
 
 ```mermaid
 graph LR
@@ -317,23 +325,21 @@ graph LR
         OCEAN["Ocean"]
         FF["Fossil Fuels<br/>3,700 Pg C"]
         LUC["Land-Use<br/>Change"]
-        PERM["Permafrost<br/>1,700 Pg C"]
+        PERM["Permafrost-region soil carbon<br/>~1,300 Pg C total<br/>~800 Pg C perennially frozen<br/>Hugelius et al. 2014"]
     end
 
-    LAND -->|"GPP: 120"| ATM
-    ATM -->|"Resp: 118"| LAND
+    ATM -->|"GPP: 120"| LAND
+    LAND -->|"Ra: 60; Rh: 56.5"| ATM
     ATM -->|"Ocean uptake: 92"| OCEAN
-    OCEAN -->|"Outgassing: 89"| ATM
+    OCEAN -->|"Outgassing: 89.1"| ATM
     FF -->|"Combustion: 10"| ATM
     LUC -->|"Deforestation: 1.5"| ATM
 
-    LAND -.->|"Land sink: 3.5"| LAND
-    OCEAN -.->|"Ocean sink: 2.9"| OCEAN
-    PERM -.->|"Thaw: 0.3-1.0"| ATM
+    PERM -.->|"Included within land; no extra flux"| LAND
 ```
-<!-- alt: Graph showing carbon-budget accounting compares emissions with land and ocean sinks; the residual net atmospheric accumulation is about 4.7 Pg C per year, consistent with rising CO_2. -->
+<!-- alt: Graph showing carbon-budget accounting compares emissions with land and ocean sinks; the residual net atmospheric accumulation is 5.1 Pg C per year in this synthetic teaching budget, not a measured annual CO_2. -->
 
-*Carbon-budget accounting compares emissions with land and ocean sinks; the residual net atmospheric accumulation is about 4.7 Pg C per year, consistent with rising CO$_2$.*
+*Carbon-budget accounting compares emissions with land and ocean sinks; the residual net atmospheric accumulation is 5.1 Pg C per year in this synthetic teaching budget, not a measured annual CO$_2$.*
 
 ### The Biological Pump
 
@@ -350,11 +356,11 @@ The biological pump exports ~10-15 Pg C/yr to deep water, sequestering it for ce
 ### Key Climate Feedbacks
 
 **1. Permafrost carbon feedback (positive):**
-Arctic/subarctic permafrost contains ~1,700 Pg C (twice the atmospheric reservoir). Warming → thaw → CO$_2$ + CH$_4$ release → more warming.
+Hugelius et al. (2014) estimated about 1,300 Pg of soil organic carbon in the northern circumpolar permafrost region (uncertainty about 1,100–1,500 Pg), including about 800 Pg perennially frozen \citep{hugelius2014carbon}. The regional stock is not all frozen or immediately releasable. Warming can promote thaw and decomposition, releasing CO$_2$ and CH$_4$ and amplifying warming.
 
-- CH$_4$ from [**anaerobic**](#gl:anaerobic) decomposition in thermokarst lakes is 80x more potent than CO$_2$ over 20 years
-- Estimated +1.5-2.5$^\circ$C additional warming if permafrost fully thaws (IPCC AR6 2021)
-- **Abrupt thaw** (collapse of ice-rich permafrost) may be more important than gradual thaw; largely omitted from current climate models (Turetsky et al. 2020, *Nature Geoscience*)
+- Drained, oxygenated soils favor aerobic CO$_2$ production; waterlogged, oxygen-limited settings can produce CH$_4$. A greenhouse-gas comparison must state its metric, mass basis and time horizon, not infer warming from stock size alone.
+- A warming increment requires a specified emissions pathway, thaw trajectory, release fraction, gas mix, vegetation response and climate model. No universal additional temperature range follows from this stock estimate.
+- Turetsky et al. (2020)'s inventory modeling found that abrupt thaw can substantially increase carbon emissions omitted by gradual-thaw-only models, with different outcomes under RCP4.5 and RCP8.5. This is scenario-dependent evidence, not proof that every current model omits abrupt thaw or that a single sharp global threshold controls all permafrost \citep{turetsky2020thaw}.
 
 **2. Ocean acidification:**
 
@@ -363,7 +369,7 @@ CO_2 + H_2O \rightarrow H_2CO_3 \rightarrow HCO_3^- + H^+
 \label{eq:ecosystem_ecology_7}
 \end{equation}
 
-Ocean [**pH**](#gl:ph) has decreased from ~8.2 to ~8.05 since industrialisation (30% increase in [H$^+$]). Consequences:
+Ocean [**pH**](#gl:ph) has decreased from ~8.2 to ~8.05 since industrialisation (41.3% increase in [H$^+$], since $10^{8.2-8.05}=1.4125$). Consequences:
 
 - Decreased [CO$_3^{2-}$] → carbonate undersaturation → dissolution of calcareous shells
 - **Aragonite saturation state:** $\Omega_{aragonite} = \frac{[Ca^{2+}][CO_3^{2-}]}{K_{sp,aragonite}}$
@@ -443,7 +449,8 @@ flowchart TD
     NO3 -->|"Denitrification\n(Pseudomonas)"| N2O
     N2O --> N2
     NO3 -->|"Leaching/Runoff"| EUTR
-    N2O -->|"Radiative forcing"| OZONE
+    N2O -->|"Stratospheric conversion to NO<br/>catalytic ozone loss"| OZONE
+    N2O -->|"Radiative forcing"| WARM["Climate warming"]
 
     style N2 fill:#4a90d9,color:#fff
     style HB fill:#d9534f,color:#fff
@@ -484,22 +491,23 @@ This single industrial process has **doubled global reactive nitrogen** and enab
 **The reactive nitrogen cascade:**
 Anthropogenic N travels through multiple compartments, causing damage at each step:
 
-1. **Fertiliser** → crop N (typically 30-50% taken up by plants)
+1. **Fertilizer** → crop N (typically 30-50% taken up by plants)
 2. **Runoff** → freshwater eutrophication → algal blooms
 3. **Coastal zones** → marine eutrophication → hypoxia ("dead zones")
-4. **Denitrification** → N$_2$O (potent greenhouse gas, 298x CO$_2$ warming potential over 100 years)
-5. **N$_2$O** → stratospheric ozone depletion (now the primary ozone-depleting substance; Ravishankara et al. 2009, *Science*)
+4. **Denitrification** → N$_2$O, with an AR6 mass-based GWP100 of 273: the 100-year integrated metric relative to CO$_2$, not an instantaneous forcing or temperature multiplier \citep{ipcc2022ar6wg3annexii}.
+5. **Stratospheric N$_2$O conversion to NO** can contribute to catalytic ozone loss; this chemical pathway is distinct from the GWP100 greenhouse-gas metric.
 
-**Major hypoxic "dead zones":**
-: Anthropogenic Nitrogen Disruption: Location and Area (km^2). {#tbl:unit_X_ecosystem_ecology_anthropogenic_nitrogen_disruption}
-| Location | Area (km$^2$) | Primary nutrient source |
-| -------- | ------------- | ---------------------- |
-| Gulf of Mexico | >15,000 | Mississippi River agricultural runoff |
-| Baltic Sea | ~60,000 | European agricultural + industrial |
-| Chesapeake Bay | ~7,000 | Agricultural + urban |
-| East China Sea | ~20,000 | Yangtze River |
+**Examples of coastal hypoxia:** Nutrient enrichment can increase organic-matter production and subsequent microbial oxygen demand \citep{diaz2008deadzones}. Extent depends on season, oxygen threshold, depth and survey; the examples below are not a common-date area comparison.
 
-> 🔬 **Clinical Connection — Nitrate Contamination of Drinking Water:** Agricultural nitrogen runoff contaminates groundwater with nitrate (NO$_3^-$). In infants, gut bacteria reduce NO$_3^-$ to NO$_2^-$, which oxidises hemoglobin to methemoglobin (Fe$^{3+}$), incapable of carrying O$_2$. This causes **methemoglobinemia** ("blue baby syndrome") — cyanosis and potentially fatal hypoxia. The EPA maximum contaminant level for nitrate is 10 mg/L as N. In the US Corn Belt, >20% of private wells exceed this limit. Chronic low-level nitrate exposure is also epidemiologically linked to colorectal cancer (Ward et al. 2018, *Int. J. Cancer*).
+: Regional coastal-hypoxia examples and nutrient-input connections. {#tbl:unit_X_ecosystem_ecology_anthropogenic_nitrogen_disruption}
+| Region | Nutrient-input connection |
+| ------ | ------------------------- |
+| Northern Gulf of Mexico | Mississippi watershed runoff |
+| Baltic Sea | Nutrient delivery from surrounding watersheds |
+| Chesapeake Bay | Agricultural and urban watershed inputs |
+| East China Sea | Yangtze watershed inputs |
+
+> 🔬 **Clinical Connection — Nitrate in Drinking Water:** Nitrate can be reduced to nitrite, which can oxidize hemoglobin iron from Fe$^{2+}$ to Fe$^{3+}$, impairing oxygen transport in methemoglobinemia. EPA's public-water nitrate MCL is **10 mg/L measured as nitrogen**, not 10 mg/L of nitrate ion; its table highlights risk to infants below six months \citep{epa2026drinkingwater}. The regulatory limit does not establish the quality of an untested private well or a regional exceedance fraction. Ward and colleagues' 2018 review describes epidemiologic associations with colorectal cancer and other outcomes, with exposure and endogenous-nitrosation uncertainties; this is a review of associations, not an experiment proving every exposure causes disease \citep{ward2018nitrate}.
 
 > **Concept Check:** The Haber-Bosch process has doubled global reactive nitrogen. Trace the fate of nitrogen applied as ammonium fertiliser to a cornfield: what percentage is taken up by the crop, what happens to the rest, and what environmental consequences arise at each step?
 
@@ -507,7 +515,9 @@ Anthropogenic N travels through multiple compartments, causing damage at each st
 
 ## The Phosphorus Cycle
 
-Phosphorus has **no significant gaseous phase** — its cycle is sedimentary (unlike C and N):
+Phosphorus lacks a gaseous reservoir comparable to atmospheric carbon or nitrogen reservoirs, and rock weathering, biological recycling and sedimentation are major parts of its cycle. Atmospheric transport still matters: phosphorus-bearing dust and aerosols can be deposited on ecosystems. Yu et al. (2015)'s satellite-based Saharan-dust analysis estimated phosphorus delivery to the Amazon; particulate transport is not a large gaseous phosphorus reservoir. Local nutrient limitation depends on bioavailable supply and demand, not gas-phase absence alone.
+
+The dust-transport example is based on Yu et al.'s satellite analysis \citep{yu2015africandust}.
 
 ### Phosphorus Reservoirs and Fluxes
 
@@ -522,9 +532,8 @@ Phosphorus has **no significant gaseous phase** — its cycle is sedimentary (un
 
 ### P Limitation in Ecosystems
 
-- **Freshwater lakes:** primarily P-limited (Schindler 1977 — whole-lake experiment in Ontario demonstrated P controls algal growth; this finding led to P-detergent bans)
-- **Open ocean:** co-limitation by N and P; N in short-term, P in long-term (Redfield ratio: 106C:16N:1P in marine phytoplankton)
-- **Tropical soils:** severely P-limited (old weathered laterite soils; P leached over millions of years; mycorrhizal associations critical for P acquisition)
+- **Freshwater lakes:** Phosphorus control is supported in specified lake experiments, but N limitation and combined limitation also occur; absence of a large gaseous P reservoir does not determine local limitation.
+- **Open ocean and terrestrial systems:** Nutrient supply, demand, bioavailability and species composition vary; factorial N/P enrichment can distinguish single from combined limitation. \citet{elser2007nutrientlimitation}'s experimental-enrichment synthesis supports both N and P effects and synergistic combined responses.
 
 ### The Redfield Ratio
 
@@ -544,7 +553,7 @@ This stoichiometric constraint means:
 
 Global phosphate rock reserves are concentrated in ~6 countries (Morocco controls >70% of reserves). Depletion projections vary widely (50-400 years at current extraction rates). **Phosphorus recovery** from wastewater (struvite precipitation: MgNH$_4$PO$_4 \cdot 6H_2O$) is critical for long-term food security. Unlike nitrogen, phosphorus cannot be synthesized — it must be mined or recycled.
 
-> **Concept Check:** Schindler's whole-lake experiment added P to one half and N+C to the other half. Primarily the P-enriched half developed algal blooms. Why is P the primary limiting nutrient in freshwater but N is often more limiting in the ocean?
+> **Concept Check:** A lake experiment compares matched nutrient additions with and without P. Explain what a larger response with P supports under those conditions. What controls and measurements would distinguish N limitation, P limitation and co-limitation elsewhere, and why does reduced detergent P not guarantee immediate recovery when internal/watershed loading persists?
 
 ---
 
@@ -606,7 +615,7 @@ For a single nutrient pool $X$ (e.g., soil-bound P, kg/ha) with input rate $I$ (
 \label{eq:ecosystem_ecology_nutrient_pool}
 \end{equation}
 
-where $k$ is the leakage rate (yr$^{-1}$). At steady state ($dX/dt = 0$): $\hat X = I/k$, and the **mean residence time** is $\tau = 1/k = X/O$. A closed system has $\tau \gg 1$ (nutrients cycle internally many times before leaving); an open system has $\tau \le 1$ (nutrients flow through quickly).
+where $k$ is the leakage rate (yr$^{-1}$). At steady state ($dX/dt = 0$): $\hat X = I/k$, and the **mean residence time** is $\tau = 1/k = X/O$. Residence time must be compared with a stated timescale in the same units, not with the dimensionless number 1. Internal recycling frequency also needs the internal cycling flux $F_{internal}$: its approximate number of passes per residence is $F_{internal}/O$ under a specified well-mixed model. Residence time alone cannot determine how many times an atom recycles.
 
 ### Hubbard Brook: The Watershed That Defined the Field
 
@@ -666,11 +675,11 @@ The biological pump operates at three scales:
 where the **e-ratio** is the fraction of NPP that escapes the surface layer as sinking particles. Typical values: 0.1 in oligotrophic gyres (most carbon is recycled in surface), 0.3–0.5 in upwelling zones (large diatoms sink fast), and 0.5+ during diatom blooms in polar oceans.
 
 \begin{equation}
-\text{Sequestration efficiency} = \exp(-z/z_{1/2})
+F(z)=F(z_0)\left(\frac{z}{z_0}\right)^{-b},\qquad z\ge z_0>0,\ b>0
 \label{eq:ecosystem_ecology_martin_curve}
 \end{equation}
 
-The **Martin curve** (Martin et al. 1987, *Deep-Sea Research*) describes how export flux attenuates with depth as bacteria remineralise sinking organic matter. Carbon that escapes below ~1,000 m is sequestered for centuries to millennia; carbon remineralised in the upper ocean returns to the atmosphere within years.
+The **Martin curve** is the power-law attenuation of sinking particulate carbon flux $F$ below a reference depth $z_0$, with dimensionless exponent $b$ \citep{martin1987vertex}. At $z=2z_0$, flux is multiplied by $2^{-b}$. A different exponential approximation with half-depth $z_{1/2}$ would require $\exp[-\ln(2)(z-z_0)/z_{1/2}]$. Neither attenuation curve alone determines atmospheric sequestration duration; ventilation and remineralization location matter.
 
 Climate change is reorganising both pumps. Warming **stratifies the surface ocean**, reducing nutrient supply from depth and lowering NPP; acidification reduces calcareous-shell production, weakening the carbonate pump; and oxygen minimum zones are expanding, shifting remineralisation pathways. The net effect on the future ocean carbon sink is one of the largest open questions in Earth-system science.
 
@@ -721,7 +730,7 @@ The general lesson is that "decomposition" is not just microbes dissolving dead 
 
 ### Soil Carbon and Climate Feedback
 
-Warming accelerates microbial decomposition more than it accelerates plant productivity, so a warmer world is expected to release soil carbon to the atmosphere — a positive feedback estimated at +30 to +200 Pg C over the 21st century (Crowther et al. 2016, *Nature*). Permafrost soils contain ~1,700 Pg C, twice the atmospheric pool, and are one of the largest uncertainties in 21st-century climate trajectories.
+Warming can accelerate microbial decomposition, while moisture, nutrient supply, plant inputs and disturbance also affect net soil-carbon balance. The sign and magnitude require a specified site or scenario rather than a universal comparison with plant productivity. For northern circumpolar permafrost-region soils, Hugelius et al. (2014) estimated about 1,300 Pg organic carbon, including about 800 Pg perennially frozen; the stock does not specify a century-scale release or temperature increment \citep{hugelius2014carbon}. Turetsky et al. (2020) showed that abrupt thaw and vegetation regrowth alter modeled carbon balance under specified warming scenarios \citep{turetsky2020thaw}.
 
 ---
 
@@ -783,7 +792,7 @@ Costanza et al. (2014, *Ecosyst. Serv.*) updated their landmark 1997 estimate: g
 | Biota act *teleologically* to maintain habitability | **Rejected** — no mechanism for group/planetary selection (Doolittle 1981); selection acts on individuals |
 | The biosphere is a **superorganism** | **Metaphorical** — useful for systems thinking but not a literal claim |
 
-The modern synthesis treats Gaia as **Earth System Science**: biology, geochemistry, hydrology, and atmospheric science form a single coupled system, with feedbacks that can be stabilizing (negative) or destabilising (positive) depending on the perturbation. The IPCC reports, the Anthropocene Working Group, and the Planetary Boundaries framework are the descendants of this line of thinking.
+Biology, geochemistry, hydrology and atmosphere form a coupled system with stabilizing and amplifying feedbacks, not a purposeful superorganism. Present oxygen near 21% does not establish an invariant narrow set point: geological reconstructions include substantial variation and values above 26% \citep{glasspool2010oxygen}. Test each feedback and timescale rather than infer fixed oxygen, salinity or universal fire thresholds from habitability.
 
 Per \citet{dobzhansky1973}'s dictum that "nothing in biology makes sense except in the light of evolution," nothing in 21st-century ecology makes sense except in the light of human-driven Earth system change. The ecosystem ecology of this chapter — energy flow, biogeochemical cycles, ecosystem services — is now the operating manual for managing the planet itself.
 
@@ -900,14 +909,14 @@ $$\hat{X} = \frac{I}{k} = \frac{8\text{ kg N/ha/yr}}{0.01\text{ yr}^{-1}} = 800\
 The recovered $\hat{X}$ equals the stated pool, confirming the system is genuinely at steady state.
 
 **Answer:**
-$O = 8\text{ kg N/ha/yr}$, $\tau = 100\text{ yr}$, and $k = 0.01\text{ yr}^{-1}$. Because $\tau = 100\text{ yr} \gg 1$, an average nitrogen atom is recycled internally about 100 times before it leaves the watershed, so this is a tightly retaining, quasi-closed system; a disturbance that strips deep-rooted vegetation would raise $O$, collapse τ, and rapidly flush the nitrogen pool to streamwater.
+$O=8$ kg N ha$^{-1}$ yr$^{-1}$, $\tau=100$ yr, and $k=0.01$ yr$^{-1}$. These determine external retention, not an internal recycling count. If a separately measured internal cycling flux were 80 kg N ha$^{-1}$ yr$^{-1}$, its ratio to export would be 10; at 800 it would be 100, with exactly the same residence time. Vegetation removal can increase export, but the magnitude needs measured watershed fluxes.
 
 ---
 
 ### Worked Example — Carbon Budget, NEP, and the Sink-to-Source Tipping Point
 
 **Problem:**
-A tropical rainforest has gross primary production $\text{GPP} = 3{,}000$ gC/m²/yr and autotrophic respiration $R_a = 1{,}500$ gC/m²/yr. Heterotrophic respiration (decomposers) is $R_h = 1{,}400$ gC/m²/yr. (a) Compute net primary production (NPP) and net ecosystem production (NEP). (b) A 1.5 °C warming increases $R_h$ by 10% with no change in GPP or $R_a$. Recompute NEP. (c) Calculate cumulative carbon flux change over a 50-year warming scenario relative to baseline.
+A synthetic tropical-forest budget has $\mathrm{GPP}=3{,}000$, $R_a=1{,}500$ and $R_h=1{,}400$ g C m$^{-2}$ yr$^{-1}$. Stipulate no additional non-respiratory losses or lateral transfers ($D=0$) so that NBP = NEP within this boundary. (a) Compute NPP and NEP. (b) In a sensitivity scenario, a stipulated 1.5 °C warming raises $R_h$ by 10% while GPP and $R_a$ remain fixed. Recompute NEP. (c) Hold both scenarios' fluxes constant for 50 years and calculate the baseline-relative storage difference. This is not an empirical temperature-response calibration.
 
 **Solution:**
 
@@ -917,7 +926,7 @@ $$\text{NPP} = \text{GPP} - R_a = 3{,}000 - 1{,}500 = 1{,}500 \text{ gC/m}^2/\te
 
 $$\text{NEP} = \text{NPP} - R_h = 1{,}500 - 1{,}400 = 100 \text{ gC/m}^2/\text{yr}$$
 
-NEP $> 0$, so the ecosystem is a *net carbon sink* — it sequesters 100 gC/m² each year that does not return to the atmosphere.
+With the explicitly stipulated D = 0 and no lateral transfers, NBP = NEP = +100 g C m$^{-2}$ yr$^{-1}$, so this bounded model stores carbon. Positive NEP alone would not establish storage if additional losses were present: D = 150 would instead give NBP = −50 in the same units.
 
 **Step 2. Apply the 10% warming increase in $R_h$.**
 
@@ -925,7 +934,7 @@ $$R_{h,\text{new}} = 1{,}400 \times 1.10 = 1{,}540 \text{ gC/m}^2/\text{yr}$$
 
 $$\text{NEP}_{\text{new}} = 1{,}500 - 1{,}540 = -40 \text{ gC/m}^2/\text{yr}$$
 
-NEP $< 0$ — the ecosystem has *flipped from sink to source*. A modest fractional change in decomposer respiration (10%) overwhelms the absolute NPP advantage because NEP is the small difference between two large gross fluxes.
+Under the unchanged D = 0 boundary, NBP = NEP = −40 g C m$^{-2}$ yr$^{-1}$: the model changes from net storage to net loss. A 10% change in the stipulated decomposer respiration exceeds the initial 100-unit metabolic surplus.
 
 **Step 3. Cumulative 50-year flux change.**
 
@@ -933,13 +942,13 @@ Per-year change relative to baseline: $-40 - (+100) = -140$ gC/m²/yr. Over 50 y
 
 $$\Delta C_{50} = -140 \times 50 = -7{,}000 \text{ gC/m}^2 = -7 \text{ kgC/m}^2$$
 
-At an ecosystem footprint of $10^{12}$ m² (a representative tropical forest region of $\sim 10^6$ km²), this is $-7 \times 10^{12}$ kg C $= -7$ Pg C cumulative — comparable to a year of global fossil emissions, released from a single biome by a respiration sensitivity, not a deforestation event.
+At $10^{12}$ m², the baseline-relative difference is $-7$ Pg C over 50 years. Baseline uptake would have stored $+5$ Pg, whereas the warmed system actually releases 2 Pg ($40\times50\times10^{12}$ g C). Forgone uptake plus actual release totals the 7-Pg difference; it is wrong to call all 7 Pg newly released carbon. Constant fluxes for 50 years are a sensitivity assumption, not a forecast.
 
 **Step 4. Interpretation.**
 
-The structural lesson is asymmetry: GPP and $R_h$ have different temperature sensitivities ($Q_{10}$ values typically higher for $R_h$ than for photosynthesis at high baseline temperatures). NEP is a small residual of large opposing fluxes, so its sign is fragile. This is the mathematical core of why tropical forests, peatlands, and permafrost are tipping-point ecosystems: the sink they provide is not robust to a modest warming-driven imbalance between two large fluxes.
+The structural lesson is that NEP is a small residual of large opposing fluxes. This sensitivity example holds production, respiratory response and other transfers fixed; real feedbacks, acclimation, moisture and disturbance can alter them. It demonstrates neither a universal warming threshold nor an inevitable ecosystem tipping point.
 
-**Answer:** Baseline NEP $= +100$, warmed NEP $= -40$, cumulative 50-year flip $= -7$ kgC/m² (an order $-7$ Pg C over a representative tropical forest region).
+**Answer:** Baseline NEP = NBP = +100 and warmed NEP = NBP = −40 g C m$^{-2}$ yr$^{-1}$ under D = 0. The 50-year baseline-relative storage difference is −7 kg C/m², or −7 Pg C over the explicitly stipulated $10^{12}$ m²; actual warmed release is 2 Pg, not 7 Pg.
 
 ---
 
@@ -1034,7 +1043,7 @@ flowchart LR
 | **CLAW hypothesis** | DMS-cloud-albedo feedback as planetary thermostat |
 | **ANPP / BNPP** | Aboveground / belowground net primary production; ratio varies from 0.4 (rainforest) to 3+ (tundra) |
 | **Eddy covariance** | Continuous tower-based measurement of ecosystem CO$_2$ flux; gold standard for NEP |
-| **Martin curve** | Exponential attenuation of organic-matter flux with depth in the ocean |
+| **Martin curve** | Power-law attenuation of organic-matter flux with depth in the ocean |
 | **Hubbard Brook** | Long-running watershed experiment that demonstrated the dominant role of vegetation in nutrient retention |
 | **CLORPT** | Jenny's five soil-forming state factors: climate, organisms, relief, parent material, time |
 | **Soil horizons** | Vertical layers (O, A, E, B, C, R) reflecting depth-dependent pedogenic processes |
@@ -1050,7 +1059,7 @@ flowchart LR
 
 1. An estuary receives large inputs of fertiliser-derived N and P from agricultural runoff each spring. Trace the **cascade of events** from nutrient loading to hypoxia, naming each ecological and microbial process involved. Which specific microbial process creates the anoxic condition?
 
-2. A tropical rainforest has GPP = 3,000 g C/m$^2$/yr and autotrophic respiration = 1,500 g C/m$^2$/yr. Heterotrophic respiration = 1,200 g C/m$^2$/yr. Calculate: (a) NPP, (b) NEP, (c) Is this ecosystem a net carbon sink or source? (d) If deforestation converts this to farmland with NEP = -200 g C/m$^2$/yr, what is the additional carbon released per hectare per year?
+2. A synthetic forest budget has GPP = 3,000, autotrophic respiration = 1,500 and heterotrophic respiration = 1,200 g C m$^{-2}$ yr$^{-1}$. (a) Calculate NPP and NEP. (b) Compare NBP with D = 0 and D = 400 in the same units; can positive NEP alone prove storage? (c) For a separate long-term farmland scenario with NEP = −200 and D = 0, compare annual carbon balance with the forest's D = 0 baseline per hectare. Distinguish actual farmland release from the baseline-relative balance change, and exclude the one-time land-clearing carbon pulse from this stipulated comparison.
 
 3. Iron fertilization experiments (Martin 1990: "Give me half a tanker of iron and I will give you an ice age") showed that adding Fe to HNLC ocean regions triggers phytoplankton blooms. (a) Explain why these regions are high in N and P but low in phytoplankton. (b) Why doesn't iron fertilization cause long-term net CO$_2$ drawdown? (c) What are the ecological risks of large-scale iron fertilization?
 
@@ -1071,7 +1080,7 @@ flowchart LR
 12. Why is **Redfield** stoichiometry a diagnostic for nutrient limitation rather than a comprehensive constant?
 13. The Hubbard Brook clear-cut experiment increased streamwater NO$_3^-$ losses 26-fold. Trace the mechanism through (a) cessation of plant uptake, (b) accelerated decomposition without canopy cooling, (c) elevated water tables and reduced transpiration. Why is this evidence that mature forests function as quasi-closed nutrient systems?
 14. Compare four methods for measuring NPP (harvest, eddy covariance, $^{14}$C, MODIS remote sensing). For each, give one ecosystem where it is the *most* defensible method and one where it would systematically underestimate true NPP.
-15. A coastal upwelling zone has surface NPP = 1,500 g C/m$^2$/yr and an e-ratio of 0.4; a subtropical gyre has NPP = 50 g C/m$^2$/yr and an e-ratio of 0.1. (a) Calculate export production for each. (b) If both export equal *fractions* of carbon below 1,000 m via the Martin curve ($z_{1/2} = 200$ m), which contributes more to long-term carbon sequestration per unit area? (c) How does climate-driven stratification of the surface ocean change both numbers?
+15. A coastal upwelling zone has surface NPP = 1,500 g C/m$^2$/yr and an e-ratio of 0.4; a subtropical gyre has NPP = 50 g C/m$^2$/yr and an e-ratio of 0.1. (a) Calculate export production for each. (b) If both export equal *fractions* of carbon below 1,000 m via a Martin curve with common reference depth $z_0=100$ m and exponent $b=0.858$, which contributes more to long-term carbon sequestration per unit area? (c) How does climate-driven stratification of the surface ocean change both numbers?
 16. Explain the ANPP/BNPP partition for a temperate grassland (BNPP/ANPP ≈ 2) vs. a tropical rainforest (BNPP/ANPP ≈ 0.4). Why does this partition affect (a) carbon-credit accounting under REDD+, (b) ecosystem response to drought, (c) long-term soil organic carbon accumulation?
 17. Apply the Redfield ratio to diagnose three scenarios: (a) ambient N : P = 6, (b) N : P = 16, (c) N : P = 35. For each, predict which nutrient is limiting and which functional groups (e.g., diatoms, cyanobacteria, dinoflagellates) you expect to dominate.
 18. The Gaia hypothesis claims Earth's biosphere actively maintains habitability. Evaluate this claim by listing two stabilizing biological feedbacks (negative) and two destabilising ones (positive). What is the difference between "Gaia as a metaphor for Earth System Science" and "Gaia as a literal superorganism"? Why was Doolittle (1981)'s critique decisive?
@@ -1107,10 +1116,10 @@ print(food_web_trophic_levels(web))
 ## Summary
 
 - **Ecosystems** = biotic + abiotic components; energy flows through trophic levels (~10% efficiency; Lindeman 1942); nutrient atoms cycle.
-- **GPP → NPP → NEP → NBP** hierarchy; global terrestrial NPP ~120 Pg C/yr; tropical rainforests dominate.
+- **GPP → NPP → NEP → NBP** hierarchy; global terrestrial NPP roughly 50–60 Pg C/yr (gross photosynthesis is larger); tropical rainforests dominate.
 - **Energy flow:** one-way through system with ~10% trophic efficiency; biomagnification of persistent pollutants concentrates toxins at higher levels.
-- **Carbon cycle:** 10 Pg C/yr fossil fuel input; atmospheric CO$_2$ at 421 ppm (2024); biological pump exports 10-15 Pg C/yr to deep ocean; permafrost (1,700 Pg) vulnerable; ocean acidification ($\Omega < 1$ → coral dissolution).
-- **Nitrogen cycle:** N$_2$ fixation (nitrogenase; Haber-Bosch doubles global reactive N) → nitrification → denitrification / anammox. Reactive N cascade causes eutrophication, hypoxia, N$_2$O (298x CO$_2$ warming potential).
+- **Carbon cycle:** Fossil-fuel inputs, atmosphere--ocean exchange, production and export require stated year and system boundary. Hugelius et al.'s 2014 northern circumpolar permafrost-region estimate is about 1,300 Pg soil organic carbon, including about 800 Pg perennially frozen; this is not all immediately releasable carbon \citep{hugelius2014carbon}.
+- **Nitrogen cycle:** N$_2$ fixation, nitrification, denitrification and anammox transform nitrogen. Reactive-nitrogen inputs can cause eutrophication and hypoxia; N$_2$O has AR6 mass-based GWP100 of 273 \citep{ipcc2022ar6wg3annexii}, a specified 100-year metric rather than a universal warming multiplier.
 - **Phosphorus cycle:** sedimentary (no gas phase); P-limiting in freshwater; Redfield ratio 106C:16N:1P; globally finite reserves.
 - **Sulfur cycle:** DMS → cloud condensation nuclei → planetary thermostat (CLAW hypothesis); acid rain from SO$_2$ (reversed by regulation).
 - **Measuring NPP:** harvest, eddy covariance (FLUXNET), $^{14}$C uptake, MODIS remote sensing — each captures different components; ANPP/BNPP partition varies from 0.4 (rainforest) to >3 (tundra) and shifts conclusions about global carbon storage.

@@ -1,6 +1,6 @@
 # Appendix A — Curriculum Map {#sec:appendix_curriculum_map .unnumbered}
 
-This appendix is generated from `src/biology/curriculum.py` and
+This appendix is generated from `src/biology/curriculum/` and
 `src/biology/alignment.py`. It links each chapter to its companion lab,
 question bank, model/data skill, misconception probe, transfer task, and
 standards/skills alignment so the textbook can be composed into different
@@ -40,7 +40,7 @@ course formats without losing pedagogical coherence.
 - **Chapter:** \cref{sec:unit_0_active_inference}.
 - **Lab:** \nameref{sec:lab_unit_0_active_inference}.
 - **Question bank:** \nameref{sec:q_unit_0_active_inference}.
-- **Big idea:** Living systems reduce uncertainty by acting on the world as well as by updating internal models.
+- **Big idea:** Active-inference models describe how belief updating and action can jointly regulate predicted sensory outcomes; this is a framework, not an exceptionless biological law.
 - **Core concepts:** prediction error, Bayesian updating, policy selection, homeostasis.
 - **Framework alignment:** Vision & Change: Systems, Structure and function; AP Biology: Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
 - **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
@@ -328,7 +328,7 @@ course formats without losing pedagogical coherence.
 - **Chapter:** \cref{sec:unit_V_population_genetics}.
 - **Lab:** \nameref{sec:lab_unit_V_population_genetics}.
 - **Question bank:** \nameref{sec:q_unit_V_population_genetics}.
-- **Big idea:** Allele frequencies change when assumptions about random mating, population size, and fitness are violated.
+- **Big idea:** Selection, drift, mutation, and gene flow can change allele frequencies; mating patterns can redistribute genotype frequencies without necessarily changing allele frequencies.
 - **Core concepts:** Hardy-Weinberg, selection, mutation, genetic drift.
 - **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
 - **Practice cadence:** Statistical Tests and Data Analysis, Representing and Describing Data.
@@ -412,7 +412,7 @@ course formats without losing pedagogical coherence.
 - **Chapter:** \cref{sec:unit_VII_host_immunity_and_vaccines}.
 - **Lab:** \nameref{sec:lab_unit_VII_host_immunity_and_vaccines}.
 - **Question bank:** \nameref{sec:q_unit_VII_host_immunity_and_vaccines}.
-- **Big idea:** Host immunity and vaccination reshape pathogen transmission by changing susceptible fractions.
+- **Big idea:** Host immunity and vaccination can change individual disease risk and, when they affect infection or infectiousness, population transmission.
 - **Core concepts:** innate immunity, adaptive immunity, vaccination, herd immunity.
 - **Framework alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
 - **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.

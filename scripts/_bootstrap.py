@@ -11,7 +11,7 @@ _SRC = _PROJECT / "src"
 if str(_SRC) not in sys.path:
     sys.path.insert(0, str(_SRC))
 
-from textbook_paths import (  # noqa: E402
+from textbook_paths import (
     PROJECT,
     SCRIPTS_DIR,
     SRC,

@@ -35,9 +35,7 @@ def process_latex_figure(ctx: ScanContext, line_no: int, line: str) -> bool:
             ctx.fig_ordinal += 1
             block = "\n".join(ctx.fig_buffer)
             label_match = RE_LATEX_LABEL.search(block)
-            if label_match and label_match.group("kind") == "fig":
-                ctx.defined[("fig", label_match.group("id"))] = ctx.fig_start_line
-            else:
+            if not label_match or label_match.group("kind") != "fig":
                 inc_match = RE_LATEX_INCLUDE.search(block)
                 desc = Path(inc_match.group("path")).stem if inc_match else f"fig-{ctx.fig_ordinal}"
                 ctx.issues.append(
@@ -69,7 +67,6 @@ def process_latex_table(ctx: ScanContext, line_no: int, line: str) -> bool:
             block = "\n".join(ctx.tbl_buffer)
             label_match = RE_LATEX_LABEL.search(block)
             if label_match and label_match.group("kind") == "tbl":
-                ctx.defined[("tbl", label_match.group("id"))] = ctx.tbl_start_line
                 if r"\caption{" not in block:
                     ctx.issues.append(
                         CrossRefIssue(
@@ -118,11 +115,7 @@ def process_inline_display_equation(ctx: ScanContext, line_no: int, line: str) -
                 context=line.strip()[:120],
             )
         )
-    if eq_attr:
-        ctx.defined[("eq", eq_attr.group("id"))] = line_no
-    elif label_match and label_match.group("kind") == "eq":
-        ctx.defined[("eq", label_match.group("id"))] = line_no
-    else:
+    if not eq_attr and not (label_match and label_match.group("kind") == "eq"):
         ctx.issues.append(
             CrossRefIssue(
                 file=ctx.path,

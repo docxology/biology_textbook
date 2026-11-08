@@ -5,7 +5,12 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-LAB_LABEL_RE = re.compile(r"\\label\{sec:lab_(unit_[0-9IVX]+)_([a-z_]+)\}")
+from biology.crossref.source import visible_text
+
+LAB_LABEL_RE = re.compile(
+    r"(?:\\label\{sec:lab_|^# [^\n]*\{#sec:lab_)(unit_[0-9IVX]+)_([a-z0-9_]+)(?=[}\s])",
+    re.MULTILINE,
+)
 
 LAB_DEBRIEF_TEMPLATE = """
 ## Debrief and Reflection
@@ -34,7 +39,7 @@ contribute at least one observation before moving to the next prompt:
   foundations on which this lab is built.
 - Look up any **bolded glossary term** introduced in the textbook chapter
   (each has a `[**term**](#gl:slug)` link in the text) — its master
-  definition is in `manuscript/glossary.md`.
+  definition is in `docs/manuscript/glossary.md`.
 - Explore the appended `src/` module that implements the corresponding
   quantitative model (when applicable) — referenced in the parent
   chapter's "Bridge to Computation" subsection.
@@ -47,7 +52,7 @@ unit conversions and biological-scale reference values.*
 
 def derive_chapter_label_from_lab(text: str) -> str | None:
     """Return parent chapter label from a lab ``\\label{sec:lab_...}`` anchor."""
-    match = LAB_LABEL_RE.search(text)
+    match = LAB_LABEL_RE.search(visible_text(text))
     if match is None:
         return None
     unit, stem = match.group(1), match.group(2)

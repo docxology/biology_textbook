@@ -31,7 +31,10 @@ from biology.quality.audits.enrichment import (
     audit_frontier_boilerplate,
     audit_templated_enrichment,
 )
-from biology.quality.audits.helpers import add_line_findings, _generated_block_line_numbers
+from biology.quality.audits.helpers import (
+    _generated_block_line_numbers,
+    add_line_findings,
+)
 from biology.quality.audits.references import (
     audit_broken_crossrefs,
     audit_glossary_and_citations,
@@ -42,6 +45,7 @@ from biology.quality.models import Finding
 
 __all__ = [
     "Finding",
+    "_generated_block_line_numbers",
     "add_line_findings",
     "audit_absolute_language",
     "audit_accessibility_metadata",
@@ -70,7 +74,6 @@ __all__ = [
     "manuscript_markdown_files",
     "print_report",
     "quality_advisory_id",
-    "_generated_block_line_numbers",
 ]
 
 
@@ -99,6 +102,8 @@ def collect_findings() -> list[Finding]:
 def print_report(findings: list[Finding], *, max_advisories: int = 0) -> None:
     errors = [finding for finding in findings if finding.severity == "error"]
     advisories = [finding for finding in findings if finding.severity == "advisory"]
+    reviewed = sum(finding.severity == "reviewed" for finding in findings)
+    raw_absolute = sum(finding.code == "absolute-language-review" for finding in findings)
     for finding in errors:
         print(finding.format())
     for finding in advisories[:max_advisories]:
@@ -110,4 +115,7 @@ def print_report(findings: list[Finding], *, max_advisories: int = 0) -> None:
             f"{suppressed} more advisory findings suppressed"
         )
     status = "PASS" if not errors else "FAIL"
-    print(f"audit_textbook_quality: {status} ({len(errors)} errors, {len(advisories)} advisories)")
+    print(
+        f"audit_textbook_quality: {status} ({len(errors)} errors, {len(advisories)} outstanding advisories, "
+        f"{reviewed} reviewed scientific absolutes, {raw_absolute} raw absolute-language candidates)"
+    )

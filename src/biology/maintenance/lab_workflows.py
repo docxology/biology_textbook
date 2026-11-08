@@ -267,10 +267,12 @@ print("days recorded:", len(growth.times_days))
 from biology.botany import transpiration_flux, water_potential
 
 leaf = water_potential(solute_concentration_M=0.3, turgor_pressure_MPa=0.4)
+# Synthetic gas fractions: vapor concentrations 0.5/0.3 mol/m3 divided by
+# the stated total air concentration of 40 mol/m3.
 flux = transpiration_flux(
     stomatal_conductance_mol_m2_s=0.2,
-    internal_vapor_conc_mol_m3=0.5,
-    external_vapor_conc_mol_m3=0.3,
+    internal_vapor_mole_fraction=0.0125,
+    external_vapor_mole_fraction=0.0075,
 )
 
 print("water potential:", round(leaf.water_potential_MPa, 3), "MPa")

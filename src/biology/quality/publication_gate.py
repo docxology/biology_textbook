@@ -1,36 +1,40 @@
 """Publication-readiness audit gate for the biology textbook.
 
-The default check runs the practical project-local gate: quality audits,
-current-claim freshness, assessment synchronization, Mermaid alt normalization,
-strict figure/diagram generation, visual contracts, lint, mypy, recursive
-markdown/prerender validation, artifact counts, WIP resolver smoke, and
-tracked-artifact hygiene.
-
-``--full`` adds expensive root orchestration: root setup, the authoritative
-project-root pytest with the 90% ``src/`` gate, root render, root output
-validation, and the root PDF log gate.
+The default check runs project-local source, assessment, visual, lint, type,
+and manuscript gates. ``--full`` additionally tests with coverage, hydrates
+the live manuscript, renders through the installed template library without
+running template-root scripts, and checks the resulting PDF log.
 
 The thin CLI is at ``scripts/audit_publication_readiness.py``.
 """
 
 from __future__ import annotations
 
+import json
+import os
+import platform
 import subprocess
 import sys
-import tempfile
+import time
 from collections.abc import Callable, Sequence
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
+from datetime import UTC, datetime
 from pathlib import Path
+from threading import Lock
 from typing import TypeVar
 
 from biology.maintenance.models import PROJECT
-from textbook_paths import discover_template_root
+from textbook_io import write_text_atomic
+from textbook_paths import (
+    discover_template_root,
+    ensure_project_paths,
+    require_project_output_directory,
+)
 
-TEMPLATE_ROOT = discover_template_root(PROJECT)
 MANUSCRIPT = PROJECT / "docs" / "manuscript"
 PROJECT_PDF_LOG = PROJECT / "output" / "pdf" / "_combined_manuscript.log"
-DEFAULT_REVIEW_ARTIFACT_DIR = Path(tempfile.gettempdir()) / "biology_textbook_publication_readiness"
+DEFAULT_REVIEW_ARTIFACT_DIR = PROJECT / "output" / "publication_readiness"
 
 
 @dataclass(frozen=True)
@@ -54,15 +58,14 @@ class PythonStep:
     depends_on: frozenset[str] = frozenset()
 
 
-_StepT = TypeVar("_StepT", CommandStep, PythonStep)
+_StepT = TypeVar("_StepT", bound=CommandStep | PythonStep)
 
 
 def build_command_steps(*, full: bool, artifact_dir: Path | None = None) -> list[CommandStep]:
     """Return subprocess checks for the selected audit depth."""
 
     py = sys.executable
-    template_cwd = TEMPLATE_ROOT or PROJECT
-    review_artifacts = artifact_dir or DEFAULT_REVIEW_ARTIFACT_DIR
+    review_artifacts = PROJECT / "output" if full else (artifact_dir or DEFAULT_REVIEW_ARTIFACT_DIR)
     review_figures = review_artifacts / "figures"
     review_mermaid = review_figures / "mermaid"
     review_manifest = review_figures / "visual_manifest.json"
@@ -95,34 +98,23 @@ def build_command_steps(*, full: bool, artifact_dir: Path | None = None) -> list
                 str(review_figures),
                 "--output",
                 str(review_manifest),
-                "--render-inline",
+                *(("--render-inline",) if not full else ()),
                 "--check",
             ),
             PROJECT,
-            depends_on=frozenset({"diagrams-strict"}),
+            depends_on=frozenset({"render"} if full else {"diagrams-strict"}),
         ),
         CommandStep(
             "ruff",
-            ("uv", "run", "ruff", "check", "src", "scripts", "tests", "--ignore", "E402"),
+            (py, "-m", "ruff", "check", "src", "scripts", "tests", "--ignore", "E402"),
             PROJECT,
         ),
-        CommandStep("mypy", ("uv", "run", "mypy", "src", "scripts", "tests"), PROJECT),
-        CommandStep(
-            "root-wip-resolver-smoke",
-            (
-                "uv",
-                "run",
-                "python",
-                "-c",
-                "from biology.quality.wip_resolver_smoke import main; main()",
-            ),
-            PROJECT,
-        ),
+        CommandStep("mypy", (py, "-m", "mypy", "src", "scripts", "tests"), PROJECT),
         CommandStep(
             "project-tests-gate",
             (
-                "uv",
-                "run",
+                py,
+                "-m",
                 "pytest",
                 "tests",
                 "--cov=src",
@@ -132,40 +124,34 @@ def build_command_steps(*, full: bool, artifact_dir: Path | None = None) -> list
             ),
             PROJECT,
             full_only=True,
+            depends_on=frozenset({"quality-audit", "current-claims", "assessment-sync"}),
         ),
         CommandStep(
-            "root-setup",
-            ("uv", "run", "python", "scripts/00_setup_environment.py", "--project", "biology_textbook"),
-            template_cwd,
+            "analysis",
+            (py, "scripts/biology_analysis.py"),
+            PROJECT,
             full_only=True,
+            depends_on=frozenset({"project-tests-gate", "diagrams-strict"}),
         ),
         CommandStep(
-            "root-render",
-            ("uv", "run", "python", "scripts/03_render_pdf.py", "--project", "biology_textbook"),
-            template_cwd,
+            "render",
+            (py, "scripts/render_textbook.py"),
+            PROJECT,
             full_only=True,
-            depends_on=frozenset({"root-setup"}),
+            depends_on=frozenset({"analysis"}),
         ),
         CommandStep(
-            "root-validate-output",
-            ("uv", "run", "python", "scripts/04_validate_output.py", "--project", "biology_textbook"),
-            template_cwd,
-            full_only=True,
-            depends_on=frozenset({"root-render"}),
-        ),
-        CommandStep(
-            "root-pdf-log",
+            "pdf-log",
             (
                 sys.executable,
                 "scripts/check_pdf_log.py",
                 str(PROJECT_PDF_LOG),
                 "--max-overfull-pt",
-                "2500",
-                "--allow-missing-glyphs",
+                "50",
             ),
             PROJECT,
             full_only=True,
-            depends_on=frozenset({"root-validate-output"}),
+            depends_on=frozenset({"render"}),
         ),
     ]
     return [step for step in steps if full or not step.full_only]
@@ -174,10 +160,10 @@ def build_command_steps(*, full: bool, artifact_dir: Path | None = None) -> list
 def build_python_steps(*, full: bool, artifact_dir: Path | None = None) -> list[PythonStep]:
     """Return in-process checks for the selected audit depth."""
 
-    review_artifacts = artifact_dir or DEFAULT_REVIEW_ARTIFACT_DIR
+    review_artifacts = PROJECT / "output" if full else (artifact_dir or DEFAULT_REVIEW_ARTIFACT_DIR)
     steps = [
-        PythonStep("recursive-markdown", check_recursive_markdown),
-        PythonStep("recursive-prerender", check_recursive_prerender),
+        PythonStep("recursive-markdown", lambda: check_recursive_markdown(review_artifacts / "figures"), depends_on=frozenset({"visual-contracts"})),
+        PythonStep("recursive-prerender", check_recursive_prerender, depends_on=frozenset({"visual-contracts"})),
         PythonStep("artifact-counts", lambda: check_artifact_counts(review_artifacts), depends_on=frozenset({"visual-contracts"})),
         PythonStep("tracked-artifact-hygiene", check_tracked_artifact_hygiene),
     ]
@@ -188,7 +174,14 @@ def run_command_step(step: CommandStep) -> int:
     """Run one command step and return its exit code."""
     print(f"\n== {step.name} ==")
     print(f"$ {' '.join(step.command)}")
-    result = subprocess.run(step.command, cwd=step.cwd, check=False)  # noqa: S603
+    try:
+        result = subprocess.run(
+            step.command, cwd=step.cwd, check=False, stdin=subprocess.DEVNULL,
+            env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"},
+        )
+    except OSError as exc:
+        print(f"{step.name}: FAIL ({exc})")
+        return 1
     if result.returncode:
         print(f"{step.name}: FAIL ({result.returncode})")
     else:
@@ -210,13 +203,14 @@ def run_python_step(step: PythonStep) -> int:
 
 
 def _recursive_manuscript_markdown() -> list[str]:
-    skip_names = {"AGENTS.md", "README.md", "preamble.md"}
-    return [str(path) for path in sorted(MANUSCRIPT.rglob("*.md")) if path.name not in skip_names]
+    from biology.maintenance.manuscript_walker import manuscript_markdown_files
+
+    return [str(path) for path in manuscript_markdown_files(MANUSCRIPT, project_root=PROJECT) if path.name != "preamble.md"]
 
 
-def check_recursive_markdown() -> list[str]:
+def check_recursive_markdown(figures_root: Path | None = None) -> list[str]:
     """Run infrastructure markdown validators over the recursive manuscript set."""
-    if TEMPLATE_ROOT is None:
+    if discover_template_root(PROJECT) is None:
         return ["template infrastructure not found; set BIOLOGY_TEXTBOOK_TEMPLATE_ROOT"]
 
     from infrastructure.validation.content.markdown_validator import (  # type: ignore[import-not-found]
@@ -231,11 +225,12 @@ def check_recursive_markdown() -> list[str]:
     md_paths = _recursive_manuscript_markdown()
     labels, anchors = collect_symbols(md_paths)
     problems = []
-    problems += validate_images(md_paths, TEMPLATE_ROOT)
-    problems += validate_refs(md_paths, TEMPLATE_ROOT, labels, anchors)
-    problems += validate_math(md_paths, TEMPLATE_ROOT)
-    problems += validate_pandoc_pitfalls(md_paths, TEMPLATE_ROOT)
-    problems += validate_citations(md_paths, TEMPLATE_ROOT, bib_file=MANUSCRIPT / "references.bib")
+    figures = figures_root or PROJECT / "output" / "figures"
+    problems += validate_images(md_paths, PROJECT, extra_search_dirs=[figures, figures / "mermaid"])
+    problems += validate_refs(md_paths, PROJECT, labels, anchors)
+    problems += validate_math(md_paths, PROJECT)
+    problems += validate_pandoc_pitfalls(md_paths, PROJECT)
+    problems += validate_citations(md_paths, PROJECT, bib_file=MANUSCRIPT / "references.bib")
     formatted: list[str] = []
     for problem in problems:
         severity = getattr(problem.severity, "name", str(problem.severity))
@@ -246,16 +241,16 @@ def check_recursive_markdown() -> list[str]:
 
 def check_recursive_prerender() -> list[str]:
     """Run the render-blocking source markdown gate over recursive manuscript files."""
-    if TEMPLATE_ROOT is None:
+    if discover_template_root(PROJECT) is None:
         return ["template infrastructure not found; set BIOLOGY_TEXTBOOK_TEMPLATE_ROOT"]
 
     from infrastructure.core.exceptions import RenderingError  # type: ignore[import-not-found]
-    from infrastructure.rendering._pdf_combined_renderer import prevalidate_source_markdown  # type: ignore[import-not-found]
+    from infrastructure.validation.content.prerender import prevalidate_for_render  # type: ignore[import-not-found]
 
     try:
-        prevalidate_source_markdown(
+        prevalidate_for_render(
             _recursive_manuscript_markdown(),
-            repo_root=TEMPLATE_ROOT,
+            repo_root=PROJECT,
             bib_file=MANUSCRIPT / "references.bib",
         )
     except RenderingError as exc:
@@ -285,10 +280,11 @@ def check_artifact_counts(artifact_dir: Path | None = None) -> list[str]:
 
 def check_tracked_artifact_hygiene() -> list[str]:
     """Fail if generated/cache artifacts under this WIP tree are tracked by git."""
-    result = subprocess.run(  # noqa: S603
+    result = subprocess.run(
         ("git", "ls-files", "--", "."),
         cwd=PROJECT,
         check=False,
+        stdin=subprocess.DEVNULL,
         capture_output=True,
         text=True,
     )
@@ -311,9 +307,6 @@ def check_tracked_artifact_hygiene() -> list[str]:
     return [f"tracked generated/cache artifact: {path}" for path in offenders]
 
 
-def ready_step_names(steps: Sequence[CommandStep | PythonStep], completed: set[str]) -> list[str]:
-    """Return step names whose dependencies are satisfied."""
-    return [step.name for step in steps if step.name not in completed and step.depends_on.issubset(completed)]
 
 
 def _run_step_batches(
@@ -321,71 +314,155 @@ def _run_step_batches(
     runner: Callable[[_StepT], int],
     *,
     max_workers: int,
-    completed_command_names: set[str] | None = None,
+    outcomes: dict[str, int] | None = None,
 ) -> int:
-    """Run ``steps`` in dependency order, parallelizing each ready wave."""
-    if max_workers <= 1:
-        failures = 0
-        for step in steps:
-            failures += runner(step)
-        return failures
-
+    """Run independent peers, but never consume a failed prerequisite's outputs."""
+    names = {step.name for step in steps}
+    if len(names) != len(steps):
+        raise ValueError("publication gate step names must be unique")
+    for step in steps:
+        unknown = step.depends_on - names
+        if unknown:
+            raise ValueError(f"{step.name}: unknown dependencies {sorted(unknown)}")
     remaining = list(steps)
-    completed = set(completed_command_names or ())
-    failures = 0
-
+    outcomes = {} if outcomes is None else outcomes
     while remaining:
-        ready = [
-            step
-            for step in remaining
-            if step.depends_on.issubset(completed)
-        ]
+        ready = [step for step in remaining if step.depends_on.issubset(outcomes)]
         if not ready:
             pending = ", ".join(step.name for step in remaining)
             raise RuntimeError(f"publication gate dependency deadlock among: {pending}")
+        runnable: list[_StepT] = []
+        for step in ready:
+            failed = sorted(name for name in step.depends_on if outcomes[name])
+            if failed:
+                print(f"{step.name}: BLOCKED (failed dependencies: {', '.join(failed)})")
+                outcomes[step.name] = 1
+            else:
+                runnable.append(step)
+        if max_workers <= 1:
+            for step in runnable:
+                outcomes[step.name] = runner(step)
+        elif runnable:
+            with ThreadPoolExecutor(max_workers=min(max_workers, len(runnable))) as pool:
+                futures = {pool.submit(runner, step): step for step in runnable}
+                for future in as_completed(futures):
+                    outcomes[futures[future].name] = future.result()
+        remaining = [step for step in remaining if step.name not in outcomes]
+    return sum(bool(status) for status in outcomes.values())
 
-        with ThreadPoolExecutor(max_workers=min(max_workers, len(ready))) as pool:
-            futures = {pool.submit(runner, step): step for step in ready}
-            for future in as_completed(futures):
-                step = futures[future]
-                failures += future.result()
-                completed.add(step.name)
 
-        remaining = [step for step in remaining if step.name not in completed]
+def run_publication_gate(*, full: bool, artifact_dir: Path | None = None, max_workers: int = 1) -> int:
+    """Run the graph and atomically replace evidence, never retaining an old PASS."""
+    review = require_project_output_directory(PROJECT, artifact_dir or DEFAULT_REVIEW_ARTIFACT_DIR)
+    receipt_path = review / "receipt.json"
+    if receipt_path.is_symlink() or (receipt_path.exists() and (not receipt_path.is_file() or receipt_path.stat().st_nlink != 1)):
+        raise ValueError("Publication receipts must be independent regular files")
+    evidence: dict[str, object] = {
+        "schema": 1, "full": full, "status": "running", "failures": None,
+        "started_at": datetime.now(UTC).isoformat(),
+    }
 
-    return failures
+    def persist() -> None:
+        require_project_output_directory(PROJECT, review)
+        write_text_atomic(receipt_path, json.dumps(evidence, indent=2) + "\n")
 
+    # Invalidate old success before Git, renderer reads or graph construction.
+    persist()
+    observations: dict[str, dict[str, object]] = {}
+    observation_lock = Lock()
 
-def run_publication_gate(*, full: bool, artifact_dir: Path, max_workers: int = 1) -> int:
-    """Run every selected audit step under ``artifact_dir`` and return failure count."""
-    command_steps = build_command_steps(full=full, artifact_dir=artifact_dir)
-    python_steps = build_python_steps(full=full, artifact_dir=artifact_dir)
+    def run(step: CommandStep | PythonStep) -> int:
+        started = time.monotonic()
+        status = run_command_step(step) if isinstance(step, CommandStep) else run_python_step(step)
+        record: dict[str, object] = {"returncode": status, "seconds": time.monotonic() - started}
+        if isinstance(step, CommandStep):
+            record["command"] = list(step.command)
+            record["cwd"] = str(step.cwd)
+        with observation_lock:
+            observations[step.name] = record
+        return status
 
-    failures = _run_step_batches(command_steps, run_command_step, max_workers=max_workers)
-    completed_commands = {step.name for step in command_steps}
-    failures += _run_step_batches(
-        python_steps,
-        run_python_step,
-        max_workers=max_workers,
-        completed_command_names=completed_commands,
-    )
-    return failures
+    outcomes: dict[str, int] = {}
+    previous_bytecode = sys.dont_write_bytecode
+    sys.dont_write_bytecode = True
+    try:
+        ensure_project_paths()
+        from biology.pipeline.release_assets import (
+            _renderer_sources,
+            sha256_file,
+            source_state,
+        )
+
+        renderer_root = discover_template_root(PROJECT)
+        artifacts_root = PROJECT / "output" if full else review
+        for directory in (artifacts_root, artifacts_root / "figures", artifacts_root / "figures/mermaid", PROJECT / "output/pdf"):
+            require_project_output_directory(PROJECT, directory)
+        before = source_state(PROJECT)
+        if renderer_root is None:
+            raise ValueError("Publication requires a verified frozen renderer snapshot")
+        _, renderer_members = _renderer_sources(renderer_root)
+        renderer_before = renderer_members[-1][2]
+        evidence.update(
+            source_before=before, renderer_manifest_before=renderer_before,
+            runtime={
+                "python": sys.version, "platform": platform.platform(),
+                "source_date_epoch": os.environ.get("SOURCE_DATE_EPOCH"),
+                "template_deterministic": os.environ.get("TEMPLATE_DETERMINISTIC"),
+            },
+        )
+        persist()
+        steps: list[CommandStep | PythonStep] = [
+            *build_command_steps(full=full, artifact_dir=review),
+            *build_python_steps(full=full, artifact_dir=review),
+        ]
+        failures = _run_step_batches(steps, run, max_workers=max_workers, outcomes=outcomes)
+        after = source_state(PROJECT)
+        _, renderer_members = _renderer_sources(renderer_root)
+        renderer_after = renderer_members[-1][2]
+        if renderer_before != renderer_after:
+            print("renderer-binding: FAIL (frozen renderer changed during validation)")
+            failures += 1
+        if before != after:
+            print("source-binding: FAIL (Git source state changed during validation)")
+            failures += 1
+        artifacts = {}
+        if full:
+            for relative in ("output/pdf/biology_textbook_combined.pdf", "output/figures/visual_manifest.json"):
+                path = PROJECT / relative
+                require_project_output_directory(PROJECT, path.parent)
+                if path.is_file():
+                    artifacts[relative] = sha256_file(path)
+        evidence.update(
+            status="completed", failures=failures, source_after=after,
+            renderer_manifest_after=renderer_after,
+            finished_at=datetime.now(UTC).isoformat(), artifacts=artifacts,
+            steps=[{
+                "name": step.name, "depends_on": sorted(step.depends_on),
+                **observations.get(step.name, {"returncode": outcomes[step.name], "blocked": True}),
+            } for step in steps],
+        )
+        persist()
+        return failures
+    except BaseException as exc:
+        evidence.update(status="interrupted", failures=1, error_type=type(exc).__name__)
+        persist()
+        raise
+    finally:
+        sys.dont_write_bytecode = previous_bytecode
 
 
 __all__ = [
-    "CommandStep",
     "DEFAULT_REVIEW_ARTIFACT_DIR",
     "MANUSCRIPT",
     "PROJECT_PDF_LOG",
+    "CommandStep",
     "PythonStep",
-    "TEMPLATE_ROOT",
     "build_command_steps",
     "build_python_steps",
     "check_artifact_counts",
     "check_recursive_markdown",
     "check_recursive_prerender",
     "check_tracked_artifact_hygiene",
-    "ready_step_names",
     "run_command_step",
     "run_publication_gate",
     "run_python_step",

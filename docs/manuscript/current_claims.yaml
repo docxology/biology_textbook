@@ -2,32 +2,35 @@
 # claim_id is a stable identifier assigned at first tracking — it does not
 # get renamed when a row's content is refreshed to a newer release/version.
 # Read evidence_date/checked_as_of/claim_text for the CURRENT tracked state.
+# Evidence dates identify source publication/release/events, not the data year.
+# An explicitly noted capture of an undated portal is not a publication date.
+# checked_as_of certifies only the stated reviewed scope, not neighboring prose.
 claims:
   - claim_id: casgevy-endpoints-2026
     file: docs/manuscript/unit_IV/mutations_and_genomics.md
     source_path: docs/manuscript/unit_IV/mutations_and_genomics.md
     anchor_text: "the regulatory endpoint is freedom from severe vaso-occlusive crises"
-    claim_text: "Casgevy uses different regulatory endpoints for SCD and transfusion-dependent beta-thalassaemia."
+    claim_text: "The July 2026 Casgevy label distinguishes VF12 (no protocol-defined severe VOCs for at least 12 consecutive months within 24 months) in SCD from TI12 (at least 12 consecutive transfusion-free months with weighted mean Hb at least 9 g/dL within 24 months) in TDT. These are disease-specific endpoints, not interchangeable response measures."
     topic: genome-editing therapy
     source_tier: official_primary
-    citekey: fda2026casgevy
-    url: https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapy-young-children-sickle-cell-disease
-    url_or_citekey: fda2026casgevy
+    citekey: fda2026casgevylabel
+    url: https://www.fda.gov/media/174615/download
+    url_or_citekey: fda2026casgevylabel
     evidence_date: 2026-07-01
-    checked_as_of: 2026-07-10
+    checked_as_of: 2026-11-07
     refresh_trigger: "FDA label, EMA EPAR, or pivotal-trial endpoint update."
   - claim_id: casgevy-long-followup-2026
     file: docs/manuscript/unit_IV/mutations_and_genomics.md
     source_path: docs/manuscript/unit_IV/mutations_and_genomics.md
-    anchor_text: "Longitudinal monitoring follows these patients for **15 years**"
-    claim_text: "Casgevy patients are tracked with long-term safety monitoring because edited stem-cell products carry theoretical clonal-expansion and genotoxicity risks."
+    anchor_text: "Trial participants were eligible to enroll in continuing follow-up totaling 15 years post-infusion"
+    claim_text: "Casgevy label sections 14.1 and 14.2 describe trial participants as eligible for continuing follow-up totaling 15 years after infusion; this is neither universal enrollment nor 15 years of completed observation in every recipient."
     topic: genome-editing therapy
     source_tier: official_primary
-    citekey: fda2026casgevy
-    url: https://www.fda.gov/news-events/press-announcements/fda-approves-first-gene-therapy-young-children-sickle-cell-disease
-    url_or_citekey: fda2026casgevy
+    citekey: fda2026casgevylabel
+    url: https://www.fda.gov/media/174615/download
+    url_or_citekey: fda2026casgevylabel
     evidence_date: 2026-07-01
-    checked_as_of: 2026-07-10
+    checked_as_of: 2026-11-07
     refresh_trigger: "FDA label, long-term follow-up guidance, or postmarketing safety update."
   - claim_id: prime-editing-hbf-2025
     file: docs/manuscript/unit_IV/mutations_and_genomics.md
@@ -39,14 +42,14 @@ claims:
     citekey: chalumeau2025primeediting
     url: https://doi.org/10.1182/blood.2024028166
     url_or_citekey: chalumeau2025primeediting
-    evidence_date: 2025-01-01
+    evidence_date: 2025-11-27
     checked_as_of: 2026-05-25
     refresh_trigger: "New prime-editing clinical trial, FDA/EMA application, or hematopoietic stem-cell editing outcome update."
   - claim_id: crispr-diagnostics-collateral-cleavage
     file: docs/manuscript/unit_IV/mutations_and_genomics.md
     source_path: docs/manuscript/unit_IV/mutations_and_genomics.md
     anchor_text: "SHERLOCK and DETECTR exploit collateral nuclease activity"
-    claim_text: "CRISPR diagnostic assays use collateral nuclease activity to turn sequence recognition into reporter signals, but deployment still depends on assay validation."
+    claim_text: "The 2017 SHERLOCK study used Cas13 collateral RNA cleavage for nucleic-acid detection; the paragraph separately cites the 2018 Cas12a study for DETECTR. These experimental assays do not alone establish unrestricted clinical deployment."
     topic: CRISPR diagnostics
     source_tier: scholarly_primary
     citekey: gootenberg2017sherlock
@@ -59,7 +62,7 @@ claims:
     file: docs/manuscript/unit_IV/mutations_and_genomics.md
     source_path: docs/manuscript/unit_IV/mutations_and_genomics.md
     anchor_text: "DddA-derived cytosine base editors (DdCBEs) solve part of the problem"
-    claim_text: "DddA-derived mitochondrial base editors are a major mtDNA-editing tool advance, not a general approved therapy."
+    claim_text: "Mok and colleagues demonstrated guide-RNA-free mitochondrial C-to-T base editing with TALE/split-DddA constructs in experimental cells; this tool study is not evidence of general clinical therapeutic efficacy."
     topic: mitochondrial DNA editing
     source_tier: scholarly_primary
     citekey: mok2020mitochondrialbaseediting
@@ -98,14 +101,14 @@ claims:
     file: docs/manuscript/unit_IV/mutations_and_genomics.md
     source_path: docs/manuscript/unit_IV/mutations_and_genomics.md
     anchor_text: "2025 Release II expanded the resource to assemblies from 232 individuals"
-    claim_text: "HPRC Release II expanded the pangenome resource to assemblies from 232 individuals with phased, near-telomere-to-telomere assemblies, annotations, and graph-based alignments."
+    claim_text: "The May 12, 2025 prepublication HPRC Release II announcement included high-quality phased genome assemblies from 232 individuals; it described comprehensive annotations and graph-based alignments as forthcoming, not an already-delivered complete bundle."
     topic: pangenomics
-    source_tier: official_summary
+    source_tier: official_primary
     citekey: hprc2025release2
     url: https://humanpangenome.org/hprc-data-release-2/
     url_or_citekey: hprc2025release2
     evidence_date: 2025-05-12
-    checked_as_of: 2026-05-25
+    checked_as_of: 2026-11-07
     refresh_trigger: "New HPRC release, marker publication, sample-count update, or clinical graph-reference adoption update."
   - claim_id: alphafold3-hypothesis-generator
     file: docs/manuscript/unit_I/macromolecules.md
@@ -124,14 +127,15 @@ claims:
     file: docs/manuscript/unit_I/macromolecules.md
     source_path: docs/manuscript/unit_I/macromolecules.md
     anchor_text: "2026 EMBL-EBI/Google DeepMind/NVIDIA/SNU update began adding predicted protein complexes"
-    claim_text: "The AlphaFold Protein Structure Database began adding predicted complexes in 2026, starting with high-confidence homodimers."
+    claim_text: "The official 2026 AlphaFold Database announcement describes a homodimer-first predicted-complex rollout; its May 19 update adds heterodimers. The manuscript's 'began' is historical, not a claim that the November 2026 database still contains only homodimers, nor experimental validation of predicted interactions."
     topic: AI biomolecular modeling
     source_tier: official_summary
     citekey: emblebi2026alphafoldcomplexes
     url: https://www.ebi.ac.uk/about/news/technology-and-innovation/first-complexes-alphafold-database/
     url_or_citekey: emblebi2026alphafoldcomplexes
-    evidence_date: 2026-03-16
-    checked_as_of: 2026-05-25
+    # Date of the explicitly dated update reviewed, not an inferred launch date.
+    evidence_date: 2026-05-19
+    checked_as_of: 2026-11-07
     refresh_trigger: "New AlphaFold DB complex release, database schema update, or validation benchmark."
   - claim_id: brenda-2026-enzyme-resource
     file: docs/manuscript/unit_I/enzymes_and_kinetics.md
@@ -143,7 +147,7 @@ claims:
     citekey: hauenstein2026brenda
     url: https://doi.org/10.1093/nar/gkaf1113
     url_or_citekey: hauenstein2026brenda
-    evidence_date: 2026-03-04
+    evidence_date: 2025-11-06
     checked_as_of: 2026-07-10
     refresh_trigger: "New BRENDA publication, database release, license/access change, or enzyme-resource curation update."
   - claim_id: nar-database-issue-2026
@@ -169,21 +173,21 @@ claims:
     citekey: rnacentral2026
     url: https://doi.org/10.1093/nar/gkaf1329
     url_or_citekey: rnacentral2026
-    evidence_date: 2026-01-06
-    checked_as_of: 2026-05-25
+    evidence_date: 2025-12-17
+    checked_as_of: 2026-11-07
     refresh_trigger: "New RNAcentral release, NAR database update, gene-model rebuild, literature-integration change, or ncRNA count revision."
   - claim_id: tazemetostat-epigenetic-therapy-2020
     file: docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md
     source_path: docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md
-    anchor_text: "tazemetostat became the first epigenetic-pathway-defined targeted therapy"
-    claim_text: "Tazemetostat is used as a source-governed example of an FDA-approved epigenetic-pathway-targeted cancer therapy."
+    anchor_text: "Both U.S. accelerated approvals were withdrawn June 22, 2026"
+    claim_text: "Tazemetostat's U.S. accelerated approvals for epithelioid sarcoma and follicular lymphoma were both withdrawn June 22, 2026. Its 2020 approval and sarcoma trial remain historical evidence, not current approved-use claims; the distinct SYMPHONY-1 safety cohort must not be conflated with the 62-patient sarcoma cohort."
     topic: epigenetic therapy
     source_tier: official_primary
-    citekey: fda2020tazverik
-    url: https://www.accessdata.fda.gov/drugsatfda_docs/label/2020/211723s000lbl.pdf
-    url_or_citekey: fda2020tazverik
-    evidence_date: 2020-01-23
-    checked_as_of: 2026-05-25
+    citekey: fda2026withdrawncancer
+    url: https://www.fda.gov/drugs/cancer-approvals/withdrawn-cancer-accelerated-approvals
+    url_or_citekey: fda2026withdrawncancer
+    evidence_date: 2026-06-22
+    checked_as_of: 2026-11-07
     refresh_trigger: "New FDA label, withdrawal, indication update, or epigenetic therapy approval."
   - claim_id: single-cell-spatial-atlas-boundary-2024
     file: docs/manuscript/unit_II/cell_theory.md
@@ -195,14 +199,14 @@ claims:
     citekey: pan2024singlecellatlas
     url: https://doi.org/10.1186/s13059-024-03246-2
     url_or_citekey: pan2024singlecellatlas
-    evidence_date: 2024-04-26
+    evidence_date: 2024-04-19
     checked_as_of: 2026-05-25
     refresh_trigger: "New Human Cell Atlas release, spatial atlas benchmark, or disease-tissue validation update."
   - claim_id: mouse-brain-cell-atlas-2023
     file: docs/manuscript/unit_IX/nervous_system.md
     source_path: docs/manuscript/unit_IX/nervous_system.md
     anchor_text: "The NIH BRAIN Initiative reported a 2023 whole-mouse-brain atlas"
-    claim_text: "The 2023 NIH BRAIN/BICCN mouse brain atlas is used as a release-specific example of transcriptomic and spatial cell-type classification."
+    claim_text: "The 2023 Yao whole-mouse-brain study classified approximately 4 million quality-controlled transcriptomes with spatial MERFISH data. Its measurement scope is distinct from the separately cited NIH consortium-wide cell total."
     topic: brain cell atlases
     source_tier: scholarly_primary
     citekey: yao2023mousebrainatlas
@@ -214,8 +218,8 @@ claims:
   - claim_id: bci-speech-neuroprosthesis-2023
     file: docs/manuscript/unit_IX/nervous_system.md
     source_path: docs/manuscript/unit_IX/nervous_system.md
-    anchor_text: "2023 intracortical speech neuroprostheses decoded attempted speech"
-    claim_text: "Speech neuroprosthesis demonstrations support decodable intention signals in experimental settings, not general mind-reading claims."
+    anchor_text: "an intracortical microelectrode system decoded attempted speech into text"
+    claim_text: "Willett's 2023 intracortical speech-decoding demonstration was single-participant experimental evidence, not consumer mind reading. The separately cited Metzger system used surface ECoG, not intracortical microelectrodes."
     topic: BCI and neural prosthetics
     source_tier: scholarly_primary
     citekey: willett2023speechneuroprosthesis
@@ -228,14 +232,15 @@ claims:
     file: docs/manuscript/unit_IX/immune_system_defense.md
     source_path: docs/manuscript/unit_IX/immune_system_defense.md
     anchor_text: "current FDA product pages and labels"
-    claim_text: "CAR-T product rosters and approved-use language are current-source claims that should be checked against FDA pages before publication."
+    claim_text: "The named CAR-T products are illustrative FDA-approved roster entries, not an exhaustive formulary. The roster alone does not establish interchangeable eligibility, product-specific response rates, or a common remission probability."
     topic: immunotherapy
     source_tier: official_primary
     citekey: fda2026cellulargeneproducts
     url: https://www.fda.gov/vaccines-blood-biologics/cellular-gene-therapy-products/approved-cellular-and-gene-therapy-products
     url_or_citekey: fda2026cellulargeneproducts
-    evidence_date: 2026-05-20
-    checked_as_of: 2026-05-25
+    # Roster page revision date, not individual product approval dates.
+    evidence_date: 2026-10-30
+    checked_as_of: 2026-11-07
     refresh_trigger: "New FDA cellular/gene therapy product approval, label update, or safety communication."
   - claim_id: cart-boxed-warning-2024
     file: docs/manuscript/unit_IX/immune_system_defense.md
@@ -254,26 +259,27 @@ claims:
     file: docs/manuscript/unit_IX/immune_system_defense.md
     source_path: docs/manuscript/unit_IX/immune_system_defense.md
     anchor_text: "checkpoint indications change by tumor type"
-    claim_text: "Checkpoint inhibitor indications and examples are current clinical claims that change by tumor type, biomarker, and line of therapy."
+    claim_text: "NCI explains checkpoint-inhibitor mechanisms, heterogeneous cancer use, and immune-related adverse effects; it does not certify every product indication or treatment-line/biomarker eligibility. The chapter separately uses FDA withdrawal records for removed urothelial and atezolizumab TNBC accelerated approvals and makes no common efficacy-range claim."
     topic: immunotherapy
     source_tier: official_summary
     citekey: nci2026checkpointinhibitors
     url: https://www.cancer.gov/about-cancer/treatment/types/immunotherapy/checkpoint-inhibitors
     url_or_citekey: nci2026checkpointinhibitors
-    evidence_date: 2026-05-20
-    checked_as_of: 2026-05-25
+    # Undated NCI summary: evidence_date is this reviewed capture, not approval.
+    evidence_date: 2026-11-07
+    checked_as_of: 2026-11-07
     refresh_trigger: "NCI page update, FDA label update, NCCN/ASCO guidance change, or new biomarker-specific indication."
   - claim_id: phage-therapy-adjunct-2022
     file: docs/manuscript/unit_VII/bacteria_archaea_viruses.md
     source_path: docs/manuscript/unit_VII/bacteria_archaea_viruses.md
     anchor_text: "**Phage therapy** is re-emerging as a clinical adjunct"
-    claim_text: "Phage therapy should be framed as an adjunct for selected multidrug-resistant infections, with engineering, cocktail design, and resistance monitoring."
+    claim_text: "The cited 2022 Ferry case study describes personalized adjunctive phage therapy with surgery and antibiotics for resistant Pseudomonas infection; it does not establish broad standard-of-care efficacy or general superiority of cocktails."
     topic: phage therapy
     source_tier: scholarly_primary
     citekey: doub2022phagepseudomonas
     url: https://doi.org/10.1038/s41467-022-31837-9
     url_or_citekey: doub2022phagepseudomonas
-    evidence_date: 2022-07-19
+    evidence_date: 2022-07-22
     checked_as_of: 2026-05-25
     refresh_trigger: "New randomized phage-therapy trial, compassionate-use series, FDA guidance, or resistance/safety update."
   - claim_id: lyfgenia-gene-therapy-approval
@@ -305,8 +311,8 @@ claims:
   - claim_id: who-glass-2025-amr-surveillance
     file: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     source_path: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
-    anchor_text: "WHO GLASS \\citep{who2025glass} now track"
-    claim_text: "WHO GLASS 2025 is used as the surveillance frame for AMR and antimicrobial-use interpretation, complementing priority-list triage."
+    anchor_text: "WHO GLASS aggregates organism–drug susceptibility surveillance"
+    claim_text: "WHO's Global antibiotic resistance surveillance report 2025 summarizes organism–drug susceptibility surveillance subject to sampling/reporting limits. It is not, from this evidence alone, a genomic network tracing mcr plasmids, nor a raw denominator for each organism."
     topic: antimicrobial resistance
     source_tier: official_primary
     citekey: who2025glass
@@ -319,22 +325,22 @@ claims:
     file: docs/manuscript/unit_VII/microbial_ecology.md
     source_path: docs/manuscript/unit_VII/microbial_ecology.md
     anchor_text: "GTDB release R11-RS232 organized 878,998 bacterial and 22,343 archaeal genomes"
-    claim_text: "GTDB R11-RS232 is framed as a release-specific genome taxonomy resource for reproducible bacterial, archaeal, isolate, SAG, and MAG classification."
+    claim_text: "The GTDB R11-RS232 release dated April 15, 2026 lists 878,998 bacterial and 22,343 archaeal genomes, with 189,801 and 10,122 species respectively. The Parks 2026 release-10 paper supplies earlier methods/context, not release-11 counts."
     topic: microbial taxonomy
-    source_tier: scholarly_primary
-    citekey: parks2026gtdb
+    source_tier: official_primary
+    citekey: gtdb2026r11
     url: https://gtdb.ecogenomic.org/
-    url_or_citekey: parks2026gtdb
+    url_or_citekey: gtdb2026r11
     evidence_date: 2026-04-15
-    checked_as_of: 2026-07-10
+    checked_as_of: 2026-11-07
     refresh_trigger: "New GTDB release, species-cluster revision, NCBI RefSeq synchronization, or GTDB-Tk classification-policy update."
   - claim_id: oneill-amr-warning-scenario
-    file: docs/manuscript/labs/unit_VII/lab_antimicrobial_resistance_and_epidemiology.md
-    source_path: docs/manuscript/labs/unit_VII/lab_antimicrobial_resistance_and_epidemiology.md
-    anchor_text: "historical warning scenario, not a current burden count"
+    file: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
+    source_path: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
+    anchor_text: "O’Neill’s 10-million-deaths-per-year 2050 scenario is a historical policy warning"
     claim_text: "The O'Neill 10-million-deaths-by-2050 AMR figure is treated as a warning scenario rather than a current burden estimate."
     topic: antimicrobial resistance
-    source_tier: scholarly_review
+    source_tier: official_primary
     citekey: oneill2016amr
     url: https://amr-review.org/sites/default/files/160525_Final%20paper_with%20cover.pdf
     url_or_citekey: oneill2016amr
@@ -345,27 +351,27 @@ claims:
     file: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     source_path: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     anchor_text: "can colonise patients without symptoms"
-    claim_text: "CDC guidance frames Candida auris as a healthcare-transmissible yeast that may colonise asymptomatic patients and requires infection-control source governance."
+    claim_text: "CDC distinguishes asymptomatic Candida auris colonization from clinical infection; colonized patients can transmit the yeast in healthcare settings and require infection control, but colonization alone is not an antifungal-treatment indication."
     topic: fungal antimicrobial resistance
     source_tier: official_primary
     citekey: cdc2026candidaauris
     url: https://www.cdc.gov/candida-auris/hcp/clinical-overview/index.html
     url_or_citekey: cdc2026candidaauris
     evidence_date: 2026-02-26
-    checked_as_of: 2026-05-25
+    checked_as_of: 2026-11-07
     refresh_trigger: "CDC C. auris clinical overview update, outbreak guidance, resistance report, or diagnostic recommendation."
   - claim_id: candida-auris-echinocandin-treatment-2024
     file: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     source_path: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     anchor_text: "echinocandins remain typical initial adult therapy"
-    claim_text: "Echinocandins remain typical initial adult therapy for clinical Candida auris infection, while resistance trends require refreshing."
+    claim_text: "CDC recommends an echinocandin as initial treatment for adult clinical Candida auris infection, with susceptibility and response monitoring; this is not treatment for asymptomatic colonization and does not universalize the recommendation to neonates."
     topic: fungal antimicrobial resistance
     source_tier: official_primary
     citekey: cdc2024candidaauristreatment
     url: https://www.cdc.gov/candida-auris/hcp/clinical-care/index.html
     url_or_citekey: cdc2024candidaauristreatment
-    evidence_date: 2024-04-24
-    checked_as_of: 2026-05-25
+    evidence_date: 2025-11-12
+    checked_as_of: 2026-11-07
     refresh_trigger: "CDC clinical-care update, echinocandin-resistance report, or antifungal guideline revision."
   - claim_id: tb-2025-burden-2024
     file: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
@@ -377,7 +383,7 @@ claims:
     citekey: who2025tb
     url: https://www.who.int/teams/global-programme-on-tuberculosis-and-lung-health/tb-reports/global-tuberculosis-report-2025
     url_or_citekey: who2025tb
-    evidence_date: 2025-10-01
+    evidence_date: 2025-11-12
     checked_as_of: 2026-05-25
     refresh_trigger: "New WHO Global tuberculosis report, treatment guideline, or surveillance revision."
   - claim_id: tb-bpalm-guidance-2025
@@ -403,21 +409,21 @@ claims:
     citekey: who2025malaria
     url: https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025
     url_or_citekey: who2025malaria
-    evidence_date: 2025-12-01
+    evidence_date: 2025-12-04
     checked_as_of: 2026-05-25
     refresh_trigger: "New WHO World malaria report, country-surveillance revision, or burden estimate update."
   - claim_id: malaria-r21-second-vaccine
     file: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
     source_path: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
-    anchor_text: "R21/Matrix-M is now the second WHO-recommended malaria vaccine"
-    claim_text: "R21/Matrix-M is framed as a second WHO-recommended malaria vaccine and as an addition to, not replacement for, malaria control."
+    anchor_text: "R21/Matrix-M became the second WHO-recommended malaria vaccine on October 2, 2023"
+    claim_text: "R21/Matrix-M became the second WHO-recommended malaria vaccine on October 2, 2023. The cited 2025 report is a later summary, not the recommendation date; vaccination complements other prevention rather than replacing it."
     topic: malaria
     source_tier: official_primary
     citekey: who2025malaria
-    url: https://www.who.int/teams/global-malaria-programme/reports/world-malaria-report-2025
+    url: https://www.who.int/news/item/02-10-2023-who-recommends-r21-matrix-m-vaccine-for-malaria-prevention-in-updated-advice-on-immunization
     url_or_citekey: who2025malaria
-    evidence_date: 2025-12-01
-    checked_as_of: 2026-05-25
+    evidence_date: 2023-10-02
+    checked_as_of: 2026-11-07
     refresh_trigger: "New WHO malaria vaccine recommendation, efficacy update, safety signal, or implementation guidance."
   - claim_id: malaria-spatial-emanators-2025
     file: docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md
@@ -435,12 +441,12 @@ claims:
   - claim_id: photosynthesis-co2-scenario-range
     file: docs/manuscript/labs/unit_III/lab_photosynthesis.md
     source_path: docs/manuscript/labs/unit_III/lab_photosynthesis.md
-    anchor_text: "Very high-emissions scenarios can push atmospheric CO₂"
-    claim_text: "CO2 near 800-1000 ppm by 2100 is framed as a very high-emissions scenario range, not a central projection."
+    anchor_text: "2100 SSP3-7.0=867ppm; SSP5-8.5=1135ppm"
+    claim_text: "IPCC AR6 WGI Annex III Table AIII.2 gives 2100 CO2 concentrations of 867 ppm for SSP3-7.0 and 1135 ppm for SSP5-8.5; these scenario-specific values are not measured future concentrations or an 800–1000 ppm very-high-emissions range."
     topic: climate scenario
     source_tier: official_primary
     citekey: ipcc2021ar6wg1
-    url: https://www.ipcc.ch/report/ar6/wg1/
+    url: https://www.ipcc.ch/report/ar6/wg1/downloads/report/IPCC_AR6_WGI_AnnexIII.pdf
     url_or_citekey: ipcc2021ar6wg1
     evidence_date: 2021-08-09
     checked_as_of: 2026-05-25
@@ -449,53 +455,53 @@ claims:
     file: docs/manuscript/unit_X/biomes_and_conservation.md
     source_path: docs/manuscript/unit_X/biomes_and_conservation.md
     anchor_text: "Version 2026-1 listed 175,909 assessed species"
-    claim_text: "IUCN 2026-1 counts are a tracked assessed-species subset and should not be treated as a census of all biodiversity."
+    claim_text: "IUCN Red List version 2026-1 Table 1a, updated July 9, 2026, lists 175,909 evaluated species and 49,505 threatened species (VU/EN/CR). The approximately 28% arithmetic concerns evaluated species only, not all biodiversity or representative worldwide threat prevalence."
     topic: conservation status
-    source_tier: official_summary
+    source_tier: official_primary
     citekey: iucn2025redlist
-    url: https://nrl.iucnredlist.org/resources/summary-statistics
+    url: https://nc.iucnredlist.org/redlist/content/attachment_files/2026-1_RL_Table1a.pdf
     url_or_citekey: iucn2025redlist
     evidence_date: 2026-07-09
-    checked_as_of: 2026-07-10
+    checked_as_of: 2026-11-07
     refresh_trigger: "New IUCN Red List version or summary-statistics table."
   - claim_id: cites-appendices-live-2026
     file: docs/manuscript/unit_X/biomes_and_conservation.md
     source_path: docs/manuscript/unit_X/biomes_and_conservation.md
-    anchor_text: "Parties and listed taxa change as appendices are amended"
-    claim_text: "CITES parties and listed taxa are live treaty-governance data that must be refreshed from the appendices."
+    anchor_text: "**CITES** | 1975"
+    claim_text: "CITES appendix listings change through treaty amendments and effective dates; membership is a separate treaty-accession matter, not an appendix count. The source audit retrieved notification 2026/032 for amendment mechanics, but the live appendices route and this review's notification fetch returned 403; no current taxon roster or Party count is certified."
     topic: conservation status
     source_tier: official_primary
     citekey: cites2026appendices
-    url: https://cites.org/eng/app/index.php
+    url: https://cites.org/sites/default/files/notifications/E-Notif-2026-032.pdf
     url_or_citekey: cites2026appendices
-    evidence_date: 2026-05-20
+    evidence_date: 2026-03-05
     checked_as_of: 2026-05-25
     refresh_trigger: "CITES appendices amendment, Conference of the Parties update, or party-list update."
   - claim_id: kunming-montreal-30x30-2022
     file: docs/manuscript/unit_X/biomes_and_conservation.md
     source_path: docs/manuscript/unit_X/biomes_and_conservation.md
-    anchor_text: "protect 30% of land and 30% of ocean by 2030"
-    claim_text: "The Kunming-Montreal Global Biodiversity Framework includes a 30x30 protection target for land and ocean by 2030."
+    anchor_text: "The Kunming-Montreal Global Biodiversity Framework (GBF, 2022)"
+    claim_text: "CBD Decision 15/4 Target 3 calls for at least 30% of terrestrial and inland-water areas and marine and coastal areas to be effectively conserved and equitably managed by 2030 through protected areas and other effective area-based conservation measures, recognizing Indigenous/traditional territories and rights. It does not certify unsourced current-coverage percentages."
     topic: conservation status
     source_tier: official_primary
     citekey: cbd2022kunmingmontreal
-    url: https://www.cbd.int/gbf
+    url: https://www.cbd.int/doc/decisions/cop-15/cop-15-dec-04-en.pdf
     url_or_citekey: cbd2022kunmingmontreal
     evidence_date: 2022-12-19
-    checked_as_of: 2026-05-25
+    checked_as_of: 2026-11-07
     refresh_trigger: "CBD framework update, national target reporting update, or protected-area accounting revision."
   - claim_id: wwf-living-planet-index-2024
     file: docs/manuscript/unit_X/biomes_and_conservation.md
     source_path: docs/manuscript/unit_X/biomes_and_conservation.md
-    anchor_text: "73% average decline since 1970 in the Living Planet Index"
-    claim_text: "The WWF Living Planet Index reports a 73% average decline in monitored vertebrate population sizes since 1970, which is a population-index trend rather than an animal census."
+    anchor_text: "**Living Planet Index** (WWF 2024)"
+    claim_text: "WWF's historical Living Planet Report 2024 reports a 73% decline in the average size of monitored vertebrate populations over 1970–2020, based on almost 35,000 population trends and 5,495 species. This weighted population index is not a census or a 73% loss of all individual animals; the live 2026 landing page is not the evidence for the 2024 edition."
     topic: biodiversity metrics
     source_tier: official_summary
     citekey: wwf2024livingplanet
-    url: https://livingplanet.panda.org/
+    url: https://wwflpr.awsassets.panda.org/downloads/2024-living-planet-report-a-system-in-peril.pdf
     url_or_citekey: wwf2024livingplanet
     evidence_date: 2024-10-10
-    checked_as_of: 2026-05-25
+    checked_as_of: 2026-11-07
     refresh_trigger: "New Living Planet Report, Living Planet Database update, or methods revision."
   - claim_id: ipbes-million-threatened-2019
     file: docs/manuscript/unit_X/biomes_and_conservation.md
@@ -505,7 +511,7 @@ claims:
     topic: biodiversity metrics
     source_tier: official_summary
     citekey: ipbes2019global
-    url: https://ipbes.net/global-assessment
+    url: https://www.ipbes.net/resource-file/32463
     url_or_citekey: ipbes2019global
     evidence_date: 2019-05-06
     checked_as_of: 2026-05-25
@@ -526,34 +532,35 @@ claims:
   - claim_id: fao-sofi-2025-nutrition
     file: docs/manuscript/unit_IX/circulation_respiration_homeostasis.md
     source_path: docs/manuscript/unit_IX/circulation_respiration_homeostasis.md
-    anchor_text: "malnutrition weakens immune barriers"
-    claim_text: "Nutrition is treated as an organismal systems variable affecting immune barriers, wound repair, growth, and reproduction."
-    topic: nutrition and physiology
+    anchor_text: "The 2025 SOFI report tracks population-level food security and nutrition"
+    claim_text: "SOFI 2025 tracks population-level food security and nutrition and examines how food-price inflation constrains purchasing power and access to healthy diets, with implications for food insecurity and child malnutrition. Its report synopsis supports this population-level scope, not the removed immune-barrier, wound-repair, growth, or reproductive mechanisms."
+    topic: food security and nutrition
     source_tier: official_primary
     citekey: fao2025sofi
-    url: https://www.fao.org/publications/fao-flagship-publications/the-state-of-food-security-and-nutrition-in-the-world/en
+    url: https://openknowledge.fao.org/handle/20.500.14283/cd6008en
     url_or_citekey: fao2025sofi
+    # Official FAO launch was July 28; DOI metadata's July 27 is not the launch.
     evidence_date: 2025-07-28
-    checked_as_of: 2026-05-25
+    checked_as_of: 2026-11-07
     refresh_trigger: "New SOFI report, nutrition burden update, or food-security methods revision."
   - claim_id: prs-transferability-disparities-2019
     file: docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md
     source_path: docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md
-    anchor_text: "Current PRS accuracy is several-fold higher in European-ancestry cohorts"
-    claim_text: "Clinical PRS interpretation should be framed as ancestry- and context-dependent because present accuracy differs across ancestry cohorts."
+    anchor_text: "The 2019 perspective documented several-fold ancestry-dependent accuracy differences for scores available then"
+    claim_text: "Martin's 2019 perspective described several-fold ancestry-dependent accuracy differences among PRS available then and motivated more diverse validation. It does not establish a universal 2026 performance gap or a score-independent clinical effect."
     topic: polygenic risk scores
-    source_tier: scholarly_primary
+    source_tier: scholarly_review
     citekey: martin2019prsdisparities
     url: https://doi.org/10.1038/s41588-019-0379-x
     url_or_citekey: martin2019prsdisparities
     evidence_date: 2019-03-29
-    checked_as_of: 2026-05-25
+    checked_as_of: 2026-11-07
     refresh_trigger: "New cross-ancestry PRS benchmark, clinical guidance, FDA/NIH policy, or large multi-ancestry GWAS update."
   - claim_id: height-gwas-saturated-map-2022
     file: docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md
     source_path: docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md
     anchor_text: "a 2022 study of 5.4 million people reported 12,111 independent height-associated SNPs"
-    claim_text: "Human height is framed as a highly polygenic trait whose current common-variant maps report thousands of associated loci and ancestry-dependent prediction strength."
+    claim_text: "The 2022 Yengo height GWAS included 5.4 million participants and reported 12,111 independent height-associated SNPs, not 12,111 genes; its prediction results depended on ancestry and cohort. This is a dated study, not proof no newer map exists."
     topic: polygenic height genetics
     source_tier: scholarly_primary
     citekey: yengo2022heightgwas
@@ -565,8 +572,8 @@ claims:
   - claim_id: synthetic-apomixis-rice-frequency-2022
     file: docs/manuscript/unit_VIII/plant_reproduction.md
     source_path: docs/manuscript/unit_VIII/plant_reproduction.md
-    anchor_text: "many lines with >80% clonal seeds and selected lines above 95%"
-    claim_text: "High-frequency synthetic apomixis in rice is treated as promising breeding evidence that still requires field, containment, and stability validation."
+    anchor_text: "selected lines produced more than 95% clonal seeds over multiple generations"
+    claim_text: "Vernet's 2022 hybrid-rice study combined MiMe with egg-cell BBM1 expression and obtained selected lines with more than 95% clonal seeds across generations. This is not one combined MiMe/MTL/DMP mechanism or proof of unrestricted field deployment."
     topic: synthetic apomixis
     source_tier: scholarly_primary
     citekey: vernet2022highfrequencyapomixis
@@ -592,7 +599,7 @@ claims:
     file: docs/manuscript/unit_VIII/plant_reproduction.md
     source_path: docs/manuscript/unit_VIII/plant_reproduction.md
     anchor_text: "more than three quarters of leading global food-crop types benefit at least partly from animal pollination"
-    claim_text: "IPBES pollinator assessment figures are used to frame animal pollination as a crop-production and biodiversity-service claim, including the distinction between crop types that benefit from pollination and production volume directly dependent on animal pollination."
+    claim_text: "The IPBES pollinators assessment distinguishes more than three quarters of leading food-crop types benefiting partly from animal pollination from the 5–8% of global crop-production volume directly attributable to it; crop-type and production-volume denominators are not interchangeable."
     topic: pollination services
     source_tier: official_summary
     citekey: ipbes2016pollinators
@@ -601,31 +608,19 @@ claims:
     evidence_date: 2016-02-26
     checked_as_of: 2026-05-25
     refresh_trigger: "New IPBES pollinator assessment, FAO crop-pollination synthesis, or major pollinator-risk/status update."
-  - claim_id: us-fdg-pet-annual-volume
-    file: docs/manuscript/unit_I/atoms_molecules.md
-    source_path: docs/manuscript/unit_I/atoms_molecules.md
-    anchor_text: "two million times per year in the United States alone"
-    claim_text: "Roughly two million PET/CT studies are performed annually in the United States, with FDG accounting for the majority of clinical PET scans."
-    topic: nuclear medicine utilization
-    source_tier: scholarly_primary
-    citekey: indrakanti2022multiplefdgpet
-    url: https://doi.org/10.1259/bjr.20211225
-    url_or_citekey: indrakanti2022multiplefdgpet
-    evidence_date: 2022-05-05
-    checked_as_of: 2026-05-25
-    refresh_trigger: "New IMV PET census, CMS procedure-volume update, or peer-reviewed U.S. PET utilization benchmark."
   - claim_id: global-diabetes-prevalence-2024
     file: docs/manuscript/unit_I/macromolecules.md
     source_path: docs/manuscript/unit_I/macromolecules.md
-    anchor_text: "589 million adults aged 20--79"
-    claim_text: "IDF Diabetes Atlas 11th edition estimates 589 million adults aged 20--79 lived with diabetes worldwide in 2024."
+    anchor_text: "589 million adults aged 20–79"
+    claim_text: "IDF Diabetes Atlas 11th edition estimates 589 million adults aged 20–79 lived with diabetes worldwide in 2024."
     topic: diabetes epidemiology
     source_tier: official_primary
-    citekey: magliano2025idfdiabetesatlas11
-    url: https://doi.org/10.1016/S2213-8587(25)00299-2
-    url_or_citekey: magliano2025idfdiabetesatlas11
-    evidence_date: 2025-02-01
-    checked_as_of: 2026-05-25
+    citekey: idf2025atlas11
+    url: https://media.idf.org/media/uploads/sites/3/2025/04/IDF_Atlas_11th_Edition_2025.pdf
+    url_or_citekey: idf2025atlas11
+    # Official IDF release announcement is April 7, 2025; data refer to 2024.
+    evidence_date: 2025-04-07
+    checked_as_of: 2026-11-07
     refresh_trigger: "New IDF Diabetes Atlas edition or Lancet companion prevalence update."
   - claim_id: covid-confirmed-cases-2024-host-immunity-question
     file: docs/manuscript/questions/unit_VII/questions_host_immunity_and_vaccines.md
@@ -640,94 +635,356 @@ claims:
     evidence_date: 2024-12-24
     checked_as_of: 2026-05-25
     refresh_trigger: "New WHO COVID-19 epidemiological update, surveillance-method update, or variant/annual-vaccination guidance change."
-  - claim_id: covid-confirmed-cases-2024-amr-question
-    file: docs/manuscript/questions/unit_VII/questions_antimicrobial_resistance_and_epidemiology.md
-    source_path: docs/manuscript/questions/unit_VII/questions_antimicrobial_resistance_and_epidemiology.md
-    anchor_text: "more than 776.8 million confirmed COVID-19 cases"
-    claim_text: "WHO's 24 December 2024 COVID-19 epidemiological update reported more than 776.8 million confirmed cases globally through 10 November 2024 while noting that reported cases undercount infections."
-    topic: COVID-19 surveillance
-    source_tier: official_primary
-    citekey: who2024covidepiupdate
-    url: https://www.who.int/publications/m/item/covid-19-epidemiological-update---24-december-2024
-    url_or_citekey: who2024covidepiupdate
-    evidence_date: 2024-12-24
-    checked_as_of: 2026-05-25
-    refresh_trigger: "New WHO COVID-19 epidemiological update, surveillance-method update, or variant/annual-vaccination guidance change."
-  - claim_id: master-glossary-term-count
-    file: docs/manuscript/front_matter.md
-    source_path: docs/manuscript/front_matter.md
-    anchor_text: "225 terms with etymology and chapter cross-references"
-    claim_text: "The master glossary documents 225 indexed terms with {#gl:…} anchors in docs/manuscript/glossary.md."
-    topic: textbook metadata
-    source_tier: official_summary
-    citekey: ""
-    url: docs/manuscript/glossary.md
-    url_or_citekey: docs/manuscript/glossary.md
-    evidence_date: 2026-05-23
-    checked_as_of: 2026-08-31
-    refresh_trigger: "Regenerate after glossary additions or removals; verify with rg -c '{#gl:' docs/manuscript/glossary.md."
   - claim_id: dbsnp-variant-identifier-resource-2026
     file: docs/manuscript/unit_IV/mutations_and_genomics.md
     source_path: docs/manuscript/unit_IV/mutations_and_genomics.md
-    anchor_text: "dbSNP is useful for submitted sequence variation identifiers"
+    anchor_text: "dbSNP supplies submitted sequence-variation identifiers"
     claim_text: "dbSNP is a live NCBI resource for submitted sequence-variation identifiers (rsIDs); it is not itself a clinical-significance archive."
     topic: clinical variant interpretation
     source_tier: official_primary
     citekey: dbsnp2026
     url: https://www.ncbi.nlm.nih.gov/snp/
     url_or_citekey: dbsnp2026
+    # Historical portal capture, not an rsID-policy publication date.
     evidence_date: 2026-05-24
     checked_as_of: 2026-07-10
     refresh_trigger: "dbSNP portal restructuring, rsID assignment-policy change, or deprecation notice."
   - claim_id: clinvar-variant-disease-archive-2026
-    file: docs/manuscript/unit_IV/mutations_and_genomics.md
-    source_path: docs/manuscript/unit_IV/mutations_and_genomics.md
-    anchor_text: "ClinVar aggregates assertions about variant-disease relationships"
-    claim_text: "ClinVar is a live NCBI archive of submitted variant-phenotype interpretations and supporting evidence; report-ready claims should cite its Variation ID and review status, not just 'listed variant'."
+    file: docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md
+    source_path: docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md
+    anchor_text: "ClinVar archives submitted variant-phenotype interpretations and supporting evidence"
+    claim_text: "The original ClinVar resource paper describes submitted variant–phenotype interpretations, evidence, aggregation and conflicts. Current live documentation remained behind CAPTCHA; this historical source does not certify 2026 review-status taxonomy, aggregation policy, or present Variation ID reporting rules."
     topic: clinical variant interpretation
-    source_tier: official_primary
-    citekey: clinvar2026
-    url: https://www.ncbi.nlm.nih.gov/clinvar/
-    url_or_citekey: clinvar2026
-    evidence_date: 2026-05-24
-    checked_as_of: 2026-07-10
-    refresh_trigger: "ClinVar submission-model, review-status taxonomy, or aggregation-policy update."
+    source_tier: scholarly_primary
+    citekey: landrum2014clinvar
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3965032/
+    url_or_citekey: landrum2014clinvar
+    evidence_date: 2013-11-14
+    checked_as_of: 2026-11-07
+    refresh_trigger: "Recover current ClinVar documentation for any current review-status, identifier, submission-model, or aggregation-policy claim; historical archive identity alone is not certification."
   - claim_id: refseq-mane-transcript-reference-2026
     file: docs/manuscript/unit_IV/mutations_and_genomics.md
     source_path: docs/manuscript/unit_IV/mutations_and_genomics.md
-    anchor_text: "RefSeq and the MANE collaboration stabilize the transcript and protein reference"
-    claim_text: "RefSeq and the NCBI/EMBL-EBI MANE collaboration stabilize the transcript/protein reference used for HGVS variant nomenclature; report-ready claims should cite the specific RefSeq/MANE accession used."
+    anchor_text: "RefSeq and MANE help specify reference sequences and transcripts"
+    claim_text: "MANE supplies matched RefSeq/Ensembl transcripts for consistent clinical nomenclature, with Select and Plus Clinical sets. The March 9, 2026 official documentation allows rare revisions and assembly-patch sequences; reporting must retain accession/version rather than assume an immutable transcript."
     topic: clinical variant interpretation
     source_tier: official_primary
-    citekey: refseq2026
+    citekey: mane2026
     url: https://www.ncbi.nlm.nih.gov/refseq/MANE/
-    url_or_citekey: refseq2026
-    evidence_date: 2026-02-19
-    checked_as_of: 2026-07-10
+    url_or_citekey: mane2026
+    evidence_date: 2026-03-09
+    checked_as_of: 2026-11-07
     refresh_trigger: "New RefSeq release or MANE Select/Plus Clinical transcript-set update."
   - claim_id: acmg-amp-variant-classification-2015
     file: docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md
     source_path: docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md
     anchor_text: "under ACMG/AMP categories such as pathogenic, likely pathogenic, uncertain significance, likely benign, and benign"
-    claim_text: "Laboratories classify sequence variants under the 2015 ACMG/AMP joint consensus five-tier framework (pathogenic/likely pathogenic/VUS/likely benign/benign); this remains the standard as of 2026, with ClinGen SVI Bayesian refinements still in specification/expert-panel form rather than a superseding joint guideline."
+    claim_text: "The 2015 ACMG/AMP joint consensus recommends pathogenic, likely pathogenic, uncertain significance, likely benign, and benign categories for Mendelian sequence variants using population, computational, functional, segregation and other evidence. This source does not establish that no superseding joint guideline exists in 2026."
     topic: clinical variant interpretation
+    # Original consensus recommendation: primary for its normative framework.
     source_tier: scholarly_primary
     citekey: richards2015variantinterpretation
     url: https://doi.org/10.1038/gim.2015.30
     url_or_citekey: richards2015variantinterpretation
-    evidence_date: 2015-05-01
-    checked_as_of: 2026-07-10
-    refresh_trigger: "A formally published joint ACMG/AMP/ClinGen guideline superseding the 2015 five-tier framework."
+    evidence_date: 2015-03-05
+    checked_as_of: 2026-11-07
+    refresh_trigger: "New joint ACMG/AMP guidance or ClinGen specifications relevant to the stated variant scope; independently review changes rather than infer absence from the 2015 source."
   - claim_id: gbif-occurrence-infrastructure-2026
     file: docs/manuscript/unit_X/biomes_and_conservation.md
     source_path: docs/manuscript/unit_X/biomes_and_conservation.md
     anchor_text: "GBIF is open biodiversity occurrence infrastructure"
-    claim_text: "GBIF mobilizes where-and-when occurrence records via Darwin Core; a conservation claim built on GBIF data should filter date, coordinate uncertainty, taxonomic backbone, duplicates, and sampling bias before treating occurrence points as abundance/range evidence."
+    claim_text: "GBIF technical documentation distinguishes occurrence records (a taxon at a place/date) from sampling-event data with protocol and abundance information, and specifies Darwin Core identifiers, names, dates and coordinate uncertainty. Unqualified occurrence points do not establish abundance or unbiased range; no textbook dataset reanalysis is certified."
     topic: biodiversity occurrence data
-    source_tier: official_summary
+    source_tier: official_primary
     citekey: gbif2026
-    url: https://www.gbif.org/what-is-gbif
+    url: https://techdocs.gbif.org/en/data-publishing/data-quality-recommendations
     url_or_citekey: gbif2026
-    evidence_date: 2026-05-24
-    checked_as_of: 2026-07-10
+    # Undated technical documentation: evidence_date is this reviewed capture.
+    evidence_date: 2026-11-07
+    checked_as_of: 2026-11-07
     refresh_trigger: "GBIF data-standard revision, Darwin Core schema change, or major occurrence-record milestone."
+  - claim_id: tazemetostat-hematologic-safety-2026
+    file: docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md
+    source_path: docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md
+    anchor_text: "FDA's May 11, 2026 safety notice reported 18/318"
+    claim_text: "FDA's May 11, 2026 safety notice reports hematologic second primary malignancies in 18/318 tazemetostat-treated SYMPHONY-1 participants (5.7%) as of March 6, 2026, versus none reported in controls. This follicular-lymphoma combination-treatment safety cohort is not the 62-patient epithelioid-sarcoma efficacy cohort or a universal all-treated-patient risk estimate."
+    topic: epigenetic therapy safety
+    source_tier: official_primary
+    citekey: fda2026tazsafety
+    url: https://www.fda.gov/drugs/drug-alerts-and-statements/fda-alerts-health-care-providers-and-patients-about-increased-risk-new-blood-cancers-tazverik
+    url_or_citekey: fda2026tazsafety
+    evidence_date: 2026-05-11
+    checked_as_of: 2026-11-07
+    refresh_trigger: "FDA safety communication or SYMPHONY-1 follow-up; preserve cohort, comparator, event type, and observation cutoff."
+  - claim_id: nih-dtg-lamivudine-initial-art-2026
+    file: docs/manuscript/unit_VII/host_immunity_and_vaccines.md
+    source_path: docs/manuscript/unit_VII/host_immunity_and_vaccines.md
+    anchor_text: "removed the prior baseline viral-load cutoff for eligible DTG/3TC"
+    claim_text: "NIH guidance updated September 24, 2026 recommends initial DTG/3TC regardless of baseline HIV RNA for eligible patients, removing the former >500,000 copies/mL cutoff. HBV coinfection or unknown HBV serostatus, unavailable reverse-transcriptase genotype/relevant resistance, planned rapid ART, and prior CAB-LA/possible INSTI resistance require the stated exclusions or additional evaluation; this is not unrestricted two-drug ART."
+    topic: HIV treatment guidance
+    source_tier: official_primary
+    citekey: nih2026initialart
+    url: https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv/what-start-initial-combination-regimens
+    url_or_citekey: nih2026initialart
+    evidence_date: 2026-09-24
+    checked_as_of: 2026-11-07
+    refresh_trigger: "NIH initial ART table or regimen-specific eligibility update, resistance-testing guidance, HBV guidance, or pregnancy-specific guidance."
+  - claim_id: ccga3-assay-cohort-denominators
+    file: docs/manuscript/unit_IV/chromatin_and_epigenetic_mechanisms.md
+    source_path: docs/manuscript/unit_IV/chromatin_and_epigenetic_mechanisms.md
+    anchor_text: "2021 CCGA substudy-3 validation"
+    claim_text: "The 2021 primary presentation and independent-validation article report case-control sensitivity 1453/2823, stage-I sensitivity 143/849, specificity 1248/1254, and signal-origin accuracy 1273/1435 conditional on detection and excluding unknown-primary cases. Their 593/877 stage-I–III result concerns 12 prespecified cancer classes. These are historical assay/cohort endpoints, not demonstrated screening mortality benefit or current regulatory approval. The evidence date is the article's observed online-publication date, not an inferred presentation day."
+    topic: multi-cancer assay evidence
+    source_tier: scholarly_primary
+    citekey: klein2021validation
+    url: https://doi.org/10.1016/j.annonc.2021.05.806
+    url_or_citekey: klein2021validation
+    evidence_date: 2021-06-24
+    checked_as_of: 2026-11-07
+    refresh_trigger: "Assay version, cohort denominator or intended-use change; distinguish later screening trials and mortality endpoints from this historical case-control study."
+  - claim_id: h5n1-who-reported-case-denominators-2026
+    source_path: "docs/manuscript/unit_VII/host_immunity_and_vaccines.md"
+    anchor_text: "WHO's October 7, 2026 table records 479 deaths among 1,005"
+    citekey: "who2026h5n1cumulative"
+    evidence_date: "2026-10-07"
+    claim_text: "WHO's 7 October 2026 cumulative table reports 479 deaths among 1,005 historical reported human cases/detections (47.7%). US 2024–25 onset entries report 70 detections and one death (1.43%). Ascertainment and detection footnotes differ; neither proportion is an infection-fatality estimate."
+    refresh_trigger: "New WHO cumulative table, retrospective onset/death revision or case-definition/detection-footnote change."
+    file: "docs/manuscript/unit_VII/host_immunity_and_vaccines.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://cdn.who.int/media/docs/default-source/influenza/h5n1-human-case-cumulative-table/cumulative-number-of-confirmed-human-cases-for-avian-influenza-a%28h5n1%29-reported-to-who--2003-20260a15ddae-c305-4e8c-9040-5e699327f991.pdf?download=true"
+    url_or_citekey: "who2026h5n1cumulative"
+  - claim_id: h5n1-human-transmission-assessment-2026
+    source_path: "docs/manuscript/unit_VII/host_immunity_and_vaccines.md"
+    anchor_text: "WHO's assessment through October 7 found no sustained human-to-human transmission"
+    citekey: "who2026influenzaassessment"
+    evidence_date: "2026-10-07"
+    claim_text: "WHO's assessment through 7 October 2026 found no sustained human-to-human transmission associated with recently reported H5N1 infections. This dated observation is not a guarantee about future evolution."
+    refresh_trigger: "New WHO human-animal-interface assessment or sustained-transmission evidence."
+    file: "docs/manuscript/unit_VII/host_immunity_and_vaccines.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://cdn.who.int/media/docs/default-source/influenza/human-animal-interface-risk-assessments/influenza-at-the-human-animal-interface-summary-and-assessment--from-7-september-to-7-october-2026.pdf?sfvrsn=ffb871ef_3&download=true"
+    url_or_citekey: "who2026influenzaassessment"
+  - claim_id: h5n1-us-dairy-detection-2026
+    source_path: "docs/manuscript/unit_VII/host_immunity_and_vaccines.md"
+    anchor_text: "dairy-herd detection in Indiana on November 2, 2026"
+    citekey: "usda2026hpailivestock"
+    evidence_date: "2026-11-04"
+    claim_text: "APHIS's livestock index updated 4 November 2026 lists the Indiana dairy-herd detection announced on 2 November 2026; the index update and animal-event dates are distinct."
+    refresh_trigger: "APHIS livestock announcement revision or animal-event status change."
+    file: "docs/manuscript/unit_VII/host_immunity_and_vaccines.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://www.aphis.usda.gov/livestock-poultry-disease/avian/avian-influenza/hpai-livestock/news-science-updates"
+    url_or_citekey: "usda2026hpailivestock"
+  - claim_id: mflusiva-fda-approval-2026
+    source_path: "docs/manuscript/unit_VII/host_immunity_and_vaccines.md"
+    anchor_text: "received FDA approval on August 5, 2026"
+    citekey: "fda2026mflusiva"
+    evidence_date: "2026-08-05"
+    claim_text: "FDA approved MFLUSIVA (mRNA-1010) on 5 August 2026 for adults aged at least 50. The indication for adults aged at least 65 uses accelerated approval based on immune responses and requires confirmation of clinical benefit; this is not proof of transmission blocking."
+    refresh_trigger: "FDA label/approval supplement,withdrawal,confirmatory-benefit result or postmarketing safety change."
+    file: "docs/manuscript/unit_VII/host_immunity_and_vaccines.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://www.fda.gov/media/194121/download?attachment="
+    url_or_citekey: "fda2026mflusiva"
+  - claim_id: kostaive-eu-authorization-2025
+    source_path: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    anchor_text: "received EU authorization on February 12, 2025"
+    citekey: "ema2025kostaive"
+    evidence_date: "2025-02-12"
+    claim_text: "ARCT-154/Kostaive received EU authorization on 12 February 2025. It is an authorized self-amplifying RNA product, not merely a trial candidate."
+    refresh_trigger: "EMA authorization or indication change."
+    file: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://www.ema.europa.eu/en/medicines/human/EPAR/kostaive"
+    url_or_citekey: "ema2025kostaive"
+  - claim_id: kostaive-storage-label-2026
+    source_path: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    anchor_text: "EMA label updated October 22, 2026"
+    citekey: "ema2026kostaivelabel"
+    evidence_date: "2026-10-22"
+    claim_text: "EMA product information updated 22 October 2026 specifies unopened frozen storage at −15 to −25°C and use at 2–25°C within six hours after initial puncture/preparation. This does not establish general refrigerator stability for RNA vaccines."
+    refresh_trigger: "EMA formulation/storage/preparation label update."
+    file: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://www.ema.europa.eu/en/documents/product-information/kostaive-epar-product-information_en.pdf"
+    url_or_citekey: "ema2026kostaivelabel"
+  - claim_id: mrna-covid-myocarditis-denominator-2025
+    source_path: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    anchor_text: "approximately 27 per million doses in males aged 12–24"
+    citekey: "fda2025mrnamyocarditis"
+    evidence_date: "2025-06-25"
+    claim_text: "FDA's 25 June 2025 communication gives an unadjusted myocarditis/pericarditis incidence of about 27 per million doses in males aged 12–24 during days 1–7 after 2023–24 mRNA COVID-19 formulations. It is neither an excess-risk estimate nor a rate for every mRNA product; long-term MRI significance remains uncertain."
+    refresh_trigger: "FDA safety communication,label or longitudinal-outcome update."
+    file: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and"
+    url_or_citekey: "fda2025mrnamyocarditis"
+  - claim_id: covid-dose-timing-guidance-2026
+    source_path: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    anchor_text: "additional-dose timing depends on product, age, immune status, vaccination history"
+    citekey: "cdc2026covidschedule"
+    evidence_date: "2026-09-23"
+    claim_text: "CDC's 2026–27 COVID-19 vaccination guidance makes additional-dose timing depend on product, age, immune status and vaccination history. Waning antibody levels do not imply a universal six-month booster interval."
+    refresh_trigger: "CDC schedule,product,jurisdiction or eligibility update."
+    file: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://www.cdc.gov/covid/hcp/vaccine-considerations/routine-guidance.html"
+    url_or_citekey: "cdc2026covidschedule"
+  - claim_id: nipah-bangladesh-reported-case-snapshot-2026
+    source_path: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    anchor_text: "WHO's February 11, 2026 bulletin"
+    citekey: "whosearo2026nipah"
+    evidence_date: "2026-02-11"
+    claim_text: "WHO's 11 February 2026 bulletin reports the situation as of 4 February: 348 Nipah disease cases and 250 deaths in Bangladesh since 2001 (71.8% reported-case fatality). This is not an IFR or a latest-November count."
+    refresh_trigger: "New WHO/IEDCR cumulative snapshot or retrospective case/death revision."
+    file: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://cdn.who.int/media/docs/default-source/searo/whe/wherepib/2026_03_searo_epi_bulletin.pdf"
+    url_or_citekey: "whosearo2026nipah"
+  - claim_id: amr-breakpoint-categories-clsi2026
+    source_path: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    anchor_text: "Under the 2026 CLSI criteria summarized by IDSA, colistin is intermediate"
+    citekey: "idsa2026amrbreakpoints"
+    evidence_date: "2026-07-30"
+    claim_text: "Under the 2026 CLSI categories summarized by IDSA, cefepime MIC 8 µg/mL is susceptible-dose-dependent, while colistin MIC ≤2 µg/mL is intermediate with no susceptible category. Tigecycline FDA criteria are separately identified; breakpoints depend on organism, drug and scheme."
+    refresh_trigger: "CLSI M100annual revision,FDA susceptibility criteria or IDSA table update."
+    file: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf"
+    url_or_citekey: "idsa2026amrbreakpoints"
+  - claim_id: sting-mk1454-trial-status
+    source_path: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    anchor_text: "MK-1454 record NCT03010176 is phase I/completed"
+    citekey: "nct03010176"
+    evidence_date: "2025-10-29"
+    claim_text: "NCT03010176 identifies MK-1454 as a phase I/completed study, with its record updated 29 October 2025. A named registry record does not establish a class-wide phase III milestone or clinical efficacy."
+    refresh_trigger: "Registry phase/status/results update;new later-phase evidence requires separate enumeration."
+    file: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://clinicaltrials.gov/api/v2/studies/NCT03010176"
+    url_or_citekey: "nct03010176"
+  - claim_id: sting-adus100-trial-status
+    source_path: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    anchor_text: "ADU-S100 record NCT03172936 is phase Ib/terminated"
+    citekey: "nct03172936"
+    evidence_date: "2022-05-03"
+    claim_text: "NCT03172936 identifies MIW815/ADU-S100 with PDR001 as phase Ib and terminated by sponsor decision, with its record updated 3 May 2022. This is neither evidence of efficacy nor a class-wide failure conclusion."
+    refresh_trigger: "Registry status/results update or new program-specific trial."
+    file: "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md"
+    topic: "clinical evidence and surveillance"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url: "https://clinicaltrials.gov/api/v2/studies/NCT03172936"
+    url_or_citekey: "nct03172936"
+  - claim_id: noaa-fourth-global-bleaching-exposure-2026
+    anchor_text: "NOAA's update of 2 June 2026"
+    citekey: "noaa2025coralbleaching"
+    evidence_date: "2026-06-02"
+    claim_text: "NOAA's 2 June 2026 update reports bleaching-level heat exposure across about 84.4% of global reef area during 1 January 2023–30 September 2025. Exposure area is not coral mortality; the observation window and update date remain separate."
+    refresh_trigger: "NOAA revises the event window, exposure estimate, DHW interpretation or update date."
+    file: "docs/manuscript/unit_X/biomes_and_conservation.md"
+    source_path: "docs/manuscript/unit_X/biomes_and_conservation.md"
+    topic: "conservation evidence and source scope"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url_or_citekey: "noaa2025coralbleaching"
+  - claim_id: california-condor-2024-census
+    anchor_text: "The USFWS census for 31 December 2024 reported 566 birds"
+    citekey: "usfws2024condorstatus"
+    evidence_date: "2026-11-07"
+    claim_text: "Review capture on 7 November 2026 of the 2024 annual status PDF: the census endpoint is 31 December 2024, with 566 total, 369 wild/free-flying and 197 captive birds. The file is hosted under a March 2025 path; no exact publication day or current census is asserted."
+    refresh_trigger: "New USFWS annual population report or retrospective census revision."
+    file: "docs/manuscript/unit_X/biomes_and_conservation.md"
+    source_path: "docs/manuscript/unit_X/biomes_and_conservation.md"
+    topic: "conservation evidence and source scope"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url_or_citekey: "usfws2024condorstatus"
+    url: "https://www.fws.gov/sites/default/files/documents/2025-03/2024-california-condor-population-status508-compliant.pdf"
+  - claim_id: florida-corridor-june2025-scope
+    anchor_text: "DEP's June 2025 overview reports over 18 million acres total"
+    citekey: "floridadep2025corridor"
+    evidence_date: "2026-11-07"
+    claim_text: "Review capture on 7 November 2026 of DEP's June 2025 overview: over 18 million total corridor acres include 10 million protected conservation acres and opportunity areas. The network is not wholly protected; no invented June publication day is asserted."
+    refresh_trigger: "New DEP inventory, network boundary or legal/protection-status change."
+    file: "docs/manuscript/unit_X/biomes_and_conservation.md"
+    source_path: "docs/manuscript/unit_X/biomes_and_conservation.md"
+    topic: "conservation evidence and source scope"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url_or_citekey: "floridadep2025corridor"
+    url: "https://floridadep.gov/sites/default/files/Florida%20Wildlife%20Corridor%20Overview_0.pdf"
+  - claim_id: biodiversity-finance-dated-2021-synthesis
+    anchor_text: "A CBD synthesis dated 29 April 2021"
+    citekey: "cbd2021finance"
+    evidence_date: "2021-04-29"
+    claim_text: "The dated 2021 CBD synthesis describes about US$100 billion/year in then-current biodiversity finance, US$800 billion/year in needs and a US$700 billion/year gap. These are synthesis estimates covering more than protected areas, not present spending measurements."
+    refresh_trigger: "New comparable needs/finance synthesis; preserve price basis, scope, timing and denominator."
+    file: "docs/manuscript/unit_X/biomes_and_conservation.md"
+    source_path: "docs/manuscript/unit_X/biomes_and_conservation.md"
+    topic: "conservation evidence and source scope"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url_or_citekey: "cbd2021finance"
+    url: "https://www.cbd.int/doc/c/21ab/d0fe/625d61435079e80fde83d851/sbstta-24-inf-21-en.pdf"
+  - claim_id: ziconotide-may2025-label-boundary
+    anchor_text: "Ziconotide (Prialt) is an approved non-opioid N-type calcium-channel antagonist"
+    citekey: "prialt2025label"
+    evidence_date: "2026-11-07"
+    claim_text: "Review capture on 7 November 2026 of the label revised May 2025: ziconotide is an intrathecal option for selected adults with severe chronic pain under the label's intolerance/refractoriness criteria, not general clinical wound-healing evidence or treatment advice. No exact May publication day is invented."
+    refresh_trigger: "FDA or DailyMed label revision, indication, contraindication or safety change."
+    file: "docs/manuscript/unit_X/biomes_and_conservation.md"
+    source_path: "docs/manuscript/unit_X/biomes_and_conservation.md"
+    topic: "conservation evidence and source scope"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-07"
+    url_or_citekey: "prialt2025label"
+    url: "https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=b025d8ed-937d-4597-9ad1-0b2f6e0ee5b1"
+  - claim_id: nitrous-oxide-ar6-gwp100
+    anchor_text: "AR6 mass-based GWP100 of 273"
+    citekey: "ipcc2022ar6wg3annexii"
+    evidence_date: "2026-11-08"
+    claim_text: "Review capture on 8 November 2026 of the 2022 IPCC AR6 WGIII Annex II, section A.II.8 and Table 9: N2O GWP100 is 273 relative to CO2, incorporating the specified AR6 conventions. This mass-based 100-year integrated metric is not an instantaneous forcing ratio or temperature multiplier; the capture date is not a new assessment publication date."
+    refresh_trigger: "New IPCC physical-science assessment or revised metric convention; retain mass basis, horizon and assessment identity."
+    file: "docs/manuscript/unit_X/ecosystem_ecology.md"
+    source_path: "docs/manuscript/unit_X/ecosystem_ecology.md"
+    topic: "climate assessment metric"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-08"
+    url_or_citekey: "ipcc2022ar6wg3annexii"
+    url: "https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Annex-II.pdf"
+  - claim_id: epa-nitrate-as-nitrogen-public-water
+    anchor_text: "public-water nitrate MCL"
+    citekey: "epa2026drinkingwater"
+    evidence_date: "2026-11-08"
+    claim_text: "Review capture on 8 November 2026 of EPA's National Primary Drinking Water Regulations table, displayed modified 31 August 2026: nitrate MCL is 10 mg/L measured as nitrogen and applies to public water systems. This is not 10 mg/L nitrate ion, a measurement of private-well quality, or a newly established publication date."
+    refresh_trigger: "EPA or 40 CFR part 141 nitrate standard, unit, or applicability change."
+    file: "docs/manuscript/unit_X/ecosystem_ecology.md"
+    source_path: "docs/manuscript/unit_X/ecosystem_ecology.md"
+    topic: "drinking-water standard and unit boundary"
+    source_tier: "official_primary"
+    checked_as_of: "2026-11-08"
+    url_or_citekey: "epa2026drinkingwater"
+    url: "https://www.epa.gov/ground-water-and-drinking-water/national-primary-drinking-water-regulations"

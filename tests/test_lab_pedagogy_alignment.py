@@ -2,16 +2,15 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import sys
-
+from pathlib import Path
 
 PROJECT = Path(__file__).resolve().parent.parent
 SRC = PROJECT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from textbook_paths import discover_template_root  # noqa: E402
+from textbook_paths import discover_template_root
 
 TEMPLATE_ROOT = discover_template_root(PROJECT)
 for path in (TEMPLATE_ROOT, SRC):
@@ -20,12 +19,12 @@ for path in (TEMPLATE_ROOT, SRC):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
-from biology.assessment import (  # noqa: E402
+from biology.assessment import (
     REQUIRED_LAB_RUBRIC_TERMS,
     chapter_learning_objectives,
     parse_lab_alignment,
 )
-from biology.toc import load_toc  # noqa: E402
+from biology.toc import load_toc
 
 
 def test_every_lab_maps_to_measurable_outcomes_and_chapter_los() -> None:

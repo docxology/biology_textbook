@@ -11,8 +11,9 @@ tasks without hand-rebuilding a course map.
 or observed pattern that makes the chapter question necessary.
 2. **Model the mechanism.** Ask students to draw, compute, simulate, or
 annotate the causal structure before reading the full explanation.
-3. **Gather evidence.** Use the companion lab as the measurement and
-reproducibility surface for the chapter.
+3. **Interpret evidence.** Use the companion lab's finite printed packet,
+with synthetic and empirical observations identified, to practice analysis and reproducibility.
+These paper-based activities do not collect new empirical measurements; synthetic data remain teaching examples.
 4. **Check transfer.** Use the question bank to sample recall, application,
 data interpretation, and argumentation.
 5. **Close the loop.** Return to the transfer task and require a claim,

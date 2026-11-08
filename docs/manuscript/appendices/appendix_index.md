@@ -4,7 +4,7 @@
 <!-- chapter-metadata-badge -->
 > **Appendix G** · Level 1/3 · Use as reference
 
-An index of the 225 glossary terms, each with the chapter(s) where the term is introduced, bolded, or discussed at length. Terms marked in **bold** appear as section headings somewhere in the textbook; the glossary entry carries the full definition.
+An index of the 225 glossary terms, each with the chapter(s) where the term is introduced or discussed at length. Boldface distinguishes entries for scanning; the glossary entry carries the full definition.
 
 Each entry follows the pattern:
 
@@ -73,7 +73,7 @@ The `#gl:slug` anchor is the canonical location defined in the master glossary (
 **Competitive exclusion** (`#gl:competitive-exclusion`) → \cref{sec:unit_X_community_interactions}
 **Competitive inhibition** (`#gl:competitive-inhibition`) → \cref{sec:unit_I_enzymes_and_kinetics}
 **Copepod** (`#gl:copepod`) → \cref{sec:unit_X_ecosystem_ecology}
-**Cortisol** (`#gl:cortisol`) → \cref{sec:unit_IX_immune_system_defense}
+**Cortisol** (`#gl:cortisol`) → \cref{sec:unit_IX_endocrine_signaling}
 **CpG island** (`#gl:cpg-island`) → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 **CRISPR-Cas** (`#gl:crispr-cas`) → \cref{sec:unit_IV_mutations_and_genomics}
 **Cytoplasm** (`#gl:cytoplasm`) → \cref{sec:unit_II_cell_structure}
@@ -129,8 +129,8 @@ The `#gl:slug` anchor is the canonical location defined in the master glossary (
 **Genetic drift** (`#gl:genetic-drift`) → \cref{sec:unit_VI_genetic_drift_and_speciation}
 **Genome** (`#gl:genome`) → \cref{sec:unit_IV_mutations_and_genomics}
 **Genome-wide association study (GWAS)** (`#gl:genome-wide-association-study`) → \cref{sec:unit_IV_mutations_and_genomics}
-**GLP-1 (glucagon-like peptide-1)** (`#gl:glp-1`) → \cref{sec:unit_IX_immune_system_defense}
-**GLUT4** (`#gl:glut4`) → \cref{sec:unit_IX_immune_system_defense}
+**GLP-1 (glucagon-like peptide-1)** (`#gl:glp-1`) → \cref{sec:unit_IX_endocrine_signaling}
+**GLUT4** (`#gl:glut4`) → \cref{sec:unit_IX_endocrine_signaling}
 **Glycolysis** (`#gl:glycolysis`) → \cref{sec:unit_III_bioenergetics_and_respiration}
 **GPP (gross primary productivity)** (`#gl:gpp`) → \cref{sec:unit_X_ecosystem_ecology}
 **Gram stain** (`#gl:gram-stain`) → \cref{sec:unit_II_cell_theory}
@@ -151,9 +151,9 @@ The `#gl:slug` anchor is the canonical location defined in the master glossary (
 **Holobiont** (`#gl:holobiont`) → \cref{sec:unit_VII_bacteria_archaea_viruses,sec:unit_VII_microbial_ecology}
 **Homeostasis** (`#gl:homeostasis`) → \cref{sec:unit_IX_nervous_system}
 **Hormone** (`#gl:hormone`) → \cref{sec:unit_VIII_plant_reproduction,sec:unit_IX_endocrine_signaling,sec:unit_IX_immune_system_defense}
-**HPA axis (hypothalamic–pituitary–adrenal axis)** (`#gl:hpa-axis`) → \cref{sec:unit_IX_immune_system_defense}
-**HPG axis (hypothalamic–pituitary–gonadal axis)** (`#gl:hpg-axis`) → \cref{sec:unit_IX_immune_system_defense}
-**HPT axis (hypothalamic–pituitary–thyroid axis)** (`#gl:hpt-axis`) → \cref{sec:unit_IX_immune_system_defense}
+**HPA axis (hypothalamic–pituitary–adrenal axis)** (`#gl:hpa-axis`) → \cref{sec:unit_IX_endocrine_signaling}
+**HPG axis (hypothalamic–pituitary–gonadal axis)** (`#gl:hpg-axis`) → \cref{sec:unit_IX_endocrine_signaling}
+**HPT axis (hypothalamic–pituitary–thyroid axis)** (`#gl:hpt-axis`) → \cref{sec:unit_IX_endocrine_signaling}
 **Hydrogen bond** (`#gl:hydrogen-bond`) → \cref{sec:unit_I_atoms_molecules}
 **Hydrolysis** (`#gl:hydrolysis`) → \cref{sec:unit_I_macromolecules,sec:unit_I_enzymes_and_kinetics}
 **Hydrophobic effect** (`#gl:hydrophobic-effect`) → \cref{sec:unit_I_water_and_life,sec:unit_I_macromolecules}
@@ -163,7 +163,7 @@ The `#gl:slug` anchor is the canonical location defined in the master glossary (
 **Inclusive fitness** (`#gl:inclusive-fitness`) → \cref{sec:unit_VI_evolution_and_selection}
 **Independent assortment** (`#gl:independent-assortment`) → \cref{sec:unit_V_mendelian_principles}
 **Innate immunity** (`#gl:innate-immunity`) → \cref{sec:unit_IX_immune_system_defense}
-**Insulin receptor** (`#gl:insulin-receptor`) → \cref{sec:unit_IX_immune_system_defense}
+**Insulin receptor** (`#gl:insulin-receptor`) → \cref{sec:unit_IX_endocrine_signaling}
 **Intrinsic rate of increase (r)** (`#gl:intrinsic-rate-of-increase`) → \cref{sec:unit_X_population_ecology}
 **Intron** (`#gl:intron`) → \cref{sec:unit_IV_gene_expression}
 **Island biogeography** (`#gl:island-biogeography`) → \cref{sec:unit_X_biomes_and_conservation}
@@ -314,6 +314,6 @@ The `#gl:slug` anchor is the canonical location defined in the master glossary (
 
 ---
 
-> **Using the index.** When a term appears as a bolded, `#gl:`-linked first use in a chapter (see \nameref{sec:unit_I_unit_intro} onward), clicking the term jumps to the canonical entry in the master glossary. This appendix provides an author- and instructor-facing overview of which chapter establishes each concept first, useful for lecture planning and term-by-term syllabus design.
+> **Using the index.** When a term appears as a bolded, `#gl:`-linked first use in a chapter (see \nameref{sec:unit_I_unit_intro} onward), clicking the term jumps to the canonical entry in the master glossary. This appendix provides an author- and instructor-facing overview of reviewed chapter destinations associated with each glossary entry, useful for lecture planning and term-by-term syllabus design.
 
 *Module: reference only (no code)*

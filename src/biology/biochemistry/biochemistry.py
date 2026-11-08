@@ -8,11 +8,9 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass
-from typing import Optional
-
-from textbook_logging import get_logger
 
 from biology.constants import GAS_CONSTANT
+from textbook_logging import get_logger
 
 logger = get_logger(__name__)
 
@@ -32,28 +30,29 @@ class EnzymeKineticsResult:
     efficiency: float  # v / Vmax
 
 
-@dataclass
+@dataclass(frozen=True)
 class MetabolicPathwayStep:
-    """A step in a metabolic pathway."""
+    """Immutable reaction; energy is per reaction, carrier yields per glucose."""
 
     name: str
     enzyme: str
-    reactants: list[str]
-    products: list[str]
-    delta_G_prime_kJ: float  # Standard free energy change (kJ mol⁻¹)
-    atp_yield: int = 0  # Net ATP produced (negative = consumed)
-    nadh_yield: int = 0
-    fadh2_yield: int = 0
+    reactants: tuple[str, ...]
+    products: tuple[str, ...]
+    delta_G_prime_kJ: float  # Approximate standard transformed ΔG°', kJ/mol reaction
+    atp_yield: int = 0  # Per glucose (negative = consumed)
+    nadh_yield: int = 0  # Per glucose
+    fadh2_yield: int = 0  # Per glucose
+    reactions_per_glucose: int = 1
 
 
-@dataclass
+@dataclass(frozen=True)
 class GlycolysisResult:
-    """Summary of glycolysis energetics."""
+    """One-glucose summary using approximate standard transformed energies."""
 
     net_atp: int
     net_nadh: int
-    steps: list[MetabolicPathwayStep]
-    total_delta_G_kJ: float
+    steps: tuple[MetabolicPathwayStep, ...]
+    total_delta_G_kJ: float  # kJ/mol glucose, not cellular ΔG
 
 
 # ---------------------------------------------------------------------------
@@ -79,17 +78,22 @@ def michaelis_menten(
         EnzymeKineticsResult with rate and efficiency.
 
     Raises:
-        ValueError: If any parameter is non-positive.
+        ValueError: If substrate concentration is negative or non-finite, or
+            Vmax or Km is non-positive or non-finite.
     """
-    if substrate_conc < 0:
-        raise ValueError("substrate_conc must be non-negative.")
-    if Vmax <= 0:
-        raise ValueError("Vmax must be positive.")
-    if Km <= 0:
-        raise ValueError("Km must be positive.")
+    if not math.isfinite(substrate_conc) or substrate_conc < 0:
+        raise ValueError("substrate_conc must be finite and non-negative.")
+    if not math.isfinite(Vmax) or Vmax <= 0:
+        raise ValueError("Vmax must be finite and positive.")
+    if not math.isfinite(Km) or Km <= 0:
+        raise ValueError("Km must be finite and positive.")
 
-    v = Vmax * substrate_conc / (Km + substrate_conc)
-    efficiency = v / Vmax
+    if substrate_conc <= Km:
+        ratio = substrate_conc / Km
+        efficiency = ratio / (1.0 + ratio)
+    else:
+        efficiency = 1.0 / (1.0 + Km / substrate_conc)
+    v = Vmax * efficiency
     logger.debug(f"MM kinetics: [S]={substrate_conc}, v={v:.4f}, η={efficiency:.4f}")
     return EnzymeKineticsResult(
         substrate_concentration=substrate_conc,
@@ -119,17 +123,31 @@ def competitive_inhibition(
         Ki: Inhibition constant (µM).
 
     Returns:
-        EnzymeKineticsResult under competitive inhibition.
+        EnzymeKineticsResult with the finite apparent Km under inhibition.
 
     Raises:
-        ValueError: If Ki ≤ 0 or inhibitor_conc < 0.
+        ValueError: For invalid inputs or an unrepresentable apparent Km.
     """
-    if Ki <= 0:
-        raise ValueError("Ki must be positive.")
-    if inhibitor_conc < 0:
-        raise ValueError("inhibitor_conc must be non-negative.")
-    alpha = 1.0 + inhibitor_conc / Ki
-    apparent_Km = alpha * Km
+    if not math.isfinite(Ki) or Ki <= 0:
+        raise ValueError("Ki must be finite and positive.")
+    if not math.isfinite(inhibitor_conc) or inhibitor_conc < 0:
+        raise ValueError("inhibitor_conc must be finite and non-negative.")
+    if not math.isfinite(Km) or Km <= 0:
+        raise ValueError("Km must be finite and positive.")
+    # Scale Km*I/Ki without first overflowing I/Ki or underflowing Km/Ki.
+    km_mantissa, km_exponent = math.frexp(Km)
+    i_mantissa, i_exponent = math.frexp(inhibitor_conc)
+    ki_mantissa, ki_exponent = math.frexp(Ki)
+    try:
+        inhibition_term = math.ldexp(
+            km_mantissa * i_mantissa / ki_mantissa,
+            km_exponent + i_exponent - ki_exponent,
+        )
+    except OverflowError as exc:
+        raise ValueError("Apparent Km exceeds the finite model range.") from exc
+    apparent_Km = Km + inhibition_term
+    if not math.isfinite(apparent_Km):
+        raise ValueError("Apparent Km exceeds the finite model range.")
     return michaelis_menten(substrate_conc, Vmax, apparent_Km)
 
 
@@ -137,7 +155,7 @@ def enzyme_rate_curve(
     Vmax: float,
     Km: float,
     n_points: int = 50,
-    max_conc: Optional[float] = None,
+    max_conc: float | None = None,
 ) -> list[EnzymeKineticsResult]:
     """Generate a full Michaelis-Menten curve across [S] range.
 
@@ -148,14 +166,22 @@ def enzyme_rate_curve(
         max_conc: Maximum substrate concentration (default 10*Km).
 
     Returns:
-        List of EnzymeKineticsResult sorted by [S].
+        List of EnzymeKineticsResult sorted by [S], ending exactly at max_conc.
     """
     if max_conc is None:
         max_conc = 10.0 * Km
+    if not isinstance(n_points, int) or isinstance(n_points, bool):
+        raise TypeError("n_points must be a positive integer.")
     if n_points <= 0:
-        raise ValueError("n_points must be positive.")
-    step = max_conc / n_points
-    return [michaelis_menten(i * step, Vmax, Km) for i in range(n_points + 1)]
+        raise ValueError("n_points must be a positive integer.")
+    if not math.isfinite(max_conc) or max_conc < 0:
+        raise ValueError("max_conc must be finite and non-negative.")
+    if max_conc > 0 and n_points > max_conc / math.ulp(max_conc):
+        raise ValueError("Concentration step is not representable; reduce n_points.")
+    return [
+        michaelis_menten(max_conc if i == n_points else (i / n_points) * max_conc, Vmax, Km)
+        for i in range(n_points + 1)
+    ]
 
 
 # ---------------------------------------------------------------------------
@@ -169,7 +195,12 @@ def reaction_free_energy(
     reactant_conc: float,
     temperature_K: float = 310.0,
 ) -> float:
-    """Compute ΔG using: ΔG = ΔG° + RT ln(Q).
+    """Compute fixed-convention 1:1 ideal-dilute reaction free energy.
+
+    Uses Q = product_conc / reactant_conc for a 1:1 reaction, not an
+    arbitrary stoichiometric quotient. Supply the standard transformed energy
+    for the same temperature and biochemical convention; this helper does not
+    calculate pH/metal speciation or nonideal activity corrections.
 
     Args:
         delta_G_standard_kJ: Standard free energy change ΔG°' (kJ mol⁻¹).
@@ -183,14 +214,14 @@ def reaction_free_energy(
     Raises:
         ValueError: If concentrations are non-positive.
     """
-    if product_conc <= 0 or reactant_conc <= 0:
-        raise ValueError("Concentrations must be positive.")
-    if temperature_K <= 0:
-        raise ValueError("Temperature must be positive.")
-    Q = product_conc / reactant_conc
-    delta_G_standard_J = delta_G_standard_kJ * 1000.0
-    delta_G_J = delta_G_standard_J + GAS_CONSTANT * temperature_K * math.log(Q)
-    return delta_G_J / 1000.0
+    if any(not math.isfinite(c) or c <= 0 for c in (product_conc, reactant_conc)):
+        raise ValueError("Concentrations must be finite and positive.")
+    if not math.isfinite(temperature_K) or temperature_K <= 0:
+        raise ValueError("Temperature must be finite and positive.")
+    if not math.isfinite(delta_G_standard_kJ):
+        raise ValueError("Standard free energy must be finite.")
+    log_Q = math.log(product_conc) - math.log(reactant_conc)
+    return delta_G_standard_kJ + (GAS_CONSTANT * temperature_K / 1000.0) * log_Q
 
 
 def atp_free_energy(
@@ -199,9 +230,10 @@ def atp_free_energy(
     pi_conc_mM: float = 10.0,
     temperature_K: float = 310.0,
 ) -> float:
-    """Compute free energy of ATP hydrolysis in cellular conditions.
+    """Compute model ATP-hydrolysis free energy under ideal dilute activities.
 
-    ΔG°' = -30.5 kJ/mol; adjusted by Q = [ADP][Pi]/[ATP].
+    Fixes ΔG°' at -30.5 kJ/mol and uses Q = a_ADP*a_Pi/a_ATP with a 1 M
+    standard state. This is not a pH/Mg-speciation or physiological-activity model.
 
     Args:
         atp_conc_mM: ATP concentration (mM).
@@ -210,12 +242,15 @@ def atp_free_energy(
         temperature_K: Temperature in Kelvin.
 
     Returns:
-        Actual ΔG of ATP hydrolysis (kJ mol⁻¹), typically -50 to -60 kJ mol⁻¹.
+        Model ΔG of ATP hydrolysis (kJ mol⁻¹); no fixed cellular range is implied.
     """
+    if any(not math.isfinite(c) or c <= 0 for c in (atp_conc_mM, adp_conc_mM, pi_conc_mM)):
+        raise ValueError("ATP, ADP and phosphate concentrations must be finite and positive.")
+    if not math.isfinite(temperature_K) or temperature_K <= 0:
+        raise ValueError("Temperature must be finite and positive.")
     delta_G0_prime = -30.5  # kJ/mol
-    # Convert mM to M for Q calculation
-    Q = (adp_conc_mM * pi_conc_mM * 1e-6) / (atp_conc_mM * 1e-3)
-    delta_G = delta_G0_prime + (GAS_CONSTANT * temperature_K / 1000.0) * math.log(Q)
+    log_Q = math.log(adp_conc_mM) + math.log(pi_conc_mM) - math.log(atp_conc_mM) - math.log(1000.0)
+    delta_G = delta_G0_prime + (GAS_CONSTANT * temperature_K / 1000.0) * log_Q
     logger.debug(f"ATP ΔG = {delta_G:.2f} kJ/mol")
     return delta_G
 
@@ -224,35 +259,45 @@ def atp_free_energy(
 # Glycolysis Summary
 # ---------------------------------------------------------------------------
 
-GLYCOLYSIS_STEPS: list[MetabolicPathwayStep] = [
+# UC Davis BIS 2A, "1.11: Glycolysis", Table 1 (2022 revision),
+# https://bio.libretexts.org/@go/page/8434 (bibliography: ucdavis2022glycolysis).
+# Approximate teaching ΔG°' values, NOT measured cellular ΔG. Values are
+# per reaction; steps 6–10 occur twice per glucose, TPI occurs once.
+GLYCOLYSIS_STEPS: tuple[MetabolicPathwayStep, ...] = (
     MetabolicPathwayStep(
-        "Hexokinase", "Hexokinase", ["Glucose", "ATP"], ["Glucose-6-phosphate", "ADP"], -16.7, atp_yield=-1
+        "Hexokinase", "Hexokinase", ("Glucose", "ATP"), ("Glucose-6-phosphate", "ADP"), -16.7, atp_yield=-1
     ),
-    MetabolicPathwayStep("Phosphoglucose isomerase", "PGI", ["G-6-P"], ["F-6-P"], +1.7),
-    MetabolicPathwayStep("Phosphofructokinase-1", "PFK-1", ["F-6-P", "ATP"], ["F-1,6-BP", "ADP"], -14.2, atp_yield=-1),
-    MetabolicPathwayStep("Aldolase", "Aldolase", ["F-1,6-BP"], ["DHAP", "G3P"], +23.9),
-    MetabolicPathwayStep("Triose phosphate isomerase", "TPI", ["DHAP"], ["G3P"], +7.5),
+    MetabolicPathwayStep("Phosphoglucose isomerase", "PGI", ("G-6-P",), ("F-6-P",), 1.67),
+    MetabolicPathwayStep("Phosphofructokinase-1", "PFK-1", ("F-6-P", "ATP"), ("F-1,6-BP", "ADP"), -14.2, atp_yield=-1),
+    MetabolicPathwayStep("Aldolase", "Aldolase", ("F-1,6-BP",), ("DHAP", "G3P"), 23.9),
+    MetabolicPathwayStep("Triose phosphate isomerase", "TPI", ("DHAP",), ("G3P",), 7.56),
     MetabolicPathwayStep(
-        "G3P dehydrogenase", "GAPDH", ["2×G3P", "2×NAD⁺"], ["2×1,3-BPG", "2×NADH"], -2 * 6.3, nadh_yield=2
+        "G3P dehydrogenase", "GAPDH", ("G3P", "NAD⁺", "Pi"), ("1,3-BPG", "NADH", "H⁺"),
+        6.30, nadh_yield=2, reactions_per_glucose=2
     ),
     MetabolicPathwayStep(
-        "Phosphoglycerate kinase", "PGK", ["2×1,3-BPG", "2×ADP"], ["2×3-PG", "2×ATP"], -2 * 18.8, atp_yield=2
+        "Phosphoglycerate kinase", "PGK", ("1,3-BPG", "ADP"), ("3-PG", "ATP"),
+        -18.9, atp_yield=2, reactions_per_glucose=2
     ),
-    MetabolicPathwayStep("Phosphoglycerate mutase", "PGM", ["2×3-PG"], ["2×2-PG"], +2 * 4.4),
-    MetabolicPathwayStep("Enolase", "Enolase", ["2×2-PG"], ["2×PEP", "2×H₂O"], -2 * 7.5),
-    MetabolicPathwayStep("Pyruvate kinase", "PK", ["2×PEP", "2×ADP"], ["2×Pyruvate", "2×ATP"], -2 * 31.4, atp_yield=2),
-]
+    MetabolicPathwayStep("Phosphoglycerate mutase", "PGM", ("3-PG",), ("2-PG",), 4.4, reactions_per_glucose=2),
+    MetabolicPathwayStep("Enolase", "Enolase", ("2-PG",), ("PEP", "H₂O"), 1.8, reactions_per_glucose=2),
+    MetabolicPathwayStep(
+        "Pyruvate kinase", "PK", ("PEP", "ADP"), ("Pyruvate", "ATP"),
+        -31.7, atp_yield=2, reactions_per_glucose=2
+    ),
+)
 
 
 def glycolysis_summary() -> GlycolysisResult:
-    """Return the complete glycolysis summary with energetics.
+    """Return one-glucose yields and approximate standard transformed ΔG°'.
 
-    Returns:
-        GlycolysisResult with net ATP, NADH, and steps.
+    Energies follow the UC Davis teaching table, not cellular concentrations.
+    Reaction multiplicities weight energy only; carrier yields are already
+    per glucose.
     """
     net_atp = sum(s.atp_yield for s in GLYCOLYSIS_STEPS)
     net_nadh = sum(s.nadh_yield for s in GLYCOLYSIS_STEPS)
-    total_dG = sum(s.delta_G_prime_kJ for s in GLYCOLYSIS_STEPS)
+    total_dG = math.fsum(s.delta_G_prime_kJ * s.reactions_per_glucose for s in GLYCOLYSIS_STEPS)
     logger.info(f"Glycolysis: net ATP={net_atp}, net NADH={net_nadh}, ΔG_total={total_dG:.1f} kJ/mol")
     return GlycolysisResult(
         net_atp=net_atp,
@@ -286,6 +331,7 @@ class PathwayATPYield:
     oxidative_atp: float
     total_atp: float
     requires_oxygen: bool
+    shuttle_adjustment_atp: float = 0.0  # Included in oxidative_atp, not an extra stack
 
 
 def _oxidative_atp(nadh: float, fadh2: float) -> float:
@@ -298,8 +344,9 @@ def atp_yield_by_pathway() -> tuple[PathwayATPYield, ...]:
     Numbers follow the textbook stoichiometry: 2 net substrate-level ATP from
     glycolysis, 2 mitochondrial GTP/ATP from the TCA cycle (one per acetyl-
     CoA), and ten NADH plus two FADH2 routed through oxidative
-    phosphorylation per glucose. Aerobic respiration sums to ~30-32 ATP; the
-    figure uses 30 to reflect the cytosolic NADH shuttle correction.
+    phosphorylation per glucose. The glycerol-3-phosphate shuttle delivers
+    the two cytosolic NADH electron pairs at FAD-linked yield: oxidative ATP
+    = 10*2.5 + 2*1.5 - 2 = 26; full respiration = 4 + 26 = 30.
 
     Returns:
         Tuple of ``PathwayATPYield`` rows in pedagogical order.
@@ -332,13 +379,14 @@ def atp_yield_by_pathway() -> tuple[PathwayATPYield, ...]:
         requires_oxygen=True,
     )
     aerobic_total = PathwayATPYield(
-        pathway="Aerobic respiration (full)",
+        pathway="Aerobic respiration (glycerol-3-phosphate shuttle)",
         substrate_level_atp=4.0,
         nadh_count=10.0,
         fadh2_count=2.0,
-        oxidative_atp=_oxidative_atp(10.0, 2.0),
-        total_atp=30.0,  # canonical textbook value with shuttle correction
+        oxidative_atp=_oxidative_atp(10.0, 2.0) - 2.0,
+        total_atp=4.0 + _oxidative_atp(10.0, 2.0) - 2.0,
         requires_oxygen=True,
+        shuttle_adjustment_atp=-2.0,
     )
     rows = (glycolysis, fermentation, tca, aerobic_total)
     logger.debug(

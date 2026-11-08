@@ -78,7 +78,7 @@ def plot_michaelis_menten(
     Returns:
         Path to saved PNG.
     """
-    from biology.biochemistry import michaelis_menten, competitive_inhibition
+    from biology.biochemistry import competitive_inhibition, michaelis_menten
 
     s_values = [i * 0.5 for i in range(61)]  # 0 to 30 µM
 
@@ -137,7 +137,7 @@ def plot_action_potential(
         alpha=0.7,
         label=f"Threshold ≈ {result.threshold_mV} mV",
     )
-    ax.axhline(-70, color="gray", linewidth=1.0, linestyle=":", alpha=0.5, label="Resting potential")
+    ax.axhline(-70, color="gray", linewidth=1.0, linestyle=":", alpha=0.5, label="Initial voltage (-70 mV)")
     ax.set_xlabel("Time (ms)", fontsize=14)
     ax.set_ylabel("Membrane Potential (mV)", fontsize=14)
     ax.set_title("Hodgkin-Huxley Action Potential Simulation", fontsize=15)
@@ -188,7 +188,7 @@ def plot_glycolysis_summary(
     ax.bar(x + width / 2, nadh, width, label="NADH yield", color=SERIES2[1], edgecolor="black", linewidth=0.6)
     ax.set_xticks(x)
     ax.set_xticklabels(labels, rotation=35, ha="right", fontsize=9)
-    ax.set_ylabel("Net yield per step", fontsize=13)
+    ax.set_ylabel("Carrier yield per reaction step (per glucose)", fontsize=13)
     ax.set_title(f"Glycolysis Energetics (net ATP = {result.net_atp}, net NADH = {result.net_nadh})", fontsize=14)
     ax.legend(fontsize=10, frameon=False)
     ax.tick_params(labelsize=10)

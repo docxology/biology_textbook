@@ -51,7 +51,7 @@ A gene can have more than two alleles in a population (though any individual sti
 | $I^A I^B$ | AB | A and B | Neither | AB only | Universal recipient |
 | $ii$ | O | Neither (H antigen only) | Anti-A and Anti-B | Universal donor | O only |
 
-**Rabbit coat color** (4 alleles at the *C* locus): $c^+$ (full color) > $c^{ch}$ (chinchilla) > $c^h$ (Himalayan) > $c$ (albino). Dominance hierarchy gives 10 possible genotypes and 5 phenotypic classes.
+**Rabbit coat color** (4 alleles at the *C* locus): $c^+$ (full color) > $c^{ch}$ (chinchilla) > $c^h$ (Himalayan) > $c$ (albino). Dominance hierarchy gives 10 possible genotypes and 4 phenotype classes: full color has $c^+c^+,c^+c^{ch},c^+c^h,c^+c$; chinchilla has $c^{ch}c^{ch},c^{ch}c^h,c^{ch}c$; Himalayan has $c^hc^h,c^hc$; albino is $cc$. Thus the class sizes are 4,3,2,1, not five distinct phenotypes.
 
 > **Clinical Connection: Rh Disease of the Newborn**
 > The Rh blood group system involves the RhD [**protein**](#gl:protein). Rh-negative mothers (RhD-/RhD-) carrying an Rh-positive fetus can become sensitized during delivery when fetal RhD+ red blood cells enter maternal circulation. Maternal IgG anti-RhD antibodies cross the placenta in subsequent pregnancies, destroying fetal RhD+ erythrocytes (hemolytic disease of the fetus and newborn, HDFN). Prevention: **anti-RhD immunoglobulin (RhoGAM)** administered at 28 weeks and within 72 hours of delivery clears fetal RhD+ cells before maternal sensitization occurs.
@@ -134,17 +134,17 @@ The F$_2$ from WwYy × WwYy yields **12 white : 3 yellow : 1 green**, written 12
 
 #### Duplicate Recessive Epistasis (9:7) — Sweet pea flower color
 
-Sweet pea (*Lathyrus odoratus*) flower color requires the **complementary action** of two unlinked genes, both encoding biosynthetic enzymes in the anthocyanin pathway. Bateson and Punnett (1905) crossed two pure-breeding white strains and obtained purple F$_1$ offspring — an unexpected result that reflected complementation between the recessive defects in the two parental lines. The F$_2$ ratio is **9 purple : 7 white**.
+Sweet pea (*Lathyrus odoratus*) flower color is a classic example of **complementary gene action**: crosses between recessive white lines can yield purple F$_1$ offspring and an F$_2$ ratio of **9 purple : 7 white**. The idealized two-locus phenotype model below requires a dominant function at each unlinked locus; the phenotype ratio itself does not establish whether those products are enzymes or regulators.
 
-: Duplicate Recessive Epistasis (9:7) — Sweet pea flower color: Genotype and Both enzymes functional?. {#tbl:unit_V_mendelian_extensions_and_human_genetics_duplicate_recessive_epistasis_9_7_sweet_pea_flower_color}
-| Genotype | Both enzymes functional? | Color |
+: Duplicate recessive epistasis (9:7): required functions in an idealized pigment model. {#tbl:unit_V_mendelian_extensions_and_human_genetics_duplicate_recessive_epistasis_9_7_sweet_pea_flower_color}
+| Genotype | Both required functions present? | Color |
 |----------|--------------------------|-------|
-| C\_P\_ | Yes — full pathway active | Purple |
-| C\_pp | No — pathway blocked at second step | White |
-| ccP\_ | No — pathway blocked at first step | White |
-| ccpp | No — pathway blocked at both steps | White |
+| C\_P\_ | Yes | Purple |
+| C\_pp | No — P function absent | White |
+| ccP\_ | No — C function absent | White |
+| ccpp | No — both absent | White |
 
-Either single-locus block (cc or pp) produces white; primarily doubly-dominant individuals build pigment. This **9:7 ratio** is a hallmark of **complementary gene action** in linear biosynthetic pathways.
+Either single-locus loss (cc or pp) produces white under this complementary-action model; C_P_ individuals produce pigment. A **9:7 ratio** supports a requirement for both dominant functions under independent segregation, but does not uniquely identify sequential enzymes or pathway order: two jointly required regulators can yield the same ratio. Linear biosynthesis is one compatible architecture, requiring additional biochemical evidence.
 
 #### Duplicate Dominant Epistasis (15:1) — Shepherd's purse seed shape
 
@@ -367,7 +367,7 @@ Males are hemizygous for X-linked genes (one X, one Y), so a single recessive al
 | Moderate | 1–5% | Bleeding after minor trauma |
 | Mild | 6–40% | Bleeding primarily after surgery or major trauma |
 
-The most common mutation in severe hemophilia A is the **intron 22 inversion**, which disrupts the *F8* gene and accounts for ~45% of severe cases. The gene is unusually large (186 kb, 26 exons), and its 32-kb intron 22 contains the *F8A1* gene with two homologous repeats elsewhere on Xq28; non-allelic homologous recombination during male meiosis produces the inversion. Modern treatment uses **recombinant factor VIII concentrates** (Kogenate, Advate) for replacement therapy, **emicizumab** (a bispecific antibody mimicking factor VIIIa), and increasingly **gene therapy**: in 2022 the FDA approved Hemgenix (etranacogene dezaparvovec) for hemophilia B, with similar AAV-based gene therapies for hemophilia A in advanced trials.
+The most common mutation in severe hemophilia A is the **intron 22 inversion**, which disrupts the *F8* gene and accounts for ~45% of severe cases. The gene is unusually large (186 kb, 26 exons), and its 32-kb intron 22 contains the *F8A1* gene with two homologous repeats elsewhere on Xq28; non-allelic homologous recombination during male meiosis produces the inversion. Modern treatment uses **recombinant factor VIII concentrates** (Kogenate, Advate) for replacement therapy, **emicizumab** (a bispecific antibody mimicking factor VIIIa), and increasingly **gene therapy**: in 2022 the FDA approved Hemgenix (etranacogene dezaparvovec) for hemophilia B, and on June 29, 2023 approved Roctavian (valoctocogene roxaparvovec) for selected adults with severe hemophilia A without pre-existing AAV5 antibodies, as detected by an FDA-approved test \citep{fda2023roctavian}. These are distinct products and eligibility criteria; historical approval is not a promise of suitability, access or durable benefit for every patient.
 
 The Romanov royal family tragedy is the most famous historical case: Queen Victoria was a carrier (likely de novo mutation), and through her descendants the allele entered the Russian, Spanish, and German royal families. The hemophilia of Tsarevich Alexei contributed to the political collapse of the Romanov dynasty.
 
@@ -389,32 +389,32 @@ Hybrid genes — formed when the upstream portion of one opsin fuses with the do
 
 **Duchenne muscular dystrophy (DMD)** affects ~1 in 3,500 male births and is caused by mutations in the ***DMD*** gene at Xp21.2 encoding **dystrophin** — at 2.4 megabases the largest known human gene (79 exons), accounting for ~0.1% of the entire genome. Dystrophin links the actin cytoskeleton inside muscle fibers to the dystrophin-glycoprotein complex spanning the sarcolemma, transmitting force during contraction and protecting the membrane from mechanical stress.
 
-The genotype–phenotype rule for *DMD* mutations is the **reading-frame rule**: deletions that disrupt the reading frame produce no functional dystrophin and cause **Duchenne** (severe, wheelchair by age 12, cardiac/respiratory failure by ~25 years), whereas in-frame deletions produce truncated but partially functional dystrophin and cause **Becker muscular dystrophy** (milder, much later onset, normal lifespan possible). This rule has therapeutic consequences: **exon-skipping antisense oligonucleotides** mask specific exons during splicing to convert an out-of-frame Duchenne mutation into an in-frame Becker-like protein. **Eteplirsen** (FDA-approved 2016) skips exon 51 and is applicable to ~13% of DMD patients; **golodirsen** (exon 53) and **viltolarsen** (exon 53) treat additional subgroups. CRISPR-mediated exon excision is in clinical trials.
+The **reading-frame rule** describes a common *DMD* genotype–phenotype pattern, not an exceptionless prognosis: frame-disrupting deletions often cause severe dystrophin deficiency, while some in-frame deletions retain a shorter, partly functional protein. Exon-skipping ASOs target an existing exon in mutation-amenable transcripts; eteplirsen targets exon 51, whereas golodirsen and viltolarsen target exon 53. The new splice junction must restore frame, and molecular rescue alone does not guarantee a Becker clinical course or cure. Sequence, transcript and functional evidence are needed for an individual interpretation.
 
 The very large size of *DMD* makes it the most mutation-prone gene in the human genome, with ~1/3 of cases representing de novo mutations rather than inheritance from a carrier mother — a fact that affects recurrence-risk counseling for affected families.
 
 #### Female carriers — random X-inactivation and "manifesting carriers"
 
-Female carriers of X-linked recessive disorders are typically clinically normal, but ~10–20% of *DMD* female carriers show muscle weakness, cramping, or even cardiomyopathy. The reason is **skewed X-inactivation**: by chance, the X chromosome carrying the wild-type allele is preferentially inactivated in many of her muscle cells, leaving the mutant X expressed. The clinical severity depends on the proportion of cells with skewed X-inactivation patterns. Similar manifesting-carrier phenotypes occur in hemophilia A (~10% of carriers have prolonged bleeding) and ornithine transcarbamylase deficiency (urea cycle disorder; manifesting carriers may experience hyperammonemic crises).
+Heterozygous females with pathogenic X-linked alleles can be asymptomatic or have clinically significant disease. Tissue-specific expression, factor or enzyme activity, and X-inactivation patterns can affect presentation; random X-inactivation is not a guarantee of an unaffected phenotype. Manifesting *DMD* heterozygotes can have muscle or cardiac findings, and ornithine transcarbamylase heterozygotes can have hyperammonemic episodes. For hemophilia, heterozygous women can have bleeding symptoms and require appropriate evaluation rather than being dismissed as unaffected carriers \citep{cdc2024hemophiliawomen}.
 
 #### Carrier frequency vs. affected-male frequency: a population-genetic asymmetry
 
-A diagnostic feature of X-linked recessive inheritance is that **carrier frequency in females greatly exceeds affected-female frequency**, even though both sexes draw from the same X-linked allele frequency $q$. The arithmetic follows directly from hemizygosity in males and Hardy-Weinberg expectations in females (\cref{sec:unit_V_population_genetics}):
+Under a **toy genotype model** with the same variant-allele frequency $q$ in both sexes, random mating and Hardy–Weinberg expectations, heterozygous-female frequency $2pq$ exceeds homozygous-female frequency $q^2$ when $q$ is small (\cref{sec:unit_V_population_genetics}). Hemizygous males have variant-genotype frequency $q$. Converting these genotype frequencies into clinical frequencies additionally requires explicit penetrance and phenotype assumptions; heterozygous women are not necessarily asymptomatic.
 
 : Carrier frequency vs. affected-male frequency: a population-genetic asymmetry: Quantity and Formula. {#tbl:unit_V_mendelian_extensions_and_human_genetics_carrier_frequency_vs_affected_male_frequency_a_population_genetic_asymmetry}
 | Quantity | Formula | Reason |
 |----------|---------|--------|
-| Affected males | $q$ | Hemizygous: one mutant allele suffices |
-| Affected females | $q^2$ | Homozygous: both X alleles must be mutant |
-| Carrier females (heterozygous) | $2pq \approx 2q$ for small $q$ | Heterozygous and asymptomatic with random X-inactivation |
+| Hemizygous variant males | $q$ | One X chromosome, with the variant allele |
+| Homozygous variant females | $q^2$ | Two variant alleles under the stated mating assumptions |
+| Heterozygous females | $2pq \approx 2q$ for small $q$ | Carrier genotype; clinical expression is variable |
 
-Worked numbers for the three X-linked recessive disorders above (Northern European frequencies):
+The examples below condition on their stated or illustrative allele-frequency assumptions; genotype-frequency ratios are not automatically ratios of clinically unaffected carriers to affected people:
 
-- **Hemophilia A**: affected-male frequency $\approx 1/5{,}000$, so $q \approx 2 \times 10^{-4}$. Carrier-female frequency $2pq \approx 4 \times 10^{-4}$ (~1 in 2,500 women). Affected-female frequency $q^2 \approx 4 \times 10^{-8}$ (~1 in 25 million) — meaning carriers outnumber affected females by ~10,000-fold.
+- **Hemophilia A toy genotype model:** if the affected-male frequency is stipulated as $1/5{,}000$ and equated with $q=2\times10^{-4}$ under full penetrance, random mating gives heterozygous-female frequency $2pq\approx4\times10^{-4}$ (~1 in 2,500) and homozygous-female frequency $q^2\approx4\times10^{-8}$ (~1 in 25 million). The roughly 10,000-fold genotype-frequency ratio is not a clinical ratio of asymptomatic carriers to affected women: heterozygotes can bleed.
 - **Duchenne muscular dystrophy**: affected-male frequency $\approx 1/3{,}500$, $q \approx 2.9 \times 10^{-4}$. Carrier-female frequency $\approx 1/1{,}750$ women.
 - **Red-green color blindness** (high allele frequency): affected-male frequency $\approx 0.08$, so $q \approx 0.08$. Carrier-female frequency $2pq \approx 0.147$, and affected-female frequency $q^2 \approx 0.0064$ — recovering the empirical ~0.5–1% color-blind female frequency.
 
-Two consequences follow. First, **most pathogenic X-linked alleles in the population reside in unaffected female carriers**, who are invisible to phenotypic screening. Second, when a new disease-causing X-linked mutation arises (frequently de novo, especially for *DMD*), it persists for many generations through carrier mothers before reaching another affected male — producing the characteristic "skipping generations through unaffected females" pattern in pedigrees. Genetic counseling for X-linked disorders therefore prioritizes **carrier testing of female relatives of affected males**, even when those women appear clinically normal.
+Pathogenic X-linked alleles can pass through heterozygous women whose phenotypes range from no recognized symptoms to clinically significant disease. Inheritance through such women can produce apparent skipping of affected males across generations, but neither persistence for a fixed number of generations nor an unaffected carrier phenotype is guaranteed. Genotype-based family evaluation and appropriate clinical assessment matter even when relatives appear well; hemophilia carriers can have bleeding symptoms \citep{cdc2024hemophiliawomen}.
 
 **Concept Check 16.5**
 
@@ -501,13 +501,13 @@ Consider type 2 diabetes (T2D), one of the most extensively GWAS-studied complex
 
 where $g_{ij}$ is the dosage of the risk allele (0, 1, or 2) at SNP $j$ for individual $i$, $\beta_j$ is the GWAS-derived effect size for that SNP (usually log-odds ratio for case-control studies), and $M$ is the number of SNPs included (often hundreds of thousands when modern PRS methods like LDpred or PRS-CS are used).
 
-**Clinical performance**: Modern PRS for T2D can identify individuals in the top percentile of genetic risk who have ~3–5× the population baseline lifetime risk of developing the disease — comparable in predictive power to having a single first-degree relative with the disease, but available decades before clinical onset and therefore actionable through lifestyle modification.
+**Clinical performance**: A polygenic risk score can stratify risk without diagnosing disease. Any claimed fold increase must name the score, target population, age horizon, clinical endpoint and validated baseline. An illustrative odds multiplier is not a lifetime-risk ratio, and a high percentile does not itself establish a useful clinical action threshold.
 
-**Equity caveat**: Most large GWAS to date have been conducted in European-ancestry populations. PRS performance degrades substantially when applied to other ancestries, with predictive accuracy 50–75% lower in African-ancestry individuals. Closing this "PRS performance gap" requires diverse GWAS cohorts and cross-ancestry methods — an active area of research and a matter of healthcare equity.
+**Equity caveat**: Training-cohort representation, linkage disequilibrium, allele frequencies, environment and healthcare ascertainment affect transfer. Report performance for a named score, endpoint, metric and external cohort rather than assign one percentage loss to an ancestry group. The historical 2019 evidence motivates this validation requirement \citep{martin2019prsdisparities}.
 
 ### Clinical Interpretation and Governance Checkpoint
 
-A PRS should be treated as a calibrated, ancestry- and context-dependent risk model, not as a diagnosis. A responsible report states the discovery cohort, target population, calibration method, confidence interval, and action threshold; checks whether the risk strata were validated in the patient's ancestry and care setting; and interprets the score alongside family history, monogenic testing when indicated, and modifiable clinical risk factors. Current PRS accuracy is several-fold higher in European-ancestry cohorts than in other cohorts, so premature deployment can widen health gaps if diverse validation does not keep pace \citep{martin2019prsdisparities}.
+A PRS should be treated as a calibrated, ancestry- and context-dependent risk model, not as a diagnosis. A responsible report states the discovery cohort, target population, calibration method, confidence interval, and action threshold; checks whether the risk strata were validated in the patient's ancestry and care setting; and interprets the score alongside family history, monogenic testing when indicated, and modifiable clinical risk factors. The 2019 perspective documented several-fold ancestry-dependent accuracy differences for scores available then; that is not a universal 2026 performance estimate. Premature deployment can widen health gaps if score-specific, diverse external validation does not keep pace \citep{martin2019prsdisparities}.
 
 Governance is part of the biological interpretation. Consent should specify secondary use, data retention, reidentification risk, and which relatives might be indirectly implicated. In the United States, GINA addresses health-insurance and employment discrimination, but it does not extend to life, disability, or long-term-care insurance \citep{hhs2009gina}. A genetic-counseling workflow therefore separates what the score estimates from what clinicians, insurers, employers, families, or law-enforcement agencies are permitted to do with it.
 
@@ -632,9 +632,9 @@ sequenceDiagram
     A->>A: If YES: likely autosomal
     A->>A: If males >> females: likely X-linked recessive
 
-    Q->>A: Can an affected father have affected sons?
-    A->>A: If YES: NOT X-linked (autosomal)
-    A->>A: If NO: consistent with X-linked
+    Q->>A: Was a paternal X allele transmitted to a son?
+    A->>A: A son receives paternal Y, not X
+    A->>A: A carrier mother may have affected sons
 
     Q->>A: Are all children of affected mothers affected?
     A->>A: If YES: consider mitochondrial inheritance
@@ -664,17 +664,9 @@ sequenceDiagram
 - One affected son (Generation II) marries an unaffected woman
 - Generation III: 2 unaffected sons, 1 unaffected daughter
 
-**Analysis**:
-1. Trait skips Generation I (unaffected parents have affected children) -- suggests **recessive**
-2. Primarily males affected -- suggests **X-linked**
-3. Affected father (Gen II) has unaffected sons (Gen III) -- consistent with X-linked (father gives Y to sons)
-4. Most daughters of affected father are unaffected -- but they are obligate carriers ($X^AX^a$) if the mother is $X^AX^A$ or $X^AY$ -- wait, the mother is female so $X^AX^A$ or $X^AX^a$
+**Analysis:** Both X-linked recessive and autosomal recessive models fit this small pedigree. For XLR, the generation-I mother is a carrier and the father unaffected; for AR both are carriers. Affected sons and unaffected daughters do not uniquely identify X-linkage. The generation-II affected father's sons receive his Y, while daughters receive his affected X under the XLR hypothesis.
 
-**Conclusion**: **X-linked recessive** inheritance. Mother in Gen I is a carrier ($X^HX^h$); Father in Gen I is unaffected ($X^HY$).
-
-Probability that Gen III daughter (from affected father $X^hY$ x unaffected mother $X^HX^H$) is a carrier:
-
-Most daughters of an affected father receive his $X^h$: probability = **1 (100% carriers)**.
+**Conditional result:** If the generation-III daughter is known to be unaffected under complete penetrance of XLR, she must be a carrier. Before conditioning on that phenotype, a known noncarrier mother would make every daughter a carrier, whereas a carrier mother gives half affected daughters and half unaffected carriers. The mother's unaffected phenotype alone does not establish noncarrier status. Molecular segregation and additional informative relatives are needed to distinguish XLR from AR.
 
 ## Worked Example: Conditional Probability in Pedigrees
 

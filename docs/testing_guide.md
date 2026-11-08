@@ -21,30 +21,16 @@
 ## Zero-mock policy
 
 > [!IMPORTANT]
-> All tests use **real data and real computations**. The use of `unittest.mock`, `MagicMock`, `mocker.patch`, or any mocking framework is **absolutely prohibited**.
+> Test scientific computations with real algorithms and explicit inputs, not mocked biological answers. Synthetic fixtures and seeded simulations are not empirical data.
 
-This policy ensures:
-
-- Tests validate actual biological algorithms, not mocked returns.
-- Code is exercised in realistic computational conditions.
-- Integration between modules is genuinely tested.
-
-When you need to substitute a heavy resource:
-
-| Resource | Real substitute |
-| -------- | --------------- |
-| HTTP server | `pytest-httpserver` (real local TCP socket) |
-| File system | `tmp_path` fixture (real ephemeral directory) |
-| Random number stream | Fixed-seed `np.random.default_rng(seed)` |
-| External CLI (e.g. `mmdc`) | Skip the test with `pytest.importorskip` / `pytest.skipif(shutil.which(...) is None)` |
-| Subprocess | Real `subprocess.run` against a real CLI under test |
+“Zero-mock” is a policy goal, not a literal inventory assertion. Existing pytest monkeypatch use isolates temporary paths, environment/imports and targeted I/O failures, including atomic replacement failures. Such tests prove isolation/failure handling, not native-tool success. Native Mermaid/PDF tests exercise real tools and may skip when unavailable; skips are verification gaps, not publication passes. Use real temporary files and fixed RNG seeds. Publication requires actual PNG decoding and PDF rendering; see [pipeline_guide.md](pipeline_guide.md).
 
 ---
 
 ## Running tests
 
 > [!IMPORTANT]
-> Run from the active project directory so this project's `pyproject.toml` applies (`coverage fail_under=90`, `pythonpath=src`). Template-orchestrated runs (`scripts/01_run_tests.py --project biology_textbook` from the template repo) also load `[tool.coverage.run]` via `--cov-config` on the project `pyproject.toml`; `tests/conftest.py` sets `COVERAGE_RCFILE` as a fallback when pytest is invoked directly.
+> Run from this checkout after uv sync --frozen --extra dev. Use project-local commands; the selected template is a read-only library. Full release proof is scripts/audit_publication_readiness.py --check --full.
 
 ```bash
 # Full suite, verbose
@@ -86,27 +72,24 @@ uv run python -m pytest tests/ -m "not slow"
 
 ## Coverage standards
 
-| Scope | Minimum coverage | Live target |
-| ----- | ---------------- | ----------- |
-| `src/` overall (line + branch) | **90 %** | run `pytest --cov=src` for current |
-| `src/biology/` | 90 % | ~92 % (see `pyproject.toml` `fail_under`) |
-| `src/biology/chapter_metadata.py` | 90 % | **100 %** |
-| `src/biology/crossref_validator.py` | 80 % | ~92 % |
-| `src/mermaid/` | 80 % | ~93 % (renderer 80 %, diagrams 100 %) |
-| `src/visualization/` | 80 % | ≥ 80 % (exercised by `test_mermaid_and_visualization.py`) |
-| Manuscript invariants | all green | `pytest` from project dir |
+`pyproject.toml` enables branch measurement and sets `fail_under = 90` on the reported overall total, not independent line/branch floors or package minima. Its omit list excludes initializers, catalog/maintenance engines and selected helpers; inspect it when interpreting reports. Passing counts and coverage require fresh execution.
 
-Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the per-file breakdown.
+```bash
+uv run --frozen --extra dev python -m pytest tests --cov=src --cov-fail-under=90 --cov-report=term-missing -q
+uv run --frozen --extra dev python scripts/audit_publication_readiness.py --check --full
+```
 
-**Project root vs template root:** The **90 %** gate applies from this project directory (`uv run pytest tests/ --cov=src --cov-fail-under=90`) and from template orchestration (`uv run python scripts/01_run_tests.py --project biology_textbook`), which passes `--cov-config=<project>/pyproject.toml` so omit rules (maintenance engines under `src/biology/*/engine.py`) match local runs. `scripts/audit_publication_readiness.py --check` uses temporary visual artifacts for strict local generation; `--full` uses the project-root pytest gate for release validation.
+Default review audits its supplied artifact directory; the CLI owns selection and the module fallback is output/publication_readiness. Full mode includes tests, analysis, fresh render and PDF-log checks under project output. Missing glyphs fail; overfull threshold is 50 pt. A current exact-source full receipt and separate PDF inspection, not this guide, establish the exercised proof.
+
+`tests/test_manuscript_transactions.py` parses actual hydrated Markdown with Pandoc to verify that answer code remains inside its answer while ordinary code and mathematical expressions retain their content. Cases cover code-only, leading, middle and trailing answer code. Native PDF tests separately exercise question-list boundaries and TeX grid width. A passing log threshold alone is not table readability proof: inspect the PDF and distinguish physical page bounds from within-page cell overlap.
 
 ---
 
 ## Test organization
 
-**Total: 70 test files** (domain + invariant/quality). The suite is partitioned into **domain tests** (exercising `src/biology/*` models) and **invariant/quality tests** (asserting manuscript, lab, question-bank, table-of-contents, render-log, glossary, current-claim, assessment-alignment, accessibility, standalone bootstrap, publication gate, and script-level gates).
+These domain and invariant/quality tables are navigation aids, not a current count or passing-status inventory.
 
-### Domain tests (13 `test_*.py` files)
+### Domain tests
 
 | Test file | What it covers |
 | --------- | -------------- |
@@ -125,17 +108,17 @@ Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the
 | `test_coverage_gap.py` | Deliberately closes residual branches in existing modules |
 | `conftest.py` | `MPLBACKEND=Agg`, `ensure_project_paths()` bootstrap, `COVERAGE_RCFILE` + early cov-config hook for direct pytest |
 
-### Invariant and quality tests (26 files)
+### Invariant and quality tests
 
 | Test file | What it guards |
 | --------- | -------------- |
 | `test_atomic_io.py` | Atomic write/replace helpers used by maintenance scripts |
 | `test_audit_v3_and_crossref_gate.py` | Generic-answer v3 and malformed `\cref` detector regressions |
 | `test_build_invariants.py` | Every chapter has `\label{sec:…}` and a metadata badge; every lab/question `\cref`-links to its parent chapter; every registered figure generator is referenced; every `\label{fig:…}` has prose `\cref`; Course Planning Grid populated |
-| `test_bibliography_closure.py` | `{cited}` == `{defined}` in `references.bib` — no orphans, no dangling citations, no mid-word citation artifacts |
+| `test_bibliography_closure.py` | `{cited}` == `{defined}` plus usable source metadata; duplicate source identities are rejected by the shared parser and consumer diagnostics |
 | `test_chapter_metadata.py` | Every `config.yaml` chapter has a `ChapterMeta` record; prerequisites resolve; difficulty ∈ {1, 2, 3}; chapter numbers contiguous 1..N |
 | `test_chapter_pedagogy_coverage.py` | REVIEW §7 pedagogy locks: ≥2 worked examples on 12 quantitative chapters, ≥3 Concept Checks on Unit IX + four named chapters, Bloom diversity on three chapters, ≥7 LOs on all core chapters |
-| `test_curriculum_metadata.py` | Every `config.yaml` chapter has a curriculum record; lab/question companion paths exist and align |
+| `test_curriculum_metadata.py` | Config/curriculum alignment and real twice-run CLI preservation of authored lab/question bytes, mtimes and inodes |
 | `test_current_claims_ledger.py` | Fast-moving claim ledger, source tier, anchor, and stale-phrase checks |
 | `test_assessment_metadata.py` | Item-level LO, Bloom, difficulty, format, and minutes metadata across all question banks |
 | `test_lab_pedagogy_alignment.py` | Lab outcome, LO-coverage, and rubric-dimension metadata checks |
@@ -149,17 +132,18 @@ Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the
 | `test_logging_compat.py` | Logging helper compatibility across checkout layouts |
 | `test_maintenance_engine_smoke.py` | Smoke imports for extracted maintenance engines under `src/biology/` |
 | `test_pdf_log_quality.py` | PDF-log checker reports undefined references and severe overfull boxes above the configured threshold |
-| `test_pdf_opening_and_mermaid.py` | Book opening uses `book.*` metadata, cover asset exists, and inline Mermaid converts to PNG references |
-| `test_question_answer_refinement.py` | Generated-answer heuristics classify quantitative questions, strip command prefixes, and preserve hand-written answers |
+| `test_pdf_opening_and_mermaid.py` | Real native PDFs for cover/opening and inline Mermaid; actual Pandoc question/answer hierarchy and TeX course-grid width |
+| `test_question_answer_refinement.py` | Preserve authored answers; reject unsupported automatic repair without writes |
 | `test_script_quality.py` | Scripts parse as Python, avoid hard-coded local checkout paths, and keep retired duplicate helpers removed |
 | `test_textbook_paths.py` | Checkout path discovery, `ensure_project_paths()`, and template-root resolution |
 | `test_textbook_quality_audit.py` | Umbrella textbook-quality audit: stale claims, copyedit artifacts, enrichment presence, and current-source locks |
 | `test_publication_gate.py` | Publication gate step graph, dependency ordering, and parallel worker invariants |
+| `test_release_asset_boundaries.py` | Real independent fixture export, exact frozen-renderer membership, source/artifact binding, output aliases/overlap and occupied-destination preservation; fixtures are not full-render evidence |
 | `test_american_english.py` | American English spelling gate for manuscript and docs |
-| `test_answer_refinement_modules.py` | Answer-refinement classification, evidence, and generation helpers |
-| `test_answer_scaffolds.py` | Answer scaffold filling and enrichment answer keys |
-| `test_assessment_sync.py` | `biology.assessment_sync` metadata synchronization |
-| `test_chapter_badges.py` | `biology.maintenance.chapter_badges` metadata-badge maintenance |
+| `test_answer_refinement_modules.py` | Answer classification and unsupported-generation refusal |
+| `test_answer_scaffolds.py` | Nonwriting refusal for missing authored answers |
+| `test_assessment_sync.py` | Preserve curated semantic mappings; reject authoring gaps |
+| `test_chapter_badges.py` | Badge and course-grid idempotence; dry-run and applied regeneration preserve unrelated authored bytes, mtimes/inodes and single page breaks |
 | `test_chapter_shells.py` | `biology.maintenance.chapter_shells` chapter-shell repair |
 | `test_citations.py` | Shared natbib citation parsing helpers |
 | `test_cover_art.py` | Cover art generation |
@@ -185,7 +169,6 @@ Run `uv run python -m pytest tests/ --cov=src --cov-report=term-missing` for the
 | `test_textbook_visuals.py` | Shared figure post-processing helpers |
 | `test_typography.py` | Manuscript typography normalization |
 | `test_visual_contracts_audit.py` | Visual contract audit helpers and `check_records` branches |
-| `test_wip_resolver_smoke.py` | Template WIP resolver smoke gate |
 
 ### Textbook quality audit
 
@@ -239,11 +222,11 @@ Use this table when pytest fails. Each row gives the **specific authoring mistak
 | 21 | Markdown image with `{#fig:...}` attribute parses incorrectly | `test_markdown_image_attrs` | `uv run python -m pytest tests/test_crossref_validator_edges.py::test_markdown_image_attrs -v` | Check syntax: `![alt](<path>){#fig:label}` (no space before `{`; `<path>` is a placeholder, not a link) |
 | 22 | Lab Part 2 references a hidden notebook, CSV, pandas import, or display-only `plt.show()` workflow | `test_labs_do_not_reference_missing_computational_artifacts` | `uv run python -m pytest tests/test_lab_integrity.py::test_labs_do_not_reference_missing_computational_artifacts -v` | Run `scripts/normalize_lab_computational_workflows.py`; keep snippets self-contained |
 | 23 | Optional lab snippet imports a module path that does not resolve | `test_lab_python_snippets_execute_against_project_modules` | `uv run python -m pytest tests/test_lab_integrity.py::test_lab_python_snippets_execute_against_project_modules -v` | Fix the `from biology... import ...` line or add/export the missing API in `src/biology` |
-| 24 | Generated answer refiner starts rewriting hand-written answers or stops recognizing current generated signatures | `test_current_generated_signatures_are_refinable` / `test_hand_written_answer_is_not_refinable` | `uv run python -m pytest tests/test_question_answer_refinement.py -v` | Update `scripts/refine_generated_answers.py` signature predicates with paired tests |
+| 24 | Missing/generic answer or unintended authored-answer rewrite | `test_question_answer_refinement.py` | `uv run python -m pytest tests/test_question_answer_refinement.py -v` | Author prompt-specific solutions; preserve nonwriting refusal, not generic generation heuristics |
 | 25 | Script contains an absolute local checkout path or an obsolete duplicate helper returns | `test_scripts_do_not_embed_absolute_checkout_paths` / `test_no_legacy_mermaid_alt_maintenance_clones` | `uv run python -m pytest tests/test_script_quality.py -v` | Replace hard-coded paths with project-relative `Path` logic; keep one canonical helper |
 | 26 | Quantitative chapter drops below two worked examples, Concept-Check floor, Bloom diversity, or seven LOs | `test_chapter_pedagogy_coverage.py` (parametrized) | `uv run python -m pytest tests/test_chapter_pedagogy_coverage.py -v` | Add a second worked example, Concept Check, higher-order LO verb, or sync assessment metadata after LO edits |
 | 27 | A fast-moving biology claim loses its source, anchor, source tier, checked date, or refresh trigger | `test_current_claims_ledger_is_valid` | `uv run python -m pytest tests/test_current_claims_ledger.py -v` | Update `docs/manuscript/current_claims.yaml` and keep the cited claim text/source close to the manuscript claim |
-| 28 | A question-bank item or lab loses LO/Bloom/rubric metadata | `test_all_question_bank_items_have_assessment_metadata` / `test_every_lab_maps_to_measurable_outcomes_and_chapter_los` | `uv run python -m pytest tests/test_assessment_metadata.py tests/test_lab_pedagogy_alignment.py -v` | Run `scripts/sync_assessment_metadata.py --dry-run`, write with `scripts/sync_assessment_metadata.py`, then review any pedagogical mismatch manually |
+| 28 | Missing LO/Bloom/rubric metadata | `test_assessment_metadata.py`, `test_lab_pedagogy_alignment.py` | `uv run python -m pytest tests/test_assessment_metadata.py tests/test_lab_pedagogy_alignment.py -v` | Author semantic mappings/rubrics, then sync_assessment_metadata.py --check; never regenerate positionally |
 
 > [!TIP]
 > The single-test command form is `uv run python -m pytest <file>::<test_name> -v`. You can run **multiple** tests at once with a `-k` filter — e.g. `uv run python -m pytest tests/test_build_invariants.py -k "label or badge" -v`.
@@ -263,10 +246,10 @@ When pytest fails on a **whole file** (multiple tests in one module), look up th
 | Registered `plot_*` never mentioned in any chapter | `test_build_invariants.py` (figure reference invariant) | Add a figure block (or `scripts/insert_orphan_figures.py`) or remove dead registry entry |
 | Lab/question missing parent `\cref` | `test_build_invariants.py` | Run `scripts/link_labs_to_chapters.py` |
 | Lab computation depends on hidden notebooks, CSVs, pandas, or non-executable snippets | `test_lab_integrity.py` | Run `scripts/normalize_lab_computational_workflows.py`; use tested `biology.*` module imports |
-| Generated answer refinement regresses or `Expected reasoning:` reappears | `test_question_answer_refinement.py` / `test_textbook_quality_audit.py` | Add/adjust heuristics in `scripts/refine_generated_answers.py`, run it, and keep hand-written answer guardrails |
+| Missing/generic solution | `test_question_answer_refinement.py` / `test_textbook_quality_audit.py` | Author and review a prompt-specific solution; unsupported repairs refuse without writes |
 | Script path or duplicate-helper hygiene regresses | `test_script_quality.py` | Remove absolute checkout paths; delete retired helper clones; ensure every `scripts/*.py` parses |
 | Figure missing alt text, or Mermaid block without descriptive line | `test_accessibility.py` | Add `<!-- alt: ... -->` after `\end{figure}` or italic line after mermaid; consider `scripts/add_mermaid_alt_text.py` for bulk Mermaid fixes |
-| Coverage < 90 % on `src/` | pytest-cov fails the gate | Add tests in `tests/test_*.py`; no mocks; use real numerical inputs |
+| Reported coverage below 90% | pytest-cov gate | Add meaningful real-computation tests; keep exclusions and isolation substitutions explicit |
 | Mid-word citation (`...x\citep{a}y...`) | `test_bibliography_closure.py` | Add a space before/after the `\citep{}` |
 | `MPLBACKEND` error in CI | conftest sets `Agg`, but test imports matplotlib differently | Move `matplotlib.use("Agg")` to before any `pyplot` import in the test module |
 
@@ -293,7 +276,7 @@ def test_punnett_monohybrid_3to1_phenotype():
 
 1. One logical assertion per test function when feasible.
 2. Use descriptive test names (snake_case): `test_<function>_<scenario>_<expectation>`.
-3. **No mocks** — create real inputs (numerical arrays, biological data structures).
+3. Exercise real computation; keep path/environment/failure injection distinct from native-integration proof.
 4. Use `pytest.approx()` for floating-point comparisons with `abs=1e-4` or `rel=1e-3`.
 5. Use `tmp_path` fixture for file I/O tests.
 6. Set explicit RNG seeds for any stochastic test (`np.random.default_rng(42)`).
@@ -338,24 +321,22 @@ def test_punnett_phenotype_ratios(p1, p2, expected_ratio):
 ### Testing figures (no mocks, no display)
 
 ```python
-def test_plot_returns_figure(tmp_path):
-    """Generator must produce a non-trivial PNG at the requested path."""
+def test_plot_returns_png(tmp_path):
+    from PIL import Image
     from visualization import plot_michaelis_menten
-    fig_path = plot_michaelis_menten(
-        output_dir=tmp_path,
-        Vmax=10.0, Km=2.0,
-    )
-    assert fig_path.exists()
-    assert fig_path.stat().st_size > 1000  # non-trivial file
+    path = plot_michaelis_menten(output_dir=tmp_path, Vmax=10.0, Km=2.0)
+    with Image.open(path) as image:
+        assert image.format == "PNG"
+        image.verify()
 ```
 
 ### Testing numerical models
 
 ```python
 def test_hodgkin_huxley_fires_at_threshold():
-    """A 10 nA stimulus must depolarise the membrane above 0 mV."""
+    """A 10 microampere/cm² model current depolarizes above 0 mV."""
     from biology.neuroscience import action_potential_hh
-    result = action_potential_hh(stimulus_current_µA=10.0, t_end_ms=50.0)
+    result = action_potential_hh(stimulus_current_µA=10.0, t_end_ms=30.0, steps=3000)
     assert max(result.voltage_mV) > 0.0  # must depolarise above 0 mV
     assert result.fired
 ```
@@ -363,15 +344,14 @@ def test_hodgkin_huxley_fires_at_threshold():
 ### Testing manuscript invariants
 
 ```python
-from pathlib import Path
-import re
+from biology.toc import load_toc
 
-def test_every_chapter_starts_with_section_label():
-    """Every chapter file must have \\label{sec:unit_X_<stem>} after the H1."""
-    pattern = re.compile(r"^# .*\n+\\label\{sec:unit_[0IVX]+_\w+\}", re.MULTILINE)
-    chapters = Path("manuscript").rglob("unit_*/[!._]*.md")
-    failures = [c for c in chapters if not pattern.search(c.read_text())]
-    assert failures == [], f"Chapters missing section label: {failures}"
+def test_every_configured_chapter_has_its_label():
+    chapters = load_toc().chapters
+    assert chapters, "No configured chapters were inspected"
+    for chapter in chapters:
+        text = chapter.path.read_text(encoding="utf-8")
+        assert "\\label{sec:" + chapter.chapter_id + "}" in text
 ```
 
 ### Testing CLI / subprocess

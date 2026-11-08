@@ -1,134 +1,100 @@
 # Lab — Chromatin and Epigenetic Mechanisms {#sec:lab_unit_IV_chromatin_and_epigenetic_mechanisms .unnumbered}
 
-
-*This activity accompanies \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} of the textbook — review that chapter before attempting the exercises below.*
-
-*This activity accompanies \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} of the textbook — review that chapter before attempting the exercises below.*
+*This activity accompanies \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} of the textbook.*
 
 ## Learning Objectives {.unnumbered}
 
-- Design and evaluate an epigenetic data-analysis scenario to determine gene regulation
-- Formulate testable hypotheses about how environmental factors affect epigenetic marks
-- Identify independent, dependent, and controlled variables in epigenetic studies
-- Analyze experimental data using methylation analysis and ChIP-seq interpretation
-- Write a brief scientific report with hypothesis, methods, results, and conclusion
-
+- Interpret histone enrichment relative to input and IgG controls.
+- Distinguish bisulfite sequence and methylation-specific primer readouts.
+- Calculate maintenance dilution with the defined cytosine observable.
+- Separate direct maternal exposure from germline-inheritance evidence.
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Chromatin and Epigenetic Mechanisms.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO3):** Interpret histone enrichment relative to input and IgG controls.
+- **Outcome 2 (LO4):** Distinguish bisulfite sequence and methylation-specific primer readouts.
+- **Outcome 3 (LO11):** Calculate maintenance dilution with the defined cytosine observable.
+- **Outcome 4 (LO12):** Separate direct maternal exposure from germline-inheritance evidence.
+- **Chapter LO coverage:** LO3, LO4, LO11, LO12
+- **Rubric (20 points total):**
+  - **Evidence — 6 points (LO3, LO4, LO11, LO12):** Award 2 for the state-specific ChIP means in percent input with the RNA contrast kept separate, 1 for A/B primer-state interpretations, 2 for both maintenance trajectories with the defined cytosine fraction, and 1 for the six litter proportions and .75 versus .25 group means. Correct recurrence setup can earn partial credit after an arithmetic error; presence/absence PCR is not a percent-methylation estimate.
+  - **Controls — 4 points (LO3, LO4):** Award 1 for explaining input normalization and IgG background, 1 for the methylated/unmethylated primer references, 1 for the non-CpG conversion and no-template checks, and 1 for a writer-perturbation design with catalytic-dead/rescue and viability comparisons linked to mark/RNA readouts. State what each comparison excludes, not merely its name.
+  - **Uncertainty — 3 points (LO3, LO4, LO12):** Award 1 for explaining why mixed M/U PCR signal or standard bisulfite cannot uniquely quantify 5mC, 1 for why bulk histone enrichments do not prove both marks occupy one allele/nucleosome, and 1 for treating litters rather than sixty offspring as exposure replicates and limiting the synthetic association accordingly.
+  - **Mechanism — 4 points (LO3, LO4, LO11):** Award 1 for C→U→T conversion versus retained methylated C with unchanged nominal amplicon length, 2 for explaining old-strand retention plus maintenance in fnext=f(1+p)/2 and its p=0/p=1/n=0 limits, and 1 for distinguishing a mark–RNA correlation from writer-dependent causal regulation tested by the proposed perturbation.
+  - **Transfer — 3 points (LO12):** Award 1 for mapping gestational exposure to F1 and future F2 germ cells, 1 for selecting unexposed F3 descendants rather than calling F1/F2 transgenerational proof, and 1 for explaining how cross-fostering/standardized diet/genotype comparisons address particular alternatives while leaving gestational exposure or genetic confounding unresolved. Persistence alone is not proof of germline mark-mediated causation.
 <!-- lab-alignment-end -->
-## Pre-Lab Concept Questions {.unnumbered}
-
-*Answer these before starting the investigation — they activate knowledge from the parent chapter.*
-
-1. Define a CpG island and explain why dense unmethylated CpGs in a gene promoter region correlate with active transcription. What molecular property of cytosine changes when a CpG is methylated, and how does that alter transcription-factor or reader-protein binding?
-2. Describe what histone deacetylase (HDAC) inhibitors do to chromatin at a structural level, and predict whether HDAC inhibition would tend to raise or lower expression of genes whose promoters carry the active mark H3K4me3.
-3. Compare H3K4me3 and H3K27me3 with respect to where each tends to deposit, which reader complexes recognize each, and what transcriptional outcome each is associated with. Predict what would happen to a developmental gene that simultaneously carries both marks ("bivalent" chromatin) once one mark is removed.
-
-## Pre-Lab Inquiry Questions {.unnumbered}
-
-*Complete these questions before coming to lab. Use your textbook and additional research to inform your hypotheses.*
-
-1. **Hypothesis Formation**: Based on your understanding of DNA methylation, predict how a gene promoter's methylation status might change in response to a high-sugar diet. Would you expect hypermethylation or hypomethylation? Why?
-
-2. **Experimental Design**: What is the independent variable in an epigenetic diet study? What is the dependent variable? List at least 5 variables that should be controlled to ensure valid results.
-
-3. **Scientific Context**: The Horvath epigenetic clock uses DNA methylation patterns to predict biological age. Why might biological age differ from chronological age? What factors can accelerate epigenetic aging?
-
-4. **Quantitative Reasoning**: If a methylation-sensitive PCR shows a 200 bp band in the untreated sample and a 400 bp band in the bisulphite-treated sample, what does this tell you about the methylation status of the gene?
-
-5. **Real-World Application**: Epigenetic drugs like azacitidine are used to treat certain cancers. How do these drugs work? What are the potential side effects of globally altering epigenetic marks?
 
 ## Lab Context: Chromatin and Epigenetic Mechanisms {.unnumbered}
 
-Epigenetic regulation controls gene expression without altering DNA sequence: DNA methylation (CpG islands; methylation = gene silencing, generally), histone modification (H3K4me3 = activation; H3K27me3 = silencing; H3K9ac = activation), and non-coding RNA (miRNA, siRNA). The lac operon is the classical model for prokaryotic transcription regulation: the lac repressor blocks transcription in the absence of lactose; allolactose (a lactose isomer) binds the repressor and releases it from the operator.
+All numeric observations and sequence/assay cards below are **synthetic teaching evidence**, not patient results or empirical measurements, unless a card explicitly names an official or primary source. No external packet, live lookup, equipment, or software is required.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IV_chromatin_and_epigenetic_mechanisms_alignment_and_rubric_map}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Chromatin and Epigenetic Mechanisms: genomics/database source card: reference release, sample coverage, version, clinical boundary, and refresh trigger | 1 |
-| MS-PCR gel image (printed: two lanes per sample, bisulphite-treated/untreated) | 1 |
-| ChIP-seq track printout (H3K4me3 signal at BRCA1 promoter: tumor vs normal) | 1 |
-| Lac operon gene-expression logic table (worksheet) | 1 per student |
-| "Agouti mouse" case study reading (1 page) | 1 per student |
-| Colored pens | 3 |
-| Calculator or optional Python REPL with this project installed | 1 |
-| Epigenetic age calculator worksheet | 1 |
+Print this complete activity; use pencil, ruler, graph paper, and calculator. Work in pairs but record independent conclusions.
+
+## Printed Evidence Packet {.unnumbered}
+
+### Bisulfite and ChIP cards {.unnumbered}
+
+Synthetic same-locus assays: cytosine in an unmethylated CpG converts to U, then PCR reads T; 5mC remains C. Original top-strand segment 5′-ACGCGT-3′; unmethylated product ATGTGT; fully methylated product ACGCGT. Identical flanking primers retain the same nominal 200 bp amplicon length; methylation-specific primer sets M/U distinguish converted sequence, not 200-versus-400 bp size. Non-CpG conversion-control C must convert.
+
+: Bisulfite and ChIP cards {#tbl:unit_IV_chromatin_and_epigenetic_mechanisms_alignment_and_rubric_map}
+| Sample/control | M-specific 200 bp | U-specific 200 bp | Non-CpG conversion |
+| --- | --- | --- | --- |
+| Fully methylated reference | Present | Absent | Pass |
+| Unmethylated reference | Absent | Present | Pass |
+| Sample A, 3 independent cultures | Present in 3/3 | Absent in 3/3 | Pass |
+| Sample B, 3 independent cultures | Present in 3/3 | Present in 3/3 | Pass |
+| No-template controls | Absent | Absent | Not applicable |
+
+ChIP qPCR at one developmental promoter: three independent cultures per state, percent input H3K4me3/H3K27me3/IgG. State 1: 8,9,10 / 1,1,1 / 0.2,0.2,0.2; state 2: 1,1,1 / 7,8,9 / 0.2,0.2,0.2. Matched RNA means 20 and 2 arbitrary units. Presence/absence MS-PCR is qualitative, not a reliable percent-methylation measurement.
+
+### Maintenance and exposure cards {.unnumbered}
+
+: Cytosine dilution and exposure design {#tbl:unit_IV_chromatin_and_epigenetic_mechanisms_source_governance_checkpoint}
+| Card | Supplied evidence |
+| --- | --- |
+| Dilution model | fnext=f(1+p)/2; f=methylated eligible cytosine fraction; p=maintenance efficiency; no de novo methylation or active removal |
+| Initial condition | f0=0.8,p=0.9; calculate generations0–2 |
+| Complete block | f0=0.9,p=0; calculate generations0–3 |
+| Maternal diet model | F0 pregnant dam receives diet+ or matched control; F1 Avy genotype held fixed |
+| Diet+ litters | Brown-coat offspring16/20,14/20,15/20 in three independent litters |
+| Control litters | Brown-coat offspring5/20,6/20,4/20 in three independent litters |
+| Exposure map | Gestational F0 exposure directly reaches F1 fetus and F1 germ cells (future F2) |
+| Proposed follow-up | Cross-foster, standardize postnatal diet, genotype and measure unexposed F3 descendants across pedigrees |
+
+Each count represents one independent litter of 20 synthetic offspring; offspring share maternal conditions. This illustrates association and is not a recovered published dataset.
 
 ## Paper-Based Investigation {.unnumbered}
 
-### Part 1: Epigenetic Data Analysis {.unnumbered}
+1. Infer methylation states from primer controls and explain why bisulfite conversion does not double same-primer product length.
+2. Compare ChIP means with IgG, associate marks with RNA, and propose a causal perturbation with matched controls.
+3. Calculate both maintenance trajectories; explain p=0,p=1,n=0 limits and specify the observable.
+4. Calculate litter proportions and group means, map direct exposure and identify the first unexposed generation.
 
-1. **Formulate Your Hypothesis**: Based on your pre-lab research, write a hypothesis about how a specific environmental factor (diet, stress, toxins) might affect DNA methylation patterns at a particular gene.
+## Data Recording {.unnumbered}
 
-2. **Identify Variables**:
-   - Independent variable: Environmental exposure (e.g., high-fat diet, pollutant)
-   - Dependent variable: DNA methylation level at specific CpG sites
-   - Controlled variables: Age, sex, genetic background, sample processing, etc.
-
-3. **Set Up Controls**: Why is it important to include both treated and untreated control samples in epigenetic studies? What other controls could you include to validate your results?
-
-4. **Data Collection**:
-   - Interpret the MS-PCR gel: determine which gene is methylated in cancer vs normal cells.
-   - Analyze the ChIP-seq track: compare H3K4me3 peak height at the BRCA1 promoter between tumor and normal. Does BRCA1 appear silenced in the tumor?
-   - Complete the lac operon logic table for four conditions.
-   - Read and analyze the agouti mouse case study.
-
-### Part 2: Computational Biology Exercise — Epigenetic Age Prediction with Python {.unnumbered}
-
-*Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
-
-Model maintenance methylation and classify histone marks without external files.
-
-```python
-from biology.genetics import cpg_methylation_remaining, histone_modification_state
-
-for efficiency in (0.95, 0.85, 0.60):
-    remaining = cpg_methylation_remaining(0.8, divisions=4, maintenance_efficiency=efficiency)
-    print(efficiency, round(remaining, 3))
-
-for mark in ("H3K27me3", "H3K27ac", "H3K4me2"):
-    print(mark, histone_modification_state(mark))
-```
-
-### Source-Governance Checkpoint {.unnumbered}
-
-Complete the source-governance card for Chromatin and Epigenetic Mechanisms before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Compare regulatory perturbations and predicted expression outputs.
-- **Data skill to practice:** Interpret chromatin or expression evidence from simple regulatory datasets.
-- **BioSkills emphasis:** Process of science, Science and society, Quantitative reasoning.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+Record each calculation with units, the comparison/control, and one alternative explanation. Show intermediate steps; use a separate column for observed card evidence versus inferred mechanism.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Chromatin and Epigenetic Mechanisms** with a reproducibility pass:
+ChIP enrichment is population-average occupancy; two marks in bulk need not coexist on the same allele/nucleosome. Standard bisulfite cannot distinguish 5mC from 5hmC. A short synthetic model trajectory is not an epigenetic clock or clinical-response predictor. Source card: synthetic cultures/litters; exposure timing, cell composition and conversion efficiency are potential conclusion-changing confounders.
 
-: Source-Governance Checkpoint: Evidence check and Student action. {#tbl:unit_IV_chromatin_and_epigenetic_mechanisms_source_governance_checkpoint}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
+## Analysis Questions {.unnumbered}
 
-Focus note: epigenetic claims require causal perturbation, cell-type specificity, timing, and inheritance controls. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
+Explain which result supports the proposed mechanism, which result would falsify it, and what additional measurement would discriminate the strongest alternative. Apply the mechanism to a new tissue, genotype, or condition without treating synthetic observations as clinical evidence.
+
+> **Concept Check:** Why can simultaneous H3K4me3 and H3K27me3 enrichment in a mixed-cell sample fail to prove bivalency on one allele?
+
+## Instructor Key and Scoring Expectations {.unnumbered}
+
+### Worked Results and Interpretation {.unnumbered}
+
+<!-- SOLUTION
+A is compatible with predominantly methylated templates; B contains both primer-detectable states, but PCR bias prevents exact quantification. Both nominal products are 200 bp: conversion does not double length. ChIP means for state1: H3K4me3=9%, H3K27me3=1%, IgG=0.2%; state2: 1%,8%,0.2%. RNA20→2 correlates with repression but cannot establish causation. Writer depletion with catalytic-dead, rescue and viability controls followed by mark/accessibility/RNA assays tests causality. With f0=.8,p=.9: .8,.76,.722; with f0=.9,p=0: .9,.45,.225,.1125; p=1 preserves f0. Maternal-diet litter proportions .80,.70,.75 versus .25,.30,.20 have group means .75 versus .25. Litters, not the 60 individual offspring, are exposure replicates. F1 and future F2 germ cells are directly exposed during gestation; F3 is first unexposed. Cross-fostering addresses postnatal care, not gestational exposure or genetic confounding. See \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}.
+SOLUTION -->
+
+## Safety and Ethics Notes {.unnumbered}
+
+Required work is paper-only: no cultures, reagents, biological samples, medical decisions, or participant data collection. Optional wet/equipment extensions require institutional protocols and separate approval; they are not needed to complete or score this activity.

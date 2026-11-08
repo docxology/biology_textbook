@@ -20,12 +20,17 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for History and Philosophy of Biology.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO3):** Classify all printed cards by evidence practice and defend an alternative.
+- **Outcome 2 (LO5):** Separate functional language from a causal mechanism for circulation.
+- **Outcome 3 (LO7):** Compare host-only and host-microbe units for the synthetic trial.
+- **Outcome 4 (LO9):** Distinguish a trial result from the value judgement governing access.
+- **Chapter LO coverage:** LO3, LO5, LO7, LO9
+- **Rubric dimensions (12 points total):**
+  - **Evidence — 3 points (LO3, LO7):** Award 2 for classifying H1–H12 with card-specific reasons and plausible alternatives, distinguishing H8's image from its structural model; award 1 for H13's 12/20 and 8/20 proportions and 20-percentage-point difference. A historical name alone is not a justification.
+  - **Controls — 2 points (LO5, LO7):** Award 1 for explaining how H4's ligatures/valve direction discriminate directed recirculation from continued production, rather than treating an anatomical drawing as the same test; award 1 for identifying H13's randomized matched-attention comparison and what it does not control or measure about microbes.
+  - **Uncertainty — 2 points (LO7):** Award 1 for tying H13's small arms, self-report or four-week follow-up to a specific limit on the effect estimate, and 1 for comparing the measured volunteer-level outcome with a proposed host–microbe unit while acknowledging that no microbial composition or function was measured. Do not require an interval calculation not requested in the student task.
+  - **Mechanism — 3 points (LO5):** Award 1 each for H1's functional question, H4's directed-flow explanation supported by ligation/volume evidence, and an explanation of why these levels can complement one another without inventing a cellular mechanism absent from the cards.
+  - **Transfer — 2 points (LO9):** Award 1 for a reasoned larger-trial funding decision that separates empirical benefit from consent/equitable access values, and 1 for a concrete result that would revise that decision. Prescribing a proven microbiome therapy from H13 does not earn the decision point.
 <!-- lab-alignment-end -->
 ## Lab Context: History and Philosophy of Biology {.unnumbered}
 
@@ -39,18 +44,15 @@ This lab is a paper-based source and evidence analysis. You will work with sourc
 
 ## Paper-Based Materials {.unnumbered}
 
-- Printed source-card packet.
-- Evidence-map worksheet.
-- Timeline strip with blank event cards.
-- Concept-boundary worksheet with columns for unit, mechanism, function, model, and value.
-- Explanation-level cards for molecular, developmental, evolutionary, ecological, and social/ethical claims.
+- Printed source cards H1–H12 and synthetic transfer card H13 below.
+- Copy the evidence-map and explanation-level worksheets below; no separate timeline or hidden card set is required.
 - Colored pens or pencils.
 - Sticky notes for uncertainty and value annotations.
 
 - Source-governance card for History and Philosophy of Biology: model-validation source card: boundary, observable, uncertainty, rival explanation, and evidence limit.
 ### Source-card packet {.unnumbered}
 
-The instructor should provide short paraphrased cards or public-domain excerpts representing at least these cases:
+The following are authored teaching paraphrases, not quotations or newly discovered historical records. Their cited works provide provenance; their short summaries delimit what can be inferred without an external lookup. Each card is one source case, not a biological replicate.
 
 : Source-card packet: Card and Practice emphasis. {#tbl:unit_0_history_philosophy_biology_source_card_packet}
 | Card | Practice emphasis | Prompt |
@@ -66,6 +68,27 @@ The instructor should provide short paraphrased cards or public-domain excerpts 
 | Waddington / developmental systems | Development | Why is nature-nurture too coarse? |
 | Microbiome / symbiosis | Biological individuality | Where should the organism boundary be drawn? |
 | Bioethics / public biology | Values and governance | Which decision changes when uncertainty remains? |
+
+**Printed source cards:**
+
+- **H1 — Aristotle:** Comparing animal parts asks how their form contributes to feeding, movement or reproduction. A statement of a part's role is not a demonstrated cellular mechanism \citep{aristotleParts}.
+- **H2 — Ibn Sina:** The Canon organizes bodily conditions, illnesses and remedies into a medical system. Its historical categories should be studied in their own setting, not equated with modern molecular targets \citep{ibnsinaCanon}.
+- **H3 — Linnaeus:** Reusable binomial names and nested classifications make specimen comparisons portable. Shared classification does not itself establish common ancestry \citep{linnaeus1753}.
+- **H4 — Harvey:** Vessel ligatures, valve direction and estimates of pumped blood volume constrain the hypothesis that blood is continually produced and consumed; recirculation explains the observations together \citep{harvey1628}.
+- **H5 — Hooke:** Microscopy reveals repeated compartments in cork. Their visible walls support a structural description, not a demonstration that every observed compartment is a living animal cell \citep{hooke1665}.
+- **H6 — Darwin–Wallace:** Heritable variation and differential survival/reproduction can change populations without intentional design; geographic and comparative traces constrain this historical explanation \citep{darwin1858}.
+- **H7 — Mendel/Fisher:** Cross outcomes support particulate inheritance; population mathematics connects inheritance with variation and selection. A cross alone does not establish every evolutionary process \citep{mendel1866,fisher1930}.
+- **H8 — Franklin/Gosling and Watson/Crick:** X-ray diffraction constrains molecular geometry; a chemically coherent double-helix model integrates structural evidence. Image, model and copying hypothesis are distinct claims \citep{franklin1953,watson1953}.
+- **H9 — Waddington:** Development can be robust to some perturbations while responding to others; a landscape is an explanatory model, not a measured physical topography \citep{waddington1957}.
+- **H10 — Microbiome:** Community profiles describe host-associated microbes; association does not by itself show that one taxon causes a symptom \citep{hmp2012structure}.
+- **H11 — Levins:** Models trade realism, precision and generality; agreement across deliberately different models can be more informative than one elaborate fit \citep{levins1966}.
+- **H12 — Bioethics:** Consent and fair distribution constrain research even when an intervention could provide useful knowledge \citep{beauchamp1979,nuremberg1947}.
+
+**Modern transfer card H13 (synthetic teaching data):** Forty consenting volunteers are randomized, 20 to a diet program and 20 to a matched attention control. At four weeks, 12/20 versus 8/20 report symptom improvement; there are no baseline-adjusted or longer-term results, and no microbiome measurements. Thus risk difference=0.60-0.40=0.20 (20 percentage points), not proof of a microbial mechanism. These counts are invented for reasoning practice, not empirical treatment evidence. Decide whether to fund a larger trial, not whether to prescribe treatment.
+
+**Instructor key:** H1 is primarily functional interpretation; H2/H3 classification; H4 experiment plus quantification; H5 instrument-mediated observation; H6 historical model; H7 experimental inheritance plus mathematical synthesis; H8 observation plus structural model; H9/H11 models; H10 observation; H12 values. Alternative labels earn credit when tied to the actual card. For H4, a flow-through rival requires implausibly large continued production, whereas valve/ligation evidence tests directed return; an unperturbed anatomical drawing is a weaker comparison. For H13, randomization and matched attention are controls, but self-report, n=20 per arm and short duration limit inference. A rough binomial standard error for the risk difference is sqrt(0.6 times 0.4/20 + 0.4 times 0.6/20)=0.155; an approximate 95% interval is -0.104 to 0.504, so the result is imprecise. Funding can be justified by expected value of information, with consent and equitable recruitment; it cannot be justified as proven microbiome therapy. Score the capstone by distinguishing a system boundary, an interaction hypothesis, an inference-model option and an ethical decision; do not require every lens to explain every source.
+
+**Unit/decision benchmark for H13:** The printed outcome is volunteer-level symptom report. A host–microbe explanation additionally needs microbial measurements and a causal comparison; changing the conceptual boundary does not supply those data. Accept a stated funding-revision threshold tied to replicated symptom benefit, safety or lack of benefit, together with consent and equitable recruitment; no unique funding choice is required.
 
 ## Paper-Based Investigation {.unnumbered}
 
@@ -90,7 +113,7 @@ Sort each source card into one primary evidence practice: observation, experimen
 
 ### Part 3 — Compare Two Explanations {.unnumbered}
 
-Choose one pair: Aristotle and a modern mechanistic account; Harvey and descriptive anatomy; Darwin-Wallace selection and a simple survival claim; Mendelian inheritance and DNA-level information transfer; or a biological species concept and a microbial case. Name what each explanation clarifies and what remains unsettled.
+Choose H1 (functional anatomy) and H4 (circulation mechanism). Compare the question each asks and what evidence each supplies; do not invent molecular observations absent from the cards. Explain why function and mechanism can be complementary rather than a simple old-to-new replacement.
 
 ### Part 4 — Check the Explanation Level {.unnumbered}
 
@@ -104,23 +127,26 @@ Choose one claim from the evidence map and rewrite it at two different levels: m
 
 ### Part 5 — Modern Transfer Case {.unnumbered}
 
-Apply the evidence-map checklist to a microbiome health claim, a conservation decision, a genetic-risk claim, or a public-health recommendation involving uncertain evidence.
+Apply the evidence-map checklist to printed H13. Calculate improvement proportions and their percentage-point difference; identify the randomized attention comparison, the unmeasured microbiome mechanism and the funding-versus-prescribing decision. Use the stated sample sizes and follow-up rather than an external health claim.
+Compare a volunteer considered alone with a host–microbe system as the biological unit: which variables would each interpretation require, and which of them were actually measured? State one result from a larger trial that would change your funding decision.
 
 ## Data Tables {.unnumbered}
 
 : Part 5 — Modern Transfer Case: Source card and Evidence practice. {#tbl:unit_0_history_philosophy_biology_part_5_modern_transfer_case}
 | Source card | Evidence practice | Biological unit | Claim | Uncertainty |
 | --- | --- | --- | --- | --- |
-| Aristotle | | | | |
-| Harvey | | | | |
-| Hooke | | | | |
-| Darwin-Wallace | | | | |
-| Mendel | | | | |
-| Franklin / Watson-Crick / Crick | | | | |
-| Waddington / developmental systems | | | | |
-| Microbiome / symbiosis | | | | |
-| Levins | | | | |
-| Bioethics case | | | | |
+| H1 Aristotle | | | | |
+| H2 Ibn Sina | | | | |
+| H3 Linnaeus | | | | |
+| H4 Harvey | | | | |
+| H5 Hooke | | | | |
+| H6 Darwin–Wallace | | | | |
+| H7 Mendel/Fisher | | | | |
+| H8 Franklin/Gosling and Watson/Crick | | | | |
+| H9 Waddington | | | | |
+| H10 Microbiome | | | | |
+| H11 Levins | | | | |
+| H12 Bioethics | | | | |
 
 ### Part 6 — Prelude Capstone Matrix {.unnumbered}
 
@@ -138,7 +164,6 @@ Choose one source card and connect it to the four prelude chapters.
 
 The evidence upgrade for this lab is the source-card audit trail. For every card, record the exact claim, the source practice that made it visible, the comparison that would make it stronger, and the uncertainty or value judgement that should remain in the conclusion.
 
-<!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
 
 - **Primary evidence goal:** Analyze historical source cards and build an evidence map for a disputed biological claim.
@@ -148,11 +173,10 @@ The evidence upgrade for this lab is the source-card audit trail. For every card
 - **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
 - **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
 - **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for History and Philosophy of Biology before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+**Printed governance card H14:** Packet version = authored historical paraphrases plus synthetic H13 counts. Source type varies by card and must be named; no verbatim source quotations are claimed. Historical dates are not current trial-approval dates. Refresh trigger = new historical documentation or a larger preregistered trial. A source's age or reputation does not remove the need to inspect its methods.
 
 ## Analysis Questions {.unnumbered}
 

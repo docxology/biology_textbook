@@ -5,7 +5,7 @@
 
 *This activity accompanies \cref{sec:unit_II_cell_theory} of the textbook — review that chapter before attempting the exercises below.*
 
-- Interpret micrograph packets of prokaryotic and eukaryotic cells
+- Interpret explicitly synthetic diagrams of prokaryotic and eukaryotic cells
 - Apply cell theory to evaluate cases from printed microscopy evidence
 - Measure cell dimensions using scale bars and reference data
 - Compare structural features of prokaryotic and plant/animal eukaryotic cells
@@ -15,18 +15,23 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Cell Theory and Cell Types.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO2):** Classify four schematic cells using resolved features and explicit unknowns.
+- **Outcome 2 (LO6):** Convert scale coordinates to real lengths and distinguish resolution from magnification.
+- **Outcome 3 (LO5):** Calculate spherical area/volume ratios and a diffusion-time scaling.
+- **Outcome 4 (LO1):** Evaluate historical evidence and contamination controls for cell origins.
+- **Chapter LO coverage:** LO1, LO2, LO5, LO6
+- **Rubric dimensions (12 points total):**
+  - **Evidence — 4 points (LO1, LO2, LO5, LO6):** Award 1 for CT1–CT4 feature-based classifications, 1 for coordinate-to-length conversions with the scale ratio shown, 1 for the two spherical A/V values and their 30-fold comparison, and 1 for distinguishing Hooke's cork structure observation from Virchow's cell-descent principle. A historical attribution is not itself a lineage experiment.
+  - **Controls — 2 points (LO1):** In CT7 award 1 for the intact/open-neck comparison separating particle exclusion from access to air, and 1 for explaining how deliberate dust contact tests whether the clear intact flask can support growth. Neither comparison is a test of the first origin of cellular life.
+  - **Uncertainty — 2 points (LO2, LO6):** Award 1 for converting the ±1-unit reading uncertainty and distinguishing it from 0.2 μm optical resolution or magnification; award 1 for keeping unresolved features unknown, including CT6's unspecified wall, rather than using size or shape alone to choose a domain or plant/animal/fungal category.
+  - **Mechanism — 2 points (LO5):** Award 1 for explaining A/V=3/r as exchange area falling relative to volume with increasing spherical radius, and 1 for showing why t≈r²/(6D) gives a 100-fold timescale change for a tenfold radius change at fixed D. State the spherical/constant-D approximations; geometry is not proof that metabolism fails at a particular size.
+  - **Transfer — 2 points (LO1):** For the proposed revision of cell descent, award 1 for time-resolved new-cell evidence with validated detection and contamination controls, and 1 for independent reproduction and a scope argument distinguishing an ongoing descent claim from viruses/prions or a claim about life's first origin. An apparently sterile flask alone is insufficient.
 <!-- lab-alignment-end -->
 ## Pre-Lab Concept Questions {.unnumbered}
 
 *Answer these before starting the investigation — they activate knowledge from the parent chapter.*
 
-1. State the three classical tenets of cell theory in your own words. For each tenet, name one historical figure whose evidence supported it.
+1. State the classical cell-theory claims printed in the context below. Use CT7 to distinguish a structural observation from evidence of cell descent; do not invent a lineage experiment for Hooke or Virchow.
 2. Diffusion-limited transport places an upper bound on cell size for cells that rely on it. Explain in one paragraph why diffusion across a cell scales unfavourably with cell radius, referring to the time–distance relationship for diffusion.
 3. Distinguish prokaryotic and eukaryotic cells on the basis of three observable features. For each feature, indicate whether it would be visible with a standard light microscope at 400× total magnification or whether it requires electron microscopy.
 
@@ -34,51 +39,51 @@
 
 1. Define in one sentence each: **resolution**, **magnification**, **field of view (FOV)**. Note which depends on optics and which on apertures.
 2. Compute the FOV diameter at 400× if the FOV at 40× is 4.5 mm. (Answer: 4.5 mm × 40/400 = 0.45 mm = 450 µm.)
-3. Look up Robert Hooke (1665) and Antoni van Leeuwenhoek (1673). In 2–3 sentences, explain who saw what first and why both contributed to cell theory.
+3. Compare CT7's historical cork-compartment paraphrase with the synthetic cell diagrams CT1–CT4. Distinguish observation of structure from a claim about living-cell behavior; no external historical source card is required.
 4. Predict: at 400× total magnification, how many *Bacillus subtilis* cells (2 µm long) would fit end-to-end across the diameter of the FOV? (Answer: 450 µm / 2 µm ≈ 225 cells.)
 
 ## Lab Context: Cell Theory and Cell Types {.unnumbered}
 
-Cell theory, formalised by Schleiden, Schwann, and Virchow (1838–1855), states that: (1) most living things are composed of cells; (2) the cell is the basic unit of life; and (3) most cells arise from pre-existing cells. Two fundamental cell types exist: **prokaryotes** (Bacteria, Archaea — no nucleus, typically 0.5–5 µm) and **eukaryotes** (Eukarya — membrane-bounded nucleus, 10–100 µm). Light microscopy can resolve features above ~200 nm, allowing clear visualization of cell walls, chloroplasts, and the nucleus, though the electron microscope is needed for ribosomes and membranes.
+Classical cell theory states that organisms are composed of cells, the cell is the basic unit of life, and cells arise from pre-existing cells. These claims describe cellular life and ongoing reproduction, not an experimental account of the first origin of cells. Prokaryotes lack a membrane-bounded nucleus; eukaryotic lineages have one, though some specialized mature cells lose it. Sizes overlap and are not decisive classification criteria. Conventional light-microscope resolution is about 0.2 µm: an outline may locate a boundary without resolving its membrane bilayer. Visibility depends on contrast and preparation, not magnification alone.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_II_cell_theory_alignment_and_rubric_map}
+: Printed materials for synthetic cell diagrams and scale calculations. {#tbl:unit_II_cell_theory_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Cell Theory and Cell Types: cell-atlas or imaging source card: sample, assay, cell-state call, perturbation evidence, and uncertainty | 1 |
-| Micrograph packet: *Bacillus*, onion epidermis, leaf mesophyll, epithelial cell | 1 |
-| Scale-bar worksheet | 1 |
-| Cell-feature evidence cards | 1 set |
-| Historical cell-theory source cards | 1 set |
+| Printed synthetic diagram packet: rod, onion epidermis, mesophyll, epithelial cell | 1 |
+| Scale-coordinate worksheet | 1 |
+| Cell-feature evidence cards, included below | 1 set |
+| Historical cell-theory source cards, included below | 1 set |
 | Ruler (mm) | 1 |
 | Calculator | 1 |
 
 ## Paper-Based Investigation {.unnumbered}
 
-1. **Prokaryote micrograph:** Inspect the *Bacillus* image. Sketch cells; note shape, arrangement, and size relative to the scale bar.
-2. **Plant epidermis micrograph:** Inspect the onion image. Identify cell wall, nucleus where visible, and vacuole evidence.
-3. **Leaf mesophyll micrograph:** Inspect the chloroplast-rich plant-cell image. Identify chloroplasts and explain why this cell type differs from onion epidermis.
-4. **Animal epithelial micrograph:** Inspect the epithelial-cell image. Identify nucleus, plasma membrane boundary, and lack of cell wall.
-5. For each case, record estimated cell diameter, presence/absence of nucleus, cell wall, chloroplasts, and large vacuole. Flag any feature that cannot be resolved from the image.
+1. **Rod diagram:** Inspect card CT1, sketch the boundary and estimate dimensions from its coordinate scale.
+2. **Plant epidermis diagram:** Identify wall, nucleus and vacuole in CT2.
+3. **Mesophyll diagram:** Compare the chloroplast symbols in CT3 with CT2; do not infer absence of an unresolved feature.
+4. **Epithelial diagram:** Identify the nuclear and cell boundaries in CT4 and distinguish schematic information from a measured micrograph.
+5. Record dimensions and features. These are printed model observations, not empirical microscopy.
 
 ### Extension — Microbial Diversity Image Packet {.unnumbered}
 
-6. Use the printed microbial-diversity packet to compare chain-forming cocci and rod-shaped cells. Sketch both and identify the evidence for prokaryotic organization.
-7. Estimate cells per field of view from the annotated image grid, then calculate how the estimate would change under a 1:10 dilution. State one counting assumption that affects reproducibility.
+6. Use CT5's supplied grid to compare chain-forming cocci and rods. Shape alone cannot identify a domain or prove prokaryotic organization.
+7. Count the explicitly numbered cells; use the 1:10 dilution assumption to predict the expected count in an equal-volume field, while noting sampling variation.
 
 ### Part E — Scale Bar Arithmetic {.unnumbered}
 
-8. The instructor will distribute a printed micrograph of a eukaryotic cell with a labeled scale bar of 10 µm. Measure the longest cell diameter with a ruler (mm); convert to true µm using the scale-bar ratio. This is the core arithmetic for every published micrograph: *true size = (measured distance ÷ scale bar length) × scale bar value*.
+8. CT4 supplies a 10 micrometer scale interval of four coordinate units and a cell span of 24 units. Calculate the real diameter using the ratio; resizing the whole diagram preserves this ratio.
 
-9. Using the same formula, estimate the total surface area of a spherical epithelial-cell image (diameter ≈ 60 µm): $A = 4\pi r^2 = 4\pi(30)^2 \approx 1.13 \times 10^4$ µm². Compare with a spherical *Bacillus* (diameter 2 µm, $A \approx 12.6$ µm²). Note the ~1000× difference — which cell has a larger surface-to-volume ratio, and why is that biologically important?
+9. For a synthetic spherical cell of diameter 60 micrometers, A=4pi(30)^2=11,310 micrometer^2 and A/V=0.10 micrometer^-1. Compare with a spherical bacterium of diameter 2 micrometers: A=12.57 and A/V=3.0. A rod-shaped Bacillus is not literally this sphere; state the geometry approximation.
 
 ## Data Recording {.unnumbered}
 
-: Part E — Scale Bar Arithmetic: Case and Cell type (Pro/Euk). {#tbl:unit_II_cell_theory_part_e_scale_bar_arithmetic}
-| Case | Cell type (Pro/Euk) | Approx. diameter (µm) | Nucleus | Cell wall | Chloroplasts | Vacuole |
-| -------- | ------------------- | --------------------- | ------- | --------- | ------------ | ------- |
-| Bacillus | | | | | | |
+: Cell-feature and linear-span worksheet for schematic cards CT1–CT4. {#tbl:unit_II_cell_theory_part_e_scale_bar_arithmetic}
+| Case | Cell type (Pro/Euk) | Linear span (µm; length or diameter stated) | Nucleus | Cell wall | Chloroplasts | Vacuole |
+| -------- | ------------------- | --------------------------------------- | ------- | --------- | ------------ | ------- |
+| CT1 bacterial rod | | | | | | |
 | Onion | | | | | | |
 | Leaf mesophyll | | | | | | |
 | Epithelial image | | | | | | |
@@ -87,7 +92,6 @@ Sketch each cell type in the boxes below:
 
 `[Sketch boxes — label most visible structures]`
 
-<!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
 
 - **Primary evidence goal:** Compare cell types and quantify surface-area limits.
@@ -97,14 +101,13 @@ Sketch each cell type in the boxes below:
 - **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
 - **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
 - **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
 **Cell Theory and Cell Types** with a reproducibility pass:
 
-: Part E — Scale Bar Arithmetic: Evidence check and Student action. {#tbl:unit_II_cell_theory_part_e_scale_bar_arithmetic_2}
+: Evidence and reproducibility decisions for cell classification and scale. {#tbl:unit_II_cell_theory_part_e_scale_bar_arithmetic_2}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -135,19 +138,34 @@ For r = 150 μm (10× larger):
 
 Diffusion time scales with r², so a 10× increase in radius produces a 100× increase in characteristic diffusion time.
 
-**Interpretation:** A small metabolite crosses a 15 μm cell in tens of milliseconds — fast enough that simple diffusion suffices to homogenise concentrations during ordinary metabolism. At 150 μm the same molecule takes several seconds, which is comparable to or longer than many reaction time scales. This r² scaling is one quantitative reason cells tend to be small, and one reason large cells (oocytes, neurons, plant fibers) adopt strategies such as cytoplasmic streaming, internal compartments, or extreme shape changes (e.g. axonal projections) rather than simple size scaling.
+**Interpretation:** The stipulated random-walk estimate is about 38 ms for a 15 µm radius and 3.75 s for 150 µm. It is a characteristic displacement timescale, not an exact membrane-to-center first-passage time or proof of concentration homogenization. Sufficiency for metabolism additionally depends on reaction rates, crowding and transport geometry.
 
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Cell Theory and Cell Types before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+**Printed packet CT — synthetic teaching diagrams, not published micrographs or measured cells.** Symbols N=nucleus, V=vacuole, C=chloroplast, dots=unresolved internal texture; no color coding. Coordinate dimensions below define the printed scale independent of page resizing. Three model cells per type are supplied to display a range, not biological replication.
+
+```text
+CT1 rod      [....]          no resolved N; wall stated on feature card
+CT2 onion    | N  [ V ] |    rigid outer rectangle; no C symbols
+CT3 leaf     | C N[V] C |    wall and multiple C symbols
+CT4 animal   (    N    )     flexible boundary; no stated wall
+```
+
+CT1 spans 4,5,6 coordinate units with scale 10 units=5 micrometers: lengths 2,2.5,3 micrometers. CT2 spans 20,22,24 with scale 4 units=10 micrometers: lengths 50,55,60. CT3 spans 12,14,16 on the same scale: 30,35,40. CT4 spans 20,24,28: 50,60,70. Endpoint-reading uncertainty is plus/minus 1 coordinate unit; this becomes plus/minus 0.5 micrometers for CT1 and 2.5 for the others. This is not optical resolution. A conventional light-microscopy comparison card gives resolution 0.2 micrometers; it cannot establish a 7 nm bilayer or ribosome from an unresolved dot.
+
+**CT5 diversity/count card:** Grid has three fields: F1 cocci chain IDs C1–C10, F2 C11–C20, F3 rod IDs R1–R10; each ID denotes one cell. Count=30 in the pooled sampled area; a uniform tenfold dilution predicts mean 3 in equal area, not a guaranteed count of exactly 3. CT6 pond cell has N and motile projections but no stated wall; this supports a eukaryote, not a unique plant/animal/fungal assignment. CT2 starch annotation is explicitly negative; lack of green chloroplasts does not exclude nonphotosynthetic plastids, and a positive iodine granule would require separate localization evidence.
+
+**Historical paraphrase cards CT7:** Hooke described cork compartments made visible by microscopy \citep{hooke1665}; this is structural observation, not a live-cell lineage experiment. Virchow articulated descent of cells from cells \citep{virchow1855}; a principle is not identical to one controlled experiment. For a synthetic contamination-control scenario, three sterile-broth flasks with intact particle-trapping necks remain clear; three open-neck flasks grow microbes; three intact flasks deliberately contacted with trapped dust also grow. This invented outcome set illustrates why access to air and access to particles are different controls; it is not a transcription of Pasteur's measurements.
+
+**Instructor key:** CT1 is a stated bacterial rod model; CT2/CT3 plant, CT4 animal epithelial model. A typical CT2/CT1 length comparison is 55/2.5=22, with a 50/3 to 60/2 range if unpaired extremes are used. Spherical A/V differs 30-fold in the 60 versus 2 micrometer comparison. CT5 predicts expectation 3 after dilution under uniform sampling. A cell arising in an apparently sterile system requires validated detection limits, contamination controls, time-resolved lineage evidence and independent reproduction before revising cell-descent claims. Governance: authored schematic packet CT, no empirical atlas accession or image license applies; revise classifications if molecular markers or better-resolution evidence conflict.
 
 ## Analysis Questions {.unnumbered}
 
 1. How does the size of *Bacillus* compare to the onion epidermal cell? Express as a ratio. What structural feature allows eukaryotic cells to be so much larger (hint: internal compartmentalization)?
-2. The onion image packet includes a starch-localization annotation. What molecule was detected? Which organelle does this implicate, and why is this unexpected in onion cells that are not green?
+2. Interpret CT2's negative starch annotation. Why does an epidermal cell lacking green chloroplasts not establish that every cell in an onion bulb lacks plastids?
 3. Both onion and leaf mesophyll cells are plant cells, but mesophyll cells have abundant chloroplasts and onion epidermal cells typically do not. Explain using cell theory and differential gene expression.
-4. A printed pond-water image shows cells with a nucleus but without a cell wall. Is this organism a plant, animal, or fungus? What additional image feature or molecular marker would narrow the identification?
+4. CT6 states a nucleus and motile projections but does not state whether a wall is present. Which broad classification is supported, which plant/animal/fungal assignments remain unresolved, and what additional feature or marker would narrow identification?
 5. Devise a paper-based study using time-series image cards to test whether temperature affects the rate of cytoplasmic streaming. Identify your independent, dependent, and controlled variables.
 
 
@@ -162,12 +180,12 @@ Complete the source-governance card for Cell Theory and Cell Types before writin
 ## Extension Analysis Questions {.unnumbered}
 
 6. Hooke's 1665 *Micrographia* described "cells" in cork — but what he saw were primarily the **walls** of dead plant cells, not living matter. Why does this still count as the founding observation of cell theory? How does it illustrate the difference between **observing** a cell and **understanding** it?
-7. Mitochondria and chloroplasts have their own DNA, 70S ribosomes (like bacteria, not the 80S eukaryotic ribosomes in cytoplasm), and divide independently. Connect these facts to the **endosymbiotic theory** (Margulis, 1967) — why is maternal inheritance of mitochondrial DNA in humans a direct prediction of this theory?
-8. A single mammalian cell contains about 10⁷ proteins. Given a cell volume of 1000 µm³, compute the approximate bulk protein concentration (mass/volume). Discuss why "macromolecular crowding" (~30% by volume) changes effective reaction kinetics relative to dilute test-tube conditions.
+7. Explain how molecular phylogenies and retained bacterial-derived organelle systems support endosymbiosis. Mammalian mitoribosomes are about 55S and fission uses DRP1; neither 70S nor FtsZ is universal. Maternal inheritance in humans additionally requires gamete/embryo transmission mechanisms and is not a necessary consequence of endosymbiosis alone.
+8. For a synthetic cell containing 1e7 protein molecules of mean mass 50 kDa in 1000 micrometer^3, calculate concentration using 1 Da=1.66054e-24 g and 1000 micrometer^3=1e-9 mL. Key: mass=8.30e-13 g, concentration=0.830 mg/mL; this is far below a typical crowded cytoplasm, so these counts do not establish 30% occupancy.
 
 ## Optional Microscopy Extension {.unnumbered}
 
-Prepared slides or classroom microscopy may be used as an optional extension. Do not collect human cells or prepare wet mounts for the required activity; the micrograph packet supplies most evidence needed for the lab.
+Prepared slides or classroom microscopy may be used as an optional extension. Do not collect human cells or prepare wet mounts for the required activity; the printed synthetic diagram packet supplies all required observational inputs.
 
 ## Safety and Ethics Notes {.unnumbered}
 

@@ -1,34 +1,51 @@
 """Tests for evolution, ecology, physiology, biochemistry modules."""
 
 import math
+
 import pytest
 
-# ---- Evolution ----
-from biology.evolution import (
-    Population, simulate_selection, simulate_drift,
-    fitness_landscape_1d, isolation_index, molecular_clock_divergence_time,
-    wright_fisher_drift,
+# ---- Biochemistry ----
+from biology.biochemistry import (
+    GLYCOLYSIS_STEPS,
+    atp_free_energy,
+    competitive_inhibition,
+    enzyme_rate_curve,
+    glycolysis_summary,
+    michaelis_menten,
+    reaction_free_energy,
 )
 
 # ---- Ecology ----
 from biology.ecology import (
-    exponential_growth, logistic_growth, allee_strong_growth, lotka_volterra,
-    food_web_trophic_levels, connectance, biodiversity_indices, BIOMES,
+    BIOMES,
+    allee_strong_growth,
+    biodiversity_indices,
+    connectance,
+    exponential_growth,
+    food_web_trophic_levels,
+    logistic_growth,
+    lotka_volterra,
+)
+
+# ---- Evolution ----
+from biology.evolution import (
+    Population,
+    fitness_landscape_1d,
+    isolation_index,
+    molecular_clock_divergence_time,
+    simulate_drift,
+    simulate_selection,
+    wright_fisher_drift,
 )
 
 # ---- Physiology ----
 from biology.physiology import (
-    poiseuille_flow, oxygen_saturation, oxygen_dissociation_curve,
-    homeostasis_response, ORGAN_SYSTEMS,
+    ORGAN_SYSTEMS,
+    homeostasis_response,
+    oxygen_dissociation_curve,
+    oxygen_saturation,
+    poiseuille_flow,
 )
-
-# ---- Biochemistry ----
-from biology.biochemistry import (
-    michaelis_menten, competitive_inhibition, enzyme_rate_curve,
-    reaction_free_energy, atp_free_energy, glycolysis_summary,
-    GLYCOLYSIS_STEPS,
-)
-
 
 # ===========================================================================
 # EVOLUTION TESTS
@@ -91,7 +108,7 @@ class TestEvolutionaryModels:
         assert isolation_index(gene_flow_rate=0.0, mutation_rate=1e-5) == 1.0
 
     def test_isolation_index_dominant_flow(self):
-        # High gene flow → near zero isolation
+        # Mutation share is zero; this heuristic is not reproductive isolation.
         idx = isolation_index(gene_flow_rate=1.0, mutation_rate=0.0)
         assert idx == 0.0
 

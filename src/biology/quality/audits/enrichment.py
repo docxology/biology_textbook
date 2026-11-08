@@ -6,23 +6,23 @@ import hashlib
 import re
 from pathlib import Path
 
-
 from biology.maintenance.manuscript_walker import (
     configured_chapter_files,
     configured_chapter_title_by_path,
     iter_prose_lines,
 )
 from biology.quality import paths
-from biology.quality.models import Finding
 from biology.quality.audits.helpers import (
-    add_line_findings,
     _companion_source_module_body,
     _first_occurrence_line,
     _paper_evidence_upgrade_body,
+    add_line_findings,
 )
+from biology.quality.models import Finding
 from biology.quality.patterns import (
     FRONTIER_BOILERPLATE_PATTERNS,
 )
+
 
 def audit_embedded_enrichment(findings: list[Finding]) -> None:
     """Ensure the current embedded enrichment pass stays present."""

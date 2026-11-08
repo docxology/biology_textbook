@@ -7,11 +7,9 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass
-from typing import Optional
-
-from textbook_logging import get_logger
 
 from biology.constants import FARADAY_CONSTANT, GAS_CONSTANT
+from textbook_logging import get_logger
 
 logger = get_logger(__name__)
 
@@ -81,7 +79,9 @@ ORGANELLES: list[Organelle] = [
         "Cell Wall", True, True, False, False, "Structural support; cellulose in plants, peptidoglycan in bacteria"
     ),
     Organelle("Plasma Membrane", True, True, True, False, "Selective permeability; phospholipid bilayer"),
-    Organelle("Centriole", False, False, True, True, "Organizes mitotic spindle"),
+    # OpenStax Biology 2e §4.3, centrosome: nine microtubule triplets, not a membrane.
+    # https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells
+    Organelle("Centriole", False, False, True, False, "Non-membranous microtubule barrel; organizes spindle"),
     Organelle("Peroxisome", False, True, True, True, "Oxidative reactions; fatty acid β-oxidation"),
 ]
 
@@ -144,15 +144,15 @@ def nernst_potential(
     Raises:
         ValueError: If concentrations are non-positive or temperature ≤ 0.
     """
-    if temperature_K <= 0:
-        raise ValueError(f"temperature_K must be positive, got {temperature_K}")
-    if ion.inside_mM <= 0 or ion.outside_mM <= 0:
-        raise ValueError("Ion concentrations must be positive (non-zero).")
-    if ion.charge == 0:
-        raise ValueError("Ion charge must be non-zero.")
+    if not math.isfinite(temperature_K) or temperature_K <= 0:
+        raise ValueError("temperature_K must be finite and positive.")
+    if any(not math.isfinite(c) or c <= 0 for c in (ion.inside_mM, ion.outside_mM)):
+        raise ValueError("Ion concentrations must be finite and positive.")
+    if not math.isfinite(ion.charge) or ion.charge == 0:
+        raise ValueError("Ion charge must be finite and non-zero.")
 
-    ratio = ion.outside_mM / ion.inside_mM
-    E_V = (GAS_CONSTANT * temperature_K) / (ion.charge * FARADAY_CONSTANT) * math.log(ratio)
+    log_ratio = math.log(ion.outside_mM) - math.log(ion.inside_mM)
+    E_V = (GAS_CONSTANT * temperature_K / FARADAY_CONSTANT / ion.charge) * log_ratio
     E_mV = E_V * 1000.0
     logger.debug(f"Nernst potential for {ion.ion}: {E_mV:.2f} mV")
     return E_mV
@@ -185,25 +185,32 @@ def goldman_equation(
     """
     if len(ions) != len(permeabilities):
         raise ValueError("ions and permeabilities must have equal length.")
-    if temperature_K <= 0:
-        raise ValueError("temperature_K must be positive.")
+    if not math.isfinite(temperature_K) or temperature_K <= 0:
+        raise ValueError("temperature_K must be finite and positive.")
 
-    numerator = 0.0
-    denominator = 0.0
+    numerator_logs: list[float] = []
+    denominator_logs: list[float] = []
     for ion, P in zip(ions, permeabilities):
-        if P < 0:
-            raise ValueError(f"Permeability for {ion.ion} must be non-negative.")
-        if ion.charge > 0:  # cation
-            numerator += P * ion.outside_mM
-            denominator += P * ion.inside_mM
-        else:  # anion
-            numerator += P * ion.inside_mM
-            denominator += P * ion.outside_mM
-
-    if denominator == 0:
-        raise ValueError("Goldman equation denominator is zero; check concentrations.")
-
-    V_m = (GAS_CONSTANT * temperature_K / FARADAY_CONSTANT) * math.log(numerator / denominator)
+        if ion.charge not in (-1, 1):
+            raise ValueError("Simplified Goldman equation supports only charges -1 and +1.")
+        if not math.isfinite(P) or P < 0:
+            raise ValueError("Permeabilities must be finite and non-negative.")
+        if any(not math.isfinite(c) or c < 0 for c in (ion.inside_mM, ion.outside_mM)):
+            raise ValueError("Ion concentrations must be finite and non-negative.")
+        top, bottom = ((ion.outside_mM, ion.inside_mM) if ion.charge == 1
+                       else (ion.inside_mM, ion.outside_mM))
+        if P > 0:
+            if top > 0:
+                numerator_logs.append(math.log(P) + math.log(top))
+            if bottom > 0:
+                denominator_logs.append(math.log(P) + math.log(bottom))
+    if not numerator_logs or not denominator_logs:
+        raise ValueError("Goldman numerator and denominator must both be positive.")
+    # Log-sum-exp preserves the quotient without overflowing P*concentration.
+    top_max, bottom_max = max(numerator_logs), max(denominator_logs)
+    log_top = top_max + math.log(math.fsum(math.exp(x - top_max) for x in numerator_logs))
+    log_bottom = bottom_max + math.log(math.fsum(math.exp(x - bottom_max) for x in denominator_logs))
+    V_m = (GAS_CONSTANT * temperature_K / FARADAY_CONSTANT) * (log_top - log_bottom)
     V_mV = V_m * 1000.0
     logger.debug(f"Goldman membrane potential: {V_mV:.2f} mV")
     return V_mV
@@ -234,12 +241,12 @@ def osmotic_pressure(
     Raises:
         ValueError: If concentration or temperature is non-positive.
     """
-    if solute_concentration_M <= 0:
-        raise ValueError("solute_concentration_M must be positive.")
-    if temperature_K <= 0:
-        raise ValueError("temperature_K must be positive.")
-    if solute_count < 1:
-        raise ValueError("solute_count (van 't Hoff factor) must be ≥ 1.")
+    if not math.isfinite(solute_concentration_M) or solute_concentration_M <= 0:
+        raise ValueError("solute_concentration_M must be finite and positive.")
+    if not math.isfinite(temperature_K) or temperature_K <= 0:
+        raise ValueError("temperature_K must be finite and positive.")
+    if not math.isfinite(solute_count) or solute_count < 1:
+        raise ValueError("solute_count (van 't Hoff factor) must be finite and ≥ 1.")
 
     # Convert M → mol/m³: 1 M = 1000 mol/m³
     C_m3 = solute_concentration_M * 1000.0
@@ -269,8 +276,10 @@ def diffusion_flux(
     Raises:
         ValueError: If diffusion_coefficient is non-positive.
     """
-    if diffusion_coefficient_m2s <= 0:
-        raise ValueError("diffusion_coefficient_m2s must be positive.")
+    if not math.isfinite(diffusion_coefficient_m2s) or diffusion_coefficient_m2s <= 0:
+        raise ValueError("diffusion_coefficient_m2s must be finite and positive.")
+    if not math.isfinite(concentration_gradient_mol_m4):
+        raise ValueError("concentration gradient must be finite.")
     flux = -diffusion_coefficient_m2s * concentration_gradient_mol_m4
     logger.debug(f"Diffusion flux: {flux:.4e} mol m⁻² s⁻¹")
     return flux
@@ -289,15 +298,15 @@ PHYSIOLOGICAL_IONS: list[IonConcentration] = [
 
 
 def _nernst_input_error(ion: IonConcentration) -> str | None:
-    if ion.inside_mM <= 0 or ion.outside_mM <= 0:
-        return "ion concentrations must be positive"
-    if ion.charge == 0:
-        return "ion charge must be non-zero"
+    if any(not math.isfinite(c) or c <= 0 for c in (ion.inside_mM, ion.outside_mM)):
+        return "ion concentrations must be finite and positive"
+    if not math.isfinite(ion.charge) or ion.charge == 0:
+        return "ion charge must be finite and non-zero"
     return None
 
 
 def compute_all_nernst_potentials(
-    ions: Optional[list[IonConcentration]] = None,
+    ions: list[IonConcentration] | None = None,
     temperature_K: float = 310.0,
 ) -> dict[str, float]:
     """Compute Nernst potentials for a list of ions.
@@ -311,8 +320,8 @@ def compute_all_nernst_potentials(
     """
     if ions is None:
         ions = PHYSIOLOGICAL_IONS
-    if temperature_K <= 0:
-        raise ValueError(f"temperature_K must be positive, got {temperature_K}")
+    if not math.isfinite(temperature_K) or temperature_K <= 0:
+        raise ValueError("temperature_K must be finite and positive.")
     result = {}
     for ion in ions:
         error = _nernst_input_error(ion)
@@ -346,9 +355,12 @@ def receptor_occupancy(
     Raises:
         ValueError: If ligand_concentration is negative or kd is non-positive.
     """
-    if ligand_concentration < 0 or kd <= 0:
-        raise ValueError("Ligand concentration must be non-negative and Kd must be positive.")
-    return ligand_concentration / (ligand_concentration + kd)
+    if not math.isfinite(ligand_concentration) or not math.isfinite(kd) or ligand_concentration < 0 or kd <= 0:
+        raise ValueError("Ligand concentration must be finite/non-negative and Kd finite/positive.")
+    if ligand_concentration <= kd:
+        ratio = ligand_concentration / kd
+        return ratio / (1.0 + ratio)
+    return 1.0 / (1.0 + kd / ligand_concentration)
 
 
 def hill_equation(
@@ -356,29 +368,35 @@ def hill_equation(
     kd: float,
     hill_coefficient: float,
 ) -> float:
-    """Calculate fractional occupancy with cooperative binding (Hill equation).
+    """Evaluate a phenomenological Hill fractional-occupancy model.
 
-    θ = [L]ⁿ / (Kdⁿ + [L]ⁿ)
+    θ = [L]ⁿ / (K_halfⁿ + [L]ⁿ), where ``kd`` supplies K_half.
 
     Args:
         ligand_concentration: Free ligand concentration.
-        kd: Dissociation constant (same units as ligand_concentration).
+        kd: Half-occupancy concentration (same units as ligand_concentration).
+            It is not generally a microscopic dissociation constant; the simple
+            one-site binding interpretation applies when hill_coefficient is 1.
         hill_coefficient: Hill coefficient (n).
 
     Returns:
         Fractional occupancy (0.0 to 1.0).
 
     Raises:
-        ValueError: If ligand_concentration is negative or kd is non-positive.
+        ValueError: If inputs are non-finite, ligand_concentration is negative,
+            or kd or hill_coefficient is non-positive.
     """
-    if ligand_concentration < 0 or kd <= 0:
-        raise ValueError("Ligand concentration must be non-negative and Kd must be positive.")
+    if not math.isfinite(ligand_concentration) or not math.isfinite(kd) or ligand_concentration < 0 or kd <= 0:
+        raise ValueError("Ligand concentration must be finite/non-negative and Kd finite/positive.")
+    if not math.isfinite(hill_coefficient) or hill_coefficient <= 0:
+        raise ValueError("hill_coefficient must be finite and positive.")
     if ligand_concentration == 0:
         return 0.0
-
-    l_n = math.pow(ligand_concentration, hill_coefficient)
-    k_n = math.pow(kd, hill_coefficient)
-    return l_n / (k_n + l_n)
+    log_ratio = hill_coefficient * (math.log(ligand_concentration) - math.log(kd))
+    if log_ratio >= 0:
+        return 1.0 / (1.0 + math.exp(-log_ratio))
+    ratio = math.exp(log_ratio)
+    return ratio / (1.0 + ratio)
 
 
 def signal_amplification(amplification_steps: list[float]) -> float:
@@ -399,17 +417,18 @@ def signal_amplification(amplification_steps: list[float]) -> float:
 
 
 # ---------------------------------------------------------------------------
-# Organelle Size Reference Data (typical diameters in micrometres)
+# Organelle Size Reference Data (representative linear dimensions in micrometres)
 # ---------------------------------------------------------------------------
 
 
 @dataclass(frozen=True)
 class OrganelleSize:
-    """Reference diameter for a cellular structure.
+    """Representative linear dimension for a cellular structure.
 
-    Sizes are typical diameters cited in standard cell-biology references for
-    a mammalian cell context. The figure axis is logarithmic so values are
-    only used as order-of-magnitude landmarks, not precise measurements.
+    Rows span macromolecular structures, organelles, and whole cells from
+    multiple taxa. Values are diameters unless the name specifies length;
+    ``diameter_um`` stores either dimension as an order-of-magnitude landmark,
+    not a precise measurement or a universal size for that structure.
     """
 
     name: str
@@ -436,7 +455,7 @@ def organelle_size_table() -> tuple[OrganelleSize, ...]:
     """Return the canonical organelle-size reference table.
 
     Returns:
-        Tuple of ``OrganelleSize`` rows sorted in increasing diameter so the
+        Tuple of ``OrganelleSize`` rows sorted in increasing linear dimension so the
         log-scale figure renders monotonically.
     """
     return tuple(sorted(ORGANELLE_SIZES, key=lambda row: row.diameter_um))

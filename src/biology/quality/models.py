@@ -1,5 +1,5 @@
 """Data models for textbook quality auditing."""
 
-from biology.maintenance.models import Finding, ManuscriptSurface, PROJECT
+from biology.maintenance.models import PROJECT, Finding, ManuscriptSurface
 
-__all__ = ["Finding", "ManuscriptSurface", "PROJECT"]
+__all__ = ["PROJECT", "Finding", "ManuscriptSurface"]

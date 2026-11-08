@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import os
-from pathlib import Path
 import sys
+from pathlib import Path
 
 # Force headless backend for matplotlib in tests — MUST be before any import of matplotlib
 os.environ.setdefault("MPLBACKEND", "Agg")
@@ -16,7 +16,7 @@ os.environ.setdefault("COVERAGE_RCFILE", str(ROOT / "pyproject.toml"))
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from textbook_paths import ensure_project_paths  # noqa: E402
+from textbook_paths import ensure_project_paths
 
 ensure_project_paths(include_scripts=True)
 

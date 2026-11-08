@@ -3,10 +3,9 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Optional
 
-import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
 import numpy as np
 
 from visualization._scaffold import (
@@ -25,7 +24,7 @@ from visualization._scaffold import (
 
 def plot_nernst_potentials(
     output_dir: Path,
-    ions: Optional[list] = None,
+    ions: list | None = None,
 ) -> Path:
     """Bar chart of Nernst equilibrium potentials for physiological ions.
 
@@ -169,8 +168,8 @@ def plot_ghk_permeability(
 
     ions = [
         IonConcentration(ion="K+", charge=1, inside_mM=140.0, outside_mM=5.0),
-        IonConcentration(ion="Na+", charge=1, inside_mM=15.0, outside_mM=145.0),
-        IonConcentration(ion="Cl-", charge=-1, inside_mM=10.0, outside_mM=110.0),
+        IonConcentration(ion="Na+", charge=1, inside_mM=12.0, outside_mM=145.0),
+        IonConcentration(ion="Cl-", charge=-1, inside_mM=4.0, outside_mM=110.0),
     ]
     p_na_ratios = np.logspace(-2.0, 0.2, 120)
     p_cl_values = [0.15, 0.45, 0.90]
@@ -179,7 +178,7 @@ def plot_ghk_permeability(
     styles = [("-", SERIES3[0]), ("--", SERIES3[1]), ("-.", SERIES3[2])]
     for p_cl, (linestyle, color) in zip(p_cl_values, styles):
         potentials = [
-            goldman_equation(ions, [1.0, float(p_na), p_cl])
+            goldman_equation(ions, [1.0, float(p_na), p_cl], temperature_K=310.0)
             for p_na in p_na_ratios
         ]
         ax.plot(
@@ -191,12 +190,19 @@ def plot_ghk_permeability(
             label=f"PCl/PK = {p_cl:g}",
         )
 
-    ax.axhline(-70, color=GRAY, linestyle=":", linewidth=1.1, alpha=0.85, label="typical resting Vm")
-    ax.axvline(0.04, color=ORANGE, linestyle=":", linewidth=1.1, alpha=0.85, label="resting PNa/PK")
+    reference_vm = goldman_equation(ions, [1.0, 0.04, 0.45], temperature_K=310.0)
+    ax.axhline(
+        reference_vm, color=GRAY, linestyle=":", linewidth=1.1, alpha=0.85,
+        label=f"Reference model: {reference_vm:.1f} mV",
+    )
+    ax.axvline(
+        0.04, color=ORANGE, linestyle=":", linewidth=1.1, alpha=0.85,
+        label="Reference PNa/PK = 0.04",
+    )
     ax.set_xscale("log")
     ax.set_xlabel("Relative sodium permeability, PNa / PK", fontsize=13)
     ax.set_ylabel("GHK membrane potential Vm (mV)", fontsize=13)
-    ax.set_title("Goldman-Hodgkin-Katz Permeability Sensitivity", fontsize=15)
+    ax.set_title("GHK Permeability Sensitivity (Selected Model, 310 K)", fontsize=15)
     ax.legend(fontsize=10, frameon=False)
     ax.tick_params(labelsize=11)
     fig.tight_layout()
@@ -206,22 +212,22 @@ def plot_ghk_permeability(
 def plot_hill_equation(
     output_dir: Path,
 ) -> Path:
-    """Plot Hill-equation receptor occupancy for several cooperativity values."""
+    """Plot stipulated Hill occupancy curves at a common half-response."""
     from biology.cell import hill_equation
 
     ligand = np.logspace(-1, 2, 120)
-    kd = 10.0
+    half_saturation = 10.0
     fig, ax = plt.subplots(figsize=(9, 5))
     for n, color, linestyle in zip((1, 2, 4), SERIES3, ("-", "--", "-.")):
-        occupancy = [hill_equation(float(conc), kd, float(n)) for conc in ligand]
-        label = "Michaelis-Menten (n=1)" if n == 1 else f"Hill n = {n}"
+        occupancy = [hill_equation(float(conc), half_saturation, float(n)) for conc in ligand]
+        label = "n = 1 (hyperbola)" if n == 1 else f"Hill n = {n}"
         ax.plot(ligand, occupancy, color=color, linewidth=2.2, linestyle=linestyle, label=label)
     ax.axhline(0.5, color=GRAY, linestyle=":", linewidth=1.0, alpha=0.75)
-    ax.axvline(kd, color=ORANGE, linestyle=":", linewidth=1.0, alpha=0.75, label=f"Kd = {kd:g}")
+    ax.axvline(half_saturation, color=ORANGE, linestyle=":", linewidth=1.0, alpha=0.75, label=f"Half occupancy = {half_saturation:g}")
     ax.set_xscale("log")
-    ax.set_xlabel("Ligand concentration (arbitrary units)", fontsize=13)
+    ax.set_xlabel("Free ligand concentration (arbitrary units)", fontsize=13)
     ax.set_ylabel("Fractional receptor occupancy", fontsize=13)
-    ax.set_title("Hill Equation — Cooperative Binding", fontsize=15)
+    ax.set_title("Phenomenological Hill Occupancy", fontsize=15)
     ax.set_ylim(0, 1.05)
     ax.legend(fontsize=10, frameon=False)
     ax.tick_params(labelsize=11)
@@ -256,10 +262,10 @@ def plot_osmotic_pressure(
 def plot_organelle_size_scale(output_dir: Path) -> Path:
     """Log-scale horizontal bars for canonical organelle and cell sizes.
 
-    The plot uses a logarithmic diameter axis so a ribosome (25 nm) and a
-    plant cell (50 um) coexist in the same panel. Categories share colors:
-    macromolecular complexes, organelles, prokaryotic cells, eukaryotic
-    cells.
+    The plot uses a logarithmic linear-dimension axis so a ribosome (25 nm)
+    and a plant cell (50 um) coexist in the same panel. Row labels identify
+    lengths where appropriate. Categories share colors: macromolecular
+    complexes, organelles, prokaryotic cells, eukaryotic cells; no virus is plotted.
 
     Args:
         output_dir: Directory to save PNG.
@@ -271,7 +277,7 @@ def plot_organelle_size_scale(output_dir: Path) -> Path:
 
     rows = list(organelle_size_table())
     names = [row.name for row in rows]
-    diameters = np.array([row.diameter_um for row in rows])
+    dimensions = np.array([row.diameter_um for row in rows])
 
     palette = {
         "macromolecular": SERIES3[0],
@@ -283,11 +289,11 @@ def plot_organelle_size_scale(output_dir: Path) -> Path:
 
     fig, ax = plt.subplots(figsize=(10, 6))
     y_positions = np.arange(len(rows))
-    ax.barh(y_positions, diameters, color=colors, edgecolor="black", linewidth=0.6)
+    ax.barh(y_positions, dimensions, color=colors, edgecolor="black", linewidth=0.6)
     ax.set_yticks(y_positions)
     ax.set_yticklabels(names, fontsize=10)
     ax.set_xscale("log")
-    ax.set_xlabel("Diameter (micrometres, log scale)", fontsize=13)
+    ax.set_xlabel("Characteristic linear dimension (micrometres, log scale)", fontsize=13)
     ax.set_title("Cellular Structures on a Logarithmic Size Scale", fontsize=14)
     ax.tick_params(labelsize=10)
     ax.grid(True, which="both", axis="x", color="#dddddd", linewidth=0.6, alpha=0.7)

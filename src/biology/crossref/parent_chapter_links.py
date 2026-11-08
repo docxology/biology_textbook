@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 
@@ -28,7 +29,10 @@ def insert_parent_chapter_cref(text: str, path: Path) -> str | None:
     lines = text.splitlines()
     label_marker = "\\label{sec:"
     for index, line in enumerate(lines):
-        if not line.strip().startswith(label_marker):
+        if not (
+            line.strip().startswith(label_marker)
+            or re.match(r"^# [^\n]*\{[^}]*#sec:(?:lab_|q_)", line)
+        ):
             continue
         insert_at = index + 1
         while insert_at < len(lines) and (

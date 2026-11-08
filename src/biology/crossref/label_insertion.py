@@ -295,8 +295,8 @@ def apply_crossref_labels(
 
 __all__ = [
     "CONFIG_PATH",
-    "ChapterInfo",
     "MANUSCRIPT_ROOT",
+    "ChapterInfo",
     "RewriteReport",
     "apply_crossref_labels",
     "build_ref_map",

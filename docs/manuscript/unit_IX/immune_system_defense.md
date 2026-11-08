@@ -405,7 +405,7 @@ After antigen clearance, ~95% of effector T and B cells die by apoptosis (contra
 | **Activation threshold** | High (needs 24–48 h priming, full co-stimulation) | Low (rapid proliferation on re-encounter) |
 | **Effector repertoire** | Naïve, must differentiate | Pre-armed; rapid cytokine production / class-switched antibody |
 | **Tissue distribution** | Recirculate through 2° lymphoid organs | T$_{CM}$ recirculate; T$_{EM}$/T$_{RM}$ patrol peripheral and barrier tissues |
-| **Homeostatic maintenance** | None | Tonic IL-7 + IL-15; long lifespan (decades for some clones) |
+| **Homeostatic maintenance** | Tonic self-peptide–MHC and IL-7 support naïve T-cell survival | IL-7 and subset-dependent IL-15 support memory T cells; long lifespan for some clones |
 
 The signaling determinants of effector vs memory differentiation include:
 
@@ -525,15 +525,15 @@ flowchart LR
 *Immune checkpoint blockade Normal T cells use CTLA-4 and PD-1 as brakes to prevent over-activation. Tumors exploit PD-L1 to suppress local T cells. Anti-PD-1 antibodies (pembrolizumab) and anti-CTLA-4 antibodies (ipilimumab) block these interactions, releasing the immune brake on antitumour T cells.*
 
 : Immune checkpoint inhibitors — PD-1/PD-L1 and CTLA-4 biology: Drug and Target. {#tbl:unit_IX_immune_system_defense_immune_checkpoint_inhibitors_pd_1_pd_l1_and_ctla_4_biology}
-| Drug | Target | Approved indications | Approx. response rate |
-| ---- | ------ | -------------------- | --------------------- |
-| **Ipilimumab** | CTLA-4 | Melanoma, RCC (combined with nivolumab) | ~10–15% monotherapy, ~50% with anti-PD-1 |
-| **Nivolumab, pembrolizumab** | PD-1 | Melanoma, NSCLC, RCC, head/neck, Hodgkin, MMR-deficient cancers | ~20–40% across indications |
-| **Atezolizumab, durvalumab** | PD-L1 | NSCLC, urothelial, TNBC | ~15–30% |
-| **Relatlimab** | LAG-3 | Melanoma (combined with nivolumab) | Combination effect; LAG-3 alone modest |
-| **Tislelizumab, cemiplimab** | PD-1 | NSCLC, cutaneous SCC | Variable |
+| Drug examples | Target | Clinical interpretation and status boundary |
+| --- | --- | --- |
+| Ipilimumab | CTLA-4 | Melanoma is an example; eligibility and combinations are product/indication-specific. |
+| Nivolumab, pembrolizumab | PD-1 | Distinct products and cancer-specific labels, not interchangeable pan-cancer efficacy. |
+| Atezolizumab, durvalumab | PD-L1 | Their earlier urothelial accelerated approvals were withdrawn; atezolizumab’s TNBC indication was withdrawn October 6, 2021. Do not infer current approval for either disease from target class. |
+| Relatlimab with nivolumab | LAG-3 plus PD-1 | A combination product, not evidence for relatlimab monotherapy. |
+| Tislelizumab, cemiplimab | PD-1 | Each has its own tumor, stage, biomarker, and prior-treatment restrictions. |
 
-The 2018 Nobel Prize in Physiology or Medicine was awarded to James Allison (CTLA-4) and Tasuku Honjo (PD-1) for the discoveries underlying this field. Response rates vary widely by tumor type, biomarker status, line of therapy, and combination regimen; the table's approximate ranges are orientation values, not patient-level predictions. A key qualitative pattern remains **durable remissions** in some responders (the "tail of the curve"). Side effects: **immune-related adverse events (irAEs)** — colitis, pneumonitis, hypophysitis, thyroiditis, hepatitis, dermatitis — reflecting the breaking of self-tolerance. Management: corticosteroids; if severe, infliximab (anti-TNF) for colitis.
+The 2018 Nobel Prize in Physiology or Medicine was awarded to James Allison (CTLA-4) and Tasuku Honjo (PD-1) for the discoveries underlying this field. Response rates vary widely by tumor type, biomarker status, line of therapy, and combination regimen; no common response-rate range can be assigned to this target-class table. FDA’s withdrawn accelerated-approval record, reviewed November 7, 2026, distinguishes product–indication withdrawals from withdrawal of an entire target class \citep{fda2026withdrawncancer}. A key qualitative pattern remains **durable remissions** in some responders (the "tail of the curve"). Side effects: **immune-related adverse events (irAEs)** — colitis, pneumonitis, hypophysitis, thyroiditis, hepatitis, dermatitis — reflecting the breaking of self-tolerance. Management: corticosteroids; if severe, infliximab (anti-TNF) for colitis.
 
 #### CAR-T cell therapy — design and clinical outcomes
 
@@ -547,13 +547,15 @@ The 2018 Nobel Prize in Physiology or Medicine was awarded to James Allison (CTL
 Modified T cells are expanded in vitro and infused back into the patient. The CAR-T cells recognize the surface antigen (e.g., CD19 on B-cell malignancies) **without MHC restriction**, which enables recognition of MHC-low tumors that escape conventional T cells.
 
 : CAR-T cell therapy — design and clinical outcomes: Product and Target. {#tbl:unit_IX_immune_system_defense_car_t_cell_therapy_design_and_clinical_outcomes}
-| Product | Target | Approved indication | Co-stim | Remission rate |
-| ------- | ------ | ------------------- | ------- | --------------- |
-| **Tisagenlecleucel (Kymriah)** | CD19 | Pediatric/young adult B-cell acute lymphoblastic leukaemia | 4-1BB | ~80% at 3 months |
-| **Axicabtagene ciloleucel (Yescarta)** | CD19 | DLBCL (3rd line+, then earlier) | CD28 | ~50–60% complete response |
-| **Brexucabtagene autoleucel (Tecartus)** | CD19 | Mantle cell lymphoma; B-cell acute lymphoblastic leukaemia | CD28 | ~67% in MCL |
-| **Idecabtagene vicleucel (Abecma)** | BCMA | Multiple myeloma | 4-1BB | ~30% complete response |
-| **Ciltacabtagene autoleucel (Carvykti)** | BCMA | Multiple myeloma | 4-1BB | ~80% overall response |
+| Product example | Target | Costimulation | Evidence boundary |
+| --- | --- | --- | --- |
+| Tisagenlecleucel (Kymriah) | CD19 | 4-1BB | Product-specific B-cell malignancy indications; age and prior-treatment restrictions apply. |
+| Axicabtagene ciloleucel (Yescarta) | CD19 | CD28 | Product-specific lymphoma indications and treatment-line restrictions. |
+| Brexucabtagene autoleucel (Tecartus) | CD19 | CD28 | Product-specific MCL and B-ALL indications, with distinct eligible populations. |
+| Idecabtagene vicleucel (Abecma) | BCMA | 4-1BB | Multiple-myeloma indication with product-specific prior-treatment requirements. |
+| Ciltacabtagene autoleucel (Carvykti) | BCMA | 4-1BB | Multiple-myeloma indication; not interchangeable with Abecma eligibility. |
+
+These are illustrative names on the FDA approved cellular/gene-therapy roster, reviewed November 7, 2026 \citep{fda2026cellulargeneproducts}. The roster establishes product approval, not a common remission probability. A numerical efficacy comparison needs a named trial cohort, evaluable denominator, endpoint (overall versus complete response), and follow-up window; none is inferred from this roster.
 
 **Toxicity:**
 
@@ -574,12 +576,12 @@ Modified T cells are expanded in vitro and infused back into the patient. The CA
 
 > **Concept Check 9:** A patient with hereditary angioedema has frequent episodes of facial/laryngeal swelling. Genetic testing reveals a C1-INH (C1-inhibitor) deficiency. Why does deficiency of this complement regulator cause swelling — and why is the swelling primarily mediated by **bradykinin** rather than complement-derived anaphylatoxins?
 
-> **Concept Check 10 (Analyze) — Complement cascade, MAC, and capsule resistance.** The classical pathway proceeds C1q (antibody-antigen) $\rightarrow$ C4b2a (C3 convertase) $\rightarrow$ C3b deposition + C5 convertase (C4b2a3b) $\rightarrow$ C5b–9 (MAC) — a 10 nm transmembrane pore that lyses the target. The alternative pathway loops back through factor B and properdin to amplify C3b deposition on any surface lacking host regulators. (a) Trace the molecular requirements for MAC formation on a Gram-negative bacterial surface and identify the single most rate-limiting step (C3b deposition density on the surface). (b) *Neisseria meningitidis* has a polysaccharide capsule but is famously vulnerable to MAC-mediated lysis — explaining why C5–C9 complement deficiencies present as recurrent meningococcal infection. *Klebsiella pneumoniae*, also encapsulated, *resists* MAC by binding host factor H to its capsule, accelerating C3 convertase decay locally. Analyze (i) what biochemical feature of the *Klebsiella* capsule allows factor H recruitment, (ii) why *Neisseria* lacks this property, and (iii) why repeated meningococcal disease in young adults should trigger a complement-component screen (CH50, AH50) rather than an immunoglobulin work-up.
+> **Concept Check 10 (Analyze) — Complement evasion.** Trace C3 activation, C3b deposition, C5 cleavage, and C5b–9 assembly. Madico and colleagues showed that meningococcal fHbp recruits human factor H; deleting fHbp reduced factor-H binding and increased complement-mediated killing \citep{madico2006factorh}. Predict wild-type, deletion, and complemented-strain outcomes in active versus heat-inactivated serum. Explain why terminal-complement deficiency still increases meningococcal risk despite bacterial evasion, and why a capsule alone does not determine serum susceptibility.
 
-> **Concept Check 11 (Evaluate) — Checkpoint inhibitors, response heterogeneity, and rational combinations.** Anti-PD-1 (pembrolizumab, nivolumab) blocks the PD-1/PD-L1 brake on T-cell exhaustion and produces durable remissions in approximately 20–40% of patients across many solid tumors. Anti-CTLA-4 (ipilimumab) acts earlier, at T-cell priming, with stronger autoimmune toxicity. (a) Evaluate why monotherapy fails the *majority* of patients despite high target expression, drawing on at least three biological factors (low tumor mutational burden; loss of MHC-I presentation; T-cell exhaustion irreversibility; immunosuppressive tumor microenvironment). (b) Propose three biomarkers — tumor mutational burden (TMB), PD-L1 immunohistochemistry score, and tumor-infiltrating lymphocyte (TIL) density — and rank them by predictive power per available evidence; identify which biomarker has the strongest mechanistic justification and which is the most commercially deployed. (c) Evaluate two combination strategies expected to convert non-responders into responders: anti-CTLA-4 + anti-PD-1 (broader brake release) and anti-VEGF + anti-PD-1 (normalizing tumor vasculature so T cells can infiltrate). For each combination, identify the most likely mechanism of synergy, the principal toxicity risk, and one tumor type where the combination is now standard of care.
+> **Concept Check 11 (Evaluate) — Checkpoint response heterogeneity.** Compare PD-1/PD-L1 and CTLA-4 pathway perturbation without assuming a class-wide remission percentage or toxicity ranking. Explain how antigenicity, presentation, infiltration and suppressive context can affect response. For a specified tumor, agent, line of therapy and endpoint, design a comparison of monotherapy with a mechanism-linked combination, including response/survival and immune-toxicity outcomes. TMB, PD-L1 and TIL assays require cohort-specific predictive validation; the supplied mechanisms alone cannot rank them or establish that a proposed combination converts nonresponders.
 
 
-> **Concept Check 10:** Why do anti-IL-17 (secukinumab) and anti-IL-23 (risankizumab) biologics treat psoriasis but exacerbate Crohn's disease in some patients? Connect your answer to the dual role of Th17 in barrier defense and pathological inflammation.
+> **Concept Check 12:** Distinguish IL-17 blockade (e.g., secukinumab), which can worsen or unmask inflammatory bowel disease, from IL-23 blockade: risankizumab is indicated for adults with moderately to severely active Crohn’s disease \citep{fda2026risankizumab}. Explain why disrupting a barrier effector cytokine and disrupting an upstream inflammatory-maintenance pathway need not have the same clinical effect; pathway diagrams alone do not establish efficacy or safety.
 
 ---
 

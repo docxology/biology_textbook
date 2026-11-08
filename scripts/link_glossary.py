@@ -10,7 +10,7 @@ from _bootstrap import ensure_project_paths
 
 ensure_project_paths(include_scripts=True)
 
-from biology.maintenance.glossary_links import run_glossary_sync  # noqa: E402
+from biology.maintenance.glossary_links import run_glossary_sync
 
 
 def run(argv: list[str] | None = None) -> int:

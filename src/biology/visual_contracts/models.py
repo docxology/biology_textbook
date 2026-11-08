@@ -16,7 +16,7 @@ _MERMAID_RE = re.compile(
 )
 _ITALIC_CAPTION_RE = re.compile(r"^\s*\*(?!\*)(?P<caption>[^*\n].{6,}[^*\s])\*\s*$")
 _STYLE_COLOR_RE = re.compile(
-    r"(?:^|\s)(?:style|classDef)\s+[^;\n]*(?P<props>fill:#[0-9A-Fa-f]{6}[^;\n]*|stroke:#[0-9A-Fa-f]{6}[^;\n]*)"
+    r"(?:^|\s)(?:style|classDef)\s+\S+\s+(?P<props>[^;\n]*)"
 )
 _HEX_RE = re.compile(r"(?P<key>fill|stroke):(?P<hex>#[0-9A-Fa-f]{6})")
 
@@ -71,8 +71,6 @@ class Finding:
 
 
 __all__ = [
-    "Finding",
-    "VisualRecord",
     "_ALT_RE",
     "_CAPTION_RE",
     "_HEX_RE",
@@ -83,4 +81,6 @@ __all__ = [
     "_MERMAID_RE",
     "_STOPWORDS",
     "_STYLE_COLOR_RE",
+    "Finding",
+    "VisualRecord",
 ]

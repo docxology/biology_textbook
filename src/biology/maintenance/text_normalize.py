@@ -18,9 +18,6 @@ MERMAID_BLOCK_RE = re.compile(
 )
 ALT_LINE_RE = re.compile(r"^\s*<!--\s*alt:\s*(?P<body>.*?)\s*-->\s*$", re.IGNORECASE)
 ITALIC_CAPTION_RE = re.compile(r"^\s*\*(?P<body>[^*\n].{6,}[^*\s])\*\s*$")
-BOLD_CAPTION_RE = re.compile(
-    r"^\s*\*\*(?P<title>[^*\n]{3,90})\*\*[:.]?\s*(?P<body>.{10,})\s*$"
-)
 HEADING_RE = re.compile(r"^\s{0,3}#{1,6}\s+(?P<title>.+?)\s*(?:\{#.*?\})?\s*$", re.MULTILINE)
 MARKDOWN_LINK_RE = re.compile(r"\[([^\]]+)\]\([^)]+\)")
 SQUARE_LABEL_RE = re.compile(r"\[\s*\"?(?P<label>[^\"\]\n][^\]\n]{2,110})\"?\s*\]")
@@ -77,11 +74,9 @@ class TextResult:
 
 def _manuscript_markdown_files() -> list[Path]:
     """Return manuscript markdown files that can contain renderable diagrams."""
-    return [
-        p
-        for p in sorted(MANUSCRIPT.rglob("*.md"))
-        if p.name not in {"AGENTS.md", "README.md"}
-    ]
+    from biology.maintenance.manuscript_walker import manuscript_markdown_files
+
+    return manuscript_markdown_files(MANUSCRIPT, project_root=PROJECT)
 
 
 def _diagram_kind(source: str) -> str:
@@ -254,7 +249,7 @@ def _alt_from_caption(caption: str, source: str, text_before: str) -> str:
 
 
 def _read_immediate_metadata(text_after: str) -> MermaidMetadata:
-    """Read blank lines, alt comments, and italic captions immediately after a fence."""
+    """Read one italic caption, never claiming the following authored paragraph."""
     alts: list[str] = []
     captions: list[str] = []
     consumed = 0
@@ -265,19 +260,14 @@ def _read_immediate_metadata(text_after: str) -> MermaidMetadata:
         if stripped == "":
             consumed += len(line)
             continue
+        if captions:
+            break
         if alt_match:
             alts.append(alt_match.group("body").strip())
             consumed += len(line)
             continue
         if caption_match:
             captions.append(caption_match.group("body").strip())
-            consumed += len(line)
-            continue
-        bold_caption_match = BOLD_CAPTION_RE.match(line)
-        if bold_caption_match:
-            title = bold_caption_match.group("title").strip().rstrip(".")
-            body = bold_caption_match.group("body").strip()
-            captions.append(f"{title}. {body}")
             consumed += len(line)
             continue
         break
@@ -332,9 +322,7 @@ def normalize_text(source_text: str) -> TextResult:
 
 def normalize_all(*, manuscript: Path, write: bool) -> list[FileResult]:
     """Normalize all Mermaid blocks under ``manuscript``."""
-    files = [
-        path
-        for path in sorted(manuscript.rglob("*.md"))
-        if path.name not in {"AGENTS.md", "README.md"}
-    ]
+    from biology.maintenance.manuscript_walker import manuscript_markdown_files
+
+    files = manuscript_markdown_files(manuscript)
     return [normalize_file(path, write=write) for path in files]

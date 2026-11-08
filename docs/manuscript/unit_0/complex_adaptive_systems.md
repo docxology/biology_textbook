@@ -50,9 +50,9 @@ By the end of this chapter, students will be able to:
 
 ## Opening Vignette: From Sandpiles to the Santa Fe Institute
 
-In 1987, physicist Per Bak placed grains of sand one-by-one onto a pile and discovered a startling regularity: the pile spontaneously organized itself to a "critical" state where avalanches across a wide size range obeyed a power law — many small, few large, with no characteristic scale. He called this **self-organized criticality** \citep{bak1987} and argued it was a signature of complex adaptive systems throughout nature, from earthquakes to extinction cascades to neural firing patterns (*Physical Review Letters*, 1987).
+In 1987, Per Bak, Chao Tang and Kurt Wiesenfeld introduced a computational model of self-organized criticality \citep{bak1987}. Local redistribution rules generated avalanches on a lattice; the result was not a report of Bak physically dropping sand. The model proposed how slow driving and threshold relaxation could generate broad event-size distributions.
 
-That same year, the Santa Fe Institute was founded in New Mexico with an audacious charter: to study complex systems across disciplinary boundaries. Economists (W. Brian Arthur), biologists (Stuart Kauffman \citep{kauffman1993}), computer scientists (John Holland \citep{holland1992}), and physicists (Murray Gell-Mann) worked shoulder-to-shoulder, discovering that the same mathematics — agent-based models, fitness landscapes, power-law distributions — described stock markets, immune systems, and ecosystems alike.
+The Santa Fe Institute, [founded in 1984](https://web-prod.santafe.edu/news-center/news/murray-gell-mann-passes-away-89), became a meeting place for interdisciplinary complex-systems research. Agent-based models, fitness landscapes and nonlinear dynamics supplied shared tools, but using the same mathematics in two domains does not establish identical biological mechanisms.
 
 The central biological insight: the immune system does not have a commander. The brain does not have a central processor. An ant colony does not have a foreman. In each case, simple agents following local rules generate intelligent collective behavior — **emergence** without design. This chapter explores how that principle operates from the molecular to the planetary scale, equipping you with tools (fitness landscapes, attractor analysis, power-law diagnostics, agent-based simulation, bifurcation theory) you will use throughout the rest of the textbook.
 
@@ -184,7 +184,7 @@ graph TD
 
 *Phase-space landscape with separate attractor basins for health and disease states, linked by trajectories and a high barrier between basins.*
 
-> **Concept Check 2:** Both cancer cells and healthy cells inhabit a [**gene**](#gl:gene)-expression phase space with multiple attractors (proliferative, quiescent, senescent, apoptotic). Many targeted therapies try to push malignant cells out of the proliferative basin. Why does this often fail — what does the landscape analogy predict about recurrence when the basin barrier is lower than the therapy's "kick" amplitude? Propose a CAS-aware rationale for drug *combinations* rather than single agents.
+> **Concept Check 2:** A therapy too weak to cross the barrier out of a malignant basin can permit recurrence after treatment stops. If a perturbation crosses the barrier, why might recurrence still occur through surviving subpopulations or a changing landscape? Propose a combination-treatment comparison that discriminates these hypotheses; the analogy alone is not clinical evidence.
 
 ---
 
@@ -196,7 +196,7 @@ A **phase transition** is a qualitative change in system behavior at a critical 
 - **The lac [**operon**](#gl:operon)** — bistable switch with two stable attractors (ON and OFF) separated by an unstable threshold.
 - **The immune system** — a subclinical infection (low pathogen load) may persist or be cleared; above a threshold, an acute inflammatory response is triggered.
 - **Ecosystems** — beyond a critical level of nutrient loading, a clear lake can collapse into a eutrophic state — an ecological phase transition.
-- **Cytoplasm condensation** — at high macromolecular crowding the cytoplasm transitions from liquid-like to glass-like, drastically slowing diffusion. Stress granules and P-bodies are physiological liquid-liquid phase separations.
+- **Cytoplasm condensation** — at high macromolecular crowding the cytoplasm transitions from liquid-like to glass-like, drastically slowing diffusion. Some P-bodies and stress granules show liquid-like properties, but their material state depends on organism and conditions \citep{kroschwald2015granules}.
 
 ### The Ising Picture of Cell-Fate Switching
 
@@ -232,7 +232,7 @@ The hypothesis of **self-organized criticality** (Bak, Tang & Wiesenfeld, 1987 \
 ### Worked Example: Scaling in Power-Law Distributions
 
 **Problem:**
-Neuronal avalanche sizes (the number of [**neuron**](#gl:neuron)s firing synchronously in a cascade) in cortical slices have been empirically shown to follow a power law probability distribution $P(x) = C x^{-\alpha}$, where the scaling exponent $\alpha \approx 1.5$. If a small avalanche involving $x = 10$ neurons occurs with a probability of $0.05$ (5%), what is the probability of a massive avalanche involving $x = 100$ neurons?
+In an illustrative scaling regime restricted to avalanche sizes $x\geq10$, equal-width size bins have relative frequencies proportional to $x^{-1.5}$ and the bin at $x=10$ contains 5% of events. What frequency does this predict for the equal-width bin at $x=100$? Do not extrapolate to $x=1$ or claim a normalized distribution over all positive integers.
 
 **Solution:**
 
@@ -267,7 +267,7 @@ P(100) = P(10) \times 0.0316 = 0.05 \times 0.0316 \approx 0.00158
 \label{eq:unit_0_complex_adaptive_systems_item_5}
 \end{equation}
 
-A neuronal avalanche involving 100 neurons occurs with a probability of approximately **0.16%**. Because power-law distributions possess a "fat tail" relative to Gaussian distributions, extreme outlier events (massive avalanches) remain statistically probable, illustrating how a CAS poised near criticality can periodically undergo massive, system-wide state changes.
+The illustrative bin at 100 has frequency approximately **0.16%**, a ratio of 0.0316 to the bin at 10. Normalization, cutoffs, bin widths and alternative heavy-tailed models must be specified before interpreting this as an empirical probability law or evidence of criticality.
 
 > **Connection (clinical) — epileptic seizures as critical events.** Cortical recordings near seizure onset show increasing mutual information between regions and rising statistical signatures of approach to a critical bifurcation. This is consistent with the brain operating just below a critical line, with seizures representing excursions across it. Closed-loop responsive neurostimulation devices (e.g. NeuroPace) detect these pre-critical signatures and deliver counter-stimulation to keep the system in the subcritical basin.
 
@@ -456,9 +456,9 @@ graph TD
     Pop -.->|"Downward Causation\n(Selection pressure)"| Org
     Org -.->|"Downward Causation\n(Metabolic constraints)"| Cell
 ```
-<!-- alt: Graph showing cell, organ, and population levels linked by upward emergence and downward causation through selection pressure and metabolic constraints. -->
+<!-- alt: Graph showing cell, organism, and population levels linked by upward emergence and downward causation through selection pressure and metabolic constraints. -->
 
-*Cell, organ, and population levels linked by upward emergence and downward causation through selection pressure and metabolic constraints.*
+*Cell, organism, and population levels linked by upward emergence and downward causation through selection pressure and metabolic constraints.*
 
 ### Agent-Based Models Across Biological Scales
 

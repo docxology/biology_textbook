@@ -19,7 +19,6 @@ from pathlib import Path
 import pytest
 import yaml
 
-
 PROJECT = Path(__file__).resolve().parent.parent
 MODULE_PATH = PROJECT / "src" / "biology" / "chapter_metadata.py"
 

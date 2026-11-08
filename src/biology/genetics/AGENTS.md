@@ -12,7 +12,7 @@ Genetics logic is split by topic; the package facade is `biology.genetics` and t
 | `linkage.py` | Recombination maps | `genetic_distance`, `infer_three_point_order` |
 | `distance.py` | Sequence divergence | `hamming_distance`, `jukes_cantor_distance` |
 | `epigenetics.py` | Chromatin teaching helpers | `cpg_methylation_remaining`, `synthetic_methylation_beta_matrix` |
-| `mutation.py` | Mutation-rate spectrum | `mutation_rate_spectrum`, `MUTATION_RATE_SPECTRUM` |
+| `mutation.py` | Heterogeneous, unsorted mutation evidence | `mutation_rate_spectrum`, `MutationRateEvidence`, `MUTATION_RATE_EVIDENCE` |
 | `replication.py` | Fork kinematics | `replication_fork_progression` |
 | `genetics.py` | Shim re-exporting all public symbols for legacy `biology.genetics.genetics.*` paths | — |
 

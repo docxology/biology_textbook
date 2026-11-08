@@ -51,13 +51,12 @@
 > complete cycle — the **Calvin-Benson-Bassham cycle** — was published in 1954, and Calvin
 > received the Nobel Prize in Chemistry alone in 1961.
 >
-> The cycle's key [**enzyme**](#gl:enzyme), **RuBisCO** (ribulose-1,5-bisphosphate carboxylase/oxygenase), is
-> arguably the most important enzyme on Earth: it is responsible for fixing approximately
-> 10¹¹ tonnes of atmospheric carbon per year, feeding essentially most non-chemotrophic life.
-> It is also probably the most abundant [**protein**](#gl:protein) on Earth (approximately 0.7 kg per person on the
-> planet's surface, an estimated 7 × 10⁸ tonnes total), and notably one of the slowest enzymes
-> known, with a kcat of about 3–10 s⁻¹. Improving RuBisCO efficiency is one of the holy grails
-> of agricultural biotechnology.
+> The cycle's key [**enzyme**](#gl:enzyme), **RuBisCO** (ribulose-1,5-bisphosphate carboxylase/oxygenase),
+> fixes CO$_2$ and also catalyzes the competing oxygenation reaction. Bar-On and Milo estimated
+> a global Rubisco mass of about **0.7 Gt** from a synthesis of biological inventories \citep{baron2019rubisco}.
+> This is not 0.7 kg per person, nor a direct census of every molecule. Laboratory maximal catalytic
+> rates and globally averaged activity have different denominators and conditions; improving an
+> enzyme in an assay does not by itself establish improved crop yield.
 >
 > *Primary source: Calvin, M. & Benson, A. A. (1948). The path of carbon in photosynthesis. Science, 107(2784), 476–480.*
 
@@ -126,13 +125,13 @@ The **minimum quantum requirement** (1/Φ) is therefore ~8–10 photons per O$_2
 **Quantum efficiency (energy basis):**
 
 \begin{equation}
-\eta_{\text{quantum}} = \frac{n_{\text{electrons}} \cdot \Delta E_{\text{redox}}}{n_{\text{photons}} \cdot E_{\text{photon}}}
+\eta_{\text{quantum}} = \frac{n_{\text{electrons}} F |\Delta E_{\text{redox}}|}{n_{\text{photons}} E_{\text{photon,molar}}}
 \label{eq:unit_III_quantum_efficiency}
 \end{equation}
 
-For the Z-scheme: 4 electrons span 1.14 V from H$_2$O to NADPH, requiring ~440 kJ/mol of electron flow. With 8 photons of 680 nm light supplying ~1,408 kJ/mol, the redox efficiency is ~31% — the rest is consumed by overpotentials and dissipated as heat.
+Here $F$ is the Faraday constant and $E_{\text{photon,molar}}=N_Ahc/\lambda$ is photon energy per mole of photons; the counts specify electron and photon stoichiometry per reaction. For four electrons spanning an uphill 1.14 V from water to NADP$^+$, the redox free-energy cost is about 440 kJ/mol O$_2$. Eight 680 nm photons supply about 1,408 kJ/mol O$_2$, giving a redox-energy fraction near 31%. This fraction excludes energy retained in proton-motive force/ATP, so its complement cannot all be called heat. The eight-photon count follows the natural two-photosystem architecture, not a claim that a single red photon's energy is below 1.14 eV.
 
-**Comparison with engineered photovoltaics.** A commercial single-junction silicon solar cell at 22% efficiency converts solar irradiance into electricity that must then power *something* — and the chain from electricity → stored chemical fuel adds losses. Plants, by contrast, deliver a stored fuel (sugar) directly. The artificial-photosynthesis discussion returns to this comparison; \cref{eq:unit_III_quantum_efficiency} sets the upper biological bound.
+**Comparison with engineered photovoltaics.** A commercial single-junction silicon solar cell at 22% efficiency converts solar irradiance into electricity; subsequent conversion to stored chemical fuel adds losses. Plants deliver stored chemical products directly, but the incident-light, absorbed-light and stored-energy denominators must still be distinguished. The artificial-photosynthesis discussion returns to this comparison; \cref{eq:unit_III_quantum_efficiency} defines only the stated redox-energy fraction, not a universal solar-to-biomass bound.
 
 ### Antenna Complexes and Light-Harvesting Architecture
 
@@ -148,7 +147,7 @@ Each reaction center in plants is served by a peripheral antenna of **light-harv
 | LHCI (PS I antenna) | ~3.5 | Light harvesting for P700 |
 | Reaction centers (P680, P700) | Most Chl a | Charge separation chromophores |
 
-The Chl a:b ratio of an entire leaf typically ranges from ~2.5 (sun-adapted) to ~3.5 (shade-adapted leaves invest more in Chl b–rich LHCII to broaden the absorbed spectrum). Chl b's broader 450 nm/640 nm absorption is critical for harvesting green-shifted light filtered through canopy chlorophyll above.
+Sun-acclimated leaves often have a higher chlorophyll a:b ratio (illustratively ~3.5) than shade-acclimated leaves (~2.5), which invest relatively more in chlorophyll-b-rich peripheral antennae. These are variable acclimation patterns, not universal constants; green photons penetrate leaves and contribute to canopy photosynthesis.
 
 **Carotenoid functions:**
 
@@ -216,7 +215,7 @@ Each S-state transition involves one photon absorption and one electron extracti
 **D1 protein damage:** P680$^+$ is the strongest biological oxidant ($E^{\circ\prime} = +1.25$ V). The D1 protein is damaged by this oxidative stress and must be replaced every 30--60 minutes --- the most rapid protein turnover in the cell. This **photoinhibition/repair cycle** requires a dedicated FtsH protease and ribosomal machinery in the thylakoid.
 
 > **Clinical Connection: Herbicides Targeting PS II**
-> **DCMU (diuron)** and **atrazine** block the Q$_B$ binding site on D1, preventing electron flow from PS II. This kills plants by halting photosynthesis. Atrazine is one of the most widely used herbicides globally. Resistance has evolved in some weed species through a single Ser264Gly [**mutation**](#gl:mutation) in D1 that reduces atrazine binding. Understanding PS II structure is essential for developing new herbicides and for bioengineering more efficient photosynthesis.
+> **DCMU (diuron)** and **atrazine** inhibit the Q$_B$ acceptor site of PS II and reduce linear electron flow. Their downstream effects on carbon fixation and survival depend on dose, duration, reserves and reversibility; target inhibition alone does not guarantee immediate plant death. Altered target binding is one possible resistance mechanism, to be assessed for the actual compound and plant.
 
 ### Cytochrome b$_6$f Complex
 
@@ -295,25 +294,25 @@ The two large upward jumps (P680→P680*, P700→P700*) require absorption of re
 The Gibbs free energy stored in moving 4 electrons from water to NADPH:
 
 \begin{equation}
-\Delta G^{\circ\prime} = -nF\Delta E = -(4)(96{,}485)(1.14) \approx -440\;\text{kJ/mol}_{\text{e}^-}
+\Delta E^{\circ\prime}= -0.32-0.82=-1.14\;\mathrm V;\qquad \Delta G^{\circ\prime}=-(4)(96{,}485)(-1.14)\approx +440\;\mathrm{kJ/mol\ O_2}
 \label{eq:unit_III_z_scheme_energy}
 \end{equation}
 
-(N.B. negative sign indicates the *reverse* reaction is spontaneous; light energy is required to drive electrons *uphill* from water to NADPH.)
+The positive sign means water-to-NADP+ electron transfer is uphill under standard transformed conditions. Light supplies energy; the reverse redox reaction is downhill.
 
 > **Concept Check 2x:** Plastocyanin ($E^{\circ\prime} = +0.37$ V) reduces P700$^+$ ($E^{\circ\prime} = +0.45$ V). Calculate $\Delta G^{\circ\prime}$ for this electron transfer per mole of electrons. Does the redox flow proceed downhill in the dark or primarily after PS I activation?
 
 ### Linear vs. Cyclic Electron Flow
 
-**Linear electron flow (LEF):** H$_2$O → PS II → PQ → b$_6$f → PC → PS I → Fd → NADPH. Produces both ATP and NADPH. ATP:NADPH ratio ~1.3:1.
+**Linear electron flow (LEF):** H$_2$O → PS II → PQ → b$_6$f → PC → PS I → Fd → NADPH. It supports both ATP synthesis and NADPH production; their ratio depends on the proton/electron and ATP-synthase stoichiometries and on other energy demands.
 
-**Cyclic electron flow (CEF):** Ferredoxin returns electrons to the b$_6$f complex (via PQ), generating additional PMF for ATP synthesis without NADPH production. This adjusts the ATP:NADPH ratio to match Calvin cycle demands (3:2 per CO$_2$).
+**Cyclic electron flow (CEF):** Electrons from the PSI acceptor side return to the plastoquinone/b$_6$f pathway, contributing proton motive force without net NADPH production. CEF can help adjust energy supply relative to the C3 Calvin-cycle demand of 3 ATP and 2 NADPH per CO$_2$; this is not a universal fixed ATP output \citep{munekage2004cef}.
 
-CEF is mediated by two pathways:
-- **PGR5/PGRL1 pathway:** Major route; ferredoxin → PQ via PGRL1
-- **NDH-dependent pathway:** Chloroplast NAD(P)H dehydrogenase complex; minor route
+Two partially redundant PSI-cyclic routes were investigated using *Arabidopsis* mutants \citep{munekage2002pgr5,munekage2004cef}:
+- **PGR5-dependent route:** PGR5-associated regulation supports cyclic transport and photoprotection; the name alone does not identify a universally established direct ferredoxin:PQ catalyst.
+- **NDH-dependent route:** The chloroplast NDH complex provides a distinct route. Relative contributions depend on species and conditions, rather than an unconditional major/minor ranking.
 
-The functional necessity of CEF was first inferred from the gap between the ATP demand of the Calvin cycle (3 ATP per CO$_2$) and what LEF alone supplies (~2.6 ATP per CO$_2$ at 14:3 H$^+$/ATP stoichiometry); CEF closes the gap. Hager's classic experiments on the xanthophyll cycle \citep{hager1971} and subsequent work showed that the magnitude of CEF varies dynamically with light and CO$_2$ — itself a regulatory layer.
+For explicit bookkeeping, assume LEF transfers 12 H$^+$ per 2 NADPH and ATP synthase uses 14 H$^+$ per 3 ATP. This gives $12\times3/14\approx2.6$ ATP per 2 NADPH, compared with the C3 Calvin-cycle requirement of 3 ATP. This conditional calculation motivates additional ATP-generating flux; it is not a historical reconstruction, a measured invariant or evidence from Hager's unrelated acid-growth study.
 
 ### Chemiosmotic ATP Synthesis (Chloroplast)
 
@@ -327,7 +326,7 @@ The PMF generated by H$^+$ accumulation in the lumen (from water splitting + PQ 
 
 - 1 O$_2$
 - 2 NADPH
-- ~3 ATP (from linear flow; cyclic flow provides additional ATP)
+- 18/7 ≈ 2.57 ATP under the idealized 12 lumenal protons per O2 and c14-ring assumptions; cyclic flow can add ATP
 
 ### Worked Example: Energy Requirements for Carbon Fixation
 
@@ -345,9 +344,7 @@ n_{\text{photons}} = 12 \times 4 = 48\;\text{photons (LEF primarily)}
 \label{eq:unit_III_photosynthesis_worked_2}
 \end{equation}
 
-But linear flow produces about 12 ATP from this (12 × 1.0 ATP per NADPH at ~1:1 stoichiometry — far short of the 18 ATP required). The shortfall of 6 ATP must be supplied by **cyclic electron flow**, which is estimated to require ~6–9 additional photons. Total: **~54–57 photons per glucose**.
-
-This is why the often-cited "48 photons per glucose" is a *lower bound* assuming perfect Z-scheme efficiency; real plants need somewhat more to balance the ATP:NADPH ratio.
+With six O2 equivalents, 72 lumenal protons produce $72/(14/3)=108/7=15.43$ ATP. The $18/7=2.57$ ATP shortfall requires 12 additional protons. If a specified cyclic route translocates two protons per electron and consumes one PSI photon per electron, six extra photons close this budget: 54 total. Different routes, leakage, and photoprotection change the requirement; 48 is only the ideal linear-flow electron requirement, not a universal complete carbon-fixation budget.
 
 ### Worked Example: Calvin Cycle Stoichiometry
 
@@ -376,17 +373,17 @@ The Calvin cycle fixes CO$_2$ into organic compounds in the stroma. It has three
 ```mermaid
 flowchart LR
     subgraph P1["Phase 1: Carboxylation"]
-        RuBP["RuBP (5C)"]
-        PGA["2 × 3-PGA (3C)"]
-        RuBP -->|"RuBisCO + CO₂"| PGA
+        RuBP["3 RuBP (15C total)"]
+        PGA["6 × 3-PGA (18C total)"]
+        RuBP -->|"RuBisCO + 3 CO₂"| PGA
     end
 
     subgraph P2["Phase 2: Reduction"]
-        PGA2["2 × 3-PGA"]
-        BPG["2 × 1,3-BPG"]
-        G3P["2 × G3P (3C)"]
-        PGA2 -->|"+ 2 ATP"| BPG
-        BPG -->|"+ 2 NADPH"| G3P
+        PGA2["6 × 3-PGA"]
+        BPG["6 × 1,3-BPG"]
+        G3P["6 × G3P (18C total)"]
+        PGA2 -->|"+ 6 ATP"| BPG
+        BPG -->|"+ 6 NADPH"| G3P
     end
 
     subgraph P3["Phase 3: Regeneration"]
@@ -395,18 +392,16 @@ flowchart LR
         G3P2 -->|"+ 3 ATP<br/>complex 10-step rearrangement"| RuBP2
     end
 
-    PGA -->|"×3 for net 1 G3P output"| PGA2
-    G3P --> G3P2
+    PGA --> PGA2
+    G3P -->|"5 G3P retained"| G3P2
     RuBP2 -->|"Cycle continues"| RuBP
 
     Input["Input per 3 CO₂<br/>9 ATP + 6 NADPH"] -.-> RuBP
     G3P -.-> Output["Net output<br/>1 G3P (3C)<br/>= ½ glucose"]
 ```
-<!-- alt: Flowchart showing calvin cycle fixes CO2 onto RuBP, reduces 3-PGA using ATP and NADPH, and regenerates RuBP so carbon assimilation can continue. -->
+<!-- alt: Flowchart showing calvin-cycle accounting per 3 CO_2: 9 ATP and 6 NADPH yield one net G3P while regenerating three RuBP. Fixing 6 CO_2 yields two net G3P, sufficient carbon for one hexose. -->
 
-*The Calvin cycle fixes CO2 onto RuBP, reduces 3-PGA using ATP and NADPH, and regenerates RuBP so carbon assimilation can continue.*
-
-*The three phases of the Calvin cycle (Mermaid).* For every 3 CO$_2$ fixed, 9 ATP and 6 NADPH are consumed, and 1 net G3P (3C) is produced. Six turns of the cycle produce one glucose molecule.
+*Calvin-cycle accounting per 3 CO$_2$: 9 ATP and 6 NADPH yield one net G3P while regenerating three RuBP. Fixing 6 CO$_2$ yields two net G3P, sufficient carbon for one hexose.*
 
 ### RuBisCO: Structure and Catalytic Mechanism
 
@@ -418,7 +413,7 @@ flowchart LR
 
 **Catalytic mechanism (in seven steps):**
 
-1. RuBP binds and is deprotonated at C3 to form a 2,3-enediol intermediate (the rate-limiting enolisation)
+1. RuBP binds and is deprotonated at C3 to form a 2,3-enediol intermediate
 2. The enediol attacks CO$_2$ (or O$_2$ — see photorespiration)
 3. C2-C3 bond cleavage produces a six-carbon β-keto acid intermediate
 4. Hydration of the C3 carbon
@@ -426,7 +421,7 @@ flowchart LR
 6. Stereospecific protonation produces the second 3-PGA
 7. Product release
 
-The slow $k_{\text{cat}}$ (about 3–10 s$^{-1}$) is dominated by the enolisation step (step 1) and by the stringent steric constraints needed to *select* CO$_2$ over O$_2$ in step 2. Faster RuBisCOs leak more O$_2$ into the active site, producing photorespiration.
+Carboxylation turnover ($k_{\text{cat}}$) and CO$_2$/O$_2$ specificity are distinct kinetic properties. Their comparison requires a specified enzyme, assay conditions and endpoint; specificity is not simply a physical barrier that excludes O$_2$, and faster turnover does not invariably imply lower specificity \citep{flamholz2019tradeoffs}.
 
 **The CO$_2$/O$_2$ specificity factor (S$_{c/o}$, also τ):**
 
@@ -437,16 +432,16 @@ S_{c/o} = \tau = \frac{V_c K_o}{V_o K_c}
 
 where $V_c$, $V_o$ are maximal carboxylase/oxygenase rates and $K_c$, $K_o$ are Michaelis constants. Higher S$_{c/o}$ = more selective for CO$_2$ over O$_2$.
 
-: RuBisCO: Structure and Catalytic Mechanism: Organism and S_{c/o} (τ). {#tbl:unit_III_photosynthesis_rubisco_structure_and_catalytic_mechanism}
-| Organism | S$_{c/o}$ (τ) | $k_{\text{cat}}$ (carb., s$^{-1}$) | Note |
-| -------- | --------- | ----------------------------------- | ---- |
-| Higher plants (spinach) | 80–100 | 3.3 | C3 |
-| Cyanobacteria (*Synechococcus*) | 40–50 | 12 | Compensates with carboxysomes |
-| C4 plants (maize) | 70–80 | 4.5 | Compensates with C4 anatomy |
-| Red algae (*Galdieria*) | ~240 | 2.6 | Highest known; very slow |
-| Theoretical maximum | ~400 | -- | Limited by enediol mechanism |
+: Rubisco specificity: measurement roles and interpretation limits. {#tbl:unit_III_photosynthesis_rubisco_structure_and_catalytic_mechanism}
+| Context | Endpoint or role | Interpretation |
+| ------- | ---------------- | -------------- |
+| Specificity factor | $S_{c/o}$ (τ) | Relative CO$_2$/O$_2$ discrimination, not carbon flux |
+| Native-enzyme compilation | Kinetic-data reanalysis | Correlation is not a universal bound |
+| *R. rubrum* Form II variants | Growth-coupled screen | Apparent affinity is not specificity |
+| Selected variants | Biochemical follow-up | Affinity, turnover and specificity are distinct |
+| CO$_2$ concentration | Local gas supply | May suppress oxygenation; no guarantee |
 
-**The fundamental trade-off:** Across the tree of life, $S_{c/o}$ and $k_{\text{cat}}$ are *negatively correlated*. Faster RuBisCOs are less selective. This appears to be a thermodynamic constraint on the enediol intermediate's reactivity — the same electronic features that make it react with CO$_2$ also make it react with O$_2$.
+**Evidence for constraints, not a universal bound:** A reanalysis of compiled kinetic measurements from approximately 300 organisms found a substantially weaker inverse association between $S_{c/o}$ and carboxylation turnover than earlier, smaller datasets. This is a cross-enzyme data reanalysis, not a matched-condition assay of every enzyme. The authors found evidence consistent with constraints on CO$_2$/O$_2$ discrimination, but correlation alone does not establish a universal thermodynamic speed–specificity law or a numerical maximum for $S_{c/o}$ \citep{flamholz2019tradeoffs}. The growth-coupled *E. coli* screen and biochemical follow-up of *Rhodospirillum rubrum* Form II variants discussed below illustrate why apparent affinity, turnover and specificity must be distinguished; those endpoints do not establish a crop benefit \citep{prywes2025rubisco}.
 
 ### Carboxylation (Carbon Fixation)
 
@@ -457,8 +452,8 @@ where $V_c$, $V_o$ are maximal carboxylase/oxygenase rates and $K_c$, $K_o$ are 
 
 **RuBisCO** is the most abundant protein on Earth (~0.7 billion tonnes globally; ~50% of leaf protein). Despite its central importance, RuBisCO has remarkable limitations:
 
-- **Slow:** $k_{\text{cat}} = 3$--$10$ s$^{-1}$ (typical enzymes: 10$^2$--10$^3$ s$^{-1}$)
-- **Indiscriminate:** also reacts with O$_2$ (**oxygenase activity**), leading to **photorespiration** and wasting ~25% of fixed carbon in C3 plants
+- **Kinetic constraints:** carboxylation turnover and CO$_2$/O$_2$ specificity vary among Rubiscos and assay conditions; compare specified enzymes and endpoints rather than assigning one universal rate \citep{prywes2025rubisco}.
+- **Competing reactions:** O$_2$ can enter the oxygenase reaction instead of CO$_2$ entering carboxylation. The resulting photorespiratory carbon loss depends on their relative rates, not a fixed percentage in every C3 plant.
 - Plants compensate for RuBisCO's slowness by producing enormous quantities of it
 
 ### Calvin-Cycle Reduction of 3-PGA
@@ -488,37 +483,37 @@ Five G3P molecules (15 carbons) are rearranged through a complex 10-step pathway
 
 - 6 CO$_2$ × (3 ATP + 2 NADPH per CO$_2$) = **18 ATP + 12 NADPH**
 - Light reactions must supply: 18 ATP and 12 NADPH
-- Requires ~48 photons (8 per CO$_2$; 4 photons for 2 electrons through PS II + PS I × 2 electron pairs per NADPH) for NADPH; additional photons for cyclic electron flow to meet ATP demand
+- Requires ~48 photons (8 per CO$_2$; four photons per NADPH electron pair through PS II and PS I) for NADPH; additional photons for cyclic electron flow to meet ATP demand
 
 ### Worked Example: Energy Efficiency of Photosynthesis
 
-*Problem:* Calculate the energy efficiency of photosynthesis given that 48 photons of red light (680 nm, 176 kJ/mol each) are required to fix 6 CO$_2$ into 1 glucose ($\Delta G^{\circ\prime}$ of glucose combustion = 2,870 kJ/mol).
+*Problem:* Use the completed conditional budget of 54 absorbed photons per glucose derived above. For this arithmetic model, assign 176 kJ/mol to every photon and 2,870 kJ/mol of standard combustion-energy magnitude to glucose. Calculate the stored-energy/input ratio and state its boundary.
 
 *Solution:*
 
-Total light energy input: $48 \times 176 = 8{,}448$ kJ/mol
+Total modeled absorbed-light input: $54\times176=9{,}504$ kJ per mole of glucose. The uniform photon-energy convention simplifies the actual spectrum; it is not a measured whole-canopy input.
 
 Energy stored in glucose: $2{,}870$ kJ/mol
 
 \begin{equation}
-\eta = \frac{2{,}870}{8{,}448} \times 100\% = 34\%
+\eta = \frac{2{,}870}{9{,}504}\times100\% \approx 30.2\%
 \label{eq:unit_III_photosynthesis_efficiency}
 \end{equation}
 
-This is remarkably efficient for an energy conversion process. Whole-canopy photosynthetic efficiency in a real crop is typically around 1–3%, because most of the year's incoming photosynthetically active radiation (PAR) is lost to (i) reflection, (ii) photorespiration, (iii) leaf shading and saturation, (iv) plant respiration, and (v) suboptimal water/nutrient supply.
+This conditional absorbed-light calculation is not an incident-solar-to-biomass efficiency. Reflection, unused spectral energy, respiration, photorespiration, shading, leakage and other demands require separate accounting. A silicon-PV percentage based on incident sunlight and electrical output cannot be ranked directly against this differently bounded chemical-storage ratio.
 
 **Starch vs. sucrose export:**
 
 - **Starch** (alpha-glucose polymer) stored in chloroplast stroma during the day → remobilised at night to fuel respiration
-- **Sucrose** (glucose-fructose disaccharide) exported to phloem via triose phosphate/phosphate antiporter (TPT) → transported to non-photosynthetic tissues (*source-sink* relationship)
+- **Sucrose:** Chloroplast TPT exports triose phosphate in exchange for phosphate. Cytosolic enzymes synthesize sucrose from exported carbon; distinct transporters load sucrose into phloem for source-to-sink transport.
 
-> **Concept Check 3:** RuBisCO is the most abundant enzyme on Earth, yet it is extremely slow ($k_{cat}$ = 3--10 s$^{-1}$). Why hasn't evolution produced a faster version? Consider the trade-off between speed and specificity (CO$_2$ vs. O$_2$ discrimination) in light of the specificity-factor data above.
+> **Concept Check 3:** Why does an inverse correlation between turnover and specificity in an enzyme dataset not, by itself, establish a thermodynamic limit? Distinguish a cross-species association from a causal mechanism and from the measured effects of individual mutations.
 
-> **Concept Check 3b:** Spinach RuBisCO has $\tau \approx 90$. *Galdieria* (red alga) RuBisCO has $\tau \approx 240$ but $k_{\text{cat}} \approx 2.6$ s$^{-1}$ (vs. 3.3 for spinach). At ambient $[\text{CO}_2]/[\text{O}_2]$, which enzyme would maximize CO$_2$ flux per unit enzyme? When (in what environment) does the trade-off favor the *Galdieria* form?
+> **Concept Check 3b:** Could specificity factor and saturated carboxylation turnover alone identify which of two Rubiscos maximizes CO$_2$ flux per active site in a leaf? Explain why CO$_2$ affinity, local dissolved gas concentrations, temperature and activation state also matter. What additional evidence would be needed to predict crop performance?
 
-> **Concept Check (Analysis):** The Z-scheme describes two photosystems operating in series. Photosystem II (P680*) oxidizes water at $E^{\circ\prime}$ ≈ +0.82 V (the O$_2$/H$_2$O couple); Photosystem I (P700*) reduces NADP⁺ at $E^{\circ\prime}$ ≈ -0.32 V. (a) Calculate the total electrochemical potential difference (ΔE) driving the Z-scheme from H$_2$O to NADP⁺. (b) Using $\Delta G = -nF\Delta E$ with $n=4$ electrons per O$_2$, calculate the maximum free energy stored as NADPH per mole of O$_2$ evolved. Compare with the actual energy stored in 8 ATP + 2 NADPH (i.e., the light-reaction products per O$_2$). (c) Explain why the "antenna complex" of ~200-300 chlorophyll molecules per reaction center is thermodynamically advantageous: what would happen to photosynthetic flux if the reaction center had to absorb photons directly without an antenna?
+> **Concept Check (Analysis):** The Z-scheme describes two photosystems operating in series. Photosystem II (P680*) oxidizes water at $E^{\circ\prime}$ ≈ +0.82 V (the O$_2$/H$_2$O couple); Photosystem I (P700*) reduces NADP⁺ at $E^{\circ\prime}$ ≈ -0.32 V. (a) Calculate the total electrochemical potential difference (ΔE) driving the Z-scheme from H$_2$O to NADP⁺. (b) Using $\Delta G = -nF\Delta E$ with $n=4$ electrons per O$_2$, calculate the maximum free energy stored as NADPH per mole of O$_2$ evolved. Compare with the actual energy stored in 18/7 ATP + 2 NADPH (under the stated ideal LEF assumptions per O$_2$). (c) Explain why the "antenna complex" of ~200-300 chlorophyll molecules per reaction center is thermodynamically advantageous: what would happen to photosynthetic flux if the reaction center had to absorb photons directly without an antenna?
 
-> **Concept Check (Evaluation):** C4 plants (corn, sugarcane) use a *spatial* separation of carbon fixation: mesophyll cells fix CO$_2$ into 4-carbon acids via PEP carboxylase ($K_m$(CO$_2$) ≈ 7 μM, no oxygenase activity), which are then decarboxylated in bundle-sheath cells near RuBisCO. (a) At ambient cytoplasmic [CO$_2$] ≈ 8 μM and [O$_2$] ≈ 250 μM, use C3 RuBisCO kinetic parameters ($K_c$ ≈ 9 μM, $K_o$ ≈ 480 μM, $V_\text{cmax}/V_\text{omax}$ ≈ 3.1) to compute the ratio of carboxylation to oxygenation: $v_c/v_o = (V_{cmax}/V_{omax}) \cdot ([\text{CO}_2]/K_c) / ([\text{O}_2]/K_o)$. (b) How does C4 metabolism raise the effective [CO$_2$] at bundle-sheath RuBisCO to suppress oxygenation? (c) CAM plants (cacti, agaves) separate the two reactions *temporally*. Design a 24-hour metabolic schedule for a CAM plant, including which reactions occur at night vs. day, and explain the stomatal logic (when are stomata open vs. closed, and why).
+> **Concept Check (Evaluation):** C4 plants such as corn and sugarcane use a *spatial* separation of carbon fixation: mesophyll PEP carboxylase incorporates bicarbonate into four-carbon acids, which are subsequently decarboxylated near bundle-sheath RuBisCO. (a) Starting from the specificity-factor definition, derive $v_c/v_o = S_{c/o}[\text{CO}_2]/[\text{O}_2]$ for competing substrates in the same kinetic model. Why must the gas concentrations be those at the enzyme, with kinetic parameters appropriate to the assay conditions? (b) How can C4 metabolism raise local CO$_2$ and suppress oxygenation without guaranteeing its elimination? (c) CAM plants (cacti, agaves) separate the two reactions *temporally*. Design a 24-hour metabolic schedule for a CAM plant, including which reactions occur at night vs. day, and explain the stomatal logic (when are stomata open vs. closed, and why).
 
 
 ---
@@ -541,16 +536,16 @@ The photorespiratory pathway spans three [**organelle**](#gl:organelle)s:
 
 **Cost of photorespiration:**
 
-- Loses 1 CO$_2$ per 2 oxygenation events (25% of fixed carbon)
+- In the canonical C2 cycle, two oxygenation events yield two 2-phosphoglycolates (4C total); recycling returns one 3-PGA (3C) and releases one CO$_2$. The loss is one quarter of the carbon entering this salvage branch, not one quarter of all carbon fixed by the leaf.
 - Consumes ATP for recovery
 - Releases NH$_3$ (must be re-assimilated)
-- At 25 degrees C and current atmospheric CO$_2$, photorespiration reduces net photosynthesis by ~20--30% in C3 plants
+- Net assimilation effects depend on leaf temperature, CO$_2$/O$_2$ supply, diffusion and metabolic state; a turnover fraction must not be substituted for a percentage of gross carbon fixation.
 
 > **Clinical Connection: Photorespiration and Global Food Security**
-> Reducing photorespiration in crop plants could increase yields by 20--40%. Approaches include:
-> - **Engineering a chloroplastic glycolate bypass** (South et al., 2019, *Science*): reduced photorespiratory losses by 40% and increased tobacco biomass
+> Reducing photorespiratory costs is a crop-engineering strategy, but its effects depend on the pathway, crop and growing conditions. Approaches include:
+> - **Engineering a chloroplastic glycolate bypass:** the corrected South et al. field analysis found an average 24% increase in seasonal tobacco biomass for AP3 plus PLGG1 transporter down-regulation relative to wild type. The 2019 erratum treats field blocks, not individual plants within a block, as replicates; the original indexed abstract's greater-than-40% figure is superseded. This biomass endpoint is neither a measured percentage reduction in photorespiratory carbon loss nor a guaranteed yield gain in other crops \citep{south2019glycolate,south2019erratum}.
 > - **Introducing CO$_2$-concentrating mechanisms** (CCMs) from cyanobacteria into C3 crops
-> - **Engineering RuBisCO** with improved CO$_2$/O$_2$ specificity (challenging due to the speed-specificity trade-off)
+> - **Engineering RuBisCO** while measuring CO$_2$ affinity, turnover and CO$_2$/O$_2$ specificity separately; an improvement in one endpoint need not improve the others or crop yield \citep{prywes2025rubisco}.
 > These efforts matter because the UN World Population Prospects 2024 projects roughly 9.7 billion people by 2050, while climate stress, land limits, food loss, and inequitable access constrain the food system \citep{un2024population}. Higher photosynthetic efficiency can raise yield potential, but it is not a stand-alone solution to nutrition, distribution, soil health, or water scarcity.
 
 ---
@@ -559,14 +554,14 @@ The photorespiratory pathway spans three [**organelle**](#gl:organelle)s:
 
 ### Why CO$_2$-Concentrating Mechanisms Evolved
 
-The atmospheric CO$_2$:O$_2$ ratio (~0.04%/21% ≈ 1:525) is hostile to RuBisCO. The fraction of carboxylation versus oxygenation reactions is approximately:
+Atmospheric gas fractions are not the dissolved concentrations at RuBisCO. For competing CO$_2$ and O$_2$ substrates in the same kinetic model, the carboxylation-to-oxygenation rate ratio is:
 
 \begin{equation}
 \frac{v_c}{v_o} = S_{c/o} \cdot \frac{[\text{CO}_2]}{[\text{O}_2]}
 \label{eq:unit_III_carb_oxy_ratio}
 \end{equation}
 
-For C3 plants at 25 °C, typical leaf-internal CO$_2$ ≈ 7 µM and O$_2$ ≈ 250 µM, so $v_c/v_o ≈ 80 \times (7/250) \approx 2.2$ — meaning ~30% of RuBisCO turnovers are oxygenations. C4 and CAM plants have evolved spatial or temporal CO$_2$-concentrating mechanisms (CCMs) that raise the local [CO$_2$] around RuBisCO ~10× above ambient, suppressing photorespiration.
+Here the concentrations are local dissolved gases at the enzyme, and $S_{c/o}$ must apply to the enzyme and conditions under consideration. The oxygenation fraction of these two reaction rates is $v_o/(v_c+v_o)$, not $v_o/v_c$. C4 and CAM mechanisms can raise local CO$_2$ and thereby suppress oxygenation, but the effect depends on carbon supply, leakage, energetic support and physiological state; neither a universal concentration multiplier nor complete compensation follows from the equation.
 
 ### C3 Photosynthesis (First stable product: 3-PGA)
 
@@ -577,33 +572,33 @@ Standard Calvin cycle. Used by ~85% of plant species (wheat, rice, soybeans, mos
 ```mermaid
 flowchart LR
     subgraph MC ["Mesophyll Cell"]
-        A["CO₂ (atmospheric)"] -->|"PEP carboxylase<br/>(no O₂ reactivity!)<br/>Km for CO₂ ≈ 2 μM"| B["Oxaloacetate (4C)"]
+        A["Atmospheric CO₂"] -->|"Carbonic anhydrase"| Bic["HCO₃⁻"]
+        Bic -->|"PEP carboxylase"| B["Oxaloacetate (4C)"]
         B -->|"NADPH<br/>malate DH"| C["Malate (4C)"]
     end
 
-    subgraph BSC ["Bundle Sheath Cell<br/>(thick-walled, few PS II)"]
-        D["Malate (4C)"] -->|"NADP-malic enzyme<br/>(decarboxylation)"| E["Pyruvate (3C) + CO₂"]
-        E -->|"CO₂ concentrated<br/>~10× above ambient"| F["RuBisCO<br/>(Calvin cycle)<br/>Near-zero<br/>photorespiration"]
+    subgraph BSC ["Bundle Sheath Cell<br/>NADP-ME subtype example"]
+        D["Malate (4C)"] -->|"NADP-malic enzyme<br/>decarboxylation"| E["Pyruvate (3C) + CO₂"]
+        E -->|"CO₂ concentrated"| F["RuBisCO<br/>Calvin cycle<br/>reduced photorespiration"]
     end
 
     subgraph MC2 ["Mesophyll Cell"]
-        G["Pyruvate (3C)"] -->|"Pyruvate Pi dikinase<br/>2 ATP → AMP + PPi"| H["PEP (3C)"]
+        G["Pyruvate (3C)"] -->|"PPDK: ATP + Pi → AMP + PPi<br/>cost: 2 ATP equivalents"| H["PEP (3C)"]
     end
 
     C -->|"Plasmodesmata"| D
     E -->|"Pyruvate returns"| G
+    H -->|"PEP substrate"| B
 
     style MC fill:#e6ffe6
     style BSC fill:#fff3e6
     style MC2 fill:#e6ffe6
 ```
-<!-- alt: Flowchart showing C4 photosynthesis separates initial PEP-carboxylase fixation in mesophyll cells from Rubisco activity in bundle-sheath cells, concentrating CO2 around Rubisco. -->
+<!-- alt: Flowchart showing an NADP-ME C4 pathway concentrates CO_2 around bundle-sheath RuBisCO. PEP carboxylase uses bicarbonate, and PPDK consumes one ATP to AMP plus PPi, equivalent to two ATP-to-ADP energetic steps. -->
 
-*C4 photosynthesis separates initial PEP-carboxylase fixation in mesophyll cells from Rubisco activity in bundle-sheath cells, concentrating CO2 around Rubisco.*
+*An NADP-ME C4 pathway concentrates CO$_2$ around bundle-sheath RuBisCO. PEP carboxylase uses bicarbonate, and PPDK consumes one ATP to AMP plus PPi, equivalent to two ATP-to-ADP energetic steps.*
 
-*C4 photosynthesis (Mermaid).* Spatial separation of initial CO$_2$ fixation (mesophyll cells, PEP carboxylase) and the Calvin cycle (bundle sheath cells, RuBisCO). This CO$_2$-concentrating mechanism virtually eliminates photorespiration.
-
-**CO$_2$-concentrating mechanism:** CO$_2$ is captured in **mesophyll cells** by PEP carboxylase (no O$_2$ reactivity; $K_m$ for CO$_2$ ~ 2 μM, vs. RuBisCO $K_m$ ~10 μM) as oxaloacetate → malate → transported to **bundle sheath cells** via plasmodesmata → decarboxylated → CO$_2$ concentrated (10x above ambient) → RuBisCO operates at saturating CO$_2$ → negligible photorespiration.
+**CO$_2$-concentrating mechanism:** Carbonic anhydrase converts CO$_2$ to bicarbonate in mesophyll cells. PEP carboxylase combines bicarbonate with PEP to form oxaloacetate, which is reduced to malate. In this NADP-ME subtype, malate moves to the bundle sheath and is decarboxylated; released CO$_2$ supplies RuBisCO. Pyruvate returns to mesophyll cells, where PPDK regenerates PEP. Concentrating CO$_2$ suppresses, but does not universally eliminate, photorespiration.
 
 C4 plants (maize, sugarcane, sorghum, millet) require **2 additional ATP per CO$_2$** fixed (total: 5 ATP + 2 NADPH per CO$_2$) but are more efficient at high temperature and high light. Spatial separation of carboxylation (mesophyll) and Calvin cycle (bundle sheath) requires specialized leaf anatomy = **Kranz anatomy** (German: "wreath").
 
@@ -615,9 +610,9 @@ C4 plants (maize, sugarcane, sorghum, millet) require **2 additional ATP per CO$
 
 ### CAM Photosynthesis (Temporal separation)
 
-**Crassulacean Acid Metabolism:** stomata open at **night** (cool, high humidity → low [**transpiration**](#gl:transpiration)) → CO$_2$ fixed by PEP carboxylase → malate stored in vacuole (vacuolar pH drops from ~7 to ~4 as malic acid accumulates). Stomata **close during the day** (prevent water loss) → malate decarboxylated → CO$_2$ concentrated around RuBisCO → Calvin cycle proceeds.
+**Crassulacean Acid Metabolism:** In the canonical diel pattern, nighttime PEPC fixation supplies organic acids stored in vacuoles. Daytime decarboxylation releases internal CO$_2$ for RuBisCO and the Calvin cycle, often with reduced stomatal opening. CAM phase expression varies with species and conditions, and stomata need not open exclusively at night.
 
-CAM plants (cacti, agaves, pineapple, orchids, jade plant) have extremely high water-use efficiency (WUE: ~3--5x higher than C3). The tradeoff: slow growth due to nighttime carbon storage limitation and vacuolar capacity.
+CAM can improve water-use efficiency by shifting external CO$_2$ uptake toward periods of lower evaporative demand. Carbon-storage capacity and the expressed CAM mode can constrain carbon gain, but neither a fixed 3–5-fold WUE advantage nor universally slow growth follows from the pathway name.
 
 ### Water-Use Efficiency
 
@@ -628,25 +623,25 @@ Water-use efficiency (WUE) is defined as carbon gained per unit water lost:
 \label{eq:unit_III_water_use_efficiency}
 \end{equation}
 
-The intrinsic WUE depends on the leaf-internal:atmospheric CO$_2$ gradient:
+For a simplified daytime leaf-diffusion model, let $g_s>0$ be stomatal conductance to water vapor in mol m$^{-2}$ s$^{-1}$, $A$ net CO$_2$ uptake in mol m$^{-2}$ s$^{-1}$, and $\chi_a,\chi_i$ CO$_2$ mole fractions. Neglecting other resistances and using the diffusivity ratio 1.6, **intrinsic** WUE is:
 
 \begin{equation}
-\text{WUE}_{\text{intrinsic}} = \frac{c_a - c_i}{1.6 \cdot (e_i - e_a)}
+\text{WUE}_{\text{intrinsic}}=\frac{A}{g_s}=\frac{\chi_a-\chi_i}{1.6}
 \label{eq:unit_III_intrinsic_wue}
 \end{equation}
 
-where $c_a$ and $c_i$ are atmospheric and intercellular CO$_2$ concentrations, $e_a$ and $e_i$ are ambient and intercellular water vapor pressures, and 1.6 is the ratio of water-vapor to CO$_2$ diffusivity in air.
+For positive water-vapor mole-fraction difference $\Delta w$, this same idealized model gives $E=g_s\Delta w$ and **instantaneous** $A/E=(\chi_a-\chi_i)/(1.6\Delta w)$. If vapor pressures are used, $\Delta w=(e_i-e_a)/P$ requires the total pressure $P$ in the same units. Thus VPD changes $A/E$ at a fixed CO$_2$ gradient but does not enter the definition $A/g_s$. Seasonal yield per irrigation has another numerator and denominator.
 
-**Typical WUE values (mol CO$_2$ fixed / mol H$_2$O transpired):**
+**Comparing WUE (mol CO$_2$ fixed / mol H$_2$O transpired):** specify species, environment and integration interval. The mechanisms below do not assign universal numerical ranges.
 
-: Water-Use Efficiency: Plant type and WUE (×10^{-3}). {#tbl:unit_III_photosynthesis_water_use_efficiency}
-| Plant type | WUE (×10$^{-3}$) | Mechanism |
-| ---------- | ---------------- | --------- |
-| C3 | 1–3 | Standard Calvin cycle; high transpiration |
-| C4 | 3–6 | CCM allows lower $c_i$ → smaller stomatal aperture |
-| CAM | 10–40 | Nocturnal stomatal opening drastically reduces $e_i - e_a$ |
+: Conditional mechanisms influencing water-use efficiency. {#tbl:unit_III_photosynthesis_water_use_efficiency}
+| Plant type | Potential water-saving mechanism | Comparison required |
+| ---------- | -------------------------------- | ------------------- |
+| C3 | Stomatal regulation under the prevailing carbon and water conditions | Matched environment and carbon-gain interval |
+| C4 | CO2 concentration can permit lower stomatal conductance | Species, temperature and evaporative demand |
+| CAM | Nocturnal uptake can reduce evaporative demand | Expressed CAM phases and integrated day/night water loss |
 
-CAM is the extreme: by opening stomata at night when air is cool and humid (small $e_i - e_a$), CAM plants lose ~10× less water per CO$_2$ fixed than C3 plants do midday — a huge advantage in deserts but at the cost of slow growth.
+Nocturnal uptake can save water when nighttime evaporative demand is lower. A tenfold or any other numerical advantage must be measured for a specified comparison; it cannot be inferred from CAM identity alone.
 
 ### Comparing C3, C4, and CAM Photosynthesis
 
@@ -655,10 +650,10 @@ CAM is the extreme: by opening stomata at night when air is cool and humid (smal
 | ------- | -- | -- | --- |
 | First stable product | 3-PGA (3C) | Oxaloacetate (4C) | Oxaloacetate (4C) |
 | CO$_2$ fixation enzyme | RuBisCO | PEP carboxylase (initial) | PEP carboxylase (night) |
-| Photorespiration | High (20--30% loss) | Near zero | Near zero |
-| Stomata pattern | Open day | Open day | Open night |
-| Optimal temperature | 15--25 degrees C | 30--40 degrees C | Variable |
-| Water use efficiency | Moderate | High | Very high |
+| Photorespiration | Sensitive to CO$_2$/O$_2$ supply and temperature | Usually suppressed by CO$_2$ concentration, not absent | Depends on CAM phase and internal CO$_2$ supply |
+| Stomata pattern | Commonly open by day | Commonly open by day | Canonically nocturnal uptake; phases vary |
+| Temperature response | Species- and condition-specific | Species- and condition-specific | Species- and condition-specific |
+| Water use efficiency | Context dependent | Potential advantage over matched C3 | Potential advantage from nocturnal uptake |
 | ATP cost per CO$_2$ | 3 | 5 | 5.5--6.5 |
 | Examples | Wheat, rice, trees | Maize, sugarcane, millet | Cactus, agave, pineapple |
 | % of plant species | ~85% | ~3% (~7,500 species) | ~6--8% |
@@ -666,7 +661,7 @@ CAM is the extreme: by opening stomata at night when air is cool and humid (smal
 
 > **Concept Check 4:** Why is C4 photosynthesis advantageous at high temperatures but not at low temperatures? Consider the temperature dependence of RuBisCO oxygenase activity and the ATP cost of the C4 pump.
 
-> **Concept Check 4b:** Bermuda grass (C4) and tall fescue (C3) compete in temperate lawns. In a cool, wet spring, fescue dominates; in a hot, dry summer, Bermuda dominates. Use \cref{eq:unit_III_carb_oxy_ratio} and \cref{eq:unit_III_intrinsic_wue} to explain this seasonal turnover quantitatively.
+> **Concept Check 4b:** In a constructed leaf comparison, stipulate $\chi_a-\chi_i=140$ ppm, total pressure 100 kPa, and VPD of 1 versus 2 kPa. Calculate $A/g_s$ in µmol CO$_2$/mol H$_2$O conductance units and $A/E$ in mmol CO$_2$/mol H$_2$O. Which quantity changes with VPD? Why do these inputs alone not predict Bermuda-grass versus tall-fescue competition without species-specific temperature, assimilation, respiration and resource data?
 
 ---
 
@@ -759,7 +754,7 @@ This is a beautifully integrated example of physical chemistry: the *same* H$^+$
 
 Excess light energy (when absorbed photons exceed the rate at which electrons can be productively used) can damage the photosynthetic apparatus through generation of reactive oxygen species, particularly singlet oxygen ($^1$O$_2$) from triplet chlorophyll ($^3$Chl*). Plants must dissipate excess excitation safely.
 
-### The Three Components of NPQ
+### Operational Components of NPQ
 
 NPQ is operationally defined as fluorescence quenching that does not arise from photochemistry:
 
@@ -768,57 +763,57 @@ NPQ is operationally defined as fluorescence quenching that does not arise from 
 \label{eq:unit_III_npq_definition}
 \end{equation}
 
-where $F_m$ is maximum fluorescence in the dark-adapted state and $F_m'$ is the maximum fluorescence in the light-adapted state. NPQ has three kinetic components:
+where $F_m$ is maximum fluorescence in a specified dark-adapted reference and $F_m'$ is maximum fluorescence under the measurement protocol. The classical qE/qT/qI classification separates approximate kinetic components; it is not an exhaustive list or proof that every component represents beneficial heat dissipation.
 
-: The Three Components of NPQ: Component and Timescale. {#tbl:unit_III_photosynthesis_the_three_components_of_npq}
-| Component | Timescale | Mechanism |
-| --------- | --------- | --------- |
-| **qE (energy quenching)** | seconds | Low lumen pH; PsbS protonation; xanthophyll cycle |
-| **qT (state transitions)** | minutes | LHCII phosphorylation; antenna redistribution between PS II and PS I |
-| **qI (photoinhibition)** | hours | D1 damage and repair |
+: Classical NPQ Components: Approximate Kinetics and Interpretation. {#tbl:unit_III_photosynthesis_the_three_components_of_npq}
+| Component | Approximate response | Interpretation |
+| --------- | -------------------- | -------------- |
+| **qE (energy-dependent quenching)** | Rapid induction/relaxation, often seconds to minutes | Lumen acidification, PsbS and antenna/xanthophyll responses; taxon and protocol matter |
+| **qT (state-transition component)** | Often minutes | Antenna redistribution associated with LHCII phosphorylation; contribution varies |
+| **qI (slowly relaxing component)** | Often hours | Can include photoinhibitory damage and other sustained quenching; fluorescence alone does not identify D1 repair |
 
 ### qE: The Xanthophyll Cycle in Detail
 
-When light is in excess, the lumen pH falls below ~5.5, triggering two parallel events:
+In the studied higher-plant systems, lumen acidification promotes rapidly reversible qE. A universal pH = 5.5 switching threshold is not assigned; two experimentally distinguishable contributions are:
 
-1. **PsbS protonation:** PsbS is a small (~22 kDa) intrinsic membrane protein with two lumen-exposed glutamate residues that protonate at low pH. Protonation triggers a conformational change that brings antenna pigments into close contact, promoting energy transfer to a quenching site (a zeaxanthin-Chl heterodimer).
+1. **PsbS-dependent pH sensing:** In the studied *Arabidopsis* PsbS mutants, changing two lumen-exposed glutamates altered qE, supporting a pH-sensing role \citep{li2004psbsph}. This does not establish one universal zeaxanthin–chlorophyll heterodimer as the sole quenching site.
 
-2. **Violaxanthin → zeaxanthin:** **Violaxanthin de-epoxidase (VDE)**, activated by low pH, catalyses sequential de-epoxidation \citep{hager1971}:
+2. **Violaxanthin → zeaxanthin:** Low-pH-dependent **violaxanthin de-epoxidase (VDE)** supports sequential de-epoxidation. *Arabidopsis npq1* mutants lacking this conversion had greatly reduced rapidly reversible NPQ and increased photoinhibition sensitivity \citep{niyogi1998xanthophyll}:
 
 \begin{equation}
 \text{Violaxanthin (V)} \xrightarrow[+\text{ascorbate}]{\text{VDE, low pH}} \text{Antheraxanthin (A)} \xrightarrow[+\text{ascorbate}]{\text{VDE}} \text{Zeaxanthin (Z)}
 \label{eq:unit_III_xanthophyll_cycle}
 \end{equation}
 
-Zeaxanthin (without epoxide groups) has a lower-energy first excited state than chlorophyll, so it can act as an energy sink — accepting excitation from $^1$Chl* and dissipating it as heat. The reverse reaction (Z → V) is catalysed by zeaxanthin epoxidase (ZE) in the dark or low-light conditions.
+Xanthophyll composition affects the extent or kinetics of antenna energy dissipation, depending on the system. Zeaxanthin accumulation alone did not determine the final NPQ extent in the studied *Arabidopsis npq2* mutants. Zeaxanthin epoxidase supports the reverse conversion toward violaxanthin during recovery; dark adaptation is a measurement condition, not proof of one exclusive molecular quenching mechanism \citep{niyogi1998xanthophyll}.
 
 ```mermaid
 sequenceDiagram
     participant Light as Excess light
-    participant Lumen as Lumen pH ↓ (~5)
-    participant PsbS as PsbS<br/>(2 Glu protonated)
+    participant Lumen as Lumen acidification
+    participant PsbS as PsbS pH response
     participant VDE as Violaxanthin<br/>de-epoxidase
     participant V as Violaxanthin
     participant Z as Zeaxanthin
     participant Antenna as LHCII antenna
     participant Heat as Heat dissipation
 
-    Light->>Lumen: H⁺ pumping > ATP synthase
+    Light->>Lumen: Proton input relative to dissipation
     Lumen->>PsbS: Glu residues protonate
     Lumen->>VDE: VDE activated by low pH
     VDE->>V: 2-step de-epoxidation
     V->>Z: + 2 ascorbate
-    Z-->>Antenna: Z replaces V at quenching site
-    PsbS-->>Antenna: Conformational change
+    Z-->>Antenna: Changes quenching response
+    PsbS-->>Antenna: Supports rapid qE
     Antenna->>Heat: ¹Chl* → heat (qE quenching)
 
-    Note over Z,Heat: ~50% of absorbed photons<br/>can be safely dissipated
+    Note over Z,Heat: Genotype- and protocol-dependent response;<br/>no universal fraction assigned
 ```
-<!-- alt: Sequence diagram showing excess light acidifies the thylakoid lumen, activating PsbS and the xanthophyll cycle so excitation energy is safely dissipated as heat. -->
+<!-- alt: Sequence diagram showing selected higher-plant qE model: lumen acidification, PsbS and xanthophyll conversion contribute to excitation-energy dissipation; response depends on genotype and measurement conditions. -->
 
-*Excess light acidifies the thylakoid lumen, activating PsbS and the xanthophyll cycle so excitation energy is safely dissipated as heat.*
+*Selected higher-plant qE model: lumen acidification, PsbS and xanthophyll conversion contribute to excitation-energy dissipation; response depends on genotype and measurement conditions.*
 
-*The xanthophyll cycle and qE quenching cascade (Mermaid).* Lumen acidification (signal of excess light) protonates PsbS and activates VDE. Zeaxanthin appears at the LHCII quenching site within seconds and dissipates excess excitation as heat. When light decreases, lumen pH rises and the whole system reverses over minutes.
+*The xanthophyll cycle and qE quenching cascade (Mermaid).* Lumen acidification supports PsbS-dependent responses and VDE activity in the studied plants. Xanthophyll conversion and antenna regulation contribute to the observed quenching, but this diagram does not identify a unique pigment-binding site, fixed time course or universal dissipated-photon fraction \citep{niyogi1998xanthophyll,li2004psbsph}.
 
 ### Carotenoid Quenching of Triplet States
 
@@ -891,7 +886,7 @@ Inspired by natural photosynthesis, researchers are developing artificial system
 
 A silicon solar cell at 22% beats C3 photosynthesis at 1% by an order of magnitude — but the comparison is misleading. PV converts photons to electrons; plants convert photons to *covalently stored carbon*. To match plants, a PV system must add electrolysis, gas storage, and CO$_2$ reduction — each step lossy. End-to-end PV → renewable methanol systems currently achieve ~5–8% solar-to-fuel — comparable to C4 photosynthesis. The biological system also self-assembles, self-repairs, and runs at <1 sun without exotic materials.
 
-**Theoretical efficiency limits.** The ultimate biological limit is set by the sum of (a) photon-to-electron efficiency in the antenna (~95%), (b) thermalisation losses (longer-wavelength photons supply about 176 kJ/mol; the enthalpy of a pair of e$^-$ across the Z-scheme is ~440 kJ — so the lower bound is ~1.14 V × 4 e$^-$ / 8 photons × 176 kJ/mol = ~31% before downstream losses), and (c) Calvin cycle and respiration costs (~40% loss). The product is a theoretical ~12% solar-to-biomass efficiency.
+**Efficiency boundaries.** Eight 680 nm photons supply approximately $8\times176=1,408$ kJ per mole of O$_2$ produced; the corresponding four-electron water-to-NADP$^+$ redox free-energy cost is about 440 kJ/mol O$_2$, a ratio near 31%. This is neither the enthalpy of an electron pair nor a solar-to-biomass efficiency. An overall efficiency must additionally specify incident versus absorbed light, spectral capture, ATP production/use, carbon fixation, photorespiration and respiration on a common boundary and time basis. The redox fraction alone does not establish a universal 12% biomass limit.
 
 ### Key Research Directions
 
@@ -910,16 +905,16 @@ A silicon solar cell at 22% beats C3 photosynthesis at 1% by an order of magnitu
 
 ## Computational Bridge
 
-Net leaf CO$_2$ uptake is modeled as a saturating light response minus dark respiration; \cref{fig:unit_III_light_response} shows how net assimilation rises from the light compensation point, climbs steeply at low irradiance, and levels off at light saturation, with the C4 curve saturating at higher photon flux than C3:
+Net leaf CO$_2$ uptake is modeled as a saturating gross light response minus dark respiration. \cref{fig:unit_III_light_response} compares illustrative C3-, C4-, and CAM-labeled parameter sets; it is not a measured comparison of species or a model of CAM's diel phases.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/light_response_curves.png}
-\caption{Light-response curves for C3, C4, and CAM plants. Net CO2 assimilation is plotted against photosynthetic photon flux density, showing different saturation points and maximum assimilation rates.}
+\caption{Illustrative light-response curves for C3-, C4-, and CAM-labeled parameter sets. Net assimilation is calculated as $A_{\max}\mathrm{PAR}/(\mathrm{PAR}+K_{\mathrm{light}})-R_d$. The curves compare selected model parameters, not measured species responses or a diel CAM cycle.}
 \label{fig:unit_III_light_response}
 \end{figure}
 
-<!-- alt: Three hyperbolic curves relating net photosynthesis to light intensity for C3, C4, and CAM plants, with the C4 curve saturating at higher irradiance and higher assimilation than the C3 and CAM curves. -->
+<!-- alt: Three modeled net-assimilation curves versus photosynthetically active photon flux density are labeled C3, C4, and CAM. The C4-labeled set has the largest gross maximum and half-saturation parameter. The curves are illustrative, not measured plant data. -->
 
 ```python
 from biology.botany import photosynthesis_rate
@@ -934,9 +929,9 @@ print(round(anet, 2))
 
 ### Synthetic Photosynthesis and Rubisco Engineering
 
-Rubisco (ribulose-1,5-bisphosphate carboxylase/oxygenase) is the most abundant protein on Earth, yet it is famously inefficient: $k_{\text{cat}}$ ≈ 3 s⁻¹ and an oxygenation side-reaction that drains 20–50 % of carbon in warm climates through **photorespiration**. Engineering around this rate-limiting step is the central problem of crop productivity. Three complementary strategies have matured between 2019 and 2024.
+Rubisco is a major target for photosynthetic engineering because carboxylation can limit carbon assimilation and oxygenation creates a photorespiratory burden. Improving crop performance requires more than increasing one enzyme parameter: assembly, expression, carbon supply and the growth environment also matter. Three complementary strategies illustrate distinct experimental endpoints.
 
-**(1) Photorespiration bypass.** The Long lab (*Science* 2019) introduced a synthetic glycolate-metabolism pathway into tobacco that shunts glycolate (the toxic product of Rubisco oxygenation) directly to pyruvate in the chloroplast rather than sending it through the peroxisome/mitochondrion loop. Field trials demonstrated a **~40 % biomass yield increase** over 2 years, without compromising photosynthetic rate. The same bypass is being translated into cowpea, soybean, and rice via the Realizing Increased Photosynthetic Efficiency (RIPE) consortium. **(2) Cyanobacterial-style carbon-concentrating mechanisms.** Cyanobacteria compartmentalise Rubisco inside **carboxysomes** that concentrate CO₂ locally, suppressing the oxygenation reaction. Expressing the bacterial **BicA** HCO₃⁻ transporter plus carboxysome shell proteins in C₃ plants is a ~10-year synthetic-biology goal; the Price/Long/Hanson labs have cleared the first milestones in *Nicotiana* and *Chlamydomonas*. **(3) Directed evolution of Rubisco itself.** Classical selection inside *E. coli* is limited because bacterial Rubisco is too different from plant Rubisco. The 2024 work by the Savage / Kortemme labs used **ribosome-display directed evolution** with MS-based screening to isolate Rubisco variants with ~2× improved specificity factor (Sc/o = 110 → 220) — approaching the theoretical maximum set by the enzyme's two-step mechanism.
+**(1) Photorespiration bypass.** \citet{south2019glycolate} installed synthetic glycolate-metabolism pathways in tobacco chloroplasts and inhibited glycolate export into the native pathway. The corrected analysis reports an average 24% increase in seasonal biomass for AP3 plus PLGG1 down-regulation versus wild type, using blocks as replicates. AP3 alone's 10% increase was not statistically significant in that reanalysis \citep{south2019erratum}. The original indexed greater-than-40% abstract is stale; neither result establishes a universal grain-yield gain. **(2) Cyanobacterial-style carbon-concentrating mechanisms.** Cyanobacteria compartmentalize Rubisco in carboxysomes that concentrate CO2 locally. Engineering analogous machinery in C3 plants requires coordinated carbon transport, compartment assembly and enzyme function; a proposed implementation is not evidence of a completed crop benefit. **(3) Mapping Rubisco's sequence–function landscape.** \citet{prywes2025rubisco} used an engineered E. coli growth-coupled assay to map single-amino-acid variants of the Form II Rubisco from Rhodospirillum rubrum, not ribosome display of plant Rubisco. Selected variants showed improved CO2 affinity in follow-up biochemical measurements but reduced catalytic rates and no improvement in CO2/O2 specificity in the tested variants. Apparent affinity, specificity, turnover and crop yield are different endpoints. These results do not establish a doubled specificity factor or a theoretical maximum.
 
 Quantitative targets put the stakes in context: improving crop photosynthetic efficiency by even 10--20 % in major C3 crops would be agronomically large, but the realized food-security gain would depend on canopy architecture, sink strength, water and nitrogen supply, local climate, post-harvest losses, and access. Molecular agriculture now has the tools -- CRISPR-Cas9 in plants, synthetic biology standardization, and AI-assisted structural hypotheses for Rubisco and its chaperones -- to test ideas that were largely conceptual a decade ago \citep{abramson2024alphafold3,varadi2024alphafolddb}.
 
@@ -947,7 +942,7 @@ Quantitative targets put the stakes in context: improving crop photosynthetic ef
 For **Photosynthesis**, frontier biology belongs inside the evidence logic of
 the chapter. Metabolism is now studied as a regulated network constrained by energy, redox balance, compartmentation, and environment. The core reading question is this: photosynthesis claims should distinguish light capture, carbon fixation, photorespiration, water stress, and canopy context.
 
-Global photosynthesis is also a measurement problem, not just a chloroplast pathway diagram. Carbonyl sulfide uptake, solar-induced fluorescence, isotope constraints, flux towers, and ecosystem models each see a different part of gross primary production; comparing them teaches students why the largest biological carbon flux remains an inference with method-specific uncertainty \citep{lai2024terrestrialphotosynthesis}. A strong photosynthesis claim names the scale: leaf enzyme, canopy gas exchange, crop yield, or planetary carbon cycle.
+Global photosynthesis is also a measurement problem, not just a chloroplast pathway diagram. Carbonyl sulfide uptake, solar-induced fluorescence, isotope constraints, flux towers, and ecosystem models each see a different part of gross primary production; comparing them teaches students why the largest biological carbon flux remains an inference with method-specific uncertainty \citep{lai2024gppcarbonylsulfide}. A strong photosynthesis claim names the scale: leaf enzyme, canopy gas exchange, crop yield, or planetary carbon cycle.
 
 - **What to verify:** identify the observation, model, assay, or dataset that
   would make the claim stronger or weaker.
@@ -989,12 +984,12 @@ flowchart TD
 - Photon energy is given by $E = hc/\lambda$ (\cref{eq:unit_III_photon_energy}); a 680 nm photon supplies 176 kJ/mol. Quantum yield Φ$_{\text{O}_2}$ ≈ 0.10 corresponds to ~10 photons per O$_2$, close to the theoretical minimum of 8.
 - Antenna complexes (LHCII, LHCI) use FRET (\cref{eq:unit_III_fret_rate}) and exciton transfer to funnel excitation to reaction centers at ~95% efficiency. Chl a/b ratios and carotenoid composition are tuned to spectral and protective demands.
 - The Z-scheme spans 1.14 V (\cref{eq:unit_III_z_scheme_energy}) from H$_2$O ($+0.82$ V) through P680, P680*, Pheo, PQ, b$_6$f, PC, P700, P700*, A$_0$, Fd to NADPH ($-0.32$ V), driven by two photons per electron.
-- RuBisCO is hexadecameric (L$_8$S$_8$, 8 active sites), requires CO$_2$ + Mg$^{2+}$ for active-site carbamylation, and shows a fundamental specificity-factor / turnover trade-off (\cref{eq:unit_III_specificity_factor}). Plant $S_{c/o} \approx 80$–100; theoretical maximum ~400.
-- Calvin cycle (stroma): 18 ATP + 12 NADPH fix 6 CO$_2$ → 1 glucose. Photorespiration costs C3 plants ~25% of fixed carbon (the carboxylation/oxygenation ratio is set by \cref{eq:unit_III_carb_oxy_ratio}).
-- C4 uses Kranz anatomy (spatial separation); CAM uses temporal separation (night CO$_2$ fixation). Both have near-zero photorespiration but higher ATP costs. Water-use efficiency (\cref{eq:unit_III_water_use_efficiency}) ranks CAM > C4 > C3 by an order of magnitude.
+- Plant RuBisCO is hexadecameric (L$_8$S$_8$, 8 active sites) and requires CO$_2$ + Mg$^{2+}$ for active-site carbamylation. Specificity ($S_{c/o}$; \cref{eq:unit_III_specificity_factor}), CO$_2$ affinity and turnover are distinct kinetic endpoints; cross-enzyme associations do not establish a universal thermodynamic trade-off or numerical specificity ceiling \citep{flamholz2019tradeoffs}.
+- Calvin cycle (stroma): 18 ATP + 12 NADPH fix 6 CO$_2$ → 1 glucose. Photorespiratory carbon loss depends on oxygenation/carboxylation ratio and environmental conditions (the carboxylation/oxygenation ratio is set by \cref{eq:unit_III_carb_oxy_ratio}).
+- C4 commonly uses spatial CO$_2$ concentration and CAM temporal separation. Both can suppress photorespiration at an energetic cost, but residual photorespiration and water-use efficiency depend on species and conditions; no universal order-of-magnitude WUE ranking follows.
 - The thioredoxin/ferredoxin system (\cref{eq:unit_III_thioredoxin_cascade}) couples PS I activity to Calvin-cycle enzyme activation via reversible disulfide reduction. Stromal pH 8.0 and Mg$^{2+}$ release further activate RuBisCO and FBPase.
 - At ecosystem scale, GPP estimates depend on measurement model: carbonyl-sulfide uptake can constrain CO$_2$ diffusion through stomata and mesophyll, so productivity claims should name tracer assumptions and biome context \citep{lai2024gppcarbonylsulfide}.
-- NPQ (\cref{eq:unit_III_npq_definition}) protects the photosynthetic apparatus through the xanthophyll cycle (\cref{eq:unit_III_xanthophyll_cycle}), state transitions, and photoinhibition repair. Carotenoids quench triplet Chl and singlet O$_2$ \citep{hager1971}.
+- NPQ (\cref{eq:unit_III_npq_definition}) is a fluorescence-derived measure with multiple components. Rapid qE can protect against excess excitation through pH-, PsbS- and xanthophyll-dependent processes; slowly relaxing quenching must not automatically be equated with protection or D1 repair \citep{niyogi1998xanthophyll,li2004psbsph}.
 - Artificial photosynthesis bridges biology (engineered cyanobacteria) and chemistry (PEC cells, Mn$_4$Ca biomimetics); silicon PV is more efficient but does not produce storable fuel directly.
 - **Connections:** See \cref{sec:unit_III_bioenergetics_and_respiration} for chemiosmotic coupling in mitochondria vs. chloroplasts, \nameref{sec:unit_VIII_unit_intro} for whole-plant carbon and water trade-offs, and \nameref{sec:unit_X_unit_intro} for primary productivity.
 
@@ -1012,17 +1007,17 @@ flowchart TD
 
 5. Compare the Q cycle in Complex III of mitochondria with the Q cycle in cytochrome b$_6$f of chloroplasts. What is the common functional principle?
 
-6. Describe RuBisCO's structure and catalytic mechanism. Why is the specificity factor $S_{c/o}$ inversely correlated with $k_{\text{cat}}$ across the tree of life?
+6. Describe plant RuBisCO's structure and catalytic mechanism. Distinguish specificity, CO$_2$ affinity and turnover. What can a cross-enzyme correlation establish, and what additional evidence would be needed to establish a mechanistic constraint?
 
 7. Describe the three phases of the Calvin cycle. Calculate the total ATP and NADPH cost to fix 6 CO$_2$ into one glucose molecule, and the minimum number of photons required.
 
 8. Explain the thioredoxin/ferredoxin redox regulation system. Which Calvin cycle enzymes are activated, and what would happen in a *trxR* (thioredoxin reductase) knockout in the light?
 
-9. Compare C3, C4, and CAM photosynthesis in terms of leaf anatomy, biochemistry, water-use efficiency, and ecological [**niche**](#gl:niche). Use \cref{eq:unit_III_intrinsic_wue} to explain why CAM achieves the highest WUE.
+9. Compare C3, C4 and CAM anatomy, biochemistry, potential water-saving mechanisms and ecological [**niche**](#gl:niche). Distinguish $A/g_s$, $A/E$ and seasonal yield per water input. Why does \cref{eq:unit_III_intrinsic_wue} not impose an unconditional CAM > C4 > C3 ranking?
 
 10. Explain the xanthophyll cycle and qE non-photochemical quenching. Why is this mechanism essential for plant survival in fluctuating light?
 
-11. Calculate the energy efficiency of photosynthesis if 48 photons of 680 nm light are needed to fix 6 CO$_2$. Compare this with the efficiency of a typical silicon solar cell (~22%).
+11. Calculate the absorbed-light energy ratio using the stated 54-photon conditional budget, 176 kJ/mol-photon and 2,870 kJ/mol-glucose convention. Explain the missing ATP-generating input in a 48-photon-only denominator and why this ratio cannot be compared directly with a quoted incident-solar-to-electricity PV efficiency.
 
 12. Engineering reduced photorespiration has been proposed to increase crop yields. Describe two approaches and discuss potential risks.
 
@@ -1040,7 +1035,7 @@ flowchart TD
 ## Further Reading and Source Notes: Photosynthesis
 
 - Mitchell (1961). Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism. *Nature*, 191 \citep{mitchell1961}.
-- Hager (1971). Die Reversiblen lichtabhängigen Xanthophyllumwandlungen im Chloroplasten. *Berichte der Deutschen Botanischen Gesellschaft*, 84 \citep{hager1971}.
+- \citet{munekage2002pgr5,munekage2004cef} — genetic tests of PSI cyclic transport; \citet{niyogi1998xanthophyll,li2004psbsph} — xanthophyll and PsbS contributions to quenching in the studied plants.
 - Lai et al. (2024). Terrestrial photosynthesis inferred from plant carbonyl sulfide uptake. *Nature*, 634 \citep{lai2024gppcarbonylsulfide}.
 
 ---
@@ -1057,15 +1052,15 @@ flowchart TD
 | **Specificity factor** ($S_{c/o}$, τ) | $V_c K_o / V_o K_c$; quantifies CO$_2$ vs O$_2$ preference of RuBisCO |
 | **Calvin cycle** | Three-phase cycle fixing CO$_2$ into G3P in the stroma; 3 ATP + 2 NADPH per CO$_2$ |
 | **Thioredoxin** | Small redox protein that reduces regulatory disulfides on Calvin-cycle enzymes in the light |
-| **Photorespiration** | RuBisCO oxygenase activity; wastes ~25% of fixed carbon in C3 plants; releases CO$_2$ |
+| **Photorespiration** | RuBisCO oxygenase activity; releases CO$_2$ during phosphoglycolate recycling; fractional loss is condition-dependent; releases CO$_2$ |
 | **C4 photosynthesis** | CO$_2$ concentrating mechanism using PEP carboxylase and Kranz anatomy |
 | **CAM** | Crassulacean acid metabolism; temporal separation of CO$_2$ fixation (night) and Calvin cycle (day) |
-| **Water-use efficiency (WUE)** | Carbon fixed per water lost; CAM > C4 > C3 |
+| **Water-use efficiency (WUE)** | State the boundary: instantaneous $A/E$, intrinsic $A/g_s$, or integrated carbon/yield per water input; pathway identity alone does not set a universal ranking |
 | **Kok cycle** | S-state cycle of the OEC; accumulates 4 oxidising equivalents before O$_2$ release |
 | **Antenna complex** | Light-harvesting pigment-protein complex; funnels energy to reaction center |
 | **FRET** | Förster Resonance Energy Transfer; dipole-dipole energy transfer between pigments; rate ∝ 1/r$^6$ |
 | **Quantum yield** | Molecules of product per photon absorbed; Φ$_{\text{O}_2}$ ≈ 0.10 |
-| **Non-photochemical quenching (NPQ)** | Thermal dissipation of excess light energy; comprises qE, qT, qI components |
+| **Non-photochemical quenching (NPQ)** | Operational fluorescence-quenching measure; qE, qT and slowly relaxing components have distinct interpretations, not a blanket protective-heat-dissipation identity |
 | **Xanthophyll cycle** | Violaxanthin ↔ zeaxanthin interconversion; regulates qE |
 | **PsbS** | PS II protein with two lumen-exposed Glu residues; protonated at low pH; triggers qE |
 | **Plastocyanin** | Soluble copper protein carrying electrons from b$_6$f to PS I in the lumen |

@@ -20,8 +20,7 @@ biology, yet they govern phenomena as urgent as climate change, mass extinction,
 
 The 21st century has made ecology a discipline under crisis and urgent relevance. The current mass
 extinction event — the sixth in Earth's history — is driven by habitat loss, overexploitation, invasive
-species, pollution, and climate change. Biodiversity is losing the equivalent of tens of thousands of
-species per year. Understanding population dynamics, community structure, and ecosystem function is no
+species, pollution, and climate change. Extinction-rate estimates depend on the taxa, baseline, observation window, and inference method; a threatened-species assessment is not a count of annual extinctions. Understanding population dynamics, community structure, and ecosystem function is no
 longer merely academic: it is an existential scientific priority for the conservation of life on Earth.
 This unit will give you the quantitative tools to understand why, and to participate in the solutions.
 
@@ -37,7 +36,7 @@ This unit will give you the quantitative tools to understand why, and to partici
 | Robert MacArthur & E.O. Wilson | 1967 | \citep{macarthur1967} | Island biogeography: $S = cA^z$ | Connected species richness to area and isolation; foundational for conservation |
 | Paul Ehrlich & Peter Raven | 1964 | \citep{ehrlich1964} | Coevolution between plants and butterflies | Launched chemical ecology and co-evolutionary theory |
 | Intergovernmental Science-Policy Platform on Biodiversity (IPBES) | 2019 | \citep{ipbes2019global} | 1 million species threatened with extinction | Quantified the biodiversity crisis; policy-science interface |
-| Ripple et al. | 2014 | \citep{ripple2014} | Trophic cascades from large predators | Wolves reintroduced to Yellowstone reshaped rivers via trophic cascade |
+| Ripple and Beschta | 2012 | \citep{ripple2014} | Observational trophic-cascade evidence after Yellowstone wolf reintroduction | Browsing and vegetation responses require ecological context; these observations alone do not establish that wolves reshaped rivers |
 
 ---
 
@@ -86,12 +85,13 @@ paper-based lab decision.
 
 ## Chapter Roadmap {.unnumbered}
 
-| Chapter | Title | Core Question | Key Equation / Model |
-| ------- | ----- | ------------- | -------------------- |
-| **32** | Population Ecology | How do populations grow, and what factors regulate population size? | Logistic: $dN/dt = rN(1-N/K)$; life tables; $\lambda = e^r$ |
-| **33** | Community Ecology | How do species interactions structure biological communities? | Lotka-Volterra: $dN/dt = \alpha N - \beta NP$; Shannon $H'$ |
-| **34** | Ecosystem Ecology | How does energy flow and how do nutrients cycle through ecosystems? | Trophic efficiency ~10%; $NEP = GPP - R_{total}$; biogeochemical cycle models |
-| **35** | Biomes and Conservation Biology | What determines global patterns of biodiversity, and how do we protect them? | Species-area: $S = cA^z$; minimum viable population (MVP); extinction rate models |
+| Chapter | Central question | Quantitative lens |
+| --- | --- | --- |
+| \cref{sec:unit_X_population_ecology} | How do populations change and persist? | Growth, capture-recapture, stage matrices |
+| \cref{sec:unit_X_community_interactions} | How do competition and disturbance shape communities? | Invasion criteria and succession evidence |
+| \cref{sec:unit_X_biodiversity_and_food_webs} | How do composition and networks change function? | Diversity, connectance, reserve overlap |
+| \cref{sec:unit_X_ecosystem_ecology} | How do energy and matter cross ecosystem boundaries? | Production and conserved carbon budgets |
+| \cref{sec:unit_X_biomes_and_conservation} | How can conservation decisions be justified? | Climate velocity, risk criteria, PVA |
 
 ---
 
@@ -117,13 +117,13 @@ print(f"N(0) ≈ {lg.populations[0]:.0f}; N(t_end) ≈ {lg.populations[-1]:.0f}"
 
 # Lotka-Volterra predator-prey (same ODEs used in community ecology)
 lv = lotka_volterra(
-    100.0, 10.0, 0.5, 0.02, 0.01, 0.2, t_end=80.0, steps=800,
+    100.0, 10.0, 0.5, 0.02, 0.01, 0.2, t_end=80.0, steps=100_000,
 )
 print(f"Prey range: {min(lv.prey):.1f}–{max(lv.prey):.1f}")
 print(f"Predator range: {min(lv.predator):.1f}–{max(lv.predator):.1f}")
 ```
 
-> **Try it yourself:** Increase `beta` (predation) and watch oscillation amplitude widen in `plot_lotka_volterra` output from `scripts/generate_figures.py`.
+> **Try it yourself:** Compare the predator–prey trajectories at 100,000 and 200,000 Euler steps over the same horizon. Positivity does not establish accuracy: Euler can drift outward from the continuous model’s closed orbits. Then vary `beta`; do not assume amplitude changes monotonically or confuse this model with competition.
 
 ---
 
@@ -132,4 +132,4 @@ print(f"Predator range: {min(lv.predator):.1f}–{max(lv.predator):.1f}")
 
 ## Cross-Unit Integration {.unnumbered}
 
-\nameref{sec:unit_X_unit_intro} closes the textbook by returning to where \nameref{sec:unit_0_unit_intro} began. The energy flow through trophic levels, the biogeochemical cycling of carbon and nitrogen, the entropy export from living ecosystems, and the constraint that ten percent of energy is transferred between trophic levels are direct expressions of the thermodynamic and systems principles introduced in \nameref{sec:unit_0_unit_intro} — open dissipative systems, far-from-equilibrium organization, hierarchical structure, and the shared energetic cost of maintaining low-entropy states. Population dynamics, community assembly, and ecosystem succession are complex-adaptive-system phenomena at landscape scale; alternative stable states and tipping points in ecosystems are the same attractor and bifurcation mathematics from \cref{sec:unit_0_complex_adaptive_systems} applied to a planetary substrate. Read this unit as the macroscopic completion of the framework: the biology of complexity, written on the largest available canvas.
+\nameref{sec:unit_X_unit_intro} closes the textbook by returning to where \nameref{sec:unit_0_unit_intro} began. The energy flow through trophic levels, the biogeochemical cycling of carbon and nitrogen, the entropy export from living ecosystems, and the illustrative rule of roughly ten percent trophic transfer (which varies among systems) are direct expressions of the thermodynamic and systems principles introduced in \nameref{sec:unit_0_unit_intro} — open dissipative systems, far-from-equilibrium organization, hierarchical structure, and the shared energetic cost of maintaining low-entropy states. Population dynamics, community assembly, and ecosystem succession are complex-adaptive-system phenomena at landscape scale; alternative stable states and tipping points in ecosystems are the same attractor and bifurcation mathematics from \cref{sec:unit_0_complex_adaptive_systems} applied to a planetary substrate. Read this unit as the macroscopic completion of the framework: the biology of complexity, written on the largest available canvas.

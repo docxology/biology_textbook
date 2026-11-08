@@ -18,4 +18,4 @@ def jukes_cantor_distance(p_distance: float) -> float:
         raise ValueError(f"p_distance must be in [0, 0.75), got {p_distance}")
     if p_distance == 0.0:
         return 0.0
-    return -(3.0 / 4.0) * math.log(1.0 - (4.0 / 3.0) * p_distance)
+    return -(3.0 / 4.0) * math.log1p(-(4.0 / 3.0) * p_distance)

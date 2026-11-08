@@ -295,10 +295,10 @@ def apply_further_reading(*, dry_run: bool = False, write_fn: _WriteFn | None = 
 
 __all__ = [
     "BIB",
-    "BibEntry",
-    "FurtherReadingResult",
     "MANUSCRIPT",
     "SUPPLEMENT",
+    "BibEntry",
+    "FurtherReadingResult",
     "apply_further_reading",
     "collect_keys",
     "inject",

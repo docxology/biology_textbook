@@ -11,11 +11,11 @@ from biology.visual_contracts.helpers import (
 )
 from biology.visual_contracts.manifest import aspect_ratio
 from biology.visual_contracts.models import (
-    Finding,
-    VisualRecord,
     _HEX_RE,
     _MERMAID_RE,
     _STYLE_COLOR_RE,
+    Finding,
+    VisualRecord,
 )
 from biology.visual_contracts.scan import registered_mermaid_factories
 from biology.visual_contracts_paths import MANUSCRIPT_DIR
@@ -50,6 +50,15 @@ def check_records(records: list[VisualRecord]) -> list[Finding]:
     seen_labels: dict[str, VisualRecord] = {}
 
     for record in records:
+        if record.width_px <= 0 or record.height_px <= 0:
+            findings.append(
+                Finding(
+                    "unavailable-png",
+                    record.source_path,
+                    record.line,
+                    f"missing, corrupt, or non-PNG asset: {record.asset_path}",
+                )
+            )
         if record.label:
             previous = seen_labels.get(record.label)
             if previous is not None:
@@ -65,7 +74,7 @@ def check_records(records: list[VisualRecord]) -> list[Finding]:
 
         if record.kind == "raw_figure":
             if (
-                record.source_path.startswith("manuscript/unit_")
+                record.source_path.startswith("docs/manuscript/unit_")
                 and not record.label.startswith("fig:unit_")
             ):
                 findings.append(

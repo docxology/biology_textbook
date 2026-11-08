@@ -30,4 +30,5 @@ del _make, _factory_name, _spec
 
 ALL_BIOLOGY_DIAGRAMS: list[MermaidDiagram] = load_all_diagrams()
 
-__all__ = ["ALL_BIOLOGY_DIAGRAMS", *diagram_factory_names()]
+__all__ = ["ALL_BIOLOGY_DIAGRAMS"]
+__all__.extend(diagram_factory_names())

@@ -11,7 +11,10 @@ from _bootstrap import PROJECT, ensure_project_paths
 
 ensure_project_paths()
 
-from biology.maintenance.glossary_cards import parse_glossary_cards, write_glossary_cards
+from biology.maintenance.glossary_cards import (
+    parse_glossary_cards,
+    write_glossary_cards,
+)
 
 
 def main() -> int:

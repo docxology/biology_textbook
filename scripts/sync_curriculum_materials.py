@@ -11,8 +11,6 @@ from biology.curriculum_sync import engine
 from biology.curriculum_sync.cli import main
 
 CHAPTER_MARKER = engine.CHAPTER_MARKER
-LAB_MARKER = engine.LAB_MARKER
-QUESTION_MARKER = engine.QUESTION_MARKER
 NAV_MARKER = engine.NAV_MARKER
 READING_PATHS_MARKER = engine.READING_PATHS_MARKER
 CONCEPT_MAP_MARKER = engine.CONCEPT_MAP_MARKER
@@ -25,10 +23,8 @@ build_preface_scope_table = engine.build_preface_scope_table
 __all__ = [
     "CHAPTER_MARKER",
     "CONCEPT_MAP_MARKER",
-    "LAB_MARKER",
     "NAV_MARKER",
     "PREFACE_SCOPE_MARKER",
-    "QUESTION_MARKER",
     "READING_PATHS_MARKER",
     "build_front_matter_navigation",
     "build_preface_scope_table",

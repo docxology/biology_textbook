@@ -5,11 +5,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{../figures/mutation_rate_spectrum.png}
-\caption{Per-site, per-generation mutation rates across the human germline by variant class. The horizontal bars use a log axis to keep rare large-structural-variant rates and microsatellite slippage legible alongside the dominant single-base-substitution rate. The ordering reveals where mutagenic load actually accumulates and which classes of variation will dominate population-level variance.}
+\caption{Source-scoped mutation-rate evidence with separate target and time bases. Numeric panels describe single-nucleotide substitutions per position, selected dinucleotide microsatellites per locus, CNVs per haploid genome, and gene duplication per million years across eukaryotes. These estimates cannot be ranked as genomic burden. Two additional classes have no verified numeric value supplied.}
 \label{fig:unit_IV_mutation_rate_spectrum}
 \end{figure}
 
-<!-- alt: Horizontal bar chart on a log scale of per-site per-generation mutation rates by class. Single-base substitutions, small indels, transposable element insertions, microsatellite slippage, and copy-number/large structural variants are each labeled with their canonical rate. -->
+<!-- alt: Separate mutation evidence panels retain row-specific denominators, organisms, time bases and ascertainment; per-position, per-locus, per-genome and evolutionary-time estimates do not share a comparable burden axis. -->
 
 
 <!-- chapter-metadata-badge -->
@@ -55,13 +55,15 @@ A **mutation** is any heritable change in DNA sequence. Mutations are the ultima
 
 ### Mutation Rates: A Quantitative Framework
 
-> **Mathematical Background:** Poisson statistics govern rare mutation events. For a review of probability distributions relevant to genetics, see \nameref{sec:appendix_math_review}.
+> **Mathematical Background:** A Poisson model can approximate rare, independent mutation events with a specified expected count. For a review of probability distributions relevant to genetics, see \nameref{sec:appendix_math_review}.
 
-The **per-nucleotide per-generation mutation rate** in humans is approximately $\mu \approx 1.2 \times 10^{-8}$ per bp per generation (Kong et al., 2012, *Nature*). \cref{fig:unit_IV_mutation_rate_spectrum} places that single-base-substitution rate alongside indels, microsatellite slippage, transposable-element insertion, and large structural variants on a single log axis, so the order-of-magnitude spread across variant classes is visible at a glance. For a diploid genome of $2N \approx 6.4 \times 10^9$ bp, the expected number of de novo mutations per offspring is:
+The approximate human germline single-base-substitution rate $1.2\times10^{-8}$ per base per generation is a useful order-of-magnitude teaching value, not a universal constant. \cref{fig:unit_IV_mutation_rate_spectrum} retains each source-specific denominator and time basis: per-locus microsatellite estimates and per-genome CNV estimates are not per-base rates. The unsorted `MutationRateEvidence` catalog carries provenance and ascertainment; it does not rank burden or population variance. Expected burden additionally requires eligible target size and non-overlapping classes.
 
-\begin{equation}M = 2N \times \mu \approx 6.4 \times 10^9 \times 1.2 \times 10^{-8} \approx 70\text{--}80 \text{ mutations/generation}\label{eq:mutations_per_gen}\end{equation}
+The figure's numeric panels use a direct family-quartet substitution estimate, selected-microsatellite measurements, a population-inferred CNV estimate and an evolutionary-time gene-duplication estimate \citep{roach2010inheritance,sun2012microsatellites,conrad2010cnv,lynch2000duplication}. Their targets, ascertainment and time bases differ; they do not form a commensurate burden ranking.
 
-The probability of observing exactly $k$ mutations in a region of length $L$ follows the **Poisson distribution**:
+\begin{equation}M_{\mathrm{SNV}} = 2N \times \mu \approx 6.4 \times 10^9 \times 1.2 \times 10^{-8} \approx 70\text{--}80 \text{ new substitutions/offspring}\label{eq:mutations_per_gen}\end{equation}
+
+This is an illustrative expected substitution count, not a measured count for every child or an upper bound. For a target containing $L$ eligible base copies, assume independent events and a uniform per-base, per-generation rate $\mu$; the resulting **Poisson model** gives:
 
 \begin{equation}P(k) = \frac{(\mu L)^k \, e^{-\mu L}}{k!}\label{eq:poisson_mut}\end{equation}
 
@@ -115,9 +117,11 @@ A special class of mutations involving expansion of short tandem repeats:
 | Disease | Repeat | Normal Range | Pathogenic Range | Location | Mechanism |
 |---------|--------|-------------|-----------------|----------|-----------|
 | Huntington disease | CAG (Gln) | 6-35 | >36 (full penetrance >40) | HTT exon 1 | Toxic polyglutamine aggregation |
-| Fragile X syndrome | CGG | 5-44 | >200 (full mutation) | FMR1 5' UTR | CpG methylation silences FMR1 |
+| Fragile X syndrome | CGG | 5-44 | >200 (full-mutation range) | FMR1 5' UTR | Typically promoter hypermethylation and reduced FMR1 expression; exceptions require direct assays |
 | Myotonic dystrophy type 1 | CTG | 5-34 | >50 | DMPK 3' UTR | Toxic RNA foci sequester MBNL1 |
 | Friedreich ataxia | GAA | 5-33 | >66 | FXN intron 1 | [**Heterochromatin**](#gl:heterochromatin) formation silences FXN |
+
+For FMR1, repeat size does not by itself establish methylation, RNA abundance or FMRP abundance. Unmethylated full mutations can retain elevated RNA \citep{tassone2000unmethylated}, and size/methylation mosaicism can produce mixed states; measure each molecular endpoint rather than infer obligatory silencing from the repeat threshold. Premutation alleles are typically active, but RNA abundance alone does not establish normal protein production or a single mechanism for every premutation-associated phenotype.
 
 **Anticipation**: These diseases show **genetic anticipation** -- earlier onset and increased severity in successive generations -- because the unstable repeats tend to expand further during DNA replication (particularly during germ cell divisions).
 
@@ -128,7 +132,7 @@ A special class of mutations involving expansion of short tandem repeats:
 > 3. Explain why trinucleotide repeat diseases show anticipation.
 > 4. The deltaF508 CFTR mutation is a 3-bp deletion. Why is this NOT a frameshift?
 
-> **Worked Example — Poisson Distribution of De Novo Mutations:** The human germline mutation rate is approximately 1.2 × 10⁻⁸ per base pair per generation. The diploid genome is 6.4 × 10⁹ bp. Expected de novo mutations per offspring: μ_genome = 1.2 × 10⁻⁸ × 6.4 × 10⁹ = 76.8 ≈ 77 mutations per generation. Under a Poisson model, P(k mutations) = e^(-λ)λ^k/k! with λ = 77. P(0 mutations) = e^(-77) ≈ 3 × 10⁻³⁴ (a vanishingly small probability of inheriting zero new mutations). P(>100 mutations) — using normal approximation: z = (100 - 77)/√77 = 23/8.77 = 2.62 → P(>100) = 1 - Φ(2.62) ≈ 0.0044 = 0.44%. Paternal age effect: each additional year of paternal age adds ~2 mutations (reflecting DNA replication errors in spermatogonia that undergo ~30 more divisions/year). A 45-year-old father vs. a 25-year-old father transmits ~20 extra de novo mutations — a 26% increase — contributing to the increased prevalence of some autosomal-dominant disorders with paternal age.
+> **Worked Example — Poisson Distribution of De Novo Substitutions:** Assume an illustrative germline substitution rate of 1.2 × 10⁻⁸ per base per generation and a diploid target of 6.4 × 10⁹ base copies. The expected count is λ = 1.2 × 10⁻⁸ × 6.4 × 10⁹ = 76.8, rounded to 77 for this model. With independent events at a uniform rate, P(k) = e^(-λ)λ^k/k! and P(0) = e^(-77) ≈ 3.6 × 10⁻³⁴. A rough normal approximation without continuity correction gives P(>100) ≈ 1 - Φ((100 - 77)/√77) ≈ 0.0044. These probabilities are conditional on the illustrative model, not population-wide empirical frequencies. Kong et al.'s cohort, described below, estimated about two additional substitutions per year of paternal age; applying that linear effect over 20 years gives about 40 additional substitutions on average, not a prediction for an individual family.
 
 > **Concept Check (Evaluate):** Mutational signatures catalogued in the COSMIC database reveal that each major DNA-damaging agent leaves a characteristic pattern. UV radiation induces C→T transitions at dipyrimidine sites (especially CC→TT). Tobacco smoking causes C→A transversions (SBS4). Alkylating agents tend to produce G→A transitions at CpG dinucleotides. (a) A patient's tumor shows predominantly C→T transitions at TpCpN trinucleotides (signatures SBS2 and SBS13, characteristic of APOBEC deaminase activity). Propose a molecular mechanism explaining why APOBEC enzymes — which normally edit RNA and act on retroviral DNA intermediates — generate this signature in tumor cells, and identify which step in the cell cycle exposes single-stranded DNA to APOBEC. (b) The same patient's tumor is then exposed to a novel chemotherapy. Design a pre-clinical sequencing strategy (number of biopsies, sequencing depth, signature-decomposition approach) that would let you decide whether the therapy adds a new mutational signature or enriches the pre-existing APOBEC signature.
 
@@ -163,7 +167,7 @@ A special class of mutations involving expansion of short tandem repeats:
 | **Ethidium bromide** | Intercalating agent | Inserts between base pairs, stretching the helix | Frameshift mutations (insertions/deletions) |
 | **5-Bromouracil (5-BU)** | Base analog | Incorporated in place of T; tautomerizes to pair with G | A:T to G:C transitions |
 | **Acridine orange** | Intercalating agent | Inserts between bases | Frameshift mutations |
-| **Benzo[a]pyrene** (cigarette smoke) | Polycyclic aromatic hydrocarbon | Forms bulky adducts on guanine (after CYP1A1 activation) | G:C to T:A transversions; NER substrate |
+| **Benzo&#91;a&#93;pyrene** (cigarette smoke) | Polycyclic aromatic hydrocarbon | Forms bulky adducts on guanine (after CYP1A1 activation) | G:C to T:A transversions; NER substrate |
 
 **Reactive oxygen species (ROS)**: Endogenous byproducts of [**aerobic**](#gl:aerobic) metabolism (superoxide O$_2^{-}$, hydroxyl radical OH$\cdot$, hydrogen peroxide H$_2$O$_2$). ROS oxidize guanine to **8-oxoguanine (8-oxoG)**, which mispairs with adenine, causing G:C to T:A transversions. Repaired by BER (OGG1 glycosylase).
 
@@ -185,32 +189,32 @@ The **Ames test** (Bruce Ames, 1973) is a bacterial mutagenicity assay that uses
 
 ## DNA Damage and Repair
 
-The human genome sustains ~10,000-100,000 DNA lesions per cell per day \citep{ward1988}. Multiple repair pathways maintain genomic integrity.
+DNA damage includes chemically distinct lesions from endogenous chemistry and environmental exposure. Ward's review concerns ionizing-radiation damage in mammalian cells \citep{ward1988}; it does not establish a universal endogenous daily lesion count for every human cell.
 
-### DNA Damage — Quantitative Background
+### DNA Damage — Mechanisms and Quantification
 
-The endogenous and exogenous lesion load is enormous and well characterized quantitatively:
+Lesion formation rate, unrepaired burden and fixed mutation frequency are different quantities. A per-cell-per-day estimate requires cell type, genome amount, exposure, interval, assay and repair conditions; the following table deliberately does not assign universal frequencies.
 
-: DNA Damage — Quantitative Background: Lesion type and Source. {#tbl:unit_IV_mutations_and_genomics_dna_damage_quantitative_background}
-| Lesion type | Source | Frequency (per cell per day) |
-| ----------- | ------ | ---------------------------- |
-| Depurinations / abasic (AP) sites | Spontaneous hydrolysis of N-glycosidic bond | ~10,000 (purine more labile than pyrimidine) |
-| Depyrimidinations | Hydrolysis | ~500 |
-| Cytosine deaminations (C → U) | Hydrolysis | 100–500 |
-| 5-methylcytosine deaminations (5mC → T) | Hydrolysis (faster than C deamination) | ~50–100 (CpG-localized) |
-| Oxidised guanines (8-oxoG) | ROS attack on guanine N7 | ~10,000 |
-| Other oxidised bases (FapyG, FapyA, 5-OH-cytosine) | ROS | ~3,000 |
-| Single-strand breaks (SSBs) | Direct breakage; sugar-radical chemistry | 20,000–50,000 |
-| Inter-strand crosslinks (ICLs) | Endogenous aldehydes (acetaldehyde, formaldehyde) | ~10–50 |
-| **Replication-induced double-strand breaks** | Fork collapse at SSBs, R-loops, repeats | **~100–500 during replication** (S-phase primarily) |
-| Spontaneous DSBs (non-replicative) | Two coincident SSBs; radical-induced | ~10–50 |
-| UVB-induced CPDs | UV photons (sunlight, UVB 280–320 nm) | Highly variable; up to 10⁶ per skin cell per day with sun exposure |
-| Alkylated bases (O⁶-methylguanine, N3-methylpurine) | Endogenous methyl donors (S-adenosylmethionine) + exogenous alkylators | ~3,000 |
-| Topoisomerase-induced breaks | Stalled topoisomerase Ic-DNA complexes | Variable; increased by camptothecin, etoposide |
+: DNA Damage: Lesion Mechanisms and Measurement Requirements. {#tbl:unit_IV_mutations_and_genomics_dna_damage_quantitative_background}
+| Lesion type | Mechanism or source | Quantification boundary |
+| ----------- | ------------------- | ----------------------- |
+| Depurination / abasic sites | Hydrolysis of base–sugar bonds; abasic sites can also be repair intermediates | Separate formation from remaining abasic-site burden |
+| Depyrimidination | Hydrolysis | Specify base identity, temperature and assay |
+| Cytosine deamination (C → U) | Hydrolytic base conversion | Uracil detection is not automatically a fixed mutation count |
+| 5-methylcytosine deamination (5mC → T) | Deamination of methylated cytosine | State methylation context and repair opportunity |
+| Oxidized guanine (8-oxoG) | Oxidation involving guanine C8 | Control oxidation introduced during sample processing |
+| Other oxidized bases | Chemically distinct oxidation products | Identify the measured products rather than summing incompatible assays |
+| Single-strand breaks | Backbone damage or repair intermediates | Distinguish breaks from alkali-labile sites under the chosen assay |
+| Interstrand crosslinks | Covalent links between opposite strands, including aldehyde-derived lesions | Specify crosslink chemistry and exposure |
+| Replication-associated DSBs | Some damaged or collapsed forks produce one-ended breaks | Fork arrest is not automatically a DSB; state the cell-cycle and detection method |
+| Other DSBs | Radiation, enzymatic cleavage or sufficiently close opposing-strand lesions | A damage-focus count is not necessarily a one-to-one break count |
+| UV-induced CPDs | Photochemical pyrimidine dimers | Report wavelength, fluence, tissue depth and repair interval |
+| Alkylated bases | Endogenous or exogenous alkyl donors | Identify the adduct and distinguish exposure from residual burden |
+| Topoisomerase-linked lesions | Trapped covalent enzyme–DNA intermediates | Camptothecin targets topoisomerase I; etoposide targets topoisomerase II |
 
-**Replication-associated DSBs** (~100–500 per cell during S phase) are particularly dangerous because they break a DNA strand that is also undergoing semi-conservative replication, producing daughter molecules with persistent breaks. These represent the bulk of physiologically encountered DSBs and explain why HR, the high-fidelity DSB-repair pathway, is preferentially active in S/G2 phase.
+**Replication-associated DSBs** can be one-ended lesions requiring coordinated repair and restart. A nearby sister chromatid supports homologous-recombination pathways in S/G2; this does not establish that every stalled fork becomes a break or that one universal daily number accounts for most physiological DSBs.
 
-The cell maintains genomic integrity by directing each lesion to its appropriate repair pathway. The remarkable per-base error rate of replication (~10⁻¹⁰) is achieved through a combination of polymerase fidelity, proofreading, mismatch repair (post-replicative), and the various lesion-specific pathways below.
+Polymerase selectivity, proofreading and mismatch repair reduce errors during genome copying. A final per-base replication-error estimate requires an organism, division interval and assay; it is not the same quantity as a daily count of chemically damaged bases.
 
 ```mermaid
 flowchart TD
@@ -219,24 +223,24 @@ flowchart TD
     B -->|"Oxidized base (8-oxoG), deaminated base (U), AP site"| D["Base Excision Repair (BER)"]
     B -->|"Bulky adduct (CPD, 6-4PP, benzo[a]pyrene)"| E["Nucleotide Excision Repair (NER)"]
     B -->|"Replication mismatch, small indel loop"| F["Mismatch Repair (MMR)"]
-    B -->|"Double-strand break"| G{Cell Cycle Phase?}
-    G -->|"G1 phase (no sister chromatid)"| H["NHEJ: Ku70/80 + DNA-PKcs + Ligase IV"]
-    G -->|"S/G2 phase (sister chromatid available)"| I["Homologous Recombination: MRN + BRCA1/2 + RAD51"]
+    B -->|"Double-strand break"| G{End and template context?}
+    G -->|"End joining feasible across the cycle"| H["NHEJ: Ku70/80 + DNA-PKcs + Ligase IV"]
+    G -->|"Homologous template available; common sister-based routes in S/G2"| I["Homologous Recombination: MRN + BRCA1/2 + RAD51"]
     B -->|"Interstrand crosslink (ICL)"| J["Fanconi Anemia Pathway: FA proteins + NER + HR"]
 
     D --> K["Glycosylase removes base --> APE1 cuts --> Pol beta fills --> Ligase III seals"]
     E --> L["XPC detects distortion --> TFIIH unwinds --> XPF/XPG cut --> 24-32 nt removed --> Pol delta fills"]
     F --> M["MSH2/6 detects mismatch --> MLH1/PMS2 nicks new strand --> EXO1 degrades --> Pol delta fills"]
-    H --> N["Error-prone: small deletions at junction"]
-    I --> O["Error-free: uses sister chromatid as template"]
+    H --> N["Compatible ends can be joined accurately;<br/>processing or misjoining may change sequence"]
+    I --> O["Homologous-template-guided repair;<br/>not an error-free guarantee"]
 
     style A fill:#d9534f,color:#fff
     style N fill:#f0ad4e,color:#000
     style O fill:#5cb85c,color:#fff
 ```
-<!-- alt: Flowchart showing DNA damage types and their corresponding repair pathways. The choice of DSB repair pathway depends on cell cycle phase: NHEJ predominates in G1, while HR requires a sister chromatid template available in S/G2. -->
+<!-- alt: Flowchart showing selected DNA damage repair pathways: end structure, cell-cycle state and homologous-template availability influence outcomes; no pathway name guarantees accuracy or a fixed duration. -->
 
-*DNA damage types and their corresponding repair pathways. The choice of DSB repair pathway depends on [**cell cycle**](#gl:cell-cycle) phase: NHEJ predominates in G1, while HR requires a sister chromatid template available in S/G2.*
+*Selected DNA damage repair pathways: end structure, cell-cycle state and homologous-template availability influence outcomes; no pathway name guarantees accuracy or a fixed duration.*
 
 ### DNA Repair Pathway Specificity and Disease Consequences
 
@@ -320,24 +324,24 @@ The choice between homologous recombination (HR) and non-homologous end joining 
 : HR vs NHEJ — Pathway Choice Mechanism: Step and NHEJ-favoring. {#tbl:unit_IV_mutations_and_genomics_hr_vs_nhej_pathway_choice_mechanism}
 | Step | NHEJ-favoring | HR-favoring |
 | ---- | -------------- | ------------ |
-| Cell cycle phase | G1, G0 | S, G2 (sister chromatid available as template) |
-| End sensor | **Ku70/Ku80** binds DSB ends rapidly | Slow accommodation; replaces Ku |
-| End processing | **DNA-PKcs** recruited; minimal end resection | **MRN complex** (MRE11–RAD50–NBN) initiates short-range resection |
+| Cell-cycle context | Can operate across the cycle; often important in G1/G0 | Sister-based routes favored when a sister is available in S/G2; homologous templates are not definitionally limited to sisters |
+| End recognition | **Ku70/Ku80** binds ends | Resection competence and end-associated factors influence pathway engagement |
+| End processing | **DNA-PKcs** and end-processing/ligation factors; processing depends on substrate | **MRN complex** (MRE11–RAD50–NBN) participates in resection initiation |
 | End-resection regulator | **53BP1** + **RIF1** + **PTIP** + **shieldin** complex (REV7-MAD2L2-SHLD1/2/3) — protects ends from resection | **CtIP** (CDK-phosphorylated in S/G2) + **MRN** initiates resection; **EXO1** + **DNA2** + **BLM** extend resection |
-| Fidelity | Error-prone — small deletions/insertions at junction | High-fidelity (uses sister chromatid template) |
-| Time scale | Fast (minutes) | Slow (hours) |
+| Fidelity | Compatible-end joining can preserve sequence; processing or wrong-end joining can alter it | Template choice, synthesis and resolution affect outcome; no error-free guarantee |
+| Kinetics | End compatibility, processing and preparation affect measured rate | Resection, template search, synthesis and preparation affect measured rate |
 | Key proteins (after end-recognition) | DNA-PKcs, Artemis (nuclease), XRCC4, Ligase IV, XLF/Cernunnos, PAXX | RPA → BRCA2 → RAD51 (filament) → strand invasion → D-loop → resolution |
-| Outcome | Direct ligation of ends (often with deletions ≤ 50 bp) | Use of sister chromatid as template; restores original sequence |
+| Outcome | Direct joining with or without a changed junction | Template-guided synthesis can restore sequence or yield conversion/rearrangement outcomes |
 
-**The CDK regulatory switch:** During G1, CDK activity is low; CtIP is unphosphorylated; 53BP1-shieldin protects ends; Ku70/80 dominates → NHEJ. During S/G2, CDK1/2 phosphorylates CtIP at Ser327 and Thr847, activating its end-resection function; CtIP+MRN displaces Ku → HR is initiated.
+**Cell-cycle-dependent regulation is not an exclusive switch.** CDK/CtIP-linked resection regulation and end protection influence pathway use, but cycle phase alone does not specify substrate, template or final sequence. In the cited complementary-end experiments, canonical end joining preserved some junctions accurately \citep{guirouilhbarbat2007nhej}; this refutes an intrinsically error-prone classification without making every NHEJ event accurate.
 
-**The BRCA1 vs 53BP1 antagonism.** **BRCA1** promotes resection (HR); **53BP1** blocks resection (NHEJ). The two compete for binding at H4K20me-marked nucleosomes near the DSB. BRCA1's BRCT domain reads γH2AX-bound MDC1; 53BP1's tandem Tudor domain reads H4K20me2. Loss of 53BP1 in BRCA1-deficient cells **rescues HR** (because resection is no longer blocked) — a synthetic-lethal escape mechanism in PARP-inhibitor resistance.
+**BRCA1/53BP1 balance is context dependent.** End protection and resection influence repair-pathway engagement; they are not a single competition for one histone mark or a direct BRCT–MDC1 recognition rule. In the studied Brca1-mutant cell models, loss of 53BP1 promoted end processing, restored the measured HR response and reduced PARP-inhibitor hypersensitivity, whereas Lig4 loss did not rescue the HR defect \citep{bunting2010resection}. That experimental distinction does not guarantee HR restoration or drug resistance for every BRCA1 variant or tumor.
 
-**The BRCA2 mechanism.** Once ssDNA is generated by resection, RPA coats it. BRCA2 then loads RAD51 onto the RPA-coated ssDNA, displacing RPA. This is the rate-limiting step of HR. Loss of BRCA2 prevents RAD51 loading → HR fails → cells become "BRCAness"-positive → exquisitely sensitive to PARP inhibitors (synthetic lethality, see \cref{sec:unit_IV_dna_replication_and_cell_cycle}).
+**BRCA2 and RAD51 loading.** After resection, RPA coats exposed ssDNA; BRCA2 supports RAD51 filament formation on that substrate. Defective BRCA2 can impair homologous repair, but this is not a universal rate-limiting-step assignment. PARP-inhibitor response requires variant-, cell- and treatment-specific evidence rather than an automatic sensitivity prediction from a pathway name (see \cref{sec:unit_IV_dna_replication_and_cell_cycle}).
 
-**Ku70/80 binding.** Ku70/80 forms a ring that threads onto the DSB end with extreme avidity (Kd ≈ 1 nM). It positions the DNA-PKcs catalytic subunit at the end and protects against resection. The Ku70/80 ring must be removed (by ubiquitination + proteasome) before HR can proceed in S/G2. This explains why NHEJ has an immediate kinetic advantage and HR requires time and active disassembly.
+**Ku70/80 and end access.** Ku binds DNA ends and can restrain resection. End-bound complexes, substrate processing and the relevant removal pathways influence access by other repair machinery; neither a single binding constant nor one mandatory proteasomal route establishes a universal NHEJ-versus-HR kinetic ranking.
 
-> **Concept Check (Analysis):** Mismatch repair (MMR) corrects errors introduced by DNA polymerase by distinguishing the template strand (methylated GATC sites in bacteria; nick-directed in eukaryotes) from the newly synthesized strand. (a) A MMR-deficient cell has a base-substitution rate roughly 100–1,000 × that of wild-type. Taking the spontaneous misincorporation rate of DNA Pol III as $10^{-7}$ per base per replication and assuming MMR corrects about 99.9% of mismatches, calculate the uncorrected mutation rate with MMR active vs. with MMR absent, and check that the fold change matches the empirical range. (b) Lynch syndrome (hereditary non-polyposis colorectal cancer) is caused by germline heterozygosity at MMR genes (typically MLH1 or MSH2). Using the two-hit model, explain why heterozygous carriers develop tumors during adulthood despite the wild-type allele being present at conception, and predict which tumor-level phenotypes (microsatellite instability score, immunohistochemistry for the MMR proteins, mutational burden) would distinguish a Lynch-driven colorectal tumor from a sporadic MMR-proficient colorectal tumor.
+> **Concept Check (Analysis):** MMR strand discrimination is system-specific: the methylation/MutH model applies to organisms such as E. coli, not all bacteria, while nick-directed mechanisms operate in other systems. (a) In a stipulated error-correction calculation, take an incoming mismatch rate of $10^{-7}$ per copied base and removal of 99.9% by MMR. Calculate the residual rate and fold difference if this removal is absent; these assumptions do not measure a universal polymerase or clinical mutation rate. (b) Explain how inherited heterozygosity and a somatic second hit can raise Lynch-syndrome cancer risk without implying that every carrier develops an adult tumor. Compare expected MSI/IHC patterns with an MMR-proficient control, and explain why germline and appropriate tumor testing are needed rather than diagnosing inherited disease from MSI alone.
 
 **Concept Check 13.2**
 
@@ -363,24 +367,25 @@ In bacteria, CRISPR functions as immunological memory:
 ### Engineered CRISPR-Cas9
 
 ```mermaid
-flowchart LR
-    A["Design 20-nt Guide Sequence Complementary to Target"] --> B["Synthesize sgRNA (crRNA + tracrRNA Fused)"]
-    B --> C["Deliver Cas9 + sgRNA to Cell (Plasmid, RNP, or mRNA + LNP)"]
-    C --> D["Cas9-sgRNA Complex Scans Genome for PAM (5'-NGG-3')"]
-    D --> E["PAM Found: Local DNA Unwinding"]
+flowchart TD
+    A["Select target and strategy<br/>design complementary guide"] --> B["Prepare guide and editor<br/>sgRNA or prime-editing pegRNA"]
+    B --> C["Deliver selected Cas9-derived editor<br/>and guide components to cells"]
+    C --> D["Guide-bound editor recognizes<br/>a compatible PAM"]
+    D --> E["Local DNA unwinding<br/>guide-target pairing"]
     E --> F{Guide-Target Complementarity?}
     F -->|"No Match"| D
-    F -->|"20-nt Match (R-loop Formation)"| G["RuvC Cleaves Non-target Strand; HNH Cleaves Target Strand"]
+    F -->|"Target recognized"| Strategy{"Editing strategy?"}
+    Strategy -->|"Nuclease Cas9"| G["RuvC cleaves non-target strand<br/>HNH cleaves target strand"]
     G --> H["Double-Strand Break 3 bp Upstream of PAM"]
     H --> I{Repair Pathway?}
     I -->|"No Donor Template"| J["NHEJ: Error-Prone Repair"]
-    J --> K["Indels at Cut Site --> Gene Knockout"]
+    J --> K["Indels at cut site<br/>possible gene disruption"]
     I -->|"Donor Template Provided (ssODN or Plasmid)"| L["HDR: Homology-Directed Repair"]
     L --> M["Precise Gene Correction or Insertion"]
-    I -->|"Base Editor (no DSB)"| N["Catalytically Dead Cas9 (dCas9) + Deaminase"]
-    N --> O["C-to-T or A-to-G Conversion Without DSB"]
-    I -->|"Prime Editor (no DSB)"| P["Cas9 Nickase + Reverse Transcriptase + pegRNA"]
-    P --> Q["Search-and-Replace: Any Small Edit Without DSB"]
+    Strategy -->|"Base editor"| N["Cas9 nickase or dCas9<br/>+ deaminase"]
+    N --> O["C-to-T or A-to-G conversion<br/>without a programmed DSB"]
+    Strategy -->|"Prime editor"| P["Cas9 nickase + reverse transcriptase<br/>+ pegRNA"]
+    P --> Q["Targeted substitutions or small indels<br/>without a programmed DSB"]
 
     style A fill:#4a90d9,color:#fff
     style K fill:#f0ad4e,color:#000
@@ -388,14 +393,14 @@ flowchart LR
     style O fill:#5cb85c,color:#fff
     style Q fill:#5cb85c,color:#fff
 ```
-<!-- alt: Flowchart showing CRISPR-Cas9 genome editing mechanism. The sgRNA guides Cas9 to a PAM-adjacent target sequence where a DSB is created. Repair by NHEJ produces knockouts; HDR with a donor template allows precise editing. Newer variants (base editors, prime editors) avoid DSBs entirely. -->
+<!-- alt: Flowchart showing genome-editing strategies branch before cleavage: nuclease Cas9 uses double-strand-break repair, whereas base and prime editors use deamination or nickase–reverse-transcriptase chemistry without a programmed DSB. -->
 
-*The CRISPR-Cas9 genome editing mechanism. The sgRNA guides Cas9 to a PAM-adjacent target sequence where a DSB is created. Repair by NHEJ produces knockouts; HDR with a donor template allows precise editing. Newer variants (base editors, prime editors) avoid DSBs entirely.*
+*Genome-editing strategies branch before cleavage: nuclease Cas9 uses double-strand-break repair, whereas base and prime editors use deamination or nickase–reverse-transcriptase chemistry without a programmed DSB \citep{komor2016,anzalone2019}.*
 
 **Key molecular details**:
-- **sgRNA (single guide RNA)**: A fusion of crRNA (20-nt spacer complementary to the target) and tracrRNA (scaffold that binds Cas9). The ~100-nt sgRNA is most that is needed to redirect Cas9.
-- **PAM (protospacer adjacent motif)**: For *S. pyogenes* Cas9 (SpCas9), the PAM is **5'-NGG-3'** on the non-target strand, immediately 3' of the target sequence. PAM recognition is the first step; without PAM, Cas9 will not unwind or cleave.
-- **Cleavage**: **HNH domain** cleaves the strand complementary to the sgRNA (target strand); **RuvC domain** cleaves the non-target strand. Both cuts occur ~3 bp upstream of the PAM, creating a blunt-ended DSB.
+- **sgRNA (single guide RNA)**: A conventional SpCas9 guide fuses the crRNA spacer (about 20 nt complementary to the target) with the tracrRNA scaffold that binds Cas9. The roughly 100-nt sgRNA supplies the RNA targeting component; enzyme, compatible target and cellular repair conditions remain separate requirements.
+- **PAM (protospacer adjacent motif)**: For canonical *S. pyogenes* Cas9 (SpCas9) duplex targeting, the preferred PAM is **5'-NGG-3'** on the non-target strand, immediately 3' of the target sequence. PAM recognition licenses local duplex unwinding and guide-target testing. This requirement is scoped to double-stranded DNA: in the 2012 in-vitro assays, target single-stranded DNA cleavage was unaffected by PAM mutations \citep{doudna2012}.
+- **Cleavage**: The **HNH domain** cleaves the guide-complementary target strand; the **RuvC domain** cleaves the non-target strand. The canonical duplex-target schematic places the break about 3 bp upstream of the PAM; substrate-dependent non-target-strand processing in the original assays cautions against treating every product as an identical blunt end \citep{doudna2012}.
 
 ### Beyond Cas9: Expanded Toolkit
 
@@ -418,7 +423,7 @@ flowchart LR
 
 - **Indication**: Sickle cell disease (SCD) and transfusion-dependent beta-thalassemia
 - **Mechanism**: Ex vivo CRISPR editing of patient hematopoietic stem cells (HSCs) to disrupt the *BCL11A* erythroid enhancer. BCL11A is a repressor of fetal hemoglobin (HbF, alpha2-gamma2). Disrupting its erythroid enhancer reactivates HbF production, which does not sickle and compensates for defective HbS.
-- **Results**: In SCD, the regulatory endpoint is freedom from severe vaso-occlusive crises after treatment; transfusion independence is the endpoint used for transfusion-dependent beta-thalassaemia. Early exa-cel studies also reported sustained fetal-hemoglobin induction, so the durable teaching point is endpoint specificity: the same edited cell product is judged against different disease-specific clinical outcomes \citep{fda2023casgevy,fda2024casgevythalassemia,fda2026casgevy}.
+- **Results**: In SCD, the regulatory endpoint is freedom from severe vaso-occlusive crises after treatment; transfusion independence is the endpoint used for transfusion-dependent beta-thalassaemia. Early exa-cel studies also reported sustained fetal-hemoglobin induction, so the durable teaching point is endpoint specificity: the same edited cell product is judged against different disease-specific clinical outcomes \citep{fda2023casgevy,fda2024casgevythalassemia,fda2026casgevylabel}.
 
 **NTLA-2001 (in vivo CRISPR)**:
 - **Indication**: Transthyretin (ATTR) amyloidosis
@@ -431,13 +436,13 @@ flowchart LR
 - **NHEJ:HDR ratio**: ~1000:1 in non-dividing cells (most therapeutically relevant cells); S/G2 phase favors HDR; base editors and prime editors circumvent this limitation
 
 > **Clinical Connection: Base Editing for Sickle Cell Disease**
-> An alternative approach uses adenine base editing to directly convert the sickle mutation (GAG to GTG = Glu to Val) back to the wild-type or a benign Makassar variant (GAG to GCG = Glu to Ala). This avoids DSBs entirely and may be safer than Cas9-based approaches. Clinical trials are underway (Beam Therapeutics, BEAM-101).
+> On the HBB coding DNA strand, wild type is GAG (Glu), sickle is GTG (Val), and Makassar is GCG (Ala). A complementary-strand A-to-G edit can produce coding T-to-C, converting GTG to GCG; it does not revert GTG to GAG. Regulatory editing that raises γ-globin is distinct from direct HBB coding conversion. Avoiding programmed double-strand breaks does not remove bystander, off-target, or delivery risks; maturity must be documented for the actual program, not inferred from editor class.
 
 **Mitochondrial DNA editing boundary:** Standard CRISPR-Cas systems work poorly for mtDNA because guide RNAs are difficult to import into mitochondria. DddA-derived cytosine base editors (DdCBEs) solve part of the problem by using TALE-DddA protein fusions to install targeted C$\cdot$G-to-T$\cdot$A edits in mtDNA without guide RNA \citep{mok2020mitochondrialbaseediting}. This is a major tool advance, not a general approved therapy: heteroplasmy, off-target editing, delivery, selectable mutation classes, and tissue specificity remain the current translational constraints \citep{barrerapaez2023mitochondrialediting}.
 
 **Concept Check 13.3**
 
-> 1. Why does Cas9 require a PAM sequence? What is the evolutionary rationale?
+> 1. Why does canonical SpCas9 recognition of a double-stranded DNA target require a compatible PAM? Relate this to self/nonself discrimination, and distinguish the primary paper's single-stranded-DNA assay result.
 > 2. Compare NHEJ and HDR outcomes after Cas9-mediated DSB. Why is HDR difficult to achieve in post-mitotic cells?
 > 3. What advantage does base editing offer over standard Cas9 editing for correcting point mutations?
 > 4. Explain the mechanism of Casgevy: why does disrupting BCL11A treat sickle cell disease?
@@ -467,7 +472,7 @@ Transposable elements (TEs) make up ~46 % of the human genome — far more than 
 
 **Class I — RNA-mediated retrotransposons (copy-and-paste; majority of human TEs):**
 
-1. **LINE-1 (Long Interspersed Nuclear Element 1)** — ~21 % of human genome; ~500,000 copies; ~6 kb full-length. Primarily ~80–100 are currently transposition-competent.
+1. **LINE-1 (Long Interspersed Nuclear Element 1)** — a human retrotransposon family with full-length elements of roughly 6 kb and many fragmented or inactive copies. Assembly-specific copy counts and a defined activity assay are needed before estimating the retrotransposition-competent subset.
    - Encodes ORF1 (RNA-binding chaperone) and ORF2 (with reverse-transcriptase + endonuclease activities)
    - **Retrotransposition mechanism (Target-Primed Reverse Transcription, TPRT):**
      1. L1 transcribed by Pol II → L1 mRNA (~6 kb, capped, polyadenylated)
@@ -479,7 +484,7 @@ Transposable elements (TEs) make up ~46 % of the human genome — far more than 
      7. Second-strand DNA synthesis completes integration
      8. Target site duplication (TSD; 7–20 bp) flanks the new insertion, plus a poly-A tail at the 3′ end
    - Most insertions are 5′-truncated due to incomplete RT
-   - L1 endonuclease nicks ~100 sites/cell per day; most fail to complete TPRT (silenced by KRAB-ZFP-driven H3K9me3 repression)
+   - In the studied L1.3-transfected HeLa preparations, L1 expression produced endonuclease-dependent damage signals and COMET evidence of fragmentation \citep{gasior2006l1damage}. Detected damage events were not equivalent to successful insertions. This does not establish an endogenous 100-nicks-per-cell-per-day rate; transcriptional repression and failure to complete an already initiated TPRT event are distinct mechanisms.
 
 2. **Alu elements (Short Interspersed Nuclear Element 1, SINE)** — ~13 % of human genome; ~1.1 million copies; ~300 bp.
    - Derived from 7SL RNA (signal recognition particle component); contain RNA Pol III internal promoter
@@ -498,10 +503,8 @@ Transposable elements (TEs) make up ~46 % of the human genome — far more than 
 - Hyperactive synthetic DNA transposons (e.g., **Sleeping Beauty**, **PiggyBac**) are now used as gene-delivery tools in research and CAR-T therapy
 
 **Genomic and clinical impact of TE insertions:**
-- ~100 *de novo* L1 or Alu insertions per generation (germline)
-- ~10–15 % of disease-causing mutations are TE insertions (e.g., Alu insertion in *NF1* exon 6 causing neurofibromatosis; L1 insertion in *DMD* causing Duchenne)
-- TE insertions in gene regulatory regions can create new enhancers or promoters (~25 % of mammalian enhancers derive from TEs)
-- Active L1 retrotransposition in the brain creates somatic mosaicism (~80 unique L1 insertions per neuron) potentially contributing to neuronal diversity
+- Ewing and Kazazian's 2010 population-model estimate was one L1 retrotransposition per 95–270 live births, under demographic assumptions; this is not 100 new L1/Alu insertions per child \citep{ewing2010l1}.
+- TE insertions can disrupt coding or regulatory sequence. Disease fractions and somatic insertion counts depend on tissue, detection method, and denominator; no universal neuron or disease-mutation percentage is supplied here.
 - Cancer cells often re-activate TE expression (LINE-1 demethylation is a hallmark of global cancer hypomethylation), contributing to chromosomal instability and inflammation
 
 **Defense mechanisms against TE activity:**
@@ -513,9 +516,7 @@ Transposable elements (TEs) make up ~46 % of the human genome — far more than 
 ### Structural Variants — Inversions, CNVs, and Disease
 
 **Inversions** are large segments of DNA flipped end-to-end. Unlike SNPs, they are difficult to detect by short-read sequencing (the inversion preserves sequence content, primarily orientation changes). Long-read sequencing (PacBio HiFi, Oxford Nanopore) and optical mapping (Bionano Saphyr) have revealed:
-- ~40,000 polymorphic inversions per human genome (most < 50 kb)
-- **HbF inversion regulators**: A rare inversion at the *BCL11A* locus disrupts the erythroid-specific enhancer of *BCL11A*, derepressing fetal hemoglobin (HbF) production. This explains the high HbF persistence in some Sardinian families and provides the rationale for therapeutic disruption of *BCL11A* (Casgevy approved for sickle cell disease).
-- **Pericentric inversion of chromosome 9** (inv(9)(p11q12)): a common normal variant (~1–3 % of population), classically considered benign, but recently associated with subtle effects on fertility.
+- Population inversion catalogs pooled across people are not counts per individual. Inversions can disrupt genes or change regulatory topology; breakpoint-spanning evidence and phasing test their effects. Casgevy deliberately disrupts an erythroid BCL11A enhancer; its rationale does not require an asserted universal inversion mechanism.
 
 **Copy Number Variants (CNVs)** are duplications or deletions of segments > 1 kb. Two major mechanisms:
 - **Non-allelic homologous recombination (NAHR)** between segmental duplications (low-copy repeats, LCRs) — produces recurrent CNVs at predictable breakpoints (e.g., 22q11.2 microdeletion, 16p11.2 micro-CNV)
@@ -532,7 +533,7 @@ Transposable elements (TEs) make up ~46 % of the human genome — far more than 
 | **NRXN1** (Neurexin-1) (heterozygous deletion) | Variable, exonic | Autism, schizophrenia, intellectual disability | 5–10× enrichment |
 | **CNTNAP2** (heterozygous loss) | Variable, exonic | Autism, language delay, epilepsy | Modest enrichment |
 | **3q29** (microdeletion) | ~1.6 Mb | Schizophrenia (~40× risk increase) | Rare but high penetrance |
-| **22q11.2** (microduplication) | ~3 Mb | Increased risk of schizophrenia | ~3× increase |
+| **22q11.2** (microduplication) | 1.5–3 Mb in the cited study | Lower schizophrenia association in the combined study; ASD/developmental outcomes are distinct, not excluded | Rees et al.: 3/21,138 schizophrenia cases vs 22/25,867 controls; OR 0.17 (95% CI 0.050–0.56). Incomplete protection, not a deterministic carrier prognosis \citep{Rees2014Duplication} |
 | **1q21.1** (deletion or duplication) | ~1.4 Mb | Schizophrenia, autism, microcephaly (deletion) | ~10× risk |
 | **15q13.3** (deletion) | ~1.5 Mb | Schizophrenia, epilepsy (deletion) | ~10× risk |
 
@@ -599,7 +600,7 @@ flowchart LR
 
 ### Pangenome Graph Reasoning
 
-The old mental model of a genome reference was a single linear string. That is still useful, but it hides ancestry-specific haplotypes, structural variants, alternate gene copies, and repeat-resolved sequence that do not align cleanly to one coordinate path. The Human Pangenome Reference Consortium's 2023 draft reference introduced a graph built from 47 diverse individuals and 94 phased haplotypes; its 2025 Release II expanded the resource to assemblies from 232 individuals with phased, near-telomere-to-telomere assemblies, annotations, and graph-based alignments \citep{humanpangenome2023,hprc2025release2}. In a graph, a variant is not merely "different from the reference"; it is a path through an explicitly represented set of alternatives. This improves reasoning about structural variation and representation, while adding new validation obligations: graph alignment, annotation transfer, clinical reporting, and population sampling must become part of the claim.
+The old mental model of a genome reference was a single linear string. That is still useful, but it hides ancestry-specific haplotypes, structural variants, alternate gene copies, and repeat-resolved sequence that do not align cleanly to one coordinate path. The Human Pangenome Reference Consortium's 2023 draft reference introduced a graph built from 47 diverse individuals and 94 phased haplotypes; its 2025 Release II expanded the resource to assemblies from 232 individuals with high-quality phased assemblies; the May 12, 2025 announcement described comprehensive annotations and graph alignments as forthcoming, so later availability requires release-specific artifacts \citep{humanpangenome2023,hprc2025release2}. In a graph, a variant is not merely "different from the reference"; it is a path through an explicitly represented set of alternatives. This improves reasoning about structural variation and representation, while adding new validation obligations: graph alignment, annotation transfer, clinical reporting, and population sampling must become part of the claim.
 
 ```mermaid
 flowchart LR
@@ -655,44 +656,44 @@ GWAS identify genetic variants (typically SNPs) associated with complex traits o
 
 **Ultraconserved elements (UCEs)**: A particularly remarkable subset — ~481 segments of ≥ 200 bp that are perfectly identical (100 % sequence identity) across human, mouse, and rat genomes (Bejerano et al., 2004 *Science*). These elements have remained unchanged for ~80 million years, implying extreme purifying selection. UCEs cluster near developmental transcription factors (e.g., *DACH1*, *POU3F2*) and are enriched in enhancers controlling early embryonic patterning. Their function remains incompletely understood — paradoxically, knocking out individual UCEs in mice produces primarily subtle phenotypes, raising questions about why selection is so strong if redundancy is high.
 
-**Comparative-genomics signatures of selection:**
+**Comparative-genomics signals used to investigate selection:** These are model-dependent observations, not a lookup table proving adaptation. Neutral demographic, recombination, mutation-rate and ascertainment models must be considered; concordant statistics can share the same confounder. A functional assay establishes a specified phenotype, not by itself the historical fitness advantage \citep{tajima1989neutrality,nielsen2005selection,sabeti2007selection}.
 
-: Pangenome Graph Reasoning: Signature and Detection method. {#tbl:unit_IV_mutations_and_genomics_pangenome_graph_reasoning_2}
+: Selection-related sequence signals and their inferential limits. {#tbl:unit_IV_mutations_and_genomics_pangenome_graph_reasoning_2}
 | Signature | Detection method | Interpretation |
 | --------- | ----------------- | -------------- |
-| Conserved across species | PhastCons, PhyloP | Purifying selection (function preserved) |
-| Conserved + accelerated in lineage | HAR (Human Accelerated Regions) | Adaptive change in human lineage (e.g., HAR1 → schizophrenia, autism overlap) |
-| Population-level fixation | Fst, XP-EHH | Recent positive selection in a population (e.g., LCT lactase persistence in Europeans) |
-| dN/dS > 1 | PAML, codeml | Positive selection at protein level (e.g., immune genes, primate FOXP2) |
-| TajimaD < 0 | Coalescent statistics | Recent selective sweep |
-| Long-range LD (haplotype block) | iHS, EHH | Recent adaptive selection |
+| Conserved across species | phastCons, phyloP and phylogenetic rate comparisons | Consistent with constraint relative to an appropriate neutral background; does not identify a specific biological function by itself |
+| Conserved background with lineage-specific acceleration | Lineage-specific substitution-rate tests | May reflect adaptive change, relaxed constraint or another rate/bias process; acceleration alone does not establish a disease mechanism |
+| Population differentiation or asymmetric haplotype extent | Fst outlier comparisons, XP-EHH | Candidate population-specific selection after calibration; Fst is not a fixation count, and population structure can create outliers |
+| $d_N/d_S>1$ under a tested codon model | PAML/codeml model comparisons | Can support positive protein-level selection with alignment/model checks; a gene name alone is not evidence of a sweep |
+| Negative Tajima's D | Standardized difference between pairwise and segregating-site diversity estimates | Excess low-frequency variation relative to the specified null; growth, selection and other departures can produce it |
+| Extended haplotype homozygosity or long-range LD | iHS, EHH and related haplotype comparisons | Candidate sweep signal conditional on allele frequency, recombination, demography and ascertainment; not standalone proof of adaptation |
 
 ### Mutation Rates — Spontaneous vs Induced
 
-Mutation rate varies enormously with cellular context, mutagen exposure, and DNA repair capacity. The following table contrasts representative spontaneous and induced mutation frequencies:
+Mutation evidence depends on cellular context, exposure, repair and ascertainment. As in the unsorted `MutationRateEvidence` catalog, each quantitative estimate needs its own target and time basis. This table separates inherited substitution rates, DNA damage and accumulated somatic burden; its rows are not a common rate scale.
 
-: Mutation Rates — Spontaneous vs Induced: Source and Mutation rate (per bp per generation/division). {#tbl:unit_IV_mutations_and_genomics_mutation_rates_spontaneous_vs_induced}
-| Source | Mutation rate (per bp per generation/division) | Notes |
-| ------ | ---------------------------------------------- | ----- |
-| **Spontaneous mutations** | | |
-| Human germline | 1.2 × 10⁻⁸ per bp per generation | Trio sequencing (Kong et al., 2012); paternal age × 2 from age 20 to 50 |
-| Human somatic (most tissues) | 5 × 10⁻⁹ to 10⁻⁸ per cell division | Stem-cell-population mutation rate |
-| *E. coli* (wild-type) | 5 × 10⁻¹⁰ per bp per generation | High polymerase fidelity + MMR |
-| *E. coli* mutator (mutS-) | 5 × 10⁻⁷ per bp per generation | 1000× elevated due to MMR loss |
-| *S. cerevisiae* (yeast) | 2 × 10⁻¹⁰ per bp per generation | |
-| **Induced mutations** | | |
-| UV (sub-lethal, 10 J/m²) | 10⁻⁵ to 10⁻⁴ per bp at TT, TC sites | CPDs and 6-4 photoproducts; localized to pyrimidine dimers |
-| Ionizing radiation (1 Gy) | ~50–100 DSBs per cell | DSBs cluster in damage tracks; many fatal if unrepaired |
-| Cigarette smoke (chronic exposure) | ~150 missense mutations/year in lung epithelium | Benzo[a]pyrene → G:C → T:A transversions (signature 4) |
-| EMS (ethyl methanesulfonate, 50 mM) | 5 × 10⁻⁴ per bp per generation in *Drosophila* | Workhorse mutagen; G:C → A:T transitions |
-| 5-FU treatment (cancer chemo) | 100–1000-fold elevation in dividing cells | Thymidylate synthase inhibition + mis-incorporation |
-| **Disease-state elevation** | | |
-| Lynch syndrome (MMR-deficient tumors) | 10⁻⁵ per bp; microsatellite instability (MSI) | Poll/Pold mutations also cause Lynch-like phenotypes |
-| MUTYH-associated polyposis | 10× G:C → T:A elevation | OGG1+MUTYH-deficient |
-| BRCA1/2-deficient cancer | High SV burden (BRCA1) or chromothripsis (BRCA2) | HR-defective; relies on error-prone NHEJ/MMEJ |
-| POLE proofreading-deficient cancer | 10⁻⁴ to 10⁻⁵ per bp | "Ultramutator" phenotype (~100,000 mutations per tumor); responds to anti-PD-1 |
+: Mutation evidence: rates, damage and somatic burden with distinct measurement bases. {#tbl:unit_IV_mutations_and_genomics_mutation_rates_spontaneous_vs_induced}
+| Context | Metric or process | Evidence boundary |
+| ------- | ----------------- | ----------------- |
+| Human germline, family quartet | ≈1.1 × 10⁻⁸ substitutions per position per haploid genome per generation | Direct family estimate \citep{roach2010inheritance}; not a universal constant |
+| Human germline, Icelandic trios | 1.20 × 10⁻⁸ substitutions per nucleotide per generation | 78 trios; mean paternal age 29.7 years; source-specific estimate \citep{kong2012germline} |
+| Human somatic tissues | Accumulation in a sampled cell lineage | Per-year burden is not per-division rate without a division history |
+| Wild-type *E. coli* and yeast | Replication fidelity and repair limit mutation | Rates require strain, growth conditions, target and assay |
+| MMR-deficient *E. coli* | Loss of mismatch correction can elevate mutation | A fold change requires a matched strain and the same mutation target |
+| UV exposure | CPDs and 6-4 photoproducts are DNA lesions | Wavelength, fluence and repair interval matter; lesions are not fixed substitutions |
+| Ionizing radiation | Strand breaks and other DNA lesions | DSBs per cell per dose are damage yield, not mutations per base |
+| Tobacco exposure | ≈150 substitutions per cell per pack-year, inferred for lung | Cancer-sequence regression; inferred normal-cell accumulation, not missense count |
+| EMS exposure | Alkylation can produce G:C → A:T transitions | Mutation yield depends on organism, dose, exposure time and target |
+| 5-FU treatment | Thymidylate synthase inhibition and nucleotide mis-incorporation | Treatment response and mutation accumulation are distinct outcomes |
+| MMR-deficient tumors | Microsatellite instability and altered mutation burden | Tumor burden is not a germline or per-division rate; Lynch syndrome is inherited predisposition |
+| MUTYH-associated polyposis | Defective repair of adenine opposite 8-oxoG | Does not imply simultaneous OGG1 deficiency or one universal fold increase |
+| BRCA1/2-deficient tumors | Defective homologous recombination can alter structural-variant patterns | Neither a unique rearrangement pattern nor a common per-base rate follows |
+| POLE proofreading-deficient tumors | High accumulated substitution burden and characteristic signatures | Specific pathogenic variants matter; tumor burden is not per-generation rate |
 
-**Why the mutation rate is so finely tuned.** The germline mutation rate of ~1.2 × 10⁻⁸ produces ~70 *de novo* mutations per offspring, an upper limit set by cumulative effects across generations: too high, and "Muller's ratchet" accumulates deleterious mutations faster than selection can purge them; too low, and there is insufficient variation for adaptation. Different organisms have evolved different rates: high-fecundity microbes (10⁻⁹ to 10⁻¹⁰), mammals (10⁻⁸), and viruses with their relaxed proofreading (HIV: 10⁻⁵; influenza: 10⁻⁴) reflect different optima between fidelity costs and adaptive flexibility.
+The tobacco estimate comes from Alexandrov et al. (2016), who related cancer mutation catalogs to cumulative smoking exposure \citep{alexandrov2016smoking}. One pack-year means one pack per day for one year. Their estimate is not a direct longitudinal measurement of normal lung epithelium. Signature 4 is dominated by C→A substitutions and resembles the experimental benzo&#91;a&#93;pyrene signature; substitutions are not necessarily coding or missense.
+In a prospective trial of nivolumab in advanced MMR-proficient, POLE-mutated solid tumors, Rousseau et al. (2022) found that selected pathogenic proofreading-domain variants were associated with high burden and response, whereas variants not affecting proofreading derived no benefit \citep{rousseau2022pole}. A POLE variant alone does not establish proofreading deficiency, and even that deficiency is not a guarantee of response for every patient.
+
+**Mutation counts are not evolutionary limits.** The teaching calculation in \cref{eq:mutations_per_gen} estimates new single-base substitutions under stated assumptions, not a universal maximum per child, a count of deleterious alleles or proof of an adaptation optimum. Mutation supplies variation, while selection and drift affect its persistence; observed rates also reflect molecular mechanisms and measurement choices. Muller's ratchet concerns stochastic loss of the least mutation-loaded class in finite, non-recombining populations, not a universal ceiling on human germline mutation. Comparisons among microbes, mammals and viruses require matched mutation classes, targets and generation definitions rather than an organism ranking from heterogeneous estimates.
 
 **Gene duplication and divergence** \citep{ohno1970}: Whole-genome duplications (WGD) and segmental duplications create paralogous genes. After duplication:
 - **Neofunctionalization**: One copy acquires a new function
@@ -737,23 +738,15 @@ Pharmacogenomics is strongest when it is treated as one evidence layer in prescr
 
 ## Worked Example: Per-Gene De Novo Mutation Probability
 
-**Problem**: The human germline point-mutation rate is $\mu \approx 1.2 \times 10^{-8}$ per bp per generation. The dystrophin gene (*DMD*) has the largest coding sequence in the genome, $11{,}058 \text{ bp}$ (both alleles together giving a diploid coding target $L = 2 \times 11{,}058 \text{ bp}$).
+**Problem:** Use an illustrative $\mu=1.2\times10^{-8}$ per coding base per generation and DMD coding target 11,058 bp per X chromosome. DMD spans a large genomic interval but is not the largest human coding sequence. Assume one X copy for an XY offspring and two for an XX offspring; disregard parental-age and site heterogeneity.
 
-(a) What is the expected number of de novo coding mutations in *DMD* per offspring?
+\begin{equation}\lambda_{XY}=\mu(11{,}058)=1.32696\times10^{-4},\quad\lambda_{XX}=2.65392\times10^{-4}\label{eq:dmd_cds_lambda}\end{equation}
 
-**Solution**: The Poisson mean is the per-bp rate times the diploid coding target length:
+\begin{equation}P(0)=e^{-\lambda};\quad P_{XY}(0)\approx0.9998673,\quad P_{XX}(0)\approx0.9997346\label{eq:dmd_cds_p0}\end{equation}
 
-\begin{equation}\lambda = \mu L = 1.2 \times 10^{-8} \times 22{,}116 \text{ bp} = 2.65 \times 10^{-4} \text{ mutations/generation}\label{eq:dmd_cds_lambda}\end{equation}
+\begin{equation}P(\ge1)=1-e^{-\lambda}\approx\lambda\label{eq:dmd_cds_pge1}\end{equation}
 
-(b) Using the Poisson model, what is the probability that a given child carries no new coding mutation in *DMD*?
-
-\begin{equation}P(k=0) = \frac{(\lambda)^0 e^{-\lambda}}{0!} = e^{-2.65 \times 10^{-4}} \approx 0.99973\label{eq:dmd_cds_p0}\end{equation}
-
-(c) What is the probability of at least one new coding mutation in *DMD*?
-
-\begin{equation}P(k \geq 1) = 1 - e^{-\lambda} \approx 2.65 \times 10^{-4} \approx \frac{1}{3{,}800} \text{ births}\label{eq:dmd_cds_pge1}\end{equation}
-
-Even though any single child is overwhelmingly likely to inherit an intact *DMD* coding sequence, a rate of roughly $1$ in $3{,}800$ births applied across a large population continually regenerates new Duchenne muscular dystrophy alleles --- which is why this X-linked disorder persists despite strong negative selection against affected males.
+These are probabilities of any new coding substitution, not Duchenne incidence. Synonymous, tolerated missense, and pathogenic changes differ; sex, XCI, variant class, transcript, and functional evidence matter. Large deletions/duplications are outside this calculation.
 
 
 ## Worked Example: Mutation Analysis
@@ -812,15 +805,15 @@ print(wt)
 
 ### Post-Approval CRISPR Therapeutics: Casgevy and the Safety Frontier
 
-The first CRISPR–Cas9 therapy approved by the FDA and EMA (**Casgevy / exagamglogene autotemcel**, Vertex/CRISPR Therapeutics) provides a quantitative benchmark for the entire field \citep{fda2023casgevy,fda2024casgevythalassemia,fda2026casgevy}. The therapy edits autologous CD34⁺ hematopoietic stem cells *ex vivo* at the **BCL11A enhancer** to de-repress fetal hemoglobin (HbF), then reinfuses them after conditioning chemotherapy. In the pivotal trials, **28 of 29 sickle-cell patients became free of vaso-occlusive crises for > 12 months**, and **39 of 42 β-thalassemia patients became transfusion-independent** — outcomes previously achievable primarily via allogeneic bone-marrow transplant with its attendant graft-versus-host morbidity.
+Casgevy edits autologous CD34+ cells ex vivo at the erythroid BCL11A enhancer to increase HbF, followed by myeloablative conditioning. The July 2026 FDA label covers SCD with recurrent VOCs and TDT at age 2+. Adult/adolescent evaluable cohorts: 29/31 met VF12 (no protocol-defined severe VOCs for at least 12 consecutive months within the first 24 months); 32/35 met TI12 (transfusion independence for at least 12 consecutive months within the first 24 months, weighted average Hb at least 9 g/dL). Evaluation starts 60 days after the last transfusion for post-transplant support (or TDT management). Separate cohorts aged 5 to less than 12 reported 8/8 VF12 and 8/9 TI12. The label states that use at ages 2 to less than 5 is supported by extrapolation; these children were not studied in the cited trials. Do not pool different cohorts or endpoints \citep{fda2026casgevylabel}.
 
-The safety discussion that accompanies this approval is instructive. Off-target editing in CD34⁺ cells is measured pre-infusion by **GUIDE-seq** and **deep amplicon sequencing** at 100+ predicted sites — with Casgevy, off-target editing fell below the detection floor (~0.1 %) at most surveyed loci. Residual concerns include **large structural variants** (kilobase-scale deletions, inversions, chromothripsis) that amplicon-seq can miss; long-read WGS of treated HSC clones is the emerging gold-standard check. Longitudinal monitoring follows these patients for **15 years** for malignancy, driven by the theoretical risk that any DNA double-strand break event in a stem cell compartment could, over decades, seed a clonal expansion \citep{fda2026casgevy}. This regulatory framework — efficacy by molecular endpoint, safety by unbiased structural-variant surveillance, surveillance by decade-scale cohort — is now the template every subsequent *in vivo* CRISPR therapy (e.g., Verve's PCSK9 base editor for hypercholesterolaemia) must meet.
+The label warns that variant-dependent off-target editing cannot be excluded. Assay coverage and detection limits must be stated rather than asserting a universal 100-site/0.1% guarantee. Trial participants were eligible to enroll in continuing follow-up totaling 15 years post-infusion; this is not evidence that every recipient completed that observation period \citep{fda2026casgevylabel}.
 
 ### The Telomere-to-Telomere (T2T) Consortium: A Truly Complete Human Genome
 
 The human reference genome, from the Human Genome Project's 2003 draft through GRCh38 (2013), contained **> 200 Mb of unresolved gaps** — chiefly heterochromatic satellite arrays at centromeres, the short arms of acrocentric chromosomes (13, 14, 15, 21, 22), and segmental duplications. The **T2T-CHM13 assembly** (Nurk et al., *Science* 2022) closed these gaps using long-read sequencing (PacBio HiFi, Oxford Nanopore Ultra-long) on a hydatidiform mole (uniform haplotype, no [**heterozygous**](#gl:heterozygous) complications), yielding the first **gapless 3.055 Gb human genome**.
 
-What newly resolvable sequence revealed: **centromeric α-satellite arrays** span 0.5–5 Mb per chromosome, organized into higher-order repeat (HOR) units; the **rDNA arrays** on acrocentric p-arms vary from 47 to 287 copies per haploid genome; roughly **2000 additional protein-coding genes and gene paralogs** were annotated (with duplications in immunity, olfaction, and neurogenesis). Perhaps most importantly, T2T demonstrated that prior "dark" regions harbor real medical-genetic variation: **paracentric inversions at 16p11 and 22q11** — known susceptibility loci for autism and schizophrenia — are present in ~10 % of haplotypes but invisible to GRCh38 mapping. The pangenome era extends T2T's logic: the reference is now a graph, not a single string, and clinical genomic pipelines are migrating cautiously because graph references improve representation while adding alignment, annotation, and validation complexity \citep{humanpangenome2023}.
+T2T resolved previously inaccessible repetitive regions, improving annotation and structural-variation analysis. Added models must be distinguished as protein-coding genes, paralogs, or pseudogenes, not treated as 2,000 new protein-coding genes. CHM13 is one near-haploid assembly, not every human haplotype; release-specific pangenome comparisons test generality.
 
 ---
 
@@ -842,7 +835,7 @@ the chapter. Molecular genetics now spans single-reference sequences, telomere-t
 
 When a genomics claim depends on a reference, ask whether reads, structural variants, ancestry representation, phasing, or clinical validation changes the interpretation \citep{humanpangenome2023,fda2023casgevy,fda2024casgevythalassemia}.
 
-Clinical variant interpretation must separate variant existence from medical meaning. dbSNP is useful for submitted sequence variation identifiers; ClinVar aggregates assertions about variant-disease relationships; RefSeq and the MANE collaboration stabilize the transcript and protein reference used for HGVS naming. A report-ready variant claim should include the rsID or ClinVar Variation ID when applicable, the RefSeq/MANE accession used for nomenclature, review status, and the evidence category rather than equating "listed variant" with "pathogenic variant" \citep{dbsnp2026,clinvar2026,refseq2026,mane2026}.
+Clinical variant interpretation must separate variant existence from medical meaning. dbSNP supplies submitted sequence-variation identifiers; the original ClinVar publication describes an archive of submitted variant–phenotype assertions, including conflicting interpretations \citep{landrum2014clinvar}. RefSeq and MANE help specify reference sequences and transcripts. For an educational variant record, identify the reference assembly/transcript, available identifiers, assertion source and evidence rather than equating "listed" with "pathogenic" \citep{dbsnp2026,clinvar2026,refseq2026,mane2026}. Current review-status and identifier policies require current documentation; this textbook does not certify 2026 database policy or provide clinical variant classification.
 
 Translation evidence has separate ledgers as well. ClinicalTrials.gov records protocol, recruitment, and submitted-results status, while FDA product pages and approval materials determine approved indications. Casgevy and Lyfgenia are therefore best compared as distinct approved sickle-cell therapies with different molecular strategies: CRISPR-Cas9 enhancer editing for Casgevy and lentiviral gene addition for Lyfgenia \citep{clinicaltrials2026,fda2026casgevy,fda2026lyfgenia}.
 
@@ -914,7 +907,7 @@ flowchart LR
 5. **Trinucleotide repeat expansion** -- unstable repeat growth causing anticipation in diseases like Huntington
 6. **Ames test** -- bacterial mutagenicity assay using histidine-requiring Salmonella revertants
 7. **CRISPR-Cas9** -- RNA-guided endonuclease for programmable genome editing
-8. **PAM (protospacer adjacent motif)** -- short DNA sequence (NGG for SpCas9) required for Cas9 binding
+8. **PAM (protospacer adjacent motif)** -- short flanking motif (canonical NGG for SpCas9) licensing recognition/unwinding of a double-stranded DNA target, not a universal requirement for binding or cleavage of every substrate
 9. **Base editor** -- dCas9/nickase fused to deaminase for C-to-T or A-to-G conversion without DSB
 10. **Prime editor** -- Cas9-nickase + reverse transcriptase + pegRNA for search-and-replace editing
 11. **GWAS (genome-wide association study)** -- unbiased scan for SNP-trait associations across the genome

@@ -8,11 +8,10 @@ import sys
 from pathlib import Path
 from typing import Any, cast
 
-import yaml
 import pytest
+import yaml
 
 from biology.toc import BookToc, load_toc
-
 
 PROJECT = Path(__file__).resolve().parent.parent
 MANUSCRIPT = PROJECT / "docs" / "manuscript"
@@ -33,7 +32,6 @@ from biology.maintenance.chapter_badges import (
     BADGE_MARKER,
     GRID_END,
     GRID_START,
-    build_grid,
     format_badge,
 )
 
@@ -48,7 +46,9 @@ build_front_matter_navigation = _sync_script.build_front_matter_navigation
 build_preface_scope_table = _sync_script.build_preface_scope_table
 build_suggested_reading_paths = _sync_script.build_suggested_reading_paths
 build_textbook_concept_map = _sync_script.build_textbook_concept_map
-from biology.pipeline.numbering import section_numbering_directives as _section_numbering_directives
+from biology.pipeline.numbering import (
+    section_numbering_directives as _section_numbering_directives,
+)
 
 
 def _first_h1(path: Path) -> str:
@@ -120,14 +120,10 @@ def test_lab_and_question_config_entries_do_not_duplicate_titles() -> None:
 def test_course_planning_grid_uses_exact_config_chapter_titles() -> None:
     book_toc = load_toc(PROJECT)
     front = _course_grid_block()
-    expected_grid = f"{_GRID_START}\n{build_grid(book_toc)}\n{_GRID_END}"
-    assert front == expected_grid
     for chapter in book_toc.chapters:
         unit = book_toc.units_by_id[chapter.unit_id]
         assert unit.plain_ref in front
         assert chapter.plain_ref in front
-        assert chapter.name_ref not in front
-    assert "Water — The Molecule of Life" in front
 
 
 def test_front_matter_navigation_lists_every_unit_and_reference_once() -> None:

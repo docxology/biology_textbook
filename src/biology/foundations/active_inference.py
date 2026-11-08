@@ -12,6 +12,7 @@ The model is fully deterministic; randomness is not used.
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 
 from textbook_logging import get_logger
@@ -52,9 +53,11 @@ def _posterior(
         pi_post = pi_p + pi_s
     """
     posterior_precision = prior_precision + sensory_precision
-    posterior_mean = (
-        prior_precision * prior_mean + sensory_precision * observation
-    ) / posterior_precision
+    if not math.isfinite(posterior_precision):
+        raise ValueError("Posterior precision exceeds the finite model range.")
+    prior_weight = prior_precision / posterior_precision
+    sensory_weight = sensory_precision / posterior_precision
+    posterior_mean = math.fsum((prior_weight * prior_mean, sensory_weight * observation))
     return posterior_mean, posterior_precision
 
 
@@ -84,14 +87,17 @@ def prediction_error_precision_curve(
         ValueError: If ``prior_precision`` is non-positive or any sensory
             precision is non-positive.
     """
-    if prior_precision <= 0:
-        raise ValueError("prior_precision must be positive.")
+    if not math.isfinite(prior_precision) or prior_precision <= 0:
+        raise ValueError("prior_precision must be finite and positive.")
     if not precisions:
         raise ValueError("precisions must be non-empty.")
-    if any(p <= 0 for p in precisions):
-        raise ValueError("each sensory precision must be positive.")
-
+    if any(not math.isfinite(p) or p <= 0 for p in precisions):
+        raise ValueError("each sensory precision must be finite and positive.")
+    if not math.isfinite(prior_mean) or not math.isfinite(observation):
+        raise ValueError("Prior mean and observation must be finite.")
     error = observation - prior_mean
+    if not math.isfinite(error):
+        raise ValueError("Prediction error exceeds the finite model range.")
     rows: list[PredictionPrecisionPoint] = []
     for sensory_precision in precisions:
         mu_post, pi_post = _posterior(

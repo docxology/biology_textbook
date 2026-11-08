@@ -94,9 +94,14 @@ def strip_citations(text: str, *, strip_incomplete_tail: bool = False) -> str:
 
 
 def bib_keys(text: str) -> set[str]:
-    """Return BibTeX entry keys from a ``references.bib`` body."""
+    """Return BibTeX keys, rejecting ambiguous duplicate document identities."""
 
-    return set(_BIB_KEY_RE.findall(text))
+    keys: set[str] = set()
+    for key in _BIB_KEY_RE.findall(text):
+        if key in keys:
+            raise ValueError(f"Duplicate BibTeX key: {key}")
+        keys.add(key)
+    return keys
 
 
 def iter_midword_citations(text: str) -> Iterable[re.Match[str]]:
@@ -127,11 +132,16 @@ def orphan_citation_insertions(manuscript_root: Path) -> tuple[OrphanCitationIns
 def validate_orphan_citation_insertions(manuscript_root: Path) -> list[str]:
     """Return human-readable issues when insertion targets or keys are invalid."""
     issues: list[str] = []
-    bib = bib_keys((manuscript_root / "docs" / "manuscript" / "references.bib").read_text(encoding="utf-8"))
+    bib: set[str] | None
+    try:
+        bib = bib_keys((manuscript_root / "docs" / "manuscript" / "references.bib").read_text(encoding="utf-8"))
+    except ValueError as exc:
+        issues.append(f"Invalid bibliography: {exc}")
+        bib = None
     for insertion in orphan_citation_insertions(manuscript_root):
         if not insertion.target.exists():
             issues.append(f"missing target for {insertion.citekey}: {insertion.target}")
-        if insertion.citekey not in bib:
+        if bib is not None and insertion.citekey not in bib:
             issues.append(f"unknown citekey in insertion map: {insertion.citekey}")
     return issues
 
@@ -156,7 +166,7 @@ def is_skippable_citation_context(text: str, pos: int) -> bool:
     stripped = line.lstrip()
     if stripped.startswith("#"):
         return True
-    if stripped.startswith("\\label") or stripped.startswith("\\cref") or stripped.startswith("\\Cref"):
+    if stripped.startswith(("\\label", "\\cref", "\\Cref")):
         return True
     before = text[:pos]
     if before.count("```") % 2 == 1:
@@ -237,11 +247,11 @@ __all__ = [
     "OrphanCitationInsertion",
     "OrphanCitationIntegrationReport",
     "bib_keys",
+    "citation_command_count",
+    "citation_keys",
     "inject_citation_after_anchor",
     "inject_orphan_citations",
     "is_skippable_citation_context",
-    "citation_command_count",
-    "citation_keys",
     "iter_citations",
     "iter_midword_citations",
     "ordered_citation_keys",

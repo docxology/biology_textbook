@@ -158,8 +158,8 @@ __all__ = [
     "GLOSSARY_FIRST_USE_SPAN_OPTIONS",
     "GREEK_PROSE_SPAN_OPTIONS",
     "PROTECTED_FENCE_LANGS",
-    "SpanOptions",
     "TYPOGRAPHY_SPAN_OPTIONS",
+    "SpanOptions",
     "in_protected",
     "protected_spans",
 ]

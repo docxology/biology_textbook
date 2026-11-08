@@ -15,26 +15,26 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Biological Macromolecules.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO1):** Classify A–E from orthogonal assays with positive and negative controls.
+- **Outcome 2 (LO2):** Calculate starch-hydrolysis rate from the printed trajectory.
+- **Outcome 3 (LO3):** Evaluate predicted protein contacts against mutation and activity evidence.
+- **Outcome 4 (LO5):** Explain sucrose cleavage and the resulting reducing-sugar signal.
+- **Chapter LO coverage:** LO1, LO2, LO3, LO5
+- **Rubric dimensions:** 12 points: five classifications and control logic (LO1, 3); hydrolysis rate/units and negative controls (LO2, 3); confidence versus function, folding control and uncertainty (LO3, 3); sucrose mechanism and transfer to an ambiguous mixture (LO5, 3).
 <!-- lab-alignment-end -->
 ## Pre-Lab Concept Questions {.unnumbered}
 
 *Answer these before starting the investigation — they activate knowledge from the parent chapter.*
 
-1. State the monomer–polymer relationship for each of the four major biological macromolecule classes: carbohydrates, lipids, proteins, and nucleic acids. Identify the bond type that joins monomers in each case (for example, glycosidic, peptide, phosphodiester) where one is defined in the parent chapter.
+1. Identify which of the four major biomolecular classes include covalent polymers, and name their repeating units and characteristic linkages where applicable. For lipids, compare building blocks and assemblies instead of inventing one common repeating monomer.
 2. Apply the dehydration-synthesis (condensation) and hydrolysis framework to explain how a disaccharide is built from two monosaccharides and how it is later broken back into monomers. Specify the small molecule released or consumed at each step.
 3. Compare the qualitative basis of the reducing-sugar assay, the peptide-bond colorimetric assay, and a grease-spot lipid test. For each, identify the chemical feature being detected and one biological sample on which the assay would give a clear positive signal.
 
 ## Pre-Lab (to complete before class) {.unnumbered}
 
-1. For each of the four macromolecule classes, write one sentence that names its monomer, its primary covalent bond, and one biological function.
-2. classic reducing-sugar assay detects **aldehyde** groups on reducing sugars. Which of glucose, fructose, sucrose, and starch have a free aldehyde? For those without, explain why (look up hemiketal and glycosidic bonds).
-3. Compute the energy density of pure triglyceride (37 kJ g⁻¹) vs pure starch (17 kJ g⁻¹) vs pure protein (17 kJ g⁻¹). Why do organisms store long-term energy as fat rather than glycogen?
+1. For each biomolecular class, name representative building blocks, a characteristic linkage or assembly, and one biological function. Distinguish polysaccharides, proteins and nucleic-acid polymers from the chemically diverse lipid class.
+2. Which of glucose, fructose, sucrose and starch gives a strong reducing-sugar test under the supplied conditions? Explain ring opening, alkaline ketose rearrangement and free anomeric-carbon availability; fructose need not contain a free aldehyde before testing.
+3. Using the supplied energy densities (triglyceride 37, starch 17, protein 17 kJ g⁻¹), calculate triglyceride-to-starch and triglyceride-to-protein ratios. Explain why this mass-based comparison favors fat storage without treating energy density as release rate.
 4. Predict which of the following will yield a positive classic peptide-bond assay test at room temperature: a single amino acid (glycine), a dipeptide, albumin. Justify in one sentence (classic peptide-bond assay requires ≥2 peptide bonds → at least tripeptide).
 
 ## Lab Context: Biological Macromolecules {.unnumbered}
@@ -45,7 +45,7 @@ In this lab you will interpret a blinded paper dataset for five unknown samples 
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_I_macromolecules_alignment_and_rubric_map}
+: Printed materials for macromolecule assays and hypothetical structure validation. {#tbl:unit_I_macromolecules_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Biological Macromolecules: UniProt accession, PDB/PDBe structure record, EMDB map when relevant, experimental method, prediction confidence, assay validation, and release date | 1 |
@@ -68,8 +68,8 @@ In this lab you will interpret a blinded paper dataset for five unknown samples 
 ### Part D — Enzyme Hydrolysis Data {.unnumbered}
 
 6. Interpret the provided starch-hydrolysis time course for active amylase, denatured enzyme, and no-enzyme controls.
-7. Estimate a crude hydrolysis rate (mg starch per minute) from the graph and explain why the denatured-enzyme line functions as a negative control.
-8. Decide whether the evidence supports enzyme specificity, temperature sensitivity, or both.
+7. Calculate mean starch loss per minute from M2's printed time course (or a graph you draw) and explain the pre-denatured and no-enzyme controls.
+8. Decide whether the active, pre-denatured and no-enzyme comparisons support an effect of denaturation. Explain why substrate specificity cannot be established without a different substrate comparison.
 
 ### Part E — Sucrose Hydrolysis Model {.unnumbered}
 
@@ -78,13 +78,13 @@ In this lab you will interpret a blinded paper dataset for five unknown samples 
 
 ### Part F — AI Structure Evidence Check {.unnumbered}
 
-11. Read the AI protein-model packet for a hypothetical enzyme-substrate interaction. Mark each predicted contact as high, medium, or low confidence using the confidence map and interface notes.
+11. Read hypothetical M3. Rank contact Lys40 versus loop Ser85 using the supplied local scores and PAE; distinguish local confidence from interface-position uncertainty and note that Gly12 is not a ligand contact. No numerical high/medium/low calibration is supplied.
 12. Decide which claim is justified: "this residue is worth mutating," "this ligand probably binds," or "this interaction is established." Explain why the last claim requires independent assay evidence.
 13. Propose a paper-based validation plan: one conservation comparison, one predicted-disruptive mutation, one binding or kinetic readout, and one result that would make you reject the predicted interface.
 
 ## Data Recording {.unnumbered}
 
-: Part F — AI Structure Evidence Check: Sample and Reducing-sugar evidence. {#tbl:unit_I_macromolecules_part_f_ai_structure_evidence_check}
+: Macromolecule classification worksheet with orthogonal assay controls. {#tbl:unit_I_macromolecules_part_f_ai_structure_evidence_check}
 | Sample | Reducing-sugar evidence | Peptide-bond evidence | Lipid-partition evidence | Macromolecule(s) present |
 | ------ | ------------------- | --------------- | ---------------- | ------------------------ |
 | A | | | | |
@@ -94,11 +94,12 @@ In this lab you will interpret a blinded paper dataset for five unknown samples 
 | E | | | | |
 | (+) Glucose | | — | — | Reducing sugar |
 | (+) Albumin | — | | — | Protein |
+| (+) Triglyceride | — | — | | Lipid |
+| (+) Starch | — | — | — | Starch; record iodine result separately |
 | (−) Water | | | | None |
 
 AI model evidence: highest-confidence contact = _______; lowest-confidence region = _______; validation assay proposed = _______; claim justified now = _______
 
-<!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
 
 - **Primary evidence goal:** Use chemical tests and structural clues to identify biological macromolecules.
@@ -108,14 +109,13 @@ AI model evidence: highest-confidence contact = _______; lowest-confidence regio
 - **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
 - **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
 - **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
 **Biological Macromolecules** with a reproducibility pass:
 
-: Part F — AI Structure Evidence Check: Evidence check and Student action. {#tbl:unit_I_macromolecules_part_f_ai_structure_evidence_check_2}
+: Evidence and reproducibility decisions for assays, hydrolysis and contact predictions. {#tbl:unit_I_macromolecules_part_f_ai_structure_evidence_check_2}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -124,33 +124,43 @@ Before answering the analysis questions, annotate the paper dataset for
 | Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
 | Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
 
-Focus note: each color-change assay (reducing-sugar, peptide-bond, and the lipid grease-spot test) is a separate qualitative detector with its own false positives -- record the positive and negative reference samples and the minimum color shift you will accept before scoring a macromolecule class as present. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
 
 ### Worked Example: Estimating protein concentration from a standard curve {.unnumbered}
 
-**Problem:** A teaching group prepares a colorimetric protein standard at 0.10 g·mL⁻¹ protein and measures its absorbance at 540 nm as 0.45 (background subtracted). An unknown sample, treated identically, reads 0.62. Assuming a linear calibration through the origin in this absorbance range, estimate the protein concentration in the unknown.
+**Problem:** In a synthetic single-point calibration, a hypothetical protein standard at 0.10 g·mL⁻¹ is assigned a background-subtracted absorbance of 0.45 at 540 nm; an unknown is assigned 0.62. Assuming a linear calibration through the origin over this range, calculate the implied concentration. These are teaching inputs, not measured assay performance.
 
 **Solution:** Build the calibration slope from the standard, then apply it to the unknown.
 
 - Slope = 0.45 absorbance units / 0.10 g·mL⁻¹ = 4.5 absorbance·mL·g⁻¹.
 - Estimated concentration of unknown = 0.62 / 4.5 ≈ 0.138 g·mL⁻¹.
 
-**Interpretation:** A single-point calibration through the origin is the lightest reasonable model for this assay; it gives roughly 0.14 g·mL⁻¹, which is comparable in order of magnitude to dilute serum albumin (about 0.04 g·mL⁻¹) and to several food-protein extracts. The estimate assumes the linear range extends from the standard to the unknown reading, that background absorbance has been subtracted, and that the unknown contains protein with a peptide-bond density similar to the standard — assumptions a more rigorous lab would test with a multi-point calibration curve, a blank, and a known positive control.
+**Interpretation:** The arithmetic gives about 0.138 g·mL⁻¹ under the stipulated linear model. It does not establish that a real assay is linear at either concentration. Experimental use requires a blank, multiple matrix-matched standards spanning the unknown, validated background subtraction and appropriate controls; do not infer clinical concentrations from this synthetic calibration.
 
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Biological Macromolecules before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+#### Printed Evidence Packet {.unnumbered}
+
+**Printed packet M1 — synthetic teaching observations, not empirical assays.** Three model preparations per unknown; qualitative results agree except where specified. Readouts below are reducing-sugar / Biuret / lipid-partition / iodine: A red / blue / no layer / amber; B blue / blue / no layer / blue-black; C blue / violet / no layer / amber; D blue / blue / red lipid layer / amber; E weak orange / violet / red lipid layer / amber. Water blank is blue/blue/no layer/amber; glucose positive red/blue/no layer/amber; albumin blue/violet/no layer/amber; triglyceride blue/blue/red layer/amber; starch blue/blue/no layer/blue-black. E reducing-sugar repeats are yellow, orange, orange: retain the weak-positive uncertainty.
+
+Focus note: reducing-sugar, Biuret, lipid-partition and iodine readouts are distinct qualitative detectors. Use M1's named reference patterns, retaining E's weak-positive repeats rather than inventing absorbance cutoffs. A grease-spot example is an alternative lipid readout, not an observation supplied by M1. Required work remains paper-based.
+
+**Structural cards:** glucose has an accessible anomeric carbon through ring opening; fructose is a ketose that can rearrange under the alkaline assay; sucrose links both anomeric carbons and is initially nonreducing; starch has many alpha-linked glucoses but few reducing ends per mass; albumin has many peptide bonds; triglyceride has glycerol esterified to three fatty acids and is not a polymer.
+
+**Hydrolysis card M2:** Remaining starch (mg) at 0,2,4,6 min: active amylase 10,8,6,4; pre-denatured amylase 10,10,10,10; no enzyme 10,10,10,10. Three independently prepared model tubes per condition have the same displayed mean, with individual values mean-0.1, mean, mean+0.1 mg at nonzero times; resolution 0.1 mg. Active loss rate is (10-4)/6=1 mg/min. This compares activity after denaturation but does not test substrate specificity without a different substrate. Sucrose card: untreated blue reducing-sugar test; sucrose after complete modeled hydrolysis red, because glucose and fructose are generated. Include an identically treated no-hydrolysis control.
+
+**AI/contact card M3:** Hypothetical protein, no real accession or deposited model. Predicted contact Lys40 (local confidence 92/100, interface PAE 3 angstrom), loop Ser85 (48/100, PAE 18 angstrom), core Gly12 (90/100, no ligand contact). These are invented confidence-like scores, not an actual AlphaFold run or binding probabilities. Synthetic assay triplicates (activity units/mg): WT 98,100,102; K40A 18,20,22; S85A 93,95,97; core G12P 8,10,12. Folded fractions: WT/K40A/S85A 0.95 each, G12P 0.20. K40 is conserved in 8/10 supplied homolog alignment positions, S85 in 2/10; Gly12 in 10/10.
+
+**Instructor key:** A reducing sugar, B starch, C protein, D lipid, E mixture. The assays do not uniquely name every molecule or show nucleic-acid absence. M2 supports enzyme activity and heat sensitivity, not a universal specificity claim. K40 is a stronger mechanistic candidate than S85 because mutation lowers activity without the gross-folding loss seen in G12P; this still needs direct binding and structural tests. A high local score alone does not establish contact or catalysis. Governance: M1–M3 are authored synthetic snapshots; no UniProt/PDB/EMDB identifier exists for the hypothetical model. The general experimental-validation boundary is supported by \citep{abramson2024alphafold3}.
 
 ## Analysis Questions {.unnumbered}
 
-1. Which samples tested positive for reducing sugars? Were any positive for sucrose (hint: sucrose does NOT turn classic reducing-sugar assay red without hydrolysis)? How would you distinguish glucose from sucrose using primarily classic reducing-sugar assay test?
+1. Which samples have reducing-sugar evidence? Explain why a negative untreated result cannot uniquely identify sucrose, and use the printed sucrose hydrolysis comparison to propose a discriminating test. The panel does not directly identify sucrose or distinguish every reducing sugar.
 2. A sample of milk tested positive for both classic reducing-sugar assay (weakly) and classic peptide-bond assay (strongly) and showed a grease spot. Name the three macromolecule classes present in milk.
 3. Why does classic reducing-sugar assay require heating to detect reducing sugars, while classic peptide-bond assay works at room temperature? What does this reveal about the reaction mechanisms?
-4. Dietary fiber (cellulose) is a polysaccharide. Predict whether it would give a positive classic reducing-sugar assay test. Explain in terms of glycosidic bond type (α vs β linkage) and digestibility.
+4. Predict whether intact cellulose gives a strong reducing-sugar test at equal mass. Distinguish scarce accessible reducing ends from the separate issue that human enzymes do not hydrolyze its beta(1->4) linkages; the test is not a direct assay of digestibility.
 5. A patient has phenylketonuria (PKU) — inability to metabolize phenylalanine. Which macromolecule class and which specific monomer is relevant? How does dietary management (low-phenylalanine diet) relate to the biochemistry of this lab?
-6. An AlphaFold-derived packet predicts a ligand contact in a low-confidence loop. What additional evidence would move the claim from "hypothesis" to "supported mechanism"? Name at least one sequence, structural, and biochemical check.
+6. In hypothetical M3, what evidence would strengthen a low-confidence ligand-contact hypothesis? Use the supplied conservation, mutation/activity and folding comparisons and propose a direct binding or structural check; do not describe these invented scores as an actual AlphaFold result.
 
 ## Post-Lab Synthesis {.unnumbered}
 
@@ -162,9 +172,9 @@ Complete the source-governance card for Biological Macromolecules before writing
 
 ## Extension Analysis Questions {.unnumbered}
 
-7. Galactosaemia patients cannot metabolize galactose (a component of lactose). Using your understanding of glycosidic bonds, explain why such a patient must avoid milk but can safely consume glucose or fructose sweetened foods.
-8. The Keto diet shifts metabolism to fat oxidation. Predict which macromolecule category would dominate your test results on a piece of bacon vs a slice of bread. Discuss why each is energy-dense but in biochemically different ways (immediate vs sustained release).
-9. Protein-losing enteropathy causes albumin leakage into the gut. Given classic peptide-bond assay's sensitivity (~0.1 mg/mL), would you expect a positive classic peptide-bond assay reaction on a faecal sample from such a patient? Why might faecal protein quantification via classic peptide-bond assay be unreliable (hint: digestive proteolysis)?
+7. In a hypothetical galactose-restricted diet, lactose hydrolysis generates glucose and galactose, while sucrose hydrolysis generates glucose and fructose. Use these products to explain the distinction; this exercise is not a complete clinical dietary recommendation.
+8. Compare a hypothetical triglyceride-rich sample with a starch-rich sample using M1's lipid-partition and iodine controls. Calculate the energy per gram from the pre-lab values; explain why this does not determine immediate versus sustained metabolic release.
+9. Suppose a fecal sample contains intact protein plus peptide fragments. Explain why proteolysis and sample-matrix interference could limit a Biuret interpretation. Without concentration, matrix controls or a validated detection limit, can a positive result be predicted? State what additional inputs are needed.
 
 ## Optional Wet-Lab Extension {.unnumbered}
 

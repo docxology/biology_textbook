@@ -38,7 +38,7 @@
 
 > **Opening Vignette — The Hormone That Changed Medicine Forever**
 >
-> Before 1921, Type 1 diabetes was a death sentence. Children diagnosed with it were placed on starvation diets — sometimes eating fewer than 500 calories per day — which extended their lives by months while slowly wasting them. Then Frederick Banting, a young Canadian surgeon, persuaded the University of Toronto to give him laboratory space and a few dogs. Working with student Charles Best and biochemist J.B. Collip to purify the extract, they isolated the pancreatic secretion that controlled blood glucose — insulin. The first human injection was given to 14-year-old Leonard Thompson on January 11, 1922. He had been near death; within days his blood glucose normalized and he survived. Banting and John Macleod received the Nobel Prize in 1923. Insulin was the first hormone to be purified, the first to be sequenced (by Frederick Sanger, 1951), and the first to be produced by recombinant DNA technology (1982) \citep{sanger1955insulin}. No single molecule has had a more direct impact on human survival.
+> Severe insulin-deficient diabetes had no effective hormone-replacement therapy before the 1920s. Banting, Best, Collip, Macleod and clinical collaborators helped turn pancreatic extracts into treatment. The 1922 case report records no clinical benefit from an initial January 11 injection, followed by improvement with more concentrated extracts beginning January 23 \citep{banting1922extracts}; an early biochemical change was not the same endpoint as clinical benefit. Decades later, Sanger's group established insulin's covalent structure, completed in 1955 \citep{sanger1955insulin}. Recombinant human insulin production in 1978 and FDA approval in 1982 were further, distinct milestones \citep{fda2024insulinhistory}. This history connects physiological evidence, molecular structure, manufacturing and regulation without claiming that insulin was the first hormone purified or the first protein ever expressed recombinantly.
 
 ## Endocrine System Overview
 
@@ -59,7 +59,7 @@
 
 : Hormone Classes — Synthesis, Transport, and Mechanism: Class and Solubility. {#tbl:unit_IX_endocrine_signaling_hormone_classes_synthesis_transport_and_mechanism}
 | Class | Solubility | Synthesis | Transport in Blood | Receptor Location | Signaling Speed | Duration | Examples |
-| ----- | ---------- | --------- | ------------------ | ----------------- | ---------------- | -------- | -------- |
+| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
 | **Peptide/[**protein**](#gl:protein)** | Water-soluble | Ribosomal synthesis as preprohormones; cleaved in ER/Golgi; stored in secretory granules | Free in plasma | Plasma membrane (RTKs, GPCRs) | Seconds to minutes | Minutes to hours | Insulin, glucagon, GH, ACTH, ADH, PTH, prolactin |
 | **Steroid** | Lipid-soluble | Synthesized on demand from cholesterol (no storage); enzymatic cascades in mitochondria/SER | Bound to carrier proteins (CBG, SHBG, albumin) — about 5% free and bioactive | Nuclear receptors (intracellular) | Hours (transcription required) | Hours to days | [**Cortisol**](#gl:cortisol), aldosterone, estrogen, testosterone, vitamin D |
 | **Amine — Catecholamines** | Water-soluble | Tyrosine → DOPA → dopamine → norepinephrine → epinephrine; stored in chromaffin granules | Free in plasma; very short half-life | Plasma membrane (α/β adrenergic GPCRs) | Seconds | Seconds to minutes | Epinephrine, norepinephrine, dopamine |
@@ -70,15 +70,15 @@
 
 : Hormone table — synthesis location, transport, receptor, half-life: Hormone and Class. {#tbl:unit_IX_endocrine_signaling_hormone_table_synthesis_location_transport_receptor_half_life}
 | Hormone | Class | Synthesis location | Plasma transport | Receptor | Signal duration | Half-life |
-| ------- | ----- | ------------------ | ---------------- | -------- | --------------- | --------- |
+| ------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
 | **Insulin** | Peptide (51 aa) | β-cells, islets of Langerhans | Free | IR (RTK, plasma membrane) | Minutes | ~5 min |
 | **Glucagon** | Peptide (29 aa) | α-cells, islets of Langerhans | Free | GcgR (G$_s$ GPCR, hepatocyte) | Minutes | ~5 min |
 | **Growth hormone (GH)** | Peptide (191 aa) | Anterior pituitary somatotrophs | Free; some bound to GHBP | GHR (JAK2/STAT5 cytokine receptor, liver) | Hours (via IGF-1) | ~20 min |
 | **PTH** | Peptide (84 aa) | Parathyroid chief cells | Free | PTH1R (G$_s$/G$_q$ GPCR; bone, kidney) | Minutes | ~4 min |
 | **ADH (vasopressin)** | Peptide (9 aa) | Hypothalamic SON/PVN; stored in posterior pituitary | Free | V$_2$R (G$_s$, kidney); V$_1$R (G$_q$, vessels) | Minutes | ~15 min |
-| **Cortisol** | Steroid (C$_{21}$) | Adrenal cortex (zona fasciculata) | 90% CBG; 5% albumin; 5% free | GR (NR3C1, cytoplasmic→nuclear) | Hours to days | ~60–90 min |
-| **Aldosterone** | Steroid (C$_{21}$) | Adrenal cortex (zona glomerulosa) | ~50% bound to CBG/albumin | MR (NR3C2, cytoplasmic→nuclear) | Hours | ~20 min |
-| **Testosterone** | Steroid (C$_{19}$) | Leydig cells (testis); zona reticularis (adrenal) | 60% SHBG; 38% albumin; 2% free | AR (NR3C4, cytoplasmic→nuclear) | Hours to days | ~70 min |
+| **Cortisol** | Steroid (C$_{21}$) | Adrenal cortex (zona fasciculata) | 90% CBG; 5% albumin; 5% free | GR (NR3C1, cytoplasmic → nuclear) | Hours to days | ~60–90 min |
+| **Aldosterone** | Steroid (C$_{21}$) | Adrenal cortex (zona glomerulosa) | ~50% bound to CBG/albumin | MR (NR3C2, cytoplasmic → nuclear) | Hours | ~20 min |
+| **Testosterone** | Steroid (C$_{19}$) | Leydig cells (testis); zona reticularis (adrenal) | 60% SHBG; 38% albumin; 2% free | AR (NR3C4, cytoplasmic → nuclear) | Hours to days | ~70 min |
 | **Oestradiol** | Steroid (C$_{18}$) | Ovarian granulosa cells (aromatase from androgens) | SHBG, albumin; 1–2% free | ERα/ERβ (nuclear); GPER (membrane) | Hours to days | ~13 h |
 | **Progesterone** | Steroid (C$_{21}$) | Corpus luteum, placenta | CBG, albumin | PR (NR3C3, nuclear) | Hours | ~5 min |
 | **Vitamin D (1,25-(OH)$_2$D$_3$)** | Steroid (secosteroid) | Kidney (CYP27B1 hydroxylation of 25-OH-D) | DBP (vitamin D binding protein) | VDR (nuclear) | Days | ~15 h |
@@ -90,7 +90,7 @@
 | **PGE$_2$** | Eicosanoid | Most cells (COX-2 inducible) | Local (paracrine) | EP$_1$–EP$_4$ (GPCRs) | Seconds | ~30 s |
 | **TXA$_2$** | Eicosanoid | Platelets (TXAS) | Local | TP receptor (G$_q$) | Seconds | ~30 s |
 | **Leptin** | Peptide (167 aa) | Adipocytes (proportional to fat mass) | Free; some bound | LepR (JAK2/STAT3, hypothalamus) | Hours | ~25 min |
-| **Adiponectin** | Peptide (244 aa) | Adipocytes | Free; trimers/hexamers/HMW | AdipoR1, AdipoR2 (AMPK pathway) | Hours | ~14 h |
+| **Adiponectin** | Peptide (244 aa) | Adipocytes | Free; trimers / hexamers / HMW | AdipoR1, AdipoR2 (AMPK pathway) | Hours | ~14 h |
 
 **Key contrasts:**
 
@@ -196,11 +196,13 @@ flowchart TD
     Chol --> StAR
     StAR -->|"CYP11A1<br/>(side-chain cleavage)<br/>cholesterol → pregnenolone"| Preg
     Preg -->|"3β-HSD"| Prog
-    Preg -->|"17α-hydroxylase<br/>(CYP17A1)"| OHProg
+    Prog -->|"17α-hydroxylase<br/>(CYP17A1)"| OHProg
+    Preg -->|"CYP17A1 hydroxylase"| OHPreg["17-OH-pregnenolone"]
+    OHPreg -->|"3β-HSD"| OHProg
     Prog -->|"21-hydroxylase<br/>(CYP21A2) → DOC<br/>→ aldo synthase"| Aldo
     OHProg -->|"21-hydroxylase<br/>(CYP21A2)"| DOC
     DOC -->|"11β-hydroxylase<br/>(CYP11B1)"| Cort
-    OHProg -->|"17,20-lyase<br/>(CYP17A1)"| Andr
+    OHPreg -->|"CYP17A1 lyase: DHEA<br/>then 3β-HSD: androstenedione"| Andr
 ```
 <!-- alt: Flowchart showing adrenal steroidogenesis The pathway diverges from common precursor pregnenolone into three parallel routes producing aldosterone (zona glomerulosa), cortisol (zona fasciculata), and androgens (zona reticularis). Each zone expresses zone-specific enzymes; for example, primarily the zona glomerulosa expresses aldosterone synthase (CYP11B2), and primarily the zona fasciculata expresses 11β-hydroxylase (CYP11B1). -->
 
@@ -312,12 +314,12 @@ This dual mechanism explains why hypothyroidism causes such pronounced symptoms:
 **Pathology:**
 
 - **Hypothyroidism:** Low T3/T4, elevated TSH. Hashimoto's thyroiditis (autoimmune; anti-TPO and anti-thyroglobulin antibodies). Features: fatigue, weight gain, cold intolerance, bradycardia, constipation, myxoedema.
-- **Hyperthyroidism:** High T3/T4, suppressed TSH. Graves' disease (autoimmune; TSH receptor-stimulating antibodies — thyroid-stimulating immunoglobulins, TSI). Features: weight loss, heat intolerance, tachycardia/atrial fibrillation, tremor, exophthalmos (due to retro-orbital inflammation), diffuse goitre.
+- **Thyrotoxicosis versus hyperthyroidism:** High circulating T3/T4 with suppressed TSH is a feedback pattern, not a unique etiological diagnosis. Hyperthyroidism specifically means increased thyroid synthesis/secretion; Graves' disease is one cause, involving TSH-receptor-stimulating antibodies. Destructive thyroiditis can instead release stored hormone without increased synthesis, and exogenous hormone can produce a similar panel \citep{atathyroiditis}. Weight loss, heat intolerance, tachycardia and tremor can accompany excess hormone; Graves-associated eye disease and antibody/uptake evidence require their own assessment.
 - **Iodine deficiency:** Most common preventable cause of intellectual disability worldwide; affects approximately 1.9 billion people. Addressed by salt iodisation programs.
 
 ### Worked Example: Thyroid Hormone Negative Feedback and TSH Compensatory Rise
 
-**Problem:** A healthy adult has steady-state TSH around 2 mU/L, T4 around 100 nmol/L (within normal range), and a free T3 set by peripheral D1/D2 deiodination. Autoimmune destruction (Hashimoto's thyroiditis) reduces T4 secretion capacity by approximately 60%. Predict the new steady-state TSH, estimate the time to reach the new steady state, and identify the rate-limiting step.
+**Problem:** In an illustrative sensitivity model, baseline TSH is 2 mU/L and T4 is 100 nmol/L. Assume the *measured circulating* T4 falls to 40 nmol/L and TSH follows $\mathrm{TSH}/2=(\mathrm{T4}/100)^{-2}$. Calculate TSH and a passive T4-pool equilibration timescale for a 7-day half-life. Explain why a 60% loss of thyroid secretory capacity alone does not specify those circulating concentrations.
 
 **Setup of the feedback loop.** Proportional error correction toward a set point (\cref{fig:unit_IX_homeostasis_feedback}) is the generic logic shared by endocrine axes and other homeostatic controllers.
 
@@ -332,11 +334,11 @@ This dual mechanism explains why hypothyroidism causes such pronounced symptoms:
 
 $$\text{TRH (hypothalamus)} \longrightarrow \text{TSH (anterior pituitary)} \longrightarrow \text{T4 (thyroid)} \xrightarrow{\text{D1/D2}} \text{T3 (active)}.$$
 
-T3 (and to a lesser extent T4) feeds back negatively on both TRH and TSH transcription. The loop is well approximated as a near-linear feedback over the clinically observed range: a $k$-fold drop in T4 input drives an approximately $k$-fold (often higher because of nonlinearity at low T4) rise in TSH.
+T3 and T4 provide negative feedback on TRH/TSH. The power law supplied here is an explicit synthetic sensitivity relation, not a calibrated clinical thyroid model. Residual thyroid responsiveness, deiodination, clearance, and feedback dynamics are needed to predict a patient’s postdamage equilibrium.
 
 **Solution.**
 
-1. **Steady-state TSH after damage.** A 60% reduction in T4 input ($\times 0.4$) typically produces an approximately 10-fold rise in TSH at the new equilibrium (the system is *nonlinearly* sensitive at low T4 because TRH transcription is sharply derepressed). New TSH $\approx 2 \times 10 = 20$ mU/L — squarely in the overt-hypothyroid range.
+1. **Conditional TSH calculation.** With the stipulated T4 ratio 0.4, TSH becomes $2(0.4)^{-2}=12.5$ mU/L, a 6.25-fold increase. This is conditional on the toy power law; neither a tenfold rise nor a diagnosis follows from secretory-capacity loss alone.
 
 2. **Half-lives that set the time-to-steady-state.**
 
@@ -345,9 +347,9 @@ T3 (and to a lesser extent T4) feeds back negatively on both TRH and TSH transcr
 
 3. **Rate-limiting step.** The slow variable governs convergence. Even though TSH responds within hours, the actual T4 distribution re-equilibrates on the order of $3 \tau_{\text{T4}} \approx 30$ days to reach approximately 95% of the new steady state, and approximately $5 \tau_{\text{T4}} \approx 50$ days to reach approximately 99%. *Practical implication:* TSH measured 1–2 weeks after starting levothyroxine replacement is misleading — the T4 pool has not finished re-equilibrating. Clinical guidelines correctly recommend re-checking TSH 6–8 weeks after any dose change.
 
-4. **Sanity check with the loop gain.** Order-of-magnitude: loop gain (sensitivity of TSH to T4) at the operating point is approximately $-2$ (one-log T4 drop → approximately 2-log TSH rise, per the log-linear TSH–T4 relationship that clinicians use at the bedside). Our predicted approximately 10-fold TSH rise for an approximately 2.5-fold T4 drop is consistent with this gain. The same logarithmic logic explains why a small dose of levothyroxine restoring T4 to a near-normal value rapidly normalizes TSH — provided one waits a full T4 half-life-set.
+4. **Sensitivity check.** $\Delta\ln(\mathrm{TSH})=-2\Delta\ln(\mathrm{T4})$ gives $\exp[-2\ln(0.4)]=6.25$. A slope on logarithmic coordinates is not the same as the dynamic open-loop gain of a full HPT feedback model.
 
-**Interpretation.** Hashimoto's hypothyroidism is *biochemically* a textbook negative-feedback restoration problem. The clinical art is timing: lab measurements taken before the T4 pool re-equilibrates will lead to over-dosing. The molecular ledger — TRH at the top, T4 half-life at the bottom — determines that we must wait approximately 6–8 weeks before believing the TSH number.
+**Interpretation.** The calculation separates an assumed static input–output relation from a passive clearance timescale. For a single first-order pool, three time constants gives about 95% equilibration; clinical TSH monitoring also depends on feedback adaptation and clinical guidance, not this equation alone.
 
 
 ### HPG Axis and Reproductive Hormones
@@ -440,7 +442,7 @@ flowchart TD
 
 2. **Compare to absorbed load.** Absorbed glucose = 75 g. Muscle alone disposes of roughly 22% of the load in 30 min at this rate, so liver glycogen synthesis and delayed muscle uptake over 2–3 h are required — consistent with the biphasic insulin secretory response and sustained Akt signaling.
 
-3. **Insulin decay check.** With $t_{1/2} = 5$ min, insulin falls to 25 mU/L at 5 min and ~6 mU/L at 15 min ($80 \times 0.5^{15/5}$). GLUT4 translocation tracks Akt activity, so the second-phase insulin pulse (not modeled here) extends disposal beyond the first 30 min.
+3. **Insulin decay check.** With $t_{1/2} = 5$ min, with no further secretion, insulin falls to 40 mU/L at 5 min and 10 mU/L at 15 min ($80 \times 0.5^{15/5}$). GLUT4 translocation tracks Akt activity, so the second-phase insulin pulse (not modeled here) extends disposal beyond the first 30 min.
 
 **Interpretation.** Postprandial normoglycaemia depends on coordinated muscle GLUT4 translocation and hepatic glycogen storage; the numeric comparison shows why isolated muscle uptake is insufficient to clear a 75 g load within half an hour.
 
@@ -496,7 +498,7 @@ GLP-1 has a very short half-life (~2 min) due to degradation by **DPP-4** (dipep
 
 > **Clinical Connection:** Semaglutide (Ozempic/Wegovy) has transformed T2DM and obesity management. Clinical trials show 15–20% body weight reduction with semaglutide, plus cardiovascular and renal benefits, by mimicking natural GLP-1 signaling at hypothalamic appetite centers and pancreatic β-cells.
 
-> **Concept Check 2:** A type-1 diabetic receives a long-acting insulin analog (glargine) once daily. Blood glucose is well controlled during the day but the patient develops reactive hyperglycaemia every morning ("dawn phenomenon"). Given that cortisol, GH, and glucagon most rise in the pre-waking hours, explain *which* counter-regulatory hormones are responsible for the morning rise and *why* glargine's 24-hour profile is insufficient to cover it. What feature of a more modern analog (e.g. degludec, with ~42-h half-life) addresses this?
+> **Concept Check 2:** A person with type 1 diabetes has morning hyperglycemia despite basal insulin. Explain how predawn GH/cortisol and variable insulin sensitivity can contribute; why are overnight glucose records needed to distinguish dawn phenomenon, inadequate basal coverage, and other causes? Degludec’s label distinguishes approximately 25-h half-life from at least 42-h glucose-lowering effect at steady state \citep{fda2026degludec}. A longer profile does not by itself prove an individual’s morning rise will resolve; this is mechanism analysis, not dosing advice.
 
 ### Adrenal Gland — Zonal Architecture
 

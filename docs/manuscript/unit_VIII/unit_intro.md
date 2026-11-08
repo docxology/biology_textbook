@@ -3,13 +3,10 @@
 
 ## Why This Unit Matters {.unnumbered}
 
-Plants are the foundation of almost every terrestrial food web, the source of roughly half the oxygen
-in the atmosphere, and the origin of many medicines in human pharmacopoeia — from aspirin (salicylate,
+Plants are the foundation of almost every terrestrial food web, major contributors to gross photosynthetic oxygen production, and the origin of many medicines in human pharmacopoeia — from aspirin (salicylate,
 first identified in willow bark) to taxol (from Pacific yew, *Taxus brevifolia*), morphine, quinine,
 and artemisinin. More fundamentally, plants are solar-energy collectors that translate photons into
-chemical bonds, feeding the entire biosphere. Each year, land plants and algae fix approximately
-120 billion tonnes of carbon from atmospheric CO₂ via photosynthesis — a flux so large that it
-modulates global atmospheric chemistry.
+chemical bonds, supporting much of the biosphere’s food supply. Other phototrophs and chemolithoautotrophs also contribute primary production. Gross photosynthetic fixation, net primary production after plant respiration, and net ecosystem carbon storage are different fluxes; only a specified carbon budget can connect them to atmospheric accumulation.
 
 Plant biology is also a discipline of extremes. The tallest trees (coast redwoods, *Sequoia
 sempervirens*, 115 m) move water 115 meters against gravity using primarily cohesion-tension and solar
@@ -33,11 +30,11 @@ transpiration modeled by the van den Honert equation.
 | ------------- | ---- | ---------------- | --------- | ------------ |
 | Jan Ingenhousz | 1779 | \citep{ingenhouss1779} | Plants produce oxygen in light, CO₂ in dark | Established the light-dependency of photosynthesis |
 | Julius von Sachs | 1862 | \citep{sachs1862} | Starch as first visible product of photosynthesis | Linked CO₂ fixation to carbohydrate storage in chloroplasts |
-| Frits Went | 1926 | \citep{went1926} | Isolation of auxin; phototropism mechanism | First plant hormone identified; explained Darwinian canary grass bending |
+| Frits Went | 1920s bioassays; 1928 thesis | \citep{went1926} | Transferable growth-promoting activity in *Avena* coleoptile bioassays | Distinguished a diffusible growth signal from chemical isolation of IAA and later molecular transport mechanisms |
 | Henry Dixon & John Joly | 1894 | \citep{dixon1894} | Cohesion-tension theory of water ascent | Explained how trees move water 100+ m with no pump |
 | Chailakhyan | 1936 | \citep{chailakhyan1936} | Florigen hypothesis (day-length controls flowering) | Proposed a systemic flowering stimulus; later identified as FT protein |
 | *Arabidopsis* Genome Initiative | 2000 | \citep{arabidopsis2000} | First plant genome sequence (125 Mb; ~25,500 genes) | Model organism for molecular plant biology; comparative genomics |
-| Gómez-Roldán et al. | 2008 | \citep{umehara2008strigolactone} | Strigolactones: new class of plant hormones | Sixth plant hormone class; regulates branching and mycorrhizal symbiosis |
+| Gómez-Roldán et al.; Umehara et al. | 2008 | \citep{gomezroldan2008strigolactone,umehara2008strigolactone} | Strigolactones linked to endogenous shoot-branching control | Parallel studies connected a known rhizosphere-signal class to plant branching regulation; no arbitrary hormone-class ordinal is implied |
 
 ---
 
@@ -83,11 +80,11 @@ paper-based lab decision.
 
 ## Chapter Roadmap {.unnumbered}
 
-| Chapter | Title | Core Question | Key Equation / Model |
-| ------- | ----- | ------------- | -------------------- |
-| **25** | Plant Structure and Water Transport | How is plant body plan organized, and how does water move from roots to leaves? | $\Psi = \Psi_s + \Psi_p$; Poiseuille's law (xylem flow) |
-| **26** | Plant Reproduction | How do plants reproduce sexually and asexually, and how did flowering plant diversity arise? | Alternation of generations; polyploidy speciation rates |
-| **27** | Plant Responses to the Environment | How do phytohormones integrate environmental signals into growth and defense responses? | Auxin polar transport; ethylene activation kinetics |
+| Chapter | Central question | Quantitative lens |
+| --- | --- | --- |
+| \cref{sec:unit_VIII_plant_structure_and_water} | How does structure constrain transport? | Water potential and mole-fraction gradients |
+| \cref{sec:unit_VIII_plant_reproduction} | How do ploidy and developmental programs produce seeds? | Ploidy accounting and saturating growth |
+| \cref{sec:unit_VIII_plant_responses} | How are environmental cues converted into responses? | Hormone dose-response and phytochrome |
 
 ---
 
@@ -114,21 +111,22 @@ print(f"Cell water potential Ψ = {psi.water_potential_MPa:.2f} MPa")
 # Water moves from higher Ψ (soil, ≈ -0.03 MPa) to lower Ψ (leaf, ≈ -1.5 MPa)
 
 # Stomatal conductance and transpiration
-# g = stomatal conductance; concentration gradient is leaf minus air vapour
+# Synthetic molar air density = 40 mol/m^3: 0.5 and 0.3 mol/m^3
+# become dimensionless mole fractions 0.0125 and 0.0075.
 trans = transpiration_flux(
     stomatal_conductance_mol_m2_s=0.20,
-    internal_vapor_conc_mol_m3=1.25,
-    external_vapor_conc_mol_m3=0.85,
+    internal_vapor_mole_fraction=0.0125,
+    external_vapor_mole_fraction=0.0075,
 )
 print(f"Transpiration flux = {trans.flux_mmol_m2_s:.1f} mmol m⁻² s⁻¹")
 print(f"Net photosynthesis at PAR 1000 = {photosynthesis_rate(1000):.1f} µmol CO₂ m⁻² s⁻¹")
 # Expected:
-# Transpiration flux = 80.0 mmol m⁻² s⁻¹
+# Transpiration flux = 1.0 mmol m⁻² s⁻¹
 # Net photosynthesis at PAR 1000 = 9.6 µmol CO₂ m⁻² s⁻¹
 ```
 
 > **Try it yourself:** Compare `stomatal_conductance_mol_m2_s = 0.05` (drought stress, ABA-closed stomata) vs `0.3` (well-watered).
-> How does the CO₂ assimilation rate (linked to photosynthesis) change proportionally?
+> At fixed vapor mole-fraction difference, predict the transpiration-flux ratio. The separate photosynthesis helper does not couple assimilation to stomatal conductance, so it cannot predict an assimilation change from that perturbation alone.
 
 ---
 

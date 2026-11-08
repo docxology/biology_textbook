@@ -1,162 +1,78 @@
-"""Synchronize question-bank and lab assessment metadata from the canonical TOC."""
+"""Validate reviewed source-owned assessment mappings without inventing pedagogy."""
 
 from __future__ import annotations
 
-import re
 from pathlib import Path
 
-from biology.assessment import ASSESSMENT_RE, chapter_learning_objectives
-from biology.toc import load_toc
-from textbook_io import write_text_atomic
-
-QUESTION_RE = re.compile(r"^(?P<number>\d+)\.\s+")
-SOLUTION_START_RE = re.compile(r"^<!--\s*SOLUTION\b")
-SOLUTION_END_RE = re.compile(r"^SOLUTION\s*-->\s*$")
-LAB_ALIGNMENT_RE = re.compile(
-    r"\n?<!--\s*lab-alignment-start\s*-->.*?<!--\s*lab-alignment-end\s*-->\n?",
-    re.DOTALL,
+from biology.assessment import (
+    chapter_learning_objectives,
+    parse_lab_alignment,
+    parse_question_bank,
 )
+from biology.toc import load_toc
 
 
 def sync_all_assessment_metadata(
-    project_root: Path,
-    *,
-    check: bool = False,
-    dry_run: bool = False,
+    project_root: Path, *, check: bool = False, dry_run: bool = False,
 ) -> tuple[list[Path], int]:
-    """Synchronize assessment metadata; return changed paths and exit code hint."""
+    """Validate the entire source set before returning; never manufacture mappings.
 
+    ``check`` and ``dry_run`` obey the same non-writing validation contract as
+    apply. Missing metadata requires an author to review the actual question or
+    lab task, not a positional assignment by this tool.
+    """
     toc = load_toc(project_root)
-    changed: list[Path] = []
-    write = not check and not dry_run
-
+    if (
+        not toc.chapters
+        or {item.chapter.chapter_id for item in toc.questions} != {item.chapter_id for item in toc.chapters}
+        or {item.chapter.chapter_id for item in toc.labs} != {item.chapter_id for item in toc.chapters}
+        or len(toc.questions) != len(toc.chapters)
+        or len(toc.labs) != len(toc.chapters)
+    ):
+        raise ValueError("Author a complete canonical config with one question bank and lab per chapter")
     for question in toc.questions:
-        lo_ids = chapter_learning_objectives(question.chapter.path)
-        updated = sync_question_bank(question.path, lo_ids)
-        changed.extend(write_or_record(question.path, updated, write=write))
-
+        sync_question_bank(question.path, chapter_learning_objectives(question.chapter.path))
     for lab in toc.labs:
-        lo_ids = chapter_learning_objectives(lab.chapter.path)[:4]
-        updated = sync_lab_alignment(lab.path, lab.chapter.title, lo_ids)
-        changed.extend(write_or_record(lab.path, updated, write=write))
-
-    return changed, 1 if check and changed else 0
+        sync_lab_alignment(lab.path, lab.chapter.title, chapter_learning_objectives(lab.chapter.path))
+    return [], 0
 
 
 def sync_question_bank(path: Path, lo_ids: tuple[str, ...]) -> str:
-    lines = path.read_text(encoding="utf-8").splitlines()
-    stripped = [line for line in lines if not ASSESSMENT_RE.match(line)]
-    new_lines: list[str] = []
-    in_solution = False
-
-    for line in stripped:
-        if SOLUTION_START_RE.match(line):
-            in_solution = True
-        if not in_solution:
-            question_match = QUESTION_RE.match(line)
-            if question_match:
-                number = int(question_match.group("number"))
-                if 1 <= number <= 30:
-                    new_lines.append(assessment_comment(number, lo_ids))
-        new_lines.append(line)
-        if in_solution and SOLUTION_END_RE.match(line):
-            in_solution = False
-    return "\n".join(new_lines) + "\n"
-
-
-_BLOOM_LADDER: tuple[tuple[int, str, str, int], ...] = (
-    (5, "Remember", "Recall", 2),
-    (10, "Understand", "Recall", 2),
-    (15, "Apply", "Application", 4),
-    (20, "Analyze", "Application", 5),
-    (24, "Analyze", "Synthesis", 7),
-    (27, "Evaluate", "Synthesis", 8),
-    (30, "Create", "Synthesis", 9),
-)
-
-
-def assessment_comment(number: int, lo_ids: tuple[str, ...]) -> str:
-    lo_id = lo_ids[(number - 1) % len(lo_ids)]
-    bloom, difficulty, minutes = _BLOOM_LADDER[-1][1:]
-    for max_number, tier_bloom, tier_difficulty, tier_minutes in _BLOOM_LADDER:
-        if number <= max_number:
-            bloom, difficulty, minutes = tier_bloom, tier_difficulty, tier_minutes
-            break
-    return (
-        "<!-- assess: "
-        f"LO={lo_id}; bloom={bloom}; difficulty={difficulty}; format=short-answer; minutes={minutes} "
-        "-->"
-    )
+    """Preserve valid per-item comments byte-for-byte; reject authoring gaps."""
+    bank = parse_question_bank(path)
+    if [item.number for item in bank.items] != list(range(1, 31)):
+        raise ValueError(f"{path}: author reviewed metadata for exactly questions 1–30")
+    known = set(lo_ids)
+    invalid = bank.assessed_los - known
+    missing = known - bank.assessed_los
+    if not known or invalid or missing:
+        raise ValueError(f"{path}: author semantic LO mappings; invalid={sorted(invalid)}, unassessed={sorted(missing)}")
+    if not {"Recall", "Application", "Synthesis"} <= set(bank.difficulty_mix):
+        raise ValueError(f"{path}: author a reviewed Recall/Application/Synthesis assessment mix")
+    if not {"Analyze", "Evaluate", "Create"} & set(bank.bloom_mix):
+        raise ValueError(f"{path}: author higher-order Bloom assessment items")
+    return path.read_text(encoding="utf-8")
 
 
 def sync_lab_alignment(path: Path, chapter_title: str, lo_ids: tuple[str, ...]) -> str:
-    text = LAB_ALIGNMENT_RE.sub("\n", path.read_text(encoding="utf-8")).rstrip() + "\n"
-    block = lab_alignment_block(chapter_title, lo_ids)
-    lines = text.splitlines()
-    insert_at = lab_alignment_insert_index(lines)
-    lines[insert_at:insert_at] = block.splitlines()
-    return "\n".join(lines) + "\n"
-
-
-def lab_alignment_insert_index(lines: list[str]) -> int:
-    for index, line in enumerate(lines):
-        if line.startswith("## Learning Objectives"):
-            cursor = index + 1
-            while cursor < len(lines):
-                next_line = lines[cursor]
-                if cursor > index + 1 and next_line.startswith("## "):
-                    return cursor
-                cursor += 1
-    return min(2, len(lines))
-
-
-def lab_alignment_block(chapter_title: str, lo_ids: tuple[str, ...]) -> str:
-    outcome_lines = [
-        f"- **Outcome {index} ({lo_id}):** {description}"
-        for index, (lo_id, description) in enumerate(
-            zip(lo_ids, lab_outcome_descriptions(chapter_title), strict=True),
-            start=1,
-        )
-    ]
-    lo_display = ", ".join(lo_ids)
-    return "\n".join(
-        [
-            "<!-- lab-alignment-start -->",
-            "### Alignment and Rubric Map {.unnumbered}",
-            "",
-            *outcome_lines,
-            f"- **Chapter LO coverage:** {lo_display}",
-            "- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.",
-            "<!-- lab-alignment-end -->",
-        ]
-    )
-
-
-def lab_outcome_descriptions(chapter_title: str) -> tuple[str, str, str, str]:
-    return (
-        f"Interpret the supplied evidence or model output for {chapter_title}.",
-        "Identify controls and comparison groups that make the claim testable.",
-        "Quantify uncertainty, boundary conditions, or alternative explanations before concluding.",
-        "Transfer the mechanism to a new biological case or public-facing decision.",
-    )
+    """Preserve genuine author-owned outcomes/rubrics and reject unknown LOs."""
+    alignment = parse_lab_alignment(path)
+    invalid = set(alignment.lo_ids) - set(lo_ids)
+    if invalid:
+        raise ValueError(f"{path}: author valid {chapter_title} outcome mappings; unknown LOs={sorted(invalid)}")
+    return path.read_text(encoding="utf-8")
 
 
 def write_or_record(path: Path, updated: str, *, write: bool) -> list[Path]:
+    """Record a real text change, optionally publishing it atomically."""
     current = path.read_text(encoding="utf-8")
     if current == updated:
         return []
     if write:
+        from textbook_io import write_text_atomic
+
         write_text_atomic(path, updated)
     return [path]
 
 
-__all__ = [
-    "assessment_comment",
-    "lab_alignment_block",
-    "lab_alignment_insert_index",
-    "lab_outcome_descriptions",
-    "sync_all_assessment_metadata",
-    "sync_lab_alignment",
-    "sync_question_bank",
-    "write_or_record",
-]
+__all__ = ["sync_all_assessment_metadata", "sync_lab_alignment", "sync_question_bank", "write_or_record"]

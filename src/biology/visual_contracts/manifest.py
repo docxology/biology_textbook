@@ -6,12 +6,12 @@ import json
 from dataclasses import asdict
 from pathlib import Path
 
+from biology.visual_contracts.models import VisualRecord
 from biology.visual_contracts.scan import (
     inline_mermaid_records,
     raw_figure_records,
     registered_mermaid_records,
 )
-from biology.visual_contracts.models import VisualRecord
 from biology.visual_contracts_paths import DEFAULT_MANIFEST, OUTPUT_FIGURES
 from textbook_io import write_text_atomic
 

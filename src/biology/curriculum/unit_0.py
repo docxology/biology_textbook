@@ -27,7 +27,7 @@ RECORDS = (
     ),
     _r(
         "unit_0_active_inference",
-        "Living systems reduce uncertainty by acting on the world as well as by updating internal models.",
+        "Active-inference models describe how belief updating and action can jointly regulate predicted sensory outcomes; this is a framework, not an exceptionless biological law.",
         ("prediction error", "Bayesian updating", "policy selection", "homeostasis"),
         "Bayesian belief updating and expected-free-energy-style policy comparison.",
         "Read a small probability table and update a prediction after new evidence.",

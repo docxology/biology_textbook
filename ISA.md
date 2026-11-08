@@ -14,6 +14,10 @@ git_head_at_push: 6211ec6a61be3b52c559a735628d46b0743a23b1
 iteration: 2
 ---
 
+# Historical audit record — not current release proof
+
+The dated narrative, completion markers, commands, paths and metrics below are retained as a historical record of the July 2026 work, not evidence for software 2.0.0/manuscript edition 1.1. In particular, old template-root/WIP recipes and the claimed separate line/branch floor are obsolete. Use the current [README](README.md), [pipeline guide](docs/pipeline_guide.md) and [testing guide](docs/testing_guide.md) instead. Current validation, PDF inspection and remote publication must each be established independently. DOI 10.5281/zenodo.20286478 identifies the prior 1.0.0 release only.
+
 ## Problem
 
 `biology_textbook` shipped v1.0.0 (2026-05-26, Zenodo DOI 10.5281/zenodo.20286478)

@@ -3,15 +3,17 @@
 from __future__ import annotations
 
 import re
-from typing import Any, Mapping
+from collections.abc import Mapping
+from typing import Any
 
 from biology.crossref.helpers import section_reference
-from biology.curriculum_sync.sync_blocks import _framework_line, _join
-
+from biology.curriculum_sync.sync_blocks import (
+    _framework_line,
+    _join,
+    _normalize_heading_text,
+)
 
 CHAPTER_MARKER = ("<!-- curriculum-scaffold-start -->", "<!-- curriculum-scaffold-end -->")
-LAB_MARKER = ("<!-- lab-evidence-checklist-start -->", "<!-- lab-evidence-checklist-end -->")
-QUESTION_MARKER = ("<!-- question-coverage-start -->", "<!-- question-coverage-end -->")
 NAV_MARKER = ("<!-- toc-navigation-start -->", "<!-- toc-navigation-end -->")
 READING_PATHS_MARKER = ("<!-- suggested-reading-paths-start -->", "<!-- suggested-reading-paths-end -->")
 CONCEPT_MAP_MARKER = ("<!-- textbook-concept-map-start -->", "<!-- textbook-concept-map-end -->")
@@ -44,7 +46,7 @@ def build_appendix(
     lines = [
         f"# {book_toc.references_by_file['appendix_curriculum_map.md'].title} {{#sec:appendix_curriculum_map .unnumbered}}",
         "",
-        "This appendix is generated from `src/biology/curriculum.py` and",
+        "This appendix is generated from `src/biology/curriculum/` and",
         "`src/biology/alignment.py`. It links each chapter to its companion lab,",
         "question bank, model/data skill, misconception probe, transfer task, and",
         "standards/skills alignment so the textbook can be composed into different",
@@ -77,7 +79,7 @@ def build_appendix(
                 "",
             ]
         )
-    return "\n".join(lines).rstrip() + "\n"
+    return _normalize_heading_text("\n".join(lines).rstrip() + "\n", unnumbered=True)
 
 def build_instructor_appendix(
     records: tuple[Any, ...],
@@ -101,8 +103,9 @@ def build_instructor_appendix(
         "or observed pattern that makes the chapter question necessary.",
         "2. **Model the mechanism.** Ask students to draw, compute, simulate, or",
         "annotate the causal structure before reading the full explanation.",
-        "3. **Gather evidence.** Use the companion lab as the measurement and",
-        "reproducibility surface for the chapter.",
+        "3. **Interpret evidence.** Use the companion lab's finite printed packet,",
+        "with synthetic and empirical observations identified, to practice analysis and reproducibility.",
+        "These paper-based activities do not collect new empirical measurements; synthetic data remain teaching examples.",
         "4. **Check transfer.** Use the question bank to sample recall, application,",
         "data interpretation, and argumentation.",
         "5. **Close the loop.** Return to the transfer task and require a claim,",
@@ -128,20 +131,22 @@ def build_instructor_appendix(
                 f"- **Instructor move:** {alignment.instructor_move}",
                 f"- **Formative check:** {alignment.formative_check}",
                 f"- **Summative product:** {alignment.summative_product}",
-                f"- **Lab/question pair:** {section_reference(record.lab_label)}; "
-                f"{section_reference(record.question_label)}.",
+                (
+                    f"- **Lab/question pair:** {section_reference(record.lab_label)}; "
+                    f"{section_reference(record.question_label)}."
+                ),
                 f"- **External alignment:** {_framework_line(alignment)}",
                 "",
             ]
         )
-    return "\n".join(lines).rstrip() + "\n"
+    return _normalize_heading_text("\n".join(lines).rstrip() + "\n", unnumbered=True)
 
 def build_front_matter_navigation(book_toc: Any) -> str:
     lines = [
         NAV_MARKER[0],
         "The textbook is organized from systems-level orientation through molecular,",
         "cellular, organismal, evolutionary, and ecological scales. The entries below",
-        "are generated from `manuscript/config.yaml` so navigation stays aligned with",
+        "are generated from `docs/manuscript/config.yaml` so navigation stays aligned with",
         "the rendered table of contents.",
         "",
     ]
@@ -150,10 +155,10 @@ def build_front_matter_navigation(book_toc: Any) -> str:
         lines.append(f"- **{unit.hyperlink_display_title}:** {chapter_list}.")
     lines.extend(
         [
-            "- **Laboratory activities:** one companion lab follows each chapter in the",
-            "same canonical order.",
-            "- **Question banks:** one 30-item question bank follows each chapter in the",
-            "same canonical order.",
+            "- **Laboratory activities:** the laboratory appendix collects one companion lab per chapter",
+            "in the chapters' canonical order, after the core chapter sequence.",
+            "- **Question banks:** a separate question-bank appendix collects one 30-item bank per chapter",
+            "in the same canonical order, after the laboratory sequence.",
         ]
     )
     for reference in book_toc.references:
@@ -200,7 +205,7 @@ def build_suggested_reading_paths(book_toc: Any) -> str:
             f"{_chapter_ref(book_toc, 'unit_III_photosynthesis')}; "
             f"{_unit_ref(book_toc, 'unit_VI')}; {_unit_ref(book_toc, 'unit_VII')}; "
             f"{_unit_ref(book_toc, 'unit_X')} | "
-            "Emphasize population models, biogeochemistry, conservation metrics in `ecology.py`. |"
+            "Emphasize population models, biogeochemistry, and conservation metrics in `biology.ecology.ecology`. |"
         ),
         (
             "| **Computation-first** | "
@@ -310,13 +315,17 @@ def build_textbook_concept_map(book_toc: Any) -> str:
         [
             "```",
             "",
-            "<!-- alt: Graph showing generated dependency map derived from manuscript/config.yaml: "
-            "dashed links show the systems orientation as a conceptual lens, and solid arrows show "
-            "dependencies through the canonical unit sequence. -->",
+            (
+                "<!-- alt: Graph showing generated dependency map derived from docs/manuscript/config.yaml: "
+                "dashed links show the systems orientation as a conceptual lens, and solid arrows show "
+                "dependencies through the canonical unit sequence. -->"
+            ),
             "",
-            "*Generated dependency map derived from `manuscript/config.yaml`: dashed links show "
-            "the systems orientation as a conceptual lens, and solid arrows show dependencies "
-            "through the canonical unit sequence.*",
+            (
+                "*Generated dependency map derived from `docs/manuscript/config.yaml`: dashed links show "
+                "the systems orientation as a conceptual lens, and solid arrows show dependencies "
+                "through the canonical unit sequence.*"
+            ),
             "",
             CONCEPT_MAP_MARKER[1],
         ]

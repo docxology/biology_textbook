@@ -5,11 +5,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{../figures/organelle_size_scale.png}
-\caption{Characteristic linear dimensions of biological structures on a log scale, from ribosomes and viruses through organelles to whole eukaryotic cells. Bars are colored by category (macromolecule, virus, organelle, prokaryote, eukaryote) and span roughly four orders of magnitude. Spatial scale constrains diffusion times, mechanical behavior, and the kinds of imaging that resolve each level.}
+\caption{Representative linear dimensions of eleven biological structures on a logarithmic scale, from 0.025 micrometres for ribosomes and microtubule diameters to 50 micrometres for a typical plant cell. Labels distinguish lengths from diameters. Colors identify macromolecular structures, organelles, prokaryotic cells, and eukaryotic cells; these are order-of-magnitude reference landmarks, not a measured sample.}
 \label{fig:unit_II_organelle_size_scale}
 \end{figure}
 
-<!-- alt: Horizontal bar chart on a log scale. Each bar corresponds to a biological structure (ribosome, virus, mitochondrion, nucleus, typical bacterium, typical animal cell) and is colored by category. Bar lengths span four orders of magnitude in micrometers. -->
+<!-- alt: Horizontal bars show representative linear dimensions in micrometres on a logarithmic axis. Eleven labeled structures range from ribosomes and microtubules through organelles to bacterial, animal, and plant cells. Colors distinguish four categories; no virus is plotted. -->
 
 
 <!-- chapter-metadata-badge -->
@@ -82,7 +82,7 @@ Before examining each organelle individually, it is useful to fix the dimensions
 | Rough ER | sheets/tubules ~30–100 nm | one continuous network | ~10% cell volume | ~13,000 μm$^2$ |
 | Smooth ER | tubules ~30–60 nm | one network (continuous with RER) | varies; large in liver/muscle | varies |
 | Golgi stack | 4–8 cisternae; ~1 μm wide | typically 1 (cis–trans); fragmented during mitosis | ~1% cell volume | ~1,000 μm$^2$ |
-| Lysosome | 0.1–1 μm diameter | ~50–1,000 | ~1% cell volume | ~100 μm$^2$ each |
+| Lysosome | 0.1–1 μm diameter | ~50–1,000 | depends on size and abundance | 0.031–3.14 μm$^2$ each for a sphere ($A=\pi d^2$); not aggregate cell area |
 | Peroxisome | 0.1–1 μm diameter | 50–1,000 | ~1% cell volume | --- |
 | Centriole | 200 nm long × 250 nm wide | 2 (one centrosome) | --- | --- |
 | Primary cilium | 1–10 μm long × 250 nm wide | 1 | --- | --- |
@@ -129,8 +129,8 @@ Every protein synthesized in the cell must reach a specific compartment, but pro
 | Mitochondrion (matrix) | N-terminal amphipathic alpha-helix (presequence; ~15–70 aa) | TOM complex (outer membrane); TIM23 complex (inner membrane); Hsp70 motor | Post-translational; unfolded protein threaded through; presequence cleaved by MPP |
 | Mitochondrion (OMM, IMM) | Internal hydrophobic / cysteine motifs | TOM, SAM, TIM22, MIA40 (IMS) | Multiple lateral and stop-transfer pathways |
 | Chloroplast (stroma) | N-terminal transit peptide | TOC and TIC complexes | Analogous to TOM/TIM |
-| Peroxisome (matrix) | PTS1 (C-terminal SKL) or PTS2 (N-terminal RLx5HL) | PEX5 (PTS1), PEX7 (PTS2) | Folded proteins imported (unique); mono-ubiquitinated PEX5 recycles via PEX1/6 ATPases |
-| ER (secretory pathway) | N-terminal signal peptide (~16–30 hydrophobic aa) | SRP (signal recognition particle) → SRP receptor → Sec61 translocon | **Co-translational** — translation pauses until ribosome docks |
+| Peroxisome (matrix) | PTS1 variants (canonical SKL; human catalase KANL) or N-terminal PTS2 | PEX5 (PTS1), PEX7 (PTS2) | Folded matrix cargos can be imported; PEX5 recycling uses PEX1/6 ATPases |
+| ER (secretory pathway) | Cargo-dependent signal sequences | SRP/SRP receptor/Sec61 for many cotranslational cargos; alternative routes also occur | Some small cargos enter posttranslationally through Sec62-dependent Sec61 translocation |
 | ER → Golgi (anterograde) | Diacidic/dihydrophobic motifs (DXE, FF) | COPII coat (Sar1, Sec23/24, Sec13/31) | Vesicle budding |
 | Golgi → ER (retrieval) | C-terminal KDEL (lumenal) or KKXX (membrane) | KDEL receptor (KDELR); COPI coat | Retrograde retrieval of escaped resident proteins |
 | Lysosome | Mannose-6-phosphate (M6P) added in cis-Golgi | M6P receptor (MPR) | Sorting at trans-Golgi network |
@@ -142,7 +142,7 @@ Every protein synthesized in the cell must reach a specific compartment, but pro
 
 OMM β-barrel proteins (e.g., porin/VDAC, Tom40 itself) take a different route: through TOM, into the IMS, then inserted laterally by the **SAM complex** (Sorting and Assembly Machinery). Carrier proteins (e.g., ADP/ATP translocase) of the inner membrane skip TIM23 entirely and use **TIM22** for lateral release into the IMM. IMS proteins use the **MIA40/Erv1 disulphide relay** for oxidative folding.
 
-**Why this matters.** Failures of any single targeting pathway produce specific, severe disease phenotypes — testimony to how hard-coded the cellular logistics are. Defects in PEX genes cause peroxisome biogenesis disorders (Zellweger syndrome). Defects in TIM/TOM components cause mitochondrial myopathies. ER signal peptide mutations are now recognized in disorders ranging from preprovasopressin (familial diabetes insipidus) to coagulation-factor deficiencies. The cell's postal system has no general delivery option — every misrouted package is a disease.
+**Why this matters.** Targeting defects can produce severe disease, but consequences depend on the cargo, pathway, gene and allele. PEX defects underlie peroxisome-biogenesis disorders; mitochondrial import and ER-signal defects can also disrupt specific cellular functions. Residual delivery and compensatory routes must be measured rather than assuming every mistargeted protein causes disease or that all alternative delivery is absent.
 
 > **Concept Check 1b:** A researcher creates a fusion protein with both an N-terminal mitochondrial presequence *and* a C-terminal SKL (peroxisomal PTS1). Where is the protein delivered? (Hint: consider whether targeting is co-translational or post-translational, and which signal acts first.)
 
@@ -310,7 +310,7 @@ flowchart TD
 
 **Rough ER** (RER): studded with ribosomes; site of synthesis, folding, and initial N-glycosylation of secreted and membrane proteins. Molecular chaperones (BiP/GRP78, calnexin, calreticulin) ensure proper folding; misfolded proteins are retrotranslocated for **ER-associated degradation (ERAD)** by the proteasome.
 
-The **signal recognition particle (SRP)** pathway directs secretory proteins to the ER:
+The **signal recognition particle (SRP)** pathway directs many secretory cargos to the ER. A conventional cleavable-signal example proceeds as follows; some small proteins instead use Sec62-dependent posttranslational translocation through Sec61, so SRP loss does not abolish every ER-entry route \citep{lakkaraju2012sec62}:
 1. Ribosome begins translating mRNA; signal peptide (~16--30 hydrophobic amino acids) emerges
 2. SRP binds signal peptide and ribosome, pausing [**translation**](#gl:translation)
 3. SRP-ribosome complex docks at SRP receptor on ER membrane
@@ -389,7 +389,7 @@ Lysosomes ([**pH**](#gl:ph) 4.5--5.0, maintained by V-type H$^+$-ATPase) contain
 - **Gaucher disease:** glucocerebrosidase deficiency, sphingolipid accumulation in macrophages
 - **Tay-Sachs disease:** hexosaminidase A deficiency, GM2 ganglioside accumulation in neurons, neurodegeneration
 - **Niemann-Pick type C:** NPC1/NPC2 cholesterol transport deficiency, cholesterol accumulates in lysosomes
-- Both Pompe and Gaucher are treatable by **enzyme replacement therapy (ERT)**, where recombinant enzyme is infused intravenously and targeted to lysosomes via M6P receptors
+- Enzyme replacement uses different uptake routes: Pompe enzymes can exploit mannose-6-phosphate receptors, whereas Gaucher glucocerebrosidase preparations expose terminal mannose for uptake by macrophage mannose receptors. They should not be assigned one universal M6P-targeting mechanism \citep{cerezyme2026label}.
 
 > **Concept Check 3:** A patient has I-cell disease (mucolipidosis II), in which the enzyme that adds M6P to lysosomal enzymes in the cis-Golgi is defective. Predict the consequences for (a) lysosomal enzyme targeting, (b) extracellular enzyme levels, and (c) intracellular digestion.
 
@@ -514,7 +514,7 @@ This calculation highlights the immense energy requirements of axonal transport;
    The total transport time at constant velocity is simply distance divided by velocity:
    $$ t = \frac{D_\text{total}}{v} = \frac{2.4 \times 10^{-3} \, \text{m}}{0.80 \times 10^{-6} \, \text{m/s}} = 3{,}000 \, \text{s} \approx 50 \, \text{min}  \label{eq:unit_II_cell_structure_item_8}$$
 
-   So a kinesin-driven cargo crosses 2.4 mm of axon in just under an hour. For a giraffe motor neuron (axon length ~3 m), the same calculation yields ~43 days — consistent with the historical observation by Weiss and Hiscoe (1948) that materials accumulate above an axonal ligature with a wave-front velocity of a few millimetres per day. Compare this with **passive diffusion** of the same vesicle: using $t = x^2/2D$ with $D \approx 10^{-12}$ m$^2$/s for a 100 nm vesicle, $t \approx 1.4 \times 10^{12}$ s ≈ 45,000 years. Active transport beats diffusion by **eight orders of magnitude** for cargoes of this size and distance. The cell's choice to spend ~10$^5$ ATPs per vesicle is therefore not extravagance — it is what makes the long axon viable at most.
+   The 2.4 mm journey takes 3,000 s and costs 300,000 ATP under the one-ATP-per-8-nm-step assumption. For a separate idealized **3 m** journey at the same uninterrupted velocity, active time is $3/(0.80\times10^{-6})=3.75\times10^6$ s (43.4 days), and the step/ATP count is $3/(8\times10^{-9})=3.75\times10^8$. With the stipulated $D=10^{-12}$ m$^2$/s, the one-dimensional diffusion estimate is $t=x^2/(2D)=4.5\times10^{12}$ s (about 143,000 years). The diffusion/active time ratio for that same 3 m distance is $1.2\times10^6$, about six orders of magnitude. These idealized continuous-motion estimates exclude pauses, detachment and obstacles; they are not a measured historical slow-transport rate.
 
 **Worked Example: Comparing kinesin and dynein transport.**
 
@@ -606,10 +606,10 @@ Peroxisomes contain oxidases that generate hydrogen peroxide (H$_2$O$_2$) as a b
 
 ### Peroxisome Biogenesis and Protein Import
 
-Peroxisomes form by **growth and division** of existing peroxisomes (similar to mitochondria) and also by **de novo formation** from ER-derived vesicles. Peroxisomal matrix proteins are imported post-translationally via **PTS1** (C-terminal SKL tripeptide) or **PTS2** (N-terminal nonapeptide) signals, recognized by PEX5 and PEX7 receptors.
+Peroxisomes grow and divide and can also form through de novo membrane-biogenesis pathways. Matrix cargos use targeting signals recognized by PEX5 (PTS1 pathway) or PEX7 (PTS2 pathway). SKL is a canonical PTS1 tripeptide, not the sequence of every cargo: human catalase has a noncanonical terminal KANL signal whose targeting was tested with mutations and reporter fusions \citep{purdue1996catalase}. Localization and peroxide-removal activity require separate measurements; mislocalization does not imply zero cellular peroxide clearance.
 
 > **Clinical Connection: Peroxisome Biogenesis Disorders**
-> **Zellweger syndrome** (the most severe peroxisome biogenesis disorder) results from mutations in PEX genes (most commonly PEX1). Absent or non-functional peroxisomes lead to VLCFA accumulation, plasmalogen deficiency, and bile acid synthesis failure. Affected infants present with severe hypotonia, seizures, hepatomegaly, and characteristic facial features, with death typically in the first year.
+> **Zellweger spectrum disorders** result from defects in PEX-dependent peroxisome biogenesis. Severe disease can impair VLCFA processing, plasmalogen synthesis and bile-acid metabolism, with neurological and other systemic consequences. Residual import, metabolic function and clinical severity vary by gene and allele; not every PEX variant abolishes all peroxisomal function.
 > **X-linked adrenoleukodystrophy (X-ALD):** Mutation in ABCD1 (a peroxisomal ABC transporter for VLCFA); VLCFA accumulation destroys adrenal cortex and CNS myelin. Depicted in the film "Lorenzo's Oil."
 > **Primary hyperoxaluria type 1:** AGT mistargeted from peroxisomes to mitochondria; oxalate accumulates; kidney stones and renal failure. see \cref{sec:unit_II_membrane_transport} for ABC transporters.
 
@@ -699,7 +699,7 @@ org = get_organelles_by_cell_type("animal")
 print(count_membrane_bound_organelles(org))
 ```
 
-> **Clinical / systems note:** Mitochondrial disorders and peroxisomal diseases (e.g. Zellweger spectrum) show how loss of a single organelle compartment produces multi-system phenotypes because compartment-specific metabolites fail to reach the cytosol or nucleus.
+> **Clinical / systems note:** Mitochondrial and peroxisomal disorders illustrate how compartment-specific import and metabolism contribute to multisystem phenotypes. Affected pathways, residual function and downstream tissue injury require gene- and allele-specific evidence rather than inference from complete loss of an organelle alone.
 
 ---
 
@@ -707,9 +707,9 @@ print(count_membrane_bound_organelles(org))
 
 Mitochondrial DNA (mtDNA) encodes 13 proteins of the electron transport chain and 22 tRNAs — mutations here cause a spectrum of **mitochondrial diseases** (MELAS, MERRF, Leber's hereditary optic neuropathy) that affect roughly 1 in 5000 births. CRISPR–Cas9 could not reach mtDNA because guide RNA import into mitochondria is inefficient, and any DNA double-strand break in the polyploid (100–10 000 copies per cell) mitochondrial genome triggers rapid linear-DNA degradation rather than useful repair.
 
-The breakthrough came from an unusual source: a **bacterial interbacterial toxin (DddA)** from *Burkholderia cenocepacia* that deaminates cytosines in *double-stranded* DNA (most cytidine deaminases require single-stranded substrates). In 2020, the Liu lab published **DddA-derived cytosine base editors (DdCBEs)** — split DddA halves fused to programmable TALE arrays that reconstitute deaminase activity primarily when both halves bind adjacent mitochondrial sites (*Nature* 2020). Subsequent engineering produced **zinc-finger–DdCBEs** (smaller, easier to import), **mitoBEs** capable of A-to-G edits, and **TALED** (TALE-linked deaminases) for A-to-I conversion. Efficiencies in human cells now reach 30–50 % heteroplasmy shift with bystander editing < 5 %.
+Mok and colleagues introduced DddA-derived cytosine base editors in 2020: programmable TALE proteins bring split deaminase halves together to install C:G-to-T:A changes in mitochondrial DNA without guide RNA \citep{mok2020mitochondrialbaseediting}. The study edited human-cell mtDNA, including MT-ND4, to model disease-associated changes and measure respiratory effects; it did not establish an approved therapy or correction of the nuclear gene Ndufa10.
 
-Worked example: for the MELAS-causing mutation m.3243A>G in tRNA^Leu^, a DdCBE targeting the reverse strand near position 3244 converts the pathogenic G back to A in ~30 % of mtDNA copies — above the threshold needed to cross the **heteroplasmy clinical phenotype boundary** (~80 % mutant copies for overt disease). A 2022 report corrected a murine Ndufa10 mutation *in vivo* via AAV-delivered DdCBE with functional rescue of respiratory chain complex I. Cautions: off-target mitochondrial editing rates of ~0.1–1 % at 30–50 predicted sites; potential nuclear off-targets; the edit is heritable in the female germline (with the ethical considerations of heritable genome editing). The technology is a clean example of how **unusual biochemistry in obscure organisms** (a bacterial toxin no textbook mentioned in 2019) can become the keystone of a new therapeutic platform within 4 years.
+**Illustrative heteroplasmy calculation (synthetic, not a clinical result):** If an editor introduces a new target allele into 30% of initially unedited mtDNA copies, its fraction changes from 0 to 0.30. If instead a hypothetical correction converts 30% of mutant copies in a population starting at 0.90 mutant, the remaining mutant fraction is 0.90(1-0.30)=0.63. These are different denominators. Neither implies clinical rescue without target-, tissue- and phenotype-specific evidence. Off-targets, bystanders, delivery and germline exposure require direct assessment; no universal clinical threshold is inferred.
 
 ---
 
@@ -738,12 +738,13 @@ For organelle claims, identify the imaging scale, molecular marker, dynamics, an
 ```mermaid
 flowchart TD
     A["Cell organization"] --> B["Membrane-bound organelles"]
-    A --> C["Biomolecular condensates"]
+    A --> C["Concentrated macromolecular assemblies"]
     B --> D["Lipid barrier and lumen"]
-    C --> E["Weak multivalent interactions"]
-    E --> F["Concentration threshold"]
-    F --> G["Dynamic assembly"]
-    G --> H["Function or disease risk"]
+    C -- "Possible LLPS/network model" --> E["Multivalent interactions"]
+    E --> F["Conditional dense/dilute coexistence"]
+    C -- "Alternative mechanisms" --> I["Binding, scaffolding or aggregation"]
+    F --> G["Measure material properties"]
+    G --> H["Test mechanism and function separately"]
 ```
 <!-- alt: Flowchart showing condensates should be taught as regulatable cellular organization, not as a replacement for membrane-bound organelles or as proof of causality by appearance alone. -->
 

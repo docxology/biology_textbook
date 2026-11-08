@@ -2,7 +2,11 @@
 
 import pytest
 
-from biology.genetics import genetic_distance, infer_three_point_order, recombination_frequency
+from biology.genetics import (
+    genetic_distance,
+    infer_three_point_order,
+    recombination_frequency,
+)
 
 
 class TestLinkageMapping:

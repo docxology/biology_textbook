@@ -7,12 +7,10 @@ from pathlib import Path
 from biology.pipeline.paths import MANUSCRIPT_DIR
 
 UNIT_ZERO_NUMBERING_DIRECTIVE = (
-    "% Unit 0 chapters render as 0.1, 0.2, ... without shifting Unit I.\n"
     "\\setcounter{section}{0}\n"
     "\\renewcommand{\\thesection}{0.\\arabic{section}}"
 )
 MAIN_NUMBERING_DIRECTIVE = (
-    "% Reset main chapter numbering after Unit 0.\n"
     "\\setcounter{section}{0}\n"
     "\\renewcommand{\\thesection}{\\arabic{section}}"
 )

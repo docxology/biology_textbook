@@ -1,163 +1,112 @@
 # Lab — Immune System Architecture {#sec:lab_unit_IX_immune_system_defense .unnumbered}
 
+*This activity accompanies \cref{sec:unit_IX_immune_system_defense}.*
+
+## Learning Objectives {.unnumbered}
+
+- Separate innate recognition/complement from adaptive specificity.
+- Analyze controlled ligand-receptor and serum-survival evidence.
+- Distinguish primary/booster memory and tolerance.
+- Evaluate biomarkers and immune-therapy claims without overdiagnosis.
+
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Immune System Architecture.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO1):** Separate innate recognition/complement from adaptive specificity.
+- **Outcome 2 (LO2):** Analyze controlled ligand-receptor and serum-survival evidence.
+- **Outcome 3 (LO3):** Distinguish primary/booster memory and tolerance.
+- **Outcome 4 (LO7):** Evaluate biomarkers and immune-therapy claims without overdiagnosis.
+
+
+
+: Alignment and evidence-specific scoring. {#tbl:unit_IX_immune_system_defense_alignment_and_rubric_map}
+| Dimension | 4-point evidence requirement |
+| --- | --- |
+| Evidence | ligand/serum contrasts,folds andclone arithmetic |
+| Controls | vehicle/ligand/genotype rescue,viability andheatedserum controls |
+| Uncertainty | n3syntheticreplicates,heatconfounding andnondiagnostic biomarker limits |
+| Mechanism | TLR/complement/factorH andadaptive memory/tolerance mechanisms |
+| Transfer | dated product/indication-specific therapy argument |
+
+Each dimension is worth 4 points (total 20): award 4 for a correct supported response, 2 for a partially correct response with an important omission, 1 for a relevant but unsupported assertion, and 0 for absent/incorrect work. The evidence column states the actual product required, not a generic participation criterion.
 <!-- lab-alignment-end -->
 
-*This activity accompanies \cref{sec:unit_IX_immune_system_defense} of the textbook — review that chapter before attempting the exercises below.*
+## Lab Context {.unnumbered}
 
-## Lab Context: Immune System Architecture {.unnumbered}
-
-This extension lab emphasizes innate and adaptive immune readouts, cytokine interpretation, and pattern-recognition pathways using printed clinical-style datasets.
+All numerical observations and patients are synthetic, not extracted trial results. This immune-only lab has no thyroid or reproductive-hormone exercise. Literature cards support mechanisms and dated indication boundaries, not invented response percentages.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IX_immune_system_defense_alignment_and_rubric_map}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Immune System Architecture: physiology source card: baseline, perturbation, population range, clinical boundary, and evidence date | 1 |
-| Printed datasets, cards, and worksheets referenced below | 1 set per group |
-| Graph paper or plain paper for diagrams | 1 |
-| Calculator | 1 |
+Print this entire packet including its supplied tables; use paper, pencil and a calculator. Graph paper is optional. Everything needed for the core investigation is printed below. Optional code or literature links are not required observations.
+
+## Supplied Evidence Packet {.unnumbered}
+
+
+: Receptor-ligand factorial. {#tbl:unit_IX_immune_system_defense_alignment_and_rubric_map_2}
+| Cells | LPS IL6(pg/mL),rep1/2/3 | Pam3CSK4 IL6 | VehicleIL6 | Viability(%) |
+| --- | --- | --- | --- | --- |
+| WT | 95/100/105 | 75/80/85 | 4/5/6 | 96/97/98 |
+| TLR4KO | 5/6/4 | 76/81/86 | 4/5/6 | 95/96/97 |
+| TLR4rescue | 90/95/100 | 74/79/84 | 4/5/6 | 96/97/98 |
+
+
+: Complement survival. {#tbl:unit_IX_immune_system_defense_alignment_and_rubric_map_3}
+| Meningococcalstrain | Activeserum survival(%),rep1/2/3 | Heatedserum(%) |
+| --- | --- | --- |
+| WTfHbp | 78/80/82 | 97/98/99 |
+| fHbpdeletion | 18/20/22 | 96/98/100 |
+| Rescue | 74/76/78 | 97/98/99 |
+
+
+: Adaptive and biomarker inputs. {#tbl:unit_IX_immune_system_defense_alignment_and_rubric_map_4}
+| Record | Values | Boundary |
+| --- | --- | --- |
+| Primaryantibody | day0/7/14/28:0/20/60/30arbitraryunits | same assay |
+| Boosterantibody | day0/3/7/14:30/100/240/180 | different baseline |
+| AntigenCD8 | primaryday7=10;boosterday7=40 cells/µL | not total lymphocytes |
+| Healthy/illcytokines | IL6:5/1200;TNF:10/380;IL10:2/720pg/mL | one person, not a threshold |
+| Bclone | 100 cells,12exactdoublings | no death/selection |
+
+
+: Therapy source cards. {#tbl:unit_IX_immune_system_defense_packet_5}
+| Claim | Sourceidentity | Boundary |
+| --- | --- | --- |
+| fHbp-factorH | Madico2006 doi10.4049/jimmunol.177.1.501 | not source of synthetic numbers |
+| AtezolizumabTNBC | FDAwithdrawnapprovals;withdrawn2021 | historical, not current indication |
+| IL17vsIL23 | risankizumablabel:adultCrohndisease | different pathway/disease effects |
+| CD19/BCMACAR-T | product,indication,lineanddaterequired | no aggregate efficacy percentage |
+| MHC-Iloss | lessCD8recognition/lessNKinhibition | activating input still needed |
+
+Mechanism reference: innate receptors recognize shared molecular patterns; TLR4 supports the stipulated LPS response, while the retained Pam3CSK4 response tests another receptor pathway. Complement damages susceptible bacteria; bacterial fHbp can recruit host factor H to reduce complement attack. Adaptive B/T clones have antigen specificity and memory; antibody titre is an assay endpoint, not a supplied protective threshold. Naive T cells receive IL7 and self-peptide–MHC survival signals, while productive effector activation normally requires antigen recognition, costimulation and context; recognition without those signals can promote tolerance. Therapy-card scope: atezolizumab targets PD-L1, and its TNBC indication here is explicitly withdrawn in 2021. Risankizumab targets IL23p19 and the printed label card names adult Crohn disease. Neither card supplies a trial endpoint, effect size or complete safety profile; mark those fields “not supplied” and identify the label/trial evidence needed rather than fabricate them or require a lookup.
 
 ## Paper-Based Investigation {.unnumbered}
 
-4. From the cytokine data table, calculate the ratio of each cytokine (sepsis) / (healthy). Rank the three markers by fold-change to determine which is most useful as a biomarker for severe sepsis.
-5. Mark the clinical action threshold for PCT (procalcitonin > 2 ng/mL → antibiotic treatment recommended) on a bar chart.
-
-**Part D — TLR4/NF-κB Pathway**
-
-6. Using the TLR ligand-response worksheet: trace LPS → TLR4 → MyD88 → IRAK → TRAF6 → IKK → IκB phosphorylation → NF-κB nuclear translocation → IL-6, TNF-α expression. Indicate where TAK-242 blocks the pathway.
-7. Reproducibility check: state the reference range source, diagnostic threshold, and fold-change rule used for every case classification.
-
-**Part E — Reproductive and Developmental Endocrinology**
-
-8. Sort the reproductive-development timing cards into upstream signal, target tissue, critical window, and measurable evidence.
-9. For an infertility triage card, identify whether the first evidence gap is ovulation timing, sperm production, tubal transport, uterine receptivity, endocrine feedback, or age-dependent gamete quality.
+1. Compute mean IL6 and ligand-minus-vehicle responses. Use genotype×ligand specificity, rescue and viability to distinguish signaling from death/assay failure.
+2. Compare active/heated serum survival by strain. Explain complement/factorH recruitment and why deletion/rescue is informative. Propose complement-component-specific confirmation because heating changes more than one serum property.
+3. Compare response timing/peaks and baseline antibody. Relate memoryB/T specificity to booster response without equating titre with protection, duration or herd immunity.
+4. Compute cytokine folds and clone size. Explain why elevations alone cannot distinguish infection, autoimmunity, assay error and other causes; propose additional evidence, not treatment thresholds.
+5. Write an evidence-bounded therapy card using one printed product: distinguish target, indication and available date, then mark missing endpoint/safety evidence explicitly. Do not invent an efficacy percentage or treatment recommendation. Explain naiveT maintenance byIL7/selfpMHC versus effector activation/tolerance requirements using the reference card.
 
 ## Data Recording {.unnumbered}
 
-: Alignment and Rubric Map: Case and TSH. {#tbl:unit_IX_immune_system_defense_alignment_and_rubric_map_2}
-| Case | TSH | T4 | Cortisol | Glucose/HbA1c | Diagnosis |
-| ---- | --- | -- | -------- | -------------- | --------- |
-| A | 12 mIU/L ↑ | 7 pmol/L ↓ | normal | normal | |
-| B | 0.02 mIU/L ↓ | 42 pmol/L ↑ | normal | normal | |
-| C | normal | normal | 890 nmol/L ↑ | 8.1 mmol/L ↑ | |
-| D | normal | normal | normal | 11 mmol/L ↑; HbA1c 9.2% ↑ | |
-
-Cytokine fold-changes:
-
-: Alignment and Rubric Map: Marker and Healthy. {#tbl:unit_IX_immune_system_defense_alignment_and_rubric_map_3}
-| Marker | Healthy | Sepsis | Fold-change | Rank |
-| ------ | ------- | ------ | ----------- | ---- |
-| IL-6 (pg/mL) | 5 | 1,200 | | |
-| TNF-α (pg/mL) | 10 | 380 | | |
-| PCT (ng/mL) | 0.05 | 18 | | |
-
-HPT axis diagram annotations (describe what happens in primary hypothyroidism):
-
-Reproducibility check: reference range source = ___; cytokine fold-change rule = ___; uncertain case needing more data = ___
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Compare innate and adaptive activation scenarios.
-- **Data skill to practice:** Interpret immune titers, cytokine profiles, or perturbation data.
-- **BioSkills emphasis:** Modeling and simulation, Quantitative reasoning, Science and society.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+For each task record: given inputs with units; equation/assumption; intermediate arithmetic; result with units; replicate identifier; comparison/control; and one limitation. Draw graphs with labeled axes and retain individual observations rather than only a fitted line. Report range or sampleSD where replicates are supplied; do not invent confidence intervals from absent data.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Endocrine and Immune Systems** with a reproducibility pass:
+An efficacy rate needs a named product, eligible population, endpoint and timepoint;none of these synthetic assays estimates CAR-T, checkpoint or sepsis treatment efficacy.
 
-: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_IX_immune_system_defense_alignment_and_rubric_map_4}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
+## Analysis and Submission {.unnumbered}
 
-Focus note: in this lab, read each endocrine or immune claim as a feedback-and-timing argument: identify the dose, latency, and receptor-sensitivity assumptions behind it, and check whether an inflammatory confound or shifted set-point would change the conclusion before treating the response as specific. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
+Submit labeled diagrams and calculations for every numbered investigation task, a concise results table or graph, and a claim–evidence–mechanism paragraph. Close with the strongest alternative explanation, a discriminating control, and a transfer decision whose assumptions are explicit. Clearly distinguish synthetic observations from cited biological mechanisms.
 
-### Worked Example: Interpreting an Abnormal Thyroid Panel {.unnumbered}
+## Safety and Ethics {.unnumbered}
 
-**Problem:** A patient has TSH = 12 mIU/L (reference range 0.4–4.0) and free T4 = 0.6 ng/dL (reference range 0.8–1.8). Using feedback-axis logic, decide whether this pattern is more consistent with primary hypothyroidism (thyroid gland under-producing) or secondary hypothyroidism (pituitary under-producing TSH). Then predict how TSH would respond over 6–8 weeks if the patient began levothyroxine (synthetic T4) replacement at an appropriate dose.
+This is a paper-only exercise. Do not collect human/animal specimens, administer drugs, conduct stimulation or release organisms. Synthetic clinical-style patterns are not diagnoses or treatment advice. Respect source attribution, participant privacy, local rights and ecological uncertainty.
 
-**Solution:** In primary hypothyroidism, the thyroid itself under-produces T4, so circulating T4 falls. Low T4 releases the pituitary from negative feedback, and TSH rises. Here TSH is elevated and T4 is below range — both signals point toward primary hypothyroidism. On replacement therapy, circulating T4 (and the T3 it is deiodinated to) rises back into range; restored negative feedback then suppresses pituitary TSH secretion, so TSH drifts down over weeks as the half-life of TSH-producing cell adjustment plays out.
+<!-- SOLUTION
+### Instructor Worked Key {.unnumbered}
 
-**Interpretation:** TSH and free T4 move in opposite directions under intact negative feedback. A high TSH with low T4 points to the thyroid (primary). A low or inappropriately normal TSH with low T4 would instead suggest pituitary or hypothalamic disease (secondary or tertiary). Treatment monitoring relies on the same loop: TSH normalization over 6–8 weeks is the standard endpoint, because the half-life of T4 and feedback re-equilibration both operate on that timescale.
+LPS-minus-vehicle means 95, 0, 90 pg/mL for WT/KO/rescue; Pam3 responses 75, 76, 74. Active-serum survival means 80/20/76 versus heated 98/98/98, differences −18/−78/−22 points; deletion reduces active survival 60 points versus WT. Cytokine folds 240/38/360 are not diagnoses. 100×2^12=409600 cells. Booster peak 240 versus 60 is 4 fold but has a different baseline and timing; matched endpoints are needed. fHbp recruits factor H and reduces complement attack, not host-factor-H deletion. IL23 blockade can treat Crohn disease whereas IL17 blockade has different risks. Withdrawn indications cannot be listed as current. \cite{madico2006factorh,fda2026withdrawncancer,fda2026risankizumab}
 
-## Analysis Questions {.unnumbered}
-
-1. In Case A (primary hypothyroidism), TSH is elevated but T4 is low. Trace the negative feedback loop to explain why TSH is high despite low thyroid function. What drug would you prescribe, and which axis level does it target?
-2. Graves' disease (Case B) involves thyroid-stimulating immunoglobulins (TSI) that mimic TSH. Why does the pituitary produce less TSH even though T4 is high? Can negative feedback suppress TSI production?
-3. The cytokine data showed PCT was elevated 360-fold in sepsis while TNF-α was elevated 38-fold. Why is PCT particularly specific for bacterial infection over viral infection, and why does this make it a better guide for antibiotic prescribing?
-4. NF-κB is activated during sepsis and produces the cytokine storm that contributes to multi-organ failure. A drug (TAK-242) blocks TLR4 signaling. Predict the effect on: (a) cytokine levels; (b) pathogen clearance. What is the risk of fully blocking TLR4 signaling?
-5. An athlete uses anabolic steroids (supraphysiological testosterone dose). Predict the effect on LH and FSH levels via the HPG axis feedback. After stopping steroids, how long does hormonal recovery take, and which cells in the testes are most affected during prolonged suppression?
-6. A couple has not conceived after 12 months of regular unprotected intercourse. Build a first-pass evidence map that separates ovulation, sperm production, tubal transport, implantation, uterine receptivity, endocrine feedback, and age-dependent gamete quality.
-
-
-## Post-Lab Synthesis {.unnumbered}
-
-> **Concept Check (Synthesis):** Hashimoto's thyroiditis is an autoimmune disease in which T cells and antibodies target thyroid antigens; some patients pass through a transient hyperthyroid phase ("Hashitoxicosis") before settling into chronic hypothyroidism.
->
-> (a) Trace the immunological events that produce the initial hyperthyroid phase — identify how immune-mediated follicular damage could release stored thyroid hormone, and explain which class of immune cell most directly drives the destruction. Predict how serum TSH and free T4 would move during this phase.
-> (b) Now trace the progression to chronic hypothyroidism: describe how the loss of functional follicles, falling T4 output, and re-engagement of negative feedback together reshape the hormone panel and the patient's symptoms. Identify one laboratory measurement that would most cleanly distinguish this autoimmune trajectory from a non-immune cause of low thyroid output.
-
-## Safety and Ethics Notes {.unnumbered}
-
-Data-analysis primarily. Most patient case data should be anonymised/fictional. Discuss real clinical conditions (Cushing's, diabetes) with sensitivity to students who may have personal connections to these diagnoses.
-
-### Source-Governance Checkpoint {.unnumbered}
-
-Complete the source-governance card for Immune System Architecture before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
-
-## Debrief and Reflection {.unnumbered}
-
-After you finish the practical work, spend 5–10 minutes in your small group
-comparing results and discussing the following prompts. Each member should
-contribute at least one observation before moving to the next prompt:
-
-1. **What did your measurements show** — compare the group's results to
-   the textbook's predictions. Where they diverge, suggest at least one
-   mechanistic explanation before concluding "experimental error."
-2. **What would change the outcome** — propose one modification to the
-   procedure that would sharpen the measurement or extend the result to a
-   new biological context, and predict what you would observe.
-3. **One-sentence headline** — each student composes a single sentence
-   summarizing the lab's take-home message, suitable for a tweet. Compare
-   sentences across groups; good headlines are short, quantitative, and
-   mechanistic.
-4. **Connection back to the textbook** — identify one section of
-   \cref{sec:unit_IX_immune_system_defense} that your data either confirmed or
-   complicated. Cite the specific passage.
-
-## Further Reading (Lab) {.unnumbered}
-
-- Revisit the parent chapter \cref{sec:unit_IX_immune_system_defense} for the theoretical
-  foundations on which this lab is built.
-- Look up any **bolded glossary term** introduced in the textbook chapter
-  (each has a `#gl:term-slug` link in the text) — its master
-  definition is in `docs/manuscript/glossary.md`.
-- Explore the appended `src/` module that implements the corresponding
-  quantitative model (when applicable) — referenced in the parent
-  chapter's "Bridge to Computation" subsection.
-
-*Module footer: parent chapter `\cref{sec:unit_IX_immune_system_defense}`; all numerical
-quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
-unit conversions and biological-scale reference values.*
+Accept equivalent correctly bounded reasoning. Check the complete working, units, control logic and uncertainty—not agreement with a preferred narrative.
+-->

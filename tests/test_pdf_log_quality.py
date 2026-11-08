@@ -7,15 +7,11 @@ from biology.quality.pdf_log import find_pdf_log_issues
 
 def test_pdf_log_checker_flags_undefined_references_and_severe_overfull_boxes() -> None:
     issues = find_pdf_log_issues(
-        "\n".join(
-            [
-                "LaTeX Warning: Hyper reference `gl:fatty-acid' on page 117 undefined",
-                "Missing character: There is no ★ (U+2605) in font [lmroman10-regular]:mapping=tex-text;!",
-                "! Double superscript.",
-                "Overfull \\hbox (12.0pt too wide) in paragraph at lines 1--2",
-                "Overfull \\vbox (143.18613pt too high) has occurred while \\output is active",
-            ]
-        ),
+        "LaTeX Warning: Hyper reference `gl:fatty-acid' on page 117 undefined\n"
+        "Missing character: There is no ★ (U+2605) in font [lmroman10-regular]:mapping=tex-text;!\n"
+        "! Double superscript.\n"
+        "Overfull \\hbox (12.0pt too wide) in paragraph at lines 1--2\n"
+        "Overfull \\vbox (143.18613pt too high) has occurred while \\output is active",
         max_overfull_pt=50,
     )
 

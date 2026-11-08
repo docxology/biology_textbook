@@ -1,236 +1,277 @@
 # Questions — Biodiversity and Food Webs {#sec:q_unit_X_biodiversity_and_food_webs .unnumbered}
 
-
-<!-- question-coverage-start -->
 ## Instructor Use and Coverage Notes {.unnumbered}
 
-- **Coverage target:** Calculate a diversity or species-area metric and interpret its ecological meaning.
-- **Model/data emphasis:** Shannon, species-area, and network connectance reasoning.
-- **Assessment alignment:** Representing and Describing Data, Statistical Tests and Data Analysis, Argumentation.
-- **Misconception probe:** Richness alone does not equal functional stability.
-- **Transfer product:** Transfer biodiversity reasoning to conservation planning and habitat fragmentation.
-- **Grading focus:** award full credit for mechanism, evidence, boundary conditions, and units when a calculation is required.
-- **Suggested use:** draw one recall item, one application item, and one synthesis item when building a short quiz from this bank.
-<!-- question-coverage-end -->
+This bank assesses the numbered learning objectives in \cref{sec:unit_X_biodiversity_and_food_webs}. Each mapping is item-specific. Select by objective and task demand, not question-number band. Every item includes a four-point analytic scoring guide; accept scientifically equivalent explanations and explicitly justified assumptions.
 
-## Questions 1–10: Recall and Comprehension {.unnumbered}
+## Questions {.unnumbered}
 
-*This activity accompanies \cref{sec:unit_X_biodiversity_and_food_webs} of the textbook — review that chapter before attempting the exercises below.*
-
-<!-- assess: LO=LO1; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-1. Island biogeography theory (MacArthur and Wilson, 1967): species richness on an island results from a balance between immigration (decreasing with distance from mainland) and extinction (increasing with island size decrease). Apply this to habitat islands: predict species richness on forest fragments of 1 ha, 10 ha, and 1,000 ha that are 5 km from a large continuous forest. What does the "species-area relationship" ($S = cA^z$) predict?
+<!-- assess: LO=LO1; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+1. State the immigration-extinction logic of island biogeography.
 
 <!-- SOLUTION
-**Answer (Q1, Recall).** Island/MacArthur–Wilson theory: richness equilibrates where the immigration rate (falls with isolation) equals the extinction rate (rises as area shrinks); the species–area relationship $S = cA^z$ summarizes the area effect, with $z \approx 0.25$ for habitat islands. Holding $c$ and $z$ constant, going from 1 ha to 10 ha multiplies $S$ by $10^{0.25} \approx 1.78$, and 1 → 1000 ha by $1000^{0.25} \approx 5.6$. So a 1000 ha fragment supports roughly **5–6×** the species of a 1 ha fragment; the 5 km isolation lowers all values equally by depressing immigration. The practical lesson: a few large fragments retain far more species than many tiny ones of equal total area. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q1, Recall).** Equilibrium richness occurs where colonization balances local extinction. Isolation tends to lower immigration and larger area can lower extinction, but species identities can turn over while richness stays similar.
+
+**Scoring guide (4 points).** 2 points: rate balance; 2 points: turnover despite stable richness. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
 <!-- assess: LO=LO2; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-2. Herbivore-plant coevolution has produced elaborate chemical defense systems. The milkweed (*Asclepias*) – monarch butterfly (*Danaus plexippus*) system illustrates escalation: (a) milkweed produces cardenolides (toxic Na⁺/K⁺-ATPase inhibitors); (b) monarch larvae sequester cardenolides for their own defense; (c) monarch Na⁺/K⁺-ATPase has evolved resistance mutations. Trace this coevolutionary arms race.
+2. Define a food web and specify what an arrow means before drawing one.
 
 <!-- SOLUTION
-**Answer (Q2, Recall).** Coevolutionary arms race (reciprocal selection): (1) milkweed evolves **cardenolides**, cardiac glycosides that block the Na\textsuperscript{+}/K\textsuperscript{+}-ATPase of herbivores; (2) this selects monarch larvae that **tolerate and sequester** the toxins, gaining their own chemical defense against birds (aposematism); (3) sequestration is enabled by **target-site insensitivity** — amino-acid substitutions in the monarch's Na\textsuperscript{+}/K\textsuperscript{+}-ATPase that confer resistance; (4) milkweeds with higher or novel cardenolide profiles are then favored, escalating the cycle. The result is reciprocal adaptation and a diffuse coevolutionary escalation between defense and counter-defense. See \cref{sec:unit_X_biodiversity_and_food_webs}.
-SOLUTION -->
+**Answer (Q2, Recall).** A food web represents feeding links among defined taxa or trophic groups. Arrows may show resource→consumer energy flow or consumer→resource feeding; choosing one convention prevents reversing cascade reasoning.
 
-<!-- assess: LO=LO3; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-3. Primary succession on volcanic islands (e.g., Surtsey, Iceland, formed 1963): pioneer species (lichens, mosses) → grasses → shrubs → woodland. Explain the facilitation model: how do early colonisers modify the environment (soil formation, nitrogen fixation) to enable later successional stages?
-
-<!-- SOLUTION
-**Answer (Q3, Recall).** In the **facilitation model**, early colonizers make conditions less extreme and enable later species. On bare volcanic rock, lichens and mosses weather the substrate and trap organic matter, **building the first soil**; nitrogen-fixing pioneers (e.g., legumes, *Frankia*- or cyanobacteria-associated plants) **add fixed nitrogen** to the otherwise N-poor surface; accumulating soil, moisture retention, and nutrients then allow grasses, then shrubs, then trees to establish. Each stage modifies the environment in ways that favor the next — and often makes conditions worse for the pioneers themselves. See \cref{sec:unit_X_biodiversity_and_food_webs}.
-SOLUTION -->
-
-<!-- assess: LO=LO4; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-4. Calculate the Shannon diversity index (H' = −Σpᵢ ln pᵢ) for a community with 4 species at proportions: 0.50, 0.25, 0.15, 0.10. Then calculate for a community with 4 species at equal proportions (0.25 each). Which community is more diverse? What does evenness contribute to diversity?
-
-<!-- SOLUTION
-**Answer (Q4, Recall).** $H' = -\sum p_i \ln p_i$. **Community A** (0.50, 0.25, 0.15, 0.10): $-(0.50\ln0.50 + 0.25\ln0.25 + 0.15\ln0.15 + 0.10\ln0.10) = -(-0.347 -0.347 -0.285 -0.230) \approx \mathbf{1.21}$. **Community B** (0.25 each): $-4(0.25\ln0.25) = -4(-0.347) = \mathbf{1.39}$ (= $\ln 4$, the maximum for 4 species). Community **B is more diverse** even though both have richness $S = 4$, because it is perfectly **even**. Evenness raises diversity: for a fixed number of species, $H'$ is maximized when all species are equally abundant and minimized when one species dominates. See \cref{sec:unit_X_biodiversity_and_food_webs}.
-SOLUTION -->
-
-<!-- assess: LO=LO5; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-5. Parasitoids (e.g., parasitoid wasps) lay eggs inside or on host insects; the larva consumes the host from inside. Compare parasitoid-host dynamics to classical predator-prey dynamics: (a) why parasitoid search efficiency matters (Nicholson-Bailey model); (b) why parasitoid-host systems tend toward unstable oscillations in simple models; (c) what stabilizing mechanisms exist in nature (spatial refugia, host immunity).
-
-<!-- SOLUTION
-**Answer (Q5, Recall).** (a) In the **Nicholson–Bailey** model, the fraction of hosts escaping parasitism depends on parasitoid **search efficiency** (attack rate $a$) and parasitoid density; each parasitized host yields the next parasitoid generation, tightly coupling the two. (b) Because reproduction is discrete and perfectly density-dependent with a built-in time lag (one host generation), the simple model is **inherently unstable** — it produces diverging oscillations leading to extinction of one or both. (c) Real systems persist via **stabilizing mechanisms**: spatial heterogeneity and host **refugia** (a protected fraction of hosts), aggregated parasitoid attack, host density dependence, host immune defenses, and parasitoid interference — all of which add negative feedback that damps the oscillations. See \cref{sec:unit_X_biodiversity_and_food_webs}.
-SOLUTION -->
-
-
-<!-- assess: LO=LO6; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-6. Evaluate the intermediate disturbance hypothesis (IDH, Connell 1978): species diversity is maximized at intermediate disturbance frequency/intensity. Evaluate: (a) the mechanism (low disturbance → competitive exclusion; high disturbance → primarily ruderals survive); (b) empirical support from coral reef and tropical forest studies; (c) criticisms (meta-analyses showing weak or inconsistent support for IDH).
-
-<!-- SOLUTION
-**Answer (Q6, Recall).** (a) **Mechanism:** at low disturbance, superior competitors monopolize resources and exclude others; at high disturbance, only fast-colonizing ruderals tolerant of frequent destruction survive; at **intermediate** disturbance both competitors and colonizers coexist, peaking diversity. (b) **Support:** Connell's coral-reef and tropical-forest work and many stream-invertebrate studies show humped diversity–disturbance curves. (c) **Criticism:** large meta-analyses (e.g., Mackey & Currie; Fox 2013) find the humped pattern is the minority outcome and IDH conflates several mechanisms; the conclusion would change if diversity responded monotonically once productivity and spatial scale are controlled. IDH is best treated as one possible pattern, not a general law. See \cref{sec:unit_X_biodiversity_and_food_webs}.
-SOLUTION -->
-
-<!-- assess: LO=LO7; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-7. Design an experiment to test whether a suspected keystone species is truly a keystone (disproportionate effect on community structure relative to its biomass). Describe: (a) the removal experiment design; (b) what community metrics (species richness, evenness, biomass distribution) you would measure before and after removal; (c) how you would distinguish keystone effects from dominant species effects.
-
-<!-- SOLUTION
-**Answer (Q7, Recall).** **Hypothesis:** the focal species exerts community control disproportionate to its biomass. **Design:** replicated, randomized **removal (exclusion) plots** versus untouched **control** plots of the same habitat, with the focal species the only manipulated factor; include 'biomass control' plots removing an equal biomass of a non-suspect dominant. **Metrics before and after:** species richness, evenness/Shannon $H'$, relative-abundance (biomass) distribution, and identity of competitive dominants, tracked over enough time for the community to respond. **Decision rule:** a keystone causes large structural change *per unit biomass removed*; a **dominant** causes change roughly proportional to its large biomass. Replication and a falsifying outcome (no divergence from controls) are required. See \cref{sec:unit_X_biodiversity_and_food_webs}.
-SOLUTION -->
-
-<!-- assess: LO=LO1; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-8. Evaluate the "biodiversity-ecosystem function" (BEF) debate: does higher species diversity lead to greater ecosystem productivity? Cite: (a) the Cedar Creek grassland experiments (Tilman); (b) the "sampling effect" (more species → more likely to include a highly productive species) vs "complementarity effect" (niche partitioning → more complete resource use); (c) implications for conservation ("every species matters" vs "some species are redundant").
-
-<!-- SOLUTION
-**Answer (Q8, Recall).** (a) Tilman's long-term **Cedar Creek** grassland plots show higher plant diversity yields greater and more stable productivity and nutrient retention. (b) The **sampling (selection) effect** attributes this to diverse plots being more likely to *contain* a single highly productive species; the **complementarity effect** attributes it to **niche partitioning and facilitation** so resources are used more completely — long-term data and additive-partitioning analyses indicate complementarity strengthens over time. (c) Implication: redundancy provides **insurance** under variable conditions, so 'some species are redundant' holds only in a constant environment; across environments and time most species contribute, supporting broad conservation. The conclusion would change if productivity tracked only the single best species regardless of richness. See \cref{sec:unit_X_biodiversity_and_food_webs}.
-SOLUTION -->
-
-<!-- assess: LO=LO2; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-9. Evaluate the role of facilitation (positive interactions) vs competition in structuring communities under environmental stress. The stress gradient hypothesis (SGH) predicts facilitation dominates in harsh environments and competition in benign ones. Evaluate the evidence from: (a) alpine cushion plants facilitating other species; (b) coral reef structure facilitating fish diversity; (c) exceptions where competition dominates even under stress.
-
-<!-- SOLUTION
-**Answer (Q9, Recall).** The **stress-gradient hypothesis** predicts net positive interactions (facilitation) dominate under harsh conditions and competition dominates in benign ones. (a) Alpine **cushion plants** ameliorate temperature, wind, and moisture, raising the richness of species sheltered beneath them — facilitation increases with elevation/stress. (b) Reef-building **corals** create physical structure that facilitates high fish and invertebrate diversity. (c) **Exceptions:** under extreme resource stress (severe drought) facilitation can collapse back to competition for the scarce resource, and strong consumer pressure can override it — so the SGH is a useful generalization whose sign depends on whether stress is resource-based or non-resource and on the trophic context. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Scoring guide (4 points).** 2 points: network definition; 2 points: explicit arrow convention. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-10. Biological invasions: invasive species can restructure entire communities. Evaluate three hypotheses for why invasive species succeed: (a) enemy release hypothesis (no predators/parasites in new range); (b) novel weapons hypothesis (allelochemicals that native species cannot tolerate); (c) empty niche hypothesis (exploiting unused resources). For each, cite one case study.
+3. Why can identical richness coexist with different Shannon diversity?
 
 <!-- SOLUTION
-**Answer (Q10, Recall).** (a) **Enemy release:** introduced species escape their coevolved predators/parasites and reallocate resources to growth/reproduction — e.g., invasive *Spartina* or purple loosestrife thriving without specialist herbivores. (b) **Novel weapons:** an invader deploys allelochemicals against which naive natives have no tolerance — e.g., spotted knapweed (*Centaurea*) (–)-catechin root exudates suppressing native plants. (c) **Empty niche:** the invader exploits resources unused by the resident community — e.g., zebra mussels filter-feeding suspended particles in the Great Lakes, a previously underused resource. Each hypothesis predicts different evidence (release from enemies, allelopathic suppression, or resource opportunity), and they can act jointly. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q3, Recall).** $H=-\sum_i p_i\ln p_i$ depends on relative abundances as well as richness $S$. At fixed $S$, even abundances maximize $H$; dominance lowers $H$ without requiring species loss.
+
+**Scoring guide (4 points).** 2 points: abundance contribution; 2 points: fixed-richness comparison. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-
-## Questions 11–20: Application and Analysis {.unnumbered}
-
-<!-- assess: LO=LO4; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-11. Evaluate the concept of "ecological networks" beyond food webs: mutualistic networks (plant-pollinator, plant-seed disperser) show a nested structure where specialist species interact with a subset of the partners of generalist species. What does nestedness imply for: (a) network stability (resilience to species loss); (b) the order of species extinction under habitat loss; (c) the importance of highly connected "hub" species for network integrity?
+<!-- assess: LO=LO4; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+4. Distinguish biodiversity from ecosystem function.
 
 <!-- SOLUTION
-**Answer (Q11, Application).** Mutualistic networks are typically **nested**: specialists interact with subsets of the partners that generalists use, and generalists interact mostly with each other. (a) Nestedness buffers **stability/robustness** because specialists are 'cushioned' by redundant generalist partners, so random species loss is well tolerated. (b) Under habitat loss, **specialists with few partners go extinct first**, while generalists persist longest. (c) Highly connected **hub** species are critical: targeted loss of generalist hubs triggers rapid co-extinction cascades, so network robustness depends disproportionately on protecting a small set of well-connected species. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q4, Recall).** Biodiversity describes variation in genes, species, traits, or assemblages. Function is a measured process such as production, decomposition, or nutrient retention; a diversity index is not itself a flux measurement.
+
+**Scoring guide (4 points).** 2 points: variation versus process; 2 points: appropriate measured endpoint. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-<!-- assess: LO=LO5; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-12. Evaluate Hubbell's Neutral Theory of Biodiversity (2001): species are ecologically equivalent, and community composition is determined by stochastic birth, death, and migration rather than niche differences. Compare neutral theory predictions with niche-based models: (a) what patterns can neutral theory explain (species-abundance distributions, species-area relationships); (b) what it cannot (functional trait differences, competitive exclusion); (c) is neutral theory "wrong but useful"?
+<!-- assess: LO=LO5; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
+5. What does SLOSS stand for, and why does it require more than per-patch area?
 
 <!-- SOLUTION
-**Answer (Q12, Application).** (a) Hubbell's **neutral theory** assumes per-capita ecological equivalence and explains community patterns from stochastic birth, death, dispersal, and speciation; it reproduces realistic **species-abundance distributions** and **species-area relationships** remarkably well. (b) It **cannot** account for functional-trait differences, deterministic competitive exclusion, niche partitioning, or many dynamic predictions (e.g., realistic extinction times often fail). (c) It is best regarded as **'wrong but useful'**: a powerful **null model** whose successful static predictions show that pattern alone cannot prove niche processes, even though species are demonstrably not equivalent. The conclusion would change if measured demographic rates showed no systematic interspecific differences. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q5, Recall).** Single Large Or Several Small compares reserve configurations. Total species overlap, extinction risks, movement, edge effects, and management goals determine landscape outcomes; per-patch richness alone cannot select a universal winner.
+
+**Scoring guide (4 points).** 2 points: expanded acronym; 2 points: overlap and persistence context. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-<!-- assess: LO=LO6; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-13. Climate change is causing phenological mismatches between interacting species (e.g., caterpillar peak occurring before oak leaf-out, but after great tit breeding initiation). Evaluate: (a) the evidence from long-term phenological datasets; (b) whether species can adapt quickly enough (evolutionary rescue vs extinction); (c) what community-level consequences emerge from cascading mismatches across multiple trophic levels.
+<!-- assess: LO=LO6; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+6. Define direct and indirect effects in a predator-herbivore-plant chain.
 
 <!-- SOLUTION
-**Answer (Q13, Application).** (a) Long-term datasets (e.g., Wytham Wood great tits, oak–winter-moth) show interacting species advancing their phenology at **different rates**, opening timing gaps between consumer demand and resource peaks. (b) Whether species track the shift depends on the speed and heritability of the response: **evolutionary rescue or phenotypic plasticity** can realign timing for short-generation species, but slow-life-history species risk decline or local extinction. (c) Because mismatches propagate across trophic levels (plant → herbivore → predator), effects **cascade**: consumer recruitment falls, predator populations decline, and community-level synchrony erodes, potentially restructuring food webs even when no species is directly killed by temperature. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q6, Recall).** Predation directly lowers herbivore survival; reduced browsing can indirectly increase plants. An observed plant increase needs controls to distinguish this chain from rainfall or nutrient changes.
+
+**Scoring guide (4 points).** 2 points: direct versus mediated effect; 2 points: alternative abiotic cause. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-<!-- assess: LO=LO7; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-14. Evaluate the concept of "alternative stable states" in ecological communities: an ecosystem can exist in multiple stable configurations (e.g., clear-water lake vs turbid-water lake), and transitions between states (regime shifts) are driven by perturbations that push the system past a tipping point. Using the shallow lake eutrophication example: (a) what drives the regime shift; (b) why is the shift often irreversible (hysteresis); (c) what early warning signals predict an approaching tipping point?
+<!-- assess: LO=LO7; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
+7. Name two ecosystem-function readouts that can be paired with biodiversity measurements.
 
 <!-- SOLUTION
-**Answer (Q14, Application).** (a) In shallow lakes, gradual **nutrient (P) loading** erodes the clear, macrophyte-dominated state; a perturbation (storm, fish change) past a **tipping point** flips the lake to a turbid, phytoplankton-dominated state stabilized by feedbacks (turbidity shades out plants, sediment resuspension, loss of zooplankton refugia). (b) The shift shows **hysteresis**: because the alternative state is self-reinforcing, simply lowering nutrients back to the original level does *not* restore clear water — recovery requires a much larger reduction or active intervention (biomanipulation). (c) **Early-warning signals** of an approaching tipping point include **critical slowing down** — rising temporal autocorrelation and variance, and slower recovery from small perturbations (flickering). See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q7, Recall).** Annual biomass production per area and nitrogen leaching per area/time are suitable examples. State sampling scale and units; a species count or occurrence record is not a substitute for either rate.
+
+**Scoring guide (4 points).** 2 points: two valid functions with units; 2 points: index-versus-flux distinction. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-<!-- assess: LO=LO1; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-15. Critically evaluate the use of ecological network analysis for predicting the cascading effects of species extinction. Using simulated extinction sequences (removing species from most to least connected): (a) how do co-extinction cascades propagate through food webs; (b) why do mutualistic networks (plant-pollinator) collapse more rapidly than antagonistic networks (predator-prey) under targeted extinction; (c) what does this imply for setting conservation priorities in species-rich ecosystems?
+<!-- assess: LO=LO2; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
+8. Define directed connectance with self-links permitted for $S$ taxa and $L$ links.
 
 <!-- SOLUTION
-**Answer (Q15, Application).** (a) Removing species and tracking secondary (co-)extinctions shows cascades propagate fastest when **highly connected** species are lost, because many partners depend on them; loss of basal/hub species triggers the largest collapses. (b) **Mutualistic** networks collapse faster under targeted removal than antagonistic ones because mutualism lacks the compensatory dynamics of predator–prey systems (no prey release; partners cannot substitute a lost obligate mutualist), so dependent specialists are lost rapidly. (c) Implication: in species-rich systems, conservation should prioritize **topologically central / highly connected species** and the interactions themselves, not just rare or charismatic species — but model assumptions (static topology, fixed dependencies) limit precision and would change predictions if rewiring is possible. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q8, Recall).** C=L/S². Taxon aggregation and allowed-link conventions change the denominator and apparent density; the same food web cannot be compared across incompatible conventions.
+
+**Scoring guide (4 points).** 2 points: formula; 2 points: aggregation/convention caveat. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-<!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-16. Define a biological community. How does it differ from a population?
+<!-- assess: LO=LO3; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+9. What are alpha, beta, and gamma diversity?
 
 <!-- SOLUTION
-**Answer (Q16, Application).** A **biological community** is all the populations of different species that live together and interact in a defined area at a given time. A **population** is a single species; a community is the assemblage of many interacting species (its species composition and relative abundances). The community level adds biotic interactions — competition, predation, mutualism — that do not exist within a single population. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q9, Recall).** Alpha is local within-sample diversity; gamma is regional diversity; beta describes between-site differentiation/turnover under a chosen metric. There is no single metric-independent numerical beta formula.
+
+**Scoring guide (4 points).** 2 points: three spatial scales; 2 points: explicit metric dependence. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-<!-- assess: LO=LO3; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-17. Name five types of species interactions. Give one example of each.
+<!-- assess: LO=LO4; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+10. Distinguish a selection effect from complementarity in a diversity experiment.
 
 <!-- SOLUTION
-**Answer (Q17, Application).** (1) **Competition** (−/−): two barnacle species for rock space. (2) **Predation** (+/−): lynx eating hares. (3) **Herbivory** (+/−): deer browsing on shrubs. (4) **Mutualism** (+/+): bees pollinating flowers. (5) **Parasitism** (+/−): tapeworm in a host gut. (Commensalism, +/0, e.g., barnacles on a whale, is a sixth.) Signs denote the per-capita fitness effect on each partner. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q10, Recall).** Selection can arise because mixtures contain a particularly productive species. Complementarity includes resource partitioning or facilitation that improves combined use; mixtures require monoculture baselines to separate explanations.
+
+**Scoring guide (4 points).** 2 points: two mechanisms; 2 points: monoculture comparator. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-<!-- assess: LO=LO4; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-18. What is interspecific competition? State the competitive exclusion principle (Gause's law).
+<!-- assess: LO=LO1; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+11. For synthetic S=10A^.25 with A in ha, compute S at 1, 16, and 256 ha.
 
 <!-- SOLUTION
-**Answer (Q18, Application).** **Interspecific competition** occurs when individuals of different species use the same limiting resource, reducing each other's growth or survival. The **competitive exclusion principle (Gause's law)** states that two species competing for the *same* limiting resource cannot coexist indefinitely at constant values; the more efficient competitor drives the other to local extinction unless they partition the niche. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q11, Application).** The expected richnesses are 10, 20, 40. These are fitted expected values, not necessarily integer census predictions, and constant habitat quality/isolation is assumed.
+
+**Scoring guide (4 points).** 2 points: 10/20/40; 2 points: constant-condition expectation. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-<!-- assess: LO=LO5; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-19. What is a niche? Distinguish fundamental niche from realized niche.
+<!-- assess: LO=LO1; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+12. A habitat shrinks from 10000 to 1000 ha with initial S 200 and z .25. Compute equilibrium richness and explain extinction debt.
 
 <!-- SOLUTION
-**Answer (Q19, Application).** A **niche** is the multidimensional set of environmental conditions and resources a species uses and the role it plays (Hutchinson's *n*-dimensional hypervolume). The **fundamental niche** is the full range of conditions where a species *could* persist ($r \geq 0$) in the absence of competitors. The **realized niche** is the usually smaller portion it actually occupies after biotic interactions (competition, predation) restrict it. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q12, Application).** Snew=200(.1)^.25≈112.47, predicting about 43.8% lower equilibrium richness. Present richness may remain higher temporarily because population loss lags habitat loss; it is not proof that all 87.5 losses have already occurred.
+
+**Scoring guide (4 points).** 2 points: 112.47 and 43.8%; 2 points: equilibrium versus observed loss. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+SOLUTION -->
+
+<!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+13. Compute H and J for 25, 25,25, 25 versus 70,15,10,5 individuals.
+
+<!-- SOLUTION
+**Answer (Q13, Application).** The even sample has $H=\ln 4\approx1.386$ and $J=1$. The dominated sample has $H\approx0.9143$ and $J\approx0.6595$; both have $S=4$, so evenness drives the difference.
+
+**Scoring guide (4 points).** 2 points: two H/J pairs; 2 points: same-richness interpretation. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+SOLUTION -->
+
+<!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+14. A web has resource-to-consumer links G → H, G → D, H → P, D → P and P → A. List all paths from producer G to apex consumer A and compute connectance with self-links allowed.
+
+<!-- SOLUTION
+**Answer (Q14, Application).** Paths are G → H → P → A and G → D → P → A. With $S=5$ and $L=5$, $C=5/25=0.2$; both paths have three links and four trophic levels under this simplified acyclic web.
+
+**Scoring guide (4 points).** 2 points: paths and levels; 2 points: 5/25 connectance. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
 <!-- assess: LO=LO6; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-20. What is predation? Name two anti-predator adaptations.
+15. In that five-taxon web, predict signs after A removal if P controls H and D, and H and D graze G.
 
 <!-- SOLUTION
-**Answer (Q20, Application).** **Predation** is an interaction in which one organism (the predator) kills and consumes another (the prey), benefiting the predator (+) and harming the prey (−). Two anti-predator adaptations: **cryptic coloration / camouflage** (e.g., stick insects) and **chemical defense with aposematic warning coloration** (e.g., poison dart frogs); others include Batesian/Müllerian mimicry, mechanical defenses, and behavioral predator avoidance. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q15, Application).** P tends to increase, H and D tend to decrease, and G tends to increase under the specified strong-link assumptions. Omnivory, compensation or bottom-up limitation can change magnitudes and signs; topology alone supplies only a conditional prediction.
+
+**Scoring guide (4 points).** 2 points: alternating signed cascade; 2 points: strength/context qualification. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-
-## Questions 21–30: Synthesis and Evaluation {.unnumbered}
-
-<!-- assess: LO=LO7; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-21. Define mutualism. Give one obligate and one facultative example.
+<!-- assess: LO=LO7; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+16. Synthetic equal-area plots have richness $S=1$, $S=2$ and $S=4$ and production of 100, 140 and 180 g m−2 yr−1, respectively. Compute the change from $S=1$ to $S=4$ and identify the causal gap.
 
 <!-- SOLUTION
-**Answer (Q21, Synthesis).** **Mutualism** is a +/+ interaction in which both species gain a net fitness benefit. **Obligate** mutualism: neither partner can survive without the other — e.g., a lichen (fungus + alga/cyanobacterium), or the fig–fig-wasp pollination system. **Facultative** mutualism: beneficial but not essential — e.g., many flowering plants and generalist bee pollinators, where each can persist using alternative partners. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q16, Application).** Production increases by 80 g m−2 yr−1, or 80%. Uncontrolled species composition or soil differences can generate the association; randomized compositions with monocultures and equal initial density test diversity effects.
+
+**Scoring guide (4 points).** 2 points: 80 units/80%; 2 points: composition/environment control. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-<!-- assess: LO=LO1; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-22. What is a food web? How does it differ from a food chain?
+<!-- assess: LO=LO5; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+17. Ten 1-ha patches each contain 10 species. A single 10-ha patch has 18. Compare total richness if small-patch lists are identical versus disjoint.
 
 <!-- SOLUTION
-**Answer (Q22, Synthesis).** A **food chain** is a single linear sequence of who-eats-whom (producer → primary consumer → secondary consumer → …). A **food web** is the interconnected network of many overlapping food chains in a community, showing that most consumers have multiple prey and most prey have multiple predators. The web representation captures omnivory, alternative pathways, and the redundancy that buffers communities against single-link loss. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q17, Application).** Identical lists total 10, so 18 is larger; disjoint lists total 100, so several small patches represent more. These totals say nothing alone about persistence of area-demanding species.
+
+**Scoring guide (4 points).** 2 points: 10 versus 100 union; 2 points: representation-versus-persistence. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-<!-- assess: LO=LO2; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-23. What is a keystone species? Give one classic example.
+<!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+18. In separate trials, each starting from the original printed five-taxon web, remove G in one trial and H in the other. Under a rule that a consumer disappears when it loses all resources, list the secondary extinctions. How would a sequential removal of G followed by H differ?
 
 <!-- SOLUTION
-**Answer (Q23, Synthesis).** A **keystone species** has an effect on community structure that is disproportionately large relative to its abundance or biomass; removing it causes major changes in species composition. Classic example: Paine's (1966) sea star *Pisaster ochraceus* — removing this predator let the mussel *Mytilus californianus* monopolize the rock, collapsing intertidal diversity from ~15 species to ~8. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q18, Application).** From the original web, removing G eliminates H and D, then P, then A. In a separate trial from the original web, removing H leaves D as a resource for P, so no secondary extinction is required by this rule. If the removals were sequential, H would already be absent after G's removal; there would be no H left to remove in the second step. Real consumers may switch prey; this is a stated topological model, not a dynamic forecast.
+
+**Scoring guide (4 points).** 2 points: correct independent-trial cascades and distinction from sequential removal; 2 points: explicit no-resource rule and its model boundary.
 SOLUTION -->
 
-<!-- assess: LO=LO3; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-24. Define ecological succession. Distinguish primary from secondary succession.
+<!-- assess: LO=LO3; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+19. Two sites each have species A, B; another pair has A, B and C, D. All local abundances are equal. Compare regional richness and turnover.
 
 <!-- SOLUTION
-**Answer (Q24, Synthesis).** **Ecological succession** is the directional change in species composition of a community over time following a disturbance or on new substrate. **Primary succession** begins on lifeless substrate with no soil (lava flows, glacial till, new volcanic island); pioneers like lichens and mosses must first build soil, so it takes centuries. **Secondary succession** follows a disturbance that leaves soil and propagules intact (after fire, abandoned farmland) and proceeds much faster, in decades. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q19, Application).** The first pair has gamma 2 and zero compositional turnover; the second has gamma 4 and complete list turnover. Local alpha richness is 2 in every site, so alpha alone misses regional representation.
+
+**Scoring guide (4 points).** 2 points: gamma 2/4; 2 points: equal alpha but different turnover. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+SOLUTION -->
+
+<!-- assess: LO=LO7; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+20. Synthetic paired plots have N leaching 8, 10, 12 kg ha−1 yr−1 in monoculture and 4, 5, 6 in mixtures. Compute group means and proportional change.
+
+<!-- SOLUTION
+**Answer (Q20, Application).** Means 10 and 5 give a 50% reduction. Three independent plots per treatment permit a spread estimate, but paired temporal samples are not additional independent plots and the result need not generalize beyond this design.
+
+**Scoring guide (4 points).** 2 points: means and 50%; 2 points: replication boundary. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+SOLUTION -->
+
+<!-- assess: LO=LO4; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
+21. Design a biodiversity-function experiment separating richness from species identity.
+
+<!-- SOLUTION
+**Answer (Q21, Synthesis).** Randomize replicated equal-density plots with several compositions at each richness, plus every constituent monoculture. Measure production and nutrient loss for multiple years; compare mixture yields with composition-weighted monoculture expectations and include environmental blocks.
+
+**Scoring guide (4 points).** 2 points: composition/monoculture design; 2 points: multiple function/time readouts. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+SOLUTION -->
+
+<!-- assess: LO=LO5; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+22. Evaluate the claim “SAR proves a single large reserve always retains the most total species.”
+
+<!-- SOLUTION
+**Answer (Q22, Synthesis).** SAR predicts per-patch expected richness, not the union across patches. Complete-overlap and disjoint-list examples yield opposite conclusions; area requirements, connectivity, correlated threats, and management goals must supplement the curve \citep{macarthur1967}.
+
+**Scoring guide (4 points).** 2 points: overlap counterexamples; 2 points: viability and objective evidence. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+SOLUTION -->
+
+<!-- assess: LO=LO6; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
+23. Design a keystone-removal analysis that does not treat synthetic numbers as Paine’s observations.
+
+<!-- SOLUTION
+**Answer (Q23, Synthesis).** Label newly authored removal/control counts as synthetic, randomize replicated plots, record before/after richness and dominant-prey cover, and compare difference-in-differences. Cite Paine for the experimental mechanism rather than inventing his raw plot counts \citep{paine1966}.
+
+**Scoring guide (4 points).** 2 points: controlled before-after analysis; 2 points: empirical-versus-synthetic provenance. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+SOLUTION -->
+
+<!-- assess: LO=LO2; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+24. Does a high-degree species necessarily have the largest functional effect?
+
+<!-- SOLUTION
+**Answer (Q24, Synthesis).** No: strong interaction strength, unique function, and trophic position can matter more than degree. Compare topological deletion and measured perturbation responses; a redundant high-degree generalist may have less impact than a low-degree obligate partner.
+
+**Scoring guide (4 points).** 2 points: degree-strength counterexample; 2 points: measured functional perturbation. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+SOLUTION -->
+
+<!-- assess: LO=LO3; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
+25. Design a fair diversity comparison when sampling effort differs between sites.
+
+<!-- SOLUTION
+**Answer (Q25, Synthesis).** Use equal-area/equal-effort replication or an explicit coverage/rarefaction standard, common taxonomy, and detection controls. Compare richness/evenness separately and propagate sampling uncertainty; raw counts from 100 versus 1000 individuals are not directly comparable richness estimates.
+
+**Scoring guide (4 points).** 2 points: standardized effort/coverage; 2 points: detection/taxonomy and uncertainty. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+SOLUTION -->
+
+<!-- assess: LO=LO7; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+26. A conservation plan increases plant richness but leaves annual productivity unchanged. Has it failed?
+
+<!-- SOLUTION
+**Answer (Q26, Synthesis).** Not necessarily: nutrient retention, stability under drought, pollination, representation, and equity may improve independently. Evaluate the prespecified objectives with measured endpoints; unchanged one-year mean production neither proves failure nor proves unmeasured co-benefits.
+
+**Scoring guide (4 points).** 2 points: multiple explicit objectives; 2 points: avoid inferring unmeasured benefit. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+SOLUTION -->
+
+<!-- assess: LO=LO1; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=8 -->
+27. Can a fragment colonization-extinction model predict identical species identities each year at equilibrium?
+
+<!-- SOLUTION
+**Answer (Q27, Synthesis).** Equal expected immigration and extinction can stabilize richness while individual species turn over. Species identity, detection, and transient effects require longitudinal records; equilibrium richness is not compositional stasis.
+
+**Scoring guide (4 points).** 2 points: rate balance versus identity; 2 points: longitudinal/detection evidence. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
 <!-- assess: LO=LO4; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
-25. What is species richness? How does it differ from species diversity (Shannon index)?
+28. Evaluate “a functionally redundant species has no conservation value.”
 
 <!-- SOLUTION
-**Answer (Q25, Synthesis).** **Species richness** is simply the *number* of species present ($S$). **Species diversity** combines richness *and* **evenness** (how equally individuals are distributed among species). The **Shannon index** $H' = -\sum p_i \ln p_i$ rises with both more species and more even abundances; two communities with the same richness differ in $H'$ if one is dominated by a single species while the other is even. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q28, Synthesis).** Redundancy is conditional on function, environment, and time; species can provide insurance during changed conditions and carry distinct genetic/phylogenetic value. Test response diversity and alternate functions rather than treating one measured endpoint as total value.
+
+**Scoring guide (4 points).** 2 points: conditional redundancy/insurance; 2 points: plural function and value criteria. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-
-<!-- assess: LO=LO5; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
-26. The Lotka-Volterra competition model uses two equations: dN₁/dt = r₁N₁(K₁ − N₁ − α₁₂N₂)/K₁ and dN₂/dt = r₂N₂(K₂ − N₂ − α₂₁N₁)/K₂. If K₁ = 1,000, K₂ = 800, α₁₂ = 0.5, α₂₁ = 1.2, predict the outcome of competition. Under what conditions do two species coexist (K₁/α₁₂ > K₂ AND K₂/α₂₁ > K₁)?
+<!-- assess: LO=LO6; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=8 -->
+29. Plant cover rises after predator restoration during a wet decade. What evidence distinguishes a trophic cascade from climate-driven recovery?
 
 <!-- SOLUTION
-**Answer (Q26, Synthesis).** Compare each species' carrying capacity to the other's competitive ceiling. **Species 1:** persists alone at $K_1 = 1000$; species 2 invades if $K_2 > K_1/\alpha_{21} = 1000/1.2 \approx 833$ — since $K_2 = 800 < 833$, species 2 **cannot** invade an established species 1. **Species 2:** species 1 invades if $K_1 > K_2/\alpha_{12} = 800/0.5 = 1600$ — since $K_1 = 1000 < 1600$, species 1 also cannot invade an established species 2. This is the **founder-controlled / unstable-equilibrium** case: the outcome depends on initial densities and one species excludes the other. **Stable coexistence** requires $K_1 < K_2/\alpha_{12}$ **and** $K_2 < K_1/\alpha_{21}$ (interspecific competition weaker than intraspecific for both), which fails here. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Answer (Q29, Synthesis).** Compare restored and matched unrestored sites before/after, measure herbivore density/browsing and rainfall/groundwater, and test mediation. Exclosures help estimate herbivory effects independently; temporal coincidence alone cannot assign the change to predators.
+
+**Scoring guide (4 points).** 2 points: controlled contrast and mediator; 2 points: climate/exclosure alternative. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
 
-<!-- assess: LO=LO6; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
-27. Paine's classic experiment (1966) removed the sea star *Pisaster ochraceus* from intertidal rocks. The result was dominance by the mussel *Mytilus californianus*, which outcompeted most other sessile species. Explain: (a) why *Pisaster* is a keystone predator; (b) how its removal reduced species diversity; (c) the concept of "keystone species" and why biomass alone does not predict ecological importance.
+<!-- assess: LO=LO7; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
+30. Design a monitoring rule for a reserve network intended to retain biodiversity and flood regulation.
 
 <!-- SOLUTION
-**Answer (Q27, Synthesis).** (a) *Pisaster* preferentially eats the competitively dominant mussel, preventing it from monopolizing space, so the predator controls the outcome of competition among its prey. (b) Removing *Pisaster* released *Mytilus*, which outcompeted barnacles, algae, and other sessile species for primary space; richness fell from ~15 to ~8 species. (c) A **keystone species** exerts community-wide control out of proportion to its biomass; abundance/biomass alone is a poor predictor of importance because a low-biomass predator can govern diversity while a high-biomass dominant may simply occupy space — the test is the magnitude of change after removal per unit biomass. See \cref{sec:unit_X_biodiversity_and_food_webs}.
-SOLUTION -->
+**Answer (Q30, Synthesis).** Track standardized occupancy/abundance and trait composition alongside runoff/peak-flow measurements in protected and comparison catchments. Prespecify detection effort, time window, equity/land-use constraints, and an action trigger such as sustained occupancy loss or increased peak flows relative to baseline; no single index substitutes for both objectives.
 
-<!-- assess: LO=LO7; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
-28. Character displacement: Darwin's finches on islands where two species coexist show greater beak size divergence than on islands where they occur alone. Explain: (a) the mechanism (sympatric competition selects for niche divergence); (b) the evidence from *Geospiza fortis* and *G. fuliginosa* beak depth distributions; (c) how this relates to niche partitioning.
-
-<!-- SOLUTION
-**Answer (Q28, Synthesis).** (a) Where two competitors are **sympatric**, individuals with extreme (divergent) trait values suffer less competition for shared resources, so selection drives the species' niches — and the morphological traits that set them — apart (**character displacement**). (b) On islands with both *G. fortis* and *G. fuliginosa*, beak-depth distributions are shifted apart and barely overlap, whereas on single-species islands each shows an intermediate beak matching the full seed spectrum. (c) This is the evolutionary route to **niche (resource) partitioning**: divergent beaks let the species specialize on different seed sizes, reducing competitive overlap and permitting stable coexistence. See \cref{sec:unit_X_biodiversity_and_food_webs}.
-SOLUTION -->
-
-<!-- assess: LO=LO1; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
-29. Trophic cascades: when wolves were reintroduced to Yellowstone, elk herbivory decreased, allowing aspen and willow regeneration, which stabilized stream banks and increased beaver populations. Trace this top-down trophic cascade: wolves → elk behavior change → vegetation recovery → stream geomorphology change → beaver habitat expansion. Is this primarily a density-mediated or trait-mediated cascade?
-
-<!-- SOLUTION
-**Answer (Q29, Synthesis).** Causal chain: wolves reduce elk numbers **and** keep elk from lingering in risky riparian zones → less browsing on aspen, willow, cottonwood → woody vegetation recovers along streams → root systems and shade stabilize banks and lower water temperature → beaver gain food and dam-building material → beaver ponds further reshape stream geomorphology and create wetland habitat. It is a **mixed cascade**: a strong **trait-mediated** component (elk change *where and how* they forage out of fear) operating alongside a **density-mediated** component (fewer elk overall). See \cref{sec:unit_X_biodiversity_and_food_webs}.
-SOLUTION -->
-
-<!-- assess: LO=LO2; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
-30. Mycorrhizal networks ("wood-wide web") connect trees underground, potentially allowing nutrient and carbon transfer between individuals. Evaluate the evidence: (a) ¹³C/¹⁵N labeling experiments showing carbon transfer between Douglas fir and paper birch; (b) whether transfer is mutualistic (mother trees provisioning seedlings) or incidental (fungal self-interest); (c) the evidence from Simard's studies and the controversy around the "mother tree" narrative.
-
-<!-- SOLUTION
-**Answer (Q30, Synthesis).** (a) Dual-isotope (\textsuperscript{13}C/\textsuperscript{15}N) pulse-labeling shows net carbon moving between Douglas fir and paper birch through shared ectomycorrhizal networks, with direction depending on shading and source–sink gradients. (b) The contested question is *function*: transfer may reflect adaptive 'mother-tree' provisioning of kin seedlings, or it may be incidental flux serving the **fungus's** own carbon economy with trees as competing sinks. (c) Simard's labeling and kin-recognition studies support directed transfer, but critics (e.g., Karst et al.) argue field evidence for fitness-relevant, adaptive provisioning is weak and the 'mother tree' narrative outruns the data — passive diffusion within a fungal network remains a sufficient explanation for much of the signal. See \cref{sec:unit_X_biodiversity_and_food_webs}.
+**Scoring guide (4 points).** 2 points: separate biodiversity and hydrological endpoints; 2 points: controls and explicit action trigger. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->

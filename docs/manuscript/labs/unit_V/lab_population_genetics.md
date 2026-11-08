@@ -1,190 +1,95 @@
 # Lab — Population Genetics {#sec:lab_unit_V_population_genetics .unnumbered}
 
+*This activity accompanies \cref{sec:unit_V_population_genetics}.*
 
 ## Learning Objectives {.unnumbered}
-
-*This activity accompanies \cref{sec:unit_V_population_genetics} of the textbook — review that chapter before attempting the exercises below.*
-
-- Apply Hardy-Weinberg equations to calculate allele and genotype frequencies from population data
-- Test for deviations from HWE using chi-square analysis
-- Simulate the effect of genetic drift on small vs large populations using a bead model
-- Evaluate the effect of natural selection on allele frequencies across generations
-
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Population Genetics.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO4):** Estimate allele frequencies, expected genotypes and HWE chi-square with estimated-parameter degrees of freedom.
+- **Outcome 2 (LO7):** Compare diploid Wright–Fisher replicate outcomes with their conditional variances.
+- **Outcome 3 (LO6):** Predict a selection step while distinguishing a missing genotype from an absent allele.
+- **Chapter LO coverage:** LO4, LO7, LO6
+- **Rubric (20 points):** Score the following categories separately; distinguish allele-copy denominators from diploid-individual counts.
+  - **Evidence (8 points; LO4, LO7, LO6):** Award 3 for MN allele frequencies, all expected counts and chi-square/df1 decision (1 each); 2 for both five-run frequency series/means and the two theoretical variances (1 each); 3 for F's q/expected aa, S's survivor q and Ne10 five-generation retention (1 each).
+  - **Controls (3 points; LO4, LO7, LO6):** Award 1 for the HWE null conditional on the estimated allele frequency, not a fixed 1:2:1 ratio; 1 for recognizing that both drift treatments start p=.5 and differ in 2N; 1 for comparing S's preselection zygotes with fitness-weighted survivors while holding mutation and migration absent.
+  - **Uncertainty (3 points; LO4, LO7):** Award 1 for explaining the estimated-frequency df subtraction; 1 for distinguishing five realized runs from a guaranteed theoretical variance ordering; 1 for stating that HWE agreement or departure alone does not identify selection and naming a plausible confound such as population mixture or genotyping error.
+  - **Mechanism (4 points; LO7, LO6):** Award 1 for with-replacement sampling of 2N gene copies; 1 for linking smaller N to greater conditional sampling variance; 1 for showing how F's heterozygotes retain a despite no aa founders; 1 for normalizing S's surviving genotype frequencies before counting a copies.
+  - **Transfer (2 points; LO6):** In the analysis prompt, award 1 for rejecting immediate elimination of a after aa lethality and 1 for tracing the surviving allele through Aa into subsequent random-mating zygotes. A missing phenotype is not an absent allele.
 <!-- lab-alignment-end -->
-## Pre-Lab Concept Questions {.unnumbered}
-
-*Answer these before starting the investigation — they activate knowledge from the parent chapter.*
-
-1. State the five conditions required for a population to remain at Hardy-Weinberg equilibrium, and write the two governing equations p + q = 1 and p^2 + 2pq + q^2 = 1. For each condition, describe in one sentence how a violation would shift either allele or genotype frequencies away from the equilibrium expectation.
-2. Define effective population size (N_e) and explain how it differs from the census size (N). Identify at least two demographic factors — such as unequal sex ratios, variance in reproductive success, or fluctuations across generations — that tend to make N_e smaller than N.
-3. Distinguish the inbreeding coefficient F from the heterozygosity H. State how the two quantities are related under the simple model F = 1 − (H_observed / H_expected), and predict the direction of change in F after a population goes through a severe bottleneck.
 
 ## Lab Context: Population Genetics {.unnumbered}
 
-The Hardy-Weinberg principle states that in a large, randomly mating population with no selection, mutation, migration, or drift, allele frequencies (p, q) and genotype frequencies (p², 2pq, q²) remain constant across generations. Deviations from HWE indicate one or more of these forces is acting. Genetic drift — random changes in allele frequency — is most powerful in small populations, causing loss of variation and potentially fixing or eliminating alleles by chance alone.
+HWE is a genotype-frequency null conditional on allele frequencies. Neither agreement nor departure alone identifies a causal evolutionary force.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_V_population_genetics_alignment_and_rubric_map}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Population Genetics: inheritance source card: model assumptions, sampling frame, ancestry/context boundary, and uncertainty | 1 |
-| Two colors of beads (representing A and a alleles): 50 of each color | 100 total |
-| Opaque bag or cup (for random sampling) | 2 |
-| Population genetics data table (printed: real MN blood group data) | 1 |
-| Calculator | 1 |
-| Chi-square critical value table | 1 |
-| Graph paper | 1 |
+This printed packet, paper, pencil and a calculator are sufficient. No culture, image download, volunteer family survey, database access or Python execution is required. All newly stipulated observations below are **synthetic teaching data**, not empirical measurements or clinical decision rules. Replicates and denominators are given explicitly; do not treat technical repeats as independent biological samples.
+
+## Printed Evidence Packet {.unnumbered}
+
+: MN counts retained as a synthetic benchmark because the earlier historical-survey attribution was not traceable. {#tbl:unit_V_population_genetics_alignment_and_rubric_map}
+| Genotype | MM | MN | NN | Total |
+| --- | --- | --- | --- | --- |
+| Observed | 298 | 489 | 213 | 1000 diploid individuals |
+
+: Independent one-generation Wright–Fisher teaching replicates, all start p(A)=.5. {#tbl:unit_V_population_genetics_alignment_and_rubric_map_2}
+| Replicate | A copies among2N=20 (N10) | A copies among2N=100 (N50) |
+| --- | --- | --- |
+| 1 | 6 | 48 |
+| 2 | 14 | 52 |
+| 3 | 10 | 50 |
+| 4 | 8 | 46 |
+| 5 | 12 | 54 |
+
+: Exact sampling instructions and comparison cards. {#tbl:unit_V_population_genetics_alignment_and_rubric_map_3}
+| Card | Rule |
+| --- | --- |
+| Wright–Fisher | Optional manual extension: label 100 paper slips, 50 A and 50 a. Draw one, record and replace it; repeat 2N times. For later generations use the preceding offspring's 2N labeled gene copies and sample with replacement 2N times. Required calculations use the printed replicate counts and need no bag or physical sampling. |
+| F | 20 founder diploids:16AA,4Aa,0aa;random mating, equal survival |
+| S | Start p=q=.5;fitnessAA=1,Aa=1,aa=0;compare preselection zygotes with survivors |
+
+: Formulas and explicit HWE decision constants. {#tbl:unit_V_population_genetics_alignment_and_rubric_map_4}
+| Quantity | Definition |
+| --- | --- |
+| Frequencies | p=(2MM+MN)/(2n);q=1−p;E=n(p²,2pq,q²) |
+| HWE test | χ²=sum(O−E)^2/E;df=3−1−1=1;critical3.841 atα=.05 |
+| Drift | Var(p_next givenp)=p(1−p)/(2N);H_t/H_0=(1−1/(2Ne))^t |
+| Selection | After aa lethality, q_next=q/(1+q);no mutation or migration |
 
 ## Paper-Based Investigation {.unnumbered}
 
-**Part A — Hardy-Weinberg Calculation**
-
-1. Using the provided MN blood group data (genotype counts **MM = 298, MN = 489, NN = 213**, from a sample of *n* = 1000; classic combined US-Caucasian MN blood-group survey, as reproduced in standard population-genetics texts): calculate allele frequencies *p* (M) and *q* (N). *(Check: p(M) ≈ 0.5425, q(N) ≈ 0.4575.)*
-2. Calculate expected genotype frequencies under HWE (p², 2pq, q²) and expected counts.
-3. Perform chi-square test to determine whether the population is in HWE.
-
-**Part B — Genetic Drift Simulation**
-
-4. Place 50 red (A) and 50 blue (a) beads in the bag: this represents a population of 100 with p = q = 0.5.
-5. Without looking, draw 10 beads (simulating a bottleneck to N=10). Record the frequency of red (A) beads drawn. Then **discard the old bag and rebuild a fresh 100-bead pool at the drawn allele ratio**: multiply the observed red fraction by 100, round to the nearest whole bead, and use that many red beads with the remainder blue (e.g. 6/10 red → 60 red + 40 blue). Repeat the draw–rebuild cycle for 5 generations, recording *p* (red fraction) each generation.
-6. A second group runs the same simulation with N=50 (draw 50 beads, then rebuild a 100-bead pool at the drawn allele ratio by the same rounding rule) for 5 generations.
-
-**Part C — Selection Simulation (Optional)**
-
-7. In generation 1 of the drift simulation, designate aa (2 blue drawn) as lethal — remove any drawn aa pairs and resample. Track p over 3 generations.
+1. Compute the MN HWE test, showing all expected counts, df and interpretation. Explain how a fixed Mendelian ratio test differs in degrees of freedom.
+2. Calculate replicate allele frequencies p(A), not statistical p-values, from the drift counts and find their means. Compare conditional theoretical variances for N10/N50. Explain why five runs do not guarantee the theoretical variance ordering in every realized experiment.
+3. Calculate founder q and expected aa zygote fraction in F. Compute the single selection step in S and heterozygosity retained for Ne=10 over 5 generations. Distinguish observed heterozygosity from expected gene diversity.
 
 ## Data Recording {.unnumbered}
 
-MN blood group HWE test (observed counts from the *n* = 1000 sample: MM = 298, MN = 489, NN = 213; source: classic combined US-Caucasian MN blood-group survey reproduced in standard population-genetics texts):
-
-: Alignment and Rubric Map: Genotype and Observed. {#tbl:unit_V_population_genetics_alignment_and_rubric_map_2}
-| Genotype | Observed | p or q | Expected | (O−E)²/E |
-| -------- | -------- | ------ | -------- | --------- |
-| MM | 298 | p² = | | |
-| NN | 213 | q² = | | |
-| MN | 489 | 2pq = | | |
-| **Total** | **1000** | — | **1000** | χ² = ___ |
-
-Fill the *Expected* column using your calculated *p* and *q* (Part A), then χ² = Σ (O−E)²/E.
-
-χ² = ___; df = 1; HWE at α = 0.05? (Y/N) — compare χ² to the critical value 3.841.
-
-Drift simulation:
-
-: Alignment and Rubric Map: Generation and p (N=10 group). {#tbl:unit_V_population_genetics_alignment_and_rubric_map_3}
-| Generation | p (N=10 group) | p (N=50 group) |
-| ---------- | -------------- | -------------- |
-| 0 | 0.5 | 0.5 |
-| 1 | | |
-| 2 | | |
-| 3 | | |
-| 4 | | |
-| 5 | | |
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Test equilibrium and model allele-frequency change.
-- **Data skill to practice:** Estimate genotype or allele frequencies from population data.
-- **BioSkills emphasis:** Quantitative reasoning, Process of science.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+For each task record the case/replicate identifier, supplied inputs with units, equation or classification rule, intermediate calculation, result and one alternative explanation. Keep the printed evidence unchanged and mark any proposed exclusion with a reason.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Population Genetics** with a reproducibility pass:
-
-: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_V_population_genetics_alignment_and_rubric_map_4}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
-
-Focus note: in this lab the simulated allele-frequency series across generations are the evidence — compare observed genotype counts against the Hardy-Weinberg expectation and contrast small versus large N to attribute change to drift, selection, or sampling. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
-
-### Worked Example: Hardy-Weinberg Allele Frequency Estimation {.unnumbered}
-
-**Problem:** A population survey of 400 diploid individuals finds 36 individuals with the homozygous recessive genotype aa, giving an aa frequency of 0.09. Assuming Hardy-Weinberg equilibrium, calculate q (the recessive allele frequency), p (the dominant allele frequency), and the expected frequencies and counts of the AA and Aa genotypes in the population.
-
-**Solution:** Under Hardy-Weinberg, the homozygous-recessive genotype frequency equals q^2. Taking the square root, q = sqrt(0.09) = 0.30. The dominant allele frequency is p = 1 − q = 1 − 0.30 = 0.70. The expected genotype frequencies are p^2 = 0.49 for AA, 2pq = 2 × 0.70 × 0.30 = 0.42 for Aa, and q^2 = 0.09 for aa, which sums to 1.00. Multiplying each genotype frequency by the population size of 400 gives 0.49 × 400 = 196 AA individuals, 0.42 × 400 = 168 Aa individuals, and 0.09 × 400 = 36 aa individuals, summing to 400.
-
-**Interpretation:** The estimated heterozygote frequency of 0.42 is the largest single class — a characteristic feature of populations with intermediate allele frequencies. The estimate of p relies on the assumption of Hardy-Weinberg equilibrium; in a real population, deviations driven by selection, drift, or non-random mating can bias the q^2-to-q inference. A useful cross-check is to compare the predicted heterozygote count (168) with a directly genotyped count, since systematic shortfalls of heterozygotes can indicate inbreeding or hidden population structure.
-
-### Source-Governance Checkpoint {.unnumbered}
-
-Complete the source-governance card for Population Genetics before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+**Printed source card:** Hardy/Weinberg1908 supplies a null model; Wright1931 motivates finite-population sampling. The MN numbers here are an explicitly synthetic benchmark, not a newly verified historical human survey. Historical ancestry labels cannot establish sampling provenance. Revise inference if ascertainment, genotyping error, relatedness or population mixture changes; no inference about a social group is licensed. Source-card tasks: identify which observations are synthetic and which statements summarize published evidence; record the publication date and endpoint/model; name a refresh trigger. A live source lookup is not required to answer this packet.
 
 ## Analysis Questions {.unnumbered}
 
-1. Was the MN blood group population in HWE? Which of the HWE assumptions might be violated in a real human population, and how would each violation shift allele frequencies over generations?
-2. Was there more variation in allele frequency across generations in the N=10 or N=50 group? Define genetic drift in terms of sampling error and explain why population size affects drift magnitude.
-3. Founder effect: a group of 20 individuals colonises a new island. By chance, the founding group contains no aa individuals. Even without selection against aa, will this condition persist? Explain using HWE and the concept that mutation-selection equilibrium is absent if frequency starts at zero.
-4. Heterozygote advantage: sickle-cell anemia (aa) is lethal, but carriers (Aa) are more resistant to malaria than AA homozygotes. With the heterozygote Aa as the fittest genotype, let *s* be the selection coefficient against AA and *t* the selection coefficient against aa (relative fitnesses 1−*s* : 1 : 1−*t*). The stable equilibrium allele frequency of *a* is **q̂ = s / (s + t)**. For a malarious region with *s* = 0.2 (AA disadvantage) and *t* = 1 (aa lethal), compute q̂ and interpret why the *a* allele persists in the population despite being lethal in homozygotes.
-5. A conservation biologist studying a population of 25 cheetahs finds they are almost completely genetically homogeneous (very low heterozygosity). Explain two consequences of this for: (a) short-term disease resistance; (b) long-term adaptive capacity. What management intervention would restore genetic variation?
+Use the equal-p drift treatments to explain which comparison isolates population-size effects and why five runs are limited. Then assess the claim “Because aa survivors in S are zero, the next random-mating generation cannot contain aa.” Use the printed survivor composition and q_next to predict the next zygote aa fraction before another selection step. State the life-cycle stage at which aa would again be absent under the stipulated model.
 
+<!-- SOLUTION
+## Instructor Worked Results and Scoring Expectations {.unnumbered}
 
-## Post-Lab Synthesis {.unnumbered}
+Task 1: p=.5425,q=.4575; E(MM)=294.30625,E(MN)=496.3875,E(NN)=209.30625. χ²≈.2215, df=1, do not reject. One allele-frequency parameter was estimated; a fixed 3:1 test estimates none and has df=1 for 2 classes.
+Task 2: N10 p=.3,.7,.5,.4,.6; N50=.48,.52,.50,.46,.54; both means=.5. Theoretical conditional variances=.0125 and .0025. Sampling with replacement implements diploid Wright–Fisher; drawing 10 beads without replacement would instead be a hypergeometric allele sample, not N10 diploids.
+Task3:F has4a copies/40=.10,so random union givesaa=.01 even though founders includednoaa. S haspreselection.25AA,.5Aa,.25aa;survivors1/3AA,2/3Aa,q_next=1/3. Retention(.95)^5=.77378094;relative loss=.22621906. Aclass frequencyAa=.42 is not larger thanAA=.49 whenp=.7. Credit denominators andavoid concluding a missing phenotype meansq=0.
 
-> **Concept Check (Synthesis):** A population is reduced to an effective size N_e = 10 for 5 generations before recovering. Evaluate how this bottleneck would alter the population's allelic diversity, inbreeding coefficient F, and capacity to respond to natural selection, compared with its larger source population.
->
-> (a) Predict the change in allelic diversity using the per-generation heterozygosity loss expression H_t / H_0 = (1 − 1/(2 N_e))^t. For N_e = 10 and t = 5 generations, calculate the expected fraction of heterozygosity retained, and describe which categories of alleles (common, intermediate, rare) are most likely to be lost through this process.
-> (b) Predict the direction and approximate magnitude of change in the inbreeding coefficient F. Explain why F tends to rise in a small population even without consanguineous matings, by referencing identity-by-descent and the increased probability that two randomly sampled alleles trace to a recent common ancestor.
-> (c) Evaluate how the reduced N_e affects the population's capacity to respond to natural selection. Discuss the relative dominance of drift over selection when the product N_e × s is small (roughly less than 1), and predict how a beneficial allele with selection coefficient s = 0.01 would fare in the bottlenecked versus the source population. Identify which population would more reliably fix the favored allele and explain why.
+Transfer benchmark: S survivors include 2/3 Aa and retain q=1/3. Random union therefore gives aa zygotes q²=1/9 before selection; lethal-aa selection removes them among survivors, not from all subsequent conceptions. This one-generation prediction does not establish an allele-loss time or an equilibrium in a finite population.
+SOLUTION -->
 
-## Safety and Ethics Notes {.unnumbered}
+## Safety and Ethics {.unnumbered}
 
-No chemical hazards. Beads present a swallowing hazard — do not use with young children. When discussing human population genetics data (e.g., blood groups by ethnicity), maintain scientific objectivity and avoid discriminatory interpretation.
+Paper only: no hazardous materials or human-subject recruitment. Synthetic pedigrees and clinical cases are not diagnoses. Use person-first language, do not infer identity, parentage or ancestry from the examples, and distinguish equitable access and informed consent from the biological calculation.
 
-## Debrief and Reflection {.unnumbered}
+## Optional Extension {.unnumbered}
 
-After you finish the practical work, spend 5–10 minutes in your small group
-comparing results and discussing the following prompts. Each member should
-contribute at least one observation before moving to the next prompt:
-
-1. **What did your measurements show** — compare the group's results to
-   the textbook's predictions. Where they diverge, suggest at least one
-   mechanistic explanation before concluding "experimental error."
-2. **What would change the outcome** — propose one modification to the
-   procedure that would sharpen the measurement or extend the result to a
-   new biological context, and predict what you would observe.
-3. **One-sentence headline** — each student composes a single sentence
-   summarizing the lab's take-home message, suitable for a tweet. Compare
-   sentences across groups; good headlines are short, quantitative, and
-   mechanistic.
-4. **Connection back to the textbook** — identify one section of
-   \cref{sec:unit_V_population_genetics} that your data either confirmed or
-   complicated. Cite the specific passage.
-
-## Further Reading (Lab) {.unnumbered}
-
-- Revisit the parent chapter \cref{sec:unit_V_population_genetics} for the theoretical
-  foundations on which this lab is built.
-- Look up any **bolded glossary term** introduced in the textbook chapter
-  (each has a `#gl:term-slug` link in the text) — its master
-  definition is in `docs/manuscript/glossary.md`.
-- Explore the appended `src/` module that implements the corresponding
-  quantitative model (when applicable) — referenced in the parent
-  chapter's "Bridge to Computation" subsection.
-
-*Module footer: parent chapter `\cref{sec:unit_V_population_genetics}`; all numerical
-quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
-unit conversions and biological-scale reference values.*
+Design, on paper, one additional controlled comparison and predict its result under each competing explanation. Actual wet or clinical work requires appropriate supervision and approval and is not part of this activity.

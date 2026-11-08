@@ -7,11 +7,10 @@ import logging
 import re
 from pathlib import Path
 
-from textbook_io import write_text_atomic
-
 from biology.pipeline.paths import OUTPUT_DIR, PROJECT_ROOT
 from biology.visual_contracts import build_manifest, write_manifest
 from biology.visual_contracts_paths import DEFAULT_MANIFEST
+from textbook_io import write_text_atomic
 
 logger = logging.getLogger(__name__)
 

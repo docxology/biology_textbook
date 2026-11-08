@@ -10,10 +10,7 @@ from biology.crossref.helpers import section_reference
 from biology.curriculum_sync.paths import MANUSCRIPT
 from textbook_io import write_text_atomic
 
-
 CHAPTER_MARKER = ("<!-- curriculum-scaffold-start -->", "<!-- curriculum-scaffold-end -->")
-LAB_MARKER = ("<!-- lab-evidence-checklist-start -->", "<!-- lab-evidence-checklist-end -->")
-QUESTION_MARKER = ("<!-- question-coverage-start -->", "<!-- question-coverage-end -->")
 NAV_MARKER = ("<!-- toc-navigation-start -->", "<!-- toc-navigation-end -->")
 READING_PATHS_MARKER = ("<!-- suggested-reading-paths-start -->", "<!-- suggested-reading-paths-end -->")
 CONCEPT_MAP_MARKER = ("<!-- textbook-concept-map-start -->", "<!-- textbook-concept-map-end -->")
@@ -190,15 +187,10 @@ def sync_section_label(path: Path, label: str, *, dry_run: bool, unnumbered: boo
         return False
     return _write_if_changed(path, updated, dry_run=dry_run)
 
-def normalize_headings(
-    path: Path,
-    *,
-    unnumbered: bool,
-    dry_run: bool,
-    chapter_title: str | None = None,
-) -> bool:
-    """Normalize Markdown headings so LaTeX numbering and ToC titles stay clean."""
-    original = path.read_text(encoding="utf-8")
+def _normalize_heading_text(
+    original: str, *, unnumbered: bool, chapter_title: str | None = None,
+) -> str:
+    """Apply the canonical heading policy before generated text reaches disk."""
     text = ALT_COMMENT_THEMATIC_BREAK_RE.sub(r"\1\n\n---", original)
     lines: list[str] = []
     in_fence = False
@@ -238,6 +230,19 @@ def normalize_headings(
     normalized = "\n".join(lines)
     if text.endswith("\n"):
         normalized += "\n"
+    return normalized
+
+
+def normalize_headings(
+    path: Path,
+    *,
+    unnumbered: bool,
+    dry_run: bool,
+    chapter_title: str | None = None,
+) -> bool:
+    """Normalize Markdown headings so LaTeX numbering and ToC titles stay clean."""
+    original = path.read_text(encoding="utf-8")
+    normalized = _normalize_heading_text(original, unnumbered=unnumbered, chapter_title=chapter_title)
     return normalized != original and _write_if_changed(path, normalized, dry_run=dry_run)
 
 def _join(values: tuple[str, ...]) -> str:
@@ -272,45 +277,7 @@ def _chapter_block(record: Any, alignment: Any) -> str:
         ]
     )
 
-def _lab_block(record: Any, alignment: Any) -> str:
-    return "\n".join(
-        [
-            LAB_MARKER[0],
-            "## Evidence and Reproducibility Checklist {.unnumbered}",
-            "",
-            f"- **Primary evidence goal:** {record.lab_focus}",
-            f"- **Data skill to practice:** {record.data_skill}",
-            f"- **BioSkills emphasis:** {_join(alignment.bioskills)}.",
-            "- **Control logic:** identify at least one positive control, one negative control, "
-            "or one baseline comparison before interpreting results.",
-            "- **Measurement discipline:** record units, uncertainty, sample size, and any "
-            "discarded observation with a reason.",
-            "- **Mechanistic link:** connect one result directly to the parent chapter's big "
-            "idea before writing the conclusion.",
-            "- **Reproducibility check:** state one procedural detail that another group "
-            "would need in order to reproduce the result.",
-            LAB_MARKER[1],
-        ]
-    )
 
-def _question_block(record: Any, alignment: Any) -> str:
-    return "\n".join(
-        [
-            QUESTION_MARKER[0],
-            "## Instructor Use and Coverage Notes {.unnumbered}",
-            "",
-            f"- **Coverage target:** {record.assessment_focus}",
-            f"- **Model/data emphasis:** {record.quantitative_model}",
-            f"- **Assessment alignment:** {_join(alignment.ap_science_practices)}.",
-            f"- **Misconception probe:** {record.common_misconception}",
-            f"- **Transfer product:** {alignment.summative_product}",
-            "- **Grading focus:** award full credit for mechanism, evidence, boundary "
-            "conditions, and units when a calculation is required.",
-            "- **Suggested use:** draw one recall item, one application item, and one "
-            "synthesis item when building a short quiz from this bank.",
-            QUESTION_MARKER[1],
-        ]
-    )
 
 def sync_chapter(path: Path, record: Any, alignment: Any, *, dry_run: bool) -> bool:
     text = path.read_text(encoding="utf-8")
@@ -325,29 +292,5 @@ def sync_chapter(path: Path, record: Any, alignment: Any, *, dry_run: bool) -> b
         replaced = f"{replaced[:anchor].rstrip()}\n\n{block}\n\n{replaced[anchor:].lstrip()}"
     return _write_if_changed(path, replaced, dry_run=dry_run)
 
-def sync_lab(path: Path, record: Any, alignment: Any, *, dry_run: bool) -> bool:
-    text = path.read_text(encoding="utf-8")
-    block = _lab_block(record, alignment)
-    replaced, changed = _replace_block(text, LAB_MARKER, block)
-    if not changed:
-        anchor = replaced.find("\n## Analysis Questions")
-        if anchor == -1:
-            anchor = replaced.find("\n## Debrief")
-        if anchor == -1:
-            anchor = len(replaced)
-        replaced = f"{replaced[:anchor].rstrip()}\n\n{block}\n\n{replaced[anchor:].lstrip()}"
-    return _write_if_changed(path, replaced, dry_run=dry_run)
 
-def sync_question(path: Path, record: Any, alignment: Any, *, dry_run: bool) -> bool:
-    text = path.read_text(encoding="utf-8")
-    block = _question_block(record, alignment)
-    replaced, changed = _replace_block(text, QUESTION_MARKER, block)
-    if not changed:
-        anchor = replaced.find("\n## Questions")
-        if anchor == -1:
-            anchor = replaced.find("\n1. ")
-        if anchor == -1:
-            anchor = len(replaced)
-        replaced = f"{replaced[:anchor].rstrip()}\n\n{block}\n\n{replaced[anchor:].lstrip()}"
-    return _write_if_changed(path, replaced, dry_run=dry_run)
 

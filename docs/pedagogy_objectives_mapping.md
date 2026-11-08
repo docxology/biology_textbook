@@ -26,7 +26,7 @@ Two complementary goals:
 1. **Author-facing**: a shared cognitive-level vocabulary so every chapter's Learning Objectives, Concept Checks, Worked Examples, and Review Questions span the same range — recall, application, and synthesis — instead of clustering at one level.
 2. **Instructor-facing**: a lightweight mapping from chapter Learning Objectives to appendix question banks so a course coordinator can trace coverage without a database.
 
-This is **documentation and optional HTML comments** in `docs/manuscript/questions/`; it does not change PDF numbering and does not introduce new tests.
+Per-item assessment comments and reviewed lab alignment blocks are required source metadata parsed by biology.assessment and checked by assessment/pedagogy tests. They do not change PDF numbering. Semantic validity still requires author review; schema acceptance is not proof of pedagogical quality.
 
 The project now also has a tested curriculum and standards spine:
 
@@ -148,112 +148,40 @@ Each chapter has multiple "question surfaces":
 
 ## Writing questions at different cognitive levels
 
-### Level 1 — Remember
+Use the actual chapter objectives and supplied evidence to select a level, not the question number:
 
-```markdown
-**Q1.** List the four nitrogenous bases that pair to form the rungs of the
-DNA double helix.
+| Level | Biology task example |
+| --- | --- |
+| Remember | Name the four DNA bases. |
+| Understand | Explain degeneracy versus ambiguity in the genetic code. |
+| Apply | Compute Michaelis–Menten velocities from supplied parameters and concentrations. |
+| Analyze | Compare explicitly supplied monovalent-ion permeability scenarios using GHK. |
+| Evaluate | Compare divergence-time estimates using supplied sequence divergence and a stated substitution-rate calibration; critique clock assumptions. |
+| Create | Design a controlled experiment to distinguish candidate histone-mark reader mechanisms. |
 
-<!-- LO:1 -->
-<!-- bloom: remember -->
-```
-
-### Level 2 — Understand
-
-```markdown
-**Q5.** Explain why the genetic code is described as "degenerate" but
-not "ambiguous." Give one example codon family that illustrates each
-property.
-
-<!-- LO:2 -->
-<!-- bloom: understand -->
-```
-
-### Level 3 — Apply
-
-```markdown
-**Q12.** A purified enzyme has $V_{\max} = 12$ µmol min$^{-1}$ and
-$K_m = 0.5$ mM. Calculate the initial velocity at $[S] = 0.1$ mM and
-at $[S] = 5$ mM. Which substrate concentration is closer to saturation,
-and by what fold?
-
-<!-- LO:4 -->
-<!-- bloom: apply -->
-```
-
-### Level 4 — Analyze
-
-```markdown
-**Q18.** A patient's resting membrane potential is $-50$ mV instead of
-the typical $-70$ mV. Using the Goldman equation, identify the **two**
-ionic-permeability changes that could each independently produce this
-shift, and explain how you would distinguish them experimentally.
-
-<!-- LO:5,6 -->
-<!-- bloom: analyze -->
-```
-
-### Level 5 — Evaluate
-
-```markdown
-**Q24.** Two papers report conflicting estimates of the human-chimp
-divergence time: 5 Mya \citep{paper_a} and 7 Mya \citep{paper_b}.
-Given (i) a mutation rate of $0.5 \times 10^{-9}$ per site per year and
-(ii) the observed divergence values from each paper, evaluate which
-estimate is more consistent with a constant molecular clock. State your
-assumptions explicitly.
-
-<!-- LO:7 -->
-<!-- bloom: evaluate -->
-```
-
-### Level 6 — Create
-
-```markdown
-**Q30.** Design a controlled experiment to distinguish whether a newly
-discovered methylation mark on histone H3 is read by a chromodomain or
-a Tudor domain. Specify (i) the cell line or system, (ii) the candidate
-reader proteins to test, (iii) the assay readout, and (iv) at least one
-negative control.
-
-<!-- LO:8 -->
-<!-- bloom: create -->
-```
-
----
+These are task-design examples, not substitute authored bank items or automatically assigned objective mappings. Every published item needs its own substantive solution, evidence and scoring expectations; unsupported automatic answer repair refuses without writing.
 
 ## Objective-question mapping convention
 
-In each chapter, objectives are numbered `1.`, `2.`, … under `## Learning Objectives`. In the matching question file `docs/manuscript/questions/unit_*/questions_<chapter_stem>.md`, optional **HTML comments** above each question record:
-
-| Comment | Meaning |
-| ------- | ------- |
-| `<!-- LO:2 -->` | This question maps to Learning Objective 2 of the chapter |
-| `<!-- LO:1,3 -->` | Maps to multiple objectives |
-| `<!-- maps-to: ch objective 2 -->` | Verbose form (equivalent) |
-| `<!-- bloom: apply -->` | Cognitive level (one of `remember`, `understand`, `apply`, `analyze`, `evaluate`, `create`) |
-| `<!-- difficulty: medium -->` | Optional: `easy` \| `medium` \| `hard` |
-| `<!-- estimated-time: 5 min -->` | Optional: time for a typical student |
-
-### Example
+Chapter objectives are numbered under Learning Objectives and referenced as LO1, LO2, etc. In the corresponding bank, write one reviewed assess comment immediately before each numbered item:
 
 ```markdown
-<!-- LO:4 -->
-<!-- bloom: apply -->
-<!-- difficulty: medium -->
-<!-- estimated-time: 8 min -->
-**Q12.** A purified enzyme has $V_{\max} = 12$ µmol min$^{-1}$ and
-$K_m = 0.5$ mM. Calculate the initial velocity at $[S] = 0.1$ mM ...
+<!-- assess: LO=LO4; bloom=Apply; difficulty=Application; format=short-answer; minutes=8 -->
+12. A synthetic enzyme has Vmax=12 micromoles/min and Km=0.5 mM. Calculate initial velocity at substrate concentrations 0.1 mM and 5 mM, stating the model assumptions.
 ```
+
+LO4 above is illustrative: use it only if the actual fourth objective supports that task. Valid Bloom values are Remember, Understand, Apply, Analyze, Evaluate and Create. Difficulty bands are Recall, Application and Synthesis; format is short-answer and minutes must be a positive integer. Separate LO/bloom/difficulty comments and easy/medium/hard labels are not the parser contract.
+
+Author all item mappings from meaning; ensure all chapter objectives are assessed and include reviewed difficulty and higher-order Bloom diversity. Lab alignment uses exactly one lab-alignment-start/end marker block with 3–4 measurable LO-mapped outcomes and task-specific evidence, controls, uncertainty, mechanism and transfer criteria. Preserve those rubrics rather than regenerate them from chapter order. Required lab tasks include finite printed data, tables/cards and explicit criteria, labeled synthetic or empirical with provenance.
 
 ---
 
 ## Maintenance
 
-- When chapter objectives are renumbered or split, update the `<!-- LO:N -->` comments in the question file for that chapter.
-- When a chapter's model, data skill, misconception, lab emphasis, or transfer task changes, update `src/biology/curriculum.py` and rerun `scripts/sync_curriculum_materials.py`.
-- This convention does **not** replace invariant tests; it is for **curriculum review** and instructor editions.
-- Bulk editing: `rg "<!-- LO:" docs/manuscript/questions/` lists every mapped question.
+- When objectives or tasks change, review the actual semantic item/outcome mappings before updating comments and rubrics.
+- Update curriculum/alignment source records when skills or emphasis change; regenerate only generator-owned navigation/scaffold blocks with scripts/sync_curriculum_materials.py.
+- Validate with scripts/sync_assessment_metadata.py --dry-run or --check and tests/test_assessment_metadata.py plus tests/test_lab_pedagogy_alignment.py. The synchronizer preserves curated records and rejects authoring gaps without positional regeneration.
+- Metadata validation is not scientific answer verification or evidence of a fresh full publication pass.
 - For instructor editions where solutions appear, see `export.include_solutions` in [accessibility.md](accessibility.md#export).
 
 ---

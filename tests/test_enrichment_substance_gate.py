@@ -7,9 +7,7 @@ import sys
 from pathlib import Path
 from typing import Protocol, cast
 
-
 from biology.quality import paths as quality_paths
-
 
 PROJECT = Path(__file__).resolve().parent.parent
 SCRIPT = PROJECT / "scripts" / "audit_textbook_quality.py"
@@ -54,13 +52,8 @@ def test_chapter_frontier_boilerplate_is_flagged(tmp_path: Path) -> None:
     chapter_path = manuscript / "unit_I" / "ch_x.md"
     chapter_path.parent.mkdir(parents=True)
     chapter_path.write_text(
-        "\n".join(
-            [
-                "# Chapter X",
-                "This chapter's frontier is not a separate topic bolted onto the end"
-                "; it stays woven into the argument.",
-            ]
-        ),
+        "# Chapter X\n"
+        "This chapter's frontier is not a separate topic bolted onto the end; it stays woven into the argument.",
         encoding="utf-8",
     )
 
@@ -121,13 +114,8 @@ def test_non_duplicate_content_yields_neither(tmp_path: Path) -> None:
     chapter_path.parent.mkdir(parents=True)
     labs_dir.mkdir(parents=True)
     chapter_path.write_text(
-        "\n".join(
-            [
-                "# Clean Chapter",
-                "The frontier section ties current methods to the chapter's"
-                " mechanism without relying on stock framing.",
-            ]
-        ),
+        "# Clean Chapter\n"
+        "The frontier section ties current methods to the chapter's mechanism without relying on stock framing.",
         encoding="utf-8",
     )
     for index, body in enumerate(
@@ -139,15 +127,11 @@ def test_non_duplicate_content_yields_neither(tmp_path: Path) -> None:
         start=1,
     ):
         (labs_dir / f"lab_{index}.md").write_text(
-            "\n".join(
-                [
-                    "# Lab",
-                    "## Paper-Based Evidence Upgrade {.unnumbered}",
-                    body,
-                    "## Analysis Questions {.unnumbered}",
-                    "1. Analyze the evidence.",
-                ]
-            ),
+            "# Lab\n"
+            "## Paper-Based Evidence Upgrade {.unnumbered}\n"
+            f"{body}\n"
+            "## Analysis Questions {.unnumbered}\n"
+            "1. Analyze the evidence.",
             encoding="utf-8",
         )
 
@@ -166,14 +150,10 @@ def test_companion_source_boilerplate_is_flagged(tmp_path: Path) -> None:
     chapter_path = manuscript / "unit_I" / "ch_companion.md"
     chapter_path.parent.mkdir(parents=True)
     chapter_path.write_text(
-        "\n".join(
-            [
-                "# Chapter Companion",
-                "## Companion Source Module",
-                "This section is the chapter's computational reproducibility bridge.",
-                "It then ties the narrative claim to a concrete code path.",
-            ]
-        ),
+        "# Chapter Companion\n"
+        "## Companion Source Module\n"
+        "This section is the chapter's computational reproducibility bridge.\n"
+        "It then ties the narrative claim to a concrete code path.",
         encoding="utf-8",
     )
 
@@ -195,8 +175,10 @@ def test_duplicate_companion_source_module_is_flagged(tmp_path: Path) -> None:
         "## Companion Source Module {{.unnumbered}}",
         "**{title}**",
         "",
-        "Map the chapter's mechanistic claim to the same computational workflow and"
-        " preserve the same evidence trail.",
+        (
+            "Map the chapter's mechanistic claim to the same computational workflow and"
+            " preserve the same evidence trail."
+        ),
         "Use the same code landmarks and the same interpretation constraints in each chapter.",
         "",
         "### Downstream Note",
@@ -222,19 +204,13 @@ def test_duplicate_companion_source_module_is_flagged(tmp_path: Path) -> None:
 
     distinct_path = chapters_dir / "ch_distinct.md"
     distinct_path.write_text(
-        "\n".join(
-            [
-                "# Distinct Chapter",
-                "### Companion Source Module",
-                "**Distinct Bridge**",
-                "",
-                "Trace a different computational object and justify it with a separate"
-                " experimental constraint.",
-                "Name a separate model assumption and a different failure mode.",
-                "## Distinct Next Section",
-                "Return to the chapter-specific interpretation.",
-            ]
-        ),
+        "# Distinct Chapter\n"
+        "### Companion Source Module\n"
+        "**Distinct Bridge**\n\n"
+        "Trace a different computational object and justify it with a separate experimental constraint.\n"
+        "Name a separate model assumption and a different failure mode.\n"
+        "## Distinct Next Section\n"
+        "Return to the chapter-specific interpretation.",
         encoding="utf-8",
     )
 

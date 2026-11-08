@@ -25,7 +25,7 @@
 
 ## Scope
 
-These instructions apply when modifying the active `biology_textbook` project directory. Template-hosted render and validation entry points still use `--project biology_textbook` when the template infrastructure is available.
+These instructions apply to the standalone project. Use project-local render/validation entry points with an explicitly selected read-only template library; see pipeline_guide.md. No ambient-neighbor or template-root recipes.
 
 > [!IMPORTANT]
 > **Source of truth (mechanical rules):** If anything here disagrees with [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) or the test suite, **the manuscript contract and tests win** — especially for `\label` / `\cref` naming, figure paths, and cross-references. This file is **editorial** (voice, structure, teaching style); [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) and [composable_authoring.md](composable_authoring.md) are **composable / structural** (how to add chapters, modules, and figures without breaking the build).
@@ -60,7 +60,7 @@ The textbook reads as a **single, calm, expert voice** — quantitative where bi
 | Vignettes (description) | Third person about the historical figure | First person ("I will tell you a story...") |
 | Concept Checks (instruction) | Second person, present tense ("You measure...") | Past tense, conditional ("One would have measured...") |
 | Lab procedures (instruction) | Imperative second person ("Add 5 mL of buffer...") | Passive ("5 mL of buffer should be added...") |
-| Summaries (description) | Third person, declarative ("ATP hydrolysis releases ~30 kJ/mol") | Second person ("You learned that ATP...") |
+| Summaries (description) | Third person with conditions (ATP standard hydrolysis ΔG°′ approximately -30.5 kJ/mol) | Unqualified cellular energy values |
 
 ### Active vs passive voice
 
@@ -111,10 +111,10 @@ The textbook reads as a **single, calm, expert voice** — quantitative where bi
 ## Non-negotiables
 
 - **Thin orchestrators**: keep computation in `src/`; scripts in `scripts/` orchestrate I/O only.
-- **No mocks**: do not use `MagicMock`, `mocker.patch`, or `unittest.mock` in tests.
+- **Real computation**: no mocked biological answers; narrowly scoped path/environment/failure isolation is documented separately in testing_guide.md.
 - **Deterministic outputs**: fixed RNG seeds for simulations/plots; headless matplotlib (`MPLBACKEND=Agg`).
 - **No generated outputs committed**: treat `output/` as disposable.
-- **Real data only**: all tests use real algorithms and numerical data; no stub returns.
+- **Evidence boundaries**: synthetic fixtures/model output are not observations; metadata lookup is not full-text claim verification. No stub numerical returns.
 
 ---
 
@@ -126,14 +126,14 @@ When writing or editing manuscript chapters:
 2. **Citation format:** author(s) year in parentheses for inline (e.g. *(Hodgkin & Huxley, 1952)*); use full journal name in landmark tables.
 3. **LaTeX math:** `$...$` for inline, `$$...$$` for display. Prefer descriptive names: `$K_m$` not just `$K$`. See [manuscript_guide.md#equations](manuscript_guide.md#equations) for the cross-reference decision tree.
 4. **Figures (LaTeX):** raw `\begin{figure}...\end{figure}` with `\caption{...}` and `\label{fig:unit_X_<descriptor>}`; refer in prose with `\cref{fig:...}`. **Do not** hand-type "Figure 4.2" in prose. After each figure block, an `<!-- alt: ... -->` HTML comment is **required** ([test_accessibility.py](../tests/test_accessibility.py)).
-5. **Figures (Mermaid):** after each ` ```mermaid ` block, include exactly one `<!-- alt: ... -->` comment and one *italic* descriptive caption; no hand-numbered "Figure N.M" in prose. The manuscript currently contains 197 inline Mermaid fences (196 outside README/AGENTS documentation files), including current-evidence maps; keep captions specific enough that a reader can interpret the figure without color.
+5. **Figures (Mermaid):** each fence needs exactly one alt comment and one italic descriptive caption. Publication requires real decoded PNGs, not source-only fallback; make captions interpretable without color.
 6. **Mermaid types:** `flowchart LR` (pathways), `sequenceDiagram` (signal cascades), `flowchart TD` / `graph TD` (hierarchies). Node labels in sentence case, < 30 characters; wrap labels with parentheses or colons in `"..."`.
 7. **Clinical Connection:** blockquote `> **Clinical Connection:**`. One per major section. Reference drug names with class, mechanism, and approval status.
 8. **Concept Check:** one per major section (not per subsection). Format: `> **Concept Check:** \<integrative question\>`.
 9. **SI units:** always use SI (kJ/mol, Pa, mol/L or mM, s or ms). Non-SI where biologically conventional (mmHg for blood pressure; mV for membrane potential).
-10. **Embedded additions:** preserve the 44-chapter / 39-lab / 39-question-bank structure. Add current biology, accessibility, and pedagogy upgrades inside existing sections unless the user explicitly asks for a structural change.
-11. **Question banks:** keep exactly 30 questions and 30 solution blocks per bank. Answers should name the chapter-specific mechanism, evidence, common pitfall, and scoring expectation; do not leave generic rubrics or old generator labels such as `Expected reasoning:`, `Key answer:`, `Mechanistic answer:`, or `Chapter evidence:`.
-12. **Paper-based labs:** required lab work must run with printed datasets, cards, diagrams, tables, decision matrices, and ordinary discussion tools. Wet or equipment-based versions belong only in clearly optional extension sections.
+10. **Embedded additions:** preserve the configured chapter/lab/question-bank structure unless a structural change is requested; do not rely on stale counts.
+11. **Question banks:** keep 30 authored prompt-specific solutions per bank, with mechanism, evidence, pitfalls and scoring criteria. Unsupported automatic answer generation refuses without writing. Preserve curated semantic LO/Bloom mappings and rubrics, never ordinal assignments.
+12. **Paper-based labs:** supply finite printed datasets, cards, diagrams, tables and explicit decision/rubric criteria. Label synthetic versus empirical data and provenance. Equipment-based work is optional only.
 13. **Current-science claims:** cite or qualify recent claims, especially clinical approvals, disease-burden numbers, AI biomolecular modeling, pangenome/long-read genomics, AMR, biodiversity, fisheries, and conservation assessments.
 14. **Scholarship intake:** use current web or Perplexity-style discovery only as an intake layer. Before adding manuscript prose, verify the final claim against an authoritative institutional or primary source such as WHO, CDC, FDA, UNAIDS, NIH/HPRC, NAR, Nature, Blood, IPBES, IUCN, WWF, FAO, NOAA, or IPCC.
 15. **Recent frontier topics:** when editing the current-science surfaces, check for relevant updates in AlphaFold/AFDB interaction models, pangenome graph reasoning, approved or investigational genome editing, BPaL/BPaLM tuberculosis regimens, fungal AMR including *Candida auris*, malaria vector-control tools, PrEP modalities, Long COVID mechanisms, coral heat tolerance, and food-system biodiversity links.
@@ -391,19 +391,16 @@ Every chapter must have, in this order:
 # Tests (from the active project directory)
 uv run python -m pytest tests/ --cov=src --cov-fail-under=90        # full suite + coverage gate
 
-# Validate manuscript markdown (from template repository root)
-uv run python -m infrastructure.validation.cli markdown /path/to/biology_textbook/docs/manuscript/
+# Recursive source/visual checks through selected read-only template library
+uv run --frozen --extra dev python scripts/audit_publication_readiness.py --check
 
-# Strict source gate (template root): same pitfalls + undefined citations as the PDF prerender
-uv run python -m infrastructure.validation.cli prerender /path/to/biology_textbook/docs/manuscript/ --repo-root .
+# Full proof includes tests, analysis, fresh render and strict PDF log
+uv run --frozen --extra dev python scripts/audit_publication_readiness.py --check --full
+uv run --frozen --extra dev python scripts/render_textbook.py
 
-# Full analysis + render (template root)
-uv run python scripts/02_run_analysis.py --project biology_textbook
-uv run python scripts/03_render_pdf.py --project biology_textbook
-
-# Regenerate figures / diagrams directly (from project directory)
-uv run python scripts/generate_figures.py       # 42 square-padded matplotlib generators
-uv run python scripts/generate_diagrams.py      # 24 mermaid diagrams
+# Project-local graphics
+uv run --frozen --extra dev python scripts/generate_figures.py
+uv run --frozen --extra dev python scripts/generate_diagrams.py --strict-png --size 1200
 
 # Manuscript maintenance (idempotent; each supports --dry-run)
 uv run python scripts/insert_crossref_labels.py      # \label{sec:…} + prose → \cref{}

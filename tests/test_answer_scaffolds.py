@@ -1,137 +1,74 @@
-"""Tests for answer scaffold filling and enrichment answer keys."""
-
-from __future__ import annotations
+"""Unsupported repair is explicit and never damages authored solutions."""
 
 from pathlib import Path
 
 import pytest
 
-from biology.answer_refinement.scaffolds import generate_answer, process_bank
-from biology.enrichment.answer_keys import (
-    answer_key,
-    common_pitfall,
-    evidence_target,
-    prompt_cues,
-    refine_question_banks,
-    scholarship_check,
-)
-from biology.enrichment.models import ChapterRecord
+from biology.answer_refinement.engine import process_bank as refine_bank
+from biology.answer_refinement.generation import UnsupportedAnswerRepair
+from biology.answer_refinement.scaffolds import generate_answer
+from biology.answer_refinement.scaffolds import process_bank as fill_bank
+
+_REVIEWED = """# Questions {#sec:q_unit_V_population_genetics .unnumbered}
+
+1. Under Hardy–Weinberg assumptions, 16 of 100 individuals are recessive. Calculate p and q.
+<!-- SOLUTION
+**Answer (Q1, Application).** q² = 16/100 = 0.16, so q = 0.4 and p = 1 − q = 0.6.
+1. The square root is appropriate because the recessive phenotype has genotype aa.
+2. The genotype frequencies are 0.36, 0.48 and 0.16, which sum to one.
+SOLUTION -->
+"""
 
 
-def test_generate_answer_includes_chapter_reference() -> None:
-    body = generate_answer(
-        3,
-        "Recall",
-        "Define osmosis and explain why it matters for cells.",
-        "sec:unit_II_membrane_transport",
+@pytest.mark.parametrize("repair", [refine_bank, fill_bank])
+@pytest.mark.parametrize("dry_run", [False, True])
+def test_reviewed_solution_and_its_numbered_reasoning_are_preserved(tmp_path: Path, repair, dry_run: bool) -> None:
+    bank = tmp_path / "questions_population_genetics.md"
+    bank.write_text(_REVIEWED, encoding="utf-8")
+    before = bank.read_bytes()
+    repair(bank, dry_run=dry_run)
+    assert bank.read_bytes() == before
+    assert refine_bank(bank, dry_run=True) == (0, 1)
+
+
+@pytest.mark.parametrize("legacy", [
+    "**Answer (Q2, Recall).** [INSTRUCTOR SCAFFOLD — fill before release]",
+    "**Answer (Q2, Recall).** Expected reasoning: trace the mechanism.",
+])
+@pytest.mark.parametrize("repair", [refine_bank, fill_bank])
+@pytest.mark.parametrize("dry_run", [False, True])
+def test_unsupported_later_item_refuses_without_partial_write(tmp_path: Path, legacy: str, repair, dry_run: bool) -> None:
+    bank = tmp_path / "questions_population_genetics.md"
+    original = _REVIEWED + f"\n2. Explain genetic drift.\n<!-- SOLUTION\n{legacy}\nSOLUTION -->\n"
+    bank.write_text(original, encoding="utf-8")
+    before = bank.read_bytes()
+    with pytest.raises(UnsupportedAnswerRepair, match="Q2"):
+        repair(bank, dry_run=dry_run)
+    assert bank.read_bytes() == before
+
+
+def test_generation_refuses_to_substitute_guidance_for_actual_calculation() -> None:
+    with pytest.raises(UnsupportedAnswerRepair, match="Q12"):
+        generate_answer(12, "Application", "Calculate q when q² = 0.16.", "sec:unit_V_population_genetics")
+
+
+@pytest.mark.parametrize("text", ["# Questions\n1. Explain drift.\n", "# Questions {#sec:q_unit_V_population_genetics}\n"])
+def test_malformed_or_empty_bank_is_not_a_silent_success(tmp_path: Path, text: str) -> None:
+    bank = tmp_path / "questions_population_genetics.md"
+    bank.write_text(text, encoding="utf-8")
+    with pytest.raises(ValueError):
+        refine_bank(bank)
+    assert bank.read_text(encoding="utf-8") == text
+
+
+def test_substantive_handwritten_evidence_and_pitfall_labels_are_not_scaffolds(tmp_path: Path) -> None:
+    bank = tmp_path / "questions_population_genetics.md"
+    original = _REVIEWED.replace(
+        "\nSOLUTION -->",
+        "\n\nCommon pitfall: recessive phenotype frequency is q², not q.\n"
+        "Evidence anchor: 16/100 = 0.16 supports q = 0.4, not q = 0.16.\nSOLUTION -->",
     )
-    assert "**Answer (Q3, Recall).**" in body
-    assert "\\cref{sec:unit_II_membrane_transport}" in body
-    assert "osmosis" in body.lower()
-
-
-def test_process_bank_fills_instructor_scaffold_dry_run(tmp_path: Path) -> None:
-    bank = tmp_path / "questions_demo.md"
-    bank.write_text(
-        "# Questions\n\\label{sec:q_unit_I_demo}\n\n"
-        "1. Define osmosis.\n\n"
-        "<!-- SOLUTION\n"
-        "**Answer (Q1, Recall).** [INSTRUCTOR SCAFFOLD — fill before release]\n"
-        "SOLUTION -->\n",
-        encoding="utf-8",
-    )
-    filled = process_bank(bank, dry_run=True)
-    assert filled == 1
-    assert "[INSTRUCTOR SCAFFOLD" in bank.read_text(encoding="utf-8")
-
-
-def test_answer_key_helpers_cover_prompt_specifics() -> None:
-    record = ChapterRecord(
-        unit_id="unit_I",
-        unit_title="Unit I",
-        file="water_and_life.md",
-        title="Water and Life",
-    )
-    question = "Calculate the water potential when Ψ_s = -0.8 MPa and Ψ_p = 0.3 MPa."
-    key = answer_key(12, question, record)
-    assert "water potential" in key.lower()
-    assert "\\cref{sec:unit_I_water_and_life}" in key
-    assert scholarship_check("quantitative")
-    assert "units" in common_pitfall("quantitative", question)
-    assert "MPa" in prompt_cues(question) or "carry through" in prompt_cues(question)
-    assert "definition" in evidence_target("definition", record)
-
-
-def test_process_bank_writes_scaffold_when_applied(tmp_path: Path) -> None:
-    bank = tmp_path / "questions_demo.md"
-    bank.write_text(
-        "# Questions\n\\label{sec:q_unit_I_demo}\n\n"
-        "1. Define osmosis.\n\n"
-        "<!-- SOLUTION\n"
-        "**Answer (Q1, Recall).** [INSTRUCTOR SCAFFOLD — fill before release]\n"
-        "SOLUTION -->\n",
-        encoding="utf-8",
-    )
-    filled = process_bank(bank, dry_run=False)
-    assert filled == 1
-    updated = bank.read_text(encoding="utf-8")
-    assert "[INSTRUCTOR SCAFFOLD" not in updated
-    assert "\\cref{sec:unit_I_demo}" in updated
-
-
-def test_refine_question_banks_rewrites_generic_signature_dry_run(
-    tmp_path: Path,
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    manuscript = tmp_path / "manuscript"
-    bank = manuscript / "questions" / "unit_I" / "questions_water_and_life.md"
-    bank.parent.mkdir(parents=True)
-    bank.write_text(
-        "# Questions\n\\label{sec:q_unit_I_water_and_life}\n\n"
-        "1. Define water potential.\n\n"
-        "<!-- SOLUTION\n"
-        "**Answer.** Expected answer for *water potential*: use the definition.\n"
-        "SOLUTION -->\n",
-        encoding="utf-8",
-    )
-    monkeypatch.setattr("biology.enrichment.paths.MANUSCRIPT", manuscript)
-    monkeypatch.setattr("biology.enrichment.models.MANUSCRIPT", manuscript)
-    record = ChapterRecord(
-        unit_id="unit_I",
-        unit_title="Unit I",
-        file="water_and_life.md",
-        title="Water and Life",
-    )
-    changed_files, changed_blocks = refine_question_banks([record], dry_run=True)
-    assert changed_files == 1
-    assert changed_blocks == 1
-    assert "Expected answer for" in bank.read_text(encoding="utf-8")
-
-
-def test_refine_question_banks_persists_rewrite_when_applied(
-    tmp_path: Path,
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    manuscript = tmp_path / "manuscript"
-    bank = manuscript / "questions" / "unit_I" / "questions_water_and_life.md"
-    bank.parent.mkdir(parents=True)
-    bank.write_text(
-        "# Questions\n\\label{sec:q_unit_I_water_and_life}\n\n"
-        "1. Define water potential.\n\n"
-        "<!-- SOLUTION\n"
-        "**Answer.** Expected answer for *water potential*: use the definition.\n"
-        "SOLUTION -->\n",
-        encoding="utf-8",
-    )
-    monkeypatch.setattr("biology.enrichment.paths.MANUSCRIPT", manuscript)
-    monkeypatch.setattr("biology.enrichment.models.MANUSCRIPT", manuscript)
-    record = ChapterRecord(
-        unit_id="unit_I",
-        unit_title="Unit I",
-        file="water_and_life.md",
-        title="Water and Life",
-    )
-    changed_files, changed_blocks = refine_question_banks([record], dry_run=False)
-    assert changed_files == 1
-    assert changed_blocks == 1
-    assert "Expected answer for" not in bank.read_text(encoding="utf-8")
+    bank.write_text(original, encoding="utf-8")
+    assert refine_bank(bank) == (0, 1)
+    assert fill_bank(bank) == 0
+    assert bank.read_text(encoding="utf-8") == original

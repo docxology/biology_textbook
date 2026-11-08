@@ -78,14 +78,19 @@ def exponential_growth(
         N0: Initial population size.
         r: Intrinsic rate of increase (per time unit).
         t_end: Total time to simulate.
-        steps: Number of time steps.
+        steps: Positive integer interval count; t_end/steps must be representable.
 
     Returns:
         PopulationGrowthResult with time series.
 
     Raises:
+        TypeError: If steps is not an integer or is a bool.
         ValueError: If N0 ≤ 0 or steps ≤ 0.
     """
+    if not all(math.isfinite(v) for v in (N0, r, t_end)):
+        raise ValueError("Growth parameters must be finite.")
+    if not isinstance(steps, int) or isinstance(steps, bool):
+        raise TypeError("steps must be a positive integer.")
     if N0 <= 0:
         raise ValueError("N0 must be positive.")
     if steps <= 0:
@@ -93,8 +98,9 @@ def exponential_growth(
     if t_end <= 0:
         raise ValueError("t_end must be positive.")
 
-    dt = t_end / steps
-    times = [i * dt for i in range(steps + 1)]
+    if steps > t_end / math.ulp(t_end):
+        raise ValueError("Sampling time step is not representable; reduce steps.")
+    times = [t_end if i == steps else (i / steps) * t_end for i in range(steps + 1)]
     pops = [N0 * math.exp(r * t) for t in times]
     logger.debug(f"Exponential growth: N0={N0}, r={r}, final N={pops[-1]:.2f}")
     return PopulationGrowthResult(times=times, populations=pops, model="exponential")
@@ -111,6 +117,10 @@ def logistic_growth(
 
     dN/dt = r * N * (1 - N/K)
 
+    For r >= 0, require r*dt*max(1, N0/K) <= 1 to prevent crossing K
+    or zero. This sufficient monotonicity bound does not ensure accuracy;
+    compare with the analytic solution or refine the grid. No clipping is used.
+
     Args:
         N0: Initial population.
         r: Intrinsic growth rate.
@@ -122,8 +132,15 @@ def logistic_growth(
         PopulationGrowthResult with time series.
 
     Raises:
-        ValueError: If any parameter is invalid.
+        TypeError: If steps is not an integer or is a bool.
+        ValueError: If a numeric parameter is outside the model domain.
     """
+    if not all(math.isfinite(v) for v in (N0, r, K, t_end)):
+        raise ValueError("Growth parameters must be finite.")
+    if r < 0:
+        raise ValueError("r must be non-negative for this bounded growth model.")
+    if not isinstance(steps, int) or isinstance(steps, bool):
+        raise TypeError("steps must be a positive integer.")
     if N0 <= 0:
         raise ValueError("N0 must be positive.")
     if K <= 0:
@@ -132,6 +149,8 @@ def logistic_growth(
         raise ValueError("steps must be positive.")
     if t_end <= 0:
         raise ValueError("t_end must be positive.")
+    if r * (t_end / steps) * max(1.0, N0 / K) > 1.0:
+        raise ValueError("Unsafe Euler resolution for logistic growth; increase steps.")
 
     from biology.numerics import euler_integrate_scalar
 
@@ -140,6 +159,7 @@ def logistic_growth(
         t_end,
         steps,
         lambda n: r * n * (1.0 - n / K),
+        clip_nonnegative=False,
     )
     logger.debug(f"Logistic growth: K={K}, r={r}, final N={pops[-1]:.2f}")
     return PopulationGrowthResult(times=times, populations=pops, model="logistic")
@@ -160,6 +180,10 @@ def allee_strong_growth(
     Below the Allee threshold A, per capita growth is negative (strong Allee);
     between A and K the population grows toward K.
 
+    Steps that cross an equilibrium (0, A or K) or produce a nonfinite state
+    are rejected, not clipped. Euler still has first-order discretization
+    error; compare grid refinements before interpreting a trajectory.
+
     Args:
         N0: Initial population (non-negative).
         r: Intrinsic scale for growth rate (1/time).
@@ -172,8 +196,13 @@ def allee_strong_growth(
         PopulationGrowthResult time series.
 
     Raises:
-        ValueError: If parameters are invalid.
+        TypeError: If steps is not an integer or is a bool.
+        ValueError: If a numeric parameter is outside the model domain.
     """
+    if not all(math.isfinite(v) for v in (N0, r, A, K, t_end)):
+        raise ValueError("Allee parameters must be finite.")
+    if not isinstance(steps, int) or isinstance(steps, bool):
+        raise TypeError("steps must be a positive integer.")
     if N0 < 0:
         raise ValueError("N0 must be non-negative.")
     if r <= 0:
@@ -187,11 +216,22 @@ def allee_strong_growth(
 
     from biology.numerics import euler_integrate_scalar
 
+    dt = t_end / steps
+    lower, upper = (0.0, A) if N0 < A else ((A, K) if N0 <= K else (K, N0))
+
+    def derivative(n: float) -> float:
+        rate = r * n * (n / A - 1.0) * (1.0 - n / K)
+        next_n = n + rate * dt
+        if not math.isfinite(next_n) or not lower <= next_n <= upper:
+            raise ValueError("Unsafe Euler resolution for Allee growth; increase steps.")
+        return rate
+
     times, pops = euler_integrate_scalar(
         N0,
         t_end,
         steps,
-        lambda n: r * n * (n / A - 1.0) * (1.0 - n / K),
+        derivative,
+        clip_nonnegative=False,
     )
 
     logger.debug(
@@ -224,6 +264,11 @@ def lotka_volterra(
     dN/dt = α*N  - β*N*P
     dP/dt = δ*N*P - γ*P
 
+    Uses simultaneous forward Euler, without clipping. Nonpositive or
+    nonfinite updates are rejected; increase steps. Positivity alone is not
+    accuracy: Euler introduces outward phase-orbit/invariant drift even for
+    small timesteps. Refine the grid over a fixed horizon to assess that error.
+
     Args:
         prey0: Initial prey population.
         predator0: Initial predator population.
@@ -238,8 +283,11 @@ def lotka_volterra(
         LotkaVolterraResult with full time series.
 
     Raises:
+        TypeError: If steps is not an integer or is a bool.
         ValueError: If any parameter is non-positive.
     """
+    if not isinstance(steps, int) or isinstance(steps, bool):
+        raise TypeError("steps must be a positive integer.")
     for name, val in [
         ("prey0", prey0),
         ("predator0", predator0),
@@ -250,16 +298,26 @@ def lotka_volterra(
         ("t_end", t_end),
         ("steps", steps),
     ]:
-        if val <= 0:
+        if not math.isfinite(val) or val <= 0:
             raise ValueError(f"{name} must be positive, got {val}")
 
     from biology.numerics import euler_integrate_pair
+
+    dt = t_end / steps
+
+    def derivatives(n: float, p: float) -> tuple[float, float]:
+        dn, dp = alpha * n - beta * n * p, delta * n * p - gamma * p
+        next_n, next_p = n + dn * dt, p + dp * dt
+        if not all(math.isfinite(v) and v > 0 for v in (next_n, next_p)):
+            raise ValueError("Unsafe Euler resolution for Lotka-Volterra; increase steps.")
+        return dn, dp
 
     times, prey_hist, pred_hist = euler_integrate_pair(
         (prey0, predator0),
         t_end,
         steps,
-        lambda n, p: (alpha * n - beta * n * p, delta * n * p - gamma * p),
+        derivatives,
+        clip_nonnegative=False,
     )
 
     logger.info(
@@ -327,10 +385,15 @@ def connectance(
         Connectance value in [0, 1].
 
     Raises:
-        ValueError: If num_species ≤ 0.
+        TypeError: If a count is not an integer or is a bool.
+        ValueError: If species or link counts are outside the admissible range.
     """
+    if any(not isinstance(v, int) or isinstance(v, bool) for v in (num_species, num_links)):
+        raise TypeError("Species and link counts must be integers.")
     if num_species <= 0:
         raise ValueError("num_species must be positive.")
+    if not 0 <= num_links <= num_species**2:
+        raise ValueError("num_links must be in [0, num_species**2].")
     return num_links / (num_species**2)
 
 
@@ -349,6 +412,8 @@ def species_area_relationship(
     Returns:
         Predicted species richness S.
     """
+    if not all(math.isfinite(v) for v in (A, c, z)) or c < 0 or z < 0:
+        raise ValueError("Area parameters must be finite; c and z must be non-negative.")
     if A <= 0:
         raise ValueError("Area must be positive.")
     return float(c * (A**z))
@@ -369,10 +434,17 @@ def biodiversity_indices(species_counts: list[int]) -> BiodiversityResult:
         BiodiversityResult with all indices.
 
     Raises:
-        ValueError: If all counts are zero or list is empty.
+        TypeError: If a species count is not an integer or is a bool.
+        ValueError: If counts are nonfinite, negative, all zero or empty.
     """
     if not species_counts:
         raise ValueError("species_counts must not be empty.")
+    if any(not isinstance(c, int) or isinstance(c, bool) for c in species_counts):
+        if any(isinstance(c, float) and not math.isfinite(c) for c in species_counts):
+            raise ValueError("Species counts must be finite.")
+        raise TypeError("Species counts must be integers.")
+    if any(c < 0 for c in species_counts):
+        raise ValueError("Species counts must be non-negative.")
     total = sum(species_counts)
     if total == 0:
         raise ValueError("Total count must be positive.")
@@ -396,6 +468,8 @@ def biodiversity_indices(species_counts: list[int]) -> BiodiversityResult:
 # ---------------------------------------------------------------------------
 # Biome Data
 # ---------------------------------------------------------------------------
+# Illustrative teaching parameters, not measured sites or calibrated boundaries.
+# Marine precipitation is not applicable to this terrestrial climate comparison.
 
 BIOMES: dict[str, dict] = {
     "Tropical Rainforest": {
@@ -430,7 +504,7 @@ BIOMES: dict[str, dict] = {
     },
     "Marine": {
         "mean_annual_temp_C": 15.0,
-        "annual_precipitation_mm": 0,
+        "annual_precipitation_mm": None,
         "species_richness_rank": 2,
         "NPP_g_m2_yr": 500,
     },

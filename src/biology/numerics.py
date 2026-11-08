@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import math
 from collections.abc import Callable
 
 
@@ -26,22 +27,34 @@ def euler_integrate_scalar(
         ``(times, values)`` with length ``steps + 1``.
 
     Raises:
-        ValueError: If ``t_end`` or ``steps`` is not positive.
+        TypeError: If steps is not an integer (excluding bool).
+        ValueError: For invalid domains, nonfinite rates/updates or unrepresentable time steps.
     """
-    if t_end <= 0:
-        raise ValueError("t_end must be positive.")
+    if not math.isfinite(y0):
+        raise ValueError("y0 must be finite.")
+    if not math.isfinite(t_end) or t_end <= 0:
+        raise ValueError("t_end must be finite and positive.")
+    if isinstance(steps, bool) or not isinstance(steps, int):
+        raise TypeError("steps must be a positive integer.")
     if steps <= 0:
-        raise ValueError("steps must be positive.")
+        raise ValueError("steps must be a positive integer.")
 
     dt = t_end / steps
+    if dt <= 0:
+        raise ValueError("Euler time step is not representable; reduce steps or increase t_end.")
     times = [0.0]
     values = [y0]
     y = y0
-    for _ in range(steps):
-        y = y + derivative(y) * dt
+    for step in range(1, steps + 1):
+        rate = derivative(y)
+        if not math.isfinite(rate):
+            raise ValueError("Euler derivative must be finite.")
+        y = y + rate * dt
+        if not math.isfinite(y):
+            raise ValueError("Euler update must be finite.")
         if clip_nonnegative:
             y = max(0.0, y)
-        times.append(times[-1] + dt)
+        times.append(t_end if step == steps else step * dt)
         values.append(y)
     return times, values
 
@@ -67,29 +80,40 @@ def euler_integrate_pair(
         ``(times, series1, series2)`` each with length ``steps + 1``.
 
     Raises:
-        ValueError: If ``t_end`` or ``steps`` is not positive.
+        TypeError: If steps is not an integer (excluding bool).
+        ValueError: For invalid domains, nonfinite rates/updates or unrepresentable time steps.
     """
-    if t_end <= 0:
-        raise ValueError("t_end must be positive.")
+    if not all(math.isfinite(value) for value in y0):
+        raise ValueError("y0 components must be finite.")
+    if not math.isfinite(t_end) or t_end <= 0:
+        raise ValueError("t_end must be finite and positive.")
+    if isinstance(steps, bool) or not isinstance(steps, int):
+        raise TypeError("steps must be a positive integer.")
     if steps <= 0:
-        raise ValueError("steps must be positive.")
+        raise ValueError("steps must be a positive integer.")
 
     dt = t_end / steps
+    if dt <= 0:
+        raise ValueError("Euler time step is not representable; reduce steps or increase t_end.")
     times = [0.0]
     series1 = [y0[0]]
     series2 = [y0[1]]
     y1, y2 = y0
-    for _ in range(steps):
+    for step in range(1, steps + 1):
         d1, d2 = derivatives(y1, y2)
+        if not math.isfinite(d1) or not math.isfinite(d2):
+            raise ValueError("Euler derivatives must be finite.")
         y1 = y1 + d1 * dt
         y2 = y2 + d2 * dt
+        if not math.isfinite(y1) or not math.isfinite(y2):
+            raise ValueError("Euler updates must be finite.")
         if clip_nonnegative:
             y1 = max(0.0, y1)
             y2 = max(0.0, y2)
-        times.append(times[-1] + dt)
+        times.append(t_end if step == steps else step * dt)
         series1.append(y1)
         series2.append(y2)
     return times, series1, series2
 
 
-__all__ = ["euler_integrate_scalar", "euler_integrate_pair"]
+__all__ = ["euler_integrate_pair", "euler_integrate_scalar"]

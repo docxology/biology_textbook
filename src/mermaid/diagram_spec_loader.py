@@ -17,7 +17,7 @@ def _load_specs() -> list[dict[str, Any]]:
     raw = yaml.safe_load(_SPECS_PATH.read_text(encoding="utf-8"))
     diagrams = raw.get("diagrams", [])
     if not isinstance(diagrams, list):
-        raise ValueError("diagram_specs.yaml must contain a top-level 'diagrams' list")
+        raise TypeError("diagram_specs.yaml must contain a top-level 'diagrams' list")
     return diagrams
 
 

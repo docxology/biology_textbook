@@ -18,7 +18,6 @@ from pathlib import Path
 
 import pytest
 
-
 # ---------------------------------------------------------------------------
 # Biochemistry
 # ---------------------------------------------------------------------------
@@ -190,8 +189,8 @@ class TestBotanyEdgeCases:
         with pytest.raises(ValueError):
             transpiration_flux(
                 stomatal_conductance_mol_m2_s=-0.1,
-                internal_vapor_conc_mol_m3=0.5,
-                external_vapor_conc_mol_m3=0.4,
+                internal_vapor_mole_fraction=0.0125,
+                external_vapor_mole_fraction=0.0100,
             )
 
 

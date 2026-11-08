@@ -1,5 +1,7 @@
 # Comprehensive Review: `biology_textbook`
 
+> **Historical review log (May 2026).** The dates, inventories, coverage, timings and publication statements below describe earlier checkouts, not current verification. Use [README.md](README.md), [CHANGELOG.md](CHANGELOG.md) and the [testing guide](docs/testing_guide.md) for the software 2.0.0/content 1.1 candidate contracts. A local passing receipt is not itself a GitHub release or a new Zenodo deposition.
+
 **Date:** 2026-05-14  
 **Status:** v1.0 published — Instructor Edition (`book.edition: "1.0"`, GitHub release `v1.0.0`); pytest/coverage, Ruff, mypy, markdown, and prerender gates remain the publication pass contract.
 

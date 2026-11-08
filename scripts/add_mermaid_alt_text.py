@@ -20,7 +20,7 @@ from _bootstrap import PROJECT, ensure_project_paths
 
 ensure_project_paths(include_scripts=True)
 
-from biology.maintenance.text_normalize import (  # noqa: E402
+from biology.maintenance.text_normalize import (
     FileResult,
     _alt_from_caption,
     _metadata_is_weak,
@@ -34,8 +34,8 @@ __all__ = [
     "FileResult",
     "_alt_from_caption",
     "_metadata_is_weak",
-    "normalize_text",
     "normalize_all",
+    "normalize_text",
 ]
 
 

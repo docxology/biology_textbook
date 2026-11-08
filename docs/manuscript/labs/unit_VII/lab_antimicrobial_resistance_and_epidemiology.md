@@ -1,206 +1,148 @@
 # Lab — Antimicrobial Resistance and Epidemiology {#sec:lab_unit_VII_antimicrobial_resistance_and_epidemiology .unnumbered}
 
+*This activity accompanies \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.*
+
+## Learning Objectives {.unnumbered}
+
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Antimicrobial Resistance and Epidemiology.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO6):** Calculate resistance selection and recipient transfer in a specified order with conserved frequency bookkeeping.
+- **Outcome 2 (LO2):** Reconstruct conservative Euler SIR transfers and compare a finite-horizon intervention scenario.
+- **Outcome 3 (LO7):** Interpret organism–drug surveillance denominators and distinguish official adjusted estimates from synthetic raw counts.
+- **Chapter LO coverage:** LO6, LO2, LO7
+- **Rubric (20 points):** Score the following categories separately; keep resistance frequencies, concurrently infected counts and surveillance proportions distinct.
+  - **Evidence (8 points; LO6, LO2, LO7):** Award 2 for selection→transfer and reversed-order frequencies (1 each); 3 for the N1000 first two updates/day4 comparison, the N10000 first quarter-day update and its day30/printed-maximum comparison (1 per group); 2 for both sites' blood/urine rates and pooled rates (1 each); 1 for distinguishing the official reported estimates from the synthetic raw table without inventing organism-specific denominators.
+  - **Controls (3 points; LO6, LO2, LO7):** Award 1 for using growing no-drug and clear sterile controls to support MIC 4 µg/mL; 1 for the matched initial states/gamma/dt in each baseline-versus-contact-reduction comparison; 1 for matching organism–drug, specimen, time period and AST definition before comparing surveillance rates.
+  - **Uncertainty (3 points; LO2, LO7):** Award 1 for distinguishing a largest printed 30-day I from the eventual epidemic peak; 1 for recognizing Euler-step/printing limitations rather than treating trajectories as calibrated forecasts; 1 for identifying referral/specimen selection and the absence of organism-specific raw denominators in the WHO summary.
+  - **Mechanism (4 points; LO6, LO2):** Award 1 for applying transfer only to the susceptible recipients remaining at that stage; 1 for explaining clone versus cross-lineage plasmid sharing without a proven transfer direction; 1 for showing algebraically that the same F/G transfers conserve S+I+R; 1 for explaining why disease-only efficacy with ET=0 leaves Re unchanged.
+  - **Transfer (2 points; LO7):** In the analysis prompt, award 1 for rejecting a site-level population-burden ranking from pooled cultured-isolate rates and 1 for identifying specimen standardization plus community/ascertainment information needed for that broader inference. Repeating pooled percentages without this boundary earns no transfer credit.
 <!-- lab-alignment-end -->
-
-*This activity accompanies \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} of the textbook — review that chapter before attempting the exercises below.*
 
 ## Lab Context: Antimicrobial Resistance and Epidemiology {.unnumbered}
 
-This extension lab connects resistance mechanisms, surveillance data, and epidemic modeling using printed case cards and computational templates.
+Frequency change, infection burden and surveillance percentages are not interchangeable. This packet supplies complete recurrence inputs and a finite printed trajectory, not a promise to obtain missing data by running code.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_alignment_and_rubric_map}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Antimicrobial Resistance and Epidemiology: pathogen-surveillance source card: organism-resistance pair, official guidance date, setting, and intervention limit | 1 |
-| Printed datasets, cards, and worksheets referenced below | 1 set per group |
-| Graph paper or plain paper for diagrams | 1 |
-| Calculator | 1 |
+This printed packet, paper, pencil and a calculator are sufficient. No culture, image download, volunteer family survey, database access or Python execution is required. All newly stipulated observations below are **synthetic teaching data**, not empirical measurements or clinical decision rules. Replicates and denominators are given explicitly; do not treat technical repeats as independent biological samples.
+
+## Printed Evidence Packet {.unnumbered}
+
+: Synthetic closed-population SIR teaching trajectories, N1000,I0=10,S0=990,R0count=0; gamma=.1/day, dt1day. Values rounded only for printing. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_alignment_and_rubric_map}
+| Day | BaselineS,I,R (beta=.30/day) | Reduced-contactS,I,R (beta=.15/day) |
+| --- | --- | --- |
+| 0 | 990,10,0 | 990,10,0 |
+| 1 | 987.03,11.97,1 | 988.515,10.485,1 |
+| 2 | 983.485575,14.317425,2.197 | 986.960313,10.991187,2.0485 |
+| 3 | 979.261281,17.109976,3.628742 | 985.333133,11.519248,3.147619 |
+| 4 | 974.234740,20.425520,5.339740 | 983.630589,12.069868,4.299544 |
+| Euler transfers | F=dt×betaSI/N;G=dt×gammaI;Snext=S−F | Inext=I+F−G;Rnext=R+G;use all three old-state values in each simultaneous update |
+
+: Synthetic resistance and transmission mechanism cards. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_part_4_current_intervention_decision_matrices}
+| Card | Inputs and boundary |
+| --- | --- |
+| Selection/HGT | pR=.10,wR=1,wS=.5; first selection, thenh=.10 of remaining susceptible recipients converts; no reverse transfer. |
+| Drug assay | Broth concentrations32,16,8,4,2,1µg/mL:clear,clear,clear,clear,growth,growth;no-drug control grows,sterile control stays clear. |
+| Genomic context | Two ward isolates share a core lineage and plasmidP; unrelated wastewater lineage also carriesP. No complete transmission chronology. |
+| Vaccine counterexample | $R_0=4$,95% disease efficacy but $E_T=0$; coverage100%. In the homogeneous durable transmission model, $p_c=.75$ is the $R_e=1$ boundary, not coverage or guaranteed elimination. Do not substitute endpoints. |
+
+: Synthetic organism–drug raw surveillance table; first isolate per patient, same one-year period and testing rule; counts are resistant/tested. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_part_4_current_intervention_decision_matrices_2}
+| Site | E.coli–third-generation-cephalosporin blood | Samepair urine | Tested at clinic |
+| --- | --- | --- | --- |
+| A | 30/100 | 40/400 | Hospital referrals selected; no community sampling |
+| B | 6/20 | 80/800 | Mostly outpatient urine sampling |
+| Controls/limits | Same defined AST criterion within this teaching table | No missing AST results among included rows | No inference of population incidence from cultures alone |
+
+: Real official-source snapshot and finite intervention decision cards; these are paraphrases, not invented raw GLASS counts. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_part_4_current_intervention_decision_matrices_3}
+| Source/case | Printed evidence |
+| --- | --- |
+| WHO GLASS report 2025 | Published October 13, 2025; over 23 million bacteriologically confirmed cases in report scope; 104 countries report 2023 data; 93 infection–pathogen–drug combinations; 16 combinations tracked 2018–2023. |
+| WHO result summary 2025 | Bloodstream third-generation-cephalosporin resistance exceeds 40% for E.coli and 55% for K.pneumoniae globally. Organism-specific raw denominators and uncertainty are not supplied by this news summary; do not assign 23 million to either row. |
+| T1 | Adult drug-susceptible pulmonaryTB, no stated shorter-regimen selection: distinguish classical2HRZE/4HR phases. |
+| T2 | RR-TB, eligible BPaLM/BPaL pathway after review, fluoroquinolone resistant. |
+| T3 | RR-TB, significant toxicity/eligibility uncertainty: specialist individualized/alternative-regimen review needed. |
+| P | HIV-negative prevention candidate cannot sustain daily pills but can attend scheduled injections; suspected acute infection must first be excluded; access and product-specific eligibility remain. |
+| M | Household has bed nets and indoor pre-bedtime exposure; local vector resistance is uncertain. |
+
+
+### Complete30-Day Baseline/Distancing Comparison {.unnumbered}
+
+This second synthetic scenario preserves the original 30-day comparison: population 10,000, initial infected 10, initial susceptible 9,990, no initially recovered, gamma 0.1/day, beta 0.35/day versus 0.18/day. Apply the coupled Euler recurrence above at dt 0.25 day (four substeps per day), not a one-day update. Daily rows are sampled from those substeps; entries are printed to three decimals, so displayed totals can differ slightly from 10,000 by rounding.
+
+: Thirty-day coupled-Euler teaching trajectories. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_thirty_day_euler}
+| Day | Baseline S,I,R | Distancing S,I,R |
+| --- | --- | --- |
+| 0 | 9990.000,10.000,0.000 | 9990.000,10.000,0.000 |
+| 1 | 9986.163,12.740,1.098 | 9988.147,10.822,1.030 |
+| 2 | 9981.277,16.227,2.496 | 9986.143,11.712,2.145 |
+| 3 | 9975.057,20.666,4.277 | 9983.974,12.674,3.352 |
+| 4 | 9967.142,26.314,6.544 | 9981.628,13.715,4.658 |
+| 5 | 9957.074,33.495,9.432 | 9979.089,14.840,6.071 |
+| 6 | 9944.274,42.620,13.106 | 9976.343,16.057,7.600 |
+| 7 | 9928.013,54.206,17.781 | 9973.373,17.373,9.254 |
+| 8 | 9907.373,68.901,23.726 | 9970.160,18.796,11.044 |
+| 9 | 9881.205,87.515,31.279 | 9966.686,20.334,12.980 |
+| 10 | 9848.076,111.053,40.871 | 9962.928,21.997,15.075 |
+| 11 | 9806.211,140.753,53.036 | 9958.865,23.794,17.341 |
+| 12 | 9753.427,178.126,68.446 | 9954.472,25.736,19.792 |
+| 13 | 9687.071,224.995,87.934 | 9949.723,27.834,22.443 |
+| 14 | 9603.955,283.517,112.528 | 9944.589,30.101,25.310 |
+| 15 | 9500.321,356.195,143.484 | 9939.040,32.549,28.410 |
+| 16 | 9371.840,445.839,182.321 | 9933.044,35.193,31.763 |
+| 17 | 9213.674,555.478,230.848 | 9926.565,38.048,35.388 |
+| 18 | 9020.649,688.171,291.180 | 9919.565,41.129,39.306 |
+| 19 | 8787.566,846.703,365.731 | 9912.005,44.454,43.542 |
+| 20 | 8509.688,1033.143,457.169 | 9903.840,48.041,48.119 |
+| 21 | 8183.408,1248.264,568.328 | 9895.024,51.910,53.066 |
+| 22 | 7807.072,1490.880,702.048 | 9885.508,56.081,58.411 |
+| 23 | 7381.814,1757.225,860.961 | 9875.237,60.578,64.185 |
+| 24 | 6912.245,2040.546,1047.209 | 9864.156,65.422,70.422 |
+| 25 | 6406.726,2331.126,1262.148 | 9852.203,70.640,77.157 |
+| 26 | 5877.032,2616.902,1506.066 | 9839.315,76.257,84.428 |
+| 27 | 5337.339,2884.672,1777.990 | 9825.421,82.302,92.277 |
+| 28 | 4802.666,3121.702,2075.631 | 9810.449,88.804,100.747 |
+| 29 | 4287.148,3317.356,2395.496 | 9794.321,95.793,109.886 |
+| 30 | 3802.521,3464.337,2733.142 | 9776.956,103.301,119.743 |
+
+Compare day30 and the largest printed infected count within this30-day horizon; do not call that the eventual epidemic peak. Reconstruct the first0.25day update independently to see why the daily rows cannot be reproduced by one-day Euler steps.
 
 ## Paper-Based Investigation {.unnumbered}
 
-*Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
-
-Model outbreak curves with the tested SIR implementation.
-
-```python
-from biology.microbiology import sir_model
-
-baseline = sir_model(population=10_000, initial_infected=10, beta_per_day=0.35, gamma_per_day=0.1, days=30)
-distancing = sir_model(population=10_000, initial_infected=10, beta_per_day=0.18, gamma_per_day=0.1, days=30)
-
-print("baseline R0:", baseline.r0, "peak infected:", round(max(baseline.infected)))
-print("distancing R0:", distancing.r0, "peak infected:", round(max(distancing.infected)))
-```
-### Part 3: Herd Immunity Calculation {.unnumbered}
-
-5. **Design an Alternative Experiment**: Instead of just calculating herd immunity thresholds, design an experiment to test how different vaccination rates affect disease spread in a simulated population. What hypothesis would you test? How would you model transmission?
-
-6. **Hypothesis**: Predict the relationship between vaccination coverage and peak epidemic size. Would you expect a linear relationship, or something else? Why?
-
-### Part 4: Current Intervention Decision Matrices {.unnumbered}
-
-7. Use the TB decision cards to classify each case as standard drug-susceptible therapy, BPaLM/BPaL eligibility review, or individualized specialist regimen. Record the evidence that makes you confident or uncertain.
-8. Use the HIV PrEP comparison card to match patient scenarios to a plausible PrEP option. Separate biological efficacy, adherence feasibility, contraindications, testing needs, and access constraints.
-9. Use the malaria vector-control card to design a layered prevention package for a household with night-time exposure, daytime indoor exposure, and insecticide-resistance concerns. Explain why no single tool replaces surveillance.
+1. Calculate selection then transfer and reverse the order as a distinct model. Infer MIC from the assay; classify what the genomic cards support without assigning transfer direction.
+2. For the two N1000 scenarios reconstruct the first two one-day SIR updates, check total-population bookkeeping by algebra and compare day4 infections. For the N10000 comparison reconstruct the first quarter-day update and compare day30 and the largest printed daily I. State why a finite-horizon maximum is not necessarily the full epidemic peak. Evaluate the disease-only vaccine counterexample and explain why the ideal immune-fraction boundary supplies no vaccination coverage without a transmission effect.
+3. Calculate blood, urine and pooled resistance proportions at each site and explain the sampling-composition effect. Compare the official snapshot without fabricating raw counts. Route T1–T3 uniquely using the stated susceptibility/eligibility sequence; propose a feasible prevention discussion for P/M with surveillance and access limits.
 
 ## Data Recording {.unnumbered}
 
-Epidemic curve: peak at hour ___; attack rate: ___%; estimated incubation: ___ h; R₀ ≈ ___
-
-: Part 4: Current Intervention Decision Matrices: Antibiotic and Zone (mm). {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_part_4_current_intervention_decision_matrices}
-| Antibiotic | Zone (mm) | Interpretation (S/I/R) |
-| ---------- | --------- | ----------------------- |
-| Ampicillin | | |
-| Kanamycin | | |
-| Tetracycline | | |
-| Chloramphenicol | | |
-
-Replicate zone agreement within ±2 mm? _______; AMR mechanism card selected: _______
-TB regimen path selected: _______; PrEP option justified: _______; malaria control package: _______
-
-: Part 4: Current Intervention Decision Matrices: Disease and R₀. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_part_4_current_intervention_decision_matrices_2}
-| Disease | R₀ | Herd immunity threshold (p_c) |
-| ------- | -- | ------------------------------- |
-| Measles | 15 | |
-| Influenza | 2.5 | |
-| COVID-19 | 2.9 | |
-| Mumps | 5 | |
-| Polio | 6 | |
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Model transmission and compare resistance-control strategies.
-- **Data skill to practice:** Interpret resistance assays and outbreak curves.
-- **BioSkills emphasis:** Science and society, Process of science, Modeling and simulation.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+For each task record the case/replicate identifier, supplied inputs with units, equation or classification rule, intermediate calculation, result and one alternative explanation. Keep the printed evidence unchanged and mark any proposed exclusion with a reason.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Infectious Disease and Immunity** with a reproducibility pass:
-
-: Part 4: Current Intervention Decision Matrices: Evidence check and Student action. {#tbl:unit_VII_antimicrobial_resistance_and_epidemiology_part_4_current_intervention_decision_matrices_3}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
-
-Focus note: in this lab, trace every outbreak conclusion back to its evidence chain (case definition, transmission parameter, and the diagnostic or surveillance signal it rests on), and name the alternative epidemic explanation you ruled out before reporting an $R_0$ or attack rate. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
-
-### Worked Example: Herd Immunity Threshold from R-zero {.unnumbered}
-
-**Problem:** A respiratory illness has R₀ = 4 in an unvaccinated population of 80,000. A vaccine with 92% efficacy is available. Calculate (a) the herd immunity threshold H = 1 − 1/R₀, and (b) the minimum vaccination coverage needed to achieve herd immunity given 92% efficacy.
-
-**Solution:** (a) H = 1 − 1/4 = 0.75, so 75% of the population must be immune. (b) Required vaccination coverage = H / vaccine efficacy = 0.75 / 0.92 ≈ 0.815 = 81.5%. At least 81.5% of the population must be vaccinated to reach the herd immunity threshold.
-
-**Interpretation:** Vaccine efficacy below 100% means that a higher fraction of the population must be vaccinated than the herd immunity threshold itself — a key consideration in public health planning.
+**Printed source card:** WHO's Global antibiotic resistance surveillance report 2025 (ISBN 9789240116337) and October 13, 2025 official news release provide the empirical snapshot above. The greater-than percentages are reported estimates, not raw numerator/denominator pairs. O’Neill 2016 is a historical conditional 2050 scenario, not current measured burden. WHO 2025 TB guidance and malaria indoor-emanator recommendations are conditional; clinical choices require full current eligibility and susceptibility review. All raw teaching tables and SIR trajectories are synthetic, not new empirical data or clinical forecasts. Source-card tasks: identify which observations are synthetic and which statements summarize published evidence; record the publication date and endpoint/model; name a refresh trigger. A live source lookup is not required to answer this packet.
 
 ## Analysis Questions {.unnumbered}
 
-1. If the epidemic curve shows a single sharp peak within a window shorter than the incubation period, what type of source does this suggest? How would a propagated (person-to-person) epidemic curve look different?
+Explain what each assay and SIR control holds constant and why the 30-day maximum is horizon-limited. Then assess the proposed transfer “Site A has a larger population resistance burden because 14% exceeds Site B's pooled 10.4878%.” Use the within-specimen rates and specimen weights to diagnose the difference. State what a common specimen weighting could resolve and what population-sampling or incidence information would still be missing. Do not manufacture raw denominators from the WHO summary.
 
-2. *E. coli* showed resistance to ampicillin but susceptibility to kanamycin. Explain the likely molecular mechanism of ampicillin resistance (naming the specific enzyme) and why one β-lactamase can create cross-resistance to several related β-lactams while still leaving some β-lactam/β-lactamase-inhibitor combinations, carbapenems, or non-β-lactam drugs active depending on the enzyme and permeability context.
+<!-- SOLUTION
+## Instructor Worked Results and Scoring Expectations {.unnumbered}
 
-3. Measles has an R₀ of ~15, requiring ~93% vaccination for herd immunity. Your calculation shows that even high measles vaccination coverage is needed. What happens to herd immunity when 5% of a vaccinated population declines vaccination? Relate this to observed measles outbreaks in Europe (2019).
-
-4. An immunocompromised patient (CD4 T cell count < 200/µL, HIV+ AIDS) contracts measles despite prior vaccination. Explain: (a) why the vaccine may be insufficient; (b) which branch of adaptive immunity (humoral or cellular) is most deficient; (c) what specific viral clearance mechanism is impaired.
-
-5. The O'Neill Review's 10-million-deaths-per-year by 2050 AMR estimate is a historical warning scenario, not a current burden count \citep{oneill2016amr}. Describe three specific mechanisms by which bacteria acquire resistance genes, and evaluate two distinct policy interventions that would slow the spread of AMR at a population level.
-6. A malaria program already distributes insecticide-treated nets, but household surveys show substantial indoor activity before bedtime. Use the vector-control matrix to decide whether spatial emanators could be an added tool, and state two evidence gaps that would still require local monitoring.
-
-## Extension Analysis Questions {.unnumbered}
-
-7. **Statistical Analysis**: If the printed dataset includes three replicate disc-diffusion images, how would you analyze the variation in zone diameters? What statistical test would you use to determine if differences between antibiotics are significant?
-
-8. **Experimental Error Analysis**: What are three potential sources of error in epidemic curve analysis? How could you modify the procedure to reduce each source of error?
-
-9. **Experimental Design**: If you wanted to test the effectiveness of different public health interventions (e.g., vaccination, social distancing) in controlling an outbreak, how would you design the experiment? What data would you collect? How would you analyze it?
-
-## Group Project Extension (Multi-Session) {.unnumbered}
-
-**Design an Epidemiological Study of Vaccine Hesitancy**
-
-This project will span 2-3 lab sessions:
-
-**Session 1**: Research Question and Hypothesis
-- How does vaccine hesitancy affect disease outbreak size?
-- Formulate a hypothesis about the relationship between vaccine coverage and outbreak probability
-- Design a study using simulation or real outbreak data
-
-**Session 2**: Data Collection and Analysis
-- Collect data on vaccine coverage and outbreak sizes from public health records
-- Analyze the correlation between coverage and outbreak size
-- Model the impact of increasing vaccine hesitancy on outbreak risk
-
-**Session 3**: Data Interpretation and Presentation
-- Calculate the critical vaccination threshold for different diseases
-- Discuss the public health implications of declining vaccine coverage
-- Create a scientific poster or presentation
-
-## Real-World Problem Solving: Epidemic Ethics {.unnumbered}
-
-**Case Study: Quarantine and Civil Liberties**
-
-1. **Research Task**: Investigate the legal and ethical basis for quarantine during infectious disease outbreaks. What are the key principles that balance public health needs with individual rights?
-
-2. **Ethical Consideration**: Should governments have the power to enforce quarantine on individuals who refuse vaccination? What are the potential benefits and risks of such policies?
-
-3. **Policy Proposal**: Design a policy for implementing quarantine measures during an outbreak that respects civil liberties while protecting public health. Consider: due process, compensation for lost income, and transparent decision-making.
+Task 1: selection p=.10/(.10+.90×.5)=.181818; transfer then gives .181818+.1(.818182)=.263636. Reverse order gives p=.19 before selection and .19/(.19+.81×.5)=.319328 afterward. MIC 4 µg/mL. Core similarity supports a spreading clone hypothesis; plasmid sharing across lineages supports mobile-element sharing but not direction or the exact event history.
+Task 2: baseline day 0→1 infection F 2.97, recovery G 1; day 1→2 F 3.544425, G 1.197. Reduced-contact F 1.485, G 1 initially; next F 1.55468696625, G 1.0485. The same F/G leave one compartment and enter another, so S+I+R stays 1000 before printing-roundoff. Day 4 I 20.425520 versus 12.069868, about 8.355652 fewer concurrently infected, not a demonstrated reduction in the eventual peak or final size. Disease-only vaccination leaves Re 4. The real API rejects beta×dt>1 or gamma×dt>1; grid safety does not ensure numerical accuracy, and output times honor the requested horizon.
+Task 3: A blood 30%, urine 10%, pooled 70/500=14%; B blood 30%, urine 10%, pooled 86/820≈10.4878%. Different specimen weights explain the pooled difference despite identical within-specimen rates. Official adjusted estimates cannot be reconstructed by pooling these synthetic counts or multiplying their percentages by 23 million. T1: classical two-month HRZE then four-month HR; T2 excludes moxifloxacin-containing BPaLM and requires otherwise-eligible BPaL/alternative review; T3: specialist pathway, not an automatic short regimen. P supports discussion of suitable long-acting PrEP only after required testing/eligibility; M supports evaluating indoor emanators as an adjunct to nets with local surveillance, not replacing them.
 
 
-## Post-Lab Synthesis {.unnumbered}
 
-> **Concept Check (Synthesis):** A pathogen evolves increased transmissibility (higher R₀) while simultaneously causing milder symptoms.
->
-> (a) Using fitness trade-off reasoning, explain why reduced virulence might accompany increased transmissibility from an evolutionary perspective.
-> (b) How would an increase in R₀ from 2 to 5 change the herd immunity threshold, and what does this imply for the fraction of the population that must be immune?
-> (c) Evaluate whether increased transmissibility alone (without changes in virulence) would change the total number of individuals affected during an epidemic — use the final size equation concept to guide your reasoning.
+**Thirty-day comparison:** Initial quarter-day baseline transfers are infection 0.874125 and recovery 0.25, giving S 9989.125875, I 10.624125, R 0.25. With distancing, infection 0.44955 gives S 9989.55045, I 10.19955, R 0.25. At the printed precision, baseline day 30 is S 3802.521, I 3464.337, R 2733.142 and distancing is S 9776.956, I 103.301, R 119.743. Each largest printed daily I occurs at day 30; their difference is 3361.036 concurrently infected. These are synthetic forward-Euler predictions, not empirical outbreak observations or a calibrated clinical forecast. Neither maximum establishes the eventual outbreak peak beyond the requested horizon.
 
-## Safety and Ethics Notes {.unnumbered}
+Transfer benchmark: Both sites have 30% blood and 10% urine resistance; common specimen weights therefore produce the same standardized teaching proportion. The pooled difference reflects specimen composition. Standardization does not repair referral selection, establish community incidence or supply population denominators. The official global estimates cannot be reconstructed from these synthetic rows or by using the report-wide 23 million as an organism-specific denominator.
+SOLUTION -->
 
-Default lab work uses printed outbreak datasets, susceptibility images, and AMR mechanism cards primarily. No bacterial cultures, agar plates, or antibiotic discs are required. Optional wet susceptibility demonstrations must use approved BSL-1 organisms under instructor supervision and local disposal rules. Discuss epidemic data without stigmatising affected groups. When discussing antibiotics, emphasize following current prescriber instructions, avoiding unnecessary antibiotic starts, using diagnostics when available, and protecting access to effective treatment.
+## Safety and Ethics {.unnumbered}
 
-### Source-Governance Checkpoint {.unnumbered}
+Paper only: no hazardous materials or human-subject recruitment. Synthetic pedigrees and clinical cases are not diagnoses. Use person-first language, do not infer identity, parentage or ancestry from the examples, and distinguish equitable access and informed consent from the biological calculation.
 
-Complete the source-governance card for Antimicrobial Resistance and Epidemiology before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+## Optional Extension {.unnumbered}
 
-## Debrief and Reflection {.unnumbered}
-
-After you finish the practical work, spend 5–10 minutes in your small group comparing results and discussing the following prompts. Each member should contribute at least one observation before moving to the next prompt:
-
-1. **What did your measurements show** — compare the group's results to the textbook's predictions. Where they diverge, suggest at least one mechanistic explanation before concluding "experimental error."
-
-2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
-
-3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
-
-4. **Connection back to the textbook** — identify one section of \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} that your data either confirmed or complicated. Cite the specific passage.
-
-5. **Experimental Design Reflection**: What was the strongest aspect of your experimental design? What would you change if you could repeat the experiment?
-
-## Further Reading (Lab) {.unnumbered}
-
-- Revisit the parent chapter \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} for the theoretical foundations on which this lab is built.
-- Look up any **bolded glossary term** introduced in the textbook chapter (each has a `#gl:term-slug` link in the text) — its master definition is in `docs/manuscript/glossary.md`.
-- Explore the Python code in `src/biology/microbiology/microbiology.py` for epidemiological calculations.
-- Use the self-contained Part 2 snippet as the computational template; it runs against tested project modules without external notebooks or CSV files.
+Design, on paper, one additional controlled comparison and predict its result under each competing explanation. Actual wet or clinical work requires appropriate supervision and approval and is not part of this activity.

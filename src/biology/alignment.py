@@ -15,11 +15,10 @@ Reference frameworks used for the labels:
 from __future__ import annotations
 
 from collections import Counter
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
-from typing import Iterable, Mapping
 
-from .curriculum import CURRICULUM
-
+from .curriculum import CURRICULUM, CurriculumRecord
 
 VISION_CHANGE_CONCEPTS: tuple[str, ...] = (
     "Evolution",
@@ -238,13 +237,13 @@ def _lower_initial(text: str) -> str:
     return f"{fragment[:1].lower()}{fragment[1:]}"
 
 
-def _make_alignment(record: object) -> AlignmentRecord:
-    chapter_id = getattr(record, "chapter_id")
+def _make_alignment(record: CurriculumRecord) -> AlignmentRecord:
+    chapter_id = record.chapter_id
     defaults = UNIT_ALIGNMENTS[_unit_key(chapter_id)]
-    data_skill = getattr(record, "data_skill")
-    quantitative_model = getattr(record, "quantitative_model")
-    assessment_focus = getattr(record, "assessment_focus")
-    transfer_task = getattr(record, "transfer_task")
+    data_skill = record.data_skill
+    quantitative_model = record.quantitative_model
+    assessment_focus = record.assessment_focus
+    transfer_task = record.transfer_task
     return AlignmentRecord(
         chapter_id=chapter_id,
         vision_change_concepts=defaults.vision_change_concepts,
@@ -309,13 +308,13 @@ __all__ = [
     "ALIGNMENTS_BY_ID",
     "AP_BIOLOGY_BIG_IDEAS",
     "AP_BIOLOGY_PRACTICES",
-    "AlignmentRecord",
     "BIOSKILLS_CATEGORIES",
     "NGSS_HS_LS_TOPICS",
-    "UnitAlignment",
     "UNIT_ALIGNMENTS",
     "VISION_CHANGE_COMPETENCIES",
     "VISION_CHANGE_CONCEPTS",
+    "AlignmentRecord",
+    "UnitAlignment",
     "by_id",
     "framework_counts",
     "require",

@@ -7,9 +7,7 @@ import sys
 from pathlib import Path
 from typing import Protocol, cast
 
-
 from biology.quality import paths as quality_paths
-
 
 PROJECT = Path(__file__).resolve().parent.parent
 SCRIPT = PROJECT / "scripts" / "audit_textbook_quality.py"
@@ -42,7 +40,7 @@ audit = cast(AuditModule, module)
 
 def run_targeted_audits(manuscript: Path) -> list[FindingLike]:
     original_manuscript = quality_paths.MANUSCRIPT
-    import biology.maintenance.manuscript_walker as manuscript_walker
+    from biology.maintenance import manuscript_walker
 
     original_walker_manuscript = manuscript_walker.MANUSCRIPT
     try:
@@ -62,16 +60,12 @@ def test_v3_solution_signatures_are_flagged(tmp_path: Path) -> None:
     questions_dir = manuscript / "questions"
     questions_dir.mkdir(parents=True)
     (questions_dir / "questions_synthetic.md").write_text(
-        "\n".join(
-            [
-                "# Synthetic Question Bank",
-                "1. Explain the mechanism.",
-                "<!-- SOLUTION",
-                "The answer should give the causal chain from sensing to response.",
-                "Scholarship standard: use chapter-specific evidence rather than generic summary.",
-                "-->",
-            ]
-        ),
+        "# Synthetic Question Bank\n"
+        "1. Explain the mechanism.\n"
+        "<!-- SOLUTION\n"
+        "The answer should give the causal chain from sensing to response.\n"
+        "Scholarship standard: use chapter-specific evidence rather than generic summary.\n"
+        "-->",
         encoding="utf-8",
     )
 
@@ -91,16 +85,12 @@ def test_broken_crossrefs_are_flagged_from_raw_lines(tmp_path: Path) -> None:
     questions_dir.mkdir(parents=True)
     unit_dir.mkdir()
     (questions_dir / "questions_crossrefs.md").write_text(
-        "\n".join(
-            [
-                "# Synthetic Question Bank",
-                "1. Explain the mechanism.",
-                "<!-- SOLUTION",
-                "Chapter anchor: cref{sec:foo}",
-                "Interpret the outcome using: \\cref{sec:unitIwaterandlife}",
-                "-->",
-            ]
-        ),
+        "# Synthetic Question Bank\n"
+        "1. Explain the mechanism.\n"
+        "<!-- SOLUTION\n"
+        "Chapter anchor: cref{sec:foo}\n"
+        "Interpret the outcome using: \\cref{sec:unitIwaterandlife}\n"
+        "-->",
         encoding="utf-8",
     )
     clean_path = unit_dir / "clean.md"
@@ -134,16 +124,12 @@ def test_clean_content_avoids_v3_and_crossref_findings(tmp_path: Path) -> None:
     unit_dir.mkdir()
     question_path = questions_dir / "questions_clean.md"
     question_path.write_text(
-        "\n".join(
-            [
-                "# Synthetic Question Bank",
-                "1. Explain how water polarity shapes emergent behavior.",
-                "<!-- SOLUTION",
-                "Water polarity enables hydrogen bonding, which explains cohesion and heat capacity.",
-                "Ground the explanation in \\cref{sec:unit_I_intro} and the chapter's named examples.",
-                "-->",
-            ]
-        ),
+        "# Synthetic Question Bank\n"
+        "1. Explain how water polarity shapes emergent behavior.\n"
+        "<!-- SOLUTION\n"
+        "Water polarity enables hydrogen bonding, which explains cohesion and heat capacity.\n"
+        "Ground the explanation in \\cref{sec:unit_I_intro} and the chapter's named examples.\n"
+        "-->",
         encoding="utf-8",
     )
     unit_path = unit_dir / "clean.md"

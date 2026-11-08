@@ -18,7 +18,10 @@ def test_parse_glossary_cards_matches_live_glossary() -> None:
 
 
 def test_write_glossary_cards_anki(tmp_path) -> None:
-    from biology.maintenance.glossary_cards import GlossaryCardEntry, write_glossary_cards
+    from biology.maintenance.glossary_cards import (
+        GlossaryCardEntry,
+        write_glossary_cards,
+    )
 
     entries = [GlossaryCardEntry(term="Allele", slug="allele", definition="Variant form.")]
     output = tmp_path / "cards.tsv"

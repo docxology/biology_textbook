@@ -7,6 +7,7 @@ biology. All computations use real plant physiology equations — no mock method
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 
 from textbook_logging import get_logger
@@ -39,7 +40,7 @@ class TranspirationResult:
     """Water loss through stomata via Fick's law."""
 
     conductance_mol_m2_s: float  # stomatal conductance
-    delta_concentration_mol_m3: float  # vapor concentration gradient
+    delta_mole_fraction: float  # inside minus outside water vapor (mol/mol)
     flux_mol_m2_s: float  # net transpiration flux
     flux_mmol_m2_s: float
 
@@ -54,7 +55,7 @@ class PhotosynthesisTypeComparison:
     water_use_efficiency: str  # "low", "medium", "high"
     light_saturation_point_µmol_m2_s: float
     optimal_temp_C: float
-    photorespiration: bool
+    photorespiration: bool  # simplified pathway-table flag, not universal absence
     example_plants: list[str]
 
 
@@ -64,7 +65,7 @@ class PlantGrowthResult:
 
     times_days: list[float]
     biomass_g: list[float]
-    relative_growth_rate: float  # RGR (g g⁻¹ day⁻¹)
+    relative_growth_rate: float  # intrinsic coefficient r; instantaneous RGR = r*(1-W/K)
 
 
 # ---------------------------------------------------------------------------
@@ -93,6 +94,8 @@ def water_potential(
     Raises:
         ValueError: If concentration is non-positive or temperature ≤ 0.
     """
+    if not all(math.isfinite(v) for v in (solute_concentration_M, turgor_pressure_MPa, temperature_K)):
+        raise ValueError("Water-potential parameters must be finite.")
     if solute_concentration_M <= 0:
         raise ValueError("solute_concentration_M must be positive.")
     if temperature_K <= 0:
@@ -117,17 +120,17 @@ def water_potential(
 
 def transpiration_flux(
     stomatal_conductance_mol_m2_s: float,
-    internal_vapor_conc_mol_m3: float,
-    external_vapor_conc_mol_m3: float,
+    internal_vapor_mole_fraction: float,
+    external_vapor_mole_fraction: float,
 ) -> TranspirationResult:
     """Compute transpiration flux via Fick's law.
 
-    J = g * (C_internal - C_external)
+    J = g * (w_internal - w_external), where w is mol H2O / mol air.
 
     Args:
         stomatal_conductance_mol_m2_s: Stomatal conductance g (mol m⁻² s⁻¹).
-        internal_vapor_conc_mol_m3: Water vapor inside leaf (mol m⁻³).
-        external_vapor_conc_mol_m3: Water vapor in atmosphere (mol m⁻³).
+        internal_vapor_mole_fraction: Water vapor inside leaf (mol/mol, in [0,1]).
+        external_vapor_mole_fraction: Water vapor outside leaf (mol/mol, in [0,1]).
 
     Returns:
         TranspirationResult with flux in mol m⁻² s⁻¹ and mmol m⁻² s⁻¹.
@@ -135,14 +138,20 @@ def transpiration_flux(
     Raises:
         ValueError: If conductance is non-positive.
     """
+    if not math.isfinite(stomatal_conductance_mol_m2_s):
+        raise ValueError("stomatal_conductance_mol_m2_s must be finite.")
+    if any(not math.isfinite(w) or not 0 <= w <= 1 for w in (
+        internal_vapor_mole_fraction, external_vapor_mole_fraction
+    )):
+        raise ValueError("Vapor mole fractions must be finite and in [0, 1].")
     if stomatal_conductance_mol_m2_s <= 0:
         raise ValueError("stomatal_conductance_mol_m2_s must be positive.")
-    delta_C = internal_vapor_conc_mol_m3 - external_vapor_conc_mol_m3
-    flux = stomatal_conductance_mol_m2_s * delta_C
+    delta_w = internal_vapor_mole_fraction - external_vapor_mole_fraction
+    flux = stomatal_conductance_mol_m2_s * delta_w
     logger.debug(f"Transpiration flux: {flux:.4e} mol m⁻² s⁻¹")
     return TranspirationResult(
         conductance_mol_m2_s=stomatal_conductance_mol_m2_s,
-        delta_concentration_mol_m3=delta_C,
+        delta_mole_fraction=delta_w,
         flux_mol_m2_s=flux,
         flux_mmol_m2_s=flux * 1000.0,
     )
@@ -166,7 +175,7 @@ def photosynthesis_rate(
     Args:
         photon_flux_µmol_m2_s: Photosynthetically active radiation (PAR).
         max_rate_µmol_CO2_m2_s: Maximum gross photosynthesis rate.
-        light_saturation_point: I at which A = A_max/2 (µmol m⁻² s⁻¹).
+        light_saturation_point: I at which gross A = A_max/2 (µmol m⁻² s⁻¹).
         dark_respiration_µmol_CO2_m2_s: Dark respiration rate.
 
     Returns:
@@ -175,6 +184,13 @@ def photosynthesis_rate(
     Raises:
         ValueError: If photon_flux or rates are negative.
     """
+    if not all(math.isfinite(v) for v in (
+        photon_flux_µmol_m2_s, max_rate_µmol_CO2_m2_s,
+        light_saturation_point, dark_respiration_µmol_CO2_m2_s
+    )):
+        raise ValueError("Photosynthesis parameters must be finite.")
+    if dark_respiration_µmol_CO2_m2_s < 0:
+        raise ValueError("dark_respiration must be non-negative.")
     if photon_flux_µmol_m2_s < 0:
         raise ValueError("photon_flux_µmol_m2_s must be non-negative.")
     if max_rate_µmol_CO2_m2_s <= 0:
@@ -182,7 +198,9 @@ def photosynthesis_rate(
     if light_saturation_point <= 0:
         raise ValueError("light_saturation_point must be positive.")
 
-    gross = (max_rate_µmol_CO2_m2_s * photon_flux_µmol_m2_s) / (photon_flux_µmol_m2_s + light_saturation_point)
+    I, K = photon_flux_µmol_m2_s, light_saturation_point
+    fraction = (I / K) / (1.0 + I / K) if I <= K else 1.0 / (1.0 + K / I)
+    gross = max_rate_µmol_CO2_m2_s * fraction
     net = gross - dark_respiration_µmol_CO2_m2_s
     logger.debug(f"A_net at PAR={photon_flux_µmol_m2_s}: {net:.4f} µmol CO₂ m⁻² s⁻¹")
     return net
@@ -205,15 +223,22 @@ def light_response_curve(
         max_par: Maximum PAR to plot.
 
     Returns:
-        List of (PAR, A_net) tuples.
+        List of (PAR, A_net) tuples, ending exactly at max_par. Positive PAR
+        ranges require a representable nonzero sampling step.
     """
+    if not isinstance(n_points, int) or isinstance(n_points, bool):
+        raise TypeError("n_points must be a positive integer.")
+    if not math.isfinite(max_par) or max_par < 0:
+        raise ValueError("max_par must be finite and non-negative.")
     if n_points <= 0:
         raise ValueError("n_points must be positive.")
-    step = max_par / n_points
-    return [
-        (i * step, photosynthesis_rate(i * step, max_rate, light_saturation_point, dark_respiration))
-        for i in range(n_points + 1)
-    ]
+    if max_par > 0 and n_points > max_par / math.ulp(max_par):
+        raise ValueError("PAR step is not representable; reduce n_points.")
+    curve = []
+    for i in range(n_points + 1):
+        par = max_par if i == n_points else (i / n_points) * max_par
+        curve.append((par, photosynthesis_rate(par, max_rate, light_saturation_point, dark_respiration)))
+    return curve
 
 
 # ---------------------------------------------------------------------------
@@ -268,11 +293,14 @@ def plant_biomass_growth(
 ) -> PlantGrowthResult:
     """Simulate plant biomass accumulation using a logistic growth model.
 
-    Relative Growth Rate (RGR) = (1/W) * dW/dt
+    Instantaneous RGR = (1/W)*dW/dt = r*(1-W/K), not the constant r.
+
+    Uses forward Euler through ecology.logistic_growth with the same explicit
+    rate*dt admissibility bound. Increase steps for accuracy; no clipping.
 
     Args:
         initial_biomass_g: Initial dry mass (g).
-        relative_growth_rate: RGR (g g⁻¹ day⁻¹).
+        relative_growth_rate: Intrinsic logistic coefficient r (day⁻¹).
         carrying_capacity_g: Maximum biomass (g).
         duration_days: Simulation duration (days).
         steps: Number of time steps.
@@ -280,6 +308,10 @@ def plant_biomass_growth(
     Returns:
         PlantGrowthResult with time series.
     """
+    if not all(math.isfinite(v) for v in (
+        initial_biomass_g, relative_growth_rate, carrying_capacity_g, duration_days
+    )):
+        raise ValueError("Biomass parameters must be finite.")
     if initial_biomass_g <= 0:
         raise ValueError("initial_biomass_g must be positive.")
     if relative_growth_rate <= 0:
@@ -289,14 +321,12 @@ def plant_biomass_growth(
     if duration_days <= 0:
         raise ValueError("duration_days must be positive.")
 
-    from biology.numerics import euler_integrate_scalar
+    from biology.ecology import logistic_growth
 
-    times, biomass = euler_integrate_scalar(
-        initial_biomass_g,
-        duration_days,
-        steps,
-        lambda w: relative_growth_rate * w * (1.0 - w / carrying_capacity_g),
+    result = logistic_growth(
+        initial_biomass_g, relative_growth_rate, carrying_capacity_g, duration_days, steps
     )
+    times, biomass = result.times, result.populations
 
     logger.debug(f"Plant growth: final biomass={biomass[-1]:.2f} g at day {duration_days}")
     return PlantGrowthResult(times_days=times, biomass_g=biomass, relative_growth_rate=relative_growth_rate)
@@ -327,50 +357,49 @@ def pollen_tube_growth(
 ) -> PollenTubeGrowthResult:
     """Simulate pollen tube length over time using a saturating growth model.
 
-    Empirical pollen tubes elongate at a near-constant tip rate for hours
-    before slowing as they approach the ovule. We use a logistic kinetic
-    law dL/dt = r * L * (1 - L/L_max), starting from ``initial_length_um``,
-    so the curve is smooth, monotone, and bounded by ``max_length_um``.
+    Sample the exact saturating-linear law dL/dt = v*(1-L/L_max):
+    L(t) = L_max - (L_max-L0)*exp(-v*t/L_max).
+    Here v has units um/min, not 1/min. This phenomenological model has
+    no explicit resource pool and does not establish a slowing mechanism.
 
     Args:
-        max_length_um: Saturation length L_max (must exceed ``initial_length_um``).
-        growth_rate_um_per_min: Intrinsic elongation rate r (must be positive).
+        max_length_um: Positive saturation length L_max, at least initial_length_um.
+        growth_rate_um_per_min: Low-length elongation speed v (must be positive).
         duration_min: Simulated duration (minutes, must be positive).
-        initial_length_um: Initial pollen-tube length (must be positive).
-        steps: Number of Euler steps (must be positive).
+        initial_length_um: Initial pollen-tube length in [0, L_max].
+        steps: Positive integer interval count; duration/steps must be representable.
 
     Returns:
         PollenTubeGrowthResult with ``steps + 1`` (time, length) samples.
 
     Raises:
+        TypeError: If steps is not an integer (excluding bool).
         ValueError: If any argument is out of range.
     """
-    if max_length_um <= 0 or initial_length_um <= 0:
-        raise ValueError("lengths must be positive.")
-    if max_length_um <= initial_length_um:
-        raise ValueError("max_length_um must exceed initial_length_um.")
+    if not all(math.isfinite(v) for v in (
+        max_length_um, initial_length_um, growth_rate_um_per_min, duration_min
+    )):
+        raise ValueError("Pollen growth parameters must be finite.")
+    if not isinstance(steps, int) or isinstance(steps, bool):
+        raise TypeError("steps must be a positive integer.")
+    if max_length_um <= 0 or initial_length_um < 0:
+        raise ValueError("max_length_um must be positive and initial_length_um non-negative.")
+    if initial_length_um > max_length_um:
+        raise ValueError("initial_length_um must not exceed max_length_um.")
     if growth_rate_um_per_min <= 0:
         raise ValueError("growth_rate_um_per_min must be positive.")
     if duration_min <= 0 or steps <= 0:
         raise ValueError("duration_min and steps must be positive.")
 
-    from biology.numerics import euler_integrate_scalar
-
-    # Saturating linear growth: dL/dt = r * (1 - L / L_max). At small L this
-    # gives an approximately constant tip rate of ``growth_rate_um_per_min``;
-    # near the saturation length the rate falls smoothly to zero. The
-    # formulation is bounded above by ``max_length_um`` for any positive step
-    # size, which keeps the pedagogical figure monotone and well-behaved.
-    def derivative(length: float) -> float:
-        saturation_term = max(0.0, 1.0 - length / max_length_um)
-        return growth_rate_um_per_min * saturation_term
-
-    times, lengths = euler_integrate_scalar(
-        initial_length_um,
-        duration_min,
-        steps,
-        derivative,
-    )
+    if steps > duration_min / math.ulp(duration_min):
+        raise ValueError("Sampling time step is not representable; reduce steps.")
+    times = [duration_min if i == steps else (i / steps) * duration_min for i in range(steps + 1)]
+    lengths = [
+        initial_length_um if t == 0 else
+        initial_length_um + (max_length_um - initial_length_um)
+        * -math.expm1(-(growth_rate_um_per_min / max_length_um) * t)
+        for t in times
+    ]
     logger.debug(
         "Pollen tube growth: final length=%.1f um at %.0f min", lengths[-1], duration_min
     )

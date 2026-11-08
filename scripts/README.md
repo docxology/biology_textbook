@@ -1,18 +1,18 @@
 # Biology Textbook Scripts
 
-## Quick Reference — 36 `*.py` files
+## Project-local entry points
 
-**36** Python files: **3** Stage-2 orchestrators, **21** structural / build-quality utilities (labels, metadata, curriculum, citations, figures, labs, typography, lab computation, table captions, spelling normalization, chapter-shell repair, cover art, PDF-log checks, quality audit, current-claim audit, assessment metadata, visual-contract audit, publication-readiness audit), **9** optional pedagogy/content helpers, `_bootstrap.py`, `atomic_io.py`, and `__init__.py`. Details: [AGENTS.md](AGENTS.md).
+The tables below describe orchestrators and maintenance utilities; use current CLI help and the source registries rather than historical file counts. Details: [AGENTS.md](AGENTS.md).
 
 ### Stage-2 orchestrators (called by the pipeline)
 
 | Script | Run command | Output |
 | ------ | ----------- | ------ |
-| `biology_analysis.py` | `uv run python scripts/biology_analysis.py` | `output/manuscript/*.md` (134 files: front matter + preface + unit intros + chapters + labs + question banks + reference appendices; per-section Beamer skipped), plus live `config.yaml`, `references.bib`, `preamble.md`, and cover assets for the PDF renderer |
-| `generate_diagrams.py` | `uv run python scripts/generate_diagrams.py` | 24 PNGs (via `mmdc`) or 24 `.mmd` fallbacks in `output/figures/mermaid/`; add `--strict-png` for publication gates so non-PNG output fails |
+| `biology_analysis.py` | `uv run python scripts/biology_analysis.py` | Complete configured manuscript staging plus live configuration, bibliography, preamble and cover assets under `output/manuscript/` |
+| `generate_diagrams.py` | `uv run python scripts/generate_diagrams.py --strict-png` | Registered decoded PNGs under `output/figures/mermaid/`; `.mmd` fallback is not publication output |
 | `generate_figures.py` | `uv run python scripts/generate_figures.py` | 42 square-padded PNGs in `output/figures/` |
 
-These three scripts are called automatically by the template repository's Stage-02 pipeline runner (`02_run_analysis.py --project biology_textbook`) via the `analysis.scripts` allowlist in `docs/manuscript/config.yaml`; maintenance utilities stay manual and never run as part of Stage 02.
+Use these project-local entry points in this standalone checkout. A template-hosted integration may consume the configured analysis allowlist, but template-root recipes are not this project's launch workflow and must not write another checkout.
 
 ### Manuscript maintenance and build-quality helpers
 
@@ -24,7 +24,7 @@ their CLI help says otherwise. Non-mutating quality gates such as
 | ------ | ----- | ---------------- |
 | `insert_crossref_labels.py` | Inserts `\label{sec:unit_X_<stem>}` after every H1; rewrites legacy chapter-number prose to `\cref{}` when a canonical target exists | `test_build_invariants.test_every_chapter_has_section_label` |
 | `insert_chapter_metadata.py` | Chapter-metadata badges + canonical-title Course Planning Grid | `test_build_invariants.test_every_chapter_has_metadata_badge` |
-| `sync_curriculum_materials.py` | Canonical H1s/front-matter navigation, Study Blueprint blocks in chapters, evidence checklists in labs, instructor coverage notes in question banks, Appendix A curriculum map, and Appendix B instructor orchestration guide | `test_curriculum_metadata.py` / `test_toc_consistency.py` |
+| `sync_curriculum_materials.py` | Canonical headings, navigation, chapter Study Blueprints and generated curriculum/instructor appendices; preserves authored lab/question bodies | `test_curriculum_metadata.py` / `test_toc_consistency.py` |
 | `integrate_orphan_citations.py` | Weaves unused `references.bib` entries into chapter prose | `test_bibliography_closure.test_no_orphan_bibentries` |
 | `link_glossary.py` | `{#gl:<slug>}` anchors + semantic `\cref{sec:…}` glossary/index back-references; `--check` fails on dangling glossary links, duplicate anchors, or legacy chapter-number back-references | `test_build_invariants.test_glossary_and_index_use_semantic_chapter_links` |
 | `link_labs_to_chapters.py` | `\cref{sec:…}` opening in every lab & question bank | `test_build_invariants.test_every_{lab,question}_links_to_parent_chapter` |
@@ -36,13 +36,13 @@ their CLI help says otherwise. Non-mutating quality gates such as
 | `check_pdf_log.py` | Fails on undefined LaTeX references and severe overfull boxes above the configured point threshold | `test_pdf_log_quality.py` |
 | `audit_textbook_quality.py` | Reports generic answer keys, stale/current claims, student-facing authoring boilerplate, wet-lab drift, hard-coded references, glossary/citation closure, embedded-enrichment coverage, and ledger-backed absolute-language triage; `--check --max-advisories 0` is the blocking gate | `test_textbook_quality_audit.py` |
 | `audit_current_claims.py` | Validates `docs/manuscript/current_claims.yaml` and stale fast-moving claim phrases | `test_current_claims_ledger.py` |
-| `audit_publication_readiness.py` | Umbrella publication gate; `--check` runs project-local audits with temporary visual artifacts and `--full` adds root setup/test/render/validation plus coverage | `test_script_quality.py` |
-| `audit_visual_contracts.py` | Generates/checks a visual manifest and review matrix from raw figures, registered Mermaid, inline Mermaid fences, dimensions, alt text, captions, action taken, exceptions, and square-ish aspect policy; use `--figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check` for disposable review assets | publication-readiness gate |
+| `audit_publication_readiness.py` | Local source/static/visual gate; `--full` adds coverage, live analysis, fresh native rendering and strict PDF-log checks | `test_publication_gate.py` / `test_publication_receipt_custody.py` |
+| `audit_visual_contracts.py` | Generates/checks a visual manifest and review matrix from raw figures, registered Mermaid, inline Mermaid fences, dimensions, alt text, captions, action taken, exceptions, and square-ish aspect policy; use `--figures-root output/review/figures --output output/review/visual_manifest.json --render-inline --check` for repository-local disposable review assets | publication-readiness gate |
 | `annotate_table_captions.py` | Inserts `Table: … {#tbl:…}` captions before chapter and lab pipe tables missing them | `test_table_captions.py` |
 | `polish_table_captions.py` | Polishes existing pandoc table captions across the manuscript (thin CLI for `biology.crossref.table_captions`) | `test_table_captions.py` |
 | `normalize_american_english.py` | Rewrites British spellings to American English in manuscript and docs | `test_american_english.py` |
 | `repair_split_chapter_shells.py` | Repairs pedagogy shells on chapters created by the Phase 5 mega-chapter split (thin CLI for `biology.maintenance.chapter_shells`) | `test_chapter_shells.py` |
-| `sync_assessment_metadata.py` | Inserts/verifies item-level question metadata and lab LO/rubric alignment blocks; `--dry-run` previews drift without writing | `test_assessment_metadata.py` / `test_lab_pedagogy_alignment.py` |
+| `sync_assessment_metadata.py` | Nonwriting validation of authored semantic question mappings and lab LO/rubric records; missing records require author review | `test_assessment_metadata.py` / `test_lab_pedagogy_alignment.py` |
 
 ### Pedagogy and content (optional; mostly idempotent)
 
@@ -53,37 +53,36 @@ their CLI help says otherwise. Non-mutating quality gates such as
 | `extract_glossary_cards.py` | Exports glossary terms as study-card / review data |
 | `insert_further_reading.py` | Injects `## Further Reading and Source Notes: <Chapter Title>` from configured chapter cites + `references.bib` |
 | `pad_short_labs.py` | Appends debrief to short lab files |
-| `fill_answer_scaffolds.py` | Fills instructor scaffolds in question banks |
-| `insert_answer_keys.py` | Inserts solution HTML comments for instructor PDF path |
-| `refine_generated_answers.py` | Rewrites legacy/generated question answers, including `Expected reasoning:`, `Key answer:`, `Mechanistic answer:`, and stale source-boilerplate scaffolds; `--dry-run` should report `refined=0` after a clean pass |
-| `enrich_embedded_textbook.py` | Adds embedded chapter frontier boxes, unit evidence threads, lab evidence upgrades, answer-key refinement, and `docs/embedded_enrichment_audit_matrix.md` |
+| `fill_answer_scaffolds.py` | Unsupported automatic answer filling refuses without writing; author evidence-bound answers directly |
+| `insert_answer_keys.py` | Unsupported automatic key insertion refuses without writing; retain the canonical SOLUTION protocol |
+| `refine_generated_answers.py` | Validates and preserves authored answers; `--dry-run` reports required author actions without manufacturing keys |
+| `enrich_embedded_textbook.py` | Maintains supported frontier/companion material while preserving authored content; inspect proposed changes, not just counts |
 
 ## Prerequisites
 
 ```bash
-# From this project directory (or use root workspace uv sync)
-uv sync
-
-# Mermaid CLI (required for PDF builds with inline Mermaid fences)
-npm install -g @mermaid-js/mermaid-cli
-mmdc --version
+# From this project directory, with inherited project/environment overrides cleared:
+UV_PROJECT_ENVIRONMENT="$PWD/.venv" uv sync --frozen --extra dev
+npm ci
+export PATH="$PWD/node_modules/.bin:$PATH"
+mmdc --version  # locked project CLI, not a global install
 ```
 
 ## Custom Output Paths
 
 ```bash
-python3 scripts/generate_diagrams.py --strict-png --output-dir /tmp/diagrams
-python3 scripts/generate_figures.py  --output-dir /tmp/figures
+uv run python scripts/generate_diagrams.py --strict-png --output-dir output/review/diagrams
+uv run python scripts/generate_figures.py --output-dir output/review/figures
 ```
 
 ## Extending
 
 - **Add registered Mermaid diagram:** `src/mermaid/biology_diagrams.py` → `ALL_BIOLOGY_DIAGRAMS`
-- **Add inline Mermaid diagram:** write a fenced `mermaid` block followed by one `<!-- alt: ... -->` comment and one italic caption; PDF rendering converts it strictly to `output/figures/mermaid_inline/*.png` and fails if `mmdc` cannot render it. The manuscript currently has 193 inline Mermaid fences. Run `uv run python scripts/add_mermaid_alt_text.py --check` after edits.
+- **Add inline Mermaid diagram:** write a fenced `mermaid` block followed by one descriptive alt comment and one italic caption. Rendering requires a fresh PNG under this project's output tree; run `uv run python scripts/add_mermaid_alt_text.py --check` after edits.
 - **Add matplotlib figure:** `src/visualization/plots.py` → `ALL_FIGURE_GENERATORS`, then run `scripts/insert_orphan_figures.py` or reference it manually in a chapter
 - **Update current claims:** edit `docs/manuscript/current_claims.yaml`, then run `uv run python scripts/audit_current_claims.py --check` and `uv run python -m pytest tests/test_current_claims_ledger.py -v`.
-- **Update assessment metadata:** run `uv run python scripts/sync_assessment_metadata.py --dry-run` to preview drift, run without flags to write updates, then run `uv run python scripts/sync_assessment_metadata.py --check` and verify `tests/test_assessment_metadata.py tests/test_lab_pedagogy_alignment.py`.
-- **Update visual manifest:** run `uv run python scripts/audit_visual_contracts.py --figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check`; the manifest and review matrix should be re-derived rather than hand-authored.
+- **Update assessment metadata:** review the actual prompt/answer/outcome and edit its semantic record directly; use `sync_assessment_metadata.py --dry-run` and `--check` to validate, not generate, that content.
+- **Update visual manifest:** use `uv run python scripts/audit_visual_contracts.py --figures-root output/review/figures --output output/review/visual_manifest.json --render-inline --check`; re-derive the manifest and matrix rather than hand-authoring them.
 - **Add/reorder chapters:** `docs/manuscript/config.yaml` → `units[].chapters[]`, then add a matching `ChapterMeta(…)` in `src/biology/chapter_metadata.py`, a matching `CurriculumRecord` in `src/biology/curriculum.py`, confirm the unit alignment in `src/biology/alignment.py`, list companion lab/question files without `title:` fields, and run `scripts/insert_crossref_labels.py` + `scripts/sync_curriculum_materials.py` + `scripts/insert_chapter_metadata.py`
 - **Add a citation:** new `@entry{}` in `docs/manuscript/references.bib`, then either write `\citep{key}` in a chapter or add it to `scripts/integrate_orphan_citations.py` `INSERTIONS`
 - **Run an embedded enrichment pass:** `uv run python scripts/enrich_embedded_textbook.py --dry-run`, inspect the reported counts, then run without `--dry-run` if it only touches expected chapter/lab/question surfaces.

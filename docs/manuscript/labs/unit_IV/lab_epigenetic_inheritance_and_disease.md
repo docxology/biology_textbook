@@ -1,181 +1,109 @@
 # Lab — Epigenetic Inheritance and Disease {#sec:lab_unit_IV_epigenetic_inheritance_and_disease .unnumbered}
 
+*This activity accompanies \cref{sec:unit_IV_epigenetic_inheritance_and_disease} of the textbook.*
+
+## Learning Objectives {.unnumbered}
+
+- Interpret matched-normalization contact maps and perturbation evidence.
+- Identify the first unexposed generation in imprinting/exposure designs.
+- Select controls that separate inherited marks from DNA/cultural confounding.
+- Interpret trial design,cohort,endpoint and regulatory status separately.
+
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Epigenetic Inheritance and Disease.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO1):** Interpret matched-normalization contact maps and perturbation evidence.
+- **Outcome 2 (LO2):** Identify the first unexposed generation in imprinting/exposure designs.
+- **Outcome 3 (LO6):** Select controls that separate inherited marks from DNA/cultural confounding.
+- **Outcome 4 (LO7):** Interpret trial design,cohort,endpoint and regulatory status separately.
+- **Chapter LO coverage:** LO1, LO2, LO6, LO7
+- **Rubric (20 points total):**
+  - **Evidence — 6 points (LO1, LO2, LO6, LO7):** Award 1 for contact/RNA means and fourfold deletion changes with repair return, 1 for F3 methylation/phenotype means with pedigree denominators, 1 for both exposure maps, 1 for the maternal/paternal ICR state comparison, and 2 for 9/62 and 22/104 responses plus endpoint-specific 61%/74% hazard reductions. Arithmetic credit requires the correct cohort and endpoint, not interchangeable percentages.
+  - **Controls — 4 points (LO1, LO6):** Award 1 for matched contact normalization/window size and isogenic boundary repair, 1 for viable-cell normalization and an orthogonal perturbation in the puncta case, 1 for sequence/genotype and cross-fostering/standard-diet comparisons in the inheritance case, and 1 for mark-specific removal/reinstatement with matched manipulation controls. Explain which causal alternative each control tests.
+  - **Uncertainty — 4 points (LO1, LO6, LO7):** Award 1 for identifying viability loss as a puncta/RNA confound and withholding an LLPS claim from FRAP/drug sensitivity alone, 1 for explaining that three F3 pedigrees with matched assayed-locus genotype do not exclude genome-wide genetic or maternal-care alternatives, 1 for the single-arm sarcoma cohort's lack of placebo comparison, and 1 for distinguishing a hazard ratio from absolute response probability or a proportional change in waiting time.
+  - **Mechanism — 3 points (LO1, LO2):** Award 1 for a boundary-insulation explanation consistent with deletion and repair without assuming every contact is productive, 1 for the methylation→reduced CTCF→increased maternal IGF2 link, and 1 for distinguishing protection after fertilization from imprint erasure and sex-specific re-establishment in germ cells.
+  - **Transfer — 3 points (LO2, LO6, LO7):** Award 1 for applying exposure logic to obtain F3 for gestational and F2 for paternal-preconception designs, 1 for naming evidence that would distinguish persistent association from mark-mediated inheritance, and 1 for interpreting the dated clinical cards by product/indication, cohort and endpoint without converting historical response data into present approval or a treatment recommendation. Withdrawal of romidepsin PTCL must not be generalized to CTCL.
 <!-- lab-alignment-end -->
-
-*This activity accompanies \cref{sec:unit_IV_epigenetic_inheritance_and_disease} of the textbook — review that chapter before attempting the exercises below.*
 
 ## Lab Context: Epigenetic Inheritance and Disease {.unnumbered}
 
-This extension lab focuses on three-dimensional genome organization, transgenerational inheritance claims, and disease-linked epigenetic dysregulation using printed datasets rather than live database queries.
+All numeric observations and sequence/assay cards below are **synthetic teaching evidence**, not patient results or empirical measurements, unless a card explicitly names an official or primary source. No external packet, live lookup, equipment, or software is required.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_IV_epigenetic_inheritance_and_disease_alignment_and_rubric_map}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Epigenetic Inheritance and Disease: genomics/database source card: reference release, sample coverage, version, clinical boundary, and refresh trigger | 1 |
-| Printed datasets, cards, and worksheets referenced below | 1 set per group |
-| Graph paper or plain paper for diagrams | 1 |
-| Calculator | 1 |
+Print this complete activity; use pencil, ruler, graph paper, and calculator. Work in pairs but record independent conclusions.
+
+## Printed Evidence Packet {.unnumbered}
+
+### Contact and condensate evidence {.unnumbered}
+
+Synthetic capture-contact counts per 10,000 valid pairs; matched 500 kb windows; three independent cultures per arm. Target RNA is normalized to reference RNA. Boundary repair reverses the defined deletion in isogenic cells.
+
+: Contact perturbation and rescue {#tbl:unit_IV_epigenetic_inheritance_and_disease_alignment_and_rubric_map}
+| Condition | Contact counts | Target RNA |
+| --- | --- | --- |
+| Intact boundary | 10,12,8 | 1.0,1.1,0.9 |
+| Boundary deletion | 40,44,36 | 4.0,4.2,3.8 |
+| Boundary repair | 12,10,8 | 1.1,1.0,0.9 |
+
+Condensate cards: vehicle puncta in 100/100 cells; drug puncta in 20/100; RNA falls from 1 to 0.4; viability falls from 100% to 60%. A separate IDR mutant reduces puncta but preserves measured DNA binding. FRAP recovery or hexanediol sensitivity alone does not prove liquid–liquid phase separation.
+
+### Generational and imprinting evidence {.unnumbered}
+
+: Exposure and allele cards {#tbl:unit_IV_epigenetic_inheritance_and_disease_alignment_and_rubric_map_2}
+| Card | Supplied evidence |
+| --- | --- |
+| Gestational F0 exposure | Direct exposure reaches F1 fetus and its future F2 germ cells; F3 reared unexposed |
+| Paternal F0 preconception exposure | Sperm exposed; F1 conceived afterward; F2 unexposed |
+| Maternal IGF2/H19 ICR | Unmethylated, CTCF bound, IGF2 low, H19 high |
+| Paternal IGF2/H19 ICR | Methylated, CTCF low, IGF2 high, H19 low |
+| Maternal ICR hypermethylation | CTCF binding falls; maternal IGF2 increases |
+| PGC reset | Parental imprints erased, then sex-specific marks re-established during gametogenesis |
+
+Synthetic F3 data from three independent pedigrees per arm: methylated-cytosine fractions 0.20,0.22,0.18 versus controls 0.10,0.11,0.09; phenotype units 12,13,11 versus controls 10,11,9. Standard diet and assayed-locus genotype are matched; no genome-wide variant exclusion or mark-specific rescue is provided.
+
+### Dated clinical cards {.unnumbered}
+
+Paraphrases of retrieved primary/official sources, not fabricated measurements or source quotations; reviewed 2026-11-07.
+
+: Cohort, endpoint and regulatory evidence {#tbl:unit_IV_epigenetic_inheritance_and_disease_alignment_and_rubric_map_3}
+| Source | Printed evidence |
+| --- | --- |
+| Gounder 2020, NCT02601950 | Open-label single-arm 62-patient INI1/SMARCB1-loss epithelioid sarcoma cohort: 9 responses, median PFS 5.5 months, median response time 3.9 months, no placebo \citep{gounder2020tazemetostat} |
+| FDA withdrawal table | Tazemetostat both indications: 2026-06-22; panobinostat MM: 2022-03-24; romidepsin PTCL: 2021-07-30, not a statement that CTCL was withdrawn \citep{fda2026withdrawncancer} |
+| FDA INDIGO 2024 | 331 randomized post-surgery IDH1/2-mutant grade-2 glioma patients; PFS HR 0.39, next-intervention HR 0.26 \citep{fda2024vorasidenib} |
+| FDA AUGMENT-101 2024 | 104 R/R acute leukemia patients with KMT2A translocation; CR+CRh 22/104 (21.2%); median duration of CR+CRh 6.4 months; age 1+ approval \citep{fda2024revumenib} |
 
 ## Paper-Based Investigation {.unnumbered}
 
-5. **Design an Alternative Investigation**: Instead of just analyzing provided data, design a paper-based study plan to test how a specific nutrient (e.g., folate, B12) affects DNA methylation patterns in a model organism. What hypothesis would you test? Which tissue datasets, controls, and metadata fields would you require?
-
-6. **Hypothesis**: Predict the direction and magnitude of methylation changes you might observe with nutrient supplementation.
+1. Compute mean contact and RNA fold changes; explain how boundary repair strengthens causal inference and why mismatched normalization prevents absolute probability comparisons.
+For the condensate cards, compare drug-induced puncta/RNA loss with the viability change. Propose a viable-cell-normalized comparison and an orthogonal IDR-mutant test; explain what could remain unresolved about phase separation even if puncta and RNA change together.
+2. Map the first unexposed generation in both exposure designs. Interpret parent-of-origin ICR states and distinguish PGC reset from post-fertilization protection.
+3. Compare F3 means and design sequence, cross-fostering, and mark-editing rescue controls to discriminate alternatives.
+4. Reconstruct the two response fractions and both INDIGO relative hazard reductions using $100(1-HR)$%. Separate PFS from time to next intervention, hazard from absolute probability or waiting time, and historical trial results from the dated U.S. regulatory card; name each cohort and endpoint.
 
 ## Data Recording {.unnumbered}
 
-: Alignment and Rubric Map: Condition and Repressor bound to operator?. {#tbl:unit_IV_epigenetic_inheritance_and_disease_alignment_and_rubric_map_2}
-| Condition | Repressor bound to operator? | CAP-cAMP at promoter? | lac genes expressed? |
-| --------- | ---------------------------- | --------------------- | -------------------- |
-| No lactose, no glucose | Yes | No | No |
-| Lactose present, no glucose | | | |
-| No lactose, glucose present | | | |
-| Lactose + glucose | | | |
-
-MS-PCR result — BRCA1: Methylated? (Y/N)  Normal: ___  Cancer: ___  
-ChIP-seq — BRCA1 H3K4me3 peak height: Normal: ___ Cancer: ___ Interpretation: ___
-
-Agouti mouse case study: Methyl donor involved: ___; Epigenetic enzyme: ___; Phenotypic consequence: ___
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Compare inheritance models and predict disease consequences of regulatory disruption.
-- **Data skill to practice:** Interpret Hi-C, imprinting, or transgenerational datasets with causal caution.
-- **BioSkills emphasis:** Process of science, Science and society, Quantitative reasoning.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+Record each calculation with units, the comparison/control, and one alternative explanation. Show intermediate steps; use a separate column for observed card evidence versus inferred mechanism.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Epigenetics and Gene Regulation** with a reproducibility pass:
-
-: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_IV_epigenetic_inheritance_and_disease_alignment_and_rubric_map_3}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
-
-Focus note: When interpreting methylation, chromatin, or gene-silencing datasets, demand a causal perturbation, a matched cell type, and a control for timing or inheritance before reading a pattern as a regulatory mechanism. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
-
-### Worked Example: Estimating Methylated CpG Sites in Cancer vs Normal {.unnumbered}
-
-**Problem:** A tumor suppressor gene has a CpG island promoter containing 15 CpG dinucleotides. Bisulfite sequencing reports an average methylation level of 85% across these sites in cancer cells and 12% in matched normal cells. Assume the silencing threshold for this promoter is methylation of at least 80% of CpGs. Estimate how many CpG sites are methylated in each condition and judge whether the gene is likely active in each.
-
-**Solution:**
-
-- Cancer cells: 0.85 × 15 ≈ 12.75, round to 13 of 15 sites methylated. The fraction methylated (13/15 ≈ 0.87) exceeds the 0.80 threshold.
-- Normal cells: 0.12 × 15 ≈ 1.8, round to about 2 of 15 sites methylated. The fraction methylated (2/15 ≈ 0.13) sits well below the 0.80 threshold.
-
-**Interpretation:** In the tumor sample the promoter has crossed the silencing threshold and the gene is expected to be transcriptionally repressed; in the matched normal tissue the same promoter is hypomethylated and the gene is expected to be expressed. This pattern — promoter hypermethylation of a tumor suppressor — is consistent with epigenetic loss of function of a single allele or both alleles without any change to the protein-coding DNA sequence.
+Bulk contact maps do not prove LLPS or function. Persistence into an unexposed generation is necessary but insufficient for a causal inheritance claim. Refresh product/indication status against official records; historical trial data remain historical. No clinical recommendation follows from these cards.
 
 ## Analysis Questions {.unnumbered}
 
-1. The lac repressor is an allosteric protein. How does allolactose binding change the shape of the repressor so that it can no longer bind the operator? Relate this to the induced fit model.
+Explain which result supports the proposed mechanism, which result would falsify it, and what additional measurement would discriminate the strongest alternative. Apply the mechanism to a new tissue, genotype, or condition without treating synthetic observations as clinical evidence.
 
-2. In catabolite repression, high glucose causes low cAMP because glucose inhibits adenylate cyclase. Trace: high glucose → [cAMP] → CAP-cAMP binding → lac promoter activity. Why does the cell preferentially use glucose over lactose?
+> **Concept Check:** Why does persistence into F3 strengthen a gestational-exposure claim without proving that a methylation change, rather than DNA variation, caused the phenotype?
 
-3. A cancer cell has methylation of a tumor suppressor gene promoter but no mutation in the coding sequence. Is this a genetic or epigenetic mutation? Why is this clinically important for therapy selection (hint: methyltransferase inhibitors vs traditional chemotherapy)?
+## Instructor Key and Scoring Expectations {.unnumbered}
 
-4. The agouti mouse model showed that maternal diet (methyl-group-rich foods) changes offspring coat color and obesity risk through epigenetic marks. Name the methyl donors involved (from diet) and the epigenetic writing enzyme that places the mark on CpG islands.
+### Worked Results and Interpretation {.unnumbered}
 
-5. Design an experiment using induced pluripotent stem cell (iPSC) technology to test whether erasing epigenetic marks (global demethylation) is sufficient to reprogram a differentiated skin fibroblast. What control groups would you include?
-
-
-## Post-Lab Synthesis {.unnumbered}
-
-> **Concept Check (Synthesis):** A clinical team is debating how to treat two patients whose tumors both show loss of expression of the same tumor suppressor gene. Tumor A carries a frameshift coding mutation that truncates the protein at amino acid 87 (full length 451). Tumor B carries no coding mutation but shows 90% promoter CpG methylation and a strong H3K27me3 signal across the gene body. Evaluate whether the epigenetic silencing in Tumor B is functionally equivalent to the truncating mutation in Tumor A.
->
-> (a) Compare the two lesions across three dimensions — reversibility in principle, heritability through mitosis and (where relevant) meiosis, and feasibility of therapeutic reactivation — and identify at least one experiment that could distinguish a fully epigenetic lesion from a small undetected coding lesion.
-> (b) Recommend a treatment strategy for each tumor that follows from your analysis (for example, a DNA methyltransferase inhibitor or an EZH2 inhibitor for one tumor, a synthetic-lethal partner for the other), and state one piece of evidence that would make you change the recommendation.
-
-## Extension Analysis Questions {.unnumbered}
-
-6. Methylation-sensitive restriction enzymes (e.g., HpaII) and methyl-insensitive isoschizomers (e.g., MspI) cut the same sequence but primarily MspI cuts methylated DNA. Describe one experimental use of this enzyme pair for mapping genome-wide methylation without bisulphite conversion.
-
-7. Transgenerational epigenetic inheritance in humans remains controversial. What *specific* molecular evidence would convince you it is real? (Address confounding: shared environment, germline reprogramming.)
-
-8. The textbook introduces CRISPR-dCas9 epigenome editing. Design a dCas9-based experiment to re-activate the silenced tumor-suppressor gene you identified in the ChIP-seq analysis, and predict one off-target risk.
-
-9. **Statistical Analysis**: If you performed three replicates of an MS-PCR experiment, how would you analyze the variation in methylation status? What statistical test would you use to determine if differences between groups are significant?
-
-10. **Experimental Error Analysis**: What are three potential sources of error in epigenetic data analysis? How could you modify the procedure to reduce each source of error?
-
-## Group Project Extension (Multi-Session) {.unnumbered}
-
-**Design an Epigenetic Diet Intervention Study**
-
-This project will span 2-3 lab sessions:
-
-**Session 1**: Research Question and Hypothesis
-- Can dietary methyl donors (folate, B12, choline) alter DNA methylation patterns in humans?
-- What genes might be most responsive to such changes?
-- Write a detailed protocol for a dietary intervention study
-
-**Session 2**: Data Collection and Analysis
-- Collect dietary intake data and DNA samples (or use public datasets)
-- Analyze methylation at candidate genes using bisulphite sequencing
-- Compare methylation changes between intervention and control groups
-
-**Session 3**: Data Interpretation and Presentation
-- Correlate methylation changes with health outcomes
-- Create a scientific poster or presentation
-- Discuss limitations and future directions
-
-## Real-World Problem Solving: Epigenetic Ethics {.unnumbered}
-
-**Case Study: Epigenetic Discrimination**
-
-1. **Research Task**: Investigate the current legal protections against genetic discrimination (e.g., GINA in the US). Do these laws cover epigenetic information? Why or why not?
-
-2. **Ethical Consideration**: Should employers or insurance companies be allowed to use epigenetic age estimates to make decisions? What are the potential benefits and risks?
-
-3. **Policy Proposal**: Design a policy framework for the ethical use of epigenetic information. Consider: consent, privacy, access, and potential for discrimination.
+<!-- SOLUTION
+Contact means 10→40→10 per 10,000 pairs, RNA 1→4→1: deletion increases both fourfold and repair rescues them, supporting boundary function without proving every contact is productive. Drug puncta loss is confounded by 40% viability loss; normalize viable cells and use orthogonal perturbations. Gestational F0: first unexposed F3; paternal preconception F0: first unexposed F2. Maternal ICR methylation can reduce CTCF insulation and increase IGF2. Imprints may be protected after fertilization but normally reset in PGCs. F3 means 0.20 versus 0.10 and phenotype 12 versus 10 support association, not mark-mediated causation; sequence, maternal-care and selection confounding remain. Mark-specific removal and reinstatement strengthen causality. Sarcoma 9/62=14.5% (rounded15%), no placebo comparison. INDIGO PFS 1−0.39=61% lower hazard; next intervention 1−0.26=74% lower hazard, not 74% shorter waiting time. Revumenib 22/104=21.15%, specifically CR+CRh; 6.4 months describes that response duration. Tazemetostat is no longer FDA-approved for the two listed indications. See \cref{sec:unit_IV_epigenetic_inheritance_and_disease}.
+SOLUTION -->
 
 ## Safety and Ethics Notes {.unnumbered}
 
-Data-analysis primarily lab — no reagents, no risk. Discussions of patient cancer data should respect privacy principles (de-identification; aggregate reporting). Agouti mouse studies involve animal experimentation — students should briefly discuss the 3Rs framework (Replacement, Reduction, Refinement) and when mouse models are (and are not) scientifically justified. Epigenetic age clocks have attracted commercial wellness-industry interest; discuss the limits of current evidence before drawing lifestyle conclusions from a single patient's clock.
-
-### Source-Governance Checkpoint {.unnumbered}
-
-Complete the source-governance card for Epigenetic Inheritance and Disease before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
-
-## Debrief and Reflection {.unnumbered}
-
-After you finish the practical work, spend 5–10 minutes in your small group comparing results and discussing the following prompts. Each member should contribute at least one observation before moving to the next prompt:
-
-1. **What did your measurements show** — compare the group's results to the textbook's predictions. Where they diverge, suggest at least one mechanistic explanation before concluding "experimental error."
-
-2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
-
-3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
-
-4. **Connection back to the textbook** — identify one section of \cref{sec:unit_IV_epigenetic_inheritance_and_disease} that your data either confirmed or complicated. Cite the specific passage.
-
-5. **Experimental Design Reflection**: What was the strongest aspect of your experimental design? What would you change if you could repeat the experiment?
-
-## Further Reading (Lab) {.unnumbered}
-
-- Revisit the parent chapter \cref{sec:unit_IV_epigenetic_inheritance_and_disease} for the theoretical foundations on which this lab is built.
-- Look up any **bolded glossary term** introduced in the textbook chapter (each has a `#gl:term-slug` link in the text) — its master definition is in `docs/manuscript/glossary.md`.
-- Explore the Python code in `src/biology/genetics/genetics.py` for epigenetic calculations.
-- Use the self-contained Part 2 snippet as the computational template; it runs against tested project modules without external notebooks or CSV files.
+Required work is paper-only: no cultures, reagents, biological samples, medical decisions, or participant data collection. Optional wet/equipment extensions require institutional protocols and separate approval; they are not needed to complete or score this activity.

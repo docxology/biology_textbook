@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import re
+from collections.abc import Mapping, Sequence
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Mapping, Sequence, cast
+from typing import Any, cast
 
 import yaml
 
@@ -20,7 +21,7 @@ def _compile_pattern(name: str, pattern: str, flags: int) -> re.Pattern[str]:
 def _load_raw() -> dict[str, Any]:
     raw = yaml.safe_load(_CATALOG_PATH.read_text(encoding="utf-8"))
     if not isinstance(raw, dict):
-        raise ValueError(f"{_CATALOG_PATH} must contain a mapping at the top level")
+        raise TypeError(f"{_CATALOG_PATH} must contain a mapping at the top level")
     return raw
 
 

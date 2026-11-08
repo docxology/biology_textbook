@@ -1,258 +1,99 @@
 # Lab — Chromosomal Inheritance and Linkage {#sec:lab_unit_V_chromosomal_inheritance .unnumbered}
 
-
-*This activity accompanies \cref{sec:unit_V_chromosomal_inheritance} of the textbook — review that chapter before attempting the exercises below.*
+*This activity accompanies \cref{sec:unit_V_chromosomal_inheritance}.*
 
 ## Learning Objectives {.unnumbered}
-
-- Design and evaluate genetic linkage mapping datasets to determine gene order
-- Formulate testable hypotheses about chromosomal abnormalities from karyotype data
-- Identify independent, dependent, and controlled variables in cytogenetic studies
-- Analyze experimental data using recombination frequencies and statistical methods
-- Write a brief scientific report with hypothesis, methods, results, and conclusion
-
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Chromosomal Inheritance and Linkage.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO9):** Assign phase-aware crossover classes, interval distances and interference.
+- **Outcome 2 (LO7):** Distinguish karyotype dosage from evidence about nondisjunction stage.
+- **Outcome 3 (LO6):** Calculate conditional X-linked risk and the effect of cis versus trans phase.
+- **Chapter LO coverage:** LO9, LO7, LO6
+- **Rubric (20 points):** Score the following categories separately; arithmetic credit requires the relevant offspring, sex or culture denominator.
+  - **Evidence (8 points; LO9, LO7, LO6):** Award 3 for both interval RFs (0.5 each), summed map length and outer RF (0.5 each), and DCO expectation/CoC/interference (1); 2 for correct count-versus-dosage classifications of K1–K4 (0.5 each); 3 for H, C and cis/trans sex-conditioned risks (1 per card).
+  - **Controls (3 points; LO9, LO7):** Award 1 for explaining how the abc/abc tester reveals maternal gametes; 1 for using untreated cultures as the spindle-perturbation baseline; 1 for comparing culture-level rates/means rather than treating all cells as independent treatments.
+  - **Uncertainty (3 points; LO9, LO7):** Award 1 for identifying the six DCOs as a sparse sample, not proof of a universal negative-interference rule; 1 for explaining why chromosome counts cannot identify MI versus MII; 1 for a concrete unmeasured limitation such as viability distortion, marker informativeness or mosaicism and its effect on inference.
+  - **Mechanism (4 points; LO9, LO7, LO6):** Award 1 for locating B by the parental/DCO allele change; 1 for explaining why DCOs enter both intervals but not outer RF; 1 for connecting centromeric isodisomy/distal heterodisomy to recombination plus a compatible MII-error/rescue history without calling it unique; 1 for tracing paternal X transmission and maternal phase to the different risks.
+  - **Transfer (2 points; LO6):** In the analysis prompt, award 1 for rejecting a phase-specific two-condition risk from H's one-locus record and 1 for identifying the additional phase/RF information needed. A one-locus risk alone earns neither transfer point.
 <!-- lab-alignment-end -->
-## Pre-Lab Concept Questions {.unnumbered}
-
-*Answer these before starting the investigation — they activate knowledge from the parent chapter.*
-
-1. Define non-disjunction in your own words, and state the meiotic stage at which it can occur (meiosis I, meiosis II, or both). For each case, describe whether the resulting gametes are missing a chromosome, carry an extra chromosome, or both.
-2. Explain why females heterozygous for an X-linked recessive allele are typically described as somatic mosaics for that trait. Reference X-inactivation (the Lyon hypothesis) and the timing of the inactivation choice during embryonic development.
-3. A karyotype shows 47 chromosomes with the configuration 47,XXY. Predict the likely phenotypic syndrome, state whether the extra chromosome originated from a maternal or paternal non-disjunction event with higher prior probability, and identify the meiotic stage most often implicated.
-
-## Pre-Lab Inquiry Questions {.unnumbered}
-
-*Complete these questions before coming to lab. Use your textbook and additional research to inform your hypotheses.*
-
-1. **Hypothesis Formation**: Based on your understanding of genetic linkage, predict how the recombination frequency between two genes would change if they were located very close together on the same chromosome versus far apart.
-
-2. **Experimental Design**: What is the independent variable in a linkage mapping experiment? What is the dependent variable? List at least 5 variables that should be controlled to ensure accurate mapping.
-
-3. **Scientific Context**: The chi-square test can be used to determine if observed recombination frequencies differ significantly from expected. Why is this test important in linkage analysis? What does a significant deviation tell you?
-
-4. **Quantitative Reasoning**: If genes A and B have a recombination frequency of 12 cM, and genes B and C have 8 cM, what is the expected recombination frequency between A and C if there is no interference? How does interference affect this?
-
-5. **Real-World Application**: Chromosomal abnormalities like Down syndrome are often caused by nondisjunction. Why does maternal age increase the risk of nondisjunction? What cellular mechanisms normally prevent this?
 
 ## Lab Context: Chromosomal Inheritance and Linkage {.unnumbered}
 
-Genes on the same chromosome are linked and tend to be inherited together (violating independent assortment). The **recombination frequency** between linked genes — measured as the percentage of recombinant offspring among total — is proportional to map distance (1% recombination = 1 centimorgan, cM). X-linked traits are carried on the X chromosome; since males are hemizygous (XY), a single recessive allele is expressed. Nondisjunction during meiosis (failure of chromosomes to separate) produces aneuploid gametes, leading to conditions such as trisomy 21 (Down syndrome).
+Printed chromosome inventories substitute for images without losing dosage evidence. Chromosome number alone does not identify the meiotic division of origin.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_V_chromosomal_inheritance_alignment_and_rubric_map}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Chromosomal Inheritance and Linkage: inheritance source card: model assumptions, sampling frame, ancestry/context boundary, and uncertainty | 1 |
-| Linkage mapping dataset (3 genes, pairwise recombination frequencies) (printed) | 1 |
-| Karyotype images (4 cases: normal, trisomy 21, Turner syndrome 45,X, translocation) (printed) | 1 set |
-| Scissors and paste (for karyotype sorting exercise) | 1 set |
-| X-linked pedigrees (2 cases: color blindness, haemophilia) (printed) | 1 |
-| Ruler | 1 |
-| Chromosome pair cards (22 homologous pairs, numbered) | 1 set |
-| Calculator or optional Python REPL with this project installed | 1 |
-| Statistical analysis worksheet | 1 |
+This printed packet, paper, pencil and a calculator are sufficient. No culture, image download, volunteer family survey, database access or Python execution is required. All newly stipulated observations below are **synthetic teaching data**, not empirical measurements or clinical decision rules. Replicates and denominators are given explicitly; do not treat technical repeats as independent biological samples.
+
+## Printed Evidence Packet {.unnumbered}
+
+: Eight-class three-point testcross; counts are offspring and haplotypes are maternal gametes. {#tbl:unit_V_chromosomal_inheritance_alignment_and_rubric_map}
+| Haplotype | ABC | abc | Abc | aBC | ABc | abC | AbC | aBc | Total |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Count | 440 | 435 | 48 | 45 | 14 | 12 | 4 | 2 | 1000 |
+
+Testcross assumptions: maternal phase ABC/abc, tester abc/abc; offspring reveal maternal gametes without scoring error or viability distortion. Treat the two largest classes as parentals and the two smallest as candidate double crossovers under the short-interval three-point model. Counts are one synthetic cross, not replicate crosses.
+
+: Four complete chromosome-inventory cards (diploid human metaphase). {#tbl:unit_V_chromosomal_inheritance_part_3_karyotype_analysis}
+| Case | Printed inventory |
+| --- | --- |
+| K1 | Autosomes1–22 each2 copies;X2,Y0;total46 |
+| K2 | Autosomes1–22 each2 copies;X1,Y0;total45 |
+| K3 | Autosomes 1–20 and 22 each 2 copies; 21 has 3; X2,Y0; total 47 |
+| K4 | Autosomes 1–13,15–20,22 each 2 copies; one free 14, one free 21 and one fused rob(14;21); X2,Y0; total 45; two copies each of 14q/21q |
+
+: Pedigree and linked-marker cards. {#tbl:unit_V_chromosomal_inheritance_part_3_karyotype_analysis_2}
+| Card | Genotypes/evidence |
+| --- | --- |
+| H | I unaffected male X^HY ×carrier female X^HX^h have II affected male X^hY. II mates with a known carrier X^HX^h; consider III daughters andsons separately. |
+| C | Color-vision locus: carrier X^CX^c mother ×X^CY father; complete penetrance; no mutation |
+| Phase | Independent of H/C: maternal X loci h,c with RF=.06;compare hc/HC versus hC/Hc |
+| UPD | Mother has centromeric alleles M1/M2,distal D1/D2. Child receives maternal M1/M1 andD1/D2, no paternal copy; marker typing is reliable. |
+
+: Spindle-perturbation archived teaching counts and formulas. {#tbl:unit_V_chromosomal_inheritance_part_3_karyotype_analysis_3}
+| Replicate | Untreated abnormal/total | Perturbed abnormal/total |
+| --- | --- | --- |
+| 1 | 2/100 | 18/100 |
+| 2 | 3/100 | 20/100 |
+| 3 | 1/100 | 22/100 |
+| Rule | RF=interval recombinants/n;expected DCO=n×r1×r2 | CoC=observed/expected;I=1−CoC |
+
+Each spindle row is an independently prepared synthetic culture per arm; the 100 cells are subsamples. H/C and phase-card risks are conditional on the stated sex, with full penetrance, equal transmission and no new mutation. For the phase comparison, assume sons receive Y from the father. The phase card is a separate hypothetical cross, not evidence inferred from H's one-locus pedigree.
 
 ## Paper-Based Investigation {.unnumbered}
 
-### Part 1: Genetic Linkage Mapping {.unnumbered}
-
-1. **Formulate Your Hypothesis**: Based on your pre-lab research, write a hypothesis about the order of three genes given their pairwise recombination frequencies.
-
-2. **Identify Variables**:
-   - Independent variable: Gene order (which gene is in the middle)
-   - Dependent variable: Recombination frequencies between gene pairs
-   - Controlled variables: Population size, crossover detection method, etc.
-
-3. **Set Up Controls**: Why is it important to have a large sample size in linkage mapping? What other controls could you include to ensure accurate recombination frequency measurements?
-
-4. **Data Collection**:
-   - Given pairwise recombination frequencies: genes A–B = 12 cM, B–C = 8 cM, A–C = 20 cM.
-   - Draw the linear linkage map. Which gene is in the middle? Indicate the distances between each adjacent pair.
-   - Calculate the expected coefficient of coincidence (observed double crossovers / expected double crossovers) and interference (1 - coefficient of coincidence).
-
-### Part 2: Computational Biology Exercise — Linkage Analysis with Python {.unnumbered}
-
-*Optional computational check: run this self-contained Python snippet from the project root. It uses tested `src/biology` modules and requires no external notebook or CSV file.*
-
-Infer a simple three-point map from pairwise recombination distances.
-
-```python
-from biology.genetics import genetic_distance, infer_three_point_order
-
-distances = {("A", "B"): 12.0, ("B", "C"): 8.0, ("A", "C"): 20.0}
-order = infer_three_point_order(distances)
-
-print("gene order:", " - ".join(order.order))
-print("adjacent distances:", order.adjacent_distances_cM)
-print("24 recombinants among 200 progeny:", genetic_distance(24, 200), "cM")
-```
-### Part 3: Karyotype Analysis {.unnumbered}
-
-5. **Design an Alternative Investigation**: Instead of just analyzing provided karyotype images, design a paper-based case-control study using archived karyotype datasets to investigate the effect of a spindle-disrupting condition on chromosome segregation. What hypothesis would you test? How would you analyze the resulting karyotype calls?
-
-6. **Hypothesis**: Predict how exposure to a microtubule-disrupting agent (like colchicine) would affect chromosome number and structure in dividing cells.
+1. Infer gene order from parentals/DCOs before computing both interval RFs, their summed map length, outer RF and interference. Compare the expectation under independent intervals with observed DCOs.
+2. Classify K1–K4 by count and dosage. Calculate abnormality rates in each archived replicate and compare treatments without assuming chromosome morphology was measured. Interpret the UPD marker pattern.
+3. Compute H daughter/son risks, C risks and phase-card proportions of sons with both conditions. State which baseline and uncertain assumptions each inference uses.
 
 ## Data Recording {.unnumbered}
 
-Linkage map sketch:
-
-`A —[___cM]— B —[___cM]— C`
-
-: Part 3: Karyotype Analysis: Karyotype Case and # chromosomes. {#tbl:unit_V_chromosomal_inheritance_part_3_karyotype_analysis}
-| Karyotype Case | # chromosomes | Abnormality | Syndrome (if any) |
-| -------------- | ------------- | ----------- | ----------------- |
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
-| 4 | | | |
-
-X-linked pedigree genotypes:
-
-: Part 3: Karyotype Analysis: Individual and Phenotype. {#tbl:unit_V_chromosomal_inheritance_part_3_karyotype_analysis_2}
-| Individual | Phenotype | Genotype |
-| ---------- | --------- | -------- |
-| Gen I male | Unaffected | X^B Y |
-| Gen I female | | |
-| Gen II affected male | | |
-| Gen III carrier female | | |
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Map linked genes and reason from chromosomal anomalies.
-- **Data skill to practice:** Infer gene order or chromosomal mechanism from offspring counts.
-- **BioSkills emphasis:** Quantitative reasoning, Process of science.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+For each task record the case/replicate identifier, supplied inputs with units, equation or classification rule, intermediate calculation, result and one alternative explanation. Keep the printed evidence unchanged and mark any proposed exclusion with a reason.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Chromosomal Inheritance and Linkage** with a reproducibility pass:
-
-: Part 3: Karyotype Analysis: Evidence check and Student action. {#tbl:unit_V_chromosomal_inheritance_part_3_karyotype_analysis_3}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
-
-Focus note: in this lab the paper karyotypes, three-point cross data, and pedigrees are the evidence — score recombination frequencies, gene order, and nondisjunction division from the dataset itself rather than from the expected ratio. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
-
-### Worked Example: X-linked Hemophilia A Carrier Cross {.unnumbered}
-
-**Problem:** A woman is a carrier for hemophilia A with genotype X^H X^h. Her partner has hemophilia A with genotype X^h Y. Construct a Punnett square and calculate the probability that (a) a son has hemophilia, (b) a daughter is a carrier, and (c) a daughter has hemophilia. Express each result as a fraction and a percentage.
-
-**Solution:** The mother produces two gamete types, X^H and X^h, with equal probability. The father produces X^h and Y gametes with equal probability. The 2 × 2 Punnett square yields four offspring genotypes, each at 1/4 expected frequency: X^H X^h (carrier daughter), X^H Y (unaffected son), X^h X^h (affected daughter), and X^h Y (affected son). Conditioning on sex, sons inherit Y from the father and either X^H or X^h from the mother, giving 1/2 unaffected and 1/2 affected sons; daughters inherit X^h from the father and either X^H or X^h from the mother, giving 1/2 carrier and 1/2 affected daughters.
-
-(a) P(son has hemophilia) = 1/2 of sons = 50%. Among offspring, 1/4 are affected sons = 25%.
-(b) P(daughter is a carrier, X^H X^h) = 1/2 of daughters = 50%. Among offspring, 1/4 = 25%.
-(c) P(daughter has hemophilia, X^h X^h) = 1/2 of daughters = 50%. Among offspring, 1/4 = 25%.
-
-**Interpretation:** Because the father is hemizygous and affected, half of his daughters inherit the recessive allele on his X and the other half inherit it from the carrier mother as well — an unusually high rate of affected daughters compared with a more typical carrier mother × unaffected father cross, where affected daughters are rare. The expected ratios assume Mendelian segregation and equal viability, which can be perturbed by selection or sampling variation in small families.
-
-### Source-Governance Checkpoint {.unnumbered}
-
-Complete the source-governance card for Chromosomal Inheritance and Linkage before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+**Printed source card:** Sturtevant1913 uses recombination to order genes. The packet is a new illustrative testcross, not his original dataset. Short-interval RF approximates map distance; map distance is not physical length, and DCO sampling uncertainty matters. The toy inventories do not establish a clinical prognosis or parent-of-origin. Refresh a dosage interpretation with breakpoint, mosaicism or informative marker evidence. Source-card tasks: identify which observations are synthetic and which statements summarize published evidence; record the publication date and endpoint/model; name a refresh trigger. A live source lookup is not required to answer this packet.
 
 ## Analysis Questions {.unnumbered}
 
-1. In linkage mapping, why does the A–C recombination frequency (20 cM) not simply equal A–B + B–C (12 + 8 = 20 cM) in real experiments? Explain the concept of double crossovers and interference.
+Use the printed controls and replicate rates to explain what the spindle comparison supports and what it cannot identify about meiotic stage. Then assess this proposed transfer: “H's pedigree establishes that 47% of sons will have both h and c conditions.” State whether that inference is licensed and identify the missing information using the separate phase card. No additional family observations are stipulated.
 
-2. A woman is a carrier of haemophilia A (X^H X^h) and is also heterozygous for an autosomal trait (Aa). She marries a normal man (X^H Y; AA). Calculate the probability their first-born son is affected with haemophilia. Show most steps using the product rule.
+<!-- SOLUTION
+## Instructor Worked Results and Scoring Expectations {.unnumbered}
 
-3. Karyotype Case 3 showed trisomy 21. During which meiotic division is nondisjunction most commonly occurring in cases of Down syndrome, and what is the evidence supporting this conclusion (hint: consider maternal age effects and the stage vulnerable to cohesin loss)?
+Task1: middleB; A–B=(48+45+4+2)/1000=.099; B–C=(14+12+4+2)/1000=.032. Map length13.1cM;outer RF=(48+45+14+12)/1000=.119. Expected DCO3.168,observed6;CoC1.89394,I≈−.89394. Negative interference here is a sample summary, not proof of a general biological rule; do not force apositive result.
+Task 2: K1 typical 46,XX; K2 45,X; K3 trisomy 21; K4 balanced rob(14;21) carrier. Counts do not distinguish MI/MII. Untreated rates 2%,3%,1% versus 18%,20%,22%; mean 2% versus 20%. Three replicate units, not 600 independent experimental treatments. UPD has centromeric isodisomy but distal heterodisomy, compatible with prophase-I recombination before MII error/rescue.
+Task 3: H half daughters carrier, half affected; half sons affected. Every daughter receives paternal X^h, not half. C half sons affected, half daughters carriers. Cis hc/HC gives 47% sons both, 47% neither, 3% each single; trans hC/Hc gives 3% both, 3% neither, 47% each single. Credit conditioning on sex and phase.
 
-4. An individual with Turner syndrome (45,X) is phenotypically female. Explain why the presence of a single X chromosome leads to infertility and why males (46,XY) with a single X chromosome are not similarly affected.
+Transfer benchmark: H supplies no c-locus genotype, two-locus maternal phase or recombination fraction. The separate phase card gives 47% in cis versus 3% in trans under its own assumptions; neither value can be assigned to H without the corresponding two-locus evidence. Score this boundary separately from correct H arithmetic.
+SOLUTION -->
 
-5. Philadelphia chromosome (a translocation between chromosomes 9 and 22, creating BCR-ABL fusion oncogene) causes chronic myeloid leukaemia (CML). Explain: (a) why a translocation creates a fusion gene; (b) what the BCR-ABL kinase does biochemically; (c) why imatinib (a tyrosine kinase inhibitor) is effective.
+## Safety and Ethics {.unnumbered}
 
-## Extension Analysis Questions {.unnumbered}
+Paper only: no hazardous materials or human-subject recruitment. Synthetic pedigrees and clinical cases are not diagnoses. Use person-first language, do not infer identity, parentage or ancestry from the examples, and distinguish equitable access and informed consent from the biological calculation.
 
-6. **Statistical Analysis**: If you performed three replicates of a linkage mapping experiment, how would you analyze the variation in recombination frequencies? What statistical test would you use to determine if differences between gene pairs are significant?
+## Optional Extension {.unnumbered}
 
-7. **Experimental Error Analysis**: What are three potential sources of error in karyotype analysis? How could you modify the procedure to reduce each source of error?
-
-8. **Experimental Design**: If you wanted to test whether two genes are linked or assort independently, how would you design the experiment? What data would you collect? How would you analyze it?
-
-## Group Project Extension (Multi-Session) {.unnumbered}
-
-**Design a Cytogenetic Study of Environmental Mutagens**
-
-This project will span 2-3 lab sessions:
-
-**Session 1**: Research Question and Hypothesis
-- Choose an environmental mutagen (e.g., tobacco smoke, pesticides, radiation)
-- Formulate a hypothesis about its effect on chromosome structure or number
-- Design an experiment using model organisms (e.g., onion root tip, fruit fly)
-
-**Session 2**: Data Collection and Analysis
-- Expose organisms to different concentrations of mutagen
-- Prepare and analyze chromosome spreads
-- Quantify chromosome abnormalities (breaks, fragments, aneuploidy)
-
-**Session 3**: Data Interpretation and Presentation
-- Compare abnormality rates between control and treated groups
-- Calculate statistical significance
-- Create a scientific poster or presentation
-
-## Real-World Problem Solving: Genetic Counseling {.unnumbered}
-
-**Case Study: Prenatal Screening for Chromosomal Abnormalities**
-
-1. **Research Task**: Investigate the different methods for prenatal screening and diagnosis (ultrasound, serum markers, NIPT, amniocentesis). What are the advantages and limitations of each?
-
-2. **Ethical Consideration**: Should most pregnant women be offered prenatal screening for chromosomal abnormalities? What are the potential psychological and social implications of such testing?
-
-3. **Policy Proposal**: Design a policy for responsible use of prenatal genetic testing. Consider: informed consent, access, counseling, and follow-up options.
-
-
-## Post-Lab Synthesis {.unnumbered}
-
-> **Concept Check (Synthesis):** Carrier females for X-linked recessive disorders such as hemophilia A and Duchenne muscular dystrophy often show milder or variable phenotypes compared with affected males. Use X-inactivation (the Lyon hypothesis) and somatic mosaicism to evaluate the cellular and developmental reasons for this pattern.
->
-> (a) Explain why each somatic cell in a heterozygous female typically expresses just one of her two X chromosomes as the result of random X-inactivation, and why the choice of which X to inactivate is random and clonally inherited. What proportion of cells, on average, expresses the mutant allele in a carrier female, and what is the expected variance around that mean across tissues and individuals?
-> (b) Describe how somatic mosaicism produces a patchwork of normal and mutant cells in a carrier female. For a clotting-factor disorder such as hemophilia A, evaluate why circulating factor levels in carrier females tend to fall within a wide range rather than at a fixed intermediate value, and identify at least one factor (such as skewed X-inactivation) that can shift a carrier toward the affected end of the spectrum.
-> (c) Predict how the severity distribution would differ for an X-linked disorder whose phenotype depends on a local tissue (for example, a retinal cell-autonomous trait such as red-green color vision) versus one that depends on a circulating product. Identify which scenario is more likely to show patchy or sectoral phenotypes in carrier females, and justify the prediction in mechanistic terms.
-
-## Safety and Ethics Notes {.unnumbered}
-
-No chemical hazards. Karyotype analysis using real patient images: most should be de-identified. Discussion of chromosomal conditions should use person-first language and be conducted respectfully. Consider the ethical implications of genetic testing and counseling.
-
-## Debrief and Reflection {.unnumbered}
-
-After you finish the practical work, spend 5–10 minutes in your small group comparing results and discussing the following prompts. Each member should contribute at least one observation before moving to the next prompt:
-
-1. **What did your measurements show** — compare the group's results to the textbook's predictions. Where they diverge, suggest at least one mechanistic explanation before concluding "experimental error."
-
-2. **What would change the outcome** — propose one modification to the procedure that would sharpen the measurement or extend the result to a new biological context, and predict what you would observe.
-
-3. **One-sentence headline** — each student composes a single sentence summarizing the lab's take-home message, suitable for a tweet. Compare sentences across groups; good headlines are short, quantitative, and mechanistic.
-
-4. **Connection back to the textbook** — identify one section of \cref{sec:unit_V_chromosomal_inheritance} that your data either confirmed or complicated. Cite the specific passage.
-
-5. **Experimental Design Reflection**: What was the strongest aspect of your experimental design? What would you change if you could repeat the experiment?
-
-## Further Reading (Lab) {.unnumbered}
-
-- Revisit the parent chapter \cref{sec:unit_V_chromosomal_inheritance} for the theoretical foundations on which this lab is built.
-- Look up any **bolded glossary term** introduced in the textbook chapter (each has a `#gl:term-slug` link in the text) — its master definition is in `docs/manuscript/glossary.md`.
-- Explore the Python code in `src/biology/genetics/genetics.py` for chromosomal inheritance calculations.
-- Use the self-contained Part 2 snippet as the computational template; it runs against tested project modules without external notebooks or CSV files.
+Design, on paper, one additional controlled comparison and predict its result under each competing explanation. Actual wet or clinical work requires appropriate supervision and approval and is not part of this activity.

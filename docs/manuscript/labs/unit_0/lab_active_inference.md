@@ -21,12 +21,17 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Active Inference and Free Energy.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO2):** Compute Gaussian posterior means, variances and sensor-precision effects.
+- **Outcome 2 (LO3):** Separate belief revision, epistemic action and state-restoring action in ten cards.
+- **Outcome 3 (LO4):** Explain the temperature model without claiming clinical prediction.
+- **Outcome 4 (LO6):** Compare information-seeking and goal-directed policies using explicit costs.
+- **Chapter LO coverage:** LO2, LO3, LO4, LO6
+- **Rubric dimensions (12 points total):** Score the following five categories; correct labels without the specified work do not earn full credit.
+  - **Evidence — 4 points (LO2, LO3, LO4):** Award 2 for showing prediction error, gain, posterior mean and variance for the food and temperature updates with length/temperature versus squared units distinguished, including the changed sensory variances and loose temperature prior; award 2 for coding all ten cards with reasons identifying the operation, including E then A on card 10. Credit defensible multiple codes only when separate operations are described.
+  - **Controls — 2 points (LO2, LO6):** Award 1 for comparing sensory-variance cases while holding the food prior and cue location fixed, and 1 for a policy comparison that holds motor cost constant while changing cue informativeness. Merely naming a control earns no point without its held and changed variables.
+  - **Uncertainty — 2 points (LO4, LO6):** Award 1 for explaining that the temperature posterior depends on assumed sensor/prior errors rather than establishing homeostatic status, and 1 for explaining why a free-energy bound at fixed data need not approach zero and why the stipulated policy score is not a validated biological model.
+  - **Mechanism — 2 points (LO2, LO3, LO4):** Award 1 for connecting increased sensory precision to the larger gain and posterior shift, and 1 for distinguishing belief revision, new sampling and warming actions by what each changes. Warming must change future observations, not retrospectively change the fixed observation.
+  - **Transfer — 2 points (LO6):** Award 1 for calculating the three policy scores in each information condition and explaining the warming-to-inspection switch, and 1 for using the packet's stimulus-response rival to state why the same behavior alone cannot establish active inference. A policy preference without the cost/information comparison earns no calculation credit.
 <!-- lab-alignment-end -->
 ## Pre-Lab Concept Questions {.unnumbered}
 
@@ -54,7 +59,7 @@ Today's lab is paper-based: you will work through two hand-computed examples and
 ## Pre-Lab (to complete before class) {.unnumbered}
 
 1. Copy \cref{eq:lab_ai_fe} into your notebook and annotate each symbol.
-2. For a Gaussian prior $\mathcal{N}(\mu_0, \sigma_0^2)$ and Gaussian likelihood $\mathcal{N}(o, \sigma_o^2)$, write the closed-form posterior mean and variance.
+2. For independent Gaussian prior and likelihood errors, use $K=\sigma_0^2/(\sigma_0^2+\sigma_o^2)$, $\mu_1=\mu_0+K(o-\mu_0)$ and $\sigma_1^2=(1-K)\sigma_0^2$. Identify the units of each quantity.
 3. Choose one everyday example of *perceptual inference* and one of *active inference* that you could describe in two sentences each. You will compare them with the scenario cards during Part 3.
 
 ---
@@ -86,18 +91,22 @@ A bird forages for seeds hidden under two snow patches. Its prior belief about t
 A person wakes up cold. Their generative model has a tight prior on body temperature ($\mu = 37$ °C, $\sigma = 0.5$). Their interoceptive sensor reports 34.5 °C with $\sigma = 1.0$.
 
 1. Compute the posterior belief about their body temperature (same formulae as Part 1).
-2. The posterior free energy is reduced but still positive. List **three actions** the person could take that would drive free energy further toward zero by *changing the observation* rather than the belief.
-3. Argue in one paragraph why active inference is more effective than perceptual inference when the prior precision is tight (small $\sigma_0$) — i.e., when the organism is "committed" to a particular internal state.
+2. List three hypothetical warming actions and explain how they would change future observations. A bound evaluated at fixed data need not approach zero, and changing the observation changes the evidence; no numerical free-energy calculation is required for this case.
+3. Explain why prior precision affects the posterior but does not alone determine the best action: movement costs, safety and alternative models also matter. This is not advice for treating hypothermia.
 
 ### Part 3 — Behavior Scenario Classification {.unnumbered}
 
-Use the ten printed behavior scenario cards. For each behavior, annotate whether it is perceptual (sampling information) or active (imposing prediction on the environment). Record the evidence phrase that made your classification reproducible. As an optional extension outside class, you may compare the cards with a respectful observation of an animal or consenting human, but the scenario cards are the required dataset.
+Use the ten printed cards below. Code P for belief updating at fixed data, E for epistemic action that samples new data, and A for state-restoring action. More than one code is acceptable only when separate operations are identified. A behavior description does not prove that an organism implements active inference.
+
+### Part 4 — Explicit Policy Comparison {.unnumbered}
+
+Use a dimensionless synthetic score $G=\text{cost}-\text{information}$, choosing the lowest value: waiting (cost 2, information 0), inspecting (2.5, 1), warming (0.5, 0). Calculate all scores, then change only inspection information to 3 and compare again. Propose a control holding motor cost constant while cue informativeness changes. This stipulated score is not a fitted biological policy or a complete derivation of expected free energy.
 
 ---
 
 ## Data Tables {.unnumbered}
 
-: Part 3 — Behavior Scenario Classification: Step and Quantity. {#tbl:unit_0_active_inference_part_3_behaviour_scenario_classification}
+: Gaussian food-location update and sensory-variance worksheet. {#tbl:unit_0_active_inference_part_3_behaviour_scenario_classification}
 | Step | Quantity | Symbol | Computed value | Units |
 | ---- | -------- | ------ | -------------- | ----- |
 | 1 | Prediction error | $\varepsilon$ | | m |
@@ -107,18 +116,23 @@ Use the ten printed behavior scenario cards. For each behavior, annotate whether
 | 5a | $\mu_1$ with very noisy cue | | | m |
 | 5b | $\mu_1$ with very precise cue | | | m |
 
-: Part 3 — Behavior Scenario Classification: Observation # and Behavior described. {#tbl:unit_0_active_inference_part_3_behaviour_scenario_classification_2}
-| Observation # | Behavior described | Perceptual or active? | Brief reasoning |
-| ------------- | ------------------- | --------------------- | --------------- |
+: Classification worksheet for all ten synthetic behavior cards. {#tbl:unit_0_active_inference_part_3_behaviour_scenario_classification_2}
+| Observation # | Behavior described | P, E or A | Brief reasoning |
+| ------------- | ------------------- | --------- | --------------- |
 | 1 | | | |
 | 2 | | | |
 | 3 | | | |
 | 4 | | | |
 | 5 | | | |
+| 6 | | | |
+| 7 | | | |
+| 8 | | | |
+| 9 | | | |
+| 10 | | | |
 
+Temperature worksheet: $K=$ ____; posterior mean ____ °C; posterior variance ____ °C². Record the loose-prior comparison separately.
 ---
 
-<!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
 
 - **Primary evidence goal:** Model sensing and action as coupled inference in a simple organism.
@@ -128,14 +142,13 @@ Use the ten printed behavior scenario cards. For each behavior, annotate whether
 - **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
 - **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
 - **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
 **Active Inference and Free Energy** with a reproducibility pass:
 
-: Part 3 — Behavior Scenario Classification: Evidence check and Student action. {#tbl:unit_0_active_inference_part_3_behaviour_scenario_classification_3}
+: Evidence and reproducibility decisions for inference models and behavior cards. {#tbl:unit_0_active_inference_part_3_behaviour_scenario_classification_3}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -149,7 +162,11 @@ equipment version belongs only in an optional extension.
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Active Inference and Free Energy before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+**Printed governance card A1:** Synthetic illustrative scenarios and Gaussian models, one specified case per card; no measured participants or biological replicates. Baseline = unchanged prior and no action; rival = a stimulus-response controller. Model inputs and likelihood assumptions, not a clinical diagnosis, determine the numerical key. Refresh trigger = biased or correlated sensory errors.
+
+**Ten behavior cards:** 1. A bird revises food position after viewing a fixed photograph. 2. A bird turns its head to view a concealed patch. 3. A cold mouse enters a warm nest. 4. A person revises an estimate after reading an already available thermometer. 5. A person takes a second temperature measurement. 6. A robot moves to a charger to raise battery level. 7. A robot scans two rooms to locate a charger. 8. A moth updates its location estimate after a fixed odor pulse. 9. A mouse approaches two equally accessible food patches to learn which is replenished. 10. A person first tests bath water with a finger, then adds warm water. These are synthetic descriptions, not observations of real individuals.
+
+**Instructor key:** Cards 1,4,8=P; 2,5,7,9=E; 3,6=A; 10=E then A. Information sampling is action, not passive belief revision. Part 1: error 6 m, gain 0.25, mean 11.5 m, variance 3 m^2; with variance 100 the mean is 10.2308 m, and with variance 0.5 it is 15.3333 m. Part 2: mean 36.5 degrees C, variance 0.20 degrees C^2; a loose prior variance 25 gives mean 34.5962 degrees C. Neither is evidence of an organism's homeostatic status. For policy comparison use synthetic G=cost-information: waiting (2-0=2), inspecting (2.5-1=1.5), warming (0.5-0=0.5); warming wins only under those stated costs. If inspection information becomes 3, inspection gives -0.5 and wins. A fair control holds motor cost constant while changing cue informativeness.
 
 ### Worked Example: Bayesian update of a discrete food-location belief {.unnumbered}
 
@@ -161,14 +178,14 @@ Complete the source-governance card for Active Inference and Free Energy before 
 - Evidence: (0.8 × 0.3) + (0.2 × 0.7) = 0.24 + 0.14 = 0.38.
 - Posterior: 0.24 / 0.38 ≈ 0.632.
 
-**Interpretation:** The prediction error is large — the prior gave patch A a 0.3 weight, but the precise cue pushes the posterior to about 0.63. A higher-precision sensor (likelihood 0.95 versus 0.05) would have moved the posterior closer to 0.89; a noisier sensor would have left the belief closer to the prior. This is the same mechanism a sensory neuron uses to weigh top-down prediction against bottom-up evidence — precision sets the gain on the update.
+**Interpretation:** The cue raises P(A) from 0.3 to about 0.632; using likelihoods 0.95 and 0.05 instead gives 0.890625. This is an explicit Bayesian statistical model. Its resemblance to predictive-processing accounts motivates experiments, but the calculation does not establish that every sensory neuron implements this update.
 
 
 ## Analysis Questions {.unnumbered}
 
 1. Explain in one paragraph how the Kalman gain can be read as "precision-weighted uncertainty reduction" — why $K$ depends on the ratio of prior variance to total variance.
-2. The generative model in Part 2 uses a *tight* prior (low variance) on body temperature. How would the calculation change if the prior were loose ($\sigma = 5$ °C)? Which regime corresponds to a pre-homeostatic organism; which to a strictly regulated endotherm?
-3. In humans, chronic anxiety is sometimes described as a "tight prior on safety." Using your computation from Part 2, explain why normal day-to-day sensory noise becomes persistently surprising to an anxious agent and what "widening the prior" (via exposure therapy or pharmacology) is doing mathematically.
+2. Recalculate Part 2 with prior sigma=5 degrees C. Explain why a different statistical prior is not by itself evidence that an organism lacks homeostatic regulation.
+3. Explain how biased sensing and a precise threat prior could produce similar choices in a toy anxiety model. Propose a reliability manipulation that distinguishes them without claiming the model establishes a treatment mechanism.
 4. Scientists have attempted to build artificial life — robots that minimize free energy with respect to a battery-level sensor. Describe what the agent's **prior** on battery state and **action repertoire** would need to be so that the robot "feels hungry" at low charge and seeks a charging pad.
 5. The textbook chapter notes that evolution itself can be cast as free-energy minimization at the population scale: organisms whose generative models fail are eliminated. Argue for or against this framing by contrasting it with the Modern Synthesis's emphasis on fitness differentials.
 

@@ -4,10 +4,8 @@ from __future__ import annotations
 
 import math
 from dataclasses import dataclass
-from typing import Optional
 
 from textbook_logging import get_logger
-
 
 logger = get_logger(__name__)
 
@@ -37,10 +35,10 @@ class ChiSquaredResult:
 
 
 def hardy_weinberg(
-    p: Optional[float] = None,
-    q: Optional[float] = None,
-    dominant_homozygous_freq: Optional[float] = None,
-    recessive_homozygous_freq: Optional[float] = None,
+    p: float | None = None,
+    q: float | None = None,
+    dominant_homozygous_freq: float | None = None,
+    recessive_homozygous_freq: float | None = None,
 ) -> HardyWeinbergResult:
     """Compute Hardy-Weinberg equilibrium frequencies."""
     if p is not None and q is not None:
@@ -81,25 +79,47 @@ def chi_squared_test(
     observed: list[float],
     expected: list[float],
     alpha: float = 0.05,
+    *,
+    ddof: int = 0,
 ) -> ChiSquaredResult:
-    """Perform a chi-squared goodness-of-fit test for Mendelian ratios."""
+    """Pearson goodness-of-fit test with equal observed/expected totals.
+
+    ``ddof`` counts parameters fitted from these observations: use 1 for a
+    biallelic HWE test with estimated allele frequency, 0 for fixed Mendelian
+    ratios. The asymptotic reference distribution requires adequate expected
+    counts; this function does not make a small-sample exact test.
+    """
     if len(observed) != len(expected):
         raise ValueError("observed and expected must have equal length.")
-    if any(e <= 0 for e in expected):
-        raise ValueError("All expected values must be positive.")
     if len(observed) < 2:
         raise ValueError("Need at least 2 categories.")
+    if any(not math.isfinite(o) or o < 0 for o in observed):
+        raise ValueError("Observed values must be finite and non-negative.")
+    if any(not math.isfinite(e) or e <= 0 for e in expected):
+        raise ValueError("All expected values must be finite and positive.")
+    if not math.isfinite(alpha) or not 0 < alpha < 1:
+        raise ValueError("alpha must be finite and in (0, 1).")
+    if isinstance(ddof, bool) or not isinstance(ddof, int):
+        raise TypeError("ddof must be a non-negative integer leaving positive degrees of freedom.")
+    if not 0 <= ddof < len(observed) - 1:
+        raise ValueError("ddof must be a non-negative integer leaving positive degrees of freedom.")
+    # Scale before summing so even large finite counts have comparable totals.
+    scale = max(max(observed), max(expected))
+    if not math.isclose(math.fsum(o / scale for o in observed),
+                        math.fsum(e / scale for e in expected), rel_tol=1e-12, abs_tol=0.0):
+        raise ValueError("observed and expected must have equal totals.")
 
-    chi2 = sum((o - e) ** 2 / e for o, e in zip(observed, expected))
-    df = len(observed) - 1
+    chi2 = 0.0
+    for o, e in zip(observed, expected):
+        standardized = (o - e) / math.sqrt(e)
+        chi2 += standardized * standardized
+    df = len(observed) - 1 - ddof
 
     from scipy.stats import chi2 as chi2_dist
 
     p_value = float(chi2_dist.sf(chi2, df))
 
-    critical_values = {1: 3.841, 2: 5.991, 3: 7.815, 4: 9.488, 5: 11.070}
-    critical = critical_values.get(df, df * 2.0)
-    reject_null = chi2 > critical
+    reject_null = p_value < alpha
 
     logger.debug("Chi-squared=%.4f, df=%d, p≈%.4f, reject=%s", chi2, df, p_value, reject_null)
     return ChiSquaredResult(

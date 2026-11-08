@@ -21,8 +21,8 @@ You will study the multiprotein complexes that replicate DNA with an error rate 
 mistake per 10⁹ base pairs, the RNA polymerases that transcribe genes in a regulated, stimulus-responsive
 manner, and the ribosome — a 2.5 MDa ribonucleoprotein machine that interprets the genetic code at
 ~15 amino acids per second. You will also examine how mutations drive evolution and disease, how the
-genome is structurally organized, and how CRISPR-Cas9 has made precise genome editing a clinical
-reality \citep{doudna2014}.
+genome is structurally organized, and how RNA-guided editing led to defined clinical applications,
+such as the ex vivo stem-cell editing in Casgevy's dated 2023 approval \citep{doudna2014,fda2023casgevy}.
 
 ---
 
@@ -36,7 +36,7 @@ reality \citep{doudna2014}.
 | Nirenberg & Matthaei | 1961 | \citep{nirenberg1961} | Deciphering the genetic code | Used cell-free translation of poly-U to show UUU = phenylalanine; cracked the codon table |
 | Jacob & Monod | 1961 | \citep{jacob1961} | *lac* operon — gene regulatory model | First demonstration of gene circuit logic; inducer-repressor-operator model |
 | Alec Jeffreys | 1984 | \citep{jeffreys1984} | DNA fingerprinting (RFLP-based) | Transformed forensic science, paternity testing, and population genetics |
-| Doudna & Charpentier | 2012 | \citep{doudna2012} | CRISPR-Cas9 programmable genome editing | Created a precise molecular \"scissors\" for any target sequence; Nobel Prize 2020 |
+| Jinek, Chylinski and colleagues | 2012 | \citep{doudna2012} | RNA-programmable Cas9 double-stranded DNA cleavage | Demonstrated guide-complementary, PAM-compatible cleavage in vitro; Doudna and Charpentier received the Nobel Prize in 2020 |
 
 ---
 
@@ -44,7 +44,7 @@ reality \citep{doudna2014}.
 
 ```mermaid
 graph TD
-    DNA["🧬 DNA Double Helix<br/>(anti-parallel; A–T, G–C;<br/>5'→3' polarity)"] --> REP["🔁 Replication<br/>(semi-conservative;<br/>DNA pol III; proofreading)"]
+    DNA["🧬 DNA Double Helix<br/>(anti-parallel; A–T, G–C;<br/>5'→3' polarity)"] --> REP["Replication<br/>semi-conservative, proofreading<br/>Bacteria: Pol III<br/>Eukaryotes: Pol ε/δ"]
     DNA --> TRANS["📝 Transcription<br/>(RNA polymerase;<br/>promoter → mRNA)"]
 
     TRANS --> mRNA["📨 mRNA Processing<br/>(5' cap, 3' polyA,<br/>splicing → exons)"]
@@ -85,10 +85,11 @@ paper-based lab decision.
 
 | Chapter | Title | Core Question | Key Equation / Model |
 | ------- | ----- | ------------- | -------------------- |
-| **12** | DNA Replication and the Cell Cycle | How is DNA copied with such extraordinary accuracy, and how is replication coupled to cell division? | Error rate: ~10⁻⁹ per base; cell cycle checkpoint models |
-| **13** | Gene Expression | How is genetic information transcribed and translated into functional proteins? | Rate equations for coupled transcription-translation |
-| **14** | Mutations, CRISPR, and Genomics | What causes mutations, how are they repaired, and what does the human reference genome reveal? | Jukes-Cantor distance; mutation rate × generation time |
-| **15** | Epigenetics and Gene Regulation | How do chromatin, methylation, and regulatory RNAs tune gene expression without changing DNA sequence? | Methylation state; histone modification; regulatory network logic |
+| \cref{sec:unit_IV_dna_replication_and_cell_cycle} | DNA Replication and the Cell Cycle | How is DNA copied with such extraordinary accuracy, and how is replication coupled to cell division? | Error rate: ~10⁻⁹ per base; cell cycle checkpoint models |
+| \cref{sec:unit_IV_gene_expression} | Gene Expression | How is genetic information transcribed and translated into functional proteins? | Rate equations for coupled transcription-translation |
+| \cref{sec:unit_IV_mutations_and_genomics} | Mutations, CRISPR, and Genomics | What causes mutations, how are they repaired, and what does the human reference genome reveal? | Jukes-Cantor distance; mutation rate × generation time |
+| \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} | Chromatin and Epigenetic Mechanisms | How do chromatin, methylation, and regulatory RNAs tune gene expression without changing DNA sequence? | Methylation state; histone modification; regulatory network logic |
+| \cref{sec:unit_IV_epigenetic_inheritance_and_disease} | Epigenetic Inheritance and Disease | Which states persist, and what evidence links them to disease? | Generation controls; clinical endpoints |
 
 ---
 

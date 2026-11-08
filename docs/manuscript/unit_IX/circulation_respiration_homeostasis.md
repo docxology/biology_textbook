@@ -64,7 +64,7 @@ The cardiovascular system evolved to overcome the limitations of diffusion for O
 | ---------- | -------- | --------- | ------------ |
 | 2-chamber | 1 atrium + 1 ventricle | Fish | Single circuit: heart to gills to body to heart |
 | 3-chamber | 2 atria + 1 ventricle | Amphibians, most reptiles | Double circuit with some mixing in ventricle |
-| 3.5-chamber | Partial septum | Crocodilians | Nearly complete ventricular separation |
+| 4-chamber with shunts | 2 atria + 2 ventricles | Crocodilians | Complete ventricular septum; vascular connections permit regulated shunting |
 | 4-chamber | 2 atria + 2 ventricles | Birds, mammals | Complete separation of pulmonary and systemic circuits |
 
 The 4-chamber heart enables complete separation of oxygenated and deoxygenated blood, supporting the high metabolic rates required for endothermy.
@@ -216,7 +216,7 @@ The arterial **baroreceptor reflex** is the body's primary short-term blood pres
 
 ```mermaid
 flowchart TD
-    BP["Blood pressure rises<br/>(e.g., standing → MAP increase)"]
+    BP["Blood pressure rises<br/>(an acute arterial-pressure rise)"]
     Recep["Carotid sinus + aortic arch<br/>baroreceptors stretch<br/>→ increased firing"]
     NTS["Nucleus tractus solitarii (NTS)<br/>medulla oblongata<br/>(integration center)"]
     Sym["Sympathetic outflow<br/>DECREASED<br/>(via RVLM inhibition)"]
@@ -236,14 +236,14 @@ flowchart TD
     Sym --> Vol
     Para --> HR
 
-    HR -.->|"Net effect:<br/>BP normalizes"| BP
+    HR -.->|"Net effect:<br/>Opposes pressure rise"| BP
     SV -.-> BP
     TPR -.-> BP
     Vol -.-> BP
 ```
-<!-- alt: Flowchart showing baroreceptor reflex Pressure rise stretches arterial baroreceptors, increasing firing to the NTS in the medulla. The NTS inhibits the rostral ventrolateral medulla (RVLM, sympathetic premotor neurons) and excites the nucleus ambiguus (parasympathetic). Reduced sympathetic and increased parasympathetic outflow lower HR, contractility, and TPR — restoring normal MAP within seconds. -->
+<!-- alt: Flowchart showing baroreceptor reflex rapidly opposes an arterial-pressure perturbation through autonomic changes in heart and vessels. Speed of compensation does not guarantee full MAP restoration, particularly with severe volume loss or impaired effectors. -->
 
-*Baroreceptor reflex Pressure rise stretches arterial baroreceptors, increasing firing to the NTS in the medulla. The NTS inhibits the rostral ventrolateral medulla (RVLM, sympathetic premotor neurons) and excites the nucleus ambiguus (parasympathetic). Reduced sympathetic and increased parasympathetic outflow lower HR, contractility, and TPR — restoring normal MAP within seconds.*
+*The baroreceptor reflex rapidly opposes an arterial-pressure perturbation through autonomic changes in heart and vessels. Speed of compensation does not guarantee full MAP restoration, particularly with severe volume loss or impaired effectors.*
 
 The reflex is **bidirectional**: low MAP unloads baroreceptors → reduced firing → disinhibition of sympathetic outflow → tachycardia, vasoconstriction, increased contractility. **Orthostatic hypotension** results from impaired baroreflex (autonomic neuropathy in diabetes, aging, or pure autonomic failure).
 
@@ -271,11 +271,15 @@ The **renin-angiotensin-aldosterone system** is the dominant long-term BP regula
 - **Thirst** (subfornical organ)
 - **Direct renal effects:** preferential constriction of efferent arteriole (preserves GFR during hypoperfusion); proximal tubule Na$^+$ reabsorption
 
-> **Clinical Connection — RAAS pharmacology:** ACE inhibitors (lisinopril, enalapril) block conversion of Ang I to Ang II. ARBs (losartan, valsartan) block AT$_1$ receptors. Direct renin inhibitors (aliskiren) block at the top. Aldosterone antagonists (spironolactone, eplerenone) block the mineralocorticoid receptor. These four classes are foundational for hypertension, heart failure (HFrEF), diabetic nephropathy, and post-MI ventricular remodeling. The 2024 PARADIGM-HF trials established **ARNI (angiotensin receptor-neprilysin inhibitor; sacubitril/valsartan)** as superior to ACE inhibition alone in HFrEF — neprilysin inhibition prolongs natriuretic peptides (ANP/BNP) while ARB blocks AT$_1$.
+> **Clinical Connection — RAAS pharmacology:** ACE inhibitors reduce Ang II generation; ARBs block AT$_1$; mineralocorticoid antagonists block aldosterone action. These classes have indication-specific roles, not interchangeable benefits in every disease. Sacubitril/valsartan is an ARNI that replaces ACE-inhibitor/ARB therapy rather than being added to an ACE inhibitor. Concomitant ACE-inhibitor use is contraindicated, with a 36-hour separation when switching; the label also warns about angioedema, hypotension, renal impairment, and hyperkalemia \citep{fda2025entresto}.
 
 ## Digestive, Nutritional, Renal, and Excretory Integration
 
-Animal homeostasis also depends on how the gut, liver, kidney, and excretory surfaces couple intake to internal composition. Digestion is not just "food breakdown"; it is staged chemical and mechanical processing: stomach acid denatures proteins and limits microbes, pancreatic enzymes and bile complete macromolecule hydrolysis in the small intestine, and villi plus microvilli expand absorptive surface for monosaccharides, amino acids, lipids, vitamins, and ions \citep{niddk2024digestivesystem}. Nutritional status then becomes a systems variable. A high-protein meal changes hepatic urea production and renal nitrogen excretion; a low-salt or dehydrating environment recruits RAAS and ADH; and malnutrition weakens immune barriers, wound repair, growth, and reproductive function \citep{fao2025sofi}.
+Animal homeostasis also depends on how the gut, liver, kidney, and excretory surfaces couple intake to internal composition. Digestion is not just "food breakdown"; it is staged chemical and mechanical processing: stomach acid denatures proteins and limits microbes, pancreatic enzymes and bile complete macromolecule hydrolysis in the small intestine, and villi plus microvilli expand absorptive surface for monosaccharides, amino acids, lipids, vitamins, and ions \citep{niddk2024digestivesystem}.
+
+Nutritional status then becomes a systems variable. A high-protein meal changes hepatic urea production and renal nitrogen excretion; a low-salt or dehydrating environment recruits RAAS and ADH. Nutrient availability supplies energy and building blocks for growth and cell repair; connect these processes to \cref{sec:unit_III_metabolic_integration} rather than treating food intake as an isolated organ function.
+
+The 2025 SOFI report tracks population-level food security and nutrition, including high food-price inflation and access to healthy diets \citep{fao2025sofi}. Such indicators inform policy; they do not by themselves diagnose an individual's nutrient deficiencies or establish cellular mechanisms of disease.
 
 The vertebrate kidney stabilizes plasma volume, osmolality, pH, electrolytes, and nitrogen balance by filtering plasma, reclaiming useful solutes, secreting selected wastes, and concentrating urine \citep{niddk2024kidneys}. Filtration at the glomerulus is pressure-driven; proximal tubules reclaim most filtered Na$^+$, glucose, amino acids, and bicarbonate; the loop of Henle builds the corticomedullary osmotic gradient; distal nephron segments fine-tune Na$^+$, K$^+$, acid-base, and water balance under aldosterone and ADH. Across animals, excretory designs solve the same problem with different constraints: aquatic fishes can excrete ammonia directly, mammals convert nitrogen to urea, and birds/reptiles conserve water by excreting uric acid. The unifying claim is comparative and mechanistic: excretion trades ATP, water, and toxicity risk against the environment an organism inhabits.
 
@@ -327,9 +331,9 @@ Positive NFP: fluid filters **out** of capillary at the arteriolar end.
 \label{eq:circulation_respiration_homeostasis_8}
 \end{equation}
 
-Negative NFP: fluid is **reabsorbed** into capillary at the venular end.
+The classical calculation predicts inward flow at this instant; it does not establish sustained venular reabsorption in the intact steady-state microcirculation.
 
-**Net result:** ~90% of filtered fluid is reabsorbed at the venular end. The remaining ~10% (about 2–3 L/day) must be returned via the **lymphatic system**.
+**Revised interpretation:** The endothelial glycocalyx and subglycocalyx oncotic gradient alter the classical Starling picture. In most tissues, slight filtration persists at steady state even in venules, with lymphatic return balancing net filtration. Transient reabsorption can follow an abrupt capillary-pressure fall, and specialized absorbing beds need separate treatment; a universal 90% venular-reabsorption rule is not valid \citep{levick2010microvascular}.
 
 ### The Lymphatic System
 
@@ -341,7 +345,7 @@ The lymphatic system drains excess interstitial fluid and returned plasma protei
 - Right lymphatic duct (drains right chest, arm, head) and thoracic duct (drains everything else) return lymph to venous circulation (subclavian veins)
 - Flow: ~2–3 L/day; lymph protein concentration ~2 g/dL (compared with plasma ~7 g/dL)
 
-> **Clinical Connection:** **Lymphoedema** occurs when lymphatic return is impaired, causing protein-rich fluid to accumulate in the interstitium. Causes: filariasis (*Wuchereria bancrofti*, the leading worldwide cause), surgical lymph node dissection (common after breast cancer surgery), or radiation damage. Unlike simple edema (protein-poor), lymphoedema is high-protein, making it prone to skin fibrosis, infection (cellulitis), and functional impairment. **Pitting edema** (non-lymphoedema) results from elevated $P_c$ (heart failure, portal hypertension) or reduced $\pi_c$ (hypoalbuminaemia from cirrhosis or nephrotic syndrome).
+> **Clinical Connection:** **Lymphoedema** occurs when lymphatic return is impaired, causing fluid and proteins to accumulate in the interstitium. Causes include filarial obstruction, lymph-node surgery and radiation injury. Chronic disease can develop fibrosis, infection and functional impairment. Pitting versus non-pitting reflects tissue state and disease duration, not a reliable binary distinction between lymphatic and non-lymphatic causes. Edema from increased filtration also depends on whether lymphatic compensation can match the load.
 
 ## Worked Example: Hypoalbuminaemia and Net Filtration Pressure
 
@@ -359,9 +363,9 @@ And at the venular end ($P_c$ = 15 mmHg):
 \label{eq:circulation_respiration_homeostasis_10}
 \end{equation}
 
-Both ends now show net filtration — fluid cannot be reabsorbed, leading to progressive edema. The lymphatics are overwhelmed. This explains the **anasarca** (generalized edema) seen in severe hypoalbuminaemia from nephrotic syndrome or liver failure.
+The classical arithmetic predicts outward pressure at both ends under these stipulated inputs. It does not quantify sustained filtration in a glycocalyx-aware model or prove that lymphatic capacity has been exceeded. Edema develops when interstitial fluid input exceeds drainage; severe hypoalbuminaemia can contribute, but renal sodium retention, pressure changes and lymphatic compensation also matter. In the revised steady-state interpretation, failure of a universal venular reabsorption mechanism is not the explanation \citep{levick2010microvascular}.
 
-**Concept Check:** Using the Starling equation with arteriolar $P_c = 35$ mmHg, $P_{if} = -3$ mmHg, $\pi_{if} = 1$ mmHg, predict the sign of the net filtration pressure when plasma albumin halves ($\pi_c$: 26 \to 13 mmHg), and explain why nephrotic-syndrome edema arises even though capillary hydrostatic pressure is unchanged. (Hint: compute NFP at both the arteriolar and venular ends before and after the $\pi_c$ fall.)
+**Concept Check:** In the classical pressure calculation above, hold arteriolar/venular $P_c$ at 35/15 mmHg, $P_{if}=-3$ mmHg and $\pi_{if}=1$ mmHg while $\pi_c$ falls from 26 to 13 mmHg. Compute the four NFP values. Explain why those arithmetic signs neither establish sustained venular absorption nor quantify edema without filtration/drainage evidence.
 
 ---
 
@@ -379,7 +383,7 @@ Both ends now show net filtration — fluid cannot be reabsorbed, leading to pro
 
 ### Hemoglobin Structure and Cooperative Binding
 
-Hemoglobin (Hb) is an $\alpha_2\beta_2$ tetramer. Each subunit contains a **haeme** group (iron-porphyrin; Fe$^{2+}$) that binds one O$_2$. Oxygen-carrying capacity: 1.34 mL O$_2$ per gram Hb; typical Hb concentration: 150 g/L blood. Total: ~201 mL O$_2$/L blood bound to Hb. Plasma dissolved O$_2$: 0.003 $\times$ PO$_2$ (mL/L/mmHg), giving about 0.3 mL/L at PO$_2$ = 100 mmHg. Hb carries ~670$\times$ more O$_2$ than plasma alone.
+Hemoglobin (Hb) is an $\alpha_2\beta_2$ tetramer with four heme-bound Fe$^{2+}$ sites. A teaching capacity of 1.34 mL O$_2$/g Hb and 150 g Hb/L gives 201 mL O$_2$/L at complete saturation. Dissolved O$_2$ is $0.003$ mL/dL/mmHg $=0.03$ mL/L/mmHg: at 100 mmHg, 3 mL/L, so fully saturated Hb carries about 67 times the dissolved amount. Actual bound content also multiplies capacity by fractional saturation.
 
 ### O$_2$-Hb Dissociation Curve and the Hill Equation
 
@@ -631,9 +635,9 @@ This matches whole-body resting O$_2$ consumption (~250 mL/min). During maximal 
 - **Central chemoreceptors** (ventral medullary surface): Respond to H$^+$ in CSF (which reflects arterial PCO$_2$ because CO$_2$ freely crosses the blood-brain barrier and is converted to H$^+$ by carbonic anhydrase). This is the **primary driver** of normal ventilation.
 - **Peripheral chemoreceptors** (carotid bodies at carotid bifurcation; aortic bodies on aortic arch): Respond to decreased PO$_2$ (<60 mmHg primarily), increased PCO$_2$, and decreased pH. The carotid bodies are the primary sensors of arterial PO$_2$.
 
-**Concept Check:** In chronic COPD, patients may retain CO$_2$ chronically (hypercapnia). Over time, central chemoreceptors reset to the elevated CO$_2$ level. What becomes the primary stimulus for breathing in these patients, and why is high-flow oxygen potentially dangerous?
+**Concept Check:** A COPD patient develops rising arterial CO$_2$ after high inspired oxygen. Distinguish reduced ventilation, worsened ventilation–perfusion matching after reversal of hypoxic pulmonary vasoconstriction, and the Haldane effect; explain why this risk calls for controlled oxygen and monitoring, not withholding needed oxygen.
 
-**Concept Check (Evaluate) — Chemoreceptor hierarchy and the COPD oxygen paradox.** In a healthy adult, central chemoreceptors on the ventral medullary surface dominate the ventilatory drive: they sense CSF [H$^+$] (which tracks arterial $P_{\text{CO}_2}$ because CO$_2$ freely crosses the BBB and is hydrated by carbonic anhydrase). Peripheral chemoreceptors (carotid and aortic bodies) provide a secondary, $P_{\text{O}_2}$-weighted drive that activates strongly below $P_{\text{O}_2} \approx 60$ mmHg. (a) Lay out the normal hierarchy quantitatively: at $P_{a\text{CO}_2} = 40$ mmHg and $P_{a\text{O}_2} = 95$ mmHg, what fraction of total minute ventilation is driven by the central vs peripheral pathway? (b) In chronic COPD with stable $P_{a\text{CO}_2} = 60$ mmHg, the kidney compensates by retaining bicarbonate so CSF pH normalizes over weeks; central drive is therefore blunted. Evaluate why peripheral hypoxic drive becomes the dominant input, and predict the ventilatory response to administering high-flow (e.g., 60%) O$_2$. (c) Clinical interpretation: explain why the recommended target $\text{SpO}_2$ for an exacerbating COPD patient is 88–92% rather than $\geq 96\%$, and identify two physiological mechanisms (loss of hypoxic drive; the Haldane effect releasing CO$_2$ from hemoglobin) that together account for the observed CO$_2$ retention when oxygen is over-administered.
+**Concept Check (Evaluate) — Oxygen-induced hypercapnia.** Aubier and colleagues observed that ventilation recovered to about 93% of control while arterial CO$_2$ rose by about 23 mmHg during oxygen administration in severe COPD \citep{aubier1980oxygen}. Explain why a sustained loss of “hypoxic drive” alone cannot account for this observation. What simultaneous ventilation, blood-gas, and V/Q measurements would distinguish mechanisms? The stated arterial gas values alone do not determine a fixed central/peripheral percentage of ventilatory drive.
 
 ### Worked Example: Fick's Law of Diffusion and O₂ Delivery Matched by Cardiac Output
 
@@ -641,18 +645,10 @@ This matches whole-body resting O$_2$ consumption (~250 mL/min). During maximal 
 
 **Setup.**
 
-- Diffusion coefficient of O$_2$ in tissue at 37 $^{\circ}$C: $D_{\text{O}_2} \approx 2.2 \times 10^{-5}$ cm$^2$/s (aqueous diffusion).
-- Total alveolar surface area: $A = 70$ m$^2 = 7 \times 10^5$ cm$^2$.
-- Partial-pressure gradient: $\Delta P = P_{A\text{O}_2} - P_{v\text{O}_2} = 100 - 40 = 60$ mmHg. Convert: $60 / 760 = 0.0789$ atm.
-- Barrier thickness: $\Delta x = 0.5\,\mu\text{m} = 0.5 \times 10^{-4}$ cm.
+- Use a synthetic whole-lung diffusing capacity $D_L=25$ mL O$_2$ min$^{-1}$ mmHg$^{-1}$ and a mean alveolar-to-capillary gradient of 10 mmHg. These are illustrative parameters, not an independent measurement in this subject.
+- Membrane diffusion can be written $J=D\alpha A\Delta P/\Delta x=D_L\Delta P$, where $D$ is diffusivity (length²/time) and $\alpha$ converts partial pressure into gas-equivalent concentration (gas volume/tissue volume/pressure). Aqueous $D$ alone cannot multiply a pressure gradient to yield mL O$_2$/min.
 
-**Approach 1 — Fick's law of diffusion (gas exchange across the alveolar membrane).** Combine Fick with O$_2$ solubility to express flux $J$ (mL O$_2$/min):
-
-$$J = D \cdot A \cdot \frac{\Delta P}{\Delta x}$$
-
-Order-of-magnitude evaluation (in oxygen-equivalent units after applying Krogh's diffusion constant $K_{\text{O}_2}$ for tissue at body temperature):
-
-$$J_{\text{alveolar}} \approx 250 \;\text{mL O}_2 / \text{min}.$$
+**Approach 1 — Dimensioned diffusion calculation.** $J=25\times10=250$ mL O$_2$/min. The 60-mmHg inlet gradient is not the mean gradient along the capillary. Agreement with the next calculation is imposed by these synthetic parameters; it is not independent experimental validation.
 
 **Approach 2 — Fick principle (whole-body O$_2$ consumption).**
 
@@ -688,9 +684,9 @@ where $Ca\mathrm{O}_2 - Cv\mathrm{O}_2$ is the arteriovenous O$_2$ content diffe
 | **Heart rate** | 70 bpm | 200 bpm (220−age rule) | Sympathetic ↑ + vagal withdrawal |
 | **Stroke volume** | 70 mL | 130–160 mL (untrained); >200 mL (elite) | Frank-Starling (↑venous return) + ↑contractility (β$_1$) |
 | **Cardiac output** | 5 L/min | 26–35 L/min (5–7×) | HR × SV |
-| **Systolic BP** | 120 mmHg | 200 mmHg | ↑CO ↑ TPR (running muscle excepted) |
+| **Systolic BP** | 120 mmHg | 200 mmHg | CO rises more than MAP; total peripheral resistance falls during dynamic exercise |
 | **Diastolic BP** | 80 mmHg | 80 mmHg (unchanged) | Active muscle vasodilation offsets sympathetic vasoconstriction |
-| **MAP** | 93 mmHg | 120 mmHg | Pulse pressure widens |
+| **MAP** | 93 mmHg | 120 mmHg | At CO 5→26 L/min, TPR = MAP/CO falls 18.6→4.62 mmHg·min/L |
 | **Skeletal muscle blood flow** | 1 L/min (20% of CO) | 22 L/min (84% of CO) | Local metabolic vasodilation (adenosine, K$^+$, lactate, H$^+$, CO$_2$) overrides sympathetic vasoconstriction |
 | **Splanchnic blood flow** | 1.4 L/min | 0.3 L/min | Sympathetic vasoconstriction redistributes flow |
 | **Skin blood flow** | 0.4 L/min | 1.5 L/min (heat dissipation) | Hypothalamic thermoregulation |
@@ -942,7 +938,7 @@ Interpret circulation and gas-exchange data by separating baseline set point, pe
 
 10. Compare shivering thermogenesis and non-shivering thermogenesis (BAT/UCP1) in terms of mechanism, efficiency, tissue involved, and developmental significance.
 
-11. A 45-year-old patient with nephrotic syndrome (severe proteinuria, serum albumin 1.8 g/dL) presents with bilateral pitting edema to the knees. Using the Starling equation, explain: (a) why plasma oncotic pressure is reduced; (b) how this shifts the net filtration pressure at both arteriolar and venular capillary ends; (c) why the edema is pitting rather than non-pitting. How does treatment with albumin infusion immediately reduce edema?
+11. A person with nephrotic syndrome, severe proteinuria and serum albumin 1.8 g/dL has bilateral pitting edema. Explain how reduced plasma oncotic pressure can favor filtration in a classical calculation, then distinguish that calculation from revised steady-state fluid exchange. What measurements of lymphatic return, renal sodium balance and pressures would support a mechanism? Why do neither pitting nor an albumin infusion prove a universal sustained venular-reabsorption mechanism or guarantee immediate edema resolution?
 
 12. Using Fick's law, predict what happens to alveolar O$_2$ diffusion in: (a) a patient with idiopathic pulmonary fibrosis where membrane thickness doubles and surface area halves; (b) a healthy person exercising at altitude (4,000 m, alveolar $PO_2$ = 60 mmHg, tissue $PO_2$ = 30 mmHg). Which is more likely to cause frank hypoxaemia at rest vs exercise?
 

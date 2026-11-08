@@ -1,7 +1,6 @@
 # Questions — Antimicrobial Resistance and Epidemiology {#sec:q_unit_VII_antimicrobial_resistance_and_epidemiology .unnumbered}
 
 
-<!-- question-coverage-start -->
 ## Instructor Use and Coverage Notes {.unnumbered}
 
 - **Coverage target:** Calculate a threshold or outbreak trajectory and identify the intervention lever.
@@ -11,226 +10,222 @@
 - **Transfer product:** Transfer resistance and epidemiology reasoning to stewardship and public-health policy.
 - **Grading focus:** award full credit for mechanism, evidence, boundary conditions, and units when a calculation is required.
 - **Suggested use:** draw one recall item, one application item, and one synthesis item when building a short quiz from this bank.
-<!-- question-coverage-end -->
 
-## Questions 1–10: Recall and Comprehension {.unnumbered}
+*This bank accompanies \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}. Synthetic counts below are teaching examples, not patient records.*
 
-*This activity accompanies \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} of the textbook — review that chapter before attempting the exercises below.*
+## Questions 1–10 {.unnumbered}
 
 <!-- assess: LO=LO1; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-1. mRNA vaccines (Pfizer-BioNTech, Moderna) for SARS-CoV-2 required solving two key problems: (a) mRNA instability in vivo (solution: pseudouridine substitution reduces TLR7/8 sensing and increases stability); (b) delivery to antigen-presenting cells in lymph nodes (solution: LNP — lipid nanoparticle encapsulation). Trace the cascade from IM injection → LNP uptake by dendritic cells → spike protein expression → naive B and T cell activation → class switch recombination → IgG antibody production.
+1. Name five antibiotic-resistance mechanism categories and give one example of each.
 
 <!-- SOLUTION
-**Answer (Q1, Recall).** Initiating condition: lipid-nanoparticle (LNP)-encapsulated, pseudouridine-modified spike mRNA is injected intramuscularly, where modified bases reduce TLR7/8 sensing and boost stability. LNPs are taken up by dendritic cells and other antigen-presenting cells, which translate the mRNA into spike protein. Spike is processed and presented on MHC II to naive CD4+ T cells and on MHC I to CD8+ T cells; spike-specific naive B cells bind antigen and receive T-helper signals. In germinal centers this drives affinity maturation and class-switch recombination from IgM to high-affinity IgG, yielding neutralizing antibody and memory B/T cells. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-<!-- assess: LO=LO2; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-2. Regulatory T cells (Tregs, FOXP3⁺) suppress immune responses and prevent autoimmunity. Explain: (a) how Tregs develop (thymic selection vs peripheral induction); (b) their mechanisms of suppression (IL-10, TGF-β, CTLA-4-mediated antigen-presenting cell suppression); (c) why depleting Tregs in cancer (anti-CTLA-4, ipilimumab) can restore anti-tumor immunity at the cost of autoimmunity.
-
-<!-- SOLUTION
-**Answer (Q2, Recall).** (a) Natural Tregs arise in the thymus by selection of moderately self-reactive CD4+ cells that upregulate FOXP3; induced Tregs differentiate in the periphery from conventional CD4+ cells under TGF-β. (b) They suppress via inhibitory cytokines (IL-10, TGF-β), consumption of IL-2, and CTLA-4, which strips/blocks CD80/CD86 on antigen-presenting cells to deny co-stimulation. (c) Anti-CTLA-4 (ipilimumab) removes this brake, restoring anti-tumor T-cell responses, but because the same checkpoint enforces self-tolerance, blocking it also causes immune-related autoimmune toxicities. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-<!-- assess: LO=LO3; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-3. Malaria (*Plasmodium falciparum*) has complex immune evasion through antigenic variation of PfEMP1 (erythrocyte membrane protein 1) encoded by ~60 *var* genes, a single active at a time. Explain: (a) why the immune system struggles to clear malaria; (b) how epigenetic switching between var genes works; (c) what approach (conserved antigen targets) vaccine developers use to circumvent this evasion.
-
-<!-- SOLUTION
-**Answer (Q3, Recall).** (a) PfEMP1 on infected erythrocytes mediates cytoadherence and is highly immunogenic, but the parasite switches which variant it displays, so by the time antibodies arise the dominant variant has changed and immunity lags. (b) Only one of ~60 var genes is transcribed at a time; epigenetic silencing (heterochromatin marks, H3K9me3, perinuclear sequestration) keeps the rest off, and stochastic switching activates a new var while silencing the old, giving sequential antigenic variation. (c) Vaccine developers target conserved, less variable antigens (e.g., circumsporozoite protein in RTS,S/R21, or conserved PfEMP1 domains like those binding EPCR) to bypass var-gene switching. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-<!-- assess: LO=LO4; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-4. Calculate basic epidemiological parameters: if an influenza outbreak shows 15 secondary cases per 10 infected individuals over a mean infectious period of 3 days (generation time 3 days), estimate R₀ and the doubling time of the epidemic. What control measure would need to be implemented to bring R to < 1?
-
-<!-- SOLUTION
-**Answer (Q4, Recall).** R0 ≈ secondary cases per case = 15/10 = 1.5. With a generation time Tg = 3 days, the per-generation growth factor is R0 = 1.5, so the epidemic grows by 1.5× every 3 days. Doubling time ≈ Tg·ln2/ln(R0) = 3·0.693/0.405 ≈ 5.1 days. To bring the effective reproduction number Re = R0(1 − p) below 1, the immune/effectively-protected fraction must exceed p > 1 − 1/R0 = 1 − 1/1.5 ≈ 0.33, i.e., interventions (vaccination, isolation, contact reduction) must remove more than ~33% of effective transmission. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-<!-- assess: LO=LO5; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-5. Intestinal IgA is produced in the lamina propria by plasma cells and specifically transported into the gut lumen (via polymeric immunoglobulin receptor, pIgR). Explain: (a) how secretory IgA (sIgA) differs from serum IgA structurally; (b) the role of the secretory component; (c) how sIgA provides "immune exclusion" of pathogens without triggering inflammation.
-
-<!-- SOLUTION
-**Answer (Q5, Recall).** (a) Serum IgA is mostly monomeric, whereas secretory IgA is a dimer of two IgA monomers joined by a J chain plus an added secretory component. (b) The secretory component is the cleaved extracellular portion of the polymeric immunoglobulin receptor (pIgR) that transcytoses dimeric IgA across the epithelium; it remains bound and protects sIgA from luminal proteases. (c) sIgA performs 'immune exclusion' by cross-linking and agglutinating pathogens and toxins in the mucus layer, blocking adhesion and entry; because it poorly fixes complement and does not strongly engage Fc receptors, it neutralizes without provoking inflammation. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-
-<!-- assess: LO=LO6; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-6. Evaluate the "inverted-U" relationship between immune activation and pathogen clearance, using sepsis as a model: (a) why severe sepsis kills by cytokine storm (uncontrolled innate immune activation) rather than the pathogen itself; (b) the failure of anti-TNF-α therapy in sepsis trials despite success in rheumatoid arthritis; (c) how the "immunological hysteresis" concept explains why the same cytokine blockade is beneficial in autoimmunity but harmful in sepsis.
-
-<!-- SOLUTION
-**Answer (Q6, Recall).** (a) In severe sepsis the protective inflammatory response becomes pathologically amplified: a cytokine storm (TNF-α, IL-1β, IL-6) drives endothelial dysfunction, capillary leak, disseminated coagulation, and multi-organ failure, so the host response, not the pathogen, kills. (b) Anti-TNF-α therapy failed in sepsis trials despite working in rheumatoid arthritis because sepsis is heterogeneous and time-sensitive: by the time patients are treated, the cytokine cascade is past TNF dependence and some patients are already immunosuppressed. (c) 'Immunological hysteresis' frames the system as state-dependent: the same TNF blockade is beneficial in the chronic, sustained activation of autoimmunity but harmful in the acute, rapidly shifting trajectory of sepsis, because the optimal intervention depends on where on the inverted-U curve the patient sits. The conclusion would change if biomarker-stratified trials identified a hyperinflammatory subgroup that benefits. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-<!-- assess: LO=LO7; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-7. Antibiotics select for resistance through several biochemical strategies. List the four major mechanisms of acquired antibiotic resistance — enzymatic inactivation, target modification, reduced intracellular drug (decreased uptake or active efflux), and target bypass — and give one drug-class example defeated by each. Define the minimum inhibitory concentration (MIC) and state what a rising MIC indicates.
-
-<!-- SOLUTION
-**Answer (Q7, Recall).** (1) **Enzymatic inactivation** — β-lactamases hydrolyze penicillins and cephalosporins; aminoglycoside-modifying enzymes acetylate or phosphorylate aminoglycosides. (2) **Target modification** — *erm*-methylation of 23S rRNA blocks macrolides; the *mecA*-encoded PBP2a defeats most β-lactams in MRSA; gyrase/topoisomerase mutations defeat fluoroquinolones. (3) **Reduced intracellular drug** — porin loss lowers uptake and efflux pumps (e.g., AcrAB-TolC) export tetracyclines and other agents. (4) **Target bypass or overproduction** — acquiring a drug-insensitive enzyme (e.g., a sulfonamide-resistant dihydropteroate synthase) or overexpressing the target. The **minimum inhibitory concentration (MIC)** is the lowest drug concentration that prevents visible growth in vitro; a rising MIC signals declining susceptibility and predicts clinical resistance once it crosses the breakpoint. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q1, Recall).** Enzymatic inactivation: beta-lactamase; target modification: PBP2a; efflux: AcrAB-TolC; reduced permeability: porin loss; bypass: an alternative drug-insensitive target. A phenotype can combine mechanisms; a drug-class label alone is not a mechanism. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
 <!-- assess: LO=LO1; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-8. Evaluate the evidence for "trained innate immunity": after exposure to β-glucan (from *Candida*) or BCG vaccination, innate immune cells (macrophages, NK cells) show epigenetically reprogrammed, enhanced responses 3–6 months later. What epigenetic changes (H3K4me1 at enhancers, mTOR-dependent metabolic rewiring) mediate this "immunological memory" in non-adaptive immune cells, and what are the implications for innate immune-based vaccines (BCG against COVID-19)?
+2. Define MIC and distinguish it from bactericidal activity.
 
 <!-- SOLUTION
-**Answer (Q8, Recall).** Empirically, BCG vaccination and β-glucan exposure enhance monocyte/macrophage and NK responses to unrelated pathogens 3–6 months later, indicating innate cells can carry a form of memory. Mechanistically this 'trained immunity' is mediated by durable epigenetic remodeling (e.g., H3K4me1/H3K4me3 and H3K27ac at promoters and enhancers of inflammatory genes) coupled to mTOR/HIF-1α-dependent metabolic rewiring toward aerobic glycolysis, lowering the activation threshold on restimulation. Implications: innate-training vaccines (e.g., BCG tested against COVID-19) could give broad, rapid, non-specific protection, but the effect is shorter-lived and less specific than adaptive memory; the conclusion would change if randomized trials showed no heterologous protection or if the epigenetic marks proved transient. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q2, Recall).** MIC is the lowest tested concentration preventing visible growth under specified conditions. It does not establish killing, a clinical breakpoint, or efficacy at an infected site; bactericidal endpoints require survival measurements. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO4; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+3. Distinguish selection for resistance from horizontal acquisition.
+
+<!-- SOLUTION
+**Answer (Q3, Recall).** Selection changes relative reproductive success of existing variants; HGT changes which cells carry a determinant. A resistant clone can expand without transfer, and a plasmid can transfer without initially increasing total cell number. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
 <!-- assess: LO=LO2; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-9. Autoimmune diseases arise when self-tolerance breaks down. Evaluate three mechanisms of self-tolerance failure in Type 1 Diabetes (T1D): (a) central tolerance failure (inadequate thymic deletion of autoreactive T cells directed at insulin); (b) peripheral tolerance failure (Treg dysfunction); (c) molecular mimicry (GAD65-Coxsackie B virus homology). What evidence supports each mechanism in human T1D?
+4. Define $R_0$ and $R_e$, distinguish infection from reported cases, and explain why a reported-case fatality ratio is not an infection-fatality ratio.
 
 <!-- SOLUTION
-**Answer (Q9, Recall).** (a) Central tolerance failure: the AIRE-dependent thymic deletion of insulin-reactive T cells is incomplete; evidence includes the strong HLA association (DR3/DR4) and INS-VNTR alleles that lower thymic insulin expression and predispose to T1D. (b) Peripheral tolerance failure: Treg number or function is impaired; evidence includes monogenic IPEX (FOXP3 mutation) causing autoimmune diabetes and reduced Treg suppressive function in some T1D patients. (c) Molecular mimicry: homology between GAD65 and Coxsackievirus B P2-C protein could cross-prime autoreactive cells; evidence is epidemiological enterovirus associations and cross-reactive T cells, though causality remains debated. The conclusion would change if intervention trials (e.g., Treg expansion, antiviral prevention) altered disease incidence. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q4, Recall).** $R_0$ is expected secondary infections in a defined fully susceptible contact setting; $R_e$ reflects current susceptibility, behavior and interventions. $R_0(1-p)$ is only the homogeneous immunity-only approximation. Reported cases depend on symptoms, testing and reporting, not a complete infection census. CFR uses a defined case cohort with outcome follow-up; IFR includes all infections, including undiagnosed/asymptomatic ones. Missed mild cases can raise observed CFR relative to IFR, while missed deaths or unresolved outcomes can bias it downward \citep{who2020fatalitydefinitions}. Credit the distinct denominators; no numerical IFR follows from reported cases alone. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO7; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+5. What is an organism–drug surveillance denominator?
+
+<!-- SOLUTION
+**Answer (Q5, Recall).** It is the eligible tested isolates or deduplicated infection episodes for a specified organism, specimen/infection, drug, place and period. It is not all hospital patients or all antibiotics pooled together. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-10. During the COVID-19 pandemic, several SARS-CoV-2 variants of concern (Alpha, Delta, Omicron) arose sequentially. Evaluate the evolutionary pressures (immune evasion vs transmissibility) that drove variant emergence, and why Omicron showed more ACE2-binding mutations (increased transmissibility) but more spike mutations outside the RBD (immune evasion from vaccine-induced antibodies).
+6. What makes GLASS surveillance distinct from a genomic plasmid network?
 
 <!-- SOLUTION
-**Answer (Q10, Recall).** Initiating condition: widespread population immunity from infection and vaccination created strong selection for SARS-CoV-2 immune escape, while ongoing transmission selected for higher intrinsic transmissibility. Changed component: variants accumulated spike mutations — RBD changes (e.g., N501Y) that increased ACE2 affinity and transmissibility, plus N-terminal-domain and non-RBD epitope changes that escaped vaccine-induced neutralizing antibodies. Mechanism: Omicron arose by a sudden saltation (≈32 spike mutations at once), likely from prolonged infection in an immunocompromised host, combining tighter ACE2 binding with extensive antigenic-site changes. Outcome: Omicron was both more transmissible and more immune-evasive, displacing Delta and driving large reinfection waves. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q6, Recall).** GLASS standardizes reported antimicrobial susceptibility surveillance and its context. Inferring plasmid identity or transfer additionally requires molecular/genomic data, host linkage and temporal evidence; an AST percentage does not identify a mobile element. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
-
-## Questions 11–20: Application and Analysis {.unnumbered}
-
-<!-- assess: LO=LO4; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-11. Evaluate checkpoint immunotherapy for cancer: PD-1/PD-L1 blockade, CTLA-4 blockade, LAG-3 blockade. For what biomarker(s) (TMB, PD-L1 expression, MSI-H) are these drugs most effective, and why do about 20–30% of eligible cancer patients benefit? Propose a combination therapy strategy to increase response rates while managing autoimmune toxicity (immune-related adverse events, irAEs).
+<!-- assess: LO=LO5; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+7. Distinguish stewardship from withholding necessary treatment.
 
 <!-- SOLUTION
-**Answer (Q11, Application).** Checkpoint inhibitors (anti-PD-1/PD-L1, anti-CTLA-4, anti-LAG-3) are most effective in tumors with high tumor mutational burden (TMB), high PD-L1 expression, or microsatellite instability-high (MSI-H)/mismatch-repair-deficient status, because these create abundant neoantigens and an inflamed, T-cell-rich microenvironment. Only ~20–30% of eligible patients respond because many tumors are 'cold' (low neoantigen load, poor T-cell infiltration, immunosuppressive stroma, alternative checkpoints, or antigen-presentation loss). A rational combination pairs anti-PD-1 with anti-CTLA-4 (or LAG-3) to broaden T-cell priming, adds an agent that converts cold tumors to hot (radiation, oncolytic virus, or a STING agonist), and manages immune-related adverse events with biomarker-guided patient selection, sequencing, and prompt corticosteroid/anti-cytokine rescue; the strategy would change if predictive biomarkers for irAEs were validated. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q7, Recall).** Stewardship improves indication, diagnostics, active drug choice and appropriate duration while preserving timely access. Lower use is not automatically better if necessary effective treatment is delayed or unavailable. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
-<!-- assess: LO=LO5; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-12. Evaluate the concept of the "immunological homunculus" — that the normal immune system retains low-frequency self-reactive clones that perform surveillance and immunoregulation (not only pathology). Critically assess the evidence that low-affinity self-reactive T and B cells are essential for shaping the immune repertoire, and what happens when these regulatory self-reactive cells are eliminated by lymphodepletion.
+<!-- assess: LO=LO1; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+8. Why can an NDM producer resist ceftazidime-avibactam even when some KPC producers are susceptible?
 
 <!-- SOLUTION
-**Answer (Q12, Application).** Empirically, the normal repertoire retains low-affinity self-reactive T and B cells (the 'immunological homunculus'), and these are not purely pathological: positive selection on self-MHC/self-peptide is required to generate a functional T-cell repertoire, and natural autoantibodies and self-reactive Tregs contribute to tissue homeostasis and immunoregulation. Evidence includes the dependence of thymic positive selection on weak self-recognition and the regulatory roles of natural IgM autoantibodies. When these regulatory self-reactive cells are removed by lymphodepletion, homeostatic reconstitution can skew toward autoreactivity and break tolerance (autoimmune complications after lymphodepleting therapy). The conclusion would change if a fully self-tolerant repertoire could be shown to develop and self-regulate without any self-reactive clones. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q8, Recall).** Avibactam inhibits some serine beta-lactamases including KPC but not the class-B metallo-beta-lactamase NDM. Enzyme identity and coexisting mechanisms matter; susceptibility must still be measured for the isolate. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
-<!-- assess: LO=LO6; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-13. The "two-signal model" of T cell activation requires: (1) TCR engagement with MHC-peptide and (2) a co-stimulatory signal (CD28-B7). Without signal 2, T cells become anergic (unresponsive). Evaluate how tumors exploit this model to suppress anti-tumor T cells by: (a) expressing PD-L1 (sending an anergy-inducing signal); (b) lacking co-stimulatory molecules; (c) expressing IDO (depleting tryptophan needed for T cell activation). How does CAR-T cell therapy bypass this requirement for co-stimulation?
+<!-- assess: LO=LO4; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+9. Why can selection by one drug retain resistance to a different drug?
 
 <!-- SOLUTION
-**Answer (Q13, Application).** Initiating condition: full T-cell activation needs signal 1 (TCR–MHC-peptide) plus signal 2 (CD28–B7 co-stimulation); without signal 2 the T cell becomes anergic. Tumors exploit this: (a) PD-L1 expression delivers a coinhibitory signal that anergizes/exhausts tumor-specific T cells; (b) absence of B7 co-stimulatory molecules on tumor cells gives signal 1 without signal 2, inducing anergy; (c) IDO expression depletes tryptophan and produces kynurenines, starving and suppressing T cells. CAR-T cells bypass this requirement because the chimeric receptor links an antibody-derived antigen-binding domain directly to CD3ζ plus a built-in co-stimulatory domain (CD28 or 4-1BB), so a single MHC-independent antigen contact delivers both activation and co-stimulation. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q9, Recall).** Physically linked determinants on a maintained plasmid can co-segregate and co-transfer. Selection for either retains the element; compensatory evolution and low carriage costs can also maintain resistance after one drug is withdrawn. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
-<!-- assess: LO=LO7; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-14. Evaluate the emerging field of "onco-immunology" — the mechanisms by which tumors edit the immune landscape (immunoediting: elimination → equilibrium → escape). Give specific molecular examples of immune editing at each phase, and assess whether the immune equilibrium phase can be maintained indefinitely in any cancer type, or whether escape is inevitable.
+<!-- assess: LO=LO2; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+10. Why is a generation interval different from a serial interval?
 
 <!-- SOLUTION
-**Answer (Q14, Application).** Cancer immunoediting proceeds through three phases. Elimination: immunosurveillance by NK cells and CD8+ T cells destroys nascent transformed cells (evidenced by higher cancer rates in immunodeficient hosts). Equilibrium: residual immunogenic clones are held dormant under sustained adaptive pressure (shown by long latency and donor-transmitted tumors in transplant recipients). Escape: surviving clones evade immunity via MHC class I loss, PD-L1 upregulation, antigen loss, and recruitment of Tregs/MDSCs and TGF-β. Equilibrium can persist for years in some cancers but is generally metastable rather than truly indefinite, because ongoing mutation under immune selection makes eventual escape highly likely; the conclusion would change if a cancer were documented in lifelong stable equilibrium without escape. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q10, Recall).** A generation interval links infection times; a serial interval links symptom-onset times and depends on incubation variability. The distribution, not just its mean, relates exponential growth to reproduction number. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
-<!-- assess: LO=LO1; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-15. Critically evaluate the public health ethics of mandatory vaccination programs. Using the framework of herd immunity thresholds, individual liberty, social contract theory, and harm principle (Mill), construct a utilitarian argument for and a libertarian argument against mandatory vaccination. What vaccination coverage is minimally required for herd immunity against measles (R₀ ≈ 18), and how do vaccine hesitancy and anti-vaccine movements affect public health?
+## Questions 11–20 {.unnumbered}
+
+<!-- assess: LO=LO1; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+11. Growth is absent at 32, 16, 8 and 4 µg/mL but present at 2 and 1; the no-drug control grows and sterile control stays clear. Determine MIC.
 
 <!-- SOLUTION
-**Answer (Q15, Application).** Utilitarian (for): mandatory vaccination maximizes aggregate welfare by securing herd immunity, preventing outbreaks, and protecting those who cannot be vaccinated; Mill's harm principle justifies coercion because non-vaccination imposes infection risk on others. Libertarian (against): bodily autonomy and informed consent are paramount; mandates coerce a medical intervention and erode trust, and exemptions/least-restrictive alternatives should be preferred. For measles with R0 ≈ 18, the herd-immunity threshold is pc = 1 − 1/18 ≈ 0.944, so roughly 94–95% immune coverage is required. Vaccine hesitancy and anti-vaccine movements push coverage below this threshold, restoring susceptibility and driving measles resurgences (as seen in 2018–2019). See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q11, Application).** MIC is 4 µg/mL, the lowest tested concentration preventing visible growth. It is neither the first high-concentration clear tube nor the last growing tube. The controls support valid inoculation and lack of obvious contamination. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
-<!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-16. Distinguish innate from adaptive immunity. Name two cell types involved in each.
+<!-- assess: LO=LO7; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+12. A synthetic laboratory reports 30 resistant E.coli among 100 first blood isolates, and 40 resistant among 400 first urine isolates. Compute specimen-specific and pooled proportions.
 
 <!-- SOLUTION
-**Answer (Q16, Application).** Innate immunity is the fast, non-specific first response with no memory; it relies on germline-encoded pattern recognition. Adaptive immunity is slower, antigen-specific, and confers lasting memory through clonal selection. Innate cell types include macrophages and neutrophils (also NK cells); adaptive cell types include T lymphocytes (CD4+ helper, CD8+ cytotoxic) and B lymphocytes. The key difference is that adaptive cells rearrange antigen receptors and form memory, whereas innate cells use fixed receptors. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q12, Application).** Blood: 30%; urine: 10%; pooled: 70/500=14%. Pooling changes specimen weights and cannot substitute for either infection-specific estimate; keep the same organism–drug pair, period and deduplication rule. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO7; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+13. In synthetic year 1, resistant blood isolates number 30/100 and resistant urine isolates 40/400. In year 2, the corresponding counts are 24/100 and 6/20. Explain why the pooled increase is not uniform worsening.
+
+<!-- SOLUTION
+**Answer (Q13, Application).** Year 1 pooled resistance is 14%; year 2 gives 30/120=25%. Blood resistance falls from 30% to 24% while urine resistance rises from 10% to 30%, and the specimen mix shifts sharply. Standardize weights and investigate sampling before claiming a population-wide trend. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO6; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+14. In a haploid resistance model p=.10,wR=1,wS=.5, calculate resistance frequency after selection.
+
+<!-- SOLUTION
+**Answer (Q14, Application).** p_selected=.10/[.10+.90(.5)]=.181818. This is a frequency among descendants under relative fitness, not the fraction of cells killed or an MIC change. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO6; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+15. After selection, p=0.20. A fraction h=0.10 of susceptible recipients acquires resistance once. Compute p_next with no cost or reverse transfer.
+
+<!-- SOLUTION
+**Answer (Q15, Application).** p_next=p+h(1−p)=.20+.10(.80)=.28. h is a per-step recipient conversion fraction, not an unscaled mass-action rate; do not add .10 to every compartment. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO6; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+16. Combine selection and transfer: p=0.10, wR=1 and wS=0.5, followed by transfer with h=0.10. Compare reversing their order.
+
+<!-- SOLUTION
+**Answer (Q16, Application).** Selection first gives .181818, then transfer .263636. Transfer first gives .19, then selection .19/(.19+.81×.5)=.319328. Order changes the model, so state it rather than mixing recurrences. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+17. Synthetic case counts double every 3 days. With a fixed generation interval of 5 days, compute R; then compute R with an exponential interval distribution of mean 5 days.
+
+<!-- SOLUTION
+**Answer (Q17, Application).** r=ln2/3=.231049/day. Fixed interval gives exp(5r)=3.174802; exponential gives 1+5r=2.155245. Equal means do not establish equal R; neither is a unique estimate without its interval model. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO2; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+18. In a hypothetical homogeneous model, R0=4. A vaccine prevents 95% of disease but has zero effect on infection or infectiousness. Compute Re at full coverage.
+
+<!-- SOLUTION
+**Answer (Q18, Application).** Re remains 4 in the stated homogeneous model. The ideal transmission-blocking immune threshold is .75, but disease protection is not that immune fraction; .75/.95 is not a justified coverage threshold. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO7; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+19. WHO 2025 reports 104 reporting countries for 2023, more than 23 million confirmed cases in the report, 93 infection–organism–drug combinations, and bloodstream third-generation-cephalosporin resistance exceeding 40% for E.coli and 55% for K.pneumoniae. What can be compared or counted?
+
+<!-- SOLUTION
+**Answer (Q19, Synthesis).** These are official report-scope and organism-specific estimated results, not a single raw binomial dataset. Do not multiply 23 million by 40% or subtract percentages to count resistant individuals: organism/specimen denominators, adjustment and uncertainty differ. The estimates motivate surveillance and local AST, not deterministic prescribing. Country nonreporting and incomplete systems limit representativeness \citep{who2025glass}. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-17. What is a pathogen-associated molecular pattern (PAMP)? Name one example and its receptor.
+20. A synthetic RR-TB case is eligible for the BPaLM/BPaL pathway but has fluoroquinolone resistance. Which branch must be excluded, and what evidence remains necessary?
 
 <!-- SOLUTION
-**Answer (Q17, Application).** A pathogen-associated molecular pattern (PAMP) is a conserved microbial structure not found in host cells that the innate immune system detects via germline-encoded pattern recognition receptors (PRRs). For example, bacterial lipopolysaccharide (LPS) is a PAMP recognized by Toll-like receptor 4 (TLR4); other examples include flagellin (TLR5) and unmethylated CpG DNA (TLR9). Recognition triggers inflammatory signaling. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q20, Application).** Do not route the case to moxifloxacin-containing BPaLM through a no-exclusion shortcut. Consider BPaL only if otherwise eligible, with susceptibility, toxicity, age/pregnancy and disease-site review; alternatives require specialist guidance. A classroom branch is not a prescription. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
-<!-- assess: LO=LO4; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-18. What is an antibody? Name its four structural components.
+## Questions 21–30 {.unnumbered}
+
+<!-- assess: LO=LO5; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
+21. Design a stewardship comparison that reduces unnecessary starts without delaying treatment of severe infection.
 
 <!-- SOLUTION
-**Answer (Q18, Application).** An antibody (immunoglobulin) is a secreted or membrane-bound glycoprotein produced by B cells/plasma cells that specifically binds antigen. Its four structural components are: two identical heavy chains and two identical light chains, joined by disulfide bonds, organized into two Fab regions (variable VH+VL domains forming the antigen-binding paratope) and one Fc region (constant domains that engage effector functions such as complement and Fc receptors). See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q21, Synthesis).** Compare diagnostic-supported prescribing plus rapid review with baseline practice, with comparable case mix and prompt empiric care when indicated. Prespecify clinical outcomes, time to active therapy, avoidable exposure, organism–drug resistance and equity/access; monitor adverse effects and revise if treatment delays rise. Credit a safety endpoint and a mechanism-linked resistance outcome. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
-<!-- assess: LO=LO5; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-19. What are the five classes of immunoglobulin? State one function of IgG and one of IgA.
+<!-- assess: LO=LO4; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
+22. Design an investigation distinguishing one spreading resistant clone from plasmid transfer among unrelated strains.
 
 <!-- SOLUTION
-**Answer (Q19, Application).** The five immunoglobulin classes are IgG, IgM, IgA, IgE, and IgD, determined by the heavy-chain constant region. IgG is the dominant serum antibody in secondary responses: it opsonizes pathogens, neutralizes toxins, fixes complement, and crosses the placenta. IgA is the principal mucosal antibody: as secretory IgA it mediates immune exclusion of pathogens at gut, respiratory, and other mucosal surfaces without triggering inflammation. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-<!-- assess: LO=LO6; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-20. Describe the clonal selection theory of lymphocyte activation.
-
-<!-- SOLUTION
-**Answer (Q20, Application).** Clonal selection theory states that each lymphocyte bears a single, randomly generated antigen-receptor specificity before encountering antigen. When an antigen binds the matching receptor, that specific clone is selected and stimulated to proliferate (clonal expansion) and differentiate into effector cells and long-lived memory cells. Self-reactive clones are deleted or inactivated during development, ensuring tolerance. This explains specificity, diversity, and immunological memory. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-
-## Questions 21–30: Synthesis and Evaluation {.unnumbered}
-
-<!-- assess: LO=LO7; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-21. What is the MHC (major histocompatibility complex)? Distinguish MHC class I from class II.
-
-<!-- SOLUTION
-**Answer (Q21, Synthesis).** The MHC (major histocompatibility complex; HLA in humans) is a set of cell-surface molecules that present peptide antigens to T cells. MHC class I is expressed on virtually all nucleated cells, presents endogenous (cytosolic) peptides, and is recognized by CD8+ cytotoxic T cells (and surveyed by NK cells via 'missing-self'). MHC class II is expressed on professional antigen-presenting cells, presents exogenous peptides, and is recognized by CD4+ helper T cells. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-<!-- assess: LO=LO1; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-22. What are cytotoxic T lymphocytes (CTLs)? What do they recognize and how do they kill target cells?
-
-<!-- SOLUTION
-**Answer (Q22, Synthesis).** Cytotoxic T lymphocytes (CTLs) are CD8+ effector T cells that recognize foreign or aberrant peptides presented on MHC class I of infected or transformed cells via their T-cell receptor. On engagement they kill the target by two main mechanisms: releasing perforin and granzymes that trigger apoptosis, and engaging Fas (CD95) on the target with FasL to induce caspase-mediated death. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-<!-- assess: LO=LO2; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-23. What is an epidemic? What is a pandemic? Define basic reproduction number R₀.
-
-<!-- SOLUTION
-**Answer (Q23, Synthesis).** An epidemic is a sharp rise in cases of a disease above the expected baseline within a community or region; a pandemic is an epidemic that spreads across multiple countries or continents affecting large numbers of people. The basic reproduction number R0 is the expected number of secondary cases produced by one infectious individual introduced into a fully susceptible population; R0 > 1 allows an outbreak to grow, R0 < 1 causes it to die out. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-<!-- assess: LO=LO3; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
-24. What is herd immunity? How does vaccination achieve herd immunity?
-
-<!-- SOLUTION
-**Answer (Q24, Synthesis).** Herd immunity is the indirect protection of susceptible individuals that occurs when a sufficiently large fraction of the population is immune, so an infectious person rarely contacts a susceptible one and chains of transmission break. Vaccination achieves it by immunizing enough people that the immune fraction exceeds the herd-immunity threshold pc = 1 − 1/R0, driving the effective reproduction number below 1. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-<!-- assess: LO=LO4; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
-25. Name three mechanisms of antibiotic resistance evolution.
-
-<!-- SOLUTION
-**Answer (Q25, Synthesis).** Three mechanisms of antibiotic-resistance evolution are: (1) enzymatic inactivation of the drug (e.g., β-lactamases hydrolyzing penicillins); (2) target modification or protection so the antibiotic no longer binds (e.g., altered penicillin-binding proteins, ribosomal methylation); and (3) reduced intracellular drug concentration via decreased uptake (porin loss) or active efflux pumps. Resistance genes often spread by horizontal gene transfer (conjugation, transduction, transformation). See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
-SOLUTION -->
-
-
-<!-- assess: LO=LO5; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
-26. By 10 November 2024, WHO had received reports of more than 776.8 million confirmed COVID-19 cases globally, while also noting that reported cases undercount infections \citep{who2024covidepiupdate}. Estimate the herd immunity threshold (H = 1 − 1/R₀) if R₀ for the original strain was 2.5. For the Omicron variant (R₀ ≈ 10), recalculate the threshold and explain what incomplete, waning protection means for vaccination strategy.
-
-<!-- SOLUTION
-**Answer (Q26, Synthesis).** Use H = 1 − 1/R0. For the original strain with R0 = 2.5: H = 1 − 1/2.5 = 1 − 0.40 = 0.60, so ~60% of the population must be immune. For Omicron with R0 ≈ 10: H = 1 − 1/10 = 0.90, so ~90% must be immune under the simplifying assumption of durable sterilizing immunity and homogeneous mixing. In practice, infection-derived and vaccine-derived protection against infection and transmission is incomplete and wanes, so vaccination strategy should emphasize prevention of severe disease, boosters matched to current guidance, and layered controls during surges rather than a single coverage number. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q22, Synthesis).** Combine core-genome relatedness with complete plasmid/ARG context, sampling times, ward contacts and matched environmental samples. A shared gene alone supports neither identical plasmids nor direction of transfer. Use contamination controls, independent libraries and within-host sampling; identify observations favoring each mechanism. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
 <!-- assess: LO=LO6; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
-27. The inflammasome (NLRP3) is activated by uric acid crystals (gout), cholesterol crystals (atherosclerosis), and pathogens. Explain: (a) how NLRP3 assembles and activates caspase-1; (b) how caspase-1 cleaves pro-IL-1β and pro-IL-18; (c) why NLRP3 inhibitors (MCC950) are under development for inflammatory diseases.
+23. Does a resistance frequency model predict absolute infection burden? Propose the minimum extension needed for that separate claim.
 
 <!-- SOLUTION
-**Answer (Q27, Synthesis).** (a) A priming signal (e.g., LPS via TLR4) induces NLRP3 and pro-IL-1β; a second signal (uric acid or cholesterol crystals, K+ efflux, lysosomal damage) triggers NLRP3 to oligomerize and recruit the adaptor ASC, which clusters and activates pro-caspase-1. (b) Active caspase-1 proteolytically cleaves pro-IL-1β and pro-IL-18 into mature, secreted cytokines (and cleaves gasdermin D to drive pyroptosis). (c) Because uncontrolled NLRP3 activity drives gout, atherosclerosis, and other sterile inflammation, selective inhibitors such as MCC950 are being developed to dampen IL-1β without broad immunosuppression. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q23, Synthesis).** Frequency can rise while total cells or infections fall. Report absolute susceptible/resistant counts and transmission or demographic denominators; specify births, deaths, transfers and contact structure before predicting burden. A correct p recurrence without those quantities is not an incidence forecast. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
-<!-- assess: LO=LO7; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
-28. Influenza can shift from H1N1 to H3N2 by antigenic shift (segment reassortment) or antigenic drift (point mutations in haemagglutinin). Explain: (a) why antigenic drift requires annual vaccine reformulation; (b) why antigenic shift can cause pandemics; (c) what "original antigenic sin" means for immune memory.
+<!-- assess: LO=LO7; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
+24. Design deduplication and uncertainty reporting for a hospital antibiogram.
 
 <!-- SOLUTION
-**Answer (Q28, Synthesis).** (a) Antigenic drift is the gradual accumulation of point mutations in hemagglutinin/neuraminidase that erode antibody recognition, so the vaccine strain must be reformulated annually to match circulating variants. (b) Antigenic shift is reassortment of genome segments (e.g., between human and avian/swine strains) producing a novel HA the population has no immunity to, which can ignite a pandemic. (c) 'Original antigenic sin' is the tendency of the immune system to preferentially recall antibodies against the first influenza strain encountered, blunting responses to newer drifted strains. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q24, Synthesis).** Prespecify organism/specimen/drug, time window and first-isolate-per-patient rule; report tested and resistant counts, missing tests, breakpoint version and interval estimates. Stratify infection/site and avoid counting repeated failure isolates as independent patients. Credit ascertainment limits and a reproducible denominator. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
-<!-- assess: LO=LO1; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
-29. The complement system (C1-C9) is a cascade of proteolytic activation that opsonises pathogens and lyses bacteria directly (MAC — membrane attack complex). Describe the three complement activation pathways (classical, lectin, alternative), naming the central converging point (C3 convertase), and explain how bacteria evade complement (factor H mimicry, capsule).
+<!-- assess: LO=LO3; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+25. A positive Candida auris skin screen occurs without infection symptoms. Should this be equated with invasive disease or automatically treated?
 
 <!-- SOLUTION
-**Answer (Q29, Synthesis).** The classical pathway is triggered by antibody–antigen complexes binding C1q; the lectin pathway by mannose-binding lectin recognizing microbial carbohydrates; the alternative pathway by spontaneous C3 hydrolysis and direct surface deposition. All three converge on formation of C3 convertase, which cleaves C3 into C3a (anaphylatoxin) and C3b (opsonin), leading to the C5 convertase and assembly of the membrane attack complex (C5b–C9). Bacteria evade complement by recruiting host factor H (or mimicking it) to accelerate C3b decay and by using polysaccharide capsules that block C3b deposition and MAC insertion. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q25, Synthesis).** No. Colonization warrants appropriate healthcare infection-control action and assessment, not automatic antifungal treatment. Invasive infection requires clinical/site evidence and susceptibility-guided care; age and treatment response matter. Credit separation of transmission control from individual treatment. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
 
-<!-- assess: LO=LO2; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
-30. Natural killer (NK) cells kill virus-infected cells that downregulate MHC class I (a strategy used by many viruses to evade CTLs). Explain the "missing self" hypothesis: how do inhibitory KIR receptors normally inhibit NK killing, and how does MHC class I downregulation remove inhibition and trigger NK-mediated lysis?
+<!-- assess: LO=LO5; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
+26. A malaria household uses bed nets but has substantial indoor activity before bedtime. Construct a layered prevention plan from the chapter evidence.
 
 <!-- SOLUTION
-**Answer (Q30, Synthesis).** Under the 'missing-self' hypothesis, NK cells continuously sample target cells: inhibitory KIRs (e.g., KIR2DL, KIR3DL) bind self MHC class I and deliver a dominant inhibitory signal that overrides activating receptor signals, sparing healthy cells. Many viruses downregulate MHC class I to hide infected cells from CD8+ CTLs, but this removes the ligand for inhibitory KIRs. With inhibition lost and activating receptors still engaged, the NK cell is unleashed and lyses the MHC-low target via perforin/granzyme. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+**Answer (Q26, Synthesis).** Maintain nets and appropriate local measures; evaluate indoor spatial emanators as an additional WHO-recommended conditional tool, not outdoor or standalone replacement. Include entomological/insecticide-resistance surveillance, access, safe deployment and measured infection endpoints; vaccines and chemoprevention depend on eligible populations and local guidance. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
 SOLUTION -->
+
+<!-- assess: LO=LO3; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+27. Why are a historical 2050 AMR warning scenario and an estimated 2019 attributable mortality burden not interchangeable?
+
+<!-- SOLUTION
+**Answer (Q27, Synthesis).** They differ in design, date, counterfactual and endpoint. O’Neill’s 10 million/year scenario is conditional policy modeling, while the 1.27 million 2019 estimate attributes deaths to bacterial resistance under a specified analysis. Neither certifies the other or a current count \citep{oneill2016amr,murray2022amr}. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO2; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+28. For a stipulated R0=15 and transmission efficacy 0.97, compare uniform 3% refusal from full coverage with a separately mixing neighborhood where 10% remain unvaccinated.
+
+<!-- SOLUTION
+**Answer (Q28, Synthesis).** Uniform coverage of 0.97 gives an effective immune fraction of 0.9409, above 0.933333, and Re=15(1−0.9409)=0.8865. A separately mixing neighborhood with 90% coverage gives an immune fraction of 0.873 and local Re=1.905 under the same simplifying assumptions. Mixing between neighborhoods requires a contact matrix; clustering cannot be inferred from the uniform calculation. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO1; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
+29. A clone has high survival after antibiotic exposure but its regrown descendants retain the parental MIC. Design tests distinguishing tolerance from resistance.
+
+<!-- SOLUTION
+**Answer (Q29, Synthesis).** Measure time-kill curves with matched growth state and inoculum, then remeasure standardized MIC after drug-free regrowth and sequence candidate determinants where appropriate. Longer survival without a reproducible MIC increase supports tolerance/persistence, not necessarily heritable resistance. Include susceptible, resistant and no-drug controls. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+
+<!-- assess: LO=LO7; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+30. A country reports no resistant isolates but tests only 10 people with no representative sampling. What conclusion and next step are defensible?
+
+<!-- SOLUTION
+**Answer (Q30, Synthesis).** Observed 0/10 does not establish absence. Under a simple independent binomial illustration, the rough rule-of-three upper 95% bound is 3/10=.30, but nonrepresentative sampling can dominate that uncertainty. Improve systematic eligible sampling, diagnostics and reporting; do not label untested populations resistance-free. See \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology}.
+SOLUTION -->
+

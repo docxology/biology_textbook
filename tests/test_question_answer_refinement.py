@@ -6,6 +6,7 @@ import importlib.util
 import sys
 from pathlib import Path
 
+import pytest
 
 SCRIPT = Path(__file__).resolve().parent.parent / "scripts" / "refine_generated_answers.py"
 spec = importlib.util.spec_from_file_location("refine_generated_answers", SCRIPT)
@@ -46,15 +47,24 @@ def test_current_generated_answer_signatures_are_refinable() -> None:
     assert not module.is_v1_generated(hand_written)
 
 
-def test_regenerated_answers_do_not_use_expected_reasoning_scaffold() -> None:
-    answer = module.generate_answer(
-        12,
-        "Application",
-        "Calculate the allele frequency if 16 of 100 individuals are recessive.",
-        "sec:unit_V_population_genetics",
-        "evolution_genetics",
-    )
-    assert "Expected reasoning:" not in answer
-    assert "Scoring focus:" not in answer
-    assert "Chapter anchor:" in answer
-    assert "\\cref{sec:unit_V_population_genetics}" in answer
+def test_unsupported_quantitative_repair_requires_a_real_authored_solution() -> None:
+    from biology.answer_refinement.generation import UnsupportedAnswerRepair
+
+    with pytest.raises(UnsupportedAnswerRepair, match="Q12"):
+        module.generate_answer(
+            12, "Application",
+            "Calculate the allele frequency if 16 of 100 individuals are recessive.",
+            "sec:unit_V_population_genetics", "evolution_genetics",
+        )
+
+
+def test_every_canonical_bank_is_actually_visited_and_preserved() -> None:
+    from biology.answer_refinement.engine import process_bank
+    from biology.toc import load_toc
+
+    toc = load_toc(SCRIPT.parent.parent)
+    assert len(toc.questions) == 44
+    for question in toc.questions:
+        before = question.path.read_bytes()
+        assert process_bank(question.path, dry_run=True) == (0, 30), question.path
+        assert question.path.read_bytes() == before

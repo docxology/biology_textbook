@@ -14,243 +14,286 @@ insertions:
     target: unit_V/mendelian_principles.md
     anchor: Punnett Square
     caption: >-
-      Punnett square for a monohybrid cross Aa × Aa. Each cell shows the zygote
-      genotype; the 3:1 phenotype ratio follows directly from the 1:2:1 genotype
-      ratio.
+      Illustrative Punnett square for a monohybrid cross Aa × Aa with equally
+      likely gametes. Each grid cell shows a zygote genotype. The expected 1:2:1
+      genotype ratio gives a 3:1 phenotype ratio under complete dominance;
+      these are model probabilities, not observed offspring counts.
     label: fig:unit_V_punnett_square
     alt: >-
-      Two-by-two Punnett square labeled with Aa times Aa showing four offspring:
-      one AA homozygous dominant, two Aa heterozygous, one aa homozygous recessive.
+      Two-by-two genotype grid with A and a gametes labeling rows and columns
+      for Aa × Aa. Cells contain one AA, two Aa and one aa; shading distinguishes
+      dominant and recessive phenotypes under complete dominance.
   - png: light_response_curves
     target: unit_III/photosynthesis.md
     anchor: saturating light response
     caption: >-
-      Light-response curves for C3 and C4 plants. Net CO2 assimilation versus
-      photosynthetic photon flux density, showing light compensation point,
-      light saturation, and maximum assimilation rate.
+      Illustrative C3-, C4- and CAM-labeled light-response parameter sets using
+      net assimilation = Amax × PAR / (PAR + Klight) minus dark respiration.
+      The respective (Amax, Klight, respiration) triples are (20, 500, 1.5),
+      (35, 1500, 2) and (15, 800, 1). Assimilation is in micromoles CO2 per
+      square meter per second; PAR and Klight are in micromoles photons per
+      square meter per second. Klight is a gross half-saturation parameter.
+      These are model curves, not measured species responses or a diel CAM cycle.
     label: fig:unit_III_light_response
     alt: >-
-      Hyperbolic curves relating net photosynthesis to light intensity for C3
-      and C4 plants, with the C4 curve saturating at higher irradiance.
+      Three modeled net-assimilation curves against PAR from 0 to 2100 are
+      labeled C3, C4 and CAM. The C4-labeled set has the largest gross maximum
+      and half-saturation parameter. No measured plant data are plotted.
   - png: methylation_heatmap
     target: unit_IV/chromatin_and_epigenetic_mechanisms.md
     anchor: methylation
     caption: >-
-      DNA methylation heatmap across a panel of promoters and enhancers (rows)
-      and cell lines (columns). Darker cells denote higher CpG methylation;
-      cell-type-specific hypermethylation corresponds to silenced loci.
+      Illustrative synthetic CpG methylation heatmap across indexed loci (rows)
+      and samples (columns). Beta methylation fraction uses fixed color limits
+      0 to 1. A seed-42 uniform random matrix has zero-indexed rows 8 through
+      14 multiplied by 0.4; there are no measured promoter, enhancer, cell-line or expression
+      annotations.
     label: fig:unit_IV_methylation_heatmap
     alt: >-
-      Heatmap with regulatory elements on rows and cell types on columns;
-      methylation level color-coded from low (yellow) to high (red).
+      Synthetic heatmap with 24 indexed CpG loci on rows and eight indexed
+      samples on columns. Viridis runs from dark purple at low methylation
+      fraction to yellow at high fraction, with a lower-methylation middle band.
   - png: logistic_growth
     target: unit_X/population_ecology.md
     anchor: logistic
     caption: >-
-      Logistic growth toward carrying capacity K. Population size follows dN/dt
-      equals rN times one minus N over K; the S-shaped curve inflects near N equals
-      K over two and asymptotes at K.
+      Illustrative logistic growth with initial population 50, growth rate 0.15
+      per arbitrary time unit and carrying capacity K = 1000. Forward Euler
+      uses 400 intervals over 80 time units for dN/dt = rN(1 − N/K).
+      Population rises sigmoidally, inflects near K/2 and approaches K;
+      the series is a teaching simulation, not observed population data.
     label: fig:unit_X_logistic_growth
     alt: >-
-      Sigmoid population-size curve rising from a low initial abundance, inflecting
-      near half the carrying capacity K, then leveling at K on the horizontal axis.
+      Population size on the vertical axis rises sigmoidally with time on the
+      horizontal axis, inflects near half the carrying capacity and approaches
+      the horizontal population reference K = 1000.
   - png: species_area_relationship
     target: unit_X/biomes_and_conservation.md
     anchor: species-area
     caption: >-
-      Species–area relationship on log–log axes. The slope z of the linear fit
-      (S = cA^z) ranges from ~0.15 for contiguous continental biomes to ~0.35
-      for isolated oceanic islands, implying doubled habitat area roughly adds
-      10 percent species (mainland) or 25 percent (islands).
+      Illustrative species-area curves $S = cA^z$ on log-log axes. Mainland-fragment
+      and oceanic-island scenarios use c = 7, with z = 0.15 and 0.35 respectively;
+      a dotted reference uses c = 2.5 and z = 0.25. Habitat area spans 1 to
+      10000 square kilometres. These are prescribed model curves, not empirical fits.
     label: fig:unit_X_species_area
     alt: >-
-      Log-log plot of species richness against area, with two distinct slopes
-      for islands versus mainlands.
+      Three straight lines show modeled species richness versus habitat area
+      on logarithmic axes. The island scenario is steeper than the mainland
+      scenario. The dotted reference has an intermediate slope but a lower
+      intercept and lies below both over the plotted area range.
   - png: biome_distribution
     target: unit_X/biomes_and_conservation.md
     anchor: terrestrial biome
     caption: >-
-      Terrestrial biomes in mean annual temperature-precipitation space
-      (Whittaker-style classification). Point area reflects net primary
-      productivity so tropical rainforest, temperate forest, savanna, desert,
-      tundra, and marine reference sites are visually comparable.
+      Illustrative climate coordinates for five terrestrial biome categories,
+      not measured sites or calibrated Whittaker boundaries. Marker areas
+      equal 80 plus 520 times each representative productivity parameter
+      divided by the largest; this affine encoding is not direct proportionality.
+      Marine precipitation is non-applicable to this terrestrial comparison,
+      and marine environments are excluded from the panel.
     label: fig:unit_X_biome_distribution
     alt: >-
-      Scatter plot with mean annual precipitation on the horizontal axis and mean
-      annual temperature on the vertical axis; six labeled biome points differ in
-      size by net primary productivity.
+      Five labeled terrestrial biome categories lie at annual precipitation
+      on the horizontal axis and mean annual temperature on the vertical axis.
+      Marker sizes vary with illustrative productivity parameters; no marine
+      rainfall coordinate is plotted.
   - png: hardy_weinberg
     target: unit_V/population_genetics.md
     anchor: Hardy-Weinberg equilibrium
     caption: >-
-      Hardy-Weinberg genotype-frequency curves. As allele frequency $p$ varies,
-      $p^2$, $2pq$, and $q^2$ trace the expected AA, Aa, and aa proportions
-      under random mating.
+      Hardy-Weinberg expected genotype proportions for a two-allele random-mating
+      model, with q = 1 − p. As allele A frequency p ranges from zero to one,
+      $p^2$, $2pq$ and $q^2$ give AA, Aa and aa proportions. These are analytic
+      expectations, not a test of equilibrium in an observed population.
     label: fig:unit_V_hardy_weinberg
     alt: >-
-      Three curves showing genotype frequencies versus allele frequency p for
-      AA, Aa, and aa under Hardy-Weinberg equilibrium.
+      Three analytic genotype-frequency curves against allele A frequency p:
+      AA rises from zero to one, aa falls from one to zero and Aa peaks at
+      one-half when p is one-half. Both axes show proportions.
   - png: hill_equation
     target: unit_II/cell_signaling.md
     anchor: Hill coefficient
     caption: >-
-      Hill-equation receptor occupancy for cooperative binding. Higher Hill
-      coefficients steepen the sigmoid dose-response curve around the dissociation
-      constant Kd, so a small ligand increase can switch occupancy from low to high
-      when cooperativity is strong.
+      Illustrative Hill-equation fractional receptor occupancy for Hill
+      coefficients 1, 2 and 4 at Kd = 10 arbitrary concentration units.
+      Ligand concentration spans 0.1 to 100 on a logarithmic axis; each
+      prescribed curve reaches half occupancy at Kd. Larger coefficients
+      steepen the transition, without identifying a measured receptor mechanism.
     label: fig:unit_II_hill_equation
     alt: >-
-      Three sigmoid occupancy curves versus ligand concentration on a logarithmic
-      horizontal axis; Hill coefficient one rises gradually, while coefficients two
-      and four steepen the transition near the dissociation constant.
+      Three occupancy curves against logarithmic ligand concentration.
+      Coefficients one, two and four give increasingly steep transitions
+      around the vertical Kd = 10 guide; a horizontal guide marks half occupancy.
   - png: sir_model
     target: unit_VII/host_immunity_and_vaccines.md
-    anchor: SIR trajectory
+    anchor: The companion SIR model
     caption: >-
-      SIR epidemic model in a closed population. Susceptible individuals fall as
-      infections rise and peak; recovered individuals accumulate after the infected
-      compartment declines—peak height and timing depend on the basic reproduction
-      number R zero.
+      Illustrative closed-population SIR simulation with 10000 individuals,
+      25 initially infected, transmission coefficient 0.45 per day and recovery
+      coefficient 0.12 per day (R0 = 3.75). Coupled Euler transfers use four
+      intervals per day for 180 days. Susceptible abundance declines, infected
+      abundance rises and later falls, and recovery accumulates from the first
+      interval. Timing and height depend on rates, initial conditions and
+      numerical resolution; this is not an individual clinical forecast.
     label: fig:unit_VII_sir_model
     alt: >-
-      Three time-series curves labeled susceptible, infected, and recovered;
-      infected rises to a peak while susceptible declines, then recovered increases
-      as infected falls.
+      Time-series curves show susceptible, infected and recovered individuals
+      over 180 days. Infection rises to a peak then falls; recovery increases
+      during both rising and falling infection phases.
   - png: glycolysis_summary
     target: unit_III/bioenergetics_and_respiration.md
     anchor: glycolysis
     caption: >-
-      Net ATP and NADH balance across the ten glycolysis steps. Bars distinguish
-      the two ATP-investment steps, the four ATP-yielding payoff steps, and NADH
-      formation at steps 6 and 9; the pathway sums to net 2 ATP and 2 NADH per
-      glucose.
+      ATP and NADH accounting per glucose across ten glycolysis reactions.
+      ATP is invested at steps 1 and 3 and produced at steps 7 and 10,
+      each of the latter occurring twice per glucose. NADH is produced at
+      step 6, also twice per glucose. The stoichiometric table yields net
+      2 ATP and 2 NADH per glucose, not measured cellular reaction rates.
     label: fig:unit_III_glycolysis_summary
     alt: >-
-      Grouped vertical bars for each glycolysis step showing ATP investment as
-      negative bars in the first half, ATP production and NADH gains in the payoff
-      half, totaling net two ATP and two NADH per glucose.
+      Grouped bars by glycolysis reaction name show per-glucose ATP and NADH
+      yields. ATP bars are negative at steps one and three and positive at
+      seven and ten; the NADH gain is at step six. Totals are net two of each.
   - png: poiseuille_flow
     target: unit_IX/circulation_respiration_homeostasis.md
     anchor: Poiseuille
     caption: >-
-      Hagen-Poiseuille law: volumetric blood flow versus vessel radius at fixed
-      pressure gradient. Because flow scales with radius to the fourth power,
-      halving radius reduces flow sixteenfold—a key reason arteriolar constriction
-      controls tissue perfusion.
+      Illustrative Hagen-Poiseuille flow versus radius from 5 to 50 micrometres,
+      at fixed pressure difference 1000 Pa, length 0.02 m and viscosity
+      0.003 Pa seconds. Flow scales as the fourth power of radius, so halving
+      radius reduces flow sixteenfold. This assumes steady laminar Newtonian
+      flow in a rigid straight circular tube, not measured tissue perfusion.
     label: fig:unit_IX_poiseuille_flow
     alt: >-
-      Curve rising steeply with vessel radius on the horizontal axis and volumetric
-      flow on the vertical axis; halving radius cuts flow by a factor of sixteen at
-      fixed pressure gradient.
+      Analytic flow rises steeply with vessel radius in micrometres on the
+      horizontal axis and volumetric flow in millilitres per minute on the
+      vertical axis; pressure difference, viscosity and tube length are fixed.
   - png: fitness_landscape
     target: unit_VI/genetic_drift_and_speciation.md
     anchor: Genetic drift
     caption: >-
-      Mean population fitness as a function of allele frequency p under three
-      selection regimes: directional selection (fitness rises toward one allele),
-      heterozygote advantage (interior peak at intermediate p), and underdominance
-      (fitness trough that can split the population).
+      One-locus mean fitness versus allele A frequency p using prescribed
+      (AA, Aa, aa) fitnesses: directional selection (1, 0.9, 0.5), heterozygote
+      advantage (0.75, 1, 0.75) and underdominance (1, 0.55, 1).
+      Underdominance has an interior minimum and higher fitness at either
+      fixation. Static mean-fitness curves alone do not demonstrate population
+      splitting or speciation.
     label: fig:unit_VI_fitness_landscape
     alt: >-
-      Three curves of mean fitness versus allele frequency p: one rising to
-      fixation, one with a central peak at intermediate p, and one with a valley
-      that drops at both extremes.
+      Three mean-fitness curves against allele frequency: directional selection
+      rises toward p = 1; heterozygote advantage peaks at p = 0.5;
+      underdominance has a trough at p = 0.5 and rises toward both endpoints.
   - png: molecular_clock
     target: unit_VI/phylogenetics.md
     anchor: molecular clock
     caption: >-
-      Molecular-clock divergence times from t equals d divided by two mu. Larger
-      sequence divergence or slower substitution rates lengthen the inferred branch;
-      faster-evolving genes or smaller divergences yield shorter estimates when the
-      rate mu is held constant.
+      Illustrative divergence times from prescribed example inputs using
+      t = d / (2 mu), with pairwise divergence d and per-lineage substitution
+      rate mu per site per year. Example (mu, d) pairs are (1e-9, 0.12),
+      (2e-9, 0.08), (6e-9, 0.05) and (5e-8, 0.02).
+      At fixed mu, larger d gives older times; at fixed d, larger mu gives
+      younger times. Taxon labels do not identify calibrated empirical dates.
     label: fig:unit_VI_molecular_clock
     alt: >-
-      Horizontal bars comparing estimated divergence times in millions of years for
-      four taxon pairs; longer bars correspond to larger divergence or slower
-      evolutionary rates.
+      Four horizontal bars show divergence times from example rate-divergence
+      pairs in millions of years. Taxon-labeled scenarios illustrate a
+      two-lineage clock formula, not measured ages or uncertainty intervals.
   - png: biodiversity_indices
     target: unit_X/community_interactions.md
     anchor: Shannon
     caption: >-
-      Shannon H prime and Simpson one minus D for two communities with the same
-      species richness but different evenness. Higher evenness raises both indices
-      relative to a skewed dominance distribution dominated by one grassland species.
+      Shannon H prime and Simpson one minus D for two hand-entered illustrative
+      five-species communities: counts (50, 48, 52, 49, 51) and (200, 15, 8, 5, 3).
+      The near-even community scores higher within each index. Scenario names
+      do not identify sampled meadow or grassland sites; the two indices
+      have different scales.
     label: fig:unit_X_biodiversity_indices
     alt: >-
-      Side-by-side bars for Shannon and Simpson indices in an even meadow versus a
-      grassland dominated by one species; the even community shows higher bars for
-      both metrics.
+      Grouped Shannon and Simpson bars on an index-value axis compare two
+      synthetic communities labeled Even meadow and Dominant grassland.
+      The near-even community has a higher bar within each index.
   - png: photosynthesis_rate
     target: unit_VIII/plant_responses.md
     anchor: photosynthesis
     caption: >-
-      Net photosynthesis light-response curves for C3-like and C4-like
-      parameter sets. Higher light-saturation points and lower dark respiration
-      shift the compensation and saturation regions.
+      Illustrative net photosynthesis = Amax × PAR / (PAR + Klight) minus Rd.
+      The C3-like set uses (Amax, Klight, Rd) = (18, 700, 1.8); the C4-like
+      set uses (28, 1200, 2.2). Assimilation and respiration are in micromoles
+      CO2 per square meter per second; PAR and Klight are in micromoles
+      photons per square meter per second. Klight is gross half-saturation,
+      not complete saturation. No measured species data are plotted.
     label: fig:unit_VIII_photosynthesis_rate
-    alt: Two hyperbolic net-photosynthesis curves versus photosynthetically active radiation.
+    alt: >-
+      Two modeled hyperbolic net-assimilation curves against PAR from zero
+      to 2000. The C4-like set has higher gross maximum assimilation, a larger
+      half-saturation parameter and higher, not lower, dark respiration.
   - png: osmotic_pressure
     target: unit_I/water_and_life.md
     anchor: osmotic
     caption: >-
-      van 't Hoff osmotic pressure versus solute concentration at 37 degrees Celsius.
-      A non-electrolyte (i equals 1) and a fully dissociating electrolyte (i equals 2)
-      produce linear rises with concentration; doubling i doubles osmotic pressure at
-      equal molarity.
+      Illustrative ideal van 't Hoff osmotic pressure at 310 K (approximately
+      37 degrees Celsius) versus solute concentration from 0.01 to 1 mol/L.
+      Prescribed particle factors i = 1 and i = 2 give linear curves, with
+      factor two doubling pressure at equal molarity. This is not a clinical
+      tonicity calculation or a measured nonideal electrolyte response.
     label: fig:unit_I_osmotic_pressure
     alt: >-
-      Two straight lines of osmotic pressure increasing with solute concentration on
-      the horizontal axis; the steeper line marks an electrolyte with van t Hoff
-      factor two at body temperature, doubling the pressure of a non-electrolyte at
-      equal molarity.
+      Two straight model curves show osmotic pressure in kilopascals vertically
+      against molar concentration horizontally. The i = 2 curve is twice
+      the i = 1 curve at equal concentration and fixed temperature.
   - png: translation_codons
     target: unit_IV/gene_expression.md
     anchor: translation
     caption: >-
-      Amino-acid composition after in silico translation of a sample mRNA. Bar
-      height counts each residue type in the reading frame, showing how codon
-      usage and sequence length shape peptide composition under the standard
-      genetic code.
+      Amino-acid counts from in silico translation of a literal synthetic
+      example mRNA with the standard genetic code. Bars show only residue
+      types present in the peptide, in first-occurrence order, not a ranked
+      distribution of all twenty amino acids or measured expression data.
     label: fig:unit_IV_translation_codons
     alt: >-
-      Vertical bars ranking the twenty amino acids by count after translating a
-      sample messenger RNA sequence in the standard reading frame; the tallest
-      bars mark the most frequent residues in the encoded peptide.
+      Vertical bars count Met, Phe, Gly, His and Trp in first-occurrence order
+      after translating a synthetic messenger RNA. The vertical axis is
+      residue count; absent amino acids are not plotted.
   - png: mic_dilution_series
     target: unit_VII/microbial_ecology.md
-    anchor: MIC
+    anchor: minimum inhibitory concentration (MIC)
     caption: >-
-      Two-fold serial broth dilution for minimum inhibitory concentration (MIC)
-      testing. Antibiotic concentration halves in each successive tube; the first
-      tube with no visible growth marks the MIC used to compare susceptibility.
+      Illustrative twofold antibiotic dilution layout: eight concentrations
+      descend from 128 to 1 microgram/mL. Concentration bars encode no growth
+      observations and cannot establish an MIC. With appropriate growth and
+      sterility controls, MIC is the lowest tested concentration preventing
+      visible growth, not the first clear tube in descending order.
     label: fig:unit_VII_mic_dilution_series
     alt: >-
-      Eight ordered tubes or bars with antibiotic concentration dropping by half
-      each step on a logarithmic scale; the last tube showing visible growth
-      marks the MIC boundary.
+      Eight bars halve from 128 to 1 microgram/mL across ordered dilution
+      positions, with logarithmic concentration on the vertical axis.
+      No growth-positive or growth-negative results or controls are encoded.
   - png: homeostasis_feedback
     target: unit_IX/endocrine_signaling.md
     anchor: homeostasis
     caption: >-
-      Generic proportional negative feedback toward a set point (temperature shown
-      as an example). Each correction is proportional to the measured error, so
-      large deviations trigger stronger responses and the system converges without
-      indefinite overshoot—the same logic applies to hormone axes such as the
-      thyroid loop below.
+      Synthetic proportional temperature feedback with set point 37 degrees
+      Celsius, initial value 39.5 and gain 0.35 across twelve iterations.
+      Each update adds minus 0.35 times the current error; the remaining
+      error is multiplied by 0.65, giving convergence without overshoot
+      for this scenario. Corrections are temperature changes, not hormone
+      measurements or a calibrated clinical thyroid model.
     label: fig:unit_IX_homeostasis_feedback
     alt: >-
-      Line plot of measured value approaching a horizontal set-point line across
-      iterations; corrective responses shrink as the error decreases, illustrating
-      proportional negative feedback.
+      Temperature approaches the horizontal 37-degree set point over feedback
+      iterations on the left axis. Negative correction bars on the right axis
+      are in degrees Celsius and shrink in magnitude as the error decreases.
   - png: food_web_trophic_levels
     target: unit_X/ecosystem_ecology.md
     anchor: trophic
     caption: >-
-      Trophic levels assigned from phytoplankton producers upward in a simplified
-      aquatic food web. Each consumer sits one level above its prey; apex predators
-      occupy the highest bar in this linear chain.
+      Trophic levels from a prescribed five-node linear aquatic food chain.
+      Phytoplankton are level 1; zooplankton, small fish, large fish and
+      apex predator occupy levels 2 through 5. Breadth-first traversal from
+      producers assigns each consumer one level above its sole prey;
+      these are illustrative links, not an empirically sampled food web.
     label: fig:unit_X_food_web_trophic_levels
     alt: >-
-      Horizontal bars ordered from producer at level one through herbivore,
-      secondary consumer, and apex predator at level four in a linear aquatic food
-      chain.
+      Five horizontal bars show phytoplankton at trophic level one, zooplankton
+      at two, small fish at three, large fish at four and apex predator at five.
+      Species names are vertical labels and trophic level is horizontal.

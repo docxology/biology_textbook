@@ -3,6 +3,10 @@
 > [!NOTE]
 > **See also:** [composable_authoring.md](composable_authoring.md) for stable `sec:` / `fig:` / `eq:` IDs, ordered checklists for new chapters and figures, and which invariant tests apply. **This guide** keeps **templates** and **LaTeX patterns**; composable authoring ties them to `config.yaml`, `ChapterMeta`, and CI. For **editorial voice** (tone, vignette construction, clinical boxes) see [agent_instructions.md](agent_instructions.md).
 
+Edition 1.1/software 2.0.0 remains unreleased; exact-source full-gate and separate PDF-review receipts establish local proof, not publication. Build from the project root with scripts/render_textbook.py and audit_publication_readiness.py --check --full after locked setup. The selected template is a read-only library, not an execution directory. Every render validates and atomically stages live source, freshly renders canonical source-matched inline PNGs and rejects missing/corrupt images; source-only .mmd is not a publication substitute. See pipeline_guide.md.
+
+Author prompt-specific solutions, finite printed lab packets and semantic LO/Bloom/rubric mappings. Synchronization validates and preserves reviewed metadata; it does not infer objectives from position or generate answers. Distinguish synthetic model results, source metadata and full-text empirical evidence.
+
 ---
 
 ## Table of contents
@@ -214,7 +218,7 @@ Chapters embed matplotlib figures as **raw-LaTeX `\begin{figure}`** blocks so ca
 \includegraphics[width=0.85\textwidth]{../figures/michaelis_menten.png}
 \caption{Michaelis–Menten kinetics: initial velocity ($v_0$) versus
 substrate concentration, approaching $V_{\max}$ asymptotically as
-$[S] \to \infty$. Curve fit with $V_{\max}=10$ and $K_m=2$ mM.}
+$[S] \to \infty$. Synthetic illustration evaluated with $V_{\max}=10$ and $K_m=2$ mM, not an empirical fit.}
 \label{fig:unit_I_michaelis_menten}
 \end{figure}
 <!-- alt: Smooth saturating curve of reaction velocity versus substrate concentration, plateauing at V max with the half-saturation point K m marked on the substrate axis. -->
@@ -600,7 +604,7 @@ flowchart LR
 | Total nodes per diagram | < 15 strongly preferred | Beyond 20, split into two diagrams |
 | Total edges per node | < 6 | Dense crossings reduce legibility |
 | Special characters in labels | Wrap in `"..."` | Required for `(`, `)`, `:`, `,`, `<`, `>` |
-| Render size (PNG) | 1200×1200 px default | Set with `mmdc -w 1200 -H 1200`; the project pads rendered Mermaid PNGs to a square canvas for review and print consistency |
+| Render size (PNG) | size=1200, square=True | scripts/generate_diagrams.py --strict-png --size 1200; pinned Mermaid CLI 12.2.0; no obsolete width/height CLI aliases |
 
 > [!WARNING]
 > **Special characters in node labels** are the #1 cause of mermaid render failures. Always wrap labels with parentheses, colons, or commas in double quotes:

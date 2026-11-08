@@ -97,9 +97,9 @@ diagrams:
   title: Sex-Linked Inheritance and X-Inactivation
   nodes:
   - - Dev
-    - Female embryo XX cell
+    - XX embryonic cell
   - - Xi
-    - X-inactivation begins blastocyst
+    - 'Early embryonic establishment<br/>species- and stage-dependent timing'
   - - Barr
     - Barr body inactive X
   - - Mosaic
@@ -109,19 +109,21 @@ diagrams:
   - - AD
     - Ectodermal dysplasia mosaic females
   - - SL
-    - X-linked recessive trait
+    - 'X-linked recessive cross<br/>carrier mother XAXa × unaffected father XAY'
   - - 'Off'
-    - Offspring
+    - 'Equal segregation and sex probability<br/>no viability differences'
+  - - UnaffD
+    - Unaffected noncarrier daughter XAXA
   - - Carr
-    - Carrier daughters XAXa
+    - Carrier daughter XAXa
   - - Aff
-    - Affected sons XaY
+    - Affected son XaY
   - - Norm
-    - Normal sons XAY
+    - Unaffected son XAY
   edges:
   - - Dev
     - Xi
-    - Day 5-7 XIST RNA
+    - XIST expression and silencing relationship varies
   - - Xi
     - Barr
     - random per cell
@@ -136,16 +138,19 @@ diagrams:
     - ''
   - - SL
     - 'Off'
-    - carrier mother XAXa
+    - stated parental genotypes
+  - - 'Off'
+    - UnaffD
+    - 25 percent of all offspring
   - - 'Off'
     - Carr
-    - ''
+    - 25 percent of all offspring
   - - 'Off'
     - Aff
-    - ''
+    - 25 percent of all offspring
   - - 'Off'
     - Norm
-    - ''
+    - 25 percent of all offspring
 - type: flowchart
   factory: dna_replication_diagram
   name: dna_replication_diagram
@@ -169,10 +174,10 @@ diagrams:
     - Pol alpha-primase RNA primer
   - - OkA
     - Pol delta extends Okazaki fragment
+  - - Flap
+    - RNA-DNA flap from strand displacement
   - - Nick
-    - Nick in lagging strand
-  - - Gap
-    - Gap filled
+    - Ligatable nick after FEN1 cleavage
   - - LigDone
     - Okazaki fragment matured
   - - PCNA
@@ -203,14 +208,14 @@ diagrams:
     - OkA
     - ''
   - - OkA
+    - Flap
+    - Pol delta strand-displacement synthesis
+  - - Flap
     - Nick
-    - FEN1 flap removal
+    - FEN1 flap cleavage
   - - Nick
-    - Gap
-    - DNA Pol delta fill
-  - - Gap
     - LigDone
-    - LIG1 plus ATP
+    - LIG1 plus ATP seals nick
   - - PCNA
     - Lead
     - PIP box
@@ -1062,7 +1067,7 @@ diagrams:
 - type: flowchart
   factory: phylogenetic_tree_diagram
   name: phylogenetic_tree
-  title: 'Tree of Life: Domains and Eukaryogenesis'
+  title: 'Eukaryogenesis and Selected Lineages: Informal Overview, Not a Cladogram'
   nodes:
   - - LUCA
     - Last Universal Common Ancestor
@@ -1076,8 +1081,8 @@ diagrams:
     - Bacterial endosymbiont
   - - Euk
     - Eukarya
-  - - Prot
-    - Protists
+  - - OtherEuk
+    - Other eukaryotic lineages<br/>informal non-monophyletic grouping
   - - Fung
     - Fungi
   - - Plant
@@ -1087,10 +1092,10 @@ diagrams:
   edges:
   - - LUCA
     - Bac
-    - ~3.8 Ga
+    - lineage divergence, date not specified
   - - LUCA
     - Arc
-    - ~3.8 Ga
+    - lineage divergence, date not specified
   - - Arc
     - Host
     - archaeal lineage
@@ -1104,40 +1109,41 @@ diagrams:
     - Euk
     - mitochondrion
   - - Euk
-    - Prot
-    - ''
+    - OtherEuk
+    - selected groups, not resolved branching order
   - - Euk
     - Fung
-    - ''
+    - selected group, not resolved branching order
   - - Euk
     - Plant
-    - ''
+    - selected group, not resolved branching order
   - - Euk
     - Anim
-    - ''
+    - selected group, not resolved branching order
 - type: state
   factory: population_growth_stages_diagram
   name: population_growth_phases
-  title: 'Logistic Population Growth: Lag, Exponential, and Carrying Capacity'
+  title: 'Constant-K Logistic Growth: Acceleration, Inflection, and Approach to K'
   states:
-  - Lag
-  - Exponential
-  - Decelerating
-  - Stationary
+  - Low N<br/>approximately exponential
+  - Accelerating absolute growth<br/>N below K/2
+  - Inflection<br/>N equals K/2
+  - Decelerating absolute growth<br/>N above K/2
+  - Approaches K<br/>asymptotically
   transitions:
-  - - Lag
-    - Exponential
-    - population establishes
-  - - Exponential
-    - Decelerating
-    - N approaches K/2
-  - - Decelerating
-    - Stationary
-    - N near K
-  - - Stationary
-    - Decelerating
-    - resource pulse
-  initial_state: Lag
+  - - Low N<br/>approximately exponential
+    - Accelerating absolute growth<br/>N below K/2
+    - positive r, initial N below K/2
+  - - Accelerating absolute growth<br/>N below K/2
+    - Inflection<br/>N equals K/2
+    - maximum growth rK/4
+  - - Inflection<br/>N equals K/2
+    - Decelerating absolute growth<br/>N above K/2
+    - absolute growth slows
+  - - Decelerating absolute growth<br/>N above K/2
+    - Approaches K<br/>asymptotically
+    - growth approaches zero
+  initial_state: Low N<br/>approximately exponential
 - type: flowchart
   factory: speciation_diagram
   name: speciation_diagram

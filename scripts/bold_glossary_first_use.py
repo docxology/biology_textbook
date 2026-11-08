@@ -9,7 +9,10 @@ from _bootstrap import PROJECT, ensure_project_paths
 
 ensure_project_paths()
 
-from biology.maintenance.glossary_first_use import apply_glossary_first_use, load_glossary_terms
+from biology.maintenance.glossary_first_use import (
+    apply_glossary_first_use,
+    load_glossary_terms,
+)
 
 MANUSCRIPT = PROJECT / "docs" / "manuscript"
 SKIP_NAMES = frozenset({"README.md", "AGENTS.md", "unit_intro.md"})

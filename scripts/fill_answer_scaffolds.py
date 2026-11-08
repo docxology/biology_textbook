@@ -7,7 +7,11 @@ from _bootstrap import ensure_project_paths
 
 ensure_project_paths()
 
-from biology.answer_refinement.classification import classify_question, subject_phrase, tier_for
+from biology.answer_refinement.classification import (
+    classify_question,
+    subject_phrase,
+    tier_for,
+)
 from biology.answer_refinement.cli import fill_main
 from biology.answer_refinement.paths import MANUSCRIPT, QUESTIONS
 from biology.answer_refinement.scaffolds import generate_answer, process_bank

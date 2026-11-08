@@ -2,14 +2,10 @@
 
 from __future__ import annotations
 
-import re
-
 from biology.enrichment.catalog import (
+    _COMPANION_SECTION_RE,
     COMPANION_INTRO_BY_STEM,
     COMPANION_SOURCE_BY_STEM,
-    _COMPANION_NOTE_LINE_RE,
-    _COMPANION_SECTION_RE,
-    _INLINE_COMPANION_NOTE_RE,
 )
 from biology.enrichment.models import ChapterRecord
 from textbook_io import write_text_atomic
@@ -64,34 +60,20 @@ def companion_source_section(record: ChapterRecord) -> str:
 """
 
 
-def _normalize_companion_heading(text: str, title: str) -> str:
-    return re.sub(
-        r"(?m)^#{2,3}\s+Companion Source Module(?::[^\n{]+)?(?:\s+\{[^}]*\})?\s*$",
-        f"## Companion Source Module: {title}",
-        text,
-    )
 
 
 def normalize_companion_source_modules(records: list[ChapterRecord], dry_run: bool) -> int:
+    """Add missing companion modules without rebuilding authored sources or anchors."""
     changed = 0
     for record in records:
         path = record.chapter_path
         text = path.read_text(encoding="utf-8")
-        new_text = _COMPANION_SECTION_RE.sub("", text)
-        new_text = _COMPANION_NOTE_LINE_RE.sub("", new_text)
-        new_text = _INLINE_COMPANION_NOTE_RE.sub("", new_text)
-        new_text = re.sub(r"\n---\s*\n\s*\n---\s*\n", "\n---\n", new_text)
-        new_text = re.sub(r"\n---\s*\n\s*(?=---\s*\n)", "\n", new_text)
-        new_text = re.sub(r"\n{4,}", "\n\n\n", new_text).rstrip()
-        rebuilt = f"{new_text}\n\n{companion_source_section(record).strip()}\n"
-        rebuilt_normalized = _normalize_companion_heading(rebuilt, record.title)
-        existing_normalized = _normalize_companion_heading(text, record.title)
-        if rebuilt_normalized == existing_normalized:
+        if _COMPANION_SECTION_RE.search(text):
             continue
-        if rebuilt != text:
-            changed += 1
-            if not dry_run:
-                write_text_atomic(path, rebuilt)
+        new_text = text.rstrip() + "\n\n" + companion_source_section(record).strip() + "\n"
+        changed += 1
+        if not dry_run:
+            write_text_atomic(path, new_text)
     return changed
 
 

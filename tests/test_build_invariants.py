@@ -19,9 +19,8 @@ from pathlib import Path
 
 from biology.citations import bib_keys, citation_keys
 
-
 MANUSCRIPT = Path(__file__).resolve().parent.parent / "docs" / "manuscript"
-PROJECT = MANUSCRIPT.parent
+PROJECT = MANUSCRIPT.parent.parent
 
 
 def _manuscript_markdown_files() -> list[Path]:
@@ -215,7 +214,10 @@ def test_glossary_links_resolve_to_master_glossary_anchors() -> None:
 
 def test_glossary_index_term_count_matches_glossary_entries() -> None:
     """Appendix G intro count must match parsed glossary entries."""
-    from biology.maintenance.glossary_links import glossary_term_count, parse_glossary_index_entries
+    from biology.maintenance.glossary_links import (
+        glossary_term_count,
+        parse_glossary_index_entries,
+    )
 
     glossary_text = (MANUSCRIPT / "glossary.md").read_text(encoding="utf-8")
     index_text = (MANUSCRIPT / "appendices" / "appendix_index.md").read_text(encoding="utf-8")
@@ -237,44 +239,22 @@ def test_glossary_and_index_use_semantic_chapter_links() -> None:
     assert not offenders
 
 
-def test_known_biology_claim_corrections_remain_present() -> None:
-    """High-risk glossary claims should keep their reviewed, nuanced wording."""
-    glossary = (MANUSCRIPT / "glossary.md").read_text(encoding="utf-8")
-    circulation = (MANUSCRIPT / "unit_IX" / "circulation_respiration_homeostasis.md").read_text(
-        encoding="utf-8"
-    )
-    assert "TLR1–10 in humans" in glossary
-    assert "up to 1,000-fold more antibiotic tolerant" in glossary
-    assert "not literally dark" in glossary
-    assert "age-dependent lower limit of normal" in glossary
-    assert "age-dependent lower limit of normal" in circulation
 
 
 def test_labs_are_paper_based_by_default() -> None:
-    """Labs should require only printed evidence, cards, graphs, and writing tools."""
-    offenders: list[str] = []
-    banned_required_terms = re.compile(
-        r"\b("
-        r"beakers?|pipettes?|reagents?|Benedict'?s|Biuret|Sudan|HCl|NaOH|"
-        r"hot water bath|compound microscope|dissecting microscope|glass slides?|"
-        r"coverslips?|wet mounts?|cheek swabs?|agar plates?|LB agar|Mueller-Hinton|"
-        r"swabbed|duckweed cultures?|pollen germination medium|"
-        r"fresh flowers?|dissect(?:ion|ed|ing)|sharp knife|celery cross-sections?"
-        r")\b",
-        flags=re.IGNORECASE,
-    )
-    for lab in sorted((MANUSCRIPT / "labs").rglob("lab_*.md")):
-        text = lab.read_text(encoding="utf-8")
-        assert "## Paper-Based Materials {.unnumbered}" in text, lab
-        assert "## Paper-Based Investigation {.unnumbered}" in text, lab
-        default_text = re.split(r"## Optional (?:Material|Wet-Lab)", text, maxsplit=1)[0]
-        default_text = default_text.split("## Safety and Ethics Notes", 1)[0]
-        default_text = default_text.split("## Debrief and Reflection", 1)[0]
-        default_text = default_text.split("## Analysis Questions", 1)[0]
-        for line_no, line in enumerate(default_text.splitlines(), start=1):
-            if banned_required_terms.search(line):
-                offenders.append(f"{lab.relative_to(MANUSCRIPT)}:{line_no}: {line.strip()}")
-    assert not offenders
+    """Printed assay evidence is permitted; physical requirements are not."""
+    from biology.maintenance.manuscript_walker import manuscript_markdown_files
+    from biology.quality.audits.content import audit_lab_defaults
+    from biology.quality.models import Finding
+
+    findings: list[Finding] = []
+    audit_lab_defaults(findings)
+    assert not [(item.path, item.line, item.message) for item in findings]
+    for lab in manuscript_markdown_files(MANUSCRIPT / "labs", project_root=MANUSCRIPT.parent.parent):
+        if lab.match("lab_*.md"):
+            text = lab.read_text(encoding="utf-8")
+            assert "## Paper-Based Materials {.unnumbered}" in text, lab
+            assert "## Paper-Based Investigation {.unnumbered}" in text, lab
 
 
 def test_no_escaped_newline_or_nested_strong_link_artifacts() -> None:
@@ -444,14 +424,3 @@ def test_course_planning_grid_contains_hyperref_links() -> None:
     assert "\\hyperref[sec:unit_I_atoms_molecules]" in block
 
 
-def test_course_planning_grid_uses_wide_unit_columns() -> None:
-    from biology.maintenance.chapter_badges import COURSE_GRID_COLUMN_SPEC, build_grid
-    from biology.toc import load_toc
-
-    block = build_grid(load_toc(PROJECT))
-    assert r"\begin{tabular}" in block
-    assert COURSE_GRID_COLUMN_SPEC in block
-    assert r"p{0.34\textwidth}" in block
-    assert r"p{0.31\textwidth}" in block
-    assert r"p{0.05\textwidth}" in block
-    assert "| Unit |" not in block

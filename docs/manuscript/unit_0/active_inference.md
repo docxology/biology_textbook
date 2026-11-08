@@ -33,7 +33,7 @@ By the end of this chapter, students will be able to:
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
 
-- **Big idea:** Living systems reduce uncertainty by acting on the world as well as by updating internal models.
+- **Big idea:** Active-inference models describe how belief updating and action can jointly regulate predicted sensory outcomes; this is a framework, not an exceptionless biological law.
 - **Core concepts:** prediction error, Bayesian updating, policy selection, homeostasis.
 - **Framework alignment:** Vision & Change: Systems, Structure and function; AP Biology: Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
 - **Model or quantitative lens:** Bayesian belief updating and expected-free-energy-style policy comparison.
@@ -286,9 +286,11 @@ Allostasis — popularised by \citet{sterling1988} — is naturally captured by 
 ```mermaid
 graph TD
     subgraph Homeostasis
-        H1["Fixed Set Point"] --> H2["Error Detection"]
+        H1["Fixed Set Point"] --> H2["Comparator<br/>reference − measurement"]
         H2 --> H3["Reactive Correction"]
-        H3 -.->|"Lagged response"| H1
+        H3 --> H4["Regulated State"]
+        H4 --> H5["Sensor / Measurement"]
+        H5 -->|"Negative feedback"| H2
     end
 
     subgraph Allostasis
@@ -323,12 +325,12 @@ Its interoceptive sensor is noisy, $P(o \mid T) = \mathcal{N}(T, 1.0^2)$. Suppos
 \label{eq:unit_0_temp_posterior}
 \end{equation}
 
-The variational free energy associated with this observation is approximately $F_{\mathrm{before}} \approx 4.5$ nats (dominated by the log-likelihood of $o = 34$ under the prior). The agent has two ways to reduce it:
+Specify $q(T)$ and use $F[q,o]=\mathrm{KL}(q\Vert p(T\mid o))-\ln p(o)$. With densities measured relative to a 1 °C reference interval, the predictive variance is 1.25 °C$^2$. At $o=34$ °C, $-\ln p(o)=\tfrac12\ln(2\pi\,1.25)+9/(2\,1.25)\approx4.631$ nats. Posterior variance is $(1/0.25+1/1)^{-1}=0.20$ °C$^2$.
 
-1. **Perceptual inference (passive)** — accept $\mu_{\mathrm{post}} = 36.4$ °C as its new belief. $F$ drops to ~2.1 nats.
-2. **Active inference** — act to change the world so that future $o$ matches the 37 °C prior. Shiver, vasoconstrict, seek warmth. After one minute of shivering the sensor reads 36.5 °C; after five minutes, 37.0 °C. $F$ approaches 0.
+1. **Perceptual inference:** Starting with $q=p(T)$ gives $F=0.5\ln(2\pi)+0.5(9+0.25)\approx5.544$ nats. The exact posterior $\mathcal N(36.4,0.20)$ removes the KL term and reaches 4.631 nats, never below the evidence bound.
+2. **Action:** If warming changes the next observation to 36.5 °C, its evidence bound is about 1.131 nats; at 37 °C it is about 1.031 nats, not zero. These compare different observations, not posterior updates to a fixed observation.
 
-**Key insight:** acting reduces free energy *more completely* than updating beliefs, because the prior is tight — the organism would rather change the world than its expectations. This is the formal expression of what Helmholtz intuited in 1867 and what the FEP quantifies today: *organisms do not merely represent the world; they re-shape it to match their models.*
+Absolute density surprisal depends on the measurement convention. This example neither proves that all organisms implement the model nor establishes that action is always preferable: policy costs and experimental evidence also matter.
 
 > **Applied Systems / Clinical Connection — dyspnoea as prediction error.**
 > Shortness of breath is not a raw oxygen sensor. It is an inferred body state built from chemoreceptor input, lung stretch, motor command, prior experience, and context. A patient with asthma, panic, or deconditioning can therefore experience similar dyspnoea through different precision settings: airway resistance may be high, interoceptive prediction error may be overweighted, or motor effort may be predicted poorly. Active inference does not replace spirometry or blood gases; it explains why objective physiology and subjective distress can diverge and why treatment may need both bronchodilation and recalibration of threat priors \citep{friston2010,friston2017}.
@@ -563,7 +565,7 @@ If a case lacks action, active inference may reduce to perceptual inference or B
 
 2. Explain in your own words why minimizing variational free energy $F$ is a tractable proxy for maximizing model evidence, given that the true posterior $P(\mathbf{z}\mid\mathbf{o})$ is generally intractable. Which term of $F$ penalises over-complex beliefs, and which rewards accurate ones?
 
-3. Distinguish perceptual inference from active inference using the chapter's body-temperature worked example. The agent's free energy falls from ~4.5 nats to ~2.1 nats by belief update but approaches 0 by shivering. Explain why action reduces free energy *more completely* when the temperature prior is tight.
+3. Derive the body-temperature posterior mean 36.4 °C and variance 0.20 °C$^2$. Why can updating at fixed $o=34$ not lower $F$ below 4.631 nats, whereas warming changes the observation and its bound? Why is neither quantity Gibbs energy?
 
 4. Apply the Markov-blanket partition to *E. coli* chemotaxis: assign concrete molecular identities to the sensory, active, internal, and external states, and identify which assignment is least clear-cut and why.
 

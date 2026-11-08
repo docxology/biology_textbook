@@ -80,9 +80,9 @@ stateDiagram-v2
     [*] --> Closed: At rest (V = -70 mV)
 
     state "Na+ Channel States" as NaCh {
-        Closed --> Open: Depolarization above threshold<br/>m gates open (tau ~0.5 ms)<br/>3 activation gates (m³)
-        Open --> Inactivated: h gate closes (tau ~5 ms)<br/>Ball-and-chain mechanism<br/>Channel blocked from inside
-        Inactivated --> Closed: Repolarization to rest<br/>h gate reopens (tau ~10 ms)<br/>m gates close
+        Closed --> Open: Depolarization increases activation<br/>HH conductance scales with m³h<br/>not three literal activation gates
+        Open --> Inactivated: Fast inactivation; h decreases<br/>phenomenological HH variable<br/>not a literal pore-blocking ball
+        Inactivated --> Closed: Repolarization promotes recovery<br/>h increases and m decreases<br/>rates depend on voltage and model
     }
 
     note right of Open
@@ -96,8 +96,8 @@ stateDiagram-v2
         Cannot reopen regardless
         of stimulus strength
         ABSOLUTE refractory period
-        Ensures unidirectional
-        propagation
+        Contributes to normal
+        forward propagation
     end note
 
     note right of Closed
@@ -107,9 +107,9 @@ stateDiagram-v2
         activated by new stimulus
     end note
 ```
-<!-- alt: State diagram showing voltage-gated Na^+ channel states. The channel transitions through three states: Closed (resting, ready to open), Open (conducting Na^+, brief ~0.5 ms), and Inactivated (blocked by the inactivation gate, cannot reopen until repolarization restores the resting state). The inactivated state underlies the absolute refractory period. -->
+<!-- alt: State diagram showing a simplified Na^+-channel state schematic. Hodgkin–Huxley gating variables describe conductance phenomenologically; the m^3h form is not proof of three literal activation gates and a pore-blocking ball. Molecular inactivation involves conformational gating, with IFM-linked mechanisms studied in mammalian channels. -->
 
-*Voltage-gated Na$^+$ channel states. The channel transitions through three states: Closed (resting, ready to open), Open (conducting Na$^+$, brief ~0.5 ms), and Inactivated (blocked by the inactivation gate, cannot reopen until repolarization restores the resting state). The inactivated state underlies the absolute refractory period.*
+*A simplified Na$^+$-channel state schematic. Hodgkin–Huxley gating variables describe conductance phenomenologically; the $m^3h$ form is not proof of three literal activation gates and a pore-blocking ball. Molecular inactivation involves conformational gating, with IFM-linked mechanisms studied in mammalian channels \citep{liu2023inactivation}.*
 
 : Hodgkin-Huxley voltage-dependent gating rate variables. {#tbl:unit_IX_action_potential_synapses_hodgkin_huxley_gating_variables}
 | Gating variable | $\alpha(V)$ | $\beta(V)$ |
@@ -141,11 +141,9 @@ stateDiagram-v2
 
 ## Refractory Periods and Directional Propagation
 
-**Absolute refractory period** (~1-2 ms after spike peak): Na$^+$ channels are in the inactivated state (h about 0). They cannot be re-opened regardless of stimulus strength. This supports:
-- Unidirectional AP propagation (the region just behind the AP cannot be re-excited)
-- Maximum firing rate (~500-1000 Hz)
+**Absolute refractory period:** For a specified membrane and stimulation protocol, this is the post-spike interval during which another spike cannot be evoked, largely because sodium-channel availability is reduced. An interval around 1–2 ms is illustrative, not universal. Refractoriness contributes to normal forward propagation, but stimulation in the middle of an axon can launch spikes in both directions; neither directionality nor a fixed firing-rate ceiling follows from local inactivation alone.
 
-**Relative refractory period** (~5-10 ms following absolute): Na$^+$ channels are recovering from inactivation (h recovering), but K$^+$ channels remain open. The membrane is more negative than resting potential (afterhyperpolarisation). A stronger-than-normal stimulus is needed to trigger a second spike. APs generated during this period have reduced amplitude.
+**Relative refractory period:** During recovery, residual outward conductance and incomplete sodium-channel recovery can require a stronger stimulus. An illustrative interval is 5–10 ms; amplitude and duration depend on cell, conductances and test conditions.
 
 > **Clinical Connection:** The cardiac refractory period is much longer than in [**neuron**](#gl:neuron)s (~200-300 ms vs ~2 ms) because cardiac AP duration is prolonged by L-type Ca$^{2+}$ channels (plateau phase). This prevents tetanic contraction of the heart (which would be fatal -- the heart must relax to fill). The "vulnerable period" near the end of the T wave (relative refractory period of ventricles) is when a premature stimulus can trigger ventricular fibrillation.
 
@@ -157,14 +155,14 @@ stateDiagram-v2
 
 ### Unmyelinated Conduction and Cable Spread
 
-In continuous conduction, the AP generates local circuits along the axon membrane:
+In continuous conduction, the AP generates local circuits along the axon membrane. Holding membrane properties, channel kinetics and cytoplasmic resistivity fixed, an approximate radius scaling is:
 
 \begin{equation}
-\theta \propto \sqrt{a/r_i}
+\frac{\theta(a)}{\theta(a_0)} \approx \sqrt{\frac{a}{a_0}}
 \label{eq:action_potential_synapses_3}
 \end{equation}
 
-where a = axon radius and $r_i$ = axial resistance per unit length. Increasing diameter reduces axial resistance, increasing velocity. Squid giant axon (500 um diameter) achieves ~25 m/s by brute-force gigantism.
+Here $a$ is axon radius and $a_0$ is a reference radius; this is a conditional scaling, not a universal velocity law \citep{rushton1951fibresize}. Increasing diameter reduces axial resistance, increasing velocity. Squid giant axon (500 um diameter) achieves ~25 m/s by brute-force gigantism.
 
 ### Myelinated Axons -- Saltatory Conduction
 
@@ -175,11 +173,11 @@ Myelin dramatically increases the **space constant** (λ):
 \label{eq:action_potential_synapses_4}
 \end{equation}
 
-Myelin increases $r_m$ (membrane resistance, preventing current leak) and reduces $C_m$ (membrane capacitance, reducing charge needed to change voltage). The result: depolarization spreads much further without decay.
+Here $r_m$ is membrane resistance times length and $r_i$ is axial resistance per unit length. Myelin increases $r_m$ and reduces effective internodal $C_m$, decreasing current leakage and capacitive load. Passive depolarization therefore attenuates more slowly with distance; active regeneration, rather than absence of passive decay, maintains the propagating spike.
 
-APs can primarily arise at **nodes of Ranvier** (1-2 um gaps between myelin segments, every ~1 mm). Nodes have concentrated voltage-gated Na$^+$ channels (~1,000/um$^2$ at nodes vs ~25/um$^2$ under myelin).
+Along an intact myelinated axon, a propagating action potential is regenerated at **nodes of Ranvier**, where voltage-gated Na$^+$ channels are concentrated. This is propagation, not a universal site of initial spike generation; cortical pyramidal neurons, for example, initiate spikes in the axon initial segment \citep{kole2008ais}. Node geometry, spacing and density estimates require a specified preparation and measurement method \citep{ritchie1977nodalchannels,harris2012whitematter}.
 
-**Saltatory conduction:** The AP appears to "jump" between nodes. In myelinated axons, velocity scales linearly with diameter ($\theta \propto d$), rather than as the square root:
+**Saltatory conduction:** The AP appears to "jump" between nodes. For comparable membrane/channel and nodal properties and geometrically similar internodes, velocity can scale approximately linearly with fiber diameter. Expressed in axon diameter $d$, this also requires a fixed g-ratio (axon diameter/outer fiber diameter), giving $\theta \propto d$ as a conditional model scaling, not a universal speed law \citep{rushton1951fibresize}:
 
 : Myelinated Axons -- Saltatory Conduction: Fiber type and Diameter (um). {#tbl:unit_IX_action_potential_synapses_myelinated_axons_saltatory_conduction}
 | Fiber type | Diameter (um) | Velocity (m/s) | Myelinated? | Function |
@@ -192,26 +190,26 @@ APs can primarily arise at **nodes of Ranvier** (1-2 um gaps between myelin segm
 
 ### Worked Example: Myelination Gain — Saltatory vs Continuous Conduction
 
-Suppose two unmyelinated axons of equal small diameter ($d = 1\;\mu$m) carry the same action potential. Continuous conduction velocity scales as $\theta_\text{unmyel} \propto \sqrt{d}$. From empirical data, an unmyelinated 1 μm axon conducts at ~0.5 m/s.
+For an illustrative comparison at fixed axon diameter ($d = 1\;\mu$m), assign an unmyelinated conduction velocity of 0.5 m/s. This is a stipulated input, not a measurement from a specified preparation. The approximate $\theta_\text{unmyel} \propto \sqrt{d}$ scaling assumes fixed membrane/channel properties and cytoplasmic resistivity.
 
-Now myelinate one axon with internodes ~1 mm apart and 100 wraps of myelin. Myelin increases membrane resistance ($r_m$) ~100-fold and reduces capacitance ($C_m$) ~50-fold:
+For a hypothetical passive-cable comparison at fixed axon diameter and axial resistance, assume myelination increases $r_m$ 100-fold and reduces effective internodal $C_m$ 50-fold. These illustrate parameter changes, not measurements for a specified number of wraps or spacing:
 
 - Length constant $\lambda = \sqrt{r_m / r_i}$ increases ~10-fold
-- Time constant at the node $\tau_m = r_m C_m$ — although both increase, the *time to reach threshold* at the next node depends primarily on the rapid charging of node membrane (which has low capacitance) by the spreading depolarization
-- Effective conduction velocity in myelinated fiber: $\theta_\text{myel} \propto d$ (linear, not square root)
+- Internodal specific resistance increases while capacitance decreases. Their illustrative product changes by 100/50 = 2, not by increasing both. Nodal charging and regenerative channel activation must be modeled separately; the internodal passive time constant is not itself the conduction delay
+- A separate active-conduction model can yield $\theta_\text{myel} \propto d$ for comparable membrane/channel and nodal properties, geometrically similar internodes and a fixed g-ratio; the passive parameter changes above do not determine propagation speed \citep{rushton1951fibresize}
 
-For the same 1 μm fiber with myelination, conduction approaches ~6 m/s (>10× faster). For larger myelinated fibers (10–20 μm A-α), the gain is even more striking:
+Assign the same-diameter myelinated axon a velocity of 6 m/s: the illustrative speed ratio is 12, not a deduction from the passive-cable changes or a preparation-specific measurement. The following table instead compares different fiber diameters with the selected 0.5 m/s C-fiber baseline; these ratios do not isolate myelination effects:
 
-: Myelination Gain — Saltatory vs Continuous Conduction: Fiber and Diameter. {#tbl:unit_IX_action_potential_synapses_worked_example_myelination_gain_saltatory_vs_continuous_conduction}
-| Fiber | Diameter | Conduction velocity | Myelinated? | Velocity gain |
+: Myelination Gain — Saltatory vs Continuous Conduction: Mixed-diameter comparisons relative to a selected C-fiber baseline, not isolated myelination effects. {#tbl:unit_IX_action_potential_synapses_worked_example_myelination_gain_saltatory_vs_continuous_conduction}
+| Fiber | Diameter | Conduction velocity | Myelinated? | Ratio to C baseline |
 | ----- | -------- | ------------------- | ----------- | ------------- |
-| C fiber | 1 μm | 0.5 m/s | No | (baseline) |
+| C fiber | 1 μm | 0.5 m/s | No | (selected baseline) |
 | A-δ | 1–5 μm | 5–30 m/s | Thinly | ~10–60× |
-| A-α (Ia) | 12–20 μm | 70–120 m/s | Yes (heavily) | ~150–250× |
+| A-α (Ia) | 12–20 μm | 70–120 m/s | Yes (heavily) | ~140–240× |
 
-**The fundamental insight:** Saltatory conduction provides the **same speed at ~50× lower diameter** compared to brute-force gigantism (squid giant axon, 500 μm). The vertebrate solution to fast conduction — myelinate small axons rather than grow giant ones — is enormously more space-efficient and energetically cheaper. The ~$10^{12}$ axons in the human white matter would not fit in the cranium without myelin.
+**The fundamental insight:** Myelination permits rapid conduction without giant axons. Its energetic comparator matters: holding diameter fixed differs from holding conduction speed fixed, because an equally fast unmyelinated alternative would require a larger diameter. Speed and space efficiency do not establish a universal ATP saving \citep{harris2012whitematter}.
 
-The **energetic cost** of action potentials is also dramatically reduced: in unmyelinated axons, Na$^+$/K$^+$-ATPase must continuously pump out Na$^+$ along the entire length. In myelinated axons, AP-associated ion fluxes occur primarily at nodes (~0.1% of axon surface), reducing the metabolic cost of spike propagation by a similar factor.
+The **ATP cost per spike** depends on sodium charge subsequently extruded, not nodal surface fraction alone. Nodal sodium current also charges effective internodal capacitance. In a simplified capacitive model for one node and its two adjacent half-internodes, let $C_{\mathrm{node}}$ and $C_{\mathrm{internode,eff}}$ be lumped capacitances in farads and approximate their voltage excursions by the same $\Delta V$ in volts. The spike-associated sodium-pumping cost for this repeat unit is $N_{\mathrm{ATP}}\approx\eta(C_{\mathrm{node}}+C_{\mathrm{internode,eff}})\Delta V/(3e)$ ATP molecules per spike, where $\eta$ is a preparation/model-dependent ionic-current-overlap factor and $e$ is elementary charge; three Na$^+$ are extruded per ATP. Sum repeat-unit costs over the specified axonal length to estimate its propagation cost. This excludes resting currents, housekeeping and glial costs. Harris and Attwell's rodent-based model shows that glial maintenance can offset axonal spike savings under its assumptions; it does not define a universal energetic benefit or prove that myelination never saves energy \citep{harris2012whitematter}.
 
 ### Multiple Sclerosis and Demyelinating Conduction Failure
 
@@ -221,7 +219,7 @@ Consequences: Slowed or blocked conduction in demyelinated segments. Symptoms de
 
 Treatment: Disease-modifying therapies (interferons, natalizumab, ocrelizumab) reduce relapse frequency. 4-aminopyridine (blocks exposed K$^+$ channels in demyelinated segments) improves conduction.
 
-**Concept Check:** A 1 μm unmyelinated axon conducts at ~0.5 m/s, yet a 1 μm myelinated axon conducts at ~6 m/s while a 20 μm unmyelinated axon would need a far larger diameter to match it. Using the velocity scalings $\theta \propto \sqrt{d}$ (unmyelinated) versus $\theta \propto d$ (myelinated), explain why myelination — not gigantism — is the space- and energy-efficient solution, and predict what happens to conduction when a node of Ranvier is demyelinated. (Hint: think about what myelin does to $r_m$, $C_m$, and the length constant λ.)
+**Concept Check:** Explain how higher membrane resistance and lower effective internodal capacitance help current reach the next node. Why does a small nodal area not imply the same fractional ATP cost? Distinguish restoring spike-associated ion gradients from the total axon--glia energy budget. Predict how loss of myelin from an internodal segment can slow or block propagation.
 
 ---
 
@@ -250,7 +248,7 @@ sequenceDiagram
     AP->>VGCC: Depolarization opens<br/>voltage-gated Ca2+ channels
     VGCC->>Ca: Ca2+ influx<br/>[Ca2+] rises to 100 uM<br/>in nanodomain near channel
     Note over Ca: Only ~10-25 nm from<br/>docked vesicle
-    Ca->>Syt: Ca2+ binds C2A and C2B<br/>domains of synaptotagmin-1<br/>(4-5 Ca2+ ions)
+    Ca->>Syt: Ca2+ binds C2 domains<br/>of synaptotagmin-1<br/>and couples to fusion
     Syt->>Cpx: Displaces complexin clamp<br/>from partially zippered SNARE
     Cpx->>SNARE: SNARE complex completes<br/>zippering (N→C terminal)
     SNARE->>Ves: Vesicle membrane pulled<br/>into fusion with plasma membrane
@@ -264,7 +262,7 @@ sequenceDiagram
 
 **Key proteins:**
 - **SNARE complex:** The minimal fusion machinery. **Synaptobrevin** (v-SNARE, on vesicle membrane) + **syntaxin** + **SNAP-25** (both t-SNAREs, on plasma membrane). The four α-helices zipper together N-to-C terminally, pulling membranes into contact.
-- **Synaptotagmin-1:** Ca$^{2+}$ sensor. Its C2A and C2B domains bind 4-5 Ca$^{2+}$ ions, triggering membrane insertion and SNARE complex activation. Cooperativity of Ca$^{2+}$ binding gives the steep Ca$^{2+}$-release relationship (~4th power).
+- **Synaptotagmin-1:** A fast Ca$^{2+}$ sensor whose C2 domains couple calcium binding to membrane interactions and SNARE-mediated fusion. Molecular binding-site counts require biochemical/structural evidence. An effective calcium–release slope near four does not by itself count ions or establish microscopic binding cooperativity: alternative sensor arrangements can reproduce that slope \citep{dittrich2013excesscalcium}.
 - **Munc18 / Munc13:** Priming factors that prepare SNARE complexes for fast fusion
 - **RIM:** Active zone scaffold protein. Positions vesicles within nanometres of Ca$^{2+}$ channels.
 - **Complexin:** "Fusion clamp." Binds partially zippered SNARE complex and prevents spontaneous fusion. Ca$^{2+}$/synaptotagmin displaces complexin to trigger release.
@@ -322,13 +320,13 @@ The post-spike EPSC amplitude is proportional to $u \cdot x$. This single model 
 **Solution.**
 
 1. **Quantal content from the mEPP ratio.** Quantal release theory: $V_{\text{EPP}} = m \cdot q \;\Rightarrow\; m = V_{\text{EPP}} / q = 25 / 0.5 = 50$ vesicles per AP.
-2. **Poisson statistics of release.** Each release-ready vesicle has independent release probability $p$; the number released per AP, $k$, follows Poisson statistics with mean $m$. The probability of zero release ("failure") is
+2. **Poisson statistics of release.** For $n$ independent, identical sites with probability $p$, $k$ is binomial: $m=np$, $P_0=(1-p)^n$, variance $np(1-p)$. Poisson statistics approximate this when $n$ is large and $p$ small at fixed $m$; independence alone is insufficient. Under that approximation, The probability of zero release ("failure") is
 
    $$P(k = 0) = e^{-m}.$$
 
-   At $m = 50$: $P(\text{failure}) = e^{-50} \approx 1.9 \times 10^{-22}$. Effectively negligible failure probability — exactly the safety factor needed at the NMJ, where every motor command must reach the muscle.
+   At $m=50$, a Poisson approximation gives $e^{-50}\approx1.9\times10^{-22}$, but it is not justified for $n=100,p=0.5$: the exact binomial failure probability is $0.5^{100}\approx7.89\times10^{-31}$ and variance is 25 rather than 50. Both failure probabilities are small; their difference still matters for identifying the model.
 
-3. **Low-Ca$^{2+}$ regime, $m = 2$.** Reduce extracellular [Ca$^{2+}$] enough to drop $m$ to 2 (with $p$ falling correspondingly because release probability scales as $\sim [\text{Ca}^{2+}]^4$ — a steep nonlinearity from Ca$^{2+}$-sensor cooperativity):
+3. **Low-Ca$^{2+}$ regime, $m=2$.** Stipulate that lowering extracellular calcium reduces mean quantal content to 2. A steep calcium–release relation is compatible with this change, but its slope and magnitude depend on the preparation and range; neither uniquely identifies sensor stoichiometry:
 
    $$P(\text{failure}) = e^{-2} \approx 0.135 = 13.5\%.$$
 
@@ -336,7 +334,7 @@ The post-spike EPSC amplitude is proportional to $u \cdot x$. This single model 
 
 4. **Sanity check — variance.** Poisson predicts $\text{Var}(V_{\text{EPP}}) = m \cdot q^2$ so the coefficient of variation is $1/\sqrt{m}$. At $m = 50$, CV $\approx 0.14$ (smooth, near-deterministic release). At $m = 2$, CV $\approx 0.71$ (noisy, single-vesicle steps visible in the post-synaptic record). This CV-vs-$m$ scaling is the standard tool for inferring $m$ at central synapses where mEPSCs are harder to isolate.
 
-**Interpretation.** The NMJ deliberately operates at high safety factor ($m \approx 50$ on a $\sim 100$-vesicle RRP per active zone, so $p \approx 0.5$) precisely because failure is intolerable for survival behaviors. Central synapses, by contrast, often run at $m = 1$–$5$ — they accept failures in exchange for the ability to perform fine probabilistic computation. The quantal framework converts the same molecular machinery (vesicles + Ca$^{2+}$ + SNAREs) into wildly different reliability regimes by tuning a single biophysical knob: $p$.
+**Interpretation.** This simplified NMJ example illustrates high safety factor ($m \approx 50$ on a $\sim 100$-vesicle RRP per active zone, so $p \approx 0.5$) precisely because failure is intolerable for survival behaviors. Central synapses, by contrast, often run at $m = 1$–$5$ — they accept failures in exchange for the ability to perform fine probabilistic computation. The quantal framework converts the same molecular machinery (vesicles + Ca$^{2+}$ + SNAREs) into wildly different reliability regimes by tuning a single biophysical knob: $p$.
 
 
 ### Postsynaptic Receptors and Ionotropic/Metabotropic Signaling
@@ -351,13 +349,14 @@ The post-spike EPSC amplitude is proportional to $u \cdot x$. This single model 
 | **Metabotropic** | mGluR1-8 | N/A | Slow (100s ms-min) | GPCR to G$_q$/G$_i$ to IP$_3$/cAMP |
 | Metabotropic | GABA$_B$ | K$^+$ (indirect) | Slow | G$_i$ to K$^+$ channel activation |
 | Metabotropic | D1/D2 | N/A | Slow | G$_s$/G$_i$ to cAMP |
-| Metabotropic | 5-HT$_{1A-7}$ | N/A | Slow | Various G protein coupling |
+| Metabotropic | 5-HT families except 5-HT$_3$ | N/A | Slow | Various G protein coupling |
+| Ionotropic | 5-HT$_3$ | Cations | Fast | Ligand-gated cation channel |
 
-**NMDA receptor -- "coincidence detector":** The NMDA receptor requires BOTH glutamate binding AND postsynaptic depolarization (to relieve Mg$^{2+}$ block) to conduct. This makes it a detector of coincident pre- and postsynaptic activity -- exactly the condition Hebb proposed should strengthen synapses \citep{hebb1949}. Ca$^{2+}$ entry through NMDA receptors triggers LTP.
+**NMDA receptor — coincidence detection:** With glutamate and glycine/D-serine co-agonist occupancy, depolarization reduces voltage-dependent extracellular Mg$^{2+}$ block and can favor calcium entry. This supports a molecular contribution to Hebbian plasticity \citep{hebb1949}, not a guarantee of LTP whenever cells are coactive. Induction protocol, calcium dynamics and cell/synapse type determine whether strengthening, depression or no lasting change follows.
 
-**Concept Check:** At a synapse with $n = 10$ release-ready vesicles, release probability $p = 0.2$, and quantal size $q = 0.5$ mV, a single presynaptic spike must drive the postsynaptic membrane from $-70$ mV to a $-55$ mV threshold. Using the $n \cdot p \cdot q$ model, decide whether one spike reaches threshold and explain why a drug that raises $p$ (e.g., an aminopyridine prolonging the presynaptic AP) can convert a sub-threshold synapse to a supra-threshold one without adding any new vesicles. (Hint: compute the expected EPSP amplitude and compare it to the 15 mV gap.)
+**Concept Check:** At a synapse with $n=10$ vesicles and $q=0.5$ mV, the expected response is $npq$. Compute it at $p=0.2$ and at the physical maximum $p=1$. Can increasing release probability alone bridge the 15-mV gap from $-70$ to $-55$ mV? Explain why even release of all ten vesicles gives only 5 mV, and identify an additional change (more sites, larger quantal response, or summation across inputs) needed for threshold crossing.
 
-**Concept Check (Analyze) — NMDA receptor as coincidence detector and the LTP gate.** The NMDA receptor demands *both* glutamate (plus glycine/D-serine co-agonist) *and* postsynaptic depolarization to conduct: at $-70$ mV the channel pore is occluded by extracellular Mg$^{2+}$; at $\sim -30$ mV the Mg$^{2+}$ is expelled, opening a Ca$^{2+}$-permeable pathway. (a) Draw a sketch of conductance vs $V_m$ for the NMDA receptor in the presence of saturating glutamate, marking the Mg$^{2+}$-block region and the relief threshold. (b) Explain why this voltage-dependent gating implements a *Hebbian* rule (pre and post must fire together) at the molecular level, and predict what would happen to LTP induction in a mouse engineered with the GluN1 N598Q mutation that removes the Mg$^{2+}$-binding site. (c) AMPA-receptor insertion into the post-synaptic density requires CaMKII-mediated phosphorylation of GluA1 at S831, which is triggered by NMDA-mediated Ca$^{2+}$ entry. Predict the consequence of pharmacologically blocking PKA (which co-phosphorylates GluA1 at S845 to potentiate channel open probability) during LTP induction, and explain why both kinases are needed to lock in synaptic strengthening rather than just one.
+**Concept Check (Analyze) — NMDA coincidence detection and plasticity.** Under specified extracellular Mg$^{2+}$ and saturating glutamate/co-agonist conditions, sketch the voltage dependence of NMDA current, distinguishing gradual relief of block from a universal hard threshold. How could removing Mg$^{2+}$ sensitivity alter coincidence dependence? Design matched stimulation, receptor-expression, calcium and synaptic-response measurements to test the effect; do not assume a receptor mutation or PKA/CaMKII perturbation uniquely determines LTP in every synapse.
 
 **Concept Check (Evaluate) — Parvalbumin interneurons, E/I balance, and working memory.** Cortical inhibition is parcelled by interneuron class: parvalbumin (PV) basket cells deliver fast, perisomatic GABA inhibition that gates spike timing of pyramidal neurons and pace cortical gamma oscillations (30–80 Hz); somatostatin (SST) interneurons target apical dendrites and modulate dendritic integration. (a) In a network where PV-cell density is selectively reduced by approximately 30% (as reported in post-mortem schizophrenia tissue), predict the directional change in (i) excitation/inhibition (E/I) ratio, (ii) gamma oscillation power, and (iii) pyramidal-cell spike-timing precision. (b) Working memory in prefrontal cortex relies on persistent pyramidal-cell firing during the delay period, sustained by recurrent excitation gated by PV inhibition. Evaluate why a modest PV loss would degrade working memory more than long-term memory consolidation. (c) Propose a single physiological measurement (gamma power at a specific frequency band; spike-LFP phase locking; visual-attention gain control) you would prioritize as a clinical biomarker, and justify it in terms of statistical power and translational tractability between rodent models and human EEG.
 
@@ -495,47 +494,60 @@ Modern neuroscience generates massive datasets (e.g., calcium imaging, EEG, fMRI
 
 - **Connectomics**: Computer vision and graph neural networks to map neural connectivity from electron microscopy data.
 
+### Worked Example: Held-Out Decoding from Supplied EEG Observations
+
+This small empirical subset is reproduced from Oliver Roesler’s **EEG Eye State** dataset (UCI, donated June 9, 2013; DOI 10.24432/C57G7J; CC BY 4.0) \citep{roesler2013eeg}. It comes from one continuous 117-s recording with camera-derived labels: 0 = eyes open, 1 = closed. Rows below retain the original one-based row IDs and O1/O2 channel values; the repository does not specify physical calibration units, so treat them as device-recorded values, not calibrated µV. The subset selection is every 1000th row beginning at 1 plus the final row, fixed before classification. Sixteen time samples are not sixteen independent participants. The actual source payload is the [UCI static ZIP archive](https://archive.ics.uci.edu/static/public/264/eeg+eye+state.zip) (member `EEG Eye State.arff`); its downloaded ZIP bytes had observed SHA-256 `49e7cbd14d303d63e772c7fcffa6b063bc52b97a7fa01b1135a9907b7715f415` on November 7, 2026. The UCI record supplies CC BY 4.0 licensing; this subset preserves the source’s recorded values and labels, rather than claiming calibrated measurements or a separate dataset version.
+
+The first eight observations train a nearest-centroid classifier; the last eight form a later-time holdout. No holdout labels enter fitting. Predict eye state from the two EEG channels, report accuracy and the 2×2 confusion counts, compare with the training-majority baseline and a circularly shifted training-label control. This is a reproducible classification exercise, not evidence of decoded intention or clinical BCI control. Temporal drift, ocular artifacts, tiny sample size, and a single recording prevent generalization claims.
+
 ```python
 import numpy as np
-import torch
-import torch.nn as nn
-from scipy.signal import butter, filtfilt
 
-# Example: Simple neural decoder for BMI control
-class NeuralDecoder(nn.Module):
-    """A simple LSTM-based decoder for predicting movement from neural spikes."""
-    def __init__(self, input_dim, hidden_dim, output_dim, num_layers=2):
-        super().__init__()
-        self.lstm = nn.LSTM(input_dim, hidden_dim, num_layers, batch_first=True)
-        self.fc = nn.Linear(hidden_dim, output_dim)
+# row_id, O1, O2, camera eye-state label; empirical values, not simulations
+packet = np.array([
+    [1, 4096.92, 4641.03, 0],
+    [1001, 4089.23, 4604.1, 0],
+    [2001, 4072.31, 4599.49, 0],
+    [3001, 4085.13, 4623.08, 0],
+    [4001, 4044.1, 4608.72, 1],
+    [5001, 4078.46, 4633.85, 0],
+    [6001, 4060.0, 4578.46, 0],
+    [7001, 4036.92, 4612.82, 1],
+    [8001, 4061.54, 4622.56, 1],
+    [9001, 4057.44, 4612.31, 1],
+    [10001, 4065.64, 4627.18, 0],
+    [11001, 4086.15, 4629.74, 0],
+    [12001, 4102.56, 4650.26, 1],
+    [13001, 4064.62, 4613.33, 1],
+    [14001, 4072.31, 4613.33, 0],
+    [14980, 4088.72, 4638.46, 1],
+], dtype=float)
+X, y = packet[:, 1:3], packet[:, 3].astype(int)
+train, test = X[:8], X[8:]
+y_train, y_test = y[:8], y[8:]
+# Fit scale only on training observations.
+scale = train.std(axis=0)
+scale[scale == 0] = 1
 
-    def forward(self, x):
-        # x shape: (batch, seq_len, input_dim)
-        lstm_out, _ = self.lstm(x)
-        # Take the last time step output
-        out = self.fc(lstm_out[:, -1, :])
-        return out
+def predict(labels):
+    centers = np.array([train[labels == c].mean(axis=0) for c in (0, 1)])
+    distances = (((test[:, None, :] - centers) / scale) ** 2).sum(axis=2)
+    return distances.argmin(axis=1)
 
-# Example: Spike sorting with PCA + clustering
-def spike_sorting(waveforms):
-    """Simple spike sorting using PCA and k-means."""
-    # Perform PCA
-    from sklearn.decomposition import PCA
-    pca = PCA(n_components=3)
-    pca_result = pca.fit_transform(waveforms)
-    # Cluster
-    from sklearn.cluster import KMeans
-    kmeans = KMeans(n_clusters=4, random_state=0).fit(pca_result)
-    return kmeans.labels_
-
-# Example: Calcium imaging deconvolution
-def oasis_deconvolution(fluor_signal, dt=0.1, lambda_=10):
-    """OASIS algorithm for spike inference from calcium imaging."""
-    from oasis import oasisAR1N
-    # Convert to AR1N model
-    result = oasisAR1N(fluor_signal, dt=dt, lambda_=lambda_, g=0.95)
-    return result["spikes"]  # Estimated spike times
+pred = predict(y_train)
+confusion = np.array([[( (y_test == a) & (pred == b)).sum()
+                       for b in (0, 1)] for a in (0, 1)])
+majority = np.bincount(y_train).argmax()
+print("confusion rows=true, columns=predicted:", confusion)
+print("holdout accuracy:", np.mean(pred == y_test))
+print("training-majority accuracy:", np.mean(y_test == majority))
+print("shifted-label control accuracy:", np.mean(predict(np.roll(y_train, 1)) == y_test))
 ```
+
+For this exact packet, execution gives confusion counts (rows true, columns predicted) $[[3,0],[4,1]]$: accuracy $4/8=0.50$, training-majority accuracy $3/8=0.375$, and shifted-label control accuracy $4/8=0.50$. The classifier does not outperform that control. These are descriptive results for eight later time samples from one recording, not a validated accuracy estimate for new participants.
+
+A single shifted-label result is a negative control, not a permutation-test p value. A useful extension collects independent sessions and holds out entire sessions; selecting channels or row subsets after inspecting test accuracy would leak information.
+
 
 ### AI for Drug Discovery in Neurology
 
@@ -578,53 +590,7 @@ As AI becomes more integrated with neuroscience, important ethical questions ari
 - **Dual-use**: The same technology that helps paralyzed patients could be used for military applications or surveillance.
 - **Bias in AI**: If training data lacks diversity, AI systems may perform poorly for underrepresented groups, exacerbating health disparities.
 
-```python
-# Example: Simple neural encoding model
-class NeuralEncoder(nn.Module):
-    """A simple model that predicts neural response to visual stimuli."""
-    def __init__(self, stimulus_dim, hidden_dim, neural_dim):
-        super().__init__()
-        self.conv = nn.Conv2d(stimulus_dim, 64, kernel_size=7, stride=2)
-        self.fc = nn.Linear(64 * 7 * 7, hidden_dim)
-        self.output = nn.Linear(hidden_dim, neural_dim)
-
-    def forward(self, stimulus):
-        x = torch.relu(self.conv(stimulus))
-        x = x.view(x.size(0), -1)
-        x = torch.relu(self.fc(x))
-        return self.output(x)
-
-# Example: Reinforcement learning for adaptive BCIs
-import gym
-from stable_baselines3 import PPO
-
-# Create a custom environment for BCI control
-class BCIEnv(gym.Env):
-    def __init__(self):
-        super().__init__()
-        self.observation_space = gym.spaces.Box(low=-1, high=1, shape=(100,))
-        self.action_space = gym.spaces.Box(low=-1, high=1, shape=(2,))
-
-    def step(self, action):
-        # Simplified: reward based on how close action is to target
-        reward = -np.sum((action - self.target) ** 2)
-        self.steps += 1
-        done = self.steps >= 200 or reward < -10
-        return self._get_observation(), reward, done, {}
-
-    def reset(self):
-        self.steps = 0
-        self.target = np.random.randn(2)
-        return self._get_observation()
-
-    def _get_observation(self):
-        # Simulated neural data
-        return np.random.randn(100)
-
-# Train a policy
-env = BCIEnv()
-model = PPO("MlpPolicy", env).learn(total_timesteps=10000)
-```
+**Control-task boundary.** An eye-state decoder could feed a nonclinical pause/resume switch: predicted closed → pause, predicted open → permit an already-authorized action. With the printed holdout, count false pauses (true 0, predicted 1) and missed pauses (true 1, predicted 0) separately. This is an offline replay with observed labels, not a closed-loop experiment: no action changes the next EEG sample. Safe real control requires prospective latency, false-activation, user-agency, and fail-safe evaluation with independent participants. A random target independent of observations cannot demonstrate learnable neural control, and reinforcement-learning scaffolds are not a substitute for those data.
 
 **Concept Check 6.1**
 
@@ -680,15 +646,25 @@ flowchart LR
 
     subgraph Recycling ["Neurotransmitter Recycling"]
         direction TB
-        NT["Released NT in cleft"] --> Reuptake["Reuptake transporters<br/>(DAT, SERT, NET, EAAT)"]
-        NT --> Enzyme["Enzymatic degradation<br/>(AChE for ACh;<br/>MAO/COMT for monoamines)"]
-        NT --> Diff["Diffusion away<br/>from synaptic cleft"]
-        Reuptake --> Repackage["Repackaged into<br/>vesicles by VMAT/VAChT"]
+        Mono["Released monoamines"] --> Reuptake["DAT / SERT / NET<br/>neuronal reuptake"]
+        Reuptake --> VMAT["VMAT vesicular loading"]
+        Reuptake --> Metab["Intracellular MAO metabolism<br/>COMT in appropriate extra-neuronal contexts"]
+        Glu["Released glutamate"] --> EAAT["EAAT uptake<br/>neurons and astrocytes"]
+        EAAT --> Cycle["Astrocyte glutamine cycle<br/>returns glutamine to neurons"]
+        Cycle --> NeurGlu["Neuronal glutamate"]
+        EAAT -->|"Neuronal uptake"| NeurGlu
+        NeurGlu --> VGLUT["VGLUT vesicular loading"]
+        ACh["Released acetylcholine"] --> AChE["Extracellular AChE<br/>choline + acetate"]
+        AChE --> Choline["Choline uptake and ACh resynthesis"]
+        Choline --> VAChT["VAChT vesicular loading"]
+        Mono --> Diff["Diffusion away from cleft"]
+        Glu --> Diff
+        ACh --> Diff
     end
 ```
-<!-- alt: Flowchart showing molecular mechanisms of LTP and neurotransmitter recycling. LTP induction requires NMDA receptor opening (coincidence detection) and Ca^2+ influx. Early LTP involves CaMKII-mediated AMPA receptor modification. Late LTP requires gene expression (CREB) and structural synaptic changes. Neurotransmitters are cleared by reuptake, enzymatic degradation, or diffusion. -->
+<!-- alt: Flowchart showing a canonical NMDA-dependent LTP pathway and transmitter recycling. The illustrated calcium/CaMKII/AMPA sequence describes a specified form of potentiation, not every synapse or induction protocol. Later expression and structural changes can support persistence; uptake, degradation and diffusion clear transmitters. -->
 
-*Molecular mechanisms of LTP and neurotransmitter recycling. LTP induction requires NMDA receptor opening (coincidence detection) and Ca$^{2+}$ influx. Early LTP involves CaMKII-mediated AMPA receptor modification. Late LTP requires gene expression (CREB) and structural synaptic changes. Neurotransmitters are cleared by reuptake, enzymatic degradation, or diffusion.*
+*A canonical NMDA-dependent LTP pathway and transmitter recycling. The illustrated calcium/CaMKII/AMPA sequence describes a specified form of potentiation, not every synapse or induction protocol. Later expression and structural changes can support persistence; uptake, degradation and diffusion clear transmitters.*
 
 1. High-frequency stimulation (100 Hz, 1 s) produces large EPSPs via AMPA receptors
 2. Sufficient depolarization removes Mg$^{2+}$ block from NMDA receptors
@@ -702,13 +678,15 @@ flowchart LR
 
 ### Long-Term Depression (LTD)
 
-Low-frequency stimulation (1 Hz, 15 min) produces modest Ca$^{2+}$ entry via NMDA receptors:
+In a conventional hippocampal NMDA-dependent LTD example, low-frequency stimulation (1 Hz, 15 min) produces modest Ca$^{2+}$ entry via NMDA receptors:
 - Lower Ca$^{2+}$ levels preferentially activate protein phosphatases (PP1, calcineurin/PP2B) rather than CaMKII
 - Phosphatases dephosphorylate AMPA receptors
 - AMPA receptors are endocytosed (clathrin-mediated) from the synapse
 - Synaptic strength decreases
 
-**Bidirectional plasticity:** The same synapse can undergo LTP or LTD depending on the pattern of Ca$^{2+}$ entry. This is captured by the **BCM (Bienenstock-Cooper-Munro) rule:** there exists a modification threshold ($\theta_M$) -- activity above $\theta_M$ causes LTP, below causes LTD. The threshold itself slides based on recent postsynaptic activity (metaplasticity).
+**Bidirectional plasticity:** The same synapse can undergo LTP or LTD under different induction protocols. The **BCM (Bienenstock-Cooper-Munro) rule** models a sliding modification threshold ($\theta_M$) influenced by recent postsynaptic activity; it is not a universal ordering of calcium thresholds across synapse types. At cerebellar parallel-fiber–Purkinje-cell synapses, paired parallel- and climbing-fiber input can recruit large Ca$^{2+}$ signals, PKC activation and AMPA-receptor internalization for LTD. Coesmans et al.'s rat experiments found a higher calcium threshold for parallel-fiber LTD than for parallel-fiber LTP, the inverse of the conventional hippocampal ordering. Parallel-fiber LTD can contribute to motor adaptation without being its only plasticity site.
+
+The evidence comes from distinct preparations. Coesmans et al. tested the calcium-ordering contrast in rat parallel-fiber plasticity \citep{coesmans2004cerebellarplasticity}. Purkinje-targeted PKC inhibition blocked LTD in cultured cells and impaired VOR adaptation in transgenic mice \citep{dezeeuw1998pkc}. Separately, postsynaptic interference with clathrin-mediated endocytosis blocked LTD in cultured Purkinje neurons \citep{wang2000endocytosis}. These experiments do not constitute one assay of the entire pathway or establish LTD as the sole VOR-learning substrate.
 
 > **Concept Check 2:** A neuroscientist finds that pharmacologically blocking the NMDA receptor abolishes LTP at hippocampal Schaffer-collateral → CA1 synapses but does not abolish LTP at mossy-fiber → CA3 synapses. Propose a mechanism that explains why these two forms of LTP differ. Given that the CA3 form is presynaptic (cAMP-PKA-dependent), which pharmacological manipulation would selectively block it without affecting NMDA-receptor-dependent LTP?
 
@@ -769,7 +747,7 @@ Over 200 evoked trials:
 
 For a Poisson process, the fraction of failures $P(0) = e^{-\bar{m}} = e^{-1.92} = 0.146$
 
-Expected failures = $0.146 \times 200 = 29.3$. Observed failures = 8. **The discrepancy** suggests the release is **not** strictly Poisson — there may be heterogeneity in vesicle release probabilities across active zones, or the preparation has an unusually low failure rate due to high quantal content.
+Expected failures = $0.146\times200\approx29.3$, whereas eight are observed. This is evidence against this fitted Poisson model if trials and detection are comparable; a lower failure rate at a fixed mean is not by itself proof of heterogeneous release probabilities.
 
 **(c)** Use the method of failures to give an alternative estimate of $\bar{m}$:
 
@@ -778,7 +756,7 @@ Expected failures = $0.146 \times 200 = 29.3$. Observed failures = 8. **The disc
 \label{eq:action_potential_synapses_6}
 \end{equation}
 
-The discrepancy between the two estimates (1.92 by direct count vs 3.22 by method of failures) indicates that the **binomial model** (with heterogeneous release probabilities) fits better than the simple Poisson. This is a classic result: real synapses have multiple active zones with heterogeneous $p$ values, violating the simple Poisson assumption (Zucker 1973; Bhumbra & Bhatt 2022).
+The direct mean (1.92) and Poisson failure estimate (3.22) disagree. That challenges a single-parameter Poisson description, assuming all zero and nonzero events were correctly classified; it does not identify a best alternative. Fit binomial or heterogeneous-site likelihoods to the full histogram, include detection errors, and compare predictions before claiming a better fit.
 
 **(d)** Given $\bar{m} = 1.92$ and the number of release-ready vesicles $n = 10$ (estimated by high-osmotic sucrose stimulation), estimate the mean release probability $\bar{p}$:
 
@@ -820,11 +798,11 @@ Interpret synaptic data by separating resting state, channel kinetics, perturbat
 | **Threshold** | Membrane potential (~$-55$ mV) at which inward Na$^+$ current exceeds outward K$^+$ current |
 | **Absolute refractory period** | ~1-2 ms when Na$^+$ channels are inactivated; no AP possible regardless of stimulus |
 | **Relative refractory period** | ~5-10 ms when Na$^+$ channels recovering; stronger stimulus needed for AP |
-| **Saltatory conduction** | AP jumps between nodes of Ranvier in myelinated axons |
+| **Saltatory conduction** | Nodal regeneration of a propagating spike, linked by current spread through myelinated internodes |
 | **SNARE complex** | Synaptobrevin + syntaxin + SNAP-25: core vesicle fusion machinery |
-| **Synaptotagmin** | Ca$^{2+}$ sensor that triggers vesicle fusion; C2 domains bind 4-5 Ca$^{2+}$ ions |
+| **Synaptotagmin-1** | Example fast Ca$^{2+}$ sensor coupling calcium binding to vesicle fusion; functional calcium–release slope is not a direct ion count |
 | **Quantal release** | Neurotransmitter released in discrete vesicle-sized packets (Katz, 1950s) |
-| **NMDA receptor** | Coincidence detector: requires glutamate + depolarization; Ca$^{2+}$ permeable |
+| **NMDA receptor** | Glutamate/co-agonist-gated receptor with voltage-dependent Mg$^{2+}$ block; calcium entry can contribute to protocol-specific plasticity |
 | **CaMKII** | Calcium/calmodulin kinase II; autophosphorylation at T286; key LTP effector |
 | **LTP** | Long-term potentiation: persistent increase in synaptic strength |
 | **LTD** | Long-term depression: persistent decrease in synaptic strength |
@@ -841,7 +819,7 @@ Interpret synaptic data by separating resting state, channel kinetics, perturbat
 
 2. Explain the molecular basis of the absolute refractory period. Why is this essential for unidirectional AP propagation?
 
-3. Compare saltatory conduction in myelinated axons with continuous conduction in unmyelinated axons. Why does velocity scale as $\sqrt{d}$ in unmyelinated axons but as $d$ in myelinated axons?
+3. Compare saltatory conduction in myelinated axons with continuous conduction in unmyelinated axons. Under what fixed membrane/channel, resistivity and geometry assumptions can velocity scale approximately as $\sqrt{d}$ for unmyelinated axons or as $d$ for myelinated axons? Why must g-ratio and nodal properties be specified for the latter comparison?
 
 4. Describe the roles of the five key presynaptic proteins: synaptobrevin, syntaxin, SNAP-25, synaptotagmin-1, and complexin. What happens if each is eliminated?
 
@@ -857,7 +835,7 @@ Interpret synaptic data by separating resting state, channel kinetics, perturbat
 
 10. Why does multiple sclerosis cause such diverse neurological symptoms? Explain the relationship between lesion location in white matter tracts and the specific symptoms produced.
 
-11. At a synapse, you observe mEPP amplitude of 0.5 mV and mean EPP amplitude of 4.5 mV (low-Ca$^{2+}$ conditions to allow quantal resolution). (a) Estimate the mean quantal content $\bar{m}$. (b) Use the Poisson failure method to calculate the expected probability of a failure. (c) If you increase extracellular Ca$^{2+}$ from 1 mM to 2 mM, predict whether $\bar{m}$ will increase linearly, quadratically, or via a 4th-power relationship (based on synaptotagmin cooperativity), and explain the molecular basis.
+11. At a synapse, mEPP amplitude is 0.5 mV and mean EPP amplitude is 4.5 mV under approximately linear low-release conditions. (a) Estimate mean quantal content. (b) Under a Poisson model, calculate failure probability. (c) If mean release is stipulated to scale as extracellular [Ca$^{2+}$]$^4$ over 1–2 mM, predict the fold change on doubling calcium. Why does this local empirical slope neither establish a universal relation nor count bound ions per fusion?
 
 12. Clozapine is described as an "atypical" antipsychotic with lower risk of tardive dyskinesia compared to haloperidol, despite both treating positive symptoms of schizophrenia. Using the drug table, explain: (a) their differing receptor binding profiles; (b) why high D2 occupancy causes tardive dyskinesia; (c) why clozapine's unique receptor profile (including 5-HT$_{2A}$ blockade) may explain its superior efficacy in treatment-resistant schizophrenia.
 
@@ -896,10 +874,10 @@ print(round(exc.peak_current_pA, 2), round(inh.peak_current_pA, 2))
 - **Hodgkin-Huxley:** $I_{Na} = \bar{g}_{Na} m^3 h (V - E_{Na})$, $I_K = \bar{g}_K n^4 (V - E_K)$. Gating variables obey first-order kinetics. m (fast activation), h (slow inactivation), n (slow activation).
 - **Refractory periods:** Absolute (Na$^+$ inactivated, h about 0, 1-2 ms): cannot fire. Relative (K$^+$ channels open, membrane hyperpolarised, 5-10 ms): stronger stimulus needed.
 - **Na$^+$ channel states:** Closed (ready) to Open (conducting, ~0.5 ms) to Inactivated (blocked from inside, cannot reopen). TTX and local anaesthetics block the pore.
-- **Myelination:** Saltatory conduction between nodes of Ranvier. Velocity proportional to diameter (linear). A-alpha fibers: 70-120 m/s; C fibers: 0.5-2 m/s. MS: autoimmune demyelination.
+- **Myelination:** Nodal regeneration links passive current spread through internodes. Geometry-dependent models can yield approximately linear diameter scaling, but neither fiber speed examples nor nodal area determine a universal ATP saving. Axonal spike cost and total axon--glia maintenance are different budgets \citep{harris2012whitematter}.
 - **Chemical synapse:** AP opens Cav2.1/2.2 channels. Ca$^{2+}$ binds synaptotagmin-1. Complexin displaced. SNARE complex zippers. Vesicle fuses. NT released in <1 ms. Quantal release (Katz).
 - **Neurotransmitters:** Glutamate (AMPA/NMDA/mGluR, excitatory); GABA (GABA$_A$/GABA$_B$, inhibitory); ACh (nicotinic/muscarinic); DA (D1-D5, reward/motor); 5-HT (mood/sleep); NE (arousal); neuropeptides (volume transmission, pain, reward).
-- **LTP:** NMDA-Ca$^{2+}$-CaMKII-AMPA pathway. Early: phosphorylation and insertion of AMPA receptors. Late: CREB-dependent gene expression, structural spine changes. LTD: opposite; phosphatases remove AMPA receptors.
+- **Protocol-specific plasticity:** A conventional hippocampal NMDA-dependent LTP example recruits Ca$^{2+}$, CaMKII and AMPA-receptor phosphorylation/insertion, with later transcriptional and structural changes. Hippocampal LTD can recruit phosphatases and AMPA internalization; it is not a universal opposite pathway. Cerebellar parallel-fiber--Purkinje-cell LTD can instead involve larger calcium signals and PKC-dependent signaling \citep{coesmans2004cerebellarplasticity,dezeeuw1998pkc,wang2000endocytosis}.
 - **Drug mechanisms:** Cocaine (DAT block), morphine (mu agonist), SSRIs (SERT block), benzodiazepines (GABA$_A$ PAM), ketamine (NMDA block), botulinum toxin (SNAP-25 cleavage).
 - **Connections:** See \cref{sec:unit_IX_nervous_system} for resting potential and integration, \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} for synaptic pathogens and toxins, and \cref{sec:unit_II_membrane_transport} for ion channels.
 

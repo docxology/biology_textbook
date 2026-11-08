@@ -1,15 +1,14 @@
 # Questions — Complex Adaptive Systems {#sec:q_unit_0_complex_adaptive_systems .unnumbered}
 
 
-## Questions 1–10: Recall and Comprehension {.unnumbered}
+## Questions 1–10 {.unnumbered}
 
 *This activity accompanies \cref{sec:unit_0_complex_adaptive_systems} of the textbook — review that chapter before attempting the exercises below.*
 
 ---
 
-## Recall Questions (1 mark each) {.unnumbered}
+## Foundational comparisons {.unnumbered}
 
-<!-- question-coverage-start -->
 ## Instructor Use and Coverage Notes {.unnumbered}
 
 - **Coverage target:** Explain an observed population pattern from individual-level rules and identify one falsifiable prediction.
@@ -19,95 +18,94 @@
 - **Transfer product:** Compare flocking, immune activation, and microbial biofilms as adaptive systems.
 - **Grading focus:** award full credit for mechanism, evidence, boundary conditions, and units when a calculation is required.
 - **Suggested use:** draw one recall item, one application item, and one synthesis item when building a short quiz from this bank.
-<!-- question-coverage-end -->
 
-<!-- assess: LO=LO1; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
+<!-- assess: LO=LO1; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
 1. Define 'complex adaptive systems' in your own words and provide a biological example.
 
 <!-- SOLUTION
 **Answer (Q1, Recall).** A complex adaptive system is a population of many heterogeneous agents that interact locally, adapt their behavior from local information, and thereby generate emergent, nonlinear, history-dependent properties that no single agent contains and no central controller imposes. Biological example: an ant colony — individuals follow simple pheromone rules, yet the colony collectively solves foraging, task allocation, and defense (other examples: the immune system, the brain, ecosystems).
 SOLUTION -->
-<!-- assess: LO=LO2; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-2. What distinguishes a complex adaptive system from a simple system?
-
-<!-- SOLUTION
-**Answer (Q2, Recall).** A simple system has few components and fixed, predictable input–output relations. A complex adaptive system is a network of many heterogeneous agents that act on local information and adapt, producing emergent, nonlinear, history-dependent behavior that cannot be predicted from any agent alone (e.g., the immune system, an ant colony, an ecosystem). The defining contrast is adaptation and emergence versus fixed, decomposable mechanism.
-SOLUTION -->
-<!-- assess: LO=LO3; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-3. What is the free energy principle? What does free energy measure?
-
-<!-- SOLUTION
-**Answer (Q3, Recall).** The free energy principle (Friston) states that any system that maintains itself far from equilibrium must act and perceive so as to minimize *variational free energy* — an information-theoretic upper bound on sensory surprise. Free energy measures the mismatch between the organism's internal generative model (its predictions) and the sensory data it actually receives; minimizing it keeps the organism within its viable physiological states.
-SOLUTION -->
-<!-- assess: LO=LO4; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-4. Describe one biological example of negative feedback and one of positive feedback.
-
-<!-- SOLUTION
-**Answer (Q4, Recall).** Negative feedback: thermoregulation — a rise in core temperature triggers sweating and vasodilation that return temperature toward the set point (stabilizing). Positive feedback: the rising phase of the action potential — Na⁺ influx depolarizes the membrane, opening more voltage-gated Na⁺ channels and amplifying the depolarization until channels inactivate (self-reinforcing and self-limiting).
-SOLUTION -->
-<!-- assess: LO=LO5; bloom=Remember; difficulty=Recall; format=short-answer; minutes=2 -->
-5. What is the difference between homeostasis and allostasis?
-
-<!-- SOLUTION
-**Answer (Q5, Recall).** Homeostasis holds a regulated variable near a *fixed* set point through reactive negative feedback. Allostasis (Sterling) achieves stability *through change*: the brain predictively adjusts set points and mobilizes resources in anticipation of demand, so the target itself moves. The decisive difference is reactive constancy versus anticipatory, model-based set-point adjustment.
-SOLUTION -->
-
----
-
-## Application Questions (2 marks each) {.unnumbered}
-
-<!-- assess: LO=LO6; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-6. A drug blocks a key kinase in a signaling cascade, but the tumor eventually regrows. Explain this outcome using the concept of feedback compensation.
-
-<!-- SOLUTION
-**Answer (Q6, Recall).** Blocking one kinase removes a single edge of a signaling network, but negative-feedback nodes the pathway normally suppresses are de-repressed and parallel routes reroute flux to restore downstream signaling (e.g., loss of ERK-mediated feedback reactivates upstream receptor/PI3K input). The network's redundancy and compensatory feedback restore proliferative output, so single-target inhibition is evaded — which is why combination therapy is often required.
-SOLUTION -->
-<!-- assess: LO=LO7; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-7. Explain why the lac operon switch is described as bistable. What advantage does bistability provide over a graded (linear) response?
-
-<!-- SOLUTION
-**Answer (Q7, Recall).** Positive feedback (the LacY permease imports inducer, which further activates the operon) combined with cooperative repressor binding gives the system two stable states — fully ON or fully OFF — separated by an unstable threshold. Bistability produces a sharp, hysteretic, all-or-none commitment that filters molecular noise and avoids wasteful partial expression, whereas a graded linear response would track every fluctuation in inducer concentration.
-SOLUTION -->
-<!-- assess: LO=LO8; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-8. How does the concept of attractors in phase space relate to cell fate? Give an example.
-
-<!-- SOLUTION
-**Answer (Q8, Recall).** In the dynamical-systems view of gene-regulatory networks, each stable attractor in expression state space corresponds to a cell type; a cell's state flows to the nearest attractor and resists small perturbations within its basin. Example: a hematopoietic progenitor sits near an unstable point and commits to an erythroid or myeloid attractor once a regulatory switch (e.g., the GATA1–PU.1 toggle) pushes it across the separatrix.
-SOLUTION -->
-<!-- assess: LO=LO1; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-9. Apply the active inference framework to explain how a fever might be adaptive rather than merely a pathological response.
-
-<!-- SOLUTION
-**Answer (Q9, Recall).** Under active inference an organism acts to fulfil its predictions about preferred, viable states. Infection raises the *expected* (set-point) temperature encoded by the hypothalamic generative model; the body then acts — shivering, vasoconstriction — to realize that prediction because elevated temperature accelerates immune kinetics and impairs pathogen replication. Fever is thus a controlled, model-driven allostatic shift rather than a regulatory failure, adaptive up to its metabolic and tissue-stress costs.
-SOLUTION -->
 <!-- assess: LO=LO2; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
-10. In evolutionary terms, what is niche construction, and how does it relate to the free energy principle?
+2. What is stigmergy in an ant colony?
 
 <!-- SOLUTION
-**Answer (Q10, Recall).** Niche construction is the organism's modification of its own environment (beaver dams, earthworm-altered soil), changing the selection pressures it and its descendants experience. Under the free energy principle, agents minimize surprise not only by updating internal models (perception) but by acting on the world so it matches their expected states — niche construction is free-energy minimization externalised and inherited across generations, stabilizing the organism–environment fit.
+**Answer (Q2, Recall).** Agents modify a shared environment, such as a pheromone trail, which influences later agents. No ant needs a map of the colony-wide route.
+SOLUTION -->
+<!-- assess: LO=LO3; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+3. Distinguish variation from selection in an adapting population.
+
+<!-- SOLUTION
+**Answer (Q3, Recall).** Variation creates phenotypic or genetic alternatives; differential reproductive success changes their frequencies. Selection does not generate a needed mutation on demand.
+SOLUTION -->
+<!-- assess: LO=LO4; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+4. Define hysteresis and name the comparison that demonstrates it.
+
+<!-- SOLUTION
+**Answer (Q4, Recall).** At the same external parameter, the stable state depends on whether the parameter was approached from above or below. Measure both increasing and decreasing sweeps after equilibration; a single steep curve is insufficient.
+SOLUTION -->
+<!-- assess: LO=LO6; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
+5. In the NK landscape, what do N and K represent?
+
+<!-- SOLUTION
+**Answer (Q5, Recall).** N counts loci or components; K counts the other components influencing each component contribution. Increased epistasis can make the landscape more rugged; K is not population size.
 SOLUTION -->
 
 ---
 
-## Synthesis Questions (4 marks each) {.unnumbered}
+## Mechanisms and applications {.unnumbered}
 
-## Questions 11–20: Application and Analysis {.unnumbered}
-
-<!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-11. Compare and contrast the immune system and an evolving tumor as complex adaptive systems. In each case, identify (a) the agents, (b) the selection pressures, (c) an emergent property, and (d) a critical vulnerability.
+<!-- assess: LO=LO7; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+6. Compute two iterations of x_next=3.2x(1-x) from x0=0.2.
 
 <!-- SOLUTION
-**Answer (Q11, Application).** Both are populations of heritable, variable, selected agents whose adaptive behavior is emergent. (a) Agents: lymphocyte clones vs tumor subclones. (b) Selection pressures: antigen affinity and self-tolerance vs immune attack, therapy, hypoxia. (c) Emergent property: immunological memory vs collective drug resistance. (d) Critical vulnerability: tolerance breakdown or T-cell exhaustion vs dependence on a driver mutation or shared resource. The decisive contrast: the immune system is selected for host benefit, whereas tumor evolution is selected purely for local proliferative fitness against the host.
+**Answer (Q6, Application).** x1=0.512 and x2=3.2(0.512)(0.488)=0.7995392. Preserve adequate precision because rounding differences propagate.
 SOLUTION -->
-
-<!-- assess: LO=LO4; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
-12. A patient with chronic anxiety has persistent overactivation of the sympathetic nervous system even in the absence of objective threat. Using predictive coding and active inference, construct a mechanistic account of how prior beliefs about threat might drive this pattern. How might therapeutic interventions (CBT, interoceptive exposure) alter the generative model?
+<!-- assess: LO=LO7; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+7. For the logistic map, derive the nonzero fixed point and test its stability at r=2.5 and r=3.2.
 
 <!-- SOLUTION
-**Answer (Q12, Application).** A precise prior predicting threat makes the generative model expect high interoceptive arousal; because that prior is weighted as highly precise, it dominates weaker sensory evidence, and prediction errors are resolved by *active* inference — driving sympathetic output to make the body match the 'danger' prediction, sustaining arousal with no external threat. CBT and interoceptive exposure reduce the precision of the threat prior and increase the weighting of disconfirming interoceptive evidence, reshaping the generative model so predictions no longer demand sympathetic activation.
+**Answer (Q7, Application).** xstar=1-1/r. The derivative there is 2-r, so it is stable when abs(2-r)<1. At 2.5 the derivative is -0.5 (stable); at 3.2 it is -1.2 (unstable). This is a discrete map, not the continuous logistic ODE.
+SOLUTION -->
+<!-- assess: LO=LO4; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+8. A synthetic lake switches to turbid at P=8 loading units when P rises, but returns to clear at P=3 when P falls. Predict its state at P=5 for both histories.
+
+<!-- SOLUTION
+**Answer (Q8, Application).** Starting clear and increasing to 5 leaves it clear; starting turbid and decreasing to 5 leaves it turbid. The interval 3<P<8 supports history-dependent alternatives under this illustrative rule.
+SOLUTION -->
+<!-- assess: LO=LO8; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+9. Compare genetic algorithms with biological selection, naming one shared operation and one limitation.
+
+<!-- SOLUTION
+**Answer (Q9, Application).** Both can combine heritable variation with differential replication or retention. A genetic algorithm usually has a designer-defined objective and representation; biological fitness is contextual and does not require a designer or a fixed global goal.
+SOLUTION -->
+<!-- assess: LO=LO3; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+10. A resistant variant starts at frequency 0.01 and has survival 1; sensitive cells have survival 0.1. Find the resistant fraction among survivors.
+
+<!-- SOLUTION
+**Answer (Q10, Application).** Resistant survivor mass=0.01; sensitive=0.99 times 0.1=0.099. Fraction=0.01/0.109=0.09174. Frequency rises without requiring treatment-induced mutation; survival is not subsequent reproductive fitness.
 SOLUTION -->
 
-<!-- assess: LO=LO5; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
+---
+
+## Integrated reasoning {.unnumbered}
+
+## Questions 11–20 {.unnumbered}
+
+<!-- assess: LO=LO6; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
+11. A two-locus synthetic fitness table is 00:1, 10:2, 01:2, 11:0.5. Identify peaks under single-bit changes and explain path dependence.
+
+<!-- SOLUTION
+**Answer (Q11, Application).** 10 and 01 are local peaks: each neighbor has lower fitness. Starting at 00, either first beneficial substitution can trap an uphill-only walk at a different peak. The double mutant is not additively beneficial; the table has sign epistasis.
+SOLUTION -->
+
+<!-- assess: LO=LO4; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+12. A perturbation of amplitude 2 cannot cross a basin barrier of 3 in an illustrative threshold model. Predict recovery after the pulse and identify a limitation of the analogy.
+
+<!-- SOLUTION
+**Answer (Q12, Application).** The state remains in its original basin and relaxes toward its original attractor. A larger perturbation might cross the boundary, but amplitude and barrier must be expressed in comparable model coordinates. A potential landscape is not automatically a measured therapy-response law.
+SOLUTION -->
+
+<!-- assess: LO=LO5; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 13. Describe how ecosystem collapse (e.g., coral bleaching, fishery collapse) can be framed as a phase transition in a complex adaptive system. What warning signals might precede the transition? Why is recovery often much harder than the original decline?
 
 <!-- SOLUTION
@@ -116,81 +114,81 @@ SOLUTION -->
 
 ## Data and Model Interpretation Questions (3 marks each) {.unnumbered}
 
-<!-- assess: LO=LO6; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
+<!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 14. In an agent-based simulation, changing one local rule from "align with three neighbors" to "align with six neighbors" causes global order to appear faster. Explain why this is an emergent result rather than a command from a central controller.
 
 <!-- SOLUTION
 **Answer (Q14, Application).** The global pattern changes because each agent samples more neighbors, increasing local coupling. No agent stores the global pattern or directs the group. The ordered state emerges from repeated local interactions plus boundary conditions.
 SOLUTION -->
 
-<!-- assess: LO=LO7; bloom=Apply; difficulty=Application; format=short-answer; minutes=4 -->
+<!-- assess: LO=LO5; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 15. A microbial biofilm becomes resistant to an antibiotic even though many isolated cells from the same biofilm remain sensitive. Give two complex-adaptive explanations.
 
 <!-- SOLUTION
 **Answer (Q15, Application).** Biofilm structure can limit diffusion, create slow-growing or dormant cells, and generate chemical microenvironments that reduce drug efficacy. Interactions among cells, matrix, nutrients, and gradients create a collective phenotype that isolated cells do not show.
 SOLUTION -->
 
-<!-- assess: LO=LO8; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+<!-- assess: LO=LO6; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 16. A fitness landscape has one tall narrow peak and one lower broad peak. Which peak is easier for a population to maintain under mutation and environmental noise, and why?
 
 <!-- SOLUTION
 **Answer (Q16, Application).** The broad peak is usually more robust because nearby genotypes still have relatively high fitness. A tall narrow peak may have high maximum fitness but is fragile: small mutational or environmental shifts can move the population into low-fitness territory.
 SOLUTION -->
 
-<!-- assess: LO=LO1; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+<!-- assess: LO=LO4; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
 17. Explain how a phase transition differs from a gradual linear change. Use one biological example.
 
 <!-- SOLUTION
-**Answer (Q17, Application).** A phase transition occurs when a small parameter change near a threshold produces a qualitative state change. Examples include quorum sensing activation, membrane depolarization threshold, ecosystem eutrophication, or protein folding. Linear change lacks that abrupt threshold behavior.
+**Answer (Q17, Recall).** A phase transition occurs when a small parameter change near a threshold produces a qualitative state change. Examples include quorum sensing activation, membrane depolarization threshold, ecosystem eutrophication, or protein folding. Linear change lacks that abrupt threshold behavior.
 SOLUTION -->
 
-<!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+<!-- assess: LO=LO3; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 18. A population repeatedly evolves the same resistance mutation in separate cultures. Does this prove evolution is deterministic? Give a careful answer.
 
 <!-- SOLUTION
-**Answer (Q18, Application).** It shows strong constraint or a high-probability adaptive route, not full determinism. Selection, mutation supply, population size, and available genetic paths can make outcomes repeatable, while drift and rare mutations still create contingency.
+**Answer (Q18, Synthesis).** It shows strong constraint or a high-probability adaptive route, not full determinism. Selection, mutation supply, population size, and available genetic paths can make outcomes repeatable, while drift and rare mutations still create contingency.
 SOLUTION -->
 
-<!-- assess: LO=LO3; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+<!-- assess: LO=LO2; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 19. Compare self-organization in embryonic patterning and in ant foraging. What is shared, and what differs?
 
 <!-- SOLUTION
 **Answer (Q19, Application).** Both involve local interactions that produce organized global patterns. Embryonic patterning often uses molecular gradients, gene regulatory networks, and mechanical constraints; ant foraging uses mobile agents, pheromone trails, and reinforcement. The shared logic is local rule plus feedback; the substrates and time scales differ.
 SOLUTION -->
 
-<!-- assess: LO=LO4; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
+<!-- assess: LO=LO1; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 20. A complex system model reproduces one observed pattern but fails under a new perturbation. What does this tell you about model validation?
 
 <!-- SOLUTION
-**Answer (Q20, Application).** Matching one pattern is not enough. A useful model should also predict responses to perturbation, reproduce independent data, and fail in interpretable ways. The failure may reveal missing agents, hidden variables, wrong interaction rules, or parameter overfitting.
+**Answer (Q20, Synthesis).** Matching one pattern is not enough. A useful model should also predict responses to perturbation, reproduce independent data, and fail in interpretable ways. The failure may reveal missing agents, hidden variables, wrong interaction rules, or parameter overfitting.
 SOLUTION -->
 
-## Questions 21–30: Synthesis and Evaluation {.unnumbered}
+## Questions 21–30 {.unnumbered}
 
-<!-- assess: LO=LO5; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
+<!-- assess: LO=LO3; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 21. Explain why heterogeneity among agents can make a population more resilient.
 
 <!-- SOLUTION
-**Answer (Q21, Synthesis).** Heterogeneity spreads risk. If agents differ in behavior, physiology, genotype, or location, one stress rarely harms all agents equally. Diversity can preserve function during perturbation, though it can also slow coordinated responses.
+**Answer (Q21, Application).** Heterogeneity spreads risk. If agents differ in behavior, physiology, genotype, or location, one stress rarely harms all agents equally. Diversity can preserve function during perturbation, though it can also slow coordinated responses.
 SOLUTION -->
 
-<!-- assess: LO=LO6; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
+<!-- assess: LO=LO3; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
 22. A cancer therapy kills 99% of tumor cells but leaves a small resistant subpopulation. Explain why this can select for relapse.
 
 <!-- SOLUTION
-**Answer (Q22, Synthesis).** Therapy changes the selection environment. Sensitive cells are removed, reducing competition for resistant cells. If resistant cells survive and replicate, the post-treatment tumor can be enriched for the resistant phenotype even if it was initially rare.
+**Answer (Q22, Application).** Therapy changes the selection environment. Sensitive cells are removed, reducing competition for resistant cells. If resistant cells survive and replicate, the post-treatment tumor can be enriched for the resistant phenotype even if it was initially rare.
 SOLUTION -->
 
-<!-- assess: LO=LO7; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
+<!-- assess: LO=LO3; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
 23. Distinguish adaptation by natural selection from adaptation by learning within an organism. Why can both be described as adaptive processes?
 
 <!-- SOLUTION
-**Answer (Q23, Synthesis).** Natural selection changes population allele or trait frequencies across generations; learning changes behavior or internal models within a lifetime. Both are adaptive because feedback from the environment alters future performance, but the substrate, inheritance, and time scale differ.
+**Answer (Q23, Recall).** Natural selection changes population allele or trait frequencies across generations; learning changes behavior or internal models within a lifetime. Both are adaptive because feedback from the environment alters future performance, but the substrate, inheritance, and time scale differ.
 SOLUTION -->
 
 ## Evaluation and Design Questions (4 marks each) {.unnumbered}
 
-<!-- assess: LO=LO8; bloom=Analyze; difficulty=Synthesis; format=short-answer; minutes=7 -->
+<!-- assess: LO=LO2; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
 24. Design a simple agent-based model for immune-cell recruitment to an infection site. Specify agents, local rules, and one emergent output.
 
 <!-- SOLUTION
@@ -204,35 +202,35 @@ SOLUTION -->
 **Answer (Q25, Synthesis).** The claim is too strong. Complex systems may be hard to predict exactly, but models can identify thresholds, sensitivities, robust qualitative behaviors, and useful intervention points. The goal is often constrained prediction and mechanistic insight, not perfect point forecasting.
 SOLUTION -->
 
-<!-- assess: LO=LO2; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+<!-- assess: LO=LO2; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
 26. Propose a way to detect whether a community pattern is produced by local interactions or by a shared external gradient.
 
 <!-- SOLUTION
 **Answer (Q26, Synthesis).** Measure or manipulate the external gradient while also mapping local neighbor effects. If the pattern persists after controlling for the gradient, local interactions are implicated. Transplant, removal, or randomized-neighbor experiments can separate neighbor causation from shared environmental forcing.
 SOLUTION -->
 
-<!-- assess: LO=LO3; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
+<!-- assess: LO=LO2; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
 27. A student says emergence means "anything can happen." Correct this using constraints and repeated patterns.
 
 <!-- SOLUTION
 **Answer (Q27, Synthesis).** Emergence does not mean arbitrary outcomes. It means global properties arise from interactions among parts. The outcomes are constrained by rules, geometry, resources, feedback, and history, which is why similar patterns can recur across biofilms, tissues, flocks, and ecosystems.
 SOLUTION -->
 
-<!-- assess: LO=LO4; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
+<!-- assess: LO=LO3; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
 28. Build a complex-adaptive explanation of antibiotic resistance that includes mutation, selection, horizontal gene transfer, and clinical practice.
 
 <!-- SOLUTION
 **Answer (Q28, Synthesis).** Mutation and horizontal gene transfer generate variation; antibiotic exposure selects resistant variants; hospitals and farms can amplify transmission; incomplete treatment or misuse changes the selection regime. The emergent population-level result is increased resistance prevalence.
 SOLUTION -->
 
-<!-- assess: LO=LO5; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
+<!-- assess: LO=LO5; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
 29. Choose one chapter later in the textbook and explain how its topic could be reframed as a complex adaptive system.
 
 <!-- SOLUTION
-**Answer (Q29, Synthesis).** Strong examples include immune activation, cancer evolution, microbial ecology, neural circuits, plant hormone networks, or conservation landscapes. A full answer names the agents, interactions, feedback loops, variation, and emergent property.
+**Answer (Q29, Synthesis).** A biofilm example has heterogeneous microbial cells as agents (1), local nutrient uptake, matrix secretion and neighbor signaling as interactions (1), and differential growth or survival under nutrient/drug gradients as adaptation (1). A collective tolerant phenotype that weakens when cells are dispersed is a testable emergent output; compare intact/dispersed samples at matched drug exposure and control growth state, because dispersal itself changes physiology (1). This is a concrete CAS hypothesis, not proof that all resistance is emergent; see \cref{sec:unit_0_complex_adaptive_systems}.
 SOLUTION -->
 
-<!-- assess: LO=LO6; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=9 -->
+<!-- assess: LO=LO8; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
 30. Design a falsifiable prediction that would distinguish two competing rule sets in an agent-based model of cell migration.
 
 <!-- SOLUTION

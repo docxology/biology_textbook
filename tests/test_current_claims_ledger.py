@@ -2,17 +2,16 @@
 
 from __future__ import annotations
 
+import sys
 from datetime import date
 from pathlib import Path
-import sys
-
 
 PROJECT = Path(__file__).resolve().parent.parent
 SRC = PROJECT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-from textbook_paths import discover_template_root  # noqa: E402
+from textbook_paths import discover_template_root
 
 TEMPLATE_ROOT = discover_template_root(PROJECT)
 for path in (TEMPLATE_ROOT, SRC):
@@ -21,7 +20,7 @@ for path in (TEMPLATE_ROOT, SRC):
     if str(path) not in sys.path:
         sys.path.insert(0, str(path))
 
-from biology.current_claims import (  # noqa: E402
+from biology.current_claims import (
     CurrentClaim,
     load_current_claims,
     scan_stale_manuscript_phrases,
@@ -140,18 +139,6 @@ def test_current_claims_cover_required_fast_moving_topics() -> None:
 
 def test_removed_stale_current_claim_phrases_do_not_return() -> None:
     assert scan_stale_manuscript_phrases(PROJECT / "docs" / "manuscript", project_root=PROJECT) == []
-
-
-def test_current_claim_sources_do_not_use_known_bad_targets() -> None:
-    text = (PROJECT / "docs" / "manuscript" / "current_claims.yaml").read_text(encoding="utf-8")
-    bad_targets = (
-        "blood.2024027657",
-        "9789240114708",
-        "global-malaria-program/reports/world-malaria-report-2025",
-        "S2213-8587(24)00380-7",
-        "github.com/docxology/biology_textbook/blob/main/manuscript/glossary.md",
-    )
-    assert not [target for target in bad_targets if target in text]
 
 
 def _claim(

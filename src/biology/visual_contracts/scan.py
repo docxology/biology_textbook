@@ -21,22 +21,23 @@ from biology.visual_contracts.helpers import (
     relative,
 )
 from biology.visual_contracts.models import (
-    VisualRecord,
     _CAPTION_RE,
     _INCLUDE_RE,
     _LABEL_RE,
     _LATEX_FIGURE_RE,
     _MERMAID_RE,
+    VisualRecord,
 )
-from biology.visual_contracts_paths import MANUSCRIPT_DIR, OUTPUT_FIGURES
+from biology.visual_contracts_paths import MANUSCRIPT_DIR, OUTPUT_FIGURES, PROJECT_ROOT
+from textbook_paths import discover_template_root
 
 
 def raw_figure_records(figures_root: Path = OUTPUT_FIGURES) -> list[VisualRecord]:
     """Extract raw LaTeX figure records from manuscript Markdown."""
+    from biology.maintenance.manuscript_walker import manuscript_markdown_files
+
     records: list[VisualRecord] = []
-    for path in sorted(MANUSCRIPT_DIR.rglob("*.md")):
-        if path.name in {"AGENTS.md", "README.md"}:
-            continue
+    for path in manuscript_markdown_files(MANUSCRIPT_DIR, project_root=PROJECT_ROOT):
         text = path.read_text(encoding="utf-8")
         for match in _LATEX_FIGURE_RE.finditer(text):
             block = match.group(0)
@@ -68,8 +69,7 @@ def raw_figure_records(figures_root: Path = OUTPUT_FIGURES) -> list[VisualRecord
 
 def registered_mermaid_factories() -> Iterable[tuple[str, Callable[[], Any], int]]:
     ensure_import_paths()
-    import mermaid.biology_diagrams as biology_diagrams
-    from mermaid import MermaidDiagram
+    from mermaid import MermaidDiagram, biology_diagrams
 
     for name, factory in inspect.getmembers(biology_diagrams, inspect.isfunction):
         if factory.__module__ != biology_diagrams.__name__:
@@ -93,8 +93,7 @@ def registered_mermaid_records(figures_root: Path = OUTPUT_FIGURES) -> list[Visu
     records: list[VisualRecord] = []
     for name, factory, line in registered_mermaid_factories():
         diagram = factory()
-        png = figures_root / "mermaid" / f"{diagram.name}.png"
-        asset = png if png.exists() else figures_root / "mermaid" / f"{diagram.name}.mmd"
+        asset = figures_root / "mermaid" / f"{diagram.name}.png"
         width, height = dimensions(relative(asset), figures_root=figures_root)
         records.append(
             VisualRecord(
@@ -120,19 +119,18 @@ def inline_stem(index: int, source: str) -> str:
 
 
 def normalise_inline_mermaid_source(source: str) -> str:
-    try:
-        module = import_module("infrastructure.rendering._pdf_mermaid")
-        normalize = getattr(module, "_normalise_mermaid_source")
-    except (AttributeError, ImportError):
+    if discover_template_root(PROJECT_ROOT) is None:
         return source.replace(r"\n", "<br/>")
-    return str(normalize(source))
+    ensure_import_paths()
+    module = import_module("infrastructure.rendering._pdf_mermaid")
+    return str(module._normalise_mermaid_source(source))
 
 
 def inline_mermaid_sources() -> Iterable[tuple[int, Path, int, str]]:
+    from biology.pipeline.collection import collect_ordered_chapters, load_config
+
     index = 0
-    for path in sorted(MANUSCRIPT_DIR.rglob("*.md")):
-        if path.name in {"AGENTS.md", "README.md"}:
-            continue
+    for path in collect_ordered_chapters(load_config()):
         text = path.read_text(encoding="utf-8")
         for match in _MERMAID_RE.finditer(text):
             index += 1
@@ -142,11 +140,11 @@ def inline_mermaid_sources() -> Iterable[tuple[int, Path, int, str]]:
 
 def inline_mermaid_records(figures_root: Path = OUTPUT_FIGURES) -> list[VisualRecord]:
     """Extract inline Mermaid records from manuscript Markdown."""
+    from biology.pipeline.collection import collect_ordered_chapters, load_config
+
     records: list[VisualRecord] = []
     index = 0
-    for path in sorted(MANUSCRIPT_DIR.rglob("*.md")):
-        if path.name in {"AGENTS.md", "README.md"}:
-            continue
+    for path in collect_ordered_chapters(load_config()):
         text = path.read_text(encoding="utf-8")
         for match in _MERMAID_RE.finditer(text):
             index += 1

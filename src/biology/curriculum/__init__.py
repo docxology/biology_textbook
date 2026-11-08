@@ -4,16 +4,16 @@ from __future__ import annotations
 
 from biology.curriculum.models import CurriculumRecord
 from biology.curriculum.unit_0 import RECORDS as UNIT_0_RECORDS
-from biology.curriculum.unit_I import RECORDS as UNIT_I_RECORDS
-from biology.curriculum.unit_II import RECORDS as UNIT_II_RECORDS
-from biology.curriculum.unit_III import RECORDS as UNIT_III_RECORDS
-from biology.curriculum.unit_IV import RECORDS as UNIT_IV_RECORDS
-from biology.curriculum.unit_IX import RECORDS as UNIT_IX_RECORDS
-from biology.curriculum.unit_V import RECORDS as UNIT_V_RECORDS
-from biology.curriculum.unit_VI import RECORDS as UNIT_VI_RECORDS
-from biology.curriculum.unit_VII import RECORDS as UNIT_VII_RECORDS
-from biology.curriculum.unit_VIII import RECORDS as UNIT_VIII_RECORDS
-from biology.curriculum.unit_X import RECORDS as UNIT_X_RECORDS
+from biology.curriculum.unit_i import RECORDS as UNIT_I_RECORDS
+from biology.curriculum.unit_ii import RECORDS as UNIT_II_RECORDS
+from biology.curriculum.unit_iii import RECORDS as UNIT_III_RECORDS
+from biology.curriculum.unit_iv import RECORDS as UNIT_IV_RECORDS
+from biology.curriculum.unit_ix import RECORDS as UNIT_IX_RECORDS
+from biology.curriculum.unit_v import RECORDS as UNIT_V_RECORDS
+from biology.curriculum.unit_vi import RECORDS as UNIT_VI_RECORDS
+from biology.curriculum.unit_vii import RECORDS as UNIT_VII_RECORDS
+from biology.curriculum.unit_viii import RECORDS as UNIT_VIII_RECORDS
+from biology.curriculum.unit_x import RECORDS as UNIT_X_RECORDS
 
 CURRICULUM: tuple[CurriculumRecord, ...] = (
     *UNIT_0_RECORDS,

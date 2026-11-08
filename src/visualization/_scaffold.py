@@ -11,9 +11,9 @@ from pathlib import Path
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-
 from typing import Literal
+
+import matplotlib.pyplot as plt
 
 from textbook_logging import get_logger
 from textbook_visuals import pad_png_to_square

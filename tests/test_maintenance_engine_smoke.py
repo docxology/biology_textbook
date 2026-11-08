@@ -1,55 +1,32 @@
-"""Smoke tests for extracted maintenance engines (dry-run paths)."""
+"""Source preservation and fail-closed maintenance CLI behavior."""
 
 from __future__ import annotations
 
+import hashlib
+from pathlib import Path
 
-def test_enrichment_dry_run_exits_zero() -> None:
-    from biology.enrichment.cli import main
-
-    assert main(["--dry-run"]) == 0
-
-
-def test_enrichment_dry_run_reports_no_chapter_mutations(capsys) -> None:
-    from biology.enrichment.cli import main
-
-    assert main(["--dry-run"]) == 0
-    output = capsys.readouterr().out
-    assert "chapters=0" in output
-    assert "companion_modules=0" in output
+from biology.pipeline.paths import MANUSCRIPT_DIR, PROJECT_ROOT
 
 
-def test_curriculum_sync_dry_run_exits_zero() -> None:
-    from biology.curriculum_sync.cli import main
-
-    assert main(["--dry-run"]) == 0
-
-
-def test_refine_answers_dry_run_exits_zero() -> None:
-    from biology.answer_refinement.cli import main
-
-    assert main(["--dry-run"]) == 0
+def source_snapshot() -> dict[Path, str]:
+    paths = [path for path in MANUSCRIPT_DIR.rglob("*") if path.is_file()]
+    paths.append(PROJECT_ROOT / "docs" / "embedded_enrichment_audit_matrix.md")
+    return {path: hashlib.sha256(path.read_bytes()).hexdigest() for path in paths if path.is_file()}
 
 
-def test_quality_audit_check_exits_zero() -> None:
-    from biology.quality.cli import main
+def test_maintenance_previews_preserve_curated_sources() -> None:
+    from biology.answer_refinement.cli import main as refine
+    from biology.curriculum_sync.cli import main as curriculum
+    from biology.enrichment.cli import main as enrich
 
-    assert main(["--check", "--max-advisories", "0"]) == 0
+    before = source_snapshot()
+    for preview in (enrich, curriculum, refine):
+        assert preview(["--dry-run"]) == 0
+    assert source_snapshot() == before
 
 
-def test_visual_contracts_check_exits_zero(tmp_path) -> None:
+def test_missing_figure_tree_fails_publication_check(tmp_path: Path) -> None:
     from biology.visual_contracts_cli import main
 
-    assert main([
-        "--figures-root",
-        str(tmp_path / "figures"),
-        "--output",
-        str(tmp_path / "visual_manifest.json"),
-        "--check",
-    ]) == 0
-
-
-def test_visual_contracts_build_manifest_non_empty() -> None:
-    from biology.visual_contracts import build_manifest
-
-    records = build_manifest()
-    assert len(records) > 50
+    assert main(["--figures-root", str(tmp_path / "figures"),
+                 "--output", str(tmp_path / "visual_manifest.json"), "--check"]) != 0

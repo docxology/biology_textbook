@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from textbook_logging import get_logger
 
-
 logger = get_logger(__name__)
 
 Allele = str  # Single nucleotide/base letter (e.g. 'A', 'a')
@@ -128,9 +127,11 @@ def translate_mrna(mrna: str) -> list[str]:
 
 
 def gc_content(sequence: str) -> float:
-    """Calculate GC content of a DNA/RNA sequence as a fraction [0, 1]."""
+    """GC fraction for unambiguous DNA/RNA; ambiguity symbols are rejected."""
     if not sequence:
         raise ValueError("Sequence must not be empty.")
     seq = sequence.upper()
+    if set(seq) - set("ACGTU"):
+        raise ValueError("GC content requires unambiguous DNA/RNA nucleotides.")
     gc = sum(1 for n in seq if n in ("G", "C"))
     return gc / len(seq)

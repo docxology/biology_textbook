@@ -15,12 +15,11 @@
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Atoms, Molecules, and Chemical Bonds.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO2):** Compute four bond electronegativity differences.
+- **Outcome 2 (LO3):** Classify seven structural cards and explain solvent partitioning.
+- **Outcome 3 (LO4):** Compare hydrogen-bond capacity with solubility and surface-tension evidence.
+- **Chapter LO coverage:** LO2, LO3, LO4
+- **Rubric dimensions:** 10 points: four calculations with cutoffs treated as heuristics (LO2, 2); molecule classifications grounded in structures (LO3, 3); positive/negative controls and ambiguous dye (LO4, 2); surfactant mechanism, uncertainty and drug-transfer limitation (LO3, LO4, 3).
 <!-- lab-alignment-end -->
 ## Pre-Lab Concept Questions {.unnumbered}
 
@@ -38,7 +37,7 @@ In this lab, you will use a paper dataset of solubility and surface-tension obse
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map}
+: Printed materials for molecular polarity and solvent comparisons. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map}
 | Item | Quantity |
 | ---- | -------- |
 | Source-governance card for Atoms, Molecules, and Chemical Bonds: molecular-structure source card: experimental method, prediction confidence, assay validation, and release date | 1 |
@@ -60,17 +59,19 @@ In this lab, you will use a paper dataset of solubility and surface-tension obse
 
 ## Data Recording {.unnumbered}
 
-: Alignment and Rubric Map: Cup and Solvent. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map_2}
-| Cup | Solvent | Solute/Dye | Dissolves? (Y/N) | Observations |
-| --- | ------- | ---------- | ---------------- | ------------ |
+: Solvent-pair classification worksheet for all eight synthetic conditions. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map_2}
+| Cup | Solvent | Solute/Dye | Soluble, partial or insoluble | Observations |
+| --- | ------- | ---------- | ---------------------------- | ------------ |
 | A | Water | NaCl | | |
 | B | Water | Sucrose | | |
 | C | Oil | NaCl | | |
 | D | Oil | Sucrose | | |
-| E | Water | Water dye | | |
-| F | Oil | Turmeric | | |
+| E | Water | Dye A | | |
+| F | Oil | Dye B | | |
+| G | Oil | Dye A | | |
+| H | Water | Dye B | | |
 
-: Alignment and Rubric Map: Bond and ΔEN. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map_3}
+: Bond electronegativity differences and polarity classifications. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map_3}
 | Bond | ΔEN | Polar? |
 | ---- | --- | ------ |
 | O–H | | |
@@ -80,7 +81,6 @@ In this lab, you will use a paper dataset of solubility and surface-tension obse
 
 Paperclip float: ________ After soap: ________
 
-<!-- lab-evidence-checklist-start -->
 ## Evidence and Reproducibility Checklist {.unnumbered}
 
 - **Primary evidence goal:** Classify bonds and solvent behavior using simple observations.
@@ -90,14 +90,13 @@ Paperclip float: ________ After soap: ________
 - **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
 - **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
 - **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
 Before answering the analysis questions, annotate the paper dataset for
 **Atoms, Molecules, and Chemical Bonds** with a reproducibility pass:
 
-: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map_4}
+: Evidence and reproducibility decisions for molecular and surface cards. {#tbl:unit_I_atoms_molecules_alignment_and_rubric_map_4}
 | Evidence check | Student action |
 | --- | --- |
 | Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
@@ -124,14 +123,22 @@ equipment version belongs only in an optional extension.
 
 ### Source-Governance Checkpoint {.unnumbered}
 
-Complete the source-governance card for Atoms, Molecules, and Chemical Bonds before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
+**Printed packet AM1 — explicitly synthetic teaching observations, not empirical measurements.** Three independently prepared model cups per condition, 20 degrees C, 10 mL solvent, 10 mg solute, identical mixing time. Dissolved fraction is scored at 60 s; >=90% = soluble, <=10% = insoluble, intermediate = partial.
+
+**Molecular cards:** water H–O–H (polar bent molecule); oil-like hydrocarbon CH3(CH2)14CH3 (nonpolar); NaCl (ionic lattice); sucrose (many OH groups); dye A (aromatic skeleton with two sulfonate groups); dye B (mostly aromatic hydrocarbon with one OH); soap (carboxylate head plus long hydrocarbon tail). Electronegativity values: H 2.20, C 2.55, N 3.04, O 3.44. Formal charges are distinct from partial charges.
+
+**Observation cards (dissolved %, three cups):** A water/NaCl 100,100,100; B water/sucrose 100,100,100; C oil/NaCl 0,0,0; D oil/sucrose 0,0,0; E water/dye A 98,99,100; F oil/dye B 96,98,97; G oil/dye A 0,1,0; H water/dye B 35,45,40. Dye B is a hypothetical aromatic dye, not a measurement of actual turmeric composition.
+
+**Surface card AM2:** Three identical paperclips remain at the clean water surface before treatment (3/3). After a model soap addition, 0/3 remain; after equal-volume water addition, 3/3 remain. Modeled surface tensions are 72 versus 30 mN/m; resolution 2 mN/m. Geometry and placement are fixed. No wet demonstration is required.
+
+**Instructor key:** NaCl/sucrose are aqueous positives and oil negatives; dye B in water is partial and cannot be called universally insoluble. Soap is amphipathic. DeltaEN values O–H 1.24, N–H 0.84, C–H 0.35, C–C 0; the first two are polar under this heuristic. Soap changes interfacial organization and surface tension, not the existence of all water hydrogen bonds. The water-addition control rules out addition volume alone. Cholesterol favors lipid environments but plasma transport uses lipoproteins; partitioning alone does not predict transporter-dependent drug uptake. Governance: packet AM1/AM2 is an authored synthetic snapshot; no PDB accession or experimental confidence score applies. Refresh if pH, ionization, concentration or temperature changes.
 
 ## Analysis Questions {.unnumbered}
 
-1. Which solutes dissolved in water but not oil? Which dissolved in oil but not water? Explain in terms of bond polarity.
+1. Which solutes are soluble in water but insoluble in oil under the printed thresholds? Which show the reverse pattern? Distinguish dye B's partial aqueous solubility from complete insolubility; explain why bond polarity alone is not a complete solubility model.
 2. Why did NaCl dissolve in water but not in vegetable oil? What type of bond holds NaCl together, and how does water break it apart?
 3. Based on ΔEN values, rank the four bonds from most to least polar. How does bond polarity influence molecular behavior in biological systems?
-4. The paperclip floated due to surface tension. What property of water creates surface tension, and why did soap destroy it? What is the biological significance of surfactants?
+4. The model paperclip is supported by surface tension before soap addition. How does water's cohesive network contribute, and why does soap lower rather than abolish surface tension? Use the water-addition control and the printed 72 versus 30 mN/m values.
 5. Predict whether cholesterol (a steroid with a polar hydroxyl group and a large non-polar body) would dissolve in blood plasma (aqueous) or in a membrane (lipid). Justify your answer using polarity principles.
 
 ## Post-Lab Synthesis {.unnumbered}

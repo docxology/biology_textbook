@@ -2,20 +2,18 @@
 """Run the biology textbook publication-readiness gate.
 
 Thin CLI for :mod:`biology.quality.publication_gate`. Default ``--check`` runs
-the practical project-local gate; ``--full`` adds expensive root orchestration
-(root setup, project-root pytest with the 90% ``src/`` gate, root render, root
-output validation, and the root PDF log gate).
+the project-local gate; ``--full`` also runs coverage, live-source analysis,
+strict PNG/PDF rendering and output validation. Artifacts remain under this
+repository's ``output/`` tree; external template code is read-only.
 """
 
 from __future__ import annotations
 
 import argparse
-import tempfile
-from pathlib import Path
 
 from _bootstrap import ensure_project_paths
 
-ensure_project_paths()
+ensure_project_paths(include_template=False)
 
 from biology.quality.publication_gate import (
     build_command_steps,
@@ -32,7 +30,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--full",
         action="store_true",
-        help="Include expensive root setup/test/render/validation and coverage.",
+        help="Include coverage, analysis, strict PNG/PDF rendering and output validation.",
     )
     parser.add_argument(
         "--workers",
@@ -42,12 +40,10 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    with tempfile.TemporaryDirectory(prefix="biology_textbook_readiness_") as tmpdir:
-        failures = run_publication_gate(
-            full=args.full,
-            artifact_dir=Path(tmpdir),
-            max_workers=max(1, args.workers),
-        )
+    failures = run_publication_gate(
+        full=args.full,
+        max_workers=max(1, args.workers),
+    )
 
     status = "PASS" if failures == 0 else "FAIL"
     depth = "full" if args.full else "default"

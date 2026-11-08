@@ -95,9 +95,7 @@ def _is_weak_alt(body: str) -> bool:
     for prefix in _BANNED_ALT_PREFIXES:
         if low.startswith(prefix):
             return True
-    if low in ("diagram", "figure", "chart", "image", "mermaid", "mermaid diagram"):
-        return True
-    return False
+    return low in ("diagram", "figure", "chart", "image", "mermaid", "mermaid diagram")
 
 
 def _immediate_mermaid_metadata(text_after: str) -> tuple[list[str], list[str]]:

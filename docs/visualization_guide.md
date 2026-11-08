@@ -25,11 +25,11 @@
 
 The `biology_textbook` project generates **three types of visual output**:
 
-1. **Matplotlib figures** — 42 quantitative plots from `src/visualization/plots.py` (`ALL_FIGURE_GENERATORS`)
-2. **Registered Mermaid diagrams** — 24 biological pathway/network diagrams from `src/mermaid/biology_diagrams.py` (`ALL_BIOLOGY_DIAGRAMS`), rendered to PNG via the `mmdc` CLI
-3. **Inline Mermaid fences** — 197 manuscript-local diagrams (196 outside README/AGENTS docs) rendered during PDF preprocessing and optional visual-contract review
+1. **Matplotlib figures** from ALL_FIGURE_GENERATORS.
+2. **Registered Mermaid diagrams** from ALL_BIOLOGY_DIAGRAMS.
+3. **Inline Mermaid fences** in the configured manuscript.
 
-Matplotlib figures and registered Mermaid diagrams are square-padded after rendering so labels and legends do not change the final canvas shape. The visual-contract audit measures all 263 records and fails `--check` when a normal matplotlib figure falls outside aspect ratio `0.85-1.18`, or a Mermaid PNG falls outside `0.75-1.33`, unless the record carries a reviewed exception reason. Use temporary review roots for verification:
+Use current manifests for counts, not fixed metrics as proof. Registered PNGs are square-padded by default. The audit checks normal matplotlib aspect ratios 0.85–1.18 and Mermaid 0.75–1.33 unless a reviewed exception applies. Missing/corrupt images are unavailable, not valid by suffix. Label synthetic model plots as illustrations, not empirical measurements. Use explicit review roots:
 
 ```bash
 tmp=$(mktemp -d)
@@ -217,7 +217,7 @@ flowchart LR
 
 ## Mermaid diagram conventions
 
-Mermaid diagrams are defined in Python as string-returning factories in `src/mermaid/biology_diagrams.py`, then rendered to PNG using `mmdc` (Mermaid CLI):
+Factories build MermaidDiagram objects from diagram_specs.yaml through diagram_spec_loader.py. Publish real PNGs with pinned Mermaid CLI 12.2.0:
 
 ```python
 from pathlib import Path
@@ -226,21 +226,19 @@ from mermaid.renderer import MermaidRenderer
 
 diagram = enzyme_kinetics_diagram()
 out = Path("output/figures/mermaid")
-MermaidRenderer(out).render(diagram.name, diagram.source)
+MermaidRenderer(out, strict_png=True).render(diagram.name, diagram.source, size=1200, square=True)
 ```
 
 ### Generation
 
 ```bash
-# Bulk regeneration of all 24 registered diagrams
-uv run python scripts/generate_diagrams.py
-
-# Single diagram (requires mmdc on PATH)
-mmdc -i /tmp/diagram.mmd -o output/figures/mermaid/diagram.png -w 1200 -H 1200
+# From project root; Node >=22.13.0
+npm ci
+export PATH="$PWD/node_modules/.bin:$PATH"
+uv run --frozen --extra dev python scripts/generate_diagrams.py --strict-png --size 1200
 ```
 
-> [!TIP]
-> Optional **`.puppeteer.json`** at the project root is passed to `mmdc --puppeteerConfigFile` so a system Chrome binary can be used. Adjust paths on non-macOS systems. If `mmdc` is missing, the renderer writes `.mmd` source files only — useful for review-only HTML builds.
+The Python API uses size=1200 and square=True; the project CLI uses --size, without width/height aliases. Project-local .puppeteer.json is optional browser configuration; review host compatibility. Non-strict missing-CLI .mmd output is authoring source only, not a publication substitute. Publication requires actual PNG decoding. Every project-local PDF render freshly regenerates canonical source-matched inline assets; no template-root recipes. See pipeline_guide.md.
 
 ### Diagram type — quick reference
 

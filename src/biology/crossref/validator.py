@@ -11,6 +11,8 @@ from biology.crossref.scan_file import scan_file
 
 def scan_directory(root: Path, patterns: Iterable[str] = ("**/*.md",)) -> CrossRefReport:
     """Walk ``root`` and aggregate a :class:`CrossRefReport`."""
+    from biology.maintenance.manuscript_walker import require_manuscript_source
+
     report = CrossRefReport()
     for pat in patterns:
         for path in sorted(root.glob(pat)):
@@ -18,6 +20,7 @@ def scan_directory(root: Path, patterns: Iterable[str] = ("**/*.md",)) -> CrossR
                 continue
             if path.name in {"AGENTS.md", "README.md"}:
                 continue
+            require_manuscript_source(path, root)
             defined, refs, issues = scan_file(path)
             for kind, crossref_id in defined:
                 key = (kind, crossref_id)

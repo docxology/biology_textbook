@@ -1,5 +1,7 @@
 """Tests for ``biology.genetics.replication``."""
 
+from itertools import pairwise
+
 import pytest
 
 from biology.genetics import ReplicationForkProfile, replication_fork_progression
@@ -11,7 +13,7 @@ class TestReplicationForkProgression:
             velocity_bp_per_s=1000.0, duration_s=600.0, origins=1, steps=60
         )
         bases = profile.bases_replicated
-        assert all(b_next >= b_prev for b_prev, b_next in zip(bases, bases[1:]))
+        assert all(b_next >= b_prev for b_prev, b_next in pairwise(bases))
 
     def test_parallel_origins_scale_linearly(self):
         single = replication_fork_progression(
@@ -37,7 +39,7 @@ class TestReplicationForkProgression:
         assert profile.times_s[7] == pytest.approx(7 * dt)
         # Uniform grid: consecutive spacing is constant.
         gaps = {
-            round(b - a, 9) for a, b in zip(profile.times_s, profile.times_s[1:])
+            round(b - a, 9) for a, b in pairwise(profile.times_s)
         }
         assert len(gaps) == 1
 
@@ -64,20 +66,29 @@ class TestReplicationForkProgression:
         assert len(profile.times_s) == 61  # steps=60 default
 
     @pytest.mark.parametrize(
-        "kwargs, match",
+        "kwargs",
         [
-            ({"velocity_bp_per_s": 0.0}, "velocity_bp_per_s must be positive"),
-            ({"velocity_bp_per_s": -10.0}, "velocity_bp_per_s must be positive"),
-            ({"duration_s": 0.0}, "duration_s must be positive"),
-            ({"duration_s": -1.0}, "duration_s must be positive"),
-            ({"origins": 0}, "origins must be positive"),
-            ({"origins": -3}, "origins must be positive"),
-            ({"steps": 0}, "steps must be positive"),
-            ({"steps": -5}, "steps must be positive"),
+            {"velocity_bp_per_s": 0.0},
+            {"velocity_bp_per_s": -10.0},
+            {"duration_s": 0.0},
+            {"duration_s": -1.0},
+            {"origins": 0},
+            {"origins": -3},
+            {"steps": 0},
+            {"steps": -5},
+            {"velocity_bp_per_s": float("inf")},
+            {"velocity_bp_per_s": float("nan")},
+            {"duration_s": float("inf")},
+            {"duration_s": float("nan")},
         ],
     )
-    def test_invalid_parameters_raise_value_error(self, kwargs, match):
-        with pytest.raises(ValueError, match=match):
+    def test_invalid_parameters_raise_value_error(self, kwargs):
+        with pytest.raises(ValueError):
+            replication_fork_progression(**kwargs)
+
+    @pytest.mark.parametrize("kwargs", [{"origins": True}, {"origins": 1.5}, {"steps": True}, {"steps": 1.5}])
+    def test_invalid_count_types_raise_type_error(self, kwargs):
+        with pytest.raises(TypeError):
             replication_fork_progression(**kwargs)
 
     def test_half_replication_time_scaling(self):
@@ -94,7 +105,7 @@ class TestReplicationForkProgression:
         t_fast = genome / (2 * 1000.0)
         assert t_fast == pytest.approx(t_slow / 2)
         # Both profiles are linear, so the base count at the half-time scales.
-        idx_slow = int(round(t_slow / slow.times_s[-1] * (len(slow.times_s) - 1)))
-        idx_fast = int(round(t_fast / fast.times_s[-1] * (len(fast.times_s) - 1)))
+        idx_slow = round(t_slow / slow.times_s[-1] * (len(slow.times_s) - 1))
+        idx_fast = round(t_fast / fast.times_s[-1] * (len(fast.times_s) - 1))
         assert slow.bases_replicated[idx_slow] > genome - 2 * 500.0 * 20
         assert fast.bases_replicated[idx_fast] > genome - 2 * 1000.0 * 20

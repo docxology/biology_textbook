@@ -6,7 +6,7 @@
 | -------- | -------------- |
 | [composable_authoring.md](composable_authoring.md) | **Stable IDs** (`sec:` / `fig:` / `eq:`), workflows (new chapter, figure, diagram, API), validation commands, test pointers |
 | [architecture.md](architecture.md) | Two-layer architecture, module organization, src/ layout, manuscript–code contract |
-| [testing_guide.md](testing_guide.md) | Zero-mock policy, coverage standards, running tests, failure-to-fix |
+| [testing_guide.md](testing_guide.md) | Real-computation policy, isolation exceptions and coverage limits |
 | [pipeline_guide.md](pipeline_guide.md) | Build pipeline stages, execution commands, maintenance script order |
 | [manuscript_guide.md](manuscript_guide.md) | Writing conventions, auto-numbering, figures, equations, templates |
 | [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) | PDF density: keep `config.yaml` and `preamble.md` in sync; figure/diagram allowlists |
@@ -15,7 +15,7 @@
 | [agent_instructions.md](agent_instructions.md) | Editorial standards (voice, vignettes, clinical boxes); defers to composable + manuscript AGENTS for numbering |
 | [publication_abstract.md](publication_abstract.md) | Two-paragraph Zenodo/GitHub/cover abstract (metadata only; not in PDF pipeline) |
 | [accessibility.md](accessibility.md) | `config.yaml` keys: advisory vs test/code enforcement; optional reader PDF profile; HTML/PDF limits |
-| [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md) | Optional LO↔question-bank HTML comment convention |
+| [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md) | Curated semantic LO/Bloom mappings and lab rubrics |
 | [absolute_language_triage.md](absolute_language_triage.md) | Advisory absolute-language categories: valid scientific absolutes, needed qualifiers, copyedit artifacts |
 | [embedded_enrichment_audit_matrix.md](embedded_enrichment_audit_matrix.md) | Section-by-section audit matrix for embedded chapter, lab, question-bank, glossary, and appendix enrichment |
 | [current_source_refresh_matrix.md](current_source_refresh_matrix.md) | Config-driven current-source refresh matrix for renderable manuscript sections and fast-moving claims |
@@ -29,13 +29,15 @@ The biology textbook project integrates:
 
 - Manuscript content organized in **`docs/manuscript/config.yaml`** (Unit 0, Units I – X, **44 chapters**, **44 labs**, **44 question banks**)
 - **Quantitative models** in `src/biology/*` (9 domain subpackages) plus manuscript utilities and maintenance packages: `chapter_metadata.py`, `toc.py`, `curriculum.py`, `assessment.py`, `current_claims.py`, `alignment.py`, `crossref/` (shim at `crossref_validator.py`), and extracted `quality/`, `enrichment/`, `answer_refinement/`, `curriculum_sync/`; checkout bootstrap in `textbook_paths.py` and atomic I/O in `textbook_io.py`
-- **Figures** (`src/visualization/plots.py`, **42** registered matplotlib generators; **`src/visualization/cvd.py`** for colorvision–friendly defaults tied to `config.yaml` → `accessibility.color_blindness_safe`) and **diagrams** (`src/mermaid/`, 24 registered diagrams plus 197 inline Mermaid fences, optional `mmdc`)
+- **Visuals:** registered matplotlib/diagram generators and manuscript Mermaid fences; publication requires pinned mmdc and decoded PNGs, not fixed inventory proof here.
 - **Tests:** run `uv run python -m pytest tests/ --cov=src --cov-fail-under=90` from the project directory for current count and coverage; invariant-style modules include build invariants, bibliography closure, crossref validator, chapter metadata, **accessibility** (alt proximity, quality, labs/questions)
 - **Access / pedagogy reference:** [accessibility.md](accessibility.md), [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md)
-- **Embedded enrichment workflow:** run `uv run python scripts/enrich_embedded_textbook.py --dry-run` to inspect whether chapter frontier boxes, unit evidence threads, lab evidence upgrades, answer keys, and [embedded_enrichment_audit_matrix.md](embedded_enrichment_audit_matrix.md) are current.
+- **Assessments:** preserve authored prompt-specific solutions, semantic mappings and finite printed lab packets. Unsupported answer generation refuses without writing.
 
-**Checkout path:** this active tree can be used as a standalone project directory. Pipeline entry points still use `--project biology_textbook` from the template repository root when template infrastructure is available.
+**Standalone execution:** project-local scripts use locked dependencies and a read-only template selected explicitly or genuinely enclosing the project, never ambient neighbors or template-root recipes. See [pipeline_guide.md](pipeline_guide.md).
 
-**Current gates:** 36 Python files under `scripts/`, 70 `test_*.py` modules under `tests/`, 42 registered matplotlib figures, 24 registered Mermaid diagrams, and 197 inline Mermaid fences in `docs/manuscript/`. Use `scripts/generate_diagrams.py --strict-png` for publication PNG checks, `scripts/audit_current_claims.py --check` for fast-moving claims, `scripts/sync_assessment_metadata.py --dry-run` to preview question/lab metadata drift, `scripts/sync_assessment_metadata.py --check` for the assessment gate, `scripts/audit_visual_contracts.py --figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check` for the derived 263-record visual manifest and square-ish aspect policy, `tests/test_chapter_pedagogy_coverage.py` for REVIEW §7 pedagogy locks, and `scripts/audit_publication_readiness.py --check` (temporary visual artifacts; `--full` before release) for the aggregate gate.
+Software 2.0.0/edition 1.1 remains unreleased. Current proof is the exact-source full receipt plus separate inspection of its PDF, not historical ISA/REVIEW reports; local validation is distinct from remote publication. The existing DOI identifies prior release 1.0.0 only. See [../CHANGELOG.md](../CHANGELOG.md).
+
+**Current gate contracts:** scripts/audit_publication_readiness.py --check performs source, visual, lint/type and recursive markdown/prerender review. Add --full for tests with configured coverage, analysis, fresh project-local render and strict PDF-log checks. Current passing counts and artifact inventories require execution, not this guide. Assessment synchronization validates curated records; unsupported answer generation refuses without writing.
 
 See [../AGENTS.md](../AGENTS.md) for project layout, validation commands, AI protocol, and invariant conventions.

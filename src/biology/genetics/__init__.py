@@ -13,8 +13,17 @@ from .linkage import (
     recombination_frequency,
 )
 from .mendelian import DiploidGenotype, PunnettSquareResult, gametes, punnett_square
-from .mutation import MUTATION_RATE_SPECTRUM, MutationClassRate, mutation_rate_spectrum
-from .population import ChiSquaredResult, HardyWeinbergResult, chi_squared_test, hardy_weinberg
+from .mutation import (
+    MUTATION_RATE_EVIDENCE,
+    MutationRateEvidence,
+    mutation_rate_spectrum,
+)
+from .population import (
+    ChiSquaredResult,
+    HardyWeinbergResult,
+    chi_squared_test,
+    hardy_weinberg,
+)
 from .replication import ReplicationForkProfile, replication_fork_progression
 from .sequence import (
     DNA_COMPLEMENT,
@@ -29,18 +38,18 @@ from .sequence import (
 )
 
 __all__ = [
+    "DNA_COMPLEMENT",
+    "GENETIC_CODE",
+    "MUTATION_RATE_EVIDENCE",
+    "RNA_COMPLEMENT",
     "Allele",
     "ChiSquaredResult",
-    "DNA_COMPLEMENT",
     "DiploidGenotype",
-    "GENETIC_CODE",
     "Genotype",
     "HardyWeinbergResult",
     "LinkageMapResult",
-    "MUTATION_RATE_SPECTRUM",
-    "MutationClassRate",
+    "MutationRateEvidence",
     "PunnettSquareResult",
-    "RNA_COMPLEMENT",
     "ReplicationForkProfile",
     "chi_squared_test",
     "cpg_methylation_remaining",

@@ -5,11 +5,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{../figures/atp_yield_comparison.png}
-\caption{ATP yield per glucose for four catabolic strategies: anaerobic glycolysis (lactic-acid fermentation), ethanolic fermentation, fully aerobic respiration with the malate--aspartate shuttle, and aerobic respiration with the glycerol--phosphate shuttle. Stacked bars partition ATP into glycolysis, the TCA cycle, and oxidative phosphorylation. The order-of-magnitude jump between fermentation and aerobic respiration motivates the metabolic switching central to this chapter.}
+\caption{Two-component ATP accounting for glycolysis, lactate fermentation, the TCA cycle, and complete aerobic glucose oxidation. Glycolysis and fermentation each net 2 substrate-level ATP; two TCA turns yield 2 substrate-level and about 18 oxidative ATP. The complete glycerol-3-phosphate-shuttle example yields 4 substrate-level + 26 oxidative = 30 ATP; its shuttle adjustment is already included. Partial pathways are not alternative complete glucose-oxidation strategies.}
 \label{fig:unit_III_atp_yield_comparison}
 \end{figure}
 
-<!-- alt: Stacked bar chart of ATP yield per glucose for four catabolic pathways. Anaerobic glycolysis and ethanolic fermentation each yield about two ATP from glycolysis alone. The two aerobic columns add taller TCA-cycle and oxidative-phosphorylation segments, reaching roughly thirty ATP. -->
+<!-- alt: Stacked bars show substrate-level and oxidative ATP for two glycolytic pathways, the TCA contribution, and a complete aerobic glucose budget totaling thirty ATP with the glycerol-3-phosphate shuttle. -->
 
 
 <!-- chapter-metadata-badge -->
@@ -27,7 +27,7 @@ By the end of this chapter, you should be able to:
 6. Distinguish allosteric from transcriptional metabolic regulation given an [**enzyme**](#gl:enzyme)-activity time-course, using gluconeogenesis bypass-enzyme control as the worked case.
 7. Compare ATP yield and regulation of glucose versus fatty-acid oxidation, and calculate the net ATP yield from palmitoyl-CoA.
 8. Explain ketone body metabolism and its role during starvation.
-9. Describe AMPK structure (two catalytic + two regulatory subunits) and activation mechanisms (LKB1 vs CaMKKβ).
+9. Describe AMPK structure (one catalytic α and one each of the regulatory β and γ subunits) and activation mechanisms (LKB1 vs CaMKKβ).
 10. Trace flux control through the glucose-fatty-acid (Randle) cycle under fed versus fasted conditions, and predict the resulting respiratory quotient.
 11. Define substrate (futile) cycles and explain their control advantages.
 12. Explain obesity, metabolic syndrome, and insulin resistance at the molecular level, including visceral fat as an endocrine organ.
@@ -63,11 +63,11 @@ By the end of this chapter, you should be able to:
 > The liver activates a metabolic program: free fatty acids released from adipose tissue are
 > not completely oxidised within the liver itself. Instead, the liver packages their acetyl-CoA
 > units into **ketone bodies** (acetoacetate and β-hydroxybutyrate) and exports them to the
-> bloodstream. After 1–2 days of fasting, the brain begins importing ketones; after 3–5 days, it
-> derives up to 75% of its energy from ketone bodies. Circulating ketone concentrations rise from
-> ~0.1 mM (fed state) to 6–8 mM (prolonged starvation). This elegant metabolic switch —
-> coordinated by insulin falling and glucagon rising — is one of the clearest examples of
-> metabolic integration studied in this chapter.
+> bloodstream. Ketone use develops progressively over days to weeks, while a glucose requirement
+> persists. Owen and colleagues measured cerebral substrate exchange in **three obese patients
+> after 5–6 weeks of starvation** and found ketone bodies had replaced glucose as the predominant
+> brain fuel \citep{Owen1967}. That small, prolonged-starvation study does not establish a universal
+> brain-fuel percentage after three days or a safe fasting prescription.
 >
 > *Primary source: Owen, O. E. et al. (1967). Brain metabolism during fasting. Journal of Clinical Investigation, 46(10), 1589–1595.*
 
@@ -122,7 +122,7 @@ flowchart LR
     subgraph STARVED ["STARVATION (>72 h)"]
         direction TB
         S1["Very low glucose"] --> S2["Ketogenesis ↑↑"]
-        S2 --> S3["Brain uses ketones<br/>(60% of fuel)"]
+        S2 --> S3["Brain ketone use increases;<br/>glucose is still required;<br/>fraction varies with duration/context"]
         S1 --> S4["Muscle protein<br/>catabolism ↓<br/>(protein sparing)"]
         S1 --> S5["Gluconeogenesis<br/>from glycerol + AAs"]
     end
@@ -148,10 +148,9 @@ The body switches fuels in a programmed sequence as fasting progresses. The tran
 | 0–4 h (absorptive) | Dietary glucose | Glycogenesis, lipogenesis | Glucose | Insulin high, glucagon low |
 | 4–12 h (post-absorptive) | Liver glycogen | Glycogenolysis | Glucose | Glucagon rises |
 | 12–24 h (early fasting) | Liver glycogen → muscle FA | Glycogen depleting; gluconeogenesis ramping | Glucose (mostly from GNG) | Liver glycogen mostly depleted by ~24 h |
-| 1–3 days | Muscle FA + early ketones | Gluconeogenesis (lactate, alanine, glycerol); ketogenesis starting | Glucose 75%, ketones 25% | Cortisol rises; protein catabolism increases |
-| 3–7 days | Ketones | Maximal ketogenesis | Glucose 25%, ketones 75% | Brain adapts; muscle protein sparing |
-| > 1–2 weeks | Ketones (sustained) | Ketogenesis at steady state | Ketones 65–75%, glucose 25–35% | Resting metabolic rate falls ~20% |
-| > 30+ days (starvation) | Body protein (terminal) | Gluconeogenesis from muscle protein dominates | Glucose 50%, ketones 50% | Death imminent when ~50% of protein lost |
+| 1–3 days | Increasing fatty-acid oxidation | Gluconeogenesis and rising ketogenesis | Glucose plus increasing ketones | Adaptation varies by tissue and individual |
+| Several days to weeks | Fatty acids and ketones | Sustained ketogenesis | Increasing ketone contribution, with persistent glucose requirement | Protein sparing develops progressively |
+| Prolonged starvation | Depends on fat reserves and illness | Gluconeogenesis continues | Mixed glucose and ketones | Terminal protein wasting follows reserve depletion, not a fixed day |
 
 This fuel-switching timeline is one of the most elegant examples of metabolic integration. It is also clinically relevant: bariatric surgery, ketogenic diets, and prolonged fasting interventions most exploit (or perturb) this same switch.
 
@@ -245,11 +244,10 @@ In type 2 diabetes, this cascade is disrupted at multiple levels (see clinical b
 
 > **Clinical Connection: Insulin Resistance and Type 2 Diabetes**
 > In type 2 diabetes, insulin signaling is impaired at multiple levels:
-> 1. **IRS-1 serine phosphorylation** (by JNK, PKC-theta, IKK-beta) prevents tyrosine phosphorylation by the [**insulin receptor**](#gl:insulin-receptor)
-> 2. **Ceramide accumulation** activates PP2A, which dephosphorylates Akt
-> 3. **DAG accumulation** activates PKC-epsilon (liver) and PKC-theta (muscle), which phosphorylate IRS-1 on inhibitory serine residues
-> 4. **ER stress** (from lipid overload) activates JNK → IRS-1 Ser307 phosphorylation
-> The net result: GLUT4 translocation is impaired, glycogen synthesis is reduced, and gluconeogenesis is not suppressed. Metformin (first-line therapy) works partly through AMPK activation and partly through inhibition of mitochondrial Complex I. see \cref{sec:unit_II_cell_signaling} for RTK signaling.
+> 1. **Lipid and inflammatory routes:** DAG/PKC, ceramide/phosphatase and stress-kinase mechanisms have been investigated in particular tissues and preparations; they do not imply that every IRS-1 serine phosphorylation is inhibitory.
+> 2. **A site-specific counterexample:** Replacing mouse Irs1 Ser307 (human Ser312) with alanine worsened insulin resistance in the studied high-fat-fed mice, contrary to a universal inhibitory-site interpretation \citep{copps2010irs1}.
+> 3. **Endpoint and tissue distinction:** Impaired muscle/adipose glucose uptake, hepatic glucose production and compensatory insulin secretion require different measurements; one phosphorylation marker cannot identify all three.
+> These mechanisms can impair insulin signaling, but their importance depends on tissue and preparation; GLUT4 translocation concerns responsive muscle and adipose cells, not a universal hepatic glucose transporter. Metformin can lower hepatic glucose production without requiring AMPK in the studied mouse knockout preparations; AMPK activation is not proof of a unique drug mechanism \citep{foretz2010metformin}. See \cref{sec:unit_II_cell_signaling} for RTK signaling.
 
 > **Concept Check 2:** Thiazolidinediones (e.g., rosiglitazone) activate PPAR-gamma in adipose tissue, increasing adipocyte differentiation and lipid storage. Explain how increasing fat storage in adipose tissue could paradoxically improve insulin sensitivity in muscle and liver.
 
@@ -293,21 +291,21 @@ flowchart TD
 
 ### The Phosphorylase Kinase Cascade — A Signal Amplifier
 
-The chain glucagon → GPCR → cAMP → PKA → **phosphorylase kinase** (PhK) → glycogen phosphorylase is one of biology's most elegant amplification cascades \citep{sutherland1958cyclicamp}. Each step amplifies the signal:
+The chain glucagon → GPCR → cAMP → PKA → **phosphorylase kinase** (PhK) → glycogen phosphorylase illustrates catalytic amplification \citep{sutherland1958cyclicamp}. The following **synthetic integrated-count ledger** stipulates totals produced or activated in one 60 s window per continuously occupied receptor; it is not a measured hormone response. Counts are cumulative newly activated molecules, counted once, and require the named pools not to be limiting.
 
 : The Phosphorylase Kinase Cascade — A Signal Amplifier: Step and Numerical amplification. {#tbl:unit_III_metabolic_integration_the_phosphorylase_kinase_cascade_a_signal_amplifier}
-| Step | Numerical amplification |
+| Step | Stipulated count per receptor per 60 s window |
 | ---- | ----------------------- |
-| 1 glucagon → 1 receptor (1:1) | 1× |
-| 1 receptor → ~100 Gα$_s$ activated (during signal) | ~100× |
-| 1 adenylyl cyclase → ~100 cAMP/sec | ~100× |
-| 4 cAMP → 1 PKA holoenzyme dissociation (releases 2 catalytic subunits) | gating |
-| 1 PKA → ~100 phosphorylase kinase | ~100× |
-| 1 PhK → ~100 phosphorylase b → a | ~100× |
-| 1 phosphorylase a → ~100 glucose-1-P/sec | ~100× |
-| **End-to-end amplification** | **~10$^7$–10$^8$** |
+| Occupied receptor (input) | 1 |
+| Gα$_s$ activated | 10 |
+| cAMP produced through adenylyl cyclase | 1,000 |
+| PKA holoenzymes activated, assuming four cAMP bound each | 250 |
+| Released PKA catalytic subunits, two per holoenzyme | 500 |
+| PhK molecules activated, ten per PKA catalytic subunit | 5,000 |
+| Glycogen phosphorylase molecules activated, ten per PhK | 50,000 |
+| Glucose-1-P produced, ten per activated phosphorylase | 500,000 |
 
-A single glucagon binding event releases a burst of ~10$^7$ glucose-1-phosphate molecules within seconds. This is how a signal at femtomolar hormone concentrations produces a millimolar metabolite response.
+The stipulated count gain is $5\times10^5$ glucose-1-P molecules per occupied receptor per 60 s, requiring at least 500,000 accessible glycogen residues and the listed enzyme pools. PKA gating is not a catalytic rate gain. Actual counts require kinetic activation, deactivation and substrate measurements. Concentration conversion additionally requires compartment volumes: a femtomolar-to-millimolar concentration ratio is $10^{12}$, not $10^7$, and is not this count gain.
 
 **PKA targets in the liver:**
 
@@ -420,10 +418,10 @@ of beta-oxidation:
 | Acetyl-CoA (via TCA) | 8 | 10 (3 NADH x 2.5 + 1 FADH$_2$ x 1.5 + 1 GTP) | 80 |
 | FADH$_2$ (beta-oxidation) | 7 | 1.5 | 10.5 |
 | NADH (beta-oxidation) | 7 | 2.5 | 17.5 |
-| Activation cost | | -2 | -2 |
-| **Net total** | | | **106** |
+| Activation cost from palmitoyl-CoA | Already paid before the stated substrate | 0 | 0 |
+| **Total from palmitoyl-CoA** | | | **108** |
 
-Some textbooks report 108 ATP (using older P/O ratios) or 129 ATP (including palmitate rather than palmitoyl-CoA, and using maximal P/O ratios). The exact number depends on assumed H$^+$/ATP stoichiometry and shuttle costs. The key insight: fatty acids are energy-dense (~9 kcal/g vs. 4 kcal/g for carbohydrates) because they are highly reduced.
+Starting from free palmitate requires ATP → AMP + PPi for activation, costing two ATP equivalents, so its net yield is 106. Both calculations use P/O = 2.5 and 1.5; the difference is substrate definition, not older P/O values.
 
 > **Clinical Connection: MCAD Deficiency**
 > Medium-chain acyl-CoA dehydrogenase (MCAD) deficiency is the most common inherited disorder of fatty acid oxidation (~1:10,000 births). During fasting, patients cannot oxidise medium-chain fatty acids, leading to hypoketotic hypoglycaemia (low ketones because acetyl-CoA production is impaired, low glucose because gluconeogenesis lacks acetyl-CoA stimulation of pyruvate carboxylase). Fatal Reye-like episodes can occur. Management: avoid prolonged fasting; ensure regular carbohydrate intake.
@@ -476,34 +474,34 @@ Beta-hydroxybutyrate → acetoacetate → acetoacetyl-CoA (via succinyl-CoA tran
 
 ## AMPK --- The Cellular Energy Gauge
 
-**AMPK** (AMP-activated protein kinase) is a heterotrimer with **two catalytic α-subunits** (α1 and α2 isoforms), **two regulatory β-subunits** (β1, β2), and the **γ-subunit** that binds adenine nucleotides — though the assembled holoenzyme is α$_1$β$_1$γ$_1$. (The classic textbook description is that AMPK is "two catalytic + two regulatory subunits" referring to the assembly's binary modules: the catalytic α/β pair and the regulatory β/γ pair.) The γ-subunit contains four CBS (cystathionine β-synthase) domains, of which three bind adenine nucleotides — AMP, ADP, and ATP — competitively. This competitive binding lets the γ-subunit *integrate* the entire adenylate pool, not just one ratio.
+**AMPK** is an αβγ heterotrimer: one catalytic α, one scaffolding β, and one nucleotide-sensing γ subunit. α1/α2 and β1/β2 are alternative isoforms, not simultaneous copies in one holoenzyme. The γ CBS domains bind adenine nucleotides; occupancy and Thr172 phosphorylation integrate energy signals.
 
 ```mermaid
 graph TD
     A["Energy Stress<br/>(exercise, hypoxia,<br/>starvation, ischemia)"] --> B["↑ AMP/ATP ratio<br/>↑ ADP/ATP ratio"]
     B --> C["AMP/ADP bind<br/>AMPK γ-subunit<br/>(CBS domains)"]
-    C --> D["Thr172 phosphorylation<br/>by LKB1 or CaMKKβ"]
-    D --> E["AMPK ACTIVE"]
+    C --> D["LKB1-dependent Thr172<br/>phosphorylation favored"]
+    D --> E["AMPK activation<br/>in the stated context"]
 
     E --> F["ACC1/ACC2 phosphorylated<br/>→ ↓ malonyl-CoA<br/>→ CPT-1 released<br/>→ β-OXIDATION ↑"]
-    E --> G["PFK-2 phosphorylated<br/>→ ↑ F2,6BP<br/>→ GLYCOLYSIS ↑"]
-    E --> H["TSC2 + Raptor<br/>phosphorylated<br/>→ mTORC1 OFF<br/>→ Protein synthesis ↓"]
+    E --> G["Selected PFKFB isoforms<br/>→ glycolytic regulation<br/>(tissue-dependent)"]
+    E --> H["TSC2/Raptor regulation<br/>→ restraint of mTORC1<br/>and protein synthesis"]
     E --> I["ULK1 phosphorylated<br/>→ AUTOPHAGY ↑"]
     E --> J["HDAC5 phosphorylated<br/>→ PGC-1α genes<br/>→ MITOCHONDRIAL<br/>BIOGENESIS ↑"]
 
-    K["Energy Abundance<br/>(fed state)"] --> L["↓ AMP/ATP ratio"]
-    L --> M["ATP displaces AMP<br/>on γ-subunit"]
-    M --> N["AMPK INACTIVE"]
-    N --> O["mTORC1 ON<br/>→ Protein synthesis ↑<br/>→ Lipogenesis ↑<br/>→ Autophagy OFF"]
+    K["Ca2+ signal"] --> L["CaMKK2 / CaMKKβ"]
+    L --> E
+    M["Higher ATP relative to AMP"] --> N["Less AMP-dependent<br/>activation; not proof<br/>that AMPK is off"]
+    N --> O["mTORC1 also depends on<br/>amino acids, growth signals<br/>and other regulators"]
 
     style E fill:#ffe6e6
     style N fill:#e6ffe6
 ```
-<!-- alt: Graph showing AMPK as the cellular energy sensor. Low energy activates AMPK, which simultaneously promotes catabolic pathways and inhibits anabolic pathways. High energy inactivates AMPK, allowing mTORC1-driven anabolism. -->
+<!-- alt: Graph showing selected mammalian AMPK pathways: nucleotide and calcium inputs, context-dependent downstream effects, and the limits of an on/off cartoon. -->
 
-*AMPK as the cellular energy sensor. Low energy activates AMPK, which simultaneously promotes catabolic pathways and inhibits anabolic pathways. High energy inactivates AMPK, allowing mTORC1-driven anabolism.*
+*Selected mammalian AMPK pathways: nucleotide and calcium inputs, context-dependent downstream effects, and the limits of an on/off cartoon \citep{hardie2012ampk}.*
 
-> **Concept Check (Analysis --- Cross-Unit Connection):** In biochemistry, "free energy" (Gibbs free energy [**ΔG**](#gl:free-energy)) governs whether a reaction proceeds spontaneously. In \nameref{sec:unit_0_unit_intro}, "variational free energy" in the Free Energy Principle refers to an information-theoretic bound on surprise. These are not coincidentally named: both measure the gap between a system's current state and its expected (equilibrium or predicted) state. (a) Show that ATP hydrolysis (ΔG° ≈ −30 kJ/mol under standard conditions, but ~−50 kJ/mol in a cell where [ADP]/[ATP] ≈ 0.01) reflects the cell maintaining its biochemical states far from equilibrium --- in what sense does AMPK serve as the cell's "prediction error detector" for energy state? (b) Cellular respiration (glucose oxidation) couples a favorable reaction (ΔG ≈ −2880 kJ/mol) to multiple unfavorable ones (ATP synthesis) --- explain this as an example of how living systems use free energy to minimize biological surprise (maintain homeostasis).
+> **Concept Check (Analysis — Cross-Unit Connection):** Gibbs reaction free energy and variational free energy are different mathematical objects; a shared name does not establish mechanistic equivalence. (a) For the stated ideal 1-M standard-state ATP model at 310 K, calculate hydrolysis ΔG for ATP = 2 mM, ADP = 1 mM and phosphate = 1 mM. Why would an ADP:ATP ratio alone be insufficient? Distinguish thermodynamic favorability from reaction rate. (b) A variational account such as that introduced in \nameref{sec:unit_0_unit_intro} must specify observations, a generative model and a probability functional. Which additional model definitions and discriminating measurements would be needed before calling AMPK a biological implementation of that account? Biochemical energy sensing alone does not demonstrate such an implementation.
 
 ### AMPK Activation: LKB1 vs CaMKKβ
 
@@ -516,90 +514,71 @@ AMPK is activated when its catalytic α-subunit is phosphorylated at **Thr172**.
 | **CaMKKβ** | Elevated cytosolic Ca$^{2+}$ (independent of AMP) | Brain, muscle, T cells, endothelium | Important in T-cell activation, osmotic stress |
 | **TAK1** | Inflammatory cytokines (TGF-β, TNF-α) | Limited | Crosstalk between inflammation and metabolism |
 
-**LKB1 is the dominant kinase under classical energy stress** (exercise, hypoxia, starvation): AMP binding to AMPK γ promotes LKB1 docking and Thr172 phosphorylation, while simultaneously protecting Thr172 from dephosphorylation by PP2A and PP2C. AMP is therefore not simply an "activator" but an *allosteric primer* that shifts the AMPK steady state from dephosphorylated to phosphorylated.
+**LKB1 supplies an important activation-loop phosphorylation route during energy stress.** AMP binding can allosterically activate AMPK and promote net Thr172 phosphorylation; AMP and ADP can protect against dephosphorylation, whereas ATP competes at nucleotide-binding sites. These contributions are distinct, and their magnitude depends on isoform, localization and preparation \citep{hardie2012ampk}.
 
-**CaMKKβ provides a Ca$^{2+}$-coupled activation route** — for example, in muscle contraction (where Ca$^{2+}$ release accompanies ATP demand) or in T-cell activation following T-cell receptor engagement. This route runs **in parallel** to the AMP/LKB1 pathway and lets cells anticipate energy demand from Ca$^{2+}$ signals before AMP rises.
+**CaMKKβ (CaMKK2) supplies a Ca$^{2+}$-linked activation route** in responsive preparations. It can activate AMPK without an initiating rise in AMP, so an energy-charge value does not uniquely identify either the upstream kinase or AMPK activity \citep{hardie2012ampk}.
 
 ### Adenylate Energy Charge and Metabolic State
 
-The **energy charge (EC)** of the adenylate system was introduced by Atkinson \citep{atkinson1968} as a single scalar that captures the fractional saturation of the adenylate pool with high-energy phosphate:
+The **adenylate energy charge (EC)** introduced by Atkinson is a normalized summary of adenylate phosphorylation state, not a direct measurement of ATP hydrolysis free energy or a complete description of an energy-sensing pathway \citep{atkinson1968}:
 
 \begin{equation}
 \text{E.C.} = \frac{[\text{ATP}] + \tfrac{1}{2}[\text{ADP}]}{[\text{ATP}] + [\text{ADP}] + [\text{AMP}]}
 \label{eq:unit_III_energy_charge}
 \end{equation}
 
-The numerator counts each phosphoanhydride bond (ATP has two phosphoanhydrides, ADP has one), while the denominator counts the total adenylate pool. So E.C. = 1.0 means most adenylates are ATP; E.C. = 0 means most are AMP.
+Writing the ratio as $(2[\mathrm{ATP}]+[\mathrm{ADP}])/(2A_{\mathrm{total}})$ explains the half-weight on ADP. For a positive total pool with nonnegative components, $0\leq EC\leq1$: EC=0 requires all adenylate to be AMP, and EC=1 requires all adenylate to be ATP. Total adenylate is conserved only when the specified model or experimental conditions justify that assumption.
 
-Most cells maintain EC approximately 0.85–0.95 \citep{atkinson1968}. AMPK is highly sensitive in the range EC = 0.70–0.85 — precisely the window where rising AMP signals impending energy crisis.
+EC alone does not determine the AMP:ATP or ADP:ATP ratio unless additional constraints are supplied. AMPK also depends on nucleotide binding, activation-loop phosphorylation, upstream kinases and cellular context; there is no universal EC activation window that can be inferred from this formula \citep{hardie2012ampk}.
 
-## Worked Example: Energy Charge
+## Worked Example: Energy Charge and an Identifiability Limit
 
-*Problem:* A resting skeletal-muscle biopsy gives adenylate pools of [ATP] = 5.0 µmol/g, [ADP] = 0.6 µmol/g, and [AMP] = 0.05 µmol/g. Calculate the energy charge and predict whether AMPK is active.
+*Problem:* Construct two artificial 1-mM adenylate pools, A with ATP/ADP/AMP = 0.6/0.4/0 mM and B with 0.8/0/0.2 mM. No adenylate-kinase equilibrium is imposed. Calculate EC and AMP:ATP for each. Can EC alone identify the nucleotide composition or AMPK activity?
 
-*Solution:*
-
-**Step 1 --- State the relation and why ADP is half-weighted.** The energy charge measures the fractional saturation of the adenylate pool with transferable phosphoanhydride bonds:
-
-$$EC = \frac{[\text{ATP}] + \tfrac{1}{2}[\text{ADP}]}{[\text{ATP}] + [\text{ADP}] + [\text{AMP}]}$$
-
-ATP carries two high-energy phosphoanhydride bonds and ADP carries one, so on a per-adenylate basis ADP holds exactly half the transferable phosphate of ATP --- hence the $\tfrac{1}{2}$ weighting. The denominator is the conserved total adenylate pool ([ATP]+[ADP]+[AMP]), so $EC = 1$ when every adenylate is ATP and $EC = 0$ when every adenylate is AMP.
-
-**Step 2 --- Substitute the measured µmol/g values.**
-
-$$EC = \frac{5.0 + \tfrac{1}{2}(0.6)}{5.0 + 0.6 + 0.05}$$
-
-Numerator: $5.0 + 0.5 \times 0.6 = 5.0 + 0.30 = 5.30$. Denominator: $5.0 + 0.6 + 0.05 = 5.65$. The shared µmol/g units cancel, so the ratio is dimensionless.
-
-**Step 3 --- Compute and interpret against the AMPK threshold.**
+*Solution:* Both pools give the same normalized phosphorylation score:
 
 \begin{equation}
-EC = \frac{5.30}{5.65} = 0.938
+EC_A=\frac{0.6+0.5(0.4)}{1.0}=0.8,\qquad EC_B=\frac{0.8+0.5(0)}{1.0}=0.8
 \label{eq:unit_III_metabolic_integration_worked_2}
 \end{equation}
 
-At $EC = 0.938$ the pool sits in the normal resting band of 0.85--0.95 and well above the AMPK-activation window of 0.70--0.85. Predict: AMPK is largely inactive and the cell is in an energy-replete state favoring anabolism. A fall toward $EC \approx 0.80$ (rising AMP) would move the pool into the AMPK-sensitive window and switch the cell toward catabolism.
+Yet AMP:ATP is 0 in A and $0.2/0.8=0.25$ in B. These are algebraic teaching compositions, not measurements or claims about equilibrium cells. The scalar therefore cannot reconstruct all three pools without further assumptions. Neither score alone proves kinase activation: a biological study needs the actual preparation, nucleotide state and appropriate AMPK activity/phosphorylation readouts with controls.
 
-> **Clinical Connection: Metformin and AMPK**
-> Metformin, the most widely prescribed diabetes drug, activates AMPK indirectly by inhibiting mitochondrial Complex I, which raises the AMP/ATP ratio. AMPK activation:
-> - Increases glucose uptake in muscle
-> - Inhibits hepatic gluconeogenesis (via CREB coactivator CRTC2 phosphorylation)
-> - Reduces lipogenesis
-> - May have anti-cancer effects (mTORC1 inhibition)
-> Metformin is also being investigated as an anti-aging compound (TAME trial). see \cref{sec:unit_III_bioenergetics_and_respiration} for Complex I.
+> **Clinical Connection: Metformin, Mechanism and Outcome**
+> Metformin is used in type 2 diabetes, but observing AMPK activation does not establish that AMPK uniquely mediates every drug effect. Foretz et al. found that metformin still inhibited glucose production in the studied AMPK-deficient mouse hepatocytes and liver models \citep{foretz2010metformin}. This is preparation-, genotype- and exposure-specific evidence, not a universal human mechanism or a prescribing recommendation. Mechanistic AMPK or mTORC1 results also do not by themselves establish anti-aging or anticancer benefit in patients.
 
-> **Worked Example --- Adenylate Energy Charge Under Ischemia:** A hepatocyte under aerobic conditions has: [ATP] = 4.2 mM, [ADP] = 0.85 mM, [AMP] = 0.12 mM. Calculate the adenylate energy charge: $EC = ([\text{ATP}] + 0.5[\text{ADP}]) / ([\text{ATP}] + [\text{ADP}] + [\text{AMP}]) = (4.2 + 0.5 \times 0.85) / (4.2 + 0.85 + 0.12) = (4.2 + 0.425) / 5.17 = 4.625 / 5.17 ≈ 0.894$. This is in the normal resting range (0.85--0.95). During 30 minutes of ischemia (no O$_2$): [ATP] falls to 0.4 mM, [ADP] rises to 1.8 mM, [AMP] rises to 3.0 mM. New $EC = (0.4 + 0.9) / (0.4 + 1.8 + 3.0) = 1.3/5.2 = 0.250$. AMPK half-maximal activation threshold is approximately $EC < 0.7$ → AMPK is now strongly activated. AMPK phosphorylates ACC (inhibiting fatty-acid synthesis) and promotes GLUT4 translocation. Predict: gluconeogenesis decreases (via PFKFB1/2 reshaping), glycolysis flux increases (PFK-1 is less inhibited by the now-depleted ATP pool), and mitochondrial biogenesis is up-regulated (PGC-1α phosphorylation) --- the cell switches from anabolic to maximally catabolic mode.
+> **Worked Example — EC Is Not ATP Hydrolysis Free Energy:** In a separate constructed model, fix ATP/ADP/AMP at 2/1/1 mM, so $EC=(2+0.5)/4=0.625$. At 310 K, increase inorganic phosphate from 1 to 10 mM while holding these pools and the ideal-activity, pH and magnesium assumptions fixed. EC stays 0.625, but ATP hydrolysis becomes less favorable by $RT\ln(10)\approx5.93$ kJ/mol. `biology.biochemistry.atp_free_energy` implements the stated 1-M standard-state approximation. This is a model comparison, not an ischemia experiment or an AMPK threshold.
 
-> **Concept Check (Synthesis):** During cancer metabolism (the Warburg effect), many cancer cells preferentially use aerobic glycolysis even in the presence of O$_2$, producing large amounts of lactate. (a) The Warburg effect yields a mere ~2 ATP per glucose vs. ~32 by OXPHOS --- why would cancer cells "choose" this seemingly inefficient strategy? Consider: ATP production *rate* (not yield), NADPH supply (via PPP shunt), and anabolic precursor availability (ribose, glycerol-3P, serine). (b) mTORC1 integrates signals from growth factors (Akt → TSC1/2 → Rheb), amino acids (Rag GTPases at the lysosome), and energy status (AMPK). Construct the logical circuit diagram showing how mTORC1 integrates these three inputs (Boolean: growth-factor AND amino-acid AND not-energy-stressed) and predict: what happens to protein synthesis when [glucose] drops 10-fold? (c) Metformin inhibits Complex I of the mitochondrial ETC (and also inhibits mitochondrial glycerophosphate dehydrogenase). Propose the metabolic logic for metformin's anti-cancer effect in terms of energy charge → AMPK → mTORC1 inhibition → reduced anabolic flux.
+> **Concept Check (Synthesis):** Aerobic glycolysis in cancer does not mean mitochondrial ATP production is absent. (a) Compare the net 2 ATP per glucose from glycolytic fermentation with the higher, coupling- and shuttle-dependent total from complete aerobic oxidation; distinguish yield, production rate, precursor demands and NADPH-generating routes. (b) Draw a deliberately simplified mTORC1 input model combining growth-factor, amino-acid and energy signals. Identify which additional measurements would be needed to predict a response to lower glucose rather than treating one input as a universal switch. (c) Explain why a drug-induced change in ATP pools, AMPK phosphorylation or mTORC1 signaling does not alone establish an anticancer clinical outcome.
 
 
 ---
 
 ## Worked Example: Flux Control Coefficient
 
-*Problem:* In an isolated hepatocyte preparation, a small activator raises PFK-1 activity by 20% and the measured glycolytic flux rises by 5%. A separate manipulation raises the pyruvate-transporter activity by 30% and flux rises by 3%. Calculate each flux control coefficient and determine which step exerts more control over glycolytic flux.
+*Problem:* A constructed steady-state pathway has baseline flux 10.00 µmol/min. In one independent perturbation, enzyme A activity rises from 100 to 101 activity units and flux rises to 10.03 µmol/min. In a second perturbation from the same baseline, transporter B activity rises from 100 to 101 units and flux rises to 10.01 µmol/min. Other external parameters are held fixed and internal metabolites re-equilibrate. Estimate the local flux control coefficients; these are synthetic teaching inputs, not hepatocyte measurements.
 
 *Solution:*
 
-**Step 1 --- State the operational form of the flux control coefficient.** For a small fractional change in enzyme activity, $C_i^J = \dfrac{\partial \ln J}{\partial \ln e_i}$ is approximated by the ratio of fractional changes:
+**Step 1 — State the local approximation.** For sufficiently small perturbations about the same smooth steady state, the logarithmic derivative is approximated by a ratio of fractional changes. Finite perturbations estimate rather than exactly determine that derivative:
 
 \begin{equation}
 C_i^J \approx \frac{\Delta J / J}{\Delta e_i / e_i}
 \label{eq:unit_III_metabolic_integration_worked_3}
 \end{equation}
 
-**Step 2 --- Substitute for PFK-1.** Here $\Delta e/e = 0.20$ and $\Delta J/J = 0.05$:
+**Step 2 — Enzyme A:** $\Delta e/e=1/100=0.01$ and $\Delta J/J=0.03/10=0.003$:
 
 \begin{equation}
-C_{\text{PFK-1}}^{J} = \frac{0.05}{0.20} = 0.25
+C_A^J\approx\frac{0.003}{0.01}=0.30
 \label{eq:unit_III_metabolic_integration_worked_4}
 \end{equation}
 
-**Step 3 --- Substitute for the pyruvate transporter.** Here $\Delta e/e = 0.30$ and $\Delta J/J = 0.03$:
+**Step 3 — Transporter B:** $\Delta e/e=0.01$ and $\Delta J/J=0.01/10=0.001$:
 
-$$C_{\text{transporter}}^{J} = \frac{0.03}{0.30} = 0.10$$
+$$C_B^J\approx\frac{0.001}{0.01}=0.10$$
 
-**Step 4 --- Interpret against the summation theorem.** Both coefficients fall in the $C_i^J \approx 0.1$--$0.3$ band reported for glycolytic enzymes. PFK-1 ($C^J = 0.25$) exerts more than twice the flux control of the pyruvate transporter ($C^J = 0.10$), so PFK-1 is the more rate-controlling step here --- yet because \cref{eq:unit_III_mca_summation} requires $\sum_i C_i^J = 1$, these two steps together account for primarily $0.25 + 0.10 = 0.35$ of total control. The remaining $0.65$ is distributed across other enzymes: no single enzyme is *the* rate-limiting step, which is why an activator targeting PFK-1 alone produces primarily a fractional, not proportional, increase in flux.
+**Step 4 — Interpret within the model.** A has the larger estimated local response under these constructed conditions. If the classical summation assumptions apply, the unmeasured coefficients sum to approximately $1-0.30-0.10=0.60$; their individual values and signs remain unknown. This does not establish a universal glycolytic-control range, rule out dominance elsewhere, or predict a large drug perturbation from a local derivative.
 
 ---
 
@@ -610,21 +589,21 @@ $$C_{\text{transporter}}^{J} = \frac{0.03}{0.30} = 0.10$$
 : Adenylate Energy Charge and Metabolic State: Input and Sensing mechanism. {#tbl:unit_III_metabolic_integration_adenylate_energy_charge_and_metabolic_state}
 | Input | Sensing mechanism | Outcome |
 | ----- | ----------------- | ------- |
-| Amino acids (Leu, Arg) | Rag GTPases (Sestrin2 senses Leu; CASTOR1 senses Arg) recruit mTORC1 to lysosomal surface | mTORC1 ON |
-| Insulin/IGF-1 | PI3K → Akt → phosphorylates TSC2 → Rheb-GTP accumulates | mTORC1 ON |
-| Glucose | Low glucose → AMPK → TSC2/Raptor phosphorylation | mTORC1 OFF |
-| Oxygen | Hypoxia → REDD1 → TSC1/2 activation | mTORC1 OFF |
+| Amino acids (Leu, Arg) | Sestrin2/CASTOR1-linked Rag regulation promotes lysosomal recruitment | Permits one input arm; not activation by itself |
+| Insulin/IGF-1 | PI3K--Akt regulation of TSC2 can support Rheb-GTP | Can support activation when recruitment and other conditions permit |
+| Glucose/energy stress | AMPK and other sensing routes can restrain signaling | Context-dependent restraint, not a fixed one-input OFF switch |
+| Oxygen | Hypoxia can signal through REDD1--TSC and other routes | Preparation- and state-dependent restraint |
 
 ### Amino Acid Sensing: The Ragulator Complex and Lysosome
 
-mTORC1 primarily senses amino acid sufficiency by being **physically positioned** on the lysosomal surface. The structure responsible is a multi-protein scaffold called the **Ragulator complex** (LAMTOR1–5) that anchors mTORC1 to the cytoplasmic face of the lysosomal membrane. The amino acid sensing cascade works as follows:
+In the conventional mammalian lysosomal signaling model, the Ragulator scaffold anchors Rag GTPases; amino-acid-dependent Rag states recruit mTORC1 through Raptor. Recruitment and Rheb-dependent activation are distinct regulatory steps \citep{saxton2017mtor}:
 
 1. **Specific amino acid sensors** detect intracellular concentrations:
    - **Sestrin2** binds and is inhibited by **leucine** — when Leu is high, Sestrin2 is displaced and stops inhibiting GATOR2.
    - **CASTOR1** binds and is inhibited by **arginine** — same logic.
    - **SAMTOR** senses S-adenosylmethionine (a proxy for methionine).
    - **SLC38A9** senses lysosomal arginine and signals from the lysosomal membrane.
-2. **GATOR1/2 GAP/GEF complex.** GATOR1 is a GAP for the Rag GTPases (turning them off); GATOR2 inhibits GATOR1. When sensors release inhibition of GATOR2, GATOR1 is suppressed, allowing the Rag GTPases to enter their active conformation.
+2. **GATOR1/2 regulatory complexes.** GATOR1 is a GAP for RagA/B; GATOR2 inhibits GATOR1 rather than serving as an interchangeable Rag GEF. Amino-acid sensors regulate this arm of the network; RagA/B and RagC/D nucleotide states are controlled by distinct regulators.
 3. **Active Rag GTPases** (RagA/B-GTP + RagC/D-GDP) bind Raptor (a subunit of mTORC1) and recruit mTORC1 to the lysosomal surface.
 4. **At the lysosome**, mTORC1 encounters Rheb-GTP — provided that growth factor signaling has activated it via Akt → TSC2 inhibition → Rheb-GTP accumulation.
 5. **Rheb-GTP fully activates mTORC1** kinase activity. Both signals (amino acids → Rag → lysosomal positioning *and* growth factors → Rheb-GTP) must converge.
@@ -634,14 +613,14 @@ This dual-input gating is why mTORC1 is sometimes described as a **coincidence d
 ### Rapamycin: Mechanism of Action
 
 **Rapamycin** is a macrolide originally isolated from *Streptomyces hygroscopicus* on Easter Island (Rapa Nui). It binds to the immunophilin **FKBP12** in the cytoplasm; the FKBP12-rapamycin complex then binds to the FRB domain of mTOR within mTORC1, allosterically inhibiting kinase activity *primarily in the mTORC1 complex* (mTORC2 is largely unaffected on short timescales). This inhibition:
-- Suppresses cap-dependent translation (4E-BP1 phosphorylation)
-- Suppresses ribosome biogenesis (S6K1 phosphorylation)
-- Activates autophagy
-- Extends lifespan in yeast, worms, flies, and mice (~10–15% extension at low doses)
+- Can suppress cap-dependent translation by reducing mTORC1-dependent 4E-BP phosphorylation, leaving 4E-BP bound to eIF4E
+- Can reduce S6K signaling and ribosome-biogenesis programs
+- Can relieve mTORC1-dependent restraint of autophagy
+- Has been studied for lifespan effects in model organisms; signaling changes alone do not establish a human longevity benefit
 
-Rapamycin and analogs (rapalogues: everolimus, temsirolimus) are clinically approved as immunosuppressants (transplant rejection prevention) and anticancer agents (renal cell carcinoma, certain breast cancers). The TAME trial and large-scale rapamycin/metformin studies are testing rapalogues as longevity interventions in humans.
+Rapamycin analogs have product-specific immunosuppressive and cancer indications. TAME concerns metformin, not a rapalogue; proposed longevity studies do not establish lifespan extension in humans.
 
-**AMPK and mTORC1 reciprocal inhibition** creates a **bistable metabolic switch:** energy-rich → mTORC1 on, AMPK off → anabolism; energy-depleted → AMPK on, mTORC1 off → catabolism + autophagy.
+AMPK-mediated inhibition of mTORC1 is an important regulatory interaction, not by itself evidence of a reciprocal, bistable switch. Demonstrating bistability requires specified dynamics and two stable states under the same inputs; a two-state pathway cartoon does not supply that evidence.
 
 ---
 
@@ -686,15 +665,18 @@ graph LR
     end
 
     subgraph Liver
-        L1["Glycogen synthesis ↑ / Glycogenolysis ↑"]
-        L2["Lipogenesis ↑ / Gluconeogenesis ↑"]
-        L3["Ketogenesis ↑"]
+        L1["Glycogen synthesis ↑"]
+        Lgly["Glycogenolysis ↑"]
+        L2["Lipogenesis ↑"]
+        Lgng["Gluconeogenesis ↑"]
+        L3["Ketogenesis ↑<br/>low-insulin fasting context"]
     end
 
     subgraph Muscle
         M1["Glucose uptake (GLUT4) ↑"]
         M2["Glycogenolysis ↑"]
-        M3["Protein synthesis ↑ / catabolism ↑"]
+        M3["Protein synthesis ↑"]
+        Mprot["Proteolysis ↑"]
     end
 
     subgraph Adipose
@@ -708,31 +690,32 @@ graph LR
     end
 
     INS -->|"↑ GS, ↑ GK"| L1
+    INS -->|"Fed-state anabolism"| L2
     INS -->|"↑ GLUT4"| M1
     INS -->|"↑ LPL, ↓ HSL"| A1
     INS -->|"↑ mTORC1"| M3
 
-    GLU -->|"↑ Phosphorylase"| L1
-    GLU -->|"↑ PEPCK"| L2
-    GLU -->|"↑ HMG-CoA synthase"| L3
-    GLU -->|"↑ HSL"| A2
+    GLU -->|"Hepatic phosphorylase activation"| Lgly
+    GLU -->|"Hepatic fasting program"| Lgng
+    GLU -->|"Low-insulin hepatic context"| L3
 
-    EPI -->|"↑ Phosphorylase"| L1
+    EPI -->|"Hepatic phosphorylase activation"| Lgly
+    EPI -->|"Supports hepatic glucose output"| Lgng
     EPI -->|"↑ Phosphorylase"| M2
     EPI -->|"β₃-AR → ↑ HSL"| A2
 
-    CORT -->|"↑ PEPCK"| L2
-    CORT -->|"↑ Proteolysis"| M3
-    CORT -->|"↑ Lipolysis"| A2
+    CORT -->|"Hepatic gene regulation"| Lgng
+    CORT -->|"Context-dependent proteolysis"| Mprot
+    CORT -->|"Permissive/context-dependent effects"| A2
 
     style INS fill:#e6ffe6
     style GLU fill:#ffe6e6
     style EPI fill:#fff3e6
     style CORT fill:#e6f3ff
 ```
-<!-- alt: Graph showing hormonal coordination of metabolism across organs. Insulin (green) drives anabolic responses; glucagon (red) and cortisol (blue) drive catabolic responses. Each organ has distinct metabolic roles and receptor expression patterns. -->
+<!-- alt: Graph showing selected mammalian metabolic responses, with anabolic and catabolic outputs separated. Glucagon arrows denote hepatic fasting responses, not direct human-adipose lipolysis; epinephrine and cortisol effects depend on tissue and context. -->
 
-*Hormonal coordination of metabolism across organs. Insulin (green) drives anabolic responses; glucagon (red) and [**cortisol**](#gl:cortisol) (blue) drive catabolic responses. Each organ has distinct metabolic roles and receptor expression patterns.*
+*Selected mammalian metabolic responses, with anabolic and catabolic outputs separated. Glucagon arrows denote hepatic fasting responses, not direct human-adipose lipolysis; epinephrine and cortisol effects depend on tissue and context.*
 
 : Metabolic Flexibility Across Feeding and Fasting: Hormone and Stimulus. {#tbl:unit_III_metabolic_integration_metabolic_flexibility_across_feeding_and_fasting}
 | Hormone | Stimulus | Liver | Muscle | Adipose |
@@ -768,7 +751,7 @@ Net reaction: ATP → ADP + P$_i$ (energy dissipated as heat)
 \label{eq:unit_III_metabolic_integration_worked_8}
 \end{equation}
 
-When both enzymes run at 50 U/min each and net flux is 1 U/min, a 10% change in PFK produces a 500% change in net flux --- **metabolic rheostat** behavior. Substrate cycles provide ultrasensitive flux control at the cost of ATP.
+For an explicit flux ledger, let forward PFK flux be 50 and reverse FBPase flux 49 μmol/min. Net forward flux is then 1 μmol/min. Increasing forward flux alone by 10% to 55 while holding reverse flux at 49 yields net 6: a $(6-1)/1=500\%$ increase relative to the original net. Equal opposing fluxes of 50 would instead give zero net, for which a relative percentage change is undefined. This held-reverse-flux example illustrates a rheostat at an ATP cost; it is not a universal response to changing both enzymes. The displayed amplification factor is 99 for the 50/49 baseline and pertains to equal fractional changes in opposite directions, not the forward-only 10% perturbation just calculated.
 
 **Thermogenic substrate cycles:**
 - **Brown adipose tissue (BAT):** UCP1 short-circuits the ETC proton gradient → heat (non-shivering thermogenesis)
@@ -833,52 +816,52 @@ The portal-vein drainage means that VAT lipolytic products (FFAs, glycerol) and 
 
 ## Metabolic Control Analysis
 
-**Metabolic control analysis (MCA)** provides a quantitative framework for understanding how control of metabolic flux is distributed among pathway enzymes \citep{atkinson1968}.
+**Metabolic control analysis (MCA)** studies how a specified steady-state flux responds to changes in enzyme activities and other system components. Its classical framework is not the adenylate energy-charge formula \citep{kacser1973flux}; experimental control estimates also require a defined preparation and perturbation protocol \citep{torres1986flux}.
 
-**Flux control coefficient ($C_i^J$):** The fractional change in pathway flux ($J$) caused by a fractional change in enzyme activity ($e_i$), with most other variables held constant:
+**Flux control coefficient ($C_i^J$):** For positive enzyme activity $e_i$ and an oriented positive steady-state flux $J$, vary that activity while holding other enzyme activities and external parameters fixed, allowing internal metabolites to reach the new steady state:
 
 \begin{equation}
 C_i^J = \frac{e_i}{J} \cdot \frac{\partial J}{\partial e_i} = \frac{\partial \ln J}{\partial \ln e_i}
 \label{eq:unit_III_metabolic_integration_worked_9}
 \end{equation}
 
-Each $C_i^J$ ranges from 0 (this enzyme has no control over flux) to ~1 (this enzyme has near-total control). Negative values are possible for enzymes that produce inhibitors of the pathway.
+The coefficient is a dimensionless local sensitivity, not a probability or a fractional allocation that must lie between 0 and 1. Negative values and values above 1 can occur in appropriate networks; their meaning depends on the chosen flux, state and perturbation.
 
-**Summation theorem:** The combined flux control coefficients in a pathway sum to 1:
+**Classical summation theorem:** When the steady-state model satisfies the enzyme-scaling assumptions (reaction capacities scale with the relevant enzyme activities while external conditions remain fixed), the coefficients sum to 1:
 
 \begin{equation}
 \sum_i C_i^J = 1
 \label{eq:unit_III_mca_summation}
 \end{equation}
 
-This means control is **shared** among most enzymes, not concentrated at a single "rate-limiting step." In practice, one or a few enzymes may have larger $C_i^J$ values, but the concept of a single rate-limiting step is an oversimplification.
+This constrains the sum, not the number of nonzero terms, their positivity, or equal sharing. One step may dominate in a particular state; irreversible chemistry alone does not identify its flux control. A local derivative also need not predict the effect of a large inhibition or a transition to another state.
 
-For example, in glycolysis under physiological conditions, the flux control coefficients for hexokinase, PFK-1, pyruvate kinase, and the pyruvate transporter are most in the range $C_i^J \approx 0.1$–$0.3$ — no single enzyme dominates, and the precise distribution shifts with cellular state. This is why drug therapies that target a single glycolytic enzyme often have surprisingly modest effects on overall flux: the pathway redistributes control.
+Do not assign a universal 0.1--0.3 control band to glycolytic enzymes or infer a clinical drug response from an unsourced coefficient list. Estimate control in the actual model or preparation and distinguish local sensitivity from intervention efficacy.
 
 ### Metabolomics: Measuring the Metabolic State
 
-**Metabolomics** is the systematic measurement of small-molecule metabolites — the experimental complement to MCA, since you cannot compute flux control coefficients without measuring concentrations and fluxes.
+**Metabolomics** measures metabolite pools and provides constraints complementary to flux and control measurements. Concentrations alone generally do not determine flux. Control coefficients can be estimated from controlled perturbations and flux readouts or calculated from an explicit kinetic model; metabolomics is not a prerequisite for every such calculation.
 
-: Metabolomics: Measuring the Metabolic State: Approach and Sensitivity. {#tbl:unit_III_metabolic_integration_metabolomics_measuring_the_metabolic_state}
-| Approach | Sensitivity | Resolution | Strengths | Weaknesses |
-| -------- | ----------- | ---------- | --------- | ---------- |
-| **NMR** ($^1$H, $^{13}$C, $^{31}$P) | µM–mM (~10$^4$ molecules) | Quantitative; structure-resolving | Non-destructive; absolute quantification; detects isomers | Lower sensitivity than MS; needs ~mg sample; chemical-shift overlap in complex mixtures |
-| **LC-MS** (HILIC + reversed phase) | nM–µM (~10$^7$ molecules) | High sensitivity | Targeted and untargeted; broad metabolite coverage | Ionization bias (different molecules ionize differently); matrix effects; needs MS$^2$ for confident ID |
-| **GC-MS** | nM (with derivatisation) | Very reproducible spectra | Mature databases (NIST, GMD); quantitative | Requires volatile derivatives; not most metabolites compatible |
-| **CE-MS** | nM | Polar/charged metabolites | Excellent for phosphometabolites, amines | Low robustness; less mature databases |
-| **Imaging MS (DESI/MALDI-MSI)** | µM | Spatially resolved | Tissue-level metabolic mapping | Lower mass accuracy than LC-MS; no separation step |
+: Metabolomics approaches: information and measurement conditions. {#tbl:unit_III_metabolic_integration_metabolomics_measuring_the_metabolic_state}
+| Approach | Signal/quantification constraints | Information | Strengths | Limits |
+| -------- | --------------------------------- | ----------- | --------- | ------ |
+| **NMR** | Nucleus, field, probe, sample volume and acquisition conditions | Chemical-shift and coupling information | Calibration and structural information | Signal overlap and sensitivity depend on the experiment |
+| **LC-MS** | Extraction, chromatography, ionization and internal standards | Mass, retention and fragmentation information | Broad targeted or untargeted profiling | Matrix effects; exact mass or MS/MS alone does not identify every isomer |
+| **GC-MS** | Volatility, stability and any derivatization | Retention and mass-spectral information | Mature spectral libraries and targeted methods | Many metabolites require derivatives or remain unsuitable |
+| **CE-MS** | Charge, electrophoretic separation and interface conditions | Polar/charged-metabolite profiles | Complementary separation selectivity | Method-dependent reproducibility and matrix effects |
+| **Imaging MS** | Pixel size, ionization, matrix and sampling geometry | Spatially resolved mass signals | Tissue localization | Quantification and identity need validation; no universal detection limit |
 
 **Key challenges:**
 
-1. **Identification.** A typical untargeted LC-MS run detects 5,000–30,000 features but about 10–20% can be confidently identified. The remaining "dark metabolome" comprises mass spectra with no database match — a major bottleneck.
+1. **Identification.** An LC-MS feature is not necessarily a distinct metabolite: adducts, isotopes, fragments and isomers complicate assignment. Report the actual feature/analyte denominator, standards and identification evidence rather than a universal confidently identified fraction.
 2. **Compartmentation.** Metabolomics typically homogenises tissue, losing information about which metabolites were in mitochondria vs cytoplasm vs lysosome. Subcellular metabolomics (genetically encoded sensors, organelle isolation) is an emerging frontier.
-3. **Flux ≠ concentration.** A high concentration of an intermediate may reflect either high flux through that step *or* a downstream block. Stable-isotope tracing ($^{13}$C-glucose, $^{15}$N-glutamine) is required to measure fluxes, not concentrations.
+3. **Flux ≠ concentration.** A high intermediate concentration can reflect increased supply or reduced removal. Stable-isotope tracing can constrain fluxes under a specified model, but it is not the only method: direct substrate/product rates and perturbation experiments can also measure appropriate pathway fluxes \citep{torres1986flux}.
 
-These data feed directly into MCA models: combining flux measurements (from $^{13}$C tracing) with elasticity coefficients (from in vitro enzyme kinetics) gives an empirical $C_i^J$ for each enzyme, validating or revising textbook claims about which step is "rate-limiting."
+Reconstructing control coefficients from fluxes and elasticities requires a specified network, applicable local kinetics, adequate observations and boundary conditions. Selected in-vitro elasticities do not automatically identify every in-vivo coefficient; direct enzyme perturbation with a measured new steady-state flux provides a different route to local estimation.
 
-> **Concept Check 6:** A drug increases hexokinase activity by 50% in muscle. From fasting biopsies, the flux control coefficient $C_{HK}^J$ for hexokinase in glycolysis was estimated at 0.2. Use \cref{eq:unit_III_mca_summation} to predict the maximum fractional change in glycolytic flux. Why is the prediction an upper bound, not a precise value?
+> **Concept Check 6:** In a constructed dimensionless response model, $J(e,b)=e^2/b+9b$ for positive relative activities $e,b$. At $e=b=1$, $J=10$, $C_e^J=0.2$ and $C_b^J=0.8$. Calculate the local linear estimate for a 50% increase in $e$, then the actual finite change from this stipulated function. Why does \cref{eq:unit_III_mca_summation} not make the linear estimate an upper bound? This is an algebraic countermodel, not an empirical hexokinase rate law.
 
-> **Concept Check 7:** A patient with chronic alcohol consumption shows elevated NADH/NAD$^+$ ratio in cytoplasm and impaired gluconeogenesis. Using \cref{eq:unit_III_energy_charge}, predict whether the energy charge is preserved or depressed, and explain why fasting hypoglycaemia is a clinical risk.
+> **Concept Check 7:** A case describes elevated cytoplasmic NADH/NAD$^+$ and impaired gluconeogenesis but supplies no adenylate pools. Explain why \cref{eq:unit_III_energy_charge} cannot determine EC from those observations; name the ATP/ADP/AMP measurements needed. Discuss redox effects on gluconeogenic precursor availability and fasting risk separately, without inferring a patient's EC or AMPK activity from the redox ratio alone.
 
 ---
 
@@ -920,19 +903,19 @@ A strong metabolic-integration claim names the organ, hormone signal, substrate 
 
 ## Summary
 
-- **AMPK** (heterotrimer of two catalytic α + two regulatory β/γ modules) is activated by elevated AMP/ATP and ADP/ATP through Thr172 phosphorylation by **LKB1** (energy stress) or **CaMKKβ** (Ca$^{2+}$); it promotes catabolism (β-oxidation, glycolysis) and inhibits mTORC1 and anabolism; activates autophagy (via ULK1) and mitochondrial biogenesis (via PGC-1α).
+- **AMPK** (heterotrimer with one α, one β, and one γ subunit) is activated by elevated AMP/ATP and ADP/ATP through Thr172 phosphorylation by **LKB1** (energy stress) or **CaMKKβ** (Ca$^{2+}$); it promotes catabolism (β-oxidation, glycolysis) and inhibits mTORC1 and anabolism; activates autophagy (via ULK1) and mitochondrial biogenesis (via PGC-1α).
 - **mTORC1** (activated by insulin + amino acids + oxygen) is positioned at the lysosome by Rag GTPases bound to the **Ragulator complex**; full activation requires both amino acid–driven lysosomal recruitment *and* growth factor–driven Rheb-GTP. **Rapamycin** (FKBP12 complex) inhibits mTORC1.
-- **Energy charge** \cref{eq:unit_III_energy_charge} captures the fractional saturation of the adenylate pool with high-energy phosphate; cells maintain E.C. ≈ 0.85–0.95.
-- **Insulin** (PI3K/Akt/mTOR pathway) drives GLUT4 translocation, glycogen synthesis, lipogenesis, and suppresses gluconeogenesis. The phosphorylase kinase / GLUT4-vesicle / 14-3-3-BAD effectors are characteristic Akt outputs.
-- **Glucagon** (cAMP/PKA cascade) drives glycogenolysis (via phosphorylase kinase), gluconeogenesis (via CREB transcription), and ketogenesis. The hormonal cascade amplifies the signal ~10$^7$-fold from femtomolar hormone to millimolar metabolite.
+- **Energy charge** \cref{eq:unit_III_energy_charge} is a normalized phosphorylation-state score from 0 to 1. It does not uniquely determine nucleotide composition, ATP-hydrolysis free energy or AMPK activity; a universal physiological window is not imposed here.
+- **Insulin** engages PI3K–Akt signaling with tissue-specific outputs. Akt regulation of TBC1D4/AS160 contributes to GLUT4 traffic in muscle/adipose cells, and GSK3 regulation supports glycogen synthesis; phosphorylase kinase is not a characteristic direct Akt effector.
+- **Glucagon** (cAMP/PKA cascade) promotes glycogenolysis (via phosphorylase kinase), gluconeogenesis (via CREB transcription), and ketogenesis. Catalytic amplification must state integrated input/output counts, time and finite pools; the synthetic 60 s ledger gives $5\times10^5$ glucose-1-P molecules per occupied receptor, not a hormone/metabolite concentration ratio.
 - **Gluconeogenesis** uses four bypass enzymes (pyruvate carboxylase, PEPCK, FBPase-1, G6Pase) and costs 6 ATP equivalents per glucose.
-- **Beta-oxidation** yields ~106 ATP per palmitoyl-CoA; CPT-1 is rate-limiting and inhibited by malonyl-CoA.
-- **Ketone bodies** (acetoacetate, β-hydroxybutyrate) sustain the brain during starvation; liver produces but cannot use them. Fasting fuel switching follows a programmed timeline from glycogen → fatty acids → ketones over hours-to-weeks.
+- **Beta-oxidation** yields ~108 ATP per palmitoyl-CoA (106 from free palmitate); CPT-1 is rate-limiting and inhibited by malonyl-CoA.
+- **Ketone bodies** (acetoacetate, β-hydroxybutyrate) sustain the brain during starvation; liver produces but cannot use them. Fasting fuel switching varies with nutritional reserves, tissue, illness, and duration rather than a fixed terminal timeline from glycogen → fatty acids → ketones over hours-to-weeks.
 - **Randle cycle:** fatty acid–glucose reciprocal inhibition; disrupted in type 2 diabetes.
 - **Substrate cycles** enable ultrasensitive flux control and thermogenesis; amplification factor = (v$_1$ + v$_2$)/(v$_1$ - v$_2$).
 - **Metabolic flexibility** (RQ switching) is impaired in obesity/T2D due to lipid intermediate accumulation and insulin resistance.
-- **Metabolic control analysis** (\cref{eq:unit_III_mca_summation}) shows that flux control is distributed, not concentrated at a single rate-limiting step.
-- **Metabolomics** (NMR + LC-MS) provides the empirical basis for MCA, with $^{13}$C tracing distinguishing flux from concentration.
+- **Metabolic control analysis** (\cref{eq:unit_III_mca_summation}) permits distributed control but does not exclude a dominant step. Coefficients describe a specified state and perturbation boundary, not universal intervention limits.
+- **Metabolomics** measures pools; flux measurements, perturbations and adequately specified kinetic/isotope models provide complementary information. None alone automatically identifies every network control coefficient.
 - **Visceral adipose** is a metabolically active endocrine organ whose portal-vein drainage drives hepatic insulin resistance, NAFLD, and chronic systemic inflammation.
 - **Connections:** See \cref{sec:unit_II_cell_signaling} for [**signal transduction**](#gl:signal-transduction) to mTOR, \nameref{sec:unit_IX_unit_intro} for endocrine first messengers, and \cref{sec:unit_I_enzymes_and_kinetics} for enzyme-level kinetics.
 
@@ -942,7 +925,7 @@ A strong metabolic-integration claim names the organ, hormone signal, substrate 
 
 1. A patient presents with an inherited loss-of-function [**mutation**](#gl:mutation) in LKB1 (the primary AMPK upstream kinase). Predict four metabolic consequences in skeletal muscle during fasting.
 
-2. Derive the energy charge equation (\cref{eq:unit_III_energy_charge}). If [ATP] = 3.5 mM, [ADP] = 0.8 mM, [AMP] = 0.2 mM, calculate EC. Is AMPK likely to be active?
+2. Derive the energy charge equation (\cref{eq:unit_III_energy_charge}). For ATP/ADP/AMP = 3.5/0.8/0.2 mM, calculate EC and AMP:ATP. What further measurements would be needed to determine AMPK activity?
 
 3. Describe the insulin signaling cascade from receptor binding to GLUT4 translocation, including the role of AS160, Rab10, and the SNARE complex. At which steps does insulin resistance develop in type 2 diabetes?
 
@@ -956,13 +939,13 @@ A strong metabolic-integration claim names the organ, hormone signal, substrate 
 
 8. Compare the amplification advantages of the PFK-1/FBPase-1 substrate cycle in liver with UCP1-mediated thermogenesis in brown adipose tissue.
 
-9. Explain how metformin improves glycaemic control. Describe its effects on Complex I, AMPK, and hepatic gluconeogenesis.
+9. Explain why metformin-induced changes in Complex I, adenylate pools, AMPK and hepatic glucose production must be separated experimentally. What does persistence of an effect in the studied AMPK-deficient mouse preparations establish, and what does it not establish about humans?
 
-10. Describe three molecular mechanisms by which obesity causes insulin resistance. For each, identify the lipid species involved and the downstream kinase that phosphorylates IRS-1.
+10. Compare DAG/PKC, ceramide/Akt-phosphatase and inflammatory signaling explanations of insulin resistance. State tissue/preparation and discriminating measurements; explain why these routes must not all be assigned to one inhibitory IRS-1 phosphorylation site, using the cited Irs1 Ser307 mouse counterexample.
 
 11. Using the [**competitive inhibition**](#gl:competitive-inhibition) example in the bridge, explain why simply raising substrate concentration can overcome some drug interactions but not others (hint: $K_m^{app}$ vs. $V_\mathrm{max}$).
 
-12. Estimate energy charge for [ATP]=2 mM, [ADP]=1.5 mM, [AMP]=0.5 mM. Is AMPK more likely active than at EC ≈ 0.9?
+12. Estimate EC for ATP/ADP/AMP = 2/1.5/0.5 mM. Explain why comparison with an unspecified pool having EC = 0.9 cannot by itself rank measured AMPK activity. Propose appropriate biochemical readouts and controls.
 
 13. Describe how mTORC1 is recruited to the lysosomal surface by amino acid availability. What is the role of Sestrin2, GATOR1/2, and the Rag GTPases? Why is mTORC1 a "coincidence detector" rather than a single-input sensor?
 
@@ -977,10 +960,10 @@ A strong metabolic-integration claim names the organ, hormone signal, substrate 
 
 ## Further Reading and Source Notes: Metabolic Integration and Regulation
 
-- Atkinson (1968). The regulation of enzyme activity in metabolism. *Biochemical Journal*, 108 \citep{atkinson1968}.
+- \citet{atkinson1968} — Adenylate energy charge and feedback regulation; the actual bibliographic work is identified in the reference list.
 - Mitchell (1961). Coupling of phosphorylation to electron and hydrogen transfer by a chemi-osmotic type of mechanism. *Nature*, 191 \citep{mitchell1961}.
-- Hardie, Ross & Hawley (2012). AMPK: a nutrient and energy sensor that maintains energy homeostasis. *Nature Reviews Molecular Cell Biology*, 13.
-- Saxton & Sabatini (2017). mTOR signaling in growth, metabolism, and disease. *Cell*, 168.
+- \citet{hardie2012ampk} — Nucleotide sensing, phosphorylation and AMPK regulation.
+- \citet{saxton2017mtor} — mTOR signaling in growth, metabolism and disease.
 - Randle, Garland, Hales & Newsholme (1963). The glucose fatty-acid cycle. *The Lancet*, 281.
 
 ---
@@ -993,7 +976,7 @@ A strong metabolic-integration claim names the organ, hormone signal, substrate 
 | **AMPK** | AMP-activated protein kinase; principal energy-sensing kinase; activated by elevated AMP/ATP via LKB1 or by Ca$^{2+}$ via CaMKKβ |
 | **mTORC1** | Mechanistic target of rapamycin complex 1; growth-promoting kinase; activated by insulin, amino acids, and growth factors at the lysosomal surface |
 | **Ragulator** | Lysosomal scaffold (LAMTOR1–5) that anchors Rag GTPases and recruits mTORC1 in response to amino acid availability |
-| **Energy charge (EC)** | ([ATP] + 1/2[ADP]) / ([ATP]+[ADP]+[AMP]); normal EC approximately 0.85--0.95 |
+| **Energy charge (EC)** | ([ATP] + 1/2[ADP]) / ([ATP]+[ADP]+[AMP]); normalized score in [0,1], not a unique AMPK-activity or ATP-free-energy measurement |
 | **Insulin** | Anabolic hormone from beta-cells; PI3K/Akt/mTOR pathway; drives glucose uptake, glycogen synthesis, lipogenesis |
 | **Glucagon** | Catabolic hormone from alpha-cells; cAMP/PKA; drives glycogenolysis, gluconeogenesis, ketogenesis |
 | **Gluconeogenesis** | Synthesis of glucose from non-carbohydrate precursors; liver and kidney; costs 6 ATP |

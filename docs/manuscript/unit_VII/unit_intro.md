@@ -3,11 +3,8 @@
 
 ## Why This Unit Matters {.unnumbered}
 
-The living world is microbial. In mass, in metabolic diversity, and in evolutionary history, microorganisms
-dominate life on Earth. The total number of prokaryotic cells on Earth (~10³⁰) exceeds the number of
-stars in the observable universe by a factor of 100,000. The deepest branches of the tree of life are
-most microbial. Photosynthesis — the ultimate source of energy for most ecosystems — was invented
-by cyanobacteria more than 2.7 billion years ago. Nitrogen fixation, without which terrestrial
+Microorganisms are extraordinarily abundant as cells, metabolically diverse, and central to life's evolutionary history; numerical abundance is not carbon-mass dominance. Global prokaryotic abundance is of order $10^{30}$ cells. The 2018 biomass synthesis estimates plants at about 450 of 550 Gt C globally, compared with bacteria at 70 and archaea at 7 Gt C \citep{baron2018biomass}. These are extrapolated carbon-stock estimates, not cell counts: microbial uncertainty is large, especially in the deep subsurface (reported multiplicative uncertainty factors about 10 for bacteria and 13 for archaea). Bacteria and archaea occupy deep branches of the tree of life. Oxygenic photosynthesis — the ultimate energy source for most ecosystems — arose in cyanobacterial ancestry.
+Nitrogen fixation, without which terrestrial
 agriculture would collapse, is performed exclusively by bacteria and archaea. The atmosphere itself
 was transformed by microbial metabolism long before any animal breathed it.
 
@@ -38,7 +35,7 @@ metabolic syndrome.
 | Robert Koch | 1876–1884 | \citep{koch1884} | Koch's postulates; anthrax, TB, cholera | Rigorous criteria for linking pathogen to disease |
 | Alexander Fleming | 1928 | \citep{fleming1929} | Penicillin discovery | Launched the antibiotic era; Nobel Prize 1945 |
 | Carl Woese & George Fox | 1977 | \citep{woese1977} | Archaea as third domain (16S rRNA) | Restructured the comprehensive tree of life; archaea are closer to eukaryotes than to bacteria |
-| David Relman et al. | 1999–2006 | \citep{relman1999,hmp2012structure} | Human microbiome characterization by 16S rRNA | Revealed ~10¹³ microbial cells as an integral part of human biology |
+| Eckburg, Lepp & Relman; Human Microbiome Project Consortium | 2003 review; 2012 consortium studies | \citep{relman1999,hmp2012structure} | Archaeal colonization questions and sequence-based human-community characterization | Presence is not proof of pathogenicity; community surveys are not a census establishing one universal microbial cell count |
 | Murray et al. | 2022 | \citep{murray2022amr} | Global mortality from antimicrobial resistance (1.27 million deaths, 2019) | Quantified the scale of the AMR crisis as a call to action |
 
 ---
@@ -86,11 +83,13 @@ paper-based lab decision.
 
 ## Chapter Roadmap {.unnumbered}
 
-| Chapter | Title | Core Question | Key Equation / Model |
-| ------- | ----- | ------------- | -------------------- |
-| **22** | Bacteria, Archaea, and Viruses | What distinguishes the three major types of microorganism, and how do they replicate? | Doubling time: $t_d = \ln 2 / \mu$; viral burst size |
-| **23** | Microbial Ecology | What roles do microorganisms play in ecosystems and the human body? | MIC, MBC; diversity indices (Shannon $H'$) |
-| **24** | Infectious Disease | How do pathogens cause disease, and how do epidemics spread? | SIR model: $R_0 = \beta / \gamma$; basic reproductive number |
+| Chapter | Core question | Quantitative lens |
+| --- | --- | --- |
+| \cref{sec:unit_VII_bacteria_archaea_viruses} | How do cell architecture and viral life cycles constrain replication? | Growth, dilution and phage-threshold models |
+| \cref{sec:unit_VII_microbial_ecology} | What does community evidence establish? | Diversity, compositional sampling and functional tests |
+| \cref{sec:unit_VII_host_immunity_and_vaccines} | How does immune mechanism relate to measured protection? | Endpoint-specific vaccine comparisons |
+| \cref{sec:unit_VII_antimicrobial_resistance_and_epidemiology} | How do resistance and transmission respond to interventions? | Organism–drug denominators, selection/HGT and conservative SIR |
+
 
 ---
 
@@ -110,7 +109,7 @@ paper-based lab decision.
 ```python
 from biology.microbiology import bacterial_growth_curve, doubling_time
 
-# Bacterial growth: E. coli at 37°C, doubling time ~20 min (0.333 h)
+# Synthetic growth example: doubling time20min; no lag, no stationary onset or capacity ceiling.
 growth = bacterial_growth_curve(N0=1e3, doubling_time_hr=1/3, t_end_hr=4, lag_phase_hr=0)
 print(f"Start: {growth.populations[0]:.0f} cells")
 print(f"After 4 h: {growth.populations[-1]:.2e} cells")

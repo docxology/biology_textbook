@@ -5,11 +5,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{../figures/biology_milestones.png}
-\caption{A chronologically ordered timeline of selected milestones in the history of biology. Bars are colored by era (microscopy, classification, cell theory, evolution, genetics, molecular biology, modern synthesis, genomics). The chart compresses several thousand years of practice into a single comparative view; the underlying milestone table is reproducible from \texttt{biology.foundations.BIOLOGY\_MILESTONES}.}
+\caption{Selected milestones in biology from 1665 to 2020, arranged chronologically. Colors identify six chronological eras: early modern, nineteenth century, early twentieth century, mid twentieth century, late twentieth century, and early twenty-first century. This curated timeline covers approximately three and a half centuries, not the full history discussed in the chapter; the table is available as \texttt{biology.foundations.BIOLOGY\_MILESTONES}.}
 \label{fig:unit_0_biology_milestones}
 \end{figure}
 
-<!-- alt: Horizontal bar chart of biology milestones from antiquity to modern times. Each bar reaches the milestone year; labels along the y-axis name the event and figure (for example, microscope, cell theory, evolution by natural selection, DNA double helix). Bars are color-coded by era. -->
+<!-- alt: Horizontal bars locate thirteen selected biology milestones between 1665 and 2020. Labels give each year, event, and associated people or group; the legend names six chronological eras. -->
 
 <!-- chapter-metadata-badge -->
 > Level 2/3 · 80 min read · 100 min lecture · Prerequisites: \cref{sec:unit_0_systems_science}, \cref{sec:unit_0_complex_adaptive_systems}, \cref{sec:unit_0_active_inference}

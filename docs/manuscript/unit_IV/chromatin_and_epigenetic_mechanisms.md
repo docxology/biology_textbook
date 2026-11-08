@@ -85,6 +85,8 @@ Eukaryotic DNA is not naked; it is complexed with [**protein**](#gl:protein)s to
 
 ### Higher-Order Chromatin Compaction
 
+The table juxtaposes structural scales and historical compaction models; it is not a mandatory sequence of in-vivo intermediates. In particular, regular 30-nm fibers are condition-dependent, while human-cell ChromEMT observations show disordered chromatin chains with variable packing \citep{ou2017chromemt}. Loops, domains and compartments describe organization at different scales, not one fixed fiber diameter in every cell.
+
 : Higher-Order Chromatin Compaction: Level and Structure. {#tbl:unit_IV_chromatin_and_epigenetic_mechanisms_higher_order_chromatin_compaction}
 | Level | Structure | Diameter | Compaction factor | Mechanism |
 | ----- | --------- | -------- | ----------------- | --------- |
@@ -146,7 +148,8 @@ flowchart TD
     HMT_rep["H3K27 methyltransferase\nPRC2 (EZH2)"] --> Me_rep["H3K27me3\nREPRESSIVE\nPolycomb target genes"]
     HMT_het["H3K9 methyltransferase\n(G9a, SUV39H1)"] --> Me_het["H3K9me3\nHETEROCHROMATIN\ncentromeres; transposons"]
 
-    Kinase["Aurora B / CDK1"] --> Phos["H3S10ph\nMITOSIS marker\nalso: DNA damage signaling H2AX-Ser139"]
+    Kinase["Aurora B / MSK1/2"] --> Phos["H3S10ph<br/>mitosis or stimulus-dependent signaling"]
+    DDR["ATM / ATR / DNA-PK"] --> H2AX["H2AX-S139ph (γH2AX)<br/>DNA-damage signaling"]
     Ub["RNF2 (PRC1)"] --> UbH2A["H2AK119ub\nPolycomb silencing layer 2"]
 
     style Ac fill:#27ae60,color:#fff
@@ -172,7 +175,7 @@ The histone-code reference table below systematically catalogs > 25 modification
 | H3K4me3 | MLL/SET1 COMPASS writes; KDM5 removes | TAF3 PHD, ING1, BPTF | Active promoters; recruits TFIID |
 | H3K36me1/2 | NSD and ASH1L write; KDM2 removes | LEDGF PWWP, MRG15 | Gene bodies and active enhancers |
 | H3K36me3 | SETD2 writes; KDM2/KDM4 remove | DNMT3 PWWP, MRG15, LEDGF | Transcribed gene bodies; suppresses cryptic initiation and recruits MMR |
-| H3K79me2/3 | DOT1L writes | 53BP1 Tudor, AF9, ENL | Active gene bodies; important in MLL-fusion leukaemia |
+| H3K79me2/3 | DOT1L writes | Reader assignments require methyl-state-specific binding evidence; do not infer 53BP1 recruitment from this row | Active gene-body association; DOT1L important in MLL-fusion leukaemia |
 
 **Active acetylation and ubiquitination marks**
 
@@ -198,7 +201,9 @@ The histone-code reference table below systematically catalogs > 25 modification
 | H3K9me3 | SUV39H and SETDB1 write; KDM4 removes | HP1 alpha/beta/gamma, CBX1/3/5 | Constitutive heterochromatin; centromeres; transposons |
 | H3K27me1/2 | EZH2 writes; UTX/JMJD3 remove | EED for me2/3 contexts | Active gene bodies at low level; me2 prevents inappropriate enhancer activation |
 | H3K27me3 | EZH2/PRC2 writes; UTX/JMJD3 remove | EED and CBX-PRC1 | Polycomb domains; developmental-gene repression |
-| H4K20me3 | SUV4-20H writes; PHF8 erases | 53BP1 Tudor | Pericentric heterochromatin and DNA-damage response |
+| H4K20me1 | SET8/PR-Set7 writes; PHF8 demethylates in tested nucleosome/cell contexts | L3MBTL1; condensin-II subunits in tested mitotic cells | Cell-cycle-dependent chromatin regulation \citep{Liu2010PHF8} |
+| H4K20me2 | SUV4-20H enzymes act after monomethylation | 53BP1 tandem Tudor (peptide $K_d=19.7$ μM in the reported assay) | DNA-damage recognition requires the correct methyl state and chromatin context \citep{Botuyan2006H4K20} |
+| H4K20me3 | SUV4-20H enzymes write; PHF8 is not established here as its eraser | JMJD2A hybrid Tudor binds tested me3 peptide; not the preferred 53BP1 target | Pericentric heterochromatin; distinct from me2-dependent 53BP1 recognition \citep{Botuyan2006H4K20} |
 | H2AK119ub | RNF2/RING1B writes; BAP1 removes | JARID2-associated PRC2.2 | Stable Polycomb silencing layer |
 
 **Dynamic damage, cell-cycle, and metabolic marks**
@@ -232,10 +237,10 @@ The bottom rows reflect a major recent expansion of the histone code: short-chai
 - **H3K27ac:** Marks active enhancers (distinguishes active from poised enhancers, which carry H3K27me3)
 - **H3K9ac, H3K14ac, H4K16ac:** Found at active promoters and transcribed gene bodies
 
-> **Clinical Connection — HDAC inhibitors (full clinical profile):** Histone deacetylase inhibitors (HDACi) are FDA-approved anticancer drugs.
+> **Clinical Connection — HDAC inhibitors (U.S. indication status as of 2026-11-07 unless specified):** Distinguish historical approvals from current product–indication status.
 > - **Vorinostat (SAHA)** — FDA approved 2006 for cutaneous T-cell lymphoma (CTCL). Hydroxamate pan-HDACi. Median time to response ~2 months; objective response ~30 %.
-> - **Romidepsin (Istodax)** — FDA approved 2009 for CTCL and 2011 for peripheral T-cell lymphoma. Cyclic depsipeptide; class-I selective. Distinct dose-limiting toxicities (GI, fatigue, thrombocytopenia).
-> - **Panobinostat (Farydak)** — FDA approved 2015 for relapsed/refractory multiple myeloma in combination with bortezomib + dexamethasone. Pan-HDACi; superior CD138+ plasma-cell apoptosis when combined with proteasome inhibitor.
+> - **Romidepsin (Istodax)** — CTCL approval dates to 2009. Its separate 2011 accelerated approval for previously treated PTCL was **withdrawn July 30, 2021**; this is not a withdrawal of CTCL. Cyclic depsipeptide; class-I selective \citep{fda2026withdrawncancer}.
+> - **Panobinostat (Farydak)** — Historical 2015 accelerated approval with bortezomib and dexamethasone for specified previously treated multiple myeloma was **withdrawn March 24, 2022**. Do not list that U.S. indication as current \citep{fda2026withdrawncancer}.
 > - **Belinostat (Beleodaq)** — FDA 2014 for PTCL.
 > - **Tucidinostat (Chidamide)** — China-approved 2014 for PTCL; first benzamide HDACi.
 >
@@ -257,7 +262,7 @@ Unlike acetylation (typically activating), **methylation is context-dependent**:
 | H3K36me3 | SETD2 | Active | Transcribed gene bodies; prevents cryptic initiation |
 | H3K27me3 | EZH2 (PRC2) | Repressive | Polycomb targets; poised/silent developmental genes |
 | H3K9me3 | SUV39H1/H2 | Repressive | Constitutive heterochromatin; [**centromere**](#gl:centromere)s; transposons |
-| H4K20me3 | SUV4-20H | Repressive | Pericentric heterochromatin; DNA damage response |
+| H4K20me3 | SUV4-20H | Repressive association | Pericentric heterochromatin; distinguish H4K20me2 recognition by 53BP1 |
 
 **Bivalent domains:** In embryonic stem cells, many developmental gene promoters carry **both H3K4me3 and H3K27me3** simultaneously — a "bivalent" state. These genes are poised for either rapid activation (upon H3K27me3 removal by KDM6A/UTX) or repression (upon H3K4me3 removal) during differentiation. About 2,500 promoters are bivalent in human ES cells; most resolve to monovalent during lineage commitment.
 
@@ -346,33 +351,16 @@ The six complexes share a **WRAD module** (WDR5–RbBP5–ASH2L–DPY30) that al
 **The Polycomb–Trithorax balance** is maintained dynamically. Differentiation cues that activate gene expression typically deploy three concurrent steps: (i) UTX/JMJD3 removes H3K27me3, (ii) MLL/COMPASS deposits H3K4me3, and (iii) BAF complexes evict residual PRC1. Conversely, lineage repression deposits PRC1/PRC2 marks at the relevant promoter.
 
 **Clinical translation — EZH2 inhibitors:**
-- **Tazemetostat (Tazverik)** is a small-molecule SET-domain inhibitor of EZH2, FDA-approved (2020) for **epithelioid sarcoma** (which loses INI1/SMARCB1 — a SWI/SNF subunit — and becomes hyper-dependent on EZH2 silencing) and **EZH2-mutant follicular lymphoma**. Mechanism: SAM-competitive small molecule occupies the EZH2 SET-domain pocket. Approved dose 800 mg BID PO. Median PFS in INI1-loss epithelioid sarcoma trial: 5.5 months vs 1.9 placebo; ORR 15 %.
-- **Valemetostat** (EZH1 + EZH2 dual inhibitor) was approved in 2022 in Japan for adult T-cell leukaemia/lymphoma (ATL); ORR 48 %.
-- **Ivosidenib + tazemetostat** combinations in IDH-mutant glioma are in trial, exploiting the IDH-mutant tumor's dependence on Polycomb-driven differentiation block.
+- **Tazemetostat (Tazverik)** inhibits the EZH2 SET domain. Its two U.S. accelerated approvals (epithelioid sarcoma and follicular lymphoma, 2020) were withdrawn June 22, 2026; it is a historical example, not a current FDA-approved option \citep{fda2026withdrawncancer}. FDA's May 11, 2026 safety notice reported 18/318 (5.7%) hematologic second primary malignancies on tazemetostat in SYMPHONY-1 versus none reported in controls; this follicular-lymphoma safety cohort differs from the 62-patient sarcoma study \citep{fda2026tazsafety}. The 62-patient, open-label single-arm INI1-loss sarcoma cohort had 9/62 responses (15%), median PFS 5.5 months, and median time to response 3.9 months. There was no placebo arm \citep{gounder2020tazemetostat}.
+- EZH1/2 inhibitors illustrate the need to specify product, indication, jurisdiction, and date; a target class does not carry a universal approval status.
 
 The mechanism is paradigmatic of **synthetic lethality** in chromatin: tumors with SWI/SNF loss become dependent on Polycomb silencing of cell-cycle inhibitors, so EZH2 inhibition selectively re-activates suppressors primarily in the cancer cells.
 
-> **Worked Example 1 — Polycomb Spreading Model with Read-Write Feedback**
+> **Worked Example 1 — Constant Recruitment versus Read-Write Feedback**
 >
-> **Setup:** A naive promoter has 2 nucleosomes carrying H3K27me3 (call this "seed"), recruiting PRC2 with EED-driven allosteric activation. PRC2 deposits H3K27me3 on the next nucleosome with rate constant *k* per generation. Each cell division dilutes existing H3K27me3 by half (passive demethylation through nucleosome turnover, since newly deposited histones at the replication fork are unmethylated). The gene body comprises 50 nucleosomes.
+> A synthetic 50-nucleosome domain begins with two marked nucleosomes. Suppose division halves occupancy and an external recruiter deposits a constant $k$ marks per generation: $m_{n+1}=\min(50,m_n/2+k)$. Before saturation, $m_\infty=2k$: $k=1,2,5$ gives 2, 4, 10 marks (4%, 8%, 20%). Maintaining at least 45 requires $k\ge22.5$. This is constant recruitment, not mark-dependent EED feedback; it creates marks even from zero seeds.
 >
-> **Question:** Derive the steady-state H3K27me3 density along the gene body for *k* = 1, 2, and 5 marks per generation. What is the minimum *k* needed for the silencing mark to spread fully (≥ 90 % of nucleosomes methylated)?
->
-> **Solution:** Let $m_n$ be the average number of H3K27me3-marked nucleosomes at generation $n$, with $m_0 = 2$ (seed). Each generation:
-> - Half of existing marks are passively diluted: $m_{\text{post-replication}} = m_n / 2$.
-> - PRC2 deposits *k* new marks at neighboring nucleosomes (read-write spreading): $m_{n+1} = m_n / 2 + k$.
->
-> Steady-state when $m_{\infty} = m_{\infty} / 2 + k$, so $m_{\infty} = 2k$ marked nucleosomes.
->
-> | *k* (marks/gen) | Steady-state $m_\infty$ | Gene-body coverage |
-> | --------------- | ----------------------- | ------------------ |
-> | 1 | 2 | 4 % (silencing fails) |
-> | 2 | 4 | 8 % |
-> | 5 | 10 | 20 % |
-> | 25 | 50 | 100 % (saturated) |
-> | 45 | 90 | 100 % (rapid saturation) |
->
-> **Insight:** For full coverage of a 50-nucleosome gene body (≥ 45 marks at steady state), *k* must exceed ~22 marks per generation — i.e., PRC2 must deposit > 11× the seed quantity each cell cycle. This is achievable primarily with the **EED–allosteric read-write loop**: each existing H3K27me3 catalytically recruits more PRC2 to neighboring nucleosomes, creating positive feedback. Without this loop (e.g., in EED-mutant cells), Polycomb domains collapse over a few divisions. This is why **EED-binding small molecules (EED226, MAK683)** are emerging as alternative EZH2-pathway inhibitors that disrupt the feedback loop selectively.
+> A distinct read-write toy model would instead add marks proportional to post-division occupancy, $m_{n+1}=\min(50,(1+k)m_n/2)$, with dimensionless $k$. Without a source of de novo nucleation, zero seeds stay zero. Neither model establishes actual spatial spreading, enzyme kinetics, or a clinical silencing threshold.
 
 ---
 
@@ -401,7 +389,7 @@ In mammals, DNA methylation occurs almost exclusively on cytosine in the context
 **De novo methyltransferases — DNMT3A, DNMT3B:**
 - Both have an N-terminal regulatory PWWP domain (reads H3K36me3) and an ADD domain (reads unmethylated H3K4 = H3K4me0). PWWP recognition couples *de novo* methylation deposition to gene-body H3K36me3-marked regions; ADD ensures methylation deposition is excluded from H3K4me3-marked active promoters (a fundamental safeguard against silencing active genes).
 - Establish *new* methylation patterns during germline development, gametogenesis, and early embryogenesis.
-- Both require **DNMT3L** (catalytically inactive; missing the SET-like motif required for SAM binding) as a regulatory partner that stimulates activity ~15-fold and itself reads H3K4me0 — coupling methylation deposition to *absence* of active marks.
+- **DNMT3L** is a catalytically inactive regulatory partner, not a universal requirement for DNMT3A/3B catalysis. In human 293/EBNA1 expression experiments, Dnmt3a alone methylated 8.3% of assayed SNRPN CpGs versus 34.3% with DNMT3L; DNMT3B stimulation was not appreciable in that experiment. This is stimulation in a defined assay, distinct from DNMT3L's requirement for maternal imprint establishment in the studied mouse germline \citep{Chedin2002DNMT3L}. H3K4me0 recognition can couple recruitment to an unmethylated histone state; neither a fixed stimulation factor nor absolute cofactor dependence applies across all tissues and assays.
 - DNMT3A: predominant in oocyte, embryonic stem cells, hematopoietic stem cells; loss-of-function mutations are frequent in **clonal hematopoiesis** (~5 % of healthy individuals over age 70) and AML (~20 % of cytogenetically normal AML); also Tatton-Brown–Rahman syndrome (germline DNMT3A loss with overgrowth).
 - DNMT3B: predominant in B cells, embryonic stem cells; loss-of-function causes **ICF syndrome** (immunodeficiency, centromeric instability, facial anomalies) due to demethylation of pericentromeric satellites.
 
@@ -412,24 +400,24 @@ In mammals, DNA methylation occurs almost exclusively on cytosine in the context
 
 - **Reaction details:** TET enzymes consume O₂ and αKG, producing CO₂ and succinate. Each oxidation step transfers an oxygen atom from O₂ to the methyl carbon of cytosine.
 - **Active demethylation by base excision repair:** 5-formylcytosine (5fC) and 5-carboxylcytosine (5caC) are recognized and excised by **thymine DNA glycosylase (TDG)**, which has a 100-fold preference for 5fC/5caC over 5mC. TDG cleaves the N-glycosidic bond, leaving an abasic (AP) site. **APE1** then makes a single-nucleotide cut; **DNA Pol β** fills the gap with unmodified cytosine; **DNA ligase III + XRCC1** seal the nick. This is the canonical BER pathway adapted for methyl-cytosine erasure.
-- **5hmC is itself a stable mark with distinct biology, not merely an intermediate.** Different cell types have dramatically different 5hmC/5mC ratios — embryonic stem cells ~0.1 %, neurons ~0.7 % (Purkinje cells reach ~40 % of modified cytosines as 5hmC), cardiomyocytes ~0.5 %, tumor cells often < 0.05 % (a **5hmC depletion signature** now used in liquid-biopsy diagnostics on platforms such as EpiCheck and GRAIL Galleri).
+- **5hmC is itself a stable modification with distinct biology, not merely an intermediate.** Its abundance varies by cell type and must state the denominator (total cytosines versus modified cytosines). A dedicated 5hmC assay is not interchangeable with standard bisulphite methylation profiling: the latter does not separate 5mC from 5hmC. In particular, the CCGA3 Galleri-development assay below used targeted methylation bisulphite sequencing, not a selective 5hmC-depletion readout \citep{Klein2021CCGA3}.
 - **Tissue-specific TET expression:** TET1 in stem cells (regulates pluripotency); TET2 in hematopoietic cells (clonal hematopoiesis); TET3 in zygote and neurons (post-fertilization paternal demethylation; neural plasticity).
-- **Clinical relevance:** TET2 is the most frequently mutated epigenetic-writer gene in hematopoietic cancers — loss-of-function TET2 mutations are present in ~15 % of AML, 50 % of CMML, and define **clonal hematopoiesis of indeterminate potential (CHIP)** (~10 % of people over age 70). The oncometabolite **2-hydroxyglutarate** (produced by mutant IDH1/2) competitively inhibits TET (and other αKG-dependent dioxygenases), causing genome-wide hypermethylation in IDH-mutant gliomas and AML (the **CIMP** phenotype).
+- **Clinical relevance:** TET2 loss-of-function is found in myeloid malignancies and clonal hematopoiesis; TET2 is a cytosine-oxidation enzyme, not a methylation writer. Mutant IDH1/2 produces R/D-2-hydroxyglutarate, which can inhibit TET and selected Jumonji demethylases and contribute to hypermethylation. Response is enzyme-, enantiomer- and context-dependent: R-2HG stimulated EglN/PHD activity and reduced HIF in the tested human astrocytes, so inhibition of every αKG-dependent enzyme cannot be inferred \citep{Koivunen2012R2HG}.
 
-**Methodological caveat:** Bisulphite sequencing (the traditional 5mC gold standard) **cannot distinguish 5mC from 5hmC** because both resist bisulphite-induced deamination. Modern methods that resolve oxidation states:
+**Methodological caveat:** Standard bisulfite sequencing **cannot distinguish 5mC from 5hmC**: both are generally read as C, whereas unmodified C, 5fC and 5caC are generally read as T. Conversion failures and side reactions require controls; the following methods do not have interchangeable measurement targets \citep{huang2012cms,wu2016camab,schutsky2018ace}.
 
 : The DNA Methylation Machinery — In Depth: Method and Signal. {#tbl:unit_IV_chromatin_and_epigenetic_mechanisms_the_dna_methylation_machinery_in_depth}
 | Method | Signal | Resolution | Distinguishes |
 | ------ | ------ | ---------- | ------------- |
-| Bisulphite-seq (BS-seq) | C→T primarily at unmethylated | Single-base | 5mC + 5hmC vs C |
-| oxBS-seq | Chemical oxidation of 5hmC → 5fC, then BS | Single-base | 5mC alone |
-| TAB-seq | Tet-assisted bisulphite (β-glucosylates 5hmC, then TET-oxidises 5mC) | Single-base | 5hmC alone |
-| ACE-seq | APOBEC chemical sequencing | Single-base | 5hmC enzymatically |
-| CMS-seq | Cytosine 5-methylenesulfonate | Single-base | 5fC alone |
-| caMAB-seq | Carboxymethylated-cytosine antibody | ~250-bp | 5caC alone |
-| EM-seq | Enzymatic methyl-seq (no bisulphite damage) | Single-base | 5mC + 5hmC vs C |
+| Bisulfite-seq (BS-seq) | Bisulfite deamination | Single-base | Combined 5mC/5hmC C signal; unmodified C/5fC/5caC generally read as T |
+| oxBS-seq | Oxidize 5hmC to 5fC before bisulfite treatment | Single-base | 5mC C signal; infer 5hmC by comparison with matched BS-seq |
+| TAB-seq | Glucosylate 5hmC, then TET-oxidize 5mC before bisulfite treatment | Single-base | Protected 5hmC C signal, subject to reaction controls |
+| ACE-seq | APOBEC-coupled enzymatic deamination with glucosylated 5hmC protection | Single-base | 5hmC; not chemical deamination |
+| Anti-CMS profiling | Convert 5hmC to cytosine-5-methylenesulfonate and immunoprecipitate CMS-bearing fragments | Fragment-level enrichment | 5hmC-enriched regions, not single-base 5fC mapping |
+| caMAB-seq | Reduce 5fC to 5hmC, methylate unmodified CpGs with M.SssI, then bisulfite-convert | Single-base at CpGs | 5caC T signal; incomplete methylation/conversion can produce false positives |
+| EM-seq | Enzymatic oxidation/protection and deamination rather than bisulfite treatment | Single-base | Combined 5mC/5hmC signal, not their separation |
 
-**Clinical liquid-biopsy translation:** GRAIL's Galleri test analyses cell-free DNA methylation patterns at > 100,000 CpG sites; multi-cancer early detection (MCED) sensitivity ~67 % for stage I–IV combined; tissue-of-origin localization accuracy ~93 %. The technology exploits that each tissue has a distinct methylation pattern, and tumors shed cfDNA with their tissue-specific signature.
+**Clinical liquid-biopsy translation:** In the **2021 CCGA substudy-3 validation of the refined targeted methylation bisulphite-sequencing assay supporting Galleri development**, the locked classifier was evaluated in a confirmed-status case-control analysis set of 2,823 cancer and 1,254 non-cancer participants. Overall cancer-signal sensitivity was **1,453/2,823=51.5%**; stage-I sensitivity was **143/849=16.8%**; specificity was **1,248/1,254=99.5%**. Top-1 signal-origin accuracy was **1,273/1,435=88.7%**, conditional on a positive cancer signal and excluding unknown-primary cases. The **593/877=67.6%** result applies only to stages I–III in 12 prespecified cancer classes, not all cancers/stages. These assay-version/cohort-specific detection and conditional localization endpoints are not screening positive predictive value or evidence of reduced cancer mortality \citep{Klein2021CCGA3,klein2021validation}.
 
 ### CpG Islands and Gene Regulation
 
@@ -447,49 +435,38 @@ In mammals, DNA methylation occurs almost exclusively on cytosine in the context
 
 ### Quantitative Maintenance Through Replication
 
-Let $f_n$ be the fraction of CpGs methylated after $n$ divisions in the absence of *de novo* methylation:
+Let $f_n$ be the fraction of eligible cytosines methylated after division and maintenance, with no de novo methylation or active removal. Half the DNA is old strand; maintenance restores a fraction $\epsilon$ of daughter-strand sites opposite old methylated cytosines:
 
-\begin{equation}f_n = f_0 \times \left(\frac{1-\epsilon}{2}\right)^n + f_0 \times \frac{1+\epsilon}{2}\label{eq:methyl_decay}\end{equation}
+\begin{equation}f_{n+1}=f_n\frac{1+\epsilon}{2},\qquad f_n=f_0\left(\frac{1+\epsilon}{2}\right)^n\label{eq:methyl_decay}\end{equation}
 
-where ε is the maintenance efficiency of DNMT1 (typically ~0.95 — i.e. each hemimethylated CpG is restored 95 % of the time at the replication fork). Even high maintenance efficiency therefore produces measurable **stochastic demethylation** over many divisions, which is why constitutively silenced genes also have backup repressive marks (H3K27me3, H3K9me3, H2AK119ub).
+Here $0\le\epsilon\le1$: zero gives passive halving, one preserves the initial fraction, and $n=0$ returns $f_0$. For constant efficiency below one this model has no positive floor. It is a cytosine-fraction model, not the probability that an entire CpG dyad remains fully methylated.
 
 > **Worked Example 2 — DNMT1 efficiency and the kinetics of clonal demethylation**
 >
-> **Setup:** A research group treats a cancer cell line with a DNMT1 small-molecule inhibitor that reduces ε from 0.95 to 0.50 (50 % maintenance per CpG per division). The cells divide every 24 h. The cancer cell line carries an aberrantly hypermethylated *MLH1* promoter at *f₀* = 0.95 (95 % CpG methylation).
+> **Setup:** A synthetic cell line starts at $f_0=0.95$ and divides every 24 h. Maintenance efficiency is reduced to $\epsilon=0.50$. Use 0.30 as an expressly hypothetical assay threshold, not a general threshold for transcription.
 >
-> **Question:** How many days until methylation drops below the *f* = 0.30 threshold typically required for re-expression?
+> **Solution:** $f_n=0.95(0.75)^n$. At division 4, $f_4=0.30058594$; at division 5, $f_5=0.22543945$, so the first crossing is division 5 (five days at the assumed doubling time). With complete maintenance inhibition, $0.95/2^n$ crosses after two divisions (0.2375); after three divisions it is 0.11875.
 >
-> **Solution:** Using \cref{eq:methyl_decay}, $f_n = f_0 \times \left(\frac{1-\epsilon}{2}\right)^n + f_0 \times \frac{1+\epsilon}{2}$ — but at ε = 0.5 the steady-state floor is $f_0 \cdot (1+0.5)/2 = 0.75 \cdot f_0 = 0.71$ for *f₀* = 0.95. The floor exceeds the 0.30 threshold, so methylation will not drop below 0.30 with ε = 0.5 alone. To re-express MLH1, you need either complete DNMT1 inhibition (ε → 0) or active demethylation (TET upregulation). With ε = 0:
->
-> $f_n = f_0 / 2^n$
->
-> | Generation *n* | $f_n$ |
-> | --- | --- |
-> | 0 | 0.95 |
-> | 1 | 0.475 |
-> | 2 | 0.238 |
-> | 3 | 0.119 |
->
-> Threshold crossed between generation 1 and 2 — i.e., **2 cell divisions ≈ 48 h** after starting full DNMT1 inhibition. This kinetic is exactly why clinical responses to azacitidine/decitabine in MDS take ~4–6 cycles (~3–4 months) of continuous suppression to manifest: maintaining ε near zero is necessary but insufficient — the cell must also divide several times to dilute the existing mark.
+> This toy dilution model cannot predict azacitidine/decitabine clinical response timing: tissue turnover, exposure, de novo methylation, clonal selection, and other repression layers are omitted.
 
 > **Clinical Connection:** In cancer, two genome-wide patterns are consistently found:
 > 1. **Global hypomethylation**: Repetitive elements (LINE-1, SINE) become unmethylated → chromosomal instability, reactivation of transposons, mis-regulated lineage genes.
 > 2. **Focal CGI hypermethylation**: Tumor-suppressor gene promoters (BRCA1, MLH1, VHL, CDKN2A/p16, MGMT, DAPK) become methylated → silencing.
 >
 > **DNMT inhibitors** (azacitidine, decitabine) are nucleoside analogs incorporated into DNA; trapped DNMT1 forms a covalent adduct, causing passive demethylation. Approved for myelodysplastic syndrome (MDS) and AML. Combination with **HDAC inhibitors** is actively trialled.
-> **Liquid biopsies** (e.g., GRAIL Galleri, Guardant Reveal) score hundreds of methylation features in cell-free DNA to detect early-stage cancer with tissue-of-origin localization.
+> **Liquid biopsies:** Distinguish methylation-based multi-cancer signal detection/localization (the CCGA3 example above) from post-treatment residual-disease assays. Performance depends on assay version, stage, cancer class and cohort; origin accuracy conditional on detection does not equal early-stage sensitivity or mortality benefit.
 
 > **Concept Check 4:** A patient is treated with decitabine for high-risk MDS. After 4 cycles, the bone-marrow blast count is unchanged. Bisulphite sequencing of blast DNA shows the targeted *p15/CDKN2B* CGI is now 30 % methylated (from 90 % at baseline), but transcript levels remain undetectable. Propose three independent mechanisms that could explain transcriptional silencing despite DNMT1 inhibition, and design a bench experiment to distinguish them.
 
-> **Concept Check (Analysis):** DNA methylation at CpG islands is heritable through cell division via the enzyme DNMT1, which preferentially methylates hemi-methylated DNA at replication forks. (a) After DNA replication, the daughter strand is unmethylated. DNMT1 is recruited by PCNA at the replication fork. If DNMT1 has a catalytic rate of 10 methylations/s and a replication fork moves at 1,000 bp/s, is DNMT1 fast enough to maintain methylation fidelity? Calculate assuming ~70 CpG dinucleotides per kb of CpG-rich region. (b) TET enzymes oxidize 5-methylcytosine (5mC) → 5-hydroxymethylcytosine (5hmC) → 5-formylcytosine (5fC) → 5-carboxylcytosine (5caC), ultimately leading to demethylation via base excision repair. Explain why this active demethylation pathway was initially puzzling: what is paradoxical about oxidizing a protective mark in order to remove it? (c) Imprinting disorders: Angelman syndrome (maternal UBE3A imprinted off) and Prader-Willi syndrome (paternal 15q11-q13 deleted) arise from the same genomic region. Explain why deletions on different parental chromosomes produce different clinical syndromes.
+> **Concept Check (Analysis):** (a) In a synthetic CpG-rich region with 70 CpGs/kb, a fork advances at 1,000 bp/s and one DNMT1 methylates 10 sites/s. Compare the 70-sites/s arrival rate with single-enzyme capacity: at least seven continuously active enzymes are needed under these simplified assumptions; actual maintenance also depends on recruitment, timing and chromatin access. (b) Trace TET oxidation of 5mC through 5hmC, 5fC and 5caC to TDG/base-excision repair; distinguish a chemical intermediate from loss of the modified base. (c) In neurons the maternal UBE3A allele is normally expressed and the paternal allele is silenced by UBE3A-ATS. Explain why loss of maternal UBE3A expression can cause Angelman syndrome, whereas loss of the normally expressed paternal 15q11–q13 gene cluster causes Prader–Willi syndrome. Do not describe normal maternal UBE3A as imprinted off.
 
-> **Worked Example — CpG Methylation Dynamics:** The BRCA1 promoter CpG island is unmethylated in normal breast cells but methylated in ~10-15% of sporadic breast cancers. If a primary breast cancer consists of 10⁹ cells and 12% are BRCA1-methylated: BRCA1-methylated cells = 1.2 × 10⁸. These cells arose through stochastic methylation events during the 50 doublings to reach 10⁹ cells. If methylation occurs at rate μ ≈ 10⁻⁷ per cell division per CpG island, and methylation is heritable (maintenance methylation 99.9% faithful per division), then after 50 doublings starting from 1 cell: P(methylation by generation g) ≈ 1 - (1-μ)^g × 2^g / 2^g ≈ 1 - e^(-gμ) for small μ. At g=50: P ≈ 50 × 10⁻⁷ = 5 × 10⁻⁶ per cell per division × 2^50 cells total = 5.6 × 10⁹ methylation events distributed across ~10⁴ CpG islands. This Poisson-like accumulation explains why cancer genomes show both global hypomethylation (repetitive elements de-methylated) and focal hypermethylation (specific gene promoters) — different regulatory regimes for different genomic contexts.
+> **Worked Example — Clone Size and Methylation:** In a synthetic tumor of $10^9$ cells, 12% methylated means $1.2\times10^8$ methylated cells. Expansion from one cell requires about $\log_2(10^9)=29.9$ doublings, not 50. If a neutral lineage acquires a mark with probability $10^{-7}$ per division and retains it perfectly, its 30-division probability is $1-(1-10^{-7})^{30}\approx3\times10^{-6}$; across $10^9$ endpoint cells the expected count is about 3,000. Shared ancestry makes endpoints correlated. This simple model does not explain 12%; selection, earlier founder events, different rates, or other mechanisms would be needed.
 
 ---
 
 ## Genomic Imprinting — Mechanisms and Reciprocal Phenotypes
 
-**Genomic imprinting** is a form of epigenetic regulation in which genes are expressed from a single parental [**allele**](#gl:allele) in a parent-of-origin-specific manner. ~150 genes are imprinted in humans, organized into ~30 imprinted clusters each controlled by an **imprint control region (ICR)** that is differentially methylated on the two parental chromosomes.
+**Genomic imprinting** produces parent-of-origin-dependent expression at particular loci, tissues and stages, often through germline-established imprint-control methylation. Monoallelic expression is a common outcome, not a statement about every transcript from an imprinted locus. Counts of imprinted genes and clusters depend on tissue, developmental stage and annotation criteria.
 
 ### Imprint Control Regions (ICRs) — The Master Switch
 
@@ -502,19 +479,20 @@ ICRs are **differentially methylated regions (DMRs)** that are:
 
 ### The IGF2/H19 Locus — Insulator-based Imprinting (Detailed Mechanism)
 
-The canonical example is the **IGF2/H19 locus** on chromosome 11p15:
+The canonical **IGF2/H19 locus** model on chromosome 11p15 below describes imprinted promoter usage, not every IGF2 transcript. \citet{vu1994igf2} found promoter-specific imprinting and biallelic P1 expression in adult human liver.
 
 ```mermaid
 flowchart LR
     subgraph Paternal ["PATERNAL Chromosome 11p15"]
-        pDMR["ICR/DMR\n(methylated CpGs)\nBlocks CTCF binding"] --> pIGF2["IGF2 EXPRESSED\n(growth factor)"]
-        pDMR -.->|methylation blocks| pENH["Enhancer\n→ contacts IGF2"]
-        pH19["H19 SILENCED\n(DMR methylation)"]
+        pDMR["ICR/DMR<br/>methylated CpGs"] -->|"CTCF binding blocked<br/>insulation absent"| pENH["Enhancer available to IGF2"]
+        pENH --> pIGF2["IGF2 EXPRESSED<br/>growth factor"]
+        pDMR --> pH19["H19 SILENCED<br/>DMR methylation"]
     end
     subgraph Maternal ["MATERNAL Chromosome 11p15"]
         mDMR["ICR/DMR\n(unmethylated)\nCTCF binding site"] --> mBlock["CTCF INSULATOR\nblocks enhancer-IGF2 contact"]
         mENH["Enhancer\n→ contacts H19"] --> mH19["H19 EXPRESSED\n(lncRNA; reservoir of miR-675)"]
         mIGF2["IGF2 SILENCED\n(enhancer blocked by CTCF)"]
+        mBlock -.->|"Prevents enhancer contact"| mIGF2
     end
 
     style pIGF2 fill:#e74c3c,color:#fff
@@ -522,12 +500,12 @@ flowchart LR
     style pH19 fill:#7f8c8d,color:#fff
     style mIGF2 fill:#7f8c8d,color:#fff
 ```
-<!-- alt: Flowchart showing imprinting at the IGF2/H19 locus. Paternal allele (top): DMR is methylated, CTCF cannot bind; enhancer contacts IGF2 → IGF2 expressed, H19 silent. Maternal allele (bottom): DMR unmethylated, CTCF binds and insulates enhancer from IGF2; enhancer contacts H19 → H19 expressed, IGF2 silent. -->
+<!-- alt: Flowchart showing canonical IGF2/H19 imprinted-promoter model: paternal ICR methylation reduces CTCF insulation and permits IGF2 enhancer access, whereas maternal unmethylated ICR binds CTCF and favors H19 expression. This does not describe every promoter or tissue. -->
 
-*Imprinting at the IGF2/H19 locus. Paternal allele (top): DMR is methylated, CTCF cannot bind; enhancer contacts IGF2 → IGF2 expressed, H19 silent. Maternal allele (bottom): DMR unmethylated, CTCF binds and insulates enhancer from IGF2; enhancer contacts H19 → H19 expressed, IGF2 silent.*
+*Canonical IGF2/H19 imprinted-promoter model: paternal ICR methylation reduces CTCF insulation and permits IGF2 enhancer access, whereas maternal unmethylated ICR binds CTCF and favors H19 expression. This does not describe every promoter or tissue.*
 
 **Functional consequences of the locus:**
-- **IGF2** (insulin-like growth factor 2): paternally expressed; potent fetal growth factor (signals through IGF1R / IGF2R). Drives placental and fetal growth.
+- **IGF2** (insulin-like growth factor 2): a fetal growth factor with paternal expression from specified imprinted promoters; adult human liver includes biallelic promoter usage. IGF1R mediates growth signaling, whereas IGF2R has an important ligand-clearance role.
 - **H19**: maternally expressed; a 2.3-kb spliced lncRNA; reservoir of miR-675 (which targets *IGF1R*, creating a feedback loop). In some tissues H19 itself acts as a tumor suppressor by inhibiting IGF1R signaling.
 
 ### The 15q11–q13 Locus — Prader–Willi / Angelman Mechanism
@@ -553,12 +531,12 @@ A different mechanism operates at the **15q11–q13** imprinted cluster:
 
 ### Beckwith–Wiedemann and Silver–Russell — Reciprocal Disorders
 
-The IGF2/H19 ICR also produces two reciprocal phenotypes — a textbook illustration of **dosage and parental conflict**:
+Disruption of the IGF2/H19 ICR can contribute to reciprocal growth phenotypes; these mechanisms account for subsets of heterogeneous syndromes:
 
-- **Beckwith–Wiedemann syndrome (BWS):** biallelic IGF2 expression (loss of maternal imprint, **hypermethylation** of the maternal ICR at H19) → maternal allele now expresses IGF2 like the paternal → fetal overgrowth, macrosomia (birth weight > 4 kg), macroglossia, omphalocele, hypoglycaemia, hemihyperplasia, and a 7.5 % risk of childhood embryonal tumors (Wilms tumor, hepatoblastoma, neuroblastoma, rhabdomyosarcoma). Diagnosis: methylation analysis of the H19 DMR shows hypermethylation; some cases also have paternal UPD of 11p15 (~20 %).
-- **Silver–Russell syndrome (SRS):** biallelic H19 expression / no IGF2 (loss of paternal imprint, **hypomethylation** of the paternal ICR) → paternal allele now silent like the maternal → severe intrauterine growth restriction (IUGR), postnatal short stature, body asymmetry, characteristic triangular face, fifth-finger clinodactyly. Diagnosis: hypomethylation of the H19 DMR (~50 %) or maternal UPD of chromosome 7 (~10 %).
+- **Beckwith–Wiedemann syndrome (BWS), an IGF2/H19 mechanism:** maternal ICR hypermethylation can reduce CTCF insulation and increase maternal IGF2 expression, contributing to overgrowth. Other molecular etiologies involve the second 11p15 imprinting domain, CDKN1C or paternal UPD; a single IGF2 measurement is not a complete diagnosis or universal tumor-risk estimate.
+- **Silver–Russell syndrome (SRS), an IGF2/H19 mechanism:** paternal ICR hypomethylation can increase insulation and reduce IGF2 expression, contributing to growth restriction. Maternal UPD7 and other molecular etiologies are distinct; neither syndrome is defined by a universal deletion or complete loss of all IGF2 transcripts.
 
-This "mirror image" pair illustrates the **parental-conflict (kinship)** theory: paternally-expressed growth factors maximize embryonic growth (paternal genes care less about maternal resources, since the same father may not father subsequent siblings); maternally-expressed antagonists restrain growth (the mother distributes resources across multiple offspring).
+**Parental-conflict (kinship) theory** makes conditional evolutionary predictions from parent-of-origin relatedness asymmetries, commonly illustrated by multiple paternity. These are hypotheses about resource allocation, not a rule that every paternal gene promotes growth or every maternal gene restrains it.
 
 > **Concept Check 5:** A child is born with severe IUGR, characteristic facial features, and asymmetric limbs. Methylation analysis shows that both the paternal and maternal copies of the 11p15.5 ICR are *hypomethylated*. Predict the likely diagnosis. Explain why hypermethylation versus hypomethylation at the *same* ICR produces *opposite* phenotypes (BWS vs SRS).
 
@@ -572,7 +550,7 @@ In female placental mammals, dosage compensation for ~900 X-linked genes is achi
 - **Random choice:** Either the maternal or paternal X can be inactivated in each cell (choice is random in each blastomere nucleus). Imprinted paternal X-inactivation occurs in mouse extra-embryonic lineages but not in humans.
 - **Clonal maintenance:** Once established (~day 4.5 in human embryo), the inactive state is mitotically heritable in most daughter cells — the same X is silenced across essentially every descendant in a lineage, with rare stochastic exceptions and age-related skewing in tissues such as blood.
 - **Barr body:** The inactive X (Xi) forms a dense heterochromatic body (Barr body) visible by interphase cytology.
-- **Incomplete:** ~15–25% of X-linked genes **escape** inactivation. Most escapees lie in the **pseudoautosomal regions (PAR1, PAR2)** that recombine with the Y; others (e.g., *KDM6A*, *KDM5C*, *DDX3X*, *ZFX*) escape across the X. Escape genes contribute to female-biased autoimmune disease and to Turner syndrome haploinsufficiency phenotypes.
+- **Incomplete:** Escape varies among genes, tissues and individuals. Many PAR1 genes escape, but not every pseudoautosomal gene follows one rule, and escapees also occur outside PARs. \citet{tukiainen2017xci} found incomplete XCI affecting at least 23% of assessed X-chromosomal genes in their multi-tissue study; that denominator is not a universal tissue-specific percentage.
 
 **Molecular mechanism — a hierarchical cascade (timing and milestones):**
 
@@ -607,18 +585,11 @@ where $g(x)$ is the distribution of X-inactivation skewing across cells. **Skewe
 
 > **Worked Example 3 — Predicting penetrance from XCI skewing**
 >
-> **Setup:** A female patient is heterozygous for a Duchenne muscular dystrophy (DMD) deletion. Muscle weakness is observed in cells where the wild-type (active) allele is on the inactivated X. Assume that DMD muscle fibers are syncytial (myofibres pool many nuclei); a fiber is dystrophic if > 50 % of its nuclei express the deleted allele.
+> **Setup:** This synthetic calculation is not a validated DMD penetrance model. A fiber contains 20 independent nuclei; each expresses the mutant allele with probability 0.5. Define a hypothetical affected fiber as one with more than 10 mutant-expressing nuclei.
 >
-> **Question:** If XCI is unbiased (mean skewing = 0.5, standard deviation σ_skew = 0.05 across mononuclear cells), what fraction of myofibres will be dystrophic? What if the patient has clonal-skewing where σ_skew = 0.20?
+> **Solution:** $K\sim\mathrm{Binomial}(20,0.5)$. Symmetry gives $P(K>10)=[1-\binom{20}{10}/2^{20}]/2\approx0.4119$. A continuous symmetric distribution would place half its mass strictly above its mean; increasing symmetric variance alone does not imply 0% then 25% above 0.5.
 >
-> **Solution:**
-> A fiber is dystrophic if more than half its nuclei have the wild-type allele inactivated. With *N* = 20 nuclei per fiber and a per-nucleus probability *x* of expressing the deleted allele (= probability wild-type X is inactivated), the fiber is dystrophic when more than *N*/2 nuclei out of *N* express the deleted allele.
->
-> For unbiased XCI, *x* per nucleus ≈ 0.5, σ_x = 0.05. Per fiber, the average fraction of mutant-expressing nuclei ≈ 0.5 ± 0.05/√20 ≈ 0.5 ± 0.011. Almost no fibers exceed 50 % (by about σ_fibre × 1 ≈ 1 %).
->
-> For clonal-skewing σ_skew = 0.20 across mononuclear precursors, mean per-fiber fraction is 0.5 but with much wider variance: σ_fibre ≈ 0.20/√20 ≈ 0.045. Now ~25 % of fibers exceed 50 % mutant expression and become dystrophic.
->
-> **Insight:** Manifesting Duchenne muscular dystrophy in heterozygous female carriers (~10 % show muscle weakness) is largely explained by **age-acquired XCI skewing** in hematopoietic and myogenic precursors. Treatment strategies: skewing-modulating ASOs to redirect XCI; or AAV-DMD gene therapy (rebalancing dystrophin expression).
+> Real fibers share precursor clones and dystrophin can act across nuclear domains. Correlation, tissue-specific XCI, nuclear number, and a biologically validated response threshold must be measured before predicting symptoms; a blood XCI assay is not a direct muscle-fiber readout.
 
 > **Concept Check 6:** A 4-year-old girl is diagnosed with severe Rett syndrome. Sequencing reveals a heterozygous loss-of-function mutation in *MECP2*. XCI analysis shows 95 % skewing toward inactivation of the *wild-type* allele. Explain (i) why this skewing pattern produces severe disease, (ii) why some Rett patients with the same mutation are mildly affected, and (iii) whether modulating XCI skewing therapeutically could be a treatment strategy.
 
@@ -683,7 +654,7 @@ The mammalian BAF complex contains 12–15 subunits, including ATPase BRG1 or BR
 
 ### Targeted Epigenome Editing with dCas9 Fusions
 
-The CRISPR toolkit has expanded far beyond DNA cutting. A catalytically dead **dCas9** (D10A + H840A) retains its ability to be guided to a specific DNA sequence by a sgRNA but no longer cleaves — turning it into a programmable DNA-binding scaffold. Fusing dCas9 to an epigenetic enzyme creates a targeted "writer" or "eraser" of chromatin state \citep{doudna2014}:
+The CRISPR toolkit extends beyond DNA cutting. Catalytically dead **dCas9** (D10A + H840A) retains guide-directed DNA binding without Cas9 nuclease activity. Fusing a chromatin enzyme aims to enrich writer or eraser activity near a selected locus; intended targeting does not establish exclusive local activity, durable effects or clinical safety. Compare non-targeting guides, dCas9-only and catalytic-dead fusions, and measure target and off-target marks, expression and phenotype \citep{doudna2014}:
 
 : Targeted Epigenome Editing with dCas9 Fusions: Fusion and Function. {#tbl:unit_IV_chromatin_and_epigenetic_mechanisms_targeted_epigenome_editing_with_dcas9_fusions}
 | Fusion | Function | Experimental / clinical use |
@@ -696,7 +667,7 @@ The CRISPR toolkit has expanded far beyond DNA cutting. A catalytically dead **d
 | dCas9–VPR (VP64-p65-Rta) | Transcriptional activation | **CRISPRa** — ~10-to-1000-fold induction |
 | dCas9–PRC1 (RING1B–PCGF4) | H2AK119ub deposition | Polycomb-style silencing |
 
-The clinical promise is substantial: a dCas9–DNMT3A targeting the *HBG1/2* promoter re-activates fetal hemoglobin in adult β-thalassaemia patients without permanent genome modification. CRISPRoff-induced silencing of *PCSK9* in liver cells is being pursued for hypercholesterolaemia. The key limitation is off-target [**epigenome**](#gl:epigenome) editing — bystander methylation at sequence-similar loci — which the field now addresses with paired-sgRNA and split-dCas9 designs.
+In a 2025 preclinical study, dCas9-TET1 removed methylation at fetal-globin promoters, alone or with CBP-dCas9 acetylation, and reactivated γ-globin in patient-derived erythroid cells, including sickle-cell disease cells \citep{amistadi2025hbf}. This was not treatment of adult patients with a DNMT3A fusion: DNMT3A writes promoter methylation and would test repression instead. Delivery, durability, off-target activity, and cell-state dependence remain translational constraints.
 
 > [!NOTE]
 > Unlike Cas9-mediated gene editing, epigenome editing is **reversible**: the perturbation fades unless it is self-reinforcing through mitotic heritability of DNA methylation. This makes it attractive as a research tool (transient perturbation) and a therapy (tunable, removable), but means durable clinical effects require either continuous dCas9 expression or recruitment of self-propagating chromatin states (e.g., H3K27me3 spreading by PRC2).

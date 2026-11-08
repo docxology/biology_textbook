@@ -1,187 +1,115 @@
 # Lab — Population Ecology and Growth Models {#sec:lab_unit_X_population_ecology .unnumbered}
 
+*This activity accompanies \cref{sec:unit_X_population_ecology}.*
 
 ## Learning Objectives {.unnumbered}
 
-*This activity accompanies \cref{sec:unit_X_population_ecology} of the textbook — review that chapter before attempting the exercises below.*
-
-- Fit logistic and exponential growth equations to real or simulated population data
-- Calculate intrinsic rate of increase (r) and carrying capacity (K) from population time series
-- Apply the mark-recapture method (Lincoln-Petersen) to estimate population size
-- Evaluate density-dependent vs density-independent limiting factors from case study data
-- Interpret colony founding and fragmentation scenarios where Allee effects change social-insect population trajectories
-
+- Compare exponential/logistic fits and finite-step error.
+- Test a strong-Allee threshold with supplied colony records.
+- Estimate abundance from complete capture histories.
+- Separate harvest and viability decisions from fixed-model predictions.
 
 <!-- lab-alignment-start -->
 ### Alignment and Rubric Map {.unnumbered}
 
-- **Outcome 1 (LO1):** Interpret the supplied evidence or model output for Population Ecology and Growth Models.
-- **Outcome 2 (LO2):** Identify controls and comparison groups that make the claim testable.
-- **Outcome 3 (LO3):** Quantify uncertainty, boundary conditions, or alternative explanations before concluding.
-- **Outcome 4 (LO4):** Transfer the mechanism to a new biological case or public-facing decision.
-- **Chapter LO coverage:** LO1, LO2, LO3, LO4
-- **Rubric dimensions:** evidence; controls; uncertainty; mechanism; transfer.
+- **Outcome 1 (LO2):** Compare exponential/logistic fits and finite-step error.
+- **Outcome 2 (LO4):** Test a strong-Allee threshold with supplied colony records.
+- **Outcome 3 (LO8):** Estimate abundance from complete capture histories.
+- **Outcome 4 (LO10):** Separate harvest and viability decisions from fixed-model predictions.
+
+
+
+: Alignment and evidence-specific scoring. {#tbl:unit_X_population_ecology_alignment_and_rubric_map}
+| Dimension | 4-point evidence requirement |
+| --- | --- |
+| Evidence | growth/capture/matrix/harvest computations with time units |
+| Controls | closedmarkedpond and controlledcolonycomparison |
+| Uncertainty | rounding,timestep,capturebias andPVA scenario uncertainty |
+| Mechanism | densitydependence,Allee mechanism andstageversusage distinction |
+| Transfer | harvest/viability recommendation with explicit endpoint |
+
+Each dimension is worth 4 points (total 20): award 4 for a correct supported response, 2 for a partially correct response with an important omission, 1 for a relevant but unsupported assertion, and 0 for absent/incorrect work. The evidence column states the actual product required, not a generic participation criterion.
 <!-- lab-alignment-end -->
-## Pre-Lab Concept Questions {.unnumbered}
 
-*Answer these before starting the investigation — they activate knowledge from the parent chapter.*
+## Lab Context {.unnumbered}
 
-1. Write the logistic growth equation dN/dt = rN(K − N)/K. Define each symbol and describe in two sentences what happens to dN/dt as N approaches K from below and from above.
-2. Distinguish density-dependent from density-independent regulation, giving one biological example of each. State which type of regulation would more plausibly stabilize a population near its carrying capacity over time.
-3. Sketch the three classic survivorship curves (Types I, II, III) and identify one organism whose life history matches each. In one sentence per type, explain how the curve's shape reflects the timing of mortality across the life cycle.
-
-## Lab Context: Population Ecology and Growth Models {.unnumbered}
-
-Population growth follows exponential growth (dN/dt = rN) when resources are unlimited, and logistic growth (dN/dt = rN(1 − N/K)) as populations approach the carrying capacity K. Real populations fluctuate around K due to density-dependent factors (competition, predation, disease — intensify as N increases) or may crash due to density-independent factors (storms, droughts — unrelated to N). The Lincoln-Petersen mark-recapture estimate: N̂ = (M × C) / R, where M = initial marked individuals, C = recapture sample size, R = recaptured marked individuals.
-
-The logistic-growth projection worked example in the parent chapter (\cref{sec:unit_X_population_ecology}) shows that with $r = 0.2$/yr and $K = 1000$, a population starting at $N_0 = 100$ reaches roughly 451 at $t = 10$ and 858 at $t = 20$, illustrating the S-curve's characteristic acceleration below $K/2$ and deceleration above it. This lab generates analogous growth data so students can test which model (exponential vs. logistic) better fits observed population trajectories.
+All series and capture histories are synthetic. Parameters illustrate mechanisms, not forecasts for yeast, deer, moths or social-insect species.
 
 ## Paper-Based Materials {.unnumbered}
 
-: Alignment and Rubric Map: Item and Quantity. {#tbl:unit_X_population_ecology_alignment_and_rubric_map}
-| Item | Quantity |
-| ---- | -------- |
-| Source-governance card for Population Ecology and Growth Models: conservation-assessment source card: index versus census, assessment version, value judgment, and monitoring trigger | 1 |
-| Population time series data (printed: 3 species — moth (exponential), snowshoe hare (oscillating), logistic yeast) | 1 |
-| Graph paper or spreadsheet template | 1 |
-| Calculator | 1 |
-| Mark-recapture card deck or printed capture-history table | 1 |
-| Management scenario cards for invasive species, harvested fisheries, climate-driven range shifts, and eusocial colony founding or fragmentation | 1 set |
+Print this entire packet including its supplied tables; use paper, pencil and a calculator. Graph paper is optional. Everything needed for the core investigation is printed below. Optional code or literature links are not required observations.
+
+## Supplied Evidence Packet {.unnumbered}
+
+
+: Population time series. {#tbl:unit_X_population_ecology_alignment_and_rubric_map_2}
+| Time | Yeast(cells/mL) | Introducedmoth(count) | Hareindex |
+| --- | --- | --- | --- |
+| 0 | 10 | 10 | 50 |
+| 1 | 18 | 20 | 70 |
+| 2 | 31 | 40 | 100 |
+| 3 | 50 | 80 | 140 |
+| 4 | 69 | 160 | 160 |
+| 5 | 83 | 320 | 140 |
+| 6 | 92 | 640 | 100 |
+| 7 | 96 | 1280 | 70 |
+| 8 | 98 | 2560 | 50 |
+| 9 | 99 | 5120 | 40 |
+| 10 | 100 | 10240 | 50 |
+
+
+: Capture histories and density experiment. {#tbl:unit_X_population_ecology_alignment_and_rubric_map_3}
+| Record | Supplied data | Assumptions |
+| --- | --- | --- |
+| Firstcapture | IDs1–50marked,released | marks retained, no harm |
+| SecondcaptureA | 30 fish;markedIDs1–5;25unmarked | MC/R; independent mixing |
+| SecondcaptureB | 30 fish;markedIDs6–11;24unmarked | alternative independent sample, not merged |
+| Knownpondcensus | 300 fish | for relative-error comparison only |
+| Deer | N100/300/500,K500,r.2yr−1 | fixed logistic |
+| Modelcheck | N0=50,K500,r.3,t=10yr | analytic versus Euler; not observed series |
+
+
+: Colony Allee, harvest and viability cards. {#tbl:unit_X_population_ecology_packet_4}
+| Case | Given | Task |
+| --- | --- | --- |
+| Colony founding | A20, K200, r.4 yr−1; N10/30/100; dN/dt=rN(1−N/K)(N/A−1) | sign and per-capita rates |
+| Replicate founding outcomes | N10:0/10 survive; N30:6/10; N100:9/10 at1 yr | synthetic associations, not proof alone |
+| Fish harvest | r.2 yr−1, K500000 fish; N100000 | growth and MSY |
+| Stochastic PVA | N50:200/1000 extinctions by100 yr; N200:40/1000 | specified scenario only |
+| Stage matrix | rows [0,0,2], [.4,0,0], [0,.5,.5]; initial [50,20,10] | stages, not strict ages |
+
+Calculation reference: the three printed time series use arbitrary shared time units, not asserted species-specific years. For fixed-r,K logistic growth use N(t)=K/[1+(K/N0−1)exp(−rt)], dN/dt=rN(1−N/K), and per-capita growth r(1−N/K). For the yeast increment comparison estimate r from the first interval as (N1−N0)/[N0(1−N0/K)], with K estimated from its plateau; do not borrow r from the separate deer/model-check cards. In the stage model, multiply the printed matrix by the column vector of stage counts; columns identify source stages and rows destination stages. PVA persistence=1−extinctions/runs for the printed100-year horizon.
 
 ## Paper-Based Investigation {.unnumbered}
 
-**Part A — Growth Curve Fitting**
-
-1. Plot the three population time series on graph paper. For the yeast data, identify: lag phase, exponential phase, plateau (K).
-2. Estimate K from the plateau of the logistic curve.
-3. Estimate r from the exponential phase: r ≈ (ln N₂ − ln N₁) / (t₂ − t₁) during the period of fastest growth.
-
-**Part B — Mark-Recapture**
-
-4. Use the printed capture-history table: M = 50 initially marked individuals and C = 30 individuals in the recapture sample. Count the marked recaptures (R) in the table and calculate Nhat = (50 x 30) / R.
-5. Repeat the calculation for the second printed sampling event. Compare both estimates with the known simulated population size and calculate percent error.
-
-**Part C — Density Dependence Analysis**
-
-6. Given data on white-tailed deer population growth rate (r) vs density in 4 regions: plot r vs N/K (relative density). Identify whether r decreases with increasing density (density-dependent regulation) — this confirms a logistic pattern.
-
-**Part D — Colony Allee-Effect Scenario**
-
-7. Use the colony scenario cards to decide whether a founding ant, bee, or termite colony is below or above an Allee threshold. Record the worker number, queen survival, foraging success, and brood-care constraint that supports your classification, then predict whether the colony grows, stalls, or collapses.
+1. Plot all series on linear and log axes. Estimate moth r=ln(Nt/N0)/t and yeast K. Estimate yeast r from its first increment using the printed rule, then compare later increments with rN(1−N/K). Rounded observations do not establish an exact law, and a monotone curve cannot explain the hare cycle.
+2. Use N=MC/R for each capture. Report absolute and relative error versus 300. Explain mark loss, unequal catchability and migration biases; the printed sample contains an integer number of marked fish.
+3. Compute deer per-capita and total growth. For N0=50, K=500, r=.3, compare exact logistic N10 with one forward-Euler step of 10 years: N10≈N0+10rN0(1−N0/K). Explain why such a coarse step is not a credible trajectory; propose smaller-step convergence comparison.
+4. Compute colony growth signs and per-capita rates. Design a worker-number experiment controlling queen condition, food and disease. Project the stage matrix once and twice.
+5. Compare fish growth at N100000 with rK/4 and identify the abundance maximizing growth. Interpret the PVA scenario; genetic Ne guidelines are not census-MVP predictions.
 
 ## Data Recording {.unnumbered}
 
-Logistic yeast data:
-
-: Alignment and Rubric Map: Time (h) and Population (cells/mL). {#tbl:unit_X_population_ecology_alignment_and_rubric_map_2}
-| Time (h) | Population (cells/mL) | ln N |
-| -------- | --------------------- | ----- |
-| 0 | 10 | |
-| 6 | 80 | |
-| 12 | 410 | |
-| 18 | 1,200 | |
-| 24 | 2,800 | |
-| 36 | 3,900 | |
-| 48 | 4,100 | |
-
-Estimated K = ___; Estimated r = ___
-
-Mark-recapture: M = 50; C = 30; R = ___; N̂ = ___
-Second sampling estimate: R = ___; N̂ = ___; percent error from known simulated N = ___%
-
-<!-- lab-evidence-checklist-start -->
-## Evidence and Reproducibility Checklist {.unnumbered}
-
-- **Primary evidence goal:** Model population trajectories and compare sampling methods.
-- **Data skill to practice:** Use abundance or age-structure data to estimate growth and risk.
-- **BioSkills emphasis:** Modeling and simulation, Science and society, Communication and collaboration.
-- **Control logic:** identify at least one positive control, one negative control, or one baseline comparison before interpreting results.
-- **Measurement discipline:** record units, uncertainty, sample size, and any discarded observation with a reason.
-- **Mechanistic link:** connect one result directly to the parent chapter's big idea before writing the conclusion.
-- **Reproducibility check:** state one procedural detail that another group would need in order to reproduce the result.
-<!-- lab-evidence-checklist-end -->
+For each task record: given inputs with units; equation/assumption; intermediate arithmetic; result with units; replicate identifier; comparison/control; and one limitation. Draw graphs with labeled axes and retain individual observations rather than only a fitted line. Report range or sampleSD where replicates are supplied; do not invent confidence intervals from absent data.
 
 ## Paper-Based Evidence Upgrade {.unnumbered}
 
-Before answering the analysis questions, annotate the paper dataset for
-**Population Ecology and Growth Models** with a reproducibility pass:
+An optional canonical logistic_growth(N0,r,K,t_end,steps) returns a result with populations. It is a numerical model; compare convergence against the supplied analytic formula. The continuous fixed-r,K logistic equation does not generate chaos.
 
-: Alignment and Rubric Map: Evidence check and Student action. {#tbl:unit_X_population_ecology_alignment_and_rubric_map_3}
-| Evidence check | Student action |
-| --- | --- |
-| Control logic | Mark the comparison that functions as the baseline, negative control, or reference case. |
-| Uncertainty | Circle the row, card, diagram feature, or model assumption most likely to change the conclusion. |
-| Model comparison | State whether a simpler rule, null model, or alternative mechanism could explain the same pattern. |
-| Decision threshold | Write the minimum evidence that would make you revise the interpretation. |
-| Reproducibility | Record the exact scoring rule another group would need to reproduce your classification. |
+## Analysis and Submission {.unnumbered}
 
-Focus note: for this population lab, state the demographic model behind each printed estimate (exponential, logistic, or mark-recapture), check whether its assumptions about density dependence, closure, and detection hold for the simulated capture histories, and tie any harvest or recovery conclusion to an explicit management objective. Keep required work paper-based; any material-handling or
-equipment version belongs only in an optional extension.
+Submit labeled diagrams and calculations for every numbered investigation task, a concise results table or graph, and a claim–evidence–mechanism paragraph. Close with the strongest alternative explanation, a discriminating control, and a transfer decision whose assumptions are explicit. Clearly distinguish synthetic observations from cited biological mechanisms.
 
-### Worked Example: Logistic Growth Rate Below Carrying Capacity {.unnumbered}
+## Safety and Ethics {.unnumbered}
 
-**Problem:** A population growing under logistic dynamics has intrinsic growth rate r = 0.18/yr and carrying capacity K = 1,200. The current population size is N = 300. (a) Calculate the instantaneous growth rate dN/dt. (b) Estimate N after one year using the Euler approximation N_1 ≈ N_0 + (dN/dt) × Δt with Δt = 1 yr. (c) Compute (K − N)/K and interpret what fraction of the logistic "brake" is currently engaged.
+This is a paper-only exercise. Do not collect human/animal specimens, administer drugs, conduct stimulation or release organisms. Synthetic clinical-style patterns are not diagnoses or treatment advice. Respect source attribution, participant privacy, local rights and ecological uncertainty.
 
-**Solution:** (a) dN/dt = r × N × (K − N)/K = 0.18 × 300 × (1,200 − 300)/1,200 = 0.18 × 300 × 0.75 = 40.5 individuals/yr. (b) N_1 ≈ 300 + 40.5 × 1 = 340.5 individuals — round down to 340 for a discrete count. (c) (K − N)/K = 900/1,200 = 0.75, so the population is at 25% of K and the density-dependent brake (1 − N/K) is still 0.75 of its maximum.
+<!-- SOLUTION
+### Instructor Worked Key {.unnumbered}
 
-**Interpretation:** The population is in its near-exponential phase: most of the logistic term (K − N)/K is still close to 1, so growth is fast relative to the rate it will show near K. As N rises toward K, the brake term shrinks toward zero and dN/dt falls smoothly to zero at N = K. The Euler step is acceptable for one-year projections at low N relative to K, but it overshoots the true logistic trajectory when N grows enough within the year to change the brake substantially.
+Moth r=ln2=.693147 per time unit; yeast plateau≈100. Hare values cycle over 10 time units. Capture estimates 300 and 250 have relative errors 0 and 16.667%. Deer per-capita growth=.16, .08, 0 yr−1; totals 16, 24, 0. Analytic model N10≈345.284; the single-step Euler estimate 185 underestimates by 160.284. Coarse-step error is not biological evidence of oscillation. Colony per-capita rates −.19, .17, .8 yr−1 give total growth −1.9, 5.1, 80. A fixed threshold A defines strong Allee dynamics; survival associations alone have alternatives. Stage projections are [20,20,15], then [30,8,17.5]. Fish growth 16000 fish/yr versus MSY 25000 at N=250000. PVA persistence 80% and 96% is conditional on the specified model.
 
-### Source-Governance Checkpoint {.unnumbered}
+With yeast K≈100, the first-interval increment 8 gives illustrative r≈8/[10×.9]=.888889 per time unit. For the next interval this predicts 13.12 cells/mL versus the printed increment 13; at N=31 it predicts 19.0133 versus 19. Such comparisons assess a rough finite-step model, not proof of an exact differential equation. Capture absolute errors are 0 and 50 fish; the second estimate undercounts. The Allee r is .4 yr−1 for the founding model, so its per-capita rates and the one-year outcome comparison share that time unit.
 
-Complete the source-governance card for Population Ecology and Growth Models before writing the conclusion. Name the source type or model snapshot, record the evidence date or version, decide whether the claim is stable or fast-moving, and write one refresh trigger that would force the interpretation to change. Treat the card as a printed evidence object, not as a live web lookup.
-
-## Analysis Questions {.unnumbered}
-
-1. Why does the yeast population growth slow as it approaches K? Use the term "intraspecific competition" and identify two specific density-dependent resources that become limiting.
-2. Snowshoe hare populations cycle with ~10-year periodicity (tied to lynx cycles). Is this best explained as: (a) density-dependent predation; (b) density-independent weather events; or (c) a two-species coupled oscillator? Describe the evidence.
-3. Your two mark-recapture estimates probably differed slightly. List three assumptions of the Lincoln-Petersen method and explain which assumption is most likely violated in the printed capture-history simulation.
-4. Invasive species often exhibit exponential growth in new habitats. Name a specific invasive species, identify what density-dependent factor is absent in the new habitat, and predict when/how logistic behavior will eventually emerge.
-5. Apply a fisheries management scenario: a cod population has K = 500,000 tonnes and r = 0.2/year. Using the maximum sustainable yield formula (MSY = rK/4), calculate the MSY and the population size at MSY (N = K/2). If fishing reduces the population below K/4, explain why the population will continue to decline even if fishing stops.
-6. A newly founded termite or ant colony has a queen and a small worker force. Explain why a colony can show an Allee effect even when each surviving worker is healthy. Which demographic variable would you monitor to distinguish ordinary density dependence from a threshold caused by brood care, foraging, or nest defense?
-
-
-## Post-Lab Synthesis {.unnumbered}
-
-> **Concept Check (Synthesis):** A species with a Type III survivorship curve produces many offspring but has high juvenile mortality and relatively high adult survival once individuals reach reproductive age. A manager must choose between two interventions: (i) protecting juveniles (e.g., headstarting hatchlings, predator exclusion at nurseries) or (ii) protecting adults (e.g., reducing bycatch of reproductive individuals).
->
-> (a) Using reproductive-value theory, predict which intervention is likely to produce faster population recovery in a Type III species. Explain why the reproductive value of an adult, particularly a prime-aged breeder, tends to outweigh that of an individual juvenile, and tie the argument to how reproductive value typically peaks near the age of first reproduction.
-> (b) Identify one situation in which the juvenile-protection strategy would still be the preferred choice — for example, when adult mortality is already low and juvenile survival is the demographic bottleneck. Propose one measurement from the lab's life-table analysis that would help a manager decide between the two strategies in practice.
-
-## Safety and Ethics Notes {.unnumbered}
-
-No hazardous materials or living specimens are required. When discussing harvested or invasive species, maintain ecological objectivity and identify uncertainty in population estimates.
-
-## Debrief and Reflection {.unnumbered}
-
-After you finish the practical work, spend 5–10 minutes in your small group
-comparing results and discussing the following prompts. Each member should
-contribute at least one observation before moving to the next prompt:
-
-1. **What did your measurements show** — compare the group's results to
-   the textbook's predictions. Where they diverge, suggest at least one
-   mechanistic explanation before concluding "experimental error."
-2. **What would change the outcome** — propose one modification to the
-   procedure that would sharpen the measurement or extend the result to a
-   new biological context, and predict what you would observe.
-3. **One-sentence headline** — each student composes a single sentence
-   summarizing the lab's take-home message, suitable for a tweet. Compare
-   sentences across groups; good headlines are short, quantitative, and
-   mechanistic.
-4. **Connection back to the textbook** — identify one section of
-   \cref{sec:unit_X_population_ecology} that your data either confirmed or
-   complicated. Cite the specific passage.
-
-## Further Reading (Lab) {.unnumbered}
-
-- Revisit the parent chapter \cref{sec:unit_X_population_ecology} for the theoretical
-  foundations on which this lab is built.
-- Look up any **bolded glossary term** introduced in the textbook chapter
-  (each has a `#gl:term-slug` link in the text) — its master
-  definition is in `docs/manuscript/glossary.md`.
-- Explore the appended `src/` module that implements the corresponding
-  quantitative model (when applicable) — referenced in the parent
-  chapter's "Bridge to Computation" subsection.
-
-*Module footer: parent chapter `\cref{sec:unit_X_population_ecology}`; all numerical
-quantities in this lab use SI units — see \nameref{sec:appendix_units_and_constants} for
-unit conversions and biological-scale reference values.*
+Accept equivalent correctly bounded reasoning. Check the complete working, units, control logic and uncertainty—not agreement with a preferred narrative.
+-->

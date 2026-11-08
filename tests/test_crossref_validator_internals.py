@@ -13,7 +13,6 @@ from pathlib import Path
 
 import pytest
 
-
 PROJECT = Path(__file__).resolve().parent.parent
 MOD_PATH = PROJECT / "src" / "biology" / "crossref_validator.py"
 
@@ -262,7 +261,10 @@ def test_issue_as_row_and_report_summary(v, tmp_path: Path) -> None:
 
 
 def test_section_reference_uses_nameref_for_unnumbered_labels() -> None:
-    from biology.crossref.helpers import normalize_unnumbered_section_crefs, section_reference
+    from biology.crossref.helpers import (
+        normalize_unnumbered_section_crefs,
+        section_reference,
+    )
 
     assert section_reference("sec:lab_unit_I_atoms_molecules") == "\\nameref{sec:lab_unit_I_atoms_molecules}"
     assert section_reference("sec:unit_I_atoms_molecules") == "\\cref{sec:unit_I_atoms_molecules}"

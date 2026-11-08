@@ -5,9 +5,9 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
+from biology.crossref.helpers import generated_block_lines
 from biology.maintenance.manuscript_walker import configured_chapter_title_by_path
 from biology.quality.models import Finding
-from biology.crossref.helpers import generated_block_lines
 from biology.quality.patterns import (
     COMPANION_SOURCE_MODULE_HEADING_RE,
     PAPER_EVIDENCE_UPGRADE_HEADING_RE,

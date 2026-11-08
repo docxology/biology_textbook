@@ -1,0 +1,10 @@
+{
+  "name": "biology-textbook-diagrams",
+  "private": true,
+  "dependencies": {
+    "@mermaid-js/mermaid-cli": "12.2.0"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}

@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 import json
+import subprocess
 from pathlib import Path
 
 import pytest
 
+from biology.crossref.source import visible_text
 from biology.pipeline.analysis_smoke import run_domain_smoke
 from biology.pipeline.collection import collect_ordered_chapters, load_config
 from biology.pipeline.injection import (
@@ -15,12 +17,8 @@ from biology.pipeline.injection import (
     instructor_preamble_text,
     reveal_solutions,
 )
-from biology.pipeline.numbering import (
-    MAIN_NUMBERING_DIRECTIVE,
-    UNIT_ZERO_NUMBERING_DIRECTIVE,
-    section_numbering_directives,
-)
-from biology.pipeline.paths import MANUSCRIPT_DIR, OUTPUT_DIR, PROJECT_ROOT
+from biology.pipeline.numbering import section_numbering_directives
+from biology.pipeline.paths import MANUSCRIPT_DIR
 from biology.pipeline.registries import write_figure_registry, write_visual_manifest
 from biology.pipeline.report import build_analysis_report, write_analysis_report
 
@@ -42,23 +40,25 @@ def test_reveal_solutions_normalizes_unicode_math_symbols() -> None:
     assert "𝜑" not in result
 
 
-def test_section_numbering_directives_for_unit_zero_and_main() -> None:
+def test_reveal_solutions_preserves_literal_fenced_examples() -> None:
+    example = "```html\n<!-- SOLUTION\nA literal authoring example.\nSOLUTION -->\n```\n"
+    assert reveal_solutions(example) == example
+
+
+def test_numbering_directives_do_not_become_reader_prose() -> None:
     unit_zero_chapter = MANUSCRIPT_DIR / "unit_0" / "systems_science.md"
     unit_one_intro = MANUSCRIPT_DIR / "unit_I" / "unit_intro.md"
     unit_one_chapter = MANUSCRIPT_DIR / "unit_I" / "atoms_molecules.md"
-    if not unit_zero_chapter.exists():
-        pytest.skip("manuscript not present in this checkout")
+    directives = section_numbering_directives([unit_zero_chapter, unit_one_intro, unit_one_chapter])
+    reader = subprocess.run(
+        ["pandoc", "--from=markdown+raw_tex", "--to=plain", "--wrap=none"],
+        input=f"{directives[unit_zero_chapter.resolve()]}\n\n# Opening\n\n"
+        f"{directives[unit_one_intro.resolve()]}\n\n# Main\n",
+        capture_output=True, text=True, check=True,
+    )
+    assert reader.stdout.split() == ["Opening", "Main"]
 
-    ordered = [unit_zero_chapter, unit_one_intro, unit_one_chapter]
-    directives = section_numbering_directives(ordered)
-    assert directives[unit_zero_chapter.resolve()] == UNIT_ZERO_NUMBERING_DIRECTIVE
-    assert directives[unit_one_intro.resolve()] == MAIN_NUMBERING_DIRECTIVE
 
-
-def test_pipeline_paths_resolve_to_project_root() -> None:
-    assert PROJECT_ROOT.name == "biology_textbook" or PROJECT_ROOT.is_dir()
-    assert MANUSCRIPT_DIR == PROJECT_ROOT / "docs" / "manuscript"
-    assert OUTPUT_DIR == PROJECT_ROOT / "output" / "manuscript"
 
 
 def test_load_config_and_collect_ordered_chapters() -> None:
@@ -102,15 +102,11 @@ def test_write_figure_registry_and_visual_manifest(tmp_path: Path, monkeypatch: 
     injected_dir = tmp_path / "output" / "manuscript"
     injected_dir.mkdir(parents=True)
     injected_dir.joinpath("sample.md").write_text(
-        "\n".join(
-            [
-                "\\begin{figure}",
-                "\\includegraphics{../figures/demo.png}",
-                "\\caption{Demo}",
-                "\\label{fig:unit_I_demo}",
-                "\\end{figure}",
-            ]
-        ),
+        "\\begin{figure}\n"
+        "\\includegraphics{../figures/demo.png}\n"
+        "\\caption{Demo}\n"
+        "\\label{fig:unit_I_demo}\n"
+        "\\end{figure}",
         encoding="utf-8",
     )
     monkeypatch.setattr("biology.pipeline.registries.OUTPUT_DIR", injected_dir)
@@ -156,15 +152,13 @@ def test_clear_stale_slide_artifacts_removes_files(tmp_path: Path, monkeypatch: 
     assert list(slides.iterdir()) == []
 
 
-def test_inject_chapters_reveals_solutions_and_copies_aux(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    manuscript = tmp_path / "manuscript"
-    manuscript.mkdir()
-    (manuscript / "config.yaml").write_text("paper:\n  title: Demo\n", encoding="utf-8")
-    cover = manuscript / "assets" / "cover"
-    cover.mkdir(parents=True)
-    (cover / "cover.png").write_bytes(b"png")
-
-    source = tmp_path / "chapter.md"
+@pytest.mark.parametrize("include_solutions", [False, True])
+def test_injection_controls_instructor_answer_visibility(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, include_solutions: bool,
+) -> None:
+    manuscript = tmp_path / "docs" / "manuscript"
+    manuscript.mkdir(parents=True)
+    source = manuscript / "chapter.md"
     source.write_text(
         "<!-- SOLUTION\nAnswer line.\nSOLUTION -->\n# Chapter\n",
         encoding="utf-8",
@@ -174,13 +168,11 @@ def test_inject_chapters_reveals_solutions_and_copies_aux(tmp_path: Path, monkey
     monkeypatch.setattr("biology.pipeline.injection.MANUSCRIPT_DIR", manuscript)
     monkeypatch.setattr("biology.pipeline.injection.PROJECT_ROOT", tmp_path)
 
-    inject_chapters_for_rendering([source], include_solutions=True)
+    inject_chapters_for_rendering([source], include_solutions=include_solutions)
 
     injected = next(output.glob("*.md"))
     content = injected.read_text(encoding="utf-8")
-    assert "> Answer line." in content
-    assert (output / "config.yaml").exists()
-    assert (output / "assets" / "cover" / "cover.png").exists()
+    assert ("Answer line." in visible_text(content, keep_comments=())) is include_solutions
 
 
 def test_instructor_preamble_text_inserts_before_closing_fence() -> None:
@@ -200,44 +192,7 @@ def test_instructor_preamble_text_is_noop_when_disabled() -> None:
     assert instructor_preamble_text(text, watermark_instructor=False) == text
 
 
-def test_inject_applies_instructor_watermark_to_preamble(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    manuscript = tmp_path / "manuscript"
-    manuscript.mkdir()
-    (manuscript / "preamble.md").write_text("```latex\n\\usepackage{geometry}\n```\n", encoding="utf-8")
-    source = tmp_path / "chapter.md"
-    source.write_text("# Chapter\n", encoding="utf-8")
-    output = tmp_path / "output" / "manuscript"
-    monkeypatch.setattr("biology.pipeline.injection.OUTPUT_DIR", output)
-    monkeypatch.setattr("biology.pipeline.injection.MANUSCRIPT_DIR", manuscript)
-    monkeypatch.setattr("biology.pipeline.injection.PROJECT_ROOT", tmp_path)
-
-    inject_chapters_for_rendering(
-        [source],
-        include_solutions=True,
-        watermark_instructor=True,
-    )
-
-    preamble = (output / "preamble.md").read_text(encoding="utf-8")
-    assert "draftwatermark" in preamble
-    assert "INSTRUCTOR EDITION" in preamble
 
 
-def test_load_config_include_solutions_enabled_for_instructor_edition() -> None:
-    config = load_config()
-    export = config.get("export", {})
-    assert export.get("include_solutions") is True
-    assert export.get("watermark_instructor") is False
 
 
-def test_inject_preserves_existing_skip_beamer_marker(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    source = tmp_path / "sample.md"
-    source.write_text("<!-- render:skip-beamer -->\n\n# Sample\n", encoding="utf-8")
-    output = tmp_path / "output" / "manuscript"
-    monkeypatch.setattr("biology.pipeline.injection.OUTPUT_DIR", output)
-    monkeypatch.setattr("biology.pipeline.injection.MANUSCRIPT_DIR", tmp_path)
-    monkeypatch.setattr("biology.pipeline.injection.PROJECT_ROOT", tmp_path)
-
-    inject_chapters_for_rendering([source])
-
-    content = next(output.glob("*.md")).read_text(encoding="utf-8")
-    assert content.count("<!-- render:skip-beamer -->") == 1

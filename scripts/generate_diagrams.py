@@ -9,21 +9,21 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from _bootstrap import PROJECT as PROJECT_DIR, ensure_project_paths
+from _bootstrap import PROJECT as PROJECT_DIR
+from _bootstrap import ensure_project_paths
 
 ensure_project_paths()
 
 
 def main() -> int:
-    from textbook_logging import get_logger
     from mermaid import ALL_BIOLOGY_DIAGRAMS, MermaidRenderer
+    from textbook_logging import get_logger
 
     logger = get_logger(__name__)
     parser = argparse.ArgumentParser(description="Render all Mermaid biology diagrams to PNG")
     parser.add_argument("--output-dir", type=Path,
                         default=PROJECT_DIR / "output" / "figures" / "mermaid")
-    parser.add_argument("--width", type=int, default=1200, help="Mermaid render viewport width in pixels")
-    parser.add_argument("--height", type=int, default=1200, help="Mermaid render viewport height in pixels")
+    parser.add_argument("--size", type=int, default=1200, help="Maximum diagram dimension in CSS pixels (Mermaid CLI 12.2)")
     parser.add_argument(
         "--strict-png",
         action="store_true",
@@ -32,7 +32,7 @@ def main() -> int:
     args = parser.parse_args()
 
     renderer = MermaidRenderer(output_dir=args.output_dir, strict_png=args.strict_png)
-    paths = renderer.render_all(ALL_BIOLOGY_DIAGRAMS, width=args.width, height=args.height)
+    paths = renderer.render_all(ALL_BIOLOGY_DIAGRAMS, size=args.size)
     if args.strict_png:
         non_png = [path for path in paths if path.suffix != ".png"]
         if non_png:

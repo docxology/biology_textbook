@@ -12,11 +12,7 @@ universe had grown smaller in every direction.
 
 Today, three and a half centuries after those first observations, the cell remains the central unit of
 biology — and it turns out to be far stranger and more sophisticated than Hooke could have imagined.
-A typical human liver cell contains ~20,000 different proteins, ~5 km of DNA, ~5,000 mitochondria, and
-~10 million ribosomes, most coordinated within a volume of roughly 1,000 μm³. Every second, that cell
-performs thousands of enzymatic reactions, processes ~20 receptor signals, divides its mitochondria,
-degrades misfolded proteins in lysosomes at pH 4.5, and repairs ~10,000 DNA lesions in its nucleus —
-most simultaneously, without a central coordinator.
+A diploid human nuclear genome of about 6.4 billion base pairs spans roughly 2.2 m at 0.34 nm/bp, not kilometers. Hepatocytes vary in ploidy and nuclear number, so their DNA content and organelle inventories are not one fixed count. Cells continuously coordinate metabolism, signaling, protein turnover and DNA repair; daily lesion estimates must not be misread as lesions repaired every second.
 
 This unit examines the cell at three levels of resolution: the **cellular** (organelle inventory and
 function), the **molecular** (membrane biophysics, signal transduction), and the **computational**
@@ -36,20 +32,24 @@ minimal cell, which asks: what is the irreducible instruction set for life?
 | George Palade | 1953 | \citep{palade1955small} | Ribosome discovery via electron microscopy | Identified the protein synthesis machinery; Nobel Prize, 1974 |
 | Peter Mitchell | 1961 | \citep{mitchell1961} | Chemiosmosis — proton-gradient-driven ATP synthesis | Explained mitochondrial ATP production; later became central to \nameref{sec:unit_III_unit_intro} |
 | Lynn Margulis | 1967 | \citep{margulis1967} | Formal endosymbiotic theory | Proposed mitochondria and chloroplasts are descended from engulfed bacteria |
-| J. Craig Venter et al. | 2016 | \citep{venter2016syn3} | JCVI-syn3.0: minimal synthetic cell (473 genes) | Defined the lower boundary of self-replicating cellular life |
+| J. Craig Venter et al. | 2016 | \citep{venter2016syn3} | JCVI-syn3.0: minimized synthetic genome (473 genes) | Tested genome requirements in an existing cellular and supportive culture context, not a universal lower boundary of life |
 
 ---
 
 ## Key Concepts and Connections {.unnumbered}
 
 ```mermaid
-graph TD
+graph LR
     CT["📜 Cell Theory<br/>(Schleiden, Schwann,<br/>Virchow 1838–1855)"] --> PRO["🦠 Prokaryotes<br/>(Bacteria + Archaea)"]
     CT --> EUK["🧫 Eukaryotes<br/>(Protists, Fungi,<br/>Plants, Animals)"]
 
-    PRO --> PW["🧱 Cell Wall<br/>(peptidoglycan<br/>Gram+/Gram−)"]
-    PRO --> NU["📍 Nucleoid<br/>(circular DNA,<br/>no membrane)"]
-    PRO --> FL["🌀 Flagellum<br/>(H⁺-motor,<br/>~100 Hz)"]
+    PRO --> BAC["Bacteria"]
+    PRO --> ARC["Archaea"]
+    BAC --> PW["Many walls contain peptidoglycan<br/>Gram-positive or Gram-negative architecture"]
+    PRO --> NU["Nucleoid<br/>typically circular DNA<br/>no nuclear membrane"]
+    BAC --> FL["Bacterial flagella<br/>ion-driven rotary motors"]
+    ARC --> AW["Walls lack peptidoglycan<br/>e.g., S-layers or pseudomurein"]
+    ARC --> AF["Archaella<br/>ATP-driven motility"]
 
     EUK --> NUC["🔵 Nucleus<br/>(linear DNA,<br/>NPC transport)"]
     EUK --> MIT["⚡ Mitochondria<br/>(ATP synthesis;<br/>endosymbiont)"]
@@ -109,26 +109,25 @@ paper-based lab decision.
 from biology.cell import nernst_potential, goldman_equation, IonConcentration
 
 # Nernst equation: equilibrium potential for K+ at 37°C
-k_ion = IonConcentration(name="K+", intracellular_mM=150, extracellular_mM=4, valence=1)
-e_k = nernst_potential(k_ion)
+k_ion = IonConcentration(ion="K+", charge=1, inside_mM=150, outside_mM=4)
+e_k = nernst_potential(k_ion, temperature_K=310.0)
 print(f"E_K = {e_k:.1f} mV")
-# Expected: E_K = -89.7 mV (close to resting potential of -70 mV; K+ is dominant)
+# Approximately -96.8 mV; equilibrium for K+ alone, not the mixed-ion resting potential.
 
 # Goldman-Hodgkin-Katz equation: resting membrane potential
 # Permeabilities at rest: P_K = 1.0, P_Na = 0.04, P_Cl = 0.45
 ions = [
-    IonConcentration("K+",  150, 4,   valence=1),
-    IonConcentration("Na+", 15,  145, valence=1),
-    IonConcentration("Cl-", 10,  120, valence=-1),
+    IonConcentration(ion="K+", charge=1, inside_mM=150, outside_mM=4),
+    IonConcentration(ion="Na+", charge=1, inside_mM=15, outside_mM=145),
+    IonConcentration(ion="Cl-", charge=-1, inside_mM=10, outside_mM=120),
 ]
-permeabilities = {"K+": 1.0, "Na+": 0.04, "Cl-": 0.45}
-v_rest = goldman_equation(ions, permeabilities)
+permeabilities = [1.0, 0.04, 0.45]  # same order as ions; monovalent ions only
+v_rest = goldman_equation(ions, permeabilities, temperature_K=310.0)
 print(f"V_rest (GHK) = {v_rest:.1f} mV")
-# Expected: V_rest (GHK) ≈ -70.0 mV
+# Approximately -71.1 mV from ratio 14.3/204.6.
 ```
 
-> **Try it yourself:** Change `P_Na` from 0.04 to 0.6 (simulating an action potential peak)
-> and observe how `V_rest` shifts toward `E_Na` (≈ +60 mV).
+> **Try it yourself:** Change the Na+ permeability entry from 0.04 to 0.6. The same fixed-concentration model depolarizes toward ENa (about +60.6 mV); it is not a full action-potential simulation.
 
 ---
 

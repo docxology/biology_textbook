@@ -7,9 +7,11 @@ figure and the prose share one source of truth.
 from __future__ import annotations
 
 from pathlib import Path
+from textwrap import fill
 
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.transforms import Bbox
 
 from visualization._scaffold import (
     GRAY,
@@ -127,7 +129,7 @@ def plot_prediction_error_precision(
         linewidth=2.2,
         marker="o",
         markersize=4,
-        label="Posterior mean shift",
+        label="Posterior mean",
     )
     ax_left.axhline(prior_mean, color=GRAY, linestyle=":", linewidth=1.2, label="Prior")
     ax_left.axhline(observation, color=ORANGE, linestyle="--", linewidth=1.2, label="Observation")
@@ -161,7 +163,7 @@ def plot_prediction_error_precision(
         frameon=False,
     )
     ax_left.set_title(
-        "Active Inference: Prediction Error vs Sensory Precision", fontsize=14
+        "Bayesian Posterior Mean and Sensory Weight vs Sensory Precision", fontsize=14
     )
     fig.tight_layout()
     return _save_figure(fig, output_dir, "prediction_error_precision.png", aspect="landscape")
@@ -297,10 +299,9 @@ def plot_electronegativity_bond_energy(output_dir: Path) -> Path:
 def plot_polymer_hierarchy(output_dir: Path) -> Path:
     """Draw the macromolecule hierarchy as a labelled grid of boxes.
 
-    One row per polymer family (proteins, nucleic acids, carbohydrates,
-    lipids) and four columns (monomer, polymer, assembly, function). Each
-    cell is a coloured box with text inside, plus arrows showing the
-    monomer-to-polymer-to-assembly flow.
+    Includes three polymer families and the nonpolymer phospholipid path.
+    Four columns show building blocks, molecule, assembly and function;
+    lipid bilayers self-assemble rather than forming a covalent polymer.
 
     Args:
         output_dir: Directory to save PNG.
@@ -310,79 +311,34 @@ def plot_polymer_hierarchy(output_dir: Path) -> Path:
     """
     from biology.foundations import MACROMOLECULE_TIERS, polymer_hierarchy_levels
 
-    tiers = list(MACROMOLECULE_TIERS)
+    tiers = MACROMOLECULE_TIERS
     columns = polymer_hierarchy_levels()
-    n_rows = len(tiers)
-    n_cols = len(columns)
-
-    fig, ax = plt.subplots(figsize=(12, 1.4 + 1.2 * n_rows))
-    family_colors = [SERIES4[i % len(SERIES4)] for i in range(n_rows)]
-    cell_width = 1.0
-    cell_height = 1.0
-    arrow_pad = 0.05
-
-    # Column headers
-    for col_idx, label in enumerate(columns):
-        ax.text(
-            col_idx + 0.5,
-            n_rows + 0.4,
-            label,
-            ha="center",
-            va="bottom",
-            fontsize=12,
-            fontweight="bold",
-        )
-
-    # Row family labels (left)
-    for row_idx, tier in enumerate(tiers):
-        ax.text(
-            -0.15,
-            n_rows - row_idx - 0.5,
-            tier.family,
-            ha="right",
-            va="center",
-            fontsize=11,
-            fontweight="bold",
-            color=family_colors[row_idx],
-        )
-
-    # Cells
-    for row_idx, tier in enumerate(tiers):
-        cells = (tier.monomer, tier.polymer, tier.assembly, tier.example_function)
-        y = n_rows - row_idx - 1
-        for col_idx, text in enumerate(cells):
-            rect = plt.Rectangle(
-                (col_idx + 0.04, y + 0.04),
-                cell_width - 0.08,
-                cell_height - 0.08,
-                facecolor=family_colors[row_idx],
-                alpha=0.22,
-                edgecolor=family_colors[row_idx],
-                linewidth=1.4,
-            )
-            ax.add_patch(rect)
-            ax.text(
-                col_idx + 0.5,
-                y + 0.5,
-                text,
-                ha="center",
-                va="center",
-                fontsize=10,
-                wrap=True,
-            )
-        # Arrows monomer -> polymer -> assembly
-        for col_idx in range(n_cols - 2):
-            ax.annotate(
-                "",
-                xy=(col_idx + 1 - arrow_pad, y + 0.5),
-                xytext=(col_idx + arrow_pad, y + 0.5),
-                arrowprops={"arrowstyle": "->", "color": GRAY, "linewidth": 1.4},
-            )
-
-    ax.set_xlim(-1.4, n_cols + 0.2)
-    ax.set_ylim(-0.4, n_rows + 0.8)
-    ax.set_aspect("equal")
+    fig, ax = plt.subplots(figsize=(9.5, 6.8))
+    fig.subplots_adjust(left=0.01, right=0.99, bottom=0.02, top=0.88)
     ax.axis("off")
-    ax.set_title("Polymer Hierarchy of Biological Macromolecules", fontsize=14, pad=12)
-    fig.tight_layout()
+    rows = [
+        ["\n".join(fill(line, width=18, break_long_words=False) for line in value.splitlines())
+         for value in (tier.building_blocks, tier.molecule, tier.assembly, tier.example_function)]
+        for tier in tiers
+    ]
+    # A comparison table, not arrows through labels or a universal synthesis pathway.
+    table = ax.table(cellText=rows, colLabels=columns, cellLoc="center", bbox=Bbox.from_bounds(0.23, 0.04, 0.76, 0.80))
+    table.auto_set_font_size(False)
+    table.set_fontsize(14)
+    for (row, _column), cell in table.get_celld().items():
+        cell.set_edgecolor("white")
+        cell.set_linewidth(2)
+        if row == 0:
+            cell.set_text_props(fontweight="bold")
+            cell.set_facecolor("white")
+        else:
+            color = SERIES4[(row - 1) % len(SERIES4)]
+            cell.set_facecolor(color)
+            cell.set_alpha(0.20)
+            cell.get_text().set_alpha(1)
+    for index, tier in enumerate(tiers):
+        family = tier.family if tier.is_polymer else "Lipids\n(glycerophospholipid\nexample)"
+        ax.text(0.21, 0.04 + 0.16 * (3.5 - index), family, transform=ax.transAxes,
+                ha="right", va="center", fontsize=14, fontweight="bold", color=SERIES4[index % len(SERIES4)])
+    ax.set_title("Biological Molecules: Polymers and Lipid Self-Assembly", fontsize=16, pad=14)
     return _save_figure(fig, output_dir, "polymer_hierarchy.png", aspect="landscape")

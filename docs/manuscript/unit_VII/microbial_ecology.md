@@ -1,15 +1,16 @@
 # Microbial Ecology and the Microbiome
 
+\label{sec:unit_VII_microbial_ecology}
+
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/mic_dilution_series.png}
-\caption{Two-fold serial broth dilution for minimum inhibitory concentration (MIC) testing. Antibiotic concentration halves in each successive tube; the first tube with no visible growth marks the MIC used to compare susceptibility.}
+\caption{Two-fold antibiotic dilution layout. Concentration bars alone do not measure growth or establish MIC. Given clear tubes from 128 through 4 µg/mL and visible growth at 2 and 1 µg/mL, MIC is 4 µg/mL: the lowest tested concentration preventing visible growth, with valid controls.}
 \label{fig:unit_VII_mic_dilution_series}
 \end{figure}
 
-<!-- alt: Eight ordered tubes or bars with antibiotic concentration dropping by half each step on a logarithmic scale; the last tube showing visible growth marks the MIC boundary. -->
+<!-- alt: Concentration-only dilution bars halve in successive positions; growth observations and positive/negative controls are additionally required to identify MIC. -->
 
-\label{sec:unit_VII_microbial_ecology}
 
 
 <!-- chapter-metadata-badge -->
@@ -79,7 +80,7 @@ flowchart LR
         A --> B["Total DNA extraction\n(bead beating + column purification)"]
         B --> C["16S rRNA amplicon\nsequencing"]
         B --> D["Shotgun metagenomics"]
-        C --> E["PCR amplify V3-V4\nregions with universal\nprimers (515F/806R)"]
+        C --> E["PCR amplify V4\nregion with\nprimers (515F/806R)"]
         E --> F["Illumina MiSeq\nsequencing"]
         F --> G["ASV/OTU clustering\n(DADA2, QIIME2)"]
         G --> H["Taxonomic assignment\n(SILVA, Greengenes2)"]
@@ -115,7 +116,7 @@ flowchart LR
 **Why 16S?** The 16S rRNA gene is ideal as a phylogenetic marker because of three intrinsic properties:
 
 - **Almost universally present** in most bacteria and [**archaea**](#gl:archaea) (~ 1500 bp).
-- **Mosaic of conserved and variable regions** — nine hypervariable regions (V1–V9) are sandwiched between highly conserved regions that allow universal primer design (e.g., 27F, 515F, 806R, 1492R).
+- **Conserved and variable regions:** V1–V9 provide classification signal, but general primer pairs have lineage-dependent coverage and amplification bias, not literal universality \citep{klindworth2013primers}.
 - **Slow evolutionary rate** in conserved domains preserves deep phylogenetic signal; rapid evolution in V regions enables genus- to species-level discrimination.
 
 **Region selection.** Different V regions perform differently:
@@ -132,14 +133,14 @@ flowchart LR
 **Workflow.**
 
 1. **DNA extraction** — bead beating (mechanical lysis of Gram-positives, fungi, spores) plus a column-based purification (e.g., DNeasy PowerSoil). Extraction kit choice introduces bias of up to ± 30 % in relative abundances and is now considered a major reproducibility issue.
-2. **PCR amplification** — universal primers (515F/806R for V4, 341F/805R for V3–V4) plus barcoded adapters allow multiplexing. **PCR cycles should be minimized (≤ 25)** to reduce chimera formation; high-fidelity polymerases (Q5, Phusion) reduce error.
+2. **PCR amplification** — choose a documented general primer pair (for example, 515F/806R for V4) and barcoded adapters. Report coverage and mismatch limits; no pair samples every lineage equally. Limit and record cycles and use appropriate error/chimera controls rather than assume one cycle cutoff eliminates bias.
 3. **Library preparation and sequencing** — Illumina MiSeq 2 × 300 bp is standard; ~ 100 000 reads/sample is typical for diversity analyses, with ~ 10 × that needed to detect rare taxa.
 4. **Quality filtering** — trim adapters and primers; discard reads with average Q < 25 or expected errors > 1.
 5. **OTU clustering vs ASV inference** — see comparison below.
 6. **Taxonomic assignment** — match representative sequences against reference databases (SILVA 138.2, Greengenes2, RDP) using naive Bayes (RDP classifier) or k-mer methods (VSEARCH); confidence threshold typically 80 % \citep{chuvochina2025silva2026}.
 7. **Diversity analyses and statistics** — alpha (within-sample) and beta (between-sample) diversity, with multiple-comparison correction.
 
-Taxonomy itself is now a versioned data product. GTDB release R11-RS232 organized 878,998 bacterial and 22,343 archaeal genomes into 189,801 bacterial and 10,122 archaeal species (34,834 bacterial and 2,669 archaeal genera), using average nucleotide identity for species and relative evolutionary divergence on marker-gene trees for higher ranks \citep{parks2026gtdb}. That makes a microbial name an evidence claim: reports should state the database and release used, especially when MAGs or uncultured lineages drive the biological conclusion.
+Taxonomy itself is now a versioned data product. GTDB release R11-RS232 organized 878,998 bacterial and 22,343 archaeal genomes into 189,801 bacterial and 10,122 archaeal species (34,834 bacterial and 2,669 archaeal genera), using average nucleotide identity for species and relative evolutionary divergence on marker-gene trees for higher ranks \citep{gtdb2026r11}. The release10 paper describes an earlier snapshot and associated methods \citep{parks2026gtdb}. That makes a microbial name an evidence claim: reports should state the database and release used, especially when MAGs or uncultured lineages drive the biological conclusion.
 
 ### OTU vs ASV: A Decade-Long Methodological Shift
 
@@ -279,7 +280,7 @@ The Chao1 estimator predicts that the true species richness is **195 species**. 
 > Two gut microbiome samples have identical Shannon entropy values ($H' = 3.5$) but very different Bray-Curtis dissimilarity (0.85). Explain how two samples can have the same within-sample diversity but be highly dissimilar to each other.
 
 > **Concept Check 2b:**
-> Compute the Shannon and inverse-Simpson values for these two communities and explain why the rankings differ:
+> Compute the Shannon and inverse-Simpson values for these two communities and determine whether the rankings agree:
 > 
 > - Community A: 4 species at proportions 0.97, 0.01, 0.01, 0.01
 > - Community B: 4 species at proportions 0.40, 0.30, 0.20, 0.10
@@ -382,7 +383,7 @@ In reproductive-age women, the vaginal microbiome is typically dominated by *Lac
 Disruption of *Lactobacillus* dominance -- replacement by anaerobes such as *Gardnerella vaginalis*, *Atopobium vaginae*, and *Prevotella* -- characterizes **bacterial vaginosis (BV)**, associated with preterm birth, increased susceptibility to sexually transmitted infections including HIV, and pelvic inflammatory disease.
 
 > **Clinical Connection: Fecal [**Microbiota**](#gl:microbiota) Transplant (FMT)**
-> Recurrent *Clostridioides difficile* infection (rCDI) occurs when antibiotic-disrupted gut microbiota fails to recover, allowing *C. difficile* spores to germinate and produce toxins A and B. FMT -- transfer of processed stool from a healthy, screened donor -- restores colonization resistance and achieves cure rates exceeding 90%, compared to approximately 30% for repeated vancomycin courses. The FDA approved the first standardized FMT products in 2022-2023 (REBYOTA, a microbiota-based product, and VOWST, purified *Firmicutes* spores in oral capsules). The mechanism involves restoration of secondary bile acid production by commensal *Clostridium scindens*, which inhibits *C. difficile* spore germination, combined with [**competitive exclusion**](#gl:competitive-exclusion) and bacteriocin production by restored commensals.
+> Recurrent *Clostridioides difficile* infection can follow disruption of colonization resistance. FDA approved oral Vowst on April 26, 2023 to prevent recurrence in adults 18 years and older following antibacterial treatment for recurrent CDI, not to replace acute antibacterial treatment. In the randomized efficacy analysis, 89 Vowst recipients and 93 placebo recipients had 8-week recurrence rates of 12.4% and 39.8%, respectively. These are product-, cohort- and endpoint-specific results, not a universal greater-than-90% FMT cure rate. Donor screening does not eliminate infectious-agent transmission risk. Microbiota restoration may recover competition and bile metabolism, whose effects depend on individual bile acids and bacterial life stage \citep{fda2023vowst,sorg2008bilesalts}.
 
 ---
 
@@ -513,7 +514,7 @@ The resident microbiota provides a critical defense against pathogen colonizatio
 
 - **Competitive exclusion**: Commensals occupy ecological [**niche**](#gl:niche)s (nutrient sources, attachment sites), preventing pathogen establishment
 - **Bacteriocin production**: Antimicrobial peptides produced by commensals directly inhibit pathogen growth
-- **Bile acid-mediated resistance**: Secondary bile acids produced by commensals (e.g., *Clostridium scindens* produces deoxycholic acid) inhibit *C. difficile* spore germination and vegetative growth
+- **Bile acid-mediated resistance**: effects depend on the individual acid, concentration, strain and life stage. Sorg and Sonenshein (2008, DOI 10.1128/JB.01765-07 \citep{sorg2008bilesalts}) found deoxycholate could induce spore germination while preventing vegetative growth. Chenodeoxycholate can inhibit germination; do not generalize all secondary bile acids as germination inhibitors.
 - **Immune priming**: Commensals maintain baseline immune surveillance (SIgA, antimicrobial peptide production by Paneth cells)
 
 *Salmonella* enterica has evolved strategies to overcome colonization resistance: it triggers intestinal inflammation (via T3SS effectors), which disrupts the resident microbiota and generates unique nutrient sources (tetrathionate, ethanolamine) that *Salmonella* can metabolize but commensals cannot.
@@ -586,7 +587,7 @@ This example also clarifies symbiosis as a systems claim. Removing the gut commu
 
 ### Marine and Environmental Microbiome Diversity
 
-Microbial diversity in environmental systems dwarfs that of multicellular life. The dominant numerical fact about life on Earth is that there are ~ $10^{30}$ microbial cells globally — > 99 % of Earth's biological cells, and 70–90 % of Earth's biomass nitrogen and phosphorus.
+Global microbial cell abundance is of order $10^{30}$, but cell counts, elemental stocks and carbon biomass are different metrics. The 2018 synthesis estimates plants at about 450 of 550 Gt C, bacteria at 70 and archaea at 7 Gt C \citep{baron2018biomass}. Microbial estimates depend strongly on sampling and per-cell carbon conversions, with especially large deep-subsurface uncertainty; numerical abundance does not establish dominance of total carbon biomass.
 
 **Ocean.** The ocean contains approximately $1.2 \times 10^{29}$ microbial cells in the photic zone alone. Two organisms dominate the global ocean microbiome:
 
@@ -595,7 +596,7 @@ Microbial diversity in environmental systems dwarfs that of multicellular life. 
 
 **Soil.** Containing ~ $10^8$ bacteria per gram and often ~ $10^4$–$10^5$ ASVs per gram in deep sequencing studies, soil is one of the largest reservoirs of microbial diversity. Globally, soil holds ~ $2.6 \times 10^{29}$ microbial cells. The dominant phyla — Proteobacteria, Acidobacteria, Actinobacteria, Bacteroidetes, Verrucomicrobia, Firmicutes — vary continuously with pH, moisture, and organic matter. Acidobacteria, in particular, are abundant in molecular surveys but remain under-cultured relative to their environmental abundance, which is why metagenomics, single-cell genomics, and enrichment culture are most needed to connect sequence diversity to physiology.
 
-**Deep biosphere.** A relatively recent realization is that the **subsurface biosphere** (rocks, sediments, and aquifers below ~ 100 m depth) contains an estimated $10^{29}$ cells — comparable to or exceeding most surface marine biomass. These extremely slow-growing chemolithotrophs (doubling times of years to centuries) couple H$_2$ from rock-water reactions to CO$_2$ fixation, sustaining ecosystems that have been functionally isolated from surface life for ~ Ma timescales. The deep biosphere now constitutes one of the largest reservoirs of unstudied microbial diversity on the planet.
+**Deep biosphere.** Rocks, sediments and aquifers contain extensive microbial communities. The biomass census estimates that much bacterial and archaeal carbon resides below the surface, but stresses sparse sampling and uncertain conversion of cells to carbon \citep{baron2018biomass}. Cell abundance cannot be compared directly with surface marine biomass in Gt C. Some slow-growing chemolithotrophs couple H$_2$ oxidation to CO$_2$ fixation; metabolic rates and turnover vary across habitats rather than following one universal subsurface timescale.
 
 **Hydrothermal vents.** Chemolithoautotrophic communities at hydrothermal vents form the base of food webs whose carbon and energy are independent of sunlight (though most aerobic vent microbes still depend on dissolved oxygen that ultimately originates from surface photosynthesis). Sulfur-oxidizing bacteria (*Thiomicrospira*, *Beggiatoa*) and hydrogen-oxidizing archaea (*Methanopyrus*) sustain ecosystems including tube worms (*Riftia pachyptila*, which lack a digestive system and rely entirely on endosymbiotic sulfur-oxidizing bacteria housed in a specialized organ called the trophosome).
 
@@ -657,7 +658,7 @@ Biofilm formation proceeds through five stages:
 4. **Mature biofilm**: Complex 3D architecture with water channels; metabolic gradients (O$_2$, pH, nutrients) create distinct microniches; HGT frequency increases 1,000-fold
 5. **Dispersal**: c-di-GMP degradation; EPS-degrading enzymes released; motility genes reactivated; planktonic cells seed new surfaces
 
-Biofilms are **10-1,000-fold more antibiotic-resistant** than planktonic cells due to:
+Biofilms can survive antibiotic exposure better than planktonic cells through tolerance and heterogeneous physiology; this does not by itself establish a heritable resistance increase or a universal fold change:
 
 \cref{fig:unit_VII_mic_dilution_series} illustrates the serial two-fold dilution layout used to determine minimum inhibitory concentration (MIC) in broth assays.
 
@@ -670,7 +671,7 @@ Clinical impact: ~80% of chronic bacterial infections involve biofilms (CDC), in
 
 ### Quorum Sensing and Density-Dependent Gene Regulation
 
-**Quorum sensing (QS)** is a cell density-dependent communication system in which bacteria produce and detect small signaling molecules (**autoinducers**) that accumulate as the population grows. When autoinducer concentration exceeds a threshold, coordinate gene expression is triggered across the population:
+**Quorum sensing (QS)** couples gene regulation to detected autoinducer concentrations. Population density can affect signal supply, but production per cell, diffusion, degradation and other circuit inputs also determine the response. AHL quenching can reduce signaling without guaranteeing that a threshold is never reached or that blockade persists.
 
 ```mermaid
 sequenceDiagram
@@ -726,12 +727,12 @@ Microorganisms can be harnessed to degrade environmental pollutants:
 > **Concept Check 4:**
 > *Pseudomonas aeruginosa* uses quorum sensing to coordinate virulence factor production. A pharmaceutical company designs a drug that blocks AHL binding to the LuxR-type receptor (LasR) without killing the bacteria. Explain the therapeutic rationale for this "quorum quenching" approach compared to traditional antibiotics, and predict a potential limitation.
 
-> **Concept Check (Analysis — Hierarchical Quorum Sensing as a Threshold Detection Mechanism):** *Pseudomonas aeruginosa* uses **hierarchically nested** quorum-sensing systems: the **Las** system (LasI synthase → 3-oxo-C₁₂-HSL autoinducer → LasR receptor) activates the **Rhl** system (RhlI → C₄-HSL → RhlR), which in turn induces a cascade of virulence factors (elastase, rhamnolipid, pyocyanin) and biofilm maturation. (a) Analyze why this **two-tier hierarchy** is functionally different from a single QS system at a higher signal threshold. Specifically, evaluate how the requirement for *both* Las and Rhl signals to exceed thresholds creates an **AND gate** that filters out spurious signals and prevents premature virulence-factor expression. (b) Predict how a **synthetic 3-oxo-C₁₂-HSL analog** delivered at **sub-threshold concentrations** (e.g., 10 % of the natural threshold) would affect biofilm biomass. The analog binds LasR competitively but does not activate it — it occupies the receptor without triggering downstream transcription. Trace the consequences: (i) reduced las-system activation despite normal natural AHL accumulation; (ii) failure to activate the rhl downstream system; (iii) impaired biofilm maturation; (iv) attenuated virulence in a clinical infection model. (c) Quantitative analysis: if the natural threshold for LasR activation is $[3O\text{-}C_{12}\text{-HSL}] = 1\,\mu$M and the analog has affinity equal to the natural signal but is delivered at 0.1 μM, derive the fractional receptor occupancy and predict the fractional reduction in downstream gene expression. (d) Connect this to **anti-virulence drug design**: why does competitive antagonism at the QS receptor avoid the strong evolutionary selection for resistance that growth-inhibitory antibiotics produce? What is the residual selection pressure?
+> **Concept Check (Analysis — Competitive receptor occupancy):** Use the explicit synthetic equilibrium model $f_A=(A/K_A)/(1+A/K_A+I/K_I)$, where only agonist-bound receptor signals. Let natural AHL $A=1$ µM, antagonist $I=0.1$ µM, and $K_A=K_I=1$ µM. Compute agonist occupancy with and without antagonist and the relative decrease. If expression is proportional to $f_A$, does this dose abolish signaling? What changes if expression instead has an unspecified threshold? The keyed arithmetic is $f_A=1/2.1=0.47619$ versus $0.5$, a 4.76% relative reduction, not complete blockade. Clinical efficacy and reduced selection for escape do not follow from occupancy alone.
 
 > **Concept Check 4b:**
 > Marine *Prochlorococcus* populations oscillate with their cyanophages on a ~ 5–7 day cycle, while their Shannon diversity (~ 1.5 nats) is approximately constant. Use the kill-the-winner framework to (a) explain why high overall diversity is maintained despite a single species dominating numerically, (b) predict what happens to phage population during a *Prochlorococcus* crash, and (c) describe how a metagenomic time-series experiment could test these predictions.
 
-> **Concept Check (Synthesis — Syntrophic Coupling and Obligate Cooperation):** In anaerobic sediments, **acetate oxidation** to CO$_2$ and H$_2$ has a standard Gibbs free energy of $\Delta G^{\circ\prime} = +104$ kJ/mol — strongly **endergonic** under standard conditions. The reaction therefore cannot proceed unless **H$_2$ is kept at extremely low partial pressures** (typically below ~10 Pa) by a syntrophic partner that consumes it: a **hydrogenotrophic methanogen** (e.g., *Methanobacterium*) catalysing CO$_2$ + 4 H$_2$ → CH$_4$ + 2 H$_2$O ($\Delta G^{\circ\prime} = -131$ kJ/mol). The two reactions coupled give a small but favorable net $\Delta G^{\circ\prime} \approx -27$ kJ/mol, sufficient to drive both partners' metabolism. (a) **Synthesize how this obligate syntrophic coupling parallels eukaryotic intracellular compartmentalization.** Eukaryotic cells use organelle compartments (mitochondria, peroxisomes) to keep incompatible reactions spatially segregated and pool resources across compartments; syntrophic bacteria and methanogens accomplish the same by **interspecies hydrogen transfer (IHT)** — H$_2$ produced by the bacterium diffuses through a few micrometres of intercellular space and is immediately consumed by the methanogen, the spatial proximity functioning as a "metabolic compartment" without a single-cell boundary. (b) **Quantitatively justify** why ~10 Pa H$_2$ is the threshold: at this pressure, the H$_2$ term in the Nernst-style equation for $\Delta G$ (acetate oxidation) drops below the methanogen H$_2$-consumption $\Delta G$, making the coupled system favorable. (c) **Predict the experimental consequence of inhibiting methanogenesis** with **2-bromoethanesulfonate (BES)** — a structural analog of methyl-CoM that competitively inhibits the methyl-CoM reductase (Mcr) enzyme. Trace through: (i) BES blocks H$_2$ consumption by the methanogen; (ii) H$_2$ partial pressure rises rapidly above 10 Pa; (iii) acetate oxidation becomes thermodynamically infeasible and stops; (iv) the syntrophic bacterium starves; (v) within hours both partners' growth ceases. **Both populations collapse**, not just the methanogen — demonstrating that the cooperation is obligate, not facultative. (d) **Connect to the origin of eukaryotes**: the syntrophy hypothesis of eukaryogenesis (Martin & Müller 1998) proposes that the original endosymbiotic relationship between archaeal host and α-proteobacterial ancestor of mitochondria was exactly this kind of H$_2$ exchange — formalising the parallel between extracellular syntrophy and intracellular metabolic compartmentalization.
+> **Concept Check (Synthesis — Syntrophic energy window):** In an explicitly synthetic transformed reaction model, write acetate oxidation as acetate plus water yielding two bicarbonate equivalents and four H2 equivalents, with pH and all nongaseous activities absorbed into stipulated constants. At 298 K let $\Delta G_{ox}=104+4RT\ln x$ and $\Delta G_{meth}=-131-4RT\ln x$ kJ/mol, where $x=p_{H2}/(10^5\ \mathrm{Pa})$ and $R=0.008314$ kJ mol$^{-1}$ K$^{-1}$. Compute the H2 window where both are negative; explain why changing absorbed activities changes the thresholds. The results are approximately $0.182<p_{H2}<2.77$ Pa, not a universal 10-Pa threshold. Inhibiting H2 consumption can make oxidation unfavorable, but collapse timing requires growth/maintenance data. These constants teach reaction-quotient reasoning, not a measured sediment threshold.
 
 ---
 
@@ -830,10 +831,10 @@ flowchart TD
 - The **great plate count anomaly** reveals that <1% of environmental microbes are culturable. Culture-independent methods (16S amplicon sequencing, shotgun metagenomics, metatranscriptomics, metabolomics) have revolutionized microbial ecology, revealing entire new phyla and functional capabilities. **ASVs (exact sequence variants)** have replaced 97 %-clustered OTUs as the de facto standard since ~ 2018.
 - **Diversity metrics**: Alpha diversity quantifies within-sample diversity. Shannon entropy $H' = -\sum p_i \ln p_i$ (\cref{eq:unit_VII_shannon}), Simpson index λ and inverse Simpson $1/\lambda$, Chao1 richness, and Faith's PD weight richness and evenness differently. Beta diversity (Bray-Curtis, UniFrac, Jaccard) quantifies between-sample differences. Rarefaction curves diagnose sampling depth.
 - The **human microbiome** ($3.8 \times 10^{13}$ cells, 3.3 million genes) varies by body site. The gut microbiome (Firmicutes, Bacteroidetes dominant) has a small **species-level core** but a large **functional core**; *Akkermansia muciniphila*, *F. prausnitzii*, *B. fragilis*, and *Roseburia* are keystone taxa. Microbial SCFAs (butyrate as colonocyte fuel, HDAC inhibitor, GPR109A agonist; propionate via GPR41/43; acetate as systemic fuel) signal through three GPCRs and HDAC. Pattern-recognition receptors (TLR2/4/5, NOD1/2, AhR) read the microbial milieu in real time, with PSA from *B. fragilis* a striking example of microbial control of Tregs.
-- **Dysbiosis** is associated with obesity (functional polysaccharide-degradation gene shift; F/B ratio is method-sensitive and not a reliable single biomarker), IBD (reduced *F. prausnitzii*, reduced butyrate), colorectal cancer (*F. nucleatum* enrichment), and antibiotic-induced *C. difficile* infection (FMT achieves >90% cure).
-- **Environmental microbiology**: Soil harbors $10^8$-$10^9$ bacteria/g; ocean contains *Prochlorococcus* (~ $10^{27}$ cells, 20 % of global primary production) and SAR11 (~ $10^{28}$ cells); deep biosphere holds another $10^{29}$ cells. Termite hindguts show how animal hosts can carry anaerobic microbial bioreactors that convert lignocellulose into acetate, methane precursors, and recycled nitrogen. **[Nitrogen fixation](#gl:nitrogen-fixation)** by nitrogenase requires 16 ATP per N$_2$ and O$_2$ protection. The microbial nitrogen cycle is tracked by *nifH* (fixation), *amoA* (nitrification), *nosZ* (denitrification), and *hzsA* (anammox); sulfur by *dsrA* and *soxB*; carbon by *mcrA* (methanogenesis) and various CO$_2$-fixation markers. **Anammox** accounts for 30–50 % of marine N$_2$ production.
+- **Dysbiosis** is associated with obesity (functional polysaccharide-degradation gene shift; F/B ratio is method-sensitive and not a reliable single biomarker), IBD (reduced *F. prausnitzii*, reduced butyrate), colorectal cancer (*F. nucleatum* enrichment), and antibiotic-induced *C. difficile* infection (microbiota restoration can reduce recurrence after appropriate antibacterial treatment; efficacy is product- and endpoint-specific).
+- **Environmental microbiology**: Soil harbors $10^8$-$10^9$ bacteria/g; ocean contains *Prochlorococcus* (~ $10^{27}$ cells, a substantial contribution to ocean primary production (not the same denominator as global production)) and SAR11 (~ $10^{28}$ cells); deep biosphere holds another $10^{29}$ cells. Termite hindguts show how animal hosts can carry anaerobic microbial bioreactors that convert lignocellulose into acetate, methane precursors, and recycled nitrogen. **[Nitrogen fixation](#gl:nitrogen-fixation)** by nitrogenase requires 16 ATP per N$_2$ and O$_2$ protection. The microbial nitrogen cycle is tracked by *nifH* (fixation), *amoA* (nitrification), *nosZ* (denitrification), and *hzsA* (anammox); sulfur by *dsrA* and *soxB*; carbon by *mcrA* (methanogenesis) and various CO$_2$-fixation markers. **Anammox** accounts for 30–50 % of marine N$_2$ production.
 - **Phage-host kill-the-winner dynamics** maintain ocean diversity: phages preferentially predate dominant bacterial species, releasing rare species from competitive exclusion. Phages turn over 20–40 % of marine bacteria daily.
-- **Biofilms** (80% of natural bacteria) are 10-1,000x more antibiotic-resistant; **quorum sensing** coordinates population-level behavior via autoinducers (AHL, AIP, AI-2).
+- **Biofilms** (80% of natural bacteria) can display elevated antibiotic tolerance without a heritable MIC increase; **quorum sensing** coordinates population-level behavior via autoinducers (AHL, AIP, AI-2).
 - **Bioremediation** uses microbial metabolism to degrade pollutants including hydrocarbons, heavy metals, and plastics (PETase).
 - **Connections:** See \cref{sec:unit_X_ecosystem_ecology} for nutrient cycles, \cref{sec:unit_III_bioenergetics_and_respiration} for fermentation products, and \cref{sec:unit_VII_host_immunity_and_vaccines} for dysbiosis and infection.
 
@@ -866,8 +867,8 @@ flowchart TD
 | **GPR41 / GPR43 / GPR109A** | Three SCFA-sensing GPCRs that translate microbial fermentation into host hormonal and immune responses |
 | **Colonization resistance** | Protection against pathogen establishment provided by resident microbiota through competition, bacteriocins, and bile acid metabolism |
 | **Fecal microbiota transplant (FMT)** | Transfer of processed donor stool to restore microbial community in recipients with dysbiosis, especially recurrent *C. difficile* infection |
-| **Biofilm** | Structured microbial community enclosed in self-produced EPS matrix; highly antibiotic-resistant |
-| **Quorum sensing** | Cell density-dependent gene regulation via secreted autoinducer molecules (AHL, AIP, AI-2) |
+| **Biofilm** | Structured microbial community enclosed in self-produced EPS matrix; often antibiotic-tolerant, not necessarily genetically resistant |
+| **Quorum sensing** | Gene regulation through detected autoinducer concentrations, affected by density, production, transport and degradation |
 | **Nitrogenase** | Enzyme complex (NifH, NifD, NifK) that reduces N$_2$ to NH$_3$; oxygen-sensitive; requires 16 ATP per N$_2$ |
 | **Anammox** | Anaerobic ammonia oxidation; *Planctomycetes* couple NH$_4^+$ + NO$_2^-$ → N$_2$ via hydrazine; key gene *hzsA* |
 | **Comammox** | Complete ammonia oxidation in a single organism (*Nitrospira inopinata*, 2015 discovery) carrying both *amoA* and *nxrA* |

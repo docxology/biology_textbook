@@ -26,7 +26,7 @@ the matching script is the canonical fix.
 | ------ | ------ | ------------ |
 | `insert_crossref_labels.py` | `test_build_invariants.test_every_chapter_has_section_label` + `test_every_lab_and_question_has_section_label` | Inserts `\label{sec:unit_X_<stem>}` after every H1 and rewrites legacy chapter-number prose to `\cref{sec:…}` when a canonical chapter target exists |
 | `insert_chapter_metadata.py` | `test_build_invariants.test_every_chapter_has_metadata_badge` + `test_course_planning_grid_populated` | Renders per-chapter difficulty / time / prereq badge from `src/biology/chapter_metadata.py` and refreshes the Course Planning Grid from `biology.toc` in `docs/manuscript/front_matter.md` |
-| `sync_curriculum_materials.py` | `test_curriculum_metadata.py` + `test_toc_consistency.py` | Renders canonical H1s/front-matter navigation, per-chapter Study Blueprint blocks, lab Evidence and Reproducibility checklists, question-bank Instructor Use notes, Appendix A's curriculum map, and Appendix B's instructor guide from `biology.toc`, `src/biology/curriculum.py`, and `src/biology/alignment.py` |
+| `sync_curriculum_materials.py` | `test_curriculum_metadata.py` + `test_toc_consistency.py` | Renders canonical headings/navigation, chapter Study Blueprints and generated curriculum/instructor appendices; never regenerates authored lab procedures, question keys, rubrics or coverage notes |
 | `integrate_orphan_citations.py` | `test_bibliography_closure.test_no_orphan_bibentries` | Hand-curated map of BibTeX citekey → target chapter + anchor phrase; injects `\citep{key}` after the first safe occurrence (skips headings, code, LaTeX macro arguments) |
 | `link_glossary.py` | `test_build_invariants.test_glossary_and_index_use_semantic_chapter_links` + `--check` | Maintains `{#gl:<slug>}` anchors, rewrites legacy glossary/index chapter back-references to canonical `\cref{sec:…}` labels, and fails on unresolved glossary links or duplicate anchors |
 | `link_labs_to_chapters.py` | `test_build_invariants.test_every_{lab,question}_links_to_parent_chapter` | Inserts a one-line `\cref{sec:unit_X_<stem>}` opening into every lab and question bank file |
@@ -39,12 +39,12 @@ the matching script is the canonical fix.
 | `audit_textbook_quality.py` | `test_textbook_quality_audit.py` | Umbrella quality gate for generic answers, current-claim drift, wet-lab defaults, hard-coded rendered references, glossary/citation closure, embedded-enrichment coverage, and `docs/manuscript/quality_advisories.yaml` triage |
 | `audit_current_claims.py` | `test_current_claims_ledger.py` | Validates `docs/manuscript/current_claims.yaml` source tiers, checked dates, refresh triggers, anchors, and stale-phrase locks |
 | `audit_visual_contracts.py` | publication-readiness gate | Generates/checks a visual manifest and review matrix from raw figure blocks, registered Mermaid factories, inline Mermaid fences, asset dimensions, alt text, captions, generator names, action taken, exceptions, and square-ish aspect policy |
-| `audit_publication_readiness.py` | aggregate gate | Runs quality, current-claim, assessment, Mermaid alt, strict figure/diagram, lint, mypy, WIP resolver, artifact-count, and tracked-artifact checks using temporary visual artifacts; `--full` adds root setup/test/render/validate; `--workers N` parallelizes independent gate steps (default `1`) |
+| `audit_publication_readiness.py` | aggregate gate | Local quality, source, assessment, strict visuals, lint/types and markdown/prerender checks; `--full` adds coverage, live analysis, fresh native PDF and strict log checks. No template-root setup or WIP resolver. `--workers` schedules only independent steps |
 | `annotate_table_captions.py` | `test_table_captions.py` | Inserts `Table: … {#tbl:…}` captions before chapter and lab pipe tables missing them |
 | `polish_table_captions.py` | `test_table_captions.py` | Polishes existing pandoc table captions across the manuscript (thin CLI for `biology.crossref.table_captions`) |
 | `normalize_american_english.py` | `test_american_english.py` | Rewrites British spellings to American English in manuscript and docs |
 | `repair_split_chapter_shells.py` | `test_chapter_shells.py` | Repairs pedagogy shells on chapters created by the Phase 5 mega-chapter split (thin CLI for `biology.maintenance.chapter_shells`) |
-| `sync_assessment_metadata.py` | `test_assessment_metadata.py` + `test_lab_pedagogy_alignment.py` | Inserts/verifies question-item metadata and lab outcome/LO/rubric alignment blocks from `biology.assessment` / `biology.toc` surfaces; `--dry-run` previews drift without writing |
+| `sync_assessment_metadata.py` | `test_assessment_metadata.py` + `test_lab_pedagogy_alignment.py` | Nonwriting validation of curated question and lab semantic records; missing or inconsistent records need author review, not positional regeneration |
 
 ## Pedagogy and content utilities (optional)
 
@@ -57,10 +57,10 @@ Idempotent unless noted. Support `--dry-run` where implemented in each script.
 | `extract_glossary_cards.py` | Exports glossary entries into card-style study/review data | Content utility; not a structural gate |
 | `insert_further_reading.py` | Adds `## Further Reading and Source Notes: <Chapter Title>` from configured chapter `\cite` keys + `references.bib` | Content quality; not a structural gate |
 | `pad_short_labs.py` | Appends debrief block to labs under 100 lines | Labs only |
-| `fill_answer_scaffolds.py` | Fills `INSTRUCTOR SCAFFOLD` blocks in question banks with generated stubs | Questions/appendices |
-| `insert_answer_keys.py` | Inserts HTML-comment solution blocks for instructor edition | Works with `biology_analysis.py` `export.include_solutions` |
-| `refine_generated_answers.py` | Replaces v1 auto-answers in question banks with improved heuristics; leaves hand-written solutions untouched | Follow-up to `fill_answer_scaffolds.py` |
-| `enrich_embedded_textbook.py` | Inserts embedded frontier/evidence sections, current-evidence Mermaid maps, paper-based lab evidence upgrades, refined answer keys, and `docs/embedded_enrichment_audit_matrix.md` | Run with `--dry-run` before applying; preserves the 44/44/44 structure |
+| `fill_answer_scaffolds.py` | Refuses unsupported automatic answer filling without writing | Author answers from their actual prompts and evidence |
+| `insert_answer_keys.py` | Refuses unsupported automatic key insertion without writing | Preserve complete `<!-- SOLUTION` … `SOLUTION -->` blocks |
+| `refine_generated_answers.py` | Validates and preserves authored keys; no invented replacement answers | `--dry-run` reports author actions |
+| `enrich_embedded_textbook.py` | Maintains supported frontier/companion material while preserving authored chapter/assessment content | Inspect actual proposals before applying |
 
 ## Architecture: Thin Orchestrator Pattern
 

@@ -17,17 +17,17 @@ By the end of this chapter, you should be able to:
 5. Describe the three-domain tree of life, including endosymbiotic origins of [**organelle**](#gl:organelle)s and the significance of Asgard [**archaea**](#gl:archaea).
 6. Outline human phylogeny, including fossil hominin diversity and archaic introgression events.
 7. Calculate a Jukes-Cantor corrected distance from observed sequence divergence and estimate a divergence time, explaining why the correction is needed and why mitochondrial estimates differ from nuclear calibrations.
-8. Explain how long-read sequencing (PacBio HiFi, Oxford Nanopore) resolves deep-divergence and polyploid phylogenies that short reads cannot, using the animal tree of life and ancient-DNA examples.
+8. Evaluate how long-read sequencing improves assembly and orthology inference, while distinguishing those gains from model adequacy, taxon sampling and ancient-DNA fragment-length limitations.
 9. Evaluate a phylogenetic claim by identifying the dataset, model, and null hypothesis needed to distinguish shared ancestry from convergence and to assess sampling and calibration uncertainty.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/molecular_clock.png}
-\caption{Molecular-clock divergence times from $t = d / (2\mu)$. Larger sequence divergence or slower substitution rates lengthen the inferred branch; faster-evolving genes or smaller divergences yield shorter estimates when the rate $\mu$ is held constant.}
+\caption{Illustrative divergence times calculated from prescribed example inputs using $t=d/(2\mu)$, where $d$ is pairwise substitutions per site and $\mu$ is the per-lineage substitution rate per site per year. At fixed $\mu$, larger $d$ gives an older estimate; at fixed $d$, larger $\mu$ gives a younger estimate. The taxon-labeled examples are not calibrated empirical divergence dates.}
 \label{fig:unit_VI_molecular_clock}
 \end{figure}
 
-<!-- alt: Horizontal bars comparing estimated divergence times in millions of years for four taxon pairs; longer bars correspond to larger divergence or slower evolutionary rates. -->
+<!-- alt: Four horizontal bars show divergence times calculated from example rate and divergence pairs, expressed in millions of years. They illustrate the two-lineage clock formula rather than measured ages or uncertainty intervals. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -106,12 +106,12 @@ graph TD
     N2 --> B["Taxon B"]
 
     style R fill:#e8d5b7,stroke:#8B7355
-    style N1 fill:#d4e6f1,stroke:#5B9BD5
-    style N2 fill:#d4e6f1,stroke:#5B9BD5
-    style A fill:#d5f5e3,stroke:#2ECC71
-    style B fill:#d5f5e3,stroke:#2ECC71
-    style C fill:#d5f5e3,stroke:#2ECC71
-    style OG fill:#fadbd8,stroke:#E74C3C
+    style N1 fill:#d4e6f1,stroke:#333333,color:#111111
+    style N2 fill:#d4e6f1,stroke:#333333,color:#111111
+    style A fill:#d5f5e3,stroke:#333333,color:#111111
+    style B fill:#d5f5e3,stroke:#333333,color:#111111
+    style C fill:#d5f5e3,stroke:#333333,color:#111111
+    style OG fill:#fadbd8,stroke:#333333,color:#111111
 
     linkStyle 0 stroke:#333,stroke-width:2px
     linkStyle 1 stroke:#333,stroke-width:2px
@@ -310,7 +310,7 @@ Apply the Fitch bottom-up algorithm to each character independently. At each int
 
 3. **Char 3** ($A{=}1, B{=}1, C{=}0, D{=}0$): $X=\{1\}$ (0 steps); $Y=\{0\}$ (0 steps); $R=\{1\}\cap\{0\}=\varnothing\Rightarrow\{0,1\}$ (**1 step**). Subtotal = 1.
 
-4. **Char 4** ($A{=}0, B{=}1, C{=}1, D{=}1$): same pattern as Char 2 → **1 step**. Subtotal = 1.
+4. **Char4** ($A=0,B=0,C=1,D=1$): $X=\{0\}$,$Y=\{1\}$;root intersection empty, so union$\{0,1\}$ adds1step. This matchesChar1, notChar2.
 
 5. **Total parsimony score:**
 
@@ -319,7 +319,7 @@ Apply the Fitch bottom-up algorithm to each character independently. At each int
    \label{eq:phylogenetics_10}
    \end{equation}
 
-**Interpretation:** The tree $((A,B),(C,D))$ requires 4 changes; the two alternative unrooted topologies $((A,C),(B,D))$ and $((A,D),(B,C))$ each require 7, so $((A,B),(C,D))$ is the most-parsimonious tree — Characters 1 and 3 are the parsimony-informative synapomorphies that group $(A,B)$ apart from $(C,D)$.
+**Interpretation:** The tree $((A,B),(C,D))$ requires 4 changes; the two alternative unrooted topologies $((A,C),(B,D))$ and $((A,D),(B,C))$ each require 7, so $((A,B),(C,D))$ is the most-parsimonious tree — Characters 1, 3 and 4 are the parsimony-informative synapomorphies that group $(A,B)$ apart from $(C,D)$.
 
 > **Concept Check (Analysis — Parsimony vs. Maximum Likelihood on a Conflicted Alignment):** Consider a four-taxon alignment with three parsimony-informative sites. **Site 1** supports topology $T_A = ((W,X),(Y,Z))$ — that is, $W$ and $X$ share a derived state, and $Y$ and $Z$ share a different derived state. **Sites 2 and 3** support topology $T_B = ((W,Y),(X,Z))$. (a) Calculate the **parsimony score** for $T_A$ and $T_B$ on this alignment and identify which topology parsimony prefers. (b) Now suppose lineages $W$ and $Y$ have evolved on **very long branches** with elevated substitution rates relative to $X$ and $Z$, while sites 2 and 3 reside in fast-evolving regions and site 1 in a slow-evolving region. Explain how a substitution model that accounts for **rate heterogeneity across sites** (e.g., GTR+Γ) and **branch-length heterogeneity** could lead maximum likelihood to prefer $T_A$ — the **opposite** of the parsimony preference. (c) Define **long-branch attraction (LBA)** in terms of this example and explain why adding more data makes parsimony *worse* under LBA conditions (a statistical inconsistency) while making likelihood more reliable. (d) Propose two diagnostic tests one could run on a real alignment to detect that LBA is biasing parsimony.
 
@@ -445,15 +445,9 @@ Tools like **DistAL** and reconciliation methods (Notung, Ranger-DTL) systematic
 
    The correction is small at $p = 0.08$ (still well below saturation) but grows nonlinearly as $p$ approaches the JC asymptote of 0.75.
 
-3. **Uncertainty sources to quantify.** A defensible reported estimate would be **~4 ± 1 Mya**, with the uncertainty driven by:
-   - **Rate heterogeneity across lineages.** The 2 %-per-Myr rate is an average; cytochrome *b* in rodents evolves 2–5× faster than in cetaceans. A **relaxed clock** (uncorrelated lognormal or autocorrelated rate prior) properly propagates this rate variance and typically widens the 95 % HPD by 30–60 %.
-   - **Fossil calibration error.** The 2 %-per-Myr rate is itself calibrated against fossil divergence dates with their own uncertainty (typically ±10–20 % on the calibrating node). Compounding error.
-   - **Incomplete lineage sorting (ILS).** Gene trees may not match the species tree; a single locus (cyt *b*) over a short coalescent time can give a TMRCA that predates the species divergence by 0.5–2× the ancestral $N_e$ generations. For mammalian $N_e \sim 10^5$ and generation time ~ 2 yr, this is up to ~ 200 kyr of additional uncertainty.
-   - **Strict-clock assumption.** If a strict clock is forced where rates are heterogeneous, the point estimate is biased toward the average — but lineages with elevated rates appear systematically older than they are.
+3. **Explicit sensitivity, not an invented posterior.** Stipulate a lineage-summed rate range 0.015–0.025 substitutions/site/Myr. Using $d_{JC}\approx0.0846$, dates range about 5.64–3.38 Ma. This is sensitivity to supplied rates, not a 95% confidence or HPD interval. Sequence length, alignment, calibration priors, rate model and posterior samples would be needed for a statistical uncertainty statement.
 
-4. **Bayesian relaxed-clock alternative.** BEAST2 with an uncorrelated-lognormal relaxed clock, a fossil-calibrated tree prior, and a substitution model selected via Bayes factors typically gives a 95 % HPD interval roughly twice as wide as the naive JC point estimate above. For this problem, a Bayesian relaxed-clock analysis would likely report a posterior median of ~ 4 Mya with 95 % HPD ~ [2.5, 5.8] Mya. The strict clock would report a tighter but potentially overconfident interval.
-
-**Interpretation.** Molecular-clock dating gives a quantitative null model against which fossil constraints, biogeographic events, and other lines of evidence are integrated. The naive point estimate (4 Mya) is a useful first-order anchor; honest reporting requires the relaxed-clock interval plus an explicit accounting of ILS for sub-population-genetic-time divergences.
+4. **Limits.** Rate variation, calibration error, ancestral coalescence and introgression can affect inferred dates. A relaxed-clock analysis requires actual data and priors; no BEAST analysis was performed for this exercise, so no posterior median or HPD is asserted.
 
 > **Concept Check 3:** Why is long-branch attraction a problem specifically for maximum parsimony but less so for maximum likelihood? (Hint: consider whether each method uses an explicit model of substitution rates.)
 
@@ -499,7 +493,7 @@ The factor of 2 accounts for substitutions accumulating independently in both li
 ### Worked Example: Estimating Divergence Time using Jukes-Cantor
 
 **Problem:**
-Human and chimpanzee mitochondrial *cytochrome b* sequences differ by approximately 1.5% ($p = 0.015$). Assume a mitochondrial substitution rate of $\mu \approx 2 \times 10^{-8}$ substitutions per site per year. 
+Two hypothetical taxa differ at 15 of 1000 aligned homologous nucleotide sites ($p=.015$, no gaps). Assume a per-lineage substitution rate of $\mu \approx 2 \times 10^{-8}$ substitutions per site per year.
 1. Calculate the Jukes-Cantor distance ($d_{JC}$).
 2. Estimate the divergence time ($t$) between the two lineages.
 
@@ -508,18 +502,18 @@ Human and chimpanzee mitochondrial *cytochrome b* sequences differ by approximat
 1. **Calculate the Jukes-Cantor distance:**
    Using the Jukes-Cantor correction formula to account for multiple substitutions at the same site:
    \begin{equation}
-   d_{JC} = -\frac{3}{4} \ln\left(1 - \frac{4}{3}(0.015)\right) \approx 0.01511 \text{ substitutions/site}
+   d_{JC} = -\frac{3}{4} \ln\left(1 - \frac{4}{3}(0.015)\right) \approx 0.01515203 \text{ substitutions/site}
    \label{eq:phylogenetics_6}
    \end{equation}
 
 2. **Estimate the divergence time:**
    Apply the divergence time estimation formula, remembering the factor of 2 (since mutations accumulate along both lineages branching from the MRCA):
    \begin{equation}
-   t = \frac{d_{JC}}{2\mu} = \frac{0.01511}{2 \times 2 \times 10^{-8}} \approx 3.78 \times 10^5 \text{ years}
+   t = \frac{d_{JC}}{2\mu} = \frac{0.01515203}{2 \times 2 \times 10^{-8}} \approx 3.78 \times 10^5 \text{ years}
    \label{eq:phylogenetics_7}
    \end{equation}
 
-*Note:* This estimate of about 378,000 years for mtDNA is much lower than the accepted species divergence time of about 6--7 Mya. This occurs because mitochondrial [**gene**](#gl:gene)s evolve significantly faster than the genome-wide average, and substituting a long-term nuclear calibration rate yields an artificially recent divergence for rapidly evolving loci.
+*Interpretation:* The stipulated inputs give about 378,801 years under the strict two-lineage JC model. These are synthetic nucleotide data, not a human–chimp mitochondrial alignment. Reducing the assumed rate makes the date older, not younger; a matched calibration matters more than calling a locus fast or slow.
 
 ### Rate Calibration with Fossils and Tip Dates
 
@@ -600,7 +594,7 @@ Once an ancestral sequence is reconstructed, it can be **synthesized** as a real
 
 ASR is more than a historical exercise — it is now a **protein-engineering platform**. Resurrected ancestral proteins are routinely **more thermostable** and **more catalytically robust** than their modern descendants — a pattern repeatedly observed across ancestral β-lactamases, EF-Tu elongation factors, alcohol dehydrogenases, and rhodopsins. The hypothesized explanation is that ancestral proteins evolved under broader environmental tolerances (early Earth was warmer; ancestral metabolisms more flexible), and that **modern descendants are specialized but brittle** — selection has pruned away robustness in favor of niche-specific performance. The applied consequence: industrial enzyme engineering increasingly uses ASR to **prospect for thermostable scaffolds**, then optimizes the resurrected protein for specific substrate specificity. Ancestral *Bacillus* α-amylases have been engineered into industrial laundry-detergent enzymes that retain function at 60–80 °C; ancestral *Pseudomonas* esterases have been used as starting points for plastic-degrading enzymes (PETase variants); and pharmaceutical biotechnology uses ASR to design more thermostable vaccine antigens (e.g., 
 
-The 16S rRNA gene is ideal for deep phylogenetics because it is present in all cellular organisms, contains both highly conserved regions (for universal primer design) and variable regions (for discriminating taxa), and is long enough (about 1,550 bp) for robust phylogenetic inference.
+Homologous small-subunit rRNA supports comparisons across cellular lineages: bacterial/archaeal 16S and eukaryotic cytosolic 18S combine conserved and variable regions. Viruses do not share this universal cellular marker. Primer coverage is assay- and taxon-dependent, not literally universal \citep{klindworth2013primers}; transfer, copy divergence, alignment, compositional bias and saturation also limit a single-marker tree.
 
 ### Domain Bacteria and Prokaryotic Phylogenetic Diversity
 
@@ -668,40 +662,22 @@ An estimated 20--30% of genes in a typical prokaryotic genome have been acquired
 The prevalence of HGT means that prokaryotic evolution is better represented by a **network** or **web** of life rather than a strictly bifurcating tree. For eukaryotes, vertical inheritance dominates the nuclear genome, but organellar genomes and some nuclear genes (acquired by endosymbiotic gene transfer, EGT) record the history of endosymbiosis.
 
 ```mermaid
-classDiagram
-    class Bacteria {
-        Proteobacteria
-        Firmicutes
-        Actinobacteria
-        Cyanobacteria
-        Bacteroidetes
-        Spirochetes
-    }
-    class Archaea {
-        Euryarchaeota
-        Crenarchaeota
-        TACK superphylum
-        Asgard archaea
-    }
-    class Eukarya {
-        Amorphea (Amoebozoa + Opisthokonta)
-        Diaphoretickes (SAR + Archaeplastida)
-        Excavata
-    }
-    class Endosymbiosis {
-        Mitochondria from alpha-Proteobacteria
-        Chloroplasts from Cyanobacteria
-        Secondary plastids from algal endosymbionts
-    }
-
-    Bacteria <|-- Endosymbiosis : alpha-Proteobacteria --> Mitochondria
-    Bacteria <|-- Endosymbiosis : Cyanobacteria --> Chloroplasts
-    Archaea <|-- Eukarya : Asgard archaea closest relatives
-    Endosymbiosis <|-- Eukarya : Organellar origins
+flowchart TD
+    Bac["Bacterial lineages"] --> Alpha["Alphaproteobacterial endosymbiont"]
+    Arc["Archaeal lineage<br/>Asgard-related host ancestry"] --> Host["Archaeal host contribution"]
+    Host --> Euk["Ancestral eukaryotic lineage<br/>with mitochondrion"]
+    Alpha -->|"Endosymbiosis<br/>mitochondrial contribution"| Euk
+    Bac --> Cyano["Cyanobacterial lineage"]
+    Euk --> PhotoHost["Eukaryotic host lineage"]
+    Cyano -->|"Primary endosymbiosis<br/>plastid contribution"| Primary["Primary-plastid eukaryotes<br/>including Archaeplastida"]
+    PhotoHost --> Primary
+    Primary --> Alga["Photosynthetic algal endosymbiont"]
+    OtherHost["Another eukaryotic host"] --> Secondary["Selected secondary-plastid lineages"]
+    Alga -->|"Secondary endosymbiosis"| Secondary
 ```
-<!-- alt: Diagram showing three domains of life with endosymbiotic organelle origins: mitochondria from alpha-Proteobacteria, chloroplasts from Cyanobacteria, and the Asgard-archaea root of Eukarya. -->
+<!-- alt: Flowchart showing selected endosymbiotic contributions to eukaryotic evolution. Arrows distinguish host descent from mitochondrial and plastid acquisition; this is a reticulate process schematic, not a resolved cladogram of all eukaryotic groups. -->
 
-*The three domains of life with endosymbiotic organelle origins: mitochondria from alpha-Proteobacteria, chloroplasts from Cyanobacteria, and the Asgard-archaea root of Eukarya.*
+*Selected endosymbiotic contributions to eukaryotic evolution. Arrows distinguish host descent from mitochondrial and plastid acquisition; this is a reticulate process schematic, not a resolved cladogram of all eukaryotic groups.*
 
 > **Real-World Connection: Antibiotic Resistance and HGT**
 >
@@ -795,7 +771,7 @@ print(years)
 
 The accuracy of any phylogenetic tree is bounded by the fidelity of its underlying sequence data — and for billion-year divergences the short-read Illumina platform (150–300 bp fragments) has been the bottleneck. Short reads mis-assemble through repetitive regions, collapse paralogs, and cannot span structural variants. **Long-read platforms** — **PacBio HiFi** (HIFI: 15–25 kb reads at 99.9 % accuracy via circular consensus sequencing) and **Oxford Nanopore Ultra-long reads** (100 kb – 2 Mb reads at 97–99 % raw accuracy, 99.9 % after polishing) — have transformed the field since 2020.
 
-Three phylogenetic problems that long reads solved: **(1) The animal tree of life.** Sponges vs. ctenophores as the earliest-branching animal clade — a 10-year controversy — was re-adjudicated with 1178 long-read-assembled orthologs (Redmond & McLysaght, *Nat. Commun.* 2021); the analysis supported **ctenophores-first**, implying convergent evolution of the nervous system (or its loss in sponges). **(2) Polyploid plant genomes.** The hexaploid wheat genome (5 × the human genome size) was resolvable primarily with HiFi + Hi-C scaffolding (*Nature* 2023), enabling the first accurate subgenome-level phylogeny of grass evolution. **(3) Ancient DNA phylogenetics.** PacBio HiFi on Pleistocene-age samples now reaches < 50 000-year mammoths and permafrost wolves; Nanopore ultra-long sequencing on sediment-trapped eDNA (eDNA-seq) reconstructs environments without individual organisms — extending phylogenetics to ecosystems rather than single species.
+Long reads can resolve repeats, structural variants and phased subgenomes, improving orthology inference in some phylogenomic datasets. They do not settle ancient branching order by themselves. Redmond and McLysaght2021 reanalyzed datasets using mixture models and recoding and found support for sponges, not ctenophores, as sister to other animals (DOI10.1038/s41467-021-22074-7 \citep{redmond2021sponges}); their result is not evidence that1178new long-read orthologs settled the dispute. Ancient DNA is often highly fragmented, so ultra-long-read capabilities cannot restore molecules already broken before extraction. Method, molecule length and evolutionary model must be reported separately.
 
 **Practical workflow for a 2025 phylogenomic study**: HiFi sequencing to 30× coverage (~$3000 per vertebrate-scale genome, 2024 prices) → assembly with hifiasm → BUSCO completeness check → orthologue identification with OrthoFinder → multiple sequence alignment with MAFFT-einsi → species-tree inference with ASTRAL under the multi-species coalescent → dating with MCMCTree against molecular-clock calibrations from the fossil record. The bottleneck has shifted from sequence generation to **taxonomic sampling** — we have the tools, we need the specimens.
 
