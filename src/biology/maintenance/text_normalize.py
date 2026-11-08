@@ -98,6 +98,7 @@ def _diagram_kind(source: str) -> str:
             continue
         if not stripped.startswith("%%"):
             return stripped.split()[0]
+    return "diagram"
 
 
 def _plain_text(markdown: str) -> str:

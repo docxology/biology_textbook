@@ -69,7 +69,7 @@ graph TD
     P ---|"mRNA context"| L
     H ---|"regulatory context"| T
     H ---|"state persistence"| I
-    I ---|"expression control"| T
+    I ---|"expression control"| E
     classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
     style M fill:#fafafa,stroke:#526777,color:#17212b
     style E fill:#fafafa,stroke:#526777,color:#17212b

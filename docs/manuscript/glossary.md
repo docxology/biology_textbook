@@ -320,7 +320,7 @@
 
 [**Polymerase chain reaction (PCR)**]{#gl:polymerase-chain-reaction} [Gk *polys* = many + L *merus* = part; Gk *kyklos* = circle; coined by Kary Mullis, 1983] — An *in vitro* method for amplifying a specific DNA sequence using repeated cycles of denaturation, primer annealing, and extension by Taq polymerase. Transformed molecular biology; Nobel Prize 1993. → \cref{sec:unit_IV_mutations_and_genomics}
 
-[**Promoter**]{#gl:promoter} [L *promovere* = to move forward] — A DNA sequence upstream of a gene where RNA polymerase and transcription factors bind to initiate transcription. In prokaryotes: −10 (Pribnow box) and −35 elements; in eukaryotes: TATA box, initiator, and Pol II general transcription factors. → \cref{sec:unit_IV_gene_expression}
+[**Promoter**]{#gl:promoter} [L *promovere* = to move forward] — A DNA region at which transcription machinery assembles to direct initiation. Common bacterial σ70 promoters have −10/−35 elements; archaeal initiation uses TBP/TFB-related machinery; eukaryotic Pol II promoters can use TATA, initiator, and other elements with general transcription factors. "Prokaryotic" alone does not specify one promoter mechanism. → \cref{sec:unit_IV_gene_expression}
 
 [**Protein**]{#gl:protein} [Gk *proteios* = of the first quality; coined by Mulder & Berzelius, 1838] — A polymer of L-amino acids linked by peptide bonds; encoded by the gene sequence; functional form depends on primary (1°), secondary (2°), tertiary (3°), and quaternary (4°) structure. → \cref{sec:unit_I_macromolecules}
 

@@ -6,7 +6,7 @@ Genetics logic is split by topic; the package facade is `biology.genetics` and t
 
 | Module | Topic | Key APIs |
 | ------ | ----- | -------- |
-| `sequence.py` | Central dogma, GC content | `GENETIC_CODE`, `dna_complement`, `translate_mrna` |
+| `sequence.py` | Standard-code translation, sequence complement, GC fraction | `GENETIC_CODE`, `dna_complement`, `translate_mrna` |
 | `mendelian.py` | Monohybrid crosses | `punnett_square`, `gametes`, `DiploidGenotype` |
 | `population.py` | HW equilibrium, goodness-of-fit | `hardy_weinberg`, `chi_squared_test` |
 | `linkage.py` | Recombination maps | `genetic_distance`, `infer_three_point_order` |
@@ -14,7 +14,7 @@ Genetics logic is split by topic; the package facade is `biology.genetics` and t
 | `epigenetics.py` | Chromatin teaching helpers | `cpg_methylation_remaining`, `synthetic_methylation_beta_matrix` |
 | `mutation.py` | Heterogeneous, unsorted mutation evidence | `mutation_rate_spectrum`, `MutationRateEvidence`, `MUTATION_RATE_EVIDENCE` |
 | `replication.py` | Fork kinematics | `replication_fork_progression` |
-| `genetics.py` | Shim re-exporting all public symbols for legacy `biology.genetics.genetics.*` paths | — |
+| `genetics.py` | Public aggregation surface used by manuscript examples; computation lives in the leaf modules above | Their declared public exports |
 
 ## Tests
 

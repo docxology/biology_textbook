@@ -67,7 +67,7 @@ graph TD
     N ---|"system coordination"| E
     N ---|"regulatory roles"| H
     E ---|"regulatory roles"| H
-    H ---|"flow regulation"| C
+    H ---|"flow regulation"| T
     I ---|"system interactions"| E
     classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
     style T fill:#fafafa,stroke:#526777,color:#17212b

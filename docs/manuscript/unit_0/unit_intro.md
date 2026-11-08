@@ -74,9 +74,7 @@ graph TD
         AI["Active inference"]
         HP["History and philosophy"]
     end
-    subgraph B["Biological applications"]
-        Q["Questions in later units"]
-    end
+    Q["Questions in later units"]
     SYS -.-|"feedback and emergence"| Q
     CAS -.-|"attractors and adaptation"| Q
     AI -.-|"prediction and allostasis"| Q
@@ -84,7 +82,6 @@ graph TD
     classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
     style S fill:#fafafa,stroke:#526777,color:#17212b
     style E fill:#fafafa,stroke:#526777,color:#17212b
-    style B fill:#fafafa,stroke:#526777,color:#17212b
 ```
 <!-- alt: Graph showing four complementary lenses connect to later biological questions. Dotted connectors identify optional conceptual applications, not a prerequisite chain, causal proof, or a claim that one framework explains every biological system. -->
 

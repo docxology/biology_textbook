@@ -221,13 +221,12 @@ def build_preface_scope_table(book_toc: Any) -> str:
 def build_textbook_concept_map(book_toc: Any) -> str:
     """Group canonical unit labels into an explicitly editorial relationship map."""
     groups = (
-        ("mechanisms", "Models and cellular mechanisms", ("unit_0", "unit_I", "unit_II", "unit_III")),
+        ("mechanisms", "Models and cellular mechanisms", ("unit_I", "unit_II", "unit_III")),
         ("inheritance", "Information, inheritance and change", ("unit_IV", "unit_V", "unit_VI")),
         ("environments", "Organisms and environments", ("unit_VII", "unit_VIII", "unit_IX", "unit_X")),
     )
     units = {unit.unit_id: unit for unit in book_toc.units}
     relationships = (
-        ("unit_0", "unit_I", "-.-"),
         ("unit_I", "unit_II", "---|molecular interactions|"),
         ("unit_II", "unit_III", "---|membrane gradients|"),
         ("unit_IV", "unit_V", "---|inheritance|"),
@@ -262,6 +261,13 @@ def build_textbook_concept_map(book_toc: Any) -> str:
             if source in identifiers and target in identifiers and source in units and target in units:
                 lines.append(f"        {source} {connector} {target}")
         lines.append("    end")
+        lines.append(f"    style {group} fill:#fafafa,stroke:#526777,color:#17212b")
+    lens = units.get("unit_0")
+    if lens is not None:
+        title_lines = "<br/>".join(escape(part) for part in wrap(lens.title, width=24))
+        lines.append(f'    unit_0["Unit {escape(lens.label)}<br/>{title_lines}"]')
+        if "mechanisms" in active_groups:
+            lines.append('    unit_0 -.-|"optional systems lens"| mechanisms')
     for source, target in pairwise(active_groups):
         lines.append(f"    {source} --- {target}")
     lines.extend([

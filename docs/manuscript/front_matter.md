@@ -146,14 +146,13 @@ config:
 graph TD
     subgraph mechanisms["Models and cellular mechanisms"]
         direction LR
-        unit_0["Unit 0<br/>Systems Science for<br/>Biology"]
         unit_I["Unit I<br/>Chemistry of Life"]
         unit_II["Unit II<br/>The Cell"]
         unit_III["Unit III<br/>Energy and Metabolism"]
-        unit_0 -.- unit_I
         unit_I ---|molecular interactions| unit_II
         unit_II ---|membrane gradients| unit_III
     end
+    style mechanisms fill:#fafafa,stroke:#526777,color:#17212b
     subgraph inheritance["Information, inheritance and change"]
         direction LR
         unit_IV["Unit IV<br/>Molecular Genetics"]
@@ -162,6 +161,7 @@ graph TD
         unit_IV ---|inheritance| unit_V
         unit_V ---|allele frequencies| unit_VI
     end
+    style inheritance fill:#fafafa,stroke:#526777,color:#17212b
     subgraph environments["Organisms and environments"]
         direction LR
         unit_VII["Unit VII<br/>Microbiology"]
@@ -172,6 +172,9 @@ graph TD
         unit_VIII ---|primary production| unit_X
         unit_IX ---|organisms in environments| unit_X
     end
+    style environments fill:#fafafa,stroke:#526777,color:#17212b
+    unit_0["Unit 0<br/>Systems Science for<br/>Biology"]
+    unit_0 -.-|"optional systems lens"| mechanisms
     mechanisms --- inheritance
     inheritance --- environments
     classDef topic fill:#eef5fa,stroke:#0077bb,color:#111111

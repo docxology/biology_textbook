@@ -107,10 +107,10 @@
       "reviewer": "WorkflowzScientificDeltaRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/front_matter.md:204:135c6388857f",
+      "advisory_id": "absolute-language-review:docs/manuscript/front_matter.md:207:135c6388857f",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/front_matter.md",
-      "line": 204,
+      "line": 207,
       "excerpt": "| **Combined instructor PDF** | From this project directory, install the locked dependencies and pinned Mermaid CLI described in the repository README, select the read-only template library with                                 , then run                                                                .                       stages sources and analysis; it does not render the PDF. |",
       "rationale": "The actual source supplies BIOLOGY_TEXTBOOK_TEMPLATE_ROOT and the project-local render_textbook.py command omitted from the packet's code-masked excerpt. The CLI dispatches to biology.pipeline.rendering.render_textbook(), which collects validated live sources, stages them, prepares source-bound inline PNGs and invokes PDFRenderer.render_combined(). Thus the distinction between analysis/staging and rendering is implemented. README supplies the prerequisite locked dependencies, graphics and external-tool requirements; this recipe is not evidence that a current complete PDF already exists.",
       "reviewer": "WorkflowzFinalClaimRefutation#3"
@@ -6470,19 +6470,19 @@
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:622:50ae0d0e9d0a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:626:50ae0d0e9d0a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/gene_expression.md",
-      "line": 622,
+      "line": 626,
       "excerpt": "- Mechanism: guide–target pairing, often involving seed positions 2–8 in a 3′ UTR, can promote translational repression and deadenylation/decay; extensive pairing can permit Ago2 slicing. Measure RNA abundance and protein production separately: \\citet{guo2010mirna} found that reduced mRNA explained most reduced protein production in the mammalian systems tested, not a universal translation-only miRNA effect.",
       "rationale": "Guo's primary abstract reports matched ribosome profiling/RNA measurements and at least 84% contribution from reduced mRNA in tested interactions (https://pubmed.ncbi.nlm.nih.gov/20703300/). The excerpts appropriately avoid extending that result to every target/time and distinguish predicted site counts from measured repression or universal miRNA/siRNA potency rankings.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:649:1a21300dae12",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:653:1a21300dae12",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/gene_expression.md",
-      "line": 649,
+      "line": 653,
       "excerpt": "Predicted target counts do not establish measured repression strength. Effects vary with target, guide abundance, site context and time; neither an RNA-class label nor a seed match alone gives a universal percentage or a ranking of miRNA versus siRNA silencing.",
       "rationale": "Guo's primary abstract reports matched ribosome profiling/RNA measurements and at least 84% contribution from reduced mRNA in tested interactions (https://pubmed.ncbi.nlm.nih.gov/20703300/). The excerpts appropriately avoid extending that result to every target/time and distinguish predicted site counts from measured repression or universal miRNA/siRNA potency rankings.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
@@ -8762,6 +8762,60 @@
       "line": 139,
       "excerpt": "\\nameref{sec:unit_X_unit_intro} returns to systems questions from \\nameref{sec:unit_0_unit_intro}: energy flow, carbon and nitrogen cycling, and organization across scales. The illustrative rule of roughly ten percent trophic transfer varies among systems; thermodynamics constrains energy budgets but does not derive one universal transfer efficiency. Population dynamics, community assembly, and succession can be examined with systems models, including selected attractor and bifurcation models from \\cref{sec:unit_0_complex_adaptive_systems}. Such comparisons require ecological mechanisms and evidence, not an assumption that a shared mathematical motif explains every ecosystem.",
       "rationale": "Energy budgets constrain trophic transfer but do not derive a universal ten-percent efficiency. Shared mathematical motifs likewise do not establish identical ecological mechanisms. The passage explicitly distinguishes illustrative heuristics, model assumptions and supporting ecological evidence.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_IV/questions_gene_expression.md:28:75b4a8258ef0",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/questions/unit_IV/questions_gene_expression.md",
+      "line": 28,
+      "excerpt": "**Answer (Q2, Recall).** For a canonical nuclear-encoded mammalian protein-coding mRNA, identify **(1) the m⁷G cap**, attached by a 5'–5' triphosphate linkage and recognized by cap-binding proteins, including eIF4E during cap-dependent initiation; **(2) the 5' UTR**, whose sequence and structure can influence initiation and may include upstream ORFs; **(3) the coding region**, from an initiation codon through an in-frame termination codon after the relevant introns have been removed; **(4) the 3' UTR**, which can contain RNA-stability and regulatory binding sites plus a polyadenylation signal; and **(5) the poly(A) tail**, bound by poly(A)-binding proteins and involved in stability and translation. Splicing can deposit EJCs approximately 20–24 nt upstream of junctions. A stop approximately 50–55 nt upstream of a downstream junction can favor EJC-dependent NMD, but the junction and EJC distances are different and susceptibility depends on context. No universal UTR or tail length follows from this structural description. In a **stipulated teaching transcript**, an 80-nt 5' UTR, 900-nt coding region including its terminal stop, and 250-nt 3' UTR total 1,230 templated nucleotides, excluding the cap and added tail; that coding region specifies 299 amino acids if it contains 299 sense codons followed by one stop. This is arithmetic, not a measured β-globin transcript. See \\cref{sec:unit_IV_gene_expression}.",
+      "rationale": "The lengths are explicitly stipulated, not measured beta-globin data: 80+900+250=1230 templated nucleotides, and 900/3 includes 299 sense codons plus one stop. The text scopes processing to a canonical nuclear-encoded mammalian mRNA rather than imposing universal UTR or tail lengths. Kurosaki et al. (2019), Figure 1 and the EJC-dependent section, distinguish the stop-to-junction boundary from 20–24-nt EJC deposition and explain context-dependent susceptibility (https://pmc.ncbi.nlm.nih.gov/articles/PMC6855384/).",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_IV/questions_gene_expression.md:116:d684e48dcbac",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/questions/unit_IV/questions_gene_expression.md",
+      "line": 116,
+      "excerpt": "**Answer (Q16, Application).** **(a)** The junction is 165−100 = **65 nt** downstream of the stop. The stipulated EJC is at nt **141–145**, only **41–45 nt** downstream. Thus the canonical >55-nt *junction* teaching rule is NMD-compatible even though an incorrect >50–55-nt *EJC* rule would miss this case. Ribosomal translation removes coding-region EJCs; an EJC remaining beyond termination can promote EJC-dependent NMD. Geometry is not a guarantee, and EJC-independent NMD exists. **(b)** NMD-promoting termination/EJC interactions can support SMG1-mediated UPF1 phosphorylation; activated UPF1 recruits decay machinery, including SMG6 cleavage or SMG5/SMG7-associated deadenylation and decapping, followed by exonucleolytic degradation. **(c)** NMD also tunes particular unmutated transcripts and splicing-regulatory circuits. Genes, transcript isoforms, and RNA molecules are different denominators, and target fractions depend on cell and assay conditions; a fixed percentage of human genes is not justified. See \\cref{sec:unit_IV_gene_expression} and \\citep{kurosaki2019nmd}.",
+      "rationale": "The stipulated junction distance is 165−100=65 nt; subtracting the stated 20–24-nt deposition offset gives EJC positions 141–145 and stop-to-EJC distances 41–45 nt. The item explicitly says NMD-compatible rather than guaranteed degradation and separates gene, transcript-isoform and RNA-molecule denominators. This exact counterexample was independently peer-checked against Kurosaki Figure 1/EJC-dependent recognition; it is not a new experimental result or NMD probability model.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:184:34aedb5fa961",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IV/gene_expression.md",
+      "line": 184,
+      "excerpt": "*Canonical nuclear-encoded mammalian mRNA processing and surveillance. Capping, splicing, and polyadenylation can overlap transcription before export. Translation-dependent recognition can route susceptible transcripts into NMD; a premature stop does not by itself guarantee degradation.*",
+      "rationale": "This is an explicitly canonical mammalian processing/surveillance cartoon. Its qualified statement rejects the unsupported inference that a premature stop alone guarantees degradation; Kurosaki et al. (2019) describe EJC-dependent and independent recognition and context-dependent target discrimination. The caption does not claim universal processing or a measured target fraction.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:426:b0bb99dcfbb3",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IV/gene_expression.md",
+      "line": 426,
+      "excerpt": "> Relative sparing of mammalian cytosolic translation is not a guarantee of safety. Mitochondrial ribosomes retain bacterial-derived features; particular drugs and mitochondrial rRNA variants can increase adverse effects, including aminoglycoside-associated ototoxicity.",
+      "rationale": "Differential action on bacterial versus mammalian cytosolic translation does not logically guarantee patient safety. The primary abstract of Prezant et al. (1993), PMID 7689389, reports mitochondrial 12S-rRNA A1555G in studied families with aminoglycoside-associated and non-syndromic deafness (https://pubmed.ncbi.nlm.nih.gov/7689389/). This supports the susceptibility/target-context limitation, not a universal adverse-effect rate, individual risk calculation or current prescribing recommendation.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:489:a6d73c3b8e8b",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IV/gene_expression.md",
+      "line": 489,
+      "excerpt": "2. **Initiation and coding-region translation.** Ribosomal scanning/elongation removes associated factors from traversed RNA. A sufficiently close downstream EJC can also be displaced by the terminating ribosome's reach. In lab card B, stop 170 and junction 200 place the stipulated EJC at 176–180, only 6–10 nt downstream; a downstream EJC is not automatically persistent. More distant retained EJCs can promote the qualified EJC-dependent pathway \\citep{kurosaki2019nmd}.",
+      "rationale": "The actual finite lab B supplies stop 170 and junction 200. With the stated 20–24-nt upstream deposition, the EJC is at 176–180, only 6–10 nt beyond the stop. Kurosaki et al. (2019), Figure 1 and the EJC-dependent section, explicitly explain that a sufficiently close downstream EJC can be displaced by the terminating ribosome. The replacement rejects the old blanket downstream-persistence inference and does not turn geometry into guaranteed decay.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/gene_expression.md:505:e2784eedb67e",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IV/gene_expression.md",
+      "line": 505,
+      "excerpt": "NMD has homeostatic functions beyond aberrant-transcript quality control, including regulation of particular alternatively spliced physiological isoforms during development and cellular responses. These roles do not specify one universal transcript fraction or disease outcome \\citep{kurosaki2019nmd}.",
+      "rationale": "Kurosaki et al. (2019) review physiological NMD, including regulated alternative splicing, development and cellular responses. The sentence explicitly declines to infer a universal transcript fraction or disease outcome, and it distinguishes aberrant-transcript quality control from pathogen detection. This classification is not certification of every unchanged clinical or experimental claim in the chapter.",
       "reviewer": "wfz-biology-textbook-release"
     }
   ]

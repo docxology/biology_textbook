@@ -47,3 +47,14 @@ def test_diagram_kind_ignores_configuration_and_literal_yaml_delimiters() -> Non
         ("stateDiagram-v2", "stateDiagram-v2"),
     ):
         assert _diagram_kind(configuration + declaration + "\n") == expected
+
+
+def test_draft_diagram_normalization_preserves_source_and_authored_prose() -> None:
+    paragraph = "An authored paragraph outside the diagram remains intact.\n"
+    for body in ("", "%% draft comment\n", "---\nconfig:\n  layout: dagre\n---\n"):
+        fence = "```mermaid\n" + body + "```\n"
+        original = "## Draft diagram\n\n" + fence + "\n" + paragraph
+        normalized = normalize_text(original).text
+        assert fence in normalized
+        assert normalized.endswith(paragraph)
+        assert normalize_text(normalized).text == normalized

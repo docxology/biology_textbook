@@ -69,7 +69,7 @@ graph TD
     F ---|"chemical features"| L
     F ---|"chemical features"| P
     F ---|"chemical features"| N
-    P ---|"protein catalyst examples"| E
+    P ---|"protein catalyst examples"| K
     E ---|"models and control"| R
     classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
     style C fill:#fafafa,stroke:#526777,color:#17212b

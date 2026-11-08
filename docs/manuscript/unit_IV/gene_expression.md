@@ -17,8 +17,8 @@
 
 ## Learning Objectives
 
-1. Describe the mechanism of [**transcription**](#gl:transcription) in prokaryotes and [**eukaryote**](#gl:eukaryote)s, including [**promoter**](#gl:promoter) recognition and elongation.
-2. Compare prokaryotic and eukaryotic RNA polymerases in terms of subunit composition, promoter elements, and regulation.
+1. Describe [**transcription**](#gl:transcription) in bacteria and [**eukaryote**](#gl:eukaryote)s, including [**promoter**](#gl:promoter) recognition and elongation, and distinguish the common expression pathway from Crick's sequence-transfer restriction.
+2. Compare bacterial, archaeal, and eukaryotic RNA polymerase systems in promoter recognition, subunit composition, and regulation.
 3. Explain RNA processing in eukaryotes: 5' capping, splicing (spliceosome mechanism), and 3' polyadenylation.
 4. Describe alternative splicing and its role in proteome diversity, including the mechanism of nonsense-mediated decay.
 5. **Predict** the polypeptide produced from a given mRNA sequence, applying the genetic code and wobble pairing, including the effect of a single-base insertion on the reading frame.
@@ -64,21 +64,23 @@ For gene-expression evidence, database provenance complements experiments. The 2
 
 RNA databases make this source-governance problem concrete. RNAcentral in 2026 had grown beyond a sequence index into a gene- and literature-linked resource: its abstract reports 45 million non-coding RNA sequences, while release 26 introduced gene-level views for genome-mapped ncRNA sequences and a human set of 103,814 ncRNA genes from 600,225 transcripts \citep{rnacentral2026}. These counts should be read as release-specific evidence, not permanent facts; the durable lesson is that a non-coding RNA claim needs the sequence identifier, gene model, source database, and literature provenance checked together.
 
-### Prokaryotic Transcription and Sigma-Factor Promoters
+### Bacterial Transcription: a Sigma-70 Example and the Archaeal Contrast
+
+Bacteria and archaea both lack a nucleus, but their promoter-recognition systems differ. Archaeal transcription uses an RNA polymerase and basal factors related to eukaryotic machinery, including TBP and TFB; bacterial sigma-factor recognition is not a general prokaryotic rule \citep{gehring2016archaealtranscription}.
 
 **RNA polymerase (RNAP)** in *E. coli*: core [**enzyme**](#gl:enzyme) ($\alpha_2\beta\beta'\omega$) + sigma (σ) factor:
 
-- The σ factor recognizes the **promoter** -- specifically two conserved hexameric sequences:
+- For common *E. coli* σ70 promoters, recognition involves two characteristic hexameric elements:
   - **-10 box** (Pribnow box): consensus TATAAT (named after David Pribnow)
   - **-35 box**: consensus TTGACA
-- Promoter strength correlates with similarity to consensus; strong promoters (e.g., rRNA genes) match closely at both positions
+- Consensus similarity can affect initiation, but these motifs alone are not a quantitative promoter-strength model; spacing, regulatory proteins, and cellular conditions also matter.
 - The $\sigma^{70}$ factor is the "housekeeping" sigma; alternative sigma factors direct RNAP to stress-response promoters (e.g., $\sigma^{32}$ for heat shock, $\sigma^{54}$ for nitrogen starvation)
 
 **Transcription cycle**:
 1. **Closed complex**: RNAP + σ binds promoter DNA (double-stranded)
 2. **Open complex**: ~15 bp around the -10 region melt (AT-rich, easier to denature); transcription bubble forms
-3. **Initiation**: RNAP synthesizes short abortive transcripts (2-12 nt); σ factor released after ~10 nt ("promoter escape")
-4. **Elongation**: RNAP moves along template 3' to 5', synthesizing RNA 5' to 3' at ~40-80 nt/s; transcription bubble is ~12-14 bp; ~8 bp RNA-DNA hybrid within the bubble
+3. **Initiation and promoter escape**: RNAP first produces short initial transcripts; sigma contacts reorganize as elongation begins. Sigma dissociation need not occur at one fixed transcript length.
+4. **Elongation**: RNAP moves along the DNA template 3' to 5' while synthesizing RNA 5' to 3' within a moving transcription bubble.
 5. **Termination**: two mechanisms
 
 **Termination mechanisms**:
@@ -177,9 +179,9 @@ flowchart LR
     style N fill:#5cb85c,color:#fff
     style M fill:#d9534f,color:#fff
 ```
-<!-- alt: Flowchart showing eukaryotic mRNA processing pipeline. Pre-mRNA undergoes co-transcriptional capping, splicing, and polyadenylation before export. Transcripts with premature termination codons (PTCs) are eliminated by nonsense-mediated decay (NMD). -->
+<!-- alt: Flowchart showing canonical nuclear-encoded mammalian mRNA processing and surveillance. Capping, splicing, and polyadenylation can overlap transcription before export. Translation-dependent recognition can route susceptible transcripts into NMD; a premature stop does not by itself guarantee degradation. -->
 
-*Eukaryotic mRNA processing pipeline. Pre-mRNA undergoes co-transcriptional capping, splicing, and polyadenylation before export. Transcripts with premature termination codons (PTCs) are eliminated by nonsense-mediated decay (NMD).*
+*Canonical nuclear-encoded mammalian mRNA processing and surveillance. Capping, splicing, and polyadenylation can overlap transcription before export. Translation-dependent recognition can route susceptible transcripts into NMD; a premature stop does not by itself guarantee degradation.*
 
 ### 5' Capping and mRNA Stability
 
@@ -287,7 +289,7 @@ NMD is an mRNA surveillance pathway that degrades transcripts containing **prema
 
 **Mechanism:** In the canonical mammalian EJC-dependent rule, termination more than about 50–55 nucleotides upstream of a downstream exon–exon junction can trigger NMD. EJCs are deposited roughly 20–24 nucleotides upstream of junctions and normally displaced by translating ribosomes. Remaining downstream EJCs help recruit UPF factors and decay machinery. The junction distance is not the same as the EJC distance; exceptions and EJC-independent NMD exist.
 
-NMD degrades ~5-10% of the human transcriptome, including many alternatively spliced isoforms with PTCs (regulated unproductive splicing and translation, or RUST).
+NMD also regulates physiological transcripts, including particular alternatively spliced isoforms with PTCs (regulated unproductive splicing and translation, or RUST). Its target fraction depends on transcript, cell, and assay context; a fixed percentage of human genes is not a general NMD rule \citep{kurosaki2019nmd}.
 
 **Concept Check 12.1**
 
@@ -300,21 +302,21 @@ NMD degrades ~5-10% of the human transcriptome, including many alternatively spl
 
 ## Translation and Ribosome-Mediated Protein Synthesis
 
-### The Genetic Code
+### Standard Codon Assignments and Taxon-Specific Code Variation
 
-The genetic code maps 64 codons ($4^3 = 64$) to 20 amino acids plus stop signals \citep{nirenberg1961}. \cref{fig:unit_IV_translation_codons} shows amino-acid counts from translating a representative mRNA.
+The standard genetic-code table maps 64 triplets ($4^3 = 64$) to 20 amino acids plus termination signals \citep{nirenberg1961}. \cref{fig:unit_IV_translation_codons} uses this standard table. The teaching helper `translate_mrna()` begins at the first AUG and stops at the first in-frame standard stop; it does not model alternative initiation, organellar or nuclear code variants, or context-dependent recoding.
 
-: The Genetic Code: Property and Description. {#tbl:unit_IV_gene_expression_the_genetic_code}
+: Standard Genetic-Code Assignments and Their Context Limits. {#tbl:unit_IV_gene_expression_the_genetic_code}
 | Property | Description |
 |----------|-------------|
 | **Degenerate (redundant)** | Amino acids are encoded by 1-6 synonymous codons; Leu, Ser, Arg each have 6 codons; Met and Trp each have 1 |
 | **Unambiguous** | Each codon specifies exactly one amino acid (or stop) |
 | **Commaless and non-overlapping** | Read in consecutive, non-overlapping triplets from a fixed start point |
-| **Nearly comprehensive** | Exceptions in mitochondria (*Mycoplasma*: UGA = Trp; *Tetrahymena*: UAA/UAG = Gln; mammalian mitochondria: AGA/AGG = Stop) |
+| **Taxon and compartment matter** | UGA encodes Trp in vertebrate mitochondrial code 2 and Mycoplasma code 4; UAA/UAG encode Gln in the *Tetrahymena* nuclear code 6. These are distinct contexts, not one mitochondrial exception class \citep{ncbi2024geneticcodes}. |
 
-**Start codon**: AUG (methionine) in eukaryotes; AUG (formylmethionine) in prokaryotes. Rarely, GUG or UUG serve as alternative start codons in prokaryotes.
+**Initiation codons and amino acid:** AUG commonly initiates translation. Bacteria generally use N-formylmethionine on initiator tRNA; archaea and eukaryotic cytosolic translation use unformylated methionine. Alternative initiation codons occur in specified taxon and transcript contexts; the initiation assignment is distinct from an internal codon's elongation assignment \citep{schmitt2020archaealinitiation,ncbi2024geneticcodes}.
 
-**Stop codons**: UAA (ochre), UAG (amber), UGA (opal/umber).
+**Standard termination codons:** UAA (ochre), UAG (amber), and UGA (opal/umber); an alternative translation table or a recoding mechanism can change their interpretation.
 
 **Wobble base pairing** \citep{crick1966}: The third codon position ("wobble position") pairs with the first [**anticodon**](#gl:anticodon) position with relaxed stringency:
 
@@ -327,7 +329,7 @@ The genetic code maps 64 codons ($4^3 = 64$) to 20 amino acids plus stop signals
 | G | C, U |
 | I (inosine) | A, C, U |
 
-Wobble explains how 45 tRNAs (in humans) can decode 61 sense codons. **Suppressor tRNAs** are mutant tRNAs that can read stop codons as amino acids, "suppressing" nonsense mutations.
+Wobble and anticodon modifications can let one tRNA recognize multiple compatible codons; tRNA-gene and anticodon-repertoire counts depend on organism and compartment. **Suppressor tRNAs** can read a normally terminating codon as an amino acid in an appropriate context.
 
 ```mermaid
 stateDiagram-v2
@@ -369,25 +371,27 @@ stateDiagram-v2
 
 ### Ribosome Structure and Catalytic RNA
 
-: Ribosome Structure and Catalytic RNA: Feature and Prokaryotic (70S). {#tbl:unit_IV_gene_expression_ribosome_structure_and_catalytic_rna}
-| Feature | Prokaryotic (70S) | Eukaryotic (80S) |
+: Representative Bacterial and Mammalian Cytosolic Ribosomes. {#tbl:unit_IV_gene_expression_ribosome_structure_and_catalytic_rna}
+| Feature | Representative bacterial (70S) | Mammalian cytosolic (80S) |
 |---------|-------------------|------------------|
-| Small subunit | 30S (16S rRNA + ~21 proteins) | 40S (18S rRNA + ~33 proteins) |
-| Large subunit | 50S (23S + 5S rRNA + ~31 proteins) | 60S (28S + 5.8S + 5S rRNA + ~49 proteins) |
+| Small subunit | 30S (16S rRNA and ribosomal proteins) | 40S (18S rRNA and ribosomal proteins) |
+| Large subunit | 50S (23S and 5S rRNAs with proteins) | 60S (28S, 5.8S, and 5S rRNAs with proteins) |
 | Sedimentation coefficient | 70S | 80S |
 | Peptidyl transferase center | 23S rRNA | 28S rRNA |
-| mRNA binding | Shine-Dalgarno sequence | 5' cap scanning |
+| Example recruitment mechanism | Shine-Dalgarno pairing in an SD-containing transcript | Cap-dependent recruitment and scanning in the canonical model |
 
 The ribosome has three tRNA-binding sites:
 - **A site (aminoacyl)**: accepts incoming aminoacyl-tRNA
 - **P site (peptidyl)**: holds the tRNA carrying the growing polypeptide chain
 - **E site (exit)**: depleted (deacylated) tRNA exits here
 
-**Critical insight**: The peptidyl transferase center (PTC) is composed entirely of rRNA -- no protein comes within 18 A of the active site. This demonstrates that the ribosome is a **ribozyme** (Nobel Prize 2009: Ramakrishnan, Steitz, Yonath). This supports the **RNA world hypothesis**: RNA catalyzed protein synthesis before proteins existed.
+**Catalytic RNA and historical inference:** Ribosomal rRNA forms the central peptidyl-transferase framework, making the ribosome a **ribozyme**. Comparative ribosomal structures distinguish this conserved RNA framework from variable protein complements \citep{schmitt2020archaealinitiation}. That observation is consistent with RNA-world hypotheses; a present-day structure does not by itself establish the historical order in which RNA and proteins evolved.
 
 ### Translation Initiation, Elongation, and Termination
 
-**Prokaryotic initiation**: The **Shine-Dalgarno sequence** (AGGAGG, ~5-10 nt upstream of AUG) base-pairs with the anti-SD sequence at the 3' end of 16S rRNA, positioning the AUG in the P site. IF1 blocks the A site; IF2-GTP escorts fMet-tRNA$_f^{Met}$ to the P site; IF3 prevents premature 50S joining. After start codon recognition, IF2 hydrolyzes GTP, most IFs dissociate, and 50S joins.
+**Bacterial initiation (Shine-Dalgarno example):** An SD sequence in a suitable bacterial transcript pairs with the anti-SD region of 16S rRNA, helping position the start codon. IF1, IF2-GTP, and IF3 coordinate initiator fMet-tRNA binding and subunit joining. This is a selected bacterial mechanism, not a definition of prokaryotic initiation.
+
+**Archaeal initiation:** Archaeal transcripts can use SD-dependent or leaderless initiation, with aIFs related to eukaryotic initiation factors and an unformylated methionyl initiator tRNA. An SD sequence or the absence of a nucleus does not imply the bacterial IF1/IF2/IF3 system \citep{schmitt2020archaealinitiation}.
 
 **Eukaryotic initiation** (cap-dependent scanning model):
 1. **eIF4F complex** (eIF4E + eIF4G + eIF4A helicase) binds the m$^7$G cap
@@ -397,10 +401,10 @@ The ribosome has three tRNA-binding sites:
 5. Start codon recognition: eIF2 hydrolyzes GTP; eIF5B-GTP promotes 60S joining; most eIFs released
 6. **80S initiation complex** formed with Met-tRNA$_i^{Met}$ in P site
 
-**Elongation cycle** (~5-10 amino acids/s in eukaryotes; ~15-20 aa/s in prokaryotes):
-1. **Decoding**: aminoacyl-tRNA delivered to A site as part of a ternary complex with eEF1A (EF-Tu in prokaryotes) and GTP. Correct codon-anticodon match triggers conformational change; GTP hydrolysis releases eEF1A
-2. **Peptide bond formation**: Peptidyl transferase (28S rRNA catalytic activity) transfers the growing peptide from the P-site tRNA to the A-site amino acid. The reaction is spontaneous ($\Delta G < 0$) -- the aminoacyl ester bond is high-energy
-3. **Translocation**: eEF2-GTP (EF-G in prokaryotes) promotes translocation; ribosome moves 3 nt (one codon) along mRNA; tRNAs shift: A to P, P to E; E-site tRNA dissociates
+**Elongation: shared logic and domain-specific factors**
+1. **Decoding:** aminoacyl-tRNA delivery uses a GTPase, including eEF1A in eukaryotes, aEF1A in archaea, and EF-Tu in bacteria. Codon–anticodon selection and GTPase-linked proofreading favor compatible tRNA accommodation.
+2. **Peptide-bond formation:** the ribosomal peptidyl-transferase center transfers the growing peptide from the P-site tRNA to the A-site amino acid. Activated tRNA-ester chemistry supplies the chemical driving force; catalysis does not remove free-energy constraints.
+3. **Translocation:** eEF2 in eukaryotes, aEF2 in archaea, or bacterial EF-G couples GTPase activity to movement by one codon; tRNAs move through A, P, and E positions.
 
 **Termination**: When a stop codon enters the A site:
 - **eRF1** (class I release factor) recognizes the three stop codons (in eukaryotes) -- its shape mimics tRNA
@@ -409,7 +413,7 @@ The ribosome has three tRNA-binding sites:
 - **ABCE1** (ribosome recycling factor) splits the 80S ribosome into subunits for re-use
 
 > **Clinical Connection: Antibiotics Targeting the Ribosome**
-> The structural differences between prokaryotic 70S and eukaryotic 80S ribosomes make the bacterial ribosome an excellent drug target:
+> Differences between bacterial ribosomes and mammalian cytosolic ribosomes provide selective binding opportunities for antibacterial drugs; selectivity depends on the drug and target context:
 >
 > | Antibiotic | Target | Mechanism |
 > |-----------|--------|-----------|
@@ -419,7 +423,7 @@ The ribosome has three tRNA-binding sites:
 > | Erythromycin | 50S exit tunnel | Blocks peptide exit |
 > | Linezolid | 50S A site | Prevents fMet-tRNA binding |
 >
-> These antibiotics are selectively toxic because they do not bind eukaryotic ribosomes efficiently. However, mitochondrial ribosomes resemble prokaryotic ribosomes, explaining side effects like ototoxicity (aminoglycosides) in patients with mitochondrial rRNA mutations.
+> Relative sparing of mammalian cytosolic translation is not a guarantee of safety. Mitochondrial ribosomes retain bacterial-derived features; particular drugs and mitochondrial rRNA variants can increase adverse effects, including aminoglycoside-associated ototoxicity.
 
 ### IRES Elements — Cap-Independent Translation Initiation
 
@@ -462,17 +466,17 @@ While most eukaryotic translation initiates at the 5′ cap (eIF4F-mediated scan
 4. **Codon-level translation kinetics.** Each codon's average dwell time can be estimated from ribosome density. Codon-optimized mRNAs (e.g., synthetic mRNA vaccines, insulin) have shorter average dwell times and higher translation efficiency.
 5. **Out-of-frame translation.** Ribo-seq has uncovered hidden ORFs (smORFs, 10–100 codons) in regions previously annotated as non-coding — many of which encode functional micropeptides (e.g., MOTS-c from mitochondrial 12S rRNA; HOXB-AS3 micropeptide).
 
-### Nonsense-Mediated Decay (NMD) — Mechanism in Mechanistic Detail
+### NMD Recognition: Junction Distances, UPF Signaling, and Decay
 
-NMD destroys mRNAs containing premature termination codons (PTCs), preventing the production of truncated proteins that would often act as dominant-negative or gain-of-function pathogens. The key recognition principle is the **EJC-distal PTC** rule: a stop codon is "premature" if the ribosome encounters it more than ~50 nt upstream of the last exon-exon junction.
+NMD can reduce production of harmful truncated proteins and regulate physiological transcripts. In the canonical mammalian EJC-dependent model, a stop more than approximately 50–55 nt upstream of a downstream exon–exon junction can leave an EJC beyond the terminating ribosome. The distance is measured to the junction, not to the EJC deposited about 20–24 nt upstream of it. Susceptibility is context-dependent, and EJC-independent NMD also exists \citep{kurosaki2019nmd}.
 
 **Key molecular components:**
 
-: Nonsense-Mediated Decay (NMD) — Mechanism in Mechanistic Detail: Component and Role. {#tbl:unit_IV_gene_expression_nonsense_mediated_decay_nmd_mechanism_in_mechanistic_detail}
+: Components of NMD Recognition and RNA Decay. {#tbl:unit_IV_gene_expression_nonsense_mediated_decay_nmd_mechanism_in_mechanistic_detail}
 | Component | Role |
 | --------- | ---- |
-| **EJC (exon junction complex)** | Deposited 20–24 nt upstream of most exon-exon junctions during splicing (occupancy is non-uniform; the final junction is often unmarked); contains EIF4A3, MAGOH, Y14/RBM8A, MLN51 (CASC3) |
-| **UPF1 (RENT1)** | RNA helicase + ATPase; central NMD effector; binds the 3′ UTR after stop codon |
+| **EJC (exon junction complex)** | Deposited about 20–24 nt upstream of many spliced junctions; occupancy and composition vary. The core includes EIF4A3, MAGOH, and Y14/RBM8A, with context-dependent associated factors such as CASC3. |
+| **UPF1 (RENT1)** | RNA helicase/ATPase and central NMD effector; binding is not restricted to target transcripts, and activation depends on context. |
 | **UPF2 (RENT2)** | Bridges UPF1 to UPF3 |
 | **UPF3A/UPF3B** | EJC component; bridges EJC to UPF1/2 |
 | **SMG1** | PIKK-family kinase; phosphorylates UPF1 |
@@ -482,9 +486,9 @@ NMD destroys mRNAs containing premature termination codons (PTCs), preventing th
 **Mechanism, step-by-step:**
 
 1. **mRNA enters first-round translation** (the "pioneer round"), still bound by CBP80/20 cap-binding complex (not yet the cytoplasmic eIF4F).
-2. **Ribosome translates from cap to first stop codon.** Each EJC encountered by the elongating ribosome is dislodged. EJCs deposited downstream of the actual stop codon (in the 3′ UTR) are NOT dislodged.
+2. **Initiation and coding-region translation.** Ribosomal scanning/elongation removes associated factors from traversed RNA. A sufficiently close downstream EJC can also be displaced by the terminating ribosome's reach. In lab card B, stop 170 and junction 200 place the stipulated EJC at 176–180, only 6–10 nt downstream; a downstream EJC is not automatically persistent. More distant retained EJCs can promote the qualified EJC-dependent pathway \citep{kurosaki2019nmd}.
 3. **Stop codon recognition.** eRF1 + eRF3-GTP enter the A site; eRF3 hydrolyses GTP; nascent peptide is released by hydrolysis of the peptidyl-tRNA ester bond.
-4. **UPF1 recruitment.** eRF3 (after release-factor function) recruits UPF1 to the terminating ribosome.
+4. **NMD-promoting complex assembly.** UPF1/SMG1 and termination-associated components communicate with retained EJC-associated UPF factors in this simplified EJC-dependent model; recruitment is not a context-free detector of every premature stop.
 5. **Downstream-junction rule.** A stop more than approximately 50–55 nt upstream of a downstream exon–exon junction can leave a downstream EJC able to support UPF-dependent NMD; an EJC within 50 nt is not the defining rule.
 6. **SMG1 phosphorylation of UPF1** at numerous Ser/Thr-Q sites — generates the "phospho-UPF1" signal.
 7. **Decay execution:**
@@ -498,7 +502,7 @@ NMD destroys mRNAs containing premature termination codons (PTCs), preventing th
 2. **NMD inhibition** (e.g., NMDI-1, SMG1 inhibitors in development) prolongs the half-life of PTC-containing mRNAs, increasing the substrate pool for read-through compounds.
 3. **Splice-modifying ASOs:** Eteplirsen skips an existing DMD exon 51 in amenable genotypes to restore frame; nusinersen instead promotes SMN2 exon 7 inclusion. These opposite splice changes address different molecular defects.
 
-NMD also has homeostatic functions beyond pathogen detection: it degrades a large fraction of physiological alternatively-spliced isoforms that contain PTCs (regulated unproductive splicing and translation, RUST), particularly in neurons and during development. NMD perturbation in flies and mice produces brain phenotypes consistent with this regulatory role.
+NMD has homeostatic functions beyond aberrant-transcript quality control, including regulation of particular alternatively spliced physiological isoforms during development and cellular responses. These roles do not specify one universal transcript fraction or disease outcome \citep{kurosaki2019nmd}.
 
 ### Translation Fidelity — Mechanism and Error Rate
 
@@ -518,12 +522,12 @@ For an assumed per-residue error probability $p=10^{-5}$ to $10^{-4}$, a 500-res
 
 **Concept Check 12.2**
 
-> 1. Compare the roles of the Shine-Dalgarno sequence (prokaryotes) and Kozak sequence (eukaryotes) in translation initiation.
+> 1. Compare Shine-Dalgarno-dependent initiation in specified bacterial/archaeal transcripts with canonical eukaryotic cap-dependent scanning and Kozak context. What changes for leaderless mRNAs?
 > 2. Why is the ribosome considered a ribozyme? What evidence supports this?
 > 3. A patient has a mitochondrial 12S rRNA mutation (A1555G). Why might aminoglycoside antibiotics cause deafness in this patient?
 > 4. Explain the wobble hypothesis and why fewer tRNAs than sense codons are needed.
 
-> **Concept Check (Analysis):** The genetic code has 64 codons encoding 20 amino acids plus stop signals. Redundancy (degeneracy) is non-random: wobble pairing allows the first two positions to be read precisely while the third varies. (a) Using the wobble rules (G in anticodon pairs with U or C in codon; I pairs with U, C, or A), explain how 45 tRNAs can decode 61 sense codons. (b) Codon usage bias — the preferential use of some synonymous codons over others — correlates with tRNA abundance. For a highly expressed ribosomal protein gene in E. coli, predict the codon usage pattern and explain why this matters for translation speed. (c) Synonymous mutations (codon changes that don't alter amino acid) are sometimes functionally significant. Describe two mechanisms by which a synonymous mutation could alter protein function.
+> **Concept Check (Analysis):** The standard code has 64 triplets, including 61 sense-codon assignments. (a) Using the stated wobble rules, explain how an anticodon containing G can recognize two compatible synonymous codons and one containing I can recognize three; distinguish this decoding argument from a census of human tRNA genes. (b) Codon usage bias can correlate with tRNA abundance. For a highly expressed *E. coli* ribosomal-protein gene, explain how that relationship could affect translation without treating it as a complete speed predictor. (c) Describe two mechanisms by which a synonymous mutation could affect expression or protein function.
 
 > **Worked Example — Operon Regulation Logic:** For the lac operon: when [lactose] = 0 and [glucose] = 0: cAMP is HIGH (glucose absent → adenylyl cyclase active), CAP is bound to DNA (activator). Repressor is bound (no allolactose present). Net: cAMP-CAP at site = +transcription; repressor at operator = -transcription. Combined: OFF. When [lactose] = HIGH and [glucose] = 0: allolactose binds repressor → repressor released → operator free; cAMP HIGH → CAP bound → full activation. Net: maximum transcription (relative rate ≈ 1,000× basal). When [lactose] = HIGH and [glucose] = HIGH: glucose suppresses adenylyl cyclase → cAMP falls → CAP released from DNA. Even though repressor is off (allolactose present), the absence of CAP reduces transcription to ~20% of maximum. This "catabolite repression" ensures cells use glucose preferentially even when lactose is available, avoiding the metabolic cost of synthesizing enzymes for a secondary carbon source.
 
@@ -567,7 +571,7 @@ The ubiquitin-proteasome system (UPS) is the primary mechanism for targeted prot
 
 ## Gene Regulation Across DNA, RNA, and Chromatin
 
-### Prokaryotic Gene Regulation: The Lac Operon
+### Bacterial Gene Regulation: the E. coli Lac Operon
 
 The *E. coli* lac operon \citep{jacob1961} (Jacob and Monod, 1961; Nobel Prize 1965) was the founding model of gene regulation:
 
@@ -778,13 +782,13 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 
 ## Summary
 
-- **Transcription**: RNAP reads the template strand 3' to 5' to produce RNA 5' to 3'. Prokaryotes use a single RNAP with sigma factors; eukaryotes use three RNA Polymerases plus general transcription factors and Mediator.
+- **Transcription**: RNAP reads a DNA template 3' to 5' to synthesize RNA 5' to 3'. Bacterial sigma factors, archaeal TBP/TFB-related machinery, and eukaryotic nuclear Pol I/II/III systems have distinct promoter-recognition contexts.
 - **Promoter elements**: TATA box (TBP binding), Inr, DPE, BRE, CpG islands; enhancers act over long distances via DNA looping.
 - **mRNA processing**: 5' m$^7$G cap (eIF4E recognition, stability), spliceosome-mediated intron removal (two transesterification reactions via lariat intermediate), 3' poly(A) tail (PABP, stability, translation).
 - **Alternative splicing**: >95% of human multi-exon genes; generates proteome diversity; regulated by SR proteins and hnRNPs; NMD degrades transcripts with premature stop codons.
-- **Translation**: cap-dependent scanning (eukaryotes) or Shine-Dalgarno (prokaryotes); A/P/E sites; elongation cycle; genetic code (64 codons, wobble pairing, nearly comprehensive); ribosome is a ribozyme.
+- **Translation**: initiation depends on taxon and transcript context, including cap-dependent scanning, Shine-Dalgarno pairing, and leaderless initiation. A/P/E sites and ribosomal RNA catalysis connect to the standard codon table, wobble, and explicitly distinguished code variants.
 - **Post-translational modifications**: phosphorylation, glycosylation, ubiquitination, acetylation, methylation, SUMOylation; ubiquitin-proteasome system for targeted degradation.
-- **Gene regulation**: prokaryotic operons (lac: inducible; trp: repressible with attenuation); eukaryotic: chromatin remodeling, histone code, DNA methylation, transcription factor combinatorics, miRNA/siRNA/lncRNA.
+- **Gene regulation:** the bacterial lac and trp examples illustrate inducibility, repression, and attenuation; eukaryotic regulation includes chromatin, DNA methylation, transcription factors, and regulatory RNAs. A bacterial example does not establish a mechanism for every archaeal transcript.
 - **[Epigenetics](#gl:epigenetics)**: heritable changes in gene expression without DNA sequence change; DNA methylation (CpG islands), histone modifications; dysregulated in cancer.
 - **Development**: Hox genes specify positional identity; homeodomain TFs; colinearity of gene order and expression domain.
 - **Connections:** See \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} for chromatin and RNAi, \nameref{sec:unit_VI_unit_intro} for how expression variation fuels evolution, and \cref{sec:unit_II_cell_signaling} for signal-driven transcription factors.
@@ -793,12 +797,12 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 
 ## Review Questions
 
-1. Compare the promoter recognition mechanisms in prokaryotes (sigma factor) and eukaryotes (GTF assembly). Why do eukaryotes require so many additional factors?
+1. Compare promoter recognition by bacterial sigma factors, archaeal TBP/TFB, and eukaryotic Pol II general factors. Which components are homologous, and why is "prokaryotic" insufficient to identify the mechanism?
 2. Describe the three enzymatic steps of 5' capping. Why is the cap essential for translation?
 3. Explain the two transesterification reactions in splicing. What is the lariat intermediate and why does it form?
 4. How does DSCAM alternative splicing generate 38,016 isoforms from a single gene? What biological function does this diversity serve?
 5. Explain the NMD pathway. Why is it important to destroy mRNAs with premature stop codons?
-6. Compare the mechanisms of eukaryotic and prokaryotic translation initiation. What is the Kozak sequence?
+6. Compare initiation in bacteria, archaea, and eukaryotes. Distinguish Shine-Dalgarno pairing, leaderless initiation, and canonical cap-dependent scanning; what does Kozak context specify?
 7. Describe the ubiquitin-proteasome pathway (E1/E2/E3 cascade). Why does the human genome encode ~600 E3 ligases but 2 main E1 enzymes?
 8. Compare the lac operon (inducible) and trp operon (repressible). How does attenuation fine-tune trp operon expression?
 9. Describe three classes of non-coding RNAs and their roles in gene regulation.
@@ -817,20 +821,25 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 - Ban, Nissen, Hansen, Moore & Steitz (2000). The complete atomic structure of the large ribosomal subunit at atomic resolution. *Science*, 289.
 - Black (2003). Mechanisms of alternative pre-messenger RNA splicing. *Annual Review of Biochemistry*, 72.
 - Sonenberg & Hinnebusch (2009). Regulation of translation initiation in eukaryotes: mechanisms and biological targets. *Cell*, 136.
+- Crick (1970). Central Dogma of Molecular Biology. *Nature*, 227, 561–563.
+- Gehring, Walker & Santangelo (2016). Transcription Regulation in Archaea. *Journal of Bacteriology*, 198, 1906–1917.
+- Schmitt et al. (2020). Recent Advances in Archaeal Translation Initiation. *Frontiers in Microbiology*, 11, 584152.
+- Elzanowski & Ostell (NCBI, updated September 2024). The Genetic Codes: taxon- and compartment-specific translation tables.
+- Kurosaki, Popp & Maquat (2019). Quality and quantity control of gene expression by nonsense-mediated mRNA decay. *Nature Reviews Molecular Cell Biology*, 20, 406–420. The publisher correction concerns the original HTML Figure 3; the publisher states the PDF was correct.
 
 ---
 
 ## Key Terms
 
 1. **Central dogma** — Crick's proposed restriction on residue-by-residue sequence-information transfer from protein; distinct from the common DNA-to-RNA-to-protein expression pathway
-2. **Sigma factor** -- prokaryotic RNAP subunit that recognizes promoter sequences
+2. **Sigma factor** — bacterial RNAP initiation factor involved in promoter recognition; distinct from archaeal TBP/TFB machinery
 3. **General transcription factors (GTFs)** -- proteins (TFIIA-H) required for basal Pol II transcription
 4. **Mediator complex** -- coactivator bridging enhancer-bound TFs to basal machinery
 5. **5' cap (m7G)** -- modified guanosine protecting mRNA 5' end; recognized by eIF4E
 6. **Spliceosome** -- large RNP complex (U1, U2, U4, U5, U6 snRNPs) that removes introns
 7. **Branch point** -- intronic adenosine whose 2'-OH attacks the 5' splice site in the first transesterification
 8. **Alternative splicing** -- generation of multiple mRNA isoforms from one gene by differential exon inclusion
-9. **Nonsense-mediated decay (NMD)** -- mRNA surveillance destroying transcripts with premature stop codons
+9. **Nonsense-mediated decay (NMD)** — translation-dependent RNA surveillance and regulation; a premature stop is not sufficient to predict every transcript's fate
 10. **Wobble base pairing** -- relaxed pairing rules at codon position 3/anticodon position 1
 11. **Kozak sequence** -- consensus context around eukaryotic AUG start codon (RCCAUGG)
 12. **Peptidyl transferase** -- ribosomal RNA-based catalytic activity forming peptide bonds

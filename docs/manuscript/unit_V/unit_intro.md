@@ -67,7 +67,7 @@ graph TD
     M ---|"nonindependent loci"| C
     D ---|"phenotypic expectations"| C
     D ---|"inheritance interpretation"| F
-    C ---|"individual and population scales"| A
+    C ---|"individual and population scales"| E
     A ---|"association evidence"| G
     classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
     style T fill:#fafafa,stroke:#526777,color:#17212b

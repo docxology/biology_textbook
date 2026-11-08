@@ -49,27 +49,20 @@ graph TD
         A["Archaea"]
         E["Eukaryotes"]
     end
-    subgraph O["Cell organization"]
-        T["Cell theory"]
-        C["Organelles and compartments"]
-    end
+    T["Cell theory"]
+    C["Organelles and compartments"]
     subgraph S["Shared functions and constraints"]
         M["Plasma membranes"]
         X["Transport and signaling"]
         F["Size and diffusion"]
     end
-    T ---|"cell examples"| B
-    T ---|"cell examples"| A
-    T ---|"cell examples"| E
+    T ---|"cell examples"| D
     E ---|"organelle compartmentation"| C
-    B ---|"shared boundary"| M
-    A ---|"shared boundary"| M
-    E ---|"shared boundary"| M
+    D ---|"membrane context"| S
     M ---|"exchange and communication"| X
     F ---|"physical constraints"| X
     classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
     style D fill:#fafafa,stroke:#526777,color:#17212b
-    style O fill:#fafafa,stroke:#526777,color:#17212b
     style S fill:#fafafa,stroke:#526777,color:#17212b
 ```
 <!-- alt: Graph showing cell diversity is shown alongside shared membrane functions and physical constraints; organelle compartmentation is highlighted for eukaryotes. Labeled arrowless connectors identify selected relationships, not ancestry or a prerequisite order. Transport and signaling are not restricted to eukaryotes. -->
