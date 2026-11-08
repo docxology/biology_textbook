@@ -853,7 +853,7 @@ flowchart LR
     A3 --> E1
     E3 --> I1
 ```
-<!-- alt: Representative DNA-targeting Type I/II CRISPR-Cas workflow: spacer acquisition, natural guide maturation and loading, then PAM-dependent DNA recognition and cleavage. Type III RNA-triggered signaling is outside this diagram. -->
+<!-- alt: Flowchart showing representative DNA-targeting Type I/II CRISPR-Cas workflow: spacer acquisition, natural guide maturation and loading, then PAM-dependent DNA recognition and cleavage. Type III RNA-triggered signaling is outside this diagram. -->
 
 *Representative DNA-targeting Type I/II CRISPR-Cas workflow: spacer acquisition, natural guide maturation and loading, then PAM-dependent DNA recognition and cleavage. Type III RNA-triggered signaling is outside this diagram.*
 
