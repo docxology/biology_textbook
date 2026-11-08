@@ -125,6 +125,10 @@
 \setcounter{totalnumber}{6}
 \makeatother
 
+% Longtable owns multipage output: settle pending figures before it starts.
+\usepackage{placeins}
+\AddToHook{env/longtable/before}{\FloatBarrier}
+
 % -----------------------------------------------------------------------
 % SECTION HEADER STYLE — compact sans-serif headings
 % -----------------------------------------------------------------------

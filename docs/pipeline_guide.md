@@ -30,6 +30,8 @@ Every PDF render validates the selected configuration and atomically replaces th
 
 Inline Mermaid print layout is project-owned. The audited square PNG stays byte-for-byte intact; LaTeX clips white/transparent padding around visible content, retaining a two-pixel safety margin. Diagrams print at 144 raster pixels per inch or denser, capped at 96% of the local line width and 8.5 inches high without stretching. The frozen emitter still escapes captions and alt metadata. Native box measurements and raster inspection are distinct from physical-print or PDF/UA certification.
 
+Multipage tables start after pending figures have been placed. The preamble uses TeX's `placeins` package and a pre-longtable float barrier: longtable's page builder must not compete with a deferred large figure for the same page. This favors intact content/order over filling every page; the 9 pt/2 mm/1.28 layout and 50-point log limit are unchanged.
+
 Source admission covers the complete manuscript file graph, including configuration, bibliography, preamble and cover inputs; an escaping file or directory alias refuses before collection. Generated destinations must remain beneath the project's real `output/` tree, without symlink ancestors, including aliases that resolve back inside the project. These checks do not authorize arbitrary external renderer code.
 
 Rendering assumes trusted repository sources and the admitted renderer. Path
