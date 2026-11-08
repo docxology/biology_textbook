@@ -1,4 +1,6 @@
-# Current Source Refresh Matrix
+# Historical source-refresh log and maintenance rules
+
+The dated “verified”, “falsified” and completion statements below are author reports from May/July 2026, not this edition's live certification. No new primary-source refresh is claimed here. Historical counts/paths/metrics remain attributed to their dated scope; use current config, claim ledger and exact-source receipts for present state.
 
 This matrix records the config-driven source sweep for the renderable
 manuscript surface defined by `docs/manuscript/config.yaml`: 2 front-matter files,
@@ -12,7 +14,7 @@ direct official or peer-reviewed verification before they enter prose,
 Closed the "process gap, not remediated" note from the pass below:
 ClinVar, dbSNP, RefSeq/MANE, and GBIF previously had only bibliography
 "accessed" dates with no `current_claims.yaml` row to diff future drift
-against. Added six rows total:
+against. Added the five listed rows:
 
 - `dbsnp-variant-identifier-resource-2026`, `clinvar-variant-disease-archive-2026`,
   `refseq-mane-transcript-reference-2026` — all anchored in the shared
@@ -98,6 +100,9 @@ to `today=date.today()`, matching the production script's own default
   <Chapter Title>`, `## Further Reading and Source Notes: <Chapter Title>`,
   and `## Companion Source Module: <Chapter Title>`. The quality audit fails
   if any bare generic source H2 returns in a configured chapter.
+
+**Current contract, 2026-11-08:** ordinary authored section titles should describe their actual content. The three source-section heading prefixes above are still consumed as ownership/identity by enrichment, audits, and tests; preserve them and their canonical chapter-title suffixes until an explicit atomic protocol migration updates every consumer. Canonical H1s and semantic IDs remain stable. Mechanical normalization is not semantic editorial review.
+
 - **Six targeted scholarship lanes added:** protein/structure provenance
   (UniProt, wwPDB, PDBe, EMDB), enzyme/pathway governance (BRENDA 2026, KEGG,
   BioCyc), clinical variant interpretation (ClinVar, dbSNP, RefSeq, MANE),
@@ -119,7 +124,7 @@ to `today=date.today()`, matching the production script's own default
 
 ## 2026-05-23 Implementation Pass
 
-- **Lab materials strengthened:** all 39 config-registered labs now include a
+- **Reported historical lab scope:** the 2026-05-23 account below described 39 labs; this is not the current 44-lab inventory. Those reported materials include a
   paper source-governance card and a source-governance checkpoint that asks
   students to record source type or model snapshot, evidence date/version,
   stability, and a refresh trigger before writing conclusions.
@@ -137,9 +142,7 @@ to `today=date.today()`, matching the production script's own default
 
 ## 2026-05-22 Completion Pass
 
-- **Scope checked:** all 137 config-registered manuscript surfaces. The quality
-  audit now gates those counts directly, so missing front matter, unit intros,
-  chapters, labs, question banks, or reference appendices fail before render.
+- **Reported historical scope:** the 2026-05-22 account described 137 surfaces and asserted inventory gating. Do not reinterpret that dated count as the present configured inventory; current source admission and tests must use current config.
 - **Scholarship defects fixed:** moved the Casgevy 15-year monitoring citation
   into the paragraph that makes the claim; moved the IPBES 1-million-species
   citation into the table row that makes the claim; refreshed the Casgevy
@@ -159,7 +162,7 @@ to `today=date.today()`, matching the production script's own default
   `current_claims.yaml` URL, but this pass kept network-dependent checks out of
   the test suite.
 
-| Surface | Files | Refresh focus | Current pass outcome |
+| Surface | Files | Refresh focus | Reported historical outcome |
 | --- | ---: | --- | --- |
 | Front matter and preface | 2 | Reader contract, source-governed claims, semantic navigation | No new current-science claim needed; retain generated navigation checks. |
 | Unit intros | 11 | Current Evidence Thread language, cross-unit references, Mermaid metadata | Retain evidence-thread structure; Mermaid metadata normalized by `scripts/add_mermaid_alt_text.py --check`. |
@@ -168,7 +171,7 @@ to `today=date.today()`, matching the production script's own default
 | Question banks | 44 | Chapter-grounded answers, no generated scaffolds, current-source transfer | Keep assessment transfer grounded in chapter evidence without changing the 30-question invariant. |
 | Reference appendices | 7 | Glossary/index links, semantic appendix references, no hard-coded rendered numbers | No content refresh needed; keep `link_glossary.py --check` and crossref gates authoritative. |
 
-## Directly Verified Priority Sources
+## Priority sources reported directly verified in the dated pass
 
 | Lane | Source used | Manuscript handling |
 | --- | --- | --- |

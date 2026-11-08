@@ -27,8 +27,8 @@ minimal cell, which asks: what is the irreducible instruction set for life?
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
 | Robert Hooke | 1665 | \citep{hooke1665} | "Cells" in cork | Named and conceptualised the cellular unit; launched microscopy as a biological tool |
-| Schleiden & Schwann | 1838–39 | \citep{schleiden1838,schwann1839} | Cell theory (plants + animals) | First two postulates: most organisms are composed of cells |
-| Rudolf Virchow | 1855 | \citep{virchow1855} | *Omnis cellula e cellula* | Third postulate: cells arise primarily from pre-existing cells; foundational to cancer biology |
+| Schleiden & Schwann | 1838–39 | \citep{schleiden1838,schwann1839} | Cell theory (plants + animals) | Classical postulates describe organisms as cellular and the cell as a basic unit of life |
+| Rudolf Virchow | 1855 | \citep{virchow1855} | *Omnis cellula e cellula* | Cells arise from pre-existing cells; this postulate concerns cellular continuity, not the origin of the first cells |
 | George Palade | 1953 | \citep{palade1955small} | Ribosome discovery via electron microscopy | Identified the protein synthesis machinery; Nobel Prize, 1974 |
 | Peter Mitchell | 1961 | \citep{mitchell1961} | Chemiosmosis — proton-gradient-driven ATP synthesis | Explained mitochondrial ATP production; later became central to \nameref{sec:unit_III_unit_intro} |
 | Lynn Margulis | 1967 | \citep{margulis1967} | Formal endosymbiotic theory | Proposed mitochondria and chloroplasts are descended from engulfed bacteria |
@@ -36,41 +36,45 @@ minimal cell, which asks: what is the irreducible instruction set for life?
 
 ---
 
-## Key Concepts and Connections {.unnumbered}
+## Cell diversity, shared boundaries, and compartmentation {.unnumbered}
 
 ```mermaid
-graph LR
-    CT["📜 Cell Theory<br/>(Schleiden, Schwann,<br/>Virchow 1838–1855)"] --> PRO["🦠 Prokaryotes<br/>(Bacteria + Archaea)"]
-    CT --> EUK["🧫 Eukaryotes<br/>(Protists, Fungi,<br/>Plants, Animals)"]
-
-    PRO --> BAC["Bacteria"]
-    PRO --> ARC["Archaea"]
-    BAC --> PW["Many walls contain peptidoglycan<br/>Gram-positive or Gram-negative architecture"]
-    PRO --> NU["Nucleoid<br/>typically circular DNA<br/>no nuclear membrane"]
-    BAC --> FL["Bacterial flagella<br/>ion-driven rotary motors"]
-    ARC --> AW["Walls lack peptidoglycan<br/>e.g., S-layers or pseudomurein"]
-    ARC --> AF["Archaella<br/>ATP-driven motility"]
-
-    EUK --> NUC["🔵 Nucleus<br/>(linear DNA,<br/>NPC transport)"]
-    EUK --> MIT["⚡ Mitochondria<br/>(ATP synthesis;<br/>endosymbiont)"]
-    EUK --> ER["🏭 ER / Golgi<br/>(protein folding<br/>& secretion)"]
-    EUK --> LYS["♻️ Lysosomes<br/>(pH 4.5;<br/>autophagy)"]
-
-    EUK --> MEMB["🌊 Plasma Membrane<br/>(fluid-mosaic;<br/>selective permeability)"]
-    MEMB --> SIG["📡 Cell Signaling<br/>(GPCR, RTK,<br/>second messengers)"]
-    MEMB --> TRP["🚪 Membrane Transport<br/>(channels, pumps,<br/>carriers)"]
-
-    SIZE["📐 Cell Size Constraints<br/>(A/V = 3/r;<br/>diffusion t = x²/2D)"] --> PRO
-    SIZE --> EUK
-
-    style CT fill:#8e44ad,color:#fff
-    style MIT fill:#e74c3c,color:#fff
-    style MEMB fill:#2980b9,color:#fff
-    style SIG fill:#27ae60,color:#fff
+---
+config:
+  layout: dagre
+---
+graph TD
+    subgraph D["Cell diversity"]
+        B["Bacteria"]
+        A["Archaea"]
+        E["Eukaryotes"]
+    end
+    subgraph O["Cell organization"]
+        T["Cell theory"]
+        C["Organelles and compartments"]
+    end
+    subgraph S["Shared functions and constraints"]
+        M["Plasma membranes"]
+        X["Transport and signaling"]
+        F["Size and diffusion"]
+    end
+    T ---|"cell examples"| B
+    T ---|"cell examples"| A
+    T ---|"cell examples"| E
+    E ---|"organelle compartmentation"| C
+    B ---|"shared boundary"| M
+    A ---|"shared boundary"| M
+    E ---|"shared boundary"| M
+    M ---|"exchange and communication"| X
+    F ---|"physical constraints"| X
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
+    style D fill:#fafafa,stroke:#526777,color:#17212b
+    style O fill:#fafafa,stroke:#526777,color:#17212b
+    style S fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing cell concept map — purple = foundational theory; red = energy-related organelles anticipating energy metabolism; blue = membrane; green = signaling. -->
+<!-- alt: Graph showing cell diversity is shown alongside shared membrane functions and physical constraints; organelle compartmentation is highlighted for eukaryotes. Labeled arrowless connectors identify selected relationships, not ancestry or a prerequisite order. Transport and signaling are not restricted to eukaryotes. -->
 
-*Cell concept map — purple = foundational theory; red = energy-related organelles anticipating energy metabolism; blue = membrane; green = signaling.*
+*Cell diversity is shown alongside shared membrane functions and physical constraints; organelle compartmentation is highlighted for eukaryotes. Labeled arrowless connectors identify selected relationships, not ancestry or a prerequisite order. Transport and signaling are not restricted to eukaryotes.*
 
 ---
 
@@ -86,10 +90,10 @@ paper-based lab decision.
 
 | Chapter | Title | Core Question | Key Equation / Model |
 | ------- | ----- | ------------- | -------------------- |
-| **5** | Cell Theory and Cell Types | What is a cell, and how did cell theory transform biology? | $A/V = 3/r$; $t = x^2/2D$ |
-| **6** | Cell Structure and Organelles | How do eukaryotic organelles achieve compartmentalised function? | Nernst equation (membrane potential) |
-| **7** | Membrane Transport | How do cells control passage across membranes? | Fick's First Law: $J = -D(dC/dx)$ |
-| **8** | Cell Signaling | How do extracellular signals change intracellular behavior? | Hill equation (co-operativity); cAMP second messenger models |
+| \cref{sec:unit_II_cell_theory} | Cell Theory and Cell Types | What is a cell, and how did cell theory transform biology? | $A/V = 3/r$; $t = x^2/2D$ |
+| \cref{sec:unit_II_cell_structure} | Cell Structure and Organelles | How do eukaryotic organelles achieve compartmentalized function? | Nernst equation (membrane potential) |
+| \cref{sec:unit_II_membrane_transport} | Membrane Transport | How do cells control passage across membranes? | Fick's First Law: $J = -D(dC/dx)$ |
+| \cref{sec:unit_II_cell_signaling} | Cell Signaling | How do extracellular signals change intracellular behavior? | Hill equation (cooperativity); cAMP second messenger models |
 
 ---
 
@@ -135,4 +139,4 @@ print(f"V_rest (GHK) = {v_rest:.1f} mV")
 
 ## Cross-Unit Integration {.unnumbered}
 
-The membrane structure, transport mechanisms, and organelle inventory of \nameref{sec:unit_II_unit_intro} are the staging ground for the energetics of \nameref{sec:unit_III_unit_intro}. Passive and active transport across the plasma membrane sets up the ion and proton gradients that drive ATP synthesis; the mitochondrial inner membrane's selective permeability is what makes oxidative phosphorylation thermodynamically possible; chloroplast thylakoid membranes function on the same chemiosmotic principle. The compartmentalization you just learned is not decorative — it is the *prerequisite* for the energy-coupling story in \nameref{sec:unit_III_unit_intro}. Watch how concepts like electrochemical gradient, membrane potential, and selective channel permeability migrate directly from \nameref{sec:unit_II_unit_intro} vocabulary into \nameref{sec:unit_III_unit_intro} mechanisms without redefinition.
+The membrane and transport concepts in \nameref{sec:unit_II_unit_intro} provide context for chemiosmosis in \nameref{sec:unit_III_unit_intro}. Distinguish the relevant membranes: mitochondrial inner membranes and chloroplast thylakoids support the gradients used by their ATP synthases. Selective permeability and energy-coupled transport matter; passive transport alone does not maintain those gradients. This is a conceptual connection, not a required reading order.

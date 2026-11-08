@@ -749,7 +749,7 @@ Pharmacogenomics is strongest when it is treated as one evidence layer in prescr
 These are probabilities of any new coding substitution, not Duchenne incidence. Synonymous, tolerated missense, and pathogenic changes differ; sex, XCI, variant class, transcript, and functional evidence matter. Large deletions/duplications are outside this calculation.
 
 
-## Worked Example: Mutation Analysis
+## Worked Example: Coding Substitutions and Reading-Frame Consequences
 
 **Problem**: A wild-type mRNA sequence reads:
 
@@ -757,7 +757,7 @@ These are probabilities of any new coding substitution, not Duchenne incidence. 
 
 (a) Translate the wild-type sequence.
 
-: Ethical Considerations in Personal and Clinical Genomics: Codon and Amino Acid. {#tbl:unit_IV_mutations_and_genomics_ethical_considerations_in_personal_and_clinical_genomics}
+: Translating the supplied wild-type mRNA codons. {#tbl:unit_IV_mutations_and_genomics_ethical_considerations_in_personal_and_clinical_genomics}
 | Codon | Amino Acid |
 |-------|-----------|
 | AUG | Met |
@@ -771,7 +771,7 @@ These are probabilities of any new coding substitution, not Duchenne incidence. 
 
 (b) A transition mutation changes the 10th nucleotide (first position of codon 4) from G to A: GAA to AAA.
 
-: Ethical Considerations in Personal and Clinical Genomics. {#tbl:unit_IV_mutations_and_genomics_ethical_considerations_in_personal_and_clinical_genomics_2}
+: The GAA-to-AAA missense substitution changes glutamate to lysine. {#tbl:unit_IV_mutations_and_genomics_ethical_considerations_in_personal_and_clinical_genomics_2}
 | Codon | Wild-type AA | Mutant AA |
 |-------|-------------|-----------|
 | GAA | Glu | AAA = Lys |

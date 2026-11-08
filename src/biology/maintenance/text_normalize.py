@@ -80,11 +80,24 @@ def _manuscript_markdown_files() -> list[Path]:
 
 
 def _diagram_kind(source: str) -> str:
-    for line in source.splitlines():
+    first_content = True
+    frontmatter = False
+    for line in source.split("\n"):
         stripped = line.strip()
-        if stripped:
+        if not stripped:
+            continue
+        delimiter = line.rstrip("\r \t") == "---"
+        if first_content:
+            first_content = False
+            if delimiter:
+                frontmatter = True
+                continue
+        if frontmatter:
+            if delimiter:
+                frontmatter = False
+            continue
+        if not stripped.startswith("%%"):
             return stripped.split()[0]
-    return "diagram"
 
 
 def _plain_text(markdown: str) -> str:

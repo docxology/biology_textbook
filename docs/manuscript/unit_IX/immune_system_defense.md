@@ -16,7 +16,28 @@
 6. Compare innate and adaptive effector mechanisms using measurable readouts and controls.
 7. Evaluate checkpoint and CAR-T claims against current product labels and surveillance requirements.
 
+<!-- curriculum-scaffold-start -->
+### Study Blueprint
+
+- **Big idea:** Innate and adaptive immunity integrate recognition, effector function, tolerance, and memory.
+- **Core concepts:** innate immunity, adaptive immunity, tolerance, immunotherapy.
+- **Framework alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
+- **Model or quantitative lens:** Immune-memory, cytokine, and recognition reasoning.
+- **Data skill:** Interpret immune titers, cytokine profiles, or perturbation data.
+- **Practice cadence:** Visual Representations, Statistical Tests and Data Analysis, Argumentation.
+- **Common misconception to repair:** Immunity is not just attack; recognition, tolerance, memory, and regulation are equally central.
+- **Primary lab:** \nameref{sec:lab_unit_IX_immune_system_defense}.
+- **Question bank:** \nameref{sec:q_unit_IX_immune_system_defense}.
+- **Transfer task:** Transfer immunity reasoning to vaccination, autoimmunity, infection, and cancer therapy.
+- **Bridge to computation:** `biology.physiology.physiology.homeostasis_response`.
+<!-- curriculum-scaffold-end -->
+
 ---
+
+> **Opening Vignette — Defense Without Self-Damage**
+>
+> A hypothetical infection activates recognition and effector pathways, yet similar amplification on a host surface could be damaging. Which ligand, location, and regulatory signals distinguish the two settings? Follow recognition through response and restraint rather than treating immunity as attack alone; later sections connect those mechanisms to tolerance, memory, and therapy.
+
 
 ## Immune System Architecture and Effector Logic
 
@@ -583,29 +604,6 @@ These are illustrative names on the FDA approved cellular/gene-therapy roster, r
 
 > **Concept Check 12:** Distinguish IL-17 blockade (e.g., secukinumab), which can worsen or unmask inflammatory bowel disease, from IL-23 blockade: risankizumab is indicated for adults with moderately to severely active Crohn’s disease \citep{fda2026risankizumab}. Explain why disrupting a barrier effector cytokine and disrupting an upstream inflammatory-maintenance pathway need not have the same clinical effect; pathway diagrams alone do not establish efficacy or safety.
 
----
-
-<!-- curriculum-scaffold-start -->
-### Study Blueprint
-
-- **Big idea:** Innate and adaptive immunity integrate recognition, effector function, tolerance, and memory.
-- **Core concepts:** innate immunity, adaptive immunity, tolerance, immunotherapy.
-- **Framework alignment:** Vision & Change: Structure and function, Systems; AP Biology: Systems Interactions, Energetics; NGSS-style topics: Structure and Function.
-- **Model or quantitative lens:** Immune-memory, cytokine, and recognition reasoning.
-- **Data skill:** Interpret immune titers, cytokine profiles, or perturbation data.
-- **Practice cadence:** Visual Representations, Statistical Tests and Data Analysis, Argumentation.
-- **Common misconception to repair:** Immunity is not just attack; recognition, tolerance, memory, and regulation are equally central.
-- **Primary lab:** \nameref{sec:lab_unit_IX_immune_system_defense}.
-- **Question bank:** \nameref{sec:q_unit_IX_immune_system_defense}.
-- **Transfer task:** Transfer immunity reasoning to vaccination, autoimmunity, infection, and cancer therapy.
-- **Bridge to computation:** `biology.physiology.physiology.homeostasis_response`.
-<!-- curriculum-scaffold-end -->
-
----
-
-> **Opening Vignette — Immune System Architecture**
->
-> This chapter connects immune system architecture and defense to measurable evidence: models, datasets, and experiments that can strengthen or weaken each claim.
 
 ## Worked Example: Innate Recognition to Effector Response
 

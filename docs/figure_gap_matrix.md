@@ -1,9 +1,6 @@
 # Chapter Figure Gap Matrix (2026-05-25)
 
-Status of chapter figure coverage. All prior deferrals have been cleared by
-the unit_0/unit_I/unit_II/unit_III/unit_IV/unit_VIII figure pass landed on
-2026-05-25 (see `src/visualization/plots_foundations.py` plus extensions in
-`plots_cell.py`, `plots_physiology.py`, `plots_genetics.py`, `plots_botany.py`).
+Historical plot-coverage snapshot reported on 2026-05-25. Its wired/status claims are retained as dated planning records, not a current inventory, native render result or accessibility certification. Chapter paths below are manuscript-relative; consult current registries/manifests and inspect actual assets.
 
 | Chapter | Tier | Plot | API module | Status |
 | --- | --- | --- | --- | --- |
@@ -31,9 +28,7 @@ the unit_0/unit_I/unit_II/unit_III/unit_IV/unit_VIII figure pass landed on
 | `unit_VIII/plant_reproduction.md` | 2 | Pollen-tube growth curve | `biology.botany.pollen_tube_growth` | wired (`fig:unit_VIII_pollen_tube_growth`) |
 | `unit_IX/circulation_respiration_homeostasis.md` | 1 | Poiseuille flow vs radius | `biology.physiology.poiseuille_flow` | wired |
 | `unit_IX/endocrine_signaling.md` | 2 | Homeostasis error correction | `biology.physiology.homeostasis_response` | wired |
-| `unit_X/community_ecology.md` | 1 | Shannon/Simpson comparison | `biology.ecology.biodiversity_indices` | wired |
+| `unit_X/community_interactions.md` | 1 | Shannon/Simpson comparison | `biology.ecology.biodiversity_indices` | wired |
 | `unit_X/ecosystem_ecology.md` | 2 | Food-web trophic levels | `biology.ecology.food_web_trophic_levels` | wired |
 
-**Coverage:** all listed chapters now embed at least one `\includegraphics`
-figure block with alt text and `\cref` cross-reference. No outstanding tier-1
-or tier-2 deferrals.
+**Reported scope:** the dated pass claimed all listed chapters embedded a figure with alt text and a cross-reference and no outstanding tier-1/tier-2 deferrals. The prose-first `cell_theory.md` row does not claim a matplotlib block. Current availability, references and accessibility require a fresh manifest and inspection; this historical table is not publication proof.

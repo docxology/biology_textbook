@@ -187,7 +187,8 @@ def build_appendix_index(glossary_text: str) -> str:
         if letter != current_letter:
             if current_letter:
                 lines.append("")
-            lines.append(f"## {letter} {{.unnumbered}}")
+            heading = letter if letter != "#" else "Symbols and numbers"
+            lines.append(f"## {heading} {{.unnumbered}}")
             lines.append("")
             current_letter = letter
         cref_part = f" {entry.backref}" if entry.backref else ""

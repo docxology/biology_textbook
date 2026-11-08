@@ -94,13 +94,13 @@ graph LR
 
 ---
 
-## Markov Blankets: The Mathematical Skin of an Agent
+## Markov Blankets as Conditional-Independence Boundaries
 
-Before formalising free energy, we need a way to make rigorous the boundary between an agent and its environment. The **Markov blanket** provides exactly this.
+A Markov blanket is a statistical boundary in a specified probabilistic model. It can help formulate an agent–environment partition, but a visible physical boundary alone does not establish the required conditional independence.
 
 ### Markov Blanket Definition
 
-For a set of random variables, the Markov blanket of a node is the minimal set of nodes that, once conditioned on, render the node statistically independent of every other variable in the network. For an agent that persists in time, this generalizes to a partition of states into four disjoint classes:
+In a graphical model, a node's Markov blanket renders it conditionally independent of other variables when conditioned on. Agent models sometimes posit a partition into the following four classes; its adequacy must be checked for the variables, scale, and dynamics being modeled:
 
 - **External states** η — the world outside the agent.
 - **Sensory states** $s$ — variables through which the world influences the agent (photoreceptor activations, mechanoreceptor strain, chemosensor occupancy).
@@ -116,9 +116,9 @@ P(\mu, \eta \mid s, a) = P(\mu \mid s, a)\,P(\eta \mid s, a)
 
 The internal states "see" the world primarily through $s$ and "touch" it primarily through $a$.
 
-### Why Markov Blankets Matter
+### Statistical Partitions Are Not Automatically Physical Membranes
 
-Markov blankets give a principled definition of an agent: anything that maintains a recognisable boundary in state space *has* a Markov blanket, almost by definition. The same partition applies to a bacterium (cell membrane), a neuron (axonal/dendritic membrane), an organism (skin and sensorimotor apparatus), and a colony (collective foraging interface). Because the partition is recursive — the blanket of a blanket is a blanket — it naturally accommodates hierarchical biological organization. Here a *generative model* is the organism's internal probabilistic model that predicts its sensory inputs from hypothesized hidden causes in the environment.
+A cell membrane or sensorimotor interface may motivate candidate sensory, active, internal, and external variables. Neither that motivation nor nesting physical systems proves the conditional-independence equation, and a blanket at one scale does not establish a blanket at another. A generative model specifies a joint probability distribution over observations and hidden causes; interpreting internal biological states as encoding such a model is a further modeling claim, not a definition of every living boundary.
 
 ```mermaid
 graph TD
@@ -130,7 +130,7 @@ graph TD
         A["Active states (a)"]
     end
     subgraph "Agent (internal μ)"
-        Mu["Beliefs / generative model"]
+        Mu["Internal states (μ)"]
     end
 
     Eta -->|generates| S
@@ -138,12 +138,12 @@ graph TD
     Mu --> A
     A -->|acts on| Eta
 
-    style Mu fill:#3498db,color:#fff
-    style Eta fill:#e74c3c,color:#fff
+    style Mu fill:#EAF3F8,color:#172B3A,stroke:#526777
+    style Eta fill:#FFF2DC,color:#172B3A,stroke:#526777
 ```
-<!-- alt: Graph showing markov-blanket partition: internal states couple to external states primarily through sensory and active states. -->
+<!-- alt: Graph showing a proposed agent-model partition into internal, external, sensory, and active states. Coupling arrows are schematic; conditional independence and the biological interpretation require separate justification. The drawing does not identify physical membranes as statistical boundaries. -->
 
-*Markov-blanket partition: internal states couple to external states primarily through sensory and active states.*
+*A proposed agent-model partition into internal, external, sensory, and active states. Coupling arrows are schematic; conditional independence and the biological interpretation require separate justification. The drawing does not identify physical membranes as statistical boundaries.*
 
 > **Concept Check 1:** Identify sensory states, active states, internal states, and external states for (a) an *E. coli* cell performing chemotaxis, (b) a single hepatocyte, and (c) a foraging honeybee. Which states would be hardest to assign in each case, and why?
 
@@ -195,17 +195,17 @@ In the predictive processing framework, the brain generates **top-down predictio
 \label{eq:unit_0_prediction_error}
 \end{equation}
 
-Prediction errors propagate upward, driving updates to the generative model. When predictions are accurate, prediction errors approach zero and neural activity is minimized — an energetically efficient coding strategy.
+Prediction errors can drive model updates. Accurate predictions reduce the modeled error signal; they do not imply that all neural activity or metabolic expenditure approaches zero.
 
-### The Canonical Microcircuit
+### A Proposed Laminar Predictive-Coding Microcircuit
 
-Anatomical and physiological evidence suggests the cortex implements predictive coding through a **canonical microcircuit** repeated across cortical areas. The simplified picture:
+One influential predictive-coding model assigns different message-passing roles to cortical layers. Its simplified assignments are hypotheses to compare with recordings and perturbations, not settled identities for every cortical area:
 
-- **Superficial pyramidal neurons** (layers II/III) send forward signals that empirically encode prediction errors, projecting to higher cortical areas.
-- **Deep pyramidal neurons** (layers V/VI) send backward signals that empirically encode predictions, projecting to lower areas.
-- **Inhibitory interneurons** modulate the *gain* of error units, implementing the precision weighting described in the earlier predictive-processing discussion.
+- **Superficial pyramidal populations** are proposed to carry ascending prediction-error signals.
+- **Deep pyramidal populations** are proposed to carry descending predictions.
+- **Inhibitory circuitry** can regulate gain; identifying a specific gain change with Bayesian precision requires additional evidence.
 
-In the laminar reading of predictive coding, each cortical area is a small inference engine: it receives ascending prediction errors from below, compares them with descending predictions from above, and outputs both an updated internal state (forward) and a refined prediction (backward). The same architecture helps interpret visual cortical hierarchies (V1→V2→V4→IT), auditory streams, and somatosensory pathways, suggesting predictive coding is a broad candidate principle for cortical computation rather than a settled one-size-fits-most algorithm.
+This model is useful for formulating tests in visual, auditory, and somatosensory hierarchies. Connectivity, stimulus responses, task demands, and competing circuit accounts must be considered before interpreting a measured signal as a prediction or prediction error.
 
 ### Precision and Attention
 

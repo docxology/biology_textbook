@@ -909,11 +909,11 @@ where $n_1$ and $n_2$ are the number of links from one parent to the common ance
 
 ---
 
-## Worked Example: Linkage Analysis
+## Worked Example: Three-Point Gene Order and Map Distances
 
 **Problem**: The following synthetic testcross offspring counts are stipulated for a female heterozygous for three linked genes (A, B, C) crossed with a homozygous recessive male:
 
-: Consequences of Inbreeding: Class and Phenotype. {#tbl:unit_V_chromosomal_inheritance_consequences_of_inbreeding}
+: Stipulated synthetic offspring counts for a three-point testcross. {#tbl:unit_V_chromosomal_inheritance_consequences_of_inbreeding}
 | Class | Phenotype | Count |
 |-------|-----------|-------|
 | 1 | A B C | 412 |

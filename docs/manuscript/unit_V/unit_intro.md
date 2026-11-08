@@ -5,20 +5,20 @@
 
 In 1866, an Augustinian friar in Brno published a mathematical analysis of 29,000 pea plants he had
 grown in the monastery garden. Gregor Mendel showed that heritable traits are passed from parent to
-offspring in discrete, predictable ratios — 3:1 for monohybrid crosses, 9:3:3:1 for dihybrid crosses.
-His paper, \"Versuche über Pflanzenhybriden,\" went unread for 34 years. When it was rediscovered
-simultaneously by de Vries, Correns, and Tschermak in 1900, it ignited a revolution: the laws of
-segregation and independent assortment described the behavior of something that Mendel had rarely
-seen — chromosomes, structures not visualized until the 1880s, and connected to genes primarily by Thomas
-Hunt Morgan's fruit fly experiments in 1910.
+offspring with model-based expectations: 3:1 for an Aa × Aa cross with complete dominance, and
+9:3:3:1 for an AaBb × AaBb cross with independently assorting loci and complete dominance at each.
+These are expected phenotypic ratios under stated assumptions, not universal outcomes. Mendel's work
+became central to genetics after renewed attention around 1900. Chromosomal theory and Morgan's
+fruit fly experiments later connected inheritance patterns to chromosomes, providing mechanisms
+against which cross predictions could be tested.
 
 The synthesis of Mendel's mathematical laws with chromosomal theory, and later with population
 genetics, constitutes one of the great intellectual achievements of twentieth-century science. It
 unified patterns of inheritance visible to naked-eye observation with the molecular machinery of DNA
 replication and meiosis. It transformed agriculture, medicine, forensic science, and evolutionary
-theory simultaneously. Today, genome-wide association studies (GWAS) identify thousands of loci
-contributing to human traits; pedigree analysis diagnoses rare recessive disorders; and population
-genetics models predict drug-resistance evolution in pathogens.
+theory. Today, genome-wide association studies (GWAS) identify trait-associated loci, without
+establishing causal variants by association alone; pedigree analysis evaluates inheritance and risk;
+and population-genetic models examine drug-resistance evolution under stated assumptions.
 
 This unit bridges the gap between the molecular genetics of \nameref{sec:unit_IV_unit_intro} and the evolutionary dynamics of
 \nameref{sec:unit_VI_unit_intro}. You will derive Mendelian ratios from first principles, work through the mathematics of
@@ -34,43 +34,49 @@ and apply the Hardy-Weinberg equations to natural populations.
 | Gregor Mendel | 1866 | \citep{mendel1866} | Laws of segregation and independent assortment | Mathematical foundation of genetics; rediscovered 1900 |
 | Walther Flemming | 1882 | \citep{flemming1882} | Chromosomes during mitosis (\"chromatin\") | First visualization of chromosomal segregation |
 | Thomas Hunt Morgan | 1910 | \citep{morgan1910} | Sex-linked inheritance in *Drosophila* | Proved genes reside on chromosomes; Nobel Prize 1933 |
-| Alfred Sturtevant | 1913 | \citep{sturtevant1913} | First genetic map (6 X-linked *Drosophila* genes) | Showed recombination frequency ∝ map distance |
+| Alfred Sturtevant | 1913 | \citep{sturtevant1913} | First genetic map (6 X-linked *Drosophila* genes) | Used recombination to infer gene order and distance; simple proportionality is limited to short intervals |
 | Barbara McClintock | 1950 | \citep{mcclintock1950} | Transposable elements (\"jumping genes\") | Showed genomes are dynamic; Nobel Prize 1983 |
-| Hardy & Weinberg | 1908 | \citep{weinberg1908} | Population genetic equilibrium | Allele frequencies stable without evolution; quantitative tool for deviations |
+| Hardy & Weinberg | 1908 | \citep{weinberg1908} | Population genetic equilibrium | Genotype-frequency expectations at specified allele frequencies; allele-frequency constancy is a separate question |
 | Human Genome Project Consortium | 2001 | \citep{lander2001humangenome} | Draft human genome sequence | ~3.2 Gb; ~20,000 protein-coding genes; foundation for GWAS |
 
 ---
 
-## Key Concepts and Connections {.unnumbered}
+## Transmission, phenotype, and population variation {.unnumbered}
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    MEND["🫛 Mendel's Laws<br/>(Segregation +<br/>Independent Assortment)"] --> MONO["📊 Monohybrid Cross<br/>(3:1 phenotypic ratio;<br/>Punnett square)"]
-    MEND --> DI["📊 Dihybrid Cross<br/>(9:3:3:1;<br/>two unlinked genes)"]
-
-    CHROM["🧵 Chromosomal Theory<br/>(genes on chromosomes;<br/>Morgan 1910)"] --> LINK["🔗 Genetic Linkage<br/>(recombination frequency;<br/>Morgan map units = cM)"]
-    LINK --> MAP["🗺️ Genetic Maps<br/>(Sturtevant 1913;<br/>θ = RF / 100)"]
-
-    MEND --> NONM["⚡ Non-Mendelian Inheritance<br/>(incomplete dominance,<br/>codominance, epistasis,<br/>polygenic traits)"]
-
-    CHROM --> MEI["🔀 Meiosis<br/>(crossing-over;<br/>independent assortment;<br/>gamete diversity)"]
-    MEI --> SEX["♂♀ Sex-Linked Traits<br/>(X-linked recessive;<br/>Lyon hypothesis)"]
-
-    POP["👥 Population Genetics<br/>(Hardy-Weinberg:<br/>p² + 2pq + q² = 1)"] --> DRIFT["🌊 Genetic Drift<br/>(evolution next)"]
-    POP --> GWAS["🔬 GWAS<br/>(genome-wide association;<br/>linkage disequilibrium)"]
-
-    MEND --> POP
-
-    style MEND fill:#27ae60,color:#fff
-    style CHROM fill:#2980b9,color:#fff
-    style POP fill:#8e44ad,color:#fff
-    style MEI fill:#e74c3c,color:#fff
+    subgraph T["Transmission"]
+        S["Segregation and assortment"]
+        M["Meiosis and linkage"]
+        C["Cross probabilities"]
+    end
+    subgraph P["Phenotype and families"]
+        D["Dominance and epistasis"]
+        F["Pedigrees and sex linkage"]
+    end
+    subgraph E["Population evidence"]
+        A["Allele and genotype frequencies"]
+        G["GWAS associations"]
+    end
+    M ---|"transmission mechanism"| S
+    S ---|"stated cross assumptions"| C
+    M ---|"nonindependent loci"| C
+    D ---|"phenotypic expectations"| C
+    D ---|"inheritance interpretation"| F
+    C ---|"individual and population scales"| A
+    A ---|"association evidence"| G
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
+    style T fill:#fafafa,stroke:#526777,color:#17212b
+    style P fill:#fafafa,stroke:#526777,color:#17212b
+    style E fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing classical genetics concept map linking Mendel's laws to monohybrid ratios, Punnett squares, dihybrid ratios, linkage, chromosomes, and population genetics. -->
+<!-- alt: Graph showing transmission mechanisms, phenotype relationships, and population evidence answer different questions. Cross ratios require specified parents and dominance assumptions; genotype proportions, allele-frequency change, and association are not interchangeable evidence. Connectors identify selected relationships, not causal proof or a reading order. -->
 
-*Classical genetics concept map linking Mendel's laws to monohybrid ratios, Punnett squares, dihybrid ratios, linkage, chromosomes, and population genetics.*
-
-**\nameref{sec:unit_V_unit_intro} concept map — Classical Genetics and Heredity.**
+*Transmission mechanisms, phenotype relationships, and population evidence answer different questions. Cross ratios require specified parents and dominance assumptions; genotype proportions, allele-frequency change, and association are not interchangeable evidence. Connectors identify selected relationships, not causal proof or a reading order.*
 
 ---
 
@@ -96,7 +102,7 @@ paper-based lab decision.
 ## Connections Across the Textbook {.unnumbered}
 
 - **Meiosis and crossing-over** (\cref{sec:unit_V_chromosomal_inheritance}) build directly on DNA replication and chromosome structure from \nameref{sec:unit_IV_unit_intro}, and provide the mechanistic basis for recombination in \nameref{sec:unit_VI_unit_intro} (evolution).
-- **Hardy-Weinberg equilibrium** (\cref{sec:unit_V_population_genetics}) is the null model for both natural selection (\cref{sec:unit_VI_evolution_and_selection}) and genetic drift (\cref{sec:unit_VI_genetic_drift_and_speciation}).
+- **Hardy–Weinberg genotype proportions** (\cref{sec:unit_V_population_genetics}) provide expectations at specified allele frequencies; selection (\cref{sec:unit_VI_evolution_and_selection}) and drift (\cref{sec:unit_VI_genetic_drift_and_speciation}) instead model changes in those frequencies across generations.
 - **Pedigree analysis** and **inheritance patterns** reappear throughout \nameref{sec:unit_IX_unit_intro} (genetic basis of cardiovascular disease, endocrine disorders, immune deficiencies).
 - **Epistasis and polygenic traits** link to \nameref{sec:unit_VI_unit_intro} (quantitative trait loci, QTL mapping) and \nameref{sec:unit_X_unit_intro} (population-level phenotypic variation in ecology).
 
@@ -139,4 +145,4 @@ print(f"χ² = {chi.chi_squared:.2f}, p ≈ {chi.p_value_approx:.3f}")
 
 ## Cross-Unit Integration {.unnumbered}
 
-The Mendelian genetics and Hardy–Weinberg framework of \nameref{sec:unit_V_unit_intro} provide the static accounting of allele frequencies — the inventory at equilibrium. \nameref{sec:unit_VI_unit_intro} breaks that equilibrium open: natural selection, genetic drift, mutation, and gene flow are precisely the forces that *violate* Hardy–Weinberg assumptions, and the magnitude of each violation determines evolutionary trajectory. Population-genetic intuitions about allele frequency, heterozygosity, and effective population size carry directly into \nameref{sec:unit_VI_unit_intro}'s quantitative treatment of fitness, selection coefficients, and the fixation index. When \nameref{sec:unit_VI_unit_intro} introduces selection differentials and response equations, recognize them as Hardy–Weinberg with a forcing term — the same machinery in motion rather than at rest.
+The inheritance and population accounting in \nameref{sec:unit_V_unit_intro} distinguish genotype proportions from allele-frequency dynamics. Random mating gives Hardy–Weinberg genotype expectations at specified allele frequencies; selection, drift, mutation, and gene flow can change allele frequencies across generations. Nonrandom mating can alter genotype proportions without necessarily changing allele frequencies. In \nameref{sec:unit_VI_unit_intro}, use the model and sampling stage appropriate to the question rather than treating every departure from Hardy–Weinberg proportions as an evolutionary trajectory. Allele frequency, heterozygosity, and effective population size remain useful quantities across both units.

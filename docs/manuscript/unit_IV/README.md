@@ -5,7 +5,8 @@
 | `dna_replication_and_cell_cycle.md` | DNA Replication and the Cell Cycle |
 | `gene_expression.md` | Gene Expression |
 | `mutations_and_genomics.md` | Mutations, CRISPR, and Genomics |
-| `epigenetics_and_gene_regulation.md` | Epigenetics and Gene Regulation |
+| `chromatin_and_epigenetic_mechanisms.md` | Chromatin and Epigenetic Mechanisms |
+| `epigenetic_inheritance_and_disease.md` | Epigenetic Inheritance and Disease |
 
 **Module:** `src/biology/genetics/genetics.py`
 
@@ -13,7 +14,4 @@
 
 ## Authoring Notes
 
-- Keep chapter labels aligned with filename stems (`sec:unit_IV_<stem>`).
-- Use glossary links sparingly on first use; avoid dense link-heavy paragraphs.
-- Add a descriptive HTML alt comment after any figure or Mermaid block.
-- Keep paired labs and question banks aligned with chapter learning objectives.
+Follow [local instructions](AGENTS.md) and the [manuscript source contract](../AGENTS.md) for canonical H1s, stable labels, metadata badges, reference types and authored assessment mappings. [The visualization guide](../../visualization_guide.md) owns alt/caption placement and relationship-map semantics. Implementation paths above are repository-root paths.

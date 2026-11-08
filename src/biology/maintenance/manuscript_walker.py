@@ -7,7 +7,7 @@ from pathlib import Path
 
 import yaml
 
-from biology.crossref.source import visible_text
+from biology.crossref.source import iter_headings, visible_text
 from biology.maintenance.models import PROJECT, ManuscriptSurface
 
 MANUSCRIPT = PROJECT / "docs" / "manuscript"
@@ -200,16 +200,7 @@ def iter_prose_lines(path: Path) -> list[tuple[int, str]]:
 
 
 def iter_markdown_headings(path: Path) -> list[tuple[int, str]]:
-    """Return Markdown heading lines outside fenced code blocks."""
-    headings: list[tuple[int, str]] = []
-    in_fence = False
-    for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
-        stripped = line.strip()
-        if stripped.startswith("```"):
-            in_fence = not in_fence
-            continue
-        if in_fence:
-            continue
-        if stripped.startswith("#"):
-            headings.append((line_no, line))
-    return headings
+    """Return source line numbers and display headings with closing hashes removed."""
+    text = path.read_text(encoding="utf-8")
+    return [(heading.line_no, f"{heading.indent}{'#' * heading.level} {heading.visible_title}")
+            for heading in iter_headings(text)]

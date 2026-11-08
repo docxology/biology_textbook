@@ -31,7 +31,7 @@ This directory contains all textbook manuscript source files, organized by unit.
 | `rendering` | `auto_number_*`, `output_format` | Numbering and rendering options |
 | `units[]` | `chapters[].file`, `chapters[].title` | Chapter files and display titles, in rendering order |
 | `llm` | `reviews.enabled`, `translations.enabled` | Optional LLM review/translation stage |
-| `accessibility`, `content_notes`, `export`, `chapter_metadata` (tail of file) | mixed | **Advisory vs enforced:** not every key is read by the build. See [../docs/accessibility.md](../accessibility.md) for the table. **Tests** (`test_accessibility.py` and other invariant modules) and **`src/visualization/cvd.py`** (matplotlib palette) are the main enforcement for alt text and colorvision–friendly figures when `color_blindness_safe` is true. |
+| `accessibility`, `content_notes`, `export`, `chapter_metadata` (tail of file) | mixed | Some keys are advisory; see [accessibility](../accessibility.md). Structural tests and `src/visualization/cvd.py` do not certify all-CVD safety or final-size readability. |
 
 ## Directory Structure
 
@@ -48,21 +48,21 @@ docs/manuscript/
 ├── README.md            # Quick reference
 ├── appendices/          # Generated/reference appendices (math, units/constants, periodic table, index)
 ├── unit_0/              # Systems science / complexity prelude (see config.yaml)
-├── unit_I/ … unit_X/    # One directory per unit; registered chapters plus optional unit_intro.md
+├── unit_I/ … unit_X/    # Configured chapters; each existing unit_intro.md is collected automatically
 ├── labs/                # Appendix lab activities (per-unit subdirs)
 └── questions/           # Appendix question banks (per-unit subdirs)
 ```
 
 ## Chapter File Conventions
 
-- **One chapter = one Markdown file registered in `config.yaml`.** Unit orientation files such as `unit_intro.md` are source notes unless they are explicitly added to the render order.
+- **One core chapter = one Markdown file registered in `config.yaml`.** Collection automatically places each existing unit's `unit_intro.md` before its configured chapters; do not register that orientation again as a core chapter.
 - **Filename**: `descriptive_slug.md` — all lowercase, underscores, no chapter numbers.
 - **First heading** in file = exact chapter title from `config.yaml` (rendered with auto-assigned number). Run `scripts/sync_curriculum_materials.py` after title or order edits to normalize chapter, unit-intro, lab, question-bank, glossary, and reference-appendix H1s from `src/biology/toc.py`.
 - **Numbered chapter section label**: the first non-blank line after the H1 title must be `\label{sec:unit_X_<stem>}` (inserted by `scripts/insert_crossref_labels.py`). Refer to this chapter elsewhere with `\cref{sec:unit_X_<stem>}`. Enforced by `tests/test_build_invariants.py::test_every_chapter_has_section_label`.
 - **Unnumbered section label** (unit intros, labs, question banks, reference appendices, glossary): embed the canonical id on the H1 as a Pandoc identifier, e.g. `# Title {#sec:unit_I_unit_intro .unnumbered}`. Do **not** use a standalone `\label{sec:…}` line between H1 and the first `##` heading — that breaks `\nameref` on `\section*` and prevents Pandoc from parsing subsequent headings. Maintained by `scripts/sync_curriculum_materials.py` and `scripts/insert_crossref_labels.py` (labs/questions). Enforced by `tests/test_build_invariants.py::test_unnumbered_surfaces_use_h1_identifiers` and related lab/question checks.
-- **Metadata badge**: after the label, a `<!-- chapter-metadata-badge -->` blockquote (inserted by `scripts/insert_chapter_metadata.py` from data in `src/biology/chapter_metadata.py`) shows Level 1/3–3/3 difficulty, reading time, lecture time, and prerequisites. Enforced by `tests/test_build_invariants.py::test_every_chapter_has_metadata_badge`.
+- **Metadata badge**: after the label, the `<!-- chapter-metadata-badge -->` blockquote is maintained from `src/biology/chapter_metadata.py`; canonical formatting is checked in `tests/test_toc_consistency.py::test_chapter_badges_match_canonical_format`.
 - **Figures**: raw-LaTeX `\begin{figure}\centering\includegraphics[…]{../figures/<name>.png}\caption{…}\label{fig:unit_X_<descriptor>}\end{figure}` blocks. Paths are relative to `output/manuscript/`.
-- **Diagrams (authoring)**: inline ` ```mermaid ` fences are fine for HTML review; the manuscript currently has 197 inline fences (196 outside README/AGENTS docs). Every fence must be followed by exactly one `<!-- alt: ... -->` comment and one italic caption. At PDF-build time the renderer converts each block strictly to a PNG image; missing `mmdc` or a render failure is a build failure.
+- **Diagrams (authoring)**: every inline Mermaid fence needs exactly one substantive alt comment and one matching italic caption. PDF preprocessing strictly renders PNGs; missing `mmdc` or rendering failure is a build failure. Derive the current inventory from configured sources/manifests, not copied counts.
 - **Diagrams (registered)**: factories in `src/mermaid/biology_diagrams.py` that appear in `ALL_BIOLOGY_DIAGRAMS` are rendered by `scripts/generate_diagrams.py`; use `--strict-png` for publication gates. Reference via the usual markdown image syntax if a static PNG is desired.
 - **Equations**: Use LaTeX `\begin{equation}\label{eq:unit_X_<descriptor>}…\end{equation}` or `align` environments for numbered display equations. Use unnumbered display math only for worked steps that are not referenced. Do not use manual equation-number tags in manuscript prose; rendered equation numbers are assigned by LaTeX and cross-referenced with `\cref{eq:...}`.
 - **Tables**: Chapter and lab pipe tables carry a pandoc caption line immediately above the header row: `: Summary text {#tbl:unit_X_<descriptor>}`. Regenerate missing captions with `scripts/annotate_table_captions.py --write`; polish weak auto-generated titles with `scripts/polish_table_captions.py --write`. Cross-reference numbered tables with `\cref{tbl:…}`. Plain pipe tables in unit intros (Landmark Discoveries), front matter, appendices, and question banks stay unnumbered.
@@ -117,7 +117,7 @@ Run `uv run python scripts/audit_textbook_quality.py --check --max-advisories 0`
      title: "Chapter Title"
    ```
 
-3. Add a matching entry to `../src/biology/chapter_metadata.py`:
+3. Add a matching entry to repository-root `src/biology/chapter_metadata.py`:
 
    ```python
    ChapterMeta("unit_X_descriptive_name", <N>, "X", <difficulty>, <reading_min>, <lecture_min>,
@@ -134,11 +134,11 @@ Run `uv run python scripts/audit_textbook_quality.py --check --max-advisories 0`
    uv run python scripts/insert_chapter_metadata.py     # badge + refresh Course Planning Grid
    uv run python scripts/link_glossary.py --check       # glossary anchors and semantic back-reference check
    uv run python scripts/generate_figures.py            # if chapter references new figures
-   uv run python scripts/generate_diagrams.py           # if chapter registers new mermaid diagrams
+   uv run python scripts/generate_diagrams.py --strict-png # publication PNGs
    ```
 
 6. Verify invariants: `uv run python -m pytest tests/test_toc_consistency.py tests/test_build_invariants.py tests/test_chapter_metadata.py tests/test_bibliography_closure.py -v`
-7. Render: `uv run python scripts/03_render_pdf.py --project biology_textbook` from the template repo root when template infrastructure is available.
+7. Render from this project root: `uv run --frozen --extra dev python scripts/render_textbook.py`; prerequisites and the full gate are owned by [pipeline_guide.md](../pipeline_guide.md).
 
 ## Module Reference Footer
 
@@ -146,20 +146,16 @@ Each chapter should end with a module reference footer:
 
 ```text
 *Module: `src/biology/<domain>/<file>.py` (key functions used)*
-*Figure: `src/visualization/plots.py` — `plot_*` from `ALL_FIGURE_GENERATORS`*
+*Figure: `src/visualization/plots_<domain>.py` — `plot_*`, registered in `plots.py` → `ALL_FIGURE_GENERATORS`*
 *Diagram: `src/mermaid/biology_diagrams.py` — `*_diagram()` factory listed in `ALL_BIOLOGY_DIAGRAMS`*
 *Cross-references: \cref{sec:unit_X_...} (short topic), \cref{sec:unit_Z_...} (short topic)*  — semantic section refs, not hand-typed chapter numbers
 ```
 
-### Allowed figure and diagram names (authoring allowlist)
+### Registered figure and diagram names
 
-Cite only these **matplotlib** generators (registry keys in parentheses match `ALL_FIGURE_GENERATORS`):
+The authoritative figure registry is `src/visualization/plots.py` → `ALL_FIGURE_GENERATORS`; the public import facade is `src/visualization/__init__.py`. Domain implementations live in `plots_*.py`. Do not copy a second allowlist here. In particular the function is `plot_light_response_curve`, while its registry key is `light_response_curves`.
 
-`plot_nernst_potentials`, `plot_ghk_permeability`, `plot_hill_equation`, `plot_osmotic_pressure`, `plot_punnett_square`, `plot_chromosome_structure`, `plot_hardy_weinberg`, `plot_translation_codons`, `plot_oxygen_dissociation`, `plot_poiseuille_flow`, `plot_michaelis_menten`, `plot_glycolysis_summary`, `plot_homeostasis_feedback`, `plot_lotka_volterra`, `plot_selection_simulation`, `plot_fitness_landscape`, `plot_molecular_clock`, `plot_action_potential`, `plot_light_response_curves`, `plot_photosynthesis_rate`, `plot_water_potential_transpiration`, `plot_bacterial_growth`, `plot_sir_model`, `plot_mic_dilution_series`, `plot_methylation_heatmap`, `plot_logistic_growth`, `plot_allee_threshold_dynamics`, `plot_biodiversity_indices`, `plot_food_web_trophic_levels`, `plot_species_area_relationship`, `plot_biome_distribution`, `plot_genetic_drift_trajectories`, `plot_network_degree_distribution`, `plot_prediction_error_precision`, `plot_biology_milestones`, `plot_electronegativity_bond_energy`, `plot_polymer_hierarchy`, `plot_organelle_size_scale`, `plot_atp_yield_comparison`, `plot_replication_fork_progression`, `plot_mutation_rate_spectrum`, `plot_pollen_tube_growth`.
-
-Cite only **`*_diagram()`** factories that appear in `ALL_BIOLOGY_DIAGRAMS` (see `src/mermaid/biology_diagrams.py`), including: `macromolecule_classification_diagram`, `enzyme_kinetics_diagram`, `organelle_function_diagram`, `membrane_transport_diagram`, `glycolysis_pathway_diagram`, `atp_synthesis_diagram`, `cell_cycle_diagram`, `transcription_translation_diagram`, `mendelian_cross_diagram`, `natural_selection_diagram`, `phylogenetic_tree_diagram`, `viral_replication_cycle_diagram`, `photosynthesis_light_dark_diagram`, `nervous_system_reflex_diagram`, `immune_response_diagram`, `food_web_diagram`, `population_growth_stages_diagram`, `speciation_diagram`, `hormone_signaling_diagram`, `dna_replication_diagram`, `nutrient_cycle_diagram`, `chromosome_inheritance_diagram`, `mirna_biogenesis_diagram`, `x_inactivation_diagram`.
-
-Do **not** reference `*_visualizer.py` paths or plot/diagram names absent from the registries above.
+Registered diagram factories are owned by `src/mermaid/biology_diagrams.py` → `ALL_BIOLOGY_DIAGRAMS`, with specifications in `diagram_specs.yaml`. Do not cite absent `*_visualizer.py` paths or invent generator names. See [API reference](../api_reference.md) and [visualization guide](../visualization_guide.md) for current callable contracts.
 
 ## Mermaid Diagram Insertion
 
@@ -175,7 +171,7 @@ Prose, learning objectives, alt text, Mermaid labels, and generator strings unde
 
 - Gate: `uv run pytest tests/test_american_english.py`
 - Batch rewrite: `uv run python scripts/normalize_american_english.py` (mapping in `src/biology/maintenance/data/british_to_american.yaml`; skips `references.bib`, `preamble.md`, and code fences)
-- Optional LO Bloom HTML comments use American **`analyze`**, not `analyse` (see [../docs/pedagogy_objectives_mapping.md](../pedagogy_objectives_mapping.md))
+- Required reviewed per-item assessment comments and lab alignment metadata use American `analyze`; see [pedagogy contract](../pedagogy_objectives_mapping.md).
 - After editing enrichment or curriculum generators, run normalize, then `scripts/sync_curriculum_materials.py` and `scripts/enrich_embedded_textbook.py` so synced blocks stay aligned.
 
 ## Print density (PDF)

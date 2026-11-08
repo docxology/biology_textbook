@@ -21,7 +21,7 @@
 
 | Layer | Role |
 | ----- | ---- |
-| [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) | Path conventions, allowlists, cross-ref rules |
+| [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) | Path conventions, source ownership and reference types; registries own visual names |
 | [../tests/test_build_invariants.py](../tests/test_build_invariants.py) | Chapters, badges, labs, figure generators |
 | [../tests/test_chapter_metadata.py](../tests/test_chapter_metadata.py) | `config.yaml` ↔ `ChapterMeta` |
 | [../tests/test_curriculum_metadata.py](../tests/test_curriculum_metadata.py) | `config.yaml` ↔ `CurriculumRecord` / `AlignmentRecord` ↔ chapter/lab/question/appendix blocks |
@@ -30,7 +30,7 @@
 | [../tests/test_crossref_validator\*.py](../tests/) | `@fig:` / `@eq:`, `{#fig:...}`, `\label{...}` consistency |
 
 > [!IMPORTANT]
-> When a guide and a test disagree, **the test wins**. Update the guide and ensure the script that auto-fixes the violation (e.g. `scripts/insert_crossref_labels.py`) is idempotent.
+> Resolve guide/test disagreements against actual source ownership and behavior; a cosmetic assertion is not authority to damage authored content. Update tests and guides together while preserving substantive invariants. Structural heading normalization is not semantic editorial review: blank authored section titles refuse before known heading transformations write, and literal example H1s/labels remain protected. Tests must not pin arbitrary editorial wording.
 
 ---
 
@@ -53,7 +53,7 @@ Chapters, figures, equations, and tables use **semantic** labels. Rendered "Chap
 chapter, lab, question-bank, reference appendix, front-matter navigation, and
 Course Planning Grid display names from `docs/manuscript/config.yaml` plus
 `ChapterMeta`. Do not hand-maintain lab or question titles in `config.yaml`;
-list only their `file:` entries. In `src/biology/curriculum.py`, each
+list only their `file:` entries. In `src/biology/curriculum/`, each
 `CurriculumRecord` uses the same `chapter_id` to align a chapter with its lab,
 question bank, model/data skill, misconception probe, and transfer task.
 `src/biology/alignment.py` layers framework metadata on top: Vision & Change
@@ -105,7 +105,7 @@ PDF-render failure so diagrams are never silently dropped.
 | Pattern | Use | Cross-reference? |
 | ------- | --- | ---------------- |
 | `\begin{equation}\label{eq:unit_X_<descriptor>}…\end{equation}` | Anything you `\cref{...}` | **Yes** |
-| `\begin{align}\label{eq:unit_X_<descriptor>}…\end{align}` | Multi-line cross-referenced derivation | **Yes** |
+| `equation` containing `aligned`, with one label | Multi-line derivation with one equation number | **Yes**; use `align` with separate row labels when separate numbers are intended |
 | `$$ … $$` (plain) | Display math without numbering or reference | No |
 | `$…$` | Inline math, without whitespace immediately inside the delimiters | No |
 
@@ -119,7 +119,7 @@ The actual PDF reader uses dollar-delimited math; do not author `\(...\)` or `\[
 ### Mermaid (inline) and unit concept maps
 
 - After each `mermaid` fence, write an *italic* line that **describes** the diagram (≥ 10 words; no "Figure N.M").
-- Unit intro "concept map" images: use a **bold** descriptive title (e.g. **Unit V concept map — …**), not hand figure indices.
+- Unit-intro maps are selected relationship overviews, not prerequisite/causal proof; follow [visual semantics](visualization_guide.md#meaning-and-limits-of-graphical-abstracts).
 
 ---
 
@@ -127,7 +127,7 @@ The actual PDF reader uses dollar-delimited math; do not author `\(...\)` or `\[
 
 | Mechanism | Use in this project |
 | --------- | ------------------- |
-| **cleveref** | `\cref{sec:...}`, `\cref{fig:...}`, `\cref{eq:...}`, `\cref{tbl:...}` in prose (primary) |
+| **cleveref / nameref** | `\cref` for numbered chapters/figures/equations/tables; `\nameref` for unnumbered intros, labs, banks, glossary and reference appendices. See [source contract](manuscript/AGENTS.md). |
 | **natbib** | Prefer `\citep{key}` and `\citet{key}`; documented rare forms include `\citealt`, `\citealp`, `\citeauthor`, `\citeyear`, and optional arguments such as `\citet[p.~12]{key}`. All keys live in [../docs/manuscript/references.bib](../docs/manuscript/references.bib). See [manuscript_guide.md#citations-and-references](manuscript_guide.md#citations-and-references) for command-by-command guidance. |
 | **pandoc-crossref** | `@fig:`, `@eq:`, `@tbl:`, `@sec:` in prose, and `{#fig:...}` / `{#eq:...}` on assets — **must** resolve; [crossref_validator](../src/biology/crossref_validator.py) + tests enforce. |
 
@@ -161,7 +161,7 @@ Details match [../manuscript/AGENTS.md — Adding a New Chapter](../docs/manuscr
 
 ### 2) New `plot_*` figure
 
-1. Implement generator in [../src/visualization/plots.py](../src/visualization/plots.py) and register in `ALL_FIGURE_GENERATORS` (naming on [../manuscript/AGENTS.md allowlist](../docs/manuscript/AGENTS.md)).
+1. Implement in the appropriate `src/visualization/plots_*.py`; register an `output_dir` callable in [plots.py](../src/visualization/plots.py). [The visualization guide](visualization_guide.md) owns signatures, review output and semantics.
 2. `uv run python scripts/generate_figures.py` (from project directory).
 3. Add `\begin{figure}...\includegraphics{../figures/...}\caption{...}\label{fig:unit_X_...}\end{figure}` in the chapter; reference with `\cref{fig:...}`.
 4. Add `<!-- alt: ... -->` HTML comment immediately after `\end{figure}` (see [accessibility.md#alt-text-writing-guide](accessibility.md#alt-text-writing-guide)).
@@ -169,8 +169,8 @@ Details match [../manuscript/AGENTS.md — Adding a New Chapter](../docs/manuscr
 
 ### 3) New registered Mermaid diagram
 
-1. Add factory in [../src/mermaid/biology_diagrams.py](../src/mermaid/biology_diagrams.py) and list in `ALL_BIOLOGY_DIAGRAMS` (naming on allowlist in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md)).
-2. `uv run python scripts/generate_diagrams.py`.
+1. Add a factory in [../src/mermaid/biology_diagrams.py](../src/mermaid/biology_diagrams.py) and register it in `ALL_BIOLOGY_DIAGRAMS`; [the manuscript contract](manuscript/AGENTS.md#registered-figure-and-diagram-names) defines ownership rather than copying a symbol allowlist.
+2. `uv run --frozen --extra dev python scripts/generate_diagrams.py --strict-png` for publication.
 3. [../tests/test_mermaid_and_visualization.py](../tests/test_mermaid_and_visualization.py) covers registry and renderer.
 
 ### 4) New `src/biology` API used in a chapter
@@ -216,7 +216,7 @@ flowchart LR
 ## See also
 
 - [../AGENTS.md](../AGENTS.md) — project root: validation CLI, invariant table, AI protocol
-- [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) — chapter file contract, allowlists, paths
+- [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) — chapter file contract, registry ownership and paths
 - [manuscript_guide.md](manuscript_guide.md) — templates, LaTeX patterns, equation decision tree
 - [pipeline_guide.md](pipeline_guide.md) — full pipeline and maintenance script table
 - [visualization_guide.md](visualization_guide.md) — matplotlib and Mermaid conventions

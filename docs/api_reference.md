@@ -1,6 +1,6 @@
-# API Reference — `src/biology/` Public Functions
+# API reference: biological models, manuscript metadata, and rendering
 
-**Covers:** nine domain subpackages, shared utilities (`numerics`, `constants`, `assessment`), maintenance packages (`quality`, `enrichment`, `crossref`, …), `src/mermaid/` (YAML-backed diagrams), and `src/visualization/` (domain plot modules).
+**Covers:** biological domain packages including `foundations`, shared utilities, metadata/maintenance packages, YAML-backed Mermaid diagrams and domain matplotlib modules. This is a curated reference, not an exhaustive export list.
 
 **Maintenance:** This file lists the main public entry points used from manuscript and tests. It is not an exhaustive dump of every `def` in `src/biology/` (helpers and module-private functions are omitted). After adding a user-facing function, add a row here; for a quick audit run `rg '^\s*def ' src/biology` and reconcile new names.
 
@@ -77,7 +77,7 @@ Package layout: `sequence`, `mendelian`, `population`, `linkage`, `distance`, `e
 | `genetic_distance(recombinants, total)` | ints | float (cM) | Map distance in centimorgans |
 | `infer_three_point_order(distances_cM)` | dict[tuple[str, str], float] | `LinkageMapResult` | Simple three-marker gene-order inference |
 | `hamming_distance(seq1, seq2)` | strings | int | Count mismatched positions |
-| `jukes_cantor_distance(observed_divergence)` | float | float | JC69 corrected distance |
+| `jukes_cantor_distance(p_distance)` | float | float | JC69 corrected distance; p_distance must be in [0, 0.75) |
 | `cpg_methylation_remaining(initial_methylation, divisions, maintenance_efficiency)` | floats, int | float | Semiconservative maintenance: f_next = f*(1+p)/2 |
 | `histone_modification_state(mark)` | str | str | Interpret common histone marks |
 | `synthetic_methylation_beta_matrix(...)` | ints/floats | ndarray | Deterministic CpG methylation β matrix for figures |
@@ -173,7 +173,7 @@ Unit 0 and foundational Unit I tables (no random state, no package I/O). Re-expo
 | `scale_free_vs_random(mean_degree=4.0, gamma=2.5, k_min=1, k_max=200)` | function | Pair on common degree support |
 | `prediction_error_precision_curve(prior_mean=0.0, prior_precision=1.0, observation=1.0, precisions=...)` | function | Gaussian precision sweep returning ActiveInferenceProfile; not empirical validation |
 
-Tests: `tests/test_foundations*.py`, plot coverage via `tests/test_visualization_registry.py`.
+Tests: `tests/test_foundations.py` for helpers; `tests/test_mermaid_and_visualization.py` for registry/renderer behavior. These do not certify every figure's scientific interpretation.
 
 ## `biology.toc`
 
@@ -284,7 +284,7 @@ Fast-moving fact ledger for `docs/manuscript/current_claims.yaml`. Gate script: 
 | `CurrentClaim` | frozen dataclass | One auditable claim with source tier, dates, anchor, refresh trigger |
 | `ClaimIssue` | frozen dataclass | Validation finding (`code`, `message`) |
 | `load_current_claims(path=None, project_root=None)` | function | Load ledger YAML as typed records |
-| `validate_current_claims(claims, today=None, max_checked_age_days=180)` | function | Structural, link, and freshness checks |
+| `validate_current_claims(claims, *, today=None, max_checked_age_days=180, references_path=None)` | function | Structural, source-link and freshness checks, with explicit bibliography resource; not live URL/full-text verification |
 
 Tests: `tests/test_current_claims_ledger.py`.
 
@@ -357,14 +357,16 @@ TOC-driven curriculum scaffold sync (CLI: `scripts/sync_curriculum_materials.py`
 
 | Symbol | Kind | Description |
 | ------ | ---- | ----------- |
-| `sync_h1(path, title, dry_run)` | function | Replace first H1 with canonical title |
-| `sync_section_label(path, label, dry_run)` | function | Ensure `\label{sec:...}` after H1 |
-| `sync_chapter/lab/question(...)` | functions | Insert or refresh generated metadata blocks |
-| `build_appendix(...)` / `build_instructor_appendix(...)` | functions | Study Blueprint and instructor appendix bodies |
-| `sync_front_matter_navigation(book_toc, dry_run)` | function | Front-matter navigation block |
+| `sync_h1(path, title, *, dry_run)` | function | Replace first H1 with canonical title |
+| `sync_section_label(path, label, *, dry_run, unnumbered=True)` | function | Embed the sec ID on the H1 and remove its standalone label |
+| `sync_chapter(path, record, alignment, *, dry_run)` | function | Refresh the chapter scaffold block, not authored assessments |
+| `build_appendix(...)` / `build_instructor_appendix(...)` | functions | Curriculum and instructor appendix bodies |
+| `sync_front_matter_navigation(book_toc, *, dry_run)` | function | Front-matter navigation block |
 | `main(argv)` | function | CLI entry |
 
 Tests: `tests/test_toc_consistency.py`, `tests/test_curriculum_metadata.py`.
+
+There are no `sync_lab`/`sync_question` body writers. Procedures, prompts/keys, rubrics and coverage notes remain authored. The CLI supports `--dry-run` as a nonwriting preview, not a failing drift gate; it has no `--check`. Validate semantic assessment records with `scripts/sync_assessment_metadata.py --check`.
 
 ## `textbook_paths` / `textbook_io`
 
@@ -409,6 +411,8 @@ Constants for **colorvision–friendly** matplotlib styling (blue/orange/teal, P
 ## `mermaid.renderer`
 
 `MermaidRenderer(output_dir, *, strict_png=False).render(name, source, size=1200, background_color="white", square=True)` and `MermaidDiagram.render(output_dir, size=1200, background_color="white", square=True)` use one positive integer size, not width/height arguments. Publication requires `strict_png=True` and real PNG decoding; non-strict `.mmd` output is authoring source only. Mermaid CLI is pinned to 12.2.0; use `scripts/generate_diagrams.py --size 1200 --strict-png`.
+
+`MermaidDiagram.render(...)` constructs a non-strict renderer and cannot select publication strictness. Use `MermaidRenderer(..., strict_png=True).render(...)` or the strict project CLI for publication.
 
 ## `biology.pipeline.rendering`
 
@@ -456,9 +460,9 @@ Diagram structure is declared in `src/mermaid/diagram_specs.yaml` and loaded by 
 
 ## `visualization` (matplotlib generators)
 
-Plot entry points are split across `src/visualization/plots_{cell,genetics,ecology,evolution,physiology,botany,microbiology}.py` and registered in `plots.py` → `ALL_FIGURE_GENERATORS`. Each `plot_*` function takes a required `output_dir: Path` and optional numeric parameters; each returns `Path` to a PNG.
+Implementations live in `src/visualization/plots_{cell,genetics,ecology,evolution,physiology,botany,microbiology,foundations}.py`. `plots.py` owns `ALL_FIGURE_GENERATORS`; `__init__.py` is the public facade. Each registry callable accepts `output_dir: Path` and returns a PNG `Path`; underlying domain functions may require additional inputs, such as Punnett parent genotypes.
 
-Color defaults come from [`visualization.cvd`](#visualizationcvd) when multiple series or sign categories are shown. **Allowlist** names (what the manuscript may cite) are in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md).
+Color defaults come from [`visualization.cvd`](#visualizationcvd). [The visualization guide](visualization_guide.md) owns exact palette values, canvas/print distinctions, project-output review recipe and quantitative illustration conventions; no palette certifies all-CVD safety.
 
 | Registry key | `plot_*` / callable | Output filename (typical) |
 | ------------ | -------------------- | --------------------------- |

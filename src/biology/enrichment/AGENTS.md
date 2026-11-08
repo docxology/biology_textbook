@@ -1,25 +1,9 @@
 # `src/biology/enrichment/` — embedded enrichment engine
 
-Logic extracted from `scripts/enrich_embedded_textbook.py` (formerly 1406 lines). The script delegates to `biology.enrichment.cli.main`.
+The project-local `scripts/enrich_embedded_textbook.py` delegates to `biology.enrichment.cli.main`; run from the repository root. Preview with `--dry-run` before applying supported generated-content changes.
 
-## Modules
+The package maintains supported frontier/companion material and produces the structural enrichment matrix. Records derive from the current ToC. Change the matrix producer when its contract changes; do not hand-edit generated metrics. Character, heading, citation and solution-block counts are navigation/planning signals, not scientific correctness or human-review evidence.
 
-| File | Role |
-| --- | --- |
-| `paths.py` | `PROJECT`, `MANUSCRIPT`, `DOCS` |
-| `models.py` | `ChapterRecord` dataclass |
-| `records.py` | `chapter_records()` from TOC |
-| `catalog.py` | Declarative frontier/companion/lab focus tables by unit/stem |
-| `engine.py` | Frontier biology, lab evidence, audit matrix; re-exports companion + answer-key APIs for backward compatibility |
-| `companion.py` | `companion_source_section`, `normalize_companion_source_modules`, table-caption helpers |
-| `answer_keys.py` | `refine_question_banks`, `answer_key`, evidence/scholarship/pitfall helpers (imports `question_kind`, `subject_phrase` from `biology.answer_refinement.classification`) |
-| `cli.py` | `--dry-run` / apply reporting |
+Preserve authored chapter content and assessments, including procedures, prompts/keys, rubrics and coverage notes. Removed assessment-body generation and answer-key APIs must not be reinstated through compatibility exports. Missing or generic answers require prompt-specific authorship/evidence, not automated filler.
 
-## CLI
-
-```bash
-uv run python scripts/enrich_embedded_textbook.py --dry-run
-uv run python scripts/enrich_embedded_textbook.py          # apply
-```
-
-Dry-run counts surfaces that would change; after a stable apply pass, chapter counts should drop to zero except the audit matrix when live character counts drift.
+Use [pipeline guidance](../../../docs/pipeline_guide.md) for ordering and output custody, [composable authoring](../../../docs/composable_authoring.md) for shared ownership, [manuscript instructions](../../../docs/manuscript/AGENTS.md) for source contracts and [testing guidance](../../../docs/testing_guide.md) for actual behavioral checks. A preview count or unchanged source claim is not an exercised current pass.

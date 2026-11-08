@@ -121,36 +121,112 @@ def test_sync_blocks_replaces_duplicate_marker_blocks() -> None:
     assert sync_blocks.CHAPTER_MARKER[0] not in updated
 
 
-def test_sync_blocks_normalizes_heading_titles_and_attrs() -> None:
-    sync_blocks = _sync_blocks()
+@pytest.mark.parametrize("heading", ["## \n", "## {.unnumbered}\n", "## {#sec:preserved .unnumbered}\n", "##\n", "   ## {.unnumbered}\n", "## ###\n", "## <!-- Add a title -->\n", "## <!-- note --> {#sec:kept .unnumbered}\n"])
+@pytest.mark.parametrize("dry_run", [False, True])
+def test_heading_normalization_refuses_missing_titles_without_writing(
+    tmp_path: Path, heading: str, dry_run: bool,
+) -> None:
+    path = tmp_path / "chemistry.md"
+    path.write_text("# Chemistry\n\n" + heading + "\nAuthored explanation.\n", encoding="utf-8")
+    before = (path.read_bytes(), path.stat().st_mtime_ns, path.stat().st_ino)
 
-    assert (
-        sync_blocks._toc_safe_heading_title(
-            "12. Further Reading {.unnumbered}",
-            chapter_title="Cell Theory",
+    with pytest.raises(ValueError):
+        _sync_blocks().normalize_headings(
+            path, unnumbered=True, dry_run=dry_run, chapter_title="Chemistry",
         )
-        == "Further Reading and Source Notes: Cell Theory {.unnumbered}"
-    )
-    assert sync_blocks._format_heading(
-        "Evidence",
-        {"#anchor", ".unnumbered"},
-    ) == "Evidence {.unnumbered #anchor}"
+
+    assert (path.read_bytes(), path.stat().st_mtime_ns, path.stat().st_ino) == before
 
 
-def test_sync_blocks_normalize_headings_preserves_fenced_code(tmp_path: Path) -> None:
-    sync_blocks = _sync_blocks()
+@pytest.mark.parametrize("protected", [
+    "~~~markdown\n## {.unnumbered}\n<!-- alt: literal -->\n---\n~~~\n",
+    "````markdown\n```\n## {.unnumbered}\n````\n",
+    "<!--\n## {.unnumbered}\n-->\n",
+    "```{=latex}\n## {.unnumbered}\n```\n",
+    "---\ntitle: Example\nexample: |\n  ## {.unnumbered}\n---\n",
+    "#tag\n####### Not an ATX heading\n    ## {.unnumbered}\n",
+])
+def test_heading_normalization_preserves_literal_source(tmp_path: Path, protected: str) -> None:
     path = tmp_path / "chapter.md"
-    path.write_text(
-        "# Demo\n\n```markdown\n## Procedure\n```\n\n## 2. Procedure\n",
-        encoding="utf-8",
-    )
+    path.write_text(protected + "\n# Authored title\n\n## Descriptive section\n", encoding="utf-8")
+    _sync_blocks().normalize_headings(path, unnumbered=True, dry_run=False)
+    assert path.read_text(encoding="utf-8").startswith(protected)
+    first = (path.read_bytes(), path.stat().st_mtime_ns, path.stat().st_ino)
+    assert not _sync_blocks().normalize_headings(path, unnumbered=True, dry_run=False)
+    assert (path.read_bytes(), path.stat().st_mtime_ns, path.stat().st_ino) == first
 
-    changed = sync_blocks.normalize_headings(path, unnumbered=True, dry_run=False)
 
-    assert changed is True
+@pytest.mark.parametrize("opening,closing", [("~~~markdown", "~~~"), ("````markdown", "````"), ("<!--", "-->"), ("```{=latex}", "```")])
+def test_title_and_identifier_updates_preserve_literal_examples(
+    tmp_path: Path, opening: str, closing: str,
+) -> None:
+    path = tmp_path / "chapter.md"
+    label_example = r"\verb|\label{sec:authored}|" if opening == "```{=latex}" else r"\label{sec:authored}"
+    example = f"{opening}\n# Example title\n{label_example}\n{closing}\n"
+    path.write_text(example + "\n# Old title\n\n\\label{sec:authored}\n", encoding="utf-8")
+    sync_blocks = _sync_blocks()
+    assert sync_blocks.sync_h1(path, "Canonical title", dry_run=False)
+    assert sync_blocks.sync_section_label(path, "sec:authored", dry_run=False)
     text = path.read_text(encoding="utf-8")
-    assert "```markdown\n## Procedure\n```" in text
-    assert "## Experimental Procedure {.unnumbered}" in text
+    assert text.startswith(example)
+    from biology.crossref.source import iter_headings
+    real_h1 = next(heading for heading in iter_headings(text) if heading.level == 1)
+    title, attrs, identifier = sync_blocks._split_heading_parts(real_h1.title)
+    assert (title, identifier) == ("Canonical title", "sec:authored")
+    assert ".unnumbered" in attrs
+    first = (path.read_bytes(), path.stat().st_mtime_ns, path.stat().st_ino)
+    assert not sync_blocks.sync_h1(path, "Canonical title", dry_run=False)
+    assert not sync_blocks.sync_section_label(path, "sec:authored", dry_run=False)
+    assert (path.read_bytes(), path.stat().st_mtime_ns, path.stat().st_ino) == first
+
+
+@pytest.mark.parametrize("separator", ["\u2028", "\u2029"])
+def test_section_identifier_preserves_unicode_comment_content(separator: str) -> None:
+    source = f"# Title\n\n<!-- note{separator}continued -->\n\nKeep this final paragraph.\n"
+    updated, changed = _sync_blocks().attach_section_identifier(source, "sec:test")
+    assert changed
+    assert updated.split("\n", 1)[1] == source.split("\n", 1)[1]
+    assert _sync_blocks().attach_section_identifier(updated, "sec:test") == (updated, False)
+
+
+@pytest.mark.parametrize("code_title", ["calibration", "alpha\u2028beta"])
+def test_heading_normalization_preserves_inline_code_and_authored_comments(
+    tmp_path: Path, code_title: str,
+) -> None:
+    path = tmp_path / "chapter.md"
+    source_title = f"`{code_title}` <!-- authored note -->"
+    path.write_text(f"# Chapter\n\n## {source_title} {{#sec:kept}}\n", encoding="utf-8")
+    sync_blocks = _sync_blocks()
+    assert sync_blocks.normalize_headings(path, unnumbered=True, dry_run=False)
+    assert source_title in path.read_text(encoding="utf-8")
+    first = (path.read_bytes(), path.stat().st_mtime_ns, path.stat().st_ino)
+    assert not sync_blocks.normalize_headings(path, unnumbered=True, dry_run=False)
+    assert (path.read_bytes(), path.stat().st_mtime_ns, path.stat().st_ino) == first
+
+
+@pytest.mark.parametrize("dry_run", [False, True])
+def test_curriculum_cli_refuses_late_empty_heading_before_any_source_write(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, dry_run: bool,
+) -> None:
+    from biology.curriculum_sync import cli, engine, paths, sync_blocks
+    from biology.toc import load_toc
+
+    manuscript = tmp_path / "docs" / "manuscript"
+    shutil.copytree(MANUSCRIPT, manuscript, symlinks=True)
+    for module in (cli, engine, paths, sync_blocks):
+        if hasattr(module, "MANUSCRIPT"):
+            monkeypatch.setattr(module, "MANUSCRIPT", manuscript)
+        if hasattr(module, "PROJECT"):
+            monkeypatch.setattr(module, "PROJECT", tmp_path)
+    toc = load_toc(tmp_path)
+    early, late = toc.chapters[0].path, toc.chapters[-1].path
+    early.write_text("# Stale authored title\n" + early.read_text(encoding="utf-8").split("\n", 1)[1], encoding="utf-8")
+    late.write_text(late.read_text(encoding="utf-8") + "\n## {.unnumbered}\n", encoding="utf-8")
+    before = {path: (path.read_bytes(), path.stat().st_mtime_ns, path.stat().st_ino) for path in manuscript.rglob("*.md")}
+    with pytest.raises(ValueError) as error:
+        cli.main(["--dry-run"] if dry_run else [])
+    assert str(late) in str(error.value)
+    assert {path: (path.read_bytes(), path.stat().st_mtime_ns, path.stat().st_ino) for path in manuscript.rglob("*.md")} == before
 
 
 def test_every_config_chapter_has_curriculum_record() -> None:

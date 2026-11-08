@@ -35,6 +35,8 @@ def main(argv: list[str] | None = None) -> int:
     alignment_module = _load_biology_module("alignment")
     toc_module = _load_biology_module("toc")
     book_toc = toc_module.load_toc(PROJECT)
+    # Validate authored headings before any blueprint/title/appendix mutation.
+    sync_heading_titles(book_toc, dry_run=True)
     records = tuple(curriculum.CURRICULUM)
     alignments = {record.chapter_id: record for record in alignment_module.ALIGNMENTS}
     report = SyncReport()

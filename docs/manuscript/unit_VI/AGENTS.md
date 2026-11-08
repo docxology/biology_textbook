@@ -4,21 +4,19 @@
 
 `src/biology/evolution/evolution.py`:
 - `simulate_selection()` — allele frequency change over generations
-- `simulate_drift()` — stochastic drift with configurable N_e and seed
-- `fitness_landscape()` — two-locus epistatic fitness surface
+- `simulate_drift(p, N, generations, rng_seed=42)` — stochastic diploid Wright–Fisher drift trajectory
+- `fitness_landscape_1d()` — mean genotype fitness versus allele frequency under supplied AA/Aa/aa fitnesses, not a two-locus epistatic surface
 - `molecular_clock_divergence_time()` — t = d_JC / (2μ)
-- `jukes_cantor_distance()` — corrected sequence divergence
-- `isolation_index()` — reproductive isolation metric (0–1)
+- `biology.genetics.jukes_cantor_distance(p_distance)` — corrected sequence divergence; exported by genetics, not evolution
+- `isolation_index()` — unvalidated teaching ratio μ/(μ+m), not reproductive isolation, F_ST or a speciation probability; both-zero rates are undefined
 
 ## Chapters
 
-1. `evolution_and_selection.md` — Natural Selection and Adaptation
-2. `genetic_drift_and_speciation.md` — Genetic Drift, Gene Flow, and Speciation
-3. `phylogenetics.md` — Phylogenetics and the Tree of Life
+[README.md](README.md) lists chapter filenames/titles; [config.yaml](../config.yaml) owns order.
 
 ## Key Equations
 
-- Selection: Δq = −spq² / W̄
+- Use the chapter's genotype-fitness recurrence for the stated selection model; Δq = −spq²/W̄ is a special-case expression, not a general selection law.
 - Drift variance: σ²(Δp) = pq / (2N_e)
 - Gene flow: p₁' = (1 − m)p₁ + mp₂
 - Jukes-Cantor: d_JC = −(3/4) ln(1 − 4d/3)
@@ -26,14 +24,9 @@
 
 ## Figures and Diagrams
 
-- `src/visualization/plots.py` — `plot_selection_simulation()`
+- `plot_selection_simulation()` identifies supplied genotype fitnesses and initial p; heterozygote advantage/disadvantage panels are not phenotypic stabilizing/disruptive selection models. See [visual conventions](../../visualization_guide.md).
 - `src/mermaid/biology_diagrams.py` — `natural_selection_diagram()`, `phylogenetic_tree_diagram()`
 
-## Chapter Metadata Convention
+## Shared source contract
 
-All chapter files in this unit carry (inserted automatically by the scripts):
-
-- `\label{sec:unit_VI_<stem>}` on the line after the H1 — cross-reference with `\cref{sec:unit_VI_<stem>}`
-- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../src/biology/chapter_metadata.py`)
-
-See [../AGENTS.md](../AGENTS.md) and [../../docs/manuscript_guide.md](../../docs/manuscript_guide.md) for the full set of invariants.
+Follow [manuscript instructions](../AGENTS.md) for H1s, stable IDs, metadata badges, references and authored assessments; see [writing examples](../../manuscript_guide.md). Implementation paths above are repository-root paths.

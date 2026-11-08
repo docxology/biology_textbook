@@ -107,10 +107,10 @@
       "reviewer": "WorkflowzScientificDeltaRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/front_matter.md:202:135c6388857f",
+      "advisory_id": "absolute-language-review:docs/manuscript/front_matter.md:204:135c6388857f",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/front_matter.md",
-      "line": 202,
+      "line": 204,
       "excerpt": "| **Combined instructor PDF** | From this project directory, install the locked dependencies and pinned Mermaid CLI described in the repository README, select the read-only template library with                                 , then run                                                                .                       stages sources and analysis; it does not render the PDF. |",
       "rationale": "The actual source supplies BIOLOGY_TEXTBOOK_TEMPLATE_ROOT and the project-local render_textbook.py command omitted from the packet's code-masked excerpt. The CLI dispatches to biology.pipeline.rendering.render_textbook(), which collects validated live sources, stages them, prepares source-bound inline PNGs and invokes PDFRenderer.render_combined(). Thus the distinction between analysis/staging and rendering is implemented. README supplies the prerequisite locked dependencies, graphics and external-tool requirements; this recipe is not evidence that a current complete PDF already exists.",
       "reviewer": "WorkflowzFinalClaimRefutation#3"
@@ -3356,15 +3356,6 @@
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_IV/questions_gene_expression.md:204:a794245afe4b",
-      "classification": "valid_scientific_absolute",
-      "source_path": "docs/manuscript/questions/unit_IV/questions_gene_expression.md",
-      "line": 204,
-      "excerpt": "**Answer (Q30, Synthesis).** The central dogma states information flows DNA→RNA→protein and not back out of protein. Three classic challenges: **(1) Reverse transcription** — retroviruses/telomerase make DNA from RNA (RNA→DNA), expanding allowed information flow but not violating the core prohibition (no protein→nucleic-acid). **(2) RNA editing** — e.g., A-to-I (ADAR) or C-to-U (APOBEC) editing changes mRNA sequence after transcription, so the protein differs from the genomic template; this elaborates the RNA step rather than reversing flow. **(3) Prions** — a misfolded protein (PrP^Sc) templates conformational conversion of normal protein, transmitting *conformational*, not sequence, information protein→protein. **Assessment:** Crick's strict statement (no information from protein back to nucleic acid) survives — none of these transfers sequence from protein to DNA/RNA; they are **elaborations within the framework**, not a fundamental revision, though prions show heritable information can be protein-borne. Source-governed RNA interpretation then asks whether the RNAcentral entry is sequence-level or gene-level, which release and identifiers are being used, whether isoforms/splice variants are merged correctly, and whether literature links support function rather than only mention the RNA \\citep{rnacentral2026}. See \\cref{sec:unit_IV_gene_expression}.",
-      "rationale": "Canonical splice chemistry and kinetic tRNA discrimination are appropriate without absolute proofreading certainty. PTC structure and chemistry are nonexclusive. The June-2023 ROCTAVIAN label actually specifies adult severe disease, AAV5 screening and one-time dosing (https://www.fda.gov/media/169937/download), not universal vector rules. ASO classes can support enzymatic turnover. The central-dogma evaluation's key explicitly rejects the premise that reverse transcription/editing/prion conformation transfers protein sequence into nucleic acid; database metadata is not functional proof.",
-      "reviewer": "WorkflowzFinalClaimRefutation#1"
-    },
-    {
       "advisory_id": "absolute-language-review:docs/manuscript/questions/unit_IV/questions_mutations_and_genomics.md:98:7ae9e94f87cb",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/questions/unit_IV/questions_mutations_and_genomics.md",
@@ -6209,10 +6200,10 @@
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/unit_intro.md:129:4ae49178f41c",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/unit_intro.md:138:4ae49178f41c",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/unit_intro.md",
-      "line": 129,
+      "line": 138,
       "excerpt": "> **Try it yourself:** Under P/O assumptions 2.5 for mitochondrial NADH and 1.5 for Q-linked electron pairs, identify the two cytosolic pairs reassigned between these budgets. Why is 32 a conditional accounting result rather than a universal theoretical maximum, and why must shuttle adjustment not be subtracted twice?",
       "rationale": "Inspected the actual toolbox expressions and glycolysis_summary inputs. Glycolytic net ATP is −1−1+2+2=2; adding two TCA substrate-level equivalents gives four. The two alternate electron-entry budgets are 4+10×2.5+2×1.5=32 and 4+8×2.5+4×1.5=30. Reassigning the two cytosolic pairs changes the result by 2×(2.5−1.5)=2 ATP. Neither expression needs another shuttle subtraction, and 32 is valid conditional accounting rather than categorically wrong or a universal maximum.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
@@ -6443,37 +6434,37 @@
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:251:ed6bd8301e31",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:249:ed6bd8301e31",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md",
-      "line": 251,
+      "line": 249,
       "excerpt": "| DNMT inhibitors | Azacitidine/decitabine trap maintenance methyltransferase | Established product-specific myeloid indications; not a universal cancer indication |",
       "rationale": "Myeloid DNMT-inhibitor indications are not universal cancer indications. The IDH problem correctly asks evaluation rather than assuming HIF stabilization. Koivunen's primary abstract explicitly reports R-, not S-,2HG stimulating EGLN and diminishing HIF in human astrocytes (https://www.nature.com/articles/nature10898); this refutes a universal inhibition inference without establishing its opposite universally. DNMT3L stimulation is distinct from universal catalytic dependence.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:306:55dc501b64ce",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:304:55dc501b64ce",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md",
-      "line": 306,
+      "line": 304,
       "excerpt": "> **Problem:** IDH1-R132H converts αKG to **R/D-2-hydroxyglutarate**. Explain the expected TET and selected histone-demethylase effects, then evaluate whether HIF stabilization follows universally. Separate the biochemical rationale for mutant-IDH inhibition from clinical evidence for vorasidenib.",
       "rationale": "Myeloid DNMT-inhibitor indications are not universal cancer indications. The IDH problem correctly asks evaluation rather than assuming HIF stabilization. Koivunen's primary abstract explicitly reports R-, not S-,2HG stimulating EGLN and diminishing HIF in human astrocytes (https://www.nature.com/articles/nature10898); this refutes a universal inhibition inference without establishing its opposite universally. DNMT3L stimulation is distinct from universal catalytic dependence.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:311:e9f6929f51df",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:309:e9f6929f51df",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md",
-      "line": 311,
+      "line": 309,
       "excerpt": "> 3. **Enantiomer/enzyme counterexample:** R/D-2HG must not be conflated with S/L-2HG. Koivunen et al. found that R-2HG could stimulate EglN/PHD prolyl hydroxylases and lower HIF in their human-astrocyte model, whereas S-2HG behaved differently. Thus neither universal PHD inhibition/HIF stabilization nor universal HIF suppression follows from mutant IDH alone \\citep{Koivunen2012R2HG}.",
       "rationale": "Myeloid DNMT-inhibitor indications are not universal cancer indications. The IDH problem correctly asks evaluation rather than assuming HIF stabilization. Koivunen's primary abstract explicitly reports R-, not S-,2HG stimulating EGLN and diminishing HIF in human astrocytes (https://www.nature.com/articles/nature10898); this refutes a universal inhibition inference without establishing its opposite universally. DNMT3L stimulation is distinct from universal catalytic dependence.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:471:8a9b6370a385",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md:469:8a9b6370a385",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/epigenetic_inheritance_and_disease.md",
-      "line": 471,
+      "line": 469,
       "excerpt": "| **DNMT3A/3B** | De novo methyltransferases; DNMT3L can stimulate activity in defined contexts, with germline imprint-establishment requirements distinct from universal catalytic dependence \\citep{Chedin2002DNMT3L} |",
       "rationale": "Myeloid DNMT-inhibitor indications are not universal cancer indications. The IDH problem correctly asks evaluation rather than assuming HIF stabilization. Koivunen's primary abstract explicitly reports R-, not S-,2HG stimulating EGLN and diminishing HIF in human astrocytes (https://www.nature.com/articles/nature10898); this refutes a universal inhibition inference without establishing its opposite universally. DNMT3L stimulation is distinct from universal catalytic dependence.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
@@ -6812,10 +6803,10 @@
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/immune_system_defense.md:554:cce6d1c3e2fa",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/immune_system_defense.md:575:cce6d1c3e2fa",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/immune_system_defense.md",
-      "line": 554,
+      "line": 575,
       "excerpt": "| Brexucabtagene autoleucel (Tecartus) | CD19 | CD28 | Product-specific MCL and B-ALL indications, with distinct eligible populations. |",
       "rationale": "The Tecartus entry identifies the CD19 target and CD28 costimulatory domain while keeping MCL and B-ALL indications population-specific; it does not transfer eligibility across the two malignancies or infer a class-wide indication.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
@@ -6947,28 +6938,28 @@
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:392:282940045e16",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:390:282940045e16",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md",
-      "line": 392,
+      "line": 390,
       "excerpt": "The **reading-frame rule** describes a common *DMD* genotype–phenotype pattern, not an exceptionless prognosis: frame-disrupting deletions often cause severe dystrophin deficiency, while some in-frame deletions retain a shorter, partly functional protein. Exon-skipping ASOs target an existing exon in mutation-amenable transcripts; eteplirsen targets exon 51, whereas golodirsen and viltolarsen target exon 53. The new splice junction must restore frame, and molecular rescue alone does not guarantee a Becker clinical course or cure. Sequence, transcript and functional evidence are needed for an individual interpretation.",
       "rationale": "The reading-frame rule is a common pattern with exceptions, and exon 51 versus exon 53 products require suitable transcripts rather than implying every deletion is amenable. X-linked heterozygous women can have muscle/cardiac, OTC or bleeding phenotypes; random X-inactivation does not guarantee absence of disease. PRS calibration, endpoint and ancestry-specific validation are required, and the dated 2019 perspective is not a fixed 2026 accuracy ratio.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:398:f0bf2b0b8d43",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:396:f0bf2b0b8d43",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md",
-      "line": 398,
+      "line": 396,
       "excerpt": "Heterozygous females with pathogenic X-linked alleles can be asymptomatic or have clinically significant disease. Tissue-specific expression, factor or enzyme activity, and X-inactivation patterns can affect presentation; random X-inactivation is not a guarantee of an unaffected phenotype. Manifesting *DMD* heterozygotes can have muscle or cardiac findings, and ornithine transcarbamylase heterozygotes can have hyperammonemic episodes. For hemophilia, heterozygous women can have bleeding symptoms and require appropriate evaluation rather than being dismissed as unaffected carriers \\citep{cdc2024hemophiliawomen}.",
       "rationale": "The reading-frame rule is a common pattern with exceptions, and exon 51 versus exon 53 products require suitable transcripts rather than implying every deletion is amenable. X-linked heterozygous women can have muscle/cardiac, OTC or bleeding phenotypes; random X-inactivation does not guarantee absence of disease. PRS calibration, endpoint and ancestry-specific validation are required, and the dated 2019 perspective is not a fixed 2026 accuracy ratio.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:510:f2461253d8ed",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:508:f2461253d8ed",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md",
-      "line": 510,
+      "line": 508,
       "excerpt": "A PRS should be treated as a calibrated, ancestry- and context-dependent risk model, not as a diagnosis. A responsible report states the discovery cohort, target population, calibration method, confidence interval, and action threshold; checks whether the risk strata were validated in the patient's ancestry and care setting; and interprets the score alongside family history, monogenic testing when indicated, and modifiable clinical risk factors. The 2019 perspective documented several-fold ancestry-dependent accuracy differences for scores available then; that is not a universal 2026 performance estimate. Premature deployment can widen health gaps if score-specific, diverse external validation does not keep pace \\citep{martin2019prsdisparities}.",
       "rationale": "The reading-frame rule is a common pattern with exceptions, and exon 51 versus exon 53 products require suitable transcripts rather than implying every deletion is amenable. X-linked heterozygous women can have muscle/cardiac, OTC or bleeding phenotypes; random X-inactivation does not guarantee absence of disease. PRS calibration, endpoint and ancestry-specific validation are required, and the dated 2019 perspective is not a fixed 2026 accuracy ratio.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
@@ -7136,199 +7127,199 @@
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VI/unit_intro.md:130:d26fe04a1d64",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VI/unit_intro.md:138:d26fe04a1d64",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VI/unit_intro.md",
-      "line": 130,
+      "line": 138,
       "excerpt": "> **Try it yourself:** Use explicit                   for replicates             , each with                            . Count fixed, lost and still-polymorphic runs separately. Identical seeds replay one trajectory, not independent replication. Eventual fixation probability is 0.5 under neutrality; finite-horizon fixation among all runs need not be 0.5.",
       "rationale": "Distinct explicit seeds generate replicates; replaying one seed is not independent sampling. Neutral eventual fixation probability .5 is different from the fraction fixed during a finite horizon because polymorphic runs remain. Actual source contains the inline seed/API expressions missing from the packet's stripped excerpt.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:34:834d0b82b5d2",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:55:834d0b82b5d2",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 34,
+      "line": 55,
       "excerpt": "| **Class A** (serine) | Active-site serine (Ser70) | Spectrum is enzyme-specific: penicillinases, ESBLs and carbapenemases differ | Older inhibitors inhibit many penicillinases/ESBLs, not classA universally; tazobactam does not inhibit KPC. Newer inhibitors such as avibactam inhibit KPC, but isolate-specific AST remains necessary \\citep{idsa2026amr} | TEM-1, SHV-1; CTX-M ESBLs; KPC carbapenemases |",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:116:105f3c6eca8c",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:137:105f3c6eca8c",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 116,
+      "line": 137,
       "excerpt": "Such isolates may have no reliable standard single-agent option, so treatment depends on isolate-specific susceptibility testing, source control and expert consultation. Options can include cefiderocol or ceftazidime-avibactam plus aztreonam for some MBL-producing isolates, with other agents considered only when activity and clinical evidence support them; phage therapy remains investigational. The case illustrates that resistance determinants can accumulate, sometimes arriving together on linked mobile elements. Antibiotic stewardship, infection control, diagnostics and drug development address different parts of that process.",
       "rationale": "The profile is explicitly a synthetic composite, not a documented pan-resistant outbreak isolate. Current IDSA guidance supports cefiderocol and, where appropriate/available, ceftazidime-avibactam plus aztreonam for NDM-producing Enterobacterales, with susceptibility and limited clinical-data caveats. Its current preference also includes aztreonam-avibactam; the textbook's 'can include' list is not exhaustive or a superior-regimen assertion. Linked mobile resistance determinants and investigational phage status do not establish universal treatment failure. Source: https://www.idsociety.org/practice-guideline/amr-guidance/ , question 3.5.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:119:a12fca4d52ef",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:140:a12fca4d52ef",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 119,
+      "line": 140,
       "excerpt": "> A *K. pneumoniae* isolate carries KPC-2, RamA-dependent AcrAB overexpression and GyrA/ParC mutations. Standardized broth microdilution gives colistin MIC 0.5 µg/mL and ceftazidime-avibactam MIC 1/4 µg/mL. Under the 2026 CLSI criteria summarized by IDSA, colistin is intermediate (there is no susceptible category), whereas ceftazidime-avibactam meets the susceptible breakpoint \\citep{idsa2026amrbreakpoints}. Explain how avibactam's activity against KPC differs from its lack of activity against NDM. Why do enzyme assays or molecular identification and isolate-specific AST provide different evidence, and why is a category not a guarantee of clinical response?",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:152:cb375a4a36f5",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:150:cb375a4a36f5",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 152,
+      "line": 150,
       "excerpt": "| $R_0$ (basic reproduction number) | Expected secondary infections per primary infection in a defined fully susceptible population/contact setting | $R_0>1$ permits initial growth under that model; not a pathogen-only constant |",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:153:a87166171b87",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:151:a87166171b87",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 153,
+      "line": 151,
       "excerpt": "| $R_e$ (effective reproduction number) | Expected secondary infections under current susceptibility, behavior and interventions | $R_0(1-p)$ is only the homogeneous immunity-only approximation; aim below1 |",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:155:514ac15e05f0",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:153:514ac15e05f0",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 155,
+      "line": 153,
       "excerpt": "| IFR (infection-fatality ratio) | Disease-attributed deaths among all infected people, including undiagnosed/asymptomatic infections, for a defined population and period | Representative serology is one estimation method, not a definitional requirement or guarantee of accuracy \\citep{who2020fatalitydefinitions} |",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:174:f53d8014404d",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:172:f53d8014404d",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 174,
+      "line": 172,
       "excerpt": "An exponential generation-interval distribution with the same mean instead gives $R_0=1+5r\\approx2.155$. This is a different model, not a universal lower-bound formula. The mean alone does not determine $R_0$.",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:184:17a941d28cdb",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:182:17a941d28cdb",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 184,
+      "line": 182,
       "excerpt": "**Problem:** Compare two hypothetical homogeneous transmission models, $R_0=15$ with stipulated transmission-blocking efficacy $\\varepsilon_T=.97$, and $R_0=4$ with stipulated $\\varepsilon_T=.95$. These are mathematical assumptions, not substitution of symptomatic-disease efficacy for prevention of infection or transmission. Compute $p_c=1-1/R_0$ and $V_c=p_c/\\varepsilon_T$; then contrast a disease-only vaccine with no transmission effect.",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:196:a88ef9cff7c7",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:194:a88ef9cff7c7",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 196,
+      "line": 194,
       "excerpt": "The first model gives 96.22% coverage at the equality boundary. Real program targets require locally validated endpoints, contact structure and durability; an equality threshold is not a guarantee of elimination.",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:211:6605c6c72fa5",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:209:6605c6c72fa5",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 211,
+      "line": 209,
       "excerpt": "**Interpretation.** Reaching the equality boundary is impossible when $p_c/\\varepsilon_T>1$, equivalently $\\varepsilon_T<p_c$. If $\\varepsilon_T=p_c$, full coverage only gives $R_e=1$; vaccine-only decline requires $\\varepsilon_T>p_c$ and coverage above $p_c/\\varepsilon_T$. A vaccine with 95% disease protection but zero transmission effect leaves $R_e=4$ at 100% coverage in the second model. In the first model, uniform 3% refusal from otherwise full coverage gives effective immune fraction $.97\\times.97=.9409>.93333$ and $R_e=.8865$; it does not by itself cross the homogeneous boundary. Clustering, waning or lower starting coverage can change that conclusion and must be specified.",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:220:e596a3475bf3",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:218:e596a3475bf3",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 220,
+      "line": 218,
       "excerpt": "- Pathogenesis: bacilli can survive in macrophages by altering phagosome maturation and host defense. The extent of acidification depends on cell state, organism and sampling time; phagosomal pH alone does not universally determine survival or killing.",
       "rationale": "Wong's PtpA/V-ATPase primary mechanism supports interference with phagosome maturation/acidification. Welin's human macrophage experiments show MOI-dependent acidification and growth restriction, supporting the refusal to reduce survival to one universal phagosomal pH. The caveat does not deny acidification's mechanistic importance. Sources: https://pubmed.ncbi.nlm.nih.gov/22087003/ ; https://pubmed.ncbi.nlm.nih.gov/21576918/.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:278:c4c7614f10ae",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:276:c4c7614f10ae",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 278,
+      "line": 276,
       "excerpt": "- **ART** (antiretroviral therapy): an individualized active combination can suppress viral replication and improve survival; selected eligible patients may use dolutegravir/lamivudine, whereas others require different combinations. Assay detection limits, viral-suppression definitions and transmission-study thresholds are not interchangeable. Suppression does not eliminate latent integrated provirus, and neither life expectancy nor reservoir persistence has one universal duration for every patient.",
       "rationale": "The actual NIH September 24, 2026 initial-ART table and changes section explicitly remove the older DTG/3TC baseline viral-load restriction while retaining HBV/genotype/rapid-start exclusions and prior-CAB integrase-resistance assessment. The occurrences correctly allow eligible active two-drug therapy and separate suppression, assay limits, transmission thresholds and latent integrated provirus. They do not promise universal survival/reservoir durations or simultaneous independent escape mutations. Source: https://clinicalinfo.hiv.gov/en/guidelines/hiv-clinical-guidelines-adult-and-adolescent-arv/what-start-initial-combination-regimens.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:288:14fcf6e82a11",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:286:14fcf6e82a11",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 288,
+      "line": 286,
       "excerpt": "> **Concept Check (Analysis — Influenza Antigenic Drift vs. Shift):** The count 18 HA × 11 NA = 198 is a combinatorial product, not evidence that all pairs are viable or circulate. (a) Compare point-mutation drift with reassortment between co-infecting influenza A viruses. Why does antigenic novelty confer pandemic potential only together with suitable human transmission and population conditions? (b) No specified HA alignment or neutralization dataset supports a universal percentage identity between 1918 H1N1 and 1957 H2N2, an annual H3N2 identity percentage or an epitope substitution rate here. Design the sequence and antigenic-assay comparison needed to estimate each; do not invent those measurements. Genetic and antigenic distance need not change proportionally \\citep{smith2004antigenicmapping}. (c) Explain how functional constraints on receptor binding interact with antibody selection without assuming every receptor-pocket substitution abolishes function. (d) Compare phylogenies for multiple genome segments plus dates and exposure data: an HA tree alone does not prove reassortment or a historical spillover route.",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:296:ccd623490003",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:294:ccd623490003",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 296,
+      "line": 294,
       "excerpt": "- Examples require different certainty labels. WHO/SAGO's June 2025 assessment found the weight of available evidence supports zoonotic spillover for SARS-CoV-2, directly from bats or via an intermediate host, while the precise source/route remains unconfirmed \\citep{who2025sagoorigins}. Ebola-virus natural reservoirs remain unknown, with fruit bats among candidate hosts; the mpox reservoir likewise remains unknown despite susceptibility documented in several small mammals \\citep{who2025ebolareservoir,who2024mpoxreservoir}. Nipah's Malaysian pig-amplification pathway is outbreak-specific, not a universal route.",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:302:dca76fda1f25",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:300:dca76fda1f25",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 302,
+      "line": 300,
       "excerpt": "1. **Host relatedness and viral traits** — a 2017 mammalian host–virus analysis associated zoonotic potential with phylogenetic relatedness, host taxonomy and human populations within host ranges after accounting for research effort. It does not establish a universal primate–rodent–invertebrate ranking \\citep{olival2017spillover}.",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:350:850d2ce942ba",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:348:850d2ce942ba",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 350,
+      "line": 348,
       "excerpt": "Three molecular innovations illustrate the platform. **(1) Nucleoside modification:** N1-methylpseudouridine in the Pfizer/Moderna COVID-19 examples reduces innate RNA recognition; experimental modified RNAs activate OAS less efficiently and are more resistant to RNase-L cleavage. Expression depends on sequence, purification, delivery and cell type, not a universal fold gain or absolute pathway blockade \\citep{anderson2011oas,kariko2011purification}. **(2) LNP delivery:** ionizable lipid, phospholipid, cholesterol and PEG-lipid protect RNA and facilitate cellular delivery and endosomal escape. **(3) Antigen design:** prefusion stabilization can preserve neutralizing epitopes. Manufacturing output depends on RNA dose, reaction yield, purification/formulation losses, scheduling and fill–finish capacity. Kis and colleagues' 2021 techno-economic model assumed a 30 L reaction-scale limit and distinguished drug-substance output from filled doses. This is a model with stated assumptions, not a measured single-run finished-dose yield \\citep{kis2021rnaproduction}.",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:354:4ec724b00476",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:352:4ec724b00476",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 354,
+      "line": 352,
       "excerpt": "**Safety and durability require denominators.** FDA's June 25, 2025 communication estimated unadjusted myocarditis/pericarditis incidence during days 1–7 after 2023–24 mRNA COVID-19 formulations at approximately 27 per million doses in males aged 12–24. This is not an excess-risk estimate or a rate for every mRNA product, including MFLUSIVA. Persistent cardiac-MRI abnormalities were observed after vaccine-associated myocarditis; their prognostic significance remains uncertain \\citep{fda2025mrnamyocarditis}. Antibody levels and protection change over time, but additional-dose timing depends on product, age, immune status, vaccination history and current jurisdictional guidance, not a universal six-month rule \\citep{cdc2026covidschedule}.",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:358:774d6e2c7062",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:356:774d6e2c7062",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 358,
+      "line": 356,
       "excerpt": "**Cyclic GMP–AMP synthase (cGAS)** is a DNA sensor identified in 2013 (Chen lab) that binds double-stranded DNA non-sequence-specifically and, upon DNA engagement, synthesizes the second messenger **2'3'-cyclic GMP–AMP (2'3'-cGAMP)** from ATP and GTP. 2'3'-cGAMP binds the ER-resident adaptor **STING (Stimulator of Interferon Genes)**, driving TBK1 phosphorylation of IRF3 and **Type I interferon (IFN-α/β)** transcription. The pathway can respond to pathogen-derived or mislocalized self-DNA. Compartmentalization and DNA clearance constrain stimulatory self-DNA rather than establishing universal cytosolic absence: an earlier study found endogenous retroelement-derived DNA accumulation and interferon-linked autoimmunity in Trex1-deficient cells, before cGAS itself was identified \\citep{stetson2008trex1}.",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:424:4e6a9e1f95e5",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:422:4e6a9e1f95e5",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 424,
+      "line": 422,
       "excerpt": "5. Maternal IgG crosses the placenta and can provide antigen-specific passive protection that wanes after birth. Explain why persistence varies with antibody specificity, maternal levels and infant factors, and why active vaccination follows product- and jurisdiction-specific schedules rather than one universal starting age. How does breast-milk IgA contribute to mucosal protection?",
       "rationale": "Placental IgG supplies antigen-specific passive protection whose persistence depends on specificity and maternal/infant factors. Breast-milk IgA is a distinct mucosal contribution, not equivalent systemic transplacental immunity. The prompt appropriately requests product/jurisdiction-specific vaccination schedules rather than prescribing a universal starting age.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:428:6057e7840969",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:426:6057e7840969",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 428,
+      "line": 426,
       "excerpt": "7. Explain why TB requires combination therapy, using metabolically slow bacilli, granuloma drug penetration and resistance selection. Compare the classical six-month 2HRZE/4HR regimen with shorter regimens available for eligible patients; what susceptibility and eligibility evidence prevents treating one duration as universal?",
       "rationale": "Combination therapy addresses different bacillary states/exposures and resistance selection. CDC's dated April 17, 2025 page actually lists 4-,6-,9-month drug-susceptible pulmonary options and eligibility conditions; 2HRZE/4HR remains the classical six-month comparator, not a universal duration. Source: https://www.cdc.gov/tb/hcp/treatment/tuberculosis-disease.html.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:432:7caea0527087",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md:430:7caea0527087",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/antimicrobial_resistance_and_epidemiology.md",
-      "line": 432,
+      "line": 430,
       "excerpt": "9. Distinguish symptomatic-disease efficacy from infection and transmission endpoints for mRNA COVID-19 vaccines. Explain the mechanism, how waning and antigenic evolution can change protection, why additional-dose timing requires current product/population-specific guidance, and how N1-methylpseudouridine can improve RNA expression without a universal fold effect.",
       "rationale": "KPC/NDM inhibitor scope is enzyme-specific; the read 2026 IDSA breakpoint table supports colistin 0.5 as intermediate (no susceptible category) and ceftazidime-avibactam 1/4 as susceptible, not assured response (https://www.idsociety.org/globalassets/idsa/practice-guidelines/amr-guidance/5.0/table-2.pdf). R0 depends on contact setting and generation-interval distribution; the exponential example gives 1+5r, not a universal lower bound. Transmission-only vaccine arithmetic gives 96.22% at equality and Re=.8865 under the stated 3% refusal example; disease-only efficacy cannot substitute. Influenza combinatorics/sequence divergence do not prove viable subtype combinations, antigenic rates or spillover routes. Reservoir/origin statements retain uncertainty. Modified-RNA expression and manufacturing yield are system/model-dependent. FDA's read communication supports approximately 27 cases per million doses in males 12–24 during days 1–7 after specified 2023–24 COVID formulations, not excess risk or every mRNA product (https://www.fda.gov/vaccines-blood-biologics/safety-availability-biologics/fda-approves-required-updated-warning-labeling-mrna-covid-19-vaccines-regarding-myocarditis-and). Cytosolic self-DNA can stimulate cGAS, and TB durations/additional vaccine doses retain current eligibility limits.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
@@ -7964,48 +7955,39 @@
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/biodiversity_and_food_webs.md:133:d551aa834df8",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/biodiversity_and_food_webs.md:154:d551aa834df8",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/biodiversity_and_food_webs.md",
-      "line": 133,
+      "line": 154,
       "excerpt": "**Extinction debt** describes delayed losses after past habitat change if adverse conditions persist. Current presence need not imply long-term persistence, but restoration or changing conditions can alter outcomes; no universal delay follows from species longevity alone.",
       "rationale": "Brooks's actual abstract describes five Kakamega fragments and a modeled approximately 50-year half-life of eventual losses for roughly 1000-ha fragments, not time to final extinction. Vellend full text infers persistent debt for slow forest plants in Belgian landscapes using UK comparison models more than a century after fragmentation; it also acknowledges cross-landscape prediction limits and restoration opportunity. The chapter's conditional future-equilibrium subtraction, required species-overlap information and rejection of a universal Amazon clock are consistent with those endpoints. Sources: https://doi.org/10.1046/j.1523-1739.1999.98341.x ; https://www.biw.kuleuven.be/lbh/lbnl/ecology/pdf-files/pdf-art/hans%20j/Ecology2006.pdf.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/biodiversity_and_food_webs.md:140:bb1dd9673e22",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/biodiversity_and_food_webs.md:161:bb1dd9673e22",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/biodiversity_and_food_webs.md",
-      "line": 140,
+      "line": 161,
       "excerpt": "A positive difference is meaningful only with a justified future-equilibrium estimate for the same assemblage. A species–area curve can supply one conditional model, but separate patch richnesses cannot simply be added without species-overlap information.",
       "rationale": "Brooks's actual abstract describes five Kakamega fragments and a modeled approximately 50-year half-life of eventual losses for roughly 1000-ha fragments, not time to final extinction. Vellend full text infers persistent debt for slow forest plants in Belgian landscapes using UK comparison models more than a century after fragmentation; it also acknowledges cross-landscape prediction limits and restoration opportunity. The chapter's conditional future-equilibrium subtraction, required species-overlap information and rejection of a universal Amazon clock are consistent with those endpoints. Sources: https://doi.org/10.1046/j.1523-1739.1999.98341.x ; https://www.biw.kuleuven.be/lbh/lbnl/ecology/pdf-files/pdf-art/hans%20j/Ecology2006.pdf.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/biodiversity_and_food_webs.md:145:b9a5a468ce00",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/biodiversity_and_food_webs.md:166:b9a5a468ce00",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/biodiversity_and_food_webs.md",
-      "line": 145,
+      "line": 166,
       "excerpt": "- Delayed loss is not a universal 25-year clock for Amazon forests. Fragment size, edge effects, matrix change, disturbance and management must be specified before estimating a horizon; compare the study-specific evidence in \\cref{sec:unit_X_biomes_and_conservation}.",
       "rationale": "Brooks's actual abstract describes five Kakamega fragments and a modeled approximately 50-year half-life of eventual losses for roughly 1000-ha fragments, not time to final extinction. Vellend full text infers persistent debt for slow forest plants in Belgian landscapes using UK comparison models more than a century after fragmentation; it also acknowledges cross-landscape prediction limits and restoration opportunity. The chapter's conditional future-equilibrium subtraction, required species-overlap information and rejection of a universal Amazon clock are consistent with those endpoints. Sources: https://doi.org/10.1046/j.1523-1739.1999.98341.x ; https://www.biw.kuleuven.be/lbh/lbnl/ecology/pdf-files/pdf-art/hans%20j/Ecology2006.pdf.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/biodiversity_and_food_webs.md:514:eb28b0652f41",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/biodiversity_and_food_webs.md:512:eb28b0652f41",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/biodiversity_and_food_webs.md",
-      "line": 514,
+      "line": 512,
       "excerpt": "- **Island biogeography:** $S = cA^z$; equilibrium balances colonization and extinction; SLOSS outcomes depend on overlap, viability, threats, and connectivity; no area-only universal resolution; extinction debt warns of delayed species loss.",
       "rationale": "The species–area/SLOSS qualification correctly distinguishes richness predicted for an individual patch from total landscape richness, which requires overlap and connectivity information; a concave SAR alone cannot choose a universal reserve configuration or establish persistence.",
-      "reviewer": "WorkflowzFinalClaimRefutation#2"
-    },
-    {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/biomes_and_conservation.md:26:ee069998f07f",
-      "classification": "valid_scientific_absolute",
-      "source_path": "docs/manuscript/unit_X/biomes_and_conservation.md",
-      "line": 26,
-      "excerpt": "\\caption{Illustrative climate coordinates for five terrestrial biome categories, not empirical site measurements or calibrated Whittaker boundaries. Marker areas are an affine encoding of representative net-primary-productivity parameters, not a universal biome productivity scale. Marine environments are excluded from this terrestrial climate comparison.}",
-      "rationale": "Climate coordinates/categories and Ne/N=.10–.25 are explicitly illustrative, not measured global bounds or universal ratios; 500/.25–500/.10 gives census 2,000–5,000 only under that assumption. Deep water is not universally 4°C and DHW is cumulative dose, not elapsed duration or a mortality clock. Simberloff/Wilson's read abstract supports six islands, one-year observation and richness/composition recovery by day 250 except the distant island while densities remained low (https://doi.org/10.2307/1934856). Chen's full paper supports 16.9-km and 11.0-m per-decade meta-analytic medians with strong variation (https://www.sfu.ca/biology/faculty/jwmoore/teaching/REM475/Chen_etal_Science_2011.pdf); Turetsky's abstract supports scenario/vegetation-dependent abrupt-thaw feedback, not a universal 2050 flux (https://www.nature.com/articles/s41561-019-0526-0). IPBES chapter 2.2 explicitly gives 30/23/14/14/11 plus 9 Other, synthesized from heterogeneous indicators; its method/figure caption supports neither absolute loss shares nor a common experimental denominator, and realm leaders differ (https://www.ipbes.net/system/files/2021-06/2020%20IPBES%20GLOBAL%20REPORT%20%28CHAPTER%202.2%29_V3_SINGLE_0.pdf, sections 2.2.6.1–2). IUCN criteria require the strongest qualifying A–E category, and the read 2026-1 table supports 49,505 threatened/175,909 assessed, not a random global sample (https://nc.iucnredlist.org/redlist/content/attachment_files/2026-1_RL_Table1a.pdf). MVP probabilities/horizons and genetic 50/500 or 100/1000 guidance are distinct. Extinction debt and per-patch/aggregate SAR remain conditional; Brooks/Vellend support their specified taxa and lags. Laurance's read section 4.2 reports approximately 10–300 m at BDFFP with farther fire effects (https://people.duke.edu/~ksv2/articles/21_Laurance_etal_2011_BDFFP_32y_review.pdf). Tewksbury's full study supports eight experimental landscapes, two butterfly movement responses and 69% greater holly fruit set, not universal pollinator/persistence gain (https://orrocklab.zoology.wisc.edu/wp-content/uploads/sites/264/2020/01/tewksbury-et-al-pnas-2002.pdf). Liu's abstract directly supports six clades from 32 vouchers, not settled universal taxonomy (https://pubmed.ncbi.nlm.nih.gov/30482605/). Ferrario's 97% wave-energy reduction, n=13 and CI94–98 are not wave-height/restoration effects (https://www.nature.com/articles/ncomms4794); Beck's read results model >$4 billion annual expected avoided damage against loss of the top meter, not construction cost (https://www.nature.com/articles/s41467-018-04568-z). Day's full article reports approximately 100 km² Katrina wetland conversion in Breton Sound, not a general restoration-to-damage conversion (https://website.whoi.edu/gfd/wp-content/uploads/sites/14/2018/10/Restoration_Miss_Delta_82965.pdf). Hess's read study supports the dated observational 1,190 annualized deaths estimate and CI, not ecology-only causation (https://pmc.ncbi.nlm.nih.gov/articles/PMC6236972/). Johnson's full results distinguish Texas-F1 versus canonical-group heterozygosity and longitudinal means/Ne (https://pmc.ncbi.nlm.nih.gov/articles/PMC6993177/); NPS separately confirms nineteen relocations during fall 2018–fall 2019 (https://www.nps.gov/articles/000/isle-royale-wolf-relocation.htm). The .4377 area-loss fraction is model arithmetic. Lovejoy/Nobre is expressly a geographic hypothesis needing a matched current denominator; carbon stock alone does not determine feedback sign. Narayan's read Vietnamese low-wave comparison supports initial cost fractions 1/3–1/5, not Philippine seawalls or lifetime totals (https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0154735). CBD Target 3 and IPBES's quarter-of-land estimate retain rights, quality and land-area denominators, not universal percentages of biodiversity.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
@@ -8414,28 +8396,28 @@
       "reviewer": "WorkflowzFinalAdvisoryRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/community_interactions.md:161:541f81303eb0",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/community_interactions.md:160:541f81303eb0",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/community_interactions.md",
-      "line": 161,
+      "line": 160,
       "excerpt": "If either invasion margin is zero, analyze the boundary separately. If $1-\\alpha_{12}\\alpha_{21}\\ne0$, the interior candidate is $(u,v)/(1-\\alpha_{12}\\alpha_{21})$; retain it only when both coordinates are positive. Coincident isoclines ($\\alpha_{12}\\alpha_{21}=1$ with compatible capacities) give a continuum, not an isolated stable equilibrium.",
       "rationale": "The competition statements distinguish strict invasion-margin cases and boundary degeneracies rather than using a universal abundance winner. The referenced API concerns the specified competition model rather than substituting predator–prey equations. Community disturbance/assembly predictions are conditional on interaction and environmental assumptions, not a guaranteed fixed succession or diversity curve.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/community_interactions.md:213:114feea90e09",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/community_interactions.md:212:114feea90e09",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/community_interactions.md",
-      "line": 213,
+      "line": 212,
       "excerpt": "For $K_1=K_2=500$, $\\alpha_{12}=0.6$, $\\alpha_{21}=0.8$, both invasion margins are positive: $u=200,v=100$. The positive equilibrium is $(384.615,192.308)$, not competitive exclusion. Substitute into both isoclines: $384.615+0.6(192.308)=500$ and $192.308+0.8(384.615)=500$. With positive growth rates, the Jacobian has negative trace and positive determinant, so this interior equilibrium is locally stable. The project’s                  API is predator–prey only; it must not be called as a competition solver.",
       "rationale": "The competition statements distinguish strict invasion-margin cases and boundary degeneracies rather than using a universal abundance winner. The referenced API concerns the specified competition model rather than substituting predator–prey equations. Community disturbance/assembly predictions are conditional on interaction and environmental assumptions, not a guaranteed fixed succession or diversity curve.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/community_interactions.md:268:526dd8df9b71",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/community_interactions.md:267:526dd8df9b71",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/community_interactions.md",
-      "line": 268,
+      "line": 267,
       "excerpt": "On a control-density baseline of 1, the separate increments (+1 and +2) predict 4 under an additive model, whereas the combined treatment gives 11; the additive-scale interaction contrast is 11−2−3+1 = 7. These density ratios do not measure percentages of the cycle attributable to independent causes. Predation, food and reproductive physiology can interact; stress can mediate predator effects instead of forming a separate causal slice. The interventions suggest three-trophic-level interactions in this setting, not a unique mechanism or an exhaustive causal partition for all hare cycles. The elementary equations above are a conceptual comparison, not a fit to the factorial experiment.",
       "rationale": "The competition statements distinguish strict invasion-margin cases and boundary degeneracies rather than using a universal abundance winner. The referenced API concerns the specified competition model rather than substituting predator–prey equations. Community disturbance/assembly predictions are conditional on interaction and environmental assumptions, not a guaranteed fixed succession or diversity curve.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
@@ -8628,6 +8610,159 @@
       "excerpt": "For canonical SpCas9 duplex targeting, **PAM recognition** helps distinguish an invader's protospacer flank from the repeat-flanked spacer in the CRISPR array \\citep{doudna2012}. This is not a universal self/non-self test for all CRISPR types; the Type III comparison below has a different RNA-triggered mechanism.",
       "rationale": "The explicit canonical SpCas9 duplex qualifier follows the 2012 guide/PAM recognition evidence. The RNA-triggered Type III Cas10/cyclic-oligoadenylate mechanism in Athukoralage et al. 2020 (PMC6986909, main results and Fig. 1) supplies the counterexample to universal PAM-scanning. This approves the stated distinction between mechanisms, not a universal self/non-self rule or an exhaustive classification. The current neighboring diagram is restricted to representative DNA-targeting Type I/II examples.",
       "reviewer": "WorkflowzReleaseOwner-natural-guide-boundary"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_0/active_inference.md:198:a7e01a01faab",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_0/active_inference.md",
+      "line": 198,
+      "excerpt": "Prediction errors can drive model updates. Accurate predictions reduce the modeled error signal; they do not imply that all neural activity or metabolic expenditure approaches zero.",
+      "rationale": "Prediction error is a variable in a specified generative/circuit model. Reducing that error does not set every neural firing rate or total metabolic expenditure to zero; the revised sentence explicitly rejects that unsupported inference rather than claiming a measured energy saving.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_0/unit_intro.md:19:d195e265db6c",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_0/unit_intro.md",
+      "line": 19,
+      "excerpt": "Reading \\nameref{sec:unit_0_unit_intro} is optional but recommended: it supplies vocabulary for comparing models of emergence, attractors, bifurcations, allostasis, and precision across \\nameref{sec:unit_I_unit_intro} through \\nameref{sec:unit_X_unit_intro}. These lenses do not constitute a single established theory of all living organization.",
+      "rationale": "This is a curriculum/model-scope statement: the optional Unit0 supplies several lenses, not one established account of all living organization. The relationship map explicitly marks optional applications and does not provide a universal biological derivation.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/unit_intro.md:87:7ed17895bf7c",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_I/unit_intro.md",
+      "line": 87,
+      "excerpt": "Read \\nameref{sec:unit_I_unit_intro} as the point where the chemistry of life becomes measurable. Structural methods, spectroscopy, kinetic assays, and perturbations provide different kinds of evidence; a structural map alone does not directly determine all thermodynamic or kinetic quantities. Evaluate macromolecular predictions against the evidence relevant to the claim. As you",
+      "rationale": "A structure constrains possible mechanisms but does not by itself supply reaction free energies, rate constants or assay conditions. The sentence distinguishes the evidence provided by structural, kinetic and perturbation methods and makes no new quantitative prediction.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/unit_intro.md:81:ea1f1a2ae21f",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_III/unit_intro.md",
+      "line": 81,
+      "excerpt": "*Selected relationships connect carbon processing, redox balance, membrane coupling, and regulation. This is not a reaction sequence or shared-compartment diagram. Proton-motive force has electrical and pH contributions; coupling and numerical ATP yields require specified system assumptions. Fermentation-linked redox balance is not an extra universal ATP yield added to glycolysis.*",
+      "rationale": "The diagram is a selected cross-process overview, not one reaction pathway or compartment. Proton-motive force includes electrical and pH terms. Redox regeneration alone does not add a universal ATP stoichiometry; pathway-specific substrate-level phosphorylation must be counted separately under the stated metabolic model.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/unit_intro.md:23:d3ae49cb08f2",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IV/unit_intro.md",
+      "line": 23,
+      "excerpt": "context; they are not universal machinery specifications. You will also examine how mutations contribute to evolution and disease, how the",
+      "rationale": "The immediately preceding lines identify replication fidelity, ribosome mass and translation rate as examples requiring organism and experimental context. They are not asserted as universal machinery constants; this acceptance is of that explicit limitation, not independent calibration of the illustrative values.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/circulation_respiration_homeostasis.md:378:378017eb4638",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IX/circulation_respiration_homeostasis.md",
+      "line": 378,
+      "excerpt": "\\caption{Illustrative Hill-model oxygen-binding curves with a common exponent $n=2.7$ and stipulated $P_{50}$ values of 20, 26 and 32 mmHg. Only $P_{50}$ changes; these are not calibrated fetal-hemoglobin, fever or exercise models. Labeled 40- and 100-mmHg guides provide reference pressures, not fixed pressures for every tissue or physiological state.}",
+      "rationale": "The actual oxygen generator holds Hill n at 2.7 and varies only P50 across 20, 26, 32 mmHg. Its 40/100 mmHg lines are reference guides. The caption correctly refuses to identify these stipulated curves with fetal hemoglobin, fever, exercise or every tissue state.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/unit_intro.md:38:af1169d5e6e3",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IX/unit_intro.md",
+      "line": 38,
+      "excerpt": "| Ernest Starling | 1918 | \\citep{starling1914} | Frank-Starling law of the heart | Relates cardiac filling and mechanical response under specified conditions, not a universal output–return proportionality |",
+      "rationale": "The claim being reviewed is the conditional mechanical filling-response relationship, not a universal cardiac-output/venous-return proportionality. Load, contractility and preparation matter. This acceptance does not independently certify the historical 1918 date against the separately cited 1914 paper.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/unit_intro.md:106:cc92df7ff7ff",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IX/unit_intro.md",
+      "line": 106,
+      "excerpt": "- **Hemoglobin cooperativity** (Hill equation; illustrative $n \\approx 2.8$, not a universal coefficient) connects to allosteric binding models (\\cref{sec:unit_I_enzymes_and_kinetics}) and protein structure (\\cref{sec:unit_I_macromolecules}); this is not enzyme catalysis.",
+      "rationale": "Hill response coefficients depend on preparation and model and are not generally binding-site counts. The text explicitly calls 2.8 illustrative and distinguishes cooperative binding from catalysis; the separate registered figure explicitly stipulates n=2.7 rather than claiming they are a universal common coefficient.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/unit_intro.md:152:26f2055d4192",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IX/unit_intro.md",
+      "line": 152,
+      "excerpt": "Feedback offers a useful comparison between \\nameref{sec:unit_IX_unit_intro} and the ecology of \\nameref{sec:unit_X_unit_intro}, but the model variables and mechanisms differ. In a logistic model, carrying capacity describes specified environmental conditions; it is not automatically a sensed, defended physiological set point. Density dependence and predator–prey dynamics can be compared with regulatory and oscillatory physiology models only after identifying the relevant assumptions. Similar mathematical motifs do not establish identical control systems.",
+      "rationale": "A logistic carrying-capacity parameter is not an explicit sensed/defended set point. Similar feedback or oscillation mathematics does not identify physiological and ecological mechanisms. The passage states this modeling boundary rather than claiming equivalence.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/unit_intro.md:10:30fd94ed5a2e",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_V/unit_intro.md",
+      "line": 10,
+      "excerpt": "These are expected phenotypic ratios under stated assumptions, not universal outcomes. Mendel's work",
+      "rationale": "Mendelian phenotypic ratios are conditional expectations under specified inheritance, assortment, dominance and sampling assumptions. The sentence rejects their interpretation as universal observed outcomes; it does not change the expected-ratio arithmetic.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/biomes_and_conservation.md:26:e29b925efcb9",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/biomes_and_conservation.md",
+      "line": 26,
+      "excerpt": "\\caption{Illustrative climate coordinates for five terrestrial biome categories, not empirical site measurements or calibrated Whittaker boundaries. Equal-sized markers do not encode productivity or a universal biome ranking. Marine environments are excluded from this terrestrial climate comparison.}",
+      "rationale": "The actual biome figure selects the five terrestrial entries whose precipitation is applicable, uses equal marker sizes, and excludes marine entries. The caption accurately rejects productivity-area encoding, empirical site calibration and a universal biome ranking.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/community_interactions.md:62:bc786527ead9",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/community_interactions.md",
+      "line": 62,
+      "excerpt": "The companion chapter, \\cref{sec:unit_X_biodiversity_and_food_webs}, develops island biogeography, food-web networks, neutral and trait-based approaches, and biological-control applications. Use that chapter for the wider frameworks rather than expecting all of them in the present interaction chapter.",
+      "rationale": "This is an explicit navigation/ownership statement. The companion biodiversity chapter contains the listed island, network, neutral/trait and biological-control sections; the revised roadmap does not claim those full frameworks are all in the interaction chapter.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/population_ecology.md:713:66be9105bb00",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/population_ecology.md",
+      "line": 713,
+      "excerpt": "The **minimum viable population (MVP)** is conditional on a chosen persistence probability, time horizon, population model, and environmental assumptions; 95% persistence over 100 years is one possible criterion, not its universal definition. Demographic census size and genetic effective size are different quantities. Genetic population-size guidance does not substitute for a species-specific demographic PVA (\\cref{sec:unit_X_biomes_and_conservation}).",
+      "rationale": "MVP is conditional on a persistence criterion, horizon, demographic model and environmental assumptions.95% over 100 years is an example, not a universal definition. Census and effective size are distinct; genetic size guidance alone cannot provide a demographic extinction probability.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/unit_intro.md:12:f730b83599b4",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/unit_intro.md",
+      "line": 12,
+      "excerpt": "it should not be treated here as establishing a universal effect-to-biomass metric (Paine, 1966, *American Naturalist*).",
+      "rationale": "A removal experiment can support keystone reasoning without defining a universal numeric effect-per-biomass metric. The qualifier limits that inference; it does not claim fresh replication or independently certify every historical number in the adjacent narrative.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/unit_intro.md:36:245d49eb1ae6",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/unit_intro.md",
+      "line": 36,
+      "excerpt": "| Robert MacArthur & E.O. Wilson | 1967 | \\citep{macarthur1967} | Island biogeography: area, isolation, immigration and extinction | Species–area models such as $S = cA^z$ describe one relationship, not the entire theory or a universal exponent |",
+      "rationale": "The island-biogeography framework includes immigration, extinction, area and isolation. S=cA^z is a species-area relationship within that wider context, with system/scale-specific parameters, not a complete theory or universal exponent.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/unit_intro.md:78:f8a18157083d",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/unit_intro.md",
+      "line": 78,
+      "excerpt": "*Ecological scales connect population processes, community interactions and diversity, ecosystem energy flow and nutrient cycling, and conservation decisions. These are selected relationships, not a causal ladder or reading order. Species–area models, climate associations, and diversity measures require context; none alone proves ecosystem health or supplies a universal biome classification.*",
+      "rationale": "The caption identifies selected cross-scale relationships and explicitly rejects causal/reading-order inference. Species-area, climate and diversity summaries alone neither prove ecosystem health nor define a universal biome classification.",
+      "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/unit_intro.md:139:2073ddf07989",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/unit_intro.md",
+      "line": 139,
+      "excerpt": "\\nameref{sec:unit_X_unit_intro} returns to systems questions from \\nameref{sec:unit_0_unit_intro}: energy flow, carbon and nitrogen cycling, and organization across scales. The illustrative rule of roughly ten percent trophic transfer varies among systems; thermodynamics constrains energy budgets but does not derive one universal transfer efficiency. Population dynamics, community assembly, and succession can be examined with systems models, including selected attractor and bifurcation models from \\cref{sec:unit_0_complex_adaptive_systems}. Such comparisons require ecological mechanisms and evidence, not an assumption that a shared mathematical motif explains every ecosystem.",
+      "rationale": "Energy budgets constrain trophic transfer but do not derive a universal ten-percent efficiency. Shared mathematical motifs likewise do not establish identical ecological mechanisms. The passage explicitly distinguishes illustrative heuristics, model assumptions and supporting ecological evidence.",
+      "reviewer": "wfz-biology-textbook-release"
     }
   ]
 }

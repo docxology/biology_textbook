@@ -16,7 +16,28 @@
 6. Predict trophic cascade direction from keystone removal in a documented food web.
 7. Connect biodiversity metrics to ecosystem function using measured response variables.
 
+<!-- curriculum-scaffold-start -->
+### Study Blueprint
+
+- **Big idea:** Biodiversity patterns, food webs, and island biogeography scale from local interactions to landscape structure.
+- **Core concepts:** food webs, keystone species, species-area, diversity indices.
+- **Framework alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
+- **Model or quantitative lens:** Shannon, species-area, and network connectance reasoning.
+- **Data skill:** Interpret food-web, richness, or biogeography datasets.
+- **Practice cadence:** Representing and Describing Data, Statistical Tests and Data Analysis, Argumentation.
+- **Common misconception to repair:** Richness alone does not equal functional stability.
+- **Primary lab:** \nameref{sec:lab_unit_X_biodiversity_and_food_webs}.
+- **Question bank:** \nameref{sec:q_unit_X_biodiversity_and_food_webs}.
+- **Transfer task:** Transfer biodiversity reasoning to conservation planning and habitat fragmentation.
+- **Bridge to computation:** `biology.ecology.ecology.species_area_relationship`.
+<!-- curriculum-scaffold-end -->
+
 ---
+
+> **Opening Vignette — Two Fragments Do Not Automatically Double Richness**
+>
+> Consider a reserve divided into two fragments. Adding their local species counts double-counts species present in both, while a species–area formula alone does not identify the overlap. Ask how sampling effort, occupancy, and food-web links would change the interpretation. This chapter connects richness models to spatial and interaction evidence rather than treating richness as a complete ecosystem-health score.
+
 
 ## Island Biogeography Theory
 
@@ -168,29 +189,6 @@ where $J_i$ = probability that patch $i$ is occupied, $e_i \propto A_i^{-x}$, an
 
 > **Concept Check:** A national park of 10,000 km$^2$ is split by a highway into two fragments of 6,000 km$^2$ and 4,000 km$^2$. Using $S = 50A^{0.25}$, calculate species richness for: (a) the intact park, (b) each fragment separately, (c) both fragments combined assuming no species overlap. How does a wildlife corridor change your prediction?
 
----
-
-<!-- curriculum-scaffold-start -->
-### Study Blueprint
-
-- **Big idea:** Biodiversity patterns, food webs, and island biogeography scale from local interactions to landscape structure.
-- **Core concepts:** food webs, keystone species, species-area, diversity indices.
-- **Framework alignment:** Vision & Change: Systems, Evolution, Pathways and transformations of energy and matter; AP Biology: Systems Interactions, Evolution, Energetics; NGSS-style topics: Interdependent Relationships in Ecosystems, Matter and Energy in Organisms and Ecosystems, Natural Selection and Evolution.
-- **Model or quantitative lens:** Shannon, species-area, and network connectance reasoning.
-- **Data skill:** Interpret food-web, richness, or biogeography datasets.
-- **Practice cadence:** Representing and Describing Data, Statistical Tests and Data Analysis, Argumentation.
-- **Common misconception to repair:** Richness alone does not equal functional stability.
-- **Primary lab:** \nameref{sec:lab_unit_X_biodiversity_and_food_webs}.
-- **Question bank:** \nameref{sec:q_unit_X_biodiversity_and_food_webs}.
-- **Transfer task:** Transfer biodiversity reasoning to conservation planning and habitat fragmentation.
-- **Bridge to computation:** `biology.ecology.ecology.species_area_relationship`.
-<!-- curriculum-scaffold-end -->
-
----
-
-> **Opening Vignette — Biodiversity and Food Webs**
->
-> This chapter connects biodiversity, food webs, and biogeography to measurable evidence: models, datasets, and experiments that can strengthen or weaken each claim.
 
 ## Food Web Structure and Network Ecology
 

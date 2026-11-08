@@ -13,16 +13,11 @@ Unit I covers the chemical and physical foundations of biology: atomic structure
 
 ## Chapters in This Unit
 
-Chapters are auto-numbered via `docs/manuscript/config.yaml`. Current order:
-
-1. `atoms_molecules.md` — Atoms, Molecules, and Chemical Bonds
-2. `water_and_life.md` — Water — The Molecule of Life
-3. `macromolecules.md` — Biological Macromolecules
-4. `enzymes_and_kinetics.md` — Enzymes and the Kinetics of Catalysis
+[README.md](README.md) lists chapter filenames/titles; [config.yaml](../config.yaml) owns order.
 
 ## Key Equations
 
-- Henderson-Hasselbalch: pH = pKₐ + log([A⁻]/[HA])
+- Henderson–Hasselbalch: pH = pKₐ + log([A⁻]/[HA]) under the stated ideal-dilute/apparent-pKₐ approximation; the activity form defines the thermodynamic relation.
 - van 't Hoff osmotic pressure: π = iCRT
 - Fick's First Law: J = −D(dC/dx)
 - Michaelis-Menten: v = Vmax[S]/(Km + [S])
@@ -30,14 +25,9 @@ Chapters are auto-numbered via `docs/manuscript/config.yaml`. Current order:
 
 ## Figures and Diagrams
 
-- `src/visualization/plots.py` — `plot_michaelis_menten()`
+- Repository-root `src/visualization/plots_*.py` implements figures; `plots.py` registers `plot_michaelis_menten()`.
 - `src/mermaid/biology_diagrams.py` — `macromolecule_classification_diagram()`, `enzyme_kinetics_diagram()`
 
-## Chapter Metadata Convention
+## Shared source contract
 
-All chapter files in this unit carry (inserted automatically by the scripts):
-
-- `\label{sec:unit_I_<stem>}` on the line after the H1 — cross-reference with `\cref{sec:unit_I_<stem>}`
-- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../src/biology/chapter_metadata.py`)
-
-See [../AGENTS.md](../AGENTS.md) and [../../docs/manuscript_guide.md](../../docs/manuscript_guide.md) for the full set of invariants.
+Follow [manuscript instructions](../AGENTS.md) for H1s, stable IDs, metadata badges, references and authored assessments; see [writing examples](../../manuscript_guide.md). Implementation paths above are repository-root paths.

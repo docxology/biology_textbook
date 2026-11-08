@@ -23,11 +23,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/biome_distribution.png}
-\caption{Illustrative climate coordinates for five terrestrial biome categories, not empirical site measurements or calibrated Whittaker boundaries. Marker areas are an affine encoding of representative net-primary-productivity parameters, not a universal biome productivity scale. Marine environments are excluded from this terrestrial climate comparison.}
+\caption{Illustrative climate coordinates for five terrestrial biome categories, not empirical site measurements or calibrated Whittaker boundaries. Equal-sized markers do not encode productivity or a universal biome ranking. Marine environments are excluded from this terrestrial climate comparison.}
 \label{fig:unit_X_biome_distribution}
 \end{figure}
 
-<!-- alt: Five labeled terrestrial biome categories are positioned by annual precipitation on the horizontal axis and mean annual temperature on the vertical axis. Marker sizes vary with illustrative productivity parameters; no marine rainfall coordinate is plotted. -->
+<!-- alt: Five equally sized, directly labeled points locate terrestrial biome teaching categories by annual precipitation and mean annual temperature. Marker size does not represent net primary productivity; no marine rainfall coordinate is plotted. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -55,7 +55,7 @@
 
 A **biome** is a large-scale ecological region characterized by climate and its vegetation and animal communities. Whittaker's climate–vegetation diagrams summarize broad associations, not fixed boundaries. Running et al. (2004, *BioScience*) describe MODIS monitoring of productivity; Beck et al. (2023, *Scientific Data*) provide 1-km Köppen–Geiger climate maps from observation-based climatologies and constrained CMIP6 projections. Climate classes are not measured biome boundaries \citep{running2004production,beck2023koppen}.
 
-### Climate as the Master Variable
+### Annual Climate Means and the Limits of Biome Classification
 
 The distribution of biomes is determined primarily by two climate variables:
 
@@ -308,7 +308,7 @@ flowchart LR
 
 ---
 
-## Population Viability and the 50/500 Rule
+## Demographic Viability Versus Genetic Population-Size Guidance
 
 ### Minimum Viable Population (MVP)
 

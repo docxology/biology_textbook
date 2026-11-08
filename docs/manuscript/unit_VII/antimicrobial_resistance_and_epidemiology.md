@@ -16,7 +16,28 @@
 6. Model resistance spread with selection coefficients and horizontal gene transfer.
 7. Interpret surveillance datasets such as GLASS reports with explicit sampling limits.
 
+<!-- curriculum-scaffold-start -->
+### Study Blueprint
+
+- **Big idea:** Antimicrobial resistance and epidemic dynamics emerge from pathogen evolution and transmission networks.
+- **Core concepts:** antibiotic resistance, R0, transmission, surveillance.
+- **Framework alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
+- **Model or quantitative lens:** R0, resistance-mechanism, and outbreak-trajectory calculations.
+- **Data skill:** Interpret resistance assays and outbreak curves.
+- **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
+- **Common misconception to repair:** R0 is not a fixed property of a pathogen alone; it depends on host behavior and environment.
+- **Primary lab:** \nameref{sec:lab_unit_VII_antimicrobial_resistance_and_epidemiology}.
+- **Question bank:** \nameref{sec:q_unit_VII_antimicrobial_resistance_and_epidemiology}.
+- **Transfer task:** Transfer resistance and epidemiology reasoning to stewardship and public-health policy.
+- **Bridge to computation:** `biology.microbiology.microbiology.sir_model`.
+<!-- curriculum-scaffold-end -->
+
 ---
+
+> **Opening Vignette — A Resistance Gene Is Not a Transmission Rate**
+>
+> In a hypothetical surveillance comparison, two isolates share a resistance determinant but occur in different host and treatment settings. The genotype alone does not determine susceptibility, treatment outcome, or epidemic growth. This chapter separates molecular mechanisms, isolate-specific measurements, transmission models, and the sampling limits of surveillance.
+
 
 ## Antibiotic Resistance Mechanisms in Multidrug-Resistant Pathogens
 
@@ -118,29 +139,6 @@ Such isolates may have no reliable standard single-agent option, so treatment de
 > **Concept Check 6b:**
 > A *K. pneumoniae* isolate carries KPC-2, RamA-dependent AcrAB overexpression and GyrA/ParC mutations. Standardized broth microdilution gives colistin MIC 0.5 µg/mL and ceftazidime-avibactam MIC 1/4 µg/mL. Under the 2026 CLSI criteria summarized by IDSA, colistin is intermediate (there is no susceptible category), whereas ceftazidime-avibactam meets the susceptible breakpoint \citep{idsa2026amrbreakpoints}. Explain how avibactam's activity against KPC differs from its lack of activity against NDM. Why do enzyme assays or molecular identification and isolate-specific AST provide different evidence, and why is a category not a guarantee of clinical response?
 
----
-
-<!-- curriculum-scaffold-start -->
-### Study Blueprint
-
-- **Big idea:** Antimicrobial resistance and epidemic dynamics emerge from pathogen evolution and transmission networks.
-- **Core concepts:** antibiotic resistance, R0, transmission, surveillance.
-- **Framework alignment:** Vision & Change: Evolution, Systems, Structure and function; AP Biology: Evolution, Systems Interactions; NGSS-style topics: Structure and Function, Interdependent Relationships in Ecosystems.
-- **Model or quantitative lens:** R0, resistance-mechanism, and outbreak-trajectory calculations.
-- **Data skill:** Interpret resistance assays and outbreak curves.
-- **Practice cadence:** Questions and Methods, Representing and Describing Data, Argumentation.
-- **Common misconception to repair:** R0 is not a fixed property of a pathogen alone; it depends on host behavior and environment.
-- **Primary lab:** \nameref{sec:lab_unit_VII_antimicrobial_resistance_and_epidemiology}.
-- **Question bank:** \nameref{sec:q_unit_VII_antimicrobial_resistance_and_epidemiology}.
-- **Transfer task:** Transfer resistance and epidemiology reasoning to stewardship and public-health policy.
-- **Bridge to computation:** `biology.microbiology.microbiology.sir_model`.
-<!-- curriculum-scaffold-end -->
-
----
-
-> **Opening Vignette — Antimicrobial Resistance and Epidemiology**
->
-> This chapter connects antimicrobial resistance and epidemiology to measurable evidence: models, datasets, and experiments that can strengthen or weaken each claim.
 
 ## Epidemiology of Resistance and Transmission
 

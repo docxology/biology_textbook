@@ -32,3 +32,18 @@ def test_normalize_file_rewrites_weak_mermaid_metadata(tmp_path: Path) -> None:
     assert result.blocks == 1
     updated = path.read_text(encoding="utf-8")
     assert "network graph showing biological relationships" not in updated.lower()
+
+
+def test_diagram_kind_ignores_configuration_and_literal_yaml_delimiters() -> None:
+    from biology.maintenance.text_normalize import _diagram_kind
+
+    configuration = (
+        "---\ntitle: |\n  stateDiagram-v2\n  ---\n"
+        "config:\n  layout: dagre\n---\n%% explanatory comment\n"
+    )
+    for declaration, expected in (
+        ("graph TD", "graph"),
+        ("sequenceDiagram", "sequenceDiagram"),
+        ("stateDiagram-v2", "stateDiagram-v2"),
+    ):
+        assert _diagram_kind(configuration + declaration + "\n") == expected

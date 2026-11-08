@@ -65,6 +65,7 @@ FIGURE_METADATA_ARTIFACT_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
 
 
 HEADING_ARTIFACT_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
+    ("missing-heading-title", re.compile(r"^#{1,6}[ \t]*(?:\{[^}]*\})?[ \t]*$")),
     ("generic-worked-example-heading", re.compile(r"^#{2,4}\s+Worked Examples?\s*(?:\{[^}]*\})?\s*$")),
     (
         "hardcoded-worked-example-heading",

@@ -180,10 +180,10 @@ Molecular data provide the most quantitative and testable evidence for evolution
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/selection_simulation.png}
-\caption{Natural selection simulation: allele-frequency change over generations under directional selection, balancing selection via heterozygote advantage, and disruptive selection via heterozygote disadvantage.}
+\caption{Illustrative one-locus viability-selection models. The first panel identifies its supplied genotype fitness values and initial allele frequency; the default values favor A. Separate panels show heterozygote advantage and disadvantage from two initial frequencies. These genotype models do not by themselves establish stabilizing or disruptive selection on a measured quantitative phenotype.}
 \label{fig:unit_VI_selection_simulation}
 \end{figure}
-<!-- alt: Three-panel line plot of allele A frequency over generations. Directional selection increases the favored allele, balancing selection trajectories converge toward an intermediate frequency, and disruptive underdominance trajectories move away from the intermediate threshold. -->
+<!-- alt: Three panels plot allele A frequency against generation. The first labels its specified AA, Aa and aa fitness values. Heterozygote-advantage trajectories approach an intermediate equilibrium, while heterozygote-disadvantage trajectories move toward different fixation states from opposite initial frequencies. -->
 
 
 ### Fitness as Reproductive Success in Context
@@ -236,7 +236,7 @@ This theorem implies that natural selection typically increases mean fitness (th
 
 ### Directional Selection and Trait-Mean Shifts
 
-Directional selection shifts the mean [**phenotype**](#gl:phenotype) toward one extreme. The population's phenotype distribution moves in one direction across generations, in contrast to the stabilizing and disruptive regimes whose divergent allele-frequency trajectories are simulated in \cref{fig:unit_VI_selection_simulation}.
+Directional selection favors one end of a phenotypic distribution under a stated trait–fitness relationship. Stabilizing and disruptive selection describe other trait–fitness relationships. The separate one-locus illustration in \cref{fig:unit_VI_selection_simulation} instead tracks allele frequencies under specified genotype fitnesses; heterozygote advantage or disadvantage alone does not establish a continuous phenotypic selection mode.
 
 **Industrial melanism in *Biston betularia***: Before the Industrial Revolution, the typical peppered moth was light-colored, camouflaged against lichen-covered tree bark. The melanic (dark) form, controlled by a [**dominant**](#gl:dominant) allele at the *cortex* locus, increased from approximately 1% in 1848 to 98% in Manchester by 1898 as industrial soot darkened tree trunks. Light moths were conspicuous to bird predators on dark bark. Following the Clean Air Act (1956), lichen recovered, and the light form returned to dominance -- a textbook example of directional selection reversing direction.
 

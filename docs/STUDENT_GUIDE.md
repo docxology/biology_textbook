@@ -72,7 +72,7 @@ This companion describes the edition 1.1 release candidate, not a published/vali
    
    - $v$ = reaction rate (μmol min⁻¹)
    - $V_{max}$ = maximum rate when enzyme saturated
-   - $K_m$ = substrate concentration at half $V_{max}$ (enzyme affinity)
+   - $K_m$ = substrate concentration at half $V_{max}$ in the Michaelis–Menten model; not generally the dissociation constant.
    
 2. **Lineweaver–Burk:**
    
@@ -80,11 +80,15 @@ This companion describes the edition 1.1 release candidate, not a published/vali
 
 3. **pH:**
    
-   $$pH = -\log_{10}[H^+],\quad [H^+] = 10^{-pH}$$
+   $$\mathrm{pH}=-\log_{10}a_{\mathrm{H}^+}$$
+
+   Hydrogen-ion activity is dimensionless. In an ideal dilute approximation, $a_{\mathrm{H}^+}\approx[\mathrm{H}^+]/c^\circ$, with $c^\circ=1$ mol/L.
 
 4. **Henderson–Hasselbalch:**
    
    $$pH = pK_a + \log\frac{[A^-]}{[HA]}$$
+
+   This concentration-ratio form assumes ideal dilute behavior or a stated apparent pKa appropriate to the medium and conditions.
 
 **Must-know vocabulary:**
 - **Electronegativity** — atom's tendency to attract shared electrons
@@ -110,11 +114,15 @@ This companion describes the edition 1.1 release candidate, not a published/vali
 
 1. **Nernst equation:**
    
-   $$E_X = \frac{RT}{zF} \ln\frac{[X]_{out}}{[X]_{in}} \approx 61.5\,\text{mV} \cdot \log\frac{[X]_{out}}{[X]_{in}\text{ at } 37°C}$$
+   $$E_X=\frac{RT}{zF}\ln\frac{c_{out}}{c_{in}}\approx\frac{61.5\,\mathrm{mV}}{z}\log_{10}\frac{c_{out}}{c_{in}}$$
+
+   The approximation assumes 37°C and the stated concentration/activity assumptions.
 
 2. **Goldman–Hodgkin–Katz:**
    
    $$V_m = 61.5 \log \frac{P_{K^+}[K^+]_{out} + P_{Na^+}[Na^+]_{out} + P_{Cl^-}[Cl^-]_{in}}{P_{K^+}[K^+]_{in} + P_{Na^+}[Na^+]_{in} + P_{Cl^-}[Cl^-]_{out}}$$
+
+   This monovalent constant-field approximation reports $V_m$ in mV at 37°C and uses base-10 logarithms; its permeability and concentration assumptions must be stated.
 
    This GHK expression is for monovalent ions only; the 61.5 mV factor assumes 37°C and log base 10. Do not add divalent calcium to it.
 
@@ -152,13 +160,17 @@ This companion describes the edition 1.1 release candidate, not a published/vali
 
 2. **ATP hydrolysis:**
    
-   $$\Delta G = \Delta G^{\circ'} + RT \ln\frac{[ADP][P_i]}{[ATP]} \approx -50\text{ to }-60\,\text{kJ/mol}$$
+   $$\Delta G=\Delta G^{\circ\prime}+RT\ln Q',\qquad Q'=\frac{([\mathrm{ADP}]/c^\circ)([\mathrm{P_i}]/c^\circ)}{[\mathrm{ATP}]/c^\circ}$$
+
+   This dimensionless ideal-dilute teaching quotient uses $c^\circ=1$ M; standard energy must match the chosen transformation and conditions. It is not a universal cellular value.
 
 3. **Proton-motive force:**
    
-   $$\text{PMF} = \Delta \psi - (2.3RT/F) \Delta pH \approx \Delta \psi$$
+   $$\mathrm{PMF}=\Delta\psi-\frac{2.303RT}{F}\Delta\mathrm{pH}$$
 
-The ATP model totals oxidative 26 plus substrate-level 4 = 30 ATP/glucose, with shuttle adjustment already included; do not subtract it again. Glycolysis standard reaction energies include multiplicity, totaling about -73.97 kJ/mol glucose, not cellular ΔG. Cellular ATP hydrolysis depends on concentrations/activities, temperature and standard-state conventions; the quoted range is illustrative, not universal.
+   Define both differences with the same compartment orientation. Neglect the pH term only under an explicitly justified approximation, not universally.
+
+The ATP model totals oxidative 26 plus substrate-level 4 = 30 ATP/glucose, with shuttle adjustment already included; do not subtract it again. Glycolysis standard reaction energies include multiplicity, totaling about -73.97 kJ/mol glucose, not cellular ΔG. Cellular ATP hydrolysis depends on concentrations/activities, temperature and standard-state conventions.
 
 **Vocabulary highlights:**
 - **Exergonic / endergonic** — energy-releasing vs requiring
@@ -221,7 +233,7 @@ The ATP model totals oxidative 26 plus substrate-level 4 = 30 ATP/glucose, with 
 - **Pleiotropy** — one gene → multiple traits
 - **Epistasis** — one gene masks another's effect
 - **Linkage & crossing over** — genes on same chromosome
-- **Genetic map distance** — % recombination = cM
+- **Genetic map distance** — recombination percentage approximates cM for short intervals, not universally over long intervals.
 - **Pedigree analysis** — inheritance pattern inference
 
 **Study cards:**
@@ -247,7 +259,7 @@ The ATP model totals oxidative 26 plus substrate-level 4 = 30 ATP/glucose, with 
    
    $$\mathrm{Var}(p_{t+1}) = \frac{p_t q_t}{2N_e}$$
 
-4. **Fixation time (neutral):** $t_{\text{fix}} \approx 4N_e$ generations
+4. **Fixation time:** approximately $4N_e$ generations for a newly arisen neutral mutation in a large, constant-size diploid Wright–Fisher population, conditional on eventual fixation.
 
 **Vocabulary highlights:**
 - **Adaptation, fitness landscape** — evolutionary optimization
@@ -279,7 +291,7 @@ The ATP model totals oxidative 26 plus substrate-level 4 = 30 ATP/glucose, with 
    
    $$g = \frac{t \cdot \log 2}{\log(N_t) - \log(N_0)}$$
 
-3. **MIC** — minimum inhibitory concentration; determined by dilution or Kirby–Bauer.
+3. **MIC** — minimum inhibitory concentration measured with an appropriate dilution method; a disk-diffusion zone is not itself an MIC.
 
 **Vocabulary highlights:**
 - **Peptidoglycan** — bacterial cell wall; penicillin target
@@ -338,7 +350,7 @@ The ATP model totals oxidative 26 plus substrate-level 4 = 30 ATP/glucose, with 
    
    $$\frac{Y}{1-Y} = \left(\frac{pO_2}{P_{50}}\right)^n$$
    
-   $P_{50}\approx 26$–$27\,$mmHg; $n\approx 2.8$. Bohr effect: low pH / high $pCO_2$ shifts right.
+   The registered illustration uses Hill n=2.7 with supplied P50 scenarios and 40/100 mmHg guides; it does not calibrate fever or HbF. Biological Bohr effects need their own conditions and evidence.
 
 **Vocabulary highlights:**
 - **Neuron / action potential / saltatory conduction** — nerve impulse basics
@@ -373,7 +385,7 @@ The ATP model totals oxidative 26 plus substrate-level 4 = 30 ATP/glucose, with 
    
    $$H' = -\sum_{i=1}^{S} p_i \ln p_i$$
 
-5. **Species–area relationship:** $S = c A^z$, $z \approx 0.2$–$0.35$ continental.
+5. **Species–area relationship:** $S=cA^z$ with scale- and system-specific parameters, not universal continental/island exponents.
 
 **Vocabulary highlights:**
 - **Carrying capacity ($K$)** — max sustainable population
@@ -410,10 +422,10 @@ The ATP model totals oxidative 26 plus substrate-level 4 = 30 ATP/glucose, with 
 Answer in 2–3 sentences without consulting text. Struggle → review that chapter.
 
 - **U0:** How do far-from-equilibrium systems maintain order?
-- **U1:** Why is water the "universal solvent"?
+- **U1:** Which solutes does water dissolve well, and why is "universal solvent" a limited nickname rather than a literal claim?
 - **U2:** How can a concentration gradient become an electrical potential?
 - **U3:** How does chemiosmosis couple ETC to ATP synthesis?
-- **U4:** Describe the central dogma with key enzymes/RNAs.
+- **U4:** Distinguish Crick's sequence-information restriction from the common DNA → RNA → protein expression pathway; name the relevant enzymes/RNAs.
 - **U5:** Distinguish genotype vs phenotype; environment's role?
 - **U6:** Is evolution goal-directed? Why not?
 - **U7:** Contrast bacteria vs archaea; why are archaea closer to eukaryotes?
@@ -423,12 +435,12 @@ Answer in 2–3 sentences without consulting text. Struggle → review that chap
 
 ---
 
-## 🔢 EQUATION CHEAT SHEET (ALL UNITS)
+## Selected equation quick reference
 
 | Equation | Variables | Domain | Use case |
 |---|---|---|---|
 | $v = V_{max}[S]/(K_m+[S])$ | $v$, $V_{max}$, $K_m$, [S] | Enzymes | Reaction rate |
-| $pH = -\log[H^+]$ | pH, [H⁺] | Chemistry | Acid–base |
+| $\mathrm{pH}=-\log_{10}a_{\mathrm{H}^+}$ | Dimensionless hydrogen-ion activity | Chemistry | Concentration form is an approximation |
 | Nernst E = (61.5 mV/z) log10(c_out/c_in) at 37°C | E, concentrations, valence z | Cell | Single-ion equilibrium potential |
 | Monovalent GHK Vm | Permeabilities, concentrations | Cell | Idealized voltage, not divalent-ion equation |
 | $\Pi = iCRT$ | $\Pi,i,C,R,T$ | Cell | Osmotic pressure |
@@ -442,9 +454,9 @@ Answer in 2–3 sentences without consulting text. Struggle → review that chap
 
 ---
 
-## 📚 GLOSSARY A–Z TOP 50
+## 50 glossary review terms
 
-(matching {#gl:slug} anchors — full definitions in `docs/manuscript/glossary.md`)
+This is a review list, not a linked anchor index. Full definitions are in [the glossary](manuscript/glossary.md).
 
 1. active transport | 2. allele | 3. autotroph | 4. biodiversity | 5. carbohydrate
 6. carrying capacity ($K$) | 7. cell theory | 8. chromosome | 9. codominance | 10. commensalism

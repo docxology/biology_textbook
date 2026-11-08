@@ -1,35 +1,13 @@
-# `src/biology/quality/` — textbook quality audit engine
+# Textbook Quality and Source-Bound Publication Gates
 
-Logic extracted from `scripts/audit_textbook_quality.py` (formerly 1161 lines). The script is now a thin argparse wrapper (~110 lines).
+The quality CLI is thin; reusable checks live here. `paths.py` defines project/manuscript/ledger paths; `models.py` defines findings and surfaces; `patterns/` contains catalogs; `engine.py` collects findings; `cli.py` applies the unchanged error/advisory budgets.
 
-## Modules
+## Advisory evidence
 
-| File | Role |
-| --- | --- |
-| `paths.py` | `PROJECT`, `MANUSCRIPT`, `QUALITY_ADVISORIES` (monkeypatchable in tests) |
-| `models.py` | `Finding`, `ManuscriptSurface` |
-| `patterns.py` | Copyedit regex catalogs, generic-answer patterns, advisory classifications |
-| `engine.py` | `collect_findings()` and per-surface auditors |
-| `cli.py` | `main(argv)` — `--check`, `--max-advisories`, ledger integration |
-| `publication_gate.py` | Aggregate publication readiness orchestrator (`run_publication_gate`) |
+`quality_advisories.yaml` binds each accepted occurrence to exact path, line, excerpt, digest, classification, and scientific rationale. Moving or changing prose requires re-review and rebinding, not automatic blanket approval. Reviewed occurrences remain visible separately from outstanding advisories. [The triage policy](../../../docs/absolute_language_triage.md) owns the schema and its limitations.
 
-## `publication_gate.py`
+## Publication orchestration
 
-`run_publication_gate(..., max_workers=1)` runs command and in-process Python checks with optional parallelism:
+`publication_gate.py` schedules dependency-aware checks and invalidates stale receipts before renderer selection. Exact-source, renderer, PDF, and export custody are part of the contract. `--full` adds the native coverage/analysis/render/PDF checks; use `--workers 1` for heavyweight integration on the shared machine.
 
-- Each step may declare `depends_on: frozenset[str]`; a step runs only after all dependencies succeed.
-- **Sequential chains:** `figures-strict` → `diagrams-strict` → `visual-contracts` → `artifact-counts`; root `setup` → `render` → `validate` → `pdf-log` (always sequential under `--full`).
-- **Parallel waves:** when `max_workers > 1`, independent steps (ruff, mypy, claims sync, recursive markdown/prerender, hygiene) run concurrently via thread pools; subprocess steps use isolated temp artifact dirs.
-- Default `max_workers=1` preserves the original strictly sequential behavior.
-
-CLI: `scripts/audit_publication_readiness.py --check [--full] [--workers N]`.
-
-Tests: `tests/test_publication_gate.py` (dependency ordering, ready-step invariants, `max_workers=1` equivalence).
-
-## CLI
-
-```bash
-uv run python scripts/audit_textbook_quality.py --check --max-advisories 0
-```
-
-Exit **0** when no errors and advisory count ≤ `--max-advisories`. The script re-exports `Finding`, `ManuscriptSurface`, and pattern constants for legacy `importlib` tests.
+Commands, output paths, graph dependencies, and failure interpretation belong to [the pipeline guide](../../../docs/pipeline_guide.md) and [testing guide](../../../docs/testing_guide.md), rather than a duplicated mutable DAG here. Native tests include `test_publication_gate.py` and `test_publication_receipt_custody.py`. Run project-local commands under inherited admission; source counts and an old passing receipt are not current publication proof.

@@ -8,7 +8,7 @@ Quantitative teaching models live in domain Python packages, and figures/process
 
 Canonical copy for Zenodo and other metadata fields: [docs/publication_abstract.md](docs/publication_abstract.md).
 
-Manuscript-driven introductory biology (44 chapters across Units 0-X, 44 paper-based labs, 44 question banks of 30 questions each) with tested Python models (kinetics, population genetics, neural signaling, ecology, and related topics). Registered diagrams use Mermaid through `src/mermaid/`; publication builds use PNG output. Figures use matplotlib from `src/visualization/plots.py`.
+Manuscript-driven introductory biology (44 chapters across Units 0–X, 44 paper-based labs, 44 thirty-item banks) is paired with Python teaching models. Registered Mermaid diagrams require PNG output for publication. Matplotlib implementations live in `src/visualization/plots_*.py`, registered through `plots.py`.
 
 ## Status
 
@@ -45,7 +45,7 @@ it does not regenerate authored lab procedures, question keys, rubrics or covera
 notes. Approval announcements and prescribing labels are distinct source records.
 Duplicate bibliography keys fail rather than merging different documents.
 
-Invariants (bibliography closure, glossary, chapter pedagogy locks, script hygiene) are enforced by named test modules — see the conventions table in [AGENTS.md](AGENTS.md) rather than a duplicated list here.
+For source conventions use [the manuscript contract](docs/manuscript/AGENTS.md); for actual invariant-test coverage and limits use [the testing guide](docs/testing_guide.md).
 
 ## Standalone quick start
 
@@ -110,7 +110,7 @@ For more legible print or on-screen reading, use a second build with larger marg
 
 - [docs/composable_authoring.md](docs/composable_authoring.md) — **start here** for new chapters, figures, and `\cref` / label workflows (invariant tests, script order)
 - [AGENTS.md](AGENTS.md) — layout, tests, validation, invariants, AI protocol
-- [docs/manuscript/AGENTS.md](docs/manuscript/AGENTS.md) — figure/diagram allowlists, chapter/lab/question conventions
+- [docs/manuscript/AGENTS.md](docs/manuscript/AGENTS.md) — canonical H1s, stable identifiers, references and authored assessments
 - [docs/manuscript/README.md](docs/manuscript/README.md) — author quick reference and course pathways
 - [docs/README.md](docs/README.md) — full doc index
 - [docs/agent_instructions.md](docs/agent_instructions.md) — editorial style and structure targets

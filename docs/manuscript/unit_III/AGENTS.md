@@ -13,15 +13,13 @@ This unit covers cellular bioenergetics (thermodynamics, glycolysis, TCA cycle, 
 - `reaction_free_energy()` — specified 1:1 ideal-dilute product/reactant quotient; arbitrary stoichiometric quotients must be constructed separately
 
 `src/biology/botany/botany.py`:
-- `photosynthesis_rate()` — Michaelis-Menten O₂ evolution
+- `photosynthesis_rate()` — hyperbolic gross light response minus dark respiration, returning net CO₂ assimilation
 - `light_response_curve()` — hyperbolic light saturation
 - `PHOTOSYNTHESIS_PATHWAYS` — C3/C4/CAM data
 
 ## Chapters
 
-1. `bioenergetics_and_respiration.md` — Bioenergetics and Cellular Respiration
-2. `photosynthesis.md` — Photosynthesis
-3. `metabolic_integration.md` — Metabolic Integration and Regulation
+[README.md](README.md) lists chapter filenames/titles; [config.yaml](../config.yaml) owns order.
 
 ## Key Equations
 
@@ -34,13 +32,8 @@ This unit covers cellular bioenergetics (thermodynamics, glycolysis, TCA cycle, 
 ## Figures and Diagrams
 
 - `src/mermaid/biology_diagrams.py` — `glycolysis_pathway_diagram()`, `atp_synthesis_diagram()`, `photosynthesis_light_dark_diagram()`
-- `src/visualization/plots.py` — `plot_light_response_curve()`
+- Repository-root `src/visualization/plots_botany.py` implements `plot_light_response_curve()`; `plots.py` owns registration.
 
-## Chapter Metadata Convention
+## Shared source contract
 
-All chapter files in this unit carry (inserted automatically by the scripts):
-
-- `\label{sec:unit_III_<stem>}` on the line after the H1 — cross-reference with `\cref{sec:unit_III_<stem>}`
-- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../../src/biology/chapter_metadata.py`)
-
-See [../AGENTS.md](../AGENTS.md) and [../../manuscript_guide.md](../../manuscript_guide.md) for the full set of invariants.
+Follow [manuscript instructions](../AGENTS.md) for H1s, stable IDs, metadata badges, references and authored assessments; see [writing examples](../../manuscript_guide.md). Implementation paths above are repository-root paths.

@@ -4,7 +4,8 @@
 | ---- | ----- |
 | `bacteria_archaea_viruses.md` | Bacteria, Archaea, and Viruses |
 | `microbial_ecology.md` | Microbial Ecology and the Microbiome |
-| `infectious_disease.md` | Infectious Disease and Immunity |
+| `host_immunity_and_vaccines.md` | Host Immunity and Vaccines |
+| `antimicrobial_resistance_and_epidemiology.md` | Antimicrobial Resistance and Epidemiology |
 
 **Module:** `src/biology/microbiology/microbiology.py`
 
@@ -12,7 +13,4 @@
 
 ## Authoring Notes
 
-- Keep chapter labels aligned with filename stems (`sec:unit_VII_<stem>`).
-- Use glossary links sparingly on first use; avoid dense link-heavy paragraphs.
-- Add a descriptive HTML alt comment after any figure or Mermaid block.
-- Keep paired labs and question banks aligned with chapter learning objectives.
+Follow [local instructions](AGENTS.md) and the [manuscript source contract](../AGENTS.md) for canonical H1s, stable labels, metadata badges, reference types and authored assessment mappings. [The visualization guide](../../visualization_guide.md) owns alt/caption placement and relationship-map semantics. Implementation paths above are repository-root paths.

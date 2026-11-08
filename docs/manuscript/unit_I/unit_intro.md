@@ -6,14 +6,14 @@
 Every organism on Earth — a bacterium dividing in a hydrothermal vent, a redwood drawing water through
 100 meters of trunk, a neuron firing in your brain right now — is made of the same ~25 elements obeying
 the same quantum-mechanical rules identified over the last two centuries. Chemistry is not merely a
-prerequisite for biology; it **is** biology at its most fundamental level. Understanding the electron
-orbitals of carbon explains why proteins fold. Understanding electronegativity explains why DNA holds its
-shape. Understanding pH buffers explains why a runner's muscles do not seize in their own acid.
+prerequisite for biology; it provides a molecular account of biological mechanisms. Bonding,
+electrostatics, solvent interactions, and thermodynamics together help explain protein folding and DNA
+structure. Buffers help constrain pH changes during metabolism.
 
 This unit begins with atoms and ends with molecular machines. We trace how the CHNOPS elements (carbon,
-hydrogen, nitrogen, oxygen, phosphorus, sulfur) combine into functional groups, how functional groups
-assemble into the four classes of biological macromolecules, and how enzymes — protein catalysts evolved
-over billions of years — accelerate reactions to the speeds that life demands. Along the way you will
+hydrogen, nitrogen, oxygen, phosphorus, sulfur) occur in functional groups, how these chemical features
+relate to the major biomolecule classes, and how enzymes — including protein catalysts — accelerate
+reactions. Along the way you will
 encounter the Pauling electronegativity scale, the Henderson-Hasselbalch equation, the Michaelis-Menten
 model, and the principle of chirality: the mirror-image selectivity that means L-amino acids build your
 proteins while D-sugars fuel your cells.
@@ -30,8 +30,8 @@ which life has been shaped by evolution.
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| Friedrich Wöhler | 1828 | \citep{wohler1828} | Synthesis of urea from inorganic ammonium cyanate | Disproved vitalism; showed organic compounds obey the same chemistry as inorganic ones |
-| Linus Pauling & Robert Corey | 1951 | \citep{pauling1951helix} | α-helix and β-sheet structures of proteins | Established that protein secondary structure is stabilized by H-bonds; first use of electronegativity to predict biological structure |
+| Friedrich Wöhler | 1828 | \citep{wohler1828} | Synthesis of urea from inorganic ammonium cyanate | Challenged a strict separation between organic and inorganic chemistry |
+| Linus Pauling & Robert Corey | 1951 | \citep{pauling1951helix} | α-helix and β-sheet structures of proteins | Connected protein secondary structure with hydrogen-bonding models |
 | James Watson & Francis Crick | 1953 | \citep{watson1953} | Double-helix structure of DNA | Anti-parallel, complementary base-pairing via H-bonds; immediately suggested replication mechanism |
 | Frederick Sanger and collaborators | 1955 | \citep{sanger1955insulin} | Complete covalent structure of bovine insulin | Defined amino-acid chains and disulfide connectivity; sequence constrains folding in its physical context |
 | Leonor Michaelis & Maud Menten | 1913 | \citep{michaelis1913} | Enzyme-substrate saturation kinetics | Derived $v = V_{max}[S]/(K_m + [S])$; quantitative foundation of enzymology |
@@ -40,36 +40,51 @@ which life has been shaped by evolution.
 
 ---
 
-## Key Concepts and Connections {.unnumbered}
+## Chemical interactions, biomolecules, and catalysis {.unnumbered}
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    A["⚛️ Atoms & Subatomic Particles<br/>(Z, A, isotopes)"] --> B["🔗 Chemical Bonds<br/>(covalent, ionic, H-bond, vdW)"]
-    B --> C["💧 Water<br/>(polarity, cohesion,<br/>solvation, pH)"]
-    B --> D["⚗️ Functional Groups<br/>(–OH, –COOH, –NH₂,<br/>–SH, C=O, –OPO₃²⁻)"]
-    D --> E["🍬 Carbohydrates<br/>(monosaccharides,<br/>polysaccharides)"]
-    D --> F["🥑 Lipids<br/>(fatty acids,<br/>phospholipids, sterols)"]
-    D --> G["🧬 Proteins<br/>(amino acids → 1°→2°→3°→4°)"]
-    D --> H["🔬 Nucleic Acids<br/>(nucleotides → DNA, RNA)"]
-    C --> I["🧪 pH & Buffers<br/>(Henderson-Hasselbalch)"]
-    G --> J["⚙️ Enzymes<br/>(active site, catalysis)"]
-    J --> K["📐 Michaelis-Menten<br/>Kinetics<br/>v = Vmax[S]/(Km+[S])"]
-    J --> L["🔄 Allosteric Regulation<br/>(cooperative binding,<br/>feedback inhibition)"]
-
-    style A fill:#4a90d9,color:#fff
-    style C fill:#2980b9,color:#fff
-    style J fill:#e67e22,color:#fff
-    style K fill:#d35400,color:#fff
+    subgraph C["Chemical context"]
+        A["Atoms and bonds"]
+        W["Water and buffers"]
+        F["Functional groups"]
+    end
+    subgraph B["Biomolecule classes"]
+        CH["Carbohydrates"]
+        L["Lipids"]
+        P["Proteins"]
+        N["Nucleic acids"]
+    end
+    subgraph K["Catalysis"]
+        E["Enzyme catalysis"]
+        R["Kinetics and regulation"]
+    end
+    A ---|"polarity and pH"| W
+    A ---|"chemical structure"| F
+    F ---|"chemical features"| CH
+    F ---|"chemical features"| L
+    F ---|"chemical features"| P
+    F ---|"chemical features"| N
+    P ---|"protein catalyst examples"| E
+    E ---|"models and control"| R
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
+    style C fill:#fafafa,stroke:#526777,color:#17212b
+    style B fill:#fafafa,stroke:#526777,color:#17212b
+    style K fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing chemistry-of-life concept map — arrows show conceptual dependencies; color groups: blue = atomic/molecular; orange = enzyme function. -->
+<!-- alt: Graph showing chemical context connects biomolecule classes with catalyst models and regulation. Connectors name selected relationships, not reaction steps or prerequisites; kinetic models require their stated assumptions. Protein catalysts are examples, not an exhaustive definition of enzymes. -->
 
-*Chemistry-of-life concept map — arrows show conceptual dependencies; color groups: blue = atomic/molecular; orange = enzyme function.*
+*Chemical context connects biomolecule classes with catalyst models and regulation. Connectors name selected relationships, not reaction steps or prerequisites; kinetic models require their stated assumptions. Protein catalysts are examples, not an exhaustive definition of enzymes.*
 
 ---
 
 ## Current Evidence Thread {.unnumbered}
 
-Read \nameref{sec:unit_I_unit_intro} as the point where the chemistry of life becomes measurable. Bond polarity, hydrogen bonding, and reaction thermodynamics are not abstractions here -- they are quantities now read off cryo-EM maps, ultrafast spectroscopy, and kinetic assays, and structure predictions for macromolecules are accepted primarily once cryo-EM, NMR, or mutagenesis confirms them. As you
+Read \nameref{sec:unit_I_unit_intro} as the point where the chemistry of life becomes measurable. Structural methods, spectroscopy, kinetic assays, and perturbations provide different kinds of evidence; a structural map alone does not directly determine all thermodynamic or kinetic quantities. Evaluate macromolecular predictions against the evidence relevant to the claim. As you
 move through the chapters, keep a two-column note: **claim** on the left,
 **evidence that would change my confidence** on the right. By the end of the
 unit, each major idea should be tied to a measurement, model, citation, or
@@ -79,10 +94,10 @@ paper-based lab decision.
 
 | Chapter | Title | Core Question | Key Equation / Model |
 | ------- | ----- | ------------- | -------------------- |
-| **1** | Atoms, Molecules, and Chemical Bonds | Why do atoms bond, and how does bond type determine biological function? | $\Delta G^{\circ\prime} = -nF\Delta E^{\circ\prime}$ |
-| **2** | Water — The Molecule of Life | What makes water anomalous, and why is that anomaly essential for life? | $\pi = iCRT$ (osmotic pressure) |
-| **3** | Biological Macromolecules | How do major biomolecule classes build structures and carry out life's functions? | Molecular size, polymerization where applicable, and lipid assembly |
-| **4** | Enzymes and the Kinetics of Catalysis | How do enzymes lower activation energy, and how is their activity regulated? | $v = V_{max}[S]/(K_m + [S])$ |
+| \cref{sec:unit_I_atoms_molecules} | Atoms, Molecules, and Chemical Bonds | Why do atoms bond, and how does bond type determine biological function? | $\Delta G^{\circ\prime} = -nF\Delta E^{\circ\prime}$ |
+| \cref{sec:unit_I_water_and_life} | Water — The Molecule of Life | What makes water anomalous, and why is that anomaly essential for life? | $\pi = iCRT$ (osmotic pressure) |
+| \cref{sec:unit_I_macromolecules} | Biological Macromolecules | How do major biomolecule classes build structures and carry out life's functions? | Molecular size, polymerization where applicable, and lipid assembly |
+| \cref{sec:unit_I_enzymes_and_kinetics} | Enzymes and the Kinetics of Catalysis | How do enzymes lower activation energy, and how is their activity regulated? | $v = V_{max}[S]/(K_m + [S])$ |
 
 ---
 
@@ -91,7 +106,7 @@ paper-based lab decision.
 \nameref{sec:unit_I_unit_intro} establishes the chemical vocabulary for the entire textbook:
 
 - The **bond energies and functional groups** introduced here reappear in \nameref{sec:unit_III_unit_intro} (energy released by glucose oxidation), \nameref{sec:unit_IV_unit_intro} (phosphodiester bonds of DNA), and \nameref{sec:unit_V_unit_intro} (crossing-over in chromatin).
-- **Enzyme kinetics** (\cref{sec:unit_I_enzymes_and_kinetics}) reappears in \nameref{sec:unit_III_unit_intro} (PFK-1 allosteric regulation), \nameref{sec:unit_VII_unit_intro} (antibiotic targets on bacterial enzymes), and \nameref{sec:unit_IX_unit_intro} (hemoglobin co-operativity).
+- **Enzyme kinetics and allostery** (\cref{sec:unit_I_enzymes_and_kinetics}) reappear in \nameref{sec:unit_III_unit_intro} (PFK-1 regulation) and \nameref{sec:unit_VII_unit_intro} (antibiotic enzyme targets). Hemoglobin cooperativity in \nameref{sec:unit_IX_unit_intro} is a related binding-model comparison, not enzyme catalysis.
 - **pH and buffers** link directly to \nameref{sec:unit_II_unit_intro} (lysosomal pH 4.5 vs. cytoplasmic pH 7.2), \nameref{sec:unit_III_unit_intro} (mitochondrial proton gradient), and \nameref{sec:unit_IX_unit_intro} (blood acid-base balance in clinical contexts).
 - **Chirality** of L-amino acids and D-sugars reappears in \nameref{sec:unit_VII_unit_intro} (D-amino acids in bacterial cell walls) and \nameref{sec:unit_V_unit_intro} (enzyme specificity in DNA repair).
 

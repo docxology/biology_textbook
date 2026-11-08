@@ -6,6 +6,8 @@ Markdown sources are ordered by config.yaml; filenames are semantic slugs, not i
 
 Run from this project root after uv sync --frozen --extra dev and npm ci; expose node_modules/.bin on PATH (Mermaid CLI pinned 12.2.0, Node >=22.13.0). Set BIOLOGY_TEXTBOOK_TEMPLATE_ROOT to an existing compatible template or use a genuine enclosing template. Invalid explicit selection fails; ambient neighbors and template-root entry points are not supported. See ../pipeline_guide.md.
 
+Paths explicitly prefixed `src/`, `scripts/`, `tests/` or `output/` are repository-root paths. Manuscript-local `config.yaml`, `preamble.md`, unit slugs and appendix paths are relative to this directory; Markdown links are relative to this document.
+
 ## Quick reference
 
 | Action | Where / command |
@@ -14,7 +16,7 @@ Run from this project root after uv sync --frozen --extra dev and npm ci; expose
 | Prior release 1.0.0 DOI only | [10.5281/zenodo.20286478](https://doi.org/10.5281/zenodo.20286478); edition 1.1 DOI remains unassigned, with no new deposition claimed |
 | End-to-end add chapter / figure / labels | [../docs/composable_authoring.md](../composable_authoring.md) (checklists + tests) |
 | View chapter order | `config.yaml` → `units[]` and `appendices` |
-| Add a chapter | Create `unit_<id>/<slug>.md`; add `chapters[]` entry; add `ChapterMeta(…)` in `../src/biology/chapter_metadata.py` |
+| Add a chapter | Create `unit_<id>/<slug>.md`; register it in `config.yaml`; add metadata in `src/biology/chapter_metadata.py` |
 | Toggle labs / questions | `config.yaml` → `appendices.include_labs`, `include_questions` |
 | Reference appendices | `appendices/` plus root `glossary.md`; rendered when `config.yaml` → `appendices.include_reference` is true, with titles and order from `appendices.reference[]` |
 | Author / ORCID | `config.yaml` → `book`, `authors[]` |
@@ -23,9 +25,9 @@ Run from this project root after uv sync --frozen --extra dev and npm ci; expose
 | Link color | `config.yaml` → `typography.link_color` |
 | Toggle front matter | `config.yaml` → `front_matter.include_front_matter` |
 | Navigation / scope blocks | `front_matter.md` and `preface.md` generated markers — edit `config.yaml`, then rerun `uv run python scripts/sync_curriculum_materials.py` |
-| Course Planning Grid | Auto-generated in `front_matter.md` between `<!-- course-planning-grid-start -->` and `<!-- course-planning-grid-end -->` markers — edit `config.yaml` titles/order and `../src/biology/chapter_metadata.py`, then rerun `../scripts/insert_chapter_metadata.py` |
+| Course Planning Grid | Edit config titles/order and `src/biology/chapter_metadata.py`; run `scripts/insert_chapter_metadata.py` to refresh the owned marker block |
 | Glossary | `glossary.md` — each term is a bracketed span `` [**Term**]{#gl:<slug>} `` (PDF ``\label{gl:…}``); link on first use with `` `[**term**](#gl:<slug>)` `` |
-| Generate figures | From project root: `uv run python scripts/generate_figures.py` (42 square-padded matplotlib; uses `src/visualization/cvd.py` for CVD-friendly colors) |
+| Generate figures | Project-root `scripts/generate_figures.py`; domain implementations in `src/visualization/plots_*.py`, palette in `cvd.py`; inspect final-size output |
 | Accessibility, config vs tests | [../docs/accessibility.md](../accessibility.md) |
 | Registered Mermaid PNGs | From project root: uv run --frozen --extra dev python scripts/generate_diagrams.py --strict-png --size 1200; no source-only publication fallback |
 | Check current claims | `uv run python scripts/audit_current_claims.py --check`; source data lives in `current_claims.yaml` |
@@ -39,16 +41,16 @@ Software 2.0.0/edition 1.1 is unreleased. Exact-source full-gate and separate PD
 
 - Every chapter H1 is followed by `\label{sec:unit_X_<stem>}` — reference with `\cref{sec:unit_X_<stem>}`
 - Unnumbered unit intros use their stable sec identifier on the H1 as a Pandoc attribute, not a standalone label; reference visible unit names with nameref.
-- Renderable H1s for chapters, unit intros, labs, question banks, reference appendices, and the glossary are normalized from `config.yaml` by `../src/biology/toc.py` and `../scripts/sync_curriculum_materials.py`
+- Renderable H1s and stable surface identifiers are maintained from `config.yaml` via `src/biology/toc.py` and `scripts/sync_curriculum_materials.py`.
 - Student-facing navigation, scope tables, reading paths, and concept maps must be generated from `BookToc` marker blocks or written with semantic `\cref{...}` / `\nameref{...}` references; do not hand-author visible "Unit I", "Appendix C", "Chapter 7", or "Figure FM-1" prose
-- Do not hand-number Markdown headings (`## 1 ...`, `### 1.1 ...`); `../scripts/sync_curriculum_materials.py` strips manual prefixes and applies unnumbered attributes to non-chapter materials for a clean detailed ToC
+- Use informative source titles without manual numeric prefixes. Synchronization is not a substitute for content-specific editorial titles; preserve literal headings inside protected examples/comments.
 - Inline Mermaid fences must include one descriptive `<!-- alt: ... -->` comment and one italic caption; PDF rendering converts them to PNGs under `output/figures/mermaid_inline/`
 - Every chapter carries a `<!-- chapter-metadata-badge -->` blockquote
 - Every lab and question bank `\cref`-links back to its parent chapter
 - Lab and question-bank entries in `config.yaml` store only `file:` names; do not add duplicated `title:` strings there
 - Every documented natbib cite command resolves to an entry in `references.bib`; no entry is orphaned
 - Required labs supply finite printed datasets/tasks with explicit criteria and provenance. Solutions are prompt-specific authored content; unsupported answer generation refuses without writing. Preserve semantic LO/Bloom mappings and rubrics.
-- All invariants are asserted by `../tests/test_toc_consistency.py`, `../tests/test_build_invariants.py`, `../tests/test_bibliography_closure.py`, `../tests/test_chapter_metadata.py`, `../tests/test_curriculum_metadata.py`, `../tests/test_accessibility.py`, `../tests/test_crossref_validator*.py`, `../tests/test_lab_integrity.py`, `../tests/test_question_answer_refinement.py`, `../tests/test_chapter_pedagogy_coverage.py`, and `../tests/test_script_quality.py`
+- [The testing guide](../testing_guide.md) owns named invariant tests and their limits; structural passes do not establish empirical accuracy or accessibility.
 
 ## Course pathways
 

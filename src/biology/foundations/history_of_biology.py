@@ -32,13 +32,13 @@ BIOLOGY_MILESTONES: tuple[BiologyMilestone, ...] = (
     BiologyMilestone(1967, "Endosymbiotic theory of eukaryotes", "Sagan (later Margulis)", "late twentieth century"),
     BiologyMilestone(1983, "PCR amplification of DNA", "Mullis", "late twentieth century"),
     BiologyMilestone(2003, "Human Genome Project completion announced", "HGP consortium", "early twenty-first century"),
-    BiologyMilestone(2012, "CRISPR-Cas9 programmable editing", "Doudna & Charpentier", "early twenty-first century"),
+    BiologyMilestone(2012, "RNA-guided Cas9 DNA cleavage in vitro", "Doudna & Charpentier", "early twenty-first century"),
     BiologyMilestone(2020, "AlphaFold structure prediction", "DeepMind", "early twenty-first century"),
 )
 
 
 def milestones_by_era() -> dict[str, list[BiologyMilestone]]:
-    """Group milestones into chronological eras for the figure legend.
+    """Group the selected milestone records by their authored historical eras.
 
     Returns:
         Ordered mapping from era label to milestones in that era, preserving

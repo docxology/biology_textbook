@@ -136,26 +136,26 @@ def plot_biome_distribution(
     names = [name for name, data in BIOMES.items() if data["annual_precipitation_mm"] is not None]
     temps = [float(BIOMES[b]["mean_annual_temp_C"]) for b in names]
     precip = [float(BIOMES[b]["annual_precipitation_mm"]) for b in names]
-    npp = np.array([float(BIOMES[b]["NPP_g_m2_yr"]) for b in names])
-    sizes = 80 + (npp / npp.max()) * 520
 
     fig, ax = plt.subplots(figsize=(9, 5.5))
-    colors = [SERIES3[i % len(SERIES3)] for i in range(len(names))]
-    ax.scatter(precip, temps, s=sizes, c=colors, edgecolor="black", linewidth=0.8, alpha=0.86)
+    ax.scatter(precip, temps, s=110, color=BAR_POS, edgecolor="black", linewidth=0.8, alpha=0.86)
+    rightmost_precipitation = max(precip)
     for name, x_val, y_val in zip(names, precip, temps):
         ax.annotate(
             name,
             (x_val, y_val),
-            xytext=(6, 5),
+            xytext=(-8 if x_val == rightmost_precipitation else 8, 8),
             textcoords="offset points",
-            fontsize=8.5,
+            ha="right" if x_val == rightmost_precipitation else "left",
+            fontsize=10,
             bbox={"boxstyle": "round,pad=0.18", "facecolor": "white", "edgecolor": "#dddddd", "alpha": 0.78},
         )
-    ax.set_xlabel("Mean annual precipitation (mm yr^-1)", fontsize=13)
-    ax.set_ylabel("Mean annual temperature (deg C)", fontsize=13)
+    ax.set_xlabel("Mean annual precipitation (mm/year)", fontsize=13)
+    ax.set_ylabel("Mean annual temperature (°C)", fontsize=13)
     ax.set_title("Illustrative Terrestrial Biome Climate Coordinates", fontsize=14)
     ax.grid(True, color="#dddddd", linewidth=0.6, alpha=0.7)
     ax.tick_params(labelsize=11)
+    ax.text(0.02, 0.02, "Illustrative coordinates; equal marker sizes", transform=ax.transAxes, fontsize=10)
     fig.tight_layout()
     return _save_figure(fig, output_dir, "biome_distribution.png")
 
@@ -204,19 +204,22 @@ def plot_biodiversity_indices(
     shannon = [biodiversity_indices(counts).shannon_index for counts in communities.values()]
     simpson = [biodiversity_indices(counts).simpson_index for counts in communities.values()]
 
-    x = np.arange(len(labels))
-    width = 0.35
-    fig, ax = plt.subplots(figsize=(8, 5))
-    ax.bar(x - width / 2, shannon, width, label="Shannon H′", color=SERIES2[0], edgecolor="black", linewidth=0.6)
-    ax.bar(x + width / 2, simpson, width, label="Simpson 1 − D", color=SERIES2[1], edgecolor="black", linewidth=0.6)
-    ax.set_xticks(x)
-    ax.set_xticklabels(labels, fontsize=11)
-    ax.set_ylabel("Index value", fontsize=13)
-    ax.set_title("Illustrative Biodiversity — Even vs Dominant Communities", fontsize=14)
-    ax.legend(fontsize=10, frameon=False)
-    ax.tick_params(labelsize=11)
+    fig, axes = plt.subplots(1, 2, figsize=(10, 5))
+    for ax, values, title, units in zip(
+        axes, (shannon, simpson), ("Shannon entropy H′", "Simpson diversity 1 − D"), ("nats", "dimensionless"),
+    ):
+        bars = ax.bar(labels, values, color=SERIES2, edgecolor="black", linewidth=0.8)
+        for bar, hatch, value in zip(bars, ("///", "..."), values):
+            bar.set_hatch(hatch)
+            ax.annotate(f"{value:.2f}", (bar.get_x() + bar.get_width() / 2, bar.get_height()),
+                        xytext=(0, 5), textcoords="offset points", ha="center", fontsize=11)
+        ax.set_title(title, fontsize=13)
+        ax.set_ylabel(units, fontsize=12)
+        ax.tick_params(labelsize=10)
+        ax.margins(y=0.18)
+    fig.suptitle("Illustrative Five-Species Communities: Equal Richness, Different Evenness", fontsize=13)
     fig.tight_layout()
-    return _save_figure(fig, output_dir, "biodiversity_indices.png")
+    return _save_figure(fig, output_dir, "biodiversity_indices.png", aspect="landscape")
 
 
 def plot_food_web_trophic_levels(

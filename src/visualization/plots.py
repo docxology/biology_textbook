@@ -66,10 +66,10 @@ FigureGenerator = Callable[[Path], Path]
 FIGURE_ASPECT: dict[str, str] = {
     "lotka_volterra": "landscape",
     "hardy_weinberg": "landscape",
+    "biodiversity_indices": "landscape",
     "logistic_growth": "landscape",
     "species_area_relationship": "landscape",
     "genetic_drift_trajectories": "landscape",
-    "selection_simulation": "landscape",
     "food_web_trophic_levels": "landscape",
     "network_degree_distribution": "landscape",
     "prediction_error_precision": "landscape",

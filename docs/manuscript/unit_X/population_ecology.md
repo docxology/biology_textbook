@@ -710,11 +710,11 @@ P_{ext}(T) = \Pr\bigl(\,N(t) < N_{\text{crit}}\ \text{for some } t \le T\bigr)
 
 The threshold $N_{\text{crit}}$ (often called the **quasi-extinction threshold**) is set above zero — typically the Allee threshold $A$ (\cref{eq:population_ecology_13}) or a number below which the population is "functionally extinct." Hitting $N_{\text{crit}}$ counts as failure even if the simulation has not bottomed out.
 
-The **minimum viable population (MVP)** in standard usage is the smallest $N_0$ such that $P_{ext}(100\,\text{yr}) \le 0.05$. Reed et al. (2003, *Biol. Conserv.*) reviewed PVAs across 102 vertebrates and found MVPs clustering at 5,000–7,000 adults — far above the classical $N_e = 500$ rule of thumb (which ignores demographic and environmental stochasticity) and a key empirical result that pushed conservation toward the **100/1000 rule** discussed in \cref{sec:unit_X_biomes_and_conservation}.
+The **minimum viable population (MVP)** is conditional on a chosen persistence probability, time horizon, population model, and environmental assumptions; 95% persistence over 100 years is one possible criterion, not its universal definition. Demographic census size and genetic effective size are different quantities. Genetic population-size guidance does not substitute for a species-specific demographic PVA (\cref{sec:unit_X_biomes_and_conservation}).
 
-### Worked Example — California Condor PVA
+### Worked Example — Synthetic Quasi-Extinction Counts
 
-In 1982 the known California condor (*Gymnogyps californianus*) population had fallen to 22 birds. A PVA built around captive-breeding fecundity, juvenile mortality from lead poisoning, and stochastic catastrophe (wildfire) gave $P_{ext}(50\,\text{yr}) > 0.99$ for the no-intervention scenario. The same model showed $P_{ext}(50\,\text{yr}) < 0.10$ if (i) the remaining birds were captured for breeding, and (ii) released birds were protected from lead ammunition. The captive-breeding decision, controversial at the time, was justified directly by PVA elasticities — adult survival and juvenile lead mortality had the largest leverage on $\lambda_1$. The wild population is now > 250 (see \cref{sec:unit_X_biomes_and_conservation}).
+For a paper calculation, stipulate 1,000 trajectories under each of two teaching scenarios, evaluated over the same horizon against the same quasi-extinction threshold. If 200 trajectories cross the threshold in scenario A and 40 in B, the estimated frequencies are $200/1000=0.20$ and $40/1000=0.04$. The difference is 0.16 (16 percentage points), not 16 percent relative: the relative reduction is $(0.20-0.04)/0.20=0.80$. These stipulated counts are not fresh simulation output or California condor forecasts. Without a specified transition model, parameter provenance, dependence assumptions, and uncertainty analysis, they cannot establish an intervention's real extinction risk.
 
 ### Limitations and Honest Use
 
@@ -862,11 +862,11 @@ The **age structure** of a population determines its future growth trajectory:
 
 The **total fertility rate** is the average number of children born to a woman over her lifetime. **Replacement-level fertility** is TFR $\approx 2.1$ in developed nations (slightly above 2 to account for child mortality). In 2023, global TFR was 2.3 — barely above replacement.
 
-**Demographic dividend:** Countries in mid-transition (declining fertility, large working-age cohort, low dependency ratio) experience accelerated economic growth. East Asia (1965-1990) and sub-Saharan Africa (projected 2030-2060) demonstrate this phenomenon.
+**Demographic dividend:** A larger working-age share can create an opportunity for economic growth, but the outcome also depends on health, education, employment, institutions, and policy. Age structure alone does not demonstrate growth or justify a continent-wide forecast.
 
 ---
 
-## Worked Examples: Leslie Matrices and Population Growth
+## Worked Examples: Structured Populations, Sampling, and Growth
 
 ### Worked Example: Stage-Matrix Projection
 

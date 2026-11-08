@@ -30,18 +30,14 @@ Per-item assessment comments and reviewed lab alignment blocks are required sour
 
 The project now also has a tested curriculum and standards spine:
 
-- `src/biology/curriculum.py` aligns each chapter with its companion lab,
+- `src/biology/curriculum/` aligns each chapter with its companion lab,
   question bank, model/data skill, misconception probe, transfer task, and
   bridge API.
 - `src/biology/alignment.py` aligns each chapter with Vision & Change,
   AP Biology, NGSS-style topics, BioSkills categories, and an instructor
   orchestration move.
 
-Run `uv run python scripts/sync_curriculum_materials.py` after editing either
-record set; the script refreshes chapter Study Blueprints, lab evidence
-checklists, question-bank coverage notes, Appendix A's curriculum map, and
-Appendix B's instructor orchestration guide. `tests/test_curriculum_metadata.py`
-enforces completeness.
+Run `scripts/sync_curriculum_materials.py` after editing these records to refresh canonical H1s/identifiers, chapter Study Blueprints, navigation and generated curriculum/instructor appendices. It preserves authored lab evidence checklists, question coverage notes, procedures, prompts/keys and rubrics. `--dry-run` previews changes; it is not a failing drift gate. Validate reviewed assessment metadata with `scripts/sync_assessment_metadata.py --check` and the assessment/pedagogy tests.
 
 ---
 
@@ -143,6 +139,8 @@ Each chapter has multiple "question surfaces":
 | Analyze | 4–6 | Compare-contrast; data-interpretation; figure analysis |
 | Evaluate | 1–3 | Critique a claim; choose between competing models with rationale |
 | Create | 0–2 | Design an experiment; write a hypothesis with predictions |
+
+These proportions and formats are task-design suggestions, not a parser contract or an empirical learning-effect claim. Published banks currently use `format=short-answer`; multiple-choice/matching examples require deliberate format support, not an unsupported metadata value.
 
 ---
 

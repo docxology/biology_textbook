@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
-import re
 from collections.abc import Mapping
+from html import escape
+from itertools import pairwise
+from textwrap import wrap
 from typing import Any
 
 from biology.crossref.helpers import section_reference
@@ -12,26 +14,13 @@ from biology.curriculum_sync.sync_blocks import (
     _join,
     _normalize_heading_text,
 )
+from biology.maintenance.text_normalize import normalize_text
 
 CHAPTER_MARKER = ("<!-- curriculum-scaffold-start -->", "<!-- curriculum-scaffold-end -->")
 NAV_MARKER = ("<!-- toc-navigation-start -->", "<!-- toc-navigation-end -->")
 READING_PATHS_MARKER = ("<!-- suggested-reading-paths-start -->", "<!-- suggested-reading-paths-end -->")
 CONCEPT_MAP_MARKER = ("<!-- textbook-concept-map-start -->", "<!-- textbook-concept-map-end -->")
 PREFACE_SCOPE_MARKER = ("<!-- preface-scope-start -->", "<!-- preface-scope-end -->")
-HEADING_RE = re.compile(r"^(?P<hashes>#{1,6})(?P<space>\s*)(?P<title>.*)$")
-
-HEADING_ATTR_RE = re.compile(r"^(?P<title>.*?)(?:\s+\{(?P<attrs>[^}]*)\})\s*$")
-MANUAL_HEADING_NUMBER_RE = re.compile(r"^\d+(?:\.\d+)*\.?\s+(?P<title>\S.*)$")
-ALT_COMMENT_THEMATIC_BREAK_RE = re.compile(
-    r"(<!--\s*alt:\s*.*?\s*-->)\n---",
-    flags=re.DOTALL,
-)
-NONNUMBERED_ATTR = ".unnumbered"
-SOURCE_SECTION_TITLES = {
-    "Current Evidence and Frontier Biology",
-    "Further Reading and Source Notes",
-    "Companion Source Module",
-}
 
 
 
@@ -230,105 +219,67 @@ def build_preface_scope_table(book_toc: Any) -> str:
     return "\n".join(lines)
 
 def build_textbook_concept_map(book_toc: Any) -> str:
-    """Return the generated front-matter concept map block."""
-    summaries = {
-        "unit_0": "feedback, emergence,<br/>active inference, history",
-        "unit_I": "atoms, bonds, water,<br/>macromolecules, enzymes",
-        "unit_II": "organelles, membranes,<br/>signaling, transport",
-        "unit_III": "respiration, photosynthesis,<br/>ATP, chemiosmosis",
-        "unit_IV": "DNA, transcription,<br/>translation, genomics",
-        "unit_V": "Mendelian, chromosomal,<br/>population genetics",
-        "unit_VI": "selection, drift,<br/>speciation, phylogenetics",
-        "unit_VII": "bacteria, viruses,<br/>microbiome, disease",
-        "unit_VIII": "structure, reproduction,<br/>responses, hormones",
-        "unit_IX": "circulation, nervous system,<br/>endocrine, immune",
-        "unit_X": "populations, communities,<br/>ecosystems, conservation",
-    }
-    styles = {
-        "unit_0": "#34495e",
-        "unit_I": "#4a90d9",
-        "unit_II": "#8e44ad",
-        "unit_III": "#e67e22",
-        "unit_IV": "#e74c3c",
-        "unit_V": "#c0392b",
-        "unit_VI": "#27ae60",
-        "unit_VII": "#16a085",
-        "unit_VIII": "#2ecc71",
-        "unit_IX": "#3498db",
-        "unit_X": "#1abc9c",
-    }
-    node_ids = {
-        "unit_0": "U0",
-        "unit_I": "I",
-        "unit_II": "II",
-        "unit_III": "III",
-        "unit_IV": "IV",
-        "unit_V": "V",
-        "unit_VI": "VI",
-        "unit_VII": "VII",
-        "unit_VIII": "VIII",
-        "unit_IX": "IX",
-        "unit_X": "X",
-    }
-    dependency_edges = (
-        ("unit_0", "unit_I", "-.->|conceptual lens|"),
-        ("unit_0", "unit_II", "-.->|conceptual lens|"),
-        ("unit_0", "unit_X", "-.->|conceptual lens|"),
-        ("unit_0", "unit_IX", "-.->|conceptual lens|"),
-        ("unit_I", "unit_II", "-->"),
-        ("unit_I", "unit_III", "-->"),
-        ("unit_II", "unit_III", "-->"),
-        ("unit_II", "unit_IV", "-->"),
-        ("unit_III", "unit_IV", "-->"),
-        ("unit_IV", "unit_V", "-->"),
-        ("unit_V", "unit_VI", "-->"),
-        ("unit_VI", "unit_VII", "-->"),
-        ("unit_I", "unit_VII", "-->"),
-        ("unit_II", "unit_VIII", "-->"),
-        ("unit_III", "unit_VIII", "-->"),
-        ("unit_IV", "unit_IX", "-->"),
-        ("unit_II", "unit_IX", "-->"),
-        ("unit_VI", "unit_X", "-->"),
-        ("unit_VII", "unit_X", "-->"),
-        ("unit_VIII", "unit_X", "-->"),
-        ("unit_IX", "unit_X", "-->"),
+    """Group canonical unit labels into an explicitly editorial relationship map."""
+    groups = (
+        ("mechanisms", "Models and cellular mechanisms", ("unit_0", "unit_I", "unit_II", "unit_III")),
+        ("inheritance", "Information, inheritance and change", ("unit_IV", "unit_V", "unit_VI")),
+        ("environments", "Organisms and environments", ("unit_VII", "unit_VIII", "unit_IX", "unit_X")),
+    )
+    units = {unit.unit_id: unit for unit in book_toc.units}
+    relationships = (
+        ("unit_0", "unit_I", "-.-"),
+        ("unit_I", "unit_II", "---|molecular interactions|"),
+        ("unit_II", "unit_III", "---|membrane gradients|"),
+        ("unit_IV", "unit_V", "---|inheritance|"),
+        ("unit_V", "unit_VI", "---|allele frequencies|"),
+        ("unit_VII", "unit_X", "---|nutrient cycling|"),
+        ("unit_VIII", "unit_X", "---|primary production|"),
+        ("unit_IX", "unit_X", "---|organisms in environments|"),
     )
     lines = [
         CONCEPT_MAP_MARKER[0],
-        "The instructional blocks form an interdependent architecture. The diagram",
-        "below shows primary dependency paths and integrative threads.",
+        "Unit labels come from `docs/manuscript/config.yaml`. The groups and connections",
+        "below are editorial selections, not a derived prerequisite or causal graph.",
         "",
         "```mermaid",
+        "---",
+        "config:",
+        "  layout: dagre",
+        "---",
         "graph TD",
     ]
+    active_groups = []
+    for group, title, identifiers in groups:
+        members = [units[key] for key in identifiers if key in units]
+        if not members:
+            continue
+        active_groups.append(group)
+        lines.extend([f'    subgraph {group}["{title}"]', "        direction LR"])
+        for unit in members:
+            title_lines = "<br/>".join(escape(part) for part in wrap(unit.title, width=24))
+            lines.append(f'        {unit.unit_id}["Unit {escape(unit.label)}<br/>{title_lines}"]')
+        for source, target, connector in relationships:
+            if source in identifiers and target in identifiers and source in units and target in units:
+                lines.append(f"        {source} {connector} {target}")
+        lines.append("    end")
+    for source, target in pairwise(active_groups):
+        lines.append(f"    {source} --- {target}")
+    lines.extend([
+        "    classDef topic fill:#eef5fa,stroke:#0077bb,color:#111111",
+        "    classDef lens fill:#f4f4f4,stroke:#666666,color:#111111,stroke-dasharray:4 3",
+    ])
     for unit in book_toc.units:
-        summary = summaries[unit.unit_id]
-        node = node_ids[unit.unit_id]
-        lines.append(f'    {node}["{unit.display_title}<br/>{summary}"]')
-    lines.append("")
-    for source, target, arrow in dependency_edges:
-        lines.append(f"    {node_ids[source]} {arrow} {node_ids[target]}")
-    lines.append("")
-    for unit in book_toc.units:
-        lines.append(f"    style {node_ids[unit.unit_id]} fill:{styles[unit.unit_id]},color:#fff")
-    lines.extend(
-        [
-            "```",
-            "",
-            (
-                "<!-- alt: Graph showing generated dependency map derived from docs/manuscript/config.yaml: "
-                "dashed links show the systems orientation as a conceptual lens, and solid arrows show "
-                "dependencies through the canonical unit sequence. -->"
-            ),
-            "",
-            (
-                "*Generated dependency map derived from `docs/manuscript/config.yaml`: dashed links show "
-                "the systems orientation as a conceptual lens, and solid arrows show dependencies "
-                "through the canonical unit sequence.*"
-            ),
-            "",
-            CONCEPT_MAP_MARKER[1],
-        ]
+        lines.append(f"    class {unit.unit_id} {'lens' if unit.unit_id == 'unit_0' else 'topic'}")
+    caption = (
+        "Textbook relationship map: models and cellular mechanisms, inheritance and evolutionary change, "
+        "and organisms in environments are complementary topic groups. Dotted connections indicate an "
+        "example optional systems lens; solid connections identify selected relationships, not required "
+        "reading order or measured causation. Labels are config-derived; grouping and links are authored "
+        "in `src/biology/curriculum_sync/appendices.py`. Omitted links do not imply independence."
     )
-    return "\n".join(lines)
+    lines.extend([
+        "```", "", f"<!-- alt: Graph showing {caption[0].lower() + caption[1:]} -->", "",
+        f"*{caption}*", "", CONCEPT_MAP_MARKER[1],
+    ])
+    return normalize_text("\n".join(lines)).text
 

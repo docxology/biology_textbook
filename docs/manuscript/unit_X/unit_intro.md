@@ -8,8 +8,8 @@ intertidal shore in Washington State and waited. Within 18 months, the mussel po
 crowding out barnacles, limpets, chitons, and anemones. What had been a 15-species community collapsed
 to a near-monoculture of *Mytilus californianus*. The sea star was a **keystone species**: a species
 whose removal from the community caused a change in biodiversity disproportionate to its own abundance.
-Paine's experiment created the concept and the measurement — the ratio of effect to biomass — and it
-changed how biologists think about the architecture of ecosystems (Paine, 1966, *American Naturalist*).
+Paine's experiment is a classic example of a removal experiment informing keystone-species reasoning;
+it should not be treated here as establishing a universal effect-to-biomass metric (Paine, 1966, *American Naturalist*).
 
 Ecology is the study of how organisms interact with each other and with their physical environment.
 It operates across scales spanning six orders of magnitude: from the foraging decision of a single
@@ -33,45 +33,49 @@ This unit will give you the quantitative tools to understand why, and to partici
 | Alfred Lotka & Vito Volterra | 1925–1926 | \citep{lotka1925,volterra1926} | Lotka-Volterra predator-prey ODEs | First quantitative model of species interactions; linked ecology to mathematics |
 | Eugene Odum | 1953 | \citep{odum1953} | Ecosystem as unit of ecology with energy flow | Introduced energy-flow and trophic-level thinking into mainstream ecology |
 | Robert Paine | 1966 | \citep{paine1966} | Keystone species concept (sea star experiment) | Showed top-down regulation; single species can structure entire communities |
-| Robert MacArthur & E.O. Wilson | 1967 | \citep{macarthur1967} | Island biogeography: $S = cA^z$ | Connected species richness to area and isolation; foundational for conservation |
+| Robert MacArthur & E.O. Wilson | 1967 | \citep{macarthur1967} | Island biogeography: area, isolation, immigration and extinction | Species–area models such as $S = cA^z$ describe one relationship, not the entire theory or a universal exponent |
 | Paul Ehrlich & Peter Raven | 1964 | \citep{ehrlich1964} | Coevolution between plants and butterflies | Launched chemical ecology and co-evolutionary theory |
 | Intergovernmental Science-Policy Platform on Biodiversity (IPBES) | 2019 | \citep{ipbes2019global} | 1 million species threatened with extinction | Quantified the biodiversity crisis; policy-science interface |
 | Ripple and Beschta | 2012 | \citep{ripple2014} | Observational trophic-cascade evidence after Yellowstone wolf reintroduction | Browsing and vegetation responses require ecological context; these observations alone do not establish that wolves reshaped rivers |
 
 ---
 
-## Key Concepts and Connections {.unnumbered}
+## Ecological scales, evidence, and conservation decisions {.unnumbered}
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    POP["👥 Population Ecology<br/>(N(t); r; K; logistic growth;<br/>age structure; life tables)"] --> GROW["📈 Growth Models<br/>(exponential: dN/dt = rN;<br/>logistic: dN/dt = rN(1−N/K))"]
-    POP --> DEMO["📋 Demography<br/>(survivorship curves;<br/>reproductive value; λ)"]
-
-    COMM["🌐 Community Ecology<br/>(species interactions;<br/>diversity indices)"] --> INTER["⚔️ Species Interactions<br/>(predation, competition,<br/>mutualism, parasitism)"]
-    INTER --> LV["🐺🐰 Lotka-Volterra<br/>(dN/dt = αN − βNP;<br/>dP/dt = δNP − γP)"]
-    INTER --> COEV["🦋 Coevolution<br/>(arms races;<br/>plant-herbivore; host-parasite)"]
-
-    COMM --> DIV["🌈 Biodiversity<br/>(H' = −Σpᵢ ln pᵢ;<br/>species richness; evenness)"]
-    DIV --> IBT["🏝️ Island Biogeography<br/>(S = cAᶻ;<br/>z ≈ 0.25–0.30)"]
-
-    ECO["🌍 Ecosystem Ecology<br/>(energy flow; nutrient cycling;<br/>trophic levels)"] --> PROD["🌱 Primary Production<br/>(GPP, NPP;<br/>biomass pyramids)"]
-    ECO --> NUTRIENT["♻️ Nutrient Cycles<br/>(carbon, nitrogen, phosphorus;<br/>microbial decomposers)"]
-    ECO --> CLIMATE["🌡️ Climate & Biomes<br/>(Whittaker classification;<br/>MAP × MAT → biome)"]
-
-    POP --> COMM
-    COMM --> ECO
-
-    CONS["🛡️ Conservation Biology<br/>(MVPs; corridor design;<br/>extinction debt; rewilding)"] --> IBT
-    CONS --> DIV
-
-    style POP fill:#27ae60,color:#fff
-    style COMM fill:#2980b9,color:#fff
-    style ECO fill:#e67e22,color:#fff
-    style CONS fill:#e74c3c,color:#fff
+    subgraph P["Populations and communities"]
+        G["Growth and demography"]
+        I["Interactions and coexistence"]
+        B["Biodiversity and food webs"]
+    end
+    subgraph E["Ecosystem context"]
+        F["Energy and nutrient budgets"]
+        C["Climate and biomes"]
+    end
+    subgraph D["Conservation decisions"]
+        A["Area and isolation"]
+        V["Conservation evidence"]
+    end
+    G ---|"interacting populations"| I
+    I ---|"network structure"| B
+    B ---|"biotic and abiotic context"| F
+    C ---|"environmental context"| F
+    C ---|"decision context"| V
+    A ---|"habitat context"| V
+    B ---|"one evidence component"| V
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
+    style P fill:#fafafa,stroke:#526777,color:#17212b
+    style E fill:#fafafa,stroke:#526777,color:#17212b
+    style D fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing ecology concept map — green = population; blue = community; orange = ecosystem; red = conservation. -->
+<!-- alt: Graph showing ecological scales connect population processes, community interactions and diversity, ecosystem energy flow and nutrient cycling, and conservation decisions. These are selected relationships, not a causal ladder or reading order. Species–area models, climate associations, and diversity measures require context; none alone proves ecosystem health or supplies a universal biome classification. -->
 
-*Ecology concept map — green = population; blue = community; orange = ecosystem; red = conservation.*
+*Ecological scales connect population processes, community interactions and diversity, ecosystem energy flow and nutrient cycling, and conservation decisions. These are selected relationships, not a causal ladder or reading order. Species–area models, climate associations, and diversity measures require context; none alone proves ecosystem health or supplies a universal biome classification.*
 
 ---
 
@@ -97,8 +101,8 @@ paper-based lab decision.
 
 ## Connections Across the Textbook {.unnumbered}
 
-- **Population models** (logistic growth, age structure) use the same differential equation framework as \nameref{sec:unit_VII_unit_intro} (SIR epidemiological models) — ecology and epidemiology are mathematically unified.
-- **Species diversity indices** (Shannon $H'$, Simpson $D$) are computed using tools from \nameref{sec:unit_VII_unit_intro} (microbial communities) and help evaluate ecosystem health.
+- **Population and transmission models** connect to \nameref{sec:unit_VII_unit_intro}: both can use differential equations, but their variables, mechanisms, and assumptions differ.
+- **Species diversity indices** (Shannon $H'$, Simpson $D$) connect to microbial-community tools in \nameref{sec:unit_VII_unit_intro}. They summarize composition under stated sampling choices, not ecosystem health by themselves.
 - **Nutrient cycling** (nitrogen, carbon, phosphorus) directly ties to \nameref{sec:unit_III_unit_intro} (carbon fixation by photosynthesis) and \nameref{sec:unit_VII_unit_intro} (microbial decomposers, nitrogen fixation by bacteria).
 - **Climate change impacts** on biomes connect to \nameref{sec:unit_VIII_unit_intro} (plant responses to drought, CO₂ enrichment) and \nameref{sec:unit_VI_unit_intro} (evolution of species under selection by climate).
 - **Conservation biology** uses evolutionary genetics (\nameref{sec:unit_VI_unit_intro}: effective population size, genetic rescue) and macroecology (island biogeography, keystone species).
@@ -111,7 +115,7 @@ paper-based lab decision.
 ```python
 from biology.ecology import logistic_growth, lotka_volterra
 
-# Logistic growth: white-tailed deer reintroduction (r = 0.35/yr, K = 500, N0 = 10)
+# Illustrative deer-reintroduction logistic scenario, not fitted field data (r = 0.35/yr, K = 500, N0 = 10)
 lg = logistic_growth(N0=10.0, r=0.35, K=500.0, t_end=30.0, steps=300)
 print(f"N(0) ≈ {lg.populations[0]:.0f}; N(t_end) ≈ {lg.populations[-1]:.0f}")
 
@@ -132,4 +136,4 @@ print(f"Predator range: {min(lv.predator):.1f}–{max(lv.predator):.1f}")
 
 ## Cross-Unit Integration {.unnumbered}
 
-\nameref{sec:unit_X_unit_intro} closes the textbook by returning to where \nameref{sec:unit_0_unit_intro} began. The energy flow through trophic levels, the biogeochemical cycling of carbon and nitrogen, the entropy export from living ecosystems, and the illustrative rule of roughly ten percent trophic transfer (which varies among systems) are direct expressions of the thermodynamic and systems principles introduced in \nameref{sec:unit_0_unit_intro} — open dissipative systems, far-from-equilibrium organization, hierarchical structure, and the shared energetic cost of maintaining low-entropy states. Population dynamics, community assembly, and ecosystem succession are complex-adaptive-system phenomena at landscape scale; alternative stable states and tipping points in ecosystems are the same attractor and bifurcation mathematics from \cref{sec:unit_0_complex_adaptive_systems} applied to a planetary substrate. Read this unit as the macroscopic completion of the framework: the biology of complexity, written on the largest available canvas.
+\nameref{sec:unit_X_unit_intro} returns to systems questions from \nameref{sec:unit_0_unit_intro}: energy flow, carbon and nitrogen cycling, and organization across scales. The illustrative rule of roughly ten percent trophic transfer varies among systems; thermodynamics constrains energy budgets but does not derive one universal transfer efficiency. Population dynamics, community assembly, and succession can be examined with systems models, including selected attractor and bifurcation models from \cref{sec:unit_0_complex_adaptive_systems}. Such comparisons require ecological mechanisms and evidence, not an assumption that a shared mathematical motif explains every ecosystem.

@@ -1,9 +1,5 @@
-# Answer refinement
+# Answer Validation Without Fabricated Repairs
 
-Heuristic upgrades for generated question-bank answers. Logic lives in `engine.py`; `scripts/refine_generated_answers.py` is the thin CLI wrapper.
+This package preserves authored solutions and identifies legacy material requiring human review. Unsupported answer generation raises `UnsupportedAnswerRepair` without writing; chapter excerpts and prompt verbs are not automatic solvers.
 
-```bash
-uv run python scripts/refine_generated_answers.py --dry-run
-```
-
-Tests: `tests/test_question_answer_refinement.py`. See [AGENTS.md](AGENTS.md) for module layout.
+The repository-root preview is `uv run python scripts/refine_generated_answers.py --dry-run`, subject to inherited admission. [AGENTS.md](AGENTS.md) owns module responsibilities; [the question-bank contract](../../../docs/manuscript/questions/AGENTS.md) owns actual item and solution authoring. Verification commands belong to [the testing guide](../../../docs/testing_guide.md).

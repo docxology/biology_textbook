@@ -14,13 +14,13 @@ cumulative directional change in populations over generations — was elegant bu
 no mechanism for inheritance. The Modern Synthesis (1930s–1940s), forged by Fisher, Haldane, Wright,
 Dobzhansky, and Mayr, married Darwinian selection to Mendelian genetics and population genetics, giving
 evolution a precise mathematical foundation. A further deepening came with the neutral theory (Kimura,
-1968): not most genetic change is driven by selection; much molecular evolution is stochastic, driven by
-genetic drift. Understanding evolution now requires integrating selection, drift, mutation, gene flow,
-and non-random mating — the five forces that perturb Hardy-Weinberg equilibrium.
+1968): neutral theory emphasizes a role for stochastic genetic drift in molecular evolution.
+Selection, drift, mutation, and gene flow can change allele frequencies; nonrandom mating can change
+genotype proportions without necessarily changing allele frequencies. These are distinct questions.
 
 This unit treats evolution quantitatively. You will simulate allele frequency trajectories under
 selection and drift, derive the molecular clock equation and apply it to evolutionary divergence times,
-model speciation as a bifurcation in population structure, and reconstruct phylogenetic trees using
+examine reproductive barriers under specified population conditions, and infer phylogenetic trees using
 maximum-likelihood and Bayesian methods. The tools here are the same used in clinical epidemiology
 (tracking antibiotic resistance alleles), crop improvement (genomic selection), and forensic genetics
 (ancestral inference from SNP profiles).
@@ -33,46 +33,54 @@ maximum-likelihood and Bayesian methods. The tools here are the same used in cli
 | ------------- | ---- | ---------------- | --------- | ------------ |
 | Darwin & Wallace | 1858–59 | \citep{darwin1858,darwin1859} | Natural selection as mechanism of evolution | Provided the first mechanistic explanation for biological diversity |
 | Gregor Mendel (rediscovered) | 1900 | \citep{mendel1866} | Mendelian inheritance = mechanism for variation | Fused genetics with evolution; launched Modern Synthesis |
-| Ronald Fisher | 1930 | \citep{fisher1930} | Mathematical synthesis of Darwinism + Mendelism | Fundamental theorem of natural selection; $\Delta q = spq^2/\bar{W}$ |
+| Ronald Fisher | 1930 | \citep{fisher1930} | Mathematical synthesis of Darwinism + Mendelism | Developed links between inheritance and selection; do not identify the single-locus expression $\Delta q = spq^2/\bar{W}$ with the fundamental theorem or use it without allele and fitness conventions |
 | Sewall Wright | 1931 | \citep{wright1931} | Genetic drift and adaptive landscapes | Showed small populations diverge by chance; $\sigma^2(\Delta p) = pq/2N_e$ |
-| Motoo Kimura | 1968 | \citep{kimura1968} | Neutral theory of molecular evolution | Most amino acid substitutions are selectively neutral; molecular clock |
-| Woese & Fox | 1977 | \citep{woese1977} | Three domains of life (Archaea identified by rRNA) | Completely restructured the comprehensive tree of life |
+| Motoo Kimura | 1968 | \citep{kimura1968} | Neutral theory of molecular evolution | Proposed a major role for neutral substitutions and drift; molecular-clock interpretations require rate assumptions |
+| Woese & Fox | 1977 | \citep{woese1977} | rRNA evidence distinguishing archaeal lineages | Changed interpretations of deep evolutionary relationships; distinguish this evidence from later domain naming and alternative tree models |
 | Svante Pääbo et al. | 2010 | \citep{paabo2010neanderthal} | Neanderthal genome sequencing | Showed interbreeding between modern humans and Neanderthals; Nobel Prize 2022 |
 
 ---
 
-## Key Concepts and Connections {.unnumbered}
+## Population change and inference of evolutionary history {.unnumbered}
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    VAR["🎲 Genetic Variation<br/>(mutation, recombination,<br/>gene flow sources)"] --> SEL["Natural selection<br/>Against recessive a:<br/>Δq = −spq²/W̄<br/>wAA = wAa = 1; waa = 1−s"]
-    VAR --> DRIFT["🌊 Genetic Drift<br/>(σ²(Δp) = pq/2Nₑ;<br/>bottleneck, founder effect)"]
-    VAR --> FLOW["💨 Gene Flow<br/>(p₁' = (1−m)p₁ + mp₂;<br/>homogenises populations)"]
-
-    SEL --> ADAP["🦎 Adaptation<br/>(molecular, morphological,<br/>behavioral)"]
-    DRIFT --> NEUT["⚛️ Neutral Evolution<br/>(molecular clock;<br/>t = d/2μ)"]
-
-    SEL --> SPEC["🌿 Speciation<br/>(allopatric, sympatric,<br/>parapatric)"]
-    DRIFT --> SPEC
-    FLOW --> SPEC
-
-    SPEC --> MACRO["🦕 Macroevolution<br/>(fossils, mass extinction,<br/>adaptive radiation)"]
-
-    SEL --> PHYL["🌳 Phylogenetics<br/>(maximum likelihood,<br/>Bayesian; bootstrap support)"]
-    NEUT --> PHYL
-    PHYL --> TREE["🌐 Tree of Life<br/>(Three domains:<br/>Bacteria, Archaea, Eukarya)"]
-
-    CLOCK["🕐 Molecular Clock<br/>(Jukes-Cantor: d_JC;<br/>t = d/2μ)"] --> PHYL
-    NEUT --> CLOCK
-
-    style SEL fill:#e74c3c,color:#fff
-    style DRIFT fill:#3498db,color:#fff
-    style PHYL fill:#27ae60,color:#fff
-    style CLOCK fill:#f39c12,color:#fff
+    subgraph P["Population processes"]
+        V["Heritable variation"]
+        S["Selection"]
+        D["Drift"]
+        G["Gene flow"]
+    end
+    subgraph E["Divergence"]
+        A["Adaptation"]
+        I["Isolation and speciation"]
+    end
+    subgraph H["Historical inference"]
+        F["Sequence and fossil evidence"]
+        T["Phylogenetic inference"]
+        C["Calibrated clocks"]
+    end
+    V ---|"heritable differences"| S
+    V ---|"stochastic sampling"| D
+    S ---|"fitness in context"| A
+    S ---|"conditional divergence"| I
+    D ---|"conditional divergence"| I
+    G ---|"migration context"| I
+    I ---|"historical questions"| T
+    F ---|"model-based inference"| T
+    C ---|"calibration assumptions"| T
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
+    style P fill:#fafafa,stroke:#526777,color:#17212b
+    style E fill:#fafafa,stroke:#526777,color:#17212b
+    style H fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing evolution concept map — red = selection; blue = drift; green = phylogenetics; orange = molecular clock. -->
+<!-- alt: Graph showing population processes and historical inference are separate parts of evolutionary reasoning. Connections to divergence are conditional, not sufficient causes of speciation; gene flow can oppose divergence. Phylogenies and clocks depend on evidence, models, and calibration. These selected relationships are not an evolutionary sequence or causal proof. -->
 
-*Evolution concept map — red = selection; blue = drift; green = phylogenetics; orange = molecular clock.*
+*Population processes and historical inference are separate parts of evolutionary reasoning. Connections to divergence are conditional, not sufficient causes of speciation; gene flow can oppose divergence. Phylogenies and clocks depend on evidence, models, and calibration. These selected relationships are not an evolutionary sequence or causal proof.*
 
 ---
 
@@ -96,7 +104,7 @@ paper-based lab decision.
 
 ## Connections Across the Textbook {.unnumbered}
 
-- **Hardy-Weinberg equilibrium** in \cref{sec:unit_V_population_genetics} is the null model disrupted by the five evolutionary forces analyzed here.
+- **Hardy–Weinberg expectations** in \cref{sec:unit_V_population_genetics} distinguish genotype proportions at specified allele frequencies from changes in those frequencies across generations. A departure in proportions alone does not identify an evolutionary process.
 - **Molecular clock** and **Jukes-Cantor distances** connect to \nameref{sec:unit_IV_unit_intro} (mutation rates in DNA replication) and \nameref{sec:unit_VII_unit_intro} (phylogeny of pathogens and antibiotic-resistance evolution).
 - **Speciation** links to \nameref{sec:unit_X_unit_intro} (biogeography, island species-area relationship, MacArthur-Wilson model).
 - **Adaptive evolution** of immune genes connects to \nameref{sec:unit_IX_unit_intro} (MHC diversity and pathogen immunity), and antibiotic resistance evolution motivates the clinical sections of \nameref{sec:unit_VII_unit_intro}.

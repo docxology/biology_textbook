@@ -101,7 +101,7 @@ def plot_selection_simulation(
 
     regimes = [
         (
-            "Directional selection",
+            "Specified genotype fitness",
             [
                 (
                     Population(
@@ -112,15 +112,15 @@ def plot_selection_simulation(
                         fitness_Aa=fitness_Aa,
                         fitness_aa=fitness_aa,
                     ),
-                    "favoured A",
+                    f"Initial p = {p0:g}",
                     SERIES2[0],
                     "-",
                 ),
             ],
-            "wAA > wAa > waa",
+            f"AA = {fitness_AA:g}; Aa = {fitness_Aa:g}; aa = {fitness_aa:g}",
         ),
         (
-            "Stabilising / balancing",
+            "Heterozygote advantage",
             [
                 (
                     Population("Balancing", p=0.2, q=0.8, fitness_AA=0.75, fitness_Aa=1.0, fitness_aa=0.75),
@@ -135,10 +135,10 @@ def plot_selection_simulation(
                     "--",
                 ),
             ],
-            "heterozygote advantage",
+            "AA = aa = 0.75; Aa = 1",
         ),
         (
-            "Disruptive / underdominance",
+            "Heterozygote disadvantage",
             [
                 (
                     Population("Underdominance", p=0.35, q=0.65, fitness_AA=1.0, fitness_Aa=0.55, fitness_aa=1.0),
@@ -153,27 +153,29 @@ def plot_selection_simulation(
                     "--",
                 ),
             ],
-            "heterozygote disadvantage",
+            "AA = aa = 1; Aa = 0.55",
         ),
     ]
 
-    fig, axes = plt.subplots(1, 3, figsize=(11, 4.8), sharex=True, sharey=True)
+    fig, axes = plt.subplots(3, 1, figsize=(8, 9), sharex=True, sharey=True)
     for ax, (title, populations, subtitle) in zip(axes, regimes):
         for pop, label, color, linestyle in populations:
             results = simulate_selection(pop, generations)
             gen_num = [0, *[r.generation for r in results]]
             p_vals = [pop.p, *[r.p for r in results]]
             ax.plot(gen_num, p_vals, color=color, linewidth=2.2, linestyle=linestyle, label=label)
-        ax.axhline(0.5, color=GRAY, linestyle=":", linewidth=1, alpha=0.75)
-        ax.set_title(f"{title}\n{subtitle}", fontsize=11.5)
-        ax.set_xlabel("Generation", fontsize=11)
+        if title != "Specified genotype fitness":
+            ax.axhline(0.5, color=GRAY, linestyle=":", linewidth=1, alpha=0.75,
+                       label="p = 0.5 equilibrium")
+        ax.set_title(f"{title}\n{subtitle}", fontsize=12)
         ax.set_ylim(0, 1)
-        ax.tick_params(labelsize=10)
-        ax.legend(fontsize=9, frameon=False, loc="best")
-    axes[0].set_ylabel("Allele A frequency (p)", fontsize=11)
-    fig.suptitle("Allele-Frequency Trajectories Under Three Selection Modes", fontsize=14, fontweight="bold")
+        ax.set_ylabel("Allele A frequency (p)", fontsize=12)
+        ax.tick_params(labelsize=11)
+        ax.legend(fontsize=11, frameon=False, loc="best")
+    axes[-1].set_xlabel("Generation", fontsize=12)
+    fig.suptitle("Illustrative One-Locus Viability Selection", fontsize=14, fontweight="bold")
     fig.tight_layout()
-    return _save_figure(fig, output_dir, "selection_simulation.png", aspect="landscape")
+    return _save_figure(fig, output_dir, "selection_simulation.png")
 
 
 # ---------------------------------------------------------------------------

@@ -135,61 +135,63 @@ core response and a scholarship check.
 ### Textbook Concept Map {.unnumbered}
 
 <!-- textbook-concept-map-start -->
-The instructional blocks form an interdependent architecture. The diagram
-below shows primary dependency paths and integrative threads.
+Unit labels come from `docs/manuscript/config.yaml`. The groups and connections
+below are editorial selections, not a derived prerequisite or causal graph.
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    U0["Unit 0 — Systems Science for Biology<br/>feedback, emergence,<br/>active inference, history"]
-    I["Unit I — Chemistry of Life<br/>atoms, bonds, water,<br/>macromolecules, enzymes"]
-    II["Unit II — The Cell<br/>organelles, membranes,<br/>signaling, transport"]
-    III["Unit III — Energy and Metabolism<br/>respiration, photosynthesis,<br/>ATP, chemiosmosis"]
-    IV["Unit IV — Molecular Genetics<br/>DNA, transcription,<br/>translation, genomics"]
-    V["Unit V — Classical Genetics and Heredity<br/>Mendelian, chromosomal,<br/>population genetics"]
-    VI["Unit VI — Evolution<br/>selection, drift,<br/>speciation, phylogenetics"]
-    VII["Unit VII — Microbiology<br/>bacteria, viruses,<br/>microbiome, disease"]
-    VIII["Unit VIII — Botany — Plant Biology<br/>structure, reproduction,<br/>responses, hormones"]
-    IX["Unit IX — Zoology and Systems Physiology<br/>circulation, nervous system,<br/>endocrine, immune"]
-    X["Unit X — Ecology<br/>populations, communities,<br/>ecosystems, conservation"]
-
-    U0 -.->|conceptual lens| I
-    U0 -.->|conceptual lens| II
-    U0 -.->|conceptual lens| X
-    U0 -.->|conceptual lens| IX
-    I --> II
-    I --> III
-    II --> III
-    II --> IV
-    III --> IV
-    IV --> V
-    V --> VI
-    VI --> VII
-    I --> VII
-    II --> VIII
-    III --> VIII
-    IV --> IX
-    II --> IX
-    VI --> X
-    VII --> X
-    VIII --> X
-    IX --> X
-
-    style U0 fill:#34495e,color:#fff
-    style I fill:#4a90d9,color:#fff
-    style II fill:#8e44ad,color:#fff
-    style III fill:#e67e22,color:#fff
-    style IV fill:#e74c3c,color:#fff
-    style V fill:#c0392b,color:#fff
-    style VI fill:#27ae60,color:#fff
-    style VII fill:#16a085,color:#fff
-    style VIII fill:#2ecc71,color:#fff
-    style IX fill:#3498db,color:#fff
-    style X fill:#1abc9c,color:#fff
+    subgraph mechanisms["Models and cellular mechanisms"]
+        direction LR
+        unit_0["Unit 0<br/>Systems Science for<br/>Biology"]
+        unit_I["Unit I<br/>Chemistry of Life"]
+        unit_II["Unit II<br/>The Cell"]
+        unit_III["Unit III<br/>Energy and Metabolism"]
+        unit_0 -.- unit_I
+        unit_I ---|molecular interactions| unit_II
+        unit_II ---|membrane gradients| unit_III
+    end
+    subgraph inheritance["Information, inheritance and change"]
+        direction LR
+        unit_IV["Unit IV<br/>Molecular Genetics"]
+        unit_V["Unit V<br/>Classical Genetics and<br/>Heredity"]
+        unit_VI["Unit VI<br/>Evolution"]
+        unit_IV ---|inheritance| unit_V
+        unit_V ---|allele frequencies| unit_VI
+    end
+    subgraph environments["Organisms and environments"]
+        direction LR
+        unit_VII["Unit VII<br/>Microbiology"]
+        unit_VIII["Unit VIII<br/>Botany — Plant Biology"]
+        unit_IX["Unit IX<br/>Zoology and Systems<br/>Physiology"]
+        unit_X["Unit X<br/>Ecology"]
+        unit_VII ---|nutrient cycling| unit_X
+        unit_VIII ---|primary production| unit_X
+        unit_IX ---|organisms in environments| unit_X
+    end
+    mechanisms --- inheritance
+    inheritance --- environments
+    classDef topic fill:#eef5fa,stroke:#0077bb,color:#111111
+    classDef lens fill:#f4f4f4,stroke:#666666,color:#111111,stroke-dasharray:4 3
+    class unit_0 lens
+    class unit_I topic
+    class unit_II topic
+    class unit_III topic
+    class unit_IV topic
+    class unit_V topic
+    class unit_VI topic
+    class unit_VII topic
+    class unit_VIII topic
+    class unit_IX topic
+    class unit_X topic
 ```
 
-<!-- alt: Graph showing generated dependency map derived from docs/manuscript/config.yaml: dashed links show the systems orientation as a conceptual lens, and solid arrows show dependencies through the canonical unit sequence. -->
+<!-- alt: Graph showing textbook relationship map: models and cellular mechanisms, inheritance and evolutionary change, and organisms in environments are complementary topic groups. Dotted connections indicate an example optional systems lens; solid connections identify selected relationships, not required reading order or measured causation. Labels are config-derived; grouping and links are authored in src/biology/curriculum_sync/appendices.py. Omitted links do not imply independence. -->
 
-*Generated dependency map derived from `docs/manuscript/config.yaml`: dashed links show the systems orientation as a conceptual lens, and solid arrows show dependencies through the canonical unit sequence.*
+*Textbook relationship map: models and cellular mechanisms, inheritance and evolutionary change, and organisms in environments are complementary topic groups. Dotted connections indicate an example optional systems lens; solid connections identify selected relationships, not required reading order or measured causation. Labels are config-derived; grouping and links are authored in `src/biology/curriculum_sync/appendices.py`. Omitted links do not imply independence.*
 
 <!-- textbook-concept-map-end -->
 

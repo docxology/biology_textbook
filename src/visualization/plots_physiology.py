@@ -21,7 +21,7 @@ from visualization._scaffold import (
 def plot_oxygen_dissociation(
     output_dir: Path,
 ) -> Path:
-    """Plot O2-Hb dissociation curves at different physiological conditions.
+    """Compare illustrative P50 shifts with a common Hill exponent of 2.7.
 
     Args:
         output_dir: Directory to save PNG.
@@ -34,9 +34,9 @@ def plot_oxygen_dissociation(
     fig, ax = plt.subplots(figsize=(9, 6))
 
     configs: list[tuple[float, str, str, str]] = [
-        (26.0, "Normal (37°C, pH 7.4)", SERIES3[0], "-"),
-        (32.0, "Right-shifted (fever / exercise)", SERIES3[1], "--"),
-        (20.0, "Left-shifted (fetal HbF)", SERIES3[2], "-."),
+        (26.0, "Reference P50 = 26 mmHg", SERIES3[0], "-"),
+        (32.0, "Right shift: P50 = 32 mmHg", SERIES3[1], "--"),
+        (20.0, "Left shift: P50 = 20 mmHg", SERIES3[2], "-."),
     ]
 
     for p50, label, color, ls in configs:
@@ -46,13 +46,13 @@ def plot_oxygen_dissociation(
         ax.plot(pO2s, sats, color=color, linewidth=2.5, linestyle=ls, label=label)
 
     ax.set_xlabel("pO₂ (mmHg)", fontsize=14)
-    ax.set_ylabel("Haemoglobin Saturation (%)", fontsize=14)
-    ax.set_title("Oxygen-Haemoglobin Dissociation Curves", fontsize=15)
-    ax.legend(fontsize=12)
+    ax.set_ylabel("Hemoglobin saturation (%)", fontsize=14)
+    ax.set_title("Illustrative Oxygen Binding (Hill n = 2.7)", fontsize=15)
     ax.set_xlim(0, 150)
     ax.set_ylim(0, 100)
-    ax.axvline(100, color=GRAY, linestyle=":", linewidth=1, alpha=0.6, label="Alveolar pO₂")
-    ax.axvline(40, color=ORANGE, linestyle=":", linewidth=1, alpha=0.6, label="Tissue pO₂")
+    ax.axvline(100, color=GRAY, linestyle=":", linewidth=1, alpha=0.8, label="Reference pO2 = 100 mmHg")
+    ax.axvline(40, color=ORANGE, linestyle=":", linewidth=1, alpha=0.8, label="Reference pO2 = 40 mmHg")
+    ax.legend(fontsize=10, frameon=False)
     ax.tick_params(labelsize=12)
     fig.tight_layout()
     return _save_figure(fig, output_dir, "oxygen_dissociation_curve.png")

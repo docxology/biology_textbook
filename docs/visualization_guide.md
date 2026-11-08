@@ -7,7 +7,7 @@
 
 ## Table of contents
 
-- [Visual Output Contract](#visual-output-contract)
+- [Visual assets, review outputs, and publication requirements](#visual-assets-review-outputs-and-publication-requirements)
 - [Six-step checklist for new figures](#six-step-checklist-for-new-figures)
 - [Generating figures](#generating-figures)
 - [Matplotlib figure conventions](#matplotlib-figure-conventions)
@@ -15,13 +15,13 @@
 - [Wong/Okabe-Ito reference palette](#wongokabe-ito-reference-palette)
 - [Mermaid diagram conventions](#mermaid-diagram-conventions)
 - [Embedding in manuscript](#embedding-in-manuscript)
-- [Figure size guidance](#figure-size-guidance)
+- [Plotting area, padded canvas, and printed size](#plotting-area-padded-canvas-and-printed-size)
 - [Common mistakes](#common-mistakes)
 - [Workflows](#workflows)
 
 ---
 
-## Visual Output Contract
+## Visual assets, review outputs, and publication requirements
 
 The `biology_textbook` project generates **three types of visual output**:
 
@@ -29,14 +29,25 @@ The `biology_textbook` project generates **three types of visual output**:
 2. **Registered Mermaid diagrams** from ALL_BIOLOGY_DIAGRAMS.
 3. **Inline Mermaid fences** in the configured manuscript.
 
-Use current manifests for counts, not fixed metrics as proof. Registered PNGs are square-padded by default. The audit checks normal matplotlib aspect ratios 0.85–1.18 and Mermaid 0.75–1.33 unless a reviewed exception applies. Missing/corrupt images are unavailable, not valid by suffix. Label synthetic model plots as illustrations, not empirical measurements. Use explicit review roots:
+Use current manifests for inventories, not fixed counts as proof. PNGs are square-padded by default; audited aspect limits admit reviewed exceptions. Missing/corrupt images are unavailable. Synthetic model plots are illustrations, not empirical measurements. After [locked setup](../README.md#standalone-quick-start), run this review recipe from the project root:
 
 ```bash
-tmp=$(mktemp -d)
-uv run python scripts/generate_figures.py --output-dir "$tmp/figures"
-uv run python scripts/generate_diagrams.py --strict-png --output-dir "$tmp/figures/mermaid"
-uv run python scripts/audit_visual_contracts.py --figures-root "$tmp/figures" --output "$tmp/visual_manifest.json" --render-inline --check
+mkdir -p output/visual_review
+review=$(mktemp -d "$PWD/output/visual_review/run.XXXXXX")
+uv run --frozen --extra dev python scripts/generate_figures.py --output-dir "$review/figures"
+uv run --frozen --extra dev python scripts/generate_diagrams.py --strict-png --size 1200 --output-dir "$review/figures/mermaid"
+uv run --frozen --extra dev python scripts/audit_visual_contracts.py --figures-root "$review/figures" --output "$review/visual_manifest.json" --render-inline --check
 ```
+
+Inline rendering/cleanup requires a real directory beneath this project's `output/`, with no symlink/non-directory ancestors; an arbitrary OS temporary directory is not admitted. This is not a universal sandbox for every writer: figure/registered-diagram generators and manifest report writers accept supplied destinations. The commands are a recipe, not an exercised pass or accessibility certification.
+
+### Meaning and limits of graphical abstracts
+
+Unit maps are selected relationship overviews, not prerequisite graphs or causal proof. Use two or three named groups, short sentence-case labels and arrowless labeled connectors. Reserve arrows for explicitly scoped material/information transfer or an actual modeled transition. Use dark text on light fills, without emoji or color-only meaning. Caption and alt text must explain the connections and omissions, not merely name colors.
+
+The twelve overview sources select diagram-local `layout: dagre` with the locked CLI. A native comparison exposed cluster-title crossings and narrow/tall layouts under the bundled default; the selected layout preserves the authored relationships without a global renderer or dependency change. Layout syntax is documented [upstream](https://mermaid.js.org/config/layouts.html). Inspect each actual PNG/PDF rather than inferring final-size readability from successful compilation.
+
+Quantitative conventions: milestone dates are points, not duration bars or overlapping eras; biome climate markers are equal-sized, not NPP-area encodings; Shannon entropy (nats) and Simpson diversity 1−D (dimensionless) occupy separate panels with their own vertical scales, so bar heights are compared within each index, not between indices. Oxygen curves use stipulated P₅₀=26/32/20 mmHg with Hill n=2.7 and identify 40/100 mmHg guides, not calibrated fever/HbF states. The first selection panel reports the actual supplied AA/Aa/aa fitnesses and initial p rather than assuming a fixed directional regime; heterozygote advantage/disadvantage panels are not phenotypic stabilizing/disruptive selection models. These are source conventions, not empirical observations or a fresh layout/readability pass.
 
 ---
 
@@ -46,12 +57,12 @@ Use this every time you add a new visualization. Each step maps to an enforced o
 
 | # | Step | Where | Enforced by |
 | - | ---- | ----- | ----------- |
-| 1 | **Implement** the generator: `plot_<descriptor>(*, output_path: Path) -> Path` | `src/visualization/plots.py` | Coverage gate (≥ 90 %) — `test_mermaid_and_visualization.py` |
-| 2 | **Register** the generator in `ALL_FIGURE_GENERATORS` (key matches allowlist) | `src/visualization/plots.py` | Allowlist in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) |
+| 1 | Implement the domain function in the appropriate `src/visualization/plots_*.py`; return its PNG `Path` | Domain module | Numerical/behavioral tests plus editorial review; coverage alone is not scientific proof |
+| 2 | Register a callable accepting `output_dir: Path`; supply required domain inputs in its wrapper | `src/visualization/plots.py` → `ALL_FIGURE_GENERATORS` | Registry/reference tests; `__init__.py` is the public facade |
 | 3 | **Generate** the PNG: `uv run python scripts/generate_figures.py` | from project dir | Inspect `output/figures/<file>.png`; square padding is applied by `_save_figure` |
 | 4 | **Embed** the figure in the chapter using raw-LaTeX `\begin{figure}…\label{fig:unit_X_<descriptor>}…\end{figure}` and an `<!-- alt: … -->` comment **immediately after** `\end{figure}` | `docs/manuscript/unit_<X>/<chapter>.md` | `test_accessibility.py`, `test_build_invariants.py` |
 | 5 | **Cross-reference** the figure from prose with `\cref{fig:unit_X_<descriptor>}` (no hand-typed "Figure 4.2") | same chapter or any other | `test_crossref_validator.py` |
-| 6 | **Validate**: `uv run python -m pytest tests/test_build_invariants.py tests/test_accessibility.py -v` and run the temp-root visual-contract audit above | from project dir | CI gate |
+| 6 | Run relevant invariant tests and the project-output review recipe above; inspect actual assets at final size | Project root | Gate results and separate human review have different scopes |
 
 > [!TIP]
 > If a generator is registered but never embedded, `test_every_registered_figure_is_referenced` fails. Use `scripts/insert_orphan_figures.py --dry-run` to scaffold an embedding block automatically.
@@ -89,9 +100,9 @@ All figure generators must follow these rules (enforced by `tests/test_mermaid_a
 | # | Rule | Why |
 | - | ---- | --- |
 | 1 | **Headless backend.** Set `MPLBACKEND=Agg`; never call `plt.show()` in library code. | CI has no display. |
-| 2 | **Font sizes.** Titles 15–18 pt; axis labels 14 pt; tick labels 12 pt; legend 11 pt. | Readable at 2 mm-margin print density. |
-| 3 | **DPI = 150 and square output.** Use `visualization._scaffold._save_figure`; it saves with a tight bounding box, closes the figure, and pads the PNG to a square canvas. | Crisp on screen and print without bloated file size or aspect-ratio drift. |
-| 4 | **CVD palette.** Import from `src/visualization/cvd.py`; never use red and green as the only two-way distinction. | Colorvision-deficiency safety. |
+| 2 | **Font-size targets.** Titles 15–18 pt, axis labels 14 pt, ticks 12 pt, legend 11 pt before scaling. | Inspect at final physical size; these targets do not establish readability. |
+| 3 | **Save/pad.** Use `_save_figure` for tight save, closure and default square padding at the configured DPI. | Canvas aspect, visible content and printed size are separate. |
+| 4 | **Redundant encoding.** Import project colors from `cvd.py`; pair color with line style, shape, hatch or direct labels. | Palette selection is not all-CVD safety certification. |
 | 5 | **Legends with handles.** When multiple series appear, pass explicit `handles, labels`. | Avoids fragile auto-legend ordering. |
 | 6 | **Pathlib for I/O.** Use `pathlib.Path`; resolve at call time. | Cross-platform; no hardcoded `/tmp`. |
 | 7 | **Deterministic.** Set `np.random.seed(42)` (or pass `seed=` argument) before any stochastic plot. | Reproducible PNGs across CI runs. |
@@ -108,6 +119,8 @@ from visualization._scaffold import _save_figure
 ```
 
 ### Canonical generator skeleton
+
+Illustrative generator template, not an existing biological API or exercised output.
 
 ```python
 import numpy as np
@@ -148,15 +161,13 @@ The palette is defined in `src/visualization/cvd.py`. **Always import from there
 
 | Symbol | Hex | RGB | Use |
 | ------ | --- | --- | --- |
-| `BAR_POS` | `#1f77b4` | (31, 119, 180) | Positive bars (e.g. depolarizing Nernst potentials) |
-| `BAR_NEG` | `#d62728` | (214, 39, 40) | Negative bars (e.g. hyperpolarising Nernst potentials) |
-| `PUNNETT_DOMINANT` | `#1f77b4` | (31, 119, 180) | Dominant Punnett-square cells (with `//` hatch) |
-| `PUNNETT_RECESSIVE` | `#ff7f0e` | (255, 127, 14) | Recessive Punnett-square cells (with `xx` hatch) |
-| `SERIES2[0]` | `#1f77b4` | (31, 119, 180) | Two-series default — primary (blue) |
-| `SERIES2[1]` | `#ff7f0e` | (255, 127, 14) | Two-series default — secondary (orange) |
-| `SERIES3[0]` | `#1f77b4` | (31, 119, 180) | Three-series — primary (blue) |
-| `SERIES3[1]` | `#ff7f0e` | (255, 127, 14) | Three-series — secondary (orange) |
-| `SERIES3[2]` | `#2ca02c` | (44, 160, 44) | Three-series — tertiary (green; only safe with line-style differentiation) |
+| `BLUE`, `BAR_POS`, `SERIES2[0]` | `#0077bb` | (0, 119, 187) | Primary/positive series |
+| `ORANGE`, `BAR_NEG`, `SERIES2[1]` | `#ee7733` | (238, 119, 51) | Secondary/negative series |
+| `TEAL`, `SERIES3[2]` | `#009988` | (0, 153, 136) | Third series |
+| `PURPLE`, `SERIES4[3]` | `#7b4ea3` | (123, 78, 163) | Fourth series |
+| `GRAY` | `#666666` | (102, 102, 102) | Neutral elements |
+| `PUNNETT_DOMINANT` | `#6BAED6` | (107, 174, 214) | Cool cells with redundant labels/hatching |
+| `PUNNETT_RECESSIVE` | `#FDB863` | (253, 184, 99) | Warm cells with redundant labels/hatching |
 
 ### When to use which
 
@@ -170,13 +181,13 @@ The palette is defined in `src/visualization/cvd.py`. **Always import from there
 | Categorical (≥4 categories) | `cmap="tab10"` is acceptable but include direct labels on the plot |
 
 > [!WARNING]
-> **Never** use red and green as the only two-way distinction. ~8 % of biological-male readers and ~0.5 % of biological-female readers cannot reliably distinguish them. The CVD palette and line-style/hatch redundancy implements `accessibility.color_blindness_safe: true` from `docs/manuscript/config.yaml`. See [accessibility.md](accessibility.md).
+> Never use red/green or any hue pair as the sole distinction. The palette expresses design intent, not empirical accessibility validation; review contrast, grayscale, redundant channels and actual output. See [accessibility.md](accessibility.md).
 
 ---
 
 ## Wong/Okabe-Ito reference palette
 
-For new generators or **mermaid `classDef` styling**, prefer the **Wong/Okabe-Ito 8-color palette** — the de-facto standard for colorblind-safe scientific figures (Wong, *Nature Methods* 8, 441, 2011). All eight hues are distinguishable under deuteranopia, protanopia, and tritanopia.
+This reference palette is distinct from the project constants above. The eight reference colors below are design options, not a guarantee that every pair remains distinguishable for all viewers, sizes or backgrounds. Use redundant encoding and actual review.
 
 | Name | Hex | RGB | Typical use |
 | ---- | --- | --- | ----------- |
@@ -185,33 +196,29 @@ For new generators or **mermaid `classDef` styling**, prefer the **Wong/Okabe-It
 | **Orange** | `#E69F00` | (230, 159, 0) | Secondary series; treatment; perturbation |
 | **Teal (bluish-green)** | `#009E73` | (0, 158, 115) | Tertiary series; "go"/positive direction |
 | **Yellow** | `#F0E442` | (240, 228, 66) | Highlight; rare 4th series; **avoid as the only distinction on white background** |
-| **Navy (dark blue)** | `#0000B2` | (0, 0, 178) | Alternative to Blue when Blue is reserved |
 | **Vermillion (red-orange)** | `#D55E00` | (213, 94, 0) | "Stop"/danger/negative direction |
 | **Sky blue** | `#56B4E9` | (86, 180, 233) | Lighter tint of Blue; pairs well with Vermillion |
 | **Reddish purple (pink)** | `#CC79A7` | (204, 121, 167) | 4th–5th series; gentle accent |
 
-### Mermaid `classDef` example using Wong palette
+### Mermaid `classDef` example with light fills
 
 ````markdown
 ```mermaid
 flowchart LR
-    classDef control     fill:#0072B2,stroke:#000000,color:#FFFFFF
-    classDef treatment   fill:#E69F00,stroke:#000000,color:#000000
-    classDef positive    fill:#009E73,stroke:#000000,color:#FFFFFF
-    classDef negative    fill:#D55E00,stroke:#000000,color:#FFFFFF
-
-    A[Glucose] --> B[Hexokinase]
-    B --> C[Glucose-6-P]
-    class A control
-    class B treatment
-    class C positive
+    classDef substrate fill:#e6f1f7,stroke:#333333,color:#111111
+    classDef product fill:#fff0df,stroke:#333333,color:#111111
+    A[Glucose] -->|Hexokinase reaction| B[Glucose-6-phosphate]
+    class A substrate
+    class B product
 ```
 
-*Two-step phosphorylation: glucose enters and is phosphorylated by hexokinase to glucose-6-phosphate, committing the substrate to glycolysis.*
+<!-- alt: Glucose is converted to glucose-6-phosphate in the hexokinase reaction; ATP coupling and downstream reactions are omitted. -->
+
+*Selected conversion catalyzed by hexokinase; ATP coupling and subsequent glycolysis steps are omitted. This is not the pathway's committed step.*
 ````
 
 > [!TIP]
-> When you only need **one** color beyond black, use **Blue (`#0072B2`)**. When you need **two**, add **Orange (`#E69F00`)** — these two hues remain distinct under all common forms of color vision deficiency. Add **Vermillion (`#D55E00`)** as the third only when red-orange is semantically right (e.g. signaling "stop").
+> Prefer a small palette with dark text on light fills for relationship maps; add labels, line styles or shapes before adding more colors. No color here carries unique biological meaning.
 
 ---
 
@@ -256,13 +263,13 @@ For the full diagram-type → biology-content mapping, see [manuscript_guide.md#
 
 - Sentence-case node labels under 30 characters.
 - Wrap labels containing `(`, `)`, `:`, `,`, `<`, `>` in double quotes: `A["Glucose (C6)"]`.
-- Style with `classDef` blocks; use Wong/Okabe-Ito hex (see palette table above).
-- Per-node inline style is accepted: `style NodeId fill:#0072B2,color:#FFFFFF` — use `classDef` whenever 2+ nodes share styling.
+- Use shared `classDef` blocks with dark text on light fills for relationship maps. Do not encode a biological distinction only by fill color.
+- Choose connectors by semantics: an unlabeled arrow must not turn a topic relationship into an implied cause, prerequisite or material flow.
 - After every inline `mermaid` fence in a chapter, write exactly one `<!-- alt: ... -->` comment and exactly one short *italic* descriptive caption — `tests/test_accessibility.py` enforces both.
 
 ### Available registered diagrams
 
-See [api_reference.md](api_reference.md#mermaidbiology_diagrams) for the full list of 24 `*_diagram()` factories.
+The current factory inventory is `src/mermaid/biology_diagrams.py` → `ALL_BIOLOGY_DIAGRAMS`; [API reference](api_reference.md#mermaidbiology_diagrams) curates callable examples without making a fresh availability claim.
 
 ---
 
@@ -308,10 +315,10 @@ graph LR
 
 ### Mermaid (registered PNG)
 
-When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
+For reusable registered output, first generate strict PNGs, then reference the staging-relative asset:
 
 ```markdown
-![Glycolysis pathway: glucose to pyruvate via 10 enzymatic steps.](<figures/mermaid/glycolysis_pathway.png>)  <!-- path placeholder: no pre-rendered PNG exists in-tree; figures render from Mermaid source -->
+![Glycolysis pathway with investment and payoff stages from glucose to pyruvate.](../figures/mermaid/glycolysis_pathway.png)
 ```
 
 ### Captioning conventions
@@ -325,19 +332,11 @@ When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
 
 ---
 
-## Figure size guidance
+## Plotting area, padded canvas, and printed size
 
-| Use case | matplotlib `figsize=` | LaTeX `width=` | Notes |
-| -------- | --------------------- | -------------- | ----- |
-| Full-width hero (chapter opener, key result) | `(10, 6)` | `0.95\textwidth` | One per chapter at most |
-| Standard plot (most cases) | `(8, 5)` | `0.85\textwidth` | Default — start here |
-| Half-width (paired with another figure) | `(6, 4)` | `0.45\textwidth` | Use `subfigure` package |
-| Small inline schematic | `(5, 3.5)` | `0.55\textwidth` | For supporting illustrations |
-| Square plot (Punnett, heatmap) | `(6, 6)` | `0.65\textwidth` | Maintain aspect ratio |
-| Wide panel (multiple series, time-series) | `(12, 4)` | `0.95\textwidth` | Aspect 3:1; useful for HH traces |
+`figsize` describes the plotting area before tight save/padding, not the delivered aspect. Default delivered PNGs are square; non-square output needs the existing reviewed-exception path. A `(12, 4)` plotting area does not imply a delivered 3:1 image.
 
-> [!TIP]
-> Default to **half-width (`0.45\textwidth`)** when two related plots can sit side-by-side — saves vertical space at the 2 mm-margin density. Reserve **full-width (`0.85\textwidth`)** for the section's "key result" figure.
+Start with `0.85\textwidth` for a standard figure or `0.95\textwidth` for a larger panel; these are layout suggestions, not readability findings. Half-width paired panels require inspection after scaling. Inspect labels, legends, connector crossings, caption placement and unused padding in both PNG and PDF at the intended physical size; do not infer legibility from pixel dimensions alone.
 
 > [!WARNING]
 > Avoid `width=\textwidth` (no fraction). Even with 2 mm margins, content tends to bleed past expected bounds. Cap at `0.95\textwidth`.
@@ -369,16 +368,16 @@ When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
 
 ### Adding a new matplotlib figure (`plot_*`)
 
-1. Implement `plot_<descriptor>(output_dir: Path, ...)` in [src/visualization/plots.py](../src/visualization/plots.py) and register it in `ALL_FIGURE_GENERATORS`. Name must appear on the allowlist in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md).
+1. Implement in the appropriate [domain module](../src/visualization/), register an `output_dir` callable in [plots.py](../src/visualization/plots.py), and expose the intended public API through `__init__.py`.
 2. From the project directory: `uv run python scripts/generate_figures.py`.
 3. Embed in the chapter with raw LaTeX `\begin{figure}…\includegraphics{../figures/<file>.png}…\label{fig:unit_X_<descriptor>}…\end{figure}` and an `<!-- alt: … -->` comment.
 4. Reference with `\cref{fig:...}` in prose.
-5. Confirm `tests/test_build_invariants.py::test_every_registered_figure_is_referenced`, `tests/test_accessibility.py`, and `scripts/audit_visual_contracts.py --figures-root <tmp>/figures --output <tmp>/visual_manifest.json --render-inline --check` pass. Optional: `scripts/insert_orphan_figures.py --dry-run`.
+5. Run relevant build/accessibility tests and the project-output review recipe at the top of this guide, then inspect actual PNG/PDF output. A manifest pass is not human review.
 
 ### Adding a new registered Mermaid diagram
 
-1. Add a factory `*_diagram()` in [src/mermaid/biology_diagrams.py](../src/mermaid/biology_diagrams.py) and register it in `ALL_BIOLOGY_DIAGRAMS`. Allowlist in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md).
-2. From the project directory: `uv run python scripts/generate_diagrams.py`.
+1. Add a specification/factory through [biology_diagrams.py](../src/mermaid/biology_diagrams.py) and register it in `ALL_BIOLOGY_DIAGRAMS`; the registry is authoritative, not a copied allowlist.
+2. From the project directory: `uv run --frozen --extra dev python scripts/generate_diagrams.py --strict-png`.
 3. `tests/test_mermaid_and_visualization.py` exercises the registry.
 4. Reference the diagram from manuscript as required by your chapter. Inline fences need one `<!-- alt: ... -->` comment plus one italic caption; static PNGs need descriptive markdown image alt text.
 5. Use balanced `flowchart TD`/`LR` directions, short wrapped labels, and subgraphs/phase blocks so the rendered PNG remains square-ish without misrepresenting sequence semantics.
@@ -391,4 +390,4 @@ When a chapter requires a guaranteed-stable PNG (instead of inline rendering):
 - [manuscript_guide.md](manuscript_guide.md) — embedding, alt text, equations, citations
 - [accessibility.md](accessibility.md) — CVD policy, alt text rules, reader-profile recipe
 - [api_reference.md](api_reference.md) — full list of `plot_*` and `*_diagram()` registered names
-- [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) — allowlist of figure and diagram names
+- [Manuscript contract](manuscript/AGENTS.md) — source IDs, reference types and registry ownership

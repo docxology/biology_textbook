@@ -11,10 +11,7 @@
 
 ## Chapters
 
-1. `population_ecology.md` — Population Ecology and Growth Models
-2. `community_ecology.md` — Community Ecology and Species Interactions
-3. `ecosystem_ecology.md` — Ecosystem Ecology
-4. `biomes_and_conservation.md` — Biomes and Conservation Biology
+[README.md](README.md) lists chapter filenames/titles; [config.yaml](../config.yaml) owns order.
 
 ## Key Equations
 
@@ -23,18 +20,13 @@
 - Lotka-Volterra (prey): dN/dt = αN − βNP
 - Lotka-Volterra (pred): dP/dt = δNP − γP
 - Shannon diversity: H' = −Σ pᵢ ln pᵢ
-- Species-area: S = cA^z (z ≈ 0.25 continents; 0.3 islands)
+- Species–area: S = cA^z with supplied scale-dependent parameters; no universal continental/island exponent is implied.
 
 ## Figures and Diagrams
 
-- `src/visualization/plots.py` — `plot_lotka_volterra()`, `plot_logistic_growth()`, `plot_species_area_relationship()`, `plot_biome_distribution()`
+- `plot_lotka_volterra()`, `plot_logistic_growth()`, `plot_species_area_relationship()` and `plot_biome_distribution()` are registered in `plots.py`. Biome climate markers are equal-sized; marker area does not encode NPP. See [visual conventions](../../visualization_guide.md).
 - `src/mermaid/biology_diagrams.py` — `food_web_diagram()`, `nutrient_cycle_diagram()`, `population_growth_stages_diagram()`
 
-## Chapter Metadata Convention
+## Shared source contract
 
-All chapter files in this unit carry (inserted automatically by the scripts):
-
-- `\label{sec:unit_X_<stem>}` on the line after the H1 — cross-reference with `\cref{sec:unit_X_<stem>}`
-- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../src/biology/chapter_metadata.py`)
-
-See [../AGENTS.md](../AGENTS.md) and [../../docs/manuscript_guide.md](../../docs/manuscript_guide.md) for the full set of invariants.
+Follow [manuscript instructions](../AGENTS.md) for H1s, stable IDs, metadata badges, references and authored assessments; see [writing examples](../../manuscript_guide.md). Implementation paths above are repository-root paths.

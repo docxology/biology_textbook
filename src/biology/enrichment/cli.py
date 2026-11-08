@@ -26,12 +26,12 @@ def main(argv: list[str] | None = None) -> int:
         question_files, question_blocks = refine_question_banks(records, args.dry_run)
     except (ValueError, FileNotFoundError) as exc:
         parser.error(str(exc))
-    matrix = write_audit_matrix(records, args.dry_run)
     unit_intros = enrich_unit_intros(args.dry_run)
     chapters = enrich_chapters(records, args.dry_run)
     scholarship_bullets = refresh_chapter_scholarship_bullets(records, args.dry_run)
     companion_modules = normalize_companion_source_modules(records, args.dry_run)
     labs = enrich_labs(records, args.dry_run)
+    matrix = write_audit_matrix(records, args.dry_run)
     mode = "DRY RUN" if args.dry_run else "APPLIED"
     print(
         f"[{mode}] matrix={matrix} unit_intros={unit_intros} chapters={chapters} "

@@ -13,10 +13,10 @@ The modern study of biology began by reducing living phenomena to their smallest
 
 1. **Systems science** — the general theory of organized complexity: how hierarchical systems form, how feedback governs their behavior, how new properties emerge.
 2. **Complex adaptive systems** — how populations of agents with local rules give rise to robust, evolvable, collective behavior.
-3. **Active inference and the free energy principle** — a mathematically grounded account of how living agents maintain themselves by predicting and acting on their environments.
+3. **Active inference and the free energy principle** — a mathematical modeling lens for selected questions about prediction, action, and physiological regulation.
 4. **History and philosophy of biology** — the source-critical practice of asking where biological concepts came from, what they assume, and how evidence and values revise them.
 
-Reading \nameref{sec:unit_0_unit_intro} is optional but recommended: it supplies the vocabulary of emergence, attractors, bifurcations, allostasis, and precision that makes \nameref{sec:unit_I_unit_intro} through \nameref{sec:unit_X_unit_intro} fit together as a single coherent theory of living organization.
+Reading \nameref{sec:unit_0_unit_intro} is optional but recommended: it supplies vocabulary for comparing models of emergence, attractors, bifurcations, allostasis, and precision across \nameref{sec:unit_I_unit_intro} through \nameref{sec:unit_X_unit_intro}. These lenses do not constitute a single established theory of all living organization.
 
 ---
 
@@ -41,12 +41,12 @@ Reading \nameref{sec:unit_0_unit_intro} is optional but recommended: it supplies
 - **System** — a set of interacting components forming an integrated whole; open systems exchange matter and energy with their environment.
 - **Emergence** — properties of a system that cannot be explained solely by properties of its components (e.g., consciousness emerges from neural circuits; life emerges from biochemistry).
 - **Feedback** — output fed back as input, shaping future behavior; negative feedback stabilizes, positive feedback amplifies.
-- **Attractor** — a region of phase space toward which trajectories converge; phase transitions move a system between attractors.
+- **Attractor** — a region of phase space toward which trajectories converge; attractor switching and bifurcations describe distinct possible changes in dynamics.
 - **Complex adaptive system (CAS)** — a system of adaptive agents whose collective behavior self-organizes without central control.
-- **Free energy** — a variational upper bound on surprise; minimizing it unifies perception, action, and learning.
-- **Homeostasis vs. allostasis** — passive correction to a fixed set-point vs. predictive adjustment of set-points based on context.
+- **Variational free energy** — an information-theoretic upper bound on surprise within a specified generative model; it is not Gibbs free energy.
+- **Homeostasis and allostasis** — feedback regulation and context-sensitive adjustment provide complementary descriptions of physiological control, not a passive-versus-active hierarchy.
 
-These ideas are deliberately general: every subsequent unit of the textbook re-encounters them. Feedback appears in enzyme regulation (\nameref{sec:unit_I_unit_intro}), in signaling cascades (\nameref{sec:unit_II_unit_intro}), in metabolic flux (\nameref{sec:unit_III_unit_intro}), in population dynamics (\nameref{sec:unit_X_unit_intro}), and in neural control (\nameref{sec:unit_IX_unit_intro}). Attractors describe cell-fate decisions (\nameref{sec:unit_II_unit_intro}), bistable genetic switches (\nameref{sec:unit_IV_unit_intro}), and ecosystem stable states (\nameref{sec:unit_X_unit_intro}). Active inference recurs as the unifying framework for physiology (\nameref{sec:unit_IX_unit_intro}) and behavior.
+These ideas offer comparisons across the textbook. Feedback appears in enzyme regulation (\nameref{sec:unit_I_unit_intro}), signaling cascades (\nameref{sec:unit_II_unit_intro}), metabolic flux (\nameref{sec:unit_III_unit_intro}), population dynamics (\nameref{sec:unit_X_unit_intro}), and neural control (\nameref{sec:unit_IX_unit_intro}). Attractor models can describe selected cell-fate decisions, genetic switches, and ecosystem states. Active inference offers one lens for prediction and physiological regulation; its explanatory value depends on the specified model and evidence.
 
 ---
 
@@ -58,33 +58,44 @@ move through the chapters, keep a two-column note: **claim** on the left,
 unit, each major idea should be tied to a measurement, model, citation, or
 paper-based lab decision.
 
-## Chapter Roadmap {.unnumbered}
+## Four lenses for biological questions {.unnumbered}
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    C1["Systems Science<br/>and the Logic<br/>of Emergence"] --> C2["Complex Adaptive<br/>Systems"]
-    C2 --> C3["Active Inference<br/>and the Free<br/>Energy Principle"]
-    C3 --> C4["History and Philosophy<br/>of Biology"]
-    C1 -.->|"feedback, emergence"| UI["Later textbook units"]
-    C2 -.->|"attractors, evolution"| UI
-    C3 -.->|"prediction, allostasis"| UI
-    C4 -.->|"evidence, concepts, values"| UI
-
-    style C1 fill:#34495e,color:#fff
-    style C2 fill:#2c3e50,color:#fff
-    style C3 fill:#1a252f,color:#fff
-    style C4 fill:#5d3a00,color:#fff
+    subgraph S["Organization and dynamics"]
+        SYS["Systems science"]
+        CAS["Complex adaptive systems"]
+    end
+    subgraph E["Models and interpretation"]
+        AI["Active inference"]
+        HP["History and philosophy"]
+    end
+    subgraph B["Biological applications"]
+        Q["Questions in later units"]
+    end
+    SYS -.-|"feedback and emergence"| Q
+    CAS -.-|"attractors and adaptation"| Q
+    AI -.-|"prediction and allostasis"| Q
+    HP -.-|"evidence and concepts"| Q
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
+    style S fill:#fafafa,stroke:#526777,color:#17212b
+    style E fill:#fafafa,stroke:#526777,color:#17212b
+    style B fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing opening-unit roadmap: systems science introduces feedback and emergence, complex adaptive systems adds attractors and evolution, active inference connects prediction and allostasis, and history/philosophy connects evidence, concepts, and values to later units. -->
+<!-- alt: Graph showing four complementary lenses connect to later biological questions. Dotted connectors identify optional conceptual applications, not a prerequisite chain, causal proof, or a claim that one framework explains every biological system. -->
 
-*Opening-unit roadmap: systems science introduces feedback and emergence, complex adaptive systems adds attractors and evolution, active inference connects prediction and allostasis, and history/philosophy connects evidence, concepts, and values to later units.*
+*Four complementary lenses connect to later biological questions. Dotted connectors identify optional conceptual applications, not a prerequisite chain, causal proof, or a claim that one framework explains every biological system.*
 
 | Chapter | Core question | Key tools |
 | ------- | ------------- | --------- |
-| 0.1 Systems Science | *How does organization arise from interaction?* | Feedback, hierarchy, Hill equation, delay oscillation |
-| 0.2 Complex Adaptive Systems | *How do simple local rules produce robust global behavior?* | Phase space, bifurcation, fitness landscape, power laws |
-| 0.3 Active Inference | *How do living agents maintain themselves against disorder?* | Bayesian inference, free energy, precision, allostasis |
-| 0.4 History and Philosophy of Biology | *How did biology's concepts, evidence practices, and values become what they are?* | Source analysis, mechanism/function, individuality, model critique |
+| \cref{sec:unit_0_systems_science} | *How does organization arise from interaction?* | Feedback, hierarchy, Hill equation, delay oscillation |
+| \cref{sec:unit_0_complex_adaptive_systems} | *How do simple local rules produce robust global behavior?* | Phase space, bifurcation, fitness landscape, power laws |
+| \cref{sec:unit_0_active_inference} | *What do probabilistic agent models explain, and which assumptions must be tested?* | Bayesian inference, variational free energy, precision, model comparison |
+| \cref{sec:unit_0_history_philosophy_biology} | *How did biology's concepts, evidence practices, and values become what they are?* | Source analysis, mechanism/function, individuality, model critique |
 
 ---
 
@@ -93,10 +104,10 @@ graph TD
 - **\nameref{sec:unit_I_unit_intro} — Chemistry of Life**: thermodynamic gradients (\cref{sec:unit_0_systems_science}) explain why proteins fold spontaneously; catalysis is a feedback-regulated modular system.
 - **\nameref{sec:unit_II_unit_intro} — The Cell**: organelles are modules; the fluid-mosaic membrane is a self-organized phase; signaling cascades are hierarchical feedback loops.
 - **\nameref{sec:unit_III_unit_intro} — Energy and Metabolism**: glycolysis and the TCA cycle are classic examples of allosteric feedback and feed-forward control.
-- **\nameref{sec:unit_IV_unit_intro}–V — Genetics**: regulatory networks, bistable switches, and epigenetic memory are CAS par excellence.
+- **\nameref{sec:unit_IV_unit_intro} and \nameref{sec:unit_V_unit_intro} — Genetics**: regulatory networks, bistable switches, and epigenetic memory provide examples for comparing systems models.
 - **\nameref{sec:unit_VI_unit_intro} — Evolution**: fitness landscapes from \cref{sec:unit_0_complex_adaptive_systems} are the formal substrate of selection.
 - **\nameref{sec:unit_VII_unit_intro} — Microbiology**: biological-self questions from \cref{sec:unit_0_history_philosophy_biology} clarify microbiomes, symbiosis, pathogens, and host boundaries.
-- **\nameref{sec:unit_IX_unit_intro} — Physiology and Neuroscience**: allostasis from \cref{sec:unit_0_active_inference} and predictive coding replace simple fixed-set-point homeostasis as the model of central control.
+- **\nameref{sec:unit_IX_unit_intro} — Physiology and Neuroscience**: allostasis and predictive models from \cref{sec:unit_0_active_inference} complement questions about homeostatic feedback; they do not by themselves replace feedback models.
 - **\nameref{sec:unit_X_unit_intro} — Ecology**: phase transitions, alternative stable states, and tipping points apply the mathematics of \cref{sec:unit_0_complex_adaptive_systems} directly.
 
 ---

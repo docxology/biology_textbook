@@ -20,11 +20,11 @@ Package split from the former monolithic `crossref_validator.py`. Public API is 
 
 ## Public functions
 
-```python
-scan_file(path: Path) -> list[CrossRefIssue]
-scan_directory(root: Path) -> list[CrossRefIssue]
-validate(manuscript: Path) -> CrossRefReport
-suggest_id(kind: str, stem: str) -> str
+```text
+scan_file(path: Path) -> tuple[dict[tuple[str, str], int], list[tuple[str, str, int]], list[CrossRefIssue]]
+scan_directory(root: Path, patterns: Iterable[str] = ("**/*.md",)) -> CrossRefReport
+validate(manuscript_root: Path | str) -> CrossRefReport
+suggest_id(kind: str, path: Path, descriptor: str, ordinal: int = 0) -> str
 ```
 
 ## Gate contract

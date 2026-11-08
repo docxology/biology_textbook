@@ -5,32 +5,25 @@
 `src/biology/botany/botany.py`:
 - `water_potential()` — ψ = ψs + ψp from solute concentration and turgor
 - `transpiration_flux()` — Fick evaporation model
-- `photosynthesis_rate()` — Michaelis-Menten CO₂ fixation model
+- `photosynthesis_rate()` — hyperbolic gross light response minus dark respiration, returning net CO₂ assimilation
 - `light_response_curve()` — hyperbolic Pmax saturation
 - `PHOTOSYNTHESIS_PATHWAYS` — C3/C4/CAM comparative data
 
 ## Chapters
 
-1. `plant_structure_and_water.md` — Plant Structure and Water Relations
-2. `plant_reproduction.md` — Plant Reproduction and Development
-3. `plant_responses.md` — Plant Responses to the Environment
+[README.md](README.md) lists chapter filenames/titles; [config.yaml](../config.yaml) owns order.
 
 ## Key Equations
 
 - Water potential: ψ = ψs + ψp; ψs = −iCRT; ψp = turgor pressure
 - Transpiration flux: E = g_s · Δw
-- Cohesion-tension: negative xylem pressure (tension) up to −50 MPa before cavitation
+- Cohesion–tension: discuss negative xylem pressure and species/condition-dependent cavitation limits with chapter sources, not a universal numeric threshold.
 
 ## Figures and Diagrams
 
-- `src/visualization/plots.py` — `plot_light_response_curve()`
+- Repository-root `src/visualization/plots_botany.py` implements `plot_light_response_curve()`; `plots.py` owns registration.
 - `src/mermaid/biology_diagrams.py` — `hormone_signaling_diagram()`, `photosynthesis_light_dark_diagram()`
 
-## Chapter Metadata Convention
+## Shared source contract
 
-All chapter files in this unit carry (inserted automatically by the scripts):
-
-- `\label{sec:unit_VIII_<stem>}` on the line after the H1 — cross-reference with `\cref{sec:unit_VIII_<stem>}`
-- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../src/biology/chapter_metadata.py`)
-
-See [../AGENTS.md](../AGENTS.md) and [../../docs/manuscript_guide.md](../../docs/manuscript_guide.md) for the full set of invariants.
+Follow [manuscript instructions](../AGENTS.md) for H1s, stable IDs, metadata badges, references and authored assessments; see [writing examples](../../manuscript_guide.md). Implementation paths above are repository-root paths.

@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from biology.crossref.helpers import section_reference
+from biology.crossref.source import iter_headings, markdown_text, visible_text
 from biology.curriculum_sync.paths import MANUSCRIPT
 from textbook_io import write_text_atomic
 
@@ -15,9 +16,8 @@ NAV_MARKER = ("<!-- toc-navigation-start -->", "<!-- toc-navigation-end -->")
 READING_PATHS_MARKER = ("<!-- suggested-reading-paths-start -->", "<!-- suggested-reading-paths-end -->")
 CONCEPT_MAP_MARKER = ("<!-- textbook-concept-map-start -->", "<!-- textbook-concept-map-end -->")
 PREFACE_SCOPE_MARKER = ("<!-- preface-scope-start -->", "<!-- preface-scope-end -->")
-HEADING_RE = re.compile(r"^(?P<hashes>#{1,6})(?P<space>\s*)(?P<title>.*)$")
 
-HEADING_ATTR_RE = re.compile(r"^(?P<title>.*?)(?:\s+\{(?P<attrs>[^}]*)\})\s*$")
+HEADING_ATTR_RE = re.compile(r"^(?P<title>.*?)(?:(?:\s+|^)\{(?P<attrs>[^}]*)\})\s*$")
 MANUAL_HEADING_NUMBER_RE = re.compile(r"^\d+(?:\.\d+)*\.?\s+(?P<title>\S.*)$")
 ALT_COMMENT_THEMATIC_BREAK_RE = re.compile(
     r"(<!--\s*alt:\s*.*?\s*-->)\n---",
@@ -55,9 +55,8 @@ def _question_path(chapter_id: str) -> Path:
     return MANUSCRIPT / "questions" / unit_dir / f"questions_{parts[2]}.md"
 
 def _title(path: Path) -> str:
-    text = path.read_text(encoding="utf-8")
-    match = re.search(r"^#\s+(.+)$", text, flags=re.MULTILINE)
-    return match.group(1).strip() if match else path.stem.replace("_", " ").title()
+    heading = next((item for item in iter_headings(path.read_text(encoding="utf-8")) if item.level == 1), None)
+    return heading.title if heading is not None else path.stem.replace("_", " ").title()
 
 def _replace_block(text: str, marker: tuple[str, str], block: str) -> tuple[str, bool]:
     start, end = marker
@@ -128,21 +127,20 @@ def _toc_safe_heading_title(title: str, chapter_title: str | None = None) -> str
     if chapter_title is not None and clean in SOURCE_SECTION_TITLES:
         clean = f"{clean}: {chapter_title}"
     if not clean:
-        clean = "Additional Island Biogeography Evidence"
+        raise ValueError("Section headings require an authored descriptive title.")
     return _format_heading(clean, attrs, identifier)
 
 def _replace_first_h1(text: str, title: str) -> tuple[str, bool]:
-    pattern = re.compile(r"^#\s+(.+)$", flags=re.MULTILINE)
-    match = pattern.search(text)
-    if match is not None:
-        current_title, attrs, identifier = _split_heading_parts(match.group(1))
+    heading = next((item for item in iter_headings(text) if item.level == 1), None)
+    if heading is not None:
+        _toc_safe_heading_title(heading.visible_title)
+        current_title, attrs, identifier = _split_heading_parts(_toc_safe_heading_title(heading.title))
         if current_title == title:
             return text, False
-        replacement = f"# {_format_heading(title, attrs, identifier)}"
-        new_text = pattern.sub(replacement, text, count=1)
-        return new_text, new_text != text
-    replacement = f"# {title}"
-    return f"{replacement}\n\n{text}", True
+        replacement = f"{heading.indent}# {_format_heading(title, attrs, identifier)}"
+        updated = text[:heading.start] + replacement + text[heading.end:]
+        return updated, updated != text
+    return f"# {title}\n\n{text}", True
 
 def sync_h1(path: Path, title: str, *, dry_run: bool) -> bool:
     text = path.read_text(encoding="utf-8")
@@ -155,27 +153,27 @@ def attach_section_identifier(
     *,
     unnumbered: bool = True,
 ) -> tuple[str, bool]:
-    """Embed ``{#label}`` on the first H1 and remove standalone ``\\label{label}`` lines."""
-    lines = text.splitlines()
-    new_lines: list[str] = []
-    h1_done = False
-
+    """Identify the real H1; preserve fenced/comment examples of legacy labels."""
+    heading = next((item for item in iter_headings(text) if item.level == 1), None)
+    if heading is None:
+        return text, False
+    _toc_safe_heading_title(heading.visible_title)
+    clean, attrs, _existing = _split_heading_parts(_toc_safe_heading_title(heading.title))
+    if unnumbered:
+        attrs.add(NONNUMBERED_ATTR)
+    replacement = f"{heading.indent}# {_format_heading(clean, attrs, label)}"
+    updated = text[:heading.start] + replacement + text[heading.end:]
+    lines = updated.splitlines(keepends=True)
+    visibility = visible_text(updated)
+    kept: list[str] = []
+    position = 0
     for line in lines:
-        standalone = STANDALONE_SEC_LABEL_RE.match(line.strip())
-        if standalone is not None and standalone.group(1) == label:
-            continue
-        if not h1_done and line.startswith("# "):
-            h1_done = True
-            clean, attrs, _existing = _split_heading_parts(line[2:].strip())
-            if unnumbered:
-                attrs.add(NONNUMBERED_ATTR)
-            new_lines.append(f"# {_format_heading(clean, attrs, label)}")
-            continue
-        new_lines.append(line)
-
-    result = "\n".join(new_lines)
-    if text.endswith("\n"):
-        result += "\n"
+        visible = visibility[position:position + len(line)]
+        position += len(line)
+        standalone = None if visible.startswith(("    ", "\t")) else STANDALONE_SEC_LABEL_RE.fullmatch(visible.strip())
+        if standalone is None or standalone.group(1) != label:
+            kept.append(line)
+    result = "".join(kept)
     return result, result != text
 
 
@@ -190,47 +188,21 @@ def sync_section_label(path: Path, label: str, *, dry_run: bool, unnumbered: boo
 def _normalize_heading_text(
     original: str, *, unnumbered: bool, chapter_title: str | None = None,
 ) -> str:
-    """Apply the canonical heading policy before generated text reaches disk."""
-    text = ALT_COMMENT_THEMATIC_BREAK_RE.sub(r"\1\n\n---", original)
-    lines: list[str] = []
-    in_fence = False
-    in_yaml_front_matter = False
-    yaml_delimiters_seen = 0
-    for line_no, line in enumerate(text.splitlines(), start=1):
-        if line.strip() == "---" and (line_no == 1 or in_yaml_front_matter):
-            yaml_delimiters_seen += 1
-            in_yaml_front_matter = yaml_delimiters_seen == 1
-            lines.append(line)
-            continue
-        if in_yaml_front_matter:
-            lines.append(line)
-            continue
-        stripped = line.lstrip()
-        if stripped.startswith("```"):
-            in_fence = not in_fence
-            lines.append(line)
-            continue
-        if in_fence:
-            lines.append(line)
-            continue
-        match = HEADING_RE.match(line)
-        if match is None:
-            lines.append(line)
-            continue
-        hashes = match.group("hashes")
-        raw_title = match.group("title").strip()
-        if not raw_title and not match.group("space"):
-            lines.append(line)
-            continue
-        safe_title = _toc_safe_heading_title(raw_title, chapter_title=chapter_title)
+    """Normalize real headings while preserving literal examples and comments."""
+    text = original
+    alt_view = markdown_text(text, keep_comments=("SOLUTION", "alt"))
+    for match in reversed(list(ALT_COMMENT_THEMATIC_BREAK_RE.finditer(alt_view))):
+        gap = match.start() + match.group(0).rfind("\n---")
+        text = text[:gap] + "\n" + text[gap:]
+    for heading in reversed(list(iter_headings(text))):
+        _toc_safe_heading_title(heading.visible_title, chapter_title=chapter_title)
+        safe_title = _toc_safe_heading_title(heading.title, chapter_title=chapter_title)
         clean_title, attrs, identifier = _split_heading_parts(safe_title)
         if unnumbered:
             attrs.add(NONNUMBERED_ATTR)
-        lines.append(f"{hashes} {_format_heading(clean_title, attrs, identifier)}")
-    normalized = "\n".join(lines)
-    if text.endswith("\n"):
-        normalized += "\n"
-    return normalized
+        replacement = f"{heading.indent}{'#' * heading.level} {_format_heading(clean_title, attrs, identifier)}"
+        text = text[:heading.start] + replacement + text[heading.end:]
+    return text
 
 
 def normalize_headings(
@@ -242,7 +214,10 @@ def normalize_headings(
 ) -> bool:
     """Normalize Markdown headings so LaTeX numbering and ToC titles stay clean."""
     original = path.read_text(encoding="utf-8")
-    normalized = _normalize_heading_text(original, unnumbered=unnumbered, chapter_title=chapter_title)
+    try:
+        normalized = _normalize_heading_text(original, unnumbered=unnumbered, chapter_title=chapter_title)
+    except ValueError as exc:
+        raise ValueError(f"{path}: {exc}") from exc
     return normalized != original and _write_if_changed(path, normalized, dry_run=dry_run)
 
 def _join(values: tuple[str, ...]) -> str:

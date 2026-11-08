@@ -11,27 +11,18 @@
 
 ## Chapters
 
-1. `dna_replication_and_cell_cycle.md` — DNA Replication and the Cell Cycle
-2. `gene_expression.md` — Gene Expression
-3. `mutations_and_genomics.md` — Mutations, CRISPR, and Genomics
-4. `chromatin_and_epigenetic_mechanisms.md` — Chromatin and Epigenetic Mechanisms
-5. `epigenetic_inheritance_and_disease.md` — Epigenetic Inheritance and Disease
+[README.md](README.md) lists chapter filenames/titles; [config.yaml](../config.yaml) owns order.
 
 ## Key Equations
 
 - Semiconservative replication: Meselson-Stahl protocol (¹⁵N/¹⁴N density centrifugation)
-- Mean diffusion distance: x̄ = √(2Dt) — limits cell/nucleus size
+- One-dimensional root-mean-square displacement: √(2Dt), not the mean signed displacement; assumptions and application belong in the chapter.
 - Genetic code: 64 codons → 20 amino acids + 3 stop codons
 
 ## Diagrams
 
-- `src/mermaid/biology_diagrams.py` — `transcription_translation_diagram()` (central dogma), `cell_cycle_diagram()`, `dna_replication_diagram()`, `mirna_biogenesis_diagram()`, `x_inactivation_diagram()`
+- `src/mermaid/biology_diagrams.py` — `transcription_translation_diagram()` (the common gene-expression pathway, not Crick's complete sequence-transfer restriction), `cell_cycle_diagram()`, `dna_replication_diagram()`, `mirna_biogenesis_diagram()`, `x_inactivation_diagram()`
 
-## Chapter Metadata Convention
+## Shared source contract
 
-All chapter files in this unit carry (inserted automatically by the scripts):
-
-- `\label{sec:unit_IV_<stem>}` on the line after the H1 — cross-reference with `\cref{sec:unit_IV_<stem>}`
-- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../src/biology/chapter_metadata.py`)
-
-See [../AGENTS.md](../AGENTS.md) and [../../docs/manuscript_guide.md](../../docs/manuscript_guide.md) for the full set of invariants.
+Follow [manuscript instructions](../AGENTS.md) for H1s, stable IDs, metadata badges, references and authored assessments; see [writing examples](../../manuscript_guide.md). Implementation paths above are repository-root paths.

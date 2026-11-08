@@ -92,3 +92,14 @@ def test_reviewed_endocrine_destinations_survive_glossary_and_index_generation(t
     index_entries = [line for line in index.splitlines() if line.startswith(f"**{term}**")]
     assert len(index_entries) == 1 and entry.backref in index_entries[0]
     assert glossary_links.rewrite_glossary(revised, refs) == (revised, 0, 0, [])
+
+
+def test_numeric_glossary_terms_have_nonempty_rendered_index_headings() -> None:
+    from biology.crossref.source import iter_headings
+    from biology.curriculum_sync.sync_blocks import _split_heading_parts
+
+    source = "[**5-Methylcytosine**]{#gl:5-methylcytosine} — A modified base. → \\cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}\n"
+    index = glossary_links.build_appendix_index(source)
+    assert all(_split_heading_parts(heading.title)[0] for heading in iter_headings(index))
+    assert "**5-Methylcytosine** (`#gl:5-methylcytosine`)" in index
+    assert r"\cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}" in index

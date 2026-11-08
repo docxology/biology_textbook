@@ -54,13 +54,13 @@
 
 ### Central Dogma and Information Flow in Gene Expression
 
-Transcription produces RNA from a DNA template. The **central dogma** \citep{crick1958} describes the flow of genetic information:
+Transcription produces RNA from a DNA template. The familiar gene-expression pathway is:
 
 \begin{equation}\text{DNA} \xrightarrow{\text{transcription}} \text{RNA} \xrightarrow{\text{translation}} \text{Protein}\label{eq:central_dogma}\end{equation}
 
-Additional information flows include: **reverse transcription** (RNA to DNA; retroviruses, telomerase), **RNA replication** (RNA-dependent RNA polymerases in RNA viruses), and **direct translation regulation** (riboswitches, IREs).
+Crick's **central dogma** concerns detailed residue-by-residue sequence-information transfer: the proposed restriction is on transfer from protein to protein or nucleic acid, not on reverse transcription \citep{crick1958,crick1970}. RNA-to-DNA synthesis and RNA replication are additional templated nucleic-acid routes. Translational regulation changes message use rather than adding a sequence-transfer arrow; prion propagation transmits conformation rather than an amino-acid sequence.
 
-The evidence base around this dogma is now database-mediated as much as experiment-mediated. The 2026 *Nucleic Acids Research* Database Issue reported 182 database papers: 84 new resources, 86 updates to resources previously described in the issue, and 12 resources first published elsewhere \citep{rigden2026nardatabase}. For gene-expression work, that means a student should ask not only "which molecule carries information?" but also "which curated resource defines the transcript, modification, allele, regulatory element, or expression context, and when was that resource last updated?"
+For gene-expression evidence, database provenance complements experiments. The 2026 *Nucleic Acids Research* Database Issue reported 182 database papers: 84 new resources, 86 updates to resources previously described in the issue, and 12 resources first published elsewhere \citep{rigden2026nardatabase}. A student should ask which resource defines the transcript, modification, allele, regulatory element, or expression context, and when it was updated.
 
 RNA databases make this source-governance problem concrete. RNAcentral in 2026 had grown beyond a sequence index into a gene- and literature-linked resource: its abstract reports 45 million non-coding RNA sequences, while release 26 introduced gene-level views for genome-mapped ncRNA sequences and a human set of 103,814 ncRNA genes from 600,225 transcripts \citep{rnacentral2026}. These counts should be read as release-specific evidence, not permanent facts; the durable lesson is that a non-coding RNA claim needs the sequence identifier, gene model, source database, and literature provenance checked together.
 
@@ -822,7 +822,7 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 
 ## Key Terms
 
-1. **Central dogma** -- the flow of genetic information: DNA to RNA to protein
+1. **Central dogma** — Crick's proposed restriction on residue-by-residue sequence-information transfer from protein; distinct from the common DNA-to-RNA-to-protein expression pathway
 2. **Sigma factor** -- prokaryotic RNAP subunit that recognizes promoter sequences
 3. **General transcription factors (GTFs)** -- proteins (TFIIA-H) required for basal Pol II transcription
 4. **Mediator complex** -- coactivator bridging enhancer-bound TFs to basal machinery

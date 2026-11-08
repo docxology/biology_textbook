@@ -13,16 +13,13 @@
 
 ## Chapters
 
-1. `mendelian_principles.md` — Mendelian Principles and Probability
-2. `mendelian_extensions_and_human_genetics.md` — Mendelian Extensions and Human Genetics
-3. `chromosomal_inheritance.md` — Chromosomal Inheritance and Linkage
-4. `population_genetics.md` — Population Genetics
+[README.md](README.md) lists chapter filenames/titles; [config.yaml](../config.yaml) owns order.
 
 ## Key Equations
 
 - χ² = Σ (O − E)² / E
 - Hardy-Weinberg: p² + 2pq + q² = 1; p + q = 1  
-- Map distance (Morgan): d = (recombinant gametes / total gametes) × 100 cM
+- For short intervals, recombination fraction × 100 approximates map distance in cM; do not label that value as Morgans or assume a linear long-interval map.
 
 ## Figures and Diagrams
 
@@ -30,11 +27,6 @@
 - `plot_selection_simulation()` — selection trajectory figure
 - `mendelian_cross_diagram()`, `cell_cycle_diagram()` — Mermaid factories
 
-## Chapter Metadata Convention
+## Shared source contract
 
-All chapter files in this unit carry (inserted automatically by the scripts):
-
-- `\label{sec:unit_V_<stem>}` on the line after the H1 — cross-reference with `\cref{sec:unit_V_<stem>}`
-- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../src/biology/chapter_metadata.py`)
-
-See [../AGENTS.md](../AGENTS.md) and [../../docs/manuscript_guide.md](../../docs/manuscript_guide.md) for the full set of invariants.
+Follow [manuscript instructions](../AGENTS.md) for H1s, stable IDs, metadata badges, references and authored assessments; see [writing examples](../../manuscript_guide.md). Implementation paths above are repository-root paths.

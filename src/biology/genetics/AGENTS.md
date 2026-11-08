@@ -29,4 +29,4 @@ Genetics logic is split by topic; the package facade is `biology.genetics` and t
 | `tests/test_genetics_mutation.py` | `mutation` |
 | `tests/test_genetics_replication.py` | `replication` |
 
-When changing public APIs, update `../../../docs/api_reference.md`, the matching `manuscript/unit_IV/AGENTS.md` or `manuscript/unit_V/AGENTS.md`, and the tests above.
+When changing public APIs, update `../../../docs/api_reference.md`, the matching repository-root `docs/manuscript/unit_IV/` or `docs/manuscript/unit_V/` consumers, and the tests above.

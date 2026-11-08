@@ -1,19 +1,19 @@
 # Architecture Guide
 
-## Two-Layer Architecture
+## Standalone project and read-only renderer dependency
 
 This standalone project owns src, scripts, manuscript and output. A compatible template supplies read-only validation/rendering library code, selected by BIOLOGY_TEXTBOOK_TEMPLATE_ROOT or a genuine enclosing template. Invalid explicit selection fails; ambient neighbors are ignored and local imports win. Rendering and validation entry points remain project-local.
 
 ```text
 biology_textbook/
 ├── src/
-│   ├── biology/                  # Nine domain subpackages + manuscript utilities and maintenance packages
+│   ├── biology/                  # Domain models, foundations and manuscript/maintenance packages
 │   │   ├── __init__.py
 │   │   ├── biochemistry/, cell/, genetics/, evolution/, ecology/,
-│   │   ├── physiology/, microbiology/, botany/, neuroscience/
+│   │   ├── physiology/, microbiology/, botany/, neuroscience/, foundations/
 │   │   ├── numerics.py, constants.py
-│   │   ├── chapter_metadata.py, toc.py, curriculum.py, assessment.py
-│   │   ├── current_claims.py, alignment.py, visual_contracts.py
+│   │   ├── chapter_metadata.py, toc.py, curriculum/, assessment.py
+│   │   ├── current_claims.py, alignment.py, visual_contracts/
 │   │   ├── crossref/              # package; shim at crossref_validator.py
 │   │   ├── quality/, enrichment/, answer_refinement/, curriculum_sync/
 │   │   └── crossref_validator.py  # re-export shim
@@ -71,7 +71,7 @@ Invariant modules:
 - `test_pdf_log_quality.py` — PDF log checker catches undefined references and severe overfull boxes
 - `test_pdf_opening_and_mermaid.py` — book opening metadata, cover asset, and inline Mermaid rendering contract
 - `test_question_answer_refinement.py` — preserve authored solutions and refuse unsupported repair without writing
-- `test_script_quality.py` — scripts parse cleanly and avoid hard-coded local checkout paths or obsolete clones
+- `test_script_quality.py` — Mermaid metadata and assessment dry-run behavior; do not attribute absent script-hygiene tests to this module
 
 ## Thin Orchestrator Pattern
 

@@ -5,11 +5,11 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.9\textwidth]{../figures/biology_milestones.png}
-\caption{Selected milestones in biology from 1665 to 2020, arranged chronologically. Colors identify six chronological eras: early modern, nineteenth century, early twentieth century, mid twentieth century, late twentieth century, and early twenty-first century. This curated timeline covers approximately three and a half centuries, not the full history discussed in the chapter; the table is available as \texttt{biology.foundations.BIOLOGY\_MILESTONES}.}
+\caption{Selected milestones in biology from 1665 to 2020. Each point locates an event date; positions do not encode durations or a ranking of importance. Labels identify events and associated people or groups. This curated selection is not the full history discussed in the chapter; the source table is \texttt{biology.foundations.BIOLOGY\_MILESTONES}.}
 \label{fig:unit_0_biology_milestones}
 \end{figure}
 
-<!-- alt: Horizontal bars locate thirteen selected biology milestones between 1665 and 2020. Labels give each year, event, and associated people or group; the legend names six chronological eras. -->
+<!-- alt: Thirteen labeled points locate selected biology milestones on an event-year axis from 1665 to 2020. Rows identify the event and associated people or group; there are no duration bars or color-only era categories. -->
 
 <!-- chapter-metadata-badge -->
 > Level 2/3 · 80 min read · 100 min lecture · Prerequisites: \cref{sec:unit_0_systems_science}, \cref{sec:unit_0_complex_adaptive_systems}, \cref{sec:unit_0_active_inference}

@@ -102,10 +102,12 @@ Alt text serves screen-reader users, low-bandwidth fallback, and search/indexing
 
 A short rule: **bad** alt text names the figure; **good** alt text describes what's drawn.
 
+All alt-text examples below are illustrative writing patterns, not descriptions certified against current assets. Use a numeric value, topology or feature only when it is present in the actual source figure.
+
 | Bad | Good |
 | --- | ---- |
 | `<!-- alt: A figure -->` | `<!-- alt: Bar chart comparing reaction rates of five enzymes at pH 7.0, with catalase and carbonic anhydrase showing the two highest rates near 10^7 per second. -->` |
-| `<!-- alt: Graph -->` | `<!-- alt: Sigmoidal curve showing fractional saturation versus oxygen partial pressure, with Hill coefficient n equals 2.8 labeled near the inflection point at 26 millimetres of mercury. -->` |
+| `<!-- alt: Graph -->` | `<!-- alt: Illustrative Hill curves show fractional saturation versus oxygen pressure with supplied P50 values and n=2.7; labeled 40/100 millimeters-of-mercury guides aid comparison. -->` |
 | `<!-- alt: Equation 4.7 -->` | `<!-- alt: Michaelis-Menten rate equation: reaction velocity v equals V max times substrate concentration, divided by the sum of K subscript m and substrate concentration. -->` |
 | `<!-- alt: Diagram -->` | `<!-- alt: Linear pathway diagram with ten enzymatic steps from glucose at the top-left to pyruvate at the bottom-right, with two ATP-consuming steps in the upper half and two ATP-producing steps in the lower half. -->` |
 
@@ -124,10 +126,10 @@ When you must spell out an equation:
 | ----- | -------- |
 | `v = V_{\max}[S] / (K_m + [S])` | "The Michaelis–Menten rate equation: reaction velocity equals V max times substrate concentration, divided by the sum of K subscript m and substrate concentration." |
 | `\Delta G = \Delta H - T\Delta S` | "The Gibbs free-energy equation: change in G equals change in H minus temperature times change in S." |
-| `p^2 + 2pq + q^2 = 1` | "The Hardy–Weinberg equilibrium: p squared plus two p q plus q squared equals one, where p and q are dominant and recessive allele frequencies." |
-| `C_m \frac{dV}{dt} = -I_{Na} - I_K + I_{stim}` | "The Hodgkin–Huxley membrane current balance: membrane capacitance times the rate of change of voltage equals minus the sodium current minus the potassium current plus the stimulus current." |
+| `p^2 + 2pq + q^2 = 1` | "Hardy–Weinberg genotype frequencies sum to one, where p and q are the frequencies of two alleles." |
+| `C_m dV/dt = -I_Na-I_K-I_leak+I_stim` | "Membrane capacitance times the rate of voltage change equals minus sodium, potassium and leak currents plus stimulus current under the stated current convention." |
 
-**Rule:** spell out the **structure** ("equals", "divided by", "minus"), name the **symbols** ("K subscript m"), and finish with the **physical meaning** ("…where p is the dominant allele frequency"). Do not just transliterate LaTeX.
+**Rule:** spell out structure and symbols, then state their meaning; p and q denote two allele frequencies, not a requirement for dominant/recessive status.
 
 ### Diagrams (mermaid, schematic)
 
@@ -169,7 +171,7 @@ Describe the **shape**, the **axes**, and the **salient features** (peaks, plate
 
 | Bad | Good |
 | --- | ---- |
-| `<!-- alt: Tree of life -->` | `<!-- alt: Three-domain phylogenetic tree with a single root branching into Bacteria on the left, Archaea in the center, and Eukarya on the right. Eukarya nests within an archaeal sister-group, reflecting the two-domain hypothesis. -->` |
+| `<!-- alt: Tree of life -->` | Describe the topology actually drawn: whether Eukarya is nested within Archaea or drawn as a separate root branch, and whether branch lengths encode anything. Do not assert both incompatible layouts. |
 
 ### Heatmaps
 
@@ -190,7 +192,7 @@ Use this every time you create or review a figure:
 - [ ] Punnett squares use `cvd.PUNNETT_DOMINANT` / `cvd.PUNNETT_RECESSIVE` **plus** hatch patterns (`//` and `xx`).
 - [ ] Bar charts with positive/negative values use `cvd.BAR_POS` / `cvd.BAR_NEG` **plus** a zero-line and value labels.
 - [ ] No red+green as the only two-way distinction.
-- [ ] Mermaid `classDef` styling uses Wong/Okabe-Ito hex codes (`#0072B2` blue, `#E69F00` orange, `#009E73` teal, `#D55E00` vermillion). See [visualization_guide.md](visualization_guide.md#wongokabe-ito-reference-palette).
+- [ ] Relationship maps use dark text on light fills, labeled connectors and redundant encodings; palette selection alone does not certify CVD safety. See [visual semantics](visualization_guide.md#meaning-and-limits-of-graphical-abstracts).
 
 ---
 

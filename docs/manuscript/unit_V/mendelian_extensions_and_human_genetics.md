@@ -16,7 +16,28 @@
 6. Distinguish monogenic, oligogenic, and polygenic inheritance using family and population evidence.
 7. Evaluate polygenic risk scores with ancestry representation and calibration limits.
 
+<!-- curriculum-scaffold-start -->
+### Study Blueprint
+
+- **Big idea:** Extensions to Mendelian ratios and human pedigree analysis reveal when simple dominance fails.
+- **Core concepts:** incomplete dominance, epistasis, pedigrees, penetrance.
+- **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
+- **Model or quantitative lens:** Pedigree, epistasis, and multi-locus probability calculations.
+- **Data skill:** Infer inheritance mode and extension mechanism from family or cross data.
+- **Practice cadence:** Statistical Tests and Data Analysis, Representing and Describing Data.
+- **Common misconception to repair:** A single-gene model is a starting hypothesis, not the default for every trait.
+- **Primary lab:** \nameref{sec:lab_unit_V_mendelian_extensions_and_human_genetics}.
+- **Question bank:** \nameref{sec:q_unit_V_mendelian_extensions_and_human_genetics}.
+- **Transfer task:** Transfer extension reasoning to counseling, GWAS interpretation, and breeding.
+- **Bridge to computation:** `biology.genetics.genetics.punnett_square`.
+<!-- curriculum-scaffold-end -->
+
 ---
+
+> **Opening Vignette — One Genotype, Different Phenotypes**
+>
+> Consider a hypothetical family in which carriers of the same variant differ in whether, when, or how a trait appears. Before assigning an inheritance pattern, distinguish genotype from penetrance, expressivity, and environmental context. A small pedigree may fit several explanations; this chapter asks which additional family or molecular evidence would distinguish them.
+
 
 ## Extensions to Mendelian Genetics
 
@@ -246,29 +267,6 @@ The **mother's genotype** (not the offspring's) determines the offspring's pheno
 > 4. A mother with Prader-Willi syndrome (paternal deletion) has a child. Can the child inherit Prader-Willi? Angelman? Explain.
 > 5. Distinguish reduced penetrance from variable expressivity. Give one disease example of each.
 
----
-
-<!-- curriculum-scaffold-start -->
-### Study Blueprint
-
-- **Big idea:** Extensions to Mendelian ratios and human pedigree analysis reveal when simple dominance fails.
-- **Core concepts:** incomplete dominance, epistasis, pedigrees, penetrance.
-- **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Evolution; AP Biology: Information Storage and Transmission, Evolution; NGSS-style topics: Inheritance and Variation of Traits, Natural Selection and Evolution.
-- **Model or quantitative lens:** Pedigree, epistasis, and multi-locus probability calculations.
-- **Data skill:** Infer inheritance mode and extension mechanism from family or cross data.
-- **Practice cadence:** Statistical Tests and Data Analysis, Representing and Describing Data.
-- **Common misconception to repair:** A single-gene model is a starting hypothesis, not the default for every trait.
-- **Primary lab:** \nameref{sec:lab_unit_V_mendelian_extensions_and_human_genetics}.
-- **Question bank:** \nameref{sec:q_unit_V_mendelian_extensions_and_human_genetics}.
-- **Transfer task:** Transfer extension reasoning to counseling, GWAS interpretation, and breeding.
-- **Bridge to computation:** `biology.genetics.genetics.punnett_square`.
-<!-- curriculum-scaffold-end -->
-
----
-
-> **Opening Vignette — Mendelian Extensions and Human Genetics**
->
-> This chapter connects mendelian extensions and human genetics to measurable evidence: models, datasets, and experiments that can strengthen or weaken each claim.
 
 ## Human Genetic Disorders: Mechanism Meets Mendel
 
@@ -702,7 +700,7 @@ P = P(\text{mom carrier}) \times P(\text{dad carrier}) \times P(\text{child cc} 
 
 ---
 
-## Worked Example: Complex Multi-Locus Genetics
+## Worked Example: Two-Locus Recessive Epistasis in Coat Color
 
 **Problem**: In mice, coat color is controlled by two independently assorting loci. At the A locus: A (agouti) is dominant to a (non-agouti/black). At the C locus: C (colored) is dominant to c (albino, epistatic -- no pigment regardless of A genotype). This is recessive epistasis.
 
@@ -712,7 +710,7 @@ Using branching:
 - A locus: $\frac{3}{4}$ A\_ (agouti pattern) : $\frac{1}{4}$ aa (black pattern)
 - C locus: $\frac{3}{4}$ C\_ (colored) : $\frac{1}{4}$ cc (albino)
 
-: Worked Pedigree Problem: Genotype and Phenotype. {#tbl:unit_V_mendelian_extensions_and_human_genetics_worked_pedigree_problem}
+: Expected genotype classes and coat-color phenotypes in AaCc × AaCc. {#tbl:unit_V_mendelian_extensions_and_human_genetics_worked_pedigree_problem}
 | Genotype | Phenotype | Fraction |
 |----------|-----------|----------|
 | A\_C\_ | Agouti | $\frac{9}{16}$ |

@@ -8,6 +8,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+import pytest
+
 from biology.quality.patterns import QUESTION_GENERIC_PATTERNS
 
 PROJECT = Path(__file__).resolve().parent.parent
@@ -479,6 +481,19 @@ def test_heading_artifact_patterns_are_enforced(tmp_path: Path) -> None:
             patterns=audit.HEADING_ARTIFACT_PATTERNS,
         )
     assert {finding.code for finding in findings} == set(HEADING_ARTIFACT_EXAMPLES)
+
+
+@pytest.mark.parametrize("heading", ["## # {.unnumbered}", "## <!-- Add a title -->", "## <!-- note --> {#sec:kept}"])
+def test_heading_audit_rejects_rendered_empty_title_but_preserves_examples(tmp_path: Path, heading: str) -> None:
+    path = tmp_path / "headings.md"
+    path.write_text(f"~~~markdown\n## {{.unnumbered}}\n~~~\n\n{heading}\n", encoding="utf-8")
+    findings: list[Any] = []
+    for line_no, line in audit.iter_markdown_headings(path):
+        audit.add_line_findings(findings, path=path, line_no=line_no, line=line,
+                                patterns=audit.HEADING_ARTIFACT_PATTERNS)
+    assert [(finding.code, finding.path, finding.line) for finding in findings] == [
+        ("missing-heading-title", path, 5),
+    ]
 
 
 def test_student_facing_section_titles_have_no_confirmed_artifacts() -> None:

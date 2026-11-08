@@ -7,7 +7,7 @@ Binary and static assets consumed by the rendering pipeline. This tree is **not*
 ## Cover art contract
 
 - **Source of truth for path:** `book.cover.image` and `book.cover.alt` in [`../config.yaml`](../config.yaml).
-- **Generator:** [`../../scripts/generate_cover_art.py`](../../scripts/generate_cover_art.py) delegates to [`../../src/biology/assets/cover_art.py`](../../src/biology/assets/cover_art.py) (Pillow raster; text-free montage).
+- **Generator:** [`../../../scripts/generate_cover_art.py`](../../../scripts/generate_cover_art.py) delegates to [`../../../src/biology/assets/cover_art.py`](../../../src/biology/assets/cover_art.py) (Pillow raster; text-free montage).
 - **Pipeline copy:** `biology_analysis.py` copies live `config.yaml`, `preamble.md`, `references.bib`, and cover assets into `output/manuscript/` before render.
 
 ## Editing rules
@@ -20,4 +20,4 @@ Binary and static assets consumed by the rendering pipeline. This tree is **not*
 
 - [`README.md`](README.md) — quick reference
 - [`../AGENTS.md`](../AGENTS.md) — manuscript-wide conventions
-- [`../../docs/visualization_guide.md`](../../docs/visualization_guide.md) — figure and diagram workflows (matplotlib / Mermaid)
+- [Visualization guide](../../visualization_guide.md) — provenance, figure and diagram workflows, and actual printed-size review

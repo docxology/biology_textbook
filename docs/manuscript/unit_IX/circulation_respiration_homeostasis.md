@@ -375,10 +375,10 @@ The classical arithmetic predicts outward pressure at both ends under these stip
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/oxygen_dissociation_curve.png}
-\caption{Oxygen--haemoglobin dissociation curves showing percent saturation versus $p\mathrm{O}_2$ for normal adult haemoglobin, a right-shifted fever/exercise condition, and a left-shifted fetal-haemoglobin condition; compare loading in the lung with unloading in active tissue.}
+\caption{Illustrative Hill-model oxygen-binding curves with a common exponent $n=2.7$ and stipulated $P_{50}$ values of 20, 26 and 32 mmHg. Only $P_{50}$ changes; these are not calibrated fetal-hemoglobin, fever or exercise models. Labeled 40- and 100-mmHg guides provide reference pressures, not fixed pressures for every tissue or physiological state.}
 \label{fig:unit_IX_oxygen_dissociation}
 \end{figure}
-<!-- alt: Three sigmoidal hemoglobin saturation curves plotted against oxygen partial pressure. The fever/exercise curve is shifted right, the fetal hemoglobin curve is shifted left, and vertical guides mark typical tissue and alveolar oxygen pressures. -->
+<!-- alt: Three Hill-model hemoglobin saturation curves share exponent 2.7 and differ only in supplied half-saturation pressures 20, 26 and 32 mmHg. The higher P50 shifts right and the lower P50 shifts left. Labeled vertical guides identify reference oxygen pressures 40 and 100 mmHg. -->
 
 
 ### Hemoglobin Structure and Cooperative Binding

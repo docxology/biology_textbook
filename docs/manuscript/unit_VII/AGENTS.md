@@ -4,18 +4,14 @@
 
 `src/biology/microbiology/microbiology.py`:
 - `REFERENCE_ORGANISMS` — list of reference bacteria/archaea with traits
-- `bacterial_growth_curve()` — logistic growth with lag/stationary phases
-- `doubling_time()` — g = ln2/µ
-- `mic_broth_dilution()` — minimum inhibitory concentration
-- `VIRAL_CYCLE_DATA` — lytic/lysogenic parameters for model phages
-- `antibiotic_resistance_rate()` — probabilistic resistance simulation
+- `bacterial_growth_curve()` — continuous piecewise lag/exponential/stationary growth with optional cap, not logistic growth
+- `doubling_time(N0, Nt, elapsed_time_hr)` — doubling time from increasing population counts under an exponential-growth assumption
+- `mic_fold_dilution(starting_concentration_ug_mL, dilution_factor, n_tubes)` — supplied serial antibiotic concentrations; not an MIC measurement or breakpoint classification
+- `VIRAL_REPLICATION_CYCLES` — reference model-virus parameters, not a calibrated prediction for an arbitrary infection
 
 ## Chapters
 
-1. `bacteria_archaea_viruses.md` — Bacteria, Archaea, and Viruses
-2. `microbial_ecology.md` — Microbial Ecology and the Microbiome
-3. `host_immunity_and_vaccines.md` — Host Immunity and Vaccines
-4. `antimicrobial_resistance_and_epidemiology.md` — Antimicrobial Resistance and Epidemiology
+[README.md](README.md) lists chapter filenames/titles; [config.yaml](../config.yaml) owns order.
 
 ## Key Equations
 
@@ -25,14 +21,9 @@
 
 ## Figures and Diagrams
 
-- `src/visualization/plots.py` — `plot_bacterial_growth()`
+- Repository-root `src/visualization/plots_microbiology.py` implements `plot_bacterial_growth()`; `plots.py` owns registration.
 - `src/mermaid/biology_diagrams.py` — `viral_replication_cycle_diagram()`, `immune_response_diagram()`
 
-## Chapter Metadata Convention
+## Shared source contract
 
-All chapter files in this unit carry (inserted automatically by the scripts):
-
-- `\label{sec:unit_VII_<stem>}` on the line after the H1 — cross-reference with `\cref{sec:unit_VII_<stem>}`
-- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../src/biology/chapter_metadata.py`)
-
-See [../AGENTS.md](../AGENTS.md) and [../../docs/manuscript_guide.md](../../docs/manuscript_guide.md) for the full set of invariants.
+Follow [manuscript instructions](../AGENTS.md) for H1s, stable IDs, metadata badges, references and authored assessments; see [writing examples](../../manuscript_guide.md). Implementation paths above are repository-root paths.

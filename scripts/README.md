@@ -10,7 +10,7 @@ The tables below describe orchestrators and maintenance utilities; use current C
 | ------ | ----------- | ------ |
 | `biology_analysis.py` | `uv run python scripts/biology_analysis.py` | Complete configured manuscript staging plus live configuration, bibliography, preamble and cover assets under `output/manuscript/` |
 | `generate_diagrams.py` | `uv run python scripts/generate_diagrams.py --strict-png` | Registered decoded PNGs under `output/figures/mermaid/`; `.mmd` fallback is not publication output |
-| `generate_figures.py` | `uv run python scripts/generate_figures.py` | 42 square-padded PNGs in `output/figures/` |
+| `generate_figures.py` | `uv run python scripts/generate_figures.py` | Registered PNGs in `output/figures/`, following the per-figure aspect policy |
 
 Use these project-local entry points in this standalone checkout. A template-hosted integration may consume the configured analysis allowlist, but template-root recipes are not this project's launch workflow and must not write another checkout.
 
@@ -83,8 +83,8 @@ uv run python scripts/generate_figures.py --output-dir output/review/figures
 - **Update current claims:** edit `docs/manuscript/current_claims.yaml`, then run `uv run python scripts/audit_current_claims.py --check` and `uv run python -m pytest tests/test_current_claims_ledger.py -v`.
 - **Update assessment metadata:** review the actual prompt/answer/outcome and edit its semantic record directly; use `sync_assessment_metadata.py --dry-run` and `--check` to validate, not generate, that content.
 - **Update visual manifest:** use `uv run python scripts/audit_visual_contracts.py --figures-root output/review/figures --output output/review/visual_manifest.json --render-inline --check`; re-derive the manifest and matrix rather than hand-authoring them.
-- **Add/reorder chapters:** `docs/manuscript/config.yaml` → `units[].chapters[]`, then add a matching `ChapterMeta(…)` in `src/biology/chapter_metadata.py`, a matching `CurriculumRecord` in `src/biology/curriculum.py`, confirm the unit alignment in `src/biology/alignment.py`, list companion lab/question files without `title:` fields, and run `scripts/insert_crossref_labels.py` + `scripts/sync_curriculum_materials.py` + `scripts/insert_chapter_metadata.py`
-- **Add a citation:** new `@entry{}` in `docs/manuscript/references.bib`, then either write `\citep{key}` in a chapter or add it to `scripts/integrate_orphan_citations.py` `INSERTIONS`
+- **Add/reorder chapters:** update `docs/manuscript/config.yaml`, `src/biology/chapter_metadata.py`, the `src/biology/curriculum/` records and `src/biology/alignment.py`; list companion filenames without duplicate titles. [Composable authoring](../docs/composable_authoring.md) owns the complete sequence.
+- **Add a citation:** author a matched `\citep{key}` against `docs/manuscript/references.bib`; curated orphan insertions belong to `src/biology/pipeline/orphan_citations.yaml`, not a duplicated script constant.
 - **Run an embedded enrichment pass:** `uv run python scripts/enrich_embedded_textbook.py --dry-run`, inspect the reported counts, then run without `--dry-run` if it only touches expected chapter/lab/question surfaces.
 
 ## See Also

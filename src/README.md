@@ -7,9 +7,9 @@ Scripts in `../scripts/` are thin orchestrators; reusable logic belongs here.
 
 | Path | Purpose |
 | ---- | ------- |
-| `biology/` | Nine domain subpackages plus manuscript utilities (`chapter_metadata.py`, `toc.py`, `crossref_validator.py`, `current_claims.py`, `assessment.py`) |
-| `mermaid/` | Mermaid renderer, generic builders, and the 24 registered biology diagram factories; use strict PNG mode for publication builds |
-| `visualization/` | Eighteen matplotlib figure generators plus the colour-vision-friendly palette helpers |
+| `biology/` | Nine traditional domains, `foundations/`, and manuscript/maintenance packages; see the API reference rather than a fixed copied module inventory |
+| `mermaid/` | Declarative biology diagrams and shared builders/rendering; strict PNG mode is required for publication |
+| `visualization/` | Registered domain/foundations matplotlib generators and color/line/hatch conventions |
 
 Run `uv run python -m pytest tests/ --cov=src --cov-fail-under=90` from the project root
 after changing public functions, metadata APIs, diagram registries, or figure

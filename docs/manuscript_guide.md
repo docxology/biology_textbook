@@ -49,8 +49,10 @@ Filenames must match the `chapter_id` after the `unit_<X>_` prefix:
 
 ## Template for a new chapter
 
+The following is an authoring template, not a ready-to-publish chapter. Replace illustrative content and IDs; the H1 must exactly match its config title. Generate badges from metadata rather than hand-maintaining ordinals.
+
 ```markdown
-# Chapter Title (Will be Numbered Automatically)
+# Exact chapter title from config.yaml
 
 \label{sec:unit_X_my_new_chapter}
 
@@ -67,15 +69,15 @@ Filenames must match the `chapter_id` after the `unit_<X>_` prefix:
 
 > **Opening Vignette — A Historical Discovery**
 >
-> 150–300 words of historically-grounded narrative.
+> A sourced historical narrative or an explicitly hypothetical, self-contained reasoning setup; see the editorial opening-vignette contract.
 
 ---
 
-## 1 Section Title
+## Membrane gradients and transport
 
 Section text...
 
-### 1.1 Subsection
+### Concentration and electrical contributions
 
 Content...
 
@@ -94,7 +96,7 @@ Content...
 ---
 
 *Module: `src/biology/<domain>/<file>.py` (key functions)*
-*Figure: `src/visualization/plots.py` — function_name()*
+*Figure: `src/visualization/plots_<domain>.py` — registered function_name()*
 *Diagram: `src/mermaid/biology_diagrams.py` — function_name()*
 *Cross-references: \cref{sec:unit_X_...} (short topic), \cref{sec:unit_Z_...} (short topic)*
 ```
@@ -114,7 +116,7 @@ flowchart TD
   B -- Yes --> C{Single line<br/>or multi-line?}
   B -- No --> D{Needs a displayed<br/>worked step?}
   C -- Single --> E[begin equation + label end equation]
-  C -- Multi --> F[begin align + label end align]
+  C -- Multi --> F[equation containing aligned; or align with row labels]
   D -- Yes --> G[plain double-dollar]
   E --> I[Refer with cref]
   F --> I
@@ -126,7 +128,7 @@ flowchart TD
 | Pattern | Use when | Cross-reference? |
 | ------- | -------- | ---------------- |
 | `\begin{equation}\label{eq:...}…\end{equation}` | You will refer to the equation elsewhere. | **Yes** — `\cref{eq:...}` |
-| `\begin{align}\label{eq:...}…\end{align}` | Multi-line derivation that needs cross-reference. | **Yes** — `\cref{eq:...}` |
+| `equation` containing `aligned`, with one label | Multi-line derivation with one rendered number. | Yes; use `align` with per-row labels for separately numbered lines. |
 | `$$ … $$` (plain) | Display math without numbering. | No |
 | `$ … $` | Inline math. | No |
 
@@ -164,13 +166,15 @@ $$
 #### Multi-line (aligned) cross-referenced equation
 
 ```latex
-%% CORRECT — single label on the whole align block, referenceable as one unit
-\begin{align}
+%% CORRECT — one numbered equation containing aligned rows
+\begin{equation}
 \label{eq:unit_VII_hodgkin_huxley_currents}
+\begin{aligned}
 C_m \frac{dV}{dt} &= -I_{\text{Na}} - I_{\text{K}} - I_{\text{leak}} + I_{\text{stim}} \\
-I_{\text{Na}}     &= \bar{g}_{\text{Na}}\, m^3 h\,(V - E_{\text{Na}}) \\
-I_{\text{K}}      &= \bar{g}_{\text{K}}\,  n^4   \,(V - E_{\text{K}})
-\end{align}
+I_{\text{Na}} &= \bar{g}_{\text{Na}}\,m^3h\,(V-E_{\text{Na}}) \\
+I_{\text{K}} &= \bar{g}_{\text{K}}\,n^4\,(V-E_{\text{K}})
+\end{aligned}
+\end{equation}
 
 The current-balance equations (\cref{eq:unit_VII_hodgkin_huxley_currents}) underlie…
 ```
@@ -269,9 +273,11 @@ The Michaelis–Menten curve shows…       %% prose first
 | Length | One sentence, ~15–35 words |
 | Content | Describe what is **visually shown** — axes, trend, salient features — not the conclusion |
 
+These are writing examples, not verified asset descriptions. Copy only features and parameters actually present in the generated figure.
+
 | Bad alt | Good alt |
 | ------- | -------- |
-| `<!-- alt: Figure 4.2 -->` | `<!-- alt: Two superimposed sigmoid curves of oxygen saturation versus pO2; left curve is fetal hemoglobin shifted left of maternal HbA. -->` |
+| `<!-- alt: Figure 4.2 -->` | `<!-- alt: Illustrative Hill saturation curves shift along the oxygen-pressure axis as supplied P50 changes; the plot uses n=2.7 and labeled 40/100 millimeters-of-mercury guides. -->` |
 | `<!-- alt: Michaelis-Menten -->` | `<!-- alt: Smooth saturating curve of reaction velocity versus substrate concentration, plateauing at V_max with K_m marked on the x-axis. -->` |
 | `<!-- alt: A graph -->` | `<!-- alt: Bar chart of equilibrium potentials for Na+, K+, Ca2+, Cl- in a typical neuron, with positive values for Na+ and Ca2+ and negative values for K+ and Cl-. -->` |
 
@@ -411,13 +417,13 @@ To weave a newly-added entry into a natural chapter home, use:
 uv run python scripts/integrate_orphan_citations.py
 ```
 
-Edit the script's `INSERTIONS` list with a citekey, target file, and anchor phrase before running.
+Edit repository-root `src/biology/pipeline/orphan_citations.yaml`: each entry supplies `citekey`, `target`, `anchor` and optional form/prefix/replacement fields. The script is a thin orchestrator; review the actual insertion context.
 
 ---
 
 ## Cross-references
 
-This manuscript uses **cleveref** for all cross-references. `\cref` automatically prepends the right type word ("Section 3", "Figure 4.2", "Equation 7.1", etc.) and handles ranges/lists.
+Use `\cref` for numbered chapters, figures, equations and tables; use `\nameref` for unnumbered intros, labs, banks, glossary and reference appendices. See [the manuscript source contract](manuscript/AGENTS.md).
 
 ### Reference prefixes — the full set
 
@@ -433,32 +439,32 @@ This manuscript uses **cleveref** for all cross-references. `\cref` automaticall
 
 | Form | Renders as | Use when |
 | ---- | ---------- | -------- |
-| `\cref{sec:unit_I_atoms}` | "section 3" (lowercase) | Mid-sentence — *"see \cref{sec:...}"* |
-| `\Cref{sec:unit_I_atoms}` | "Section 3" (capitalised) | Sentence start — *"\Cref{sec:...} introduces..."* |
+| `\cref{sec:unit_I_atoms_molecules}` | "section 3" (lowercase) | Mid-sentence — *"see \cref{sec:...}"* |
+| `\Cref{sec:unit_I_atoms_molecules}` | "Section 3" (capitalized) | Sentence start — *"\Cref{sec:...} introduces..."* |
 | `\cref{fig:a, fig:b}` | "figures 1 and 2" | Multiple references (cleveref handles the conjunction automatically) |
 | `\cref{fig:a, fig:b, fig:c}` | "figures 1, 2 and 3" | Three or more (Oxford comma per LaTeX style) |
 | `\crefrange{sec:a}{sec:c}` | "sections 3 to 5" | Numerical range |
 
 > [!TIP]
-> Cleveref auto-detects the **type** from the label prefix (`sec:`, `fig:`, `eq:`, `tbl:`). You never write "see Figure" — cleveref injects the right word for you. **The single rule**: pick the right prefix when defining the label, and `\cref{}` will render correctly everywhere.
+> Cleveref derives the reference type from the labeled LaTeX counter, not the spelling prefix alone. Correct label placement matters; use `\nameref` on unnumbered surfaces.
 
 ### Examples — in prose
 
 ```markdown
 The Hardy–Weinberg equilibrium (\cref{eq:unit_V_hardy_weinberg}) is violated when…
-\Cref{sec:unit_VI_natural_selection} extends this to changing allele frequencies.
+\Cref{sec:unit_VI_evolution_and_selection} extends this to changing allele frequencies.
 The original derivation appears in \citet{hardy1908} and \citet{weinberg1908};
 modern treatments (\cref{fig:unit_V_hw_equilibrium}, \cref{tbl:unit_V_hw_examples}) include drift correction.
-The Hodgkin–Huxley currents (\cref{eq:unit_VII_hodgkin_huxley_currents}) generalise to non-spiking neurons in \cref{sec:unit_IX_synaptic_integration}.
+The Hodgkin–Huxley currents (\cref{eq:unit_VII_hodgkin_huxley_currents}) are discussed in \cref{sec:unit_IX_action_potential_synapses}.
 ```
 
 ### Forward vs circular references
 
 | Pattern | OK? | Notes |
 | ------- | --- | ----- |
-| Forward reference: Ch 3 → `\cref{sec:unit_VII_neurons}` | **Yes** | Cleveref resolves on second LaTeX pass; standard practice |
-| Backward reference: Ch 7 → `\cref{sec:unit_I_water}` | Yes | Encouraged for review/integration |
-| Circular reference: Ch 3 prereqs Ch 7, Ch 7 prereqs Ch 3 | **No** | Will trip `test_chapter_metadata.py` (prerequisites must be acyclic) |
+| Forward reference: `\cref{sec:unit_IX_action_potential_synapses}` | **Yes** | Cleveref resolves on subsequent LaTeX passes; standard practice |
+| Backward reference: `\cref{sec:unit_I_water_and_life}` | Yes | Encouraged for review/integration |
+| Circular prerequisite references | Review required | Tests check that prerequisite IDs resolve; they do not establish acyclicity or a defensible sequence. |
 | Self-reference: Ch 3 cites `\cref{sec:unit_X_self}` | **Avoid** | Use plain "this chapter" prose instead |
 
 ### What NOT to do
@@ -475,6 +481,8 @@ The Hodgkin–Huxley currents (\cref{eq:unit_VII_hodgkin_huxley_currents}) gener
 All tables use **Markdown pipe syntax**. For tables you need to cross-reference, attach a `{#tbl:...}` after the caption (pandoc converts the markdown into a `longtable` or `tabular` and applies the label).
 
 ### Plain table (not cross-referenced)
+
+The following numeric tables illustrate formatting, not a reviewed microbial reference dataset. Published values require a cited preparation and growth conditions.
 
 ```markdown
 | Organism | Doubling time | Optimal temp |
@@ -576,23 +584,23 @@ flowchart LR
 ````markdown
 ```mermaid
 flowchart LR
-    classDef enzyme fill:#1f77b4,stroke:#0b3d91,color:#fff
-    classDef substrate fill:#ff7f0e,stroke:#7a3d00,color:#000
-
-    S[Substrate] --> E[Enzyme]
-    E --> ES[ES complex]
-    ES --> P[Product]
-
-    class E enzyme
-    class S,P substrate
+    classDef reactant fill:#e6f1f7,stroke:#333333,color:#111111
+    classDef product fill:#fff0df,stroke:#333333,color:#111111
+    S[Enzyme and substrate] -->|Binding| ES[Enzyme–substrate complex]
+    ES -->|Catalysis and release| P[Enzyme and product]
+    class S,ES reactant
+    class P product
 ```
+<!-- alt: Enzyme and substrate bind to form a complex, then catalysis and release yield enzyme and product; detailed intermediates are omitted. -->
+
+*Selected enzyme reaction stages; the enzyme is regenerated, not converted into product. Detailed intermediates and reversibility are omitted.*
 ````
 
 | Property | Syntax | Notes |
 | -------- | ------ | ----- |
-| Fill color | `fill:#1f77b4` | Use CVD-friendly hex (see [visualization_guide.md](visualization_guide.md)) |
-| Stroke color | `stroke:#0b3d91` | Darker shade of fill |
-| Text color | `color:#fff` | Use `#fff` on dark fills, `#000` on light fills |
+| Fill color | `fill:#e6f1f7` | Light fill; no color-only biological meaning |
+| Stroke color | `stroke:#333333` | Visible outline |
+| Text color | `color:#111111` | Dark text on light fill; inspect final contrast |
 | Class application | `class NodeId className` | Apply a `classDef` to specific nodes |
 | Per-node inline style | `style NodeId fill:#hex,color:#hex` | Use sparingly; classes scale better |
 
@@ -617,11 +625,11 @@ flowchart LR
 When a chapter needs a guaranteed-stable PNG (e.g. for print-only editions), register the diagram:
 
 1. Add a factory in [src/mermaid/biology_diagrams.py](../src/mermaid/biology_diagrams.py) and append it to `ALL_BIOLOGY_DIAGRAMS`.
-2. Run `uv run python scripts/generate_diagrams.py` from the project directory.
+2. Run `uv run --frozen --extra dev python scripts/generate_diagrams.py --strict-png` from the project root.
 3. Reference the resulting PNG with standard markdown image syntax:
 
    ```markdown
-   ![Glycolysis pathway: glucose to pyruvate via 10 enzymatic steps.](visualization_guide.md)
+   ![Glycolysis pathway with investment and payoff stages from glucose to pyruvate.](../figures/mermaid/glycolysis_pathway.png)
    ```
 
 ---
@@ -634,7 +642,7 @@ All code examples must import from real `src/biology/` modules — no pseudocode
 from biology.biochemistry import michaelis_menten
 
 result = michaelis_menten(substrate_conc=5.0, Vmax=10.0, Km=2.0)
-print(f"Rate = {result.reaction_rate:.2f}")  # Real computed output: 7.14
+print(f"Rate = {result.reaction_rate:.2f}")  # Expected model value: 7.14; record actual execution separately.
 ```
 
 > [!TIP]
@@ -655,7 +663,7 @@ Letter PDFs use:
 > [!WARNING]
 > Changing density requires editing **both files** so YAML comments and the rendered PDF stay aligned. See [accessibility.md](accessibility.md) for the alternative "reader profile" recipe (10–12 mm margins, 10.5–11 pt body).
 
-Authoritative allowlists for `plot_*` and `*_diagram()` names live in [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md).
+Figure and diagram registries own admitted names; see [the visualization guide](visualization_guide.md), not a copied symbol allowlist.
 
 ---
 
@@ -664,12 +672,12 @@ Authoritative allowlists for `plot_*` and `*_diagram()` names live in [docs/manu
 - [ ] H1 title matches `docs/manuscript/config.yaml` and is followed by `\label{sec:unit_X_<stem>}` (automatable: `scripts/sync_curriculum_materials.py` + `scripts/insert_crossref_labels.py`)
 - [ ] `<!-- chapter-metadata-badge -->` with difficulty / time / prereqs (automatable: `scripts/insert_chapter_metadata.py`)
 - [ ] Learning Objectives listed (7–9 per chapter, each starting with an action verb)
-- [ ] Opening Vignette (150–300 words, historically grounded)
+- [ ] Opening Vignette before the substantive body; historical/empirical claims are sourced, hypothetical scenarios are explicit and self-contained ([editorial contract](agent_instructions.md#how-to-write-opening-vignettes))
 - [ ] All major sections at `##` level
 - [ ] All subsections at `###` level
 - [ ] Equations using the correct form (see [Equations](#equations) decision tree)
 - [ ] Figures with `\caption{...}`, `\label{fig:unit_X_<descriptor>}`, and an `<!-- alt: ... -->` comment immediately after `\end{figure}`
-- [ ] All cross-references use `\cref{sec:|fig:|eq:|tbl:}` — no hand-typed "Chapter 11"
+- [ ] Numbered targets use `\cref`; unnumbered surfaces use `\nameref`; no hand-typed rendered numbers.
 - [ ] Citations use `\citet{}` / `\citep{}`; every key in `references.bib`; every entry cited
 - [ ] Code examples use real imports and real outputs
 - [ ] Summary section at end (one bullet per major section)

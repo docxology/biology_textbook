@@ -28,7 +28,7 @@ transpiration modeled by the van den Honert equation.
 
 | Discoverer(s) | Year | Journal / Source | Discovery | Significance |
 | ------------- | ---- | ---------------- | --------- | ------------ |
-| Jan Ingenhousz | 1779 | \citep{ingenhouss1779} | Plants produce oxygen in light, CO₂ in dark | Established the light-dependency of photosynthesis |
+| Jan Ingenhousz | 1779 | \citep{ingenhouss1779} | Light-dependent oxygen production in plants | Distinguished light-dependent gas exchange; plant respiration is not restricted to darkness |
 | Julius von Sachs | 1862 | \citep{sachs1862} | Starch as first visible product of photosynthesis | Linked CO₂ fixation to carbohydrate storage in chloroplasts |
 | Frits Went | 1920s bioassays; 1928 thesis | \citep{went1926} | Transferable growth-promoting activity in *Avena* coleoptile bioassays | Distinguished a diffusible growth signal from chemical isolation of IAA and later molecular transport mechanisms |
 | Henry Dixon & John Joly | 1894 | \citep{dixon1894} | Cohesion-tension theory of water ascent | Explained how trees move water 100+ m with no pump |
@@ -38,35 +38,44 @@ transpiration modeled by the van den Honert equation.
 
 ---
 
-## Key Concepts and Connections {.unnumbered}
+## Plant transport, development, and environmental response {.unnumbered}
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    STRUC["🌿 Plant Structure<br/>(roots, stems, leaves;<br/>meristems; vascular: xylem/phloem)"] --> WATER["💧 Water Relations<br/>(Ψ = Ψs + Ψp;<br/>cohesion-tension mechanism)"]
-    WATER --> TRANS["🌬️ Transpiration<br/>(stomata; guard cells;<br/>transpiration stream)"]
-
-    STRUC --> PHOTO["☀️ Photosynthesis<br/>(earlier metabolism:<br/>C₃, C₄, CAM pathways)"]
-    PHOTO --> CARB["🍬 Carbon Fixation<br/>(Calvin cycle;<br/>Rubisco; photorespiration)"]
-
-    STRUC --> REPRO["🌸 Reproduction<br/>(alternation of generations;<br/>angiosperms; seed dispersal)"]
-    REPRO --> DEV["🌱 Development<br/>(germination; embryogenesis;<br/>apical dominance)"]
-
-    HORMON["🔬 Phytohormones<br/>(auxin IAA, gibberellin,<br/>cytokinin, ABA, ethylene,<br/>strigolactones)"] --> RESP["🌡️ Environmental Responses<br/>(phototropism, gravitropism,<br/>thigmomorphogenesis)"]
-    HORMON --> DEV
-    HORMON --> REPRO
-
-    STRUC --> PHLOEM["🚌 Phloem Transport<br/>(pressure-flow hypothesis;<br/>source-sink sugar loading)"]
-
-    DEF["🛡️ Plant Defense<br/>(secondary metabolites;<br/>jasmonate signaling;<br/>systemic acquired resistance)"] --> STRUC
-
-    style PHOTO fill:#27ae60,color:#fff
-    style WATER fill:#2980b9,color:#fff
-    style HORMON fill:#8e44ad,color:#fff
-    style DEF fill:#e67e22,color:#fff
+    subgraph S["Structure and exchange"]
+        O["Plant organs"]
+        W["Water and transpiration"]
+        P["Phloem transport"]
+        C["Photosynthesis and carbon"]
+    end
+    subgraph L["Life cycle"]
+        R["Reproduction"]
+        D["Development"]
+    end
+    subgraph E["Coordination and response"]
+        H["Hormone signaling"]
+        F["Responses and defense"]
+    end
+    O ---|"vascular organization"| W
+    O ---|"vascular organization"| P
+    W ---|"shared leaf context"| C
+    P ---|"source and sink relations"| C
+    R ---|"life-cycle connection"| D
+    H ---|"developmental regulation"| D
+    H ---|"signal context"| F
+    F ---|"transport regulation"| W
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
+    style S fill:#fafafa,stroke:#526777,color:#17212b
+    style L fill:#fafafa,stroke:#526777,color:#17212b
+    style E fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing plant-biology concept map linking structure, water transport, transpiration, reproduction, and environmental responses with photosynthesis as a shared physiological constraint. -->
+<!-- alt: Graph showing plant organization connects transport and carbon metabolism with reproduction, development, and environmental response. Labeled arrowless connectors identify selected relationships, not a required process sequence or reading order. Shared signaling ideas do not imply identical plant and animal receptors. -->
 
-*Plant-biology concept map linking structure, water transport, transpiration, reproduction, and environmental responses with photosynthesis as a shared physiological constraint.*
+*Plant organization connects transport and carbon metabolism with reproduction, development, and environmental response. Labeled arrowless connectors identify selected relationships, not a required process sequence or reading order. Shared signaling ideas do not imply identical plant and animal receptors.*
 
 ---
 
@@ -90,9 +99,9 @@ paper-based lab decision.
 
 ## Connections Across the Textbook {.unnumbered}
 
-- **Photosynthesis** (\cref{sec:unit_III_photosynthesis}) is the biochemical foundation of plant carbon metabolism; this unit extends it by covering C₄ and CAM pathways and carbon assimilation in leaves.
-- **Water potential and osmosis** (\cref{sec:unit_I_atoms_molecules}; \cref{sec:unit_II_membrane_transport}) directly underlie the transpiration stream model.
-- **Plant hormone receptor signaling** (auxin, ABA) uses the same signaling classes covered in \nameref{sec:unit_II_unit_intro} (cell signaling: receptor kinases, second messengers).
+- **Photosynthesis** (\cref{sec:unit_III_photosynthesis}) provides the C₃, C₄, and CAM context revisited here in relation to leaf carbon metabolism and plant responses.
+- **Water potential and osmosis** (\cref{sec:unit_I_water_and_life}; \cref{sec:unit_II_membrane_transport}) provide context for the transpiration stream model.
+- **Plant hormone signaling** revisits receptor-mediated regulation introduced in \nameref{sec:unit_II_unit_intro}. Compare the specified auxin and ABA pathways rather than assuming shared functions imply identical receptor classes.
 - **Plant-pollinator, myrmecochory, and plant-mycorrhizal interactions** connect to \nameref{sec:unit_X_unit_intro} (community ecology, mutualism, co-evolution).
 - **Secondary metabolites as medicines** (alkaloids, terpenoids) link to \nameref{sec:unit_I_unit_intro} (functional groups) and \nameref{sec:unit_VII_unit_intro} (antimicrobial compounds).
 
@@ -135,4 +144,4 @@ print(f"Net photosynthesis at PAR 1000 = {photosynthesis_rate(1000):.1f} µmol C
 
 ## Cross-Unit Integration {.unnumbered}
 
-Plants are not "simpler" animals — they are organisms that solved the regulation problem without nervous tissue or circulating endocrine glands. The hormone signaling networks of \nameref{sec:unit_VIII_unit_intro} (auxin polar transport, ABA stomatal control, ethylene ripening cascades, jasmonate defense signaling) are functionally analogous to the nervous and endocrine systems \nameref{sec:unit_IX_unit_intro} develops in animals: both implement long-distance, context-sensitive coordination of dispersed tissues. When \nameref{sec:unit_IX_unit_intro} introduces neurotransmitter signaling, hormone–receptor binding, and feedback regulation of physiological set points, compare each mechanism to its plant counterpart from \nameref{sec:unit_VIII_unit_intro}. The shared architectural principle — local sensors, diffusing signal molecules, threshold responses, negative feedback for stability — is one of the deepest convergences in biology and a clean illustration of why systems thinking (\nameref{sec:unit_0_unit_intro}) outranks taxonomic vocabulary.
+Plants coordinate dispersed tissues without nervous tissue or circulating endocrine glands. Compare hormone signaling and environmental responses in \nameref{sec:unit_VIII_unit_intro} with neural and endocrine coordination in \nameref{sec:unit_IX_unit_intro}: both raise questions about signal reception, transport, response, and feedback. These are functional comparisons, not claims of identical receptor classes, control models, or evolutionary origins. The systems lens in \nameref{sec:unit_0_unit_intro} helps frame those comparisons alongside, rather than in place of, organism-specific mechanisms.

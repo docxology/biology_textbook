@@ -39,37 +39,46 @@ same principle operates in both mitochondria and chloroplasts.
 
 ---
 
-## Key Concepts and Connections {.unnumbered}
+## Carbon pathways, redox balance, and energy coupling {.unnumbered}
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    THERMO["Thermodynamics<br/>(ΔG = ΔH − TΔS;<br/>1st & 2nd Laws)"] --> ATP["ATP<br/>(central group-transfer carrier;<br/>cellular hydrolysis ΔG is state-dependent)"]
-
-    ATP --> GLYC["🍬 Glycolysis<br/>(10 steps; cytoplasm;<br/>2 ATP + 2 NADH/glucose)"]
-    GLYC --> PDC["🔗 Pyruvate Dehydrogenase<br/>(5 cofactors;<br/>GlycolysisTCA bridge)"]
-    PDC --> TCA["🔄 TCA Cycle<br/>(8 steps; matrix;<br/>6 NADH + 2 FADH₂ + 2 GTP)"]
-
-    TCA --> ETC["⚡ Electron Transport Chain<br/>(Complexes I–IV;<br/>10 H⁺ per NADH)"]
-    ETC --> PMF["🌊 Proton-Motive Force<br/>(ΔΨ + ΔpH ≈ 180 mV)"]
-    PMF --> ATPS["🔩 ATP Synthase<br/>(F₀F₁ rotary motor;<br/>~3 H⁺/ATP)"]
-
-    PHOTO["☀️ Photosynthesis<br/>(light reactions → NADPH + ATP;<br/>Calvin cycle → G3P)"] --> ATP
-    PHOTO --> GLYC
-
-    FERM["🍺 Fermentation<br/>(anaerobic; 2 ATP;<br/>lactate or ethanol)"] --> GLYC
-    GLYC --> FERM
-
-    INT["🔀 Metabolic Integration<br/>(insulin, glucagon,<br/>AMPK regulation)"] --> GLYC
-    INT --> TCA
-
-    style ATP fill:#f39c12,color:#fff
-    style ETC fill:#e74c3c,color:#fff
-    style PHOTO fill:#27ae60,color:#fff
-    style ATPS fill:#8e44ad,color:#fff
+    subgraph C["Carbon pathways"]
+        G["Glycolysis"]
+        T["Pyruvate oxidation and TCA"]
+        F["Fermentation"]
+        P["Photosynthesis"]
+    end
+    subgraph E["Membrane energy coupling"]
+        ETC["Electron transport"]
+        PMF["Proton-motive force"]
+        ATP["ATP synthesis"]
+    end
+    subgraph R["Constraints and regulation"]
+        TH["Thermodynamic constraints"]
+        MR["Metabolic regulation"]
+    end
+    G ---|"carbon entry"| T
+    G ---|"redox balance"| F
+    P ---|"fixed carbon context"| G
+    T ---|"reduced carriers"| ETC
+    ETC ---|"proton pumping"| PMF
+    PMF ---|"proton coupling"| ATP
+    TH ---|"energetic feasibility"| ATP
+    MR ---|"conditional control"| G
+    MR ---|"conditional control"| T
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
+    style C fill:#fafafa,stroke:#526777,color:#17212b
+    style E fill:#fafafa,stroke:#526777,color:#17212b
+    style R fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing energy-and-metabolism concept map — orange = ATP currency; red = oxidative phosphorylation; green = photosynthesis; purple = ATP synthase. -->
+<!-- alt: Graph showing selected relationships connect carbon processing, redox balance, membrane coupling, and regulation. This is not a reaction sequence or shared-compartment diagram. Proton-motive force has electrical and pH contributions; coupling and numerical ATP yields require specified system assumptions. Fermentation-linked redox balance is not an extra universal ATP yield added to glycolysis. -->
 
-*Energy-and-metabolism concept map — orange = ATP currency; red = oxidative phosphorylation; green = photosynthesis; purple = ATP synthase.*
+*Selected relationships connect carbon processing, redox balance, membrane coupling, and regulation. This is not a reaction sequence or shared-compartment diagram. Proton-motive force has electrical and pH contributions; coupling and numerical ATP yields require specified system assumptions. Fermentation-linked redox balance is not an extra universal ATP yield added to glycolysis.*
 
 ---
 
@@ -135,4 +144,4 @@ print(f"Q-linked shuttle illustration: {total_q_shuttle:.0f} ATP/glucose")
 
 ## Cross-Unit Integration {.unnumbered}
 
-The metabolic pathways of \nameref{sec:unit_III_unit_intro} — glycolysis, the TCA cycle, oxidative phosphorylation, photosynthesis — generate the ATP, NADPH, and carbon skeletons that make every other cellular activity possible. Among the most demanding consumers of that energy is the storage, replication, and expression of genetic information, which \nameref{sec:unit_IV_unit_intro} opens with. DNA replication, transcription, and translation are ATP- and GTP-dependent, kinetically tuned to the metabolic state of the cell, and tightly regulated by metabolic intermediates (acetyl-CoA controls histone acetylation; SAM levels control DNA methylation; alpha-ketoglutarate controls TET-driven demethylation). Read \nameref{sec:unit_IV_unit_intro} with one eye on the energetic budget you just internalized — the cell does not "decide" to express a gene without paying a metabolic bill.
+The pathways of \nameref{sec:unit_III_unit_intro} provide energy carriers and carbon skeletons for cellular processes, including genome copying and expression in \nameref{sec:unit_IV_unit_intro}. Replication, transcription, and translation consume nucleotide triphosphates in their respective reactions. Metabolic state can also influence regulation: acetyl-CoA, SAM, and alpha-ketoglutarate participate in mechanisms affecting histone acetylation, DNA methylation, and TET-mediated demethylation. Their availability is one influence among regulatory and compartment-specific constraints, not a sufficient controller of gene expression. Keep those boundaries in view when comparing energy budgets with molecular genetics.

@@ -55,8 +55,8 @@
 
 The chapter is long because it bridges three levels of time and scale — read it as a narrowing lens:
 
-- **The Hardy-Weinberg null model.** Alleles, genotype frequencies, the equilibrium theorem and its assumptions; χ² tests of fit.
-- **Four forces that perturb it.** Selection, drift, gene flow, and mutation. Each is a named violation of an HWE assumption.
+- **The Hardy–Weinberg genotype-proportion model.** Alleles, random mating, expected genotype proportions, and χ² tests of fit.
+- **Allele-frequency dynamics.** Selection, drift, gene flow, and mutation have distinct mechanisms. Allele frequencies can change even when random mating restores Hardy–Weinberg genotype proportions each generation; inbreeding can alter proportions without changing allele frequencies.
 - **Consequences at the [**genome**](#gl:genome) scale.** Neutral theory and molecular evolution, F-statistics and population structure, coalescent theory and molecular clocks.
 
 If you are reading for the core Mendelian-genetics course, prioritize the Hardy-Weinberg model and the four evolutionary forces. The genome-scale extensions connect population genetics to molecular evolution (\nameref{sec:unit_VI_unit_intro}) and are helpful but optional.
@@ -309,7 +309,7 @@ Genotype frequencies under HWE:
 
 ## Natural Selection and Allele-Frequency Change
 
-Directional, stabilizing, and disruptive selection shift genotype frequencies over generations; \cref{fig:unit_VI_selection_simulation} plots representative allele-frequency trajectories under different fitness regimes (\nameref{sec:unit_VI_evolution_and_selection}).
+The one-locus model in \cref{fig:unit_VI_selection_simulation} follows allele frequency under specified genotype fitnesses: a supplied AA/Aa/aa regime, heterozygote advantage, and heterozygote disadvantage. These are not simulations of continuous phenotypic stabilizing or disruptive selection; those descriptions require an explicit trait–fitness model (\nameref{sec:unit_VI_evolution_and_selection}).
 
 ### Fitness and Selection
 

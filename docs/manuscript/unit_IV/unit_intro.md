@@ -5,22 +5,22 @@
 
 In 1944, Oswald Avery, Colin MacLeod, and Maclyn McCarty performed one of the most transformative
 experiments in the history of science. They showed that the \"transforming principle\" that could convert
-harmless *Streptococcus pneumoniae* into a lethal strain was not protein — as virtually everyone expected
-— but deoxyribonucleic acid (DNA). The announcement was met with scepticism. DNA seemed too simple:
-primarily four nucleotide bases, arranged in an apparently monotonous double helix. How could such a molecule
-encode the almost infinite variety of life?
+harmless *Streptococcus pneumoniae* into a lethal strain was DNA rather than protein. Their work
+challenged protein-centered explanations of inheritance. A four-base chemical vocabulary raised a
+central question: how could DNA sequence encode biological variety? The later double-helix model
+provided structural context for that question.
 
 The answer, revealed over the next three decades, is linguistic in structure: a four-letter alphabet
 (A, T, G, C) organized into three-letter codons, read in a linear sequence, encoding twenty amino acids,
 assembled by ribosomes into an effectively unlimited number of proteins. This is the molecular logic
-of life: **information flows from DNA to RNA to protein**, and control is exerted at every step. The
-central dogma, articulated by Francis Crick in 1958, has been refined but rarely overturned.
+of gene expression: DNA is transcribed to RNA and translated to protein, with regulation at each step.
+Crick's central dogma concerns residue-by-residue sequence-information transfer out of protein, not a ban on RNA-to-DNA synthesis \citep{crick1958,crick1970}.
 
 This unit examines the molecular machinery that reads, copies, and expresses genetic information.
-You will study the multiprotein complexes that replicate DNA with an error rate of fewer than one
-mistake per 10⁹ base pairs, the RNA polymerases that transcribe genes in a regulated, stimulus-responsive
-manner, and the ribosome — a 2.5 MDa ribonucleoprotein machine that interprets the genetic code at
-~15 amino acids per second. You will also examine how mutations drive evolution and disease, how the
+You will study multiprotein complexes that replicate DNA, regulated transcription, and ribosomes
+that interpret the genetic code. Numerical summaries such as fewer than one replication mistake per
+10⁹ base pairs, a 2.5 MDa ribosome, or ~15 amino acids per second require organism and experimental
+context; they are not universal machinery specifications. You will also examine how mutations contribute to evolution and disease, how the
 genome is structurally organized, and how RNA-guided editing led to defined clinical applications,
 such as the ex vivo stem-cell editing in Casgevy's dated 2023 approval \citep{doudna2014,fda2023casgevy}.
 
@@ -40,36 +40,44 @@ such as the ex vivo stem-cell editing in Casgevy's dated 2023 approval \citep{do
 
 ---
 
-## Key Concepts and Connections {.unnumbered}
+## Genome maintenance, expression, and regulation {.unnumbered}
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    DNA["🧬 DNA Double Helix<br/>(anti-parallel; A–T, G–C;<br/>5'→3' polarity)"] --> REP["Replication<br/>semi-conservative, proofreading<br/>Bacteria: Pol III<br/>Eukaryotes: Pol ε/δ"]
-    DNA --> TRANS["📝 Transcription<br/>(RNA polymerase;<br/>promoter → mRNA)"]
-
-    TRANS --> mRNA["📨 mRNA Processing<br/>(5' cap, 3' polyA,<br/>splicing → exons)"]
-    mRNA --> TRNSL["🏭 Translation<br/>(ribosome 80S;<br/>tRNA; genetic code)"]
-    TRNSL --> PROT["🔩 Protein<br/>(folding; post-translational<br/>modification)"]
-
-    DNA --> REG["🎛️ Gene Regulation<br/>(promoters, enhancers,<br/>TFs, epigenetics)"]
-    REG --> TRANS
-
-    DNA --> MUT["⚠️ Mutations<br/>(point, frameshift;<br/>transitions, transversions)"]
-    MUT --> REPAIR["🔧 DNA Repair<br/>(BER, NER, MMR,<br/>DSBR/homologous recomb.)"]
-    DNA --> EPIGEN["🏷️ Epigenetics<br/>(methylation, histone<br/>modification, imprinting)"]
-
-    DNA --> CRISPR["✂️ CRISPR-Cas9<br/>(sgRNA-guided;<br/>DSB → HDR or NHEJ)"]
-
-    DNA --> GENOME["📚 Genome Organization<br/>(chromatin, nucleosomes,<br/>topoisomers, repetitive DNA)"]
-
-    style DNA fill:#2c3e50,color:#fff
-    style CRISPR fill:#e74c3c,color:#fff
-    style REG fill:#8e44ad,color:#fff
-    style MUT fill:#e67e22,color:#fff
+    subgraph M["Maintenance and variation"]
+        R["DNA replication"]
+        D["DNA damage and repair"]
+        V["Sequence variation and editing"]
+    end
+    subgraph E["Gene expression"]
+        T["Transcription"]
+        P["Eukaryotic RNA processing"]
+        L["Translation and proteins"]
+    end
+    subgraph C["Regulatory state"]
+        H["Chromatin and epigenetics"]
+        I["Regulation and inherited states"]
+    end
+    R ---|"copying fidelity"| D
+    D ---|"fidelity and editing outcomes"| V
+    R ---|"shared DNA template"| T
+    T ---|"eukaryotic example"| P
+    P ---|"mRNA context"| L
+    H ---|"regulatory context"| T
+    H ---|"state persistence"| I
+    I ---|"expression control"| T
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
+    style M fill:#fafafa,stroke:#526777,color:#17212b
+    style E fill:#fafafa,stroke:#526777,color:#17212b
+    style C fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing molecular-genetics concept map — dark = DNA; purple = regulation; orange = mutations; red = editing technology. -->
+<!-- alt: Graph showing genome maintenance, expression, and regulatory state are related but distinct. RNA processing is a eukaryotic example, not an organism-independent pipeline. Labeled arrowless relationships do not imply that fixed mutations are generally reversed by repair or that every regulatory state is inherited. -->
 
-*Molecular-genetics concept map — dark = DNA; purple = regulation; orange = mutations; red = editing technology.*
+*Genome maintenance, expression, and regulatory state are related but distinct. RNA processing is a eukaryotic example, not an organism-independent pipeline. Labeled arrowless relationships do not imply that fixed mutations are generally reversed by repair or that every regulatory state is inherited.*
 
 ---
 
@@ -85,9 +93,9 @@ paper-based lab decision.
 
 | Chapter | Title | Core Question | Key Equation / Model |
 | ------- | ----- | ------------- | -------------------- |
-| \cref{sec:unit_IV_dna_replication_and_cell_cycle} | DNA Replication and the Cell Cycle | How is DNA copied with such extraordinary accuracy, and how is replication coupled to cell division? | Error rate: ~10⁻⁹ per base; cell cycle checkpoint models |
-| \cref{sec:unit_IV_gene_expression} | Gene Expression | How is genetic information transcribed and translated into functional proteins? | Rate equations for coupled transcription-translation |
-| \cref{sec:unit_IV_mutations_and_genomics} | Mutations, CRISPR, and Genomics | What causes mutations, how are they repaired, and what does the human reference genome reveal? | Jukes-Cantor distance; mutation rate × generation time |
+| \cref{sec:unit_IV_dna_replication_and_cell_cycle} | DNA Replication and the Cell Cycle | How do replication, repair, and checkpoints maintain DNA across cell divisions? | Fidelity depends on organism, assay, and repair context; checkpoint models |
+| \cref{sec:unit_IV_gene_expression} | Gene Expression | How is genetic information transcribed, processed, and translated? | Expression-rate models; transcription–translation coupling where biologically appropriate |
+| \cref{sec:unit_IV_mutations_and_genomics} | Mutations, CRISPR, and Genomics | How do DNA damage, repair, and replication affect sequence variation, and what does the human reference genome reveal? | Sequence-distance assumptions; mutation probability with stated site and generation units |
 | \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms} | Chromatin and Epigenetic Mechanisms | How do chromatin, methylation, and regulatory RNAs tune gene expression without changing DNA sequence? | Methylation state; histone modification; regulatory network logic |
 | \cref{sec:unit_IV_epigenetic_inheritance_and_disease} | Epigenetic Inheritance and Disease | Which states persist, and what evidence links them to disease? | Generation controls; clinical endpoints |
 
@@ -97,7 +105,7 @@ paper-based lab decision.
 
 - **DNA replication** directly links to \nameref{sec:unit_V_unit_intro} (meiosis and crossing-over in \cref{sec:unit_V_chromosomal_inheritance}) and \nameref{sec:unit_VI_unit_intro} (molecular clock calculations using sequence divergence).
 - **Gene regulation** (operons, TFs, miRNA) reappears in \nameref{sec:unit_VIII_unit_intro} (plant hormone signal transduction) and \nameref{sec:unit_IX_unit_intro} (endocrine control of gene expression via steroid receptors).
-- **Mutations and DNA repair** are essential context for \nameref{sec:unit_VI_unit_intro} (evolution as mutation + selection) and oncogene/tumor-suppressor biology in \nameref{sec:unit_II_unit_intro} and \nameref{sec:unit_IX_unit_intro}.
+- **Sequence variation and DNA repair** provide molecular context for \nameref{sec:unit_VI_unit_intro}, where selection, drift, mutation, and gene flow have distinct roles, and for oncogene/tumor-suppressor biology in \nameref{sec:unit_II_unit_intro} and \nameref{sec:unit_IX_unit_intro}. DNA lesions and mismatches are not interchangeable with fixed mutations.
 - **CRISPR-Cas9** appears in clinical connection boxes throughout — gene therapy (\nameref{sec:unit_V_unit_intro}), antibiotic resistance (\nameref{sec:unit_VII_unit_intro}), and plant engineering (\nameref{sec:unit_VIII_unit_intro}).
 
 > **Key vocabulary introduced here:** nucleotide, base pair, template strand, coding strand, codon, anticodon, spliceosome, intron, exon, promoter, enhancer, transcription factor, epigenome, proto-oncogene, restriction enzyme, CRISPR.

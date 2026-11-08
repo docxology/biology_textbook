@@ -15,7 +15,7 @@ uv run python -m pytest tests/ --cov=src --cov-report=html --cov-fail-under=90
 
 ## Config vs tests
 
-- **`manuscript/config.yaml`**: drives layout, ordering, front matter, appendices, and **declares** policies (e.g. `accessibility.*`, `content_notes`, `export`). Not every key is consumed by a script. **Authoritative table:** [docs/accessibility.md](../docs/accessibility.md).
+- **`docs/manuscript/config.yaml`**: drives layout, ordering, front matter, appendices, and declares policies (`accessibility.*`, `content_notes`, `export`). Not every key is a gate; [the accessibility guide](../docs/accessibility.md) owns the enforcement table.
 - **Invariant tests** (this directory) are the main **mechanical** enforcement for alt text, labels, metadata, closure, and cross-refs. Do not assume the PDF build fails on YAML alone for alt text; see `test_accessibility.py`.
 
 ## Layout
@@ -67,7 +67,7 @@ Use fresh pytest collection for the current module/item inventory. The tables ar
 | `test_pdf_log_quality.py` | PDF-log checker catches undefined references and severe overfull boxes |
 | `test_pdf_opening_and_mermaid.py` | Book opening metadata, cover asset, and inline Mermaid rendering |
 | `test_question_answer_refinement.py` | Preserve authored keys and refuse unsupported generation without writes |
-| `test_script_quality.py` | Scripts parse cleanly and avoid hard-coded checkout paths or obsolete helpers |
+| `test_script_quality.py` | AST syntax, logger binding and protected helper patterns; this is not a general path-hygiene or exhaustive script-execution suite |
 | `test_textbook_paths.py` | Checkout path discovery and `ensure_project_paths()` bootstrap |
 | `test_textbook_quality_audit.py` | Umbrella textbook-quality audit: stale claims, copyedit artifacts, enrichment presence, and current-source locks |
 

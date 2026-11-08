@@ -2,7 +2,8 @@
 
 | File | Title |
 | ---- | ----- |
-| `mendelian_genetics.md` | Mendelian Genetics and Heredity |
+| `mendelian_principles.md` | Mendelian Principles and Probability |
+| `mendelian_extensions_and_human_genetics.md` | Mendelian Extensions and Human Genetics |
 | `chromosomal_inheritance.md` | Chromosomal Inheritance and Linkage |
 | `population_genetics.md` | Population Genetics |
 
@@ -12,7 +13,4 @@
 
 ## Authoring Notes
 
-- Keep chapter labels aligned with filename stems (`sec:unit_V_<stem>`).
-- Use glossary links sparingly on first use; avoid dense link-heavy paragraphs.
-- Add a descriptive HTML alt comment after any figure or Mermaid block.
-- Keep paired labs and question banks aligned with chapter learning objectives.
+Follow [local instructions](AGENTS.md) and the [manuscript source contract](../AGENTS.md) for canonical H1s, stable labels, metadata badges, reference types and authored assessment mappings. [The visualization guide](../../visualization_guide.md) owns alt/caption placement and relationship-map semantics. Implementation paths above are repository-root paths.

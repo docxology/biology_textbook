@@ -1,5 +1,7 @@
 # Figure Expansion Research Memo (2026-05-23)
 
+> Historical prioritization memo, 2026-05-23. Its deferrals and API assumptions are not current requirements or fresh research verification. See [API reference](api_reference.md#biologyfoundations), [visualization guide](visualization_guide.md) and current manifests. “Pedagogical ROI” below is a planning rationale, not an observed learning-effect estimate.
+
 Prioritization input for the biology textbook matplotlib expansion pass. Perplexity
 (`llm -m sonar`) queries on pedagogical ROI, WCAG/CVD norms, and dual-pipeline
 (static matplotlib + inline Mermaid) practice were cross-checked against the
@@ -22,7 +24,7 @@ chapter gap matrix and existing `src/biology/*` APIs.
 
 ## Accessibility (WCAG / CVD)
 
-- Use the project `visualization.cvd` palette (Okabe–Ito–inspired hues; no red/green-only pairs).
+- Use project colors from `visualization.cvd`; the exact current constants and review limits are owned by [the visualization guide](visualization_guide.md#cvd-friendly-palette-exact-hex).
 - Pair color with line style or hatching for multi-series curves.
 - Every `\includegraphics` block carries a substantive `<!-- alt: … -->` comment (not filename echo).
 - Target ≥4.5:1 contrast for text on figure backgrounds where labels are rendered.
@@ -34,17 +36,15 @@ chapter gap matrix and existing `src/biology/*` APIs.
 | Quantitative API exists in `src/biology/` | Pathway topology with named steps (glycolysis map, Krebs cycle) |
 | Parameter sweep or time series | One-off conceptual schematics |
 | Chapter has ≥2 worked examples with numbers | Unit 0 philosophy / history chapters |
-| Duplicate would restate an existing registered diagram | Dense inline fence already covers the concept |
+| Add a genuinely distinct quantitative view only when it adds evidence | Keep the existing diagram when another view would merely duplicate it |
 
 ## Skip / defer rules
 
-- **Unit 0** (`history_of_biology`, `active_inference`, `systems_science`, `complex_adaptive_systems`): prose-first; no APIs — defer unless a single systems diagram is added later.
+- **Superseded Unit 0 assumption:** this memo originally deferred Unit 0 as lacking APIs. `biology.foundations` now exports prediction-precision, network-degree and milestone helpers; `history_philosophy_biology.md` is the current chapter filename. Consult current sources rather than preserving this deferral as policy.
 - **Chapters with registered matplotlib already**: do not duplicate (e.g. second Michaelis plot).
 - **Chapters with ≥3 inline Mermaid pathway diagrams**: prefer one quantitative companion plot, not another topology diagram.
 - **API absent**: document deferral in gap matrix rather than inventing ad hoc math.
 
 ## Gap matrix summary
 
-See `docs/figure_gap_matrix.md` for the full scored table. Tier 1 implements
-existing APIs with clear chapter homes; Tier 2 covers remaining quantitative
-chapters until the matrix is exhausted or publication gates block further PNGs.
+See [figure_gap_matrix.md](figure_gap_matrix.md) for the dated snapshot; its status is not a current availability or accessibility pass.

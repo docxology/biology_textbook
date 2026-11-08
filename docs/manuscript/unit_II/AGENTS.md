@@ -16,28 +16,20 @@ Unit II covers cell theory, prokaryotic and eukaryotic cell structure, membrane 
 
 ## Chapters
 
-1. `cell_theory.md` — Cell Theory and Cell Types
-2. `cell_structure.md` — Cell Structure and Organelles
-3. `membrane_transport.md` — Membrane Structure and Transport
-4. `cell_signaling.md` — Cell Signaling and Communication
+[README.md](README.md) lists chapter filenames/titles; [config.yaml](../config.yaml) owns order.
 
 ## Key Equations
 
 - Nernst: E_i = (RT/zF) ln([C]_out / [C]_in)
-- Goldman-Hodgkin-Katz: V_m = (RT/F) ln[(P_K[K+]_o + P_Na[Na+]_o + P_Cl[Cl-]_i) / (denominator)]
+- Goldman–Hodgkin–Katz: use the full expression and permeability/concentration assumptions in the chapter; reverse the chloride concentrations relative to cations.
 - Osmotic pressure: π = iCRT
 - Fick: J = −D(dC/dx)
 
 ## Figures and Diagrams
 
-- `src/visualization/plots.py` — `plot_nernst_potentials()`
+- Repository-root `src/visualization/plots_cell.py` implements `plot_nernst_potentials()`; `plots.py` owns registration.
 - `src/mermaid/biology_diagrams.py` — `organelle_function_diagram()`, `membrane_transport_diagram()`, `cell_cycle_diagram()`
 
-## Chapter Metadata Convention
+## Shared source contract
 
-All chapter files in this unit carry (inserted automatically by the scripts):
-
-- `\label{sec:unit_II_<stem>}` on the line after the H1 — cross-reference with `\cref{sec:unit_II_<stem>}`
-- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../src/biology/chapter_metadata.py`)
-
-See [../AGENTS.md](../AGENTS.md) and [../../docs/manuscript_guide.md](../../docs/manuscript_guide.md) for the full set of invariants.
+Follow [manuscript instructions](../AGENTS.md) for H1s, stable IDs, metadata badges, references and authored assessments; see [writing examples](../../manuscript_guide.md). Implementation paths above are repository-root paths.

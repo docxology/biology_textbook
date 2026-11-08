@@ -11,7 +11,7 @@ was transformed by microbial metabolism long before any animal breathed it.
 Medical microbiology became possible primarily after Robert Koch's postulates (1877–1884) established the
 germ theory of disease — the revolutionary idea that specific microorganisms cause specific infections.
 Alexander Fleming's observation in 1928 that *Penicillium* mould killed staphylococcal colonies
-initiated the antibiotic era, saving an estimated 200 million lives over the following century. But
+contributed to the development of the antibiotic era and its major therapeutic benefits. But
 pathogens evolve. The emergence of multidrug-resistant organisms (MRSA, XDR-TB, carbapenem-resistant
 *Enterobacteriaceae*) represents one of the most urgent public health crises of the 21st century:
 an estimated 1.27 million deaths were attributable to antimicrobial resistance in 2019 (Murray et al.,
@@ -20,9 +20,9 @@ an estimated 1.27 million deaths were attributable to antimicrobial resistance i
 This unit combines cell biology (structure of bacteria, archaea, and viruses), quantitative
 microbiology (growth curves, MIC calculations, viral replication kinetics), and ecology (the microbiome,
 biogeochemical cycles, infectious disease dynamics). You will apply the S-I-R epidemiological model
-and calculate R₀; model bacterial growth and antibiotic kill curves; and examine the microbiome as a
-complex ecological community whose disruption underlies diseases from *C. difficile* colitis to
-metabolic syndrome.
+and calculate R₀ under stated incidence and susceptibility assumptions; model bacterial growth and
+antibiotic kill curves; and examine microbiomes as ecological communities. Distinguish community
+associations with disease from evidence that a particular disruption causes a particular outcome.
 
 ---
 
@@ -34,42 +34,50 @@ metabolic syndrome.
 | Louis Pasteur | 1859–1861 | \citep{pasteur1861} | Disproof of spontaneous generation | Established germ theory; revolutionised medicine and food safety |
 | Robert Koch | 1876–1884 | \citep{koch1884} | Koch's postulates; anthrax, TB, cholera | Rigorous criteria for linking pathogen to disease |
 | Alexander Fleming | 1928 | \citep{fleming1929} | Penicillin discovery | Launched the antibiotic era; Nobel Prize 1945 |
-| Carl Woese & George Fox | 1977 | \citep{woese1977} | Archaea as third domain (16S rRNA) | Restructured the comprehensive tree of life; archaea are closer to eukaryotes than to bacteria |
+| Carl Woese & George Fox | 1977 | \citep{woese1977} | rRNA evidence distinguishing archaeal lineages | Changed interpretations of deep relationships; the evidence and later domain classifications are distinct |
 | Eckburg, Lepp & Relman; Human Microbiome Project Consortium | 2003 review; 2012 consortium studies | \citep{relman1999,hmp2012structure} | Archaeal colonization questions and sequence-based human-community characterization | Presence is not proof of pathogenicity; community surveys are not a census establishing one universal microbial cell count |
 | Murray et al. | 2022 | \citep{murray2022amr} | Global mortality from antimicrobial resistance (1.27 million deaths, 2019) | Quantified the scale of the AMR crisis as a call to action |
 
 ---
 
-## Key Concepts and Connections {.unnumbered}
+## Microbial diversity, communities, and host interactions {.unnumbered}
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    BACT["🦠 Bacteria<br/>(prokaryote; peptidoglycan;<br/>Gram+/Gram−; flagella)"] --> GROW["📈 Growth Kinetics<br/>(lag, log, stationary, death;<br/>N(t) = N₀ × 2^(t/t_d))"]
-    BACT --> ABRES["💊 Antibiotic Resistance<br/>(β-lactamase, efflux,<br/>target modification)"]
-    BACT --> BIOFILM["🏗️ Biofilms<br/>(quorum sensing;<br/>matrix formation)"]
-
-    ARCH["🌋 Archaea<br/>(ether lipids; extremophiles;<br/>kin to eukaryotes)"] --> EXTR["❄️🔥 Extremophiles<br/>(thermophiles, halophiles,<br/>acidophiles)"]
-
-    VIR["🔴 Viruses<br/>(acellular; DNA/RNA;<br/>obligate intracellular)"] --> LYCY["⚡ Lytic/Lysogenic<br/>(lysis release vs.<br/>prophage integration)"]
-    VIR --> REPRO["🔁 Viral Replication<br/>(attachment → synthesis<br/>→ assembly → release)"]
-
-    MICRO["🌿 Microbiome<br/>(10¹³ cells; Firmicutes,<br/>Bacteroidetes; dysbiosis)"] --> HOST["🤝 Host-Microbe Interactions<br/>(mutualism, commensal,<br/>parasitism)"]
-
-    INFECT["🏥 Infectious Disease<br/>(Koch's postulates;<br/>epidemiology; R₀)"] --> SIR["📊 SIR Model<br/>(dS/dt, dI/dt, dR/dt;<br/>R₀ = β/γ)"]
-    INFECT --> IMMUN["🛡️ Host Immunity<br/>(later physiology)"]
-
-    BACT --> INFECT
-    VIR --> INFECT
-    BACT --> MICRO
-
-    style BACT fill:#e74c3c,color:#fff
-    style VIR fill:#8e44ad,color:#fff
-    style MICRO fill:#27ae60,color:#fff
-    style SIR fill:#f39c12,color:#fff
+    subgraph D["Diversity and replication"]
+        B["Bacteria and archaea"]
+        V["Viral replication"]
+        G["Growth models"]
+    end
+    subgraph C["Communities"]
+        M["Microbiomes"]
+        F["Biofilms and interactions"]
+    end
+    subgraph H["Host and health questions"]
+        I["Immunity and vaccines"]
+        R["Antimicrobial resistance"]
+        T["Transmission models"]
+    end
+    B ---|"organism and conditions"| G
+    B ---|"community membership"| M
+    M ---|"community organization"| F
+    M ---|"host interaction context"| I
+    V ---|"host defense context"| I
+    B ---|"selection and gene transfer"| R
+    R ---|"distinct population processes"| T
+    I ---|"endpoint-specific protection"| T
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
+    style D fill:#fafafa,stroke:#526777,color:#17212b
+    style C fill:#fafafa,stroke:#526777,color:#17212b
+    style H fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing microbiology concept map — red = bacteria; purple = viruses; green = microbiome; orange = epidemiological models. -->
+<!-- alt: Graph showing microbial diversity, community interactions, and health questions are related without equating microbes with disease. Growth and viral replication require organism and host context; lytic/lysogenic alternatives are phage examples, not universal viral fates. Transmission requires stated model assumptions. Immunity and vaccines are part of this unit, not only later physiology. -->
 
-*Microbiology concept map — red = bacteria; purple = viruses; green = microbiome; orange = epidemiological models.*
+*Microbial diversity, community interactions, and health questions are related without equating microbes with disease. Growth and viral replication require organism and host context; lytic/lysogenic alternatives are phage examples, not universal viral fates. Transmission requires stated model assumptions. Immunity and vaccines are part of this unit, not only later physiology.*
 
 ---
 
@@ -134,4 +142,4 @@ print(f"Estimated doubling time: {td*60:.1f} min")
 
 ## Cross-Unit Integration {.unnumbered}
 
-\nameref{sec:unit_VII_unit_intro}'s microbiology — bacterial growth, viral replication, antimicrobial action, host–pathogen coevolution — sets up an immune-recognition problem that \nameref{sec:unit_VIII_unit_intro} confronts from the plant side first. Plants face a constant assault from microbial and viral pathogens but lack circulating immune cells; instead they deploy pattern-recognition receptors (PRRs) at the cell surface, intracellular NLR proteins, systemic acquired resistance signaling, and chemical defenses (phytoalexins, glucosinolates) that mirror — through convergent evolution — the innate-immune logic of animals. As \nameref{sec:unit_VIII_unit_intro} develops plant biology, recognize the immune-signaling motifs from \nameref{sec:unit_VII_unit_intro} (PAMP recognition, RNA-silencing antiviral defense, quorum-disrupting chemistry) reappearing in a stationary, autotrophic organism. The shared logic is older than the kingdoms.
+Microbial interactions in \nameref{sec:unit_VII_unit_intro} provide context for plant defense in \nameref{sec:unit_VIII_unit_intro}. Plants use surface recognition, intracellular defense proteins, systemic signaling, and chemical defenses without circulating immune cells. Compare these mechanisms with the host-immunity examples in this unit and the animal organization in \nameref{sec:unit_IX_unit_intro}. Similar recognition or coordination functions do not establish a single evolutionary origin, or convergent origin, for every mechanism being compared.

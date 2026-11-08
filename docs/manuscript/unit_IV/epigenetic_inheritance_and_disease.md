@@ -16,7 +16,28 @@
 6. Analyze evidence for transgenerational epigenetic inheritance with explicit controls for genetic confounding.
 7. Interpret clinical epigenetic therapies using pathway, biomarker, and response-kinetics evidence.
 
+<!-- curriculum-scaffold-start -->
+### Study Blueprint
+
+- **Big idea:** Three-dimensional genome organization and epigenetic inheritance link regulatory architecture to disease phenotypes.
+- **Core concepts:** 3D genome, phase separation, imprinting, epigenetic inheritance.
+- **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
+- **Model or quantitative lens:** Chromatin-loop, inheritance, and disease-risk reasoning.
+- **Data skill:** Interpret Hi-C, imprinting, or transgenerational datasets with causal caution.
+- **Practice cadence:** Concept Explanation, Questions and Methods, Argumentation.
+- **Common misconception to repair:** A chromatin contact map is not proof of function without perturbation.
+- **Primary lab:** \nameref{sec:lab_unit_IV_epigenetic_inheritance_and_disease}.
+- **Question bank:** \nameref{sec:q_unit_IV_epigenetic_inheritance_and_disease}.
+- **Transfer task:** Apply inheritance logic to cancer, developmental disorders, and environmental exposure.
+- **Bridge to computation:** `biology.genetics.genetics.histone_modification_state`.
+<!-- curriculum-scaffold-end -->
+
 ---
+
+> **Opening Vignette — A Chromatin Contact Is Not a Causal Regulator**
+>
+> Consider two loci that often contact one another in a Hi-C map. Does disrupting that contact change transcription, or does the contact accompany another regulatory process? Compare cell types, measurement normalization, and targeted perturbations before interpreting proximity as function. The same distinction between association and mechanism guides this chapter's inheritance and disease examples.
+
 
 ## Three-Dimensional Genome Organization and Phase Separation
 
@@ -84,29 +105,6 @@ flowchart LR
 
 > **Worked Example — Relative Hi-C Contact Frequency:** Under the illustrative scaling $P(s)\propto s^{-1.1}$, the contact frequency at 700 kb relative to 50 kb is $(700/50)^{-1.1}\approx0.055$. This is a dimensionless relative frequency, not a 5.5% absolute contact probability. A trans-contact probability measured with a different normalization cannot be divided into it to infer an enrichment. An absolute comparison requires matched bin sizes, sequencing depth, distance/background normalization, and cell populations. Contacts suggest candidate interactions; perturbation and expression measurements test function.
 
----
-
-<!-- curriculum-scaffold-start -->
-### Study Blueprint
-
-- **Big idea:** Three-dimensional genome organization and epigenetic inheritance link regulatory architecture to disease phenotypes.
-- **Core concepts:** 3D genome, phase separation, imprinting, epigenetic inheritance.
-- **Framework alignment:** Vision & Change: Information flow, exchange, and storage, Structure and function; AP Biology: Information Storage and Transmission, Systems Interactions; NGSS-style topics: Inheritance and Variation of Traits, Structure and Function.
-- **Model or quantitative lens:** Chromatin-loop, inheritance, and disease-risk reasoning.
-- **Data skill:** Interpret Hi-C, imprinting, or transgenerational datasets with causal caution.
-- **Practice cadence:** Concept Explanation, Questions and Methods, Argumentation.
-- **Common misconception to repair:** A chromatin contact map is not proof of function without perturbation.
-- **Primary lab:** \nameref{sec:lab_unit_IV_epigenetic_inheritance_and_disease}.
-- **Question bank:** \nameref{sec:q_unit_IV_epigenetic_inheritance_and_disease}.
-- **Transfer task:** Apply inheritance logic to cancer, developmental disorders, and environmental exposure.
-- **Bridge to computation:** `biology.genetics.genetics.histone_modification_state`.
-<!-- curriculum-scaffold-end -->
-
----
-
-> **Opening Vignette — Epigenetic Inheritance and Disease**
->
-> This chapter connects epigenetic inheritance and disease to measurable evidence: models, datasets, and experiments that can strengthen or weaken each claim.
 
 ## Non-Coding RNAs in Gene Regulation
 

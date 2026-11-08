@@ -17,11 +17,7 @@
 
 ## Chapters
 
-1. `circulation_respiration_homeostasis.md` — Circulation and Respiration
-2. `nervous_system.md` — Nervous System and Neural Signaling
-3. `action_potential_synapses.md` — Action Potentials and Synaptic Transmission
-4. `endocrine_signaling.md` — Endocrine Signaling and Homeostasis
-5. `immune_system_defense.md` — Immune System Architecture
+[README.md](README.md) lists chapter filenames/titles; [config.yaml](../config.yaml) owns order.
 
 ## Key Equations
 
@@ -32,14 +28,9 @@
 
 ## Figures and Diagrams
 
-- `src/visualization/plots.py` — `plot_oxygen_dissociation()`, `plot_action_potential()`
+- `plot_oxygen_dissociation()` varies supplied P₅₀ at Hill n=2.7 and labels 40/100 mmHg guides; it is not a calibrated fever/HbF model. `plot_action_potential()` is a separate neural teaching model. See [visual conventions](../../visualization_guide.md).
 - `src/mermaid/biology_diagrams.py` — `nervous_system_reflex_diagram()`, `immune_response_diagram()`
 
-## Chapter Metadata Convention
+## Shared source contract
 
-All chapter files in this unit carry (inserted automatically by the scripts):
-
-- `\label{sec:unit_IX_<stem>}` on the line after the H1 — cross-reference with `\cref{sec:unit_IX_<stem>}`
-- `<!-- chapter-metadata-badge -->` blockquote with difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites (data in `../../src/biology/chapter_metadata.py`)
-
-See [../AGENTS.md](../AGENTS.md) and [../../docs/manuscript_guide.md](../../docs/manuscript_guide.md) for the full set of invariants.
+Follow [manuscript instructions](../AGENTS.md) for H1s, stable IDs, metadata badges, references and authored assessments; see [writing examples](../../manuscript_guide.md). Implementation paths above are repository-root paths.

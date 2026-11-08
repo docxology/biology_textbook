@@ -24,11 +24,11 @@ By the end of this chapter, you should be able to:
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/biodiversity_indices.png}
-\caption{Shannon $H'$ and Simpson $1-D$ for two communities with the same species richness but different evenness. Higher evenness raises both indices relative to a skewed dominance distribution dominated by one grassland species.}
+\caption{Two synthetic five-species communities have equal richness but different evenness. Separate panels compare Shannon $H'$ in nats and Simpson $1-D$ on their own scales; bar heights across different indices are not directly interchangeable. Direct labels and hatching distinguish the communities without requiring color.}
 \label{fig:unit_X_biodiversity_indices}
 \end{figure}
 
-<!-- alt: Side-by-side bars for Shannon and Simpson indices in an even meadow versus a grassland dominated by one species; the even community shows higher bars for both metrics. -->
+<!-- alt: Separate Shannon-entropy and Simpson-diversity panels compare an even meadow with a one-species-dominated grassland, using five-species teaching counts. Each index is higher for the more even community. Bars have direct community labels, distinct hatching and numerical annotations; the panels use different index scales. -->
 
 <!-- curriculum-scaffold-start -->
 ### Study Blueprint
@@ -48,19 +48,18 @@ By the end of this chapter, you should be able to:
 
 ---
 
-> **Opening Vignette — How Wolves Changed Rivers**
-> 
-> In 1995, 14 gray wolves were reintroduced to Yellowstone National Park after a 70-year absence. What happened next has become one of ecology's most vivid demonstrations of a trophic cascade. With predators back, elk avoided grazing in valleys and riverside areas where they were vulnerable. Vegetation in those areas — willows, aspens, cottonwoods — rebounded within years. With trees stabilizing river banks, erosion slowed. Beaver colonies, dependent on willows, increased sixfold. Beaver dams created wetlands that supported fish, otters, ducks, and amphibians. River channels narrowed and meandered, becoming more complex. The wolves, through fear alone — the "landscape of fear" effect documented by William Ripple — had changed the physical geography of the park. The Yellowstone study has been cited thousands of times, popularised by a viral YouTube video with 40 million views, and debated (some effects took decades to show). But it remains the canonical example that removing or restoring apex predators cascades through every [**trophic level**](#gl:trophic-level) of a community.
+> **Opening Vignette — Testing a Yellowstone Trophic Cascade**
+>
+> Wolf reintroduction at Yellowstone motivates a trophic-cascade hypothesis linking predators, elk, and vegetation \citep{ripple2012}. But a simple wolves-to-rivers story does not isolate causation: browsing, predator effects, and hydrological conditions must be distinguished. A decade-long experiment found that reduced browsing alone did not restore small-stream willow communities \citep{marshall2013hydrology}. Ask which measurements and comparisons separate a plausible interaction chain from a demonstrated response.
 
 ### Chapter Roadmap for Interaction Networks and Biodiversity Metrics
 
-This is a long chapter that covers eight closely-related but distinguishable topics. Read it as *two halves*:
+Read this chapter in two connected parts:
 
-- **Part A — Local interactions between species:** what happens when two or a few species meet. The chapter begins with community definitions, then develops competition, predation and trophic cascades, [**mutualism**](#gl:mutualism), and parasitism.
-- **Part B — Community-scale patterns and assembly:** what emerges when you scale up. Succession, diversity measurement, island biogeography, and food-web network structure become the organizing themes.
-- **Part C — Process-level theory and applications:** neutral theory supplies a null model for biodiversity; trait-based ecology (CSR, leaf economics) predicts ecosystem function; biological control applies the entire chapter to pests and disease vectors.
+- **Local interaction mechanisms:** community definitions, competition, predation, conditional trophic cascades, [**mutualism**](#gl:mutualism), and parasitism.
+- **Community assembly and measurement:** succession and diversity indices connect those mechanisms to observations. Distinguish a diversity metric from a measure of ecosystem function.
 
-If you are reading for a one-semester survey, Part A supplies the mechanistic vocabulary and Part B supplies the integrative patterns. Part C provides the modern frameworks and applied translations. Instructors wanting to split the chapter over two lectures can use the Part-A/Part-B boundary; a third lecture can cover Part C.
+The companion chapter, \cref{sec:unit_X_biodiversity_and_food_webs}, develops island biogeography, food-web networks, neutral and trait-based approaches, and biological-control applications. Use that chapter for the wider frameworks rather than expecting all of them in the present interaction chapter.
 
 ## Community Structure, Interaction Strength, and Scale
 

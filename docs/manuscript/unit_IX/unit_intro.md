@@ -5,20 +5,20 @@
 
 In 1628, William Harvey published *Exercitatio Anatomica de Motu Cordis et Sanguinis in Animalibus*
 (On the Motion of the Heart and Blood in Animals) and overturned nearly 1,500 years of Galenic medicine.
-Harvey demonstrated, through quantitative reasoning alone, that the heart must be a pump recirculating
-the same blood — not a furnace generating new blood from food. He calculated that the heart pushes
-approximately 1.8 liters of blood per minute; if blood flowed outward and were not returned, the entire
-blood volume (about 5 liters) would be exhausted in under 3 minutes. Therefore, it must circulate.
-This was physiology as computational biology — numbers proving mechanism before any understanding of
-cellular biology existed.
+Harvey combined quantitative reasoning with anatomical and experimental evidence for recirculation,
+challenging accounts of blood continually generated and consumed. A teaching illustration makes
+the accounting clear: at a stipulated 1.8 liters per minute, an unreturned outflow would exhaust
+a 5-liter volume in under 3 minutes. These numbers illustrate a circulation argument; they are not
+presented as a reconstruction of Harvey's measurements or as proof from reasoning alone.
+Physiological models require evidence about both flow and mechanism.
 
 Modern systems physiology is even more mathematical. The Hodgkin-Huxley model (1952) describes the
 action potential as a set of four coupled nonlinear ordinary differential equations and was solved
 numerically before computers capable of doing so efficiently were widely available. Today, the same
 mathematical framework underlies cardiac electrophysiology, pharmacological ion channel modeling, and
-the design of neural prosthetics. Homeostasis — the maintenance of stable internal conditions — is
-formalised as a negative feedback control system: a detector, comparator, and effector maintaining a
-set-point, mathematically identical to engineering control systems.
+the design of neural prosthetics. Homeostasis — regulation of internal conditions — can be
+modeled with negative feedback involving detection and effector responses. Any comparison with
+engineering control requires specified variables, mechanisms, and operating conditions.
 
 This unit covers four major physiological systems — circulatory, nervous, endocrine, and immune —
 with quantitative models throughout. You will apply the Hodgkin-Huxley equations to the action
@@ -35,7 +35,7 @@ from anaphylaxis to Parkinson's disease.
 | ------------- | ---- | ---------------- | --------- | ------------ |
 | William Harvey | 1628 | \citep{harvey1628} | Systemic circulation: heart as pump | Quantitative physiology; disproved Galenic humoral theory |
 | Claude Bernard | 1854–1879 | \citep{bernard1865} | Internal milieu and homeostasis | Defined the concept of regulated internal environment |
-| Ernest Starling | 1918 | \citep{starling1914} | Frank-Starling law of the heart | Cardiac output proportional to venous return; basis of heart failure physiology |
+| Ernest Starling | 1918 | \citep{starling1914} | Frank-Starling law of the heart | Relates cardiac filling and mechanical response under specified conditions, not a universal output–return proportionality |
 | Alan Hodgkin & Andrew Huxley | 1952 | \citep{hodgkin1952quantitative} | Mathematical model of nerve action potential | Four ODEs describing Na⁺/K⁺ conductance; Nobel Prize 1963 |
 | Barry Marshall & Robin Warren | 1984 | \citep{marshall1984} | *Helicobacter pylori* causes peptic ulcers | Disproved \"acid stress\" dogma; Nobel Prize 2005; key discovery in gastrointestinal physiology |
 | Rosalyn Yalow & Solomon Berson | 1959 | \citep{yalow1959} | Radioimmunoassay (RIA) for insulin | Enabled measurement of hormone concentrations at picomolar levels; Nobel Prize 1977 |
@@ -43,38 +43,40 @@ from anaphylaxis to Parkinson's disease.
 
 ---
 
-## Key Concepts and Connections {.unnumbered}
+## Organ-system coordination and physiological models {.unnumbered}
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    HOME["⚖️ Homeostasis<br/>(negative feedback;<br/>set-point; effector)"] --> CIRC["❤️ Circulatory System<br/>(cardiac output; BP;<br/>Starling forces)"]
-    HOME --> RESP["🫁 Respiratory System<br/>(gas exchange;<br/>ventilation-perfusion)"]
-    HOME --> ENDO["💉 Endocrine System<br/>(hormones; anterior<br/>pituitary; feedback loops)"]
-    HOME --> IMMUNE["🛡️ Immune System<br/>(innate; adaptive;<br/>MHC; clonal selection)"]
-
-    NERVE["⚡ Nervous System<br/>(CNS + PNS;<br/>neurons; glial cells)"] --> AP["📈 Action Potential<br/>(Hodgkin-Huxley;<br/>Na⁺/K⁺ conductance)"]
-    AP --> SYN["🔌 Synaptic Transmission<br/>(NT release;<br/>EPSP/IPSP; GPCR)"]
-    NERVE --> HOME
-
-    CIRC --> GAS["🩸 Gas Transport<br/>(hemoglobin O₂ binding;<br/>Bohr effect; Hill n≈2.8)"]
-    RESP --> GAS
-
-    ENDO --> INS["🍭 Glucose Homeostasis<br/>(insulin/glucagon;<br/>pancreatic β-cells; diabetes)"]
-    ENDO --> STRESS["💪 Stress Response<br/>(HPA axis;<br/>cortisol; adrenaline)"]
-
-    IMMUNE --> B["🅱️ B Cells<br/>(antibodies; class switching;<br/>memory)"]
-    IMMUNE --> T["🅣 T Cells<br/>(CD4/CD8; CTL;<br/>regulatory T cells)"]
-
-    style HOME fill:#e74c3c,color:#fff
-    style NERVE fill:#3498db,color:#fff
-    style IMMUNE fill:#27ae60,color:#fff
-    style ENDO fill:#f39c12,color:#fff
+    subgraph T["Exchange and transport"]
+        C["Circulation"]
+        R["Respiration and gas transport"]
+    end
+    subgraph S["Coordination"]
+        N["Neural signaling"]
+        E["Endocrine regulation"]
+        H["Homeostatic feedback"]
+    end
+    subgraph D["Defense"]
+        I["Innate and adaptive immunity"]
+    end
+    C ---|"gas transport"| R
+    N ---|"system coordination"| E
+    N ---|"regulatory roles"| H
+    E ---|"regulatory roles"| H
+    H ---|"flow regulation"| C
+    I ---|"system interactions"| E
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
+    style T fill:#fafafa,stroke:#526777,color:#17212b
+    style S fill:#fafafa,stroke:#526777,color:#17212b
+    style D fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing systems physiology concept map linking homeostasis, circulation, respiration, endocrine signaling, immunity, and neural control through feedback loops. -->
+<!-- alt: Graph showing organ-system relationships connect transport, neural and endocrine coordination, and immune defense. Homeostatic feedback is a model theme, not a complete control circuit drawn here. Connectors identify selected functions, not causal proof, a reading order, or mathematical identity with population regulation. -->
 
-*Systems physiology concept map linking homeostasis, circulation, respiration, endocrine signaling, immunity, and neural control through feedback loops.*
-
-**\nameref{sec:unit_IX_unit_intro} concept map — Zoology and Systems Physiology.**
+*Organ-system relationships connect transport, neural and endocrine coordination, and immune defense. Homeostatic feedback is a model theme, not a complete control circuit drawn here. Connectors identify selected functions, not causal proof, a reading order, or mathematical identity with population regulation.*
 
 ---
 
@@ -101,10 +103,10 @@ paper-based lab decision.
 ## Connections Across the Textbook {.unnumbered}
 
 - **Ion channels and membrane potential** (this unit) build directly on membrane transport (\cref{sec:unit_II_membrane_transport}) and electrochemistry (\nameref{sec:unit_I_unit_intro}).
-- **Hemoglobin cooperativity** (Hill equation, $n \approx 2.8$) connects to enzyme allostery (\cref{sec:unit_I_enzymes_and_kinetics}) and protein structure (\cref{sec:unit_I_macromolecules}).
+- **Hemoglobin cooperativity** (Hill equation; illustrative $n \approx 2.8$, not a universal coefficient) connects to allosteric binding models (\cref{sec:unit_I_enzymes_and_kinetics}) and protein structure (\cref{sec:unit_I_macromolecules}); this is not enzyme catalysis.
 - **Immune system** connects to \nameref{sec:unit_VII_unit_intro} (innate response to bacteria/viruses) and \nameref{sec:unit_IV_unit_intro} (recombination of V(D)J gene segments in antibody diversity).
 - **Endocrine regulation** (steroid hormones acting on nuclear receptors) links to \nameref{sec:unit_IV_unit_intro} (gene regulation) and \nameref{sec:unit_III_unit_intro} (metabolic regulation by insulin/glucagon vs. AMPK).
-- **Negative feedback homeostasis** is mathematically equivalent to the control theory underlying \nameref{sec:unit_X_unit_intro} (population regulation) and \nameref{sec:unit_III_unit_intro} (metabolic feedback).
+- **Feedback** offers comparisons with metabolic regulation (\nameref{sec:unit_III_unit_intro}) and population models (\nameref{sec:unit_X_unit_intro}), but shared mathematical motifs do not establish identical mechanisms or control systems.
 
 > **Key vocabulary introduced here:** homeostasis, action potential, resting membrane potential, ion channel, neurotransmitter, synapse, GPCR, second messenger, cardiac output, stroke volume, preload, afterload, Frank-Starling law, hemoglobin cooperativity, Bohr effect, hormone, receptor tyrosine kinase, antigen, MHC, clonal selection, innate immunity, adaptive immunity.
 
@@ -147,4 +149,4 @@ print(f"Firing threshold crossed: {hh.fired}")
 
 ## Cross-Unit Integration {.unnumbered}
 
-The homeostatic and allostatic regulation principles of \nameref{sec:unit_IX_unit_intro} — set points, feedback loops, predictive control, integrated organ-system responses — scale beyond the individual organism. In \nameref{sec:unit_X_unit_intro} you will see these same regulatory motifs operating on populations and ecosystems: density-dependent birth and death rates are negative feedback on population size; logistic growth's carrying capacity is a set point analogous to a physiological set point; predator–prey cycles are coupled oscillators with the same mathematical structure as hormone feedback systems. As ecological dynamics unfold in \nameref{sec:unit_X_unit_intro}, recognize that the population is "regulating" itself by mechanisms structurally identical to the homeostatic loops of \nameref{sec:unit_IX_unit_intro}, just with births and deaths as the effector variables in place of hormone release.
+Feedback offers a useful comparison between \nameref{sec:unit_IX_unit_intro} and the ecology of \nameref{sec:unit_X_unit_intro}, but the model variables and mechanisms differ. In a logistic model, carrying capacity describes specified environmental conditions; it is not automatically a sensed, defended physiological set point. Density dependence and predator–prey dynamics can be compared with regulatory and oscillatory physiology models only after identifying the relevant assumptions. Similar mathematical motifs do not establish identical control systems.

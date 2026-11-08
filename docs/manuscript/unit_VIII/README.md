@@ -8,11 +8,8 @@
 
 **Module:** `src/biology/botany/botany.py`
 
-**Key concepts:** Root/leaf anatomy · Casparian strip · Water potential (ψ) · Cohesion-tension mechanism in xylem · Phloem pressure-flow · Phytohormones (auxin, GA, ABA, ethylene) · C3/C4/CAM · Photoperiodism and flowering · Vernalisation
+**Key concepts:** Root/leaf anatomy · Casparian strip · Water potential (ψ) · Cohesion–tension in xylem · Phloem pressure-flow · Phytohormones · C3/C4/CAM · Photoperiodism · Vernalization
 
 ## Authoring Notes
 
-- Keep chapter labels aligned with filename stems (`sec:unit_VIII_<stem>`).
-- Use glossary links sparingly on first use; avoid dense link-heavy paragraphs.
-- Add a descriptive HTML alt comment after any figure or Mermaid block.
-- Keep paired labs and question banks aligned with chapter learning objectives.
+Follow [local instructions](AGENTS.md) and the [manuscript source contract](../AGENTS.md) for canonical H1s, stable labels, metadata badges, reference types and authored assessment mappings. [The visualization guide](../../visualization_guide.md) owns alt/caption placement and relationship-map semantics. Implementation paths above are repository-root paths.

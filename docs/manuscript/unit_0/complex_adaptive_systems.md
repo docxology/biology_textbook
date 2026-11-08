@@ -123,9 +123,9 @@ graph LR
 
 ## Self-organization in Biology
 
-### Slime Moulds: A Class Example
+### Dictyostelium Aggregation and Local cAMP Signaling
 
-*Dictyostelium discoideum* (slime mould) spends most of its life as independent amoebae. When starved, individual cells begin secreting cyclic AMP (cAMP), triggering a **collective aggregation** into a multicellular slug and eventually a fruiting body. No single cell plans the fruiting body; the entire developmental program is orchestrated by local cAMP gradients — a spectacular example of biological self-organization.
+*Dictyostelium discoideum* (a cellular slime mold) lives as individual amoebae when food is available. During starvation, local cAMP signaling helps coordinate aggregation. Subsequent slug and fruiting-body development also involves differentiation, adhesion, and other signaling processes; a cAMP gradient alone is not a complete developmental explanation. This is a concrete case of collective organization without a single cell planning the whole structure.
 
 ### Termite Mounds as Collective Construction
 

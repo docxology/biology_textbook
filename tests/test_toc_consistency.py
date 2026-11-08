@@ -11,6 +11,7 @@ from typing import Any, cast
 import pytest
 import yaml
 
+from biology.crossref.source import iter_headings, markdown_text
 from biology.toc import BookToc, load_toc
 
 PROJECT = Path(__file__).resolve().parent.parent
@@ -282,19 +283,10 @@ def test_markdown_headings_are_toc_safe() -> None:
     offenders: list[str] = []
     for path in sorted(MANUSCRIPT.rglob("*.md")):
         text = path.read_text(encoding="utf-8")
-        in_fence = False
-        for line_no, line in enumerate(text.splitlines(), start=1):
-            if line.lstrip().startswith("```"):
-                in_fence = not in_fence
-                continue
-            if in_fence or not line.startswith("#"):
-                continue
-            match = re.match(r"^(#{1,6})\s*(?P<title>.*)$", line)
-            if match is None:
-                continue
-            title = _heading_display(match.group("title"))
+        for heading in iter_headings(text):
+            title = _heading_display(heading.visible_title)
             if not title or manual_prefix.match(title):
-                offenders.append(f"{path.relative_to(PROJECT)}:{line_no}:{line}")
+                offenders.append(f"{path.relative_to(PROJECT)}:{heading.line_no}:{title}")
     assert not offenders
 
 
@@ -302,6 +294,6 @@ def test_alt_comments_do_not_become_blank_setext_headings() -> None:
     offenders: list[str] = []
     pattern = re.compile(r"<!--\s*alt:\s*.*?\s*-->\n---", flags=re.DOTALL)
     for path in sorted(MANUSCRIPT.rglob("*.md")):
-        if pattern.search(path.read_text(encoding="utf-8")):
+        if pattern.search(markdown_text(path.read_text(encoding="utf-8"), keep_comments=("SOLUTION", "alt"))):
             offenders.append(str(path.relative_to(PROJECT)))
     assert not offenders

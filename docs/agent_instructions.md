@@ -78,11 +78,11 @@ The textbook reads as a **single, calm, expert voice** — quantitative where bi
 | Imprecise | Precise |
 | --------- | ------- |
 | "lots of ATP" | "30–32 ATP per glucose under aerobic conditions" |
-| "the enzyme is fast" | "$k_{\text{cat}} = 1400$ s$^{-1}$" |
+| "the enzyme is fast" | State the cited preparation/assay or explicitly stipulated teaching parameters; do not invent precision. |
 | "many neurons" | "≈ 86 billion neurons in the adult human brain \citep{azevedo2009}" |
 | "high temperature" | "37°C" or "near body temperature" |
 | "very small" | "10–100 nm in diameter" |
-| "could affect" | Either "increases X by Y%" or omit |
+| "could affect" | State source-supported direction, uncertainty and conditions; quantify only when the evidence supports it. |
 | "it is thought" | "Researchers in the 1980s proposed..." or cite specific authors |
 
 ### Word choices
@@ -122,7 +122,7 @@ The textbook reads as a **single, calm, expert voice** — quantitative where bi
 
 When writing or editing manuscript chapters:
 
-1. **Quantitative claims require values.** Do not write "enzymes lower activation energy" — write "lactate dehydrogenase ($K_m = 0.8$ mM; $k_{\text{cat}} = 1400$ s$^{-1}$) lowers activation energy from ~80 to ~40 kJ/mol."
+1. **Quantitative claims need evidence and conditions.** Give numerical values only for a cited preparation/assay or explicitly stipulated teaching model; a correct qualitative mechanism need not acquire invented precision.
 2. **Citation format:** author(s) year in parentheses for inline (e.g. *(Hodgkin & Huxley, 1952)*); use full journal name in landmark tables.
 3. **LaTeX math:** `$...$` for inline, `$$...$$` for display. Prefer descriptive names: `$K_m$` not just `$K$`. See [manuscript_guide.md#equations](manuscript_guide.md#equations) for the cross-reference decision tree.
 4. **Figures (LaTeX):** raw `\begin{figure}...\end{figure}` with `\caption{...}` and `\label{fig:unit_X_<descriptor>}`; refer in prose with `\cref{fig:...}`. **Do not** hand-type "Figure 4.2" in prose. After each figure block, an `<!-- alt: ... -->` HTML comment is **required** ([test_accessibility.py](../tests/test_accessibility.py)).
@@ -142,9 +142,9 @@ When writing or editing manuscript chapters:
 
 ## How to write opening vignettes
 
-The Opening Vignette is a **historically grounded narrative** (**150–300 words**, hard target) that opens each chapter. It earns reader trust by anchoring abstract content in real people, places, and tools.
+The Opening Vignette orients the reader before the chapter's substantive body. A historical narrative normally uses the 150–300-word structure below and matched primary evidence. An explicitly hypothetical, self-contained reasoning setup may be shorter: state the question, supplied assumptions, and evidence needed without inventing history, observations, quotations, or citations.
 
-### Structure (four-beat arc: hook → context → significance → connection)
+### Historical-narrative structure (hook → context → significance → connection)
 
 | Beat | Purpose | Word budget |
 | ---- | ------- | ----------- |
@@ -156,7 +156,7 @@ The Opening Vignette is a **historically grounded narrative** (**150–300 words
 ### Sourcing requirement
 
 > [!IMPORTANT]
-> Every vignette **must cite at least one primary source** via `\citet{}` or `\citep{}`. Wikipedia, textbook re-tellings, and unsourced legend are not acceptable anchors. Where the historical record is contested (e.g. Franklin's role in the helix discovery), acknowledge the contest with a one-line caveat and cite both sides.
+> Historical and empirical vignette claims require matched primary sources via `\citet{}` or `\citep{}`; unsourced legend is not an acceptable anchor. A clearly labeled hypothetical orientation is not an empirical study and must not acquire invented citations or measurements. Where historical interpretation is contested, state the limitation and cite the relevant evidence.
 
 ### Additional sourcing tips
 
@@ -237,9 +237,7 @@ A chapter's three Concept Checks should not all sit at the same Bloom level. Aim
 ```
 
 ```markdown
-> **Concept Check:** A cell loses 30% of its K⁺ pumps. Predict the direction
-> and order-of-magnitude change in the resting membrane potential, and explain
-> which term in the Goldman equation drives that change.
+> **Concept Check:** A cell loses 30% of its Na⁺/K⁺-ATPase capacity. What concentration, permeability and time-course measurements and steady-state assumptions are needed before predicting a Goldman membrane potential?
 ```
 
 ```markdown
@@ -270,8 +268,8 @@ The four-beat skeleton: **drug name → mechanism → clinical indication → si
 | ---- | ------- | ---------------- |
 | **1. Drug name (or condition)** | One-sentence framing — generic name, class, brief context | "Digoxin (cardiac-glycoside class), a refined extract of *Digitalis lanata*…" |
 | **2. Mechanism** | Why does the section's biology cause / treat / diagnose this? | "…blocks the Na⁺/K⁺-ATPase. The resulting elevation of intracellular Na⁺ reduces the driving force for the Na⁺/Ca²⁺ exchanger, leaving more cytosolic Ca²⁺…" |
-| **3. Clinical indication + numbers** | What is it used to treat, at what dose, in what population? At least one quantitative anchor (dose, prevalence, sensitivity / specificity, therapeutic range) | "At therapeutic doses (0.5–2.0 ng/mL serum), this strengthens systolic ejection in heart failure with reduced ejection fraction…" |
-| **4. Side effects / caveat** | When does this break? What is contested? Common adverse events; therapeutic-index warnings | "…at higher doses the same mechanism causes the arrhythmias for which digoxin toxicity is notorious." |
+| **3. Clinical indication and evidence** | State the sourced population, endpoint and date; distinguish administered dose from measured serum concentration. | Do not turn an uncited concentration range into prescribing guidance. |
+| **4. Side effects / caveat** | State source-supported risks and limitations, distinguishing exposure from administered dose. | Avoid generic clinical-range advice. |
 
 ### Drug-name conventions
 
@@ -291,11 +289,10 @@ The four-beat skeleton: **drug name → mechanism → clinical indication → si
 > Digoxin (cardiac-glycoside class), a refined extract of *Digitalis lanata*,
 > blocks the Na⁺/K⁺-ATPase. The resulting elevation of intracellular Na⁺
 > reduces the driving force for the Na⁺/Ca²⁺ exchanger, leaving more cytosolic
-> Ca²⁺ available for cardiac contraction. At therapeutic doses (0.5–2.0 ng/mL
-> serum), this strengthens systolic ejection in heart failure with reduced
-> ejection fraction; at higher doses the same mechanism causes the
-> arrhythmias for which digoxin toxicity is notorious. The therapeutic index
-> is narrow enough that serum monitoring is standard \citep{digitalis_inv_group_1997}.
+> Ca²⁺ available for contraction. A published clinical example must specify its
+> indication, population, endpoint and source date; administered dose and measured
+> serum concentration are different quantities. This template supplies no therapeutic
+> range or prescribing recommendation.
 ```
 
 ### Anti-patterns
@@ -303,7 +300,7 @@ The four-beat skeleton: **drug name → mechanism → clinical indication → si
 - ❌ "This is important in medicine." (vague; no mechanism)
 - ❌ Listing five drugs without picking one to anchor on
 - ❌ Citing a tertiary source (textbook, Wikipedia) for a clinical claim
-- ❌ Forgetting the dose or prevalence number — Clinical Connections must carry at least one quantitative anchor
+- Do not invent a dose, prevalence or therapeutic range merely to fill a template; require source/population/endpoint/date for clinical numbers.
 
 ---
 
@@ -316,8 +313,8 @@ Every chapter must have, in this order:
 - [ ] `<!-- chapter-metadata-badge -->` blockquote (inserted by `scripts/insert_chapter_metadata.py` from `src/biology/chapter_metadata.py`) showing difficulty (Level 1/3–3/3), reading time, lecture time, and prerequisites
 - [ ] `## Learning Objectives` — 7–9 numbered items; each begins with an action verb (Describe, Explain, Apply, Calculate, Compare, Evaluate). See [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md) for Bloom's-taxonomy guidance.
 - [ ] `---` horizontal rule
-- [ ] `> **Opening Vignette — [Historical Figure/Discovery]**` — 150–300 words; historically grounded; shows quantitative reasoning in discovery
-- [ ] `## N First section` through `## N.M Last section` — section numbers are auto-assigned by pandoc; keep `##` level for sections
+- [ ] Opening Vignette before substantive body: sourced historical/empirical context or an explicitly hypothetical, self-contained reasoning setup; use the requirements above rather than fabricating a historical narrative to meet a word count
+- [ ] Informative `##` section titles and `###` subsections without manual numeric prefixes; config owns the H1.
 - [ ] At least 2 mermaid diagrams with figure captions
 - [ ] At least 1 worked numerical example (`$$...$$` calculation with step-by-step solution)
 - [ ] At least 3 `> **Clinical Connection:**` boxes
@@ -334,7 +331,7 @@ Every chapter must have, in this order:
 
 **Glossary density:** limit **new** glossary-linked terms to roughly **three per major section** where possible, so paragraphs do not become a "link wall." Technical density may exceed this in a few cataloguing sections (e.g. metabolism lists); use judgment.
 
-**Objectives ↔ questions:** optional HTML comment mapping in question banks: [pedagogy_objectives_mapping.md](pedagogy_objectives_mapping.md).
+**Objectives ↔ questions:** reviewed per-item assess comments and lab alignment metadata are required; author semantics, then validate. See [pedagogy contract](pedagogy_objectives_mapping.md).
 
 ---
 
@@ -342,7 +339,7 @@ Every chapter must have, in this order:
 
 | Element | Convention | Example |
 | ------- | ---------- | ------- |
-| Section numbering | Auto at render; source uses `##` titles (optional numeric style in source is for author readability only) | `## DNA Methylation` (not "Chapter 14" in prose) |
+| Section numbering | Automatic at render; no manual numeric prefixes in source | `## DNA methylation` |
 | Figure identity | Semantic `\label{fig:unit_X_<descriptor>}`; refer with `\cref{fig:...}`; no "Figure N.M" in prose | `\cref{fig:unit_I_michaelis_menten}` |
 | Equation identity | `\label{eq:unit_X_<descriptor>}` in `\begin{equation}...\end{equation}` (or approved pandoc `{#eq:...}` per validator) | `\cref{eq:unit_V_hardy_weinberg}` |
 | Subsection | `###` under chapter sections | `### CpG islands` |
@@ -402,17 +399,9 @@ uv run --frozen --extra dev python scripts/render_textbook.py
 uv run --frozen --extra dev python scripts/generate_figures.py
 uv run --frozen --extra dev python scripts/generate_diagrams.py --strict-png --size 1200
 
-# Manuscript maintenance (idempotent; each supports --dry-run)
-uv run python scripts/insert_crossref_labels.py      # \label{sec:…} + prose → \cref{}
-uv run python scripts/sync_curriculum_materials.py   # canonical H1s, appendices, front-matter navigation
-uv run python scripts/insert_chapter_metadata.py     # badges + Course Planning Grid
-uv run python scripts/integrate_orphan_citations.py  # weave unused references.bib entries
-uv run python scripts/link_glossary.py               # glossary anchors + verify chapter numbers
-uv run python scripts/link_labs_to_chapters.py       # \cref from every lab/question to parent
-uv run python scripts/insert_orphan_figures.py       # add \begin{figure}…\end{figure} for unused generators
-uv run python scripts/normalize_typography.py        # ASCII arrows → Unicode (prose only)
-uv run python scripts/fix_greek_math_prose.py        # $\greek$ → Unicode (prose only; sidesteps pandoc quirk)
 ```
+
+The [pipeline guide](pipeline_guide.md#manuscript-maintenance-utilities) owns maintenance commands and ordering. Run only the owner for the changed surface; unsupported assessment-answer repair refuses without writing.
 
 ---
 

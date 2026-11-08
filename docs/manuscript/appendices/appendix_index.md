@@ -18,7 +18,7 @@ The `#gl:slug` anchor is the canonical location defined in the master glossary (
 
 ---
 
-## # {.unnumbered}
+## Symbols and numbers {.unnumbered}
 
 **5-Methylcytosine (5mC)** (`#gl:5-methylcytosine`) → \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}
 

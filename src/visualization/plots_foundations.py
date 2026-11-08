@@ -170,57 +170,26 @@ def plot_prediction_error_precision(
 
 
 def plot_biology_milestones(output_dir: Path) -> Path:
-    """Render the curated history-of-biology milestone timeline.
+    """Locate curated events by date without encoding dates as durations."""
+    from biology.foundations import BIOLOGY_MILESTONES
 
-    A horizontal bar chart with one bar per milestone, ordered chronologically
-    and colored by era. The label sits to the right of each bar so dense
-    nineteenth- and twentieth-century clusters remain readable.
-
-    Args:
-        output_dir: Directory to save PNG.
-
-    Returns:
-        Path to the saved PNG.
-    """
-    from biology.foundations import BIOLOGY_MILESTONES, milestones_by_era
-
-    eras = list(milestones_by_era().keys())
-    era_to_color = {era: SERIES4[idx % len(SERIES4)] for idx, era in enumerate(eras)}
-
-    years = [m.year for m in BIOLOGY_MILESTONES]
-    labels = [f"{m.year}: {m.event} ({m.figure})" for m in BIOLOGY_MILESTONES]
-    colors = [era_to_color[m.era] for m in BIOLOGY_MILESTONES]
-
-    fig, ax = plt.subplots(figsize=(11, 6))
-    y_positions = np.arange(len(BIOLOGY_MILESTONES))
-    ax.barh(
-        y_positions,
-        years,
-        color=colors,
-        edgecolor="black",
-        linewidth=0.6,
-        height=0.7,
-    )
-    ax.set_yticks(y_positions)
-    ax.set_yticklabels(labels, fontsize=9)
-    ax.set_xlim(min(years) - 30, max(years) + 30)
-    ax.set_xlabel("Year of milestone", fontsize=13)
-    ax.set_title("History of Biology: Milestone Timeline", fontsize=14)
-    ax.invert_yaxis()
-    ax.tick_params(labelsize=10)
-
-    legend_handles = [
-        plt.Rectangle((0, 0), 1, 1, color=color, ec="black", linewidth=0.6)
-        for color in era_to_color.values()
+    years = [milestone.year for milestone in BIOLOGY_MILESTONES]
+    labels = [
+        fill(f"{milestone.year} — {milestone.event} ({milestone.figure})", width=62, break_long_words=False)
+        for milestone in BIOLOGY_MILESTONES
     ]
-    ax.legend(
-        legend_handles,
-        list(era_to_color.keys()),
-        loc="lower right",
-        fontsize=9,
-        frameon=False,
-        title="Era",
-    )
+    positions = np.arange(len(years))
+    fig, ax = plt.subplots(figsize=(11.5, 8))
+    ax.scatter(years, positions, s=65, color=SERIES2[0], edgecolor="black", linewidth=0.6, zorder=3)
+    ax.set_yticks(positions)
+    ax.set_yticklabels(labels, fontsize=11)
+    ax.set_xlim(min(years) - 20, max(years) + 20)
+    ax.set_xlabel("Event year", fontsize=13)
+    ax.set_title("Selected Biology Milestones — Dates, Not Durations", fontsize=14)
+    ax.invert_yaxis()
+    ax.grid(axis="x", color="#dddddd", linewidth=0.6)
+    ax.set_axisbelow(True)
+    ax.tick_params(axis="x", labelsize=11)
     fig.tight_layout()
     return _save_figure(fig, output_dir, "biology_milestones.png", aspect="landscape")
 

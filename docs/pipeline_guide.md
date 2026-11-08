@@ -134,7 +134,7 @@ uv run --frozen --extra dev python scripts/render_textbook.py  # always freshly 
 
 ### Manuscript maintenance utilities
 
-These scripts are **idempotent**; running any of them twice leaves the manuscript unchanged. They keep the invariants enforced by `tests/test_build_invariants.py` satisfied.
+Apply only the helper whose ownership matches the edit, inspect its changes, and establish idempotence with the relevant behavioral tests. A general statement that all helpers are idempotent is not a fresh run result.
 
 | Script | Purpose | Runs when |
 |---|---|---|
@@ -152,7 +152,7 @@ These scripts are **idempotent**; running any of them twice leaves the manuscrip
 
 Each helper supports `--dry-run`.
 
-**Full script inventory:** [../scripts/AGENTS.md](../scripts/AGENTS.md); use current source signatures rather than fixed inventory counts.
+**Script ownership hub:** [../scripts/AGENTS.md](../scripts/AGENTS.md); use current CLI/source contracts rather than fixed inventory counts or copied launch recipes.
 
 ### Suggested order when changing structure
 
@@ -219,9 +219,9 @@ Because numbers are assigned at render time:
 - Use `\label{fig:unit_X_<descriptor>}` and `\cref{fig:...}` — never hand-typed "Figure 4.3" in prose
 - When a new chapter is added, run `scripts/insert_crossref_labels.py` so the H1 gets a `\label{sec:unit_X_<stem>}`, then use `\cref{sec:...}` for all prose references
 - Update `src/biology/chapter_metadata.py` with a `ChapterMeta(...)` record, then rerun `scripts/sync_curriculum_materials.py` and `scripts/insert_chapter_metadata.py` to refresh canonical H1s, front-matter navigation, badges, and the Course Planning Grid
-- Do not add manual heading numbers inside Markdown headings; `scripts/sync_curriculum_materials.py` normalizes ToC-safe heading titles and marks front matter, unit intros, labs, question banks, and reference appendices as unnumbered.
+- Use informative source titles without manual numeric prefixes. Heading normalization does not establish semantic title quality; author content-specific headings while preserving canonical H1s and protected literal examples.
 
-## Invariant tests (Stage 2 gate-keepers)
+## Invariant tests used by the publication gate
 
 Domain and invariant/quality tests cover manuscript, lab, question, render and script contracts; current passing counts require a fresh run. See [testing_guide.md](testing_guide.md#test-organization).
 
@@ -235,7 +235,7 @@ Domain and invariant/quality tests cover manuscript, lab, question, render and s
 - `test_pdf_log_quality.py` — PDF-log checker rejects undefined references and severe overfull boxes
 - `test_pdf_opening_and_mermaid.py` — cover/opening metadata and inline Mermaid rendering stay intact
 - `test_question_answer_refinement.py` — preserve authored solutions and refuse unsupported automatic answer repair without writing
-- `test_script_quality.py` — scripts parse as Python and avoid hard-coded local paths or retired helper clones
+- `test_script_quality.py` — Mermaid metadata and assessment dry-run behavior, not absent script-hygiene nodes
 
 ## Known gotchas
 
