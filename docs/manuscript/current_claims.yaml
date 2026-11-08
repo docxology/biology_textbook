@@ -988,3 +988,16 @@ claims:
     checked_as_of: "2026-11-08"
     url_or_citekey: "epa2026drinkingwater"
     url: "https://www.epa.gov/ground-water-and-drinking-water/national-primary-drinking-water-regulations"
+  - claim_id: acriii1-native-expression-boundary
+    file: docs/manuscript/unit_VII/bacteria_archaea_viruses.md
+    source_path: docs/manuscript/unit_VII/bacteria_archaea_viruses.md
+    anchor_text: "A 2025 native-context study found that SIRV1 gp29 and SIRV2 gp37"
+    claim_text: "The 2020 AcrIII-1 work demonstrated cA4 hydrolysis and inhibition in heterologous/plasmid-expression systems. The 2025 native-context challenge found no anti-CRISPR function for SIRV1 gp29 and SIRV2 gp37 at their native expression timing; the same-day reply retains the distinction between biochemical activity and infection context. No universal native escape function is inferred. Review was limited to accessible article previews, figure captions and the original primary report, not reanalysis of infection data."
+    topic: "CRISPR native-context functional inference"
+    source_tier: scholarly_primary
+    citekey: martinez2025nativeacr
+    url: https://doi.org/10.1038/s41586-025-08649-0
+    url_or_citekey: martinez2025nativeacr
+    evidence_date: 2025-04-16
+    checked_as_of: 2026-11-08
+    refresh_trigger: "New native-infection, expression-timing, ring-nuclease functional evidence or correction; retain distinction from biochemical and overexpression assays."

@@ -834,6 +834,8 @@ The WHO 2024 Bacterial Priority Pathogens List keeps AMR triage grounded in publ
 
 **CRISPR** (Clustered Regularly Interspaced Short Palindromic Repeats) arrays and associated Cas systems can provide adaptive, heritable resistance to phages and plasmids in bacteria and archaea. Barrangou and colleagues experimentally linked spacer changes to phage resistance in 2007; this was evidence for an immune function, not the first observation of the repeat arrays \citep{barrangou2007immunity}. For CRISPR-Cas immunity, distinguish **adaptation**, **expression (biogenesis)** and **interference**: acquisition of sequence memory, production of guide components and action against a matching invader.
 
+The diagram illustrates representative **DNA-targeting Type I/II pathways**, not every CRISPR-Cas system. Type III systems use RNA-triggered activities and signaling; do not extend the diagram's PAM-scanning route to them.
+
 ```mermaid
 flowchart LR
     subgraph "1. ADAPTATION (memory)"
@@ -842,7 +844,7 @@ flowchart LR
     end
     subgraph "2. EXPRESSION (surveillance)"
         E1["CRISPR array transcribed\n(pre-crRNA)"] --> E2["Cas6 / RNase III + tracrRNA\nprocess into mature crRNA"]
-        E2 --> E3["crRNA loaded onto effector\n(Cascade / Cas9 / Cas10)"]
+        E2 --> E3["Guide loaded onto effector\n(Cascade / dual-RNA Cas9)"]
     end
     subgraph "3. INTERFERENCE (cleavage)"
         I1["Effector scans DNA\nfor PAM"] --> I2["crRNA-target base pairing"]
@@ -851,55 +853,53 @@ flowchart LR
     A3 --> E1
     E3 --> I1
 ```
-<!-- alt: Flowchart showing three-stage CRISPR-Cas immune mechanism: adaptation (Cas1-Cas2 captures and integrates new spacers), expression (pre-crRNA processed and loaded onto effector), and interference (target dsDNA cleavage). -->
+<!-- alt: Representative DNA-targeting Type I/II CRISPR-Cas workflow: spacer acquisition, natural guide maturation and loading, then PAM-dependent DNA recognition and cleavage. Type III RNA-triggered signaling is outside this diagram. -->
 
-*The three-stage CRISPR-Cas immune mechanism: adaptation (Cas1-Cas2 captures and integrates new spacers), expression (pre-crRNA processed and loaded onto effector), and interference (target dsDNA cleavage).*
+*Representative DNA-targeting Type I/II CRISPR-Cas workflow: spacer acquisition, natural guide maturation and loading, then PAM-dependent DNA recognition and cleavage. Type III RNA-triggered signaling is outside this diagram.*
 
 ### Stage 1 — Spacer Acquisition (Adaptation)
 
-When a bacterium survives phage infection, the **Cas1-Cas2 integrase complex** captures a short fragment (~30 bp) of phage DNA — called a **protospacer** — adjacent to a **PAM** (protospacer adjacent motif). Cas1-Cas2 integrates this as a new **spacer** at the leader end of the CRISPR array between two direct repeats. This constitutes an immunological memory: the spacer sequence is now permanently encoded in the bacterial chromosome and inherited by most daughter cells.
+In the illustrated DNA-targeting examples, a Cas1-Cas2 adaptation pathway integrates a system-dependent fragment of invader DNA as a new **spacer**, often at the leader end of the CRISPR array. A compatible **PAM** in the invader can help select the source sequence; the PAM itself is not the acquired spacer. Integrated spacer DNA can be inherited by descendants, but spacer gain and loss mean that this memory is not irrevocable \citep{barrangou2007immunity}.
 
 \begin{equation}
-\text{Cas1-Cas2} + \text{protospacer-PAM} \rightarrow \text{pre-spacer} \xrightarrow{\text{integration}} \text{CRISPR array expanded}
+\text{invader DNA with compatible PAM} \xrightarrow{\text{Cas1-Cas2 pathway}} \text{new spacer in CRISPR array}
 \label{eq:bacteria_archaea_viruses_2}
 \end{equation}
 
-**PAM recognition** ensures self vs non-self discrimination: the PAM sequence is not present in the CRISPR array itself (repeat sequences flank spacers, not PAMs), so the bacterium does not attack its own CRISPR locus. The specific PAM depends on the system: NGG (SpCas9, Type II), 5'-AAT-3' or 5'-CTT-3' (Type I-E), etc.
+For canonical SpCas9 duplex targeting, **PAM recognition** helps distinguish an invader's protospacer flank from the repeat-flanked spacer in the CRISPR array \citep{doudna2012}. This is not a universal self/non-self test for all CRISPR types; the Type III comparison below has a different RNA-triggered mechanism.
 
 ### Stage 2 — crRNA Biogenesis
 
-The CRISPR array is transcribed as a long pre-CRISPR RNA (pre-crRNA). Repeat sequences are cleaved by:
+The CRISPR array is transcribed as a long pre-CRISPR RNA (pre-crRNA), but guide maturation depends on the system:
 
-- **Type I and III**: The *Cas6* endoribonuclease (recognizes stem-loop structure in repeats)
-- **Type II**: RNase III + *tracrRNA* (trans-activating crRNA) hybridizes with the repeat; Cas9 is then loaded with a single-guide RNA (sgRNA = crRNA + tracrRNA scaffold)
+- **Type I-F example**: Cas6f recognizes and cleaves repeat-derived RNA stem-loops to generate crRNAs for the Csy surveillance complex \citep{chowdhury2017suppression}.
+- **Type II-A (canonical *S. pyogenes*)**: tracrRNA base-pairs with pre-crRNA repeats; host RNase III and Cas9 participate in guide maturation \citep{deltcheva2011maturation}. Natural Cas9 interference uses a **crRNA-tracrRNA pair**. The fused **single-guide RNA (sgRNA)** is an engineered substitute demonstrated in the purified-system study, not the natural maturation product \citep{doudna2012}.
 
 ### Stage 3 — Interference (Targeting)
 
-The crRNA guides the effector complex to matching sequences in foreign nucleic acid. The CRISPR-Cas systems are now classified into 6 types (I–VI) and over 30 subtypes; the three most important types are summarized below:
+The crRNA guides an effector complex to matching foreign nucleic acid. The table compares representative Types I-III; it is neither an exhaustive current classification nor a ranking of biological importance.
 
 : Stage 3 — Interference (Targeting): Feature and Type I. {#tbl:unit_VII_bacteria_archaea_viruses_stage_3_interference_targeting}
 | Feature | **Type I** | **Type II** | **Type III** |
 | ------- | ---------- | ----------- | ------------ |
 | Effector | Multi-subunit **Cascade** complex (Cas5–Cas8) + Cas3 helicase-nuclease | Single **Cas9** nuclease | **Cas10**-Csm/Cmr complex |
 | Target | dsDNA | dsDNA | ssRNA + transcribed DNA |
-| Cleavage mechanism | Cas3 unwinds and **degrades dsDNA processively** | Cas9 makes blunt-ended **double-strand break** 3 bp upstream of PAM | Co-transcriptional ssRNA cleavage by Csm/Cmr; signaling output |
+| Cleavage mechanism | Cas3 unwinds and **degrades dsDNA processively** | Canonical SpCas9 duplex schematic: break about 3 bp upstream of PAM; product geometry depends on substrate and conditions | Co-transcriptional ssRNA cleavage by Csm/Cmr; signaling output |
 | PAM requirement | Yes (recognized by Cas8 of Cascade) | Yes (NGG for SpCas9; varies by ortholog) | None for RNA target; protospacer-flanking-sequence (PFS) for DNA |
-| Guide RNA | crRNA primarily | crRNA + tracrRNA (or fused sgRNA) | crRNA primarily |
+| Guide RNA | crRNA primarily | Natural crRNA + tracrRNA; engineered fused sgRNA | crRNA primarily |
 | Signal molecule | — | — | **cyclic oligoadenylate (cA₄, cA₆)** activates non-specific RNase Csm6 |
-| Genome distribution | ~ 50 % of CRISPR-bearing genomes | ~ 5 % | ~ 25 % |
-| Subtypes | I-A through I-G | II-A, II-B, II-C | III-A through III-F |
-| Anti-CRISPR susceptibility | Yes (AcrIF, AcrIE families) | Yes (AcrIIA, AcrIIC families) | Yes (AcrIIIA, anti-cA₄) |
-| Clinical / biotech use | Cas3 large-deletion editing; phage therapy design (Locus crPhage) | **Genome editing (Cas9)**; base editors; prime editors | Biosensing (cA₄ readout); SHERLOCK-style RNA detection |
+| Anti-CRISPR susceptibility | AcrIF and AcrIE examples | AcrIIA and AcrIIC examples | Inhibitors and signaling antagonists require system-specific evidence; see native-expression counterexample below |
+| Clinical / biotech use | Cas3 large-deletion editing; phage therapy design (Locus crPhage) | **Genome editing (Cas9)**; base editors; prime editors | Target-triggered cyclic-oligoadenylate research assays, distinct from Cas13-based SHERLOCK \citep{athukoralage2020ringnuclease,gootenberg2017sherlock} |
 
 **Type II (Cas9)** supplied a route to engineered RNA-guided DNA targeting: the 2012 purified-system study demonstrated programmable duplex cleavage and proposed genome-editing uses \citep{doudna2012}. For canonical SpCas9, a compatible flanking PAM and guide-target sequence are required; changing the guide does not make a genomic position automatically accessible or guarantee an edit. In cells, a nuclease-induced break can undergo end joining or template-dependent repair, with outcomes depending on cell and repair context. Base and prime editors use different chemistries; a prime-editing pegRNA also encodes the edit template, so "no donor DNA" is not "no template" \citep{anzalone2019}. Cas12 and Cas13 systems have distinct DNA/RNA substrate properties. Eukaryotic RNA interference is another small-RNA-based system \citep{fire1998}, not an identical mechanism to Type II DNA cleavage.
 
 ### Anti-CRISPR Proteins
 
-Phages have evolved **anti-CRISPR (Acr)** proteins that counteract bacterial CRISPR immunity — an evolutionary arms race. Over 50 Acr families have been identified (Pawluk *et al.*, *Nature Microbiology* 2016; Davidson *et al.*, *Science* 2020 cryo-EM structures):
+Phages and archaeal viruses encode **anti-CRISPR (Acr)** proteins with different targets. Distinguish inhibition of guide-target recognition from destruction of a downstream signal:
 
-- **AcrIF1 (Type I-F inhibitor)**: Binds Cas8f subunit of Cascade; blocks crRNA-guided dsDNA binding
-- **AcrIIA2/IIA4 (Type II inhibitors)**: Bind and occlude the PAM-recognition domain of Cas9; prevents target engagement
-- **AcrIIIA4**: Degrades the cA₄ second messenger; blocks Csm6 activation
+- **AcrIF1 (called AcrF1 in the cited Type I-F study)** binds the **Cas7f backbone**, blocking guide-target hybridization; AcrF2 occupies a different Cas8f/Cas7f interface \citep{chowdhury2017suppression}.
+- **AcrIIA4 (SpCas9 inhibitor)** binds the guide-loaded complex at its PAM-DNA recognition surface. In the cited binding assays it reduced target-DNA association but did not increase DNA release from a preformed catalytically inactive Cas9 (dCas9)-sgRNA-DNA complex \citep{shin2017dnamimic}.
+- **AcrIII-1 ring nuclease** degrades **cA4**, rather than acting as a Cas9 PAM blocker. The 2020 study demonstrated signal hydrolysis and inhibition in heterologous or plasmid-expression settings \citep{athukoralage2020ringnuclease}. A 2025 native-context study found that SIRV1 gp29 and SIRV2 gp37 did not provide anti-CRISPR activity at their native middle/late expression timing; the accompanying reply distinguishes the biochemical activity from its infection context \citep{martinez2025nativeacr,athukoralage2025reply}. Enzyme activity or overexpression therefore does not establish native antiviral escape.
 
 > **Clinical Connection: CRISPR-Based Therapies (2023–2026)**
 > The first CRISPR-based medicines have now been approved. **Casgevy** (exagamglogene autotemcel), developed by Vertex and CRISPR Therapeutics, received FDA approval in December 2023 for sickle cell disease and January 2024 approval for transfusion-dependent β-thalassemia; a July 2026 supplemental approval expanded both indications from patients 12 years and older to patients **2 years and older** \citep{fda2023casgevy,fda2024casgevythalassemia,fda2026casgevy}. The ex vivo approach edits patient HSCs to reactivate fetal hemoglobin (HbF) by disrupting the BCL11A erythroid enhancer, compensating for defective adult hemoglobin. Simultaneously, Bluebird Bio's lentiviral gene therapy Lyfgenia was approved for SCD; its FDA product page should be treated as regulatory evidence distinct from ClinicalTrials.gov trial status and from the Casgevy editing mechanism \citep{clinicaltrials2026,fda2026lyfgenia}. By 2026, CRISPR therapies for transthyretin amyloidosis (intellia NTLA-2001, in vivo hepatic editing) and [**heterozygous**](#gl:heterozygous) familial hypercholesterolaemia are in Phase III trials.
