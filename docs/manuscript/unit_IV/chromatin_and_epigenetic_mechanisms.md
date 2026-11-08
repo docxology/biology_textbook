@@ -654,23 +654,23 @@ The mammalian BAF complex contains 12–15 subunits, including ATPase BRG1 or BR
 
 ### Targeted Epigenome Editing with dCas9 Fusions
 
-The CRISPR toolkit extends beyond DNA cutting. Catalytically dead **dCas9** (D10A + H840A) retains guide-directed DNA binding without Cas9 nuclease activity. Fusing a chromatin enzyme aims to enrich writer or eraser activity near a selected locus; intended targeting does not establish exclusive local activity, durable effects or clinical safety. Compare non-targeting guides, dCas9-only and catalytic-dead fusions, and measure target and off-target marks, expression and phenotype \citep{doudna2014}:
+The CRISPR toolkit extends beyond DNA cutting. Catalytically dead **dCas9** (D10A + H840A in SpCas9) retains guide-directed DNA binding without Cas9 nuclease activity. Fusing a chromatin enzyme aims to enrich writer or eraser activity near a selected locus; intended targeting does not establish exclusive local activity, durable effects or clinical safety. Compare non-targeting guides, dCas9-only and catalytic-dead fusions, and measure target and off-target marks, expression and phenotype \citep{doudna2014,gilbert2013regulation,chavez2015activation}:
 
 : Targeted Epigenome Editing with dCas9 Fusions: Fusion and Function. {#tbl:unit_IV_chromatin_and_epigenetic_mechanisms_targeted_epigenome_editing_with_dcas9_fusions}
-| Fusion | Function | Experimental / clinical use |
+| Fusion | Function | Research application and limits |
 | ------ | -------- | --------------------------- |
-| dCas9–DNMT3A | Programmable DNA methylation | **CRISPRoff** (heritable silencing without cutting DNA) |
-| dCas9–TET1 | Programmable DNA demethylation | Rescue of fragile-X *FMR1* silencing; reactivation of tumor suppressors |
-| dCas9–p300 | Programmable H3K27 acetylation | Programmable enhancer activation |
-| dCas9–KRAB | Recruits KAP1 → SETDB1 → H3K9me3 | **CRISPRi** — stable repression of any gene |
+| dCas9 / KRAB / DNMT3A / DNMT3L (CRISPRoff) | Targeted methylation and repressive chromatin | Transcriptional memory in tested cell models; the composite editor is not a DNMT3A-only fusion \citep{nunez2021memory} |
+| dCas9–TET1 | Targeted DNA demethylation | Test methylation-linked reactivation at selected promoters; model effects are not clinical approval |
+| dCas9–p300 | Targeted H3K27 acetylation | Test enhancer activation with mark, expression and specificity controls |
+| dCas9–KRAB | Recruits KAP1 → SETDB1 → H3K9me3 | **CRISPRi**: target- and cell-context-dependent repression; measure efficiency and persistence \citep{gilbert2013regulation} |
 | dCas9–LSD1 | H3K4me1/2 demethylation | Enhancer decommissioning |
-| dCas9–VPR (VP64-p65-Rta) | Transcriptional activation | **CRISPRa** — ~10-to-1000-fold induction |
+| dCas9–VPR (VP64-p65-Rta) | Transcriptional activation | **CRISPRa**: measured activation depends on target, baseline, guides and cell context, not one gene-wide fold-change range \citep{chavez2015activation} |
 | dCas9–PRC1 (RING1B–PCGF4) | H2AK119ub deposition | Polycomb-style silencing |
 
 In a 2025 preclinical study, dCas9-TET1 removed methylation at fetal-globin promoters, alone or with CBP-dCas9 acetylation, and reactivated γ-globin in patient-derived erythroid cells, including sickle-cell disease cells \citep{amistadi2025hbf}. This was not treatment of adult patients with a DNMT3A fusion: DNMT3A writes promoter methylation and would test repression instead. Delivery, durability, off-target activity, and cell-state dependence remain translational constraints.
 
 > [!NOTE]
-> Unlike Cas9-mediated gene editing, epigenome editing is **reversible**: the perturbation fades unless it is self-reinforcing through mitotic heritability of DNA methylation. This makes it attractive as a research tool (transient perturbation) and a therapy (tunable, removable), but means durable clinical effects require either continuous dCas9 expression or recruitment of self-propagating chromatin states (e.g., H3K27me3 spreading by PRC2).
+> Epigenome-editing effects can decay or persist after editor withdrawal, depending on the construct, locus and cell state. CRISPRoff experiments demonstrated inherited repression after transient editor expression in tested human-cell models, including stem-cell-to-neuron differentiation; the label "epigenetic" therefore does not supply an automatic off-switch. Reversal and durability require experimental assessment rather than a promise of either permanent repression or tunable clinical safety \citep{nunez2021memory}.
 
 > **Clinical Connection:** **SWI/SNF subunits are mutated in ~20% of human cancers**, the highest mutation frequency of any single chromatin regulator. ARID1A (~10%), SMARCA4/BRG1 (~5%), SMARCB1/INI1 (childhood rhabdoid tumors, near-almost universally biallelic loss), PBRM1 (~40% of clear-cell renal cell carcinoma). Many SWI/SNF-mutant tumors become **synthetically lethal with EZH2** (PRC2) inhibition because they over-rely on Polycomb repression of cell-cycle inhibitors when SWI/SNF cannot evict PRC1/2.
 

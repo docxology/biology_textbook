@@ -832,7 +832,7 @@ The WHO 2024 Bacterial Priority Pathogens List keeps AMR triage grounded in publ
 
 ## CRISPR-Cas: Bacterial Adaptive Immunity
 
-**CRISPR** (Clustered Regularly Interspaced Short Palindromic Repeats) arrays provide bacteria and archaea with an adaptive, heritable immune system against phages and plasmids. Discovered in 2007 (Barrangou *et al.*, *Science* 2007), the system has three functional stages — **adaptation, expression (biogenesis), and interference** — that map cleanly onto the three steps of any immune system: memory formation, surveillance, and effector action.
+**CRISPR** (Clustered Regularly Interspaced Short Palindromic Repeats) arrays and associated Cas systems can provide adaptive, heritable resistance to phages and plasmids in bacteria and archaea. Barrangou and colleagues experimentally linked spacer changes to phage resistance in 2007; this was evidence for an immune function, not the first observation of the repeat arrays \citep{barrangou2007immunity}. For CRISPR-Cas immunity, distinguish **adaptation**, **expression (biogenesis)** and **interference**: acquisition of sequence memory, production of guide components and action against a matching invader.
 
 ```mermaid
 flowchart LR
@@ -891,7 +891,7 @@ The crRNA guides the effector complex to matching sequences in foreign nucleic a
 | Anti-CRISPR susceptibility | Yes (AcrIF, AcrIE families) | Yes (AcrIIA, AcrIIC families) | Yes (AcrIIIA, anti-cA₄) |
 | Clinical / biotech use | Cas3 large-deletion editing; phage therapy design (Locus crPhage) | **Genome editing (Cas9)**; base editors; prime editors | Biosensing (cA₄ readout); SHERLOCK-style RNA detection |
 
-**Type II (Cas9)** was repurposed for genome editing by Doudna, Charpentier, and colleagues in 2012 (*Science* 2012), work recognized with the 2020 Nobel Prize in Chemistry. A synthetic sgRNA directs Cas9 to any genomic target (specified by a 20-nt spacer sequence + NGG PAM), where it makes a site-specific DSB. The cell repairs the break by NHEJ (creating indels — gene knockout) or HDR (with a provided template — precise edit). Variants now include base editors (cytosine → thymine, adenine → guanine without DSBs), prime editors (programmable insertions/deletions guided by an extended pegRNA), and Cas12/Cas13 systems for DNA/RNA targeting respectively. The same RNA-guided programmability that powers genome editing also underlies the **RNA-interference-like** specificity by which bacteria neutralize phage genomes — a striking parallel to eukaryotic small-RNA defense systems first dissected with C. elegans \citep{fire1998}.
+**Type II (Cas9)** supplied a route to engineered RNA-guided DNA targeting: the 2012 purified-system study demonstrated programmable duplex cleavage and proposed genome-editing uses \citep{doudna2012}. For canonical SpCas9, a compatible flanking PAM and guide-target sequence are required; changing the guide does not make a genomic position automatically accessible or guarantee an edit. In cells, a nuclease-induced break can undergo end joining or template-dependent repair, with outcomes depending on cell and repair context. Base and prime editors use different chemistries; a prime-editing pegRNA also encodes the edit template, so "no donor DNA" is not "no template" \citep{anzalone2019}. Cas12 and Cas13 systems have distinct DNA/RNA substrate properties. Eukaryotic RNA interference is another small-RNA-based system \citep{fire1998}, not an identical mechanism to Type II DNA cleavage.
 
 ### Anti-CRISPR Proteins
 

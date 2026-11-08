@@ -6263,13 +6263,22 @@
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/chromatin_and_epigenetic_mechanisms.md:657:8841a24e7da8",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/chromatin_and_epigenetic_mechanisms.md:657:16ac426298ed",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IV/chromatin_and_epigenetic_mechanisms.md",
       "line": 657,
-      "excerpt": "The CRISPR toolkit extends beyond DNA cutting. Catalytically dead **dCas9** (D10A + H840A) retains guide-directed DNA binding without Cas9 nuclease activity. Fusing a chromatin enzyme aims to enrich writer or eraser activity near a selected locus; intended targeting does not establish exclusive local activity, durable effects or clinical safety. Compare non-targeting guides, dCas9-only and catalytic-dead fusions, and measure target and off-target marks, expression and phenotype \\citep{doudna2014}:",
-      "rationale": "Regulatory status is correctly product/indication/date-specific; FDA's withdrawal table lists both tazemetostat indications on June 22, 2026. Chédin's full Table 1 actually gives 8.3% versus 34.3% SNRPN methylation and no appreciable tested DNMT3B stimulation (https://pmc.ncbi.nlm.nih.gov/articles/PMC139244/). BWS/SRS mechanisms are scoped subsets. Tukiainen's abstract supports at least 23% across assessed genes/tissues, not a universal tissue percentage (https://pubmed.ncbi.nlm.nih.gov/29022598/). dCas9 targeting does not prove specificity, durability or safety.",
-      "reviewer": "WorkflowzFinalClaimRefutation#1"
+      "excerpt": "The CRISPR toolkit extends beyond DNA cutting. Catalytically dead **dCas9** (D10A + H840A in SpCas9) retains guide-directed DNA binding without Cas9 nuclease activity. Fusing a chromatin enzyme aims to enrich writer or eraser activity near a selected locus; intended targeting does not establish exclusive local activity, durable effects or clinical safety. Compare non-targeting guides, dCas9-only and catalytic-dead fusions, and measure target and off-target marks, expression and phenotype \\citep{doudna2014,gilbert2013regulation,chavez2015activation}:",
+      "rationale": "Regulatory status is correctly product/indication/date-specific; FDA's withdrawal table lists both tazemetostat indications on June 22, 2026. Chédin's full Table 1 actually gives 8.3% versus 34.3% SNRPN methylation and no appreciable tested DNMT3B stimulation (https://pmc.ncbi.nlm.nih.gov/articles/PMC139244/). BWS/SRS mechanisms are scoped subsets. Tukiainen's abstract supports at least 23% across assessed genes/tissues, not a universal tissue percentage (https://pubmed.ncbi.nlm.nih.gov/29022598/). dCas9 targeting does not prove specificity, durability or safety. Re-read the updated context: the double mutation is now explicitly SpCas9, and original Gilbert2013/Chavez2015 source identities are cited alongside the review. This preserves the scoped control/design statement rather than granting a universal gene, durability or safety outcome. New primary abstracts were read; no universal effects or new measurements are asserted.",
+      "reviewer": "Workflowz integration owner; actual primary-source and paired-consumer closure, 2026-11-08"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/chromatin_and_epigenetic_mechanisms.md:662:36ac42ef0a79",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IV/chromatin_and_epigenetic_mechanisms.md",
+      "line": 662,
+      "excerpt": "| dCas9 / KRAB / DNMT3A / DNMT3L (CRISPRoff) | Targeted methylation and repressive chromatin | Transcriptional memory in tested cell models; the composite editor is not a DNMT3A-only fusion \\citep{nunez2021memory} |",
+      "rationale": "Read actual Nuñez et al.2021 primary author-manuscript Results, Rational design of a single fusion epigenome memory editor, and Figure1 caption (PMC8376083, captured artifact2057:350–405), plus independently matching primary abstract/metadata PMID33838111, DOI10.1016/j.cell.2021.03.025. The tested CRISPRoff-V1 construct combines ZNF10 KRAB, Dnmt3A and Dnmt3L domains with inactive S.pyogenes dCas9, and comparisons include dCas9-KRAB and dCas9-D3A-D3L. Thus not a DNMT3A-only fusion is an exact architecture distinction, not an unsourced universal. Table confines memory to tested cell models and does not assert clinical approval or universal stable repression.",
+      "reviewer": "Workflowz integration owner; actual primary-source and paired-consumer closure, 2026-11-08"
     },
     {
       "advisory_id": "absolute-language-review:docs/manuscript/unit_IV/dna_replication_and_cell_cycle.md:78:e2d68dc7d1eb",
@@ -7341,6 +7350,15 @@
       "excerpt": "1. **Attachment and fusion:** gp120 binds CD4 and a coreceptor matched to the viral variant, CCR5 or CXCR4; gp41 mediates fusion. CCR5 use is common in transmission, but CXCR4 use does not follow a universal late-stage schedule.",
       "rationale": "Maeda's abstract documents resistance to a named antivirulence compound in P. aeruginosa, a valid counterexample to resistance-proof quorum quenching rather than evidence against every compound (https://pubmed.ncbi.nlm.nih.gov/21918575/). HIV coreceptor use is variant-dependent. SpCas9's PAM-relative cut position and stipulated 100:1 probability ratio do not define a universal clinical off-target threshold or make Cas9 therapies base editors. The culture doubling/log-kill exercise is synthetic and cannot define sepsis or dosing.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:894:6e7176ca2d8d",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 894,
+      "excerpt": "**Type II (Cas9)** supplied a route to engineered RNA-guided DNA targeting: the 2012 purified-system study demonstrated programmable duplex cleavage and proposed genome-editing uses \\citep{doudna2012}. For canonical SpCas9, a compatible flanking PAM and guide-target sequence are required; changing the guide does not make a genomic position automatically accessible or guarantee an edit. In cells, a nuclease-induced break can undergo end joining or template-dependent repair, with outcomes depending on cell and repair context. Base and prime editors use different chemistries; a prime-editing pegRNA also encodes the edit template, so \"no donor DNA\" is not \"no template\" \\citep{anzalone2019}. Cas12 and Cas13 systems have distinct DNA/RNA substrate properties. Eukaryotic RNA interference is another small-RNA-based system \\citep{fire1998}, not an identical mechanism to Type II DNA cleavage.",
+      "rationale": "Read primary Jinek2012 main PAM Results and Anzalone2019 original abstract (PMID31634902, DOI10.1038/s41586-019-1711-4). SpCas9 duplex targeting is guide/PAM-constrained; the prime-editing guide both specifies target and encodes desired edit. No separate donor DNA therefore does not mean no template. This is a mechanistic distinction and an explicit refusal to guarantee genomic addressability or edit outcomes; it is not a new clinical or efficiency measurement. TypeII DNA cleavage and the separately cited eukaryotic RNA-interference pathway are not interchangeable systems. No full supplementary-data reanalysis is claimed.",
+      "reviewer": "Workflowz integration owner; actual primary-source and paired-consumer closure, 2026-11-08"
     },
     {
       "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:944:ff7b95e99183",

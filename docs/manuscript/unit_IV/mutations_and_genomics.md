@@ -354,7 +354,7 @@ The choice between homologous recombination (HR) and non-homologous end joining 
 
 ## CRISPR-Cas9: Mechanism and Applications
 
-**Background**: CRISPR (Clustered Regularly Interspaced Short Palindromic Repeats) is the adaptive immune system of bacteria and [**archaea**](#gl:archaea). Jennifer Doudna and Emmanuelle Charpentier received the 2020 Nobel Prize in Chemistry for demonstrating that CRISPR-Cas9 could be programmed with a synthetic guide RNA for precise genome editing (Jinek et al., 2012, *Science*).
+**Background**: CRISPR-Cas systems provide adaptive defenses in bacteria and [**archaea**](#gl:archaea). Engineered SpCas9 comes from a bacterial Type II system. The 2012 purified-enzyme study demonstrated guide-programmable double-stranded DNA cleavage and proposed genome-editing applications; it did not demonstrate unrestricted cellular editing \citep{doudna2012}.
 
 ### Natural CRISPR Immunity
 
@@ -411,7 +411,7 @@ flowchart TD
 | **Cas13 (RNA-targeting)** | Cleaves RNA (not DNA); collateral RNA cleavage in bacteria | RNA knockdown; viral RNA detection (SHERLOCK diagnostic) |
 | **dCas9 (dead Cas9)** | Catalytically inactive (D10A + H840A mutations); binds but does not cut | CRISPRi (transcriptional repression with KRAB domain); CRISPRa (activation with VP64/p65/Rta) |
 | **Base editors** | dCas9 or Cas9-nickase fused to deaminase | CBE (cytidine base editor): C-to-T conversion; ABE (adenine base editor): A-to-G conversion; no DSB needed |
-| **Prime editors** | Cas9-H840A nickase fused to M-MLV reverse transcriptase + pegRNA | "Search-and-replace": any point mutation, small insertion, or small deletion; no DSB, no donor template needed |
+| **Prime editors** | Cas9-H840A nickase fused to M-MLV reverse transcriptase + pegRNA | Base substitutions and specified small insertions/deletions use a pegRNA-encoded edit template; target/PAM, design and cell context constrain outcomes. No programmed DSB or separate donor DNA template is required \citep{anzalone2019} |
 
 **CRISPR diagnostics:** SHERLOCK and DETECTR exploit collateral nuclease activity after target recognition: Cas13 collateral RNA cleavage and Cas12a collateral ssDNA cleavage convert a sequence match into a fluorescent or lateral-flow signal \citep{gootenberg2017sherlock,chen2018detectr}. That makes CRISPR a diagnostic logic as well as an editing logic, but it does not remove the usual validation burdens: sample preparation, contamination control, limit of detection, clinical sensitivity/specificity, and variant coverage still determine whether an assay is deployable.
 
