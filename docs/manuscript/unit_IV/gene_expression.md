@@ -825,7 +825,7 @@ For reference-dependent genetic claims, ask whether read length, structural vari
 - Gehring, Walker & Santangelo (2016). Transcription Regulation in Archaea. *Journal of Bacteriology*, 198, 1906–1917.
 - Schmitt et al. (2020). Recent Advances in Archaeal Translation Initiation. *Frontiers in Microbiology*, 11, 584152.
 - Elzanowski & Ostell (NCBI, updated September 2024). The Genetic Codes: taxon- and compartment-specific translation tables.
-- Kurosaki, Popp & Maquat (2019). Quality and quantity control of gene expression by nonsense-mediated mRNA decay. *Nature Reviews Molecular Cell Biology*, 20, 406–420. The publisher correction concerns the original HTML Figure 3; the publisher states the PDF was correct.
+- Kurosaki, Popp & Maquat (2019). Quality and quantity control of gene expression by nonsense-mediated mRNA decay. *Nature Reviews Molecular Cell Biology*, 20, 406–420. The publisher corrected the original HTML illustration; the PDF was already correct. The bibliography record retains the correction DOI and exact external figure locator.
 
 ---
 
