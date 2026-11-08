@@ -64,26 +64,27 @@ def run_pdf_log_check(
     log_path: Path,
     *,
     max_overfull_pt: float = 50.0,
-    max_overfull_vbox_pt: float = 350.0,
+    max_overfull_vbox_pt: float | None = None,
     allow_missing_glyphs: bool = False,
 ) -> int:
-    """Check one log file; return process exit code."""
+    """Check one log; an omitted vertical budget follows the horizontal budget."""
     import sys
 
     if not log_path.is_file():
         print(f"PDF log not found: {log_path}", file=sys.stderr)
         return 2
+    effective_vbox_pt = max_overfull_pt if max_overfull_vbox_pt is None else max_overfull_vbox_pt
     issues = find_pdf_log_issues(
         log_path.read_text(encoding="utf-8", errors="replace"),
         max_overfull_pt=max_overfull_pt,
-        max_overfull_vbox_pt=max_overfull_vbox_pt,
+        max_overfull_vbox_pt=effective_vbox_pt,
         allow_missing_glyphs=allow_missing_glyphs,
     )
     if not issues:
         print(
             "[PASS] no undefined references, missing glyphs, double superscripts, "
             f"or overfull boxes (hbox > {max_overfull_pt:g}pt, "
-            f"vbox > {max_overfull_vbox_pt:g}pt)"
+            f"vbox > {effective_vbox_pt:g}pt)"
         )
         return 0
     print(f"[FAIL] PDF log issues found: {len(issues)}", file=sys.stderr)

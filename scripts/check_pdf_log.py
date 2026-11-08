@@ -17,7 +17,8 @@ def run(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("log", type=Path, help="Path to a XeLaTeX or combined manuscript log")
     parser.add_argument("--max-overfull-pt", type=float, default=50.0)
-    parser.add_argument("--max-overfull-vbox-pt", type=float, default=350.0)
+    parser.add_argument("--max-overfull-vbox-pt", type=float,
+                        help="Vertical-overflow budget; defaults to --max-overfull-pt")
     parser.add_argument(
         "--allow-missing-glyphs",
         action="store_true",
