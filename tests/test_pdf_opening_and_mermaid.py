@@ -14,6 +14,7 @@ import yaml
 from PIL import Image, ImageDraw
 
 from biology.maintenance.chapter_badges import COURSE_GRID_COLUMN_SPEC
+from biology.pipeline.orphan_figures import FigureInsertion, inject
 from biology.pipeline.rendering import _inline_diagram_bounds, render_textbook
 from textbook_paths import PROJECT, discover_template_root
 
@@ -42,7 +43,7 @@ def test_real_instructor_pdf_uses_fresh_sources_and_strict_png(
         r"\endgroup" "\n```\n"
     )
     chapter.write_text(
-        '# Render sample\n\nA fresh, source-bound process diagram.\n\n'
+        '# Render sample\n\n\\label{sec:fixture_heading}\n\nA fresh, source-bound process diagram.\n\n'
         '```mermaid\nflowchart TD\n A[Substrate] --> B[Product]\n```\n'
         '<!-- alt: Conversion of substrate to product in a two-node process. -->\n'
         '*Substrate conversion to product in a simple process model.*\n\n'
@@ -52,6 +53,14 @@ def test_real_instructor_pdf_uses_fresh_sources_and_strict_png(
         '2. FOLLOWING QUESTION: explain the conversion.\n' + width_probe,
         encoding="utf-8",
     )
+    opening = tmp_path / "output" / "figures" / "opening.png"
+    opening.parent.mkdir(parents=True)
+    Image.new("RGB", (300, 40), "#123456").save(opening)
+    inject(chapter, FigureInsertion(
+        "opening", chapter, "# Render sample",
+        "A test swatch separates heading destinations from floating figure destinations.",
+        "fig:fixture_opening", "A dark rectangular swatch used for hyperlink-destination regression.",
+    ))
     (manuscript / "preamble.md").write_text("```latex\n\\usepackage{array}\n```\n", encoding="utf-8")
     config = {
         "book": {"title": "Renderer regression", "author": "Daniel Ari Friedman", "edition": "1.1",
@@ -84,6 +93,18 @@ def test_real_instructor_pdf_uses_fresh_sources_and_strict_png(
     ):
         monkeypatch.setattr(f"{module}.{name}", value)
     pdf = render_textbook()
+    auxiliary = pdf.with_name("_combined_manuscript.aux").read_text(encoding="utf-8")
+
+    def destination(label: str) -> str:
+        match = re.search(
+            r"\\newlabel\{" + re.escape(label) + r"\}\{\{[^}]*\}\{[^}]*\}\{[^}]*\}\{([^}]*)\}",
+            auxiliary,
+        )
+        assert match is not None
+        return match[1]
+
+    assert destination("sec:fixture_heading") == destination("render-sample")
+    assert destination("fig:fixture_opening") != destination("sec:fixture_heading")
     extracted = subprocess.run(["pdftotext", str(pdf), "-"], capture_output=True, text=True,
                                check=True, stdin=subprocess.DEVNULL).stdout
     assert "Renderer regression" in extracted

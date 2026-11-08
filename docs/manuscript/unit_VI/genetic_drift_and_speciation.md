@@ -1,4 +1,5 @@
 # Genetic Drift, Gene Flow, and Speciation
+\label{sec:unit_VI_genetic_drift_and_speciation}
 
 \begin{figure}[htbp]
 \centering
@@ -9,7 +10,6 @@
 
 <!-- alt: Three curves show mean fitness versus allele frequency. Directional selection rises toward p equals one; heterozygote advantage peaks at p equals one half; underdominance has a trough at one half and rises toward both endpoints. -->
 
-\label{sec:unit_VI_genetic_drift_and_speciation}
 
 
 <!-- chapter-metadata-badge -->

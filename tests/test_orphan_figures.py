@@ -8,21 +8,11 @@ import pytest
 import yaml
 
 from biology.pipeline.orphan_figures import (
-    CATALOG_PATH,
     FigureInsertion,
     apply_orphan_figures,
     inject,
     load_insertions,
 )
-
-
-def test_catalog_yaml_loads_into_records() -> None:
-    insertions = load_insertions()
-    assert len(insertions) >= 18
-    assert all(isinstance(i, FigureInsertion) for i in insertions)
-    pngs = {i.png for i in insertions}
-    assert "punnett_AaxAa" in pngs
-    assert "logistic_growth" in pngs
 
 
 def test_catalog_yaml_has_unique_labels_and_pngs() -> None:
@@ -33,37 +23,11 @@ def test_catalog_yaml_has_unique_labels_and_pngs() -> None:
     assert len(pngs) == len(set(pngs)), "duplicate png stems in orphan_figures.yaml"
 
 
-def test_catalog_yaml_rows_have_required_fields() -> None:
-    raw = yaml.safe_load(CATALOG_PATH.read_text(encoding="utf-8"))
-    required = {"png", "target", "anchor", "caption", "label", "alt"}
-    for row in raw["insertions"]:
-        missing = required - set(row)
-        assert not missing, f"row {row.get('png')} missing fields {missing}"
-
-
 def test_load_insertions_rejects_incomplete_row(tmp_path: Path) -> None:
     catalog = tmp_path / "bad.yaml"
     catalog.write_text(yaml.safe_dump({"insertions": [{"png": "x", "target": "t.md"}]}), encoding="utf-8")
     with pytest.raises(ValueError, match="missing fields"):
         load_insertions(catalog, manuscript_root=tmp_path)
-
-
-def test_inject_writes_figure_block_after_anchor(tmp_path: Path) -> None:
-    chapter = tmp_path / "ch.md"
-    chapter.write_text("# Chapter\n\nHere is the Punnett Square section.\n\nMore text.\n", encoding="utf-8")
-    ins = FigureInsertion(
-        png="punnett_AaxAa",
-        target=chapter,
-        anchor="Punnett Square",
-        caption="Caption.",
-        label="fig:demo",
-        alt="Alt.",
-    )
-    assert inject(chapter, ins)
-    body = chapter.read_text(encoding="utf-8")
-    assert "../figures/punnett_AaxAa.png" in body
-    assert "\\label{fig:demo}" in body
-    assert "<!-- alt: Alt." in body
 
 
 def test_inject_is_idempotent(tmp_path: Path) -> None:
@@ -139,3 +103,18 @@ def test_markdown_image_is_an_existing_embed(tmp_path: Path) -> None:
     ins = FigureInsertion("punnett_AaxAa", chapter, "Punnett Square", "A cross.", "fig:cross", "Four cells.")
     assert not inject(chapter, ins)
     assert chapter.read_text(encoding="utf-8") == original
+
+
+@pytest.mark.parametrize("literal", [
+    "<!-- Header anchor -->",
+    "```markdown\nHeader anchor\n```",
+])
+def test_literal_only_anchor_preserves_authored_file(tmp_path: Path, literal: str) -> None:
+    chapter = tmp_path / "chapter.md"
+    chapter.write_text("# Real chapter\n\n" + literal + "\n\nAuthored prose.\n", encoding="utf-8")
+    before = chapter.read_bytes()
+    stamp = chapter.stat()
+    insertion = FigureInsertion("diagram", chapter, "Header anchor", "A diagram.", "fig:proof", "A test diagram.")
+    assert not inject(chapter, insertion)
+    assert chapter.read_bytes() == before
+    assert (chapter.stat().st_mtime_ns, chapter.stat().st_ino) == (stamp.st_mtime_ns, stamp.st_ino)

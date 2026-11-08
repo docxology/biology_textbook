@@ -1,4 +1,5 @@
 # Population Genetics
+\label{sec:unit_V_population_genetics}
 
 \begin{figure}[htbp]
 \centering
@@ -9,7 +10,6 @@
 
 <!-- alt: Three curves showing genotype frequencies versus allele frequency p for AA, Aa, and aa under Hardy-Weinberg equilibrium. -->
 
-\label{sec:unit_V_population_genetics}
 
 
 <!-- chapter-metadata-badge -->

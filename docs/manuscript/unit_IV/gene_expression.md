@@ -1,4 +1,5 @@
 # Gene Expression
+\label{sec:unit_IV_gene_expression}
 
 \begin{figure}[htbp]
 \centering
@@ -9,7 +10,6 @@
 
 <!-- alt: Vertical bars count the amino-acid types present after translating a synthetic example messenger RNA with the standard genetic code. Met, Phe, Gly, His, and Trp appear in first-occurrence order, not ranked order; amino acids absent from the peptide are not plotted. -->
 
-\label{sec:unit_IV_gene_expression}
 
 
 <!-- chapter-metadata-badge -->

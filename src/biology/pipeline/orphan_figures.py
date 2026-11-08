@@ -13,6 +13,7 @@ already present in the target file, that file is skipped.
 
 from __future__ import annotations
 
+import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -28,6 +29,10 @@ MANUSCRIPT = PROJECT / "docs" / "manuscript"
 CATALOG_PATH = Path(__file__).resolve().parent / "orphan_figures.yaml"
 
 _REQUIRED_FIELDS = ("png", "target", "anchor", "caption", "label", "alt")
+
+_ATTACHED_SECTION_LABELS_RE = re.compile(
+    r"(?:[ \t\r\n]*\\label\{sec:[^}\r\n]+\}[ \t\r]*(?:\n|$))+"
+)
 
 
 class _WriteFn(Protocol):
@@ -98,7 +103,7 @@ def inject(
     dry_run: bool = False,
     write_fn: _WriteFn | None = None,
 ) -> bool:
-    """Inject one figure block at the first blank line after ``ins.anchor``."""
+    """Place a figure after a visible anchor and its attached section labels."""
     if not path.exists():
         print(f"WARN: missing {path}", file=sys.stderr)
         return False
@@ -111,15 +116,19 @@ def inject(
         for match in pattern.finditer(visible)
     ):
         return False
-    idx = text.lower().find(ins.anchor.lower())
-    if idx < 0:
+    anchor = re.search(re.escape(ins.anchor), visible, re.IGNORECASE)
+    if anchor is None:
         print(f"WARN: anchor '{ins.anchor}' not found in {path.name}", file=sys.stderr)
         return False
-    blank = text.find("\n\n", idx)
+    blank = text.find("\n\n", anchor.start())
     if blank < 0:
         blank = len(text)
+    insertion = blank + 1
+    attached_labels = _ATTACHED_SECTION_LABELS_RE.match(visible[insertion:])
+    if attached_labels is not None:
+        insertion += attached_labels.end()
     block = _FIGURE_TEMPLATE.format(png=ins.png, caption=ins.caption, label=ins.label, alt=ins.alt)
-    new_text = text[: blank + 1] + block + text[blank + 1 :]
+    new_text = text[:insertion] + block + text[insertion:]
     if not dry_run:
         writer = write_fn or _default_writer()
         writer(path, new_text)

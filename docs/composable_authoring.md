@@ -49,6 +49,11 @@ Chapters, figures, equations, and tables use **semantic** labels. Rendered "Chap
 
 **Prerequisites:** in `src/biology/chapter_metadata.py`, `prerequisites` is a tuple of **chapter_id strings** (same as without the `sec:` prefix). Badges and inserts turn these into `\cref{sec:...}` links in the metadata block.
 
+Keep the chapter label before any opening figure, not merely somewhere near the
+title. A float can change the hyperlink destination while the displayed section
+number remains correct. Orphan-figure insertion preserves the heading's attached
+label block; the real-PDF regression compares heading and figure destinations.
+
 **Title and curriculum metadata:** `src/biology/toc.py` derives unit-intro,
 chapter, lab, question-bank, reference appendix, front-matter navigation, and
 Course Planning Grid display names from `docs/manuscript/config.yaml` plus
