@@ -8619,6 +8619,15 @@
       "excerpt": "**Answer:** $N(10) \\approx 451$, $N(20) \\approx 858$. Under these stipulated constant-rate scenarios, the low-$r$ population takes longer to recover to $K/2$. This deterministic model does not quantify extinction risk or establish a universal conservation-risk ranking. Continuous unharvested logistic growth is positive at every $0<N<K$ and approaches $K$ only asymptotically; it does not alone produce delayed crashes or chaos.",
       "rationale": "The demographic occurrences retain their explicit model boundaries: survivorship/cohort measurements are not universal taxonomic schedules; age-only Leslie and adult-retaining stage structures differ; dominant growth and stable proportions derive from the full matrix. Logistic, stochastic and Allee mechanisms require their stated assumptions and cannot establish a species-wide law or universal N<50 extinction boundary. Genetic effective-size recommendations are not census MVP guarantees, and printed illustrative matrix/trajectory values are not observations of a named wild population.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:869:b0482d4646f3",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 869,
+      "excerpt": "For canonical SpCas9 duplex targeting, **PAM recognition** helps distinguish an invader's protospacer flank from the repeat-flanked spacer in the CRISPR array \\citep{doudna2012}. This is not a universal self/non-self test for all CRISPR types; the Type III comparison below has a different RNA-triggered mechanism.",
+      "rationale": "The explicit canonical SpCas9 duplex qualifier follows the 2012 guide/PAM recognition evidence. The RNA-triggered Type III Cas10/cyclic-oligoadenylate mechanism in Athukoralage et al. 2020 (PMC6986909, main results and Fig. 1) supplies the counterexample to universal PAM-scanning. This approves the stated distinction between mechanisms, not a universal self/non-self rule or an exhaustive classification. The current neighboring diagram is restricted to representative DNA-targeting Type I/II examples.",
+      "reviewer": "WorkflowzReleaseOwner-natural-guide-boundary"
     }
   ]
 }
