@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import shutil
 from collections.abc import Callable
 from pathlib import Path
@@ -119,3 +120,55 @@ def test_registered_figures_are_decodable_pngs_in_requested_destination(
             assert 1.05 <= ratio <= 3.5
         else:
             assert 0.85 <= ratio <= 1.18
+
+
+@pytest.mark.parametrize("alias_kind", ["symlink", "hardlink"])
+def test_shared_figure_writer_cannot_overwrite_an_aliased_source(
+    tmp_path: Path, alias_kind: str,
+) -> None:
+    from visualization.plots_evolution import plot_fitness_landscape
+
+    source = tmp_path / "authored.md"
+    source.write_bytes(b"authored science, not a generated image\n")
+    figures = tmp_path / "figures"
+    figures.mkdir()
+    alias = figures / "fitness_landscape.png"
+    if alias_kind == "symlink":
+        alias.symlink_to(source)
+    else:
+        alias.hardlink_to(source)
+    unknown = figures / "author-note.txt"
+    unknown.write_bytes(b"unrelated output note\n")
+    before = set(figures.iterdir())
+    with pytest.raises(ValueError):
+        plot_fitness_landscape(figures)
+    assert source.read_bytes() == b"authored science, not a generated image\n"
+    assert unknown.read_bytes() == b"unrelated output note\n"
+    assert set(figures.iterdir()) == before
+    assert alias.samefile(source)
+
+
+def test_failed_figure_publication_preserves_previous_image_and_unknown_files(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    from visualization.plots_evolution import plot_fitness_landscape
+
+    target = tmp_path / "fitness_landscape.png"
+    Image.new("RGB", (20, 20), "white").save(target)
+    previous = target.read_bytes()
+    unknown = tmp_path / "author-note.txt"
+    unknown.write_bytes(b"unrelated output note\n")
+    before = set(tmp_path.iterdir())
+    replace = os.replace
+
+    def refuse_publication(source: str | Path, destination: str | Path) -> None:
+        if Path(destination) == target:
+            raise OSError("owned publication failure fixture")
+        replace(source, destination)
+
+    monkeypatch.setattr(os, "replace", refuse_publication)
+    with pytest.raises(OSError):
+        plot_fitness_landscape(tmp_path)
+    assert target.read_bytes() == previous
+    assert unknown.read_bytes() == b"unrelated output note\n"
+    assert set(tmp_path.iterdir()) == before

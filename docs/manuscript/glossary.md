@@ -502,7 +502,7 @@
 
 [**Nitrification**]{#gl:nitrification} [L *nitrum* = saltpetre + *facere* = to make] — The aerobic microbial oxidation of ammonium (NH₄⁺) to nitrite (NO₂⁻) by *Nitrosomonas*, then nitrite to nitrate (NO₃⁻) by *Nitrobacter*; a key step in the nitrogen cycle making nitrogen available to most plants. → \cref{sec:unit_X_ecosystem_ecology}
 
-[**Nitrogen fixation**]{#gl:nitrogen-fixation} [L *nitrum* + *fixatio* = making firm] — The enzymatic reduction of atmospheric N₂ to NH₃ by nitrogenase; performed by free-living bacteria (*Azotobacter*, cyanobacteria) and symbionts (*Rhizobium*, *Frankia*); rate ~120 Tg N/yr globally. → \cref{sec:unit_VII_bacteria_archaea_viruses}
+[**Nitrogen fixation**]{#gl:nitrogen-fixation} [L *nitrum* + *fixatio* = making firm] — Conversion of N₂ to reactive nitrogen. Biological fixation uses nitrogenase in diazotrophs, including free-living and symbiotic microorganisms; industrial Haber–Bosch fixation is a separate route. A numerical budget needs a date, terrestrial/marine boundary and distinction between new input, transfer and stock. → \cref{sec:unit_VII_bacteria_archaea_viruses,sec:unit_X_ecosystem_ecology}
 
 ### O (continued) {.unnumbered}
 

@@ -3,7 +3,24 @@
 from __future__ import annotations
 
 import math
+import sys
 from collections.abc import Callable
+
+
+def _euler_time_step(t_end: float, steps: int) -> float:
+    """Admit one uniform binary64 grid without changing its requested horizon."""
+    if not math.isfinite(t_end) or t_end <= 0:
+        raise ValueError("t_end must be finite and positive.")
+    if isinstance(steps, bool) or not isinstance(steps, int):
+        raise TypeError("steps must be a positive integer.")
+    if steps <= 0:
+        raise ValueError("steps must be a positive integer.")
+    if steps > t_end / math.ulp(t_end):
+        raise ValueError("Euler time grid is not representable; reduce steps or increase t_end.")
+    dt = t_end / steps
+    if (steps - 1) * dt >= t_end or (dt < sys.float_info.min and dt * steps != t_end):
+        raise ValueError("Rounded Euler steps do not represent the requested time grid.")
+    return dt
 
 
 def euler_integrate_scalar(
@@ -32,16 +49,7 @@ def euler_integrate_scalar(
     """
     if not math.isfinite(y0):
         raise ValueError("y0 must be finite.")
-    if not math.isfinite(t_end) or t_end <= 0:
-        raise ValueError("t_end must be finite and positive.")
-    if isinstance(steps, bool) or not isinstance(steps, int):
-        raise TypeError("steps must be a positive integer.")
-    if steps <= 0:
-        raise ValueError("steps must be a positive integer.")
-
-    dt = t_end / steps
-    if dt <= 0:
-        raise ValueError("Euler time step is not representable; reduce steps or increase t_end.")
+    dt = _euler_time_step(t_end, steps)
     times = [0.0]
     values = [y0]
     y = y0
@@ -85,16 +93,7 @@ def euler_integrate_pair(
     """
     if not all(math.isfinite(value) for value in y0):
         raise ValueError("y0 components must be finite.")
-    if not math.isfinite(t_end) or t_end <= 0:
-        raise ValueError("t_end must be finite and positive.")
-    if isinstance(steps, bool) or not isinstance(steps, int):
-        raise TypeError("steps must be a positive integer.")
-    if steps <= 0:
-        raise ValueError("steps must be a positive integer.")
-
-    dt = t_end / steps
-    if dt <= 0:
-        raise ValueError("Euler time step is not representable; reduce steps or increase t_end.")
+    dt = _euler_time_step(t_end, steps)
     times = [0.0]
     series1 = [y0[0]]
     series2 = [y0[1]]

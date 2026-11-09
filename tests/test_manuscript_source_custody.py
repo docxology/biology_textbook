@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import runpy
+import shutil
+import sys
 from pathlib import Path
 
 import pytest
@@ -300,3 +303,132 @@ def test_configured_quality_surfaces_admit_paths_before_consumers_open_them(
     with pytest.raises(ValueError, match="escapes manuscript"):
         manuscript_walker.configured_manuscript_surfaces()
     assert external.read_bytes() == b"\xffprivate surface bytes"
+
+
+@pytest.mark.parametrize("script,relative", [
+    ("generate_figures.py", "figures"),
+    ("generate_diagrams.py", "figures/mermaid"),
+])
+def test_default_visual_cli_cannot_write_through_an_output_directory_alias(
+    book: tuple[Path, Path, Path], monkeypatch: pytest.MonkeyPatch, script: str, relative: str,
+) -> None:
+    project, manuscript, output = book
+    output.parent.mkdir()
+    alias = output.parent / relative
+    alias.parent.mkdir(parents=True, exist_ok=True)
+    alias.symlink_to(manuscript, target_is_directory=True)
+    before = _snapshot(manuscript)
+    entrypoint = Path(__file__).resolve().parents[1] / "scripts" / script
+    main = runpy.run_path(str(entrypoint))["main"]
+    monkeypatch.setitem(main.__globals__, "PROJECT_DIR", project)
+    if "CONFIG_FILE" in main.__globals__:
+        monkeypatch.setitem(main.__globals__, "CONFIG_FILE", manuscript / "config.yaml")
+    monkeypatch.setattr(sys, "argv", [script])
+    with pytest.raises(ValueError):
+        main()
+    assert _snapshot(manuscript) == before
+    assert alias.is_symlink()
+
+
+@pytest.fixture
+def native_book(
+    book: tuple[Path, Path, Path], monkeypatch: pytest.MonkeyPatch,
+) -> tuple[Path, Path, Path]:
+    from textbook_paths import PROJECT, discover_template_root
+
+    if discover_template_root(PROJECT) is None or any(
+        shutil.which(tool) is None for tool in ("mmdc", "pandoc", "xelatex", "bibtex")
+    ):
+        pytest.skip("explicit template and native PDF toolchain are unavailable")
+    project, manuscript, output = book
+    config = manuscript / "config.yaml"
+    config.write_text(
+        config.read_text(encoding="utf-8")
+        + "book:\n  title: Owned native custody fixture\n  author: Synthetic fixture\n  edition: '1.1'\n",
+        encoding="utf-8",
+    )
+    (manuscript / "preamble.md").write_text("```latex\n\\usepackage{array}\n```\n", encoding="utf-8")
+    monkeypatch.setattr("biology.pipeline.numbering.MANUSCRIPT_DIR", manuscript)
+    monkeypatch.setattr("biology.visual_contracts.render.PROJECT_ROOT", project)
+    return project, manuscript, output
+
+
+def test_native_compiler_failure_preserves_previous_pdf_and_retains_diagnostics(
+    native_book: tuple[Path, Path, Path],
+) -> None:
+    from importlib import import_module
+
+    rendering_error = import_module("infrastructure.core.exceptions").RenderingError
+
+    project, manuscript, output = native_book
+    (manuscript / "chapter.md").write_text(
+        "# Authored chapter\n\n\\NativeOwnedFixtureFailure\n", encoding="utf-8",
+    )
+    pdf_dir = output.parent / "pdf"
+    pdf_dir.mkdir(parents=True)
+    previous = pdf_dir / "biology_textbook_combined.pdf"
+    previous.write_bytes(b"previous validated PDF bytes\n")
+    unknown = pdf_dir / "author-note.txt"
+    unknown.write_bytes(b"unrelated output note\n")
+    with pytest.raises(rendering_error):
+        rendering.render_textbook()
+    assert previous.read_bytes() == b"previous validated PDF bytes\n"
+    assert unknown.read_bytes() == b"unrelated output note\n"
+    stages = list((project / "output").glob(".pdf-stage-*"))
+    assert len(stages) == 1
+    assert (stages[0] / "_combined_manuscript.tex").is_file()
+
+
+def test_native_sidecar_alias_refuses_publication_without_damaging_source_or_prior_pdf(
+    native_book: tuple[Path, Path, Path],
+) -> None:
+    project, manuscript, output = native_book
+    sentinel = manuscript / "author-note.txt"
+    sentinel.write_bytes(b"authored source must survive native output\n")
+    pdf_dir = output.parent / "pdf"
+    pdf_dir.mkdir(parents=True)
+    alias = pdf_dir / "_latex_stdout.log"
+    alias.hardlink_to(sentinel)
+    previous = pdf_dir / "biology_textbook_combined.pdf"
+    previous.write_bytes(b"previous validated PDF bytes\n")
+    unknown = pdf_dir / "author-note.txt"
+    unknown.write_bytes(b"unrelated output note\n")
+    with pytest.raises(ValueError):
+        rendering.render_textbook()
+    assert sentinel.read_bytes() == b"authored source must survive native output\n"
+    assert alias.samefile(sentinel)
+    assert previous.read_bytes() == b"previous validated PDF bytes\n"
+    assert unknown.read_bytes() == b"unrelated output note\n"
+    assert list((project / "output").glob(".pdf-stage-*"))
+
+
+def test_native_final_pdf_publication_failure_retains_prior_pdf_after_sidecars_move(
+    native_book: tuple[Path, Path, Path], monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    project, _, output = native_book
+    pdf_dir = output.parent / "pdf"
+    pdf_dir.mkdir(parents=True)
+    previous = pdf_dir / "biology_textbook_combined.pdf"
+    previous.write_bytes(b"previous validated PDF bytes\n")
+    sidecar = pdf_dir / "_combined_manuscript.tex"
+    sidecar.write_bytes(b"previous TeX bytes\n")
+    unknown = pdf_dir / "author-note.txt"
+    unknown.write_bytes(b"unrelated output note\n")
+    replace = Path.replace
+
+    def fail_final_pdf(source: Path, target: str | Path) -> Path:
+        if Path(target) == previous:
+            raise OSError("owned final PDF publication failure")
+        return replace(source, target)
+
+    monkeypatch.setattr(Path, "replace", fail_final_pdf)
+    with pytest.raises(OSError, match="owned final PDF publication failure"):
+        rendering.render_textbook()
+    assert previous.read_bytes() == b"previous validated PDF bytes\n"
+    assert unknown.read_bytes() == b"unrelated output note\n"
+    assert sidecar.read_bytes() != b"previous TeX bytes\n"
+    stages = list((project / "output").glob(".pdf-stage-*"))
+    assert len(stages) == 1
+    with (stages[0] / previous.name).open("rb") as retained:
+        assert retained.read(5) == b"%PDF-"
+    assert not (stages[0] / sidecar.name).exists()

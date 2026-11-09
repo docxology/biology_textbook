@@ -40,7 +40,8 @@ def test_real_instructor_pdf_uses_fresh_sources_and_strict_png(
         "# Opening foundations\n\nA supplied opening section.\n\n"
         "```mermaid\nflowchart LR\n C[Input] --> D[Output]\n```\n"
         "<!-- alt: A synthetic input is connected to an output. -->\n"
-        r"*Openingcaption: $K_m$ with **Openingbold** and \citep[p. 7]{captionsecond}. Openingend.*" "\n",
+        r"*Openingcaption: $K_m$ with **Openingbold** and \citep[p. 7]{captionsecond}. "
+        "Supplied operators A≤B, C≲D, E∝F, G⇌H, I⋅J, K∘L, 𝜑 and 𝜌. Openingend.*\n",
         encoding="utf-8",
     )
     chapter = manuscript / "unit_I" / "atoms_molecules.md"
@@ -143,6 +144,11 @@ def test_real_instructor_pdf_uses_fresh_sources_and_strict_png(
     visible_opening = " ".join(opening_caption[0].split())
     assert all(text in visible_opening for text in ("Openingbold", "Secondauthor", "2025", "p. 7"))
     assert not any(token in visible_opening for token in (r"\cite", "$", "*", "`"))
+    tex = pdf.with_name("_combined_manuscript.tex").read_text(encoding="utf-8")
+    opening_tex = re.search(r"\\caption\{Openingcaption:(.*?)Openingend\.\}", tex, re.DOTALL)
+    assert opening_tex is not None
+    for command in ("leq", "lesssim", "propto", "rightleftharpoons", "cdot", "circ", "varphi", "rho"):
+        assert "\\" + command in opening_tex[1]
     caption = re.search(r"Captionplain.*?Captionend\.", extracted, re.DOTALL)
     assert caption is not None
     visible_caption = " ".join(caption[0].split())
@@ -354,6 +360,7 @@ def test_invisible_inline_diagram_cannot_be_printed_as_success(tmp_path: Path) -
     r"Unsafe $\input{caption-secret}$",
     r"Unsafe $\csname input\endcsname{caption-secret}$",
     r"Unsafe $^^5cinput{caption-secret}$",
+    r"Unsafe $\rightleftharpoons\input{caption-secret}$",
     r"Unsafe \citep[\input{caption-secret}]{captionfixture}",
     r"Unsafe `\input{caption-secret}`{=latex}",
     "Unsafe <script>caption-secret</script>",

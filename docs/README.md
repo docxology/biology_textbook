@@ -23,6 +23,7 @@
 | [figure_gap_matrix.md](figure_gap_matrix.md) | Historical plot-coverage snapshot, not a current manifest |
 | [figure_expansion_research_memo.md](figure_expansion_research_memo.md) | Historical prioritization rationale and superseded deferrals |
 | [AGENTS.md](AGENTS.md) | This `docs/` hub: directory list and documentation principles |
+| [../TODO.md](../TODO.md) | Native Markdown-checkbox backlog; dated completion summaries and ISA/REVIEW snapshots are historical, not live gate or release receipts |
 
 **Composable development:** Use [composable_authoring.md](composable_authoring.md) when adding or renaming chapters, registering `plot_*` figures or `*_diagram()` factories, or wiring `\cref` / `@fig:` / `{#eq:...}` so the same invariants the CI runs stay green. [agent_instructions.md](agent_instructions.md) covers **editorial** style; [docs/manuscript/AGENTS.md](../docs/manuscript/AGENTS.md) + tests are the **mechanical** contract.
 

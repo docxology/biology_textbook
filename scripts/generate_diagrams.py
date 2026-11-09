@@ -18,6 +18,7 @@ ensure_project_paths()
 def main() -> int:
     from mermaid import ALL_BIOLOGY_DIAGRAMS, MermaidRenderer
     from textbook_logging import get_logger
+    from textbook_paths import require_project_output_directory
 
     logger = get_logger(__name__)
     parser = argparse.ArgumentParser(description="Render all Mermaid biology diagrams to PNG")
@@ -30,6 +31,7 @@ def main() -> int:
         help="Fail instead of accepting .mmd fallbacks; use this in publication build paths.",
     )
     args = parser.parse_args()
+    args.output_dir = require_project_output_directory(PROJECT_DIR, args.output_dir)
 
     renderer = MermaidRenderer(output_dir=args.output_dir, strict_png=args.strict_png)
     paths = renderer.render_all(ALL_BIOLOGY_DIAGRAMS, size=args.size)

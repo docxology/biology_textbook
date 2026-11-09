@@ -7,6 +7,7 @@ import os
 import re
 import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
@@ -17,7 +18,7 @@ from biology.pipeline.injection import inject_chapters_for_rendering
 from biology.pipeline.paths import OUTPUT_DIR, PROJECT_ROOT
 from biology.visual_contracts.render import render_inline_mermaid_assets
 from biology.visual_contracts.scan import inline_stem, normalise_inline_mermaid_source
-from textbook_io import write_text_atomic
+from textbook_io import require_independent_file_target, write_text_atomic
 from textbook_paths import discover_template_root, require_project_output_directory
 
 
@@ -44,6 +45,7 @@ _CAPTION_MATH_COMMANDS = frozenset(
         "mathrm", "mathit", "mathbf", "mathsf", "mathtt", "text", "frac", "dfrac", "tfrac", "sqrt",
         "left", "right", "cdot", "times", "div", "pm", "mp", "le", "leq", "ge", "geq", "ne", "neq",
         "approx", "sim", "simeq", "equiv", "to", "rightarrow", "leftrightarrow", "infty",
+        "rightleftharpoons", "lesssim", "propto", "circ", "varphi",
         "sum", "prod", "int", "log", "ln", "exp", "sin", "cos", "tan", "min", "max",
         "underbrace", "overbrace", "overline", "underline", "hat", "bar", "vec",
         "dot", "ddot", "quad", "qquad",
@@ -205,10 +207,11 @@ def _prepare_inline_diagrams(sources: list[Path], assets: list[Path]) -> None:
 
 
 def render_textbook() -> Path:
-    """Hydrate live sources and render exclusively into this project's output tree.
+    """Hydrate live sources and publish a successful render from a fresh workspace.
 
-    The template is a library dependency, never a working directory or output
-    destination. Publication requires real PNG diagrams, not verbatim fallbacks.
+    The read-only template writes into an independent sibling of output/pdf, so
+    existing compiler/temp-file aliases cannot become source writes. Keep failed
+    workspaces and the previous final PDF; publish the new final PDF last.
     """
     output = require_project_output_directory(PROJECT_ROOT, PROJECT_ROOT / "output")
     require_project_output_directory(PROJECT_ROOT, OUTPUT_DIR)
@@ -237,19 +240,35 @@ def render_textbook() -> Path:
     sources = sorted(path for path in OUTPUT_DIR.glob("*.md") if path.name != "preamble.md")
     inline_pngs = render_inline_mermaid_assets(figures)
     _prepare_inline_diagrams(sources, inline_pngs)
-    renderer = PDFRenderer(RenderingConfig(
-        manuscript_dir=str(OUTPUT_DIR),
-        figures_dir=str(figures),
-        output_dir=str(output),
-        pdf_dir=str(pdf_dir),
-        template_dir=str(template / "infrastructure" / "rendering" / "templates"),
-    ))
-    pdf = renderer.render_combined(sources, OUTPUT_DIR, project_name="biology_textbook")
-    # The backend receives PNG figures, so a failed Mermaid render cannot
-    # silently become verbatim source or change the audited asset identities.
-    for path in inline_pngs:
-        with Image.open(path) as image:
-            if image.format != "PNG":
-                raise RuntimeError(f"Not a PNG diagram: {path}")
-            image.verify()
-    return pdf
+    stage = Path(tempfile.mkdtemp(prefix=".pdf-stage-", dir=output))
+    try:
+        renderer = PDFRenderer(RenderingConfig(
+            manuscript_dir=str(OUTPUT_DIR),
+            figures_dir=str(figures),
+            output_dir=str(output),
+            pdf_dir=str(stage),
+            template_dir=str(template / "infrastructure" / "rendering" / "templates"),
+        ))
+        pdf = renderer.render_combined(sources, OUTPUT_DIR, project_name="biology_textbook")
+        # A sibling workspace preserves the existing ../figures references.
+        for path in inline_pngs:
+            with Image.open(path) as image:
+                if image.format != "PNG":
+                    raise RuntimeError(f"Not a PNG diagram: {path}")
+                image.verify()
+        files = sorted(stage.iterdir(), key=lambda path: (path == pdf, path.name))
+        if pdf not in files:
+            raise RuntimeError("The backend did not produce its PDF in the owned workspace")
+        # Admit every actual native output, not a guessed list of compiler sidecars.
+        # Unknown existing destination entries are deliberately left untouched.
+        for path in files:
+            require_independent_file_target(path)
+            require_independent_file_target(pdf_dir / path.name)
+        pdf_dir.mkdir(parents=True, exist_ok=True)
+        for path in files:
+            path.replace(pdf_dir / path.name)
+        stage.rmdir()
+        return pdf_dir / pdf.name
+    except BaseException as error:
+        error.add_note(f"Native render workspace retained for inspection: {stage}")
+        raise

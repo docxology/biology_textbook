@@ -60,3 +60,56 @@ def test_euler_integrate_pair_clips_negative_values() -> None:
     )
     assert all(value >= 0.0 for value in series1)
     assert all(value >= 0.0 for value in series2)
+
+
+def test_subnormal_scalar_steps_cannot_integrate_a_different_horizon() -> None:
+    calls: list[float] = []
+
+    def rate(value: float) -> float:
+        calls.append(value)
+        return 1.0
+
+    with pytest.raises(ValueError):
+        euler_integrate_scalar(0.0, 3 * math.ulp(0.0), 2, rate, clip_nonnegative=False)
+    assert calls == []
+
+
+def test_pair_time_grid_cannot_repeat_the_requested_endpoint() -> None:
+    calls: list[tuple[float, float]] = []
+
+    def rates(first: float, second: float) -> tuple[float, float]:
+        calls.append((first, second))
+        return 1.0, -1.0
+
+    with pytest.raises(ValueError):
+        euler_integrate_pair((0.0, 0.0), 2 * math.ulp(0.0), 3, rates, clip_nonnegative=False)
+    assert calls == []
+
+
+@pytest.mark.parametrize("horizon,steps,rate", [
+    (0.7, 3, 2.0),
+    (2 * math.ulp(0.0), 2, 1e308),
+])
+def test_admitted_constant_rate_grids_preserve_elapsed_time(
+    horizon: float, steps: int, rate: float,
+) -> None:
+    times, values = euler_integrate_scalar(0.0, horizon, steps, lambda _: rate, clip_nonnegative=False)
+    assert times[-1] == horizon
+    assert all(left < right for left, right in pairwise(times))
+    assert math.isclose(values[-1], rate * horizon, rel_tol=1e-14, abs_tol=0.0)
+
+
+@pytest.mark.parametrize("horizon,steps,rate", [
+    (0.7, 3, 2.0),
+    (2 * math.ulp(0.0), 2, 1e308),
+])
+def test_admitted_paired_constant_rates_preserve_elapsed_time(
+    horizon: float, steps: int, rate: float,
+) -> None:
+    times, first, second = euler_integrate_pair(
+        (0.0, 0.0), horizon, steps, lambda _first, _second: (rate, -rate),
+        clip_nonnegative=False,
+    )
+    assert all(left < right for left, right in pairwise(times))
+    assert math.isclose(first[-1], rate * horizon, rel_tol=1e-14, abs_tol=0.0)
+    assert math.isclose(second[-1], -rate * horizon, rel_tol=1e-14, abs_tol=0.0)

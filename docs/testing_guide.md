@@ -25,6 +25,8 @@
 
 “Zero-mock” is a policy goal, not a literal inventory assertion. Existing pytest monkeypatch use isolates temporary paths, environment/imports and targeted I/O failures, including atomic replacement failures. Such tests prove isolation/failure handling, not native-tool success. Native Mermaid/PDF tests exercise real tools and may skip when unavailable; skips are verification gaps, not publication passes. Use real temporary files and fixed RNG seeds. Publication requires actual PNG decoding and PDF rendering; see [pipeline_guide.md](pipeline_guide.md).
 
+Shared Euler regressions include rounded subnormal grids that would otherwise repeat a timestamp or integrate a different horizon, alongside representable subnormal and ordinary constant-rate controls. These validate fixed-step geometry, not general accuracy or adaptive-step behavior. Plot and native PDF regressions use real files to check source-alias preservation, prior-artifact retention and failed-workspace evidence. A deliberately failing compiler fixture tests failure custody, not successful book compilation; the integrated full gate remains separate.
+
 ---
 
 ## Running tests
@@ -352,20 +354,11 @@ def test_every_configured_chapter_has_its_label():
         assert "\\label{sec:" + chapter.chapter_id + "}" in text
 ```
 
-### Testing CLI / subprocess
+### Exercising CLI boundaries and actual artifacts
 
-```python
-import subprocess, sys
+Use the [project-output visual review recipe](visualization_guide.md#visual-assets-review-outputs-and-publication-requirements) for a real graphics CLI smoke. A temporary directory must be beneath this project's real `output/`; the project CLIs intentionally reject arbitrary OS temporary destinations and default-directory aliases before generation. Low-level plotting tests can use their own admitted temporary directories.
 
-def test_generate_figures_cli_runs(tmp_path):
-    """Smoke test: scripts/generate_figures.py must complete and emit PNGs."""
-    result = subprocess.run(
-        [sys.executable, "scripts/generate_figures.py", "--output-dir", str(tmp_path)],
-        capture_output=True, text=True, check=True, timeout=60,
-    )
-    assert result.returncode == 0
-    assert any(tmp_path.glob("*.png"))
-```
+`tests/test_manuscript_source_custody.py` exercises actual graphics entrypoints and native PDF failure/publication paths. `tests/test_mermaid_and_visualization.py` checks real plot output custody, and `tests/test_pdf_opening_and_mermaid.py` compiles rich captions with normalized mathematical symbols. Tool-dependent skips remain gaps. A subprocess exit or a nonempty file list is not evidence of scientific correctness, readable printing or complete figure provenance.
 
 ---
 

@@ -3,8 +3,24 @@
 from __future__ import annotations
 
 import os
+import stat
 from pathlib import Path
 from tempfile import NamedTemporaryFile
+
+
+def require_independent_file_target(path: Path) -> Path:
+    """Reject existing aliases/nonregular leaves without following or replacing them.
+
+    The caller owns directory admission and publication. This is a pre-existing
+    file-custody check, not protection against a concurrently hostile host.
+    """
+    try:
+        info = path.lstat()
+    except FileNotFoundError:
+        return path
+    if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1:
+        raise ValueError(f"Output must be an independent regular file: {path}")
+    return path
 
 
 def write_text_atomic(path: Path, text: str, *, encoding: str = "utf-8") -> None:
@@ -28,4 +44,4 @@ def write_text_atomic(path: Path, text: str, *, encoding: str = "utf-8") -> None
             tmp_path.unlink()
 
 
-__all__ = ["write_text_atomic"]
+__all__ = ["require_independent_file_target", "write_text_atomic"]

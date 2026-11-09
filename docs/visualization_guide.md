@@ -39,7 +39,7 @@ uv run --frozen --extra dev python scripts/generate_diagrams.py --strict-png --s
 uv run --frozen --extra dev python scripts/audit_visual_contracts.py --figures-root "$review/figures" --output "$review/visual_manifest.json" --render-inline --check
 ```
 
-Inline rendering/cleanup requires a real directory beneath this project's `output/`, with no symlink/non-directory ancestors; an arbitrary OS temporary directory is not admitted. This is not a universal sandbox for every writer: figure/registered-diagram generators and manifest report writers accept supplied destinations. The commands are a recipe, not an exercised pass or accessibility certification.
+The project figure and registered-diagram CLIs, as well as inline rendering/cleanup, require real destinations beneath this project's `output/`, with no symlink/non-directory ancestors. Defaults and `--output-dir` overrides share this boundary; arbitrary OS temporary directories are not admitted by these CLIs. Low-level APIs remain caller-owned directory interfaces, and report writers have their own contracts. The recipe is not an exercised pass or accessibility certification.
 
 Visual-manifest readers consume complete adjacent physical lines, not a fixed
 character window that can silently truncate long alt text or captions. Raw
@@ -66,6 +66,10 @@ on the page. Review actual clipped PNG/PDF size; square padding is not legibilit
 For continued-stage mechanism diagrams, label repeated carriers explicitly and distinguish physical transfer from coupling. The ETC example keeps alternative Complex I/II entries, net Complex III Q-cycle accounting, and Complex IV proton pumping separate from protons consumed in water formation; ATP synthase uses the gradient, not an incoming electron. Registered library diagrams are separately reviewed assets, not automatically printed pages. Their organism/program scope belongs in the graphic: the T4/E. coli example must not imply one gene-expression sequence for every virus.
 
 For stacked quantitative panels, verify that the real generated line arrays remain unchanged when only geometry and typography change. Layer order is semantic in structural cartoons: centromeres, kinetochore disks and their leader tips must not be hidden by chromosome-arm strokes. Final-size inspection remains necessary after either change; source font targets and successful PNG decoding do not certify readability.
+
+The shared matplotlib writer saves and square-pads a unique same-directory temporary before replacing its destination. Existing symlinks, hardlinks and nonregular leaves refuse without modifying their targets; failed replacement preserves the previous image and removes only the writer's temporary. Directory admission belongs to the caller. This is cooperative custody, not protection against hostile concurrent same-UID mutation. Real-plot regressions cover both alias types and publication failure; native CLI regressions exercise the default-directory boundary.
+
+The nitrogen-cycle overview distinguishes biological nitrogenase fixation from industrial ammonia and its selected ammonium-fertilizer route. Repeated nitrate/atmospheric boxes denote shared pools; environmental effects are not material-transfer arrows. Removing untraced annual-input and uptake labels does not make the selected routes a closed global budget. Review the freshly generated source-matched graphic and its actual printed caption after changing a route.
 
 ### Meaning and limits of graphical abstracts
 
@@ -367,6 +371,7 @@ unknown commands, character-code escapes and raw TeX control syntax are refused;
 this is not an arbitrary-TeX caption interface. Reader macro expansion is disabled
 before inspecting Pandoc's AST. Caption conversion is batched into two Pandoc
 processes per book, not one process per diagram.
+The Unicode prose normalizer's supported `⇌`, `≲`, `∝`, `°` and `ϕ` outputs are also admitted as bounded inline math (`\rightleftharpoons`, `\lesssim`, `\propto`, `\circ`, `\varphi`). This closes the normalizer-to-caption contract; it does not admit arbitrary commands, display math or appended file-read controls. The native caption regression inspects the emitted caption rather than mistaking a preamble definition for rendered math.
 These math restrictions apply to parsed math nodes. Standard Markdown text that
 Pandoc does not recognize as math remains safely escaped literal prose; it is
 not promoted to executable TeX. Use valid delimiters and grouping for formulas.

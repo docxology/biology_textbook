@@ -55,9 +55,9 @@ SOLUTION -->
 6. What is the nitrogen cycle? Name the four major transformations.
 
 <!-- SOLUTION
-**Answer (Q6, Recall).** The nitrogen cycle moves N among atmospheric N2, organic N, and inorganic forms. Four major microbial transformations: nitrogen fixation (N2 to ammonium, by Rhizobium, cyanobacteria, industrially Haber-Bosch); ammonification (organic N to ammonium by decomposers); nitrification (ammonium to nitrite to nitrate); and denitrification (nitrate to N2 returned to the atmosphere under anoxic conditions). See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q6, Recall).** Four major microbial transformations are biological nitrogen fixation (N2 to ammonia/ammonium by diazotrophs), ammonification (organic N to ammonium), nitrification (ammonium to nitrite to nitrate) and denitrification (nitrate reduction toward gaseous N products under low oxygen). Industrial Haber–Bosch fixation also converts N2 to ammonia but is not microbial or nitrogenase-mediated fixation. Keep new fixation distinct from transfers of nitrogen already fixed. See \cref{sec:unit_X_ecosystem_ecology}.
 
-**Scoring guide (4 points).** 2 points: four microbial nitrogen transformations; 2 points: forms and directions.
+**Scoring guide (4 points).** 2 points: four microbial transformation names; 2 points: substrates, products and directions for those transformations.
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
@@ -84,7 +84,7 @@ SOLUTION -->
 9. What is eutrophication? What nutrients cause it and why?
 
 <!-- SOLUTION
-**Answer (Q9, Recall).** Eutrophication is nutrient over-enrichment of a water body that triggers excessive algal growth, followed by decomposition that depletes dissolved oxygen and can cause hypoxic dead zones. It is caused chiefly by phosphorus (usual limiting nutrient in freshwater) and nitrogen (often limiting in marine systems) from fertilizer runoff, sewage, and detergents. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q9, Recall).** Eutrophication is nutrient enrichment that can increase production; decomposition of the resulting organic matter can increase oxygen demand and cause hypoxia when supply and ventilation are insufficient. Nitrogen and phosphorus inputs from runoff, sewage and other sources can contribute. Local limitation depends on bioavailability, demand and conditions; a freshwater/marine label or an N:P ratio alone is not an experimental diagnosis \citep{elser2007nutrientlimitation}. See \cref{sec:unit_X_ecosystem_ecology}.
 
 **Scoring guide (4 points).** 2 points: nutrient enrichment/decomposition; 2 points: oxygen-loss causal chain. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
 SOLUTION -->
@@ -144,19 +144,19 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO5; bloom=Analyze; difficulty=Application; format=short-answer; minutes=5 -->
-16. Evaluate evidence for phosphorus control of eutrophication in a specified lake experiment. Why do the absence of a large gaseous P reservoir and a response in one lake not establish universal freshwater P limitation or guaranteed recovery after detergent restrictions?
+16. Evaluate evidence for phosphorus control of eutrophication in a specified lake experiment. Would ambient N:P = 35 alone establish the same conclusion? Why do absence of a large gaseous P reservoir and response in one lake not establish universal freshwater P limitation or guaranteed recovery after detergent restrictions?
 
 <!-- SOLUTION
-**Answer (Q16, Application).** Nutrient-addition controls can identify a phosphorus contribution under the lake experiment's tested conditions. They do not establish universal freshwater limitation: N, P and combined limitation occur, and combined additions can produce synergistic responses \citep{elser2007nutrientlimitation}. Lack of a large gaseous P reservoir does not determine local bioavailable supply or demand. Recovery after external P reduction depends on watershed inputs, internal loading and other drivers; measure lake-specific outcomes rather than infer automatic normalization. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q16, Application).** Matched nutrient-addition controls can identify a phosphorus contribution under the tested lake conditions. Ambient N:P = 35 alone cannot select one limiting nutrient without defined fractions, availability, demand and other controls; matched +N, +P and +N+P treatments discriminate hypotheses. N, P and combined limitation occur, and combined additions can produce synergistic responses \citep{elser2007nutrientlimitation,ptacnik2010redfield}. Lack of a large gaseous P reservoir does not determine local supply or demand. Recovery after external P reduction also depends on watershed inputs, internal loading and other drivers. See \cref{sec:unit_X_ecosystem_ecology}.
 
-**Scoring guide (4 points).** 2 points: phosphorus-addition/control evidence; 2 points: watershed-specific limitation and recovery.
+**Scoring guide (4 points).** 2 points: matched phosphorus-addition/control evidence and ratio-only inference limit; 2 points: lake-specific bioavailability, watershed/internal loading and recovery limits.
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->
 17. Decomposition rates vary with temperature and moisture. Using the "k constant" for leaf litter decomposition (mass remaining = M₀e^(−kt)): if k = 0.5/yr in a temperate forest and k = 2.0/yr in a tropical forest, calculate the time for 90% decomposition in each ecosystem. What does this imply for nutrient cycling rates?
 
 <!-- SOLUTION
-**Answer (Q17, Application).** Exponential decay $M \div M_0 = e^{-kt}$; for 90 percent loss the ratio is 0.1, so $t = -\ln(0.1) \div k = 2.303 \div k$. Temperate ($k = 0.5$ per yr): $t \approx \mathbf{4.6}$ years. Tropical ($k = 2.0$ per yr): $t \approx \mathbf{1.15}$ years. Faster decomposition in the warm moist tropics means rapid nutrient turnover, so tropical soils are nutrient-poor and vulnerable to loss when forest is cleared. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q17, Application).** In the stipulated exponential litter-loss model, 90% loss leaves M/M0 = 0.1, so t = -ln(0.1)/k. The supplied k values give about 4.605 years and 1.151 years. The larger k implies faster mass loss under this model, not a measured universal temperate/tropical contrast. Soil nutrient stocks or clearing vulnerability cannot be inferred from k alone; inputs, mineralization, uptake and losses also need a stated budget. See \cref{sec:unit_X_ecosystem_ecology}.
 
 **Scoring guide (4 points).** 2 points: 4.605 versus 1.151 years; 2 points: temperature, moisture and soil-inference limits.
 SOLUTION -->
@@ -189,12 +189,12 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO12; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
-21. Evaluate the concept of "planetary boundaries" for biogeochemical cycles (Rockström et al., 2009). Which cycles have transgressed safe operating spaces (nitrogen, phosphorus, climate change), and what does this mean for Earth system stability? Propose specific policy interventions for the nitrogen cycle that would bring humanity back within the safe boundary.
+21. Using Richardson and colleagues' **2023** planetary-boundaries assessment, identify the nitrogen and phosphorus control variables and explain what its reported transgressions mean and do not mean for Earth-system risk. Propose nitrogen-management interventions, distinguishing reduced creation of new reactive N from retention or downstream removal of N already fixed. Which measurements would test the relevant endpoint and trade-offs?
 
 <!-- SOLUTION
-**Answer (Q21, Synthesis).** Planetary boundaries (Rockstrom et al., 2009) define a safe operating space for nine Earth-system processes. The biogeochemical-flows boundary (nitrogen and phosphorus) is the most severely transgressed (human N fixation far exceeds the limit), and climate change and biosphere integrity are also beyond their boundaries, risking abrupt change. Nitrogen interventions: raise nitrogen-use efficiency (precision fertilization, slow-release forms), expand legume rotations and cover crops, restore riparian buffers and wetlands to denitrify runoff, improve manure and wastewater treatment, and shift diets away from N-intensive ruminant food. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q21, Synthesis).** The 2023 assessment uses industrial and intentional biological N fixation as a global new-reactive-N input control, and distinguishes global freshwater-to-ocean P flow from regional fertilizer P application to erodible soils \citep{richardson2023earth}. Its six-of-nine result is dated, not a current count, and boundary transgression is not an exact date or location of abrupt collapse. Metrics with different reference bases do not establish one universally "most severe" cycle. Improved crop N use or reuse of existing manure could reduce new fixation if they actually substitute for new inputs; measure the total balance. Riparian retention or denitrification may reduce downstream nitrate without reducing N already created. Additional legume fixation is itself new reactive N unless offset elsewhere. Monitor yield, stocks, nitrate transport and gaseous losses, including N2O; no named intervention alone demonstrates global return within a boundary. See \cref{sec:unit_X_ecosystem_ecology}.
 
-**Scoring guide (4 points).** 2 points: specified planetary-boundary metric; 2 points: nitrogen-management intervention and tradeoff.
+**Scoring guide (4 points).** 2 points: dated, metric-specific N/P controls and risk rather than certain tipping threshold; 2 points: new-input versus downstream-fate intervention, measured balance and trade-off.
 SOLUTION -->
 
 <!-- assess: LO=LO3; bloom=Create; difficulty=Synthesis; format=short-answer; minutes=8 -->
@@ -234,12 +234,12 @@ SOLUTION -->
 SOLUTION -->
 
 <!-- assess: LO=LO6; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->
-26. Evaluate the concept of "natural capital" — valuing ecosystem services (pollination, water purification, carbon storage) in monetary terms. Using Costanza et al. (1997, updated 2014) estimates of global ecosystem services at $125 trillion/yr: (a) is monetary valuation of nature scientifically valid; (b) does it effectively change policy; (c) what ethical concerns arise from commodifying nature?
+26. Evaluate monetary valuation of ecosystem services using Costanza et al.'s 2014 estimate for **2011**, about US$125 trillion/year on a **2007-dollar basis**: (a) what assumptions and boundaries support the accounting estimate; (b) what evidence would show that a valuation changes policy outcomes; (c) what ethical and distributional concerns arise? Why is direct comparison with nominal 2024 GDP invalid?
 
 <!-- SOLUTION
-**Answer (Q26, Synthesis).** Costanza et al. (1997; updated 2014 to about 125 trillion dollars per yr) monetized global ecosystem services. (a) Validity: heuristic, not precise; it uses benefit transfer and treats nonlinear non-substitutable life-support services as if marginal and additive, so it argues an order-of-magnitude case that nature's value is enormous, not a balance-sheet figure. (b) Policy: framing services in money has shifted policy (payments for ecosystem services, REDD+, natural-capital accounting) but evidence of consistent outcome change is mixed. (c) Ethics: commodification may crowd out intrinsic value and misprice irreplaceable systems. See \cref{sec:unit_X_ecosystem_ecology}.
+**Answer (Q26, Synthesis).** The 2014 *Global Environmental Change* paper estimates 2011 services on a 2007-dollar basis, using benefit transfer and underlying PPP-converted international-dollar unit values \citep{costanza2014services}. This is not current market revenue or an observed tripling of physical services; unit estimates, context and land cover matter, and some contribution is already embedded in GDP. A nominal 2024 GDP figure has a different year and price basis. (a) Explain transfer, scale, aggregation and non-substitutability limits. (b) Evaluate measured policy outcomes against a defensible counterfactual, rather than infer effectiveness from a monetary headline. (c) Discuss intrinsic value, equity and irreversible loss; valuation is not inherently privatization. See \cref{sec:unit_X_ecosystem_ecology}.
 
-**Scoring guide (4 points).** 2 points: valuation assumptions; 2 points: nonmonetary/irreversibility/equity limitations. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+**Scoring guide (4 points).** 2 points: 2011 reference/2007-dollar basis, benefit-transfer assumptions and nonadditivity; 2 points: policy counterfactual plus nonmonetary, irreversible-loss and equity limits.
 SOLUTION -->
 
 <!-- assess: LO=LO7; bloom=Evaluate; difficulty=Synthesis; format=short-answer; minutes=8 -->

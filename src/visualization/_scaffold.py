@@ -7,6 +7,7 @@ import os
 os.environ.setdefault("MPLBACKEND", "Agg")
 
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 
 import matplotlib
 
@@ -15,6 +16,7 @@ from typing import Literal
 
 import matplotlib.pyplot as plt
 
+from textbook_io import require_independent_file_target
 from textbook_logging import get_logger
 from textbook_visuals import pad_png_to_square
 
@@ -61,12 +63,24 @@ def _save_figure(
     *,
     aspect: Literal["square", "landscape"] = "square",
 ) -> Path:
-    """Save a matplotlib figure to disk and close it."""
-    output_dir.mkdir(parents=True, exist_ok=True)
+    """Publish a complete PNG without following output aliases or leaving partial bytes."""
     path = output_dir / filename
-    fig.savefig(path, dpi=150, bbox_inches="tight")
-    plt.close(fig)
-    if aspect == "square":
-        pad_png_to_square(path)
+    temporary: Path | None = None
+    try:
+        output_dir.mkdir(parents=True, exist_ok=True)
+        require_independent_file_target(path)
+        with NamedTemporaryFile(
+            dir=output_dir, prefix=f".{path.stem}.", suffix=path.suffix, delete=False,
+        ) as handle:
+            temporary = Path(handle.name)
+        fig.savefig(temporary, dpi=150, bbox_inches="tight")
+        if aspect == "square":
+            pad_png_to_square(temporary)
+        require_independent_file_target(path)
+        temporary.replace(path)
+    finally:
+        plt.close(fig)
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
     logger.info(f"Saved figure: {path}")
     return path

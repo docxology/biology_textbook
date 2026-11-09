@@ -1053,3 +1053,16 @@ claims:
     evidence_date: 2012-11-29
     checked_as_of: 2026-11-09
     refresh_trigger: "Release review or correction, replicated long-term selection and ecological extrapolation evidence; retain control, endpoint, laboratory and correction identity."
+  - claim_id: usgs-phosphate-rock-reserves-2026
+    file: docs/manuscript/unit_X/ecosystem_ecology.md
+    source_path: docs/manuscript/unit_X/ecosystem_ecology.md
+    anchor_text: "USGS's 2026 assessment reports world reserves"
+    claim_text: "The 2026 Mineral Commodity Summaries phosphate sheet reports world reserves of 73 billion metric tons and Morocco's table entry of 50 billion metric tons, all marketable phosphate rock rather than elemental P. The parent report was initially published 6 February 2026 and revised as version 1.3 on 27 May 2026; its published revision history lists changes to other commodities. The derived share is about 68.5%, not an undated >70% control claim. Reserves are a dynamic economically recoverable inventory, not an exhaustion forecast."
+    topic: phosphate-rock inventory and reserve definition
+    source_tier: official_primary
+    citekey: usgs2026mcs
+    url: https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-phosphate.pdf
+    url_or_citekey: usgs2026mcs
+    evidence_date: 2026-05-27
+    checked_as_of: 2026-11-09
+    refresh_trigger: "USGS commodity release, revision or reserve-definition change; preserve report version, rock-mass units and inventory-versus-prediction distinction."

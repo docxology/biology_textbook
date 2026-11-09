@@ -3,6 +3,8 @@
 Agent-ergonomics pass 2026-08-31 findings. Sections: Minor / Medium / Major.
 Mark items `- [x]` when done; keep this file the single backlog home.
 
+Current task entries use the checkboxes above their dated completion summaries. Historical counts, validation accounts and ISA/REVIEW progress are not current proof; use exact-source publication receipts and the current configured inventory. Keep this Markdown format and history; no external task adapter or visibility is asserted here.
+
 ## Minor
 
 - [x] README.md "Project layout" said "47 test modules"; disk has 70 `test_*.py` modules. Replaced with a verification command (fixed 2026-08-31).
@@ -15,7 +17,7 @@ Mark items `- [x]` when done; keep this file the single backlog home.
 
 - [x] 24 broken `../manuscript/AGENTS.md` links across 10 files in `docs/` (plus docs/AGENTS.md) — should be `../docs/manuscript/AGENTS.md`. All fixed (2026-08-31); re-check with a link sweep after any future path move.
 - [x] No backlog file existed; TODO.md created (2026-08-31).
-- [ ] README "Build health" paragraph is a 12-line wall of prose mixing build status, gates, and conventions. Split into a short status line + bullet list of gates with their commands.
+- [x] README "Build health" wall of prose: current README separates status from a bullet list of native gates and commands (checked 2026-11-09); this marks the documented change, not a fresh gate pass.
 
 ## Major
 
@@ -26,7 +28,7 @@ Mark items `- [x]` when done; keep this file the single backlog home.
 - [x] Entry-doc orientation ladder: README now has a Status section (verified 2026-08-31 via pytest) and Next actions pointing at this TODO.md and docs/composable_authoring.md.
 
 
-## Round 2 Completion Summary (2026-08-31)
+## Historical Round 2 Completion Summary (2026-08-31)
 
 **Completed items:**
 - [x] README build health section reorganized with freshness timestamps
@@ -38,7 +40,7 @@ Mark items `- [x]` when done; keep this file the single backlog home.
 - [x] Test suite: 1414 passed, 6 failed, 90.23% coverage maintained
 - [x] Two atomic commits pushed to origin/main successfully
 
-**Remaining TODO items require owner intent or pipeline integration:**
+**Historical follow-up account, not a current counted task queue:**
 - Medium priority items (5): AGENTS.md freshness audit, test coverage gaps, example improvements, CI/CD setup, performance optimization
 - Major priority items (2): full pipeline integration, comprehensive documentation review
 

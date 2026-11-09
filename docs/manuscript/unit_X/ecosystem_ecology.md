@@ -21,7 +21,7 @@ By the end of this chapter, you should be able to:
 9. Compare methods for measuring NPP (harvest, eddy covariance, $^{14}$C, remote sensing) and explain why ANPP/BNPP partitioning matters for global carbon accounting.
 10. Use the Hubbard Brook watershed experiment to explain how live vegetation regulates nutrient retention, and contrast open vs. closed nutrient cycling regimes.
 11. Describe ocean productivity zones (upwelling, gyres, polar) and the Martin curve, and connect soil pedogenesis (CLORPT, horizons) to long-term carbon storage.
-12. Use the Redfield ratio to diagnose nutrient limitation, and evaluate the planetary boundaries and Gaia hypothesis as frameworks for Earth system thinking.
+12. Use Redfield stoichiometry as a reference, distinguish fixed-quota predictions from experimental nutrient-limitation evidence, and evaluate planetary-boundary and Gaia frameworks.
 
 \begin{figure}[htbp]
 \centering
@@ -77,7 +77,7 @@ The distinction between energy **flow** and nutrient **cycling** is fundamental:
 
 ### Ecosystem Services and Human Well-Being
 
-**Costanza et al. (1997, *Nature*)** estimated global ecosystem services at >$33 trillion/year (updated to ~$125 trillion/year by Costanza et al. 2014). The four categories:
+Ecosystem services connect ecological processes to human well-being. Monetary estimates require a stated reference year, price basis and valuation method; a global accounting estimate is not measured market revenue. The later valuation section examines Costanza and colleagues' historical estimates \citep{costanza2014services}. Four commonly used categories are:
 
 : Ecosystem Services and Human Well-Being: Category and Services. {#tbl:unit_X_ecosystem_ecology_ecosystem_services_and_human_well_being}
 | Category | Services | Examples | Valuation approach |
@@ -87,7 +87,7 @@ The distinction between energy **flow** and nutrient **cycling** is fundamental:
 | **Cultural** | Non-material benefits | Recreation, ecotourism, spiritual value, aesthetic beauty, education | Willingness-to-pay surveys |
 | **Supporting** | Foundation for most others | Soil formation, nutrient cycling, primary productivity, water cycling | Cost of replication |
 
-The **Millennium Ecosystem Assessment** (2005; 1,300 scientists from 95 countries) concluded that 60% of Earth's ecosystem services are being degraded or used unsustainably. The **IPBES Global Assessment** (2019) expanded this to 75% of terrestrial and 66% of marine ecosystems significantly altered.
+The **Millennium Ecosystem Assessment** (2005) reported that 15 of the 24 ecosystem services it examined were degraded or used unsustainably \citep{mea2005condition}. Using different indicators, the **IPBES Global Assessment** (2019) reported significant alteration of 75% of land surface and increasing cumulative impacts across 66% of ocean area \citep{ipbes2019global}. These are different service, area and impact denominators, not successive measurements of one degradation percentage.
 
 > **Concept Check:** A wetland provides flood attenuation, water purification, carbon sequestration, recreation, and biodiversity habitat. If this wetland is drained for agriculture, which ecosystem services are lost? How would you calculate the economic cost of losing flood attenuation alone?
 
@@ -391,8 +391,8 @@ For an illustrative [**pH**](#gl:ph) decrease from 8.20 to 8.05, [H$^+$] increas
 - **Fish olfactory sensing versus predator-cue behavior:** Porteus and colleagues reported reduced olfactory sensitivity in European sea bass at approximately 1,000 versus 400 µatm CO$_2$ \citep{porteus2018fisholfaction}. Clark and colleagues reported negligible effects on predator-cue avoidance in their tested coral reef fishes at end-of-century CO$_2$ levels \citep{clark2020fishbehavior}. Species, life stages, exposure protocols and sensory versus behavioral endpoints are not interchangeable. The subsequent methods comment and reply dispute replication comparability; neither a shared impairment nor a shared absence of effects follows across fish species \citep{munday2020methodsmatter,clark2020methodsreply}.
 - **Experimental adaptation:** After approximately 500 asexual generations of laboratory selection, high-CO$_2$-selected *Emiliania huxleyi* populations had higher growth rates and partially restored calcification relative to ambient-selected controls when tested under high CO$_2$ \citep{lohbeck2012adaptation}. This is a scoped culture-selection result, not evidence of natural reef rescue; distinguish adaptive evolution from within-generation acclimation.
 
-**3. Methane hydrates (clathrate gun hypothesis):**
-~500-2,500 Pg C locked in methane clathrates (ice-like structures) in ocean sediments and permafrost. Destabilisation during rapid warming → mass marine CH$_4$ release → catastrophic warming. Possible role in the Paleocene-Eocene Thermal Maximum (PETM, ~56 Ma): 5-8$^\circ$C warming over ~10,000 years, mass marine extinction.
+**3. Methane hydrates and the PETM: hypothesis versus taxonomic response:**
+Methane hydrates store carbon in ice-like structures in sediments. Warming-driven dissociation could contribute to climate feedback, but its effect depends on release, oxidation, atmospheric delivery and timescale. A hydrate contribution to the Paleocene–Eocene Thermal Maximum (PETM, about 56 Ma) remains a hypothesis rather than an established initiation mechanism. The event involved warming, acidification and severe extinction among deep-sea benthic foraminifera; planktic responses included migration and local disappearance without true extinction among the taxa examined at Site 865 \citep{hupp2022petm}. A thermogenic vent dated after PETM onset in the cited study supports a modeled contribution to its prolonged duration; thermogenic vent methane is not proof of hydrate-driven initiation \citep{frieling2016methane}.
 
 **4. CO$_2$ fertilization effect (negative feedback, partially):**
 Higher atmospheric CO$_2$ increases photosynthetic rate (especially in C3 plants), partially offsetting emissions. However, this effect is limited by nitrogen and phosphorus availability, and saturates at high CO$_2$ levels. FACE (Free-Air CO$_2$ Enrichment) experiments show ~15-25% NPP increase at 550 ppm, but diminishing returns beyond this.
@@ -424,7 +424,9 @@ Nitrogen (N) is often the most limiting macronutrient in terrestrial and freshwa
 | **Comammox** | *Nitrospira inopinata* | NH$_3$ → NO$_3^-$ (complete) | Soil, engineered systems | Required |
 | **Denitrification** | *Pseudomonas*, *Paracoccus* | NO$_3^-$ → N$_2$O → N$_2$ | Waterlogged soil; sediments | Anaerobic |
 | **Anammox** | *Candidatus Kuenenia* | NH$_4^+$ + NO$_2^-$ → N$_2$ + 2H$_2$O | Marine sediments | Anaerobic |
-| **DNRA** | Various bacteria | NO$_3^-$ → NH$_4^+$ | Low C:N sediments | Anaerobic |
+| **DNRA** | Various bacteria | NO$_3^-$ → NH$_4^+$ | Anoxic; often favored by abundant available donor relative to nitrate | Anaerobic |
+
+In an anaerobic acetate/nitrate chemostat, nitrate limitation favored DNRA, whereas acetate limitation favored denitrifiers \citep{vandenberg2016dnra}. This experiment concerns available electron donor relative to nitrate, not an invariant bulk-sediment C:N threshold or a guarantee of one pathway in a natural sediment.
 
 ```mermaid
 ---
@@ -434,8 +436,8 @@ config:
 flowchart TD
     subgraph Inputs["A. Atmospheric nitrogen and industrial input"]
         direction LR
-        N2["Atmospheric N₂<br/>78%; strong triple bond"] -->|"Haber–Bosch"| HB["Industrial fixation<br/>About 130 Tg N/yr<br/>400–500 °C; 150–300 atm"]
-        HB --> FERT["Fertilizer application<br/>Illustrative 30–50% uptake"]
+        N2["Atmospheric N₂<br/>78%; strong triple bond"] -->|"Haber–Bosch"| HB["Industrial fixation<br/>Ammonia production"]
+        HB --> FERT["Ammonium fertilizer<br/>Selected input route"]
     end
     subgraph Biological["B. Biological transformations: material flows"]
         direction LR
@@ -457,7 +459,8 @@ flowchart TD
         WARM["N₂O radiative forcing<br/>Climate warming"]
         EUTR ~~~ OZONE ~~~ WARM
     end
-    Inputs -->|"N₂ fixation: nitrogenase<br/>Rhizobium, Azotobacter;<br/>fertilizer adds reactive N"| Biological
+    N2 -->|"Biological N₂ fixation<br/>Nitrogenase"| NH3
+    FERT -->|"Application"| NH3
     Biological -->|"Nitrate to denitrification"| Returns
     Returns ~~~ Effects
     classDef readable fill:#eef5fa,stroke:#526777,color:#111111
@@ -467,13 +470,13 @@ flowchart TD
     style Returns fill:#fafafa,stroke:#526777,color:#17212b
     style Effects fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Four nitrogen-cycle panels show atmospheric and Haber–Bosch inputs; ammonium, nitrite, nitrate and organic-N transformations; nitrate denitrification through N₂O to atmospheric N₂; and downstream eutrophication, warming and ozone effects. Repeated nitrate and atmospheric boxes refer to the same pools, not extra nitrogen. Biological fixation and fertilizer inputs are distinct routes. Quantities are teaching approximations; N₂O GWP100 is a dimensionless comparison with CO₂ over 100 years, not a nitrogen flux. -->
+<!-- alt: Separate nitrogenase and industrial ammonium-fertilizer routes enter the ammonia/ammonium pool. Nitrification supplies nitrate; assimilation and ammonification exchange inorganic and organic nitrogen; denitrification returns nitrogen through N₂O. Repeated atmospheric and nitrate boxes refer to shared pools, not extra stocks. Environmental-effect panels are distinct from material-flow arrows; the diagram is not a closed global budget. -->
 
-*Nitrogen cycling in labeled panels: biological fixation and Haber–Bosch supply reactive nitrogen; assimilation, ammonification and two nitrification steps redistribute it; denitrification can return it through N$_2$O to N$_2$. Repeated nitrate and atmospheric boxes identify the same pools across panels, not additional stocks. Material flows differ from environmental effects: nitrate leaching/runoff can drive eutrophication and hypoxia, while N$_2$O contributes radiative forcing and stratospheric NO-mediated ozone loss. Process conditions and organisms are detailed in the preceding table. Displayed industrial conditions, annual input and fertilizer uptake are teaching approximations, not a closed global budget; N$_2$O GWP100 is a 100-year CO$_2$-relative metric, not a flux.*
+*Selected nitrogen-cycle routes: biological nitrogenase and the industrial ammonium-fertilizer example supply reactive nitrogen by different processes; assimilation, ammonification and nitrification redistribute it. Denitrification can return nitrate nitrogen through N$_2$O to N$_2$. Repeated nitrate and atmospheric boxes represent shared pools across panels. Nitrate transport can support eutrophication and oxygen demand; N$_2$O radiative forcing and stratospheric NO-mediated ozone loss are separate effects. Other inputs and pathways are omitted, so this is not a closed global budget. GWP100 about 273 is the specified AR6 mass-based, 100-year CO$_2$-relative metric, not a nitrogen flux.*
 
 ### Biological Nitrogen Fixation
 
-The **nitrogenase enzyme complex** (Fe-Mo cofactor) catalyses the most energetically expensive biological reaction:
+The **Mo-dependent nitrogenase complex** carries out an energetically demanding reduction. Its limiting stoichiometry requires at least 16 ATP hydrolyses per N$_2$ reduced; this is not a ranking against every biological reaction \citep{duval2013nitrogenase}:
 
 \begin{equation}
 N_2 + 8H^+ + 8e^- + 16ATP \rightarrow 2NH_3 + H_2 + 16ADP + 16P_i
@@ -485,7 +488,7 @@ Nitrogenase is **irreversibly inactivated by O$_2$**. Strategies for O$_2$ prote
 - **Cyanobacteria** (*Anabaena*): specialized heterocyst cells lack photosystem II (no O$_2$ production)
 - **Azotobacter**: very high respiration rate consumes O$_2$ before it reaches nitrogenase
 
-Global biological N fixation: ~130 Tg N/yr (natural) + ~130 Tg N/yr (Haber-Bosch) = ~260 Tg N/yr total.
+Biological nitrogen fixation occurs on land and in the ocean. **Haber–Bosch fixation is industrial, not biological**; agricultural nitrogen-fixing organisms and combustion-related fixation are additional anthropogenic contributions. A budget must distinguish annual creation of new reactive nitrogen from transfers, emissions of already fixed nitrogen and nitrogen stocks. Fowler and colleagues' 2013 synthesis separates these components and their uncertain historical estimates; it is not a current global measurement \citep{fowler2013nitrogen}.
 
 ### Anthropogenic Nitrogen Disruption
 
@@ -496,12 +499,12 @@ N_2 + 3H_2 \xrightarrow{400\text{-}500°C, 150\text{-}300\text{ atm, Fe catalyst
 \label{eq:ecosystem_ecology_10}
 \end{equation}
 
-This single industrial process has **doubled global reactive nitrogen** and enabled the feeding of ~4 billion additional people. It is arguably the most important chemical invention of the 20th century — and one of the most environmentally damaging.
+Haber–Bosch ammonia supports fertilizer and other industrial uses. Its contribution is one part of anthropogenic reactive-nitrogen creation, not evidence that this single process doubled an unspecified global stock. Food-production benefits and environmental losses depend on use, uptake and management \citep{fowler2013nitrogen}.
 
 **The reactive nitrogen cascade:**
 Anthropogenic N travels through multiple compartments, causing damage at each step:
 
-1. **Fertilizer** → crop N (typically 30-50% taken up by plants)
+1. **Fertilizer** → crop uptake, soil retention and losses; fractions require a specified crop, site, year and measurement boundary.
 2. **Runoff** → freshwater eutrophication → algal blooms
 3. **Coastal zones** → marine eutrophication → hypoxia ("dead zones")
 4. **Denitrification** → N$_2$O, with an AR6 mass-based GWP100 of 273: the 100-year integrated metric relative to CO$_2$, not an instantaneous forcing or temperature multiplier \citep{ipcc2022ar6wg3annexii}.
@@ -519,7 +522,7 @@ Anthropogenic N travels through multiple compartments, causing damage at each st
 
 > 🔬 **Clinical Connection — Nitrate in Drinking Water:** Nitrate can be reduced to nitrite, which can oxidize hemoglobin iron from Fe$^{2+}$ to Fe$^{3+}$, impairing oxygen transport in methemoglobinemia. EPA's public-water nitrate MCL is **10 mg/L measured as nitrogen**, not 10 mg/L of nitrate ion; its table highlights risk to infants below six months \citep{epa2026drinkingwater}. The regulatory limit does not establish the quality of an untested private well or a regional exceedance fraction. Ward and colleagues' 2018 review describes epidemiologic associations with colorectal cancer and other outcomes, with exposure and endogenous-nitrosation uncertainties; this is a review of associations, not an experiment proving every exposure causes disease \citep{ward2018nitrate}.
 
-> **Concept Check:** The Haber-Bosch process has doubled global reactive nitrogen. Trace the fate of nitrogen applied as ammonium fertiliser to a cornfield: what percentage is taken up by the crop, what happens to the rest, and what environmental consequences arise at each step?
+> **Concept Check:** Distinguish biological nitrogenase fixation from industrial Haber–Bosch fixation and from redistribution of nitrogen already fixed. If a stipulated cornfield receives 200 kg N/ha and crop uptake is 40%, calculate crop uptake and the remainder. Why can those two inputs not divide the remainder among soil storage, leaching, gaseous losses and microbial immobilization?
 
 ---
 
@@ -545,23 +548,20 @@ The dust-transport example is based on Yu et al.'s satellite analysis \citep{yu2
 - **Freshwater lakes:** Phosphorus control is supported in specified lake experiments, but N limitation and combined limitation also occur; absence of a large gaseous P reservoir does not determine local limitation.
 - **Open ocean and terrestrial systems:** Nutrient supply, demand, bioavailability and species composition vary; factorial N/P enrichment can distinguish single from combined limitation. \citet{elser2007nutrientlimitation}'s experimental-enrichment synthesis supports both N and P effects and synergistic combined responses.
 
-### The Redfield Ratio
+### Redfield Stoichiometry: An Oceanic Reference, Not a Universal Quota
 
-**\citet{redfield1958}:** Marine phytoplankton consistently maintain an elemental ratio of:
+\citet{redfield1958} connected broad-scale ocean chemistry and plankton composition through the approximate molar reference:
 
 \begin{equation}
 106C : 16N : 1P
 \label{eq:ecosystem_ecology_11}
 \end{equation}
 
-This stoichiometric constraint means:
-- N:P ratio < 16 → N-limiting
-- N:P ratio > 16 → P-limiting
-- Deviation from Redfield ratio indicates which nutrient limits growth
+This reference is not invariant cellular composition or a universal local nutrient-limitation switch. Marine microalgal composition varies with physiology and conditions \citep{geider2002redfield}. In Baltic nutrient-addition bioassays, particulate N:P near 16 occurred under different limitation classes, and indicators depended on the nutrient fraction and response measured \citep{ptacnik2010redfield}. Their fitted thresholds are not replacement universal constants. Distinguish incoming load, dissolved inorganic supply, total nutrients and particulate composition; use matched control, +N, +P and +N+P experiments to test local hypotheses.
 
 ### Phosphorus Crisis in Food Systems
 
-Global phosphate rock reserves are concentrated in ~6 countries (Morocco controls >70% of reserves). Depletion projections vary widely (50-400 years at current extraction rates). **Phosphorus recovery** from wastewater (struvite precipitation: MgNH$_4$PO$_4 \cdot 6H_2O$) is critical for long-term food security. Unlike nitrogen, phosphorus cannot be synthesized — it must be mined or recycled.
+USGS's 2026 assessment reports world reserves of about **73 billion metric tons of marketable phosphate rock**, with **50 billion** in its Morocco table entry (about 68.5% of the reported total), not masses of elemental phosphorus \citep{usgs2026mcs}. Reserves are an economically recoverable inventory under stated conditions, not a fixed countdown to exhaustion; resources and reserves are different categories. Recovery from wastewater, including struvite precipitation (MgNH$_4$PO$_4 \cdot 6H_2O$), can reduce waste and pollution while addressing supply concentration and access. An inventory alone predicts neither an exhaustion date nor uninterrupted affordable fertilizer supply.
 
 > **Concept Check:** A lake experiment compares matched nutrient additions with and without P. Explain what a larger response with P supports under those conditions. What controls and measurements would distinguish N limitation, P limitation and co-limitation elsewhere, and why does reduced detergent P not guarantee immediate recovery when internal/watershed loading persists?
 
@@ -746,32 +746,31 @@ Warming can accelerate microbial decomposition, while moisture, nutrient supply,
 
 ## Coupled Biogeochemical Cycles and Ecological Stoichiometry
 
-The C, N, and P cycles do not operate independently — biological demand stitches them into a coupled system whose stoichiometry is one of the most powerful diagnostic tools in ecosystem science.
+Biological demand couples C, N and P stocks and fluxes. Stoichiometry organizes hypotheses; identifying a limiting process also requires measurements and an explicit model boundary.
 
-### The Redfield Ratio Revisited
+### Worked Example — Variable Quotas Reverse a Limiting-Resource Prediction
 
-Marine phytoplankton consistently maintain an elemental composition of $106\,\text{C} : 16\,\text{N} : 1\,\text{P}$ \citep{redfield1958}. This ratio also describes the average composition of dissolved nutrients in deep ocean water — strong evidence that **biology actively controls ocean chemistry** (the Redfield insight). Deviations from Redfield diagnose limitation:
+Stipulate a closed, fully bioavailable inventory of 12 µmol N and 1 µmol P. One arbitrary biomass unit requires 1 µmol P and either 8 or 16 µmol N in two hypothetical fixed-quota models. Exclude recycling, storage, fixation, losses and other limiting resources. Potential yield is the smaller nutrient-specific capacity:
 
-: The Redfield Ratio Revisited: Ambient N : P and Implication. {#tbl:unit_X_ecosystem_ecology_the_redfield_ratio_revisited}
-| Ambient N : P | Implication |
-| ------------- | ----------- |
-| < 16 (e.g., 8) | N-limiting; nitrogen-fixers favored |
-| ≈ 16 | Balanced; both potentially limiting |
-| > 16 (e.g., 30) | P-limiting; high-P-affinity species favored |
+: Same supplied N:P, different stipulated demand and limiting resource. {#tbl:unit_X_ecosystem_ecology_the_redfield_ratio_revisited}
+| Required N:P | N-supported biomass units | P-supported biomass units | Yield; first exhausted resource |
+| --- | --- | --- | --- |
+| 8:1 | 12/8 = 1.5 | 1/1 = 1 | 1; P |
+| 16:1 | 12/16 = 0.75 | 1/1 = 1 | 0.75; N |
 
-Terrestrial systems show similar but more variable ratios reflecting differences between woody (high C : N : P) and herbaceous tissues. Forest canopy: ~$1200 : 28 : 1$. Soil microbial biomass: ~$60 : 7 : 1$ (N- and P-rich relative to plants — explaining why microbes immobilise mineral nutrients).
+Identical supplied N:P can therefore give opposite predictions when the unknown demand differs. This is a logical teaching counterexample, not an empirical description of named taxa or proof that one unchanged community switches limits. A field ratio without nutrient fractions, availability, demand and experimental response cannot select a unique limiting nutrient or dominant taxon.
 
 ### Stoichiometric Coupling of C, N, P, Fe, and S
 
 Ecosystem-scale stoichiometry generates predictable feedbacks:
 
 - **CO$_2$ fertilization has limits.** Higher atmospheric CO$_2$ raises plant C : N ratios; without proportional N input, growth saturates (the **progressive nitrogen limitation** hypothesis confirmed by long-term FACE experiments).
-- **N deposition has P costs.** Anthropogenic N enrichment shifts ecosystems from N- to P-limited; soil and freshwater P demand rises sharply.
-- **Anoxia shifts cycles.** Hypoxic dead zones suppress nitrate-dependent respiration pathways but enable iron and sulfate reduction; the N : P : Fe : S coupling reorganises.
+- **N enrichment can expose P limitation.** If added N increases production, demand for P can rise; whether limitation shifts depends on initial limitation, P availability, other resources and losses. A light-limited community need not respond to added N. Test the initial state and nutrient-addition response rather than infer an automatic N-to-P transition from loading alone.
+- **Anoxia shifts cycles.** Oxygen depletion suppresses aerobic respiration and aerobic nitrification and can favor nitrate respiration where nitrate, donors and capable organisms remain available. Further acceptor depletion and local chemistry can favor iron or sulfate reduction; pathways can overlap across microenvironments \citep{vandenberg2016dnra}.
 
 ### Planetary Boundaries and Biogeochemical Overshoot
 
-\citet{richardson2023earth} and the Stockholm Resilience Center frame anthropogenic biogeochemical disruption as transgression of **planetary boundaries**. In the current assessment, six of nine boundaries are crossed: climate change, biosphere integrity, biogeochemical flows (N and P), land-system change, freshwater change, and novel entities (chemical pollution). Stratospheric ozone remains a regulatory success story, while ocean acidification is close to its boundary. Ecosystem ecology provides the quantitative basis for each of these limits — and for designing interventions to return inside them.
+In their **2023** update, \citet{richardson2023earth} reported six of nine planetary boundaries transgressed: climate change, biosphere integrity, biogeochemical flows (N and P), land-system change, freshwater change and novel entities. Ocean acidification was close to its boundary in that assessment; this is not a current measured boundary count. The framework uses selected planetary control variables and precautionary reference levels. These are neither local water-quality standards nor certain singular tipping thresholds; interpretation requires the assessment date, metric, geographic scale and interacting risks.
 
 ---
 
@@ -788,7 +787,7 @@ Beyond the opening qualitative categories, ecosystem services are increasingly q
 | **Replacement cost** | Estimate cost of engineering substitutes (water treatment plants for wetland filtration) | Tangible | Assumes substitutes exist; ignores non-substitutables |
 | **Willingness-to-pay** | Survey residents on what they would pay for clean air, biodiversity, etc. | Captures cultural and existence value | Hypothetical bias; income-dependent |
 
-Costanza et al. (2014, *Ecosyst. Serv.*) updated their landmark 1997 estimate: global ecosystem services are worth ~$125 trillion/yr (vs. global GDP of ~$100 trillion/yr in 2024). The TEEB initiative (The Economics of Ecosystems and Biodiversity, 2010) extended these methods to corporate and government decision-making. Ecosystem-service trade-offs (e.g., cropland conversion gains provisioning food but loses regulating climate and water purification) are now standard in environmental impact assessments.
+\citet{costanza2014services}, published in *Global Environmental Change*, estimated about US$125 trillion/year for ecosystem services in **2011**, on a **2007-dollar accounting basis**; its underlying international-dollar unit values use purchasing-power-parity conversion. This benefit-transfer estimate is not a current market-revenue measurement. It should not be compared directly with nominal 2024 GDP or added to GDP as an independent sector. Updated unit valuations and land-cover estimates also prevent interpreting the increase from the earlier estimate as observed growth in physical services. Valuation can inform trade-offs alongside ecological, cultural and distributional evidence; it does not by itself establish a policy's effectiveness.
 
 ### The Gaia Hypothesis: Critical Evaluation
 
@@ -799,7 +798,7 @@ Costanza et al. (2014, *Ecosyst. Serv.*) updated their landmark 1997 estimate: g
 | ---------- | ------ |
 | Atmospheric composition (O$_2$, CH$_4$, N$_2$O) is biologically driven | **Strongly supported** — biology is essential |
 | Earth's climate is biologically buffered (CLAW, biological pump, vegetation albedo) | **Partially supported** — feedbacks exist but are not always stabilizing |
-| Biota act *teleologically* to maintain habitability | **Rejected** — no mechanism for group/planetary selection (Doolittle 1981); selection acts on individuals |
+| Biota act *teleologically* to maintain habitability | **Not established by coupling** — organismal selection and feedbacks do not by themselves demonstrate purposeful planetary optimization |
 | The biosphere is a **superorganism** | **Metaphorical** — useful for systems thinking but not a literal claim |
 
 Biology, geochemistry, hydrology and atmosphere form a coupled system with stabilizing and amplifying feedbacks, not a purposeful superorganism. Present oxygen near 21% does not establish an invariant narrow set point: geological reconstructions include substantial variation and values above 26% \citep{glasspool2010oxygen}. Test each feedback and timescale rather than infer fixed oxygen, salinity or universal fire thresholds from habitability.
@@ -823,11 +822,11 @@ For biology, the water cycle is also a vegetation and land-use cycle. Roots, sto
 | ------- | ----------------------- | ----------- |
 | **Evaporation** (ocean) | 434 | Largest single flux |
 | **Precipitation** (ocean) | 398 | |
-| **Evapotranspiration** (land) | 71 | Plant [**transpiration**](#gl:transpiration) = 60-90% of terrestrial evaporation |
+| **Evapotranspiration** (land) | 71 | Includes transpiration and direct evaporation |
 | **Precipitation** (land) | 107 | |
 | **Runoff** (rivers to ocean) | 36 | Balances net ocean→land atmospheric transport |
 
-**Plant transpiration** is a massively underappreciated flux: a single large oak tree transpires ~400 L/day. Tropical forests generate ~50% of their own rainfall through transpiration recycling (the "flying rivers" of the Amazon). Deforestation disrupts this cycle, potentially triggering tipping points toward savannification.
+Forest evapotranspiration supplies moisture to local and downwind precipitation. Transpiration is distinct from evaporation of intercepted water, soil water and inland waters; precipitation-origin and evaporation-destination recycling fractions use different denominators. Estimates depend on region, period, dataset and metric \citep{vanderent2014recycling}. Land-use change can alter these fluxes and patterns, but an unspecified recycling fraction establishes neither a universal tropical-forest rainfall percentage nor a savannification threshold.
 
 ---
 
@@ -856,7 +855,7 @@ Mechanisms:
 
 **Challenges:** Additionality (would conservation have happened anyway?), leakage (deforestation displaced elsewhere), permanence (forest may be cut later), measurement (how much carbon is actually stored?).
 
-> **Concept Check:** The Millennium Ecosystem Assessment found that 60% of ecosystem services are degraded. Give three specific examples of degraded ecosystem services and explain how the degradation of each affects human wellbeing.
+> **Concept Check:** The 2005 Millennium Ecosystem Assessment reported degradation or unsustainable use in 15 of the 24 services examined. Give three service examples and their consequences for human well-being. Why is that service fraction not interchangeable with IPBES's land- or ocean-area indicators?
 
 ---
 
@@ -962,27 +961,29 @@ The structural lesson is that NEP is a small residual of large opposing fluxes. 
 
 ---
 
-### Concept Check (Analyze) — Redfield Stoichiometry, Liebig's Law, and Coastal Hypoxia
+### Concept Check (Analyze) — Conditional Quota Predictions and a Closed Oxygen Budget
 
-The Redfield ratio for marine phytoplankton is C:N:P $= 106:16:1$ by atoms (so N:P $= 16:1$). A coastal zone receives agricultural runoff with N:P $= 40:1$ — heavily enriched in N relative to P.
+Stipulate 40 µmol of bioavailable N and 1 µmol of bioavailable P in a closed batch. Assume each biomass unit requires 16 µmol N and 1 µmol P, with other resources nonlimiting and no recycling, storage, fixation or losses.
 
-(a) Apply Liebig's law of the minimum to identify which nutrient limits phytoplankton growth at this incoming N:P ratio. Justify your answer by comparing the supply ratio to the Redfield demand ratio.
+(a) Calculate the N-supported and P-supported biomass capacities and identify the first exhausted nutrient **in this model**. Which assumptions would be needed before transferring this conclusion to a coastal community?
 
-(b) Predict the resulting community composition shift. In particular, analyze why N-fixing cyanobacteria (which can fix atmospheric N₂ but still require P from the water column) might *not* dominate here, even though N is abundant. What does this say about the difference between "limiting" and "useful" in nutrient ecology?
+(b) Does an incoming runoff N:P of 40:1 alone predict the dominant phytoplankton taxon or the advantage of nitrogen fixation? Identify measurements and matched control, +N, +P and +N+P additions that would discriminate alternatives.
 
-(c) Algal bloom decomposition consumes oxygen. The stoichiometry of aerobic respiration is approximately $\text{CH}_2\text{O} + \text{O}_2 \rightarrow \text{CO}_2 + \text{H}_2\text{O}$ — one mole of O₂ consumed per mole of organic C oxidized. If a bloom adds 100 gC/m³ of organic matter and the water column initially holds 8 mg O₂/L, calculate whether hypoxia (defined as $< 2$ mg O₂/L) will develop assuming complete oxidation and no vertical mixing. (Hint: convert gC to moles, use 1:1 O₂:C stoichiometry, convert moles O₂ to mg/L using molar mass 32 g/mol.)
+(c) In a separate synthetic closed oxygen budget, stipulate 100 g C/m³ of respirable organic matter, initial dissolved O$_2$ of 8 mg/L, no oxygen resupply, and one mole O$_2$ consumed per mole C aerobically oxidized. Calculate potential complete-oxidation demand and the carbon oxidized when O$_2$ reaches 2 mg/L and zero. Could the whole organic-carbon input be aerobically oxidized under these assumptions? No reaction rate is supplied, so a time to hypoxia cannot be calculated.
 
-(d) Synthesize: explain why coastal "dead zones" (Gulf of Mexico, Baltic Sea, Chesapeake Bay) are a stoichiometric problem — a mismatch between the N:P supply ratio from agricultural watersheds and the Redfield demand ratio of the receiving plankton — not simply an over-fertilization problem.
+(d) Explain why sufficiently large nutrient and organic loading can cause hypoxia even at a supplied N:P of 16:1. Distinguish loading, production, decomposition, oxygen inventory and ventilation from a ratio-only explanation.
+
+**Reasoning check:** The fixed-quota capacities are 40/16 = 2.5 versus 1 biomass unit, so P is exhausted first under the stated model. Potential oxygen demand is about 267 mg/L; the supplied inventory reaches 2 mg/L after oxidation of 2.25 g C/m³ and zero after 3 g C/m³. Further consumption crosses the strict hypoxia threshold below 2 mg/L; complete aerobic oxidation of 100 g C/m³ is impossible without resupply. The remaining carbon and its subsequent fate require additional processes, not negative dissolved oxygen.
 
 ---
 
 ### Concept Check (Evaluate) — Ecosystem Service Valuation
 
-Costanza et al. (1997) estimated the annual value of global ecosystem services at roughly $33 trillion, larger than the global GDP at the time. The estimate combined replacement-cost, willingness-to-pay (contingent valuation), and market-price approaches.
+The earlier global ecosystem-service estimate was about US$33 trillion/year in **1995 dollars**, restated in the later paper on a 2007-dollar basis \citep{costanza2014services}. It combined evidence from different valuation methods; publication year, ecosystem reference year and price basis are distinct.
 
 (a) Evaluate each method's appropriateness for a specific service. (i) Pollination by wild bees: which method is most defensible, and why? (ii) Wetland aesthetic / cultural value: which method, and what biases does it introduce? (iii) Timber harvest from a managed forest: which method, and what externalities does it ignore?
 
-(b) Critique the methodological asymmetry that produces systematically low valuations for *regulating* services (climate regulation, water purification, nutrient cycling) relative to *provisioning* services (food, fiber, timber). Reason about why markets exist for provisioning outputs but not for the regulating ones, and how the absence of a market signal biases policy.
+(b) Explain why lack of a direct market price is not evidence of zero value or a universal ranking below marketed services. How can benefit transfer, site conditions, method choice and potential double counting change a conservation valuation?
 
 (c) Construct a brief argument for or against using monetary valuation in conservation decision-making. Address at least one ethical objection (commodification of nature, intergenerational discounting) and one practical advantage (commensurability with infrastructure-cost analysis). Conclude with a recommendation about whether and how monetary valuation should enter an ecosystem-management decision framework.
 
@@ -1041,23 +1042,23 @@ flowchart LR
 | **Biomagnification** | Increasing concentration of persistent pollutants at higher trophic levels |
 | **Eutrophication** | Nutrient enrichment of water body → algal bloom → low O$_2$ → hypoxia |
 | **Biogeochemical cycle** | Movement of an element through biotic and abiotic compartments |
-| **Haber-Bosch process** | Industrial NH$_3$ synthesis; doubles global reactive N; drives eutrophication |
+| **Haber-Bosch process** | Industrial NH$_3$ synthesis; a source of new reactive nitrogen, distinct from biological fixation |
 | **Biological pump** | Transfer of carbon from ocean surface to deep water via biological processes |
 | **Permafrost feedback** | Warming → permafrost thaw → CO$_2$ + CH$_4$ release → further warming |
 | **Ocean acidification** | CO$_2$ absorption → carbonic acid → pH decrease → carbonate undersaturation |
 | **DMS (dimethylsulphide)** | Volatile S compound from phytoplankton; → cloud condensation nuclei |
-| **Redfield ratio** | 106C:16N:1P stoichiometry of marine phytoplankton |
+| **Redfield ratio** | Approximate broad-scale molar C:N:P reference of 106:16:1; not a fixed cellular quota or universal limitation threshold |
 | **Reactive nitrogen cascade** | Sequential environmental damage as anthropogenic N moves through compartments |
 | **REDD+** | International mechanism for carbon payments to prevent deforestation |
 | **Eddy covariance** | Micrometeorological method for measuring ecosystem carbon flux |
-| **CLAW hypothesis** | DMS-cloud-albedo feedback as planetary thermostat |
+| **CLAW hypothesis** | Proposed DMS-aerosol-cloud-albedo feedback; its strength and climatic effect require evidence |
 | **ANPP / BNPP** | Aboveground / belowground net primary production; ratio varies from 0.4 (rainforest) to 3+ (tundra) |
 | **Eddy covariance** | Continuous tower-based measurement of ecosystem CO$_2$ flux; gold standard for NEP |
 | **Martin curve** | Power-law attenuation of organic-matter flux with depth in the ocean |
 | **Hubbard Brook** | Long-running watershed experiment that demonstrated the dominant role of vegetation in nutrient retention |
 | **CLORPT** | Jenny's five soil-forming state factors: climate, organisms, relief, parent material, time |
 | **Soil horizons** | Vertical layers (O, A, E, B, C, R) reflecting depth-dependent pedogenic processes |
-| **Planetary boundaries** | Quantitative limits on anthropogenic perturbation across nine Earth-system processes |
+| **Planetary boundaries** | Precautionary reference levels for selected controls of nine Earth-system processes; not certain tipping thresholds or local water-quality standards |
 | **Earth System Science** | Coupled study of biology, geochemistry, hydrology, and atmospheric science as a single planetary system |
 | **Export production / e-ratio** | Fraction of NPP that escapes the surface ocean as sinking particles |
 | **Open vs. closed cycle** | Whether a nutrient cycle is dominated by external fluxes (open) or internal recycling (closed) |
@@ -1085,15 +1086,15 @@ flowchart LR
 
 9. Stipulate an application of 200 kg N/ha and crop uptake of 40%. Calculate the nitrogen not taken up by the crop, then distinguish possible soil retention, microbial immobilization, nitrate leaching, denitrification, ammonia volatilization and N$_2$O production. Explain why uptake alone cannot assign fractions to these remaining pools or losses. Specify the soil, hydrological, management and flux measurements needed, and define an environmental-cost metric before proposing a numerical cost.
 
-10. Compare the CLAW hypothesis (DMS-cloud feedback) with the permafrost carbon feedback. One is a negative feedback and one is positive. Explain which is which, their relative magnitudes, and their implications for Earth's climate trajectory.
+10. Compare the proposed DMS-cloud chain in the CLAW hypothesis with permafrost-carbon feedback. Identify the measurements needed to establish each link, its sign, timescale and magnitude rather than assuming a universal planetary thermostat.
 11. Assign trophic levels with `food_web_trophic_levels` for a three-species chain; verify tuna-style pyramids require multiplying efficiencies.
-12. Why is **Redfield** stoichiometry a diagnostic for nutrient limitation rather than a comprehensive constant?
+12. Why is Redfield stoichiometry a useful reference but insufficient to diagnose local nutrient limitation? Distinguish nutrient fractions, availability, demand and enrichment evidence.
 13. The Hubbard Brook clear-cut experiment increased streamwater NO$_3^-$ losses 26-fold. Trace the mechanism through (a) cessation of plant uptake, (b) accelerated decomposition without canopy cooling, (c) elevated water tables and reduced transpiration. Why is this evidence that mature forests function as quasi-closed nutrient systems?
 14. Compare four methods for measuring NPP (harvest, eddy covariance, $^{14}$C, MODIS remote sensing). For each, give one ecosystem where it is the *most* defensible method and one where it would systematically underestimate true NPP.
 15. A coastal upwelling zone has surface NPP = 1,500 g C/m$^2$/yr and an e-ratio of 0.4; a subtropical gyre has NPP = 50 g C/m$^2$/yr and an e-ratio of 0.1. (a) Calculate export production for each. (b) If both export equal *fractions* of carbon below 1,000 m via a Martin curve with common reference depth $z_0=100$ m and exponent $b=0.858$, which contributes more to long-term carbon sequestration per unit area? (c) How does climate-driven stratification of the surface ocean change both numbers?
 16. Explain the ANPP/BNPP partition for a temperate grassland (BNPP/ANPP ≈ 2) vs. a tropical rainforest (BNPP/ANPP ≈ 0.4). Why does this partition affect (a) carbon-credit accounting under REDD+, (b) ecosystem response to drought, (c) long-term soil organic carbon accumulation?
-17. Apply the Redfield ratio to diagnose three scenarios: (a) ambient N : P = 6, (b) N : P = 16, (c) N : P = 35. For each, predict which nutrient is limiting and which functional groups (e.g., diatoms, cyanobacteria, dinoflagellates) you expect to dominate.
-18. The Gaia hypothesis claims Earth's biosphere actively maintains habitability. Evaluate this claim by listing two stabilizing biological feedbacks (negative) and two destabilising ones (positive). What is the difference between "Gaia as a metaphor for Earth System Science" and "Gaia as a literal superorganism"? Why was Doolittle (1981)'s critique decisive?
+17. Compare N:P ratios of 6, 16 and 35 under an explicitly stipulated, fully bioavailable fixed-quota N:P demand of 16:1. Then explain why these ratios without that model do not uniquely establish nutrient limitation, co-limitation or diatom/cyanobacterium/dinoflagellate dominance in nature.
+18. Evaluate Gaia-style claims by comparing specified stabilizing and amplifying feedbacks. Why do organismal selection, coupled dynamics and present habitability not by themselves establish a purposeful planetary superorganism?
 
 ---
 
@@ -1103,6 +1104,7 @@ flowchart LR
 - Levin (1998). Ecosystems and the Biosphere as Complex Adaptive Systems. *Ecosystems*, 1.
 - Bormann & Likens (1967). Nutrient cycling. *Science*, 155.
 - Redfield (1958). The biological control of chemical factors in the environment. *American Scientist*, 46.
+- Geider & La Roche (2002), variable cellular stoichiometry; Ptacnik et al. (2010), nutrient-fraction and bioassay-dependent inference \citep{geider2002redfield,ptacnik2010redfield}.
 - Yachi & Loreau (1999). Biodiversity and ecosystem productivity in a fluctuating environment: The insurance hypothesis. *Proceedings of the National Academy of Sciences*, 96.
 - Feldman et al. (2024). Large global-scale vegetation sensitivity to daily rainfall variability. *Nature*, 636 \citep{feldman2024rainfallvariability}.
 
@@ -1130,16 +1132,16 @@ print(food_web_trophic_levels(web))
 - **Energy flow:** one-way through system with ~10% trophic efficiency; biomagnification of persistent pollutants concentrates toxins at higher levels.
 - **Carbon cycle:** Fossil-fuel inputs, atmosphere--ocean exchange, production and export require stated year and system boundary. Hugelius et al.'s 2014 northern circumpolar permafrost-region estimate is about 1,300 Pg soil organic carbon, including about 800 Pg perennially frozen; this is not all immediately releasable carbon \citep{hugelius2014carbon}.
 - **Nitrogen cycle:** N$_2$ fixation, nitrification, denitrification and anammox transform nitrogen. Reactive-nitrogen inputs can cause eutrophication and hypoxia; N$_2$O has AR6 mass-based GWP100 of 273 \citep{ipcc2022ar6wg3annexii}, a specified 100-year metric rather than a universal warming multiplier.
-- **Phosphorus cycle:** sedimentary (no gas phase); P-limiting in freshwater; Redfield ratio 106C:16N:1P; globally finite reserves.
-- **Sulfur cycle:** DMS → cloud condensation nuclei → planetary thermostat (CLAW hypothesis); acid rain from SO$_2$ (reversed by regulation).
+- **Phosphorus cycle:** weathering, recycling and sedimentation matter; atmospheric particles can also transport P. Limitation is local and experimental, not determined by the absence of a large gaseous reservoir. Reserve inventories require dated definitions and are not exhaustion forecasts.
+- **Sulfur cycle:** microbial transformations link sulfur pools; CLAW proposes a DMS-cloud feedback, not an established universal thermostat. Acid-deposition outcomes depend on emissions and ecosystem conditions.
 - **Measuring NPP:** harvest, eddy covariance (FLUXNET), $^{14}$C uptake, MODIS remote sensing — each captures different components; ANPP/BNPP partition varies from 0.4 (rainforest) to >3 (tundra) and shifts conclusions about global carbon storage.
 - **Rainfall variability:** vegetation activity depends on event timing and intensity as well as precipitation totals, so productivity arguments should separate daily rainfall variability from mean water supply \citep{feldman2024rainfallvariability}.
 - **Hubbard Brook \citep{bormann1967}:** the clear-cut experiment showed live vegetation retains 80–95% of nutrient inputs; mature forests are quasi-closed for most nutrients. Open vs. closed nutrient regimes governed by mean residence time $\tau = X/O$.
 - **Ocean ecosystem ecology:** half of global NPP; productivity zones (euphotic, mesopelagic, abyssopelagic, upwelling, gyres, polar); biological pump exports ~10–15 Pg C/yr; Martin curve attenuates flux with depth.
 - **Soil formation:** Jenny's CLORPT factors; horizon differentiation (O–A–E–B–C–R); termites and ants act as soil engineers by moving particles, organic matter, water, and microbial metabolism; soils store 1,500–2,400 Pg C; warming-driven SOC release is a major positive climate feedback.
-- **Coupled cycles:** Redfield $106\,\text{C}:16\,\text{N}:1\,\text{P}$ diagnoses nutrient limitation; the planetary boundaries framework places six of nine Earth-system limits already crossed \citep{richardson2023earth}.
-- **Water cycle:** plant transpiration drives 60-90% of terrestrial evaporation; tropical forests generate their own rainfall.
-- **Ecosystem services** (~$125T/yr; Costanza 2014); 60% degraded (MEA 2005); biodiversity increases ecosystem function via complementarity and insurance.
+- **Coupled cycles:** Redfield 106:16:1 is a broad-scale molar reference; local limitation needs specified nutrient fractions, availability, demand and tests. The planetary-boundaries assessment is a separate metric framework \citep{richardson2023earth}.
+- **Water cycle:** transpiration and direct evaporation contribute differently to local and downwind precipitation; recycling metrics require stated regions, periods and denominators.
+- **Ecosystem services:** the historical 2011 estimate of about US$125 trillion/year uses a 2007-dollar basis and benefit-transfer assumptions \citep{costanza2014services}. MEA's 15/24 examined services is distinct from area-based IPBES indicators; biodiversity-function effects require a specified ecological comparison.
 - **Earth System Science / Gaia:** modern descendant of the Lovelock–Margulis hypothesis; biology and abiotic systems are coupled, but the "superorganism" claim is rejected — feedbacks can stabilize *or* destabilise.
 - **Connections:** See \cref{sec:unit_III_photosynthesis} for photosynthetic GPP/NPP concepts, \nameref{sec:unit_VIII_unit_intro} for transpiration in the water cycle, and \cref{sec:unit_X_biomes_and_conservation} for biome NPP benchmarks.
 

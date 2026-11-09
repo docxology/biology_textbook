@@ -20,6 +20,7 @@ CONFIG_FILE = PROJECT_DIR / "docs" / "manuscript" / "config.yaml"
 
 def main() -> int:
     from textbook_logging import get_logger
+    from textbook_paths import require_project_output_directory
     from visualization import ALL_FIGURE_GENERATORS
 
     logger = get_logger(__name__)
@@ -28,6 +29,7 @@ def main() -> int:
                         default=PROJECT_DIR / "output" / "figures")
     args = parser.parse_args()
 
+    args.output_dir = require_project_output_directory(PROJECT_DIR, args.output_dir)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     if CONFIG_FILE.exists():
         cfg = yaml.safe_load(CONFIG_FILE.read_text(encoding="utf-8")) or {}

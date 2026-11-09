@@ -24,7 +24,12 @@ scientific meaning or full text of a source.
 
 | Function | Arguments | Returns | Description |
 | -------- | --------- | ------- | ----------- |
-| `euler_integrate_scalar(f, y0, t_end, steps)` | callable, float, float, int | `tuple[list[float], list[float]]` | Fixed-step explicit Euler; finite states and valid resolution required; no automatic accuracy guarantee |
+| `euler_integrate_scalar(y0, t_end, steps, derivative)` | float, float, int, callable | `tuple[list[float], list[float]]` | Fixed-step explicit Euler; finite states and valid resolution required; no automatic accuracy guarantee |
+
+Scalar and paired integration share fixed-step geometry checks: collapsed grids
+and rounded subnormal steps that integrate a different horizon are rejected.
+Representable subnormal grids remain supported. Refinement is still needed to
+assess Euler discretization error; valid geometry is not an accuracy guarantee.
 
 ## `biology.constants`
 
@@ -378,6 +383,7 @@ Checkout bootstrap and atomic I/O helpers at `src/` root (not under `biology/`).
 | `discover_template_root(start)` | function | Explicit BIOLOGY_TEXTBOOK_TEMPLATE_ROOT or genuine enclosing template; invalid explicit root raises; no ambient neighbors |
 | `template_root()` | function | Discover selected root or None |
 | `write_text_atomic(path, text, encoding="utf-8")` | function | Atomic text write via temp file + replace |
+| `require_independent_file_target(path)` | function | Admit a missing or singly linked regular-file leaf; refuse symlinks, hardlinks and nonregular entries. Directory admission and complete-file publication remain the caller's responsibility |
 
 Tests: `tests/test_textbook_paths.py`, `tests/test_atomic_io.py`. Used by `tests/conftest.py` and maintenance scripts.
 
