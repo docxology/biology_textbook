@@ -6128,13 +6128,13 @@
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:134:ae9820edb5cc",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:134:f8ed8f0a076e",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/photosynthesis.md",
       "line": 134,
-      "excerpt": "**Comparison with engineered photovoltaics.** A commercial single-junction silicon solar cell at 22% efficiency converts solar irradiance into electricity; subsequent conversion to stored chemical fuel adds losses. Plants deliver stored chemical products directly, but the incident-light, absorbed-light and stored-energy denominators must still be distinguished. The artificial-photosynthesis discussion returns to this comparison; \\cref{eq:unit_III_quantum_efficiency} defines only the stated redox-energy fraction, not a universal solar-to-biomass bound.",
-      "rationale": "The excerpts correctly distinguish redox-energy fraction, ATP-inclusive chemical storage and incident-solar efficiency. The c14/LEF assumptions give 108/7 ATP, a 18/7 deficit, twelve extra protons and six stipulated cyclic photons. Chlorophyll ratios are illustrations, green light contributes, PSII inhibition need not immediately kill, and the named NADP-ME pathway uses bicarbonate/PPDK. C4/CAM photorespiration suppression and WUE remain species/environment dependent.",
-      "reviewer": "WorkflowzFinalClaimRefutation#1"
+      "excerpt": "**Comparison with engineered photovoltaics.** For an explicitly assumed 22%-efficient photovoltaic module, 22% of the incident radiant energy becomes electrical output at the stated operating point; this is a teaching input, not a current commercial specification. Conversion to stored chemical fuel requires a separately defined process boundary. Plants deliver chemical products, but incident light, absorbed light, product energy and time interval must still be distinguished. The artificial-photosynthesis discussion returns to this comparison; \\cref{eq:unit_III_quantum_efficiency} defines only the stated redox-energy fraction, not a universal solar-to-biomass bound.",
+      "rationale": "The 22% module efficiency is explicitly supplied as a teaching input, not an observed current commercial specification. Electrical output and subsequent fuel conversion retain separate boundaries; the linked redox fraction is limited to its stated numerator/denominator, as independently checked in the residual solar review.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
     },
     {
       "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:150:bde93670d013",
@@ -6308,55 +6308,82 @@
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:897:6dfdf85c3329",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:879:9b7c583c1ff7",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/photosynthesis.md",
-      "line": 897,
+      "line": 879,
+      "excerpt": "| Annual crop-biomass synthesis (2011) | Typically no more than 1% | Heat-of-combustion energy of annually harvestable biomass divided by annual incident sunlight over the same area; not an instantaneous leaf result or a universal biological ceiling. |",
+      "rationale": "Blankenship et al. (2011), doi:10.1126/science.1200165, defines annual harvestable-biomass heat of combustion over annual incident sunlight on the same area and reports a typical crop synthesis at or below 1%. The row is dated, attributed and explicitly not an instantaneous leaf result or a universal biological ceiling; it does not extrapolate to all organisms.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:880:04557731d709",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_III/photosynthesis.md",
+      "line": 880,
+      "excerpt": "| Ideal glucose-production model (2011) | About 12% | Reaction free energy of glucose production from CO$_2$ and water, using the full solar spectrum and the two-photosystem architecture; not net whole-plant yield after all crop losses. |",
+      "rationale": "The complete Blankenship 2011 article explicitly gives an ideal full-spectrum glucose-production free-energy limit near 12% using chlorophyll thresholds and the two-photosystem architecture. It excludes the additional crop losses used in lower net-yield models. Independent refutation rejected a PAR-only rewrite and a universal whole-plant ceiling.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:882:957c6289900f",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_III/photosynthesis.md",
+      "line": 882,
+      "excerpt": "| Direct photoelectrochemical water splitting (May et al., 2015) | Initial unassisted solar-to-H$_2$ efficiency about 14% | GaInP/GaInAs tandem under simulated AM1.5G at 100 mW/cm$^2$; reaction-free-energy convention and near-unity Faradaic efficiency. Initial small-device performance, not annual output or a durability guarantee \\citep{may2015solar}. |",
+      "rationale": "May et al. (2015), doi:10.1038/ncomms9286, reports initial unbiased two-electrode STH near 14% for the named tandem, AM1.5G and 1.23-V reaction-free-energy convention with near-unity Faradaic yield. The manuscript explicitly separates assisted performance and partly potentiostatic stability tests; no annual output, all-sample success or durability guarantee is asserted.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:894:6dfdf85c3329",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_III/photosynthesis.md",
+      "line": 894,
       "excerpt": "**Efficiency boundaries.** Eight 680 nm photons supply approximately $8\\times176=1,408$ kJ per mole of O$_2$ produced; the corresponding four-electron water-to-NADP$^+$ redox free-energy cost is about 440 kJ/mol O$_2$, a ratio near 31%. This is neither the enthalpy of an electron pair nor a solar-to-biomass efficiency. An overall efficiency must additionally specify incident versus absorbed light, spectral capture, ATP production/use, carbon fixation, photorespiration and respiration on a common boundary and time basis. The redox fraction alone does not establish a universal 12% biomass limit.",
       "rationale": "The excerpts correctly distinguish redox-energy fraction, ATP-inclusive chemical storage and incident-solar efficiency. The c14/LEF assumptions give 108/7 ATP, a 18/7 deficit, twelve extra protons and six stipulated cyclic photons. Chlorophyll ratios are illustrations, green light contributes, PSII inhibition need not immediately kill, and the named NADP-ME pathway uses bicarbonate/PPDK. C4/CAM photorespiration suppression and WUE remain species/environment dependent.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:942:34f01b275c86",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:939:34f01b275c86",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/photosynthesis.md",
-      "line": 942,
+      "line": 939,
       "excerpt": "**(1) Photorespiration bypass.** \\citet{south2019glycolate} installed synthetic glycolate-metabolism pathways in tobacco chloroplasts and inhibited glycolate export into the native pathway. The corrected analysis reports an average 24% increase in seasonal biomass for AP3 plus PLGG1 down-regulation versus wild type, using blocks as replicates. AP3 alone's 10% increase was not statistically significant in that reanalysis \\citep{south2019erratum}. The original indexed greater-than-40% abstract is stale; neither result establishes a universal grain-yield gain. **(2) Cyanobacterial-style carbon-concentrating mechanisms.** Cyanobacteria compartmentalize Rubisco in carboxysomes that concentrate CO2 locally. Engineering analogous machinery in C3 plants requires coordinated carbon transport, compartment assembly and enzyme function; a proposed implementation is not evidence of a completed crop benefit. **(3) Mapping Rubisco's sequence–function landscape.** \\citet{prywes2025rubisco} used an engineered E. coli growth-coupled assay to map single-amino-acid variants of the Form II Rubisco from Rhodospirillum rubrum, not ribosome display of plant Rubisco. Selected variants showed improved CO2 affinity in follow-up biochemical measurements but reduced catalytic rates and no improvement in CO2/O2 specificity in the tested variants. Apparent affinity, specificity, turnover and crop yield are different endpoints. These results do not establish a doubled specificity factor or a theoretical maximum.",
       "rationale": "Read the complete long paragraph. Corrected South Results report the tobacco AP3+PLGG1-RNAi 24% total biomass comparison and nonsignificant AP3-only 10% increase (https://pmc.ncbi.nlm.nih.gov/articles/PMC7745124/). The actual correction prose reproduced in LSU's abstract identifies block-level replication and P=0.028 for the combined intervention (https://repository.lsu.edu/biosci_pubs/3210/). The other strategies distinguish the coordinated machinery needed for a carbon-concentrating system and Prywes's microbial assay/biochemical endpoints from demonstrated crop benefits; the latter match the accessible Nature full text.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:995:7082f57aff8b",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:992:7082f57aff8b",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/photosynthesis.md",
-      "line": 995,
+      "line": 992,
       "excerpt": "- Plant RuBisCO is hexadecameric (L$_8$S$_8$, 8 active sites) and requires CO$_2$ + Mg$^{2+}$ for active-site carbamylation. Specificity ($S_{c/o}$; \\cref{eq:unit_III_specificity_factor}), CO$_2$ affinity and turnover are distinct kinetic endpoints; cross-enzyme associations do not establish a universal thermodynamic trade-off or numerical specificity ceiling \\citep{flamholz2019tradeoffs}.",
       "rationale": "The summary correctly scopes L8S8 structure and activation to plant Rubisco and keeps specificity, affinity and turnover separate. Its formula/key-term consumers at lines 426–433 and 1052 agree, while the reanalysis and experimental-variant evidence establish their distinct measurement roles. It does not convert the maximum observed turnover in Flamholz2019 into a physical ceiling.",
       "reviewer": "WorkflowzFinalMitigationRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:997:044c8e079c85",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:994:044c8e079c85",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/photosynthesis.md",
-      "line": 997,
+      "line": 994,
       "excerpt": "- C4 commonly uses spatial CO$_2$ concentration and CAM temporal separation. Both can suppress photorespiration at an energetic cost, but residual photorespiration and water-use efficiency depend on species and conditions; no universal order-of-magnitude WUE ranking follows.",
       "rationale": "The summary's positive mechanisms agree with the detailed pathways: common C4 spatial concentration and CAM temporal fixation/decarboxylation can suppress oxygenation and save water in appropriate conditions. The WUE section explicitly derives A/g_s separately from A/E using E=g_sΔw, and the CAM table requires day/night accounting. Q8, Q19 and review Q9 retain this distinction rather than imposing a pathway ranking.",
       "reviewer": "WorkflowzFinalMitigationRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:1028:58436a8fc7cb",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:1025:58436a8fc7cb",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/photosynthesis.md",
-      "line": 1028,
+      "line": 1025,
       "excerpt": "11. Calculate the absorbed-light energy ratio using the stated 54-photon conditional budget, 176 kJ/mol-photon and 2,870 kJ/mol-glucose convention. Explain the missing ATP-generating input in a 48-photon-only denominator and why this ratio cannot be compared directly with a quoted incident-solar-to-electricity PV efficiency.",
       "rationale": "Traced the question to both worked budgets. Forty-eight LEF photons provide 72 stipulated lumenal protons, producing 108/7 ATP; the remaining 18/7 ATP requires 12 protons. Under the explicitly chosen two-proton-per-electron cyclic route, six extra PSI photons yield 54 total. Consequently 2870/(54×176)=0.301978, approximately 30.2%. Uniform photon energy and combustion-energy magnitude are declared conventions, and the question correctly requires distinguishing this absorbed-light ratio from incident-solar electrical PV efficiency.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:1066:bcb0ad8f5fb1",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/photosynthesis.md:1063:bcb0ad8f5fb1",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/photosynthesis.md",
-      "line": 1066,
+      "line": 1063,
       "excerpt": "| **Water-use efficiency (WUE)** | State the boundary: instantaneous $A/E$, intrinsic $A/g_s$, or integrated carbon/yield per water input; pathway identity alone does not set a universal ranking |",
       "rationale": "The key-term row now preserves three materially different quantities: net assimilation per transpiration, assimilation per water-vapor conductance, and integrated carbon/yield per specified water input. The chapter's equations and numerical example agree with those boundaries, and primary gas-exchange methods use the first two distinct definitions (https://pmc.ncbi.nlm.nih.gov/articles/PMC5853292/). Pathway identity supplies mechanisms but not the assimilation, vapor gradient or integrated irrigation/yield data needed to order these quantities.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
@@ -8999,181 +9026,253 @@
       "reviewer": "wfz-biology-textbook-release / scientific-visual delta review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:330:e03d3027fbcd",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:230:6863a098c2f7",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 330,
+      "line": 230,
+      "excerpt": "Photosynthetic energy capture requires a stated radiation spectrum, incident or absorbed denominator, area and period. Carbon production cannot be compared directly with radiant-energy input without a chemical-energy conversion. Autotrophic respiration ($R_a$) reduces **gross primary production** (GPP) to **net primary production** (NPP); the respiratory fraction varies among systems. Subtracting heterotrophic respiration ($R_h$, by animals, fungi and microbes) gives **net ecosystem production** (NEP); subtracting the additional non-respiratory losses $D$ in this budget gives **net biome production** (NBP). All carbon-accounting terms must use compatible units, boundaries and periods. These are accounting differences, not successive trophic transfers; they neither establish a universal NBP/GPP fraction nor explain food-chain length by themselves.",
+      "rationale": "The production hierarchy subtracts carbon-accounting categories on compatible boundary/time/unit bases, not successive trophic transfers. The radiation-to-carbon step requires an energy convention; no universal respiratory fraction or NBP/GPP ratio is retained. Existing stipulated trophic arithmetic remains separate and unchanged.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:321:e03d3027fbcd",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
+      "line": 321,
       "excerpt": "The diagram uses a synthetic, rounded annual budget in Pg C/yr, authored for accounting practice, not a dated empirical global assessment. Positive flux into the atmosphere is a source. Land GPP=120, autotrophic respiration=60, and heterotrophic respiration=56.5 imply net land uptake=3.5. Gross ocean uptake=92 and outgassing=89.1 imply net ocean uptake=2.9. With fossil emissions=10 and land-use emissions=1.5, atmospheric accumulation is 5.1. Use either gross or net accounting, never both. Permafrost respiration is not added again as an independent flow in this closed record.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:374:97ce787cc27e",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:365:97ce787cc27e",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 374,
+      "line": 365,
       "excerpt": "- A warming increment requires a specified emissions pathway, thaw trajectory, release fraction, gas mix, vegetation response and climate model. No universal additional temperature range follows from this stock estimate.",
       "rationale": "Hugelius's actual abstract gives approximately 1300 Pg regional SOC (1100–1500), approximately 800 Pg perennially frozen and approximately 500 Pg not perennially frozen. Turetsky's primary abstract explicitly models abrupt thaw under RCP8.5/RCP4.5, with drainage/stabilization/regrowth affecting carbon balance. These occurrences correctly distinguish stock, gas flux, oxygen-dependent CO2/CH4 production, scenario feedback and temperature calculation; neither a universal warming increment nor a sharp global tipping threshold follows. Sources: https://bg.copernicus.org/articles/11/6573/2014/ ; https://www.nature.com/articles/s41561-019-0526-0. Turetsky review was abstract/available-figure-level, not subscription full-text certification.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:375:3d42e090acde",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:366:3d42e090acde",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 375,
+      "line": 366,
       "excerpt": "- Turetsky et al. (2020)'s inventory modeling found that abrupt thaw can substantially increase carbon emissions omitted by gradual-thaw-only models, with different outcomes under RCP4.5 and RCP8.5. This is scenario-dependent evidence, not proof that every current model omits abrupt thaw or that a single sharp global threshold controls all permafrost \\citep{turetsky2020thaw}.",
       "rationale": "Hugelius's actual abstract gives approximately 1300 Pg regional SOC (1100–1500), approximately 800 Pg perennially frozen and approximately 500 Pg not perennially frozen. Turetsky's primary abstract explicitly models abrupt thaw under RCP8.5/RCP4.5, with drainage/stabilization/regrowth affecting carbon balance. These occurrences correctly distinguish stock, gas flux, oxygen-dependent CO2/CH4 production, scenario feedback and temperature calculation; neither a universal warming increment nor a sharp global tipping threshold follows. Sources: https://bg.copernicus.org/articles/11/6573/2014/ ; https://www.nature.com/articles/s41561-019-0526-0. Turetsky review was abstract/available-figure-level, not subscription full-text certification.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:402:51293992fa4c",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:389:e153d487c8a9",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 402,
+      "line": 389,
+      "excerpt": "Elevated CO$_2$ can stimulate photosynthesis and production, but the response depends on vegetation, resources and duration. A 2005 synthesis of four young temperate forest FACE (Free-Air CO$_2$ Enrichment) experiments used achieved mean concentrations of about 550 ppm versus 376 ppm ambient. Its regression predicted a 23 ± 2% annual-NPP stimulation at the dataset's median ambient NPP, not a median of four percentage responses \\citep{norby2005face}. In an 11-year Tennessee sweetgum experiment at the same 550-ppm treatment, NPP enhancement declined from 24% in 2001–2003 to 9% in 2008; nitrogen budgets and leaf/stand observations supported declining N availability \\citep{norby2010nitrogen}. This is change over duration at one treatment concentration, not a universal threshold above 550 ppm or proof that every mature forest loses its response.",
+      "rationale": "Norby 2005 full methods/results define achieved 550 versus 376 ppm and a regression-predicted response ratio 1.23±0.02 at median ambient NPP, not a median of site percentages. Norby 2010 reports the 24%-to-9% temporal response in one Tennessee sweetgum treatment. The qualifier rejects a universal concentration threshold or categorical mature-forest conclusion, with the 2024 oak counterexample considered during refutation.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:393:51293992fa4c",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
+      "line": 393,
       "excerpt": "> **Concept Check:** Use the preceding synthetic carbon budget, not a current ocean-uptake observation. Stipulate a 20% reduction in its **net ocean uptake** of 2.9 Pg C/yr, with all other flows fixed and no feedbacks for 50 years. Calculate the new annual atmospheric accumulation, its increase over 5.1 Pg C/yr, and the additional carbon retained over 50 years. Convert that additional carbon to CO$_2$ mass using 44/12. Why does this exercise neither isolate the solubility pump nor determine actual warming?",
       "rationale": "All other flows fixed is an explicit closed counterfactual assumption for the already synthetic annual carbon budget, not a claim about real feedbacks or solubility-pump behavior. Net ocean uptake becomes 2.32 instead of 2.9 Pg C/yr, adding 0.58 to the 5.1 atmospheric residual, for 5.68 Pg C/yr. At constant conditions the additional 50-year mass is 29 Pg C or 106.333 Pg CO2 using 44/12; no temperature result is established. The native closed-model consumer reproduces these balances and records the missing warming/feedback model.",
       "reviewer": "Workflowz integration owner; actual printed-page finding and native closed-accounting consumer 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:429:d0bba7054548",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:420:d0bba7054548",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 429,
+      "line": 420,
       "excerpt": "In an anaerobic acetate/nitrate chemostat, nitrate limitation favored DNRA, whereas acetate limitation favored denitrifiers \\citep{vandenberg2016dnra}. This experiment concerns available electron donor relative to nitrate, not an invariant bulk-sediment C:N threshold or a guarantee of one pathway in a natural sediment.",
       "rationale": "The cited anaerobic acetate/nitrate chemostat varied available electron donor relative to nitrate and supported DNRA/denitrification coexistence over a broad range, not a bulk-sediment C:N threshold. The sentence explicitly limits extrapolation from that enrichment to a natural sediment and guarantees no exclusive pathway. Original methods/results/discussion: https://doi.org/10.3389/fmicb.2016.01842 .",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:568:089387432733",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:559:089387432733",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 568,
+      "line": 559,
       "excerpt": "This reference is not invariant cellular composition or a universal local nutrient-limitation switch. Marine microalgal composition varies with physiology and conditions \\citep{geider2002redfield}. In Baltic nutrient-addition bioassays, particulate N:P near 16 occurred under different limitation classes, and indicators depended on the nutrient fraction and response measured \\citep{ptacnik2010redfield}. Their fitted thresholds are not replacement universal constants. Distinguish incoming load, dissolved inorganic supply, total nutrients and particulate composition; use matched control, +N, +P and +N+P experiments to test local hypotheses.",
       "rationale": "Geider and La Roche describe variable marine-microalgal C:N:P; access here was institutional abstract/metadata, not full PDF. Ptacnik et al. compare nutrient fractions and enrichment responses in Baltic bioassays; particulate N:P near 16 occurs across limitation classes. Their regional response-dependent thresholds do not supply a universal replacement. The paragraph correctly requires fractions, demand and matched experiments. Sources: https://doi.org/10.1017/S0967026201003456 ; https://doi.org/10.1007/s10021-010-9380-z .",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:574:e1b959bc8ed8",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:565:e1b959bc8ed8",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 574,
+      "line": 565,
       "excerpt": "> **Concept Check:** A lake experiment compares matched nutrient additions with and without P. Explain what a larger response with P supports under those conditions. What controls and measurements would distinguish N limitation, P limitation and co-limitation elsewhere, and why does reduced detergent P not guarantee immediate recovery when internal/watershed loading persists?",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:751:c9d2b221ed5e",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:633:d8bd0f5447cc",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 751,
+      "line": 633,
+      "excerpt": "All woody vegetation on the 15.6-ha Watershed 2 was cut in November–December 1965 and left on site. No roads or vehicles were introduced, and herbicides suppressed regrowth during the 1966–1968 growing seasons. This severe cut-and-regrowth-suppression treatment is not ordinary timber removal \\citep{hubbardbrookwatershed2}. The 1970 report summarized the following different response metrics in its first two postcut years \\citep{likens1970watershed}:",
+      "rationale": "The investigator Watershed 2 chronology explicitly records all woody vegetation cut in late 1965 and left, no roads/vehicles, and herbicide growing seasons 1966, 1967 and 1968. The 1970 abstract reports first/second-year response endpoints; its two-year observation summary does not refute the three treatment seasons. The severe manipulation is not equated with ordinary timber removal.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:645:45d25d4e8be5",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
+      "line": 645,
+      "excerpt": "3. **Internal recycling is not external-input retention.** Intact Hubbard Brook budgets can have streamwater cation outputs exceeding precipitation inputs. Likens and colleagues attributed net cation losses to weathering under their near-dynamic-equilibrium vegetation assumption. Quantitative retention needs a stated element, input/output boundary and period; no universal 80–95% follows \\citep{likens1967budget}.",
+      "rationale": "Likens et al. (1967), doi:10.2307/1933735, measured precipitation/stream cation budgets, including output exceeding precipitation input, and attributed net losses to weathering under the stated vegetation-equilibrium assumption. This defeats an unspecified universal input-retention inference, not high internal reuse or a separately specified total-input denominator.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:646:f3a0394501d0",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
+      "line": 646,
+      "excerpt": "4. Agricultural nitrate losses also depend on crop cover, input rates, soils, drainage and timing. This forest manipulation does not establish a universal loss factor for cropping systems.",
+      "rationale": "A single cut-and-herbicide forest manipulation cannot identify a universal agricultural nitrate loss factor. Crop cover, fertilizer inputs, soil and drainage/time boundaries differ; the sentence deliberately withholds an unsupported extrapolation rather than asserting a measured cropping effect.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:740:c9d2b221ed5e",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
+      "line": 740,
       "excerpt": "Warming can accelerate microbial decomposition, while moisture, nutrient supply, plant inputs and disturbance also affect net soil-carbon balance. The sign and magnitude require a specified site or scenario rather than a universal comparison with plant productivity. For northern circumpolar permafrost-region soils, Hugelius et al. (2014) estimated about 1,300 Pg organic carbon, including about 800 Pg perennially frozen; the stock does not specify a century-scale release or temperature increment \\citep{hugelius2014carbon}. Turetsky et al. (2020) showed that abrupt thaw and vegetation regrowth alter modeled carbon balance under specified warming scenarios \\citep{turetsky2020thaw}.",
       "rationale": "Hugelius's actual abstract gives approximately 1300 Pg regional SOC (1100–1500), approximately 800 Pg perennially frozen and approximately 500 Pg not perennially frozen. Turetsky's primary abstract explicitly models abrupt thaw under RCP8.5/RCP4.5, with drainage/stabilization/regrowth affecting carbon balance. These occurrences correctly distinguish stock, gas flux, oxygen-dependent CO2/CH4 production, scenario feedback and temperature calculation; neither a universal warming increment nor a sharp global tipping threshold follows. Sources: https://bg.copernicus.org/articles/11/6573/2014/ ; https://www.nature.com/articles/s41561-019-0526-0. Turetsky review was abstract/available-figure-level, not subscription full-text certification.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:812:3f4423b425d4",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:764:db0e5b2b36d9",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 812,
+      "line": 764,
+      "excerpt": "- **CO$_2$ fertilization has conditional nutrient limits.** The Tennessee sweetgum FACE experiment supports progressive nitrogen limitation in that stand and period, not a universal absence of sustained responses or a concentration threshold across forests \\citep{norby2010nitrogen}.",
+      "rationale": "Norby 2010 supplies nitrogen-budget and leaf/stand evidence for declining N availability in the named sweetgum experiment and period. The conditional wording is supported while the universal hypothesis-confirmation and above-550 concentration threshold are rejected; other stands and resource settings are not assigned the same response.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:801:3f4423b425d4",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
+      "line": 801,
       "excerpt": "Biology, geochemistry, hydrology and atmosphere form a coupled system with stabilizing and amplifying feedbacks, not a purposeful superorganism. Present oxygen near 21% does not establish an invariant narrow set point: geological reconstructions include substantial variation and values above 26% \\citep{glasspool2010oxygen}. Test each feedback and timescale rather than infer fixed oxygen, salinity or universal fire thresholds from habitability.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:837:897a86ec17d5",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:828:897a86ec17d5",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 837,
+      "line": 828,
       "excerpt": "Forest evapotranspiration supplies moisture to local and downwind precipitation. Transpiration is distinct from evaporation of intercepted water, soil water and inland waters; precipitation-origin and evaporation-destination recycling fractions use different denominators. Estimates depend on region, period, dataset and metric \\citep{vanderent2014recycling}. Land-use change can alter these fluxes and patterns, but an unspecified recycling fraction establishes neither a universal tropical-forest rainfall percentage nor a savannification threshold.",
       "rationale": "The original moisture-recycling paper distinguishes transpiration/interception/direct evaporation and precipitation-origin versus evaporation-destination fractions, with scale and region dependence. This statement adopts those metric boundaries and removes the untraced oak-day and universal forest-rainfall numbers; it asserts no replacement fraction or savannification threshold. Source definitions/methods/results: https://doi.org/10.5194/esd-5-471-2014 .",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:962:a680f31592e0",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:953:a680f31592e0",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 962,
+      "line": 953,
       "excerpt": "At $10^{12}$ m², the baseline-relative difference is $-7$ Pg C over 50 years. Baseline uptake would have stored $+5$ Pg, whereas the warmed system actually releases 2 Pg ($40\\times50\\times10^{12}$ g C). Forgone uptake plus actual release totals the 7-Pg difference; it is wrong to call all 7 Pg newly released carbon. Constant fluxes for 50 years are a sensitivity assumption, not a forecast.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:966:8a22ef05384a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:957:8a22ef05384a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 966,
+      "line": 957,
       "excerpt": "The structural lesson is that NEP is a small residual of large opposing fluxes. This sensitivity example holds production, respiratory response and other transfers fixed; real feedbacks, acclimation, moisture and disturbance can alter them. It demonstrates neither a universal warming threshold nor an inevitable ecosystem tipping point.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:982:c60c8347bf0c",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:973:c60c8347bf0c",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 982,
+      "line": 973,
       "excerpt": "(d) Explain why sufficiently large nutrient and organic loading can cause hypoxia even at a supplied N:P of 16:1. Distinguish loading, production, decomposition, oxygen inventory and ventilation from a ratio-only explanation.",
       "rationale": "This is a discriminating question, not a claim that every 16:1 input causes hypoxia. A ratio does not bound absolute loading, production, oxygen demand or ventilation. The separate stipulated no-resupply inventory in parts (c) and the reasoning check gives potential demand about 267 mg/L against only 8 mg/L oxygen; a balanced N:P ratio does not remove that mass-balance possibility.",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:984:7f723717bb48",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:975:7f723717bb48",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 984,
+      "line": 975,
       "excerpt": "**Reasoning check:** The fixed-quota capacities are 40/16 = 2.5 versus 1 biomass unit, so P is exhausted first under the stated model. Potential oxygen demand is about 267 mg/L; the supplied inventory reaches 2 mg/L after oxidation of 2.25 g C/m³ and zero after 3 g C/m³. Further consumption crosses the strict hypoxia threshold below 2 mg/L; complete aerobic oxidation of 100 g C/m³ is impossible without resupply. The remaining carbon and its subsequent fate require additional processes, not negative dissolved oxygen.",
       "rationale": "Under the printed no-resupply one-mole-O2-per-mole-C assumptions, 1 g C/m3 equals 1 mg C/L and demand is C times 32/12. Consumption of 6 mg O2/L corresponds to 2.25 g C/m3, and the entire 8 mg/L inventory supports 3 g C/m3. Complete oxidation of 100 g C/m3 would require about 266.7 mg O2/L and is impossible within this closed aerobic inventory. The impossibility is explicitly conditional; no negative oxygen, reaction rate or empirical time is inferred.",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:994:4c946ab1528a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:985:4c946ab1528a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 994,
+      "line": 985,
       "excerpt": "(b) Explain why lack of a direct market price is not evidence of zero value or a universal ranking below marketed services. How can benefit transfer, site conditions, method choice and potential double counting change a conservation valuation?",
       "rationale": "The question asks why absence of a market price does not establish zero value or a universal cross-service ordering, and asks students to evaluate benefit transfer, context, methods and double counting. This is consistent with the accepted manuscript valuation limitations, not a new measured hierarchy or evidence that a monetary estimate by itself improves policy. Source: https://doi.org/10.1016/j.gloenvcha.2014.04.002 .",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1058:f0a91628edca",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1049:f0a91628edca",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1058,
+      "line": 1049,
       "excerpt": "| **Redfield ratio** | Approximate broad-scale molar C:N:P reference of 106:16:1; not a fixed cellular quota or universal limitation threshold |",
       "rationale": "This key-term definition retains the approximate oceanic molar reference while explicitly separating it from fixed cellular demand and universal local limitation. Variable composition and nutrient-fraction/bioassay-dependent indicators support that boundary; the chapter supplies a separately labeled hypothetical quota counterexample rather than assigning measurements to taxa. Sources: https://doi.org/10.1017/S0967026201003456 ; https://doi.org/10.1007/s10021-010-9380-z .",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1084:85f4f3c5cd42",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1075:85f4f3c5cd42",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1084,
+      "line": 1075,
       "excerpt": "4. Use the synthetic annual budget above, not an empirical permafrost forecast. Suppose heterotrophic respiration rises from 56.5 to 57.0 Pg C/yr and all other fluxes remain fixed. (a) Calculate the new atmospheric accumulation. (b) Explain the double counting if the same 0.5 Pg C/yr is also added as a separate permafrost emission. (c) Convert that increment to Pg CO$_2$/yr using 44/12 and to ppm/yr using the assumed 2.13 Pg C/ppm. Distinguish carbon mass, CO$_2$ mass and concentration; none of these conditional results establishes a future warming trajectory.",
       "rationale": "The fixed-other-flux condition defines a synthetic one-variable carbon-accounting exercise: raising Rh by 0.5 Pg C/yr raises the stipulated residual from 5.1 to 5.6; adding the identical permafrost flow again double counts it. Carbon/CO2 mass and ppm conversions are specified assumptions, not an empirical permafrost rate or warming forecast.",
       "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1096:1e0d10804282",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1087:1e0d10804282",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1096,
+      "line": 1087,
       "excerpt": "10. Compare the proposed DMS-cloud chain in the CLAW hypothesis with permafrost-carbon feedback. Identify the measurements needed to establish each link, its sign, timescale and magnitude rather than assuming a universal planetary thermostat.",
       "rationale": "This review question labels CLAW as proposed and asks for evidence for individual links, sign, timescale and magnitude rather than asserting a universal thermostat. Chapter discussion explicitly retains debated strength; neither the DMS pathway nor a generic negative-feedback label proves planetary regulation. This accepts the evidence-seeking question, not a new empirical feedback magnitude or a claim to have disproved the hypothesis.",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1141:989bb7479040",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1090:92d0e1c5686d",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1141,
+      "line": 1090,
+      "excerpt": "13. The Hubbard Brook treatment increased streamwater nitrate concentration and annual streamflow. Explain why neither endpoint alone specifies annual nitrate-N export. Trace possible uptake, decomposition and hydrological mechanisms, and identify the inputs, outputs and time boundaries needed to assess retention rather than assume a universal closed forest nutrient cycle.",
+      "rationale": "The review question requires discharge-weighted concentration integration and explicit nitrogen units/input-output/time boundaries. The original table concentration and flow endpoints cannot alone yield annual nitrate-N export or a universal closed nutrient cycle. It tests the corrected inference, not a fabricated mass-export multiplier.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1092:8087d455a7ae",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
+      "line": 1092,
+      "excerpt": "15. For a stipulated annual calculation, assign a coastal upwelling zone NPP = 1,500 g C/m$^2$/yr and an e-ratio of 0.4, and a subtropical gyre NPP = 50 g C/m$^2$/yr and an e-ratio of 0.1, all referenced to 100 m. (a) Calculate particle export production. (b) Apply the same Martin curve with $z_0=100$ m and $b=0.858$ to calculate sinking flux at 1,000 m and compare the per-area fluxes. (c) What circulation and remineralization information is additionally needed to infer sequestration duration? Why do climate-driven changes in these stipulated NPP and e-ratio values require further nutrient, light and ecosystem assumptions?",
+      "rationale": "Every numeric input is expressly stipulated for an annual calculation at the same 100-m reference depth. The given Martin law yields particle fluxes, with shared attenuation preserving the 120-fold ratio; ventilation and remineralization evidence are additionally required for duration. No empirical biome efficiency, carbon stock or uniquely calculable climate response is asserted.",
+      "reviewer": "wfz-biology-textbook-release; independent BiologyResidualRefutation"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1132:989bb7479040",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
+      "line": 1132,
       "excerpt": "- **Nitrogen cycle:** N$_2$ fixation, nitrification, denitrification and anammox transform nitrogen. Reactive-nitrogen inputs can cause eutrophication and hypoxia; N$_2$O has AR6 mass-based GWP100 of 273 \\citep{ipcc2022ar6wg3annexii}, a specified 100-year metric rather than a universal warming multiplier.",
       "rationale": "Official AR6 WGIII Annex II §A.II.8/Table 9 directly gives N2O GWP100=273 and a separate lifetime of 109 years. The assigned summary and the substantive nitrogen-cascade statement at line 497 correctly identify a mass-based, 100-year integrated emission metric, not instantaneous forcing or temperature. The diagram also labels its shorthand GWP100/IPCC AR6; the prose supplies the metric boundary. Source: https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Annex-II.pdf.",
       "reviewer": "WorkflowzFinalMitigationRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1143:10cceea31d09",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1134:10cceea31d09",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1143,
+      "line": 1134,
       "excerpt": "- **Sulfur cycle:** microbial transformations link sulfur pools; CLAW proposes a DMS-cloud feedback, not an established universal thermostat. Acid-deposition outcomes depend on emissions and ecosystem conditions.",
       "rationale": "The summary calls CLAW a proposed DMS-cloud feedback, consistent with the preceding hypothesis discussion and its explicit uncertain strength. It does not present the pathway as a demonstrated universal closed-loop thermostat or assert a measured effect size. The acid-deposition statement is conditional on emissions and ecosystem conditions, not an invariant recovery claim.",
       "reviewer": "Workflowz integration owner, primary-source and BiologyDeepEvidenceRefute/BiologyDeepPostfixAdversary review 2026-11-09"

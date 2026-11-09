@@ -131,7 +131,7 @@ The **minimum quantum requirement** (1/Φ) is therefore ~8–10 photons per O$_2
 
 Here $F$ is the Faraday constant and $E_{\text{photon,molar}}=N_Ahc/\lambda$ is photon energy per mole of photons; the counts specify electron and photon stoichiometry per reaction. For four electrons spanning an uphill 1.14 V from water to NADP$^+$, the redox free-energy cost is about 440 kJ/mol O$_2$. Eight 680 nm photons supply about 1,408 kJ/mol O$_2$, giving a redox-energy fraction near 31%. This fraction excludes energy retained in proton-motive force/ATP, so its complement cannot all be called heat. The eight-photon count follows the natural two-photosystem architecture, not a claim that a single red photon's energy is below 1.14 eV.
 
-**Comparison with engineered photovoltaics.** A commercial single-junction silicon solar cell at 22% efficiency converts solar irradiance into electricity; subsequent conversion to stored chemical fuel adds losses. Plants deliver stored chemical products directly, but the incident-light, absorbed-light and stored-energy denominators must still be distinguished. The artificial-photosynthesis discussion returns to this comparison; \cref{eq:unit_III_quantum_efficiency} defines only the stated redox-energy fraction, not a universal solar-to-biomass bound.
+**Comparison with engineered photovoltaics.** For an explicitly assumed 22%-efficient photovoltaic module, 22% of the incident radiant energy becomes electrical output at the stated operating point; this is a teaching input, not a current commercial specification. Conversion to stored chemical fuel requires a separately defined process boundary. Plants deliver chemical products, but incident light, absorbed light, product energy and time interval must still be distinguished. The artificial-photosynthesis discussion returns to this comparison; \cref{eq:unit_III_quantum_efficiency} defines only the stated redox-energy fraction, not a universal solar-to-biomass bound.
 
 ### Antenna Complexes and Light-Harvesting Architecture
 
@@ -867,32 +867,29 @@ Photosynthesis has a complex evolutionary history spanning ~3.5 billion years:
 
 ## Artificial Photosynthesis and Solar Fuels
 
-Inspired by natural photosynthesis, researchers are developing artificial systems to convert solar energy into fuels. The diversity of approaches reveals a tension between *efficiency* (where photovoltaics excel) and *fuel storage* (where chemistry excels).
+Natural photosynthesis and engineered solar systems produce different outputs. A meaningful efficiency comparison specifies the product, its energy convention, the incident spectrum, the illuminated area and the integration period. Electrical power at a test point, annual harvestable biomass and chemical fuel production are not interchangeable endpoints.
 
-### Comparison: Natural vs. Artificial Light Conversion
+### Solar Conversion Efficiencies Depend on Products and Boundaries
 
-**Biological systems.**
+The following are dated examples, not a current technology leaderboard or a set of percentages on one common boundary. Blankenship and colleagues explicitly compared the entire solar spectrum, while distinguishing ideal glucose-production models, annual biomass and component-based hydrogen estimates \citep{blankenship2011comparison}.
 
-- **C3 photosynthesis (whole plant):** 0.5--1.5% solar-to-stored-carbon efficiency, producing glucose and starch. Its advantage is complete self-assembly and repair; its limit is low energy efficiency and dependence on water and mineral nutrients.
-- **C4 photosynthesis (for example, sugarcane):** 1.5--3.5% solar-to-stored-carbon efficiency, producing glucose and sucrose. The CO$_2$-concentrating mechanism improves performance in hot, bright environments, but the anatomical and ATP costs restrict its ecological range.
-- **Theoretical biological maximum:** about 12% for reduced carbon under idealised constraints. The main losses come from spectral mismatch, RuBisCO kinetics, photorespiration, respiration, and the ATP/NADPH cost of carbon fixation.
+: Dated solar-conversion examples: distinguish models, products and measurement boundaries. {#tbl:unit_III_photosynthesis_solar_efficiency_boundaries}
+| Published example | Stated efficiency | Boundary and limitation |
+| --- | --- | --- |
+| Annual crop-biomass synthesis (2011) | Typically no more than 1% | Heat-of-combustion energy of annually harvestable biomass divided by annual incident sunlight over the same area; not an instantaneous leaf result or a universal biological ceiling. |
+| Ideal glucose-production model (2011) | About 12% | Reaction free energy of glucose production from CO$_2$ and water, using the full solar spectrum and the two-photosystem architecture; not net whole-plant yield after all crop losses. |
+| PV plus electrolysis calculation (2011) | About 14% before voltage mismatch | $0.18\times0.95\times0.80$: assumed module efficiency, annual-average/peak factor and electrolyzer efficiency on hydrogen's higher-heating-value basis. The review estimated about 10–11% with its stated voltage-mismatch losses; this was not a year-long device measurement. |
+| Direct photoelectrochemical water splitting (May et al., 2015) | Initial unassisted solar-to-H$_2$ efficiency about 14% | GaInP/GaInAs tandem under simulated AM1.5G at 100 mW/cm$^2$; reaction-free-energy convention and near-unity Faradaic efficiency. Initial small-device performance, not annual output or a durability guarantee \citep{may2015solar}. |
 
-**Engineered energy systems.**
+The two 14% examples use different product-energy conventions and time bases. May and colleagues separately reported potentiostatically assisted photoelectrode performance above 17%; that is not the unassisted full-device result. Their separate stability tests included substantial photocurrent degradation. Neither a 16-hour nor a 40-hour test establishes 14% unbiased efficiency sustained over that interval \citep{may2015solar}.
 
-- **Silicon photovoltaic (single-junction):** about 22% commercial electricity conversion. It is mature and inexpensive, but electricity is not a fuel and requires downstream storage.
-- **III--V tandem photovoltaics:** about 33% in high-performance laboratory cells. They maximize single-cell photovoltaic efficiency but remain costly and materials-intensive.
-- **Photovoltaics plus electrolysis:** about 10--14% solar-to-H$_2$ efficiency. Hydrogen is a storable fuel, but compression, transport, leakage, and end-use infrastructure remain major constraints.
+Living photosynthetic systems self-assemble, repair damage and allocate energy to maintenance and growth. C4 carbon concentration can reduce photorespiration under suitable hot, bright conditions, but it also costs ATP; pathway identity alone does not specify a whole-season efficiency. Multiple-junction photovoltaics can exploit different spectral regions, yet their electrical output is still not stored fuel.
 
-**Hybrid and chemical fuel systems.**
+CO$_2$-reduction catalysts raise additional questions about product selectivity, energy inputs and separation. Engineered cyanobacteria are biological production systems, not automatically biological–inorganic hybrids. A synthetic Mn$_4$Ca-inspired water-oxidation catalyst addresses one reaction step; oxygen evolution alone is not a complete solar-fuel device. A concentration, carbon-partition fraction or Faradaic efficiency must not be substituted for solar-energy efficiency.
 
-- **Photoelectrochemical cells:** about 4--10% solar-to-H$_2$ efficiency from water. Direct light-to-fuel integration is attractive, but catalyst durability and device stability are limiting.
-- **CO$_2$ photoreduction with copper-family catalysts:** roughly 1--5% for mixtures such as CO, formate, and ethanol. The appeal is direct carbon capture into fuels; the challenge is selectivity.
-- **Bio-hybrids with engineered cyanobacteria:** about 0.5--4% for products such as H$_2$, ethanol, or alkanes. They are self-replicating and tunable but slow and fragile.
-- **Synthetic Mn$_4$Ca-inspired catalysts:** research-stage water-oxidation systems producing O$_2$ from H$_2$O. They teach design principles from the oxygen-evolving complex but are not yet practical devices.
+### Define the Electricity-to-Fuel Boundary
 
-### Why Plants Lag PV (and Why It May Not Matter)
-
-A silicon solar cell at 22% beats C3 photosynthesis at 1% by an order of magnitude — but the comparison is misleading. PV converts photons to electrons; plants convert photons to *covalently stored carbon*. To match plants, a PV system must add electrolysis, gas storage, and CO$_2$ reduction — each step lossy. End-to-end PV → renewable methanol systems currently achieve ~5–8% solar-to-fuel — comparable to C4 photosynthesis. The biological system also self-assembles, self-repairs, and runs at <1 sun without exotic materials.
+Hydrogen stores chemical energy without fixing carbon. A PV-to-methanol route additionally needs a specified CO$_2$ supply and synthesis/separation process; storage and auxiliary-energy requirements depend on design. Any claimed end-to-end efficiency must state whether CO$_2$ capture, heating, pumping, purification and storage are included. The dated examples above do not establish a current methanol-performance range or parity with annual C4 biomass production.
 
 **Efficiency boundaries.** Eight 680 nm photons supply approximately $8\times176=1,408$ kJ per mole of O$_2$ produced; the corresponding four-electron water-to-NADP$^+$ redox free-energy cost is about 440 kJ/mol O$_2$, a ratio near 31%. This is neither the enthalpy of an electron pair nor a solar-to-biomass efficiency. An overall efficiency must additionally specify incident versus absorbed light, spectral capture, ATP production/use, carbon fixation, photorespiration and respiration on a common boundary and time basis. The redox fraction alone does not establish a universal 12% biomass limit.
 
@@ -998,7 +995,7 @@ flowchart TD
 - The thioredoxin/ferredoxin system (\cref{eq:unit_III_thioredoxin_cascade}) couples PS I activity to Calvin-cycle enzyme activation via reversible disulfide reduction. Stromal pH 8.0 and Mg$^{2+}$ release further activate RuBisCO and FBPase.
 - At ecosystem scale, GPP estimates depend on measurement model: carbonyl-sulfide uptake can constrain CO$_2$ diffusion through stomata and mesophyll, so productivity claims should name tracer assumptions and biome context \citep{lai2024gppcarbonylsulfide}.
 - NPQ (\cref{eq:unit_III_npq_definition}) is a fluorescence-derived measure with multiple components. Rapid qE can protect against excess excitation through pH-, PsbS- and xanthophyll-dependent processes; slowly relaxing quenching must not automatically be equated with protection or D1 repair \citep{niyogi1998xanthophyll,li2004psbsph}.
-- Artificial photosynthesis bridges biology (engineered cyanobacteria) and chemistry (PEC cells, Mn$_4$Ca biomimetics); silicon PV is more efficient but does not produce storable fuel directly.
+- Artificial photosynthesis connects biological and engineered fuel production. Efficiency comparisons require a product-energy convention, incident-light boundary, area and time interval; a dated ideal model, annual biomass estimate and initial laboratory device result are not one ranking. Photovoltaics produce electricity rather than stored fuel directly.
 - **Connections:** See \cref{sec:unit_III_bioenergetics_and_respiration} for chemiosmotic coupling in mitochondria vs. chloroplasts, \nameref{sec:unit_VIII_unit_intro} for whole-plant carbon and water trade-offs, and \nameref{sec:unit_X_unit_intro} for primary productivity.
 
 ---

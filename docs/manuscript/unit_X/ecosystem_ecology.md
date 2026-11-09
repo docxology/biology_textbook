@@ -66,13 +66,13 @@ An **ecosystem** comprises organisms (biotic component) and the physical/chemica
 
 The distinction between energy **flow** and nutrient **cycling** is fundamental:
 
-: The Two Fundamental Processes: Process and Energy. {#tbl:unit_X_ecosystem_ecology_the_two_fundamental_processes}
+: Energy flow and nutrient cycling: direction, boundaries and reuse. {#tbl:unit_X_ecosystem_ecology_the_two_fundamental_processes}
 | Process | Energy | Nutrients |
 | ------- | ------ | --------- |
-| Direction | One-way (flows through system) | Cyclic (atoms recycled indefinitely) |
-| Source | Solar radiation (99.9%) or chemosynthesis | Geological and atmospheric reservoirs |
-| Efficiency | ~1-2% of solar energy captured by photosynthesis | ~100% recycled over geological time |
-| Limiting? | Rarely limiting (except deep sea, caves) | Often limiting (N, P, Fe, water) |
+| Direction | One-way usable-energy flow, ultimately dissipated as heat | Repeated internal cycling, with inputs, exports and transfers to other reservoirs |
+| Source | Solar radiation or energy-yielding chemical reactions | Geological and atmospheric reservoirs |
+| Efficiency | Depends on incident versus absorbed light, spectrum, area and period | Recycling and retention depend on element, boundary, bioavailability and timescale |
+| Limiting? | Light can limit production through shading, depth, season or mixing | Nutrient or water availability can limit production |
 | Conservation law | Energy conserved but degraded (2nd law) | Mass conserved (atoms neither created nor destroyed) |
 
 ### Ecosystem Services and Human Well-Being
@@ -220,23 +220,14 @@ NBP = NEP - D
 
 > NBP determines whether an ecosystem is a net carbon **sink** ($NBP > 0$) or **source** ($NBP < 0$).
 
-### The Productivity Hierarchy
+### Carbon Accounting: GPP, NPP, NEP and NBP
 
 \begin{equation}
-\text{Solar radiation} \xrightarrow{\sim 1\text{-}2\%} GPP \xrightarrow{-R_a (\sim 50\%)} NPP \xrightarrow{-R_h} NEP \xrightarrow{-D} NBP
+\text{Solar radiation} \xrightarrow{\text{photosynthesis}} GPP \xrightarrow{-R_a} NPP \xrightarrow{-R_h} NEP \xrightarrow{-D} NBP
 \label{eq:ecosystem_ecology_6}
 \end{equation}
 
-Only about 1–2% of incident solar energy is captured photosynthetically as
-**gross primary production** (GPP). Autotrophic respiration ($R_a$) consumes
-roughly half of GPP, leaving **net primary production** (NPP) — the biomass
-actually available to consumers. Subtracting heterotrophic respiration ($R_h$,
-by animals, fungi, and microbes) gives **net ecosystem production** (NEP);
-subtracting further non-respiratory losses such as fire, harvest, and erosion
-($D$) gives **net biome production** (NBP), the quantity that determines
-whether a region is a long-term carbon sink or source. Each arrow is a
-quantitatively large loss, which is why food chains are short and why NBP is
-small relative to GPP.
+Photosynthetic energy capture requires a stated radiation spectrum, incident or absorbed denominator, area and period. Carbon production cannot be compared directly with radiant-energy input without a chemical-energy conversion. Autotrophic respiration ($R_a$) reduces **gross primary production** (GPP) to **net primary production** (NPP); the respiratory fraction varies among systems. Subtracting heterotrophic respiration ($R_h$, by animals, fungi and microbes) gives **net ecosystem production** (NEP); subtracting the additional non-respiratory losses $D$ in this budget gives **net biome production** (NBP). All carbon-accounting terms must use compatible units, boundaries and periods. These are accounting differences, not successive trophic transfers; they neither establish a universal NBP/GPP fraction nor explain food-chain length by themselves.
 
 ### Global Primary Production
 
@@ -355,15 +346,15 @@ graph LR
 
 ### The Biological Pump
 
-The **biological pump** transfers carbon from ocean surface to deep water via biological processes:
+The **biological pump** moves carbon from the upper ocean into its interior through pathways with different depths and fates:
 
 1. **Photosynthesis** by phytoplankton in euphotic zone fixes CO$_2$ into organic carbon
 2. **Sinking particles** — dead phytoplankton, fecal pellets, aggregates (marine snow) sink to depth
 3. **Active transport** — zooplankton diel vertical migration moves carbon downward (feeding at surface at night, metabolizing at depth during day)
-4. **Dissolution** at depth — organic carbon remineralised by bacteria, releasing CO$_2$ into deep water
+4. **Remineralization** — microbial processing returns organic carbon to dissolved inorganic forms during transport and at depth
 5. **Carbonate pump** — CaCO$_3$ shells (foraminifera, coccolithophores) sink and dissolve below the carbonate compensation depth (~4,000 m)
 
-The biological pump exports ~10-15 Pg C/yr to deep water, sequestering it for centuries to millennia. Without the pump, atmospheric CO$_2$ would be ~200 ppm higher.
+Export must specify its reference depth, transport pathways, area and period. Much exported carbon is remineralized before reaching the deep ocean; sequestration duration depends on circulation and remineralization location. Export is neither net air–sea CO$_2$ uptake nor a carbon-storage inventory \citep{henson2019export}. The idealized ocean–atmosphere model literature discussed by Parekh and colleagues estimated almost 200 ppm higher atmospheric CO$_2$ if the soft-tissue pump were eliminated. That is a model-dependent counterfactual, not an observed annual response or an increment to add to a current CO$_2$ series \citep{parekh2006pump}.
 
 ### Key Climate Feedbacks
 
@@ -394,8 +385,8 @@ For an illustrative [**pH**](#gl:ph) decrease from 8.20 to 8.05, [H$^+$] increas
 **3. Methane hydrates and the PETM: hypothesis versus taxonomic response:**
 Methane hydrates store carbon in ice-like structures in sediments. Warming-driven dissociation could contribute to climate feedback, but its effect depends on release, oxidation, atmospheric delivery and timescale. A hydrate contribution to the Paleocene–Eocene Thermal Maximum (PETM, about 56 Ma) remains a hypothesis rather than an established initiation mechanism. The event involved warming, acidification and severe extinction among deep-sea benthic foraminifera; planktic responses included migration and local disappearance without true extinction among the taxa examined at Site 865 \citep{hupp2022petm}. A thermogenic vent dated after PETM onset in the cited study supports a modeled contribution to its prolonged duration; thermogenic vent methane is not proof of hydrate-driven initiation \citep{frieling2016methane}.
 
-**4. CO$_2$ fertilization effect (negative feedback, partially):**
-Higher atmospheric CO$_2$ increases photosynthetic rate (especially in C3 plants), partially offsetting emissions. However, this effect is limited by nitrogen and phosphorus availability, and saturates at high CO$_2$ levels. FACE (Free-Air CO$_2$ Enrichment) experiments show ~15-25% NPP increase at 550 ppm, but diminishing returns beyond this.
+**4. CO$_2$ fertilization: concentration, duration and nutrient context:**
+Elevated CO$_2$ can stimulate photosynthesis and production, but the response depends on vegetation, resources and duration. A 2005 synthesis of four young temperate forest FACE (Free-Air CO$_2$ Enrichment) experiments used achieved mean concentrations of about 550 ppm versus 376 ppm ambient. Its regression predicted a 23 ± 2% annual-NPP stimulation at the dataset's median ambient NPP, not a median of four percentage responses \citep{norby2005face}. In an 11-year Tennessee sweetgum experiment at the same 550-ppm treatment, NPP enhancement declined from 24% in 2001–2003 to 9% in 2008; nitrogen budgets and leaf/stand observations supported declining N availability \citep{norby2010nitrogen}. This is change over duration at one treatment concentration, not a universal threshold above 550 ppm or proof that every mature forest loses its response.
 
 > 🔬 **Clinical Connection — Ocean Acidification and Food Security: A Scoped Hatchery Case:** In 2009 records from an Oregon oyster hatchery, carbonate chemistry at the intake during spawning was associated with later cohort production and midstage growth metrics; this was a record-based study, not a randomized CO$_2$ exposure trial \citep{barton2012oyster}. A 2015 Pacific Northwest account describes carbonate-chemistry monitoring, intake/spawning timing, and sodium-carbonate [**buffer**](#gl:buffer) treatment as local management responses, with continuing constraints \citep{barton2015hatcheryadaptation}. These site- and stage-specific observations do not quantify a worldwide industry value, a 2100 calcification loss, or management success in natural populations.
 
@@ -635,30 +626,28 @@ For a single nutrient pool $X$ (e.g., soil-bound P, kg/ha) with input rate $I$ (
 
 where $k$ is the leakage rate (yr$^{-1}$). At steady state ($dX/dt = 0$): $\hat X = I/k$, and the **mean residence time** is $\tau = 1/k = X/O$. Residence time must be compared with a stated timescale in the same units, not with the dimensionless number 1. Internal recycling frequency also needs the internal cycling flux $F_{internal}$: its approximate number of passes per residence is $F_{internal}/O$ under a specified well-mixed model. Residence time alone cannot determine how many times an atom recycles.
 
-### Hubbard Brook: The Watershed That Defined the Field
+### Hubbard Brook: Watershed Inputs, Concentrations and Export
 
-The **Hubbard Brook Experimental Forest** (New Hampshire, USA) hosts the longest-running ecosystem-scale watershed experiment in the world \citep{bormann1967}. The design is brilliant: a small forested watershed has a single stream outlet, so weighing rainfall inputs against streamwater outputs gives the entire ecosystem nutrient budget — no plot extrapolation needed.
+The **Hubbard Brook Experimental Forest** (New Hampshire, USA) supports long-term watershed studies \citep{bormann1967}. Measuring precipitation inputs and streamwater outputs permits an aqueous nutrient budget, subject to assumptions about weathering, deep seepage, gaseous exchanges and other unmeasured fluxes; it is not automatically the entire elemental budget.
 
-In 1965–1966, Bormann, Likens, and colleagues clear-cut Watershed 2 and suppressed regrowth with herbicides for three years, then compared inputs and outputs against an undisturbed reference watershed. The results overturned the dogma that mature forests "leak" nutrients in proportion to inputs:
+All woody vegetation on the 15.6-ha Watershed 2 was cut in November–December 1965 and left on site. No roads or vehicles were introduced, and herbicides suppressed regrowth during the 1966–1968 growing seasons. This severe cut-and-regrowth-suppression treatment is not ordinary timber removal \citep{hubbardbrookwatershed2}. The 1970 report summarized the following different response metrics in its first two postcut years \citep{likens1970watershed}:
 
-: Hubbard Brook: The Watershed That Defined the Field: Stream output (kg/ha/yr) and Reference (intact). {#tbl:unit_X_ecosystem_ecology_hubbard_brook_the_watershed_that_defined_the_field}
-| Stream output (kg/ha/yr) | Reference (intact) | Clear-cut (year 2) | Ratio |
-| ------------------------ | ------------------ | ------------------ | ----- |
-| **NO$_3^-$–N** | 2.0 | 53 | 26× |
-| **Ca$^{2+}$** | 14 | 78 | 5.6× |
-| **K$^+$** | 1.7 | 36 | 21× |
-| **Streamflow (cm/yr)** | 73 | 100 | 1.4× (no transpiration) |
+: Hubbard Brook response metrics: nitrate concentration is not nitrate-nitrogen export. {#tbl:unit_X_ecosystem_ecology_hubbard_brook_the_watershed_that_defined_the_field}
+| Response relative to undisturbed condition | First postcut year | Second postcut year |
+| --- | --- | --- |
+| Annual streamflow increase | 39% | 28% |
+| Streamwater nitrate concentration ratio | 41-fold | 56-fold |
 
-The clear-cut watershed lost more N in two years than it had accumulated over decades. The lessons:
+These concentration ratios are not nitrate-N mass-export ratios. Export requires integration of concentration with discharge over time, with units distinguishing nitrate from nitrate as nitrogen. Total discharge times its period-matched, discharge-weighted mean concentration gives export; an unweighted or unspecified concentration ratio does not supply that integral.
 
-1. **Live vegetation is the single largest control on nutrient retention.** Roots take up dissolved N-> build biomass -> N stays in the system.
-2. **Transpiration moves water out of soils** and prevents nitrate-leaching events. Removing it raises water tables and flushes nutrients to streams.
-3. **Mature forests are quasi-closed for most nutrients**, retaining 80–95 % of inputs through tight biological cycling.
-4. The same logic explains why agricultural watersheds (no perennial deep-rooted vegetation) leak nitrate and drive hypoxic dead zones in downstream receiving waters.
+1. **Live vegetation can reduce nutrient leakage.** Uptake incorporates nutrients into biomass, and transpiration affects water movement; this combined treatment does not separately quantify every mechanism.
+2. **Removing vegetation changes hydrology, but does not eliminate evaporation.** Nutrient losses depend on discharge and chemical concentrations together.
+3. **Internal recycling is not external-input retention.** Intact Hubbard Brook budgets can have streamwater cation outputs exceeding precipitation inputs. Likens and colleagues attributed net cation losses to weathering under their near-dynamic-equilibrium vegetation assumption. Quantitative retention needs a stated element, input/output boundary and period; no universal 80–95% follows \citep{likens1967budget}.
+4. Agricultural nitrate losses also depend on crop cover, input rates, soils, drainage and timing. This forest manipulation does not establish a universal loss factor for cropping systems.
 
 Hubbard Brook also detected **acid rain** in the 1970s by tracking declining streamwater Ca$^{2+}$ concentration over decades; that signal contributed to the science underlying the U.S. Clean Air Act amendments of 1990. Few ecosystem experiments have had comparable scientific or policy impact.
 
-> **Concept Check:** Why does a clear-cut forest lose 20× more nitrate in streamflow than an intact forest, even though the standing soil-N pool is the same? Trace the mechanism through (a) plant uptake, (b) decomposition rate, (c) hydrology.
+> **Concept Check:** Why can nitrate concentration and streamflow both rise after vegetation removal and regrowth suppression? Trace plant uptake, decomposition and hydrology. What discharge-weighted concentration observations and nitrogen-mass units would be needed to estimate annual nitrate-N export, rather than equate the reported concentration ratio with that export?
 
 ---
 
@@ -690,7 +679,7 @@ The biological pump operates at three scales:
 \label{eq:ecosystem_ecology_export_ratio}
 \end{equation}
 
-where the **e-ratio** is the fraction of NPP that escapes the surface layer as sinking particles. Typical values: 0.1 in oligotrophic gyres (most carbon is recycled in surface), 0.3–0.5 in upwelling zones (large diatoms sink fast), and 0.5+ during diatom blooms in polar oceans.
+For sinking-particle export, the **e-ratio** is particulate carbon flux across a stated depth divided by NPP over a matched area and period. It varies with season, food-web processing and physical conditions; a short bloom measurement is not automatically an annual regional efficiency. Other export pathways require their own accounting \citep{henson2019export}.
 
 \begin{equation}
 F(z)=F(z_0)\left(\frac{z}{z_0}\right)^{-b},\qquad z\ge z_0>0,\ b>0
@@ -772,7 +761,7 @@ Identical supplied N:P can therefore give opposite predictions when the unknown 
 
 Ecosystem-scale stoichiometry generates predictable feedbacks:
 
-- **CO$_2$ fertilization has limits.** Higher atmospheric CO$_2$ raises plant C : N ratios; without proportional N input, growth saturates (the **progressive nitrogen limitation** hypothesis confirmed by long-term FACE experiments).
+- **CO$_2$ fertilization has conditional nutrient limits.** The Tennessee sweetgum FACE experiment supports progressive nitrogen limitation in that stand and period, not a universal absence of sustained responses or a concentration threshold across forests \citep{norby2010nitrogen}.
 - **N enrichment can expose P limitation.** If added N increases production, demand for P can rise; whether limitation shifts depends on initial limitation, P availability, other resources and losses. A light-limited community need not respond to added N. Test the initial state and nutrient-addition response rather than infer an automatic N-to-P transition from loading alone.
 - **Anoxia shifts cycles.** Oxygen depletion suppresses aerobic respiration and aerobic nitrification and can favor nitrate respiration where nitrate, donors and capable organisms remain available. Further acceptor depletion and local chemistry can favor iron or sulfate reduction; pathways can overlap across microenvironments \citep{vandenberg2016dnra}.
 
@@ -823,16 +812,18 @@ The water cycle connects most biogeochemical cycles and drives nutrient transpor
 
 For biology, the water cycle is also a vegetation and land-use cycle. Roots, stomata, leaf area, soil organic matter, and microbial crusts influence infiltration, transpiration, runoff, and groundwater recharge; deforestation, drainage, compaction, and irrigation alter those same fluxes. Climate-change impacts on drought, flood risk, and food security therefore cannot be read from precipitation totals alone; residence time, timing, storage, and plant access to water matter just as much.
 
-### Key Hydrological Fluxes
+### A Dated Global Water Budget: Estimates and Closure
 
-: Global hydrological fluxes (10$^3$ km$^3$/yr). {#tbl:unit_X_ecosystem_ecology_key_hydrological_fluxes}
-| Process | Rate (10$^3$ km$^3$/yr) | Description |
-| ------- | ----------------------- | ----------- |
-| **Evaporation** (ocean) | 434 | Largest single flux |
-| **Precipitation** (ocean) | 398 | |
-| **Evapotranspiration** (land) | 71 | Includes transpiration and direct evaporation |
-| **Precipitation** (land) | 107 | |
-| **Runoff** (rivers to ocean) | 36 | Balances net ocean→land atmospheric transport |
+: Rounded long-term global water-budget compilation based on Trenberth et al. (2007); units 10$^3$ km$^3$/yr. {#tbl:unit_X_ecosystem_ecology_key_hydrological_fluxes}
+| Process | Rate (10$^3$ km$^3$/yr) | Evidence boundary |
+| --- | --- | --- |
+| **Evaporation** (ocean) | 413 | Derived by closing ocean precipitation plus oceanward discharge |
+| **Precipitation** (ocean) | 373 | Rounded GPCP estimate for 1988–2004 |
+| **Evapotranspiration** (land) | 73 | Residual of land precipitation minus discharge |
+| **Precipitation** (land) | 113 | Rounded GPCP estimate for 1988–2004 |
+| **Oceanward discharge** | 40 | Compiled runoff including an estimated Antarctic contribution, not rivers alone |
+
+This is a dated compilation, not five independently observed contemporary fluxes \citep{trenberth2007water}. In its rounded, negligible-mean-storage-change bookkeeping, ocean evaporation minus precipitation and land precipitation minus evapotranspiration both equal 40 in the stated units. Actual seasonal or individual-year budgets include storage changes; the source's precipitation sampling errors are not total uncertainty for the complete water budget.
 
 Forest evapotranspiration supplies moisture to local and downwind precipitation. Transpiration is distinct from evaporation of intercepted water, soil water and inland waters; precipitation-origin and evaporation-destination recycling fractions use different denominators. Estimates depend on region, period, dataset and metric \citep{vanderent2014recycling}. Land-use change can alter these fluxes and patterns, but an unspecified recycling fraction establishes neither a universal tropical-forest rainfall percentage nor a savannification threshold.
 
@@ -1062,12 +1053,12 @@ flowchart LR
 | **CLAW hypothesis** | Proposed DMS-aerosol-cloud-albedo feedback; its strength and climatic effect require evidence |
 | **ANPP and BNPP** | Aboveground and belowground components of NPP; in the stated two-component accounting, $f=\mathrm{ANPP}/\mathrm{NPP}$ and $\mathrm{BNPP}/\mathrm{ANPP}=(1-f)/f$ for $f>0$ |
 | **Martin curve** | Power-law attenuation of organic-matter flux with depth in the ocean |
-| **Hubbard Brook** | Long-running watershed experiment that demonstrated the dominant role of vegetation in nutrient retention |
+| **Hubbard Brook** | Long-term watershed studies of how vegetation, hydrology and biogeochemical processes regulate nutrient inputs and exports |
 | **CLORPT** | Jenny's five soil-forming state factors: climate, organisms, relief, parent material, time |
 | **Soil horizons** | Vertical layers (O, A, E, B, C, R) reflecting depth-dependent pedogenic processes |
 | **Planetary boundaries** | Precautionary reference levels for selected controls of nine Earth-system processes; not certain tipping thresholds or local water-quality standards |
 | **Earth System Science** | Coupled study of biology, geochemistry, hydrology, and atmospheric science as a single planetary system |
-| **Export production / e-ratio** | Fraction of NPP that escapes the surface ocean as sinking particles |
+| **Export production / e-ratio** | Export production is a carbon flux across a stated boundary; the e-ratio divides the specified flux by corresponding NPP over matched area and time |
 | **Open vs. closed cycle** | Whether a nutrient cycle is dominated by external fluxes (open) or internal recycling (closed) |
 | **Mean residence time (τ)** | $X/O$; average time a nutrient atom spends in a pool before leaving |
 
@@ -1096,9 +1087,9 @@ flowchart LR
 10. Compare the proposed DMS-cloud chain in the CLAW hypothesis with permafrost-carbon feedback. Identify the measurements needed to establish each link, its sign, timescale and magnitude rather than assuming a universal planetary thermostat.
 11. Assign trophic levels with `food_web_trophic_levels` for a three-species chain; verify tuna-style pyramids require multiplying efficiencies.
 12. Why is Redfield stoichiometry a useful reference but insufficient to diagnose local nutrient limitation? Distinguish nutrient fractions, availability, demand and enrichment evidence.
-13. The Hubbard Brook clear-cut experiment increased streamwater NO$_3^-$ losses 26-fold. Trace the mechanism through (a) cessation of plant uptake, (b) accelerated decomposition without canopy cooling, (c) elevated water tables and reduced transpiration. Why is this evidence that mature forests function as quasi-closed nutrient systems?
+13. The Hubbard Brook treatment increased streamwater nitrate concentration and annual streamflow. Explain why neither endpoint alone specifies annual nitrate-N export. Trace possible uptake, decomposition and hydrological mechanisms, and identify the inputs, outputs and time boundaries needed to assess retention rather than assume a universal closed forest nutrient cycle.
 14. Compare four methods for measuring NPP (harvest, eddy covariance, $^{14}$C, MODIS remote sensing). For each, give one ecosystem where it is the *most* defensible method and one where it would systematically underestimate true NPP.
-15. A coastal upwelling zone has surface NPP = 1,500 g C/m$^2$/yr and an e-ratio of 0.4; a subtropical gyre has NPP = 50 g C/m$^2$/yr and an e-ratio of 0.1. (a) Calculate export production for each. (b) If both export equal *fractions* of carbon below 1,000 m via a Martin curve with common reference depth $z_0=100$ m and exponent $b=0.858$, which contributes more to long-term carbon sequestration per unit area? (c) How does climate-driven stratification of the surface ocean change both numbers?
+15. For a stipulated annual calculation, assign a coastal upwelling zone NPP = 1,500 g C/m$^2$/yr and an e-ratio of 0.4, and a subtropical gyre NPP = 50 g C/m$^2$/yr and an e-ratio of 0.1, all referenced to 100 m. (a) Calculate particle export production. (b) Apply the same Martin curve with $z_0=100$ m and $b=0.858$ to calculate sinking flux at 1,000 m and compare the per-area fluxes. (c) What circulation and remineralization information is additionally needed to infer sequestration duration? Why do climate-driven changes in these stipulated NPP and e-ratio values require further nutrient, light and ecosystem assumptions?
 16. In two stipulated cases, ANPP is 300 g C/m$^2$/yr. Let $f=\mathrm{ANPP}/\mathrm{NPP}$ be 0.30 in case A and 0.60 in case B, with ANPP + BNPP = NPP. Calculate NPP, BNPP, and BNPP/ANPP for each. What additional evidence is needed to infer drought response, soil carbon storage, or carbon-credit benefits? Distinguish production allocation from net storage and a demonstrated policy effect.
 17. Compare N:P ratios of 6, 16 and 35 under an explicitly stipulated, fully bioavailable fixed-quota N:P demand of 16:1. Then explain why these ratios without that model do not uniquely establish nutrient limitation, co-limitation or diatom/cyanobacterium/dinoflagellate dominance in nature.
 18. Evaluate Gaia-style claims by comparing specified stabilizing and amplifying feedbacks. Why do organismal selection, coupled dynamics and present habitability not by themselves establish a purposeful planetary superorganism?
@@ -1143,8 +1134,8 @@ print(food_web_trophic_levels(web))
 - **Sulfur cycle:** microbial transformations link sulfur pools; CLAW proposes a DMS-cloud feedback, not an established universal thermostat. Acid-deposition outcomes depend on emissions and ecosystem conditions.
 - **Measuring NPP:** harvest, eddy covariance (FLUXNET), $^{14}$C uptake, and remote sensing capture different components and use different inferences. GPP/respiration partitioning, aboveground/belowground allocation, and net carbon storage must be distinguished; the allocation cases here are stipulated, not measured biome averages.
 - **Rainfall variability:** vegetation activity depends on event timing and intensity as well as precipitation totals, so productivity arguments should separate daily rainfall variability from mean water supply \citep{feldman2024rainfallvariability}.
-- **Hubbard Brook \citep{bormann1967}:** the clear-cut experiment showed live vegetation retains 80–95% of nutrient inputs; mature forests are quasi-closed for most nutrients. Open vs. closed nutrient regimes governed by mean residence time $\tau = X/O$.
-- **Ocean ecosystem ecology:** half of global NPP; productivity zones (euphotic, mesopelagic, abyssopelagic, upwelling, gyres, polar); biological pump exports ~10–15 Pg C/yr; Martin curve attenuates flux with depth.
+- **Hubbard Brook:** cutting vegetation and suppressing regrowth changed streamflow and nutrient concentrations; concentration ratios are not mass-export ratios. Quantitative retention depends on element, inputs, outputs and period. Mean residence time $\tau=X/O$ alone does not determine internal recycling.
+- **Ocean ecosystem ecology:** half of global NPP; productivity zones (euphotic, mesopelagic, abyssopelagic, upwelling, gyres, polar); biological export needs a depth, period and pathway; a Martin attenuation curve does not by itself establish sequestration duration.
 - **Soil formation:** Jenny's CLORPT factors; horizon differentiation (O–A–E–B–C–R); termites and ants act as soil engineers by moving particles, organic matter, water, and microbial metabolism; soils store 1,500–2,400 Pg C; warming-driven SOC release is a major positive climate feedback.
 - **Coupled cycles:** Redfield 106:16:1 is a broad-scale molar reference; local limitation needs specified nutrient fractions, availability, demand and tests. The planetary-boundaries assessment is a separate metric framework \citep{richardson2023earth}.
 - **Water cycle:** transpiration and direct evaporation contribute differently to local and downwind precipitation; recycling metrics require stated regions, periods and denominators.
