@@ -564,35 +564,27 @@ David Baltimore (Nobel Prize 1975) classified viruses by genome type and replica
 ### Bacteriophage Life Cycles
 
 ```mermaid
-stateDiagram-v2
-    [*] --> Adsorption: Phage binds host receptor
-    Adsorption --> DNA_Injection: Lambda noncontractile tail delivers DNA
-    DNA_Injection --> Decision: Phage DNA enters host
-
-    state Decision <<choice>>
-    Decision --> Lytic_Pathway: CI repressor\nnot dominant
-    Decision --> Lysogenic_Pathway: CI repressor\ndominant
-
-    state "Lytic Cycle (~25 min)" as Lytic_Pathway {
-        Early_Genes --> DNA_Replication: Host RNAP hijacked
-        DNA_Replication --> Late_Genes: Structural proteins
-        Late_Genes --> Assembly: Head + tail + fibers
-        Assembly --> Lysis: Holin + endolysin
-    }
-
-    state "Lysogenic Cycle" as Lysogenic_Pathway {
-        Integration --> Prophage: Lambda integrase\n(attB x attP)
-        Prophage --> Replication_with_Host: CI repressor\nmaintains lysogeny
-        Replication_with_Host --> Prophage: Passive replication
-    }
-
-    Lysis --> [*]: 100-200 phage released\n(burst size)
-    Replication_with_Host --> Induction: SOS response\n(UV, DNA damage)\nRecA inactivates CI
-    Induction --> Early_Genes: Excision from chromosome
+---
+config:
+  layout: dagre
+---
+flowchart TD
+    DNA_Injection["Lambda infection<br/>Noncontractile tail<br/>delivers DNA"]
+    Lytic_Pathway["Lytic growth<br/>Gene expression and<br/>DNA replication"]
+    Prophage["Integrated prophage<br/>Integrase: attP × attB<br/>CI represses lytic genes"]
+    Lysis["Assembly and lysis<br/>Progeny released"]
+    Induction["SOS induction<br/>RecA stimulates<br/>CI autocleavage<br/>Derepression; excision"]
+    DNA_Injection -->|lytic route| Lytic_Pathway
+    DNA_Injection -->|lysogenic route| Prophage
+    Lytic_Pathway --> Lysis
+    Prophage -->|copied with host DNA| Prophage
+    Prophage -->|DNA damage| Induction
+    Induction -->|lytic growth resumes| Lytic_Pathway
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: State diagram of the phage lambda lytic / lysogenic decision and the SOS-induced switch from lysogeny to lytic growth. -->
+<!-- alt: Flowchart showing lambda-specific lytic and lysogenic alternatives. CI represses lytic genes while the integrated prophage is copied with host DNA. DNA damage activates the SOS response; RecA stimulates CI autocleavage, followed by lytic derepression and prophage excision. The diagram omits detailed switch regulation and makes no fixed cycle-time or burst-size claim. Lambda's noncontractile tail differs from the separate T4 example below; these alternatives do not describe all phages or viruses. -->
 
-*State diagram of the phage lambda lytic / lysogenic decision and the SOS-induced switch from lysogeny to lytic growth.*
+*Lambda-specific lytic and lysogenic alternatives. CI represses lytic genes while the integrated prophage is copied with host DNA. DNA damage activates the SOS response; RecA stimulates CI autocleavage, followed by lytic derepression and prophage excision. The diagram omits detailed switch regulation and makes no fixed cycle-time or burst-size claim. Lambda's noncontractile tail differs from the separate T4 example below; these alternatives do not describe all phages or viruses.*
 
 **Separate lytic example — T4 (not lambda):** The following seven steps describe a contractile-tailed, obligately lytic T4 phage; the preceding decision diagram describes temperate lambda.
 

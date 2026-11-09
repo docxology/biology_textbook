@@ -400,49 +400,20 @@ Synthesized from dopamine by dopamine β-hydroxylase (DBH). Locus coeruleus (bra
 ## Computational Neuroscience and AI Models
 
 ```mermaid
-flowchart LR
-    subgraph "Computational Neuroscience"
-        direction LR
-        A["Hodgkin-Huxley Equations (1952)"] --> B["Cable Theory (1960s)"]
-        B --> C["Integrate-and-Fire Models (1907, 1960s)"]
-        C --> D["FitzHugh-Nagumo (1960s)"]
-        D --> E["Hindmarsh-Rose (1980s)"]
-        E --> F["Izhikevich Model (2003)"]
-        F --> G["Neural Mass Models (1990s)"]
-    end
-
-    subgraph "Machine Learning & AI"
-        direction LR
-        H["Perceptron (1957)"] --> I["Backpropagation (1986)"]
-        I --> J["Support Vector Machines (1995)"]
-        J --> K["Deep Learning (2006)"]
-        K --> L["Convolutional Neural Networks (2012)"]
-        L --> M["Transformers (2017)"]
-        M --> N["Spiking Neural Networks (2000s)"]
-    end
-
-    subgraph "Convergence"
-        direction TB
-        G --> O["Biophysically Detailed Models"]
-        N --> O
-        O --> P["Neuromorphic Computing"]
-        P --> Q["Brain-Computer Interfaces"]
-        Q --> R["Neural Decoding & Encoding"]
-        R --> S["AI for Drug Discovery"]
-    end
-
-    style A fill:#4a90d9,color:#fff
-    style H fill:#4a90d9,color:#fff
-    style G fill:#5cb85c,color:#fff
-    style N fill:#5cb85c,color:#fff
-    style P fill:#f0ad4e,color:#000
-    style Q fill:#f0ad4e,color:#000
-    style R fill:#f0ad4e,color:#000
-    style S fill:#f0ad4e,color:#000
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    M["Mechanistic models<br/>Conductance and cable"] --> P["Testable predictions<br/>at a defined scale"]
+    S["Statistical models<br/>Features and prediction"] --> P
+    D["Neural recordings<br/>and perturbations"] --> E["Held-out evaluation<br/>Baselines and controls"]
+    P --> E
+    classDef default fill:#f6f8fa,stroke:#4b5563,color:#111827,font-size:20px;
 ```
-<!-- alt: Flowchart showing convergence of computational neuroscience and AI. Early neural models (Hodgkin-Huxley, integrate-and-fire) inspired artificial neurons, while modern deep learning architectures are now used to model brain function and analyze neural data. -->
+<!-- alt: Flowchart showing mechanistic conductance/cable models and statistical predictors address different questions. Their assumptions and predictions must be evaluated against suitable neural observations, perturbations, held-out data and controls. The map is not a chronology, a claim that a learning model reproduces a biological mechanism, or evidence of clinical generalization. -->
 
-*The convergence of computational neuroscience and AI. Early neural models (Hodgkin-Huxley, integrate-and-fire) inspired artificial neurons, while modern deep learning architectures are now used to model brain function and analyze neural data.*
+*Mechanistic conductance/cable models and statistical predictors address different questions. Their assumptions and predictions must be evaluated against suitable neural observations, perturbations, held-out data and controls. The map is not a chronology, a claim that a learning model reproduces a biological mechanism, or evidence of clinical generalization.*
 
 ### Computational Neuroscience Models
 
@@ -454,10 +425,10 @@ flowchart LR
 
 - **Izhikevich model** (2003): A hybrid model that combines the biological plausibility of Hodgkin-Huxley with the computational efficiency of integrate-and-fire models.
 
-**Large-scale brain models**:
+**Large-scale models and historical research programs**:
 
-- **Blue Brain Project** (EPFL): Aims to create a digital reconstruction of the rodent brain and ultimately the human brain using detailed biophysical models.
-- **Human Brain Project** (EU): A €1 billion initiative to simulate the entire human brain using supercomputers.
+- **Blue Brain Project** (EPFL): The institutional closeout page describes a 2024 endpoint and reference, data-driven mouse-brain models. It explicitly distinguishes these representations from exact digital twins of a particular brain; an institutional modeling goal is not proof of a completed human-brain reconstruction \citep{epflndbluebraincloseout}.
+- **Human Brain Project** (EU): Its completion announcement dates the EU-funded runtime to 2013--2023 and identifies **EBRAINS** as the continuing research infrastructure. This is a historical multi-scale neuroscience program, not a current promise to simulate an entire human brain \citep{hbp2023completion}.
 - **Spaun** (University of Waterloo): A large-scale functional brain model that can perform multiple cognitive tasks.
 
 ### Machine Learning for Neural Data Analysis
@@ -531,7 +502,7 @@ A single shifted-label result is a negative control, not a permutation-test p va
 
 ### AI for Drug Discovery in Neurology
 
-Traditional drug discovery takes 10-15 years and billions of dollars. AI is accelerating the process:
+AI methods can prioritize candidate targets and molecules, but prediction or screening performance is not itself evidence of clinical efficacy, safety or shorter development time. Distinguish computational benchmarks, experimental target engagement and clinical outcomes:
 
 - **Target identification**: Machine learning models analyze genomic, transcriptomic, and proteomic data to identify promising drug targets.
 
@@ -598,63 +569,31 @@ As AI becomes more integrated with neuroscience, important ethical questions ari
 ### Long-Term Potentiation (LTP)
 
 ```mermaid
-flowchart LR
-    subgraph Induction ["LTP Induction (Schaffer Collateral → CA1)"]
-        direction TB
-        HFS["High-frequency stimulation<br/>(100 Hz, 1 s)"] --> AMPA1["AMPA receptor activation<br/>Large EPSP<br/>Postsynaptic depolarization"]
-        AMPA1 --> MgBlock["Mg2+ expelled from<br/>NMDA receptor channel"]
-        MgBlock --> NMDA1["NMDA receptor opens<br/>(glutamate already bound)"]
-        NMDA1 --> CaInflux["Ca2+ floods into<br/>postsynaptic spine"]
-    end
-
-    subgraph Early ["Early LTP (minutes to hours)"]
-        direction TB
-        CaInflux --> CaMKII["CaMKII autophosphorylation<br/>(T286: becomes Ca2+-independent)"]
-        CaMKII --> AMPAphos["AMPA receptor phosphorylation<br/>Ser831 → increased conductance"]
-        CaMKII --> AMPAinsert["AMPA receptor insertion<br/>from recycling endosomes<br/>(Exocytosis to synapse)"]
-        AMPAphos --> Enhanced["ENHANCED SYNAPTIC STRENGTH"]
-        AMPAinsert --> Enhanced
-    end
-
-    subgraph Late ["Late LTP (hours to days)"]
-        direction TB
-        CaInflux --> PKA["PKA activation<br/>(via Ca2+/calmodulin/AC)"]
-        PKA --> CREB["CREB phosphorylation<br/>(transcription factor)"]
-        CREB --> Genes["Gene expression:<br/>Arc, BDNF, c-Fos,<br/>Homer1a"]
-        Genes --> Structural["STRUCTURAL CHANGES:<br/>New spine formation<br/>Spine enlargement<br/>Synapse stabilization"]
-    end
-
-    subgraph Recycling ["Neurotransmitter Recycling"]
-        direction TB
-        Mono["Released monoamines"] --> Reuptake["DAT / SERT / NET<br/>neuronal reuptake"]
-        Reuptake --> VMAT["VMAT vesicular loading"]
-        Reuptake --> Metab["Intracellular MAO metabolism<br/>COMT in appropriate extra-neuronal contexts"]
-        Glu["Released glutamate"] --> EAAT["EAAT uptake<br/>neurons and astrocytes"]
-        EAAT --> Cycle["Astrocyte glutamine cycle<br/>returns glutamine to neurons"]
-        Cycle --> NeurGlu["Neuronal glutamate"]
-        EAAT -->|"Neuronal uptake"| NeurGlu
-        NeurGlu --> VGLUT["VGLUT vesicular loading"]
-        ACh["Released acetylcholine"] --> AChE["Extracellular AChE<br/>choline + acetate"]
-        AChE --> Choline["Choline uptake and ACh resynthesis"]
-        Choline --> VAChT["VAChT vesicular loading"]
-        Mono --> Diff["Diffusion away from cleft"]
-        Glu --> Diff
-        ACh --> Diff
-    end
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    I["Specified induction<br/>Agonists and depolarization"] --> N["NMDA-mediated Ca2+ entry<br/>under stated Mg2+ conditions"]
+    N --> S["Calcium-sensitive signaling<br/>CaMKII example"]
+    S --> A["AMPAR modification and traffic<br/>Can strengthen responses"]
+    A -. "Protocol-dependent persistence" .-> L["Gene/protein regulation<br/>and structural change"]
+    S -. "Other contexts and protocols" .-> O["LTD or no lasting change<br/>can also result"]
+    classDef default fill:#f6f8fa,stroke:#4b5563,color:#111827,font-size:20px;
 ```
-<!-- alt: Flowchart showing a canonical NMDA-dependent LTP pathway and transmitter recycling. The illustrated calcium/CaMKII/AMPA sequence describes a specified form of potentiation, not every synapse or induction protocol. Later expression and structural changes can support persistence; uptake, degradation and diffusion clear transmitters. -->
+<!-- alt: Flowchart showing selected NMDA-dependent potentiation, not a universal induction sequence or clock. Calcium-sensitive signaling, including CaMKII, can regulate AMPA-receptor function and traffic; later persistence depends on the preparation and protocol. Other contexts can yield LTD or no lasting change. CaMKII autophosphorylation supports partial autonomous activity, not permanent constitutive activation. -->
 
-*A canonical NMDA-dependent LTP pathway and transmitter recycling. The illustrated calcium/CaMKII/AMPA sequence describes a specified form of potentiation, not every synapse or induction protocol. Later expression and structural changes can support persistence; uptake, degradation and diffusion clear transmitters.*
+*Selected NMDA-dependent potentiation, not a universal induction sequence or clock. Calcium-sensitive signaling, including CaMKII, can regulate AMPA-receptor function and traffic; later persistence depends on the preparation and protocol. Other contexts can yield LTD or no lasting change. CaMKII autophosphorylation supports partial autonomous activity, not permanent constitutive activation \citep{miller1986camkiiswitch,miller1988camkiisites}.*
 
-1. High-frequency stimulation (100 Hz, 1 s) produces large EPSPs via AMPA receptors
-2. Sufficient depolarization removes Mg$^{2+}$ block from NMDA receptors
-3. Ca$^{2+}$ floods into the postsynaptic spine via NMDA receptors
-4. Ca$^{2+}$ activates **CaMKII** (calcium/calmodulin-dependent protein kinase II):
-   - Autophosphorylation at T286 makes CaMKII constitutively active (Ca$^{2+}$-independent)
-   - Phosphorylates AMPA receptors at Ser831, increasing single-channel conductance
-5. AMPA receptor trafficking: New AMPA receptors inserted into the synapse from recycling endosomes
-6. **Silent synapses:** Some synapses have NMDA receptors but no AMPA receptors. LTP "unmasks" these by inserting AMPA receptors, converting them to functional synapses.
-7. **Late LTP** (>3 h): Requires new gene expression. Ca$^{2+}$ activates PKA, which phosphorylates CREB. CREB-mediated [**transcription**](#gl:transcription) produces Arc, BDNF, c-Fos. Structural changes include dendritic spine enlargement and formation of new spines.
+The following is a specified NMDA-dependent potentiation example, not a requirement for each synapse:
+
+1. An induction train can drive AMPA-mediated depolarization; a 100-Hz, 1-s train is one illustrative protocol, not a necessary timing rule.
+2. Depolarization reduces voltage-dependent Mg$^{2+}$ block when glutamate and co-agonist occupancy permit NMDA-receptor activation.
+3. NMDA receptors can then contribute Ca$^{2+}$ entry to the postsynaptic spine.
+4. Ca$^{2+}$/calmodulin activates **CaMKII**. Alpha-subunit Thr286 autophosphorylation can support activity beyond the initiating calcium signal; the original experiments describe partial calcium independence, not a permanent state immune to regulation \citep{miller1986camkiiswitch,miller1988camkiisites}.
+5. In specified preparations, AMPA-receptor phosphorylation and trafficking can increase postsynaptic responsiveness.
+6. Some AMPA-silent synapses can acquire functional AMPA receptors during potentiation; this is not a description of each synapse.
+7. **Longer persistence** can involve [**transcription**](#gl:transcription), protein synthesis and structural changes. Its timing and molecular requirements depend on the induction protocol and preparation rather than a fixed three-hour boundary.
 
 ### Long-Term Depression (LTD)
 

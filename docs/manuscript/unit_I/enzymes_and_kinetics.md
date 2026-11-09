@@ -307,36 +307,23 @@ From the Lineweaver-Burk plot:
 
 ## Enzyme Inhibition and Kinetic Signatures
 
+The reversible summaries below assume simple single-substrate initial-rate models, fixed free inhibitor concentration, and inactive inhibitor-bound complexes. Parameter shifts are relative to matched uninhibited conditions; E denotes free enzyme and ES the enzyme–substrate complex.
+
 ```mermaid
-stateDiagram-v2
-    [*] --> FreeEnzyme: E exists in<br/>solution
-
-    FreeEnzyme --> ES: S binds<br/>(active site)
-    ES --> FreeEnzyme: S dissociates
-    ES --> EP: Catalysis<br/>(k_cat)
-    EP --> FreeEnzyme: P released
-
-    FreeEnzyme --> EI_comp: Competitive<br/>inhibitor binds<br/>(site-overlap example)
-    EI_comp --> FreeEnzyme: I dissociates<br/>(reversible)
-
-    ES --> ESI_uncomp: Uncompetitive<br/>inhibitor binds<br/>(only to ES)
-    ESI_uncomp --> ES: I dissociates
-
-    FreeEnzyme --> EI_mixed: Mixed inhibitor<br/>binds (distal-site example)
-    EI_mixed --> FreeEnzyme: I dissociates
-    ES --> ESI_mixed: Mixed inhibitor<br/>also binds ES
-    ESI_mixed --> ES: I dissociates
-
-    FreeEnzyme --> EI_irrev: Irreversible<br/>inactivation<br/>(covalent example)
-
-    note right of EI_comp: Km↑, Vmax unchanged<br/>Overcome by high [S]
-    note right of ESI_uncomp: Km↓, Vmax↓<br/>(proportional)
-    note right of EI_mixed: Km changed, Vmax↓
-    note right of EI_irrev: No recovery after I removal<br/>(stated observation time)
+---
+config:
+  layout: dagre
+---
+flowchart LR
+    FreeEnzyme["Competitive<br/>I binds E; excludes S"] --- EI_comp["Apparent Km rises<br/>Vmax unchanged"]
+    ES["Uncompetitive<br/>I binds ES only"] --- ESI_uncomp["Apparent Km and Vmax fall<br/>by the same factor"]
+    EI_mixed["Mixed<br/>I binds E and ES"] --- ESI_mixed["Vmax falls; Km varies<br/>Ki = Ki': Km unchanged"]
+    EI_irrev["Irreversibility test<br/>Remove free inhibitor"] --> Observation["No activity recovery<br/>in stated time/conditions"]
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: State diagram illustrating simple inhibitor-binding schemes and kinetic patterns. Site overlap, distal-site binding and covalent inactivation are example mechanisms, not class definitions. Irreversibility means no recovery after inhibitor removal over the stated observation time. -->
+<!-- alt: Flowchart showing selected inhibition models and their apparent kinetic patterns. Arrowless pairs associate binding schemes with predictions; the arrow marks a removal-and-recovery test. In the productive route, E + S reversibly forms ES, which yields E + P. Equal inhibitor dissociation constants in the mixed model give pure noncompetitive behavior. Site location and covalency are possible mechanisms, not kinetic definitions; one curve does not establish affinity, mechanism or irreversibility. -->
 
-*State diagram illustrating simple inhibitor-binding schemes and kinetic patterns. Site overlap, distal-site binding and covalent inactivation are example mechanisms, not class definitions. Irreversibility means no recovery after inhibitor removal over the stated observation time.*
+*Selected inhibition models and their apparent kinetic patterns. Arrowless pairs associate binding schemes with predictions; the arrow marks a removal-and-recovery test. In the productive route, E + S reversibly forms ES, which yields E + P. Equal inhibitor dissociation constants in the mixed model give pure noncompetitive behavior. Site location and covalency are possible mechanisms, not kinetic definitions; one curve does not establish affinity, mechanism or irreversibility \citep{iubmb1981kinetics}.*
 
 ### Competitive Inhibition and Apparent Km
 

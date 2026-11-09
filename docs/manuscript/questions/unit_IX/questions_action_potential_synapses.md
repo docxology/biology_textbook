@@ -91,9 +91,9 @@ SOLUTION -->
 10. What is long-term potentiation (LTP)? In which brain region was it first described?
 
 <!-- SOLUTION
-**Answer (Q10, Recall).** Long-term potentiation (LTP) is an activity-dependent, long-lasting (hours to days) increase in synaptic efficacy following high-frequency stimulation — a leading cellular model of learning and memory. It was first described in the **hippocampus**, at the perforant-path inputs to the dentate gyrus (Bliss and Lømo, 1973), and is classically studied at the Schaffer-collateral → CA1 synapse. NMDA-receptor-dependent Ca²⁺ influx activates CaMKII, which phosphorylates and inserts AMPA receptors (early LTP); late LTP additionally requires CREB-driven gene expression and structural spine changes. See \cref{sec:unit_IX_action_potential_synapses}.
+**Answer (Q10, Recall).** LTP is a persistent, activity-dependent increase in synaptic efficacy; the induction protocol and time course depend on the synapse and preparation. It was described in the **hippocampus**, including perforant-path inputs to dentate gyrus in Bliss and Lømo's 1973 study, and is classically studied at Schaffer-collateral → CA1 synapses. A commonly studied NMDA-dependent example links calcium entry, CaMKII signaling and altered AMPA-receptor function/traffic; longer persistence can involve gene expression and structural change, depending on the preparation and protocol. See \cref{sec:unit_IX_action_potential_synapses}.
 
-**Scoring guide (4 points).** 2 points: persistent efficacy change; 2 points: hippocampal historical context. Award partial credit for correct intermediate reasoning; for quantitative work require a stated unit/boundary when applicable.
+**Scoring guide (4 points).** 2 points: persistent efficacy increase with preparation/protocol dependence; 2 points: hippocampal historical context.
 SOLUTION -->
 
 <!-- assess: LO=LO1; bloom=Apply; difficulty=Application; format=short-answer; minutes=5 -->

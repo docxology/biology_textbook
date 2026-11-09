@@ -139,68 +139,37 @@ Insulin is the master anabolic [**hormone**](#gl:hormone), secreted by pancreati
 \end{equation}
 
 ```mermaid
-flowchart LR
-    subgraph Receptor ["Receptor Activation"]
-        direction TB
-        INS["Insulin"] --> IR["Insulin receptor<br/>(α₂β₂ tyrosine kinase)"]
-        IR -->|"trans-autophosphorylation"| IRS["IRS-1/2<br/>(Tyr phosphorylated)"]
-        IRS --> PI3K["PI3K (p85/p110)"]
-        PI3K -->|"PIP₂ → PIP₃"| PIP3["PIP₃ (membrane)"]
-    end
-
-    subgraph AKTact ["AKT Activation"]
-        direction TB
-        PDK1["PDK1"] -->|"phospho-Thr308"| AKT["Akt"]
-        MT2["mTORC2"] -->|"phospho-Ser473"| AKT
-    end
-
-    subgraph Targets ["AKT Effectors"]
-        direction TB
-        GLUT4["GLUT4 vesicle exocytosis"]
-        GS["Glycogen synthase active"]
-        GNG["PEPCK, G6Pase OFF"]
-        PROT["Protein synthesis"]
-        LIPO["Lipogenesis"]
-        SURV["Anti-apoptosis"]
-    end
-
-    PIP3 --> PDK1
-    PIP3 --> MT2
-    AKT --> AS160["AS160-P → Rab10 ON"]
-    AS160 --> GLUT4
-    AKT --> GSK3["GSK3-P (inhibited)"]
-    GSK3 --> GS
-    AKT --> FOXO["FoxO1-P → cytoplasm"]
-    FOXO --> GNG
-    AKT --> TSC["TSC2-P (inhibited)"]
-    TSC --> RHEB["Rheb-GTP ↑"]
-    RHEB --> MT1["mTORC1 ON"]
-    MT1 --> PROT
-    MT1 --> LIPO
-    AKT --> BAD["BAD-P → 14-3-3"]
-    BAD --> SURV
-
-    style INS fill:#e6ffe6
-    style GLUT4 fill:#cce5ff
-    style PROT fill:#cce5ff
+---
+config:
+  layout: dagre
+---
+flowchart TD
+    IR["Insulin receptor<br/>IRS-1/2 recruitment"] --> PI["PI3K → PIP₃<br/>Akt/PDK1 recruitment"]
+    PI --> PDK["PDK1"]
+    PDK -->|"Thr308"| AKT["Akt"]
+    MT2["mTORC2"] -->|"Ser473"| AKT
+    AKT --> GLUT4["Muscle/adipose:<br/>GLUT4 traffic"]
+    AKT --> FOXO["Liver: FoxO1<br/>nuclear exclusion"]
+    AKT --> MT1["TSC2/mTORC1:<br/>anabolic responses"]
+    classDef default fill:#ffffff,stroke:#333333,color:#111111,font-size:20px;
 ```
-<!-- alt: Flowchart showing insulin receptor activation recruits IRS proteins, PI3K, Akt, and mTOR-linked targets to promote glucose uptake, glycogen synthesis, and anabolic metabolism. -->
+<!-- alt: Flowchart showing selected insulin–Akt signaling routes and tissue-dependent outputs. GLUT4 traffic concerns responsive muscle and adipose cells; hepatic FoxO1 regulation is not an all-or-none switch for gluconeogenesis. The mTORC1-linked response also depends on nutrient and cellular context. -->
 
-*Insulin receptor activation recruits IRS proteins, PI3K, Akt, and mTOR-linked targets to promote glucose uptake, glycogen synthesis, and anabolic metabolism.*
+*Selected insulin–Akt signaling routes and tissue-dependent outputs. GLUT4 traffic concerns responsive muscle and adipose cells; hepatic FoxO1 regulation is not an all-or-none switch for gluconeogenesis. The mTORC1-linked response also depends on nutrient and cellular context.*
 
-*Insulin signaling cascade from receptor to downstream metabolic and growth effects (Mermaid).* Akt is the central node, integrating PDK1 (Thr308) and mTORC2 (Ser473) phosphorylations to drive glucose uptake, glycogen synthesis, lipogenesis, and protein synthesis.
+Akt is the central node of this selected receptor-to-output cascade, integrating PDK1 (Thr308) and mTORC2 (Ser473) phosphorylations. Its downstream routes favor glucose uptake, glycogen synthesis, lipogenesis, and protein synthesis in responsive tissues, rather than imposing the same metabolic program on every cell. The diagram omits intermediate targets retained below.
 
 **Downstream Akt targets:**
 
-: Fasting Physiology: Fuel Switch Timeline: Target and Akt effect. {#tbl:unit_III_metabolic_integration_fasting_physiology_fuel_switch_timeline_2}
-| Target | Akt effect | Metabolic outcome |
+: Selected Akt targets: tissue-dependent metabolic effects and context. {#tbl:unit_III_metabolic_integration_fasting_physiology_fuel_switch_timeline_2}
+| Target | Akt effect | Outcome and tissue/context |
 | ------ | ---------- | ----------------- |
-| AS160 (TBC1D4) | Phosphorylation → Rab-GAP inactivated | **GLUT4 vesicle exocytosis** → glucose uptake |
-| GSK3 (glycogen synthase kinase 3) | Phosphorylation → inhibited | **Glycogen synthase active** → glycogen synthesis |
-| FoxO1 | Phosphorylation → nuclear exclusion | **PEPCK and G6Pase [**gene**](#gl:gene)s OFF** → gluconeogenesis inhibited |
-| TSC2 | Phosphorylation → inhibited | **mTORC1 activated** → [**protein**](#gl:protein) synthesis, lipogenesis |
-| BAD | Phosphorylation → binds 14-3-3 | **Anti-apoptotic** → cell survival |
-| PDE3B | Phosphorylation → activated | **cAMP degradation** → opposes glucagon |
+| AS160 (TBC1D4) | Phosphorylation → Rab-GAP inactivated | **GLUT4 vesicle exocytosis** → glucose uptake in responsive muscle/adipose cells |
+| GSK3 (glycogen synthase kinase 3) | Phosphorylation → inhibited | Favors **glycogen synthase activity** and glycogen synthesis in responsive tissues |
+| FoxO1 | Phosphorylation → nuclear exclusion | In liver, reduces **PEPCK and G6Pase [**gene**](#gl:gene) expression**; not complete shutdown of gluconeogenesis |
+| TSC2 | Phosphorylation → inhibited | Favors **mTORC1 activation**, [**protein**](#gl:protein) synthesis and lipogenesis when nutrient/cellular context permits |
+| BAD | Phosphorylation → binds 14-3-3 | Favors **cell survival** in responsive cells |
+| PDE3B | Phosphorylation → activated | **cAMP degradation** → reduces cAMP signaling in responsive cells |
 
 **GLUT4 translocation mechanism (in detail):**
 

@@ -5345,82 +5345,82 @@
       "reviewer": "WorkflowzRootClosureAcceptance#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:386:c992ae060495",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:373:c992ae060495",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_I/enzymes_and_kinetics.md",
-      "line": 386,
+      "line": 373,
       "excerpt": "In the simple **uncompetitive inhibition** scheme, inhibitor binds only to the ES complex, not free enzyme; the kinetic class is defined by the proportional decreases in apparent $K_m$ and $V_{max}$:",
       "rationale": "The ES-only mechanism is explicitly a simple scheme. Dividing the displayed denominator by alpha-prime yields apparent Km/alpha-prime and Vmax/alpha-prime, preserving their ratio; the kinetic classification is not promoted into a generally identified physical binding site. Official definitions: https://iubmb.qmul.ac.uk/kinetics/ek4t6.html §6.4.",
       "reviewer": "WorkflowzFinalMitigationRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:419:8d22ea8bf3f6",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:406:8d22ea8bf3f6",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_I/enzymes_and_kinetics.md",
-      "line": 419,
+      "line": 406,
       "excerpt": "**Irreversible inhibition** means that activity does not recover after free inhibitor is removed (e.g., by dilution or dialysis) over the stated observation period and conditions. Covalent modification is one mechanism, not the definition; very slow dissociation can mimic irreversibility. The classification does not imply an eternally permanent bond or that recovery always requires new protein synthesis \\citep{iubmb1981kinetics}.",
       "rationale": "The operational removal/time/condition definition agrees with official §6.1. Slow release can obscure the reversible/irreversible distinction, and covalence does not establish an eternal bond or obligatory new-protein recovery. https://iubmb.qmul.ac.uk/kinetics/ek4t6.html.",
       "reviewer": "WorkflowzFinalMitigationRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:534:3e1fb977da7a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:521:3e1fb977da7a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_I/enzymes_and_kinetics.md",
-      "line": 534,
+      "line": 521,
       "excerpt": "For the stated constant-exponent model, a plot of $\\log[y/(1-y)]$ against log concentration on a fixed reference scale is straight, with slope $n$ and half-response intercept at $\\log K_{0.5}$. This is a model relation, not a guarantee that experimental binding or rate data form one straight line.",
       "rationale": "The displayed constant-exponent Hill expression gives log[y/(1-y)]=n(log[S]−logK0.5), so the stated slope and half-response crossing follow on the declared reference scale. The surrounding corrected section explicitly separates rate response from occupancy and fitted exponent from stoichiometry. Its worked values 64/189 and 216/341 are stipulated normalized rates, not binding measurements. Official §10 permits concentration-dependent experimental Hill slopes and distinguishes kinetic cooperativity from microscopic interactions; §11 independently defines allostery: https://iubmb.qmul.ac.uk/kinetics/ek7.html. The retained approximate hemoglobin coefficient is not newly introduced empirical data.",
       "reviewer": "WorkflowzRootClosureAcceptance#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:620:694d96035290",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:607:694d96035290",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_I/enzymes_and_kinetics.md",
-      "line": 620,
+      "line": 607,
       "excerpt": "3. **Noise depends on operating point.** A sufficiently low-input Hill regime can attenuate some concentration fluctuations, whereas a steep region can amplify them. Effects depend on baseline, fluctuation size and dynamics; a sigmoid alone does not guarantee noise insulation or stable biological switching.",
       "rationale": "The independent reviewer identified the neighboring hard-threshold error; it is now replaced by a continuous, exponent- and interval-dependent rate-response statement. Actual public hill_equation calls in qualified receipt18559-4d3c24bbb18a4babad182765b6265f31 give responses near0.49 and0.51 at0.99 and1.01 times the half-response for exponent4, not off/on states. For a finite Hill exponent above one, sufficiently low-input small-signal sensitivity tends toward zero, while the half-response slope is n/(4K); noise transmission therefore depends on operating point, input variation and dynamics rather than on sigmoid shape alone. The affirmative noise statement and corrected neighbor agree with those model boundaries, and neither infers pathway flux or stable switching from the occupancy table. Official IUBMB kinetic/cooperative distinctions: https://iubmb.qmul.ac.uk/kinetics/ek7.html.",
       "reviewer": "wfz-biology-textbook-release, closing WorkflowzRootClosureAcceptance#1 threshold counterexample"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:640:19ad5a23bf6a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:627:19ad5a23bf6a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_I/enzymes_and_kinetics.md",
-      "line": 640,
+      "line": 627,
       "excerpt": "Q10≈2 illustrates an approximate doubling over a limited 10°C interval, not a universal law. Measured activity also depends on reversible conformational changes and time-dependent inactivation, so the apparent optimum depends on assay duration and conditions and need not equal the organism's usual temperature or the protein's unfolding midpoint.",
       "rationale": "These excerpts correctly distinguish illustrative Q10, time-dependent inactivation, candidate adaptation mechanisms, and multiple contributors to pH profiles. Km is a kinetic half-response parameter and approximates Kd only in the applicable rapid-equilibrium limit; the excerpt does not infer binding affinity from Km alone.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:655:b0a896a3b2b6",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:642:b0a896a3b2b6",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_I/enzymes_and_kinetics.md",
-      "line": 655,
+      "line": 642,
       "excerpt": "- Candidate stability mechanisms include ion-pair networks, core packing and loop constraints. Cold-adapted activity can involve altered flexibility, but no fixed Gly/Pro composition or universal inactivation at 37°C follows from psychrophily.",
       "rationale": "These excerpts correctly distinguish illustrative Q10, time-dependent inactivation, candidate adaptation mechanisms, and multiple contributors to pH profiles. Km is a kinetic half-response parameter and approximates Kd only in the applicable rapid-equilibrium limit; the excerpt does not infer binding affinity from Km alone.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:659:2b168879e925",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:646:2b168879e925",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_I/enzymes_and_kinetics.md",
-      "line": 659,
+      "line": 646,
       "excerpt": "Activity–pH profiles can reflect catalytic-group ionization, substrate binding/ionization and structural stability. Bell-shaped profiles occur, but are not universal, and a profile alone cannot assign the responsible microscopic pKa or prove unfolding. Compare activity with independent structural and recovery measurements under matched conditions.",
       "rationale": "These excerpts correctly distinguish illustrative Q10, time-dependent inactivation, candidate adaptation mechanisms, and multiple contributors to pH profiles. Km is a kinetic half-response parameter and approximates Kd only in the applicable rapid-equilibrium limit; the excerpt does not infer binding affinity from Km alone.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:931:8b21cc13109f",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:918:8b21cc13109f",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_I/enzymes_and_kinetics.md",
-      "line": 931,
+      "line": 918,
       "excerpt": "- Michaelis–Menten kinetics: $v_0=V_{max}[S]/(K_m+[S])$; Km is a kinetic half-response concentration and approximates Kd only in an appropriate rapid-equilibrium limit; kcat is turnover number and kcat/Km is a specificity constant.",
       "rationale": "All five lines of the packet context now agree with the corrected explanation: Km is the Michaelis–Menten half-response parameter, the simple rapid-equilibrium limit supplies the binding approximation, and inhibition classifications do not determine physical binding sites. The previously surviving summary assertion that allosteric enzymes necessarily have sigmoidal kinetics is gone. The affirmative distinctions match official §§4, 6, 10 and 11: https://iubmb.qmul.ac.uk/kinetics/ek4t6.html and https://iubmb.qmul.ac.uk/kinetics/ek7.html.",
       "reviewer": "WorkflowzRootClosureAcceptance#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:948:4a20571c2dbf",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_I/enzymes_and_kinetics.md:935:4a20571c2dbf",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_I/enzymes_and_kinetics.md",
-      "line": 948,
+      "line": 935,
       "excerpt": "- **Uncompetitive inhibition:** Proportional decreases in apparent $K_m$ and $V_{max}$; only ES binds inhibitor in the simple scheme",
       "rationale": "The full context now defines kcat/Km as the specified low-substrate slope, not overall performance. Dividing the simple uncompetitive rate denominator by alpha-prime gives proportional Km and Vmax reductions and preserves Vmax/Km. Competitive, mixed and irreversible entries retain their explicit model or observation-time boundaries. The revised transition-state and turnover definitions at lines943–945 are also coherent with their main explanations. Official §§4.1, 6.1, 6.4 and 12 support the kinetic and assay-unit distinctions: https://iubmb.qmul.ac.uk/kinetics/ek4t6.html and https://iubmb.qmul.ac.uk/kinetics/ek7.html.",
       "reviewer": "WorkflowzRootClosureAcceptance#1"
@@ -5840,145 +5840,145 @@
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:219:b6f46ecfebf3",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:188:b6f46ecfebf3",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 219,
+      "line": 188,
       "excerpt": "> 2. **A site-specific counterexample:** Replacing mouse Irs1 Ser307 (human Ser312) with alanine worsened insulin resistance in the studied high-fat-fed mice, contrary to a universal inhibitory-site interpretation \\citep{copps2010irs1}.",
       "rationale": "Copps's actual Summary and Results identify the mouse Ser307/human Ser312 correspondence, alanine knock-in and high-fat-fed comparison. The intervention did not rescue insulin sensitivity; the authors report worsened glucose intolerance, compensatory pancreatic changes and impaired proximal signaling (https://pmc.ncbi.nlm.nih.gov/articles/PMC3314336/). The textbook uses this as a site- and preparation-specific counterexample, not evidence that all IRS1 serine phosphorylation is beneficial. It does not falsely characterize every individual insulin-tolerance comparison as statistically significant.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:220:2c75c73f4b56",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:189:2c75c73f4b56",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 220,
+      "line": 189,
       "excerpt": "> 3. **Endpoint and tissue distinction:** Impaired muscle/adipose glucose uptake, hepatic glucose production and compensatory insulin secretion require different measurements; one phosphorylation marker cannot identify all three.",
       "rationale": "A phosphorylation measurement is not itself a measurement of glucose uptake, hepatic glucose-production rate or insulin secretion. Copps illustrates the distinction concretely by separately measuring tissue signaling, glucose/insulin tolerance, plasma insulin and pancreatic beta-cell area (https://pmc.ncbi.nlm.nih.gov/articles/PMC3314336/). The sentence requires appropriate endpoint measurements rather than claiming that a marker can never be informative.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:221:026f843fc663",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:190:026f843fc663",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 221,
+      "line": 190,
       "excerpt": "> These mechanisms can impair insulin signaling, but their importance depends on tissue and preparation; GLUT4 translocation concerns responsive muscle and adipose cells, not a universal hepatic glucose transporter. Metformin can lower hepatic glucose production without requiring AMPK in the studied mouse knockout preparations; AMPK activation is not proof of a unique drug mechanism \\citep{foretz2010metformin}. See \\cref{sec:unit_II_cell_signaling} for RTK signaling.",
       "rationale": "The GLUT4 statement correctly locates the relevant insulin-responsive trafficking mechanism in muscle/adipose cells rather than assigning it to hepatic glucose transport. Foretz's Results/Figure 1 directly show metformin suppression of cultured mouse hepatocyte glucose production without AMPK alpha1/alpha2; Figure 2 separately shows retained glucose-excursion lowering in liver-deficient mice (https://pmc.ncbi.nlm.nih.gov/articles/PMC2898585/). These bounded genetic results defeat a necessary-AMPK interpretation in those preparations, not all possible AMPK contributions or human mechanisms.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:501:6355a3d21c83",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:470:6355a3d21c83",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 501,
+      "line": 470,
       "excerpt": "Writing the ratio as $(2[\\mathrm{ATP}]+[\\mathrm{ADP}])/(2A_{\\mathrm{total}})$ explains the half-weight on ADP. For a positive total pool with nonnegative components, $0\\leq EC\\leq1$: EC=0 requires all adenylate to be AMP, and EC=1 requires all adenylate to be ATP. Total adenylate is conserved only when the specified model or experimental conditions justify that assumption.",
       "rationale": "The independent final refutation caught the reversed respectively association. Direct substitution into EC=(ATP+ADP/2)/(ATP+ADP+AMP) gives 0 for a positive AMP-only pool and 1 for a positive ATP-only pool. With nonnegative components and positive total, the equality conditions require ADP=ATP=0 and ADP=AMP=0, respectively. The corrected explicit associations preserve these assumptions; conservation is conditional, not asserted for every cell.",
       "reviewer": "Integration owner: exact repairs from WorkflowzFinalAdvisoryRefutation and adjacent-context recheck"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:503:47a602938139",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:472:47a602938139",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 503,
+      "line": 472,
       "excerpt": "EC alone does not determine the AMP:ATP or ADP:ATP ratio unless additional constraints are supplied. AMPK also depends on nucleotide binding, activation-loop phosphorylation, upstream kinases and cellular context; there is no universal EC activation window that can be inferred from this formula \\citep{hardie2012ampk}.",
       "rationale": "For an interior EC value, one weighted ratio leaves multiple nucleotide compositions possible; the chapter supplies an explicit same-total counterexample. Xiao's biochemical/structural primary separately distinguishes AMP allostery from ADP protection against dephosphorylation (https://pmc.ncbi.nlm.nih.gov/articles/PMC3078618/), and Hawley's primary demonstrates Ca2+-linked activation without disturbed adenine nucleotide levels (https://pubmed.ncbi.nlm.nih.gov/16054095/). Thus EC is not an AMPK-activity calibration. Pure-pool endpoint cases are mathematical degeneracies, not evidence for a physiological activation window; the endpoint-order defect is separately classified. The only changed adjacent context is the explicit correction to EC=0 for AMP-only and EC=1 for ATP-only positive pools; it does not alter the non-identifiability argument or add an AMPK threshold.",
       "reviewer": "Integration owner: exact repairs from WorkflowzFinalAdvisoryRefutation and adjacent-context recheck"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:516:12bf536425e6",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:485:12bf536425e6",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 516,
+      "line": 485,
       "excerpt": "Yet AMP:ATP is 0 in A and $0.2/0.8=0.25$ in B. These are algebraic teaching compositions, not measurements or claims about equilibrium cells. The scalar therefore cannot reconstruct all three pools without further assumptions. Neither score alone proves kinase activation: a biological study needs the actual preparation, nucleotide state and appropriate AMPK activity/phosphorylation readouts with controls.",
       "rationale": "Both stipulated pools total 1 mM: 0.6+0.5×0.4=0.8 and 0.8+0.5×0=0.8. Their AMP:ATP ratios are 0 and 0.25, respectively. This is a valid algebraic non-identifiability witness because adenylate-kinase equilibrium was expressly not imposed. The zero components do not invalidate that teaching construction, and neither composition is represented as a measured physiological cell or kinase-activation experiment.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:519:d738f2d2ae66",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:488:d738f2d2ae66",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 519,
+      "line": 488,
       "excerpt": "> Metformin is used in type 2 diabetes, but observing AMPK activation does not establish that AMPK uniquely mediates every drug effect. Foretz et al. found that metformin still inhibited glucose production in the studied AMPK-deficient mouse hepatocytes and liver models \\citep{foretz2010metformin}. This is preparation-, genotype- and exposure-specific evidence, not a universal human mechanism or a prescribing recommendation. Mechanistic AMPK or mTORC1 results also do not by themselves establish anti-aging or anticancer benefit in patients.",
       "rationale": "Foretz's relevant full Results were accessible: glucose output was directly assayed in AMPK-null hepatocyte cultures, while the liver-knockout mouse experiment measured blood-glucose excursions after metformin and glucose challenge (https://pmc.ncbi.nlm.nih.gov/articles/PMC2898585/). Together these support the preparation-specific conclusion cited here; the in-vivo challenge is not an independently measured hepatic flux. The paragraph makes no numerical human benefit, lifespan or anticancer-outcome claim from those mechanistic endpoints.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:523:f6d4641d367b",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:492:f6d4641d367b",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 523,
+      "line": 492,
       "excerpt": "> **Concept Check (Synthesis):** Aerobic glycolysis in cancer does not mean mitochondrial ATP production is absent. (a) Compare the net 2 ATP per glucose from glycolytic fermentation with the higher, coupling- and shuttle-dependent total from complete aerobic oxidation; distinguish yield, production rate, precursor demands and NADPH-generating routes. (b) Draw a deliberately simplified mTORC1 input model combining growth-factor, amino-acid and energy signals. Identify which additional measurements would be needed to predict a response to lower glucose rather than treating one input as a universal switch. (c) Explain why a drug-induced change in ATP pools, AMPK phosphorylation or mTORC1 signaling does not alone establish an anticancer clinical outcome.",
       "rationale": "The question correctly separates ATP yield, ATP-production rate and biosynthetic/redox demands. Human NSCLC isotope-infusion evidence demonstrates that enhanced glycolysis and glucose oxidation can coexist, rather than aerobic glycolysis proving absent mitochondrial metabolism (https://pubmed.ncbi.nlm.nih.gov/26853473/; primary abstract). Its mTORC1 task expressly requests a simplified input model and additional measurements, not a deterministic single-input prediction. In the adjoining phosphate example, EC=2.5/4=0.625 and a tenfold Pi increase changes hydrolysis free energy by +RT ln(10), approximately 5.93 kJ/mol; inspected atp_free_energy source implements the stated mM-to-1-M convention.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:552:50ea85c60fca",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:521:50ea85c60fca",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 552,
+      "line": 521,
       "excerpt": "**Step 4 — Interpret within the model.** A has the larger estimated local response under these constructed conditions. If the classical summation assumptions apply, the unmeasured coefficients sum to approximately $1-0.30-0.10=0.60$; their individual values and signs remain unknown. This does not establish a universal glycolytic-control range, rule out dominance elsewhere, or predict a large drug perturbation from a local derivative.",
       "rationale": "Read the entire synthetic perturbation setup. The two estimates are (0.03/10)/(1/100)=0.30 and (0.01/10)/(1/100)=0.10. Their conditional summation residual is approximately 0.60, not an estimate of each remaining enzyme. One-percent finite differences approximate a local derivative and do not determine nonlinear drug responses; the text preserves both qualifications.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:687:8b2f1d7b30c4",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:656:8b2f1d7b30c4",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 687,
+      "line": 656,
       "excerpt": "For an explicit flux ledger, let forward PFK flux be 50 and reverse FBPase flux 49 μmol/min. Net forward flux is then 1 μmol/min. Increasing forward flux alone by 10% to 55 while holding reverse flux at 49 yields net 6: a $(6-1)/1=500\\%$ increase relative to the original net. Equal opposing fluxes of 50 would instead give zero net, for which a relative percentage change is undefined. This held-reverse-flux example illustrates a rheostat at an ATP cost; it is not a universal response to changing both enzymes. The displayed amplification factor is 99 for the 50/49 baseline and pertains to equal fractional changes in opposite directions, not the forward-only 10% perturbation just calculated.",
       "rationale": "Owen's primary abstract confirms the three-person, 5–6-week cohort rather than a three-day generalization. The explicit flux ledger has net 1→6 after forward-only 50→55 with reverse 49, a 500% increase; zero baseline has no defined relative percentage. The separate factor 99 is correctly assigned to opposing fractional perturbations.",
       "reviewer": "WorkflowzFinalClaimRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:772:17151965ed00",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:741:17151965ed00",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 772,
+      "line": 741,
       "excerpt": "Do not assign a universal 0.1--0.3 control band to glycolytic enzymes or infer a clinical drug response from an unsourced coefficient list. Estimate control in the actual model or preparation and distinguish local sensitivity from intervention efficacy.",
       "rationale": "The actual definition is a dimensionless logarithmic steady-state sensitivity, with enzyme-scaling assumptions stated for summation. Summation alone supplies no universal coefficient interval or finite-intervention bound. The chapter's homogeneous countermodel J=e²/b+9b gives a 10% first-order estimate but a 12.5% actual change for e:1→1.5 at b=1, consistent with the supplied numerical witness. Torres's liver-extract titration is preparation-specific empirical support, not a universal glycolytic band (https://pmc.ncbi.nlm.nih.gov/articles/PMC1146541/).",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:785:b229fba90da2",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:754:b229fba90da2",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 785,
+      "line": 754,
       "excerpt": "| **Imaging MS** | Pixel size, ionization, matrix and sampling geometry | Spatially resolved mass signals | Tissue localization | Quantification and identity need validation; no universal detection limit |",
       "rationale": "The row describes spatial mass signals rather than equating signal intensity with identified analyte concentration. A primary experiment using equally spiked rabbit tissue homogenates found tissue-dependent imaging intensities even after isotope-standard correction, and examined section thickness and calibration effects (https://pubmed.ncbi.nlm.nih.gov/27934123/; abstract). This supports the stated quantification/matrix boundary. The row assigns no instrument-independent detection threshold and no automatic chemical identity to an m/z image.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:789:dec717717ebb",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:758:dec717717ebb",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 789,
+      "line": 758,
       "excerpt": "1. **Identification.** An LC-MS feature is not necessarily a distinct metabolite: adducts, isotopes, fragments and isomers complicate assignment. Report the actual feature/analyte denominator, standards and identification evidence rather than a universal confidently identified fraction.",
       "rationale": "Mahieu and Patti's primary abstract reports that grouping degenerate LC/MS features and removing nonbiological signals radically reduced the analyte count in one E. coli dataset (https://pubmed.ncbi.nlm.nih.gov/28914531/). It directly supports distinguishing features from metabolites, not importing that study's reduction fraction into all experiments. The textbook appropriately requires identification evidence, standards and an explicit denominator; isomer identity is not inferred solely from exact mass.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:791:d2928fb20129",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:760:d2928fb20129",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 791,
+      "line": 760,
       "excerpt": "3. **Flux ≠ concentration.** A high intermediate concentration can reflect increased supply or reduced removal. Stable-isotope tracing can constrain fluxes under a specified model, but it is not the only method: direct substrate/product rates and perturbation experiments can also measure appropriate pathway fluxes \\citep{torres1986flux}.",
       "rationale": "Steady-state concentration can remain unchanged while balanced production/removal rates increase, so pool size alone does not fix flux. Torres actually recorded pathway flux by NADH decay and estimated control by enzyme titration, demonstrating an appropriate non-isotope route (https://pmc.ncbi.nlm.nih.gov/articles/PMC1146541/; primary abstract). The subsequent paragraph also requires a specified network, applicable kinetics and boundary conditions for coefficient reconstruction rather than treating selected elasticities as automatically sufficient.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:841:7dc6760a2f5a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:810:7dc6760a2f5a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 841,
+      "line": 810,
       "excerpt": "- **Energy charge** \\cref{eq:unit_III_energy_charge} is a normalized phosphorylation-state score from 0 to 1. It does not uniquely determine nucleotide composition, ATP-hydrolysis free energy or AMPK activity; a universal physiological window is not imposed here.",
       "rationale": "The targeted EC summary agrees with the equation and worked counterexamples: normalization bounds the phosphorylation-state score, same-EC pools can have different nucleotide ratios, and changing Pi changes ATP-hydrolysis free energy without changing EC. AMPK is independently modulated by nucleotide binding and phosphorylation; actual primary evidence includes ADP protection against dephosphorylation (https://pmc.ncbi.nlm.nih.gov/articles/PMC3078618/) and Ca2+-linked activation without nucleotide-level disturbance (https://pubmed.ncbi.nlm.nih.gov/16054095/). The summary therefore does not supply a biochemical or diagnostic EC threshold.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:850:5faaf901ebda",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_III/metabolic_integration.md:819:5faaf901ebda",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_III/metabolic_integration.md",
-      "line": 850,
+      "line": 819,
       "excerpt": "- **Metabolic control analysis** (\\cref{eq:unit_III_mca_summation}) permits distributed control but does not exclude a dominant step. Coefficients describe a specified state and perturbation boundary, not universal intervention limits.",
       "rationale": "This MCA summary follows the theorem's actual logical strength. A single capacity-scaled reaction between fixed substrate/product reservoirs has J proportional to its enzyme activity and coefficient 1, so dominance is compatible with summation. Distributed coefficients are also allowed. Local coefficients concern the specified state and perturbation boundary; neither this theorem nor the synthetic example establishes universal clinical intervention limits.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#1"
@@ -6722,46 +6722,46 @@
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:667:a84750534718",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:606:a84750534718",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 667,
+      "line": 606,
       "excerpt": "**Bidirectional plasticity:** The same synapse can undergo LTP or LTD under different induction protocols. The **BCM (Bienenstock-Cooper-Munro) rule** models a sliding modification threshold ($\\theta_M$) influenced by recent postsynaptic activity; it is not a universal ordering of calcium thresholds across synapse types. At cerebellar parallel-fiber–Purkinje-cell synapses, paired parallel- and climbing-fiber input can recruit large Ca$^{2+}$ signals, PKC activation and AMPA-receptor internalization for LTD. Coesmans et al.'s rat experiments found a higher calcium threshold for parallel-fiber LTD than for parallel-fiber LTP, the inverse of the conventional hippocampal ordering. Parallel-fiber LTD can contribute to motor adaptation without being its only plasticity site.",
       "rationale": "The cerebellar versus hippocampal calcium-ordering distinction survives primary endpoint checking. Coesmans reports PF-LTD requiring a higher calcium amplitude than PF-LTP; De Zeeuw separately reports Purkinje-targeted PKC inhibition blocking cultured-cell LTD and VOR-gain adaptation in mice; Wang/Linden separately reports postsynaptic dynamin/amphiphysin interference blocking cultured Purkinje LTD. The chapter/key explicitly distinguish these preparations and do not make LTD the exclusive learning substrate. The conventional hippocampal phosphatase/endocytosis account and sliding BCM threshold are not imposed universally. Primary abstracts: https://pubmed.ncbi.nlm.nih.gov/15541316/ ; https://pubmed.ncbi.nlm.nih.gov/9539124/ ; https://pubmed.ncbi.nlm.nih.gov/10774731/.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:739:dc879a0f58ee",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:678:dc879a0f58ee",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 739,
+      "line": 678,
       "excerpt": "The direct mean (1.92) and Poisson failure estimate (3.22) disagree. That challenges a single-parameter Poisson description, assuming all zero and nonzero events were correctly classified; it does not identify a best alternative. Fit binomial or heterogeneous-site likelihoods to the full histogram, include detection errors, and compare predictions before claiming a better fit.",
       "rationale": "Refractoriness is protocol-dependent and does not prevent two-way propagation from central stimulation. NMDA block relief is graded and dependent on agonist/coagonist conditions, not guaranteed strengthening. The finite release maximum is 5 mV, so cannot bridge 15 mV. Disagreement between direct mean and failure-derived Poisson parameter rejects a single-parameter description only under adequate event classification, not identifies the best alternative. A local fourth-power calcium relation predicts 16-fold change but not ion stoichiometry.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:818:1655bb8dd2a7",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:757:1655bb8dd2a7",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 818,
+      "line": 757,
       "excerpt": "11. At a synapse, mEPP amplitude is 0.5 mV and mean EPP amplitude is 4.5 mV under approximately linear low-release conditions. (a) Estimate mean quantal content. (b) Under a Poisson model, calculate failure probability. (c) If mean release is stipulated to scale as extracellular [Ca$^{2+}$]$^4$ over 1–2 mM, predict the fold change on doubling calcium. Why does this local empirical slope neither establish a universal relation nor count bound ions per fusion?",
       "rationale": "Refractoriness is protocol-dependent and does not prevent two-way propagation from central stimulation. NMDA block relief is graded and dependent on agonist/coagonist conditions, not guaranteed strengthening. The finite release maximum is 5 mV, so cannot bridge 15 mV. Disagreement between direct mean and failure-derived Poisson parameter rejects a single-parameter description only under adequate event classification, not identifies the best alternative. A local fourth-power calcium relation predicts 16-fold change but not ion stoichiometry.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:857:07c9ea9a2121",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:796:07c9ea9a2121",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 857,
+      "line": 796,
       "excerpt": "- **Myelination:** Nodal regeneration links passive current spread through internodes. Geometry-dependent models can yield approximately linear diameter scaling, but neither fiber speed examples nor nodal area determine a universal ATP saving. Axonal spike cost and total axon--glia maintenance are different budgets \\citep{harris2012whitematter}.",
       "rationale": "Accept this bounded summary. Rushton's primary theoretical paper pp.101/120 conditions diameter scaling on specific material properties and dimensional similarity; p.120 contrasts approximately linear myelinated scaling with square-root unmyelinated scaling. This supports 'geometry-dependent models can yield,' not a universal law for arbitrary geometry. Harris–Attwell separately calculates spike sodium-pumping costs, resting-potential costs and housekeeping, and compares spike savings with oligodendrocyte maintenance. The summary correctly distinguishes those budgets. Sources U1 and H1.",
       "reviewer": "WorkflowzPrintedClaimAdversarial#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:860:0f91737d133c",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:799:0f91737d133c",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
-      "line": 860,
+      "line": 799,
       "excerpt": "- **Protocol-specific plasticity:** A conventional hippocampal NMDA-dependent LTP example recruits Ca$^{2+}$, CaMKII and AMPA-receptor phosphorylation/insertion, with later transcriptional and structural changes. Hippocampal LTD can recruit phosphatases and AMPA internalization; it is not a universal opposite pathway. Cerebellar parallel-fiber--Purkinje-cell LTD can instead involve larger calcium signals and PKC-dependent signaling \\citep{coesmans2004cerebellarplasticity,dezeeuw1998pkc,wang2000endocytosis}.",
       "rationale": "The summary names a conventional hippocampal mechanism without making it the definition of all potentiation/depression. Coesmans experimentally found higher calcium requirements for cerebellar PF-LTD than PF-LTP, and De Zeeuw separately tested Purkinje-cell PKC dependence. Those are valid counterexamples to a universal low-calcium-LTD rule, not a universal cerebellar learning theory. Sources: https://pubmed.ncbi.nlm.nih.gov/15541316/ ; https://pubmed.ncbi.nlm.nih.gov/9539124/ .",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#2"
@@ -6956,10 +6956,10 @@
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:508:f2461253d8ed",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:518:f2461253d8ed",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md",
-      "line": 508,
+      "line": 518,
       "excerpt": "A PRS should be treated as a calibrated, ancestry- and context-dependent risk model, not as a diagnosis. A responsible report states the discovery cohort, target population, calibration method, confidence interval, and action threshold; checks whether the risk strata were validated in the patient's ancestry and care setting; and interprets the score alongside family history, monogenic testing when indicated, and modifiable clinical risk factors. The 2019 perspective documented several-fold ancestry-dependent accuracy differences for scores available then; that is not a universal 2026 performance estimate. Premature deployment can widen health gaps if score-specific, diverse external validation does not keep pace \\citep{martin2019prsdisparities}.",
       "rationale": "The reading-frame rule is a common pattern with exceptions, and exon 51 versus exon 53 products require suitable transcripts rather than implying every deletion is amenable. X-linked heterozygous women can have muscle/cardiac, OTC or bleeding phenotypes; random X-inactivation does not guarantee absence of disease. PRS calibration, endpoint and ancestry-specific validation are required, and the dated 2019 perspective is not a fixed 2026 accuracy ratio.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
@@ -7010,37 +7010,37 @@
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/population_genetics.md:506:619eca900a77",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/population_genetics.md:496:619eca900a77",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_V/population_genetics.md",
-      "line": 506,
+      "line": 496,
       "excerpt": "Effective population size $N_e$ is the size of an idealized reference population matching a specified rate of drift or inbreeding. It is not a head count, and different effective-size definitions or time windows can yield different estimates. The following formulas describe restricted demographic models, not universal corrections to census size.",
       "rationale": "The surrounding formulas state discrete-generation/random-sampling assumptions, distinguish expected from exactly fixed reproductive contributions and require a joint model before combining mechanisms. Variance, inbreeding and historical estimates can represent different reference processes/windows; PSMC provides a concrete source-scoped example of model, scaling and structure dependence: https://pmc.ncbi.nlm.nih.gov/articles/PMC3154645/ .",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/population_genetics.md:552:9886cb2ff7af",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/population_genetics.md:542:9886cb2ff7af",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_V/population_genetics.md",
-      "line": 552,
+      "line": 542,
       "excerpt": "The arithmetic mean is about 9,901, but the drift-relevant harmonic approximation is about 910. This does not mean one small generation erases all diversity or determines every later evolutionary outcome; the actual loss also depends on the allele and demographic model.",
       "rationale": "For the stated 100-generation sequence, the arithmetic mean is 9900.1, which rounds to 9901 only at integer rounding, and the harmonic approximation is 909.9181, approximately 910. The reciprocal weighting justifies the contrast; the single Ne=10 generation's expected heterozygosity loss is 5%, not destruction of all diversity. The stated values are appropriately approximate.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/population_genetics.md:563:c05142c59a47",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/population_genetics.md:553:c05142c59a47",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_V/population_genetics.md",
-      "line": 563,
+      "line": 553,
       "excerpt": "For a separate constructed two-state example with equal numbers of generations at 100 and 10,000, $N_e\\approx2/(1/100+1/10{,}000)\\approx198$. When the large state is much larger, this equal-generation two-state mean approaches twice the small state, not a universal factor of four. Real species require their actual generation counts and demographic assumptions.",
       "rationale": "Equal numbers of generations give 2/(1/100+1/10000)=198.0198. More generally, with small state s and large state L, the two-state mean is 2sL/(s+L), approaching 2s as L grows. Thus the limit and generation weighting are correct; neither a factor of four nor automatic equal calendar-season weighting follows.",
       "reviewer": "WorkflowzFinalAdvisoryRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/population_genetics.md:613:14877795c0b1",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/population_genetics.md:603:14877795c0b1",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_V/population_genetics.md",
-      "line": 613,
+      "line": 603,
       "excerpt": "Gene flow can reduce allele-frequency differences in the specified migration model. A universal one-migrant threshold does not follow: equilibrium island-model approximations depend on neutrality, symmetric structure, effective size and demographic history, and cannot alone identify observed migration or prevent all divergence.",
       "rationale": "Migration can homogenize allele frequencies within a specified model, but the neutral symmetric equilibrium island approximation cannot identify observed migration or establish a universal one-migrant barrier to divergence.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
@@ -7334,37 +7334,37 @@
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:634:579918dccc3f",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:626:579918dccc3f",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 634,
+      "line": 626,
       "excerpt": "1. **Attachment and fusion:** gp120 binds CD4 and a coreceptor matched to the viral variant, CCR5 or CXCR4; gp41 mediates fusion. CCR5 use is common in transmission, but CXCR4 use does not follow a universal late-stage schedule.",
       "rationale": "Maeda's abstract documents resistance to a named antivirulence compound in P. aeruginosa, a valid counterexample to resistance-proof quorum quenching rather than evidence against every compound (https://pubmed.ncbi.nlm.nih.gov/21918575/). HIV coreceptor use is variant-dependent. SpCas9's PAM-relative cut position and stipulated 100:1 probability ratio do not define a universal clinical off-target threshold or make Cas9 therapies base editors. The culture doubling/log-kill exercise is synthetic and cannot define sepsis or dosing.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:894:6e7176ca2d8d",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:886:6e7176ca2d8d",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 894,
+      "line": 886,
       "excerpt": "**Type II (Cas9)** supplied a route to engineered RNA-guided DNA targeting: the 2012 purified-system study demonstrated programmable duplex cleavage and proposed genome-editing uses \\citep{doudna2012}. For canonical SpCas9, a compatible flanking PAM and guide-target sequence are required; changing the guide does not make a genomic position automatically accessible or guarantee an edit. In cells, a nuclease-induced break can undergo end joining or template-dependent repair, with outcomes depending on cell and repair context. Base and prime editors use different chemistries; a prime-editing pegRNA also encodes the edit template, so \"no donor DNA\" is not \"no template\" \\citep{anzalone2019}. Cas12 and Cas13 systems have distinct DNA/RNA substrate properties. Eukaryotic RNA interference is another small-RNA-based system \\citep{fire1998}, not an identical mechanism to Type II DNA cleavage.",
       "rationale": "Read primary Jinek2012 main PAM Results and Anzalone2019 original abstract (PMID31634902, DOI10.1038/s41586-019-1711-4). SpCas9 duplex targeting is guide/PAM-constrained; the prime-editing guide both specifies target and encodes desired edit. No separate donor DNA therefore does not mean no template. This is a mechanistic distinction and an explicit refusal to guarantee genomic addressability or edit outcomes; it is not a new clinical or efficiency measurement. TypeII DNA cleavage and the separately cited eukaryotic RNA-interference pathway are not interchangeable systems. No full supplementary-data reanalysis is claimed.",
       "reviewer": "Workflowz integration owner; actual primary-source and paired-consumer closure, 2026-11-08"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:944:ff7b95e99183",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:936:ff7b95e99183",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 944,
+      "line": 936,
       "excerpt": "**Interpretation.** SpCas9 typically cleaves approximately three base pairs upstream of the PAM, here near the bond between positions 447 and 448, not automatically at position 450. The stipulated probabilities yield 100:1, but mismatch effects depend on sequence, nuclease, cell type and assay; no universal clinical acceptance ratio follows. High-fidelity nucleases and base editors are different modalities, and the named Cas9 therapies should not be described as base editing. Genome-wide off-target and rearrangement assays must be product- and context-specific.",
       "rationale": "Maeda's abstract documents resistance to a named antivirulence compound in P. aeruginosa, a valid counterexample to resistance-proof quorum quenching rather than evidence against every compound (https://pubmed.ncbi.nlm.nih.gov/21918575/). HIV coreceptor use is variant-dependent. SpCas9's PAM-relative cut position and stipulated 100:1 probability ratio do not define a universal clinical off-target threshold or make Cas9 therapies base editors. The culture doubling/log-kill exercise is synthetic and cannot define sepsis or dosing.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:1087:8c1bff5999c7",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:1079:8c1bff5999c7",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 1087,
+      "line": 1079,
       "excerpt": "11. **Synthetic culture calculation.** With $t_d=30$ min and $N_0=5\\times10^3$ CFU/mL, calculate time to a stipulated culture target $10^9$ CFU/mL. Then model a hypothetical instantaneous four-log reduction and a 60-minute lag before regrowth. These are artificial culture assumptions, not a clinical dosing model: sepsis is not defined by a universal circulating CFU threshold.",
       "rationale": "Maeda's abstract documents resistance to a named antivirulence compound in P. aeruginosa, a valid counterexample to resistance-proof quorum quenching rather than evidence against every compound (https://pubmed.ncbi.nlm.nih.gov/21918575/). HIV coreceptor use is variant-dependent. SpCas9's PAM-relative cut position and stipulated 100:1 probability ratio do not define a universal clinical off-target threshold or make Cas9 therapies base editors. The culture doubling/log-kill exercise is synthetic and cannot define sepsis or dosing.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
@@ -8603,10 +8603,10 @@
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:869:b0482d4646f3",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:861:b0482d4646f3",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
-      "line": 869,
+      "line": 861,
       "excerpt": "For canonical SpCas9 duplex targeting, **PAM recognition** helps distinguish an invader's protospacer flank from the repeat-flanked spacer in the CRISPR array \\citep{doudna2012}. This is not a universal self/non-self test for all CRISPR types; the Type III comparison below has a different RNA-triggered mechanism.",
       "rationale": "The explicit canonical SpCas9 duplex qualifier follows the 2012 guide/PAM recognition evidence. The RNA-triggered Type III Cas10/cyclic-oligoadenylate mechanism in Athukoralage et al. 2020 (PMC6986909, main results and Fig. 1) supplies the counterexample to universal PAM-scanning. This approves the stated distinction between mechanisms, not a universal self/non-self rule or an exhaustive classification. The current neighboring diagram is restricted to representative DNA-targeting Type I/II examples.",
       "reviewer": "WorkflowzReleaseOwner-natural-guide-boundary"
@@ -8873,13 +8873,49 @@
       "reviewer": "wfz-biology-textbook-release"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:651:57ae260518fd",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:661:57ae260518fd",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md",
-      "line": 651,
+      "line": 661,
       "excerpt": "| **Y-linked** | In the stated XY model, non-pseudoautosomal Y-linked variants pass from father to son; variant transmission does not itself guarantee an affected phenotype |",
       "rationale": "Within the stated ordinary XY segregation model, a non-pseudoautosomal Y-linked allele follows paternal-Y transmission. Pseudoautosomal loci are explicitly excluded, and allele transmission is separated from expression or disease. The flagged guarantee is negated: penetrance and genetic or environmental context prevent a transmission rule from certifying an affected phenotype. This review does not generalize the XY model to all sex-determination systems.",
       "reviewer": "wfz-biology-textbook-release"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_IX/action_potential_synapses.md:586:02b88a939193",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_IX/action_potential_synapses.md",
+      "line": 586,
+      "excerpt": "*Selected NMDA-dependent potentiation, not a universal induction sequence or clock. Calcium-sensitive signaling, including CaMKII, can regulate AMPA-receptor function and traffic; later persistence depends on the preparation and protocol. Other contexts can yield LTD or no lasting change. CaMKII autophosphorylation supports partial autonomous activity, not permanent constitutive activation \\citep{miller1986camkiiswitch,miller1988camkiisites}.*",
+      "rationale": "The flagged universal wording rejects a single induction sequence or clock. Miller and Kennedy (1986), PMID 3006921, discuss prolonged activity and opposing dephosphorylation; Miller et al. (1988), PMID 2856100, explicitly report partial calcium independence and distinguish alpha-Thr286 from beta-Thr287. The original abstracts and bibliographic records were independently accessed by BiologyRichCaptionRedTeam#2; neither full-text reanalysis nor permanent constitutive activity is claimed. The glossary and Q10 now retain preparation/protocol dependence, while the selected diagram keeps alternative LTD/no-change outcomes.",
+      "reviewer": "wfz-biology-textbook-release, closing BiologyRichCaptionRedTeam#2 scientific-consumer refutations"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:462:0f1f1112dcd2",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md",
+      "line": 462,
+      "excerpt": "*Selected GWAS workflow: cohort design, ancestry assessment and quality control precede covariate-adjusted association tests and a study-appropriate multiple-testing criterion. Independent replication tests reproducibility; fine-mapping and functional follow-up investigate mechanisms, not automatic proof of causation. The conventional common-variant threshold discussed below is an example, not a universal testing rule.*",
+      "rationale": "A GWAS association is conditional on its dataset and analysis; linkage disequilibrium permits an associated nonfunctional tag marker. Independent replication addresses reproducibility, while fine-mapping and functional follow-up test causal hypotheses. The caption explicitly refuses automatic causation or one universal significance threshold. BiologyRichCaptionRedTeam#2 checked the workflow and paired Q8/Q27 and exposed the conflicting adjacent interpretation; that paragraph now distinguishes markers, linked variants and functional evidence. No new empirical success rate or clinical benefit is asserted.",
+      "reviewer": "wfz-biology-textbook-release, closing BiologyRichCaptionRedTeam#2 scientific-consumer refutations"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md:499:58af81966ef9",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_V/mendelian_extensions_and_human_genetics.md",
+      "line": 499,
+      "excerpt": "The illustrative denominator of $10^6$ approximates the effective number of common-variant tests after accounting for linkage disequilibrium. It is not universal: variant coverage, ancestry-related linkage disequilibrium and the analysis design affect the testing burden, so the criterion must match the study. A \"suggestive\" threshold of $p < 10^{-5}$ is sometimes reported for follow-up candidates, but does not establish genome-wide significance. Independent replication supports reproducibility of an association, not proof that the associated variant causes the phenotype.",
+      "rationale": "For the displayed Bonferroni illustration, 0.05 divided by 1000000 is 5e-8. The effective testing burden depends on variant coverage, linkage disequilibrium, ancestry and the chosen analysis, so the paragraph explicitly rejects a universal denominator or threshold. The suggestive criterion is described as a sometimes-used follow-up convention, not genome-wide significance or causal proof. Independent replication alone cannot exclude a linked causal variant or shared biases. BiologyRichCaptionRedTeam#2 independently checked the stated limits and paired tag-marker keys; this classification is not a current GWAS Catalog count or a new meta-analysis.",
+      "reviewer": "wfz-biology-textbook-release, closing BiologyRichCaptionRedTeam#2 scientific-consumer refutations"
+    },
+    {
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_VII/bacteria_archaea_viruses.md:587:a7f91e31cb53",
+      "classification": "valid_scientific_absolute",
+      "source_path": "docs/manuscript/unit_VII/bacteria_archaea_viruses.md",
+      "line": 587,
+      "excerpt": "*Lambda-specific lytic and lysogenic alternatives. CI represses lytic genes while the integrated prophage is copied with host DNA. DNA damage activates the SOS response; RecA stimulates CI autocleavage, followed by lytic derepression and prophage excision. The diagram omits detailed switch regulation and makes no fixed cycle-time or burst-size claim. Lambda's noncontractile tail differs from the separate T4 example below; these alternatives do not describe all phages or viruses.*",
+      "rationale": "This is a selected lambda pathway, consistent with the adjacent lambda explanation and the paired Q4/Q13 autocleavage keys independently traced by BiologyRichCaptionRedTeam#2. DNA damage/SOS activates the RecA-stimulated CI-autocleavage route rather than treating RecA as a protease that directly cuts CI. Lambda has a noncontractile tail and is separated from the following T4 example. The flagged all phrase rejects extension of lambda integration/CI circuitry to every phage or virus, and the caption makes no fixed cycle-time or burst-size inference from the schematic.",
+      "reviewer": "wfz-biology-textbook-release, closing BiologyRichCaptionRedTeam#2 scientific-consumer refutations"
     }
   ]
 }

@@ -444,7 +444,7 @@ In finite populations, allele frequencies change from generation to generation b
 
 ### Wright-Fisher Model
 
-The Wright-Fisher model is the simplest mathematical framework for drift:
+The diploid Wright-Fisher model is an idealized mathematical framework for drift:
 - Non-overlapping generations
 - Constant population size $N$
 - Random mating
@@ -461,45 +461,35 @@ Each generation, $2N$ allele copies are drawn randomly (with replacement) from t
 
 where $N_e$ = **effective population size** (the size of an ideal Wright-Fisher population that would experience the same rate of drift).
 
-**Key results of drift:**
-- Over time, alleles are either **fixed** ($p = 1$) or **lost** ($p = 0$)
-- The probability of fixation for a new neutral allele = its initial frequency = $\frac{1}{2N}$
-- Time to fixation of a new neutral mutation = $4N_e$ generations
-- Heterozygosity decreases at rate $\frac{1}{2N_e}$ per generation
+**Key results under this constant-size neutral model:**
+- With no selection, mutation or migration, an allele eventually becomes **fixed** ($p = 1$) or **lost** ($p = 0$); either outcome is possible from an intermediate frequency.
+- Fixation probability equals the initial allele frequency; for one new neutral copy in this idealized diploid population, it is $\frac{1}{2N}$.
+- Fixation and loss times are random. A fixation-time expectation must specify whether it is conditioned on eventual fixation; it is not a clock for every new mutation.
+- Expected heterozygosity declines by a fraction $\frac{1}{2N_e}$ per generation without mutation or migration; $N_e=N$ in the idealized model.
 
 ```mermaid
-stateDiagram-v2
-    [*] --> InitialFrequency: New Neutral Mutation (p = 1/2N)
-
-    state "Large Population (N = 10,000)" as Large {
-        [*] --> SlowDrift: Allele Frequency Fluctuates Slowly
-        SlowDrift --> SlowDrift: Small Random Changes Each Generation
-        SlowDrift --> EventualFixation: Rarely Fixes (p = 1)
-        SlowDrift --> EventualLoss: Usually Lost (p = 0)
-        note right of SlowDrift: Time to fixation ~4Ne generations\nMost new mutations lost
-    }
-
-    state "Small Population (N = 50)" as Small {
-        [*] --> RapidDrift: Allele Frequency Fluctuates Widely
-        RapidDrift --> QuickFixation: Can Fix Rapidly
-        RapidDrift --> QuickLoss: Can Be Lost Rapidly
-        note right of RapidDrift: Rapid loss of heterozygosity\nRandom alleles fix regardless of fitness
-    }
-
-    state "Bottleneck Event" as Bottleneck {
-        [*] --> Crash: Population Size Drops Dramatically
-        Crash --> Recovery: Survivors Carry Subset of Alleles
-        Recovery --> ReducedDiversity: Genetic Diversity Permanently Reduced
-        note right of Crash: Example: Cheetah bottleneck ~10,000 ya\nNorthern elephant seal: 20 individuals
-    }
-
-    InitialFrequency --> Large
-    InitialFrequency --> Small
-    Large --> Bottleneck: Environmental Catastrophe
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    A["Neutral drift<br/>Random allele sampling"]
+    L["Larger effective size<br/>Less sampling variation"]
+    S["Smaller effective size<br/>More sampling variation"]
+    O["Loss or fixation possible<br/>Not a fitness ranking"]
+    B["Bottleneck<br/>Size and duration matter"]
+    R["Later diversity depends on<br/>demography, mutation<br/>and migration"]
+    A --> L
+    A --> S
+    L --> O
+    S --> O
+    A --> B
+    B --> R
+    classDef default fill:#f6f8fa,stroke:#4b5563,color:#111827
 ```
-<!-- alt: State diagram showing genetic drift in populations of different sizes. Small populations experience rapid allele frequency changes and loss of diversity. Bottleneck events dramatically reduce effective population size, causing lasting genetic effects. -->
+<!-- alt: Flowchart showing neutral drift: at equal starting allele frequency, smaller effective size increases sampling variance under the stated diploid model; loss or fixation can occur without a fitness ranking. A separate bottleneck branch links diversity to size, duration, later demography, mutation and migration. -->
 
-*Genetic drift in populations of different sizes. Small populations experience rapid allele frequency changes and loss of diversity. Bottleneck events dramatically reduce effective population size, causing lasting genetic effects.*
+*Neutral drift: at equal starting allele frequency, smaller effective size increases sampling variance under the stated diploid model; loss or fixation can occur without a fitness ranking. A separate bottleneck branch links diversity to size, duration, later demography, mutation and migration.*
 
 ### Effective Population Size ($N_e$)
 

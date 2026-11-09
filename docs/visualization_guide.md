@@ -335,6 +335,48 @@ graph LR
 *Central dogma of molecular biology: DNA template → mRNA transcript → polypeptide.*
 ````
 
+The project-owned hydration adapter converts the authored caption paragraph with
+Pandoc before placing it inside the LaTeX figure. The outer `*...*` line marks
+the caption; inside it, Markdown emphasis, bold, inline code and links retain
+their formatting. Glossary fragment links such as `[**synaptotagmin**](#gl:synaptotagmin)`
+remain clickable. HTTP(S) and `mailto:` links are also admitted; other link
+targets, embedded images, HTML, block content and arbitrary raw TeX are refused.
+Plain prose special characters (for example `%`, `&`, braces and `#`) are escaped
+by Pandoc, not passed through as TeX.
+
+Inline code, including language-attributed spans, is rendered without syntax
+highlighting so it does not introduce fragile verbatim/highlighting macros into
+the moving caption argument. Strikeout is outside this supported subset and is
+refused before hydration rather than emitted with an unprovided LaTeX dependency.
+
+Natbib citations use the existing bibliography and native multi-pass compilation,
+so `\citep{key1,key2}` prints resolved authors/years rather than literal commands.
+The shared citation forms (`cite`, `citep`, `citet`, `citealt`, `citealp`,
+`citeauthor`, `citeyear`, with optional stars) are supported. Optional pre/post
+notes must be plain text without TeX commands, braces, brackets or TeX special
+characters; citekeys use letters, digits and `_:.+/,-` (plus separator whitespace).
+Inline dollar math such as `Na$^+$/K$^+$`, `$K_m$` and `$\frac{a}{b}$` is retained.
+Math is deliberately bounded: balanced groups, ordinary mathematical characters
+and the explicit Greek/typesetting/operator command set in
+`biology.pipeline.rendering._CAPTION_MATH_COMMANDS` are admitted. Display math,
+unknown commands, character-code escapes and raw TeX control syntax are refused;
+this is not an arbitrary-TeX caption interface. Reader macro expansion is disabled
+before inspecting Pandoc's AST. Caption conversion is batched into two Pandoc
+processes per book, not one process per diagram.
+These math restrictions apply to parsed math nodes. Standard Markdown text that
+Pandoc does not recognize as math remains safely escaped literal prose; it is
+not promoted to executable TeX. Use valid delimiters and grouping for formulas.
+
+
+Alt comments are a separate **plain-text** boundary: they never enter the caption
+converter, never execute citations/math/Markdown and are never used as a rich
+caption fallback. Exactly one nonempty alt comment and a caption are required.
+The existing literal-character alt serializer is retained, as are source/stem
+matching, strict PNG identity, visible-content crop and physical print-size caps.
+The native regression in `tests/test_pdf_opening_and_mermaid.py` checks compiled
+caption text, distinct formatted fonts, link destinations, bibliography resolution
+and an alt-text injection probe; this does not replace actual final-size inspection.
+
 ### Mermaid (registered PNG)
 
 For reusable registered output, first generate strict PNGs, then reference the staging-relative asset:
@@ -348,7 +390,7 @@ For reusable registered output, first generate strict PNGs, then reference the s
 - Captions describe **what is shown** (axes, salient features, parameter values), not just name the figure.
 - Include axis labels and any important threshold values in the caption.
 - For diagrams: describe the key process and what elements are connected.
-- Inline Mermaid metadata is maintained by `uv run python scripts/add_mermaid_alt_text.py`; use `--check` during review to fail on duplicate, missing, or stale Mermaid metadata.
+- Review inline Mermaid metadata with `uv run python scripts/add_mermaid_alt_text.py --check`; duplicate, missing, or stale metadata fails review. Do not overwrite reviewed authored captions with generated text.
 - Every generator registered in `ALL_FIGURE_GENERATORS` **must** be referenced at least once — `tests/test_build_invariants.py::test_every_registered_figure_is_referenced` enforces this.
 - Every `\label{fig:…}` **must** have at least one prose `\cref{fig:…}` — `tests/test_build_invariants.py::test_every_figure_label_has_prose_cref` enforces this (2026-05-23 figure expansion pass).
 

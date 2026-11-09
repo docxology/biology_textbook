@@ -433,32 +433,42 @@ Mendel studied traits with simple, dichotomous inheritance — round vs. wrinkle
 GWAS scans the genome for **statistical association** between genetic variants — typically common single-nucleotide polymorphisms ([**SNP**](#gl:snp)s with minor allele frequency ≥ 1%) — and a phenotype, comparing thousands of cases to thousands of controls. The basic design is a **case-control association test**: at each SNP, compare the allele frequency in cases versus controls and ask whether the difference exceeds chance expectation.
 
 ```mermaid
-flowchart TD
-    A["Recruit cohort: cases (disease) + controls (no disease)"] --> B["Genotype 500,000–10 million SNPs per individual via SNP array"]
-    B --> C["Quality control: filter low-call-rate SNPs/individuals; check Hardy-Weinberg in controls; check ancestry"]
-    C --> D["Impute additional genotypes from reference panels (1000 Genomes, TOPMed)"]
-    D --> E["Logistic regression at each SNP: case vs control, adjusting for ancestry PCs, age, sex"]
-    E --> F["Genome-wide significance threshold: p < 5×10⁻⁸ (Bonferroni for ~10⁶ independent tests)"]
-    F --> G["Replicate top hits in independent cohorts"]
-    G --> H["Manhattan plot: -log10(p) vs chromosome position"]
-    H --> I["Fine-mapping & functional follow-up: which gene? which mechanism?"]
-
-    style A fill:#4a90d9,color:#fff
-    style F fill:#d9534f,color:#fff
-    style I fill:#5cb85c,color:#fff
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph P["Prepare"]
+        direction LR
+        A["Cohort design<br/>Phenotype and ancestry"] --> B["Genotypes<br/>Sample and variant QC"]
+    end
+    subgraph T["Test"]
+        direction LR
+        C["Association tests<br/>Adjust for covariates"] --> D["Multiple testing<br/>Study-specific criterion"]
+    end
+    subgraph F["Follow up"]
+        direction LR
+        E["Independent<br/>replication"] --> G["Fine-mapping<br/>Functional follow-up"]
+    end
+    P --> T
+    T --> F
+    classDef default fill:#f6f8fa,stroke:#4b5563,color:#111827
+    style P fill:#fafafa,stroke:#4b5563,color:#111827
+    style T fill:#fafafa,stroke:#4b5563,color:#111827
+    style F fill:#fafafa,stroke:#4b5563,color:#111827
 ```
-<!-- alt: Flowchart showing GWAS workflow, from cohort recruitment through genome-wide significance testing to functional follow-up. The genome-wide significance threshold of p < 5×10⁻⁸ corresponds to a Bonferroni correction for ~10⁶ independent common variants tested across the genome. -->
+<!-- alt: Flowchart showing selected GWAS workflow: cohort design, ancestry assessment and quality control precede covariate-adjusted association tests and a study-appropriate multiple-testing criterion. Independent replication tests reproducibility; fine-mapping and functional follow-up investigate mechanisms, not automatic proof of causation. The conventional common-variant threshold discussed below is an example, not a universal testing rule. -->
 
-*The GWAS workflow, from cohort recruitment through genome-wide significance testing to functional follow-up. The genome-wide significance threshold of p < 5×10⁻⁸ corresponds to a Bonferroni correction for ~10⁶ independent common variants tested across the genome.*
+*Selected GWAS workflow: cohort design, ancestry assessment and quality control precede covariate-adjusted association tests and a study-appropriate multiple-testing criterion. Independent replication tests reproducibility; fine-mapping and functional follow-up investigate mechanisms, not automatic proof of causation. The conventional common-variant threshold discussed below is an example, not a universal testing rule.*
 
-### What GWAS has revealed
+### GWAS lessons: polygenicity and limits on causal inference
 
 Since the first successful GWAS (age-related macular degeneration, 2005), tens of thousands of genome-wide significant associations have been catalogued. Several lessons have emerged \citep{manolio2009missingheritability,yengo2022heightgwas}:
 
 1. **Most common diseases are highly polygenic.** Schizophrenia: >270 loci. Type 2 diabetes: >400 loci. Height: >12,000 contributing variants. The "one-gene, one-disease" Mendelian model rarely applies to common conditions.
 2. **Effect sizes are small.** Individual common variants typically increase disease risk by 1.05–1.3-fold (odds ratios of 1.05–1.3). The largest common-variant effects are typically in immune disorders (HLA region, OR up to 5–10 for specific autoimmune conditions).
-3. **Most GWAS hits are non-coding.** Approximately 90% of GWAS-associated variants lie outside protein-coding regions, in regulatory elements (enhancers, promoters, 3′ UTRs). They alter gene **expression** rather than protein sequence — connecting GWAS to the regulatory biology of \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}.
-4. **Pleiotropy is the rule, not the exception.** Many GWAS loci affect multiple traits. A locus near *FTO* influences both BMI and diabetes risk. A locus near *TCF7L2* affects type 2 diabetes, fasting glucose, and bone mineral density.
+3. **Noncoding associations require functional follow-up.** Many associated markers lie outside protein-coding exons. A marker can tag another variant through linkage disequilibrium and need not itself alter gene expression. Regulatory and RNA-processing mechanisms are hypotheses to test through fine-mapping and appropriate functional evidence, not consequences established by association alone; see \cref{sec:unit_IV_chromatin_and_epigenetic_mechanisms}.
+4. **Shared associations need interpretation.** A locus can be associated with multiple traits: associations near *FTO*, for example, overlap BMI and type 2 diabetes. Shared locus signals can reflect a shared causal variant, linkage disequilibrium with different causal variants, correlated traits or mediated effects. They do not by themselves establish one pleiotropic mechanism.
 5. **"Missing heritability"** persists — for many traits, common GWAS variants explain less variance than family and twin studies imply. The gap reflects many small-effect variants, rare variants, structural variation, gene-environment interactions, and non-additive effects (epistasis, dominance) \citep{manolio2009missingheritability}.
 
 ### Polygenic risk scores (PRS)
@@ -481,12 +491,12 @@ Mendel's deepest contribution was not the laws themselves but the **method**: co
 
 The standard visual display of GWAS results is the **Manhattan plot** — a scatter of $-\log_{10}(p)$ values plotted against genomic position. The horizontal axis traverses chromosomes 1 through 22 (and X) in order; each point is a single SNP. Strong associations form vertical "skyscrapers" of co-associated SNPs in the same locus (because nearby SNPs are in linkage disequilibrium), giving the plot its skyline-like appearance.
 
-The genome-wide significance threshold is conventionally set at $p < 5 \times 10^{-8}$ — the line drawn horizontally across most Manhattan plots. This threshold derives from a **Bonferroni correction** for multiple testing:
+For many common-variant human GWAS, a conventional genome-wide significance threshold is $p < 5 \times 10^{-8}$. An illustrative **Bonferroni correction** uses a family-wise error rate of $0.05$ and $10^6$ approximately independent tests:
 
 $$p_{\text{threshold}} = \frac{\alpha}{\text{number of independent tests}} = \frac{0.05}{10^6} = 5 \times 10^{-8} \label{eq:unit_V_mendelian_genetics_item_15}$$
 
 
-The denominator of $\sim 10^6$ reflects the number of approximately independent common variants in the human genome (after accounting for linkage disequilibrium between adjacent SNPs). A "suggestive" threshold of $p < 10^{-5}$ is sometimes reported for hits that warrant follow-up but do not meet genome-wide significance. Replication in an independent cohort is the gold standard for confirming a true association.
+The illustrative denominator of $10^6$ approximates the effective number of common-variant tests after accounting for linkage disequilibrium. It is not universal: variant coverage, ancestry-related linkage disequilibrium and the analysis design affect the testing burden, so the criterion must match the study. A "suggestive" threshold of $p < 10^{-5}$ is sometimes reported for follow-up candidates, but does not establish genome-wide significance. Independent replication supports reproducibility of an association, not proof that the associated variant causes the phenotype.
 
 ### Polygenic Risk Scores: Detailed Example
 

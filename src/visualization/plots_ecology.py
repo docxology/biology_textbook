@@ -155,7 +155,6 @@ def plot_biome_distribution(
     ax.set_title("Illustrative Terrestrial Biome Climate Coordinates", fontsize=14)
     ax.grid(True, color="#dddddd", linewidth=0.6, alpha=0.7)
     ax.tick_params(labelsize=11)
-    ax.text(0.02, 0.02, "Illustrative coordinates; equal marker sizes", transform=ax.transAxes, fontsize=10)
     fig.tight_layout()
     return _save_figure(fig, output_dir, "biome_distribution.png")
 
