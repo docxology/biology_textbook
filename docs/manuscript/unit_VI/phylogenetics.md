@@ -205,31 +205,31 @@ Mapping [**eusociality**](#gl:eusociality) onto a tree asks which components are
 ## Phylogenetic Reconstruction Methods
 
 ```mermaid
-flowchart TD
-    A["Phylogenetic Methods"] --> B["Distance-Based"]
-    A --> C["Character-Based"]
-    B --> B1["UPGMA"]
-    B --> B2["Neighbor-Joining"]
-    C --> C1["Maximum Parsimony"]
-    C --> C2["Maximum Likelihood"]
-    C --> C3["Bayesian Inference"]
-    B1 --> B1a["Assumes molecular clock"]
-    B1 --> B1b["Ultrametric tree"]
-    B2 --> B2a["No clock assumption"]
-    B2 --> B2b["Fast, corrected distances"]
-    C1 --> C1a["Minimize total changes"]
-    C1 --> C1b["NP-hard for large datasets"]
-    C1 --> C1c["Long-branch attraction artifact"]
-    C2 --> C2a["P(data | tree, model)"]
-    C2 --> C2b["Model-based: GTR+G+I"]
-    C2 --> C2c["RAxML, IQ-TREE"]
-    C3 --> C3a["Posterior probability via MCMC"]
-    C3 --> C3b["MrBayes, BEAST"]
-    C3 --> C3c["Complex model support"]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph distances["Distance-based methods: summarize pairwise divergence"]
+        direction LR
+        U["UPGMA<br/>Assumes molecular clock<br/>Produces ultrametric tree"]
+        N["Neighbor-joining<br/>No clock assumption<br/>Fast; corrected distances"]
+        U ~~~ N
+    end
+    subgraph characters["Character-based methods: evaluate histories of change"]
+        direction LR
+        P["Maximum parsimony<br/>Minimizes total changes<br/>NP-hard search in large datasets<br/>Long-branch attraction risk"]
+        L["Maximum likelihood<br/>P(data given tree, model)<br/>Example: GTR+G+I<br/>RAxML; IQ-TREE"]
+        B["Bayesian inference<br/>Posterior probability via MCMC<br/>Complex model support<br/>MrBayes; BEAST"]
+        P ~~~ L ~~~ B
+    end
+    distances ~~~ characters
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class U,N,P,L,B ink
 ```
-<!-- alt: Flowchart showing phylogenetic reconstruction methods differ in the evidence they optimize: distance methods summarize pairwise divergence, while character-based methods evaluate histories of trait or sequence change. -->
+<!-- alt: Two comparison panels distinguish distance-based UPGMA and neighbor-joining from character-based parsimony, likelihood and Bayesian inference. UPGMA assumes a molecular clock, parsimony minimizes changes, likelihood evaluates data under a tree and model, and Bayesian inference estimates a posterior distribution. The panels compare methods rather than show sequential analysis steps. -->
 
-*Phylogenetic reconstruction methods differ in the evidence they optimize: distance methods summarize pairwise divergence, while character-based methods evaluate histories of trait or sequence change.*
+*Phylogenetic reconstruction methods differ in their inputs, assumptions and inference targets. Distance methods summarize pairwise divergence: UPGMA assumes a molecular clock, while neighbor-joining does not. Character-based methods evaluate histories of trait or sequence change: parsimony minimizes changes, likelihood evaluates data conditional on a tree and model, and Bayesian inference estimates a posterior distribution. Named software and model examples identify implementations, not guarantees that assumptions are met.*
 
 ### Distance-Based Tree Reconstruction: UPGMA and Neighbor-Joining
 

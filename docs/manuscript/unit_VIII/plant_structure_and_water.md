@@ -37,10 +37,10 @@
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{../figures/water_potential_transpiration.png}
-\caption{Plant water relations in two panels. Left: solute potential grows more negative with concentration while turgor pressure raises total water potential. Right: transpiration flux falls as external vapour approaches leaf interior and rises with stomatal conductance.}
+\caption{Illustrative model calculations of plant water relations, not observations. Left: solute potential ($\psi_s=-CRT$, $i=1$, $T=298$ K) becomes more negative over 0.05–0.60 mol L$^{-1}$; fixed turgor of 0.5 MPa raises total potential. Right: $E=g(w_i-w_o)$ with fixed internal vapor mole fraction $w_i=0.013$ mol/mol and external values 0.0075–0.0125 mol/mol. Conductances $g=0.10$, 0.20 and 0.35 mol m$^{-2}$ s$^{-1}$ yield flux in mmol m$^{-2}$ s$^{-1}$; higher conductance increases flux at the same vapor gradient.}
 \label{fig:unit_VIII_water_potential_transpiration}
 \end{figure}
-<!-- alt: Two-panel plant-water figure. The water-potential panel shows solute potential becoming more negative with concentration and total water potential offset by turgor pressure; the transpiration panel shows flux decreasing as outside vapor concentration approaches the leaf interior, with higher conductance producing higher flux. -->
+<!-- alt: Two illustrative model panels, not measured data. Left, solute potential at 298 K and i=1 declines over 0.05–0.60 mol per liter and total potential is shifted upward by fixed 0.5 MPa turgor. Right, distinct line styles compare conductances 0.10, 0.20 and 0.35 mol m^-2 s^-1 at fixed internal vapor mole fraction 0.013 mol/mol; flux in mmol m^-2 s^-1 declines as external vapor mole fraction rises from 0.0075 to 0.0125 mol/mol. -->
 
 ---
 
@@ -123,28 +123,36 @@ Typical stomatal density: ~200 stomata/mm$^2$ in many mesophytes. Each stoma can
 Most plant organs are composed of three tissue systems: dermal, ground, and vascular.
 
 ```mermaid
-graph TD
-    A[Plant Tissue Systems] --> B[Dermal Tissue System]
-    A --> C[Ground Tissue System]
-    A --> D[Vascular Tissue System]
-    B --> B1[Epidermis]
-    B --> B2[Cuticle]
-    B --> B3[Stomata & Guard Cells]
-    B --> B4[Trichomes]
-    B --> B5[Root Hairs]
-    C --> C1[Parenchyma<br/>Photosynthesis, storage<br/>Thin primary walls]
-    C --> C2[Collenchyma<br/>Flexible support<br/>Unevenly thickened walls]
-    C --> C3[Sclerenchyma<br/>Rigid support<br/>Lignified secondary walls<br/>Often dead at maturity]
-    D --> D1[Xylem]
-    D --> D2[Phloem]
-    D1 --> D1a[Tracheids<br/>Long, tapered, pits]
-    D1 --> D1b[Vessel Elements<br/>Shorter, wider, perforation plates]
-    D2 --> D2a[Sieve Tube Elements<br/>No nucleus at maturity]
-    D2 --> D2b[Companion Cells<br/>Metabolic support]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph DERM["Dermal tissue system: outer covering"]
+        direction LR
+        D1["Epidermis and cuticle"]
+        D2["Stomata + guard cells<br/>Trichomes; root hairs"]
+        D1 ~~~ D2
+    end
+    subgraph GROUND["Ground tissue system: interior"]
+        direction LR
+        G1["Parenchyma<br/>Photosynthesis; storage<br/>Thin primary walls"]
+        G2["Collenchyma<br/>Flexible support<br/>Unevenly thickened walls"]
+        G3["Sclerenchyma<br/>Rigid support; lignified walls<br/>Often dead at maturity"]
+        G1 ~~~ G2 ~~~ G3
+    end
+    subgraph VASC["Vascular tissue system: transport"]
+        direction LR
+        X["Xylem<br/>Tracheids: long, tapered; pits<br/>Vessel elements: shorter, wider;<br/>perforation plates"]
+        P["Phloem<br/>Sieve-tube elements:<br/>no nucleus at maturity<br/>Companion cells: metabolic support"]
+        X ~~~ P
+    end
+    DERM ~~~ GROUND ~~~ VASC
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: Graph showing organization of the three plant tissue systems showing major cell types within each Dermal tissue forms the outer covering, ground tissue fills the interior, and vascular tissue provides transport. -->
+<!-- alt: Three labeled panels organize plant tissue systems without a wide branching tree. Dermal structures form the outer covering; ground tissue includes parenchyma, collenchyma and sclerenchyma with their wall and support properties; vascular cards distinguish xylem tracheids and vessel elements from phloem sieve-tube elements and companion cells. Panel order does not imply a developmental sequence. -->
 
-*Organization of the three plant tissue systems showing major cell types within each Dermal tissue forms the outer covering, ground tissue fills the interior, and vascular tissue provides transport.*
+*Three plant tissue systems in compact classification panels: dermal structures form the outer covering, ground cell types fill the interior and provide photosynthesis, storage or support, and vascular tissues provide transport. Xylem and phloem cards retain their major conducting and supporting cell types; sclerenchyma has lignified secondary walls. Panel order is organizational, not a developmental or causal sequence.*
 
 ### Dermal Tissue System
 
@@ -375,17 +383,20 @@ In practice, the three pathways operate simultaneously; the relative contributio
 Rice can develop exodermal as well as endodermal apoplastic barriers. Their distribution and effects vary with development, genotype and environment; the Pokkali–IR20 experiments measured condition-dependent transport differences \citep{krishnamurthy2011ricebarriers}. These barriers do not make rice generally salt tolerant or establish a species-wide tolerance ranking.
 
 ```mermaid
-flowchart LR
-    Soil[Soil solution] --> RH[Root surface]
-    RH -->|apoplast| CW1[Cortical cell walls]
-    RH -->|membrane entry then symplast| Cyto1[Cortical cytoplasm]
-    CW1 -->|intact strip limits radial passage| EndoBlock[Endodermal barrier]
-    EndoBlock -->|membrane-mediated entry| Endo[Endodermal cytoplasm]
-    Cyto1 -->|plasmodesmata| Endo
-    RH -->|transmembrane crossings| TC[Across root cell membranes]
-    TC --> Endo
-    Endo -->|aquaporins and transporters| PCyl[Pericycle and stele]
-    PCyl --> Xylem[Xylem conduit]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    SOIL["Soil solution → root surface"]
+    SOIL -->|apoplast| APO["Cortical cell walls<br/>Intact Casparian strip<br/>limits radial apoplastic passage"]
+    SOIL -->|membrane entry| SYM["Cortical cytoplasm<br/>Symplastic transport<br/>via plasmodesmata"]
+    SOIL -->|repeated membrane crossings| TRANS["Transmembrane route<br/>Across root-cell membranes"]
+    APO -->|membrane-mediated entry| ENDO["Endodermal cytoplasm"]
+    SYM --> ENDO
+    TRANS --> ENDO
+    ENDO -->|aquaporins and transporters| STELE["Pericycle and stele<br/>→ xylem conduit"]
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
 <!-- alt: Flowchart showing an idealized intact endodermal barrier restricts radial apoplastic passage without making the continuing water route exclusively symplastic. Membrane-mediated and repeated transmembrane routes are shown; developmental bypasses and quantitative flow fractions require separate evidence. -->
 

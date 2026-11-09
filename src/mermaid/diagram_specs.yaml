@@ -157,65 +157,79 @@ diagrams:
   title: DNA Replication Fork Machinery
   nodes:
   - - ORC
-    - ORC marks origin
-  - - MCM
-    - Mcm2-7 loaded in G1
+    - 'Origin licensing
+
+      ORC marks origin; then
+
+      Mcm2-7 loaded in G1'
   - - CMG
-    - CMG helicase fires
-  - - Fork
-    - Replication fork
+    - 'CMG helicase fires
+
+      Unwinds dsDNA
+
+      Replication fork forms'
   - - Lead
-    - Leading strand Pol epsilon
-  - - Lag
-    - Lagging strand
+    - 'Leading strand
+
+      Pol epsilon'
   - - Ldone
     - Leading strand product
   - - PrimA
-    - Pol alpha-primase RNA primer
+    - 'Lagging strand
+
+      Pol alpha-primase
+
+      RNA primer'
   - - OkA
-    - Pol delta extends Okazaki fragment
-  - - Flap
-    - RNA-DNA flap from strand displacement
+    - 'Pol delta extends
+
+      Okazaki fragment;
+
+      strand displacement
+
+      forms RNA-DNA flap'
+  - - FEN1
+    - 'FEN1 nuclease
+
+      PCNA-associated protein'
   - - Nick
-    - Ligatable nick after FEN1 cleavage
+    - Ligatable nick
+  - - LigI
+    - 'DNA ligase I
+
+      PCNA-associated protein'
   - - LigDone
     - Okazaki fragment matured
   - - PCNA
     - PCNA sliding clamp
   edges:
   - - ORC
-    - MCM
-    - ''
-  - - MCM
     - CMG
     - S-CDK plus DDK
   - - CMG
-    - Fork
-    - unwinds dsDNA
-  - - Fork
     - Lead
     - ''
-  - - Fork
-    - Lag
+  - - CMG
+    - PrimA
     - ''
   - - Lead
     - Ldone
-    - continuous 5to3
-  - - Lag
-    - PrimA
-    - ''
+    - continuous 5′ to 3′
   - - PrimA
     - OkA
     - ''
   - - OkA
-    - Flap
-    - Pol delta strand-displacement synthesis
-  - - Flap
+    - FEN1
+    - flap substrate
+  - - FEN1
     - Nick
-    - FEN1 flap cleavage
+    - flap-cleavage product
   - - Nick
+    - LigI
+    - nick substrate
+  - - LigI
     - LigDone
-    - LIG1 plus ATP seals nick
+    - ATP-dependent sealing
   - - PCNA
     - Lead
     - PIP box
@@ -223,9 +237,12 @@ diagrams:
     - OkA
     - PIP box
   - - PCNA
-    - Nick
-    - PIP box
-  direction: LR
+    - FEN1
+    - PIP-box interaction
+  - - PCNA
+    - LigI
+    - PIP-box interaction
+  direction: TD
 - type: flowchart
   factory: enzyme_kinetics_diagram
   name: enzyme_kinetics
@@ -287,11 +304,17 @@ diagrams:
   - - Hk
     - Hawk
   - - Det
-    - Detritus
-  - - Dec
-    - Decomposers
-  - - Nutr
-    - Mineral nutrients
+    - 'Detrital recycling
+
+      Detritus
+
+      ↓ decomposition
+
+      Decomposers
+
+      ↓ mineralization
+
+      Mineral nutrients'
   edges:
   - - Sun
     - Pl
@@ -333,15 +356,9 @@ diagrams:
     - Det
     - death
   - - Det
-    - Dec
-    - decomposition
-  - - Dec
-    - Nutr
-    - mineralization
-  - - Nutr
     - Pl
-    - uptake
-  direction: LR
+    - nutrient uptake
+  direction: TD
 - type: flowchart
   factory: glycolysis_pathway_diagram
   name: glycolysis_pathway
@@ -544,12 +561,12 @@ diagrams:
   - - Innate
     - Inflam
     - ''
-  - - Phag
+  - - Innate
     - APC
-    - presents antigen
+    - antigen uptake and processing
   - - APC
     - Adapt
-    - activates
+    - presents peptide-MHC to T cells
   - - Adapt
     - TH
     - ''
@@ -710,13 +727,13 @@ diagrams:
   - - P2
     - 'Parent 2: Aa'
   - - G1A
-    - Gamete A
+    - Parent 1 gamete A
   - - G1a
-    - Gamete a
+    - Parent 1 gamete a
   - - G2A
-    - Gamete A
+    - Parent 2 gamete A
   - - G2a
-    - Gamete a
+    - Parent 2 gamete a
   - - AA
     - 'AA (25%)
 
@@ -748,16 +765,28 @@ diagrams:
     - meiosis
   - - G1A
     - AA
-    - +G2A
+    - ''
   - - G1A
     - Aa1
-    - +G2a
+    - ''
   - - G1a
     - Aa2
-    - +G2A
+    - ''
   - - G1a
     - aa
-    - +G2a
+    - ''
+  - - G2A
+    - AA
+    - ''
+  - - G2a
+    - Aa1
+    - ''
+  - - G2A
+    - Aa2
+    - ''
+  - - G2a
+    - aa
+    - ''
 - type: flowchart
   factory: mirna_biogenesis_diagram
   name: mirna_biogenesis_diagram

@@ -78,22 +78,35 @@ The 4-chamber heart enables complete separation of oxygenated and deoxygenated b
 The heart is a self-exciting organ. Its electrical conduction system ensures coordinated contraction:
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 flowchart TD
-    SA["SA Node (Sinoatrial)<br/>Natural pacemaker<br/>Intrinsic rate: 70-80 bpm<br/>Located: right atrium wall"] --> Atria["Atrial Depolarization<br/>P wave on ECG<br/>Atrial contraction"]
-    Atria --> AV["AV Node (Atrioventricular)<br/>Delay: ~0.1 s<br/>Intrinsic rate: 40-60 bpm<br/>PR interval on ECG"]
-    AV --> His["Bundle of His<br/>Penetrates fibrous skeleton<br/>Only electrical connection<br/>between atria and ventricles"]
-    His --> BB["Bundle Branches<br/>Left and Right<br/>Down interventricular septum"]
-    BB --> Purk["Purkinje Fibers<br/>Rapid conduction (2-4 m/s)<br/>Distribute impulse to<br/>ventricular myocardium"]
-    Purk --> Vent["Ventricular Depolarization<br/>QRS complex on ECG<br/>Ventricular contraction (systole)"]
-    Vent --> Repol["Ventricular Repolarization<br/>T wave on ECG<br/>Ventricular relaxation (diastole)"]
-
-    style SA fill:#ffcccc
-    style AV fill:#ffffcc
-    style Purk fill:#ccffcc
+    subgraph Atrial["1. Pacemaker and atrial activation"]
+        direction LR
+        SA["SA node<br/>Right atrial wall<br/>Natural pacemaker<br/>70–80 bpm"] --> Atria["Atrial depolarization<br/>P wave; atrial contraction"]
+        Atria --> AV["AV node<br/>Delay about 0.1 s<br/>40–60 bpm; PR interval"]
+    end
+    subgraph Conduction["2. Conduction to ventricular muscle"]
+        direction LR
+        His["Bundle of His<br/>Crosses fibrous skeleton<br/>Normal atrioventricular<br/>electrical connection"] --> BB["Left and right<br/>bundle branches<br/>Interventricular septum"]
+        BB --> Purk["Purkinje fibers<br/>2–4 m/s conduction<br/>Distribute ventricular impulse"]
+    end
+    subgraph Ventricular["3. Ventricular electrical events"]
+        direction LR
+        Vent["Ventricular depolarization<br/>QRS complex<br/>Contraction: systole"] --> Repol["Ventricular repolarization<br/>T wave<br/>Relaxation: diastole"]
+    end
+    Atrial --> Conduction --> Ventricular
+    classDef readable fill:#eef5fa,stroke:#526777,color:#111111
+    class SA,Atria,AV,His,BB,Purk,Vent,Repol readable
+    style Atrial fill:#fafafa,stroke:#526777,color:#17212b
+    style Conduction fill:#fafafa,stroke:#526777,color:#17212b
+    style Ventricular fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing cardiac conduction system and corresponding ECG waves. The SA node initiates depolarization, which spreads through the atria (P wave), is delayed at the AV node, then rapidly conducted through the bundle of His and Purkinje fibers to the ventricles (QRS complex). Ventricular repolarization produces the T wave. -->
+<!-- alt: Three ordered panels follow the SA node, atrial depolarization and AV delay; the His bundle, bundle branches and Purkinje fibers; then ventricular depolarization and repolarization with their ECG waves. Rates and delays are teaching approximations that depend on physiological state and preparation. -->
 
-*Cardiac conduction system and corresponding ECG waves. The SA node initiates [**depolarization**](#gl:depolarization), which spreads through the atria (P wave), is delayed at the AV node, then rapidly conducted through the bundle of His and Purkinje fibers to the ventricles (QRS complex). Ventricular repolarization produces the T wave.*
+*Cardiac conduction and corresponding ECG waves, wrapped into three ordered stages. The SA node initiates [**depolarization**](#gl:depolarization); atrial activation produces the P wave, AV conduction delays ventricular activation, and His–Purkinje conduction precedes the QRS complex. Ventricular repolarization produces the T wave. Displayed rates and delays are teaching approximations, not constants across autonomic states or experimental preparations.*
 
 **ECG waves and their significance:**
 - **P wave:** Atrial depolarization and contraction
@@ -398,9 +411,9 @@ flowchart LR
         T2["PO2 = 20 mmHg (exercise)<br/>SO2 = 35%<br/>Enhanced unloading"]
     end
 
-    subgraph Bohr ["Bohr Effect Shifts Curve RIGHT"]
-        B1["Decreased pH<br/>(more H+)"]
-        B2["Increased CO2"]
+    subgraph Bohr ["Factors shifting the dissociation curve RIGHT"]
+        B1["Bohr effect: decreased pH<br/>(more H+)"]
+        B2["Bohr effect: increased CO2"]
         B3["Increased temperature"]
         B4["Increased 2,3-DPG"]
         B1 --> B5["RIGHT SHIFT<br/>P50 increases<br/>O2 released more readily"]
@@ -413,9 +426,9 @@ flowchart LR
     T1 --> |"Exercise"| T2
     B5 --> |"Enhances O2 delivery<br/>to active tissues"| T2
 ```
-<!-- alt: Flowchart showing oxygen delivery from lung to tissue and the Bohr effect. In the lungs (high PO_2), hemoglobin loads O_2 to 97% saturation. In tissues (lower PO_2), O_2 is released. The Bohr effect rightward shift of the dissociation curve in metabolically active tissues (low pH, high CO_2, high temperature) enhances O_2 delivery where it is most needed. -->
+<!-- alt: Lung and tissue boxes give rounded illustrative oxygen pressures and saturations on one reference dissociation curve, not a calibrated exercise curve. A separate group shows factors that raise P50 and lower oxygen affinity: the Bohr effect is the pH/CO2 contribution; temperature and 2,3-DPG are additional distinct right-shift factors. -->
 
-*Oxygen delivery from lung to tissue and the Bohr effect. In the lungs (high PO$_2$), hemoglobin loads O$_2$ to 97% saturation. In tissues (lower PO$_2$), O$_2$ is released. The Bohr effect rightward shift of the dissociation curve in metabolically active tissues (low [**pH**](#gl:ph), high CO$_2$, high temperature) enhances O$_2$ delivery where it is most needed.*
+*Oxygen loading and unloading, with rounded illustrative pressures and saturations on one reference dissociation curve; the exercise-pressure box is not a calibrated exercise saturation prediction. The separate right-shift group shows decreased affinity and increased P$_{50}$. The Bohr effect refers to [**pH**](#gl:ph)/CO$_2$ dependence; increased temperature and increased 2,3-DPG are additional, distinct right-shift factors. Their combined physiological effects require conditions beyond this one-curve illustration.*
 
 Hb-O$_2$ binding is **cooperative** (T-state to R-state conformational switch). The resulting sigmoidal binding curve, together with physiological affinity shifts (\cref{fig:unit_IX_oxygen_dissociation}), follows the Hill equation:
 
@@ -426,11 +439,10 @@ SO_2 = \frac{(PO_2 / P_{50})^n}{1 + (PO_2 / P_{50})^n}
 
 where **P$_{50}$** = PO$_2$ at 50% saturation (about 26 mmHg for human HbA at 37 degrees C, pH 7.4) and **n** is about 2.7 (Hill coefficient; n = 1 would be non-cooperative; n = 4 would be perfectly cooperative for a tetramer).
 
-**Bohr effect:** The curve shifts rightward (P$_{50}$ increases, affinity decreases) with:
-- Increased [H$^+$] (lower pH): Protons bind to histidine residues on Hb, stabilizing T-state
-- Increased CO$_2$: Forms carbaminohaemoglobin and generates H$^+$
-- Increased temperature: Weakens Hb-O$_2$ bond
-- Increased 2,3-DPG (2,3-diphosphoglycerate): Binds between β chains, stabilizing T-state
+**Factors shifting the curve rightward** (P$_{50}$ increases, affinity decreases):
+- **Bohr effect — pH/CO$_2$ dependence:** Increased [H$^+$] (lower pH) stabilizes the T-state; increased CO$_2$ contributes through carbaminohemoglobin formation and H$^+$ generation.
+- **Temperature, a distinct factor:** Increased temperature reduces Hb-O$_2$ affinity.
+- **2,3-DPG, a distinct factor:** Increased 2,3-DPG (2,3-diphosphoglycerate, also called 2,3-BPG) binds between β chains, stabilizing the T-state.
 
 **Physiological significance:** In metabolically active tissues (low pH, high CO$_2$, high temperature), Hb releases more O$_2$ exactly where it is needed.
 
@@ -744,30 +756,32 @@ The **hypothalamus** serves as the thermostat:
 **Countercurrent heat exchange** is a passive but elegant mechanism that conserves core heat in cold-stressed appendages. Arteries supplying the limb run alongside paired veins (the **vena comitans** arrangement). Warm arterial blood transfers heat to the cooler venous blood returning from the cold extremity. By the time arterial blood reaches the distal limb, it has cooled substantially; conversely, returning venous blood is rewarmed before reaching the core.
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 flowchart LR
-    Core["Core: 37 °C"]
-    A1["Artery: 37 °C"]
-    A2["Artery: 30 °C<br/>(after heat loss<br/>to vena comitans)"]
-    A3["Artery: 22 °C<br/>at distal limb"]
-    V3["Vein: 18 °C<br/>at distal limb"]
-    V2["Vein: 28 °C<br/>(after rewarming<br/>from artery)"]
-    V1["Vein: 35 °C<br/>(re-entering core)"]
-    Skin["Cold environment:<br/>0 °C"]
-
-    Core --> A1
-    A1 -->|"heat to V"| V1
-    A1 --> A2
-    A2 -->|"heat to V"| V2
-    A2 --> A3
-    A3 -->|"some heat<br/>radiated to skin"| Skin
-    A3 --> V3
-    V3 -->|"warmed<br/>by adjacent A"| V2
-    V2 --> V1
-    V1 --> Core
+    subgraph Outbound["Arterial blood: core toward cold extremity"]
+        direction TB
+        A1["From core at 37 °C<br/>Proximal artery: 37 °C"] --> A2["Mid-limb artery<br/>30 °C"]
+        A2 --> A3["Distal artery<br/>22 °C"]
+    end
+    subgraph Inbound["Venous blood: extremity toward core"]
+        direction BT
+        V3["Distal vein<br/>18 °C"] --> V2["Mid-limb vein<br/>28 °C"]
+        V2 --> V1["Proximal vein: 35 °C<br/>Returns to 37 °C core"]
+    end
+    Outbound -->|"Distal blood passage<br/>Artery → vein"| Inbound
+    Outbound -.->|"Heat to adjacent vein<br/>along paired vessels"| Inbound
+    Outbound -.->|"Some heat lost<br/>via skin"| Skin["Environment<br/>0 °C"]
+    classDef readable fill:#eef5fa,stroke:#526777,color:#111111
+    class A1,A2,A3,V1,V2,V3,Skin readable
+    style Outbound fill:#fafafa,stroke:#526777,color:#17212b
+    style Inbound fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing countercurrent heat exchange in a cold limb Heat flows continuously from warmer arterial to cooler venous blood along the entire vessel length. Warm arterial blood is "pre-cooled" before reaching the distal extremity; cold venous blood is "rewarmed" before re-entering the core. The result is dramatic conservation of core body temperature despite cold exposure of the appendage. -->
+<!-- alt: Two compact vessel panels follow arterial blood from the core through 37, 30 and 22 degrees, and venous blood in the opposite direction through 18, 28 and 35 degrees back to the core. Solid arrows carry blood; dashed panel connectors show heat transfer along adjacent vessels and heat loss through skin to a zero-degree environment. Temperatures are illustrative, not measurements or a universal profile. -->
 
-*Countercurrent heat exchange in a cold limb Heat flows continuously from warmer arterial to cooler venous blood along the entire vessel length. Warm arterial blood is "pre-cooled" before reaching the distal extremity; cold venous blood is "rewarmed" before re-entering the core. The result is dramatic conservation of core body temperature despite cold exposure of the appendage.*
+*Countercurrent heat exchange in a cold limb, with illustrative temperatures rather than a measured or universal profile. The arterial panel follows blood outward from the core; the venous panel follows blood inward. Solid arrows show blood flow, including distal passage from artery to vein. Dashed panel connectors summarize heat transfer along the adjacent vessels and heat loss through skin, not blood mixing. Arterial blood cools toward the extremity while returning venous blood warms toward the core, conserving core heat.*
 
 The same principle operates in **fish gills** (countercurrent O$_2$ extraction — water flow opposite to blood flow extracts up to 80–90% of dissolved O$_2$), the **renal medulla** (countercurrent multiplication for urine concentration), and the **placenta** (maternal-fetal exchange).
 
@@ -934,7 +948,7 @@ Interpret circulation and gas-exchange data by separating baseline set point, pe
 
 8. A patient with diabetes insipidus produces 15 L of dilute urine per day. Explain the molecular defect (central vs nephrogenic), and describe how ADH normally regulates water reabsorption at the molecular level.
 
-9. During intense exercise, skeletal muscle produces large amounts of CO$_2$, H$^+$, and heat. Explain how each of these factors enhances O$_2$ delivery to the exercising muscle via the Bohr effect.
+9. During intense exercise, skeletal muscle produces large amounts of CO$_2$, H$^+$, and heat. Distinguish the pH/CO$_2$-dependent Bohr effect from the separate effect of increased temperature on Hb-O$_2$ affinity. How can each enhance O$_2$ unloading?
 
 10. Compare shivering thermogenesis and non-shivering thermogenesis (BAT/UCP1) in terms of mechanism, efficiency, tissue involved, and developmental significance.
 

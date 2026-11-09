@@ -58,3 +58,42 @@ def test_draft_diagram_normalization_preserves_source_and_authored_prose() -> No
         assert fence in normalized
         assert normalized.endswith(paragraph)
         assert normalize_text(normalized).text == normalized
+
+
+_LONG_QUALIFIED_CAPTION = (
+    "A source sends material along two independent routes to different products in a stipulated model. "
+    "The upper route is active under the selected reference condition, while the lower route represents "
+    "an alternative response to a changed input rather than a later stage of the upper route. "
+    "Arrowheads identify material transfer and do not indicate that one product is converted into the other. "
+    "The panels repeat the source only to keep the two routes visible; repeated labels do not add a second source. "
+    "No rates were fitted to experimental observations, and the drawing supplies neither a measured flux "
+    "nor a prediction for every biological preparation. "
+    "These are conditional model relationships, not empirical measurements or universal outcomes."
+)
+
+
+def test_normalize_text_preserves_meaningful_authored_alt() -> None:
+    authored = (
+        "Two independent arrows lead from Source to Product A and Product B; "
+        "neither product is converted into the other."
+    )
+    original = (
+        "```mermaid\nflowchart LR\n S[Source] --> A[Product A]\n S --> B[Product B]\n```\n"
+        f"<!-- alt: {authored} -->\n\n*{_LONG_QUALIFIED_CAPTION}*\n"
+    )
+    normalized = normalize_text(original).text
+    actual = normalized.split("<!-- alt: ", 1)[1].split(" -->", 1)[0]
+    assert actual == authored
+    assert normalize_text(normalized).text == normalized
+
+
+def test_generated_alt_retains_late_qualification() -> None:
+    original = (
+        "```mermaid\nflowchart LR\n S[Source] --> A[Product A]\n S --> B[Product B]\n```\n"
+        f"\n*{_LONG_QUALIFIED_CAPTION}*\n"
+    )
+    normalized = normalize_text(original).text
+    actual = normalized.split("<!-- alt: ", 1)[1].split(" -->", 1)[0]
+    assert "two independent routes to different products" in actual
+    assert "not empirical measurements or universal outcomes" in actual
+    assert normalize_text(normalized).text == normalized

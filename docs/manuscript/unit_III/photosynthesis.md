@@ -371,37 +371,36 @@ This 18:12 = 3:2 ATP:NADPH demand is the *target* the light reactions must hit. 
 The Calvin cycle fixes CO$_2$ into organic compounds in the stroma. It has three phases:
 
 ```mermaid
-flowchart LR
-    subgraph P1["Phase 1: Carboxylation"]
-        RuBP["3 RuBP (15C total)"]
-        PGA["6 × 3-PGA (18C total)"]
-        RuBP -->|"RuBisCO + 3 CO₂"| PGA
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph P1["Stroma — phase 1: carboxylation; accounting per 3 CO₂"]
+        direction LR
+        RuBP["3 RuBP<br/>15C total"] -->|"RuBisCO<br/>3 CO₂ fixed"| PGA["6 × 3-PGA<br/>18C total"]
     end
-
-    subgraph P2["Phase 2: Reduction"]
-        PGA2["6 × 3-PGA"]
-        BPG["6 × 1,3-BPG"]
-        G3P["6 × G3P (18C total)"]
-        PGA2 -->|"+ 6 ATP"| BPG
-        BPG -->|"+ 6 NADPH"| G3P
+    subgraph P2["Stroma — phase 2: reduction and net-product allocation"]
+        direction LR
+        PGA2["6 × 3-PGA"] -->|"6 ATP → 6 ADP"| BPG["6 × 1,3-BPG"]
+        BPG -->|"6 NADPH used"| G3P["6 G3P<br/>18C total"]
+        G3P -->|"1 G3P exits"| Output["Net G3P (3C)<br/>For sugar synthesis"]
     end
-
-    subgraph P3["Phase 3: Regeneration"]
-        G3P2["5 × G3P"]
-        RuBP2["3 × RuBP (5C)"]
-        G3P2 -->|"+ 3 ATP<br/>complex 10-step rearrangement"| RuBP2
+    subgraph P3["Stroma — phase 3: regeneration"]
+        direction LR
+        G3P2["5 G3P retained<br/>15C total"] -->|"Carbon rearrangements<br/>3 ATP → 3 ADP"| RuBP2["3 RuBP regenerated<br/>15C total<br/>Return to phase 1"]
     end
-
-    PGA --> PGA2
-    G3P -->|"5 G3P retained"| G3P2
-    RuBP2 -->|"Cycle continues"| RuBP
-
-    Input["Input per 3 CO₂<br/>9 ATP + 6 NADPH"] -.-> RuBP
-    G3P -.-> Output["Net output<br/>1 G3P (3C)<br/>= ½ glucose"]
+    P1 -->|"All six 3-PGA continue"| P2
+    P2 -->|"Five G3P retained"| P3
+    classDef carbon fill:#ffffff,stroke:#526777,color:#111111
+    class RuBP,PGA,PGA2,BPG,G3P,Output,G3P2,RuBP2 carbon
+    style P1 fill:#f8f0e8,stroke:#526777,color:#17212b
+    style P2 fill:#eef5fa,stroke:#526777,color:#17212b
+    style P3 fill:#f1f6ef,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing calvin-cycle accounting per 3 CO_2: 9 ATP and 6 NADPH yield one net G3P while regenerating three RuBP. Fixing 6 CO_2 yields two net G3P, sufficient carbon for one hexose. -->
+<!-- alt: Three ordered stromal panels show three CO2 added to three RuBP, reduction of six 3-PGA using six ATP and six NADPH, export of one net G3P, and regeneration of three RuBP from five retained G3P using three ATP. -->
 
-*Calvin-cycle accounting per 3 CO$_2$: 9 ATP and 6 NADPH yield one net G3P while regenerating three RuBP. Fixing 6 CO$_2$ yields two net G3P, sufficient carbon for one hexose.*
+*Calvin-cycle accounting in the stroma per 3 CO$_2$: 6 ATP and 6 NADPH support reduction, and 3 further ATP support regeneration, totaling 9 ATP + 6 NADPH. Six G3P are formed gross, but five remain in the cycle; only one G3P (3C) is net output. Regenerated RuBP returns to carboxylation. Fixing 6 CO$_2$ yields two net G3P, sufficient carbon for one hexose, not direct glucose production in the depicted reactions. Repeated boundary metabolites mark continuation between panels.*
 
 ### RuBisCO: Structure and Catalytic Mechanism
 
@@ -570,33 +569,42 @@ Standard Calvin cycle. Used by ~85% of plant species (wheat, rice, soybeans, mos
 ### C4 Photosynthesis (First stable product: oxaloacetate, 4C)
 
 ```mermaid
-flowchart LR
-    subgraph MC ["Mesophyll Cell"]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph FIX["1. Mesophyll cytosol: bicarbonate fixation"]
+        direction LR
         A["Atmospheric CO₂"] -->|"Carbonic anhydrase"| Bic["HCO₃⁻"]
-        Bic -->|"PEP carboxylase"| B["Oxaloacetate (4C)"]
-        B -->|"NADPH<br/>malate DH"| C["Malate (4C)"]
+        Bic -->|"PEP carboxylase<br/>+ PEP (3C)"| B["Oxaloacetate (4C)"]
     end
-
-    subgraph BSC ["Bundle Sheath Cell<br/>NADP-ME subtype example"]
-        D["Malate (4C)"] -->|"NADP-malic enzyme<br/>decarboxylation"| E["Pyruvate (3C) + CO₂"]
-        E -->|"CO₂ concentrated"| F["RuBisCO<br/>Calvin cycle<br/>reduced photorespiration"]
+    subgraph REDUCE["2. Mesophyll chloroplast: malate formation"]
+        direction LR
+        B2["Oxaloacetate (4C)"] -->|"NADP-malate DH<br/>NADPH → NADP⁺"| C["Malate (4C)"]
     end
-
-    subgraph MC2 ["Mesophyll Cell"]
-        G["Pyruvate (3C)"] -->|"PPDK: ATP + Pi → AMP + PPi<br/>cost: 2 ATP equivalents"| H["PEP (3C)"]
+    subgraph RELEASE["3. Bundle-sheath chloroplast: NADP-ME subtype"]
+        direction LR
+        D["Malate (4C)"] -->|"NADP-malic enzyme<br/>NADP⁺ → NADPH"| E["Pyruvate (3C) + CO₂"]
+        E -->|"Released CO₂"| F["RuBisCO<br/>Calvin cycle"]
     end
-
-    C -->|"Plasmodesmata"| D
-    E -->|"Pyruvate returns"| G
-    H -->|"PEP substrate"| B
-
-    style MC fill:#e6ffe6
-    style BSC fill:#fff3e6
-    style MC2 fill:#e6ffe6
+    subgraph RETURN["4. Mesophyll chloroplast: PEP regeneration"]
+        direction LR
+        G["Returned pyruvate (3C)"] -->|"PPDK<br/>ATP + Pi → AMP + PPi"| H["PEP (3C)<br/>Returns to step 1"]
+    end
+    FIX -->|"Oxaloacetate enters chloroplast"| REDUCE
+    REDUCE -->|"Malate moves to bundle sheath<br/>Via plasmodesmata and transport"| RELEASE
+    RELEASE -->|"Pyruvate returns to mesophyll"| RETURN
+    classDef carbon fill:#ffffff,stroke:#526777,color:#111111
+    class A,Bic,B,B2,C,D,E,F,G,H carbon
+    style FIX fill:#f1f6ef,stroke:#526777,color:#17212b
+    style REDUCE fill:#f1f6ef,stroke:#526777,color:#17212b
+    style RELEASE fill:#f8f0e8,stroke:#526777,color:#17212b
+    style RETURN fill:#f1f6ef,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing an NADP-ME C4 pathway concentrates CO_2 around bundle-sheath RuBisCO. PEP carboxylase uses bicarbonate, and PPDK consumes one ATP to AMP plus PPi, equivalent to two ATP-to-ADP energetic steps. -->
+<!-- alt: Four ordered panels follow mesophyll bicarbonate fixation with PEP, oxaloacetate reduction to malate, bundle-sheath NADP-malic-enzyme release of CO2 for RuBisCO, and pyruvate return for PPDK-dependent PEP regeneration. One ATP converted to AMP plus PPi costs two ATP equivalents. -->
 
-*An NADP-ME C4 pathway concentrates CO$_2$ around bundle-sheath RuBisCO. PEP carboxylase uses bicarbonate, and PPDK consumes one ATP to AMP plus PPi, equivalent to two ATP-to-ADP energetic steps.*
+*An NADP-ME C4 pathway, with mesophyll and bundle-sheath compartments retained in four wrapped stages. PEP carboxylase combines bicarbonate with PEP; malate carries carbon to the bundle sheath, where NADP-malic enzyme releases CO$_2$ and forms pyruvate. In the depicted malate branch, released CO$_2$—not malate or pyruvate—enters the RuBisCO reaction; pyruvate returns for PEP regeneration. PPDK consumes one ATP to AMP + PPi, costing two ATP-to-ADP equivalents per CO$_2$ shuttled. This is additional to Calvin-cycle demand: idealized total 5 ATP equivalents + 2 NADPH per CO$_2$ fixed. CO$_2$ concentration can suppress, but does not universally eliminate, photorespiration. Repeated boundary metabolites indicate transport or continuation, not additional carbon production.*
 
 **CO$_2$-concentrating mechanism:** Carbonic anhydrase converts CO$_2$ to bicarbonate in mesophyll cells. PEP carboxylase combines bicarbonate with PEP to form oxaloacetate, which is reduced to malate. In this NADP-ME subtype, malate moves to the bundle sheath and is decarboxylated; released CO$_2$ supplies RuBisCO. Pyruvate returns to mesophyll cells, where PPDK regenerates PEP. Concentrating CO$_2$ suppresses, but does not universally eliminate, photorespiration.
 

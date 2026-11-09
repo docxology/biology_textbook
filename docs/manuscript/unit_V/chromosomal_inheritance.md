@@ -131,25 +131,27 @@ The chromosomal theory of inheritance rests on a single comparative observation 
 | **Failure consequences** | Tumor formation, aneuploid somatic cells | Aneuploid gametes (Down syndrome, miscarriage) |
 
 ```mermaid
-flowchart LR
-    subgraph Mitosis
-        M1["G2: 2n diploid<br/>(replicated, 4C DNA)"] --> M2["Prometaphase: chromosomes attach to spindle"]
-        M2 --> M3["Metaphase: chromosomes line up"]
-        M3 --> M4["Anaphase: SISTERS separate"]
-        M4 --> M5["Two diploid daughters, each 2n"]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph mitosis["Mitosis: one division"]
+        direction LR
+        M1["G2: diploid 2n;<br/>replicated, 4C DNA"] --> M2["Prometaphase: spindle attachment;<br/>metaphase: chromosomes align"] --> M4["Anaphase:<br/>SISTERS separate"] --> M5["Two diploid daughters;<br/>each 2n"]
     end
-    subgraph "Meiosis I (Reductional)"
-        I1["G2: 2n diploid<br/>(replicated, 4C DNA)"] --> I2["Prophase I: synapsis, crossing over"]
-        I2 --> I3["Metaphase I: bivalents align"]
-        I3 --> I4["Anaphase I: HOMOLOGS separate<br/>(sisters stay joined)"]
-        I4 --> I5["Two haploid cells, each 1n with sister chromatids"]
+    subgraph meiosisI["Meiosis I: reductional division"]
+        direction LR
+        I1["G2: diploid 2n;<br/>replicated, 4C DNA"] --> I2["Prophase I: synapsis,<br/>crossing over;<br/>metaphase I: bivalents align"] --> I4["Anaphase I:<br/>HOMOLOGS separate;<br/>sisters stay joined"] --> I5["Two haploid cells;<br/>each 1n, with sisters"]
     end
-    subgraph "Meiosis II (Equational)"
-        II1["Metaphase II: chromosomes align"] --> II2["Anaphase II: SISTERS separate"]
-        II2 --> II3["Four haploid gametes, each 1n"]
+    subgraph meiosisII["Meiosis II: equational division; no intervening DNA replication"]
+        direction LR
+        II1["Metaphase II:<br/>chromosomes align"] --> II2["Anaphase II:<br/>SISTERS separate"] --> II3["Four haploid gametes;<br/>each 1n"]
     end
-    M5 -.- I5
-    I5 --> II1
+    mitosis ~~~ meiosisI
+    meiosisI --> meiosisII
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class M1,M2,M4,M5,I1,I2,I4,I5,II1,II2,II3 ink
 ```
 <!-- alt: Flowchart showing mitosis vs. meiosis: a single division producing two diploid copies versus a two-division program producing four haploid, recombined gametes. The defining event of meiosis is anaphase I, when homologs (not sisters) separate. -->
 
@@ -159,39 +161,49 @@ The combination of (1) homolog pairing in prophase I, (2) crossing over, (3) ran
 
 ### Molecular details of meiotic recombination
 
-The orderly behavior of bivalents at metaphase I depends on **physical connections** (chiasmata) created by reciprocal recombination during prophase I. The molecular events that generate these chiasmata are conserved across eukaryotes and are essential — failure of recombination is a leading cause of meiotic non-disjunction in human oogenesis.
+In the canonical **chiasmate meiosis** described here, reciprocal crossovers help maintain physical connections between homologs through chiasmata and cohesion. Human observations link absent or suboptimally located crossovers with some nondisjunction outcomes, especially in oogenesis; this selected mammalian pathway is not a claim that every species and sex uses identical segregation mechanisms \citep{gruhn2013humanmeiosis}.
 
 ```mermaid
-flowchart TD
-    A["Leptotene: chromosomes condense; SPO11 introduces ~250 programmed double-strand breaks (DSBs)"] --> B["Zygotene: synaptonemal complex forms; homologs pair (synapsis)"]
-    B --> C["DSBs resected by MRN complex (MRE11/RAD50/NBS1) producing 3' single-stranded overhangs"]
-    C --> D["RAD51 and DMC1 coat ssDNA, catalyze homology search and strand invasion into homolog"]
-    D --> E["D-loop intermediate forms; DNA synthesis from invading strand using homolog as template"]
-    E --> F{Resolution pathway}
-    F -->|"~10% — class I crossovers (MSH4/MSH5, MLH1/MLH3)"| G["Crossover (chiasma) — reciprocal exchange between homologs"]
-    F -->|"~90% — synthesis-dependent strand annealing"| H["Non-crossover (gene conversion only)"]
-    G --> I["Diakinesis: chiasmata visible as physical links between homologs"]
-    H --> I
-    I --> J["Metaphase I: bivalents align; chiasmata resist anaphase pulling forces"]
-    J --> K["Anaphase I: cohesin cleaved on chromosome arms; homologs separate"]
-
-    style A fill:#4a90d9,color:#fff
-    style G fill:#5cb85c,color:#fff
-    style K fill:#d9534f,color:#fff
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph initiation["1. Break formation, pairing and resection"]
+        direction LR
+        A["Leptotene: condensation;<br/>SPO11 initiates programmed DSBs"] --> B["Zygotene: synaptonemal<br/>complex; homolog synapsis"] --> C["MRN: MRE11/RAD50/NBS1<br/>resects DSBs;<br/>3′ ssDNA overhangs"]
+    end
+    subgraph invasion["2. Homology-directed DNA synthesis"]
+        direction LR
+        D["RAD51 / DMC1 coat ssDNA;<br/>homology search and invasion<br/>into homolog"] --> E["D-loop forms;<br/>invading strand synthesis<br/>uses homolog template"]
+    end
+    subgraph resolution["3. Alternative recombination outcomes"]
+        direction TB
+        F{"Resolution pathway?"} -->|crossover; major class I pathway| G["Reciprocal exchange / chiasma<br/>MSH4/MSH5; MLH1/MLH3"]
+        F -->|synthesis-dependent strand annealing| H["Non-crossover gene conversion;<br/>does not create a chiasma"]
+    end
+    subgraph segregation["4. Crossover-derived physical links support segregation"]
+        direction LR
+        I["Diakinesis:<br/>chiasmata visible<br/>between homologs"] --> J["Metaphase I:<br/>bivalents align;<br/>chiasmata resist pulling"] --> K["Anaphase I:<br/>arm cohesin cleaved;<br/>homologs separate"]
+    end
+    initiation --> invasion --> resolution
+    G --> segregation
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class A,B,C,D,E,F,G,H,I,J,K ink
 ```
-<!-- alt: Flowchart showing molecular events of meiotic recombination from SPO11 DSB induction through RAD51/DMC1-mediated strand invasion to chiasma formation. Approximately 10% of programmed double-strand breaks resolve as crossovers; the remainder become non-crossover gene conversions. -->
+<!-- alt: Four panels follow meiotic recombination from SPO11 breaks and MRN resection through RAD51/DMC1 invasion and alternative repair outcomes. Crossovers create chiasmata that support homolog segregation; non-crossover gene conversion does not create a chiasma. Break and crossover estimates require matched species, sex, stage, assay and counting denominator. -->
 
-*Molecular events of meiotic recombination from SPO11 DSB induction through RAD51/DMC1-mediated strand invasion to chiasma formation. Approximately 10% of programmed double-strand breaks resolve as crossovers; the remainder become non-crossover gene conversions.*
+*Molecular events of meiotic recombination connect SPO11 break formation, RAD51/DMC1-mediated strand invasion, and alternative crossover or non-crossover outcomes. Break estimates and crossover outcomes must be compared within a defined species, sex, stage and assay; crossover events per meiotic cell are not haplotype switches per mature gamete. Only the crossover branch creates chiasmata supporting homolog segregation; non-crossover gene conversion is not a physical link between homologs \citep{gruhn2013humanmeiosis}.*
 
 **Key molecular players:**
 
-- **SPO11** is a topoisomerase-VI-like enzyme that creates **programmed double-strand breaks** by covalent attachment to 5′ ends of DNA. In humans, ~250 DSBs are generated per meiosis (~10× the number of crossovers — most DSBs are repaired without crossover). SPO11 binding sites are determined by **PRDM9**, which trimethylates H3K4 at specific DNA motifs to mark recombination hotspots. *Spo11* knockout mice are sterile because no chiasmata form, leading to bivalent disjunction failure and aneuploid gametes.
+- **SPO11** is a topoisomerase-VI-like enzyme that initiates **programmed double-strand breaks** by covalent attachment to DNA ends. Not every break becomes a crossover. Human RAD51-focus and MLH1-focus measurements are assay- and stage-dependent proxies for different recombination events, not a universal 250-break census or a tenfold crossover ratio. In human and mouse examples, PRDM9 helps position many hotspots; it is not required for every DSB or for fertility in every genetic background \citep{gruhn2013humanmeiosis,mihola2019prdm9}.
 - **MRE11–RAD50–NBS1 (MRN complex)** binds the DSB and resects the 5′ ends, exposing 3′ single-stranded overhangs ~1–2 kb long.
 - **RAD51 and DMC1** are RecA-family recombinases that polymerize on the single-stranded DNA, forming a nucleoprotein filament that searches for homology in the homologous chromosome and catalyzes strand invasion. DMC1 is meiosis-specific and is essential for inter-homolog (rather than inter-sister) recombination.
-- **MSH4–MSH5** and **MLH1–MLH3** are required for the major crossover pathway (class I); their mutations reduce crossover frequency and increase non-disjunction. **MUS81–EME1** mediates a minor (~10%) class II crossover pathway.
+- **MSH4–MSH5** and **MLH1–MLH3** support the major class I crossover pathway in the mammalian examples; defects can reduce crossing over and compromise segregation. MUS81-associated, MLH1-independent pathways supply a further subset of crossovers. Their proportions are not the fraction of all breaks repaired without crossing over \citep{gruhn2013humanmeiosis}.
 - **Synaptonemal complex**: A protein scaffold (SYCP1, SYCP2, SYCP3) that physically holds homologs together along their entire length during pachytene. The complex provides the platform on which crossovers form and assures proper pairing.
 
-The molecular specifics matter because **mutations in many of these genes cause human infertility, recurrent pregnancy loss, and elevated aneuploidy risk**: *SYCP3* mutations are associated with azoospermia and pregnancy loss; *MSH4* mutations with primary ovarian insufficiency; *DMC1* mutations with sterility; and reduced *PRDM9* function correlates with diminished ovarian reserve. Meiotic recombination is far from a passive structural process — it is an actively regulated DNA-damage event without which sexual reproduction fails.
+These mechanisms connect recombination, synapsis and segregation with reproductive health: failures can contribute to infertility, pregnancy loss and aneuploidy. An outcome is not determined by a gene name alone; allele, genetic background, sex, developmental stage and checkpoint responses matter. The fertile PRDM9-deficient male-mouse backgrounds discussed below provide a concrete counterexample to a blanket gene-loss-to-sterility rule \citep{mihola2019prdm9}.
 
 ---
 
@@ -274,25 +286,34 @@ Mary \citet{lyon1961} proposed random X-inactivation as an explanation for mamma
 - **Result**: Adult females are **genetic mosaics** -- a patchwork of cells expressing the maternal X and cells expressing the paternal X
 
 ```mermaid
-flowchart TD
-    A["Early embryonic development<br/>XX cells"] --> B["Establishment of X-inactivation<br/>species- and stage-dependent timing"]
-    B --> C["XIST RNA expression and silencing<br/>relationship depends on species/stage"]
-    C --> D["XIST RNA Coats Xi in cis (Spreads Along Chromosome)"]
-    D --> E["XIST Recruits PRC2 (Polycomb Repressive Complex 2)"]
-    E --> F["PRC2 Trimethylates H3K27 (H3K27me3 = Repressive Mark)"]
-    F --> G["SMCHD1 Compacts Xi Further"]
-    G --> H["DNA Methylation at CpG Islands Locks Silencing"]
-    H --> I["Xi Condenses into Barr Body (Visible at Nuclear Periphery)"]
-    I --> J["Silencing usually maintained in somatic lineages"]
-    J --> K["Escape varies by gene, tissue and individual"]
-    K --> L["Escape occurs inside and outside PARs"]
-
-    style A fill:#4a90d9,color:#fff
-    style I fill:#5cb85c,color:#fff
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph establishment["1. Establishment: species and developmental stage matter"]
+        direction LR
+        A["Early embryonic<br/>XX cells"] --> B["X-inactivation established:<br/>timing varies by species/stage"] --> C["XIST expression and silencing:<br/>relationship varies by stage"]
+    end
+    subgraph chromatin["2. Chromosome coating and repressive marks"]
+        direction LR
+        D["XIST coats Xi in cis;<br/>spreads along chromosome"] --> E["Recruits PRC2:<br/>Polycomb repressive complex 2"] --> F["PRC2 trimethylates H3K27:<br/>H3K27me3 repressive mark"]
+    end
+    subgraph consolidation["3. Compaction and stable silencing"]
+        direction LR
+        G["SMCHD1 compacts Xi"] --> H["CpG-island DNA methylation<br/>stabilizes silencing"] --> I["Xi condenses into Barr body<br/>at nuclear periphery"]
+    end
+    subgraph maintenance["4. Maintenance is not complete silencing"]
+        direction LR
+        J["Usually maintained<br/>in somatic lineages"] --> K["Escape varies by gene,<br/>tissue and individual"] --> L["Escape inside<br/>and outside PARs"]
+    end
+    establishment --> chromatin --> consolidation --> maintenance
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class A,B,C,D,E,F,G,H,I,J,K,L ink
 ```
-<!-- alt: Flowchart showing molecular mechanism of X-inactivation. XIST RNA coats the future inactive X chromosome, recruiting Polycomb complexes that establish repressive histone marks and DNA methylation, ultimately condensing the chromosome into a Barr body. -->
+<!-- alt: Four panels show species- and stage-dependent establishment of X-inactivation, XIST coating and Polycomb-associated chromatin marks, compaction and DNA methylation, and somatic maintenance. Escape from silencing varies by gene, tissue and individual and occurs inside and outside pseudoautosomal regions. -->
 
-*The molecular mechanism of X-inactivation. XIST RNA coats the future inactive X chromosome, recruiting Polycomb complexes that establish repressive [**histone**](#gl:histone) marks and DNA methylation, ultimately condensing the chromosome into a Barr body.*
+*The molecular mechanism of X-inactivation is grouped into establishment, repressive chromatin, consolidation, and maintenance. XIST coats Xi in cis; Polycomb-associated repressive [**histone**](#gl:histone) marks, SMCHD1-mediated compaction and CpG-island methylation support silencing. Timing and the XIST–silencing relationship vary by species and stage. A Barr body is not evidence of complete chromosome-wide silencing: escape occurs inside and outside pseudoautosomal regions (PARs) and varies among genes, tissues and individuals.*
 
 ### Molecular Mechanism of X-Inactivation
 
@@ -526,20 +547,17 @@ Where $L(\theta)$ is the likelihood of the data given recombination fraction θ,
 
 Recombination is **not distributed uniformly** across the genome — it concentrates in narrow **hotspots** of ~1–2 kb separated by larger cold regions, and the total map length differs sharply between male and female meiosis.
 
-- **PRDM9 and hotspots**: In humans and mice, the zinc-finger histone methyltransferase **PRDM9** binds specific DNA motifs and trimethylates H3K4 and H3K36 at the binding site, recruiting the meiotic double-strand break machinery (SPO11). Crossovers preferentially form at these PRDM9-marked sites. PRDM9 is itself rapidly evolving — its zinc-finger array changes between populations and species, and *Prdm9* knockout mice are sterile due to meiotic defects. **PRDM9 is one of very few genes implicated in mammalian speciation through hybrid sterility.**
+- **PRDM9 and hotspots**: In human and mouse examples, sequence-specific binding by the histone methyltransferase **PRDM9** helps direct many meiotic DSB hotspots and marks H3K4/H3K36. Hotspot positioning is distinct from an absolute requirement for making breaks or offspring. Mihola and colleagues found severe meiotic arrest in studied B6 knockout mice but fertile PRDM9-deficient males in some crossed genetic backgrounds; the tested female backgrounds had different outcomes. Interpret the phenotype with its sex and genetic background rather than declaring every knockout sterile \citep{mihola2019prdm9}.
 - **Hotspot rates**: Within hotspots, recombination rates can reach 10–100× the genome-wide average. The **HLA region** on chromosome 6 contains some of the most active hotspots, contributing to the immense allelic diversity of MHC genes.
 - **Cold regions**: Centromeric and pericentric heterochromatin is recombination-suppressed, both because of structural constraints and because crossovers near centromeres can disrupt segregation. Recombination is also reduced near telomeres (in some species) and in regions of strong purifying selection.
-- **Sex differences in map length**: The female human genetic map is roughly **1.5–1.8× longer** than the male map (~4,400 cM in females vs. ~2,700 cM in males). This reflects more crossovers per meiosis in oogenesis (~70 per cell) than spermatogenesis (~50 per cell), and dramatic regional differences — recombination is enriched at telomeres in male meiosis (where obligate crossovers occur to ensure disjunction) and more uniformly distributed in female meiosis.
+- **Sex differences and counting denominators**: Human family-based maps and cytological studies show sex-specific recombination patterns, but they measure different quantities. In Gruhn and colleagues' samples, mean MLH1-focus counts were 49.09 per pachytene spermatocyte and 69.25 per pachytene oocyte. These are marker-based cell averages, not a complete crossover census or switches per mature gamete: MLH1-independent outcomes and stage-dependent detection matter. A reciprocal exchange involves two of four chromatids; match the counting denominator before comparing cytology with inherited haplotypes \citep{gruhn2013humanmeiosis}.
 - **Consequences**: Sex-specific maps must be used in linkage analysis when transmissions go through one sex predominantly. Large family genetic studies routinely report male, female, and sex-averaged maps separately.
 
-#### Why do females have more crossovers?
+#### Sex-specific recombination: observations and causal hypotheses
 
-The pronounced sex difference in recombination rate has several proposed explanations, and most empirical studies suggest more than one is operating simultaneously:
+The cited human cytology study already detected sex differences in early-prophase RAD51 foci, upstream of the later MLH1 observations. RAD51 foci are assay-dependent proxies and can undercount break-associated intermediates; dividing one marker mean by another does not directly estimate a repair-pathway fraction \citep{gruhn2013humanmeiosis}.
 
-1. **Oocyte time available**: Female meiosis includes a prolonged pachytene during which homolog pairing and crossover designation occur. Spermatogenesis is faster and may impose stricter checkpoints that limit crossover-pathway entry.
-2. **Telomeric vs. interstitial recombination**: Male meiosis enriches crossovers at telomeres because the **obligate crossover** rule (every bivalent must have at least one chiasma to segregate properly) is satisfied near chromosome ends, where pairing can complete in less time. Female meiosis has the time to distribute crossovers more uniformly, including in interstitial regions distant from telomeres.
-3. **Selection for accuracy in oogenesis**: Because errors during the long oocyte arrest are catastrophic, female meiosis may have evolved higher recombination rates to ensure **at least one chiasma per bivalent**. Achiasmate bivalents segregate randomly, producing aneuploid gametes — the female reproductive system tolerates this poorly because each oocyte represents irreplaceable investment.
-4. **Sexually antagonistic selection on chromosome conformation**: Some authors propose that male and female germlines have different optima for genome stability, with selection acting in opposite directions on regulators of recombination.
+The authors proposed chromatin organization and epigenetic state as possible upstream contributors. These observations do not establish one causal explanation for every sex-specific map. In particular, prolonged oocyte arrest alone is not evidence that extra elapsed time produces additional crossovers; pairing, break formation, repair and checkpoint hypotheses require appropriately staged experiments.
 
 #### Hybrid-sex effects versus sex-specific recombination
 
@@ -713,16 +731,16 @@ A **translocation** is an exchange of chromosomal material between non-homologou
 
 **The Philadelphia Chromosome — A Cancer Paradigm**:
 
-The **t(9;22)(q34;q11.2)** reciprocal translocation fuses the **BCR** gene (chromosome 22) to the **ABL1** gene (chromosome 9), creating the **BCR-ABL1** fusion gene on the derivative chromosome 22 (the Philadelphia chromosome, [**pH**](#gl:ph)).
+The **t(9;22)(q34;q11.2)** reciprocal translocation fuses the **BCR** gene (chromosome 22) to the **ABL1** gene (chromosome 9), creating the **BCR-ABL1** fusion gene on derivative chromosome 22 (the Philadelphia chromosome, Ph). This abbreviation is distinct from the acidity symbol pH.
 
-- **BCR-ABL1** encodes a constitutively active tyrosine kinase (210 kDa in CML; 190 kDa in Philadelphia-positive acute lymphoblastic leukaemia)
+- **BCR-ABL1** encodes an oncogenic tyrosine kinase; common isoforms include p210 in CML and p190 in Philadelphia-positive acute lymphoblastic leukemia.
 - Activates RAS/MAPK, PI3K/AKT, and JAK/STAT signaling -- driving uncontrolled proliferation
 - **Imatinib (Gleevec)**: ATP-competitive inhibitor of BCR-ABL1 tyrosine kinase domain
-  - CML 5-year survival: ~30% (pre-imatinib) to >90% (post-imatinib)
-  - Resistance mutations (e.g., T315I "gatekeeper" mutation) necessitated second-generation (dasatinib, nilotinib) and third-generation (ponatinib) inhibitors
+  - Study-specific outcomes, denominators and follow-up matter: see the historical IRIS example and its censoring/crossover limits in \cref{sec:unit_II_cell_signaling} \citep{hochhaus2017iris}.
+  - Resistance is mutation- and drug-specific. In the historical preclinical comparison, T315I resisted imatinib, nilotinib and dasatinib, whereas AP24534 was active in biochemical, cellular and mouse-model tests. A kinase-generation label alone does not establish activity against a variant, and preclinical activity is not a patient-outcome estimate \citep{ohare2009ap24534}.
   - **Asciminib**: First [**allosteric**](#gl:allosteric) BCR-ABL1 inhibitor (binds myristoyl pocket, not ATP site); approved 2021
 
-The Philadelphia chromosome story is one of the great triumphs of molecular targeted therapy: a structural rearrangement → a fusion oncogene → a kinase domain → a small-molecule drug → a chronic disease that is no longer fatal for most patients.
+This example connects a structural rearrangement, fusion kinase, inhibitor and clinical evaluation. A molecular target or binding result alone does not establish response, survival or cure in an individual patient; retain the actual disease phase, treatment history and measured endpoint.
 
 **Robertsonian translocations** fuse two acrocentric chromosomes (chromosomes 13, 14, 15, 21, 22 in humans) at their centromeres, producing one large derivative chromosome and losing the small short arms. Carriers have 45 chromosomes but a normal genome content (the lost short arms contain primarily ribosomal RNA gene clusters, present in multiple copies elsewhere). The clinical consequence appears in offspring: a Robertsonian carrier can produce gametes with two copies of one chromosome, leading to trisomic offspring. **Robertsonian translocation t(14;21) is the cause of approximately 4% of Down syndrome cases**, with a recurrence risk of 10–15% (much higher than the population rate of ~1/700) — making karyotype analysis essential for genetic counseling of recurrent Down syndrome families.
 

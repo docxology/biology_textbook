@@ -235,7 +235,7 @@ def _caption_from_source(source: str, text_before: str) -> str:
 
 
 def _alt_from_caption(caption: str, source: str, text_before: str) -> str:
-    """Create one sentence of alt text from a caption or diagram source."""
+    """Create alt text without discarding qualifying caption clauses."""
     if _metadata_is_weak(caption):
         caption = _caption_from_source(source, text_before)
     alt = _plain_text(caption)
@@ -255,8 +255,6 @@ def _alt_from_caption(caption: str, source: str, text_before: str) -> str:
             alt = prefix + alt[:1].lower() + alt[1:]
     alt = re.sub(r"\s+", " ", alt).strip()
     alt = alt.replace("--", "-")
-    if len(alt) > 500:
-        alt = alt[:497].rsplit(" ", 1)[0].rstrip(" ,;:")
     if alt and alt[-1] not in ".!?":
         alt += "."
     return alt
@@ -288,12 +286,16 @@ def _read_immediate_metadata(text_after: str) -> MermaidMetadata:
     return MermaidMetadata(consumed, tuple(alts), tuple(captions))
 
 
-def _replacement_metadata(source: str, text_before: str, existing_captions: tuple[str, ...]) -> str:
-    """Return canonical metadata text for one Mermaid block."""
-    caption = next((c for c in existing_captions if not _metadata_is_weak(c)), "")
+def _replacement_metadata(source: str, text_before: str, metadata: MermaidMetadata) -> str:
+    """Keep meaningful authored alt text while canonicalizing one caption."""
+    caption = next((c for c in metadata.captions if not _metadata_is_weak(c)), "")
     caption = _clean_caption(caption) if caption else _caption_from_source(source, text_before)
     caption = _clean_caption(caption)
-    alt = _alt_from_caption(caption, source, text_before)
+    authored_alt = next(
+        (" ".join(alt.split()) for alt in metadata.alts if not _metadata_is_weak(alt)),
+        "",
+    )
+    alt = authored_alt or _alt_from_caption(caption, source, text_before)
     return f"\n<!-- alt: {alt} -->\n\n*{caption}*\n\n"
 
 
@@ -321,7 +323,7 @@ def normalize_text(source_text: str) -> TextResult:
             _replacement_metadata(
                 match.group("source"),
                 source_text[: match.start()],
-                metadata.captions,
+                metadata,
             )
         )
         last = match.end() + metadata.consumed_chars

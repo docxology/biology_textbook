@@ -382,34 +382,50 @@ graph TD
 RTKs are single-pass transmembrane receptors with a cytoplasmic tyrosine kinase domain. Ligand binding (e.g., EGF, PDGF, insulin, FGF, VEGF) → receptor **dimerization** → **trans-autophosphorylation** of tyrosines → phosphotyrosines recruit adaptor proteins via SH2 and PTB domains.
 
 ```mermaid
-sequenceDiagram
-    participant L as Ligand (EGF)
-    participant R as EGFR (RTK)
-    participant A as Adaptor (Grb2/SOS)
-    participant RAS as RAS GTPase
-    participant RAF as RAF (MAPKKK)
-    participant MEK as MEK (MAPKK)
-    participant ERK as ERK (MAPK)
-    participant TF as Transcription Factors
-
-    L->>R: EGF binds extracellular domain
-    R->>R: Receptor dimerization + trans-autophosphorylation
-    R->>A: pTyr binds Grb2 SH2 domain; Grb2 recruits SOS (GEF)
-    A->>RAS: SOS catalyses GDP→GTP exchange on RAS
-    Note over RAS: RAS-GTP = active (molecular switch ON)
-    RAS->>RAF: RAS-GTP recruits RAF to membrane → RAF activation
-    RAF->>MEK: RAF phosphorylates MEK (Ser218/Ser222)
-    MEK->>ERK: MEK phosphorylates ERK (Thr/Tyr dual phosphorylation)
-    ERK->>TF: ERK translocates to nucleus
-    TF->>TF: Phosphorylates Elk-1, Myc, Fos → gene expression
-    Note over TF: Cell proliferation, differentiation, survival
-
-    Note over RAS: SIGNAL OFF: GAPs (NF1) accelerate RAS GTPase → RAS-GDP
-    Note over ERK: SIGNAL OFF: MKPs (DUSP) dephosphorylate ERK
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph RECRUIT["1. Receptor activation and adaptor recruitment"]
+        direction LR
+        L["EGF ligand"] --> R["EGFR dimerization<br/>Trans-autophosphorylation"]
+        R --> A["pTyr binds Grb2 SH2<br/>Grb2 recruits SOS (GEF)"]
+    end
+    subgraph SWITCH["2. RAS switch and RAF recruitment"]
+        direction LR
+        SOS["SOS exchanges<br/>RAS GDP for GTP"] --> RAS["RAS-GTP: active"]
+        RAS --> RAF["Recruits RAF to membrane<br/>RAF (MAPKKK) activation"]
+    end
+    subgraph KINASE["3. Kinase cascade"]
+        direction LR
+        RAF2["Active RAF"] -->|"Phosphorylates<br/>Ser218/Ser222"| MEK["MEK (MAPKK)"]
+        MEK -->|"Dual Thr/Tyr<br/>phosphorylation"| ERK["Active ERK (MAPK)"]
+    end
+    subgraph NUCLEUS["4. Nuclear response"]
+        direction LR
+        ERK2["ERK enters nucleus"] --> TF["Phosphorylates<br/>Elk-1, Myc, Fos"]
+        TF --> OUT["Gene expression<br/>Proliferation,<br/>differentiation, survival"]
+    end
+    subgraph OFF["Signal termination: two distinct mechanisms"]
+        direction LR
+        GAP["GAPs, including NF1<br/>Accelerate RAS GTP hydrolysis<br/>RAS-GTP → RAS-GDP"] ~~~ DUSP["MKPs / DUSPs<br/>Dephosphorylate ERK"]
+    end
+    RECRUIT --> SWITCH
+    SWITCH --> KINASE
+    KINASE --> NUCLEUS
+    NUCLEUS ~~~ OFF
+    classDef signal fill:#ffffff,stroke:#526777,color:#111111
+    class L,R,A,SOS,RAS,RAF,RAF2,MEK,ERK,ERK2,TF,OUT,GAP,DUSP signal
+    style RECRUIT fill:#eef5fa,stroke:#526777,color:#17212b
+    style SWITCH fill:#fafafa,stroke:#526777,color:#17212b
+    style KINASE fill:#eef5fa,stroke:#526777,color:#17212b
+    style NUCLEUS fill:#fafafa,stroke:#526777,color:#17212b
+    style OFF fill:#f8f0e8,stroke:#526777,color:#17212b
 ```
-<!-- alt: Sequence diagram showing RTK/RAS/MAPK signaling cascade. Catalytic steps can amplify signaling; the diagram specifies pathway relationships, not a measured number of RAS or ERK molecules per receptor. -->
+<!-- alt: Four ordered panels trace EGF activation of EGFR, Grb2/SOS recruitment, RAS GDP-to-GTP exchange, the RAF–MEK–ERK cascade and ERK-dependent nuclear responses. A separate termination panel distinguishes RAS GTP hydrolysis from ERK dephosphorylation. -->
 
-*The RTK/RAS/MAPK signaling cascade. Catalytic steps can amplify signaling; the diagram specifies pathway relationships, not a measured number of RAS or ERK molecules per receptor.*
+*The RTK/RAS/MAPK cascade, wrapped into four ordered stages and a separate termination panel. ERK, not the transcription factors themselves, phosphorylates the indicated nuclear targets. Catalytic steps can amplify signaling; the diagram specifies pathway relationships, not measured RAS or ERK molecules per receptor. Panel-boundary arrows continue the activation sequence; termination mechanisms act on their named targets, not only after transcription.*
 
 An end-to-end numerical gain requires integrated activation/deactivation counts over a stated window and finite RAS/ERK pools; pathway arrows alone do not supply it.
 
@@ -780,8 +796,14 @@ Cancer results from accumulated mutations that activate oncogenes (gain-of-funct
 | **Pembrolizumab** | PD-1 | Immune checkpoint inhibitor | Melanoma, lung, many others |
 | **Sotorasib** | K-RAS G12C | Covalent inhibitor (first RAS drug) | NSCLC |
 
-> **Clinical Connection: Imatinib --- The Paradigm of Targeted Therapy**
-> Chronic myeloid leukaemia (CML) is caused by the Philadelphia chromosome --- a t(9;22) translocation creating the BCR-ABL fusion protein (constitutively active tyrosine kinase). Before imatinib, 5-year survival was ~30%. Imatinib specifically inhibits BCR-ABL by occupying the ATP-binding site, achieving complete cytogenetic response in >80% of patients and transforming CML into a manageable chronic disease. This "bench-to-bedside" success story (Brian Druker, Nicholas Lydon) demonstrated that understanding signaling pathways at the molecular level can lead to revolutionary therapies.
+> **Clinical Connection: BCR-ABL1 Inhibition, IRIS Cohorts, and Outcome Denominators**
+> Imatinib inhibits the ABL kinase domain of the BCR-ABL1 fusion, linking a molecular target to a tested therapy for chronic myeloid leukemia (CML). Its clinical outcomes require a specified population, endpoint and follow-up, not an untraced historical before/after percentage.
+>
+> **Cohort and overall survival.** In IRIS, 553 adults aged 18–70 with newly diagnosed Philadelphia-positive chronic-phase CML were assigned to initial imatinib. With median follow-up of 10.9 years, estimated ten-year overall survival was 83.3% (95% CI 80.1–86.6). Survival status at ten years was unknown for 20.1%; patients without a reported death were censored at last contact. This Kaplan–Meier estimate is not a simple fraction of patients observed alive at ten years \citep{hochhaus2017iris}.
+>
+> **A different endpoint and denominator.** Complete cytogenetic response means 0% Philadelphia-positive cells in assessed metaphases, not molecular eradication or survival. At ten years, 123 of 134 patients with evaluable cytogenetic assessments had this response (91.8%); that is not 91.8% of the original 553-person arm. Missing assessments do not establish biological nonresponse \citep{hochhaus2017iris}.
+>
+> **Limits on interpretation.** Extensive crossover from the comparator arm limits long-term between-treatment comparisons; later commercially available imatinib and other therapies also contributed after study discontinuation. Initial assignment is not uninterrupted exposure. These historical trial results are neither a universal current prognosis nor a prescribing recommendation \citep{hochhaus2017iris}.
 
 ### Clinical Pharmacology of Cell Signaling
 

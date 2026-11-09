@@ -96,29 +96,38 @@ The Modern Synthesis remains the foundation of evolutionary biology, though late
 Five independent lines of evidence converge to support evolution. Each alone would be suggestive; together they constitute one of the most strongly supported theories in science.
 
 ```mermaid
-flowchart TD
-    A["Evidence for Evolution"] --> B["Fossil Record"]
-    A --> C["Comparative Anatomy"]
-    A --> D["Embryology"]
-    A --> E["Biogeography"]
-    A --> F["Molecular Biology"]
-    B --> B1["Transitional fossils"]
-    B --> B2["Stratigraphic succession"]
-    C --> C1["Homologous structures"]
-    C --> C2["Analogous structures"]
-    C --> C3["Vestigial organs"]
-    D --> D1["Pharyngeal arches"]
-    D --> D2["Embryonic tails"]
-    E --> E1["Island biogeography"]
-    E --> E2["Continental distributions"]
-    E --> E3["Wallace Line"]
-    F --> F1["DNA/protein similarity"]
-    F --> F2["Pseudogenes"]
-    F --> F3["Endogenous retroviruses"]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph historical["Evidence for evolution: fossils and anatomy"]
+        direction LR
+        B["Fossil record<br/>Transitional fossils<br/>Stratigraphic succession"]
+        C["Comparative anatomy<br/>Homologous structures<br/>Analogous structures<br/>Vestigial organs"]
+        B ~~~ C
+    end
+    subgraph spatial["Evidence for evolution: development and geography"]
+        direction LR
+        D["Embryology<br/>Pharyngeal arches<br/>Embryonic tails"]
+        E["Biogeography<br/>Island biogeography<br/>Continental distributions<br/>Wallace Line"]
+        D ~~~ E
+    end
+    subgraph molecular["Evidence for evolution: molecular comparison"]
+        direction LR
+        F1["DNA / protein similarity"]
+        F2["Pseudogenes"]
+        F3["Endogenous retroviruses"]
+        F1 ~~~ F2 ~~~ F3
+    end
+    historical ~~~ spatial
+    spatial ~~~ molecular
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class B,C,D,E,F1,F2,F3 ink
 ```
-<!-- alt: Flowchart showing independent evidence streams for evolution, including fossils, anatomy, embryology, biogeography, and molecular comparison, converge on common descent and descent with modification. -->
+<!-- alt: Three comparison panels organize five evidence streams for evolution: fossil succession and comparative anatomy, embryology and biogeography, and molecular similarities including pseudogenes and endogenous retroviruses. The panels are categories, not a causal sequence or time scale; homologous and analogous structures require different ancestry interpretations. -->
 
-*Independent evidence streams for evolution, including fossils, anatomy, embryology, biogeography, and molecular comparison, converge on common descent and descent with modification.*
+*Five evidence streams are organized into compact comparison panels: fossils, comparative anatomy, embryology, biogeography and molecular comparison. Their combined interpretation supports common descent and descent with modification. Homologous structures record shared ancestry, whereas analogous structures illustrate convergence; resemblance alone is not evidence of close relatedness. Panel placement organizes the examples rather than encoding a causal sequence, chronology or quantitative weight.*
 
 ### Fossil Record and Temporal Sequence Evidence
 
@@ -207,23 +216,41 @@ W_{Aa} = 1 - hs \quad \text{and} \quad W_{aa} = 1 - s
 where $s$ is the selection coefficient and $h$ is the dominance coefficient.
 
 ```mermaid
-flowchart LR
-    subgraph Directional["Directional Selection"]
-        D1["Before: Normal distribution"] --> D2["After: Mean shifts right"]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph ROW1["Two viability-selection illustrations"]
+        direction LR
+        subgraph Directional["Directional: higher values favored here"]
+            direction LR
+            D1["Specified trait<br/>distribution"] --> D2["Mean can move<br/>toward higher values"]
+        end
+        subgraph Stabilizing["Stabilizing: fixed intermediate optimum"]
+            direction LR
+            S1["Symmetric distribution<br/>centered on the optimum"] --> S2["Narrower distribution;<br/>same mean in this case"]
+        end
+        Directional ~~~ Stabilizing
     end
-    subgraph Stabilizing["Stabilizing Selection"]
-        S1["Before: Normal distribution"] --> S2["After: Narrower, same mean"]
+    subgraph ROW2["Other selected fitness relationships"]
+        direction LR
+        subgraph Disruptive["Disruptive: both extremes favored here"]
+            direction LR
+            R1["Specified trait<br/>distribution"] --> R2["Bimodality is a<br/>possible response"]
+        end
+        subgraph Sexual["Sexual selection"]
+            direction LR
+            X1["Heritable trait affects<br/>mate choice / competition"] --> X2["Response reflects mating<br/>and other fitness costs"]
+        end
+        Disruptive ~~~ Sexual
     end
-    subgraph Disruptive["Disruptive Selection"]
-        R1["Before: Normal distribution"] --> R2["After: Bimodal distribution"]
-    end
-    subgraph Sexual["Sexual Selection"]
-        X1["Mate choice or competition"] --> X2["Exaggerated traits evolve"]
-    end
+    ROW1 ~~~ ROW2
+    classDef default fill:#eef5fa,stroke:#526777,color:#111111
 ```
-<!-- alt: Flowchart showing selection modes change trait distributions in different ways: directional selection shifts a mean, stabilizing selection narrows variation, disruptive selection splits a distribution, and sexual selection amplifies mating-linked traits. -->
+<!-- alt: Four conditional trait-selection illustrations distinguish directional, stabilizing, disruptive and sexual selection. The same-mean stabilizing case explicitly begins symmetric and centered on a fixed optimum; bimodality and exaggerated mating traits are not inevitable outcomes of every selection regime. -->
 
-*Selection modes change trait distributions in different ways: directional selection shifts a mean, stabilizing selection narrows variation, disruptive selection splits a distribution, and sexual selection amplifies mating-linked traits.*
+*Conditional selection illustrations, not fitted data or universal distribution laws. The directional example favors higher values. The stabilizing example starts symmetric and centered on a fixed optimum, so narrowing need not move its mean; a displaced starting mean can move toward the optimum. Favoring extremes can produce bimodality under suitable conditions, while sexual selection depends on how heritable traits affect mating success and other fitness costs. These phenotypic relationships are not equivalent to a one-locus allele-frequency trajectory.*
 
 \begin{equation}
 \frac{d\bar{W}}{dt} = V_A(W)
@@ -275,9 +302,9 @@ In the absence of antibiotics, resistance alleles often carry a **fitness cost**
 
 ### Stabilizing Selection and Intermediate Optima
 
-Stabilizing selection favors intermediate phenotypes, reducing variance without shifting the mean. It is the most common form of selection in nature.
+Stabilizing selection favors phenotypes around an intermediate optimum. In an idealized symmetric distribution initially centered on a fixed optimum, selection can reduce variance without moving the mean; an initially displaced mean can instead move toward that optimum. This description does not establish how common that pattern is across all traits and environments.
 
-**Human birth weight**: \citet{karn1951} documented that neonatal mortality is lowest at birth weights of approximately 3.5 kg. Both very low-birth-weight ($<$2 kg) and very high-birth-weight ($>$4.5 kg) infants suffer increased mortality from complications including respiratory distress and obstructed labor, respectively. Modern medical intervention has relaxed this selection somewhat but has not eliminated it.
+**Human birth weight:** A defined cohort in which survival is lower at both weight extremes than around intermediate weights illustrates a stabilizing **survival component** of selection. Cohort, gestational age, period and survival endpoint must be specified; the pattern neither supplies one universal kilogram optimum nor proves that birth weight itself causes every mortality difference or measures lifetime reproductive fitness. Historical work examined birth weight, gestation and infant survival \citep{karn1951}; it is not a current clinical weight prescription.
 
 **Clutch size in birds**: David Lack proposed that the most common clutch size maximizes the number of surviving offspring. Too few eggs waste reproductive potential; too many eggs lead to inadequate provisioning and higher chick mortality. Experimental studies in great tits (*Parus major*) confirmed this: broods artificially enlarged beyond the modal clutch size fledged more chicks in the short term but produced lighter, lower-quality offspring with reduced survival -- the intermediate clutch size maximizes lifetime reproductive success.
 
@@ -656,22 +683,31 @@ Key innovations often trigger **adaptive radiations** (see \cref{sec:unit_VI_gen
 ### Mass Extinctions and Selective Regime Shifts
 
 ```mermaid
-timeline
-    title Major Events in the History of Life
-    4500 Mya : Earth forms
-    3500 Mya : Widely accepted stromatolite and microbial ecosystem evidence; older claims debated
-    2400 Mya : Great Oxidation Event
-    540 Mya : Cambrian Explosion
-    445 Mya : End-Ordovician extinction
-    375 Mya : Late Devonian extinction interval
-    252 Mya : End-Permian extinction
-    201 Mya : End-Triassic extinction
-    66 Mya : End-Cretaceous KPg extinction
-    Present : Elevated anthropogenic extinction risk; magnitude and timescale require explicit assessment
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph early["1. Early Earth and microbial evidence; dates in Mya"]
+        direction LR
+        A["4500: Earth forms"] --> B["3500: widely accepted<br/>stromatolite / microbial<br/>ecosystem evidence;<br/>older claims debated"] --> C["2400: Great<br/>Oxidation Event"]
+    end
+    subgraph paleozoic["2. Cambrian diversification and early mass extinctions"]
+        direction LR
+        D["540: Cambrian Explosion"] --> E["445: End-Ordovician<br/>extinction"] --> F["375: Late Devonian<br/>extinction interval"]
+    end
+    subgraph later["3. Later major mass extinctions"]
+        direction LR
+        G["252: End-Permian<br/>extinction"] --> H["201: End-Triassic<br/>extinction"] --> I["66: End-Cretaceous<br/>KPg extinction"]
+    end
+    J["Present: elevated anthropogenic extinction risk;<br/>magnitude and timescale require explicit assessment"]
+    early --> paleozoic --> later --> J
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class A,B,C,D,E,F,G,H,I,J ink
 ```
-<!-- alt: Diagram showing a broad geological timeline, with older-life claims distinguished from widely accepted approximately 3.5-Ga microbial evidence. Extinction percentages are omitted because estimates depend on taxonomic group and method. -->
+<!-- alt: Chronological panels list early Earth and microbial evidence, Cambrian diversification, major extinction intervals, and present anthropogenic risk. Dates are in millions of years ago and spacing is not proportional to elapsed time. Older-life claims remain distinguished from widely accepted approximately 3.5-Ga microbial evidence; extinction percentages are not encoded. -->
 
-*A broad geological timeline, with older-life claims distinguished from widely accepted approximately 3.5-Ga microbial evidence. Extinction percentages are omitted because estimates depend on taxonomic group and method.*
+*A broad geological chronology wraps from early Earth through diversification and major extinctions to present anthropogenic risk. Dates are in millions of years ago (Mya); panel spacing is not a time scale. Older-life claims are distinguished from widely accepted approximately 3.5-Ga microbial evidence. Extinction percentages are omitted because estimates depend on taxonomic group and method; present risk requires an explicit magnitude and timescale assessment.*
 
 Five major mass extinctions punctuate the history of life:
 

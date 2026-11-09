@@ -18,6 +18,14 @@ def test_bold_glossary_first_use_links_once_and_skips_code() -> None:
     assert "allele = 1" in updated
 
 
+def test_scientific_symbol_case_does_not_relabel_philadelphia_chromosome() -> None:
+    text = "The Philadelphia chromosome (Ph) differs from buffer pH."
+    updated, count = bold_glossary_first_use(text, [GlossaryTerm(term="pH", slug="ph")])
+    assert count == 1
+    assert "(Ph)" in updated
+    assert "buffer [**pH**](#gl:ph)." in updated
+
+
 def test_bold_glossary_first_use_is_idempotent_when_linked() -> None:
     text = "[**Allele**](#gl:allele) appears again as allele."
     terms = [GlossaryTerm(term="Allele", slug="allele")]

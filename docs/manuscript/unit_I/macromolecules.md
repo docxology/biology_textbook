@@ -356,39 +356,49 @@ Fatty acids are long-chain carboxylic acids. Food-relevant examples:
 **Essential fatty acids:** Linoleic acid (ω-6) and α-linolenic acid (ω-3) cannot be synthesized by humans (we lack Δ12 and Δ15 desaturases) and must be obtained from the diet.
 
 ```mermaid
-graph TD
-    LIPIDS["Lipid Classes"] --> SIMPLE["Simple Lipids"]
-    LIPIDS --> COMPLEX["Complex Lipids"]
-    LIPIDS --> DERIVED["Derived Lipids"]
-
-    SIMPLE --> TAG["Triacylglycerols<br/>(energy storage,<br/>9 kcal/g)"]
-    SIMPLE --> WAX["Waxes<br/>(waterproofing,<br/>cuticle, beeswax)"]
-
-    COMPLEX --> GPL["Glycerophospholipids<br/>(membrane bilayers)"]
-    COMPLEX --> SPH["Sphingolipids<br/>(myelin, signaling)"]
-    COMPLEX --> GLYCO["Glycolipids<br/>(cell recognition,<br/>blood groups)"]
-
-    DERIVED --> STEROL["Sterols<br/>(cholesterol,<br/>hormones)"]
-    DERIVED --> EICO["Eicosanoids<br/>(prostaglandins,<br/>inflammation)"]
-    DERIVED --> KETO["Ketone Bodies<br/>(alternative fuel)"]
-
-    GPL --> PC["Phosphatidylcholine<br/>(most abundant)"]
-    GPL --> PE["Phosphatidylethanolamine<br/>(inner leaflet)"]
-    GPL --> PS["Phosphatidylserine<br/>(apoptosis signal)"]
-    GPL --> PI["Phosphatidylinositol<br/>(PI3K signaling)"]
-
-    SPH --> SM["Sphingomyelin<br/>(myelin sheath)"]
-    SPH --> CER["Ceramide<br/>(apoptosis signal)"]
-    SPH --> GANG["Gangliosides<br/>(neural, GM1)"]
-
-    style LIPIDS fill:#34495e,color:#fff
-    style SIMPLE fill:#e74c3c,color:#fff
-    style COMPLEX fill:#3498db,color:#fff
-    style DERIVED fill:#2ecc71,color:#fff
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph SIMPLE["Lipid classes: simple lipids"]
+        direction LR
+        TAG["Triacylglycerols<br/>Energy storage: 9 kcal/g"] ~~~ WAX["Waxes<br/>Waterproofing<br/>Cuticle, beeswax"]
+    end
+    subgraph COMPLEX["Complex lipids: selected classes"]
+        direction LR
+        GPL["Glycerophospholipids<br/>Membrane bilayers"] ~~~ SPH["Sphingolipids<br/>Myelin, signaling"]
+        SPH ~~~ GLYCO["Glycolipids<br/>Cell recognition<br/>Blood groups"]
+    end
+    subgraph GPL_DETAIL["Glycerophospholipid examples"]
+        direction LR
+        PC["Phosphatidylcholine<br/>Most abundant<br/>Phosphatidylethanolamine<br/>Inner leaflet"] ~~~ PS["Phosphatidylserine<br/>Apoptosis signal<br/>Phosphatidylinositol<br/>PI3K signaling"]
+    end
+    subgraph SPH_DETAIL["Sphingolipid examples"]
+        direction LR
+        SM["Sphingomyelin<br/>Myelin sheath"] ~~~ CER["Ceramide<br/>Apoptosis signal"]
+        CER ~~~ GANG["Gangliosides<br/>Neural roles; GM1"]
+    end
+    subgraph DERIVED["Derived lipids"]
+        direction LR
+        STEROL["Sterols<br/>Cholesterol, hormones"] ~~~ EICO["Eicosanoids<br/>Prostaglandins<br/>Inflammation"]
+        EICO ~~~ KETO["Ketone bodies<br/>Alternative fuel"]
+    end
+    SIMPLE ~~~ COMPLEX
+    COMPLEX ~~~ GPL_DETAIL
+    GPL_DETAIL ~~~ SPH_DETAIL
+    SPH_DETAIL ~~~ DERIVED
+    classDef lipid fill:#ffffff,stroke:#526777,color:#111111
+    class TAG,WAX,GPL,SPH,GLYCO,PC,PS,SM,CER,GANG,STEROL,EICO,KETO lipid
+    style SIMPLE fill:#fafafa,stroke:#526777,color:#17212b
+    style COMPLEX fill:#eef5fa,stroke:#526777,color:#17212b
+    style GPL_DETAIL fill:#eef5fa,stroke:#526777,color:#17212b
+    style SPH_DETAIL fill:#eef5fa,stroke:#526777,color:#17212b
+    style DERIVED fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing lipid classes and roles. Classification of lipids. Unlike other macromolecules, lipids are classified by solubility (hydrophobicity) rather than by a common monomer structure. Note the diversity of roles: energy storage, membrane structure, signaling, and waterproofing. -->
+<!-- alt: Five labeled panels compare simple, complex and derived lipids, with separate examples of glycerophospholipids and sphingolipids. Labels retain energy-storage, membrane, recognition, signaling and waterproofing roles; panels classify examples rather than show reactions. -->
 
-*Lipid classes and roles. Classification of lipids. Unlike other macromolecules, lipids are classified by solubility (hydrophobicity) rather than by a common monomer structure. Note the diversity of roles: energy storage, membrane structure, signaling, and waterproofing.*
+*Lipid classes and roles, arranged as labeled comparison panels rather than a reaction pathway. Glycerophospholipid and sphingolipid examples expand the complex-lipid panel; the categories are not mutually exclusive, since gangliosides are also glycolipids. Lipids share hydrophobic character rather than a common polymeric monomer, with roles in energy storage, membranes, recognition, signaling and waterproofing.*
 
 ### Glycerophospholipids and Bilayer Architecture
 

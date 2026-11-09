@@ -116,25 +116,37 @@ The following table describes summer stratification in a deep dimictic lake, not
 **Assisted evolution caveat:** Conservation tools now include selective breeding, assisted gene flow, symbiont manipulation, and microbiome conditioning for heat tolerance. These interventions can protect specific reefs or buy time, but they do not remove the thermal driver; without emissions reduction and local water-quality management, heat-tolerant genotypes still face repeated bleaching, acidification, disease, and storm damage.
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 flowchart TD
-    A["Marine heatwave or repeated high DHW"] --> B["Photosystem and oxidative stress in symbionts"]
-    B --> C["Symbiont loss or functional decline"]
-    C --> D["Bleached coral with reduced energy income"]
-    D --> E{"Stress duration and recovery window"}
-    E -->|"Short and followed by recovery"| F["Symbiont reshuffling, tissue repair, partial recovery"]
-    E -->|"Long or repeated"| G["Mortality, disease, recruitment failure"]
-    F --> H["Assisted evolution options"]
-    H --> I["Heat-tolerant symbionts"]
-    H --> J["Selective breeding or assisted gene flow"]
-    H --> K["Microbiome conditioning"]
-    I --> L["Local resilience, with tradeoffs"]
-    J --> L
-    K --> L
-    L --> M["Still requires emissions reduction and water-quality management"]
+    subgraph Stress["1. Heat stress and bleaching"]
+        direction LR
+        A["Marine heatwave<br/>or repeated high DHW"] --> B["Symbiont photosystem<br/>and oxidative stress"]
+        B --> C["Symbiont loss<br/>or functional decline"] --> D["Bleached coral<br/>Reduced energy income"]
+    end
+    subgraph Recovery["2. Duration and recovery opportunity condition outcomes"]
+        direction LR
+        E{"Stress duration and<br/>recovery window?"} -->|"Short; followed<br/>by recovery"| F["Symbiont reshuffling<br/>Tissue repair<br/>Partial recovery"]
+        E -->|"Long or repeated"| G["Mortality; disease<br/>Recruitment failure"]
+    end
+    subgraph Intervention["3. Assisted-evolution options for local resilience"]
+        direction LR
+        H["Options, not guarantees<br/>Heat-tolerant symbionts<br/>Selective breeding / gene flow<br/>Microbiome conditioning"] --> L["Local resilience<br/>With tradeoffs"]
+        L --> M["Still requires<br/>Emissions reduction<br/>Water-quality management"]
+    end
+    Stress --> Recovery
+    Recovery -->|"For recovering reefs:<br/>evaluate local options"| Intervention
+    classDef readable fill:#eef5fa,stroke:#526777,color:#111111
+    class A,B,C,D,E,F,G,H,L,M readable
+    style Stress fill:#fafafa,stroke:#526777,color:#17212b
+    style Recovery fill:#fafafa,stroke:#526777,color:#17212b
+    style Intervention fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing coral bleaching responses can test heat-tolerant hosts, symbionts, or microbiomes as local resilience tools, but those interventions remain complements to climate mitigation and reef-water-quality management. -->
+<!-- alt: Three panels trace heat stress, symbiont disruption and reduced coral energy income; branch between partial recovery and mortality/disease under different stress histories; and list heat-tolerant symbionts, selective breeding or assisted gene flow, and microbiome conditioning as local resilience options with tradeoffs. No fixed recovery clock or guaranteed intervention outcome is implied; emissions reduction and water-quality management remain necessary. -->
 
-*Coral bleaching responses can test heat-tolerant hosts, symbionts, or microbiomes as local resilience tools, but those interventions remain complements to climate mitigation and reef-water-quality management \citep{noaa2025coralbleaching,strader2022coralheat}.*
+*Coral bleaching and response options in three panels. Heat stress can disrupt symbiont function and reduce coral energy income; duration, recurrence and the recovery window influence whether repair or mortality, disease and recruitment failure follow. For recovering reefs, heat-tolerant symbionts, selective breeding or assisted gene flow, and microbiome conditioning are options to evaluate, not automatic recovery steps or guaranteed protection. Local resilience has tradeoffs and complements, rather than replaces, emissions reduction and reef-water-quality management \citep{noaa2025coralbleaching,strader2022coralheat}.*
 
 > **Clinical Connection — Reef-Derived Pharmaceuticals:** Reef organisms supply drug-development leads as well as approved medicines. Pseudopterosins from *Pseudopterogorgia elisabethae* showed anti-inflammatory and analgesic activity in experimental assays; this does not establish clinical wound-healing efficacy \citep{look1986pseudopterosins}. Ziconotide (Prialt) is an approved non-opioid N-type calcium-channel antagonist for intrathecal treatment of selected adults with severe chronic pain who are intolerant of or refractory to other treatments, as specified in its May 2025 label \citep{prialt2025label}. Experimental bioactivity must not be equated with approved use or treatment advice.
 

@@ -371,32 +371,37 @@ This is the basis for "normal saline" (0.9% NaCl), almost universally used in cl
 ### Tonicity and Cell Behavior
 
 ```mermaid
-flowchart LR
-    subgraph HYPO["Hypotonic Solution"]
-        H1["Solute outside < inside<br/>Water enters cell"]
-        H2["Animal cell: swells → lyses<br/>(hemolysis)"]
-        H3["Plant cell: swells → turgid<br/>(turgor pressure)"]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph HYPO["Hypotonic solution"]
+        direction LR
+        H1["Outside < inside<br/>Water enters"] ~~~ H2["Red blood cell<br/>Swells; may lyse<br/>(hemolysis)"]
+        H2 ~~~ H3["Plant cell<br/>Turgid<br/>Wall limits expansion"]
     end
-
-    subgraph ISO["Isotonic Solution"]
-        I1["Solute outside = inside<br/>No net water movement"]
-        I2["Animal cell: normal shape<br/>(biconcave disc)"]
-        I3["Plant cell: flaccid<br/>(no turgor)"]
+    subgraph ISO["Isotonic solution"]
+        direction LR
+        I1["Outside = inside<br/>No net water movement"] ~~~ I2["Red blood cell<br/>Normal biconcave shape"]
+        I2 ~~~ I3["Plant cell<br/>Flaccid<br/>No turgor"]
     end
-
-    subgraph HYPER["Hypertonic Solution"]
-        HY1["Solute outside > inside<br/>Water leaves cell"]
-        HY2["Animal cell: shrinks<br/>(crenation)"]
-        HY3["Plant cell: shrinks from wall<br/>(plasmolysis)"]
+    subgraph HYPER["Hypertonic solution"]
+        direction LR
+        HY1["Outside > inside<br/>Water leaves"] ~~~ HY2["Red blood cell<br/>Shrinks<br/>(crenation)"]
+        HY2 ~~~ HY3["Plant cell<br/>Protoplast pulls from wall<br/>(plasmolysis)"]
     end
-
-    style HYPO fill:#3498db,color:#fff
-    style ISO fill:#2ecc71,color:#fff
-    style HYPER fill:#e74c3c,color:#fff
+    HYPO ~~~ ISO
+    ISO ~~~ HYPER
+    classDef response fill:#ffffff,stroke:#526777,color:#111111
+    class H1,H2,H3,I1,I2,I3,HY1,HY2,HY3 response
+    style HYPO fill:#eef5fa,stroke:#526777,color:#17212b
+    style ISO fill:#fafafa,stroke:#526777,color:#17212b
+    style HYPER fill:#f8f0e8,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing tonicity and osmotic responses. Osmotic behavior of animal and plant cells in solutions of different tonicity. Plant cells are protected from lysis by their rigid cell wall, which generates turgor pressure to counterbalance osmotic influx. -->
+<!-- alt: Three comparison rows show hypotonic, isotonic and hypertonic conditions. Each row reads from relative nonpenetrating-solute concentration and water movement to red-blood-cell and plant-cell responses; plant cell walls limit swelling and generate turgor. -->
 
-*Tonicity and osmotic responses. Osmotic behavior of animal and plant cells in solutions of different tonicity. Plant cells are protected from lysis by their rigid cell wall, which generates turgor pressure to counterbalance osmotic influx.*
+*Tonicity comparison: each row shows water movement, red-blood-cell response and plant-cell response from left to right. Outside versus inside refers to effective nonpenetrating-solute concentration, not all dissolved solutes. Plant cell walls limit expansion and permit turgor pressure to counterbalance osmotic influx; hypertonic conditions pull the protoplast away from the wall.*
 
 : Tonicity and Cell Behavior: Condition and Relative Solute [outside]. {#tbl:unit_I_water_and_life_tonicity_and_cell_behaviour}
 | Condition | Relative Solute [outside] | Red Blood Cell Effect | Plant Cell Effect |

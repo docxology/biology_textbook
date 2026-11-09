@@ -48,8 +48,8 @@ their CLI help says otherwise. Non-mutating quality gates such as
 
 | Script | Role |
 | ------ | ---- |
-| `add_mermaid_alt_text.py` | Audits Mermaid alt/caption metadata; `--check` fails on missing, duplicate, generic, or stale text |
-| `bold_glossary_first_use.py` | Bold+link first glossary use per chapter to `#gl:` anchors |
+| `add_mermaid_alt_text.py` | Audits canonical Mermaid alt/caption structure and generic metadata; preserves meaningful authored alt text and does not truncate caption-derived fallback descriptions. `--check` does not establish semantic freshness. |
+| `bold_glossary_first_use.py` | Bold+link first prose use to `#gl:` anchors; mixed-case alphabetic symbols match exact case (`pH` is not `Ph`), while ordinary words retain case-insensitive plural matching |
 | `extract_glossary_cards.py` | Exports glossary terms as study-card / review data |
 | `insert_further_reading.py` | Injects `## Further Reading and Source Notes: <Chapter Title>` from configured chapter cites + `references.bib` |
 | `pad_short_labs.py` | Appends debrief to short lab files |

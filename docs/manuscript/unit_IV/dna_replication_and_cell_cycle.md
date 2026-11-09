@@ -138,26 +138,37 @@ Replication timing correlates with chromatin state and is reprogrammed during ce
 ### The Replication Fork Machinery
 
 ```mermaid
-flowchart TD
-    Licensed["Licensed MCM double hexamer"] --> Kinases["Budding-yeast firing: distinct cooperating inputs<br/>DDK phosphorylates MCM<br/>S-CDK phosphorylates Sld2/Sld3"]
-    Kinases --> A["CMG Assembles and Origin Fires"]
-    A --> B["CMG Helicase Unwinds DNA"]
-    B --> C[Topoisomerase Relieves Supercoiling Ahead]
-    B --> D[SSB/RPA Stabilizes ssDNA]
-    D --> E[Primase Synthesizes RNA Primer]
-    E --> F{Leading vs Lagging Strand}
-    F -->|Leading| G["DNA Pol epsilon Synthesizes Continuously 5' to 3'"]
-    F -->|Lagging| H["Primase Lays Multiple Primers"]
-    H --> I["DNA Pol delta Extends Each Primer as Okazaki Fragment"]
-    I --> J["RNase H + FEN1 Remove RNA Primers"]
-    J --> K["DNA Pol delta Fills Gaps"]
-    K --> L["DNA Ligase I Seals Nicks"]
-    G --> M[Daughter Strand Complete]
-    L --> M
-
-    style A fill:#4a90d9,color:#fff
-    style F fill:#f0ad4e,color:#000
-    style M fill:#5cb85c,color:#fff
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph firing["1. Origin firing: budding-yeast example"]
+        direction LR
+        Licensed["Licensed MCM<br/>double hexamer"] --> Kinases["Distinct phosphorylation inputs:<br/>DDK phosphorylates MCM<br/>S-CDK phosphorylates Sld2/Sld3"]
+        Kinases --> A["CMG assembly<br/>and origin firing"]
+    end
+    subgraph fork["2. Fork preparation"]
+        direction LR
+        B["CMG unwinds DNA"] --> C["Topoisomerase relieves<br/>supercoiling ahead"]
+        B --> D["SSB/RPA stabilizes<br/>single-stranded DNA"]
+        D --> E["Primase makes<br/>RNA primers"]
+    end
+    subgraph synthesis["3. Leading and lagging strands: synthesis is 5′ to 3′"]
+        direction TB
+        G["Leading: Pol epsilon<br/>continuous synthesis"]
+        H["Lagging: repeated priming"] --> I["Pol delta extends<br/>Okazaki fragments"]
+    end
+    subgraph maturation["4. Lagging-strand maturation"]
+        direction LR
+        J["RNase H + FEN1<br/>remove RNA primers"] --> K["Pol delta<br/>fills gaps"] --> L["Ligase I<br/>seals nicks"]
+    end
+    firing --> fork --> synthesis
+    synthesis -->|lagging strand| maturation
+    synthesis -->|leading strand| M["Daughter strand complete"]
+    maturation --> M
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class Licensed,Kinases,A,B,C,D,E,G,H,I,J,K,L,M ink
 ```
 <!-- alt: Flowchart showing eukaryotic replication-fork machinery, preceded by a budding-yeast firing example: DDK acts on MCM, while S-CDK acts on Sld2/Sld3 to promote firing-complex assembly. Metazoan firing regulators differ. CMG unwinds DNA; the leading strand is synthesized continuously, while the lagging strand requires repeated priming and ligation of Okazaki fragments. -->
 
@@ -182,25 +193,34 @@ flowchart TD
 ### mRNA Vaccines: A Modern Application of Nucleic Acid Technology
 
 ```mermaid
-flowchart TD
-    A["Design mRNA encoding antigen: full spike requires 3,819 coding nt plus stop, UTRs, cap and poly-A"] --> B["In Vitro Transcription (IVT) from DNA Template Using T7 RNA Polymerase"]
-    B --> C["Cap-1 Capping and Poly-A Tailing"]
-    C --> D["Purification (DNase Treatment, HPLC) and Formulation into Lipid Nanoparticles (LNPs)"]
-    D --> E["Intramuscular Injection"]
-    E --> F["LNP uptake by endocytosis<br/>in muscle cells and local APCs"]
-    F --> Escape["Endosomal escape<br/>mRNA reaches cytosol"]
-    Escape --> G["Host ribosome translates antigen"]
-    G --> DC["Dendritic-cell antigen acquisition<br/>or direct antigen expression"]
-    DC --> H["MHC-II presentation + costimulation<br/>primes naive CD4 T cells"]
-    H --> I["Helper T cells support antigen-specific<br/>B-cell activation and plasma cells"]
-    I --> J["Antigen-specific antibodies"]
-    DC --> K["MHC-I presentation / cross-presentation<br/>+ costimulation primes naive CD8 T cells"]
-    K --> L["CD8 effector and memory responses"]
-    J --> M["Immune memory established"]
-    L --> M
-    M -.->|"Upon later infection"| Eff["Recall responses; cytotoxic T cells<br/>can kill infected target cells"]
-    style A fill:#4a90d9,color:#fff
-    style M fill:#5cb85c,color:#fff
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph manufacture["1. Manufacture"]
+        direction LR
+        A["Design antigen mRNA<br/>Full spike: 3,819 coding nt<br/>plus stop, UTRs, cap, poly-A"] --> B["DNA template → IVT<br/>T7 RNA polymerase"]
+        B --> C["Cap-1 capping<br/>and poly-A tailing"] --> D["DNase / HPLC purification<br/>LNP formulation"]
+    end
+    subgraph delivery["2. Delivery and expression"]
+        direction LR
+        E["Intramuscular<br/>injection"] --> F["LNP endocytosis:<br/>muscle cells / local APCs"]
+        F --> Escape["Endosomal escape:<br/>mRNA enters cytosol"] --> G["Host ribosomes<br/>translate antigen"]
+    end
+    subgraph priming["3. Professional APCs prime naive T cells"]
+        direction TB
+        DC["Dendritic cells acquire antigen<br/>or express it directly"] --> H["MHC-II + costimulation<br/>primes naive CD4 T cells"]
+        H --> I["Helper T cells support<br/>B cells and plasma cells"] --> J["Antigen-specific antibodies"]
+        DC --> K["MHC-I / cross-presentation<br/>+ costimulation primes CD8"] --> L["CD8 effector and<br/>memory responses"]
+    end
+    subgraph recall["4. Memory and later infection"]
+        direction LR
+        M["Immune memory"] -.->|later infection| Eff["Recall responses:<br/>cytotoxic T cells can kill<br/>infected target cells"]
+    end
+    manufacture --> delivery --> priming --> recall
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class A,B,C,D,E,F,Escape,G,DC,H,I,J,K,L,M,Eff ink
 ```
 <!-- alt: Flowchart showing mRNA-vaccine delivery and immune priming. Endocytosis and endosomal escape precede translation; professional antigen-presenting cells provide presentation and costimulation for naive T-cell priming. Killing infected targets is a later effector response, not a vaccine-delivery step. -->
 
@@ -371,39 +391,40 @@ Result: without sufficient maintenance, telomeres can shorten through replicatio
 The **cell cycle** is the ordered series of events by which a cell duplicates its contents and divides \citep{nurse2000cellcycle}. In a typical mammalian cell, the cycle takes approximately 24 hours.
 
 ```mermaid
-stateDiagram-v2
-    [*] --> G0: Quiescence/Differentiation
-    [*] --> G1: Cell Growth
-    G1 --> S: Restriction Point Passed and G1/S Checkpoint
-    S --> G2: DNA Replication Complete
-    G2 --> M: G2/M Checkpoint Passed
-    M --> G1: Cytokinesis Complete
-    M --> [*]: Terminal Differentiation
-
-    state G1 {
-        [*] --> Growth: Cell grows and organelles duplicate
-        Growth --> RestrictionPoint: Mitogen-dependent until R
-        RestrictionPoint --> Committed: Past R equals mitogen-independent
-    }
-
-    state S {
-        [*] --> EarlyS: Euchromatin replicates first
-        EarlyS --> LateS: Heterochromatin replicates last
-        LateS --> IntraSCheck: Intra-S checkpoint monitors fork stalling
-    }
-
-    state M {
-        [*] --> Prophase
-        Prophase --> Prometaphase
-        Prometaphase --> Metaphase
-        Metaphase --> Anaphase: SAC satisfied
-        Anaphase --> Telophase
-        Telophase --> Cytokinesis
-    }
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    Entry["Cell state"] -->|quiescence / differentiation| G0["G0"]
+    Entry -->|cycling cell| G1
+    subgraph G1["G1: growth and commitment"]
+        direction LR
+        Growth["Cell grows;<br/>organelles duplicate"] --> R["Restriction point R:<br/>mitogen-dependent before R"]
+        R --> Committed["Past R: reduced dependence<br/>on continued mitogens"]
+    end
+    subgraph S["S: DNA replication and surveillance"]
+        direction LR
+        Early["Early S:<br/>euchromatin first"] --> Late["Late S:<br/>heterochromatin last"]
+        Check["Intra-S checkpoint<br/>monitors fork stalling"] -.- Early
+        Check -.- Late
+    end
+    G1 -->|R passed; distinct G1/S damage control| S
+    S -->|replication complete| G2["G2"]
+    subgraph M["M: ordered mitotic stages and division"]
+        direction LR
+        Pro["Prophase →<br/>prometaphase"] --> Meta["Metaphase<br/>SAC satisfied before anaphase"]
+        Meta --> Ana["Anaphase → telophase<br/>→ cytokinesis"]
+    end
+    G2 -->|G2/M checkpoint permits entry| M
+    M -->|cytokinesis complete| G1
+    M --> Exit["Terminal differentiation"]
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class Entry,G0,Growth,R,Committed,Early,Late,Check,G2,Pro,Meta,Ana,Exit ink
 ```
-<!-- alt: State diagram showing eukaryotic cell cycle. G1 contains the restriction point (R), after which the cell is committed to division independent of mitogenic signals. Each transition is guarded by checkpoints. -->
+<!-- alt: Grouped cell-cycle diagram follows G1 growth and restriction-point passage, S-phase replication with intra-S surveillance, G2, and ordered mitotic stages through cytokinesis and return to G1. G0 and terminal differentiation are separate states. Restriction-point commitment and G1/S DNA-damage control are distinct. -->
 
-*The eukaryotic cell cycle. G1 contains the restriction point (R), after which the cell is committed to division independent of mitogenic signals. Each transition is guarded by checkpoints.*
+*The eukaryotic cell cycle is arranged in compact phase panels. Passage through the G1 restriction point reduces dependence on continued mitogen stimulation in the canonical model; G1/S DNA-damage control remains distinct. S-phase surveillance monitors replication stress, G2/M control can delay mitotic entry, and the spindle assembly checkpoint (SAC) delays anaphase. These controls do not certify an error-free genome or perfect chromosome attachment.*
 
 ### Cell Cycle Phases
 
@@ -533,29 +554,37 @@ Checkpoint signaling can delay cell-cycle transitions in response to particular 
 ### The DNA Damage Response: ATM/ATR and p53
 
 ```mermaid
-flowchart TD
-    A[DNA Damage Detected] --> B{Damage Type?}
-    B -->|Double-Strand Break| C[MRN Complex Recruits ATM]
-    B -->|Replication Stress / ssDNA| D[RPA Coats ssDNA and ATRIP Recruits ATR]
-    C --> E[ATM Phosphorylates H2AX to gamma-H2AX Foci]
-    C --> F[ATM Activates Chk2]
-    D --> G[ATR Activates Chk1]
-    F --> H[Chk2 Phosphorylates p53 at Ser20]
-    G --> H
-    E --> I[Recruits MDC1 BRCA1 53BP1 to Damage Site]
-    H --> J{p53 Stabilized and MDM2 Interaction Blocked}
-    J --> K[Mild Damage: p21 Induction and Cell Cycle Arrest]
-    J --> L[Severe Damage: BAX PUMA NOXA and Apoptosis]
-    J --> M[Persistent Damage: p16/RB and Senescence]
-    K --> N[DNA Repair Occurs]
-    N --> O{Repair Successful?}
-    O -->|Yes| P[Cell Cycle Resumes]
-    O -->|No| L
-
-    style A fill:#d9534f,color:#fff
-    style P fill:#5cb85c,color:#fff
-    style L fill:#d9534f,color:#fff
-    style M fill:#f0ad4e,color:#000
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph sensing["1. Damage sensing: parallel branches"]
+        direction LR
+        C["Double-strand break:<br/>MRN recruits ATM"] --> E["ATM → gamma-H2AX foci"] --> I["MDC1, BRCA1, 53BP1<br/>recruited to damage"]
+        C --> F["ATM activates Chk2"]
+        D["Replication stress / ssDNA:<br/>RPA coats DNA;<br/>ATRIP recruits ATR"] --> G["ATR activates Chk1"]
+    end
+    subgraph signal["2. Checkpoint signaling to p53"]
+        direction LR
+        H["p53 phosphorylation<br/>Chk2: Ser20"] --> J["p53 stabilized;<br/>MDM2 interaction blocked"]
+    end
+    sensing --> signal
+    subgraph arrest["3. Arrest and repair branch"]
+        direction LR
+        K["Mild damage:<br/>p21; cell-cycle arrest"] --> N["DNA repair"] --> O{"Repair<br/>successful?"}
+        O -->|yes| P["Cell cycle resumes"]
+    end
+    subgraph other["4. Other damage-dependent outcomes"]
+        direction LR
+        L["Severe damage:<br/>BAX, PUMA, NOXA;<br/>apoptosis"]
+        M["Persistent damage:<br/>p16/RB; senescence"]
+    end
+    signal --> arrest
+    signal --> other
+    arrest -->|unsuccessful repair: apoptosis branch| other
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class C,E,I,F,D,G,H,J,K,N,O,P,L,M ink
 ```
 <!-- alt: Flowchart showing DNA damage response pathway. ATM responds to double-strand breaks; ATR responds to replication stress and single-stranded DNA. Both converge on p53, which decides between cell cycle arrest (allowing repair), apoptosis, or senescence depending on damage severity. -->
 

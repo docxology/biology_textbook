@@ -255,7 +255,7 @@ Degrees of freedom = 3 genotypes - 1 constraint (total N) - 1 estimated paramete
 
 $\chi^2_{crit}(1 \text{ df}, \alpha = 0.05) = 3.841$
 
-Since $0.222 < 3.841$, we **fail to reject** HWE. This population is in Hardy-Weinberg equilibrium for the MN locus.
+Since $0.222 < 3.841$, we **fail to reject** HWE at the stated 5% threshold. This test supplies no statistically significant evidence against the specified null model; it does not prove that every HWE assumption holds or exclude departures too small for these data to detect.
 
 ### HWE as a Clinical Tool
 
@@ -265,7 +265,7 @@ Hardy-Weinberg estimates are useful clinical first approximations, not diagnoses
 
 ## Worked Example: Cystic Fibrosis Carrier Frequency
 
-Cystic fibrosis (CF) prevalence in Northern Europeans has disease (aa) frequency $\frac{1}{2,500}$.
+Use an explicitly stipulated, fully ascertained two-allele recessive model with affected-genotype frequency $1/2{,}500$. The CF label motivates the classroom calculation; this input is not asserted as a current frequency for every Northern European population.
 
 \begin{equation}
 q^2 = \frac{1}{2500} \implies q = \frac{1}{50} = 0.02
@@ -278,11 +278,11 @@ p = 1 - q = 0.98
 \end{equation}
 
 \begin{equation}
-\text{Carrier frequency} = 2pq = 2(0.98)(0.02) = 0.0392 \approx \frac{1}{25}
+\text{Carrier frequency} = 2pq = 2(0.98)(0.02) = 0.0392 \approx \frac{1}{25.51}
 \label{eq:population_genetics_20}
 \end{equation}
 
-Approximately 1 in 25 Northern Europeans is a CF carrier -- critical information for genetic counseling.
+The model gives 3.92% heterozygotes, or about 1 in 25.5 people (approximately 1 in 26). This is an expected genotype proportion under the stated assumptions, not a diagnosis, an observed current population estimate or a sufficient basis for counseling a particular family.
 
 **ABO blood group HWE analysis** (three alleles: $I^A$, $I^B$, $i$):
 
@@ -295,8 +295,8 @@ Genotype frequencies under HWE:
 \label{eq:population_genetics_21}
 \end{equation}
 
-> **Clinical Connection: Newborn Screening and Hardy-Weinberg**
-> Hardy-Weinberg predictions guide newborn screening programs. For PKU (q approximately 0.01, disease frequency 1/10,000), carrier frequency approximately 2%. For sickle cell disease in African Americans (q approximately 0.05), carrier frequency approximately 9.5%. For Tay-Sachs in Ashkenazi Jewish populations (q approximately 0.018), carrier frequency approximately 1/28. These calculations determine cost-effectiveness of carrier screening programs.
+> **Clinical Connection: HWE Inputs Are Not Screening Outcomes**
+> For stipulated two-allele teaching inputs $q=0.01$, $0.05$ and $0.018$, $2pq$ gives expected heterozygote frequencies of 1.98%, 9.5% and 3.5352% (about 1 in 28), respectively. These are constructed model calculations, not measured frequencies for named ancestry groups or a complete model of all sickle-cell disease genotypes. Newborn disease detection and reproductive carrier screening have different purposes. HWE alone does not determine cost-effectiveness: that also requires defined population data, test performance, costs, uptake, intervention options and outcome assumptions.
 
 **Concept Check 18.1**
 
@@ -367,35 +367,30 @@ After one generation: $q' = 0.3 - 0.0128 = 0.287$
 ### Types of Selection
 
 ```mermaid
-flowchart LR
-    A[Types of Natural Selection] --> B["Directional Selection"]
-    A --> C["Stabilizing Selection"]
-    A --> D["Disruptive Selection"]
-    A --> E["Balancing Selection"]
-
-    B --> B1["One extreme phenotype favored"]
-    B --> B2["Mean shifts toward selected extreme"]
-    B --> B3["Example: Antibiotic resistance in bacteria"]
-
-    C --> C1["Intermediate phenotype favored"]
-    C --> C2["Variance reduced; mean unchanged"]
-    C --> C3["Example: Human birth weight (~3.5 kg optimal)"]
-
-    D --> D1["Both extreme phenotypes favored"]
-    D --> D2["Variance increases; may split population"]
-    D --> D3["Example: Crossbill beak sizes (small or large, not medium)"]
-
-    E --> E1["Heterozygote Advantage (Overdominance)"]
-    E --> E2["Frequency-Dependent Selection"]
-    E --> E3["Maintains Polymorphism"]
-    E1 --> E4["Example: Sickle cell / malaria"]
-    E2 --> E5["Example: Scale-eating fish (left/right mouth morphs)"]
-
-    style A fill:#4a90d9,color:#fff
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph TRAITS["1. Phenotypic trait–fitness patterns"]
+        direction LR
+        B["Directional<br/>one extreme favored<br/>mean can move toward it<br/>resistance phenotype example"]
+        C["Stabilizing<br/>intermediate favored<br/>spread can narrow;<br/>mean can approach optimum<br/>birthweight–survival:<br/>cohort / endpoint dependent"]
+        D["Disruptive<br/>both extremes favored<br/>bimodality is possible<br/>crossbill feeding-trait example"]
+        B ~~~ C ~~~ D
+    end
+    subgraph POLYMORPHISM["2. Processes that can maintain genetic polymorphism"]
+        direction LR
+        E1["Heterozygote advantage<br/>under suitable genotype fitnesses<br/>HbAS / malaria context"]
+        E2["Frequency-dependent selection<br/>under suitable fitness feedback<br/>left / right scale-eating morphs"]
+        E1 ~~~ E2
+    end
+    TRAITS ~~~ POLYMORPHISM
+    classDef default fill:#eef5fa,stroke:#526777,color:#111111
 ```
-<!-- alt: Flowchart showing types of natural selection and their effects on allele frequency distributions. Directional selection shifts the mean; stabilizing selection reduces variance; disruptive selection increases variance; balancing selection maintains polymorphism. -->
+<!-- alt: Selection summary distinguishes phenotypic trait-distribution patterns from allele- and genotype-frequency processes. Directional selection favors one phenotypic extreme, stabilizing selection favors intermediate phenotypes, and disruptive selection favors both extremes. Balancing selection concerns maintained genetic polymorphism, including heterozygote advantage and suitable frequency-dependent regimes. These are not equivalent one-locus allele-frequency trajectories. -->
 
-*Types of natural selection and their effects on allele frequency distributions. Directional selection shifts the mean; stabilizing selection reduces variance; disruptive selection increases variance; balancing selection maintains polymorphism.*
+*Directional, stabilizing and disruptive selection describe selection on phenotypic trait distributions: the schematic summarizes a shift toward one extreme, reduced variance around an intermediate, or favoring both extremes, respectively. Balancing selection instead describes maintenance of genetic polymorphism through processes such as heterozygote advantage or suitable frequency-dependent selection. The one-locus allele/genotype-fitness model discussed above is distinct: a phenotypic mean or variance cannot be inferred from an allele-frequency trajectory without an explicit trait–fitness model.*
 
 ### Heterozygote Advantage (Balancing Selection)
 
@@ -427,7 +422,7 @@ This predicts HbS frequency of ~12%, remarkably close to the observed ~10-20% in
 **Other examples of heterozygote advantage:**
 - **HbC** (beta-globin E6K): heterozygotes also resistant to malaria; found in West Africa
 - **G6PD deficiency**: heterozygous females have mosaic RBCs; malaria resistance
-- **CF heterozygotes**: possibly resistant to cholera or typhoid (debated); explains high carrier frequency (~4% in Europeans)
+- **CFTR-maintenance hypotheses**: Proposed heterozygote advantages require genotype- and environment-specific evidence. A carrier frequency alone does not establish that mechanism or exclude mutation, demography, founder effects and drift.
 - **MHC/HLA diversity**: heterozygotes present more pathogen antigens; frequency-dependent selection also contributes
 
 **Concept Check 18.2**
@@ -665,7 +660,7 @@ Because population-genetic models predict the **genome-wide** $F_{ST}$ distribut
 
 For a deleterious recessive allele maintained by mutation-selection balance:
 
-Forward mutation rate μ (A -> a) introduces new copies; selection removes them:
+Forward mutation rate μ introduces modeled A → a copies, while selection removes them. μ must be defined per generation for the **same allele or mutation class** used in the model; a per-nucleotide substitution rate is not interchangeable with a per-gene pathogenic-class rate. The equilibrium approximation also requires its recessive-fitness, population and life-cycle assumptions.
 
 \begin{equation}
 \hat{q} = \sqrt{\frac{\mu}{s}} \quad \text{(for completely recessive, s = 1 for lethals)}
@@ -691,7 +686,7 @@ For a recessive lethal allele with $\mu = 10^{-5}$:
 \label{eq:population_genetics_34}
 \end{equation}
 
-For **CF** ($s \approx 1$, $q \approx 0.02$): Implied $\mu \approx q^2 s = (0.02)^2(1) = 4 \times 10^{-4}$. This is much higher than the typical point mutation rate ($\sim 10^{-8}$ per [**nucleotide**](#gl:nucleotide) per generation), suggesting that **heterozygote advantage** or other selective forces maintain CF carrier frequency above what mutation-selection balance alone would predict.
+**Conditional parameter check:** If the stipulated model is at mutation-selection balance with $q=0.02$ and $s=1$, its required forward rate is $\mu\approx q^2s=4\times10^{-4}$ per modeled allele/class per generation. This is algebra under the model, not an observed CFTR mutation rate or proof of a maintenance mechanism. Test it against a rate defined for the same mutational target and variant class, then evaluate fitness, sampling stage, population history and equilibrium assumptions; comparing it directly with a per-nucleotide rate cannot establish heterozygote advantage.
 
 For a deleterious **dominant** allele:
 
@@ -938,7 +933,7 @@ flowchart LR
 - **Natural selection**: Fitness ($w$), selection coefficient ($s$), dominance coefficient ($h$). Directional selection shifts allele frequencies; balancing selection (heterozygote advantage) maintains polymorphism at stable equilibrium ($\hat{q} = s_1/(s_1 + s_2)$).
 - **Genetic drift**: Random allele frequency changes in finite populations; variance $\propto 1/2N_e$; fixation or loss inevitable. Bottleneck and founder effects cause non-representative gene pools.
 - **Gene flow**: Homogenizes populations; $\Delta p_1 = m(p_2 - p_1)$. $F_{ST}$ measures population differentiation (~0.12 for humans).
-- **Mutation-selection balance**: $\hat{q} = \sqrt{\mu/s}$ for deleterious recessives. CF carrier frequency suggests heterozygote advantage beyond mutation alone.
+- **Mutation-selection balance**: $\hat{q}\approx\sqrt{\mu/s}$ is a conditional recessive model. Mutation target, fitness, life cycle and population assumptions must match; a carrier frequency alone does not identify a real maintenance mechanism.
 - **Neutral theory** (Kimura): Most molecular variation is neutral; substitution rate = neutral mutation rate (independent of $N$). Ka/Ks ratio distinguishes purifying, neutral, and positive selection.
 - **Coalescent theory**: Traces lineages backward; TMRCA for mitochondrial DNA ~200,000 years; for Y chromosome ~200,000-300,000 years.
 - **Molecular clock**: $t = d_{JC}/2\mu$; calibrated with fossils; widely used for estimating divergence times. Human-chimp ~6-7 Ma.

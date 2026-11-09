@@ -227,25 +227,46 @@ ATP couples exergonic and endergonic reactions through group-transfer chemistry.
 Glycolysis (Greek: *glykys* = sweet; *lysis* = splitting) converts one glucose (6C) to two pyruvate (3C), netting 2 ATP and 2 NADH. It occurs in the **[cytoplasm](#gl:cytoplasm)** of most cells and does not require oxygen.
 
 ```mermaid
-flowchart TD
-    G["Glucose (6C)<br/>C₆H₁₂O₆"] -->|"Step 1: Hexokinase<br/>ATP→ADP<br/>ΔG°′ = −16.7 kJ/mol<br/>⚡ IRREVERSIBLE"| G6P["Glucose-6-phosphate"]
-    G6P -->|"Step 2: Phosphoglucose isomerase<br/>ΔG°′ = +1.67"| F6P["Fructose-6-phosphate"]
-    F6P -->|"Step 3: PFK-1<br/>ATP→ADP<br/>ΔG°′ = −14.2 kJ/mol<br/>⚡ IRREVERSIBLE<br/>COMMITTED STEP"| F16BP["Fructose-1,6-bisphosphate"]
-    F16BP -->|"Step 4: Aldolase<br/>ΔG°′ = +23.9"| TwoC3["DHAP + G3P<br/>(2 × triose phosphates)"]
-    TwoC3 -->|"Step 5: TPI<br/>DHAP→G3P<br/>ΔG°′ = +7.56"| G3Px2["2 × G3P"]
-    G3Px2 -->|"Step 6: GAPDH<br/>2 NAD⁺→2 NADH<br/>2 Pᵢ incorporated<br/>ΔG°′ = +6.30"| BPG["2 × 1,3-BPG"]
-    BPG -->|"Step 7: PGK<br/>2 ADP→2 ATP<br/>ΔG°′ = −18.9<br/>💰 Substrate-level phosphorylation"| PG3["2 × 3-PG"]
-    PG3 -->|"Step 8: PGM<br/>ΔG°′ = +4.4"| PG2["2 × 2-PG"]
-    PG2 -->|"Step 9: Enolase<br/>2 H₂O released<br/>ΔG°′ = +1.8"| PEP["2 × PEP"]
-    PEP -->|"Step 10: Pyruvate kinase<br/>2 ADP→2 ATP<br/>ΔG°′ = −31.7 kJ/mol<br/>⚡ IRREVERSIBLE<br/>💰 Substrate-level phosphorylation"| PYR["2 × Pyruvate (3C)"]
-
-    style G fill:#e6f3ff
-    style F16BP fill:#fff3e6
-    style PYR fill:#ffe6e6
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph INVEST["Cytosol: steps 1–3; invest 2 ATP per glucose"]
+        direction LR
+        G["Glucose (6C)"] -->|"1. Hexokinase<br/>ATP → ADP"| G6P["Glucose-6-P"]
+        G6P -->|"2. Isomerase"| F6P["Fructose-6-P"]
+        F6P -->|"3. PFK-1<br/>ATP → ADP"| F16BP["Fructose-1,6-BP"]
+    end
+    subgraph SPLIT["Cytosol: steps 4–5; form two triose substrates"]
+        direction LR
+        F16BP2["Fructose-1,6-BP"] -->|"4. Aldolase"| TwoC3["DHAP + G3P"]
+        TwoC3 -->|"5. TPI<br/>DHAP → G3P"| G3Px2["2 G3P (3C each)"]
+    end
+    subgraph PAY1["Cytosol: steps 6–7; each reaction occurs twice per glucose"]
+        direction LR
+        G3P2["2 G3P"] -->|"6. GAPDH<br/>2 Pi + 2 NAD⁺<br/>→ 2 NADH + 2 H⁺"| BPG["2 × 1,3-BPG"]
+        BPG -->|"7. PGK<br/>2 ADP → 2 ATP"| PG3["2 × 3-PG"]
+    end
+    subgraph PAY2["Cytosol: steps 8–10; each reaction occurs twice per glucose"]
+        direction LR
+        PG3b["2 × 3-PG"] -->|"8. PGM"| PG2["2 × 2-PG"]
+        PG2 -->|"9. Enolase<br/>2 H₂O released"| PEP["2 PEP"]
+        PEP -->|"10. Pyruvate kinase<br/>2 ADP → 2 ATP"| PYR["2 pyruvate (3C each)"]
+    end
+    INVEST --> SPLIT
+    SPLIT --> PAY1
+    PAY1 --> PAY2
+    classDef metabolite fill:#ffffff,stroke:#526777,color:#111111
+    class G,G6P,F6P,F16BP,F16BP2,TwoC3,G3Px2,G3P2,BPG,PG3,PG3b,PG2,PEP,PYR metabolite
+    style INVEST fill:#f8f0e8,stroke:#526777,color:#17212b
+    style SPLIT fill:#fafafa,stroke:#526777,color:#17212b
+    style PAY1 fill:#eef5fa,stroke:#526777,color:#17212b
+    style PAY2 fill:#eef5fa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing glycolysis consumes 2 ATP then produces 4 ATP and 2 NADH per glucose. Energy labels are standard transformed values per reaction; steps 6–10 occur twice per glucose. Cellular irreversibility depends on the reaction quotient, not the sign of the standard value alone. -->
+<!-- alt: Four ordered cytosolic panels show ATP investment, cleavage to two G3P, and two payoff stages ending in two pyruvate. Steps 7 and 10 each produce two ATP per glucose, giving four gross and two net ATP; step 6 produces two NADH. -->
 
-*Glycolysis consumes 2 ATP then produces 4 ATP and 2 NADH per glucose. Energy labels are standard transformed values per reaction; steps 6–10 occur twice per glucose. Cellular irreversibility depends on the reaction quotient, not the sign of the standard value alone.*
+*Glycolysis consumes 2 ATP and produces 4 ATP gross, yielding 2 ATP net and 2 NADH per glucose. Panels continue top to bottom, repeating boundary metabolites rather than adding reactions. Steps 6–10 occur twice per glucose; TPI acts once on the DHAP branch. Both ATP-producing steps use substrate-level phosphorylation. The adjacent table retains all ten standard transformed energies in kJ/mol reaction; actual cellular direction and physiological irreversibility at steps 1, 3 and 10 depend on reaction quotients and conditions, not the sign of a standard value alone \citep{ucdavis2022glycolysis}.*
 
 ### Ten Enzymatic Steps
 
@@ -299,25 +320,44 @@ Gluconeogenesis is *not* glycolysis run backwards. Three glycolytic steps (hexok
 ### The Four Bypass Reactions
 
 ```mermaid
-flowchart TD
-    PYR["Pyruvate (mitochondrion)"] -->|"Pyruvate carboxylase<br/>+ATP, +CO₂, biotin<br/>ΔG°' = −0.5"| OAA["Oxaloacetate"]
-    OAA -->|"Malate DH<br/>NADH"| MAL["Malate"]
-    MAL -->|"transport across IMM"| MALc["Malate (cytoplasm)"]
-    MALc -->|"cytosolic Malate DH"| OAAc["Oxaloacetate (cytoplasm)"]
-    OAAc -->|"PEPCK<br/>+GTP, −CO₂<br/>ΔG°' = +0.8"| PEP["PEP"]
-    PEP -->|"Glycolytic enzymes<br/>(reverse direction)<br/>2 ATP + 2 NADH<br/>consumed per glucose"| F16BP["Fructose-1,6-BP"]
-    F16BP -->|"FBPase-1<br/>ΔG°' = −16.3<br/>(replaces PFK-1)"| F6P["Fructose-6-P"]
-    F6P -->|"isomerase"| G6P["Glucose-6-P"]
-    G6P -->|"G6Pase (ER lumen)<br/>liver/kidney only<br/>(replaces hexokinase)"| GLU["Glucose"]
-
-    style PYR fill:#fff3e6
-    style GLU fill:#e6ffe6
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph MITO["1. Mitochondrial matrix: two pyruvate per glucose"]
+        direction LR
+        PYR["2 pyruvate"] -->|"Pyruvate carboxylase<br/>2 ATP + 2 CO₂<br/>Biotin"| OAA["2 oxaloacetate"]
+        OAA -->|"Malate DH<br/>2 NADH → 2 NAD⁺"| MAL["2 malate"]
+    end
+    subgraph CYTO["2. Cytosol: malate route with cytosolic PEPCK"]
+        direction LR
+        MALc["2 malate"] -->|"Malate DH<br/>2 NAD⁺ → 2 NADH"| OAAc["2 oxaloacetate"]
+        OAAc -->|"PEPCK<br/>2 GTP → 2 GDP<br/>2 CO₂ released"| PEP["2 PEP"]
+    end
+    subgraph SUGAR["3. Cytosol: reverse shared steps and the PFK-1 bypass"]
+        direction LR
+        PEP2["2 PEP"] -->|"Shared glycolytic enzymes<br/>Reverse direction<br/>2 ATP + 2 NADH used"| F16BP["Fructose-1,6-BP"]
+        F16BP -->|"FBPase-1<br/>H₂O → Pi"| F6P["Fructose-6-P"]
+        F6P -->|"Isomerase"| G6P["Glucose-6-P"]
+    end
+    subgraph ER["4. ER lumen: hexokinase bypass; chiefly liver and renal cortex"]
+        direction LR
+        G6Per["Glucose-6-P"] -->|"G6Pase<br/>H₂O → Pi"| GLU["Glucose"]
+    end
+    MITO -->|"Malate crosses inner<br/>mitochondrial membrane"| CYTO
+    CYTO --> SUGAR
+    SUGAR -->|"G6P enters ER lumen"| ER
+    classDef metabolite fill:#ffffff,stroke:#526777,color:#111111
+    class PYR,OAA,MAL,MALc,OAAc,PEP,PEP2,F16BP,F6P,G6P,G6Per,GLU metabolite
+    style MITO fill:#f8f0e8,stroke:#526777,color:#17212b
+    style CYTO fill:#eef5fa,stroke:#526777,color:#17212b
+    style SUGAR fill:#eef5fa,stroke:#526777,color:#17212b
+    style ER fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing gluconeogenesis bypasses irreversible glycolytic steps by moving carbon through mitochondrial oxaloacetate, malate export, and cytosolic phosphoenolpyruvate formation. -->
+<!-- alt: Four ordered panels follow two pyruvate through mitochondrial oxaloacetate and malate, malate export and cytosolic PEPCK, reverse shared glycolytic reactions and FBPase-1, then ER-lumen G6Pase to one glucose. ATP and GTP costs are counted per glucose. -->
 
-*Gluconeogenesis bypasses irreversible glycolytic steps by moving carbon through mitochondrial oxaloacetate, malate export, and cytosolic phosphoenolpyruvate formation.*
-
-*Gluconeogenesis from pyruvate to glucose (Mermaid).* Four bypass enzymes (pyruvate carboxylase, PEPCK, FBPase-1, G6Pase) replace the three irreversible glycolytic steps. The pyruvate-to-PEP conversion requires two enzymes — pyruvate carboxylase consumes ATP and PEPCK consumes GTP — so the bypass spans two energy-consuming steps.
+*Gluconeogenesis from two pyruvate to one glucose, showing the malate-export route with cytosolic PEPCK. Four bypass enzymes replace three physiologically irreversible glycolytic steps: pyruvate carboxylase plus PEPCK bypass pyruvate kinase, FBPase-1 bypasses PFK-1, and ER-lumen G6Pase bypasses hexokinase. Costs per glucose are 4 ATP + 2 GTP (6 ATP equivalents), with 2 NADH required by reverse glycolytic chemistry; malate export transfers reducing equivalents between compartments. Standard transformed energies per reaction are −0.5 for pyruvate carboxylase, +0.8 for PEPCK and −16.3 kJ/mol for FBPase-1, not cellular free energies. Repeated boundary metabolites indicate continuation, not additional reactions.*
 
 ### The Four Bypass Enzymes in Detail
 
@@ -469,30 +509,44 @@ Catalysed by PDC --- a 9.5 MDa multienzyme complex with three catalytic componen
 The TCA cycle occurs in the mitochondrial matrix. It oxidises acetyl-CoA to CO$_2$, generating reduced cofactors (NADH, FADH$_2$) that feed the ETC \citep{krebs1937}.
 
 ```mermaid
-flowchart LR
-    OAA["Oxaloacetate (4C)"]
-    Citrate["Citrate (6C)"]
-    Isocitrate["Isocitrate (6C)"]
-    alphaKG["α-Ketoglutarate (5C)"]
-    SuccCoA["Succinyl-CoA (4C)"]
-    Succ["Succinate (4C)"]
-    Fum["Fumarate (4C)"]
-    Mal["Malate (4C)"]
-
-    OAA -->|"Step 1: Citrate synthase<br/>Acetyl-CoA + H₂O<br/>ΔG°' = −32.2"| Citrate
-    Citrate -->|"Step 2: Aconitase<br/>(via cis-aconitate)<br/>ΔG°' = +6.3"| Isocitrate
-    Isocitrate -->|"Step 3: Isocitrate DH<br/>NAD⁺→NADH + CO₂<br/>ΔG°' = −20.9<br/>REGULATED"| alphaKG
-    alphaKG -->|"Step 4: α-KG DH complex<br/>NAD⁺→NADH + CO₂<br/>ΔG°' = −33.5<br/>REGULATED"| SuccCoA
-    SuccCoA -->|"Step 5: Succinyl-CoA synthetase<br/>GDP→GTP (or ADP→ATP)<br/>ΔG°' = −2.9"| Succ
-    Succ -->|"Step 6: Succinate DH (Complex II)<br/>FAD→FADH₂<br/>ΔG°' = 0"| Fum
-    Fum -->|"Step 7: Fumarase<br/>H₂O added<br/>ΔG°' = −3.8"| Mal
-    Mal -->|"Step 8: Malate DH<br/>NAD⁺→NADH<br/>ΔG°' = +29.7"| OAA
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph ENTRY["1. Matrix: condensation and isomerization"]
+        direction LR
+        OAA["Oxaloacetate (4C)"] -->|"1. Citrate synthase<br/>Acetyl-CoA + H₂O<br/>ΔG°′ = −32.2"| Citrate["Citrate (6C)"]
+        Citrate -->|"2. Aconitase<br/>Via cis-aconitate<br/>ΔG°′ = +6.3"| Isocitrate["Isocitrate (6C)"]
+    end
+    subgraph DECARB["2. Matrix: regulated oxidative decarboxylations"]
+        direction LR
+        Isocitrate2["Isocitrate (6C)"] -->|"3. Isocitrate DH<br/>NADH + CO₂<br/>ΔG°′ = −20.9"| alphaKG["α-Ketoglutarate (5C)"]
+        alphaKG -->|"4. α-KG DH complex<br/>NADH + CO₂<br/>ΔG°′ = −33.5"| SuccCoA["Succinyl-CoA (4C)"]
+    end
+    subgraph OUTPUT["3. GTP formation in matrix; Complex II in inner membrane"]
+        direction LR
+        SuccCoA2["Succinyl-CoA (4C)"] -->|"5. Succinyl-CoA<br/>synthetase<br/>GDP → GTP; or ADP → ATP<br/>ΔG°′ = −2.9"| Succ["Succinate (4C)"]
+        Succ -->|"6. Succinate DH<br/>FAD → FADH₂<br/>ΔG°′ = 0"| Fum["Fumarate (4C)"]
+    end
+    subgraph REGEN["4. Matrix: oxaloacetate regeneration"]
+        direction LR
+        Fum2["Fumarate (4C)"] -->|"7. Fumarase<br/>H₂O added<br/>ΔG°′ = −3.8"| Mal["Malate (4C)"]
+        Mal -->|"8. Malate DH<br/>NAD⁺ → NADH<br/>ΔG°′ = +29.7"| OAA2["Oxaloacetate (4C)<br/>Re-enters step 1"]
+    end
+    ENTRY --> DECARB
+    DECARB --> OUTPUT
+    OUTPUT --> REGEN
+    classDef metabolite fill:#ffffff,stroke:#526777,color:#111111
+    class OAA,Citrate,Isocitrate,Isocitrate2,alphaKG,SuccCoA,SuccCoA2,Succ,Fum,Fum2,Mal,OAA2 metabolite
+    style ENTRY fill:#eef5fa,stroke:#526777,color:#17212b
+    style DECARB fill:#f8f0e8,stroke:#526777,color:#17212b
+    style OUTPUT fill:#eef5fa,stroke:#526777,color:#17212b
+    style REGEN fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing TCA cycle oxidizes acetyl-CoA to regenerate oxaloacetate while producing NADH, FADH2, and GTP for oxidative phosphorylation. -->
+<!-- alt: Four ordered panels show all eight TCA steps from oxaloacetate plus acetyl-CoA through citrate, alpha-ketoglutarate, succinate and malate back to oxaloacetate. Each turn yields two CO2, three NADH, one FADH2 equivalent and one GTP, with Complex II at the inner mitochondrial membrane. -->
 
-*The TCA cycle oxidizes acetyl-CoA to regenerate oxaloacetate while producing NADH, FADH2, and GTP for oxidative phosphorylation.*
-
-*The eight steps of the TCA cycle (Mermaid).* Each turn oxidises one acetyl group (2C) to 2 CO$_2$, producing 3 NADH, 1 FADH$_2$, and 1 GTP. The cycle turns twice per glucose molecule.
+*The eight TCA reactions, wrapped into four reaction-pair panels with repeated boundary metabolites. Per acetyl-CoA, the cycle regenerates oxaloacetate and yields 2 CO$_2$, 3 NADH, 1 FADH$_2$ equivalent and 1 GTP (or ATP, depending on the synthetase). Two turns occur per glucose. Steps 3 and 4 are regulated oxidative decarboxylations; NAD$^+$ accepts electrons to form NADH. FAD at Complex II is enzyme-bound, not a freely released FADH$_2$ product. Energy labels are standard transformed kJ/mol reaction, not cellular driving forces; actual direction depends on reaction quotients. The entering acetyl carbons are not the carbons released as CO$_2$ in the first turn \citep{krebs1937}.*
 
 **Eight steps with details:**
 

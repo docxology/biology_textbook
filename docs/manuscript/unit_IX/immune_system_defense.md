@@ -109,49 +109,42 @@ Species specificity matters here. Human TLR1--TLR10 are not a comprehensive mamm
 #### TLR4 → MyD88 → NF-κB pathway (bacterial LPS response)
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 flowchart TD
-    LPS["Bacterial LPS"]
-    Capture["LBP + CD14<br/>(LPS capture and delivery)"]
-
-    subgraph Receptor ["TLR4 receptor complex"]
-        TLR4["TLR4 / MD-2<br/>plasma membrane"]
-        Dimer["TLR4 dimerization<br/>TIR domains align"]
+    subgraph Recognition["1. LPS recognition at the plasma membrane"]
+        direction LR
+        LPS["Bacterial LPS"] --> Capture["LBP + CD14<br/>Capture and delivery"]
+        Capture --> TLR4["TLR4 / MD-2<br/>Receptor dimerizes<br/>TIR domains align"]
     end
-
-    subgraph Myddosome ["MyD88 branch"]
-        Tirap["TIRAP adaptor<br/>(membrane scaffold)"]
-        MyD88["MyD88"]
-        IRAK["IRAK4 activates IRAK1/2"]
-        TRAF6["TRAF6<br/>(E3 ubiquitin ligase)"]
+    subgraph Myddosome["2. MyD88 adaptor and IRAK relay"]
+        direction LR
+        Tirap["TIRAP<br/>Membrane scaffold"] --> MyD88["MyD88"]
+        MyD88 --> IRAK["IRAK4 activates<br/>IRAK1/2"] --> TRAF6["TRAF6<br/>E3 ubiquitin ligase"]
     end
-
-    subgraph Kinase ["Kinase relay"]
-        TAK1["TAK1 complex"]
-        IKK["IKKα / IKKβ / NEMO"]
-        IkB["IκBα phosphorylation<br/>and proteasomal degradation"]
+    subgraph Kinase["3. Kinase relay removes IκBα inhibition"]
+        direction LR
+        TAK1["TAK1 complex"] --> IKK["IKKα / IKKβ<br/>NEMO"]
+        IKK --> IkB["IκBα phosphorylation<br/>Proteasomal degradation"]
     end
-
-    NFkB["NF-κB p50/p65<br/>released from IκBα"]
-    Nucleus["Nuclear translocation"]
-    Genes["Inflammatory genes:<br/>TNF-α, IL-6, IL-1β,<br/>chemokines, COX-2"]
-
-    LPS --> Capture
-    Capture --> TLR4
-    TLR4 --> Dimer
-    Dimer --> Tirap
-    Tirap --> MyD88
-    MyD88 --> IRAK
-    IRAK --> TRAF6
-    TRAF6 --> TAK1
-    TAK1 --> IKK
-    IKK --> IkB
-    IkB --> NFkB
-    NFkB --> Nucleus
-    Nucleus --> Genes
+    subgraph Transcription["4. NF-κB transcriptional output"]
+        direction LR
+        NFkB["NF-κB p50/p65<br/>Released from IκBα"] --> Nucleus["Nuclear<br/>translocation"]
+        Nucleus --> Genes["Inflammatory genes<br/>TNF-α, IL-6, IL-1β<br/>Chemokines, COX-2"]
+    end
+    Recognition --> Myddosome --> Kinase --> Transcription
+    classDef readable fill:#eef5fa,stroke:#526777,color:#111111
+    class LPS,Capture,TLR4,Tirap,MyD88,IRAK,TRAF6,TAK1,IKK,IkB,NFkB,Nucleus,Genes readable
+    style Recognition fill:#fafafa,stroke:#526777,color:#17212b
+    style Myddosome fill:#fafafa,stroke:#526777,color:#17212b
+    style Kinase fill:#fafafa,stroke:#526777,color:#17212b
+    style Transcription fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing TLR4/MyD88/NF-κB pathway. LBP and CD14 deliver bacterial LPS to TLR4/MD-2, TLR4 dimerization recruits TIRAP and MyD88, IRAK kinases and TRAF6 activate TAK1 and IKK, and IκBα degradation releases NF-κB to induce inflammatory genes. -->
+<!-- alt: Four ordered panels follow LPS capture by LBP/CD14, TLR4/MD-2 dimerization, TIRAP/MyD88 recruitment with IRAK4 and IRAK1/2, TRAF6–TAK1–IKK signaling, and IκBα degradation followed by nuclear NF-κB inflammatory-gene transcription. Arrows connecting panels continue the same signaling pathway. -->
 
-*TLR4/MyD88/NF-κB pathway. LBP and CD14 deliver bacterial LPS to TLR4/MD-2, TLR4 dimerization recruits TIRAP and MyD88, IRAK kinases and TRAF6 activate TAK1 and IKK, and IκBα degradation releases NF-κB to induce inflammatory genes.*
+*TLR4/MyD88/NF-κB signaling wrapped into four ordered stages; panel connectors continue the same pathway. LBP and CD14 deliver LPS to TLR4/MD-2, receptor dimerization aligns TIR domains, and TIRAP/MyD88 recruit the IRAK–TRAF6 relay. TAK1 and IKK promote IκBα degradation, releasing NF-κB for nuclear translocation and inflammatory-gene transcription. IL-1β transcription does not by itself imply mature cytokine processing; inflammasome activation is distinguished below.*
 
 #### TLR3/TRIF → IRF3 → IFN-β pathway (antiviral response)
 
@@ -208,9 +201,9 @@ flowchart LR
     IRF --> IFN["Type I interferons<br/>(IFN-α/β):<br/>antiviral state"]
     Inflam --> Damage["Tissue damage,<br/>lytic death"]
 ```
-<!-- alt: Flowchart showing PRR signaling pathways TLRs, NLRs, RLRs, and cGAS converge on transcription factors NF-κB (inflammation), IRF3/7 (interferons), and the inflammasome (IL-1β, pyroptosis). Different pathogen classes preferentially engage different sensors. -->
+<!-- alt: PRR signaling activates the transcription factors NF-κB for inflammatory gene expression and IRF3/7 for interferon expression. A separate NLRP3–ASC–caspase-1 branch represents inflammasome assembly and activation, with IL-1β/IL-18 processing and pyroptosis; the inflammasome is a protein complex, not a transcription factor. Different pathogen classes preferentially engage different sensors. -->
 
-*PRR signaling pathways TLRs, NLRs, RLRs, and cGAS converge on transcription factors NF-κB (inflammation), IRF3/7 (interferons), and the inflammasome (IL-1β, pyroptosis). Different pathogen classes preferentially engage different sensors.*
+*PRR signaling distinguishes transcription-factor activation from inflammasome assembly and activation. NF-κB promotes inflammatory-gene expression, while IRF3/7 promote interferon expression. The separate NLRP3–ASC–caspase-1 inflammasome branch is a protein-complex pathway for IL-1β/IL-18 processing and pyroptosis, not a third transcription factor. Priming and activation requirements are described above; different pathogen classes preferentially engage different sensors.*
 
 ### Complement System Overview
 
@@ -412,7 +405,7 @@ Cytokines are small (~15–25 kDa) signaling proteins that coordinate immune cel
 - **Th1** (driven by IL-12; produces IFN-γ): intracellular pathogens, viruses, autoimmunity (MS, T1DM)
 - **Th2** (driven by IL-4; produces IL-4/5/13): helminths, allergy, asthma
 - **Th17** (driven by IL-6 + TGF-β; produces IL-17): extracellular bacteria, fungi; psoriasis, IBD
-- **Treg** (driven by TGF-β; FoxP3+): peripheral tolerance, suppression
+- **Peripherally induced Treg** (TGF-β/IL-2 induction example; FoxP3+): peripheral tolerance and suppression. Thymic Treg development is a distinct route; induction and later Foxp3 stability are different endpoints \citep{davidson2007treg}.
 - **Tfh** (in germinal centers; produces IL-21): B cell help
 
 ### Immunological Memory — Why Memory Cells Respond Faster

@@ -110,34 +110,44 @@ The **Millennium Ecosystem Assessment** (2005; 1,300 scientists from 95 countrie
 ### Ecological Efficiency Across Trophic Transfers
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 graph TD
-    subgraph "Energy Flow Through Trophic Levels"
-        SUN["Solar energy<br/>illustrative input"] -->|"Photosynthetic capture"| GPP
-        P["Producers<br/>10,000 kJ NPP"] -->|"~10% efficiency<br/>(Lindeman)"| H["Herbivores<br/>1,000 kJ"]
-        H -->|"~10%"| C1["Secondary Consumers<br/>100 kJ"]
-        C1 -->|"~10%"| C2["Tertiary Consumers<br/>10 kJ"]
-        C2 -->|"~10%"| APEX["Apex Predators<br/>1 kJ"]
-
-        P -->|"Unconsumed organic matter"| DET["Organic detritus<br/>including dead tissue and feces"]
-        H --> DET
-        C1 --> DET
-        C2 --> DET
-        APEX --> DET
-        H -->|"Respiration"| HEAT["Dissipated heat<br/>not recycled"]
-        C1 -->|"Respiration"| HEAT
-        C2 -->|"Respiration"| HEAT
-        APEX -->|"Respiration"| HEAT
-        DET --> DEC["Decomposers<br/>bacteria and fungi"]
-        DEC -->|"Respiration"| HEAT
-        DEC -.->|"Matter: mineralization"| NUT["Inorganic nutrients"]
-        NUT -.->|"Matter: nutrient uptake"| P
-        GPP["Producer gross fixation"] -->|"Autotrophic respiration"| HEAT
-        GPP -->|"After producer respiration"| P
+    subgraph Production["A. Producer budget: GPP minus autotrophic respiration = NPP"]
+        direction LR
+        SUN["Solar energy<br/>Illustrative input"] -->|Photosynthesis| GPP["Producer gross fixation<br/>GPP"]
+        GPP -->|"Net of respiration"| P["Producer NPP<br/>10,000 kJ"]
+        GPP -->|"Autotrophic respiration"| PH["Heat<br/>Not recycled"]
     end
+    subgraph Consumers["B. Illustrative production transfer: 10% at each step"]
+        direction LR
+        H["Herbivores<br/>1,000 kJ"] -->|10%| C1["Secondary consumers<br/>100 kJ"]
+        C1 -->|10%| C2["Tertiary consumers<br/>10 kJ"] -->|10%| APEX["Apex predators<br/>1 kJ"]
+    end
+    subgraph Recycling["C. Detrital energy transfer and matter recycling"]
+        direction LR
+        DET["Organic detritus<br/>Dead tissue, feces and<br/>unconsumed organic matter<br/>From every trophic level"] --> DEC["Decomposers<br/>Bacteria and fungi"]
+        DEC -.->|"Matter: mineralization"| NUT["Inorganic nutrients"]
+        NUT -.->|"Matter: uptake"| Return["Producers<br/>Same producer pool as A"]
+    end
+    subgraph Respiration["D. Respiratory energy dissipation, not recycling"]
+        direction LR
+        CR["Every consumer level<br/>and decomposers"] -->|Respiration| HEAT["Dissipated heat<br/>Not recycled"]
+    end
+    Production -->|"Producer NPP to herbivores:<br/>10% in this illustration"| Consumers
+    Consumers ~~~ Recycling ~~~ Respiration
+    classDef readable fill:#eef5fa,stroke:#526777,color:#111111
+    class SUN,GPP,P,PH,H,C1,C2,APEX,DET,DEC,NUT,Return,CR,HEAT readable
+    style Production fill:#fafafa,stroke:#526777,color:#17212b
+    style Consumers fill:#fafafa,stroke:#526777,color:#17212b
+    style Recycling fill:#fafafa,stroke:#526777,color:#17212b
+    style Respiration fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing illustrative trophic production declines tenfold per step; those efficiencies are not universal. Solid arrows trace organic energy transfers or respiratory heat dissipation; dashed arrows show matter recycling by mineralization and uptake. Producer NPP is net of autotrophic respiration, shown separately from the NPP budget. -->
+<!-- alt: Four panels separate producer GPP and autotrophic respiration from the 10,000-kJ NPP budget; trace 10-percent illustrative transfers to consumers at 1,000, 100, 10 and 1 kJ; show detritus from every trophic level entering decomposition and dashed nutrient recycling to the same producers; and show consumer/decomposer respiration dissipating heat. Solid arrows transfer energy; dashed arrows recycle matter, not energy. -->
 
-*Illustrative trophic production declines tenfold per step; those efficiencies are not universal. Solid arrows trace organic energy transfers or respiratory heat dissipation; dashed arrows show matter recycling by mineralization and uptake. Producer NPP is net of autotrophic respiration, shown separately from the NPP budget.*
+*Illustrative energy and matter accounting in four panels. Producer NPP is net of autotrophic respiration; the 10,000 → 1,000 → 100 → 10 → 1 kJ production sequence assumes 10% transfer, not a universal efficiency. Every trophic level supplies detritus, and every consumer level and decomposers respire. Solid arrows trace organic energy transfer or heat dissipation; dashed arrows show mineralization and nutrient uptake, not energy recycling. Repeated producer and heat labels identify the same roles across panels, not additional budgets; unquantified detrital and respiratory flows are not assumed equal.*
 
 The **trophic efficiency** (10% rule, Lindeman 1942, *Ecology*) describes the fraction of energy at trophic level $n$ transferred to level $n+1$:
 
@@ -414,52 +424,49 @@ Nitrogen (N) is often the most limiting macronutrient in terrestrial and freshwa
 | **DNRA** | Various bacteria | NO$_3^-$ → NH$_4^+$ | Low C:N sediments | Anaerobic |
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 flowchart TD
-    subgraph Atmosphere ["Atmosphere (78% N₂)"]
-        N2["N₂\n(triple bond, inert)"]
+    subgraph Inputs["A. Atmospheric nitrogen and industrial input"]
+        direction LR
+        N2["Atmospheric N₂<br/>78%; strong triple bond"] -->|"Haber–Bosch"| HB["Industrial fixation<br/>About 130 Tg N/yr<br/>400–500 °C; 150–300 atm"]
+        HB --> FERT["Fertilizer application<br/>Illustrative 30–50% uptake"]
     end
-
-    subgraph Biological ["Biological N Transformations"]
-        NH3["NH₃/NH₄⁺\n(ammonium)"]
-        NO2["NO₂⁻\n(nitrite)"]
-        NO3["NO₃⁻\n(nitrate)"]
-        ORG["Organic N\n(amino acids, proteins)"]
-        N2O["N₂O\n(nitrous oxide\n~273× CO₂ warming\nGWP100, IPCC AR6)"]
+    subgraph Biological["B. Biological transformations: material flows"]
+        direction LR
+        NH3["NH₃ / NH₄⁺<br/>Ammonia / ammonium"] -->|"Nitrification step 1<br/>Nitrosomonas"| NO2["NO₂⁻<br/>Nitrite"]
+        NO2 -->|"Nitrification step 2<br/>Nitrobacter"| NO3["NO₃⁻<br/>Nitrate"]
+        NH3 -->|"Assimilation<br/>GS/GOGAT"| ORG["Organic N<br/>Amino acids; proteins"]
+        ORG -->|"Ammonification<br/>Decomposers"| NH3
+        NO3 -->|"Plant uptake"| ORG
     end
-
-    subgraph Anthropogenic ["Human Inputs"]
-        HB["Haber-Bosch\n~130 Tg N/yr\n400-500°C, 150-300 atm"]
-        FERT["Fertiliser Application\n(only 30-50% uptake)"]
+    subgraph Returns["C. Denitrification and atmospheric return"]
+        direction LR
+        NR["Nitrate<br/>Same NO₃⁻ pool as B"] -->|"Denitrification<br/>Pseudomonas"| N2O["N₂O<br/>Nitrous oxide<br/>GWP100 about 273<br/>CO₂ = 1; IPCC AR6"]
+        N2O -->|"Further reduction"| N2R["Atmospheric N₂<br/>Same pool as A"]
     end
-
-    subgraph Consequences ["Environmental Consequences"]
-        EUTR["Eutrophication\n→ Algal Blooms\n→ Hypoxic Dead Zones"]
-        OZONE["Stratospheric\nOzone Depletion"]
+    subgraph Effects["D. Excess reactive N: transport versus environmental effects"]
+        direction LR
+        EUTR["Nitrate leaching / runoff<br/>Eutrophication → algal blooms<br/>→ hypoxic dead zones"]
+        OZONE["N₂O → stratospheric NO<br/>Catalytic ozone depletion"]
+        WARM["N₂O radiative forcing<br/>Climate warming"]
+        EUTR ~~~ OZONE ~~~ WARM
     end
-
-    N2 -->|"N₂ fixation\n(nitrogenase)\nRhizobium, Azotobacter"| NH3
-    N2 -->|"Haber-Bosch"| HB
-    HB --> FERT
-    FERT --> NH3
-    NH3 -->|"Assimilation\n(GS/GOGAT)"| ORG
-    ORG -->|"Ammonification\n(decomposers)"| NH3
-    NH3 -->|"Nitrification\n(Nitrosomonas)"| NO2
-    NO2 -->|"Nitrification\n(Nitrobacter)"| NO3
-    NO3 -->|"Plant uptake"| ORG
-    NO3 -->|"Denitrification\n(Pseudomonas)"| N2O
-    N2O --> N2
-    NO3 -->|"Leaching/Runoff"| EUTR
-    N2O -->|"Stratospheric conversion to NO<br/>catalytic ozone loss"| OZONE
-    N2O -->|"Radiative forcing"| WARM["Climate warming"]
-
-    style N2 fill:#4a90d9,color:#fff
-    style HB fill:#d9534f,color:#fff
-    style EUTR fill:#f0ad4e,color:#000
-    style N2O fill:#f0ad4e,color:#000
+    Inputs -->|"N₂ fixation: nitrogenase<br/>Rhizobium, Azotobacter;<br/>fertilizer adds reactive N"| Biological
+    Biological -->|"Nitrate to denitrification"| Returns
+    Returns ~~~ Effects
+    classDef readable fill:#eef5fa,stroke:#526777,color:#111111
+    class N2,HB,FERT,NH3,NO2,NO3,ORG,NR,N2O,N2R,EUTR,OZONE,WARM readable
+    style Inputs fill:#fafafa,stroke:#526777,color:#17212b
+    style Biological fill:#fafafa,stroke:#526777,color:#17212b
+    style Returns fill:#fafafa,stroke:#526777,color:#17212b
+    style Effects fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing nitrogen cycle showing biological transformations (fixation, ammonification, nitrification, denitrification) and anthropogenic disruption via the Haber-Bosch process. Excess reactive nitrogen cascades through ecosystems, causing eutrophication, hypoxia, and N₂O-mediated climate warming and ozone depletion. -->
+<!-- alt: Four nitrogen-cycle panels show atmospheric and Haber–Bosch inputs; ammonium, nitrite, nitrate and organic-N transformations; nitrate denitrification through N₂O to atmospheric N₂; and downstream eutrophication, warming and ozone effects. Repeated nitrate and atmospheric boxes refer to the same pools, not extra nitrogen. Biological fixation and fertilizer inputs are distinct routes. Quantities are teaching approximations; N₂O GWP100 is a dimensionless comparison with CO₂ over 100 years, not a nitrogen flux. -->
 
-*The nitrogen cycle showing biological transformations (fixation, ammonification, nitrification, denitrification) and anthropogenic disruption via the Haber-Bosch process. Excess reactive nitrogen cascades through ecosystems, causing eutrophication, hypoxia, and N₂O-mediated climate warming and ozone depletion.*
+*Nitrogen cycling in labeled panels: biological fixation and Haber–Bosch supply reactive nitrogen; assimilation, ammonification and two nitrification steps redistribute it; denitrification can return it through N$_2$O to N$_2$. Repeated nitrate and atmospheric boxes identify the same pools across panels, not additional stocks. Material flows differ from environmental effects: nitrate leaching/runoff can drive eutrophication and hypoxia, while N$_2$O contributes radiative forcing and stratospheric NO-mediated ozone loss. Process conditions and organisms are detailed in the preceding table. Displayed industrial conditions, annual input and fertilizer uptake are teaching approximations, not a closed global budget; N$_2$O GWP100 is a 100-year CO$_2$-relative metric, not a flux.*
 
 ### Biological Nitrogen Fixation
 

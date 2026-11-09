@@ -292,27 +292,34 @@ A **trophic cascade** occurs when changes at one trophic level ripple through th
 - Nutrient enrichment → phytoplankton → zooplankton → fish
 
 ```mermaid
-sequenceDiagram
-    participant W as Wolves (reintroduced 1995)
-    participant E as Elk
-    participant V as Willows/Cottonwoods
-    participant B as Beavers
-    participant S as Stream Morphology
-    participant Bio as Biodiversity
-
-    Note over W,Bio: Conditional trophic-cascade hypothesis/example<br/>not a universal single-cause chain
-    W->>E: Predation and possible behavioral responses
-    Note over E: Browsing intensity and habitat use<br/>vary among sites and times
-    E->>V: Reduced browsing can favor woody plants
-    Note over V: Recovery also depends on hydrology,<br/>water tables, and site history
-    V->>B: Where suitable, woody growth can<br/>supply beaver food and dam material
-    B->>S: Where beavers establish, dams can<br/>alter pools and channel complexity
-    S->>Bio: Habitat changes can affect taxa differently
-    Note over Bio: Responses vary by species, site, and time<br/>no universal increase in all taxa
+---
+config:
+  layout: dagre
+---
+flowchart TD
+    subgraph Browsing["1. Conditional top-down effects"]
+        direction LR
+        W["Wolves<br/>Reintroduced in 1995"] -->|"Predation; possible<br/>behavioral responses"| E["Elk<br/>Browsing and habitat use<br/>vary by site and time"]
+    end
+    subgraph Vegetation["2. Woody plants and beaver resources"]
+        direction LR
+        V["Willows / cottonwoods<br/>Reduced browsing can help<br/>Hydrology, water tables and<br/>site history also matter"] -->|"Where suitable:<br/>food and dam material"| B["Beavers<br/>Establishment is conditional"]
+    end
+    subgraph Habitat["3. Habitat change and taxon-specific responses"]
+        direction LR
+        S["Stream morphology<br/>Dams can alter pools<br/>and channel complexity"] -->|"Habitat changes"| Bio["Biodiversity responses<br/>Differ among taxa,<br/>sites and times<br/>No universal increase"]
+    end
+    Browsing -->|"Reduced browsing can<br/>favor woody plants"| Vegetation
+    Vegetation -->|"Where beavers establish,<br/>dams can alter streams"| Habitat
+    classDef readable fill:#eef5fa,stroke:#526777,color:#111111
+    class W,E,V,B,S,Bio readable
+    style Browsing fill:#fafafa,stroke:#526777,color:#17212b
+    style Vegetation fill:#fafafa,stroke:#526777,color:#17212b
+    style Habitat fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Sequence diagram showing a conditional Yellowstone trophic-cascade example, not a deterministic chain. A decade-long experiment found that reduced browsing alone did not restore small-stream willow communities; hydrological conditions also constrained recovery. -->
+<!-- alt: Three panels show conditional links from wolves and elk browsing to woody plants and beavers, then stream habitat and taxon-specific responses. Arrows describe possible ecological effects, not material transfers or a universal single-cause chain. Reduced browsing alone did not restore small-stream willows in a decade-long experiment; hydrology also constrained recovery. -->
 
-*A conditional Yellowstone trophic-cascade example, not a deterministic chain. A decade-long experiment found that reduced browsing alone did not restore small-stream willow communities; hydrological conditions also constrained recovery \citep{marshall2013hydrology}.*
+*Conditional Yellowstone trophic-cascade example, wrapped into three linked panels. Arrows describe possible ecological effects, not material transfers or a deterministic recovery sequence. Browsing, hydrology, water tables and site history jointly influence woody recovery; beaver establishment and responses of other taxa vary by site and time. A decade-long experiment found that reduced browsing alone did not restore small-stream willow communities; hydrological conditions also constrained recovery \citep{marshall2013hydrology}.*
 
 **Worked Example — Conditional sea-otter carbon accounting (synthetic teaching assumptions):** An otter consumes 10 kg urchins/day. With assumed mean urchin mass 0.1 kg, this is 100 urchins/day or 36,500/year. If, additionally, each removal protects a distinct 0.1 m² for the whole year, the protected area is 3,650 m². At assumed kelp NPP 300 g C m$^{-2}$ yr$^{-1}$, associated production is 1,095 kg C/year. This is neither measured area nor durable sequestration: repeated grazing, replacement urchins, spatial overlap, respiration, export, and retained storage must be measured. A hypothetical 5% retained storage fraction would give 54.75 kg C/year; without that fraction no stored-carbon answer follows.
 
@@ -397,38 +404,44 @@ Contemporary succession ecology is less deterministic than the classical "march 
 | **Inhibition** | Early colonists resist replacement; succession proceeds primarily when pioneers die | *Cladonia* lichen crusts inhibit vascular plant establishment on sand dunes |
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 flowchart TD
-    A{Disturbance Type?} -->|"Bare substrate\n(no soil)"| B["Primary Succession\n(centuries)"]
-    A -->|"Soil intact\n(seed bank present)"| C["Secondary Succession\n(decades)"]
-
-    B --> D["Pioneer Community\nLichens, cyanobacteria, mosses\nWeathering begins"]
-    C --> E["Pioneer Community\nAnnual weeds, grasses\nSeed bank germinates"]
-
-    D --> F{Mechanism?}
-    E --> F
-
-    F -->|"Facilitation\n(Connell-Slatyer)"| G["Early species improve\nconditions for later species\n(N-fixation, soil building)"]
-    F -->|"Tolerance"| H["Later species establish\nindependently; outcompete\npioneers via shade tolerance"]
-    F -->|"Inhibition"| I["Pioneers resist replacement;\nsuccession only when\npioneers die or are removed"]
-
-    G --> J["Intermediate Community\nShrubs, shade-intolerant trees\nIncreasing soil depth"]
-    H --> J
-    I --> J
-
-    J --> K["Late-Successional Community\nShade-tolerant canopy species\nComplex vertical structure\nHigh biomass, low NPP/biomass"]
-
-    K --> L{Disturbance?}
-    L -->|"Fire, storm,\nhuman clearing"| C
-    L -->|"Stable"| M["Dynamic Equilibrium\n(not a fixed 'climax')"]
-
-    style D fill:#f0ad4e,color:#000
-    style E fill:#f0ad4e,color:#000
-    style K fill:#5cb85c,color:#fff
-    style M fill:#4a90d9,color:#fff
+    subgraph Start["1. Starting conditions and pioneers"]
+        direction LR
+        B["Primary: no soil<br/>Centuries to millennia<br/>Lichens, cyanobacteria, mosses<br/>Weathering and soil building"]
+        C["Secondary: soil intact<br/>Decades to centuries<br/>Annual weeds and grasses<br/>Surviving seed bank may germinate"]
+        B ~~~ C
+    end
+    subgraph Mechanisms["2. Mechanisms can coexist: Connell–Slatyer models"]
+        direction LR
+        G["Facilitation<br/>Early species improve conditions<br/>N fixation; soil building"]
+        H["Tolerance<br/>Later species establish independently<br/>Shade tolerance favors replacement"]
+        I["Inhibition<br/>Pioneers resist replacement<br/>Death/removal permits change"]
+        G ~~~ H ~~~ I
+    end
+    subgraph Communities["3. An illustrative community trajectory"]
+        direction LR
+        J["Intermediate community<br/>Shrubs, shade-intolerant trees<br/>Increasing soil depth"] --> K["Late-successional community<br/>Shade-tolerant canopy<br/>Complex vertical structure<br/>High biomass; low NPP/biomass"]
+    end
+    subgraph Outcomes["4. Disturbance and continued change"]
+        direction LR
+        L{"New disturbance?"} -->|"Fire, storm,<br/>human clearing"| Restart["Return to secondary route<br/>if soil remains intact"]
+        L -->|"Relative stability"| M["Dynamic equilibrium<br/>Not a fixed climax"]
+    end
+    Start --> Mechanisms --> Communities --> Outcomes
+    classDef readable fill:#eef5fa,stroke:#526777,color:#111111
+    class B,C,G,H,I,J,K,L,Restart,M readable
+    style Start fill:#fafafa,stroke:#526777,color:#17212b
+    style Mechanisms fill:#fafafa,stroke:#526777,color:#17212b
+    style Communities fill:#fafafa,stroke:#526777,color:#17212b
+    style Outcomes fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing ecological succession pathways. Primary succession begins on bare substrate and takes centuries; secondary succession begins with intact soil and proceeds in decades. Three mechanisms (facilitation, tolerance, inhibition) operate at transition points. Modern ecology views the endpoint as a dynamic equilibrium rather than a fixed climax state. -->
+<!-- alt: Four panels distinguish soil-free primary succession from soil-retaining secondary succession, list facilitation, tolerance and inhibition, illustrate intermediate and late communities, and branch between renewed disturbance and dynamic equilibrium. A disturbance leaving soil intact returns to the secondary route. Mechanisms can coexist, and the trajectories and time ranges are not universal predictions. -->
 
-*Ecological succession pathways. Primary succession begins on bare substrate and takes centuries; secondary succession begins with intact soil and proceeds in decades. Three mechanisms (facilitation, tolerance, inhibition) operate at transition points. Modern ecology views the endpoint as a dynamic equilibrium rather than a fixed climax state.*
+*Ecological succession in four panels. Primary succession begins without soil; secondary succession retains soil and may retain a seed bank. The time ranges match the comparison table, not a fixed ecological clock. Facilitation, tolerance and inhibition can operate together; the intermediate-to-late sequence is illustrative, not an inevitable endpoint. New disturbance returns to the secondary route when soil remains intact; relative stability permits continued dynamic change rather than a fixed climax.*
 
 In reality, most successional sequences involve the three mechanisms operating simultaneously at different stages and spatial scales.
 

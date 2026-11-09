@@ -45,34 +45,40 @@
 The human nervous system comprises approximately **86 billion neurons** and ~85 billion non-neuronal cells (Azevedo et al., 2009). It is organized hierarchically into two major divisions.
 
 ```mermaid
-graph TD
-    NS[Nervous System] --> CNS[Central Nervous System<br/>Brain + Spinal Cord]
-    NS --> PNS[Peripheral Nervous System<br/>Peripheral nerves and ganglia]
-
-    CNS --> Brain[Brain]
-    CNS --> SC[Spinal Cord]
-
-    Brain --> Cerebrum["Cerebral Cortex<br/>4 lobes: frontal, parietal,<br/>temporal, occipital"]
-    Brain --> BG["Basal Ganglia<br/>Motor control, reward"]
-    Brain --> Thal["Thalamus<br/>Sensory relay"]
-    Brain --> Hypo["Hypothalamus<br/>Homeostatic control"]
-    Brain --> Cereb["Cerebellum<br/>Motor learning, timing"]
-    Brain --> BS["Brainstem<br/>Medulla, pons, midbrain"]
-    Brain --> Limbic["Limbic System<br/>Hippocampus, amygdala"]
-
-    PNS --> Aff["Sensory afferents<br/>Somatic and visceral inputs"]
-    PNS --> Eff["Motor efferents"]
-    Eff --> Somatic["Somatic motor output<br/>Skeletal muscle, including reflexes"]
-    Eff --> Auto["Autonomic motor output<br/>Visceral targets"]
-    Somatic --> NMJ["Direct motor-neuron innervation<br/>ACh at skeletal NMJ"]
-
-    Auto --> Symp["Sympathetic<br/>T1-L2 preganglionic<br/>Fight or flight<br/>NE at target organs"]
-    Auto --> Para["Parasympathetic<br/>CN III,VII,IX,X + S2-S4<br/>Rest and digest<br/>ACh at target organs"]
-    Auto --> Ent["Enteric NS<br/>~500 million neurons<br/>Intrinsic gut regulation"]
+---
+config:
+  layout: dagre
+---
+flowchart TD
+    subgraph Central["A. Nervous system: central division"]
+        direction LR
+        CNS["CNS<br/>Brain and spinal cord"] --> Brain["Brain: selected regions<br/>Cortex: frontal, parietal,<br/>temporal, occipital lobes<br/>Basal ganglia: motor/reward<br/>Thalamus: sensory relay"]
+        CNS --> SC["Spinal cord"]
+        Brain --> Other["Hypothalamus: homeostasis<br/>Cerebellum: learning/timing<br/>Brainstem: midbrain, pons, medulla<br/>Limbic system: hippocampus,<br/>amygdala"]
+    end
+    subgraph Peripheral["B. Nervous system: peripheral division"]
+        direction LR
+        PNS["PNS<br/>Peripheral nerves and ganglia"] --> Aff["Sensory afferents<br/>Somatic and visceral inputs"]
+        PNS --> Eff["Motor efferents<br/>Somatic: skeletal muscle<br/>Autonomic: visceral targets"]
+        Eff --> NMJ["Somatic motor neurons<br/>Direct skeletal-muscle innervation<br/>ACh at neuromuscular junction<br/>Includes reflex output"]
+    end
+    subgraph Autonomic["C. Autonomic detail: selected peripheral circuits"]
+        direction LR
+        Symp["Sympathetic<br/>T1–L2 preganglionic<br/>Fight or flight<br/>Usually NE at targets"]
+        Para["Parasympathetic<br/>CN III, VII, IX, X; S2–S4<br/>Rest and digest<br/>ACh at targets"]
+        Ent["Enteric nervous system<br/>About 500 million neurons<br/>Intrinsic gut regulation<br/>Sensory, interneuron and<br/>motor components"]
+        Symp ~~~ Para ~~~ Ent
+    end
+    Central ~~~ Peripheral ~~~ Autonomic
+    classDef readable fill:#eef5fa,stroke:#526777,color:#111111
+    class CNS,Brain,SC,Other,PNS,Aff,Eff,NMJ,Symp,Para,Ent readable
+    style Central fill:#fafafa,stroke:#526777,color:#17212b
+    style Peripheral fill:#fafafa,stroke:#526777,color:#17212b
+    style Autonomic fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing nervous-system organization distinguishes sensory input from somatic and autonomic motor output. The PNS includes peripheral nerves/ganglia, with cranial-nerve exceptions such as the optic nerve's CNS character; enteric circuits include local sensory and interneuron components as well as motor output. -->
+<!-- alt: Three panels summarize central structures, peripheral sensory and motor divisions, and autonomic/enteric detail. Arrows inside the first two panels denote organizational subdivisions, not signal or material flow. Peripheral classification has exceptions such as the optic nerve's CNS character; enteric circuits also contain local sensory neurons and interneurons. -->
 
-*Nervous-system organization distinguishes sensory input from somatic and autonomic motor output. The PNS includes peripheral nerves/ganglia, with cranial-nerve exceptions such as the optic nerve's CNS character; enteric circuits include local sensory and interneuron components as well as motor output.*
+*Nervous-system organization in three labeled panels: central structures, peripheral sensory and motor divisions, and selected autonomic/enteric detail. Arrows denote organizational subdivisions, not signal or material flow; panel order is not a pathway. The PNS includes peripheral nerves/ganglia, with cranial-nerve exceptions such as the optic nerve's CNS character. Enteric circuits include local sensory and interneuron components as well as motor output; selected brain-region roles are not exclusive localizations.*
 
 - Blood-brain barrier (BBB): Tight junctions between endothelial cells + astrocyte endfeet
 - Three meningeal layers: dura mater (tough outer), arachnoid mater (middle; CSF-filled subarachnoid space), pia mater (thin; adheres to brain surface)
@@ -422,37 +428,50 @@ The [**autonomic nervous system (ANS)**](#gl:autonomic-nervous-system) regulates
 - Uses many neurotransmitters: ACh, NO, serotonin, substance P, VIP
 - Can function autonomously but is modulated by sympathetic (generally inhibitory) and parasympathetic (generally excitatory) input
 
-> **Clinical Connection:** Understanding ANS pharmacology is fundamental to medicine. Beta-blockers ($\beta_1$ antagonists: metoprolol, atenolol) are first-line treatments for hypertension, heart failure, and arrhythmias. Atropine (muscarinic antagonist) treats bradycardia. Prazosin ($\alpha_1$ antagonist) treats hypertension and PTSD nightmares. Pilocarpine (muscarinic agonist) treats glaucoma by promoting aqueous humour drainage.
+> **Pharmacology Connection: Receptor Targets Are Not Prescribing Priorities.** Metoprolol and atenolol illustrate β$_1$ antagonism; atropine and pilocarpine illustrate muscarinic antagonism and agonism, respectively; prazosin illustrates α$_1$ antagonism. Receptor, tissue, dose and drug-specific evidence determine effects. These mechanistic examples do not make every β-blocker interchangeable for heart failure or a universal first-line treatment for uncomplicated hypertension, and they are not a standalone prescribing guide.
 
 ---
 
 ## Brain Anatomy and Function
 
 ```mermaid
-graph LR
-    subgraph Cerebral_Cortex ["Cerebral Cortex (Lobes)"]
-        F["FRONTAL LOBE<br/>Motor cortex (M1)<br/>Premotor & supplementary motor<br/>Prefrontal cortex (planning,<br/>working memory, personality)<br/>Broca's area (speech production)"]
-        P["PARIETAL LOBE<br/>Somatosensory cortex (S1)<br/>Sensory association<br/>Spatial awareness<br/>Number processing"]
-        T["TEMPORAL LOBE<br/>Auditory cortex (A1)<br/>Wernicke's area<br/>(language comprehension)<br/>Memory consolidation"]
-        O["OCCIPITAL LOBE<br/>Primary visual cortex (V1)<br/>Visual association areas<br/>V2, V3, V4, V5/MT"]
+---
+config:
+  layout: dagre
+---
+graph TD
+    subgraph Cortex["1. Cerebral cortex: selected lobar associations"]
+        direction LR
+        F["Frontal lobe<br/>M1; premotor / SMA<br/>Planning; working memory<br/>Broca-associated speech network"]
+        P["Parietal lobe<br/>Somatosensory cortex: S1<br/>Spatial / number association"]
+        T["Temporal lobe<br/>Auditory cortex: A1<br/>Language comprehension<br/>Memory networks"]
+        O["Occipital lobe<br/>Primary visual cortex: V1<br/>Visual association areas<br/>V2 / V3 / V4 / MT"]
+        F ~~~ P ~~~ T ~~~ O
     end
-
-    subgraph Subcortical ["Subcortical Structures"]
-        BG2["BASAL GANGLIA<br/>Direct pathway (Go)<br/>Indirect pathway (NoGo)<br/>Dopamine modulation<br/>Parkinson's: SNc loss"]
-        TH["THALAMUS<br/>Sensory relay<br/>(except olfaction)<br/>LGN → V1 (vision)<br/>MGN → A1 (auditory)<br/>VPL → S1 (somatosensory)"]
-        HT["HYPOTHALAMUS<br/>13+ nuclei<br/>Temperature, hunger, thirst<br/>Circadian (SCN)<br/>Pituitary connection"]
-        HC["HIPPOCAMPAL–ENTORHINAL<br/>NAVIGATION SYSTEM<br/>Hippocampus: place cells,<br/>episodic/spatial memory<br/>Medial entorhinal cortex: grid cells"]
-        AM["AMYGDALA<br/>Fear conditioning<br/>Emotional memory<br/>Threat detection"]
+    subgraph NucleiMemory["2. Action, sensory relay, homeostasis and navigation"]
+        direction LR
+        BG2["Basal ganglia<br/>Direct / indirect pathways<br/>Dopamine modulation<br/>Parkinson disease: SNc loss"]
+        TH["Thalamus<br/>Most primary sensory relays<br/>LGN: vision; MGN: hearing<br/>VPL: somatic sensation"]
+        HT["Hypothalamus<br/>Temperature; hunger; thirst<br/>SCN: circadian timing<br/>Pituitary links"]
+        HC["Hippocampal–entorhinal system<br/>Hippocampus: place cells<br/>Medial entorhinal: grid cells<br/>Episodic / spatial memory"]
+        BG2 ~~~ TH ~~~ HT ~~~ HC
     end
-
-    subgraph Posterior ["Posterior Brain"]
-        CB["CEREBELLUM<br/>Motor coordination<br/>Error correction<br/>Timing, sequence learning<br/>Purkinje cells"]
-        BS2["BRAINSTEM<br/>Respiratory centers<br/>Cardiovascular centers<br/>Cranial nerve nuclei<br/>Reticular activating system"]
+    subgraph PosteriorEmotion["3. Emotion, coordination and vital control"]
+        direction LR
+        AM["Amygdala<br/>Fear conditioning<br/>Emotional memory / threat"]
+        CB["Cerebellum<br/>Coordination; error correction<br/>Timing / sequence learning<br/>Purkinje cells"]
+        BS2["Brainstem<br/>Respiratory / cardiac control<br/>Cranial nerve nuclei<br/>Reticular activating system"]
+        AM ~~~ CB ~~~ BS2
     end
+    Cortex ~~~ NucleiMemory ~~~ PosteriorEmotion
+    classDef default fill:#eef5fa,stroke:#526777,color:#111111
+    style Cortex fill:#fafafa,stroke:#526777,color:#17212b
+    style NucleiMemory fill:#fafafa,stroke:#526777,color:#17212b
+    style PosteriorEmotion fill:#fafafa,stroke:#526777,color:#17212b
 ```
-<!-- alt: Graph showing major brain regions and their functions. The cerebral cortex is divided into four lobes with specialized functions. Subcortical structures handle motor control (basal ganglia), sensory relay (thalamus), homeostasis (hypothalamus), memory (hippocampus), and emotion (amygdala). The cerebellum coordinates movement, and the brainstem controls vital functions. -->
+<!-- alt: Three rows organize selected cortical, action, sensory, homeostatic, navigation, emotional and posterior-brain roles. The organization is functional, not a claim that every box in a row shares an anatomical class or that functions belong to one region alone. Hippocampal place cells and medial-entorhinal grid cells are distinguished. -->
 
-*Major brain regions and their functions. The cerebral cortex is divided into four lobes with specialized functions. Subcortical structures handle motor control (basal ganglia), sensory relay (thalamus), [**homeostasis**](#gl:homeostasis) (hypothalamus), memory (hippocampus), and emotion (amygdala). The cerebellum coordinates movement, and the brainstem controls vital functions.*
+*Selected brain regions and roles, organized into three functional rows rather than a causal pathway or exclusive anatomical classification. Behavior depends on distributed, interacting circuits. M1, S1, A1 and V1 identify primary motor, somatosensory, auditory and visual areas; SMA denotes supplementary motor area. Selected thalamic relays include LGN → V1, MGN → A1 and VPL → S1; primary olfaction does not require the same initial thalamic relay. SNc and SCN denote substantia nigra pars compacta and suprachiasmatic nucleus. Hippocampal place cells and canonical medial-entorhinal grid cells remain distinct \citep{hafting2005grid}. The hypothalamus contributes to [**homeostasis**](#gl:homeostasis).*
 
 ### Cerebral Cortex and Distributed Processing
 

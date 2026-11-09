@@ -289,34 +289,44 @@ Prokaryotes and eukaryotes occupy fundamentally different scales of organization
 Understanding cells requires seeing them. The history of cell biology is inseparable from advances in microscopy.
 
 ```mermaid
-flowchart TD
-    A["Microscopy Techniques"] --> B["Light Microscopy<br/>Resolution ~200 nm"]
-    A --> C["Electron Microscopy<br/>Resolution ~0.1 nm"]
-    A --> D["Super-Resolution<br/>Resolution ~20 nm"]
-
-    B --> B1["Bright-field<br/>Stained specimens"]
-    B --> B2["Phase-contrast<br/>Live cells, unstained"]
-    B --> B3["DIC / Nomarski<br/>3D-like contrast"]
-    B --> B4["Fluorescence<br/>GFP, immunofluorescence"]
-    B --> B5["Confocal<br/>Optical sectioning"]
-    B --> B6["TIRF<br/>Surface events only"]
-
-    C --> C1["TEM<br/>Thin sections, 2D"]
-    C --> C2["SEM<br/>Surface topography, 3D"]
-    C --> C3["Cryo-EM<br/>Near-native state<br/>Nobel Prize 2017"]
-
-    D --> D1["STED<br/>Stimulated emission depletion"]
-    D --> D2["STORM<br/>Stochastic optical<br/>reconstruction"]
-    D --> D3["PALM<br/>Photoactivated<br/>localization"]
-
-    style A fill:#f9f9f9
-    style B fill:#e6f3ff
-    style C fill:#ffe6e6
-    style D fill:#e6ffe6
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph LIGHT1["Light microscopy: contrast methods; typical resolution about 200 nm"]
+        direction LR
+        B1["Bright-field<br/>Stained specimens"] ~~~ B2["Phase-contrast<br/>Live, unstained cells"]
+        B2 ~~~ B3["DIC / Nomarski<br/>3D-like contrast"]
+    end
+    subgraph LIGHT2["Light microscopy: fluorescence methods"]
+        direction LR
+        B4["Fluorescence<br/>GFP, immunofluorescence"] ~~~ B5["Confocal<br/>Optical sectioning"]
+        B5 ~~~ B6["TIRF<br/>Near-surface events"]
+    end
+    subgraph ELECTRON["Electron microscopy: resolution depends on method and specimen"]
+        direction LR
+        C1["TEM<br/>Thin sections, 2D<br/>About 0.1 nm"] ~~~ C2["SEM<br/>Surface topography<br/>About 1–5 nm"]
+        C2 ~~~ C3["Cryo-EM<br/>Near-native state<br/>Nobel Prize 2017"]
+    end
+    subgraph SUPER["Super-resolution: selected methods; about 20 nm under suitable conditions"]
+        direction LR
+        D1["STED<br/>Stimulated emission<br/>depletion"] ~~~ D2["STORM<br/>Stochastic optical<br/>reconstruction"]
+        D2 ~~~ D3["PALM<br/>Photoactivated<br/>localization"]
+    end
+    LIGHT1 ~~~ LIGHT2
+    LIGHT2 ~~~ ELECTRON
+    ELECTRON ~~~ SUPER
+    classDef method fill:#ffffff,stroke:#526777,color:#111111
+    class B1,B2,B3,B4,B5,B6,C1,C2,C3,D1,D2,D3 method
+    style LIGHT1 fill:#eef5fa,stroke:#526777,color:#17212b
+    style LIGHT2 fill:#eef5fa,stroke:#526777,color:#17212b
+    style ELECTRON fill:#fafafa,stroke:#526777,color:#17212b
+    style SUPER fill:#f1f6ef,stroke:#526777,color:#17212b
 ```
-<!-- alt: Flowchart showing microscopy methods grouped by resolving power: light techniques for live and stained cells, electron microscopy for ultrastructure, and super-resolution methods that beat the diffraction limit. -->
+<!-- alt: Four comparison panels group light-microscopy contrast and fluorescence methods, electron microscopy and super-resolution methods. Each technique retains its specimen or imaging role; TEM and SEM have different illustrative resolutions rather than one universal electron-microscopy value. -->
 
-*Microscopy methods grouped by resolving power: light techniques for live and stained cells, electron microscopy for ultrastructure, and super-resolution methods that beat the diffraction limit.*
+*Microscopy methods grouped into compact comparison panels: light techniques provide contrast, labeling and optical sections; electron microscopy reveals ultrastructure; super-resolution methods surpass conventional light-microscopy resolution. Quoted resolutions are illustrative and depend on method, specimen and acquisition conditions, not universal performance guarantees. DIC provides relief-like contrast rather than a direct three-dimensional reconstruction.*
 
 ### Light Microscopy, Contrast, and Resolution
 

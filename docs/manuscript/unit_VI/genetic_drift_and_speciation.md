@@ -396,9 +396,9 @@ For a deleterious recessive allele maintained by recurrent mutation against puri
 \label{eq:genetic_drift_and_speciation_9}
 \end{equation}
 
-where μ is the mutation rate and $s$ is the selection coefficient against the homozygous genotype. This explains why many genetic diseases persist at low frequencies -- new mutations continually reintroduce them even as selection removes them.
+Here μ is the forward mutation rate per modeled allele/class per generation, and $s$ is the fitness reduction of the recessive homozygote. The approximation assumes the stated mutation-selection model and matching life-cycle stage; it illustrates how recurrent mutation can offset removal, not a universal explanation of every disease frequency.
 
-**Example**: Cystic fibrosis (CF) is caused by homozygosity for loss-of-function alleles in the *CFTR* gene. With $\mu \approx 6.7 \times 10^{-7}$ and $s \approx 1$ (CF was historically lethal before modern medicine), mutation-selection balance predicts $\hat{q} \approx \sqrt{6.7 \times 10^{-7}} \approx 0.0008$. However, the actual carrier frequency in European populations is approximately 1 in 25 ($q \approx 0.02$), far exceeding the mutation-selection prediction. This suggests an additional force -- possibly heterozygote advantage against cholera, typhoid fever, or tuberculosis -- maintains the CF allele at elevated frequency, similar to the sickle cell / malaria relationship.
+**Stipulated model example:** For a completely recessive class with forward $\mu=6.7\times10^{-7}$ per modeled allele/class per generation and $s=1$, the approximation gives $\hat q\approx\sqrt{6.7\times10^{-7}}\approx8.19\times10^{-4}$. Under HWE at the modeled stage, $2\hat q(1-\hat q)\approx0.00164$ is the expected heterozygote proportion. These supplied inputs are not measurements of contemporary CFTR rates or European carrier frequencies. Applying the model to real variants requires target-matched rates, genotype fitnesses, demographic evidence and a justified equilibrium assumption; disagreement with a single frequency does not uniquely demonstrate pathogen-mediated heterozygote advantage.
 
 > **Real-World Connection: Mutation Rates and Cancer**
 >

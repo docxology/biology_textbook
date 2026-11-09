@@ -79,7 +79,7 @@ def plot_photosynthesis_rate(
 def plot_water_potential_transpiration(
     output_dir: Path,
 ) -> Path:
-    """Plot plant water potential components and transpiration flux."""
+    """Plot illustrative water-potential and fixed-internal-vapor calculations."""
     from biology.botany import transpiration_flux, water_potential
 
     solutes = np.linspace(0.05, 0.60, 90)
@@ -114,12 +114,12 @@ def plot_water_potential_transpiration(
         ax2.plot(external_vapor, flux, color=color, linestyle=linestyle, linewidth=2.2, label=f"g = {conductance:g}")
     ax2.set_xlabel("External water vapor mole fraction (mol/mol)", fontsize=12)
     ax2.set_ylabel("Transpiration flux (mmol m^-2 s^-1)", fontsize=12)
-    ax2.set_title("Fick-Law Transpiration Gradient", fontsize=13)
-    ax2.legend(title="Conductance", fontsize=9, title_fontsize=9, frameon=False)
+    ax2.set_title("Illustrative Transpiration\nInternal vapor mole fraction = 0.013 mol/mol", fontsize=12)
+    ax2.legend(title="g (mol m$^{-2}$ s$^{-1}$)", fontsize=9, title_fontsize=9, frameon=False)
 
     for ax in (ax1, ax2):
         ax.tick_params(labelsize=10)
-    fig.suptitle("Plant Water Potential and Transpiration", fontsize=15, fontweight="bold")
+    fig.suptitle("Illustrative Plant Water Potential and Transpiration", fontsize=15, fontweight="bold")
     fig.tight_layout()
     return _save_figure(fig, output_dir, "water_potential_transpiration.png")
 

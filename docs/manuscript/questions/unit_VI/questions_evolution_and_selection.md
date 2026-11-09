@@ -37,7 +37,7 @@ SOLUTION -->
 4. What is directional selection? What is stabilizing selection? Give one example of each.
 
 <!-- SOLUTION
-**Answer (Q4, Recall).** Directional selection shifts the mean by favoring one extreme (e.g., larger beaks during drought in Galápagos finches). Stabilizing selection favors the intermediate and removes extremes, reducing variance (e.g., human birth weight, where very small and very large neonates have lower survival). See \cref{sec:unit_VI_evolution_and_selection}.
+**Answer (Q4, Recall).** Directional selection favors one phenotypic extreme and can move the mean toward it (for example, a specified drought cohort in which larger-beaked finches survive better). Stabilizing selection favors phenotypes around an intermediate optimum and can narrow the distribution; the mean need not stay fixed if it began away from that optimum. A birthweight example must define a cohort and survival endpoint in which both extremes fare worse than intermediates. That describes a survival component, not a universal clinical weight target or a complete lifetime-fitness measurement. See \cref{sec:unit_VI_evolution_and_selection}.
 SOLUTION -->
 <!-- assess: LO=LO5; bloom=Understand; difficulty=Recall; format=short-answer; minutes=2 -->
 5. What is the difference between microevolution and macroevolution?

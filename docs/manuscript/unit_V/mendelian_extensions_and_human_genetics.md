@@ -347,8 +347,8 @@ The combination therapy **elexacaftor/tezacaftor/ivacaftor (Trikafta)**, approve
 
 **Marfan syndrome** illustrates how a single connective-tissue gene, *FBN1* (fibrillin-1), produces pleiotropic effects across organ systems. Fibrillin-1 forms microfibrils that scaffold elastic fibers and sequester latent TGF-β. Mutations cause both **structural failure** (loose connective tissue → tall stature, long limbs, lens dislocation, joint hypermobility) and **dysregulated TGF-β signaling** (aortic root dilation → dissection risk). Variable expressivity is dramatic: aortic root sizes among affected family members carrying the same mutation can vary by 2–3-fold, depending on modifier genes and environment. Modern management includes annual echocardiography, β-blockers or losartan to slow aortic dilation, and elective aortic root replacement when diameter exceeds ~5 cm — extending life expectancy from a historical median of ~32 years to nearly normal.
 
-> **Clinical Connection: Why Are Some AR Diseases Common?**
-> Cystic fibrosis carrier frequency of ~1/25 in Northern Europeans far exceeds what mutation-selection balance alone predicts. Hypothesized heterozygote advantage against historical pathogens — possibly **typhoid fever** (CFTR is a receptor for *Salmonella typhi*) or **cholera** (heterozygotes may have reduced fluid secretion in cholera infection) — could explain the elevated frequency. Sickle cell heterozygosity confers strong protection against severe *Plasmodium falciparum* malaria, and Tay-Sachs heterozygotes may have had protection against tuberculosis in pre-industrial European cities. These hypotheses remain debated, but they illustrate how Mendelian disease alleles can be maintained by ancient selective pressures we no longer experience.
+> **Clinical Connection: Allele Frequency Does Not Identify Its Cause**
+> A carrier frequency alone cannot establish mutation-selection equilibrium or a unique maintenance mechanism. The comparison needs a target-matched mutation rate, defined genotype fitnesses, sampling stage and population history. Founder events, drift and hypothesized heterozygote advantages have different predictions and require discriminating evidence; an explanation supported for sickle-cell/malaria cannot automatically be transferred to CFTR or Tay-Sachs. The conditional model and evidence limits are developed in \cref{sec:unit_V_population_genetics}.
 
 ### X-linked disorders: the molecular basis of male susceptibility
 
@@ -674,11 +674,11 @@ flowchart TB
 
 ## Worked Example: Conditional Probability in Pedigrees
 
-A couple seeks genetic counseling. The woman's brother has cystic fibrosis (CF, autosomal recessive, $q = 0.02$ in the general population). The man has no family history.
+Use a stipulated, fully penetrant two-allele autosomal-recessive model motivated by CF, not a patient-specific counseling estimate. An unaffected woman has an affected brother and two independently confirmed heterozygous parents. Her unrelated partner is also unaffected and is sampled from a modeled HWE population with $q=0.02$; no further family-history or genotype-test conditioning is supplied.
 
 (a) What is the probability the woman is a carrier?
 
-Her parents must both be carriers (Cc x Cc). Among unaffected siblings, the probability of being a carrier:
+The woman's parents are known carriers (Cc × Cc). Conditioning their daughter's genotype on her being unaffected gives:
 
 \begin{equation}
 P(\text{Cc} | \text{unaffected}) = \frac{P(\text{Cc})}{P(\text{unaffected})} = \frac{2/4}{3/4} = \frac{2}{3}
@@ -688,12 +688,12 @@ P(\text{Cc} | \text{unaffected}) = \frac{P(\text{Cc})}{P(\text{unaffected})} = \
 
 (b) What is the probability the man is a carrier?
 
-Using Hardy-Weinberg: carrier frequency = $2pq \approx 2(0.98)(0.02) \approx \frac{1}{25}$
+Condition the modeled partner on being unaffected: $P(\text{Cc}\mid\text{unaffected})=2pq/(1-q^2)=0.0392/0.9996=2/51$. The unconditioned carrier frequency is 3.92%; these are different probabilities, even though numerically close.
 
 (c) What is the probability their first child will have CF?
 
 \begin{equation}
-P = P(\text{mom carrier}) \times P(\text{dad carrier}) \times P(\text{child cc} | \text{both carriers}) = \frac{2}{3} \times \frac{1}{25} \times \frac{1}{4} = \frac{2}{300} = \frac{1}{150}
+P(\text{affected child}\mid\text{stated model})=\frac{2}{3}\times\frac{2}{51}\times\frac{1}{4}=\frac{1}{153}\approx0.00654
 \label{eq:unit_V_mendelian_genetics_item_20}
 \end{equation}
 
@@ -781,7 +781,7 @@ A good genetics answer separates the Mendelian transmission model from the evide
 - **Dihybrid F$_2$**: 9:3:3:1 phenotype ratio (product of two independent 3:1 ratios).
 - **Non-Mendelian inheritance**: Incomplete dominance (1:2:1 phenotype), codominance (both alleles expressed), multiple alleles (ABO), pleiotropy (sickle cell), polygenic traits (continuous distribution), epistasis (modified dihybrid ratios — 9:3:4, 12:3:1, 9:7, 15:1, 13:3), genomic imprinting (parent-of-origin expression), maternal effect (mother's genotype determines offspring phenotype).
 - **Penetrance and expressivity**: Reduced penetrance (BRCA1, retinoblastoma) and variable expressivity (NF1, Marfan) explain why identical genotypes produce divergent clinical outcomes.
-- **Human genetic disorders**: Huntington's disease (CAG repeat expansion, autosomal dominant, anticipation); PKU (autosomal recessive, screened almost universally at birth, dietary therapy); CF, sickle cell, Tay-Sachs as paradigm autosomal recessive disorders maintained at elevated frequencies by likely heterozygote advantage.
+- **Human genetic disorders**: Huntington's disease illustrates CAG-repeat expansion and anticipation; PKU, CF, sickle-cell disease and Tay-Sachs illustrate different autosomal-recessive mechanisms. Screening provision varies by program, and allele-maintenance explanations require independent population and fitness evidence rather than an automatic heterozygote-advantage story.
 - **GWAS**: Genome-wide association studies extend Mendel's logic to millions of common variants, revealing that complex traits are highly polygenic, that most causal variants are non-coding, and that polygenic risk scores can predict disease risk at the individual level.
 - **Chi-squared test**: $\chi^2 = \sum \frac{(O-E)^2}{E}$; df = k-1; compare to critical value at $\alpha = 0.05$.
 - **Pedigree analysis** compares inheritance hypotheses rather than diagnosing from a visual pattern. Generation and sex distributions depend on family size, penetrance and de novo events. In the stated XY model, paternal X/Y transmission differs from phenotype; mtDNA transmission is maternal, while nuclear causes of mitochondrial disease can follow other patterns.

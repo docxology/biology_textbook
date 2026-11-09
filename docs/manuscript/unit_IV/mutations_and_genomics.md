@@ -107,7 +107,7 @@ where $\omega < 1$ indicates purifying selection, $\omega = 1$ neutral evolution
 - **Translocations**: A segment moves to a different [**chromosome**](#gl:chromosome). **Reciprocal translocations** exchange segments between two chromosomes. **Robertsonian translocations** fuse the long arms of two acrocentric chromosomes (13, 14, 15, 21, 22).
 
 > **Clinical Connection: The Philadelphia Chromosome**
-> The t(9;22) reciprocal translocation creates the **Philadelphia chromosome** -- a derivative chromosome 22 carrying the **BCR-ABL1** fusion gene. This fusion produces a constitutively active tyrosine kinase that drives chronic myelogenous leukemia (CML). The targeted tyrosine kinase inhibitor **imatinib (Gleevec)** revolutionized CML therapy, converting a fatal disease into a manageable chronic condition (5-year survival increased from ~30% to >90%). This is a paradigm for targeted cancer therapy.
+> The t(9;22) reciprocal translocation creates the **Philadelphia chromosome** — a derivative chromosome 22 carrying the **BCR-ABL1** fusion gene. Its tyrosine-kinase product drives proliferative signaling in CML, and **imatinib** inhibits its ABL kinase domain. This is a molecularly targeted therapy example, not evidence for one population-independent survival percentage. The historical IRIS cohort, separate survival/cytogenetic endpoints and comparison limits are described in \cref{sec:unit_II_cell_signaling} \citep{hochhaus2017iris}.
 
 ### Trinucleotide Repeat Expansion Disorders
 
@@ -367,35 +367,33 @@ In bacteria, CRISPR functions as immunological memory:
 ### Engineered CRISPR-Cas9
 
 ```mermaid
-flowchart TD
-    A["Select target and strategy<br/>design complementary guide"] --> B["Prepare guide and editor<br/>sgRNA or prime-editing pegRNA"]
-    B --> C["Deliver selected Cas9-derived editor<br/>and guide components to cells"]
-    C --> D["Guide-bound editor recognizes<br/>a compatible PAM"]
-    D --> E["Local DNA unwinding<br/>guide-target pairing"]
-    E --> F{Guide-Target Complementarity?}
-    F -->|"No Match"| D
-    F -->|"Target recognized"| Strategy{"Editing strategy?"}
-    Strategy -->|"Nuclease Cas9"| G["RuvC cleaves non-target strand<br/>HNH cleaves target strand"]
-    G --> H["Double-Strand Break 3 bp Upstream of PAM"]
-    H --> I{Repair Pathway?}
-    I -->|"No Donor Template"| J["NHEJ: Error-Prone Repair"]
-    J --> K["Indels at cut site<br/>possible gene disruption"]
-    I -->|"Donor Template Provided (ssODN or Plasmid)"| L["HDR: Homology-Directed Repair"]
-    L --> M["Precise Gene Correction or Insertion"]
-    Strategy -->|"Base editor"| N["Cas9 nickase or dCas9<br/>+ deaminase"]
-    N --> O["C-to-T or A-to-G conversion<br/>without a programmed DSB"]
-    Strategy -->|"Prime editor"| P["Cas9 nickase + reverse transcriptase<br/>+ pegRNA"]
-    P --> Q["Targeted substitutions or small indels<br/>without a programmed DSB"]
-
-    style A fill:#4a90d9,color:#fff
-    style K fill:#f0ad4e,color:#000
-    style M fill:#5cb85c,color:#fff
-    style O fill:#5cb85c,color:#fff
-    style Q fill:#5cb85c,color:#fff
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph SETUP["1. Common setup and compatible duplex recognition"]
+        direction LR
+        A["Choose strategy / target;<br/>prepare editor + guide<br/>sgRNA or pegRNA"] --> B["Deliver components<br/>to the target cells"] --> C["Compatible PAM;<br/>local unwinding and<br/>guide–target pairing"]
+    end
+    subgraph NUCLEASE["2a. Cas9 nuclease: break and repair alternatives"]
+        direction LR
+        G["HNH: target strand<br/>RuvC: non-target strand<br/>break ~3 bp before PAM"] --> H["Double-strand break<br/>cellular repair context"]
+        H --> J["End joining, e.g. NHEJ<br/>indels / disruption<br/>are possible"]
+        H --> L["HDR with matching donor<br/>correction / insertion<br/>if conditions permit"]
+    end
+    subgraph OTHER["2b–c. Alternative editor chemistries: no programmed DSB"]
+        direction LR
+        N["Base editor<br/>nCas9 / dCas9 + deaminase<br/>selected C→T or A→G changes"]
+        P["Prime editor<br/>nCas9 + reverse transcriptase<br/>pegRNA specifies edit<br/>substitutions / small indels"]
+        N ~~~ P
+    end
+    SETUP ~~~ NUCLEASE ~~~ OTHER
+    classDef default fill:#eef5fa,stroke:#526777,color:#111111
 ```
-<!-- alt: Flowchart showing genome-editing strategies branch before cleavage: nuclease Cas9 uses double-strand-break repair, whereas base and prime editors use deamination or nickase–reverse-transcriptase chemistry without a programmed DSB. -->
+<!-- alt: Three comparison rows show common editor/guide preparation and compatible duplex recognition, then alternative nuclease, base and prime chemistries. Nuclease Cas9 makes a double-strand break with context-dependent repair outcomes; base and prime designs do not program that break. The chemistry rows are alternatives, not consecutive steps in one edit. -->
 
-*Genome-editing strategies branch before cleavage: nuclease Cas9 uses double-strand-break repair, whereas base and prime editors use deamination or nickase–reverse-transcriptase chemistry without a programmed DSB \citep{komor2016,anzalone2019}.*
+*Common setup followed by alternative selected editor chemistries, not a sequence in which every editor cuts both strands. The canonical Cas9 nuclease schematic places HNH/RuvC cleavage about 3 bp upstream of a compatible PAM; cellular end joining and donor-dependent HDR are possible outcomes, not choices guaranteed by donor absence/presence alone. Base/prime designs use different chemistries without a programmed DSB; that design statement does not rule out unintended outcomes. Strategy is chosen before preparation, and productive targeting and actual editing depend on sequence, delivery and cellular context \citep{komor2016,anzalone2019}.*
 
 **Key molecular details**:
 - **sgRNA (single guide RNA)**: A conventional SpCas9 guide fuses the crRNA spacer (about 20 nt complementary to the target) with the tracrRNA scaffold that binds Cas9. The roughly 100-nt sgRNA supplies the RNA targeting component; enzyme, compatible target and cellular repair conditions remain separate requirements.
@@ -562,41 +560,44 @@ The **ENCODE** (Encyclopedia of DNA Elements) Project (2003-present) systematica
 ## Next-Generation Sequencing Technologies
 
 ```mermaid
-flowchart LR
-    A[Genomic DNA Extracted] --> B{Sequencing Platform?}
-    B -->|Short-Read| C["Illumina Sequencing-by-Synthesis"]
-    B -->|Long-Read| D["Oxford Nanopore / PacBio"]
-
-    C --> E["Fragment DNA (300-500 bp)"]
-    E --> F["Ligate Adapters; Bridge Amplification on Flow Cell"]
-    F --> G["Sequencing-by-Synthesis: Fluorescent Reversible Terminators"]
-    G --> H["Read Length: 150-300 bp Paired-End"]
-    H --> I["Output: ~600 Gb per Run (NovaSeq)"]
-
-    D --> J["Nanopore: DNA Passes Through Protein Pore"]
-    J --> K["Current Changes Identify Each Base in Real Time"]
-    K --> L["Read Length: >100 kb (Record: >4 Mb)"]
-
-    D --> M["PacBio HiFi: Circular Consensus Sequencing"]
-    M --> N["Polymerase Reads Circular Template Multiple Times"]
-    N --> O["Read Length: 10-25 kb; Accuracy: >99.9%"]
-
-    I --> P{Assembly Strategy?}
-    L --> P
-    O --> P
-    P -->|"Known Species"| Q["Reference-Guided Mapping (BWA, Minimap2)"]
-    P -->|"New Species"| R["De Novo Assembly (hifiasm, Shasta)"]
-    Q --> S["Variant Calling (GATK, DeepVariant)"]
-    R --> T["Contig Assembly --> Scaffolding --> Gap Filling"]
-
-    style A fill:#4a90d9,color:#fff
-    style I fill:#5cb85c,color:#fff
-    style L fill:#5cb85c,color:#fff
-    style O fill:#5cb85c,color:#fff
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    A["Extract genomic DNA;<br/>choose sequencing platform"]
+    subgraph short["Short reads: Illumina sequencing by synthesis"]
+        direction LR
+        C["Fragment DNA<br/>300–500 bp"] --> F["Ligate adapters;<br/>bridge amplification<br/>on flow cell"] --> G["Fluorescent reversible<br/>terminators"] --> H["150–300 bp paired-end;<br/>~600 Gb/run NovaSeq"]
+    end
+    subgraph long["Long reads: distinct measurement principles"]
+        direction TB
+        subgraph nanopore["Oxford Nanopore"]
+            direction LR
+            J["DNA passes through<br/>protein pore"] --> K["Current changes identify<br/>bases in real time"] --> L["Reads >100 kb possible;<br/>reported record >4 Mb"]
+        end
+        subgraph hifi["PacBio HiFi"]
+            direction LR
+            M["Circular consensus<br/>sequencing"] --> N["Polymerase reads circular<br/>template repeatedly"] --> O["10–25 kb reads;<br/>>99.9% consensus accuracy"]
+        end
+        nanopore ~~~ hifi
+    end
+    subgraph analysis["Analysis choice after sequencing"]
+        direction LR
+        P{"Assembly / mapping<br/>strategy?"} -->|known species / reference| Q["Reference-guided mapping:<br/>BWA, Minimap2"] --> S["Variant calling:<br/>GATK, DeepVariant"]
+        P -->|new species / de novo| R["De novo assembly:<br/>hifiasm, Shasta"] --> T["Contigs → scaffolding<br/>→ gap filling"]
+    end
+    A -->|short reads| short
+    A -->|long reads| long
+    short ~~~ long
+    short --> analysis
+    long --> analysis
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class A,C,F,G,H,J,K,L,M,N,O,P,Q,S,R,T ink
 ```
 <!-- alt: Flowchart showing genomic sequencing approaches. Short-read (Illumina) provides high throughput and accuracy for variant calling; long-read (Nanopore, PacBio HiFi) resolves structural variants, repeats, and enables de novo assembly. -->
 
-*Genomic sequencing approaches. Short-read (Illumina) provides high throughput and accuracy for variant calling; long-read (Nanopore, PacBio HiFi) resolves structural variants, repeats, and enables de novo assembly.*
+*Genomic sequencing approaches are compared in separate short- and long-read panels, followed by mapping or assembly choices. Illumina uses fluorescent reversible terminators, Nanopore measures pore-current changes, and PacBio HiFi combines repeated circular-template reads. The listed lengths, accuracy and throughput describe selected platform examples, not guarantees for every instrument, sample or run. Long reads help resolve structural variants and repeats; reference-guided variant calling and de novo assembly remain distinct analysis strategies.*
 
 ### Pangenome Graph Reasoning
 

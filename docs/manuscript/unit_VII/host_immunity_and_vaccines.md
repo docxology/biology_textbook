@@ -83,30 +83,39 @@ This framework has been essential for identifying virulence factors through targ
 ### The Infection Continuum
 
 ```mermaid
-flowchart LR
-    A["Pathogen\nExposure"] --> B{"Barrier\nIntact?"}
-    B -->|"Yes"| C["No infection\n(most encounters)"]
-    B -->|"No"| D["Colonization\n(adherence to\nhost surface)"]
-    D --> E{"Immune\nResponse\nEffective?"}
-    E -->|"Yes"| F["Clearance\n(no disease)"]
-    E -->|"Partial"| G["Latent Infection\n(M. tuberculosis,\nHSV, VZV)"]
-    E -->|"No"| H["Active Infection\n(tissue invasion,\nmultiplication)"]
-    H --> I{"Virulence\nFactors +\nHost Status?"}
-    I -->|"Mild"| J["Localized Disease\n(wound infection,\npharyngitis)"]
-    I -->|"Severe"| K["Systemic Disease\n(sepsis, meningitis,\ndissemination)"]
-    G -->|"Reactivation\n(immunosuppression)"| H
-    J --> L["Resolution\n(immune clearance\n+ memory)"]
-    K --> M["Recovery\nor Death"]
-
-    style C fill:#90EE90
-    style F fill:#90EE90
-    style L fill:#90EE90
-    style K fill:#FFB6C1
-    style M fill:#FFB6C1
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph ENTRY["1. Exposure and establishment"]
+        direction LR
+        A["Pathogen exposure"] --> B{"Barrier prevents<br/>establishment?"}
+        B -->|prevented| C["No established infection"]
+        B -->|breached or bypassed| D["Colonization / establishment<br/>depends on route and species"]
+    end
+    subgraph CONTROL["2. Selected outcomes after establishment"]
+        direction LR
+        E["Host–pathogen interaction<br/>organism, inoculum, site,<br/>host state and immune response"]
+        E --> F["Clearance<br/>adaptive memory may follow"]
+        E --> G["Persistence / latency<br/>M. tuberculosis; HSV; VZV<br/>are selected examples"]
+        E --> H["Active infection<br/>multiplication / tissue injury"]
+        G -->|reactivation possible| H
+    end
+    subgraph OUTCOME["3. Active infection: distribution and severity are separate"]
+        direction LR
+        H2["Active infection<br/>same state as panel 2"]
+        H2 --> J["Local / site-specific disease<br/>wound infection; pharyngitis<br/>meningitis is CNS-site disease"]
+        H2 --> K["Spread / systemic involvement<br/>not synonymous with sepsis"]
+        H2 -->|dysregulated host response| S["Sepsis:<br/>life-threatening organ dysfunction"]
+        J ~~~ K ~~~ S
+    end
+    ENTRY ~~~ CONTROL ~~~ OUTCOME
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: Flowchart showing decision-tree of pathogen exposure outcomes from initial encounter through clearance, latency, or systemic disease. -->
+<!-- alt: Three panels distinguish exposure/establishment, selected clearance/persistence/active-infection outcomes, and disease distribution versus severity. Latency can reactivate. Repeated active-infection boxes refer to the same state; panel order is organizational rather than a universal disease timeline. Sepsis is organ dysfunction from a dysregulated host response, not a synonym for dissemination or meningitis. -->
 
-*Decision-tree of pathogen exposure outcomes from initial encounter through clearance, latency, or systemic disease.*
+*Selected pathogen-exposure outcomes, not a diagnostic decision rule or universal chronological sequence. Establishment, persistence and disease depend on route, organism, inoculum and host context; not every branch proceeds to later panels. Repeated active-infection boxes mark continuation of the same state. Localized disease can be severe, meningitis identifies an infection site, and sepsis is life-threatening organ dysfunction caused by a dysregulated host response to infection rather than a requirement for bloodstream dissemination. Recovery, persistent injury or death depend on the specific course; clearance does not guarantee adaptive memory \citep{rudd2020sepsis}.*
 
 Not every exposure leads to colonization, not every colonization leads to infection, and not every infection leads to disease. The outcome depends on pathogen virulence, inoculum size, route of entry, and host immune status.
 
@@ -213,20 +222,23 @@ flowchart TB
     C3conv1 --> C3split["C3 → C3a + C3b"]
     C3conv2 --> C3split
 
-    C3split --> C3a["C3a\n(anaphylatoxin)\nrecruits neutrophils"]
+    C3split --> C3a["C3a: anaphylatoxin<br/>C3aR inflammatory signaling<br/>Cell- and context-dependent"]
     C3split --> C3b["C3b\n(opsonin)\nphagocyte CR1"]
 
     C3b -->|"+ existing C3 convertase"| C5conv["C5 convertase\n(C4b2a3b or C3bBb3b)"]
     C5conv --> C5["C5 → C5a + C5b"]
-    C5 --> C5a["C5a\n(anaphylatoxin,\nchemoattractant)"]
+    C5 --> C5a["C5a: anaphylatoxin<br/>C5aR1 signaling<br/>Potent neutrophil chemoattractant"]
     C5 --> MAC["C5b + C6 + C7 + C8 + C9_n\n→ MEMBRANE ATTACK COMPLEX\nmembrane pore → target injury"]
 ```
-<!-- alt: Flowchart showing three pathways of complement activation (classical, lectin, alternative) converge at the C3 convertase, producing C3b (opsonin) and C3a (anaphylatoxin); a second cleavage at C5 generates C5a and the C5b–C9 membrane-attack complex. -->
+<!-- alt: Classical, lectin and alternative complement pathways converge on C3 cleavage. C3a supports cell- and context-dependent inflammatory signaling through C3aR; C3b supports opsonization. C5 cleavage produces the potent neutrophil chemoattractant C5a and C5b, which initiates C5b–C9 membrane-attack-complex assembly. C3a is not assigned unconditional neutrophil recruitment. -->
 
-*Three pathways of complement activation (classical, lectin, alternative) converge at the C3 convertase, producing C3b (opsonin) and C3a (anaphylatoxin); a second cleavage at C5 generates C5a and the C5b–C9 membrane-attack complex.*
+*Three complement pathways converge on C3 cleavage, generating C3b for opsonization and C3a for cell- and context-dependent inflammatory signaling. C5 cleavage generates the potent neutrophil chemoattractant C5a and C5b for membrane-attack-complex assembly. Isolated-human-neutrophil studies distinguish C5a chemotaxis from C3a responses under their tested conditions; this does not exclude indirect or other context-dependent effects of C3a on recruitment \citep{ehrengruber1994c3ac5a,muldur2021neutrophils}.*
 
 - **C3a** — an anaphylatoxin that signals through C3aR and contributes to inflammatory responses; effects depend on the responding cell and context.
 - **C3b** — an opsonin that covalently binds suitable surfaces and is recognized by complement receptors such as CR1 (CD35), promoting phagocytic clearance.
+
+In isolated-human-neutrophil assays, C5a induced chemotaxis whereas C3a did not in the tested preparations \citep{ehrengruber1994c3ac5a}. In microfluidic gradients, responses to 0.1–10 µM C3a in the source chambers were not significantly different from medium controls, whereas C5a induced chemotaxis \citep{muldur2021neutrophils}. These results qualify the cell type, assay and concentration range; they do not show that C3a can never affect recruitment indirectly or in other tissues.
+
 
 A second cleavage step generates:
 
@@ -367,61 +379,41 @@ HLA loci carry many [**allele**](#gl:allele)s whose peptide-binding differences 
 ### T Cell Activation and Differentiation
 
 ```mermaid
-sequenceDiagram
-    participant DC as Dendritic Cell (APC)
-    participant Th as Naive CD4+ T Cell
-    participant Tc as Naive CD8+ T Cell
-    participant B as B Cell
-
-    Note over DC: Captures pathogen at infection site
-    Note over DC: Migrates to draining lymph node
-    Note over DC: Processes antigen onto MHC-II and MHC-I
-
-    DC->>Th: Signal 1: TCR binds peptide:MHC-II
-    DC->>Th: Signal 2: B7 (CD80/86) binds CD28
-    DC->>Th: Signal 3: Cytokine context
-    Note over Th: Without Signal 2 → ANERGY
-
-    alt IL-12 environment
-        Th->>Th: Th1 differentiation (T-bet)
-        Note over Th: IFN-γ, TNF-α
-        Note over Th: Macrophage activation
-    else IL-4 environment
-        Th->>Th: Th2 differentiation (GATA3)
-        Note over Th: IL-4, IL-5, IL-13
-        Note over Th: IgE class switch, eosinophils
-    else IL-6 + TGF-β environment
-        Th->>Th: Th17 differentiation (RORγt)
-        Note over Th: IL-17, IL-22
-        Note over Th: Neutrophil recruitment
-    else TGF-β alone
-        Th->>Th: Treg differentiation (Foxp3)
-        Note over Th: IL-10, TGF-β
-        Note over Th: Immune suppression
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph PRIME["1. Dendritic-cell priming: antigen, co-stimulation and context"]
+        direction LR
+        DC["Capture / migrate<br/>Process antigen<br/>Display peptide:MHC"] --> CD4["Naive CD4+ recognition<br/>TCR–peptide:MHC-II<br/>B7 CD80/86–CD28; cytokines<br/>No co-stimulation: anergy possible"]
     end
-
-    DC->>Tc: Signal 1: TCR binds peptide:MHC-I
-    DC->>Tc: Signal 2: Co-stimulation
-    Th->>Tc: IL-2 (T cell growth factor)
-    Note over Tc: CTL activation
-    Note over Tc: Perforin + Granzyme B
-    Note over Tc: Kill virus-infected cells
-
-    Th->>B: CD40L binds CD40
-    Th->>B: IL-21 (Tfh cells)
-    Note over B: Germinal center reaction
-    Note over B: Somatic hypermutation
-    Note over B: Affinity maturation
-    Note over B: Class switch recombination
-    B->>B: Plasma cells + Memory B cells
+    subgraph HELP["2. Selected alternative CD4+ fates, not a sequence"]
+        direction LR
+        H1["Th1: IL-12 → T-bet<br/>IFN-γ / TNF-α<br/>Macrophage activation"]
+        H2["Th2: IL-4 → GATA3<br/>IL-4 / IL-5 / IL-13<br/>IgE switching; eosinophils"]
+        H17["Th17: IL-6 + TGF-β context<br/>RORγt; IL-17 / IL-22<br/>Neutrophil / mucosal responses"]
+        HR["Induced Treg example<br/>TGF-β + IL-2 → Foxp3<br/>IL-10 / TGF-β; suppression"]
+        H1 ~~~ H2 ~~~ H17 ~~~ HR
+    end
+    subgraph EFFECT["3. Selected CD8 and Tfh–B-cell responses"]
+        direction LR
+        CTL["CD8+: peptide:MHC-I<br/>co-stimulation; cytokines<br/>IL-2: autocrine / paracrine<br/>CD4 help: context-dependent"] --> KILL["CTL effectors<br/>Perforin + granzyme B<br/>Infected / tumor-cell killing"]
+        TFW["Tfh CD4+ help to B cells<br/>CD40L–CD40; IL-21"] --> BC["Germinal-center response<br/>Somatic hypermutation<br/>Affinity maturation; switching<br/>Plasma + memory B cells"]
+        KILL ~~~ TFW
+    end
+    PRIME ~~~ HELP ~~~ EFFECT
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: Sequence diagram showing three-signal T cell activation by dendritic cells, with cytokine-context-driven differentiation into Th1/Th2/Th17/Treg/Tfh subsets and downstream activation of cytotoxic CD8^+ T cells and antibody-producing B cells. -->
+<!-- alt: Three broad rows distinguish dendritic priming, four alternative CD4 differentiation examples, and CD8 versus Tfh–B-cell outputs. Antigen recognition, co-stimulation, cytokine context and possible anergy remain distinct. IL-2 sources/CD4-help dependence and induced-Treg scope are explicit; invisible row ordering does not assert that every helper fate precedes every effector response. -->
 
-*Three-signal T cell activation by dendritic cells, with cytokine-context-driven differentiation into Th1/Th2/Th17/Treg/Tfh subsets and downstream activation of cytotoxic CD8$^+$ T cells and antibody-producing B cells.*
+*T-cell activation and selected effector outcomes in compact panels. Dendritic cells provide antigen, co-stimulation and cytokine context; the four CD4$^+$ differentiation cards are alternatives, not successive stages. The CD8$^+$ card distinguishes recognition/co-stimulation from context-dependent cytokine support: IL-2 can have autocrine or paracrine sources, and CD4-help requirements differ across priming and inflammatory settings. The Treg card illustrates peripheral induction, not every thymic or peripheral developmental route. Tfh help supplies CD40L and IL-21 for B-cell germinal-center responses. Panel order is instructional, not a claim that all four helper subsets precede every cytotoxic or antibody response \citep{toumi2022il2,davidson2007treg}.*
 
 - **Signal 1**: TCR recognition of peptide:MHC complex (specificity signal)
-- **Signal 2**: Co-stimulatory signal -- CD28 on T cell binds B7 molecules (CD80/CD86) on APC. Without this signal, the T cell becomes **anergic** (functionally unresponsive) -- a mechanism of peripheral tolerance
-- **Signal 3**: Cytokine environment determines effector subset differentiation
+- **Signal 2**: A named co-stimulatory route is CD28 on the T cell binding APC B7 molecules (CD80/CD86). Antigen recognition without appropriate co-stimulation can produce anergy or other nonproductive/tolerance outcomes, depending on the cell and context; it is not a universal deterministic fate rule.
+- **Signal 3**: The cytokine environment helps shape effector-subset differentiation alongside antigen-receptor and other cellular inputs.
+
+The source and timing of IL-2 matter: in the studied inflammatory infection models, antigen-specific CD8$^+$ cells produced IL-2 largely independently of CD4 licensing of dendritic cells; primary expansion and later memory-recall potential were distinct endpoints \citep{toumi2022il2}. In the studied CD4$^+$Foxp3$^-$ induction setting, IL-2 had a nonredundant role in TGF-β-induced Foxp3 expression. That induction result is not the same as a requirement for continued Foxp3 expression after induction, and it does not replace thymic Treg development with one cytokine recipe \citep{davidson2007treg}.
 
 **T helper cell subsets**:
 
@@ -431,7 +423,7 @@ sequenceDiagram
 | Th1 | IL-12, IFN-γ | T-bet | IFN-γ, TNF-α | Macrophage activation; intracellular pathogens |
 | Th2 | IL-4 | GATA3 | IL-4, IL-5, IL-13 | B cell IgE switching; eosinophils; helminths; allergy |
 | Th17 | IL-6 + TGF-β + IL-23 | RORγt | IL-17, IL-22 | Neutrophil recruitment; mucosal defense; fungi |
-| Treg | TGF-β | Foxp3 | IL-10, TGF-β | Suppress excessive inflammation; maintain tolerance |
+| Induced Treg (example) | TGF-β + IL-2 | Foxp3 | IL-10, TGF-β | Suppress excessive inflammation; maintain tolerance |
 | Tfh | IL-6, IL-21 | Bcl6 | IL-21, CXCL13 | B cell help in germinal centers |
 
 **Cytotoxic T lymphocytes (CTLs, CD8$^+$)** recognize viral or tumor antigens on MHC-I and kill target cells through:
@@ -505,38 +497,38 @@ An antibody molecule consists of two identical heavy (H) chains and two identica
 Vaccines induce protective memory through several antigen-delivery strategies. The eight broad platform families below overlap (for example, VLPs are recombinant subunits); viral vectors are subdivided by replication competence rather than assumed to share one mechanism or precaution profile. Historical exemplars illustrate mechanisms, not current availability in every jurisdiction.
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 flowchart TB
-    subgraph "Vaccine Types and Immune Mechanisms"
-        A["Live Attenuated\n(MMR, varicella,\nyellow fever, OPV)"] --> M1["Replicates in host\n→ prolonged antigen\npresentation"]
-        M1 --> R1["Strong T + B cell\nmemory; dose schedule\nis product-specific"]
-
-        B["Inactivated/Killed\n(IPV, influenza IIV,\nhepatitis A)"] --> M2["No replication;\nwhole killed pathogen;\nadjuvant product-specific"]
-        M2 --> R2["Often multiple doses;\nimmune response varies\nwith host status"]
-
-        C["Subunit/Recombinant\n(HBsAg, HPV VLP,\nacellular pertussis)"] --> M3["Purified antigen\nor VLP; may\ninclude adjuvant"]
-        M3 --> R3["Antigen-specific\nresponse; formulation\nand schedule vary"]
-
-        V["Virus-like particles\n(HPV)"] --> MV["Genome-free capsids\npresent antigen"]
-        MV --> RV["Particulate antigen;\nno viral replication"]
-
-        D["Toxoid\n(tetanus, diphtheria)"] --> M4["Chemically inactivated\ntoxin (formalin)"]
-        M4 --> R4["Anti-toxin antibodies;\nneutralizes toxin,\nnot the bacterium"]
-
-        E["Conjugate\n(Hib, PCV13, PCV20,\nmeningococcal)"] --> M5["Polysaccharide\ncovalently linked\nto protein carrier"]
-        M5 --> R5["Converts T-independent\n→ T-dependent response;\nenables infant vaccination"]
-
-        F["mRNA\n(BNT162b2, mRNA-1273)"] --> M6["LNP-encapsulated\nmRNA → host cell\ntranslates antigen"]
-        M6 --> R6["Ab + T cell response;\nno integration;\nrapid sequence design"]
-
-        G["Adenoviral vector\n(ChAdOx1)"] --> M7["Replication-deficient\nvector expresses antigen"]
-        M7 --> R7["Vector immunity and\nproduct-specific risks"]
-        H["rVSV vector\n(ERVEBO)"] --> M8["Live attenuated VSV;\nreplication-competent"]
-        M8 --> R8["Ebola antigen only;\ncannot cause Ebola"]
+    subgraph ROW1["Whole organisms and purified antigen"]
+        direction LR
+        A["Live attenuated<br/>Replicates → prolonged antigen<br/>Strong T + B memory<br/>Schedule product-specific"]
+        B["Inactivated / killed<br/>No replication; whole pathogen<br/>Adjuvant product-specific<br/>Doses / response vary with host"]
+        C["Subunit / recombinant<br/>Purified antigen or VLP<br/>May include adjuvant<br/>Response / schedule vary"]
+        A ~~~ B ~~~ C
     end
+    subgraph ROW2["Antigen structure and linked help"]
+        direction LR
+        V["Virus-like particles<br/>Genome-free capsids<br/>Particulate antigen<br/>No viral replication"]
+        D["Toxoid<br/>Formalin-inactivated toxin<br/>Antibodies neutralize toxin,<br/>not the bacterium"]
+        E["Conjugate<br/>Polysaccharide + protein carrier<br/>T-independent → T-dependent<br/>Enables infant vaccination"]
+        V ~~~ D ~~~ E
+    end
+    subgraph ROW3["Genetic delivery: distinct replication properties"]
+        direction LR
+        F["mRNA<br/>LNP → host translates antigen<br/>Antibody + T-cell responses<br/>No integration; rapid design"]
+        G["Adenoviral vector<br/>ChAdOx1: replication-deficient<br/>Vector expresses antigen<br/>Vector immunity; specific risks"]
+        H["rVSV vector<br/>ERVEBO: replication-competent<br/>Live attenuated VSV<br/>Ebola antigen, not Ebola disease"]
+        F ~~~ G ~~~ H
+    end
+    ROW1 ~~~ ROW2 ~~~ ROW3
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: Flowchart showing eight broad vaccine platform families; the viral-vector family is split by replication competence. Mechanism does not by itself determine product-specific precautions. -->
+<!-- alt: Nine cards in three rows compare eight broad vaccine platform families with viral vectors split into replication-deficient adenoviral and replication-competent rVSV examples. Each card combines antigen delivery with selected immune consequences. Rows are comparison groups, not a pathway; product examples and precautions are detailed in the adjacent table. -->
 
-*Eight broad vaccine platform families; the viral-vector family is split by replication competence. Mechanism does not by itself determine product-specific precautions.*
+*Eight broad vaccine platform families in three comparison rows; the vector family is split by replication competence. Cards combine delivery mechanism and selected consequences, not a sequence or efficacy ranking. Historical examples in the adjacent table include MMR/varicella/yellow fever/OPV (live), IPV/IIV/hepatitis A (inactivated), HBsAg/HPV/acellular pertussis (subunit or VLP), tetanus/diphtheria toxoids, Hib/PCV/meningococcal conjugates and BNT162b2/mRNA-1273. ChAdOx1 and ERVEBO retain their distinct vector properties. Mechanism alone does not determine product-specific precautions.*
 
 : Vaccine Platforms: Eight Strategies for Inducing Memory: Platform and Examples. {#tbl:unit_VII_host_immunity_and_vaccines_vaccine_platforms_eight_strategies_for_inducing_memory}
 | Platform | Examples | Antigen form | Strengths | Limitations |

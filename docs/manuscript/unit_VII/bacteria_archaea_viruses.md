@@ -97,25 +97,33 @@ The presence of **D-amino acids** (D-glutamate, D-alanine) is unusual in biology
 Peptidoglycan biosynthesis proceeds in three spatial compartments — cytoplasm, inner-membrane interface, and periplasm — and nearly every step has a clinically deployed antibiotic that targets it. Understanding the pathway is therefore equivalent to understanding the chemotherapy of bacterial infection. The pathway begins with the housekeeping sugar **UDP-N-acetylglucosamine (UDP-GlcNAc)** and ends with a covalently cross-linked sacculus surrounding the entire cell.
 
 ```mermaid
+---
+config:
+  layout: dagre
+---
 flowchart TB
-    subgraph "Cytoplasmic stage"
-        S1["UDP-GlcNAc"] -->|"MurA: enolpyruvate transfer\n(target of FOSFOMYCIN)"| S2["UDP-GlcNAc-EP"]
-        S2 -->|"MurB: NADPH-dependent reduction"| S3["UDP-MurNAc"]
-        S3 -->|"MurC/D/E/F: ATP-dependent\nL-Ala / D-Glu / meso-DAP / D-Ala-D-Ala\nligases"| S4["UDP-MurNAc-pentapeptide\n(Park nucleotide)"]
+    subgraph CYT["1. Cytoplasm: sugar and peptide precursors"]
+        direction LR
+        S1["UDP-GlcNAc"] -->|MurA| S2["UDP-GlcNAc-EP<br/>Fosfomycin inhibits MurA"]
+        S2 -->|MurB; NADPH| S3["UDP-MurNAc"]
+        S3 --> S4["MurC–F: ATP-dependent ligation<br/>L-Ala, D-Glu, meso-DAP<br/>and D-Ala–D-Ala<br/>→ UDP-MurNAc-pentapeptide"]
+        DA["L-Ala → D-Ala → D-Ala–D-Ala<br/>Alr then Ddl<br/>D-cycloserine inhibits both"] -->|precursor supply| S4
     end
-    subgraph "Membrane stage (lipid carriers)"
-        S4 -->|"MraY: links pentapeptide\nto undecaprenyl-P (C55)"| S5["Lipid I"]
-        S5 -->|"MurG: adds GlcNAc"| S6["Lipid II\n(transported by MurJ)"]
-        S6 -->|"BACITRACIN blocks\nC55-PP recycling"| S6
+    subgraph MEM["2. Inner membrane: lipid carriers"]
+        direction LR
+        S5["MraY: pentapeptide + C55-P<br/>→ Lipid I"] --> S6["MurG adds GlcNAc<br/>→ Lipid II"]
+        S6 --> S6b["MurJ flips Lipid II<br/>Carrier recycled as C55-P<br/>Bacitracin blocks C55-PP recycling"]
     end
-    subgraph "Periplasmic stage"
-        S6 -->|"VANCOMYCIN binds\nD-Ala-D-Ala terminus,\nblocking transglycosylation\n+ transpeptidation"| S7["Glycan strand polymer"]
-        S7 -->|"Transpeptidation by PBPs:\ncross-links D-Ala–meso-DAP\n(target of BETA-LACTAMS)"| S8["Mature peptidoglycan"]
+    subgraph PER["3. Periplasm: polymer and cross-links"]
+        direction LR
+        S7["Lipid II → glycan polymer<br/>Vancomycin binds D-Ala–D-Ala<br/>Blocks polymerization / cross-linking"] --> S8["PBP transpeptidation<br/>D-Ala–meso-DAP cross-links<br/>β-lactams inhibit PBPs<br/>→ mature peptidoglycan"]
     end
+    CYT --> MEM --> PER
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: Flowchart showing cytoplasm-to-periplasm peptidoglycan biosynthesis with five major antibiotic targets — fosfomycin (MurA), D-cycloserine (D-Ala–D-Ala ligase / Alr), bacitracin (C55 carrier recycling), vancomycin (D-Ala–D-Ala terminus of Lipid II), and β-lactams (PBP transpeptidation). -->
+<!-- alt: Three staged panels trace peptidoglycan synthesis from UDP-GlcNAc to mature wall. The Alr and Ddl branch supplies D-Ala–D-Ala to MurC–F precursor assembly and is inhibited by D-cycloserine, not assigned to MurC–F. Four other callouts locate fosfomycin at MurA, bacitracin at C55-PP recycling, vancomycin at D-Ala–D-Ala, and beta-lactams at PBPs. Panel arrows continue the pathway. -->
 
-*Cytoplasm-to-periplasm peptidoglycan biosynthesis with five major antibiotic targets — fosfomycin (MurA), D-cycloserine (D-Ala–D-Ala ligase / Alr), bacitracin (C55 carrier recycling), vancomycin (D-Ala–D-Ala terminus of Lipid II), and β-lactams (PBP transpeptidation).*
+*Peptidoglycan synthesis in three spatial stages, with five antibiotic targets. Alr and Ddl supply D-Ala–D-Ala for precursor assembly; D-cycloserine inhibits this branch, not MurC–F. Fosfomycin inhibits MurA, bacitracin blocks C55 carrier recycling, vancomycin binds the D-Ala–D-Ala terminus, and β-lactams inhibit PBP transpeptidation. Panel arrows continue the cytoplasm-to-periplasm pathway; the adjacent table supplies step-specific detail.*
 
 : Peptidoglycan Biosynthesis: A Step-by-Step Antibiotic Atlas: Step and Enzyme / process. {#tbl:unit_VII_bacteria_archaea_viruses_peptidoglycan_biosynthesis_a_step_by_step_antibiotic_atlas}
 | Step | Enzyme / process | Drug | Mechanism of inhibition | Spectrum |
@@ -142,23 +150,28 @@ flowchart TB
 The [**Gram stain**](#gl:gram-stain), developed by Hans Christian Gram in 1884, remains the single most important initial test in clinical microbiology. The procedure exploits differences in cell wall architecture:
 
 ```mermaid
-flowchart TD
-    A["Heat-fixed bacterial smear"] --> B["Step 1: Crystal violet\n(primary stain, 1 min)"]
-    B --> C["Step 2: Iodine mordant\n(CV-I complex forms, 1 min)"]
-    C --> D["Step 3: Acetone-alcohol\ndecolorizer (10-30 sec)"]
-    D --> E{"Cell wall\narchitecture?"}
-    E -->|"Thick peptidoglycan\n(20-80 nm)"| F["CV-I complex\nTRAPPED in wall"]
-    E -->|"Thin peptidoglycan\n(2-7 nm) +\nouter membrane"| G["CV-I complex\nWASHED OUT\n(lipid dissolved)"]
-    F --> H["Step 4: Safranin\ncounterstain"]
-    G --> H
-    H --> I["GRAM-POSITIVE\nPurple/Violet"]
-    H --> J["GRAM-NEGATIVE\nPink/Red"]
-    I --> K["Thick PG wall\nTeichoic acids\nLipoteichoic acids\nNo outer membrane"]
-    J --> L["Thin PG wall\nOuter membrane with LPS\nPeriplasmic space\nPorins"]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph STAIN["1–3. Stain and decolorize a heat-fixed smear"]
+        direction LR
+        A["1. Crystal violet<br/>Primary stain: 1 min"] --> B["2. Iodine mordant<br/>CV–I complex: 1 min"]
+        B --> C["3. Acetone–alcohol<br/>Decolorize: 10–30 s"]
+    end
+    subgraph RESULT["4. Safranin counterstain: architecture determines the result"]
+        direction LR
+        POS["Gram-positive<br/>Thick PG: 20–80 nm<br/>CV–I retained → purple/violet<br/>Teichoic / lipoteichoic acids<br/>No outer membrane"]
+        NEG["Gram-negative<br/>Thin PG: 2–7 nm<br/>Lipid dissolved; CV–I washed out<br/>Safranin → pink/red<br/>LPS outer membrane; porins<br/>Periplasmic space"]
+        POS ~~~ NEG
+    end
+    STAIN --> RESULT
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: Flowchart showing gram-stain decision tree producing purple (Gram-positive) versus pink (Gram-negative) results from differences in peptidoglycan thickness and outer-membrane architecture. -->
+<!-- alt: A staining panel shows crystal violet for one minute, iodine for one minute and acetone-alcohol decolorization for 10–30 seconds. A second panel compares outcomes after safranin: thick-walled Gram-positive bacteria retain the CV–I complex and remain purple; thin-walled Gram-negative bacteria lose the complex during decolorization and become pink. Architecture and colors are explicitly labeled. -->
 
-*Gram-stain decision tree producing purple (Gram-positive) versus pink (Gram-negative) results from differences in peptidoglycan thickness and outer-membrane architecture.*
+*Gram staining in two panels: the ordered primary-stain, mordant and decolorization steps lead to a comparison of wall-dependent outcomes after safranin. Thick peptidoglycan retains the crystal violet–iodine complex in Gram-positive cells; Gram-negative cells lose it during decolorization and take the pink/red counterstain. The two result cards are alternatives, not successive steps.*
 
 - **Lipid A**: The toxic moiety; embedded in the outer membrane; activates TLR4 on innate immune cells
 - **Core oligosaccharide**: Short sugar chain linking Lipid A to the O-antigen
@@ -388,17 +401,30 @@ Key features that make TCSs central to bacterial biology: they are **modular** (
 **Biofilms** are surface-associated, matrix-encased microbial communities. The diagram illustrates attachment, growth and dispersal, not an obligatory cycle for every bacterium. **Quorum sensing (QS)** responds to autoinducer concentrations shaped by production, transport and degradation as well as population density; additional environmental and regulatory inputs affect biofilm and virulence phenotypes.
 
 ```mermaid
-flowchart LR
-    P["Planktonic cell\n(swimming, low c-di-GMP)"] -->|"reversible attachment"| A["Surface contact"]
-    A -->|"high c-di-GMP\nadhesin expression"| I["Irreversible attachment"]
-    I -->|"division + EPS"| MC["Microcolony"]
-    MC -->|"AHL/AIP/AI-2 above\nquorum threshold"| MAT["Mature biofilm:\nEPS matrix, water channels,\npersisters, gradients"]
-    MAT -->|"c-di-GMP drop,\nEPS-degrading enzymes,\nmotility ON"| D["Dispersal"]
-    D --> P
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph ATT["1. Attachment"]
+        direction LR
+        P["Planktonic cell<br/>Swimming; low c-di-GMP"] -->|reversible attachment| A["Surface contact"]
+        A -->|high c-di-GMP; adhesins| I["Irreversible attachment"]
+    end
+    subgraph MAT["2. Growth and maturation"]
+        direction LR
+        MC["Microcolony<br/>Division + EPS"] -->|AHL / AIP / AI-2 threshold| M["Mature biofilm<br/>EPS; water channels<br/>Persisters; gradients"]
+    end
+    subgraph DISP["3. Dispersal"]
+        D["c-di-GMP falls; EPS-degrading enzymes<br/>Motility on → dispersal"]
+    end
+    ATT --> MAT --> DISP
+    DISP -->|return to planktonic state| ATT
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: Flowchart showing biofilm life cycle from planktonic cell through reversible/irreversible attachment, microcolony, mature biofilm, and quorum-triggered dispersal — coordinated by intracellular c-di-GMP and intercellular autoinducers. -->
+<!-- alt: Three panels show attachment, division and EPS-mediated growth into a mature biofilm, then dispersal returning cells to a planktonic state. Labels retain c-di-GMP, adhesins, autoinducer thresholds, matrix gradients, persisters, EPS degradation and motility. This is an illustrative pathway, not an obligatory cycle or a universal quorum-triggered dispersal rule. -->
 
-*Biofilm life cycle from planktonic cell through reversible/irreversible attachment, microcolony, mature biofilm, and quorum-triggered dispersal — coordinated by intracellular c-di-GMP and intercellular autoinducers.*
+*Illustrative biofilm progression wraps through attachment, growth and maturation, and dispersal panels. Intracellular c-di-GMP, adhesins and EPS influence attachment and matrix development; AHL/AIP/AI-2 signaling is shown at maturation, while falling c-di-GMP, EPS degradation and motility accompany dispersal. The return arrow denotes a planktonic state, not an obligatory cycle for all bacteria; quorum sensing is one of several regulatory inputs.*
 
 - **Exopolysaccharides** (PIA in *S. aureus*; alginate, Pel, Psl in *P. aeruginosa*; cellulose and PNAG in enterics) — provide structural cohesion and protection.
 - **Extracellular DNA (eDNA)** — released by autolysis; a major load-bearing component and a substrate for horizontal gene transfer at frequencies up to 1000× higher than in planktonic cells.
@@ -714,48 +740,37 @@ The pragmatic clinical role emerging by 2026 is **adjunctive phage therapy** —
 Antibiotics exploit the structural and biochemical differences between prokaryotic and eukaryotic cells. Each class targets a specific essential process:
 
 ```mermaid
-flowchart LR
-    subgraph "Cell Wall Synthesis Inhibitors"
-        direction TB
-        A1["Beta-lactams\n(penicillins, cephalosporins,\ncarbapenems)"] --> T1["Bind PBPs\n(transpeptidases)\nInhibit cross-linking"]
-        A2["Vancomycin"] --> T2["Binds D-Ala-D-Ala\nterminus of\npeptidoglycan precursor"]
-        A3["Fosfomycin"] --> T3["Inhibits MurA\n(first step in PG\nsynthesis)"]
-        A4["Bacitracin"] --> T4["Blocks bactoprenol\n(C55) recycling"]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph ROW1["Antibiotic targets: envelope"]
+        direction LR
+        WALL["Cell-wall synthesis<br/>β-lactams → PBPs: cross-linking<br/>Vancomycin → D-Ala–D-Ala<br/>Fosfomycin → MurA<br/>Bacitracin → C55 recycling"]
+        MEM["Membrane disruption<br/>Polymyxins / colistin<br/>LPS binding disrupts<br/>the outer membrane"]
+        WALL ~~~ MEM
     end
-
-    subgraph "Protein Synthesis Inhibitors"
-        direction TB
-        B1["Aminoglycosides\n(gentamicin)"] --> T5["30S subunit:\nmRNA misreading"]
-        B2["Tetracyclines"] --> T6["30S subunit:\nblock A-site\ntRNA binding"]
-        B3["Macrolides\n(erythromycin)"] --> T7["50S subunit:\nblock translocation"]
-        B4["Chloramphenicol"] --> T8["50S subunit:\ninhibit peptidyl\ntransferase"]
-        B5["Linezolid\n(oxazolidinone)"] --> T9["50S subunit:\nblock initiation\ncomplex formation"]
+    subgraph ROW2["Antibiotic targets: gene expression"]
+        direction LR
+        R30["30S ribosome<br/>Aminoglycosides / gentamicin:<br/>mRNA misreading<br/>Tetracyclines:<br/>block A-site tRNA binding"]
+        R50["50S ribosome<br/>Macrolides / erythromycin:<br/>block translocation<br/>Chloramphenicol: peptidyl transferase<br/>Linezolid: initiation complex"]
+        NA["DNA / RNA synthesis<br/>Fluoroquinolones / ciprofloxacin:<br/>gyrase / Topo IV; DNA breaks<br/>Rifampin: RNA Pol β subunit;<br/>blocks transcription"]
+        R30 ~~~ R50 ~~~ NA
     end
-
-    subgraph "DNA/RNA Inhibitors"
-        direction TB
-        C1["Fluoroquinolones\n(ciprofloxacin)"] --> T10["Inhibit DNA gyrase\nand Topo IV\ninduce DSBs"]
-        C2["Rifampin"] --> T11["Binds RNA Pol\nbeta subunit\nblocks transcription"]
+    subgraph ROW3["Resistance mechanisms: distinct alternatives"]
+        direction LR
+        R1["Drug destruction / modification<br/>β-lactamases; ESBLs<br/>Carbapenemases: KPC, NDM<br/>Aminoglycoside acetyl-, phospho-,<br/>nucleotidyltransferases"]
+        R2["Target changes<br/>PBP2a: mecA in MRSA<br/>erm ribosomal methylation:<br/>MLSB resistance"]
+        R3["Reduced drug access<br/>Efflux: AcrAB-TolC,<br/>MexAB-OprM<br/>Porin mutation / loss"]
+        R1 ~~~ R2 ~~~ R3
     end
-
-    subgraph "Membrane Disruptors"
-        direction TB
-        D1["Polymyxins\n(colistin)"] --> T12["Disrupt outer\nmembrane via\nLPS binding"]
-    end
-
-    subgraph "Resistance Mechanisms"
-        direction TB
-        R1["Enzymatic destruction:\nbeta-lactamase, ESBL,\ncarbapenemase (KPC, NDM)"]
-        R2["Target modification:\nPBP2a (MRSA, mecA gene)"]
-        R3["Efflux pumps:\nAcrAB-TolC, MexAB-OprM"]
-        R4["Reduced permeability:\nporin mutations/loss"]
-        R5["Ribosomal methylation:\nerm genes (MLSB resistance)"]
-        R6["Enzymatic modification:\naminoglycoside acetyl-,\nphospho-, nucleotidyl-\ntransferases"]
-    end
+    ROW1 ~~~ ROW2 ~~~ ROW3
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: Flowchart showing antibiotic targets organized by cellular process (cell-wall synthesis, protein synthesis, nucleic-acid synthesis, membrane disruption) alongside the principal resistance mechanisms. -->
+<!-- alt: Three compact rows compare envelope targets, ribosomal and nucleic-acid targets, and resistance mechanisms. Each drug class is paired with its target in a labeled card. Resistance cards distinguish drug destruction or modification, target changes and reduced access; the rows are not a causal sequence or a one-to-one drug-resistance map. -->
 
-*Antibiotic targets organized by cellular process (cell-wall synthesis, protein synthesis, nucleic-acid synthesis, membrane disruption) alongside the principal resistance mechanisms.*
+*Antibiotic-target atlas arranged as envelope, gene-expression and resistance panels, not a sequential pathway. Labels pair each selected class with its target; β-lactams include penicillins, cephalosporins and carbapenems, and linezolid is an oxazolidinone. Resistance alternatives include drug destruction or modification, target changes, efflux and reduced permeability; their placement does not assign each mechanism to every drug shown.*
 
 ### Selective Toxicity and Therapeutic Index
 
@@ -829,21 +844,28 @@ The WHO 2024 Bacterial Priority Pathogens List keeps AMR triage grounded in publ
 The diagram illustrates representative **DNA-targeting Type I/II pathways**, not every CRISPR-Cas system. Type III systems use RNA-triggered activities and signaling; do not extend the diagram's PAM-scanning route to them.
 
 ```mermaid
-flowchart LR
-    subgraph "1. ADAPTATION (memory)"
-        A1["Phage / plasmid invasion"] --> A2["Cas1-Cas2 captures\nprotospacer + PAM"]
-        A2 --> A3["Integration at leader end\nof CRISPR array\n(new spacer added)"]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph ADAPT["1. Adaptation: sequence memory"]
+        direction LR
+        A1["Phage / plasmid invasion"] --> A2["Cas1–Cas2 pathway<br/>Select invader DNA<br/>with compatible PAM"]
+        A2 --> A3["New spacer integrated<br/>at CRISPR leader end<br/>PAM itself not integrated"]
     end
-    subgraph "2. EXPRESSION (surveillance)"
-        E1["CRISPR array transcribed\n(pre-crRNA)"] --> E2["Cas6 / RNase III + tracrRNA\nprocess into mature crRNA"]
-        E2 --> E3["Guide loaded onto effector\n(Cascade / dual-RNA Cas9)"]
+    subgraph EXPR["2. Expression: guide biogenesis"]
+        direction LR
+        E1["CRISPR array → pre-crRNA"] --> E2["System-dependent processing<br/>Cas6 or RNase III + tracrRNA"]
+        E2 --> E3["Guide loaded onto effector<br/>Cascade or dual-RNA Cas9"]
     end
-    subgraph "3. INTERFERENCE (cleavage)"
-        I1["Effector scans DNA\nfor PAM"] --> I2["crRNA-target base pairing"]
-        I2 --> I3["dsDNA cleavage\n(Cas3 / Cas9 nuclease)"]
+    subgraph INTERF["3. Interference: DNA cleavage"]
+        direction LR
+        I1["Effector scans for PAM"] --> I2["crRNA–target base pairing"]
+        I2 --> I3["dsDNA cleavage<br/>Cas3 or Cas9"]
     end
-    A3 --> E1
-    E3 --> I1
+    ADAPT --> EXPR --> INTERF
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
 <!-- alt: Flowchart showing representative DNA-targeting Type I/II CRISPR-Cas workflow: spacer acquisition, natural guide maturation and loading, then PAM-dependent DNA recognition and cleavage. Type III RNA-triggered signaling is outside this diagram. -->
 

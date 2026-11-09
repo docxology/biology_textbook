@@ -419,57 +419,36 @@ Butyrate has been called a "molecular bridge" between microbiome and host becaus
 The gut microbiome functions as a metabolic organ, performing biochemical transformations that human cells cannot:
 
 ```mermaid
-graph LR
-    subgraph "Metabolic Functions"
-        A["Dietary fiber\n(resistant starch,\ninulin, pectin)"] --> B["Bacterial\nfermentation"]
-        B --> C["Butyrate\n(C4)"]
-        B --> D["Propionate\n(C3)"]
-        B --> E["Acetate\n(C2)"]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph SCFA["1. Dietary fiber → bacterial fermentation → short-chain fatty acids"]
+        direction LR
+        BUT["Butyrate C4<br/>Colonocyte fuel: ~70% energy<br/>HDAC inhibition; anti-inflammatory<br/>Tight junctions; Treg induction"]
+        PROP["Propionate C3<br/>Liver gluconeogenesis regulation<br/>Enteroendocrine GPR41 / GPR43<br/>→ GLP-1 and PYY; satiety"]
+        ACE["Acetate C2<br/>Peripheral fuel: muscle, brain<br/>Adipocyte GPR43<br/>→ lipolysis inhibition"]
+        BUT ~~~ PROP ~~~ ACE
     end
-
-    subgraph "Butyrate Effects"
-        C --> F["Primary fuel for\ncolonocytes (70% energy)"]
-        C --> G["HDAC inhibitor\n(epigenetic\nanti-inflammatory)"]
-        C --> H["Strengthens tight\njunctions (barrier)"]
-        C --> I["Induces Treg\ndifferentiation"]
+    subgraph IMMUNE["2. Immune and neuroactive functions"]
+        direction LR
+        IMM["Microbial colonization<br/>→ Peyer's patch development<br/>→ secretory IgA; Th17/Treg balance<br/>Clostridium IV / XIVa<br/>→ colonic Treg induction"]
+        NEURO["Separate tryptophan routes:<br/>Tryptophan → enterochromaffin serotonin<br/>Tryptophan → kynurenine / immune effects<br/>Bacteroides / Lactobacillus → GABA<br/>SCFAs cross BBB → microglial maturation"]
+        IMM ~~~ NEURO
     end
-
-    subgraph "Propionate Effects"
-        D --> J["Liver gluconeogenesis\nregulation"]
-        D --> K["GPR41/GPR43 on\nenteroendocrine cells"]
-        K --> L["GLP-1 and PYY\nsecretion (satiety)"]
+    subgraph OTHER["3. Other metabolic functions"]
+        direction LR
+        BILE["Liver primary bile acids<br/>Bacterial deconjugation<br/>and 7α-dehydroxylation<br/>→ secondary bile acids: DCA, LCA"] --> REC["TGR5 → GLP-1 release<br/>FXR → lipid metabolism"]
+        VIT["Vitamin synthesis<br/>B12; K2; folate<br/>Biotin; riboflavin"]
+        REC ~~~ VIT
     end
-
-    subgraph "Acetate Effects"
-        E --> M["Peripheral tissue\nfuel (muscle, brain)"]
-        E --> N["GPR43 on adipocytes\n(lipolysis inhibition)"]
-    end
-
-    subgraph "Immune Functions"
-        O["Microbial colonization"] --> P["Peyer's patch\ndevelopment"]
-        O --> Q["IgA production\n(SIgA)"]
-        O --> R["Th17/Treg balance"]
-        S["Clostridium clusters\nIV and XIVa"] --> T["Colonic Treg\ninduction"]
-    end
-
-    subgraph "Neuroactive Functions"
-        U["Tryptophan\nmetabolism"] --> V["Serotonin pathway\n(enterochromaffin cells)"]
-        U --> W["Kynurenine pathway\n(immune modulation)"]
-        X["Gut bacteria"] --> Y["GABA production\n(Bacteroides, Lactobacillus)"]
-        Z["SCFAs cross BBB"] --> AA["Microglial\nmaturation"]
-    end
-
-    subgraph "Other Metabolic"
-        BB["Primary bile acids\n(liver)"] --> CC["Bacterial\ndeconjugation\nand 7-alpha-\ndehydroxylation"]
-        CC --> DD["Secondary bile acids\n(DCA, LCA)"]
-        DD --> EE["TGR5 receptor\n(GLP-1 release)"]
-        DD --> FF["FXR receptor\n(lipid metabolism)"]
-        GG["Vitamin synthesis"] --> HH["B12, K2, folate,\nbiotin, riboflavin"]
-    end
+    SCFA ~~~ IMMUNE ~~~ OTHER
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: Graph showing microbiome metabolic functions: fermentation of fiber to short-chain fatty acids (butyrate, propionate, acetate) with their specific receptor targets and immune outputs; bile-acid deconjugation; vitamin synthesis; and neuroactive metabolite production. -->
+<!-- alt: Three panels summarize microbial functions without a single long tree: fermentation of dietary fiber produces butyrate, propionate and acetate with distinct host effects; immune and neuroactive cards show colonization, Treg, tryptophan, GABA and microglial links; bile-acid transformation and vitamin synthesis form the final panel. Panel order is organizational, not a causal sequence across all functions. -->
 
-*Microbiome metabolic functions: fermentation of fiber to short-chain fatty acids (butyrate, propionate, acetate) with their specific receptor targets and immune outputs; bile-acid deconjugation; vitamin synthesis; and neuroactive metabolite production.*
+*Microbiome functions arranged in three compact panels. Dietary fiber, including resistant starch, inulin and pectin, is fermented to SCFAs with distinct fuel, receptor and immune effects. Separate cards retain colonization-associated immune development and selected neuroactive pathways; bile-acid transformations and vitamin synthesis occupy the final panel. Arrows within cards denote the selected biological links; panel order is not a universal causal chain. The nearby receptor table and SCFA descriptions provide additional mechanistic context.*
 
 - **Butyrate** (about 20% of SCFA): Produced primarily by *Faecalibacterium prausnitzii*, *Roseburia intestinalis*, and *Eubacterium rectale*. Serves as the primary energy source for colonocytes (providing ~70% of their energy needs). Acts as a [**histone**](#gl:histone) deacetylase (HDAC) inhibitor, promoting anti-inflammatory gene expression. Strengthens intestinal barrier function by upregulating tight junction proteins (claudins, occludin). Induces colonic regulatory T cell (Treg) differentiation via GPR109A, promoting immune tolerance.
 

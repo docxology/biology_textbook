@@ -237,22 +237,28 @@ See \cref{eq:unit_VIII_floral_quartet} for the combinatorial logic; the empirica
 The mature pollen grain is the most reduced male gametophyte known — three cells encased in a desiccation-resistant wall. Its development is a textbook case of asymmetric cell division.
 
 ```mermaid
-flowchart LR
-    subgraph PollenWall ["Pollen Wall (outside in)"]
-        Tryph[Tryphine and pollenkitt: lipid coat]
-        Exine[Exine: sporopollenin]
-        Intine[Intine: cellulose + pectin]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph PollenWall["Pollen wall: outside → inside, not a developmental pathway"]
+        direction LR
+        Tryph["1. Outer pollen coat<br/>Tryphine / pollenkitt; lipids"] --- Exine["2. Exine<br/>Sporopollenin"]
+        Exine --- Intine["3. Inner intine<br/>Cellulose + pectin"]
     end
-    subgraph PollenContents ["Pollen Cell Architecture"]
-        TC[Tube cell - large, cytoplasm-rich, single nucleus]
-        GC[Generative cell - inside tube cell]
-        GC --> Sp1[Sperm cell 1]
-        GC --> Sp2[Sperm cell 2]
+    subgraph PollenContents["Cell architecture and generative-cell division"]
+        direction LR
+        TC["Tube cell<br/>Large; cytoplasm-rich<br/>Single nucleus"] ---|encloses| GC["Generative cell"]
+        GC -->|division| Sp1["Sperm cell 1"]
+        GC -->|division| Sp2["Sperm cell 2"]
     end
+    PollenWall ~~~ PollenContents
+    classDef default fill:#f4f5f6,stroke:#59636e,color:#17212b
 ```
-<!-- alt: Flowchart showing architecture of an angiosperm pollen grain at maturity The tube cell envelops the generative cell, which divides to yield two sperm cells either before pollen release (tricellular pollen) or during tube growth (bicellular pollen at release). -->
+<!-- alt: Two panels distinguish pollen-wall position from cell development. The connected, numbered wall sequence explicitly reads outside to inside: lipid pollen coat (tryphine/pollenkitt), sporopollenin exine, cellulose-and-pectin intine. A separate cell panel shows the tube cell enclosing the generative cell, which divides into two sperm cells before pollen release in tricellular pollen or during tube growth in bicellular pollen. -->
 
-*Architecture of an angiosperm pollen grain at maturity The tube cell envelops the generative cell, which divides to yield two sperm cells either before pollen release (tricellular pollen) or during tube growth (bicellular pollen at release).*
+*Pollen architecture in separate positional and developmental panels. The wall's numbered, arrowless sequence fixes the outside-to-inside order: pollen coat (tryphine/pollenkitt) → exine → intine; it does not depict wall synthesis. The tube cell encloses the generative cell, whose division yields two sperm cells before pollen release in tricellular pollen or during tube growth in pollen released at the bicellular stage.*
 
 **Pollen wall layers:**
 
@@ -605,7 +611,7 @@ The SAM maintains a pool of pluripotent stem cells throughout the plant's life:
 3. **Negative feedback:** WUS activates CLV3; CLV3 represses WUS. This maintains a constant stem cell pool size.
 
 **SAM auxin-driven phyllotaxis:**
-- Each leaf primordium is initiated where PIN1 (auxin efflux carrier) creates a local auxin maximum
+- PIN1 is an auxin-efflux carrier rather than a biosynthetic enzyme. Polarized transport helps shape local auxin maxima in the shoot-apical-meristem model \citep{petrasek2006auxinefflux}.
 - The established primordium depletes local auxin from surrounding cells
 - The next primordium arises at the position of the next auxin maximum
 - Mathematical result: primordia arise at **137.5 degrees divergence angle** (the "golden angle" = 360 degrees $/\varphi^2$ where $\varphi$ = golden ratio 1.618)
@@ -657,12 +663,12 @@ RAM structure mirrors SAM with distinct anatomy:
 
 ### Fruit Development: Hormonal Regulation, Parthenocarpy, and Climacteric Ripening
 
-Fruit development is initiated by fertilization and proceeds through cell division, expansion, and ripening — each phase under distinct hormonal control.
+Fruit development often follows fertilization, but parthenocarpy can initiate ovary development without it. Cell division, expansion and ripening have hormonal controls whose contributions depend on species and developmental context.
 
 **Phase 1: Fruit set (post-fertilization initiation):** Auxin from developing seeds and gibberellins from the maternal pericarp suppress the abscission program that would otherwise drop unfertilised flowers. Without seeds, **parthenocarpy** can be induced — fruit development without fertilization:
 - Natural parthenocarpy: cultivated banana (triploid, sterile), pineapple, navel orange, some *Citrus* and *Vitis* cultivars
 - Induced parthenocarpy: exogenous auxin (NAA, 2,4-D) or GA (GA$_3$) sprayed at anthesis. Used commercially in seedless grapes, watermelons, and tomatoes
-- Genetic parthenocarpy: *pin* mutants (pinoid; auxin-overproducing) or *fwf* mutants (FRUIT WITHOUT FERTILIZATION; tomato) develop fruit without seeds
+- Engineered parthenocarpy can alter hormone biosynthesis or signaling. In the studied UC82 tomato background, the *DefH9-RI-iaaM* construct supported fruit development from emasculated, unpollinated flowers; some self-pollinated transformants also produced seeds. This is a biosynthesis-pathway intervention, not PIN1-mediated transport or a seed-dormancy measurement \citep{pandolfini2002parthenocarpy}.
 
 **Phase 2: Cell division and expansion:** Cytokinins drive early cell division in the pericarp; auxin and GA drive subsequent cell expansion. Cucumbers and watermelons reach mature size by predominantly cell expansion (each cell can balloon 30-fold).
 
@@ -808,7 +814,7 @@ Plant pangenomes extend this toolkit beyond single-reference breeding. Crop and 
 
 **Concept Check 8:** Argue for or against this proposition: "Apomixis is evolutionarily dead-end because it eliminates genetic recombination. Hence apomictic species should be short-lived geologically." Cite specific apomictic lineages in your answer (e.g., dandelions are apomictic and remain abundant on multiple continents).
 
-**Concept Check 9:** A tomato cultivar bred for parthenocarpy carries a constitutively active PIN1 transgene driving auxin overproduction in the ovary. Predict fruit set in the absence of pollination, and predict the dormancy and germination behavior of any seeds that do form (assuming some pollination occurs by accident).
+**Concept Check 9:** In a hypothetical tomato line, ovary-localized auxin biosynthesis is stipulated to be sufficient to initiate fruit development without fertilization. PIN1 retains its normal auxin-efflux function. (a) Predict fruit and sexual-seed formation in unpollinated flowers; apomixis is not stipulated. (b) Explain why increasing PIN1 activity is not equivalent to increasing auxin biosynthesis. (c) If matched pollinated flowers produce viable seeds, can their dormancy or germination timing be inferred from fruit set alone? Identify an endpoint and matched comparison needed to test this.
 
 ---
 

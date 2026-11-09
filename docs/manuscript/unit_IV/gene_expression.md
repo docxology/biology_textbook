@@ -115,28 +115,31 @@ The RNA Pol II **core promoter** can contain several elements (not most are pres
 ### The Pre-Initiation Complex (PIC) Assembly
 
 ```mermaid
-sequenceDiagram
-    participant DNA as Promoter DNA
-    participant TFIID as TFIID (TBP + TAFs)
-    participant TFIIA as TFIIA
-    participant TFIIB as TFIIB
-    participant PolII as RNA Pol II + TFIIF
-    participant TFIIE as TFIIE
-    participant TFIIH as TFIIH
-    participant Med as Mediator Complex
-
-    DNA->>TFIID: TBP binds TATA box (saddle-shaped, bends DNA ~80 degrees)
-    TFIID->>TFIIA: TFIIA stabilizes TBP-DNA complex
-    TFIID->>TFIIB: TFIIB bridges TBP and Pol II; determines TSS
-    TFIIB->>PolII: Pol II recruited with TFIIF (prevents nonspecific DNA binding)
-    PolII->>TFIIE: TFIIE recruited; stimulates TFIIH kinase/helicase
-    TFIIE->>TFIIH: TFIIH XPB helicase melts ~11 bp at TSS (open complex)
-    TFIIH->>TFIIH: TFIIH CDK7 kinase phosphorylates Pol II CTD at Ser5
-    Note over PolII: CTD phosphorylation triggers promoter escape
-    Med->>PolII: Mediator bridges enhancer-bound activators to PIC
-    Note over Med: Mediator complex: ~30 subunits, 1.4 MDa
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph recognition["1. Canonical TATA-promoter recognition"]
+        direction LR
+        A["TFIID: TBP + TAFs<br/>TBP binds TATA;<br/>bends DNA ~80°"] --> B["TFIIA stabilizes<br/>TBP–DNA"]
+        B --> C["TFIIB bridges TBP / Pol II;<br/>helps determine TSS"]
+    end
+    subgraph recruitment["2. Polymerase recruitment and DNA opening"]
+        direction LR
+        D["Pol II recruited with TFIIF:<br/>limits nonspecific DNA binding"] --> E["TFIIE recruited;<br/>stimulates TFIIH"]
+        E --> F["TFIIH XPB opens<br/>~11 bp at TSS"]
+    end
+    subgraph escape["3. CTD phosphorylation and promoter escape"]
+        direction LR
+        G["TFIIH CDK7<br/>phosphorylates CTD Ser5"] --> H["CTD phosphorylation<br/>promotes escape"]
+    end
+    Med["Mediator bridges enhancer-bound<br/>activators to the PIC<br/>~30 subunits; 1.4 MDa"] -.- recruitment
+    recognition --> recruitment --> escape
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class A,B,C,D,E,F,G,H,Med ink
 ```
-<!-- alt: Sequence diagram showing canonical pre-initiation complex assembly at a TATA-containing promoter. This illustrates factor interactions, not an identical obligatory inventory at every promoter or under every assay condition; TAF-containing and TAF-lacking transcriptional complexes differ in promoter usage. In tested yeast, classical general factors were required while substantial transcription was TAF-independent. -->
+<!-- alt: Three stage panels show canonical PIC assembly at a TATA-containing promoter: TFIID, TFIIA and TFIIB establish recognition; Pol II with TFIIF, TFIIE and TFIIH enable recruitment and opening; CDK7-mediated CTD phosphorylation promotes escape. Mediator links activators to the PIC. The inventory is not obligatory at every promoter; TAF-independent transcription occurs in tested yeast. -->
 
 *Canonical pre-initiation complex assembly at a TATA-containing promoter. This illustrates factor interactions, not an identical obligatory inventory at every promoter or under every assay condition; TAF-containing and TAF-lacking transcriptional complexes differ in promoter usage. In tested yeast, classical general factors were required while substantial transcription was TAF-independent \citep{petrenko2019pic}.*
 
@@ -157,27 +160,39 @@ sequenceDiagram
 ## RNA Processing in Eukaryotes
 
 ```mermaid
-flowchart LR
-    A["Pre-mRNA Transcription Begins"] --> B["5' Capping (m7G cap added at ~20-30 nt)"]
-    A --> C["Intron recognition by U1 snRNP<br/>at 5' splice site"]
-    C --> D["Spliceosome Assembly (U1, U2, U4/U6, U5)"]
-    D --> E["First Transesterification: Branch Point A Attacks 5' SS"]
-    E --> F["Second Transesterification: Exon Ligation + Lariat Release"]
-    F --> J["EJCs deposited during splicing"]
-    A --> G["CPSF/CstF recognition of polyadenylation signals<br/>cleavage 10–30 nt downstream of AAUAAA"]
-    G --> H["Poly-A polymerase extends tail"]
-    H --> I["Poly-A-binding protein binds tail"]
-    B --> Ready["Processed messenger RNP<br/>pathways overlap during transcription"]
-    J --> Ready
-    I --> Ready
-    Ready --> L["Nuclear export via NXF1/NXT1"]
-    L --> K{"Translation-dependent NMD trigger?"}
-    K -->|Yes| M["NMD: mRNA degraded"]
-    K -->|No| N["mRNA available for translation"]
-
-    style A fill:#4a90d9,color:#fff
-    style N fill:#5cb85c,color:#fff
-    style M fill:#d9534f,color:#fff
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    A["Pre-mRNA transcription begins"] --> processing
+    subgraph processing["Overlapping processing pathways during transcription"]
+        direction TB
+        B["5′ cap: m7G added<br/>at ~20–30 nt"]
+        subgraph splice["Splicing"]
+            direction LR
+            C["U1 recognizes 5′ splice site;<br/>U1, U2, U4/U6, U5 assemble"] --> E["First reaction:<br/>branch A attacks 5′ site"]
+            E --> F["Second reaction:<br/>exon ligation; lariat release"] --> J["EJCs deposited"]
+        end
+        subgraph poly["3′-end processing"]
+            direction LR
+            G["CPSF/CstF recognize signals;<br/>cleavage 10–30 nt<br/>after AAUAAA"] --> H["Poly-A polymerase<br/>extends tail"] --> I["Poly-A-binding protein<br/>binds tail"]
+        end
+        B ~~~ splice
+        splice ~~~ poly
+    end
+    subgraph export["Processed messenger RNP and export"]
+        direction LR
+        Ready["Processed messenger RNP"] --> L["NXF1/NXT1<br/>nuclear export"]
+    end
+    subgraph surveillance["Translation-dependent surveillance"]
+        direction LR
+        K{"NMD trigger?"} -->|yes| M["NMD: mRNA degraded"]
+        K -->|no| N["mRNA available<br/>for translation"]
+    end
+    processing --> export --> surveillance
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class A,B,C,E,F,J,G,H,I,Ready,L,K,M,N ink
 ```
 <!-- alt: Flowchart showing canonical nuclear-encoded mammalian mRNA processing and surveillance. Capping, splicing, and polyadenylation can overlap transcription before export. Translation-dependent recognition can route susceptible transcripts into NMD; a premature stop does not by itself guarantee degradation. -->
 
@@ -332,42 +347,38 @@ The standard genetic-code table maps 64 triplets ($4^3 = 64$) to 20 amino acids 
 Wobble and anticodon modifications can let one tRNA recognize multiple compatible codons; tRNA-gene and anticodon-repertoire counts depend on organism and compartment. **Suppressor tRNAs** can read a normally terminating codon as an amino acid in an appropriate context.
 
 ```mermaid
-stateDiagram-v2
-    [*] --> Initiation
-
-    state Initiation {
-        [*] --> SmallSubunit: 40S binds eIF1, eIF1A, eIF3, eIF5
-        SmallSubunit --> TernaryComplex: Met-tRNAi + eIF2-GTP = ternary complex
-        TernaryComplex --> FortyThreeSPIC: 43S pre-initiation complex formed
-        FortyThreeSPIC --> mRNABinding: eIF4F (eIF4E + eIF4G + eIF4A) recruits mRNA via cap
-        mRNABinding --> Scanning: 43S scans 5' to 3' for AUG in Kozak context
-        Scanning --> StartCodon: AUG recognized; eIF2 GTP hydrolysis; eIF5B joins 60S
-        StartCodon --> EightyS: 80S initiation complex; Met-tRNAi in P site
-    }
-
-    EightyS --> Elongation
-
-    state Elongation {
-        [*] --> Decoding: aa-tRNA in eEF1A-GTP enters A site
-        Decoding --> Proofreading: GTP hydrolysis; kinetic proofreading
-        Proofreading --> PeptideBond: Peptidyl transferase (28S rRNA) forms bond
-        PeptideBond --> Translocation: eEF2-GTP translocates ribosome 3 nucleotides, one codon
-        Translocation --> Decoding: tRNAs shift A to P to E; cycle repeats
-    }
-
-    Elongation --> Termination: Stop codon in A site
-
-    state Termination {
-        [*] --> ReleaseFactors: eRF1 recognizes stop codon (mimics tRNA shape)
-        ReleaseFactors --> Hydrolysis: eRF3-GTP; peptidyl-tRNA hydrolysis
-        Hydrolysis --> Recycling: ABCE1 splits 80S; subunits recycled
-    }
-
-    Termination --> [*]
+---
+config:
+  layout: dagre
+---
+flowchart TB
+    subgraph assembly["1. Initiation: build the 43S complex"]
+        direction LR
+        A["40S + eIF1, eIF1A,<br/>eIF3, eIF5"] --> B["Met-tRNAi + eIF2-GTP:<br/>ternary complex joins"] --> C["43S pre-initiation<br/>complex"]
+    end
+    subgraph start["2. Cap recruitment, scanning and subunit joining"]
+        direction LR
+        D["eIF4F recruits mRNA via cap<br/>eIF4E + eIF4G + eIF4A"] --> E["43S scans 5′ to 3′<br/>AUG in Kozak context"]
+        E --> F["AUG recognized;<br/>eIF2 GTP hydrolysis;<br/>eIF5B joins 60S"] --> G["80S initiation complex:<br/>Met-tRNAi in P site"]
+    end
+    subgraph elongation["3. Elongation: repeated codon cycle"]
+        direction LR
+        H["aa-tRNA + eEF1A-GTP<br/>enters A site"] --> I["GTP hydrolysis;<br/>kinetic proofreading"]
+        I --> J["28S rRNA catalyzes<br/>peptide bond"] --> K["eEF2-GTP moves ribosome<br/>3 nt / one codon"]
+        K -->|tRNAs shift A → P → E| H
+    end
+    subgraph termination["4. Termination and recycling"]
+        direction LR
+        L["Stop in A site:<br/>eRF1 recognizes codon<br/>with tRNA-like shape"] --> M["eRF3-GTP;<br/>peptidyl-tRNA hydrolysis"] --> N["ABCE1 splits 80S;<br/>subunits recycled"]
+    end
+    assembly --> start --> elongation
+    elongation -->|stop codon in A site| termination
+    classDef ink fill:#eef5fa,stroke:#526777,color:#111111
+    class A,B,C,D,E,F,G,H,I,J,K,L,M,N ink
 ```
-<!-- alt: State diagram showing ribosomal translation cycle in eukaryotes. Initiation involves cap-dependent scanning to the start codon. Elongation cycles through decoding, peptide bond formation, and translocation. Termination occurs when a stop codon is recognized by eRF1. -->
+<!-- alt: Four panels follow canonical cap-dependent eukaryotic translation: 43S complex assembly, cap recruitment and scanning to AUG, the repeated elongation cycle, and stop-codon recognition followed by release and recycling. The elongation loop includes decoding, proofreading, peptide-bond formation and one-codon translocation; code and initiation assignments remain context-dependent as described in the text. -->
 
-*The ribosomal translation cycle in eukaryotes. Initiation involves cap-dependent scanning to the start codon. Elongation cycles through decoding, [**peptide bond**](#gl:peptide-bond) formation, and translocation. Termination occurs when a stop codon is recognized by eRF1.*
+*The canonical cap-dependent eukaryotic translation cycle wraps through complex assembly, start-site selection, repeated elongation and termination. eIF4F recruits capped mRNA; scanning and AUG recognition precede 60S joining. Elongation cycles through decoding, proofreading, rRNA-catalyzed [**peptide bond**](#gl:peptide-bond) formation and one-codon translocation. A stop codon recognized by eRF1 permits release and recycling; taxon- and compartment-specific code assignments and recoding remain distinct contexts, as described above.*
 
 ### Ribosome Structure and Catalytic RNA
 

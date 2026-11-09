@@ -37,9 +37,13 @@ def load_glossary_terms(glossary_path: Path = GLOSSARY) -> list[GlossaryTerm]:
 
 
 def build_term_pattern(term: str) -> re.Pattern[str]:
-    """Case-insensitive word-boundary pattern with optional plural suffix."""
+    """Preserve mixed-case symbols; ordinary words retain case-insensitive plurals."""
     escaped = re.escape(term)
-    return re.compile(rf"(?<![A-Za-z0-9_])({escaped})(s?)(?![A-Za-z0-9_])", re.IGNORECASE)
+    case_sensitive = term.isalpha() and not (
+        term.islower() or term.isupper() or term.istitle()
+    )
+    flags = 0 if case_sensitive else re.IGNORECASE
+    return re.compile(rf"(?<![A-Za-z0-9_])({escaped})(s?)(?![A-Za-z0-9_])", flags)
 
 
 def bold_glossary_first_use(text: str, terms: list[GlossaryTerm]) -> tuple[str, int]:
