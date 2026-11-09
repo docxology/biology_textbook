@@ -9008,64 +9008,64 @@
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:565:e1b959bc8ed8",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:566:e1b959bc8ed8",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 565,
+      "line": 566,
       "excerpt": "> **Concept Check:** A lake experiment compares matched nutrient additions with and without P. Explain what a larger response with P supports under those conditions. What controls and measurements would distinguish N limitation, P limitation and co-limitation elsewhere, and why does reduced detergent P not guarantee immediate recovery when internal/watershed loading persists?",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:742:c9d2b221ed5e",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:743:c9d2b221ed5e",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 742,
+      "line": 743,
       "excerpt": "Warming can accelerate microbial decomposition, while moisture, nutrient supply, plant inputs and disturbance also affect net soil-carbon balance. The sign and magnitude require a specified site or scenario rather than a universal comparison with plant productivity. For northern circumpolar permafrost-region soils, Hugelius et al. (2014) estimated about 1,300 Pg organic carbon, including about 800 Pg perennially frozen; the stock does not specify a century-scale release or temperature increment \\citep{hugelius2014carbon}. Turetsky et al. (2020) showed that abrupt thaw and vegetation regrowth alter modeled carbon balance under specified warming scenarios \\citep{turetsky2020thaw}.",
       "rationale": "Hugelius's actual abstract gives approximately 1300 Pg regional SOC (1100–1500), approximately 800 Pg perennially frozen and approximately 500 Pg not perennially frozen. Turetsky's primary abstract explicitly models abrupt thaw under RCP8.5/RCP4.5, with drainage/stabilization/regrowth affecting carbon balance. These occurrences correctly distinguish stock, gas flux, oxygen-dependent CO2/CH4 production, scenario feedback and temperature calculation; neither a universal warming increment nor a sharp global tipping threshold follows. Sources: https://bg.copernicus.org/articles/11/6573/2014/ ; https://www.nature.com/articles/s41561-019-0526-0. Turetsky review was abstract/available-figure-level, not subscription full-text certification.",
       "reviewer": "WorkflowzScientificDeltaRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:804:3f4423b425d4",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:805:3f4423b425d4",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 804,
+      "line": 805,
       "excerpt": "Biology, geochemistry, hydrology and atmosphere form a coupled system with stabilizing and amplifying feedbacks, not a purposeful superorganism. Present oxygen near 21% does not establish an invariant narrow set point: geological reconstructions include substantial variation and values above 26% \\citep{glasspool2010oxygen}. Test each feedback and timescale rather than infer fixed oxygen, salinity or universal fire thresholds from habitability.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:954:a680f31592e0",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:955:a680f31592e0",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 954,
+      "line": 955,
       "excerpt": "At $10^{12}$ m², the baseline-relative difference is $-7$ Pg C over 50 years. Baseline uptake would have stored $+5$ Pg, whereas the warmed system actually releases 2 Pg ($40\\times50\\times10^{12}$ g C). Forgone uptake plus actual release totals the 7-Pg difference; it is wrong to call all 7 Pg newly released carbon. Constant fluxes for 50 years are a sensitivity assumption, not a forecast.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:958:8a22ef05384a",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:959:8a22ef05384a",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 958,
+      "line": 959,
       "excerpt": "The structural lesson is that NEP is a small residual of large opposing fluxes. This sensitivity example holds production, respiratory response and other transfers fixed; real feedbacks, acclimation, moisture and disturbance can alter them. It demonstrates neither a universal warming threshold nor an inevitable ecosystem tipping point.",
       "rationale": "Production, respiration, standing stock and net ecosystem/storage endpoints remain distinct. The deliberately closed teaching carbon balance gives land 120−60−56.5=3.5, ocean 92−89.1=2.9 and atmospheric accumulation 11.5−3.5−2.9=5.1; it is not an empirical annual global estimate. Foregone baseline uptake and actual release must be combined for the counterfactual atmospheric difference without labeling both newly emitted carbon. Oxygen and feedback examples avoid fixed planetary thresholds or teleological control.",
       "reviewer": "WorkflowzFinalClaimRefutation#2"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1075:85f4f3c5cd42",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1076:85f4f3c5cd42",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1075,
+      "line": 1076,
       "excerpt": "4. Use the synthetic annual budget above, not an empirical permafrost forecast. Suppose heterotrophic respiration rises from 56.5 to 57.0 Pg C/yr and all other fluxes remain fixed. (a) Calculate the new atmospheric accumulation. (b) Explain the double counting if the same 0.5 Pg C/yr is also added as a separate permafrost emission. (c) Convert that increment to Pg CO$_2$/yr using 44/12 and to ppm/yr using the assumed 2.13 Pg C/ppm. Distinguish carbon mass, CO$_2$ mass and concentration; none of these conditional results establishes a future warming trajectory.",
       "rationale": "The fixed-other-flux condition defines a synthetic one-variable carbon-accounting exercise: raising Rh by 0.5 Pg C/yr raises the stipulated residual from 5.1 to 5.6; adding the identical permafrost flow again double counts it. Carbon/CO2 mass and ppm conversions are specified assumptions, not an empirical permafrost rate or warming forecast.",
       "reviewer": "Workflowz integration owner, primary-evidence and endpoint refutation 2026-11-09"
     },
     {
-      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1131:989bb7479040",
+      "advisory_id": "absolute-language-review:docs/manuscript/unit_X/ecosystem_ecology.md:1132:989bb7479040",
       "classification": "valid_scientific_absolute",
       "source_path": "docs/manuscript/unit_X/ecosystem_ecology.md",
-      "line": 1131,
+      "line": 1132,
       "excerpt": "- **Nitrogen cycle:** N$_2$ fixation, nitrification, denitrification and anammox transform nitrogen. Reactive-nitrogen inputs can cause eutrophication and hypoxia; N$_2$O has AR6 mass-based GWP100 of 273 \\citep{ipcc2022ar6wg3annexii}, a specified 100-year metric rather than a universal warming multiplier.",
       "rationale": "Official AR6 WGIII Annex II §A.II.8/Table 9 directly gives N2O GWP100=273 and a separate lifetime of 109 years. The assigned summary and the substantive nitrogen-cascade statement at line 497 correctly identify a mass-based, 100-year integrated emission metric, not instantaneous forcing or temperature. The diagram also labels its shorthand GWP100/IPCC AR6; the prose supplies the metric boundary. Source: https://www.ipcc.ch/report/ar6/wg3/downloads/report/IPCC_AR6_WGIII_Annex-II.pdf.",
       "reviewer": "WorkflowzFinalMitigationRefutation#2"
