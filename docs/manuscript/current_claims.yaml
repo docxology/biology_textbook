@@ -1027,3 +1027,29 @@ claims:
     evidence_date: 2026-01-05
     checked_as_of: 2026-11-09
     refresh_trigger: "FDA/DailyMed label revision or a specified comparative clinical safety study; do not substitute cell-assay bias for patient-outcome evidence."
+  - claim_id: fish-sensory-behavior-scope
+    file: docs/manuscript/unit_X/ecosystem_ecology.md
+    source_path: docs/manuscript/unit_X/ecosystem_ecology.md
+    anchor_text: "Fish olfactory sensing versus predator-cue behavior"
+    claim_text: "Porteus 2018 reports reduced olfactory sensitivity in European sea bass under the studied elevated CO2; Clark 2020 reports negligible predator-cue behavioral effects in the tested reef fishes. The 2020 methods comment/reply disputes replication comparability. Different species, stages, protocols and endpoints do not establish a shared response across fish. Review used original publisher abstracts, figure captions and accessible comment/reply introductions, not raw-data or full-method reanalysis."
+    topic: ocean acidification sensory and behavioral inference
+    source_tier: scholarly_primary
+    citekey: clark2020fishbehavior
+    url: https://doi.org/10.1038/s41586-019-1903-y
+    url_or_citekey: clark2020fishbehavior
+    evidence_date: 2020-01-08
+    checked_as_of: 2026-11-09
+    refresh_trigger: "Release review, correction or new matched-species/stage/protocol sensory/behavior evidence; preserve the distinction between measurements and replication claims."
+  - claim_id: coccolithophore-culture-adaptation-boundary
+    file: docs/manuscript/unit_X/ecosystem_ecology.md
+    source_path: docs/manuscript/unit_X/ecosystem_ecology.md
+    anchor_text: "500 asexual generations of laboratory selection"
+    claim_text: "Lohbeck 2012 reports higher growth and partly restored calcification in high-CO2-selected E. huxleyi populations relative to ambient-selected controls tested under high CO2 after approximately 500 asexual generations. This is not natural reef-rescue evidence. The publisher's 2012 erratum corrects Fig3c-f axis scales; review used the corrected article's abstract, figure captions and erratum, not raw-data reanalysis."
+    topic: experimental evolution and ecological extrapolation
+    source_tier: scholarly_primary
+    citekey: lohbeck2012adaptation
+    url: https://doi.org/10.1038/ngeo1441
+    url_or_citekey: lohbeck2012adaptation
+    evidence_date: 2012-11-29
+    checked_as_of: 2026-11-09
+    refresh_trigger: "Release review or correction, replicated long-term selection and ecological extrapolation evidence; retain control, endpoint, laboratory and correction identity."

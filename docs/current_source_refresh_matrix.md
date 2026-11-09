@@ -1,6 +1,6 @@
 # Historical source-refresh log and maintenance rules
 
-The dated “verified”, “falsified” and completion statements below are author reports from May/July 2026, not this edition's live certification. No new primary-source refresh is claimed here. Historical counts/paths/metrics remain attributed to their dated scope; use current config, claim ledger and exact-source receipts for present state.
+The dated “verified”, “falsified” and completion statements in the May/July 2026 sections are historical author reports, not this edition's live certification. The November section records a narrower evidence correction with explicit access limits. Historical counts/paths/metrics remain attributed to their dated scope; use current config, claim ledger and exact-source receipts for present state.
 
 This matrix records the config-driven source sweep for the renderable
 manuscript surface defined by `docs/manuscript/config.yaml`: 2 front-matter files,
@@ -8,6 +8,18 @@ manuscript surface defined by `docs/manuscript/config.yaml`: 2 front-matter file
 appendices. Perplexity may be used for discovery, but adopted claims require
 direct official or peer-reviewed verification before they enter prose,
 `references.bib`, or `current_claims.yaml`.
+
+## 2026-11-09 — Bounded ocean-evidence and assessment correction
+
+This is not a new whole-literature certification. The chapter, Q25 prompt/key/rubric, bibliography and two anchored claim records now distinguish measurements, assumptions and extrapolations:
+
+| Evidence lane | Inspected source and retained boundary | Access limit |
+| --- | --- | --- |
+| Fish sensing and behavior | [Porteus 2018](https://doi.org/10.1038/s41558-018-0224-8) measures European sea-bass olfactory sensitivity; [Clark 2020](https://doi.org/10.1038/s41586-019-1903-y) reports tested reef-fish behavioral outcomes. The [methods comment](https://doi.org/10.1038/s41586-020-2803-x) and [reply](https://doi.org/10.1038/s41586-020-2804-9) retain the comparability dispute, rather than presenting either paper as a species-independent rule. | Original publisher abstracts, metadata, visible figure captions and accessible comment/reply introductions; no raw-data or full-method reanalysis. |
+| Experimental adaptation | [Lohbeck 2012](https://doi.org/10.1038/ngeo1441) reports laboratory selection over approximately 500 asexual generations, higher growth and partial calcification restoration under the tested conditions; not natural reef rescue. The [erratum](https://doi.org/10.1038/ngeo1637) corrects Fig3c–f axis scales. | Corrected article abstract/captions and full visible correction notice; no digitization or reanalysis of the corrected figure. |
+| Calculation versus observation/scenario | The pH 8.20→8.05 hydrogen-ion example is explicitly supplied arithmetic, not a global observed time series. The [2007 reef review](https://doi.org/10.1126/science.1152509) supplies historical warming/CO2 scenarios, not a current measured 2050 erosion deadline. Saturation state is separated from biological net shell-growth rates. | Native arithmetic smoke plus original review metadata/abstract; no new global pH dataset or carbonate-growth model. |
+
+Active record IDs are `fish-sensory-behavior-scope` and `coccolithophore-culture-adaptation-boundary` in [the claim ledger](manuscript/current_claims.yaml). The [chapter](manuscript/unit_X/ecosystem_ecology.md) supplies the evidence needed by [Q25](manuscript/questions/unit_X/questions_ecosystem_ecology.md); its four-point rubric separately scores risk context, chemistry/rates, matched empirical endpoints and adaptation limits. Structural gates do not certify scientific causation. Publication and archival deposition still require their independent exact-source workflows.
 
 ## 2026-07-10 Coverage-Gap Closure (same-day follow-up)
 

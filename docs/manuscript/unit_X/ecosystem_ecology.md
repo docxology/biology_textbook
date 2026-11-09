@@ -381,14 +381,15 @@ CO_2 + H_2O \rightarrow H_2CO_3 \rightarrow HCO_3^- + H^+
 \label{eq:ecosystem_ecology_7}
 \end{equation}
 
-Ocean [**pH**](#gl:ph) has decreased from ~8.2 to ~8.05 since industrialisation (41.3% increase in [H$^+$], since $10^{8.2-8.05}=1.4125$). Consequences:
+For an illustrative [**pH**](#gl:ph) decrease from 8.20 to 8.05, [H$^+$] increases by about 41.3%, because $10^{8.20-8.05}=10^{0.15}\simeq1.4125$. These are supplied calculation inputs, not a dated global observational series. Chemical implications and empirical scope:
 
-- Decreased [CO$_3^{2-}$] → carbonate undersaturation → dissolution of calcareous shells
+- At otherwise comparable carbonate-system conditions, lower [CO$_3^{2-}$] lowers carbonate saturation and can favor mineral dissolution; organismal outcomes require additional physiological and environmental evidence.
 - **Aragonite saturation state:** $\Omega_{aragonite} = \frac{[Ca^{2+}][CO_3^{2-}]}{K_{sp,aragonite}}$
-- When $\Omega < 1$: aragonite dissolves
-- Tropical coral reefs projected to be in net erosion by 2050 at current emission trajectories (Hoegh-Guldberg et al. 2007, *Science*)
+- When $\Omega_{aragonite}<1$, dissolution of unprotected aragonite is thermodynamically favored. This state alone does not determine a living shell's net growth: biological calcification, protective layers and dissolution rates also matter.
+- The 2007 reef assessment projected compromised carbonate accretion and reef structure under its warming/CO$_2$ scenarios. That historical scenario analysis is not a measured global erosion deadline of 2050 \citep{hoeghguldberg2007reefclimate}.
 - Pteropods (sea butterflies) — thin aragonite shells already dissolving in Southern Ocean
-- Ocean acidification also impairs fish olfaction (affecting predator avoidance behavior)
+- **Fish olfactory sensing versus predator-cue behavior:** Porteus and colleagues reported reduced olfactory sensitivity in European sea bass at approximately 1,000 versus 400 µatm CO$_2$ \citep{porteus2018fisholfaction}. Clark and colleagues reported negligible effects on predator-cue avoidance in their tested coral reef fishes at end-of-century CO$_2$ levels \citep{clark2020fishbehavior}. Species, life stages, exposure protocols and sensory versus behavioral endpoints are not interchangeable. The subsequent methods comment and reply dispute replication comparability; neither a shared impairment nor a shared absence of effects follows across fish species \citep{munday2020methodsmatter,clark2020methodsreply}.
+- **Experimental adaptation:** After approximately 500 asexual generations of laboratory selection, high-CO$_2$-selected *Emiliania huxleyi* populations had higher growth rates and partially restored calcification relative to ambient-selected controls when tested under high CO$_2$ \citep{lohbeck2012adaptation}. This is a scoped culture-selection result, not evidence of natural reef rescue; distinguish adaptive evolution from within-generation acclimation.
 
 **3. Methane hydrates (clathrate gun hypothesis):**
 ~500-2,500 Pg C locked in methane clathrates (ice-like structures) in ocean sediments and permafrost. Destabilisation during rapid warming → mass marine CH$_4$ release → catastrophic warming. Possible role in the Paleocene-Eocene Thermal Maximum (PETM, ~56 Ma): 5-8$^\circ$C warming over ~10,000 years, mass marine extinction.
