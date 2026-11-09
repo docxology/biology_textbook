@@ -192,7 +192,7 @@ graph TD
     class unit_X topic
 ```
 
-<!-- alt: Graph showing textbook relationship map: models and cellular mechanisms, inheritance and evolutionary change, and organisms in environments are complementary topic groups. Dotted connections indicate an example optional systems lens; solid connections identify selected relationships, not required reading order or measured causation. Labels are config-derived; grouping and links are authored in src/biology/curriculum_sync/appendices.py. Omitted links do not imply independence. -->
+<!-- alt: Grouped panels organize the displayed unit topics; solid links identify selected relationships, not prerequisites or measured causes. A dotted link adds an optional systems lens. -->
 
 *Textbook relationship map: models and cellular mechanisms, inheritance and evolutionary change, and organisms in environments are complementary topic groups. Dotted connections indicate an example optional systems lens; solid connections identify selected relationships, not required reading order or measured causation. Labels are config-derived; grouping and links are authored in `src/biology/curriculum_sync/appendices.py`. Omitted links do not imply independence.*
 

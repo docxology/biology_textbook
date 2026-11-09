@@ -115,9 +115,6 @@ def _plain_text(markdown: str) -> str:
     text = strip_citations(text)
     text = re.sub(r"\\[a-zA-Z]+", "", text)
     text = text.replace("{", "").replace("}", "")
-    text = re.sub(r"\b[A-Za-z]+[0-9]{4}\b", "", text)
-    text = re.sub(r"\s*\|.*$", "", text)
-    text = re.sub(r"^\s*[\[(]+", "", text)
     text = re.sub(r"\s+", " ", text).strip()
     text = re.sub(r"\s+([,.;:])", r"\1", text)
     text = re.sub(r"([.!?])\s*([.!?])+", r"\1", text)
@@ -239,7 +236,6 @@ def _alt_from_caption(caption: str, source: str, text_before: str) -> str:
     if _metadata_is_weak(caption):
         caption = _caption_from_source(source, text_before)
     alt = _plain_text(caption)
-    alt = re.sub(r"^The\s+", "", alt).strip()
     if not re.match(r"^(Flowchart|Diagram|Sequence diagram|State diagram|Network|Timeline)\b", alt):
         kind = _diagram_kind(source)
         prefix = {
@@ -249,10 +245,7 @@ def _alt_from_caption(caption: str, source: str, text_before: str) -> str:
             "flowchart": "Flowchart showing ",
             "graph": "Graph showing ",
         }.get(kind, "Diagram showing ")
-        if re.match(r"^[A-Z0-9]{2,}(?:\b|/)", alt):
-            alt = prefix + alt
-        else:
-            alt = prefix + alt[:1].lower() + alt[1:]
+        alt = prefix + alt
     alt = re.sub(r"\s+", " ", alt).strip()
     alt = alt.replace("--", "-")
     if alt and alt[-1] not in ".!?":
@@ -292,7 +285,7 @@ def _replacement_metadata(source: str, text_before: str, metadata: MermaidMetada
     caption = _clean_caption(caption) if caption else _caption_from_source(source, text_before)
     caption = _clean_caption(caption)
     authored_alt = next(
-        (" ".join(alt.split()) for alt in metadata.alts if not _metadata_is_weak(alt)),
+        (_plain_text(alt) for alt in metadata.alts if not _metadata_is_weak(alt)),
         "",
     )
     alt = authored_alt or _alt_from_caption(caption, source, text_before)

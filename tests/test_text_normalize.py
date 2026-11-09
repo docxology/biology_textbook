@@ -77,9 +77,10 @@ def test_normalize_text_preserves_meaningful_authored_alt() -> None:
         "Two independent arrows lead from Source to Product A and Product B; "
         "neither product is converted into the other."
     )
+    markdown_authored = authored.replace("Source", "`Source`")
     original = (
         "```mermaid\nflowchart LR\n S[Source] --> A[Product A]\n S --> B[Product B]\n```\n"
-        f"<!-- alt: {authored} -->\n\n*{_LONG_QUALIFIED_CAPTION}*\n"
+        f"<!-- alt: {markdown_authored} -->\n\n*{_LONG_QUALIFIED_CAPTION}*\n"
     )
     normalized = normalize_text(original).text
     actual = normalized.split("<!-- alt: ", 1)[1].split(" -->", 1)[0]
@@ -97,3 +98,21 @@ def test_generated_alt_retains_late_qualification() -> None:
     assert "two independent routes to different products" in actual
     assert "not empirical measurements or universal outcomes" in actual
     assert normalize_text(normalized).text == normalized
+
+
+
+def test_generated_alt_retains_concentrations_strains_and_flux_qualifiers() -> None:
+    caption = (
+        "[Na+] labels the specified Escherichia coli MG1655 preparation; "
+        "|J| denotes flux magnitude, not an empirical rate or a universal outcome."
+    )
+    original = (
+        '```mermaid\nflowchart LR\n A["Sodium concentration"] --> B["Flux magnitude"]\n```\n'
+        f"\n*{caption}*\n"
+    )
+    normalized = normalize_text(original).text
+    actual = normalized.split("<!-- alt: ", 1)[1].split(" -->", 1)[0]
+    assert "[Na+]" in actual
+    assert "MG1655" in actual
+    assert "|J|" in actual
+    assert "not an empirical rate or a universal outcome" in actual

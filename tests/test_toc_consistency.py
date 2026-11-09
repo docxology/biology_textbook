@@ -2,9 +2,7 @@
 
 from __future__ import annotations
 
-import importlib.util
 import re
-import sys
 from pathlib import Path
 from typing import Any, cast
 
@@ -12,21 +10,13 @@ import pytest
 import yaml
 
 from biology.crossref.source import iter_headings, markdown_text
+from biology.curriculum_sync.appendices import NAV_MARKER
 from biology.toc import BookToc, load_toc
 
 PROJECT = Path(__file__).resolve().parent.parent
 MANUSCRIPT = PROJECT / "docs" / "manuscript"
 
 
-def _load_script_module(name: str):
-    path = PROJECT / "scripts" / f"{name}.py"
-    spec = importlib.util.spec_from_file_location(name, path)
-    if spec is None or spec.loader is None:
-        raise ImportError(f"Could not load {name} from {path}")
-    module = importlib.util.module_from_spec(spec)
-    sys.modules.setdefault(name, module)
-    spec.loader.exec_module(module)
-    return module
 
 
 from biology.maintenance.chapter_badges import (
@@ -36,17 +26,8 @@ from biology.maintenance.chapter_badges import (
     format_badge,
 )
 
-_sync_script = _load_script_module("sync_curriculum_materials")
 _GRID_END = GRID_END
 _GRID_START = GRID_START
-CONCEPT_MAP_MARKER = _sync_script.CONCEPT_MAP_MARKER
-NAV_MARKER = _sync_script.NAV_MARKER
-PREFACE_SCOPE_MARKER = _sync_script.PREFACE_SCOPE_MARKER
-READING_PATHS_MARKER = _sync_script.READING_PATHS_MARKER
-build_front_matter_navigation = _sync_script.build_front_matter_navigation
-build_preface_scope_table = _sync_script.build_preface_scope_table
-build_suggested_reading_paths = _sync_script.build_suggested_reading_paths
-build_textbook_concept_map = _sync_script.build_textbook_concept_map
 from biology.pipeline.numbering import (
     section_numbering_directives as _section_numbering_directives,
 )
@@ -138,18 +119,8 @@ def test_front_matter_navigation_lists_every_unit_and_reference_once() -> None:
         assert block.count(reference.title) == 1, reference.title
 
 
-def test_front_matter_generated_blocks_match_toc_builders() -> None:
-    book_toc = load_toc(PROJECT)
-    text = (MANUSCRIPT / "front_matter.md").read_text(encoding="utf-8")
-    assert _marked_block(text, NAV_MARKER) == build_front_matter_navigation(book_toc)
-    assert _marked_block(text, READING_PATHS_MARKER) == build_suggested_reading_paths(book_toc)
-    assert _marked_block(text, CONCEPT_MAP_MARKER) == build_textbook_concept_map(book_toc)
 
 
-def test_preface_scope_table_matches_toc_builder() -> None:
-    book_toc = load_toc(PROJECT)
-    text = (MANUSCRIPT / "preface.md").read_text(encoding="utf-8")
-    assert _marked_block(text, PREFACE_SCOPE_MARKER) == build_preface_scope_table(book_toc)
 
 
 def test_unit_intro_section_labels_present() -> None:

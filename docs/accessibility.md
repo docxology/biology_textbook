@@ -85,7 +85,7 @@ Alt text serves screen-reader users, low-bandwidth fallback, and search/indexing
 | **Spatial words** | "Top-left", "diagonal", "vertical bar at x = 5" help readers reconstruct layout. |
 | **Cite the units** | "millivolts", "kilopascals", "moles per liter" — write them out, not "mV", "kPa", "mol/L". |
 
-The Mermaid normalizer preserves meaningful authored alt text; it repairs missing, duplicate or generic metadata and derives a full caption-based fallback only when no meaningful alt description exists. Fallback generation does not truncate at a character limit. Write a concise, diagram-specific description rather than relying on a verbose fallback. When changing a diagram, review both alt text and caption against its actual decoded PNG and printed result. `add_mermaid_alt_text.py --check` verifies canonical structure and weak-text heuristics, not scientific accuracy or semantic freshness.
+The Mermaid normalizer preserves meaningful authored relationships while converting inline Markdown formatting to plain alt text; scientific identifiers, bracketed concentrations and magnitude operators retain their content and case. It repairs missing, duplicate or generic metadata and derives a full caption-based fallback only when no meaningful alt description exists. Fallback generation does not truncate at a character limit. Write a concise, diagram-specific description rather than relying on a verbose fallback. When changing a diagram, review both alt text and caption against its actual decoded PNG and printed result. `add_mermaid_alt_text.py --check` verifies canonical structure and weak-text heuristics, not scientific accuracy or semantic freshness.
 
 ### The three-question test before writing
 

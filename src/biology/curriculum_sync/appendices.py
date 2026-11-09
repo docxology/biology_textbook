@@ -283,8 +283,14 @@ def build_textbook_concept_map(book_toc: Any) -> str:
         "reading order or measured causation. Labels are config-derived; grouping and links are authored "
         "in `src/biology/curriculum_sync/appendices.py`. Omitted links do not imply independence."
     )
+    alt = (
+        "Grouped panels organize the displayed unit topics; solid links identify selected relationships, "
+        "not prerequisites or measured causes."
+    )
+    if lens is not None and "mechanisms" in active_groups:
+        alt += " A dotted link adds an optional systems lens."
     lines.extend([
-        "```", "", f"<!-- alt: Graph showing {caption[0].lower() + caption[1:]} -->", "",
+        "```", "", f"<!-- alt: {alt} -->", "",
         f"*{caption}*", "", CONCEPT_MAP_MARKER[1],
     ])
     return normalize_text("\n".join(lines)).text
